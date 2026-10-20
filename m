@@ -2,143 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57579606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 08:56:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD00C606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 08:58:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Zeo9ho/a;
-	dkim=pass (1024-bit key, unprotected) header.d=toradex.com header.i=@toradex.com header.a=rsa-sha256 header.s=toradex-com header.b=aY7wucE8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z8h992mE;
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=M+eShIty
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u/ZKkzTjwfr3n/ITzObs2PSQp6GJy+fC0uLKRCdBMyk=; b=Zeo9ho/amSN9lIlXTtmnYOBFi9
-	QOMhEp4TKHET2WTGMmgVSvmtzZrQ01gIWOQSU1bY0oN+QtVRMIJtS75ybdq6zi0qQEaD0wmIUbcpH
-	Ih4WKdIXKYs6l8nLjZwl8a155jBEmul1hR+kVeK993WtvetfbnOj3S8TLrF24/UWfjgkTsI/zQZJr
-	MROfGqBU6oCYk/Iv+yH7hTQ/iJlDYnsCtzu3ZUyY+T6Qda+ZGDuV+w1iGw+VPlE6JyANuDTmFvs5p
-	Q+U/+0x68yYa6b/3m1Ffvj8bBgCZftW2n5pCE/+5waiUiReWMlNUmkvU2Msb+z+aoqv1/VrV0ECrk
-	aGAB9D7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=f2RC02k4kzNCEkVNB0+GicfGGVn/vdjSFeUmhuG7iU8=; b=Z8h992mE93chmb0aZ0f9QqfO4e
+	AnStYDexyG1BY3QCDsjU3S0KOe5MwNJJXj2Jgq3nMq8PQg+LOQcIjDQGh5WzXC8UjP4U7JSZIgoHH
+	DVofW/V4Sz6dXbusjdnkINhu9wvqZ/pbusNa5etTYZxhAISnSGJWQMkUIiuS2PLujq3wBjVI0FFCA
+	3I0t2QEWbXzYzmdplJEePRqZB4UymPXzm4aFjicAZq9T8XXpvaL+REG6H4wP7inyCfXZ/zQ9La3JF
+	jalyr0eWzMt7aW8CnyKHhd3n+Sq/U76zKDnSziK8+mIAhONBeuBhDHnouwbEKQBw8LqXMdtcX49J0
+	txpXJ9sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ5eM-00000009F5j-2nBT;
-	Tue, 20 Oct 2026 08:56:50 +0000
-Received: from de-smtp-delivery-113.mimecast.com ([194.104.109.113])
+	id 1xJ5fc-00000009FHh-1Upo;
+	Tue, 20 Oct 2026 08:58:08 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ5eI-00000009F4y-419Q
+	id 1xJ5fX-00000009FFv-0ZMA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 08:56:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=toradex.com; s=toradex-com;
-	t=1792486602;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u/ZKkzTjwfr3n/ITzObs2PSQp6GJy+fC0uLKRCdBMyk=;
-	b=aY7wucE8f5EkLFwn3pxqa/I1L8LRXo9MlNlF3m1xPFvGIS7Gi7jEa0zu9VArxkYp/mY3ye
-	SzrCnFHgRV5+clIKSeu2bqUzSkoHkFiggUaoqB99cJ0JlfZxsHTa9mAkcaALqOm940U0Z2
-	3oOvEivme/376PLhqSXEFhAGbIbP9bs=
-Received: from ZR1P278CU001.outbound.protection.outlook.com
- (mail-switzerlandnorthazon11022141.outbound.protection.outlook.com
- [40.107.168.141]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- de-mta-35-l11lLxbRMfG1mUtqDRJ7hA-1; Tue, 20 Oct 2026 08:56:39 +0000
-X-MC-Unique: l11lLxbRMfG1mUtqDRJ7hA-1
-X-Mimecast-MFC-AGG-ID: l11lLxbRMfG1mUtqDRJ7hA_1792486598
-Received: from ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:2e::8) by
- ZR4P278MB010980.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:bc::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Tue, 20 Oct
- 2026 08:56:36 +0000
-Received: from ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
- ([fe80::88:6821:13f5:a5b2]) by ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
- ([fe80::88:6821:13f5:a5b2%3]) with mapi id 15.21.0522.017; Tue, 20 Oct 2026
- 08:56:36 +0000
-Date: Tue, 20 Oct 2026 10:56:34 +0200
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Antoine Gouby <antoine.gouby@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Antoine Gouby <antoine.gouby@toradex.com>
-Subject: Re: [PATCH 2/5] ARM: dts: imx6dl-colibri: Add Toradex Capacitive
- Touch Display 7" Parallel
-Message-ID: <atcswu1h7We8bIEw@francesco-nb>
-References: <20261019-colibri-imx6-overlays-v1-0-e4d028727382@toradex.com>
- <20261019-colibri-imx6-overlays-v1-2-e4d028727382@toradex.com>
- <atZutHmYt1aNWTpP@SMW015318>
-In-Reply-To: <atZutHmYt1aNWTpP@SMW015318>
-X-ClientProxiedBy: ZR0P278CA0030.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:1c::17) To ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:2e::8)
+	Tue, 20 Oct 2026 08:58:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1792486689; x=1824022689;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=AG80YPxqxi+pkt3jLWqElJJ+6PD1MdH6CVxrcZj82s4=;
+  b=M+eShIty9NvRlBxu9MuRMfhCdwoUq2qMkYxK/uk17M/KK2PtK9jzhtKW
+   zvqTMft7czsaRS0Oe3EKbFHjpCa5y/SRCleoMc0LzDK143RW2H63DPVEa
+   yg4xE/ZmLeIIKZansfx8g95dXj5JshkkFFbXAps9U/t1Rt59PlFaT6kz3
+   1k2X/uHB9Ntxw8aF7G7PV0RQX9XrtKOw5HoQVmKO+0JZ3pps/Gwp93Gtb
+   06rXfvHWmGdZKXhzRy0xZyDLtOwIDa57Xx+YEqffMROvQ4JXjTtbRN6h9
+   yMRG1ZuJ2eJWKD5ZGGFNKckHJw4ZSvG5pm17jnQ9DsAyREoZPCs6+7Hru
+   Q==;
+X-CSE-ConnectionGUID: g1XMydjBTL6qIJKaVNKb0Q==
+X-CSE-MsgGUID: +ALR+oy0QVOFf9U4GZMkCw==
+X-IronPort-AV: E=Sophos;i="6.27,168,1787036400"; 
+   d="scan'208";a="65303176"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2026 01:58:07 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.49; Tue, 20 Oct 2026 01:57:59 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 20 Oct 2026 01:57:58 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Date: Tue, 20 Oct 2026 10:57:27 +0200
+Subject: [PATCH net] net: lan969x: don't disable hardirqs in fdma tx clear
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZRAP278MB0495:EE_|ZR4P278MB010980:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6412736e-4109-4657-2014-08df2e880c13
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|376014|1800799024|7416014|18002099003|22082099003|13003099007|4143699003|10067099003|261009223027099003|56012099006
-X-Microsoft-Antispam-Message-Info: R4XvKjHI4McU0FtbqOTC7azxsGgsef5awbJkPtjzdk6hBvjaPfWHdtNWhPL2ezC1m0O72bEXTrHI/NXDsTy5WaTA34HOH71YSUmWraZ7yM05cfrKTnXe4Rke/yfbvp8ga3KcgL1pGoP2NSFrZnpU7t5Hp8i8XsAIqlAitWtNUTfaewb+hLEPG9Ym1zsUNG8jcAo+XlaTpgGeGkcQmIVe1Lh7rTBgyJM/dsk85zGCZD7NpRzJjdL7mgqZYMPYmmroUPZMUG9Lg9JXTt3xjOevFC9w5Q8SvsZaTZLhcJMNGY5hmJJtwi1ZjMddsteSCNfkB62BzVzhYj5rZdpziESq3/jiI36JkJeHAz40Dy0xfscCem/HhqDCNnupcj6pytHWp4S56kjydunyrcj5Ny2bH6D7Fy5L3yS15gMX81QDEhPF5fED1YxSlnY/2j4L8rMdP5iNlWb1Lt1Z+mxV2LJA8bGpdnSHeRimWHFVbVFzvoCl3ZXmva4z1Z6vhPkRdwX7VakefX0X624hQDRAet1QiQYRE1FLj60OM4wQxjrb69zgVe7Ozd3OK9P2VXXY25Avcf0rDQgazVZRLLYPQH3YNQGsFH7tglCQuvkAWGEC8AXgsDteDixyQwUiWu5WUeH1
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(1800799024)(7416014)(18002099003)(22082099003)(13003099007)(4143699003)(10067099003)(261009223027099003)(56012099006);DIR:OUT;SFP:1102
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?R3zOYKUov0WFQ4qHlX9n87k+pF2iR9sakGbKYjcckXnJ8hm6Wg6CjkEBwoNN?=
- =?us-ascii?Q?S2Tgnn9ftBF/0Gm9cSsoHNavFH9zfKYjlRqz+DMkfL2t7kHi7uvhCzGu/i5K?=
- =?us-ascii?Q?cK7else5ESs3oDMWtNsGvS2HfhC13uR/FEd/DWbTOZsQ6qi4rMXV/sihB1ih?=
- =?us-ascii?Q?mOFuCAtmrtLOQV/CRn/LsXZeEwILtdri/V8yi9UgTYYi0Yglqf1WEjO0SfE7?=
- =?us-ascii?Q?hFoBoS7pKfkTGWzqSfo4ZHGmD1OJcAw2yk3nhKNj9/rVTN/9TR4RWUYoORD3?=
- =?us-ascii?Q?PXWsRa0x88fCPd2wNaXMyYM9LoDeW1W1eL47PmAQ3PeFenFTXTibszlEskIK?=
- =?us-ascii?Q?9R2tg4f8PGgnLOxBEvFbcII9TzqGBEVGH3KlDRnF8eSI1wBi/R8Kxu/WUjFJ?=
- =?us-ascii?Q?S1WRcMa+gFqQClY9OgCtRuvBj6tCU7l5Nv2aRjlS47vZO2Fhr966zxkxt6ul?=
- =?us-ascii?Q?qmlZ9b0B9GhQ4a+HJMAfBLWScw4hOuKT/uRjwMLrSxxZMzvKgr8nHBb4e0/I?=
- =?us-ascii?Q?Jbmzm2HdJrOQnd/PnlUM934cWm2jKYEDMPc49UsObVdXNC9qk0tZGhpE3Mi/?=
- =?us-ascii?Q?6XphWnIaa6aRp4uScLSLSmGubVwMJzaNqmqp40mWbgZGmu5j6GIo+x3jPWyk?=
- =?us-ascii?Q?kv49H4Kp0ZuP/xbzITCyqBhfgYMXFWet14DhPfnHGSoTAL9YjtcLTWQilV+0?=
- =?us-ascii?Q?YaFUubKMSSxW3qr+LJZPYHVOxx+ByqeyuCm7Zi+IBstba54tcqfgxVWqIqQa?=
- =?us-ascii?Q?bgeO5JUpf3rlaXkTrCFB0B3Xn+6jvXg7IWMKW+2Ep5lUVUTU1Cxox82zfMjD?=
- =?us-ascii?Q?3pu6HfwEK6DuBS4ZuOh6Wdjk3w3P1R/TOWKJPEC4VWP3/tkbUXudqnF2pZvJ?=
- =?us-ascii?Q?RVW7PLS56v7xACKg50LR0fbXhePkuRBquuqqxvELngaUrNAiPL/YtTuiMTFp?=
- =?us-ascii?Q?fz00/c4YW7wo31cNPCNQRsZIhvSgZwCjb93liL8NVLw8PR/XzR9Ih9whjlQJ?=
- =?us-ascii?Q?NJjs/N4XU3UzaAgTpk0QMR4wwJiMGMLYvxMdzVHMjZBavhgKKhHmB3VynYse?=
- =?us-ascii?Q?ySYNyUrVHx7d+LQtrFt+5BSSrSYIH+ujXiUW13I10Lw3VGQGN4e6wLOU5QT8?=
- =?us-ascii?Q?QNmGsNoq9WfD1oSg60dBXWRMkSrVLbym75/ibspdWukaM/HGXvRw8lSr//of?=
- =?us-ascii?Q?End2o9SXGUejNhezoZsjQk06+ZsrixUGZq9sqtdxi/GA4Pa9ouMzE2JubH+7?=
- =?us-ascii?Q?bGx/ckQkIPtMypZAhef8iZGe7CuWzsRUEQv6mWKxMvxSSSKTKbQNdOpenClK?=
- =?us-ascii?Q?fHmXloqDJhbxBBmDV8/ZvzmKTvcovY0pKZ5s7YuB2sww32qSYJEaeOT2xEJG?=
- =?us-ascii?Q?nEb8A0T+HmONOZ2iCoi/opjp1Tm1wPz98wmwqlnTZ9G1zMlKMmgrZL0mZ/kT?=
- =?us-ascii?Q?CscwSGrMJ62aXbc5xCsxcINfE0xPcKpPl81eIdcIdjdkaRcRa/liGuk/ZkLP?=
- =?us-ascii?Q?c5TGLRkaD5xLRj0P9opVtGUOoLSyjJVxDTVRj5pmNUrRCiF8H/EuMiML0TFG?=
- =?us-ascii?Q?m+a2nzGdp1FKcLSiwft8yOUFHJE5QDkTi/HjkuKyIA7S5LNOaLGukVT2cQpH?=
- =?us-ascii?Q?X8bfo5QFZFZVfjuBzuw7LimZai8npYnaYKPMJczVxyLuVPPpT3IAiqWKDR+3?=
- =?us-ascii?Q?DPFVPvlE79rQ9MGxJLD/cE8x4ZH9R8CkLRt3B6iUUX3RivMI8Rj2BEXLg6sh?=
- =?us-ascii?Q?XQtTOp/OzkNuTU0RGvrf63XJbKtyZfg=3D?=
-X-Exchange-RoutingPolicyChecked: ABjYSMLcC2xAx8G3RnyEYK0AwQSkw6cvs/X9HsXVeKeGzXZIElYVvxQGZXTVwN7ndbCBJUDYbcbmli45cr2Cxvuaw9tA4zV/bPlse3JNtqMI02gN7NOBfF7R6QGT0fIxSZ2JAWGmAV48eZ2g/gStIaFk6H1Ed1ChzE0TXx+V2Cm/QnfoMyjJ8itwLEugNwridQd/4Mic77d/DeXfvnpy6smXOuA2Rp8Hfp1gz8S2LwFfr9o/T6HsOpK+BH2im9tM84ENH+OTzYnHh8VfqVHJedkWAukihYzHI+8KzQilqslHMmnfK6SYzadE81kHLzIXamx/bW2ockhmMIVk1Wm7+A==
-X-OriginatorOrg: toradex.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6412736e-4109-4657-2014-08df2e880c13
-X-MS-Exchange-CrossTenant-AuthSource: ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 08:56:36.4497
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: d9995866-0d9b-4251-8315-093f062abab4
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NpVYyFGouNLPYSdtvMsnQ869Cw+9EZKh7N0xdKgLQHAtm4Wu1jpKTnJPy9XxmYiHAL6fykWotaPZR99/0SEhNfJnCnp9FgssmCQIUQZkh6c=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR4P278MB010980
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: PalCszUC2PTxGSsf5UWaa2XkX5qT8Ae4eYTZAVDE2qE_1792486598
-X-Mimecast-Originator: toradex.com
-Content-Type: text/plain; charset=WINDOWS-1252
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261020-lan969x-fdma-tx-clear-irq-v1-1-b9f9d1eda317@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAPYs12oC/x3MQQqEMAxA0atI1gasSrVeRVwUm2pAO2MqUhDvb
+ nH5Fv/fEEmYIgzFDUIXR/6FDFUWMK82LITssqGuaq0qZXCzwWiT0Lvd4plw3sgKshzoet13nTe
+ 6bRTk/i/kOX3vEQKdMD3PC39ukH1wAAAA
+X-Change-ID: 20261019-lan969x-fdma-tx-clear-irq-d86877f96431
+To: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Steen
+ Hegelund" <Steen.Hegelund@microchip.com>
+CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_015647_177953_D27DE83D 
-X-CRM114-Status: GOOD (  18.55  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261020_015805_592281_FCD1E031 
+X-CRM114-Status: GOOD (  11.56  )
+X-Spam-Score: -4.7 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,90 +88,69 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello Frank,
+lan969x_fdma_tx_clear_buf() runs from the NAPI poll and frees the skbs
+of completed tx DCBs with napi_consume_skb(), under sparx5->tx_lock.
 
-On Mon, Oct 19, 2026 at 02:25:40PM -0500, Frank Li wrote:
-> On Mon, Oct 19, 2026 at 01:18:31PM +0200, Antoine Gouby wrote:
-> > [You don't often get email from antoine.gouby@gmail.com. Learn why this=
- is important at https://aka.ms/LearnAboutSenderIdentification ]
-> >
-> > From: Antoine Gouby <antoine.gouby@toradex.com>
-> >
-> > Add a device tree overlay for the Capacitive Touch Display 7" Parallel
-> > on the Colibri iMX6 parallel RGB LCD interface.
-> >
-> > The panel is a LogicTechno LT161010-2NHC 7" WVGA TFT Transmissive LCD
-> > and the touch input is provided by an Atmel MaxTouch capacitive touch
-> > controller.
-> >
-> > The touch controller is connected to the Toradex 10-way Capacitive Touc=
-h
-> > Interface connector available on Iris v2 and Aster carrier boards.
-> >
-> > The touch interrupt and reset signals on SODIMM 107 and SODIMM 106 shar=
-e
-> > their pads with the WEIM nEXT_CS1 and nEXT_CS2 chip selects, disable
-> > WEIM to avoid the pin conflict.
-> >
-> > The overlay is also combined with the Colibri iMX6 V1.2 Iris v2 and
-> > Aster carrier board device trees to provide ready-to-use DTBs.
-> >
-> > Link: https://developer.toradex.com/hardware/accessories/displays/capac=
-itive-touch-display-7inch-parallel/
-> > Signed-off-by: Antoine Gouby <antoine.gouby@toradex.com>
-> > ---
-> >  arch/arm/boot/dts/nxp/imx/Makefile                 | 11 +++++++
-> >  ...6dl-colibri-panel-cap-touch-7inch-parallel.dtso | 38 ++++++++++++++=
-++++++++
->=20
-> File name include key componets, lt161010
->=20
-> such as
->=20
-> imx6dl-colibri-7inch-lt161010.dtso, like others
->=20
-> =09imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtso
->=20
-> In case you will add more 7" panel in future, panel is quite easily EOL.
+Before this patch, the lock is taken with spin_lock_irqsave(), so the
+skbs are freed with hardirqs disabled. RX skbs are marked for page_pool
+recycling, so when such an skb is forwarded back out and its tx
+completion frees it here, the free path reaches __page_pool_put_page(),
+which warns via lockdep_assert_no_hardirq().
 
-Let's try to settle this topic.
+Take tx_lock with a plain spin_lock(), as the only other tx_lock user,
+sparx5_port_xmit_impl(), already does. tx_clear_buf() is only called
+from softirq context, so disabling hardirqs is not needed.
 
-What you are proposing is not ok, I have already provided a complete
-and detailed explanation on this topic here, please have a look again:
+Found with lockdep enabled (CONFIG_PROVE_LOCKING), which the assert
+depends on. Reproduced on lan969x by redirecting received frames out of
+another port with tc mirred.
 
- - https://lore.kernel.org/all/20261005075319.GA7692@francesco-nb/
- - https://lore.kernel.org/all/20261005075319.GA7692@francesco-nb/
+Fixes: d84ad2c0d80c ("net: lan969x: add FDMA implementation")
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+---
+ drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-In addition to that, I'd like to say that this is exactly the same as
-the raspberry pi display, see
+diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
+index c7e0e58ff0f7..053d125eda65 100644
+--- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
++++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
+@@ -54,10 +54,9 @@ static void lan969x_fdma_tx_clear_buf(struct sparx5 *sparx5, int weight)
+ {
+ 	struct fdma *fdma = &sparx5->tx.fdma;
+ 	struct sparx5_tx_buf *db;
+-	unsigned long flags;
+ 	int i;
+ 
+-	spin_lock_irqsave(&sparx5->tx_lock, flags);
++	spin_lock(&sparx5->tx_lock);
+ 
+ 	for (i = 0; i < fdma->n_dcbs; ++i) {
+ 		db = &sparx5->tx.dbs[i];
+@@ -83,7 +82,7 @@ static void lan969x_fdma_tx_clear_buf(struct sparx5 *sparx5, int weight)
+ 		db->used = false;
+ 	}
+ 
+-	spin_unlock_irqrestore(&sparx5->tx_lock, flags);
++	spin_unlock(&sparx5->tx_lock);
+ }
+ 
+ static void lan969x_fdma_free_pages(struct sparx5_rx *rx)
 
- arch/arm64/boot/dts/ti/k3-am625-verdin-rpi-display-2-7in.dtso
- arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-5in.dtso
- arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2-7in.dtso
- arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-rpi-display-2.dtsi
+---
+base-commit: 07bd391eb9572e74f073c49acef327611234f9bb
+change-id: 20261019-lan969x-fdma-tx-clear-irq-d86877f96431
 
-
-If you are concerned about this name being too generic and the risk of
-name conflict or potential confusion my proposal is to add a `tdx`
-prefix to the name.
-
-The proposed name would be
-`imx6dl-colibri-tdx-panel-cap-touch-7inch-parallel.dtso`.=20
-
-With such prefix we would have a clear Toradex "namespace" that would
-prevent any kind of conflict and confusion.
-
-Can we find a way forward on this, that allow both to have a correct
-name and solve also your concerns?=20
-
-Francesco
+Best regards,
+-- 
+Daniel Machon <daniel.machon@microchip.com>
 
 
