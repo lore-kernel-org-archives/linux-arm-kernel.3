@@ -2,72 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A322B606A330
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 21:09:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D6D2606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 21:38:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aklqjWmw;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MjHSLj6i
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FRPoJwi1;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WVS6CcEP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LHNZsy1AhmzsrhwZyxEBJo+bnbpDcTwMAklGp3PSgbg=; b=aklqjWmwU6Wc1rQfAryGF1E3QS
-	J6LGp9HDM0rQDbqKwIeM0tjHVgjk416W9FwKvqEtUa+LcciJajKlh87XqBxCc29uBn0qqrkzWonO+
-	yTwe/exm5siXEIO7OBpoOE1tiQG7Ze44h97jL5bu/3vlBAk2/nFto3fxwNtI/6KPZlxp9DYman+0I
-	/hDlh9cKHqabFWzrHTkAx4B3Q5ZmoYFvuPMYht+eafti0D1IJEGFqtGZm7kORqpmMBnTUwS2aDXGS
-	HlWMqWJcyznnAQ65i4FzLvqoITd/ByainIu2wdWUv0KS/QSfaQozKngzG4Q1XrScbDJJAx5ovht9M
-	kfS6UNUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cBE2dw1g3Eh9EqgFtNRVCB1b68R/t5j3Hg9J4T+07Jo=; b=FRPoJwi14pBL4dT62Ei15d8N6G
+	P3APtpcc5QIX7njvHRXEdDGAqjnCcCWnnDwB+CjviOwRmT9gPFFZvUhNrn03N+IVAQqKRR3bWNzxc
+	cKh+xhoXip8KHti4zuZeHjAuyr3G3PqsAg1FogB6r94mqdSn1vUhEf9c5cfe/EZ1HRM7rgO09LT1q
+	W0phHdHbeVRvn/Beoac3jTijWxJtTpkOBqdrBibav432Iz8wqeyq2XERjjCh1Di56I24x5mWdwgiC
+	XViUcSOEdheyqvc1ruwA7BS13AFVeGVhs71ezO31Y/pi58yZodd50u2tlDpgZB09BTkDDchpE/vYS
+	DP7MwtEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJH4m-0000000AfHr-3o8h;
-	Tue, 20 Oct 2026 21:08:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xJHXM-0000000AgSu-2CrE;
+	Tue, 20 Oct 2026 21:38:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJH4l-0000000AfHk-1eGE
+	id 1xJHXL-0000000AgSo-0ua0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 21:08:51 +0000
+	Tue, 20 Oct 2026 21:38:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD47F60136;
-	Tue, 20 Oct 2026 21:08:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B90921F000CE;
-	Tue, 20 Oct 2026 21:08:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4FAB260142;
+	Tue, 20 Oct 2026 21:38:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 086C21F000C9;
+	Tue, 20 Oct 2026 21:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792530530;
-	bh=LHNZsy1AhmzsrhwZyxEBJo+bnbpDcTwMAklGp3PSgbg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=MjHSLj6imdArMWL3vvkO7ju8c//mQbQeY5QXTMPxyT+Z6ghZHyG0SXQr41amV76SZ
-	 aGCChnRkuifPNl87J4jDXC+XEhfpf4EXdAdS1LuAVo3yIkPjMwPZdz8UmUX8cAsXXH
-	 XCtNspvjoUlRVJ0EaZpzvYr8sZuIoUpH1oLOiwtnRjusbuCb6vIzdtBEmpnAvsuZDk
-	 rZ8koiGsJSFWBS5XxRVd9BmDlst3URLlogwzPx0q1besV0QenMGaGRyc3L16dc4Etc
-	 hFJOIu3FVDB7xc58fmDLRr1AD9+TgQUzZuYalQ9ozgNlMW0av4O5qpmTbI3DPg58S2
-	 hx0G+jRLJ5JAA==
-Date: Tue, 20 Oct 2026 14:08:49 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Kurt Kanzenbach <kurt@linutronix.de>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Paolo
- Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>, Daniel
- Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev
- <sdf@fomichev.me>, Song Yoong Siang <yoong.siang.song@intel.com>, Mohd
- Faizal Abdul Rahim <faizal.abdul.rahim@intel.com>, Ong Boon Leong
- <boon.leong.ong@intel.com>, Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>, Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
- Nicolai Buchwitz <nb@tipi-net.de>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net v3 0/2] net: stmmac: Fix XSK crashes on stm32mp2
-Message-ID: <20261020140849.12fc79ef@kernel.org>
-In-Reply-To: <20261013-stmmac_xsk_crashes-v3-0-50fca7790af2@linutronix.de>
-References: <20261013-stmmac_xsk_crashes-v3-0-50fca7790af2@linutronix.de>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1792532302;
+	bh=cBE2dw1g3Eh9EqgFtNRVCB1b68R/t5j3Hg9J4T+07Jo=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=WVS6CcEPNYTpDVdKv39RJJJ1EIRG8Wwa5HeMqxgLTg0zVUlNjX06yRwiqzn5mE98Y
+	 RFHTpWvuIYCfN1nQfzeu289r5v1abLlxPzR00/qv/oc0zLjlujzv4fF/h/oB02+2lH
+	 loLw3R4LPfmTBSTZfCuxYzs1tI4TGC16VEvpqA110LPKac/RTx16L448dPmqib+cDA
+	 Jw49x/2lmsSsGRYPK6jTMeQJc2wLqO7GBEdU6FCkN0azPwTld7SImcCofQTN2+I6RN
+	 hoxKzNbUmE+u/IEc9nsDMrJRrsvmtB7NXcG/jAWeEYaaTSso5waIQMd/pM3h4Td/DU
+	 K8OLtEMAo/HyQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F37473809A09;
+	Tue, 20 Oct 2026 21:38:21 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 updates for 7.4
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20261016144012.547221-1-catalin.marinas@arm.com>
+References: <20261016144012.547221-1-catalin.marinas@arm.com>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <20261016144012.547221-1-catalin.marinas@arm.com>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-upstream
+X-PR-Tracked-Commit-Id: d0de3a73194a250a2e5ffbf1dc604c0bcbb16e8a
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 303bff3637d13f0ecbb280c7cb403470c440a2a6
+Message-Id: <179253230073.225072.10707551340990264293.pr-tracker-bot@kernel.org>
+Date: Tue, 20 Oct 2026 21:38:20 +0000
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,20 +71,24 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
+X-Archived-By: <archiver.kernel.org>
 
-On Tue, 13 Oct 2026 10:57:20 +0200 Kurt Kanzenbach wrote:
-> while looking at the TBS thingy [1], I've noticed kernel crashes. That
-> happens when opening or closing an AF_XDP/ZC socket while parallel Tx
-> traffic is going on.
+The pull request you sent on Fri, 16 Oct 2026 15:40:05 +0100:
 
-Let's respin this against net-next. The merge window has started,
-applying this to net would give us an immediate conflict and pain.
+> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-upstream
+
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/303bff3637d13f0ecbb280c7cb403470c440a2a6
+
+Thank you!
+
 -- 
-pw-bot: cr
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
