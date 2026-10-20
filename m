@@ -2,112 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19FFB606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 13:14:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56B6F606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 13:17:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TvWQO6ox;
-	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iWmFzW1o
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=B1TiSjoQ;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BLVK4c85
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QR7kILSyQV1HfB+rNJZZQwe28U+a3tmFcjkLHMatFZU=; b=TvWQO6oxzw8iPMB/XFd8LIJusg
-	JvjyvMukuucmXkt6/VQOU0RQhHi/cs+OuwqulJEQBsEKdCkPlhceg/8UrEG6S6PD2PvnmLmJYRSJO
-	m66DLgP2gwvbWZQwfgaTlgwvMesAj+YTNe3Dw7rZOF9Apo3gYG+uyJOQur7MswU4bNfMsEdWQESLB
-	IuyGn8ipS7ZVNork42zh8jHTrx1Q6eOe6t9N4uzszoilW4jBriub7/8JWqYyxsRoG4Z8Mz/AvS/U3
-	HIHlmHKw/1oJGVLJTVfVXur2XcHAPa3a7ASQDahTXWa4yO9MtQwqcCQnuRZ6Ku2U2XVTWnCKCfDDZ
-	lqJibSIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I/lKKMbBLG1C3ERfK2T/2BuXrkJjvJM7GnohfMS18Rk=; b=B1TiSjoQ8fMLmK87JNDa/Pbx7X
+	Cg1tksYHM4itzPlVrIqB186U0Z4m5DtsQlola+kgbQLFY+WFv+gECXwxoF40zSngT+YC7YrYwRpW6
+	LVVojE19eviPuAHyOTxb2pSnhx1RJfNMOM2EbW+Q4yCiacm8S+Dcdz3caktw6rY1+NaovhCZo4BNS
+	s9MHLK6vCkGmYGiO+rLBIQmGcl+hrwzJuTTf4oJ78WH49QxozKSu2Z1YYkOlSHZEgw3jnrC5+BTMu
+	6+h8PIED1PUtxMWAoEYR+Nbd+kWZRWIPb0Y7wXNPaMqTd5pdzSWw7xxmEVD/t/o+DoCcskzZxx/83
+	05uBDSVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ9g2-00000009lBW-228n;
-	Tue, 20 Oct 2026 13:14:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1xJ9i1-00000009lR4-3iE8;
+	Tue, 20 Oct 2026 13:16:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ9fz-00000009lB4-0rc3
+	id 1xJ9i0-00000009lQb-0PaX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 13:14:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1792502085;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QR7kILSyQV1HfB+rNJZZQwe28U+a3tmFcjkLHMatFZU=;
-	b=iWmFzW1obbUwHPsc8pP9Hd56KiCDD5o2zB+MEoddG14mD6IOinDjuXT+HOYZTw5V9C2ULQ
-	j0bZewU1yWjlEF7oXkf5aY2seZiXBVMwwcf31iAEVsLEkZX6zol5oS/wEg6pt9R/de65XI
-	VtT8lisbNNCpLdkiJ9VOm03TlYu3N+o=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-248-m5dD_GyoO2SMtwl-TEJe6Q-1; Tue, 20 Oct 2026 13:14:44 +0000
-X-MC-Unique: m5dD_GyoO2SMtwl-TEJe6Q-1
-X-Mimecast-MFC-AGG-ID: m5dD_GyoO2SMtwl-TEJe6Q_1792502083
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-48afcecb035so371745f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 06:14:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792502083; x=1793106883;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QR7kILSyQV1HfB+rNJZZQwe28U+a3tmFcjkLHMatFZU=;
-        b=eVjiex/ZzO4V28YPWC83Qy9cuk2MVj/HSWH/3X0G4C4qLmzbQ7M1t7TTB7B0jux4Zs
-         KxukGw7GcQ31xYK19yD4ouhOPD3EYTAanYMGRTxLHwigaHMxChyd1DX3Tsj49lgFZlH9
-         Ux9vARl8GTSItD218DXcR9qY4/T1uekjCrvCrz/3cvpmq55lcaVcOwfKCnhLx3+vOEk1
-         LkmX74jlDs22RkUmiodGPOv6RYYithhy6q1VnCZadcf/6EKS6AvM4wdfbbdn9o2dIdWz
-         8zEOhTgUzTFeTnOpC+Vv8oy3/2QndAwmEjX7EccKmzQ0ijWN3644xBzhIay5GINDJiw3
-         +Jjw==
-X-Forwarded-Encrypted: i=1; AKwUvBxSNYPV+9bIIxUaxdLWIqG+WWCgynIr2/WTk3oELHTTjcHVG3cOIsXOpcaQFwhL1UL8LPKJ499H+ojQnwj18RJh@lists.infradead.org
-X-Gm-Message-State: AFq9FYKLfVdXcydred0Tg9sxFOk3HpbnvkVzdQOjegGHKG/WNLqza3W7
-	vta8FYHMPT6j7UvQt00nzn+OB7Fwk7d7DtXapkQXJa+8C1Up/HxQm4UeSbjD3q63axTc6RBz8J3
-	p+a7T1PA45QeVXX1E2Iv7Q6xZi8Lu3ZzsI/SQ+UmaPvRTvTaJDelYALHtpQLdpvNrrO6EBG1t2/
-	ER
-X-Gm-Gg: AYBFou2UeslccPSU/EtWBgqW9dikXtKsQUWTtwFR6b7v9lDgatw9S3x9U8F9jBedFdU
-	pOVqb1Ine4T5DhV+ByPKckFFAMkO494pUWm6l3ehBO/vFo1mWU1KjTseHnHk+Dn/xKUWuGe0VFh
-	r5v081fO+nEu1TEWVb9Oztx7Gu5dwyJkAw8X610vLQivUYbMzWFeRQs5SHO+HuyHuWYJRQctV84
-	SxQsY1pc9hQ0ZvISpXBZbzp+GsgOhe1gWB7HVd92Ode2wmaZGC+24AOktsDsQlCnMN2Rl8rGDmZ
-	bH5dXPsGHiQBpfvVF0Lk9MKfc9hByn6RAcCJicb0OGiamsZhTQAH42QUnZDqw+NuoF348R2Gcej
-	b/PUU79D4o+vMA11++svWM5xNCY/Y+8kN3ielkeNjujRTqKCRbYV8qzY5/ES3GuwiVUSNvirsqA
-	==
-X-Received: by 2002:adf:e541:0:b0:48a:fad8:52a2 with SMTP id ffacd0b85a97d-48e1e77fb45mr4078408f8f.23.1792502083064;
-        Tue, 20 Oct 2026 06:14:43 -0700 (PDT)
-X-Received: by 2002:adf:e541:0:b0:48a:fad8:52a2 with SMTP id ffacd0b85a97d-48e1e77fb45mr4078359f8f.23.1792502082599;
-        Tue, 20 Oct 2026 06:14:42 -0700 (PDT)
-Received: from [192.168.188.234] (ip232-47-231-195.pool-bba.aruba.it. [195.231.47.232])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e1d6dbbb0sm6269587f8f.5.2026.10.20.06.14.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Oct 2026 06:14:42 -0700 (PDT)
-Message-ID: <3e357388-9d7e-4ec1-b2cb-2d4d32bf4742@redhat.com>
-Date: Tue, 20 Oct 2026 15:14:40 +0200
+	Tue, 20 Oct 2026 13:16:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6822660052;
+	Tue, 20 Oct 2026 13:16:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F16301F000C4;
+	Tue, 20 Oct 2026 13:16:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792502211;
+	bh=I/lKKMbBLG1C3ERfK2T/2BuXrkJjvJM7GnohfMS18Rk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BLVK4c85jEpKcBasUz9BxREf/MNa9QY55Ld7dqoCHZl6DnHhQhhQYw0KIrGl5qVL5
+	 /TSml8VG2zattBjDFMfQ7wZ/zQP5ycJjLH/5LIlK7vJcmg9FkRNRNNN+O9knSI877l
+	 YeJ0rEr7MWFVBpVsy3PBM4whHdUAf9nMUgr3EYiEEzkjMtRy3jHyp1v7wsGZrlJkWZ
+	 tGE+oASF13ed3kA7O1bJsmNe0sMvoFmpyFxj9M7l/fR2STdGQB00eVz6qAAEqVjI5J
+	 6rXhZM7+PwMlQ2/e6LQgWVhUxqymtohoEeeXgrv8YYtN/jjVFIWV4L6T9E63s5wnxL
+	 DBMNhMz1mEutw==
+Date: Tue, 20 Oct 2026 14:16:43 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Steven Price <steven.price@arm.com>, 
+	Yang Shi <yang@os.amperecomputing.com>, David Hildenbrand <david@kernel.org>, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] KVM: arm64: Clear the whole hugetlb folio when
+ sanitising MTE tags
+Message-ID: <atdoknSMviv1xdqd@gremlin>
+References: <20261019132103.3836646-1-fuad.tabba@linux.dev>
+ <20261019132103.3836646-2-fuad.tabba@linux.dev>
+ <atdUzfOA1Obd7Mir@gremlin>
+ <CA+EHjTykGoHmDt82Cz=eEeBoqpjDRnhKEVGnOhTprn4dLxLZKQ@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v8 3/3] net: stmmac: dwxgmac2: add XGMAC
- timestamp interrupt support
-To: zhu xin <zxyan0222@gmail.com>, netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, richardcochran@gmail.com,
- muhammad.nazim.amirul.nazle.asmade@altera.com, rohan.g.thomas@altera.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261013033207.1684328-4-zxyan0222@gmail.com>
- <179195062971.434549.3907170504821168391@kernel.org>
- <CAP7veTK6NQtrweDVXsYyiMuru_Svtir5XvY_ATM8a6GWO=cqKw@mail.gmail.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <CAP7veTK6NQtrweDVXsYyiMuru_Svtir5XvY_ATM8a6GWO=cqKw@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: guqgMQAnxiWmsN1E5dxZTSbQvGfVWOODQKQSL24qkF4_1792502083
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_061447_318720_F5AB2B8C 
-X-CRM114-Status: GOOD (  14.95  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTykGoHmDt82Cz=eEeBoqpjDRnhKEVGnOhTprn4dLxLZKQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,47 +76,82 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/14/26 14:49, zhu xin wrote:
-> Hi,
-> 
-> Thanks for the review.
-> 
-> On Wed, Oct 14, 2026 at 12:03 PM <netdev-bot+sashiko@kernel.org> wrote:
->>
->> Thank you for your contribution! Sashiko AI review found 5 potential
->> issue(s) to consider.
->>
->> Critical: 0 · High: 0 · Medium: 5 · Low: 0
->>
->> If you believe none of the issues are legitimate, please reply to each
->> issue of Medium severity or higher and explain why the AI is wrong.
->> If any of them are legitimate and you plan to respin, please let patchwork
->> know by including "pw-bot: cr" as a separate line at the end of your reply
->> (one such reply per series is enough).
->>
->> - [Medium] The commit message says dwxgmac2_timestamp_interrupt() cannot
->>    race a FIFO flush because "PTP_ACR_ATSFC is only ever set while…
-> 
-> Valid and will be fixed in the respin.
-> 
->> - [Medium] In stmmac_enable(PTP_CLK_REQ_EXTTS), the 'already enabled'
->>    -EBUSY check is dead.
-> 
-> Valid and will be fixed in the respin.
+On Tue, Oct 20, 2026 at 02:09:45PM +0100, Fuad Tabba wrote:
+> Hi Lorenzo,
+>
+> On Tue, 20 Oct 2026 12:52:54 +0100, Lorenzo Stoakes (ARM)
+> <ljs@kernel.org> wrote:
+> [...]
+> > On Mon, Oct 19, 2026 at 02:21:01PM +0100, Fuad Tabba wrote:
+> > > sanitise_mte_tags() clears the tags of the pages about to be mapped at
+> > > stage-2 before marking them tagged. For a hugetlb folio the flag covers
+> > > every page in the folio, but the loop only covers the mapping being
+> > > installed. Stage-2 maps a folio in pieces for the contiguous hugetlb
+> > > sizes, and for any size under dirty logging. The first fault then marks
+> > > the whole folio after clearing only its own piece, and the rest keeps
+> > > its previous owner's tags for the guest to read.
+> >
+> > I'm guessing the folio size is always >= size here?
+>
+> Yes, the stage-2 mapping of a hugetlb VMA is never larger than its
+> hugetlb page size, so it always sits within one folio.
 
-Please note that:
-- patch 1/3 has more comments, and likely more relevant.
-- net-next is currently closed, you will have to wait for the end of
-   the merge window for the next iteration.
+OK good! :)
 
-/P
+>
+> [...]
+> > > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> [...]
+> > > @@ -1514,7 +1514,8 @@ static void sanitise_mte_tags(struct kvm *kvm, kvm_pfn_t pfn,
+> > >          if (folio_test_hugetlb(folio)) {
+> > >                  /* Hugetlb has MTE flags set on head page only */
+> >
+> > Is this comment redundant now?
+>
+> I'd keep it: it's why the whole folio has to be cleared, as the flags
+> on the head page cover every page in it.
 
+OK, but there's an inconsistency between the comments in 1/3 and 2/3 (you update
+one in 2/3 to reflect what's happening), so maybe worth having the comment from
+2/3 on both, rather than this one?
+
+(the PG_arch1,2,3 flags are folio flags unless there's something weird so it's
+sort of redundant I think?)
+
+>
+> > >                  if (folio_try_hugetlb_mte_tagging(folio)) {
+> > > -                        for (i = 0; i < nr_pages; i++, page++)
+> > > +                        page = folio_page(folio, 0);
+> > > +                        for (i = 0; i < folio_nr_pages(folio); i++, page++)
+> >
+> > I know it's a stable fix, but the fact that this pattern exists in multiple
+> > places really argues for a mte_clear_folio_tags(), which would make this
+> > trivially:
+> >
+> >         mte_clear_folio_tags(folio);
+> >
+> > And avoid the re-use of page etc.
+> >
+> > It's not a huge change and makes the next patch in the series simpler too so
+> > arguably could be part of the series?
+>
+> I think you're right about the helper, but I'd rather keep the fixes
+> as small as possible for the backports. I'll send
+> mte_clear_folio_tags() as a separate patch on top of these, using it
+> in mte_sync_tags() too. In v2 the loop uses folio_page(folio, i)
+> rather than reusing page.
+
+Sure makes sense, though honestly I think the duplication there means delta of
+lines of code is small. But then again, adding a helper in a Fixes: is iffy
+itself so fair enough :)
+
+--
+Cheers, Lorenzo
 
