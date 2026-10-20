@@ -2,89 +2,111 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1655860A3821
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:37:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 447FE60A263C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:38:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gvpSm7SB;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=JBfqfbfr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3lasfzdy;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=YLW2xCoK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QsiPImWCvspsQxeNXp3kuF7NO55DXC+1f0q/BU544lY=; b=gvpSm7SBrGCTHTLyE5SXuaUYk2
-	XVrrqH3tQGhNFpcjARApNNoxwaJVsUVV5cfrkD9nj3vdPFv+5fcRMoNMWdMk6Hlxdf0OgxDxUPOgi
-	GewMerNYnUV+t9Hj45JpCP5x2yR6Uxt2avuwpuHCxZfqY876JYv0xLywmDibFxxdnY8JZLDx564yT
-	1mltwFxy5bk09CtZHnJwG/nTLDBjxxiEoFZrLlBMnWONoh3W5CHbFubaLSmzSoGGYFgfBECyd70sQ
-	0QdFF4mv8sgkZwMRK08y0lUip1ay+WhFASLwk4UVbV9I7UPbfsOQW37djZV96PiEwgeTZMCo0gyS/
-	UEySE6zA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qznKbFxxt5cLWwuKS0ovtSoD1j1l73+lYRqJ0Ocaqrk=; b=3lasfzdyr4pS4AIkVYWlYuxwk8
+	shOOGncBtSULj7Pp31HBcS5TcVFgzZgsoYhDyQCDIzKyI9t7eygRom9L7bKZViv8llrRSIxQhgs+k
+	fcRNXcsG6KezLsSOllVoDwoUlSyceSQieVA2xaZDYIdf4YYEzXMvxkfl8nsDKdzTxnAr0baExOKpZ
+	x0VfD4G0JVLG7hPyXauPtGMHCRhMz0lxgcJx/VDa57M09jLm0GfTfYLWS1WkhDFS9aqQkrXxXy4w0
+	SuMFAIWaixM9I+l4icwbErk8CMCPFZmsgVj6Uq1KsA6KEENVv+X7Pbm1tOp9XgYW9z5Ap8Vk55Jqj
+	1LneDjAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBth-0000000A4AX-0Deu;
-	Tue, 20 Oct 2026 15:37:05 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1xJBuE-0000000A4G8-1DeI;
+	Tue, 20 Oct 2026 15:37:38 +0000
+Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBta-0000000A4A2-1oeI
+	id 1xJBu5-0000000A4DW-2pG1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 15:37:03 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2e8c028eefeso1654095ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:36:57 -0700 (PDT)
+	Tue, 20 Oct 2026 15:37:34 +0000
+Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-35b2c599f43so990353eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:37:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792510617; x=1793115417; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QsiPImWCvspsQxeNXp3kuF7NO55DXC+1f0q/BU544lY=;
-        b=JBfqfbfr7Nf5uJO0QlcI1W9EXne3vbpDR+7ouv0CWKndPPG2UNUQUXBPayBddaC039
-         n47XM1oVharO3fwdcLuhiDXtkjIn9LV/FjGcoqObh6fOqiEb6FZJA8QMgVsTlJA1/ns0
-         ++9E0B/mNCcn87sVeBBI63N/cHRmjaDlgUbINDgDj6ARsbuv/Rh+Gh3yGqFHsmUOp+DZ
-         bzNuoqB0pWTWqfYAbzdk/S961ynqu6KIjUOk26Pwoo4Dgu1/tRucMrAdBPR4axMlrFou
-         eCsxUp/FS6mK+KYOpTLnFyHfi4Fpet3uH7MBVNcdjoRkPJcTNCPdVqiHG8YDA/8rf8hQ
-         mTUA==
+        d=chromium.org; s=google; t=1792510649; x=1793115449; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qznKbFxxt5cLWwuKS0ovtSoD1j1l73+lYRqJ0Ocaqrk=;
+        b=YLW2xCoKRrc9YSv7QfmFtmED5muO1vUz9S6PtZ150iNi2VB0/B9OaUl7c0KcYFzxfW
+         XsDx+NtfMECt+iHNbHXJPUwB4otxllcevRCewGXMTP9S7tfzxLK3GJKh9jnHX1mguvo8
+         wW/HDoKg6vbDNKZbe2Ziykd++u30KaIIISO38=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792510617; x=1793115417;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=QsiPImWCvspsQxeNXp3kuF7NO55DXC+1f0q/BU544lY=;
-        b=l1Q0ZeSwq5PsWzoXqN7AfphPE8tbR7elx2Mfig0T5jK5g2coV2BACLeYU5J74dwW+5
-         e+/FpBGQo2ezj4I5L27gDKISI6hJG3wDe2ArLtAchCjPFTFUgnv4Oufgm2kToDTUsE7Q
-         1esIE0hQ/6P/Cfqq1nfDT1+iNC1H53Yu0LDDhCQa2tF4aV2AePsyiaN+zJEdAkCOJt3B
-         Z7DT7+HRlm7IcRK4ypAr9WKDhwQcPNC4CvhnNEiIgSdTGMoDxoWaJ6PZrG/2k7cdpGfL
-         uBGKf7duli7g1wMPruSgdysfPDJF2omRRoGWgBzfPK0Ao/QElxvNiNciIhAv/NA9epwI
-         Rwcw==
-X-Forwarded-Encrypted: i=1; AKwUvBwTRTcS3Fz2idrfBlZAPCGOfsV44ILJt56n7bimUpOAG31kA7n1e+8ZdCXlIgCjhuE0PU9uh2AimyClx5SjkIT6@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ0zDSdS444t3MLoauOMWwfKR3lrYZ/eruh/N/E4C2VD20WokyI
-	wDtuD90AE2Z+MStKEZj2JdFE9Zg6m/JRbWX/okCapuAKka1qMEMvrWAO
-X-Gm-Gg: AYBFou0IAsD0OWdSRFwEkjw4kr16Fa2Nouazt4BcfuNO3xM3dj9+GorjskgtNyucQSE
-	tr5sW/30QTZEVPW7dv33Z5/oGnjTd+pnVrXgzCSLcB1ZUgPunovacROqiQidiHhfW9S9+2H7pel
-	R0h2YWbCFvdj7D4cqPKZiV0fKfa3MWoZFWsFrvCmLh6Wr3E7QAS4Vx2VnfcKDtiEiCRaKtyIIXw
-	3FYKNVlvJHM2RWFbWdXMDPB3uAawLtTPchiF89k26oScHqFtWf2erw0DNuXvooXjWcsdJA2PUKA
-	B/h9xW0y4xy80X03XQbN567YeKINxTHVIxks5Tw3+74P1u92kyd+b8pkVGsYTZ2t1iT77IcUmEu
-	nxB53KZmNa0jXyK7yvMKRHiI4RiYKUExBzClBsrN47aSJwgPIWANdm1WA9DS0aFJ0Jv5nZFuNSX
-	gpX9P8YnwR09KaH0MDIzIuGRaWawdNOEbua+Es3x8b/g6LDU8xuVGhjISSedM7gaMnDV+kRSVyc
-	FwitmeK81Ljoa4Z8NamyHWMrQ==
-X-Received: by 2002:a17:902:fdad:b0:2e9:4f73:83d4 with SMTP id d9443c01a7336-2e9a6d2404amr167599885ad.4.1792510616796;
-        Tue, 20 Oct 2026 08:36:56 -0700 (PDT)
-Received: from [192.168.31.234] ([183.193.19.60])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea3b486970sm736655ad.62.2026.10.20.08.36.50
+        d=1e100.net; s=20260707; t=1792510649; x=1793115449;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qznKbFxxt5cLWwuKS0ovtSoD1j1l73+lYRqJ0Ocaqrk=;
+        b=e47RkuCjm1GWD1V85ptOSu4MtgFyqeNBgeOneTJ/C6SwIFtrWvW4xVm/fu5AWoYlCf
+         RAKzDI2xWxbtwwdYifQUGWOIZSQzQJUnxYSnklLAZMg7D864QrRno7eQr2mk0g4wLlWo
+         zItar72IGjpjS4XXEuoSpFEboiqqrILkeURefpZHPfkDViFBtpkAzQAHbGJO4D7D+eW+
+         DFHzt7gePfn/ETZ5GRMdjjPIP0zt1lTsf5bb0mOZ5oSutnKwW+zfAUFxBhgBJKGSLvtu
+         caaeIyxeDMS5Q2aDGRg5x1PQXMg8kvYqQqwcqFNk3Gx7/CvLMkiNhNaEntKxSn/i4ZCZ
+         5qsw==
+X-Forwarded-Encrypted: i=1; AKwUvBwl55fLd/l1tGpRdBO8C6D//ilTiiKviGSqJxzNztuAfsSNFutZSnhb04ykUVP/T5MDjVTBiIxyarXnOX0oLKcU@lists.infradead.org
+X-Gm-Message-State: AFq9FYIp/lJO3duNFGyKqAlIBEFmWbuFhff2zj5uuBN0yuXHFz6zTthc
+	OOxt/uOS5ltws+1tih98JqVBU69seg0JAkqj5TlQTvlOpGizKHupvDRbEEjmDLciKA==
+X-Gm-Gg: AYBFou1+0xzEDzqBuFYgyHhQB+XF7UItTxQYKVleMoeI3aPH8BQBr0R1m9YoC8Z7qf5
+	l6KyLtKoxYsNIJPnu9HxJsglPeZGRD0EPA0g6F7HWN9XySeiv/+Y0HKQ9bXQekEfSsZIEROgxZS
+	pC/gqipK/gZoPXOiiBFBOR07DtgB+fQg9VHkyPn7pUfcN4MBT0yX4Kx4/t1VxCvJE8ZZdHEoXmn
+	AJawzBGx94ShQImZN7qmYZCe2SGotb5pfcbkTeRTBFnl3fEpvwx9uuY81RUs6IDEBoIOb0mBOXV
+	EXJeSGWuP/vu2JMoAugv80beOIvsuISeiD52HlGBr1DHun0HGfyQ5YxgtYLfgubH7Bo+wfjtUuz
+	eISyGPbjg+K0TdZmQreYss6h1bCE/hxLOcOcrUAegMN+b4Moq4OyCOS+OQgMAyWUKY3EccY7P5s
+	kMt7Drk6YJgcUXpDHYjOXEuBT6a+F+fZ1nju0SnuqZTdPP1dOcnrzY8IYVOmD/+nobg1l4Rt1jc
+	YULe2gAn2IpN1YoLw3uT+sTc/hSS/6oqecqiKLq9cvvoMvOGrp4pwyQO2g=
+X-Received: by 2002:a05:693c:6391:20b0:366:e24d:a0f6 with SMTP id 5a478bee46e88-366e24da2d3mr927924eec.29.1792510648703;
+        Tue, 20 Oct 2026 08:37:28 -0700 (PDT)
+Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:1eb1:e432:2cc7:349c])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3607ee0cab0sm51324714eec.3.2026.10.20.08.37.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 08:36:56 -0700 (PDT)
-From: Anfernee Cao <anferneemelokc5@gmail.com>
-To: Ulf Hansson <ulfh@kernel.org>, Chen-Yu Tsai <wens@kernel.org>
-Cc: Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: [PATCH] mmc: sunxi: fix clock and runtime PM leaks on probe failure
-Date: Tue, 20 Oct 2026 23:36:47 +0800
-Message-ID: <179251060762.3832.10358805890614600473@gmail.com>
+        Tue, 20 Oct 2026 08:37:27 -0700 (PDT)
+From: Douglas Anderson <dianders@chromium.org>
+To: Devicetree-compiler@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-kbuild@vger.kernel.org,
+	Brian Norris <briannorris@chromium.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Simon Glass <sjg@chromium.org>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	linux-arm-msm@vger.kernel.org,
+	Nicolas Schier <nsc@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Devicetree@vger.kernel.org,
+	Julius Werner <jwerner@chromium.org>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	devicetree@vger.kernel.org
+Subject: [RFC PATCH 1/7] scripts/dtc: Add fdtget.c and fdtput.c to sync script
+Date: Tue, 20 Oct 2026 08:35:19 -0700
+Message-ID: <20261020083501.RFC.1.I7ef2211f59d5912146a6816d533638605edd0f36@changeid>
+X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
+In-Reply-To: <20261020153652.2907186-1-dianders@chromium.org>
+References: <20261020153652.2907186-1-dianders@chromium.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_083658_474493_265F044C 
-X-CRM114-Status: GOOD (  15.85  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261020_083729_711160_CB1A4D05 
+X-CRM114-Status: GOOD (  13.02  )
+X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,106 +117,50 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-sunxi_mmc_resource_request() enables the bus, card, output and sample
-clocks before returning. Several failure paths later in
-sunxi_mmc_probe() leave them running:
+fdtget.c and fdtput.c were imported into scripts/dtc/ in commit
+cd296721a964 ("dtc: import latest upstream dtc") prior to the creation
+of update-dtc-source.sh, and were never added to the sync script.
 
- - If devm_request_threaded_irq() fails, the clocks enabled by
-   sunxi_mmc_enable() are never disabled.
- - If dma_alloc_coherent(), mmc_of_parse() or sunxi_mmc_init_host()
-   fails, probe only frees the DMA buffer and the mmc_host.
- - If mmc_add_host() fails, runtime PM has already been enabled, but
-   pm_runtime_disable() is never called.
+Add FDTGET_SOURCE and FDTPUT_SOURCE to update-dtc-source.sh so they are
+kept in sync with the rest of scripts/dtc/.
 
-Besides leaking the clocks, this leaves the clock enable counts
-unbalanced, so a reprobe (for example after -EPROBE_DEFER) calls
-clk_prepare_enable() on the same clocks again.
-
-Disable the IRQ and the clocks in the probe error path, and disable
-runtime PM on the mmc_add_host() failure path. Also handle a failure of
-devm_request_threaded_irq() in sunxi_mmc_resource_request().
-
-Tested with QEMU's orangepi-pc machine: with forced sunxi_mmc_init_host()
-and mmc_add_host() failures the MMC clocks stay disabled in clk_summary,
-and a normal probe with an emulated SD card still works.
-
-This issue was found by manual code inspection.
-
-Fixes: 3cbcb16095f9 ("mmc: sunxi: Add driver for SD/MMC hosts found on Allwinner sunxi SoCs")
-Fixes: 9a8e1e8cc2c0 ("mmc: sunxi: Add runtime_pm support")
-Cc: stable@vger.kernel.org # v4.18+
-Signed-off-by: Anfernee Cao <anferneemelokc5@gmail.com>
+Signed-off-by: Douglas Anderson <dianders@chromium.org>
 ---
- drivers/mmc/host/sunxi-mmc.c | 24 ++++++++++++++++++------
- 1 file changed, 18 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/mmc/host/sunxi-mmc.c b/drivers/mmc/host/sunxi-mmc.c
-index fe4c0f6d73f3..437fdadb5950 100644
---- a/drivers/mmc/host/sunxi-mmc.c
-+++ b/drivers/mmc/host/sunxi-mmc.c
-@@ -1354,8 +1354,13 @@ static int sunxi_mmc_resource_request(struct sunxi_mmc_host *host,
- 		goto error_disable_mmc;
- 	}
+ scripts/dtc/update-dtc-source.sh | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/scripts/dtc/update-dtc-source.sh b/scripts/dtc/update-dtc-source.sh
+index 94627541533e..f21da460742e 100755
+--- a/scripts/dtc/update-dtc-source.sh
++++ b/scripts/dtc/update-dtc-source.sh
+@@ -38,6 +38,8 @@ LIBFDT_SOURCE="fdt.c fdt.h fdt_addresses.c fdt_empty_tree.c \
+ 		fdt_overlay.c fdt_ro.c fdt_rw.c fdt_strerror.c fdt_sw.c \
+ 		fdt_wip.c libfdt.h libfdt_env.h libfdt_internal.h"
+ FDTOVERLAY_SOURCE=fdtoverlay.c
++FDTGET_SOURCE=fdtget.c
++FDTPUT_SOURCE=fdtput.c
  
--	return devm_request_threaded_irq(&pdev->dev, host->irq, sunxi_mmc_irq,
--			sunxi_mmc_handle_manual_stop, 0, "sunxi-mmc", host);
-+	ret = devm_request_threaded_irq(&pdev->dev, host->irq, sunxi_mmc_irq,
-+					sunxi_mmc_handle_manual_stop, 0,
-+					"sunxi-mmc", host);
-+	if (ret)
-+		goto error_disable_mmc;
-+
-+	return 0;
+ get_last_dtc_version() {
+ 	git log --oneline scripts/dtc/ | grep 'upstream' | head -1 | sed -e 's/^.* \(.*\)/\1/'
+@@ -55,7 +57,7 @@ dtc_log=$(git log --oneline ${last_dtc_ver}..)
  
- error_disable_mmc:
- 	sunxi_mmc_disable(host);
-@@ -1385,9 +1390,11 @@ static int sunxi_mmc_probe(struct platform_device *pdev)
- 
- 	host->sg_cpu = dma_alloc_coherent(&pdev->dev, PAGE_SIZE,
- 					  &host->sg_dma, GFP_KERNEL);
--	if (!host->sg_cpu)
--		return dev_err_probe(&pdev->dev, -ENOMEM,
--				     "Failed to allocate DMA descriptor mem\n");
-+	if (!host->sg_cpu) {
-+		ret = dev_err_probe(&pdev->dev, -ENOMEM,
-+				    "Failed to allocate DMA descriptor mem\n");
-+		goto error_disable_mmc;
-+	}
- 
- 	if (host->cfg->ccu_has_timings_switch) {
- 		/*
-@@ -1467,7 +1474,7 @@ static int sunxi_mmc_probe(struct platform_device *pdev)
- 
- 	ret = mmc_add_host(mmc);
- 	if (ret)
--		goto error_free_dma;
-+		goto error_disable_rpm;
- 
- 	dev_info(&pdev->dev, "initialized, max. request size: %u KB%s\n",
- 		 mmc->max_req_size >> 10,
-@@ -1475,8 +1482,13 @@ static int sunxi_mmc_probe(struct platform_device *pdev)
- 
- 	return 0;
- 
-+error_disable_rpm:
-+	pm_runtime_disable(&pdev->dev);
- error_free_dma:
- 	dma_free_coherent(&pdev->dev, PAGE_SIZE, host->sg_cpu, host->sg_dma);
-+error_disable_mmc:
-+	disable_irq(host->irq);
-+	sunxi_mmc_disable(host);
- 	return ret;
- }
- 
+ # Copy the files into the Linux tree
+ cd $DTC_LINUX_PATH
+-for f in $DTC_SOURCE $FDTOVERLAY_SOURCE; do
++for f in $DTC_SOURCE $FDTOVERLAY_SOURCE $FDTGET_SOURCE $FDTPUT_SOURCE; do
+ 	cp ${DTC_UPSTREAM_PATH}/${f} ${f}
+ 	git add ${f}
+ done
 -- 
-2.54.0.windows.1
+2.56.0.212.g129ede20d9-goog
 
 
