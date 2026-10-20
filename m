@@ -2,104 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA6E7606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 10:33:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAA7A606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 10:39:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1fMvL4m0;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=naU9y/xI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=izg/xNSY;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=RDYqua2h
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iQyv3UXDKrcHPg5SiBMTwmI7JSOMjEBmbwi+E5uk+A8=; b=1fMvL4m07i20q9KTxeXIsEdIes
-	9D6s6DiScJx8GKueEkuv4UuU30C4ZFITRVl5MJLOlRl04GmaEuWVuSSwO9P207Auvt3XFb77VnTFI
-	Rpno9dFiMbSvW3DbpEdsADNzmHg6i4/913c9Qb8PBap/XahCL7VyMfMmv1aakBYZstNMP7EsD7X+r
-	ORmp+FF1nt3XW2GxlsYTwzPZ1yzufVPz8f9Eb167VqnAlFICNnLHcVfbUjAaFWnBHrv+L80E9wuIH
-	u9xjNNhbmiDZNTIh23On6r5YdqU8rLU9sXda5lWtIFtZ5wy2kWBw29yRTBUIpWczWhyuIktmETASt
-	wEzVWSIA==;
+	bh=bw4/okksoRkUbBbA6VAqfuKBL2BrJlcyGwLFcSc0aos=; b=izg/xNSYwngQc/81Z8MB05ZwZY
+	1KDniGbUfu0E/u13CFagQW6zR+OlUNx28UPCNVO9UGxWQWdN+svtzUtRv0HZEHCdfngCGJ6HEDraX
+	60/K/wieYltjlFt4/pPSfl2oR8wsKd3fjlneoOjTnpeAsTsGDtrupMWt5zc3HVIoAH/C8odokwlbK
+	YK21JLm+sf2jortwgIQCBg3tffAFGA4tUZ4QfTdRx/53hNvcEPljGnEFoA+u+BxFp3u0QP1lPEuck
+	agcGOR4JnTkBbn5y0RU7dlKQ1n6K4wltVafnwc48F7BF79ty6/5D+8g2OTrAtp9VFL2cSMkGdt/Gt
+	wkW6/rOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ79n-00000009RRT-0Nd8;
-	Tue, 20 Oct 2026 10:33:23 +0000
-Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
+	id 1xJ7Fh-00000009SE5-40yr;
+	Tue, 20 Oct 2026 10:39:29 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ79k-00000009RQf-06JI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 10:33:21 +0000
-Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-15354aa70e8so198906c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 03:33:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792492399; x=1793097199; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=iQyv3UXDKrcHPg5SiBMTwmI7JSOMjEBmbwi+E5uk+A8=;
-        b=naU9y/xI8r7nXLVKMst2sqlPSxWJMts63nez43KTJ4T3gkDs0W8CC71/Km1lrX8hZX
-         9SlUJAHOgss4HKw8NN0Nc5AYYHmII+9bUEnioBv9ZSWobGRXN1KDvvwMXeTntnOiF4Az
-         aB/qwVR6eEbVe8E94Go+0OGGhKuxljqkQ6Hl39VsWJRk4AiQC2Jan9d76knL5sDpP/Ey
-         7Z8kkGctHOOscbHSlG8m0Ql9l9TjzrvSrPmt5mriy4IGtbr8cy9kWLXr1v5lvKhHfIrp
-         8gj5CcyT3f4ZHKiGwG9xfU53a3QYni/8OTVV4iR4MCTQZPueWgK72Tny66y+EX1w1kPk
-         yzlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792492399; x=1793097199;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iQyv3UXDKrcHPg5SiBMTwmI7JSOMjEBmbwi+E5uk+A8=;
-        b=GIaBnmnNGCj1Ffqb8qSwXkC/BH3rOrBnocfkpRobHdB44Eyy0Sperj6t0/JPtsg9z6
-         vIJWHc2du3PB6JaJ5RcqC/t/sS420QguY1xQndfYc9qb0wZTkfedTFEtzg3gUksJ89U7
-         Fv/PGYRgHYxruLR7WodytBbf0NENZtSiTvegzGMkNqObVR3WDKzbbaOIPNK6v/d6bcz8
-         N0gHstxiVHyA+qzwMfaoLhR/O5rHGKoUKnL2Oy/rUSjADt+Jah4MCnSwsgDVOGLQePGO
-         4o77Lo7UC1UU5gUIyz1G1nreWZOHosBQrBXB9zlIlURJR5f4EYpeopA37jUDO0e2jypS
-         zpoA==
-X-Forwarded-Encrypted: i=1; AKwUvBweiyrF6uZ2iY/nqZYV0hEguYE8cvRji3VjKi5O/aolo4+FopvsfLX9Lxmh6HIIyq6V8pHzBkAmi9ueKDR/f8/6@lists.infradead.org
-X-Gm-Message-State: AFq9FYJS0r30UL0LVoJr8Elz41zWkLXBZ9wZv2ThO0CMa6Mj4Ryk+v6n
-	myYC5kzP1DViYW1x9fFeOWOFrc/lBalWzbBbY6D+wyUNjNSTwSUr/zc6
-X-Gm-Gg: AYBFou0kGZHWpm+mCj/GRgg8Rb1XJZahdxXQoTEO1PCa1u2IUqE8AcHGpfi6dn/eHym
-	Uz5PKuWh/Jjbt4k8n6trELVK2+Ue2i+GXt8o7GUw20G8vNYlOYLI1JYTF3eywemA8xKIF04MeKP
-	U2mtyEkBBUtf0Vz+mK3XuGXR1tXscg+Wvqe3hUAnqERqjrc5BAaD6T3EWTeuLupN1H6hTC9fPOT
-	CzcPuTF0613XXQzG8Qf+eANdHS/4sSSMIzbRtkmVZoHMXhMPv1lWgyoG2H9iCvJ3bZQ22ziz6yV
-	+ACloplPA0C5DR+8xCQFLz5fgxRwdwbxUJpH/5rQzFKfVNeU23I4wfpbnfCeWVG4jRGKTqD2dlR
-	cd6YXL2jhObyDGaGmsorLPUudyvJ7E0sbZ40b6u2mVoP9gq5cLAAfLzg9FFDLEGepCtn/lYZUEs
-	1IMWRwEfMcW4NHDtbnuPG4C3RU1meK8T4hyUbTCi6Giao4YXuy+kRD7BixeLUW+5oqM00vOzBKP
-	LyA
-X-Received: by 2002:a05:7022:1001:b0:14c:be8e:69fe with SMTP id a92af1059eb24-1850c8da80emr20220476c88.5.1792492398134;
-        Tue, 20 Oct 2026 03:33:18 -0700 (PDT)
-Received: from leonardoc-nb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1831c4d4675sm35068908c88.21.2026.10.20.03.33.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 03:33:17 -0700 (PDT)
-Date: Tue, 20 Oct 2026 07:33:10 -0300
-From: Leonardo Costa <leoreis.costa@gmail.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Leonardo Costa <leonardo.costa@toradex.com>
-Subject: Re: [PATCH v2 3/3] ARM: dts: imx6q-apalis: Add VGA overlay
-Message-ID: <lozimedmt3h7v6odvp4svvmatvk7726a4ztn3j7ft44oto7p5p@dmrudrmzyz3s>
-References: <20261019-v2-apalis-imx6-enable-vga-v2-0-ef6a3a780472@toradex.com>
- <20261019-v2-apalis-imx6-enable-vga-v2-3-ef6a3a780472@toradex.com>
- <atZxhWaUWthEHkti@SMW015318>
+	id 1xJ7Ff-00000009SDM-17eh;
+	Tue, 20 Oct 2026 10:39:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=bw4/okksoRkUbBbA6VAqfuKBL2BrJlcyGwLFcSc0aos=; b=RDYqua2hibY5Y9+ULdSMC18aV8
+	sN34brcWE7sKFlJIajiNTpa6rzVPfC8B5hUEzmPws8uoqk4jSoSZdsNJV0SA9pjzHFn/yhGK3jo11
+	z9LxoPi8J5wnoUQNCdUmgGmtGVRl7DG2CZB0pat02Sjf0Egk3hgpvZmdqC1ZRozk7Oyoeaxj8hEli
+	oFTxHPgV1XwIeaCoYaT9QXDNMzD/8pUXIApTlsm/91mFD33wwTFyDvdpgOHEL5lAH8s+u9AKcvF/r
+	KLVJ69QRyWon6hajjUlrPte8dSSSKIIxdoc7msg/g+3lnrLn9f9EaWHdjkRQ3NSBOfpXcfgAVgGTB
+	l3Li1UAA==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Damon Ding <damon.ding@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Jingoo Han <jingoohan1@gmail.com>, Inki Dae <inki.dae@samsung.com>,
+ Seung-Woo Kim <sw0312.kim@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, kernel test robot <lkp@intel.com>
+Cc: oe-kbuild-all@lists.linux.dev,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Damon Ding <damon.ding@rock-chips.com>
+Subject: Re: [PATCH v4 11/14] drm/bridge: analogix_dp: Use bridge->next_bridge instead
+ of plat_data field
+Date: Tue, 20 Oct 2026 12:38:50 +0200
+Message-ID: <3789853.R56niFO833@diego>
+In-Reply-To: <202610201309.w3JSXlP5-lkp@intel.com>
+References: <20261019085836.3065008-12-damon.ding@rock-chips.com>
+ <202610201309.w3JSXlP5-lkp@intel.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <atZxhWaUWthEHkti@SMW015318>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_033320_065556_6C9E42AC 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20261020_033927_326330_94F4DEE4 
+X-CRM114-Status: GOOD (  14.61  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,53 +82,64 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 19, 2026 at 02:37:41PM -0500, Frank Li wrote:
-> On Mon, Oct 19, 2026 at 07:17:16AM -0300, Leonardo Costa wrote:
-> > From: Leonardo Costa <leonardo.costa@toradex.com>
-> >
-> > Add a device tree overlay for the VGA output available on the Apalis
-> > Evaluation Board, which is driven from a parallel RGB interface passing
-> > through a non-programmable video DAC to a VGA connector, without VESA
-> > DDC I2C signals.
-> >
-> > The non-programmable video DAC consists of a simple resistor ladder that
-> > converts the digital 16-bit RGB signal to VGA. The VGA output is gated by
-> > an active-low data-enable signal.
-> >
-> > The overlay is also combined with the various Apalis Evaluation Board
-> > device trees to provide ready-to-use DTBs.
-> >
-> > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
-> > ---
-> >  arch/arm/boot/dts/nxp/imx/Makefile                 | 21 ++++++
-> >  .../boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso    | 80 ++++++++++++++++++++++
-> 
-> what's difference with
-> 
-> https://lore.kernel.org/imx/20261019-colibri-imx6-overlays-v1-5-e4d028727382@toradex.com/T/#u
-> 
-> Is it possible share one dtso also?
-> 
-> Frank
+Am Dienstag, 20. Oktober 2026, 07:36:21 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb kernel test robot:
+> Hi Damon,
+>=20
+> kernel test robot noticed the following build errors:
+>=20
+> [auto build test ERROR on drm-misc/drm-misc-next]
+> [also build test ERROR on drm/drm-next next-20261019]
+> [cannot apply to daeinki-drm-exynos/exynos-drm-next linus/master v7.3]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+>=20
+> url:    https://github.com/intel-lab-lkp/linux/commits/Damon-Ding/drm-bri=
+dge-analogix_dp-Return-bitmask-from-analogix_dp_get_irq_type/20261019-165823
+> base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
+> patch link:    https://lore.kernel.org/r/20261019085836.3065008-12-damon.=
+ding%40rock-chips.com
+> patch subject: [PATCH v4 11/14] drm/bridge: analogix_dp: Use bridge->next=
+_bridge instead of plat_data field
+> config: nios2-randconfig-1000-20261020 (https://download.01.org/0day-ci/a=
+rchive/20261020/202610201309.w3JSXlP5-lkp@intel.com/config)
+> compiler: nios2-linux-gcc (GCC) 11.5.0
+> reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archi=
+ve/20261020/202610201309.w3JSXlP5-lkp@intel.com/reproduce)
+>=20
+> If you fix the issue in a separate patch/commit (i.e. not just a new vers=
+ion of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202610201309.w3JSXlP5-lkp=
+@intel.com/
+>=20
+> All errors (new ones prefixed by >>):
+>=20
+>    nios2-linux-ld: drivers/gpu/drm/bridge/analogix/analogix_dp_core.o: in=
+ function `analogix_dp_aux_done_probing':
+> >> drivers/gpu/drm/bridge/analogix/analogix_dp_core.c:1669:(.text+0xb80):=
+ undefined reference to `devm_drm_of_display_mode_bridge'
+> >> drivers/gpu/drm/bridge/analogix/analogix_dp_core.c:1669:(.text+0xb80):=
+ relocation truncated to fit: R_NIOS2_CALL26 against `devm_drm_of_display_m=
+ode_bridge'
 
-Hi Frank,
+I guess the Rockchip kconfig for the Analogix-DP also needs a
 
-The Apalis iMX6 one needs to set up the connection between the IPU the
-LCD interface (endpoints ipu2_di0_disp0 and vga_display_in), and the
-Colibri iMX6 one uses a DVI connector instead of a VGA one. Most of all,
-the bridge on the Colibri iMX6 doesn't have any control signals, while
-this one on the Apalis iMX6 has an active-low data-enable signal
-specified on the input endpoint. Because of all of these, the overlay
-needs to be different between these modules.
+	select DRM_OF_DISPLAY_MODE_BRIDGE
 
-Best regards,
-Leonardo
+similar to exynos and imx.
+
+
+Heiko
+
+
 
