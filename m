@@ -2,58 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 374A660A260B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 06:46:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AEA7606A335
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 06:46:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QjXrdYf3;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=cjq0HcCT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cuJ/oj+r;
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=T5v6jubQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xZPonB6Lbb0k2OXAWHkAdkEguf5JX+UcZL6exprUdC8=; b=QjXrdYf3Kpr2a434GlDkMmteA3
-	5aHSCDUmAYjbvBqRqClbjWx1CalxyrRefQZW4swh6JMP8RrJmNuv7uOxczObIwJAXDZQRN73OtuID
-	gWG7effw1WTYsYtZgqSqTo1ca9FGgFt/Yu/AVDOxmqArHu3RxaxsGLUYzHT5FU8s8fGNnJZFy14Wt
-	1cWJ6AjZK6izSO2Ll5S1Mpj4MTuKQHzuvTtpK7/OEILGN/WZgNvmNxeXU3cwUB5rJJmU67waDR5pA
-	p9vAGGygZLbSgsSJ4cu+/J3N4xEQ0OO667KZ8rti+bvsNn9HYM6WD4CYjfeWE9xXb7A2dEO1f9bzI
-	sSGikkzQ==;
+	bh=+NP2Sc9QfAH27QKUaoXkjp0qHnyNnKKBhYsb0OsmWbM=; b=cuJ/oj+rBZqhFlpsQSmcGK5iPz
+	C+SiFJvyT7bIDpZuSDHnQrgaShnADSh5fFCDd3Iy5qvCW/wZmwot68wlpCPtp3Vq4wFis5B6Yh6m9
+	MCaOjETDqTFPYfb3D+kdu6k1+mOo63LzxJEK5aC3brRkk/My+LSW0htVIYxotZYfvT7mJ2GHjvbQG
+	pD0j9ykXSKcL0Ch3lHFOMHt/eVITbHAPClYJUb2RxfpKKo4a0F2/2YyUNsriLVa8FqaAcVZg2e9HW
+	NyCCbDb7dQjNvHVjibH/RKQeSJjOb49DFAFMM7Y2UIq7bpyPLbgaWC54NLj5KtYx0tycprKAPGqgU
+	AS6gmWbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ3bW-00000008wyl-3XE4;
-	Tue, 20 Oct 2026 06:45:46 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1xJ3c0-00000008x5t-11IB;
+	Tue, 20 Oct 2026 06:46:16 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ3bS-00000008wxa-3AhZ
+	id 1xJ3bv-00000008x3j-3lYV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 06:45:45 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20261020064539epoutp0112165a8db429fee0c48eab7eacb3febd~gKeq9eg5a1994219942epoutp01z
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 06:45:39 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20261020064539epoutp0112165a8db429fee0c48eab7eacb3febd~gKeq9eg5a1994219942epoutp01z
+	Tue, 20 Oct 2026 06:46:14 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20261020064605epoutp03ddee72d112aef9ebadfbbf394803f0cf~gKfC3eQHR3249432494epoutp03X
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 06:46:05 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20261020064605epoutp03ddee72d112aef9ebadfbbf394803f0cf~gKfC3eQHR3249432494epoutp03X
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1792478739;
-	bh=xZPonB6Lbb0k2OXAWHkAdkEguf5JX+UcZL6exprUdC8=;
+	s=mail20170921; t=1792478765;
+	bh=+NP2Sc9QfAH27QKUaoXkjp0qHnyNnKKBhYsb0OsmWbM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cjq0HcCTa9Xi+H8jMoTGQm++P/N+gaSL1/3Cqfkp5c7fZPKmRTWumnar/iLzSXHx0
-	 7uNubglU28tFEo2rpwDQw3VWBl+t1scm7X4ObCbUsLz8tn7UXTMvnHWrDut5w2mcxk
-	 cw6F45LmdkSbxwyxjaGqI5T+OTbL3aEu0uHJ633M=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20261020064539epcas5p3c476d8c07199488467b05bea9777f99e~gKeqen15S1867518675epcas5p35;
-	Tue, 20 Oct 2026 06:45:39 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.94]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4j82wy2K8yz6B9m9; Tue, 20 Oct
-	2026 06:45:38 +0000 (GMT)
+	b=T5v6jubQGzQRG7yKQZxGlVS2Jt2bKRFkKRmj/cuR0fiW206MlZ0+lU8xkFOAdMvt9
+	 v1gOp2rxL2H72YKeO5BMXh0SEPUgUkfBP5MIumi30rKWb9mMDvat8juCY7GARlt9Wk
+	 gWpuMya/UdySkVdNF1RR6CuZd5qzDq1sod+4DPzA=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20261020064605epcas5p19592347b004bc7738bdaaefeb2acc084~gKfCdk5_b3226632266epcas5p1C;
+	Tue, 20 Oct 2026 06:46:05 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.89]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4j82xS36vyz2SSKq; Tue, 20 Oct
+	2026 06:46:04 +0000 (GMT)
 Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261020063801epcas5p25a6322caaff32c7e4d75c8c66e2909b8~gKYAHHciG1318613186epcas5p2R;
-	Tue, 20 Oct 2026 06:38:01 +0000 (GMT)
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20261020063816epcas5p4e531ac51a34ccd0cc9a5e919fc830882~gKYOCYwVC0054500545epcas5p4G;
+	Tue, 20 Oct 2026 06:38:16 +0000 (GMT)
 Received: from bose.samsungds.net (unknown [107.108.83.9]) by
 	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261020063759epsmtip101a08c475fa3316a9c293e2f933b720b~gKX9xGC3-0369603696epsmtip1E;
-	Tue, 20 Oct 2026 06:37:58 +0000 (GMT)
+	20261020063813epsmtip10952631de719c793aedee8998c965985~gKYLNry0-0259902599epsmtip1W;
+	Tue, 20 Oct 2026 06:38:13 +0000 (GMT)
 From: Raghav Sharma <raghav.s@samsung.com>
 To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
 	peter.griffin@linaro.org, alim.akhtar@samsung.com, sboyd@kernel.org,
@@ -63,28 +63,27 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, is.gandhi@samsung.com, ts.amit@samsung.com,
 	pokala.reddy@samsung.com
-Subject: [PATCH v3 01/14] dt-bindings: soc: samsung: Exynos8855 SYSREG
- compatibles
-Date: Tue, 20 Oct 2026 12:25:45 +0530
-Message-Id: <20261020065558.1829402-2-raghav.s@samsung.com>
+Subject: [PATCH v3 06/14] clk: samsung: clk-pll: Add support for pll_4313
+Date: Tue, 20 Oct 2026 12:25:50 +0530
+Message-Id: <20261020065558.1829402-7-raghav.s@samsung.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261020065558.1829402-1-raghav.s@samsung.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261020063801epcas5p25a6322caaff32c7e4d75c8c66e2909b8
+X-CMS-MailID: 20261020063816epcas5p4e531ac51a34ccd0cc9a5e919fc830882
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: REQ_APPROVE
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-543,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261020063801epcas5p25a6322caaff32c7e4d75c8c66e2909b8
+X-CMS-RootMailID: 20261020063816epcas5p4e531ac51a34ccd0cc9a5e919fc830882
 References: <20261020065558.1829402-1-raghav.s@samsung.com>
-	<CGME20261020063801epcas5p25a6322caaff32c7e4d75c8c66e2909b8@epcas5p2.samsung.com>
+	<CGME20261020063816epcas5p4e531ac51a34ccd0cc9a5e919fc830882@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_234543_735438_A18D9472 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20261019_234612_260524_60DD815D 
+X-CRM114-Status: GOOD (  18.21  )
 X-Spam-Score: -4.7 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,40 +105,58 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Alim Akhtar <alim.akhtar@samsung.com>
 
-Add exynos8855 sysreg compatibles in bindings
+PLLs 4313 are found in the Exynos8855 SoC and it is similar
+to pll_531x except for CON8 offset, so re-using code for
+pll_4313
 
 Signed-off-by: Alim Akhtar <alim.akhtar@samsung.com>
 Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
 ---
- .../bindings/soc/samsung/samsung,exynos-sysreg.yaml       | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/clk/samsung/clk-pll.c | 11 ++++++++++-
+ drivers/clk/samsung/clk-pll.h |  1 +
+ 2 files changed, 11 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
-index fcdb9ffd2644..845e0caba15a 100644
---- a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
-+++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
-@@ -31,6 +31,10 @@ properties:
-               - samsung,exynos5-sysreg
-               - samsung,exynos7870-cam0-sysreg
-               - samsung,exynos7870-disp-sysreg
-+              - samsung,exynos8855-hsi-sysreg
-+              - samsung,exynos8855-peric-sysreg
-+              - samsung,exynos8855-peris-sysreg
-+              - samsung,exynos8855-usb-sysreg
-               - samsung,exynos8895-fsys0-sysreg
-               - samsung,exynos8895-fsys1-sysreg
-               - samsung,exynos8895-peric0-sysreg
-@@ -103,6 +107,10 @@ allOf:
-               - samsung,exynos850-cmgp-sysreg
-               - samsung,exynos850-peri-sysreg
-               - samsung,exynos850-sysreg
-+              - samsung,exynos8855-hsi-sysreg
-+              - samsung,exynos8855-peric-sysreg
-+              - samsung,exynos8855-peris-sysreg
-+              - samsung,exynos8855-usb-sysreg
-               - samsung,exynos8895-fsys0-sysreg
-               - samsung,exynos8895-fsys1-sysreg
-               - samsung,exynos8895-peric0-sysreg
+diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
+index 3d837bd74355..7b0756127306 100644
+--- a/drivers/clk/samsung/clk-pll.c
++++ b/drivers/clk/samsung/clk-pll.c
+@@ -1306,7 +1306,15 @@ static unsigned long samsung_pll531x_recalc_rate(struct clk_hw *hw,
+ 	u64 mdiv, fout = parent_rate;
+ 
+ 	pll_con0 = readl_relaxed(pll->con_reg);
+-	pll_con8 = readl_relaxed(pll->con_reg + 20);
++	if (pll->type == pll_4313) {
++		/* Offset for PLL_CON8 which hold FDIV different for PLL_4313
++		 * which is PLL_LOCKTIME_OFFSET - 0x4
++		 */
++		pll_con8 = readl_relaxed(pll->lock_reg - 4);
++	} else {
++		pll_con8 = readl_relaxed(pll->con_reg + 20);
++	}
++
+ 	mdiv = (pll_con0 >> PLL531X_MDIV_SHIFT) & PLL531X_MDIV_MASK;
+ 	pdiv = (pll_con0 >> PLL531X_PDIV_SHIFT) & PLL531X_PDIV_MASK;
+ 	sdiv = (pll_con0 >> PLL531X_SDIV_SHIFT) & PLL531X_SDIV_MASK;
+@@ -1729,6 +1737,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 	case pll_309:
+ 	case pll_531x:
+ 	case pll_4311:
++	case pll_4313:
+ 		init.ops = &samsung_pll531x_clk_ops;
+ 		break;
+ 	case pll_1031x:
+diff --git a/drivers/clk/samsung/clk-pll.h b/drivers/clk/samsung/clk-pll.h
+index 2457cf47c109..4825e1f5b9db 100644
+--- a/drivers/clk/samsung/clk-pll.h
++++ b/drivers/clk/samsung/clk-pll.h
+@@ -49,6 +49,7 @@ enum samsung_pll_type {
+ 	pll_0718x,
+ 	pll_0732x,
+ 	pll_4311,
++	pll_4313,
+ 	pll_1017x,
+ 	pll_1031x,
+ 	pll_a9fracm,
 -- 
 2.34.1
 
