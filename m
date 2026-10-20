@@ -2,49 +2,49 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F6B760A3830
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA9B560A382B
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 11:58:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mS3rZaAm;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d06FRsxT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=d8sDSye8;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cnUcpCPj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vpSCBqmNjvCfEzI72/33mULq5zVEPuCqZqDGgmalYOY=; b=mS3rZaAmfw4O6RxlUitTurYGFj
-	BNIjLfCJ/5Ij2yRTB9Co3DRT+U30c1BRUHMI84cFWRvV7wZPfXCLqb9/ad7dkG/E+pPQG2F4Nj8y2
-	8XSnLGXAySTk+Emc8NWxvWyuf2GhRQWHe3AqFJjxM57Lf6xx1jJmTbWd99rWYUKzoh5jl1QWkPjxt
-	cVeJpkq+kTWPaBUtMtu5KIkJQItOnxiLGmH3QTdT7o2MnuiuHIIKH56IZEZXTuDcU0EVcQAe3p/ji
-	0kRcHZgRNMv6Zk7LB1SG88pibAdhfqtAqowROYNgIyYV2fdS58mIxZEl75cyahtdP2MXOYpH01jnn
-	JKliBnrQ==;
+	bh=syc3GYQ5HvVy0QHYkXhBl6da7phjefuxw0j+dRWKLBw=; b=d8sDSye8AwjtvPxnJO0ZR5BKsO
+	PMHS5SDNJVfRa2hW9yZ4YpcVLv9phuZTlfx2+yS9WJgUIeLavux0ZHMzU+rxbI06PgBq8JhcfjRXD
+	rO2Zsctp4oNz61hYhxvdlJt2xHoQJnIFgqoTmApBUzWinApVGMK8lx/uX261mVm50ukZikfo12p8o
+	pN1JC5zANOljZzr68TVCo1OiT+EIVTzcddWBa1AJLgFUXx8sRMuOysTOijx8PX6cHRhMSFNaElllt
+	LRon2zp0mOnL1sa4pK1bLdt3N1UolrdVdXB8IBX6Nt93XLCAeg8Ue/p7iGlZ2cMEOLrw0s7DqtM9M
+	6TJYxn8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8U2-00000009bfC-0Bfg;
-	Tue, 20 Oct 2026 11:58:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJ8U1-00000009bef-39uG;
+	Tue, 20 Oct 2026 11:58:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8U0-00000009bdb-3jTJ
+	id 1xJ8Tz-00000009bcx-02Sq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 11:58:20 +0000
+	Tue, 20 Oct 2026 11:58:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9552C4165C;
-	Tue, 20 Oct 2026 11:58:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C75A1F000D0;
-	Tue, 20 Oct 2026 11:58:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BFF7140783;
+	Tue, 20 Oct 2026 11:58:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5674E1F000C5;
+	Tue, 20 Oct 2026 11:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792497500;
-	bh=vpSCBqmNjvCfEzI72/33mULq5zVEPuCqZqDGgmalYOY=;
+	s=k20260515; t=1792497498;
+	bh=syc3GYQ5HvVy0QHYkXhBl6da7phjefuxw0j+dRWKLBw=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=d06FRsxTYwJ+qu0tcjaH6OWzrK5d7sFyMXIiFtk7iRrBnhNYxn41KXbuDQ8qFLX1P
-	 NwK+M3H9oKgi3VJF+1Kylh6XAcsYBb4Rg/xw+8/ScH6NHorpyiQFiTOoNozPo4u8oW
-	 FOvuvp6DcMoEXP2UXJ1zdgSRnIxnFnrV96rRH+kEY81w1PW4c8t9GSqmxXQiQDqrhG
-	 nUgbMc6NFgxu2d61LqK0Cg6KRJaVfV7hvwWXvIIFUKIXDW7C9f8xvAkxUS0Z7oULU0
-	 rmHHVUDPA9BeARbYd3BOhzyc7F4y09rj5XLwYjQfUGLPyMaeJybdrFmODVpM1bUA0t
-	 qGDxNfw5Izzgw==
-Subject: Re: [PATCH net-next v3 5/8] net: xilinx: tsn: bring up the endpoint
- MCDMA channels
+	b=cnUcpCPj39aSwUbTJl2ImdBjxR7PcPSlyyhK2fmIidXWub5mBTFxmVd9heKYG4QTJ
+	 nkmZeZhbiLSpXv2u66P9YRvX8U0pCQxqjnthY+cgsEIPop88eiO92TTlmxSPT/w8wJ
+	 UsKOMxfBGs9+VTWHu0qaHvqmS6ZtZRjf3iKc5kfvwf5K/wIQoFBqG6aj9vF/zj8SEY
+	 NghsPBP0ICykBe0HZ51DRfl5en/V+3+v0jKbcqTw4PJZ/w4xKLib3oupdOnJfEFqZ9
+	 oz8V7/5Hn+jhooaS9MLh9YZxtQeDob0VLJEuyO0/nkhfK9pGInGgOCF7ImO4Dq3JKH
+	 puZkQgbj/2cuA==
+Subject: Re: [PATCH net-next v3 4/8] net: xilinx: tsn: parse endpoint DMA
+ channel configuration
 From: netdev-bot+sashiko@kernel.org
 To: srinivas.neeli@amd.com
 Cc: nagadheeraj.rottela@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -54,10 +54,10 @@ Cc: nagadheeraj.rottela@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  edumazet@kernel.org, netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rt-devel@lists.linux.dev, neelisrinivas18@gmail.com, git@amd.com
-Date: Tue, 20 Oct 2026 11:58:18 +0000
-Message-ID: <179249749885.3135.15584191069467566874@kernel.org>
-In-Reply-To: <20261016-patches_v2_external-v3-5-e33d3960ca1e@amd.com>
-References: <20261016-patches_v2_external-v3-5-e33d3960ca1e@amd.com>
+Date: Tue, 20 Oct 2026 11:58:16 +0000
+Message-ID: <179249749685.3135.16300213883821767663@kernel.org>
+In-Reply-To: <20261016-patches_v2_external-v3-4-e33d3960ca1e@amd.com>
+References: <20261016-patches_v2_external-v3-4-e33d3960ca1e@amd.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -80,10 +80,10 @@ X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -91,157 +91,112 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] ep_reset_dma_controller() resets the whole MCDMA core at probe
-  through one channel handle, but the driver does not own every channel…
-- [Low] In drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c, the kernel-
-  doc for struct skbuf_dma_descriptor calls @dma_address the "physical…
+- [Medium] The driver enforces DT rules that the in-tree binding
+  (Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-…
 
 --
 
-net: xilinx: tsn: bring up the endpoint MCDMA channels
+net: xilinx: tsn: parse endpoint DMA channel configuration
 
-At probe, this patch requests every TX and RX MCDMA channel named in the
-device tree and holds them until remove. It also resets the MCDMA
-controller once, through the first TX channel. Each channel gets a ring of
-preallocated SKB descriptor slots in ndo_open, and the rings are torn down
-in ndo_stop.
+This commit counts the TX and RX MCDMA channels listed in dma-names and
+allocates the conduit netdev with that many queues. It also parses the
+tx-queues-config child node to map each logical TX queue to a tx_chanN
+entry. Probe fails if the mapping is not one-to-one, or if the TX
+channel count differs from xlnx,num-priorities.
 
 > diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
-> index 2adee07f6f51c..ab3d6d8cb9440 100644
+> index 609d444c68356..2adee07f6f51c 100644
 > --- a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
 > +++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
 
 [ ... ]
 
-> @@ -30,6 +35,47 @@
->  #define TSN_MAX_VLAN_FRAME_SIZE		(ETH_DATA_LEN + VLAN_ETH_HLEN + \
->  					 ETH_FCS_LEN)
->  
-> +#define TX_BD_NUM_DEFAULT		64
-> +#define RX_BD_NUM_DEFAULT		128
-> +
-> +/**
-> + * struct skbuf_dma_descriptor - skb container for each in-flight DMA descriptor
-> + * @sgl: scatter-gather list backing the DMA mapping
-> + * @desc: dmaengine descriptor handle
-> + * @dma_address: physical address of the first sgl entry (RX path)
-
-[Severity: Low]
-
-This isn't a bug, but is "physical address" the right description for
-@dma_address?
-
-The field is a dma_addr_t. ep_free_dma_chan() passes it to
-dma_unmap_single() as a mapping handle, and in the RX data path patch
-ep_rx_submit_desc() fills it from sg_dma_address() after dma_map_single().
-If an IOMMU sits in front of the MCDMA, the value is an IOVA, not a CPU
-physical address.
-
-The same wording is still there at the end of the series. Would something
-like "DMA address of the first sgl entry" be more accurate?
-
-> + * @skb: SKB owning the buffer
-> + * @sg_len: number of valid entries in @sgl (TX path)
-> + */
+>  static int xlnx_tsn_ep_probe(struct platform_device *pdev)
+>  {
 
 [ ... ]
 
-> +static int ep_reset_dma_controller(struct xlnx_tsn_ep *ep)
-> +{
-> +	struct xilinx_vdma_config cfg = { .reset = 1 };
-> +	int ret;
+> +	ip_np = of_get_parent(dev->of_node);
+> +	if (!ip_np)
+> +		return dev_err_probe(dev, -EINVAL, "missing parent IP node\n");
 > +
-> +	ret = xilinx_vdma_channel_set_config(ep->tx_dma[0], &cfg);
+> +	ret = of_property_read_u32(ip_np, "xlnx,num-priorities", &num_prio);
+> +	of_node_put(ip_np);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "missing xlnx,num-priorities\n");
+> +
+> +	if (num_tx_dma_channels != num_prio)
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "TX channel count %u must equal num-priorities %u\n",
+> +				     num_tx_dma_channels, num_prio);
 
 [Severity: Medium]
+Do these rules match what the binding in
+Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+allows?
 
-Can this reset stall channels on the same MCDMA instance that belong to
-another dmaengine client?
+Here xlnx_tsn_ep_probe() requires the number of tx_chanN entries in
+dma-names to equal xlnx,num-priorities. ep_parse_tx_queue_config() adds
+three more rules:
 
-The commit message says:
-
-  "An MCDMA soft reset resets the whole core, so any channel of the
-  instance reaches it."
-
-For MCDMA, every MM2S channel uses ctrl_offset 0, which is the common
-control register. The call chain is:
-
-xlnx_tsn_ep_probe()
-  ep_reset_dma_controller()
-    xilinx_vdma_channel_set_config()
-      xilinx_dma_chan_reset()
-        xilinx_dma_reset()
-
-drivers/dma/xilinx/xilinx_dma.c:xilinx_dma_reset() {
-	dma_ctrl_set(chan, XILINX_DMA_REG_DMACR, XILINX_DMA_DMACR_RESET);
+	if (!str_has_prefix(qnode->name, "queue") ||
+	    kstrtou32(qnode->name + strlen("queue"), 10, &queue) ||
+	    queue >= ep->num_tx_queues)
 	...
-	chan->err = false;
-	chan->idle = true;
-	chan->desc_pendingcount = 0;
-	chan->desc_submitcount = 0;
+	if (test_and_set_bit(chan, chan_seen))
 	...
-}
+	if (count != ep->num_tx_queues)
 
-The hardware reset hits the whole core, but software state is only reset
-for tx_dma[0].
+The binding only has:
 
-The endpoint only requests the tx_chanN/rx_chanN entries in its own
-dma-names. Nothing in the binding or the driver stops the other channels of
-the instance from going to another consumer. Suppose one of those channels
-is mid-transfer when the endpoint probes, for example after a probe
-deferral or a module load. It is still marked idle == false and has
-descriptors on active_list. Its next submit then goes through:
+	dma-names:
+	  items:
+	    pattern: "^(tx|rx)_chan[0-7]$"
+	  allOf:
+	    - contains:
+	        pattern: "^tx_chan[0-7]$"
+	    - contains:
+	        pattern: "^rx_chan[0-7]$"
 
-drivers/dma/xilinx/xilinx_dma.c:xilinx_mcdma_start_transfer() {
-	...
-	if (chan->has_sg && list_empty(&chan->active_list))
-		xilinx_write(chan, XILINX_MCDMA_CHAN_CDESC_OFFSET(chan->tdest),
-			     head_desc->async_tx.phys);
-	...
-	if (chan->idle)
-		xilinx_dma_start(chan);
-	...
-}
+	tx-queues-config:
+	  patternProperties:
+	    "^queue[0-7]$":
 
-CDESC is not reprogrammed and xilinx_dma_start() is skipped. Doesn't that
-leave the engine halted, with no error reported to that client?
+The allOf blocks at the end of the binding only require queue0 through
+queue(num-priorities - 1). The binding does not tie the tx_chanN count to
+xlnx,num-priorities. It does not forbid queueN nodes at or above
+num-priorities, and it does not require each queue to use a distinct
+channel.
 
-I could not confirm that shared MCDMA designs exist in practice. The
-binding example gives the whole instance to the endpoint.
+Its description reads as a general mapping:
 
-Is the reset needed at all? The provider already resets each channel in
-xilinx_dma_chan_probe(). The MCDMA path of
-xilinx_dma_alloc_chan_resources() only allocates BD memory and does not
-program the hardware. So the endpoint's own channels look clean already,
-and the only visible effect of this reset is on channels the endpoint does
-not own.
+	For example, queue0 with xlnx,dma-channel-num set to 5 means
+	priority queue 0 uses tx_chan5 for data transfer.
 
-Calling dmaengine_terminate_sync() from ep_free_dma_chan() on ndo_stop also
-resets the whole core, through the provider's xilinx_dma_terminate_all().
-Any MCDMA client that terminates a channel causes this, so that part comes
-from the provider and not from this patch.
+So some device trees pass schema validation but would make probe fail
+with -EINVAL. For example:
 
-> +	if (ret < 0)
-> +		return dev_err_probe(ep->dev, ret,
-> +				     "failed to reset DMA controller\n");
-> +
-> +	return 0;
-> +}
+  - xlnx,num-priorities = <4> with all eight tx_chanN entries listed and
+    queue0..queue3 mapped to channels 4..7
+  - xlnx,num-priorities = <2> with queue0, queue1 and queue2 nodes
+  - xlnx,num-priorities = <2> with two tx channels and both queues
+    mapped to channel 0
 
-[ ... ]
+The binding also sets minimum: 2 for xlnx,num-priorities, and the driver
+does not check that.
 
-> @@ -286,9 +587,17 @@ static int xlnx_tsn_ep_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto err_free_ndev;
+Later patches in the series do not change the binding, so the mismatch
+is still there at the end of the series.
+
+Should the binding describe and enforce the one-to-one queue/channel rule
+and the num-priorities rule? Or should the driver accept the general
+mapping that the binding describes?
+
 >  
-> +	ret = ep_request_dma_chans(ep, rx_dma_chan_map);
-> +	if (ret)
-> +		goto err_free_ndev;
-> +
-> +	ret = ep_reset_dma_controller(ep);
-> +	if (ret)
-> +		goto err_release_chans;
-> +
+> -	ndev = alloc_netdev(sizeof(*ep), "eth%d", NET_NAME_UNKNOWN, ether_setup);
+> +	ndev = alloc_netdev_mqs(sizeof(*ep), "eth%d", NET_NAME_UNKNOWN,
+> +				ether_setup, num_tx_dma_channels,
+> +				num_rx_dma_channels);
 
 [ ... ]
 
