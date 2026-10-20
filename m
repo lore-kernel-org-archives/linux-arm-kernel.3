@@ -2,98 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB857606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 12:13:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA404606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 12:14:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ncqI0ezQ;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=Bf/R7kBx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=W3Vp42yC;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EVOMiTJs
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wLIq/j6Lu+uP0L9kgDFB3USz+FZ01OLIPPeNche/6JE=; b=ncqI0ezQh92v/CnWC8VFJHuZB5
-	Zypcwc6SJcu5biXsuJUi3cZ0eyWqr4gpszOmvJe8qmekQaUcsC68txbeUpqIN3/tZC7HXSoTcpW6H
-	FdSCRgT49ENflN55IojEa0pwlyq+TUqyIiXlZBMQHVXVRly2R8MygQogRDKxOI62gQlC+cQpBSMe4
-	T6AMnfArnWpzv6gv20zv94qswm+X62mmVKICgnE2Sp1tF1ckuo1mlT7SnMZ6up7aJRSRTsmw8PRfL
-	RU5BGPsFoPdhVtDn5N16/0yMzI7D5p0IpVsC3Ph63Gy/XstsImGm4mN/ljSlLwa/g0TNqGGYxRoac
-	HhLCaXHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dKWmJgLEWxzvGFYBH7caDkZqJJLLMNe4m0yrs2VTkfw=; b=W3Vp42yCIJ6RA3mLuEjUkHgykw
+	WdBWGLiKWDtwpeXIoYBwhrRXx9I1KV5jHyx6L59vUEY5aw80Dzu8iSE4t0PIl8TfflqYYYMprIrEW
+	alScCgS81mos6wZ7YR/gbzmZSUsfh5JI6wO9Yo/OrY4x5pttXakCHD6xgBg/owQunFZR3d8NZyU05
+	UXw/RKMbfnZoAxUTNkeUhupsoplcr8aazwKIvLjqkx6AMKa/UOfxOs2eDk74eRKA9OwIUjhsr+Gxn
+	aq+EWOoPgCgEtEoUHiWYRoIEzwjGcl7q2JDJGiFSIDutB0nuNZ6RE5yAdjcckM0DiLaFSYGjrkDYf
+	hHhzI5pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8iv-00000009dsz-2qXW;
-	Tue, 20 Oct 2026 12:13:45 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1xJ8jK-00000009dxJ-3PvR;
+	Tue, 20 Oct 2026 12:14:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8iq-00000009dsB-2jzt
+	id 1xJ8jJ-00000009dwv-27PP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 12:13:43 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20261020121334epoutp044d84ace34fa34190ec0d2a3fbbf39e96~gO8_PG3Sg3217432174epoutp04l
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 12:13:34 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20261020121334epoutp044d84ace34fa34190ec0d2a3fbbf39e96~gO8_PG3Sg3217432174epoutp04l
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1792498414;
-	bh=wLIq/j6Lu+uP0L9kgDFB3USz+FZ01OLIPPeNche/6JE=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=Bf/R7kBxjDk8d/h6NQwIAjLmX7PAZ7nYeCiYMZmMpcbC/xL2bw2FMUasCh1AY0PLl
-	 0P23ybo/aJqvMh6n20cbXDr7ZD2tVvrACU1CSHQVWRn1qDjX6RAVXpsBfma1uOamYk
-	 /cOF2bLor7U6Rm0n4pDaCPqGOvL3mJGM4rSJcC4w=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20261020121333epcas5p1cefd2208a1ba69c3eadff2affe837be0~gO89WhIbt0386603866epcas5p1J;
-	Tue, 20 Oct 2026 12:13:33 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.88]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4j8BCJ30DRz3hhT4; Tue, 20 Oct
-	2026 12:13:32 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261020121331epcas5p145a58f26f6c55972c547caed56823b9e~gO87OXQvS2930829308epcas5p1r;
-	Tue, 20 Oct 2026 12:13:31 +0000 (GMT)
-Received: from [107.122.5.126] (unknown [107.122.5.126]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261020121328epsmtip284d74fcc662d998520715b4f4c9248ca~gO84dUVRu1265412654epsmtip24;
-	Tue, 20 Oct 2026 12:13:28 +0000 (GMT)
-Message-ID: <2afcbcc4-476a-4350-abc5-cd3b98c185f4@samsung.com>
-Date: Tue, 20 Oct 2026 17:43:26 +0530
+	Tue, 20 Oct 2026 12:14:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8987360A65;
+	Tue, 20 Oct 2026 12:14:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E46CD1F000C9;
+	Tue, 20 Oct 2026 12:14:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792498448;
+	bh=dKWmJgLEWxzvGFYBH7caDkZqJJLLMNe4m0yrs2VTkfw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EVOMiTJsZ+bQ2IrY4bPM+M+hVd2hhFQQ9aVfFMY0JgfnRA2l29X+k+VIf+MGSOuKu
+	 27oIPN65A5V42ZMY+dH6zH0ezrpezSTg/l37aPFH9ChezKOmfSnhaFSKj1156XdpbY
+	 TyXC8/cYJqvdoYVP/+/QQNWOegZMbPzj/SOIU8fQG5bsNZMMwVQB/0xkPVUno3ZGrT
+	 gDUEwXNAZFfmwbq3W+RP3x2b36GOO/2cwJkbwis7WsA9ToGDsIVXfGGxZPVCDjFbEi
+	 NlyV+/Ipn9tQLVj/6zT5HUfdC3716FdDdKNvZsQtBjAiWn8z6HiaJ8/aOtoMVxIrnx
+	 3xOyC5lQnZmOQ==
+Date: Tue, 20 Oct 2026 13:14:01 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Steven Price <steven.price@arm.com>, 
+	Yang Shi <yang@os.amperecomputing.com>, David Hildenbrand <david@kernel.org>, 
+	Fuad Tabba <tabba@google.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] KVM: arm64: Sanitise MTE tags when a permission
+ fault installs a mapping
+Message-ID: <atdXdtXXTH-6DWVt@gremlin>
+References: <20261019132103.3836646-1-fuad.tabba@linux.dev>
+ <20261019132103.3836646-4-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dt-bindings: usb: Introduce samsung,snps-dwc3
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: peter.griffin@linaro.org, alim.akhtar@samsung.com,
-	gregkh@linuxfoundation.org, robh@kernel.org, conor+dt@kernel.org,
-	Thinh.Nguyen@synopsys.com, mani@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, jh0801.jung@samsung.com, h10.kim@samsung.com,
-	dh10.jung@samsung.com, akash.m5@samsung.com, hongpooh.kim@samsung.com,
-	eomji.oh@samsung.com, shijie.cai@samsung.com, muhammed.ali@samsung.com,
-	thiagu.r@samsung.com
-Content-Language: en-US
-From: Selvarasu Ganesan <selvarasu.g@samsung.com>
-In-Reply-To: <2fd0111b-8dc9-40e5-b705-d9f3d5265035@kernel.org>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261020121331epcas5p145a58f26f6c55972c547caed56823b9e
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260916122354epcas5p401fd6470d6cef75951af732b03aa5970
-References: <20260916122229.2604003-1-selvarasu.g@samsung.com>
-	<CGME20260916122354epcas5p401fd6470d6cef75951af732b03aa5970@epcas5p4.samsung.com>
-	<20260916122229.2604003-3-selvarasu.g@samsung.com>
-	<20260918-burgundy-marmoset-of-focus-c9b9a7@quoll>
-	<fef2b2f5-3838-4eec-8118-d41f9ca0ed2f@samsung.com>
-	<7fbcf497-a166-45d6-844d-faaece6f581c@kernel.org>
-	<ad11251d-6632-498d-95f6-04a7c6dade72@samsung.com>
-	<6643fece-aa39-42e6-8cd6-5264f15e12ff@samsung.com>
-	<2fd0111b-8dc9-40e5-b705-d9f3d5265035@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_051341_329882_FF084792 
-X-CRM114-Status: GOOD (  24.07  )
-X-Spam-Score: -4.7 (----)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261019132103.3836646-4-fuad.tabba@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,111 +74,110 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On Mon, Oct 19, 2026 at 02:21:03PM +0100, Fuad Tabba wrote:
+> The stage-2 fault path sanitises MTE tags only on translation faults, as
+> a permission fault normally just relaxes an existing leaf. However, when
+> the page is backed by a THP, a permission fault at page granule installs
+> a block whose other pages may never have been mapped or sanitised. Once
+> dirty logging is off, a guest write to a page mapped read-only during
+> logging installs the block, and the guest can read the tags those pages'
+> previous owners left.
+>
+> Sanitise whenever the fault path calls kvm_pgtable_stage2_map() rather
+> than relaxing permissions. If the VMM replaces the VMA after the guest
+> takes a permission fault but before vma_lookup(), that path would map
+> and sanitise memory from the new VMA without checking it. Run the
+> VM_MTE_ALLOWED check in kvm_s2_fault_compute_prot() on permission
+> faults too.
+>
+> Fixes: ea7fc1bb1cd1b ("KVM: arm64: Introduce MTE VM feature")
 
-On 10/20/2026 5:02 PM, Krzysztof Kozlowski wrote:
-> On 20/10/2026 10:02, Selvarasu Ganesan wrote:
->>>>>>> +properties:
->>>>>>> +  compatible:
->>>>>>> +    items:
->>>>>>> +      - enum:
->>>>>>> +          - samsung,exynos8855-dwc3
->>>>>>> +      - const: samsung,snps-dwc3
->>>>>> And this fallback is not really accurate. Samsung does not have snps
->>>>>> device, because snps is a vendor. Anyway, generic fallbacks should go
->>>>>> away, drop, so you are left with samsung,exynos8855-dwc3 only.
->>>>> Hi Krzysztof,
->>>>>
->>>>> Thanks for your review comments.
->>>>> And We apologize for our repeated below explanation, but we wanted to
->>>>> ensure our intentions were clear for each point to avoid any
->>>>> misunderstanding.
->>>>>
->>>>> The original intent of the generic fallback was to support existing
->>>>> Exynos dwc3 bindings from a parent/child representation from
->>>> How does it support existing bindings? I don't understand. There is no
->>>> such fallback in existing bindings.
->>>
->>> Sorry for the misunderstanding, Yes there is no such a fallback in
->>> existing bindings.
->>>
->>> Our intention was to use new proposed generic fallback compatible
->>> string that will support USB dwc3 flatted node for all Samsung soc
->>> when those are migrated in the future without adding SoC specific
->>> compatible string in driver.
->>>
->>> Agreed, Here using generic fallback name (samsung,snps-dwc3 as a
->>> reference of qcom,snps-dwc3) is incorrect as snps is vendor not a device.
->>>
->>> As per DTS101 slide , Now we clear that the future Exynos SoCs could
->>> use  samsung,exynos8855-dwc3 as a fallback when they are compatible
->>> with the Exynos8855 hardware definition, rather than introducing a
->>> generic samsung,snps-dwc3 fallback. The dedicated compatible would
->>> still describe any SoC specific differences, such as clocks.
->>>
->>> And Understood that we were mixing the current Exynos8855 binding with
->>> the longer term migration plan for the existing Exynos SoCs and future
->>> SoCs.
->>>
->>> We will drop the generic fallback and use SoC specific compatible
->>> samsung,exynos8855-dwc3 (vendor,device), following
->>> samsung,exynos-dwc3.yaml as the reference.
->>>
->>> Regarding the binding filename, if the flattened representation is
->>> expected to support multiple Exynos SoCs where there is only
->>> differences in clock in the future, similar to how
->>> samsung,exynos-dwc3.yaml covers multiple SoCs with the legacy (parent
->>> and child) node representation, should we use a common binding
->>> filename for the flattened representation instead of a SoC specific
->>> name like samsung,exynos8855-dwc3.yaml.
->>> For example,
->>>      samsung,exynos-dwc3-flattened.yaml.
->>
->> HI Krzysztof,
->>
->> I am writing to kindly follow up on my previous inquiry regarding the
->> binding filename for the flattened representation.
-> I started to ignore overly long answers, because to me that means
-> contributor expects me to devote a lot of time to their contribution. Or
-> second option: LLM proxy. There is even a trend where people paste
-> prompts or LLM-chat-confirmation-like answers. I often do not correct
-> even such cases, just put the ignore list.
+Yikes! It goes quite far back :)
 
-Hi Krzysztof,
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Thank you for the feedback. And i apologize for the long answers.
+Nits below, but with those addressed LGTM and:
 
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
+> ---
+>  arch/arm64/kvm/mmu.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 48a08b608ea72..208fcae80f67f 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -2005,7 +2005,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+>  	if (s2fd->nested)
+>  		*prot = adjust_nested_exec_perms(kvm, s2fd->nested, *prot);
+>
+> -	if (!kvm_s2_fault_is_perm(s2fd) && !s2vi->map_non_cacheable && kvm_has_mte(kvm)) {
+> +	if (!s2vi->map_non_cacheable && kvm_has_mte(kvm)) {
+
+OK so doing this check on permission faults too.
+
+>  		/* Check the VMM hasn't introduced a new disallowed VMA */
+>  		if (!s2vi->mte_allowed)
+>  			return -EFAULT;
+> @@ -2060,7 +2060,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+>  		}
+>  	}
+>
+> -	if (!perm_fault_granule && !s2vi->map_non_cacheable && kvm_has_mte(kvm))
+> +	if (mapping_size != perm_fault_granule && !s2vi->map_non_cacheable && kvm_has_mte(kvm))
+
+So 'translation fault or permission fault if this will install a mapping' rather
+than 'translation fault' alone right?
+
+Just after this code you have:
+
+	if (mapping_size == perm_fault_granule) {
+		...
+	} else {
+		...
+	}
+
+So you could put
+
+		if (!s2vi->map_non_cacheable && kvm_has_mte(kvm))
+			sanitise_mte_tags(kvm, pfn, mapping_size);
+
+In the else branch? Seems neater and clearer.
+
+Also I wonder if the !s2vi->map_non_cacheable && kvm_has_mte(kvm) check could be
+abstracted?
+
+E.g.:
+
+static bool is_mte_fault(const struct kvm *kvm,
+		         const struct kvm_s2_fault_vma_info *s2vi)
+{
+	return !s2vi->map_non_cacheable && kvm_has_mte(kvm);
+}
+
+Then could be:
+
+	if (is_mte_fault(kvm, s2vi))
+		sanitise_mte_tags(kvm, pfn, mapping_size);
+
+>  		sanitise_mte_tags(kvm, pfn, mapping_size);
+>
+>  	/*
+> --
+> 2.47.3
 >
 >
->> To recap, I would like to know if we should use a common binding
->> filename, such as samsung,exynos-dwc3-flattened.yaml, instead of SoC
->> specific names (e.g., samsung,exynos8855-dwc3.yaml). This would be
->> consistent with how samsung,exynos-dwc3.yaml covers multiple SoCs in the
->> legacy representation, especially if we expect to support multiple
->> Exynos SoCs with only clock differences in the future.
->>
->> I would appreciate your guidance or suggestions on the preferred naming
->> convention for this implementation.
-> Please use the naming expressed in on of the rules for writing bindings,
-> so one matching the compatible or fallback compatible.
 
-
-Understood, I will follow the binding rules and use a filename that 
-matches the compatible (e.g., compatible: samsung,exynos8855-dwc3, and 
-the file name will be: samsung,exynos8855-dwc3.yaml for this new SoC)
-
-
-Thanks,
-Selva
->
->
-> Best regards,
-> Krzysztof
+--
+Cheers, Lorenzo
 
