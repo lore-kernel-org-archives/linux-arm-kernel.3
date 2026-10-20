@@ -2,77 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BB31606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 19:00:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BC05606A32D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 19:03:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=n4X22o7X;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nFmWSkIZ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nEFiB4to
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=doFwaVtFpS6sC4IuXaKfGyTb696NhEj7zirNI3zBSPk=; b=n4X22o7XOXCMk6dpEZ8Nr8mMAh
-	cayfBDePqSxe9VFcs9//Da8+jtcqRRXD929K+PwiB4Wm6f66KamSX3c1ROsA1AMxku2+JFEqmTFCb
-	w6elGGIuE/oHdDB/u4FbqS1OsW1oUZGHL5h/0oz4hj58qtPbA2yxQTVvBNwMpnwoe67HWwvT0nMgU
-	zr60VZSECGcHprheRO2dJr/QwaJCZh8lbmymI0xyfmDj+lkYecLfJVPB9CoxQbdH1nfWbO8QmHtxT
-	ENv81ccMiHiP3BLd9kXz+wqfUrovP1SJd0HBsBLy/rUscrr7U1bNmFYJw33SKOLwv2kt9x7VOMnLH
-	i5D1JydQ==;
+	bh=XW2XawDSDFkTSk897IfBcZxxEG8qyMFEO8Acjxpagfo=; b=nEFiB4toYdto34/JW01egHReaI
+	PehwIsvZLkYBnCqdjLdShdKqoUbUrBKazNOSL7TXWc27XftyNbh3NGmS289pRsLh3V5iEg1r4X8FM
+	pCb6dnAucvuJStSC8whv/H5eGII+VLV3myh0b3ZgafSdiN09hCvftAaoO8RK9iZfToy8/aoJFmwHQ
+	f2d4zwmSki2qaiwpKLZl+6cxWADVonZaI80eJp1mdecGHQlrIq97Zv2H7JV8o1eG5ldN8+8TYGHrb
+	R4VMFtMx15ZA61b7iOkEwaW031knHGAGRHoYmENf7eLhCPi7Er3xrlDNv4GApVrE5k0Z0S9zFBUya
+	JvfHuMyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJF4Z-0000000AUyD-0t6E;
-	Tue, 20 Oct 2026 19:00:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xJF7Q-0000000AVKM-2rzm;
+	Tue, 20 Oct 2026 19:03:28 +0000
+Received: from mail-wr1-f53.google.com ([209.85.221.53])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJF4R-0000000AUv8-2r7U
+	id 1xJF7N-0000000AVJl-40FE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 19:00:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9BC7E60D86;
-	Tue, 20 Oct 2026 19:00:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46E321F000C9;
-	Tue, 20 Oct 2026 19:00:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792522822;
-	bh=doFwaVtFpS6sC4IuXaKfGyTb696NhEj7zirNI3zBSPk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=nFmWSkIZRpkljVSa23s6GPJ3aVIW5bIoTnLHx11JdS/V7eYtdXgjiNhXDsgVLmC/O
-	 u+AFoyP9sQoc5dZ0l4UCRVYYMNAPcBsoor0gCI7bZIXsBsI+jxaA5fjBNGQoNk/UcA
-	 U0HVGNjRC4Cq6kmD+gWSo9XYiQx3dXVYyZWF61RTmDmq5uPBXwr4iJy+gwCgJN3OQt
-	 zHIlSNFSl9131/EhLdLyd1T6AoUUE9J4kjC9BHVNqhPc2MUle2iBf3bKw4fehQ11gd
-	 ZLpEN5thUzwNIbwODsWVqSmZ3S1RaBdfxycFeTJ3TvcHMUrDUlsLEIzmxrqmFvhK/4
-	 CY+PdAjm1i3Tw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A4EF3808209;
-	Tue, 20 Oct 2026 19:00:22 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Tue, 20 Oct 2026 19:03:27 +0000
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-48bbb06e746so1921709f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 12:03:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792523003; x=1793127803;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XW2XawDSDFkTSk897IfBcZxxEG8qyMFEO8Acjxpagfo=;
+        b=Rf+OC9UD0i2duqrDl5OF1aFJ5VwZ2T1hpc9NW5nDJJoiuUaXIVczO8YMpWffZB52P4
+         jKNHIl0lw8RI7iieIU0feGiBHGkw9RAoNzFPXFjD96K9vQ1ZL+eyDW7JcTuB9e8WIUV+
+         eii8KSarXKmqmjb+axDni7nFSf1AwbikoIXnZihIOJmM+cgihhW23La9dHh6X8hADT+r
+         z3bQntrRo6gNvX3zTQNslki8xGI7mdaQo97lg3TFCdiY7jF4+JPPl6tg7J9TcIFxACBh
+         jexICSQUuWC4wC1zRR8528BQcFEodsKp/Ilm/ZRMjf9Y+pJRM0Op1jQ+L26IAarVidPz
+         J4Vw==
+X-Forwarded-Encrypted: i=1; AKwUvBwBfqZpa26s02mLZNmizIQxCxiB+4HkE7WqnosQV4T8xaEbfln59VFadKLIT/2LdF5jja/BjDStRPH68XtOqY2K@lists.infradead.org
+X-Gm-Message-State: AFq9FYIwztRR4C8ASlwqCVgqRfF1nduUjVw9MQEYCQ0umsZgtazclSA7
+	6MwgEV13Ncofckg96DVXaKsisTEdtAKfjO0eZC6WDpv0aOGKvfFLC7Oz5bdRnlo6beg=
+X-Gm-Gg: AYBFou0TqgNj2rwFZnpkX12vcJOXnngDPO8w0oOpdeUeMPRy6V1K4yISB6Zlcle61zM
+	g+I9LJDXea4j9S88krfk4D4QvR/D69U5uq9DnT5XVb1pX+s3x9mkEFu4hiHH4G2Kv2H7xyp03lI
+	P5DRwu0O0hJ/dzitHzkz4O5NBj8XZaOaQsJFpsrUgdnso4l5enq9NyzQnBUIVWo62MN4vUss0Oz
+	oVxTbByLvOfS9tQuOvE1J3ok5wiQIxUWnyQzoGuHkaEXUGJjmVfQmJ4NrlthivYCyRtRYFTi/ZL
+	cyzowZcu+mKLF20v1qi2CO3ihZVQ651GcBGd8HO5vW4qcx9DoYPPSjxFXwjyqq36G3WLCZojByf
+	WOxaNGBBqHOpPEARWgJQsu6m9gh/8dchy4zs5Hovg7jVLbOTRDNz4FxS4/r/bwHnTPu8dVYiht+
+	jKV1gOif1drZlNQ2/SuMqH9HgZbBUjpfsgj0Ojd0+xFlUG/HSZ5ErcyWSRcAHxNOGsjqle
+X-Received: by 2002:a05:6000:1ac9:b0:488:8bc1:a2eb with SMTP id ffacd0b85a97d-48e07f99197mr25786391f8f.39.1792523003036;
+        Tue, 20 Oct 2026 12:03:23 -0700 (PDT)
+Received: from lake ([2a02:810d:d09:1b65:a3ee:29e0:454d:c31e])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e25828cbfsm279157f8f.23.2026.10.20.12.03.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Oct 2026 12:03:22 -0700 (PDT)
+From: Grische <opensource@grische.xyz>
+To: netdev@vger.kernel.org
+Cc: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Grische <opensource@grische.xyz>,
+	stable@vger.kernel.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Ong Boon Leong <boon.leong.ong@intel.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org
+Subject: [PATCH net 1/3] net: stmmac: honour Rx checksum errors in the AF_XDP zero-copy path
+Date: Tue, 20 Oct 2026 21:03:16 +0200
+Message-ID: <20261020190319.884375-2-opensource@grische.xyz>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261020190319.884375-1-opensource@grische.xyz>
+References: <20261020190319.884375-1-opensource@grische.xyz>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: rename skb_unshare() to skb_unclone_full()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179252282077.159319.7792031411876485115.git-patchwork-notify@kernel.org>
-Date: Tue, 20 Oct 2026 19:00:20 +0000
-References: <20261015-nb-skb-unclone-full-v1-1-0dfbf01f60f2@tipi-net.de>
-In-Reply-To: <20261015-nb-skb-unclone-full-v1-1-0dfbf01f60f2@tipi-net.de>
-To: Nicolai Buchwitz <nb@tipi-net.de>
-Cc: Raju.Rangoju@amd.com, PrashanthKumar.K.R@amd.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- ioana.ciornei@nxp.com, sgoutham@marvell.com, gakula@marvell.com,
- rkannoth@marvell.com, sbhatta@marvell.com, bbhushan2@marvell.com,
- maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, sd@queasysnail.net, horms@kernel.org,
- marcel@holtmann.org, luiz.dentz@gmail.com, olteanv@gmail.com,
- alex.aring@gmail.com, stefan@datenfreihafen.org, miquel.raynal@bootlin.com,
- jk@codeconstruct.com.au, matt@codeconstruct.com.au,
- stephen@networkplumber.org, jhs@mojatatu.com, jiri@resnulli.us,
- marcelo.leitner@gmail.com, lucien.xin@gmail.com, jmaloy@redhat.com,
- tung.quang.nguyen@est.tech, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org,
- linux-wpan@vger.kernel.org, linux-sctp@vger.kernel.org,
- tipc-discussion@lists.sourceforge.net
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261020_120326_029033_6F7C4CA3 
+X-CRM114-Status: GOOD (  13.31  )
+X-Spam-Score: -1.4 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,36 +103,68 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FROM_SUSPICIOUS_NTLD,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello:
+Commit ee0aace5f844 ("net: stmmac: Correctly handle Rx checksum offload
+errors") taught stmmac_rx() to honour the csum_none status, but
+stmmac_dispatch_skb_zc() still ignores it and sets CHECKSUM_UNNECESSARY
+for every IP frame whenever the checksum offload engine (CoE) is
+enabled.
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Since commit fe4042797651 ("net: stmmac: dwmac4: stop hardware from
+dropping checksum-error packets") dwmac4 delivers such frames instead of
+dropping them, so this path receives them.
 
-On Thu, 15 Oct 2026 10:16:38 +0200 you wrote:
-> skb_unshare() only copies cloned skbs. A shared skb that is not a clone
-> comes back unchanged, which the name doesn't suggest. The loopback
-> selftest hooks got caught by this and hit BUG_ON(skb_shared()).
-> 
-> Rename it to skb_unclone_full(). Like skb_unclone() it only acts on
-> clones, but it copies the whole skb, not just the head.
-> 
-> [...]
+Mark the skb CHECKSUM_NONE when csum_none is set, as stmmac_rx() does.
 
-Here is the summary with links:
-  - [net-next] net: rename skb_unshare() to skb_unclone_full()
-    https://git.kernel.org/netdev/net-next/c/258c3ae4a4af
+Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
+Cc: <stable@vger.kernel.org>
+Assisted-by: Claude:claude-opus-5-5
+Signed-off-by: Grische <opensource@grische.xyz>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-You are awesome, thank you!
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 9741f97fa37a..32810f949245 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -5463,7 +5463,7 @@ static struct sk_buff *stmmac_construct_skb_zc(struct stmmac_channel *ch,
+ 
+ static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
+ 				   struct dma_desc *p, struct dma_desc *np,
+-				   struct xdp_buff *xdp)
++				   struct xdp_buff *xdp, int status)
+ {
+ 	struct stmmac_rxq_stats *rxq_stats = &priv->xstats.rxq_stats[queue];
+ 	struct stmmac_channel *ch = &priv->channel[queue];
+@@ -5488,7 +5488,8 @@ static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
+ 		stmmac_rx_vlan(priv->dev, skb);
+ 	skb->protocol = eth_type_trans(skb, priv->dev);
+ 
+-	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
++	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb) ||
++	    (status & csum_none))
+ 		skb_checksum_none_assert(skb);
+ 	else
+ 		skb->ip_summed = CHECKSUM_UNNECESSARY;
+@@ -5698,7 +5699,8 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+ 
+ 		switch (res) {
+ 		case STMMAC_XDP_PASS:
+-			stmmac_dispatch_skb_zc(priv, queue, p, np, buf->xdp);
++			stmmac_dispatch_skb_zc(priv, queue, p, np, buf->xdp,
++					       status);
+ 			xsk_buff_free(buf->xdp);
+ 			break;
+ 		case STMMAC_XDP_CONSUMED:
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.54.0
 
 
