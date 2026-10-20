@@ -2,68 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 836AE606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 12:01:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DFF1606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 12:05:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JLe3KWoN;
-	dkim=pass (2048-bit key, unprotected) header.d=rendec.net header.i=@rendec.net header.a=rsa-sha256 header.s=default header.b=IoA9DM3u
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NVNZZq6x;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iSv62ugK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TalOl96alln21uvpuXQrkyMghf/Vuyhv5RoGgLmGEUY=; b=JLe3KWoNIfYx/PhWZJ3ZESZIMz
-	ETR/sMhMbq0dDPVNF109uKtwjhEKDBeWMjXCE3ZvN5WwR78ulqL4ML0WVoqtydqv/PeyR5sy/TA6I
-	DqD4xvYSTat0hiYEme56Qmej2Q+F0AlXFU0uhrGU43jPkHG0AHHACcVSExR28j8kL8IWZqogQh2UQ
-	mILlPAMPghC+BS87cgw9wf+yU37GEU+IcvoHr8mdDbDxyky9yrF9rcXAxNuYmktm4K/Ei6j+Q0SYG
-	2QHhetzeLZR+qJvWNTeTzjOy/tSavOfj6P/kircEtdBMBjXqqzF4c1aMg6kIaxRhr6ut1LnwxKoo1
-	J4Z8kG3g==;
+	bh=3rUGvuaVTTy+ZOb7QiqULfTKmRQxwC5KzfroeU94W3c=; b=NVNZZq6x2FfD1HhJyUsWQKGFkP
+	e8S3NL7qfDAUWezOz7dsZstaqzXl/iBoZYoFnZs2cYTIfdV2tIdosiFTYXvEsmzG9A6Bly0cRO1+Z
+	ms8P+cELOJvBdjbB05l/z0smjNPF268wdBxQTI3ckLnPayxqNaiO3i7pqjT/aEc9sX1jRs3WRJXWP
+	B9vBrg7Q+XgBn8OP4NS7EiehrnwTbqsUriESmPFTJP74KHKyh2HjFc9EI/aYJifkoNQKG10PRspwa
+	Hbsj5W2dm5G+nKq3/il5+OV0Q1CLPBWqmw4aIzdW8y6yjBUnsROBwYdEFtFxBakpBcW3RRFXhXPjw
+	JrL7Vmbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8Wj-00000009cnK-07nE;
-	Tue, 20 Oct 2026 12:01:09 +0000
-Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
+	id 1xJ8aj-00000009dHr-2Zef;
+	Tue, 20 Oct 2026 12:05:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8We-00000009cmL-47gR
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 12:01:08 +0000
-Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
-	by mail.mindbit.ro (Postfix) with ESMTPSA id 1A7F3D1E92;
-	Tue, 20 Oct 2026 15:01:00 +0300 (EEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro 1A7F3D1E92
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
-	s=default; t=1792497662;
-	bh=TalOl96alln21uvpuXQrkyMghf/Vuyhv5RoGgLmGEUY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=IoA9DM3uQ4UY3J4z1Rpp24cbuQNN2UnOqLaUqj0hwLdCujZ1j2I3dvMfXrymdnV5J
-	 dqo20YP+goVaiJIn3CCmsa/WzeVP/XFr9Q1ol5djxpIvuU13oMXXsOhyPehxgR8e6G
-	 r2vuPCLgR7SAcDypK1g2agVgoIRzqdDr2avJqXdVhHHkBMUOVWebPI8XqAX5uxraEU
-	 7gg4UX6chUbvk2yibIb2R5DXaEzWYUK+pwpwewdTTgjZpWN8u9nSSTCANy+KBHiG7v
-	 Oo6eCJUOGOW8QqfS//trrd9vjdmAHV0/Pw+yeH72nmy4yeJhj3fsNcwn7KGL7KIEdr
-	 1U3bawos4Pwbg==
-Message-ID: <f642a27d36844b8cc4d164f518f7177252624975.camel@rendec.net>
-Subject: Re: [PATCH v6 7/9] irqchip/imx-irqsteer: Allow building as module
-From: Radu Rendec <radu@rendec.net>
-To: Zhipeng.wang_1@oss.nxp.com, Thomas Gleixner <tglx@kernel.org>, Marc
- Zyngier	 <maz@kernel.org>, Frank Li <Frank.Li@nxp.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	 <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Jindong Yue
-	 <jindong.yue@nxp.com>, xuegang.liu@nxp.com, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Date: Tue, 20 Oct 2026 08:00:59 -0400
-In-Reply-To: <20261008090231.796511-8-Zhipeng.wang_1@oss.nxp.com>
-References: <20261008090231.796511-1-Zhipeng.wang_1@oss.nxp.com>
-	 <20261008090231.796511-8-Zhipeng.wang_1@oss.nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (3.58.3-2.fc43) 
+	id 1xJ8ai-00000009dHV-1Mvk;
+	Tue, 20 Oct 2026 12:05:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9971160098;
+	Tue, 20 Oct 2026 12:05:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 271851F000C6;
+	Tue, 20 Oct 2026 12:05:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792497915;
+	bh=3rUGvuaVTTy+ZOb7QiqULfTKmRQxwC5KzfroeU94W3c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iSv62ugK666I+rMSJ2KdftrD5ohEdfUYkw/dR1CzFfDtijTXtsc9QJFpCRxA91Lv4
+	 hoFWMtlvJNQ3zi5AVQNs54HxJ9YkYvyHk8djA48iX9NDcoAZIz6NemKAWy70JX9Sf8
+	 aRGYsVzkYM0Te2EJ8x/Go9bVL8XtdBgm5/PprTgHZ21Yg4L+Rvi9QX3CPhXs/TlVlw
+	 oe8MnlVfCNLNTnp5AuLplj18Yfs9e7Wh0pWHeSfb8buxkescVy9gVlXTcKdQOu+Cr7
+	 aGL9BVfraXpP6KipeYu6UYAjYHCZ7RxaOhh9gKMAiVu6c1FHhGGeco5Mo2LO9PhtoZ
+	 UVnOXvy8uTy6Q==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id C324D1AC57D0; Tue, 20 Oct 2026 13:05:11 +0100 (BST)
+Date: Tue, 20 Oct 2026 13:05:11 +0100
+From: Mark Brown <broonie@kernel.org>
+To: =?iso-8859-1?Q?Iv=E1n?= Ezequiel Rodriguez <ivanrwcm25@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Deepak Gupta <debug@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>,
+	Christian Brauner <brauner@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Yury Khrustalev <yury.khrustalev@arm.com>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Zong Li <zong.li@sifive.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Zishun Yi <vulab@iscas.ac.cn>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 1/4] arm64/gcs: release GCS on failed fork
+Message-ID: <atdY90gcVwbHu2sc@sirena.co.uk>
+References: <cover.1792179433.git.ivanrwcm25@gmail.com>
+ <2539f61f79a6053e2a33a1d1ae9df09013c04bd8.1792179433.git.ivanrwcm25@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_050107_405128_F1803E3B 
-X-CRM114-Status: GOOD (  17.21  )
-X-Spam-Score: -2.1 (--)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="gxc4xle/qhZ2446+"
+Content-Disposition: inline
+In-Reply-To: <2539f61f79a6053e2a33a1d1ae9df09013c04bd8.1792179433.git.ivanrwcm25@gmail.com>
+X-Cookie: You buttered your bread, now lie in it.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,91 +88,73 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, 2026-10-08 at 18:02 +0900, Zhipeng.wang_1@oss.nxp.com wrote:
-> From: Jindong Yue <jindong.yue@nxp.com>
->=20
-> Make the driver buildable as a module by turning the Kconfig symbol into
-> a tristate and using module_platform_driver() instead of
-> builtin_platform_driver(), and add the MODULE_DEVICE_TABLE() and module
-> metadata needed for autoloading.
 
-I believe both high-severity issues flagged by sashiko [1] are valid.
-Looking at what other drivers do (e.g. drivers/irqchip/irq-ts4800.c,
-drivers/irqchip/irq-pruss-intc.c), you should do something similar:
-iterate over the hwirqs and call irq_dispose_mapping(). That would
-solve both problems because synchronize_irq() gets called indirectly
-via irq_domain_disassociate().
+--gxc4xle/qhZ2446+
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-There is nothing wrong with the patch itself (the conversion to
-loadable module), so my r-b tag can stay as long as the above issue is
-addressed in a separate patch. Thanks!
+On Fri, Oct 16, 2026 at 04:46:00PM -0300, Iv=E1n Ezequiel Rodriguez wrote:
 
-[1] https://lore.kernel.org/all/sashiko-outbox-163920@kernel.org/
+> Select HAVE_EXIT_THREAD and free the child's GCS from
+> exit_thread(). gcs_free() already ignores a cleared base and a
+> different mm, so the usual exit path (deactivate_mm() then this) is
+> a no-op the second time. copy_thread_gcs() zeros the inherited
+> tracking before a user-thread allocation, so an allocation error
+> still skips exit_thread() with nothing to unmap.
 
-> The clock, runtime PM and IRQ domain are already owned by devres, so no
-> further teardown is needed to support unbind and reload.
->=20
-> Signed-off-by: Jindong Yue <jindong.yue@nxp.com>
-> Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
-> Reviewed-by: Radu Rendec <radu@rendec.net>
-> ---
-> =C2=A0drivers/irqchip/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 | 2 +-
-> =C2=A0drivers/irqchip/irq-imx-irqsteer.c | 7 ++++++-
-> =C2=A02 files changed, 7 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-> index 20b77fbc51ee..105108d2e6ff 100644
-> --- a/drivers/irqchip/Kconfig
-> +++ b/drivers/irqchip/Kconfig
-> @@ -555,7 +555,7 @@ config CSKY_APB_INTC
-> =C2=A0	=C2=A0 the controller's register.
-> =C2=A0
-> =C2=A0config IMX_IRQSTEER
-> -	bool "i.MX IRQSTEER support"
-> +	tristate "i.MX IRQSTEER support"
-> =C2=A0	depends on ARCH_MXC || ARCH_S32 || COMPILE_TEST
-> =C2=A0	default y if ARCH_MXC || ARCH_S32
-> =C2=A0	select IRQ_DOMAIN
-> diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx=
--irqsteer.c
-> index 15ee50f65d54..85edd5e33ca9 100644
-> --- a/drivers/irqchip/irq-imx-irqsteer.c
-> +++ b/drivers/irqchip/irq-imx-irqsteer.c
-> @@ -10,6 +10,7 @@
-> =C2=A0#include <linux/irqchip/chained_irq.h>
-> =C2=A0#include <linux/irqdomain.h>
-> =C2=A0#include <linux/kernel.h>
-> +#include <linux/module.h>
-> =C2=A0#include <linux/of.h>
-> =C2=A0#include <linux/of_irq.h>
-> =C2=A0#include <linux/platform_device.h>
-> @@ -359,6 +360,7 @@ static const struct of_device_id imx_irqsteer_dt_ids[=
-] =3D {
-> =C2=A0	{ .compatible =3D "nxp,s32n79-irqsteer",	.data =3D &s32n79_data },
-> =C2=A0	{},
-> =C2=A0};
-> +MODULE_DEVICE_TABLE(of, imx_irqsteer_dt_ids);
-> =C2=A0
-> =C2=A0static struct platform_driver imx_irqsteer_driver =3D {
-> =C2=A0	.driver =3D {
-> @@ -369,4 +371,7 @@ static struct platform_driver imx_irqsteer_driver =3D=
- {
-> =C2=A0	.probe		=3D imx_irqsteer_probe,
-> =C2=A0	.remove		=3D imx_irqsteer_remove,
-> =C2=A0};
-> -builtin_platform_driver(imx_irqsteer_driver);
-> +module_platform_driver(imx_irqsteer_driver);
-> +
-> +MODULE_DESCRIPTION("i.MX IRQSTEER interrupt multiplexer/remapper driver"=
-);
-> +MODULE_LICENSE("GPL");
+This makes sense and mirrors the handling on x86 which had an existing
+exit_thread().  There was a lot of pain finding the right places to hook
+in here, there's far too many routes through this code :/ .
+
+> A kthread copies the caller's GCS fields via arch_dup_task_struct().
+> kernel_thread() uses CLONE_VM, so during a failed copy_process()
+> the child still shares the caller's mm and gcs_free()'s mm check
+> does not save us. Clear the inherited tracking as part of kthread
+> setup.
+
+I'm not spotting an equivalent path on x86, it's entirely possible I'm
+missing something here but if I'm not then I expect they need the same
+fix?  They use a similar memcpy() for the arch data and I'm not seeing a
+reset anywhere.
+
+> @@ -503,6 +513,17 @@ int copy_thread(struct task_struct *p, const struct =
+kernel_clone_args *args)
+> =20
+>  		p->thread.cpu_context.x19 =3D (unsigned long)args->fn;
+>  		p->thread.cpu_context.x20 =3D (unsigned long)args->fn_arg;
+> +#ifdef CONFIG_ARM64_GCS
+> +		/*
+> +		 * kernel_thread() uses CLONE_VM, so a failed
+> +		 * copy_process() still shares the caller's mm.
+> +		 * Inherited GCS tracking would then look like a
+> +		 * child mapping to gcs_free().
+> +		 */
+> +		p->thread.gcs_base =3D 0;
+> +		p->thread.gcs_size =3D 0;
+> +		p->thread.gcspr_el0 =3D 0;
+> +#endif
+
+I think it'd be a bit more idiomatic to have a function to reset the GCS
+state that gets an empty stub with !CONFIG_GCS=20
+
+--gxc4xle/qhZ2446+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQReagvpf3TrrA7BoYYv73Ows9A4iQUCatdY9AAKCRAv73Ows9A4
+iWTwAQC7iQAwJ8AvSpT4za/gdMW9NJKIrjii+W62TxSlegpBlwEA0ZL335q7PnHL
+KBKZVvTQfALmAMz+nHizc7SQa5fSOwg=
+=NmUr
+-----END PGP SIGNATURE-----
+
+--gxc4xle/qhZ2446+--
 
