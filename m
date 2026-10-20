@@ -2,75 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1967460A262C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 18:19:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C604606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 18:20:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NrYOkj/0;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=S2X6qFq0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gZmyIPx1;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=WK+whklS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aAgJAbuVXKrl/2XmWKq188uudjDScblSy5jf6BBIQNg=; b=NrYOkj/04bIwpsoCUGbhGzVK5j
-	RdPrYxaxvgAtCi7eBjxyi475rN725LAJ6qIkXPvyLQmZ3YbounWQ0sBwOCTX17csNq0+NMWG8+xFR
-	JpN1x8jURuMFao8ay51WS6cWqCXJF5EX+uohpID8vTsu2KquchejTguVAozLoQRZ8RlJR8JWrr2CI
-	mNlHIFxwagrE4d5jrr5Hzdy648UtJOvwlEIa31HWu/bZv+Jayi9P7/hfvgDPboW5kZL8uEDM/JLX3
-	aXzA8oeEObCHPu9y44a90r5aUben5IRTdoXESXSkvSxkMeWL464wOPUgtYRb+tWVaAay5v5m4QVn4
-	cOwAf9bw==;
+	bh=xOHuMA/WM9xuTdSj+ZDzOAw3l3xrB59FAR7IgfJil6U=; b=gZmyIPx1vO37BqqQg0wGx+PwKq
+	i7JzILEYxvgFcA0YR5RnIrqCJf04mADXG5Ul2SVrkY3MOcwuyP+z6ndA6dFCNT2lpZI4LJVFu3QRt
+	ziy0Jh1+pzILODhZsg8zHc2Wn5YeJgeQqRvhompM7Y4IsKSx7KYBC9Dp6WAu7lfv0OU6ES8Av2dl/
+	qokCOJQ7+scpgV81JKmxnUXxbpv2Ng3s56k8flrlK1WRRCOUYLy8jXIdXtIWDPcK5NNKDu62JcnIL
+	CkD6Wiav5l1/TXX1CcJzio/B3yLoswcJq+cjkh5zhd3cRJITC2ZhmIvg98/i5VkeyMR603NCJAA+b
+	mZ4JfeTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJER6-0000000AQGh-21aF;
-	Tue, 20 Oct 2026 18:19:44 +0000
+	id 1xJERD-0000000AQJt-2w1N;
+	Tue, 20 Oct 2026 18:19:51 +0000
 Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJER4-0000000AQFa-1IfA
+	id 1xJER8-0000000AQHb-2cAM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 18:19:43 +0000
-Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-3550c917fd3so4266424eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 11:19:41 -0700 (PDT)
+	Tue, 20 Oct 2026 18:19:47 +0000
+Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-354ba08cfd1so6404880eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 11:19:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792520381; x=1793125181; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792520386; x=1793125186; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=aAgJAbuVXKrl/2XmWKq188uudjDScblSy5jf6BBIQNg=;
-        b=S2X6qFq06noW+f4bw4ub5BHxiw39zRGOAYBaBRZrwyKtqllz9koEOZ2IZxzf9dXwz6
-         QKMKWc4kE968wMwwIQGmiW2wsvDRDTYD+L8RJ+IcYwwL5o51YvK+JbWEPlm0dKw91iXY
-         Ncx4itcYdLKyX6X8cr6kWy1xfH6n0oWkl94YGjVFRL+YD5W8PAEsetUvhyUpLeMoV5ti
-         N+eAV8dwe+xiCHl7yt+EQWqF71+V6pz09KQRaibWa459tU3syziTyI1hRlnY02Sew/oR
-         epr/iXRMNfPHiUZR/absNshcoBGw4vYICjhlDtkFjygyHpVxC36Uk/cFSAlvwaPcVHlV
-         qVSw==
+        bh=xOHuMA/WM9xuTdSj+ZDzOAw3l3xrB59FAR7IgfJil6U=;
+        b=WK+whklS36hfBjKi6x9yGjAS6Or1Ch/aqZUSoS35VZWd3wsXcrTnZCEN0pplPy9X32
+         Miab/69Z+DFnf+7p+wZPt4D5U/xWY5mJv7m+26TXqQHpB093d1ukZtjh9Kx/zp2mrr62
+         HFl6HutvJmcqdqLxgGZg3b2fu3UHVN348LtRoKYtpNFj/JtDKdq6oQVWIwwY+TKRnbG2
+         JLyNkAetncpUvZEfi5oaiH5DfBPPVK6MXqBwbM3+U/8G8sesp8s6Mywz7yRzs7Ez+8Um
+         mvhVba8FVeHcz1NrqdzoddJU5IPgsT6JEnDpS2mv6ljpNI6g1eZen8pHuZuFkD+BJDRX
+         B4Vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792520381; x=1793125181;
+        d=1e100.net; s=20260707; t=1792520386; x=1793125186;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=aAgJAbuVXKrl/2XmWKq188uudjDScblSy5jf6BBIQNg=;
-        b=hQjFKmR7pGx7Jc98dM+j2g5ZWVALBPCRvjC3zJDTTJYr7MPjqEgnkHDqAY9ydJOnci
-         +Q14A0ODJjlnb6k0JLKJ7U4bhaDd0wF1szZCBYLEiQSiAEFcuU2rHGAW1cbOgMh1KYql
-         9vikQ6j0VN2WchODK3SvJRHxyLvB6UIeDt70ayNOdYR5p2GSppidJIcYLDe+mSQKQt04
-         lDb09HTdtd7kUAx4Dn/mBsYZXU6eLzUZo4X7qyIEnA7lNKp/WBNHSE+svI4dR3hy7wlX
-         jnayJUUB6IY3tRKkdpXGrg8AOEPfLc2ihr4U+dFmIH58K9boXKZPfODFNrVPEg5nXzoG
-         auzg==
-X-Forwarded-Encrypted: i=1; AKwUvBzxwNWU/6kdE+GR9P9QNfKCev/oFDZJfCnGfEy1Iu5pSoIuMpLlsOIQfREge+83iOgUwtxIQM8b/+tJN66i0viW@lists.infradead.org
-X-Gm-Message-State: AFq9FYLmh+bCFeIAe6LyrMvk3et3X2Gp6CVhVu+JmT/T9HKqNBDijt27
-	G1U+Nfogcf2LH3sus+cyo1MKyWHInoiA51wZBD5o7FvsZEY8yf+VsBeD
-X-Gm-Gg: AYBFou3IhfyY0t6sBRT3+Zo9VojE4GhWex8HQxRY0AsU5t1lDA74ieeV+Dk9fn+5WyJ
-	5p9XJMazzOByp6+mm7GAe6dv5Ybk7rtLOL+qVgDf69zKSZAfwfPYiN27gWEGKoiNrL0webyute8
-	tyLEPRyobxrLUa3B8WzN5X52ZGQ4t9FyYpnUzSemF5ohKxQiC8hTkM0AtB4pHPhyUeHET4H22Ld
-	nC1on/UkKTw9QbXc9jEu3q8grq4G1T+gKjuBC8fKEDEuRFhgrojWyih9gJrFIL2AhiJcKWOuN5k
-	XkvDiJvBWgeesjcRIU75lKMlMxS+PTAYDuCPMXYQsCiXPeoHFQHCrmwDR1XqsG2k1J+ge1Dhk/j
-	8cJy8AQ9aPPHNiKHnrRo6vi5TfJRgAo31+xNJMDBtWJedKKOIosk2Ilaw/nSg67Mbr6293QKkMj
-	QKCzKyWZ8+oiUq78mJyEhEX5Zk3ZAVFx6RhzKh7Oxjr7+Svy2fmQc3kqKwY5cyB5pj
-X-Received: by 2002:a05:693c:8399:10b0:35e:f1a5:9ba6 with SMTP id 5a478bee46e88-3674a40738emr116407eec.5.1792520380928;
-        Tue, 20 Oct 2026 11:19:40 -0700 (PDT)
+        bh=xOHuMA/WM9xuTdSj+ZDzOAw3l3xrB59FAR7IgfJil6U=;
+        b=fwDFDrDg8P+3j9CjrOpVPilh+Wf6KchLR49cl3qw8yUXITjnrreBIkSv6ZVRx00rbs
+         gfdWSbXC9NwxhkU+GnQBKDXspN5nVrIVXphrYCy9Gxpz5CcmYYWtF86fkVR+I7tyKaUP
+         lqKWeIbmWjpzPa1iswPo/ZWBovviuMy+QGCOBRHEL6VtkDPHAuWETJKAtcOF8/tntmw5
+         a29ASeier22qceI2tm9HkHsPW2LLjcM69F4lMc2eEgr3iJ89vc/QA/V0nQpMcPw1Lyir
+         4ss6BT/zJ6FxGrseFIxb9js7CZjbRtIh3TmAE+73yV0cwOWsjthInq43W7sBTVmT/wh1
+         J+DQ==
+X-Forwarded-Encrypted: i=1; AKwUvBy6i+y2QHyNiu5ag48sHEycV+XBTujaWZWZzIsE0Ar2sGsda1YwAItlqIwPKVdpmSPSrbnNmbGfNsLNs6B6PEZP@lists.infradead.org
+X-Gm-Message-State: AFq9FYJHEjl/aFqomh2MUTtjMtOu2g+uSoy3QQiwdtVlT1ewVIy/Y6qq
+	qtnCY0kb5twaYEdAHUAQEhefv9y8//9kYDkcGAohtubC8WlT04spK0IAkiHp/rcMwpEcyw==
+X-Gm-Gg: AYBFou3eVo4pjaTftO0H8SGVypm1H3KyURwBbKnZ1K7yqexWNbj172NBm5MY1ENOpfO
+	Q6IET+QMzfpGOEUv/7xHSLV/GGbtmSIjvVIIgWflfmsCUbHX75GOqR06K9mxfseFyAWLPlpRZh2
+	IassrWZQuGaB+Gv84wToZOFo4tCAF81QK5gqgLCoUoWq8DBG70BYWg7RQzR9uSeqgb/AEvRHYVR
+	fnItlEzARCFS7b21rlACGqY0rzxMnprebgSggUknUn8GqeGDXtwwtgvru/1UGWfmpIZfiNpWR+R
+	3t6O0d6HXuFwHNHvCNbnTtQUUQB3NEpYBX8C31Bt5Sne6UP+q0wn2p2dt7HXBtk5b9fh6oSvcWl
+	HH4hZ70Jqu+ZRLYWs2zor95/3T7JOFWWn9bYQXcEtNrjggL8tZK/TUqb19rnCHlyYqo4RQYA6Ls
+	sIQU3/t0BhvO7bJe5khz0397JPU38pguBMQNXqieaXoCOsW6FtFw5hZ6ndyIQaO4/S
+X-Received: by 2002:a05:693c:65cc:b0:35c:99e1:c755 with SMTP id 5a478bee46e88-3674e355183mr55514eec.38.1792520385832;
+        Tue, 20 Oct 2026 11:19:45 -0700 (PDT)
 Received: from unix.. ([181.229.23.179])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3673e15353csm523728eec.2.2026.10.20.11.19.36
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3673e15353csm523728eec.2.2026.10.20.11.19.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 11:19:40 -0700 (PDT)
+        Tue, 20 Oct 2026 11:19:45 -0700 (PDT)
 From: =?UTF-8?q?Iv=C3=A1n=20Ezequiel=20Rodriguez?= <ivanrwcm25@gmail.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -95,20 +95,21 @@ Cc: linux-kernel@vger.kernel.org,
 	Charlie Jenkins <thecharlesjenkins@gmail.com>,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
 	Zishun Yi <vulab@iscas.ac.cn>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>
-Subject: [PATCH v2 0/4] arm64, riscv: release shadow stacks on failed fork
-Date: Tue, 20 Oct 2026 15:19:29 -0300
-Message-ID: <cover.1792519121.git.ivanrwcm25@gmail.com>
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	stable@vger.kernel.org
+Subject: [PATCH v2 1/4] arm64/gcs: release GCS on failed fork
+Date: Tue, 20 Oct 2026 15:19:30 -0300
+Message-ID: <8522b8d3d3ecda7474d0af8b8517c1f5d708ecc2.1792519121.git.ivanrwcm25@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1792179433.git.ivanrwcm25@gmail.com>
-References: <cover.1792179433.git.ivanrwcm25@gmail.com>
+In-Reply-To: <cover.1792519121.git.ivanrwcm25@gmail.com>
+References: <cover.1792519121.git.ivanrwcm25@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_111942_350821_8E7DDFA2 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20261020_111946_672640_5069BB4B 
+X-CRM114-Status: GOOD (  17.94  )
 X-Spam-Score: -0.1 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,100 +124,132 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-14.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
 	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,HK_RANDOM_FROM,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This is not a port of the x86 TLS fix. That leak was inside
-copy_thread() when set_new_tls() failed, so copy_process() skipped
-exit_thread(). Here copy_thread() returns 0 and a later
-copy_process() step fails. The concrete hole is clone3() with
-CLONE_VM|CLONE_PIDFD and an unwritable pidfd pointer: put_user()
-returns -EFAULT after the architecture has mapped a shadow stack.
-exit_thread() does run, but arm64 and riscv did not implement it, so
-that mapping stays in the parent's mm.
+copy_thread() maps a GCS for a CLONE_VM child and can still return
+0. A later copy_process() failure then goes through
+bad_fork_cleanup_thread, which calls exit_thread(). The hole this
+series hits is clone3(CLONE_VM|CLONE_PIDFD) when put_user() of the
+pidfd fails after that mapping. arm64 did not implement
+exit_thread(). deactivate_mm() is what normally calls gcs_free(),
+and it does not run on this path. Each rejected clone leaves one
+GCS VMA in the parent's mm until the mm dies.
 
-Normal exit already frees via deactivate_mm(). The failed-fork path
-never reaches that. The free helpers already refuse a foreign mm
-and a cleared base, so wiring them to exit_thread() does not unmap
-the parent on !CLONE_VM or double-free on a normal exit. A
-successful clone3() child with the same flags exits through
-deactivate_mm() and then exit_thread(); that is the usual teardown
-order this series also enables.
+Select HAVE_EXIT_THREAD and free the child's GCS from
+exit_thread(). gcs_free() already ignores a cleared base and a
+different mm, so the usual exit path (deactivate_mm() then this) is
+a no-op the second time. copy_thread_gcs() zeros the inherited
+tracking before a user-thread allocation, so an allocation error
+still skips exit_thread() with nothing to unmap.
 
-riscv's shstk_release() comment already described this
-exit_thread() call. The architecture never selected
-HAVE_EXIT_THREAD, so the documented path was not connected.
-
-Do not add cleanup for a copy_thread() allocation error:
-copy_process() skips exit_thread() when copy_thread() fails. arm64
-clears inherited allocation tracking before attempting the
-allocation; on riscv a failed allocation can still leave the
-inherited parent base in place. Tasks created through the args->fn
-path do not allocate a user shadow stack in copy_thread(); with
-CLONE_VM a later failed copy_process() still shares the caller's
-mm, so that path clears inherited tracking before return.
+Tasks created through the args->fn path (kernel_thread(),
+create_io_thread(), and similar) do not allocate a user GCS in
+copy_thread(). They still inherit GCS tracking via
+arch_dup_task_struct(), and with CLONE_VM a later failed
+copy_process() still shares the caller's mm, so gcs_free()'s mm
+check does not save us. Clear that tracking with
+gcs_reset_thread(), an empty stub when !CONFIG_ARM64_GCS.
 
 x86 does not need the same args->fn clear: copy_thread() runs
 shstk_alloc_thread_stack() before both the PF_KTHREAD and later
 args->fn return paths, so CLONE_VM replaces the inherited tracking
 first.
 
-The selftests assume /proc is mounted. They use kselftest.h / KTAP.
-Feature and clone3 availability skips run before ksft_set_plan().
-The plan is three tests: a valid clone3 writes a pidfd, sixteen
-bad-pidfd clones return -EFAULT, and the shadow-stack VMA count is
-unchanged.
+Tested with CONFIG_ARM64_GCS on QEMU 11.1.2 -machine virt -cpu max.
+Sixteen clone3() calls with CLONE_VM|CLONE_PIDFD and an unwritable
+pidfd pointer leaked 16 GCS VMAs without the fix. With it, the VMA
+count was unchanged.
 
-Based on commit f47d223627f8 ("Merge tag 'vfs-7.4-rc1.sync_close' of
-git://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs").
-
-arm64: QEMU 11.1.2 -machine virt -cpu max, CONFIG_ARM64_GCS, one
-vCPU. Unpatched VMA count 1->17. Patched 1->1, 3/3 KTAP pass.
-
-riscv: QEMU 11.1.2 -machine virt
--cpu rv64,zimop=on,zcmop=on,zicfiss=on, CONFIG_RISCV_USER_CFI, one
-vCPU. Unpatched VMA count 1->17. Patched 1->1, 3/3 KTAP pass.
-
-Changes since v1:
-- arm64: introduce gcs_reset_thread() (empty stub without
-  CONFIG_ARM64_GCS). Document why x86 does not need the same
-  args->fn clear. Comment the property of the args->fn path, not
-  only kernel_thread().
-- riscv: same args->fn wording; clarify that normal exit reaches
-  shstk_release() through deactivate_mm() while failed-fork did not.
-- selftests: rewrite on kselftest.h / KTAP. Drop open-coded
-  [OK]/[FAIL], exclusive-end VMA matching, ss_kb, depth(16), and
-  parent GCSPR/SSP ping checks. Count only VmFlags lines with " ss".
-  Skip before ksft_set_plan(). Factor my_syscall2 into gcs-util.h.
-
+Fixes: 506496bcbb42 ("arm64/gcs: Ensure that new threads have a GCS")
+Cc: stable@vger.kernel.org
+Cc: Mark Brown <broonie@kernel.org>
 Assisted-by: LLM
+Signed-off-by: Iván Ezequiel Rodriguez <ivanrwcm25@gmail.com>
+---
+ arch/arm64/Kconfig           |  1 +
+ arch/arm64/include/asm/gcs.h |  8 ++++++++
+ arch/arm64/kernel/process.c  | 19 +++++++++++++++++++
+ 3 files changed, 28 insertions(+)
 
-Iván Ezequiel Rodriguez (4):
-  arm64/gcs: release GCS on failed fork
-  riscv/shstk: release shadow stack on failed fork
-  selftests/arm64: GCS must not leak on a failed clone3
-  selftests/riscv: shadow stack must not leak on a failed clone3
-
- arch/arm64/Kconfig                            |   1 +
- arch/arm64/include/asm/gcs.h                  |   8 +
- arch/arm64/kernel/process.c                   |  19 ++
- arch/riscv/Kconfig                            |   1 +
- arch/riscv/kernel/process.c                   |  20 ++
- tools/testing/selftests/arm64/gcs/Makefile    |   3 +-
- .../selftests/arm64/gcs/gcs-clone-pidfd.c     | 168 +++++++++++++++++
- .../testing/selftests/arm64/gcs/gcs-locking.c |  20 --
- tools/testing/selftests/arm64/gcs/gcs-util.h  |  24 +++
- tools/testing/selftests/arm64/gcs/libc-gcs.c  |  20 --
- tools/testing/selftests/riscv/cfi/Makefile    |   5 +-
- .../selftests/riscv/cfi/shstk-clone-pidfd.c   | 173 ++++++++++++++++++
- 12 files changed, 420 insertions(+), 42 deletions(-)
- create mode 100644 tools/testing/selftests/arm64/gcs/gcs-clone-pidfd.c
- create mode 100644 tools/testing/selftests/riscv/cfi/shstk-clone-pidfd.c
-
-
-base-commit: f47d223627f80cb7a1eb14c585fe6cb35de5e984
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index cab741a695f5..c7fc79409f98 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -177,6 +177,7 @@ config ARM64
+ 	select HAVE_ARM_SMCCC
+ 	select HAVE_ASM_MODVERSIONS
+ 	select HAVE_EBPF_JIT
++	select HAVE_EXIT_THREAD
+ 	select HAVE_C_RECORDMCOUNT
+ 	select HAVE_CMPXCHG_DOUBLE
+ 	select HAVE_CMPXCHG_LOCAL
+diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
+index 8fa0707069e8..f47aaad30d7d 100644
+--- a/arch/arm64/include/asm/gcs.h
++++ b/arch/arm64/include/asm/gcs.h
+@@ -67,6 +67,13 @@ void gcs_preserve_current_state(void);
+ unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
+ 				     const struct kernel_clone_args *args);
+ 
++static inline void gcs_reset_thread(struct task_struct *task)
++{
++	task->thread.gcs_base = 0;
++	task->thread.gcs_size = 0;
++	task->thread.gcspr_el0 = 0;
++}
++
+ static inline int gcs_check_locked(struct task_struct *task,
+ 				   unsigned long new_val)
+ {
+@@ -167,6 +174,7 @@ static inline bool task_gcs_el0_enabled(struct task_struct *task)
+ static inline void gcs_set_el0_mode(struct task_struct *task) { }
+ static inline void gcs_free(struct task_struct *task) { }
+ static inline void gcs_preserve_current_state(void) { }
++static inline void gcs_reset_thread(struct task_struct *task) { }
+ static inline void put_user_gcs(unsigned long val, unsigned long __user *addr,
+ 				int *err) { }
+ static inline void push_user_gcs(unsigned long val, int *err) { }
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 581f80e9b9b7..83d5a07a238f 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -341,6 +341,16 @@ void flush_thread(void)
+ 	flush_gcs();
+ }
+ 
++void exit_thread(struct task_struct *tsk)
++{
++	/*
++	 * copy_process() calls this after copy_thread() returns 0.
++	 * deactivate_mm() does not run on that failure path.
++	 * gcs_free() is a no-op once gcs_base is cleared.
++	 */
++	gcs_free(tsk);
++}
++
+ void arch_release_task_struct(struct task_struct *tsk)
+ {
+ 	fpsimd_release_task(tsk);
+@@ -503,6 +513,15 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 
+ 		p->thread.cpu_context.x19 = (unsigned long)args->fn;
+ 		p->thread.cpu_context.x20 = (unsigned long)args->fn_arg;
++		/*
++		 * Tasks created through the args->fn path do not
++		 * allocate a user GCS here. Clear inherited allocation
++		 * tracking so a later failed copy_process() cannot
++		 * release the caller's GCS when the mm is still shared
++		 * (CLONE_VM), as with kernel_thread() and
++		 * create_io_thread().
++		 */
++		gcs_reset_thread(p);
+ 
+ 		if (system_supports_poe())
+ 			p->thread.por_el0 = POR_EL0_INIT;
 -- 
 2.43.0
+
 
