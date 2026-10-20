@@ -2,65 +2,157 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56F46606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 03:57:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B925A606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 04:01:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XPgOzwZ1;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WamV38WX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bXGb5hBr;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=pgTzEvMd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/W8Ed4jSRre2wfHFR+X/2tT/ft4pZKYlenk33nsLqiM=; b=XPgOzwZ1SCnG8zG5Ttb7/R7cbS
-	i0eej56o4vVLtFwqqsh7w1CeuusYvbAtEQD9o0gdairmg3a0uC3QhJv1H6Uk045QoXEp146vRgg7u
-	IbXC/8SJ/Ex5jjcCbJLPth1DI79KVvP8t9LD+lpRn4sJNPy0goicOCsQYyiLhWOacpedtsHMjOHcR
-	ct5VjUnXzLBm95GxpPYKdQDxA40ZqaPuZSg8V+6wz1t9NpW3ht9I8nCl2yJr2mU7bUGJGuzIXWN62
-	moJRuyJehEo35foSMHQBGnZoDNBOqGZrlJQn0ejInBedNq1HYabZfIuYSBJJAfTPkNtRYhq4jZc9H
-	BPAmOOHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vgdYgpQomLdg5fFZKsyixp7zR0FF+jv9PWI1w8Wp2dA=; b=bXGb5hBr+EEQOjYfWTsce3iimo
+	g1C5gTtIMS2G7Gt3yxHWurCxUc5HyM+2jL3n6Z6ZqH/7ww1TWrlnSkV9N+/3UMOH3ANnxJLG+/fE1
+	CHBQq+cY7xasMdLCXpXimyB5d8osLGfUyw7I88I8uGRy4aglCLGJUmVVXlk/uIXlB2xCUoZhaTuD5
+	6qeqvjWwcqxQ0Ak4VEQCKOPWqoqqwE5/654bp52zzur0E6d1kL6R92tzCYlD1g8Da8ItlmSIuWMP7
+	S23Novatq8CIfG4NMgvPjCqaDshf5xffkQREbDow4M1NczEEDdrOLP3974UvcTs+O9Nrecn0iERfE
+	G6uoHVAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ0yX-00000008oo0-2NvA;
-	Tue, 20 Oct 2026 03:57:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xJ12N-00000008p76-0BtO;
+	Tue, 20 Oct 2026 04:01:19 +0000
+Received: from mail-northcentralusazon11012024.outbound.protection.outlook.com ([40.107.200.24] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ0yW-00000008onn-227d
+	id 1xJ12K-00000008p6f-2jHq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 03:57:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 876B9601F6;
-	Tue, 20 Oct 2026 03:57:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 446E11F000C4;
-	Tue, 20 Oct 2026 03:57:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792468639;
-	bh=/W8Ed4jSRre2wfHFR+X/2tT/ft4pZKYlenk33nsLqiM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WamV38WXMlJZhfZjfN9lZxgi+2MEM8+GM6sy+7SWg78m7EJPaYgG8zmH52wEDfDgy
-	 HndhMq2G3A3iNuQha/7Ia7V6NoiH8R66/v5pa8cixxy2iEUt8KZm5qEfU/v9USZ/KI
-	 n4SVj7wNxO0ALrsl1BBrsp/4T7e85CFTkTW3LjRgDlqyQbXboX8ADiMIS8kQIwAIWw
-	 CgQTPfK2W8YKqQXCBl1+lg0zJxqI5o/nsbm5S3FwAefEmniCY1k0t7a0iAhyCp6zzp
-	 s6jGt24Kpe/ixPLTSQOFBG4SlBdHLUQIKsZbJ4F2oOV6TTVqXC+vN24WJI/qZCHntV
-	 m/dXQYMcJjP8A==
-Subject: Re: [PATCH net-next] net: ti: icssg-prueth: Fix dma_unmap_single() direction
-From: netdev-bot+sashiko@kernel.org
-To: fourier.thomas@gmail.com
-Cc: danishanwar@ti.com, rogerq@kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- elfring@users.sourceforge.net, jacob.e.keller@intel.com,
- vadim.fedorenko@linux.dev, haokexin@gmail.com, diogo.ivo@siemens.com,
- jan.kiszka@siemens.com, linux-arm-kernel@lists.infradead.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Tue, 20 Oct 2026 03:57:17 +0000
-Message-ID: <179246863774.3135.8755286961796234504@kernel.org>
-In-Reply-To: <20261016125534.36024-2-fourier.thomas@gmail.com>
-References: <20261016125534.36024-2-fourier.thomas@gmail.com>
-X-sashiko-severity: High
+	Tue, 20 Oct 2026 04:01:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JzZboLHNwr7odS/60Kiuy9wl7bG7WgfhJ/n3CgENDqoUFRMfluzBkaYAZQItgjhNUMHw3UpreL+7eZUrWjp9X2DoceaCSNVQk2B3IacqdP4HTn2ak9IryIJNhVNoSnLZFyRdGo5EtJTwpAPOfS3vy4OtAxW9kr61zL8I56jDD1eDjjIEG9c/TFERzgc1Gv7ZdJbVC+8xAKlREtgdzuBLn4LV3dpYcRCOqcwpFCTEr9JI38dkw0q5p+rTgTjIp4orlSPmNEYImVg2h0PL6cTetFTh3bK8esSn9kKmN9cocaokH0gy1nSPGrYCgyLvrMORnoHVNQHRT+yNt6vtl8ZauQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vgdYgpQomLdg5fFZKsyixp7zR0FF+jv9PWI1w8Wp2dA=;
+ b=hpGxHMnukcK7qCtnxBHfX55bqxIbpD/gokos2pdaamF7N+0jT1J4kkQJ300AgDBugkChvgH6amJlEcjAfEFMvmfLanCfjlmuleyMClY0dFZr4i5FJKwcQfvsSpa12wYu8gIBdHNeHvHGQ5dVUefDyCZWR+8KqEnmnxvDZA1GSFq9IIC2r52Y6rmcwvtC5p1GOdgQmUEUYc7Jks4HJZ/7HzI27HyBH8qtrD2+kKoc2GBzdf+zkeinlr1rgybpSB1WwqZLYIab13yEt+uJAcf06ilY4levDZuLWW8Y2OXd/ZlX4wLh5CEZ5gF1FQGV9UTPN9mafOEBRQa1VtQ6IzqgqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vgdYgpQomLdg5fFZKsyixp7zR0FF+jv9PWI1w8Wp2dA=;
+ b=pgTzEvMdFPZQbFG/8CBeHbiBRu/jC2U9oX1KHmO5J92/WzQwW1S0lYUuhE75V5wbOeIsnyGm0op5QtzI1JH4pQ9pPGUIDPWhSa3EvodcByeqC2EEXwmIgpM1zsYjgdNLUVJ/+kN3YzVyD6lqWbllaN06DZiQoL1lpWxa93rUDeLIx35PszNudltlsDd09ZsrjTKE8UW2aQoQb4aV6aHfL5ryNrwChHDBkPLf4bhR+y+WRRUqwflWmJtTiglUqJLiMQcdRQ1XbkL75ozAf0VZ61rfUsKt9qtPuH9L/Igz1IjYB3Y6c2EeoPy4DxxaAyIHjnEZEM/BbeKB+y4oYMeUog==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by DM4PR12MB9071.namprd12.prod.outlook.com (2603:10b6:8:bd::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Tue, 20 Oct
+ 2026 04:01:07 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0522.017; Tue, 20 Oct 2026
+ 04:01:07 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>,
+ Thierry Reding <thierry.reding@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Jonathan Hunter <jonathanh@nvidia.com>,
+ Krishna Reddy <vdumpa@nvidia.com>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Jason Gunthorpe <jgg@ziepe.ca>, linux-tegra@vger.kernel.org
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Yong Wu <yong.wu@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org,
+ Robin Murphy <robin.murphy@arm.com>
+Subject: Re: [PATCH v2 05/11] ARM: dma-mapping: Bypass the legacy path for core-owned
+ DMA API domains
+Date: Tue, 20 Oct 2026 13:01:03 +0900
+Message-ID: <DYOnECbaRLa5lkvxB4-bMQ@nvidia.com>
+In-Reply-To: <5173dbaa-2a49-420d-bf4e-97c9cc340bd9@arm.com>
+References: <20261016-b4-arm32-iommu-dma-cookie-v2-0-b06842a01938@nvidia.com>
+ <20261016-b4-arm32-iommu-dma-cookie-v2-5-b06842a01938@nvidia.com>
+ <5173dbaa-2a49-420d-bf4e-97c9cc340bd9@arm.com>
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: TY4P286CA0023.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:2b0::17) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|DM4PR12MB9071:EE_
+X-MS-Office365-Filtering-Correlation-Id: 520c448c-7209-4b02-fb51-08df2e5ec47f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|376014|7416014|23010399003|366016|921020|56012099006|4143699003|11063799006|261009223027099003|5023799004|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: tw/YEEd3mfqhhdk03QKXBCSR3WarnpRJA90tP8ZizBnQWlTWMS3L0r1a/llDZErgB/HgpYMQ106zuXG8xPyLpbl4Jxd5OsnM+UeSbokjPSN9DnVfPpE6bu65fQQ6vqS7myXvONjtKShnF+XmwhRby7Gb/vNb87ugZ0ouD+8cmWmm1hdBAa84FpRMCF9EDeHMw+kGZ8P+KPhso0HZ3NqQoTZzMV9BNt/Z+Iys2SO+pdNGp/focg4X+NaFuL5axaH7Y9tYCxOlxZjDFyZpklYAeqHWxro465Z5Lz3xBhy5Ga559vvzREKuEiHzLDoRRssOAP7tE4bCKjc6hMhpayjNteBhRLftKkBCdqWbovPNoH9tYOhjMeO9+NVAQ0C9a5sofzeoIRnXmLJhrpWNwbak4LOTi6ZHISIZMQLf3Gjvc4QNPMdgQpo9nXAcoF1lDD72YmnZendQh+Ce1HmfmzNxr4n8C51N/+ycBpNChPVC9NAbRvEavRdELrr2mG1WuRIXgoykFHvpQI0VvbUs5tVRHwMM0+H5IXZfWa0WaY96I1jj5Iqen/2HKx4XWuJT1njY6MhLCk+kdTQH2ih0LgbcAwYoNKsFnHB5+UYh/drC/nejD/R0tvXiSymr9KkUFL2/cXh8CKJEQfHQVbVhuSDn0+N2fOGFuZpgZ2KgUa8d6ru6wNaP0XlfPsu7QioLwGLYiFeFYQcAMpPdu4PHrpfHkQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(376014)(7416014)(23010399003)(366016)(921020)(56012099006)(4143699003)(11063799006)(261009223027099003)(5023799004)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NFVRU2ZhWms3L1kxQmNnSW55Uy8weEZGYzdXOGpzdUpoeGJoTXh6bWdua0NN?=
+ =?utf-8?B?Y3F6eGFFUHFCQmlKc2p3NUhGckRDbno0dE9RanRaTFlnYittNWt1WDlzbE9h?=
+ =?utf-8?B?dHlnalNjMDZXVlVpYXNZcHpGaC9GMk1jdTNGcmduY0dxNVBBbVQ0VEQ3MkE1?=
+ =?utf-8?B?S2pTUEVKQW5RQ3V0WGJPbzIvcHNoQWhoN0NjbzNkTWw1QlB1b1p5VnhFZ2py?=
+ =?utf-8?B?UWpWTXM5cFRYR1BiRnRJVFR6dGFKbWZEMlFpNG14ZGdKaFlrcEprR0RCdytX?=
+ =?utf-8?B?N2JGdStVOGNoVzZwWWc2Ykpxd3VaWEJoR2dxdjlMelY3NW5sZlFkNXEvM0RK?=
+ =?utf-8?B?d2lDbXd0YUFtNmM4c2xIdVZkbGNoZ3pyd1RTOVpkL2pmM2NUZFlqM2tqS3NR?=
+ =?utf-8?B?cEs0YldKeWhCSHg4Qnc4aXJvWTdQeUNEK1lJc2V2MDczYVZZa2J0T1BNTlEr?=
+ =?utf-8?B?eG9lVTlYWnZLMHQrRVlISE1hNDUyTmRzKysvejBOYnpmV0xIcHlNdHdGRkNS?=
+ =?utf-8?B?Zk02a2FMTW15Y2RTYUl0eXpqVmlMVFVFdXliT0R2RHhSeDNZZDhkQmdybDBO?=
+ =?utf-8?B?bnB1R3VsNDV1ZUZqdm96M1VxV3NxWThvTU9HNFh5dHBtaWlsT243NldRbzVT?=
+ =?utf-8?B?SWk5NC83c05RS0VQT3djZXEydG9lMU9tZTM0djExcXJnMDI0ZFpSd0VPUERZ?=
+ =?utf-8?B?WmpWUlc4dkZZQXhuam5FMitaSHJlM1dmanZpRUpvandEZ1F2eUt2T21hK084?=
+ =?utf-8?B?OWZUclQzTGp2bG1ZUE1PSnhENk5FRmhqUVpLZTU2cnBHSnJDaFIzc0VTcGxL?=
+ =?utf-8?B?MHcvUmJZT1Jxb2tFVXlOSGpmM09ucHhrL01OeWd3RUpVZE0rVEJ2QlgzcFdP?=
+ =?utf-8?B?OVIwTVFpdlo0a0pldzFXQWxXMkJ3NEdXamdRUlB1NmxUempraUwwN1pjWmF0?=
+ =?utf-8?B?dEVTV21tYXVTS3dxbElRMzcwYzlyUlBCNmZNWWd5VGxvTlk4aGRmQlhQMjh6?=
+ =?utf-8?B?azQ4aGYxb2RsRUR3U1VicStJQ0hibEVnTzlKR0QyR0dBZUVHckxyRnZOdFRP?=
+ =?utf-8?B?bU53Z1VKdU5LQlA0Qyt1VExYV0VWTENDWncvUXY5S0tra2JXWWlORnFwWGJT?=
+ =?utf-8?B?WHA3dFFEbGdYbGJDdllvNUg4MndGQSswUjZnOFhWblE1NUx4clJ0ejZ0OUlt?=
+ =?utf-8?B?YXlvVjVmMGJjWVU2dmUwNkljd2NYYlhGcnd6RGVaSnNrcVNjM1pzRGNLdWE5?=
+ =?utf-8?B?V3E0S3VHNHhrYnJaWWdkdE13ZDhFTy8rWXAxdmhEeGttV1l2d2hHdGZud3RT?=
+ =?utf-8?B?amhoVGZ4ZkR6Tk1pTEtzQ1M1Tzd6bklURllOWVBucDZHaDl1ZUEwK0loNVhF?=
+ =?utf-8?B?ZEpOVW5TYWFTZGZkTWZVejNqZ21GR1JKYkUxRlV2Q3hWOXQxS2FoWVp0Z3dH?=
+ =?utf-8?B?c2NEc2NHeFBZTjduZk5LZTIxT2FzakY5QjJiQkZYWm5GRjJkSlJlRG5mSm1a?=
+ =?utf-8?B?SVI0R0FzSXd4S04zK3ZaV0ZPcGVlV3BpNjNKSlhuQmJaUUFzUzcwUUJWSzI2?=
+ =?utf-8?B?c1lwWE5sVkJPSzVhb2JubllaSkN3S0lsbmNnazZWdHVTZjFKMnZVTFJ2d2Ix?=
+ =?utf-8?B?TUc5T3BOV1ViL2pPaVpkaG5IT1FPYUh4alFzUnhUZGVtTzEwNG96c0FVVzNP?=
+ =?utf-8?B?M0NjakRqUVkzSGdMSWlTajR0cGhSWXRGdVZ4VnZhNHM4ZGNLb3U0M0hBY2sw?=
+ =?utf-8?B?K1hKTDFzVDhFS3dPSGhYSDZwcDQ4NVMyNm5kb3I5MlM2cnJJZXJySFVQUHRE?=
+ =?utf-8?B?WW1JbVhxMk9xRkFEWkdoRzRXV0VOQTQ2cjFqM3JPOVF5WkZzZEI4ZFYyd3pV?=
+ =?utf-8?B?MkRGVkFGaW1PeWNsVnFHRkYxYWwwQzRrazBVYkJncjNEQmU5dTlBa0JxRndm?=
+ =?utf-8?B?WldpVVB4ZTFVd0RuWVJ4SGx6TlhhdEE2WW9hOE51NnVleVFMdzlDYVBvUEFi?=
+ =?utf-8?B?bmVrZldZOU9HaFdneE8zSTFYOU91Zm5tbXF1a09lamx4M09IT2o4QjNRTVJn?=
+ =?utf-8?B?a0tqTnJyYWloNVd3SndhM2k1TCs1cFpUMWdKZG14eXp1ZDUyaGd5OENqaHBX?=
+ =?utf-8?B?VWtBNTlyQXlBOUtKUXY5Unc3S01nOVZ0TjR2RlhTcTJsQzJIV00yYmZ5RlJa?=
+ =?utf-8?B?bVR2T3Y1aXZrb3JVMDVabVFuOHczNnNScHdFTHNYWmFvb1hhUVdsbklncFJK?=
+ =?utf-8?B?YW9VbmM0RmtlYTU5TkNQcXFXRzdXWU1MKzlrUEtEZUdOb2ZrMFV5bTFxTmQ1?=
+ =?utf-8?B?WmpJTTR5ZDI3N09jVmdxaWJ6cVBCMnVkZHBqZlFIa2pYSnVhRGtHTmkyci96?=
+ =?utf-8?Q?oB1plSln5QQ7geAWT5XgKucRNqM7vi1ZaISKHsxhCgRAi?=
+X-MS-Exchange-AntiSpam-MessageData-1: SzZBQP+zM5t/Hg==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 520c448c-7209-4b02-fb51-08df2e5ec47f
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 04:01:07.0452
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AGOTL5QxbHltDZfE3B/cJAQF4tXmDUeGS+mVXR/rN6LBSwQvUZD4/BCP3dQ5HiEz3ajc3ps7UiMAkXD0H/flXQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB9071
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_210116_694560_21ED07EE 
+X-CRM114-Status: GOOD (  33.20  )
+X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,261 +163,112 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 5 potential
-issue(s) to consider.
+On Tuesday, October 20, 2026 1:55=E2=80=AFAM Robin Murphy wrote:
+> On 16/10/2026 7:46 am, Mikko Perttunen wrote:
+> > ARM's arch_setup_dma_ops / arm_setup_iommu_dma_ops creates a custom
+> > IOMMU domain for DMA API usage, and continues to do so when the IOMMU
+> > driver doesn't explicitly request a DMA default domain type.
+> >=20
+> > When, however, that DMA default domain is requested and the core owns
+> > the domain, we need to skip our own domain management. Add checks to
+> > arm_setup/teardown_iommu_dma_ops for these cases. In such a case IOVAs
+> > can be allocated from anywhere in the domain's geometry, so also add a
+> > check to ensure the device's dma-ranges cover it. Presently, this is th=
+e
+> > case for all platforms except some OMAP platforms with a non-zero
+> > dma-ranges base.
+>=20
+> It's probably worth adding some cleverness to arm_iommu_detach_device()=20
+> as well - it might work out benign to attempt to detach from a real=20
+> core-owned default domain, but we'll now want to set dma_ops and=20
+> to_dma_iommu_mapping according to the default domain itself (since we'll=
+=20
+> now have the possibility of switching between an explicit unmanaged=20
+> dma_iommu_mapping and the implicit default one.)
 
-Critical: 0 · High: 3 (1) · Medium: 2 · Low: 0
+I was thinking of just disallowing the explicit arm_iommu_* API for=20
+devices that get a default domain and hoping that any device that opts=20
+in to the "modern way" is capable of getting rid of the custom handling=20
+:)
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+I'll add a check to arm_iommu_attach_device to disallow it if there's
+a core owned domain unless you have other thoughts.
 
-- [High] The patch adds the very map/unmap direction mismatch it claims
-  to fix.
-- [High] The direction is not the real bug in prueth_process_rx_mgm().
-- [High] net: cacheline corruption due to DMA_BIDIRECTIONAL on unaligned
-  inline array
-- [Medium] The commit message's premise is wrong.
-- [Medium] The Fixes tag points at the wrong commit.
+Thanks,
+Mikko
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but
-  prueth_process_rx_mgm() refills the wrong ring.
+>=20
+> Thanks,
+> Robin.
+>=20
+> > Signed-off-by: Mikko Perttunen <mperttunen@nvidia.com>
+> > ---
+> >   arch/arm/mm/dma-mapping.c | 25 ++++++++++++++++++++++++-
+> >   1 file changed, 24 insertions(+), 1 deletion(-)
+> >=20
+> > diff --git a/arch/arm/mm/dma-mapping.c b/arch/arm/mm/dma-mapping.c
+> > index f2d3e8ec3487..d6315baeddb9 100644
+> > --- a/arch/arm/mm/dma-mapping.c
+> > +++ b/arch/arm/mm/dma-mapping.c
+> > @@ -1761,13 +1761,33 @@ EXPORT_SYMBOL_GPL(arm_iommu_detach_device);
+> >  =20
+> >   static void arm_setup_iommu_dma_ops(struct device *dev)
+> >   {
+> > -	struct dma_iommu_mapping *mapping;
+> > +	struct dma_iommu_mapping *mapping =3D to_dma_iommu_mapping(dev);
+> >   	u64 dma_base =3D 0, size =3D 1ULL << 32;
+> >  =20
+> >   	if (dev->dma_range_map) {
+> >   		dma_base =3D dma_range_map_min(dev->dma_range_map);
+> >   		size =3D dma_range_map_max(dev->dma_range_map) - dma_base;
+> >   	}
+> > +
+> > +	/*
+> > +	 * An existing cookie means the core owns the domain. Only set the
+> > +	 * per-binding DMA ops. IOVAs are allocated from the whole aperture,
+> > +	 * so the device's dma-ranges must cover it.
+> > +	 */
+> > +	if (mapping) {
+> > +		const struct iommu_domain_geometry *geo =3D
+> > +			&mapping->domain->geometry;
+> > +
+> > +		if (dma_base > geo->aperture_start ||
+> > +		    dma_base + size < geo->aperture_end) {
+> > +			dev_err(dev, "dma-ranges do not cover the IOMMU aperture\n");
+> > +			return;
+> > +		}
+> > +
+> > +		set_dma_ops(dev, &iommu_ops);
+> > +		return;
+> > +	}
+> > +
+> >   	mapping =3D arm_iommu_create_mapping(dev, dma_base, size);
+> >   	if (IS_ERR(mapping)) {
+> >   		pr_warn("Failed to create %llu-byte IOMMU mapping for device %s\n",
+> > @@ -1792,6 +1812,9 @@ static void arm_teardown_iommu_dma_ops(struct dev=
+ice *dev)
+> >   	if (!mapping)
+> >   		return;
+> >  =20
+> > +	if (!mapping->owns_domain)
+> > +		return;
+> > +
+> >   	arm_iommu_detach_device(dev);
+> >   	arm_iommu_release_mapping(mapping);
+> >   }
+> >=20
+>=20
+>=20
 
---
 
-net: ti: icssg-prueth: Fix dma_unmap_single() direction
 
-This patch changes the DMA direction to DMA_BIDIRECTIONAL in two places:
-the mapping of the firmware command buffer in emac_send_command_sr1(),
-and the RX management buffer unmap in prueth_process_rx_mgm(). The commit
-message says the TX map and the RX unmap use mismatched directions.
 
-> In emac_send_command_sr1(), the command data is mapped with direction
-> DMA_TO_DEVICE. However, in prueth_process_rx_mgm(), dma_unmap_single()
-> is called with direction DMA_FROM_DEVICE. It seems like the buffer is
-> written to by the CPU before mapping the buffer; and, after mapping the
-> buffer, the device writes to the buffer.
-
-[Severity: Medium]
-Are these the same buffer? emac_send_command_sr1() maps emac->cmd_data
-on tx_chn->dma_dev. That mapping is released by prueth_xmit_free() when
-the TX completes:
-
-drivers/net/ethernet/ti/icssg/icssg_common.c:prueth_xmit_free() {
-    ...
-	cppi5_hdesc_get_obuf(first_desc, &buf_dma, &buf_dma_len);
-	k3_udma_glue_tx_cppi5_to_dma_addr(tx_chn->tx_chn, &buf_dma);
-
-	dma_unmap_single(tx_chn->dma_dev, buf_dma, buf_dma_len,
-			 DMA_TO_DEVICE);
-    ...
-}
-
-So before this patch the command buffer was both mapped and unmapped
-with DMA_TO_DEVICE.
-
-prueth_process_rx_mgm() handles a different buffer. It is a page_pool
-page that arrived on emac->rx_mgm_chn, attached by
-prueth_dma_rx_push_mapped() as page_pool_get_dma_addr(page) +
-PRUETH_HEADROOM.
-
-The firmware reply is also read from that RX page, not from cmd_data:
-
-prueth_rx_mgm_rsp_thread() {
-    ...
-	rsp = le32_to_cpu(*(__le32 *)page_address(page)) & 0xffff0000;
-    ...
-}
-
-Does anything make the device write to emac->cmd_data, or read cmd_data
-back after the DMA? If not, could the commit message be reworded to
-describe the problem that actually exists?
-
-> Fixes: e654b85a693e ("net: ti: icssg-prueth: Add ICSSG Ethernet driver for AM65x SR1.0 platforms")
-
-[Severity: Medium]
-Is this the right commit for the Fixes tag? At e654b85a693e both pairs
-seem to match. cmd_data was mapped and unmapped with DMA_TO_DEVICE. The
-RX management buffer was an skb, mapped DMA_FROM_DEVICE in
-prueth_dma_rx_push() and unmapped DMA_FROM_DEVICE in
-prueth_process_rx_mgm().
-
-The RX side only went wrong with 46eeb90f03e0 ("net: ti: icssg-prueth:
-Use page_pool API for RX buffer allocation"). That commit moved RX to
-page_pool pages but kept the old dma_unmap_single().
-
-Stable trees that have e654b85a693e but not 46eeb90f03e0 would end up
-with a FROM_DEVICE map paired with a BIDIRECTIONAL unmap on the skb path.
-They would also get a new mismatch on the TX command path.
-
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
-> index b8115ca47082f..6f4a3f64ad39f 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
-> @@ -98,7 +98,7 @@ static int emac_send_command_sr1(struct prueth_emac *emac, u32 cmd)
->  	tx_chn = &emac->tx_chns[emac->tx_ch_num - 1];
->  
->  	/* Map the linear buffer */
-> -	buf_dma = dma_map_single(tx_chn->dma_dev, data, pkt_len, DMA_TO_DEVICE);
-> +	buf_dma = dma_map_single(tx_chn->dma_dev, data, pkt_len, DMA_BIDIRECTIONAL);
-
-[Severity: High]
-There's a second problem with mapping cmd_data DMA_BIDIRECTIONAL.
-emac->cmd_data is a 16 byte array embedded in struct prueth_emac with
-no alignment or padding of its own:
-
-	u8 cmd_seq;
-	/* shutdown related */
-	__le32 cmd_data[4];
-	struct completion cmd_complete;
-	/* Mutex to serialize access to firmware command interface */
-	struct mutex cmd_lock;
-
-So it shares a cacheline with cmd_seq, cmd_complete and likely part of
-cmd_lock.
-
-Documentation/core-api/dma-api.rst asks for regions mapped with
-dma_map_single() to start and end on cacheline boundaries, so that
-nothing else shares those lines. With DMA_TO_DEVICE this was harmless
-in practice, because the CPU side never has to invalidate anything.
-dma-debug skips its overlapping cacheline tracking for DMA_TO_DEVICE
-mappings for exactly that reason.
-
-DMA_BIDIRECTIONAL tells the architecture the device may write the
-buffer. On a non-coherent system the CPU sync on unmap then invalidates
-the lines covering cmd_data, and those lines also hold cmd_complete.
-
-reinit_completion() writes cmd_complete after the map.
-prueth_rx_mgm_rsp_thread() calls complete() on it from the mgm IRQ
-thread while the buffer may still be mapped. Can the invalidate throw
-away those updates and lose the wakeup?
-
-Today only the descriptor allocation failure path above unmaps with
-DMA_BIDIRECTIONAL. Every command would, though, if prueth_xmit_free()
-were converted to match.
-
-If the firmware really does write into this buffer, cmd_data would need
-its own cacheline aligned allocation. If it doesn't, wouldn't keeping
-DMA_TO_DEVICE avoid the problem altogether?
-
-[Severity: High]
-Doesn't this add a map/unmap direction mismatch? Only the unmap on the
-descriptor allocation failure path below was converted. Every other
-release of this mapping still goes through prueth_xmit_free(), which
-hardcodes DMA_TO_DEVICE:
-
-emac_send_command_sr1()
-  k3_udma_glue_push_tx_chn()
-  ... TX completion ...
-emac_tx_complete_packets()
-  default:    /* PRUETH_SWDATA_CMD */
-    prueth_xmit_free()
-      dma_unmap_single(..., DMA_TO_DEVICE)
-
-The same is true of the free_desc path in this function when
-k3_udma_glue_push_tx_chn() fails, and of TX channel teardown.
-
-With CONFIG_DMA_API_DEBUG, would check_unmap() now report "device driver
-frees DMA memory with different direction" on every successful firmware
-command?
-
-The device only reads cmd_data. With an IOMMU, though, BIDIRECTIONAL also
-lets the device write to the page that holds it. That page is inside
-netdev_priv(), next to cmd_complete, cmd_lock and the napi/hrtimer state.
-
-Should the TX hunks be dropped?
-
->  	if (dma_mapping_error(tx_chn->dma_dev, buf_dma)) {
->  		netdev_err(emac->ndev, "cmd %x: failed to map cmd buffer\n", cmd);
->  		ret = -EINVAL;
-
-[ ... ]
-
-> @@ -303,7 +303,7 @@ static struct page *prueth_process_rx_mgm(struct prueth_emac *emac,
->  	page = swdata->data.page;
->  	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
->  
-> -	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_FROM_DEVICE);
-> +	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_BIDIRECTIONAL);
-
-[Severity: High]
-Should this be a dma_unmap_single() at all? The page comes from a page
-pool that prueth_create_page_pool() sets up with:
-
-	pp_params.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
-	...
-	pp_params.dma_dir = DMA_BIDIRECTIONAL;
-
-That means the pool owns a mapping of the whole page.
-prueth_dma_rx_push_mapped() gives the device an offset into that mapping:
-
-	buf_dma = page_pool_get_dma_addr(page) + PRUETH_HEADROOM;
-
-Here the address is read back with cppi5_hdesc_get_obuf(). It is never
-converted with k3_udma_glue_rx_cppi5_to_dma_addr(), and it is unmapped
-with a partial length. So it does not match any mapping the driver
-created.
-
-After the unmap, the page is either recycled with
-page_pool_recycle_direct(), or, if allocation fails, pushed straight back
-to hardware as new_page = page. In both cases the pool still treats the
-page as mapped.
-
-With an IOMMU, which the commit message mentions, can this free the IOVA
-of a page the pool is still using? The next DMA into that page would then
-fault or land on a reused IOVA, and page_pool_destroy() would unmap it a
-second time.
-
-DMA-API debug would also flag this as "device driver tries to free DMA
-memory it has not allocated", whatever the direction.
-
-emac_rx_packet() handles the same kind of buffer by calling
-page_pool_dma_sync_for_cpu() instead of unmapping. Would a similar CPU
-sync be the right replacement for the unmap here?
-
->  	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
->  
->  	new_page = page_pool_dev_alloc_pages(rx_chn->pg_pool);
-
-[Severity: High]
-This isn't a bug introduced by this patch, but a little further down in
-prueth_process_rx_mgm() the replacement buffer goes to the data channel
-instead of the management channel:
-
-	/* queue another DMA */
-	ret = prueth_dma_rx_push_mapped(emac, &emac->rx_chns, new_page,
-					PRUETH_MAX_PKT_SIZE);
-	if (WARN_ON(ret < 0))
-		page_pool_recycle_direct(rx_chn->pg_pool, new_page);
-
-The descriptor was just returned to rx_mgm_chn's desc_pool. The refill,
-however, allocates from rx_chns.desc_pool and posts on the data RX
-channel, using a page from the mgm page pool.
-
-emac_ndo_open() fills the mgm ring only once, with
-PRUETH_MAX_RX_MGM_DESC_SR1 (8) descriptors. After 8 management packets
-(command responses or TX timestamps), does the firmware run out of mgm
-buffers? If so, emac_send_command_sr1() would time out on every command,
-and the skbs held in emac->tx_ts_skb[] would never complete.
-
-All data descriptors are posted at open, so this push will usually fail
-in k3_cppi_desc_pool_alloc() and hit the WARN_ON() on most management
-packets. When it does succeed, emac_rx_packet() or prueth_rx_cleanup()
-later recycles the mgm-pool page into the data pool.
-
-Before 46eeb90f03e0 this call pushed to &emac->rx_mgm_chn. Should it do
-so here as well?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261016125534.36024-2-fourier.thomas%40gmail.com
 
