@@ -2,67 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B426C606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 18:55:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BB31606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 19:00:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DzUDeGy6;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ixrA1YXo
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=n4X22o7X;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nFmWSkIZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4PK2lzk2mI4nQc8YfV5A1vWK0eiPo0oKUX3U4tb8dEk=; b=DzUDeGy6pIl89M56CaaJDMfBEN
-	XWQI1XBr3T2UKjHKw76EoGdKThNfEhZicth4d0YkocJ91Ry3cW0WHDfqEoqtA3mBIqfILi8F/nFd+
-	7Rm689OvsOuvHJVAxKz5T06HLggqDBHnEvLwwM1gN5t1+2GbCRZNaotmQURxDGrZ3BrQxLdZSeuy1
-	sjVnAVptIKl70ebdoZRp+3eD3Ah3FVkCNbE5pGL9uiLR/EtGR6p1Wni2dvdhkvGLM8A8a+enoxJTR
-	pxjc4mp+rdZybCBW09I5svdjSOjYgezYBnS/VPM+ciEezu+ABy6vnRTnnnB5dZ5GEH1y/4jHNU+RJ
-	siyujtEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=doFwaVtFpS6sC4IuXaKfGyTb696NhEj7zirNI3zBSPk=; b=n4X22o7XOXCMk6dpEZ8Nr8mMAh
+	cayfBDePqSxe9VFcs9//Da8+jtcqRRXD929K+PwiB4Wm6f66KamSX3c1ROsA1AMxku2+JFEqmTFCb
+	w6elGGIuE/oHdDB/u4FbqS1OsW1oUZGHL5h/0oz4hj58qtPbA2yxQTVvBNwMpnwoe67HWwvT0nMgU
+	zr60VZSECGcHprheRO2dJr/QwaJCZh8lbmymI0xyfmDj+lkYecLfJVPB9CoxQbdH1nfWbO8QmHtxT
+	ENv81ccMiHiP3BLd9kXz+wqfUrovP1SJd0HBsBLy/rUscrr7U1bNmFYJw33SKOLwv2kt9x7VOMnLH
+	i5D1JydQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJEzv-0000000AUZI-0lJZ;
-	Tue, 20 Oct 2026 18:55:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xJF4Z-0000000AUyD-0t6E;
+	Tue, 20 Oct 2026 19:00:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJEzt-0000000AUZ0-2aAi
+	id 1xJF4R-0000000AUv8-2r7U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 18:55:41 +0000
+	Tue, 20 Oct 2026 19:00:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 096DD43917;
-	Tue, 20 Oct 2026 18:55:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B95591F000C9;
-	Tue, 20 Oct 2026 18:55:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9BC7E60D86;
+	Tue, 20 Oct 2026 19:00:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46E321F000C9;
+	Tue, 20 Oct 2026 19:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792522540;
-	bh=4PK2lzk2mI4nQc8YfV5A1vWK0eiPo0oKUX3U4tb8dEk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ixrA1YXoG1+qDDsa71ntE6lr2e2co5LFsNrTKt8FNl3m6zEf+qKK604id9y1tabd8
-	 14W+Z3DkFxcjCaLductg5BAFEYKUO/ziRrIBgad7TlD7Ux5YukQqYgpeulnSiaMR62
-	 N0aRHjT3HzxcpmuNxWh2VOoAmQgl4EOdXN8PUXHgSsGXT7AT/fKY45YiDCm8mZNXWR
-	 5E1OveQbNkOjLlxffgevQBqSit/uR6E5Gn2TBr9dhF7BshNAWk2hR7vV1c0HogUU4Q
-	 QsDZ+HUowwJwoEVGcYgikapOSOf2EUNvV5YE2kuXOITX6tvb6g3I6tsnyU6ACMGpUL
-	 ZMXY+v7EkiUFg==
-Date: Tue, 20 Oct 2026 19:55:36 +0100
-From: Simon Horman <horms@kernel.org>
-To: Josef Bacik <josef@toxicpanda.com>
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Michal Simek <michal.simek@amd.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH net] net: axienet: don't advance the TX ring head before
- the descriptor is ready
-Message-ID: <20261020185536.GR503057@horms.kernel.org>
-References: <20261013-b4-axienet-dmaengine-ring-head-v1-1-7add24e74477@toxicpanda.com>
+	s=k20260515; t=1792522822;
+	bh=doFwaVtFpS6sC4IuXaKfGyTb696NhEj7zirNI3zBSPk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=nFmWSkIZRpkljVSa23s6GPJ3aVIW5bIoTnLHx11JdS/V7eYtdXgjiNhXDsgVLmC/O
+	 u+AFoyP9sQoc5dZ0l4UCRVYYMNAPcBsoor0gCI7bZIXsBsI+jxaA5fjBNGQoNk/UcA
+	 U0HVGNjRC4Cq6kmD+gWSo9XYiQx3dXVYyZWF61RTmDmq5uPBXwr4iJy+gwCgJN3OQt
+	 zHIlSNFSl9131/EhLdLyd1T6AoUUE9J4kjC9BHVNqhPc2MUle2iBf3bKw4fehQ11gd
+	 ZLpEN5thUzwNIbwODsWVqSmZ3S1RaBdfxycFeTJ3TvcHMUrDUlsLEIzmxrqmFvhK/4
+	 CY+PdAjm1i3Tw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A4EF3808209;
+	Tue, 20 Oct 2026 19:00:22 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261013-b4-axienet-dmaengine-ring-head-v1-1-7add24e74477@toxicpanda.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: rename skb_unshare() to skb_unclone_full()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <179252282077.159319.7792031411876485115.git-patchwork-notify@kernel.org>
+Date: Tue, 20 Oct 2026 19:00:20 +0000
+References: <20261015-nb-skb-unclone-full-v1-1-0dfbf01f60f2@tipi-net.de>
+In-Reply-To: <20261015-nb-skb-unclone-full-v1-1-0dfbf01f60f2@tipi-net.de>
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Raju.Rangoju@amd.com, PrashanthKumar.K.R@amd.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ ioana.ciornei@nxp.com, sgoutham@marvell.com, gakula@marvell.com,
+ rkannoth@marvell.com, sbhatta@marvell.com, bbhushan2@marvell.com,
+ maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, sd@queasysnail.net, horms@kernel.org,
+ marcel@holtmann.org, luiz.dentz@gmail.com, olteanv@gmail.com,
+ alex.aring@gmail.com, stefan@datenfreihafen.org, miquel.raynal@bootlin.com,
+ jk@codeconstruct.com.au, matt@codeconstruct.com.au,
+ stephen@networkplumber.org, jhs@mojatatu.com, jiri@resnulli.us,
+ marcelo.leitner@gmail.com, lucien.xin@gmail.com, jmaloy@redhat.com,
+ tung.quang.nguyen@est.tech, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org,
+ linux-wpan@vger.kernel.org, linux-sctp@vger.kernel.org,
+ tipc-discussion@lists.sourceforge.net
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,43 +85,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
 	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 13, 2026 at 06:25:06PM +0000, Josef Bacik wrote:
-> axienet_start_xmit_dmaengine() bumps lp->tx_ring_head before
-> skb_to_sgvec(), dma_map_sg() and device_prep_slave_sg(), and none of
-> their error paths undo it.  The skb is freed and nothing is submitted,
-> but the slot stays claimed.  axienet_dma_tx_cb() walks tx_ring_tail
-> once per completion, so the next completion lands on the abandoned slot
-> and dereferences whatever skb pointer is left there: NULL if the slot
-> was never used or was already completed, or a stale skb that gets
-> consumed a second time.  Every completion after that is accounted
-> against the wrong slot.
-> 
-> dma_map_sg() and device_prep_slave_sg() can fail at runtime, and so can
-> skb_to_sgvec() on a malformed skb.  Only advance tx_ring_head once
-> those have succeeded.  The completion callback can't run before
-> dmaengine_submit(), so claiming the slot just before that is fine.
-> 
-> dmaengine_submit() itself can also fail on xilinx_dma after a channel
-> error, and its return isn't checked either.  That's a separate problem
-> and isn't changed here.
-> 
-> This was found by the Sashiko AI review of the skbuff BUG_ON() series.
-> 
-> Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
-> Link: https://lore.kernel.org/all/20261007-b4-skbuff-bug-on-v2-0-b9a5f732895b@toxicpanda.com/
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
-> ---
-> Compile-tested only, I don't have the hardware.  The bug is in the error
-> paths, which are easy to see from the diff: every goto after the old
-> increment returns without submitting anything.
+Hello:
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Thu, 15 Oct 2026 10:16:38 +0200 you wrote:
+> skb_unshare() only copies cloned skbs. A shared skb that is not a clone
+> comes back unchanged, which the name doesn't suggest. The loopback
+> selftest hooks got caught by this and hit BUG_ON(skb_shared()).
+> 
+> Rename it to skb_unclone_full(). Like skb_unclone() it only acts on
+> clones, but it copies the whole skb, not just the head.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next] net: rename skb_unshare() to skb_unclone_full()
+    https://git.kernel.org/netdev/net-next/c/258c3ae4a4af
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
