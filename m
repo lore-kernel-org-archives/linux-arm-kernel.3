@@ -2,79 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF7F2606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 14:46:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C6E5606A33C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 14:48:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ruTvZZtP;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BPAHlMuP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZZbeNwgm;
+	dkim=pass (1024-bit key, unprotected) header.d=cyberchaos.dev header.i=@cyberchaos.dev header.a=rsa-sha256 header.s=mail header.b=YggroFkc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dd9e46BTrpHgF60mWtnGPE2/vPI3dSQPcJz11b4S1jk=; b=ruTvZZtPgOVmo52MZP0Ca+CNrv
-	xPYTVfGCEmyTMadbDYlJu6Q+xoho2Vh6fQPtyAiQXuTp4qrMjGwAY0wctRCTfgG2fBL3gBJh0OHSe
-	ITYxupow/s0Ks1S2VB0XvhPyPlGSok4HacByZiLO36Lu8e6u1zyu64WmfV4Nk6BlKBBpU3gZoqMW3
-	AJSH/1osls8jggKNzqBB2AGZzUpig+OKgvjPn/PvM44U4ZS8MISMt6853z26Ul83via6kDRkhNlpa
-	QOE/TFQbf2sGmpk0yD+lx6ViXJbkeDcDX2sZr4YbuBiVGqyIEghazAKHNn9xa3ihn5n8pkk84gkZB
-	eB3y3ACQ==;
+	bh=/KQ70MsaDZXGGg9xwr15iwDR73QEsKB18yX4p0CKZSM=; b=ZZbeNwgmct54C3uWRIXfs1rkRa
+	NirBaiIoxxBInVNrLmEHrgP0yHuXWf/irY5vrNLhRSGNIVBhzPWwbAjaTEd7blZxItJNASev08BvS
+	pn2qyQxV+75IGBbuF+A6DC7KHihaNx0pW/WVm15nlVmoi1BsYvxzOY8R1/nhTshCxzsb7lj6sUkx/
+	scT0Sr2/QdyWzoeHKlIqvC0Ckov4XJubX+SU19id7qpLUeubgV4JbTdr2hEAPeqiC+A6tlcyD6NEx
+	XfyifHTXKH0obwsQDrnlg5hgsaMXbAQIaMu1Vqt4WZBJxSYyMdtyBv9OVhaoXPmKr2z6+Ai3jFtBp
+	Mmrujz6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJAoY-00000009wQ0-2Hsx;
-	Tue, 20 Oct 2026 14:27:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJAoS-00000009wOQ-31se
+	id 1xJAxt-00000009y4Q-1bdN;
+	Tue, 20 Oct 2026 14:37:21 +0000
+Received: from [2a0f:4ac0::3a11] (helo=mail.cyberchaos.dev)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJAxq-00000009y1X-2EZ5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 14:27:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4272616F8;
-	Tue, 20 Oct 2026 07:27:31 -0700 (PDT)
-Received: from [10.0.137.15] (XHFQ2J9959-5.cambridge.arm.com [10.0.137.15])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D2363F7D8;
-	Tue, 20 Oct 2026 07:27:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792506454; bh=II7XzKF/T9a42uG8lOm7+KYJJnneubeimBS3uGSkock=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BPAHlMuPMZTzU3zfBQVYdzZx6EFum1IZ9tNdfI41BIOD1ynRavvH/BLSpoHVkwC7j
-	 GsxOWywnQWifJ95J1IVxn6CyoFnm6HTr1FG1Zk1MR5LW8CW5zDQlNmBupLWLyCWxE6
-	 +Tufm7Qk3l7H79TsgTEtkuAfPiAAvp+fpJIutrRk=
-Message-ID: <08521420-5adb-4e3a-8110-4713bcd5dfa0@arm.com>
-Date: Tue, 20 Oct 2026 15:27:28 +0100
+	Tue, 20 Oct 2026 14:37:19 +0000
+Message-ID: <7e59d984-1c00-4414-aa45-3092491ac39b@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1792507019;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=/KQ70MsaDZXGGg9xwr15iwDR73QEsKB18yX4p0CKZSM=;
+	b=YggroFkcCadfQfVG8niIpNsyieORHWjFzYJGR4w/M8tD1eH9iDKWbMHv5Jgf+IwlrHxLJB
+	usD4/MSGgmm58e7uu+YwBIbmwpP1nLJ/M2O1xRpIi05kCSpf/p72CvGX11rD3GHaQbT2Eq
+	oetmXAEU064lrnsbFA+yaG0sVJJyMwU=
+Date: Tue, 20 Oct 2026 16:36:55 +0200
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 15/15] misc/arm-cla: Add vfio-mdev user interface
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Jean-Philippe Brucker <jpb@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
- Alex Williamson <alex@shazbot.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-References: <20261015142552.4128028-1-ryan.roberts@arm.com>
- <20261015142552.4128028-16-ryan.roberts@arm.com>
- <20261015164102.GC13920@nvidia.com>
- <CABCqBse_aZL-EH0us2uA5X10q6E4WP02MoHTYf+M9ezRZr26WQ@mail.gmail.com>
- <20261016144202.GG13920@nvidia.com>
- <375868af-d0bd-4278-83e6-f8429df130e9@arm.com>
- <20261020141540.GB3008132@nvidia.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20261020141540.GB3008132@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH 2/2] arm64: Apply existing Apple CPU workarounds to M3 and
+ M4
+To: Marc Zyngier <maz@kernel.org>,
+ Michael Reeves <michael.reeves077@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Myria Sarvay <myrialsarvay@gmail.com>,
+ Yureka Lilian <yureka@cyberchaos.dev>, Fuad Tabba <fuad.tabba@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, Sven Peter <sven@kernel.org>,
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+ asahi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261008-apple-m3-m4-kvm-v1-0-7bb4cbf3d63b@gmail.com>
+ <20261008-apple-m3-m4-kvm-v1-2-7bb4cbf3d63b@gmail.com>
+ <86cxtk2utm.wl-maz@kernel.org>
+ <CANpmGNv4uYRLALMLKZn-HJwTiqJO90Fx23DOO7K7d-PfSWn=2w@mail.gmail.com>
+ <86bj932ssc.wl-maz@kernel.org>
+Content-Language: en-US
+From: Yureka Lilian <yureka@cyberchaos.dev>
+Autocrypt: addr=yuka@yuka.dev; keydata=
+ xjMEZ3vnnhYJKwYBBAHaRw8BAQdAn6RVMnaxLzmDDx+J3jSUGY7BqjyDhsWhdwKBSI6QpXfN
+ Fll1cmVrYSA8eXVrYUB5dWthLmRldj7CjgQTFgoANhYhBPGINbLQ3ypM7JNhigKbtnC7kwpH
+ BQJne+eeAhsDBAsJCAcEFQoJCAUWAgMBAAIeBQIXgAAKCRACm7Zwu5MKRx1qAP9ToLaOMd73
+ VVf1JdwoMc5G44OZfKNk/+ezt9Dl2oqZdQD/Xvgd0lytU3BZ4WnYeMNzo2xHeRxXmX+MfXhA
+ D33tzQ/OOARne+eeEgorBgEEAZdVAQUBAQdAIs9uImfvgSCnJOcfvzshLuaSRJ/a0Vp/9rUA
+ eBGZq10DAQgHwngEGBYKACAWIQTxiDWy0N8qTOyTYYoCm7Zwu5MKRwUCZ3vnngIbDAAKCRAC
+ m7Zwu5MKRyW9AP0dBOuwgWso+QjBZUsbuEmGGUz2OWtszs2Yb7087RMerwEA3al6E7vqq0HC
+ 7LiB3nisU+xqQojJ4n/fWCu70iEkjQw=
+In-Reply-To: <86bj932ssc.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_072739_441350_8E766588 
-X-CRM114-Status: GOOD (  27.06  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261020_073718_816437_22C96940 
+X-CRM114-Status: GOOD (  13.57  )
+X-Spam-Score: -1.3 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,82 +89,50 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 20/10/2026 15:15, Jason Gunthorpe wrote:
-> On Tue, Oct 20, 2026 at 11:41:57AM +0100, Ryan Roberts wrote:
->> On 16/10/2026 15:42, Jason Gunthorpe wrote:
->>> On Fri, Oct 16, 2026 at 03:22:00PM +0100, Jean-Philippe Brucker wrote:
->>>> On Thu, 15 Oct 2026 at 17:41, Jason Gunthorpe <jgg@nvidia.com> wrote:
->>>>> I think I said this last time, please don't use vfio mdev for
->>>>> anything. There is nothing mediated about this.
->>>>
->>>> We don't multiplex a device between guests, but the host driver must
->>>> control part of the device registers while the remainder is assigned to
->>>> a guest. The host configures accelerator access, stage-2 translation,
->>>> handles CPUHP and context save/restore. So we can't bind the device to
->>>> vfio-platform.
->>>
->>> That's fine, you can make a proper vfio-cla driver.
->>
->> Hi Jason,
->>
->> Thanks for taking a look at this! I've been chewing on this comment and trying
->> to educate myself deeper on the subject. I have a proposal...
->>
->> Currently we create a struct device per CLA device instance. But multiple CLA
->> device instances cooperate within a domain and the domain is the "unit of
->> isolation"; 
-> 
-> Well that's weird and a bit confusing.
+On 10/9/26 10:16, Marc Zyngier wrote:
+> On Fri, 09 Oct 2026 01:03:57 +0100,
+> Michael Reeves <michael.reeves077@gmail.com> wrote:
+>>> I can provide the binary (and a few scripts) to test this easily.
+>>> Should they have been fixed, we can always create a second
+>>> implementation list to cover the PMU.
+>> Can you please send that so we can try? That would be much
+>> appreciated, thank you.
+> I've sent you (and Yureka) details over IRC. If you need help with
+> setting things up, let me know directly.
+>
+> Thanks,
+>
+> 	M.
 
-Yes; this conversation is helping me to see that... :)
 
-I was originally trying to avoid creating any globally visible entity that
-describes a "domain", since I thought there was a possibility that each process
-might want to define it's own view of a domain. But in hindsight I don't think
-that's helpful...
+Hi all,
 
-> 
->> we can't have some CLAs from a domain assigned to a VM, while others
->> from the same domain are used by the host. Therefore it didn't feel like the
->> correct model to unbind one of these devices from the native driver and rebind
->> it to a cla-vfio driver. mdev seemed to solve this problem nicely for us.
->>
->> But looking into it in more detail, I guess something like this might be a bit
->> more standard:
->>
->>  - Split the existing CLA driver into three components:
->>     - cla-core: Hardware discovery, domain configuration, struct device
->>       registration and CPU hotplug
->>     - cla-native driver: Provides the user space accelerator interfaces
->>     - cla-vfio driver: Enables domains to be assigned to virtual machines
->>  - Each domain has a struct device (created by the core)
->>     - An individual CLA is not represented by a struct device
->>  - Either cla-native or cla-vfio can then bind to a domain device
->>     - cla-native exposes a char device per domain, per accelerator class
->>     - cla-vfio
->>
->> For VFIO, I guess we could use one VFIO region per CLA, which would allow the
->> VMM to construct a device tree. But it would need to additionally determine
->> which CPU each CLA is bound to; perhaps that's a sysfs interface that cla-core
->> could expose?
-> 
-> I don't know alot about your CLA, but this sounds reasonable. There
-> may be uses with containers to have the split exposed like this too.
 
-...This all feels much clearer and simpler. I'll work on an approach like this.
+sorry for the long delay on this. I needed to get my testing setup in 
+shape to be able to run the tests with the limited amount of I/O I have 
+working on these devices.
+But I can now confirm, that the following SoCs reproduce the SEIS 
+erratum (produce a host SError using the binary sent by Marc) unless the 
+MIDR part numbers are added to the has_broken_gic_v3_seis list.
+
+The affected SoCs are:
+- T8132 (M4)
+- T8140 (A18 Pro)
+- T6050 (M5 Pro)
+
+So please add those to the list for v2 of this series, and probably also 
+add T604x (M4 Pro/Max) and T8142 (M5) since I doubt they will be different).
+
 
 Thanks,
-Ryan
 
-> 
-> Jason
+Yureka
 
 
