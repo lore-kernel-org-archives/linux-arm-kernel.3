@@ -2,77 +2,59 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5263C606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:07:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9380F606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:13:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rDSwoxTT;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=qbsEPwkD
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Qi89E6pE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0c2WAJ+A3fmtE5JIgmM33C+5uxJtcuzd3UjlEAxXX4c=; b=rDSwoxTTNqSjLh2U2WlMtacg28
-	wjY8iClo1rQuKUyr1Mr38aJGPczgh5OjnNepHLANUdsm9IKpvqgiI9bNMDelB2KKqf9zEpYkfQI4l
-	2E5Kixp+ysU7wLTUzF6NuiPrvT2IASCleEV7TKoZ6IAE+hgpHPNOfwyCLB1TFhSDcuswkRLwEMXtt
-	PheAXzMQazoOin2PxXKiNCph/8QoFV/DLJwHx9ekf8FEuV6+yGFQWX44yYVXNAumsw9Ea+QDlUyOk
-	8CVeiH03i72Zv4yQyL6nvkpap4HmhHwT2U75oePwAYobZM1xRot8I1ferifITW85PWqWIRZzHzlJ0
-	9w26a2Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=13Yuoyae55wiKNqti/LOAEL9RI5niDoBeik6pXc0Zx4=; b=Qi89E6pEdusKA2FL/p57Fnz96O
+	HAJS9VwzkeQ2mI2nrUCU1RZ42n1jltRUux6wuXSwac+2hMF7lZX5CDmWYnlG7rw/NgS7zIKX5WmTz
+	UpCbZmkAzY/HO1wCiJzCWth1fLbwfhFR4HbfOUjUTZSICaoIbwn5G98GUEUYC2NMT1UypcAVsCIcc
+	DhdrDgJRiTkxKazV3FDl/8PmgsShO1SR7NTvSfzHCbe40iqTsHzmwlOHHrtBnH3l6+unl3SiDrqy5
+	l1vma1DuAdB7JxcU1TPSBR+IkijLE4XrRRr9j9882DSI9/xOSdF7JGG244E1XpH5aWXEc9nfkj/1e
+	0KXGomLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBQO-0000000A1xo-0LJd;
-	Tue, 20 Oct 2026 15:06:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBQK-0000000A1x1-1nfa
+	id 1xJBWB-0000000A2N4-3Glz;
+	Tue, 20 Oct 2026 15:12:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJBW9-0000000A2Me-2qO6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 15:06:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BACB516F8;
-	Tue, 20 Oct 2026 08:06:38 -0700 (PDT)
-Received: from [10.0.137.15] (XHFQ2J9959-5.cambridge.arm.com [10.0.137.15])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 023503F7B4;
-	Tue, 20 Oct 2026 08:06:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792508801; bh=B2p95+bauGKjmtB2lfd2lV6Dt4OS4tWv6hQlDp4Cj+Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qbsEPwkDD7Lc4yU5KuGZCTmflk83ca1uakWmyzyB5V+G5xona4bnVrrf8HUO7SfBD
-	 hWcREG5/ibmRlF3zEEC0SajKDIYlVtmTByzKmcih5lFG3FO5cxnsZcCqcNRrejVtTV
-	 ofgzQDwH+CmP1BeWW8uCRXFv9mqJ7hmrpsqrKaQ8=
-Message-ID: <c367caf3-d462-42ea-b482-bf9c51c47a63@arm.com>
-Date: Tue, 20 Oct 2026 16:06:37 +0100
+	Tue, 20 Oct 2026 15:12:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7644E600AA;
+	Tue, 20 Oct 2026 15:12:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1188E1F000C4;
+	Tue, 20 Oct 2026 15:12:44 +0000 (UTC)
+Date: Tue, 20 Oct 2026 10:12:43 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 12/15] vfio: Support VFIO devices that access the
- CPU MMU
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
- Alex Williamson <alex@shazbot.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jean-Philippe Brucker <jpb@kernel.org>,
- Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvm@vger.kernel.org, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-References: <20261015142552.4128028-1-ryan.roberts@arm.com>
- <20261015142552.4128028-13-ryan.roberts@arm.com>
- <20261015164421.GD13920@nvidia.com>
- <95e0f9bd-0203-4c7a-9d09-622593bb3d4c@arm.com>
- <20261020140944.GA3008132@nvidia.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20261020140944.GA3008132@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_080644_517710_1E840F91 
-X-CRM114-Status: GOOD (  16.99  )
-X-Spam-Score: -4.4 (----)
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, edumazet@kernel.org, 
+ devicetree@vger.kernel.org, mohd.anwar@oss.qualcomm.com, 
+ peppe.cavallaro@st.com, linux-stm32@st-md-mailman.stormreply.com, 
+ alexandre.torgue@foss.st.com, daniel@riscstar.com, joabreu@synopsys.com, 
+ pabeni@redhat.com, davem@davemloft.net, maxime.chevallier@bootlin.com, 
+ netdev@vger.kernel.org, linux@armlinux.org.uk, richardcochran@gmail.com, 
+ linux-arm-kernel@lists.infradead.org, mcoquelin.stm32@gmail.com, 
+ kuba@kernel.org, hkallweit1@gmail.com, krzk+dt@kernel.org, 
+ p.zabel@pengutronix.de, andrew+netdev@lunn.ch, conor+dt@kernel.org, 
+ lorenzo.bianconi@oss.qualcomm.com
+To: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20261019030129.1470307-2-elder@riscstar.com>
+References: <20261019030129.1470307-1-elder@riscstar.com>
+ <20261019030129.1470307-2-elder@riscstar.com>
+Message-Id: <179250894164.3309593.6302141090126438838.robh@kernel.org>
+Subject: Re: [PATCH net-next 1/5] dt-bindings: net: add support for Toshiba
+ TC9564
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,51 +65,70 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 20/10/2026 15:09, Jason Gunthorpe wrote:
-> On Tue, Oct 20, 2026 at 12:51:26PM +0100, Ryan Roberts wrote:
->>> However.. you still have to affirm which single mm is the mm that the
->>> device is going to be doing DMA against. The process the opens the fd
->>> should not be forced to be the mm that it gets linked to.
->>
->> What is the mm representing here? Ultimately we want to install the KVM
->> instance's stage2 pgtables and (pinned) VMID. We currently get that via the
->> bound KVM instance (which looks like it still works using the cdev interface?)
->>
->> The guest will then install the stage1 pgtables and (pinned) ASID associated
->> with the relevant (guest) mm_struct.
->>
->> Do we _need_ an mm association in the host?
+
+On Sun, 18 Oct 2026 22:01:24 -0500, Alex Elder wrote:
+> The Toshiba TC9564 is an SoC that exposes two XGMAC 10 Gbps Ethernet
+> interfaces, each of which is attached to an embedded PCIe function.
 > 
-> Ah.. I see, I didn't quite follow that. OK.. Ah everyone else doing
-> this is using iommufd with a viommu to establish their connection
-> between device an KVM. eg Jacob Pan's series. That's a probably a
-> better idea to stay aligned with the common path. Though your reasons
-> are a little different..
-
-Just to check, you're referring to [1]?
-
-I was under the impression that I could open the VFIO device through the cdev
-interface, then bind it to the KVM instance via KVM_DEV_VFIO_FILE_ADD... Why do
-I need an iommufd at all?
-
-[1]
-https://lore.kernel.org/all/20260925190742.1575380-1-jacob.pan@linux.microsoft.com/#t
-
-Thanks,
-Ryan
-
+> These XGMAC interfaces have three resets, for the MAC, PMA, and XPCS
+> layers.  These resets differ from the standard two resets defined
+> in "snps,dwmac.yaml".
 > 
-> If you manage to get pinned VMID out of KVM then we can implement SMMU
-> BTM as well!
+> To permit these other resets to be used, modify the way resets are
+> defined in "snps,dwmac.yaml" to be similar to the way interrupts and
+> their names are defined earlier in the file.  That is, rather than
+> adding descriptions with the resets property values, just specify the
+> maximum number of items.  Then, in the reset-names property, provide
+> a list of description/constant value pairs, indicating which renames
+> may be used among the (three) reset items specified.
 > 
-> Jason
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> ---
+>  .../devicetree/bindings/net/snps,dwmac.yaml   |  26 +-
+>  .../bindings/net/toshiba,tc9564-xgmac.yaml    | 327 ++++++++++++++++++
+>  MAINTAINERS                                   |   7 +
+>  3 files changed, 351 insertions(+), 9 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/net/toshiba,tc9564-xgmac.yaml
+> 
+
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/net/snps,dwmac.yaml: properties:reset-names: {'maxItems': 3, 'items': [{'oneOf': [{'description': 'GMAC stmmaceth reset', 'const': 'stmmaceth'}, {'description': 'AHB reset', 'const': 'ahb'}, {'description': 'MAC reset', 'const': 'mac-reset'}, {'description': 'PMA (Physical Medium Attachment) reset', 'const': 'pma-reset'}, {'description': 'XPCS reset', 'const': 'xpcs-reset'}, {'description': 'OCP reset (deprecated)', 'const': 'stmmaceth-ocp'}]}]} should not be valid under {'required': ['maxItems']}
+	hint: "maxItems" is not needed with an "items" list
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/net/snps,dwmac.yaml: properties:reset-names:items:0: 'oneOf' is not one of ['const', 'deprecated', 'description', 'enum', 'not', 'pattern']
+	from schema $id: http://devicetree.org/meta-schemas/string-array.yaml
+Documentation/devicetree/bindings/net/toshiba,tc9564-xgmac.example.dtb: ethernet@48000 (toshiba,tc9564-xgmac): False schema does not allow True
+	from schema $id: http://devicetree.org/schemas/net/toshiba,tc9564-xgmac.yaml
+Documentation/devicetree/bindings/net/toshiba,tc9564-xgmac.example.dtb: ethernet-phy@1c (ethernet-phy-id004d.d101): Unevaluated properties are not allowed ('vdd18-supply' was unexpected)
+	from schema $id: http://devicetree.org/schemas/net/qca,qca808x.yaml
+
+doc reference errors (make refcheckdocs):
+MAINTAINERS: Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml
+
+See https://patchwork.kernel.org/project/devicetree/patch/20261019030129.1470307-2-elder@riscstar.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
