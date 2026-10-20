@@ -2,67 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36281606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 13:11:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80178606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 13:12:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y8aK4BRd;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fNxqOimF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TjW1ALOE;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=H0KgaTdo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WcNEi9CgsmU0LNhm6ygVBGSAUr7Sk7BxZ5A17QlLUg0=; b=y8aK4BRdetOYhSoLmJeNVLp9h0
-	WwmX0/RwttLW4J58SwdW/+TxCoKWrfzCvYfxsjsakvMaPfLPtF6bdwvgDw/B8EEliBzcMlUO3He59
-	TOB2WuI6aHQnLZgxR8WHG7NWtSbWBDEDGP+kJAQiROffC5xUqiLU0ouplqLmkJpsfNTAoY0nTZa20
-	T+e7z0A3Q3OGyluYNgdNMsdJdWv8ptJkrqlG5xmWohfD+RtbwjlRgYNQwycjKrTO9ieIwkLMDT2Xl
-	73ApXI7ZU/h/9uvv3NfZeE9y6Pzrh0SMN+uBkQYh20qiLhfN5qMZczUYMKuNml8zm/4lTsFpOq31e
-	OHJfBMTw==;
+	bh=/SUtRRL7fFOVx3xS2Q3jVLLMRlhIGOOjpBbDS0FruaY=; b=TjW1ALOE9oQVrVZAmAloL218QF
+	mvVqFdtybp8KQVMpVawurz5peCIqSvqTqxCLBLjZMDopRqqfwhJ5XXXvsdE2qWVcMB5Zfbs/tzA00
+	YZ5iMEE8fE4xSP2gNOp7URjNqo9KeeWCkNJyWWbiYsvVv3UTUBCb4coDZ8Tz6AyONHyfp5tgBg3u/
+	n9CuJlVepz6mTXgXaY1J7OM4J+hvxrqgwfjyC61AwTFU4oDAd7pShRDHGKYEvElmEk3YYE9Sp8l11
+	ZnlJvw1Np7T3cgQscU0PJ5pCEweGd1ysSYBr5GkKJVwp59DJpgzOhEuXFzl9t0rat13U//r8Tw3/+
+	U5FNQS4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ9cX-00000009kX4-0Gxt;
-	Tue, 20 Oct 2026 13:11:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xJ9dG-00000009kni-0TqO;
+	Tue, 20 Oct 2026 13:11:58 +0000
+Received: from out-134.mta1.migadu.com ([2001:41d0:203:375::86] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ9cI-00000009kPJ-2ieK;
-	Tue, 20 Oct 2026 13:10:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 30DD7447F2;
-	Tue, 20 Oct 2026 13:10:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2A6E1F000C6;
-	Tue, 20 Oct 2026 13:10:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792501858;
-	bh=WcNEi9CgsmU0LNhm6ygVBGSAUr7Sk7BxZ5A17QlLUg0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fNxqOimF6pNiEdwKUDbYKaNJUsg5JVDCfETgunUpmQNq2aG6FrZRNjfI04W1yg0Ox
-	 kJ7w8tOOFbOQHjuLKpDrJDo0CvOZ3ZjznN1nkI/TuYUdIDPybr3e2RE5Ev6D3HHHJq
-	 obmqonoXhZxlQUMrKZpe3n3GYUqjaVYUQ51CSkvZxlQftS1rE5IG73vLx/1iPf2p32
-	 znUrQZmQ9nsz6np8XwEnL8HBSf+FFPQ4ScPI+DSUU0pG1fvmA3QGxOdzzXduQHACEx
-	 Gn68hLNYeadrLx+TQER34PnmxpvUL1M8z52CusRzXXeB5pLjy0rvyWvwGGOFk2aMxk
-	 76fizPopi6ylw==
-Subject: Re: [PATCH net-next v3 9/9] net: stmmac: mediatek: add support for MT8189 SoC
-From: netdev-bot+sashiko@kernel.org
-To: louisalexis.eyraud@collabora.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- richardcochran@gmail.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, biao.huang@mediatek.com,
- maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, edumazet@kernel.org, kernel@collabora.com,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com
-Date: Tue, 20 Oct 2026 13:10:56 +0000
-Message-ID: <179250185640.3135.8563969041455803395@kernel.org>
-In-Reply-To: <20261016-dwmac-mediatek-mt8189-v3-9-25daf2bbcf35@collabora.com>
-References: <20261016-dwmac-mediatek-mt8189-v3-9-25daf2bbcf35@collabora.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xJ9d9-00000009klR-40Rh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Oct 2026 13:11:56 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=8VOtYkZ2466K3qFYYyJvUToJ0S8DZXQ+CH6HzzvGHMU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792501909; v=1; x=1793106709;
+ b=H0KgaTdouydMMubHOwQkjMH4ttNbEc95v2qT8WuFYAddMJK1aFeT34qk89ht7BLrAGm5HGQ2
+ WB/xpNUBWzlq2q8qIglV/tYgw82yFqgrNieb/AIfhbi1q42y6Fz7xn1RciwgMa8fdUlhczW9sSG
+ T2ePtUXKetXpwL74WaCaIVHk=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 411d2cc9c4737a64;
+	Tue, 20 Oct 2026 13:11:49 +0000
+X-Mizu-Trace-ID: 411d2cc9c4737a64
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5be58ad9600so8522e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 06:11:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwBgpXWDX77UqiPwfTLxuoLLXocp824aVIZPIstOv/lirW8kplmL9C3oGlqKyOMYt2oiVCgtH3RYNXwowtGhHCD@lists.infradead.org
+X-Gm-Message-State: AFq9FYJw2eWGr5bTjUOBxpsP9Z5hfZ+h+HDagiNfIncFrnuk5J6TZbAy
+	dydN8fevn0ClEIrAKmVBVo3wVF+6JzG/55xtbUw9JdtSajOKzwZC8g/ddq406Hwh55Rs84KrHjb
+	BQNZwzUcXGJ3bW24qwY9Xya1mY1xSSiIQH0548gre
+X-Received: by 2002:a05:6512:32d5:b0:5bf:6c49:434c with SMTP id
+ 2adb3069b0e04-5bf6c4946d8mr42776e87.10.1792501908190; Tue, 20 Oct 2026
+ 06:11:48 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+References: <20261019132103.3836646-1-fuad.tabba@linux.dev>
+ <20261019132103.3836646-3-fuad.tabba@linux.dev> <atdWIpk9Qh8ngs-Y@gremlin>
+In-Reply-To: <atdWIpk9Qh8ngs-Y@gremlin>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 20 Oct 2026 14:11:11 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTwb9V+12siUswmUX0-jr=sidKdAJ+vht+HyqS0KgA6v6g@mail.gmail.com>
+X-Gm-Features: AclHuK_VB8b2JJ7L3ieaAtlIC-DnIJuANGGUM1BoyrOPOd60UgfcMApklQSkE2I
+Message-ID: <CA+EHjTwb9V+12siUswmUX0-jr=sidKdAJ+vht+HyqS0KgA6v6g@mail.gmail.com>
+Subject: Re: [PATCH 2/3] KVM: arm64: Clear the whole hugetlb folio when
+ storing MTE tags
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Steven Price <steven.price@arm.com>, Yang Shi <yang@os.amperecomputing.com>, 
+	David Hildenbrand <david@kernel.org>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261020_061152_144738_17AF0325 
+X-CRM114-Status: GOOD (  12.29  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,139 +88,43 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
-	version=4.0.1
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Hi Lorenzo,
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0 (1)
+On Tue, 20 Oct 2026 12:58:13 +0100, Lorenzo Stoakes (ARM)
+<ljs@kernel.org> wrote:
+[...]
+> > diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+[...]
+> > @@ -1042,12 +1043,14 @@ int kvm_vm_ioctl_mte_copy_tags(struct kvm *kvm,
+[...]
+> > -                        if (folio_test_hugetlb(folio))
+> > -                                folio_try_hugetlb_mte_tagging(folio);
+> > -                        else
+> > +                        if (!folio_test_hugetlb(folio))
+> >                                  try_page_mte_tagging(page);
+> > +                        else if (folio_try_hugetlb_mte_tagging(folio))
+>
+> Slightly awkward logic, testing a negative then the negative of the negative
+> (i.e. else) plus folio_try_hugetlb_mte_tagging(), makes it a little harder to
+> understand.
+>
+> With mte_clear_folio_tags() you can make life simpler:
+>
+>         if (folio_test_hugetlb(folio)) {
+>                 if (folio_try_hugetlb_mte_tagging(folio))
+>                         mte_clear_folio_tags(folio);
+>         } else {
+>                 try_page_mte_tagging(page);
+>         }
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Without the helper, the extra level of nesting takes the loop body
+past 100 columns, so I'll switch to your version in the separate patch
+that adds mte_clear_folio_tags() (see 1/3).
 
-- [Medium] The series reverses the MT2712 delay-stage dividers compared
-  with the baseline driver and the binding.
-
-Pre-existing issues:
-- [Low] This problem wasn't introduced by this patch, but in
-  mediatek_dwmac_clks_config(), if clk_bulk_prepare_enable() succeeds…
-
---
-
-net: stmmac: mediatek: add support for MT8189 SoC
-
-This patch adds the mediatek,mt8189-gmac compatible to dwmac-mediatek,
-along with a clock list and variant platform data. The new variant reuses
-the MT8195 callbacks with a 0x270 pericfg offset and 180ps RX/TX delay
-stage dividers, and it enables the TX clock output.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> index 147e217b86620..d480c339a16d0 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> @@ -45,8 +45,15 @@
->  #define MT2712_RGMII_DLY_TXC_MAX	17600 /* 32 x 550ps */
-
-[Severity: Medium]
-The context here shows the MT2712 defines added earlier in this series. Are
-the MT2712 RGMII and RMII stage dividers swapped?
-
-The defines currently read:
-
-#define MT2712_RMII_DLY_RXC_STAGE_DIV	170 /* 170ps per stage */
-#define MT2712_RMII_DLY_TXC_STAGE_DIV	170 /* 170ps per stage */
-
-#define MT2712_RGMII_DLY_RXC_STAGE_DIV	550 /* 550ps per stage */
-#define MT2712_RGMII_DLY_RXC_MAX	17600 /* 32 x 550ps */
-#define MT2712_RGMII_DLY_TXC_STAGE_DIV	550 /* 550ps per stage */
-
-Before the series, mt2712_delay_ps2stage() divided RGMII delays by 170 and
-MII/RMII delays by 550. The mediatek-dwmac.yaml binding says the same:
-
-  For MT2712 RGMII interface, Allowed value need to be a multiple of 170,
-  ...
-  For MT2712 RMII/MII interface, Allowed value need to be a multiple of 550,
-
-mt2712_gmac_variant then uses:
-
-	.rx_rmii_delay_stage_div = MT2712_RMII_DLY_RXC_STAGE_DIV,
-	.tx_rmii_delay_stage_div = MT2712_RMII_DLY_TXC_STAGE_DIV,
-	.rx_rgmii_delay_stage_div = MT2712_RGMII_DLY_RXC_STAGE_DIV,
-	.tx_rgmii_delay_stage_div = MT2712_RMII_DLY_TXC_STAGE_DIV,
-
-mt2712_set_delay() picks these dividers based on the phy mode. RGMII TX
-still divides by 170, but only because it uses the RMII define. RGMII RX
-now divides by 550 instead of 170. MII/RMII TX and RX now divide by 170
-instead of 550.
-
-For example, an RGMII mediatek,rx-delay-ps = <1530> used to program 9
-stages and now programs 2. An MII/RMII delay of 1650 used to program 3
-stages and now programs 9.
-
-This came from two earlier patches in this series, not from this one:
-"net: stmmac: mediatek: simplify TX/RX delay handling in mt2712_set_delay"
-and "net: stmmac: mediatek: add RX/TX delay stage divider in platform
-data". The first one's commit message also describes the old code as
-"550 for RGMII, 170 for MII/RMII".
-
-Changing only tx_rgmii_delay_stage_div to MT2712_RGMII_DLY_TXC_STAGE_DIV
-would make things worse. mt2712-evb.dts (phy-mode "rgmii-rxid",
-mediatek,tx-delay-ps = <1530>) would drop from 9 stages to 2.
-
-Could the define values be swapped instead (RGMII = 170, RMII = 550), with
-tx_rgmii_delay_stage_div then using the RGMII define?
-
-[ ... ]
-
-> @@ -751,6 +777,8 @@ static void mediatek_dwmac_remove(struct platform_device *pdev)
->  static const struct of_device_id mediatek_dwmac_match[] = {
->  	{ .compatible = "mediatek,mt2712-gmac",
->  	  .data = &mt2712_gmac_variant },
-> +	{ .compatible = "mediatek,mt8189-gmac",
-> +	  .data = &mt8189_gmac_variant },
-
-[Severity: Low]
-This is a pre-existing issue and was not introduced by this patch, but
-MT8189 now uses the same probe path. In mediatek_dwmac_clks_config(), if
-clk_bulk_prepare_enable() succeeds and clk_prepare_enable() then fails on
-plat->rmii_internal_clk, do the bulk clocks stay enabled?
-
-drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c:mediatek_dwmac_clks_config() {
-    ...
-	ret = clk_bulk_prepare_enable(variant->num_clks, plat->clks);
-	...
-	ret = clk_prepare_enable(plat->rmii_internal_clk);
-	if (ret) {
-		dev_err(plat->dev, "failed to enable rmii internal clk, err = %d\n", ret);
-		return ret;
-	}
-    ...
-}
-
-This path never calls clk_bulk_disable_unprepare(), and
-mediatek_dwmac_probe() returns the error directly:
-
-	ret = mediatek_dwmac_clks_config(priv_plat, true);
-	if (ret)
-		return ret;
-
-The resume path behaves the same way.
-
-For MT8189, rmii_internal_clk is only obtained when
-mediatek,rmii-clk-from-mac is present, and the MT8189 binding forbids that
-property. A binding-compliant MT8189 DT therefore gets a NULL clock and
-cannot hit this path, but the driver does not enforce the binding.
-
->  	{ .compatible = "mediatek,mt8195-gmac",
->  	  .data = &mt8195_gmac_variant },
->  	{ }
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261016-dwmac-mediatek-mt8189-v3-0-25daf2bbcf35%40collabora.com
+Thanks,
+/fuad
 
