@@ -2,89 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E47A606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 06:37:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F019606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 06:43:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TtVrH78x;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=DXurnG+O
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qUpsh4mI;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BP/zGISa
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=cMOyDvJ+4IZMD7M7ive4vsZM0ebqLEDD0cr3Jg1jYiA=; b=TtVrH78x8C9N0f/6bM3CYOFwnN
-	x6uhIufjWRC+xJ2TPijeRcg17wZkReG1+huSSN7RGPPKZIWXDFaK9vUkwvrBypF59SDcG8ha9dLrg
-	y9hLp/NZzrLpT1J9rAGmlpFS8keYLIbjZJ945txv9ipTHePIQoNaFe/uVCimPocJe8R6QnX+yYIDM
-	Vq4EuKaKk7PsobFj2oFZNKRilgP6V5jZWItVR5bLWSTRhOiOFfBk1lfRuEksD8kdqzikNUdtiqc4u
-	h8vCk6YW+HHmHQnbGdE1t27rbpuhCswKuvg1bT2h3kmp4f3if53kyfRTgqTSw5oYM/uV9GFTIHhyq
-	NsebYpgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A4Jhss0pRPIhgOnD8xRK1TmnFOh+C6KbjtZV2ahE5wE=; b=qUpsh4mIQn6/mNxEZJ3jRMxJzw
+	nLG8drXzptV6DfWqSSReUbsgTM2vHXPioKg/BVeP1Dj55937BkCnf7pVYACnMZi1smOTHo/Z1HWJn
+	cEvik2T3I1LiQTu7yMWmiihwqa77PaGaf7O1RKmVcZZW+IFblkT/jD4OOA95oFvspstzG+gHDO7sF
+	IP97Y+p0PzaAbDIcS31a6rC4FZwyGZxcAiApPaAVTMXdng6FXSlR7k7LN3vYIBnFpG4Sw/QD62VKg
+	KL/SmYKJB7sgZB4UoOmEovO/IDFQwOtb2tBfaQiRC3+GF/m9MoOXNRkCEfKwbSzCpUs2ena+9i8DH
+	YJxgVPQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ3Se-00000008vr5-3naD;
-	Tue, 20 Oct 2026 06:36:36 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1xJ3Z9-00000008weK-1dDN;
+	Tue, 20 Oct 2026 06:43:19 +0000
+Received: from out-35.mta0.migadu.com ([2001:41d0:1004:224b::23] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ3SZ-00000008vpx-3XaU
+	id 1xJ3Z6-00000008wdk-2UPH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 06:36:35 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20261020063620epoutp0124f7a110151d9cb4366089d7ef063363~gKWh-HjSm1215612156epoutp01e
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 06:36:20 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20261020063620epoutp0124f7a110151d9cb4366089d7ef063363~gKWh-HjSm1215612156epoutp01e
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1792478180;
-	bh=cMOyDvJ+4IZMD7M7ive4vsZM0ebqLEDD0cr3Jg1jYiA=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=DXurnG+OrImuFVOWre/IHvrEtrR52MixdRlAxE2Mybikle6I4OhJ9ttoIkS0h+vP9
-	 USuIKfMQIJoAvLz4KHwp6ditcFMCwWfD0XgwNgP2/3QoDjwebIggA3uQqtFobZn+pf
-	 WeBDmINrF3DqXaqMNUSkKI5nSxYDh/F2j3GdQGek=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20261020063619epcas5p3cbe87da155138f7d23f130a048e7700a~gKWhUrZDm0682806828epcas5p3G;
-	Tue, 20 Oct 2026 06:36:19 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.87]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4j82kB4tdfz6B9mB; Tue, 20 Oct
-	2026 06:36:18 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20261020063617epcas5p4ba00854fcd38bf211c573629ee062621~gKWfYcTjq3015130151epcas5p4j;
-	Tue, 20 Oct 2026 06:36:17 +0000 (GMT)
-Received: from vega.samsungds.net (unknown [107.108.73.84]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261020063614epsmtip2fdb85f2c138d315a3425597013416486~gKWcIzNpH1615316153epsmtip2_;
-	Tue, 20 Oct 2026 06:36:14 +0000 (GMT)
-From: Selvarasu Ganesan <selvarasu.g@samsung.com>
-To: vkoul@kernel.org, neil.armstrong@linaro.org, mani@kernel.org,
-	krzk@kernel.org, peter.griffin@linaro.org, alim.akhtar@samsung.com,
-	pritam.sutar@samsung.com, andre.draszik@linaro.org, kernel@lvkasz.us,
-	pengpeng@iscas.ac.cn, kishon@kernel.org, linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	Tue, 20 Oct 2026 06:43:18 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=BmlXgOG0RMJHh37iPBOzDPjQSKllj1HY7c2b8Mw6ROM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792478594; v=1; x=1793083394;
+ b=BP/zGISajVO78Q4y1q5o2WUmHt99E3xrMdETB07e1OA5jkietsgWcdBEIZV2NcmLvqD5PpDt
+ zPAfWO6igXTEJhmBTnOJbIcUJMVOaiuzHWM0vrpBpVep0ocQkt/Uq3leSTTt+R9u6hCrEdn6+FD
+ RLgUyFDzgYRDmsk7WXOhQCIU=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id ca1f3b611870107a;
+	Tue, 20 Oct 2026 06:43:14 +0000
+X-Mizu-Trace-ID: ca1f3b611870107a
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
 	linux-kernel@vger.kernel.org
-Cc: jh0801.jung@samsung.com, h10.kim@samsung.com, dh10.jung@samsung.com,
-	akash.m5@samsung.com, hongpooh.kim@samsung.com, eomji.oh@samsung.com,
-	shijie.cai@samsung.com, muhammed.ali@samsung.com, thiagu.r@samsung.com,
-	Selvarasu Ganesan <selvarasu.g@samsung.com>, stable@vger.kernel.org
-Subject: [PATCH v3] phy: exynos5-usbdrd: Use dynamic phy_cfg size to prevent
- OOB access
-Date: Tue, 20 Oct 2026 12:05:59 +0530
-Message-Id: <20261020063559.3530901-1-selvarasu.g@samsung.com>
-X-Mailer: git-send-email 2.17.1
+Subject: [PATCH v3] KVM: arm64: Sanitise ID_AA64MMFR3_EL1.S1P[IO]E
+Date: Tue, 20 Oct 2026 07:43:06 +0100
+Message-ID: <20261020064306.1542865-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.47.3
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261020063617epcas5p4ba00854fcd38bf211c573629ee062621
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261020063617epcas5p4ba00854fcd38bf211c573629ee062621
-References: <CGME20261020063617epcas5p4ba00854fcd38bf211c573629ee062621@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_233633_351193_98D580BA 
-X-CRM114-Status: GOOD (  22.83  )
-X-Spam-Score: -4.7 (----)
+X-CRM114-CacheID: sfid-20261019_234316_874616_62AAD4B5 
+X-CRM114-Status: GOOD (  19.27  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,174 +86,202 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The probe loop currently iterates using EXYNOS5_DRDPHYS_NUM (2),
-creating both UTMI and PIPE3 PHY instances regardless of the SoC
-capability. Several SoCs (Exynos2200, Exynos7870, Exynos850, Exynos990,
-and ExynosAutoV920) provide phy_cfg arrays containing only a single
-element.
+From: Marc Zyngier <maz@kernel.org>
 
-On these SoCs, when the loop reaches index 1, the driver reads past the
-end of the rodata array, populating the second PHY instance with garbage
-data. Since the configuration structure contains critical function
-pointers (phy_isol, phy_init, set_refclk), any subsequent access to this
-PHY instance via exynos5_usbdrd_phy_xlate could result in a kernel oops.
+KVM uses the VM's ID registers as the source of truth for what the
+guest has, but userspace can expose S1PIE or S1POE without the features
+they imply. As per the architecture, both imply TCR2 and ATS1A, and
+S1POE also implies HPDS. With TCR2 hidden, the world switch skips
+PIR_EL1, PIRE0_EL1 and POR_EL1 while KVM doesn't trap them, so the guest
+accesses registers that are neither trapped nor switched. Under VHE,
+that leaks values between guests. On nVHE and hVHE, pKVM included, the
+host kernel resumes with the guest's PIR_EL1 and PIRE0_EL1.
 
-Fix this by adding 'n_phy_cfg' to struct exynos5_usbdrd_phy_drvdata to
-store the actual size of the phy_cfg array for each SoC. Update the
-probe loop and the xlate function to bound their access against this
-value instead of the hardcoded EXYNOS5_DRDPHYS_NUM.
+On first run, clear S1PIE and S1POE from the VM's ID registers when the
+features they imply are missing, before anything derives state from
+them. The guest and userspace then see neither feature, and the guest's
+accesses to their registers UNDEF.
 
-Fixes: 59025887fb08 ("phy: Add new Exynos5 USB 3.0 PHY driver")
+Fixes: 70ed7238297fb ("KVM: arm64: Sanitise ID_AA64MMFR3_EL1")
+Fixes: d4a89e5aee23e ("KVM: arm64: Expose S1PIE to guests")
+Reported-by: Mark Brown <broonie@kernel.org>
+Link: https://lore.kernel.org/r/20260930-arm64-gcs-v21-2-3556644cd927@kernel.org
+Link: https://lore.kernel.org/r/8633u229lq.wl-maz@kernel.org
 Cc: stable@vger.kernel.org
-Assisted-by: LLM
-Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
-Tested-by: Łukasz Lebiedziński <kernel@lvkasz.us>
-Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
-Reviewed-by: André Draszik <andre.draszik@linaro.org>
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
-
 Changes in v3:
-- Added Fixes and Stable tag
-- Link to v2:
-  https://lore.kernel.org/all/20260918103147.2628614-1-selvarasu.g@samsung.com/
+- Sanitise the ID registers instead of changing the trap tables, using
+  Marc's patch (Marc, Sashiko)
+- Rebased on kvmarm-7.4
+- Link to v2: https://lore.kernel.org/r/20261018080921.3942517-1-fuad.tabba@linux.dev
 
 Changes in v2:
-- Updated 'Assisted-by' tag to follow the proper kernel documentation
-  format.
-- Link to v1:
-  https://lore.kernel.org/all/20260831070309.158069-1-selvarasu.g@samsung.com/
----
- drivers/phy/samsung/phy-exynos5-usbdrd.c | 17 +++++++++++++++--
- 1 file changed, 15 insertions(+), 2 deletions(-)
+- Also require FEAT_HPDS for S1POE (Marc)
+- Link to v1: https://lore.kernel.org/r/20261015153041.3770032-1-fuad.tabba@linux.dev
 
-diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index 087d552eb511..f10cf7b6e0aa 100644
---- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-+++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -477,6 +477,7 @@ struct exynos5_usbdrd_phy_config {
+Based on kvmarm-7.4 (dd0bc00e3e920; also applies to kvmarm/fixes
+2ea3a929fe01e).
+
+ arch/arm64/include/asm/kvm_host.h |  1 +
+ arch/arm64/kvm/config.c           | 78 +++++++++++++++++++++++++++++++
+ arch/arm64/kvm/sys_regs.c         |  2 +
+ 3 files changed, 81 insertions(+)
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 1c6632216e327..695c389047c91 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1741,6 +1741,7 @@ static inline bool kvm_arch_has_irq_bypass(void)
+ 	return true;
+ }
  
- struct exynos5_usbdrd_phy_drvdata {
- 	const struct exynos5_usbdrd_phy_config *phy_cfg;
-+	int n_phy_cfg;
- 	const struct exynos5_usbdrd_phy_tuning **phy_tunes;
- 	const struct phy_ops *phy_ops;
- 	const char * const *clk_names;
-@@ -1173,7 +1174,7 @@ static struct phy *exynos5_usbdrd_phy_xlate(struct device *dev,
++void kvm_idregs_enforce_dependencies(struct kvm *kvm);
+ void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt);
+ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg);
+ void check_feature_map(void);
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index 1053676551aff..d856c0b5c3907 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -59,6 +59,7 @@ struct reg_feat_map_desc {
+ 	const struct reg_bits_to_feat_map feat_map;
+ 	const struct reg_bits_to_feat_map *bit_feat_map;
+ 	const unsigned int		  bit_feat_map_sz;
++	const unsigned int		  idreg_idx;
+ };
+ 
+ #define __NEEDS_FEAT_3(m, f, w, id, fld, lim)		\
+@@ -130,6 +131,21 @@ struct reg_feat_map_desc {
+ 		.bit_feat_map_sz	= ARRAY_SIZE(m),		\
+ 	}
+ 
++/*
++ * Declare the dependency between the features advertised in an id
++ * register, and the set of other features they depend on. This
++ * generates a struct reg_feat_map_desc.
++ */
++#define DECLARE_IDREG_FEAT_MAP(n, r, m, f)				\
++	struct reg_feat_map_desc n = {					\
++		.name			= #r,				\
++		.feat_map		= NEEDS_FEAT(~(r##_RES0 |	\
++						       r##_RES1), f),	\
++		.bit_feat_map		= m,				\
++		.bit_feat_map_sz	= ARRAY_SIZE(m),		\
++		.idreg_idx		= IDREG_IDX(SYS_##r),		\
++	}
++
+ #define FEAT_SPE		ID_AA64DFR0_EL1, PMSVer, IMP
+ #define FEAT_BRBE		ID_AA64DFR0_EL1, BRBE, IMP
+ #define FEAT_TRC_SR		ID_AA64DFR0_EL1, TraceVer, IMP
+@@ -205,6 +221,7 @@ struct reg_feat_map_desc {
+ #define FEAT_MEC		ID_AA64MMFR3_EL1, MEC, IMP
+ #define FEAT_HAFT		ID_AA64MMFR1_EL1, HAFDBS, HAFT
+ #define FEAT_HDBSS		ID_AA64MMFR1_EL1, HAFDBS, HDBSS
++#define FEAT_HPDS		ID_AA64MMFR1_EL1, HPDS, IMP
+ #define FEAT_HPDS2		ID_AA64MMFR1_EL1, HPDS, HPDS2
+ #define FEAT_BTI		ID_AA64PFR1_EL1, BT, IMP
+ #define FEAT_ExS		ID_AA64MMFR0_EL1, EXS, IMP
+@@ -280,6 +297,25 @@ static bool feat_anerr(struct kvm *kvm)
+ 		kvm_has_feat(kvm, ID_AA64MMFR3_EL1, SNERR, FEAT_ANERR));
+ }
+ 
++/*
++ * S1PIE and S1POE imply TCR2 and ATS1A, and S1POE also implies HPDS, but
++ * userspace can set them independently.
++ */
++static bool feat_s1pie(struct kvm *kvm)
++{
++	return (kvm_has_feat(kvm, FEAT_S1PIE) &&
++		kvm_has_feat(kvm, FEAT_TCR2) &&
++		kvm_has_feat(kvm, FEAT_ATS1A));
++}
++
++static bool feat_s1poe(struct kvm *kvm)
++{
++	return (kvm_has_feat(kvm, FEAT_S1POE) &&
++		kvm_has_feat(kvm, FEAT_TCR2) &&
++		kvm_has_feat(kvm, FEAT_ATS1A) &&
++		kvm_has_feat(kvm, FEAT_HPDS));
++}
++
+ static bool feat_sme_smps(struct kvm *kvm)
  {
- 	struct exynos5_usbdrd_phy *phy_drd = dev_get_drvdata(dev);
+ 	/*
+@@ -1299,6 +1335,14 @@ static const struct reg_bits_to_feat_map vtcr_el2_feat_map[] = {
+ static const DECLARE_FEAT_MAP(vtcr_el2_desc, VTCR_EL2,
+ 			      vtcr_el2_feat_map, FEAT_AA64EL2);
  
--	if (WARN_ON(args->args[0] >= EXYNOS5_DRDPHYS_NUM))
-+	if (WARN_ON(args->args[0] >= phy_drd->drv_data->n_phy_cfg))
- 		return ERR_PTR(-ENODEV);
++static const struct reg_bits_to_feat_map id_aa64mmfr3_el1_feat_map[] = {
++	NEEDS_FEAT(ID_AA64MMFR3_EL1_S1PIE, feat_s1pie),
++	NEEDS_FEAT(ID_AA64MMFR3_EL1_S1POE, feat_s1poe),
++};
++
++static const DECLARE_IDREG_FEAT_MAP(id_aa64mmfr3_el1_desc, ID_AA64MMFR3_EL1,
++				    id_aa64mmfr3_el1_feat_map, FEAT_AA64EL1);
++
+ static const struct reg_bits_to_feat_map ich_hfgrtr_feat_map[] = {
+ 	NEEDS_FEAT(ICH_HFGRTR_EL2_ICC_APR_EL1 |
+ 		   ICH_HFGRTR_EL2_ICC_IDRn_EL1 |
+@@ -1408,6 +1452,40 @@ void __init check_feature_map(void)
+ 	check_reg_desc(&ich_hfgitr_desc);
+ }
  
- 	return phy_drd->phys[args->args[0]].phy;
-@@ -2021,6 +2022,7 @@ static const char * const exynos5_regulator_names[] = {
++static const struct reg_feat_map_desc *idreg_feat_maps[] = {
++	&id_aa64mmfr3_el1_desc,
++};
++
++static bool idreg_deps(struct kvm *kvm, const struct reg_feat_map_desc *r)
++{
++	struct resx resx = {};
++	u64 val;
++
++	for (int i = 0; i < r->bit_feat_map_sz; i++) {
++		if ((r->bit_feat_map[i].flags & CALL_FUNC) &&
++		    !r->bit_feat_map[i].match(kvm))
++			resx.res0 |= reg_feat_map_bits(&r->bit_feat_map[i]);
++	}
++
++	val = kvm->arch.id_regs[r->idreg_idx];
++	kvm->arch.id_regs[r->idreg_idx] &= ~resx.res0;
++	kvm->arch.id_regs[r->idreg_idx] |= resx.res1;
++
++	return val != kvm->arch.id_regs[r->idreg_idx];
++}
++
++void kvm_idregs_enforce_dependencies(struct kvm *kvm)
++{
++	bool again;
++
++	do {
++		again = false;
++
++		for (int i = 0; i < ARRAY_SIZE(idreg_feat_maps); i++)
++			again |= idreg_deps(kvm, idreg_feat_maps[i]);
++	} while (again);
++}
++
+ static bool idreg_feat_match(struct kvm *kvm, const struct reg_bits_to_feat_map *map)
+ {
+ 	u64 regval = kvm->arch.id_regs[map->regidx];
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index e9cf6cc340349..f10905347f3a1 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -5872,6 +5872,8 @@ static int kvm_vm_finalize_sys_regs(struct kvm *kvm)
+ 	if (kvm_id_regs_final(kvm))
+ 		return 0;
  
- static const struct exynos5_usbdrd_phy_drvdata exynos2200_usb32drd_phy = {
- 	.phy_cfg		= phy_cfg_exynos2200,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos2200),
- 	.phy_ops		= &exynos2200_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS2200_PHY_CTRL_USB20,
- 	.clk_names		= exynos5_clk_names,
-@@ -2034,6 +2036,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos2200_usb32drd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos5,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
- 	.phy_ops		= &exynos5_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.pmu_offset_usbdrd1_phy	= EXYNOS5420_USBDRD1_PHY_CONTROL,
-@@ -2047,6 +2050,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos5250_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos5,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
- 	.phy_ops		= &exynos5_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.clk_names		= exynos5_clk_names,
-@@ -2059,6 +2063,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5250_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos5433_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos5,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
- 	.phy_ops		= &exynos5_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.pmu_offset_usbdrd1_phy	= EXYNOS5433_USBHOST30_PHY_CONTROL,
-@@ -2072,6 +2077,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5433_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos7_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos5,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
- 	.phy_ops		= &exynos5_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.clk_names		= exynos5_clk_names,
-@@ -2084,6 +2090,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos7_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos7870_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos7870,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos7870),
- 	.phy_tunes		= exynos7870_tunes,
- 	.phy_ops		= &exynos7870_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
-@@ -2097,6 +2104,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos7870_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos850_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos850,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos850),
- 	.phy_ops		= &exynos850_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.clk_names		= exynos5_clk_names,
-@@ -2125,6 +2133,7 @@ static const struct exynos5_usbdrd_phy_tuning *exynos990_tunes[PTS_MAX] = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos990_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos850,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos850),
- 	.phy_ops		= &exynos850_usbdrd_phy_ops,
- 	.phy_tunes		= exynos990_tunes,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS990_PHY_CTRL_USB20,
-@@ -2661,6 +2670,7 @@ static const struct phy_ops exynosautov920_usb31drd_combo_ssphy_ops = {
- static const
- struct exynos5_usbdrd_phy_drvdata exynosautov920_usb31drd_combo_ssphy = {
- 	.phy_cfg		= usb31drd_phy_cfg_exynosautov920,
-+	.n_phy_cfg		= ARRAY_SIZE(usb31drd_phy_cfg_exynosautov920),
- 	.phy_ops		= &exynosautov920_usb31drd_combo_ssphy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB31,
- 	.clk_names		= exynos5_clk_names,
-@@ -2691,6 +2701,7 @@ exynos5_usbdrd_phy_config usbdrd_hsphy_cfg_exynosautov920[] = {
- static const
- struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_combo_hsphy = {
- 	.phy_cfg		= usbdrd_hsphy_cfg_exynosautov920,
-+	.n_phy_cfg		= ARRAY_SIZE(usbdrd_hsphy_cfg_exynosautov920),
- 	.phy_ops		= &exynosautov920_usbdrd_combo_hsphy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB20,
- 	.clk_names		= exynos5_clk_names,
-@@ -2719,6 +2730,7 @@ static const struct exynos5_usbdrd_phy_config phy_cfg_exynosautov920[] = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynosautov920,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynosautov920),
- 	.phy_ops		= &exynosautov920_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB20,
- 	.clk_names		= exynos5_clk_names,
-@@ -2895,6 +2907,7 @@ static const char * const gs101_regulator_names[] = {
- 
- static const struct exynos5_usbdrd_phy_drvdata gs101_usbd31rd_phy = {
- 	.phy_cfg			= phy_cfg_gs101,
-+	.n_phy_cfg			= ARRAY_SIZE(phy_cfg_gs101),
- 	.phy_tunes			= gs101_tunes,
- 	.phy_ops			= &gs101_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy		= GS101_PHY_CTRL_USB20,
-@@ -3052,7 +3065,7 @@ static int exynos5_usbdrd_phy_probe(struct platform_device *pdev)
- 
- 	dev_vdbg(dev, "Creating usbdrd_phy phy\n");
- 
--	for (i = 0; i < EXYNOS5_DRDPHYS_NUM; i++) {
-+	for (i = 0; i < drv_data->n_phy_cfg; i++) {
- 		struct phy *phy = devm_phy_create(dev, NULL, drv_data->phy_ops);
- 
- 		if (IS_ERR(phy))
++	kvm_idregs_enforce_dependencies(kvm);
++
+ 	/*
+ 	 * This hacks into the ID registers, so only perform it when the
+ 	 * first vcpu runs, or the kvm_set_vm_id_reg() helper will scream.
+
+base-commit: dd0bc00e3e9201fd49b62ff9cc07890c89003afe
 -- 
-2.17.1
+2.47.3
 
 
