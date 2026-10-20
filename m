@@ -2,115 +2,159 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B8E4606A321
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 16:55:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49A23606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 16:59:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gM/OFnB/;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=AQp92ShW
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UQf9wyNN;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=M+5QlYGk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pEhsrPmovlqFhqyaT3oTm4Fh1ZVngCl2/NoPnSq3l5A=; b=gM/OFnB/3sM/YrIggRytyhrmZw
-	Z0kN96YdHvCXCCRWIiRX00+GkmLtfo7EUO8+IFV02zUHNLqJbh2vtqdIorcGNjE4w9fi66Bq5X4bv
-	mQCLW9XqHhFWGADUkJjbwnILDOAuWVO6LuoQqAYXsuoiEGx9+ww7nRG3G+2fZfh77Fl4/tWZ3CgOW
-	qL+F94LTx6xs/wJR5R2dmlN1fs1KtXNSXVwDgwrKikC2VizpyH964nA7TWTTOzCSvGbFGvE2ugsxZ
-	UjyKvN3JVsKm9dtq6PaRQJfmEYB3qfzs+h6F9y2gAE8nW720CSzOYh7KP38u20tPneQJgoIAoJ4VT
-	2pCAMqzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eIIQKRf/Kv/e6+Y4aOKMp+r6yCt7zlFacIRn4QyQdwk=; b=UQf9wyNNCtMo5arJuoq6r3aX/v
+	HKKl1L87VM93QK/2ITXyG6lp5gI90CILr0a1Mg8s1DbrwmD+IdYhwc8nIqIZ0tqXQs9LLxo09lbbg
+	hwWI8GRnVaQQXlHfqNUjbYA8TBTUXfpVhFLO9hVGsI2rOSGvKM/0pW3pjeP0xNkPWTuI2cDwczzwf
+	gUgW8AxLzct1S60WqewYC8n/IJUvlmTOJMPW7Tf0zEWS4VKV5Ljk4E49uIaDJSaXfKI7c+LFVNpGk
+	00e1P5mjGYopf7IzizzHgMA4YnejwZwsh/YAqflHZqWWGZjPR3agAoMj10T+3/ntJ6oymywjkNdkr
+	jopJD1tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBuh-0000000A4QV-0tPn;
-	Tue, 20 Oct 2026 15:38:07 +0000
-Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
+	id 1xJD2q-0000000AFNU-0bu4;
+	Tue, 20 Oct 2026 16:50:36 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBuO-0000000A4KB-1EZR
+	id 1xJD2m-0000000AFLR-2ps9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 15:37:53 +0000
-Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-353804b591eso6371356eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:37:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1792510668; x=1793115468; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pEhsrPmovlqFhqyaT3oTm4Fh1ZVngCl2/NoPnSq3l5A=;
-        b=AQp92ShW/FKz6ZhDjR2e5LS6SYf9TD8KmrHYvXltadW6hMSEkGBxEbg4Ktx1dZ7ko9
-         2ISvZsmooF4q1AgHG4N7p9HbOuZFJvs19zmZqYzNDwfNWuBV9vrs8EIJ7vHE69b/vKhx
-         5/MB83FEO1HK7EMnSgye6IRRlusmS/bX+M0FQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792510668; x=1793115468;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pEhsrPmovlqFhqyaT3oTm4Fh1ZVngCl2/NoPnSq3l5A=;
-        b=JS8/oOcKIKqyv+gKTBL9cmx5LT8b3//NXjfxES4+UXhd9hBwQH0J2J6nURXXpaYq+v
-         8u8wym0+pUgJ/eqNP/k0Nqw7aS95xsALDHCVkmJkIyFRtUz5kc9xMHiqZZuMRXDOwkZi
-         jtbLxX/Uuxyd298Ayn1dklY6J4kgO4UAvAKyeZexxsO70dohEwXKSMwcELoOdMDeV2EN
-         Szud539wLKqDgw5Lu89M8MArdOe5qEj1x2+r40SW1HpzU6K+8weu1upkmnNwUunfEQtB
-         8BbopAmLX+LrYmgL2GJkAhwOjND38FcF1rL0gD5TVeeei+8PgOmA9GNAIwCtFS89Sg8w
-         50Lg==
-X-Forwarded-Encrypted: i=1; AKwUvBz5fI8wuCemd4OB5s+79KDyoDeUpwSVOuyRFsMaFEq9glHEiaWI3pgb7Pn8QJbV9v+xfHGvdHexwTJlIhXK4kyS@lists.infradead.org
-X-Gm-Message-State: AFq9FYIrt1N7Wa85SeiWTE2TTiZrEM34mSpXz03dIaTGUy2h6XtbCe1h
-	/UXf9p1fPcpizpFg3ZM3QKt91JYji2dLSA3PVT4eEUEqbA9sG/m3uXS88ivGaeHepQ==
-X-Gm-Gg: AYBFou0KnDssyLWcodlMv/gGWrXwNKIG/pPI6UDX2AYjkk6KAXUu04GPWT30iV6aSv4
-	pi7BLoNH0Oo7nYZ5LI+OIFv4lgc7x/VIDBcEGQlj2Y5CtlX1DvTLd0nYu8LjIGKlt9rmOpIddIB
-	cDjlRsMDaOSMqc27NtAeFol+sQf0vO3k8BD4VSZqjL0VGwbtKJxgyJBGNg4Pm/7lVOzFAm/2Ykw
-	+ukAVWVvckiHfLum+MSRsM+541XDUyhKvb/+jWebkXRQ+ZemeS5CvKQ8gFyyKY93H28sk348xu3
-	9L6UUZ9LRcUKJvM2+LazrVUS0NVmFykgBhQ3WdlgFBS5lJbnc9A5E4UNHQQDhk21RJfdBh5TPHh
-	izX1YLM1nnhSIJaMnKXBGXXKbF35daF25cO0El7D0UxAPypiYoaRb6IF6y+DGeSKoVvaN3rafYQ
-	rzOZPKTtvOiJRBSbZdnDPF/Iuau/OkYVMDfg0DXN59lk9wFStJqfusKbyEaJUeJ4bV6XlPRA8gq
-	5Vq1mYRi6s3KmUvkHvOiIIB/y8AqJU63a6MXJHvVe8dswOX0PNmyAesmwYa8dEUO5TE1zfM6L/I
-	ujasuMmphVam4s6ycda5MuWyD4MCffMOrZJkIxQT
-X-Received: by 2002:a05:7300:10d:b0:351:1e89:66ab with SMTP id 5a478bee46e88-361a0e85fc5mr16049994eec.7.1792510667340;
-        Tue, 20 Oct 2026 08:37:47 -0700 (PDT)
-Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:1eb1:e432:2cc7:349c])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3607ee0cab0sm51324714eec.3.2026.10.20.08.37.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 08:37:46 -0700 (PDT)
-From: Douglas Anderson <dianders@chromium.org>
-To: Devicetree-compiler@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-kbuild@vger.kernel.org,
-	Brian Norris <briannorris@chromium.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Simon Glass <sjg@chromium.org>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	linux-arm-msm@vger.kernel.org,
-	Nicolas Schier <nsc@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Devicetree@vger.kernel.org,
-	Julius Werner <jwerner@chromium.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	devicetree@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: [RFC PATCH 6/7] arm64: dts: google: lga: Add lga.its FIT image script
-Date: Tue, 20 Oct 2026 08:35:24 -0700
-Message-ID: <20261020083501.RFC.6.Idfb669fd6c518bc86e45d8555f159c0ec611a6f9@changeid>
-X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
-In-Reply-To: <20261020153652.2907186-1-dianders@chromium.org>
-References: <20261020153652.2907186-1-dianders@chromium.org>
+	Tue, 20 Oct 2026 16:50:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oGLEwuk8/NlEqXI5puIUC+mdr+r5NDZ4RFFaBfRNhYxAhgOEVCw1wzX8+59oe8g3SK20BKFb6x4aJinm+oRPDVMv8X9NojzCrSpUJQJ763iNwbgNYOf0quL3jRSn2ddLarXwhpvNVQr//t9Jft61dTT3d9ZeeRGYD6cexRL5cZnKKHsPMqvKIurORS0aShPoz6xr5RSGBbs0BdeaFoSnJ+4fI10hnOhqdVRW4s4vhJG1wTbl9Mm1rzCB+nq3EOKMnsy0YHtpRhStiU+ZEzUY1sopUCPRWTK9pnW6g8xUxVMIpYtUfkY18TBsG1CHmi0uyXyD/iMQ/O0H5FoaHWCT8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eIIQKRf/Kv/e6+Y4aOKMp+r6yCt7zlFacIRn4QyQdwk=;
+ b=p2/FrTQTlcwiVZ1mHM6fH7G3OobcTIPR92ZSb5wQQITxHuHSBsBpDMCsq0yjkR8a2o8GxnsdJpUh9/nVsrF7VkxXHZ2rbLcBirQXOy2oNv4Q4TKevSDRA1MbjFdq0j6e04hZeShv3mYLeZoftuNh27o8cGyxyLUoP9QFXw9BNl4j5ahutf4PCp0rjvglK64GrXv0KyU7VUVBPcFDeaJID+6TbWRhmXIkz6MUAPdpuM5HkdKEHq4j2E7fgQsI5BfsHNJd86A96FuXpoTOQtiH05UNBqoWLgukW/85pHhgS0dvLyts8HWCzRKb/iMpbM6jc2TneiSTTtU1nfY96MYLYA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eIIQKRf/Kv/e6+Y4aOKMp+r6yCt7zlFacIRn4QyQdwk=;
+ b=M+5QlYGk/CeC+VO8pdV5OA5Yrnx3KAXr8KpIp/v5bA3X08CtpJ4sd1CGfZ1U1YyMxzXfJBKRUUkuOiT/30koMvuKj3uA6BjvB5nIdjGtWb2x2YgbTr4VWKYfqJHAg/nlBtfqULDAnVWdCuJW7Yx+ipCX/5c8C8TgyZ85Qew5acDnH/dhHSTlQG4YVPowlNetm6FH7wD2+xVWAzovlYSspk/VPR/OaPgNsk5SiWBPQKyy/YPVepuEkAObhSgDHaBwzNsqpcczH8oEgtmPFQcMl7MGA8L/TRWZny7P3pHU2kg9lZBoa7fK0flGNoEZ8ogOmtwXqYd/MhB9NgDMFVvk5g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by DB9PR04MB8348.eurprd04.prod.outlook.com (2603:10a6:10:25c::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Tue, 20 Oct
+ 2026 16:50:28 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0522.017; Tue, 20 Oct 2026
+ 16:50:28 +0000
+From: Frank.Li@oss.nxp.com
+Subject: [PATCH v7 0/3] remoteproc: imx_rpoc: use memory-region-names to
+ avoid hidden ABI.
+Date: Tue, 20 Oct 2026 12:50:20 -0400
+Message-Id: <20261020-memory-region-name-v7-0-1413d5928340@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMyb12oC/23OSw6DIBQF0K0YxqVBFJCOuo+mA9Cn0sRPwBIb4
+ 94LNv0lDm+4nPsW5MAacOiULMiCN84MfQjikKCyVX0D2FQhI0ooJzJluINusA9soQlN3KsOcC0
+ ZAVBUi6JC4eNooTbzhl6ur+zu+gblFKXYaI2bgrKt+jz23gNib8DnmODwLBiTlICuz/08HsuhQ
+ 5H37AOkZP9CzwKgdJmxQmdSSf4P8F9A7gI8XgA51xRExbn4Auu6PgFUpMD2RgEAAA==
+X-Change-ID: 20260915-memory-region-name-f950eea2b78d
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
+ Frank Li <Frank.Li@nxp.com>, Francesco Valla <francesco@valla.it>, 
+ Daniel Baluta <daniel.baluta@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792515024; l=3227;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=2AJcYee94LOzB/iMPujzJuIDv/x49ynG7bMzZ2Tl7Dk=;
+ b=nPtr9FSfq4hcNX/7Q1DiQLz5hK6N2cY1Grh0njG+vCMVg1sNo9YeCTLRitHR4aFLNeLfVJuQi
+ itEQhEEUPAPBHRz9IG/yldnf5uYNvdcrp4sOoPg9o5L10cx6U2EBItn
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: DS7P221CA0014.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:8:25b::11) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DB9PR04MB8348:EE_
+X-MS-Office365-Filtering-Correlation-Id: 44031c66-4a48-4393-683e-08df2eca3f02
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|19092799006|56012099006|5023799004|11063799006|261009223027099003|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: VSp9D9spJUlWhx5epeFB30IryZVskWxrd3+4iByZ8iz6vLbjAAc53cwT15BPKZSunocxLjVft3EDQMdhEVowadxfDb3PSvTZPNNxCvkaa7jBi9riBkS54ItA44RIQAoVz6hruMxEcbh6n3tpIVYGcwkDjU0pMQHR3m3kLCfqWP7vWbZFhhGhr24KwYespBM64AUgaUXYVoChTkEEwte25RnOfNKvkr0Y8qIeMi9Yqd3UIwQSh5UcVyNH6gw9b4wcDVLiUwTjR2awe2/MjT1iYIEik5sNn57X+hNI4DBFLgjTSortXxqazPpE6zugNtF4KlMce1tH52qxEJrs6uZ7+KGrBQ5VOfFEdi4o9bOe6hZf/hug7tVRgA9DZSffZvS6TDFtMnsltZYP7uj2G6T8QuHiqxuzhqmj0bmSBpCvWFYHvRipoD9y807YLg+ifal9CxwAyKg+AKDNzZSL61rTrUevaMcN8RcVXeBb3soV/bZ6oYW6Pxjm0dKNx0LlrSvKn1hDQBzszymD1NCy1Z3wbr1U770EC0EU9CLGuZxcm75u7Bnu9Pa7P9spdF/bRX+8vlDbZUzkaQUb788hJisn1XqZc4ID8mthStGVG1uI5jn8G7bOjJKWdIwUFIM67Nlj
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(19092799006)(56012099006)(5023799004)(11063799006)(261009223027099003)(10067099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TEtySWREZDdtOXJLajZXNTRMM2c0U2R0RVZtY3JnaVZZU1FndkVwZ3JPbVJj?=
+ =?utf-8?B?UGsyaDVXcllzWnBXWjJ6ZXl5UkNCNW9vaXhjUFhTUDlRMU5oZHh5OEdwYWlz?=
+ =?utf-8?B?QjVnU3FBbE5Ld0dubHVRK1VTbEkvQUp6OGtGK09lbzMycXV3V3cwZmhaNFVS?=
+ =?utf-8?B?TDVPNFVZS2xJUmpqMGlPVGw2QXhhYU9KZTViZTJQQ3BJZWMwRGc4Zm1aUWNu?=
+ =?utf-8?B?MjY3bThLVUp0S1pEc1FxU0Y4ZzJ5MWRMTkJ4TzRhbVVnQlZKd2ZIQk1LYjkr?=
+ =?utf-8?B?OGdtblM2NEVtQXAzTzFJZ085STRTalpWTk1vMk5WeFFYM25IY25ZM0M2V0F3?=
+ =?utf-8?B?bWhnYmNIZnB5eGFiWFJhc2JtVnc0Y3p6aEM5Y1lpL0Zxam1TQ2JJRVVKdlhS?=
+ =?utf-8?B?cDIvdnNLUitkdEwrSHhvY2tYY3htZTdSQlA1K2U3TTFQdjJWSTRSaXI5NTBC?=
+ =?utf-8?B?V0twaHg0WHVrZUJJZVFtNG82SGJreHliMlAwSklQbUJYU3NJTDMzTDljdEEv?=
+ =?utf-8?B?SEMvUU15cVFCa1dnSFhjVTRaRGpKSkk0bzk4N2d4VFBybEt6ZUlYQkRFTmZt?=
+ =?utf-8?B?SzR4ZlpCTmNxYVVKRmdGQ3lISFVsN1BaMlJCbVZLMGZCL0RZQU9COGgxVWQ5?=
+ =?utf-8?B?eENjcVZ4QWNHeENHUldPSVo5MXRiaTNlUWs5d1RRVEZqTG9yemVURStBZmV2?=
+ =?utf-8?B?eEpKSnV1eDFBRFl3NjdqNHk0SzFDWkxGNnNDYzZkc2VtVE9GYlpYbFYyMXM5?=
+ =?utf-8?B?eUJ6V3d1OGhaTHk3ZnpXak5uUWk0alJNc3VYRVB0VnVSWGdOVGtlbUNUT0RS?=
+ =?utf-8?B?MmpnVzVSTktyOHViemR4Sk5NN1NaWUt6YVJzWENab2FQSi9ybnA5SWFBbG5V?=
+ =?utf-8?B?Z0NjOXdoRG4xVnJreTUxV1lqOEdxdnBXdjkxOVZHb3BTMkdTTFNKSHlHVUlX?=
+ =?utf-8?B?Y1Bra1VabWVsbXRYMDY2WGZQdnhNMVpWL1ZwTENLVm1TbTZQdlJOdmZMVFVn?=
+ =?utf-8?B?Mkh4NEF5TGIrdFpEVUtqdzk4R2VFZW5CbktVa2drN2tsNHh4Y2NoQjFLWU0w?=
+ =?utf-8?B?YTVickdwV3Z1c04wcy9HQ2RIWFAvVWNUTm92OFRmcVFKMFVaeWFycmFUbzZF?=
+ =?utf-8?B?SUszWkZIQjZZbW41VWdvRGl6elJHQWhVOU9yRWk5UGEyTzhtTHRwUkMwQS9Z?=
+ =?utf-8?B?cVh6aUtSeTRqOXo1Ny9zKytiTkNZWlp5ZkhDb2tTbXJQazkxdnVKSUJ2QjNs?=
+ =?utf-8?B?TFZvbjBiTnNmeER3RGd1eGN4VCt5YW1MWkZPODNpTjM3VUNlbkdyRTlCa1pC?=
+ =?utf-8?B?U3EzNGV3UmNDVDFQamJmOTh1dTJHRC9KTEppNDc1SW9YQXhFM0ZYdElmckpF?=
+ =?utf-8?B?aDlJaEFTcG5kYk9GR3hDK1NDWmNCeFRrWXZlWGFXd3pZcjN4bk1NN0NqY2Zq?=
+ =?utf-8?B?UE9WOG9meXFHNkdheVFiYU91Z3BlY1BDT2dzSGJwMGxGcisrdmFHTWxuNjNT?=
+ =?utf-8?B?YVNEdnZHeWExdzBUNlp2ZURHSnlWak54SERSeE43d29QbWk1SC9SMVZjVUZ2?=
+ =?utf-8?B?d1UzZllsWnBJYXhuczIvTmN4WXFDbFN2eWxPUVVpemJhVHhVY1lKc0hYNnpa?=
+ =?utf-8?B?SE9zWlhCZVYzczhOY1o2NHU5YTF5ZFFQUk92WHlYQldRNSsvQ0VRK3cwUkRY?=
+ =?utf-8?B?TE1ITDlKSERMMlFwbG5PYXJZM0pVRWZzYmgwOTd3d0JoUWtybVNZN3VOaWJ3?=
+ =?utf-8?B?ZitpRmt4aG1kUkVyOGorV0lZWExHMUIyVVlFN1dlUHhUTlFpN1l5RGs4ZWlE?=
+ =?utf-8?B?RmdLa3VDUkJjMDRGUWhqQkZIR0tDRVJITmpLVTZKaGYxZGExTFhZZWdkSFVF?=
+ =?utf-8?B?ZWJURm50SlQ3Wkc4d3NNZEt6ZDFvOXZaSHhSN0ZtMTNIRlV1YU9zcWdub29y?=
+ =?utf-8?B?UjNqdE5uYW1ycnVOall2NW16d2Q5dkx5WmxpRGJLeGNvWVFMZ1oxMnJCSS90?=
+ =?utf-8?B?MDZuS1c3TnBWZ3BpSnJMb1lDZW1rNU1mTFRjYXl4aEM2UFM0TC9yOE1ZV1Mw?=
+ =?utf-8?B?cThHblg3bjlXRzhTN3Z1MW1EdVNYNzFnRmRTM1psYjBlVTUvUWE1VUVZbTAw?=
+ =?utf-8?B?M3hMcFRSZUlEa0pLeGpNS0JoaTRmS21HS2JXKzY3RWxXQm5UdUNhNU93RG9v?=
+ =?utf-8?B?RVAxYnFUMDE3eVpUTnVCZm5NZHhDN3RDTkFsNlRYazFVbzQxVm5ORjRCRjRi?=
+ =?utf-8?B?dEIvUjhSaTc1R01wVmorTEVRVG9wYTl5M3k3elBYVS9Yc0tscEpjbXYycHpo?=
+ =?utf-8?B?b0h3VjBrczRRQjgzUythd1hoc1Evc3hjblRxcnZkb2hmZUxOQTlMZktsL0Zu?=
+ =?utf-8?Q?4RYhHyHIC8SWdY5GkKGwvFfLXMeIog9QZjp7B?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 44031c66-4a48-4393-683e-08df2eca3f02
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 16:50:28.6034
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zrq/TtQJCZAthsiVkvlQ/g0+YKNgdEMvRph7ywUhcDqUYgXn+Y+AmPD4cWHu8Y9w0tA8pCE01bt/4LoOtSnqvPZuV3IhLNOLhFogAyvo0FmCvHj3KXGcj7juTnWg9E3y
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8348
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_083748_339259_7873998A 
-X-CRM114-Status: GOOD (  19.16  )
-X-Spam-Score: -2.4 (--)
+X-CRM114-CacheID: sfid-20261020_095032_723674_890F4473 
+X-CRM114-Status: GOOD (  11.52  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,132 +165,100 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,T_PDS_OTHER_BAD_TLD,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add an Image Tree Source (`lga.its`) describing the FIT image for Google
-Tensor G5 (LGA) Pixel 10 family boards (`lga-blazer.dtb`,
-`lga-frankel.dtb`, and `lga-mustang.dtb`) with board and SoC ID/revision
-metadata in the configuration descriptions, allowing the LGA FIT image
-to be built with:
+The driver currently derives the memory region type from the referenced
+memory node name, creating a hidden DT ABI.
 
-  make \
-    FIT_ITS=google/lga.its \
-    FIT_FACTOR_DTBS=1 \
-    FDTFACTOR_ARGS="--strip-local-fixups --single-base-dtb" \
-    image.fit
+rsc_table: rsc-table@90000000
+           ^^^^^^^^
+{	ret  = <0x90000000>;
+	no-map;
+}
 
-NOTE: At the moment, Pixel 10 doesn't directly boot from a FIT
-image. However, packaging scripts will be able to take an image as
-built above and convert it into a format that the bootloader can
-handle.
+m4 {
+	...
+	memory-region = <&rsc_table>;
+}
 
-It should also be noted that the "description" of the various
-configurations here is expected to be parsed to help figure out which
-configuration to use on which board. This idea came out of discussions
-at Linux Plumbers Conference 2026 and means we don't need "loader"
-info polluting device trees. Having a structured (and upstream) place
-to store this data is part of the motivation for landing this FIT
-image.
+Current require node name have to be rsc-table, but no any binding doc
+to restrict it.
 
-Side note: at the moment, the Pixel bootloader can't handle picking
-overlays based on the soc_id and soc_rev (it only uses those to pick
-base dtb files), so for now we won't be able to support boards that
-might have different SoCs. I've included the soc_id and soc_rev in
-this FIT image in the hopes that we can improve the bootloader in the
-future, though.
+Since memory node names are not constrained by the binding, incorrect names
+can silently pass DT validation, as seen in examples using "vdevbuffer"
+instead of "vdev0buffer" ([1] and [2]).
 
-Assisted-by: Gemini:gemini-pro-prerelease
-Signed-off-by: Douglas Anderson <dianders@chromium.org>
+Add optional memory-region-names property to define such ABI. To keep
+back compactiblity, use "optional".
+
+Link: https://lore.kernel.org/imx/a3602ef8-2b77-4cc3-adef-2c4cba08a5d9@nabladev.com/ [1]
+Link: https://lore.kernel.org/imx/alexXTYQHUs76J7v@SMW015318/T/#mb9dc709ff3adc24d9db6d30c973f37b580f6f1f9 [2]
+
+Prevous version
+https://lore.kernel.org/imx/ail0sH1UhnQBPRkr@SMW015318/
+
 ---
-Note that building `image.fit` with `lga.its` requires the Pixel 10
-(`lga-blazer.dtb`, `lga-frankel.dtb`, and `lga-mustang.dtb`) device
-trees, which are currently in linux-next and not yet in mainline.
+Changes in v7:
+- move imx_rproc_rmem_to_resource() close to caller
+- collect Francesco and peng fan's review tag
+- Link to v6: https://patch.msgid.link/20261019-memory-region-name-v6-0-2e46b2e7d667@nxp.com
 
- arch/arm64/boot/dts/google/lga.its | 68 ++++++++++++++++++++++++++++++
- 1 file changed, 68 insertions(+)
- create mode 100644 arch/arm64/boot/dts/google/lga.its
+Changes in v6:
+- collect rob's review-by tags for binding
+- move imx_rproc_rmem_to_resource to c file
+- dts move related memory region node into overlay file
+- Link to v5: https://patch.msgid.link/20261015-memory-region-name-v5-0-abc358b39a96@nxp.com
 
-diff --git a/arch/arm64/boot/dts/google/lga.its b/arch/arm64/boot/dts/google/lga.its
-new file mode 100644
-index 000000000000..5ba19c0b5411
---- /dev/null
-+++ b/arch/arm64/boot/dts/google/lga.its
-@@ -0,0 +1,68 @@
-+// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-+/dts-v1/;
-+
-+/ {
-+	description = "Google Tensor G5 (LGA) kernel and device trees";
-+	#address-cells = <1>;
-+
-+	images {
-+		kernel-1 {
-+			description = "Linux kernel";
-+			data = /incbin/("arch/arm64/boot/Image");
-+			type = "kernel_noload";
-+			arch = "arm64";
-+			os = "linux";
-+			compression = "none";
-+			load = <0>;
-+			entry = <0>;
-+		};
-+		fdt-1 {
-+			description = "lga-blazer.dtb";
-+			data = /incbin/("arch/arm64/boot/dts/google/lga-blazer.dtb");
-+			type = "flat_dt";
-+			arch = "arm64";
-+			compression = "none";
-+			hash-1 {
-+				algo = "sha1";
-+			};
-+		};
-+		fdt-2 {
-+			description = "lga-frankel.dtb";
-+			data = /incbin/("arch/arm64/boot/dts/google/lga-frankel.dtb");
-+			type = "flat_dt";
-+			arch = "arm64";
-+			compression = "none";
-+			hash-1 {
-+				algo = "sha1";
-+			};
-+		};
-+		fdt-3 {
-+			description = "lga-mustang.dtb";
-+			data = /incbin/("arch/arm64/boot/dts/google/lga-mustang.dtb");
-+			type = "flat_dt";
-+			arch = "arm64";
-+			compression = "none";
-+			hash-1 {
-+				algo = "sha1";
-+			};
-+		};
-+	};
-+
-+	configurations {
-+		conf-1 {
-+			description = "Blazer (board_id=0x070406,board_rev=0x010000,soc_id=0x0005,soc_rev=0x010000)";
-+			kernel = "kernel-1";
-+			fdt = "fdt-1";
-+		};
-+		conf-2 {
-+			description = "Frankel (board_id=0x070306,board_rev=0x010000,soc_id=0x0005,soc_rev=0x010000)";
-+			kernel = "kernel-1";
-+			fdt = "fdt-2";
-+		};
-+		conf-3 {
-+			description = "Mustang (board_id=0x070506,board_rev=0x010000,soc_id=0x0005,soc_rev=0x010000)";
-+			kernel = "kernel-1";
-+			fdt = "fdt-3";
-+		};
-+	};
-+};
--- 
-2.56.0.212.g129ede20d9-goog
+Changes in v5:
+- fix binding region-memory-names's pattern
+- add vdev1vring0 and vdev1vring1 at dts
+- collect pan peng's review by tags
+- Link to v4: https://patch.msgid.link/20260917-memory-region-name-v4-0-260755920ebf@nxp.com
+
+Change in v3
+- rephrase commit message and cover letter to correct descritpion and
+reasons.
+
+To: Bjorn Andersson <andersson@kernel.org>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: linux-remoteproc@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+
+---
+Laurentiu Mihalcea (3):
+      dt-bindings: remoteproc: imx_rproc: document memory-region-names to avoid hidden ABI
+      remoteproc: imx_rpoc: use memory-region-names to avoid hidden ABI
+      arm64: dts: freescale: add DT overlay for MX95-15x15-FRDM RPMSG usage
+
+ .../bindings/remoteproc/fsl,imx-rproc.yaml         | 11 +++
+ arch/arm64/boot/dts/freescale/Makefile             |  3 +
+ .../boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso | 81 ++++++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts | 31 ---------
+ drivers/remoteproc/imx_rproc.c                     | 32 ++++++++-
+ 5 files changed, 125 insertions(+), 33 deletions(-)
+---
+base-commit: d419d682257d813f6cb7a28e42b35d0edf4ad038
+change-id: 20260915-memory-region-name-f950eea2b78d
+
+Best regards,
+--  
+Frank Li <Frank.Li@nxp.com>
 
 
