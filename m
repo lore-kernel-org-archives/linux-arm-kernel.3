@@ -2,81 +2,54 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 149A0606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 18:09:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC0E6606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 18:18:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eUBPJGCG;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SAq8W9JE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3zIn966J
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v7xkHl3uAJvD4/78sgLN77kYpieA8BRah0ZBUP6Shl0=; b=eUBPJGCGKGjQ5IaHtwbRN8B/X9
-	LfrbYoLGi4nxFgB9VW/oqGQreF4TYIgq6fEUDJhGjoqsN3GiJrhKuH1Q0Ido7+Nx545+FILmLhjrU
-	B82+KkYRm8CnbkeCTCqW3vw/aoJ9FDRtUJf9xfmn/YnmSr5ErWkHK50W05VxUDBEOOc//bIywSyX4
-	OCQrqNJXFsROe5tKfCN5sxzLXfzHuzRctoVdv72SUowX+PApHs78UwJ9GbsTZCSczgGPEH9AoUpre
-	Xp8okmHWQyAEtF4eMHfCGmQEB4SuA/DlUiV4wbQ4HKgE+GZal6gCp9tas0vRnn4gqJA8G49TXHyOy
-	Ned080XQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DfBhKtajucyvfmmNTsKe2Ab7sqyhk9L3hh3VIyXeDhI=; b=3zIn966J+NUDn3gAEPhg+8bDaq
+	aph3cIygBeTfwOqyISORMvqQQPOKWflT+U0xDTVaabtYnjiPo7YdlULKcVBavyPuneHLoTHLxseG7
+	R3D9cctzNEFFGWU19bizLM/v3TYkDlErqc18wQtidTPfjXSTkLW7/k8wA1eFwTOvpjrLmUfX0IuXm
+	GQp6x+pTtQryRwE32+r5JO0T4KkOvBjm8F83MV9hHE6t8iFD3++tOidNl+i39P6BfI2dN9dVogoqK
+	wX5ND3xYcWqSvbTajd4psWdivioYvB0TNzWrjcfS2HbIJEHm7DB6SISR99UA1gUmFyDGUe4STPStf
+	aFK0CD3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJD4j-0000000AG8l-27RB;
-	Tue, 20 Oct 2026 16:52:33 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xJEPr-0000000AQ7g-0u4v;
+	Tue, 20 Oct 2026 18:18:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJD4g-0000000AG6C-3oTg;
-	Tue, 20 Oct 2026 16:52:32 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 2EA404E41294;
-	Tue, 20 Oct 2026 16:52:29 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 023E460393;
-	Tue, 20 Oct 2026 16:52:29 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CE0F910328C52;
-	Tue, 20 Oct 2026 18:52:18 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1792515143; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=v7xkHl3uAJvD4/78sgLN77kYpieA8BRah0ZBUP6Shl0=;
-	b=SAq8W9JEdMZVH+u7Z0hsckBD2XtVfIZAtGxGb7CU6htgMi2KduNM9WCDCoW4pMKR3Qwd/I
-	fghA5CB7bb22DmIat5VmrCiz2NQemh05J5q9zoB7DwOFEG9EFuS6mwOz5NfqgBgKdm8qKF
-	q7ZRaLyxJkWk8fVoK/rgvFCcnCOFEajig2aFliuJFX7vsA5/0nis1oRJWnGpe0lz3sskPX
-	yK8Lv3Cqp+dnzk6L79DDkzityxIqjxDWaXG+HqCX+yAe6Lf0SwADHTgPhpgvLgG/EeibHR
-	SK+2K3YX+SNS3t57WWKlr/gSP+CiEF2uT+5w3/aFsDpeJWon5/w4eripxL7ibA==
+	id 1xJEPp-0000000AQ7U-3qvN
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Oct 2026 18:18:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B52843FBE;
+	Tue, 20 Oct 2026 18:18:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3D9B1F000C9;
+	Tue, 20 Oct 2026 18:18:24 +0000 (UTC)
+Date: Tue, 20 Oct 2026 13:17:54 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: krzk+dt@kernel.org, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org, michal.simek@amd.com,
+	Thinh.Nguyen@synopsys.com, conor+dt@kernel.org,
+	p.zabel@pengutronix.de, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, gregkh@linuxfoundation.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: usb: amd,versal2-mmi-dwc3: Add MMI
+ USB support on Versal Gen2 platform
+Message-ID: <179252027211.589421.5653120976811914326.robh@kernel.org>
+References: <20261020112636.2661087-1-radhey.shyam.pandey@amd.com>
+ <20261020112636.2661087-2-radhey.shyam.pandey@amd.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v8 04/14] drm/bridge: it6505: unregister DP AUX adapter
- on bridge detach
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Hermes Wu <hermes.wu@ite.com.tw>, Allen Chen <allen.chen@ite.com.tw>, 
- Pin-yen Lin <treapking@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-In-Reply-To: <ae0941be8fb5e20a309f2e30b5e2d8818168aa38.1790552614.git.daniel@makrotopia.org>
-References: <cover.1790552614.git.daniel@makrotopia.org>
- <ae0941be8fb5e20a309f2e30b5e2d8818168aa38.1790552614.git.daniel@makrotopia.org>
-Date: Tue, 20 Oct 2026 18:51:39 +0200
-Message-Id: <179251509976.78870.2847307917157375162.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_095231_096617_75286640 
-X-CRM114-Status: GOOD (  10.45  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261020112636.2661087-2-radhey.shyam.pandey@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,39 +60,60 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello Daniel,
 
-> The DP AUX adapter is registered in .attach() but only unregistered
-> in i2c remove(). Unbinding and rebinding the DRM device while the
-> i2c driver stays bound registers the adapter a second time, which
-> fails. Also unregister it in .detach() and on the .attach() error
-> path, which so far leaked the registration. remove() keeps its call,
-> which waits for in-flight AUX device users before devres frees the
-> regmap; drm_dp_aux_unregister() does nothing for an adapter that is
-> already unregistered.
+On Tue, 20 Oct 2026 16:56:33 +0530, Radhey Shyam Pandey wrote:
+> The Versal Gen 2 platform includes two distinct USB controllers. The
+> LPD controller is a USB 2.0 instance and reuses the existing
+> xlnx,versal-dwc3 binding. The second is the Multimedia Integrated (MMI)
+> USB 3.2 Gen 2x1 Dual-Role (DRD) controller, which natively supports USB
+> 3.2 host and device operation over Type-C in a Gen 2x1 configuration
+> with a maximum data rate of 10 Gbps per direction.
+> 
+> Introduce a new compatible in <vendor>,<soc>-<subsystem>-<ip> format to
+> uniquely distinguish the MMI USB controller.
+> 
+> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> ---
+> Changes for v4:
+> - Switch to flat mode and rephrase commit description.
+> 
+> Changes for v3:
+> - Modify commit description to explain that there are two different
+>   USB controllers and difference between versal2-dwc3 and
+>   versal2-mmi-dwc3. Suggested by Krzysztof.
+> 
+> Changes for v2:
+> - Add blank line after compatible as suggested by Krzysztof.
+> - Retain the mmi suffix in the compatible string, as this USB 3.2 Gen2
+>   IP from Synopsys is part of the dedicated Multimedia Interface. The
+>   Versal Gen2 platform also includes a separate USB 2.0 controller,
+>   and the mmi suffix uniquely distinguishes between the two USB
+>   controllers. MMI is an independent subsystem particularly targeted for
+>   deployment in Multi-Media related applications. The MMI block include
+>   following submodules: UDH: USB3.2 Gen 2x1 Dual Role Device, DisplayPort
+>   Transmit Controller, Security Module (ESM) for DisplayPort and HDMI
+>   Controllers, DP AUX-I2C PHY.
+> - For MMI USB define parent address space i.e UDH block.
+> - Fix inconsistent MHz spacing to use SI convention with spaces.
+> - Move description before $ref and items in xlnx,usb-syscon property.
+> - Restore original zynqmp-dwc3 example, add new versal2-mmi-dwc3 example.
+> - Use 'usb' node name (without unit address) for versal2 example since
+>   it has no reg property.
+> - Use 1/1 address/size configuration in versal2 example, use lowercase
+>   hex in syscon offsets.
+> ---
+>  .../bindings/usb/amd,versal2-mmi-dwc3.yaml    | 92 +++++++++++++++++++
+>  1 file changed, 92 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/usb/amd,versal2-mmi-dwc3.yaml
+> 
 
-The drm_dp_aux_unregister() docs don't say it is idempotent, so is it fair
-to assume it is and always will?
-
-I think it would be much cleaner if user drivers took case of calling it at
-the appropriate times, not more.
-
-A flag similar to it6505->extcon_state used in patch 3 could allow that?
-
-Best regards,
-Luca
-
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
