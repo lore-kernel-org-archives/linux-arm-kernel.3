@@ -2,77 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70D75606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 11:14:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E62DD606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 11:14:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sTWa3qG+;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=mjWSc639
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TJHenaf+;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=jpeR0+nt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ssC6O5op5kxsykPYGF90zu0HggsOhAnuDsh96PbOQGs=; b=sTWa3qG+Q85rj4CexDM9ze5A5e
-	qqLjZwuaaUHIySvqOdo4p28MfNHCBNnSK+W/abWb/+tnT34MPzB8DS1bykB3JST5Z5M/79+uj3VED
-	5uk+uS90J0NzA2EnzucKlcvYk9RuK+YrEsAFvxaLuOzXjntPJWGqvQeZTkAffkWjRDlIRHXhDlc0P
-	BVlWNv/BhwMWdLxEtAZcm8rjbOOVwSTCto8nkryKPWaW5HfQdiUmj53+x+L2Hdi9og45aWSp0VVyF
-	0LO7KaKZHwynavqsY2mR/eftIfaDhLoKWgdpl7DDZ9J+b9+aoQopyt0EbqinOKMTvbvroQ2paDsFx
-	h2aMk4DQ==;
+	bh=Tw0/GmkNPakQA0/XiF/9z/+IJnZL/wHZ7HqV7JkBHeU=; b=TJHenaf+9Labui27JdRoyY15Pv
+	JRzOaVCm+z0E8hXJtC37p3RYTpWVjH7fmSaUzptbouU//MhP/oYmoajnHHTLj/L84pCmIIRtXKMEY
+	PHW6ROFBUFXIajVEGUagHnV4fDab4IbPItCCau6sTWUM4QEQs/3vmq/jKKsGXCCUnKs6g6YlDgJCe
+	U+vV2hKUqYd6vNN77wgMjJ4+ijTDJaYkxwhC1Z8q+708uj6D2COmGreyPa3KqkNVYdM+5gNNAHZUD
+	z1ZUnJ3EEj9EhFSkRE+IwwYhcGHOSPQN3RFuRydChrkVMCVQB4I0N5Hxunb2/trNVvkqgyOxt5aJe
+	vgFFIfAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ7mz-00000009Vub-0Axu;
-	Tue, 20 Oct 2026 11:13:55 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1xJ7nV-00000009W4H-27rb;
+	Tue, 20 Oct 2026 11:14:25 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ7mx-00000009Vtv-1MhU
+	id 1xJ7nS-00000009W3C-47kj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 11:13:52 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a021c28046so31555e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 04:13:49 -0700 (PDT)
+	Tue, 20 Oct 2026 11:14:24 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a1de789b63so47525e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 04:14:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792494828; x=1793099628; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1792494861; x=1793099661; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=ssC6O5op5kxsykPYGF90zu0HggsOhAnuDsh96PbOQGs=;
-        b=mjWSc639VXfbyd0bosJck0hgMYQx4cTxXYwDJoq6V2rVa6jOvNFbQt1k/QNrF08qjX
-         1vLlvoKdR61tz4XUNh2TemtOw/l11DUrcwKBRPPTymGtS8irGM+MN6CgEky4rGbptBZX
-         L2wNDGSLZYudtJ3rPI8K3yB0++ZAwRQgANTjos5BVHndxF3d+eY5y1f5USqHvAAYyXHA
-         hpNfIJ527Kqfk7UUOJ+EIX7p2sZyIFDbQiFb6E9/IgORA5qnZurJG9CFvY3SRbIXY9Bv
-         e4bXaSetqzWyGn8eVGNyVEwFPJs+LLjs4JSyHui16OmrGk4rBW3eBfdjp3cClKgOXTfJ
-         smdQ==
+        bh=Tw0/GmkNPakQA0/XiF/9z/+IJnZL/wHZ7HqV7JkBHeU=;
+        b=jpeR0+ntdxt1C/Uk0BFuBJKkyMOQrMlWEpEOWUgdYcOkm3tNM43zGghDFhqazOVVwv
+         l9kPztMy+NUUxYTBbHgG/8RT0UV3NASqlF5NEZORT2veS1EzRTPGvl6clg0F7R3F/juj
+         nmqkVueXSmybjY3aJGOLgN0xNhtquIoQuEnfEbQs5UkwoslucJr6/mXNdpMeMwEPmk26
+         M9fVBppw8XlMFMYtJ4iAwxUUCaUkYfb+674eTMkdMHaCL6A5upJSLVoH0+8Cyv/mQulA
+         0Qn72z1dsvTkFERqTy12hvIBxpbuC6qI9FsEY7tc9HHeHefs7OqIZ8yfFU5/7d+flWz3
+         aRFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792494828; x=1793099628;
+        d=1e100.net; s=20260707; t=1792494861; x=1793099661;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ssC6O5op5kxsykPYGF90zu0HggsOhAnuDsh96PbOQGs=;
-        b=Y07S15on13XFIPHFJUve1gcCLmQYyUtstdggYH9/TkWLluzZKtOwW3oDC8FtAM2HZj
-         rs+LNXH7jOTLme3bSlqw9xj6XhfbPxZGnfG+wuAKncjuRfxmprqlPeX/FZQCdhcQLZV2
-         QJC3Y8KmxvFNvXfamfoGnErcs7DxH64mI1jvF8nFilOyx3BPTGQ+KRbt7HdMxFxHdfPl
-         OiCbIf3g35UtGMB+bZI7HFdcLj1IhEy8kQUk2tNAB0VRVi4+Xbz1mN6NEvi416UOaGvt
-         TCZTu8g7q7UMv2wXEeojQ6pkq/rgGLOu0Yp4wWJPYt0zSLm3tmo+tnOEGlifPnlnvCGf
-         J4cg==
-X-Forwarded-Encrypted: i=1; AKwUvBz1VNWN1c6oXm5SV+naUcKwcC8CSoMRdUKWe2Btt9Hh2wk1w7hs7FOjvc8066xNthd7JjeSgoVMIoA56jwzyvtQ@lists.infradead.org
-X-Gm-Message-State: AFq9FYLatp4U5nkUI/MdXacDj0ruM6zW9ZXvcBWau/OIeBv2KlfVb4XC
-	M8dFa8/xXPjyHBzGm+dx+U3wuKfhyzmgEMkgbSguGfxEYbXyZ84Td7fWV4JRvvBxqg==
-X-Gm-Gg: AYBFou0VDMtZuFTVH1gcbwcEURJgszmR5KntVjmmvv1n3yVWi9KqEJsEe9GDxsBuJZi
-	ecr+s97tMiViYlURzo2MxRML6VJuKWAYff4SaEQaR9Uul4mnfKGI0ISj/3RVkLAaA0aPeesdIsF
-	JW29X+oYOjZCSkDRV365vKy3Lnnvxd2/Dlewuw5RPeAZIBo8cwBZ2IqSUn5u5H+D4RaukUNhTOS
-	XFLntN3RYrtUtZsyOXQ5uJ73cxtQchpZTwBDqIPYPs5spLxP2SN4u6pOyk5MyKqDk+Ho+4aHMdI
-	JwrhY0i29B9EM2CIEcBREB3Di8W52t6iogHtL/8QMlTlWQFQ3+nUgmiAPLJCUpJbwx3udCu7m4Y
-	98uUsdg/dvT6FdIcLhiJh3ICf0WRz+46UwN2j+kMjNFSANUXvKshcr70NxemM5LE36T6kewYWra
-	DPCrDVjDQzM2ukKFnTTU5DoSVmcnNrY8rg/r9Q9YBRxTAVTkm+ROrFhDvKb/eScNPEiaVQqtTk7
-	NJLqmYhko7wolMQQZtIiXirST+wvztOhBD/VgY4
-X-Received: by 2002:a05:600d:4447:10b0:4a1:7af1:5386 with SMTP id 5b1f17b1804b1-4a1f37a469emr748285e9.1.1792494827956;
-        Tue, 20 Oct 2026 04:13:47 -0700 (PDT)
+        bh=Tw0/GmkNPakQA0/XiF/9z/+IJnZL/wHZ7HqV7JkBHeU=;
+        b=lC0CmoVLAk7GvcWU5JenGUqE1++HzW8ML1qiB1nipCeggmEMDpUwLTdZ8w0KIxQpfy
+         Bfct7r+vAyvGqAcDuFObK1C0uiyxYpi0c+uvBtx35wjxC+fhuNBuIRVliM4saJ3Ba3P+
+         EYRYxc8ib96dqtU+TiXGf/IHTa0Ql/xCb9nN7N5Y03FZ9F5sm0sBf0CmGZBT609kxb2f
+         nb6a6y4lX1beVfHzfOsxiKRY/lUUaU3OE0gXoDx3m4nLFM2ag+LHH0EkceRwJtreDvom
+         4j/VZ9iEJXyAqznE6BK0GMrhdYv5PZTgDzD9mKvY8HEUOVqEYzrFqv9TFu16E7/O918A
+         +UWQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzac+JzFah/DOyli3hWmIlJeoeeA5FC8zITaKxz4GYamFNufihFok1imvJC3uU5a4kqyP+tgOLt1hxDKJgnnqzW@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ0/rX13z/n+2hrnlaEH5LMRwDK926/Xrw3JOTwMyuET2Nefu7K
+	YXro9cyOx7NpccNjmZIhmMGyU26vIT8oa89iDQamk1p/2dmEzRLn2YmPjDcPRmOOYA==
+X-Gm-Gg: AYBFou2IDYEKZoaSr8kUEfSbZUEn9mrZCPRUx+Zd8S9rfElkbJ5uGzqoM7W0LkkiNCS
+	PVqgZhXm1GiudcrupZO2HDfS5wMifTaB+/dNwlUzLvp0AjjBLsYLHCO9R9iJV8vkWj1l4O3oV1K
+	CLYq/KlGVhBvWm0LP5/MjnocbdVrIKA8+F0Vn834OPheTjh7kzA15CNx5czpVqnGWOFDpKdArCF
+	mY1BMY4XKXJbIwXUONB5APUuCAcCAV1e1fluPtcoL7/i1drXJFunTQ+eEaBuL7LsNGWgFdGPK1T
+	uisN1oNovhClqcmidXblN25Sx27NVgwv+UnyH8lLIplNujSzkXydtoONjAxaLEJLmYHCqC8DE0E
+	tTgLWl0OMA2ws6gKuB9qBhw8Yl4bcRXwz943RAiaBX886j+Ehc/heAH2XU9c9SMjzrTwcRtBQbl
+	a60FQUa14BZO4gaNKL+2IKl5NeuG2FQ8dzkg0s2x4FzEByoqEiHzD+uDAVJmCAeYCanhkwlk96a
+	R6WwyBis6nzcmaxz/7YyxriH7NoUhR58bdzJNm5lQ==
+X-Received: by 2002:a7b:cc99:0:b0:4a1:83f5:44ed with SMTP id 5b1f17b1804b1-4a1f59efdabmr598905e9.16.1792494860455;
+        Tue, 20 Oct 2026 04:14:20 -0700 (PDT)
 Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1f2d41c8asm64987465e9.8.2026.10.20.04.13.46
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1ce33155fsm247590175e9.4.2026.10.20.04.14.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 04:13:46 -0700 (PDT)
-Date: Tue, 20 Oct 2026 11:13:43 +0000
+        Tue, 20 Oct 2026 04:14:19 -0700 (PDT)
+Date: Tue, 20 Oct 2026 11:14:16 +0000
 From: Mostafa Saleh <smostafa@google.com>
 To: Nicolin Chen <nicolinc@nvidia.com>
 Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@nvidia.com,
@@ -81,19 +81,19 @@ Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@nvidia.com,
 	linux-kernel@vger.kernel.org, jamien@nvidia.com, kas@kernel.org,
 	Cristian Prundeanu <cpru@amazon.com>,
 	Breno Leitao <leitao@kernel.org>
-Subject: Re: [PATCH v11 01/11] iommu/arm-smmu-v3: Init the vmid_map ida
- before the stream table setup
-Message-ID: <atdM52CxWJTZxOIz@google.com>
+Subject: Re: [PATCH v11 02/11] iommu/arm-smmu-v3: Make the ASID space per
+ SMMU instance
+Message-ID: <atdNCInkAepLyMow@google.com>
 References: <cover.1791226953.git.nicolinc@nvidia.com>
- <058aeb235a458c5b48d918d947608c76dde0d845.1791226953.git.nicolinc@nvidia.com>
+ <e027296ac9db58fb7d69b1b4b5e4a2ed192dd401.1791226953.git.nicolinc@nvidia.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <058aeb235a458c5b48d918d947608c76dde0d845.1791226953.git.nicolinc@nvidia.com>
+In-Reply-To: <e027296ac9db58fb7d69b1b4b5e4a2ed192dd401.1791226953.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_041351_386658_F34CB3D6 
-X-CRM114-Status: GOOD (  21.07  )
+X-CRM114-CacheID: sfid-20261020_041423_060916_545A0E02 
+X-CRM114-Status: GOOD (  30.31  )
 X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,16 +113,29 @@ X-Spam-Status: No, score=-23.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 05, 2026 at 12:30:44PM -0700, Nicolin Chen wrote:
-> The vmid_map ida is initialized after the stream table setup, along with
-> the devres action that destroys it.
+On Mon, Oct 05, 2026 at 12:30:45PM -0700, Nicolin Chen wrote:
+> An ASID tags the TLB entries within one SMMU, so two instances can use the
+> same ASID without ever aliasing each other. Yet the driver allocates them
+> out of a single global xarray, which makes the instances share a space that
+> the hardware keeps apart, and lets one instance exhaust the IDs of another.
 > 
-> An upcoming change will reserve the crashed kernel's in-use VMIDs in this
-> ida, from a kdump kernel's stream table adoption that runs in place of the
-> regular setup and returns early.
+> That global space is a leftover from the BTM support that shared ASIDs with
+> the CPU. Now ARM_SMMU_FEAT_BTM is never set, nothing looks a domain up by
+> its ASID, and a domain is pinned to one SMMU at the attach.
 > 
-> Move the ida_init() and its devres registration to the entry of the whole
-> function, so that the ida is ready by the time the adoption path runs.
+> Give each SMMU its own asid_map, mirroring the per-SMMU vmid_map, and clean
+> it up with devres, so that both of the ID maps get the same lifetime as the
+> SMMU device structure that holds them. An upcoming change will need this,
+> to reserve the crashed kernel's in-use ASIDs in the new map during a kdump
+> kernel's stream table adoption.
+> 
+> This also eases the BTM work that Jason's working on:
+> https://lore.kernel.org/linux-iommu/20261004162219.GA4064@nvidia.com/
+> 
+> Note that arm_smmu_asid_lock stays global, as it serializes the STE and CD
+> updates against any ASID change rather than guarding the map itself, which
+> does its own locking. Giving each SMMU its own lock looks possible now, but
+> that would touch every attach path and belongs to a separate change.
 > 
 > Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 > Tested-by: Breno Leitao <leitao@kernel.org>
@@ -134,40 +147,120 @@ Reviewed-by: Mostafa Saleh <smostafa@google.com>
 
 Thanks,
 Mostafa
-
 > ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h    |  2 +-
+>  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c    |  6 +++---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c    | 18 +++++++++++++++---
+>  3 files changed, 19 insertions(+), 7 deletions(-)
 > 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index bb048e08d613d..8f2c0b1cc4a8d 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -1003,6 +1003,7 @@ struct arm_smmu_device {
+>  #define ARM_SMMU_MAX_VMIDS		(1 << 16)
+>  	unsigned int			vmid_bits;
+>  	struct ida			vmid_map;
+> +	struct xarray			asid_map;
+>  
+>  	unsigned int			ssid_bits;
+>  	unsigned int			sid_bits;
+> @@ -1180,7 +1181,6 @@ to_smmu_nested_domain(struct iommu_domain *dom)
+>  	return container_of(dom, struct arm_smmu_nested_domain, domain);
+>  }
+>  
+> -extern struct xarray arm_smmu_asid_xa;
+>  extern struct mutex arm_smmu_asid_lock;
+>  
+>  struct arm_smmu_domain *arm_smmu_domain_alloc(void);
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> index faeec656da9e7..489531e0027bd 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> @@ -311,7 +311,7 @@ static void arm_smmu_sva_domain_free(struct iommu_domain *domain)
+>  	 * reused, and if there is a race then it just suffers harmless
+>  	 * unnecessary invalidation.
+>  	 */
+> -	xa_erase(&arm_smmu_asid_xa, smmu_domain->cd.asid);
+> +	xa_erase(&smmu_domain->smmu->asid_map, smmu_domain->cd.asid);
+>  
+>  	/*
+>  	 * Actual free is defered to the SRCU callback
+> @@ -352,7 +352,7 @@ struct iommu_domain *arm_smmu_sva_domain_alloc(struct device *dev,
+>  	smmu_domain->stage = ARM_SMMU_DOMAIN_SVA;
+>  	smmu_domain->smmu = smmu;
+>  
+> -	ret = xa_alloc(&arm_smmu_asid_xa, &asid, smmu_domain,
+> +	ret = xa_alloc(&smmu->asid_map, &asid, smmu_domain,
+>  		       XA_LIMIT(1, (1 << smmu->asid_bits) - 1), GFP_KERNEL);
+>  	if (ret)
+>  		goto err_free;
+> @@ -366,7 +366,7 @@ struct iommu_domain *arm_smmu_sva_domain_alloc(struct device *dev,
+>  	return &smmu_domain->domain;
+>  
+>  err_asid:
+> -	xa_erase(&arm_smmu_asid_xa, smmu_domain->cd.asid);
+> +	xa_erase(&smmu_domain->smmu->asid_map, smmu_domain->cd.asid);
+>  err_free:
+>  	arm_smmu_domain_free(smmu_domain);
+>  	return ERR_PTR(ret);
 > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 34e916ea339ff..792627e1c790e 100644
+> index 792627e1c790e..aeace4335abfe 100644
 > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -4842,17 +4842,17 @@ static int arm_smmu_init_strtab(struct arm_smmu_device *smmu)
+> @@ -90,7 +90,6 @@ struct arm_smmu_option_prop {
+>  	const char *prop;
+>  };
+>  
+> -DEFINE_XARRAY_ALLOC1(arm_smmu_asid_xa);
+>  DEFINE_MUTEX(arm_smmu_asid_lock);
+>  
+>  static struct arm_smmu_option_prop arm_smmu_options[] = {
+> @@ -3015,7 +3014,7 @@ static void arm_smmu_domain_free_paging(struct iommu_domain *domain)
+>  	if (smmu_domain->stage == ARM_SMMU_DOMAIN_S1) {
+>  		/* Prevent SVA from touching the CD while we're freeing it */
+>  		mutex_lock(&arm_smmu_asid_lock);
+> -		xa_erase(&arm_smmu_asid_xa, smmu_domain->cd.asid);
+> +		xa_erase(&smmu->asid_map, smmu_domain->cd.asid);
+>  		mutex_unlock(&arm_smmu_asid_lock);
+>  	} else {
+>  		struct arm_smmu_s2_cfg *cfg = &smmu_domain->s2_cfg;
+> @@ -3035,7 +3034,7 @@ static int arm_smmu_domain_finalise_s1(struct arm_smmu_device *smmu,
+>  
+>  	/* Prevent SVA from modifying the ASID until it is written to the CD */
+>  	mutex_lock(&arm_smmu_asid_lock);
+> -	ret = xa_alloc(&arm_smmu_asid_xa, &asid, smmu_domain,
+> +	ret = xa_alloc(&smmu->asid_map, &asid, smmu_domain,
+>  		       XA_LIMIT(1, (1 << smmu->asid_bits) - 1), GFP_KERNEL);
+>  	cd->asid	= (u16)asid;
+>  	mutex_unlock(&arm_smmu_asid_lock);
+> @@ -4741,6 +4740,13 @@ static void arm_smmu_destroy_vmid_map(void *data)
+>  	ida_destroy(ida);
+>  }
+>  
+> +static void arm_smmu_destroy_asid_map(void *data)
+> +{
+> +	struct xarray *xa = data;
+> +
+> +	xa_destroy(xa);
+> +}
+> +
+>  static int arm_smmu_init_queues(struct arm_smmu_device *smmu)
 >  {
 >  	int ret;
+> @@ -4848,6 +4854,12 @@ static int arm_smmu_init_strtab(struct arm_smmu_device *smmu)
+>  	if (ret)
+>  		return ret;
 >  
-> +	ida_init(&smmu->vmid_map);
-> +	ret = devm_add_action_or_reset(smmu->dev, arm_smmu_destroy_vmid_map,
-> +				       &smmu->vmid_map);
+> +	xa_init_flags(&smmu->asid_map, XA_FLAGS_ALLOC1);
+> +	ret = devm_add_action_or_reset(smmu->dev, arm_smmu_destroy_asid_map,
+> +				       &smmu->asid_map);
 > +	if (ret)
 > +		return ret;
 > +
 >  	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
 >  		ret = arm_smmu_init_strtab_2lvl(smmu);
 >  	else
->  		ret = arm_smmu_init_strtab_linear(smmu);
-> -	if (ret)
-> -		return ret;
-> -
-> -	ida_init(&smmu->vmid_map);
-> -
-> -	return devm_add_action_or_reset(smmu->dev, arm_smmu_destroy_vmid_map,
-> -					&smmu->vmid_map);
-> +	return ret;
->  }
->  
->  static int arm_smmu_init_structures(struct arm_smmu_device *smmu)
 > -- 
 > 2.43.0
 > 
