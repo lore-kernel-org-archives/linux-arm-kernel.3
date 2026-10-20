@@ -2,118 +2,146 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04847606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 06:01:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0232606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 06:18:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ANBNj5cL;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wjhl2gV9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uqmbHWMo;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Gk4fp6Rr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjahWStJaWAkZdXXLpQF/IAPVZCHaZCufugG+xHQea0=; b=ANBNj5cLJy2gyCnFgntl9fb6O9
-	sIFOIWSwbHkY6s0llZSyH+nuPXzZnPq1909ohHxAYLhi2XqB7y7rvJKwla6LsAQ7a0XG7MTBMzqWZ
-	7tC8IYknMd1olOUO9gsEdp9vGHhtBcTAG9J+dnBtD1uAy3Ov3+3qpkNiNAkh0liyu7vchPx4tQIHx
-	fuF4gm9ooxq3k+fwXDBG54mEo1Wb8SMwjLN1BbMf9EG9Ov3heCl2jLxjuD1be0os/9zpvds2+TBea
-	wZMhmfwndKKZtlMn8JLiV9l9PtJJ2S5xBLlyFXz/lcf93knPbat0oTZqD76EdPUr+H7KctG975pH8
-	b0r0yecg==;
+	bh=TBD0lZviLPCDXI12kZ1L6DcovEnr70xYStj31jYkCZs=; b=uqmbHWMo/gFJ15SocMHM3Y8oyD
+	CcGPNEt1YmvKiuyV81cgcde3fDu3+LlZewHIgWUjmbl+eTUgyVYICzBOQAlWil8KSVdQgyGtgobJq
+	de9ED5rF/bu3qjlHfs33egZSsynlZqJvTmTBAeI2mi/no0se3ni1zQlg8Wv0KPtnl5zQcWbVhr8nr
+	uFzW4x1CN4F+y+3t2iHy8tW+wwCIbefGR6E/oF6R+3hYrV35A4YOPvldNQebK1Ha6ka0HaPGMxaT1
+	8xIWRD2n/YYChxRVTKbEInG/2Uojcp6xNG7Jgq0jRhTyPhAhqXy7X20nCyc4DUaJk5CF4g56FIFoo
+	ZgnMiKeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ2u7-00000008uHx-1nfq;
-	Tue, 20 Oct 2026 06:00:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xJ3BB-00000008uzt-2ljd;
+	Tue, 20 Oct 2026 06:18:34 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ2u6-00000008uHm-1ReM
+	id 1xJ3B9-00000008uz1-342l
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 06:00:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E36D60098;
-	Tue, 20 Oct 2026 06:00:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62EE11F000C4;
-	Tue, 20 Oct 2026 06:00:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792476053;
-	bh=tjahWStJaWAkZdXXLpQF/IAPVZCHaZCufugG+xHQea0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Wjhl2gV9AJj254FHkZF+7CKdQCdvE20SmL91dGF/QylrOjGMzIG+pH0qGFHABSB9J
-	 pb78GQxC1NtOYNqDXATp+PfYyJ4N8CCZgMk6YPEDCoRgsazvhYQC0D+LtNa4OKNPYg
-	 wu6wGoWnWs/9fymyslDAFWwciUauiHXbyFxpICotOfa1aWeUaYmQ9ldFDyE/kZQ4jf
-	 HysdKsOtcRmJbDPGmoh37DtIJnMdCRV/Iv688KubOM/8N/FpV74m80N5ro0hXZp6m7
-	 4t3jbT+cf9L8lwuzizRyUWUKJsYGv/da/M0qNm9yQR/rzwxclTAoP3H/w7u/dSp8wq
-	 seB5wZccb2NzQ==
-Message-ID: <e43c4831-1a12-45b3-9614-97dbd2bc48d5@kernel.org>
-Date: Tue, 20 Oct 2026 08:00:47 +0200
+	Tue, 20 Oct 2026 06:18:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ebFYsEeZMyuovt/tE/Tuo2PKoNJgSSxg6FZkzTOyGJ/+uVP6Ko8upQyVzAzJn0tYHzFKgLGE2kWs7hILX0PG7QbXaTARUT/A2v2/pUM+1LTjc+T/Bvs1hEhO2y0ViHC9ZQMndGVU2s31OM+f6Kv8CN85mxou5MNGxquF3S1eMI11LskW7AyF5YXmylIDxSHqLS55/TcaGAllbDIyGZU8LUORM8pwMLHxgHw5WUjJEbSPJW14WIaDWviJjNNUrLH6X/2GRZ7i8hAyZnFvCOcQtZOt53oIHfnbX1cLEdQaoFj3nwaWxZLI6DT7Z41voXQibm7DG43KVrIJBzgodxH5Mg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TBD0lZviLPCDXI12kZ1L6DcovEnr70xYStj31jYkCZs=;
+ b=xd2hvHxmPpqZB+Ab9jF1nBkCFU4XzuuwqpX+ABvY+U7rNaVqbHMzzxCgLaopUny+Rb9WxXY+7UHtZvCWWBwzqzchut6ICfO5DffOUj+P7OxG8zhxYMoEisg+x1kacmAfTYN8GnsOfEWKToXf6fLvsp/3MjKn1EbWTpTaNRUxb4fOuDLxjOjLqGnWvmZFR6msW0qRsDseTUfNbW6rCK+vmqdS9xEZp9l1kNgrTpLnofX8TjlJIkn53QRfxALaSUCL72BD9QmxfwOKIcPGAZwCrjlup6ixsXlcCbzCIM/49CFzgq0886ZxuPmeIppv6E/fOsJmhAI89YdehvqwRDXiag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TBD0lZviLPCDXI12kZ1L6DcovEnr70xYStj31jYkCZs=;
+ b=Gk4fp6RrMPfWYAGx2ccHSJmHiXIlJHA4K/98ozyAO6bi5lByLgp2cqDaQ40LUJ63BQNkBwIATInjsdFvXb6yu1weHGqy6TaKqeocKrL4bYoB0VLnvrvHpyIatHwV9QcMBpjzpRq8/kvjFxMc45aGEYGmXp3oxn3LO6TM94OO5IdfZihB4FgVnuPp2UPYtujY5ck00xAemHO0gYeEDuURMxmyjYCHG+Kg5xKmxBfJxw1KoE3oRH2oCmR4scGqpUX+AxplRoIyXe5/imnx9ETZZ2JBBP84cNUEbDMzMeorOshHCs4Ov3xKJ81dNulOgIvVWmS9NSA536KQ5I29Od87IQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by AM0PR04MB917899.eurprd04.prod.outlook.com (2603:10a6:20b:7fc::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.14; Tue, 20 Oct
+ 2026 06:18:28 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0546.012; Tue, 20 Oct 2026
+ 06:18:28 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+To: Frank.Li@oss.nxp.com
+Cc: Peng Fan <peng.fan@oss.nxp.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	linux-remoteproc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>
+Subject: Re: [PATCH v6 3/3] arm64: dts: freescale: add DT overlay for MX95-15x15-FRDM RPMSG usage
+Date: Tue, 20 Oct 2026 14:15:41 +0800
+Message-ID: <20261020061542.188571-1-peng.fan@oss.nxp.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20261019-memory-region-name-v6-3-2e46b2e7d667@nxp.com>
+References: 
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR06CA0010.apcprd06.prod.outlook.com
+ (2603:1096:4:186::6) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] dt-bindings: input: touchscreen: samsung,s6sy761: Add
- S6SY791 and reset GPIO
-To: Lukas Timmermann <linux@timmermann.space>,
- Lukas Timmermann <foss@timmermann.space>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20261011-lat3st-google-raven-touch-upstream-v1-0-2a9f55159b9e@timmermann.space>
- <20261011-lat3st-google-raven-touch-upstream-v1-1-2a9f55159b9e@timmermann.space>
- <0a486a08-8d6c-4ca5-8a54-e7499630095c@kernel.org>
- <atYlyqHToGjAr22T@archstation>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <atYlyqHToGjAr22T@archstation>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AM0PR04MB917899:EE_
+X-MS-Office365-Filtering-Correlation-Id: 435c3652-c584-4ddb-13c6-08df2e71f47c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|19092799006|23010399003|56012099006|11063799006|10067099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: AQ4XpwASA4au0BexEUEiz/I7zfyAhGX/M6NsTIYdYzg6KxMfhdCFhDkmWliPX46D6xH6i7arBvzk9SClTQa5bTMwVsCUWdzuHV1vvNxqESCFX6lrcSOGC0al/uMrWbuCwH74YM3Se5SkyYVsnqPmQRBbvKsIeVAhvGCXeze2dacNX6rnSmCIb/UitD1qqkRcXBAxuDH+ZqO6oie0VGGXkcUlEaWWxo/72JWCI9VwljYoaJiurVeRx7FwDtfBGpyGHPq29j53MZ1XGX9IKcpX3Zx2ALnCL+fmzcZ49kxmWW6IAkqRwOl057mOIav9v2rTG5lqYP6+hH/p1hLfsNSYyofhrHEGXx/iqMQgCutXkjm3x7eh8oNJsC15oP2qYrvLWolKEPi86x+0KVRDP7UkUBt5Z88GOk9t7qsYNhAq7rivrQ7wQcAsOxHIKsCV6VvRP+6w6LL2dtexk+FkAhCNzAvmtoIv4+mz6SnOONmgJxfekM5Z/fuylhuge2mYeZFljCm5YGd6jGaZpyH+ebdvBdY7lRC7v8eZPsEGtHm1oIGGj+DQ2aIviJCsoEP1xF7zII7npILXT0p4oc+2qJN68jCWdjunIYsNv867TQAVwV6F4uINCgbYW87fZU3t8ERUg1YKZcozlaULDLd1QDwAsiY7w1CAwNk4YLNQ8QtbREs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(19092799006)(23010399003)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4fAHymm9rATJJ4yXsQX1yXJSr4h5jyCZ5bHviXJUnLFUZ90tpcwEoDrQMtms?=
+ =?us-ascii?Q?k2yPFnMXoVNp5fgmgb+Ve+imCMon3q9v9Ur7Y1m84MI4wSHvArDYvN2c3vhh?=
+ =?us-ascii?Q?3yMZ/EnWAk64e9k0GJfu+0gfNWU+wBAbc3C+mKa6cvONdlMOF9SCH5nf+izs?=
+ =?us-ascii?Q?dOi8rla+oKR/opStIEMMBofru2/6vY5rqJXUNuhL4Q2rQCJirg4K3HsdxnCo?=
+ =?us-ascii?Q?blBH7bwopm6WmY/E1R7+spFPxeTxgLjIIFT6FI89XHr4zFqnJwo4MXeXdsUL?=
+ =?us-ascii?Q?13Qs4qcJe1MxlqmlfgyAiBjP0DgJOSPEN3bFxzfCUUHa64tl3ByvDpgqdirz?=
+ =?us-ascii?Q?IV/3oTCXCCzScY6IULML1gqkXuTt/pgxv5N5r8+jPtBAnUTUiZwGVmdTEzCH?=
+ =?us-ascii?Q?o3zjD5hNvzyggq8bgjWFZFs8StHf5I5Fcneb/XtGsNIzCcReCdBWoETxhOjK?=
+ =?us-ascii?Q?Bmkdnyva/zgjub6NtG3XI1LxUP+qHESOrFPgh0r0KBNbQkDqGsfsDmkgIj4b?=
+ =?us-ascii?Q?MItUhyGnkUuCJStQk/5jF3J+f5u3Tkhs3ebycmENskiKJ1CXmGDp50J4WAYK?=
+ =?us-ascii?Q?HH18rV2I7UI0zgkLVAl9BjEgSCAZxjVRatcM6EcFE9jMGtuw62MqclibgH4d?=
+ =?us-ascii?Q?d2AfsSPK5ILs3yOIa2v9j897xWNOUpaE2bPHCSRl4b0s+kQK7lptdxaBEory?=
+ =?us-ascii?Q?ukXUHnshPUPiCVY6xFEhUZzDRJ3zPAo1cfsAZQEuy9t5L58B+wtkz83PZXIY?=
+ =?us-ascii?Q?UUeSf9EkOGqNV+wRX8TJEFJqgaOgf3fdcOEOQ0gfgQLL8OmAsmL6Q7jSaz//?=
+ =?us-ascii?Q?aZtxcMG1acZt+fJX11PQruCWkzLSoyFF1rRUknfoj/T6djFKjMl3llwwdFcH?=
+ =?us-ascii?Q?UqYjQ/51bAIf60zDQo9ZhsaesQ1Dh58ao53dY+CuP2d5NoOQ/cbT7NoiTXTc?=
+ =?us-ascii?Q?qz4pnKpIVnt1fq407E+6ECNsZGCNIz4nU12D9eF1wsORmzme5evpLFfBKRC+?=
+ =?us-ascii?Q?d3jrcK9Viyh4L9HLJ98S1sof7z1BCu+maN4AStXmuptbyONlCWohEV4Ps4TW?=
+ =?us-ascii?Q?iDwuZszhzo2/WAVulMB83/5FNHwD1joqZ2Q0I8TZ2FtpEBWaoGad0P6fw1QN?=
+ =?us-ascii?Q?n6vk+cLTzL6S6kb4J1358c+pMVfWtOZGoCDKEVIy7ETzOMWpn6JShKMdPIsF?=
+ =?us-ascii?Q?JlSfBnlTt0HNlMStr8yUyc3WUybqfub/H+91Ur9a23cOVoaWd2LLEWEltIa+?=
+ =?us-ascii?Q?4vMysdq1r2iGSwt10zu6P4dCgJhl0/iq45aIw066+r6giBrFU1BR0F4NtIyt?=
+ =?us-ascii?Q?Mp9HXZX4H5YuKuafPpHp+ml+3tDKQgnDb3Sr8ca0UtVEyKo/VaLAAr/kE5sX?=
+ =?us-ascii?Q?0CbB6UY8kq0yXjf8HayPOrty9FBmcwvGDCekh5m+7VILVKYB/4XAmLj/cZSM?=
+ =?us-ascii?Q?4x4amryvFDw5We4MezTVS7Cd7mfHnU28VnEb1WtFydL4HnywznTPTBejVdla?=
+ =?us-ascii?Q?Gj/Whk3nj+O7ZApvzhg6tpdjMAtS+euNrfKkJQu3WkBlpxR/slJ/MiY/EFTG?=
+ =?us-ascii?Q?GOjA3naU0dFr60z0wb0lA277lK2M6i5dB60ZDgd4Nfnp/AKH2pcPZXyFG1J0?=
+ =?us-ascii?Q?SzEoRlarHPvJmWXNpg475gNMVbKqvpN8Vc70GAjtJf2jv1AGqOfHvQzsBEUK?=
+ =?us-ascii?Q?gfcjXLrEXKibC8Rxf2+uRkQRLcWRZJOAQrLuksSH+UyHlLTkNvEZZVTGGMY1?=
+ =?us-ascii?Q?HThQS/z+IYAjdm11EcjPIaxpdH6QJLbcTk5ac1oiRgwfO/TfUUOF?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 435c3652-c584-4ddb-13c6-08df2e71f47c
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 06:18:27.9635
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xuZoFz4wXGAEPZQKDprVzhYRXpkFZy597rVm8uh9ZMUVJWX5efmrML0LJSAcazSZ8p46SDwXXspZTXAZlObM2C2dMQfOURKXUwO4uqbBtdb0Pamr4mIgaCqLFLxaGulz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB917899
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_231831_771598_9118C4EF 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,50 +152,26 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-11.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 19/10/2026 16:17, Lukas Timmermann wrote:
-> On Mon, Oct 12, 2026 at 01:30:48PM +0200, Krzysztof Kozlowski wrote:
->> On 11/10/2026 14:44, Lukas Timmermann wrote:
->>> S6SY791 is the SPI-based counterpart of S6SY761. The register map and
->>> commands are identical for the subset the kernel currently implements.
->>> Therefore add S6SY791 as a related touch controller.
->>>
->>> Optionally, the reset line can be controlled on some boards,
->>> such as the Google Pixel 6 Pro (raven).
->>>
->>> Also reference spi-peripheral-props for the SPI bus properties.
->>>
->>> Signed-off-by: Lukas Timmermann <foss@timmermann.space>
->>> ---
->>>  .../input/touchscreen/samsung,s6sy761.yaml         | 37 +++++++++++++++++++++-
->>>  1 file changed, 36 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml b/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml
->>> index 1ffd17af3c53..d24f35038934 100644
->>> --- a/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml
->>> +++ b/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml
->>> @@ -8,13 +8,17 @@ title: Samsung S6SY761 touchscreen controller
->>>  
->>>  maintainers:
->>>    - Andi Shyti <andi.shyti@kernel.org>
->>> +  - Lukas Timmermann <foss@timmermann.space>
->>>  
->>>  allOf:
->>>    - $ref: touchscreen.yaml#
->>> +  - $ref: /schemas/spi/spi-peripheral-props.yaml#
+On Mon, 19 Oct 2026 14:55:50 -0400 Frank.Li@oss.nxp.com wrote:
+
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 > 
-> Should I also hide this behind an if-else?
+> Move related memory region to overlay files.
+> 
+> Add RPMSG DT overlay for the MX95-15x15-FRDM board. This overlay is meant
+> to be used with the mx95evkrpmsg system manager configuration for
+> remoteproc and audio over rpmsg-usecases.
+> 
+> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Only if the other device is not SPI.
-
-
-Best regards,
-Krzysztof
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
