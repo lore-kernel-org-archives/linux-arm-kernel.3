@@ -2,91 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9ABA606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 05:27:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D336D606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 05:28:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NrouShOr;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=dYEGJLl/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=erUDxAeY;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=WU4IXcPQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VBaqtAYhzt9vjT0IOaJ3LEbjNlh/6yFmqmAUZP/n84g=; b=NrouShOrHjPGpjwuremcWs6cs8
-	JICrixfkScr6iZPNrYJM2z4yCyUWGB7Pc0gUjGQgm72khkZI1BMZy3KNZGykaZ7F4paWT4hXzZuAv
-	fIizEkerAEOeaiNV0TXzgqXf7jjL92VxbcdnCO5wMBnezB+8iAAzzboJpuz6mk/L+EVa24Jo0a8MF
-	J1/O/AXJf53IKB6Pd4X9PjePrtqlmfAZA4U7ZDWTzLL3DvsVEvffioxhuD6tv9uf+GMllzu/YlXY4
-	bLJ9lTjsbaY+n7zMg9EF2H+ypj9J7pWy8w1//8eGhjYjbq/hR7sTcR1VfYclgdzYHaA+shihmIluX
-	rxXayfIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5l6pqreEYh+0Dsa58mvKfgN8V+MvlUn6xbXr6Z0vjIA=; b=erUDxAeYn8vL6S+hssbqhs4kUc
+	ac4DF5vf6KdFuKezKEP0Rys8wSBM5qbQwidzH2leV5o8bVZpvpn8k88FpcvhEONcHopr5hVmCVpwB
+	Xm/WKMxXUIllNcaC/RyiQPOcLkPABAqhqvcpGDYa/z4Vx8Okwo5Ses+jxW322iXc2Y714/wjhjjXN
+	hdS2afha4+pf3bz1yW8g4B5u5iH/dXgjZ8Y94twy8O7/8Jj0hQH4FQRWjuHAcx8Xj3pZ3l2MF0tiX
+	GrsKbDRvplKinXDJDsMHTmHwXDjijFp6nciBVS39owspbfx5E9l7+08vD/CEIfmG/tIqU7EnwoAah
+	y9hv8VSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ2NC-00000008s48-0BvC;
-	Tue, 20 Oct 2026 05:26:54 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1xJ2OM-00000008sBw-17kj;
+	Tue, 20 Oct 2026 05:28:06 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ2N9-00000008s3G-0HC8
+	id 1xJ2OJ-00000008sB3-0gTf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 05:26:53 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20261020052641epoutp027c14d9d08e8d5d61de28b5627261c25e~gJZuEVdFd0201702017epoutp02X
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 05:26:41 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20261020052641epoutp027c14d9d08e8d5d61de28b5627261c25e~gJZuEVdFd0201702017epoutp02X
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1792474001;
-	bh=VBaqtAYhzt9vjT0IOaJ3LEbjNlh/6yFmqmAUZP/n84g=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=dYEGJLl/XaI8YLA9R+Ob8BLNL4Oe4NEqVu0yZo7lPIWNUon5CtaJa5P+ABxEeLhKV
-	 RdokE3KZAgTDw4/1+B9Sq4zlulMxapQI/9OppFOFp4VWgAJIEdR+igm+327fNAyrrt
-	 qJWhR/yoLNGDAg38FHqOgluaTODXTEdRRGI7VbQ0=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20261020052640epcas5p27161ada23d6deba25cb84e6fcb0165b0~gJZtBVh9C2585725857epcas5p2s;
-	Tue, 20 Oct 2026 05:26:40 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4j819q3JvDz2SSKb; Tue, 20 Oct
-	2026 05:26:39 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261020052638epcas5p18ff9bffbddf4c8f106a4669f4810370f~gJZrnNRuA1711217112epcas5p1J;
-	Tue, 20 Oct 2026 05:26:38 +0000 (GMT)
-Received: from [107.122.5.126] (unknown [107.122.5.126]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261020052635epsmtip1b24d9cf98f9333c343d2bf34c031fda5~gJZoqwYIG2871028710epsmtip1g;
-	Tue, 20 Oct 2026 05:26:35 +0000 (GMT)
-Message-ID: <40a922b9-f56f-4fe1-88f5-5bb236735951@samsung.com>
-Date: Tue, 20 Oct 2026 10:56:34 +0530
+	Tue, 20 Oct 2026 05:28:04 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2e5d0ee1951so18729715ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 22:28:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792474082; x=1793078882; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5l6pqreEYh+0Dsa58mvKfgN8V+MvlUn6xbXr6Z0vjIA=;
+        b=WU4IXcPQG9bGTWYwR2XZowd4WLRH8MVPcfaDxbIZ9ChnyIh0Ql0+eL0XFoD2BR05Me
+         cr+iHNW3sryxHvX6aFE+23ukAzNBm8FcCLdwzgLzydNMnowTkrz0Jfx4cm/3kqJDF78A
+         vs0k3RWpuxG+rGfcri2EJze0zmdwpEHqGsgrz+c8edIS5Ck7RAhzGfiiBNl1FxLtwj8q
+         Ja4zhE9EMTwqO9idytEWnDnEdMaoo7Q0VTThWxVGXr56KoeM+0P8nOuNBi/4VSz0vElx
+         42oJMh0LKBqv8G4NqdW6KxnG8C9h/ttQ3ZoCjeVNPCrISL2CRXThFM/vkcGVr0Ls5Py3
+         CaRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792474082; x=1793078882;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5l6pqreEYh+0Dsa58mvKfgN8V+MvlUn6xbXr6Z0vjIA=;
+        b=odd49L3jazYM8XjCvnjEMySSPkEdnBh0RS7J5EHmu+tisLFoUcciVcj1n1EIixqm5X
+         88dl8c1e2q4g0IdX54VBD2+VbpSAobG16RXLjYfPmi2PagnDEvXWjUBmkJ0/z4ImvQ8w
+         ThSYMqhAh/m02lIfjno1rExtlEztvr2NwSEE7sqGmHTXwdGSuYwGdiHr09Ntvt9s8+0s
+         yz6ydCBukwwuVeGamS/em93vaUzo+/igU7pWArHwa8lKcPMuShdIlSMorYN8IPIn8jab
+         j3dM93C0wQvn8KsBqnH/9T9vTJ5NtQ+QhABRO7GqRcl4YMyd8UiIg5vwtQ7/ryuecl0X
+         tH0Q==
+X-Forwarded-Encrypted: i=1; AKwUvBx8d0kmJIgZz/N2it122rAZ3kYjbip+9YHrYPKw4k/8GB/tiPAwW5PgH5AQm8Lj1cOsYWX4k6VraJWJXqltKKHL@lists.infradead.org
+X-Gm-Message-State: AFq9FYIuIpxzAb9/8+/qx43w5YfpBfIIQdiOpR8oC1wfMySEJasIL+Ak
+	RvtmfirS2xlP/MaZCghinXV37A/mqxx2gDjWFbR96GnGG2AHgTFNkGlj
+X-Gm-Gg: AYBFou2cFizvsNjDUdv8MiPFtgf0P86U7DHHH6+EwQH95T17XMWGb3GSJ8wOfg1Nzol
+	4iu0iDZMobv0Botw0l+UQ/uEFcTsQWj/W0SdTqpnH6z+lg1sLYx0bfNlwPelDqCNDhKezOQct8t
+	pg0Lbi0tmXnd3B8ur39F9oSIUOY632JcXj3eeVV8jmDIWPizNx4qnAU6PQCxkNZRZyWH0XPgA48
+	RTSOVhDGPxT84MNPgkLkd+A9AQLROAnM1Dn7IGmk3hkj9k6X4K7knkaQpEtv51dr4C4VoAm63uo
+	SSBFEsQI3Qy7hFIeUllddGwj2VSfZP5loHvWP6tberIXeQ2uZ/HIXiM/EUL/EzdxXfcEDk0TxKw
+	/pyOrQ5asuHt/NVuatnCxaMxg4d0kWZ74Mj7VsXuDiewEoOz2tX5mCG8xzSypfAYtQVwXSgJQ70
+	zusGBUlVdbNm7aNTQH8p4XtWz9cV464iLhs40Gmj850TDxMXF8SgB2Jow5W7ElW+hp7jetKzQQZ
+	/DPCR009TiueG+/B63OtBmLyPJBVULN6kV7u+3hlrJbr1Z5mwCQ4TjKpnxF4MQTvmh0C/l1a2vv
+	0GKmAX3diix0xA==
+X-Received: by 2002:a17:903:fab:b0:2e9:5507:b532 with SMTP id d9443c01a7336-2e9a6f587c4mr80082375ad.43.1792474082176;
+        Mon, 19 Oct 2026 22:28:02 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea1fd8a55asm3333995ad.29.2026.10.19.22.27.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Oct 2026 22:28:01 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	cassiogabrielcontato@gmail.com,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Cyril Chao <Cyril.Chao@mediatek.com>,
+	Darren Ye <darren.ye@mediatek.com>,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH] ASoC: mediatek: mt8196: Ensure the DAI is marked as started on success
+Date: Tue, 20 Oct 2026 12:27:47 +0700
+Message-ID: <20261020052747.568770-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] phy: exynos5-usbdrd: Use dynamic phy_cfg size to
- prevent OOB access
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk@kernel.org,
-	peter.griffin@linaro.org, alim.akhtar@samsung.com, pritam.sutar@samsung.com,
-	andre.draszik@linaro.org, kernel@lvkasz.us, pengpeng@iscas.ac.cn,
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	jh0801.jung@samsung.com, h10.kim@samsung.com, dh10.jung@samsung.com,
-	akash.m5@samsung.com, hongpooh.kim@samsung.com, eomji.oh@samsung.com,
-	shijie.cai@samsung.com, muhammed.ali@samsung.com, thiagu.r@samsung.com
-Content-Language: en-US
-From: Selvarasu Ganesan <selvarasu.g@samsung.com>
-In-Reply-To: <as0G-bk_TKRToOkv@debian>
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261020052638epcas5p18ff9bffbddf4c8f106a4669f4810370f
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260918103249epcas5p49c9b4bf6fd60c28f5f09f0b7b69828b6
-References: <CGME20260918103249epcas5p49c9b4bf6fd60c28f5f09f0b7b69828b6@epcas5p4.samsung.com>
-	<20260918103147.2628614-1-selvarasu.g@samsung.com> <as0G-bk_TKRToOkv@debian>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_222651_438287_4948086E 
-X-CRM114-Status: GOOD (  16.37  )
-X-Spam-Score: -4.7 (----)
+X-CRM114-CacheID: sfid-20261019_222803_224511_7BE00928 
+X-CRM114-Status: GOOD (  14.33  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,52 +109,65 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-On 10/12/2026 9:44 PM, Manivannan Sadhasivam wrote:
-> On Fri, Sep 18, 2026 at 04:01:47PM +0530, Selvarasu Ganesan wrote:
->> The probe loop currently iterates using EXYNOS5_DRDPHYS_NUM (2),
->> creating both UTMI and PIPE3 PHY instances regardless of the SoC
->> capability. Several SoCs (Exynos2200, Exynos7870, Exynos850, Exynos990,
->> and ExynosAutoV920) provide phy_cfg arrays containing only a single
->> element.
->>
->> On these SoCs, when the loop reaches index 1, the driver reads past the
->> end of the rodata array, populating the second PHY instance with garbage
->> data. Since the configuration structure contains critical function
->> pointers (phy_isol, phy_init, set_refclk), any subsequent access to this
->> PHY instance via exynos5_usbdrd_phy_xlate could result in a kernel oops.
->>
->> Fix this by adding 'n_phy_cfg' to struct exynos5_usbdrd_phy_drvdata to
->> store the actual size of the phy_cfg array for each SoC. Update the
->> probe loop and the xlate function to bound their access against this
->> value instead of the hardcoded EXYNOS5_DRDPHYS_NUM.
->>
->> Assisted-by: LLM
->> Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
->> Tested-by: Łukasz Lebiedziński <kernel@lvkasz.us>
->> Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
->> Reviewed-by: André Draszik <andre.draszik@linaro.org>
->> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-> Since this patch fixes an OOB issue, it should have a Fixes tag and the stable
-> list should be CCed for backporting.
+snd_pcm_hw_constraint_integer() may return 1, which is then returned
+from mt8196_fe_startup(). ASoC only treats 0 as success when marking
+the DAI as started, so .shutdown() can be skipped on rollback.
 
-Hi Mani,
+Propagate constraint errors and return 0 explicitly on success.
 
-Thanks for your reviewing patch.
+Fixes: 57513aabfe5b ("ASoC: mediatek: mt8196: add platform driver")
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
+ sound/soc/mediatek/mt8196/mt8196-afe-pcm.c | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
 
-Sure, I will add fixes and stable tag in the next version.
+diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
+index fbeba01b086c..f69ea22cfabb 100644
+--- a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
++++ b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
+@@ -161,8 +161,10 @@ static int mt8196_fe_startup(struct snd_pcm_substream *substream,
+ 
+ 	ret = snd_pcm_hw_constraint_integer(runtime,
+ 					    SNDRV_PCM_HW_PARAM_PERIODS);
+-	if (ret < 0)
+-		dev_warn(afe->dev, "snd_pcm_hw_constraint_integer failed\n");
++	if (ret < 0) {
++		dev_err(afe->dev, "snd_pcm_hw_constraint_integer failed\n");
++		return ret;
++	}
+ 
+ 	/* dynamic allocate irq to memif */
+ 	if (memif->irq_usage < 0) {
+@@ -173,10 +175,16 @@ static int mt8196_fe_startup(struct snd_pcm_substream *substream,
+ 			memif->irq_usage = irq_id;
+ 		} else {
+ 			dev_err(afe->dev, "no more asys irq\n");
+-			ret = -EBUSY;
++			return -EBUSY;
+ 		}
+ 	}
+-	return ret;
++
++	/*
++	 * ASoC only marks the DAI as started when .startup() returns 0.
++	 * Since snd_pcm_hw_constraint_integer() may return 1, explicitly
++	 * return 0 to ensure .shutdown() is not skipped on rollback.
++	 */
++	return 0;
+ }
+ 
+ static void mt8196_fe_shutdown(struct snd_pcm_substream *substream,
+-- 
+2.43.0
 
-Thanks,
-Selva
->
-> - Mani
->
 
