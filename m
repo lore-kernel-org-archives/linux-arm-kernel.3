@@ -2,105 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D28A606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 18:28:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A158F606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 18:30:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mAa+yjde;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FbopTNcg
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lpCROu3K;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RO1qPL0z
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Z5zSggzBne2c+TcNuspBgPLfuRtz5PeeaW0VSn/S1BU=; b=mAa+yjdebmqPrh
-	X9KkklE9RFXlzRsBJCjvS4HrX8/wZWaf0kc+PWc/NI6Ruw1bUdeaeCZjmvUa+cLPowwJFvbanI9GW
-	zFHm/puMu3Y10YvuDbwGWUtbaExX7NObO1b2Vt1ycPtQcnoorrdE9XU8JPGtji+Hj/TJsw95j1cKv
-	jJvRkbzz3nTBb51n22w9NO7Djbus2Ep/RHOi2j1jW5ZDbX75e6FI2oNoU38I1CcEXtci2zhcoUFAB
-	joqMsRn9qZ8f9OwlPc1yqZSoOIhk56HJVIGpC0rqQ/cdc1EPDeD+eogYAk0DyGberjuZ7sJXLOevu
-	W0B6E2HOGIPDnOs7/QjA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I61vAeBsOWK2N+3xullrZ89EtvrlTdCPGmIPBmyybbM=; b=lpCROu3KoGHjU7O+ckN72Vz3qR
+	CU9IHCdmqTF55wwh2EhgCca8zGVBI/9+EUbkMk32KYcSNWg131rS+iFHI4kuHg34rQzh/CzqScu8n
+	HJl7aJjOt28EKANg9Q0EYNJnpucePYJOOFIHhLlpyHEg5RNDxyvQsAN2/NAOKWJSF+aJcENFI1erE
+	wZDGFv7O7khOJDvv1L30JSbs79hl7rrMEJhjmka3XybBQxlxpGB3iKwFGfq8SM/g/fQg7kiEKYwY0
+	bTEzoyaE08VslvwmofoJTi7nX34XcH8z//jsDwGzwALx0SbVVPXZJrp5Ywjh9Tj2BKftyxXUvTahh
+	+/JpEgIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJEZm-0000000ARxh-0NB4;
-	Tue, 20 Oct 2026 18:28:42 +0000
+	id 1xJEb7-0000000ASB6-2EIZ;
+	Tue, 20 Oct 2026 18:30:05 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJEZk-0000000ARxE-1ypv;
-	Tue, 20 Oct 2026 18:28:40 +0000
+	id 1xJEb6-0000000ASAm-0XM8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Oct 2026 18:30:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EBF6943627;
-	Tue, 20 Oct 2026 18:28:38 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792520918;
-	b=bHBmN7+8naJrEZSTkCeMZ99WuA6LiVfI2/jXXPPgbCp3RJXq1SBB1en7VHU3Qv7o8WYX
-	 /RFwvd9KNcFmIW3Q/ytubzkUux12PmHwcDGQ/qFDnOtE/pjZ8eIqURKDg9u1/C2DLAGkH
-	 tceFInBm4k3lyS/YqqXSbAmbRDeKqluxOEbgMUV91BosuGVn+MLS8xP4j8UELVx5glNAa
-	 SUGhXKlWlWZ9PhTGETnd0Nz3r0HlJQHhD8LzxHlpqCfxSG1vVA3KxcrkvI+f2gT3aW2Rr
-	 k5ebBK5oZvzV08ZQpEQRjqvmOR28hKFtPXmos5ihOmXBhlEMiBHsKSj0Nz982wFL8Kw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792520918;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Z5zSggzBne2c+TcNuspBgPLfuRtz5PeeaW0VSn/S1BU=;
-	b=pLCx7e2Krtjus3+4OxVZMOu9k50TC4y1Z2Xw0LWfSUDRwLv23Jc6+3BbV5k/WgF1bRyj
-	 Blb6nwnBB+ohy//UhTO6hCvN1qQ6fbpmLnzdRFSaFabUGwfd+z8bUBgCNPdv3a2Z3A+pR
-	 +OVKc8qI3RV52E3gYhG8bnOi/pCD8faw5/Fr0LGEVb1akp1G5B0lsKpTMNGW9QulpLkiv
-	 HMar1YB+zB9sHTZrbZRWPlsjKhVy6F7NpINzQkP0JuHtWm6c3EHAywjfK19zO3+ZWC6y9
-	 1+tR/FWML+UZDF7VEUQEDvNKbre3CoSc5R6aS1P9MQohO7zcb/ZqxMddbWDT6RepEHQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 577C11F000C9;
-	Tue, 20 Oct 2026 18:28:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DD33543810;
+	Tue, 20 Oct 2026 18:30:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A8401F000C9;
+	Tue, 20 Oct 2026 18:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792520918;
-	bh=Z5zSggzBne2c+TcNuspBgPLfuRtz5PeeaW0VSn/S1BU=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=FbopTNcgrGFHEydP43sUD6i3obdVCrJp/i9aYVvUIk6oe1+vaz7PuS2Zad8XqPDHi
-	 hxw63hLUEecwwVIlR+1yPSmwRqghhhX3wEbfVX2mMRDJefifM7xcq9OJkwlX85eCKC
-	 ehUiT5RjMCeUAk9w3xTJfjEiJTFLztmKeVXL8l45u1T4SRJZBDHMjHtRSE1slfpg2e
-	 XQ96+0Un6YSxePyROISMK6qhYpwMhy28Ev2MN5YW/bAPKsBl81NMnWptg3aX2Pm93I
-	 NukpOrK5rlNVc7a2CY1Xiwot26lCKi/kx9H/SufEkH8vGJDDnR/k7AzzIU4B8XeYzg
-	 D0ujboI2A9GcA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id AEFBD4320B;
-	Tue, 20 Oct 2026 18:28:37 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Tue, 20 Oct 2026 21:28:37 +0300
-Subject: [PATCH] wifi: mt76: dma: run threaded NAPI kthreads with
- SCHED_FIFO low priority
+	s=k20260515; t=1792521003;
+	bh=I61vAeBsOWK2N+3xullrZ89EtvrlTdCPGmIPBmyybbM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RO1qPL0za4UmrX0fRGPOOnAzFmWkfjRNmWrT6WsbNOKaEsjvgfZoQRQNUEV71nAIA
+	 bZgqCZLg0ZtaYCGBeIphxQ72IxdLqf5pyHPi0w9kECEPjtOyZshV7GFNfknlcRvPjR
+	 FHvqS5lTww6et5G1GF+FKQ8ZKHfvOwBMUy3u5Z/8k8dFcBRLGKRhElWSeGvXhb4ocr
+	 O+9G6HolFBLMmc2g7+J0Cu2L239YRZnwA5ODmzGP5O5hFh1RKjF3o1qErJ3EjaydUl
+	 HMzlOLei7927lLPrFPvdHGIbSzJZkddw6qD2WnZD0BIWGura46fS3DzX3QPs+XYiqw
+	 qPOcBVQ9qomfQ==
+Date: Tue, 20 Oct 2026 13:30:02 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Fil Dunsky <filipp.dunsky@gmail.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+	linux-kernel@vger.kernel.org, Andi Shyti <andi.shyti@kernel.org>,
+	Radu Rendec <radu@rendec.net>, linux-watchdog@vger.kernel.org,
+	linux-i2c@vger.kernel.org
+Subject: Re: [PATCH v3 03/11] dt-bindings: gpio: Add Cortina Systems CS7542
+ GPIO controller
+Message-ID: <179252100225.709291.3157984607951047986.robh@kernel.org>
+References: <20261013-b4-cs75xx-s2-v3-0-181bb0d23f4c@gmail.com>
+ <20261013-b4-cs75xx-s2-v3-3-181bb0d23f4c@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261020-b4-mt76-napi-fifo-v1-1-ac8a24e2062a@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqEMAxA0atI1gZqqQpeRVzYmsxEsEqrIhTvP
- h1dvsX/CSIFoQhdkSDQKVFWn1GVBbjv6D+EMmWDVrqplFZoDS5726AfN0EWXnFyNbFhp401kLs
- tEMv1PPvhdTzsTG7/j+C+f+QaXPF1AAAA
-X-Change-ID: 20261020-b4-mt76-napi-fifo-dc5ef4fc24b4
-To: nbd@nbd.name, lorenzo@kernel.org, ryder.lee@mediatek.com
-Cc: shayne.chen@mediatek.com, sean.wang@mediatek.com, 
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
- linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Fil Dunsky <filipp.dunsky@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792520916; l=2932;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=gTH2kexAA/EJvNPz+GCLDxl2HKRZ9qNQnHFrv8bnx/A=;
- b=1t7HqYA5U6ggeRCUvO/xOQ1LgjTa3bTc8sYP5vdhFE+66gXRT/Kqf1T8KfB6+5t+Sn/iNaxZ3
- Hsw/op0cOlyAiCj2QCJUfMRemJtwrbQZj08yB4jhEnSdKO3pB16/try
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261013-b4-cs75xx-s2-v3-3-181bb0d23f4c@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,82 +78,28 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-24.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-mt76 enables threaded NAPI for the dma rx queues, but the napi kthreads
-stay SCHED_OTHER, unlike the usb and sdio rx/status workers and the tx
-worker, which already use sched_set_fifo_low().
+On Tue, 13 Oct 2026 09:07:13 +0300, Fil Dunsky wrote:
+> The Cortina Systems CS75xx SoCs have five banks of 32 GPIO lines. Each
+> pin is shared between a GPIO line and a peripheral function, selected by
+> the bank's GPIO_MUX register in the global control block, which is
+> described as the second register region of the bank.
+> 
+> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+> ---
+>  .../bindings/gpio/cortina,cs7542-gpio.yaml         | 68 ++++++++++++++++++++++
+>  1 file changed, 68 insertions(+)
+> 
 
-On MT7621 (MIPS 1004Kc, 2 cores / 4 threads, PREEMPT_NONE, HZ=100) with
-MT7612E (mt76x2e) as a 5 GHz client receiving ~200 Mbit/s while
-userspace keeps the CPUs busy, the napi kthread is regularly delayed by
-10-30 ms or more and the 256-entry rx ring fills up completely
-(instrumented: ~500 full-ring events in 5 minutes). Occasionally the
-chip's rx DMA does not resume after such an event: WPDMA_GLO_CFG reports
-rx and tx DMA busy, RXQ_STA shows the PBF rx queue at RX_MAX_PCNT, the
-host ring has free buffers, beacons are lost, then tx DMA stops (dma_idx
-stuck with frames queued), the tx hang watchdog fires, followed by
-"MCU message ... timed out" and a second restart. A series of these
-sometimes hangs the whole system.
-
-With the napi kthreads at SCHED_FIFO 1 the ring overflowed once in 5
-minutes, no watchdog resets occurred in repeated 5 minute runs and rx
-throughput in the same setup went from ~210 to ~280 Mbit/s. A larger rx
-ring (1024 entries) did not help: it still overflowed and resets were
-more frequent.
-
-Set the napi kthread priority right after netif_napi_add(), as done for
-the other workers.
-
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
-Tested on Securifi Almond 3 (MT7621, MT7612E + MT7602E) with OpenWrt
-25.12.6 (kernel 6.12.112, mt76 2026-03-19 39c960c3 plus this change):
-iperf3 bidirectional, 4 streams, 5 GHz client link at -66 dBm, with a
-userspace proxy and a display daemon running. Without the change 2-3
-watchdog resets in most 5 minute runs and several full-system hangs;
-with it 0 resets over 6 runs.
-
-A similar reset chain under full CPU load on MT7620A + MT7612E is
-reported in https://github.com/openwrt/openwrt/issues/8984
----
- drivers/net/wireless/mediatek/mt76/dma.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/dma.c b/drivers/net/wireless/mediatek/mt76/dma.c
-index a67880a92..8e66fad7b 100644
---- a/drivers/net/wireless/mediatek/mt76/dma.c
-+++ b/drivers/net/wireless/mediatek/mt76/dma.c
-@@ -1128,6 +1128,11 @@ mt76_dma_rx_queue_init(struct mt76_dev *dev, enum mt76_rxq_id qid,
- 		       int (*poll)(struct napi_struct *napi, int budget))
- {
- 	netif_napi_add(dev->napi_dev, &dev->napi[qid], poll);
-+	/* Same as the usb/sdio rx workers: under CPU load a SCHED_OTHER napi
-+	 * thread can be starved long enough for the rx ring to overflow.
-+	 */
-+	if (dev->napi[qid].thread)
-+		sched_set_fifo_low(dev->napi[qid].thread);
- 	mt76_dma_rx_fill_buf(dev, &dev->q_rx[qid], false);
- 	napi_enable(&dev->napi[qid]);
- }
-
----
-base-commit: 6474fa070f2b8013b4b87350b775b8c3be6e8aac
-change-id: 20261020-b4-mt76-napi-fifo-dc5ef4fc24b4
-
-Best regards,
---  
-Fil Dunsky <filipp.dunsky@gmail.com>
-
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
