@@ -2,153 +2,116 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6119606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:40:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E493D606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:42:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hFtbnQzq;
-	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ax5AhFXs
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4lU+M+fv;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=EYeg19Yk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t5WjqSdg7bDbQWoXup3QhnjevPSo+9ekUEMkZZRcrjI=; b=hFtbnQzq7pmKb/mui4fp/6FonH
-	dh+Ep7sU1ckrsn2SPcnnbt4/P2syATCey4dfFeLje0Ie4Nnw5y/hDXvDgnAg4WTVoXd2/crEK2EPu
-	zUZGsKygbtHGFP2tU64HtyF/qE7g4nisqpc/0/foE7HP6uG8IieK1cYqrILCS1yvxmz/KvnNMOLL+
-	j3gS7Ok/fAItkT+aH+85SfEpMTY0MaKgHVFc/RIWB70RyUH2fqsOZNPZ/MHw0MS+rQ05n/K7D32B6
-	XtHr0/LsUk0RJwQuakuH4jcN2fdZ3G/za+GnbEZjydbi8+E81bJBPcooicleLxZnxk+/AMsoSV0p/
-	ezZjDdhQ==;
+	bh=gf3+S05VHu9WM8VhO/IFJLzS95PZV+LAb8RqT/X+Ms4=; b=4lU+M+fv1QbQPHiq/qtUdZrEIn
+	cAPL58Tm87OHil8bcc1Dy6hWccf/2Vp1wrbKGTANLqpvQsv6VNmO7yjBIDSRbwf8B7HVXCiM/kcGs
+	3uHyhxMdKTPOSf4ZG5nOvuM80xFzhTNd5B5uRgXcCmL0cM3Suj5o0Q0hMbZCQ4rb0b3wGVAPe+WB2
+	P+MObdcwT7o+uFTj68QKU9H9JXzcwniT1Op5YZMFHrD+r+yjlKgVoiW8WBc7dlHtMGrzUDpyR86Ut
+	kCIhI3+d8/PiYBsduwzasaV/AueeGG9EpOojTlip36yuY4z/xjCosOYB3MmQk1QVnfG5FsF0FzNqZ
+	oCWdvuTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBwp-0000000A4o6-1UTT;
-	Tue, 20 Oct 2026 15:40:19 +0000
-Received: from mail-yx1-xb164.google.com ([2607:f8b0:4864:20::b164])
+	id 1xJBuS-0000000A4Lz-3fZG;
+	Tue, 20 Oct 2026 15:37:52 +0000
+Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBwi-0000000A4mp-2R9A
+	id 1xJBuK-0000000A4Hy-17Ru
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 15:40:18 +0000
-Received: by mail-yx1-xb164.google.com with SMTP id 956f58d0204a3-679e86015e2so827329d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:40:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792510811; x=1793115611;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=t5WjqSdg7bDbQWoXup3QhnjevPSo+9ekUEMkZZRcrjI=;
-        b=nQmb+Ce6JMVu0Bf0C+eCrKAJuEUo5U8AiL3FSGHnylVwFZUrkCCX+svXsyV6H05+2R
-         QlzecjksBst66fadfQMfOX/auYCBLYkLwr/Upw1FX5nibrjRIWTtFdJS12SFtA47GZyr
-         xCmzA4gSgIvRglJ4GUat8uaIgRYosswOz0dhfvRQaj4kL8Y0FWP0YYgkDmyIJ8sr1Uvl
-         5fCICVc4NuPRdU2uY0Vf7c2HJMd3iDCWTt9NAz6MW8cGBznv05hez25dhibe8jTIJl21
-         l3U0m3ClB34aK2u9j8dT6P6j2wrPB1RgBtiZbAHm5QDK5lMgdQo36zySpGZT8Sg8jg7K
-         Q2lQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzCVPFfiJm34yVkkLqaI3gGKuae3MripBVzmxPKK1+m+7JQxGNR/NGj6SPUHQNeeGPIMn4ofeS2+I2t7v6RCP18@lists.infradead.org
-X-Gm-Message-State: AFq9FYIuoV9GtypnV30bizKsrFxo5xwz+LxeDN4BX+94we2cEf0jv9Lu
-	k60n2Rp/nOD3FlC4+eBE5uiWVuFUwZq4x25IQEBM6FlHoc2/cTiOxSI0uQa15fFGxIByWlYxqu4
-	rvxx31SxFpfWhGOMcTXwsDeSi1wRZ8+7AQLo9ooG2pdOBmULDwgtH/PbBZOcFroGwe7DtifvuM5
-	YD3+2SvBiCzZBvIEjRNKb7ykfh1vmRCXr2Uf8NpUqnLl9/piS+ZAtEXK/YIcUD53bOA0IvuY9Zm
-	SOfL946v7cv4jdzlSJwBVvF98i1QK1FKcE=
-X-Gm-Gg: AYBFou0x/A5XaWkkxkJei2+iWY6oT3t9P8QrAmc+1UxHoQLbAlNYjKERu2GYheeXfl6
-	mZo2hQrMOF73rQ5iNTqXKJJniECt+mMUI5JV8CQEbnp6lffXU5lZ/j7mZw+RfMUE1qTR/voqac+
-	sBIUCHdO3ezvj4rNQW06uUz5c5qy79zQqbzf2I63Ylp+0XRQvJQPGf8f4tzB6HP+e7KVLJdjGrz
-	Lj7/Kba/4jXp9GkvLWxwhJDrgqD+NlksPaZ51dFt77G1nXCGtf/IQ+xwFiJnKugI1nxabxPDDsE
-	Nct9RMIi8EE6/PWvu5YpWtl3zJzGnj/hyYlxNp4r0AEso++FpzFJ0YyTn5/uEb391F42DqeM99f
-	slf19ErfxTy7fFkDKkHDn/NOm1yZoaNJIzLkZ+0UKhucH6EqnNiDzIU2TrfEveWFf+vF0GH07JS
-	rRsM//mcpLgcb4bQED5184PBee1TosakU4XchRWAcZkLs=
-X-Received: by 2002:a05:690e:d5a:b0:679:9942:8975 with SMTP id 956f58d0204a3-679fc0922cfmr871788d50.45.1792510811156;
-        Tue, 20 Oct 2026 08:40:11 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-120.dlp.protect.broadcom.com. [144.49.247.120])
-        by smtp-relay.gmail.com with ESMTPS id 956f58d0204a3-679b1f0a5c2sm256353d50.35.2026.10.20.08.40.10
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 20 Oct 2026 08:40:11 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-5364f562140so17042431cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:40:10 -0700 (PDT)
+	Tue, 20 Oct 2026 15:37:49 +0000
+Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-366421dc8ebso1152992eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:37:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1792510810; x=1793115610; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=t5WjqSdg7bDbQWoXup3QhnjevPSo+9ekUEMkZZRcrjI=;
-        b=ax5AhFXsOLjJqEsIDSeQ582Eh58/xeYIYGmNddvJ5EpKcXs6xoxGzzXIhAz6+6ZUHw
-         F+Sm6d2Xa7BOzXDGxiwMSWvkfJjKHDHu/gdgt6p3xSM/2xsC3dkeI1/lS3q0V6PumgMd
-         qW+iP4wdoJozQwKA7NKGtmKsWLR2f8JygiFIk=
-X-Forwarded-Encrypted: i=1; AKwUvBy8snqorQjyRcYHBo4O0KoSYwt6Ga9H7Qct2eHGaosOYbdg3oNipmbDtQeLqr8OD9h8imamXNBs13YNgQaEadrV@lists.infradead.org
-X-Received: by 2002:a05:622a:4c11:b0:535:b545:e926 with SMTP id d75a77b69052e-53686f3793fmr33774701cf.27.1792510810340;
-        Tue, 20 Oct 2026 08:40:10 -0700 (PDT)
-X-Received: by 2002:a05:622a:4c11:b0:535:b545:e926 with SMTP id d75a77b69052e-53686f3793fmr33774211cf.27.1792510809945;
-        Tue, 20 Oct 2026 08:40:09 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5364de4d690sm92439221cf.3.2026.10.20.08.40.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Oct 2026 08:40:08 -0700 (PDT)
-Message-ID: <6125aa53-4fad-46ed-b627-e0fce7df7b84@broadcom.com>
-Date: Tue, 20 Oct 2026 08:40:05 -0700
+        d=chromium.org; s=google; t=1792510663; x=1793115463; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gf3+S05VHu9WM8VhO/IFJLzS95PZV+LAb8RqT/X+Ms4=;
+        b=EYeg19YkXQgOXct1R26ddKre6JIVYSz2guhpod6EiwDI9bLY02yCPa4QkBNqIe6Zbt
+         SSQH8W2XctnkalWaZgqSDRRhb4idyLUlsYWYwlNj0J3QClecCvuWYrWDk5PwigcNdQIT
+         bB9hzo6YNNoHjwfLb1ELX6wqXvXLpFctXysKM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792510663; x=1793115463;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=gf3+S05VHu9WM8VhO/IFJLzS95PZV+LAb8RqT/X+Ms4=;
+        b=WblZSJ7JvXG4xnb4hZfI1/CHtFeGE9tI5gDZDu/toDVhchgnngJn2h7GeCfHMrPIem
+         6UyPuS5uFF7eeobgKHVXy4Kg1DQRceH+ZjdMWcr/x2Gs8u0M+Wwa8LON4UwFlthS34hJ
+         8wd+TgWRN5qOAAfwKs2Yy21Z/2peZaR1RKlPZZShDOhB3QzpCkVUEkUjvvMRxy3qp3Y6
+         VQi3a97o39mOnxgCDf/KJ5MSD0wyfpFdR3aIjnWQ7G4nGQEDuZ1RrClHaTiixLqMrS5V
+         dZ/sHmnazR7dQ8A8jcXwEESsiAt6XcfNyEAh9MUq6G8pXg/wA8BoSlzVS63cQOWTeGVX
+         cWOQ==
+X-Forwarded-Encrypted: i=1; AKwUvByxJYd933arDEGVE9Yzxja+oIjbPIPHSJeu/IsWapLY7YVHwPjfhl+xpip+Fd9PnFE2f1BOcqrDQ5PDLgvoM1iG@lists.infradead.org
+X-Gm-Message-State: AFq9FYI0Y1Aw92y1CXqcS/oFVKAtClbH7gxhHzGQa0XRmcV/Jkb7c4NS
+	Bme8EeP/OjWiFFf3PZx6owfvP72+iMJCaBOM/qkRBT9c1P+pnEwrb8cKRfDxeaRkuQ==
+X-Gm-Gg: AYBFou2VpQ1uy0DaY3j69ArmW9p4Z1+6L3XaAss4Ka+y/4X2tjlGbyH+M2rIRkT2ni1
+	JAs+segq6LuI90TN6XyEHqX/wAg8NttkPAhsUvyk9POac1fSE32qj6zQwN+6Q+CvXXuPxWhAvOF
+	E0WYB3xHfTEvm6BB0RIvNkMUBA6zI0jkZiGcFYmzbap+tH75mGjWSOHA/Q7pqyMmRIJ6NVNvo9/
+	TRRY4jKVHvNjgRnfCp7BBmcxGDTjQkkNqm3caKPvN2TjV/U751nqsCQDR8GFR0bS9rG/qUBGVJR
+	Sia8bmVRcvpZ2xzQH6M8ergDIMmgih1cAMJbsAckA9RZEctmC4LEo5LH5acKDNdrzPzN00O34IG
+	eApUOU2MvQOYYMQqySdLtGVr4IcEPyhGLPZ2g19KsrUXNXOrhja/FanP1+xW2aRzSkQN2XFlR2U
+	IyaQ02DPSpGPoX0r1RNHNkqyeHQSQY7xbYMTEiQbZeo6tyiWlg8dFbHJgvbAjJtwbjp9vtcQn0m
+	YrLUW+zGBCJ1ej+Jv8Ws1HQRXH2yyFiCq7Xy8sgMX3x+MgucylOvgyIBdRZS7PQXB76Eh2qM8/w
+	C7Y0cdVF5Gpf4ZST8yDqmIAryljrVNH1JVFF+vg/
+X-Received: by 2002:a05:7301:619b:10b0:361:2a55:b94e with SMTP id 5a478bee46e88-365fb17e9d4mr2922006eec.15.1792510663086;
+        Tue, 20 Oct 2026 08:37:43 -0700 (PDT)
+Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:1eb1:e432:2cc7:349c])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3607ee0cab0sm51324714eec.3.2026.10.20.08.37.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Oct 2026 08:37:41 -0700 (PDT)
+From: Douglas Anderson <dianders@chromium.org>
+To: Devicetree-compiler@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-kbuild@vger.kernel.org,
+	Brian Norris <briannorris@chromium.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Simon Glass <sjg@chromium.org>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	linux-arm-msm@vger.kernel.org,
+	Nicolas Schier <nsc@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Devicetree@vger.kernel.org,
+	Julius Werner <jwerner@chromium.org>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Marco Elver <elver@google.com>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Rong Xu <xur@google.com>,
+	devicetree@vger.kernel.org
+Subject: [RFC PATCH 5/7] kbuild: fit: Add opt-in FIT_FACTOR_DTBS support using fdtfactor
+Date: Tue, 20 Oct 2026 08:35:23 -0700
+Message-ID: <20261020083501.RFC.5.I4a691041bb6d31e5ab2fde8cd4139ca72ee72c5b@changeid>
+X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
+In-Reply-To: <20261020153652.2907186-1-dianders@chromium.org>
+References: <20261020153652.2907186-1-dianders@chromium.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] ARM: dts: bcm2711: give the GENET MDIO controller its
- clock
-To: Nicolai Buchwitz <nb@tipi-net.de>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
- Stefan Wahren <wahrenst@gmx.net>, Phil Elwell <phil@raspberrypi.com>,
- netdev@vger.kernel.org, James Clark <jjc@jclark.com>
-References: <20261020-devel-bcm2711-gisb-clk-v1-0-a1728724d0f8@tipi-net.de>
- <20261020-devel-bcm2711-gisb-clk-v1-3-a1728724d0f8@tipi-net.de>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20261020-devel-bcm2711-gisb-clk-v1-3-a1728724d0f8@tipi-net.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_084012_722623_9F092547 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20261020_083744_310836_246B920F 
+X-CRM114-Status: GOOD (  16.42  )
 X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -160,23 +123,112 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/20/26 07:58, Nicolai Buchwitz wrote:
-> The MDC of the GENET MDIO controller comes from the GISB clock.
-> Describe it, so mdio-bcm-unimac can get the real 200 MHz from
-> clk_get_rate() instead of assuming the 250 MHz of the STB chips, and
-> can put bounds on when an MDIO write completes for PTP.
-> 
-> Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
+Add opt-in support for factoring the DTBs inside a compiled FIT image
+into shared base DTBs and per-board overlays using `fdtfactor` when
+`FIT_FACTOR_DTBS=1` is passed to make:
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+- When `FIT_FACTOR_DTBS` is set, pass `-@ -L` to `dtc` for the DTBs
+  included in the FIT image so they retain `/__symbols__` and
+  `/__local_fixups__` metadata needed for factoring.
+- Run `$(FDTFACTOR) $(FDTFACTOR_ARGS) -f $@` (with `FDTFACTOR_ARGS`
+  defaulting to `--strip-local-fixups`) at the end of `cmd_fit` and
+  `cmd_fit_its` when `FIT_FACTOR_DTBS` is set.
+
+Assisted-by: Gemini:gemini-pro-prerelease
+Signed-off-by: Douglas Anderson <dianders@chromium.org>
+---
+You can see the fdtfactor post at:
+ http://lore.kernel.org/r/20261015182221.2931742-1-dianders@chromium.org
+
+This patch obviously could only land if some form of that series
+lands. Presumably we'd also want to import fdtfactor into the local
+kernel copy of the devicetree compiler before this patch.
+
+If people hate this patch, we could certainly just run `fdtfactor`
+after the kernel build finishes.
+
+ scripts/Makefile.dtbs |  8 ++++++++
+ scripts/Makefile.lib  | 18 ++++++++++++------
+ 2 files changed, 20 insertions(+), 6 deletions(-)
+
+diff --git a/scripts/Makefile.dtbs b/scripts/Makefile.dtbs
+index 1bc42b30cc52..4b8d7039e45d 100644
+--- a/scripts/Makefile.dtbs
++++ b/scripts/Makefile.dtbs
+@@ -137,6 +137,14 @@ DTC_FLAGS += -Wnode_name_chars_strict \
+              -Wunique_unit_address
+ endif
+ 
++# When FIT_FACTOR_DTBS is set, pass -@ -L to dtc so the built DTBs retain the
++# /__symbols__ and /__local_fixups__ nodes required by fdtfactor.
++ifneq ($(FIT_FACTOR_DTBS),)
++ifneq ($(filter arch/$(SRCARCH)/boot/dts%, $(obj)),)
++DTC_FLAGS += -@ -L
++endif
++endif
++
+ DTC_FLAGS += $(DTC_FLAGS_$(target-stem))
+ 
+ # Set -@ if the target is a base DTB that overlay is applied onto
+diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+index 91880648fe21..bcb2b0e749a3 100644
+--- a/scripts/Makefile.lib
++++ b/scripts/Makefile.lib
+@@ -425,6 +425,8 @@ quiet_cmd_uimage = UIMAGE  $@
+ # ---------------------------------------------------------------------------
+ 
+ MAKE_FIT := $(srctree)/scripts/make_fit.py
++FDTFACTOR ?= fdtfactor
++FDTFACTOR_ARGS ?= --strip-local-fixups
+ 
+ # Use this to override the compression algorithm
+ FIT_COMPRESSION ?= gzip
+@@ -434,7 +436,9 @@ quiet_cmd_fit = FIT     $@
+ 		--name '$(UIMAGE_NAME)' $(FIT_EXTRA_ARGS) \
+ 		$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) \
+ 		$(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
+-		--compress $(FIT_COMPRESSION) -k $< @$(word 2,$^)
++		--compress $(FIT_COMPRESSION) -k $< @$(word 2,$^) \
++		$(if $(FIT_FACTOR_DTBS),&& $(FDTFACTOR) $(FDTFACTOR_ARGS) \
++			$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) -f $@)
+ 
+ # If FIT_ITS is specified on the command line (either relative to $(srctree)
+ # or relative to arch/$(SRCARCH)/boot/dts/), locate that .its script and
+@@ -465,10 +469,10 @@ $(obj)/image.fit: $(FIT_ITS_IMAGES) $(FIT_ITS_DTBS) $(FIT_ITS_FILE)
+ endif
+ endif
+ 
+-# Build the FIT image from the .its script with mkimage and populate any
+-# missing 'compatible' property on /configurations/conf-* nodes from the
+-# corresponding uncompressed .dtb's root '/compatible' property using
+-# fdtget/fdtput.
++# Build the FIT image from the .its script with mkimage, populate any missing
++# 'compatible' property on /configurations/conf-* nodes from the corresponding
++# uncompressed .dtb's root '/compatible' property using fdtget/fdtput, and
++# optionally factor the DTBs with fdtfactor when FIT_FACTOR_DTBS is set.
+ quiet_cmd_fit_its = FIT     $@
+       cmd_fit_its = \
+ 		PATH="$(abspath $(objtree))/scripts/dtc:$(PATH)"; \
+@@ -486,7 +490,9 @@ quiet_cmd_fit_its = FIT     $@
+ 			dtb="$(objtree)/$${inc%.dtb*}.dtb"; \
+ 			compat=$$(fdtget -ts "$$dtb" / compatible); \
+ 			fdtput -ts $@ $$conf compatible $$compat; \
+-		done
++		done \
++		$(if $(FIT_FACTOR_DTBS),; $(FDTFACTOR) $(FDTFACTOR_ARGS) \
++			$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) -f $@)
+ 
+ # XZ
+ # ---------------------------------------------------------------------------
 -- 
-Florian
+2.56.0.212.g129ede20d9-goog
+
 
