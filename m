@@ -2,82 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EA8B606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 17:58:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBA0A606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 18:05:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=D1h2mvbO;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0pt+d0KO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wQui1yEG;
+	dkim=pass (1024-bit key, unprotected) header.d=collabora.com header.i=michael.riesch@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=YHdstS9E
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LVEh3gnmjMCOZtG0jYsrPGvjcEg6BmmePivPcjrSTKM=; b=D1h2mvbOgVDxaCm+aey0FfW/pg
-	SdpU9EurpXnzvga3ISCUtHDrpFMl7gr/u9LFUubpIvEbWXMU7AoZD3TEWn2MZ/r0n8/+TgSR8NimH
-	0VZCidMXQWjDyFp2d1bnwzZZGg20VQtUcx/9t5znCVCl7xpKO5jxJzzqXVfILW/wxkV7FRxxIAq55
-	jqZ43H1QyKP+wh9A1JqtD3ZyQZaXzkFrur45upqwZFAqZVl0aKq/l85m2pmU+my+y1BxCQp6txHLo
-	wSg/VTGenKZGMX8MZRBRQO4hHpN7/o29Cb0ury1W+7dvRaSnu4uIbCbYOYjJI1As6pbaV4a0GU5+r
-	TU+HjT3Q==;
+	bh=9eSaud7dFUgdPyFW0o5bdI3JdYL7Fm5AQErAMesA9t0=; b=wQui1yEGZB7U3LMiMC6gwH46bS
+	CzKQCnynh6Dahxww5xrOToYCJ3E3x3u52Fc1e3ImT7Wi7V+QBJCoVGv3C2VyB0XZgR53lAE+gDamO
+	q00qcQu8qYtzjD5UofD9wfo59bbqC/4WFI9ueFx17ay47zUQuajv8/1uPGL2jXl2smdbJHBHrvREv
+	lVtGwwLBI0PwWIriUNeDQxn9fNTiDTJmk55iubGfnbBlbGeH4oo7iFXqCz6lfj9bYxy031pxTSytX
+	yQfmKd52/74cjAY8kJGduPk4xkHzhAmIewAZi1G0BirDNFmu1IkY3hBdNfmskUI548Y9Cl+9UexWG
+	J/xNrAsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJD4b-0000000AG2F-1Bwz;
-	Tue, 20 Oct 2026 16:52:25 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1xJECg-0000000AOxP-3bcM;
+	Tue, 20 Oct 2026 18:04:50 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJD4Y-0000000AFyu-3i7j
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 16:52:24 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 7020BC62200;
-	Tue, 20 Oct 2026 16:53:18 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D80DA60393;
-	Tue, 20 Oct 2026 16:52:19 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BA8B810328DD0;
-	Tue, 20 Oct 2026 18:52:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1792515134; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=LVEh3gnmjMCOZtG0jYsrPGvjcEg6BmmePivPcjrSTKM=;
-	b=0pt+d0KOP7v+af1AEM+4HLq1rwl5H8zrXsX3C221TSUBZciN7OSEJtlTHx0NC44oclS8C9
-	OIjLwvgNDBfHJ79OD8MIxuOx7LiIrpqBnXhvlMnHYKYyIVc5Sc2T5hKwHIYD23yppahRbq
-	r0thPNaygG3A3fY6D4sIzCDAOm4dBsAslYoBjwPcvanvuimzWtugNinjpbtnqIxk1xL2aQ
-	KFr0sHQcSPRzY6DPzs4Kv01Kj1pQIMnXbvrgGkCvOXcOjaJJas6c82uY4Ak+Ri5bGN05n6
-	mrmyj5kFnZbcX0Ow+HioAHdQYQ6N9NV9hay89858T8ds5nYpdIZ3W+7ESCrkgg==
+	id 1xJECf-0000000AOwh-09N1;
+	Tue, 20 Oct 2026 18:04:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1792519481; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=cO8218ncU8S2STckPIoI6sh//5C20e0X4YryZKZF4JsnI8OI1xXGAQ109xvGisqckvR5aTrx+yWJJpNCQD1Ik4mGSDcmcxlCO3FrBqd/nOcN1qRETRXNe7l7CF7nGqmoezGCb1X/wqocu5k55kMc5fYf3PaKKKBE1a+pTNnOsqE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1792519481; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=9eSaud7dFUgdPyFW0o5bdI3JdYL7Fm5AQErAMesA9t0=; 
+	b=UCqDPq8Rr2ancdsrd+CRdkAmgGKt7SO94IJKA9UtkrH4euthKvtzBQ5NmaGmlAdI6fjyncqii6c4dIjXcY/PeGiG1kgR7J+SPUHuUL5x1xA5ydAZR5K7mFwx/+eYiDXvHDQL7ARK2mQ6wCUvVF/CAdz1ouUSAQjdP7ZKktNR3HM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
+	dmarc=pass header.from=<michael.riesch@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1792519481;
+	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=9eSaud7dFUgdPyFW0o5bdI3JdYL7Fm5AQErAMesA9t0=;
+	b=YHdstS9E7BGjv2OfXeJ2yZfFlYEDODFcCUHON6STCZLLvpIVPsdTejFX2UUjqOHe
+	FXyn6YE9sE7NfFz57BRen2Ln3Ij/LiUIrocMDVAgWkbRREEIzkzHAUxkggmhPJJG5A7
+	/4HYL8d4Zb/KqlaVnBZ/a4NC4G7GCSN2dYDqgn/s=
+Received: by smtp.zohomail.com with SMTPS id 1792519478414682.148302063257;
+	Tue, 20 Oct 2026 11:04:38 -0700 (PDT)
+Message-ID: <94d47cab-10c6-4ec3-84a0-3bddc9d67f5f@collabora.com>
+Date: Tue, 20 Oct 2026 20:04:33 +0200
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v8 03/14] drm/bridge: it6505: balance and disable
- runtime PM on remove
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Hermes Wu <hermes.wu@ite.com.tw>, Allen Chen <allen.chen@ite.com.tw>, 
- Pin-yen Lin <treapking@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-In-Reply-To: <aa94f192ee4ac67bc51d0809fdd4a0e675050fef.1790552614.git.daniel@makrotopia.org>
-References: <cover.1790552614.git.daniel@makrotopia.org>
- <aa94f192ee4ac67bc51d0809fdd4a0e675050fef.1790552614.git.daniel@makrotopia.org>
-Date: Tue, 20 Oct 2026 18:51:39 +0200
-Message-Id: <179251509976.78870.15886930993907247858.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/8] dt-bindings: phy: rockchip,rk3588-mipi-dcphy: Add
+ a cell to select TX or RX
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Rob Herring <robh@kernel.org>
+Cc: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Guochun Huang <hero.huang@rock-chips.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com>
+ <2501273.NG923GbCHz@diego> <20261020141039.GB4157247-robh@kernel.org>
+ <25254818.ouqheUzb2q@diego>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <25254818.ouqheUzb2q@diego>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_095223_096674_9CDC49E9 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261020_110449_139449_51DCE30B 
+X-CRM114-Status: GOOD (  41.10  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,31 +91,194 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, 28 Sep 2026 00:49:56 +0100, Daniel Golle <daniel@makrotopia.org> wrote:
-> Runtime PM is enabled in probe but never disabled on remove, so
-> rebinding the driver warns "Unbalanced pm_runtime_enable!". The
-> extcon work also holds a usage reference while a display is
-> connected, which unbinding leaks; the count survives in struct
-> device, so after a rebind the device never runtime-suspends again.
-> 
-> Drop the usage reference held for a connected display and disable
-> runtime PM in remove().
-> 
-> [...]
+Hi all,
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+On 10/20/26 16:57, Heiko Stübner wrote:
+> Am Dienstag, 20. Oktober 2026, 16:10:39 Mitteleuropäische Sommerzeit schrieb Rob Herring:
+>> On Tue, Oct 20, 2026 at 03:37:35PM +0200, Heiko Stübner wrote:
+>>> Am Dienstag, 20. Oktober 2026, 00:20:47 Mitteleuropäische Sommerzeit schrieb Michael Riesch:
+>>>> Hi all,
+>>>>
+>>>> On 10/19/26 17:06, Rob Herring wrote:
+>>>>> On Mon, Oct 19, 2026 at 04:15:03PM +0800, 楊智成 wrote:
+>>>>>> Hi Krzysztof, Rob,
+>>>>>>
+>>>>>>> Existing OS should ignore surplus cell if the driver is coded properly.
+>>>>>>> Same as adding new properties or new front-compatible.  The question is
+>>>>>>> how the existing driver behaves?
+>>>>>>
+>>>>>> As you pointed out on 5/8, the xlate checks args_count != 1. The DC-PHY
+>>>>>> driver was merged in v6.15, so every kernel since 6.15 fails on a second cell.
+>>>>>>
+>>>>>> 1. Keep the second cell. Add the patch as follows:
+>>>>>>
+>>>>>> - if (args->args_count != 1) {
+>>>>>> + if (args->args_count < 1) {
+>>>>>>     dev_err(dev, "invalid number of arguments\n");
+>>>>>>     return ERR_PTR(-EINVAL);
+>>>>>>   }
+>>>>>>
+>>>>>> + if (args->args_count > 1 && args->args[1]) {
+>>>>>> +   dev_err(dev, "only the transmitter is supported\n");
+>>>>>> +   return ERR_PTR(-EINVAL);
+>>>>>> + }
+>>>>>>
+>>>>>>   With Fixes: and Cc: stable, the stable kernels maintained at that
+>>>>>>   time (currently 6.18.y and 7.2.y) keep DSI working with the new
+>>>>>>   dts, and the receiver fails cleanly instead of getting the transmitter.
+>>>>>>   But EOL kernels (6.15, 6.16, 6.17, 6.19, 7.0, 7.1) stay affected.
+>>>>>>   It goes in with the series, since two-cell dts only exist after it.
+>>>>>>
+>>>>>> 2. Use a flag in the upper bits of the existing cell, as Rob
+>>>>>>     suggested. Existing kernels are not affected, unless a board enables
+>>>>>>     the DC-PHY CSI-2 receiver on 7.0 or later without this series.
+>>>>>>
+>>>>>> I will write the impact clearly whichever  approach is selected in
+>>>>>> the related commit messages and the cover letter.
+>>>>>>
+>>>>>> I think the cell approach is easier to read and more symmetric in the
+>>>>>> long term,
+>>>>>> but it breaks more. Which one do you think is better? Thanks.
+>>>>>
+>>>>> I'm not a user of this platform, so I don't care. Up to the platform 
+>>>>> maintainers to decide if breakage is acceptible. You just need to 
+>>>>> document the issue in the commit message.
+>>>>>
+>>>>> Rob
+>>>>
+>>>> It's a bit of a pickle, all this.
+>>>>
+>>>> I gave it some more thought. In the end this is an IP block with two
+>>>> PHYs. No more, no less. One cell is sufficient to address those, and it
+>>>> could be 0 for the transmitting PHY (DSI, display) and 1 for the
+>>>> receiving PHY (CSI, camera).
+>>>>
+>>>> Of course the two PHYs can operate in either DPHY or CPHY mode. The
+>>>> phy-cells have been (mis?)used to select the proper mode of combo PHYs,
+>>>> and this principle has been applied here too.
+>>>>
+>>>> However, we have the special situation here that the mode can only be
+>>>> changed for the complete IP block (and thus for both PHYs at the same
+>>>> time). As Bryan points out, we need to check and complain if the PHY
+>>>> mode is not set to the same value for both PHYs.
+>>>>
+>>>> I suggest using a property
+>>>>     samsung,cphy-mode;
+>>>
+>>> I guess, a maybe nicer way would be mimicing
+>>> 	Documentation/devicetree/bindings/phy/intel,combo-phy.yaml
+>>>
+>>> with its
+>>> 	intel,phy-mode = <x>
+>>>
+>>> with x coming from include/dt-bindings/phy/phy.h
+>>> for the distinction between cphy and dphy, so we don't introduce yet
+>>> another way to describe this.
+>>
+>> We already have the plain 'phy-type' property which takes the same 
+>> PHY_MODE_x values. We don't need yet another vendor specific property.
+> 
+> even better then ... and I didn't look deep enough it seems.
+> 
+> 
+>>>> (name to be bikeshedded) that sets the complete IP block into CPHY mode
+>>>> (DPHY being the default) to distinguish between the modes. Since both
+>>>> modes use a different electrical interface, this is clearly a hardware
+>>>> thing and thus suitable for device tree.
+>>>>
+>>>> Then, we can address the two PHYs with the help of the already existing
+>>>> phy cell (without any bitflag tweaks to the value).
+>>>>
+>>>> The sole drawback is that we need to accept the PHY_TYPE_DPHY and
+>>>> PHY_TYPE_CPHY values that some OS in the field might pass. (For Linux,
+>>>> it should only be the former.) And we need to handle those values
+>>>> correctly. But I think this is not more painful than the other
+>>>> approaches. At the same time, this design seems to be the most correct
+>>>
+>>> The current cell values are 10 + 11, so as long as we don't re-use those
+>>> exact values for the other constants the driver should somewhat easily
+>>> be able to recognize an old DT?
+>>
+>> I think you will still have an ABI issue of what does old OS do with new 
+>> values?
+> 
+> wasn't the main contract, a newer kernel should support old DTs ?
+> 
+> Aka the DT is parked in some firmware part (u-boot?) and gets handed
+> to the newer kernel.
+> 
+> I don't see deliberately handing a newer DTB to an older kernel as a
+> very common occurence?
+> 
+> 
+> And from a practical standpoint:
+> 
+> We're talking about devices with DSI displays that are at stake here,
+> so we're in the embedded world.
+> 
+> In other areas we're still fighting basic functionality like actually
+> handling the type-c orientation correctly in the usbphy.
+> 
+> So I really don't see a device with a user-updateable mainline kernel out
+> in the field, apart from people hacking around on their devices to try
+> out new features and new kernels, simply because core functionality
+> is still evolving in mainline.
+> 
+> 
+> RK3576/RK3588 devices still ship with a vendor u-boot/kernel, with
+> completely incompatible DTB afterall.
+> 
+> 
+> So yes, supporting old devicetrees on new kernels I do see as important
+> but someone working extra hard to combine a new DT with an old kernel,
+> I really don't see as an issue here.
+>
 
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Just to make sure I understood it correctly: the current suggestion
+would be the standard integer property (optional)
+
+  phy-type:
+    description: D-PHY (default) or C-PHY mode
+    enum:
+      - 10 # PHY_TYPE_DPHY
+      - 11 # PHY_TYPE_CPHY
+    default: 10
+
+plus changing phy-cells to:
+
+  "#phy-cells":
+    const: 1
+    description: |
+      Argument defines whether receiver or transmitter PHY is used.
+        - PHY_DIRECTION_TX
+        - PHY_DIRECTION_RX
+      See include/dt-bindings/phy/phy.h for constants.
+
+plus handling the case where an old DTS may still have a line
+
+  phys = <&mipidcphy0 PHY_TYPE_DPHY>;
+
+and the new kernel will convert it to something equal to phy-type =
+PHY_TYPE_DPHY and phys = <&mipidcphy0 PHY_DIR_TX>;
+
+plus ignoring the whether or not an old kernel can work with a new DTS
+or not.
+
+By the way, if we handle the case of the old DTS with the new kernel
+correctly (which we should IMHO) then we do not need to change the
+existing DTS nodes, thus eliminating regressions.
+
+Is this summary correct?
+
+Best regards,
+Michael
 
 
