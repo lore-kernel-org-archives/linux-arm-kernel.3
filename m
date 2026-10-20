@@ -2,63 +2,136 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87FA9606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 10:27:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA5C0606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 10:30:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VDxrRC7X;
-	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=df16b4rZ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kRTjXyMe;
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=PoVlBXVi
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/9SxjfkPBMGSwJHNywZJ/fVHoFLAInw0+z4Jckz+hCg=; b=VDxrRC7XhQi+IXIwbZgudDV+mw
-	UE23CLbbGMXEpwi3EIe4/BM9qkdbEDw/liF3CktwcfLvhje9WV922tqrKetOla1RgVyyTpC2yj/iQ
-	/az7OnLoSoktvdMRQvhAScKPD2R3ImXv0NEMTPSREFkXcMidqeskjRDgqh6eSkVmJAm0Opw6Wg7dd
-	uAlP0FehQvFhpdkPXALcuDFNW/Nd3feknfUofQQIFBUT05YyRDdmkQHjNnRlhKoqa8ZrZqIGdOyOv
-	GKmEWspH8HIF1r01CBOtqGgrez8awAAlAIkQYhfk4xsX5CvNXS1N0eoal/9+WzZvEXfUa5ytioLHP
-	aCSavK8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EaYw9OSd4pZZy/XrGF7rS93GV05twuc3u6CtaTihWSI=; b=kRTjXyMeu77Q1m4K7hIZlt44+h
+	BSmWcbZY8FB1UfTeayLdCDswTBeMQ1agaz+k/GnQVRExli8izi+ooGxgqMqiNZXxxeZWllrbVEq3o
+	VevAyeC9l7S4W1TSAO8ap4SOvcjYVbnv7M0dFQgM2XmK6zDfWedF1PliW8eLQJaXAecC8KNEOo2eI
+	PNdFHk3u+r7Jr0HFNhc8B4Ew6jW1qtKgq3yJIiRbdDI6vMmFapm6MLX2o+XRrr7MQnNkdTPW2i63V
+	iaA23WUEYoSWHd+Bh4igykC5Sp8oWD3FjRIARUokiGLV+PZr2RqOhiJypI/yCdKEwr6ydudGyeJW2
+	MbW9RIDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ73u-00000009QcQ-0Qsx;
-	Tue, 20 Oct 2026 10:27:18 +0000
-Received: from mail-4319.protonmail.ch ([185.70.43.19])
+	id 1xJ76t-00000009R0E-1zES;
+	Tue, 20 Oct 2026 10:30:23 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ73s-00000009QbZ-25VV
+	id 1xJ76q-00000009Qzd-2qeZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 10:27:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1792492031; x=1792751231;
-	bh=/9SxjfkPBMGSwJHNywZJ/fVHoFLAInw0+z4Jckz+hCg=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=df16b4rZju6WCMCD3p3UGKnP0ESVB9DEKjsYPJ2fW5bNaVzmzVYAqUwRMjQdZfcgJ
-	 sq8L6UwDLGg4a27L1PeAy50+hV9SJ5Hm2cLOwOvDH5Wd9s79/NMAk6B9mLOuZEz9L6
-	 LgdQ1XwyRoBuypsbtRqWrcLsBFkCnVQaJk5N5VSxs2tAk1IepZukbffrAOjalzsYxU
-	 cBT90y4d190ej7DDGACf3HHKMy3sf3nj2Nz6BKXnS4AaAvw/qfkRmOWX97/VYHDhPG
-	 h8NT0UBB8aFdxo5emOCcatvqzWWnDkHNkdeGxBZ/xq0/V6fHDfaYKq/WQlhBt0Wpdq
-	 RLMVaWCqC0VxA==
-Date: Tue, 20 Oct 2026 10:27:06 +0000
-To: Krzysztof Kozlowski <krzk@kernel.org>
-From: Aiden Isik <aidenisik@protonmail.com>
-Cc: Aiden Isik <aidenisik@member.fsf.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/5] arm64: dts: exynos: add initial support for Samsung Galaxy Watch FE
-Message-ID: <pyssceEfVM7C-RyMLXJw8UV4wTs-zyDxywEasLdafttU1LwckC7RjzO4BvAhElk2ExTaXVZYZ0NSQ82FcgBFXSrsGmj2TtBQ7HN0vv7gEOw=@protonmail.com>
-In-Reply-To: <20261020-eminent-juicy-woodlouse-c3fd24@quoll>
-References: <20261019-for-next-lucky7-v2-0-c4ecab4b1c4c@member.fsf.org> <20261020-eminent-juicy-woodlouse-c3fd24@quoll>
-Feedback-ID: 46524699:user:proton
-X-Pm-Message-ID: 95ccd282feead4333ddd8254b6582c6fa33f7465
+	Tue, 20 Oct 2026 10:30:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DsTBWOMh2xRfXX0Fo8R8FSILTpS3fugSwJklb2qP92J298L0lBnS1Iz0E2gWnD07RIBJs5XYE1PVOEdQGUI9DNckLqnsMc4Os1AY8wBPmVBgywCN5zbwuCBDkQQvYGnXuc0kyu34TI54SSlmzt/S12CFo0z5zwh0IgV1RNjCmLe1NC85O4+PayAIn6JjPiuiP7RnG+f6ujFf/tuujnL3+VGz5Kd4JdimZs4+tzK3TwmP9p8LmdfgL0xNcuirq8WhGRhPU72E0ZVPEEUOJSQLMcK1ZpEwbnwo/btaRgx5LSelo9TdkD1r60sD8dCDbLie83cfomd/0kdgCjInQxadpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EaYw9OSd4pZZy/XrGF7rS93GV05twuc3u6CtaTihWSI=;
+ b=fs+eiQF96WuVcVVap2gCG+LahGY6QDYxJ4Rsug++xSik1u/cB34+N/sqUf0IMtgZQlhEsipZbmJYmGESeX6pVs/IEvw6YeHlynb7DLgek0rMs4sy8VVlFFtMn0mkmIwaLkJkK+6EEbitYZArue3Bz/NBPfLyxdXHo9SoewTr488OEx59nhLFGOv6rny2yWTslQVXkn3yN7DBxGoL5OPHqS3Y+chjKl5oxkhK77dWG0JfeYOPgWgmacJa+NqVIbDyYelfSLYDea6362ysjGuBxdraNrqPJvvlJgWyH4z7nfY6SOnXw447HjcdctM6LyjMdh5v0uqJegcGtzCDm8djoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EaYw9OSd4pZZy/XrGF7rS93GV05twuc3u6CtaTihWSI=;
+ b=PoVlBXViGqwglpfiFHe5CJeKrtfrpu0RpzSqCIUq4IGIXYCVE1udQzA6CG2lFf+4EhX9wNMX83fcJ2E+aUI+piL4t2Ur3H83EFYxusCEMQXKeAwIYYhun4SwHYYmA7LkdKf6aOmDgHw5H+ElZfnCaEHM08ulcjDKJN9aF/pbOPU6ymBHp/RlonfoRAJzD51AHHcYbyxd7h0481+uKc8GrSy5M85pyj2AsuKnj1Z+l0F/OOsxVs657SbO3BLHECUEmiNk4eC0GnXALuOeKVvIcQhRgzAEOfkjnYcLIfxnPZEBdSBCJk/rwoCZ/N32FBo/KyltoJq4wU+hoM6pUkH6RQ==
+Received: from AMBPR04MB484752.eurprd04.prod.outlook.com
+ (2603:10a6:20b:7da::11) by AS8PR04MB7736.eurprd04.prod.outlook.com
+ (2603:10a6:20b:2af::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.14; Tue, 20 Oct
+ 2026 10:30:14 +0000
+Received: from AMBPR04MB484752.eurprd04.prod.outlook.com
+ ([fe80::47e:af5a:c2c:93bb]) by AMBPR04MB484752.eurprd04.prod.outlook.com
+ ([fe80::47e:af5a:c2c:93bb%6]) with mapi id 15.21.0546.012; Tue, 20 Oct 2026
+ 10:30:14 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>, Frank Li <frank.li@nxp.com>
+CC: Pengutronix Kernel Team <kernel@pengutronix.de>, Lucas Stach
+	<l.stach@pengutronix.de>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "regressions@lists.linux.dev"
+	<regressions@lists.linux.dev>
+Subject: RE: [REGRESSION] Potential problems for DT-described PCIe nodes on
+ i.MX
+Thread-Topic: [REGRESSION] Potential problems for DT-described PCIe nodes on
+ i.MX
+Thread-Index: AQHdYHWdGFNcUmvO90+txsav+NGSFrcGOi8A
+Date: Tue, 20 Oct 2026 10:30:14 +0000
+Message-ID: <AMBPR04MB4847528E0F026D1CB38E88AE0492672@AMBPR04MB484752.eurprd04.prod.outlook.com>
+References: <171421fb-d0a6-4e3f-b2dc-226e9c548972@pengutronix.de>
+In-Reply-To: <171421fb-d0a6-4e3f-b2dc-226e9c548972@pengutronix.de>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Enabled=True;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SiteId=686ea1d3-bc2b-4c6f-a92c-d99c5c301635;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SetDate=2026-10-20T10:27:05.0000000Z;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Name=NXP
+ Confidential;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_ContentBits=3;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Method=Standard
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AMBPR04MB484752:EE_|AS8PR04MB7736:EE_
+x-ms-office365-filtering-correlation-id: f6e95164-c07b-459d-1946-08df2e9520c2
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|19092799006|23010399003|38070700021|11063799006|56012099006|10067099003|18002099003|22082099003;
+x-microsoft-antispam-message-info: Mww5ciGrOMimrENLgFcCkfym9+o/SjqMgMgmFn0JRSYdpA/i6CFPTb8MevDYFQpG0fkl7awZ9d92hLrcnjH3oSU98XOaVqql9yN/6PXmdtoj5aIdT4L9dCy4cMyFhqsIvz8CrKi2N4mqPoM9HdEfbI5bI9O1UiDEosXj5fuSpyVkHGqaieAmXrLVbVD+pr7MxenvjrG1q+J4XHxFBZa/oGawp87kmgMCb8O5vvMtDpsESyx7gXNKMhzrCWEdiKD3xNbSrxvZuPo6JrLKYwpjBEPqRKwEG6UWb4PIxklz2NIGKTjZ7Lvzve32GJ7TMZXKqEGzli8wkC29L2pdZbPdkV5m+p6hy1VBwFzsp0lySctPbUyxxafl1nUpAHByJ3eIjCpC94pUOn98zFOa+97hyPNg1+uiqjGp71UWOud+u3dTfK0lE6salrAZNcL5qHDgxH1nMy4UauIc/keG/Nb4dfXPItm9FY3GayvAeUSf1P0xi/j4LjafOEoMg2iqeVbHL7LAV2Ih+UrJTn3CgS0lBNKgcLZeLdKy2Y1YvlxOCJ+cTlm5lk/EuusJPs+RtBur7WICiah+rV2J6EhwtCXJPj85sSg4NfqIOXql7JoXBY8iouV1XN9k3NobPLTeW/zNE2EoDqjvyr8gXRlPxK3y/rYcH4IcA+TzrJU4koZvbUVxM3furSdv5Uztcf3gxT53BNcxjXa0LBSLB4VHk05z0y/s0X1/0L9syYi5d12iNcY=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB484752.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(19092799006)(23010399003)(38070700021)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?PhoTXH7uJq10RW9AKPtnqWrTm1f3vjLIs36b6EggmJfKOfXAk4lugs2tMRk6?=
+ =?us-ascii?Q?IC/0eyH8ltj1D4H3ygUaf2X5e3+4Rl9soFA6kxJou6thconM+tRyvs6YPquc?=
+ =?us-ascii?Q?M6PH6q7T/CJIlofrLdCKp4AxbzA7Lv8JbdFBmQfpPJk+dDq8S+bV0ZU2qqnZ?=
+ =?us-ascii?Q?ZLxKTW8fki/0dB5mv2wfgtRNID9W714RAqenRDmY3exRY7GX9pCvaxVNYl48?=
+ =?us-ascii?Q?/N6t3IrPBUKHBfRabTQ4t1tWHjJ6eyx08/1ZtShGOrjc1HOKwbCXedyI8PtF?=
+ =?us-ascii?Q?Y7w7StvchOWFJz+dXbywjv02XX9lZFA4J0/MIFK7J7LPLTDd4zt9U8Dk6zkA?=
+ =?us-ascii?Q?sHtnBnx8+o1blTUaHBoSaSONcgCGOYO0+19NAfa/ibTOb3kdhayoeE8DyePX?=
+ =?us-ascii?Q?I16xcqWSHOJKu+dItH8MSkWCytlIUuIk5NYrG0eyf2T+POwZ0X18JCdagn71?=
+ =?us-ascii?Q?aMdZZDfzB5E7JMUXmGwLR0TpKw0uBC+HKtuA2/vElaZakskqggAmPSi7u6yM?=
+ =?us-ascii?Q?QkoN4fBuYGvqqyz3Svl5VSIOHYHuq7mt4+hl5XzrLyNevkT1MGYLjL3is9nC?=
+ =?us-ascii?Q?oYf7zKwNn7JlHgBzlsvqTkrV6HAh8aYcs6swBfxlYtSm/oQ5s5zWU8dkKN7m?=
+ =?us-ascii?Q?QmVw3MTA9ZVheKjScQ57S11Zn/xZ5Wuo7SrKG18qSGaj+BYGGA1DIZ2KkKHh?=
+ =?us-ascii?Q?B5LWqq1giq/k8aZYjpl3lbbsO8OGHUcco3sVQFKBv4uGrWhbWISk8Qd4iCgr?=
+ =?us-ascii?Q?TBVZEqM/3v0o+V3Q03hzF6/LaxSaztg1b2VzOdzfgcRv1k5r38bNeheb15dX?=
+ =?us-ascii?Q?XOk/LfXJhNIuqf9oIPqOstexcbZ9GVl2t37bt4feXGaE5vfEuWZAXa0IRLMG?=
+ =?us-ascii?Q?qyVN1Gc++LzqZWnKVXE5zvZfJ9VmlOl8L41RY9hqn32b64WcP6t4RCRlGIVT?=
+ =?us-ascii?Q?tzUPiYHxyRoObLwHqe9wpYdr5mUgI7AASUoWvTQ511+Thok/P1gv5fhqEpYV?=
+ =?us-ascii?Q?FlA5nDAPIE2tlQIHTfyRKMmvxxSLwhAtXjfhwStoSqH12N94pL010bJ2egWt?=
+ =?us-ascii?Q?q3rbcfqSXLp7Nrje6yzupQYQAO2xSlnV07M+2eydIELNW453d7sakXSkNS2X?=
+ =?us-ascii?Q?V8vDUR+xw7LVEk9mr1kCQ3G1GC6NQJ5eyoyLZzDhV2HtMb4yp2svbswmH4w+?=
+ =?us-ascii?Q?1IL5IdNEsNcYaU8BDuuKFA7aa81XrXaDmrdFoYzyx7igQYr7XwucqxJ/bCrT?=
+ =?us-ascii?Q?9/nNx4L8TWS9u2bn+cs/H8esLA3d/Y5Uz8NcfPHHrRc1hLSYhQF6seEPeoIC?=
+ =?us-ascii?Q?rZeP2AYtms9a+mynd6SAcXdqF+B1wpoQwuvdlaa+EjrTwWd6NzJS5krKUVNe?=
+ =?us-ascii?Q?PSLe2ase9budl8edbcY07B1i44v01J5enUvW7YlnCpQNHXMw3l2o08ac0MOZ?=
+ =?us-ascii?Q?x/nLnbcW1oGg35N3Or9ifsB4oGktTPQs2HeBxmTVKnKbCCGrQsGWpLDmTwkX?=
+ =?us-ascii?Q?z/aqlko0RsI9Ji+wGBURN1rqPrBCsxKnyeXGcDFWViTXv2NhuVmogS18Ia9N?=
+ =?us-ascii?Q?Tf68yGeDjxmMYZwoYI3ZXHth0Myu9+BP7rj7gW7RbbNRcpUfcvxP2X9L1UY3?=
+ =?us-ascii?Q?r9Qarc6V1bR/yhCvdX1gvg33Gm6Xam9sZuFwFYJZNjDQq9Ctk1LHc97WouJ0?=
+ =?us-ascii?Q?A2x4PcI9AYGz6K5nX1NRx8c/mM7igqhQJTS6/l9l/PXuXyjS?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB484752.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6e95164-c07b-459d-1946-08df2e9520c2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Oct 2026 10:30:14.4301
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: HJC9EKoPHD4LiG92+3G7IWznK35ty2eRuF28KPYHYca0MmxQFvM0LWPE7HRkCAArfdaS4j0wxescfGXRnzne7g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7736
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_032716_689438_CABD6F60 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261020_033020_737049_DD3DC446 
+X-CRM114-Status: GOOD (  14.93  )
+X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,25 +142,56 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Krzysztof,
+> Subject: [REGRESSION] Potential problems for DT-described PCIe nodes on
+> i.MX
+>
+> Hi,
+>
+> Linux commits:
+>
+> 9dc39532172c ("ARM: dts: imx6qdl: Add Root Port node and PERST
+> property") 37f53f50b36f ("arm64: dts: imx8mm: Add Root Port node and
+> PERST property") 396fbe9a028d ("arm64: dts: imx8mp: Add Root Port node
+> and PERST property")
+>
+> Both in v7.2-rc1 introduce potential regressions for i.MX boards that alr=
+eady
+> described a root port under a different node name, e.g.:
+>
+> host@0:   ZII RDU2
+> root@0,0: GE Boards
+> pcie@0,0: Gateworks boards
+> root@0,0: SolidRun Hummingboard
+>
+> All these nodes may become stale now as the SoC DTSI have introduced thei=
+r
+> own pcie@0.
+>
+> At least on the ZII board, barebox fixes up a MAC address into the DT nod=
+e,
+> which is no longer used if the kernel decides to use the newly added
+> duplicate pcie@0 node instead.
+>
+> Fix is probably merging the existing properties and child nodes to be und=
+er
+> the new &pcie_port0/&pcie0_port0 and drop the board-level Root Port node.
+>
 
-> DTS cannot depend on drivers. Please fix your code, to avoid that.
-> Dropping from my queue.
+Hi Ahmad, thanks for the report.
+Agree for the fix plan -- merge the existing properties and child nodes to =
+the new pcie_port0.
+I will send a patch set to fix above impacted dts/dtsi files.
 
-What exactly do you mean by this? The DTS describes the
-hardware in the system, which requires drivers to drive it.
+Best Regards
+Sherry
 
-Is it a wording issue? I don't depend on actual driver code in the DTS,
-only bindings for the hardware they drive, so maybe I could make
-that more clear?
 
-Kind regards,
-- Aiden Isik
+NXP Confidential
 
