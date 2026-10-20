@@ -2,70 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19CBE60A2609
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 11:35:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C440D606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 11:35:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xz+AMk9d;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UYwCaJ0R
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pG04PWtm;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UXaRy9TN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KC+tsMxL27T8X/Np0Fb1tWZeOW8IxFTBoi/UezmyYRg=; b=xz+AMk9drwZBZy+dKlyGtVC2jP
-	TBHiUWKIG9jghhmm8NQB/GxVJWdG1geIdqdxblRfEynYQXVMsATFDJ9wqFLLMf1OnR6yhgX0B5INz
-	tepiGYexVp0etnML0WMYXJ4q75xtRPc69FONIzLqYNelUyMLt2m05BAUrEuk4FS/E/iWsl4YN4e3L
-	1MwJK1oZ+TV8ZB/TSoEVXkCSmpC8oyoLbmXEhKEpSY6hCzMC1Gt3ElwdYovysy59LTm/VotPD6VKt
-	hIYKWC+f11/Euc0p8IsbRrW7xuzIYsck+faFCeCu+edADXjgcPWp6+hfCNpAhc+GRiAgI7okInipq
-	ilxBwkMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RJBmlqeNqq7wQsjNbLDrnXpBLrn4LxYdCnqqMvjM4is=; b=pG04PWtmuEt+kZPcKKDESQ2FvT
+	5BzVUq02/EGyDMrDubT9bNZGPD+aSKaBws8ujEQ2PMrQVVBYJ2ROG60wCUNXEzUM5q587XAtq2Thm
+	VqziYf24QlRB+yvBTD3Y0DV+plUYpntSRpLP5iB+U7y1G32MvRZS7G72KuZUmVSdPQVA0v4xgihS/
+	xuqrV7HI6Oj4bO/V8QRMAPnslSKJbYnGyoXzAThcNEj1fqTDJKh5bAX2HSSc52CQEHSvL+/BrxIvn
+	iPAI8BGkpPibBqRBfPMp+iEve7ir1VG5JLhbkpkLqWgX7wFXWU0w6CqwWQ4YSatnVe8QA1KC+mdcc
+	AwD0rM5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ87d-00000009Ypm-0cZi;
-	Tue, 20 Oct 2026 11:35:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xJ87n-00000009Yro-14HY;
+	Tue, 20 Oct 2026 11:35:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ87c-00000009YpS-3AZR
+	id 1xJ87l-00000009YrM-48Ua
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 11:35:12 +0000
+	Tue, 20 Oct 2026 11:35:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E3539600AA;
-	Tue, 20 Oct 2026 11:35:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2707E1F000C4;
-	Tue, 20 Oct 2026 11:35:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 92C0143CB7;
+	Tue, 20 Oct 2026 11:35:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B9741F000C4;
+	Tue, 20 Oct 2026 11:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792496111;
-	bh=KC+tsMxL27T8X/Np0Fb1tWZeOW8IxFTBoi/UezmyYRg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=UYwCaJ0ROq/utWY4xpPuooyxMbQRo0ykWMVu9P2d28ECMV1HhSYPgVJj/ocpbyhNn
-	 BU9cWCF8bsTbVQwhv4e/XXWCNjtjgiv1XGb5O4xwR8szS65CDhXevP24Pa6+W8KrC4
-	 GvsLZbXEVOuQYl5+5ALmkweqkbt7xd6Pv1Kh0ZXPzNltbAIUZ0+f3acAhEFtW8/bnr
-	 /Y4GYmMjF33eUML1zli1IoUMnSmeg1jeu7m/1yMd0xIs5pHtHEvQqAycCYx2liVywR
-	 1zrFbzK+sd+BFjhpht6JMXRomiOuwi6m6gGqM0Z57+HQ4DwQYW6Qh8RWkvlzvikg9T
-	 ES7n+e/Ea+cJg==
-From: Lee Jones <lee@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Support Opensource <support.opensource@diasemi.com>, 
- Lee Jones <lee@kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Primoz Fiser <primoz.fiser@norik.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- mfd@lists.linux.dev, linux-watchdog@vger.kernel.org, 
- upstream@lists.phytec.de, andrej.picej@norik.com
-In-Reply-To: <20260924065044.368341-1-primoz.fiser@norik.com>
-References: <20260924065044.368341-1-primoz.fiser@norik.com>
-Subject: Re: (subset) [PATCH v2 0/4] da9062/da9061 watchdog timeout mode
-Message-Id: <179249610684.1885397.15733265210505859748.b4-ty@b4>
-Date: Tue, 20 Oct 2026 12:35:06 +0100
+	s=k20260515; t=1792496121;
+	bh=RJBmlqeNqq7wQsjNbLDrnXpBLrn4LxYdCnqqMvjM4is=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=UXaRy9TNyzpNTCByKCeVaN1yz6qLxHh04Wvomjojknwv63Il6Z/G4ZAW0FHLMjHic
+	 yUcGD8qErXet0nTQlnF6znGsoehqVWpWPvAAws2RKxQCy5gZAvlL+YV6MXCjAcLFeM
+	 gO5AeQ4TXI+faBt59mNgQgSlgQsCbYZPNjmkELJ3VXVr2ZYYRms6ngsnP8z1fLEHaY
+	 I7aoTr8xg89IEkgMOiPFuCaxnvgtkze+g//H1kdjfZlOtiQAYV+qogHzTlcZg50cpl
+	 hwXS439EoDV5x6WrWDgt6fbcsbjfGc5R0yYAdzcagGg9oRrOBRuHtCzt11Oi3arwnN
+	 036XGQj17Tw5w==
+Date: Tue, 20 Oct 2026 12:35:14 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Mark Brown <broonie@kernel.org>, Fuad Tabba <tabba@google.com>, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] KVM: arm64: Sanitise ID_AA64MMFR3_EL1.S1P[IO]E
+Message-ID: <atc2Y4gHwtGlffns@gremlin>
+References: <20261020064306.1542865-1-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16-dev-ad80c
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261020064306.1542865-1-fuad.tabba@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,36 +71,330 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, 24 Sep 2026 08:50:40 +0200, Primoz Fiser wrote:
-> This is a revival of a series originally posted by Andrej Picej in
-> December 2021 [1]. It lets the DA9061/2 PMIC watchdog be configured via
-> the "dlg,wdt-sd" DT property, to trigger a full SHUTDOWN instead of the
-> default POWERDOWN on watchdog timeout, and enables that on the PHYTEC
-> phyCORE-i.MX6 SOM.
-> 
-> From v5 of original series this resend drops patch 4/5 ("dt-bindings:
-> watchdog: da9062: add watchdog timeout mode") because it already landed
-> upstream as commit 382256b219fb, later converted from .txt to YAML by
-> bd888a4377ae. Thus dlg,da9062-watchdog.yaml already documents dlg,wdt-sd
-> property.
-> 
-> [...]
+On Tue, Oct 20, 2026 at 07:43:06AM +0100, Fuad Tabba wrote:
+> From: Marc Zyngier <maz@kernel.org>
+>
+> KVM uses the VM's ID registers as the source of truth for what the
+> guest has, but userspace can expose S1PIE or S1POE without the features
+> they imply. As per the architecture, both imply TCR2 and ATS1A, and
+> S1POE also implies HPDS. With TCR2 hidden, the world switch skips
+> PIR_EL1, PIRE0_EL1 and POR_EL1 while KVM doesn't trap them, so the guest
+> accesses registers that are neither trapped nor switched. Under VHE,
+> that leaks values between guests. On nVHE and hVHE, pKVM included, the
+> host kernel resumes with the guest's PIR_EL1 and PIRE0_EL1.
+>
+> On first run, clear S1PIE and S1POE from the VM's ID registers when the
+> features they imply are missing, before anything derives state from
+> them. The guest and userspace then see neither feature, and the guest's
+> accesses to their registers UNDEF.
+>
+> Fixes: 70ed7238297fb ("KVM: arm64: Sanitise ID_AA64MMFR3_EL1")
+> Fixes: d4a89e5aee23e ("KVM: arm64: Expose S1PIE to guests")
 
-Applied, thanks!
+I guess kernels that are missing 19868b67e3e7 and 2ce80f624032 will need
+that stuff ported too?
 
-[1/4] mfd: da9062: Make register CONFIG_I writable
-      commit: db52dc6f9aef97ad7f9738b5f595f42299946793
-[2/4] mfd: da9061: Make register CONFIG_I writable
-      commit: 630751941b7488912fbe432c2412b8c9fbfaed9e
+> Reported-by: Mark Brown <broonie@kernel.org>
+> Link: https://lore.kernel.org/r/20260930-arm64-gcs-v21-2-3556644cd927@kernel.org
+> Link: https://lore.kernel.org/r/8633u229lq.wl-maz@kernel.org
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+
+Thanks for helping this along Fuad, nice to see all of this come together
+:)
+
+So it seems like this is a much nicer solution to the problem overall -
+rather than having e.g. kvm_has_s1pie() -> feat_s1pie(), enforce the
+dependency by applying res0/1 to the id reg in
+kvm_idregs_enforce_dependencies().
+
+And I see that it uses the guaranteed correct ordering from commit 19868b67e3e7
+("KVM: arm64: Finalize guest-wide sysregs prior to per-vCPU sysregs") also.
+
+Nits below but the logic looks sound to me so:
+
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
+For the GCS series, when Mark respins, I'm guessing it'll be something like:
+
++static bool feat_gcs(struct kvm *kvm)
++{
++	return kvm_has_feat(kvm, FEAT_GCS) && feat_s1pie(kvm);
++}
+
+...
+
++static const struct reg_bits_to_feat_map id_aa64pfr1_el1_feat_map[] = {
++	NEEDS_FEAT(ID_AA64PFR1_EL1_GCS, feat_gcs),
++};
+
+...
+
++static const DECLARE_IDREG_FEAT_MAP(id_aa64pfr1_el1_desc, ID_AA64PFR1_EL1,
++                                    id_aa64pfr1_el1_feat_map, FEAT_AA64EL1);
+
+(or with my suggestion below, DECLARE_FEAT_MAP())
+
+...
+
+static const struct reg_feat_map_desc *idreg_feat_maps[] = {
+	&id_aa64mmfr3_el1_desc,
++	&id_aa64pfr1_el1_desc,
+};
+
+Right?
+
+> ---
+> Changes in v3:
+> - Sanitise the ID registers instead of changing the trap tables, using
+>   Marc's patch (Marc, Sashiko)
+> - Rebased on kvmarm-7.4
+> - Link to v2: https://lore.kernel.org/r/20261018080921.3942517-1-fuad.tabba@linux.dev
+>
+> Changes in v2:
+> - Also require FEAT_HPDS for S1POE (Marc)
+> - Link to v1: https://lore.kernel.org/r/20261015153041.3770032-1-fuad.tabba@linux.dev
+>
+> Based on kvmarm-7.4 (dd0bc00e3e920; also applies to kvmarm/fixes
+> 2ea3a929fe01e).
+>
+>  arch/arm64/include/asm/kvm_host.h |  1 +
+>  arch/arm64/kvm/config.c           | 78 +++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/sys_regs.c         |  2 +
+>  3 files changed, 81 insertions(+)
+>
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 1c6632216e327..695c389047c91 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1741,6 +1741,7 @@ static inline bool kvm_arch_has_irq_bypass(void)
+>  	return true;
+>  }
+>
+> +void kvm_idregs_enforce_dependencies(struct kvm *kvm);
+>  void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt);
+>  struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg);
+>  void check_feature_map(void);
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index 1053676551aff..d856c0b5c3907 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -59,6 +59,7 @@ struct reg_feat_map_desc {
+>  	const struct reg_bits_to_feat_map feat_map;
+>  	const struct reg_bits_to_feat_map *bit_feat_map;
+>  	const unsigned int		  bit_feat_map_sz;
+> +	const unsigned int		  idreg_idx;
+
+This field feels a bit hazardous - 0 is a valid index and now things that
+don't declare it are setting a valid value.
+
+That feels like establishing a bit of a footgun for later.
+
+It'd be nice to have something that, when 0, means not present.
+
+Maybe just store the register directly like:
+
+	const u32			reg;
+
+And...
+
+>  };
+>
+>  #define __NEEDS_FEAT_3(m, f, w, id, fld, lim)		\
+> @@ -130,6 +131,21 @@ struct reg_feat_map_desc {
+>  		.bit_feat_map_sz	= ARRAY_SIZE(m),		\
+>  	}
+>
+> +/*
+> + * Declare the dependency between the features advertised in an id
+> + * register, and the set of other features they depend on. This
+> + * generates a struct reg_feat_map_desc.
+> + */
+> +#define DECLARE_IDREG_FEAT_MAP(n, r, m, f)				\
+> +	struct reg_feat_map_desc n = {					\
+> +		.name			= #r,				\
+> +		.feat_map		= NEEDS_FEAT(~(r##_RES0 |	\
+> +						       r##_RES1), f),	\
+> +		.bit_feat_map		= m,				\
+> +		.bit_feat_map_sz	= ARRAY_SIZE(m),		\
+> +		.idreg_idx		= IDREG_IDX(SYS_##r),		\
+> +	}
+> +
+
+...Here you could avoid the duplication and just update DECLARE_FEAT_MAP()
+to do:
+
++		.reg			= SYS_##r,		\
+
+And when you need to check for the feature you can use
+is_feature_id_reg(r->reg) [that's static in sys_regs.c and would need to be
+exported].
+
+
+>  #define FEAT_SPE		ID_AA64DFR0_EL1, PMSVer, IMP
+>  #define FEAT_BRBE		ID_AA64DFR0_EL1, BRBE, IMP
+>  #define FEAT_TRC_SR		ID_AA64DFR0_EL1, TraceVer, IMP
+> @@ -205,6 +221,7 @@ struct reg_feat_map_desc {
+>  #define FEAT_MEC		ID_AA64MMFR3_EL1, MEC, IMP
+>  #define FEAT_HAFT		ID_AA64MMFR1_EL1, HAFDBS, HAFT
+>  #define FEAT_HDBSS		ID_AA64MMFR1_EL1, HAFDBS, HDBSS
+> +#define FEAT_HPDS		ID_AA64MMFR1_EL1, HPDS, IMP
+>  #define FEAT_HPDS2		ID_AA64MMFR1_EL1, HPDS, HPDS2
+>  #define FEAT_BTI		ID_AA64PFR1_EL1, BT, IMP
+>  #define FEAT_ExS		ID_AA64MMFR0_EL1, EXS, IMP
+> @@ -280,6 +297,25 @@ static bool feat_anerr(struct kvm *kvm)
+>  		kvm_has_feat(kvm, ID_AA64MMFR3_EL1, SNERR, FEAT_ANERR));
+>  }
+>
+> +/*
+> + * S1PIE and S1POE imply TCR2 and ATS1A, and S1POE also implies HPDS, but
+> + * userspace can set them independently.
+> + */
+> +static bool feat_s1pie(struct kvm *kvm)
+> +{
+> +	return (kvm_has_feat(kvm, FEAT_S1PIE) &&
+> +		kvm_has_feat(kvm, FEAT_TCR2) &&
+> +		kvm_has_feat(kvm, FEAT_ATS1A));
+> +}
+> +
+> +static bool feat_s1poe(struct kvm *kvm)
+> +{
+> +	return (kvm_has_feat(kvm, FEAT_S1POE) &&
+> +		kvm_has_feat(kvm, FEAT_TCR2) &&
+> +		kvm_has_feat(kvm, FEAT_ATS1A) &&
+> +		kvm_has_feat(kvm, FEAT_HPDS));
+> +}
+> +
+
+Kinda neat to have a super-readable, clear definition of the dependencies
+here like this :)
+
+>  static bool feat_sme_smps(struct kvm *kvm)
+>  {
+>  	/*
+> @@ -1299,6 +1335,14 @@ static const struct reg_bits_to_feat_map vtcr_el2_feat_map[] = {
+>  static const DECLARE_FEAT_MAP(vtcr_el2_desc, VTCR_EL2,
+>  			      vtcr_el2_feat_map, FEAT_AA64EL2);
+>
+> +static const struct reg_bits_to_feat_map id_aa64mmfr3_el1_feat_map[] = {
+> +	NEEDS_FEAT(ID_AA64MMFR3_EL1_S1PIE, feat_s1pie),
+> +	NEEDS_FEAT(ID_AA64MMFR3_EL1_S1POE, feat_s1poe),
+> +};
+> +
+> +static const DECLARE_IDREG_FEAT_MAP(id_aa64mmfr3_el1_desc, ID_AA64MMFR3_EL1,
+> +				    id_aa64mmfr3_el1_feat_map, FEAT_AA64EL1);
+> +
+>  static const struct reg_bits_to_feat_map ich_hfgrtr_feat_map[] = {
+>  	NEEDS_FEAT(ICH_HFGRTR_EL2_ICC_APR_EL1 |
+>  		   ICH_HFGRTR_EL2_ICC_IDRn_EL1 |
+> @@ -1408,6 +1452,40 @@ void __init check_feature_map(void)
+>  	check_reg_desc(&ich_hfgitr_desc);
+>  }
+>
+> +static const struct reg_feat_map_desc *idreg_feat_maps[] = {
+> +	&id_aa64mmfr3_el1_desc,
+> +};
+> +
+> +static bool idreg_deps(struct kvm *kvm, const struct reg_feat_map_desc *r)
+
+To me this reads confusingly - idreg_apply_deps() would be clearer I think.
+
+> +{
+> +	struct resx resx = {};
+> +	u64 val;
+> +
+> +	for (int i = 0; i < r->bit_feat_map_sz; i++) {
+> +		if ((r->bit_feat_map[i].flags & CALL_FUNC) &&
+
+What if it isn't a CALL_FUNC feature?
+
+Could this loop just be replaced with compute_resx_bits()?
+
+> +		    !r->bit_feat_map[i].match(kvm))
+> +			resx.res0 |= reg_feat_map_bits(&r->bit_feat_map[i]);
+
+OK, neat, this e.g. invokes feat_s1pie, feat_s1poe for aa64mmfr3_el1.
+
+
+> +	}
+> +
+> +	val = kvm->arch.id_regs[r->idreg_idx];
+> +	kvm->arch.id_regs[r->idreg_idx] &= ~resx.res0;
+> +	kvm->arch.id_regs[r->idreg_idx] |= resx.res1;
+
+I see from the previous review that res1 is for future proofing, but
+redundant (but harmless) atm.
+
+> +
+> +	return val != kvm->arch.id_regs[r->idreg_idx];
+> +}
+> +
+> +void kvm_idregs_enforce_dependencies(struct kvm *kvm)
+> +{
+> +	bool again;
+> +
+> +	do {
+> +		again = false;
+> +
+> +		for (int i = 0; i < ARRAY_SIZE(idreg_feat_maps); i++)
+> +			again |= idreg_deps(kvm, idreg_feat_maps[i]);
+> +	} while (again);
+
+This is pretty confusing at first glance, so - iterate through all
+idreg_feat_maps, if any changes happened, then loop again.
+
+Could it be e.g.:
+
+static bool idreg_apply_all_deps(struct kvm *kvm)
+{
+	bool changed = false;
+
+	for (int i = 0; i < ARRAY_SIZE(idreg_feat_maps); i++)
+		changed |= idreg_apply_deps(kvm, idreg_feat_maps[i]);
+	return changed;
+}
+
+void kvm_idregs_enforce_dependencies(struct kvm *kvm)
+{
+	/* Propagate chained dependencies. */
+	while (idreg_apply_all_deps(kvm))
+		;
+}
+
+> +}
+> +
+>  static bool idreg_feat_match(struct kvm *kvm, const struct reg_bits_to_feat_map *map)
+>  {
+>  	u64 regval = kvm->arch.id_regs[map->regidx];
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index e9cf6cc340349..f10905347f3a1 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -5872,6 +5872,8 @@ static int kvm_vm_finalize_sys_regs(struct kvm *kvm)
+>  	if (kvm_id_regs_final(kvm))
+>  		return 0;
+>
+> +	kvm_idregs_enforce_dependencies(kvm);
+> +
+>  	/*
+>  	 * This hacks into the ID registers, so only perform it when the
+>  	 * first vcpu runs, or the kvm_set_vm_id_reg() helper will scream.
+>
+> base-commit: dd0bc00e3e9201fd49b62ff9cc07890c89003afe
+> --
+> 2.47.3
+>
 
 --
-Lee Jones [李琼斯]
-
+Cheers, Lorenzo
 
