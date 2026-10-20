@@ -2,84 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B5DE606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 00:02:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DFD4606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 00:02:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PnbGX3ag;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ld0XHEdt
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yNUPzIvy;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UK6Hqsrj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
 	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4VGVxw703OxUtr56IczmXP66ou7VnTSuoj3yV9sgxC0=; b=PnbGX3agG3tmi5
-	DdeCYHlWydSA2eF9Zro6AeKJDrfYJFqT4DMiL5YqNiAjJhMBhl84J0NCwXXScov7iZmd38x0JKjY0
-	AVpfs/L2nD24NpLoxjbERa0LAzxOvQWLOeKKbhPu1qDWVEPsPEMmFuID0Pkqva43GefjPLTH10ql2
-	K53cLV3sIQjV6VOhwnY2p5FDxXFXf9X97JDFVsSYTRSYtqA/2AaUCysOQuHlTk2wjwHzljYmfuvaA
-	UAnDQRsBGV9QIxUc1E6Dy6FMdFvVNfj1TVoQs/LCLPj0mvYAoyfbxGu34crk+g4rhuiyTZn7yE3sF
-	yUYi1JbQ3VbuuZEDmnqw==;
+	List-Owner; bh=r+bP/OkQMM+P7mmo4+YcOuYgmu150zcrcZNTQBcMfBY=; b=yNUPzIvyYtkSwj
+	v0rDJEw7VJ53Ss3d1lfsN5I8daUxFqGKcN6twp7H2YjVWXe+Ow8Fp/r1HH7KSHo8QpGGqVb8wtj26
+	NikUUuYdZJ/orOU8yX7EfEB5x7G8J2LSC0kVkWfXvPV/jiqx9OhEUElyg8MK9NlZ3G2kAo6PZQWKW
+	SZBan6SQD8zUY3/GuMq/iNhykeU+F49xzLqRiV6hpSUQ8O8SiYUHJv9ihyVv72wfKNn1dv/EiHt4C
+	dlLOhoJpA/gMINdUbTMb8pixrOpB3jCL+tAc98ll1JQN2BRLC0umtb+tYNdsI88JqYJyMC+psW8Xs
+	46jwNqIVmpiIqmGp5PfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIxJP-00000008Ysq-3LQK;
+	id 1xIxJP-00000008Ysu-3kDu;
 	Tue, 20 Oct 2026 00:02:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIxJO-00000008YsO-2CwU
+	id 1xIxJO-00000008YsP-20oO
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 20 Oct 2026 00:02:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BCB7560210;
+	by sea.source.kernel.org (Postfix) with ESMTP id E8E0843F1B;
 	Tue, 20 Oct 2026 00:02:37 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1792454557;
-	b=Kb50vLFjpiT5uC3t8aM7lpJkekhXvCeu6WFmeiKd2u6ZLI46rQOK54zOlLGbT3TVMPpQ
-	 mupswpyeddAJishziN2od86TQqsgpejoLOUOmj/DH1MsgcL4jrMQI+YplIigZLIc0mW0k
-	 b7I5sftm3TdYlPNwKGbqRNB3s1ELXfqON3Cx1+2y6mesP6v0zyshteDm4ebMDqvCQw90K
-	 qJSO7xEyfoD50apV6Q9XON2YNHu7gYRc37cNFcdzIDgoFI63FRDB30536wE23bdgp7Vfi
-	 WPniIdHtJ8TO1gpD1AAY01W9WyqNccxTdTKA5rlexhy3VkPTpf+8EdTr3yeTZUc9x8w==
+	b=pjymp2w2O0sl7svlg5F1Ttjf80OzUB4dlBHn5NaX8Xuq/wYs6rAncQwu0oeQD6FovhAn
+	 QxOxEB0g58iFVuASkIq16ZcA8OCZgZGStgPFe51NaN8t0J81h6YKa44jNRnkzSZ9v+lZH
+	 151Kxu6F/7HMjmmHiRqYOQbrgwNhZlNYfCmnvkzO0X/StUk48owPr1wLxjMhxIXhfny38
+	 nvR5Aj+gOulQxP9WeibkgkPOEpWl9PBbzLPAGaVSaYO977m/1svOo1wXuyigN6Hn5Emlw
+	 t0gVfUr4sk5u7Pqjr4lfO8JN7URiCtEUqYk7nkIDWEFrf0p2qkfYayobX77ZWvwt1Wg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1792454557;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=4VGVxw703OxUtr56IczmXP66ou7VnTSuoj3yV9sgxC0=;
-	b=0UV7fTf36uLRq9IzMM5haxlhn4FXogLqHKog58MU6gS5Ca4+PB1osMQoCG9oJwun0NF/
-	 ysOcHW9Zn2XPWXq2e4JaMKtNpPSVntcSnOYu+VuHzblvUzLFX0r3TZ9+QD2kNJyK+XGqf
-	 SSDvmSawpwkq2EguScQ8C/E3BmKLZJNCPRVY1PcvwacIoP3TwQEjSMHlU/2b1XncMGl9i
-	 aT8RVozFDbd2NSkqzeHSPDtYX5hsl7f5TUxelgseXLXLoh2S9WaLXacJPOYO2ZvqY/pzF
-	 WWzMXdPCwC+ToDQzn35RFcNNYuAEkebTVgEcfEGF5ZboPwOhZwpZiLJvv8hSvpP0eKg==
+	bh=r+bP/OkQMM+P7mmo4+YcOuYgmu150zcrcZNTQBcMfBY=;
+	b=XKloYEIM66LqkDqVKO9X/an1nKvdAjhCRrcA2Cph+YCAsxVJ/Ber1EQYNO7dZ6wcVBUy
+	 0lH6dsNK0S+hUKxsuFZ2FY5qQHx4flopgEgvGQyucm9VLLnQQ1QEoE5KijkgmbZjDirIX
+	 jdN+Sp3dwhvIN+NIqD+coq5w4P/fz7EUaO8Zp/pIrY6Ue+DJ7IeuROSQh6/8VQvg0fcnC
+	 CRCg7g/dGKoDT+5jmgJQ970cF/lezpdDZj/oN6DhF8uQ+MtTLnGM3pHNCdBCSaaU6/L5L
+	 0ZUBodEJ3TLJT8kJyfA/vvN3RwLanudoXixfy096Ly3lGM6mhBkU5YafnUMJNAkvYlQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D50C21F000C5;
+	by smtp.kernel.org (Postfix) with ESMTPS id DA7A81F000C7;
 	Tue, 20 Oct 2026 00:02:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1792454557;
-	bh=4VGVxw703OxUtr56IczmXP66ou7VnTSuoj3yV9sgxC0=;
+	bh=r+bP/OkQMM+P7mmo4+YcOuYgmu150zcrcZNTQBcMfBY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Ld0XHEdtbg+hh2JS/Fx6OukGfBOz5J49FHCKoK0UkXj9ZbMqSVCMT6or/D7owwE/2
-	 Xx98JkxkndrMw4Yi1F1xvcJY5JIOIi8Ffr/gKY74u/hyxgCnk6YMzLbJquyUUTNSuK
-	 l9RdZErsKJHgleAh3FmvfvFrRvlIY1rW0FZ/t21B+hbh+VYN/IVpMToEo9ZADwdKXX
-	 xirgWdrLrXFsHZvwoXKBdYdPs3kJVnfBLLWn61D1mZO3Vhogm+XdaZxTd7D+nb30YF
-	 N32DPu1yUGgMqXWI8Vyuwtxe4piQQD0JzRVzueqtiF+IPEJMyXuMkRz23ChgeV2iTd
-	 OwQVqyEBUWv4Q==
+	b=UK6Hqsrj7ma17prqDcPFKi2sJKxSvZzXUvwKNdd5GUjRb791YIZYkvhmPl1bviE/0
+	 3HlrOUmxXpIyCqUfU42BbyOtT0oLk7k1UxAACij4AvWAfUKB3hB3my5RPEUGUGG7Xi
+	 0sNIuDZ3O2zHOXN8Et6eEX+0TRO85taW/Q4/9weT2vQW/rM1zCqAEP2y/HHeM3qf/u
+	 2mP0rGad//ddqchZu7rQJol8RhnfB/XzavT2fRtt8hAWTU6Fhxbd574j05zu2kx2xA
+	 hsuVmcZPcQE47iDATiaNK7q4RCbW0HmF48LL4XnOtlPLggtlcBm6kd4nDy0rfnD11k
+	 OFoz+0FGMUeMw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 66E33406BF;
+	by lkml.kernel.org (Postfix) with ESMTP id 6C9C4406C5;
 	Tue, 20 Oct 2026 00:02:36 +0000 (UTC)
 From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
-Date: Tue, 20 Oct 2026 01:02:34 +0100
-Subject: [PATCH v2 1/3] dt-bindings: pinctrl: samsung: Add compatible for
- Exynos5515
+Date: Tue, 20 Oct 2026 01:02:35 +0100
+Subject: [PATCH v2 2/3] dt-bindings: pinctrl: samsung: add
+ exynos5515-wakeup-eint compatible
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261020-for-next-lucky7-pinctrl-v2-1-b6b0e6065452@member.fsf.org>
+Message-Id: <20261020-for-next-lucky7-pinctrl-v2-2-b6b0e6065452@member.fsf.org>
 References: <20261020-for-next-lucky7-pinctrl-v2-0-b6b0e6065452@member.fsf.org>
 In-Reply-To: <20261020-for-next-lucky7-pinctrl-v2-0-b6b0e6065452@member.fsf.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -92,21 +92,21 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Aiden Isik <aidenisik@member.fsf.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=844;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1047;
  i=aidenisik@member.fsf.org; h=from:subject:message-id;
- bh=wcMJv5MC9TAqtq4PfS0HwwKmDAbPXKFvyCt4uDAd3gs=;
- b=owEBiQJ2/ZANAwAIAUknAbLEetfrAcsmYgBq1q+a/w4FRcf5pIs6c0cfBlyB/dkjDSTQKmwiM
- TH8zZvr+s+JAk8EAAEIADkWIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCatavmhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQSScBssR61+vJGw//b0cu6ODcpEuJLNZgfef0aE1babIjbA2
- PLLn5RMb0w8dtLuW/BXzn1eLl8yfNCVvGuXkl9O56eRxLEt7+2hiLHMkOmUBLWRbxeYesE687MS
- PerJIGgpMQcnfjLrTxH1ik2BHicO2QryifsnkWGRWT/a4SA2R8oE4Z/eGh1GQ9AJOnhh/HxvAOv
- LpH0KvpWWeIxNghc88VzyKrLFwVRzivd3GJJM/2946pP7tmKB3stxI7eD0B9Kp6wfL5yTuexGin
- JmOChISUzhDx85MA7e+QOSTygsi7grPY2Cpmngw1w4Xw846PDl4HVVjizOvVzgXacN3Zd2Sa1pv
- iWcas2zRh/+JUYttInvWY9SUCwiW9ewShYRz0zd/uTfbt2Jd7G4/kyWPZxCDyD7KDSTYjPJKQ8L
- PqkC/XwIu89vOGzkWKFCKxsNCyMABxFdjXH2zuyEfoSxx1tHPn9oAilLhpes16PDYPoXYSg/2n6
- 6eNNSdgMzkmd79lmOVL8+X4bGQE35lLi+n9pITRP0JCdypGpOBoa74Tb+6SGsdqohnvn1rkWLvL
- IvoUdukep641ZypoYYnhg2s2ebYreGn4Ebec8kXxbPSenulFZ4lmDGL7Jo/2P+v1WAsXxqJxNjM
- uRW6gzWNoBkc00wm7+f1UM0UWDiwDegecHimvHpTGggqN1u57CPQ=
+ bh=q5YBELZSChcm5N+9fv9roR9m2IQnUyRk2ttRDDQKDEc=;
+ b=owEBiQJ2/ZANAwAIAUknAbLEetfrAcsmYgBq1q+byZGGHKqgzyYI/+ZhaVzdL/qMgghhguFuD
+ yZsqKnXyiqJAk8EAAEIADkWIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCatavmxsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQSScBssR61+tUiA/+LViUdNF3XYv0m1g86BaXq2JgvWOxiEE
+ pyXBgh52h/KHHOhBTx7xF+3Pd5mEeT9NWIZUDmw659ZUZEwTXAGWsFKbKrXWuTgshl+6fB2kC6D
+ tLxjn7k4mKrmVgaXbvo30ZfPz9MDU2zPE2n9ukRLfCOvyRaNqBI8YYQlz1ZKddUR7sEaigV3sRO
+ I2VcIqeGTpcAmo+8Y1985B/rldNJFSmBsSxT7ph48VUfYIlFLZQro46GL3Wo9YHfLCpG0BASLSE
+ fHzA+3kb+UMo78VWD6hL+PiZU8yS5z43qLamKQoWzF4P9ujqCgANYo54yMHC1QVIO+MR9lNUDcK
+ CCoXL5u884oA+CFaYj43zEBdb4mzybj+JELRp2r4Hjf2Q42VJx12hGj7AdW8kzPECCGdEapxQfy
+ 7O79rCij5MXQRoh0uNQ3dZ3gdbQGgkpGIQvNqdtYqBbWS1jvz1c1AbebSXKJ6FlO70fDhi1j1OQ
+ b+i19lBwcalbLY0H+7B5lZbaM9Erf109T1CnYzNPIoN3+vULiL96e985RYnHmJgMoQ7FwOLAILq
+ LFRFQpm5emx7tT7hKiRAN1SCPHZWrV/NQBE5YKafrd6Nhib5DahFboeyArxsecizy67c+91Ar1T
+ L5xvDQsjocOvfhdZTqzqMlmESq9PrXLk3A/ryw2REAEzwQBL1aBc=
 X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
  fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
 X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
@@ -134,25 +134,26 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Aiden Isik <aidenisik@member.fsf.org>
 
-Document the Exynos5515 pinctrl compatible string.
+Add the pinctrl wakeup compatible for the Exynos5515 SoC. It is
+register-compatible with Exynos850, so document it as such.
 
 Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
 ---
- Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml | 1 +
+ .../devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml    | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
-index 1feb6a6fc690..7e49ca7b560a 100644
---- a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
+diff --git a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml
+index 802911e23aff..d5200b04a1dd 100644
+--- a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml
 @@ -49,6 +49,7 @@ properties:
-       - samsung,exynos5410-pinctrl
-       - samsung,exynos5420-pinctrl
-       - samsung,exynos5433-pinctrl
-+      - samsung,exynos5515-pinctrl
-       - samsung,exynos7-pinctrl
-       - samsung,exynos7870-pinctrl
-       - samsung,exynos7885-pinctrl
+           - enum:
+               - google,gs101-wakeup-eint
+               - samsung,exynos2200-wakeup-eint
++              - samsung,exynos5515-wakeup-eint
+               - samsung,exynos9610-wakeup-eint
+               - samsung,exynos9810-wakeup-eint
+               - samsung,exynos990-wakeup-eint
 
 -- 
 2.54.0
