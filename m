@@ -2,48 +2,49 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D4E760A2612
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 11:58:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88149606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 11:58:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jn7MZ4+p;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d6GwepX3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Vv4DVgDM;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YGxDBQkU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N5SQ/KnAN/P3YdcqF5GR7+EQ6sknDHr2tVK2ulo6pU0=; b=jn7MZ4+pj7bIX3/Dtw5b+Tnw9L
-	l1VusHfDQOu3YpaQtzvP5y+HsQhW4Ko2uwCN3cQcoNtcrGGYK53IMwgy3GpM2CT/AZeWGtdhcI+cr
-	mdpTRJ9EHZ71dgPwjMSLtRt+o3O1PWjVcOsM2P80zlH6iLXxU6JXzIA6XjpLZPsgXbx3uzd/dno1P
-	6jDIWxGmr9Q+w3o8kxx9aFSctN2xU55YgK3OV9r9UvhNtaFO2YIAx4fHj793slC6XbmGIKEAQKjXd
-	7T9DDEsN96NeiKeqNCdiHOb6gPppv/nBlgH7CNCjcN5yQZUXpBy1+FjwGMhfKu8oMYdrODQ/Q/1Uf
-	b3EX73Sw==;
+	bh=6d6z90kujskdu9Nq7+vIIcl4GoA3T1K6qt7oPYIti/k=; b=Vv4DVgDM0wWBcgPSnCbH4lgihM
+	i1XgLNzkpTPfJJIqnGnoUP0ujDLtj9lUju/DZgHBKVjBv0sNtBGoJzdfA3+POzZPJGSz2WUKwpdAr
+	6NvToFVZ+DBaNPkMEBm4Yru5ZS8f3AAjymGFPmuh7UgiOhmdLBfcs0BEkUL26d4UMPozyPLu1d+rc
+	FjhWSgf4j9/4xtlxycQpEBDo3zOYxUSSfIo0UDpatJcWlsTI6RUAcJemvG4pbTdtEBri/NTnvPLtk
+	8jqyc+AQEn456yPTC9eOyjoEpxEFa6cqdA+tcR0HBZq3LWSudthsYqSEeQA3wxo1HvGcLbexNQlJB
+	Imec4b3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8U1-00000009bds-1ep5;
+	id 1xJ8U1-00000009beQ-2huH;
 	Tue, 20 Oct 2026 11:58:21 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8Tw-00000009bbs-16nr
+	id 1xJ8Tx-00000009bcK-27gv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 11:58:16 +0000
+	Tue, 20 Oct 2026 11:58:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 04CAE60A65;
+	by tor.source.kernel.org (Postfix) with ESMTP id EBAB360220;
+	Tue, 20 Oct 2026 11:58:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 604281F000C5;
 	Tue, 20 Oct 2026 11:58:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CCFA1F000C5;
-	Tue, 20 Oct 2026 11:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792497494;
-	bh=N5SQ/KnAN/P3YdcqF5GR7+EQ6sknDHr2tVK2ulo6pU0=;
+	s=k20260515; t=1792497496;
+	bh=6d6z90kujskdu9Nq7+vIIcl4GoA3T1K6qt7oPYIti/k=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=d6GwepX3DTkOAWX1RW20wID4QIymqhqVsnx0A44I+LsetCRfpUEX6T06TXw4x+ZzX
-	 hPq0cuAjK3U03pRypzivioAHrk7fQWCE+cOT5x/CnO1AIuiKaqz45g85wsMRfpd12R
-	 zD+ER306Mv5oLEA0UtGhZSiCwPtyhxPj+KQtQTS2kN3CfQhE75p9KhOruiLemUegDx
-	 HOVn3iHn/Q3CGG4MSG64R1BwEdQpo6cIzhe08DIBYYWVgAEGI7esw9XnY5E2rs7Gp8
-	 BWbYXWblGwjgzFpbglfZWoY0VC0OwfaPy8r5c5Y50Pba57+56bYcqG0mhQiIr1n4Gg
-	 aY5EZ21xNiaDA==
-Subject: Re: [PATCH net-next v3 2/8] net: xilinx: tsn: add TSN endpoint wrapper driver
+	b=YGxDBQkUvKZwAULI5HrvGzRai3ZG0YuPxSnj3ToS4Iljs9LvcvnVujkIrgaPFQtan
+	 X8jOWeh6JCLFnBA/+yMju1EOm7wTiaTXieaG4qCYeRqY5OhR90P4A7s8khvC7pm31A
+	 l6xopzVc24mRghYbnplN9+INGcw6DAf5ngXF8FVFnnOLiAxFoRxUYm+R9rw3WKmANc
+	 /sJbQcThKK+hoU2Ecu5lcGNmvEscuokfWd5H/gFnOS4tBwnlH1Fjx/TccBWBaOGUO9
+	 s8laMiB7oLBNEHYedv/NA9WYocJzKUWrfXmksBLgRmNiufvVHYLPN7JzPvVcKYjFEq
+	 v7F9vxThlZweg==
+Subject: Re: [PATCH net-next v3 3/8] net: xilinx: tsn: add endpoint MAC driver
+ skeleton
 From: netdev-bot+sashiko@kernel.org
 To: srinivas.neeli@amd.com
 Cc: nagadheeraj.rottela@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -53,10 +54,10 @@ Cc: nagadheeraj.rottela@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  edumazet@kernel.org, netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rt-devel@lists.linux.dev, neelisrinivas18@gmail.com, git@amd.com
-Date: Tue, 20 Oct 2026 11:58:13 +0000
-Message-ID: <179249749304.3135.18017691106528923366@kernel.org>
-In-Reply-To: <20261016-patches_v2_external-v3-2-e33d3960ca1e@amd.com>
-References: <20261016-patches_v2_external-v3-2-e33d3960ca1e@amd.com>
+Date: Tue, 20 Oct 2026 11:58:14 +0000
+Message-ID: <179249749490.3135.16050500473575890674@kernel.org>
+In-Reply-To: <20261016-patches_v2_external-v3-3-e33d3960ca1e@amd.com>
+References: <20261016-patches_v2_external-v3-3-e33d3960ca1e@amd.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -85,57 +86,79 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The XILINX_TSN Kconfig help text says "The three-port switch is
-  supported by the companion DSA driver." That driver does not exist in…
+- [Low] xlnx_tsn_ep_probe() in
+  drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c (line 80) open-codes…
 
 --
 
-net: xilinx: tsn: add TSN endpoint wrapper driver
+net: xilinx: tsn: add endpoint MAC driver skeleton
 
-This adds a thin platform driver for the AMD/Xilinx TSN Endpoint
-Ethernet MAC IP node. It turns on the six IP-wide clocks and then calls
-devm_of_platform_populate(), so each sub-node can bind to its own
-driver.
+This adds a platform driver for the "xlnx,tsn-ep-mac" endpoint MAC. The
+endpoint MAC provides the conduit netdev for the TSN DSA switch. The driver
+registers an eth%d netdev, sets its MAC address from DT or a random one,
+and provides minimal netdev/ethtool ops where xmit just drops frames.
 
-> diff --git a/drivers/net/ethernet/xilinx/tsn/Kconfig b/drivers/net/ethernet/xilinx/tsn/Kconfig
+> diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
 > new file mode 100644
-> index 0000000000000..b8939d8a92ef7
+> index 0000000000000..609d444c68356
 > --- /dev/null
-> +++ b/drivers/net/ethernet/xilinx/tsn/Kconfig
-> @@ -0,0 +1,15 @@
+> +++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
 
 [ ... ]
 
-> +config XILINX_TSN
-> +	tristate "Xilinx TSN Ethernet driver"
-> +	depends on OF_ADDRESS
-> +	help
-> +	  This driver supports the AMD/Xilinx Time-Sensitive Networking
-> +	  (TSN) Endpoint Ethernet MAC IP. It provides the wrapper device
-> +	  and the endpoint MAC that connects the IP to the host CPU. The
-> +	  three-port switch is supported by the companion DSA driver.
+> +static int xlnx_tsn_ep_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct net_device *ndev;
+> +	struct xlnx_tsn_ep *ep;
+> +	u8 mac_addr[ETH_ALEN];
+> +	int ret;
+> +
+> +	ndev = alloc_netdev(sizeof(*ep), "eth%d", NET_NAME_UNKNOWN, ether_setup);
 
 [Severity: Low]
-Which DSA driver is this sentence about? I couldn't find one in the
-tree, either at this commit or at the end of the series.
+Should this be NET_NAME_ENUM rather than NET_NAME_UNKNOWN?
 
-The binding in this series defines the "xlnx,tsn-switch" compatible for
-the switch@ sub-node, and nothing under drivers/ matches it.
-tsn_ip_probe() calls devm_of_platform_populate(), which creates a
-platform device for switch@, but no driver ever binds to it.
+With the "eth%d" template the kernel chooses the number. The standard
+helper for that case uses NET_NAME_ENUM:
 
-The v2 changelog says the help text was reworded so it no longer points
-at "a symbol that does not exist yet at this patch". The new wording
-still names a driver that isn't in the tree and has no Kconfig symbol.
+net/ethernet/eth.c:alloc_etherdev_mqs() {
+	return alloc_netdev_mqs(sizeof_priv, "eth%d", NET_NAME_ENUM,
+				ether_setup, txqs, rxqs);
+}
 
-Could this sentence be dropped or reworded until the switch driver is
-posted?
+The DSA user port fallback in dsa_user_create() in net/dsa/user.c also
+pairs "eth%d" with NET_NAME_ENUM. The v2 changelog gave that as its reason.
 
-Two other claims do become true later in the series: "endpoint MAC" in
-the help text, and "bind each sub-node to its own driver" in the commit
-message. That happens when "net: xilinx: tsn: add endpoint MAC driver
-skeleton" adds xlnx_tsn_ep_driver to tsn_drivers[]. Only the DSA driver
-reference is still wrong once the whole series is applied.
+With NET_NAME_UNKNOWN, reading /sys/class/net/ethX/name_assign_type for
+this device returns -EINVAL:
+
+net/core/net-sysfs.c:name_assign_type_show() {
+	...
+	if (READ_ONCE(ndev->name_assign_type) != NET_NAME_UNKNOWN)
+		ret = netdev_show(dev, attr, buf, format_name_assign_type);
+	...
+}
+
+Netdevs from alloc_etherdev() and the DSA user netdevs stacked on top of
+this conduit report 1 there.
+
+The v3 changelog says:
+
+  "Register the netdev with the standard eth%d name (NET_NAME_UNKNOWN)"
+
+That doesn't match what the standard helper does. Would alloc_etherdev()
+work here instead? It would also drop the open-coded ether_setup.
+
+Later in the series, "net: xilinx: tsn: parse endpoint DMA channel
+configuration" changes this call to alloc_netdev_mqs(sizeof(*ep), "eth%d",
+NET_NAME_UNKNOWN, ether_setup, ...) and still uses NET_NAME_UNKNOWN.
+alloc_etherdev_mqs() would cover that multi-queue version.
+
+> +	if (!ndev)
+> +		return -ENOMEM;
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261016-patches_v2_external-v3-0-e33d3960ca1e%40amd.com
