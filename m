@@ -2,67 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBB86606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 07:44:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F240606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 07:54:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2aD3mStp;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OgkQUeEp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Di9pV8LC;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vmes4ejj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LfoOhm00iP//E0N4F9AlbSUJTf43+auw00OGwsKyDj8=; b=2aD3mStpzi+X3BDaZyyRbIEcb5
-	fIxjG0Q6euTrURqxJy7MDOk2VFEuLmtRqiQ8h63AGc+8lUPE6o/4b8mBdmMOVcbUbocDmTlvn+nhX
-	TY36f3D3xi5A8+04jLcKG1c8AF03YFtp8INcEjn+7cv++WHxYrw/t6JXCY/ir5sGkKWHHGsX6rXT0
-	/lgwTHf75Fl67kHanCDoS3XAS3WfbJvkpVK2ps+3vOEz4mGH5oeGAeHYBlO77GnHzSBfhqzqkCrD1
-	/RPmeZDZ83TuTG97js0b7xSxdO1rZ8/9CdkWtshdi0YySSZSocaiEVpGSOsF7XTvektQjv/9BWe/0
-	XHEzvozg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2hDopJ7Qj8tTboD/8FzzAGyXZaGFBbxnDVfa4fvU0AE=; b=Di9pV8LCx0MdJCweJ5Ph9awXBr
+	e0XT5khRSciUwRrugP0mjIDwR+5e0En79H4/DyC2XEG5bMECrNQNlv5zIa/2JDwZxul5fBIZOBji8
+	g1MgasBqj9zvb7iJdK8Qnbfl5i84RtgHPaoN/T4a7jT+Oyh1mIc2aonArCCZ9Kiy5zHqGYVlWc4q9
+	ev3u5W4vLrjddqiNklEcPHuXiq1QnsaYstRurZP6ilKyWw4ST7nqhBeVCm7q48EnO54LKBpQKb0r+
+	iLx+PlUXel3SzlTUzxrveRBNZ6/JrqnkdBKq9X3fmFtNhZedIehICwLvwvtXbGzK+qtc+GGiXWjIW
+	PMkJf/tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ4WA-000000094jg-2BvX;
-	Tue, 20 Oct 2026 07:44:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ4W6-000000094iE-1ds5
+	id 1xJ4fc-000000095tM-2YBt;
+	Tue, 20 Oct 2026 07:54:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJ4fb-000000095st-1RjS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 07:44:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F1AF1595;
-	Tue, 20 Oct 2026 00:44:09 -0700 (PDT)
-Received: from [10.0.136.108] (M0PRX50XMG.cambridge.arm.com [10.0.136.108])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DFBA13F7B4;
-	Tue, 20 Oct 2026 00:44:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792482252; bh=2c18fozBhrsSmOpHTh00ZE2k6HIbTfIxp8a4vEnkaO4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OgkQUeEpqjp95Q9MtHaL/sbEWU+qgni+fsviK1MMEa+vnKCPyN3p8tNRbHHF5CWHU
-	 BoidisyAu8NDjn3lHNyAE2lbiO0T49D7NCLcadhPb/2fc2bsOlX++IMQWKGZ3UoTVu
-	 FKQtQy4BQ32NisE2mBlmacmU6AIjOmy1ErWGmIDw=
-Message-ID: <a87f0a59-f71f-4583-8ace-394f9af649e5@arm.com>
-Date: Tue, 20 Oct 2026 08:44:09 +0100
+	Tue, 20 Oct 2026 07:54:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 76F28601F9;
+	Tue, 20 Oct 2026 07:54:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86A961F000C4;
+	Tue, 20 Oct 2026 07:54:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792482842;
+	bh=2hDopJ7Qj8tTboD/8FzzAGyXZaGFBbxnDVfa4fvU0AE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Vmes4ejjOo1Auy6cIFkuA9t+aWJ8TAxXtW7qD5jhTiuh4as5A+jB0XgnEg30U8x85
+	 he+Q/9d8FxirJkp4+KK5e47c0vFmcZPxrITViI9mnuW3NoMCdkCUHfewhwAs/DuHoG
+	 O0DbxNq8VSC7TVQnnRbmL1xWfi8ZU2Sf4bIXJ69lljekdCrM964eeE8hn6eA5ueuP9
+	 RkaySItndo6BurJsmhtbjvmYsaipomkbTMrb7FGOrgVcOH+jPw9T3idO2ZHp7qmk0A
+	 X7yNoJ4Ithhhe4AJlDsVvC+4siB89T2RuJc6594D5srmgu4HRovBLKQyQWrkeeZfIo
+	 xDWLlsutovbyQ==
+Date: Tue, 20 Oct 2026 09:53:59 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Aiden Isik <aidenisik@member.fsf.org>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/5] arm64: dts: exynos: add initial support for
+ Samsung Galaxy Watch FE
+Message-ID: <20261020-eminent-juicy-woodlouse-c3fd24@quoll>
+References: <20261019-for-next-lucky7-v2-0-c4ecab4b1c4c@member.fsf.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] KVM: arm64: vgic: Require matching VGIC model for
- GICv3 ITS
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
- seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
-References: <20261019134242.1289002-1-sascha.bischoff@arm.com>
- <20261019134242.1289002-2-sascha.bischoff@arm.com>
- <CA+EHjTzqKiWr2tnV0rUiA4VVCs5a0E2XQQTdwvH0bTKZ5dxe5A@mail.gmail.com>
-Content-Language: en-GB
-From: Sascha Bischoff <sascha.bischoff@arm.com>
-In-Reply-To: <CA+EHjTzqKiWr2tnV0rUiA4VVCs5a0E2XQQTdwvH0bTKZ5dxe5A@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_004414_479143_C7510256 
-X-CRM114-Status: GOOD (  20.87  )
-X-Spam-Score: -4.4 (----)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261019-for-next-lucky7-v2-0-c4ecab4b1c4c@member.fsf.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,76 +70,53 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Fuad,
-
-On 19/10/2026 16:32, Fuad Tabba wrote:
-> Hi Sascha,
+On Mon, Oct 19, 2026 at 11:23:46AM +0100, Aiden Isik wrote:
+> Hi there,
 > 
-> On Mon, 19 Oct 2026 14:42:41 +0100, Sascha Bischoff
-> <sascha.bischoff@arm.com> wrote:
->> On a GICv5 host with legacy support, KVM registers both VGICv3 and
->> VGICv5 devices. Without a model check, a VM can create a GICv3 ITS
->> alongside an incompatible VGIC, regardless of creation order.
+> This patchset adds initial support for the Exynos5515 SoC, along with
+> support for the Samsung Galaxy Watch FE (codenamed lucky7), which uses
+> this SoC.
 > 
-> Could you add to the commit message that the new checks apply on every
-> host? A GICv2 VGIC and an ITS, in either order, now fail with -ENODEV,
-> where before both were created and the ITS was ignored.
-
-Ah, that's a good point (and a situation that hadn't properly clicked in 
-my head). I'll absolutely update it.
-
+> Support for the following is added:
+> - Bootloader framebuffer
+> - Both CPU cores
+> - Memory
+> - Generic timer
+> - Watchdog timer
+> - CMU_TOP, CMU_FSYS, CMU_PERI clock management units
+> - ChipID
 > 
-> [...]
->> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-> [...]
->> @@ -42,10 +42,7 @@ bool vgic_has_its(struct kvm *kvm)
->>   {
->>           struct vgic_dist *dist = &kvm->arch.vgic;
->>
->> -        if (dist->vgic_model != KVM_DEV_TYPE_ARM_VGIC_V3)
->> -                return false;
->> -
->> -        return dist->has_its;
->> +        return !!dist->its_model;
->>   }
+> Currently, these device trees support booting the device to an initramfs.
 > 
-> I think this should check vgic_model as well, as Sashiko raised [1].
-
-Yeah, Sashiko and you have raised a valid point here.
-
-> vgic_its_create() accepts an ITS when there's no in-kernel VGIC, and
-> the VM can then run with a userspace irqchip. On a GICv4.0 host,
-> kvm_vgic_flush_hwstate() then calls vgic_v4_commit() on every entry,
-> for a vPE that vgic_v4_init() never set up. irq_set_vcpu_affinity()
-> fails on irq 0 and the error is ignored, so nothing crashes, but this
-> patch makes that path reachable. The MSI paths Sashiko lists are fine,
-> since KVM_SIGNAL_MSI requires an in-kernel irqchip and irqfd an
-> initialised VGIC.
+> There are quite a few regions of reserved memory, where usage of them
+> can crash the system and/or cause unexpected behaviour. Currently, most
+> of them are named "misc-rmem@addr". They will be given names as their
+> accompanying device drivers are added and their purpose becomes apparent.
+> If you would like them named feel differently, feel free to let me know.
 > 
-> Something like this would keep the 0 == 0 case you pointed out for
-> Marc's version false:
+> The VGIC maintenance interrupt seems to be unavailable on this SoC.
+> I cannot find any reference to it, nor usage of it, anywhere.
+> It *could* very well still exist, but it is a mystery for now (and also
+> not a *huge* deal on a low-power SoC designed for smartwatches).
 > 
->          return dist->its_model && dist->its_model == dist->vgic_model;
-
-Foolishly, this was the variant I'd dismissed as it returns false until 
-vgic_model is set. However, I guess that is the behaviour we want here. 
-An ITS is only a valid ITS if the model matches.
-
+> I am getting checkpatch warnings on this patchset advising to check
+> MAINTAINERS as new files were added, but I am ignoring them as the
+> entirety of arch/arm64/boot/dts/exynos is covered already.
 > 
-> Cheers,
-> /fuad
-> 
-> [1] https://lore.kernel.org/all/sashiko-outbox-177254@kernel.org/
+> This patchset depends on [1] for drivers and device tree bindings.
+> Note: This dependency was merged into the linux-watchdog tree.
 
-Thank you!
-Sascha
+DTS cannot depend on drivers. Please fix your code, to avoid that.
+Dropping from my queue.
+
+Best regards,
+Krzysztof
 
 
