@@ -2,144 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD491606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 22:46:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AA4D606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 22:54:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MgHlrLqB;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=GBuNgaXv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XwjYsrLN;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=V2cMiT9y
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uCxFE7mQh1Mj4RjmJI6/oYXWFGUw7CaPwGoSr/xMvWA=; b=MgHlrLqBdw3E6NlXADqxGeCUrP
-	PhD4/MJSeIy+VxorKrHo4pqudbNJAT15v8T5GL8HuZ/Rxine2E1DvVAt8oafh3XtDrnAZpxUymJ0Y
-	eEKweEe5pdCcrZy6Uf3vAlg5QAbDNsEPw3NAZld7Q8uJa1zGPttz+r8K5vIIRsL1w2JmzM10N02B+
-	ra4R+CKbmcUKy6qKyf+6NCeaaR1Tib2Y/K1Cau20LLmO9r6E4Vw2NXg7vZCYlZOTVATo6CSHs/EL6
-	cyPesnsvk7OFZk5S6u36JrK8C45vnmSU1z85yxByK6BZH4ZGq9dkot7qhYWUD628Hi+Slx9vs2T5H
-	6kjAogIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Og+YgCk31Ft1aKtiGGPovDF1opI3usAtawTXGFK4Kuo=; b=XwjYsrLNlmgojZHY0slluYdQyE
+	bTK+4sgAkrz86C31/a/+OhcVHtXw3QF5MPBKw81egwvsvgMlMwnx+3+E6vO93g7uGvmIh6DURSviL
+	70cDZUwOjWNF8IFAbLtBcm6WJNn1Qkl6LVC2iceGnstTImHBOW280t/LcCdzFDcB+8Yw9TdAUwEDU
+	KKxUsY5D7xl/ICbM8nso/L1aogggtV0fse6rBaw3uJtlssnqyTqjdvwQYKUHtc7e2JBIBBhy3Dv79
+	cr9laKm/R9rVWOzBSXmlMTIRrXBFRoE5YjgVCKRcLTg7eUNOtLz00emadTtwf7OZFl9lV3xm13AG5
+	14VbbMKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJf4b-0000000CznU-32vx;
-	Wed, 21 Oct 2026 22:46:17 +0000
-Received: from mail-westus2azon11010049.outbound.protection.outlook.com ([52.101.46.49] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1xJfCB-0000000D0GW-2x3d;
+	Wed, 21 Oct 2026 22:54:07 +0000
+Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJf4W-0000000Czla-2vTY
+	id 1xJfC9-0000000D0G8-2y7T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 22:46:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=X3ZeAp6LpezUeIF5Dh6YzPT7vRqcdQqy8QKOCEg54cGsUj9rW4EDYtSCYZpjPW+b6MKi2Dy//QzEqeZSDeG1KvIHw///nKU09JhMqzPMT5zUmjPXerZHjUmdItroeLzuO8nDsmdDCW0bGD58w+MYDOjDG631xcLp3o8kY8KXgpPKMi7bwOsNsMVZ57DOLhA9btGP+4F6qFWSbq9Q/CXRr4wuwRRLKNXh4AsDvltghgi/gDNqyDMpjJ5WfFN6TWQQqqcQj+wcA4lcS/RekOljcCnEkpakEb71ut78YDqs8NHNltXk5HjwQyf1PZyZuFPOphGS2h71Dnu3+gXue88IPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uCxFE7mQh1Mj4RjmJI6/oYXWFGUw7CaPwGoSr/xMvWA=;
- b=GHD9dJ5DuTKwEoL9wUDFdvX+8IxCUmREQoqkMKdyL7fVsgLlyApqaGLXRv3DDaYZ4U/15dDiPbluIvm6RYJtWownECjfubv3RdTnM/9cC6r31J8Exidya3tMdX8shr5XiczdikEOrco1QFFeBZmQ6lTnXH8byz/XrKHWgpTJOX0pcA4+5fFx6y5oIxTfxj2jkM9K0qsIziRGhWteDR1ENGqsBWhJRfWSacANDKXt/m9Q0OWNp7tjOT1DpNCTnrkE011J2aZ96tjVYGrxKCjdrI7kSJCuMl52RoeAjmSUJB4dy0gU8Dxz/3bTe3DolB35NzZokPd7DA2F8gy9oHR1jA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uCxFE7mQh1Mj4RjmJI6/oYXWFGUw7CaPwGoSr/xMvWA=;
- b=GBuNgaXva2NxOPCVisC3ddhzbA6Oc9WOBgxyV/T1Gw6qbWfv+loEX2EA21GeDVEfxc0DlW04t5EE/65rggXOTHR+Er93u3mfw+I2IrFykpUarsLKGSZKkYWMx5y877xbsK+U/r33xoQ1sk5bquBVeNkl09rrZ9OSZGT0QcF+yCEn7eyD2GQ1q28K4itWW2BA2d6dgoIKwr7JhbPLM/yBFww4nZjHSZJAbwgHe444IvgZtckR/ZY65V3ur4TgJ54pXA0DmiWm/q0/yeq4OXQ1YDo6BvtS/DW8l+F5i2zscHZqEZ7hsa55Veweq+ReS5EVysBncZUrf1h9vpOS03s42Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LY0PR12MB727857.namprd12.prod.outlook.com
- (2603:10b6:408:3ba::5) by BN7PPF39B20C1D8.namprd12.prod.outlook.com
- (2603:10b6:40f:fc02::6cc) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Wed, 21 Oct
- 2026 22:46:06 +0000
-Received: from LY0PR12MB727857.namprd12.prod.outlook.com
- ([fe80::843e:82cd:41ca:f522]) by LY0PR12MB727857.namprd12.prod.outlook.com
- ([fe80::843e:82cd:41ca:f522%5]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
- 22:46:06 +0000
-From: Srirangan Madhavan <smadhavan@nvidia.com>
-To: mark.rutland@arm.com,
-	lpieralisi@kernel.org,
-	sudeep.holla@kernel.org,
-	conor@kernel.org,
-	jic23@kernel.org
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	andre.przywara@arm.com,
-	aneesh.kumar@kernel.org,
-	Souvik.Chakravarty@arm.com,
-	treding@nvidia.com,
-	jonathanh@nvidia.com,
-	bence.csokas@arm.com,
+	Wed, 21 Oct 2026 22:54:06 +0000
+Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso1564968eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 15:54:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792623244; x=1793228044; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Og+YgCk31Ft1aKtiGGPovDF1opI3usAtawTXGFK4Kuo=;
+        b=V2cMiT9ycDbN47iv2vfuqye9j2m/kJLRbjZWGghKT2tptaFb7xcbJPZSd1L/Zt0gHO
+         qj0ECpoXCGd6zy0Bq7LBNOwn603ALC0F1+W3TwKg//BviQtCZ2ReY1weoxLTNeE9XWEj
+         npjtfxANpjVw4CfQMhbe/UNvm9o/WNBPT7tE8vLuTYx4zZfC/WCVLiMdQx3lp6cS4qh0
+         39NxtKUqcQ9+Wv1s8FnJM/IEWAANcZLQQrpnNQjFuFg/b7RMZqGSfvaDpL9GcmnHAPWM
+         oMIuaVtCABMn3DA5x8bhOEjR9x8gm7XYKCUL6lXeGg/AR0J4F5cXKRH0/pWy2mwIVvbs
+         2m1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792623244; x=1793228044;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Og+YgCk31Ft1aKtiGGPovDF1opI3usAtawTXGFK4Kuo=;
+        b=BWJSl9OPle9CFUAF6V5FUpVVf4PM3nwwVx1Z/Z7MChXqFJxqxupE2uBlnUNveONCRX
+         Z94M4zxEanV7OUW86WiXxNTqi7aoeURK7UMJ824Qbe/9HtZaSbfX65VKQGEeEjiHEM5m
+         /99yr+LFGOyOGlkHhhnMhGvp351PJvxpuHX4e/lFcVS+1toNpBTLD25PyRGzy7hDqM2q
+         ZsNBX9IfEMQrJTNYfwiPnsyV8eQ1b1tvdEJaA/bDnl/Io3+ucCjP8jf2WFXkNze+ORd2
+         S+Z2RsPZrqvcc2UBK3wDJiLMom3BfbBU81w/3vZLhV6mVATl2u9JuBWOQSwHTfAva0XL
+         XhNg==
+X-Forwarded-Encrypted: i=1; AKwUvByaL8rd7c3geVyVjiH39LoYK/ennvwzY/F6TZjbRWMNT65OJzOU/0cvcjzT/P2GPHXQHS0izU//1iqmkUKfW2QV@lists.infradead.org
+X-Gm-Message-State: AFq9FYKSftyyFwfeDnthRevdlOsnbireZne1p4Yo8ExGI/9lPn3Biy2s
+	RFxDHflAbviTXS7x6cXA1AkSxVdG5MT4dg1TzphrmiRkBLjvgy9i+uLO
+X-Gm-Gg: AYBFou1Wv/S4NYAc9g3njp4C0A+7oNqCYiKDtq0cx3S0+AMJNz/yEW2/qWCNDiD935O
+	26A3yWeynRUxXOmf2j8NE+zLbCgAXwDJpWdlulTJyvxM2HQ4PAeLJ8px7JtgLzEtsIvlFL7+Kzk
+	H/v5HWgogymg8B0vkzKu9IEmo8uoe8ZJGEHYIpywJ3nTmRRSmsrocsDqGMCFS4OrxhkqXXIQxeM
+	zyf6X4PhXU6tTtWz2SZiti5/w1FwFS4Av5/k747emp0nGvO4zQpwXD5t2ifSoWWY8bx2vOEPg2v
+	JhQKQkxcDWIqtRTdiyQQ6769nsT7FC2egbFgJe2wGcbs5wXoAQLW5RO22HRI6jZwk6hHmCYItDw
+	19b4EBT4e/pdkHTz3dj7H63LNNnubT6vRMWlnSZOX4cthoXvcCbmWo+rKccf+PxruWg2wYfdEWP
+	znS14HT0od/bAUKGji9CvwC5jXvZ9a/moFSKJDSOxL6ukogU7yBEbhaifJwUWbj3WwPqwPGW1Gp
+	7n7dnN9INBnySK573CWRpfRKHwGO3ErwE5htn+eDkMuhxwopWVPf22GHFgFgqCziLAyY9tgblIM
+	19HOLqMmIFiCf7x80P08qTjk8GTNmleBxaasjHRsQ5+bzSb28pbgVr5n19aGnQ3U4mL9Y8kDeVw
+	7K8dRkVQW1zY=
+X-Received: by 2002:a05:7300:d58a:b0:35b:9f06:e383 with SMTP id 5a478bee46e88-3674e450e8emr5262441eec.8.1792623244093;
+        Wed, 21 Oct 2026 15:54:04 -0700 (PDT)
+Received: from kapoor.iiserb.ac.in ([203.18.51.239])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-367411b4145sm11999808eec.15.2026.10.21.15.53.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Oct 2026 15:54:03 -0700 (PDT)
+From: Arnav Kapoor <kapoorarnav43@gmail.com>
+To: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+	"Conall O'Griofa" <conall.ogriofa@amd.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>,
+	Manish Narani <manish.narani@xilinx.com>
+Cc: Arnav Kapoor <kapoorarnav43@gmail.com>,
+	stable@vger.kernel.org,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	linux-iio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	Srirangan Madhavan <smadhavan@nvidia.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Subject: [PATCH v5 2/2] cache: add SMCCC-backed cache invalidate provider
-Date: Wed, 21 Oct 2026 22:45:57 +0000
-Message-ID: <20261021224557.1827361-3-smadhavan@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261021224557.1827361-1-smadhavan@nvidia.com>
-References: <20261021224557.1827361-1-smadhavan@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR03CA0248.namprd03.prod.outlook.com
- (2603:10b6:a03:3a0::13) To LY0PR12MB727857.namprd12.prod.outlook.com
- (2603:10b6:408:3ba::5)
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] iio: adc: xilinx-ams: fix out-of-bounds accesses when
+Date: Thu, 22 Oct 2026 04:23:34 +0530
+Message-ID: <20261021225356.625288-1-kapoorarnav43@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LY0PR12MB727857:EE_|BN7PPF39B20C1D8:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70bfbad0-50d2-4f6e-1717-08df2fc51802
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|261021121427099003|56012099006|5023799004|261009223027099003|11063799006|18002099003|261021123027099003|6133799003|22082099003|10067099003;
-X-Microsoft-Antispam-Message-Info: JrfT7vfz9tdRtoozdHHcABQPBiagWjBO2ONOW5iIwSmJt1vqWCNGG6/HHTlglOmwHy5xxQc2GY3++MTsQPUYpfEOKMYFo1mNHjqzPeGJTm/fpsyb6g9UhTMek7XrJ4J7OLnGzJTmvuY93wCxdjvwL67EV6wdCZUEcMSHYWBKT/6zRd5Lmh4GTTRdMJTBnt24rBysR3SEybA79+JKV7ZBhyHmT/+kpunrmUqlCH9WuUtJZieIT/J/U5LFlX5t5OQP/bElQ/VPOy/Bq3Hq09Vyq8zy7TlOmZ9mIkTWIZ+4oNhxJkCdivj48OZamupe4MQZeYQMCrlf8D6EVcitG/IRx3rbOJjIW0/7h5Kw3B44lSaFxMIzcT8iOl9gyznzoBYXqfmI2kAkE+8R/wS748wQ2sXlWUxffg927kDv7XPIdcFjmOqJmdauaj3Dvxj86ERyIdq0YzC84iQopHh4KjPJ7SjKbzFBPfNngNMpUTZoutJriZcMmtM1kYnwsmQ+fKXA93+yi7JuHQtRh9ZKX19ySOpmbxa7lz2K2s/FO3CkEqDUc7IbQEHMSCsl5Oe1eYcI6d2UARjXojfJNXHGXFatwphpSZfH2rsGWj2j7jeAaGb3d72QC0oOQTP69QmTUhOCOh5rExlKgjkl27uerI7+XSXpeeuoVIxxU/Qns2DzSpQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LY0PR12MB727857.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(261021121427099003)(56012099006)(5023799004)(261009223027099003)(11063799006)(18002099003)(261021123027099003)(6133799003)(22082099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?03jbOzNG18WGKTL5OBwkmv6QeUw6MoiFnFjcljmZYoQWRuxmHSsdZ0x682no?=
- =?us-ascii?Q?rRedinpSSzwTkMN5Zrqxy0sg9bSwa8QHDm8WrQKhtAWoEd696oHuZnx5TXW/?=
- =?us-ascii?Q?0TOwGDFUMuoHSiXvu5YV4eu3wUFx4Oe4rUnTG3ZcYmBySb16aCbT+vvX03dw?=
- =?us-ascii?Q?HUpa7S44lwZHdfQO5u4PkIP9PDZihz2CYwrml/aycRTuIuDQL2rBNfdSdN4s?=
- =?us-ascii?Q?/P69e2TYIa3fzip4fFeitnhJPus3jTyEwmjmhi0Z3JzZQ49hkyzMmYWHJzyS?=
- =?us-ascii?Q?9LRxy1rj1vnLO3FxtVcL9qvw6kp2v5/YuCvFzpwcN7P3HjoDybjiXMIiy8gS?=
- =?us-ascii?Q?YlGWNh3dbOD8ItJRSyxjiVUMM9md+1nTLor7Ho1Hhmj3Apb/67Srak5NLug7?=
- =?us-ascii?Q?X4Gwop/rufn1/SC/ZlxBYcUh+mtq29AlPLhdVplptkVRd6UEWrgBrcuVJD3g?=
- =?us-ascii?Q?B+MnKJ2GdL5u5yOxk6kpbYTz68RrR8Cq6dxe+yoU8KlcUTDNLifAXQjwQjfU?=
- =?us-ascii?Q?P9y5zGFOGbZyB0eQCde0F92FS2wi6gt4q8RChVnp8JciIHCYSuXepsXcdVZf?=
- =?us-ascii?Q?EO48Y5wuUjP7s7VD6JZ8nMLIj9c5x429xb3BDd74ypvbc27FEJg21CocutZi?=
- =?us-ascii?Q?YKl8sG5QY2WFUgD53KIcyslqxL+lfKI0t+eR8NuP7sA5S6kjzmgKINsNhCaF?=
- =?us-ascii?Q?xzqNU/5EW6zv40hhVrmj12r6lX3VXRNH17Lpnztn6xQ2LRu9x/uAgSe+PnRu?=
- =?us-ascii?Q?yuRzXMjnO8rjMDNrORY+6vWKfX5EtFx/etHhg2ZxhPBeFAHJlU3/wx6FTGEX?=
- =?us-ascii?Q?TRx7VNQwwhMNr7oPiZM/BXTw9pk+I7xG5c9qKhlFJtx6BK/DNiCsPmcJnDhA?=
- =?us-ascii?Q?1e4ECf9Y+RyDRdGkarOdMDf3UZRgH4qQv1RkXaMBHV+355hfutdCAkZJ8ZtQ?=
- =?us-ascii?Q?K73Yn3VguWxnb5xByWZmEIUTfvZDDpBUs5PZ9eSDOfXTe4HcJ4CmXkC5CCbW?=
- =?us-ascii?Q?LOFBazNfYO9aKRn3UemF/kKGE9Qlat3TEvEy/4B+mHTadZDj7t+4dFxuB0b/?=
- =?us-ascii?Q?VlbsInypD/G7nCy0SN9ZKtD2+04vHWBJ8Cc8V3sQ3wTtpMzCe4hYHoRqOyps?=
- =?us-ascii?Q?hoyQuficrwuqfbzfjEGVzcgnwMKh3pw8Jd4oeVMwt46FSmyHKmr6o6BZKVpx?=
- =?us-ascii?Q?5bRcWnj7vS57FB0MJO2s+DbWlC4uQKXHUvOOWtHn4r6XcG+mJ6Z5s4MyGRTO?=
- =?us-ascii?Q?U+y5d5PSoAvyoEhGbRHW1Zu6Y1fRY4RU2z7ZkpQV87nrqEP+SuIRUQODxJ8p?=
- =?us-ascii?Q?xHp4size3fgsM+kgf797Z3R5++ufp1Rf8XN2piUsqWYE+MyqvKYnx40dori0?=
- =?us-ascii?Q?jxSD8ljM4xbf3vOpdKQemehMaVr6fXq09tCfdh1zZZsWS+7joId9wKfc+yuk?=
- =?us-ascii?Q?iWSzkOx55sUKjmzY8/AwqftUL3UH/VgBYujDY4JzKHJgg6pu47aGRiQ1aT5H?=
- =?us-ascii?Q?hJHVfAX9Hs1OCHism2iWM+/SQ0hCJP6qmY8JaZWlupCB1Rr48dns2Zw/TA7p?=
- =?us-ascii?Q?GAPXZ/q1z1BQqvRcJw85DL28CYOxxrBWdoumcohsx5PE0Ws/rUl1KHrsC2Km?=
- =?us-ascii?Q?U37pGHd4h5XTpsgkZrWUe2/ffvvUpIz633XI5b5Fwjkf7Q0dbifIxBSPAzds?=
- =?us-ascii?Q?9UlHX6LLmfQxe/edIcvFjx7wvSh91FpZgn9pALfOe5Hyc1De+ufyd7DEBKmq?=
- =?us-ascii?Q?VGBHpMKKHQ=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70bfbad0-50d2-4f6e-1717-08df2fc51802
-X-MS-Exchange-CrossTenant-AuthSource: LY0PR12MB727857.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 22:46:06.8472
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XCPY01BiAlG+urmlu/+H3t2gV/XOt0j6immB+rIIPjGq253WFxKDS+Od2VW4UcnIK580kWgSJv3Zqr7YVZF4Tg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PPF39B20C1D8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_154612_739635_1BF92F0D 
-X-CRM114-Status: GOOD (  23.73  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261021_155405_754325_E6C8D2F5 
+X-CRM114-Status: GOOD (  22.12  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,245 +109,179 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add a cache maintenance provider for the cache clean+invalidate interface
-defined by Arm DEN0028 v1.7.
+ams_parse_firmware() allocates room for ARRAY_SIZE(ams_ps_channels) +
+ARRAY_SIZE(ams_pl_channels) + ARRAY_SIZE(ams_ctrl_channels) = 51
+channel specs and lets ams_init_module() fill them for the AMS node and
+each of its children, without telling it how much room is left.
 
-Register the interface attributes function as an SMCCC device and bind the
-provider through the SMCCC bus. The provider reads the firmware attributes
-during probe and serializes cache maintenance calls. It handles transient
-BUSY and RATE_LIMITED responses with bounded retries. It also registers
-with the generic cache coherency framework used by memregion callers.
+For the PL-SYSMON node, ams_get_ext_chan() appends one channel per
+"channel@N" child after the 10 fixed PL channels. The binding allows
+reg values 20..50, so a PL node can have up to 31 such children, i.e.
+up to 41 PL channels, while only 31 are budgeted for it. Together with
+the 13 PS and 7 AMS control channels, this writes past the end of the
+buffer. Since the modules are filled in device tree order, the fixed
+channel blocks copied after the PL node can overflow as well.
 
-Signed-off-by: Srirangan Madhavan <smadhavan@nvidia.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+ams_get_ext_chan() also only checks the upper bound of reg. ext_chan is
+unsigned, so a reg below 20 makes it wrap and ams_pl_channels[] is read
+far out of bounds.
+
+Pass the remaining capacity down to ams_init_module() and
+ams_get_ext_chan() and fail with -ENOSPC when a module does not fit,
+instead of writing past the buffer. Also reject reg values below 20, as
+the binding requires.
+
+This was previously reported by Weigang He, but the thread stalled
+before the changes were picked up.
+
+Fixes: d5c70627a794 ("iio: adc: Add Xilinx AMS driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
 ---
- drivers/cache/Kconfig           |  11 +++
- drivers/cache/Makefile          |   2 +
- drivers/cache/arm_smccc_cache.c | 156 ++++++++++++++++++++++++++++++++
- drivers/firmware/smccc/smccc.c  |   5 +
- 4 files changed, 174 insertions(+)
- create mode 100644 drivers/cache/arm_smccc_cache.c
+ drivers/iio/adc/xilinx-ams.c | 57 ++++++++++++++++++++++++++++--------
+ 1 file changed, 45 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
-index 1518449d47b5..57fd1823dec5 100644
---- a/drivers/cache/Kconfig
-+++ b/drivers/cache/Kconfig
-@@ -42,6 +42,17 @@ menuconfig CACHEMAINT_FOR_HOTPLUG
+diff --git a/drivers/iio/adc/xilinx-ams.c b/drivers/iio/adc/xilinx-ams.c
+index 158e6133abf5..0077a88da52c 100644
+--- a/drivers/iio/adc/xilinx-ams.c
++++ b/drivers/iio/adc/xilinx-ams.c
+@@ -144,7 +144,14 @@
+ #define AMS_PL_CSTS_ACCESS_MASK		BIT(1)
  
- if CACHEMAINT_FOR_HOTPLUG
- 
-+config ARM_SMCCC_CACHE
-+	bool "Arm SMCCC cache maintenance provider"
-+	depends on ARM64 && HAVE_ARM_SMCCC_DISCOVERY
-+	help
-+	  Enable support for the Arm SMCCC cache clean+invalidate
-+	  interface as a provider for memory hotplug-like cache
-+	  maintenance operations.
-+	  The provider registers only when firmware advertises the
-+	  SMCCC calls and attributes, so systems without firmware support
-+	  continue without this registered provider.
-+
- config HISI_SOC_HHA
- 	tristate "HiSilicon Hydra Home Agent (HHA) device driver"
- 	depends on (ARM64 && ACPI) || COMPILE_TEST
-diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
-index b3362b15d6c1..55736a032d6f 100644
---- a/drivers/cache/Makefile
-+++ b/drivers/cache/Makefile
-@@ -4,4 +4,6 @@ obj-$(CONFIG_AX45MP_L2_CACHE)		+= ax45mp_cache.o
- obj-$(CONFIG_SIFIVE_CCACHE)		+= sifive_ccache.o
- obj-$(CONFIG_STARFIVE_STARLINK_CACHE)	+= starfive_starlink_cache.o
- 
-+# Providers below depend on CACHEMAINT_FOR_HOTPLUG.
-+obj-$(CONFIG_ARM_SMCCC_CACHE)		+= arm_smccc_cache.o
- obj-$(CONFIG_HISI_SOC_HHA)		+= hisi_soc_hha.o
-diff --git a/drivers/cache/arm_smccc_cache.c b/drivers/cache/arm_smccc_cache.c
-new file mode 100644
-index 000000000000..abe6881f3de3
---- /dev/null
-+++ b/drivers/cache/arm_smccc_cache.c
-@@ -0,0 +1,156 @@
-+// SPDX-License-Identifier: GPL-2.0
+ #define AMS_PL_MAX_FIXED_CHANNEL	10
+-#define AMS_PL_MAX_EXT_CHANNEL		20
 +/*
-+ * Copyright (C) 2026 NVIDIA Corporation
-+ *
-+ * Arm SMCCC cache maintenance provider using the cache clean+invalidate
-+ * interface defined by Arm DEN0028 v1.7.
++ * The external PL channels are addressed by their channel number. The
++ * binding allows the range from AMS_PL_EXT_CHANNEL_MIN to
++ * AMS_PL_EXT_CHANNEL_MAX. AMS_PL_EXT_CHANNEL_MIN maps onto the first
++ * ams_pl_channels[] entry, AMS_PL_EXT_CHANNEL_MAX onto the last one.
 + */
-+
-+#include <linux/arm-smccc.h>
-+#include <linux/arm-smccc-bus.h>
-+#include <linux/cache_coherency.h>
-+#include <linux/cleanup.h>
-+#include <linux/container_of.h>
-+#include <linux/delay.h>
-+#include <linux/errno.h>
-+#include <linux/math.h>
-+#include <linux/minmax.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/nmi.h>
-+#include <linux/time64.h>
-+#include <linux/types.h>
-+
-+#define SMCCC_CACHE_MAX_RETRIES		5
-+#define SMCCC_CACHE_DEFAULT_DELAY_US	1000UL
-+#define SMCCC_CACHE_MAX_DELAY_US	20000UL
-+
-+struct smccc_cache {
-+	/* Must be first member */
-+	struct cache_coherency_ops_inst cci;
-+	struct mutex lock; /* Serializes SMCCC cache maintenance calls. */
-+	u64 rate_limit;
-+};
-+
-+static int smccc_cache_status_to_errno(s32 status)
-+{
-+	switch (status) {
-+	case SMCCC_RET_SUCCESS:
-+		return 0;
-+	case SMCCC_RET_NOT_SUPPORTED:
-+		return -EOPNOTSUPP;
-+	case SMCCC_RET_INVALID_PARAMETER:
-+		return -EINVAL;
-+	case SMCCC_RET_RATE_LIMITED:
-+		return -EAGAIN;
-+	case SMCCC_RET_BUSY:
-+		return -EBUSY;
-+	default:
-+		return -EIO;
-+	}
-+}
-+
-+static unsigned long smccc_cache_delay_us(const struct smccc_cache *cache)
-+{
-+	unsigned long delay_us = 0;
-+
-+	if (cache->rate_limit)
-+		delay_us = DIV_ROUND_UP_ULL(USEC_PER_SEC, cache->rate_limit);
-+
-+	/*
-+	 * Firmware may not advertise a rate limit; use a small bounded backoff
-+	 * instead of retrying in a tight loop.
-+	 */
-+	if (!delay_us)
-+		delay_us = SMCCC_CACHE_DEFAULT_DELAY_US;
-+
-+	return min(delay_us, SMCCC_CACHE_MAX_DELAY_US);
-+}
-+
-+static int smccc_cache_wbinv(struct cache_coherency_ops_inst *cci,
-+			     struct cc_inval_params *invp)
-+{
-+	struct smccc_cache *cache = container_of(cci, struct smccc_cache, cci);
-+	unsigned long delay_us = smccc_cache_delay_us(cache);
-+	struct arm_smccc_res res = {};
-+	int ret;
-+
-+	if (!invp->size)
-+		return -EINVAL;
-+
-+	/*
-+	 * Serialize the full retry sequence. With the default bounds, a caller
-+	 * may hold the mutex across up to five 20ms backoff sleeps.
-+	 */
-+	guard(mutex)(&cache->lock);
-+
-+	for (unsigned int i = 0; i < SMCCC_CACHE_MAX_RETRIES; i++) {
-+		/* Long firmware operations can trigger watchdog checks. */
-+		touch_nmi_watchdog();
-+
-+		arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION,
-+				     invp->addr, invp->size, 0UL, &res);
-+
-+		ret = smccc_cache_status_to_errno((s32)res.a0);
-+		if (!ret)
-+			return 0;
-+
-+		if (ret != -EBUSY && ret != -EAGAIN)
-+			return ret;
-+
-+		fsleep(delay_us);
-+	}
-+
-+	return ret;
-+}
-+
-+static const struct cache_coherency_ops smccc_cache_ops = {
-+	.wbinv = smccc_cache_wbinv,
-+};
-+
-+static int smccc_cache_probe(struct arm_smccc_device *sdev)
-+{
-+	struct arm_smccc_res res = {};
-+	struct smccc_cache *cache;
-+	int ret;
-+
-+	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES,
-+			     &res);
-+	if ((s32)res.a0)
-+		return -ENODEV;
-+
-+	cache = cache_coherency_ops_instance_alloc(&smccc_cache_ops,
-+						   struct smccc_cache, cci);
-+	if (!cache)
-+		return -ENOMEM;
-+
-+	mutex_init(&cache->lock);
-+	cache->rate_limit = res.a3;
-+
-+	ret = cache_coherency_ops_instance_register(&cache->cci);
-+	if (ret) {
-+		mutex_destroy(&cache->lock);
-+		cache_coherency_ops_instance_put(&cache->cci);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct arm_smccc_device_id smccc_cache_id_table[] = {
-+	{ .func_id = ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(arm_smccc, smccc_cache_id_table);
-+
-+static struct arm_smccc_driver smccc_cache_driver = {
-+	.name = KBUILD_MODNAME,
-+	.probe = smccc_cache_probe,
-+	.id_table = smccc_cache_id_table,
-+};
-+module_arm_smccc_driver(smccc_cache_driver);
-+
-+MODULE_IMPORT_NS("CACHE_COHERENCY");
-+MODULE_AUTHOR("Srirangan Madhavan");
-+MODULE_DESCRIPTION("Arm SMCCC cache maintenance provider");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
-index 5dc768ac4143..5a5d50d17410 100644
---- a/drivers/firmware/smccc/smccc.c
-+++ b/drivers/firmware/smccc/smccc.c
-@@ -100,6 +100,11 @@ static const struct smccc_device_info smccc_devices[] __initconst = {
- 		.requires_smc   = true,
- 		.device_name    = "arm-rsi",
- 	},
-+	{
-+		.func_id        = ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES,
-+		.requires_smc   = false,
-+		.device_name    = "arm-smccc-cache",
-+	},
++#define AMS_PL_EXT_CHANNEL_MIN		20
++#define AMS_PL_EXT_CHANNEL_MAX		50
+ 
+ #define AMS_INIT_POLL_TIME_US		200
+ #define AMS_INIT_TIMEOUT_US		10000
+@@ -1142,20 +1149,31 @@ static const struct iio_chan_spec ams_ctrl_channels[] = {
  };
  
- static bool __init smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
--- 
-2.43.0
+ static int ams_get_ext_chan(struct fwnode_handle *chan_node,
+-			    struct iio_chan_spec *channels, int num_channels)
++			    struct iio_chan_spec *channels, int num_channels,
++			    int max_channels)
+ {
+ 	struct iio_chan_spec *chan;
+-	struct fwnode_handle *child;
+ 	unsigned int reg, ext_chan;
+ 	int ret;
+ 
+-	fwnode_for_each_child_node(chan_node, child) {
++	fwnode_for_each_child_node_scoped(chan_node, child) {
+ 		ret = fwnode_property_read_u32(child, "reg", &reg);
+-		if (ret || reg > AMS_PL_MAX_EXT_CHANNEL + 30)
++		if (ret)
++			continue;
++
++		/*
++		 * Anything outside of the range of channel numbers allowed
++		 * by the binding is not a valid channel.
++		 */
++		if (reg < AMS_PL_EXT_CHANNEL_MIN ||
++		    reg > AMS_PL_EXT_CHANNEL_MAX)
+ 			continue;
+ 
++		if (num_channels >= max_channels)
++			return -ENOSPC;
++
+ 		chan = &channels[num_channels];
+-		ext_chan = reg + AMS_PL_MAX_FIXED_CHANNEL - 30;
++		ext_chan = reg - AMS_PL_EXT_CHANNEL_MIN;
+ 		memcpy(chan, &ams_pl_channels[ext_chan], sizeof(*channels));
+ 
+ 		if (fwnode_property_read_bool(child, "xlnx,bipolar"))
+@@ -1183,7 +1201,7 @@ static void ams_iounmap_pl(void *data)
+ 
+ static int ams_init_module(struct iio_dev *indio_dev,
+ 			   struct fwnode_handle *fwnode,
+-			   struct iio_chan_spec *channels)
++			   struct iio_chan_spec *channels, int max_channels)
+ {
+ 	struct device *dev = indio_dev->dev.parent;
+ 	struct ams *ams = iio_priv(indio_dev);
+@@ -1191,6 +1209,9 @@ static int ams_init_module(struct iio_dev *indio_dev,
+ 	int ret;
+ 
+ 	if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-ps")) {
++		if (max_channels < ARRAY_SIZE(ams_ps_channels))
++			return -ENOSPC;
++
+ 		ams->ps_base = fwnode_iomap(fwnode, 0);
+ 		if (!ams->ps_base)
+ 			return -ENXIO;
+@@ -1202,6 +1223,9 @@ static int ams_init_module(struct iio_dev *indio_dev,
+ 		memcpy(channels, ams_ps_channels, sizeof(ams_ps_channels));
+ 		num_channels = ARRAY_SIZE(ams_ps_channels);
+ 	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-pl")) {
++		if (max_channels < AMS_PL_MAX_FIXED_CHANNEL)
++			return -ENOSPC;
++
+ 		ams->pl_base = fwnode_iomap(fwnode, 0);
+ 		if (!ams->pl_base)
+ 			return -ENXIO;
+@@ -1213,9 +1237,15 @@ static int ams_init_module(struct iio_dev *indio_dev,
+ 		/* Copy only first 10 fix channels */
+ 		memcpy(channels, ams_pl_channels, AMS_PL_MAX_FIXED_CHANNEL * sizeof(*channels));
+ 		num_channels += AMS_PL_MAX_FIXED_CHANNEL;
+-		num_channels = ams_get_ext_chan(fwnode, channels,
+-						num_channels);
++		ret = ams_get_ext_chan(fwnode, channels, num_channels,
++					max_channels);
++		if (ret < 0)
++			return ret;
++		num_channels = ret;
+ 	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams")) {
++		if (max_channels < ARRAY_SIZE(ams_ctrl_channels))
++			return -ENOSPC;
++
+ 		/* add AMS channels to iio device channels */
+ 		memcpy(channels, ams_ctrl_channels, sizeof(ams_ctrl_channels));
+ 		num_channels += ARRAY_SIZE(ams_ctrl_channels);
+@@ -1234,7 +1264,7 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
+ 	struct fwnode_handle *fwnode = dev_fwnode(dev);
+ 	size_t ams_size;
+ 	int ret, ch_cnt = 0, i, rising_off, falling_off;
+-	unsigned int num_channels = 0;
++	int num_channels = 0;
+ 
+ 	ams_size = ARRAY_SIZE(ams_ps_channels) + ARRAY_SIZE(ams_pl_channels) +
+ 		ARRAY_SIZE(ams_ctrl_channels);
+@@ -1245,7 +1275,8 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
+ 		return -ENOMEM;
+ 
+ 	if (fwnode_device_is_available(fwnode)) {
+-		ret = ams_init_module(indio_dev, fwnode, ams_channels);
++		ret = ams_init_module(indio_dev, fwnode, ams_channels,
++				      (int)(ams_size - num_channels));
+ 		if (ret < 0)
+ 			return ret;
+ 
+@@ -1253,7 +1284,9 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
+ 	}
+ 
+ 	device_for_each_child_node_scoped(dev, child) {
+-		ret = ams_init_module(indio_dev, child, ams_channels + num_channels);
++		ret = ams_init_module(indio_dev, child,
++				      ams_channels + num_channels,
++				      (int)(ams_size - num_channels));
+ 		if (ret < 0)
+ 			return ret;
+ 
 
 
