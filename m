@@ -2,121 +2,101 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29090606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 18:51:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 092A3606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 19:05:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AR+j6b42;
-	dkim=pass (2048-bit key, unprotected) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=QETTeJzp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QKK2NQv1;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=V+211Saj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V2oW+YxRWdAsPD4uJs1XKcHYT7T/4QzyNKf44tXuYtg=; b=AR+j6b42L+Zkl6CllpwI4CiCtB
-	66wKKRSShYrwdqmoLdSd/N33Xjl6Je1jLteSj9f6HOfb2I0EuJA9kExoh8G2SqLlNXQbVnUO7sdLQ
-	CaS9K/v4GaQ+pTpwRyoz+/QnO0bqHbCWcbFTJVbw0XctpLfTyoqWe5+5T3h9H2FLBIOcI59pkxbQU
-	N2qh88tnwmCMse32vjhm+sibEriZrieBhFqxVyPMWUvNV0+6FAbBRCykEeu5IEfKMzjx3hyNvHRvy
-	j+UeZCvLvIO3RMWMXGCxoK1GOvNuxC7lk7zpusnc02OQkiu+7p//srDcJ+NJDXsp4JIorcVUw0Gjx
-	namio3Vw==;
+	bh=yaJdLtbHiyXcMFgqBwOm4F2HMHkjIk9pI39u14xSXTs=; b=QKK2NQv1B3tVGMwkI6Qq6U5uWl
+	5KoXNeVzG8HlYYdn+4rlitWxEWI2Gsf3N+Zg+F2atitcPKsYLx1oeu954rJZs9lcjFxvbrIc29HAW
+	5iFxm8icjk4efq7tgWzo6e5K9FFZGhRQGq0kGzjvpj8NKLr3jr/NgYH/DTpI9odvnnb3PUURSqvca
+	E4sVA8cTTT4ILHX3DJH1AkAhd07+pkrFrmys5UrIqJb6KupaqQqG2JJSFb4FH5SwRlCoB+oUiUECb
+	zQYFu1U0YWoSNTisP06TNJDWjbiny+wk6C3OAUTqGeWXfez/qhPbv5EjA1Bahs1A21CLxcI/Gx41z
+	dQ2suLkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJbPV-0000000Cguf-2acV;
-	Wed, 21 Oct 2026 18:51:37 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1xJbcf-0000000CiCy-2LLV;
+	Wed, 21 Oct 2026 19:05:13 +0000
+Received: from mail-ua1-x92d.google.com ([2607:f8b0:4864:20::92d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJbPS-0000000Cgtp-0hvE
+	id 1xJbcd-0000000CiC5-0vdF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 18:51:36 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6b3dc272dcfso1354492a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 11:51:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792608692; cv=none;
-        d=google.com; s=arc-20260327;
-        b=lzj/eHTpuXI1rb0xNpKoLzEFClruKRSQhIVLaJNXC2uWjKAy2U52M9DJgBsXel8ZYd
-         2DY2RpCsNiHx+oMNjZjT919GOrQS7+/5iapRSbUZDzH9fa2lRZzP4pcOuhtBnfE4RO9/
-         /+LE6xt39APSjXTcEliKAWXUZjSfge2Pu2I2TDCE+SBWhq4MErI0bRLDyAk1RjMSBX9z
-         /GYZc2H4/UKeSEBs4Bms4UkgWYXVkqvbhcBJr3SOH0/x66LG2vo5+DminxgzSx6LetZG
-         emcxeDZ6v3NMZTJ53Ce+jFsSZKj2RhiPxn3GTCNc6Stqew6n9MvnpQSa7ebfEgLN+1Hl
-         4Qew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=V2oW+YxRWdAsPD4uJs1XKcHYT7T/4QzyNKf44tXuYtg=;
-        fh=oHYbrRTfMJA74VoWkWXgim6pUcT9oskulCvZSQC/oJk=;
-        b=m4jB32RL5t1BJfvXE5biyW4PjLhuVOWTW4biRgquPkFNws0OPJKIjNfVVwLN3/9vvx
-         mlBAFV0AWoZo00uxwPEOL2NFBChl8ulVRiHrLVANj2Zf4D81ZoM0H1Kjj7rFrP38Gce2
-         p3usM0owcQFlVCnvkjhmvlHPtNOVrNqoNo/k5ajJJe0LfhxQza8VU4R4i4xh6j4ewA0Z
-         RfDT7bGl3LtLTg4IO23V6eBU5kX62koL99PYFoRBft54UV5+aQsCwHqxWF73iJFg2rWS
-         jkRBD+UnvfQZrlA+X58zfrNqsvs10oqdTq5hguGc3l2RCvSBmVGyRlIL+6X+m8iOnD+j
-         /8OA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 21 Oct 2026 19:05:12 +0000
+Received: by mail-ua1-x92d.google.com with SMTP id a1e0cc1a2514c-9906dc6308bso32765241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 12:05:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen.com; s=google; t=1792608692; x=1793213492; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=V2oW+YxRWdAsPD4uJs1XKcHYT7T/4QzyNKf44tXuYtg=;
-        b=QETTeJzpsLafSgntkhyQUIEf6MsiA+6yiMT+tQAnCT6ExkELkM7nO+EMPQO61ceFJ2
-         druMYJ1h52IcO55wNb2x5r9131uTW2m+iJbfOu1d+p+cywFi9905H4JUjrcpFzd5WfPE
-         cIm6joLr7c41dqZLZ9qCcAUrwleAg1QCFscF9lPm06U+Qr097GahML924zNHyINsKflr
-         ibJ8YDDpRGZY14H/UQels4BmnVvl2HyDEQSAeE0Dj7uOhw/UV150ng85gXr3GApnA9Vt
-         6XzrLgZvR0+pn9c6aHfsLvz3XGG8qdtc30J6fcfTeBZcxvuSSPHvmFd8CIOm7SGWisqV
-         24eA==
+        d=gmail.com; s=20251104; t=1792609510; x=1793214310; darn=lists.infradead.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=yaJdLtbHiyXcMFgqBwOm4F2HMHkjIk9pI39u14xSXTs=;
+        b=V+211SajSADdzbaDrBp8kBkLNtrmsAGYIYfg9F7q45Yci7d8uiCbgnc2bkuKea2LFE
+         A10fLiDoLo1qy/OYJYG/wnRDTlNsBF66F9srO9RiveA8ypKd7NYKKiUSzT55KTSPhUSc
+         6frYo49DojoabdmD8nGBu5ZCo1Dy1LKROdYRTW7OkU/CZCLa3K1sE4+Jr2e2H535NsiC
+         aqhVR0+JIG8P+yxLlF+9d/ZvSjgKjKXbJQc4yHV5K8o+Opw69fggHr7JowraEYuxTzb6
+         040qb/fTNVIgHvcqhFrPaJOjQFoNApyFv94FALq79fUdkehagHjAj9u8xrUYE1fofOh7
+         4+2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792608692; x=1793213492;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1792609510; x=1793214310;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=V2oW+YxRWdAsPD4uJs1XKcHYT7T/4QzyNKf44tXuYtg=;
-        b=naOlUhdx91ekJsAurSyuSdInKQ85grvMjVFRLYDwE751KsB3EhM3N9LmbUJsNs+QmV
-         u9oRTtYDv+lMofx2euWNJiWrAvQXKG3O/yz9yzwchBSraR5h+QIWd03OTErZskZEgSeC
-         n8seiB+qKZzLYv8xPyoGbNt6Me6fyD4FJIDxeykTMb7svYio3qUAbPqDbs4hc7DVDMBL
-         jSRx6GB/CibWmayaTE3wMQjrpSiSU6dXOWaktjeHjsVmLzCV4YAKluqtmsNduWhBIUXe
-         Ymbgl32cWNmHZvG0MF/6ZUCQz/hp43gOJrdIsMzSnhfROPjxLS+1BJ2WbsTU9L4pzM0a
-         AjdA==
-X-Forwarded-Encrypted: i=1; AKwUvBwZWNrY0o1au/b1l56wZqvIgzHC23hFDYo+nreVXCIP3ybpcMNNnT3dtTfvfgu8k1JD4z+e/cquYXPrSK8XY3yB@lists.infradead.org
-X-Gm-Message-State: AFq9FYIReQ/Xft/DzDDT46vU4T8YD+aUbVh+GWOXGqUEnP7aLYzB3uHl
-	vaBampUEPxHKAoTG7U9/tacw0My4qx2eJFiqVsC+qk5U6WfEkawnQHLzZiikyJnJW+p8qRPdEh3
-	eCWDxDNhC4LZ2Gq9rIltdQaaS0n3VTTcqB7GC/ToF8A==
-X-Gm-Gg: AYBFou1dfLST+ASnWI3d09gscXkiiC67ut/ApBXtkdxAZ69NYNp3axN5mYDX556+wqd
-	lhutJYyRZFuLXbDtVOhHMMjAQOmxAmkwb6akjUdIojJqEMVvrJP+CFNtZ3vVg24TBVA5JzohCg8
-	xCKBstWmVeyckHI8TSKCqDnAGl6YffvTTi7Tqr1hNrhy2CDU48Upjdo4Omuo+VBroiPNtHc+1Zy
-	eO1ZSlUNQ4h7020mWU0LVtHOW6HmdhR2l+WgMoczv6gbCUAQcNLRdjzmG50bMsH/XBl+O5/nkI/
-	2gM6bIBHJH9arTPIJ3qVQQXQN3T7Xqtob4PCCLvYRRBfpB6IDRodBHa1tSYZ4obFndili3TgHep
-	eh3nJlcWFMXh8Z++f2JI6Z4s2TDuXCJd5Hk2WsjDfAVVUJ9FCze+lMEEgxPES7WL9px8=
-X-Received: by 2002:a05:6402:241a:b0:6b4:1df2:244e with SMTP id
- 4fb4d7f45d1cf-6b41df242e6mr53870a12.38.1792608691873; Wed, 21 Oct 2026
- 11:51:31 -0700 (PDT)
+        bh=yaJdLtbHiyXcMFgqBwOm4F2HMHkjIk9pI39u14xSXTs=;
+        b=KyKWY+u+miNFqzoEGsVpIhZfgqTwfO/0Avi+gfX0VNtUrQBfisezpAUZQAMtqiyh1A
+         jQZJUgyLFGIQ8uX9MMNHUukMAMjd9JqDR3HHoKcPOYrjfr8CL/S7A/I44/m3+hziVsg8
+         LDmvgyLvdQVf3Swl49rmgFLqJuJV5qzXZyJxfkAhSie6371mATXNZvHm78TjRtpuXUbJ
+         EqTCzMbJxBR5B4H8Fn5eLOb3K3LxFSGtzxttWg1lSLqsAIv6eVm9XGI28OSOgOc1sFT5
+         qeJN5CfQYxq8NhzNZ9kSnVyR5eaJEmXFI/tLHySNZXZ2/s74LdCOu68No5lfJ5lV2y0R
+         PNaw==
+X-Forwarded-Encrypted: i=1; AKwUvByNkZ+AY8frbBZ58vL1WuzGcljWHUKkW7iuAyRB9loT+TiSoTKSGeOIzFA9rGtTsje6Zph8ZiItNEW6qGy22yMa@lists.infradead.org
+X-Gm-Message-State: AFq9FYJPLUiCU3/lTXmyiDYxqsqzLngX/Py7Z3FaAEHIgUzhC5Vkiuc8
+	v5qv/Y5ZelHk5CGt5yYcH77U8+6QiAM89BH0ww57Xtc1eKYQ4Q5luNujG29gLnpi
+X-Gm-Gg: AYBFou0EVpLzYniOwm0xwnmkdyuw9Whuj3TRKcsP2A8azxrW0828p9Z51hjg/6gDuF6
+	d4YPYn0cbFVmoJf3uOwNEuQkXb8Z1y4Mxgraqn9Fe9X04k5hxI3QJI+bupfJhkVTZiLh/qbUOvw
+	D+7qZqZ6VUxDyf0I5OU3ShTjAQ+qO3RmRtPSI/1FEQdlsU99m2Hl076pVYQXPwXP3dKtSE08/X3
+	wyNnMXqa5sW9ZSReD+j4T/8k64XAAUjyWR48uoJjQQQ/IU9ir4ruJjvpDBxPLQc2mJIDRm7T2mF
+	nH5T59aP7xGoJDYENOVCwNeVuwECjYk+3NaPC2m/AU53h5ihCjlJhbpjIVet/1UCi0Z+uNxOpeD
+	/vfTNPUS/YSH/vjqTRrQCgMgn9aZI/k682hWDS95IvrCyelqY3U79g6hFIQ+Hr4NJxTz8cam+Ka
+	RibAdq/fcgQQc7eG8JhL1J4AcWhpG08WBfM5Pvf4R+NcOi3Mkctug7a0l3fU9lnUlv+xIbjVomX
+	Whtw/gY2rtA20X9gllfoDX5I/qEizEDZs4arS17lBWjSlEJH1w=
+X-Received: by 2002:a05:6102:3e92:b0:7c3:83a9:edc9 with SMTP id ada2fe7eead31-7cc92461809mr1156246137.1.1792609509675;
+        Wed, 21 Oct 2026 12:05:09 -0700 (PDT)
+Received: from localhost ([2802:8012:39:ac00:85dd:f0f7:d2d2:5158])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7cc921b6094sm3818360137.1.2026.10.21.12.05.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Oct 2026 12:05:09 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-References: <20261021152527.375070-1-tarunsahu@google.com> <20261021152527.375070-4-tarunsahu@google.com>
- <CA+CK2bAQbmq3ArP3XMErF_8RC2CUwvgpLY0H83D0nCJTaVKYyA@mail.gmail.com>
- <9huzecdi6go0.fsf@tarunix.c.googlers.com> <CALzav=dLdJoVy=B1pv0FAurD9OhAzLSTjJNbtjTdJRmSqaB0yw@mail.gmail.com>
-In-Reply-To: <CALzav=dLdJoVy=B1pv0FAurD9OhAzLSTjJNbtjTdJRmSqaB0yw@mail.gmail.com>
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-Date: Wed, 21 Oct 2026 14:50:54 -0400
-X-Gm-Features: AclHuK9td__2XcAMViewCe_NhDoA_TjTC8gr4y8u3SANqGewpEKZoTgIKv6iXME
-Message-ID: <CA+CK2bAQRMAEXZyHTEuUN0_Fo59Sn0hBmYbme_J9ewjx6gPyJQ@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
- a 2-bit pair feature header
-To: David Matlack <dmatlack@google.com>
-Cc: tarunsahu@google.com, Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org, 
-	Mike Rapoport <rppt@kernel.org>, Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de, 
-	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com, 
-	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org, 
-	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com, will@kernel.org, 
-	Alexander Graf <graf@amazon.com>, Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com, 
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev, 
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org, kexec@lists.infradead.org, 
-	skhawaja@google.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 21 Oct 2026 16:05:03 -0300
+Message-Id: <DMAR194TTSQN.1VUF47V1A3YUX@gmail.com>
+From: "Gaston Gonzalez" <gascoar@gmail.com>
+To: "Martin Wetterwald" <martin@wetterwald.eu>
+Cc: "Florian Fainelli" <florian.fainelli@broadcom.com>, "Broadcom internal
+ kernel review list" <bcm-kernel-feedback-list@broadcom.com>, "Jai Luthra"
+ <jai.luthra@ideasonboard.com>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Stefan Wahren" <wahrenst@gmx.net>, "Phil
+ Elwell" <phil@raspberrypi.com>, "Laurent Pinchart"
+ <laurent.pinchart@ideasonboard.com>, "Umang Jain" <uajain@igalia.com>,
+ "Kees Cook" <kees@kernel.org>, <linux-rpi-kernel@lists.infradead.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-staging@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, <regressions@lists.linux.dev>
+Subject: Re: [PATCH] platform/raspberrypi: vchiq: register bus at
+ subsys_initcall
+X-Mailer: aerc 0.20.0
+References: <CAFERDQ0FpdVvA5VJxOyRAE_pgxnPVmFx1tkZio5R272j6Bs4tg@mail.gmail.com> <20261013131435.1454019-1-martin@wetterwald.eu> <DM5Q9NKRO89O.22R04QM8YBKWM@gmail.com> <CAFERDQ12QwtC6cCVWQGU1b5KCv988kAvahNKwosxG2z8Mzm4sw@mail.gmail.com> <DM8869QP3IID.1I1KT6A7M2UNB@gmail.com> <CAFERDQ3DWBnkSok_SiVZGx+GTmYKP=Q46yFYkNt9YQkKxxQxyw@mail.gmail.com>
+In-Reply-To: <CAFERDQ3DWBnkSok_SiVZGx+GTmYKP=Q46yFYkNt9YQkKxxQxyw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_115134_238296_6F1DF17E 
-X-CRM114-Status: GOOD (  25.02  )
+X-CRM114-CacheID: sfid-20261021_120511_299054_FD31442D 
+X-CRM114-Status: GOOD (  40.55  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,82 +108,168 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 2:47=E2=80=AFPM David Matlack <dmatlack@google.com>=
- wrote:
+On Mon Oct 19, 2026 at 9:26 AM -03, Martin Wetterwald wrote:
+> On Sun, Oct 18, 2026 at 9:53=E2=80=AFPM Gaston Gonzalez <gascoar@gmail.co=
+m> wrote:
 >
-> On Wed, Oct 21, 2026 at 11:40=E2=80=AFAM <tarunsahu@google.com> wrote:
-> >
-> > Pasha Tatashin <pasha.tatashin@soleen.com> writes:
-> >
-> > > On Wed, Oct 21, 2026 at 11:25=E2=80=AFAM Tarun Sahu <tarunsahu@google=
-.com> wrote:
-> > >>
-> > >> LUO and its file handlers validate handed-over state with monolithic
-> > >> compatibility strings ("luo-v5", "memfd-v2"). Any change to a serial=
-ized
-> > >> structure, even an optional additive one, must bump the string, whic=
-h
-> > >> breaks live update between adjacent kernels. Replace the string in
-> > >> struct luo_ser with a feature header, so that the target kernel can
-> > >> accept or reject the source kernel state per feature.
-> > >>
-> > >> struct luo_feature_hdr is a fixed 128-byte header: the serialized
-> > >
-> > > This patch is all wrong; 128 bytes is far too large. For every _ser
-> > > struct, we only need 8 bytes instead.
-> >
-> > NOO, It is not. It is intended to avoid complex mess with unnecessary
-> > over-engineering.
-
-128-byte per serialized struct is not starter.
-
-> >
-> > >
-> > > The first 4 bytes are the size, and the next 4 bytes are flags (i.e.,
-> > > 30 feature flags + 2 reserved bits for flags extension). The last two
-> > > bits of the flags indicate whether an extended flags field is present=
-.
-> > > Each extended flags field is 8 bytes, and its last two bits indicate
-> > > that yet another extended flags field follows.
-> >
-> > If we will have dynamic extension of flags, Think about this.
+>> Running 'speaker-test -t wav -D plughw:1,0 -c 2' crash the system, so
+>> thinks seem not to be working with that interface.
+>>
+>> Im trying to debug what happens in that condition; I will need a couple
+>> of days I guess. So far, this is what I could check.
+>>
+>> Any feedback on the test or debugging would be appreciated.
 >
-> To support dynamic extensions in a backward compatible way you want
-> something like this:
+> Hi Gaston,
+> Thanks for digging into this.
 >
-> struct luo_feature_hdr {
->    size
->    flags
-
-__u32 size
-__u32 flags
-
->    extensions  // offset of first luo_feature_extensions (or 0)
-
-__u64 extensions[0]  --> but the size should be specificed in
-declaration macro that I showed in the next patch.
-
-> }
+> The patch only changes when the VCHIQ bus and driver are registered durin=
+g
+> boot. So it's enough to check these two cases to validate the patch:
+> - without my patch: dmesg shows the "unable to register with bus_type
+>   'vchiq-bus'" error, and bcm2835_hdmi is absent from /proc/asound/cards.
+> - with my patch: the error is gone and bcm2835_hdmi is present in
+>   /proc/asound/cards.
 >
-> struct luo_feature_extentions {
->     flags
->     extensions // offset of next luo_feature_extensions (or 0)
-> }
+> (Since the Pi Zero has no Headphones jack, you need to test both cases wi=
+th
+> snd_bcm2835.enable_hdmi=3D1 in the command line. Otherwise the card never=
+ shows
+> up, even when everything works.)
 >
-> And then an example serialization struct would be:
+> Could you check these two cases?
 >
-> struct foo_ser {
->     struct luo_feature_hdr header;
->     ... fields ...
->     struct luo_feature_extension extensions1;
->     ... fields ...
->     struct luo_feature_extension extensions2;
-> }
+
+Hi Martin,
+
+Results on the two cases:
+
+Case 1:=20
+    - dmesg shows 'Driver bcm2835-audio was unable to register with bus
+      type 'vchiq-bus' because the bus was not initialized'.
+    - cat /proc/asound/cards shows only: vc4hdmi.
+
+Case 2:
+    - dmesg does not show 'Driver bcm2835-audio was unable to
+      register..'
+    - cat /proc/asound/cards now shows:
+        0 [vc4hdmi  ]: vc4-hdmi - vc4-hdmi
+                       vc4-hdmi
+        1 [HDMI     ]: bcm2835_hdmi - bcm2835 HDMI
+                       bcm2835 HDMI
+
+So your patch works on the Raspberry Pi Zero v1.3.
+
+Regards,
+
+Gaston
+>
+> Testing that you can hear the sound going through bcm2835-audio is a full
+> functional test that goes even further than the patch: it does not only t=
+est
+> bus registration but also that the audio driver is working.
+>
+> On my side, without vc4-drm, I can successfully hear sound through both b=
+cm2835
+> Headphones and bcm2835 HDMI:
+>
+>   # aplay -l
+>   **** List of PLAYBACK Hardware Devices ****
+>   card 0: HDMI [bcm2835 HDMI], device 0: bcm2835 HDMI [bcm2835 HDMI]
+>   [...]
+>   card 0: HDMI [bcm2835 HDMI], device 1: IEC958 [IEC958]
+>   [...]
+>   card 1: Headphones [bcm2835 Headphones], device 0: bcm2835
+> Headphones [bcm2835 Headphones]
+>   [...]
+>
+>   # speaker-test -D plughw:0,0 # (HDMI)
+>
+>   # speaker-test -D plughw:1,0 # (Headphones, not on the Pi Zero)
+>
+>
+> If you still want to output sound through bcm2835_hdmi (optional):
+>
+> There can only be one owner of the HDMI port: either the firmware or the
+> kernel.
+> When the Raspberry Pi boots, the firmware first owns the HDMI and display=
+s a
+> rainbow splash. Then it launches Linux.
+>
+> There are 2 ways for the kernel to deal with the video output:
+>
+> 1) With vc4-drm (CONFIG_DRM_VC4), the kernel takes over the HDMI controll=
+er
+>    from the firmware and handles everything itself (this is your case).
+> 2) With simple-framebuffer (CONFIG_DRM_SIMPLEDRM or CONFIG_FB_SIMPLE), th=
+e
+>    kernel leaves the HDMI to the firmware and just writes pixels to a
+> memory area
+>    (the framebuffer) set up by the firmware.
+>
+> I get a similar problem on my side when sending sound through bcm2835_hdm=
+i with
+> vc4-drm loaded: my screen shuts down (but the kernel is still alive).
+> It most likely comes from the firmware and the kernel both trying to driv=
+e the
+> same HDMI port: with vc4-drm, the kernel owns the HDMI controller, and th=
+e
+> firmware (which bcm2835-audio talks to through VCHIQ) is not supposed to =
+touch
+> it.
+>
+> A simple way to output sound through bcm2835_hdmi is to not use the vc4-d=
+rm
+> driver at all, and use simple-framebuffer if you still want a display.
+>
+> To remove vc4-drm:
+> - Do not compile the driver into the kernel (CONFIG_DRM_VC4=3Dn) or black=
+list the
+>   module.
+> - Remove any vc4 overlay in config.txt file (e.g. remove dtoverlay=3Dvc4-=
+kms-v3d).
+>
+> To enable simple-framebuffer, use one of the two configs:
+>
+>   CONFIG_DRM=3Dy
+>   CONFIG_DRM_SIMPLEDRM=3Dy
+>   CONFIG_DRM_FBDEV_EMULATION=3Dy
+>   CONFIG_FRAMEBUFFER_CONSOLE=3Dy
+>
+> or, the older way:
+>
+>   CONFIG_FB=3Dy
+>   CONFIG_FB_SIMPLE=3Dy
+>   CONFIG_FRAMEBUFFER_CONSOLE=3Dy
+>
+> (FRAMEBUFFER_CONSOLE=3Dy, and DRM_FBDEV_EMULATION in the DRM case, are on=
+ly
+> needed to see the boot messages on the screen, with console=3Dtty1 on the=
+ command
+> line.)
+>
+> If you have remote access to your Pi Zero (either through network+SSH or
+> through serial console), you actually don't even need the simple-framebuf=
+fer:
+> you can just remove vc4-drm, and let the firmware display its rainbow spl=
+ash on
+> the HDMI port.
+> Then you can login to your Pi Zero through SSH for example and launch
+> speaker-test.
+> As long as the HDMI video output is active, it's enough for the sound to =
+be
+> able to go through, even if the image was not drawn by Linux.
+>
+> But again, this full functional test is optional.
+>
+> Regards,
+> Martin
+
 
