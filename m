@@ -2,63 +2,141 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BA45606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 20:26:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 111A8606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 20:45:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hvDfhMej;
-	dkim=pass (2048-bit key, unprotected) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=B9dG5wGE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aRGrGq5q;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=wweK7SKN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yMaByKpIrW0LSyYgQK6ZFp9Smoe+FCDXKYUFjdBbhF0=; b=hvDfhMejMRM1Gja3MWGgc+gzGI
-	lCH6IwLaA/DDS3vLWtBRA1cNof0QPJJCY1l2oUTZpv9BYwEixwgk0NfIFRtOXSeSdFIdE2GGhQ77K
-	Jl7ophYYZJxvcyIhseCVlgAxX2tDJm3k7i/7d8GD9byJk7qh3gBGo1cqXIgNoxZ9agp5EfOvhmCqi
-	nvzQvS5NrnOt6cdIx46cBDlctH1HEHsI+pZMgUHDovkzOvveM5oBPySEYldV56tTKmlF7X8g74aq7
-	YtBRAIUkwtub/8fDOFX4KvqtEWhHSSeC2h/jO9KHCTJoGTa+BMuHImjNz9loGP4RsX4m12EeVp0uD
-	rfHpX2MA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ov0+XC3xLT1rVHG+ZYpStv339MBhTuoi90aqs1QB8rc=; b=aRGrGq5qJoLoRkGk/Gw7OvDQ2A
+	3G90WGFXn0lR0yeKv35omYtLTmAzB+cK92M+9CzkeYDTFD9/oaulTYJjCJ7V76jKh3lNMAcXHdtmu
+	aJyUrqB37A7yutCEYLFv14SVG8Lrsk/DbdQl3WMnbZzb6sGusojO/EouPVsC/+LNZRRs4KWo8CJUV
+	whd82SZbmpUoI7A2wPFsDRmUe7QC6L33oLD07IIwJ1L01OiNKXuR+IajTpA1wEQHVH3ObVzPt88+q
+	t7ANarTv1Dz72ZMNalVWJTGrHX06g2Nu454FP9xDDW6eaZN74+rwFtR95FJTCUzr/6Y29M1QRX44k
+	LMd8W0cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJctW-0000000CpYd-3EI9;
-	Wed, 21 Oct 2026 20:26:42 +0000
-Received: from mail-10628.protonmail.ch ([79.135.106.28])
+	id 1xJdBk-0000000CrIy-3lNp;
+	Wed, 21 Oct 2026 20:45:32 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJctN-0000000CpWI-3vxD
+	id 1xJdBi-0000000CrHx-1HPi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 20:26:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
-	s=protonmail3; t=1792614391; x=1792873591;
-	bh=yMaByKpIrW0LSyYgQK6ZFp9Smoe+FCDXKYUFjdBbhF0=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=B9dG5wGEQtC0HV+f+BE0KkdleNJlL7wLJR0n+SpH9ZopIwYCweo7qAU3OzkHFbeU6
-	 ytYuEZK/8iYUOSK6mPffyJ326ARGSvvjL1GQoZR+Ayo5aD8gct6hHfIh+HB44d9ul6
-	 JnVDHqSmOxnTVY9m8oLxaP0AsytHcQKbTKLpUORshFSXdb3xfg5RxZoxdbvNecx8hY
-	 V/I8Y4x5B6zprJMhT4oOdjzxAU32aT4/X2TgiCg/CZkSkkM0xOPsz5NXDDltXrDuO0
-	 WDkEgVhlPBh10rPedVuJirjuF/z709EE/hhKHnoXGy6MUpkg4esxXPT5jVhBc8b0Y8
-	 Y2v3jjSJw833w==
-Date: Wed, 21 Oct 2026 20:26:23 +0000
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-From: Birk Skyum <birk.skyum@pm.me>
-Cc: Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, Stanimir Varbanov <svarbanov@mm-sol.com>, Eneas U de Queiroz <cotequeiroz@gmail.com>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, Eric Biggers <ebiggers@kernel.org>, Demi Marie Obenour <demiobenour@gmail.com>, Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, Russell King <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>, linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, brgl@kernel.org, linux-arm-kernel@lists.infradead.org, Pankaj Patil <pankaj.patil@oss.qualcomm.com>
-Subject: Re: [PATCH v10 10/14] Revert "crypto: qce - Mark QCE as BROKEN"
-Message-ID: <179261435862.92690.4559755086697722828@pm.me>
-In-Reply-To: <20261013-qce-fix-self-tests-v10-10-57162a38a554@oss.qualcomm.com>
-References: <20261013-qce-fix-self-tests-v10-0-57162a38a554@oss.qualcomm.com> <20261013-qce-fix-self-tests-v10-10-57162a38a554@oss.qualcomm.com>
-Feedback-ID: 21326998:user:proton
-X-Pm-Message-ID: 26a209665153582a3536c663df4ec6c159407ded
+	Wed, 21 Oct 2026 20:45:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Cl916+zGkAz2nKa6hRhpTZpi2w+frt9DYnNbyoj/NJMCo3x/ehTnqghe09usI/8FlJ6lcxfWvCVPXnQwdpmzz5CFXQzDW16fSyB6hAI4DETHW+oxLqntLN/zuu7SJU0n2p4ULAXWhEv9VzINAQRZoy+kGSCm7o4wNer/zURFhi+nxXQgWQ862iGD09ABdZ9BWvgdmo9yc3g52bDUpZw2LN3ipV83rSxIkhXz2U2583+Umi0g+1DXezZNQDGWbLSViL2OskjRBUzj/9uwQEditHhepYR67m0O+8c5ad36OUVzhE/j2ScSUjI88kUbr4QOnWAQg8JFSwLCN+l9vbHreA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ov0+XC3xLT1rVHG+ZYpStv339MBhTuoi90aqs1QB8rc=;
+ b=x8y0+PWoFB1ojX7VVCI2eReNigXEFaDgb75VpJdYMkAXhqO+bg3N0pv46iCPRf4M+8gp9SavGQdItbuGJEM0iF2/OkcNUaOUl5iqUnuOxOUlNN0gxijbIrcrJaMxLNP2luUwhiQK8tY528XDiTmJDvk6KoK7hCkUClb68w2eWvzz9umk9Yj9MsRaR9z9Voy8fVBH8ZU5vABmoaW/Emru4xReInfVtN5qeHrrfcmkYnhZdisvXFGc6GD9joT42UVXqqRZXGvHvnXsBwZh+552rgsNr8n6cL75DS8EbcM0AAT9vT+CGhOsGV2kF2guWNmUcTudie88fiRmnFq6EhrdEQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ov0+XC3xLT1rVHG+ZYpStv339MBhTuoi90aqs1QB8rc=;
+ b=wweK7SKN1v4c6L83hJ8ax2gaE8SYipWNXHgXYvdwYaKgvvfZ1OWjAR95ZHw07neyS38FrrxVdaukX9IdVmjnhZLuevB0nPyCmNO0NPqi+NK9RDS7d3CDwwYJ/Lv8+9/iJ6yoyOLhg51/iWSnCgtJV0bwJyar/+37OS+oC+L7J3Ahn+nvf8IVJGsJWXIXbSloM92J7PP975Ja2ONwFwtpkFcs3dAXBnK41ZMnQ6eC2hLYEu36GGTiZZ0b8tMqSkoAAOkrfCpmLIx/1NJyua96UZXzBneklPlH6UDlDKv95wn8nMpP5rfVzpbH5vT0t4xC8w7eAM43lHZ06qTw7IbMJA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by BR0PR04MB337759.eurprd04.prod.outlook.com (2603:10a6:2c8:60::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
+ 2026 20:45:24 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
+ 20:45:23 +0000
+From: Frank.Li@oss.nxp.com
+To: Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Priyanka Jain <priyanka.jain@nxp.com>,
+	Tao Yang <b31903@freescale.com>,
+	Yogesh Gaur <yogeshnarayan.gaur@nxp.com>,
+	Santan Kumar <santan.kumar@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT...),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT...),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH 1/1] arm64: dts: freescale: ls208xa: correct USB compatible strings
+Date: Wed, 21 Oct 2026 16:45:15 -0400
+Message-ID: <20261021204516.4031644-1-Frank.Li@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PH8P221CA0024.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d8::30) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|BR0PR04MB337759:EE_
+X-MS-Office365-Filtering-Correlation-Id: 362a144f-814e-41bd-ca6d-08df2fb43ad4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|7416014|1800799024|23010399003|376014|10067099003|18002099003|261021123027099003|261009223027099003|11063799006|921020|261021121427099003|56012099006;
+X-Microsoft-Antispam-Message-Info: 8huErkNFNyb4ZniO8tp5Q5crTBQSzWmoua45BeCqHO+FB/4zddLvUdiKMqFxauTmvTM1XFf7sR79Yyzb5FyifndUiZWcma5GIzlZsgvCJclxVmgJ9ryaAcxKlAN7ZkVZ1t60m5OAA6NmKetryAjE9zJorPziykY0OdqCjeXgCWyZiEn4o9uA2uW72pEmlNHX7n7S+ZF5QkgDCI38TI+7HgewaVmiyh9zoLpZOKgIpwx56SfAaxUkPwPbDhOZq/c3xJ5NNQ+Of/lAeIvEp6M9bJnLYm4K226jX92Fn3xzpr06aeoJU/NofQ/F0lBDFbM8lxkHpyhLt7BwqN9chh5/7wlCwEdnOaCykjQsphD9S6Kp0wB2/tttU05ig3e+ogtveqcRfPACdwzOpA+X1T4zp0qowQZLbpQ71bMr2PYCO8QYf0oMdYwXUaSHjaM/XvJYAl7uxhe4LzfIpXRHkeOBQrBQVjsPtGRW0dzgSg/X0Pvl0RrfJKyUAKfhRsH/UDizr0O9lkUDrDhLbSEYhlkpwWXe5d/iI1A+ECAQlcj9LgtZKRbjM/U/EEbaTC9WCKUpqNGR36gLkG3hEayuGd+sH3ABoHBuB9pKehcRRv+LcC506zhDjsJIqRVfo2QT7TG54/BxjXCgtUWLlECRXkju4nSX9YHtZo2WXYbqPSlMXAbyIRrND3bnmkCoHksV/3gQbLrYfXI4E5zeZ+Zc+Tl7Pw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(1800799024)(23010399003)(376014)(10067099003)(18002099003)(261021123027099003)(261009223027099003)(11063799006)(921020)(261021121427099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4MHnEXzaJ0h2G04jgPrWPWR45AsmVtAg6bP/o5yvysQ1Q4nJ7bJGOam2f4Le?=
+ =?us-ascii?Q?Vus4azdq13qk6EPy40A5SUghOwR/GzuyZWwE7bdJZT8Tcl6ATO1bwP6gxIs1?=
+ =?us-ascii?Q?i+aR3g7lnYhFbsxG38gngpHeAUpJlE//nHz5/J42VzsE2C1O5z1xAaEb/o2j?=
+ =?us-ascii?Q?3urVBmf5zH9Oe7Xolomjy5VINGga9VLTX8ktAW6z0JWxcjMoVhb40AycnAYr?=
+ =?us-ascii?Q?nLcxmpltVRjXuWvMtIfieK9HhvKaWEcY9uconwLI7KUitLVh8rtuPGnpZ4In?=
+ =?us-ascii?Q?jewxzh2jQbqhPCv1bfL/wqUTvEX6t9rrd3zEDrYpIvEPOrYjU5euqADAvSoQ?=
+ =?us-ascii?Q?pola0Imy0JXlJuCtCKCmYcuX6GMUigb2s1g9cJMDo5okXtomT0KjMk7XN7ir?=
+ =?us-ascii?Q?x6fBgxIxAtieRUvKUtgjnK7QF9CbkEhLI/peG/FMz8ryZKw1/83vWd7YoQQg?=
+ =?us-ascii?Q?EaboU10wdcflmSoMNto87g5FnKlgpvlLanmdJ4AAItJp0ImTcERVQvwDxIEO?=
+ =?us-ascii?Q?7e3Jf2K3hpyD3/ucy77PqssLuZbtguFRzB78rG6r24cc1fKoTZwvvp67wteB?=
+ =?us-ascii?Q?DYBx04ZbMVGpw1EV+IKXuRfFnnxXieqZG346GFYMGBTsTJ+bhBSTFH4VAq4h?=
+ =?us-ascii?Q?UbBzDeOT+IkYZqTzljB9DZUZzROVudi5qh+aQcTlmJvkPzkBoUbFIhU3I3D+?=
+ =?us-ascii?Q?6H5HPj5OX/Sq4SoqA7j8SO/KdhqtzW4hkJ5J7+c/l6wvxtm7KYFdi7q9MArF?=
+ =?us-ascii?Q?6Y6Sc4/r+LCuRD5pEKSmmLuqAHAluBns1NcPBnSEJZv5Y/B4jI1LCreSIzD0?=
+ =?us-ascii?Q?GqTQipTTR+SNRVWdYELwCLqQ1Gw1tyRFAAqTs2rqTD41XTxFJtd+LRImkjCF?=
+ =?us-ascii?Q?vrbnKQd4xbE+eEzM6iret0WF6ua+iKEa+GEXCe2dM4F1WH2gX02CpQiUUDas?=
+ =?us-ascii?Q?g2FcUmEpZSNBPpRcFuy0nPy1dDp4VNc4lAsYQXf2Iv67qisAL2H8YHeTyWGk?=
+ =?us-ascii?Q?ufkIcrU0iYS7SKtZbaxXM14cs1Baq3ijcF5mxA+rPmAWNf7Cn8R4I7cFpwGv?=
+ =?us-ascii?Q?EJbBnN6862STjlR7YvWk+i+V63nmBveyOx5NnRG7R7zX3e+H14s6Bk27cHjI?=
+ =?us-ascii?Q?TNdnLKit9B0EcrKBt6xHS0MlWhQcynp+0v3AWYhyH/FGZ5IVZAjgGamESKQp?=
+ =?us-ascii?Q?2Aq9CL3ngGw5Y/MyDTGMlzoTvUmJcfzHqjZfwE0e4/2N4WG3JdF/7PwYNk+S?=
+ =?us-ascii?Q?b7CP+3WF9UYfVoQlODLY5+laQoVUW1zejqM5htwn8xqQKe6s2fxTWI8QOaCY?=
+ =?us-ascii?Q?54yMWNVIPKQoea0+VsQ0zhRZF0AW1tbp7upc7TXmp8mHPlGn0vJ9T1lxu6QT?=
+ =?us-ascii?Q?3wayjqWrtCYopsRJIaUjkDh/vUZKk6YtDFvpkzpqLOqM4rQGKJAWNcag7StJ?=
+ =?us-ascii?Q?Siuu6HYkZO3gwc01mMZB2AYOFcssRPKmYMfU+4RMLwymGws1w++IGJAYoxz1?=
+ =?us-ascii?Q?eQHWSCYLP/FGaksDL4Hfi/woFcZoBozjH6jZZfhnWuPYd9OKAHb3/VlVJZdE?=
+ =?us-ascii?Q?5vSndKqE0LfnoPIDESfY9r4ktWqrTWBYmLcO7/I/cRZM75c7ua+n7bCO9+1D?=
+ =?us-ascii?Q?JlDAwRsWVEx0AdDIS5x1WcydTBwoaydyIqjqQEYdteJcQUWjUGAgDrOba4h4?=
+ =?us-ascii?Q?E3iPlanI+BpXGjvRNQQu0mCZgaf+AL55ziA1/F3ld7ZDKMtClORYfwQkuljk?=
+ =?us-ascii?Q?6jFDzeXhRuURIrDjA8LQaOyWQPCifoSAijUrmf4gd9U+nCyUlH86?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 362a144f-814e-41bd-ca6d-08df2fb43ad4
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 20:45:23.8550
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QGSpc6jV5BMHkk+DntuZI8jNWLb1w2eu2rHiwXd5kPbAlBytZ3APycN3iDTUh9crOwq455zuQMogUFxeB9ungYm3vThvAKjXQm9tTDttbXVWIHP+Xjl1AhWJsE48aOJ0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB337759
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_132634_378137_8390EA41 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261021_134530_355165_6301BC23 
+X-CRM114-Status: GOOD (  11.35  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,39 +147,56 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 13 Oct 2026 11:57:39 +0200, Bartosz Golaszewski <bartosz.golaszewsk=
-i@oss.qualcomm.com> wrote:
-> The self-tests for this driver have been fixed. The crypto algorithms
-> are only registered if the user explicitly requests it with the provided
-> module parameter defaulting to false. There's no reason to further keep
-> it unbuildable with the BROKEN label.
+From: Frank Li <Frank.Li@nxp.com>
 
-On X1E80100 the BROKEN label also costs deep sleep in suspend. With
-nothing bound to the crypto node, aggre2_noc and mc_virt never reach
-sync_state() ("sync_state() pending due to 1dfa000.crypto"), and on a
-Lenovo Yoga Slim 7x a deep suspend on 7.3 never counts aosd, cxsd or
-ddr in qcom_stats.
+Correct usb0 and usb1 compatible strings from generic "snps,dwc3"
+to SoC-specific "fsl,ls208xa-dwc3" with "fsl,ls1028a-dwc3" fallback.
 
-I built qcrypto out of tree from 7.3 with 09 applied, which is what
-this patch makes possible in tree, and loaded it on 7.3 (with distro
-patches, none in QCE, the interconnect drivers or the driver core) and
-the crypto node as in mainline, with ALWAYS tags on its paths. It bound
-without registering any algorithms, went to runtime suspend with both
-crypto paths at 0, and both providers synced. The next deep suspend
-counted aosd, cxsd and ddr, with about 13.7 s in them during an 18 s
-suspend.
+It requires updating the specific gsbuscfg0 value compared to the
+generic snps,dwc3.
 
-Herbert asked for the series to be split, and the resends since then
-don't carry 09 and this one. Both should come back as fixes, for 7.3.y
-as well.
+Depends on commit 1c97fc901fb6 ("usb: dwc3: dwc3-generic-plat: Add
+layerscape dwc3 support").
 
-Tested-by: Birk Skyum <birk.skyum@pm.me> # X1E80100, Lenovo Yoga Slim 7x
+Due to complex dts renaming, the Fixes tag below points to the first
+commit where enable usb0 and usb1.
+
+Fixes: ad5b6611e1574 ("arm64: dts: ls2081a-rdb: Add DTS for NXP LS2081ARDB")
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/fsl-ls208xa.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/freescale/fsl-ls208xa.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls208xa.dtsi
+index cc1a64e63ed55..3b0a26bf609cc 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-ls208xa.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-ls208xa.dtsi
+@@ -1288,7 +1288,7 @@ bus: bus {
+ 			dma-ranges = <0x0 0x0 0x0 0x0 0x100 0x00000000>;
+ 
+ 			usb0: usb@3100000 {
+-				compatible = "snps,dwc3";
++				compatible = "fsl,ls208xa-dwc3", "fsl,ls1028a-dwc3";
+ 				reg = <0x0 0x3100000 0x0 0x10000>;
+ 				interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
+ 				dr_mode = "host";
+@@ -1299,7 +1299,7 @@ usb0: usb@3100000 {
+ 			};
+ 
+ 			usb1: usb@3110000 {
+-				compatible = "snps,dwc3";
++				compatible = "fsl,ls208xa-dwc3", "fsl,ls1028a-dwc3";
+ 				reg = <0x0 0x3110000 0x0 0x10000>;
+ 				interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
+ 				dr_mode = "host";
+-- 
+2.43.0
 
 
