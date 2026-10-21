@@ -2,59 +2,60 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC65960A6F63
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 12:16:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB6FC60A261F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 12:16:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=evq+3jLn;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XgQaPU/t
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BAcExYSh;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LU8cB6vn
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3sV2BVll+rmA+nzXI9MkZz3cUVSsRVhz3ZropH017dE=; b=evq+3jLnLlB+aScfE+YrLPpZbe
-	77xI9xzHBhz87LxRVoyPa0WD4eLD96rZk4xtQsBUDt7X+XLHnwRxT3/bBMuZuFggO58+OwJmBBEcz
-	PG94xBGUWibSMrsPwTPexi7+p4jy8kRp4aFRK2JLHiSdzHyhNDtFoUMABiSFFHY+kxchTZv36eTPg
-	aO/BDV56OPshhlxd8d52YCixyq/AvgPGhCUdJe89ppktvVMzAhu3LC9GIwAaorrdI/CXgdy5upKxf
-	z7DkPEKNXjESffrzW13TWIaZxGarHmMzp8N4BAMaKhyXx8ZzY5297LX5KT1DG6W0q/f+HN8ODTeUd
-	ZUjUdAlw==;
+	bh=M1n1hBWFrb7+3IcENFJ0R4sSlfudB755zznR4XrxZXc=; b=BAcExYShhrHk7HUNMNH+x8NMjP
+	8OPspVdoien4ynMsDk4KwGU6TwOkPIu5/s8z/wYonzxl7HxPSityHYeX7PM50RiafzmUy9Dqk7QCZ
+	nk5spYBij8kOfDI8GqBeyNC4UoJ8xjunyC0r7TQ+SwxuBYqQs3PEgV+qO/kXVA40JA1/Y453KUooA
+	fdezzCQ0manQVmHdrsul1cf/JU3LmfTS2iyilbaYkVtlFlQyAPottfAA0LvKAFgkAh7hNgUpKIqdz
+	bg4sjl9meQQzuH5Cz9AwyP9hwNYPJxVu2h0fohVfa6Sd2cRWUyZKgd0dmEJ47fiX6LrCGS/Cmkn16
+	AyCyGnqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJVEy-0000000Bmfs-45gW;
-	Wed, 21 Oct 2026 12:16:20 +0000
+	id 1xJVF5-0000000Bmhl-0NNW;
+	Wed, 21 Oct 2026 12:16:27 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJVEy-0000000Bmfh-0el3
+	id 1xJVF3-0000000BmhU-3lxA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 12:16:20 +0000
+	Wed, 21 Oct 2026 12:16:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1AD7406CF;
-	Wed, 21 Oct 2026 12:16:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 267711F000C4;
-	Wed, 21 Oct 2026 12:16:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A70C5437FD;
+	Wed, 21 Oct 2026 12:16:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D94E81F000C4;
+	Wed, 21 Oct 2026 12:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792584979;
-	bh=3sV2BVll+rmA+nzXI9MkZz3cUVSsRVhz3ZropH017dE=;
+	s=k20260515; t=1792584985;
+	bh=M1n1hBWFrb7+3IcENFJ0R4sSlfudB755zznR4XrxZXc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XgQaPU/tHQ9qG5+iV9rAw//oA7KdsmgdtJivOyAzjRyPRZhJyaUG8Qmo7JlBY5qTu
-	 nrTF6ZrnMzc5lpbtM2AwahvSfgGOFd/7DXE3cyMAJywI9mm5dfP9dJWWX8Nr9sl7iA
-	 rDxHBhN1UJDOsEFqj8feYfo5Xs8GFo+yfoqTCDsPzLph07QM3Zp5JKv4mcKtFT4OIe
-	 Nvxpvz3MrQVhSAjwNYErptApnZNz5Wj3egVYqWoTOsBicl06purDm7MYA2HL6BB1BU
-	 aMfM/E2CHHg1ZjCX3ERNx7fMVSBk+eZrG+nT+iS7Sdki1LWfiuSZJhdJyILcnKpgBq
-	 0aMsEnmmmHnqA==
+	b=LU8cB6vne4L6Qq8Oej/VmD3BuW0L+pIt+q5mkY8vUOpDTS0Q9Hptwta18nA5MivL/
+	 8yg30K55p4JIjEgUvHh1xCY+wmXU08M17tag6LFiBMvqbG6Maltu8FV+8Vt6BZOWhb
+	 10gPGk6rM6UFB2u20yZo+pTx+PjKS8JjFWTbm6ezdMWu2OOh+/o0VHTxp/ag4d/2qA
+	 mYsrTR4yz6kZXz31SPJuC/tSev5QPq1LonDxBM19fb+Q7EOcz0rZS8loZbMCLnz/3W
+	 t4jyjo97Zz23Ve0R5fEMnpfsLGdya+Ksge7l6SFZWNcFWBPAV0jK+06PBBt5JqyIw9
+	 /yXPuuEf27LTA==
 From: Lee Jones <lee@kernel.org>
 To: lee@kernel.org,
 	Linus Walleij <linusw@kernel.org>,
+	Srinidhi Kasagar <srinidhi.kasagar@stericsson.com>,
+	Rabin Vincent <rabin.vincent@stericsson.com>,
 	Mattias Wallin <mattias.wallin@stericsson.com>,
-	Samuel Ortiz <sameo@linux.intel.com>,
 	linux-arm-kernel@lists.infradead.org,
 	mfd@lists.linux.dev,
 	linux-kernel@vger.kernel.org
 Cc: stable@vger.kernel.org
-Subject: [PATCH 22/28] mfd: abx500-core: Unregister device ops on devm release
-Date: Wed, 21 Oct 2026 12:09:44 +0000
-Message-ID: <20261021121245.3111563-22-lee@kernel.org>
+Subject: [PATCH 23/28] mfd: ab8500-core: Register sysfs attribute groups via devm_device_add_group()
+Date: Wed, 21 Oct 2026 12:09:45 +0000
+Message-ID: <20261021121245.3111563-23-lee@kernel.org>
 X-Mailer: git-send-email 2.56.0.218.g1ec904b173-goog
 In-Reply-To: <20261021121245.3111563-1-lee@kernel.org>
 References: <20261021121245.3111563-1-lee@kernel.org>
@@ -79,81 +80,52 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-abx500_register_ops() allocates struct abx500_device_entry via
-devm_kzalloc() and links it into the global abx500_list without
-registering a devres cleanup action.  If a caller's probe function
-subsequently fails, devres frees the entry while it remains linked in
-abx500_list, causing use-after-free and list corruption on later
-traversals.
+ab8500_probe() registers up to two sysfs attribute groups with
+sysfs_create_group().  On AB8505 and AB9540 (cut 2.0 and later), the
+second sysfs_create_group() call unconditionally overwrites the return
+value of the first, and if the second call fails, ab8500_probe() returns
+an error without removing the first group.  Because the driver context
+is freed and driver data is cleared on probe failure, reading any leaked
+sysfs attribute dereferences a NULL ab8500 pointer in
+get_register_interruptible().
 
-Register a devm_add_action_or_reset() callback in abx500_register_ops()
-to remove the entry from abx500_list before devres frees it.
+Register the attribute groups via devm_device_add_group() and only
+register the second group when the first succeeds so that devres
+automatically cleans up registered sysfs attributes on probe failure.
 
-Fixes: c211b6b9c014 ("mfd: abx500-core: Convert to managed resources for allocating memory")
-Closes: https://sashiko.dev/#/bug/linux-6a9c6b8b-8f89-4af5-8cb1-102822e44e6e
+Fixes: 93ff722e8853 ("ab8500-fg: Add power cut feature for ab8505 and ab8540")
+Closes: https://sashiko.dev/#/bug/linux-a9ac1a9d-5a97-4ad3-b4c5-c7775c24a333
 Cc: stable@vger.kernel.org
 Signed-off-by: Lee Jones <lee@kernel.org>
 ---
- drivers/mfd/abx500-core.c | 29 ++++++++++++++++++-----------
- 1 file changed, 18 insertions(+), 11 deletions(-)
+ drivers/mfd/ab8500-core.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/mfd/abx500-core.c b/drivers/mfd/abx500-core.c
-index e896531d0354..5873e335c395 100644
---- a/drivers/mfd/abx500-core.c
-+++ b/drivers/mfd/abx500-core.c
-@@ -5,6 +5,7 @@
-  * Author: Mattias Wallin <mattias.wallin@stericsson.com>
-  */
+diff --git a/drivers/mfd/ab8500-core.c b/drivers/mfd/ab8500-core.c
+index 86fa99022cb3..408bad2f577a 100644
+--- a/drivers/mfd/ab8500-core.c
++++ b/drivers/mfd/ab8500-core.c
+@@ -1232,16 +1232,13 @@ static int ab8500_probe(struct platform_device *pdev)
  
-+#include <linux/device.h>
- #include <linux/list.h>
- #include <linux/slab.h>
- #include <linux/err.h>
-@@ -33,6 +34,21 @@ static void lookup_ops(struct device *dev, struct abx500_ops **ops)
- 	}
- }
+ 	if (((is_ab8505(ab8500) || is_ab9540(ab8500)) &&
+ 			ab8500->chip_id >= AB8500_CUT2P0) || is_ab8540(ab8500))
+-		ret = sysfs_create_group(&ab8500->dev->kobj,
+-					&ab9540_attr_group);
++		ret = devm_device_add_group(ab8500->dev, &ab9540_attr_group);
+ 	else
+-		ret = sysfs_create_group(&ab8500->dev->kobj,
+-					&ab8500_attr_group);
++		ret = devm_device_add_group(ab8500->dev, &ab8500_attr_group);
  
-+void abx500_remove_ops(struct device *dev)
-+{
-+	struct abx500_device_entry *dev_entry, *tmp;
-+
-+	list_for_each_entry_safe(dev_entry, tmp, &abx500_list, list)
-+		if (dev_entry->dev == dev)
-+			list_del(&dev_entry->list);
-+}
-+EXPORT_SYMBOL(abx500_remove_ops);
-+
-+static void abx500_unregister_ops(void *data)
-+{
-+	abx500_remove_ops(data);
-+}
-+
- int abx500_register_ops(struct device *dev, struct abx500_ops *ops)
- {
- 	struct abx500_device_entry *dev_entry;
-@@ -45,20 +61,11 @@ int abx500_register_ops(struct device *dev, struct abx500_ops *ops)
- 	memcpy(&dev_entry->ops, ops, sizeof(*ops));
+ 	if ((is_ab8505(ab8500) || is_ab9540(ab8500)) &&
+-			ab8500->chip_id >= AB8500_CUT2P0)
+-		ret = sysfs_create_group(&ab8500->dev->kobj,
+-					 &ab8505_attr_group);
++			ab8500->chip_id >= AB8500_CUT2P0 && !ret)
++		ret = devm_device_add_group(ab8500->dev, &ab8505_attr_group);
  
- 	list_add_tail(&dev_entry->list, &abx500_list);
--	return 0;
-+
-+	return devm_add_action_or_reset(dev, abx500_unregister_ops, dev);
- }
- EXPORT_SYMBOL(abx500_register_ops);
- 
--void abx500_remove_ops(struct device *dev)
--{
--	struct abx500_device_entry *dev_entry, *tmp;
--
--	list_for_each_entry_safe(dev_entry, tmp, &abx500_list, list)
--		if (dev_entry->dev == dev)
--			list_del(&dev_entry->list);
--}
--EXPORT_SYMBOL(abx500_remove_ops);
--
- int abx500_set_register_interruptible(struct device *dev, u8 bank, u8 reg,
- 	u8 value)
- {
+ 	if (ret)
+ 		dev_err(ab8500->dev, "error creating sysfs entries\n");
 -- 
 2.56.0.218.g1ec904b173-goog
 
