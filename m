@@ -2,113 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA9BB606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 23:53:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C69D2606A32F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 00:10:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=e0aCBjfM;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NL00w4KL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lC6uMcaZ;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HtYfjjAq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Kel4RSYESjXcs8Dg40JwYXjmWcDIJY09nOoIQY6d2LQ=; b=e0aCBjfMYWy7Putk7xitH6gQhV
-	QGK599s5reawi9tVwJJrmApmgPO5dIWBqZCyYaUKsR5ZHqB08GdSv/Yig1Ecyl2POqGUgXwYT6m9S
-	Kz1vatYWs4mDuiXf8bnxQnFGGlIpsKJfISSFE0NupJ14xlz1j10nfQM6K9FAN7wC4nKlW3YdwY5yG
-	wZYNeBoVzzNBJsIEkknMelcthruQk8TQ9QO1vpO92C9Te6JSbzbFB7aZZ9rpXCbrpjvd63kjxrKB5
-	bFmFsgTj1W8P8R29QR1MJOSNncaV8GYKlwvqDQs3pqpuZwYCnPXr/0edTC4uN1znBsgl6h2H7s7wL
-	O6KSALuA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wofT5zkebqyVszVlAt1/ONTLPuvX9LaDgUNffCT1rws=; b=lC6uMcaZvYt3GS4JPtjBY3RfVJ
+	19jpfroBqc6+wZ6R3FzKJybEcPhdBvDWgcMQs+vEx6jTsrqsKH1uepAGKVzUXoyBupLG3O3X3d10x
+	MtBlcaMZr/rJmPsO1raLfJCFRWFVsO6m8gPO2FzdMutyVFQ1Ws0Qx+nL6NWBmNr74jXDRJCpvUxwQ
+	xVdwYcRY7M2zKBvKG/UfyzEmfsPPNc/iZy+/7d/Jyj0wujITL8zuWFAFAkZQhO6scZVZso3TtlcDl
+	0bHC5J3HMyK2W29lPswAhTXqBblpBx3+D500OLJCR6X0qHrCKt2lrqMZqnL5SBJ0pYwhubUobWgj5
+	qsLaVKgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJJe2-0000000ApfM-0mPL;
-	Tue, 20 Oct 2026 23:53:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJJuL-0000000Aqbk-3qle;
+	Wed, 21 Oct 2026 00:10:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJJdz-0000000Apeu-3zST
+	id 1xJJuK-0000000AqbP-3gEm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 23:53:24 +0000
+	Wed, 21 Oct 2026 00:10:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A4DE43759;
-	Tue, 20 Oct 2026 23:53:23 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792540403;
-	b=YrbyLersiFbL+bsZNjvQXg/p3/jq0iYO8cn5Xql/g84tRs91sGvTNKJYsEU3jZX2mMn/
-	 WqFLzI2VMVAgHE/pnFI/1yNrs7bXvSbJBvYor3pvxVnb7sMwINytwQEsRxK0moUCsqg7X
-	 enXWbnsXQ1hPdyhikXf29fIbBP9Jp68RD4etcYt6636ggbozafKe82Sc96jr2DttCC8aW
-	 aJSbplXdpVHh26D7aXqALQ60qh6sxCPcxdQ9OgzA1Xu3sPqZufpgeUlvuhYgiWNXvPCuX
-	 tiTGNjCuOOAunCN7Mbp7a+3TSa/l3eIwRkftcqvsYilAVyu9QFdThZJbQacdoqFzQjw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792540403;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=Kel4RSYESjXcs8Dg40JwYXjmWcDIJY09nOoIQY6d2LQ=;
-	b=Yv2mv6uX3fyY2grTI0SlymEzU2bvzI/KXD9Abf0zyeZEdvGtXYyhqlyNmuGkQ/4MZKOL
-	 h+Hy0DEHZHOCVwJ08mrgsgCxRw3xcUquqVuNiMAal7p7Pr6ipvQ8jW6bdiIJurseS1v/n
-	 KtKh4fE1UKuxonz3m7ojtuKp4aZNiK3mOOYH0vNN7huLt1DjX0s/Ej2eI1NyE7YBLOKrH
-	 wAS7VHHLwsU2SaiN9GT2t24fZRVqJlNGLVYaVuzbevijQLuM65YzCE84RGFL10SuITAoE
-	 TA0doHrGOCtTJoqjd1ahp36wlwDkcHSwAYjYtwgDoojIOxO+L7lHu/4s4V9tiT+QnDg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2AA161F000CB;
-	Tue, 20 Oct 2026 23:53:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F49A60A7F;
+	Wed, 21 Oct 2026 00:10:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 455101F000CD;
+	Wed, 21 Oct 2026 00:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792540403;
-	bh=Kel4RSYESjXcs8Dg40JwYXjmWcDIJY09nOoIQY6d2LQ=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=NL00w4KLJBC3iawsBoUNIOGnDmsbentUZwRLGedSaHsGa9t4RVY2KjUFffgp27rPQ
-	 Z40ynxLvfdl3x/j66cgPICq3uWnf8WuCulSKp0FUofWyQOLCtgQWpKf3JIbckTiJLg
-	 l8hJ8AUXxIZhVUuy3n//6G8hriAZdCmDv3SJ/PEvXctWP5HbPFau+S3CR7EfCD38/S
-	 uC8TBOm8vPUZfqugmaUDVfsD7iPeYHkr8QD6kw6Wyamm0KOstP1GnK42B8XRrFHbWn
-	 6aAbwTc0w94fv3xyrBds9AcvF6pcyzFRU685VL3lTGWteL6B/7WT7Yj051nQrbGFsV
-	 Yn8/elM8VaQww==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7EC4543263;
-	Tue, 20 Oct 2026 23:53:21 +0000 (UTC)
-From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
-Subject: [PATCH v2 0/2] arm64: Add KVM support for newer Apple Silicon CPUs
-Date: Wed, 21 Oct 2026 10:53:19 +1100
-Message-Id: <20261021-apple-m3-m4-kvm-v2-0-04905152cc2a@gmail.com>
+	s=k20260515; t=1792541415;
+	bh=wofT5zkebqyVszVlAt1/ONTLPuvX9LaDgUNffCT1rws=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=HtYfjjAqAkOchhnCE/U8yb6mVONCWharGasG5A++W2fDi3VgEVM7mb/V1N9jvIis6
+	 jKdYQ4jkWqGrj3OtAFE2VsR/pUnWQhwqcJ1CeWTzPNhm/JJ/JDsRjCZwZaLS7tFzUN
+	 yTTpnWUG58OcC6oWjg88fJGgS0WBQmLHOsfYgobIDrMLCfSXG2rgjyxz+t6VARO7cj
+	 L9qyo0bN1jJbfK+qA6BqFKeynBiTlHCiR5JMCe/Y+VFXUacwYu9oRbTnGkb5sMyHNc
+	 /G0YnUt2vBTWQiyKJ/8v5kNOEcESxNAb6h5NlvKcefi5y0+a7EKBf1r6CL7Y+xpirA
+	 TvVnDChQ/YB0A==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A4563809A0C;
+	Wed, 21 Oct 2026 00:10:15 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAO/+12oC/3WOQQ6CMBBFr2K6drQUAurKexgWnXaAKgXSYqMh3
- N0W1i7fzP8vf2GenCHPboeFOQrGm3GIII4Hpjo5tARGR2aCizLj/AJymnoCm4Mt4BUsYIVXFJQ
- XqDSLrclRYz6b8VHv7N/4JDUnTUqg9ATo5KC6dNJONvN5127C+E6xzvh5dN9tWciS7v+IkAGHC
- rFQ2OS6zPHeWmn6kxotq9d1/QE4rRLf5wAAAA==
-X-Change-ID: 20261008-apple-m3-m4-kvm-b7b9b2e34bcd
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>
-Cc: Myria Sarvay <myrialsarvay@gmail.com>, 
- Yureka Lilian <yureka@cyberchaos.dev>, Fuad Tabba <fuad.tabba@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
- kvmarm@lists.linux.dev, Sven Peter <sven@kernel.org>, 
- Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
- asahi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Michael Reeves <michael.reeves077@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792540400; l=1504;
- i=michael.reeves077@gmail.com; s=20261008-m3-m4-kvm;
- h=from:subject:message-id;
- bh=G8igJOGmolem0kocmF21BJtoXeYx1AMIyTFUWr2XhNg=;
- b=3/imRnUx82pjDBOxQMAxCwDKByTwQ/pGjZVTqRy7jTjfXcIpKtcapYnyJgcn0m0DpETbDD76T
- CByrM5Dp/QaBW1o/MLetC4O2gExoXOB0vaJrXCtXkvMWIPOsb/Elnyr
-X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
- pk=oi7WuppQ1A+qFZp9DdfIwDnpC3WZ+XY6fJK1upV/CSY=
-X-Endpoint-Received: by B4 Relay for
- michael.reeves077@gmail.com/20261008-m3-m4-kvm with auth_id=1131
-X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net 0/2] net: stmmac: Track and report the TX DMA
+ threshold
+ per queue
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <179254141377.280032.3757273474047179369.git-patchwork-notify@kernel.org>
+Date: Wed, 21 Oct 2026 00:10:13 +0000
+References: <20261013114503.57487-1-ovidiu.panait.rb@renesas.com>
+In-Reply-To: <20261013114503.57487-1-ovidiu.panait.rb@renesas.com>
+To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ xiaoliang.yang_1@nxp.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,60 +74,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.reeves077@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	FREEMAIL_REPLYTO_END_DIGIT,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+Hello:
 
-This series enables KVM support on Apple Silicon M3 (base, Pro and Max),
-base M4, A18 Pro and M5 Pro CPUs.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-The first patch adds the CPU part numbers and MIDR definitions.
+On Tue, 13 Oct 2026 11:45:01 +0000 you wrote:
+> On the Renesas RZ/V2H platform, which has two dwmac4 controllers, we
+> observed sporadic iperf3 TCP TX failures on one of the controllers, with
+> throughput dropping from >900Mbit/s to ~1Mbit/s due to TX underflows and
+> the resulting retransmissions.
+> 
+> Commit 3a6c12a0c6c3 ("net: stmmac: bump tc when get underflow error from
+> DMA descriptor") made dwmac4 raise the DMA threshold of the queues that
+> report TX underflows, by increasing a global module parameter 'tc'.
+> However, this logic does not work correctly across multiple queues and
+> controllers, and can leave the TX DMA threshold stuck at 64 bytes.
+> 
+> [...]
 
-The second patch adds these CPUs to the existing Apple Silicon PMU and
-broken SEIS workarounds. It also enables TDIR detection so KVM can trap
-guest DIR accesses without trapping all common registers.
+Here is the summary with links:
+  - [net,1/2] net: stmmac: Track the TX DMA threshold per queue
+    https://git.kernel.org/netdev/net-next/c/9dd534187819
+  - [net,2/2] net: stmmac: Report the TX DMA threshold per queue
+    https://git.kernel.org/netdev/net-next/c/aee7b59e6e7b
 
-This series was developed from testing on:
-- Apple M3 and M3 Pro by Michael Reeves
-- Apple M3 Max by Myria Sarvay and Yureka Lilian
-- Apple M4, A18 Pro and M5 Pro by Yureka Lilian
-
-These tests also confirmed that the SEIS workaround is still needed.
-
----
-Changes in v2:
-- Add A18 Pro and M5 CPU IDs and workaround coverage.
-- Add all to has_vgic_v3 for TDIR detection
-- Document testing confirming SEIS workaround still needed
-- Link to v1:
-  https://patch.msgid.link/20261008-apple-m3-m4-kvm-v1-0-7bb4cbf3d63b@gmail.com
-
----
-Michael Reeves (1):
-      arm64: Apply existing Apple Silicon CPU workarounds to newer CPUs
-
-Myria Sarvay (1):
-      arm64: Add CPU part numbers for newer Apple Silicon CPUs
-
- arch/arm64/include/asm/cputype.h | 28 ++++++++++++++++++++++++++++
- arch/arm64/kernel/cpu_errata.c   | 12 ++++++++++++
- arch/arm64/kernel/cpufeature.c   | 12 ++++++++++++
- 3 files changed, 52 insertions(+)
----
-base-commit: a90ee4305c4a5df72c11b31dacfdc76e00fcf78a
-change-id: 20261008-apple-m3-m4-kvm-b7b9b2e34bcd
-
-Best regards,
---  
-Michael Reeves <michael.reeves077@gmail.com>
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
 
