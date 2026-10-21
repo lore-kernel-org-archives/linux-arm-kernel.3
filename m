@@ -2,84 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A187C606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 10:37:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85190606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 10:39:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=R4pQWbKb;
-	dkim=pass (1024-bit key, unprotected) header.d=collabora.com header.i=louisalexis.eyraud@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=kwBQM5Nb
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FkidSSma;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=ZuAsiKDN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QjzGdWbiEqzzV/MbYQG4TopYjAr0X/I+MiCAzcAGLpI=; b=R4pQWbKbvLJghoIAy4XSJQ1Ce6
-	qgWCNuOm5pO0ivblyVvFdG3CxGD2hYoCzUFkAcUVoUROUEkA7NtLO2YyjzxnCTi3jNGMjYguWFPgn
-	NJPTWozEJk73aDJuY1AwsPca2oLquex8NRKkRFPQHvVcFTbLwfFjRh63zxoWIOoSDCBSDXUg+Aqim
-	ZTTfv/t+jWknLnIMS2ELuhrlzoSzLzMa8zNRkdX2EiwccBEh17Ji9Fn2Ipb0/xwVmav9nLvzVfXOC
-	RKUdvXWb2cL92nrhnP4T74qYFlvNOadHXEPkBvVijbqCvwYNVTxxXXXwYE1oc+eNovF4GcSctZCyr
-	7IrX1Bmg==;
+	bh=aafQ9iCPHSVe3sQfOa/qU9zZlkpiMt393ivgSciYmVQ=; b=FkidSSmaIJVBCeJy7nFZ3WbeEl
+	Eeo7LF4nkjp92D0BTXkke+tfi30MkFOLTAkRoYAy1u7t6aXWBW1S7EhZ1TkdDQSl9n0EN4q5y0q7g
+	DbpS4Tsl39cNSm5aGhprhYzUfmupYmZraf/CXjgjSD3FB16Vjt6jBAoNEf6H4B8pIunoyRYmjy+/6
+	it+a3/s06uHW7tPHlQPcAWKeLK933ixXH0tDjMAfJj7irrPGRp+LSFDXHtg5Kw7OSNzj8s91aMvhJ
+	S9T23d0W8bJaQBlZofgHzRYSmEfygXY6SQaEVYITeUKgG8CSqBYMsVa12tR7egG4Doprlj84Dth+D
+	jU1MIvpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJTgz-0000000BcS5-234f;
-	Wed, 21 Oct 2026 10:37:09 +0000
-Received: from sender6-pp-g123.zoho.com ([165.173.180.123])
+	id 1xJTjZ-0000000BcqB-0MEt;
+	Wed, 21 Oct 2026 10:39:49 +0000
+Received: from mail-vk1-xa32.google.com ([2607:f8b0:4864:20::a32])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJTgw-0000000BcQu-1RKA;
-	Wed, 21 Oct 2026 10:37:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1792579004; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Vg4ASxVe/gRrDD7T/H1HLXKpWWkQxEoEToUwf2gjVgQHhTYdsZF+0wcPe/aCT6kTTygdTn8+XsTD4KtGu2NKj4mneTRLu+o0VYhkjaQexiAmfxaPQXlcWkvJ8mu+as0fYuu1Z6VApa5hqNk6BEhCQW+lD4eLzEP2HGCw7Z54wTU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1792579004; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=QjzGdWbiEqzzV/MbYQG4TopYjAr0X/I+MiCAzcAGLpI=; 
-	b=XcQSfehKD8VgFwklFZJegFzqLTSxt+T60vRuu/Y6MC3JjpjUtQNDXGycZu7OPrKJ/c3933kKqODgfJqZ/u94N6+w9cbvIoSw6xnfamF74sy/IM1OJvKgt6HY5wh8Ew7eOg21XWfIY6gwNQI+nlUupDgA0qMT0k+bvuRoeCygFlQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1792579004;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=QjzGdWbiEqzzV/MbYQG4TopYjAr0X/I+MiCAzcAGLpI=;
-	b=kwBQM5NbKMKpWskOQ/UK068FN2dUY6f3Tqfsgf0xMc4o9dWO9sF6V3kiGe08IUg7
-	+naym6+93bNkSscqYsND5A/H5/jtiUtWzKFSSmAXBBabwt41p9RF3uJQantmcB+nqwR
-	EgGGkjq59XEsOgSNwGVkJJUUh8lRFRFDV5IdN8ro=
-Received: by smtp.zohomail.com with SMTPS id 1792579002564512.9314975124558;
-	Wed, 21 Oct 2026 03:36:42 -0700 (PDT)
-Message-ID: <b7d26b378e3cfdb54a113cca1d8d53293cad966c.camel@collabora.com>
-Subject: Re: [PATCH net-next v3 5/9] net: stmmac: mediatek: add RX/TX delay
- stage divider in platform data
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn	
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Richard Cochran	 <richardcochran@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Biao Huang
- <biao.huang@mediatek.com>, Maxime Coquelin	 <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,  Eric Dumazet
- <edumazet@kernel.org>
-Cc: kernel@collabora.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-Date: Wed, 21 Oct 2026 12:36:37 +0200
-In-Reply-To: <34608ab8-18f3-4680-8276-cd8611c05cb1@bootlin.com>
-References: <20261016-dwmac-mediatek-mt8189-v3-0-25daf2bbcf35@collabora.com>
-	 <20261016-dwmac-mediatek-mt8189-v3-5-25daf2bbcf35@collabora.com>
-	 <34608ab8-18f3-4680-8276-cd8611c05cb1@bootlin.com>
-Organization: Collabora Ltd
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
+	id 1xJTjW-0000000Bcpk-0x7o
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Oct 2026 10:39:47 +0000
+Received: by mail-vk1-xa32.google.com with SMTP id 71dfb90a1353d-5eaabf28c06so426592e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 03:39:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792579185; x=1793183985; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=aafQ9iCPHSVe3sQfOa/qU9zZlkpiMt393ivgSciYmVQ=;
+        b=ZuAsiKDNa92qCb1ZqSlmkwuvcLG67UsPY3xACxHpRirev/b28EPSjScc5wZuXoH/Qk
+         jK7dvGDbtkveY6z1rRokMxLC0bQZ++CUN3fl9uJAoAKsGjx1cng+Vk5iNo+37VGHBMmE
+         FBzuRDGWEu1s9iDgy7QoLytqGt8oSkWdN/DlepUpTbvQW3d32C7/F594ejibqmTGtCdc
+         EujDk7XmtTc9XJYBVhxKvyiVBhShY8lh3BV0SJrJELj7eqae3aG7DQmD1mVLH1fDeuy0
+         jniIoXSvlbpU0g6VT6wQLnVmBR5YnlwA2uC0Xuhu8UaLsFjqCBt5U1Cb2Hqd0pZnK7ix
+         96xA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792579185; x=1793183985;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aafQ9iCPHSVe3sQfOa/qU9zZlkpiMt393ivgSciYmVQ=;
+        b=AZMijAKgNmolTrKri9MLFMoXkmmS138j3M/PSyvWSA4aYZKpd+41uiJ4fYfbTHIenR
+         yceJ9D1WgGIOJPet8KOzM07vU/oampIN55VWUYK+akGUEwhH4AQFbcLuPt7sAY9yMyIr
+         Tjimo8JmPob7oqcwd6IrLjTTSZQY0iKwnX9UgPjE5FjkyW2/QcPAH2TJIm0bocxTGV/E
+         ol4hC+g3g3iAlpCknc4j1rKSLap1JB3iUllRg7AZOgZ0S2m3OcEYy0Phds6dzm+4u4XR
+         VB4SVmEXH8IvyWeGL2QsDDev2ZVE7HBkVC4avvfndQznY6mOZJGwP3uTgZkxVfiIj6HM
+         LQQw==
+X-Forwarded-Encrypted: i=1; AKwUvBzgOCW0moBPAa9LAHf08vPl/IGUD9o+3wAwCYiHngOmC35/M9sfE2XOjgYlp2FY+XxGGloUhQtnQG25jiS7Eg3d@lists.infradead.org
+X-Gm-Message-State: AFq9FYLdRYHNIULmbVUQmOYh7xW6Jrp9FzCbF3VK1s+J+tAy6JE9t8hL
+	TTgFOU2igey4bMpzKMiAgKluDvoxQiwKqVvUTR6qEBEKpBwNoFqaVtMc
+X-Gm-Gg: AYBFou2j6w9ZZdltNf0O/ty+DBO4cstJOrYUXoxX3indJNIXXbo87ojSMA+LMXy8ANT
+	jY5B9j4+/57fNiPkMtrOxTaeSku15aq5hQSCiAEmdQiqfh9D2vDIK+8SM8s7fUiYq9UepknRXIG
+	1Ai1zmMIhd0R0qWpalCBF2vqbcYV9UvSpr2sarrGhpwpADFGrV+AeMWXgAAiuEP+nM4UpI/EdBW
+	xKCWDjOyrdKNhmM67vfvVPmfkZO90YytjjgJ9icv8NB0TqMU04ekgabX/RP1izXvdzGZarddfWg
+	E+hXhDvaTo98oRm1IUxCY8ZgvIf0/7C0I7NY/311/DFJkJMvvlGYVFkiC4ml/opvEWgptLzns5x
+	f2kRx7SCEWi6GPCniXHevBmy1FQzu29cquFePh7mvMzt4KR0CZ0YLOZbrGp877ya9FR83UOKeuD
+	FVXT1tySa0wz3DQR68r8LMfj97nfxVIjXc+npFGAGdw9r7EtLXXJC7CbPlOcBi3jiiCEwD3iSIl
+	KGRw/0SjMSzsEqmDHer5Jm3k+cA6oieott3Bqz8ROCTCW/e8pmoR2O7ZNmYLdWTngjeP/fX4MWc
+	uFOiYpTB
+X-Received: by 2002:a05:6122:1b8c:b0:5ea:c722:b3a with SMTP id 71dfb90a1353d-5eaebd96736mr504117e0c.7.1792579184449;
+        Wed, 21 Oct 2026 03:39:44 -0700 (PDT)
+Received: from leonardoc-nb ([67.159.246.222])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5eae97f0a94sm2630002e0c.11.2026.10.21.03.39.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Oct 2026 03:39:43 -0700 (PDT)
+Date: Wed, 21 Oct 2026 07:39:36 -0300
+From: Leonardo Costa <leoreis.costa@gmail.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	ernest.vanhoecke@toradex.com, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Leonardo Costa <leonardo.costa@toradex.com>
+Subject: Re: [PATCH 6/6] arm64: dts: freescale: imx8mp-verdin: Add Mezzanine
+ with Toradex Display 10.1" LVDS V2
+Message-ID: <t77enz5e4sywcigwdjwpes66jywhtsruzrtf7opde2umfuaock@3aouga4ng3gc>
+References: <20260813133335.1941580-1-leoreis.costa@gmail.com>
+ <20260813133335.1941580-7-leoreis.costa@gmail.com>
+ <an3brO5COdw_F76m@SMW015318>
+ <rglymw6p4c65yoqz3pjn6e6nq7cil2fa7m7dqghshgdpavby7d@kyza3ceavq6z>
+ <an3tiDOUUYLb8PAq@SMW015318>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <an3tiDOUUYLb8PAq@SMW015318>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_033706_486384_0FF5118E 
-X-CRM114-Status: GOOD (  26.15  )
+X-CRM114-CacheID: sfid-20261021_033946_313267_9A6FD72F 
+X-CRM114-Status: GOOD (  36.78  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,105 +107,223 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Maxime,
+Hi Frank,
 
-On Fri, 2026-10-16 at 13:37 +0200, Maxime Chevallier wrote:
-> Hi Louis-Alexis,
->=20
-> On 10/16/26 12:31, Louis-Alexis Eyraud wrote:
-> > In preparation of newer SoC support, that have like MT8189 SoC
-> > different RX and TX internal delay stage steps than MT8188/MT8195,
-> > add
-> > the RX and TX delay stage divider values in the variant platform
-> > data
-> > and replace the hardcoded value uses in mt2712_set_delay and
-> > mt8195_set_delay.
-> >=20
-> > Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> > Signed-off-by: Louis-Alexis Eyraud
-> > <louisalexis.eyraud@collabora.com>
-> > ---
-> > =C2=A0.../net/ethernet/stmicro/stmmac/dwmac-mediatek.c=C2=A0=C2=A0 | 46
-> > ++++++++++++++++++----
-> > =C2=A01 file changed, 38 insertions(+), 8 deletions(-)
-> >=20
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> > b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> > index 596411d4a5b2..cb5bda53edb9 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> > @@ -108,6 +108,10 @@ struct mediatek_dwmac_variant {
-> > =C2=A0
-> > =C2=A0	u32 rx_delay_max;
-> > =C2=A0	u32 tx_delay_max;
-> > +	u16 rx_rmii_delay_stage_div;
-> > +	u16 tx_rmii_delay_stage_div;
-> > +	u16 rx_rgmii_delay_stage_div;
-> > +	u16 tx_rgmii_delay_stage_div;
-> > =C2=A0	u8 dma_bit_mask;
-> > =C2=A0};
-> > =C2=A0
-> > @@ -146,14 +150,22 @@ static int mt2712_set_delay(struct
-> > mediatek_dwmac_plat_data *plat)
-> > =C2=A0	u32 fine_val =3D 0;
-> > =C2=A0
-> > =C2=A0	if (phy_interface_mode_is_rgmii(plat->phy_mode)) {
-> > -		rx_delay_stage_div =3D
-> > MT2712_RGMII_DLY_RXC_STAGE_DIV;
-> > -		tx_delay_stage_div =3D
-> > MT2712_RGMII_DLY_TXC_STAGE_DIV;
-> > +		rx_delay_stage_div =3D plat->variant-
-> > >rx_rgmii_delay_stage_div;
-> > +		tx_delay_stage_div =3D plat->variant-
-> > >tx_rgmii_delay_stage_div;
-> > =C2=A0	} else {
-> > -		rx_delay_stage_div =3D
-> > MT2712_RMII_DLY_RXC_STAGE_DIV;
-> > -		tx_delay_stage_div =3D
-> > MT2712_RMII_DLY_TXC_STAGE_DIV;
-> > +		rx_delay_stage_div =3D plat->variant-
-> > >rx_rmii_delay_stage_div;
-> > +		tx_delay_stage_div =3D plat->variant-
-> > >tx_rmii_delay_stage_div;
->=20
-> Looking closer at this, what's RMII delay ? There's no delays in
-> RMII, and
-> it's a single clock not a RX and TX clock like RGMII, there's no RMII
-> TXC/RXC.
->=20
-You are right, these structures field and define names are wrong for
-RMII/MII cases.
-The mediatek,tx-delay-ps and mediatek,rx-delay-ps vendor properties are
-used by this driver to fine tune different clocks depending on the phy
-mode:
- - RX_CLK/TX_CLK in MII
- - REF_CLK in RMII
- - TXC/RXC in RGMII
+On Thu, Aug 13, 2026 at 11:15:04AM -0500, Frank Li wrote:
+> On Thu, Aug 13, 2026 at 12:43:29PM -0300, Leonardo Costa wrote:
+> > On Thu, Aug 13, 2026 at 09:58:52AM -0500, Frank Li wrote:
+> > > On Thu, Aug 13, 2026 at 10:33:35AM -0300, Leonardo Costa wrote:
+> > > > From: Leonardo Costa <leonardo.costa@toradex.com>
+> > > >
+> > > > Add a device tree overlay enabling the Toradex Capacitive Touch Display
+> > > > 10.1" LVDS V2 on the Verdin Development Board with Verdin iMX8M Plus
+> > > > Mezzanine expansion board. The panel connects via the i.MX8M Plus LCDIF
+> > > > on the Mezzanine LVDS interface (J10). The panel is an Opto Logic
+> > > > SCX1001511GGC49 10.1" WXGA TFT LCD LVDS and the touch input is provided
+> > > > by an ILITEK ILI251x capacitive touch controller.
+> > > >
+> > > > Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
+> > > > Link: https://developer.toradex.com/hardware/verdin-som-family/add-ons/verdin-imx8m-plus-mezzanine
+> > > > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
+> > > > ---
+> > >
+> > > what's difference with Add Toradex Capacitive Touch Display 10.1" LVDS V2
+> > >
+> > > why not share one dtso?
+> > >
+> > > Frank
+> >
+> > Hi Frank,
+> >
+> > There are two main differences:
+> >
+> > 1. The mezzanine one uses different backlight controll pins, so here we
+> > use the 'backlight-mezzanine' node, instead of the 'backlight' one, used
+> > in the one without the mezzanine.
+> >
+> > 2. The touchscreen GPIO and interrupt pins are also different with the
+> > mezzanine board.
+> 
+> 
+> And there are for imx8mm
+> https://lore.kernel.org/imx/20260724-v1-verdin-imx8mm-dtbos-v2-3-9d7988bd76f6@toradex.com/
+> 
+> https://lore.kernel.org/imx/sr26lfvwasgcosfzcf4ydtwxwjjutlio2yqpgxldatpzjo7e4y@77k7gefnjzvl/
+> 
+> Any ways, it is too late for 7.3, we have enough time for 7.4 to discuss
+> work on optimization solution.
+> 
+> If use nexus connectors, we can share one dtso now if there are not
+> clock settings.
+> 
+> clock patches is close to pick up
+> https://lore.kernel.org/all/20260807-schneider-v7-2-rc1-eip201-upstream-v5-1-8785f9531cf0@bootlin.com/
+> 
+> Frank
 
-I'll fix the fields and define names in next series revision, along the
-issues the Sashiko reviews found.
+We tried to make the change to have a single overlay for the boards with and
+without the Mezzanine. However, in the current state of nexus connectors, this
+can't be done cleanly yet. When trying to describe the hardware at the level it
+exists in, following DT guidelines, and using nexus connectors, we still need
+two separate overlays to enable the native LVDS with and without the Mezzanine,
+so we don't really reduce the maintenance effort.
 
-> I think it's the same as on allwinner, the delay handling has been
-> mixed-up between
-> RMII and RGMII in the glue, you should be able to simplify this even
-> more by
-> ditching the RMII case.
-The register fields that the driver sets in RMII or MII mode to tune
-the needed clock(s) are different than the ones set in RGMII.
-So I cannot really ditch the case but I'll simplify the delay handling.
-For instance I could use a single divider field per mode, since for all
-compatibles the value is the same in both RX and TX.
+See the changes at the end of the email, this is the closest we got to a
+correct and clean implementation that would allow the usage of a single
+overlay.
+
+The root cause of the issue is that we need to claim pinctrl_i2s_2_d_in_gpio
+and pinctrl_i2s_2_sync_gpio for the touchscreen on the Mallow Carrier Board.
+Ideally, they would be defined in the nexus connector, as shown in the diff.
+However, after enabling the connectors in the overlay, the pinctrl groups
+remain unclaimed. The reason is that nexus connectors have no driver to claim
+the groups.
+
+    root@verdin-imx8mp-14777535:~# cat /sys/kernel/debug/pinctrl/30330000.pinctrl/pinmux-pins
+    ...
+    pin 112 (MX8MP_IOMUXC_SAI3_RXD): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+    pin 113 (MX8MP_IOMUXC_SAI3_TXFS): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+    ...
+
+There is nowhere else in the carrier dtsi's where the pinctrls belong.
+
+The pinctrl groups thus need to be added to the touchscreen node defined in the
+overlay. However, the pins on the Development Board (which uses the Mezzanine)
+are muxed by pinctrl_gpio2 and pinctrl_gpio3. These groups are in the SoM dtsi,
+and we cannot claim them in the overlay. Because of this, the Mezzanine needs
+a different overlay, which doesn't claim any pinctrl.
+
+We like the idea of a single overlay for both carriers, but sadly the nexus
+connectors, as they currently are, are not ready to enable this. We therefore
+have to move forward normally and once connector support matures, we're happy
+to refactor this and try to reduce the amount of overlays for the Verdin iMX8MP
+and for other modules.
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi
+index 72a4f846d694..d73a7e9042ea 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi
+@@ -4,6 +4,41 @@
+  */
+
+ / {
++	lvds_connector: lvds-mezzanine-connector {
++		compatible = "toradex,lvds-connector";
++		#gpio-cells = <2>;
++		/* LVDS_BKL_EN_CON - Verdin GPIO 4 (SODIMM 212) */
++		gpio-map = <0 0 &gpio1 6 0>;
++		gpio-map-mask = <0xffffffff 0x0>;
++		gpio-map-pass-thru = <0x0 0xffffffff>;
++
++		#pwm-cells = <3>;
++		/* LVDS_PWM_CON - Verdin PWM_2 (SODIMM 16) */
++		pwm-map = <0 0 0 &pwm2 0 0 0>;
++		pwm-map-mask = <0x0 0x0 0x0>;
++		pwm-map-pass-thru = <0x0 0xffffffff 0xffffffff>;
++
++		status = "disabled";
++	};
++
++	touch_connector: touch-mezzanine-connector {
++		compatible = "toradex,touch-connector";
++		#gpio-cells = <2>;
++		/* LVDS_TOUCH_RESET_CON# - Verdin GPIO_2 (SODIMM 208) */
++		gpio-map = <0 0 &gpio1 1 0>;
++		gpio-map-mask = <0xffffffff 0x0>;
++		gpio-map-pass-thru = <0x0 0xffffffff>;
++
++		#address-cells = <0>;
++		#interrupt-cells = <2>;
++		/* LVDS_TOUCH_INT_CON# - Verdin GPIO_3 (SODIMM 210) */
++		interrupt-map = <0 IRQ_TYPE_EDGE_FALLING &gpio1 5 IRQ_TYPE_EDGE_FALLING>,
++				<0 IRQ_TYPE_EDGE_RISING &gpio1 5 IRQ_TYPE_EDGE_RISING>;
++		interrupt-map-mask = <0xffffffff 0xffffffff>;
++
++		status = "disabled";
++	};
++
+ 	native-hdmi-connector {
+ 		compatible = "hdmi-connector";
+ 		label = "X37";
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi
+index 846b36706821..736f034c7550 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi
+@@ -11,6 +11,46 @@
+ #include <dt-bindings/leds/common.h>
+
+ / {
++	lvds_connector: lvds-connector {
++		compatible = "toradex,lvds-connector";
++
++		#gpio-cells = <2>;
++		/* LVDS_BKL_EN_CON - Verdin I2S_2_D_OUT as GPIO (SODIMM 46) */
++		gpio-map = <0 0 &gpio5 1 0>;
++		gpio-map-mask = <0xffffffff 0x0>;
++		gpio-map-pass-thru = <0x0 0xffffffff>;
++
++		#pwm-cells = <3>;
++		/* LVDS_PWM_CON - Verdin PWM_2 (SODIMM 16) */
++		pwm-map = <0 0 0 &pwm2 0 0 0>;
++		pwm-map-mask = <0x0 0x0 0x0>;
++		pwm-map-pass-thru = <0x0 0xffffffff 0xffffffff>;
++
++		status = "disabled";
++	};
++
++	touch_connector: touch-connector {
++		compatible = "toradex,touch-connector";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_i2s_2_d_in_gpio>,
++			    <&pinctrl_i2s_2_sync_gpio>;
++
++		#gpio-cells = <2>;
++		/* LVDS_TOUCH_RESET_CON# - Verdin I2S_2_D_IN as GPIO (SODIMM 48) */
++		gpio-map = <0 0 &gpio4 30 0>;
++		gpio-map-mask = <0xffffffff 0x0>;
++		gpio-map-pass-thru = <0x0 0xffffffff>;
++
++		#address-cells = <0>;
++		#interrupt-cells = <2>;
++		/* LVDS_TOUCH_INT_CON# - Verdin I2S_2_SYNC as GPIO (SODIMM 44) */
++		interrupt-map = <0 IRQ_TYPE_EDGE_FALLING &gpio4 31 IRQ_TYPE_EDGE_FALLING>,
++				<0 IRQ_TYPE_EDGE_RISING &gpio4 31 IRQ_TYPE_EDGE_RISING>;
++		interrupt-map-mask = <0xffffffff 0xffffffff>;
++
++		status = "disabled";
++	};
++
+ 	native-hdmi-connector {
+ 		compatible = "hdmi-connector";
+ 		label = "X14";
+@@ -159,6 +199,16 @@ &i2c5 {
+ 	status = "okay";
+ };
+
++&iomuxc {
++	pinctrl_i2s_2_d_in_gpio: gpio4io30grp {
++		fsl,pins = <MX8MP_IOMUXC_SAI3_RXD__GPIO4_IO30 0x1c4>;   /* SODIMM 48 */
++	};
++
++	pinctrl_i2s_2_sync_gpio: gpio4io31grp {
++		fsl,pins = <MX8MP_IOMUXC_SAI3_TXFS__GPIO4_IO31 0x184>;  /* SODIMM 44 */
++	};
++};
++
+ &lcdif3 {
+ 	status = "okay";
+ };
+
+---
 
 Best regards,
-Louis-Alexis
->=20
-> Maxime
+Leonardo
 
