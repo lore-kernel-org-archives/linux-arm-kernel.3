@@ -2,71 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CBB6606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 23:42:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65C20606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 23:42:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MJtJNkBL;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eDP2AO6L
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UWih7Xat;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cGY3K1M7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K40LssP8OiY0dgBWU9vMWrD915dStcY2HaoQYfdzEdQ=; b=MJtJNkBLk+dKTZJmzFVt7rjYP9
-	N8rLcL1U5iNgy6sVIDZtaoVgyeWYs8ZMYZ96uTMgKvSRpdZZpR3MPzDs903IQXZTR+yR+alsK8tea
-	2XVn2oNUJuUPuUFZ4q+gjyMPax9Dd0I3MMUhuSRDMWb6AoUJ4JgIdrZDU1FwLB160EdNKAWJAT+LO
-	K/WbSB2BUIWdVDRh8CgOn+FS4pXHChEn7SlngL8bK2XxdpYi7AQFN9e1i8jH/hajNoGmycoMZyV+w
-	yBVdlTd8f5TizMeNprP/NYQjsZbZXHkmGLTscH+ipUt37Ojf9Evg7WxCR8I1IDXEWcYe21syfW3IA
-	xxBDtbyQ==;
+	bh=FCttpM/mIWeoisgI4Oe2UgAbsAorju2aXD0ZdeQI/eU=; b=UWih7Xatmx3d1R7xB4SHzr8esN
+	yEO/zD+LM4+D6Kh0231zNP1hdaPUyLdxEQmTUeEwyEWY+UjYiAUGU3jgnhBT0w8p35TZU+O4VTklO
+	TncTLgdMR+HWDa36DYRCyQyiA4Lwyj2ggBFu2lqel9dN8+7+iXWq9spbRWTAGgYp71g9dRcuBv4ZF
+	+mfcN+jhliitfcZUBycrxfyxl9wcADkcpUPyQDluIP+wcsJWXD7qbVfM7iPyTGDAyH1yFdWm3GL2E
+	E8RuC1ucwm3XTSCd57RRqvjcTZwyLTpG+O1sZQSRWJecQpYFxMSyY23olrNRs6+N62KNHbl4gHiWF
+	aXHRaOyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJfwa-0000000D3Oi-2Wgm;
-	Wed, 21 Oct 2026 23:42:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xJfxE-0000000D3Vr-34Ck;
+	Wed, 21 Oct 2026 23:42:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJfwY-0000000D3O3-3kbd
+	id 1xJfxC-0000000D3Vf-41Lp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 23:42:02 +0000
+	Wed, 21 Oct 2026 23:42:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1599060098
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 23:42:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDF161F000C2
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 23:42:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6AD3F60098
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 23:42:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C0691F000C7
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 23:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792626121;
-	bh=K40LssP8OiY0dgBWU9vMWrD915dStcY2HaoQYfdzEdQ=;
+	s=k20260515; t=1792626162;
+	bh=FCttpM/mIWeoisgI4Oe2UgAbsAorju2aXD0ZdeQI/eU=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=eDP2AO6L+kkKUnaU0JyIxD94D4aBvCW5MhhC3PF146cPgJU3lcPMltZ20OmUid+bo
-	 7P+HVDKuoFfSA2bAbtjF3SdQI2wMgw3YI91iRlfr832ZAzaxHdq1v6/uMKlMd+XOiq
-	 j/7J62vWj8zmnqaI5Oj+NwqcLaTimIGXrv67GiNtmPHXOQqNRoxcQC+OBuCUChj3al
-	 tA5ELvvXKHVJfAR8NOWAR2lu8NnSFw+9E9JLf4JUQPPuLNIShSpBdbWpLwa7EKYvGS
-	 C3tQQse7HtwZexAufMMWpy7uh1Xy0ql1d3Cigy3s2VXS2oDkqMlLVsDh/Nc4ZthCNx
-	 rRIItGpFXL5Ow==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5be42ae8eadso807790e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 16:42:01 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxuaUN430zOxmZuRRoqm/RJHpv17RzRSfQlMidB+6V4zm/eGJVHDapgZyTct7O/fNXP/46cEK1WwalNATnJhsKE@lists.infradead.org
-X-Gm-Message-State: AFq9FYJqgXqjxzZNrntvxWk9aMArI1N6LnqhmeZGXRsPy8IJmDsAUpRq
-	NsFOprhwzErfnMwBFdS/nkoKnCCG3hisdUqCjIIGrcGcnEkUEA81EZ87/PVohhA6TMavh8OwKKD
-	Ai7k/XtlAyQCSMFF9JRM/Dg4PVO3qQaU=
-X-Received: by 2002:a05:6512:158b:b0:5be:50d6:af8a with SMTP id
- 2adb3069b0e04-5bfa1ceb37cmr1176705e87.33.1792626120440; Wed, 21 Oct 2026
- 16:42:00 -0700 (PDT)
+	b=cGY3K1M7fCHt+Twn9BLTTxRcWwHGXe/n/oshtl388cWfeDxu9OoK6OywwiaavpZ84
+	 dM5o9tAl9k8qM2pWUnYQl/zBYKFpouhsneqjvoz7jfgcG1RSPR3pGlzP5zLmP0f2ZP
+	 zFmtKN6geV1ZKWVyRGz0ebSnuG5QimrsLqw2qk6DX5RhUdGiEmY2ZzLqDiFaQbH4gx
+	 Rl2CXMZpi7GtzfCHCUDobVvkY8vuBmBn7A2+gHFHB3W4zCW/pzOxI/3wNaOqcAMwyZ
+	 9hEpBKfGb2clVN0MkRmVipfUya7IG4rTBPUvKvXHtt3W62+MSd9m4fwkW0Un5pxb5t
+	 ipnX66rl7+m3g==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5be3ed646a5so971328e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 16:42:42 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByW7/pCO176g4M53ROznZcrC/FSJ3K6S7efMSRUE1bdv93Evw3whru5pmzNjkLUDPBm/L2qiJrGViC69PYTEv1e@lists.infradead.org
+X-Gm-Message-State: AFq9FYKi5arD6S9crOhLXZE6N7+VVv1izihcHrp3vdyB3aQCmJgl+BsL
+	Mn9F8tOSCEv5wsYDVhcQddLq8AFV7vC3TUbMtcfBTgB3pJsQgaNRayHV/RHJxXl42pQxj3LuJWB
+	CW37XQUCNe7meV/WXKlJ52O64XLRR5xU=
+X-Received: by 2002:a05:6512:23a2:b0:5be:478e:c5d2 with SMTP id
+ 2adb3069b0e04-5bfa1cdba7emr1474028e87.29.1792626160903; Wed, 21 Oct 2026
+ 16:42:40 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261021121245.3111563-1-lee@kernel.org> <20261021121245.3111563-7-lee@kernel.org>
-In-Reply-To: <20261021121245.3111563-7-lee@kernel.org>
+References: <20261021121245.3111563-1-lee@kernel.org> <20261021121245.3111563-22-lee@kernel.org>
+In-Reply-To: <20261021121245.3111563-22-lee@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 22 Oct 2026 01:41:47 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnXm3aJ4OnN8vNym2fVpU0PdQy1SBrPxLcc69hKA+K2wQ@mail.gmail.com>
-X-Gm-Features: AclHuK9mN2gA0wqDEHlNp4kMbBvt1v7fcpPP3f_rBZxENespfrI6p61sISoyu5U
-Message-ID: <CAD++jLnXm3aJ4OnN8vNym2fVpU0PdQy1SBrPxLcc69hKA+K2wQ@mail.gmail.com>
-Subject: Re: [PATCH 07/28] mfd: db8500-prcmu: Make AB8500 cell and IRQ
- resource static
+Date: Thu, 22 Oct 2026 01:42:27 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmfKFG7uWWUQg42+vvaRg2NO8GGOji_qT9O+nabf8Q5+Q@mail.gmail.com>
+X-Gm-Features: AclHuK-bW_sOqMKCXDtKCtW_jSZo6X1GW1kVojPPLhylF6_iQYgXHCX5xCW8YWM
+Message-ID: <CAD++jLmfKFG7uWWUQg42+vvaRg2NO8GGOji_qT9O+nabf8Q5+Q@mail.gmail.com>
+Subject: Re: [PATCH 22/28] mfd: abx500-core: Unregister device ops on devm release
 To: Lee Jones <lee@kernel.org>
-Cc: Kumar Sanghvi <kumar.sanghvi@stericsson.com>, Sundar Iyer <sundar.iyer@stericsson.com>, 
-	Mattias Nilsson <mattias.i.nilsson@stericsson.com>, linux-arm-kernel@lists.infradead.org, 
-	mfd@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Mattias Wallin <mattias.wallin@stericsson.com>, Samuel Ortiz <sameo@linux.intel.com>, 
+	linux-arm-kernel@lists.infradead.org, mfd@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -86,22 +85,23 @@ X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 2:14=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
+On Wed, Oct 21, 2026 at 2:16=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
 
-> db8500_prcmu_register_ab8500() declares struct resource ab850x_resource
-> and the mfd_cell descriptors on the stack and assigns &ab850x_resource
-> to ab850x_cell->resources.  Although mfd_add_device() deep-copies the
-> resource table via platform_device_add_resources() before
-> db8500_prcmu_register_ab8500() returns, the shallow MFD cell copy
-> attached to the child platform device retains a stale pointer to the
-> expired stack frame.
+> abx500_register_ops() allocates struct abx500_device_entry via
+> devm_kzalloc() and links it into the global abx500_list without
+> registering a devres cleanup action.  If a caller's probe function
+> subsequently fails, devres frees the entry while it remains linked in
+> abx500_list, causing use-after-free and list corruption on later
+> traversals.
 >
-> Mark ab850x_resource as static and the ab8500_cell and ab8505_cell
-> descriptors as static const so the resource pointer remains valid for
-> the lifetime of the device.
+> Register a devm_add_action_or_reset() callback in abx500_register_ops()
+> to remove the entry from abx500_list before devres frees it.
 >
-> Closes: https://sashiko.dev/#/bug/linux-554f3a1f-ca41-4078-ae9e-66d0d7fb4=
-c9d
+> Fixes: c211b6b9c014 ("mfd: abx500-core: Convert to managed resources for =
+allocating memory")
+> Closes: https://sashiko.dev/#/bug/linux-6a9c6b8b-8f89-4af5-8cb1-102822e44=
+e6e
+> Cc: stable@vger.kernel.org
 > Signed-off-by: Lee Jones <lee@kernel.org>
 
 Reviewed-by: Linus Walleij <linusw@kernel.org>
