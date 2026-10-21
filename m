@@ -2,110 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F01EA606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 23:02:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1720C606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 23:06:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PWxT5Sg8;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=cJhl0PjW
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XfoQYVFQ;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=MFblbEwM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rh1ct0ynFCJmpIeBgUsQvZu9SOoIsv6E2A9BdvVwioc=; b=PWxT5Sg8ZtGVJ6+v0zfbjJA8kX
-	hp6qgDErx6WuWRcQheoaowYe0fP97I9pQ1kr560bPdh7kqVnneKowOKTxdLn4u4saGuAAENisgjJG
-	hcRst6s+ME1m2rpYYwRsB1xUURVLl2dFz3BoS1sGkV6+4P8eUsXtHLl7IVTBPn/6p//BCNXcplct4
-	T+hXN1M7h4dqWLsnUBTeGh18QQkSRnyAxxz4yz5eqi8G9e+nyzXzQZ5LCQdCaJkGEEntdZlyOHdhE
-	8vjWbVQBJknP32C/7RE0K5u1MZfgRyVdYAhB88PfPeVsiAZn6jZ9yBxWjS1A6wVRGFNk5pSRYPqTv
-	nCw80Iow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jCgyO2THSSzeTo0gG7Yn5h5tZcIZdnA4VdSYaVd/Des=; b=XfoQYVFQPQxt0u1L/O7jJBmrEr
+	ah7BcFO4wusnitFd9tdMlLFenushOtv/aYE+ipZ+Ku9wK0WzyfY/WfI9j7ysKEJfjiKtHDGH5SfUM
+	spACiguzm3FmAQt4W7fDmkOL8xPj/hEubJjSC7/glkGjWjavHhifjQU/EK7IDJ4crInsq6+p7/U0h
+	y+CwunitI3CdCEUvtX/vl3joNIRXruPwPYZILro8S78O1jSFE3vfTZAa7T9xNQ8SDEpA9ngub75+L
+	oqpRpD4paANyuXwp6IJmuD6QAtYSpa27XhQ8CcpcjnWuUX+NmIUVXqA47jt2Gz5lMZQpmSIhFuO/h
+	PljEUykg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJfKB-0000000D0pG-3sEQ;
-	Wed, 21 Oct 2026 23:02:23 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJfKA-0000000D0oJ-0Hwp
+	id 1xJfNu-0000000D14U-22nq;
+	Wed, 21 Oct 2026 23:06:14 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJfNr-0000000D147-3V9J
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 23:02:23 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3ac91ac8924so725535a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 16:02:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792623741; x=1793228541; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Rh1ct0ynFCJmpIeBgUsQvZu9SOoIsv6E2A9BdvVwioc=;
-        b=cJhl0PjWMEkmXvtdp3q23EPLfrX7k0hShL11b1ZDYaZhQqkVElfB6Z8vzxnrbbGn3N
-         FPPTYXG6af4QNaLFBfo7Z4+ilkYJiReF9accKwkgftI7hHZHBWCp+0GgQm5iHWwQwGyO
-         2iAjG8LD0GuBq9PFdAmteRXHysjf4chbChGhMFWQbMUm5ptYWl8ArmrrmtbKFUkYS5uV
-         8yV1BSfe+nXjXWQvKr3S8mdf4zru4c6PPbNOA/71P42VOmOkixqwt43LUbOyyyYaJ/DP
-         6GyCxxGjN7lNF8z7WPGwr/FfIGi8/FF6ukPXXfU4r2hw4ODNjGCQwiNnwd2rhpOWSUnv
-         s2AA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792623741; x=1793228541;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Rh1ct0ynFCJmpIeBgUsQvZu9SOoIsv6E2A9BdvVwioc=;
-        b=0aB/1qw2+uvWPfpCfPdkjQYKcAh1xBJFzIOidb35d0oUEkbJNn26U+VeMXvRKTrWfX
-         7tZeXmQTdFjbG0xfz8FG3azWZoFClwO7XcKixYCOoVXisLYo7k642+kBudJVGSlWLTI0
-         grxQUMrRErjbMo2Q338J6Y0Xs7hO744e04PDfX5gDM6tUJjS7amcjVqHjxHSKFmzNCJa
-         NKhbU0f7SXRwcVNuVF8CxsvJaFBEXWusYLdVgndA1jE0ILclsOhmVb7Pua0MbSmnTiMQ
-         3ODoWoLG4c8u2pJPmVui62BwxoKhhMOr8FJFc+1swgjFlBB0M3OXNjQ/l1o+djmsDz8Y
-         f7xg==
-X-Forwarded-Encrypted: i=1; AKwUvByNo3BqQdITdY01SpQ1e3/1FFShetL37CCnJ9uKOF6tFWSpFmk75lhhayDiXJQHiHfxecBhMjqKSMK1Ylz2zfv7@lists.infradead.org
-X-Gm-Message-State: AFq9FYKTrHdD15jyUr7FOSao3VVGNTXBipQdyNWSkWdnQBlmuOA4+dyi
-	O+QQSDYeMZTZI7JJhM4SiQ/cacq7FmLA3fsaoTobk7S2e9Fg3HAriYeGcZZtswFgqg==
-X-Gm-Gg: AYBFou3IjDIhv0LjHPsYXRlC1JdQIqIqUsVeI/tXcoIXZirLL5KFxVu2Z+2zsbiQI0A
-	jU9G7wwPNU0cn2GGnv/xtSgwEDvEaNcM9JaF0NrmMwZQr/MXKZ3pFYIrR2hwpCNrE7kVgNCCoC5
-	oA5QtV1MZ3iiE0ml+fCVkDKGcUDmMBTVIaH7G96xNNIRsV3k9Us2iGA+iRoD3IDmyazlQNRn70B
-	f705A3vZpYZ/6KfgUqvDWHE1fiHGe4U9yiX9sElGdUpFgUwg8cTWfJj9ow2jWQHlBavfC5Bc+JJ
-	npcZz973GI+alI7utWq6E9Pt+u129bPl2P1YHvICb2LG3sHKHFaQkEFem167/kCpgltGs8JVJF5
-	LK5w4e8BH+jvM7KrJeG1v0BXZuJEPqFALf4Missvz30nBE3YXJclpmLSY/buMTZSUQk5zyGxWUl
-	vIk7MPTcdcq/UIMytPzACn9tEY2Wj8stXaKuqJOUJAo6kVjsrzUVseTBB641sUChOsoboBo124W
-	ChQWRhLk7OMg3xEwIu5otSERDGpVRGcsb8kAGq91h0MInrx0AyLDUAwMxr6/hAuweNkvB1dlG2r
-	qvh8t4ngqoqa6kyAzTPnMuxJFda9/XXoRVKncg==
-X-Received: by 2002:a17:90b:2f85:b0:3ac:7c4d:8be6 with SMTP id 98e67ed59e1d1-3ad86d9e088mr2829501a91.40.1792623739843;
-        Wed, 21 Oct 2026 16:02:19 -0700 (PDT)
-Received: from google.com (64.75.127.34.bc.googleusercontent.com. [34.127.75.64])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ada4896c4dsm1314919a91.7.2026.10.21.16.02.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Oct 2026 16:02:18 -0700 (PDT)
-Date: Wed, 21 Oct 2026 23:02:14 +0000
-From: David Matlack <dmatlack@google.com>
-To: Pasha Tatashin <pasha.tatashin@soleen.com>
-Cc: Tarun Sahu <tarunsahu@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org,
-	Mike Rapoport <rppt@kernel.org>,
-	Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de,
-	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com,
-	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org,
-	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com,
-	will@kernel.org, Alexander Graf <graf@amazon.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev,
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
-	kexec@lists.infradead.org, skhawaja@google.com, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 2/4] liveupdate: Select file handler by name in
- the preserve ioctl
-Message-ID: <atlEdhPjlyTPDWmG@google.com>
-References: <20261021152527.375070-1-tarunsahu@google.com>
- <20261021152527.375070-3-tarunsahu@google.com>
- <CA+CK2bCnS8wcVDbOymBGeJB6pDUkknOpF22EynbwSV=D5=J4ow@mail.gmail.com>
+	Wed, 21 Oct 2026 23:06:12 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1216)
+	id 6118620B7166; Wed, 21 Oct 2026 16:06:02 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 6118620B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1792623962;
+	bh=jCgyO2THSSzeTo0gG7Yn5h5tZcIZdnA4VdSYaVd/Des=;
+	h=From:To:Cc:Subject:Date:From;
+	b=MFblbEwMkgUMuJk3LZ7u+Ew2M+fMRN26f1vTBTqQYugaEfkBDXBxeTHIt3WW5Ss+U
+	 BVwiS01Bs3wepQXPEB13dRwrkJK/Z5YMqCJid70FXTGPx3GPAuKIeJRo8HOwe0dcrn
+	 RlAf1o4tm9Bh0pKv+gskCKvkS6t83N9e4HvgEau0=
+From: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
+To: linux-efi@vger.kernel.org
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
+Subject: [PATCH] arm64/efi: only disable the EFI runtime service that faulted
+Date: Wed, 21 Oct 2026 19:05:03 -0400
+Message-ID: <20261021230503.2075618-1-hamzamahfooz@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+CK2bCnS8wcVDbOymBGeJB6pDUkknOpF22EynbwSV=D5=J4ow@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_160222_317588_21BCBE08 
-X-CRM114-Status: GOOD (  27.79  )
-X-Spam-Score: -17.6 (-----------------)
+X-CRM114-CacheID: sfid-20261021_160611_902837_CDB8F781 
+X-CRM114-Status: GOOD (  21.31  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,73 +71,215 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-10-21 01:17 PM, Pasha Tatashin wrote:
-> On Wed, Oct 21, 2026 at 11:25 AM Tarun Sahu <tarunsahu@google.com> wrote:
-> >
-> > Currently luo_preserve_file() iterates over luo_file_handler_list and
-> > picks the first registered handler whose .can_preserve() callback
-> > returns true. When a subsystem introduces a new, backwards-incompatible
-> > file handler alongside an existing one for the same file type, userspace
-> > has no way to choose which handler preserves a file descriptor, nor can
-> > the kernel keep the existing rollback-safe handler as the default while
-> > allowing callers to opt into the new handler.
-> 
-> That is not how it will work. If we are in the .can_preserve() call,
-> it means the user has already decided which file handlers to use. We
-> need to do that before any preservation happens; otherwise, we could
-> run into conflicts on FLBs i.e. FH of different version require
-> different FLBs.
-> 
-> Therefore, there should be a luoctl call (i.e via a new ioctl to set
-> compatability) that provides the kernel with the specs file of the
-> target kernel we are updating to, allowing the kernel to select the
-> compatible file handlers. Since .can_preserve() is called when the
-> user is already preserving files, the specification must have already
-> been supplied, or the kernel should fall back to using the default
-> (i.e., latest) file handlers.
+When the firmware faults while executing an EFI runtime service, arm64
+recovers from the exception, returns EFI_ABORTED to the caller and
+disables all EFI runtime services for the remainder of the boot.
 
-I don't think that is the right direction. IMO the kernel should not be
-choosing which file handler to use, userspace should be. If userspace
-gets it wrong and chooses a file handler the next kernel does not
-support, that's on them.
+That is a rather big hammer. For instance, on Microsoft C2141 and C4143
+machines, GetTime() faults when it is called by the rtc-efi driver:
 
-The problem with the kernel making a decision about file handlers is
-then userspace does not know what arguments to pass in. We are adding
-custom per-file handler arguments to PRESERVE_FD and RETRIEVE_FD. If the
-kernel is picking which file handler to use, say for a memfd, then
-userspace doesn't know which arguments to pass in.
+  [Firmware Bug]: Unable to handle paging request in EFI runtime service
+  WARNING: CPU: 9 PID: 1 at drivers/firmware/efi/runtime-wrappers.c:498 __efi_queue_work+0xe8/0x128
+  Hardware name: Microsoft C2141/C2141  , BIOS C2141.BS.0301.AG.01.03 08/21/2024
+  Call trace:
+   __efi_queue_work+0xe8/0x128
+   virt_efi_get_time+0x64/0xc0
+   efi_rtc_probe+0x4c/0x188
+   platform_probe+0x70/0xd8
+   really_probe+0x190/0x3d8
+   ...
 
-Sure you could add some method where userspace could query which file
-handlers are active and decide arguments based on that. But it feels
-backwards.
+and as a result, the variable services become unavailable too, which
+breaks efivarfs (and with it efibootmgr, fwupd etc.), even though there
+is nothing wrong with them.
 
-I think a much cleaner solution is that userspace chooses file handler
-during PRESERVE_FD. I would even require it for RETRIEVE_FD so that we
-are guaranteed that the args the user is passing in are being sent to
-the right file handler. Passing to RETRIEVE_FD also opens the door to
-transforming across Live Update (similar to how AWS did LU from Xen to
-KVM as discussed at LPC).
+So, if the faulting call was made via efi_rts_wq, which is the case for
+all runtime services apart from ResetSystem() and the non-blocking
+variable services, only disable the service that faulted: clear its bit
+in efi.runtime_supported_mask, so that callers that check for it via
+efi_rt_services_supported() no longer try to use it, and fail any
+further calls to it with EFI_DEVICE_ERROR, which is what all runtime
+service calls return today once they have been disabled. Otherwise,
+and for the ACPI PRM handlers and the LKDTM tests, which have no bit
+of their own, keep disabling all runtime services.
 
-Regarding FLB conflicts, today we don't support multiple FLBs for the
-same global state, so there is nothing to conflict. Selecting a file
-handler during PRESERVE_FD doesn't change that.
+Update the LKDTM EFI_RUNTIME_CRASH test accordingly, as the fault it
+provokes in GetNextVariableName() now only disables that service.
 
-If we ever need to support multiple FLBs for the same global state
-(e.g. an incompatible change to the PCI FLB), we can add an ioctl that
-lets userspace select which FLB to use before preserving any files.
-After that, only file handlers registered with the selected FLB can be
-used to preserve files. PRESERVE_FD with any other file handler fails.
+Signed-off-by: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
+---
+ arch/arm64/kernel/efi.c                 |  2 +-
+ drivers/firmware/efi/runtime-wrappers.c | 85 ++++++++++++++++++++++++-
+ drivers/misc/lkdtm/bugs.c               |  4 +-
+ include/linux/efi.h                     |  1 +
+ 4 files changed, 88 insertions(+), 4 deletions(-)
 
-That keeps the FLB decision up front and global, like you want, while
-still letting userspace pick the file handler for each fd. I'd also
-expect this to be rare, since FLB serialized state can use the same
-feature flags as everything else in this series.
+diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
+index 0ec90fd17..330909d56 100644
+--- a/arch/arm64/kernel/efi.c
++++ b/arch/arm64/kernel/efi.c
+@@ -227,7 +227,7 @@ bool efi_runtime_fixup_exception(struct pt_regs *regs, const char *msg)
+ 
+ 	pr_err(FW_BUG "Unable to handle %s in EFI runtime service\n", msg);
+ 	add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_STILL_OK);
+-	clear_bit(EFI_RUNTIME_SERVICES, &efi.flags);
++	efi_runtime_disable_faulting_service();
+ 
+ 	regs->regs[0]	= EFI_ABORTED;
+ 	regs->regs[30]	= efi_rt_stack_top[-1];
+diff --git a/drivers/firmware/efi/runtime-wrappers.c b/drivers/firmware/efi/runtime-wrappers.c
+index eea4f32e6..221196c95 100644
+--- a/drivers/firmware/efi/runtime-wrappers.c
++++ b/drivers/firmware/efi/runtime-wrappers.c
+@@ -132,6 +132,82 @@ struct efi_runtime_work efi_rts_work;
+  */
+ static bool efi_rts_abandoned;
+ 
++/*
++ * The EFI runtime services that are called via efi_rts_wq, and their bits in
++ * efi.runtime_supported_mask.
++ */
++static const struct {
++	unsigned int	mask;
++	const char	*name;
++} efi_rts_services[] = {
++	[EFI_GET_TIME]			= { EFI_RT_SUPPORTED_GET_TIME,
++					    "GetTime" },
++	[EFI_SET_TIME]			= { EFI_RT_SUPPORTED_SET_TIME,
++					    "SetTime" },
++	[EFI_GET_WAKEUP_TIME]		= { EFI_RT_SUPPORTED_GET_WAKEUP_TIME,
++					    "GetWakeupTime" },
++	[EFI_SET_WAKEUP_TIME]		= { EFI_RT_SUPPORTED_SET_WAKEUP_TIME,
++					    "SetWakeupTime" },
++	[EFI_GET_VARIABLE]		= { EFI_RT_SUPPORTED_GET_VARIABLE,
++					    "GetVariable" },
++	[EFI_GET_NEXT_VARIABLE]		= { EFI_RT_SUPPORTED_GET_NEXT_VARIABLE_NAME,
++					    "GetNextVariableName" },
++	[EFI_SET_VARIABLE]		= { EFI_RT_SUPPORTED_SET_VARIABLE,
++					    "SetVariable" },
++	[EFI_QUERY_VARIABLE_INFO]	= { EFI_RT_SUPPORTED_QUERY_VARIABLE_INFO,
++					    "QueryVariableInfo" },
++	[EFI_GET_NEXT_HIGH_MONO_COUNT]	= { EFI_RT_SUPPORTED_GET_NEXT_HIGH_MONOTONIC_COUNT,
++					    "GetNextHighMonotonicCount" },
++	[EFI_UPDATE_CAPSULE]		= { EFI_RT_SUPPORTED_UPDATE_CAPSULE,
++					    "UpdateCapsule" },
++	[EFI_QUERY_CAPSULE_CAPS]	= { EFI_RT_SUPPORTED_QUERY_CAPSULE_CAPABILITIES,
++					    "QueryCapsuleCapabilities" },
++};
++
++/*
++ * The EFI runtime services that have been disabled because they faulted. This
++ * is tracked separately from efi.runtime_supported_mask, so that services that
++ * the firmware reports as unsupported can still be called.
++ */
++static unsigned int efi_rts_faulted;
++
++static unsigned int efi_rts_mask(enum efi_rts_ids id)
++{
++	return id < ARRAY_SIZE(efi_rts_services) ? efi_rts_services[id].mask : 0;
++}
++
++static bool efi_rts_service_faulted(enum efi_rts_ids id)
++{
++	return efi_rts_faulted & efi_rts_mask(id);
++}
++
++/**
++ * efi_runtime_disable_faulting_service() - disable a faulting runtime service
++ *
++ * Called by architecture code after it has recovered from an exception taken
++ * by the firmware while executing an EFI runtime service. If the call was made
++ * via efi_rts_wq, only the service that faulted is disabled, so that the other
++ * ones remain usable. Otherwise, all EFI runtime services are disabled.
++ */
++void efi_runtime_disable_faulting_service(void)
++{
++	enum efi_rts_ids id = efi_rts_work.efi_rts_id;
++	unsigned int mask = 0;
++
++	if (current_work() == &efi_rts_work.work)
++		mask = efi_rts_mask(id);
++
++	if (!mask) {
++		pr_err("Disabling EFI runtime services\n");
++		clear_bit(EFI_RUNTIME_SERVICES, &efi.flags);
++		return;
++	}
++
++	pr_err("Disabling EFI runtime service %s()\n", efi_rts_services[id].name);
++	efi_rts_faulted |= mask;
++	efi.runtime_supported_mask &= ~mask;
++}
++
+ /*
+  * efi_queue_work:	Queue EFI runtime service call and wait for completion
+  * @_rts:		EFI runtime service function identifier
+@@ -388,6 +464,9 @@ static efi_status_t __efi_queue_work(enum efi_rts_ids id,
+ 		return EFI_DEVICE_ERROR;
+ 	}
+ 
++	if (efi_rts_service_faulted(id))
++		return EFI_DEVICE_ERROR;
++
+ 	efi_rts_work.efi_rts_id = id;
+ 	efi_rts_work.args = args;
+ 	efi_rts_work.caller = __builtin_return_address(0);
+@@ -520,7 +599,8 @@ virt_efi_set_variable_nb(efi_char16_t *name, efi_guid_t *vendor, u32 attr,
+ 	if (down_trylock(&efi_runtime_lock))
+ 		return EFI_NOT_READY;
+ 
+-	if (!efi_enabled(EFI_RUNTIME_SERVICES)) {
++	if (!efi_enabled(EFI_RUNTIME_SERVICES) ||
++	    efi_rts_service_faulted(EFI_SET_VARIABLE)) {
+ 		up(&efi_runtime_lock);
+ 		return EFI_DEVICE_ERROR;
+ 	}
+@@ -564,7 +644,8 @@ virt_efi_query_variable_info_nb(u32 attr, u64 *storage_space,
+ 	if (down_trylock(&efi_runtime_lock))
+ 		return EFI_NOT_READY;
+ 
+-	if (!efi_enabled(EFI_RUNTIME_SERVICES)) {
++	if (!efi_enabled(EFI_RUNTIME_SERVICES) ||
++	    efi_rts_service_faulted(EFI_QUERY_VARIABLE_INFO)) {
+ 		up(&efi_runtime_lock);
+ 		return EFI_DEVICE_ERROR;
+ 	}
+diff --git a/drivers/misc/lkdtm/bugs.c b/drivers/misc/lkdtm/bugs.c
+index 8ed368ea3..fec6eaca2 100644
+--- a/drivers/misc/lkdtm/bugs.c
++++ b/drivers/misc/lkdtm/bugs.c
+@@ -836,7 +836,9 @@ static void __maybe_unused lkdtm_EFI_RUNTIME_CRASH(void)
+ 	 */
+ 	status = efi.get_next_variable(&size, L"", &(efi_guid_t){});
+ 
+-	if (status != EFI_ABORTED || efi_enabled(EFI_RUNTIME_SERVICES))
++	if (status != EFI_ABORTED ||
++	    (efi_enabled(EFI_RUNTIME_SERVICES) &&
++	     efi_rt_services_supported(EFI_RT_SUPPORTED_GET_NEXT_VARIABLE_NAME)))
+ 		pr_err("FAIL: EFI GetNextVariable() did not abort (%#lx)\n",
+ 		       status);
+ }
+diff --git a/include/linux/efi.h b/include/linux/efi.h
+index cc1df1577..12d3e4a07 100644
+--- a/include/linux/efi.h
++++ b/include/linux/efi.h
+@@ -1139,6 +1139,7 @@ extern unsigned long efi_call_virt_save_flags(void);
+ 
+ void efi_runtime_assert_lock_held(void);
+ efi_status_t efi_runtime_set_enable_flag(bool enable);
++void efi_runtime_disable_faulting_service(void);
+ 
+ enum efi_secureboot_mode {
+ 	efi_secureboot_mode_unset,
+-- 
+2.56.0
+
 
