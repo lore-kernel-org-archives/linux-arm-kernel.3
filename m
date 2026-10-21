@@ -2,80 +2,112 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC5B3606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 09:13:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EEF9606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 09:21:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oABPRK6k;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=qy05oNmy
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wDhsM1Ce;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=hLQe/RRA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nzADmYKv4GpvdMxYyHHtqrTYHk3osWUIWqWnEfBwJ1o=; b=oABPRK6kscHksvOMnng3BX7fEj
-	wMHwQ1KE9yTAT8EQw71TkY/yAQn5hKveeWltlQqF66UpGaWTqdvcnMZ1Yog72A3LUb1POxlxw1j4m
-	IziJUX0qx//vzTiN0fUFTYudRDF7GMtv4xB3w6YymgZl0rcsLjuO5kKP75Hb3seGTvFA5PlzoxtM2
-	wa4ET2x2mCGXlmQhqiiSQPTXmyAy/3No2j/Dj2D7l6ij9JWlxcxo/4KcAjv2pwFZLDY13j+d34aMj
-	7SLT4bUViGi2hIfMsNttyoS/5atiyOSZqnyoEvQaiJWqHOmuobjLHD7a5Mc+rUEr9nh/4iS0MajM4
-	pR+KvR5A==;
+	bh=00yPyIz5pNBZ/uGIfADGiLvcMOlz91ylxALbeXNOiwE=; b=wDhsM1CeSv19uggXb0YJatH0Jh
+	tdGRQO+QTxRXu9k2qK0RhzYt7x3A21n6f1MlXKusqJu095NrsGKDkDmxnw0NY4cQ77cSFP58KTYxC
+	kyHZ4SFFCEzlV6mqZ/W80xOloXX8vUtmX//yVgAyBxorfUPRp9DOUXM+cUXr3orj5kSukvjsUkofl
+	WJ6/QESfOu9eipiNfCqmlaN5O/gF8VJwTAkRT1d8NZnLXaPqBZSsVlqtmjTJL2WZC6OTGf3AN7zu7
+	cg8inR+oHnhgk9IBfTg70ffOKGJ7+3bPeCoZGsitq95isyRIFhSXE0vCDuhrqPjCOtcRGF8012vXj
+	4hliTzZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJSNx-0000000BSdr-0TQ0;
-	Wed, 21 Oct 2026 09:13:25 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1xJSVK-0000000BTfb-0jOL;
+	Wed, 21 Oct 2026 09:21:02 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJSNs-0000000BSba-3EkO;
-	Wed, 21 Oct 2026 09:13:23 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=nzADmYKv4GpvdMxYyHHtqrTYHk3osWUIWqWnEfBwJ1o=;
-	b=qy05oNmy3wvcAipAQKL4DCStOriRWTyczBtLbfPzPytLSmCWdRpIYENADIsJu88KlAJj0hmjc
-	e1p5428X8KTeWUYB9Vrw2GOPKCj13drNhfpLlgpoC2Z/ybSXrCDzqgJdySA25ihc7Us9rMXLO2x
-	ua/h/PISSyjS5+zO8Dkln2g=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4j8jvf2rLvz1cySH;
-	Wed, 21 Oct 2026 17:01:50 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1B4A840563;
-	Wed, 21 Oct 2026 17:13:10 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 21 Oct
- 2026 17:13:08 +0800
-Message-ID: <12e4e687-1ff0-41b2-bdf8-7f48b29e1f2f@huawei.com>
-Date: Wed, 21 Oct 2026 17:13:07 +0800
+	id 1xJSVH-0000000BTf3-3dA0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Oct 2026 09:21:01 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-c263415982eso56280466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 02:20:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1792574458; x=1793179258; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=00yPyIz5pNBZ/uGIfADGiLvcMOlz91ylxALbeXNOiwE=;
+        b=hLQe/RRAs0kqAU+SxuB2nZhydV1ohb/vXz86Tr5A453h0flQenEXRZVW39VD5ndRfR
+         szo9Yn9uqaixHCe8IKbQMac0J6eZ8uR6XFr6Bu8SEFIpYFBt6eT5hOVqQK9tzlf2LJBC
+         Zc6YFotSBP8u2GapiB3OaHRV7bWdjXTCcClwswoLgx6KvHUnErlLKJHw4JpDeqMRvDfm
+         9l4vXFX6YixZNFQJpa94Kle4/j0RvGVkngtBRvLELNxeXwFnLrSxOey7odx1G6uhRg50
+         ryGjydghBRrpq4NUtkdSnfUt3K4WMvd29vZw7oEgQeqqotpA57DnFZteYJGfLYMMTk6P
+         mqoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792574458; x=1793179258;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=00yPyIz5pNBZ/uGIfADGiLvcMOlz91ylxALbeXNOiwE=;
+        b=l8WC5jhMQx7bElA7wqEmcMnKcltRMGFFdhu3YZp9BagdI4Xtcfmg6Ylyk7cTjs15S1
+         CgHStE1RKlnnMMplLs4786iz0nspHZuTAJOFcxU+S9kpipHGh2mMx/CTlrm+tYsgEqfj
+         6UyMBeVO8rhf8RKhcgI9Z4MvHk6O5vG7iM37X3j0aQIngWZXl9+p3VfXuLjQl1dFxFnN
+         oVftjRKyxGtGMvyae/ueuiCCrBUBAgsXn2WDX6YAWOUQPhnzBXUeDOyCfexce2725t3H
+         cqGj9gLqj+bTyUO9/DswqkU5KvZZRhirz58Z4XVhEY72/ytJK3ixzE47a79L0aKFq6cR
+         zNug==
+X-Forwarded-Encrypted: i=1; AKwUvBx+Rg/VSmQJqma7ZpiAJTdK1U6ev9gG58zPm/KCcMxy0p4LZW7VE5BIm3IiD1AcgWwh22nlUYbLmkmoLQq1E4BX@lists.infradead.org
+X-Gm-Message-State: AFq9FYKSO3TqY/Ma2OHU1uzYxmwf5q+jv7PdSD+4jyuYNfhApYpyzvmS
+	UlmZ/i6iFE77C7unA79bzujTyIhUz60K2xFY12VFdCgyJx3lgyROUW8rY9j7iUEkY0w=
+X-Gm-Gg: AYBFou3nrtOuKUvPfWdxpbLsHD6j4H1+BhbNCpPg4H50sGJjP7FA1ctOxKSc2bIuUua
+	YKccBIHXRfFFVjO6iSRF8NBQJdgyLA2NorCdy5RWlwb1NofV8RHRyz1g+y8HXVdVnzh0/4Xz/tZ
+	dxlmkakGWODqH/MCOWZ7X8F1yNzJ+syjzxa0/67wAelPT6FGVMIAPzuKJUFj3GP9nTJiiEw0+yC
+	zdoGbvsjYIE5y1+1iDtTCSEjKItc26JqtSj37huT5UW7kSsXn1kT8UbH2LCpitK45FYm7GJP2HF
+	OZMiQGuVP4zhYm54aSkqq6vDGg+5woF0oyLz7+WhniKDWdKScw/zXKh64U5gz2L7hwWBAvOvZG5
+	6B6NWPHglMHEBzqX2fp+8p2US7SmWWRAhdx43njjajtZm1Md4MbsNRmddEJwEDLnvcqzzM36fvh
+	BsfcueQ2yBx6H3QhZv9AWDSAoG+4P5b17ltby9JZSQdYTAiFFZwMqyXZKlg9R7kzmeMoewctAF7
+	P3UD8lgmWaovGlGKPKoHV4eOrmd5KCidyjcSLvFM9GXX6UNUQCzNacJayBv92RYjRaUl0XiQic0
+	xxAAbA==
+X-Received: by 2002:a17:907:d40a:b0:c45:d8aa:6ae5 with SMTP id a640c23a62f3a-c46799bdbb7mr118867866b.42.1792574456702;
+        Wed, 21 Oct 2026 02:20:56 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4678faa974sm57756566b.43.2026.10.21.02.20.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Oct 2026 02:20:56 -0700 (PDT)
+Message-ID: <0621ac72-950b-4bb7-9bc9-5547a2ce90cf@linaro.org>
+Date: Wed, 21 Oct 2026 10:20:54 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 3/8] crash_core: serialize crash header preparation
- against hotplug
-To: Wandun Chen <chenwandun1@gmail.com>, <robh@kernel.org>,
-	<baoquan.he@linux.dev>, <rppt@kernel.org>, <m.szyprowski@samsung.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <pjw@kernel.org>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
-	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, <hpa@zytor.com>,
-	<saravanak@kernel.org>, <akpm@linux-foundation.org>,
-	<pasha.tatashin@soleen.com>, <pratyush@kernel.org>, <ruirui.yang@linux.dev>,
-	<robin.murphy@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<kexec@lists.infradead.org>, <linux-mm@kvack.org>, <iommu@lists.linux.dev>
-References: <20261021083011.2170525-1-chenwandun1@gmail.com>
- <20261021083011.2170525-4-chenwandun1@gmail.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20261021083011.2170525-4-chenwandun1@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+From: James Clark <james.clark@linaro.org>
+Subject: Re: [PATCH v2 04/14] perf cs-etm: Use per-CPU queues for per-thread
+ mode
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@arm.com>, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
+ Leo Yan <leo.yan@linux.dev>, linux-arm-kernel@lists.infradead.org,
+ coresight@lists.linaro.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Arnaldo Carvalho de Melo <acme@redhat.com>,
+ linux-doc@vger.kernel.org
+References: <20260821-james-cs-unformatted-per-thread-fix-v2-0-00c4fd0701b4@linaro.org>
+ <20260821-james-cs-unformatted-per-thread-fix-v2-4-00c4fd0701b4@linaro.org>
+ <20260826190645.GL8904@e132581.arm.com>
+Content-Language: en-US
+In-Reply-To: <20260826190645.GL8904@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_021321_115371_E3AD9508 
-X-CRM114-Status: GOOD (  19.77  )
-X-Spam-Score: -2.0 (--)
+X-CRM114-CacheID: sfid-20261021_022059_953944_770D2082 
+X-CRM114-Status: GOOD (  45.67  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,136 +122,154 @@ X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
 
-在 2026/10/21 16:30, Wandun Chen 写道:
-> From: Wandun Chen <chenwandun@lixiang.com>
+On 26/08/2026 20:06, Leo Yan wrote:
+> On Fri, Aug 21, 2026 at 10:49:02AM +0100, James Clark wrote:
+>> This fixes two problems, firstly per-thread mode didn't support multiple
+>> threads well or at all because we always use queue 0 and assumed it was
+>> for a single thread. However, Perf attaches to all child threads of one
+>> process or allows multiple threads to be specified on the commandline.
+>> This meant that trace before a context packet could use the wrong MMAP
+>> for decoding, and threads running concurrently wouldn't be interleaved
+>> properly.
 > 
-> crash_prepare_headers() counts memory ranges before populating the
-> allocated crash_mem array. The weak implementation used by ARM64,
-> RISC-V and LoongArch walks memblock.memory, while x86 performs the same
-> two-pass operation over system RAM resources. Concurrent memory hotplug
-> can change range source between the two walks and make the populate
-> pass overflow cmem->ranges.
+> If I connect this with patch 03, I understand "a context packet" here as
+> the trace synchronization with a timestamp, which is needed to correlate
+> with MMAP records.
 > 
-> Take device_hotplug_lock when preparing crash headers during
-> kexec_file_load(). The x86/riscv memory hotplug path already takes
-> device_hotplug_lock, so call __crash_prepare_headers() directly
-> to avoid recursive locking.
+> What I don't quite understand is how switching to multiple queues fixes
+> the "trace before a context packet" case. Wouldn't decoding still need
+> to wait until the first timestamp/context information is available?
 > 
-> Sashiko reported this issue in [1].
+
+Context IDs aren't enabled in per-thread mode, we still use the TID 
+initially assigned to the queue for mmap lookup. That TID comes from 
+"etmq->buffer->tid" which is always correct in per-thread mode. Even if 
+we turned on context IDs they might either be cropped in snapshot mode, 
+or not exist when we drop the PID_IN_CONTEXTIDR hard requirement.
+
+The commit message is a bit misleading, it should say "trace before a 
+trace synchronization *timestamp*".
+
+>> The second problem is that we'd put all HW_IDs into queue 0, so if a
+>> thread runs on multiple CPUs then it would receive multiple HW_IDs and
+>> trigger the assert that unformatted trace should only have 1 decoder
+>> per-CPU:
+>>
+>>    $ perf record --per-thread -e cs_etm//u -- taskset --cpu-list 0 \
+>>       taskset --cpu-list 1 true
+>>    $ perf script
+>>
+>>    perf: util/cs-etm.c:3381: cs_etm__create_queue_decoders: Assertion `decoders == 1' failed.
 > 
-> Fixes: 3751e728cef2 ("arm64: kexec_file: add crash dump support")
-> Fixes: 1bcca8620a91 ("LoongArch: Add crash dump support for kexec_file")
-> Fixes: 8acea455fafa ("RISC-V: Support for kexec_file on panic")
-> Fixes: dd5f726076cc ("kexec: support for kexec on panic using new system call")
-> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-> Link: https://sashiko.dev/#/message/20260806101002.1F84E1F000E9@smtp.kernel.org [1]
-> Acked-by: Baoquan He <baoquan.he@linux.dev>
-> ---
->  arch/riscv/kernel/crash.c  |  2 +-
->  arch/x86/kernel/crash.c    |  2 +-
->  include/linux/crash_core.h |  2 ++
->  kernel/crash_core.c        | 17 +++++++++++++++--
->  4 files changed, 19 insertions(+), 4 deletions(-)
+> Seems the commit log misses to explain how to fix issue.
 > 
-> diff --git a/arch/riscv/kernel/crash.c b/arch/riscv/kernel/crash.c
-> index fe5a4b306aae..ac8df2edf2a7 100644
-> --- a/arch/riscv/kernel/crash.c
-> +++ b/arch/riscv/kernel/crash.c
-> @@ -70,7 +70,7 @@ void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
->  	 * Create the new elfcorehdr reflecting the changes to CPU and/or
->  	 * memory resources.
->  	 */
-> -	if (crash_prepare_headers(true, &elfbuf, &elfsz, NULL)) {
-> +	if (__crash_prepare_headers(true, &elfbuf, &elfsz, NULL)) {
->  		pr_err("unable to create new elfcorehdr");
->  		goto out;
->  	}
-> diff --git a/arch/x86/kernel/crash.c b/arch/x86/kernel/crash.c
-> index e6f23933a6df..bef008a0cb22 100644
-> --- a/arch/x86/kernel/crash.c
-> +++ b/arch/x86/kernel/crash.c
-> @@ -465,7 +465,7 @@ void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
->  	 * Create the new elfcorehdr reflecting the changes to CPU and/or
->  	 * memory resources.
->  	 */
-> -	if (crash_prepare_headers(IS_ENABLED(CONFIG_X86_64), &elfbuf, &elfsz, NULL)) {
-> +	if (__crash_prepare_headers(IS_ENABLED(CONFIG_X86_64), &elfbuf, &elfsz, NULL)) {
->  		pr_err("unable to create new elfcorehdr");
->  		goto out;
->  	}
-> diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
-> index bc087124cd78..28e7a81cf263 100644
-> --- a/include/linux/crash_core.h
-> +++ b/include/linux/crash_core.h
-> @@ -61,6 +61,8 @@ extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_ma
->  				       void **addr, unsigned long *sz);
->  extern int crash_prepare_headers(int need_kernel_map, void **addr,
->  				 unsigned long *sz, unsigned long *nr_mem_ranges);
-> +int __crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
-> +			    unsigned long *nr_mem_ranges);
->  extern int crash_exclude_core_ranges(struct crash_mem **cmem);
->  
->  struct kimage;
-> diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-> index faa0f22dbb41..8a861a946e26 100644
-> --- a/kernel/crash_core.c
-> +++ b/kernel/crash_core.c
-> @@ -16,6 +16,7 @@
->  #include <linux/mm.h>
->  #include <linux/cpuhotplug.h>
->  #include <linux/memblock.h>
-> +#include <linux/device.h>
->  #include <linux/kmemleak.h>
->  #include <linux/crash_core.h>
->  #include <linux/reboot.h>
-> @@ -344,8 +345,8 @@ int crash_exclude_core_ranges(struct crash_mem **cmem)
->  	return 0;
->  }
->  
-> -int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
-> -			  unsigned long *nr_mem_ranges)
-> +int __crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
-> +			    unsigned long *nr_mem_ranges)
->  {
->  	unsigned int max_nr_ranges;
->  	struct crash_mem *cmem;
-> @@ -382,6 +383,18 @@ int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
->  	return ret;
->  }
->  
-> +int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
-> +			  unsigned long *nr_mem_ranges)
-> +{
-> +	int ret;
-> +
-> +	lock_device_hotplug();
-> +	ret = __crash_prepare_headers(need_kernel_map, addr, sz, nr_mem_ranges);
-> +	unlock_device_hotplug();
 
-I think this patch conflicts with my changes and would also conflict
-with the implementation of arm64 crash hotplug.
+This issue is gone now, V3 will be based on "perf: cs-etm: HW_ID 
+improvements" which doesn't read HW_IDs at all for unformatted mode. 
+I'll remove this and the fixes tag.
 
-https://lore.kernel.org/all/20260921090450.807575-15-ruanjinjie@huawei.com/
+For information, the fix explanation was:
 
-arm64 crash hotplug:
-https://lore.kernel.org/all/20260918100442.3841135-18-ruanjinjie@huawei.com/
+  "The second problem is that we'd put all HW_IDs into queue 0" ...
+   making that queue have multiple decoders ... Fix it by not special
+   casing queue 0 in per-thread mode in cs_etm__get_queue(), so each
+   HW_ID goes into it's correct per-CPU queue and leaves only 1 decoder"
 
-> +
-> +	return ret;
-> +}
-> +
->  /**
->   * crash_exclude_mem_range - exclude a mem range for existing ranges
->   * @mem: mem->range contains an array of ranges sorted in ascending order
 
--- 
-Best regards,
-Jinjie
+>> Fixes: 9182f04a85b2 ("perf cs-etm: Pass unformatted flag to decoder")
+>> Signed-off-by: James Clark <james.clark@linaro.org>
+>> ---
+>>   tools/perf/util/cs-etm.c | 30 +++++++++++++++++++++++++-----
+>>   1 file changed, 25 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+>> index d423f1cb408f..ccf886efff95 100644
+>> --- a/tools/perf/util/cs-etm.c
+>> +++ b/tools/perf/util/cs-etm.c
+>> @@ -295,9 +295,6 @@ static int cs_etm__insert_trace_id_node(struct cs_etm_queue *etmq,
+>>   
+>>   static struct cs_etm_queue *cs_etm__get_queue(struct cs_etm_auxtrace *etm, int cpu)
+>>   {
+>> -	if (etm->per_thread_decoding)
+>> -		return etm->queues.queue_array[0].priv;
+>> -
+>>   	if (cpu < 0 || cpu >= (int)etm->queues.nr_queues)
+>>   		return NULL;
+>>   
+>> @@ -1268,7 +1265,7 @@ static int cs_etm__setup_queue(struct cs_etm_auxtrace *etm,
+>>   	queue->priv = etmq;
+>>   	etmq->etm = etm;
+>>   	etmq->queue_nr = queue_nr;
+>> -	queue->cpu = queue_nr; /* Placeholder, may be reset to -1 in per-thread mode */
+>> +	queue->cpu = queue_nr;
+>>   	etmq->offset = 0;
+>>   	etmq->sink_id = SINK_UNSET;
+>>   
+>> @@ -2160,6 +2157,7 @@ static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
+>>    */
+>>   static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
+>>   {
+>> +	struct cs_etm_auxtrace *etm = etmq->etm;
+>>   	int ret;
+>>   
+>>   	/* The current block is not finished */
+>> @@ -2188,6 +2186,27 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
+>>   	 */
+>>   	cs_etm__flush_all_stack(etmq);
+>>   
+>> +	/*
+>> +	 * Per-thread mode still uses a queue for each CPU, but that CPU can run
+>> +	 * different threads. When the TID from the AUX record on a CPU changes,
+>> +	 * re-initialize the thread using the AUX record/buffer fragment TID so
+>> +	 * we can start decoding even if the context ID packet was cropped or
+>> +	 * they're disabled.
+>> +	 */
+>> +	if (etm->per_thread_decoding) {
+>> +		struct cs_etm_traceid_queue *tidq = cs_etm__etmq_get_traceid_queue(etmq,
+>> +							CS_ETM_PER_THREAD_TRACEID);
+>> +
+>> +		if (thread__tid(tidq->decode_thread) != etmq->buffer->tid) {
+>> +			thread__zput(tidq->frontend_thread);
+>> +			thread__zput(tidq->decode_thread);
+>> +			tidq->frontend_thread = machine__findnew_thread(&etm->session->machines.host,
+>> +									-1, etmq->buffer->tid);
+>> +			tidq->decode_thread = machine__findnew_thread(&etm->session->machines.host,
+>> +								      -1, etmq->buffer->tid);
+>> +		}
+>> +	}
+> 
+> This works if the auxtrace fragment initially represents trace from that
+> TID. However, doesn't this introduce an assumption that an AUX fragment
+> contains trace from only one thread?
+> 
+> It seems this assumption impacts the kernel patch [1], the tool's
+> implementatoin imposes the limitation that driver to cannot support
+> multiple threads run concurrently with shared sink.
+
+Seems like we've decided to prohibit multiple per-thread events with 
+shared sinks, so we can keep the assumption that each fragment only 
+contains trace from buffer->tid. This is similar to the assumption in 
+the aux sampling patches where we initialise the thread with the TID of 
+the sample.
+
+> 
+> Would it be better to enable contextidr for per-thread mode and rely on
+> Context ID packets to update the thread context? We could then reuse
+> cs_etm__etmq_update_thread() / cs_etm__etmq_update_decode_context()
+> rather than relying on the AUX fragment TID for this purpose.
+> 
+> [1] https://lore.kernel.org/linux-arm-kernel/d833aeed-7376-48af-b772-4fe4ac66471d@linaro.org/
+
+This comment is probably a bit stale now given the latest version of [1] 
+where a per-thread event can only contain trace from one thread. So the 
+context packets aren't useful. I thought the plan was to eventually drop 
+the requirement for PID_IN_CONTEXTIDR and rely on timestamps anyway, so 
+it doesn't make sense to add it in more places.
 
 
