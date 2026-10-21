@@ -2,164 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B335C606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 07:52:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 974AB606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 08:04:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lzknVba+;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=AyQbDhhI;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=fMWFXAji
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bmQE/vtQ;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=bDpM4kwH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uGEbX7ewHLXjKOrnEAwIQ5NuoQ6GYnuPMjFfMhRkmzY=; b=lzknVba+bOUPyZzi0wyr59rpeh
-	iG8d1imJndSywhBed6IaW9BYXctRjMd1AR1RXMU/QyfLVMUftLXKyPehKgb8snzouZrhw5S14Thr9
-	irktrp8eB8bpWsLLvh2vJhVzNVKVJ118QI+xnjPZZo3RJDIXu8hXQCZW/tuXFzmG2Ug/1hUQg1NZd
-	eTHyZCQpHiiIStHXht/q3NjFxdyLctTPeUC/aIyER9PlbhCkHBPB3Aad8XKJZi25PrrqAbW949P/B
-	V7PJtCfR0mp2q4PfW0IUdqhnwO65ZfiYF5JGlrykEPejoVEr3ZgqUWX3/ovq4BuZbSJsGIzsYAVo4
-	OUGPQLMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dpk6oZW2/pIfMTZ5y5HTyizlc9Lr7d1oiu8c5BoQlkY=; b=bmQE/vtQXX2YmQku/pm+07fsTb
+	faJOZwipCgJuYwEETCxBIkdXTIybTTZrGfv2D1m/lyKV0d8LT642OJCra8HKtMRitQP7ciAJhgwCf
+	5E0kLxTosp53gspupuF8oHTl7NtU4WZTBGzsh3aIYDMgcrmk4wHxQ+dA39WF/s123rgZpp7xviUiO
+	qGYLuLwczszmrBOR8kh1qaHULvnJVGgReKFiMTcrn6/jcLk3qa16porDpnOigRBDL1djWtsmb6nzD
+	TAbjp7TD10GdT0V47cfUYmnRqoAANjbL9x4EwemKMhC/ne+Kp0b7+YkZr5KJGV2UxqgZqRGJBq++e
+	TdzOkzGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJR7W-0000000BHAO-0WQw;
-	Wed, 21 Oct 2026 07:52:22 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xJRIt-0000000BICV-3FrE;
+	Wed, 21 Oct 2026 08:04:07 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJR7T-0000000BH9h-0ez5
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 07:52:20 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69L5j7mU2411402
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 07:52:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	uGEbX7ewHLXjKOrnEAwIQ5NuoQ6GYnuPMjFfMhRkmzY=; b=AyQbDhhIrkFWR6Vk
-	Qi2NR9JA3Zl2CUV7EWDi6niUDRqZIXrxHan5CO5/E/BXU7ve/rdkbmA1nMYiorTj
-	uUnreypvOJoV9NBh7qXqdcP2SpKXHgjoLhz89Rwh0hy6JheE85O54i4M3fuBy9+K
-	GPoUifUKk6HR/ZvKSW5RdHvWNFEesfA+HyQp4k8orY6iqKF5XuUB1191IkbZE+8P
-	plpke5EwWoQ+7NfxTqbvPFLeYU9SR35EZlpu5h8sxqbblJm3JCdRo8AnJX/ALU05
-	F/8Y9yWbh3i75DhlSJm/79KrlTXj29up/7QkDqsFQj2p0RS5n2rG7kpyuT0V4JEd
-	ihpS0Q==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4he7hvc4eh-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 07:52:18 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93edac58b24so14025485a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 00:52:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792569137; x=1793173937; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uGEbX7ewHLXjKOrnEAwIQ5NuoQ6GYnuPMjFfMhRkmzY=;
-        b=fMWFXAji8ngvjFTVvCubI6Nv/XER51G+BeVJCuo8fsMdWy5n9Sg6VAp8IwHRPgIMzi
-         YodPSUb5KTsYQFAJFzvcx4MgJc3SR/q+1dun5zA3mp45/LGuOKrTMqtbSOyvB+XVp0FW
-         b4/Sx7J2Y5UpNOcg8y9dpm/Fs8if6QQ2WLoVIR/I8fg9qZX4RmoHOTRTgMiTWcrWoaJ5
-         9dcCPZnkHgfu8DJtGt9karo4AFujj/ULVMaHuPJ4WTh1DWIf5W1BU01fz5eqWPBFawyo
-         XqVuVQUi0L8ONDuA79lI6Jhtx+9iEVJXI6uLIeedp6S5MhxGn+5Sh6SnCrCYUoZb+GB7
-         7ifA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792569137; x=1793173937;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uGEbX7ewHLXjKOrnEAwIQ5NuoQ6GYnuPMjFfMhRkmzY=;
-        b=be0tICqIR75mJNd0tlUeQShQiCSkjTHNy9eyM+QSG49apTxmyhodPklu1qz+m37unV
-         M3Ay5tCE4Vu7SeBw6wM3o5hnm7e/rsg+oP/oTtg1cohtA2Ytvn8yvhwm9b3uHhOvvlbV
-         qhsVgiO8cTl14m8YAb22qb1VHanZEdDkdmmxdw/Ik/U1185PEkO/tSQBeqQKCJPdFXPs
-         0Uptb4BbCZdW40FvhZIKVSx7VmL2FHOLIRByNEOF0DGMpSePfSsbB4rSfe3nDlt9lKEC
-         otYHAo444NOVoYtrnQohOubFQR4z5foKrqrrJd0xxjDhNtSasHrr0oWWfrwDqoWuhWlw
-         ylGw==
-X-Forwarded-Encrypted: i=1; AKwUvBxS+YTzSwQEuOMXZD2cPZ/suTINIIZad1t8UFuzhSejuZ76lCWhLimODrlwx4EDon9JuXAMoeELtspiV3twZMQj@lists.infradead.org
-X-Gm-Message-State: AFq9FYLsEFC4l5nv0AGcd8j1es2433MW+c5Q1FrSAqRFrHMR803BkMoa
-	a25P+VLrG+aEp86z56yebs08m1BDlp48/2pDgzA+efE1lbHTJ9dP70kYA070TcS5713ZZUmWcSG
-	O0CgwOzX4guFWaqRZRG4iXIPa9U02wIg6T74dDi9f0gOU2l5JkzOYFXsBgAY7XJqLh7oz9gddGa
-	ZPxQ==
-X-Gm-Gg: AYBFou3UnXDXAcmy7jpnhu2FJMY3mGq5zWkWWkkREInAhNf7Tt+TSzsFXbSwazU70Xq
-	pYe59L2EaIzKtia1SdKIamTfpFaCnKid8uFiKChDzaitvmFwxUIUHpgfY4YwUclkh1pq7EGqKLG
-	/sPjq9TastR7gdAET+gkagmGlmptISPTFjgwgHejZqaQXVWXeLRU97iN8LRpNnAXzvC750RAl2x
-	IsjAvRPGFBIqLd0Du5sFjan6EzpYThfb55XHm+M06zobuUjgBXPQoDUf3Gq/X2OiWYnQhkl4TiB
-	f1GJ1bEb8OMfbr0raW0W+wwe+Osyj09/TFgyW4od0c80glAVC1Y5bMx61wVm+GEgdFMjFMAUKoU
-	kdiHNG3EEKYqyg+zjQ/fAvQ==
-X-Received: by 2002:ac8:5707:0:b0:535:6cc1:589b with SMTP id d75a77b69052e-5369b4a11bamr23256191cf.1.1792569137645;
-        Wed, 21 Oct 2026 00:52:17 -0700 (PDT)
-X-Received: by 2002:ac8:5707:0:b0:535:6cc1:589b with SMTP id d75a77b69052e-5369b4a11bamr23255851cf.1.1792569137150;
-        Wed, 21 Oct 2026 00:52:17 -0700 (PDT)
-Received: from [192.168.226.26] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4679009aacsm49878266b.78.2026.10.21.00.52.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 21 Oct 2026 00:52:16 -0700 (PDT)
-Message-ID: <08dea1cb-aaf2-4c62-ba9d-8bef2d6d44a1@oss.qualcomm.com>
-Date: Wed, 21 Oct 2026 09:52:10 +0200
+	id 1xJRIr-0000000BIBR-1pmw;
+	Wed, 21 Oct 2026 08:04:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Dpk6oZW2/pIfMTZ5y5HTyizlc9Lr7d1oiu8c5BoQlkY=; b=bDpM4kwHriQ1sFZK2YGUYqM+SJ
+	Ls2GKe9T6Q16wdIVF0sIzmbdiO7gAx2lt4lCag3lyfSN1GaGRIKVpJwultXZbxL0u5mQGwvtc0TQD
+	JXvZG/E5H3HNZjKKqYq4rXaXbCX2zNEpYfY5qPiiWbyzxhey/mkyqwG9lfBlVMWco0SPcM9A2l6ii
+	b0nSfG/YGAAB1uwEdpfxgbiIMeezk3BB817qsMBw7BJvnQ3jldRGTUXcmfQtYMdl/R3NyB74ykCS5
+	Qd7zOjXD/EnxwWM2+rji23j/ZoKJnaub74Vpm2N8aNUxp7beklzAqa9M/+tzxAuKonma76t0gIQTo
+	awv8ofqw==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>
+Cc: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>,
+ Michael Riesch <michael.riesch@collabora.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Guochun Huang <hero.huang@rock-chips.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/8] dt-bindings: phy: rockchip,rk3588-mipi-dcphy: Add a cell
+ to select TX or RX
+Date: Wed, 21 Oct 2026 10:03:45 +0200
+Message-ID: <3435698.oiGErgHkdL@diego>
+In-Reply-To: <20261021024239.GA3667411-robh@kernel.org>
+References: <20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com>
+ <25254818.ouqheUzb2q@diego> <20261021024239.GA3667411-robh@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 7/7] arm64: dts: qcom: sc7180: Add sc7180-trogdor.its
- FIT image script
-To: Douglas Anderson <dianders@chromium.org>,
-        Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, Brian Norris <briannorris@chromium.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Simon Glass <sjg@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>,
-        linux-arm-msm@vger.kernel.org, Nicolas Schier <nsc@kernel.org>,
-        Peter Griffin <peter.griffin@linaro.org>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Tudor Ambarus <tudor.ambarus@linaro.org>, Devicetree@vger.kernel.org,
-        Julius Werner <jwerner@chromium.org>,
-        Saravana Kannan
- <saravanak@kernel.org>, Will Deacon <will@kernel.org>,
-        Michal Simek <michal.simek@amd.com>,
-        =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org
-References: <20261020153652.2907186-1-dianders@chromium.org>
- <20261020083501.RFC.7.I1683fb18dd1cb29680af5efb2c2d3c3f539af0f4@changeid>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20261020083501.RFC.7.I1683fb18dd1cb29680af5efb2c2d3c3f539af0f4@changeid>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDAzMSBTYWx0ZWRfX2mHptnII5Qfy
- vjo2eDF9/xfTuKeQtEIsSbV0uIutxKBbP5riNRRZPxQy3ync+96f4joNlh67R4lnwIh030P4OuM
- aj95Ms4KABssUkbyFayRHzlGoJl5V64TeHWG7kQaq8wk8a27EurCmml57bJGxVXI7RU0U+UbZVg
- +LAGqMg0hxDvujhnRWEcv/S13Opmj4DQlU7sAI4yuR6P/y0LSsPpZfdkMwwFduPikolMZZmeii/
- 3IZy3ZFYJJ1aeotgddvLmKhKIR5abXEmtvA/HivBaQJ2Nuxjd5xHBqySyt8cQCwlT/ByE4Y2uAF
- zsyLAmR6LJt9WDP3NubH7pydStwJTaMW0hJVk3J1V/ZdtQ/FubNbIzuWou+4oVXMHSRYBWh07Nr
- p+EiSrHsWeC9JDYdUWw6rj7cmXpUsw2gRZbXCbU1JK3DiX/pyTeUAQOnfXOVWVIKtNtZNS17pVc
- yhA5Fl6yOSQOVgGSCYA==
-X-Proofpoint-ORIG-GUID: zoxo1DcGRAExuNcmzTu17Qd6K8R5KL3Z
-X-Proofpoint-GUID: zoxo1DcGRAExuNcmzTu17Qd6K8R5KL3Z
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDAzMSBTYWx0ZWRfX/1yD4KpitSIR
- jW7v7pFlerYLQPSISiPA5tpH664gBMst49k65Cb/DZ0xz34oorku81DcuwrJ+bjVC8i2RJCfIo5
- HwA2bAqYVd3SHYEPupM7Z1h4cr/9CCc=
-X-Authority-Analysis: v=2.4 cv=NppE4MdJ c=1 sm=1 tr=0 ts=6ad86f32 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=cm27Pg_UAAAA:8 a=EUspDBNiAAAA:8 a=hCCUOKFY6uXp-TWS5dAA:9 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-21_02,2026-10-19_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 spamscore=0 priorityscore=1501 clxscore=1015
- suspectscore=0 phishscore=0 lowpriorityscore=0 adultscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610210031
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_005219_210114_8C4DE8E0 
-X-CRM114-Status: GOOD (  10.67  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261021_010405_677564_6EA5D4D2 
+X-CRM114-Status: GOOD (  61.89  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,27 +75,212 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,T_PDS_OTHER_BAD_TLD,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/20/26 5:35 PM, Douglas Anderson wrote:
-> Add an Image Tree Source (`sc7180-trogdor.its`) describing the FIT
-> image for SC7180 Trogdor family boards using `Image-framed.lz4` and
-> LZ4-compressed board DTBs (`*.dtb.lz4`), allowing the Trogdor FIT image
-> to be built with:
-> 
->   make FIT_ITS=qcom/sc7180-trogdor.its image.fit
-> 
-> Assisted-by: Gemini:gemini-pro-prerelease
-> Signed-off-by: Douglas Anderson <dianders@chromium.org>
-> ---
+Am Mittwoch, 21. Oktober 2026, 04:42:39 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb Rob Herring:
+> On Tue, Oct 20, 2026 at 04:57:34PM +0200, Heiko St=C3=BCbner wrote:
+> > Am Dienstag, 20. Oktober 2026, 16:10:39 Mitteleurop=C3=A4ische Sommerze=
+it schrieb Rob Herring:
+> > > On Tue, Oct 20, 2026 at 03:37:35PM +0200, Heiko St=C3=BCbner wrote:
+> > > > Am Dienstag, 20. Oktober 2026, 00:20:47 Mitteleurop=C3=A4ische Somm=
+erzeit schrieb Michael Riesch:
+> > > > > Hi all,
+> > > > >=20
+> > > > > On 10/19/26 17:06, Rob Herring wrote:
+> > > > > > On Mon, Oct 19, 2026 at 04:15:03PM +0800, =E6=A5=8A=E6=99=BA=E6=
+=88=90 wrote:
+> > > > > >> Hi Krzysztof, Rob,
+> > > > > >>
+> > > > > >>> Existing OS should ignore surplus cell if the driver is coded=
+ properly.
+> > > > > >>> Same as adding new properties or new front-compatible.  The q=
+uestion is
+> > > > > >>> how the existing driver behaves?
+> > > > > >>
+> > > > > >> As you pointed out on 5/8, the xlate checks args_count !=3D 1.=
+ The DC-PHY
+> > > > > >> driver was merged in v6.15, so every kernel since 6.15 fails o=
+n a second cell.
+> > > > > >>
+> > > > > >> 1. Keep the second cell. Add the patch as follows:
+> > > > > >>
+> > > > > >> - if (args->args_count !=3D 1) {
+> > > > > >> + if (args->args_count < 1) {
+> > > > > >>     dev_err(dev, "invalid number of arguments\n");
+> > > > > >>     return ERR_PTR(-EINVAL);
+> > > > > >>   }
+> > > > > >>
+> > > > > >> + if (args->args_count > 1 && args->args[1]) {
+> > > > > >> +   dev_err(dev, "only the transmitter is supported\n");
+> > > > > >> +   return ERR_PTR(-EINVAL);
+> > > > > >> + }
+> > > > > >>
+> > > > > >>   With Fixes: and Cc: stable, the stable kernels maintained at=
+ that
+> > > > > >>   time (currently 6.18.y and 7.2.y) keep DSI working with the =
+new
+> > > > > >>   dts, and the receiver fails cleanly instead of getting the t=
+ransmitter.
+> > > > > >>   But EOL kernels (6.15, 6.16, 6.17, 6.19, 7.0, 7.1) stay affe=
+cted.
+> > > > > >>   It goes in with the series, since two-cell dts only exist af=
+ter it.
+> > > > > >>
+> > > > > >> 2. Use a flag in the upper bits of the existing cell, as Rob
+> > > > > >>     suggested. Existing kernels are not affected, unless a boa=
+rd enables
+> > > > > >>     the DC-PHY CSI-2 receiver on 7.0 or later without this ser=
+ies.
+> > > > > >>
+> > > > > >> I will write the impact clearly whichever  approach is selecte=
+d in
+> > > > > >> the related commit messages and the cover letter.
+> > > > > >>
+> > > > > >> I think the cell approach is easier to read and more symmetric=
+ in the
+> > > > > >> long term,
+> > > > > >> but it breaks more. Which one do you think is better? Thanks.
+> > > > > >=20
+> > > > > > I'm not a user of this platform, so I don't care. Up to the pla=
+tform=20
+> > > > > > maintainers to decide if breakage is acceptible. You just need =
+to=20
+> > > > > > document the issue in the commit message.
+> > > > > >=20
+> > > > > > Rob
+> > > > >=20
+> > > > > It's a bit of a pickle, all this.
+> > > > >=20
+> > > > > I gave it some more thought. In the end this is an IP block with =
+two
+> > > > > PHYs. No more, no less. One cell is sufficient to address those, =
+and it
+> > > > > could be 0 for the transmitting PHY (DSI, display) and 1 for the
+> > > > > receiving PHY (CSI, camera).
+> > > > >=20
+> > > > > Of course the two PHYs can operate in either DPHY or CPHY mode. T=
+he
+> > > > > phy-cells have been (mis?)used to select the proper mode of combo=
+ PHYs,
+> > > > > and this principle has been applied here too.
+> > > > >=20
+> > > > > However, we have the special situation here that the mode can onl=
+y be
+> > > > > changed for the complete IP block (and thus for both PHYs at the =
+same
+> > > > > time). As Bryan points out, we need to check and complain if the =
+PHY
+> > > > > mode is not set to the same value for both PHYs.
+> > > > >=20
+> > > > > I suggest using a property
+> > > > >     samsung,cphy-mode;
+> > > >=20
+> > > > I guess, a maybe nicer way would be mimicing
+> > > > 	Documentation/devicetree/bindings/phy/intel,combo-phy.yaml
+> > > >=20
+> > > > with its
+> > > > 	intel,phy-mode =3D <x>
+> > > >=20
+> > > > with x coming from include/dt-bindings/phy/phy.h
+> > > > for the distinction between cphy and dphy, so we don't introduce yet
+> > > > another way to describe this.
+> > >=20
+> > > We already have the plain 'phy-type' property which takes the same=20
+> > > PHY_MODE_x values. We don't need yet another vendor specific property.
+> >=20
+> > even better then ... and I didn't look deep enough it seems.
+> >=20
+> >=20
+> > > > > (name to be bikeshedded) that sets the complete IP block into CPH=
+Y mode
+> > > > > (DPHY being the default) to distinguish between the modes. Since =
+both
+> > > > > modes use a different electrical interface, this is clearly a har=
+dware
+> > > > > thing and thus suitable for device tree.
+> > > > >=20
+> > > > > Then, we can address the two PHYs with the help of the already ex=
+isting
+> > > > > phy cell (without any bitflag tweaks to the value).
+> > > > >=20
+> > > > > The sole drawback is that we need to accept the PHY_TYPE_DPHY and
+> > > > > PHY_TYPE_CPHY values that some OS in the field might pass. (For L=
+inux,
+> > > > > it should only be the former.) And we need to handle those values
+> > > > > correctly. But I think this is not more painful than the other
+> > > > > approaches. At the same time, this design seems to be the most co=
+rrect
+> > > >=20
+> > > > The current cell values are 10 + 11, so as long as we don't re-use =
+those
+> > > > exact values for the other constants the driver should somewhat eas=
+ily
+> > > > be able to recognize an old DT?
+> > >=20
+> > > I think you will still have an ABI issue of what does old OS do with =
+new=20
+> > > values?
+> >=20
+> > wasn't the main contract, a newer kernel should support old DTs ?
+>=20
+> Well, yes, it was. That was a position I inherited. I hear complaints=20
+> about the opposite though.
+>=20
+> > Aka the DT is parked in some firmware part (u-boot?) and gets handed
+> > to the newer kernel.
+> >=20
+> > I don't see deliberately handing a newer DTB to an older kernel as a
+> > very common occurence?
+>=20
+> Do you want things to break when you do a firmware update that's picked=20
+> up a newer DT? I don't.
+>=20
+>=20
+> > And from a practical standpoint:
+> >=20
+> > We're talking about devices with DSI displays that are at stake here,
+> > so we're in the embedded world.
+> >=20
+> > In other areas we're still fighting basic functionality like actually
+> > handling the type-c orientation correctly in the usbphy.
+> >=20
+> > So I really don't see a device with a user-updateable mainline kernel o=
+ut
+> > in the field, apart from people hacking around on their devices to try
+> > out new features and new kernels, simply because core functionality
+> > is still evolving in mainline.
+> >=20
+> >=20
+> > RK3576/RK3588 devices still ship with a vendor u-boot/kernel, with
+> > completely incompatible DTB afterall.
+>=20
+> I can only keep my own house clean...
 
-Acked-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+ok :-)=20
 
-Konrad
+
+> I only ask that compatibility issues be documented. Up to individual=20
+> platforms to decide if they care or not. So, your decision.
+
+The discussion would be a lot different for SoCs like the RK3399 or PX30
+that can and have run mainline software in a usable way for years now.
+RK3568 very likely falls in that area too.
+
+But for the in-progress SoCs RK3576 and RK3588 anybody wanting to run
+a generic userspace would need a heavily patched kernel anyway, with
+other unreviewed/unmerged dt-changes, so personally I can live with it.
+
+Especially if we keep the (in my eyes) more common case
+(old dtb, new kernel) working.
+
+
+Heiko
+
+
 
