@@ -2,58 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E1EA60A261B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:03:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00404606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:05:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oYmbbjR1;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fGjvyCzl
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DDV0I7X9;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UZT563FZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HG5WwI0uva9+q35bmaikDJW5M7QGxWPn9cqDARaboVE=; b=oYmbbjR1g7+zQPbO/hKCal8Vod
-	93Xt4wpzZvaG1+q392b8J+bwcr9r7Bk3DpRcqixL+438YqrnN85ERf65Rk/IrqYWIhH6BUssfGBdL
-	tNVTKjG9MpVA5KVkNr1WsKRfmeosy4OXuWFbg3WN+3uW/3D13hptkm0kaVurz0MQQaTSdzLjgQFTf
-	IidKMePnFLOUXjEsp9skoG+C7TTWujmvKNqyoFq9Q6JWyU1nhbqg+zwHYqA3CTMAb9QxA7bdcQQXF
-	sZ/D5r6sy/GCA9uhkems6k8iKyW7PXh5rQTlXDxv/gdKZ1x5KATJADmVAu8SylSSb9fSVmnEzC+YH
-	VOcNnPCA==;
+	bh=yA/d7xHCvimeiSgT5X9qinEfD4f+i9hf+y7HDZY8TE0=; b=DDV0I7X9jS2PqctFoHsetUdgFx
+	1k5a3qwsSJKVtmroT5XOflghvZ/HmevvfC4gBYVJCzqytmQq1aL5C4gZkSPgis2YBus6VSUKOoi1p
+	a1f4yJp+Ruovd2c/h/UhDXVdJWrfyM+ByEv+1qThFZDFEyfJfzM/4GP2B3vx2g3i4uV5tb3oxbkdk
+	fGEyib7MbLBuwQBdeXvcchnmgFUib9I58kvn9kjJ9WrWQEdrNAmT4MMy6H11AmbQQcSUGSp81YwI8
+	XQr1UjRQp+M44W6dnNaZF8Jn8CbFuIKgvT96mpr/D/hDI74aqwQSm4oJnGg4LzxSP8wvV6UBaVYsY
+	fj56FAIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJWuN-0000000C2Du-0hXo;
-	Wed, 21 Oct 2026 14:03:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xJWw3-0000000C2Zn-2Qte;
+	Wed, 21 Oct 2026 14:04:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJWuK-0000000C2D5-19CA
+	id 1xJWw3-0000000C2ZR-0ItV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 14:03:09 +0000
+	Wed, 21 Oct 2026 14:04:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6C19860142;
-	Wed, 21 Oct 2026 14:03:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EF621F000C8;
-	Wed, 21 Oct 2026 14:03:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 77068404B6;
+	Wed, 21 Oct 2026 14:04:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 585A91F000C4;
+	Wed, 21 Oct 2026 14:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792591387;
-	bh=HG5WwI0uva9+q35bmaikDJW5M7QGxWPn9cqDARaboVE=;
+	s=k20260515; t=1792591494;
+	bh=yA/d7xHCvimeiSgT5X9qinEfD4f+i9hf+y7HDZY8TE0=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=fGjvyCzl/fJR+Od4lSDF8SJ6aZKPrlsrQz4NQHh6aQRKTNbxA8w5bvEkcPmIm1xpD
-	 0UbBGkvMb2PXPQyZplNPm75s5OZMCs/of/Q32mdtF/smWQKFNP+WRVkOVM1g/pgF7M
-	 k6Gilcq91OuB8lxZWSo00NOqkLLNDe4YfheInStdqfZqXqgjkEexCgjzhpWK7jNZnu
-	 n9w/rjbYE9+Ogl2+2nUyjwlTtBNyRUgQR6xwpeDtOajbZKWpMIFENdUf57CPUfbI+p
-	 XxgSiHkBRrGucN9Hhu/l1ep5E8AAg+JpBLP1qT7YhJ+SATLQ2wcWoaAydcqYox4Jd8
-	 hWBtCNuaWDKkQ==
+	b=UZT563FZdUGP4XEOxzleadiPXVItt+IukRA8Q0pvDTxGiRM352eYfiFV3ZpR+mAVS
+	 TOQjs7SZu0k5T4qA1b3jK/KenlsAX5Z/ktvQeei+NBo+GiJYMU1Zjl7ApteFHRINEI
+	 hSq9E9Ev9QMZzgUGPeHOlyrcDVwA8fX+4LWiRb554HkCtBIupo0D0UlBbWpJXsszA8
+	 fqCSms+YgllcSe8692GwRRjbTBNRea9tv5t7GhH9rz0zx+k55jhqDusib5AfuhpXlz
+	 uJSq+QtrtEsYVgA4KaAFAP6JAc1qfAqd9zwfAXk21T1y+5S8qY4UOCdilEeKp0VqcD
+	 I1xsQEQ7V0lVQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xJWuG-00000005dP4-3zaA;
-	Wed, 21 Oct 2026 14:03:05 +0000
-Date: Wed, 21 Oct 2026 15:03:04 +0100
-Message-ID: <86o6cnywvb.wl-maz@kernel.org>
+	id 1xJWw0-00000005dRI-1xo7;
+	Wed, 21 Oct 2026 14:04:52 +0000
+Date: Wed, 21 Oct 2026 15:04:51 +0100
+Message-ID: <86mrs7ywsc.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+To: Mark Brown <broonie@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>,
 	Oliver Upton <oupton@kernel.org>,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,13 +64,13 @@ Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
 	linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v3] KVM: arm64: Sanitise ID_AA64MMFR3_EL1.S1P[IO]E
-In-Reply-To: <CA+EHjTxMGFuZHPp8ULkpUiGhXos8f1B8kZ1FDigFE7afR=X6AQ@mail.gmail.com>
+In-Reply-To: <ati3_lymW0zaBsSU@sirena.co.uk>
 References: <20261020064306.1542865-1-fuad.tabba@linux.dev>
-	<atc2Y4gHwtGlffns@gremlin>
-	<CA+EHjTxMGFuZHPp8ULkpUiGhXos8f1B8kZ1FDigFE7afR=X6AQ@mail.gmail.com>
+	<ati3_lymW0zaBsSU@sirena.co.uk>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -78,7 +78,7 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, ljs@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, broonie@kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: broonie@kernel.org, fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, ljs@kernel.org, tabba@google.com, linux-kernel@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,69 +91,25 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 20 Oct 2026 20:30:56 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
+On Wed, 21 Oct 2026 14:02:54 +0100,
+Mark Brown <broonie@kernel.org> wrote:
 > 
-> >> @@ -59,6 +59,7 @@ struct reg_feat_map_desc {
-> >>         const struct reg_bits_to_feat_map feat_map;
-> >>         const struct reg_bits_to_feat_map *bit_feat_map;
-> >>         const unsigned int                bit_feat_map_sz;
-> >> +       const unsigned int                idreg_idx;
-> >
-> > This field feels a bit hazardous - 0 is a valid index and now things that
-> > don't declare it are setting a valid value.
-> 
-> idreg_idx is only read for the descriptors in idreg_feat_maps[], which
-> all come from DECLARE_IDREG_FEAT_MAP(), so the 0 in the others is
-> never used. Storing the encoding would work as well, I'll leave that
-> one to Marc.
+> It would be nice to have it be more obvious to the VMM and/or it's users
+> that it messed up, as things stand features it thought it had set will
+> just silently vanish from the guest - they'd need to know that this is
+> something that might happen and check after finalization or similar.
+> That's probably more a documentation/education thing than anything for
+> the patch.
 
-I don't think we should baby-sit people who hack this code. If you put
-something that is not the output of IDREG_IDX(), you get to keep the
-pieces. If you use this out of context, it will blow up in your face.
-
-> 
-> [...]
-> >> +static bool idreg_deps(struct kvm *kvm, const struct reg_feat_map_desc *r)
-> >
-> > To me this reads confusingly - idreg_apply_deps() would be clearer I think.
-> 
-> Agreed.
-> 
-> [...]
-> >> +       for (int i = 0; i < r->bit_feat_map_sz; i++) {
-> >> +               if ((r->bit_feat_map[i].flags & CALL_FUNC) &&
-> >
-> > What if it isn't a CALL_FUNC feature?
-> >
-> > Could this loop just be replaced with compute_resx_bits()?
-> 
-> It's skipped, so a dependency written as a plain field match would be
-> silently ignored. Both entries today are CALL_FUNC, but
-> compute_resx_bits() handles every kind of entry and would also give
-> the res1 line something to set. It'd mean moving idreg_deps() below
-> it.
-
-I really do not want to drag compute_resx_bits() into this. None of
-that stuff is RESx. It is bad enough that we use the same structures
-to represent different type of dependencies. I also want to add new
-ways to affect ID registers that really do not fit the RESx handling.
-
-> Marc, compute_resx_bits(), the rename and the loop rework are all fine
-> by me. If you agree, I can respin with them, or you can fold them in
-> when applying, whichever is easier for you.
-
-I don't care about the name, but I don't want the rest of the proposed
-changes.
-
-Thanks,
+The VMM is an integral part of implementing the architecture. If the
+VMM doesn't cooperate, that's its problem.
 
 	M.
 
