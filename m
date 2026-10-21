@@ -2,74 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6B2C606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 21:00:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20C79606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 21:01:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cv7LuT5K;
-	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=ALy1Zz4Q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4Isedgt0;
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=gnRdnn2d
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KmKQiASgHHpPpvSVCiK2LSdfMBzEqABYMCvRYtwTfIw=; b=cv7LuT5KNIIYktUDb8K8Q3qmDW
-	kFWz+wuCOrNcrY5KFv66+NzKS5BUXfDUl7WrFlTEH7K8oQrq75nAP+GokMXK2Afz0GBDJzQhEQ3zT
-	W+efHeZ63LoY5pg4HoCAt9myOm4avXKcRRFudBHdepFtcwaM8ZO/PqJjVasyvV/wCsSO/9NCrsdD5
-	lamnhJxqc4WYW73VzNiwwM/xfDQTPunmFgYz6+sPA0ncLPIscX+NMxsx2rb76AmpPC6NhtH72jMas
-	QXN/BsD2nMD1cQtK7QHdFIq7JqrWcbn9Qn1iq6XDRiGYzEFd9HsIdMfgj71lWAKcN3dcu3H0eeM1G
-	zaYzwRUA==;
+	bh=5SoBYLzK+ZdLfi5BCMX08p53Wh7vlbOFUlLFSPM85IU=; b=4Isedgt0PfK3Chglv9gDpyGY8n
+	8zrJW9aoFDiI+K496+kfHhdDZP4ZaUWFHU9rLNRJpoeny6xSs3boBO1Vv1EPW6Z6YpexO6sc0gI6G
+	o2UW55OUcgans0b6YVImwu+E3aMVSfVUdHd91W3TmH57+hYP7FXDxdK9wTbHvXic97QwiR3Ca5Mf9
+	9BoSlfyZ9OCICFGWDUvgezOiytS2vg7TFNIgUh9m15HN8TmIoDBg6A9eFKdGMpMhmkuSrcKSchOhj
+	JvbPqaSA3ZkJs7pE/9Bsh7jTkAF7FUvN2USBdQ1Yy27f0yUwlnUH6XoKyuXwL1/EVnCjYDotEB+rC
+	M92cKnBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJdQE-0000000Csjq-34jp;
-	Wed, 21 Oct 2026 21:00:30 +0000
-Received: from pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.26.1.71])
+	id 1xJdQc-0000000Cstc-3rJZ;
+	Wed, 21 Oct 2026 21:00:55 +0000
+Received: from pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.12.53.23])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJdQC-0000000Csj1-0mmM
+	id 1xJdQX-0000000CsrP-1Pk0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 21:00:29 +0000
+	Wed, 21 Oct 2026 21:00:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1792616428; x=1824152428;
+  t=1792616449; x=1824152449;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=KmKQiASgHHpPpvSVCiK2LSdfMBzEqABYMCvRYtwTfIw=;
-  b=ALy1Zz4QhhnJN9/hhOhz9sdPcb34FSRjNDHYLG2uACe6lTeMUVj6SXrj
-   diWRHaDcBE9ZUUohhCxk2Uve2JK3GsKQAJ+ASKZ4ZwXfRLimqODJZjkPT
-   77GaMG6pRCbxn6Qd+ijRrS9X5Og9G4uV8yMLPQuv047PrXcijV7vu9FJu
-   gPMpUKjN9KeY3NWu5XqNHRmGolf5Ih+5tP+G7WakV6yqBgmYqHUXZbtwC
-   A5E+t6XiwSUTIsUaNKXfmMfBzgbXG3aEEuLl1NPV8e5HY2ElVXZblPZnf
-   0hUG9IdPCVfg+AVG1N1pOe3i2LAe8mHYc6gcynvMDogBQ32bkWNey6wNa
-   Q==;
-X-CSE-ConnectionGUID: cwGklPTASR6F0+v0f9L9oA==
-X-CSE-MsgGUID: lpiPmw3+RnSbAWVyuTMyfQ==
+  bh=5SoBYLzK+ZdLfi5BCMX08p53Wh7vlbOFUlLFSPM85IU=;
+  b=gnRdnn2dw0XHqDOUPj3K7NRvLpJbqtjLM7X2QIECpQZNm+1sPfeVTOkP
+   9f7u74nziCTuJZ7hmZ5VkPFRjLljo7Rbz3VewooYvrq2FhRSbqfuHRmIZ
+   LOX0mGyhOrB7WSem37YNsdEEzz4kF9knVvJa9yC2t5JOAX36ztvqrTvFO
+   Q0NNPu66dZWSOQt8Q5XIzU8RxAUR8RRm1SdPedzXy9EUhTcRieKCLzM/U
+   pBxJJBkPcqBggqv74/hSrtalSeS6A9KNbtVZSxemzcFzQAgYjXlfUGsX3
+   GtYThw3LnX0m6RUZWgPtvVvBLRJiDxZ5Hw4F1XbL2kO/zqcAdQ/KNe8Mz
+   w==;
+X-CSE-ConnectionGUID: 4/rpq61JRLqO9NOaBAgw+Q==
+X-CSE-MsgGUID: sYrwamOUTHyVUZD/vCqM3w==
 X-IronPort-AV: E=Sophos;i="6.27,170,1787011200"; 
-   d="scan'208";a="31940288"
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2026 21:00:25 +0000
-Received: from EX19MTAUWC002.ant.amazon.com [205.251.233.111:12534]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.22.5:2525] with esmtp (Farcaster)
- id d8ae2856-7a85-415a-be54-ff72d9aa0b5b; Wed, 21 Oct 2026 21:00:25 +0000 (UTC)
-X-Farcaster-Flow-ID: d8ae2856-7a85-415a-be54-ff72d9aa0b5b
+   d="scan'208";a="31778176"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2026 21:00:47 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.236:13056]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.42.190:2525] with esmtp (Farcaster)
+ id d86c36b0-f405-4590-bf50-a87d9474e8c4; Wed, 21 Oct 2026 21:00:47 +0000 (UTC)
+X-Farcaster-Flow-ID: d86c36b0-f405-4590-bf50-a87d9474e8c4
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
+ EX19MTAUWA001.ant.amazon.com (10.250.64.218) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49;
- Wed, 21 Oct 2026 21:00:25 +0000
+ Wed, 21 Oct 2026 21:00:46 +0000
 Received: from dev-dsk-patrzhan-2a-52a3f46b.us-west-2.amazon.com
  (172.22.91.11) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.53; Wed, 21 Oct 2026
- 21:00:24 +0000
+ 21:00:46 +0000
 From: Patrick Zhang <patrzhan@amazon.com>
 To: Marc Kleine-Budde <mkl@pengutronix.de>, Vincent Mailhol
 	<mailhol@kernel.org>, <linux-can@vger.kernel.org>
 CC: Pavel Pisa <pisa@cmp.felk.cvut.cz>, Ondrej Ille <ondrej.ille@gmail.com>,
 	Harini T <harini.t@amd.com>, Michal Simek <michal.simek@amd.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>
-Subject: [PATCH 2/3] can: xilinx_can: enable NAPI before starting the controller
-Date: Wed, 21 Oct 2026 20:59:23 +0000
-Message-ID: <20261021205924.2538511-3-patrzhan@amazon.com>
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH 3/3] can: ifi_canfd: enable NAPI before starting the controller
+Date: Wed, 21 Oct 2026 20:59:24 +0000
+Message-ID: <20261021205924.2538511-4-patrzhan@amazon.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20261021205924.2538511-1-patrzhan@amazon.com>
 References: <20261021205924.2538511-1-patrzhan@amazon.com>
@@ -77,11 +76,11 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: EX19D031UWA003.ant.amazon.com (10.13.139.47) To
+X-ClientProxiedBy: EX19D031UWC001.ant.amazon.com (10.13.139.241) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_140028_274063_B8D049EB 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20261021_140051_658410_533AC48D 
+X-CRM114-Status: GOOD (  14.67  )
 X-Spam-Score: -11.9 (-----------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,70 +100,54 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-xcan_open() calls xcan_chip_start(), which writes XCAN_IER_OFFSET to
-unmask the RX interrupts and then sets XCAN_SRR_CEN_MASK to enable the
-controller, and only then calls napi_enable(). A frame that arrives in
-that window raises the RX interrupt. xcan_interrupt() clears the RX
-bits in XCAN_IER_OFFSET and calls napi_schedule(). NAPI is still
-disabled, so napi_schedule_prep() finds NAPI_STATE_SCHED set and the
-schedule is dropped. Only xcan_rx_poll() unmasks RX again, and it never
-runs. The interface receives nothing until the next close. Transmit
-still works and no rx_errors subcounter moves, so the stall is silent.
-Every re-open (ip link down/up, a driver rebind) runs the same race
+ifi_canfd_open() calls ifi_canfd_start(), which unmasks the interrupts
+in IFI_CANFD_IRQMASK and then enables the controller through
+IFI_CANFD_STCMD, and only then calls napi_enable(). A frame that
+arrives in that window raises RXFIFO_NEMPTY. ifi_canfd_isr() masks all
+interrupts with ifi_canfd_irq_enable(ndev, 0) and calls
+napi_schedule(). NAPI is still disabled, so napi_schedule_prep() finds
+NAPI_STATE_SCHED set and the schedule is dropped. Only ifi_canfd_poll()
+unmasks the interrupts again, and it never runs. From then on the
+interface receives nothing. ifi_canfd_start_xmit() stops the queue
+after every frame and relies on the TX FIFO interrupt to wake it, and
+that interrupt is masked too, so transmit stops after the next frame.
+The stall lasts until the next close. Every re-open runs the same race
 again.
-
-The window is only the tail of xcan_chip_start(), so the failure is
-rare. Adding an mdelay(50) at the end of xcan_chip_start() makes it
-reproducible with continuous traffic from another node and a single
-"ip link set down/up" on the test device.
 
 Enable NAPI before the controller starts, so that an early RX interrupt
 can schedule the poll. NAPI can be enabled while the controller is in
-reset, because nothing schedules it until an interrupt arrives. If
-xcan_chip_start() fails, disable NAPI again. Otherwise the next open
-would call napi_enable() on an already enabled instance and trip the
-BUG_ON() in napi_enable_locked().
+reset, because nothing schedules it until an interrupt arrives.
+ifi_canfd_start() cannot fail, so no error path changes.
 
-This is the same race as in ctucanfd, fixed by the previous patch.
+This is the same race as in ctucanfd and xilinx_can, fixed by the
+previous patches. I do not have IFI CAN FD hardware, so this change is
+compile tested only and the failure sequence is taken from the code.
 
-Tested on a Versal board.
-
-Fixes: b1201e44f50b ("can: xilinx CAN controller support")
-Cc: stable@vger.kernel.org
+Fixes: 0c4d9c94a130 ("can: ifi: Add IFI CANFD IP support")
 Assisted-by: LLM
 Signed-off-by: Patrick Zhang <patrzhan@amazon.com>
 ---
- drivers/net/can/xilinx_can.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/net/can/ifi_canfd/ifi_canfd.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/can/xilinx_can.c b/drivers/net/can/xilinx_can.c
-index 43d7f2282..5c2412bf9 100644
---- a/drivers/net/can/xilinx_can.c
-+++ b/drivers/net/can/xilinx_can.c
-@@ -1570,18 +1570,22 @@ static int xcan_open(struct net_device *ndev)
- 	if (ret)
+diff --git a/drivers/net/can/ifi_canfd/ifi_canfd.c b/drivers/net/can/ifi_canfd/ifi_canfd.c
+index 0f83335e4..feb738eb0 100644
+--- a/drivers/net/can/ifi_canfd/ifi_canfd.c
++++ b/drivers/net/can/ifi_canfd/ifi_canfd.c
+@@ -846,9 +846,12 @@ static int ifi_canfd_open(struct net_device *ndev)
  		goto err_irq;
+ 	}
  
-+	/* Keep before xcan_chip_start(): the ISR masks RX interrupts and only
++	/* Keep before ifi_canfd_start(): the ISR masks the interrupts and only
 +	 * the poll unmasks them.
 +	 */
 +	napi_enable(&priv->napi);
- 	ret = xcan_chip_start(ndev);
- 	if (ret < 0) {
- 		netdev_err(ndev, "xcan_chip_start failed!\n");
- 		goto err_candev;
- 	}
+ 	ifi_canfd_start(ndev);
  
 -	napi_enable(&priv->napi);
  	netif_start_queue(ndev);
  
  	return 0;
- 
- err_candev:
-+	napi_disable(&priv->napi);
- 	close_candev(ndev);
- err_irq:
- 	free_irq(ndev->irq, ndev);
 -- 
 2.50.1
 
