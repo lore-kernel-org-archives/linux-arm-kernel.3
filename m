@@ -2,59 +2,59 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01E1C606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 12:14:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC65960A6F63
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 12:16:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NfTrwv3r;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZR2eirAs
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=evq+3jLn;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XgQaPU/t
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gqg9AUkKMFzGjca4P8T0j7dfc1PjK21o+l1aCM99D/M=; b=NfTrwv3rO5UhoVlDVmqaN9e5fM
-	vdSQEEORYVpo7EVXgNjTbNma5jK7ZOxjiSD12Md4qB4hfi5LM5JVfilMBgpA+PYztT1035SJcBkfF
-	6QAv3+I12y+PwizZhqcvkpkskae4xdQz6ukahzCQQP4Smg9iDH2JBrKNJcW25MyNCkbvSNQaxelq8
-	tNrcNNboS3AomhfOLu4gzN3vkiWcTnIc/DrPU8r7nuk5fq1OGKCdTBnu9/y+4I/ji/XdVlRTuPx4L
-	PPbCda27a8gLTf7ohnhPZxvJvwubgxEMDortmYkLl30GlifHoYV0JcmjEsoZr4LURrBW7IzTiykCf
-	QZ6ZORBQ==;
+	bh=3sV2BVll+rmA+nzXI9MkZz3cUVSsRVhz3ZropH017dE=; b=evq+3jLnLlB+aScfE+YrLPpZbe
+	77xI9xzHBhz87LxRVoyPa0WD4eLD96rZk4xtQsBUDt7X+XLHnwRxT3/bBMuZuFggO58+OwJmBBEcz
+	PG94xBGUWibSMrsPwTPexi7+p4jy8kRp4aFRK2JLHiSdzHyhNDtFoUMABiSFFHY+kxchTZv36eTPg
+	aO/BDV56OPshhlxd8d52YCixyq/AvgPGhCUdJe89ppktvVMzAhu3LC9GIwAaorrdI/CXgdy5upKxf
+	z7DkPEKNXjESffrzW13TWIaZxGarHmMzp8N4BAMaKhyXx8ZzY5297LX5KT1DG6W0q/f+HN8ODTeUd
+	ZUjUdAlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJVDQ-0000000BmSC-30cd;
-	Wed, 21 Oct 2026 12:14:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xJVEy-0000000Bmfs-45gW;
+	Wed, 21 Oct 2026 12:16:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJVDP-0000000BmRw-3MNU
+	id 1xJVEy-0000000Bmfh-0el3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 12:14:43 +0000
+	Wed, 21 Oct 2026 12:16:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED6AA6021E;
-	Wed, 21 Oct 2026 12:14:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 235A41F000C6;
-	Wed, 21 Oct 2026 12:14:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C1AD7406CF;
+	Wed, 21 Oct 2026 12:16:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 267711F000C4;
+	Wed, 21 Oct 2026 12:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792584882;
-	bh=gqg9AUkKMFzGjca4P8T0j7dfc1PjK21o+l1aCM99D/M=;
-	h=From:To:Subject:Date:In-Reply-To:References;
-	b=ZR2eirAseEOQSteV5fGTHuD7jgmvGErUNFgsPw7hP6u+VHrrIKQu8+DCOh7vRJ4sD
-	 SnSRuCBT3N7C3mTYMlFZL7atpBp5s2B8Lm9/LYE+jm09bW68zu8dStZevJ2CDOEaWv
-	 pKY0zWnxPXz5h/onSYAfHBfgoteb0/h0ebEnU9TfV6aC1H8QNGfoXi/XCRP9ZiP6v8
-	 3unjVDVtSrXXDHkHvQZywgMjoDSVmB0qkfOhaSb9pDS7dSMsikMP5oN0Fr7DlvwNIB
-	 CgsQTCkbuHAyUNu7+LVxg4oA3PhW8b0Q6eLfIGaI1L4HzMZZV47UP3Cvzofs0SriFD
-	 cHPlGtHXMh/Ag==
+	s=k20260515; t=1792584979;
+	bh=3sV2BVll+rmA+nzXI9MkZz3cUVSsRVhz3ZropH017dE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=XgQaPU/tHQ9qG5+iV9rAw//oA7KdsmgdtJivOyAzjRyPRZhJyaUG8Qmo7JlBY5qTu
+	 nrTF6ZrnMzc5lpbtM2AwahvSfgGOFd/7DXE3cyMAJywI9mm5dfP9dJWWX8Nr9sl7iA
+	 rDxHBhN1UJDOsEFqj8feYfo5Xs8GFo+yfoqTCDsPzLph07QM3Zp5JKv4mcKtFT4OIe
+	 Nvxpvz3MrQVhSAjwNYErptApnZNz5Wj3egVYqWoTOsBicl06purDm7MYA2HL6BB1BU
+	 aMfM/E2CHHg1ZjCX3ERNx7fMVSBk+eZrG+nT+iS7Sdki1LWfiuSZJhdJyILcnKpgBq
+	 0aMsEnmmmHnqA==
 From: Lee Jones <lee@kernel.org>
 To: lee@kernel.org,
 	Linus Walleij <linusw@kernel.org>,
-	Kumar Sanghvi <kumar.sanghvi@stericsson.com>,
-	Sundar Iyer <sundar.iyer@stericsson.com>,
-	Mattias Nilsson <mattias.i.nilsson@stericsson.com>,
+	Mattias Wallin <mattias.wallin@stericsson.com>,
+	Samuel Ortiz <sameo@linux.intel.com>,
 	linux-arm-kernel@lists.infradead.org,
 	mfd@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 07/28] mfd: db8500-prcmu: Make AB8500 cell and IRQ resource static
-Date: Wed, 21 Oct 2026 12:09:29 +0000
-Message-ID: <20261021121245.3111563-7-lee@kernel.org>
+Cc: stable@vger.kernel.org
+Subject: [PATCH 22/28] mfd: abx500-core: Unregister device ops on devm release
+Date: Wed, 21 Oct 2026 12:09:44 +0000
+Message-ID: <20261021121245.3111563-22-lee@kernel.org>
 X-Mailer: git-send-email 2.56.0.218.g1ec904b173-goog
 In-Reply-To: <20261021121245.3111563-1-lee@kernel.org>
 References: <20261021121245.3111563-1-lee@kernel.org>
@@ -79,56 +79,81 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-db8500_prcmu_register_ab8500() declares struct resource ab850x_resource
-and the mfd_cell descriptors on the stack and assigns &ab850x_resource
-to ab850x_cell->resources.  Although mfd_add_device() deep-copies the
-resource table via platform_device_add_resources() before
-db8500_prcmu_register_ab8500() returns, the shallow MFD cell copy
-attached to the child platform device retains a stale pointer to the
-expired stack frame.
+abx500_register_ops() allocates struct abx500_device_entry via
+devm_kzalloc() and links it into the global abx500_list without
+registering a devres cleanup action.  If a caller's probe function
+subsequently fails, devres frees the entry while it remains linked in
+abx500_list, causing use-after-free and list corruption on later
+traversals.
 
-Mark ab850x_resource as static and the ab8500_cell and ab8505_cell
-descriptors as static const so the resource pointer remains valid for
-the lifetime of the device.
+Register a devm_add_action_or_reset() callback in abx500_register_ops()
+to remove the entry from abx500_list before devres frees it.
 
-Closes: https://sashiko.dev/#/bug/linux-554f3a1f-ca41-4078-ae9e-66d0d7fb4c9d
+Fixes: c211b6b9c014 ("mfd: abx500-core: Convert to managed resources for allocating memory")
+Closes: https://sashiko.dev/#/bug/linux-6a9c6b8b-8f89-4af5-8cb1-102822e44e6e
+Cc: stable@vger.kernel.org
 Signed-off-by: Lee Jones <lee@kernel.org>
 ---
- drivers/mfd/db8500-prcmu.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/mfd/abx500-core.c | 29 ++++++++++++++++++-----------
+ 1 file changed, 18 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/mfd/db8500-prcmu.c b/drivers/mfd/db8500-prcmu.c
-index 6672c55f2ebc..cdfcbeb2a88c 100644
---- a/drivers/mfd/db8500-prcmu.c
-+++ b/drivers/mfd/db8500-prcmu.c
-@@ -2953,16 +2953,15 @@ static const struct mfd_cell db8500_prcmu_devs[] = {
+diff --git a/drivers/mfd/abx500-core.c b/drivers/mfd/abx500-core.c
+index e896531d0354..5873e335c395 100644
+--- a/drivers/mfd/abx500-core.c
++++ b/drivers/mfd/abx500-core.c
+@@ -5,6 +5,7 @@
+  * Author: Mattias Wallin <mattias.wallin@stericsson.com>
+  */
  
- static int db8500_prcmu_register_ab8500(struct device *parent)
++#include <linux/device.h>
+ #include <linux/list.h>
+ #include <linux/slab.h>
+ #include <linux/err.h>
+@@ -33,6 +34,21 @@ static void lookup_ops(struct device *dev, struct abx500_ops **ops)
+ 	}
+ }
+ 
++void abx500_remove_ops(struct device *dev)
++{
++	struct abx500_device_entry *dev_entry, *tmp;
++
++	list_for_each_entry_safe(dev_entry, tmp, &abx500_list, list)
++		if (dev_entry->dev == dev)
++			list_del(&dev_entry->list);
++}
++EXPORT_SYMBOL(abx500_remove_ops);
++
++static void abx500_unregister_ops(void *data)
++{
++	abx500_remove_ops(data);
++}
++
+ int abx500_register_ops(struct device *dev, struct abx500_ops *ops)
  {
--	struct device_node *np;
--	struct resource ab850x_resource;
--	const struct mfd_cell ab8500_cell = {
-+	static struct resource ab850x_resource;
-+	static const struct mfd_cell ab8500_cell = {
- 		.name = "ab8500-core",
- 		.of_compatible = "stericsson,ab8500",
- 		.id = AB8500_VERSION_AB8500,
- 		.resources = &ab850x_resource,
- 		.num_resources = 1,
- 	};
--	const struct mfd_cell ab8505_cell = {
-+	static const struct mfd_cell ab8505_cell = {
- 		.name = "ab8505-core",
- 		.of_compatible = "stericsson,ab8505",
- 		.id = AB8500_VERSION_AB8505,
-@@ -2970,6 +2969,7 @@ static int db8500_prcmu_register_ab8500(struct device *parent)
- 		.num_resources = 1,
- 	};
- 	const struct mfd_cell *ab850x_cell;
-+	struct device_node *np;
+ 	struct abx500_device_entry *dev_entry;
+@@ -45,20 +61,11 @@ int abx500_register_ops(struct device *dev, struct abx500_ops *ops)
+ 	memcpy(&dev_entry->ops, ops, sizeof(*ops));
  
- 	if (!parent->of_node)
- 		return -ENODEV;
+ 	list_add_tail(&dev_entry->list, &abx500_list);
+-	return 0;
++
++	return devm_add_action_or_reset(dev, abx500_unregister_ops, dev);
+ }
+ EXPORT_SYMBOL(abx500_register_ops);
+ 
+-void abx500_remove_ops(struct device *dev)
+-{
+-	struct abx500_device_entry *dev_entry, *tmp;
+-
+-	list_for_each_entry_safe(dev_entry, tmp, &abx500_list, list)
+-		if (dev_entry->dev == dev)
+-			list_del(&dev_entry->list);
+-}
+-EXPORT_SYMBOL(abx500_remove_ops);
+-
+ int abx500_set_register_interruptible(struct device *dev, u8 bank, u8 reg,
+ 	u8 value)
+ {
 -- 
 2.56.0.218.g1ec904b173-goog
 
