@@ -2,79 +2,151 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF642606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 04:53:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0445A606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 05:18:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RCuM3m4E;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eMLszvUQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1n168lul;
+	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=wuww8OXP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fY7ZTK1khhR9HlmoUz9qcKC7kwN/J1ah6/E5o6LMewQ=; b=RCuM3m4ERiG49HjlRf3Xpcl8Ao
-	/Tbl2du6KghY0TMpeZYbLmbVglxvdgJtWSNRI93BHGGNvDxU1BYqSbYfzIl/1yM6vGcjM7JFxWaR4
-	ybM/WU2zkyOGvL8FIbe2i/8CaBvT2/M6KKtn1wx3QCMDaLzElHQ3NGlp6HeSgJsD+/HjKFK1gSrbb
-	jVxXLojIQyJ18EvhXPhn5a6cGsdBBkNeutzf40zPx2dW/ec5Z79l4Sz+nTFmXcU7PVhixMwB7HQan
-	arWUB6FKva+W/LWabszggnpeL6Rggx9rX57RBT/eMDf8SBj1wNCUP8a1qyScFhgkYgqPSyvVm2cHk
-	OFSXe8Ww==;
+	bh=TebaFxd3BKhB9U6R7ULJFxj4xe3Z55zXaPsOwtxtCwo=; b=1n168lul6N5CjPVYrkxcvhRUa6
+	U+hbpUT9FTl5DcisuAEHjm/wvWiDMXsKdI68Eu5gOzo5dMBQSx5esUenIgmgfn3eckB5zkvCePVVp
+	NVTUteWMvZrcfBHV93uyB2QtW4bFvwq9dr/d9/eUvu1Gugoni+xccYA+ZhE6zQxlVqKeIj9nx87eb
+	7IuOr0jN0csLQFD1MY7bvMNOpDSrGwfP4sXtPlegTKR/pNAKJyO3bK+ogx2YRSTZouIpxuc/key59
+	TZlkJfB1PliQxZQuxv6G390TVKlVehylbjh4d1DFqSQyYxfOXhLWgeQSicRGCsiP5xq5e6e82cJBl
+	AXe8FB2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJOKg-0000000B45E-1S9K;
-	Wed, 21 Oct 2026 04:53:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xJOiJ-0000000B5Gw-20Tg;
+	Wed, 21 Oct 2026 05:18:11 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJOKf-0000000B457-1GRO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 04:53:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4D0FE60098;
-	Wed, 21 Oct 2026 04:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 532D81F000C9;
-	Wed, 21 Oct 2026 04:53:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792558423;
-	bh=fY7ZTK1khhR9HlmoUz9qcKC7kwN/J1ah6/E5o6LMewQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eMLszvUQs7ukeFBPwrJfmZWfGvBTWdq70mWd/uZXoS+bgyJHJ9rwlonaRNdYiSOqH
-	 iLs+tPhNqfnvqH8R5g5MbzU688cdJjc+FxOhbnx6r+Tib8sd0Eu30SeBpeMOdavbYp
-	 JacSgzHAaWwm/j0EjD7R+ZfsbSwit7aYXTYaKLjhenT8/RAOOm195QBGrRfFodO+4D
-	 0/0IXJHsogxgYgYYBwo3uWrkWGpF94iz/9a3FALSNOalfZLbG5YkyH4Xny5gQuqQoF
-	 LG3os42pqfsozDdhcjpY001PbJS2GJVG3/inCrm7bgev6v2n47VoElwiWWWiLliR+M
-	 HDI1MgUE81w8A==
-Date: Wed, 21 Oct 2026 12:33:37 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Ong Boon Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next 2/2] net: stmmac: disable TX checksum offload
- for jumbo frames on bugged cores
-Message-ID: <athAoWfW-xesPhFP@xhacker>
-References: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
- <20261012-stmmac-xdp-tx-pre-fixes-v1-2-05fd0c90f7e1@oss.qualcomm.com>
- <6d1d99b5-1c3c-4e59-a0b2-e4d671e594ce@bootlin.com>
- <ata8k2EVDCDTmeE6@xhacker>
- <atbbRqSJIJ_glwuf@xhacker>
- <3ca537e7-c9a3-4306-a2f4-9c7d57123bfc@lunn.ch>
+	id 1xJOiG-0000000B5GK-00sZ;
+	Wed, 21 Oct 2026 05:18:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vSbRw++RYkutUlhTh1ZLl/KbB5XCatnjUyhLOFcZo3YSsPvmcGE6GlbPgQVngSBjLLCHmT0pRpvZBxyssJar3G3CI9W1YuOQRVgwvGxE1e5gYeKPAPvh/7OJEUAqQGrJ0GLVAf1PnGjyyZy7f2rcTAlvBkz0uJoA5c5Sfp6v7Ut2j3aJvgUyX2UkQMfpRUiLtLM+Iqpqr/O7ZKd01lwCRTIQ8WsyCU5dbhziojP6yZEE+AhiU/1m8oYnKFM9cT0LhJa7Dql2ZlHCvxgPubD4zMNcn8WC9ufiK2kCQ4r/CYJGRIFP/G6Zq+vnJqZA3CoqLJIO/emssPl4R843+yHeBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TebaFxd3BKhB9U6R7ULJFxj4xe3Z55zXaPsOwtxtCwo=;
+ b=ivKM80l91kNIcYs48z32+MSGuoEfKoiYsRmjgx7QfvtWd96Tt935gFAKjpQ1hYCGQchy0UU6+JfiqIe5v1pu0rSWdO5IwyqzABEeuvgs/TrPMr6TWDAXfFRKXmpgRcxpqRj1M31ZZazvyp74EL66/75LJeYzrh+CjUC6NvdtJ4h3sg6rcjIbEY6WANMsOb9hUzZFnjrSbdxdX9DdMcuNlN1Fap4bjlZwvbkyp9nnYrFH0jNKyZOyeCeRW3Eo1UHsgV06hFdBUeZpffticW4K2Mad/unRqsNrzu3I3cS4XFLfXqJKtG3ov9lUG4ZACokXmsgiwnF4rcZflrsPYb8Kww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TebaFxd3BKhB9U6R7ULJFxj4xe3Z55zXaPsOwtxtCwo=;
+ b=wuww8OXPfWZo6evlPSyOOoTM2nvXmp7yWU1fxcZda+r4P49x/4x3wv/9+69hyOLjEH9Yft6FfUsOn4aoFxpjNEhmucQ3eiZBCXX5yB/YgK37tyTMKLAsJsHkbmnLPqW1QWSE//mjyVrglG0nDces4dSsUOst0FfCLegwj2R2tSoxnimdCNze56inkWP/bMbChwkPA49PJ0SDP3yd6TxXxHBB/Brct83CsrGvm7BxIs0R1am+OSMW8B/qkM1kI70iciswTAfJDvn6dzLriBUG3fJiIz9F6TtCs+8jl3Zlc2iXtFyFYpvhYmlAQD/Dk4GaLuW7BTWpXFm9RvQSFiAjJA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYZPR03MB5743.apcprd03.prod.outlook.com (2603:1096:400:74::7)
+ by TYSPR03MB7641.apcprd03.prod.outlook.com (2603:1096:400:414::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
+ 2026 05:17:54 +0000
+Received: from TYZPR03MB5743.apcprd03.prod.outlook.com
+ ([fe80::7f51:5771:90c4:8c40]) by TYZPR03MB5743.apcprd03.prod.outlook.com
+ ([fe80::7f51:5771:90c4:8c40%3]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
+ 05:17:54 +0000
+Message-ID: <5976b6c1-9b65-4da1-8bf3-e3008a373c22@amlogic.com>
+Date: Wed, 21 Oct 2026 13:17:51 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] i3c: master: svc: Add Amlogic A9 glue layer
+Content-Language: en-GB
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: linux-i3c@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
+ linux-hardening@vger.kernel.org, xianwei.zhao@amlogic.com,
+ Kelvin.Zhang@amlogic.com
+References: <20261019-a9_i3c-v1-0-329d819d621f@amlogic.com>
+ <20261019-a9_i3c-v1-3-329d819d621f@amlogic.com>
+ <98df3ac1-c6ae-4acb-b0ee-ddda92487660@linaro.org>
+From: Junyi Zhao <junyi.zhao@amlogic.com>
+In-Reply-To: <98df3ac1-c6ae-4acb-b0ee-ddda92487660@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SEWP216CA0128.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2c0::12) To TYZPR03MB5743.apcprd03.prod.outlook.com
+ (2603:1096:400:74::7)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <3ca537e7-c9a3-4306-a2f4-9c7d57123bfc@lunn.ch>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR03MB5743:EE_|TYSPR03MB7641:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7a1c7d30-0aaa-4eed-8ce9-08df2f32a929
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|7416014|376014|6133799003|18002099003|10067099003|22082099003|4143699003|261009221727099003|261009221227099003|261009220027099003|261009223327099003|261009223027099003|11063799006|5023799004|921020|56012099006;
+X-Microsoft-Antispam-Message-Info: 9RYxZ6MHV613Fh+KrWauhJR2Z4jF8diBbNzLpON+1vyF8PDTFT/dL65TB+sxBw7AvVi31PaM8yBtIgXBvAgcmLEqNAr0bkKuczRU2wk91bA6DcFPBGaCXWokhGT7RhS7VRlXRi3sv1EByAzKtSqEriTHNhtulkW5SdnrAi1/yCDN4CnTeR6w/cYnCUKJAqxtYxMgG40LR0yZ3QWNA8tCDiBW+zvyZLmFdeq6hkf1L6uyFAjXA3XNHOxFJdPKNBr98qaGUTaA0tWphXdpdFHJHoGeVjnwYdwbVhe6JUVe8uqfoD5dRAaBLk6D3qtKnymLlgvHl13eGwmbmGbbGtYOQatijTYlF1icFW0mimvA3pViztM/PG7pNXPzTSr0bEDsFUK+fWpPE3UXIynCkgOT5CpJU7ZEaDWYLPkzjExBi+G7jZLprPB8lIRgQWjHvg14zLe0YeaViQOs2yMlMLdGG+/sWPppHklvyJVzRgV19lKg1HJxJYRiXroFRXDrpp84tdKkIBRdVMQodZFOmpH/kUZgED34fbM1vmOUi2fNPZBCQmEz8kDsk5lrMb44/FAQcvz0551kQPxWle4jG9bN+3/Nh5G9C4yVODQZdvCnpHBSb08iaO+IqM35/AYThROw75EvkcOKGD6SFNZ5aPSoy1zk8BjFT5rXJ63wuZX+biOdtRj4U4I442FL5CcQqj0FpAEpnROLON6gk3k7c9KQmw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB5743.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(7416014)(376014)(6133799003)(18002099003)(10067099003)(22082099003)(4143699003)(261009221727099003)(261009221227099003)(261009220027099003)(261009223327099003)(261009223027099003)(11063799006)(5023799004)(921020)(56012099006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WFhwOUlYc3dnd3JrU1BtUHYzMzlqVVc5WjhwQ2lZbmdKRTBpQVE4dWtEdmRm?=
+ =?utf-8?B?ZnFWVFdXeEV5bmU5T3FSYW1hNXZ1VGx6MGt3SERoMnc1bTNvV2lHVEFpL3gx?=
+ =?utf-8?B?RDdsTURxSmtFVTRqVS9KdTJUSG42OEp0ZTZDZ0Q1c1ZCd0JuZk9VODBJdk1D?=
+ =?utf-8?B?LzlNRng1N1NrWG9VTkdQd0FBR1duVldnSUZVd2J4K2JkdTIyamd6ZjcyRk52?=
+ =?utf-8?B?NFU0NzVpcng1S294Q3d1KzhZTkdzNGFBbVRiT1dWUXhSeWlkeUpWUmc2ZjVq?=
+ =?utf-8?B?L3RoeWNGaGgxSDlYWkVkNjhrNFFGMlFYWWVSbHJMWk5pZ1A1WC9SSnlnNEpC?=
+ =?utf-8?B?UisxOHJoVzh3T0dQV0h4dVNPTkRsTGpNUkp1LzdIY0xMRTdoNXJzNS9IVlRM?=
+ =?utf-8?B?bmxWVDZwaTk2eVFxRG1xUU1oTVdXdkg1TFlYNDdXaXhOSmQySDkvaUFabElq?=
+ =?utf-8?B?Zi85YnNKdU5sVlNJSDZNV3RiZktVZm9laFNhN2d4ajFXaXJMK0xvWlBiVEEx?=
+ =?utf-8?B?ekRJR1ErZkp1YXZta1BJTnBHTm8wSVRESlc5WlZZZStiVnBoWStmd29HeFpQ?=
+ =?utf-8?B?OHNNNDAyLzNqRjJpT1BDcm1HOUYvN2FseWdzTmRyYW5TRnJPU3I4OWJCc2tP?=
+ =?utf-8?B?VTdtaTIweUhrYUJVYjFaVjBhd25FbW85dmFaS201RStsMlZvd0U2cWdhSVZk?=
+ =?utf-8?B?dVFkSHpyZmlUZnI2TUVKL3pRd1FZaUlMbElpYUhiMkptbTA3eWcrNzhVOGZ0?=
+ =?utf-8?B?ZlVRbDJLWXF1M2p4WWp0UlBDMTc1aGwzc3Q1RVJJMGphb3N1eldrMFFDZ1ln?=
+ =?utf-8?B?Mm1VaHFUZEt0a2dEUjRtU0c2QmQzdHc2QkhjMGVYR0RjZHk0cHJmZXY0d1JX?=
+ =?utf-8?B?dm5sTGkwMFYwU1JkSkp3OTFMQnI5QzNCZWRtUFo0VGRyaktseXVseHpwVXlT?=
+ =?utf-8?B?bzlKRkUrSEZvNjJsMXZ3WVFUSnFBeE85UW5JUGJ2WnVYS2pDRXZNaXc3UkM5?=
+ =?utf-8?B?RlY4eVlRbzRpd1lwWXRTd0J4MWs3dnJVemVVN0FsZ3pLOW1jUWQ1Z3NtTEFS?=
+ =?utf-8?B?dk5nR2p1Ym16enpiZFdMaVlKMDdKWkZWL2R0SW5rMnVCM0FaSFhPeEw3ekp5?=
+ =?utf-8?B?ZlNPbHExOGNGU3VJZHpxd2lleWNTVHFmOGZ5SE1LaEkwakhPaGtFbzhyZ0c3?=
+ =?utf-8?B?QmMvK0pIQ3pXdy92cW5SbHpvQnNYOXd0OTZyTjNuUVN5RmR4ZXBvZWJaeENW?=
+ =?utf-8?B?WDh2WWIvKzZqdWtZRHRJNFpDVWQwVUVRa2pCWDBFWDFQYUlFTkxOeTFIVHFI?=
+ =?utf-8?B?emRGNXFLeHBxaG9RTXpybGpJVjVTOUxMWFVBZkdOWUtqeDI2cXJSYlRJNnNv?=
+ =?utf-8?B?WUFwTnBVeUNJMkd0MWNUb0ZNQ1VmTDBXcUkvcEE5YmRsOVhhMVZyYnFpNkhZ?=
+ =?utf-8?B?V2RNUGkvUzNNRHpSTFBsNTFYYU81MTk1eDhxMVZlcHo0VWQzbUh4RFJzTTdK?=
+ =?utf-8?B?UklCZ2MrbnkyUUp0eUdCS2ZOU0x5TisyWFJxTXJRQWFsL2Jsa3BQSllDMENZ?=
+ =?utf-8?B?R3c2by83U0UrL2g2TlJoZU44bnRmQkN1Q3NTK3dYOTk2WkRobFREUkdaWGdW?=
+ =?utf-8?B?OXhQdjY3Umg5ZHNRZ2VSUFhzMFp6WkhSTkJqdU1iQ0o3RUtXUUJJQStEZFJl?=
+ =?utf-8?B?SERRR0Rnb2JrY2ZRK0pDeFhRczF4QVp3TVNRaGdTcnRhcjNBZWFZQ2hKcEYw?=
+ =?utf-8?B?M0ZCdk54REdPZ3QyWGRjZnptVkNlMFRwVTBsMmdrWHZnVjVNbVhxNTZSTWk3?=
+ =?utf-8?B?YWo3U2x5V1VGVnE0UW5vUDRwdFJLQnNlNGpBS0lvcHVZN1RZTHcvemRrSUV3?=
+ =?utf-8?B?QkVDUytucm50NjNTaVgyd0N5T215NFUwU0VrOWVWMzRGdzBxcDRROEJsNFJU?=
+ =?utf-8?B?VS9iaTNFYXA3MG4zYmVFczVVRDRwdUY3YStVMDRmTFpFOHBLZjhRNElEMHdv?=
+ =?utf-8?B?Zlp6KzdYVUVNM3RmRHFoeTZGR2NqcVV3TXY3cEpxZ21wanNVMitCaVMyazlj?=
+ =?utf-8?B?cldWbTBRNDMwWEZ6dXg2Vko4MnNveXFnYkE1YUN6QWFzN3VmTkJkeU5lOGFQ?=
+ =?utf-8?B?ZlBDMGo2K1k0VUlGblNuaStoTktucWE4VTVOZ2hjdG4weEFSQi82ZXJFWnRP?=
+ =?utf-8?B?ZndLSnoxTm5YcW5xMi9ZYkRIcFlZZU9LK0d2R3FrTE5yVU5nT054eFh0RVJY?=
+ =?utf-8?B?Q2doWTl1RVdyN1hrMnJtNXNqRHdoWVgxVEFwaXg4YUFSd3BjU3ExdnRGQXNs?=
+ =?utf-8?B?ZFVjSTh6M3VQc2crZjl0ZHA3TlBtczFHSENrWnpQUHhRMmszQ0t1Zz09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7a1c7d30-0aaa-4eed-8ce9-08df2f32a929
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB5743.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 05:17:54.5951
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: a5QzD82JCgk8oPopQfc4FUJmKePQCyIcuJPLjy5lux9HlwlGtBTRsPE5ZgupYAzObRCwozdmk807DTc7FdvtAg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB7641
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261020_221808_783619_8C3189C3 
+X-CRM114-Status: GOOD (  19.74  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,46 +157,357 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNWANTED_LANGUAGE_BODY,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 02:28:26PM +0200, Andrew Lunn wrote:
-> > > Here I want to query a generic rule from netdev maintainers:
-> > > can XDP frame enable HW checksum on dwmac IP? Per my understanding, the
-> > > dwmac can only do HW checksum for normal particular packets layouts, such as
-> > > TCP, UDP. What about if XDP transmits a non-IP frame?
-> > 
-> > or a generic XDP guide from netdev maintainers:
-> > Since XDP can tranmist arbitrary Eth frames, so how does the eth driver cope
-> > with HW checksum if the HW checksum is intended for supported IP packet
-> > layouts rather than arbitrary layer2 frames?
-> > 
-> > choices:
-> > c1. Simply disabled HW checksum by default. Then XDP prog must provide
-> > checksums themselves, lost the HW offload cap for IP packets.
-> > 
-> > c2. detect the frame in eth driver's xdp code path, then enable/disable
-> > HW checksum accordingly. Then how? Any example in exisiting eth drivers
-> > is appreciated.
+Hi Neil，
+	thanks for your review.
+
+On 2026/10/19 15:40, Neil Armstrong wrote:
 > 
-> Why is this specific to XDP? Cannot the network stack transmit
-> arbitrary layer2 frames? Isn't this a generic problem?
+> On 10/19/26 07:34, Junyi Zhao via B4 Relay wrote:
+>> From: Junyi Zhao <junyi.zhao@amlogic.com>
+>>
+>> Add support for the Amlogic A9 implementation of the Silvaco
+>> SVC I3C controller.
+>>
+>> The glue layer provides Amlogic-specific operations and resource
+>> handling while reusing the common SVC I3C core driver.
+>>
+>> Add a corresponding MAINTAINERS entry for the Amlogic I3C
+>> controller.
+>>
+>> Signed-off-by: Junyi Zhao <junyi.zhao@amlogic.com>
+>> ---
+>>   MAINTAINERS                          |   6 +
+>>   drivers/i3c/master/svc/Kconfig       |   7 +
+>>   drivers/i3c/master/svc/Makefile      |   1 +
+>>   drivers/i3c/master/svc/i3c-amlogic.c | 250 +++++++++++++++++++++++++ 
+>> ++++++++++
+>>   4 files changed, 264 insertions(+)
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index dffc63af2..478979446 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -1398,6 +1398,12 @@ F:     Documentation/userspace-api/media/v4l/ 
+>> metafmt-c3-isp.rst
+>>   F:  drivers/media/platform/amlogic/c3/isp/
+>>   F:  include/uapi/linux/media/amlogic/
+>>
+>> +AMLOGIC I3C DRIVER
+>> +M:   Junyi Zhao <junyi.zhao@amlogic.com>
+>> +S:   Maintained
+>> +F:   Documentation/devicetree/bindings/i3c/amlogic,i3c-a9.yaml
+>> +F:   drivers/i3c/master/svc/i3c-amlogic.c
+>> +
+>>   AMLOGIC MIPI ADAPTER DRIVER
+>>   M:  Keke Li <keke.li@amlogic.com>
+>>   L:  linux-media@vger.kernel.org
+>> diff --git a/drivers/i3c/master/svc/Kconfig b/drivers/i3c/master/svc/ 
+>> Kconfig
+>> index 14fa1e542..df3528bc1 100644
+>> --- a/drivers/i3c/master/svc/Kconfig
+>> +++ b/drivers/i3c/master/svc/Kconfig
+>> @@ -18,4 +18,11 @@ config I3C_SILVACO
+>>         compatible strings such as "silvaco,i3c-master-v1" and
+>>         "nuvoton,npcm845-i3c".
+>>
+>> +config I3C_AMLOGIC
+>> +     tristate "Amlogic I3C support"
+>> +     default y
+>> +     help
+>> +       This selects the Amlogic SoC glue layer support for
+>> +       the Silvaco device driver. This driver is used for A9, C5 SoCs.
+>> +
+>>   endif # SVC_I3C
+>> diff --git a/drivers/i3c/master/svc/Makefile b/drivers/i3c/master/svc/ 
+>> Makefile
+>> index cf18c5da6..695863d1f 100644
+>> --- a/drivers/i3c/master/svc/Makefile
+>> +++ b/drivers/i3c/master/svc/Makefile
+>> @@ -3,3 +3,4 @@
+>>
+>>   obj-$(CONFIG_SVC_I3C)       += i3c-main.o
+>>   obj-$(CONFIG_I3C_SILVACO)   += i3c-silvaco.o
+>> +obj-$(CONFIG_I3C_AMLOGIC)    += i3c-amlogic.o
+>> diff --git a/drivers/i3c/master/svc/i3c-amlogic.c b/drivers/i3c/ 
+>> master/svc/i3c-amlogic.c
+>> new file mode 100644
+>> index 000000000..82300d6ae
+>> --- /dev/null
+>> +++ b/drivers/i3c/master/svc/i3c-amlogic.c
+>> @@ -0,0 +1,250 @@
+>> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+>> +/*
+>> + * Copyright (C) 2026 Amlogic, Inc. All rights reserved
+>> + */
+>> +#include "i3c-main.h"
+>> +#include <linux/math64.h>
+>> +
+>> +/* Amlogic specific registers */
+>> +#define I3C_BG_RD_ADDR                       0x200
+>> +#define I3C_BG_WR_ADDR                       0x204
+>> +#define I3C_BG_WR_CTRL                       0x208
+>> +#define I3C_BG_R_TT_LEN                      0x20c
+>> +#define I3C_BG_X_CNT                 0x210
+>> +#define I3C_BUS_MON_CTRL             0x214
+>> +#define I3C_BUS_MON_ADDR             0x218
+>> +#define I3C_BUS_MON_DATA             0x21c
+>> +#define I3C_BUS_MON_DATA_MAK         0x220
+>> +#define I3C_CLK_SLOW_DIV_CTRL                0x224
+>> +#define I3C_BG_R_WCNT_CLR            0x228
+>> +#define I3C_DEBUG_MODIFY             0x22c
+>> +
+>> +#define I3C_AO_CLK_SLOW_DIV_CTRL     0x300
+>> +#define I3C_AO_FCLK_DIV_CTRL         0x304
+>> +#define I3C_AO_FCLK_DIV_MASK         GENMASK(7, 0)
+>> +#define I3C_AO_FCLK_DIV_EN           BIT(8)
+>> +#define I3C_AO_FCLK_EN                       BIT(9)
+>> +#define I3C_AO_DEBUG_MODIFY          0x308
+>> +
+>> +#define I3C_DEFAULT_FCLK_RATE                25000000UL
+>> +
+>> +struct amlogic_i3c_priv {
+>> +     int num_clks;
+>> +     struct clk_bulk_data *clks;
+>> +};
+>> +
+>> +struct amlogic_i3c_drvdata {
+>> +     int (*fclk_rate_init)(struct svc_i3c_master *master,
+>> +                           struct clk *fclk, unsigned long rate);
+>> +};
+>> +
+>> +static int default_i3c_fclk_rate_init(struct svc_i3c_master *master,
+>> +                                   struct clk *fclk, unsigned long rate)
+>> +{
+>> +     int err;
+>> +
+>> +     err = clk_set_rate(fclk, rate);
+>> +     if (err)
+>> +             return dev_err_probe(master->dev, err,
+>> +                                  "setting fast clock rate failed\n");
+>> +
+>> +     return 0;
+>> +}
+>> +
+>> +static int ao_i3c_fclk_rate_init(struct svc_i3c_master *master,
+>> +                              struct clk *fclk, unsigned long rate)
+>> +{
+>> +     unsigned int div_cnt, reg_val;
+>> +     unsigned long fin_freq = clk_get_rate(fclk);
+>> +
+>> +     if (!fin_freq)
+>> +             return dev_err_probe(master->dev, -EINVAL,
+>> +                                  "can't get I3C fast clock rate\n");
+>> +
+>> +     div_cnt = div64_u64(fin_freq, rate);
+>> +     if (!div_cnt || div_cnt > I3C_AO_FCLK_DIV_MASK)
+>> +             return dev_err_probe(master->dev, -EINVAL,
+>> +                                  "requested fast clock frequency too 
+>> low\n");
+>> +
+>> +     reg_val = I3C_AO_FCLK_DIV_EN | I3C_AO_FCLK_EN | (div_cnt - 1);
+>> +     writel(reg_val, master->regs + I3C_AO_FCLK_DIV_CTRL);
+>> +
+>> +     return 0;
+>> +}
+> 
+> You could also create a clock divider, register it and use a common 
+> clk_set_rate()
+> for both setups.
 > 
 
-network stack normal tx supplies the skb->ip_summed metadata, and
-dwmac driver specifically can decide to enable/disable HW csum
-by checking the protocol which is extraced from skb, example
-stmmac_has_ip_ethertype()
-But XDP path doesn't have the necessary metadata, and I'm not sure
-whether stmmac_has_ip_ethertype xdb version can be implemented or
-not. That's the reason I request generic XDP guidence from netdev
-maintainers.
+will do.
 
-correct me if I misunderstood something.
+> Neil
+> 
+>> +
+>> +static int amlogic_i3c_probe(struct platform_device *pdev)
+>> +{
+>> +     struct device *dev = &pdev->dev;
+>> +     const struct amlogic_i3c_drvdata *data;
+>> +     struct svc_i3c_master *master;
+>> +     struct amlogic_i3c_priv *priv;
+>> +     struct clk *fclk;
+>> +     int ret, i;
+>> +
+>> +     master = svc_i3c_master_alloc(dev);
+>> +     if (!master)
+>> +             return -ENOMEM;
+>> +
+>> +     priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+>> +     if (!priv)
+>> +             return -ENOMEM;
+>> +
+>> +     master->drvdata = of_device_get_match_data(dev);
+>> +     if (!master->drvdata)
+>> +             return -EINVAL;
+>> +
+>> +     data = master->drvdata->bsp_data;
+>> +     if (!data)
+>> +             return -EINVAL;
+>> +
+>> +     master->regs = devm_platform_ioremap_resource(pdev, 0);
+>> +     if (IS_ERR(master->regs))
+>> +             return PTR_ERR(master->regs);
+>> +
+>> +     master->irq = platform_get_irq(pdev, 0);
+>> +     if (master->irq < 0)
+>> +             return master->irq;
+>> +
+>> +     priv->num_clks = devm_clk_bulk_get_all(dev, &priv->clks);
+>> +     if (priv->num_clks < 0)
+>> +             return dev_err_probe(dev, -EINVAL, "can't get I3C 
+>> clocks\n");
+>> +
+>> +     for (i = 0; i < priv->num_clks; i++) {
+>> +             if (!strcmp(priv->clks[i].id, "fast_clk"))
+>> +                     break;
+>> +     }
+>> +
+>> +     if (i == priv->num_clks)
+>> +             return dev_err_probe(dev, -EINVAL,
+>> +                                  "can't get I3C peripheral clock\n");
+>> +
+>> +     if (IS_ERR(priv->clks[i].clk))
+>> +             return PTR_ERR(priv->clks[i].clk);
+>> +     fclk = priv->clks[i].clk;
+>> +
+>> +     ret = clk_bulk_prepare_enable(priv->num_clks, priv->clks);
+>> +     if (ret)
+>> +             return dev_err_probe(dev, ret, "can't enable I3C 
+>> clocks\n");
+>> +
+>> +     master->dev = dev;
+>> +     master->bsp_priv = priv;
+>> +     ret = data->fclk_rate_init(master, fclk, I3C_DEFAULT_FCLK_RATE);
+>> +     if (ret)
+>> +             goto err_disable_clks;
+>> +     master->fclk_rate = I3C_DEFAULT_FCLK_RATE;
+>> +
+>> +     pm_runtime_set_autosuspend_delay(dev, SVC_I3C_PM_TIMEOUT_MS);
+>> +     pm_runtime_use_autosuspend(dev);
+>> +     pm_runtime_get_noresume(dev);
+>> +     pm_runtime_set_active(dev);
+>> +     pm_runtime_enable(dev);
+>> +
+>> +     ret = svc_i3c_master_probe(pdev, master);
+>> +     if (ret)
+>> +             goto rpm_disable;
+>> +
+>> +     platform_set_drvdata(pdev, master);
+>> +     pm_runtime_put_autosuspend(dev);
+>> +
+>> +     return 0;
+>> +
+>> +rpm_disable:
+>> +     pm_runtime_dont_use_autosuspend(dev);
+>> +     pm_runtime_put_noidle(dev);
+>> +     pm_runtime_disable(dev);
+>> +     pm_runtime_set_suspended(dev);
+>> +
+>> +err_disable_clks:
+>> +     clk_bulk_disable_unprepare(priv->num_clks, priv->clks);
+>> +
+>> +     return ret;
+>> +}
+>> +
+>> +static void amlogic_i3c_remove(struct platform_device *pdev)
+>> +{
+>> +     struct svc_i3c_master *master = platform_get_drvdata(pdev);
+>> +
+>> +     svc_i3c_master_remove(master);
+>> +
+>> +     pm_runtime_dont_use_autosuspend(&pdev->dev);
+>> +     pm_runtime_disable(&pdev->dev);
+>> +}
+>> +
+>> +static int __maybe_unused amlogic_i3c_runtime_suspend(struct device 
+>> *dev)
+>> +{
+>> +     struct svc_i3c_master *master = dev_get_drvdata(dev);
+>> +     struct amlogic_i3c_priv *priv = master->bsp_priv;
+>> +
+>> +     svc_i3c_save_regs(master);
+>> +     clk_bulk_disable_unprepare(priv->num_clks, priv->clks);
+>> +     pinctrl_pm_select_sleep_state(dev);
+>> +
+>> +     return 0;
+>> +}
+>> +
+>> +static int __maybe_unused amlogic_i3c_runtime_resume(struct device *dev)
+>> +{
+>> +     struct svc_i3c_master *master = dev_get_drvdata(dev);
+>> +     struct amlogic_i3c_priv *priv = master->bsp_priv;
+>> +     int ret;
+>> +
+>> +     pinctrl_pm_select_default_state(dev);
+>> +     ret = clk_bulk_prepare_enable(priv->num_clks, priv->clks);
+>> +     if (ret)
+>> +             return ret;
+>> +
+>> +     svc_i3c_restore_regs(master);
+>> +
+>> +     return 0;
+>> +}
+>> +
+>> +static const struct dev_pm_ops amlogic_i3c_pm_ops = {
+>> +     SET_NOIRQ_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
+>> +                                   pm_runtime_force_resume)
+>> +     SET_RUNTIME_PM_OPS(amlogic_i3c_runtime_suspend,
+>> +                        amlogic_i3c_runtime_resume, NULL)
+>> +};
+>> +
+>> +static const struct amlogic_i3c_drvdata amlogic_i3c_data = {
+>> +     .fclk_rate_init = default_i3c_fclk_rate_init,
+>> +};
+>> +
+>> +static const struct amlogic_i3c_drvdata amlogic_i3c_ao_data = {
+>> +     .fclk_rate_init = ao_i3c_fclk_rate_init,
+>> +};
+>> +
+>> +static const struct svc_i3c_drvdata amlogic_a9_drvdata = {
+>> +     .quirks = SVC_I3C_QUIRK_FIFO_EMPTY |
+>> +             SVC_I3C_QUIRK_FALSE_SLVSTART |
+>> +             SVC_I3C_QUIRK_DAA_CORRUPT,
+>> +     .bsp_data = &amlogic_i3c_data,
+>> +};
+>> +
+>> +static const struct svc_i3c_drvdata amlogic_a9_ao_drvdata = {
+>> +     .quirks = SVC_I3C_QUIRK_FIFO_EMPTY |
+>> +             SVC_I3C_QUIRK_FALSE_SLVSTART |
+>> +             SVC_I3C_QUIRK_DAA_CORRUPT,
+>> +     .bsp_data = &amlogic_i3c_ao_data,
+>> +};
+>> +
+>> +static const struct of_device_id amlogic_i3c_of_match_tbl[] = {
+>> +     { .compatible = "amlogic,i3c-a9", .data = &amlogic_a9_drvdata },
+>> +     { .compatible = "amlogic,i3c-ao-a9", .data = 
+>> &amlogic_a9_ao_drvdata },
+>> +     { /* sentinel */ },
+>> +};
+>> +MODULE_DEVICE_TABLE(of, amlogic_i3c_of_match_tbl);
+>> +
+>> +static struct platform_driver amlogic_i3c_master = {
+>> +     .probe = amlogic_i3c_probe,
+>> +     .remove = amlogic_i3c_remove,
+>> +     .driver = {
+>> +             .name = "amlogic-i3c-master",
+>> +             .of_match_table = amlogic_i3c_of_match_tbl,
+>> +             .pm = &amlogic_i3c_pm_ops,
+>> +     },
+>> +};
+>> +module_platform_driver(amlogic_i3c_master);
+>> +
+>> +MODULE_AUTHOR("Junyi Zhao <junyi.zhao@amlogic.com>");
+>> +MODULE_DESCRIPTION("Amlogic I3C master driver");
+>> +MODULE_LICENSE("GPL");
+>>
 
-Thanks
 
