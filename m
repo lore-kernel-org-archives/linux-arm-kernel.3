@@ -2,172 +2,94 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8F7A606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 18:11:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFF4D606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 18:16:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CI4IrNQw;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=KBq8By91;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LZ5f+Tsr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xUZK05mt;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=cN4OV50R
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zajgpZEWlkO9hnDwMwdkleexKLADl3q/zhIDBDjaWRQ=; b=CI4IrNQwRxX3gNhxVJD7HRt/IV
-	3a3c5OfdcjZBgbo8YmIXyU2ZiUF1GopWUmWcWF+6GLehvmtgbGVqUsFG1+sJljf+hVZfzS3OcPVx5
-	xOKISvw+SCSt3VSdV0+6F0/pzVdfe0xKgJFL+jN2UsyXtJ0KIvy5VUsOOZXY26FBxO2g1n+dFvrxs
-	0HN1bIHu1bgjZdnoQP2DPwFY4K6xOSIDyZegK6z8VSe0JB4zaagiVR2WgWDgJznt8CrBlbGOlTURn
-	G+GofFPp8bdDsa1LEoLNHWIgF8i+EAO7FwudWQFcfxV8PoAkkj6Bu9+WSt1DZnbr6ntDiCclu74yw
-	vQc+NRBA==;
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=efyEsrFQ8z344hXqmH3KG35AeA/HgVLYWCaYhof8EHs=; b=xUZK05mtxVzjRP8cNboBMofrHs
+	gyjdUt+f0qK7OySFWnJXKU11xzQUCkhCCgC3+lil8Y4AHW0huYgI8Hlh1+/EVlDpjc3Q8Yc3e5rRA
+	tOALzg4SE7lLlxQKkd1Mdc/erAvkBzrEu2hj0v/PVr8S/1BoczttsuCoGkwBTDIuOOOFE3Rr/6RuA
+	swj/PSA1HrYS+7875xu2d5wGkUmdfkQIlZywjUJyP55bXZgfs0SrpZWyTxEPbPp7sTaWXa660Y99b
+	v9TkZH8PaUM+ShBPEOU+5y3jTD9sVNbXrOYaJVZlW2OzoxxBSFlb6xRH0tsUZYE/ULhInYnNuZLKp
+	LADOIOpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJamt-0000000CdEK-0VBD;
-	Wed, 21 Oct 2026 18:11:43 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xJara-0000000Cdab-34Sp;
+	Wed, 21 Oct 2026 18:16:34 +0000
+Received: from mail-ed1-x546.google.com ([2a00:1450:4864:20::546])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJamr-0000000CdDk-0ek8
+	id 1xJarW-0000000Cda5-3cDQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 18:11:42 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69LHpLnF2416099
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 18:11:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zajgpZEWlkO9hnDwMwdkleexKLADl3q/zhIDBDjaWRQ=; b=KBq8By919CR0Wk6J
-	i6AHGYv1uzl0plIu0g/ZjSagDkXy5EsbBsmzhImhAELaJ/l3SfReAUQpWiSHeVNf
-	BufY1pa+JPkBGkez43hmPC7dSe/wTdocSPdgRHEIkjXg+77SAdYjTQAo3aTC702v
-	wIJaXklJi5pC3EQlxvgOlS9JUMDPzA8ux1CypnFa/HaSbozJtLx5c4F1YuTj12X7
-	fPuROybpD306YEcuArWKV69DugzhWLf5aBj0QG/MFJEbJRpq1GRrz3FGnTg4Sr+J
-	HgvYZbYSilPrBWCFEs8avj6fFE58i34cFDbduqKYWVEMlX2iQVhEPuzZodKWCD3h
-	tK/n4A==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4heuhuhyv9-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 18:11:40 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-36803927a49so1619875eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 11:11:40 -0700 (PDT)
+	Wed, 21 Oct 2026 18:16:33 +0000
+Received: by mail-ed1-x546.google.com with SMTP id 4fb4d7f45d1cf-6b1bbf8dbe9so1253050a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 11:16:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792606300; x=1793211100; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=zajgpZEWlkO9hnDwMwdkleexKLADl3q/zhIDBDjaWRQ=;
-        b=LZ5f+Tsr7kX6LN5G10szs1ZQl29o17fBbRiBi+U1rKL+S+PYlPxlR152hh+ZrkZE47
-         x8Dvos2H0CROa2wP6SUGzuPzV1sBDDl0NRUN/EVqKoESklCiVJ3xPyCiZqUZw9SymOgP
-         QJ3b3N/trTNaGVTU0d8Nz+dcgCZDXnDl07Lq+/QrUIVGKYHLYv3XxauTihKDZ6YN+9I9
-         l/lcFa6VEKIhlyDxHje4X2hORoJZ+jKNFhMbFXJPVE3qBKaLcc1ec1tX1ZrpYpYm8cDV
-         6iw95TlNZjyO7qHE1D1KheisKX8UUpv4FMa/z9UmqD85MXuPdpL0EOSJOsQf5TX4smMp
-         esSQ==
+        d=google.com; s=20251104; t=1792606588; x=1793211388; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=efyEsrFQ8z344hXqmH3KG35AeA/HgVLYWCaYhof8EHs=;
+        b=cN4OV50RGrfOPuExcRARLS6BEZcojSZb+c+3p3KXXhmEnTmyTp0OppPXgYI124Sc7D
+         EwIR4AywYtUiLP4AueMD2hlUXLB5PApEobxKfhSJDV+Z4qVq0GO/3YgZraGuUg5/VEYi
+         ljXk8pKJpC+UfuwuK62ucaTYqaWEROjrIQQWSTR3koiFlVYcKPY5BeTq1G2uf1yKB72K
+         fQNF2SxonaIf5irGT+PnxIpXAybhue2IbmiyP3l4z/4XZz2LUq2f9PwlFybPb5C88Iia
+         tShQ/PuCn1WUepQREhuJHEi+XsTnf3BkUdotttbmYkHsMahxAZV29E2Ahn4Sbv75XUC3
+         NTOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792606300; x=1793211100;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1792606588; x=1793211388;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zajgpZEWlkO9hnDwMwdkleexKLADl3q/zhIDBDjaWRQ=;
-        b=DKbfmXrEOMuQ6ZkGTLS75WEKctK+D48SJ8G70YzEGhZhizKNfz9ctppBnY1npAAN4O
-         T47aHDqNJz9hEkGzYQ4GwxJ9Kc3EQZBKvNxVDjGpzK9Ti6pYZLeattC5OOTmwwHW0S4y
-         NWkomieMfBTa9xhu0gO6poR3UTCUzq1m13pOLJGEbXfg0rAPOB7Gbjuzlwxrjg3AlHfO
-         HVhCgf2FToE56OIWIQDmu1qahUvOWpdFh21TorsgIHSKrxWn/zsS2NgAHx/GevcpoXKv
-         qknPVJSnZgobursLTrEEgx23BRgtd3+w2U6kQ5x3lYgO3xLGb789bhcTGhaLmrchg5Vh
-         iEWg==
-X-Forwarded-Encrypted: i=1; AKwUvBxz/5Mkm/ehPvWTLYaL5hg0j6u9MDzOfIjnWUkYVxBy1VxvqwcPefj5EGu8tZwY4T9gx5sNVzkytxLxYdVbIZLR@lists.infradead.org
-X-Gm-Message-State: AFq9FYJdlRIrjapmhhpSzz2CjN/n7rBxN1YdbKL6aNucIgzV9kjjOAE0
-	aJc1H3Z2H4Nn+5JpKPmlwAkXBeILMNPYsEwZGlQIruHk29YPHSDcwTc7ov0EJimbvqtPUJVF22d
-	A5awzG1VCLGksM67Dw3j7WeHu1UBLNoPPy2GE7MP6EjfZTIQ5NqWxLlN6XsOo8NdO6ed22oijGe
-	X+TA==
-X-Gm-Gg: AYBFou2xx7nJ6h9m2Zq0Q6gNaSftCk9g7b6vwdK4UTyXoMDdmi2stVqAkKReoVHo7/8
-	vx1dxiU0EoSFEsQmgRZDxFxQsR4+QmG6C3wfX7iG3ZiKp64+YunpVjpQ5qccRZmNPLxwkX0135J
-	41go0qPlOyLyDT6MixglIaBC+rBK8HhE+3O3mOyHe7jwV6G63KDcuoEdqI8UxyQtYnJz3vjPUKs
-	TJOVCT22ajxbTSSAx062XT7m/nJ7X0fDQNjp4Y5p+rXumk8MU4wtffHlAZIkGHQ/q9dlDUFMXu4
-	elBkg7uiUrboNAGezNumU1+1DKWpxHxaNLUisSxhlhuFUdlALbVsp3sJOqW8WM8pdfDKT8QtT7H
-	+gmtnC8SdVBmRkus9JRKTYytSJfpixPXsdWY+RT0NWdA=
-X-Received: by 2002:a05:693c:41cf:20b0:358:1f59:48c9 with SMTP id 5a478bee46e88-3674f21a97dmr3790648eec.24.1792606299644;
-        Wed, 21 Oct 2026 11:11:39 -0700 (PDT)
-X-Received: by 2002:a05:693c:41cf:20b0:358:1f59:48c9 with SMTP id 5a478bee46e88-3674f21a97dmr3790596eec.24.1792606298974;
-        Wed, 21 Oct 2026 11:11:38 -0700 (PDT)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3674206d1f1sm9116156eec.28.2026.10.21.11.11.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Oct 2026 11:11:38 -0700 (PDT)
-Date: Wed, 21 Oct 2026 11:11:15 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-        Ard
- Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin
- Marinas <catalin.marinas@arm.com>,
-        Jonathan Corbet <corbet@lwn.net>, David
- Sterba <dsterba@suse.com>,
-        Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-        linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Randy
- Dunlap <rdunlap@infradead.org>, Simon Glass <sjg@chromium.org>,
-        Shuah Khan
- <skhan@linuxfoundation.org>,
-        Nick Terrell <terrelln@fb.com>, Will Deacon
- <will@kernel.org>,
-        Alexandre Ghiti <alexghiti@rivosinc.com>,
-        Conor Dooley
- <conor.dooley@microchip.com>,
-        linux-integrity@vger.kernel.org, Palmer
- Dabbelt <palmer@rivosinc.com>,
-        patches@lists.linux.dev,
-        Piotr
- =?ISO-8859-1?Q?Kr=F3l?= <piotr.krol@3mdeb.com>,
-        Ross Philipson
- <ross.philipson@gmail.com>,
-        Sami Tolvanen <samitolvanen@google.com>,
-        Song
- Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH v2 15/15] efi/arm64: Implement ARM64 DRTM in the stub
-Message-ID: <20261021111115.00004c5c@oss.qualcomm.com>
-In-Reply-To: <15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
-References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
-	<15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+        bh=efyEsrFQ8z344hXqmH3KG35AeA/HgVLYWCaYhof8EHs=;
+        b=aFNn/ve3ytHRxk0IyZRzuRc0y55RyPie4LquscPZ+ZUnKrQc2w05WrrTl9BozXqZWl
+         VqUs6T1/kpbihOnwGhdySfilKe3ln/bUJU/MSCkyqrT5vFbnjVHNkR+M5Ba4/Wu4zc2/
+         4pFksel2Yjbnmrhk6hsjAGztqaY0hrGEs/JwAI9Q/elf/rcKHTt7DlcO2gdelAVUKns4
+         JUp26HEWtR0F2eZBSEqN/UunCbls7cSk7zDFIFqjGuvxY0LLvp9L5fAfL6jkjjdQl1Tw
+         WbiP4MvRWfN2UgljaUAhGh/j3HboEge2D0/MHkOVm6nZ8IdewubKpcJGhaQ59tziCzcV
+         2T8w==
+X-Forwarded-Encrypted: i=1; AKwUvBy+8uqfsiOp84DKGBMcsAdSqGqcqzVWRysgnShAlrF6t16+3J8C1wJvkGsVPToIWnJ/eEnrFfrPSMEiuLXjF2wm@lists.infradead.org
+X-Gm-Message-State: AFq9FYKxqjHSzrtwRS6PXYwvdFo+NHmOLYf0kfUw8SdsOKSg2QHcfIaG
+	IOBhJh6DJg62gFdEzN5uk9/jPbL5Vl4c9b6q6WqAJwZVMimPOX65VDx+QsFeDemPvtz4Xl+d147
+	ZKsI0HGSas2PiJjFD2Q==
+X-Received: from edtr11.prod.google.com ([2002:aa7:cb8b:0:b0:6b1:c2e5:327])
+ (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6402:400c:b0:6b1:cd9c:2588 with SMTP id 4fb4d7f45d1cf-6b408e9d743mr2117560a12.18.1792606587940;
+ Wed, 21 Oct 2026 11:16:27 -0700 (PDT)
+Date: Wed, 21 Oct 2026 18:16:26 +0000
+In-Reply-To: <CA+CK2bC_wc4LxvHe0TREbBP7esYW3pcMNtkGK-kqvf6MyvOh2g@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=d4JgWhjE c=1 sm=1 tr=0 ts=6ad9005c cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=Ikd4Dj_1AAAA:8 a=Sk9Lk7371zlc0StAK_oA:9 a=CjuIK1q_8ugA:10
- a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDA3MiBTYWx0ZWRfXx7kWmgQScLy6
- +Onbdv/Ex92kzHqoyQ79l3BnoVAaKzvwdVMT9JZfzhYKsp7zmolCQNte9udCih8ckbu6GDk3snf
- bJXQlUU/g7HTQu2KHoQUWPCsazHMieM=
-X-Proofpoint-GUID: CxSxzeIxV9JUrS-JVkogQDJDDhvSjt9D
-X-Proofpoint-ORIG-GUID: CxSxzeIxV9JUrS-JVkogQDJDDhvSjt9D
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDA3MiBTYWx0ZWRfX22UXKG34gNNV
- r67I+A7T44oOJ4jTC+SqM6I3Dy2CV7b4XHlVRYN5UW3zd+l+Eo6FuXJYC6PjTBtDlmqhcu+NA0R
- oJfiHQ+CBIy8vm7cVoerkulle+DqfDYBpuzOQfmmxUrkrNXY/CUDdOpI9kfncnWXoNR+kE5zW4z
- beCmjCe7fdKuquavVpGPEEfewwRdHlsWcLNLNgm9BK3Lr+pEciRPLswjbJHtcYs5gDaS6WIRiW9
- QSYPo73kj7gC/dNdqSQxUIVLT5pbleo1hbHUvyVoBmGc7mTAl/j00yMsc/0UcxneF9zjpb99og9
- FUxZBZoPVp8hNJnAQ6yWUfY41E6dbaABB0nVs5CEM+pPAK2QEtKBeBT6bv84iR81qkPwIhTGZD0
- 48IFR45I7ypf7zOjPJQ8h4L6Fz3dNC9oixwsDoiGvR8J100SUxP3orpVsRDh65HOsRnBnkHpQx2
- rnMDdIvtJT9VqB7i5Bg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-21_05,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 spamscore=0 malwarescore=0 priorityscore=1501
- adultscore=0 impostorscore=0 bulkscore=0 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610210072
+Mime-Version: 1.0
+References: <20261021152527.375070-1-tarunsahu@google.com> <20261021152527.375070-2-tarunsahu@google.com>
+ <CA+CK2bC_wc4LxvHe0TREbBP7esYW3pcMNtkGK-kqvf6MyvOh2g@mail.gmail.com>
+Message-ID: <9huzik2u6hs5.fsf@tarunix.c.googlers.com>
+Subject: Re: [RFC PATCH v2 1/4] liveupdate: Rename handler compatible to name
+From: tarunsahu@google.com
+To: Pasha Tatashin <pasha.tatashin@soleen.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org, 
+	Mike Rapoport <rppt@kernel.org>, Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de, 
+	David Matlack <dmatlack@google.com>, jgg@nvidia.com, robin.murphy@arm.com, 
+	loganodell@google.com, oupton@kernel.org, kevin.tian@intel.com, 
+	alex@shazbot.org, dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com, 
+	will@kernel.org, Alexander Graf <graf@amazon.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	baolu.lu@linux.intel.com, linux-arm-kernel@lists.infradead.org, 
+	linux-arch@vger.kernel.org, sagis@google.com, linux-mm@kvack.org, 
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev, linux-pci@vger.kernel.org, 
+	kexec@lists.infradead.org, skhawaja@google.com, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_111141_243947_4948B408 
-X-CRM114-Status: GOOD (  37.69  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261021_111631_130400_D5D1D9DF 
+X-CRM114-Status: GOOD (  35.57  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,117 +100,682 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+X-Spam-Status: No, score=-23.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_IN_DEF_DKIM_WL
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri,  2 Oct 2026 20:31:52 -0300
-Jason Gunthorpe <jgg@nvidia.com> wrote:
+Pasha Tatashin <pasha.tatashin@soleen.com> writes:
 
-> Provide an implementation of the CONFIG_EFI_STUB_DRTM protocol for ARM64
-> DEN0113 >= v1.1.
-> 
-> First, it queries the FW for support and collects all the
-> information. This is needed to compute the extra_size, which comes
-> from FW reporting how much memory it needs during the launch for the
-> DLME Data and DCE-owned data. The generic stub ensures there is
-> trailing memory after Image for this.
-> 
-> Then the DRTM_PARAMETERS launch structure is computed using the
-> offsets in the efi_info.
-> 
-> Finally, the stub does ExitBootServices and calls the actual launch.
-> 
-> The feature discovery process is deliberately fairly verbose to help
-> debug any FW weirdness in the field. Enable it with efi=debug
-> 
-> It looks something like:
-> 
->  EFI stub: DRTM: interface version 1.4
->  EFI stub: DEBUG: DRTM: TPM algorithm 0xc, TPM hashing unavailable, PCR schemas 0x1
->  EFI stub: DEBUG: DRTM: minimum DLME data 73728 bytes, Normal-world DCE 0 bytes
->  EFI stub: Decompressing Linux Kernel...
->  EFI stub: Generating empty DTB
->  EFI stub: Exiting boot services...
->  EFI stub: DEBUG: DRTM: will launch, selected launch features 0x0
->  [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x000f0510]
-> 
-> Eventually the launch'd kernel is going to require built in crypto
-> libraries that match what the FW is using so it can validate some of the
-> information left behind during early boot. Refuse to launch if these are
-> not built in and build in the most common ones from the ARM64_DRTM
-> kconfig.
-> 
-> One nit, if the platform does not support SMC then using drtm=auto may
-> crash on the SMC op. As far as I can tell there is no way to discover SMC
-> support through EFI. Learning it from the ACPI FADT is doable and costs
-> about 250 lines of code.
+> On Wed, Oct 21, 2026 at 11:25=E2=80=AFAM Tarun Sahu <tarunsahu@google.com=
+> wrote:
+>>
+>> File handler and File-Lifecycle-Bound (FLB) identifiers name the
+>
+> Please use FLB directly, no need to spell it out.
+>
+>> registered handler or FLB rather than a monolithic compatibility version=
+.
+>> Rename compatible to name across LUO headers, structures, and consumers:
+>> - struct liveupdate_file_handler and struct luo_file_ser name field
+>> - LIVEUPDATE_HNDL_NAME_LENGTH (in include/uapi/linux/liveupdate.h) and
+>>   MEMFD_LUO_FH_NAME
+>> - struct liveupdate_flb name field, LIVEUPDATE_FLB_NAME_LENGTH,
+>>   PCI_LUO_FLB_NAME, and LIVEUPDATE_TEST_FLB_NAME
+>>
+>> Signed-off-by: Tarun Sahu <tarunsahu@google.com>
+>> ---
+>>  drivers/pci/liveupdate.c        | 10 ++++----
+>>  include/linux/kho/abi/luo.h     | 26 +++++++++----------
+>>  include/linux/kho/abi/memfd.h   |  4 +--
+>>  include/linux/kho/abi/pci.h     |  2 +-
+>>  include/linux/liveupdate.h      | 18 +++++--------
+>>  include/uapi/linux/liveupdate.h |  3 +++
+>>  kernel/liveupdate/luo_file.c    | 45 +++++++++++++++++----------------
+>>  kernel/liveupdate/luo_flb.c     | 16 ++++++------
+>>  lib/tests/liveupdate.c          | 22 ++++++++--------
+>>  mm/memfd_luo.c                  |  2 +-
+>>  10 files changed, 73 insertions(+), 75 deletions(-)
+>>
+>> diff --git a/drivers/pci/liveupdate.c b/drivers/pci/liveupdate.c
+>> index 51695782ed42..3cf01d7d615c 100644
+>> --- a/drivers/pci/liveupdate.c
+>> +++ b/drivers/pci/liveupdate.c
+>> @@ -424,7 +424,7 @@ static struct liveupdate_flb_ops pci_liveupdate_flb_=
+ops =3D {
+>>
+>>  static struct liveupdate_flb pci_liveupdate_flb =3D {
+>>         .ops =3D &pci_liveupdate_flb_ops,
+>> -       .compatible =3D PCI_LUO_FLB_COMPATIBLE,
+>> +       .name =3D PCI_LUO_FLB_NAME,
+>>  };
+>>
+>>  static void pci_liveupdate_flb_put_outgoing(void)
+>> @@ -667,13 +667,13 @@ static struct pci_flb_incoming *pci_liveupdate_flb=
+_get_incoming(void)
+>>
+>>         /*
+>>          * Live Update is enabled and there is incoming FLB data, but no=
+ne of it
+>> -        * matches pci_liveupdate_flb.compatible.
+>> +        * matches pci_liveupdate_flb.name.
+>>          */
+>>         if (ret =3D=3D -ENOENT)
+>>                 return NULL;
+>>
+>>         /*
+>> -        * There is incoming FLB data that matches pci_liveupdate_flb.co=
+mpatible
+>> +        * There is incoming FLB data that matches pci_liveupdate_flb.na=
+me
+>>          * but retrieve failed (pci_flb_retrieve() returned an error or =
+LUO
+>>          * failed to acquire a reference to pci_liveupdate_flb_ops.owner=
+).
+>>          */
+>> @@ -998,7 +998,7 @@ EXPORT_SYMBOL_GPL(pci_liveupdate_is_incoming);
+>>   */
+>>  int pci_liveupdate_register_flb(struct liveupdate_file_handler *fh)
+>>  {
+>> -       pr_debug("Registering file handler \"%s\"\n", fh->compatible);
+>> +       pr_debug("Registering file handler \"%s\"\n", fh->name);
+>>         return liveupdate_register_flb(fh, &pci_liveupdate_flb);
+>>  }
+>>  EXPORT_SYMBOL_GPL(pci_liveupdate_register_flb);
+>> @@ -1009,7 +1009,7 @@ EXPORT_SYMBOL_GPL(pci_liveupdate_register_flb);
+>>   */
+>>  void pci_liveupdate_unregister_flb(struct liveupdate_file_handler *fh)
+>>  {
+>> -       pr_debug("Unregistering file handler \"%s\"\n", fh->compatible);
+>> +       pr_debug("Unregistering file handler \"%s\"\n", fh->name);
+>>         liveupdate_unregister_flb(fh, &pci_liveupdate_flb);
+>>  }
+>>  EXPORT_SYMBOL_GPL(pci_liveupdate_unregister_flb);
+>> diff --git a/include/linux/kho/abi/luo.h b/include/linux/kho/abi/luo.h
+>> index 288076de6d4a..5fb2f46425d7 100644
+>> --- a/include/linux/kho/abi/luo.h
+>> +++ b/include/linux/kho/abi/luo.h
+>> @@ -39,9 +39,9 @@
+>>   *     Multiple blocks are linked via the `next` field in the header.
+>>   *
+>>   *   - struct luo_file_ser:
+>> - *     Metadata for a single preserved file. Contains the `compatible` =
+string to
+>> - *     find the correct handler in the new kernel, a user-provided `tok=
+en` for
+>> - *     identification, and an opaque `data` handle for the handler to u=
+se.
+>> + *     Metadata for a single preserved file. Contains the handler `name=
+` string
+>> + *     to find the correct handler in the new kernel, a user-provided `=
+token`
+>> + *     for identification, and an opaque `data` handle for the handler =
+to use.
+>>   *
+>>   *   - struct luo_flb_header_ser:
+>>   *     Header for the FLB array. Contains the total page count of the
+>> @@ -49,9 +49,9 @@
+>>   *     that follow.
+>>   *
+>>   *   - struct luo_flb_ser:
+>> - *     Metadata for a single preserved global object. Contains its `nam=
+e`
+>> - *     (compatible string), an opaque `data` handle, and the `count`
+>> - *     number of files depending on it.
+>> + *     Metadata for a single preserved global object. Contains its FLB =
+`name`
+>> + *     string, an opaque `data` handle, and the `count` number of files
+>> + *     depending on it.
+>>   */
+>>
+>>  #ifndef _LINUX_KHO_ABI_LUO_H
+>> @@ -84,18 +84,16 @@ struct luo_ser {
+>>         u64 flbs_pa;
+>>  } __packed;
+>>
+>> -#define LIVEUPDATE_HNDL_COMPAT_LENGTH  48
+>> -
+>>  /**
+>>   * struct luo_file_ser - Represents the serialized preserves files.
+>> - * @compatible:  File handler compatible string.
+>> + * @name:        File handler name string.
+>
+> We are renaming from cpmaptible to name; I am not sure that is
+> necessary. We can still use compatible for the same purpose as name.
+> Unless it really bothers people, but for me 'compatible' works just
+> the same.
 
-Ouch. Sounds like a must have if there is no easier way.
+Yes it is necessary, For example if we have two handler for a single
+subsystem. We should refer it by handle this or handler that, not like
+handler with compatible string this and handler with compatible string
+that.
 
-> 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+It ease the conversation and people will understand it quickly with
+name.
 
-One thing inline that confused me.
+~Tarun
 
-Otherwise seems fine to me
-
-> diff --git a/drivers/firmware/efi/libstub/arm64-drtm.c b/drivers/firmware/efi/libstub/arm64-drtm.c
-> new file mode 100644
-> index 00000000000000..2fc58babc3e7cb
-> --- /dev/null
-> +++ b/drivers/firmware/efi/libstub/arm64-drtm.c
-> @@ -0,0 +1,426 @@
-
-> +
-> +/* True if SMCCC 1.0 or later is available. */
-> +static bool efi_arm64_psci_smccc_compatible(void)
-> +{
-> +	struct arm_smccc_res res;
-> +	s32 status;
-> +
-> +	arm_smccc_1_1_smc(PSCI_0_2_FN_PSCI_VERSION, &res);
-
-A function that is meant to check for smccc 1.0 is using the
-smccc_1_1 namespaced calls?  Maybe add a comment on why that
-is ok to do.  Is anyone actually using SMCCC 1.0 on systems like this?
-
-I a bit surprised we don't have a common helper for this -
-I guess the version checks are often explicit in a particular
-driver being bound.
-
-> +	if ((s32)res.a0 < 0)
-> +		return false;
-> +
-> +	if (PSCI_VERSION_MAJOR(res.a0) < 1)
-> +		return false;
-> +
-> +	arm_smccc_1_1_smc(PSCI_1_0_FN_PSCI_FEATURES, ARM_SMCCC_VERSION_FUNC_ID,
-> +			  &res);
-> +	status = (s32)res.a0;
-> +	if (status == PSCI_RET_NOT_SUPPORTED) {
-> +		/*
-> +		 * SMCCC_VERSION was introduced by SMCCC 1.1, so firmware that
-> +		 * does not advertise that function through PSCI_FEATURES is
-> +		 * using the valid SMCCC 1.0 baseline.
-> +		 */
-> +		return true;
-> +	} else if (status < 0) {
-> +		return false;
-> +	} else {
-> +		u32 version;
-> +
-> +		arm_smccc_1_1_smc(ARM_SMCCC_VERSION_FUNC_ID, &res);
-> +		version = res.a0;
-> +		if ((version >> 16) != 1 || version < ARM_SMCCC_VERSION_1_1)
-> +			return false;
-> +	}
-> +	return true;
-> +}
-
-
+>
+>>   * @data:        Private data
+>>   * @token:       User provided token for this file
+>>   *
+>>   * If this structure is modified, `LUO_ABI_COMPATIBLE` must be updated.
+>>   */
+>>  struct luo_file_ser {
+>> -       char compatible[LIVEUPDATE_HNDL_COMPAT_LENGTH];
+>> +       char name[LIVEUPDATE_HNDL_NAME_LENGTH];
+>>         u64 data;
+>>         u64 token;
+>>  } __packed;
+>> @@ -134,7 +132,7 @@ struct luo_session_ser {
+>>  } __packed;
+>
+> Unreleated to this patch, but should be handled by this work, let's
+> remove all the '__packed' attributes, the are not needed, we will
+> explicitly fill in all the holes, with reserved fields.
+>
+>>
+>>  /* The max size is set so it can be reliably used during in serializati=
+on */
+>> -#define LIVEUPDATE_FLB_COMPAT_LENGTH   48
+>> +#define LIVEUPDATE_FLB_NAME_LENGTH     48
+>>
+>>  /**
+>>   * struct luo_flb_header_ser - Header for the serialized FLB data block=
+.
+>> @@ -156,7 +154,7 @@ struct luo_flb_header_ser {
+>>
+>>  /**
+>>   * struct luo_flb_ser - Represents the serialized state of a single FLB=
+ object.
+>> - * @name:    The unique compatibility string of the FLB object, used to=
+ find the
+>> + * @name:    The unique name string of the FLB object, used to find the
+>>   *           corresponding &struct liveupdate_flb handler in the new ke=
+rnel.
+>>   * @data:    The opaque u64 handle returned by the FLB's .preserve() op=
+eration
+>>   *           in the old kernel. This handle encapsulates the entire sta=
+te needed
+>> @@ -172,14 +170,14 @@ struct luo_flb_header_ser {
+>>   * If this structure is modified, `LUO_ABI_COMPATIBLE` must be updated.
+>>   */
+>>  struct luo_flb_ser {
+>> -       char name[LIVEUPDATE_FLB_COMPAT_LENGTH];
+>> +       char name[LIVEUPDATE_FLB_NAME_LENGTH];
+>>         u64 data;
+>>         u64 count;
+>>  } __packed;
+>>
+>>  /* Kernel Live Update Test ABI */
+>>  #ifdef CONFIG_LIVEUPDATE_TEST
+>> -#define LIVEUPDATE_TEST_FLB_COMPATIBLE(i)      "liveupdate-test-flb-v" =
+#i
+>> +#define LIVEUPDATE_TEST_FLB_NAME(i)    "liveupdate-test-flb-v" #i
+>>  #endif
+>>
+>>  #endif /* _LINUX_KHO_ABI_LUO_H */
+>> diff --git a/include/linux/kho/abi/memfd.h b/include/linux/kho/abi/memfd=
+.h
+>> index 08b10fea2afc..371ffd108a79 100644
+>> --- a/include/linux/kho/abi/memfd.h
+>> +++ b/include/linux/kho/abi/memfd.h
+>> @@ -87,7 +87,7 @@ struct memfd_luo_ser {
+>>         struct kho_vmalloc folios;
+>>  } __packed;
+>>
+>> -/* The compatibility string for memfd file handler */
+>> -#define MEMFD_LUO_FH_COMPATIBLE        "memfd-v2"
+>> +/* The name string for memfd file handler */
+>> +#define MEMFD_LUO_FH_NAME      "memfd-v2"
+>>
+>>  #endif /* _LINUX_KHO_ABI_MEMFD_H */
+>> diff --git a/include/linux/kho/abi/pci.h b/include/linux/kho/abi/pci.h
+>> index 9485ed73c351..973ca5b26dbd 100644
+>> --- a/include/linux/kho/abi/pci.h
+>> +++ b/include/linux/kho/abi/pci.h
+>> @@ -23,7 +23,7 @@
+>>   * incrementing the version number in the PCI_LUO_FLB_VERSION number.
+>>   */
+>>
+>> -#define PCI_LUO_FLB_COMPATIBLE "pci"
+>> +#define PCI_LUO_FLB_NAME "pci"
+>>  #define PCI_LUO_FLB_VERSION 2
+>>
+>>  /**
+>> diff --git a/include/linux/liveupdate.h b/include/linux/liveupdate.h
+>> index 6051abc0612c..475da5fc22ee 100644
+>> --- a/include/linux/liveupdate.h
+>> +++ b/include/linux/liveupdate.h
+>> @@ -90,10 +90,8 @@ struct liveupdate_file_ops {
+>>  /**
+>>   * struct liveupdate_file_handler - Represents a handler for a live-upd=
+atable file type.
+>>   * @ops:                Callback functions
+>> - * @compatible:         The compatibility string (e.g., "memfd-v1", "vf=
+iofd-v1")
+>> - *                      that uniquely identifies the file type this han=
+dler
+>> - *                      supports. This is matched against the compatibl=
+e string
+>> - *                      associated with individual &struct file instanc=
+es.
+>> + * @name:               Unique handler name string (e.g., "memfd-v2"), =
+matched
+>> + *                      against &struct luo_file_ser.name in the target=
+ kernel.
+>>   *
+>>   * Modules that want to support live update for specific file types sho=
+uld
+>>   * register an instance of this structure. LUO uses this registration t=
+o
+>> @@ -102,7 +100,7 @@ struct liveupdate_file_ops {
+>>   */
+>>  struct liveupdate_file_handler {
+>>         const struct liveupdate_file_ops *ops;
+>> -       const char compatible[LIVEUPDATE_HNDL_COMPAT_LENGTH];
+>> +       const char name[LIVEUPDATE_HNDL_NAME_LENGTH];
+>>
+>>         /* private: */
+>>
+>> @@ -209,11 +207,9 @@ struct luo_flb_private {
+>>  /**
+>>   * struct liveupdate_flb - A global definition for a shared data object=
+.
+>>   * @ops:         Callback functions
+>> - * @compatible:  The compatibility string (e.g., "iommu-core-v1"
+>> - *               that uniquely identifies the FLB type this handler
+>> - *               supports. This is matched against the compatible strin=
+g
+>> - *               associated with individual &struct liveupdate_flb
+>> - *               instances.
+>> + * @name:        The FLB name string (e.g., "iommu-core-v1") that uniqu=
+ely
+>> + *               identifies this FLB type. In the target kernel, it is
+>> + *               matched against the name stored in &struct luo_flb_ser=
+.
+>>   *
+>>   * This struct is the "template" that a driver registers to define a sh=
+ared,
+>>   * file-lifecycle-bound object. The actual runtime state (the live obje=
+ct,
+>> @@ -221,7 +217,7 @@ struct luo_flb_private {
+>>   */
+>>  struct liveupdate_flb {
+>>         const struct liveupdate_flb_ops *ops;
+>> -       const char compatible[LIVEUPDATE_FLB_COMPAT_LENGTH];
+>> +       const char name[LIVEUPDATE_FLB_NAME_LENGTH];
+>>
+>>         /* private: */
+>>         struct luo_flb_private __private private;
+>> diff --git a/include/uapi/linux/liveupdate.h b/include/uapi/linux/liveup=
+date.h
+>> index 4043d4038712..509c6236720d 100644
+>> --- a/include/uapi/linux/liveupdate.h
+>> +++ b/include/uapi/linux/liveupdate.h
+>> @@ -46,6 +46,9 @@
+>>  /* The maximum length of session name including null termination */
+>>  #define LIVEUPDATE_SESSION_NAME_LENGTH 64
+>>
+>> +/* The maximum length of file handler name including null termination *=
+/
+>> +#define LIVEUPDATE_HNDL_NAME_LENGTH 48
+>> +
+>>  /* The /dev/liveupdate ioctl commands */
+>>  enum {
+>>         LIVEUPDATE_CMD_BASE =3D 0x00,
+>> diff --git a/kernel/liveupdate/luo_file.c b/kernel/liveupdate/luo_file.c
+>> index a39992da504f..fb81239bedf3 100644
+>> --- a/kernel/liveupdate/luo_file.c
+>> +++ b/kernel/liveupdate/luo_file.c
+>> @@ -50,7 +50,7 @@
+>>   *
+>>   * 2. Freeze (Pre-Reboot): Just before the kexec, luo_file_freeze() is =
+called.
+>>   *    It iterates through all preserved files, calls their respective .=
+freeze()
+>> - *    operation, and serializes their final metadata (compatible string=
+, token,
+>> + *    operation, and serializes their final metadata (handler name, tok=
+en,
+>>   *    and data handle) into a contiguous memory block for KHO.
+>>   *
+>>   * 3. Deserialize: After kexec, luo_file_deserialize() runs when sessio=
+n gets
+>> @@ -220,7 +220,7 @@ static bool luo_token_is_used(struct luo_file_set *f=
+ile_set, u64 token)
+>>   * 1. Validates that the @token is not already in use within the file_s=
+et.
+>>   * 2. Ensures the file_set's memory for files serialization is allocate=
+d
+>>   *    (allocates if needed).
+>> - * 3. Iterates through registered handlers, calling can_preserve() to f=
+ind one
+>> + * 3. Iterates through registered handlers, calling .can_preserve() to =
+find one
+>>   *    compatible with the given @fd.
+>>   * 4. Calls the handler's .preserve() operation, which saves the file's=
+ state
+>>   *    and returns an opaque private data handle.
+>> @@ -238,7 +238,7 @@ static bool luo_token_is_used(struct luo_file_set *f=
+ile_set, u64 token)
+>>   *         -EBUSY if the file descriptor is already preserved by anothe=
+r session.
+>>   *         -EBADF if the file descriptor is invalid.
+>>   *         -ENOSPC if the file_set is full.
+>> - *         -ENOENT if no compatible handler is found.
+>> + *         -ENOENT if no compatible handler is found for the file type.
+>>   *         -ENOMEM on memory allocation failure.
+>>   *         Other erros might be returned by .preserve().
+>>   */
+>> @@ -456,9 +456,10 @@ static void __luo_file_unfreeze(struct luo_file_set=
+ *file_set,
+>>   *    private data handle during this step.
+>>   *
+>>   * 2. Serializes Metadata: After a successful freeze, it copies the fin=
+al file
+>> - *    metadata=E2=80=94the handler's compatible string, the user token,=
+ and the final
+>> - *    private data handle=E2=80=94into the pre-allocated contiguous mem=
+ory buffer
+>> - *    (file_set->files) that will be handed over to the next kernel via=
+ KHO.
+>> + *    metadata - the handler's name string, the user token, and the fin=
+al
+>> + *    private data handle - into the pre-allocated contiguous memory bu=
+ffer
+>> + *    (file_set->files) that will be handed over to the target kernel v=
+ia
+>> + *    KHO.
+>>   *
+>>   * Error Handling (Rollback):
+>>   * This function is atomic. If any handler's .freeze() operation fails,=
+ the
+>> @@ -495,13 +496,13 @@ int luo_file_freeze(struct luo_file_set *file_set,
+>>                 err =3D luo_file_freeze_one(file_set, luo_file);
+>>                 if (err < 0) {
+>>                         pr_warn("Freeze failed for token[%#0llx] handler=
+[%s] err[%pe]\n",
+>> -                               luo_file->token, luo_file->fh->compatibl=
+e,
+>> +                               luo_file->token, luo_file->fh->name,
+>>                                 ERR_PTR(err));
+>>                         goto err_unfreeze;
+>>                 }
+>>
+>> -               strscpy(file_ser->compatible, luo_file->fh->compatible,
+>> -                       sizeof(file_ser->compatible));
+>> +               strscpy(file_ser->name, luo_file->fh->name,
+>> +                       sizeof(file_ser->name));
+>>                 file_ser->data =3D luo_file->serialized_data;
+>>                 file_ser->token =3D luo_file->token;
+>>         }
+>> @@ -747,7 +748,7 @@ static int luo_file_deserialize_one(struct luo_file_=
+set *file_set,
+>>
+>>         down_read(&luo_register_rwlock);
+>>         list_private_for_each_entry(fh, &luo_file_handler_list, list) {
+>> -               if (!strcmp(fh->compatible, ser->compatible)) {
+>> +               if (!strcmp(fh->name, ser->name)) {
+>>                         if (try_module_get(fh->ops->owner))
+>>                                 handler_found =3D true;
+>>                         break;
+>> @@ -756,9 +757,9 @@ static int luo_file_deserialize_one(struct luo_file_=
+set *file_set,
+>>         up_read(&luo_register_rwlock);
+>>
+>>         if (!handler_found) {
+>> -               pr_warn("No registered handler for compatible '%.*s'\n",
+>> -                       (int)sizeof(ser->compatible),
+>> -                       ser->compatible);
+>> +               pr_warn("No registered handler for name '%.*s'\n",
+>> +                       (int)sizeof(ser->name),
+>> +                       ser->name);
+>>                 return -ENOENT;
+>>         }
+>>
+>> @@ -789,9 +790,9 @@ static int luo_file_deserialize_one(struct luo_file_=
+set *file_set,
+>>   * in-memory linked list of 'struct luo_file' instances.
+>>   *
+>>   * For each serialized entry, it performs the following steps:
+>> - *   1. Reads the 'compatible' string.
+>> + *   1. Reads the handler 'name' string.
+>>   *   2. Searches the global list of registered file handlers for one th=
+at
+>> - *      matches the compatible string.
+>> + *      matches the handler name.
+>>   *   3. Allocates a new 'struct luo_file'.
+>>   *   4. Populates the new structure with the deserialized data (token, =
+private
+>>   *      data handle) and links it to the found handler. The 'file' poin=
+ter is
+>> @@ -884,9 +885,9 @@ void luo_file_set_destroy(struct luo_file_set *file_=
+set)
+>>  /**
+>>   * liveupdate_register_file_handler - Register a file handler with LUO.
+>>   * @fh: Pointer to a caller-allocated &struct liveupdate_file_handler.
+>> - * The caller must initialize this structure, including a unique
+>> - * 'compatible' string and a valid 'fh' callbacks. This function adds t=
+he
+>> - * handler to the global list of supported file handlers.
+>> + * The caller must initialize this structure, including a unique 'name'
+>> + * string and valid 'fh' callbacks. This function adds the handler to t=
+he
+>> + * global list of supported file handlers.
+>>   *
+>>   * Context: Typically called during module initialization for file type=
+s that
+>>   * support live update preservation.
+>> @@ -908,11 +909,11 @@ int liveupdate_register_file_handler(struct liveup=
+date_file_handler *fh)
+>>         }
+>>
+>>         down_write(&luo_register_rwlock);
+>> -       /* Check for duplicate compatible strings */
+>> +       /* Check for duplicate handler names */
+>>         list_private_for_each_entry(fh_iter, &luo_file_handler_list, lis=
+t) {
+>> -               if (!strcmp(fh_iter->compatible, fh->compatible)) {
+>> -                       pr_err("File handler registration failed: Compat=
+ible string '%s' already registered.\n",
+>> -                              fh->compatible);
+>> +               if (!strcmp(fh_iter->name, fh->name)) {
+>> +                       pr_err("File handler registration failed: Handle=
+r name '%s' already registered.\n",
+>> +                              fh->name);
+>>                         err =3D -EEXIST;
+>>                         goto err_unlock;
+>>                 }
+>> diff --git a/kernel/liveupdate/luo_flb.c b/kernel/liveupdate/luo_flb.c
+>> index cd715a7c1d99..222c6d7f821e 100644
+>> --- a/kernel/liveupdate/luo_flb.c
+>> +++ b/kernel/liveupdate/luo_flb.c
+>> @@ -178,7 +178,7 @@ static int luo_flb_retrieve_one(struct liveupdate_fl=
+b *flb)
+>>                 return -ENODATA;
+>>
+>>         for (int i =3D 0; i < fh->header_ser->count; i++) {
+>> -               if (!strcmp(fh->ser[i].name, flb->compatible)) {
+>> +               if (!strcmp(fh->ser[i].name, flb->name)) {
+>>                         private->incoming.data =3D fh->ser[i].data;
+>>                         refcount_set(&private->incoming.count, fh->ser[i=
+].count);
+>>                         found =3D true;
+>> @@ -337,7 +337,7 @@ static void luo_flb_unregister_one(struct liveupdate=
+_file_handler *fh,
+>>
+>>         if (!found) {
+>>                 pr_warn("Failed to unregister FLB '%s': not found in fil=
+e handler '%s'\n",
+>> -                       flb->compatible, fh->compatible);
+>> +                       flb->name, fh->name);
+>>                 return;
+>>         }
+>>
+>> @@ -442,9 +442,9 @@ int liveupdate_register_flb(struct liveupdate_file_h=
+andler *fh,
+>>                 if (luo_flb_global.count =3D=3D LUO_FLB_MAX)
+>>                         return -ENOSPC;
+>>
+>> -               /* Check that compatible string is unique in global list=
+ */
+>> +               /* Check that FLB name is unique in global list */
+>>                 list_private_for_each_entry(gflb, &luo_flb_global.list, =
+private.list) {
+>> -                       if (!strcmp(gflb->compatible, flb->compatible))
+>> +                       if (!strcmp(gflb->name, flb->name))
+>>                                 return -EEXIST;
+>>                 }
+>>
+>> @@ -596,9 +596,9 @@ void __init luo_flb_setup_incoming(u64 flbs_pa)
+>>   * preserved (i.e., its reference count is greater than zero), it write=
+s its
+>>   * metadata into the memory region designated for Kexec Handover.
+>>   *
+>> - * The serialized data includes the FLB's compatibility string, its opa=
+que
+>> - * data handle, and the final reference count. This allows the new kern=
+el to
+>> - * find the appropriate handler and reconstruct the FLB's state.
+>> + * The serialized data includes the FLB's name string, its opaque
+>> + * data handle, and the final reference count. This allows the target
+>> + * kernel to find the appropriate FLB and reconstruct its state.
+>>   *
+>>   * Context: Called from liveupdate_reboot() just before kho_finalize().
+>>   */
+>> @@ -614,7 +614,7 @@ void luo_flb_serialize(void)
+>>                 long count =3D refcount_read(&private->outgoing.count);
+>>
+>>                 if (count > 0) {
+>> -                       strscpy(fh->ser[i].name, gflb->compatible,
+>> +                       strscpy(fh->ser[i].name, gflb->name,
+>>                                 sizeof(fh->ser[i].name));
+>>                         fh->ser[i].data =3D private->outgoing.data;
+>>                         fh->ser[i].count =3D count;
+>> diff --git a/lib/tests/liveupdate.c b/lib/tests/liveupdate.c
+>> index 4c08a7c6fb78..e4df09eed1f3 100644
+>> --- a/lib/tests/liveupdate.c
+>> +++ b/lib/tests/liveupdate.c
+>> @@ -17,7 +17,7 @@
+>>  static const struct liveupdate_flb_ops test_flb_ops;
+>>  #define DEFINE_TEST_FLB(i) {                                           =
+\
+>>         .ops =3D &test_flb_ops,                                         =
+  \
+>> -       .compatible =3D LIVEUPDATE_TEST_FLB_COMPATIBLE(i),              =
+  \
+>> +       .name =3D LIVEUPDATE_TEST_FLB_NAME(i),                          =
+  \
+>>  }
+>>
+>>  /* Number of Test FLBs to register with every file handler */
+>> @@ -34,7 +34,7 @@ static int test_flb_preserve(struct liveupdate_flb_op_=
+args *argp)
+>>  {
+>>         ptrdiff_t index =3D argp->flb - test_flbs;
+>>
+>> -       pr_info("%s: preserve was triggered\n", argp->flb->compatible);
+>> +       pr_info("%s: preserve was triggered\n", argp->flb->name);
+>>         argp->data =3D TEST_FLB_MAGIC_BASE + index;
+>>
+>>         return 0;
+>> @@ -42,7 +42,7 @@ static int test_flb_preserve(struct liveupdate_flb_op_=
+args *argp)
+>>
+>>  static void test_flb_unpreserve(struct liveupdate_flb_op_args *argp)
+>>  {
+>> -       pr_info("%s: unpreserve was triggered\n", argp->flb->compatible)=
+;
+>> +       pr_info("%s: unpreserve was triggered\n", argp->flb->name);
+>>  }
+>>
+>>  static int test_flb_retrieve(struct liveupdate_flb_op_args *argp)
+>> @@ -52,11 +52,11 @@ static int test_flb_retrieve(struct liveupdate_flb_o=
+p_args *argp)
+>>
+>>         if (argp->data =3D=3D expected_data) {
+>>                 pr_info("%s: found flb data from the previous boot\n",
+>> -                       argp->flb->compatible);
+>> +                       argp->flb->name);
+>>                 argp->obj =3D (void *)argp->data;
+>>         } else {
+>>                 pr_err("%s: ERROR - incorrect data handle: %llx, expecte=
+d %llx\n",
+>> -                      argp->flb->compatible, argp->data, expected_data)=
+;
+>> +                      argp->flb->name, argp->data, expected_data);
+>>                 return -EINVAL;
+>>         }
+>>
+>> @@ -69,10 +69,10 @@ static void test_flb_finish(struct liveupdate_flb_op=
+_args *argp)
+>>         void *expected_obj =3D (void *)(TEST_FLB_MAGIC_BASE + index);
+>>
+>>         if (argp->obj =3D=3D expected_obj) {
+>> -               pr_info("%s: finish was triggered\n", argp->flb->compati=
+ble);
+>> +               pr_info("%s: finish was triggered\n", argp->flb->name);
+>>         } else {
+>>                 pr_err("%s: ERROR - finish called with invalid object\n"=
+,
+>> -                      argp->flb->compatible);
+>> +                      argp->flb->name);
+>>         }
+>>  }
+>>
+>> @@ -103,7 +103,7 @@ static void liveupdate_test_init(void)
+>>                 err =3D liveupdate_flb_get_incoming(flb, &obj);
+>>                 if (err && err !=3D -ENODATA && err !=3D -ENOENT) {
+>>                         pr_err("liveupdate_flb_get_incoming for %s faile=
+d: %pe\n",
+>> -                              flb->compatible, ERR_PTR(err));
+>> +                              flb->name, ERR_PTR(err));
+>>                 }
+>>
+>>                 if (!err)
+>> @@ -124,18 +124,18 @@ void liveupdate_test_register(struct liveupdate_fi=
+le_handler *fh)
+>>                 err =3D liveupdate_register_flb(fh, flb);
+>>                 if (err) {
+>>                         pr_err("Failed to register %s %pe\n",
+>> -                              flb->compatible, ERR_PTR(err));
+>> +                              flb->name, ERR_PTR(err));
+>>                 }
+>>         }
+>>
+>>         err =3D liveupdate_register_flb(fh, &test_flbs[0]);
+>>         if (!err || err !=3D -EEXIST) {
+>>                 pr_err("Failed: %s should be already registered, but got=
+ err: %pe\n",
+>> -                      test_flbs[0].compatible, ERR_PTR(err));
+>> +                      test_flbs[0].name, ERR_PTR(err));
+>>         }
+>>
+>>         pr_info("Registered %d FLBs with file handler: [%s]\n",
+>> -               TEST_NFLBS, fh->compatible);
+>> +               TEST_NFLBS, fh->name);
+>>  }
+>>
+>>  MODULE_LICENSE("GPL");
+>> diff --git a/mm/memfd_luo.c b/mm/memfd_luo.c
+>> index 6b68220275eb..64f8b8cb75bd 100644
+>> --- a/mm/memfd_luo.c
+>> +++ b/mm/memfd_luo.c
+>> @@ -602,7 +602,7 @@ static const struct liveupdate_file_ops memfd_luo_fi=
+le_ops =3D {
+>>
+>>  static struct liveupdate_file_handler memfd_luo_handler =3D {
+>>         .ops =3D &memfd_luo_file_ops,
+>> -       .compatible =3D MEMFD_LUO_FH_COMPATIBLE,
+>> +       .name =3D MEMFD_LUO_FH_NAME,
+>>  };
+>>
+>>  static int __init memfd_luo_init(void)
+>> --
+>> 2.56.0.212.g129ede20d9-goog
+>>
 
