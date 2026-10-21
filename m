@@ -2,152 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48D57606A321
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 16:55:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4193A60A3803
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 16:56:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Bd4kTKZS;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=dw4f1vGY;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=dw4f1vGY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Tzs1+Wwp;
+	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=dkimrelay header.b=mQNYpKnm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=15sw/LfPJw3MVZPYpKLBQcQ5dq7tSK0FVica+D2mdLk=; b=Bd4kTKZSLhp9IH8G2Bg5gMNOLe
-	v3I4zLPM+MGnIkTCxwcc3aeOlH8MZyLDDw3Zy+7R4yG4Gc2GBXRauwAwGopGgZ2djioFBmWDICpVb
-	+xiMjUfzERHJjRBBn4f1r5xPlZZzDxwLjwJ7UN7tmgcKrjr6kA/YOt5Nm7Nz/0mUruJdYRRy6Lk8a
-	35MKwgq5Y0zfiHBhdB0gM3jaUFghhcUKXUWz5DjdfWfsYCxnKYQxcu2RYOpe7fcVwsTNM1QfjQ4bf
-	oBlCoGWqnwzAkpaOd++i0V00oB8Ioy02RhZrBIcBtzZ0W07bAtRQ1iJNY4HMH15lS3F2vEAOwN/0i
-	2DKzkfPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LpNaT8q0SGvIEMd/N1soAJa02WC3uqlIifzAi5jpoGQ=; b=Tzs1+WwpJwSeeDBfcKAjZbJ4zD
+	oxBchzDoTjDvlsOdGO/4AZFCTrDQXg+UXM0a11aT1aRP8xw2fRvawiHGHgyBl77NwYZ1jxvmugQn9
+	d45R4zWUobJ5+wa0gdkOlB5Fqx8l/fKcdKBlMBEp6qU5ibiu2lrOOHpHSSHA9G6MYzkFI537Ltyx2
+	P6GXuoGaHFc4NvAkilyUugkXzZiBU+rLcPbRq7vCYTAqEnH3F58Be5/Jpeh6Y7cDFzaz3jjvrhs0g
+	HdOaz7Vd6pbM90biVJNR+SZlqW9P4w2ZOmKzwq1AvGTBKo6CUWvn+G5a3PUf+JuCS9uTJu5nl6RP/
+	TFytcgsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJZZo-0000000CUEH-480f;
-	Wed, 21 Oct 2026 16:54:08 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1xJZbf-0000000CUTi-1rdF;
+	Wed, 21 Oct 2026 16:56:03 +0000
+Received: from lpdvsmtp11.broadcom.com ([192.19.166.231] helo=relay.smtp-ext.broadcom.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJZZm-0000000CUDa-2yph
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 16:54:07 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=ft2aPjG+bqFfLXtCMs7jxxkt4Ow71ClX/6Kdf2cYv/wbAwl51B/qJGOP0cuf8GD03YV8ldpf5wxiHr1Am1lTxnP+W1P44iyb+b9v5wGNg/SvIhMNZGY3rZvoE5idCpdDcTEi1MWIIsOff6Wj0ZqmgtrufXwJ4VqcUscCvuCtSmoPiBjsfzGpYMdstH4OLrYTQRmUDb8anGQ+VQ3SIkIhS5dXJTYgHgNo19odbl273lit9yRpIPqX1cR/CgCmAnOXF57QekHSRrxdQM8tZn0pQPFgAUt88/aMCZ2eryDr27FiVqoLywG/zviKEucBBpyXXpLKs6t1AP2c3YbybGfheQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=15sw/LfPJw3MVZPYpKLBQcQ5dq7tSK0FVica+D2mdLk=;
- b=TsGroxvWeA6VW1LqcU+y8JDFAh5sTVGhM/0MhjcNuSjPUNDVRR4eNeO0Vivc5GezOhf1Q23Gilb3jsKu/qjX/ABx1BkW2/NMMkraqF+YMBq9kgSvxkBd5rRrxKMh0DpTG3z1mJgKjIfTS7dgGAQjbyGMolO2OetVRyE4+PpFi96+FAvOlnlA6gLlIqkEn4F7eaJGMLEaj9TDawKUPKwOnnt5bdcy6EiZD+vmgag3r+f8+69kSsSMWghFrGxzkdLhkLgwhNDI3Ddb6df/ZpWVYAgdwDn2HxcVmVrLlnjycNFKbaDNRGPXCV9awqlV4DHZRNWCEBZXGHdhRn102xrNAA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=15sw/LfPJw3MVZPYpKLBQcQ5dq7tSK0FVica+D2mdLk=;
- b=dw4f1vGYQu+/MSCJ079NEv5mxPYFnw7HXq5ZE7AImYJ2NBm5sAgfRsD0nTKuhEDBAttCYrK6RaAo/xk3Y4XRzBVe+z0Bvjj6r6/9cEHAzPsGy4uR3CjhvoVQ5hix4ywMUjFkyRD342ZQwOkXED5PcPOh2UBI7v1B3ttE8QbLo7Y=
-Received: from PR1P264CA0192.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:34d::17)
- by GV2PR08MB8073.eurprd08.prod.outlook.com (2603:10a6:150:75::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
- 2026 16:54:00 +0000
-Received: from ZR1PEPF0000E6B4.eurprd05.prod.outlook.com
- (2603:10a6:102:34d:cafe::6) by PR1P264CA0192.outlook.office365.com
- (2603:10a6:102:34d::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.15 via Frontend Transport; Wed,
- 21 Oct 2026 16:54:00 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- ZR1PEPF0000E6B4.mail.protection.outlook.com (10.167.241.91) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.15
- via Frontend Transport; Wed, 21 Oct 2026 16:54:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gFAVyyYAY3FIRzOUb+qHZHdIYs421iVQ2RArVG631tag7xWmo7eOCnrOPZIlA765FQoWnpOgfE0B84hUTA8Yvaty+v9SbbT2oh6qYQicBFJ+dOoSZ16hBsqv7Kx4UimUU+b/rZtxRnd2pf3WJADnAyPj459XKV3PDs+lXxfEcLsldNrj3iFu7Hj7/0FFzXjr8iKwWmBdTcGtk0v4w3JKm3/1Xqv+12retICGFgJ2Q4goABE9QLIIpvkdClGbkcRh9r3trQhrdMJ0gltu8s9qU1LLapmQhva4gsUe/FuH8ADXKjn/O1p+7w0bSDQvCwsLg/Q41aOKMKrFGrIc8sFBjg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=15sw/LfPJw3MVZPYpKLBQcQ5dq7tSK0FVica+D2mdLk=;
- b=aKvx4qgCNLOwCIkW9DmMlIkB5h3I5ebs9vPi0ncvc4QCDsx8trSdVPQT9XojnlBjhk4tBEfHYbs5CDLdRRtxd9w+FfFoNpF5IZSbVhl0FwD/RdhpOVJbUg7LBY2glYIZjzkd8JwaRCHGpUwtdwNIeiFT1PwWrMOhZqenDk2s4SqUj4t8J2Y/Ys0z2C7CfufvFUwhLeb7ZDANLIfL9LdDrMPcS22XRLvIuZgtr24fgn8X2rjgoty/b8mGJpFxVCLOuME7seajBftcIIdXzGn5/tr8abVbwkGhdxxeIyKqdnrBb4ddSf+lx2xlIaCmquN5KSpYVSlZ70oeq4Q7X+/bqw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=15sw/LfPJw3MVZPYpKLBQcQ5dq7tSK0FVica+D2mdLk=;
- b=dw4f1vGYQu+/MSCJ079NEv5mxPYFnw7HXq5ZE7AImYJ2NBm5sAgfRsD0nTKuhEDBAttCYrK6RaAo/xk3Y4XRzBVe+z0Bvjj6r6/9cEHAzPsGy4uR3CjhvoVQ5hix4ywMUjFkyRD342ZQwOkXED5PcPOh2UBI7v1B3ttE8QbLo7Y=
-Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
- signed) header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10691.eurprd08.prod.outlook.com
- (2603:10a6:150:162::11) by AS8PR08MB8157.eurprd08.prod.outlook.com
- (2603:10a6:20b:54e::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
- 2026 16:53:26 +0000
-Received: from GV1PR08MB10691.eurprd08.prod.outlook.com
- ([fe80::dd4e:5d51:17f9:9375]) by GV1PR08MB10691.eurprd08.prod.outlook.com
- ([fe80::dd4e:5d51:17f9:9375%4]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
- 16:53:25 +0000
-Message-ID: <4b627d0a-b802-4965-9079-44121436d4bc@arm.com>
-Date: Wed, 21 Oct 2026 17:53:23 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 09/11] iommu/arm-smmu-v3: Retain CR0_SMMUEN during
- kdump device reset
-To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org
-Cc: robin.murphy@arm.com, joro@8bytes.org, jgg@nvidia.com, praan@google.com,
- kevin.tian@intel.com, smostafa@google.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, jamien@nvidia.com, kas@kernel.org,
- Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>
-References: <cover.1791226953.git.nicolinc@nvidia.com>
- <e8f6f198da25cc6b00902cd61bda9e7228cb45ec.1791226953.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: John Garry <john.garry@arm.com>
-In-Reply-To: <e8f6f198da25cc6b00902cd61bda9e7228cb45ec.1791226953.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PR3P195CA0010.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:102:b6::15) To GV1PR08MB10691.eurprd08.prod.outlook.com
- (2603:10a6:150:162::11)
+	id 1xJZbc-0000000CURu-2Z5G;
+	Wed, 21 Oct 2026 16:56:01 +0000
+Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id CEADDC0000EC;
+	Wed, 21 Oct 2026 09:55:58 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com CEADDC0000EC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1792601758;
+	bh=8PvXMAPnHZBo9OfRhqyepdZP9PSU6DTIqmxQXyhYrUA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mQNYpKnmg5+IACQuRTd7T0hzVsDZi6RXnQYPNGZ2r8i27la6on31zs5xKmYYAfJ3z
+	 DicOaMT1QC7BOgfXcaAFaSoYk2IR0lqDKQQxC8QCpcwpiDpDpL8HSrAWCm2lF9poSF
+	 5bEqqGh3au4IR9go0cMHsHbAVumkm6O6Om6QP1hM=
+Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 9DA1FA83;
+	Wed, 21 Oct 2026 09:55:58 -0700 (PDT)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Niklas Cassel <cassel@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Yendapally Reddy Dhananjaya Reddy <yendapally.reddy@broadcom.com>,
+	linux-ide@vger.kernel.org (open list:LIBATA SUBSYSTEM (Serial and Parallel ATA drivers)),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-phy@lists.infradead.org (open list:GENERIC PHY FRAMEWORK)
+Subject: [PATCH 5/6] ARM: dts: broadcom: Use noncoherent SATA DMA on BCM958625HR
+Date: Wed, 21 Oct 2026 09:55:53 -0700
+Message-ID: <20261021165555.652102-7-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261021165555.652102-1-florian.fainelli@broadcom.com>
+References: <20261021165555.652102-1-florian.fainelli@broadcom.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10691:EE_|AS8PR08MB8157:EE_|ZR1PEPF0000E6B4:EE_|GV2PR08MB8073:EE_
-X-MS-Office365-Filtering-Correlation-Id: 92bd72f3-765d-4d6b-bbab-08df2f93e7b4
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|56012099006|11063799006|4143699003|261009223027099003|10067099003|18002099003|6133799003|22082099003|261021121427099002;
-X-Microsoft-Antispam-Message-Info-Original: S7hali6dOf6lM9N9dRYjzK+bkBnfTtjTOOChEmR/eEJ4CJVB3GoCBXTc1bsfW4d2GxyRD4kbV8+siYIPKOaXSmjXhDqJz+X/U+960AQY41Dy43jsAq0Kdnzxw+YzJOkiALKh7TXuFvtsiohg5XsRTxCspQUFShLthjOxIqD+93bK8TmYBdf2kKJHh+Dh5IhNWE8O/3IYbgcN6vA9dOIy18lDRq+mB0fqgjtGZYbSJty41S5vy4mEKjKBXmtoX5j+L/kZLf49P9oR4Sr/3K6sgObHEVdlIiquQfPYN4mjcKDtr8RUIBtT/7J6QUbDwFxAOjThDRzX/hc0en0PrF5ZAMzx90RLfyqjGdWinhOTr3ZR1vlJS/JN0BbOs0BY6xZZWgxkxAOyv6M/RuJUMS2FE8wgL0F97t8RfRk/Ja20NChCRqrMFAH5eTaCUs19uZWGBzMetW7FX4C6wWNd5duIfNTHFJYLA0ql4D+67roO28dZvD3DDJQ/6n0FvmgkZNgnwhJMuccS0GUptX6UXImRybaTTT4ra8Ka/iI2vkXBYqvvO9srbtasytHQh+3Ix24BFTeS/3lrUs+CbdzY6bBE9cc8W6K4pqE4NlL8yy38LSSSm/RXm8GgJl0zAZAeBAmXbFcieoApCpY8sAJKAVKYHUpbgA8UcdtXYZUlU6U17WU=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10691.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(56012099006)(11063799006)(4143699003)(261009223027099003)(10067099003)(18002099003)(6133799003)(22082099003)(261021121427099002);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: d3n1ymcQ2BaLWQMom0NlXwIaaA7Y4z/5hqcaWwWCutN0fTCe2+HT8aT/guYQi/PZ8yp7l1buBIpv0QBGNDacwWKYe4ZaSn7XFIwnaoZyY9nfFiomn3ocHnkde9uOUXXdLtDjwJfd3eA4hG51pc+IFmtVWgH4ZxNKa6E2c2UxnE/4YcWck/c9u9rozFMT1+ww1waWi7uXM0Q93TSwB1Lqkc29UunZCjyFuw10VDnYcGJuEHpOMCL7rkLQWtJzlEDDVhz2V4Bppn1LZWJmneDCMmZkg/7A5SJQjfoWYP68Njja2l3bS4B7cMiXGu2i9JySb6CzjDRlw6e+BzFyokYlPg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB8157
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: ZR1PEPF0000E6B4.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 20150143-914b-4a62-b711-08df2f93d2e9
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|14060799003|23010399003|7416014|376014|35042699022|82310400026|36860700016|56012099006|4143699003|11063799006|261009223027099003|10067099003|22082099003|18002099003|6133799003|261021121427099002;
-X-Microsoft-Antispam-Message-Info: TiGADq9nuLUS5ENh8QWbrsGxZmTMhuFwgt4B7Jqgi/o9RHBpRDkQx9V6FZeraM4IOnITCTFOg81bnrqvOPZtveKmhylmpIaXaJQsYK7I10GgSZUGiatI0+d4BdcAwk/leqCwrengHz2nlqjq74BAbkeBlhIHIm+2/6FBG5NHopQq45KMSatzfj7eR5l6z7tonWrbWgSyHEVzMW7GQB2eOwBQ/MhR4cBt4WEgyn7qEBWejRMFXwpmuSnm46C8lvEOPB1wBTRo/uaCEwqMCH3nKaR2QYijR+JDphoCp/vEM79xCzOfGg1DZNYidnTBWoyFwgCBpb+DhxB6Z1+XiNb2mv1bTfqee0pOef2V5VA588bKVF03Qb9fDt6YvVTA0bgRvTy6AxvY4NxGzS+7xBg+c/rXkN5v6tmp8PbttqngZvfH3cV+Ttp538u4kdC0AqANiYvwMFZSMGQlWaKDdSjiTzd4/W0223chjuBpS0pMdkROEYpL9b6TH4ZMowhCMdVSkx2+VHog2XpSCnyXOf4RfRZvbuurd1TLnCc8uem5Wp0mazQMaHO0v04wMXXWJuo7w8ipQMKqfDoJcN1+T250WPXicZIbXWSrWzEmwV5zRKqjR5QD3uip0tv8JwfWPBzqvRJr3mRKEPWAjNAYR5qSPXhhzOHjbt94OUKJre9Ce4xVvL8WPKSyWbnyTrSbye74S3jDCp5CFxbFVxl4saJWhw==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(14060799003)(23010399003)(7416014)(376014)(35042699022)(82310400026)(36860700016)(56012099006)(4143699003)(11063799006)(261009223027099003)(10067099003)(22082099003)(18002099003)(6133799003)(261021121427099002);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ni8bt4jA3BztpYyTlmDchqP5fNcaNhHHWYPbHpJ39+8hTAwZGQe4EbRVfv6dY8UN/yNPe/X4f8Alfk12iOw5KvVGi7sBHazHXI8jVnvSrM+UK6LguC5BNjl5vTCFsUTVBEjBNx62XnGkebxNuNMlPWfMNTuZ+zusUSVm1+HiY6Q9qwzy2IJw3tU6W5QjTKFQ1Lsaz+wrfGmhbyPA2XApy4p3vc+5UNwhY0h8C3H0DKleQ83u/mpx4ux6FaiaaDAiJvKTmf7e+7dH5T3sWTtjFuHmt9Ik2OClgYBwgisT0061q55SEnMnD9lSiXox/N98NWEYQhi6j7nkZ+Iy52JW/BS7tq1E02DcaXWbxHSpwtFepHW5NUhEPWe6ENDlQvLFPVWvfhFhWDzeJ61y5iPS8LPwOZ+5mAWS+2it3XgWElPcablsfSuGuT0/ZiUDDt8S
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 16:54:00.2578
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 92bd72f3-765d-4d6b-bbab-08df2f93e7b4
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: ZR1PEPF0000E6B4.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8073
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_095406_780509_C397AE35 
-X-CRM114-Status: GOOD (  15.58  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261021_095600_713120_0BBE5499 
+X-CRM114-Status: GOOD (  11.80  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,56 +88,48 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/5/26 20:30, Nicolin Chen wrote:
-> +	/*
-> +	 * In a kdump case (set when CR0_SMMUEN=1 and !GERROR_SFM_ERR), retain
-> +	 * all the live CR0 fields, e.g. CR0_SMMUEN to avoid aborting in-flight
-> +	 * DMA and CR0_ATSCHK to carry on the ATS-check policy, while clearing
-> +	 * only the queue enable bits for this kernel to take over the queues.
-> +	 *
-> +	 * According to spec, updating STRTAB_BASE/CR1/CR2 when CR0_SMMUEN=1 is
-> +	 * CONSTRAINED UNPREDICTABLE. So, skip those register updates and rely
-> +	 * on the adopted stream table from the crashed kernel.
-> +	 */
-> +	if (smmu->options & ARM_SMMU_OPT_KDUMP_ADOPT) {
-> +		dev_info(smmu->dev,
-> +			 "kdump: retaining SMMUEN for in-flight DMA\n");
-> +		enables = reg & ~(CR0_CMDQEN | CR0_EVTQEN | CR0_PRIQEN);
-> +		goto reset_queues;
+The AHCI controller on BCM958625HR fails with the dma-coherent property
+inherited from bcm-nsp.dtsi. Soft reset times out waiting for the first
+FIS command, subsequent engine resets fail, and the disk is not detected.
 
-nit: Is there some reason to separate the call to 
-arm_smmu_write_reg_sync() under the ARM_SMMU_OPT_KDUMP_ADOPT check, below?
+AHCI allocates its command tables and received-FIS buffers with the DMA
+API. Declaring the controller coherent bypasses the cache handling that
+these buffers require on this board. Removing the property restores
+hard disk detection and operation, as confirmed with a diagnostic DTB
+that changed only this property.
 
-> +	}
-> +
-> +	/* Clear CR0 and sync (disables SMMU and queue processing) */
->   	if (reg & CR0_SMMUEN) {
->   		dev_warn(smmu->dev, "SMMU currently enabled! Resetting...\n");
->   		arm_smmu_update_gbpa(smmu, GBPA_ABORT, 0);
-> @@ -5181,12 +5199,41 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
->   	/* Stream table */
->   	arm_smmu_write_strtab(smmu);
->   
-> +reset_queues:
-> +	if (smmu->options & ARM_SMMU_OPT_KDUMP_ADOPT) {
- > +		/*> +		 * Disable queues since arm_smmu_device_disable() was skipped.
-> +		 * CR0 fields are independent per spec, so the queue enable bits
-> +		 * can be cleared while retaining SMMUEN=1.
-> +		 */
-> +		ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
-> +					      ARM_SMMU_CR0ACK);
-> +		if (ret) {
-> +			dev_err(smmu->dev, "failed to disable queues\n");
-> +			return ret;
-> +		}
-> +	}
+Use noncoherent DMA for SATA on BCM958625HR, matching the downstream SDK.
+
+Fixes: 56e2ff0346a3 ("ARM: dts: NSP: Add dma-coherent to relevant DT entries")
+Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+---
+ arch/arm/boot/dts/broadcom/bcm958625hr.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/boot/dts/broadcom/bcm958625hr.dts b/arch/arm/boot/dts/broadcom/bcm958625hr.dts
+index a9b6aa04d573..53acae385822 100644
+--- a/arch/arm/boot/dts/broadcom/bcm958625hr.dts
++++ b/arch/arm/boot/dts/broadcom/bcm958625hr.dts
+@@ -182,6 +182,10 @@ partition@700000 {
+ 	};
+ };
+ 
++&sata {
++	/delete-property/ dma-coherent;
++};
++
+ &sata_phy0 {
+ 	status = "okay";
+ };
+-- 
+2.53.0
 
 
