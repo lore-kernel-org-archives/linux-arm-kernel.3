@@ -2,73 +2,94 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C5B1606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 13:50:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDD8A606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:00:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nCwVx5C1;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tayxm9lZ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VxCpJE3A;
+	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=h7pfr6W4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v1YiWdLfzEcu7fQY4ueusVJXfXfBkH/pMzgprS/6y8s=; b=nCwVx5C1ljPR6I/KCX6TK1yyFt
-	BGM/tpVLineIDzmrj/8CF8VavVVKB/Jd6xkHwuFb4MgssbgFDJ0NwFMd06uAS0LCJKHqT+XlYuzHw
-	3oQKIDotEPA6WdCYBQ1LyA4K5Aw6fSWj8gyL/jt6vlhRV3AlUnLXJUAAiCE0RVMst7e/DdGH7WCW5
-	lDjq1aRpqt2BTqh8k3otD+9+Pxs00VvCSIyyZ67RzLqKv8AhGe0i0++vKijEeOkjtYsvp4rA4IiQS
-	X9cjm2m1PHALgJ7Xv3tX0N7kOwH07eFzX0bW+fGwZlvnhImqj/aeork8zmkZklbJubB6QUhAbEand
-	A+EzS8Cw==;
+	bh=wqSXevxtbUPzruyogfRR5D3qm9uGXtBSUWQoF9Cs71Q=; b=VxCpJE3APiuWlxZFi6qcnExlv5
+	fpgJLGEn2t+IE95wHVcYvSESLNVZD2U3tShMK4OkOdfkPf81OTwCsYlOOZvM+pi1bppte4FBJF3mn
+	OaVzYH1KLr6bcNDDxWvAFaczKKU5MqqM3/ZVzx7u71ooj49h4HHKNWdJvyn74yEnB/cyaxOuPOYoI
+	V+dC6aDa7vvltaJKpRn9wT7Kk9Pr0WUqiycZxn6uqV4bewYQNN5qDFSfZVMbwx7PQC6eUJ+uBoz/Y
+	qtYQfKwX47WY3T2lvl7nijA18SPoAJ+qoiGkHCsYiyWcqSJZexo/akNxB42SYoBNJ5JAwfU8x7Upo
+	urL1X5YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJWhk-0000000C0cY-2H5Z;
-	Wed, 21 Oct 2026 13:50:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xJWrq-0000000C1sT-2YgQ;
+	Wed, 21 Oct 2026 14:00:34 +0000
+Received: from esa8.hc1455-7.c3s2.iphmx.com ([139.138.61.253])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJWhi-0000000C0c4-3OFY
+	id 1xJWri-0000000C1rD-0IdZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 13:50:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ECF05601DE;
-	Wed, 21 Oct 2026 13:50:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F1081F000C4;
-	Wed, 21 Oct 2026 13:50:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792590605;
-	bh=v1YiWdLfzEcu7fQY4ueusVJXfXfBkH/pMzgprS/6y8s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Tayxm9lZ8glz7CAEW+XpWoXqPogPvAVP5FyRHysSufMVpYFOd5kAHe4eGeJbgfeec
-	 lN9UQ6X2/Svm+vKebPAyYr7ByWM+3x5XdfX8TkZij5/m5+vjiA6rkIP/rYabTfcAzu
-	 IptdY7DH/bWaKtMjjuZT9anmjj9eoBnVO/+RTyv5Jbn2C3S2B1YcP1vZ9byQgNLmvv
-	 RntpHNTTo3qYRgECnXOXprEcrGC2viaZg1w1n2ZdoYCWQwnrPthWmeAIBh3SFkglBr
-	 3xt6O8Z9juiX9ctKSXg5b2Uazj542hNEOlHf2l2DCNC9TBxwApcU3K30t5eOWxwnE4
-	 2GB3ctpiCEY9Q==
-Date: Wed, 21 Oct 2026 10:50:02 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>,
-	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>
-Subject: Re: [PATCH v3 0/4] perf: cs-etm: HW_ID improvements
-Message-ID: <atjDCpTIrchbCLt7@x2>
-References: <20261002-james-cs-hw_id-output-failure-v3-0-1d8b6ef339c8@linaro.org>
- <2bc4b058-3a5b-4a9c-a469-eb8c93215594@linaro.org>
+	Wed, 21 Oct 2026 14:00:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1792591232; x=1824127232;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=9DK2OEbFztWGhhecyDGTA244bbTa6mPCoyishduGujU=;
+  b=h7pfr6W4SoFVjTejFiQoXwx1RW0di8LHQDjLQMtXZ+Hqgbafz1XxLRsg
+   nhv6QZgWhQMcx7OtbD0FiLwFsjIKvzMqCe9BPlgHybo7ck56iDpi6ezqx
+   jNA/Xj4rXnQ4L2nfXU1ecrpUZV/eKp6bxxP8JwGiq6kLokjVHSErcaM29
+   5RkGqKXLRMMIpBvWeSPDUxqGBUVH1Ca3eJLH2JIIEIpzFT27yr3/NV0Kn
+   /+lmsK0rvINTgEBYH73ZKSfpatMv1rzptfa0CJXnanr60nvi5bNcMwVFU
+   tIZOOzb3+sISbsvZD/Dqzo8w0oJg7dFCIcXJrDcHhpcChhg/vN1PEQMkS
+   g==;
+X-CSE-ConnectionGUID: HnwmNJigT4q3AP6npybCfQ==
+X-CSE-MsgGUID: LtfV3p2nTlajDbdsqiTPWQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11942"; a="246931011"
+X-IronPort-AV: E=Sophos;i="6.27,170,1786978800"; 
+   d="scan'208";a="246931011"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa8.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2026 23:00:30 +0900
+Received: from az2nlsmgm3.fujitsu.com (unknown [10.150.26.205])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 0C7711C00659
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 14:00:24 +0000 (UTC)
+Received: from az2uksmom4.o.css.fujitsu.com (unknown [10.151.22.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm3.fujitsu.com (Postfix) with ESMTPS id AAE9F1803209
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 14:00:23 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.8.62.79])
+	by az2uksmom4.o.css.fujitsu.com (Postfix) with SMTP id 28952405E2E;
+	Wed, 21 Oct 2026 14:00:14 +0000 (UTC)
+Date: Wed, 21 Oct 2026 23:00:13 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org, 
+	will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, 
+	gshan@redhat.com, joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, 
+	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, 
+	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, 
+	lpieralisi@kernel.org, sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com, 
+	Soby Mathew <Soby.Mathew@arm.com>
+Subject: Re: [PATCH v22 06/10] firmware: arm_rmm: Ensure the RMM has GPT
+ entries for memory
+Message-ID: <atjEkyLimpQSL4d4@FCCLS0092175.localdomain>
+References: <20261002061507.1600269-1-suzuki.poulose@arm.com>
+ <20261002061507.1600269-7-suzuki.poulose@arm.com>
+ <atiyZ7_S7aBxowIQ@FCCLS0092175.localdomain>
+ <34bf0c98-35b1-4402-842f-a100245cb9a7@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <2bc4b058-3a5b-4a9c-a469-eb8c93215594@linaro.org>
+In-Reply-To: <34bf0c98-35b1-4402-842f-a100245cb9a7@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261021_070030_122033_D63BE932 
+X-CRM114-Status: GOOD (  48.12  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,25 +100,168 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 09:42:24AM +0100, James Clark wrote:
-> On 02/10/2026 12:15, James Clark wrote:
-> > James Clark (3):
-> >        perf: cs-etm: Don't add global v0 HW_IDs to unformatted queues
-> >        perf cs-etm: Free partially created queues
-> >        perf: cs-etm: Respect --no-itrace option
- 
-> Hi Arnaldo,
- 
-> Is it ok to take this one please, Leo has left his review tags.
+On 10/21 14:35, Suzuki K Poulose wrote:
+> Hi
+> 
+> On 21/10/2026 14:07, Kohei Enju wrote:
+> > Hi Suzuki,
+> > 
+> > I've tested this series and found a possible TF-RMM issue.
+> > Please  below.
+> > 
+> > On 10/02 07:15, Suzuki K Poulose wrote:
+> > > From: Steven Price <steven.price@arm.com>
+> > > 
+> > > The RMM maintains the state of all the granules in the system to make
+> > > sure that the host is abiding by the rules. This state can be maintained
+> > > at different granularity, per page (TRACKING_FINE) or per region
+> > > (TRACKING_COARSE or TRACKING_INTERMEDIATE). The region size depends on the
+> > > underlying "RMI_GRANULE_SIZE". For a "coarse"/"intermediate" region,
+> > > all pages in the region must be of the same state, this implies we need to
+> > > have "fine" tracking for DRAM, so that we can delegate individual pages.
+> > > 
+> > > For now we only support a statically carved out memory for tracking
+> > > granules for the "fine" regions. This can be extended in the future to
+> > > allow modifying the tracking granularity and remove the need for a
+> > > static allocation by the firmware.
+> > > 
+> > > Similarly, the firmware may create L0 GPT entries describing the total
+> > > address space. But if we change the "PAS" (Physical Address Space) of a
+> > > granule, then the firmware may need to create L1 tables to track the PAS
+> > > at a finer granularity. Linux therefore checks if the platform firmware
+> > > manages the PAR region. i.e., the firmware is in charge of managing the
+> > > L1 GPTs (creation and the required memory for the GPT tables - via static
+> > > carveouts) without host intervention. Support for dynamic GPT creation by
+> > > the host will be added later.
+> > > 
+> > > If the firmware requires us to manage the tracking or GPT memory,
+> > > deactivate the RMM and reclaim any memory donated at RMM activation.
+> > > 
+> > > Apply the same checks when hotplugged memory is brought online.
+> > > 
+> > > Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> > > Reviewed-by: Gavin Shan <gshan@redhat.com>
+> > > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> > > Tested-by: Gavin Shan <gshan@redhat.com>
+> > > Signed-off-by: Steven Price <steven.price@arm.com>
+> > > Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > > ---
+> > [...]
+> > > +/*
+> > > + * We do not support creating L1 GPTs yet. So, make sure that all the regions
+> > > + * are managed by the firmware.
+> > > + */
+> > > +static int rmi_verify_gpt_firmware_managed(phys_addr_t start, phys_addr_t end)
+> > > +{
+> > > +	unsigned long l0gpt_sz;
+> > > +	unsigned long next, par_state;
+> > > +
+> > > +	l0gpt_sz = 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
+> > > +					  rmi_feat_reg(1)));
+> > > +	start = ALIGN_DOWN(start, l0gpt_sz);
+> > > +	end = ALIGN(end, l0gpt_sz);
+> > > +
+> > > +	while (start < end) {
+> > > +		long ret = rmi_gpt_info(start, end, &next, &par_state);
+> > > +
+> > > +		if (ret != RMI_SUCCESS) {
+> > > +			pr_err("RMI_GPT_INFO failed for %llx-%llx: (%ld)\n",
+> > > +				start, end, ret);
+> > > +			return -ENXIO;
+> > > +		}
+> > > +
+> > > +		if (WARN_ON(next <= start))
+> > > +			return -ENXIO;
+> > > +
+> > > +		if (par_state != RMI_GPT_PAR_PLAT) {
+> > > +			pr_err("GPT for the region is not managed by firmware %llx-%lx\n",
+> > > +				start, next);
+> > > +			return -ENODEV;
+> > 
+> > When system RAM starts at a non-L0GPTSZ-aligned address, the alignment
+> > in rmi_verify_gpt_firmware_managed() may cause the queried L0GPT range
+> > to include a memory hole.
+> 
+> > 
+> > On out platform, the relevant memory layout is:
+> > 
+> >      800c0000000-800dc3fffff : memory hole
+> >      800dc400000-82fffffffff : System RAM
+> > 
+> 
+> Thanks for the report.
+> 
+> > Consequently, Linux queries the following L0GPT range:
+> > 
+> >      800c0000000-80100000000
+> > 
+> > The query fails with RMI_GPT_PAR_RESERVED:
+> > 
+> >      [    8.551855] GPT for the region is not managed by firmware 800c0000000-80100000000
+> > 
+> > and arm64_init_rmi() subsequently fails.
+> > 
+> > As I understand it, smc_gpt_info() in TF-RMM checks only the beginning
+> > of the aligned L0GPT range. Since that address is in the hole, the whole
+> > range is reported as RMI_GPT_PAR_RESERVED, even though it contains
+> > platform-managed System RAM.
+> > 
+> > I believe this should be addressed in TF-RMM. Do you have any thoughts
+> > on the expected RMI_GPT_INFO behavior in this case?
+> 
+> I believe the RMM should report a value that represents the situation
+> better. In this case, there is a hole, and some conventional memory
+> areas. For the conventional memory, the RMM has to manage the GPTs.
+> (This applies to the tf-RMM implementation of TRACKING Granule state
+> too. It only looks at the first granule and reports the type of memory.)
+> 
+> RMI_GPT_PAR_RESERVED is not accurate as the memory region is not
+> reserved, unless it is reserved for firmware (in which case the
+> memory description is wrong).
+> 
+> I would say RMI_GPT_PAR_PLAT  is accurate if the L1GPT exists, as the
+>  region covered by the L0GPT has some memory that are delegable.
+> 
+> Otherwise it must be reported as RMI_GPT_HOST_NOT_CREATED.
+> 
+> The information that a given memory region is not "memory" (i.e. hole)
+> is basically TRACKING_STATE returned as RMI_MEM_CATEGORY_NONE
 
-Thanks, applied to perf-tools-next, for v7.4.
+Thanks for the clarification. Could you please raise this with the TF-RMM
+team? Please let me know if I can help with testing or provide any
+additional information.
 
-- Arnaldo
+Thanks,
+Kohei
+
+> 
+> 
+> > 
+> > As a side note, we tested this series and the v23 integration branch
+> > with a Linux-side workaround to avoid the problem above, and we have not
+> > observed any other major issues. Sorry for the delay in testing this
+> > series.
+> 
+> Thanks for the testing !
+> 
+> Suzuki
+> > 
+> > Thanks,
+> > Kohei
+> > 
+> > > +		}
+> > > +		start = next;
+> > > +	}
+> > > +
+> > > +	return 0;
+> > > +}
+> 
 
