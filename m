@@ -2,145 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DC2D606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:37:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60288606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:40:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sDwYUJIp;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=ucX01732
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oz5SjpFl;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=hjQkMejx
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/zOBCCMcC9+Ss7AsuwDjFtkz7VCjAw/hS+sgCQ3RMwY=; b=sDwYUJIpequs0gxqDvV608NJwM
-	hKvx608+uejPNtg6t9oc8AxTzP0M6HfSpZlIDDGe1uwJw9Lk9qKI4UeuhEUaw4gIfDQR2KXukq/Gn
-	bwsTuTkYBXWkxRaj1GhcIzTTbZ3cswSQEQZx39/em73GT5FDn46xYgb3YqrQ7CRnSeEpprNhfoId4
-	aDDAsKu4vHIW2F2PP/QBqU4gXdApHM6ZXLCJYFffLUCqgMyES/HJilaYSIY2vPOP7bgP6IR2kqxf2
-	0ky9oGWY12ebj3OOR6Dsnb9txmN/xJT4+FnEmQTkcbwA494CN1+YniUVv7uVLzrW8EF+Vzu912Yju
-	Tk2uuBaQ==;
+	bh=1m78tWGGeDJIH1O9K2lE2ESdNUNdQQcLVxQs2dYVHn4=; b=oz5SjpFl3Nti4GaSgVkICNqXMe
+	dFD6rdKyXq80ACFADpUhT9YRWgn3DgcJ0SUCVAkISo/htw+xcEe+bp6hAPYk90ADHYohMqIHhIpAO
+	K31PaMxDomIJZoaVJB1kQBRiNKaSVvOJFy8LRbeI08sUhjI7tCMgspUSx9Hgju3gamOOtXl0fzQpO
+	4SCxKFUhAm4fz6rhLiPz8KwvseZeL71MEN6hfjkAGq6rrV//hVaa2hkfEELLC2nH9pwCDhMzTZedI
+	U0fNx39syFaWyg8Cc8/MXeCvRmC54+KhmYrmHiW6LtpEzvM74tdq5fS8QNiW/JsDOLTj5nT24OCKv
+	bsKcD4dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJXRT-0000000C7GC-1ALi;
-	Wed, 21 Oct 2026 14:37:23 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJXRQ-0000000C7FJ-2Rhl;
-	Wed, 21 Oct 2026 14:37:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GOZOWsqsMYS62hxWa2g5YwWt3gOrMB+7p/XxT540Q8ZGYGSobRrigOSLoS4OcWarynBINPF7Vdidn9fOuxhehh9xFzxMO1RvsUVNQX45nNNcB7Zr/i0+bM1V7mq+AxingWTJDlOdg28DHV6x76YG5byCRJsRQQl2DGjz3SYl6jCgWhXDPuBBXZiV3I0ysGcNeOjtkZN0XzzC1LiEE191J0/aR5y5aUWQqdZw3PWctDzuKiC9V4wg694sx6kbP11cP84SNnxvUsvaKSzUc3R44k7d56Hp755fn1mClXR2bGH5I+TTwmDpjhglzo0iOZeDllCm4CUjfCEa3QdqzBKsSw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/zOBCCMcC9+Ss7AsuwDjFtkz7VCjAw/hS+sgCQ3RMwY=;
- b=m5jhVwzXtevM7bSV+gMpQ3SSKHZ1AtQhkfw+HItp+gmI5S5IWPbmu3jDLrtjfrvpnFoD7bfsPye7GttQUV8NCW4z7BgqkczE4h4WEFsO1+JoRpMmrxbqpD7BlCLTmaaZJ0Tetawy/1vcLhNI9hSfxQVFxcel3hh64AKjT7xnjnCsxr6IA/4Sc3iHGtNDsjBHaVfdxSJ7Fb1dCbIHNH5V+9J3mqQc2c2VJV75cpPgvB2eI80jRliRZFya90UgkqObnoLhWdWbFiQQiKP5zDxmck6hxfq/qm32/AUFQKWUosAnrQMPC+e8sFeeAAn7H3V+1+4BQps7CK6j/V32JJ3IjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/zOBCCMcC9+Ss7AsuwDjFtkz7VCjAw/hS+sgCQ3RMwY=;
- b=ucX01732tOwOVCxYuVyeV0CYv22VdmrUOroa+Niuf4fZw271evv+hIaw6C179e6w0DNfzKGYY6KYZd5dwbG3fipx40ZQBHSUTmzBWfr/n5afeglRBd/Ua8i9UXdyVacYhquruS1LI+ie0TvAySCUEO2aDQMDYiDk86GG7kK1QnIMVHNRAKa+RIXvgozj0jhht+MpcEa2Jje+Nf/2lvlUZZMB+gEOVM8XDvUUWeo5tVEBLHdcC80q6bG/+hjy+pwHyHl7hQ4Mz+n3xBRGdnuJen+JID5Y4/KzQqjIKfEYCrqwCOTSrm/+jxWk1Mtu0hqfKbLrFzfPDHo1x3Nfy7PwJw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by VI0PR04MB554873.eurprd04.prod.outlook.com (2603:10a6:800:361::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Wed, 21 Oct
- 2026 14:37:15 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
- 14:37:11 +0000
-Date: Wed, 21 Oct 2026 10:37:03 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Junyi Zhao <junyi.zhao@amlogic.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-i3c@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
-	linux-hardening@vger.kernel.org, xianwei.zhao@amlogic.com,
-	Kelvin.Zhang@amlogic.com
-Subject: Re: [PATCH 1/3] i3c: master: Rework SVC I3C to support vendor glue
- layers
-Message-ID: <atjOD0PwVGDeh2uL@lizhi-Precision-Tower-5810>
-References: <20261019-a9_i3c-v1-0-329d819d621f@amlogic.com>
- <20261019-a9_i3c-v1-1-329d819d621f@amlogic.com>
- <atZ-YyEmG-KvUZAF@SMW015318>
- <887f0b2d-3a05-418b-bda5-0b01abbcb409@amlogic.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <887f0b2d-3a05-418b-bda5-0b01abbcb409@amlogic.com>
-X-ClientProxiedBy: DS7P221CA0028.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:8:25c::14) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	id 1xJXU6-0000000C7ew-1ATI;
+	Wed, 21 Oct 2026 14:40:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJXU3-0000000C7eT-3dDM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Oct 2026 14:40:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D2D3B2880;
+	Wed, 21 Oct 2026 07:39:57 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B01FF3F7D8;
+	Wed, 21 Oct 2026 07:40:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792593601; bh=QRNpGsebJ+fw8gymcaKJxQJyRKlhooI9CG4j2vpkYXY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hjQkMejxD6ErdyhS8yadWEEQeMWR2Tjn9W52QMOWm+Ng9DG6zxtgT5xsnwpiaMU+f
+	 3pnKhlIsV15kzsr17226O0yToPuV0g6AvFm+R/UCoWlVjKY3sXLMtD4nkEJ02/VDLP
+	 vF9VO3y/nOTKObHpp+Wn30wEtpCELCWIvd2sO42I=
+Date: Wed, 21 Oct 2026 15:39:58 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Amir Ayupov <aaupov@fb.com>
+Cc: James Clark <james.clark@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Shuah Khan <skhan@linuxfoundation.org>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/4] coresight: syscfg: Match feature capabilities
+ separately from device class
+Message-ID: <20261021143958.GH26205@e132581.arm.com>
+References: <20261012230527.750567-1-aaupov@fb.com>
+ <20261012230527.750567-3-aaupov@fb.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|VI0PR04MB554873:EE_
-X-MS-Office365-Filtering-Correlation-Id: ea2be661-942d-411e-7295-08df2f80caa0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|23010399003|366016|6133799003|18002099003|22082099003|11063799006|4143699003|10067099003|261009223027099003|56012099006;
-X-Microsoft-Antispam-Message-Info: OK5scHxVYjktj1WRuMSTmAjb7hi7fIXj/6fRuR1Np7oPDnIZk5SQy9inA9ByGClZiO+xwAwxGgqAbMC0vteHFau4KnEhtnTJV+W9goCbj7E+RXanri6uj5ki5biYg74tq93RERPXFK1UuU5/EG9D/7qJTALgVD2VrEcrVRzmsK1HDAyDo/I8wVhNIQXfIhWZ0Z7tXBqq8oSJfNvZ9YJWKF9hmubQftZTS+TAO7shEGnevUFi3t2Ze1/WqAF8mxMUcJ7NYqQbbWO4MEAj49CwhusaMIDP9EWwG41XDhmo/AQP7QoKch7kSAhyqTuY4WtTWTKNqbCOIyeF5YoCImcZ6Jzd5uLX5mbSbz6H8Q1IMGKgP5WzbQte2g8rOl5NR+uiT6sdbqATq35JaeyGz+FTRGZtJtG2JOGSi1VVAkiMdCX7Yj9QMXYdYizZ0RjONMsP9xNi5J0JRj0mV0FyezuIStiATZC3OxuhmRv0lE2tbeeuVtGhzGQ0r81bs22rF+eqYgKpZivVTURBSQ3UbkoIObwgT5zKjKEcEWbjJMmcZ8veENSRn/H3Di+cQEHKvk5uGg9vzXWSedZc8ZCNtalXRFoo4dtjDZYxHd8BHE3kgdfrjx4uVJM9DI/iP0uz4iGf1ZRehYb5R2fKdpmmCxvAlKBWEx9YELDlJgs/ASprHSg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(23010399003)(366016)(6133799003)(18002099003)(22082099003)(11063799006)(4143699003)(10067099003)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fH/Nm9VMbmbm3c28hmsWRmiGP9n4j3LGGRwyiDSKkooLNYRdD2t2HwvBWFMz?=
- =?us-ascii?Q?vRfZVXZODkeSxJlHrls+V/ORzUpBnQOgVyJ1IkSZ/RNr7t3iXN+CL7HTwJmK?=
- =?us-ascii?Q?8Cb/WZSADbEJAG+wdK5B20Sl6rX43ITsMXkq6B6ggAqVAwcSeR0jC5IzlNJ4?=
- =?us-ascii?Q?ngxghJruXvIEITL5GOuWGXSll2RdPIBazg+YMUFevwH7KjcCFplCsvBDex+2?=
- =?us-ascii?Q?uSH/vW4egEqN1SJ5vIZ6YBOumfSsBhEhf9UtTFeH8VBKCkXB8x/AfAHos9Sq?=
- =?us-ascii?Q?1kmiv2IIHn+XCueZzbIhuA709K2eK3dDVuKWsePio/j3qjTmesYXvHj5pGT4?=
- =?us-ascii?Q?vVumRw0uF9HH1qoG7l5/22mQXtSvk+s/PyHImeBUKV3OQil0GB19xxxrlpIR?=
- =?us-ascii?Q?qlIlRVYgCL99KExclSalZf2IR4UUSnkbbl1QnWciTQ9IhZwY0199oolPwLtm?=
- =?us-ascii?Q?Q1M4uK6Y3HVSgfujHUs/H0pEpwSox+SecyEygLpbw6oyjtpxcSRh1SlMLJT/?=
- =?us-ascii?Q?Hpxzu0A81W0zLLoUgXEjaO4mL8lwfKFOJO8p1p9vNWAMgr87zpmpUb/KlSi3?=
- =?us-ascii?Q?qnEDSctuIn9bi5PEeFhn9KDgE3eV+5X/VZcINXvL0ijmGqmoWFrqZVs85AIo?=
- =?us-ascii?Q?t5erYDowYx7isWzw5Ae2zVegMTgslKly1DAn3KsFxlg1LM0/nyrmaeE2jZ1c?=
- =?us-ascii?Q?UUVCXfbZBjKsoPM+yNBlhdLnCcvqjh2/yB6BNDIaIsS05AnuQKUF4Hk+b5xI?=
- =?us-ascii?Q?JxB6yTyzJokVzgZHTz1kJaq8chYCHp5KnQV5rih4FL3uw31D4XNJzXFqm9mL?=
- =?us-ascii?Q?X2DAGjnD+Ga8AKvocQxlbwk0czwn1ApOKY980Co1rhX0acl7I+IemU/bvn/2?=
- =?us-ascii?Q?gC6qpyoOcs2BBuXXiNKFLBR6ZcxoiyUiHz0Z5Cz+EcYc6IC8S8WDs4BXtHHL?=
- =?us-ascii?Q?8dYuaWTIMYk25c2OWaeBU9rzQlctY7kCwFc/mH4/La3LSeWiJqjV/uKyne9L?=
- =?us-ascii?Q?XPW5/R1sOz6bYn+CqQ1ialnjJW4fay25cNQXTTQBqFUTSjsw85HyFLtLLF3t?=
- =?us-ascii?Q?Jj4lIHvI3vwOOhmknf6odrcPmSEEAZyzfOz7oOlbIhcDL3WtedqbdN2Odgwh?=
- =?us-ascii?Q?4DWbzlg4nx92v+nrt8FZ0or0JryT/TCDFONRpKmrc1LdFAbkjXH+dFKqaRvN?=
- =?us-ascii?Q?fwsTYs6v9WjxU19clEhtesdvzGpmChoTsQ5SrYY4fZj6EpdP39eFiR6y2xsU?=
- =?us-ascii?Q?GCAIe3kBsInavroBoXBA4sJtNBp0iuSEr9a8bhrai5meDjX0nsNqSt3eIitT?=
- =?us-ascii?Q?T1A8qvLP/r16PYO8QHsnWSTOur7dzXfNOaYvDZzer42UNSfK1ckTmwS5LBvy?=
- =?us-ascii?Q?daLIFYVcH5znESa2MFRXNbU2dmAZuOz3N9FKG3AAfolu3UT1dX1vVY/wEAwx?=
- =?us-ascii?Q?vnxYsBYu9UpwbA4sFhHWmeBIXQETpwoUU2Wrcm0TIDVnHNRd8/jiyrQMnLPu?=
- =?us-ascii?Q?A8o96jTOkkz7ddvY6HX92DM5qfINo9UY1ga/EyCrX1hXADCOVBQKcToeVrBR?=
- =?us-ascii?Q?A9FG8w7fDQEJcvdfjhQii8GSau3sTmASQDLN93Xpc599Eo8IyjXqcFWsZMww?=
- =?us-ascii?Q?DqNVYHGYwqowoWtMVaUSsbYZYvokChFTuXOiQz2snSN2Pn9Mo7CAKqmsCuIh?=
- =?us-ascii?Q?/dwH5q4vkmpFdcYZM/FbZVfpxMBuJyFiLKn86SRskZIp/GkFzF1Ge+9/F+g/?=
- =?us-ascii?Q?5Wfg0Q6+kUi68bja5zh0k90bahYes8W55ibT2m201Wcg/0RHXXRh?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ea2be661-942d-411e-7295-08df2f80caa0
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 14:37:11.2761
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: n/2YHTHgzfiwuDgUCGKB7fr6IGIO9ddgF6xE3FmkkIodcXB2BsO0EkJsz+K+w2WpvoBJ2m8pLRB1Of/R48fUKVCLLRWPmgkd3mazjPaLavX3XmyxndBNLCwDxobQAAzV
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB554873
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261012230527.750567-3-aaupov@fb.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_073720_625317_7104357B 
-X-CRM114-Status: GOOD (  27.87  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261021_074004_037463_4A2916CF 
+X-CRM114-Status: GOOD (  16.85  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,98 +76,76 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 10:56:19AM +0800, Junyi Zhao wrote:
-> Hi Frank,
->
-> Thanks for looking at this.
->
-> Amlogic A9 used the same SVC I3C IP engine, but the integration of it
-> differs in the resources *around* the controller, which cannot be
-> expressed as another quirks entry:
->
-> - On the "ao" instance the bus clock is generated by an internal
->   divider (I3C_AO_FCLK_DIV_CTRL @0x304) programmed directly by the
->   driver; there is no CCF clock to clk_set_rate() on, while the
->   common probe assumes the fclk is a plain enable-able clock.
+On Mon, Oct 12, 2026 at 04:05:21PM -0700, Amir Ayupov wrote:
 
-If it is in I3C memory region, you can do that by use callback. otherwise
-should go through clock framework.
+[...]
 
->
-> - Amlogic added register blocks outside the Silvaco map: a
->   DMA bridge and a bus monitor (0x200..0x22c).
+> --- a/drivers/hwtracing/coresight/coresight-config.h
+> +++ b/drivers/hwtracing/coresight/coresight-config.h
+> @@ -30,6 +30,12 @@
+>  #define CS_CFG_MATCH_CLASS_SRC_ALL	0x0001	/* match any source */
+>  #define CS_CFG_MATCH_CLASS_SRC_ETM4	0x0002	/* match any ETMv4 device */
 
-Does DMA bridge only for I3C? It should be go through standard DMA engine.
+It is good to introduce a marco:
 
-what bus monitor use for.
+  #define CS_CFG_MATCH_CLASS_MASK       GENMASK_U32(7, 0)
 
->   Enabling the DMA bridge later will need hooks in the common
->   transfer path.
+> +/*
+> + * flags defining device capabilities a feature can require. A feature loads on
+> + * a device that matches one of its classes and has all of its capabilities.
+> + */
+> +#define CS_CFG_MATCH_CAP_MASK		0x0000ff00
 
-We also need support DMA in future.
+To make the mask explicitly 32-bit unsigned:
 
->
-> Adding A9 support to svc-i3c-master.c directly, would make these
-> becomes if-branches in probe()/PM/transfer paths of the shared
-> driver, and the next vendor repeats that.
+  #define CS_CFG_MATCH_CAP_MASK		GENMASK_U32(15, 8)
 
-You can use callback function in drvdata.
+> +
+>  /* flags defining device instance matching - used in config match desc data. */
+>  #define CS_CFG_MATCH_INST_ANY		0x80000000 /* any instance of a class */
 
-> With the glue layer,
-> i3c-main.c keeps today's logic unchanged: i3c-silvaco.c is the
-> current probe code moved as-is (rename with 79% similarity), so
-> blame/history is preserved.
->
-> If the file move is the main concern, I can keep
-> svc-i3c-master.c where it is and only export the alloc/probe/remove/PM/
-> interface for glue drivers -- the essential part for me is keeping
-> the resource handling out of the common code paths.
+Not an issue with this patch, but CS_CFG_MATCH_INST_ANY appears to be
+unused and could be removed in a separate cleanup patch.
 
-Now, there are not much user yet. Rename or re-org only when it becomes
-complex enough.
+> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+> index a816c22c87bc8..1545d64afec01 100644
+> --- a/drivers/hwtracing/coresight/coresight-syscfg.c
+> +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+> @@ -172,7 +172,21 @@ cscfg_alloc_csdev_feat(struct coresight_device *csdev, struct cscfg_feature_desc
+>  }
+>  
+>  /* load one feature into one coresight device */
+> +/*
+> + * A feature matches a device that shares one of its class flags and has all of
+> + * the capability flags it requires.
+> + */
+> +static bool cscfg_match_feat_csdev(u32 feat_flags, u32 csdev_flags)
+> +{
+> +	u32 caps = feat_flags & CS_CFG_MATCH_CAP_MASK;
+> +
+> +	return (feat_flags & csdev_flags & ~CS_CFG_MATCH_CAP_MASK) &&
+> +	       (csdev_flags & caps) == caps;
 
-Frank
+For clearer comparison conditions:
 
->
-> Also, per Neil's suggestion I'll try modeling the AO divider as a
-> CCF clock in v2, which should drop one hook.
->
-> Thanks,
-> Junyi
->
->
-> On 2026/10/20 4:32, Frank Li wrote:
-> > [ EXTERNAL EMAIL ]
-> >
-> > On Mon, Oct 19, 2026 at 01:34:26PM +0800, Junyi Zhao via B4 Relay wrote:
-> > > [You don't often get email from devnull+junyi.zhao.amlogic.com@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> > >
-> > > From: Junyi Zhao <junyi.zhao@amlogic.com>
-> > >
-> > > The SVC I3C controller IP can be integrated into SoCs from different
-> > > vendors. Peripheral resources associated with the controller, such as
-> > > clocks, may vary between vendor implementations.
-> > >
-> > > Rework the driver to separate common functionality from
-> > > vendor-specific extensions. The common logic is shared across all
-> > > implementations, while platform-dependent operations are provided
-> > > through vendor-specific hooks.
-> > >
-> > > Also add a corresponding MAINTAINERS entry for the SILVACO I3C
-> > > controller.
-> > >
-> > > Signed-off-by: Junyi Zhao <junyi.zhao@amlogic.com>
-> > > ---
-> >
-> > No big difference. Needn't rework svc-i3c-master.c, you can add amlogic at
-> > svc-i3c-master.c directly.
-> >
-> > Frank
+       /* Class type must be matches */
+       if ((feat_flags & CS_CFG_MATCH_CLASS_MASK) !=
+           (csdev_flags & CS_CFG_MATCH_CLASS_MASK)
+           return false;
+
+       /* No required capabilities miss from the device */
+       if (feat_flags & ~csdev_flags & CS_CFG_MATCH_CAP_MASK)
+           return false;
+
+       return true;
+
+Thanks,
+Leo
 
