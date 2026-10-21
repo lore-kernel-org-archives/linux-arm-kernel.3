@@ -2,175 +2,119 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32206606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 17:10:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BAEF606A330
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 17:11:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oCvOznqO;
-	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=lREwqGZ6;
-	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=Vu2RydmT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hOb2hrZk;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=C0bGTWld
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:References:
-	In-Reply-To:CC:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ulUpAcORojmDA3PbxZ5Fu3h5Sa/Hr2mnJuiH8JUKLlw=; b=oCvOznqOMb6zEz2OdrAlOsBN2j
-	HC5BcHeN36cOBWd1jAjHJU9DJrg1Ux0PHOUCdPl9/r8fad8W5Av1RFPItSZv9hUbhRQtKuPhkcdYE
-	Tub3gauuIll4pXSYZmYGBm/CGSbnCsstJrEESQN2oTMI54b7S3EPfDIUUwnUZ2GZEL9dv0BcpIT3z
-	FgrXNwmMGQR4yGy8QtEK86T2tIdXW+UxA0nYNcBLn8kaYp60rD20dvtMgIbl7dk3duUo8dhdn+s4X
-	9s5CEnZvMDH8j7b9DeJ3+lbvBq11hZ6TrLgTT8ylfaI1RTqSGrwVRd1wqHq9Nx4xofmyWF/C6y32q
-	AIrsK3BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:References:In-Reply-To:To:From:Subject:Cc:
+	Message-Id:Date:Content-Type:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kWSErL8M0Zrcc9bNez1sKQXL8Q35fI7UYN2RBWREyKs=; b=hOb2hrZkaW6LEt
+	4ftXOn3Li7LUx80aYHovb3b0dlksg2JUejvzE/URJFVaFjtavGPyZWULQeQIVUlsAN4BL/24GWQLF
+	TXiAmXBPMgMjDQhuCSSL4YdfX9wMwV00CdOJAQ2NVjyXIP3N7HMu9dsqrGmYNXLolfp1LJaMdYUOF
+	zchhU+s8l83+y8e2sG+S+iTmcyOZ20CJ7CMM+v9SaRLt+7GyFnu9wSPFadYfNYC79OKgGxwiHOCZ7
+	8GcSczCeQI1kpUALaBy0oofB0f5N1G9H6jakIn7cwHRCT3tg3dpf1sGPMkcBLNvB7DJYlNBLMdXXo
+	337o4i0/PojpnDHbXvzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJZnB-0000000CW9B-3ezD;
-	Wed, 21 Oct 2026 17:07:57 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1xJZqu-0000000CWbo-3Bxq;
+	Wed, 21 Oct 2026 17:11:48 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJZmz-0000000CW55-1gjL
+	id 1xJZqr-0000000CWb8-3sYx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 17:07:46 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69LFrkjl2090573;
-	Wed, 21 Oct 2026 12:07:42 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=ulUpAcORojmDA3PbxZ5Fu3h5Sa/Hr2mnJuiH8JUKL
-	lw=; b=lREwqGZ6WM59jfdvtvE3GWHhKpWPz7Hjkf4eu9DThaTNB9EwxV649RnPn
-	yDf44B4gKeOmjRHw0+6iy2yLvizd7+vTUI3vE1PZTHFC72dPYregkDgvwANIOX3U
-	SYDruVUwsnxY+7moi/yzlBkm896/5bqVAsd2FZXUTaOZfNXHnDnjFoR9JM8H2T0X
-	+ZySxshQURSJ5tVhBfc/rLoZVQuutyG+woJEwNgcavQdZhDTGYDUdQFYr3+vQikM
-	Tk+9Su3fnOtI3d3EQ0wZXqu0YKonmiUkb+Geu2qcDl8Cm/sQwFpywzZANTSrYkef
-	5Ul3PA50h/2pgkE2bRpaTpc1HHRpg==
-Received: from sa9pr02cu001.outbound.protection.outlook.com (mail-southcentralusazon11013065.outbound.protection.outlook.com [40.93.196.65])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4henaam3cf-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 21 Oct 2026 12:07:42 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D4pjhFQEa7PRcHwmMWiQkqqJHA6s2TUAOfRn78b2kIJ4/ZfoJOTML4v1+6g5tW9UzbiqPEuwWS2CJFpkliUXydZjbS/35425OsgLW3Mqc81TF5EGRpksuYRDtotyckgkttClFpEnL8XXROh8HUp0bwPk03CzjSi2oDukg/kHTX8wAYFQ7DZkisN4BYNuJR4DvVkfzRnm8E5hZ+UdeDT80Yb8JEWCvxmvb/F+jZ+pbEddu8wE3qO9KGef21RS1Bsx0SYjF2Vi8HrAdTOtNmXKU97Iz7v33FI9YkAxseUfcBJPOwgq/PBZHd7rtifyOJ614ehRYmtaKrvFGqlFMMstpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ulUpAcORojmDA3PbxZ5Fu3h5Sa/Hr2mnJuiH8JUKLlw=;
- b=sDnu8fxdGyOq2Rxc8e7qic4/FhUjWWGH4TAk2Ys1pETYpBVRkDPGW4jeh3PDJW5K9kLLZhtZTrOpzKtXWd9Ghslg4iQS2fCwAyjikqR46/cSfS0gYejMk5YIaVN56EXJIPVhUZ1Npq0yMFZZ2aUB8aPpPWjy3rHiQ1/BMJpKHaSZGfeIzWFwTcZHMwULkXxWB3Cv3RCRrFvhWY9qQEOsdlwkd4+AzCCho0jxEwArCcFg3wE8Z+ceyFOOdoEIs21HAyJYXCUfMpJMtvhHeLcg4oiuTON0ndJh7mMp8uoWdzE6bGpXO4dID1NoP9nZjXyL5SMOxJGFNV5Ek3wTtSRNtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
+	Wed, 21 Oct 2026 17:11:47 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2e8b20a899fso5634315ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 10:11:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ulUpAcORojmDA3PbxZ5Fu3h5Sa/Hr2mnJuiH8JUKLlw=;
- b=Vu2RydmTtV5t8nAQLEHh/3oIAzUDYaB6R223oH+6xKBQxOrtGWHfjJMS8tOIJUlLZwqb8lsIsxBV1TpzvvvJaXR4NZatKsOT0+cyXOSth+IagyMP9jOMFvAhbp/iuvEc1FYFSZEN5jsP/qfQV5xmd+3lkjjSETSFOc8mGEJidTY=
-Received: from CY8PR11CA0039.namprd11.prod.outlook.com (2603:10b6:930:4a::27)
- by SA1PR10MB7854.namprd10.prod.outlook.com (2603:10b6:806:3a3::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
- 2026 17:07:38 +0000
-Received: from CH1PEPF0000AD81.namprd04.prod.outlook.com
- (2603:10b6:930:4a:cafe::72) by CY8PR11CA0039.outlook.office365.com
- (2603:10b6:930:4a::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.16 via Frontend Transport; Wed,
- 21 Oct 2026 17:07:38 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CH1PEPF0000AD81.mail.protection.outlook.com (10.167.244.89) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.546.15 via Frontend Transport; Wed, 21 Oct 2026 17:07:37 +0000
-Received: from DFLE212.ent.ti.com (10.64.6.70) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 21 Oct
- 2026 12:06:53 -0500
-Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 21 Oct
- 2026 12:06:53 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 21 Oct 2026 12:06:53 -0500
-Received: from [127.0.1.1] (uda0132425.dhcp.ti.com [10.24.50.130])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69LH6ddh3005964;
-	Wed, 21 Oct 2026 12:06:49 -0500
+        d=gmail.com; s=20251104; t=1792602704; x=1793207504; darn=lists.infradead.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kWSErL8M0Zrcc9bNez1sKQXL8Q35fI7UYN2RBWREyKs=;
+        b=C0bGTWldHt+fTW86W6b0JQlmAEvRqMCFOu4IJoe1orE5RH+n+ptUmDRlLe+10Jnixk
+         XpfqhEstDAuhwixn+twa8+yKt4H3NGvOzqMEfxU8GAL/ZN6g7Yad7HNb0e8oW9Q626oq
+         nodDm+imvTVL4qwFMpsHb1JVv3pwEjdATET/i5B5TwbVeefi1S2NmyflNtF/HA8unAD8
+         NIOTREE0sD7MNk8oXTIJMwS7oCdOtAEViN0lIhWJgJI7PfMCrI5TiZfNSpO64Srshs7p
+         MwGQjAk4y2jwO8yPcBq4lHVfRfqFYZkbIe2VhPuvGgx+PEq/ZjTOwKmEkKginKP59WvC
+         26eQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792602704; x=1793207504;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kWSErL8M0Zrcc9bNez1sKQXL8Q35fI7UYN2RBWREyKs=;
+        b=Ghor1a9kwXDJDBEeMv6ldHayITxxlwR4JhaJXs6kcacgCDvyOwvpZbYSUQo4K7s3x6
+         pZE78Hy1ND6kSIO1uLZXSqwl7WCrvspIvRvwDSxBB0MHp4kuPJ0b3JV8a2yq6bm3oAKa
+         zJTtUt2C2s48uIBiN96DBnxUMO5MWlpPaloaIo1iSG5jusF9ShuSpqotL/VuK/ezKdeY
+         zJs61NCn3zLnfhb99AmrQu8AbFcJekVqyUGoHE9nuMkFOJUqkP0aJFyhjcL01BuWBCrD
+         bArpvYVCLESZDKOXHR3l3dBzVeyBUqLiTc26YT2TutjcSTFDACmeUoKr11d6jJVJyLjt
+         en1A==
+X-Forwarded-Encrypted: i=1; AKwUvBw78R1ucA0iChSvASwD0kY0+9FSgSDbe9oQfMsxXuOtSI6dAewcLgpds+wRmafg1zJmYp1Okig3J3Tm0k3yvagk@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ3d6gF12CzYRlGC3Hq/DF8h3DFPmh6WiIv7pGqquwXy5qSh9cf
+	vtjmyVl4fe99aooO7B1wK2tuuLnSaSH50lLr0hhMsU18Hhjjy67e+hNJ
+X-Gm-Gg: AYBFou1Woltfdxht/5EogHkjQAq/uqZiKs3GMLHJpSz4R14TPd/Xiv08BIoaCdEuVyH
+	6kSt/5Fttfv04DLWltLKZ8xEoJJytBLhP94lca/TSd5slOeGv0ug/Ze2RHlAUmB+KmNw57v1knK
+	7uPS9Dps0IA1Ofw1gKmvhw+aUjhcvnr2ZB0lfWP6uffHU+fFwUlqfGZGHraE02rUhLT1H3DuEME
+	6yora8AEEbi+dGHZPyBNxVWgzI9GzawQywDBFYx/txtmPw6WtPuk7XYRoxiju8CUEAgycpp+HKF
+	STUxb8HmVJusYy3YZx8CusPJZjnTP5nLCiLTSa+XdCoY7hGoNoKxczIBMsu3G9nd/XbRODJ9eJt
+	B27Kb+vikv0IclwE03bV8eKMs6uEacazC7Lr65TB+PF/RA4+xwOXmt6HciLTQQsKH61hkyZNJ5T
+	RD6DFOc3MtSsTumttefZ76WM9QkwtvmEjDdyA6DE9x1MgRrczjdya8Tk3vJFEzXxvZDRLrbmEFT
+	x1RI1/Lk6BeOH7TKbW8TKNHuQHyEtN1isrOeup16jc620FBlKFiINhqD0YqQoubpxNs9InY7U/Z
+	Qi2DOpUB1f3oX+I/nLDPeDszzcq7mW+JFOeFJdCczJUHIREzaMlX4yJtbgaRbg==
+X-Received: by 2002:a17:902:fd8f:b0:2e3:1776:278f with SMTP id d9443c01a7336-2ea43f52371mr22587935ad.42.1792602704368;
+        Wed, 21 Oct 2026 10:11:44 -0700 (PDT)
+Received: from localhost ([153.61.198.241])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea3b43478csm14601635ad.28.2026.10.21.10.11.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Oct 2026 10:11:43 -0700 (PDT)
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 21 Oct 2026 17:11:42 +0000
+Message-Id: <DMAOMH0CLDLX.127F7BRYUOQEG@gmail.com>
+Cc: "John Fastabend" <john.fastabend@gmail.com>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>, "Yonghong Song"
+ <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Emil
+ Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
+ <ihor.solodrai@linux.dev>, "Quentin Monnet" <qmo@kernel.org>, "Puranjay
+ Mohan" <puranjay@kernel.org>, "Xu Kuohai" <xukuohai@huaweicloud.com>,
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, "Pu Lehui"
+ <pulehui@huawei.com>, "Catalin Marinas" <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+ "Shahab Vahedi" <list+bpf@vahedi.org>, "Russell King"
+ <linux@armlinux.org.uk>, "Tiezhu Yang" <yangtiezhu@loongson.cn>, "Hengqi
+ Chen" <hengqi.chen@gmail.com>, "Johan Almbladh"
+ <johan.almbladh@anyfinetworks.com>, "Paul Burton" <paulburton@kernel.org>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Helge
+ Deller" <deller@gmx.de>, "Hari Bathini" <hbathini@linux.ibm.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, "Naveen N Rao"
+ <naveen@kernel.org>, "Luke Nelson" <luke.r.nels@gmail.com>, "Xi Wang"
+ <xi.wang@gmail.com>, "Ilya Leoshkevich" <iii@linux.ibm.com>, "Heiko
+ Carstens" <hca@linux.ibm.com>, "Vasily Gorbik" <gor@linux.ibm.com>, "David
+ S. Miller" <davem@davemloft.net>, "Wang YanQing" <udknight@gmail.com>,
+ "Jakub Kicinski" <kuba@kernel.org>, "Jonathan Corbet" <corbet@lwn.net>,
+ <linux-doc@vger.kernel.org>, "Tianci Cao" <ziye@zju.edu.cn>, "Yazhou Tang"
+ <tangyazhou518@outlook.com>, "Shenghao Yuan" <shenghaoyuan0928@163.com>
+Subject: Re: [PATCH bpf-next v2 1/8] bpf: Add UHMUL and SHMUL instructions
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: <tangyazhou@zju.edu.cn>, <bpf@vger.kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>, "David Vernet" <void@manifault.com>, <bpf@ietf.org>
+In-Reply-To: <20261021-bpf-hmul-v2-1-88e260099f7d@outlook.com>
+References: <20261021-bpf-hmul-v2-0-88e260099f7d@outlook.com> <20261021-bpf-hmul-v2-1-88e260099f7d@outlook.com>
+X-Mailer: mkdraft (claude review draft; edit before sending)
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v12 19/20] dmaengine: ti: k3-udma-v2: Update glue layer
- to support PKTDMA V2
-From: Vignesh Raghavendra <vigneshr@ti.com>
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-CC: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
-        <ssantosh@kernel.org>, <dmaengine@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>,
-        <Frank.li@nxp.com>, <r-sharma3@ti.com>, <gehariprasath@ti.com>
-In-Reply-To: <20261007102936.2402427-20-s-adivi@ti.com>
-References: <20261007102936.2402427-1-s-adivi@ti.com>
- <20261007102936.2402427-20-s-adivi@ti.com>
-Date: Wed, 21 Oct 2026 22:36:31 +0530
-Message-ID: <179260239140.2416099.12039418323425674341.b4-review@b4>
-X-Mailer: b4 0.16-dev
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD81:EE_|SA1PR10MB7854:EE_
-X-MS-Office365-Filtering-Correlation-Id: 63c15f56-0246-4663-94d2-08df2f95ceba
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|7416014|376014|1800799024|10067099003|22082099003|18002099003|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: 5vvqHTdqsbxtQSxCSMKP/cncD8/GVBIfRmveURXWJeKezxmaFbqTz+xnbJnZSNM4dXyJahFyZ6x0PzuFEySRkOFbQra2Pirz0cRKkJH4G2o0tBcljEuM7pAvQ9DKlzPZWpnntPcz0haP3w5k9KgSzR06h1afVJKhWTI6mo5k7Sd2ztDdsGTrPuAxDJWuT9hYZ3w7oVB9nZHTXz1Y2feJgAl4NjcIy3ChWne4AYvPfTUioM/bvZqYS7/4lArfowVv0G8hnN2ggl3sUGSrRa8W9dsQ2ievZMWw8vUNAbqpwwX7T2EeBDR23rIpcfSM7C2YtFEMSw3mXRqt54hZK9TYjkeHYQ04nEQW4ltrH6sgTINJJ/7SC/mK3wa3W8/loAE6i/O1E8mHlNvo/9mU5RHwW6dVGRK+EtMQL9Sa9uJvNQv6vuk254CsVujf2aSJ6j97Si6tMB/FZOGtNRv3f2CQu+i9tZQqJ8DejrWJYvbqMgX2m7Kkj8Ft1bgk1Wxh5hGeITjHhjdLMoHWpDzvJDj8tHqJ1VptsGVO9hVSCBZDCOYZpJSHP7IROcEstOKF4o5ZPpTeXsP2QKzw9i0DtrXmUjdqJYm4VBYhVuBvagCMGIC/vvlRfZODk9thMtsXAX+aU+rmAm9AHKJl3aQV5XRcE0Oj0kF+vxesDMmjwfHrBjihHf0som+ajW9Lh3HdcknQRYkxj1ogDTneBg+mrxH7/Q==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(7416014)(376014)(1800799024)(10067099003)(22082099003)(18002099003)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: tSf9TPjYpjnXB/aaVltzYb8n4oMowjodBy5M6JY98ITDD65nW9hYdSJex2gjIRu3QqVP2+a0B7bVEM75mpAMb4ygDsoeH5n1saU46ibP37fJNhQDLUHu3/oL6rooDX4ouQ8wL2owvh9hoBDWg0IMywW0fEScNYLTntHxPT5Xjvr9nOJfo/wAbgs0J4dmDBj9HtcgQnoQLn1jfN1N31WpQxPkr/HHAuzwGx0INfoA6KTLlvoDpEtzgV/otPeY2JXjTbYmbqOCxczokZB2UVWgIuy7MoPo1e05eh/VsOtcVpCSo5Pjf/LH1WItxPazpOAyzotkye32XGVlq51X+v5BFF7V69UIxtnvNEGxZPrLCntnG2jrbi9mZp+z3Q3n1+U9uZyCBJ4PugrKU95U4s5KX++YHFjj9IZ18Gmrcw2A3Esr7MTXQAE1h0fIr4lFZd9H
-X-Exchange-RoutingPolicyChecked: TDJEYAbR9B7e23Y0IQYDJvNsZMmu92Y7PzfhNa5UJWH9xDwJEROEnD50lB7AT6Hr5mwOonJ1Jrs+MnGxTXA0sMEL8SmK4HmguXPACZV76Mc24vwP7KG5maPCL7fZAPcYJafH75xS4pYBggJHOrWA4bs8mny7hjGDwTa7gVFcwse7RkOoRlTzj6C670kcgIO0cvnaJaPC9uvqkJmwTQLUcQlMxdDqnpMakmgB5kxqYbxER38Iovhvi31/M44RizL6+9/wxhttcDU6fGxmCEBfu1k1U05r+BIUQcl+/aNqcpW1GjrFXw7XsbL7cfv1hIxYqlVBCCaIgnyllZEefVqmuA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 17:07:37.3815
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 63c15f56-0246-4663-94d2-08df2f95ceba
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD81.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB7854
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDA2NyBTYWx0ZWRfXxIoEk+qeXBmp
- pjaR/l7FF7+cWgz9tK8jY/4PLWHUAG9vm0BPxcOLYX/KszJ9E4maYpKl0C/22ef2/oBgKUo8eVv
- Nl99mOIU/j3S03GKR2JVfssKYXj4H00=
-X-Proofpoint-ORIG-GUID: KXk7P-U_9pLIZTvVurXTK1wDVv1GqX-H
-X-Proofpoint-GUID: KXk7P-U_9pLIZTvVurXTK1wDVv1GqX-H
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDA2NyBTYWx0ZWRfX47TRTWe5bM1Q
- nM1KBP+jRXrlsil1MFuD+yQIccU+onw8MRMHwbts5uLyedBgzWXRAbCcUzyzCKhkMz8N0Dasqi8
- E9hrHGKEK1wAeVxyH5eSSfQsrYxYo7HvClf9Q2S86TuRzzPoNIwQeeIRmkFv6qY7gMMp2l/nVaJ
- bel382m+0OZQvAj7uP5xLvfI9WwQhp/9U2PRPwZzBlN0nXAdQQfg7jk65fqbN45pVkb3a2fyKYr
- Y3pDOQmIjnuLqwUNjupA6LZ0jhHihHS74OZpKNNzaARbTmSqWvQfWn2cWPSmwQTrNjlT1MJyHSs
- Dq40I4OEvtHPtz7gZ/t2kplawKDf0v5gXVny2waG5ZDFqLP4BDIQUoYlv/SO+N4NWYn6QMnw+mS
- uca1YdTDl6wMS8gw5yEi1Sa/L8XVUDXWmq2sTL4Q5Y2+up78co6up3TKOvva5vz8QMY5d0C4tll
- BukQh6c7OT3VFFxLVNw==
-X-Authority-Analysis: v=2.4 cv=cJB1IVeN c=1 sm=1 tr=0 ts=6ad8f15e cx=c_pps
- a=fgNoY2FrYBgJmLE9YDNrYg==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
- a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8 a=XOT3N6iMOSpMs0DZTmQA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-21_04,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0
- priorityscore=1501 malwarescore=0 clxscore=1015 suspectscore=0 adultscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
- definitions=main-2610210067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_100745_562500_F6150F74 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261021_101145_970286_AC644BE2 
+X-CRM114-Status: GOOD (  17.80  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -182,26 +126,130 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-7.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 07 Oct 2026 15:59:00 +0530, Sai Sree Kartheek Adivi <s-adivi@ti.com> wrote:
-> Update glue layer to support PKTDMA V2 for non DMAengine users.
-> 
-> The updates include
-> - Handling absence of TISCI
-> - Direct IRQs
-> - Autopair: Lack of PSIL pair.
-> 
-> [...]
+On Tue, Oct 20, 2026 at 10:40 PM tangyazhou@zju.edu.cn <tangyazhou@zju.edu.cn> wrote:
 
-Reviewed-by: Vignesh Raghavendra <vigneshr@ti.com>
+> +static inline bool bpf_insn_is_hmul(const struct bpf_insn *insn)
+> +{
+> +	return BPF_CLASS(insn->code) == BPF_ALU64 &&
+> +	       BPF_OP(insn->code) == BPF_MUL &&
+> +	       bpf_is_hmul_variant(insn->off);
+> +}
 
--- 
-Vignesh
+Patch 5 adds this check to 13 JITs and nfp to opt them out.
+Lets make JITs opt in instead, like bpf_jit_supports_callx().
+The verifier checks it once. x86, arm64 and riscv patches add
+bpf_jit_supports_hmul() that returns true. bpf_prog_is_offloaded()
+covers nfp.
+When JIT is on and it doesn't support them the prog is rejected with
+a message in the log instead of silent fallback to the interpreter.
+Then patch 5 goes away and only arm64 and riscv acks are needed.
 
+Like:
+
+diff --git a/include/linux/filter.h b/include/linux/filter.h
+index e0218e6..6ee8d1a 100644
+--- a/include/linux/filter.h
++++ b/include/linux/filter.h
+@@ -152,6 +152,13 @@ struct ctl_table_header;
+ #define BPF_ALU32_IMM(OP, DST, IMM)				\
+ 	BPF_ALU32_IMM_OFF(OP, DST, IMM, 0)
+
++static inline bool bpf_insn_is_hmul(const struct bpf_insn *insn)
++{
++	return BPF_CLASS(insn->code) == BPF_ALU64 &&
++	       BPF_OP(insn->code) == BPF_MUL &&
++	       (insn->off == BPF_UHMUL || insn->off == BPF_SHMUL);
++}
++
+ /* Endianess conversion, cpu_to_{l,b}e(), {l,b}e_to_cpu() */
+
+ #define BPF_ENDIAN(TYPE, DST, LEN)				\
+@@ -1281,6 +1288,7 @@ bool bpf_jit_supports_kfunc_call(void);
+ bool bpf_jit_supports_callx(void);
+ bool bpf_jit_supports_kfunc_ret_reg_pair(void);
+ bool bpf_jit_supports_unwind(void);
++bool bpf_jit_supports_hmul(void);
+ bool bpf_jit_supports_stack_args(void);
+ bool bpf_jit_supports_arena_args(void);
+ bool bpf_jit_supports_far_kfunc_call(void);
+diff --git a/include/uapi/linux/bpf.h b/include/uapi/linux/bpf.h
+index f29b0aa..90c30e5 100644
+--- a/include/uapi/linux/bpf.h
++++ b/include/uapi/linux/bpf.h
+@@ -34,6 +34,12 @@
+ #define BPF_FROM_LE	BPF_TO_LE
+ #define BPF_FROM_BE	BPF_TO_BE
+
++/* BPF_MUL off values for high-half multiplication; BPF_ALU64 only. */
++enum bpf_mul_variant {
++	BPF_UHMUL = 1,
++	BPF_SHMUL = 2,
++};
++
+ /* jmp encodings */
+ #define BPF_JNE		0x50	/* jump != */
+ #define BPF_JLT		0xa0	/* LT is unsigned, '<' */
+diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+index 3030beb..e17704a 100644
+--- a/kernel/bpf/core.c
++++ b/kernel/bpf/core.c
+@@ -3405,6 +3405,12 @@ bool __weak bpf_jit_supports_unwind(void)
+ 	return false;
+ }
+
++/* uhmul and shmul */
++bool __weak bpf_jit_supports_hmul(void)
++{
++	return false;
++}
++
+ /*
+  * How this arch places a by-value kfunc argument, or NULL for one that has
+  * not opted in and so only takes an argument of a single eightbyte, which
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index 5601d20..9a3c97d 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -21194,6 +21194,17 @@ static int fd_array_get_map_idx(struct bpf_verifier_env *env, u32 idx)
+ 	return -EPROTO;
+ }
+
++/* The interpreter supports uhmul and shmul. JITs opt in. */
++static int check_hmul_jit(struct bpf_verifier_env *env)
++{
++	if (bpf_prog_is_offloaded(env->prog->aux) ||
++	    (env->prog->jit_requested && !bpf_jit_supports_hmul())) {
++		verbose(env, "JIT doesn't support uhmul and shmul\n");
++		return -EOPNOTSUPP;
++	}
++	return 0;
++}
++
+ static int check_alu_fields(struct bpf_verifier_env *env, struct bpf_insn *insn)
+ {
+ 	u8 class = BPF_CLASS(insn->code);
+@@ -21249,6 +21260,13 @@ static int check_alu_fields(struct bpf_verifier_env *env, struct bpf_insn *insn)
+ 	case BPF_MUL:
+ 	case BPF_DIV:
+ 	case BPF_MOD:
++		if (bpf_insn_is_hmul(insn)) {
++			if (BPF_SRC(insn->code) == BPF_X ? insn->imm : insn->src_reg) {
++				verbose(env, "BPF_ALU uses reserved fields\n");
++				return -EINVAL;
++			}
++			return check_hmul_jit(env);
++		}
+ 		if (BPF_SRC(insn->code) == BPF_X) {
+ 			if (insn->imm != 0 || (insn->off != 0 && insn->off != 1) ||
+ 			    (insn->off == 1 && opcode != BPF_MOD && opcode != BPF_DIV)) {
+
+pw-bot: cr
 
