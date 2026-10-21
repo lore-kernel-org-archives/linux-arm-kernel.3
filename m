@@ -2,173 +2,112 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76F14606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 16:00:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC8B0606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 16:03:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4xmaR1NU;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fwgbev1Y;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Z6j/D7BT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UD20hMSY;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=CBTAC58G
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZCSVqnmCg2tgiS2qJzUGfrVmwaXnekD3uvjwV9akWpI=; b=4xmaR1NUeV0kvavkYF9lpJQtLU
-	2eKRIECazfGijRvFDRpxmt+yLNTsmM4gq1bX++jGTXgsQ7OoGT8ef0CtuL2AuLJ7IHoeBerDBGEzE
-	Yfj1acjhzvDoCgjZEuuU+zDkoj4JvHbnuAD7ePPK2ywTA7kQJvMM54CQJfHWSP9scvSyxJP8cR4J4
-	Nr2GtUXgbQauWePr+MuUMiYyiaYHqHaLtUUjqZpaWFcAB93wnOgXEOEG6HfZPmBfRR0fe8eku2tld
-	7Ceg7i5ethz+EAeW09RkNlzXqF2Zo6FqceOxOHRndv+HMuMokL+C3WagrvUuILhuiVAm5pFJejaj1
-	ScdPX7lA==;
+	bh=o+0U5uc8o8aSpg/3Nq2d92vcnnoDIvQVEgNyLz/yOhM=; b=UD20hMSYPoEgYIVnMJtn7qi6/J
+	otaCl7LcNI7qeFJHQBDkC+L29QF24YFfosQt9Aabfmz6hGUjmxL716b9XTl11mpOecMIvhtQy00m7
+	cVjH8nF0QgTEP0y2CxECSzDZhk8vcrwaNlyijJhfQU5WVjrWAJYwke63Mr+Cp0wqoeJqyBpObODbf
+	BdgGk3PesHpQ+TOPNzEUT7Dw3PCA6eh3nrojocOi9XhWlKhHvX7yHJlow5HzRIXfmVz99wSasK90p
+	fkDEp64ZxlHq8wjYKIeDekTkbQbXpz7ppyz2pNpFa/tL5czj+N1Frjtit4WhOj0LGD4ADjsDb2DhR
+	3cZ0jpbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJYjy-0000000CKOM-0h7r;
-	Wed, 21 Oct 2026 16:00:34 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xJYmp-0000000CKv3-49eb;
+	Wed, 21 Oct 2026 16:03:31 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJYjv-0000000CKN9-20Gj
+	id 1xJYmo-0000000CKuQ-0BWG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 16:00:32 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69LFU0uP824396
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 16:00:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ZCSVqnmCg2tgiS2qJzUGfrVmwaXnekD3uvjwV9akWpI=; b=fwgbev1Y755yo0Wk
-	UtrQff0d+SDedqVBkyUwA25GdbsQr1gedtRARzdBI/EmAOe0XsQToYsDxG3dcNo7
-	WzxSgYac/ZGOsmY8agUmPRwldZjLtqwf49ThqvX1StCK7jmI7HXPKz+sOHF/9RsX
-	d2pytN0NJDGCo1MhMPxlfFPfca6UKvw74dPxLEl0uCzKdYPb+HZyLX3GECv4+38B
-	1RGJ0zWdQGHzDf3e0b63brnwjxFoTAwfwuugTBfdk1u7TM1ZeuovSwyIH11w2+ZW
-	SdnPxbpBiqOcHpBXKX9x9UDSHSBDxYFiyv72OFxlygXqyI/101YubsytU9S9Gndm
-	8d/hEg==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hed9v4ujg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 16:00:29 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-36803927a49so1320483eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 09:00:29 -0700 (PDT)
+	Wed, 21 Oct 2026 16:03:31 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4a1dede3c2cso12123025e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 09:03:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792598427; x=1793203227; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=ZCSVqnmCg2tgiS2qJzUGfrVmwaXnekD3uvjwV9akWpI=;
-        b=Z6j/D7BTEywM0gbXqyOcL1SW3ztE3dy1IXfAg4Z3ap531WSFqinjFH+LY4rnsPj/Eq
-         FIubBxy1GmdkUO0+Z5OI4nqpdp97J9oR/VITlSqyzACAzvdPGl4jEP0UqCP2PqychcdF
-         k3kwhZd2Yzv6m0mWbIBPLuMYqe94FBpX2rBs+Y8ltdEASJ2yLtAuynGGg4Y/o9ZOxC9b
-         pvzpjCpX4MsV8EiY68T2USlkviyEJ7RyVvG/qZt53MhxhAWyWFk9YME7g2esRr8qLL2t
-         iRc+LRpPTIunPpjKtEROlXCZfxG9wqxh/KCgDjMXy64P7cuYwFh+uCCw5TWGqoe9iUOa
-         nzFQ==
+        d=linaro.org; s=google; t=1792598607; x=1793203407; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=o+0U5uc8o8aSpg/3Nq2d92vcnnoDIvQVEgNyLz/yOhM=;
+        b=CBTAC58G9B1BmpcLvHx+TkflR6OcGSbSQ93yaithkDiP4FJqEXupq3b6gA64OGs9Mi
+         TPM1/LuPtUO0zAcNlILmx9+n3NxbRsAedGuV6X2WfmXPABMkAc9mApT3fhtoDgrrfx7J
+         SDooZkUUDhy4NamB+Ue5K5WaOjpZJ0rVzmapAR8CjXGganQM50J/rtDdjUpYmZjSLebg
+         tCdSKzmO/pb/RK8OwaAorgGUHAJ9RUgt9MUGYD0L4XY42k83deQ3JUCkHOTfm+g7op4x
+         up+GzrHKnZBFELDBWdwKk37EoB0c6ik4f5LywYD33w3j9aHEn1xWPPdR5PI3exT199Jo
+         Y8KA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792598427; x=1793203227;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1792598607; x=1793203407;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZCSVqnmCg2tgiS2qJzUGfrVmwaXnekD3uvjwV9akWpI=;
-        b=pYZ9WAh6DvzCOlE5MdWbiRf7iCrh9I5WqT14Nqhi5VXUoz8d9kdgR8OZzP/jM6kg92
-         bW04R73eehGfoa+IxPW7sQ7TTqli6p3WsB8J8BkBZnwc+fB+E7MXBB4hPhZYhlofm+9p
-         l+Qsm35LLCqBIZgWIND/Yfu9grZOFof1bJQbXJGeJ9ElX5DbYk5CdJ2NDeeJsWQQt0sx
-         FB/JQaSdFyL/YAxo0JLTK+ErjcTewPi5TpJrx61hcj73Tva++WHiT5NZzB3UK/zgCN97
-         IY6M2r9IXvPyPL+UoHSi90vYlTXo9D2YNY3wzZMt1NF0CdHHugAEByGiBVGu8j10Wwsj
-         SHhA==
-X-Forwarded-Encrypted: i=1; AKwUvBz3pRDbJ9LZfNjgX2Szow5qQNUQFFo14OQj2meEGSZTzpw3VoR/K45Amuy8+cFoHMrlKhm77LNeIPV2sEvtTSiy@lists.infradead.org
-X-Gm-Message-State: AFq9FYIViesAn/Dc93R49c0cHQvYRBcVg8VlMNvRjjXCV53rY/7/+K40
-	hyw8faaxuzlJ7LWANUgyfPOVp9gB5VDTXluhi12zkqQNRpnpwbSv2EGDGJqiMdYtsVdjEoSjukf
-	A1Vhr5VgzcKZuTPsaL+fhvEdgUxTptY2tmpb9XdYG6SMDon73bOkg+czFbQQnXuWBo8dzPt7FDc
-	RUwQ==
-X-Gm-Gg: AYBFou0LFD/L1bFeS/zKO4TeFC1PdnlwrugLzBc9StMH30Ebxe7Ax6oyxtG/ef+WOpg
-	WW35dAfG13BWa8Qc/TdPnDDhCtVqOUfG/e7nqCNCw/xPviThNKcooH3mvSSBqNuipNrx0DIgUKB
-	PtWhvLxNMnJHj4A0EseIkDJckUdr30fvlpWUccPJnXiFqJ1Dglvl9/hWKa7HpJxwCKAsPJ0Bws3
-	c5viWXap+EvYRFw83Xg77n2aU9hQTMU2gTbyWxbS2IMlTXCKZiXIQiJB3zQTQqIYitgBE77sIJX
-	Lx2gQPBVxZroavfbX2NFkf+wtpjd55ZqSWn3YQ4BK+TQfzhfOvBvyPAffg1Tfru88tzPHiwRPQt
-	ZiHiNPnvhjXk2RnCY1j4mLiqojalPXpLFz+xmBYTpPw==
-X-Received: by 2002:a05:7300:106:b0:35d:d9a9:e455 with SMTP id 5a478bee46e88-3674ef292b9mr4299671eec.21.1792598427206;
-        Wed, 21 Oct 2026 09:00:27 -0700 (PDT)
-X-Received: by 2002:a05:7300:106:b0:35d:d9a9:e455 with SMTP id 5a478bee46e88-3674ef292b9mr4299533eec.21.1792598425455;
-        Wed, 21 Oct 2026 09:00:25 -0700 (PDT)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-367405ed2absm10188327eec.5.2026.10.21.09.00.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Oct 2026 09:00:24 -0700 (PDT)
-Date: Wed, 21 Oct 2026 09:00:19 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-        Ard
- Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin
- Marinas <catalin.marinas@arm.com>,
-        Jonathan Corbet <corbet@lwn.net>, David
- Sterba <dsterba@suse.com>,
-        Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-        linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Randy
- Dunlap <rdunlap@infradead.org>, Simon Glass <sjg@chromium.org>,
-        Shuah Khan
- <skhan@linuxfoundation.org>,
-        Nick Terrell <terrelln@fb.com>, Will Deacon
- <will@kernel.org>,
-        Alexandre Ghiti <alexghiti@rivosinc.com>,
-        Conor Dooley
- <conor.dooley@microchip.com>,
-        linux-integrity@vger.kernel.org, Palmer
- Dabbelt <palmer@rivosinc.com>,
-        patches@lists.linux.dev,
-        Piotr
- =?ISO-8859-1?Q?Kr=F3l?= <piotr.krol@3mdeb.com>,
-        Ross Philipson
- <ross.philipson@gmail.com>,
-        Sami Tolvanen <samitolvanen@google.com>,
-        Song
- Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH v2 02/15] efi/riscv: libstub: Don't set image_size in
- handle_kernel_image()
-Message-ID: <20261021090019.000060c4@oss.qualcomm.com>
-In-Reply-To: <2-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
-References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
-	<2-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+        bh=o+0U5uc8o8aSpg/3Nq2d92vcnnoDIvQVEgNyLz/yOhM=;
+        b=Hz2r5l8JhxoVUJnQSeBKXzKvjxVYmrc7e9gGw6AFe7/kRJ9C2pVlNua9LXjKW0WWOI
+         hJP0UH+t3+GsXaDA45dQV3dwmIrLxvWf1AWchHuulOZoJA9avO9ihmyi2dlO9IAKZKQE
+         UHT/Y0VsACV3MvbwFiidRaIB8GyZ8pTjAOdbhKVp5Pgrcj556Jff0LhBSNuzWb2+gBRp
+         ffUVGmrz4hDQxow+3Wy7XVNfbF7DsDlTWVkxvAM86twuWR7SNBjcwwEqE889gzHx6ABo
+         6CE/zPrdqcPCVO7IrkPPwOyZp7fpiKXcy1M/qDWjcNtw0XOH0gZ9I3jY3pr7DlHwU0U5
+         TjIA==
+X-Forwarded-Encrypted: i=1; AKwUvByv5h3oKlU9lhXOdAjhtZ3XYwe0nSzxbMs5VkI/A9fYa0ubdJnoyHnRWfD82foV9iHPnyegakQWlddd3PKIOxfK@lists.infradead.org
+X-Gm-Message-State: AFq9FYKi+aiEtLCxNidZWdQiQtZzlEtvjAffrERt9ORY1uFFxhJ9qDNo
+	nESjdvAG9wmN9aM7BxFSPYrtOEOganUmqmmpvrr+uXFUaGCpY4YhlxRHST1BGM6MHQg=
+X-Gm-Gg: AYBFou0SgVUUZ9cZmcu8EiPkgILJS0bd987lcuG1GkGQelv8mgzJ2PYqLihk9YGc/gQ
+	rKZur/TsrV+2QVOFYDLL2JNL4sqzfo+I8HNTNVcV+8EsvpRO+d2JyxPLZYXaAi7x5SG4hmwSgqY
+	IURdcmc86wV4plpPQfdA+PkGt2sIOPsIIt9Ney6rGlhct4uASlrxBt0sIPQ1ONLCWotgc4tFUB9
+	KjYKplS97/BSnRzLfcoobb0qhC/+RJRbcGc195dkxgvx0MSUZjmUhuFLXOhdmfCqpH3obJRCIUL
+	FTL1M1ArJV39LKe7lT+a7fdeqlGwYq6yMiJbEVBSrBfWbHt0Lz4GnQDULcc46pE3zhn5t+IqL+5
+	dGcIYHJoWHpv6/oeQSXcJHs438FEEOzz09vJff0qC4GpcyKw41Q9W7ynfLUy2APzzupmu1oysBZ
+	S4zGgi0XYnrLhICmE+2p8z4jPfG8J9BnwCNJq0LMAz2y3yrWdjEsqikoBqBfMa2/2rw0prd28uQ
+	YOzj8eFkSL/6sPvp4hm1WUAGyq07oNUMaSvqs7+TevG4aBR44qI1weu+nDUcaZ0y2jooGjUAw0B
+	tUNWSmE7sATU64HxsSebt02JyGHq8Eixisyxko3eNI9F3xA=
+X-Received: by 2002:a05:600c:4fc8:b0:4a1:813f:2a60 with SMTP id 5b1f17b1804b1-4a1fdd2472emr58485645e9.11.1792598606167;
+        Wed, 21 Oct 2026 09:03:26 -0700 (PDT)
+Received: from localhost ([151.40.161.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1fcd629bbsm53982045e9.5.2026.10.21.09.03.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Oct 2026 09:03:25 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDA2MyBTYWx0ZWRfXzPNNty7jqW+O
- Myv070pTMvHjZRQs7n1vVPcZMUxyuGQkyzRyxYYC3cgTatSdcFv7pOLjk/zgm2w5IQ6nkLnVOd8
- ET+huEQmL5HrN5RkinnBaQmpkLICC6M=
-X-Proofpoint-ORIG-GUID: A3pnCtiCtZ784YnTwL3z4Yh0PJFZ5xII
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDA2MyBTYWx0ZWRfXxztbf4Vlwn/X
- fOMHSEJuFDkRWl05yS1KNAhvpqZF457R7VVDjZwH0HWxze1+PGy27DvFE98HBUY532wcAk+AoMH
- 1o8811cWnOJYU1XkGX1P4N3mr2wyJFy63fWL6vUoZzev5/OzRb3mwa1IBtbbB0IEejHRC6OdER7
- teuSJejRyJpz7FtrPATLSIGef3dkQ/z+7VNwJFYgC+gjz44YEpsjK4Ae1GAR+tbF6wfVrZSV1F1
- l0pSSs9F8Gbags05v2/Vvk4ZH07iyM9os9eFS26XJBZ8OEIRLngbb42vWsOvMCYxbiHuKwz+AQy
- Rxah7MmT4EIKoKiyTuL99atcugAMU5gX/rA1XJ4FCe/X9/jLGaXW9y0UFp7R1qWsV742tECF/dU
- V1SUMz7M29L2ILUQnXej+yiEpSq5Oap5MmEjqDF4kfFM1ydkvUO1m0n1yuPpMouJsuMyY8e8RyM
- Nfd2xhCdy2lPsdK5LSA==
-X-Authority-Analysis: v=2.4 cv=I6zw19gg c=1 sm=1 tr=0 ts=6ad8e19d cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=Ikd4Dj_1AAAA:8 a=xbFV6RGmdEKkzbgyJ_QA:9 a=CjuIK1q_8ugA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-GUID: A3pnCtiCtZ784YnTwL3z4Yh0PJFZ5xII
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-21_04,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 suspectscore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0
- impostorscore=0 spamscore=0 priorityscore=1501 malwarescore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610210063
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 21 Oct 2026 18:03:23 +0200
+Message-Id: <DMAN65SWMXQ0.125AVDDDSIG7@linaro.org>
+Cc: "Krzysztof Kozlowski" <krzk@kernel.org>, "Paul Walmsley"
+ <paul@pwsan.com>, "Aaro Koskinen" <aaro.koskinen@iki.fi>, "Kevin Hilman"
+ <khilman@baylibre.com>, "Roger Quadros" <rogerq@kernel.org>, "Tony
+ Lindgren" <tony@atomide.com>, "Russell King" <linux@armlinux.org.uk>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Christopher Obbard"
+ <chris.obbard@oss.qualcomm.com>, "Andrew Goodbody"
+ <andrew.goodbody@linaro.org>, "Linus Walleij" <linusw@kernel.org>, "Rouven
+ Czerwinski" <rouven.czerwinski@linaro.org>, <linux-omap@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-gpio@vger.kernel.org>
+Subject: Re: [PATCH 02/10] dt-bindings: pinctrl: Add devicetree bindings for
+ DM816x SoC Pinctrl
+From: "Ettore Chimenti" <ettore.chimenti@linaro.org>
+To: "Andreas Kemnade" <andreas@kemnade.info>, "Ettore Chimenti"
+ <ettore.chimenti@linaro.org>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
+ <20261016-patch-ektor5-dm8168-dts-v1-2-b4ce30217028@linaro.org>
+ <ec27fd26-1862-43cf-803a-428846d66663@kernel.org>
+ <DM6CUP7TSOMH.31T789KQ3Q6OB@linaro.org>
+ <46414ff2-1273-4690-9001-4d1f825d8cf6@kernel.org>
+ <DM9L7QLLNMOR.1NHOUWGMQK181@linaro.org>
+ <20261020215143.7dd0ad5d@kemnade.info>
+In-Reply-To: <20261020215143.7dd0ad5d@kemnade.info>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_090031_625803_E9A660C0 
-X-CRM114-Status: GOOD (  24.39  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261021_090330_117275_4FE534A8 
+X-CRM114-Status: GOOD (  17.59  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,63 +118,66 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri,  2 Oct 2026 20:31:39 -0300
-Jason Gunthorpe <jgg@nvidia.com> wrote:
+Hi Andreas,
 
-> Sashiko points out the image_size should only be set if image_addr was
-> reassigned to some allocated memory. If image_size is not zero then the
-> caller will free the image_addr pointer.
-> 
-> efi_kaslr_relocate_kernel() never works like that, if it changes
-> image_addr to allocated memory the free is done through reserve_size.
-> 
-> Fixes: b7ac4b8ee73d ("riscv: libstub: Implement KASLR by using generic functions")
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+On Tue Oct 20, 2026 at 9:51 PM CEST, Andreas Kemnade wrote:
+> [...]
+>> Sorry, does dm814x.h not look as bindings? I'm a bit confused.
+>
+> probably also not the ideal placement in bindings.
+>
+>> FWIW, dm8148-evm.dts is not including the header, dm814x.dtsi is.
+>> Following=20
+>>=20
+>> Basically PULL_ENA define in omap.h is wrong for DM8168 SoCs.=20
+>>=20
+>> For a better solution, you would prefer:
+>> - Keep omap.h in dm816x.dtsi
+>> - Add a variant like DM816X_PULL_{ENA,DIS} in dm816x.h
+>> - Replace defines in dm8168-evm.dts
+>> - Add the header in dm8168-evm.dts
+>>=20
+>> or:
+>>=20
+>> - Keep omap.h in dm816x.dtsi
+>> - Add a variant like DM816X_PULL_{ENA,DIS} in omap.h
+>> - Replace defines in dm8168-evm.dts
+>>=20
+> Hmm, there is dm8168-evm.dts which uses PULL_UP / PULL_ENA
+> in nandflash-pins. Do they factor in this inversion? Do you have that boa=
+rd
+> by chance? We probably need to take the brush there anyways.
 
-Hi Jason,
+Andrew has one, AFAIK he already tested that, it should be fine.
+We are checking the schematics anyway to be *extra* sure, but the board
+boots and all the peripherals seem to work.
 
-This made me curious on the differences across architectures...
-Looks like there is perhaps some room to make them look more similar at least!
-One small step below.
+>
+> If I had my head in some OMAP3/4/5 dts files with non-prefixed
+> defines, I would probably not object against any PULL_ENA without
+> DM816X_ in front of it if I am not very awake.
+>
+> So better do the undef and not use DM816X_ prefixes there.
+> Maybe rename that file to dm816x-pinctrl.h. That is a bit
+> inconsistent with the other omap files but at least that inconsistency
+> can be catched by the compiler.
+> Other arm32 platforms have things like e.g. nxp/imx/imx6sll-pinfunc.h
 
-> ---
->  drivers/firmware/efi/libstub/riscv-stub.c | 7 ++-----
->  1 file changed, 2 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
-> index e7d9204baee312..725b634c517919 100644
-> --- a/drivers/firmware/efi/libstub/riscv-stub.c
-> +++ b/drivers/firmware/efi/libstub/riscv-stub.c
-> @@ -37,17 +37,14 @@ efi_status_t handle_kernel_image(unsigned long *image_addr,
->  	kernel_codesize = __init_text_end - _start;
->  	kernel_memsize = kernel_size + (_end - _edata);
->  	*image_addr = (unsigned long)_start;
-> -	*image_size = kernel_memsize;
-> -	*reserve_size = *image_size;
-> +	*reserve_size = kernel_memsize;
->  
->  	status = efi_kaslr_relocate_kernel(image_addr,
->  					   reserve_addr, reserve_size,
->  					   kernel_size, kernel_codesize, kernel_memsize,
->  					   efi_kaslr_get_phys_seed(image_handle));
-> -	if (status != EFI_SUCCESS) {
-> +	if (status != EFI_SUCCESS)
->  		efi_err("Failed to relocate kernel\n");
+Ok, it is a nice idea, I'll refactor in dts/omap/ti, using the same
+pattern as dm814x.h.
 
-This print is replicated at the caller, so can drop this as well I think.
+>
+> Regards,
+> Andreas
 
-> -		*image_size = 0;
-> -	}
->  
->  	return status;
->  }
+Thanks,
+Ettore
 
 
