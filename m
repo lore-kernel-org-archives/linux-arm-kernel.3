@@ -2,58 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A32E2606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 18:06:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDE7560A260C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 18:06:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NvJrVWR2;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=I25/iaae
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SIuh/FvJ;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=dH24piyD
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UppNpDYzZNIDxZtaFyLP0rWrh3H5U70UQJCj/sM0fJs=; b=NvJrVWR2uBvGr29iA4xLdVPZyj
-	0CuEMvDZeRaANs5VDk7IHE9OY8iN0AuRHVGtohfYEhlxFC5Bag0LneNj0dsvBpYj7208NX+A6dVNG
-	0sirQFkGcuUzDA1xNQg8lFFe1OBmbLeNremt6fLbFqfrx5wznscuAn3EqY2S19ZoCVYUgnzcnl7js
-	DCsYcPe7ja3sL5+C99BailGHcSqSxt8tuR9Davjz8bZSQtWSTN48LjMsvZUQk9naiQyQhruY2W4um
-	1LjJnITczWNYgaH/9pmaPfx5w/famkpachTMy6J9qStONHxR3Y+k+g3eJ9fPy8HBzfb+vSJnVtWDS
-	BjJIqokQ==;
+	bh=yq9LVAN5JxUV1XxpBBUTYSSSlaYw6zxP+Mv8Wu6YgDk=; b=SIuh/FvJ225gQSi6OPdgODzpVZ
+	3MvdE382xqjGtEDKeFN5QnKu+KngsYLBY46CMG1+PlNz/pI+ItjMnPm4dxFK8fxpqX1fbmyXssBwI
+	t6ou/6ozmvxSM1ly15Ogg8j2uGlvt6dW0/939ZFqjmzVVDXqCpiW5fkTQt4AWDTK4T7xZjTsk2rsD
+	W4QHY9ZlqIKd30d2qpfbEgP3wRF9hHewjW/plB+jFAoBNlhdO0WGLiI309u4oeUt9pjfqUgAO7UXj
+	5RIMaYIdT1poNdiQgH1STpRt6VD+Gvh7RuNAR/avxiuT6UxtAsMmG/ktbLFKWAEtNorglpfIhyK5D
+	MpMmyIKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJahH-0000000Cc7B-3hS6;
-	Wed, 21 Oct 2026 18:05:55 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1xJahO-0000000CcAm-0zHO;
+	Wed, 21 Oct 2026 18:06:02 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJah9-0000000Cc1G-0sbd;
-	Wed, 21 Oct 2026 18:05:48 +0000
+	id 1xJah9-0000000Cc1F-2W8n;
+	Wed, 21 Oct 2026 18:05:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1792605943;
-	bh=kraiM8Pt/yQrqMmIrjzsa2ShmhTLDzq0mUE/Ni1LxP0=;
+	bh=NvsnwJPFAW5v0kVCPBz6237a7VHJ/RsQIoGbPMllOlA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=I25/iaae/O0gnK1k7AAnXQLI9BNEk+K1YXfKrAMvk6gwh6v7vv1znbLk2S/UJV8iN
-	 jjPYNqSdYuS7yv4r9Eyqwz8xnS80SLq5QW6g5sx3q+Hp3aLJd2EfKuPD8IxyIgyeNM
-	 Tt1yXA40HVImPFnJKy0Ju8+aS4ShzQLTK4Bnmjgf6/klrT30wyd4EAd+LJ5A49YDBL
-	 SCY8MwaI1KKXb6ik8Tbu22L1Tw4wmUMMroS7cW2MMwTqVaj9hHZVgzvP0rhraXzZul
-	 NVxXLSl5H+fGX7U9/o45tQy161VGgQBVA1Z0ep+MeRNVejgraukg+2wAs4yOwm7nbw
-	 E9onOgWJM/X4A==
+	b=dH24piyDiAAm3TGtO4bOQXcA7c+LmoWVFx7TBMqDLwMdnB/Lc1UTCE/N1oBpvZnc0
+	 vDDv1Xf+O3XKprAwBfdmTl/2lko65dXfjew0KV4gXcU8tl3tZZVwJAGvutjmV8FVrm
+	 c53lyNwBg2PNTtSiQ81/HBwMTyQhjHUFiVKeUUIFG6USn123GAYcYDSXMRNJhF0vq+
+	 cAbPB9cHuq0oMkVN/sEYSg6Bzx+gZUfybACowMnJGc3spNtAfS58mU2E1jRcbbyn5Q
+	 a3JwyguGmAqrB4lF/PW6ykby2VVPu6DV6D2My6Id+Ss/8OldEyHypZqhB2yO4XWNOL
+	 K+wE9sdNqZbMg==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A1E2717E0912;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9D49C17E05F1;
 	Wed, 21 Oct 2026 20:05:43 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 6517A480030; Wed, 21 Oct 2026 20:05:43 +0200 (CEST)
+	id 61F70480027; Wed, 21 Oct 2026 20:05:43 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Wed, 21 Oct 2026 20:05:28 +0200
-Subject: [PATCH v18 3/7] usb: dwc3: rockchip: introduce glue driver
+Date: Wed, 21 Oct 2026 20:05:26 +0200
+Subject: [PATCH v18 1/7] phy: rockchip: usbdp: Track PHY power state
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261021-b4-rockchip-dwc3-rockchip-glue-v18-3-60000d03fca2@collabora.com>
+Message-Id: <20261021-b4-rockchip-dwc3-rockchip-glue-v18-1-60000d03fca2@collabora.com>
 References: <20261021-b4-rockchip-dwc3-rockchip-glue-v18-0-60000d03fca2@collabora.com>
 In-Reply-To: <20261021-b4-rockchip-dwc3-rockchip-glue-v18-0-60000d03fca2@collabora.com>
 To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
@@ -66,26 +66,26 @@ Cc: Igor Paunovic <royalnet026@gmail.com>, linux-kernel@vger.kernel.org,
  linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org, 
  kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6223;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2394;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=kraiM8Pt/yQrqMmIrjzsa2ShmhTLDzq0mUE/Ni1LxP0=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGrY/vdNC2Plhu6+pJ163dOvWrELQ1P3Mcd5Q
- mrO8Jni/sPQ4YkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq2P73AAoJENju1/PI
- O/qaqMIP/2vt23K97NnEdwT12Z5E3mOiVfuFbKXpUtCy1HvW9ezFeZCQeKSGkB7XN+VZzhN/v+A
- VD/c/dY2dm+JEcSiEOANUCyGDnSEYfWN2JaXQgq8qDnhmOkwAcAScB0NaClPvK9PNdQaEfYnmjh
- I8Y8kO3AKx5gLCfohHZiK9DBGe8pWXivl4o4UfrCJ8nwpjlD7EQABHzk3xBNlXpBsW5KA/ok2GY
- lU7iS8bOkNxHPVpPYutONCQBiaROp6kzSzabZlIImnGk+TiG+LugrKXFVpu2tbFlrQw1loCl/GT
- WrHYOOSRtA+w0Vl5jtWA2MN289nR+A5WuCSO//I88jJdCzYPn1qI3xIH/nVwj9q2xru6qQFx7/o
- U2x4xL0KvGq/se7YFrPkB9u1D+vhLdfBDGYamjek8W6s6n4G5UJo9WrlWHTaPnOV71Ckdlnz/fI
- OOBOCafjAuQOf+D0wQBtn+LMzMjgsOnjtc9r4EqndOtXyI5d0z3EL6zIDohf83ZPcuConAdjj0S
- 1uxuKneeKjELbetzNwyH5OM1Fae/8gJKphL0sUaf1QNJtnX637FggkZ/hCD8SdVx5C19Yxew9Bv
- 0jKFs5dGaJdEUV7ybuh2H8nTVsckdh6ghVebRrYDvhE3gDOU0UBhpnOeSc/sh9Ee3E6TS8qNmGE
- AWINIGBQyf340qLLbs3U4Nw==
+ bh=NvsnwJPFAW5v0kVCPBz6237a7VHJ/RsQIoGbPMllOlA=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGrY/vdY08luJUkIGee10Mu50u+NdhJaFusvP
+ 6auT8IGbtXxsYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq2P73AAoJENju1/PI
+ O/qaykMQAKfAg0/BAbn4DP0dFWAjAc4cJ2c2PToW8+xKtdSX1GExIVfyWTctPVhWM4a3vjDXXBU
+ DSTCmrrBlgeMSOdekQXDq5bMKnSWFOfYC+7qPe3atLoxnr1vvo82HJdQY8Ybsnkv6RrGqVdfu9Z
+ gh0yYrZi1L3avy+mx57WHC0mjcFNR0P0Ufa7AyaVgWGiYvjIJFzpm0ClMkEe/62Q1lrUMqN63fP
+ hQ4Azn46pKo8puwoEt4Yb/Heg4woJ2Bpbmc/PFmEDznksfSre/y9aCQ3nrFSGo6vcr+AlYnFLoF
+ hXTBMbOmOUTbfhFimvvHFsZDErCgRQlKOACD64v7slzxm717u9Gv9wPRbVXt6ZUSZvdP3RFxl02
+ LtYFzmHoMQXYvTHC+wuHS2MrnyjMZE9tV2Hp+4BCe9ele1NzhoxoDn9/H2XgS1gK6irRR275RIK
+ SUGEilCnIkvUj7Q9uhL+cBvOd/RV1zDMsBINKOFYJCKYXg3CQ+/7pT45OAbqNqyxdN2sHNrPjYg
+ spMQLdYdggKO9NKEkFXtYk8a6+zFKOUvnvSvIARFMJMuA3a2qH3i8zQOGBa2BMo8x7xXYJQPnrs
+ ZcLPKX1YIDAVg79pmTtGy3H1Nr36YSFaFor6GPC5Wdvttt0lq1sxlC2nuEftLafDpyW4OzZ1iur
+ xUXOUP3IwauUIZmK09ek1cg==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_110547_423043_99582912 
-X-CRM114-Status: GOOD (  22.34  )
+X-CRM114-CacheID: sfid-20261021_110547_822495_AC0C24C1 
+X-CRM114-Status: GOOD (  13.87  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,200 +105,88 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Introduce Rockchip specific glue code for the Synopsys DWC3 USB driver.
-For now this handles things identical to the default glue.
+Track PHY state requested by software for DP and USB3 individually
+in preparation to rework and fix up power state handling.
 
-After this change the glue driver is mandatory for Rockchip RK3588 and
-RK3576; it does not make sense to fallback to the core driver as the
-whole purpose of the glue driver is fixing race conditions resulting in
-SErrors and non-functional USB.
-
-Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/usb/dwc3/Kconfig         |  11 ++++
- drivers/usb/dwc3/Makefile        |   1 +
- drivers/usb/dwc3/core.c          |  15 ++++++
- drivers/usb/dwc3/dwc3-rockchip.c | 106 +++++++++++++++++++++++++++++++++++++++
- 4 files changed, 133 insertions(+)
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 22 ++++++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-index 18169727a413..3c120ea9746d 100644
---- a/drivers/usb/dwc3/Kconfig
-+++ b/drivers/usb/dwc3/Kconfig
-@@ -190,6 +190,17 @@ config USB_DWC3_OCTEON
- 	  Only the host mode is currently supported.
- 	  Say 'Y' or 'M' here if you have one such device.
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index e748acdd2d31..cb1f455accf8 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -175,6 +175,7 @@ struct rk_udphy {
+ 	bool phy_needs_reinit;
+ 	u8 mode;
+ 	u8 status;
++	u8 sw_mode; /* modes currently requested */
  
-+config USB_DWC3_ROCKCHIP
-+	tristate "Rockchip DWC3 Platform Driver"
-+	depends on ARCH_ROCKCHIP || COMPILE_TEST
-+	depends on OF
-+	default USB_DWC3
-+	help
-+	  Rockchip SoCs with DesignWare Core USB3 IP inside,
-+	  and IP Core configured for USB 2.0 and USB 3.0 in host
-+	  or dual-role mode.
-+	  Say 'Y' or 'M' if you have such device.
-+
- config USB_DWC3_RTK
- 	tristate "Realtek DWC3 Platform Driver"
- 	depends on OF && ARCH_REALTEK
-diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
-index f37971197203..444e7e7f34b2 100644
---- a/drivers/usb/dwc3/Makefile
-+++ b/drivers/usb/dwc3/Makefile
-@@ -58,6 +58,7 @@ obj-$(CONFIG_USB_DWC3_IMX8MP)		+= dwc3-imx8mp.o
- obj-$(CONFIG_USB_DWC3_IMX)		+= dwc3-imx.o
- obj-$(CONFIG_USB_DWC3_XILINX)		+= dwc3-xilinx.o
- obj-$(CONFIG_USB_DWC3_OCTEON)		+= dwc3-octeon.o
-+obj-$(CONFIG_USB_DWC3_ROCKCHIP)		+= dwc3-rockchip.o
- obj-$(CONFIG_USB_DWC3_RTK)		+= dwc3-rtk.o
- obj-$(CONFIG_USB_DWC3_GENERIC_PLAT)	+= dwc3-generic-plat.o
- obj-$(CONFIG_USB_DWC3_GOOGLE)		+= dwc3-google.o
-diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index fd5c2cd36c59..4b7132887a03 100644
---- a/drivers/usb/dwc3/core.c
-+++ b/drivers/usb/dwc3/core.c
-@@ -2448,11 +2448,26 @@ int dwc3_core_probe(const struct dwc3_probe_data *data)
- }
- EXPORT_SYMBOL_GPL(dwc3_core_probe);
+ 	/* utilized for USB */
+ 	bool hs; /* flag for high-speed */
+@@ -1051,11 +1052,15 @@ static int rk_udphy_dp_phy_power_on(struct phy *phy)
+ 	int ret;
  
-+/*
-+ * List of compatibles, which have "synopsys,dwc3" as a fallback
-+ * compatible, but have a vendor specific glue driver that should
-+ * be used instead of this one.
-+ */
-+static const char *const dwc3_compatible_blocklist[] = {
-+	"rockchip,rk3588-dwc3",
-+	"rockchip,rk3576-dwc3",
-+};
+ 	scoped_guard(mutex, &udphy->mutex) {
++		udphy->sw_mode |= UDPHY_MODE_DP;
 +
- static int dwc3_probe(struct platform_device *pdev)
+ 		phy_set_bus_width(phy, udphy->dp_lanes);
+ 
+ 		ret = rk_udphy_power_on(udphy, UDPHY_MODE_DP);
+-		if (ret)
++		if (ret) {
++			udphy->sw_mode &= ~UDPHY_MODE_DP;
+ 			return ret;
++		}
+ 
+ 		rk_udphy_dp_lane_enable(udphy, udphy->dp_lanes);
+ 
+@@ -1078,6 +1083,8 @@ static int rk_udphy_dp_phy_power_off(struct phy *phy)
+ 
+ 	guard(mutex)(&udphy->mutex);
+ 
++	udphy->sw_mode &= ~UDPHY_MODE_DP;
++
+ 	rk_udphy_dp_lane_enable(udphy, 0);
+ 	rk_udphy_power_off(udphy, UDPHY_MODE_DP);
+ 
+@@ -1286,16 +1293,25 @@ static const struct phy_ops rk_udphy_dp_phy_ops = {
+ static int rk_udphy_usb3_phy_init(struct phy *phy)
  {
- 	struct dwc3_probe_data probe_data = {};
- 	struct resource *res;
- 	struct dwc3 *dwc;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(dwc3_compatible_blocklist); i++)
-+		if (device_is_compatible(&pdev->dev, dwc3_compatible_blocklist[i]))
-+			return -ENODEV;
+ 	struct rk_udphy *udphy = phy_get_drvdata(phy);
++	int ret;
  
- 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
- 	if (!res) {
-diff --git a/drivers/usb/dwc3/dwc3-rockchip.c b/drivers/usb/dwc3/dwc3-rockchip.c
-new file mode 100644
-index 000000000000..4129aefd6a8b
---- /dev/null
-+++ b/drivers/usb/dwc3/dwc3-rockchip.c
-@@ -0,0 +1,106 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2026, Collabora Ltd. */
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include "glue.h"
+ 	guard(mutex)(&udphy->mutex);
+ 
++	udphy->sw_mode |= UDPHY_MODE_USB;
 +
-+struct dwc3_rockchip {
-+	struct dwc3		dwc;
-+};
-+
-+static int dwc3_rockchip_probe(struct platform_device *pdev)
-+{
-+	struct dwc3_probe_data probe_data = {};
-+	struct resource *res;
-+	struct dwc3_rockchip *dwc_rk;
-+
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!res) {
-+		dev_err(&pdev->dev, "missing memory resource\n");
-+		return -ENODEV;
+ 	/* DP only or high-speed, disable U3 port */
+ 	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs) {
+ 		rk_udphy_u3_port_disable(udphy, true);
+ 		return 0;
+ 	}
+ 
+-	return rk_udphy_power_on(udphy, UDPHY_MODE_USB);
++	ret = rk_udphy_power_on(udphy, UDPHY_MODE_USB);
++	if (ret) {
++		udphy->sw_mode &= ~UDPHY_MODE_USB;
++		return ret;
 +	}
 +
-+	dwc_rk = devm_kzalloc(&pdev->dev, sizeof(*dwc_rk), GFP_KERNEL);
-+	if (!dwc_rk)
-+		return -ENOMEM;
++	return 0;
+ }
+ 
+ static int rk_udphy_usb3_phy_exit(struct phy *phy)
+@@ -1304,6 +1320,8 @@ static int rk_udphy_usb3_phy_exit(struct phy *phy)
+ 
+ 	guard(mutex)(&udphy->mutex);
+ 
++	udphy->sw_mode &= ~UDPHY_MODE_USB;
 +
-+	dwc_rk->dwc.dev = &pdev->dev;
-+	dwc_rk->dwc.glue_ops = NULL;
-+
-+	probe_data.dwc = &dwc_rk->dwc;
-+	probe_data.res = res;
-+	probe_data.properties = DWC3_DEFAULT_PROPERTIES;
-+
-+	return dwc3_core_probe(&probe_data);
-+}
-+
-+static void dwc3_rockchip_remove(struct platform_device *pdev)
-+{
-+	dwc3_core_remove(platform_get_drvdata(pdev));
-+}
-+
-+static int dwc3_rockchip_runtime_suspend(struct device *dev)
-+{
-+	return dwc3_runtime_suspend(dev_get_drvdata(dev));
-+}
-+
-+static int dwc3_rockchip_runtime_resume(struct device *dev)
-+{
-+	return dwc3_runtime_resume(dev_get_drvdata(dev));
-+}
-+
-+static int dwc3_rockchip_runtime_idle(struct device *dev)
-+{
-+	return dwc3_runtime_idle(dev_get_drvdata(dev));
-+}
-+
-+static int dwc3_rockchip_suspend(struct device *dev)
-+{
-+	return dwc3_pm_suspend(dev_get_drvdata(dev));
-+}
-+
-+static int dwc3_rockchip_resume(struct device *dev)
-+{
-+	return dwc3_pm_resume(dev_get_drvdata(dev));
-+}
-+
-+static void dwc3_rockchip_complete(struct device *dev)
-+{
-+	dwc3_pm_complete(dev_get_drvdata(dev));
-+}
-+
-+static int dwc3_rockchip_prepare(struct device *dev)
-+{
-+	return dwc3_pm_prepare(dev_get_drvdata(dev));
-+}
-+
-+static const struct dev_pm_ops dwc3_rockchip_dev_pm_ops = {
-+	SYSTEM_SLEEP_PM_OPS(dwc3_rockchip_suspend, dwc3_rockchip_resume)
-+	RUNTIME_PM_OPS(dwc3_rockchip_runtime_suspend, dwc3_rockchip_runtime_resume,
-+		       dwc3_rockchip_runtime_idle)
-+	.complete = pm_sleep_ptr(dwc3_rockchip_complete),
-+	.prepare = pm_sleep_ptr(dwc3_rockchip_prepare),
-+};
-+
-+static const struct of_device_id dwc3_rockchip_of_match[] = {
-+	{ .compatible = "rockchip,rk3588-dwc3" },
-+	{ .compatible = "rockchip,rk3576-dwc3" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, dwc3_rockchip_of_match);
-+
-+static struct platform_driver dwc3_rockchip_driver = {
-+	.probe		= dwc3_rockchip_probe,
-+	.remove		= dwc3_rockchip_remove,
-+	.driver		= {
-+		.name	= "dwc3-rockchip",
-+		.pm	= pm_ptr(&dwc3_rockchip_dev_pm_ops),
-+		.of_match_table	= dwc3_rockchip_of_match,
-+	},
-+};
-+
-+module_platform_driver(dwc3_rockchip_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("DesignWare DWC3 Rockchip Glue Driver");
+ 	/* DP only or high-speed */
+ 	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs)
+ 		return 0;
 
 -- 
 2.53.0
