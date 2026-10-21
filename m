@@ -2,159 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 371E3606A323
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 15:18:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CFA260A260E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 15:25:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Zw0v2F43;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=VCT7th2c;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=IRVgmdt9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bZM9J3q+;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=agcAolRh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/Y1qpBLY6fko34laYatPIwnPDHGmqYN6KVu8T65y1g=; b=Zw0v2F43gEB6rvoy0U22sY0M4r
-	+NIbziV9AVhEWwGBT/MRf0diEVpdwxrKoZoHo9jDK9yiV4QbNiW0vfeQ7RPwwXQ1XduX4n92aljyg
-	WgsQ1TfxC3Su8r3Tfq0ZlhAAsM5Go0oaVkY+PH4lD4TSRUt603xuGWoH+jrYVPOykFT6Byz0myeyA
-	s8LRH0RJMxukeq/r4u34o7HJIBG+XHFQDONV9vc70Yn3j1glUjz7PJWzuyEHqfMvFCHUipLAUoBoZ
-	PtWli29WsR3rqoDHcMCc+cO7URUE+HVFjKKf8BhGVHml/4jufx20ymIpU4X6rYSx1D/aZLMRhiC/T
-	lVyCIlug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W0oLRP7RmrwK+s1WyDoN9zSSlBczsPl1G7flMYO8vs0=; b=bZM9J3q+6x5tnai4knCoo2auOz
+	jTLlYWWjJ+BbY0v496nWFDv8PBOAeqWj3WUiMkRFlB1zAAFpaH6E+YoYeFFoJgiQWNg8BhiwMHoro
+	sneuDaKtEbumXv/Td1iXMDc56ZQABsU3xyqtEoIXO924ZZCgHGp2IxybRg5hoIbmuaUR+JQ+hdkEw
+	C9iJ8mT+FGyuoWtiKgTFvTEmZyoE71FgqaC3lqgX3AAt8sTcfDBuiz47VEjpVMNRbnv/yuAoMxaHE
+	Db+CKBfkZChQ5xVrSA1bpDGRYJUBbH+TTjV8C3WyCjGQJa7fXT/OURL8eaOQr02UE46RQ9zXtvhrv
+	Lmw+KnKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJY52-0000000CEQG-2fSr;
-	Wed, 21 Oct 2026 15:18:16 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xJYC6-0000000CFXs-3NX9;
+	Wed, 21 Oct 2026 15:25:34 +0000
+Received: from mail-ej1-x646.google.com ([2a00:1450:4864:20::646])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJY4y-0000000CEMa-3sqt
+	id 1xJYC4-0000000CFW2-23NC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 15:18:14 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69LEFkTR3994852
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 15:18:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2/Y1qpBLY6fko34laYatPIwnPDHGmqYN6KVu8T65y1g=; b=VCT7th2cma/uVca/
-	uojpbudS4KLgTuvw7R5iopML3QM7QRwHtf8I6Ykd84Pn4qC09tGEfgfHMwP2qcli
-	QMdZ1eIDvq9SdQP7wbVCRX1pRADJZh2BNMSrAFKBOX/OO2hVw0a2P45RwPxDdhAC
-	Mw94LACE9fis3ZKWXaM9M1ljFG8OMfklBpmxiUtUxOat6uH2ATTXFpUiSQUV8nVQ
-	9LjV4kNh1a3YoCjQxytKFMPcmX4+JPjx+rsLKamIUeuEea1weRYmUh6a7LNZulbi
-	V0Y5v+T5JhMPGqNLhiolFD2C/52TxULFuM8ETENnsWcIyF6esV5eNdPpM/NIsz/5
-	HRNYQA==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hex5q8j55-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 15:18:11 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3510d0baf63so1996749eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 08:18:11 -0700 (PDT)
+	Wed, 21 Oct 2026 15:25:33 +0000
+Received: by mail-ej1-x646.google.com with SMTP id a640c23a62f3a-c438ca31778so66126266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 08:25:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792595890; x=1793200690; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2/Y1qpBLY6fko34laYatPIwnPDHGmqYN6KVu8T65y1g=;
-        b=IRVgmdt9zfvrZGlJlpIzpLnxS9toGB9QvVQEwDgm/Hgiye5gq0NzrOW/8e93rn4VEB
-         cD4ttDD06JEJ4UmfM0oD34Oj9GSR1uYtbHBqWgm0Glt7EtKzhttuIAMVb9XmQxiSvaSi
-         v/YDKilq+qL+B3OhIU4AuQfNosiv+wRTdCcvP3FMCLB+QNAHATy7+Nm566SxgJFvLEPU
-         2YPIkKGj9fLdrdwVIEO+2nwdy/XTx2AJodd7sq6XmHjL307RcMIyKG8V1LQnWzica3pd
-         5/32rUOBcIH90nrEzd4mdmLS+p6fbnrFDUgmPjd0VA1a7/YMj+zdejlkpAP13KjGZ0nu
-         jJSg==
+        d=google.com; s=20251104; t=1792596330; x=1793201130; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=W0oLRP7RmrwK+s1WyDoN9zSSlBczsPl1G7flMYO8vs0=;
+        b=agcAolRhLlWKMj4fUr9DohEBjPBFeGtpUaPiaiNNNzABsricwcsDd9AQoIlE3aol3C
+         pe9p3jJawtWlDO1vCYtrm9fodwk8Vhq/VhYE5/eBjTlaIrXlD3lsyvMue568XEoUgLtu
+         pFpmcpSV/MzTudTMDClO1rayFriFg/6kSn2a/TrbTzL3f46lRkAO6uR4613gWH+JuHaF
+         lX55ctAR0VHfCHlFdEXL/BZ2+ecGviOMw54HMnN71joRyUIqLNSg+o4M+ZeWFzrL5n7Z
+         aQwWGfOcfdnanTYvhNQSO1+BMK0IuQ4eqSnh5cmB/JRi8EzN9lO2z4dSdZ3xRVWYQMvp
+         BodQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792595890; x=1793200690;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1792596330; x=1793201130;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2/Y1qpBLY6fko34laYatPIwnPDHGmqYN6KVu8T65y1g=;
-        b=ecJrpLg6Y4B7eBWkSDaFm7zoxsBKGvFmCqzCjNH67/Asa0ODL1l079WH3epMCzYyxk
-         TXYdAykeh7VNAPRUf02aA6MPjJnuULN+nf6Sbttb9H4oVeyLXAISkIhbywoZw1tOBh9c
-         1g1NUA0HFZYcd5CiJUX0ULqRtqdGXUYGglz5iQ3yHX+I6GhJBuFi388MbKeoK0z6igMQ
-         UYxHjaxaqwnFSTSVOzjb3Lqcq5/aa/Faz6nEjel0jyi9WqLjhMdk1UIUc6U+0taTe45o
-         IMQt364cOZ6H92kW23hsCGyVhdbFxj7CTti4tHdO5aVvackm0PCADGFe/jFlKSjKCKQQ
-         pqlA==
-X-Forwarded-Encrypted: i=1; AKwUvByB0zj0OXd0Rnh0tRFOKTzuDPuVFRoONn4ONGRvwlsYo07LeqvtzCMbtQmLtndZh9MckctlNhjmEorxbfHei18B@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ25lhs2lb8x2jodcEIksnmd5QJxJRgsFQjWELQBmUgvmozC99X
-	f4iAJ04adajbg9PtNslj9qZKMSBKB/8Rg4WawV19pJo99ES70ydH2n5t5ZC0qo4DA/izd1F/gVc
-	MwbgQXLEnukAOMOAYAy35zZ8HdVRemIh4NdxL7SwlbcmmtRX+WuCSc+GTgrmKWO9eC3So0m4zpv
-	1ajw==
-X-Gm-Gg: AYBFou3JhYUNSha7EgRiJEcsVnI4k9+93pvKsAyIeHroxZKMiQh4Od5d/yeCPAyn7lX
-	YgBP3uexYas2rACm3vtbjss4jqp1J5uBF2sB/KDGtjPHSypTwINnc9+EbfCYS0mBoaKWxB3qzRK
-	nbFjFJ8LFC3x356aeVJa8ctWx5QO8+Nu5j+7qGZYPmnxh7Y48aOo4q/MHsyvlnaGKWBJTy3RxG0
-	G9eNb86f/KL5FLQsX6PVXK6lvob3c67wOY63bULHo/jb8KKv+yyXyexKJrDLH/LiLlUzHxQjQsK
-	NavqRDOipnzMKa0ouvkAtyVFjPx3xXWINK2CSO6MmmiWuh8mNVVFBuZFLfehHhSWE2mv1SMz9bU
-	rzcudiB9k9pGAcgUeK/myX6YwDMpTOorx
-X-Received: by 2002:a05:693c:864e:20b0:351:1e2e:da4d with SMTP id 5a478bee46e88-3674d047ca9mr4050836eec.23.1792595889920;
-        Wed, 21 Oct 2026 08:18:09 -0700 (PDT)
-X-Received: by 2002:a05:693c:864e:20b0:351:1e2e:da4d with SMTP id 5a478bee46e88-3674d047ca9mr4050779eec.23.1792595889325;
-        Wed, 21 Oct 2026 08:18:09 -0700 (PDT)
-Received: from hu-anantiwa-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36740cc8c6dsm9142117eec.12.2026.10.21.08.18.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Oct 2026 08:18:08 -0700 (PDT)
-From: Anand Tiwari <anand.tiwari@oss.qualcomm.com>
-Date: Wed, 21 Oct 2026 20:47:30 +0530
-Subject: [PATCH 6/6] arm64: dts: qcom: talos-lyra-evk: Add AUO G133HAN01
- LVDS panel overlay
+        bh=W0oLRP7RmrwK+s1WyDoN9zSSlBczsPl1G7flMYO8vs0=;
+        b=TamQcRX7LnWi7jzxREFIhqVnYHoiVpXrkPItZRDc0pK62dpurfqw+8qRdT+akmIJHu
+         eFSfhQjftU1p+eg7c/AKZ9FaGWe2fxF24Nr/EvrRURYctiBD5GhJF7p5ZSHn9wkefkhr
+         fiBtHbxDTOjaUj+i3K+G96xMiWGPvYn3s+xM58AlXCbUFuzeUr16PZYPOA62C+23rfDY
+         /nnUd0L/A3d/O0ACGy9GSZiDMQ6C+Ulzoi3ue3zMH4H5WFWmWrZvv7D4L265LrDJpjrJ
+         FCuMoEEkZhzxJSq2pp4uH1KHYVTDMbYjSkgi18s2zFvGgczCuZTY9R+3UX9ZoNlF6s4T
+         D/rg==
+X-Gm-Message-State: AFq9FYJ74tCgxbumw7YzKi1virImDIZ2okT48I8Owt2y2bcIEWzV+9st
+	YshYnvxfgC9ic4NlgG/QwnUkKq9xUqwswXNXlv2VAwP2HUAiY9+Dkd6yLMbK/UhMS+snbybOO6+
+	4R17Si7GTma+BfC8D+Q==
+X-Received: from edqo20.prod.google.com ([2002:aa7:c514:0:b0:6b1:dfff:2ee9])
+ (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:906:dc8e:b0:c44:14d:d95d with SMTP id a640c23a62f3a-c46796ec9bcmr208718966b.23.1792596329153;
+ Wed, 21 Oct 2026 08:25:29 -0700 (PDT)
+Date: Wed, 21 Oct 2026 15:25:23 +0000
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261021-lyra-display-upstream-post-v1-6-585caa39cd7c@oss.qualcomm.com>
-References: <20261021-lyra-display-upstream-post-v1-0-585caa39cd7c@oss.qualcomm.com>
-In-Reply-To: <20261021-lyra-display-upstream-post-v1-0-585caa39cd7c@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org,
-        Anand Tiwari <anand.tiwari@oss.qualcomm.com>,
-        venkata.valluru@oss.qualcomm.com
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792595849; l=5076;
- i=anand.tiwari@oss.qualcomm.com; s=20260717; h=from:subject:message-id;
- bh=H8TzP8Dj675+nLSJdklFvA6bI8Vose0C+tpoATsgYZ0=;
- b=gjweYPGF24ry4jA6y8Z6u1TL36AQ/mMo/BMNOi42WJjw+p+cvuBIIelhqWQc4yeMFToRPzINU
- 5h0j+QlRai6CLulxPqZaUoBOOZQB63dTFto5IYfcjf/nAdXTKISvadr
-X-Developer-Key: i=anand.tiwari@oss.qualcomm.com; a=ed25519;
- pk=ygURjl6LxwG8EhgPNHYYgCZLsaXFgWZZoHRRyud5B40=
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDA2MCBTYWx0ZWRfXweyzbSiCfcEH
- 8qRmT9WJJWKR4+aSi0nTAv7rV6rnTSzAAvlVndKZaZZWVyrtSGM78A15wum+8tD30basdIGL0CV
- 0ln4fJ8WbzWKpFgh+BXbHZr94PAfRtQ=
-X-Authority-Analysis: v=2.4 cv=eJaGH3p1 c=1 sm=1 tr=0 ts=6ad8d7b3 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=IIR7FofeaqIF4eDoK2QA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-GUID: gED9pOG6q30eVqHGOqw1IAhMNT5UHG6T
-X-Proofpoint-ORIG-GUID: gED9pOG6q30eVqHGOqw1IAhMNT5UHG6T
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDA2MCBTYWx0ZWRfXwk1GT5JExbDw
- Z9zBoeShZuFbqSZLMMTYQhSR9SJKBAwFEZGIeM8I01bNbTTkyFUsAEP6gCEHUIbaXUv0rm7iHbX
- Er7QR9GR3ZJ2b1uw6XnSvm9S856Q5tmH8PUfXi1S+d9IRsFOE14vuwFbI7/JYQ09t+8FCUqxthl
- KZWZd78eTmcuFhLWGy/zxUmAk3KJSOnFRToGrnnUraWiyOp5jo7WmYSwAbIRlOUiISvKq+xOPDn
- BKmFaJI44SJO7YGC5UlSQfebKYH1ZdzXiX+GJ7N+6sGkqf3+zWM0eB52n1T94KOkK+J1k9/Hqy3
- G6PwiEx4xpYv0YOgTAAGpmFw5y/M+yH9gWNjHyktcYht9EuXa2oiIlXjMi8a/vf0z2KWRbwHSR2
- xyiH7pVdDqhd6usisnMvV4rK5rvRZgtePyME3rsZEdZ7pczMmsh0wh9k8KWbvFwm0vQAof4WZ1/
- ePM+Dd1whyoFWP62I2g==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-21_04,2026-10-21_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 malwarescore=0 suspectscore=0 priorityscore=1501
- adultscore=0 spamscore=0 clxscore=1015 bulkscore=0 phishscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
- definitions=main-2610210060
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
+Message-ID: <20261021152527.375070-1-tarunsahu@google.com>
+Subject: [RFC PATCH v2 0/4] liveupdate: Feature header ABI and named handler
+From: Tarun Sahu <tarunsahu@google.com>
+To: Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org, 
+	Mike Rapoport <rppt@kernel.org>, Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de, 
+	David Matlack <dmatlack@google.com>, jgg@nvidia.com, robin.murphy@arm.com, 
+	loganodell@google.com, oupton@kernel.org, kevin.tian@intel.com, 
+	alex@shazbot.org, dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com, 
+	will@kernel.org, Pasha Tatashin <pasha.tatashin@soleen.com>, 
+	Alexander Graf <graf@amazon.com>, Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
+	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev, 
+	iommu@lists.linux.dev, linux-pci@vger.kernel.org, kexec@lists.infradead.org, 
+	skhawaja@google.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Tarun Sahu <tarunsahu@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_081813_151742_CCF985C9 
-X-CRM114-Status: GOOD (  19.35  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261021_082532_551153_785464F1 
+X-CRM114-Status: GOOD (  19.43  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,202 +94,135 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-21.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,USER_IN_DEF_DKIM_WL
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add a DT overlay for Talos Lyra EVK, to enable LVDS interface when
-LVDS daughter card is connected to DSI0_B2B on carrier card.
+Live Update Orchestrator (LUO) and its file handlers currently validate
+handed-over KHO state using monolithic compatibility strings ("luo-v5",
+"memfd-v2"). Any change to a serialized structure, even an optional
+additive field, requires bumping the compatibility string, breaking live
+update between adjacent kernel versions across both forward updates and
+rollbacks. This series introduces the feature flags per serialized
+struct to communicate between the kernel about their active and required
+features. Having feature flags increase the compatibility matching
+granularity.
 
-There is SN65DSI84 DSI-to-LVDS bridge on the daughter card which is
-connected through I2C5 with reset and interrupt connected to
-GPIO61 and GPIO60. Backlight is driven by a generic clock-based PWM
-using GCC_GP3 on TLMM GPIO59, with an additional backlight enable
-GPIO on TLMM GPIO2.
+This series also renames the file-handler and FLB compatible identifier to
+name, extends LIVEUPDATE_SESSION_PRESERVE_FD so userspace can
+optionally select which registered file handler preserves a file
+descriptor by name, and replaces monolithic version strings in serialized
+payloads with a fixed-size 2-bit pair feature header
+(struct luo_feature_hdr). So in future, If a change to a subsystem
+preservation can not be handled with feature flags, we can attach a new
+handler to support the preservation.
 
-Disable the default HDMI bridge and connector in favour of the LVDS
-panel.
+This change is motivated by the LPC discussion.
 
-Signed-off-by: Anand Tiwari <anand.tiwari@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/Makefile                  |   4 +
- .../qcom/talos-lyra-evk-lvds-auo,g133han01.dtso    | 134 +++++++++++++++++++++
- arch/arm64/boot/dts/qcom/talos-lyra-evk.dts        |   1 +
- 3 files changed, 139 insertions(+)
+Named File Handler Selection
+============================
+With fine-grained compatibility tracked via feature headers, the
+handler and FLB compatible field is renamed to name. When a subsystem
+needs a genuinely incompatible new handler alongside an existing one for
+the same file type, struct liveupdate_session_preserve_fd now includes
+char handler[LIVEUPDATE_HNDL_NAME_LENGTH] after token (keeping
+min_size at 16 bytes for backward compatibility):
+- Empty handler (or 16-byte struct): selects the first registered
+  handler whose .can_preserve() accepts the fd, keeping default callers
+  on the original rollback-safe handler.
+- Non-empty handler: selects the registered handler with that exact
+  name and verifies .can_preserve() accepts the fd.
 
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index 614152913cbb..f0551bd2d8e2 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -473,6 +473,10 @@ dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-camera-imx577.dtb
- talos-evk-lvds-auo,g133han01-dtbs	:= \
- 	talos-evk.dtb talos-evk-lvds-auo,g133han01.dtbo
- dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-lvds-auo,g133han01.dtb
-+talos-lyra-evk-lvds-auo,g133han01-dtbs := \
-+	talos-lyra-evk.dtb talos-lyra-evk-lvds-auo,g133han01.dtbo
-+dtb-$(CONFIG_ARCH_QCOM) += talos-lyra-evk-lvds-auo,g133han01.dtb
-+dtb-$(CONFIG_ARCH_QCOM) += talos-lyra-evk-lvds-auo,g133han01.dtbo
- talos-evk-rpi-display-2-5in-dtbs	:= \
- 	talos-evk.dtb talos-evk-rpi-display-2-5in.dtbo
- dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-rpi-display-2-5in.dtb
-diff --git a/arch/arm64/boot/dts/qcom/talos-lyra-evk-lvds-auo,g133han01.dtso b/arch/arm64/boot/dts/qcom/talos-lyra-evk-lvds-auo,g133han01.dtso
-new file mode 100644
-index 000000000000..3edb56937446
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/talos-lyra-evk-lvds-auo,g133han01.dtso
-@@ -0,0 +1,134 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/qcom,qcs615-gcc.h>
-+#include <dt-bindings/clock/qcom,rpmh.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+&{/} {
-+	bklt_pwm: pwm {
-+		compatible = "clk-pwm";
-+		#pwm-cells = <2>;
-+		assigned-clock-parents = <&rpmhcc RPMH_CXO_CLK>;
-+		assigned-clocks = <&gcc GCC_GP3_CLK_SRC>;
-+		clocks = <&gcc GCC_GP3_CLK>;
-+		pinctrl-0 = <&bklt_pwm_default>;
-+		pinctrl-names = "default";
-+	};
-+
-+	backlight: backlight {
-+		compatible = "pwm-backlight";
-+		pwms = <&bklt_pwm 0 100000>;
-+		power-supply = <&vreg_disp_3p3>;
-+		enable-gpios = <&tlmm 2 GPIO_ACTIVE_HIGH>;
-+		brightness-levels = <0 255>;
-+		num-interpolated-steps = <255>;
-+		default-brightness-level = <128>;
-+	};
-+
-+	panel-lvds {
-+		compatible = "auo,g133han01";
-+		power-supply = <&vreg_disp_3p3>;
-+		backlight = <&backlight>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			/* LVDS Channel A — odd pixels */
-+			port@0 {
-+				reg = <0>;
-+				dual-lvds-odd-pixels;
-+
-+				lvds_panel_out_a: endpoint {
-+					remote-endpoint = <&sn65dsi84_out_a>;
-+				};
-+			};
-+
-+			/* LVDS Channel B — even pixels */
-+			port@1 {
-+				reg = <1>;
-+				dual-lvds-even-pixels;
-+
-+				lvds_panel_out_b: endpoint {
-+					remote-endpoint = <&sn65dsi84_out_b>;
-+				};
-+			};
-+		};
-+	};
-+
-+};
-+
-+&hdmi_connector {
-+	status = "disabled";
-+};
-+
-+&i2c5 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	bridge@2c {
-+		compatible = "ti,sn65dsi84";
-+		reg = <0x2c>;
-+		enable-gpios = <&tlmm 61 GPIO_ACTIVE_HIGH>;
-+		interrupts-extended = <&tlmm 60 IRQ_TYPE_EDGE_FALLING>;
-+		vcc-supply = <&vreg_s4a>;
-+
-+		pinctrl-0 = <&bridge_irq_pin &bridge_rst_pin>;
-+		pinctrl-names = "default";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				sn65dsi84_in: endpoint {
-+					remote-endpoint = <&mdss_dsi0_out>;
-+					data-lanes = <1 2 3 4>;
-+				};
-+			};
-+
-+			port@2 {
-+				reg = <2>;
-+
-+				sn65dsi84_out_a: endpoint {
-+					data-lanes = <1 2 3 4>;
-+					remote-endpoint = <&lvds_panel_out_a>;
-+				};
-+			};
-+
-+			port@3 {
-+				reg = <3>;
-+
-+				sn65dsi84_out_b: endpoint {
-+					data-lanes = <1 2 3 4>;
-+					remote-endpoint = <&lvds_panel_out_b>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&hdmi_bridge {
-+	status = "disabled";
-+};
-+
-+&tlmm {
-+	bklt_pwm_default: bklt-pwm-default-state {
-+		pins = "gpio59";
-+		function = "gcc_gp";
-+	};
-+};
-+
-+&mdss_dsi0_out {
-+	remote-endpoint = <&sn65dsi84_in>;
-+	data-lanes = <0 1 2 3>;
-+};
-diff --git a/arch/arm64/boot/dts/qcom/talos-lyra-evk.dts b/arch/arm64/boot/dts/qcom/talos-lyra-evk.dts
-index ec5c10a40521..20967c294543 100644
---- a/arch/arm64/boot/dts/qcom/talos-lyra-evk.dts
-+++ b/arch/arm64/boot/dts/qcom/talos-lyra-evk.dts
-@@ -15,6 +15,7 @@ / {
- 
- 	aliases {
- 		i2c2 = &i2c2;
-+		i2c5 = &i2c5;
- 	};
- 
- 	dp0-connector {
+2-Bit Pair Feature Header (struct luo_feature_hdr)
+==================================================
+Each serialized ABI structure (struct luo_ser, struct memfd_luo_ser)
+starts with a fixed 128-byte struct luo_feature_hdr containing:
+- size: byte size of the enclosing serialized structure from the source
+  kernel.
+- flags[15]: 15 chained 64-bit feature flags entries. Each entry
+  encodes up to 31 features as 2-bit pair (req, active) states
+  (enum luo_feat_state: LUO_FEAT_DISABLED = 0b00,
+  LUO_FEAT_OPTIONAL = 0b01, LUO_FEAT_REQUIRED = 0b11) plus
+  LUO_FEAT_EXT_MASK (bits[63:62] = 0b11) chaining to the next entry
+  (up to 465 features total). Because the header is fixed at 128 bytes,
+  payload field offsets never shift when extended flags entries are used.
+
+Each subsystem defines its feature states as a static const u8 array
+indexed by its feature enum, which luo_feature_hdr_init() packs into
+the payload feature header. During deserialization,
+luo_feature_hdr_validate() checks the header from the source kernel
+against the feature array in the target kernel according to the
+per-feature (req, active) truth table:
+
+  Source Target Action
+  (1,0)  (x,x)  Reject -EINVAL: invalid source kernel (req without active)
+  (x,x)  (1,0)  Reject -EINVAL + WARN_ON_ONCE: invalid target kernel
+  (0,0)  (0,0)  Accept: feature absent
+  (0,0)  (0,1)  Accept: feature absent
+  (0,0)  (1,1)  Reject -EOPNOTSUPP: target kernel requires the feature
+  (0,1)  (0,0)  Accept: ignore payload data
+  (1,1)  (0,0)  Reject -EOPNOTSUPP: source kernel requires the feature
+  (x,1)  (x,1)  Accept: use payload data
+
+Structure Evolution
+===================
+The relative order and offsets of fields in serialized structures must
+remain unchanged as features are added or retired. New fields are always
+appended at the end of the structure under a new feature flag, and
+retired fields are kept in place so that the offsets of subsequent
+fields never shift. If the type or format of a field needs to change,
+the existing field and feature are kept intact (and retired when no
+longer needed) and a new feature flag with a new appended field of the
+new type is added.
+
+In the target kernel, fields of a LUO_FEAT_REQUIRED feature are
+guaranteed to be present once luo_feature_hdr_validate() succeeds,
+whereas fields of a LUO_FEAT_OPTIONAL feature should be accessed only
+after verifying that the feature is active in the source kernel header:
+
+  if (luo_feature_is_active(&ser->features, FEAT_X))
+          val = ser->x_field;
+
+Changes since RFC v1 [1]:
+- Renamed file-handler and FLB compatible to name and added optional
+  handler selection by name in LIVEUPDATE_SESSION_PRESERVE_FD.
+- Replaced the 3-mask (supp, req, active) + variable-length FDT and
+  feature-section design with a fixed 128-byte struct luo_feature_hdr
+  embedding size and 15 chained 64-bit 2-bit pair (req, active)
+  flags entries directly in struct luo_ser and struct memfd_luo_ser.
+- Replaced compile-time bitmask macros with a static const u8 feature
+  array per subsystem packed by luo_feature_hdr_init() and validated
+  in a single pass by luo_feature_hdr_validate().
+
+[1] https://lore.kernel.org/all/20260903023452.721732-1-loganodell@google.com/
+
+Tarun Sahu (4):
+  liveupdate: Rename handler compatible to name
+  liveupdate: Select file handler by name in the preserve ioctl
+  liveupdate: Replace compatibility string with a 2-bit pair feature
+    header
+  mm: memfd_luo: Add the 2-bit pair feature header
+
+ drivers/pci/liveupdate.c         |  10 +-
+ include/linux/kho/abi/luo.h      | 367 +++++++++++++++++++++++++++----
+ include/linux/kho/abi/memfd.h    |  39 +++-
+ include/linux/kho/abi/pci.h      |   2 +-
+ include/linux/liveupdate.h       |  18 +-
+ include/uapi/linux/liveupdate.h  |  15 +-
+ kernel/liveupdate/luo_core.c     |  27 ++-
+ kernel/liveupdate/luo_file.c     |  64 ++++--
+ kernel/liveupdate/luo_flb.c      |  16 +-
+ kernel/liveupdate/luo_internal.h |   3 +-
+ kernel/liveupdate/luo_session.c  |   7 +-
+ lib/tests/liveupdate.c           |  22 +-
+ mm/memfd_luo.c                   |  16 +-
+ 13 files changed, 481 insertions(+), 125 deletions(-)
 
 -- 
-2.55.0
+2.56.0.212.g129ede20d9-goog
 
 
