@@ -2,145 +2,123 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91EB7606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 08:24:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47ABF606A322
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 08:24:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=olPmefSe;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=brqUSAKe
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PtPRz9WF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nHHG3qrzACfsyC5dlg+rX/Kf5fRZbghL3MQvRvx8BJM=; b=olPmefSev8uay7kt2bzGs4Tnr1
-	ccwooqoHGFPl4SOImku7VJrZy2QUbuWUN7f8YwtL3K26BHgUo9UhVx2XNiIMwI/GreAEOTtZzDtGy
-	q52v+YmdCblHaqo3Afx+C7ESH1JheZRsOXijOiWs4INMECxGLZdum99Uu8hMPilcSrYn85xuUL+0v
-	kajeD85RLwKlKmEwbnddD+tddowxH5tWGtNMEsu7UD/hzsr2CFEAHdkHYAbkzra2M03Y0Jt1X/qMR
-	4oZWBErhlCR+MIatjvx9ool0+nN2CwsbojY14ygIPtyNdwWsaMYWwmDw6ydbRsA/pkNneoxum918W
-	WYKs97jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NtSrsaakkEAIGEB2gQvOG9jbvdtBfnK9dR6g8YEjzZ0=; b=PtPRz9WF41IZ+HOorFAuCB9OGY
+	jOaW+e4OGHLYOy1BrEcXI4BZjSVc83ZfbIVxhguvM7Pies5liyxNEfgVSO0haOAWXmN913R4h9QnF
+	/csmAxgnYyZwSt1Wzgxy0czxjnAU5gvQR3u1gYczgrbUWx5TAvBaDXzEz3y5pQueEj7yCST7nT9GJ
+	yvBaPzz6okIjwsijiKUSB1e8ejko0rwMi8nzMoUuNfLK8xRD2HFmDPu5Hr8q6oM033QlIApGFypt+
+	ggwsjPpxYr73xp1Sr5wy90IJdqL5oS84z2NOBBF/oE7QWmqLaOegYQTqkyit/KMkYm6GE64mBsaM8
+	+C72rq9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRcL-0000000BKQ0-3GB4;
-	Wed, 21 Oct 2026 08:24:13 +0000
-Received: from mail-francecentralazon11013027.outbound.protection.outlook.com ([40.107.162.27] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRcJ-0000000BKOI-3NL3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 08:24:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YbRGoFgez0Gcun1m33/x4L/G83OdYEA2pRkCpgQfxCbtWNQYJqnjyHaJfoYP0YMXryk35V3ukTATfxP4ryEQPunUbKuxbQVwY4e/HK5B89bWmB6+prILZzfN0dNAjSbxFYC+cCUEkU6fwS5zpyD9hEFpCelFWAWjygrTrSKmhsFbFjYLwuh6ux1wQqb/bH/Cm3qUc69ubyq4iKpWN7FFPA6Omjbj76bFMzjTEiuuRo48JmoUD6wFsXkUEg0W5MUdN8kQVu6VUuJK7ZjIVERNdcIE6aHJi/GPTXYhjJLFqmW5DxZ7uROjh7WlP9JNyiJuax8O//9Yktw7DImtBogZYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nHHG3qrzACfsyC5dlg+rX/Kf5fRZbghL3MQvRvx8BJM=;
- b=QnwykF+ur9PGnrGHWIM4VZVQTtgkPJRmQ+im+YOsm5RG+/y0Q6GJlF9EzoZ4iia3rZFYzL/2Sk+v6ZxuvwHxZ+46/u8ypdx2pjeYmzhakGxTr/1/G/541Tc/tmzLFX7n+LHtkwbsIg49w3zvIqySFFWQ7Uc6I6CKspHAhmx/t2Q86OfgFfgjkMRBaumMqsHBkuqeLXoUS2VzxxDCzdbeFtYhKIbMSl+qVbCl4DKoOeVKd1hv81hTlAc6Z5r2qnBOcXlWrCnz1nEUPDnEBvIDXs8T95uYIi6QBoztwGXlHDLPqBvgFMMtVTlUIUgqvKZTd3DCvIJIEDe/6UB2dOWHhA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nHHG3qrzACfsyC5dlg+rX/Kf5fRZbghL3MQvRvx8BJM=;
- b=brqUSAKeLQLDTUhA9souXC0AMJFJIbYYBFpU9UfJrHUTEje+5ppHo0szdRWEy6b0BFs+KFyNtYjcIzAkm+pConIPsaMEufso1SoBY522PQVi4vE+sMp6mxldI1l/aUSPZuMllk1RskUHbwOwAZg4sXDRgcbW3U3msD/G4Fv7VI/w0FYOIWsXiiuDpDHEwuqbVZKj1aHKpVGLhqaMI/Y7YxpDOUhWOzXG6Lt/qZtjOA+7nbrjXvKm55stMPrP0ynGvCC5rYmmb7Sfb8y/KmbqsZwSk6VgLJdx3b6Oi8uJ10G21MbtEOoI54UCb8WknM5S/cP8ytRSm88DeICHqFu3OA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
- by VI2PR04MB10906.eurprd04.prod.outlook.com (2603:10a6:800:277::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Wed, 21 Oct
- 2026 08:24:04 +0000
-Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
- ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
- ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
- 08:24:04 +0000
-Date: Wed, 21 Oct 2026 16:25:40 +0800
-From: Liu Ying <victor.liu@nxp.com>
-To: Frank.Li@oss.nxp.com
-Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Sam Ravnborg <sam@ravnborg.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Robert Chiras <robert.chiras@nxp.com>, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v3 3/7] drm/panel: simple: Add Waiken WKS101WX001-WCT
- panel support
-Message-ID: <ath3BGt9qmS-amTo@raspi>
-References: <20261020-dxl_lcdif-v3-0-adc944659e14@nxp.com>
- <20261020-dxl_lcdif-v3-3-adc944659e14@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261020-dxl_lcdif-v3-3-adc944659e14@nxp.com>
-X-ClientProxiedBy: SI1PR02CA0044.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::6) To MI9PR04MB350878.eurprd04.prod.outlook.com
- (2603:10a6:290:c0::7)
+	id 1xJRcR-0000000BKTf-25Ay;
+	Wed, 21 Oct 2026 08:24:19 +0000
+Received: from gw.zju.edu.cn ([210.32.2.4] helo=zju.edu.cn)
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJRcO-0000000BKQt-1YB4;
+	Wed, 21 Oct 2026 08:24:18 +0000
+Received: from zju.edu.cn (unknown [10.162.163.215])
+	by mtasvr (Coremail) with SMTP id _____wCnLzSkdthqR1CtAQ--.82S3;
+	Wed, 21 Oct 2026 16:24:04 +0800 (CST)
+Received: from lutetium.tail477849.ts.net (unknown [10.162.163.215])
+	by mail-app3 (Coremail) with UTF8SMTPA id zS_KCgD3l6KjdthqFF21AA--.41144S2;
+	Wed, 21 Oct 2026 16:24:03 +0800 (CST)
+From: tangyazhou@zju.edu.cn
+To: bpf@vger.kernel.org,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	David Vernet <void@manifault.com>,
+	bpf@ietf.org
+Cc: John Fastabend <john.fastabend@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Quentin Monnet <qmo@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	=?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	Shahab Vahedi <list+bpf@vahedi.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Hengqi Chen <hengqi.chen@gmail.com>,
+	Johan Almbladh <johan.almbladh@anyfinetworks.com>,
+	Paul Burton <paulburton@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Naveen N Rao <naveen@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Wang YanQing <udknight@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	linux-doc@vger.kernel.org,
+	Yazhou Tang <tangyazhou518@outlook.com>,
+	Tianci Cao <ziye@zju.edu.cn>,
+	Shenghao Yuan <shenghaoyuan0928@163.com>
+Subject: [PATCH bpf-next v2 6/8] bpf: Refactor ALU instruction variant validation
+Date: Wed, 21 Oct 2026 16:23:58 +0800
+Message-ID: <20261021-bpf-hmul-v2-6-88e260099f7d@outlook.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261021-bpf-hmul-v2-0-88e260099f7d@outlook.com>
+References: <20261021-bpf-hmul-v2-0-88e260099f7d@outlook.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|VI2PR04MB10906:EE_
-X-MS-Office365-Filtering-Correlation-Id: 62f1170b-3a9f-41a8-326f-08df2f4cab36
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|19092799006|23010399003|1800799024|261009223027099003|10067099003|56012099006|6133799003|22082099003|18002099003|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: YNZ7yVbZeIJ/uIcvPjetvdh6M0O0JMbzaSzXcBfWeevt2Lspv0ztFyRTskfXN8FREpwehuU8gf8iyF36SSFz37DFSQa5L0JDwIxoq71jwbLhzQbq04vWzPlXWKFKQblSjgwfibcanq02LdaU9wYRuucsUeib97iklA6Cts6CpOrmZnMsRr+MDuIsVi8QavbizrRmNIJJC/+ixFotyvNJnl3RvIdzuTFuQog6j6SkaLtNgYignGjQY0Z6IO3zIG9JnY1csFvgfrvZ1rZWVdIg3cCCs/eFewlVMOKhgK6ZuCnBScq0KwfiSxYCiz6B701wy9vhMClGLrPgK5mucEDYxCWydZpuc1khEJuN1vfop2hXFhL9FD03knevuL5IUoL3vgGvfa3ADS5y/fdtlCTLNIkA/4xluwaKllyQKHEg/br9UEhmu7ulhX0NUo4/S4VZIqqflAVihyiqBJMLodKCvcPDt9aPZ2a/p9Phtblz2sF83N0WI3aiGmJ9D21iSENDUljzMebICqIeGJHB+Sc42GPD13hYw+NHisbEjEOoW0LhGqHbnNwSdX01ulwnXUU9ccwK8oNNLCO1ndUkEw6AfcoV06KA9EdutfVAr1ln/YjciyqAjRlYvX7zGc86zhbT2CaLJnfDPraMJwXyfr7yncft2t0DrIePDEXd2cR4GXE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(19092799006)(23010399003)(1800799024)(261009223027099003)(10067099003)(56012099006)(6133799003)(22082099003)(18002099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bV00cBVOUjLMIoxsCBHOL0Ihr97sxoivHhabr6OJSrRmENCdNmR/cgj1iNKf?=
- =?us-ascii?Q?J5d4IU+FPI9J9yG/InxkztThGy56P+tJS7N4sWlOLh9I3NbayoSM+vTDSu2Z?=
- =?us-ascii?Q?mudPXnJgDGL9h9WGz7LbVrztQWycPXFKozHYRGJ8sDGSzwnnhg4wywPxPE3c?=
- =?us-ascii?Q?h+so3H4UOgYtJBTUxTOhPr2lF3xbfvswqRyxn+aHnf+UvasYHLvQAdoZSB4Q?=
- =?us-ascii?Q?G7SthxJOaaI3CB/Y0AwX803CJRK5C7ivGmP8rFBDMhgDCuYmk0hm9IC050sC?=
- =?us-ascii?Q?d/ljpqRLKRludom4t+xKGFYYDyvwkOjWfUiZzse35YyMtpU2BvV7+7uaEziW?=
- =?us-ascii?Q?UuBAYyu3vj8WjSe9xbYFlIJBfw0IyzGqev9qaDSnnsYAO0TUGFVtlVgAZmdD?=
- =?us-ascii?Q?hSxpJBPPvrw4ndcygmRqE4xkPVeZUlRMjObADVSDPJXKnMMoPeXAEYx+eQCW?=
- =?us-ascii?Q?9Zr40SQ87d6F+X4DvNe9XC9NKYcWO1XsvA66ZOUv37zJunJ5am8t5kcDImsi?=
- =?us-ascii?Q?Zaxn5VGJOIiDGhX7icykeCvwUeqLZLBi4RPD+tNew05TjqW9miDCUYuaQK1j?=
- =?us-ascii?Q?QRI1GP/UEE7u96nS5b64btyoAnCuzfmMGfZDxIWbiKUrfsfJ0HMEviHBAcBm?=
- =?us-ascii?Q?uD92UiWgk1NIGL+k6Y5prnkUhllBF1skHT9W3ERBQSlgNtz56MlSlwiMfJme?=
- =?us-ascii?Q?gxCCwXgjP17qIqXDj4iqXfVJwa7vUg0kHbS+cmToT61Zp76EIiTzof3wuqv0?=
- =?us-ascii?Q?9Re1JCAFOBWPMqiJhs5AIXmiExdeY7XDCX3vk47jGlrNdTVDPGPkpHzwbfj/?=
- =?us-ascii?Q?o8tgasvs2P7eOBeap0g9W+K5KcZmdFYZeZqQrWCpVlSNsASsDS75OFtjupDA?=
- =?us-ascii?Q?DIBpu04zKM4xB8gosihoMbz3wtKQZrvE8aZJJ6JcprSNhXJSUZ/CcFeXrJSn?=
- =?us-ascii?Q?nxchxSpcNO8goR759jZEvEnGcFsCJiJyuK/zANBphKsNzPK8lzmTE7EUevHM?=
- =?us-ascii?Q?K5P1p5GkjqtSbfRB5w3KZdn3HMj6q3Ae4UqfSNGi2XqY1pAEajUA4ZBFXKMX?=
- =?us-ascii?Q?sIn6canAaYatkRauPwKU7T4GYX3kCscdgPfVdIZvMS4Midtchr54Xgv/x6UO?=
- =?us-ascii?Q?pqfMn55667tFvX9sGujHN+scGsP5gpvYd9IEZ09HtgJXk06hBsDpnIJ4El5X?=
- =?us-ascii?Q?0UEipPhRLTu+T/SXfkCAUPQ/4nOZPH35UVzRzrHE2yYEBtvIBRql6Qx4VZJp?=
- =?us-ascii?Q?DoB74fwTz5iBSMw8093l5O/TcM+G/3icmXbGMWWxALlgRetXyCE3twgioUFt?=
- =?us-ascii?Q?sptsuMKU+eZSJMNu43X5SvwuM5E/hMh/FwmiaXM7rk+mZ8KV5TAxqwyby0xB?=
- =?us-ascii?Q?pu5cs1gfej1LngNmnlJ+2LwKgkezFp2X+Qv28+YOI4aww6hzGmLD6aDtrUQq?=
- =?us-ascii?Q?dhCuIeGGLUbDZjQmkBF+s+VNKj7UE+NBNeRUb0bjz02iGzxmQbjF5JTi0xnu?=
- =?us-ascii?Q?Npd4YgHR6/wSFmBRkrjqZYg0cwvNjrv76JRIHNnPeGqvjLmB+ruiqlAs2TBD?=
- =?us-ascii?Q?fm0aWZlMvqmWI7c6QgkUT85iV2bpNDavpE2jAmwChhzRFi51BmLOOhXQT1K/?=
- =?us-ascii?Q?1Lcq14wTkuyroVHe53676SV3rvEFzTy7kKpz61HUihtu6xfx9mwle/n8krQH?=
- =?us-ascii?Q?sQHX0np79Yz5mnMW7H18S48zf3abEENz/lDuqMsemBaxKBIRWaC20T0OfcND?=
- =?us-ascii?Q?zFG3rAmNOg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 62f1170b-3a9f-41a8-326f-08df2f4cab36
-X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 08:24:04.7084
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MQzrw4PR6h6LRHV7x/t9r8yGCwpak1pC34UnTPvX5T4Xq75IuIGZjD+bejFPssWjPvrVFtgwP3iX/wBgAaXK9Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10906
+Content-Type: text/plain; charset="utf-8"
+X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zS_KCgD3l6KjdthqFF21AA--.41144S2
+X-CM-SenderInfo: qssvjiasrsq6lmxovvfxof0/1tbiAhILCmrXxB0pugAAsm
+X-CM-DELIVERINFO: =?B?2V0buQXKKxbFmtjJiESix3B1w3vD7IpoGYuur0o+r46DyAi5OfOO+T4vrW4FyUBIyu
+	9q9Ks5WUqw3Z4rlIZd02nqEtft0MzfTq+s1QmQjSEdvTyQRalMSZtQuQPd1hkbAvlvYlWg
+	6mzcp2KQy1GcuN/vxziY0QFgxtPKvJ2azCYMXYYrIqdIu0K+Kh20jDwP2BcX0g==
+X-Coremail-Antispam: 1Uk129KBj93XoWxGFW3trWkWr4xtr13CF18tFc_yoW5GrW3pr
+	1kKryrKF1kGr4Uur9rJrWxZFn8GF4xXa17Wr95Aay2qF47J3s8Gry5tFyIqrWak34Ikw1x
+	tr4qva409w15CFgCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUBEb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Cr1j6rxdM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx1l5I
+	8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AK
+	xVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7xvr2IYc2Ij64
+	vIr40E4x8a64kEw24lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxAIw28I
+	cxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2
+	IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8Jr1lIxkGc2Ij64vIr41l
+	IxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
+	CI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2
+	z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07jeD73UUUUU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_012411_851139_E197B793 
-X-CRM114-Status: GOOD (  23.51  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261021_012416_953587_E35A5DA0 
+X-CRM114-Status: GOOD (  11.97  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,75 +129,81 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 04:12:53PM -0400, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> Add support for the Waiken WKS101WX001-WCT, an industrial-grade 10.1-inch
-> IPS TFT LCD panel with a capacitive touchscreen.
-> 
-> Although the module advertises LVDS support, enabling LVDS operation
-> requires hardware modification, including the removal of several on-board
-> resistors. As there are currently no known users of the LVDS configuration,
-> only the default interface mode is supported.
-> 
-> If LVDS support is needed in the future, a dedicated driver can be
-> introduced to handle switching between LVDS and LDB modes.
+From: Yazhou Tang <tangyazhou518@outlook.com>
 
-s/LDB/DPI/ ?
+check_alu_fields() currently validates insn->off together with the
+source-specific reserved fields. This duplicates the DIV and MOD
+variant rules between register and immediate forms and makes the valid
+instruction variants difficult to identify.
 
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> change in v3
-> - add wct surfix and change to use MEDIA_BUS_FMT_RGB888_1X24
-> - Add information about lvds support plan.
-> 
-> change in v2
-> - update height to 135 from 136 (sashiko)
-> ---
->  drivers/gpu/drm/panel/panel-simple.c | 31 +++++++++++++++++++++++++++++++
->  1 file changed, 31 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
-> index d7dbd7442919b..f2a1668087de7 100644
-> --- a/drivers/gpu/drm/panel/panel-simple.c
-> +++ b/drivers/gpu/drm/panel/panel-simple.c
-> @@ -5252,6 +5252,34 @@ static const struct panel_desc vl050_8048nt_c01 = {
->  	.bus_flags = DRM_BUS_FLAG_DE_HIGH | DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE,
->  };
->  
-> +static const struct drm_display_mode waiken_101wx001_mode = {
+Move the opcode-specific insn->off validation into is_valid_alu_variant().
+The helper permits off == 1 for DIV and MOD and requires off == 0 for all
+other ALU operations. Validate the variant once, then separately check the
+reserved immediate field for register sources and src_reg for immediate sources.
 
-To align with the compatible string:
-s/101wx001/101wx001_WCT/
+This is a pure refactoring and does not change which instruction encodings
+the verifier accepts.
 
-> +	.clock = 71100,
-> +	.hdisplay = 1280,
-> +	.hsync_start = 1280 + 70,
-> +	.hsync_end = 1280 + 70 + 10,
-> +	.htotal = 1280 + 70 + 10 + 80,
-> +	.vdisplay = 800,
-> +	.vsync_start = 800 + 10,
-> +	.vsync_end = 800 + 10 + 3,
-> +	.vtotal = 800 + 10 + 3 + 10,
-> +	.width_mm = 217,
-> +	.height_mm = 135,
-> +	.flags = DRM_MODE_FLAG_NHSYNC | DRM_MODE_FLAG_NVSYNC,
-> +};
-> +
-> +static const struct panel_desc waiken_101wx001_panel = {
+Signed-off-by: Yazhou Tang <tangyazhou518@outlook.com>
+Co-developed-by: Tianci Cao <ziye@zju.edu.cn>
+Signed-off-by: Tianci Cao <ziye@zju.edu.cn>
+Co-developed-by: Shenghao Yuan <shenghaoyuan0928@163.com>
+Signed-off-by: Shenghao Yuan <shenghaoyuan0928@163.com>
+---
+ kernel/bpf/verifier.c | 24 +++++++++++++++---------
+ 1 file changed, 15 insertions(+), 9 deletions(-)
 
-Ditto.
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index 5601d2056218..4f9d7b3de442 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -21194,6 +21194,18 @@ static int fd_array_get_map_idx(struct bpf_verifier_env *env, u32 idx)
+ 	return -EPROTO;
+ }
+ 
++static bool is_valid_alu_variant(const struct bpf_insn *insn)
++{
++	switch (BPF_OP(insn->code)) {
++	case BPF_DIV:
++	case BPF_MOD:
++		/* off == 1 selects SDIV/SMOD. */
++		return insn->off == 0 || insn->off == 1;
++	default:
++		return insn->off == 0;
++	}
++}
++
+ static int check_alu_fields(struct bpf_verifier_env *env, struct bpf_insn *insn)
+ {
+ 	u8 class = BPF_CLASS(insn->code);
+@@ -21249,15 +21261,9 @@ static int check_alu_fields(struct bpf_verifier_env *env, struct bpf_insn *insn)
+ 	case BPF_MUL:
+ 	case BPF_DIV:
+ 	case BPF_MOD:
+-		if (BPF_SRC(insn->code) == BPF_X) {
+-			if (insn->imm != 0 || (insn->off != 0 && insn->off != 1) ||
+-			    (insn->off == 1 && opcode != BPF_MOD && opcode != BPF_DIV)) {
+-				verbose(env, "BPF_ALU uses reserved fields\n");
+-				return -EINVAL;
+-			}
+-		} else if (insn->src_reg != BPF_REG_0 ||
+-			   (insn->off != 0 && insn->off != 1) ||
+-			   (insn->off == 1 && opcode != BPF_MOD && opcode != BPF_DIV)) {
++		if (!is_valid_alu_variant(insn) ||
++		    (BPF_SRC(insn->code) == BPF_X && insn->imm != 0) ||
++		    (BPF_SRC(insn->code) == BPF_K && insn->src_reg != BPF_REG_0)) {
+ 			verbose(env, "BPF_ALU uses reserved fields\n");
+ 			return -EINVAL;
+ 		}
 
 -- 
-Regards,
-Liu Ying
+2.56.0
+
 
