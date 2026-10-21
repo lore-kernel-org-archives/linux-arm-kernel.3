@@ -2,104 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C051606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:30:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B811606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:33:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=309l/5ep;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jaf2r3ld
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kUdGx/QV;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EL71qw1T
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=957G2mErVd6A0+xGGgP3Dv2Yz/cVZ3gHz/1oWxMzJUI=; b=309l/5ep9DmSK8w3Cfji8ie6GK
-	72IO7NNvbD55JcnAKoDKI/ClSLMOJ4iCIo0HgR+itHtKvf13Ec4Benkaegtz9naTr9edYnB1Fkgex
-	7tvkYo5VcUVkNEERxVjvmWxxXapa8AeTEcPzRFZIWCP0ETzPXjz2TfE8ZUwQYyaUJi2dvKzJ8CDSy
-	MUH/TPR2onPlKch5I2TVrQAeQ5yysIaw7DV2dYiDO84NvGmTzZ7t7zZtMmO/clsRYv6jwaq9H6RPN
-	NukbUM6N1LU2mjsbKLUi9mnCdzDe+D4QcmUl3b1F05GR3v5NTJDeBBSpdhbceT/x2A6VX8fshK+zy
-	yMcUekjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZO0R7AUCd3fn8n7Ia6A45uzQOJbzCgxNKEP+cM/ZrgU=; b=kUdGx/QVnbkpIG1Q3zdxKBbqe0
+	LiHma4MwXDleS70qW4khMrKSQLi+Ex+4CBeybOqahrkRnkDTdX4msnRyPaMhRTDtyGcfjHuo8xpDo
+	EP/iTryVsiHnDebJe8pLnmsp5nkl99Y2NtBVDHlUXOMOJlDS6kPrRi9jXlgVsl5IBY9ZsomN9PS4j
+	ib/riDKRHmiX9CfGCn2czPRw1jXFrWBTf3MlIBTwvHrqWzZ1g6+ndIsZjdW9dKlUke/tnPHh6BNrh
+	2C/zUtaJOnyEwj3L5XirFlSYg36QTVI7N3ui/x3qqvH480hQbK81oFICCBd+XRvRypk9+r0ZqEQrR
+	ITn/XHgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJXKW-0000000C6PU-1Xgp;
-	Wed, 21 Oct 2026 14:30:12 +0000
+	id 1xJXNN-0000000C6jW-36LV;
+	Wed, 21 Oct 2026 14:33:09 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJXKV-0000000C6PF-11Lb
+	id 1xJXNM-0000000C6jI-0zAy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 14:30:11 +0000
+	Wed, 21 Oct 2026 14:33:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A3FED436AA;
-	Wed, 21 Oct 2026 14:30:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 837CF1F000C4;
-	Wed, 21 Oct 2026 14:30:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DF43B43ACD;
+	Wed, 21 Oct 2026 14:33:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 177EB1F000C4;
+	Wed, 21 Oct 2026 14:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792593010;
-	bh=957G2mErVd6A0+xGGgP3Dv2Yz/cVZ3gHz/1oWxMzJUI=;
+	s=k20260515; t=1792593187;
+	bh=ZO0R7AUCd3fn8n7Ia6A45uzQOJbzCgxNKEP+cM/ZrgU=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Jaf2r3ld/vpyAqfuxLoNTCUrwseVzC/QmW175rdNMmKgtM9t36o4o481+8Cxj7rZW
-	 rp1S0XUsvlovMMNmIwoCvOy2J6+zIQiLquI3PLygoNGmacXnuZq7io5y/rPeO8mvJH
-	 XbQ07nEJJYqVMOosLQwWZV2a0B2IdhH9AWezII3rZeszrMa5UZ2y9S7yOpqPzHNGHu
-	 eRH8TOIBo4QM+vwg9utUNMlMIFtbd5krXKuO7GVRc2babNJANBA7E1HLU7tgiJVW3A
-	 HOCxhHQKoWIkmK6GUq64ZMuekeyfFEBocBwVCHDAfXhQnPrdyaH5a0B6af6pOHdt3I
-	 3jTEDoPa3OrDQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xJXKS-00000005hTS-0Cu0;
-	Wed, 21 Oct 2026 14:30:08 +0000
-Date: Wed, 21 Oct 2026 15:30:07 +0100
-Message-ID: <86ld7ryvm8.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	will@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	oupton@kernel.org,
-	gshan@redhat.com,
-	joey.gouly@arm.com,
-	tabba@google.com,
-	yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	alpergun@google.com,
-	fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org,
-	enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com,
-	jonathan.cameron@oss.qualcomm.com
-Subject: Re: [PATCH v19 5/7] firmware: arm_rmm: Activate the RMM
-In-Reply-To: <5d487949-9195-442f-97af-acb9e3fdfb0d@arm.com>
-References: <20260924135201.850038-1-suzuki.poulose@arm.com>
-	<20260924135201.850038-6-suzuki.poulose@arm.com>
-	<arZmXFw5Jw2IbAmA@arm.com>
-	<a11aba04-eaaa-43fd-988b-a2581b1b2fdb@arm.com>
-	<araketG70TIKeNuf@arm.com>
-	<12e83d88-de4c-4230-aac2-1796123320ad@arm.com>
-	<70d47475-e26e-40e1-b409-b0c16aecb8c0@arm.com>
-	<195cdfe4-a55a-453f-9c34-620738eca244@arm.com>
-	<arqrZ_Auk9BYOopa@arm.com>
-	<0f68dcff-1dfe-4515-9912-515ca6457674@arm.com>
-	<arudWVBPXcnUvYNh@arm.com>
-	<5d487949-9195-442f-97af-acb9e3fdfb0d@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	b=EL71qw1TUN5cW41RTrsuoUw2znHrbg0f1ajBkG3QMsazwtTvyR5ZaKNIoRrtyhDm3
+	 eJoFN849bTc5gPNLOoGIwAi96XBWmfWNXRJPjqhHeLgyIpEECXz/PIY/5+tBoVUqvS
+	 FycVxB/tvFuRBDJBI7/bl6CHcuuUoSMWSjCIbOprgClI1lXMMJ7T7lJ33lh6IiKHN3
+	 4gvi8ToDmBdVy9uMYzhuc9LF6HWJtT7SDee7mCoPBl070yaAF+gb6DOYv5htAqZT+Q
+	 L59pNgrK82cbE4BIL7BNqc6SaVyGhp6alH/KhEP4YCwhKSoRszm7hGQ/OYWwsf1zhY
+	 FjhRmN46nG3eA==
+Date: Wed, 21 Oct 2026 07:33:06 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Kurt Kanzenbach <kurt@linutronix.de>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Paolo
+ Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>, Daniel
+ Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev
+ <sdf@fomichev.me>, Song Yoong Siang <yoong.siang.song@intel.com>, Mohd
+ Faizal Abdul Rahim <faizal.abdul.rahim@intel.com>, Ong Boon Leong
+ <boon.leong.ong@intel.com>, Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>, Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
+ Nicolai Buchwitz <nb@tipi-net.de>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH net v3 0/2] net: stmmac: Fix XSK crashes on stm32mp2
+Message-ID: <20261021073306.61972417@kernel.org>
+In-Reply-To: <874iefjjan.fsf@jax.kurt.home>
+References: <20261013-stmmac_xsk_crashes-v3-0-50fca7790af2@linutronix.de>
+	<20261020140849.12fc79ef@kernel.org>
+	<874iefjjan.fsf@jax.kurt.home>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, catalin.marinas@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,61 +87,18 @@ X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 21 Oct 2026 10:58:13 +0100,
-Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+On Wed, 21 Oct 2026 15:05:20 +0200 Kurt Kanzenbach wrote:
+> On Tue Oct 20 2026, Jakub Kicinski wrote:
+> > On Tue, 13 Oct 2026 10:57:20 +0200 Kurt Kanzenbach wrote:  
+> >> while looking at the TBS thingy [1], I've noticed kernel crashes. That
+> >> happens when opening or closing an AF_XDP/ZC socket while parallel Tx
+> >> traffic is going on.  
+> >
+> > Let's respin this against net-next. The merge window has started,
+> > applying this to net would give us an immediate conflict and pain.  
 > 
-> On 29/09/2026 12:15, Catalin Marinas wrote:
-> > On Mon, Sep 28, 2026 at 07:28:20PM +0100, Suzuki K Poulose wrote:
-> >> On 28/09/2026 19:01, Catalin Marinas wrote:
-> >>> possible, to defer the RMM activation until the first user (still do the
-> >>> RMI probing as an initcall). If we run on RME-capable hardware and
-> >>> firmware but don't care about realms or TSM, we still get the normal OS
-> >>> functionality.
-> >> 
-> >> Would you prefer this in the first drop of the RMM ? Or is this
-> >> something we could add as a separate series ?
-> > 
-> > I think we could add the deferring as a separate patch, maybe together
-> > with the KVM bits. An advantage of keeping it here if we merge this
-> > first is that we still exercise the activation path without full realm
-> > support or TSM. Otherwise a lot of this would be dead code until the
-> > other series arrive. Either way, do it as as separate patch on top of
-> > this series.
-> > 
-> 
-> I have been looking at the "on-demand" activation support and came
-> across the following design decision.
-> 
-> * We have KVM_CAP_ARM_RME which advertises that KVM can create Realm VMs
->   to the userspace. A VMM could check this before it creates a Realm VM
->   using KVM_CREATE_VM with type=RealmVM.
-> 
-> 
-> Now, we could delay the RMM activation as late as the KVM_CREATE_VM and
-> kick it off while we initialise the kvm as part of kvm_arch_init_vm().
-> But if that fails, we would fail the KVM_CREATE_VM.
-> 
-> The question is, what should KVM_CAP_ARM_RME indicate ?  We could
-> initially enable the cap based on the presence of RMM (but not
-> activated). However, should we turn the KVM_CAP_ARM_RME=off when we
-> fail to activate the RMM ? Is that senisble ? (i.e., runtime
-> disabling a cap).
+> I'll send this against net-next when it opens again. Thank you.
 
-I think this sets a bad precedent. If activation can fail, KVM end-up
-not delivering on the promise that it makes, and that's not great.
-
-My take is that the least surprising behaviour is best. If you have
-bought into the CCA kool-aid by enabling it on the kernel command
-line, that's not by accident. You expect your VMs to reliably be
-created when KVM tells you that CCA is available.
-
-So KVM_CAP_ARM_RME should indicate whether the RMM has been
-successfully activated, and nothing else.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+I mean that you can repost it now, just rebase on net-next.
+By the time we apply it net-next will be net so to speak.
 
