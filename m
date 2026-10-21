@@ -2,65 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5567606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6AA8606A319
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 08:10:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=k+aSeNME;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=P2PnUFFT;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=XYj3T8fe
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WZk8SNHp;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=g/fZrjr2;
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=hfZxj++C
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xUALyvtUXYfkbKIvNlqiBzpv7vLH5wP8YCmHD2a1OBQ=; b=k+aSeNME5kLs9Xs5XgiEvIhZ5+
-	SEmORpO6vTYSc1tvpr5eDJnnrh8js14YcUOmYqkOCLEmtUJqxjrAINEmVY2YFU3LNxI0FlPrdKBxs
-	kgEzmrITQB9X0SoTUwLgSgpB79Q8hn5hkjKvjRCLdK8bbsiscj983lwaTmqGwWTlGk6WWIgSEt/gu
-	oLS8bONP/09p/qx5HY+B6+cFe8RfYGERwBn23g8sQLUtWqg/ISYhvQEres3Uj9cj6USnzWiMo3Wo2
-	BHQePyaGDoJBHeJ3kIxD7QSm3y2sjeJrkmIHMwRdHqeYM9yBgQ02Vdj1q45yUBQoIfl5fphthlgb8
-	Bq+XzO9Q==;
+	bh=fEXjbUD3amkNKeHH7e/GPwXDSWv2ghLrxMI2EJ9KtIY=; b=WZk8SNHpRgCHRV7bejo4UtT8Op
+	7V9S7WKvtBIgFWuR7mq9OPsj9pQk34RCu0Q1iR/F3S6ISdrYEXV9lk0wb3eaJqXHS8a8bbodfKJr8
+	hOFqe5M1rNtpmz71u4lKUjgOkmMvHGXUSVCuis4Qn/8r8nIQrW3uyPfdfwCr4bog2qkoa9oXcs1SQ
+	EX4dBjNNsuULr180j8ya6ZK5ywjaFNLGUBsh2M8ozZo4ddD/qqICL3+04SPioohmAAg9Km1SSe9PU
+	bXtSQvYg+fpl/MJo6oGTCnGG/DKJmINdIiPopYq3gUVT/7lvxcg61y54iEhLywBH+wJwl39ccFVzw
+	R7SpSAUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJROv-0000000BIzL-0HW6;
-	Wed, 21 Oct 2026 08:10:21 +0000
+	id 1xJROu-0000000BIys-40MQ;
+	Wed, 21 Oct 2026 08:10:20 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJROn-0000000BIuj-0msf
+	id 1xJROn-0000000BIui-0fBu
 	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 21 Oct 2026 08:10:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=xUALyvtUXYfkbKIvNlqiBzpv7vLH5wP8YCmHD2a1OBQ=; b=P2PnUFFTOhspHxobitatAX2V06
-	Eb3ydxpMlgLK+SlrXI175qBlzc+sskW1g0er1kpJlGsSI8N2ta2Mu95lMqIqYCF1f3BQE15hWbdPk
-	/+UtTiur45THgvcpb/9tJBVzM1BE9C7AFkXrL9JCEsox7Pw4I15cBl+Dv+5AI+QeMX9kZwZ9pNG1Y
-	oT572RVw9vp+aVT+LjpBkgEo93NYuzakIrhx2Q64uIx7godTNs7PSeeCT2/jaWoEx0Tvipxxbmb5Z
-	uuaQg5UwU47e/FcBnlWkaQlDKen8NrYxWURfTN6zfIzVJ6G2REQGVU9csmKDkKNVQqV9LA5xwcY0u
-	J/IXmV3A==;
+	bh=fEXjbUD3amkNKeHH7e/GPwXDSWv2ghLrxMI2EJ9KtIY=; b=g/fZrjr2h2FjWmd/V/tNypCQCq
+	Z+ZdMvg5ykPYKtbyO9Ma55pN7lEAsd51JpYdN0Ytxhp1beP+wINo1LZTfTC3sajd8fmDahve6xeae
+	Wjpd0eItuqcdn3cKiSxLYum+6VN27VT5pU85QTiuyTkNhsLlcpypwjZrol44HJte5baK/FFB3Giwo
+	wbOGS/90Xy2vggjWJBR9AF/75vpdETa41pXt8qse5ZVYx3wIJiJQI5xSeUsqbrPn3ZrbR3o0BxNLP
+	KokZOzTV8PcagBQji3ggpfEsIxkBU4EfHXZhWV5NbNa0mfNv91rY0KyTAe0+kqkyShFVGKRP06/kl
+	tqbV1NcA==;
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xJROi-00000005a01-1MXE
+	id 1xJROi-00000005Zza-1AE5
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 21 Oct 2026 08:10:11 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 33F934E41298;
-	Wed, 21 Oct 2026 08:10:01 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id BF9254E41297
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 08:09:59 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 091FD606E3;
-	Wed, 21 Oct 2026 08:10:01 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ACA7310328934;
-	Wed, 21 Oct 2026 10:09:58 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 94C5F606E3;
+	Wed, 21 Oct 2026 08:09:59 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D1C8910328E21;
+	Wed, 21 Oct 2026 10:09:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1792570199; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1792570198; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=xUALyvtUXYfkbKIvNlqiBzpv7vLH5wP8YCmHD2a1OBQ=;
-	b=XYj3T8feERm2tTvVGFaDfxrHgs1EWxdJJzrU9wkdtHBgOQuKu3dDPE+NPH8LhqT8mcjaHv
-	O+jcrh/mYnQI29Xf0CFIZSa9s5XvFOkTC/TKPqXGW09qMiGAv3Ya6bt/8nyBwPEXEeaB2h
-	VkFub8Wy0S0GDxdY0fOiCSySBHOdoxmCSe+Eo5oQqPDUkrLhcfKVmCefba5a4HELc1Guy1
-	izsBNm3YMgGdVaPYV6/n1FE82PKt5YPXkCMavExdgG9dy4hqKR7KXUo6xoEO+h326Ucll+
-	o6k8VSXFyUX04Lm8glxWYYwOF2b9klCLd37bDR26VAq2nEUDdPBdD7w9XQqhVQ==
+	bh=fEXjbUD3amkNKeHH7e/GPwXDSWv2ghLrxMI2EJ9KtIY=;
+	b=hfZxj++COO30Y6He1mlQ9CUgaHJhZugGpb2dNXxe9A+218tWpKHXpr2UqeZHaBSW7OPaW7
+	W+zUCksd+H0RzxZflkehnBWMTcPk75aMjcTBFON6WvoteSa/wbaSTu6RakIsMtb4QJogCr
+	n7CimI9rIQpXEzTsiBOqv0j+VqTSM++bl0EMYHtGsOY8VKdBsD2iVq42yIJPHhsJAB8Wde
+	W0GX/bPmRchUWvZnWqVUOThQM8kCDFdha8Y/DdjVG5TgehOUTADzsqBidGWEqoocKwLS40
+	Hh6VHHR4OySqJHL19EljqWGbypON9oiYzakAU0xPvc0ckddRJrEoncvvDcd/CQ==
 From: "Richard Genoud (TI)" <richard.genoud@bootlin.com>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>
@@ -78,9 +78,9 @@ Cc: Tero Kristo <kristo@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH v5 4/6] arm64: dts: ti: k3-j721s2-ti-ipc-firmware: Reserve memory for LPM metadata
-Date: Wed, 21 Oct 2026 10:09:45 +0200
-Message-ID: <20261021080947.3747284-5-richard.genoud@bootlin.com>
+Subject: [PATCH v5 3/6] arm64: dts: ti: k3-j7200-ti-ipc-firmware: Reserve memory for LPM metadata
+Date: Wed, 21 Oct 2026 10:09:44 +0200
+Message-ID: <20261021080947.3747284-4-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261021080947.3747284-1-richard.genoud@bootlin.com>
 References: <20261021080947.3747284-1-richard.genoud@bootlin.com>
@@ -89,8 +89,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_091008_669350_55B0F55D 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20261021_091008_702171_2F79D8DF 
+X-CRM114-Status: GOOD (  13.57  )
 X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,7 +110,7 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Declare a carveout memory region to store LPM metadata on J721S2.
+Declare a carveout memory region to store LPM metadata on J7200.
 
 For Jacinto devices, this memory region is needed for saving ATF context
 and the certificate information of ATF and OPTEE and DM image. This LPM
@@ -142,27 +142,27 @@ at suspend)
 Signed-off-by: Prasanth Babu Mantena <p-mantena@ti.com>
 Signed-off-by: Richard Genoud (TI) <richard.genoud@bootlin.com>
 ---
- .../arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi | 12 ++++++++++--
+ arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi | 12 ++++++++++--
  1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-index 5253d028da09..010d20d56927 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-@@ -95,6 +95,12 @@ rtos_ipc_memory_region: memory@a8000000 {
+diff --git a/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
+index d65f68c7d432..a6043970715a 100644
+--- a/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
+@@ -47,6 +47,12 @@ rtos_ipc_memory_region: memory@a4000000 {
  		alignment = <0x1000>;
  		no-map;
  	};
 +
-+	lpm_memory_region: memory@a9c00000 {
-+		reg = <0x00 0xa9c00000 0x00 0x00300000>;
++	lpm_memory_region: memory@a4800000 {
++		reg = <0x00 0xa4800000 0x00 0x00300000>;
 +		no-map;
 +		bootph-pre-ram;
 +	};
  };
  
  &mailbox0_cluster0 {
-@@ -189,8 +195,10 @@ &mcu_r5fss0 {
+@@ -99,8 +105,10 @@ &mcu_r5fss0 {
  &mcu_r5fss0_core0 {
  	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core0>;
  	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
