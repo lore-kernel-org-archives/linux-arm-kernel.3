@@ -2,118 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D738460A2618
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 06:07:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FC6B606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 06:14:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Bm7H4JjT;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lAKCu+o+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=U6tbTBte;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Dz1W2m1m
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bxouv0kn7Sc9hHczau5510tqW8b3G6JDVUWPALdKHHY=; b=Bm7H4JjTOoniJl0J5KJntySHmq
-	7RomgDnR+Mf0QhGnc9X84N2rTiEnRIppDFw4Vek1Hq+dA9yk4UI+wlhc7vxp6E3Ph7lcfr+zl8GZJ
-	bw889CAwB57Gnt92xuaBWdV40XS7CbhEBic/fu65PUuTdEhLC2d/P8NunmglhlQlsPW9DOEdij2gM
-	TsWnQFMqkUWJVxLficHume8b2y0iXRPnOni8ntYh980slw99yjOU7rXzo1V21z6wUXucyWq77xdnk
-	vCUls+iKw3poXu8EImlQgfiEW6rbaLudM3RjL2iGfmm49+d2WFqiPxfiGNR0RY45uPiF8LbJJ+ScK
-	ByiELTfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3x3TamlaaK9V9PCuBZqg1dttpYbp4NHVNda75j19VEs=; b=U6tbTBter9Ur+Af89Mey7x3IQH
+	CkJiNczLnxjKT2rr/OgZ4f0quBu61sn9CEmFKeyJLEUdDhA1uLl4RM36ZT9KP0TRNgxLzmq4h5Lwd
+	WPoHAGrSvY0XgA7HF9ivCUCwpM4D2ljsr27gTbjs0lnlUM+CS/oWsf3VnxL2Yld5koKQe/NM5Tn6d
+	1iOmYh4S/xr103rV+KoYKM4BBqDW6MnnDWM3rbfZB7ha3Yh3S5a2+rMDQl4pOlcosiJiSMzPb2EQI
+	2yuHhn5LYKsyKJYaFZz9lhNoXYJ5bPuSHz/RtWzGj+L7gimc+imh0lWF7UEo7bVbqIWTKdpAyxTQY
+	2yALE7Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJPUI-0000000B8Ii-1WvC;
-	Wed, 21 Oct 2026 06:07:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJPUH-0000000B8IT-1q1J;
-	Wed, 21 Oct 2026 06:07:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4BCE0601F1;
-	Wed, 21 Oct 2026 06:07:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDF221F000C9;
-	Wed, 21 Oct 2026 06:07:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792562864;
-	bh=Bxouv0kn7Sc9hHczau5510tqW8b3G6JDVUWPALdKHHY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lAKCu+o+pALPobQZAUGddKwHbG2VijoTyRwY+eqaavfcyR9AC9fJt0qxzrI8yXjP8
-	 HGCWfJ2+XVVfjt3J4CUTSQNZclicJGWWm4Oph3FvNVAzBOimYdJ9fKwsP5UIofmg93
-	 SkEUYcmKUPdoP0qq7PqfvQcPYvzqd1/anQZR4gg3PO1FO2Xi4F+wkljdplItfxbX1K
-	 xU6HFKBzeA7gESVpLwIpdSE06baOfBpYqF0gj2Tm8Qys+VM0YxXdzGbt0EKFtR7sAJ
-	 Hi6iThLAJ9RVVFU5FLkZv25b9xJbt5geXLip1RTpBRfJZLdA5WJxzZ7fO69qBkUrJ9
-	 a+xsaVawV3iOQ==
-Message-ID: <43b58ad7-5934-4895-b48d-5b5a7b92e253@kernel.org>
-Date: Wed, 21 Oct 2026 08:07:34 +0200
+	id 1xJPb5-0000000B9oT-457K;
+	Wed, 21 Oct 2026 06:14:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJPb3-0000000B9nl-36My;
+	Wed, 21 Oct 2026 06:14:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF9A815A1;
+	Tue, 20 Oct 2026 23:14:37 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D69D3F673;
+	Tue, 20 Oct 2026 23:14:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792563281; bh=bY7eaKmWXeEGJZPv0klJ3mm9fvB9sa6YQ58K0dGT+DQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Dz1W2m1mtqieAvvcHZ0PElJP5ck781BRAil8keCt0J0xDmnmsvOtE2z2M/5OD8bJT
+	 x0mY2JIMQy/68/SPz8OHAETC2GSRyy6i0mXuMcfrF0pwBi7AW/wwQj2YV7ClSyJ7P8
+	 z7NHuQtFqmTF4JQhakFU6b9pfZaA/t3mKW3YduKY=
+Date: Wed, 21 Oct 2026 07:14:33 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Simon Glass <sjg@chromium.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	linux-integrity@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
+	Piotr =?iso-8859-1?Q?Kr=F3l?= <piotr.krol@3mdeb.com>,
+	Ross Philipson <ross.philipson@gmail.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Song Shuai <songshuaishuai@tinylab.org>
+Subject: Re: [PATCH v2 15/15] efi/arm64: Implement ARM64 DRTM in the stub
+Message-ID: <athYSbJXA96DZK-X@e129823.arm.com>
+References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+ <15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+ <atf4ONRM3xbs877y@e129823.arm.com>
+ <20261020233435.GJ3008132@nvidia.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v10 1/9] dt-bindings: mfd: mt6397: Add MT6392 PMIC
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
- linux-mediatek@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
- Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Linus Walleij <linusw@kernel.org>, Val Packett <val@packett.cool>,
- Fabien Parent <parent.f@gmail.com>, Akari Tsuyukusa
- <akkun11.open@gmail.com>, Chen Zhong <chen.zhong@mediatek.com>,
- linux-input@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, mfd@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-References: <20261020173556.632798-1-l.scorcia@gmail.com>
- <20261020173556.632798-2-l.scorcia@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261020173556.632798-2-l.scorcia@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261020233435.GJ3008132@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261020_231446_069675_C03705C8 
+X-CRM114-Status: GOOD (  20.94  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,28 +91,54 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 20/10/2026 19:33, Luca Leonardo Scorcia wrote:
-> Describe the MT6392 PMIC and its RTC and regulator devices. This device
-> is mostly based on MT6323 with some similarities to MT6397 and is usually
-> found on boards using the MT8516/MT8167 SoC.
+On Tue, Oct 20, 2026 at 08:34:35PM -0300, Jason Gunthorpe wrote:
+> On Wed, Oct 21, 2026 at 12:24:40AM +0100, Yeoreum Yun wrote:
+> > One small question...
+> > 
+> > [..snipped..]
+> > 
+> > > +void efi_drtm_launch(void)
+> > > +{
+> > > +	if (efi_drtm_policy == EFI_DRTM_OFF)
+> > > +		return;
+> > > +
+> > > +	/*
+> > > +	 * No cache maintenance is required before the launch. v1.4B R42130 in
+> > > +	 * Table 22 "DCE preamble requirements" requires the DRTM_PARAMETERS to
+> > > +	 * be accessible as Normal Write-Back Cacheable, Inner Shareable memory,
+> > > +	 * so the DCE reads them coherently with the writes made above.  R45220
+> > > +	 * in Table 30 "DCE requirements for the DLME" then has the DCE clean
+> > > +	 * and invalidate the whole DLME region to the Point of Coherency before
+> > > +	 * it measures the DLME image, which covers both the Image itself and
+> > > +	 * the handoff struct placed in the DLME region. Thus once we jump into
+> > > +	 * the kernel with MMU and caches off the CPU will see everything the
+> > > +	 * stub wrote.
+> > > +	 */
+> > > +	arm_drtm_dynamic_launch(drtm_cfg.params_addr);
+> > 
+> > After launching, How to get eventlogs for measurement of DLEM if
+> > tpm_read_log_efi() is used? Doesn't it need to concatenate those
+> > event logs from DRTM eventlog in returned DLEM data?
 > 
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
+> My plan is a future series will return them as a discrete log bundle
+> through attestation subsystem. All of the logs will be available
+> consistently that way, CCGL, the EFI and ACPI ones..
+> 
+> And it will be logically linked to the ROT the DRTM uses in some
+> future ROT agile DRTM flow. So we can tell the difference between a
+> TPM bare metal launch into PCRs and something like a realm launch into
+> REMs.
 
+Make sense. Thanks!
 
-And here you write clear note about dependency, once you fixed
-bisectability.
-
-Best regards,
-Krzysztof
+-- 
+Sincerely,
+Yeoreum Yun
 
