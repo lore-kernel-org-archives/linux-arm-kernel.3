@@ -2,82 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4A0D606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 09:26:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 194E8606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 09:33:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Uvavgac9;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QWTE8VNC
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lRFDIgs1;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mIVZebeJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqlZ3i98W8KIbKL/1v8ATr9shp2SQpSgzOXsLucMZMc=; b=Uvavgac9tZYy86huTd4bcT/zNb
-	IardwygJ768VUMOU4zn6VQop7KnjTjIyPSySKyqToEd97mdvfJvJt7VytGublnfwB/i4h5vC3hUqq
-	x0YWu/FfE+xPcX69FYZQ7x6o3KL5NSjX6JSAUO1fc8I8H+KhJ1nkC3cGlFJRV4NoScSjei58UED/P
-	9MVpOCIaHw8t6POP/XaOb5lD7lKb0+TURbTJI0lt+DJjbAW6wlUC6lFy0rMU9bn/5T+/egJQg1ShW
-	Ke2clyZU081hJJA7ZSirhGjRGocUD7prwQVR8VwPBn1mlewYxk/B088ZvXdlG8KADDoxeIJcVD1p4
-	+9DNHWTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jr7HnwUIiu7FdL/RBzGWRsmL/DGvW3qYiYRJage31n4=; b=lRFDIgs1qIhDzeuv3ITcJyoAEh
+	wcVHyHl0FMwMg8O2d4HciE0YXFdf5LhM55N+8Z7DG/3Y8y8pkeEm71nlVfeqvlb2tR+3oN45wFXUQ
+	v5S+EzfhgvHY+jiYx7QsrpoP8kH6QZIxpvpkHDdqFO+p/JyjsofJfe7AcMspfDWlyGzVgmq9gG5sp
+	29si8kxosYriTuMcQxSSAEpFWB0fZnJsPJx/MfY2rWEg4d+RYYsJapF8Hv7TTZ6B8HUwg4aLI3KHX
+	r0cEAJGkfCPcyLuLHZNS4v3/TAyP4F1gMeUAoO/3rNYeKVgimsP+WvFrHkcJ2hVCRjXhcx9vK0naD
+	p9Wu36wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRNR-0000000BIb4-2Opi;
-	Wed, 21 Oct 2026 08:08:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRNO-0000000BIaP-15D7;
-	Wed, 21 Oct 2026 08:08:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 768F41595;
-	Wed, 21 Oct 2026 01:08:40 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2E2B63F7B4;
-	Wed, 21 Oct 2026 01:08:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792570123; bh=cnyaEnul7lwGJfjB43Qer2YuUdo+zKOTOANHUovpt8U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QWTE8VNC/AdoGW019vhpgeWWcJzn9DWgmoS9MuR8/DW6vM35uoQ3+eaqVROLKArdR
-	 xuDjU731EIsKkFLN1tAyXJbvHHNAbi7ZH9VUqzwmbZ9ErkGfm5ssYs3AUc8ZoRD3IS
-	 CW90xGvB3du+N8D+SSO9tKTZaobu8I69mNET1k5I=
-Date: Wed, 21 Oct 2026 09:08:36 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Simon Glass <sjg@chromium.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-integrity@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
-	Piotr =?iso-8859-1?Q?Kr=F3l?= <piotr.krol@3mdeb.com>,
-	Ross Philipson <ross.philipson@gmail.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Song Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH v2 15/15] efi/arm64: Implement ARM64 DRTM in the stub
-Message-ID: <athzBHFwyp0bFEu9@e129823.arm.com>
-References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+	id 1xJSh8-0000000BUve-44pA;
+	Wed, 21 Oct 2026 09:33:14 +0000
+Received: from out-168.mta1.migadu.com ([95.215.58.168] helo=mta1.migadu.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJSh6-0000000BUtr-1V6r
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Oct 2026 09:33:14 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=dR+VfLDHueVtZzyRT3cCSn71Vr7MLkcSNP5OUCJWM8A=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792575187; v=1; x=1793179987;
+ b=mIVZebeJDheysgRfBLQ5IYp9YqVkwZieb9MhPYSmKwSMHOcH/yx93Iq8oES6Xap5rYT+13qG
+ yGIsquauM1c7o+8BMiBIrGKBG0B44BN0ij0dcuL9yskE7+Boo8Wr6HcV4caGA6hDiut3Khw8eVe
+ B71aq7l/zBLTa9fvZH75Q6vE=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by mta12.migadu.com with ESMTPS id 0674a95a7bee71c4;
+	Wed, 21 Oct 2026 09:33:06 +0000
+X-Mizu-Trace-ID: 0674a95a7bee71c4
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=us-ascii
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.12\))
+Subject: Re: [PATCH v2 01/20] hugetlb: Don't restore vmemmap of non-HVOed
+ folios on bulk restore error
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261003002123.505555-2-jthoughton@google.com>
+Date: Wed, 21 Oct 2026 17:32:49 +0800
+Cc: Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Oscar Salvador <osalvador@suse.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Nikos Nikoleris <nikos.nikoleris@arm.com>,
+ Linu Cherian <linu.cherian@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ David Hildenbrand <david@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>,
+ Nanyong Sun <sunnanyong@huawei.com>,
+ Yu Zhao <yuzhao@google.com>,
+ Frank van der Linden <fvdl@google.com>,
+ David Rientjes <rientjes@google.com>,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <491B482A-8177-447A-8CDB-AF83C13A5DEE@linux.dev>
+References: <20261003002123.505555-1-jthoughton@google.com>
+ <20261003002123.505555-2-jthoughton@google.com>
+To: James Houghton <jthoughton@google.com>
+X-Mailer: Apple Mail (2.3901.100.1.1.12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_010846_477951_5449DA73 
-X-CRM114-Status: GOOD (  50.68  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261021_023312_714547_F6FB2A1A 
+X-CRM114-Status: GOOD (  29.61  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,456 +89,149 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Jason,
 
-Overall patches are look good to me.
 
-But small one question more.
+> On Oct 3, 2026, at 08:21, James Houghton <jthoughton@google.com> =
+wrote:
+>=20
+> When hugetlb_vmemmap_restore_folios() fails, it stops processing the
+> list, so folio_list may still contain folios that were never vmemmap
+> optimized, e.g. because HVO failed when they were allocated. Their
+> hugetlb flag has already been cleared by remove_hugetlb_folio().
+>=20
+> If no folios could be restored, bulk_vmemmap_restore_error() then =
+calls
+> hugetlb_vmemmap_restore_folio() on every folio left on folio_list,
+> including those, which trips the !folio_test_hugetlb() check in
+> __hugetlb_vmemmap_restore_folio():
+>=20
+>  page dumped because: =
+VM_WARN_ON_ONCE_FOLIO(!folio_test_hugetlb(folio))
+>  WARNING: mm/hugetlb_vmemmap.c:503 at =
+__hugetlb_vmemmap_restore_folio+0x270/0x300
+>  ...
+>   __hugetlb_vmemmap_restore_folio+0x270/0x300 (P)
+>   hugetlb_vmemmap_restore_folio+0x1c/0x30
+>   update_and_free_pages_bulk+0x2c0/0x368
+>   __nr_hugepages_store_common+0x2e8/0x3f0
+>=20
+> Otherwise this is benign: the restore is a no-op returning success for
+> non-optimized folios, which are then freed as intended.
 
-> Provide an implementation of the CONFIG_EFI_STUB_DRTM protocol for ARM64
-> DEN0113 >= v1.1.
-> 
-> First, it queries the FW for support and collects all the
-> information. This is needed to compute the extra_size, which comes
-> from FW reporting how much memory it needs during the launch for the
-> DLME Data and DCE-owned data. The generic stub ensures there is
-> trailing memory after Image for this.
-> 
-> Then the DRTM_PARAMETERS launch structure is computed using the
-> offsets in the efi_info.
-> 
-> Finally, the stub does ExitBootServices and calls the actual launch.
-> 
-> The feature discovery process is deliberately fairly verbose to help
-> debug any FW weirdness in the field. Enable it with efi=debug
-> 
-> It looks something like:
-> 
->  EFI stub: DRTM: interface version 1.4
->  EFI stub: DEBUG: DRTM: TPM algorithm 0xc, TPM hashing unavailable, PCR schemas 0x1
->  EFI stub: DEBUG: DRTM: minimum DLME data 73728 bytes, Normal-world DCE 0 bytes
->  EFI stub: Decompressing Linux Kernel...
->  EFI stub: Generating empty DTB
->  EFI stub: Exiting boot services...
->  EFI stub: DEBUG: DRTM: will launch, selected launch features 0x0
->  [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x000f0510]
-> 
-> Eventually the launch'd kernel is going to require built in crypto
-> libraries that match what the FW is using so it can validate some of the
-> information left behind during early boot. Refuse to launch if these are
-> not built in and build in the most common ones from the ARM64_DRTM
-> kconfig.
-> 
-> One nit, if the platform does not support SMC then using drtm=auto may
-> crash on the SMC op. As far as I can tell there is no way to discover SMC
-> support through EFI. Learning it from the ACPI FADT is doable and costs
-> about 250 lines of code.
-> 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Good catch.
+
+>=20
+> Skip the restore for folios that are not vmemmap optimized; they can =
+be
+> freed right away.
+>=20
+> This is very unlikely to happen without fault injection, as it =
+requires
+> both HVO and a subsequent vmemmap restore to fail.
+>=20
+> Fixes: cfb8c75099db ("hugetlb: perform vmemmap restoration on a list =
+of pages")
+> Assisted-by: LLM
+> Signed-off-by: James Houghton <jthoughton@google.com>
 > ---
->  arch/arm64/Kconfig                        |  16 +
->  drivers/firmware/efi/libstub/Makefile     |   1 +
->  drivers/firmware/efi/libstub/arm64-drtm.c | 426 ++++++++++++++++++++++
->  3 files changed, 443 insertions(+)
->  create mode 100644 drivers/firmware/efi/libstub/arm64-drtm.c
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 4a752835ce1116..30244bc2d57696 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2543,6 +2543,22 @@ config EFI
->  	  allow the kernel to be booted as an EFI application. This
->  	  is only useful on systems that have UEFI firmware.
->  
-> +config ARM64_DRTM
-> +	bool "Arm Dynamic Root of Trust for Measurement support"
-> +	depends on EFI
-> +	select CRYPTO
-> +	select CRYPTO_SHA256
-> +	select CRYPTO_SHA512
-> +	select EFI_STUB_DRTM
-> +	help
-> +	  Support launching Linux as a Dynamically Launched Measured
-> +	  Environment (DLME) using Arm's DEN0113 DRTM specification. Requires
-> +	  booting through the EFI stub. The drtm= kernel command line option
-> +	  enables or disables the launch at boot.
-> +
-> +	  If unsure, say N. This option is EXPERIMENTAL and does not yet provide
-> +	  security.
-> +
->  config COMPRESSED_INSTALL
->  	bool "Install compressed image by default"
->  	help
-> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-> index 3f1921e6c334d1..f0958b4df16592 100644
-> --- a/drivers/firmware/efi/libstub/Makefile
-> +++ b/drivers/firmware/efi/libstub/Makefile
-> @@ -83,6 +83,7 @@ lib-$(CONFIG_EFI_GENERIC_STUB)	+= efi-stub.o string.o intrinsics.o systable.o \
->  
->  lib-$(CONFIG_ARM)		+= arm32-stub.o
->  lib-$(CONFIG_ARM64)		+= kaslr.o arm64.o arm64-stub.o smbios.o
-> +lib-$(CONFIG_ARM64_DRTM)	+= arm64-drtm.o
->  lib-$(CONFIG_X86)		+= x86-stub.o smbios.o
->  lib-$(CONFIG_X86_64)		+= x86-5lvl.o
->  lib-$(CONFIG_RISCV)		+= kaslr.o riscv.o riscv-stub.o
-> diff --git a/drivers/firmware/efi/libstub/arm64-drtm.c b/drivers/firmware/efi/libstub/arm64-drtm.c
-> new file mode 100644
-> index 00000000000000..2fc58babc3e7cb
-> --- /dev/null
-> +++ b/drivers/firmware/efi/libstub/arm64-drtm.c
-> @@ -0,0 +1,426 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/* Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES
-> + *
-> + * EFI Stub implementation for ARM DEN 0113 "DRTM Architecture for Arm"
-> + *
-> + * This code runs on the untrusted side of the boot in the EFI stub. Nothing it
-> + * does should impact the integrity of the post-launch world and it does not
-> + * need to take special security precautions.
-> + */
-> +#include <linux/bitfield.h>
-> +#include <linux/efi.h>
-> +#include <linux/kconfig.h>
-> +#include <linux/overflow.h>
-> +#include <linux/sizes.h>
-> +#include <linux/tpm_command.h>
-> +#include <linux/unaligned.h>
-> +
-> +#include <uapi/linux/psci.h>
-> +
-> +#include <asm/cputype.h>
-> +#include <asm/drtm.h>
-> +#include <asm/image.h>
-> +
-> +#include "efistub.h"
-> +
-> +struct efi_drtm_config {
-> +	u32 launch_features;
-> +	unsigned long dlme_data_size;
-> +	unsigned long nw_dce_size;
-> +	struct arm_drtm_parameters *params_addr;
-> +};
-> +static struct efi_drtm_config drtm_cfg;
-> +
-> +/* True if SMCCC 1.0 or later is available. */
-> +static bool efi_arm64_psci_smccc_compatible(void)
-> +{
-> +	struct arm_smccc_res res;
-> +	s32 status;
-> +
-> +	arm_smccc_1_1_smc(PSCI_0_2_FN_PSCI_VERSION, &res);
-> +	if ((s32)res.a0 < 0)
-> +		return false;
-> +
-> +	if (PSCI_VERSION_MAJOR(res.a0) < 1)
-> +		return false;
-> +
-> +	arm_smccc_1_1_smc(PSCI_1_0_FN_PSCI_FEATURES, ARM_SMCCC_VERSION_FUNC_ID,
-> +			  &res);
-> +	status = (s32)res.a0;
-> +	if (status == PSCI_RET_NOT_SUPPORTED) {
-> +		/*
-> +		 * SMCCC_VERSION was introduced by SMCCC 1.1, so firmware that
-> +		 * does not advertise that function through PSCI_FEATURES is
-> +		 * using the valid SMCCC 1.0 baseline.
-> +		 */
-> +		return true;
-> +	} else if (status < 0) {
-> +		return false;
-> +	} else {
-> +		u32 version;
-> +
-> +		arm_smccc_1_1_smc(ARM_SMCCC_VERSION_FUNC_ID, &res);
-> +		version = res.a0;
-> +		if ((version >> 16) != 1 || version < ARM_SMCCC_VERSION_1_1)
-> +			return false;
-> +	}
-> +	return true;
-> +}
-> +
-> +static bool efi_drtm_query_feature(u64 feature, u64 *value)
-> +{
-> +	s64 status;
-> +
-> +	status = arm_drtm_query_feature(feature, value);
-> +	if (status < 1) {
-> +		efi_err("DRTM: feature %llx query failed (x0=%lld)\n", feature,
-> +			status);
-> +		return false;
-> +	}
-> +
-> +	return true;
-> +}
-> +
-> +/*
-> + * For the kernel to boot it must have the matching hash algorithm built in to
-> + * be able to validate the TCB hashes. Assume the TPM hash algorithm is the one
-> + * that TCB_HASH_TABLE will be using.
-> + */
-> +static bool efi_drtm_hash_algorithm_supported(u16 algorithm)
-> +{
-> +	switch (algorithm) {
-> +	case TPM_ALG_SHA256:
-> +		return IS_BUILTIN(CONFIG_CRYPTO_SHA256);
-> +	case TPM_ALG_SHA384:
-> +	case TPM_ALG_SHA512:
-> +		return IS_BUILTIN(CONFIG_CRYPTO_SHA512);
-> +	default:
-> +		return false;
-> +	}
-> +}
-> +
-> +static bool efi_drtm_probe_tpm(void)
-> +{
-> +	u16 algorithm;
-> +	u8 schemas;
-> +	u64 value;
-> +
-> +	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_TPM, &value))
-> +		return false;
-> +	algorithm = FIELD_GET(ARM_DRTM_TPM_ALG_MASK, value);
-> +	schemas = FIELD_GET(ARM_DRTM_PCR_SCHEMA_MASK, value);
-> +
-> +	if (!efi_drtm_hash_algorithm_supported(algorithm)) {
-> +		efi_err("DRTM: firmware hash algorithm 0x%x is unavailable (feature 0x%llx)\n",
-> +			algorithm, value);
-> +		return false;
-> +	}
-> +
-> +	if (!(schemas & BIT(ARM_DRTM_PCR_SCHEMA_DEFAULT))) {
-> +		efi_err("DRTM: default PCR schema is unavailable (feature 0x%llx)\n",
-> +			value);
-> +		return false;
-> +	}
-> +
-> +	efi_debug("DRTM: TPM algorithm 0x%x, TPM hashing %s, PCR schemas 0x%x\n",
-> +		  algorithm,
-> +		  value & ARM_DRTM_TPM_HASHING ? "available" : "unavailable",
-> +		  schemas);
-> +	return true;
-> +}
-> +
-> +static bool efi_drtm_probe_memory(void)
-> +{
-> +	u64 value;
-> +
-> +	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_MIN_MEMORY, &value))
-> +		return false;
-> +
-> +	drtm_cfg.dlme_data_size =
-> +		FIELD_GET(ARM_DRTM_DLME_DATA_PAGES_MASK, value) *
-> +		ARM_DRTM_PAGE_SIZE;
-> +	drtm_cfg.nw_dce_size = FIELD_GET(ARM_DRTM_NW_DCE_PAGES_MASK, value) *
-> +			       ARM_DRTM_PAGE_SIZE;
-> +
-> +	efi_debug("DRTM: minimum DLME data %lu bytes, Normal-world DCE %lu bytes\n",
-> +		  drtm_cfg.dlme_data_size, drtm_cfg.nw_dce_size);
-> +	return true;
-> +}
-> +
-> +static bool efi_drtm_probe_dma(void)
-> +{
-> +	u64 value;
-> +
-> +	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_DMA_PROTECTION, &value))
-> +		return false;
-> +
-> +	if (!(FIELD_GET(ARM_DRTM_DMA_PROTECTION_MASK, value) &
-> +	      BIT(ARM_DRTM_DMA_PROTECTION_COMPLETE))) {
-> +		efi_err("DRTM: complete DMA protection is unavailable (feature 0x%llx)\n",
-> +			value);
-> +		return false;
-> +	}
-> +	return true;
-> +}
-> +
-> +/* Sanity check nothing has gone wrong */
-> +static bool efi_drtm_probe_boot_pe(void)
-> +{
-> +	u64 current_pe = read_cpuid_mpidr() & MPIDR_HWID_BITMASK;
-> +	u64 boot_pe;
-> +
-> +	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_BOOT_PE, &boot_pe))
-> +		return false;
-> +
-> +	if ((boot_pe & MPIDR_HWID_BITMASK) != current_pe) {
-> +		efi_err("DRTM: boot PE 0x%llx does not match current PE 0x%llx\n",
-> +			boot_pe, current_pe);
-> +		return false;
-> +	}
-> +
-> +	return true;
-> +}
-> +
-> +static void efi_drtm_report_previous_error(void)
-> +{
-> +	s64 error_code;
-> +	s64 status;
-> +
-> +	status = arm_drtm_query_function(ARM_DRTM_SMC_GET_ERROR);
-> +	if (status != ARM_DRTM_SUCCESS) {
-> +		efi_debug("DRTM: GET_ERROR is unavailable (x0=%lld)\n", status);
-> +		return;
-> +	}
-> +
-> +	status = arm_drtm_get_error(&error_code);
-> +	if (status != ARM_DRTM_SUCCESS) {
-> +		efi_warn("DRTM: failed to read previous error (x0=%lld)\n",
-> +			 status);
-> +		return;
-> +	}
-> +
-> +	if (error_code) {
-> +		efi_warn("DRTM: firmware reports previous launch error 0x%llx\n",
-> +			 error_code);
-> +		if (efi_drtm_policy != EFI_DRTM_ENFORCE)
-> +			efi_drtm_policy = EFI_DRTM_OFF;
-> +	}
-> +}
-> +
-> +static efi_status_t efi_drtm_failure(void)
-> +{
-> +	if (efi_drtm_policy == EFI_DRTM_AUTO) {
-> +		efi_warn("DRTM: preparation failed, continuing without DRTM\n");
-> +		efi_drtm_policy = EFI_DRTM_OFF;
-> +		return EFI_SUCCESS;
-> +	}
-> +
-> +	efi_err("DRTM: enforced preparation failed\n");
-> +	return EFI_UNSUPPORTED;
-> +}
-> +
-> +efi_status_t efi_drtm_prepare(void)
-> +{
-> +	s64 feature_status;
-> +	u16 major, minor;
-> +	s32 status;
-> +
-> +	if (efi_drtm_policy == EFI_DRTM_OFF)
-> +		return EFI_SUCCESS;
-> +
-> +	if (!efi_arm64_psci_smccc_compatible())
-> +		return efi_drtm_failure();
-> +
-> +	/*
-> +	 * v1.4B section 3.2.1 "DRTM_VERSION usage" explains that a new major
-> +	 * ABI version may "Change behavior of existing functions". Verify the
-> +	 * major version before calling anything so we don't trigger unknown
-> +	 * behavior.
-> +	 */
-> +	status = arm_drtm_version(&major, &minor);
-> +	if (status != ARM_DRTM_SUCCESS) {
-> +		efi_err("DRTM: failed to read interface version (x0=%d)\n",
-> +			status);
-> +		return efi_drtm_failure();
-> +	}
-> +	if (major != ARM_DRTM_VERSION_MAJOR) {
-> +		efi_err("DRTM: unsupported interface version %u.%u\n", major,
-> +			minor);
-> +		return efi_drtm_failure();
-> +	}
-> +	efi_info("DRTM: interface version %u.%u\n", major, minor);
-> +
-> +	efi_drtm_report_previous_error();
-> +	if (efi_drtm_policy == EFI_DRTM_OFF)
-> +		return EFI_SUCCESS;
-> +
-> +	feature_status = arm_drtm_query_function(ARM_DRTM_SMC_DYNAMIC_LAUNCH);
-> +	if (feature_status != ARM_DRTM_SUCCESS) {
-> +		efi_err("DRTM: dynamic launch is unavailable (x0=%lld)\n",
-> +			feature_status);
-> +		return efi_drtm_failure();
-> +	}
-> +
-> +	if (!efi_drtm_probe_tpm() || !efi_drtm_probe_memory() ||
-> +	    !efi_drtm_probe_dma() || !efi_drtm_probe_boot_pe())
-> +		return efi_drtm_failure();
-> +
-> +	drtm_cfg.launch_features =
-> +		ARM_DRTM_LAUNCH_HASH_FIRMWARE |
-> +		FIELD_PREP(ARM_DRTM_LAUNCH_PCR_SCHEMA_MASK,
-> +			   ARM_DRTM_PCR_SCHEMA_DEFAULT) |
-> +		FIELD_PREP(ARM_DRTM_LAUNCH_DMA_PROTECTION_MASK,
-> +			   ARM_DRTM_DMA_PROTECTION_COMPLETE) |
-> +		ARM_DRTM_LAUNCH_NO_AUTH | ARM_DRTM_LAUNCH_KEEP_SECURE_IRQS;
-> +
-> +	return EFI_SUCCESS;
-> +}
-> +
-> +unsigned long efi_drtm_get_extra_size(void)
-> +{
-> +	/*
-> +	 * See arch/arm64/kernel/vmlinux.lds.S for the DRTM Memory layout.
-> +	 *
-> +	 * v1.4B Table 6 "Return values for DRTM features", feature 0x2 reports
-> +	 * both minimum sizes in 4 KiB pages.
-> +	 *
-> +	 * The linker places the DLME data at the 4 KiB-aligned end of the
-> +	 * static Image as required by R314030 in Table 13 "DLME region
-> +	 * requirements".
-> +	 *
-> +	 * The DLME region must include all of that data (R45200 in Table 30
-> +	 * "DCE requirements for the DLME"), and an optional Normal-world DCE
-> +	 * follows it at another 4 KiB-aligned address as required by R312080 in
-> +	 * Table 10 "DRTM_PARAMETERS requirements".
-> +	 *
-> +	 * A final page holds the 4 KiB-aligned DRTM_PARAMETERS required by
-> +	 * R312010 in the same table. Only the first area is part of the DLME
-> +	 * region.
-> +	 */
-> +	if (efi_drtm_policy == EFI_DRTM_OFF)
-> +		return 0;
-> +	return drtm_cfg.dlme_data_size + drtm_cfg.nw_dce_size +
-> +	       ARM_DRTM_PAGE_SIZE;
-> +}
-> +
-> +efi_status_t efi_drtm_prepare_launch(unsigned long image_base,
-> +				     unsigned long fdt_addr)
-> +{
-> +	const struct arm64_image_header *header = (const void *)image_base;
-> +	const struct efi_image_info *info = efi_get_image_info(image_base);
-> +	struct arm64_drtm_handoff *handoff =
-> +		efi_get_image_symbol(image_base, arm64_drtm_handoff);
-> +	struct arm_drtm_parameters *params;
-> +	unsigned long measured_offset;
-> +	unsigned long measured_size;
-> +	unsigned long image_size;
-> +	unsigned long dlme_start;
-> +	unsigned long dlme_end;
-> +	unsigned long dce_end;
-> +	unsigned long entry;
-> +
-> +	if (efi_drtm_policy == EFI_DRTM_OFF)
-> +		return EFI_SUCCESS;
-> +
-> +	image_size = le64_to_cpu(header->image_size);
-> +	measured_offset = info->drtm_measured_start;
-> +	measured_size = info->dlme_measured_size;
-> +	entry = info->drtm_entry;
-> +	dlme_start = image_base + image_size;
-> +	dlme_end = dlme_start + drtm_cfg.dlme_data_size;
-> +	dce_end = dlme_end + drtm_cfg.nw_dce_size;
+> mm/hugetlb.c | 7 ++++++-
+> 1 file changed, 6 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+> index a1b51251103b..4dac7ed1df57 100644
+> --- a/mm/hugetlb.c
+> +++ b/mm/hugetlb.c
+> @@ -1613,9 +1613,14 @@ static void bulk_vmemmap_restore_error(struct =
+hstate *h,
+> 		* page is made a surplus page and removed from the list.
+> 		* If are able to restore vmemmap and free one hugetlb =
+page, we
+> 		* quit processing the list to retry the bulk operation.
+> + 		*
+> + 		* Folios whose vmemmap was never optimized (e.g. because =
+HVO
+> + 		* failed when they were allocated) can be freed right =
+away;
+> + 		* remove_hugetlb_folio() has already cleared their =
+hugetlb flag.
 
-Suppose user boot the kernel via decompressed Image which is the
-part of artifact of compressed image and use the drtm option (e.g.
-booting via UEFI shell with decompressed Image).
+Since you mentioned the hugetlb flag is cleared. So it's unnecessary to =
+clear it again.
 
-Since the drtm extra memory is allocated only in efi_zboot_entry(),
-I think the drtm extra memory wouldn't be allocated so it would corrupt
-memory while setting the laucn parameter or by DRTM...
+> 		*/
+> 		list_for_each_entry_safe(folio, t_folio, folio_list, =
+lru)
+> - 			if (hugetlb_vmemmap_restore_folio(h, folio)) {
+> + 			if (folio_test_hugetlb_vmemmap_optimized(folio) =
+&&
+> + 			    hugetlb_vmemmap_restore_folio(h, folio)) {
+> 				list_del(&folio->lru);
+> 				spin_lock_irq(&hugetlb_lock);
+> 				add_hugetlb_folio(h, folio, true);
 
-Is this simply an example of incorrect usage which is ignorable?
+Something like following:
 
-Thanks.
+diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+index 6a011b627986..1ab3e61f4704 100644
+--- a/mm/hugetlb.c
++++ b/mm/hugetlb.c
+@@ -1616,21 +1616,31 @@ static void bulk_vmemmap_restore_error(struct =
+hstate *h,
+                 * If are able to restore vmemmap and free one hugetlb =
+page, we
+                 * quit processing the list to retry the bulk operation.
+                 */
+-               list_for_each_entry_safe(folio, t_folio, folio_list, =
+lru)
+-                       if (hugetlb_vmemmap_restore_folio(h, folio)) {
+-                               list_del(&folio->lru);
++               list_for_each_entry_safe(folio, t_folio, folio_list, =
+lru) {
++                       list_del(&folio->lru);
++
++                       /*
++                        * remove_hugetlb_folio() already cleared the =
+hugetlb flag
++                        * for folios whose vmemmap was not optimized, =
+so they can
++                        * be freed without restoring vmemmap.
++                        */
++                       if (folio_test_hugetlb(folio) &&
++                           hugetlb_vmemmap_restore_folio(h, folio)) {
+                                spin_lock_irq(&hugetlb_lock);
+                                add_hugetlb_folio(h, folio, true);
+                                spin_unlock_irq(&hugetlb_lock);
+-                       } else {
+-                               list_del(&folio->lru);
++                               continue;
++                       }
++
++                       if (folio_test_hugetlb(folio)) {
+                                spin_lock_irq(&hugetlb_lock);
+                                __folio_clear_hugetlb(folio);
+                                spin_unlock_irq(&hugetlb_lock);
+-                               update_and_free_hugetlb_folio(h, folio, =
+false);
+-                               cond_resched();
+-                               break;
+                        }
++                       update_and_free_hugetlb_folio(h, folio, false);
++                       cond_resched();
++                       break;
++               }
+        }
+ }
 
-[...snip...]
+Thanks,
+Muchun
 
--- 
-Sincerely,
-Yeoreum Yun
+> --=20
+> 2.56.0.rc1.315.gc6ed9934b7-goog
+>=20
+
 
