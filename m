@@ -2,91 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7AD6606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 15:26:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF2F5606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 15:30:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wagwwTY7;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=eF1BhjNM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VZjwBHmS;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=AotBcnoi
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yVHoNG/F+MSh1AvSZ4DFO2pLKQWPL8PGoHBteE3nowI=; b=wagwwTY7Zt/pOlxqTXYzgVmVhX
-	cuPV3Nlunr1JULWRUD1hFfaq+Zt/7FB9QWtycBO0ZbK86xhQ4xYjTSliW+4Ifi/+fbIekbTeaU3WF
-	ko0sBBJu/kh2LV7/Dz9Z+q7pZK+Yla8P9eIvRR+LXcfeYAFPUU7wemZlIgbMO2McYtnUxZcQYRuqp
-	1/uCG1+EDf8H7CtJj17gm1fNkk9lhwXfhRgzB+0yJe4oRR4vywa8ZPf9IB2emFcEM98WYspHWKsiH
-	9N85QgtGhPWBSqLSaorQVdvXlp8TkwGm8v9HTcbsGag8Tr97LhBM0HnSvOyBcx2M4oNnGpYbDlYfk
-	4eIL5DsA==;
+	bh=5CRmc5lAViuSw2eMUXLr8sP6YVEevy9FEYxV4LYZv9k=; b=VZjwBHmSQIOPRjPvR6cxQN5Z0t
+	VmxhYiHa6RRDYYEm1clcRuzbJ6U6TrpFxCEQqYewh4Pp1NOYLzjK9pl7WzlHa55Urt536l7GOCsQw
+	kz4Y7TuNBafD7jq5oy8h5PqqdD3OVc6DDfggkvgyjEJ6y2CMaRaS/7GfBbebXZcFJtPXf3+lgwAKM
+	V8o9TMyYV8//anbSMRyskxL52JD5o2NrcjXMKhnWYgnP0EzcVazxd3kGkDl78StFXD0ShOjuLsbPQ
+	33XSunPkPIkd68r1U82lU4SdKxH32ymmt/7Moxim0bYHU+ZnKXDODk96YE1cmNajLxSpSdXVBrOKg
+	yltccURw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJYCZ-0000000CFrn-1mrr;
-	Wed, 21 Oct 2026 15:26:03 +0000
-Received: from mail-ej1-x648.google.com ([2a00:1450:4864:20::648])
+	id 1xJYGh-0000000CGWl-0fAB;
+	Wed, 21 Oct 2026 15:30:19 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJYC8-0000000CFXk-1bhV
+	id 1xJYGe-0000000CGVo-0GZ9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 15:25:38 +0000
-Received: by mail-ej1-x648.google.com with SMTP id a640c23a62f3a-c41b03cd1dcso79611166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 08:25:35 -0700 (PDT)
+	Wed, 21 Oct 2026 15:30:17 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-48afcd7ba9bso632148f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 08:30:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792596334; x=1793201134; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yVHoNG/F+MSh1AvSZ4DFO2pLKQWPL8PGoHBteE3nowI=;
-        b=eF1BhjNMjTbU4dmFm4v0FZ7LPD7D9LO2vM02XRNCoexLNh3DNNE+gEhFIF1fB9ZHPU
-         3PMEZGgftkFIT6P0BgYEktTaUPPlHPDYxEF84cTXQQEOXuG8uDxQaQA1rlYMkZA4jtOQ
-         VRiyBJ1uaEUj7QV4MRgiUsLdYD3NP02KObYH0oPDqEeqCL8hajzgDOjEBQPOQW3CFPng
-         hCmuU6P63lPt7kpSrYmgy76HfoLb+HjZr4Uc86uCGcMttFb+j39ct+rQFC31bqFzv1mE
-         nfiR6bOLZsoYw/oo8b3d2Yi16A0MaNyZg/oROuGx2wPRs6oW2tVdNMALjYc0482VswGE
-         85kQ==
+        d=gmail.com; s=20251104; t=1792596614; x=1793201414; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5CRmc5lAViuSw2eMUXLr8sP6YVEevy9FEYxV4LYZv9k=;
+        b=AotBcnoiZO9QN7RCcpPq1bTeb8xEOXrAIkDBAdXRJktjQ3fLbZsARr7rc+Kxb7iYcV
+         7MPWIpa4mKA8CitGa4Nsk5yWYx+d7fluvCiO8gwsxits/ALjdpVl7VabfKb6CU3q0v4K
+         f2hueLasRE13+v1PyiT73fTSBvVuIkX9glWOury1Fajif8NvHAB4N7KtCmgY2t/bTOBG
+         5BMkj2fKtF3y1qHsmd5zD29Q8C8XYXsexVczzPfA+5S24PY++SEO06pKh9tMo4JWUbMx
+         CNvhUFLauyXzmlrpFgKS1X1KgoR09V7djrqU9xba9YEPU+T5f43Pg5RemeJshuxosMKM
+         8EAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792596334; x=1793201134;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yVHoNG/F+MSh1AvSZ4DFO2pLKQWPL8PGoHBteE3nowI=;
-        b=TNyT8T2439Go7duGm7//S1mpulSY+tZ65LZug8lw9l9N3KjC1n3y2Z46pfwM7eOsm3
-         C9SfOOAevUcD4JEPZ2VEjA/1qGTKiiD2RqcwnyAlWn8FiWr6XB/c5kAdiRumAXf093Pd
-         s+ZHqt35KzPhekzxA4NtYGV2YQRqLEpCHXyAlNQqCYlM5W1tOAiNe6Gdvxtjj/ADEjg5
-         tYoMo7wcTNgGIzUMgkwHvCUQf87n//mMQbwDjxCyh3Is/XW+kq5i+5s1uZlGMAG29hC1
-         puNtdu0XVMY7mm+mBI55Si5746+PKiGluYQSSAWuhOVk9lIcIge1bOjYGQTiT0BU2bKX
-         HrBQ==
-X-Gm-Message-State: AFq9FYLuv5GpGk048eeseymWv7600IwZjmLJvfZWY/52+Uppfqe4obSy
-	NZZbX2vc6hffy2oqmsU3Qe+HX4dX038XR+dGLWyqKI75cT+k7guWQSzlOoz7z/YVJaZcs49tMQu
-	aDcNjrjvBqTqDJNF0Nw==
-X-Received: from ejeck13-n2.prod.google.com ([2002:a17:907:e1cd:20b0:c2e:8317:2af9])
- (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:c64b:10b0:c46:7fa4:922b with SMTP id a640c23a62f3a-c467fa4a587mr117629166b.33.1792596333890;
- Wed, 21 Oct 2026 08:25:33 -0700 (PDT)
-Date: Wed, 21 Oct 2026 15:25:27 +0000
-In-Reply-To: <20261021152527.375070-1-tarunsahu@google.com>
+        d=1e100.net; s=20260707; t=1792596614; x=1793201414;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5CRmc5lAViuSw2eMUXLr8sP6YVEevy9FEYxV4LYZv9k=;
+        b=yiiXGnJRejHMN4t2HNKgr/2Mx/HG/aq/Q6G49OkxP0HFv0z1kmcmTfh6ApXkcL5sR8
+         pozd1MtZDmE4C6XaYDAer0UuOv3OBhUHkPqWuJ3OGrvUxRKaZBR5RSdzWKcv8kecTkRe
+         Ext4mVD8Xsx4s41ViY7d0i2CQNrhyy0sZGelW8YdcwQUvFnnYCjVaLxP/6e4s+SLI0jH
+         nWoC/+fhI5o14qdJPFKnDXjNw6DpQnX+aukQNieRaBAinhzZnfa8K11o0rA8rltbPN3+
+         WywqDFqweMGLTWqvsZxjiqU/iRf9k3Nh/uvYTHgaIlhvmKHZ2EScS72m37WGqkoN7e/g
+         T6uw==
+X-Forwarded-Encrypted: i=1; AKwUvBwRJVMt3D7zAnO1p9fCUNRxSaSOi3G+y/nKmh9tFrgcTSh5rmy6QQddZo7C8EJB5JjvD49Ye+qv1NWIAKD+HXkm@lists.infradead.org
+X-Gm-Message-State: AFq9FYJRTvZTAMpqxChAaS7ZTVLzfwcOJvioaqROQ/1Tk3ejNLHJkVOd
+	nluDSlKGvDuIhf+2yAoDu25YEjXDplxjlDzbCX0x228Z7MQ3bmXG8vNa
+X-Gm-Gg: AYBFou3vD1wysufha/vYG2yfBmDvmZ7u0mmX8dySOL5hs94NekK4pac3sdFBxQJKMhl
+	+oVTVI4ONd7y6yY/8i3CJedXyr085zaqJFWVsfBPf/tOO6mRi0W9TO50lOil/XOxktj2483d0OD
+	wWU4DX0K4x+k1fg7uNEMmTopb7EU/noOcDDauDsKr773M9OyGlgLQBc4DG7zqWU+N/ODcB5iv/S
+	lpAFeIeRimxg0Saqzucxn6XQpdyIRqryIM/fI15N/n3Xu4geFWZyzG4/4u1WDH+SFbkUroVH6Y0
+	Ms+QBTft5Qp6TZuHoASBNo9hysZ4X6g9hq5OxworH1/PhtqSObiuZTHbl2Yz01gVYm7qT37VSyK
+	2fslAbRNYS/q72c7banF1/89soDZG6LlmVbM+BoseMldV6UM5xNZor4EoA0mQ012gKl1IkKhUTF
+	CBBksz17UJETW4g4/QWprvz1BP54RB9tFrekMorCh/OUgE+TMhwDi98IesjM4UX8QXgpxSku3OJ
+	20J3Ztizd/Paq5rmTw2RBPDY7lHMrwDRvZIxwERAKJ89d7ZctVuTRmpnEM8OhPSxFSEEVRs3us7
+	JGU7yAcWcgIunF40K72shC2Jq2vIX6kp5V6LCBkU+SznRZomKkRBcg4=
+X-Received: by 2002:a05:6000:1623:b0:48c:4553:790b with SMTP id ffacd0b85a97d-48e264e4b62mr3988627f8f.48.1792596613403;
+        Wed, 21 Oct 2026 08:30:13 -0700 (PDT)
+Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e258358c1sm6370102f8f.43.2026.10.21.08.30.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Oct 2026 08:30:12 -0700 (PDT)
+Date: Wed, 21 Oct 2026 17:30:11 +0200
+From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+	Francesco Dolcini <francesco.dolcini@toradex.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH v2 3/6] dt-bindings: connector: Add Toradex camera
+ connector
+Message-ID: <6uiccieqybi7rmdpf2bjgfppjdgpzt6sollr2y7ygex4ofssbh@anwfmi6qbyxp>
+References: <20261001-verdin-imx8mp-hmp-camera-ready-v2-0-7d1343ecd3ec@toradex.com>
+ <20261001-verdin-imx8mp-hmp-camera-ready-v2-3-7d1343ecd3ec@toradex.com>
+ <20261002-prepaid-retired-3d2c9cbc035e@spud>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-References: <20261021152527.375070-1-tarunsahu@google.com>
-X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
-Message-ID: <20261021152527.375070-5-tarunsahu@google.com>
-Subject: [RFC PATCH v2 4/4] mm: memfd_luo: Add the 2-bit pair feature header
-From: Tarun Sahu <tarunsahu@google.com>
-To: Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org, 
-	Mike Rapoport <rppt@kernel.org>, Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de, 
-	David Matlack <dmatlack@google.com>, jgg@nvidia.com, robin.murphy@arm.com, 
-	loganodell@google.com, oupton@kernel.org, kevin.tian@intel.com, 
-	alex@shazbot.org, dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com, 
-	will@kernel.org, Pasha Tatashin <pasha.tatashin@soleen.com>, 
-	Alexander Graf <graf@amazon.com>, Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev, 
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org, kexec@lists.infradead.org, 
-	skhawaja@google.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Tarun Sahu <tarunsahu@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261002-prepaid-retired-3d2c9cbc035e@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_082536_511797_E4CDAFC7 
-X-CRM114-Status: GOOD (  22.48  )
-X-Spam-Score: -9.5 (---------)
+X-CRM114-CacheID: sfid-20261021_083016_116361_993B0059 
+X-CRM114-Status: GOOD (  13.97  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,150 +108,55 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-26.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,
-	USER_IN_DEF_DKIM_WL autolearn=unavailable autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Embed the fixed-size 128-byte struct luo_feature_hdr at the start of
-struct memfd_luo_ser and define enum memfd_luo_feature
-(MEMFD_LUO_FEAT_CORE and MEMFD_LUO_FEAT_MAX) for memfd preservation.
+On Fri, Oct 02, 2026 at 06:05:24PM +0100, Conor Dooley wrote:
+> On Thu, Oct 01, 2026 at 01:44:11PM +0200, Ernest Van Hoecke wrote:
+> > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > [...]
+> > +  "#gpio-cells":
+> > +    const: 2
+> > +
+> > +  gpio-map:
+> > +    minItems: 1
+> > +    maxItems: 4
+> > +
+> > +  gpio-map-mask:
+> > +    items:
+> > +      - const: 0xffffffff
+> > +      - const: 0
+> > +
+> > +  gpio-map-pass-thru:
+> > +    items:
+> > +      - const: 0
+> > +      - const: 0xffffffff
+> 
+> These seem incredibly wide for something with only 4 gpios?
+> 
+> Thanks,
+> Conor.
+> 
 
-All current struct memfd_luo_ser fields (pos, size, seals, flags,
-nr_folios, folios) and MEMFD_LUO_ALL_SEALS belong to
-MEMFD_LUO_FEAT_CORE (LUO_FEAT_REQUIRED in memfd_luo_features). Future
-changes add new entries to enum memfd_luo_feature before
-MEMFD_LUO_FEAT_MAX and append any new fields to the end of struct
-memfd_luo_ser so existing field offsets never shift.
+Hi Conor,
 
-Signed-off-by: Logan Odell <loganodell@google.com>
-Signed-off-by: Tarun Sahu <tarunsahu@google.com>
----
- include/linux/kho/abi/memfd.h | 35 ++++++++++++++++++++++++++++++-----
- mm/memfd_luo.c                | 14 ++++++++++++++
- 2 files changed, 44 insertions(+), 5 deletions(-)
+Thanks for the chat at ELC and clarifying what was said here on the
+list.
 
-diff --git a/include/linux/kho/abi/memfd.h b/include/linux/kho/abi/memfd.h
-index 371ffd108a79..f0b5235a408d 100644
---- a/include/linux/kho/abi/memfd.h
-+++ b/include/linux/kho/abi/memfd.h
-@@ -13,6 +13,7 @@
- 
- #include <linux/types.h>
- #include <linux/kho/abi/kexec_handover.h>
-+#include <linux/kho/abi/luo.h>
- 
- /**
-  * DOC: memfd Live Update ABI
-@@ -21,11 +22,20 @@
-  * reboot using the LUO.
-  *
-  * The state is serialized into a packed structure `struct memfd_luo_ser`
-- * which is handed over to the next kernel via the KHO mechanism.
-+ * which is handed over to the target kernel via the KHO mechanism.
-  *
-- * This interface is a contract. Any modification to the structure layout
-- * constitutes a breaking change. Such changes require incrementing the
-- * version number in the MEMFD_LUO_FH_COMPATIBLE string.
-+ * This interface is a contract. `struct memfd_luo_ser` starts with a fixed
-+ * 128-byte `struct luo_feature_hdr`. The relative order and offsets of
-+ * fields must remain unchanged as features are added or retired: new fields
-+ * are appended at the end of `struct memfd_luo_ser` under a new feature
-+ * flag in `enum memfd_luo_feature` (before `MEMFD_LUO_FEAT_MAX`), and
-+ * retired fields are kept in place so subsequent offsets never shift. In
-+ * the target kernel, fields of a `LUO_FEAT_REQUIRED` feature are guaranteed
-+ * present once `luo_feature_hdr_validate()` succeeds, whereas fields of a
-+ * `LUO_FEAT_OPTIONAL` feature should be accessed only after checking
-+ * `luo_feature_is_active()`. All current fields (`pos`, `size`, `seals`,
-+ * `flags`, `nr_folios`, `folios`) and `MEMFD_LUO_ALL_SEALS` belong to
-+ * `MEMFD_LUO_FEAT_CORE` (`LUO_FEAT_REQUIRED` in `memfd_luo_features`).
-  */
- 
- /**
-@@ -58,7 +68,7 @@ struct memfd_luo_folio_ser {
- 
- /*
-  * The set of seals this version supports preserving. If support for any new
-- * seals is needed, add it here and bump version.
-+ * seals is needed, gate them behind a new feature flag.
-  */
- #define MEMFD_LUO_ALL_SEALS (F_SEAL_SEAL | \
- 			     F_SEAL_SHRINK | \
-@@ -67,8 +77,22 @@ struct memfd_luo_folio_ser {
- 			     F_SEAL_FUTURE_WRITE | \
- 			     F_SEAL_EXEC)
- 
-+/**
-+ * enum memfd_luo_feature - Feature indices for &struct memfd_luo_ser.
-+ * @MEMFD_LUO_FEAT_CORE: Core feature covering `pos`, `size`, `seals`, `flags`,
-+ *                       `nr_folios`, `folios`, and %MEMFD_LUO_ALL_SEALS.
-+ * @MEMFD_LUO_FEAT_MAX:  Number of defined &enum memfd_luo_feature features.
-+ */
-+enum memfd_luo_feature {
-+	MEMFD_LUO_FEAT_CORE = 0,
-+	MEMFD_LUO_FEAT_MAX,
-+};
-+
-+static_assert((int)MEMFD_LUO_FEAT_MAX <= LUO_FEAT_MAX);
-+
- /**
-  * struct memfd_luo_ser - Main serialization structure for a memfd.
-+ * @features:  ABI feature and size header for memfd_luo_ser.
-  * @pos:       The file's current position (f_pos).
-  * @size:      The total size of the file in bytes (i_size).
-  * @seals:     The seals present on the memfd. The seals are uABI so it is safe
-@@ -79,6 +103,7 @@ struct memfd_luo_folio_ser {
-  *             struct memfd_luo_folio_ser.
-  */
- struct memfd_luo_ser {
-+	struct luo_feature_hdr features;
- 	u64 pos;
- 	u64 size;
- 	u32 seals;
-diff --git a/mm/memfd_luo.c b/mm/memfd_luo.c
-index 64f8b8cb75bd..ea1f4c8cd259 100644
---- a/mm/memfd_luo.c
-+++ b/mm/memfd_luo.c
-@@ -84,6 +84,10 @@
- 
- #include "internal.h"
- 
-+static const u8 memfd_luo_features[MEMFD_LUO_FEAT_MAX] = {
-+	[MEMFD_LUO_FEAT_CORE] = LUO_FEAT_REQUIRED,
-+};
-+
- static int memfd_luo_preserve_folios(struct file *file,
- 				     struct kho_vmalloc *kho_vmalloc,
- 				     struct memfd_luo_folio_ser **out_folios_ser,
-@@ -284,6 +288,8 @@ static int memfd_luo_preserve(struct liveupdate_file_op_args *args)
- 		goto err_free_ser;
- 	}
- 
-+	luo_feature_hdr_init(&ser->features, sizeof(*ser),
-+			     memfd_luo_features);
- 	ser->pos = args->file->f_pos;
- 	inode_size = i_size_read(inode);
- 
-@@ -525,6 +531,14 @@ static int memfd_luo_retrieve(struct liveupdate_file_op_args *args)
- 	if (!ser)
- 		return -EINVAL;
- 
-+	err = luo_feature_hdr_validate(&ser->features, memfd_luo_features);
-+	if (err) {
-+		pr_err("memfd_luo_ser feature header validation failed (size=%llu, flags[0]=%#llx): %pe\n",
-+		       ser->features.size, ser->features.flags[0],
-+		       ERR_PTR(err));
-+		goto free_ser;
-+	}
-+
- 	/* Make sure the file only has seals supported by this version. */
- 	if (ser->seals & ~MEMFD_LUO_ALL_SEALS) {
- 		err = -EOPNOTSUPP;
--- 
-2.56.0.212.g129ede20d9-goog
+Regarding these masks and their width, they are indeed wide but they
+determine what to match against, and we have no reason to match anything
+except the exact number.
+
+This was previously shortly discussed here, and clarified by Rob:
+https://lore.kernel.org/all/20260918192012.GA1465432-robh@kernel.org/
+
+I'll be sending a v3 of this with only the camera patches soon.
+
+Kind regards,
+Ernest
 
 
