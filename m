@@ -2,152 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9499606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 16:38:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED2D9606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 16:43:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ltEq1xEu;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=NNYWRWMF;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=NNYWRWMF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QEWTqARM;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=Z3GiHi6z;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=njeze0JP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gc63SiQq6v7msVH9OpGfgyWWLM7Q9jy+xJaGZnR6TLI=; b=ltEq1xEubDmdsTWUJGLWFhxVdu
-	i0NebWZ+bGIUu7vXms/WBWN+4iQcdUmMUosBBgypnmddBV4p23dJ4GEzgW4fp25j5h0nnoXA0Lb1i
-	/zi4pzaNsMlFx1evDo4P7XTbeF2vqyeSLZH63r4JJqFv92NGEq1erfWIlrimfIlOlOOWRMRrqzGrE
-	uB5/B0+4ejCXnRM4LIDX8vymKgMVcvUQDcqnujcPVYlP2VmRjI4OEOWQGHKQrcDp7cU6DKgeO55gx
-	ixlmac3JA6pSKRKsGVTI9S95Ncc/0KWOoedPQoTiY2U2GNpL/mSE0COUKA+iWnRJx/Do7t+iseJup
-	jSAaNfeg==;
+	bh=jJagp3/aI4VISZi8g8kQqTjVESVyNbK/TdcfBbWn+K8=; b=QEWTqARMquC8MQ+5FqLnGqvnUD
+	mTX2KmKu8iOex2svrFADJ09pRZ0XogtAYrQ3pCYVJgApnA7A3Ah9lV3tbYIofwzKaSLNBXIBX8xtP
+	4RR8HuovXflHBo7DpW/6QBvtEULOvaQjH9PGE97Y7U6aw44+aUfUfkuPADCReN3kE1o2HrGu3O+dg
+	8rjyB0bkAesJJD09Hwb4Qtp1S2uqwqNLXdtAm7og/i8H/DrA/TEHqkZlFHgCJnOaqv8oSK5/NRMPn
+	Ezr2wwbrH58Z20kHCOnaDgch7rthkYEKmbuKdA0kW7UitEw+eoNtzxmW/4uSg1vHVlzmjyHi1BpXr
+	KTu049Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJZK7-0000000CRVG-45O3;
-	Wed, 21 Oct 2026 16:37:55 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xJZPi-0000000CSAx-39Uc;
+	Wed, 21 Oct 2026 16:43:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJZK4-0000000CRTl-0XKB
+	id 1xJZPh-0000000CSAc-2uJe
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 21 Oct 2026 16:43:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=jJagp3/aI4VISZi8g8kQqTjVESVyNbK/TdcfBbWn+K8=; b=Z3GiHi6zc+UT+t+v/iBV19rW5h
+	UZHdcn8tP2hIWZ0rGxqaMRX8NcDHSU38EjNTuqNowLLJzSFcFe27mFd49SR331IHEXjxLnB40zjQ9
+	40uXscdR2K9JnzVbVJJFGbdS3PYl5OMICRFn/o+XhIWQBTGU7wV9x6QC2GdxiLYQ4WX2/mwyR8+Lo
+	lmC1rfrS/ldESEngxdFsqFZ0KmQyjI3i/1OgZpk8eWvrc3f3YnRxaB+t5jL3iauFijvSJI/39q6Qp
+	tW70fFhUbc2IXiHiKGfuoPccDHRlFE+vyz80G+F6pNqFw/q71UIFdD4z5DjIvUB/xNOOLM6uhO9Tc
+	l0TzE44A==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xJZPe-000000061rG-12wX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 16:37:54 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=UG9u/VmV0V6gSXzxtPPt/5UfHu4ZOvtPrdl7A71yel6gjiefFBNke3rzbyqoqEzwvSMbRycDvEwiXYofYAYJf+bTDXJS+xkCaQgwGFwJ23GGXHdMWBnd1ibPmkfPWO/5zMI+V8B6R0n2NpB8C4cOEzQyQHq9Agq7vCq2gHIEOnJqH7hsJ0svNErfbkyZL+GLCeO9+x5LRPiZnHqnW3UPhdMTctwTli/rLX3iZ1gqXSLxGMJ2IGwqM2QdBtKA6QTtAusWk31vaq3zRW/N/FgKjAsPkan2swDM55zQkSbg/14NM6wSgaDbVJTAMydc619LGLcVu+ZJOjbTTP3YzMd8Ug==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gc63SiQq6v7msVH9OpGfgyWWLM7Q9jy+xJaGZnR6TLI=;
- b=GCLyr0txxFF4diD1CnsvSAYofaFumWZq84515Dg/dlSsDKH/mPrztZaYtDT1zTfZHshMET2tISuckrvk5s19YyBcFWMXXot7P9LAEczRD2VJUU8cBv2BGylRfiYi+8i1MctTx5f8o0Ym6hilI7SArTt1kpzJKMPMpikWswO4fvQpbrBPKdaXieO3uNoEMtXQ/xDwfI/lveJ4460ZozsTNai49keWO4mf0rws9D6g58y4D2HOHDJ32+VkwrQyGHTknPznNmyGdCi1Bu+ezFsWpRMBfoCgDo+NKBWGDdsphv8oUala7OrdTfO4XBr5v8d32Yti36jjdCSxyvoAdcN5vg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gc63SiQq6v7msVH9OpGfgyWWLM7Q9jy+xJaGZnR6TLI=;
- b=NNYWRWMFBwqoF27QcqIK0MmIrGFPdEKYVy3jQR1T4bRvzlq6pf/lMPrlSCCTea03niSf94wEj/kvRjI2ngd3mKjjwoz/hFfXnNTjlGmoPEwMMTu+THCDN6P0MHjl358gKrfdZwvWBX94cnPWh2nDTsEEBRABgoyGg5DrxXsgRfs=
-Received: from DUZPR01CA0303.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b7::27) by AS8PR08MB9549.eurprd08.prod.outlook.com
- (2603:10a6:20b:61e::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
- 2026 16:37:43 +0000
-Received: from DB1PEPF000509E9.eurprd03.prod.outlook.com
- (2603:10a6:10:4b7:cafe::18) by DUZPR01CA0303.outlook.office365.com
- (2603:10a6:10:4b7::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.15 via Frontend Transport; Wed,
- 21 Oct 2026 16:37:43 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509E9.mail.protection.outlook.com (10.167.242.59) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.15
- via Frontend Transport; Wed, 21 Oct 2026 16:37:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p1OEtsUzJVtfc20IDbEipyDIbjj8quUHxEPLjP8FR7Nf9P/qEaiYFRe5RMm7YfxwMD5oTUI6ljVlmkkqA4+Ie7Qi2Q+jJ/pDOihMG2sb6a6ec0MkVDZiHFhfogtGftTGZD6oP+sGtgJ2SNTTRFFe9isF9JS7dxpS/kHqBdQjvCjvZXq3L/JXjVzIcjUbqM3wXrVs9g0KXsighp+vaoyWigkhH4J+9R0F6cRO5nS/ATnxbuCDABim5f45LkSMxQhyu5aLKLHGNu+QBWdIoN20JLbJe/++UjlBtjaUeH7Lmy+vn22AC3XWaV5ttSmzwoevGlrF2gxywbFmelHpdxxL9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gc63SiQq6v7msVH9OpGfgyWWLM7Q9jy+xJaGZnR6TLI=;
- b=USwML4Xe+gcLo7PFNW/4TowC+JtpsUAL4Eko7a0JYnGXRLZCKkHElbjUbr7fWxgiuomv/w3OihtOaEvfkKr7apHiL2f8m0o074eFfrINficoi+dVZ+zISCLdoNpxICKkcdX0pD3xtwApjZkGsZiR4ohkjnurUgGskCO63NNC3sOIYDAWQN+HOXZQ8XZ2quM57zKBliTNqIBN2WjuSjMb1tQte1swYbRg90PRPnZ24i0fkVzGTASidxj50ypS206NwEWiKxx4X/JHt/CLZtkv/6TpbTZW2Cs/PlH/h2FddIlAw+WH+aueHZ5NufY9fw/TGsv5QslP2UGf3AA2yK0IHg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gc63SiQq6v7msVH9OpGfgyWWLM7Q9jy+xJaGZnR6TLI=;
- b=NNYWRWMFBwqoF27QcqIK0MmIrGFPdEKYVy3jQR1T4bRvzlq6pf/lMPrlSCCTea03niSf94wEj/kvRjI2ngd3mKjjwoz/hFfXnNTjlGmoPEwMMTu+THCDN6P0MHjl358gKrfdZwvWBX94cnPWh2nDTsEEBRABgoyGg5DrxXsgRfs=
-Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
- signed) header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10691.eurprd08.prod.outlook.com
- (2603:10a6:150:162::11) by AS1PR08MB7498.eurprd08.prod.outlook.com
- (2603:10a6:20b:4dd::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
- 2026 16:37:09 +0000
-Received: from GV1PR08MB10691.eurprd08.prod.outlook.com
- ([fe80::dd4e:5d51:17f9:9375]) by GV1PR08MB10691.eurprd08.prod.outlook.com
- ([fe80::dd4e:5d51:17f9:9375%4]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
- 16:37:09 +0000
-Message-ID: <9f500b81-792f-47b9-a8a9-1415ff11b699@arm.com>
-Date: Wed, 21 Oct 2026 17:37:07 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 06/11] iommu/arm-smmu-v3: Add ARM_SMMU_OPT_KDUMP_ADOPT
- for kdump kernel
-To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org
-Cc: robin.murphy@arm.com, joro@8bytes.org, jgg@nvidia.com, praan@google.com,
- kevin.tian@intel.com, smostafa@google.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, jamien@nvidia.com, kas@kernel.org,
- Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>
-References: <cover.1791226953.git.nicolinc@nvidia.com>
- <ee4257b62324aa75d7140f1f4a49aa0f78586fff.1791226953.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: John Garry <john.garry@arm.com>
-In-Reply-To: <ee4257b62324aa75d7140f1f4a49aa0f78586fff.1791226953.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PA7P264CA0033.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:34b::11) To GV1PR08MB10691.eurprd08.prod.outlook.com
- (2603:10a6:150:162::11)
+	Wed, 21 Oct 2026 16:43:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 179AA1756;
+	Wed, 21 Oct 2026 09:43:32 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9DDF3F7D8;
+	Wed, 21 Oct 2026 09:43:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792601015; bh=pTG1M1AhoRIl85w5oJURP9jvzcTWRrqw5hYeYanFX1g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=njeze0JP3ZuJZGz0/cxGFIwiygbTIsjJp8h83dKSpc0RVAt2rJDCoVsG4xKgUOWz0
+	 kP+RYX+GUGibwULZNIvvjKAVELbY/KiFrdM+dBFqZJepx8r7KejBNKi0DAlshl7G7M
+	 9fv4bm7jamJQZQt1ZToOQ+Uq6wN1uHz8pBVVy1FQ=
+Date: Wed, 21 Oct 2026 17:43:32 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Amir Ayupov <aaupov@fb.com>
+Cc: James Clark <james.clark@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Shuah Khan <skhan@linuxfoundation.org>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] coresight: etm4x: Report the external outputs the
+ PMU counts
+Message-ID: <20261021164332.GI26205@e132581.arm.com>
+References: <20261012230527.750567-1-aaupov@fb.com>
+ <20261012230527.750567-4-aaupov@fb.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10691:EE_|AS1PR08MB7498:EE_|DB1PEPF000509E9:EE_|AS8PR08MB9549:EE_
-X-MS-Office365-Filtering-Correlation-Id: 223c0d2e-e09e-4af0-3882-08df2f91a11d
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|4143699003|56012099006|5023799004|11063799006|261009223027099003|10067099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info-Original: kp/QuKtmb6UkMpK1dqgbL7byACJiEhtA+ogDdi8ujqYknYy/EqNO3zTPhkdIlMoQdU1RMoireE4/CbTVV/xMhEzf/wvPBiD//nBGkE6LjDsjBpkSaSpqUiTfrc7TywuqqqIrAvHRYGbSkeTW0KiZXPmpYBkJ68qlH5TSP3gLyd55w9CiIfAVWPaC4XwS9ZGUJAHqFKoAgj7HTGR0qnJCd94odfhwDyWcUO9AipXPVvZKPZWUvBCaITxOMT4g4920B93eXmfaIdxe9AL7KrRTDLwX4xxgYmnsmA99mVu10Ptkd4IGBrotWVXiGywUWZZkDTTSHPlDERatYN9qMhRGVJMG65QZucDLS8Sfu2PyFTGAZOa8FGRg2THcuod1X0NP60i2soi2u92t4guAIqVTWcwY/qHaeI4rkCKQXZPM5KxVupiZ35qFQhDy80/BDl5YjaANNwssj6TRiHUY4LbzfsfZtHGzeZP85jWONXuDEJqUU5IW/tijKqKmCdDLpLrL70OQgpRnzj8RgYkNoK7bZGm1bsHZwetUzIdPkJp3upX5i/6Kwa1MciNAIjEL4iBoeTmu3osu+ZfsV9nlinw8va9mpWDfIWZJg4SjXwJ+BgAWl+9+RktLhu0E0IDkkloEpJ9g5/i+Php+2hqYT+sbM8EPbPnBtQZZgsWoV4+it+U=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10691.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(4143699003)(56012099006)(5023799004)(11063799006)(261009223027099003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: vsMBkegRrUiuDyb13y1czRgeFoP4cdTi5a3Ww3XdSrWCY2WSZ/7JzDARaIta6LphCTfUkFQAm0oRy+oy3Ohi5m5mCRxOx51LOF762f77Rfb6Z27axysTUnN193cQ7CH7yCJOIgAk2BG7j+zm3NqW8Bd42pOnva5tYpFwafsFlj0z0Rrd8/v4vAmQHt1fqNTx0aXNVfCHsZ4AAqdX1xJqBjwq7cfzbO9Zshv9OLYa8+rS99TwlFSfTwOV2oRulx+t/HqCgrwyQ54j27RxhDox+HCUYbVqBLKlYjTkJCDc4fgz3PBUA9G1wTXkRmu+T5Vaf1fKc2pzglTUNBOtVbUyrA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR08MB7498
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509E9.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: fb931e47-b7e6-47d6-8ce0-08df2f918cb6
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|14060799003|36860700016|82310400026|1800799024|35042699022|376014|7416014|6133799003|18002099003|22082099003|10067099003|11063799006|5023799004|4143699003|261009223027099003|56012099006;
-X-Microsoft-Antispam-Message-Info: tbH4wb2u7dqhafnsjq8ib7OnxEXaToiXZ2LOhW5P/mlqtOI5zyPkmwA1o81aj1N/xnGQB2FWsADUHwIRPMTMEcvYYbgeT4UrEi8GSZPXIk6JRSXgsosSAs6LvOOt7Li/ggKjDeVE85aRb3eHT+RzGrEm2P3M0L7c0BW2KtyH1VqPPkt1Ui3VrLvXIfqBN4WiPyPORTa4+uZtI2QV3ZtxHbaMjHnZOQBamUeSYQy4lFlTFP+sTAgSOk6LY5uwgeVD1gVC5EENeKS72XR0NZnj2D1a5yohkgRjQZpzp3W6gEIUBrOf8TQnl/9ea5AsvdrXlGgnJhGz1J46MhFLVcmSLIgdP9YuujnAn6/13zn++slsaW7u5W8xkddSKtJfVrwjb0hHATlcIuXwB3mGuvfdugxtUX0l/LiU8uLZK+s+AclqGEOjZvQbaSxrncE88Jd2D9qw2ajvc4um9YZPRoLlzcg3piJ0mug4sza+YN3hp1yOfPnNGhTLYCvDs+uzPQ+1OX0cg5aaVlkbrZCxP4abDxedn5AbYm/iLYToRUwIxj18lflzidk7VjfIa2sRMTGDu7YzFc3BAttBsH1QUFSh4hZxrJuoTWvCJ0mw2SjjggY5jPqncLcUKrGYNkJwnLHik1++uDd0J9PK03Zy3OdXDJm16I0UBrKI69WRFPDk0CYeS+o5fC/neczeCMquYPy5Oimngr8/2univU79oZBaLA==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(14060799003)(36860700016)(82310400026)(1800799024)(35042699022)(376014)(7416014)(6133799003)(18002099003)(22082099003)(10067099003)(11063799006)(5023799004)(4143699003)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Q5sROVmwQMGRuKe1X44jojDLEWooaAEAZv7fW8kFqCNZB7g24p4ylZ3N1QU2cv6a6LP1B3cKE/knCMK5BZg4Vbho6hYHRCptzY3vfcd2enIopvPTmyO27ub0Xvn+YlYJzrV4SAykyWGlzKYijsN6FSTWHYfT226puuCzUVz+aqrvjMfby7ZcZOwUZ1OX0DZ+TX14+Gp16YGU2WSiO7BHhLORaC0ZauRmzWrRhSfZ9wBi1xSNxUUIls1IlKXItGO8hO1w6r5yXJE+yyvNdskRN1xGvh+mnNuZpQE+KQunZc1NdySv3nPzLtyWoOEoP+Wn/E7ZsZwLnpHI2BJKlnLT4p5BiyDrkFV881olmVTobsiZNFgygCFKeT0k7BR7U5LHCKw+V56SQRxapexH2qH/zJZZy2FbYyf20G2yHitNl3r7N2O6QFCG3QHOvg7pDOHA
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 16:37:42.8708
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 223c0d2e-e09e-4af0-3882-08df2f91a11d
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E9.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9549
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261012230527.750567-4-aaupov@fb.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_093752_320535_2539A493 
-X-CRM114-Status: GOOD (  21.32  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261021_174338_649770_1C2ED829 
+X-CRM114-Status: GOOD (  32.04  )
+X-Spam-Score: -2.5 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,99 +92,189 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-21.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/5/26 20:30, Nicolin Chen wrote:
-> +int arm_smmu_kdump_adopt_strtab(struct arm_smmu_device *smmu)
-> +{
-> +	u32 cfg_reg = readl_relaxed(smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
-> +	u64 base_reg = readq_relaxed(smmu->base + ARM_SMMU_STRTAB_BASE);
-> +	bool was_2lvl = smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB;
-> +	phys_addr_t base = base_reg & STRTAB_BASE_ADDR_MASK;
-> +	u32 fmt = FIELD_GET(STRTAB_BASE_CFG_FMT, cfg_reg);
-> +	int ret;
-> +
-> +	dev_dbg(smmu->dev, "adopting crashed kernel's stream table\n");
+On Mon, Oct 12, 2026 at 04:05:22PM -0700, Amir Ayupov wrote:
 
-nit: "attempting to adopt ..."
+[...]
 
-> +
-> +	if (fmt == STRTAB_BASE_CFG_FMT_2LVL) {
-> +		/*
-> +		 * Both kernels run on the same hardware, so it's impossible for
-> +		 * kdump kernel to see the support for linear stream table only.
-> +		 */
-> +		if (WARN_ON(!(smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)))
-> +			ret = -EINVAL;
-> +		else
-> +			ret = arm_smmu_kdump_adopt_strtab_2lvl(smmu, cfg_reg,
-> +							       base);
-> +	} else if (fmt == STRTAB_BASE_CFG_FMT_LINEAR) {
-> +		/*
-> +		 * The kdump kernel need not match the crashed kernel. An older
-> +		 * crashed kernel that predates two-level stream table support
-> +		 * may have used a linear table on 2-level-capable hardware, so
-> +		 * enforce the same format here to match the adopted table.
-> +		 */
-> +		ret = arm_smmu_kdump_adopt_strtab_linear(smmu, cfg_reg, base);
-> +		if (!ret)
-> +			smmu->features &= ~ARM_SMMU_FEAT_2_LVL_STRTAB;
-> +	} else {
-> +		dev_err(smmu->dev, "invalid STRTAB format %u\n", fmt);
-> +		ret = -EINVAL;
-> +	}
-> +
-> +	if (ret) {
-> +		arm_smmu_kdump_adopt_cleanup(smmu);
+> --- a/drivers/hwtracing/coresight/coresight-config.h
+> +++ b/drivers/hwtracing/coresight/coresight-config.h
+> @@ -35,6 +35,10 @@
+>   * a device that matches one of its classes and has all of its capabilities.
+>   */
+>  #define CS_CFG_MATCH_CAP_MASK		0x0000ff00
+> +/* trace unit external output n is countable by the PMU as TRCEXTOUTn */
+> +#define CS_CFG_MATCH_CAP_PMU_EXTOUT_SHIFT	8
+> +#define CS_CFG_MATCH_CAP_PMU_EXTOUT_NR	4	/* TRCEXTOUT0-3 */
+> +#define CS_CFG_MATCH_CAP_PMU_EXTOUT(n)	BIT(CS_CFG_MATCH_CAP_PMU_EXTOUT_SHIFT + (n))
 
-Why do arm_smmu_kdump_adopt_strtab_2lvl() and 
-arm_smmu_kdump_adopt_strtab_linear() not clean up after themselves, 
-which would be standard practice?
+We can just use a single capacity for all output singals. It would be
+good to follow the naming convention in the Arm ARM:
 
-> +		goto err;
-> +	}
-> +
-> +	ret = devm_add_action_or_reset(smmu->dev, arm_smmu_kdump_adopt_cleanup,
-> +				       smmu);
-> +	/* devm_add_action_or_reset ran the cleanup upon failure */
-> +	if (ret) {
-> +		dev_warn(smmu->dev, "failed to set up cleanup action\n");
+  #define CS_CFG_MATCH_CAP_TRCEXTOUT            BIT(8)
 
-devm_add_action_or_reset() only fails for ENOMEM, so I don't see a point 
-in printing this message.
+>  int etm4_cscfg_register(struct coresight_device *csdev)
+>  {
+> +	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>  	struct cscfg_csdev_feat_ops ops;
+> +	u32 match_flags = CS_CFG_ETM4_MATCH_FLAGS;
+>  
+>  	ops.load_feat = &etm4_cfg_load_feature;
+> +	match_flags |= (u32)drvdata->pmu_extout << CS_CFG_MATCH_CAP_PMU_EXTOUT_SHIFT;
+>  
+> -	return cscfg_register_csdev(csdev, CS_CFG_ETM4_MATCH_FLAGS, &ops);
+> +	return cscfg_register_csdev(csdev, match_flags, &ops);
 
-> +		goto err;
-> +	}
-> +
-> +	return 0;
-> +
-> +err:
-> +	dev_warn(smmu->dev, "falling back to full reset\n");
+I would suggest to enable the capability bit base on drvdata->caps:
 
-nit: "falling back to full reset after adoption failed" or similar
+  if (etm4x_is_ete(drvdata) && drvdata->caps.nr_events)
+	match_flags |= CS_CFG_MATCH_CAP_TRCEXTOUT;
 
- > +	/*> +	 * Undo the linear adoption's clearing of FEAT_2_LVL_STRTAB 
-so that the
-> +	 * full-reset fallback uses the hardware-supported format.
-> +	 */
-> +	if (was_2lvl)
-> +		smmu->features |= ARM_SMMU_FEAT_2_LVL_STRTAB;
-> +	memset(&smmu->strtab_cfg, 0, sizeof(smmu->strtab_cfg));
-> +	smmu->options &= ~ARM_SMMU_OPT_KDUMP_ADOPT;
+For now, we can enable TRCEXTOUT for ETE only, as this should be
+sufficient to detect the feature safely. I'd like to leave this to
+James and Mike as I got suggestions from them.
 
-Earlier the event queue feature flag was unset - should we still be 
-going with that decision?
+Please also rebase onto the latest CoreSight next branch [1], which
+moves the capability fields into drvdata->caps. I found an issue in the
+decoding of caps.nr_event; the attached patch fixes it and makes the
+field hold the actual event count.
 
-Did you consider to just re-probe the SMMU driver without trying this 
-adoption method when problems occur?
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git branch: next
 
-> +	return ret;
-> +}
+---8<---
+
+From 95307fa0574b1e0b3922ffa23fe98144b2688496 Mon Sep 17 00:00:00 2001
+From: Leo Yan <leo.yan@arm.com>
+Date: Wed, 21 Oct 2026 17:05:18 +0100
+Subject: [PATCH] coresight: etm4x: Fix event count decoding
+
+TRCIDR0.NUMEVENT normally encodes the number of events minus one.
+From ETMv4.3 onwards, including ETE, a zero TRCIDR4.NUMRSPAIR instead
+means that no events are implemented and NUMEVENT is zero. The sysfs
+event controls currently interpret this combination as one event and
+allow writes to unsupported event fields.
+
+Decode NUMEVENT after NUMRSPAIR and store the actual number of events
+in nr_event. Use the decoded resource count so that older ETM versions,
+where a zero NUMRSPAIR represents one resource pair, still report at
+least one event. Update both sysfs event controls to use the actual
+count and clear their event fields when no events are implemented.
+
+Also correct the instruction event enable mask for the single-event
+case to use INSTEN[0]. The existing mask uses INSTEN[1], preventing
+event 0 from being enabled.
+
+This change depends on the recent driver refactoring. With no reported
+failures, it is not intended for stable backporting.
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ .../coresight/coresight-etm4x-core.c          | 13 +++++++--
+ .../coresight/coresight-etm4x-sysfs.c         | 29 ++++++++++---------
+ 2 files changed, 27 insertions(+), 15 deletions(-)
+
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index e21be6468e954..af017bd8a5477 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -1451,8 +1451,6 @@ static void etm4_init_arch_data(void *info)
+ 	caps->trccci = !!(etmidr0 & TRCIDR0_TRCCCI);
+ 	/* RETSTACK, bit[9] Return stack bit */
+ 	caps->retstack = !!(etmidr0 & TRCIDR0_RETSTACK);
+-	/* NUMEVENT, bits[11:10] Number of events field */
+-	caps->nr_event = FIELD_GET(TRCIDR0_NUMEVENT_MASK, etmidr0);
+ 	/* QSUPP, bits[16:15] Q element support field */
+ 	caps->q_support = FIELD_GET(TRCIDR0_QSUPP_MASK, etmidr0);
+ 	if (caps->q_support)
+@@ -1519,6 +1517,17 @@ static void etm4_init_arch_data(void *info)
+ 	caps->nr_resource = FIELD_GET(TRCIDR4_NUMRSPAIR_MASK, etmidr4);
+ 	if ((drvdata->arch < ETM_ARCH_V4_3) || (caps->nr_resource > 0))
+ 		caps->nr_resource += 1;
++
++	/*
++	 * NUMEVENT encodes the number of events minus one. From ETMv4.3,
++	 * including ETE, NUMRSPAIR == 0 means no events are implemented.
++	 * nr_resource already accounts for the pre-ETMv4.3 encoding.
++	 */
++	if (caps->nr_resource)
++		caps->nr_event = FIELD_GET(TRCIDR0_NUMEVENT_MASK, etmidr0) + 1;
++	else
++		caps->nr_event = 0;
++
+ 	/*
+ 	 * NUMSSCC, bits[23:20] the number of single-shot
+ 	 * comparator control for tracing. Read any status regs as these
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+index db9e603f97ba8..fb38f0102290a 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+@@ -513,19 +513,22 @@ static ssize_t event_store(struct device *dev,
+ 
+ 	raw_spin_lock(&drvdata->spinlock);
+ 	switch (caps->nr_event) {
+-	case 0x0:
++	case 0:
++		sysfs_config->eventctrl0 = 0;
++		break;
++	case 1:
+ 		/* EVENT0, bits[7:0] */
+ 		sysfs_config->eventctrl0 = val & 0xFF;
+ 		break;
+-	case 0x1:
+-		 /* EVENT1, bits[15:8] */
++	case 2:
++		/* EVENT1, bits[15:8] */
+ 		sysfs_config->eventctrl0 = val & 0xFFFF;
+ 		break;
+-	case 0x2:
++	case 3:
+ 		/* EVENT2, bits[23:16] */
+ 		sysfs_config->eventctrl0 = val & 0xFFFFFF;
+ 		break;
+-	case 0x3:
++	case 4:
+ 		/* EVENT3, bits[31:24] */
+ 		sysfs_config->eventctrl0 = val;
+ 		break;
+@@ -565,22 +568,22 @@ static ssize_t event_instren_store(struct device *dev,
+ 	/* start by clearing all instruction event enable bits */
+ 	sysfs_config->eventctrl1 &= ~TRCEVENTCTL1R_INSTEN_MASK;
+ 	switch (caps->nr_event) {
+-	case 0x0:
+-		/* generate Event element for event 1 */
+-		sysfs_config->eventctrl1 |= val & TRCEVENTCTL1R_INSTEN_1;
++	case 1:
++		/* generate Event element for event 0 */
++		sysfs_config->eventctrl1 |= val & TRCEVENTCTL1R_INSTEN_0;
+ 		break;
+-	case 0x1:
+-		/* generate Event element for event 1 and 2 */
++	case 2:
++		/* generate Event element for events 0 and 1 */
+ 		sysfs_config->eventctrl1 |= val & (TRCEVENTCTL1R_INSTEN_0 |
+ 						   TRCEVENTCTL1R_INSTEN_1);
+ 		break;
+-	case 0x2:
+-		/* generate Event element for event 1, 2 and 3 */
++	case 3:
++		/* generate Event element for events 0, 1 and 2 */
+ 		sysfs_config->eventctrl1 |= val & (TRCEVENTCTL1R_INSTEN_0 |
+ 					     TRCEVENTCTL1R_INSTEN_1 |
+ 					     TRCEVENTCTL1R_INSTEN_2);
+ 		break;
+-	case 0x3:
++	case 4:
+ 		/* generate Event element for all 4 events */
+ 		sysfs_config->eventctrl1 |= val & (TRCEVENTCTL1R_INSTEN_0 |
+ 					     TRCEVENTCTL1R_INSTEN_1 |
+-- 
+2.34.1
 
 
