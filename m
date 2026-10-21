@@ -2,124 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7232A606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 09:49:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95412606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 09:52:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=klnsnXzI;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=buTtj0MY;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Xsaf5ppa
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WkTqs4Rq;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZqkc8zU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qb8CCyZKDo3DU8wu9akhVT7quX2USeXAOK8NbuiE3KM=; b=klnsnXzI71cudX489vXDV0pVHm
-	I9ruln3bdEkZgvtVhgG/7THdcSi0GjjtzkgXu9hyLsg0reg0D+fwHkC19tDIrx6qf8OAPbsNKuWhn
-	q8tjHMJj8CBYng76ZRFgdmCteZUujf6iZTrUQfqrk4RRRn6m3QjNk/kE6l1r3GYcz4189eDwdg4Xe
-	rjZS2rbh5egNUuKO7r0ilTzPPqzW+kk9yZCmyi8C+w7xHfGLZr0atKAjAfWr7NW2llT+xAuWYqxOi
-	IQB+/Q3IKC+BRkha1xSer0k3t7tzO2u3ZSdgSIS5rvjut5o0ileoDWWbg86bYOUPBTcXGcpSRylyd
-	lHlwW4IQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jh8LWRqw7DncpLM61emszsrjL10lzFZXGuGfzebDIgs=; b=WkTqs4RqbqjzAveT5NoU0O4ubx
+	gll9U01WV8rHUN5E6FrgGuOwBgwsSD6u/21WjuEyGHShpmhGFFTyqsWHi5iif81WPzvBK3k3NZxyF
+	3wKtrJ//DcQi3KWzFgPQiKWJ5LFNyzI0rCtuRjgOdQgJZ3dlGn/gwcUzl4sICOmU/HEMcbhgI1NjD
+	7twPfdtphQzV+Fe35Zv0qRY+iz9CqJKzpWn3uj9ABWBwuj4evVkBaYTpIoFu8P2eqJWQjBsQW/zDj
+	xM9Nef16BhgbL/EE2uSx6L/9eakyFa7ZqTnRKKfLn+rUEh25GsZhd3mpWDp1Xg/pbNapJxVWwt6lE
+	s4my+KpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJSwU-0000000BX0a-3nlF;
-	Wed, 21 Oct 2026 09:49:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xJSzw-0000000BXPW-2T6H;
+	Wed, 21 Oct 2026 09:52:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJSwU-0000000BX02-07MH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 21 Oct 2026 09:49:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=qb8CCyZKDo3DU8wu9akhVT7quX2USeXAOK8NbuiE3KM=; b=buTtj0MYuUiIJXLQ/gWc7R4snP
-	xVcKVnUFUxe88R+h6nH125LSrjBRF2tinwTqBd+TTiIYmHCiu6n9Dp0giuQ+giLg2IBOJdtz4/NFS
-	3nSaGUOCN81xX8wqqyVivLhHBibesahG+XOcHGtS7v+aavKnMxZFPcLbYwpSibCHF7mPyPfHlnIlY
-	/oVAdH9xjYqF/ZEfgfW2I+Pszy39CPgV8N/Gy6qFmf6RpnTl6YmgQQOHTX0qN/heXeA6vdoGppgJa
-	UUd7pvHiPxtU/6gEdP90YCxhcPU2H2eBoaKvQTqtIZgAlusD3jHCKLqPHJTumcA5OfXad7V3S13A6
-	jY9nnKLw==;
-Received: from mail-pj2-x07.google.com ([2607:f8b0:4864:39::7])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xJSwN-00000005fdn-2MkL
+	id 1xJSzv-0000000BXPO-0IJY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 09:49:02 +0000
-Received: by mail-pj2-x07.google.com with SMTP id d9443c01a7336-2e934c6c20aso2703235ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 02:48:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792576137; x=1793180937; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qb8CCyZKDo3DU8wu9akhVT7quX2USeXAOK8NbuiE3KM=;
-        b=Xsaf5ppa7LFsOQGPq9QOpzqt4Dv5wzKyElTo0JQOr9eW5kRpufU51Nkuij5kywZ8if
-         /KGBrodSSyXakbFdVBVmfdeAF72RheyupBKq2XbkOip5LbBXl3uFwI/1v+1C2LbwzpSi
-         wdlsD9IbeKTZztMkd8/BnRqCo8/DJPz13u3BnxHE4Nc85HkdtHe1vo+7AQMTFc90Ex++
-         DQpdyEUPLEUrqYthVJPBfvAwhXbuN8gflSW+7DVh9xZBjDYq+Al4o4NMCpJWyZ0sKeNd
-         2boDP5cKPh5UaHAAu4EeJ7YOe72PoZMY32qyEny6MGSzZ8lpL90frgsZA2cJBogjSgMY
-         p6lg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792576137; x=1793180937;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qb8CCyZKDo3DU8wu9akhVT7quX2USeXAOK8NbuiE3KM=;
-        b=v6oDX7wQRkMbgE0IIvKxXCqJTRqo5cVSZ2fit0jPMuOKuZR3W9N65VwTDwK8HJIM9U
-         y2CmA8vdBtRihj6eIqL3JSm7r54V6ro5+25znC2ALjdhKocq0qUOyMGgzXgVkAb0Vz8F
-         Fc1H/s152YdND79qlO4Ci5gU0y1fUw0JcR9dWXeca/nJqcCV2DzGCmFqjL8qdVXv0npl
-         YOSH66+zKbJ6OSPTFNb+zUV7DOAcmXCNdLEm5/j/QDAJzZPq8i7V7khL4mxh6zjmej6v
-         jzKaBedNPhS8oTGQh0DZusKpaiBfLvO60twhIk67nOfLigPabr+Rcmf+/fwPhExcBUmH
-         pIMw==
-X-Forwarded-Encrypted: i=1; AKwUvBzh7wACh3HMTnO/OGKEh4sSmN2QM4HrZVJjRyDapmy+XId3Fxa+nKvP2Z8yYOP248aCx6uNr0Ut+muCFEca9DQj@lists.infradead.org
-X-Gm-Message-State: AFq9FYJgs66tlHPtmqGxGxvXFsiDHCSQ0KMLoSChI9FfrPu7TJ8H0jHe
-	lbrlg02IhEE8vlYCXc9yHd73sCMGJY5gFL2YMGlyzvZwFKRtOU+6BB9+
-X-Gm-Gg: AYBFou1jd/h5UICYy0NCrVjuPsxX6P305Gm3zhdRGY/sY5oojJW0wRhedCTiiiSbyK6
-	GDRBB0OGVnkPCBcp9CcwFg59rt77egjd3zkFSDq4uT8doXyEVSBOEeM18hoDWjtjZtCeqYL/rVE
-	RYYe3WMSEf+N4bAgJKHWwd5I+DGTAs50KTf9cDzhvfannkSw9OXiJ3Mx7o7Wq0SJtdfIRsEYl2P
-	WiHqA5If/Sl8sLcBtRQeVs9Rv1MGifK7qCHI7ILjmF3LRn3MTfmD/yo9750g87R133ZN+50DwK9
-	OiaBpEoCLuh78IfPd3LcEa6rvcpo9UH/pPwyWX5rdXtWpQnPBDl+sIZY+BKPN5MsJ+hYWuRmVfy
-	jqbhIi5/sElynmrCKtsCfdGhxQCM00tC1atjE3IgWk4JoSnDupy4oUBqZ73JxBaSxxhhZuvimBE
-	uzLjlgD16Sq4Un/qGbtqs7B6oEJR4Aji8tL2LtbA/0KNrGGyBteO5eZFW2WamYVcx9acZMRZOYc
-	LxF431Tj2voH50gfXDlZ1fLfeQMSMMR5SnyQyx0sr4gJa+zXwais6kkPU3GBco=
-X-Received: by 2002:a17:902:f60e:b0:2ea:192a:13b8 with SMTP id d9443c01a7336-2ea43a13e4fmr10496695ad.20.1792576137131;
-        Wed, 21 Oct 2026 02:48:57 -0700 (PDT)
-Received: from [10.125.112.22] ([122.11.210.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea3b486970sm8858055ad.62.2026.10.21.02.48.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 21 Oct 2026 02:48:56 -0700 (PDT)
-Message-ID: <a1665f9e-3116-47bc-974e-98dce408fa37@gmail.com>
-Date: Wed, 21 Oct 2026 17:48:37 +0800
+	Wed, 21 Oct 2026 09:52:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 26C2443BDC;
+	Wed, 21 Oct 2026 09:52:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 520C51F000C9;
+	Wed, 21 Oct 2026 09:52:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792576358;
+	bh=Jh8LWRqw7DncpLM61emszsrjL10lzFZXGuGfzebDIgs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=kZqkc8zUyjzFXA7B/p0KIOS2HwclJEbuItJ8ll5qV1ajq+85AHwHEMeqOBtuxN8PC
+	 m1I/PfMVpGUfH+fA4Xq2dEBkQxGwbauGNf3LCUk71iDdpqYXf9KaANCAiWaFZcBN7B
+	 sNa1r2e+ce5ZYE37tTORR7TIfowh6t1nZL0CwpSxz7hWtiAZmSNDDVJXmOi/9GlgjV
+	 ODYRvSb82KJz7brGR6Zizid+HYEuQMhTAI+8wnbf4n1+O24t85biAOd3bTPPFxECjO
+	 xMHrkwW7KopACTixVN7yQBbfrk+EhVU2AbWxQOYwOYNpteYmFccJ7YRxG+Nv+3SfoC
+	 7+g94nh5J2tnA==
+Subject: Re: [PATCH net] net: sparx5: don't reuse the last DCB in fdma xmit
+From: netdev-bot+sashiko@kernel.org
+To: daniel.machon@microchip.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com,
+ UNGLinuxDriver@microchip.com, jensemil.schulzostergaard@microchip.com,
+ horatiu.vultur@microchip.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Wed, 21 Oct 2026 09:52:36 +0000
+Message-ID: <179257635682.3135.3561272765367316822@kernel.org>
+In-Reply-To: <20261020-sparx5-fdma-last-dcb-v1-1-fb9a956196dd@microchip.com>
+References: <20261020-sparx5-fdma-last-dcb-v1-1-fb9a956196dd@microchip.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 3/8] crash_core: serialize crash header preparation
- against hotplug
-To: Jinjie Ruan <ruanjinjie@huawei.com>, robh@kernel.org,
- baoquan.he@linux.dev, rppt@kernel.org, m.szyprowski@samsung.com
-Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
- chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
- hpa@zytor.com, saravanak@kernel.org, akpm@linux-foundation.org,
- pasha.tatashin@soleen.com, pratyush@kernel.org, ruirui.yang@linux.dev,
- robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- kexec@lists.infradead.org, linux-mm@kvack.org, iommu@lists.linux.dev
-References: <20261021083011.2170525-1-chenwandun1@gmail.com>
- <20261021083011.2170525-4-chenwandun1@gmail.com>
- <12e4e687-1ff0-41b2-bdf8-7f48b29e1f2f@huawei.com>
-Content-Language: en-US
-From: Wandun <chenwandun1@gmail.com>
-In-Reply-To: <12e4e687-1ff0-41b2-bdf8-7f48b29e1f2f@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_104859_986997_35CF031E 
-X-CRM114-Status: GOOD (  23.42  )
-X-Spam-Score: 0.1 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,155 +70,166 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
+Critical: 0 (1) · High: 1 · Medium: 0 · Low: 0
 
-On 10/21/26 17:13, Jinjie Ruan wrote:
-> 
-> 
-> 在 2026/10/21 16:30, Wandun Chen 写道:
->> From: Wandun Chen <chenwandun@lixiang.com>
->>
->> crash_prepare_headers() counts memory ranges before populating the
->> allocated crash_mem array. The weak implementation used by ARM64,
->> RISC-V and LoongArch walks memblock.memory, while x86 performs the same
->> two-pass operation over system RAM resources. Concurrent memory hotplug
->> can change range source between the two walks and make the populate
->> pass overflow cmem->ranges.
->>
->> Take device_hotplug_lock when preparing crash headers during
->> kexec_file_load(). The x86/riscv memory hotplug path already takes
->> device_hotplug_lock, so call __crash_prepare_headers() directly
->> to avoid recursive locking.
->>
->> Sashiko reported this issue in [1].
->>
->> Fixes: 3751e728cef2 ("arm64: kexec_file: add crash dump support")
->> Fixes: 1bcca8620a91 ("LoongArch: Add crash dump support for kexec_file")
->> Fixes: 8acea455fafa ("RISC-V: Support for kexec_file on panic")
->> Fixes: dd5f726076cc ("kexec: support for kexec on panic using new system call")
->> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
->> Link: https://sashiko.dev/#/message/20260806101002.1F84E1F000E9@smtp.kernel.org [1]
->> Acked-by: Baoquan He <baoquan.he@linux.dev>
->> ---
->>  arch/riscv/kernel/crash.c  |  2 +-
->>  arch/x86/kernel/crash.c    |  2 +-
->>  include/linux/crash_core.h |  2 ++
->>  kernel/crash_core.c        | 17 +++++++++++++++--
->>  4 files changed, 19 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/riscv/kernel/crash.c b/arch/riscv/kernel/crash.c
->> index fe5a4b306aae..ac8df2edf2a7 100644
->> --- a/arch/riscv/kernel/crash.c
->> +++ b/arch/riscv/kernel/crash.c
->> @@ -70,7 +70,7 @@ void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
->>  	 * Create the new elfcorehdr reflecting the changes to CPU and/or
->>  	 * memory resources.
->>  	 */
->> -	if (crash_prepare_headers(true, &elfbuf, &elfsz, NULL)) {
->> +	if (__crash_prepare_headers(true, &elfbuf, &elfsz, NULL)) {
->>  		pr_err("unable to create new elfcorehdr");
->>  		goto out;
->>  	}
->> diff --git a/arch/x86/kernel/crash.c b/arch/x86/kernel/crash.c
->> index e6f23933a6df..bef008a0cb22 100644
->> --- a/arch/x86/kernel/crash.c
->> +++ b/arch/x86/kernel/crash.c
->> @@ -465,7 +465,7 @@ void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
->>  	 * Create the new elfcorehdr reflecting the changes to CPU and/or
->>  	 * memory resources.
->>  	 */
->> -	if (crash_prepare_headers(IS_ENABLED(CONFIG_X86_64), &elfbuf, &elfsz, NULL)) {
->> +	if (__crash_prepare_headers(IS_ENABLED(CONFIG_X86_64), &elfbuf, &elfsz, NULL)) {
->>  		pr_err("unable to create new elfcorehdr");
->>  		goto out;
->>  	}
->> diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
->> index bc087124cd78..28e7a81cf263 100644
->> --- a/include/linux/crash_core.h
->> +++ b/include/linux/crash_core.h
->> @@ -61,6 +61,8 @@ extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_ma
->>  				       void **addr, unsigned long *sz);
->>  extern int crash_prepare_headers(int need_kernel_map, void **addr,
->>  				 unsigned long *sz, unsigned long *nr_mem_ranges);
->> +int __crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
->> +			    unsigned long *nr_mem_ranges);
->>  extern int crash_exclude_core_ranges(struct crash_mem **cmem);
->>  
->>  struct kimage;
->> diff --git a/kernel/crash_core.c b/kernel/crash_core.c
->> index faa0f22dbb41..8a861a946e26 100644
->> --- a/kernel/crash_core.c
->> +++ b/kernel/crash_core.c
->> @@ -16,6 +16,7 @@
->>  #include <linux/mm.h>
->>  #include <linux/cpuhotplug.h>
->>  #include <linux/memblock.h>
->> +#include <linux/device.h>
->>  #include <linux/kmemleak.h>
->>  #include <linux/crash_core.h>
->>  #include <linux/reboot.h>
->> @@ -344,8 +345,8 @@ int crash_exclude_core_ranges(struct crash_mem **cmem)
->>  	return 0;
->>  }
->>  
->> -int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
->> -			  unsigned long *nr_mem_ranges)
->> +int __crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
->> +			    unsigned long *nr_mem_ranges)
->>  {
->>  	unsigned int max_nr_ranges;
->>  	struct crash_mem *cmem;
->> @@ -382,6 +383,18 @@ int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
->>  	return ret;
->>  }
->>  
->> +int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
->> +			  unsigned long *nr_mem_ranges)
->> +{
->> +	int ret;
->> +
->> +	lock_device_hotplug();
->> +	ret = __crash_prepare_headers(need_kernel_map, addr, sz, nr_mem_ranges);
->> +	unlock_device_hotplug();
-> 
-> I think this patch conflicts with my changes and would also conflict
-> with the implementation of arm64 crash hotplug.
-> 
-> https://lore.kernel.org/all/20260921090450.807575-15-ruanjinjie@huawei.com/
-> 
-Have these patches already been merged? My current work is based on the latest
-linux-next. If they have already been merged into the maintainer's branch,
-please let me know, I will update my tree and rebase/re-adapt my changes accordingly.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
+- [High] net: sparx5: unguarded fdma_dcb_advance() in sparx5_fdma_xmit()
+  breaks tx ring
 
-Also, regarding the changes in kernel/crash_core.c: it looks like we modified
-the same spot, the change is not wrong, is that right?
+Pre-existing issues:
+- [Critical] This problem wasn't introduced by this patch, but the patch
+  adds a new way to reach it.
 
-> arm64 crash hotplug:
-> https://lore.kernel.org/all/20260918100442.3841135-18-ruanjinjie@huawei.com/
+--
 
-In addition, if arm64 gains crash hotplug support, the code there would indeed
-need to be modified (to avoid a deadlock). As of now, arm64 crash hotplug
-support has not been merged yet either, has it? I just want to make sure I
-haven't missed anything.
+net: sparx5: don't reuse the last DCB in fdma xmit
 
-> 
->> +
->> +	return ret;
->> +}
->> +
->>  /**
->>   * crash_exclude_mem_range - exclude a mem range for existing ranges
->>   * @mem: mem->range contains an array of ranges sorted in ascending order
-> 
+This patch adds a check to sparx5_fdma_xmit() so it rejects the next tx
+DCB when that DCB is fdma->last_dcb. This uses the same !fdma_is_last()
+guard as lan966x and lan969x, so the tail of the chain is never re-added
+and the frame is not lost.
 
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
+> index dbe86f937b21..221b2f1932f6 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
+> @@ -218,7 +218,8 @@ int sparx5_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
+>  	void *virt_addr;
+>  
+>  	fdma_dcb_advance(fdma);
+> -	if (!fdma_db_is_done(fdma_db_get(fdma, fdma->dcb_index, 0)))
+> +	if (!fdma_db_is_done(fdma_db_get(fdma, fdma->dcb_index, 0)) ||
+> +	    fdma_is_last(fdma, fdma_dcb_next_get(fdma)))
+>  		return -EINVAL;
+
+[Severity: High]
+Does this fully fix the drift described in the commit message? The
+underlying problem looks like it is still there: fdma_dcb_advance() runs
+before the done check, and fdma->dcb_index is not restored when
+sparx5_fdma_xmit() returns -EINVAL. The new fdma_is_last() test only
+covers the moment dcb_index lands exactly on last_dcb.
+
+When the ring is full, a failed xmit leaves dcb_index on the oldest
+in-flight DCB. The next call advances again before checking anything,
+so if the FDMA has completed that DCB in the meantime it is skipped and
+we test a newer DCB that is still in flight. Each failure moves
+dcb_index one step further, so a burst can keep dropping frames while
+completed DCBs sit unused behind dcb_index.
+
+If dcb_index ends up just behind last_dcb and the FDMA then drains the
+chain, every DCB is done and the ring is idle. The next xmit advances
+onto last_dcb, hits the new fdma_is_last() check and returns -EINVAL,
+which sparx5_port_xmit_impl() treats as a drop:
+
+	if (ret == -EBUSY)
+		goto busy;
+	if (ret < 0)
+		goto drop;
+
+The lost frame becomes a counted drop, but it is still a drop on an
+empty ring. lan966x_fdma_get_next_dcb() and lan969x_fdma_get_next_dcb()
+don't hit this because they use !fdma_is_last() inside a loop over all
+DCBs and pick another free one, rather than failing on a single index.
+
+The previous tail is also still unsafe. Say the FDMA has halted on
+last_dcb at index L and dcb_index is at L - 2. The first frame advances
+to L - 1, which is done and not last, so it is linked from
+dcbs[L].nextptr and becomes the new last_dcb. __fdma_dcb_add() does not
+clear the done bit on dcbs[L], so if a second frame comes in before the
+FDMA has fetched dcbs[L].nextptr after the reload, it advances onto L,
+which is still done and no longer last. Re-adding it rewrites
+dcbs[L].nextptr to FDMA_DCB_INVALID_DATA, so dcbs[L - 1] is cut out of
+the chain. Its frame is lost, and since the FDMA never visits it again
+its done bit stays clear, so later xmits that land on it fail too.
+
+The drift itself dates back to f4aa7e361ae2, but since this patch is
+meant to fix it, would it be cleaner to fix it at the source, by only
+committing the dcb_index advance once the DCB has been accepted (or
+rolling it back on failure)? Then dcb_index always follows last_dcb,
+the next DCB is always the oldest one, and the fdma_is_last() check
+should not be needed. Alternatively, sparx5 could search the ring the
+way lan969x_fdma_get_next_dcb() does.
+
+[Severity: Critical]
+This is a pre-existing issue, but this patch adds a new way to reach it.
+What happens to a two-step PTP skb when this returns -EINVAL?
+
+For a two-step PTP skb, sparx5_port_xmit_impl() first calls
+sparx5_ptp_txtstamp_request(). That function links the skb onto
+port->tx_skbs and does not take an extra reference:
+
+drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c:sparx5_ptp_txtstamp_request() {
+    ...
+	skb_queue_tail(&port->tx_skbs, skb);
+	SPARX5_SKB_CB(skb)->ts_id = port->ts_id;
+	SPARX5_SKB_CB(skb)->jiffies = jiffies;
+
+	sparx5->ptp_skbs++;
+    ...
+}
+
+When ops->fdma_xmit() returns -EINVAL, the caller jumps to the drop label.
+Only the busy label calls sparx5_ptp_txtstamp_release():
+
+drivers/net/ethernet/microchip/sparx5/sparx5_packet.c:sparx5_port_xmit_impl() {
+    ...
+drop:
+	stats->tx_dropped++;
+	sparx5->tx.dropped++;
+	dev_kfree_skb_any(skb);
+	return NETDEV_TX_OK;
+busy:
+	if (skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP &&
+	    SPARX5_SKB_CB(skb)->rew_op == IFH_REW_OP_TWO_STEP_PTP)
+		sparx5_ptp_txtstamp_release(port, skb);
+	return NETDEV_TX_BUSY;
+}
+
+That leaves the freed skb linked on port->tx_skbs. On the next two-step
+request, sparx5_ptp_txtstamp_old_release() reads the freed skb's cb and
+then frees it a second time:
+
+drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c:sparx5_ptp_txtstamp_old_release() {
+    ...
+		if time_after(SPARX5_SKB_CB(skb)->jiffies + SPARX5_PTP_TIMEOUT,
+			      jiffies)
+			break;
+
+		__skb_unlink(skb, &port->tx_skbs);
+		dev_kfree_skb_any(skb);
+    ...
+}
+
+sparx5_ptp_irq_handler() walks the same queue. It also reads
+SPARX5_SKB_CB(skb)->ts_id from the freed skb. On this path the ptp_skbs
+slot is never given back either.
+
+The drop path has been like this since commit 121c6672b0191. Until now it
+could only be reached through the !fdma_db_is_done() (ring full) case.
+Before this patch, the case where dcb_index landed on last_dcb returned
+NETDEV_TX_OK, so the PTP skb stayed queued safely. With the new
+fdma_is_last() rejection, that case now goes through the same drop path.
+
+Could the drop path call sparx5_ptp_txtstamp_release() for two-step PTP
+skbs, the same way the busy path does?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261020-sparx5-fdma-last-dcb-v1-1-fb9a956196dd%40microchip.com
 
