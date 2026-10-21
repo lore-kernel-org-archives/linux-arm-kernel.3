@@ -2,101 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E30E606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 21:02:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB137606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 21:06:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YQolb4d+;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=ShKWn41F
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=P0uIeKi1;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=sZUmfv7f
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9DKdX40sfVlGrn1f1rpsI16luuxZgM7QgTjRWQCsXog=; b=YQolb4d+G2J3fy1ncYJ2xIL/m5
-	FEuGpHXDEedL2ya3LFPm3pph/VNYzCqUJYO312CEeXy8vFSlDvV1dmZBZ37RaFQO7Zsq0cQ8/5o/8
-	3WROgyeVhk1DUnjfD0qyCWWhUorm/cxfkkeF6y54eTgM2BteSCS94OQj1WlTAQ5fJcZpeWPGQc13y
-	NVt83TLwPpe1FSgdGlI9Fo7yBMcTeEwK6oqt1OA9AyP1SOR26Xnzuft0LkGS9E93tJqvm0hlcvpog
-	mg9DkakAxBDdwfdhfZ225MbAWs8tit53+0mT/bdjh4zIj2q+t78G6K0zB1/yDvsq6NjXT7c4UPkRj
-	07n8lZAQ==;
+	bh=fxNhFdCnRx1TnZ/VZCHBg1thsLr/kiS3HyDFHely7YU=; b=P0uIeKi186LiXFG37w5WAheA6N
+	UDxdUz+zZ7eohyplMkyo6Eiyp8WuvHQe0JLre814Ez3rBd0/Bj0w24R160yatfJYtWh9eiCVW26bq
+	VJedE3cHXbubitPynN6/Fb3GBziAIRUe9vW7gsCxVYyF6457VtjoX1PYw4DHRwWitAu/N2kxFBBGd
+	26np7vDuOo27SQRUrWOffPY7qjFXJUhHVXwDJxMhVgmsPlTDtaXvHtARusKxSi18WtIM46D1LUyaD
+	65O/CPzZkp80qnEILiHjd+mUQL/rITvN1mrzuLLskXgMyVqOR3pIWprc56dM/zItYcdrZt1EIeVXX
+	hKB77z1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJdS3-0000000CtGR-2iPZ;
-	Wed, 21 Oct 2026 21:02:23 +0000
-Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
+	id 1xJdWK-0000000CtgL-0fKv;
+	Wed, 21 Oct 2026 21:06:48 +0000
+Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJdS1-0000000CtFl-31iW
+	id 1xJdWH-0000000Ctfu-2q4b
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 21:02:22 +0000
-Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-6d00d120b28so787898eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 14:02:21 -0700 (PDT)
+	Wed, 21 Oct 2026 21:06:46 +0000
+Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-844a8bf7e25so847122a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 14:06:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792616540; x=1793221340; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792616804; x=1793221604; darn=lists.infradead.org;
         h=cc:to:message-id:content-transfer-encoding:content-type
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=9DKdX40sfVlGrn1f1rpsI16luuxZgM7QgTjRWQCsXog=;
-        b=ShKWn41F+vE4UYfEZ4VV8p8yHD3m/G98D3DVd16vzkTH51ch1FtcAbYB9nKTW+XFc3
-         uDHHHYK2BLdG64iGwGDhILdtPc7hMLqwEo26exDkgtIj8anUgrEZMy+HpfWmLRD/8nhL
-         AfxoVaPE6zjsMpZiXdA9L0lBERdsVL5fqkylPCpyzRhxWJgDBTstf90qR+BipdnVqjwV
-         +eDlJXpYcAwWY+JkeSswhYdc70eC3NgKLVpVkPRu1cwdeLHX6xKBpLNfCWrTzPdBTZ1L
-         QAtcN3/WVVWdZbk37kDvaNOSt2QWFSz5l3j5cj8/+Gvk+kk6GT8KiRi8Wbz3wHfpdRpJ
-         13mQ==
+        bh=fxNhFdCnRx1TnZ/VZCHBg1thsLr/kiS3HyDFHely7YU=;
+        b=sZUmfv7fbeE/Z8w6AJhkvgMUBtHuIBvZ6Dnh0S8bZksd/9ZMMOrX+6/Xt8EoMtEZQi
+         cmcIPDwNYIXD4dvZeBgDa636PIDFs0cAD+pbYHao01CCNh+Xbw5d6imzu/Sr0tfPH6sC
+         8PiyWYEUTcwKkIDn/ImFtN+DpG5BvaL07oqur5acIWwe3OrhS7N6b6ft1w9EGW95N2XW
+         Wf/Se6Jj20jFkR0BVcnec+QYW5mR5Kuf9VJ0r6i/A6xGEsF56/5MAgGojmV+yGZSMXbe
+         +R8RFqTwp/1p/5E84oTUDYm30vM78TeKldgKMeEz3xrimh44dr5sADe9sCOediMyRguE
+         Iqkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792616540; x=1793221340;
+        d=1e100.net; s=20260707; t=1792616804; x=1793221604;
         h=cc:to:message-id:content-transfer-encoding:content-type
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=9DKdX40sfVlGrn1f1rpsI16luuxZgM7QgTjRWQCsXog=;
-        b=vvTDaIhA8C9JHS4Zta66hue3OTDFcRf5OR/9+iqiU5fy619uj6mbX7R2jAStCGZ/5i
-         BtKlckqeW4IUlZqGpn+CnZD20nAbEH7hF0ULm7fx8JAw5r5EFiIGuEdbdBRTH3OSRf8P
-         3iXHowJhoPkcSLKPbMZm0eqM3it/PlZ1Fdn5YduWiZw6Y75p9nrOyhCexae6SP1TQKaU
-         ZgrD1/ENdanECJ/PyNzS7SKQmzW5QPEk8w9936LFopMxy9dD+Rx3wtyt2rZ0/Dk3Pr+x
-         b3bPfSJ9i8sYHO6DSMeEbXjI6IKkqzF81tEBAYnTa6hF4U1q/Su3z1DvKpTn3rz8ww3r
-         yx5w==
-X-Forwarded-Encrypted: i=1; AKwUvBxup+KQEsrokd8PEFgYBxLVFmCxVzUP8zfubJCnzuf8Hs8536VES1w4QpVi82Gbb52Kmlrqgm7Sbz8F4hst0HqF@lists.infradead.org
-X-Gm-Message-State: AFq9FYJqySdvZ9IKETnibBJZWzQf96OUle1XyRhcM4oe48JmIvoTiXQu
-	D/Fw6QoXnsEozUWLwbgt55RED8dsh6+LDn7DlKUmjjxOHQZ+wJ+0dq5FpXCIoQ==
-X-Gm-Gg: AYBFou1YRrGYovyTWWJ+m/UGQfSTXJ4SZ3jwb/QVoAbYzXbyklVUQsiq5DSGSc47ZIl
-	xdT/nJLZHKymEqs6DRkNrMMsLeSIpEcGbJMFaCS3/Z34ZbmqztBMLfT3EHYJLmLoep6iG1G7erx
-	QjeBnfiDNnQWGthJR0AkXfHXBt2m2xaigeqUb3u3FU52E7qsjHDfVmarCDqZZF45Lqozd3PBUFV
-	wKA8nohgOQU3yLfgnepAHu/gHM6AI5yc0uHFqjWDYXea3wt462154Dc99v85ADhy7bojJnw5BuW
-	8+1qX7zb4pQpRke9R2DbPzrcHCQaFZBsAdx10uWJ504+Lp3qcWI2QIm1D2gTHRggivQNaB7dHDA
-	lC/tN3tjiUnE0xw0wWY6OsPKnYalKOpPDXbx1KjotB9vM0vrv/i8uMC9w12jgZoYwF4vho2FV2g
-	oGrJVm1C14Ny0Tj4eX8ppSnFiBRdKtlgveJBvdzPTwleAv6b6nmogisnLffLiDbv7kwVNm4XFr9
-	uvwZpqoXKECEk0jMGDBrMUzxKgzas7ptYgZqPMzXKKNlItNb8NyxOG8SMeNOgjBbzgabgR2vXDT
-	ZunZDZoTenkt5R5fJ21V6e+7XNFhfOBO0JyPmiHx10ZNBv7IuhF8EOkTqHrIPLKMWg27ZTxL5aw
-	Grp3VBw/QHJqQjqPYOK9TSKdosEqW1BD3J6nzIIAL8NSukQLNhmqYfmVYSYruSx2o5Tn/4P6tvW
-	D6LIE=
-X-Received: by 2002:a05:6820:83c4:20b0:70a:6888:2274 with SMTP id 006d021491bc7-70a68883cb7mr438594eaf.45.1792616540307;
-        Wed, 21 Oct 2026 14:02:20 -0700 (PDT)
+        bh=fxNhFdCnRx1TnZ/VZCHBg1thsLr/kiS3HyDFHely7YU=;
+        b=bTUkoQpmYv+TKrVXNz7A+CHN0PBI/GJ7YP/QSxjoqXHOy3ekbVY1fXEr1r4G2zFXrE
+         sr96q3Sg5E35WrrsfNLTTv7JJXFj673tKqP5wyA8bvpYV0bmn08gtyqWHmiLLCqKpW51
+         Ol6VUodFPEtWwv9kENoMCGcdU0onj9fXcq9DxYsFEIUJse3nXROmVUiBcV/imclF1L+Z
+         mO0hC0zne+t9FszXQf30PZtdatnVUiGO5/xGHaVF0ZAev6O53KucG0G90np7s7bGKOlD
+         5O/rQY1oea336kZDUdJZb5bfTLZD+jUgQgUn9On7yKGjQCRsVaotg2kVsckz67xurN36
+         1vBw==
+X-Forwarded-Encrypted: i=1; AKwUvBxXARFHywItNHzYPwwKzzzii1iZHJHprVcBUCmf/X4GuSg5SrS8VhyZPwuPUVOfDvoXA7hQwCJICHPOaCZdD59B@lists.infradead.org
+X-Gm-Message-State: AFq9FYIWDOBSA6Ld2erjavfC8hUTPT3ZsyFLL8QuFfAzR1exsUN17G4T
+	XGBmI+hXNg8MJQuNshVEcwKbUVGgx0rChzaRGL0DaJ+agQQkI+B9oHlQX+yabg==
+X-Gm-Gg: AYBFou22DIXdyKN/nGHZdab89g8uNPrMn5Ja3/ikcaB88NdUbsRo70CbRuVeF1mdYgQ
+	JOntlEncnOAKE0wstGeaHpejexgq4EOpVR7FZN+WV5ZcETU5MQA+5Jb+N2sJ2gvrmVjysIv+rEw
+	TZHsqSOFrXx5K8NOhJd+w1T8i1DQ97dbHcr9sDyIivuGIJHunWjTVwXUuiNhAk1sBgV3+1bNW8k
+	QiZpYJiAxXXk/dfZ9eU9FsCRC1Jqod8Ld6Z5LNF9R8V4Ni2f+zsgkJW/dSgGmT858hlFstoUAgo
+	MB3ifN6FalStKnQTHs/8gsrzhyYh1OO0eNEa47ZSNiFel6zZQI4bPOz7VhqF+WEhfPfpgUKksTB
+	1/05XPlEvuwaptWGHhmZvjnxPGzhoOA3uFZpzbe8SKJUOK4G+UnynLTfpY19r7+0rBGTNUaMmJb
+	cUXtnsMlOFyree09BXMavRnueuocL/q/RUvkZIlz9Rl/NF4DN6KodhdAkGSLGc8hckFQGHx4Tdf
+	kVu5I+QRzLPqeNbI/SEFg5xvIFGC6CmmvIGPlwxvtpwkON2VOaeRS6rQLuGWXp2raVY2KH9fJVG
+	Ltj3S+MwB7MmTd2ZHC2qT04DEMe9ihTeGtk9AW/3UEFQFkz9IYaycmrs3SOPRCg74ILNKVywI8C
+	DJGrLORA5wmT7N/2h90zbdzUI3RU0HKNZkfcLLXtkMKyS5yov4MvXvFl63cMKRiJkDxIdKGy8w9
+	bLrA==
+X-Received: by 2002:a05:6830:3495:b0:81c:a8c5:633e with SMTP id 46e09a7af769-84d08afde73mr2463140a34.11.1792616804678;
+        Wed, 21 Oct 2026 14:06:44 -0700 (PDT)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4a7d61ce790sm2885699fac.11.2026.10.21.14.02.19
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-84cbd2d04b5sm3466826a34.14.2026.10.21.14.06.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Oct 2026 14:02:19 -0700 (PDT)
+        Wed, 21 Oct 2026 14:06:44 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Wed, 21 Oct 2026 15:02:13 -0600
-Subject: [PATCH] dmaengine: sun6i: use the channel pause enable bit
+Date: Wed, 21 Oct 2026 15:06:33 -0600
+Subject: [PATCH] dmaengine: sun6i: bound burst selection before shifting
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261021-submit-sun6i-dma-pause-bit-v1-v1-1-38d286b69dab@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWM2wqDMBBEf0X2uUtNChr6K6UPuWx1C24lUSmI/
- 95NfRrOMHN2KJSZCtybHTJtXPgjCubSQBy9DISclMG2tjOtNVjWMPGiIR1jmjzOfi2EQbvNYGd
- cNPHm+j45UMec6cXfv//xPFkFb4pLldZF8PWdvcSxVmokGVjoev6O4wcRv+NjowAAAA==
-X-Change-ID: 20261021-submit-sun6i-dma-pause-bit-v1-618c1c3877d8
+Message-Id: <20261021-submit-sun6i-dma-burst-limit-v1-v1-1-41a7a476ef66@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWN0Q6CMAxFf4X02UY2CUR/xfCwjQo1Us02iAnh3
+ +3k6ebctOdukCgyJbhVG0RaOfFbFMypgjA5GQl5UAZb29bU1mBa/MxZQ1rGYXbol5gyvri0q8G
+ mo4u9dqbpDIFaPpEe/P0v3PuDVfGkkIu2XHiXCH10EqZSqZNkZKHz8bfvPyr+VHqlAAAA
+X-Change-ID: 20261021-submit-sun6i-dma-burst-limit-v1-47e32971471e
 To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
  Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- Arnd Bergmann <arnd@arndb.de>
+ Samuel Holland <samuel@sholland.org>
 Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
  James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_140221_769965_5B201F02 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20261021_140645_727313_EF83105F 
+X-CRM114-Status: GOOD (  11.27  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,39 +115,41 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The channel pause register uses bit 0 to suspend DMA requests. Bit 1 is
-reserved, but sun6i_dma_pause() writes only that bit and returns success.
-An active peripheral transfer can therefore continue while its client
-expects it to be paused, for example while the 8250 driver reads RX
-residue and copies a partially filled receive buffer.
+find_burst_size() tests BIT(maxburst) before reducing the client's maximum
+to a supported burst length. DesignWare UARTs request a maximum burst of
+one quarter of their FIFO size, so a 256-byte FIFO supplies 64. Shifting
+an unsigned long by 64 is undefined even on a 64-bit CPU. The fallback
+loop can repeat the same invalid shift.
 
-Use bit 0, as specified by the H616 DMA channel pause register.
-This fixes the pause request itself; it does not add paused-state
-reporting or change the handling of transactions already on the bus.
+Limit the search to the highest burst represented in the controller's
+nonzero capability mask before either shift. Larger client limits still
+select the largest supported burst, while smaller limits retain the
+existing power-of-two selection and the zero/default case is unchanged.
 
-Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
+Fixes: 7178c3586ab4 ("dmaengine: sun6i: Choose appropriate burst length under maxburst")
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/dma/sun6i-dma.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/dma/sun6i-dma.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-index 7704b016aed8..204b0b812431 100644
+index 7704b016aed8..a8b12262b3c3 100644
 --- a/drivers/dma/sun6i-dma.c
 +++ b/drivers/dma/sun6i-dma.c
-@@ -60,7 +60,7 @@
- #define DMA_CHAN_ENABLE_STOP		0
+@@ -590,6 +590,9 @@ static u32 find_burst_size(const u32 burst_lengths, u32 maxburst)
+ 	if (!maxburst)
+ 		return 1;
  
- #define DMA_CHAN_PAUSE		0x04
--#define DMA_CHAN_PAUSE_PAUSE		BIT(1)
-+#define DMA_CHAN_PAUSE_PAUSE		BIT(0)
- #define DMA_CHAN_PAUSE_RESUME		0
++	/* maxburst is a transfer limit, not necessarily a valid bit index. */
++	maxburst = min_t(u32, maxburst, fls(burst_lengths) - 1);
++
+ 	if (BIT(maxburst) & burst_lengths)
+ 		return maxburst;
  
- #define DMA_CHAN_LLI_ADDR	0x08
 
 ---
 base-commit: 93f51579e7df248780214094418f205253383cc5
-change-id: 20261021-submit-sun6i-dma-pause-bit-v1-618c1c3877d8
+change-id: 20261021-submit-sun6i-dma-burst-limit-v1-47e32971471e
 
 Best regards,
 --  
