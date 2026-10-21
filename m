@@ -2,196 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ACCA606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 06:52:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 382C7606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 06:58:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RwWp0bAK;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=xCAU5z+E
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4dUY4lfx;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BaBI4sAY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6LOxusDsaYIfG0yOiMnOKoxplwpJrAQdxdc2tucqDA=; b=RwWp0bAK4K6hoZsPeAjCLhZkdN
-	mXtS/pyvGHRx8+TdY/Dv5tJBzOY5Low2KLRgIRCWAbGB9GpELpOilO550aQPAQR3gm/8qNBOGarDQ
-	POGogJ1mYyxzi8lu2gZS6oOkTFyIa4lsMKRdrh38ds3sAchfyhL/boVZSzHn/pRfLKfsbwWbY28CX
-	q5SGD4Udt3gP6rL2idb85V8i+CS/jjGhmQ9Ng+eH9SfTJZ4VEXSEYR8bL+Uo4TOc5Wnqgx18R6qrM
-	1b1SQxeeLu9+l8Ul+bJBlyZlQnNUW2REoNCsr4sEQkVVEVLShiC4u7Toq+QKCPmhE/S7OGjy6Qb2d
-	LEzQFKFQ==;
+	bh=4CoDiCaTJN+LFxlwyURPQlkHoXPhaz72iTcURzvPQHU=; b=4dUY4lfxVwnBTqqIQChlcp1uXO
+	LDYGpMojQvIwrVz994YZuMhmQc/cyjAkNv3YM+KQn54exIK70J7hYYtEjBTcPhVqkeGx0eFF1qvto
+	42ZK/PAtDPV9svr0tsID4678RSx1Wpp3xONarOIjyrcbX4nQT/t6FWQAtJuCFznfc+3FgH5+QG14t
+	CizIYpifqpw8JhsHswjZchWcBOuc9K7/qgyBik50EsAZY5/eA0NR5PP/zBe/vg1BysqTpZh3XqriH
+	mJNRpEGIvsf0WDYVjvh1Nyq4e7sBPhEOPM7MQeoQGiZC5htqq1psqNWkbcLKR5br4zj8/Nq8Vs/VC
+	ZRFeKM5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJQBC-0000000BD6B-1rce;
-	Wed, 21 Oct 2026 06:52:06 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1xJQHf-0000000BDaz-162O;
+	Wed, 21 Oct 2026 06:58:47 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJQB9-0000000BD5m-31A6
+	id 1xJQHd-0000000BDaS-0EPW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 06:52:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IZ8U+v/0vm3RKYlyHyy2djsdQrApgz+rQKlWjRSA1x04KaCvpuSI3dQJD/7uoXenftiSnrC0LDROpmMs8Bd6R8/4obDsu/HlRKkQlBQwJygLxVu3YuCwaRa+R7b1S4gZGZ2eKDI1dHkD/uyLQo8E0DvP0Z9aBZeQrp4tZ0+BMHXJadc0SFBi9GlRh5nBNRf9RXP27pWdQLZffJI5PtkqeEP0VHkSJUKXj7QJvW0chdFdOVZfOIYAl0cEKbDeQT3X91Y3WjLYEd1IqTjY0Xogil3tSc4NuYW025bcdSY7qOMj416N/GBdwK+1EElLelPEaHukV38KljsQ5Jqm9jnhIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=I6LOxusDsaYIfG0yOiMnOKoxplwpJrAQdxdc2tucqDA=;
- b=GshWn3dXmNlOkO2dcuIurkFSbSkaFTeMGHV1fFti3ap2u20MZG6HZ8XqhQ10ICzGCOygPnffLFwe1Ff7fonTzNRCxNQCQcHCvBoNt03QXbfoeTcLVLJ4gjdWWLf69BFiMUnSIs0mxf0nQT1KHIKyo0wOPS3mk96JKjC28AazRdvIhcYmDwwaobsgiZ45ROdPonh8B23jqYJIGNn/34LvkAgNiee/TqEyOdvlY9ad2RsYqcjFPVTUHTQQepruNRUcPkMVlVzQlwW5xPBjFisq4SHpqEqahTKh9ck3TaF5g7EDEyP3meLhFd0LpPq3qYXxJwM8do4rnlAhkppYunilWw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=I6LOxusDsaYIfG0yOiMnOKoxplwpJrAQdxdc2tucqDA=;
- b=xCAU5z+EjjnDQaDlOVaYbm0q4F0SFB4vsQv6Iv8c1WdrAVh2E+3fpQhpCazgcwp373fpGXYKi/TZOy1+Owkw0m45ksY/J657cZkn9PkgDCN+YH6tVRsBI437XJ00cPDMI3/5QGW/BEpcMNexi74wuRFiMoMrxPoSC2L3Jr8BPHs=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
- by DS7PR12MB8202.namprd12.prod.outlook.com (2603:10b6:8:e1::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Wed, 21 Oct
- 2026 06:49:56 +0000
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287%5]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
- 06:49:56 +0000
-Message-ID: <fed9a5f3-8da5-4755-b75f-5f9ef22b4388@amd.com>
-Date: Wed, 21 Oct 2026 08:49:46 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 7/7] arm64: dts: qcom: sc7180: Add sc7180-trogdor.its
- FIT image script
-To: Douglas Anderson <dianders@chromium.org>,
- Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, Brian Norris <briannorris@chromium.org>,
- Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Simon Glass <sjg@chromium.org>,
- Chen-Yu Tsai <wenst@chromium.org>, linux-arm-msm@vger.kernel.org,
- Nicolas Schier <nsc@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- Nathan Chancellor <nathan@kernel.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Devicetree@vger.kernel.org,
- Julius Werner <jwerner@chromium.org>, Saravana Kannan
- <saravanak@kernel.org>, Will Deacon <will@kernel.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>, cros-qcom-dts-watchers@chromium.org
-References: <20261020153652.2907186-1-dianders@chromium.org>
- <20261020083501.RFC.7.I1683fb18dd1cb29680af5efb2c2d3c3f539af0f4@changeid>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- mpwx1d8=
-In-Reply-To: <20261020083501.RFC.7.I1683fb18dd1cb29680af5efb2c2d3c3f539af0f4@changeid>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR13CA0066.namprd13.prod.outlook.com
- (2603:10b6:a03:2c4::11) To LV5PR12MB9779.namprd12.prod.outlook.com
- (2603:10b6:408:301::14)
+	Wed, 21 Oct 2026 06:58:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1792565925; x=1824101925;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=i07QuMRn/2JfcFy0JuCMmwxFwETBHdVXa2IAMSqe/48=;
+  b=BaBI4sAY1b8+0VHfS1AaKcRupD4Vy421NmSSLRkYT6KbhzPqh/wq5fBT
+   fw+r1oBnBlJ7y33Z/K6GN6AOcFL0zT0YTZ8TFok20cqvwM5MmRid50TR8
+   659pUy/GQUBVggZ+R5a9ZvuQdofiQ0LfYh3zkgf5qBmlug8mdWueRcBtO
+   pRRz9tgKZdQ+eqTcuz05urdPdYjoaXXnOwqaQr40DTOZjisd51rUArUF0
+   u4fOILLNrvyDoFcVDLw94TZa4kkwZg4jvEuMqL/NXSxjWtkhXaoLjUHeR
+   EtS5S8k4DGKJj4Y7VKV84m2tbE+1k6IS1wwWvRfRj0d08lMxWzf3nk75j
+   A==;
+X-CSE-ConnectionGUID: egGSOjY7QQyXS0Yk2CcwFQ==
+X-CSE-MsgGUID: 3b2p7L80Qf6KZpdDKqDaPQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11941"; a="1184187"
+X-IronPort-AV: E=Sophos;i="6.27,169,1787036400"; 
+   d="scan'208";a="1184187"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2026 23:58:43 -0700
+X-CSE-ConnectionGUID: S6AFesmrT1+KJSlx5aB2uw==
+X-CSE-MsgGUID: +peAPlOLSZe1ssAQhB/ynQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,169,1787036400"; 
+   d="scan'208";a="2933131"
+Received: from cpetruta-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.24])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2026 23:58:35 -0700
+Date: Wed, 21 Oct 2026 09:58:33 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
+Message-ID: <athimRqtDvQu1ZzA@ashevche-desk.local>
+References: <arZDwutoadki7tiZ@ashevche-desk.local>
+ <arZNL9BnTGK0Klwc@red-moon>
+ <arZS4vwxps01dGb7@ashevche-desk.local>
+ <arqSqcoWAkhy-8do@red-moon>
+ <d1720b63-65bf-4019-bc19-1852555f7993@arm.com>
+ <asieTvinZ7c2QpQm@red-moon>
+ <CAJZ5v0hVLSJs1j8J1TV3yJ8Psyaf=B_0UfHsYSMtM5xTup0B_Q@mail.gmail.com>
+ <atXyIadz1TEKSodg@red-moon>
+ <CAJZ5v0joJBZg==DWPsNviPfL7Jo=qupRhb6GinqOLoHXGnvevg@mail.gmail.com>
+ <ateI-JcExDyfXKrs@red-moon>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|DS7PR12MB8202:EE_
-X-MS-Office365-Filtering-Correlation-Id: 11cba97e-338a-4d08-7b7f-08df2f3f846f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|23010399003|1800799024|261009223027099003|10067099003|56012099006|6133799003|22082099003|18002099003|11063799006|4143699003|5023799004;
-X-Microsoft-Antispam-Message-Info: bHqzuHOzDQQBw+cuyJhfLdLPjr1xcU4OUY/MFhxcVgyc6oU2mtO6G+wgnHZQa9rf1QJrKoazInxxH2no2pk6RuBlWVIIcH5nme+u8ZasnjDxofebn/3SWCnYZaoNkJN4RDVdrrWAUnNvQkmwqEOVL3Aj9yl9wf3txTBhcwbS4rNfNpHZtG2R/aQkgqD4/0UaZDjyCX4wduUVM0Y7CNEHPvqCDCeU7f3zSLe+G9a0a3MQ85MzM1vZo4SaJetlmdejytsF/BR8NCGyYl738c2Q/DAQNcVwdpiIoVsto/k7Xh6fXC23LapdViG4AD3PqyAvDllBNW9NdKH11o17z3NY8+EkggQIuBxunDjMB1oDD4CahaTPGXf55pY6k8LjJkMWr7MTgGy481MfWVfVE8EFtjtle09ieaR06kpNAIQlxU0GYEJXWZQwknEv/Gv7psQ+VPd+A2baRMTdWW2ZaWmT/G+x/j2JZnX6HC6LtsdSsIw0eu0gR/VCpokyHcnwx2VHh6v+8slwE0+mAHolD7IjxjzSZzfwCPeb+QMGj20VzyZlY3xr0S1Zr71uQ1ahkcQdn+riy+Ou2lSRa1deEQRAuIj4iAdWYr3BpmK4e7vHy11qwqMhvYXml0XjxUaoVxl434v/8Fs9V09D49D5PhRoBzjvmsnWV6AjlBL0UeYep6Q=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(23010399003)(1800799024)(261009223027099003)(10067099003)(56012099006)(6133799003)(22082099003)(18002099003)(11063799006)(4143699003)(5023799004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ajRBRnZIMFBWQUxnVzhLNituT3NUdlRYUnBMa2EzUlBpMURTZjd6ZGp5MWts?=
- =?utf-8?B?VzEvZHViWU9uZ2RQMDF6YzJjV2VLT21iYVc1d2gxSkZudklqRS9Fa2NOeE1u?=
- =?utf-8?B?clprUitjWm5VMG5TejdrSmEzMCtXNS9xdWozS3ArNFdPZThNbTRLcnJDdzZW?=
- =?utf-8?B?VHdlMVp3dnlrcnovNEtmMk1MbGlza1ZMN3NyUWtuUFpJUWhrUUdUOWR0a0RW?=
- =?utf-8?B?UnBhRFZDeGtBcE5RTXZNL0hCR0FJSzU4WnRsVk5VV3lFckdNb0pkMUlnL2di?=
- =?utf-8?B?M3YzYnpMTUxlMHlHanowbURkN0ljZ3BQRkFEZzdGZ2tqMDJkeTEzeGVScW9l?=
- =?utf-8?B?S3ROUmxyVURXcGhDWnNDRTZJZjl2cmZwNDhDWjR6T0I1RWMxOHlVNkFiZEhU?=
- =?utf-8?B?aERLWnYvSlQvMHpWM1NwYzNJWnV6MUZqajBXV01xandIOE9yc2wxUjNmMkN4?=
- =?utf-8?B?OGJXaEtvbUpsSHNKYlA5YTlIYjIwdm9lQ2taczBLNkFMeGxWQlVMZENtK0dZ?=
- =?utf-8?B?Q3ZPRENjc2c2OWZQTUxHK05wTWRZOVRuZWNDNlBzU3RJVjFOa2luQi8wcGhj?=
- =?utf-8?B?U1RuSGJVOWpBd2R4Ujh6c3laTU82Yk9GdnFGaGdVL3ZJL3RQY3BWRU1zaFNC?=
- =?utf-8?B?TjhoYk1RZnZVQkZsYk04UXJUc2plbUk5dzg4OE15U0FDdzE0cGlFSU1kbTZF?=
- =?utf-8?B?algxK3REZ2ptdGtjb0szMW1NczMvd3BmWEFBcEJFSEluTlkvaTNYaXA2K0Fm?=
- =?utf-8?B?cWVya0dUT2Izek5TT2xJTjlOWE9KRnF1WEpzNk1YaFpsM0hLMlhGbmo0OHFj?=
- =?utf-8?B?bGhJeHNvclNtbWRGNEo0RmV6ayszWnlvUlk5dzJsZ3loQjczWnhEQm81VHJG?=
- =?utf-8?B?RzN6Q2Y1Nk9NZlY4b1Y1UTU5ZzZqM1FOU1JnMUdtRzdvbCtGMnhUK3dDRXFs?=
- =?utf-8?B?ZTBZVFZSNk1tc0lPM3N5MXB6WmxDR09iRE1vanl3VE4zZEdSTWNWM1NLbXBI?=
- =?utf-8?B?U2NZQ01rMnVUenhqc1FwYnphZlRFZUtNbGdhL25kRkZ0UEs3R2oyNjlQMUNi?=
- =?utf-8?B?R2xmRjBPdGRBdzhYeC9oaEM4V1lUVUFQOTZHcWJBRnJPUUYzWjVFb3NMME1q?=
- =?utf-8?B?MjNPMFRIZ0dsL3BEOFVRSzFyUnB3Znh6LzZ4ell1L20zemcyU1ZkOWc0VEoy?=
- =?utf-8?B?TVFZWW5jWHNIbkNBYm4wOGxUSHg4Mld0eklIR0NlQkRMRDc1N1R2L0I3ZmdY?=
- =?utf-8?B?bENnOVUyUk9qSG1HY0wvUElRNXVkcFNqbEs1RUtTWHlxZi9nUm01aTNaYkJX?=
- =?utf-8?B?NlMrUDI1UVFScDFFK3ROVmk3K0VGM2haeGVNZDNjaVllUXRJZldRWTg4ZHZ1?=
- =?utf-8?B?T1NJcGxsWjZ6djl3RkZZa01WQkJOclFFTVgxNmdadHRFaDA0dzdzOERuWmJ6?=
- =?utf-8?B?T082SHI4MzJoT1BGVnZmYmY1Uyt0N2d3VkZiVTRjSWV4RVMwZ21RN21LVXlC?=
- =?utf-8?B?Q0MvMERqUHNTUU0xcnd0MDhLNURra0MvcXFrNlNCZ3o3S3ZmSWV6a3dxTkVJ?=
- =?utf-8?B?TDQ0OGlhMUQxTDhzd3VnRnM5b0UvcUZ3YVpjWkJKWENTQnorbjZZVGZHU2xw?=
- =?utf-8?B?bmZCcWdhbkQzTnFwRkZPTEFnZWZIM3lmVlM3eTgzZ05lSXdsOGFlNVNjdnZu?=
- =?utf-8?B?S2JzTXVMS1BLbmF0cklXYnkxTXhvK0x2azNEalpKb05IaG5nWHIyMjdNMktC?=
- =?utf-8?B?bDFoeWxqT1M0UU5EWjlFWG43V1JPRjhLOE1VQlk2OHdmZ0lDcCtDNHhreDVG?=
- =?utf-8?B?SEhtV0hGVUNmR0I5UHZFSlNsR2RvdU5OaUtXVldrdU9NZ0xZanFMZXRVV3VL?=
- =?utf-8?B?VkpwcTNjSFozVnM2T2tjZEFTWkpyYUpOU1JXbGd6VjdGUC84cUZEMC9GMnE4?=
- =?utf-8?B?WW5pWEszLzc0UlQ3ejIxMkd5S3FpSFg0cVdnejJlMzE3aXUxZ2lyMDZBd3lL?=
- =?utf-8?B?SVY4VHBFYThRcGwxWVRjTzVyZ0RuN2FTQjZheHYrb3diaGJsUVFRdGlzanFF?=
- =?utf-8?B?SGt4aVl0dmNPWnY0Sk1ZWjIwazJCbUR2eU1wdEY5TDhVZ0NTVmZtbUlNMlRI?=
- =?utf-8?B?WjdwN1pOY1BGQk9xcmJBeGptc011STFEV3B1RE1KczJYbUg3ZjUxaThaQmFx?=
- =?utf-8?B?Q0VBellINkNLVC94WkVaaTgvdWlLSGRIQXBrV21hdWNaWjVVRzRtTWpPM0py?=
- =?utf-8?B?alVSWWI5K3UvRzk0U1dyL2prTTFRU1dHNFVrTWV3UWZjemMxdjdxVHRVQmNs?=
- =?utf-8?Q?28jvPk19CWLrBglaKS?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 11cba97e-338a-4d08-7b7f-08df2f3f846f
-X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 06:49:56.2467
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: x++5hVjL7426e2ybORoPh087xtDV26HmZqq+BYDOujkt1ZCYu+lMKFgj5eIebvDt
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8202
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ateI-JcExDyfXKrs@red-moon>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_235203_772385_28857165 
-X-CRM114-Status: GOOD (  20.47  )
-X-Spam-Score: -2.4 (--)
+X-CRM114-CacheID: sfid-20261020_235845_109897_00726D6B 
+X-CRM114-Status: GOOD (  41.99  )
+X-Spam-Score: -4.5 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,51 +108,81 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,T_PDS_OTHER_BAD_TLD,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On Tue, Oct 20, 2026 at 05:30:00PM +0200, Lorenzo Pieralisi wrote:
+> On Mon, Oct 19, 2026 at 08:05:50PM +0200, Rafael J. Wysocki (Intel) wrote:
+> > On Mon, Oct 19, 2026 at 12:34 PM Lorenzo Pieralisi
+> > <lpieralisi@kernel.org> wrote:
+
+[...]
+
+> > Basically, yes, the idea is to defer the creation of the platform
+> > device until the dependency is met.
+> > 
+> > > till the dependencies are cleared but then, without a _CRS, where will
+> > > the consumer driver find the platform device resources ?
+> > 
+> > Well, good question.
+> > 
+> > > There are multiple facets in this issue and possibly some of them have
+> > > been already solved but I need to pull them together.
+> > >
+> > > > Note that the dependencies can be added to acpi_dep_list after
+> > > > creating a struct acpi_device with acpi_add_single_object() and
+> > > > acpi_scan_add_dep() is not really suitable for that, but it should be
+> > > > doable if the dependencies can be found.
+> > > >
+> > > > > I need to have a deeper look into this next week but I wanted to ask first
+> > > > > whether there was something I missed - most likely.
+> > > >
+> > > > Well, it is not really straightforward.
+> > >
+> > > Yes it is getting messy. This RFC, with all its flaws, does not transparently
+> > > prevents enumeration but rather relies on -EPROBE_DEFER to sort out
+> > > dependencies - though it does so by adding more stuff into ACPI static fwnode
+> > > that to be honest I'd rather see gone.
+> > 
+> > I think what you need is a notification mechanism that will trigger
+> > when a specific device (enumerated via the ACPI Namespace) becomes
+> > operational.  It doesn't look like any of the existing ones (platform
+> > device probe deferral or ACPI device dependencies tracking) is really
+> > suitable for your use case.
+> 
+> Yes. It might just be a notification from ACPI core to say "the driver for
+> this ACPI device probed, go create platform devices that depends on it".
+> 
+> We can check and track the dependency in code that does create those
+> devices today.
+> 
+> I will think about this to see how bad this might look like.
+
+Don't we do something similar in drivers/acpi/x86/lpss.c?
+
+> > > > I'm still not sure why you can't represent all devices in the ACPI
+> > > > namespace in addition to describing some of them in static tables.  I
+> > > > guess that would work for everybody, wouldn't it?
+> > >
+> > > That's a fair point - though then code will have to work with firmware
+> > > that does NOT explicitly require those devices in the namespace (ie: firmware
+> > > as it is specified _now_); it can turn out to be a mess even less
+> > > manageable than this discussion ;-)
+> > 
+> > If it has to work under these conditions anyway, then adding stuff to
+> > the namespace is rather pointless.
+> 
+> Yes that's the problem, reworking the code to make it work with namespace
+> devices is doable the issue is existing firmware and that we can't change it
+> (and we can't create it in the kernel either).
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-On 10/20/26 17:35, Douglas Anderson wrote:
-> Add an Image Tree Source (`sc7180-trogdor.its`) describing the FIT
-> image for SC7180 Trogdor family boards using `Image-framed.lz4` and
-> LZ4-compressed board DTBs (`*.dtb.lz4`), allowing the Trogdor FIT image
-> to be built with:
-> 
->    make FIT_ITS=qcom/sc7180-trogdor.its image.fit
-> 
-> Assisted-by: Gemini:gemini-pro-prerelease
-> Signed-off-by: Douglas Anderson <dianders@chromium.org>
-> ---
-> As mentioned in the cover letter, there is no desperate need to land
-> this. The FIT image created here is pretty much the same as what the
-> downstream build scripts for ChromeOS programmatically
-> produce. Switching over to this would have a few benefits:
-> * It makes it easy to use fdtfactor on the trogdor kernel image.
-> * It would set the path for future Chromebooks, and on those
->    Chromebooks maybe we could use the "description" of the
->    configurations to help the bootloader so we didn't need the awkward
->    piles of "compatible" strings that we have.
-> * It could potentially be useful to people in the community putting
->    upstream kernels on sc7180-trogdor devices.
-> 
-> This all being said, there's nothing terribly critical here, so if
-> it's controversial or people hate it then it's fine not to land it.
-> 
->   arch/arm64/boot/dts/qcom/sc7180-trogdor.its | 728 ++++++++++++++++++++
->   1 file changed, 728 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/qcom/sc7180-trogdor.its
-Acked-by: Michal Simek <michal.simek@amd.com>
-
-I would consider in this case to put it to any folder. There are a lot of 
-dts/dtsi/dtso files in qcom folder. That having subfolder would be IMHO better 
-structure.
-
-Thanks,
-Michal
 
