@@ -2,118 +2,121 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB2B8606A334
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 06:20:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61CE9606A339
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 06:36:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=x7A+nCJO;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nu83bggr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=s/zBw58P;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=FGCcxA8U
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8lIi6Wxim94VTF1Lz/7lzx3oFIGsH5NvdsmPH2L9hYo=; b=x7A+nCJOmPiQlflOg2+uX+2qhC
-	/HyXvkbOAlMsFuFq1ukRZw0UeXnkw+660iNOnGKLrgQ4j6YDic8dX5eG/7e9vHMziyLGYWPegm1Z3
-	8uqUrL/95FOcPn1AzdF76rJEJdl+oUq4bDwcCdHgx0BOvdfzC/msyVH29CgsB38lB8QmDx7x2STZ+
-	PAWxhRqQ5SZMXdInebSWefr3AmATgRXP7CyWdfU4DeeQc8LT22xym8q85pQ06dG2aiIwCGIgaj/xp
-	Z3STVHYA561EHvqcqhP6s/LNvRFubBOPpzTsZjEbphtUjqXfIDSJzvklEGQmW/55wZ+DxjKZb9O26
-	Yv8kTwhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CPNgQTs1GPMvKVhw0mIO+CE00wYs1bBtR++qtcMf+Bg=; b=s/zBw58P/X3+/sTRYN02VgodJ7
+	UXSZDBKIJqIFyobtmUDwvjjCvqsrMpS6/6O5GfBlrVS2dJBkG7aXZnlu1AT4H6C8X0jEE7ZRLU/IB
+	IEo4uDOyfXnmUoMcSzlJfkoT35ucf1qAEVfiqrEy3xPNNwpXDb0GoZjtYKmRryaPiOzqo5DFj4QHq
+	l1SAhA79ZI2Z9d9BMciPJGrg4EJ2OR3NU5lP1NvUtnC1sQ+u///ye0Lz0himw25kvundPkezFt7RO
+	fK47vKPo/jayLhzwzrmLpKykmI7bECs2D8Iw6osBtDW4Spb1EntQ3zu4FBFrg9fMygwC87AJ1JzMf
+	60bP8b9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJPgB-0000000BAKm-3wAc;
-	Wed, 21 Oct 2026 06:20:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJPvQ-0000000BB8B-26AZ;
+	Wed, 21 Oct 2026 06:35:48 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJPgA-0000000BAKU-2BFP;
-	Wed, 21 Oct 2026 06:20:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DEE8043384;
-	Wed, 21 Oct 2026 06:20:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B69781F000CB;
-	Wed, 21 Oct 2026 06:19:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792563601;
-	bh=8lIi6Wxim94VTF1Lz/7lzx3oFIGsH5NvdsmPH2L9hYo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Nu83bggrfLN0ZENNo2MLmJar3l/dlksAx+0xHsARwM3jMUGj3Ml6GK98KhI0O9/jR
-	 EDV6rZ0z9f/5/bVbHuMiZ5Pg0r+fi9+/8Zwfkzj8T5EpO84ElCKJGAMJk3UpXmFpaG
-	 s5XK8i9dRoFozHDSOMNb4nhAjn9wvAmCv/tF1T5n3XU/KlGofqZnBoPVm0DWkSIwPP
-	 ztxT2lR+fdXp1bXz6yBIwyctDaiX5NsoWUbFLKUH9hDoiEpp2ypJgH4UeCbh58He5f
-	 Eqpw1nqro7LkZYXgJa/LVCGb9roScfGq+nI2gxjTAqSnsol7EWJYswiwXaZDu1a3BY
-	 8uEYB1TG9BNaA==
-Message-ID: <6673c9f4-fff6-4057-934e-d94d01519e68@kernel.org>
-Date: Wed, 21 Oct 2026 08:19:51 +0200
+	id 1xJPvM-0000000BB7W-2tLR
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Oct 2026 06:35:47 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6a0a4aa99bdso419556a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 23:35:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792564542; cv=none;
+        d=google.com; s=arc-20260327;
+        b=eEAzxPYadEYuKG96+HaLMQArDJImPtMG0zgzX9m10z2yD+BeX0pJs1W+Xd3Ii7agYS
+         tAm5Q5EhCiUUTviwiOg8LM/CXi/bBl3X4oRwDkCXsrhRNgngKsP9yJNEs1TzQBXubmwy
+         Dum7r9Qhl0QsBfNzNgDCY7I6nHs9WLOo7a0um6vZc0bOdimeYrIkGgIP5ugiiGA5Idlj
+         avrHW1xoudvze56dd8ucJHzkL9Ls94g7ityLApxViPT0W7jc1CmuF0uQ5MF0ssr3qYut
+         xJDm3BCiIwhxnd+wF7woG582AW3yRuy1jz4/KFZHjFdMbWcBPPfKp4RiNNmeOTHMsoor
+         oP6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=CPNgQTs1GPMvKVhw0mIO+CE00wYs1bBtR++qtcMf+Bg=;
+        fh=v7A0IodkCCJZJVWDkkGIhXaNZdGl1piLYD5BTekNfFQ=;
+        b=a++5n4+ek79U0i9tTQBkgRWQWKQpIp68XrmVVYzGFW2HztPKYpNsFMYcqbHkprP+qT
+         4mTngznfKwB1wid+y+y2z44EhDmpRDdRRkVrEUb/UUUafAJk3Sv0ohV9rI9/WEVw4n4Y
+         Wj5eBR/3Dup2FpneN8lm2Gc4LVWES93U9hhHO/BanIqzDUjVTovzvcir4E9vGNfiaJox
+         5RDGAq6FSarTVtSEHiJ+UAt8c3EIw8NBpKiG1pHDcFwdCfrqexnMh/ZeTC30517Thmv9
+         ugTYxiBCuq2OtMD2zpCGezYmqP4aWAHs5Cr597XfoGuIsO2g3BiZuKeK2aZihD9474rf
+         MoWA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792564542; x=1793169342; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CPNgQTs1GPMvKVhw0mIO+CE00wYs1bBtR++qtcMf+Bg=;
+        b=FGCcxA8UiSXYqOWeh6qBYgSyCxjppjqjrKxLSLGJ2ZUzha85mb3034YgP9OtfMCzXE
+         CdPRRUg0BD9bDk66Ph0pW6vfpn0+IFYN1aQtkOPzj9OVzXgAR8ONeYpRgbJYLqmEejbt
+         vn5IqHznMFaTFH8jibfJzVP7L+QutFVgYPP9vGQ85Y7nwhus3eJHl0E9qxpSl9cm3n0S
+         BVWYF9IcM2lER9lUfJ0HBWLEgnee7ywgaIuGEuA/HGWwhyfgEbaPAaatMRgl71uLLRIz
+         5EGP9dDSUgj/13lh7wRJ5xrGv5CN+SSbC0vNg7FzkCfSo2Yqc/dwXhgeSfEWRQ/IfjaZ
+         RNdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792564542; x=1793169342;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=CPNgQTs1GPMvKVhw0mIO+CE00wYs1bBtR++qtcMf+Bg=;
+        b=o/qLiScP0vpXvGhudFmuMfeIwtnnVMfiE5K/6k4u9JWLG0uvh0xOVgvqq4bk2H+4v8
+         7cM2fje4RBNhdKsOLqzNynEH7DqjV9gBeIyLd97M0JmydR1Y98qDiHNAtjopnRre2uHW
+         rgftxt0qbrjC5geXz/rjkMKsSrDKaembfmc3plMHgfNFqwLiXy61qnAtwLnwKjPmZ8qa
+         Hxdc1RVatjsGWGtQ6OrnVaGKFcoYC7GYksGebb4gEdJczhHLABgZpriOQbhEI5C97ZFI
+         C2xEfW6O2oKrgDJaqb2zTXlqD0cWUwh89WjZdf6QIhdggTVRVMONoddHeMc9Clqoe05y
+         Zjlg==
+X-Forwarded-Encrypted: i=1; AKwUvByMTdq5Adg6XScRGAKEol2x10dT3qw1Kk2sesf/7437LAasBYLRh4HhR4Mu6vSNm7no5NCMhZKZQDmHgynJ9Phq@lists.infradead.org
+X-Gm-Message-State: AFq9FYLhRulhxxuPGnJQZPFQTpjPIsSPk9z9COM2DW2XmfqXE3VDN0Lr
+	R9vmILqkwC1nC+2LfLU1nGz8m6d949OFww8X2Xwg8kiQ46Du00OdYREvZ2+E2wFHktpW+WwWN3W
+	NihnWWh/cHWrACu0jckDlK+mie2EXQ1c=
+X-Gm-Gg: AYBFou0uAZzgV5Z6HDK/9h77UYlE2Ojc+H6bmarMzYIIbTQNjjLER8xL4KpteUfFJzW
+	mZllgZ5+OfVuORH9jmn3IdNYyn6BuQ9PY7T0ykRIqsIPZioTHYbwTL7tejH32lszdSl5mNrfGNo
+	qWhcZQKoou2IWLIQzCcNGBNtDOkfKzNze+XVwaLIBliUsMUacmOKrtlSZkucxFQiVZLAfCVa/eM
+	Q8RrI66AU77tclyn02TP2UHejVD3dGv3VNNYVcHQfS6Llyz9CwEqDdeex5+U6nOMTH4ZD8Ejfjb
+	Sy5lSc6oNk48ySGwlWP97N90/zeOs5RMCpPRUFbWA+v0RKZvHa3oHk64BSPb7y4wv0e3FYQSuNE
+	/iz0HbmZzC1lo4kkMRXGe8312f5G1/Adrs3FePv5qmZr3rpgDWAd6QKho
+X-Received: by 2002:a05:6402:2105:b0:6ac:5de8:ab5c with SMTP id
+ 4fb4d7f45d1cf-6b408ea04f0mr627314a12.10.1792564542175; Tue, 20 Oct 2026
+ 23:35:42 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] dt-bindings: i3c: Add Amlogic A9 I3C controller
-To: Junyi Zhao <junyi.zhao@amlogic.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: linux-i3c@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
- linux-hardening@vger.kernel.org, xianwei.zhao@amlogic.com,
- Kelvin.Zhang@amlogic.com
-References: <20261019-a9_i3c-v1-0-329d819d621f@amlogic.com>
- <20261019-a9_i3c-v1-2-329d819d621f@amlogic.com>
- <c84d861a-2e28-45b0-80c8-e533864d5e6c@kernel.org>
- <d17dcb30-93bc-4b68-8969-11530946d33d@amlogic.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <d17dcb30-93bc-4b68-8969-11530946d33d@amlogic.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20261020173556.632798-1-l.scorcia@gmail.com> <20261020173556.632798-2-l.scorcia@gmail.com>
+ <20261021023245.GA3650393-robh@kernel.org>
+In-Reply-To: <20261021023245.GA3650393-robh@kernel.org>
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Date: Wed, 21 Oct 2026 08:35:30 +0200
+X-Gm-Features: AclHuK-lIJk49lXRNa98GE7gi3l_Bk4TgNu432VwdO696lfchFDIYtZnsg1U3Dw
+Message-ID: <CAORyz2JS1vf7P2cQkzYse_WheB4xYMmywWi6v2pNbeFSkCO9ZA@mail.gmail.com>
+Subject: Re: [PATCH RESEND v10 1/9] dt-bindings: mfd: mt6397: Add MT6392 PMIC
+To: Rob Herring <robh@kernel.org>
+Cc: linux-mediatek@lists.infradead.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
+	Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Val Packett <val@packett.cool>, Fabien Parent <parent.f@gmail.com>, 
+	Akari Tsuyukusa <akkun11.open@gmail.com>, Chen Zhong <chen.zhong@mediatek.com>, 
+	linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, mfd@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261020_233544_769612_E6A2C621 
+X-CRM114-Status: GOOD (  10.10  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,38 +127,18 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 21/10/2026 07:38, Junyi Zhao wrote:
-> Hi Krzysztof，
-> 	thanks for your review.
-> 
-> On 2026/10/19 14:00, Krzysztof Kozlowski wrote:
->> [ EXTERNAL EMAIL ]
->>
->> On 19/10/2026 07:34, Junyi Zhao via B4 Relay wrote:
->>> +properties:
->>> +  compatible:
->>> +    enum:
->>> +      - amlogic,i3c-a9
->>> +      - amlogic,i3c-ao-a9
->>
->> What is ao?
-> 
-> AO is the Always-On domain on Amlogic SoCs (remains powered in suspend).
-> I've documented it in the binding description.
+> Or drop the example. Is this one really different enough from the
+> existing example(s)?
 
-Does that mean your a9 SoC has TWO I3C controller variants?
-
-And what is btw the name of the SoC? A9? Then why is it at the end? Do
-you see such pattern anywhere?
-
-Best regards,
-Krzysztof
+I am so sorry, there actually was a previous email by Krzystof
+Kozlowski where he already asked me to do that and I thought I had
+done it!
+I'll send out v11 without the example.
 
