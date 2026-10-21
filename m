@@ -2,153 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEA08606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 08:08:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E27BC606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 08:10:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Mo+aCI3F;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=XyDRJYOR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VBwhw1iM;
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=GmBp+SEp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RZbxxIpWSZaJEp7DvvsCZkzJ/gFZT3rMsM1MarC4hs8=; b=Mo+aCI3FVwe7zrIkBMwxOYSBcs
-	gZIu2YenFfPabB+sE0rPIABYoxcPl8ARvnw+klkptUbAb3JSQPhQR7icAEup5J7tn2QuI+quwqjKS
-	tuQ6nZc9rMtK5HfQ9MYbIGkdoLr2HgREfLGJuq2IXKJtR7sqpDqaO3v+oMgxVF8zO0VAUaehEL9Pe
-	YTVspi7NLruiCMcZtJWtB7ThYiWQSnC6O6YyqrEbmkD07XPwx9Ul6lFviX7KBAvW8k7xxmoJMYdWL
-	s1b4XpTZ9edqeRlqORn2be5hqJTHrg+kB1lPVbY6KX+fW5CuUYipN8VAlMg4bZ/kdpeDJku1m8/6x
-	4H3yiA8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8r+7XF8F7JmD8GZ10igNH1KanuHgCZwsM4pGmySSqBM=; b=VBwhw1iMAggXYINug8FFoBmplJ
+	REp7PSJPaA78eUUku6RSkFmdrT2BTHh5+/SsrrXoGp7X3MFm11Eogz5dPqn3H4cq/C9F/zlADY+Zn
+	Mkk+xYoyvzZ4vpcMNJUenN34bRJO07nqBO/pq8RmXxh1TVntFI8TXvhfueAwf+ueFeBPHnaqK7kAh
+	16dee8gh+QcCm3Vz3J20yDWPP8MWOVJvIEqk1YTqM0J9O/8bdm9WHffL58TdSg84R+Hk3uVNdEnie
+	7i5BVyoDguymA25MOt4cBHOgIZGMBWGvut99OiNQaznRoR4yuxsADjLDXpPcfvoNyQRcwoyln5yKU
+	FbmJ7oNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRMg-0000000BIX1-1fLj;
-	Wed, 21 Oct 2026 08:08:02 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1xJROc-0000000BIpn-0I1M;
+	Wed, 21 Oct 2026 08:10:02 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRMe-0000000BIWc-0fsg
+	id 1xJROZ-0000000BIns-2qCJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 08:08:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=t4ggYV+HLKCXUOYXLY2asuTqGN35z0bJHscK8T+GOpinw5ZoQZ31SxlptrjcSFVgu1m9gBDHyvfoYQbIyZQLut14vroIsQmx/wDwxR8ytkUBw6f81Kp0xkdxllnsXrhj5ciq94dQQxnKo+K/dvVE5jGJMhvMHfqqhfT1X4ukcecZbd5W2KmdtkakKjRM1uFmiBIy2NcQNFLUbqrs1or0oS7VxwgUFETdG3MZKZSc907q5QNKLmM97hXgEIsDl5Tp0fplstnmYirqqk1DB/1yjFrOGANdkXE36OVnYqblwgH1efZOJHqqwhggG9hxrb/gTwB5679BDbyMaXmTp4rCBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RZbxxIpWSZaJEp7DvvsCZkzJ/gFZT3rMsM1MarC4hs8=;
- b=XsElxfxsIEJfF2dRnUKdAh1QrKFFhlJRZljGLfzWeQIkK+LZ6lVrLC+oURSOoqAOl6P+EIoXOA7hlA+oibBCGuCIvW8UvdcRaJxEufTspHCg1tgwtHb5Dt7cmP3ODlJ8mx88vtip3R+6T69mtTxe656VNQNvVAMiHI1lBfq/ZVlerhu3iVbICbFEKxjpwDB5HNmbMn4pPBR4Eh3tVzyqrNMI7btKBYjrSrgYnMdmgcEzfvp1TZ6H7pqxjGZ+ZhncGndALZRwv+O5SllUiZPdUrWNTP4KXacJQxJbOelWJVV63oYHgkMnqKtjPnc1chjutVkeIzdOTxmpDOB/v8Hwzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RZbxxIpWSZaJEp7DvvsCZkzJ/gFZT3rMsM1MarC4hs8=;
- b=XyDRJYORB9qVRZDIMqiAaEtJgaiAC/eL/BPJTEptZ5B7ssuTf9zkrKYT9NCS3oK8ljehOwTpw+jrU5KNm6QY30fBTkLDgBO50r+plRiWbUk09VMqTmfTRYR6vLS+qdepO9yubdqM8NoT9f6Z1MJ4e/H8cKKoxUb4xlwyF0eTOHEq6ZMrOTsHef/awrJMxHsJA5J6c0d7zDb5hol+hJ7ujYiOy3VbBErOxf5VcLgeeksbJqo49AVh6ktMfauJw7EEb+22f+ldPO52wQ4CqfLrWVr2UR45C3nyHKWntNxGKB82d1X9AuSQDxfiusNs8s5R48ay5w5a4im++f2pcgRwRQ==
-Received: from AMBPR04MB12334.eurprd04.prod.outlook.com (2603:10a6:20b:732::5)
- by BR0PR04MB472823.eurprd04.prod.outlook.com (2603:10a6:2c8:39::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
- 2026 08:07:52 +0000
-Received: from AMBPR04MB12334.eurprd04.prod.outlook.com
- ([fe80::9b4f:ab4e:94c3:c457]) by AMBPR04MB12334.eurprd04.prod.outlook.com
- ([fe80::9b4f:ab4e:94c3:c457%4]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
- 08:07:51 +0000
-From: "Zhipeng Wang (OSS)" <zhipeng.wang_1@oss.nxp.com>
-To: Radu Rendec <radu@rendec.net>, "Zhipeng Wang (OSS)"
-	<zhipeng.wang_1@oss.nxp.com>, Thomas Gleixner <tglx@kernel.org>, Marc Zyngier
-	<maz@kernel.org>, Frank Li <frank.li@nxp.com>
-CC: Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Jindong Yue
-	<jindong.yue@nxp.com>, Xuegang Liu <xuegang.liu@nxp.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-EP-SW-ANDROID
-	<EP-SW-ANDROID@nxp.com>
-Subject: RE: [PATCH v6 7/9] irqchip/imx-irqsteer: Allow building as module
-Thread-Topic: [PATCH v6 7/9] irqchip/imx-irqsteer: Allow building as module
-Thread-Index: AQHdVwP4nF4U1ANnEk+eICHvMIFT4bcGZ0+AgAFP9EA=
-Date: Wed, 21 Oct 2026 08:07:51 +0000
-Message-ID: <AMBPR04MB12334C9633ED9F19BFE2614FFEB662@AMBPR04MB12334.eurprd04.prod.outlook.com>
-References: <20261008090231.796511-1-Zhipeng.wang_1@oss.nxp.com>
-	 <20261008090231.796511-8-Zhipeng.wang_1@oss.nxp.com>
- <f642a27d36844b8cc4d164f518f7177252624975.camel@rendec.net>
-In-Reply-To: <f642a27d36844b8cc4d164f518f7177252624975.camel@rendec.net>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AMBPR04MB12334:EE_|BR0PR04MB472823:EE_
-x-ms-office365-filtering-correlation-id: 9425a82e-4945-4be8-1177-08df2f4a6747
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|23010399003|19092799006|1800799024|366016|38070700021|5023799004|4143699003|11063799006|56012099006|261009223027099003|10067099003|22082099003|18002099003;
-x-microsoft-antispam-message-info: Q0HWeuB4Ii+RLqbQ6000Ryn9J7Z+8uOa+qVp/9mfn9Mgfx46FdkAIBmQFWr4SAgFY1sElKxomgchr3Ga5dd6GGkVcwKJ+O/db8Hf/gecFJWU0TP55XFgCtIUTQKCUdtSRNTVXvDnKa6lYnC6tlVQJm/X89GQJJjovFns/t9cs9+l30ps7I+c7dwluPz7B5UFzsX7hWwzGPNxlx4esR0GCDoUsnqG3Li4taf2pi0Hj9y40IbkfOrJlYADuaN955G1Ejt3j7wXpVzDidmRhr9lFtd47Zd7zVotVuEhIDJkV3BXmEX+hYzbWFPcxv36E7Ovcz2XVwa232A8zUVlDtWSAZNnujnER+isMkpcYGV1lIvdmODFw0d67rFARJrpXgzlnpO4w5fRl1HoGuBGXnGKG27Q1Ch9pijBtI5qACQ/ikd+PTUgUeY67YkOijj7qjx6xhP94pFodP+g6e2VdzWXAH9EhLRRO9f0sqKZbOaFcLefYPJjex1ydI8Ay7lKvAj3OxRrQ9+4XgYjIddvR/RuclTX9SDsWPsXYu3+Nu3rtHTX8UqUyz0RPfwMhoStNAgOPVXsIEDl+ljm5EzwVu1nlN+mYMMK1JQtX5/hmAhb/qA5LNbxONmayhtbHdH8XIyFDudIUc7Fw12iyE5Bm0sjx8caSlP+APhrfBflDVU1G4U=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB12334.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(19092799006)(1800799024)(366016)(38070700021)(5023799004)(4143699003)(11063799006)(56012099006)(261009223027099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MTVRakY4TjYzT2ZuZkY3b2d4QXBGYlBONFBYT1ZTTVFJT1IyaEdJOXJIVVNC?=
- =?utf-8?B?VEJFUHNydENNR0dCakVjTzJxcEtCb0U5KzhMMjladSthRmtoZlZGWCs0dkJ4?=
- =?utf-8?B?aUNhMjRIampOY1FETkRsUkY5eVd5M3BxaWcwajhiTExTSHRVZ2NCN2JZOVFP?=
- =?utf-8?B?YzlyVHVNWFVKMFlXcm1OS1Z2Z3lMY25TUG12ejJreGYvVHZ0VUk4clgxSkFw?=
- =?utf-8?B?cVp6YzV3TEMwNlRVWHBxajRIUkYrV2VGQ0FjOE5mcU5UbGdWcEV4aVJnWHE4?=
- =?utf-8?B?Q3RjK0o1Mmw1TVFVS2t6bklTUjhWSDFXZ0lTZ0ZjRWpPa29ZL1JrdWdHUzFq?=
- =?utf-8?B?OTY2WmVHdkF1UXltdDFvbmRwcWxkTTAxV3l1aUNpSHcxcEErdjVOY0JiOTJS?=
- =?utf-8?B?dkQ2S0ZaeGE2QUc5OERzZm80Ry9XQU0vVVo4SUtVQm81ZDVnaEhZYXNqbGRj?=
- =?utf-8?B?V2FlOE5KckkxNkVuNHVhelJhU1Z1WnA4YUxxUDVQem4vVDZTb1pPdFo0SHlC?=
- =?utf-8?B?bzF0ZE5aSUhIcFFmNDQrbWpyV21iUFl0U0NDQjE5cGJJM3VvL3NYWXg2NFFo?=
- =?utf-8?B?NmlmT1lPNnM2OWFMSkd0bDZMUnh6WWFpMHBGeEhETkNVazl0L1M0VzNIV1I4?=
- =?utf-8?B?Q3RFeEE2NStIOTc2UEZNVk5NTXI2QklFeHdNWUg1bmU5UkdxdHBNWC9ZSnRx?=
- =?utf-8?B?ZFZaWENhTHV6T2JFYVZpMVpBSjJSVzZaVmhKSjdITW91ZnpDUTJyK3JsSmN0?=
- =?utf-8?B?NVk4NTczQXZlaXNlWGlUSlZLYnRxeXlsTUNuOUV4UE52VXh2b1hUU1pUeHVG?=
- =?utf-8?B?SmlFMWN2ODZ0YnZ1VWNUMHZLVzJKb2pVMGlkQ2RiU3JNMjQ2RG03TFhvMW1N?=
- =?utf-8?B?RkNNSUNCMjJ0K3NIbFo4eXk3N3F5WTh5UEdDMXVJMmVZMXBya1E0cmtySUdL?=
- =?utf-8?B?MmNxWklucGhOVFZyZGEyRWxROFBFVmZ2elcxeTFXdnNXR3Y0T1dtemVBTWI1?=
- =?utf-8?B?aEtOSWJjVVR5Z1pBTkZqZjBKUW15WXN3VmNheW9IL2JYMzBwWWlQem55TjJo?=
- =?utf-8?B?MFMxd2VxbDhrbExLNFdoc2p3U2d0RlRsUktsZGxHNUF2cEF6SyszTHI3Sy96?=
- =?utf-8?B?MktiZkpBbWhUeStwLytFZ2hET094dHRKQmVPVit4OFBjbWRUc3dPRVN1K3p0?=
- =?utf-8?B?bkYvaURYWFh4RFV0Sk4wV1kwTExMSVFkVHRLN2ZSTTVZVVdISEg1elEzUDY1?=
- =?utf-8?B?THJjL1VWTU9IMUNkQ1ozV2N0UTVqWHhhS0NENzNGMkhOMTFpS1M5eDNaOGJu?=
- =?utf-8?B?VHBzQlo4NktKMTRhNXFqdzFoSzJHeFJDSWJWTHkxemZ0UXR6T1dCTFNsZHJm?=
- =?utf-8?B?ellvenRKOXpuQmI3MmtvMDE1UUtEcWxSUWlWdWdWVXZJbFdCcksxTU1COEdU?=
- =?utf-8?B?QUZzV3JzNUJTMjlYbFFETnNlYUNZbHB3VzY5QTBKVFgvamZPWVo1Zmg4b0M0?=
- =?utf-8?B?MDcxQ1Z5eGRRRndZOWZyL2hQbVI5ZGZJd1NQMG1Uc1Q0cG1oQm9KZE5NWDdm?=
- =?utf-8?B?R0oyMjl6OUZDdlEvNmd6VHFMUWpCT0t3QnV3UmtURkI3RUFWZmtQQWdwZE8r?=
- =?utf-8?B?WlNtY253T3VTNndNam05aXhBV1JjTDBtRi96bE9lYXJva1E2K3JNUXZiR3U4?=
- =?utf-8?B?QzNpeVdPMUczVEdFaXd6Q1o3Rkk5L210TUpRK1ViY2crc2lxdUpJVFkrdHNC?=
- =?utf-8?B?dlVQVmlMZWU1dWo0Y1B4WVNQdTNvVmFmNFNrWmR5UXNBWnE3eDNiSEwxV2Er?=
- =?utf-8?B?czlQNWQram0wRTJ0WkJiQUYwOExmRTY0RFBQL2M1RXh6cGVHekVBY2dSMUxw?=
- =?utf-8?B?VGNackVxRkRuQTdVY0hPR0o4MGM3MlRUa01wQStmSmhQZ2EyUnpia2kwWEEv?=
- =?utf-8?B?Tnl2Vlh2Z0VFQkJ3K2RBM2UxSk5peEhBK0s0S3ZqY0ZBV1dnMlROdS9XR013?=
- =?utf-8?B?Umg1ZVY2OEhVWnI5Mno4TXNFODZvNmNoSkUybnRCVlkzZmFDYmJ0K3BHaTlN?=
- =?utf-8?B?WmlubFJSdFZqeHV0V1JiTHB2NEJmRHZNWFZyc3ZYSnN0TmEza1Y0SllkV2NL?=
- =?utf-8?B?N1UweTVHb1htNll1UGlETUF1dk90OGViUFZjRnFYWmpOSjY0RStEME5FN3ZO?=
- =?utf-8?B?M0c4Z2ZQbFdiQXMwZmVXR1Q4alMxL1VDVjZuTFRXMzRsKzJ3M1hrR0JjNGRK?=
- =?utf-8?B?ZzVtbTJiUmJKcEd6NGw4RDl6UzRoQWJIOVhscG5OelRSdW5jczlMY3VWRHZz?=
- =?utf-8?B?SHFxWlJvNzBwdVhnWldCTVBOUzZSZFZUSFE0U0xhSGlnczBMWW90Zz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Wed, 21 Oct 2026 08:10:01 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 8EB374E41294;
+	Wed, 21 Oct 2026 08:09:56 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 54581606E3;
+	Wed, 21 Oct 2026 08:09:56 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 860E110328D20;
+	Wed, 21 Oct 2026 10:09:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1792570194; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=8r+7XF8F7JmD8GZ10igNH1KanuHgCZwsM4pGmySSqBM=;
+	b=GmBp+SEpVQdaSMUt2gN5cLotsMaVupQdOyidh/hWDkTJchli1M4Vf+Wc37kCiuPoyPTSO/
+	tYx0wxyEnd+aDuutBACkSwCPTRkvH0n3BaL3hO+qs8OTtOg98JH63mD+sXKU2N/Pn7rMwq
+	VcLbgnPZ+vyL2vvWsAescMW+vAi9cQzbQw+6dV8PEBM8oAwgI1Jn2N5pO9cjCW+XO5auzg
+	aPuH41O7L/hdpISRDcla5E4HeIvsGzludw7uVXZhT64RHc1o6Hm4VC3HYUpzD3KuzP1cK6
+	jQoLnt7j6cv7KjKittDRZU3LhZ9+/J8ChvIA6TD1foh9hXLZo3A+ymNnuUIBIw==
+From: "Richard Genoud (TI)" <richard.genoud@bootlin.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Udit Kumar <u-kumar1@ti.com>,
+	Abhash Kumar <a-kumar2@ti.com>,
+	Beleswar Padhi <b-padhi@ti.com>,
+	Thomas Richard <thomas.richard@bootlin.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Richard Genoud <richard.genoud@bootlin.com>
+Subject: [PATCH v5 1/6] dt-bindings: remoteproc: k3-r5f: Add Jacinto LPM memory region
+Date: Wed, 21 Oct 2026 10:09:42 +0200
+Message-ID: <20261021080947.3747284-2-richard.genoud@bootlin.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261021080947.3747284-1-richard.genoud@bootlin.com>
+References: <20261021080947.3747284-1-richard.genoud@bootlin.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB12334.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9425a82e-4945-4be8-1177-08df2f4a6747
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Oct 2026 08:07:51.6082
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: lqr4OOcCd3LvLIdh1CJZoUbivh0iGVq3VQ7Xq1+mTOpmEAZSfKRu93csAOGkcZqz/23yI2cfy7QkFFFDWomFgw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB472823
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_010800_204527_51C89627 
-X-CRM114-Status: GOOD (  28.82  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261021_010959_854815_2B867540 
+X-CRM114-Status: GOOD (  10.71  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,76 +86,89 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-PiBTdWJqZWN0OiBSZTogW1BBVENIIHY2IDcvOV0gaXJxY2hpcC9pbXgtaXJxc3RlZXI6IEFsbG93
-IGJ1aWxkaW5nIGFzIG1vZHVsZQ0KPiANCj4gT24gVGh1LCAyMDI2LTEwLTA4IGF0IDE4OjAyICsw
-OTAwLCBaaGlwZW5nLndhbmdfMUBvc3MubnhwLmNvbSB3cm90ZToNCj4gPiBGcm9tOiBKaW5kb25n
-IFl1ZSA8amluZG9uZy55dWVAbnhwLmNvbT4NCj4gPg0KPiA+IE1ha2UgdGhlIGRyaXZlciBidWls
-ZGFibGUgYXMgYSBtb2R1bGUgYnkgdHVybmluZyB0aGUgS2NvbmZpZyBzeW1ib2wNCj4gPiBpbnRv
-IGEgdHJpc3RhdGUgYW5kIHVzaW5nIG1vZHVsZV9wbGF0Zm9ybV9kcml2ZXIoKSBpbnN0ZWFkIG9m
-DQo+ID4gYnVpbHRpbl9wbGF0Zm9ybV9kcml2ZXIoKSwgYW5kIGFkZCB0aGUgTU9EVUxFX0RFVklD
-RV9UQUJMRSgpIGFuZA0KPiA+IG1vZHVsZSBtZXRhZGF0YSBuZWVkZWQgZm9yIGF1dG9sb2FkaW5n
-Lg0KPiANCj4gSSBiZWxpZXZlIGJvdGggaGlnaC1zZXZlcml0eSBpc3N1ZXMgZmxhZ2dlZCBieSBz
-YXNoaWtvIFsxXSBhcmUgdmFsaWQuDQo+IExvb2tpbmcgYXQgd2hhdCBvdGhlciBkcml2ZXJzIGRv
-IChlLmcuIGRyaXZlcnMvaXJxY2hpcC9pcnEtdHM0ODAwLmMsDQo+IGRyaXZlcnMvaXJxY2hpcC9p
-cnEtcHJ1c3MtaW50Yy5jKSwgeW91IHNob3VsZCBkbyBzb21ldGhpbmcgc2ltaWxhcjoNCj4gaXRl
-cmF0ZSBvdmVyIHRoZSBod2lycXMgYW5kIGNhbGwgaXJxX2Rpc3Bvc2VfbWFwcGluZygpLiBUaGF0
-IHdvdWxkIHNvbHZlIGJvdGgNCj4gcHJvYmxlbXMgYmVjYXVzZSBzeW5jaHJvbml6ZV9pcnEoKSBn
-ZXRzIGNhbGxlZCBpbmRpcmVjdGx5IHZpYQ0KPiBpcnFfZG9tYWluX2Rpc2Fzc29jaWF0ZSgpLg0K
-PiANCj4gVGhlcmUgaXMgbm90aGluZyB3cm9uZyB3aXRoIHRoZSBwYXRjaCBpdHNlbGYgKHRoZSBj
-b252ZXJzaW9uIHRvIGxvYWRhYmxlDQo+IG1vZHVsZSksIHNvIG15IHItYiB0YWcgY2FuIHN0YXkg
-YXMgbG9uZyBhcyB0aGUgYWJvdmUgaXNzdWUgaXMgYWRkcmVzc2VkIGluIGENCj4gc2VwYXJhdGUg
-cGF0Y2guIFRoYW5rcyENCj4gDQo+IFsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvc2Fz
-aGlrby1vdXRib3gtMTYzOTIwQGtlcm5lbC5vcmcvDQo+IA0KSGkgUmFkdSwNCg0KQWdyZWVkLCBi
-b3RoIGlzc3VlcyBhcmUgdmFsaWQuIEknbGwgYWRkIGEgc2VwYXJhdGUgcGF0Y2ggdGhhdCBpdGVy
-YXRlcw0Kb3ZlciB0aGUgZG9tYWluJ3MgaHdpcnFzIGFuZCBjYWxscyBpcnFfZGlzcG9zZV9tYXBw
-aW5nKCkgaW4gcmVtb3ZlKCksIGFzDQppbiBpcnEtdHM0ODAwLmMgLyBpcnEtcHJ1c3MtaW50Yy5j
-LiBBcyB5b3Ugbm90ZWQsIHRoYXQgY2FsbHMNCnN5bmNocm9uaXplX2lycSgpIHZpYSBpcnFfZG9t
-YWluX2Rpc2Fzc29jaWF0ZSgpLCB3aGljaCBjbG9zZXMgYm90aCB0aGUNCnRlYXJkb3duIHJhY2Ug
-YW5kIHRoZSBkYW5nbGluZy1jaGlwLXBvaW50ZXIgcHJvYmxlbS4NCg0KVGhhbmtzIGZvciB0aGUg
-cG9pbnRlcnMhDQpaaGlwZW5nDQo+ID4gVGhlIGNsb2NrLCBydW50aW1lIFBNIGFuZCBJUlEgZG9t
-YWluIGFyZSBhbHJlYWR5IG93bmVkIGJ5IGRldnJlcywgc28NCj4gPiBubyBmdXJ0aGVyIHRlYXJk
-b3duIGlzIG5lZWRlZCB0byBzdXBwb3J0IHVuYmluZCBhbmQgcmVsb2FkLg0KPiA+DQo+ID4gU2ln
-bmVkLW9mZi1ieTogSmluZG9uZyBZdWUgPGppbmRvbmcueXVlQG54cC5jb20+DQo+ID4gU2lnbmVk
-LW9mZi1ieTogWmhpcGVuZyBXYW5nIDx6aGlwZW5nLndhbmdfMUBueHAuY29tPg0KPiA+IFJldmll
-d2VkLWJ5OiBSYWR1IFJlbmRlYyA8cmFkdUByZW5kZWMubmV0Pg0KPiA+IC0tLQ0KPiA+IMKgZHJp
-dmVycy9pcnFjaGlwL0tjb25maWfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgMiArLQ0KPiA+IMKg
-ZHJpdmVycy9pcnFjaGlwL2lycS1pbXgtaXJxc3RlZXIuYyB8IDcgKysrKysrLQ0KPiA+IMKgMiBm
-aWxlcyBjaGFuZ2VkLCA3IGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pDQo+ID4NCj4gPiBk
-aWZmIC0tZ2l0IGEvZHJpdmVycy9pcnFjaGlwL0tjb25maWcgYi9kcml2ZXJzL2lycWNoaXAvS2Nv
-bmZpZyBpbmRleA0KPiA+IDIwYjc3ZmJjNTFlZS4uMTA1MTA4ZDJlNmZmIDEwMDY0NA0KPiA+IC0t
-LSBhL2RyaXZlcnMvaXJxY2hpcC9LY29uZmlnDQo+ID4gKysrIGIvZHJpdmVycy9pcnFjaGlwL0tj
-b25maWcNCj4gPiBAQCAtNTU1LDcgKzU1NSw3IEBAIGNvbmZpZyBDU0tZX0FQQl9JTlRDDQo+ID4g
-wqAJwqAgdGhlIGNvbnRyb2xsZXIncyByZWdpc3Rlci4NCj4gPg0KPiA+IMKgY29uZmlnIElNWF9J
-UlFTVEVFUg0KPiA+IC0JYm9vbCAiaS5NWCBJUlFTVEVFUiBzdXBwb3J0Ig0KPiA+ICsJdHJpc3Rh
-dGUgImkuTVggSVJRU1RFRVIgc3VwcG9ydCINCj4gPiDCoAlkZXBlbmRzIG9uIEFSQ0hfTVhDIHx8
-IEFSQ0hfUzMyIHx8IENPTVBJTEVfVEVTVA0KPiA+IMKgCWRlZmF1bHQgeSBpZiBBUkNIX01YQyB8
-fCBBUkNIX1MzMg0KPiA+IMKgCXNlbGVjdCBJUlFfRE9NQUlODQo+ID4gZGlmZiAtLWdpdCBhL2Ry
-aXZlcnMvaXJxY2hpcC9pcnEtaW14LWlycXN0ZWVyLmMNCj4gPiBiL2RyaXZlcnMvaXJxY2hpcC9p
-cnEtaW14LWlycXN0ZWVyLmMNCj4gPiBpbmRleCAxNWVlNTBmNjVkNTQuLjg1ZWRkNWUzM2NhOSAx
-MDA2NDQNCj4gPiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLWlteC1pcnFzdGVlci5jDQo+ID4g
-KysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1pbXgtaXJxc3RlZXIuYw0KPiA+IEBAIC0xMCw2ICsx
-MCw3IEBADQo+ID4gwqAjaW5jbHVkZSA8bGludXgvaXJxY2hpcC9jaGFpbmVkX2lycS5oPg0KPiA+
-IMKgI2luY2x1ZGUgPGxpbnV4L2lycWRvbWFpbi5oPg0KPiA+IMKgI2luY2x1ZGUgPGxpbnV4L2tl
-cm5lbC5oPg0KPiA+ICsjaW5jbHVkZSA8bGludXgvbW9kdWxlLmg+DQo+ID4gwqAjaW5jbHVkZSA8
-bGludXgvb2YuaD4NCj4gPiDCoCNpbmNsdWRlIDxsaW51eC9vZl9pcnEuaD4NCj4gPiDCoCNpbmNs
-dWRlIDxsaW51eC9wbGF0Zm9ybV9kZXZpY2UuaD4NCj4gPiBAQCAtMzU5LDYgKzM2MCw3IEBAIHN0
-YXRpYyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkIGlteF9pcnFzdGVlcl9kdF9pZHNbXQ0KPiA9
-IHsNCj4gPiDCoAl7IC5jb21wYXRpYmxlID0gIm54cCxzMzJuNzktaXJxc3RlZXIiLAkuZGF0YSA9
-ICZzMzJuNzlfZGF0YSB9LA0KPiA+IMKgCXt9LA0KPiA+IMKgfTsNCj4gPiArTU9EVUxFX0RFVklD
-RV9UQUJMRShvZiwgaW14X2lycXN0ZWVyX2R0X2lkcyk7DQo+ID4NCj4gPiDCoHN0YXRpYyBzdHJ1
-Y3QgcGxhdGZvcm1fZHJpdmVyIGlteF9pcnFzdGVlcl9kcml2ZXIgPSB7DQo+ID4gwqAJLmRyaXZl
-ciA9IHsNCj4gPiBAQCAtMzY5LDQgKzM3MSw3IEBAIHN0YXRpYyBzdHJ1Y3QgcGxhdGZvcm1fZHJp
-dmVyIGlteF9pcnFzdGVlcl9kcml2ZXIgPSB7DQo+ID4gwqAJLnByb2JlCQk9IGlteF9pcnFzdGVl
-cl9wcm9iZSwNCj4gPiDCoAkucmVtb3ZlCQk9IGlteF9pcnFzdGVlcl9yZW1vdmUsDQo+ID4gwqB9
-Ow0KPiA+IC1idWlsdGluX3BsYXRmb3JtX2RyaXZlcihpbXhfaXJxc3RlZXJfZHJpdmVyKTsNCj4g
-PiArbW9kdWxlX3BsYXRmb3JtX2RyaXZlcihpbXhfaXJxc3RlZXJfZHJpdmVyKTsNCj4gPiArDQo+
-ID4gK01PRFVMRV9ERVNDUklQVElPTigiaS5NWCBJUlFTVEVFUiBpbnRlcnJ1cHQgbXVsdGlwbGV4
-ZXIvcmVtYXBwZXINCj4gPiArZHJpdmVyIik7IE1PRFVMRV9MSUNFTlNFKCJHUEwiKTsNCg==
+Declare a carveout memory region to store LPM metadata on Jacinto
+devices.
+
+For Jacinto devices, this memory region is needed for saving ATF context
+and the certificate information of ATF and OPTEE and DM image. This LPM
+metadata area is firewalled to be accessed only by TIFS.
+
+U-Boot R5 SPL/TIFS will use this area to save and restore:
+- ATF context
+- ATF certificate information
+- OPTEE certificate information
+- DM image (which has been copied in memory at boot time by U-Boot
+R5-SPL)
+
+At resume, U-Boot R5 SPL is executed and detects that the board is
+resuming (with a flag set in the PMIC), then it:
+- brings out of retention the DDR
+- retrieves the LPM memory region from DTS
+- authenticates certificates from LPM memory region and applies firewalls
+- asks TIFS to restore TFA and its own minimal context
+- starts TFA on remote proc
+- loads back DM image from memory and jumps to DM
+
+https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html#lpm-msg-lpm-save-addr
+
+NB: This memory region is not part of DM memory (which is not retained
+at suspend)
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Richard Genoud (TI) <richard.genoud@bootlin.com>
+---
+ .../bindings/remoteproc/ti,k3-r5f-rproc.yaml   | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+index 14e6b2f817b3..af2acd429974 100644
+--- a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
++++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+@@ -155,9 +155,10 @@ patternProperties:
+         description: |
+           phandle to the reserved memory nodes to be associated with the
+           remoteproc device. There should be two reserved memory nodes defined
+-          for the basic layout or 6 partitions for a detailed layout. The
+-          reserved memory nodes should be carveout nodes, and should be defined
+-          with a "no-map" property as per the bindings in
++          for the basic layout, three for the Jacinto layout or 6 partitions
++          for a detailed layout. The reserved memory nodes should be carveout
++          nodes, and should be defined with a "no-map" property as per the
++          bindings in
+           Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
+         oneOf:
+           - description: Basic layout
+@@ -174,6 +175,12 @@ patternProperties:
+               - description: LPM metadata
+               - description: LPM FS context data and reserved sections
+               - description: DM RM/PM trace and firmware code/data
++          - description: Jacinto layout
++            items:
++              - description: region used for dynamic DMA allocations like vrings and
++                             vring buffers
++              - description: region reserved for firmware image sections
++              - description: LPM metadata
+ 
+       memory-region-names:
+         description: |
+@@ -192,6 +199,11 @@ patternProperties:
+               - const: lpm-metadata
+               - const: lpm-context
+               - const: dm-firmware
++          - description: Jacinto layout
++            items:
++              - const: dma
++              - const: firmware
++              - const: lpm-metadata
+ 
+ # Optional properties:
+ # --------------------
 
