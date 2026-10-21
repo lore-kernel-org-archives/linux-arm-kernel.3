@@ -2,63 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C595E606A330
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 09:26:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4A0D606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 09:26:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vGmu6C3Y;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=XKrALMtX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Uvavgac9;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QWTE8VNC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5NSvfLE1NFGHuHhVgj8eEQzJdRfw1ghMvfCC3P4c9eM=; b=vGmu6C3YN2yx+3kNinq9ZiY/pw
-	xzTmAViPQlS+doURVq+pB93oWt/uploYhyhf39SGajAeEPUUgYAvyZ7eSvr9Xw/giogcVsmFCdqel
-	uaW09VAu9cSRMjFmoek/EmdL+pSV2fTT/URclWwiN1rtWkTczrMCCYRQoYMT3OOgXw/iUl8tu5PU2
-	sVGFFtEm6zyZ7cFx6C/Kbl5h0YWM8AOvQEOzA59e2wCEJ0GZusJFUXgkVQNmFONJHG+NK/MhI9tu5
-	5dPC6EBxmi2xkdasNNIlehxjAIqcJh5oer8s5SJUBo8Z0uUs2tvov7f5xHlMFShKYup/gqqq0sfFm
-	PTpT4zRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AqlZ3i98W8KIbKL/1v8ATr9shp2SQpSgzOXsLucMZMc=; b=Uvavgac9tZYy86huTd4bcT/zNb
+	IardwygJ768VUMOU4zn6VQop7KnjTjIyPSySKyqToEd97mdvfJvJt7VytGublnfwB/i4h5vC3hUqq
+	x0YWu/FfE+xPcX69FYZQ7x6o3KL5NSjX6JSAUO1fc8I8H+KhJ1nkC3cGlFJRV4NoScSjei58UED/P
+	9MVpOCIaHw8t6POP/XaOb5lD7lKb0+TURbTJI0lt+DJjbAW6wlUC6lFy0rMU9bn/5T+/egJQg1ShW
+	Ke2clyZU081hJJA7ZSirhGjRGocUD7prwQVR8VwPBn1mlewYxk/B088ZvXdlG8KADDoxeIJcVD1p4
+	+9DNHWTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJSaN-0000000BUOz-08NL;
-	Wed, 21 Oct 2026 09:26:15 +0000
+	id 1xJRNR-0000000BIb4-2Opi;
+	Wed, 21 Oct 2026 08:08:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJSaK-0000000BUOP-2lTt
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 09:26:14 +0000
+	id 1xJRNO-0000000BIaP-15D7;
+	Wed, 21 Oct 2026 08:08:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9EB72720;
-	Wed, 21 Oct 2026 02:26:05 -0700 (PDT)
-Received: from [10.0.153.134] (e142021.arm.com [10.0.153.134])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D3B7B3F7D8;
-	Wed, 21 Oct 2026 02:26:07 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 768F41595;
+	Wed, 21 Oct 2026 01:08:40 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2E2B63F7B4;
+	Wed, 21 Oct 2026 01:08:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792574768; bh=RcUVXWcp7EOL+dU9VEwm/n2B8NbJB9AEP0xAsiqiyiQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XKrALMtXRKPK2cxv4moI9F8m0dt+nQW5yilJlFHkn6Ye4o+DQQrU+HPJit16Vn40j
-	 4i19cfDR5agLapAUD2dyr4YiTVYHLgCOe4VxLNk+tMcIxefyComHcqmnDOQCZIpeH6
-	 wsPSHyaDThCb42a86nbRTmJF1Oh12OKbeJIjqhkA=
-Message-ID: <d6f3b250-bfc0-4d74-b729-3791bc145e1c@arm.com>
-Date: Wed, 21 Oct 2026 10:26:06 +0100
+	t=1792570123; bh=cnyaEnul7lwGJfjB43Qer2YuUdo+zKOTOANHUovpt8U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QWTE8VNC/AdoGW019vhpgeWWcJzn9DWgmoS9MuR8/DW6vM35uoQ3+eaqVROLKArdR
+	 xuDjU731EIsKkFLN1tAyXJbvHHNAbi7ZH9VUqzwmbZ9ErkGfm5ssYs3AUc8ZoRD3IS
+	 CW90xGvB3du+N8D+SSO9tKTZaobu8I69mNET1k5I=
+Date: Wed, 21 Oct 2026 09:08:36 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Simon Glass <sjg@chromium.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	linux-integrity@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
+	Piotr =?iso-8859-1?Q?Kr=F3l?= <piotr.krol@3mdeb.com>,
+	Ross Philipson <ross.philipson@gmail.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Song Shuai <songshuaishuai@tinylab.org>
+Subject: Re: [PATCH v2 15/15] efi/arm64: Implement ARM64 DRTM in the stub
+Message-ID: <athzBHFwyp0bFEu9@e129823.arm.com>
+References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+ <15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm_mpam: Release the mon_sel lock on
- mpam_save_mbwu_state() errors
-To: Ping Li <leeonion.muyu@gmail.com>, james.morse@arm.com, ben.horgan@arm.com
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- reinette.chatre@intel.com, fenghuay@nvidia.com
-References: <20261020114807.3915705-1-leeonion.muyu@gmail.com_quarantine>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20261020114807.3915705-1-leeonion.muyu@gmail.com_quarantine>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_022612_842011_29027DD9 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20261021_010846_477951_5449DA73 
+X-CRM114-Status: GOOD (  50.68  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,84 +88,459 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+Hi Jason,
 
-On 10/20/26 13:48, Ping Li wrote:
-> mpam_save_mbwu_state() takes the mon_sel lock at the top of each loop
-> iteration, but the four error paths that return after failed
-> MPAMF_MON_SEL register accesses do so without releasing it.
+Overall patches are look good to me.
+
+But small one question more.
+
+> Provide an implementation of the CONFIG_EFI_STUB_DRTM protocol for ARM64
+> DEN0113 >= v1.1.
 > 
-> Take the lock with the conditional mon_sel_lock guard class instead,
-> so all exit paths release it.
-
-many thanks for spotting this!
-
-Similar lines were in the last patch version sent out, but as Ben 
-mentioned, this somehow conflicted with the other MPAM changes, so it 
-got accidentally removed.
-The original version always returned -EIO, but we now always use this 
-error code inside mpam_fb.c already, so there is no difference, and this 
-version here is more future-proof, should we lift the restricted range 
-of errors handled in the future. So:
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Thanks!
-Andre
+> First, it queries the FW for support and collects all the
+> information. This is needed to compute the extra_size, which comes
+> from FW reporting how much memory it needs during the launch for the
+> DLME Data and DCE-owned data. The generic stub ensures there is
+> trailing memory after Image for this.
 > 
-> Fixes: a3a94c13c442 ("arm_mpam: propagate MSC access errors for state saving function")
-> Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+> Then the DRTM_PARAMETERS launch structure is computed using the
+> offsets in the efi_info.
+> 
+> Finally, the stub does ExitBootServices and calls the actual launch.
+> 
+> The feature discovery process is deliberately fairly verbose to help
+> debug any FW weirdness in the field. Enable it with efi=debug
+> 
+> It looks something like:
+> 
+>  EFI stub: DRTM: interface version 1.4
+>  EFI stub: DEBUG: DRTM: TPM algorithm 0xc, TPM hashing unavailable, PCR schemas 0x1
+>  EFI stub: DEBUG: DRTM: minimum DLME data 73728 bytes, Normal-world DCE 0 bytes
+>  EFI stub: Decompressing Linux Kernel...
+>  EFI stub: Generating empty DTB
+>  EFI stub: Exiting boot services...
+>  EFI stub: DEBUG: DRTM: will launch, selected launch features 0x0
+>  [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x000f0510]
+> 
+> Eventually the launch'd kernel is going to require built in crypto
+> libraries that match what the FW is using so it can validate some of the
+> information left behind during early boot. Refuse to launch if these are
+> not built in and build in the most common ones from the ARM64_DRTM
+> kconfig.
+> 
+> One nit, if the platform does not support SMC then using drtm=auto may
+> crash on the SMC op. As far as I can tell there is no way to discover SMC
+> support through EFI. Learning it from the ACPI FADT is doable and costs
+> about 250 lines of code.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 > ---
->   drivers/resctrl/mpam_devices.c | 12 +++++-------
->   1 file changed, 5 insertions(+), 7 deletions(-)
+>  arch/arm64/Kconfig                        |  16 +
+>  drivers/firmware/efi/libstub/Makefile     |   1 +
+>  drivers/firmware/efi/libstub/arm64-drtm.c | 426 ++++++++++++++++++++++
+>  3 files changed, 443 insertions(+)
+>  create mode 100644 drivers/firmware/efi/libstub/arm64-drtm.c
 > 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 48adc49b833c..c067b6d57d71 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -2037,8 +2037,10 @@ static int mpam_save_mbwu_state(void *arg)
->   	struct mpam_class *class = ris->vmsc->comp->class;
->   
->   	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
-> -		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
-> -			return -EIO;
-> +		ACQUIRE(mon_sel_lock, guard)(msc);
-> +		ret = ACQUIRE_ERR(mon_sel_lock, &guard);
-> +		if (ret)
-> +			return ret;
->   
->   		mbwu_state = &ris->mbwu_state[i];
->   		cfg = &mbwu_state->cfg;
-> @@ -2061,10 +2063,8 @@ static int mpam_save_mbwu_state(void *arg)
->   		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
->   		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
->   
-> -		if (!mbwu_state->enabled) {
-> -			mpam_mon_sel_unlock(msc);
-> +		if (!mbwu_state->enabled)
->   			continue;
-> -		}
->   
->   		val = 0;
->   		mbwu_arg = (struct mon_read) {
-> @@ -2088,8 +2088,6 @@ static int mpam_save_mbwu_state(void *arg)
->   		ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
->   		if (ret)
->   			return ret;
-> -
-> -		mpam_mon_sel_unlock(msc);
->   	}
->   
->   	return 0;
-> 
-> base-commit: 8ea457f746d915d55f78b43d33b1cd618f3d93ad
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 4a752835ce1116..30244bc2d57696 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2543,6 +2543,22 @@ config EFI
+>  	  allow the kernel to be booted as an EFI application. This
+>  	  is only useful on systems that have UEFI firmware.
+>  
+> +config ARM64_DRTM
+> +	bool "Arm Dynamic Root of Trust for Measurement support"
+> +	depends on EFI
+> +	select CRYPTO
+> +	select CRYPTO_SHA256
+> +	select CRYPTO_SHA512
+> +	select EFI_STUB_DRTM
+> +	help
+> +	  Support launching Linux as a Dynamically Launched Measured
+> +	  Environment (DLME) using Arm's DEN0113 DRTM specification. Requires
+> +	  booting through the EFI stub. The drtm= kernel command line option
+> +	  enables or disables the launch at boot.
+> +
+> +	  If unsure, say N. This option is EXPERIMENTAL and does not yet provide
+> +	  security.
+> +
+>  config COMPRESSED_INSTALL
+>  	bool "Install compressed image by default"
+>  	help
+> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+> index 3f1921e6c334d1..f0958b4df16592 100644
+> --- a/drivers/firmware/efi/libstub/Makefile
+> +++ b/drivers/firmware/efi/libstub/Makefile
+> @@ -83,6 +83,7 @@ lib-$(CONFIG_EFI_GENERIC_STUB)	+= efi-stub.o string.o intrinsics.o systable.o \
+>  
+>  lib-$(CONFIG_ARM)		+= arm32-stub.o
+>  lib-$(CONFIG_ARM64)		+= kaslr.o arm64.o arm64-stub.o smbios.o
+> +lib-$(CONFIG_ARM64_DRTM)	+= arm64-drtm.o
+>  lib-$(CONFIG_X86)		+= x86-stub.o smbios.o
+>  lib-$(CONFIG_X86_64)		+= x86-5lvl.o
+>  lib-$(CONFIG_RISCV)		+= kaslr.o riscv.o riscv-stub.o
+> diff --git a/drivers/firmware/efi/libstub/arm64-drtm.c b/drivers/firmware/efi/libstub/arm64-drtm.c
+> new file mode 100644
+> index 00000000000000..2fc58babc3e7cb
+> --- /dev/null
+> +++ b/drivers/firmware/efi/libstub/arm64-drtm.c
+> @@ -0,0 +1,426 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/* Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES
+> + *
+> + * EFI Stub implementation for ARM DEN 0113 "DRTM Architecture for Arm"
+> + *
+> + * This code runs on the untrusted side of the boot in the EFI stub. Nothing it
+> + * does should impact the integrity of the post-launch world and it does not
+> + * need to take special security precautions.
+> + */
+> +#include <linux/bitfield.h>
+> +#include <linux/efi.h>
+> +#include <linux/kconfig.h>
+> +#include <linux/overflow.h>
+> +#include <linux/sizes.h>
+> +#include <linux/tpm_command.h>
+> +#include <linux/unaligned.h>
+> +
+> +#include <uapi/linux/psci.h>
+> +
+> +#include <asm/cputype.h>
+> +#include <asm/drtm.h>
+> +#include <asm/image.h>
+> +
+> +#include "efistub.h"
+> +
+> +struct efi_drtm_config {
+> +	u32 launch_features;
+> +	unsigned long dlme_data_size;
+> +	unsigned long nw_dce_size;
+> +	struct arm_drtm_parameters *params_addr;
+> +};
+> +static struct efi_drtm_config drtm_cfg;
+> +
+> +/* True if SMCCC 1.0 or later is available. */
+> +static bool efi_arm64_psci_smccc_compatible(void)
+> +{
+> +	struct arm_smccc_res res;
+> +	s32 status;
+> +
+> +	arm_smccc_1_1_smc(PSCI_0_2_FN_PSCI_VERSION, &res);
+> +	if ((s32)res.a0 < 0)
+> +		return false;
+> +
+> +	if (PSCI_VERSION_MAJOR(res.a0) < 1)
+> +		return false;
+> +
+> +	arm_smccc_1_1_smc(PSCI_1_0_FN_PSCI_FEATURES, ARM_SMCCC_VERSION_FUNC_ID,
+> +			  &res);
+> +	status = (s32)res.a0;
+> +	if (status == PSCI_RET_NOT_SUPPORTED) {
+> +		/*
+> +		 * SMCCC_VERSION was introduced by SMCCC 1.1, so firmware that
+> +		 * does not advertise that function through PSCI_FEATURES is
+> +		 * using the valid SMCCC 1.0 baseline.
+> +		 */
+> +		return true;
+> +	} else if (status < 0) {
+> +		return false;
+> +	} else {
+> +		u32 version;
+> +
+> +		arm_smccc_1_1_smc(ARM_SMCCC_VERSION_FUNC_ID, &res);
+> +		version = res.a0;
+> +		if ((version >> 16) != 1 || version < ARM_SMCCC_VERSION_1_1)
+> +			return false;
+> +	}
+> +	return true;
+> +}
+> +
+> +static bool efi_drtm_query_feature(u64 feature, u64 *value)
+> +{
+> +	s64 status;
+> +
+> +	status = arm_drtm_query_feature(feature, value);
+> +	if (status < 1) {
+> +		efi_err("DRTM: feature %llx query failed (x0=%lld)\n", feature,
+> +			status);
+> +		return false;
+> +	}
+> +
+> +	return true;
+> +}
+> +
+> +/*
+> + * For the kernel to boot it must have the matching hash algorithm built in to
+> + * be able to validate the TCB hashes. Assume the TPM hash algorithm is the one
+> + * that TCB_HASH_TABLE will be using.
+> + */
+> +static bool efi_drtm_hash_algorithm_supported(u16 algorithm)
+> +{
+> +	switch (algorithm) {
+> +	case TPM_ALG_SHA256:
+> +		return IS_BUILTIN(CONFIG_CRYPTO_SHA256);
+> +	case TPM_ALG_SHA384:
+> +	case TPM_ALG_SHA512:
+> +		return IS_BUILTIN(CONFIG_CRYPTO_SHA512);
+> +	default:
+> +		return false;
+> +	}
+> +}
+> +
+> +static bool efi_drtm_probe_tpm(void)
+> +{
+> +	u16 algorithm;
+> +	u8 schemas;
+> +	u64 value;
+> +
+> +	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_TPM, &value))
+> +		return false;
+> +	algorithm = FIELD_GET(ARM_DRTM_TPM_ALG_MASK, value);
+> +	schemas = FIELD_GET(ARM_DRTM_PCR_SCHEMA_MASK, value);
+> +
+> +	if (!efi_drtm_hash_algorithm_supported(algorithm)) {
+> +		efi_err("DRTM: firmware hash algorithm 0x%x is unavailable (feature 0x%llx)\n",
+> +			algorithm, value);
+> +		return false;
+> +	}
+> +
+> +	if (!(schemas & BIT(ARM_DRTM_PCR_SCHEMA_DEFAULT))) {
+> +		efi_err("DRTM: default PCR schema is unavailable (feature 0x%llx)\n",
+> +			value);
+> +		return false;
+> +	}
+> +
+> +	efi_debug("DRTM: TPM algorithm 0x%x, TPM hashing %s, PCR schemas 0x%x\n",
+> +		  algorithm,
+> +		  value & ARM_DRTM_TPM_HASHING ? "available" : "unavailable",
+> +		  schemas);
+> +	return true;
+> +}
+> +
+> +static bool efi_drtm_probe_memory(void)
+> +{
+> +	u64 value;
+> +
+> +	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_MIN_MEMORY, &value))
+> +		return false;
+> +
+> +	drtm_cfg.dlme_data_size =
+> +		FIELD_GET(ARM_DRTM_DLME_DATA_PAGES_MASK, value) *
+> +		ARM_DRTM_PAGE_SIZE;
+> +	drtm_cfg.nw_dce_size = FIELD_GET(ARM_DRTM_NW_DCE_PAGES_MASK, value) *
+> +			       ARM_DRTM_PAGE_SIZE;
+> +
+> +	efi_debug("DRTM: minimum DLME data %lu bytes, Normal-world DCE %lu bytes\n",
+> +		  drtm_cfg.dlme_data_size, drtm_cfg.nw_dce_size);
+> +	return true;
+> +}
+> +
+> +static bool efi_drtm_probe_dma(void)
+> +{
+> +	u64 value;
+> +
+> +	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_DMA_PROTECTION, &value))
+> +		return false;
+> +
+> +	if (!(FIELD_GET(ARM_DRTM_DMA_PROTECTION_MASK, value) &
+> +	      BIT(ARM_DRTM_DMA_PROTECTION_COMPLETE))) {
+> +		efi_err("DRTM: complete DMA protection is unavailable (feature 0x%llx)\n",
+> +			value);
+> +		return false;
+> +	}
+> +	return true;
+> +}
+> +
+> +/* Sanity check nothing has gone wrong */
+> +static bool efi_drtm_probe_boot_pe(void)
+> +{
+> +	u64 current_pe = read_cpuid_mpidr() & MPIDR_HWID_BITMASK;
+> +	u64 boot_pe;
+> +
+> +	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_BOOT_PE, &boot_pe))
+> +		return false;
+> +
+> +	if ((boot_pe & MPIDR_HWID_BITMASK) != current_pe) {
+> +		efi_err("DRTM: boot PE 0x%llx does not match current PE 0x%llx\n",
+> +			boot_pe, current_pe);
+> +		return false;
+> +	}
+> +
+> +	return true;
+> +}
+> +
+> +static void efi_drtm_report_previous_error(void)
+> +{
+> +	s64 error_code;
+> +	s64 status;
+> +
+> +	status = arm_drtm_query_function(ARM_DRTM_SMC_GET_ERROR);
+> +	if (status != ARM_DRTM_SUCCESS) {
+> +		efi_debug("DRTM: GET_ERROR is unavailable (x0=%lld)\n", status);
+> +		return;
+> +	}
+> +
+> +	status = arm_drtm_get_error(&error_code);
+> +	if (status != ARM_DRTM_SUCCESS) {
+> +		efi_warn("DRTM: failed to read previous error (x0=%lld)\n",
+> +			 status);
+> +		return;
+> +	}
+> +
+> +	if (error_code) {
+> +		efi_warn("DRTM: firmware reports previous launch error 0x%llx\n",
+> +			 error_code);
+> +		if (efi_drtm_policy != EFI_DRTM_ENFORCE)
+> +			efi_drtm_policy = EFI_DRTM_OFF;
+> +	}
+> +}
+> +
+> +static efi_status_t efi_drtm_failure(void)
+> +{
+> +	if (efi_drtm_policy == EFI_DRTM_AUTO) {
+> +		efi_warn("DRTM: preparation failed, continuing without DRTM\n");
+> +		efi_drtm_policy = EFI_DRTM_OFF;
+> +		return EFI_SUCCESS;
+> +	}
+> +
+> +	efi_err("DRTM: enforced preparation failed\n");
+> +	return EFI_UNSUPPORTED;
+> +}
+> +
+> +efi_status_t efi_drtm_prepare(void)
+> +{
+> +	s64 feature_status;
+> +	u16 major, minor;
+> +	s32 status;
+> +
+> +	if (efi_drtm_policy == EFI_DRTM_OFF)
+> +		return EFI_SUCCESS;
+> +
+> +	if (!efi_arm64_psci_smccc_compatible())
+> +		return efi_drtm_failure();
+> +
+> +	/*
+> +	 * v1.4B section 3.2.1 "DRTM_VERSION usage" explains that a new major
+> +	 * ABI version may "Change behavior of existing functions". Verify the
+> +	 * major version before calling anything so we don't trigger unknown
+> +	 * behavior.
+> +	 */
+> +	status = arm_drtm_version(&major, &minor);
+> +	if (status != ARM_DRTM_SUCCESS) {
+> +		efi_err("DRTM: failed to read interface version (x0=%d)\n",
+> +			status);
+> +		return efi_drtm_failure();
+> +	}
+> +	if (major != ARM_DRTM_VERSION_MAJOR) {
+> +		efi_err("DRTM: unsupported interface version %u.%u\n", major,
+> +			minor);
+> +		return efi_drtm_failure();
+> +	}
+> +	efi_info("DRTM: interface version %u.%u\n", major, minor);
+> +
+> +	efi_drtm_report_previous_error();
+> +	if (efi_drtm_policy == EFI_DRTM_OFF)
+> +		return EFI_SUCCESS;
+> +
+> +	feature_status = arm_drtm_query_function(ARM_DRTM_SMC_DYNAMIC_LAUNCH);
+> +	if (feature_status != ARM_DRTM_SUCCESS) {
+> +		efi_err("DRTM: dynamic launch is unavailable (x0=%lld)\n",
+> +			feature_status);
+> +		return efi_drtm_failure();
+> +	}
+> +
+> +	if (!efi_drtm_probe_tpm() || !efi_drtm_probe_memory() ||
+> +	    !efi_drtm_probe_dma() || !efi_drtm_probe_boot_pe())
+> +		return efi_drtm_failure();
+> +
+> +	drtm_cfg.launch_features =
+> +		ARM_DRTM_LAUNCH_HASH_FIRMWARE |
+> +		FIELD_PREP(ARM_DRTM_LAUNCH_PCR_SCHEMA_MASK,
+> +			   ARM_DRTM_PCR_SCHEMA_DEFAULT) |
+> +		FIELD_PREP(ARM_DRTM_LAUNCH_DMA_PROTECTION_MASK,
+> +			   ARM_DRTM_DMA_PROTECTION_COMPLETE) |
+> +		ARM_DRTM_LAUNCH_NO_AUTH | ARM_DRTM_LAUNCH_KEEP_SECURE_IRQS;
+> +
+> +	return EFI_SUCCESS;
+> +}
+> +
+> +unsigned long efi_drtm_get_extra_size(void)
+> +{
+> +	/*
+> +	 * See arch/arm64/kernel/vmlinux.lds.S for the DRTM Memory layout.
+> +	 *
+> +	 * v1.4B Table 6 "Return values for DRTM features", feature 0x2 reports
+> +	 * both minimum sizes in 4 KiB pages.
+> +	 *
+> +	 * The linker places the DLME data at the 4 KiB-aligned end of the
+> +	 * static Image as required by R314030 in Table 13 "DLME region
+> +	 * requirements".
+> +	 *
+> +	 * The DLME region must include all of that data (R45200 in Table 30
+> +	 * "DCE requirements for the DLME"), and an optional Normal-world DCE
+> +	 * follows it at another 4 KiB-aligned address as required by R312080 in
+> +	 * Table 10 "DRTM_PARAMETERS requirements".
+> +	 *
+> +	 * A final page holds the 4 KiB-aligned DRTM_PARAMETERS required by
+> +	 * R312010 in the same table. Only the first area is part of the DLME
+> +	 * region.
+> +	 */
+> +	if (efi_drtm_policy == EFI_DRTM_OFF)
+> +		return 0;
+> +	return drtm_cfg.dlme_data_size + drtm_cfg.nw_dce_size +
+> +	       ARM_DRTM_PAGE_SIZE;
+> +}
+> +
+> +efi_status_t efi_drtm_prepare_launch(unsigned long image_base,
+> +				     unsigned long fdt_addr)
+> +{
+> +	const struct arm64_image_header *header = (const void *)image_base;
+> +	const struct efi_image_info *info = efi_get_image_info(image_base);
+> +	struct arm64_drtm_handoff *handoff =
+> +		efi_get_image_symbol(image_base, arm64_drtm_handoff);
+> +	struct arm_drtm_parameters *params;
+> +	unsigned long measured_offset;
+> +	unsigned long measured_size;
+> +	unsigned long image_size;
+> +	unsigned long dlme_start;
+> +	unsigned long dlme_end;
+> +	unsigned long dce_end;
+> +	unsigned long entry;
+> +
+> +	if (efi_drtm_policy == EFI_DRTM_OFF)
+> +		return EFI_SUCCESS;
+> +
+> +	image_size = le64_to_cpu(header->image_size);
+> +	measured_offset = info->drtm_measured_start;
+> +	measured_size = info->dlme_measured_size;
+> +	entry = info->drtm_entry;
+> +	dlme_start = image_base + image_size;
+> +	dlme_end = dlme_start + drtm_cfg.dlme_data_size;
+> +	dce_end = dlme_end + drtm_cfg.nw_dce_size;
 
+Suppose user boot the kernel via decompressed Image which is the
+part of artifact of compressed image and use the drtm option (e.g.
+booting via UEFI shell with decompressed Image).
+
+Since the drtm extra memory is allocated only in efi_zboot_entry(),
+I think the drtm extra memory wouldn't be allocated so it would corrupt
+memory while setting the laucn parameter or by DRTM...
+
+Is this simply an example of incorrect usage which is ignorable?
+
+Thanks.
+
+[...snip...]
+
+-- 
+Sincerely,
+Yeoreum Yun
 
