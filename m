@@ -2,51 +2,50 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66115606A332
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 17:19:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B3BF606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 17:20:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=W3FnW9zi;
-	dkim=pass (2048-bit key, unprotected) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=VlfyyDlU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CJnNOVkq;
+	dkim=pass (2048-bit key, unprotected) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=XuBYSPHg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p/oEcNKqidn4ieT1WIF/VipiAVLf85drKemekyUd3/Y=; b=W3FnW9ziOW9dF/amEH9L2WPilg
-	c2evry+A37GWjkkyBON5kdvf69YgEfzVvtC8ufHv/3aPpdw5UcYszqQHI4WsIf3VrHNFHsolYd+jd
-	ZBWe3N1wLaXvDhfhfzLSFDXkB8Y0/U5TxnHups5aqek5WllSeI5osSR+SCA930i1LTIf1gijbSdPV
-	mIByN1t48m8Qf7iJYX0PGYNfz7jRYuAa1c9FmDJqFtUWE3awSzzH6cLc0DwBQ7wB8/1xSOI+XgDZC
-	ngAtHwvtmFQyH5zSV4blKJf4YPPsyxQrp4YeeCr4oiclypp84+vJVCd6sb76LNv5dzEXodU/fvnZE
-	tXyRaizw==;
+	bh=SuDvx00jor0zB+rk10Hah3tZomTrz/6EdT+On4Upk9g=; b=CJnNOVkqxZgD9KYG5oq/HjHM6a
+	9Xokkktvrd2nDoWdyfQuskYX0dwGRletkvOYXLc5h0snJoOexHOLiA9aCiZVVC4x9aTEZIq1C0AED
+	URD/pv4qNlbSPnwjUeFZEozHgLbBol9XIMknX4NTkvRkzHvAetIca8JHDk8aLszbQLr8MY3P73dp1
+	zywHTfhBCaBybZCF6hwEcR15DWRoT9yNFsXWT5QaWk4LVZvcJdB6sKX09Z76Y5AX3Y+niU1fBXXSE
+	HMg8PUw00Ya4MjMyFWKZCDZOpTx1O3IHDnJ/WZWWQ5xAwD7TBcu8QlEEyW9VzvL41VPQZxeQf1W9H
+	JOGk8eqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJZyY-0000000CXWJ-3msS;
-	Wed, 21 Oct 2026 17:19:42 +0000
-Received: from [2a00:f820:417:0:178:251:229:89] (helo=mx.nabladev.com)
+	id 1xJZzV-0000000CXeF-0oMc;
+	Wed, 21 Oct 2026 17:20:41 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJZyX-0000000CXVo-0DuO
+	id 1xJZzS-0000000CXdH-2ZVr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 17:19:42 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 96C6D10A93D;
-	Wed, 21 Oct 2026 19:19:31 +0200 (CEST)
+	Wed, 21 Oct 2026 17:20:39 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 07E231051F7;
+	Wed, 21 Oct 2026 19:20:31 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1792603173;
+	s=dkim; t=1792603232;
 	h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=p/oEcNKqidn4ieT1WIF/VipiAVLf85drKemekyUd3/Y=;
-	b=VlfyyDlUqMsVamAweIBx8XqfE3scpw/yiN1G5k6hPlSg7yEhTErIDLKCr7X/QugmOEc3SE
-	Q0c/X9kPTLrw5X/fCxt+qPzOEivqk6RICAaNdcuXHKyVjPNk4ZFZ7pX3BJenR/BzlSvCjD
-	jK2z/nldjYt7uAja1frN/uJ5tVL/czMUF+8Pybx2qbqS9jehqyRGfRu2z5Uyd1b5z6L/+0
-	+B0pdA7MoDpuManAJuKsA+uRQVVclBB5x6ZKIWKNXna9ueFhsY6d+SWafizZLXhuDRuyeY
-	fYBBdNIkyX842C97CG4ccd6KO+KdIEW7Ica6X+KctBsnj2/GuivdKL7lL2U7TA==
-Message-ID: <1073daf0-3676-4123-9ca4-c182ea5883a3@nabladev.com>
-Date: Wed, 21 Oct 2026 19:19:30 +0200
+	bh=SuDvx00jor0zB+rk10Hah3tZomTrz/6EdT+On4Upk9g=;
+	b=XuBYSPHgIeqY/Zc+aoRhwxC2Koif9dMn8TiYbm+/fpd+cuKrZE9gVoaOEwTbUvKl5jX2fx
+	iozIXA3WwRrIcH8f5LZHJhdPOVNcJTnHN+9O9nT99HmPO1tbfSEv4LWkaz8DqMszURdO0D
+	ou8YSL5AujzVwu+rG1AI3ryFt/4z9enkbIlZXTPgVNIrDtG7iBF4kt26w3wkdOiWVUi+9Q
+	Vv1Ic19nDJ96rDT83NQyfUMQ+jti4RJV7M6LRWxczrNxq1lUIorAn5konHJ2rho/0jmxrr
+	yKNedkmkv5AZqgw9PvRLEc2v3l/hcNAmxp0HbxTSKV0BQRvfCDgBa/p97J7l2w==
+Message-ID: <3ca82faf-dc5a-4ef7-ad8a-f6273b3e0388@nabladev.com>
+Date: Wed, 21 Oct 2026 19:20:31 +0200
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] ARM: dts: imx6ull-dhcor-maveo-box: Remove unused SPI
- device
+Subject: Re: [PATCH 2/2] ARM: dts: imx6ull-dhcor-maveo-box: Correct PCB number
 To: Christoph Niedermaier <cniedermaier@dh-electronics.com>,
  linux-arm-kernel@lists.infradead.org
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -56,16 +55,17 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
  imx@lists.linux.dev, kernel@dh-electronics.com, linux-kernel@vger.kernel.org
 References: <20261021134435.17350-1-cniedermaier@dh-electronics.com>
+ <20261021134435.17350-2-cniedermaier@dh-electronics.com>
 Content-Language: en-US
 From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <20261021134435.17350-1-cniedermaier@dh-electronics.com>
+In-Reply-To: <20261021134435.17350-2-cniedermaier@dh-electronics.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_101941_308755_52955A36 
-X-CRM114-Status: GOOD (  15.12  )
-X-Spam-Score: -1.3 (-)
+X-CRM114-CacheID: sfid-20261021_102038_803656_41BE57E1 
+X-CRM114-Status: GOOD (  14.29  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,11 +85,8 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 On 10/21/26 3:44 PM, Christoph Niedermaier wrote:
-> On the maveo box, the SPI pins are connected to connector X10,
-> but no device is connected. The device "dhcom-board" was used
-> only to test the hardware, but was not removed afterward. So
-> remove this device to accurately represent the current hardware
-> configuration here.
+> The PCB number of the maveo box isn't 525. Change the
+> number to the correct number, 625.
 > 
 > Fixes: 145e2732a5e9 ("ARM: dts: imx6ull-dhcor: Add Marantec maveo box")
 > Signed-off-by: Christoph Niedermaier <cniedermaier@dh-electronics.com>
@@ -107,19 +104,18 @@ On 10/21/26 3:44 PM, Christoph Niedermaier wrote:
 > Cc: kernel@dh-electronics.com
 > Cc: linux-kernel@vger.kernel.org
 > ---
->   arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-maveo-box.dts | 8 --------
->   1 file changed, 8 deletions(-)
+>   arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-maveo-box.dts | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
 > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-maveo-box.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-maveo-box.dts
-> index 047f7b2d8526..eb0b91040110 100644
+> index eb0b91040110..bb82d97f9d84 100644
 > --- a/arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-maveo-box.dts
 > +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-maveo-box.dts
-> @@ -60,14 +60,6 @@ &ecspi4 {
->   	pinctrl-0 = <&pinctrl_ecspi4>;
->   	pinctrl-names = "default";
->   	status = "okay";
-
-Drop "status = "okay"" too , since this controller will be unused ?
-
-[...]
+> @@ -6,7 +6,7 @@
+>    * DHCOM iMX6ULL variant:
+>    * DHCR-iMX6ULL-C080-R051-SPI-WBT-I-01LG
+>    * DHCOR PCB number: 578-200 or newer
+> - * maveo box PCB number: 525-200 or newer
+> + * maveo box PCB number: 625-200 or newer
+Is the rev.200 correct , or is the base board still rev.100 ?
 
