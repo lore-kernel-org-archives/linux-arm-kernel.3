@@ -2,154 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38EE4606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 01:52:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A56FD606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 02:02:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xFDVjGp2;
-	dkim=pass (2048-bit key, unprotected) header.d=aspeedtech.com header.i=@aspeedtech.com header.a=rsa-sha256 header.s=selector1 header.b=AY5GLLrh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Uf86Gl8O;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eSD7Coup
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AeBZK8r+mxZ1Nz1yDIHKXSZQsaq1zay0eAxH9FrWK/k=; b=xFDVjGp2KgM5fbr7vNLaYGaeDZ
-	K3n0vGCkw8XUaI3KiDLwciIFWoRhCortTyW7RByE8xLsIEpZNbFaVxSYvUlNCcy9Y32UZWmsphhPI
-	PBRmY1jHogpDYj1is1NBSncSAs3lH6XUnPaGhGNMojk+rbCWl1je7gWqza65vWTvZC+pt8BpzZMbA
-	6hPbKSbcY5WOYgBR+CgDjtQV8pQ8R41GDK1n9h5n+S+6/q1q6DrM8kUVcgMsjtoqA1z3vwd19me5+
-	NXYuW47XBmnuWoa7y+DwPwWvhLKhtpFn54/3+LQ1jD+ODEYSf5Bwh3vMHRDS3coQYB3TrdTO5v6to
-	RijRT1jw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
+	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=f0yKeF4w4GH+4lXqeNbGng0xeltVKW31ll58aa+tTMY=; b=Uf86Gl8Obovbsy
+	1ombk8/hRP+ogrWprQvcyixnFpdhuvF4j8LMQfhUNDuROHmVVJeQtFDriZGPkTFyu/fBXfbNCXHXi
+	2z7UeyGzCgnUxkVkeSLE9cMM7V2NAs1NfhMtXFKaZ2jpXIK8lXzUeR3EC9RUj0I1ct52P46867kWp
+	M0MYOIGPIKrmDQNJ6aKOueLzJvACDgcLDPAI2l03jK9oXBQ31mlza8GoBg+0i7Pdqp1doEngyDxPg
+	ZBwiA2tTKe9Vq6tpLFPDGw0hbjZs0a1xqL3gUBEToIVGDq+dOrzNmzdGfz4EbSFPiQV5KnI1E2amI
+	9B8Rfk10aYge1vBvwzXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJLUt-0000000Aued-28Uy;
-	Wed, 21 Oct 2026 01:52:07 +0000
-Received: from mail-japanwestazon11022108.outbound.protection.outlook.com ([40.107.75.108] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1xJLf0-0000000AvGK-1mgT;
+	Wed, 21 Oct 2026 02:02:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJLUq-0000000Audo-2Bmf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 01:52:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f7/5dn5lz97u62YCoJCYrdDVuUf3m5cB0p5Y5W/hckpj2YDFFEWgVcySDja7OgrezOP8aZ/PQBOWiRqlkrp0xakNB7ZGQuG/1iL1KYrTBMVmO2Sw8Hem2JxbfuVYE65UIBRkYL7tuan3LkuusMY7tiL7VOIuR3TfREUuFJ1ggp8u7Zqu0jtuweV9h8MY10Bc84HsTkHAPX/4h5y/3nMMV6+YtmF+V8W9L2elCc11TFeM/YjyqKamJMNms0OGVq+cmD+OFoEag0ojcp5mM156H9EpsstKkIzp7fi7b7ph7epSr/emVmNa+zb5qbEIWdZMuAMsvPD63jc7Nk/ZyK9a8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AeBZK8r+mxZ1Nz1yDIHKXSZQsaq1zay0eAxH9FrWK/k=;
- b=WWQ7fn1CH1d5HPsxVXVT+3I2ZWfulC4G6rpIU4X980U/qgsEnRjUQjt4GZ8VzRKPIqud9XInhCLhdFLOqrPJKtxP1Xxcjb26cyEmgdXQ9r8d9VdLgKtPGdCzlR4tK7BquutpobhZoLRNGIlEGYEx25JC7Ya2v4CczCFNKcvaOjhLvlVEYHBsqjPIo6UM0wXOOIWWpiBqD4qaWB8U3xidYUw4aKcKomo3KvdHzQQwTBx6UUqr3zQazyT045oi65YpopvOm1i7dLXbY1SctTUlf48yU/ieoXk3X4o006Mxu53OUQ+Ui3GWGJqT4wk4LVFzpByVxHGLFi69Y+YsvA6gCw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AeBZK8r+mxZ1Nz1yDIHKXSZQsaq1zay0eAxH9FrWK/k=;
- b=AY5GLLrhbAFuxTDsjA3ZwaefdAtefIGmD2O1qVSd5uiuzmCMYuPxbP121lAeLWqD8XkbolHVG74jYHNe/ETAboOxHx1nvBFdeFoMk8ibdApb4zyT6+HX8ygVvmn6eSfq9EE1FCrfdm5WGr/qrQvwnQtqhYfu5seuBXCa/vpsbe+6fPLIXObZQNAOjkA1yTcqP8Zw17EPXNrZR9zSaBDk3BA0WrXWWIRbn+6kPA+KHgnJ8t+yhhP14vR5GYQpn2WgdKFXBtcCi4fSm8cnnoE0ygU9TKgKcf9941b0KW5t1fGj3h1tSUA0peI4eGKGDn+jWtnKis6nowigH3HgGdk9/Q==
-Received: from OSQPR06MB7252.apcprd06.prod.outlook.com (2603:1096:604:29c::6)
- by KUXPR06MB8752.apcprd06.prod.outlook.com (2603:1096:d10:a4::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.14; Wed, 21 Oct
- 2026 01:51:54 +0000
-Received: from OSQPR06MB7252.apcprd06.prod.outlook.com
- ([fe80::92af:c9d9:8779:d19]) by OSQPR06MB7252.apcprd06.prod.outlook.com
- ([fe80::92af:c9d9:8779:d19%5]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
- 01:51:53 +0000
-From: Billy Tsai <billy_tsai@aspeedtech.com>
-To: Jonathan Cameron <jic23@kernel.org>
-CC: David Lechner <dlechner@baylibre.com>, =?gb2312?B?TnVubyBTqKI=?=
-	<nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>, Ryan Chen <ryan_chen@aspeedtech.com>,
-	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@oss.qualcomm.com>
-Subject: =?gb2312?B?u9i4sjogW1BBVENIIHYzIDAvM10gaWlvOiBhZGM6IGFzcGVlZDogRml4IFND?=
- =?gb2312?Q?U_lookup_for_multi-SCU_AST2700?=
-Thread-Topic: [PATCH v3 0/3] iio: adc: aspeed: Fix SCU lookup for multi-SCU
- AST2700
-Thread-Index: AQHdVLN9L0iLKjGYH0OTMHdtQavkurcD/mUAgANVQ/Y=
-Date: Wed, 21 Oct 2026 01:51:53 +0000
-Message-ID: <OSQPR06MB7252FB0EB1DCD1069E11CEF18B662@OSQPR06MB7252.apcprd06.prod.outlook.com>
-References: <20261005-ast27xx-adc-upstream-v3-0-ef25552d3a59@aspeedtech.com>
- <20261018235624.1971e7ff@jic23-hlaptop>
-In-Reply-To: <20261018235624.1971e7ff@jic23-hlaptop>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OSQPR06MB7252:EE_|KUXPR06MB8752:EE_
-x-ms-office365-filtering-correlation-id: e4c46103-0a8f-4b75-dcf5-08df2f15e1a5
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|23010399003|38070700021|4143699003|5023799004|56012099006|10067099003|18002099003|22082099003;
-x-microsoft-antispam-message-info: qHmLIvKIRBGn0h3+A6WtxVuo1PU4b8vzHZkoWMa/faS5mv2v9hY5vVKnc6sNsPY7xND50sJn0cY1GPttt0OnJc33ZMmBd7uE9bi5XPzj1NIfRIxkxbU45FlGE2upSjc6LucY2/bG9X/s6r/mrY5XpG3xI9fVsH5rzRD4FlVYiCrHn0KqSSsW9Vd2Ip14m4FqKYxMi4kihjknCMgREXZX7P31wTGK2EC0J2XLkNq61WmEjiLlYQTlvSnzAmR6DO7wwjNJ2GDVQW1BuuziLGAkTlFZ7HnkWXY8EFcF9RsGu/ou2S5455KlxOpiqZ+AZMvDUMNtlP31DoLhU0jHEPXF+21NA/4te0WpP/uk3io3zTa2EnNB0ovYgCOWYOh28YjeBr4tbUsfELiTRoa7CpQzKUwH3EGWCSz0o4w1c87wS5bMWTELfk9BeFAJRKUklCqSAckrZpX1r9avoLskSjF+VtLzmpWu8b1y23n98JDreizWXaSNVg4Llq/Rr+snpMXRrtE+CZtCySxRTe2YIUIWY4MaavaWU1Copcriu5SvECXMJTU/kgpE2J5MaO5bkC0nGB75+vj1aGlR0icGXKC/URTCl0HrlPEGC2ojD8IZVB0s/cTGmim9YuXEpSxSg7bSDD4QfRXPX3FbU2UwhvI+GS+E9vsrSLYGfY1OuQp1eFj/HZAIYjJRp3DWBmPW1Or7tyQcBODdH9/FfriF+pcF7a6hijM9yhrWqZeHTvJ9Rxw=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSQPR06MB7252.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(23010399003)(38070700021)(4143699003)(5023799004)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?OEYyV0FEUEZjR0RuWnJyNTJSQ2kzNkI1YndKcCtLQlY4ZEZ3TUpLRGwzdFg2?=
- =?gb2312?B?Unpra3dzU1MvVU0ramZsa2EzQlN4WUE4bGY4UTA2ODVnckJzRHJhdEVsZzNT?=
- =?gb2312?B?UXFWdjNpLzhUV0o5eVYxTVg3VXpOd0FqSkVhcVlRaExZQ011c1F5Z2lKNVBk?=
- =?gb2312?B?dzIxT1d4b083OVRvd2xIdDVTaFFTaUdUb1RyTzlDckRKZjZXajNjWmVkVGh2?=
- =?gb2312?B?VDlpV203czZqaWQyNXdIY284cTFad2ltcjRwTlkxemx4T0NxcXRQbzYvUGM1?=
- =?gb2312?B?OElXWGM4cmFyZ0RuL3RreFhSSlpiMWVMOWQ2S1lEM1pNcUwzOHJMMWs3SUdJ?=
- =?gb2312?B?V1dFQ3JWcFZpbWVTTkgrUlIvK0lZYzJvWTBYa3dvRGtWRlJTMzl4SG00ZkNo?=
- =?gb2312?B?OC8wNVM5UlJoeUxwbThKZk4yVnJEbGR3YmI0OUo5Qi94LzdXQXRlY2hSODJi?=
- =?gb2312?B?dEs1NjNVMS9uY25Od0JSV1FxZXR5cEZZODBWS1RSQzF0OTNZWks4Z0EzY2lV?=
- =?gb2312?B?TGM3YVNVNnBYVzJtZlJTUHNjRWZFQUtRYXJRQ25WV3ZibmNMVXVpUUoyNTNI?=
- =?gb2312?B?SG9GT1RXN1NOK2JzTEdpTTF5MkxIRk9CYnV2VGhpQ3FzdW5JSHpqUmZTWVlJ?=
- =?gb2312?B?TlZuTEw2SjZrdmNGdXBFNDl4c29pU1Q0ZGk0eUVNckVhR0tkbXB2VmN3Slo0?=
- =?gb2312?B?anZkNktSVC95SmVpa2xrT0gydlRpUHI0VzNXU2FqNG1RQVlkT2thdUZoZ3dL?=
- =?gb2312?B?bUpJTFJsMFhKZERuNHVrdDJsNXJLNFhYZkFsTnY2cXJHbkhEeHhmckU4UTBC?=
- =?gb2312?B?TllIZ0pHdEpBR0thaG5iNEoxVW9BREtYTkdSckpHaDVKTnVFTGJtQUhIQ0NE?=
- =?gb2312?B?eWk0RWdNb0w3bm00TGdBd1h2L3ZQd1R1ejQ4bk8wbnVYbm5KRTl3NVQrSC9Y?=
- =?gb2312?B?WUtVeGc3MHRXYlZSRVZYZ2YxUjRBSDVXS3FaRXpjdkVlMkdNQTM2OUdGbmlS?=
- =?gb2312?B?dE1hTzl2WjVzSHhyY1NzYnpuak9CNDh3cGd5dmdhKzN3Sy85VDZMRnZma0lv?=
- =?gb2312?B?dGxvY1J3ajI1OG1VNFdGTVFrOFE0QzF2QjBaTnEvV2w5Y2hERXI0OW82dXdu?=
- =?gb2312?B?TW1NUHV5dmpuN1dvUDlOUDdDY2orUm51UGVxZ3l0T3M5ZVlKckZZd2F3NUZt?=
- =?gb2312?B?L2JPbUorN2R4TkZHaFdFeUFwZGF1VHRVem83NTEyKzVUd29zRnJSVjVLVnA0?=
- =?gb2312?B?RmNBdDcyaTUyRytEeTdka2tudGMwUzFwVnZpeU04a1pRVkJheVBvMTNRNklI?=
- =?gb2312?B?MU81K0QzNDNGNFgvMHVlY3Q5MEhxV1NkRnd3SGUrcjFWRGhCdTc2TzdQZk8y?=
- =?gb2312?B?Zyt1Z3hla3lqdXVsZWM1dkUrbUgrT0hWV3pPRmFMTDg3TXZXZ0NBaGtqVTZo?=
- =?gb2312?B?bk5FL1hGQnMzTmNRdUltUVNxQVUrSjhpMGVYamdtcUYzWmVpQ1MzTUVqRDYw?=
- =?gb2312?B?R0UyblVzaEhJNC94eTBsVlVvZHl2T25PemNaQWRCY1FkUlZCTjFRbzJXQllG?=
- =?gb2312?B?L1NqaWlqQlFTVTFkRFRmak9TN1FzQ2cvNktQeVl5bVZwaGoxM2JmWEZ3c0gy?=
- =?gb2312?B?ZjR5cWp3U0M4blJyckNvV29jN1hmUGkreE1WTWlnRlVqMEcwVG45VGhQSWtD?=
- =?gb2312?B?L3R1VkJYWVJxTGxOMkc5aDlIdnRQOWNZMTVDM0JGTElRTjU4N0JiNXVad2dj?=
- =?gb2312?B?WkRDdEdTRmxQaUpJenFUem9EaE1LV1AzK2dvQ3BsZElFN1NheWhUbVZ4S0c2?=
- =?gb2312?B?b0JIdi9zZHhsZmZBbGZraDJyaUU2WmRqRCsxUVk2UVRSL2tmN3NPY2xjSDRk?=
- =?gb2312?B?TklrdVpHQTZ6RzhFb1lGbTF0MldoaTI3RVFNR1VMYVFKWndRVDA0OHh6RUVl?=
- =?gb2312?B?TGRCWVM2U29MdkFGS0hDT3V6TEYyOVA2ZUJqV0hYUXltdHUwZmtMUGhvdzl5?=
- =?gb2312?B?M2NUOERvNUdVK0ZZRUVPV0djem85aGUwaTBCcEgvbnNqdUMvbWtPNVV3cWhQ?=
- =?gb2312?B?OUpRMWwvN1NSTkl4eDVUZG5iSkFrbytHeUFyNlBxM0JXSk1ZQ0dTbHBFNm9U?=
- =?gb2312?B?blBsU25SL2R6VmlBVHZZeU9USzJWeU51MncxL3lPQ0x6ZTRlV3pqUGJuTjRs?=
- =?gb2312?B?SjV3SmxNZEpNMEE1UXRRSURzZ2xDaUs2NEFudy9iN1NrNFQwamxaRkhvOGdT?=
- =?gb2312?B?K1ZWYU1hRHNYSUl2clBLYVAxMzVZeGhkQWFkWU04NlA2ZlZ5ZmNCeEtmSWZ2?=
- =?gb2312?B?WXpXc2JMelZPVzJ4eE5NR1RMTUdDSTl1ejFIVzh3U3NOVjMrMlNRQT09?=
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
+	id 1xJLez-0000000AvG9-3CPi;
+	Wed, 21 Oct 2026 02:02:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id AA22C601F1;
+	Wed, 21 Oct 2026 02:02:32 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1792548152;
+	b=hQ1W6tdyEFzXVuVZwcb9SD7JGXgDWAmguY+qAGBfvI0nRDYSGwuMOy6Htt1VHhusyt/e
+	 kSDr+6n+KZJGhYxKaO09aL4IbL2ZgZudoNiGax4ly3c0kpQptOpeyPR5zN9YpNE77C0bI
+	 aPuE4x0AfjxvxgseHfrVcX1nQV8J9e8Q/B51MOAQEDkVL7yupjEwTr4M8hh+hCdnLa8KA
+	 UCcJEegpHYIME/DgTiPy0B+e4SaEZg+v8Qw1A3kF/ZjuupTQGEPMb1H0Z25lOhfPv/3Mh
+	 GlrZgfr5f3affeCkbN6CCwPH7CmG9mHn59m8YUlJuaerVh1I5JTgM+roB6OT36rd5VA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1792548152;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=f0yKeF4w4GH+4lXqeNbGng0xeltVKW31ll58aa+tTMY=;
+	b=W/4ZXCzJRmOslF46zwU0v2yhYioJyet2oDl5VdLCyp26KzaaSVt/9dXp/kT62EqqO4G0
+	 bCO4okQqmPGzHA1nXSHLp4C5ZGOgAa7u/+kWbN+sKHy/9A0ygCchv3Gn+wQYpCQUTKhR5
+	 qTAvov6a/nk7t3qghoMIJtZO153ZcM/wuSM1zHQ2lzTX7PObqqT8jHr+1GThuW6pR0dZt
+	 6yncQuZlQsl28trQoxQ1MqGRFOaWUk3NKS4ZYIapql2Jz0IvCs8LFdOq6bFlNBHAOV2ZA
+	 MlQ8OLyNUCilBtSQFX9pZwchhSu+kVl/8021gohLSFmvSt//W47CBHOWz7+qpxY2Fpg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id EA6781F000C9;
+	Wed, 21 Oct 2026 02:02:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792548152;
+	bh=f0yKeF4w4GH+4lXqeNbGng0xeltVKW31ll58aa+tTMY=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=eSD7Couposucux9BBfClKOEFLwEoiFInTcZfcMuL22QeyB9Il3A3mLqtFMb3OYpUv
+	 z6HREFIMJLJSDgpwow3xoGobUeAprDaJm1Gu1+e1d+995hyBWgj/ETKCub5YP6B8te
+	 7EqE3WyT5srHrs+cxM+GtkyeXufO7w9TvH2TrbtFzaEswLE7ooc5W2lxcatrGueeay
+	 fv8F1PDNoefCjIbk+UAW7tmcl+MaT4BMRNIbZLlS7tWqAKvCNz8SlaCWzl6nk+f1tU
+	 iQXuxeONsL0Gzmi4CAEQ+FT6Ct9Un1wbKfFoJmzJw+yG5Se18P/5l+zQvVXOFQkKmJ
+	 HAXwJGj4KFWAg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 7A8474326F;
+	Wed, 21 Oct 2026 02:02:31 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Wed, 21 Oct 2026 02:02:29 +0000
+Subject: [PATCH] arm64: dts: rockchip: Add vdd_log and vdd_center to Kobol
+ Helios64
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OSQPR06MB7252.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e4c46103-0a8f-4b75-dcf5-08df2f15e1a5
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Oct 2026 01:51:53.6291
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0WrNUDP+3hxSTTlJxqB6LbhCYyNoFtcxtjEfDFGCo+bzQmr3c16mes1u1C8q0KjMuaRzs83M8rIV1k+JVy7l2NqWF9btFUfmk6fns1UDNPo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUXPR06MB8752
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_185204_567499_492A2995 
-X-CRM114-Status: GOOD (  18.46  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261021-helios64-vdd-log-center-v1-1-4cafd110e0e5@iav.lv>
+X-B4-Tracking: v=1; b=H4sIADUd2GoC/x3MQQqAIBBA0avErBtoTCy6SrQwnWogNDQiiO6et
+ HyL/x/InIQzDNUDiS/JEkMB1RW4zYaVUXwxqEYZahThxrvEbDRe3uMeV3QcTk44U+sXPZuutwS
+ lPhIvcv/ncXrfDzkFkdJpAAAA
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2557; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=RDt7P+CwOHiaEZvswLkEBaOOUqR15G5E3l+XUXhUTd8=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFk3ZM28ok6uurQ4RuGJvaChU8C3vtWXs34WMTzvOV6gO
+ ofBseBRRykLgxgXg6yYIsuEQxq3MpZc/evvYf4AZg4rE8gQBi5OAZhI8SmG/1lfjils1Jsu0lPc
+ klw6+daeKx4PfI8siAiqF+btd3xrHsjIsCsy+OKF7YymHVIti1g23t9sLJ3R8S8h2Svyb/PRd0d
+ jGQE=
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,37 +109,102 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-PiA+IFRoZSBBREMncyByZWZlcmVuY2Utdm9sdGFnZSB0cmltbWluZyBkYXRhIGxpdmVzIGluIGEg
-U0NVIHJlZ2lzdGVyLiBUaGUKPiA+IGRyaXZlciBoYXMgYWx3YXlzIGxvY2F0ZWQgdGhhdCBTQ1Ug
-d2l0aCBhIGdsb2JhbCwgbmFtZS1iYXNlZAo+ID4gZGV2aWNlLXRyZWUgc2VhcmNoLCB3aGljaCB3
-b3JrcyBhcyBsb25nIGFzIGEgcGxhdGZvcm0gb25seSBoYXMgYQo+ID4gc2luZ2xlIG5vZGUgbmFt
-ZWQgInN5c2NvbiIuIEFTVDI3MDAgc3BsaXRzIGl0cyBTQ1UgaW50byB0d28KPiA+IGluc3RhbmNl
-cywgc3lzY29uMCBhbmQgc3lzY29uMSwgdGhhdCBzaGFyZSB0aGF0IHNhbWUgbm9kZSBuYW1lIGFu
-ZAo+ID4gZGlmZmVyIG9ubHkgYnkgbGFiZWwgYW5kIHVuaXQgYWRkcmVzcywgc28gdGhlIGxvb2t1
-cCBhbHdheXMgcmVzb2x2ZXMKPiA+IHRvIHN5c2NvbjAgZXZlbiB3aGVuIHRoZSBBREMncyB0cmlt
-bWluZyBkYXRhIGxpdmVzIGluIHN5c2NvbjEuCgo+IEZvciBub3cgSSd2ZSBhcHBsaWVkIDEgYW5k
-IDIgdG8gdGhlIHRlc3RpbmcgYnJhbmNoIG9mIGlpby5naXQuCj4gV2hpbHN0IGl0IGlzIGEgZml4
-LCB0aGVyZSBpcyBsaXR0bGUgcG9pbnQgaW4gcnVzaGluZyBpdCB1bmxlc3MKPiBwYXRjaCAzIGFs
-c28gZ29lcyBhbmQgdGhhdCBvbmUgaXNuJ3QgdGFnZ2VkIGFzIGEgZml4Li4KCj4gSWYgeW91IHdh
-bnQgbWUgdG8gbW92ZSBpdCBvdmVyIHRvIHRoZSBmaXhlcy10b2dyZWcgYnJhbmNoIGFuZAo+IGdl
-dCBpdCBpbiBhc2FwLCB0aGVuIHJlcGx5IHRvIHRoaXMgdG8gc2F5IHNvLgoKUGF0Y2hlcyAxIGFu
-ZCAyIG9ubHkgYWRkIHRoZSBtZWNoYW5pc207IHRoZXkgZG9uJ3QgY2hhbmdlIGJlaGF2aW91ciBv
-bgpBU1QyNzAwIGJ5IHRoZW1zZWx2ZXMuIFRoZSBkcml2ZXIgZmFsbHMgYmFjayB0byB0aGUgb2xk
-IGdsb2JhbApieS1uYW1lIHN5c2NvbiBsb29rdXAgd2hlbmV2ZXIgdGhlIG5ldyAiYXNwZWVkLHRy
-aW0tc3lzY29uIiBwcm9wZXJ0eQppcyBhYnNlbnQsIGFuZCBwYXRjaCAzIGlzIHdoYXQgYWN0dWFs
-bHkgc2V0cyB0aGF0IHByb3BlcnR5IG9uCkFTVDI3MDAncyBkdHMuIFdpdGhvdXQgcGF0Y2ggMywg
-MSBhbmQgMiBsYW5kIGJ1dCBBU1QyNzAwIGtlZXBzIHJlYWRpbmcKdGhlIHdyb25nIFNDVSBleGFj
-dGx5IGFzIGJlZm9yZS4KClNvIHllcywgcGxlYXNlIG1vdmUgMSBhbmQgMiB0byBmaXhlcy10b2dy
-ZWcsIGFuZCBJJ2QgbGlrZSBwYXRjaCAzIHRvCmdvIHdpdGggdGhlbS4gSSdsbCByZXNlbmQgaXQg
-b24gaXRzIG93biB3aXRoIGEgRml4ZXMgdGFnIHBvaW50aW5nIGF0CnRoZSBjb21taXQgdGhhdCBh
-ZGRlZCB0aGVzZSBBREMgbm9kZXMsIHNpbmNlIGl0J3MgdGhlIHBpZWNlIHRoYXQKbWFrZXMgdGhl
-IGZpeCBhY3R1YWxseSB0YWtlIGVmZmVjdCBvbiBoYXJkd2FyZS4KClRoYW5rcwpCaWxseSBUc2Fp
+From: Igor Velkov <iav@iav.lv>
+
+The Helios64 feeds VDD_LOG from a PWM regulator driven by PWM2 and
+VDD_CENTER from DCDC_REG1 of the RK808, but the device tree describes
+neither of them.
+
+Describe both. The vdd_log range comes from the schematic (sheet 8):
+0.83 V with 3.0 V on LOG_DVS_PWM and 1.4 V with 0 V, so the PWM is
+inverted. vdd_center gets the same limits as vdd_cpu_l.
+
+With U-Boot setting both rails to 950 mV, Linux 7.3-rc7 reports 949 mV
+and 950 mV.
+
+Assisted-by: LLM
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+No regulator-state-mem: deep suspend does not resume on this board yet,
+so no suspend value is tested.
+
+U-Boot sets both rails to 950 mV:
+https://lore.kernel.org/r/20261021-b4-helios64-v1-1-74afe8aa6d72@iav.lv
+
+This conflicts with the pending power tree series in the list of fixed
+regulators; I will rebase whichever goes in second:
+https://lore.kernel.org/r/20261016-helios64-power-tree-v1-0-31d6c8dc5092@iav.lv
+---
+ .../boot/dts/rockchip/rk3399-kobol-helios64.dts    | 24 ++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
+index 63ad79b4c8ac..3c2ba805e999 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
+@@ -271,6 +271,17 @@ vcc12v_dcin_bkup: regulator-vcc12v-dcin-bkup {
+ 		regulator-max-microvolt = <12000000>;
+ 		vin-supply = <&vcc12v_dcin>;
+ 	};
++
++	vdd_log: regulator-vdd-log {
++		compatible = "pwm-regulator";
++		pwms = <&pwm2 0 25000 1>;
++		pwm-supply = <&vcc5v0_sys>;
++		regulator-name = "vdd_log";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <830000>;
++		regulator-max-microvolt = <1400000>;
++	};
+ };
+ 
+ /*
+@@ -370,6 +381,15 @@ rk808: pmic@1b {
+ 		#clock-cells = <1>;
+ 
+ 		regulators {
++			vdd_center: DCDC_REG1 {
++				regulator-name = "vdd_center";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-min-microvolt = <750000>;
++				regulator-max-microvolt = <1350000>;
++				regulator-ramp-delay = <6001>;
++			};
++
+ 			vdd_cpu_l: DCDC_REG2 {
+ 				regulator-name = "vdd_cpu_l";
+ 				regulator-always-on;
+@@ -580,6 +600,10 @@ &pwm1 {
+ 	status = "okay";
+ };
+ 
++&pwm2 {
++	status = "okay";
++};
++
+ &saradc {
+ 	vref-supply = <&vcc1v8_s3>;
+ 	status = "okay";
+
+---
+base-commit: d2abcbb905b0e4b2e06b257fa1e5bcf4faa6dbda
+change-id: 20261021-helios64-vdd-log-center-b13df4b678a1
+
+Best regards,
+-- 
+Igor Velkov <iav@iav.lv>
+
+
 
