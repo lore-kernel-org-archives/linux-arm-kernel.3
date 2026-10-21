@@ -2,65 +2,154 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9C85606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 09:02:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FEB2606A32A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 09:03:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZRzHyx0u;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=CtwAc54H
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bh4uPb54;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=KLCHNU5r
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZIYBFbjC/JqHo0qDK7NxuyTwTfuFB9bR24RyXwEbtJw=; b=ZRzHyx0umWFPpfV2R3htuV4Pjm
-	6jCOWTBK+bkyWFPupPmDDbP7upJfTOPb0Nt+uw6em5SFhHY9hRfh97TCeQ6gwFIX0h/0185HfRdhk
-	bbTorzmeFz6E2WfyXEMGNGq4d9P6epjOI6atlMI6kfW6xg9QNCWvo1UamRCNrEuX9h1V5EiYO/lIu
-	/CXoeb4zE/tGVx+vcu+aTzRFiwIvkOCu6UBO4aeF3+8LM9fRj23wylqiMKhyIFOjUqFhDg1RW6hIO
-	cNjoZRVfiMVODbqqYwroaCO/isyDchWjn2dpyZkGAke1VJbEZehYA6zSJv415aJmxDiXydsrKH0bY
-	rlSQqFBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kxnyoSU9MCaEaLeqsAvNl7VKifz2tHwBhqPBHgw2ChU=; b=bh4uPb54GyiVnC78JpTHWEM8io
+	/ec1yIcKI3eBNOwkoAXcGVRp4QaiFTYr3CEMr9dn/l2Xz/C3FnFdWADkEIsbnfDPy9EUFkjFCSBeR
+	qZ9+3GmPz54l+L1NjY067RN4Z4m9w2tOupdyjLORsU7adDG1+zgQ2YbguLOvRWXCvwhu8o2diffvx
+	OzFChrRCwxT50gcExGzOaZah5q24iY/ul/MeIT73hoaL8YB3kuaLA1/lzzP9Um9JuZAIZlGImLe7Y
+	s5MEzF8mtpx5AdC5p9TqEHTWlicG51pmAdX3lczYO3ZuU3AfMqF9oZUQkDWfTNKJcta8nTqwQJ4C9
+	iMu+YApg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJSCg-0000000BQOe-0pxp;
-	Wed, 21 Oct 2026 09:01:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJSCd-0000000BQOE-1Ha2
+	id 1xJSDm-0000000BQXo-1irx;
+	Wed, 21 Oct 2026 09:02:54 +0000
+Received: from mail-westeuropeazon11010029.outbound.protection.outlook.com ([52.101.69.29] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJSDk-0000000BQWp-07sg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 09:01:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1898C1476;
-	Wed, 21 Oct 2026 02:01:36 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 423013F7B4;
-	Wed, 21 Oct 2026 02:01:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792573299; bh=IF9maRMh0ugYhaWVRkx0qEpMGhQizVGkaK12H+FqOb4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CtwAc54HU8054fUIqwxPvGqgDv1y8BiPTMukHE8vK7E3wsJAPqkZVb4s19U8s5WyL
-	 r/cDYTKzp2qSTXixDwHCWkXzNrV/0xX0IUGLysYCa7DlSmdDe8MrLQRXs5LWaik5Pa
-	 /thsOstjqTY2LxEUh1k4dkl8p/uYx8Q1VSfnYMrQ=
-Message-ID: <f73ab1cf-490e-4e81-8307-92f5eaae12c7@arm.com>
-Date: Wed, 21 Oct 2026 10:01:36 +0100
+	Wed, 21 Oct 2026 09:02:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=crQaOIDU23ThkNcsb/T9qzFWiB2uri8Ws1w+FP+0whXX8zb98rFOeESLjm6ggl0oee6He8Wc5u1eyC65Lo98P/31SEyGrMIHo5qQ+taburBSzIVXqZzioBnNXzkoRSIpFE0ly8xrnwYnCOuNhT5S3U+mJk751cleNUxO+B3wc/5cxV9f8NpdXy9Kz20Y5ap94dL9y8RjaGQGh/2hcYTr8+xLZnpRDD8G5TL0ZFUtWlHvCSt7hPlq6EV8ffz0ItXMV0aLEWWj4yFDAFihRu6FVy5VWKw/H51XyLhF6/qDRcaxeoE22aQcvYzHkDceX0x/5F6jB/Cze/WMlOwLW8stcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kxnyoSU9MCaEaLeqsAvNl7VKifz2tHwBhqPBHgw2ChU=;
+ b=KXHQtvPyjm4acHV4030W5mq71seCrw54pOkLjNpUgXAaxAJ2PJhB8tinrz1vUSRhwkqerU73E3XHELuF+7hvPw4NYff3ts6YMcfMf/vzWnvAfMgnnzvanfW7Cn5QOVt09G9L9DDfLHi/BSoVpZYVD/5X5qbqc8S74g2Yj5unlj+Zq9Zt9aryKlGmYTMw6Ve6SZKioE22BGG206RpQMKkFBtaNCW6l9mAY3lGyCnh+O8AGkQ0HPQJt1y4Z6eJOkuNEIoUsdJi1WqiM+Qm7cChvtJpw8BVCUAz9JQt1nBOzWB2i59D/Ehd6eSmP5Gp114TqXFtX01uEVSLfKIU7aBUBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kxnyoSU9MCaEaLeqsAvNl7VKifz2tHwBhqPBHgw2ChU=;
+ b=KLCHNU5riRXCXS3zbwWaoLWcMGdS2B0ogtbKk5CaH+XGjmi84ZB9Ew6RP4C/nt7oR7w0BEB2xGhOkRtqSkULMlbjkvZYGzmwsIcrGlYf7rfBGOvEcyeMA5p9/a70ifR0kLxZ2gAojiktCJDBdm8hsuB7DGSNngKX1zQ6NNWxA9PflKz6MICBSmEB8cEa1Fc/gvSlg2rGPkT9FNH7gJkCXiV2HwHl9B2YBpipf32thPamxUleCTtlr1brQmqA4jz3YU7LSIKwP4cTaYtbFA69ebEfpXhxPrS5iqte9nxdWwalbTcFy8b+X8HcfaXEx3cYn1DEtyvf2tAVulGQnyV0PQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from VI2PR04MB11276.eurprd04.prod.outlook.com (2603:10a6:800:296::7)
+ by AS8PR04MB7960.eurprd04.prod.outlook.com (2603:10a6:20b:2a8::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
+ 2026 09:02:45 +0000
+Received: from VI2PR04MB11276.eurprd04.prod.outlook.com
+ ([fe80::60d7:a8e5:eb88:9be]) by VI2PR04MB11276.eurprd04.prod.outlook.com
+ ([fe80::60d7:a8e5:eb88:9be%6]) with mapi id 15.21.0522.017; Wed, 21 Oct 2026
+ 09:02:44 +0000
+From: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
+Subject: [PATCH 0/3] ARM/arm64: dts: imx: Fix stale board level PCIe Root
+ Port nodes
+Date: Wed, 21 Oct 2026 17:04:21 +0800
+Message-Id: <20261021-imx-pcie-rp-stale-nodes-v1-0-db6590e972b6@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABWA2GoC/x3MMQqAMBAF0avI1i4kUVJ4FbEQ89UFjSErIoh3N
+ 1i+YuYhRRYoddVDGZeoHLHA1hVN6xgXsIRicsZ5a5xl2W9Ok4BzYj3HDRyPAGW0vmlneG+coVK
+ njFnu/9wP7/sBQ7rSHGkAAAA=
+X-Change-ID: 20261021-imx-pcie-rp-stale-nodes-e4634fe66020
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ sherry.sun@nxp.com
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792573508; l=4962;
+ i=sherry.sun@nxp.com; s=20260723; h=from:subject:message-id;
+ bh=GCQrfAD/LJjM5ZkDFkFAmjU61MI6MMxcs6mBmb8aEJ8=;
+ b=iPOg9lB/4/7bYWrSwXIB5c0UZL3tI0bnLBYAzomYSLEL9nGJt1B23QQUh3YYJ1I+0rOLjfcRh
+ tjWDzj87hc3DJ5tnvaFhIpaaqX+NzHv17i8UTGvsKykIC3U7xZL+kkA
+X-Developer-Key: i=sherry.sun@nxp.com; a=ed25519;
+ pk=YnYnIFJ2l+5v951x9shBVfHhminNi+3LTfFa3PxSdnI=
+X-ClientProxiedBy: MA5PR01CA0227.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1f3::14) To VI2PR04MB11276.eurprd04.prod.outlook.com
+ (2603:10a6:800:296::7)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm_mpam: Release the mon_sel lock on
- mpam_save_mbwu_state() errors
-To: Ping Li <leeonion.muyu@gmail.com>, james.morse@arm.com
-Cc: andre.przywara@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, reinette.chatre@intel.com,
- fenghuay@nvidia.com
-References: <20261020114807.3915705-1-leeonion.muyu@gmail.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20261020114807.3915705-1-leeonion.muyu@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI2PR04MB11276:EE_|AS8PR04MB7960:EE_
+X-MS-Office365-Filtering-Correlation-Id: 973c12bc-5feb-4083-a520-08df2f5211e8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|19092799006|366016|261009223027099003|56012099006|11063799006|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: EU+Q2I4Z5uiKdQFQZzZjzYD1vawwkemrokFDNR2mSKkoGzoh/4XU3uetHTS4mKi3PJRTNQigOGA1rr5Oae5SuWNN6JNn0frRVflKiFRG2DOpp8oA8i9nWOyRtvfZEyXT28LIVU5NeBLYVTp00+lfrE96lAzB2H552R2+V/zKnVS5REYn2ZT66z/69e5KJWlAp5N8EPg1wVSoVmR8NERP/d4muLdKC4M1N8N2Ee9gxfWfw4QEumFtldkOLx7FDHzkTaCmLpEHhqJdTq32pXx8gdol2/fjgrsR8ZsBCETxnQU49KnrN4SegN8y/1tan3PrkmQXml+M8EQN8yDTmnfPZ/bqYb2UgQ+SiRNp9Vjzrb939jbwKvgkWv9oQURljaigDd9K0a84YfX1yeUx+3nDXL35CD6cqp+7ZChXbrM+VbO39nk024C9Iyn3wYo3A+HtJFLTJhj9JOJKuDHidS0vZnO/UgUeTiP6XWy5MA1Kunr5M7BFdOCTph+cXk0iprUeQx3hBGlwUWgu5YGLOMkZt7rSQOkeZyv6yvNYI0AisWeHVWUMl3d8CoDl93txy1xLorDsSjUuP8n2BrWnxMDU/fF2BB7fDw91H00twr8PfyE+rfPWbm/HClnwE7Yvm9nS
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11276.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(19092799006)(366016)(261009223027099003)(56012099006)(11063799006)(10067099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SVdoWHZyUHl4cVhLanpLc05kZU1WUXh5cWFzc2hBNUlDN0VkYlNiTXZRL2hE?=
+ =?utf-8?B?VFNIUytWczNpMjJYMlRQVWluYkVqS3FPUE5PZlVrZmd1WjlRM0RZcktsd2x0?=
+ =?utf-8?B?WlIxaXpsMUVJUUxlZDE1WXd2SzBwTU9lRU14UXkyZjE0dUhXR0hCeTJRcWNP?=
+ =?utf-8?B?bGhLYlBYMzdMUXpnbnN4U3FuSVhUaXFES0tDTExVZjNLSVBrSnBkWURwZDRn?=
+ =?utf-8?B?VXVxZU1ReENCK2M3VnhmNWZXeVlNaUFnbjFuRkluaVlTZUMvUDJKNUZiZnlR?=
+ =?utf-8?B?a3ZXaXcxTlR6OXM5N1lQcE41elFzeiswSW14M0NPeUlyWXVEUXNBcjJ2U0Na?=
+ =?utf-8?B?ZlNDbHVuZ3ptWUZjSlJxV3JCY2Ryb0dmK0J4WTBBMTlzcXN5STNDclNQWFRT?=
+ =?utf-8?B?dkZxcjhHajVna1kvUlhpVjhqQW5STno2K2UvaUMxOG56RHAxdEw5V1l5SVBN?=
+ =?utf-8?B?MmhHM1RUMW45R2Y0TEtqM3pqZE55REZ5czRROVVDL3RRQnZZRUJxcDlveUhO?=
+ =?utf-8?B?RTdDeWk2cG1aL1N0eXJjUUpuV1B2WTFNRVU3Zy9ETTFtWEZzT21lNUxyT0FD?=
+ =?utf-8?B?eDZuRzVJVDlVVDY0cjFYZEgyV1piWWdMbUJxNnVzbE5YZ0t6YUhkOGhOSXQy?=
+ =?utf-8?B?cXhCUDlhdDk3OEdzR2VFTEdoazFMS0lHc1k3ZzVSU2dUcVJsVUxaSDVSNmcv?=
+ =?utf-8?B?aUd0cjdZMFZ0ZTBxaVBUaERldDROVkd2NW1UQlQ4cWpldlF3TWUvYUFGVHZu?=
+ =?utf-8?B?QmhNb01Tdkpicmw1MTFJVmwwV2dlOUszNU1iVEIwSUt3R3djRFA5TTljY2Vv?=
+ =?utf-8?B?L1JjM1lLZG9wbUVqcExwZDl4SnVIclJ1RDExTmozckplZENmeFdZQXBtRFlK?=
+ =?utf-8?B?WkpSVHI4QTNnTEZIV2pBamtiTmhJOHIwQ3B3Sm9Tb3VwcVV3amRxTENxZ0FD?=
+ =?utf-8?B?bzl3OHczVVBBZy8xR0N4dXBoenQrcXZiUmVSemU3UUdYUEN1bFlCUC9aenlK?=
+ =?utf-8?B?aWQzd2x0WEpSRWZRSG5jRlR1RzRuNWw0VkFjRGFRdUUvNy9pcjlFcGlwU012?=
+ =?utf-8?B?N2ExeE5Qc0NhY3p4MHpmMkxTL2xnN21GT3hlVFVibi9YVUNIc29uZllmNEhq?=
+ =?utf-8?B?a2FtUDQ5VEhQWlB1dGlHVW5IemRhdmRXbUs4STFWVmdNMEtnS1pYMVE2c1FB?=
+ =?utf-8?B?N0VnRzJlSGVSbkU0LzFoQStmcmV1SnBESHFSSlA3SVlSRGV1TDFhNW5GcTU1?=
+ =?utf-8?B?bnBvYVU1eGVub2xqcFR0RkdIVWpwa1Z4RE9oVW5FbEVyMEZKZDAvTmdDd1NO?=
+ =?utf-8?B?NU8wVHN3U1RRdEkvVlVmYXlSU2J1cTd4T3l1aXVXcWsyY3lPbDhTSTA5ZXBS?=
+ =?utf-8?B?M3FDcHhEVnZvdFA2VGg3V2FYbnV1RVNZU2J6TEhOb2NPSFcydTBKN1RkUEZn?=
+ =?utf-8?B?K2t0emM1ay9OdkIwRVM4aFlCdHZaQWVHMCtRSTkxSGpiTjBUQkZUQWV6SldJ?=
+ =?utf-8?B?MWxFdFE0Z3l2UG9aMHZRS1piK0V5a01pT3VKRVF3N1crRXoxSGdnNWZTcStq?=
+ =?utf-8?B?bDRTTWJ3ZDlVNW1WMDB0ZlFuTERQZFVkR3R6elc1QjZwZ2hzc2FzVmdqZ1pX?=
+ =?utf-8?B?dWhESjlqZ3EydVZNOTdWT2g4cXV2aWxPRE93L3ZtdU82cXA2WHI1NDFhOGR0?=
+ =?utf-8?B?V2lyNGcxQk82WnRnV09iU1phdGd2UmpyS2g2d2tLU3ExZ2xoa2VPczRTd2Ew?=
+ =?utf-8?B?ejA5enhoRVZjME4zSHRDeVlKUCtEazFEeDFmaXJCK1NCZWM2NE5PYzlHTS93?=
+ =?utf-8?B?aStWRVdZZ1U3ZjNsZHZIMW00a3RFSytUUkhEZzVrSWhFKzRSWDhuK2JuMWVO?=
+ =?utf-8?B?d1hvUFpERjM0bWppUTFudE1URWNOV1U0ckhIdWQwYTZHRVFhakRoa3pYT1Fv?=
+ =?utf-8?B?RytmTmpLY2FycVY5Zy90RU41VXNYRGlLdGU5V1FMRXFBT1o0TlBWUE9jam9u?=
+ =?utf-8?B?eks5bTB4WTV5RGZqU2JrRmc2emlxNEMvRDBwK3h4ZTBOTkxBTUVqNzAxV1ly?=
+ =?utf-8?B?S3gwVlgzb2FTNlZiUk5FaU9kR0NNb2w0RDEzZzdCN0VNMnlrK2pMdldya1h5?=
+ =?utf-8?B?aUlFMzdXSDdZMjluaVUrVktQMEJYbVA0R1BEenlWQ0Y1QXltdUYydmVwU3R0?=
+ =?utf-8?B?SVhFV09VdWVQVWwrUVVRUE43MmVxT01xSHdVaXdyRFRSUUNZU3N0VTN1Ulow?=
+ =?utf-8?B?ajg4VWY1MEFVbFhHMDh3N0t2TnpSRHczNi85YnFaWGd4TEh1Z2dQR0RIQlJ0?=
+ =?utf-8?B?cW1nVzlOeVFBdUVPWitLSi9CYnd0dm0rZmlYeS9CZllrVnA0YzMyR1RjRlk4?=
+ =?utf-8?Q?BR6GxJNCuMmV4GXQaLxcInCCJkSQaKqLJ5y+c?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 973c12bc-5feb-4083-a520-08df2f5211e8
+X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11276.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 09:02:44.7751
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hyfpXCcWeB3Nbm+3wtmPau9qFkMox2bEIp/6/F6lP1OYJ7EF591+Io0CpFJZ1ms0OsAa++ZPv0e5VQuyRyt1eCKXBbLhgMNtzgqHho2k7FhfaO3wW24ExtNFih1X8A5+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_020143_415717_528B6338 
-X-CRM114-Status: GOOD (  18.63  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261021_020252_090352_06DA299E 
+X-CRM114-Status: GOOD (  13.54  )
+X-Spam-Score: -0.7 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,79 +160,111 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.6 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	NORMAL_HTTP_TO_IP,NUMERIC_HTTP_ADDR,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Ping,
+Commits 9dc39532172c ("ARM: dts: imx6qdl: Add Root Port node and PERST
+property"), 37f53f50b36f ("arm64: dts: imx8mm: Add Root Port node and
+PERST property") and 396fbe9a028d ("arm64: dts: imx8mp: Add Root Port
+node and PERST property") added a Root Port node pcie@0 to the SoC
+level host bridge. However, several boards already described the Root
+Port in their board DT under a different node name:
+  ZII RDU2 (imx6q/imx6qp):               host@0
+  GE B450v3/B650v3/B850v3 (imx6q):       root@0,0 (label pci_root)
+  Gateworks Venice (imx8mm/imx8mp):      pcie@0,0
+  SolidRun HummingBoard Pulse (imx8mp):  root@0,0
 
-On 20/10/2026 12:48, Ping Li wrote:
-> mpam_save_mbwu_state() takes the mon_sel lock at the top of each loop
-> iteration, but the four error paths that return after failed
-> MPAMF_MON_SEL register accesses do so without releasing it.
-> 
-> Take the lock with the conditional mon_sel_lock guard class instead,
-> so all exit paths release it.
-> 
-> Fixes: a3a94c13c442 ("arm_mpam: propagate MSC access errors for state saving function")
-> Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+As a result, two Root Port nodes with devfn 0 now exist under the same
+host bridge. of_pci_find_child_device() returns the first match, which
+is the SoC level pcie@0 node, so the board level Root Port node and all
+of its children (on-board Ethernet controllers, PCIe switches, etc.)
+are no longer associated with any PCI device.
 
-Thanks for this. Looks like this was a result of the conflict between the MPAM-Fb series and my
-minor fixes series.
+This series fixes the issue by moving the children of the board level
+Root Port nodes under &pcie_port0/&pcie0_port0 and dropping the
+duplicated board level nodes. All existing labels and aliases (i210,
+switch_nic, eth1, pcie_eth, ethernet1) are preserved, so phandle
+references such as the DSA "ethernet = <&switch_nic>" keep working.
+The moved nodes now sit on the Root Port's secondary bus, so the bus
+number in reg and the unit addresses of the first level children are
+updated to match. The kernel matches nodes to devices by devfn only,
+so this does not change which node a device gets.
 
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+Request for bootloader owners:
+This series changes the full DT path of the affected nodes. If the
+bootloader (barebox / U-Boot) finds the node to fix up (e.g. to write
+local-mac-address) by a hard-coded full path, rather than by an alias,
+a label or by walking the PCI hierarchy, it will no longer find the
+node and the MAC fixup will silently stop working.
 
-Cheers,
+The node path changes are:
+  ZII RDU2:
+    /soc/pcie@1ffc000/host@0/i210@0
+ -> /soc/pcie@1ffc000/pcie@0/i210@0
+  GE B450v3/B650v3:
+    /soc/pcie@1ffc000/root@0,0/ethernet@3,0
+ -> /soc/pcie@1ffc000/pcie@0/ethernet@0,0
+  GE B850v3:
+    /soc/pcie@1ffc000/root@0,0/bridge@1,0/bridge@2,{1,2}/ethernet@{3,4},0
+ -> /soc/pcie@1ffc000/pcie@0/bridge@0,0/bridge@2,{1,2}/ethernet@{3,4},0
+  Gateworks GW72xx/GW73xx/GW82xx (imx8mm/imx8mp):
+    /soc@0/pcie@33800000/pcie@0,0/pcie@0,0/pcie@N,0/ethernet@0,0
+ -> /soc@0/pcie@33800000/pcie@0/pcie@0,0/pcie@N,0/ethernet@0,0
+    (N = 3 on GW72xx, 4 on GW73xx, 7 on GW82xx)
+  Gateworks GW7902:
+    /soc@0/pcie@33800000/pcie@0,0/ethernet@0,0
+ -> /soc@0/pcie@33800000/pcie@0/ethernet@0,0
+  SolidRun HummingBoard Pulse:
+    /soc@0/pcie@33800000/root@0,0/ethernet@1,0
+ -> /soc@0/pcie@33800000/pcie@0/ethernet@0,0
 
-Ben
+Note that the ZII RDU2 i210 node has no alias in the kernel DT, so
+the barebox fixup on that board is the most likely to rely on a full
+path.
 
-> ---
->  drivers/resctrl/mpam_devices.c | 12 +++++-------
->  1 file changed, 5 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 48adc49b833c..c067b6d57d71 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -2037,8 +2037,10 @@ static int mpam_save_mbwu_state(void *arg)
->  	struct mpam_class *class = ris->vmsc->comp->class;
->  
->  	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
-> -		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
-> -			return -EIO;
-> +		ACQUIRE(mon_sel_lock, guard)(msc);
-> +		ret = ACQUIRE_ERR(mon_sel_lock, &guard);
-> +		if (ret)
-> +			return ret;
->  
->  		mbwu_state = &ris->mbwu_state[i];
->  		cfg = &mbwu_state->cfg;
-> @@ -2061,10 +2063,8 @@ static int mpam_save_mbwu_state(void *arg)
->  		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
->  		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
->  
-> -		if (!mbwu_state->enabled) {
-> -			mpam_mon_sel_unlock(msc);
-> +		if (!mbwu_state->enabled)
->  			continue;
-> -		}
->  
->  		val = 0;
->  		mbwu_arg = (struct mon_read) {
-> @@ -2088,8 +2088,6 @@ static int mpam_save_mbwu_state(void *arg)
->  		ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
->  		if (ret)
->  			return ret;
-> -
-> -		mpam_mon_sel_unlock(msc);
->  	}
->  
->  	return 0;
-> 
-> base-commit: 8ea457f746d915d55f78b43d33b1cd618f3d93ad
+Ahmad, could you please confirm how barebox finds the i210 node on
+ZII RDU2 to fix up the MAC address? If it uses a hard-coded path,
+barebox needs to be updated to the new path above.
+
+Likewise, Gateworks and SolidRun folks, please check whether your
+U-Boot / barebox fixups (e.g. for ethernet1) depend on the node path.
+
+Not tested on hardware, since I don't have access to these boards.
+Tested-by from board owners would be very much appreciated.
+
+Reported-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Closes: https://lore.kernel.org/all/171421fb-d0a6-4e3f-b2dc-226e9c548972@pengutronix.de/
+Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+---
+Sherry Sun (3):
+      ARM: dts: imx6qdl: Move board Root Port children under &pcie_port0
+      arm64: dts: imx8mm-venice: Move board Root Port children under &pcie0_port0
+      arm64: dts: imx8mp: Move board Root Port children under &pcie0_port0
+
+ arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dts         |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dts         |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dts         |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi        | 11 -----------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-zii-rdu2.dtsi    | 13 ++++---------
+ .../boot/dts/freescale/imx8mm-venice-gw72xx.dtsi   | 22 ++++++++--------------
+ .../boot/dts/freescale/imx8mm-venice-gw73xx.dtsi   | 22 ++++++++--------------
+ .../boot/dts/freescale/imx8mm-venice-gw7902.dts    | 16 +++++-----------
+ .../dts/freescale/imx8mp-hummingboard-pulse.dts    | 17 ++++++-----------
+ .../boot/dts/freescale/imx8mp-venice-gw72xx.dtsi   | 22 ++++++++--------------
+ .../boot/dts/freescale/imx8mp-venice-gw73xx.dtsi   | 22 ++++++++--------------
+ .../boot/dts/freescale/imx8mp-venice-gw82xx.dtsi   | 22 ++++++++--------------
+ 12 files changed, 61 insertions(+), 118 deletions(-)
+---
+base-commit: 8f7df005a7564bd7ffa75da9c3085d5b996f1e16
+change-id: 20261021-imx-pcie-rp-stale-nodes-e4634fe66020
+
+Best regards,
+-- 
+Sherry Sun <sherry.sun@nxp.com>
 
 
