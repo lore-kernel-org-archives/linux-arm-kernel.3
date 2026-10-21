@@ -2,120 +2,92 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B5A3606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 17:56:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1830E606A33C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 18:06:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kAH/cv+e;
-	dkim=pass (2048-bit key, unprotected) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=YpNS5zPT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=r3ha1u8z;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=jUzWPHj/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/9Q6vwSpHzLOuQcu+iZE9ek6ulZ0fAfcC9lHWm1vuA=; b=kAH/cv+es0i8/KwRJ9jdNex1gH
-	/1ZE/Ok8uF2PbAMyPqcs6jFlQi3E4S+sWuMkVb7mKKo5PqUwXGD8fKH2Yllwa/tiWB0SLvWbMjsNF
-	I7yQ5H2qKQqofLgyLsjj744z7pR3N1z/ZETj/xz48GjKi05vgfmh2NAG5zCR6pT+gaz4akzaPipeN
-	SSfqXo4OQ0xb85MTuZ52rvIQjcJMD7oelzmy8iEUlWbjCxHLPb8T/KDEgih4EaK/1q5fYBLtr1qBh
-	+vQvAx91bTDamhvO9fnoyg44aBQfCtz863CiNK31LpXz0VBGHG9Zx5B1VqSFiZ8Ox6i4bUv+vD7DD
-	Y/26bJKQ==;
+	bh=poRJPGt/tQVP3cq5GkCmpkVOZhsjuIUoSdSevhNUZGA=; b=r3ha1u8zjgx2/M+Xdqz8z58n48
+	+hfiZjhojmQJXxR1f3jzCdMWDMT+EqPNxakTxdQ7Es1VV9abpvmeTDLkKuqYbvBv3HLMm+6iwuPmk
+	oydAp8l2bZEKXBMXdL9jU7cFXQMzVpVFpjXewwjTepe0wYd/PuBuwyfy73diJHKHkvRIF/33h62b2
+	2CrUsau2rFqgOUPTMPEp4Cia9u8wVLPWjwYGfImzDPyK6VCM9qPiisl+QKwyGbFNZEms8NszvUwDL
+	IurDAJ7XzDSLds8ejaAgvY3Vhrvx4B+O33HtAgdgjXMQ+F63v+iyG925KCXy31V1EVTr0jtjCo22v
+	RXoMCK0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJaYD-0000000CbZV-34rA;
-	Wed, 21 Oct 2026 17:56:33 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1xJahB-0000000Cc3L-2US3;
+	Wed, 21 Oct 2026 18:05:49 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJaYB-0000000CbYa-1pxy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 17:56:32 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-6b413b0a974so840643a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 10:56:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792605389; cv=none;
-        d=google.com; s=arc-20260327;
-        b=jut7Ia1HdopmUIkO47MDReujwX1b21M0+ib7e9iGxa2+Dj2P606Z0Xb7uc0rzdvtfr
-         Iy+zrUo2Bd2C/+iRxXu4AUMRKZMTa0zTAtXa/It1UOxu5uVfnoKT7t5oBj3avMkzt+NP
-         zI8ocAmJiqLDMDNBDXQpp8jpPCeXw2Al5o8Ua668lupt4Kmmtlm8K9EWtZIViPDyGRnt
-         A0odUbcogLQfIzfXpevWjRkEzRZJzzfzr4+i1WFqj/WSwqlC4M8TH1ZjQoQc0isEGSMR
-         JCFGs4/q8GOof0m8clAOZCkepFPJ0ZmPlLaxx+k2e1HqRlWwtvrZeb7KElfQ+so8m7My
-         TgBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=l/9Q6vwSpHzLOuQcu+iZE9ek6ulZ0fAfcC9lHWm1vuA=;
-        fh=1oAuccQM1o7wbmMbsyUUri1a+RCoF2kALYS/wqYTO6w=;
-        b=reMO0L127BkAs+0vE8R5GFqpbEpSMDLSU9yk6xmUVeSJZmCzxB9wroP9Cx5/gXfti6
-         YBv7rcXgrDdIcgGmGOvUuRAWyZkzc9vaGgsVbCAs0x/3GTDPH/uV3KPqmbJmivQPGhKB
-         WdRQF70KE7Dn1o0UjCoUxY/wB1VPNI9NT3ejvSpveakaPkdGPZCXwrPEw9fKGMRW0s3s
-         GTwXW3mh+umFzf9uJqjmqc1hm44r4VJhysa+bUsjL4KvIjR5B1tKo5+yQrGpw2oa0aar
-         iSuQtW1U8NyJKtNlmHDCpTdr+/GnVlUB/MsR83UReTz9Alj5EyiRxzwgnKepDHS5scIa
-         Avjg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen.com; s=google; t=1792605389; x=1793210189; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=l/9Q6vwSpHzLOuQcu+iZE9ek6ulZ0fAfcC9lHWm1vuA=;
-        b=YpNS5zPTJ/EMYTFzU9vB9PpK+S7cGGywioTA3ToQXyFLnoB2YYdHgWFsmgxIJKyfV/
-         Z/Xr7MK5udVTHMn6U4Sj+UdzfUyNMTIJo/UB7+8zk+pGYMbMz5IBycvzh9nMI3m60x50
-         J2qLW0hnzlcy52CmviWAzIWH2djEDx0gx0Q9RQmIQDNfTJ5yWD7NffveXRXv1RoeUpJ+
-         Zh1QmCfP1EOE/cVzeSOI9+8TalKTgevn/lThF61ryxg9gaGyNIwVzrlxiMXEgQrm4Kzo
-         w/TCltWhNzotHXMHdWpxgXLPba6MiwPgMYiUH7LdQGBY/mFkJC2n/MFEuaOclA9hy4GM
-         m8Sw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792605389; x=1793210189;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=l/9Q6vwSpHzLOuQcu+iZE9ek6ulZ0fAfcC9lHWm1vuA=;
-        b=nFvRf/FNK1F2nYIfkyU9elsi9lFMt+EPDCDEn9UiYcPrv78aD4IOw8Argsm8fyMEHh
-         r35bcUgE00oysdx/kiDa7e+ZjP7VyoO77UwmEYubwcUnhXSQyFn8ITV5R2dyaq208e5r
-         KNogCnaq1UTRrcSdHl4UyL3fUDPQ8xdMtl/9RSNv+iUO1zcApyDlbeFxpVKKN9BK8ImC
-         V4sJZ29V6HWjH2uz07zIqQaB/XaNm+SHkzfhwruXaNi1JxIPSDbofVWVk8lBQ4B/F3fI
-         JxkoMTZ53KNAyM9MPztG3TXToWoZgObUfxqBbJ7eE1k0X4MrcckBXe88Pp5sJkbrQMv+
-         RC+w==
-X-Forwarded-Encrypted: i=1; AKwUvBx5xbZMh1jSGAlluepl3XA0DD1/f0Q0WAs2le0m4+IGbnqXD5uztMytz9pRzsdOUSL/vg1AtDCxMxXL1RAvzf9P@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ6x7aJL3E146ONxK/8Neebvcz93G2hhAw0TDZudxUelO/LWcdk
-	z4wefYycA7K/k+2s/KArd+b2M1gpGSv3YXG9VPtQHCLhM+ftZ5HxsvpZPobdt6/Qhhy6YaM8NKz
-	3M6tHbH30rQwLL6SkiUt+g5t2QD7jJodRn3i6yAdfqQ==
-X-Gm-Gg: AYBFou0IgSvpHWZ/CE34O+7SiwCg51IZC1juw3yM7PC98UHy7squ6qSKYFUlc0TvPU0
-	riFYZgUTCEONWs+D3GPfy1oEJtnd7CrK9Bf9ZUQP8V91jP9Hci0xyMkqd6z4ZK916ePx5XET+9L
-	1AZbb66lQ1Y74KbHVyd3W5aiY/59gTV4FtToXkS6tRNv4lIcgNHW/LliXBxjVhlOpsUlJnD/ZXi
-	+vBj40WFT1VYBXdZQuWaOuSiXvTph2LcfHTOC0L1x3i1rCyEpmucu4LyPoqOeq62nGGqxUCqXjS
-	Y2RygDGPCq28lx2h4wBONFrSpZagxHxGUBjdlKAi+MCJxLO0JtfWeLwh+MyvLQdfhUEObkKAe1F
-	uxj5sYLYxaSY9UQqmx5Rr2s9J0K1YrxXRTAuv2tnECh1e/yJj/Xj4pAch0Cf+X586/Q0=
-X-Received: by 2002:a05:6402:458e:b0:6ac:686f:91db with SMTP id
- 4fb4d7f45d1cf-6b408e9f045mr1964734a12.11.1792605389455; Wed, 21 Oct 2026
- 10:56:29 -0700 (PDT)
+	id 1xJah9-0000000Cc1O-0zKD;
+	Wed, 21 Oct 2026 18:05:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1792605943;
+	bh=u1NJ7iPwSqksBo4kmNU/fQeqoWOdC3qmPcDydleD2LU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=jUzWPHj/puEpbnunz3zzRwWZh1q40d7fEYPIsxDw8bIkkoidCGw6w/OY7ohmNSZT3
+	 esYWOwmaZULu13KNMbdThmwu0JvPlBrc7N2UTHV80NOncgkDvejqGvtCNW5dFb//5v
+	 99x8eHe35MTV2L4Y4hlo9NZXBSEanBAbVK8pLkmPaHQQnk33MGP9IGMaEDqYe9ua9y
+	 npsnUKq32mTESwFMZh9CDTxI/aiHslRLs37L0CQUcgG6Xx5WpEP4ZxYbIDvrUNUCNP
+	 jh4ju5oaNCPsbz8quOp8K6GaGWz9wubbS6nNGCUhbMlMkG/WoHFBD1VUiZIb8vmCtX
+	 03lGT5Sr9ERzA==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A45AF17E0928;
+	Wed, 21 Oct 2026 20:05:43 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 66D8A480031; Wed, 21 Oct 2026 20:05:43 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Wed, 21 Oct 2026 20:05:29 +0200
+Subject: [PATCH v18 4/7] usb: dwc3: core: add post PHY registration hook
+ for platform glue
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261021152527.375070-1-tarunsahu@google.com> <20261021152527.375070-4-tarunsahu@google.com>
- <CA+CK2bAQbmq3ArP3XMErF_8RC2CUwvgpLY0H83D0nCJTaVKYyA@mail.gmail.com> <20261021174006.GU3008132@nvidia.com>
-In-Reply-To: <20261021174006.GU3008132@nvidia.com>
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-Date: Wed, 21 Oct 2026 13:55:52 -0400
-X-Gm-Features: AclHuK-Q6MQhxMIMUURzzci_OOwzGik9EFivN3YqqlGA_5OHu0xT6GsF67-BzDw
-Message-ID: <CA+CK2bDJzo44K0X-+5F77E9g2dmqKdwZvrUf-1SkC7ewrgEgzA@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
- a 2-bit pair feature header
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Tarun Sahu <tarunsahu@google.com>, Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org, 
-	Mike Rapoport <rppt@kernel.org>, Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de, 
-	David Matlack <dmatlack@google.com>, robin.murphy@arm.com, loganodell@google.com, 
-	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org, 
-	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com, will@kernel.org, 
-	Alexander Graf <graf@amazon.com>, Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com, 
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev, 
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org, kexec@lists.infradead.org, 
-	skhawaja@google.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261021-b4-rockchip-dwc3-rockchip-glue-v18-4-60000d03fca2@collabora.com>
+References: <20261021-b4-rockchip-dwc3-rockchip-glue-v18-0-60000d03fca2@collabora.com>
+In-Reply-To: <20261021-b4-rockchip-dwc3-rockchip-glue-v18-0-60000d03fca2@collabora.com>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>
+Cc: Igor Paunovic <royalnet026@gmail.com>, linux-kernel@vger.kernel.org, 
+ linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org, 
+ kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2142;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=u1NJ7iPwSqksBo4kmNU/fQeqoWOdC3qmPcDydleD2LU=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGrY/vedIG+V8B/ZmgJaGZ8GI+lWufmYtxAe9
+ +lCbg0mG1JNNIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq2P73AAoJENju1/PI
+ O/qa9pcQAKDlfDbyLeOyeNn8M8VfKsd5z2isXeI2HZwm+L7XH4k1t9TzAf3ZlQ3oFlx+uAM+We6
+ XK+9Bu8aAyUCGHLeTvBPY0I9x0LY+pPUM5re2P0JNTi9UBwMtJ7xwywf1kYG6MYSuegTiLl/1pm
+ NqY5OVDOZ8CcDKDGbzYFHwim4+k4xbWc1eX4fqWArgiZExNHSnDjRd4qnFBKxYyIwan61gfrFa7
+ oxRlaZO1AFiz00Xxt7sz92eu49iPmvTLlj+RKN2POJtshGG9cuq+L1tqJ1sX1zannLcsvOMv9AS
+ bFgb7r8C+1XXmsmuTAZ/Qc/J9YlPAyzk8tY7E15OUsMoDkGiNNAM9k+IqhmYNRyflzICj4jW7D/
+ eolqOZotoK3CYKpgR8GepiQysA9JC4QJdzXZ/4Pf6S8MYaPb1kTYjGNBkblTrqU5O4oKyAWhWds
+ aF9rQ2r1rL6viGAsXKl2RIz3Ddj2H2myeNBNLllqYJzpsU7htUPZ8ZBdxx8qLKsdEQlZjGuicD8
+ 5NOx9CyhRgaUhHWJn+WDXAU9sUG/byh0MsQhpe1F9qv6JRSG2JQUurarTa0hR06+wZN+vh/mhYD
+ uhtT7u8lUnMmCA31zD2JUHHYEIERWY1NMNvwueZ/cYJHtbUVD3tHb6n/4/kOTHOIksz0Jp2J6wI
+ 0jYCECLXihtRRdrBIf0A1UQ==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_105631_492055_FE6FDEA4 
-X-CRM114-Status: GOOD (  20.74  )
+X-CRM114-CacheID: sfid-20261021_110547_427034_E12CFEA2 
+X-CRM114-Status: GOOD (  13.78  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -127,46 +99,73 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 1:40=E2=80=AFPM Jason Gunthorpe <jgg@nvidia.com> wr=
-ote:
->
-> On Wed, Oct 21, 2026 at 01:27:22PM -0400, Pasha Tatashin wrote:
-> > On Wed, Oct 21, 2026 at 11:25=E2=80=AFAM Tarun Sahu <tarunsahu@google.c=
-om> wrote:
-> > >
-> > > LUO and its file handlers validate handed-over state with monolithic
-> > > compatibility strings ("luo-v5", "memfd-v2"). Any change to a seriali=
-zed
-> > > structure, even an optional additive one, must bump the string, which
-> > > breaks live update between adjacent kernels. Replace the string in
-> > > struct luo_ser with a feature header, so that the target kernel can
-> > > accept or reject the source kernel state per feature.
-> > >
-> > > struct luo_feature_hdr is a fixed 128-byte header: the serialized
-> >
-> > This patch is all wrong; 128 bytes is far too large. For every _ser
-> > struct, we only need 8 bytes instead.
-> >
-> > The first 4 bytes are the size, and the next 4 bytes are flags (i.e.,
-> > 30 feature flags + 2 reserved bits for flags extension). The last two
-> > bits of the flags indicate whether an extended flags field is present.
-> > Each extended flags field is 8 bytes, and its last two bits indicate
-> > that yet another extended flags field follows.
->
-> I thought we agreed not to loose the string too, it was a tree
->  string -> feature flags -> individual values
->
-> The string is the emergency if we really badly mess it up.
+Add support for custom PHY handling steps in platform glue code
+by adding a post registration hook. This will be used for handling
+PHY reset notifications on the Rockchip platform.
 
-Yes, we'll still have the file-handlers/flbs compatibility strings.
+Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
+Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Reviewed-by: Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/usb/dwc3/core.c | 2 +-
+ drivers/usb/dwc3/core.h | 9 +++++++++
+ 2 files changed, 10 insertions(+), 1 deletion(-)
 
->
-> Jason
+diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+index 4b7132887a03..daf5aec07fbf 100644
+--- a/drivers/usb/dwc3/core.c
++++ b/drivers/usb/dwc3/core.c
+@@ -1613,7 +1613,7 @@ static int dwc3_core_get_phy(struct dwc3 *dwc)
+ 		}
+ 	}
+ 
+-	return 0;
++	return dwc3_post_phy_registration(dwc);
+ }
+ 
+ static int dwc3_core_init_mode(struct dwc3 *dwc)
+diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
+index 608daeb7ef10..e9d8df0a298e 100644
+--- a/drivers/usb/dwc3/core.h
++++ b/drivers/usb/dwc3/core.h
+@@ -995,10 +995,12 @@ struct dwc3_scratchpad_array {
+  *				need to be passed on to glue layer
+  * @pre_set_role: Notify glue of role switch notifications
+  * @pre_run_stop: Notify run stop enable/disable information to glue
++ * @post_phy_registration: Called directly after PHY got registered
+  */
+ struct dwc3_glue_ops {
+ 	void	(*pre_set_role)(struct dwc3 *dwc, enum usb_role role);
+ 	void	(*pre_run_stop)(struct dwc3 *dwc, bool is_on);
++	int	(*post_phy_registration)(struct dwc3 *dwc);
+ };
+ 
+ /**
+@@ -1655,6 +1657,13 @@ static inline void dwc3_pre_run_stop(struct dwc3 *dwc, bool is_on)
+ 		dwc->glue_ops->pre_run_stop(dwc, is_on);
+ }
+ 
++static inline int dwc3_post_phy_registration(struct dwc3 *dwc)
++{
++	if (dwc->glue_ops && dwc->glue_ops->post_phy_registration)
++		return dwc->glue_ops->post_phy_registration(dwc);
++	return 0;
++}
++
+ #if IS_ENABLED(CONFIG_USB_DWC3_HOST) || IS_ENABLED(CONFIG_USB_DWC3_DUAL_ROLE)
+ int dwc3_host_init(struct dwc3 *dwc);
+ void dwc3_host_exit(struct dwc3 *dwc);
+
+-- 
+2.53.0
+
 
