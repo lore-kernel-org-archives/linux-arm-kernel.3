@@ -2,66 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F379E606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 10:45:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60794606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 10:47:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=18P8HIV/;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ROUpxDbw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fOBSTT7H;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=oLGvXQ98
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XyRQ78BggroJWNa9YaJncJCpDhOnB5oue8lGhRg38uw=; b=18P8HIV/h6Kt5HJw/DhDksLNVb
-	R+WbEqnlwxw7Q8lzOAmlxWiZhkaiLbQL8R5/V9Owfzh3rgYVJMHVhH08c61cPuE6OMfeIICOMGr7D
-	WRnTySUTZyUJuJ7Ea8ygN7BJ0tAArxPFY3TnoZrAEUez7TkZcC1BtFB6vOx3N+ewOP/GnLLpvZM+R
-	7ePYiHV2UawUSp8c4KhVgcinLMiwhA8UiOlYPfPM08zoLVQIL/BEt8ANuzZqxy2ZasIF2CAhWKIaU
-	Q0jMCVJrNJBa6SuJhgOn6PbxTg/D/M/gD6SNE9cUnbq1orxqZzl80oeQ8WmiXY+FcGcC8BfSC59pQ
-	Al14RJSw==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4bc3lyW8ExNMs+t0RxZYctVap348djpgztaEMV/DmNs=; b=fOBSTT7Hhsq0wTsEr4bHLV9Had
+	nsO5A6uHqko5GOCNqi9Zs+PIpcLgSI/USqjj5v+Yr9EBis1gNzCT5uLPK5G+znI3rgHycHivgvVin
+	cW/K1sUlXMwOuQt/1E/b+4GLBpbldqU1gQZNEDUvpBYNhOGHwEY0u/UHLb1+CSbudYp9fQ7SPDX/2
+	qiFtGciF39zRC1XOPIPlsLQ59gnMQ8hfDECQZxCw7SfNDCInB1+1akTQicIVYa2dXACmn8wQWcDTY
+	rlzaiIdPRd2fvyIFp0jeeD2Fw1nyUGU5hNKMRVo7PmNuXNu+dY7V08Ojg0PZ3Xyr7f8lnY1yqzo42
+	Sc17cyIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJToj-0000000Bdaa-3Tzv;
-	Wed, 21 Oct 2026 10:45:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJToh-0000000BdZz-1awy
+	id 1xJTqo-0000000BdpP-1Hr0;
+	Wed, 21 Oct 2026 10:47:18 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJTqm-0000000Bdny-2AgA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 10:45:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E191D16F8;
-	Wed, 21 Oct 2026 03:45:02 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 13AD03F7D8;
-	Wed, 21 Oct 2026 03:45:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792579506; bh=nZ42BZQjh4uy5EZzLEdYqHCNeRbeEy9OOB18/q0M518=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ROUpxDbwu71P5kfieQdrfW7it2k2Nv6Bk89dy2okv34Ra1vf5eN45Prhjr5xaVk+V
-	 yWR0T3p7OKati2Yn2DaWXcx+2TmzHQiJ+lBDTa0AI5cKmGRBd6NbylqjvTUVkn8CcF
-	 6lP5BpLxc7Q1qk+T3pNRlvn3WskZU+S3SbRvvjfQ=
-Message-ID: <d1efef72-5cd5-41f6-8389-53b62490e4b9@arm.com>
-Date: Wed, 21 Oct 2026 11:45:03 +0100
+	Wed, 21 Oct 2026 10:47:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=4b
+	c3lyW8ExNMs+t0RxZYctVap348djpgztaEMV/DmNs=; b=oLGvXQ984248iRJ5qJ
+	tzRNkRq2PLyi3KzOHNdHtRpe64gdRSfX0s+t7wV3qXAg8quZ98tDZY457ItbJjuN
+	QDBH2GE6nVXv4nCueP4gqooUEjgFw3IidJ61H7c9edWSn14nRjb9I2x+k8fl8XgW
+	8dE8M8r4SchCwoyclzKz4/6n4=
+Received: from pc.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wDXXzcZmNhqXKxSBw--.62283S2;
+	Wed, 21 Oct 2026 18:46:50 +0800 (CST)
+From: Jiale Yao <yaojiale02@163.com>
+To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Tony Luck <tony.luck@intel.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-edac@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 0/2] EDAC: reserve space for debugfs input terminators
+Date: Wed, 21 Oct 2026 18:46:46 +0800
+Message-Id: <20261021104648.4105938-1-yaojiale02@163.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm_mpam: Release the mon_sel lock on
- mpam_save_mbwu_state() errors
-To: Andre Przywara <andre.przywara@arm.com>, Ping Li
- <leeonion.muyu@gmail.com>, james.morse@arm.com
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- reinette.chatre@intel.com, fenghuay@nvidia.com
-References: <20261020114807.3915705-1-leeonion.muyu@gmail.com_quarantine>
- <d6f3b250-bfc0-4d74-b729-3791bc145e1c@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <d6f3b250-bfc0-4d74-b729-3791bc145e1c@arm.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDXXzcZmNhqXKxSBw--.62283S2
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUxdcTUUUUU
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC8Bv8N2rYmBvbUQAA3b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_034507_508270_5E6EDE86 
-X-CRM114-Status: GOOD (  22.99  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261021_034716_909820_513184E2 
+X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,97 +73,30 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Andre,
+The Versal and ZynqMP EDAC debugfs injection handlers allow the copied
+input to fill a six-byte stack buffer and then append a NUL byte one byte
+beyond it.
 
-On 21/10/2026 10:26, Andre Przywara wrote:
-> Hi,
-> 
-> On 10/20/26 13:48, Ping Li wrote:
->> mpam_save_mbwu_state() takes the mon_sel lock at the top of each loop
->> iteration, but the four error paths that return after failed
->> MPAMF_MON_SEL register accesses do so without releasing it.
->>
->> Take the lock with the conditional mon_sel_lock guard class instead,
->> so all exit paths release it.
-> 
-> many thanks for spotting this!
-> 
-> Similar lines were in the last patch version sent out, but as Ben mentioned, this somehow conflicted
-> with the other MPAM changes, so it got accidentally removed.
-> The original version always returned -EIO, but we now always use this error code inside mpam_fb.c
+Limit each copy to five bytes so the existing terminator write remains
+inside the buffer.
 
-For consistency we should always return -EIO on the locking failure as that's what's done in all the
-non-AQUIRE() cases. However, I do think this fix is ok as it is and that at some point down the line
-we can update the conditional guard to enforce this.
+Jiale Yao (2):
+  EDAC/versal: reserve space for injection input terminator
+  EDAC/zynqmp: reserve space for injection input terminator
 
-DEFINE_CLASS(mon_sel_lock, struct mpam_msc *,
-	     if (_T && !IS_ERR(_T)) mpam_mon_sel_unlock(_T),
-	     mpam_mon_sel_lock(msc) ? msc : ERR_PTR(-EIO), struct mpam_msc *msc);
-DEFINE_CLASS_IS_COND_GUARD(mon_sel_lock);
+ drivers/edac/versal_edac.c | 2 +-
+ drivers/edac/zynqmp_edac.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-Thanks,
-
-Ben
-
-
-
-> already, so there is no difference, and this version here is more future-proof, should we lift the
-> restricted range of errors handled in the future. So:
-> 
-> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-> 
-> Thanks!
-> Andre
->>
->> Fixes: a3a94c13c442 ("arm_mpam: propagate MSC access errors for state saving function")
->> Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
->> ---
->>   drivers/resctrl/mpam_devices.c | 12 +++++-------
->>   1 file changed, 5 insertions(+), 7 deletions(-)
->>
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index 48adc49b833c..c067b6d57d71 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -2037,8 +2037,10 @@ static int mpam_save_mbwu_state(void *arg)
->>       struct mpam_class *class = ris->vmsc->comp->class;
->>         for (i = 0; i < ris->props.num_mbwu_mon; i++) {
->> -        if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
->> -            return -EIO;
->> +        ACQUIRE(mon_sel_lock, guard)(msc);
->> +        ret = ACQUIRE_ERR(mon_sel_lock, &guard);
->> +        if (ret)
->> +            return ret;
->>             mbwu_state = &ris->mbwu_state[i];
->>           cfg = &mbwu_state->cfg;
->> @@ -2061,10 +2063,8 @@ static int mpam_save_mbwu_state(void *arg)
->>           cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
->>           mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
->>   -        if (!mbwu_state->enabled) {
->> -            mpam_mon_sel_unlock(msc);
->> +        if (!mbwu_state->enabled)
->>               continue;
->> -        }
->>             val = 0;
->>           mbwu_arg = (struct mon_read) {
->> @@ -2088,8 +2088,6 @@ static int mpam_save_mbwu_state(void *arg)
->>           ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
->>           if (ret)
->>               return ret;
->> -
->> -        mpam_mon_sel_unlock(msc);
->>       }
->>         return 0;
->>
->> base-commit: 8ea457f746d915d55f78b43d33b1cd618f3d93ad
-> 
+-- 
+2.34.1
 
 
