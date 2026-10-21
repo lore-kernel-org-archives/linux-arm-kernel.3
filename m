@@ -2,56 +2,56 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2A9260A2602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 11:48:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6778960A3820
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 11:48:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EN4nhmaF;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ABx0n5+w
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HcuAjXll;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YdhnBWYe
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LamOgwOLGcvObJJ6uLyjNnr+OKxJmcO2SWrOkvHa4B0=; b=EN4nhmaF/ztFUuBJsvNVNZfBWW
-	uNML8Unmv+dLGQWT6MXqu6F2Eu8BTH+NbHAKz3Y+4rBXKIwbCIypI80wn5JmFWWHVQBRsgbmvXGZ3
-	th8uT1CZHQm+pAb414TXM4tQb0vZ9ChAQeN/mPNu5saARgxFWnbQOdqlOYI7nr1rZHN+555J5L+Di
-	q0IypaHwbIv4uw8QK0HiFuJqDe1Sx2A3Uzr0EBu/saiqbn35w7Tbm1RtrT1/Nv/yebGoQZCsQUi1G
-	T3N1j13TSrGW9e24R5NFFTc9zqeFDPVL5B3Pvtr4tJ1iEp6U8VeU8OOUjYQ0dA8VFh0OQWE992oGx
-	7p+PdlvQ==;
+	bh=UY0BY5YZcT9xFUcwEXXKGABgtDytV9atXMOzM0KH+wY=; b=HcuAjXllj9IMNDeVFyujzoNiox
+	MU7DgYwKdyNCQJe+rCUttcNf7UbdaEZhRshFDr/b2Gg/7OjC6S0bM5fW3mLWDGZrAW6QMCyFmvobE
+	XQuNwgENlV+ZSL9vPJOtQwrH1wkZfMGUpUbqC2Yhh1LGkLvQ+4RwTD8ekEM7RSUvuENuV283YRyIA
+	5ck0CDnyJHgtPVcKQqTektTTR65LJSo2nEfscoRLN0CHQ4U2wtW+aO9KrMvwcNZszGeEihYai2Co9
+	p163EBHUmdF1TBK4TzUHtD2CYCdGh7WH0MRCYugnMyAR14dkwHvcLfabNryFe8g++ngCqh6Q4m3jS
+	i0Xprkpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJUnR-0000000Bk7n-1lcn;
-	Wed, 21 Oct 2026 11:47:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xJUnZ-0000000BkAD-2DZ5;
+	Wed, 21 Oct 2026 11:48:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJUnP-0000000Bk70-3f6g
+	id 1xJUnX-0000000Bk9k-2owb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 11:47:51 +0000
+	Wed, 21 Oct 2026 11:47:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C7E7A60D97;
-	Wed, 21 Oct 2026 11:47:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F4EE1F000C4;
-	Wed, 21 Oct 2026 11:47:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A664414D6;
+	Wed, 21 Oct 2026 11:47:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 992091F000C4;
+	Wed, 21 Oct 2026 11:47:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792583270;
-	bh=LamOgwOLGcvObJJ6uLyjNnr+OKxJmcO2SWrOkvHa4B0=;
+	s=k20260515; t=1792583279;
+	bh=UY0BY5YZcT9xFUcwEXXKGABgtDytV9atXMOzM0KH+wY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ABx0n5+wJXHhNQk6ZRp0wqw4Rw7NF+bXiYQq2SvsBPoBKUDyPS1FKlsineSsqAOud
-	 Ao6k/OkSWtjiesySf8tDYRaKmnk0uZRkpiMrIBtr1f2ZkErMR031WCq6j4RvxMdW9E
-	 TlL1ttZOyHC6ksfHTx30Mk27mlMpFbUMTGp9dAVK/qVF0j0+sTE9ckvhejDBOOP2fj
-	 g5edE9dWu6I9P5Qu8zdos9gI3ACgQlZET6Y0qNKIlglWaH78OpwE8XdhTD/l2cyU8Z
-	 uwCY+GDwkDoxGJhOXUQeOP7COA7+6xbWzdWZl02/XKQzVrtVPJcHxnP7SW1o4Rf2aG
-	 OXu998Y20Iu4g==
+	b=YdhnBWYe3LLCjDlSmUmc7fbfmRbuuqfaySN5me/ny51WQDoQFdlIh2+8UL9tQ3WUI
+	 QLOQEHpo/RasEj1yUxSmp5WVnLLlhN48g3Gdgpk8Da3uyBRRa/yvGrSoekpmLLSlo3
+	 Ts4DDL/G29GuMseX9g/VaL9o4FJSAxHJ6wNXwITPioc8BGogc9r1dMo6sF1/O+WW1/
+	 VrMkruz4tjRP7Siphpg2GtlCcBNpsGrYoZv7ztN3r8kNPqI9BXcYNIDVCR05R9IvcU
+	 jSpGR3PcurvE7W+458ZtaW8m9gmkJWIuysihjESrJLVgPldaTk6EQv6K6Wkr+5B2IS
+	 Xf8YIIoHyE0tw==
 From: "Harry Yoo (Meta)" <harry@kernel.org>
-Date: Wed, 21 Oct 2026 12:46:48 +0100
-Subject: [PATCH slab/for-next 07/14] arm64/mm: specify SLAB_MAY_ACCOUNT for
- pgd_cache
+Date: Wed, 21 Oct 2026 12:46:50 +0100
+Subject: [PATCH slab/for-next 09/14] iommu: specify SLAB_MAY_ACCOUNT for
+ slab-backed page table caches
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261021-memalloc-prof-dont-waste-slabobj-ext-metadata-v1-7-096800aa3330@kernel.org>
+Message-Id: <20261021-memalloc-prof-dont-waste-slabobj-ext-metadata-v1-9-096800aa3330@kernel.org>
 References: <20261021-memalloc-prof-dont-waste-slabobj-ext-metadata-v1-0-096800aa3330@kernel.org>
 In-Reply-To: <20261021-memalloc-prof-dont-waste-slabobj-ext-metadata-v1-0-096800aa3330@kernel.org>
 To: Vlastimil Babka <vbabka@kernel.org>, 
@@ -64,11 +64,15 @@ Cc: Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>,
  David Rientjes <rientjes@google.com>, Muchun Song <muchun.song@linux.dev>, 
  Hao Ge <hao.ge@linux.dev>, Pedro Falcato <pfalcato@suse.de>, 
  linux-mm@kvack.org, linux-kernel@vger.kernel.org, kernel-team@meta.com, 
- "Harry Yoo (Meta)" <harry@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Anshuman Khandual <anshuman.khandual@arm.com>, 
- linux-arm-kernel@lists.infradead.org
+ "Harry Yoo (Meta)" <harry@kernel.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
+ Niklas Schnelle <schnelle@linux.ibm.com>, 
+ Matthew Rosato <mjrosato@linux.ibm.com>, 
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, linux-arm-kernel@lists.infradead.org, 
+ iommu@lists.linux.dev, linux-s390@vger.kernel.org, 
+ linux-sunxi@lists.linux.dev
 X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,36 +92,89 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When PGD_SIZE != PAGE_SIZE, user PGDs are allocated from pgd_cache
-with GFP_PGTABLE_USER, which includes __GFP_ACCOUNT. Specify
-SLAB_MAY_ACCOUNT when the object may be charged to a memcg.
+vfio, iommufd and vhost-vdpa call iommu_map() with GFP_KERNEL_ACCOUNT
+and the gfp is passed down to the drivers' page table allocations.
+Specify SLAB_MAY_ACCOUNT when the object may be charged to a memcg.
 __GFP_ACCOUNT without SLAB_MAY_ACCOUNT will not be allowed.
 
-Path (e.g. 64K pages): copy_process() -> mm_init() -> pgd_alloc()
-  -> kmem_cache_alloc(pgd_cache, GFP_PGTABLE_USER)
+Paths:
+  VFIO_IOMMU_MAP_DMA -> iommu_map(GFP_KERNEL_ACCOUNT)
+    -> s390_iommu_map_pages() -> dma_walk_cpu_trans()
+    -> kmem_cache_alloc(dma_{region,page}_table_cache)
+  iommu_map(GFP_KERNEL_ACCOUNT) -> arm_v7s_map_pages()
+    -> __arm_v7s_alloc_table() -> kmem_cache_zalloc(data->l2_tables)
+  iommu_map(GFP_KERNEL_ACCOUNT) -> sun50i_iommu_map()
+    -> sun50i_dte_get_page_table() -> kmem_cache_zalloc(iommu->pt_pool)
 
 Assisted-by: LLM
-Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>
+Cc: Niklas Schnelle <schnelle@linux.ibm.com>
+Cc: Matthew Rosato <mjrosato@linux.ibm.com>
+Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+Cc: Chen-Yu Tsai <wens@kernel.org>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: Samuel Holland <samuel@sholland.org>
 Cc: linux-arm-kernel@lists.infradead.org
+Cc: iommu@lists.linux.dev
+Cc: linux-s390@vger.kernel.org
+Cc: linux-sunxi@lists.linux.dev
 Signed-off-by: Harry Yoo (Meta) <harry@kernel.org>
 ---
- arch/arm64/mm/pgd.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/iommu/io-pgtable-arm-v7s.c | 2 +-
+ drivers/iommu/s390-iommu.c         | 4 ++--
+ drivers/iommu/sun50i-iommu.c       | 3 ++-
+ 3 files changed, 5 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/mm/pgd.c b/arch/arm64/mm/pgd.c
-index bf5110b91e2f..0fd5b90b5160 100644
---- a/arch/arm64/mm/pgd.c
-+++ b/arch/arm64/mm/pgd.c
-@@ -63,5 +63,5 @@ void __init pgtable_cache_init(void)
- 	 * Naturally aligned pgds required by the architecture.
- 	 */
- 	pgd_cache = kmem_cache_create("pgd_cache", PGD_SIZE, PGD_SIZE,
--				      SLAB_PANIC, NULL);
-+				      SLAB_PANIC | SLAB_MAY_ACCOUNT, NULL);
- }
+diff --git a/drivers/iommu/io-pgtable-arm-v7s.c b/drivers/iommu/io-pgtable-arm-v7s.c
+index 1dbef8c55007..b544e5da237a 100644
+--- a/drivers/iommu/io-pgtable-arm-v7s.c
++++ b/drivers/iommu/io-pgtable-arm-v7s.c
+@@ -706,7 +706,7 @@ static struct io_pgtable *arm_v7s_alloc_pgtable(struct io_pgtable_cfg *cfg,
+ 	data->l2_tables = kmem_cache_create("io-pgtable_armv7s_l2",
+ 					    ARM_V7S_TABLE_SIZE(2, cfg),
+ 					    ARM_V7S_TABLE_SIZE(2, cfg),
+-					    slab_flag, NULL);
++					    slab_flag | SLAB_MAY_ACCOUNT, NULL);
+ 	if (!data->l2_tables)
+ 		goto out_free_data;
+ 
+diff --git a/drivers/iommu/s390-iommu.c b/drivers/iommu/s390-iommu.c
+index f148f559ac56..f308efadc87b 100644
+--- a/drivers/iommu/s390-iommu.c
++++ b/drivers/iommu/s390-iommu.c
+@@ -198,14 +198,14 @@ static int __init dma_alloc_cpu_table_caches(void)
+ 	dma_region_table_cache = kmem_cache_create("PCI_DMA_region_tables",
+ 						   ZPCI_TABLE_SIZE,
+ 						   ZPCI_TABLE_ALIGN,
+-						   0, NULL);
++						   SLAB_MAY_ACCOUNT, NULL);
+ 	if (!dma_region_table_cache)
+ 		return -ENOMEM;
+ 
+ 	dma_page_table_cache = kmem_cache_create("PCI_DMA_page_tables",
+ 						 ZPCI_PT_SIZE,
+ 						 ZPCI_PT_ALIGN,
+-						 0, NULL);
++						 SLAB_MAY_ACCOUNT, NULL);
+ 	if (!dma_page_table_cache) {
+ 		kmem_cache_destroy(dma_region_table_cache);
+ 		return -ENOMEM;
+diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
+index be3f1ce696ba..51a30969dde4 100644
+--- a/drivers/iommu/sun50i-iommu.c
++++ b/drivers/iommu/sun50i-iommu.c
+@@ -1011,7 +1011,8 @@ static int sun50i_iommu_probe(struct platform_device *pdev)
+ 
+ 	iommu->pt_pool = kmem_cache_create(dev_name(&pdev->dev),
+ 					   PT_SIZE, PT_SIZE,
+-					   SLAB_HWCACHE_ALIGN | SLAB_CACHE_DMA32,
++					   SLAB_HWCACHE_ALIGN | SLAB_CACHE_DMA32 |
++					   SLAB_MAY_ACCOUNT,
+ 					   NULL);
+ 	if (!iommu->pt_pool)
+ 		return -ENOMEM;
 
 -- 
 2.54.0
