@@ -2,102 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67A62606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 21:11:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E8C4606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 21:13:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DwhuvoUJ;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=KrVh8eEh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dGDbcd5w;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=BvdSkBr2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MqdkwnXZrZ+WSeQ8sJhYzDlGNeCAoHXJu9T3vCXsEVQ=; b=DwhuvoUJQiBTbBPrWuBEeqhqw8
-	ffohI7aTMZDGswRZ5zSUkyOplbL7k+8dhwXf/iFdf93h8LyYz5lB1jxB3gpF9VQxhRBp2MIU8q2p9
-	SYmfjNkjOJ1yZBSQmQ/Q0rSPPuVNlZ3Bz09/+YZc5U+oBGg6P+4PwdM8csLuETblebT9NYpvRdVXd
-	AOtkMP7/eSzsZZBiyz46U9mkpzLBBl4bzhZ1hS7YHpRbGaOB6aFNDbsanqwO1VQEx2BQtwg+umHwK
-	cPVK4Yre5eR16nnLmr1CeDY5M3NAZszifdeglboPqn4Z8M4WhMzJcifJ6WEk294fKcHBSnPBNqxyl
-	SbftLzfQ==;
+	bh=/7ngeHbVYERGvM2jFGnKfOGGvB7UaeEskne35/Ksbe4=; b=dGDbcd5wxfXD/GdQFik295TKMG
+	/vaZl6XI6/ukKfKycLnThh30MJ8eWaEN2O0tWXR+dil3ndKaMW9aEgvvgZ1S2PmAHcfNEqRKTuV7b
+	0a74t1Ov4sRAktzeK6OTVIS9f8Qrdl1Ddh3RdxcWwkJ305oFXOqHv6Zg5GRJD5SGa/VLGm3D+0QRu
+	yXwV5iYNwOg+mwxK6lgSgNczLmFrYdYj8CFUsb0ioDfgdmpakBd4EMVzD/YLvq0kgCrDg2Z6g9XdC
+	RGyOXTQi9QgZmS8JmA9BkvTKDHFsDX/dLYT5FcJPQxysxvNkYQ61g/dnxbkUi56cXp83Y3NzLBVd8
+	Yetg0YfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJdaz-0000000CuBW-3Voy;
-	Wed, 21 Oct 2026 21:11:37 +0000
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	id 1xJdco-0000000CuR0-1E8p;
+	Wed, 21 Oct 2026 21:13:30 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJdax-0000000CuAc-0Qsn
+	id 1xJdcl-0000000CuPh-0FQ3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 21:11:36 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-8256106635eso642372a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 14:11:34 -0700 (PDT)
+	Wed, 21 Oct 2026 21:13:28 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-81ba09a5d23so1117067a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 14:13:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792617094; x=1793221894; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792617206; x=1793222006; darn=lists.infradead.org;
         h=cc:to:message-id:content-transfer-encoding:content-type
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=MqdkwnXZrZ+WSeQ8sJhYzDlGNeCAoHXJu9T3vCXsEVQ=;
-        b=KrVh8eEhV64dS/t55WHLdjA7/9OVrOe9jiYPkRF2CNM9nfMMBd/F5WWQI53baC9lxM
-         hZr6M6+cE7o78Sf7j5+xaeu5yUnIpiPRp16QXcup8CE8RWxkhyizNbiCZr1KLRPBl6JP
-         0xaUuLg1FXeOaukqDx2hZwxN4+ZDuXD2GrU0p7AYzfIYpWYzq1ch7Y07MPl0iuEc6z7M
-         A8dPWpBB11mSTKfX1SrBSx5lKsqKiP5ZrmHIEEIbGNNj9kXTe3vngLsuMI4wZSX93Mex
-         uRIDxnKIrP7WnA7nlxtgNKw9iDlRvgE3THr23cE3gA3jOBEMiZBxSnE+aIWMrpK++BDr
-         Zmdg==
+        bh=/7ngeHbVYERGvM2jFGnKfOGGvB7UaeEskne35/Ksbe4=;
+        b=BvdSkBr23U4XfKaAmsWFtOR2QK+WPXhc4zElp3mf2HdobNMlreOT4oBlxkWTjZ0Eex
+         09bAA07dd6nHfcupVORO/vD505/jfIvisQSZh2wABZIe4T7CUUkkUHiTnumJ2ZCcejbh
+         9aSV0MITxZI4V4W7UKP0wZQf5EB61q3Q89byR4L8fDPxNPRSP+VUDpLCtzlHbQWT0Zbq
+         nCGUdT4QWpkikPqag4xZ2gQwV5TK1m/oaRE6oEkI2w4xoKYKvA0LLMuerOyPdUcsBqaF
+         SP2ics74PsnOAgmimdSyrNXCbqlFWKFrTpgBZnu6MZB4iYBwKjN9ot0ybVAMiy2pRQfo
+         3KBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792617094; x=1793221894;
+        d=1e100.net; s=20260707; t=1792617206; x=1793222006;
         h=cc:to:message-id:content-transfer-encoding:content-type
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=MqdkwnXZrZ+WSeQ8sJhYzDlGNeCAoHXJu9T3vCXsEVQ=;
-        b=qFlXe0XGouAN2cEbnJJiFmk7fy8fkW677RxveBx76ZHKr+Ro/V3QulJz93P/aD3ml5
-         CC/oEKgdkW+ZW9ZRoWx+a25ioSYMank18ibgdOTHBQ7+XvHTef7yrExHR9a/81jIHxZh
-         UVux1isxg0y3lkP6Fi5QOQYtWHM5QHLUdho7C8ZSb+JU7+XW+hO2JLloX5BX5gBl/iJs
-         AZjLyGT4wmjih8lqAIZbj3STw2/gOEvXLf/pFscQ8caf6uaCyJcsLive3/dWZIg3d41V
-         NPIOuv0ZoB1ReDiigO9tRob9muKQ0XKwFCy2VOLlBU4F7uHC0gJFVvYMses1D4B1jeAF
-         ontw==
-X-Forwarded-Encrypted: i=1; AKwUvBxXZdK9HZS7UuTYfE2QYcSrfFLpW36BXfhPDd08sI8baFVehdRJuSFlTxHDH2b7cnnd8RZIiXBxY2s/iF3Wy9nz@lists.infradead.org
-X-Gm-Message-State: AFq9FYIbgNp/jOLRLr5f9eb+o7fLnV3g9xf5G607y4GUp61w/U5H6uJ5
-	JjCuWWJKpMS8JZuAxXVZdvhUOEP6PAEJFyViutC0fv/W+1YXXcR0+GQV
-X-Gm-Gg: AYBFou1mQ+q0cRtBe+zDcEQDA9v+iXshMI5YjMbtroRi6TtOp5sTx7wPoQSzCd5rO7J
-	CN/nTasBiCQLXws33MMSSpd11FL8tNLguKxcuGWL27oPVxPF6NvLW0BegjR03JIFzqADfqOPSvJ
-	56jiV4NUriJgS+PO5VEEPwzyxi91bmqAdEN4cj7aBuiLyhNjIzE/WrtcjJUKGNyEi9QXRh1r5np
-	+heKbEG7SPVJ0zoH8+s+0hKTYJhD2C6e1Wzgc/juld14SetR3AjUQ3KK6F+CKLOAhmp9x6OGjMR
-	pu+CzWM8ztwOyTs2NEoBnTN3a2x7lj6GC7at5JEEckgdkdT6hyTanHq2VdLyKEYAQT4qFqbgdCN
-	sGk1uiJ48Flbl+N0y1OqLaNni8HzsWT6FEv9h+ID2crRFSzvOvpPl3htiCFdiYVaoqROKqtAAOq
-	D8hc7vp2TwP9xzxfzlT99Irr7vfV/0mMDCL1vwwraok+l7Rr2Km0e0MwZ1yX9SvaMz+WC0vNGpN
-	1e3pD9ko2f7DmbqlqgeZrBJPgLsiqW3N7/VvyRX19ZTvAVAXXgv7wTx02bpS+bKhOW6pybImJSa
-	ciFHvjk/x7fG595+0w0iilSTdj4QjpxlGQq8JO5XOBAJ14+itgjZtheM3V/ygLobuluutSLLo11
-	T1/yCrNjdZSUZ7ioxZCuGyr5BwjoMlt1t6cOksloapUN4BZFviHuXgkYA9XC2mZsOQM2SzMkUOI
-	Hgb2s=
-X-Received: by 2002:a05:6808:1645:b0:4f7:a3f2:d8b4 with SMTP id 5614622812f47-5536055db95mr2302438b6e.65.1792617094073;
-        Wed, 21 Oct 2026 14:11:34 -0700 (PDT)
+        bh=/7ngeHbVYERGvM2jFGnKfOGGvB7UaeEskne35/Ksbe4=;
+        b=LYZ0zK7B413kZQma6wnBqJ4k4cg4tJiz03NDNGCSO9DGVhnRbfelbMSRQ4MHWCQ1dA
+         Ta54zDd+f5cAb8Ip3m0iPqzIMA43uzrAjtCgW7iYbqyC26qMhMEq//uKK+DpL4jfWIsu
+         8J70+RIvJ4D/Z333Zov0C/sMA3eJnG/uucCs+Hp51JYFoYcPEgYVEW8cSWYBEWWac6fi
+         0IiXUdLUXWEh1hry2IYjg/vckmRPoIowKcD46qdDaR516BQyEiei3o6TaCtiTJJZ/Wu3
+         MvUz5/TeuPbaHHj+zK8WOCWPXRRx2furr2koSyMwZItBIhBSU6/0WlD2Zv9QpcaSfNb1
+         /3CQ==
+X-Forwarded-Encrypted: i=1; AKwUvByEj/NbRJcoG4oGAlq3QG6ChRRXH4JXj/1DyslWg/vlHxU3UnQbJwxTAe/HM/vQ5Ds3BHug/nEGtZpLJIqlK5UR@lists.infradead.org
+X-Gm-Message-State: AFq9FYKXY6of0f65fJH5Nf4TlAgczN3Zg1T6KeBOLVKm4t6AvngaMaDt
+	OqZAqw8HG602jg/wZhR1JpveobD0f5AsMk1+Ik83kwA2e/RlG64CikGk
+X-Gm-Gg: AYBFou397gEVBH1n/POkVW2qfDHEkgr3kuGA+51UGKsONEEbXd64o/n6gq9CmM6Ifrg
+	K8mxiMc/m0t5+Dihf5xjdJgwelvPt3ApBPC0fzZJx0PdvCUryKD10iyd8I+kJSfzUy6O+5a2Vbz
+	cAG2Yyqv3wmZJDEXwR5YY0pKKYTUYTf2tgGaoG4Uwb86A17BWgooBgEulWCxnSkm5aznV4B7inS
+	zph7XI2eWWRbXVgM/SqL35A+JxcUcuXJ/HiMGLc7f31gkfZFZn4fxYiyN/TqdA8FrdhTruofIyw
+	wOBiCfmJ8eIMgk3IVk45TGtg3BCfQlob11ECufBsxvDl0xbQi+8RhnbMloo3g32s0/BJv7RmTNI
+	7/eQO0eswrRVP/tPhOVBE81jKXRJ+NCdMJOEedK1CkQwRj+wm7bbsD9J6HcRzvGt711ZJ5b+hjh
+	/TFjg9DtS8O/Bc4exKdT3+G22fp61wxxgPS5kSVwPJsdweCXp5j+4wd/44wGtyAmxGrn/Wf5NCl
+	lGk3ENk5s/avbGHL9zXMp5m0m7w90mL/asXEgPQ83/RT4UGHDFwJufbWg7pa3LnJU2Sqtf2D/Te
+	0LfYF6PThaGJO3EAnzu6Bz5JMQxJJ/AYl/7hiRQvwCHYv9DJCysGEQAhcW/Tv/PG0qHf1iwsxfh
+	PPxjbkqmTDJWq2a1mTQeUhtC+I27VtUDOZP7a0n4xDHNX4D6/iiLv7XFtwLLZpKIo+hNGLfWiB8
+	KPu/U=
+X-Received: by 2002:a05:6830:3495:b0:806:9a8d:4b9b with SMTP id 46e09a7af769-84d0890bfcemr2646685a34.15.1792617206105;
+        Wed, 21 Oct 2026 14:13:26 -0700 (PDT)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-552b583fd57sm2806628b6e.8.2026.10.21.14.11.33
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-84cbcdd9d82sm3219421a34.10.2026.10.21.14.13.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Oct 2026 14:11:33 -0700 (PDT)
+        Wed, 21 Oct 2026 14:13:25 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Wed, 21 Oct 2026 15:11:29 -0600
-Subject: [PATCH] dmaengine: sun6i: constrain descriptor addresses through
- the DMA mask
+Date: Wed, 21 Oct 2026 15:13:24 -0600
+Subject: [PATCH] dmaengine: mediatek: uart: synchronize completion
+ callbacks
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261021-submit-sun6i-dma-descriptor-mask-v1-v1-1-76e72bd52e57@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWN3Q6CMAyFX4Xs2kY2IlFfxXCxnwrVrJB1EhPCu
- 7vJVfOdnPN1U4KJUNS92VTClYRmLqBPjfKT5RGBQmFlWtPr1miQj4uUy+GeIEQLAcUnWvKcIFp
- 5w6qhuzjXXbW7dcaqYloSPun7//IYDi6aF/pc1bXhrCC4ZNlPNSpe5JEYz8du33+vDdddqQAAA
+Message-Id: <20261021-submit-mtk-uart-dma-synchronize-v1-v1-1-4f7718cfef41@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNwQ6CMAyA4VchO9u4DVHiqxgP26hQzQrZBlEJ7
+ +4mx79pv64iYiCM4lqtIuBCkUbOoQ6VcIPhHoG63EJLfVZSK4iz9ZTApxfMJiTovIH4YTeEkem
+ LsChQTevaWta2uZxEhqaAD3r/n9zue2fliS4VuWxYExFsMJkpo2wi98R43O+27QdSLGkzqAAAA
  A==
-X-Change-ID: 20261021-submit-sun6i-dma-descriptor-mask-v1-35bb381b932a
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>
+X-Change-ID: 20261021-submit-mtk-uart-dma-synchronize-v1-158c8303b574
+To: Sean Wang <sean.wang@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Frank Li <Frank.Li@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Long Cheng <long.cheng@mediatek.com>
 Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
  James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_141135_160713_79D882A5 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20261021_141327_110833_66FB4BB3 
+X-CRM114-Status: GOOD (  12.13  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,75 +114,57 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
 	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Descriptor allocations pass GFP_DMA32 to dma_pool_alloc(). The DMA API
-chooses the memory zone from the device address mask, rather than accepting
-zone-selection flags from the driver. These flags can also reach the pool
-metadata allocation and trigger a slab allocator warning, as observed on
-H616 when preparing the first UART receive-DMA chain.
+Terminating a UART APDMA channel waits for its interrupt handler, but
+completion callbacks run in the virt-dma tasklet. A callback already
+removed from desc_completed can still be running after termination
+returns. With no device_synchronize hook, dmaengine_synchronize() does
+not wait for that callback either.
 
-Set a 32-bit coherent DMA mask before creating the descriptor pool and
-remove GFP_DMA32 from its allocations. The driver does not encode the
-extra descriptor-address bits supported by some variants, so descriptor
-links must remain below 4 GiB. Keep the streaming mask unchanged for
-variants with wider source and destination addresses.
+Implement the hook using vchan_synchronize(). This lets clients finish
+asynchronous cancellation before reusing callback state or freeing DMA
+buffers. Keep the callback wait out of device_terminate_all so it can be
+performed without locks acquired by the callback.
 
-Fixes: ec31c5c59492 ("dmaengine: sun6i: Add support for 34-bit physical addresses")
+Fixes: 9135408c3ace ("dmaengine: mediatek: Add MediaTek UART APDMA support")
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/dma/sun6i-dma.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ drivers/dma/mediatek/mtk-uart-apdma.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-index 7704b016aed8..0ef6ed1f936e 100644
---- a/drivers/dma/sun6i-dma.c
-+++ b/drivers/dma/sun6i-dma.c
-@@ -684,7 +684,7 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_dma_memcpy(
- 	if (!txd)
- 		return NULL;
+diff --git a/drivers/dma/mediatek/mtk-uart-apdma.c b/drivers/dma/mediatek/mtk-uart-apdma.c
+index f74e9a328588..7583c287da5d 100644
+--- a/drivers/dma/mediatek/mtk-uart-apdma.c
++++ b/drivers/dma/mediatek/mtk-uart-apdma.c
+@@ -440,6 +440,13 @@ static int mtk_uart_apdma_terminate_all(struct dma_chan *chan)
+ 	return 0;
+ }
  
--	v_lli = dma_pool_alloc(sdev->pool, GFP_DMA32 | GFP_NOWAIT, &p_lli);
-+	v_lli = dma_pool_alloc(sdev->pool, GFP_NOWAIT, &p_lli);
- 	if (!v_lli) {
- 		dev_err(sdev->slave.dev, "Failed to alloc lli memory\n");
- 		goto err_txd_free;
-@@ -743,7 +743,7 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_slave_sg(
- 		return NULL;
- 
- 	for_each_sg(sgl, sg, sg_len, i) {
--		v_lli = dma_pool_alloc(sdev->pool, GFP_DMA32 | GFP_NOWAIT, &p_lli);
-+		v_lli = dma_pool_alloc(sdev->pool, GFP_NOWAIT, &p_lli);
- 		if (!v_lli)
- 			goto err_lli_free;
- 
-@@ -826,7 +826,7 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_dma_cyclic(
- 		return NULL;
- 
- 	for (i = 0; i < periods; i++) {
--		v_lli = dma_pool_alloc(sdev->pool, GFP_DMA32 | GFP_NOWAIT, &p_lli);
-+		v_lli = dma_pool_alloc(sdev->pool, GFP_NOWAIT, &p_lli);
- 		if (!v_lli) {
- 			dev_err(sdev->slave.dev, "Failed to alloc lli memory\n");
- 			goto err_lli_free;
-@@ -1345,6 +1345,11 @@ static int sun6i_dma_probe(struct platform_device *pdev)
- 		return PTR_ERR(sdc->rstc);
- 	}
- 
-+	/* This driver uses unextended 32-bit addresses for descriptor links. */
-+	ret = dma_set_coherent_mask(&pdev->dev, DMA_BIT_MASK(32));
-+	if (ret)
-+		return ret;
++static void mtk_uart_apdma_synchronize(struct dma_chan *chan)
++{
++	struct mtk_chan *c = to_mtk_uart_apdma_chan(chan);
 +
- 	sdc->pool = dmam_pool_create(dev_name(&pdev->dev), &pdev->dev,
- 				     sizeof(struct sun6i_dma_lli), 4, 0);
- 	if (!sdc->pool) {
++	vchan_synchronize(&c->vc);
++}
++
+ static int mtk_uart_apdma_device_pause(struct dma_chan *chan)
+ {
+ 	struct mtk_chan *c = to_mtk_uart_apdma_chan(chan);
+@@ -514,6 +521,7 @@ static int mtk_uart_apdma_probe(struct platform_device *pdev)
+ 	mtkd->ddev.device_config = mtk_uart_apdma_slave_config;
+ 	mtkd->ddev.device_pause = mtk_uart_apdma_device_pause;
+ 	mtkd->ddev.device_terminate_all = mtk_uart_apdma_terminate_all;
++	mtkd->ddev.device_synchronize = mtk_uart_apdma_synchronize;
+ 	mtkd->ddev.src_addr_widths = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE);
+ 	mtkd->ddev.dst_addr_widths = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE);
+ 	mtkd->ddev.directions = BIT(DMA_DEV_TO_MEM) | BIT(DMA_MEM_TO_DEV);
 
 ---
 base-commit: 93f51579e7df248780214094418f205253383cc5
-change-id: 20261021-submit-sun6i-dma-descriptor-mask-v1-35bb381b932a
+change-id: 20261021-submit-mtk-uart-dma-synchronize-v1-158c8303b574
 
 Best regards,
 --  
