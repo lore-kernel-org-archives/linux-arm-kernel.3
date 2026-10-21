@@ -2,70 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61CDB60A380A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 13:23:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77955606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 13:26:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y7VPL3dW;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mt3hXrxe
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MI1ukxxA;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RZozsfb0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pAAU30bwGvhgKc2fcWmaPUnM+q1nxRImGaxZJ4BonqU=; b=y7VPL3dWIYO8CVL0f79xYraLmC
-	WMtZxuIRkxceVi52/sOeVuam1ATEMEwEALiaVBw5z6XJjiQscZo0/jp7uwiPWUBA/J/ScDx9ahF7B
-	ts96mlWS3eX2GLVykp7YEqzHaQeoudQH2ckpSM4ffzB2bEzAbBcBXIY9qcgOYCCmAAx/jWukj0gpV
-	hkzASQHHfp1Dnd85syEaNtVQ9EqPd7x5DGR9e97s3hL90ibVfU1AgXaivj4qfBeKHA8P6McTHfSEZ
-	WVKK4NWcNYneaqdAcNQwrckn1BQSi4UJj4rGTjbjkjz8BaF+zE2m/KkpQ3JBBh6+kVPcYdHvYnm7Y
-	1sw2KHiA==;
+	bh=WmpDi7uAEvCBbE9BhvFq4d4HOMx3zfGqFapjUnsxTxk=; b=MI1ukxxAEmqATze5ain7SN9LjH
+	oX/G74qRizBZ4CWNUY55VIs9EAoxtM9M/wRqQrGINM0WBwTLq4TWaUlbIFrHnyfLfxNkOFfF5mIYU
+	gpWN3qPSuNEd6eQ3avGUwRPcxR5fsBtdxZ9gPsIt8EsPoS6QmFJuTlzsVwz+C6X+17eZptDvukbJv
+	KkRbpZLDZomPBZrBABDcqSzqxus2aPo8WZWAvkVez/qlyQu0mV9T+Hw707l8/keaK0zJKaVxhOF3p
+	/TKOyCMH9P8x9oYhLiYF0G/xkASoyLUoPvwCZc+yOirYCPvopkyeMmqQCIQ+toCVq5Z/guz0cvfL3
+	63caWF3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJWHg-0000000Btdz-3pkj;
-	Wed, 21 Oct 2026 13:23:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xJWKM-0000000Bu2G-1kGz;
+	Wed, 21 Oct 2026 13:25:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJWHf-0000000Btdb-2TOp;
-	Wed, 21 Oct 2026 13:23:11 +0000
+	id 1xJWKK-0000000Bu2A-2st8
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Oct 2026 13:25:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 89ACA601F1;
-	Wed, 21 Oct 2026 13:23:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 039AE1F000C4;
-	Wed, 21 Oct 2026 13:23:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BF3784146F;
+	Wed, 21 Oct 2026 13:25:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A19F91F000C4;
+	Wed, 21 Oct 2026 13:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792588990;
-	bh=pAAU30bwGvhgKc2fcWmaPUnM+q1nxRImGaxZJ4BonqU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Mt3hXrxeKJoJfLibADZIcsXR7rI+NO9d5jFB7CsWQi7wKkA7Ivi+NuujoLsu6N0Sj
-	 xeAk+R1NrRVYx1sYEncPNYK1tOB4gOmoV/soXvOeMmPj9evSIL4UZE8ME5ru4NQo5h
-	 rdmao/ez90tKUwo3/XUgCH2iLLiz95UkX5/e2YrP1miGaCfo8O/R8cfIYLVig3VVnr
-	 r1iNDVPFLS7bpM7kU7EAqqH+8hkxOiLRbqqi3tb+hZaOnZwWSQEHk7khqjrR4q7t3A
-	 S0lU2etMBYUN25UboD24fjrlEjMmDt+fIwEsaB4T+GmpTzCmxcQVMevggk/I2FaJ6K
-	 4dRr3m+UTBq7A==
-Date: Wed, 21 Oct 2026 08:23:08 -0500
-From: Rob Herring <robh@kernel.org>
-To: Wandun Chen <chenwandun1@gmail.com>
-Cc: baoquan.he@linux.dev, rppt@kernel.org, m.szyprowski@samsung.com,
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
-	chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	saravanak@kernel.org, akpm@linux-foundation.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	ruirui.yang@linux.dev, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-mm@kvack.org, iommu@lists.linux.dev
-Subject: Re: [PATCH v9 0/8] kdump: reduce vmcore size and capture time
-Message-ID: <20261021132308.GB3667411-robh@kernel.org>
-References: <20261021083011.2170525-1-chenwandun1@gmail.com>
+	s=k20260515; t=1792589155;
+	bh=WmpDi7uAEvCBbE9BhvFq4d4HOMx3zfGqFapjUnsxTxk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=RZozsfb0ChtozlH8YnpQ1cvLafomzdAOPmTu3pessHUZEoHJL/MrAJMGUyG8k2Mau
+	 qgjn7jTqXt/flSpYgcfX+K+u9Rtt6WTRs7nnerWzG+lfXX72yz43wL50iwsPPJKrPh
+	 BurJWL0QMxEcsoqIxUtGh4HAtd6ygCCv05wCx3XJJauqJvLEW0V63lsqzdFt27ODpX
+	 Bokboc/Fk0G5plek7tBZwQnuhWbTRETuZcb9Pj5zyr7bs7jcgE9MJKUJ/M4lp74nFi
+	 H/wgoVGnz/lXgpcr+1zIM6WvSB0oSKy/kghjSMMLpQeMDAOk9W6jXM6IEP6nRJj+rO
+	 O8gs8ipyhpcBg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xJWKH-00000005cet-0YFY;
+	Wed, 21 Oct 2026 13:25:53 +0000
+Date: Wed, 21 Oct 2026 14:25:52 +0100
+Message-ID: <86pkx3yylb.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kernel-team@android.com,
+	fuad.tabba@linux.dev,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1] KVM: arm64: pkvm: Clear GICv3 LRs in the hypervisor
+In-Reply-To: <ati1DrtmMd-63bIN@google.com>
+References: <20261021110000.508827-1-vdonnefort@google.com>
+	<86qzhjz1iz.wl-maz@kernel.org>
+	<ati1DrtmMd-63bIN@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261021083011.2170525-1-chenwandun1@gmail.com>
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, fuad.tabba@linux.dev, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,37 +97,51 @@ X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 04:30:03PM +0800, Wandun Chen wrote:
-> From: Wandun Chen <chenwandun@lixiang.com>
+On Wed, 21 Oct 2026 13:50:22 +0100,
+Vincent Donnefort <vdonnefort@google.com> wrote:
 > 
-> On SoCs that carve out large firmware-owned reserved memory (GPU,
-> camera ISP, ...), kdump currently dumps those carveouts as part of
-> system RAM even though their contents are firmware state that is not
-> useful for kernel crash analysis.
+> On Wed, Oct 21, 2026 at 01:22:28PM +0100, Marc Zyngier wrote:
+> > On Wed, 21 Oct 2026 12:00:00 +0100,
+> > Vincent Donnefort <vdonnefort@google.com> wrote:
+> > > 
+> > > The LR registers are architecturally UNKNOWN when the CPU boots or
+> > > resumes. However, in protected mode, only the used ones are reset.
+> > > During boot the HVC __vgic_v3_init_lrs() is never called because
+> > > vgic_present is only set in init_subsystems(), after cpu_hyp_init() was
+> > > called.
+> > 
+> > Why don't you fix this rather than making the init even more
+> > different?
 > 
-> ACPI systems already filter reserved memory out of the vmcore through
-> their existing path: firmware reports those carveouts as unusable in
-> the EFI memory map, they get MEMBLOCK_NOMAP set in memblock.memory
-> (is_usable_memory(), efi-init.c), and the ELF header builder has
-> always skipped nomap regions; only DT-based systems currently fail
-> to filter these regions, which is what this series addresses.
+> Ack, I'll make a patch to fix that first.
 > 
-> This series introduces a MEMBLOCK_NODUMP flag (suggested by Rob) in
-> memblock to filter reserved memory on DT-based architectures. A new
-> flag is needed because MEMBLOCK_NOMAP can only express regions without
-> a linear mapping, while MEMBLOCK_NODUMP can filter regions that are
-> linearly mapped. Reserved regions are marked MEMBLOCK_NODUMP by default
-> so kdump omits them; reusable CMA regions are different because their
-> pages are handed back to the buddy allocator and may carry crash-relevant
-> data.
+> > 
+> > > Also, the PM notifier isn't registered for pKVM and the HVC
+> > > becomes unavailable after the host is deprivileged.
+> > 
+> > Sanitising the LRs on PSCI_ON is probably the right thing to do, but I
+> > don't understand why resetting the LRs is out of reach from the host,
+> > given that the host is fully in charge of the interrupt injection, and
+> > therefore controls the LRs.
+> 
+> I suppose I could reinstantiate the pm callbacks for pkvm to at least reset the
+> LRs?
 
-There is little point in continuing to send new versions until Mike 
-agrees with MEMBLOCK_NODUMP being added. You didn't answer him on v7.
+I think there are two different things:
 
-Also, I intend to apply this[1] before any further reserved memory 
-changes which will greatly simplify the code.
+- pKVM must not rely on the host resetting the LRs once it is
+  deprivileged (that's the PSCI_ON case)
 
-Rob
+- pKVM must not prevent the host from resetting the LRs (that's the
+  "mind your own business" case).
 
-[1] https://lore.kernel.org/all/20261015082315.56876-1-m.szyprowski@samsung.com/
+Both need addressing. If that means the LRs get reset twice because
+pKVM inherits the PM callbacks, so be it.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
