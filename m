@@ -2,74 +2,145 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B811606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:33:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DC2D606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:37:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kUdGx/QV;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EL71qw1T
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sDwYUJIp;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=ucX01732
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZO0R7AUCd3fn8n7Ia6A45uzQOJbzCgxNKEP+cM/ZrgU=; b=kUdGx/QVnbkpIG1Q3zdxKBbqe0
-	LiHma4MwXDleS70qW4khMrKSQLi+Ex+4CBeybOqahrkRnkDTdX4msnRyPaMhRTDtyGcfjHuo8xpDo
-	EP/iTryVsiHnDebJe8pLnmsp5nkl99Y2NtBVDHlUXOMOJlDS6kPrRi9jXlgVsl5IBY9ZsomN9PS4j
-	ib/riDKRHmiX9CfGCn2czPRw1jXFrWBTf3MlIBTwvHrqWzZ1g6+ndIsZjdW9dKlUke/tnPHh6BNrh
-	2C/zUtaJOnyEwj3L5XirFlSYg36QTVI7N3ui/x3qqvH480hQbK81oFICCBd+XRvRypk9+r0ZqEQrR
-	ITn/XHgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/zOBCCMcC9+Ss7AsuwDjFtkz7VCjAw/hS+sgCQ3RMwY=; b=sDwYUJIpequs0gxqDvV608NJwM
+	hKvx608+uejPNtg6t9oc8AxTzP0M6HfSpZlIDDGe1uwJw9Lk9qKI4UeuhEUaw4gIfDQR2KXukq/Gn
+	bwsTuTkYBXWkxRaj1GhcIzTTbZ3cswSQEQZx39/em73GT5FDn46xYgb3YqrQ7CRnSeEpprNhfoId4
+	aDDAsKu4vHIW2F2PP/QBqU4gXdApHM6ZXLCJYFffLUCqgMyES/HJilaYSIY2vPOP7bgP6IR2kqxf2
+	0ky9oGWY12ebj3OOR6Dsnb9txmN/xJT4+FnEmQTkcbwA494CN1+YniUVv7uVLzrW8EF+Vzu912Yju
+	Tk2uuBaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJXNN-0000000C6jW-36LV;
-	Wed, 21 Oct 2026 14:33:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xJXRT-0000000C7GC-1ALi;
+	Wed, 21 Oct 2026 14:37:23 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJXNM-0000000C6jI-0zAy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 14:33:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DF43B43ACD;
-	Wed, 21 Oct 2026 14:33:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 177EB1F000C4;
-	Wed, 21 Oct 2026 14:33:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792593187;
-	bh=ZO0R7AUCd3fn8n7Ia6A45uzQOJbzCgxNKEP+cM/ZrgU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=EL71qw1TUN5cW41RTrsuoUw2znHrbg0f1ajBkG3QMsazwtTvyR5ZaKNIoRrtyhDm3
-	 eJoFN849bTc5gPNLOoGIwAi96XBWmfWNXRJPjqhHeLgyIpEECXz/PIY/5+tBoVUqvS
-	 FycVxB/tvFuRBDJBI7/bl6CHcuuUoSMWSjCIbOprgClI1lXMMJ7T7lJ33lh6IiKHN3
-	 4gvi8ToDmBdVy9uMYzhuc9LF6HWJtT7SDee7mCoPBl070yaAF+gb6DOYv5htAqZT+Q
-	 L59pNgrK82cbE4BIL7BNqc6SaVyGhp6alH/KhEP4YCwhKSoRszm7hGQ/OYWwsf1zhY
-	 FjhRmN46nG3eA==
-Date: Wed, 21 Oct 2026 07:33:06 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Kurt Kanzenbach <kurt@linutronix.de>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Paolo
- Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>, Daniel
- Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev
- <sdf@fomichev.me>, Song Yoong Siang <yoong.siang.song@intel.com>, Mohd
- Faizal Abdul Rahim <faizal.abdul.rahim@intel.com>, Ong Boon Leong
- <boon.leong.ong@intel.com>, Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>, Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
- Nicolai Buchwitz <nb@tipi-net.de>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net v3 0/2] net: stmmac: Fix XSK crashes on stm32mp2
-Message-ID: <20261021073306.61972417@kernel.org>
-In-Reply-To: <874iefjjan.fsf@jax.kurt.home>
-References: <20261013-stmmac_xsk_crashes-v3-0-50fca7790af2@linutronix.de>
-	<20261020140849.12fc79ef@kernel.org>
-	<874iefjjan.fsf@jax.kurt.home>
+	id 1xJXRQ-0000000C7FJ-2Rhl;
+	Wed, 21 Oct 2026 14:37:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GOZOWsqsMYS62hxWa2g5YwWt3gOrMB+7p/XxT540Q8ZGYGSobRrigOSLoS4OcWarynBINPF7Vdidn9fOuxhehh9xFzxMO1RvsUVNQX45nNNcB7Zr/i0+bM1V7mq+AxingWTJDlOdg28DHV6x76YG5byCRJsRQQl2DGjz3SYl6jCgWhXDPuBBXZiV3I0ysGcNeOjtkZN0XzzC1LiEE191J0/aR5y5aUWQqdZw3PWctDzuKiC9V4wg694sx6kbP11cP84SNnxvUsvaKSzUc3R44k7d56Hp755fn1mClXR2bGH5I+TTwmDpjhglzo0iOZeDllCm4CUjfCEa3QdqzBKsSw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/zOBCCMcC9+Ss7AsuwDjFtkz7VCjAw/hS+sgCQ3RMwY=;
+ b=m5jhVwzXtevM7bSV+gMpQ3SSKHZ1AtQhkfw+HItp+gmI5S5IWPbmu3jDLrtjfrvpnFoD7bfsPye7GttQUV8NCW4z7BgqkczE4h4WEFsO1+JoRpMmrxbqpD7BlCLTmaaZJ0Tetawy/1vcLhNI9hSfxQVFxcel3hh64AKjT7xnjnCsxr6IA/4Sc3iHGtNDsjBHaVfdxSJ7Fb1dCbIHNH5V+9J3mqQc2c2VJV75cpPgvB2eI80jRliRZFya90UgkqObnoLhWdWbFiQQiKP5zDxmck6hxfq/qm32/AUFQKWUosAnrQMPC+e8sFeeAAn7H3V+1+4BQps7CK6j/V32JJ3IjQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/zOBCCMcC9+Ss7AsuwDjFtkz7VCjAw/hS+sgCQ3RMwY=;
+ b=ucX01732tOwOVCxYuVyeV0CYv22VdmrUOroa+Niuf4fZw271evv+hIaw6C179e6w0DNfzKGYY6KYZd5dwbG3fipx40ZQBHSUTmzBWfr/n5afeglRBd/Ua8i9UXdyVacYhquruS1LI+ie0TvAySCUEO2aDQMDYiDk86GG7kK1QnIMVHNRAKa+RIXvgozj0jhht+MpcEa2Jje+Nf/2lvlUZZMB+gEOVM8XDvUUWeo5tVEBLHdcC80q6bG/+hjy+pwHyHl7hQ4Mz+n3xBRGdnuJen+JID5Y4/KzQqjIKfEYCrqwCOTSrm/+jxWk1Mtu0hqfKbLrFzfPDHo1x3Nfy7PwJw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by VI0PR04MB554873.eurprd04.prod.outlook.com (2603:10a6:800:361::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Wed, 21 Oct
+ 2026 14:37:15 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
+ 14:37:11 +0000
+Date: Wed, 21 Oct 2026 10:37:03 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Junyi Zhao <junyi.zhao@amlogic.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-i3c@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
+	linux-hardening@vger.kernel.org, xianwei.zhao@amlogic.com,
+	Kelvin.Zhang@amlogic.com
+Subject: Re: [PATCH 1/3] i3c: master: Rework SVC I3C to support vendor glue
+ layers
+Message-ID: <atjOD0PwVGDeh2uL@lizhi-Precision-Tower-5810>
+References: <20261019-a9_i3c-v1-0-329d819d621f@amlogic.com>
+ <20261019-a9_i3c-v1-1-329d819d621f@amlogic.com>
+ <atZ-YyEmG-KvUZAF@SMW015318>
+ <887f0b2d-3a05-418b-bda5-0b01abbcb409@amlogic.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <887f0b2d-3a05-418b-bda5-0b01abbcb409@amlogic.com>
+X-ClientProxiedBy: DS7P221CA0028.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:8:25c::14) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|VI0PR04MB554873:EE_
+X-MS-Office365-Filtering-Correlation-Id: ea2be661-942d-411e-7295-08df2f80caa0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|23010399003|366016|6133799003|18002099003|22082099003|11063799006|4143699003|10067099003|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info: OK5scHxVYjktj1WRuMSTmAjb7hi7fIXj/6fRuR1Np7oPDnIZk5SQy9inA9ByGClZiO+xwAwxGgqAbMC0vteHFau4KnEhtnTJV+W9goCbj7E+RXanri6uj5ki5biYg74tq93RERPXFK1UuU5/EG9D/7qJTALgVD2VrEcrVRzmsK1HDAyDo/I8wVhNIQXfIhWZ0Z7tXBqq8oSJfNvZ9YJWKF9hmubQftZTS+TAO7shEGnevUFi3t2Ze1/WqAF8mxMUcJ7NYqQbbWO4MEAj49CwhusaMIDP9EWwG41XDhmo/AQP7QoKch7kSAhyqTuY4WtTWTKNqbCOIyeF5YoCImcZ6Jzd5uLX5mbSbz6H8Q1IMGKgP5WzbQte2g8rOl5NR+uiT6sdbqATq35JaeyGz+FTRGZtJtG2JOGSi1VVAkiMdCX7Yj9QMXYdYizZ0RjONMsP9xNi5J0JRj0mV0FyezuIStiATZC3OxuhmRv0lE2tbeeuVtGhzGQ0r81bs22rF+eqYgKpZivVTURBSQ3UbkoIObwgT5zKjKEcEWbjJMmcZ8veENSRn/H3Di+cQEHKvk5uGg9vzXWSedZc8ZCNtalXRFoo4dtjDZYxHd8BHE3kgdfrjx4uVJM9DI/iP0uz4iGf1ZRehYb5R2fKdpmmCxvAlKBWEx9YELDlJgs/ASprHSg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(23010399003)(366016)(6133799003)(18002099003)(22082099003)(11063799006)(4143699003)(10067099003)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fH/Nm9VMbmbm3c28hmsWRmiGP9n4j3LGGRwyiDSKkooLNYRdD2t2HwvBWFMz?=
+ =?us-ascii?Q?vRfZVXZODkeSxJlHrls+V/ORzUpBnQOgVyJ1IkSZ/RNr7t3iXN+CL7HTwJmK?=
+ =?us-ascii?Q?8Cb/WZSADbEJAG+wdK5B20Sl6rX43ITsMXkq6B6ggAqVAwcSeR0jC5IzlNJ4?=
+ =?us-ascii?Q?ngxghJruXvIEITL5GOuWGXSll2RdPIBazg+YMUFevwH7KjcCFplCsvBDex+2?=
+ =?us-ascii?Q?uSH/vW4egEqN1SJ5vIZ6YBOumfSsBhEhf9UtTFeH8VBKCkXB8x/AfAHos9Sq?=
+ =?us-ascii?Q?1kmiv2IIHn+XCueZzbIhuA709K2eK3dDVuKWsePio/j3qjTmesYXvHj5pGT4?=
+ =?us-ascii?Q?vVumRw0uF9HH1qoG7l5/22mQXtSvk+s/PyHImeBUKV3OQil0GB19xxxrlpIR?=
+ =?us-ascii?Q?qlIlRVYgCL99KExclSalZf2IR4UUSnkbbl1QnWciTQ9IhZwY0199oolPwLtm?=
+ =?us-ascii?Q?Q1M4uK6Y3HVSgfujHUs/H0pEpwSox+SecyEygLpbw6oyjtpxcSRh1SlMLJT/?=
+ =?us-ascii?Q?Hpxzu0A81W0zLLoUgXEjaO4mL8lwfKFOJO8p1p9vNWAMgr87zpmpUb/KlSi3?=
+ =?us-ascii?Q?qnEDSctuIn9bi5PEeFhn9KDgE3eV+5X/VZcINXvL0ijmGqmoWFrqZVs85AIo?=
+ =?us-ascii?Q?t5erYDowYx7isWzw5Ae2zVegMTgslKly1DAn3KsFxlg1LM0/nyrmaeE2jZ1c?=
+ =?us-ascii?Q?UUVCXfbZBjKsoPM+yNBlhdLnCcvqjh2/yB6BNDIaIsS05AnuQKUF4Hk+b5xI?=
+ =?us-ascii?Q?JxB6yTyzJokVzgZHTz1kJaq8chYCHp5KnQV5rih4FL3uw31D4XNJzXFqm9mL?=
+ =?us-ascii?Q?X2DAGjnD+Ga8AKvocQxlbwk0czwn1ApOKY980Co1rhX0acl7I+IemU/bvn/2?=
+ =?us-ascii?Q?gC6qpyoOcs2BBuXXiNKFLBR6ZcxoiyUiHz0Z5Cz+EcYc6IC8S8WDs4BXtHHL?=
+ =?us-ascii?Q?8dYuaWTIMYk25c2OWaeBU9rzQlctY7kCwFc/mH4/La3LSeWiJqjV/uKyne9L?=
+ =?us-ascii?Q?XPW5/R1sOz6bYn+CqQ1ialnjJW4fay25cNQXTTQBqFUTSjsw85HyFLtLLF3t?=
+ =?us-ascii?Q?Jj4lIHvI3vwOOhmknf6odrcPmSEEAZyzfOz7oOlbIhcDL3WtedqbdN2Odgwh?=
+ =?us-ascii?Q?4DWbzlg4nx92v+nrt8FZ0or0JryT/TCDFONRpKmrc1LdFAbkjXH+dFKqaRvN?=
+ =?us-ascii?Q?fwsTYs6v9WjxU19clEhtesdvzGpmChoTsQ5SrYY4fZj6EpdP39eFiR6y2xsU?=
+ =?us-ascii?Q?GCAIe3kBsInavroBoXBA4sJtNBp0iuSEr9a8bhrai5meDjX0nsNqSt3eIitT?=
+ =?us-ascii?Q?T1A8qvLP/r16PYO8QHsnWSTOur7dzXfNOaYvDZzer42UNSfK1ckTmwS5LBvy?=
+ =?us-ascii?Q?daLIFYVcH5znESa2MFRXNbU2dmAZuOz3N9FKG3AAfolu3UT1dX1vVY/wEAwx?=
+ =?us-ascii?Q?vnxYsBYu9UpwbA4sFhHWmeBIXQETpwoUU2Wrcm0TIDVnHNRd8/jiyrQMnLPu?=
+ =?us-ascii?Q?A8o96jTOkkz7ddvY6HX92DM5qfINo9UY1ga/EyCrX1hXADCOVBQKcToeVrBR?=
+ =?us-ascii?Q?A9FG8w7fDQEJcvdfjhQii8GSau3sTmASQDLN93Xpc599Eo8IyjXqcFWsZMww?=
+ =?us-ascii?Q?DqNVYHGYwqowoWtMVaUSsbYZYvokChFTuXOiQz2snSN2Pn9Mo7CAKqmsCuIh?=
+ =?us-ascii?Q?/dwH5q4vkmpFdcYZM/FbZVfpxMBuJyFiLKn86SRskZIp/GkFzF1Ge+9/F+g/?=
+ =?us-ascii?Q?5Wfg0Q6+kUi68bja5zh0k90bahYes8W55ibT2m201Wcg/0RHXXRh?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea2be661-942d-411e-7295-08df2f80caa0
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 14:37:11.2761
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: n/2YHTHgzfiwuDgUCGKB7fr6IGIO9ddgF6xE3FmkkIodcXB2BsO0EkJsz+K+w2WpvoBJ2m8pLRB1Of/R48fUKVCLLRWPmgkd3mazjPaLavX3XmyxndBNLCwDxobQAAzV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB554873
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261021_073720_625317_7104357B 
+X-CRM114-Status: GOOD (  27.87  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,25 +151,98 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 21 Oct 2026 15:05:20 +0200 Kurt Kanzenbach wrote:
-> On Tue Oct 20 2026, Jakub Kicinski wrote:
-> > On Tue, 13 Oct 2026 10:57:20 +0200 Kurt Kanzenbach wrote:  
-> >> while looking at the TBS thingy [1], I've noticed kernel crashes. That
-> >> happens when opening or closing an AF_XDP/ZC socket while parallel Tx
-> >> traffic is going on.  
-> >
-> > Let's respin this against net-next. The merge window has started,
-> > applying this to net would give us an immediate conflict and pain.  
-> 
-> I'll send this against net-next when it opens again. Thank you.
+On Wed, Oct 21, 2026 at 10:56:19AM +0800, Junyi Zhao wrote:
+> Hi Frank,
+>
+> Thanks for looking at this.
+>
+> Amlogic A9 used the same SVC I3C IP engine, but the integration of it
+> differs in the resources *around* the controller, which cannot be
+> expressed as another quirks entry:
+>
+> - On the "ao" instance the bus clock is generated by an internal
+>   divider (I3C_AO_FCLK_DIV_CTRL @0x304) programmed directly by the
+>   driver; there is no CCF clock to clk_set_rate() on, while the
+>   common probe assumes the fclk is a plain enable-able clock.
 
-I mean that you can repost it now, just rebase on net-next.
-By the time we apply it net-next will be net so to speak.
+If it is in I3C memory region, you can do that by use callback. otherwise
+should go through clock framework.
+
+>
+> - Amlogic added register blocks outside the Silvaco map: a
+>   DMA bridge and a bus monitor (0x200..0x22c).
+
+Does DMA bridge only for I3C? It should be go through standard DMA engine.
+
+what bus monitor use for.
+
+>   Enabling the DMA bridge later will need hooks in the common
+>   transfer path.
+
+We also need support DMA in future.
+
+>
+> Adding A9 support to svc-i3c-master.c directly, would make these
+> becomes if-branches in probe()/PM/transfer paths of the shared
+> driver, and the next vendor repeats that.
+
+You can use callback function in drvdata.
+
+> With the glue layer,
+> i3c-main.c keeps today's logic unchanged: i3c-silvaco.c is the
+> current probe code moved as-is (rename with 79% similarity), so
+> blame/history is preserved.
+>
+> If the file move is the main concern, I can keep
+> svc-i3c-master.c where it is and only export the alloc/probe/remove/PM/
+> interface for glue drivers -- the essential part for me is keeping
+> the resource handling out of the common code paths.
+
+Now, there are not much user yet. Rename or re-org only when it becomes
+complex enough.
+
+Frank
+
+>
+> Also, per Neil's suggestion I'll try modeling the AO divider as a
+> CCF clock in v2, which should drop one hook.
+>
+> Thanks,
+> Junyi
+>
+>
+> On 2026/10/20 4:32, Frank Li wrote:
+> > [ EXTERNAL EMAIL ]
+> >
+> > On Mon, Oct 19, 2026 at 01:34:26PM +0800, Junyi Zhao via B4 Relay wrote:
+> > > [You don't often get email from devnull+junyi.zhao.amlogic.com@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> > >
+> > > From: Junyi Zhao <junyi.zhao@amlogic.com>
+> > >
+> > > The SVC I3C controller IP can be integrated into SoCs from different
+> > > vendors. Peripheral resources associated with the controller, such as
+> > > clocks, may vary between vendor implementations.
+> > >
+> > > Rework the driver to separate common functionality from
+> > > vendor-specific extensions. The common logic is shared across all
+> > > implementations, while platform-dependent operations are provided
+> > > through vendor-specific hooks.
+> > >
+> > > Also add a corresponding MAINTAINERS entry for the SILVACO I3C
+> > > controller.
+> > >
+> > > Signed-off-by: Junyi Zhao <junyi.zhao@amlogic.com>
+> > > ---
+> >
+> > No big difference. Needn't rework svc-i3c-master.c, you can add amlogic at
+> > svc-i3c-master.c directly.
+> >
+> > Frank
 
