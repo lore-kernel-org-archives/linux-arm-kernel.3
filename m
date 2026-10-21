@@ -2,85 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E64C606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:18:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBCDC60A3801
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:19:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zOzN+GLa;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=GSL4SX2q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rlGdytqs;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J3YF5IEx
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=viVPNiO1h9d6x4944NBVmE7eQfOCbzUS1zFJo8DFT18=; b=zOzN+GLaZnxswMWpsOA0H2jsCR
-	WfhaqCKphWttBCwYd9XeCRIYsw4Q7Az0Aozk0IhadCDWFxDngamZx12H4L03fmz8kSnWdRch9+ZZL
-	VTy9IcA/K6VZO0+V2VnMhGRATR3z0bAfA9YT24I5otsmDQYQf5vTtCjZ3780HC0LrzYerFPpZGIbL
-	+sntMP6xBvjRy4fSzeqGFHbBhf6RfGLJmRHbI4vjjnYjdgU9tcpKErT49BXTRX4AUVe6VUavBgieg
-	SwCTk3YXVam4iFXWspOMTPY1oGQveIgro9u1BkBJmmWssDRR/xEAB8Ex1KtzLcWPnA72pZTI2X8jW
-	/5sd9+4Q==;
+	bh=UEVidBOtJkGIF4/dj6UUdp9Wd3YXp7nSAWdH8eAbb7E=; b=rlGdytqsVoVydvCY92kRncLQpO
+	STM43EEq6xuAU8dkWPhaIlN81nK20vQVWQFaTPdjReLSdtalMsd1hf1RbQXQxiOXHFiwJY19rnQKx
+	O8yR6nnExuehlJRLMDRy0gv4AB4KzONgtTtWuRVZRVLtRPgLLy980hl+6AUGZtrWHN0V1DlUC+o63
+	3y4coET3JlGCrHPf0r9vL7wDRMvl2TwknSkQqIwW6kpwJ/mrUV69vOCIt++UmUFIg6/cApihyZS9h
+	mkO/lQVbP4w56ToPCYKq9baL2gD6G/kG9XFYf/z4LIT+JL27+ARQH1zzNqF5A5m7ll6YyqD5LVkjm
+	3595bl4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJX8o-0000000C4UB-3Az7;
-	Wed, 21 Oct 2026 14:18:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJX8m-0000000C4TV-2NIW;
-	Wed, 21 Oct 2026 14:18:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D04116F8;
-	Wed, 21 Oct 2026 07:17:59 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A87AC3F7D8;
-	Wed, 21 Oct 2026 07:17:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792592282; bh=35GT5enIgjR3G0mGLGcskElDVX2rz4mcaIAbm4cF2TQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GSL4SX2qf4CN5QXvB+wvj8b0xDfdgXdSaWJenkWv2OXP6uHcg2mMSaUEenfCanmqw
-	 waL3JQZHkksN2EplpGp9cTP9K2BYk/qHOT/mNylNJEhugn51c9sqozipMSVMbXJNVU
-	 WD/XpwXx8b5tuTFXHOJje2t23dUHt2NZNquBmofc=
-Date: Wed, 21 Oct 2026 15:17:56 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
+	id 1xJXAQ-0000000C4kf-1pjj;
+	Wed, 21 Oct 2026 14:19:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJXAO-0000000C4kL-35W5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Oct 2026 14:19:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 47D5A43982;
+	Wed, 21 Oct 2026 14:19:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 091A11F000C4;
+	Wed, 21 Oct 2026 14:19:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792592384;
+	bh=UEVidBOtJkGIF4/dj6UUdp9Wd3YXp7nSAWdH8eAbb7E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=J3YF5IEx+f0xM3L6lGSedpqw1xZILeSBg9+qBCG3fPIh0Im2Qi3dVV9QwWk54g/Ow
+	 f/fUNUXG/IWtyORuoTDz/YC8zut+S8kBe6l1nKAWd7K/7O2DnxERSzSwOIDxd2Ky3G
+	 OUulGror7/GFlnXow42JXkVC36VdSWTiDalLfNb5CUi7HyDHauAuKmy49J+FBWi9g6
+	 y4SJUN4A6JfdAQJTet1Qwm7VwdtzEGpW3oYwNZFsIzB7LhhUrderhVq4JJdV+kozwK
+	 csXe7/1qYnBwKEZUDeAzIzzLb+VQ+mOYFntgFWrhkFs+ohgXlcTtqYfQ61laSvDyeI
+	 36QCVCxA9FeNw==
+Received: by traversing.sirena.org.uk (Postfix, from userid 1000)
+	id D42661CB526D; Wed, 21 Oct 2026 15:19:41 +0100 (BST)
+Date: Wed, 21 Oct 2026 15:19:41 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Simon Glass <sjg@chromium.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-integrity@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
-	Piotr =?iso-8859-1?Q?Kr=F3l?= <piotr.krol@3mdeb.com>,
-	Ross Philipson <ross.philipson@gmail.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Song Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH v2 15/15] efi/arm64: Implement ARM64 DRTM in the stub
-Message-ID: <atjJlBqysQmVVwI2@e129823.arm.com>
-References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <15-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <athzBHFwyp0bFEu9@e129823.arm.com>
- <20261021140649.GO3008132@nvidia.com>
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Stoakes <ljs@kernel.org>, Fuad Tabba <tabba@google.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] KVM: arm64: Sanitise ID_AA64MMFR3_EL1.S1P[IO]E
+Message-ID: <atjJ_WuM_6GuLkmI@sirena.org.uk>
+References: <20261020064306.1542865-1-fuad.tabba@linux.dev>
+ <ati3_lymW0zaBsSU@sirena.co.uk>
+ <86mrs7ywsc.wl-maz@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="myDSwi2Ph81d1HS6"
 Content-Disposition: inline
-In-Reply-To: <20261021140649.GO3008132@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_071804_693398_9EF9967B 
-X-CRM114-Status: GOOD (  15.89  )
-X-Spam-Score: -4.4 (----)
+In-Reply-To: <86mrs7ywsc.wl-maz@kernel.org>
+X-Cookie: Whoever dies with the most toys wins.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,42 +87,39 @@ X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 11:06:49AM -0300, Jason Gunthorpe wrote:
-> On Wed, Oct 21, 2026 at 09:08:36AM +0100, Yeoreum Yun wrote:
-> > > +	image_size = le64_to_cpu(header->image_size);
-> > > +	measured_offset = info->drtm_measured_start;
-> > > +	measured_size = info->dlme_measured_size;
-> > > +	entry = info->drtm_entry;
-> > > +	dlme_start = image_base + image_size;
-> > > +	dlme_end = dlme_start + drtm_cfg.dlme_data_size;
-> > > +	dce_end = dlme_end + drtm_cfg.nw_dce_size;
-> > 
-> > Suppose user boot the kernel via decompressed Image which is the
-> > part of artifact of compressed image and use the drtm option (e.g.
-> > booting via UEFI shell with decompressed Image).
-> 
-> Yep, it works fine:
-> 
-> EFI stub: DRTM: interface version 1.4
-> EFI stub: DEBUG: DRTM: TPM algorithm 0xc, TPM hashing unavailable, PCR schemas 0x1
-> EFI stub: DEBUG: DRTM: minimum DLME data 73728 bytes, Normal-world DCE 0 bytes
-> EFI stub: Booting Linux Kernel...
-> EFI stub: Generating empty DTB
-> EFI stub: Exiting boot services...
-> EFI stub: DEBUG: DRTM: will launch, selected launch features 0x0
-> 
-> Notice there is no "Decompressing Linux Kernel"
-> 
-> > Since the drtm extra memory is allocated only in efi_zboot_entry(),
-> > I think the drtm extra memory wouldn't be allocated so it would corrupt
-> > memory while setting the laucn parameter or by DRTM...
-> 
-> Patch "efi/libstub: Have efi_kaslr_relocate_kernel() handle
-> extra_size" handles the Image case.
 
-Thanks. I think i misread that patch. :)
+--myDSwi2Ph81d1HS6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
--- 
-Sincerely,
-Yeoreum Yun
+On Wed, Oct 21, 2026 at 03:04:51PM +0100, Marc Zyngier wrote:
+> Mark Brown <broonie@kernel.org> wrote:
+
+> > It would be nice to have it be more obvious to the VMM and/or it's users
+> > that it messed up, as things stand features it thought it had set will
+> > just silently vanish from the guest - they'd need to know that this is
+> > something that might happen and check after finalization or similar.
+> > That's probably more a documentation/education thing than anything for
+> > the patch.
+
+> The VMM is an integral part of implementing the architecture. If the
+> VMM doesn't cooperate, that's its problem.
+
+Absolutely, it's a bug if the VMM is doing this.  What I'm saying is
+that it could be helpful if the bug was made visible, with the silent
+fixup VMM bugs could easily lurk around for longer before someone
+notices the problem than they might otherwise.
+
+--myDSwi2Ph81d1HS6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQReagvpf3TrrA7BoYYv73Ows9A4iQUCatjJ+AAKCRAv73Ows9A4
+iZeYAQDZSaktjduuIlbdaY9J9HfNbTXXohL5Mg9RtMggk2fZTwD/RWuP/83tS3ju
+xCr8sa/Wa91fFPcj6epcub0Aat5XBAo=
+=KMvg
+-----END PGP SIGNATURE-----
+
+--myDSwi2Ph81d1HS6--
 
