@@ -2,151 +2,174 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F04D5606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 05:38:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E50CD606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 05:46:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pxKcYxRH;
-	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=LFjaIFRt
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=L9fjLi3q;
+	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=gy5E/d8+;
+	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=lPV/OEZK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MymJw9QoWMZZA+j6WtmDCThK3sz3nG6td7SvMcxZL5g=; b=pxKcYxRHwVtjzyUpxfis8eR8f/
-	rU6t+RIZSlr9gQuBGp65Vj4YtgNiwWhv51CEGLYtz9uum6GwreVk797T/MIdOABU3CnEZGduW3B0i
-	2GlCrEk4P54BlPKCOl4jtSKC3NHXJZ1LjSKhevdHvH5H5uC/GElj1EUApydzqQHReUnsa+Xx2+Xv1
-	DsSfDFNAggknCVUcumWAI3Oth5EK5V32bwhHhGYQS92ku+/smjRcGH44x9iNqKNU0yMPB0nVZE5CP
-	DBnnEngoDyGZdCbCK0SBGNd2WWGEYbMleKb5JXCqSoe8x8WQq5YoQyZUtRbMa6/dh/JdNJK8axd4i
-	hEtVPR8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+fcaVqpk3TbWv2ROi3DkwupOi5ndLDXyohhJTzhmT4c=; b=L9fjLi3qKoHLbd8oBJuQonzwsk
+	fpuErZLzTo0JXIuLNsQjcccp05Gkvj8BDLihMsxIXk4EaH3jHcJojboEldGvsMj5wwPhMPAANuYtb
+	XQHkzl+0/LymdJN3FNef5O838cZuZK2lJkIkOOXa+n1i6KFBk6gafWVgeQ8USxEoq/3T+DOvq7yQq
+	bPaH4BV1cPP/Bs4k4y2L2rqqU/QR3wKi6g9o8ozammfyN1IcT3mZxFTmyIcFRgVPj0xk6CichnfYs
+	0Xwf/CtrEQZ4SbQOPyyuKObPct7Ubp17uFtoKZ0BBgJf9+ScU/vzd8fijgi5tC+WzJK2BHSkwwXnO
+	eX3f8fig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJP2E-0000000B6XB-0xx7;
-	Wed, 21 Oct 2026 05:38:46 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1xJP9X-0000000B78Z-2yOB;
+	Wed, 21 Oct 2026 05:46:19 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJP2B-0000000B6WF-037A;
-	Wed, 21 Oct 2026 05:38:44 +0000
+	id 1xJP9T-0000000B77y-2nKf
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Oct 2026 05:46:18 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69L5hPGa889452;
+	Wed, 21 Oct 2026 00:46:11 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=+fcaVqpk3TbWv2ROi3DkwupOi5ndLDXyohhJTzhmT
+	4c=; b=gy5E/d8+PEdYORRlClV9FMDzq8btyiJP8Ei3bMvrnoiEx4OFtSuNKFZDq
+	99yXQGti+BvXaH84c7AMGnJ9ChniewzmZyg1PXrGVVjzVzRPUrNRVLTS6Ffljp6u
+	6kpOT4thfaRnv/E/B6c7Gb1m0w7/dEeSDoQ5JxcuGQDfA7bj0OrjakQtl//fT1fM
+	j+fchRsUQwfDaA0ImrfLKrPwtYlv6PRkZiJdgy/+njrSpAGznIdh5acJBA3ZmhGI
+	4QhwhESXz1tIANlhHUgvqo4wxcpO//X2NwDrNPG8jVRG1dr2GsU9Hzh1ijhjsm1h
+	BYPkBBKE2pwQJhIMZMlqypJ/PX1FQ==
+Received: from byapr05cu005.outbound.protection.outlook.com (mail-westusazon11010058.outbound.protection.outlook.com [52.101.85.58])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4henaagjxw-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 21 Oct 2026 00:46:11 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vLeE86qR/9R1pXwNIgduxR3ZSNm+dvHTlg+o/ZJiKyzVsJHFFkk3wql2zGeCelyP2wwYEiTS/Mltlf8iga/+Dr6exTYX8J04/AsNDu5fE8vuxEPBXB2wTB4nR4FviRmiid97ZVFORlbLiFet7/3NSIjEmTrjv1+b+8E2+GvpZcmSC2yahV48O5AaHw3aNPnKvbdIENY35+8QHNzNQMUQQ9apY8j2ZYH5PdqkxtE3ohoYoeBQ9ed5q1WzSbdbPrR7+0f+gsbfJvKQ0Af9r4sLvbhrZoVt/dVzdioB7K5p9h2Ab4EmVUuJ805l1m93pZR0UdUxcVTzFbTCabsYmYO1QQ==
+ b=jDpKUbXQ8i8UbQaZiUQQpoT44CjdrZqjQfrlnu+JZ3nWTSNijpqWgROdM3uXwIfqJGvlpssEsj6tM8lrl9Gvm5YkhkIw1u8MF0Iwo42raSPCsJIPAHPIjEB1Ur3LdMArargb6aaPnJvcC/HtxCFN/DcDp8+11Ofmz9cPwmRt5GWLdUgdmLCz7skKNRw4SukIXwVxTAz8Tf81DCY4BpbLfgyidhNQCB7K6JIX3gqK/vtmswHKPuUzND8qFA1Cs6SRKPL2T50xUnkYT5vYFUkARjKrk6rzcTQroUTtVC9KPdrK65HHE3j81ayFjsKZMB5E+YUYX9CmqlgEMkQ29METIQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MymJw9QoWMZZA+j6WtmDCThK3sz3nG6td7SvMcxZL5g=;
- b=HjsdCfjI4Xsi4rFh47IJVseIYwaMcdHGrZSmpGKzKjNnCHztkKiOjsn2haRpTeaxaNa9FmL4IvhALMqRWAyyx6NlP+zuFUKqRFtpqVfUlXACUPqWuN3NU2j2/dXV4krFrnsJGKuEIpXemlNOL+wpbTseYKdwtzE/AwTykriIB+ryWpoWu8iQlRqe+Svet9IsmaDfJ9XyuLL8MRZr9JWBKWFYunJG1Wjxq73bGbIyL8TG9FKpgUAqDyZXJD+e/sw9GoVmT5kxcqbHSEPbypG4kMHdA4pPMyW93gjqieTAnLilXO6ViHW+lmxh0GrNKZFst68lKH3fhNzKb06IdHzs7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
+ bh=+fcaVqpk3TbWv2ROi3DkwupOi5ndLDXyohhJTzhmT4c=;
+ b=cbqkvcFu/k3AtAydQXIAT/udXyjzBjHQ+iRxNSL34Z5mvET8ft9x47L6CPrpxRdL/vgBPrrVdJiD99Oe1qG0AQjYtl/Sz0Sn6ktcN+6j4HTRtQwcakuIi0H4iaJDMlDh47NNht6TV9pIiWXYxV3x/bQ56IQrI2o8Db4R7jgBhSD9jv1k6WUlou5WdGykFEpwbgOCLWNxuUtiIzvAFtmR1wiFE/y8DmGh0i7q83i4OB6Cyu4UZphO4fE29CDRepwPnLmav7xkVjcpUvUfdJ020e8kkUzq9q82K+51HIW3EK5af56V9v1+Yfsx/zpyz0O9hx6khuKGkMLqxqFRZHZlaw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MymJw9QoWMZZA+j6WtmDCThK3sz3nG6td7SvMcxZL5g=;
- b=LFjaIFRtUitcPMZruw4i0SwIXND7+tt7R4VIy+CBy/UOJeBhyVWBPTotO9CNb9Ja2Pk2vh9Ql3m13A2Piou0ydgSojlfdowXZCDpj2b/47msi3Sl03VGMTFezQzpHCXC3BIr7B8xxc/4XPiwy7WoZa1N/idpOhdjiNWkVVSHJtcO9mKr+DECvuNVsEf8zRDXmve9UvsJDBJMeqf2Ex9hbxO9J+vMRjwiWzVuafdIkc6cCYQQEGOMZyJw87vDWHtp9lOSiupihuOL+4lMIDkdqpmHM+qEISqp5fyu8ie8gZ+cjgU43BkyEjwvldEgTVEVrOKTbvY/9I+s1EOjJHMS9A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYZPR03MB5743.apcprd03.prod.outlook.com (2603:1096:400:74::7)
- by TY2PPF5170D564C.apcprd03.prod.outlook.com (2603:1096:408::9d2) with
+ bh=+fcaVqpk3TbWv2ROi3DkwupOi5ndLDXyohhJTzhmT4c=;
+ b=lPV/OEZKAZik2J2ra0zLmaWLJjRfAYqd0t6Ybwtg1rf35hbVdZyO9nGOMNHELtu14C//R5eRI0KGudicDDd8QhiWszxA0iT0GnbSp6+B/tUtXUXo3rTT0JgUEVX9J3lF+axMOEZpQ3T1JdyspKvd5N6t6dw0FNGZTY5DsvrSfrg=
+Received: from SJ0PR13CA0159.namprd13.prod.outlook.com (2603:10b6:a03:2c7::14)
+ by DS3PR10MB997703.namprd10.prod.outlook.com (2603:10b6:8:348::22) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Wed, 21 Oct
- 2026 05:38:22 +0000
-Received: from TYZPR03MB5743.apcprd03.prod.outlook.com
- ([fe80::7f51:5771:90c4:8c40]) by TYZPR03MB5743.apcprd03.prod.outlook.com
- ([fe80::7f51:5771:90c4:8c40%3]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
- 05:38:22 +0000
-Message-ID: <d17dcb30-93bc-4b68-8969-11530946d33d@amlogic.com>
-Date: Wed, 21 Oct 2026 13:38:18 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] dt-bindings: i3c: Add Amlogic A9 I3C controller
-Content-Language: en-GB
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: linux-i3c@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
- linux-hardening@vger.kernel.org, xianwei.zhao@amlogic.com,
- Kelvin.Zhang@amlogic.com, junyi.zhao@amlogic.com
-References: <20261019-a9_i3c-v1-0-329d819d621f@amlogic.com>
- <20261019-a9_i3c-v1-2-329d819d621f@amlogic.com>
- <c84d861a-2e28-45b0-80c8-e533864d5e6c@kernel.org>
-From: Junyi Zhao <junyi.zhao@amlogic.com>
-In-Reply-To: <c84d861a-2e28-45b0-80c8-e533864d5e6c@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SE2P216CA0090.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2c2::13) To TYZPR03MB5743.apcprd03.prod.outlook.com
- (2603:1096:400:74::7)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
+ 2026 05:46:08 +0000
+Received: from MW2PEPF00014674.namprd04.prod.outlook.com
+ (2603:10b6:a03:2c7:cafe::1b) by SJ0PR13CA0159.outlook.office365.com
+ (2603:10b6:a03:2c7::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.15 via Frontend Transport; Wed,
+ 21 Oct 2026 05:46:08 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ MW2PEPF00014674.mail.protection.outlook.com (10.167.249.181) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.546.15 via Frontend Transport; Wed, 21 Oct 2026 05:46:07 +0000
+Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 21 Oct
+ 2026 00:45:29 -0500
+Received: from DFLE214.ent.ti.com (10.64.6.72) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 21 Oct
+ 2026 00:45:29 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE214.ent.ti.com
+ (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 21 Oct 2026 00:45:29 -0500
+Received: from [10.24.50.20] (moteen-ubuntu-desk.dhcp.ti.com [10.24.50.20])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69L5jPwA1988750;
+	Wed, 21 Oct 2026 00:45:26 -0500
+Message-ID: <6eee4bdf-e3ce-4079-b5b4-69ab4492f838@ti.com>
+Date: Wed, 21 Oct 2026 11:15:24 +0530
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] soc: ti: k3-socinfo: Export SoC registration helper
+To: Andrew Davis <afd@ti.com>, <conor+dt@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <linux-kernel@vger.kernel.org>, <nm@ti.com>,
+        <ssantosh@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <u-kumar1@ti.com>, <gehariprasath@ti.com>, <vigneshr@ti.com>,
+        <a-limaye@ti.com>, <y-abhilashchandra@ti.com>
+References: <20261019080736.944127-1-m-shah@ti.com>
+ <20261019080736.944127-3-m-shah@ti.com>
+ <4f8ff34b-d16d-4215-b7ed-b23a0d8663f6@ti.com>
+Content-Language: en-US
+From: Moteen Shah <m-shah@ti.com>
+In-Reply-To: <4f8ff34b-d16d-4215-b7ed-b23a0d8663f6@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR03MB5743:EE_|TY2PPF5170D564C:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6c0c91d9-a43e-4237-588e-08df2f3584ad
+X-MS-TrafficTypeDiagnostic: MW2PEPF00014674:EE_|DS3PR10MB997703:EE_
+X-MS-Office365-Filtering-Correlation-Id: 71439054-ad22-400f-d2eb-08df2f369a36
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|4143699003|56012099006|11063799006|261009223027099003|10067099003|18002099003|22082099003|6133799003|921020|3023799007;
-X-Microsoft-Antispam-Message-Info: l46UqoGE6FL+ps0ZenQ+iDW874M2sxb7uCPDrWIhNq/n1iqoaudXi0YLzf/TRhyuZ7GMGi+yzqFQheRKsDMDNZ4flIMiawDYd2wPHJF58oYjRd9AkOjQEnonUgSQqiAFSGVsBSleArKPWxBKah6F0QWOADPJg2xczsJ6hclbz+EX+p0iWsYpaGsc1Oov/zWfoqt2mmoYRkFUZnKa7F5gF2y9RvcWREEv+WgVw0W2poDQy3pSF7+yoNypMvKgzdnLt9MMCDwStXmILmfH7xHegRe4Culokn7x9NRb+klhjrrPAKvX4vT/bOWMP8tdH9SI5x9+dm+2jk8YzVhLP3Zz25BSj4R3YTJDOZpfCQioQBRp5LjbKHPBpHp1yN5W/JIkZeaOMZWUFxy3ZbZxQiczjyYxrZZh4SuBgk4EZbxKKkBb5YCl2d2LljhYPxDo1EVurZl3GEiJkNJ6zaBJzmbHRkkxlpamrEFWYeGyfCcTm+GLkQ496jp9ZS5DgCQqeNzMTxds2axKD3vUiHlCKpVlKPdq6/Z7Etgfh1U39rlnO0QRXSPJqyP0pxeXIX+jGco2lG9/mVyo1CCXSH0K77ms8sRjdhV31qCFDrs5tchEJJQ8cwFK7K5FggToyHvD91fHf1JpUCB/Jz8Oomo7GTrw3drqILxVNwsSodtCli2KnVYDeUINTig6NS1T8OFWz3ypjuMghKBWFUDN2qKKYnMEHA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB5743.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(4143699003)(56012099006)(11063799006)(261009223027099003)(10067099003)(18002099003)(22082099003)(6133799003)(921020)(3023799007);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|23010399003|36860700016|82310400026|56012099006|4143699003|5023799004|261009223027099003|261009221227099003|10067099003|22082099003|18002099003|13003099007|3023799007;
+X-Microsoft-Antispam-Message-Info: KNXe93cd9ROc29HNUhY5ayYz0NeogKY3qCFmyrxp3w/JXZnRRIKlNM7nUP0COYlEbo5fOZ03bp3aQEGbBk8amTvCf0yNeaHFqBc1pNpvuM24PMyIp29462N/FYrNmhCSK2+DWeDas1AkKXyLLOK8e5OHYyN7Zl2Xvn7enj4zJRipV+j1mdn3ZSEyzA81yj7XGs4d9Jq/CHA0dCTTA1QgEVXccf1/uxNZuUMrDAAMVO70sMWEqXxitatORZg/r/vi2PpiB2Ybo1gwecIxCOvspHc0LLwru3gkPHuD5RFtgaTCHbYzqq4kTpQZD9VVPYkWQPSz+x+I/oomillopnGB+2rbGFV/F0ojiXvzdadF6gf/4C4/itOZJ+KnSiShoBd6ZRuVN9oOrzh89z88psGR0AyU2mD4QqN2XkDLej+n4oWe0eg8/XKtq3u3sd66uIlGJM3c/+yNKyNQwlKB92sAqzSLZ67/y6TBnZ3BmzIPof7OOX97hgl1/xSoMeNqdYQGKGBzwrWUpegYEQqeUy97GJGrgDuCcM1LmT4/17qA2Kj8m6TGG7DzDnO+IKs/VRwH7BndHCzDWJJ9DBeaTgwiA/c+DWYYEucW9MMqlgdUbCx7rJIxAl+iD65EG9Z8vWHc5MEKPk4+4LfBIlnIAp+zZw==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(376014)(23010399003)(36860700016)(82310400026)(56012099006)(4143699003)(5023799004)(261009223027099003)(261009221227099003)(10067099003)(22082099003)(18002099003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Nk5FeEt4bEM0b3pHLzNtNXh3MDk2UUVDZ24xNElVeFdFZ1MyV29VWXgxbUd6?=
- =?utf-8?B?bDk1OHZOWjRFRys3emlLQjdLZ0tXUUk1NVRVc0tEbysrTlNXMmcwczlqTFNP?=
- =?utf-8?B?WWRrQXVDVk1QS3YvdzJiUDFmdVRIeWNiWnlWR2VuVjAwZkhKRkc0OXFjR09r?=
- =?utf-8?B?WGNTdGhpT2dqdDZUSkZib1pCQmRXSWF5TW5oZldjQ0NuZWM5aHBYZ1g1aWtp?=
- =?utf-8?B?OS9ENEc1a1NMSERkeWlvZmFrTnpJNkNxUDVsaERzTm1vRlZ2TzFVQjlGcVNi?=
- =?utf-8?B?ZDJ2anRGWlJyTUtPa3ROelNhOG93dlowRzJiNVprc1FhNGJFWFBvbUJGZll4?=
- =?utf-8?B?a1REYS9BY0JlRWtRVE45dUZhVlh5TG1WNWt1d2NvNWRaeWwyQU5sK09OZk93?=
- =?utf-8?B?VmpQdEVIK0FPZ0lRa3VWRE9XRGhmdjhDRCs2Qkg3aElMemN5bWh2RmkwdTdO?=
- =?utf-8?B?YllLM1BZZGJ0MG5mWm44Q0JlMnR3VVhoT1dUTHlBRHorMGJ4ZHJnL2RWbUpn?=
- =?utf-8?B?ejZBd0Z6Z2tEZ3VGM2hQc0JpQnkwUFJQUVBLL3FEL2FrMGZsK0J0M1dCaStZ?=
- =?utf-8?B?WHdUcTFGaWNmenNiT2VheDlHaEsxdUR2eThRSnFlQjQ3bTB6bnd0STlvYkdB?=
- =?utf-8?B?b0JLZk9wbEJ2N2gvb090VmZuZ09iazBLNWczZTZGUm1BU2s4R0s0Z0dFMWFL?=
- =?utf-8?B?R2VMOUJZVUEvMlhtRVBORlJId1FNSHdmMDRMbEU3UGtUQmFCQWF3elVQQTBr?=
- =?utf-8?B?Uk5YYmlacWtVbW1nc2lXUXhkUlBKeVBmS0lGOUhxYU1OUC84YkhNc2l4c1cr?=
- =?utf-8?B?Wk9DdjZFcnB4NmljenRqWnhzeEE4d3BBb2tjQkFSc08vY0l1RXdtUHdma0tL?=
- =?utf-8?B?aFBZZmY1M3E1UFdMNHorNkkySGNMNVZnc2h3WlNRU1RPMHhDb3NleFRJdE9w?=
- =?utf-8?B?YmttNlkwek81TzA1aWV2R1FOdWh3cTNYUU5hbGp5cnhGT2VLNW1DWFNqem1w?=
- =?utf-8?B?ZXVVWVJHOXhITHFHRDUwWXFLeEw2VnVZL1VIK2RabU5VdE9JNCtySHNEM09z?=
- =?utf-8?B?M2dxV244NTVnc1FFS0RzSGc0Q1M5d2lnOGRzT2ljWm5VWWtWa1RXeUU3RHh2?=
- =?utf-8?B?M3htMXRyaHZRL29iL01qREE1cDhPYXJ0alZFNEIwZzdPai81bFp2ODZQY2Y0?=
- =?utf-8?B?OGU5NnFBWitpUm9IMXMzM1FubTVwa1pQTE5OQnJwK05MNk9RTGNDNURNL2pq?=
- =?utf-8?B?QkhoMm9qTzVUTmNrWHl3RTRoMXVqREtyUiswR04zdDRhUm9HK0JlR3ZQL3V5?=
- =?utf-8?B?ZW56SFRERTZFYnE4ZVFVY1V2UDJqNG9JdVZXTzEwb2IwalhiMjBvRS8zRnAz?=
- =?utf-8?B?Wnc1VkpTS0tIblRiQUVhZlZvcUlqbTk5R0Y3b25lMzNZZjJCekoyelRSOTZZ?=
- =?utf-8?B?Vzd3RW5MWkY1dGpMa3Jtdm1QelZKalRiOHNmdndNaHFOKzk2czVkRHN4S2Vr?=
- =?utf-8?B?ZDhWemRTNldYYjFvQ1RUdFJOUXNzOG1GcVJmN0lEc1o2VVF6QVlQZjY4ZVRk?=
- =?utf-8?B?WG5SbEMzK1B6cEF5bkVGcG9uZTJtVTFjOS95QUZRSGdZeE11TGxrb25hRHdl?=
- =?utf-8?B?VVdLbG55QkZBeGJ0djNXWFd2YUZacXZQaitXZGZyc3BtTHBTUllnRkJrZUo4?=
- =?utf-8?B?YjkxazA2TTBqZzNhN0pXSGZteEtLaUxIdDR4bXdZNEtjT0JGbFlZay9QZkg1?=
- =?utf-8?B?c1lqaHptTWxkS2pJaUs5MkM2aVA4TWNIK3VzZG1FeFhjSUlqQjdiemQzTTRX?=
- =?utf-8?B?N0p1V09wUll1a2ZaNTNzWDhOSFZyZ2EzckIwaUVsbEdmVXdrRDhmOXpna1Bv?=
- =?utf-8?B?ZTNRMXlsU0JZNWtzUDN3QnBrWjVmdm9MQzFsZE50VHhHT3pmUmNlMFVSU29Z?=
- =?utf-8?B?YmtWQWZqNy9FdFREbTRXRTZma244NGZhbGQzNXBuSFFKbFI2dFpVNEY2UCtz?=
- =?utf-8?B?TTNVSHVJWC8wT3lGR24ySzVsZXZCWWlGa0diZDF3d1o0NmRRalNBOGhTdGp0?=
- =?utf-8?B?NW9KT1pkRERDa2dYbi9GVlVXTDFpZ3luRGtiVXE2M3A0bmM1WWtUVzBXV3BD?=
- =?utf-8?B?c3hiMzhHcXpzUUg0WUdISTNqb3NiSFB5eldScDgvVGI2Q05scGhGWXlpa2lT?=
- =?utf-8?B?eThBRUcvaWtSdnVydWJMeVNqRjQ0WENvQy9pOW9Vb2VXN2grUWpEbi90SVd0?=
- =?utf-8?B?bDlqUFVjZXBCOFBmWk10WDNXTEUzQ3k2NDhDVHBrZ0ZZb3cyNFRFWElDRkxn?=
- =?utf-8?B?VW1aanU1ZFBGSG84OHdWTU41YTUzQnVSTGU3R3B0VEFvSzQrenJVdz09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6c0c91d9-a43e-4237-588e-08df2f3584ad
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB5743.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 05:38:22.3641
+X-MS-Exchange-AntiSpam-MessageData-0: vFAbcoLE4nHP/DdF6KgAiVy2669RNuLsMDq+hS6wHiFc7QrxXaRHj+lPVilfLIEUIyyM0ONiCFmjBAahclEPzsuYw7lTHEonQhYkGXJu2mGsEY0+MMxKhJRY41pjo6a9ZTzZ/PJDIySTIwnLGB2cpnn6cQG+k5+VXiI8BFKcTLJsW2RWkMd5TP4uGH8cEwY3NPA/l1Ba5Vt572lfMMBJOcXyG87Luqfcsu0Tn1gDkD1pu7QquIEAanGOmM58qrxEEAc6SkajX9cmXUkO1E4qV/BMb+BKvg7ZJPadrM43UWS0YMhtNCHGrOluBAKse15RMJ3wWCxBJbjdg2Jrl6cybpmHfovtlE/Dha6xgaLnWkR2NPeSr40Zd8AfGnQeXcL+k6FMs7X0edKrv1uZF5aYT6tlCc7A6roNypyL0BDST5DkghJKwgNWAWUQeXv81c29
+X-Exchange-RoutingPolicyChecked: qJB52i/RIgnIytTCEmmi6o0l3CG1emnwwI1NvoAfreCKLHcNZMgRA04ByVOcpu0pjyrVvho6Qz523TzM0TSZESGxTkSiHVDsRlPSehKBj6exFWd/bPxXSlq1jEozzbLFFAdAQ1ycKdOgQ6+B3mQ7PB5B7gplf3f5xgILM62npq/fonQDR61ggEc3si9GoTK9QFd9vMzRIe2Sp8qXLy+pzF5aX3gZiaRo9nt3/X0AQABp+4HsAVSsy++w1Y303JEg49xvInxosYqJqzgrmz7dqY0UmVZupi7MZXJJV8bU2DDZaBYDECvYOd5XwCCAb05FypFnNX87/hRWbruu5NNYDg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 05:46:07.0527
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 36SeQWBJzzfURaSVc5fWf2ZbhklYcbyqsGNeyoO9lQkWILUr6K4CBFg1vuQ4GgJ7tKcY0D9gHVzZhCW9juxvgQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PPF5170D564C
+X-MS-Exchange-CrossTenant-Network-Message-Id: 71439054-ad22-400f-d2eb-08df2f369a36
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MW2PEPF00014674.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR10MB997703
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIxMDAyMiBTYWx0ZWRfX+UsKyuYJ06cN
+ TgmUDRQQOGnfU9FTqG9mnQXMGLZ0tMw88X3MKPDmr+JHag1BLJblWl1mbJxRQ3eXQt01X0Dm8fY
+ t8lLO8H7zAbiDxa378FHq00yqf6P64w=
+X-Proofpoint-ORIG-GUID: q9yxz68M3-Z7FU1mO2WGc5NlISiGc1tf
+X-Proofpoint-GUID: q9yxz68M3-Z7FU1mO2WGc5NlISiGc1tf
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIxMDAyMiBTYWx0ZWRfXyFPlIL4Lo7iV
+ 0oEba5hL0kDLUmJ/Ljj4Y0vzb8xH+JOKoqg6HD5jpduqEN9GfvH8mdpTO4NgfA0EZ4EAnENISuS
+ 6b6yHQaCOGeImFV6UtrY4np9moMabCck8v306iG82dzB+ExmknqbsBYWeZ0PWALQQcxFbXBGqjg
+ zsmeOHwYvLQUO7kgXcP7E4AlGmul6GduucIn0g1P6cgk8jGanzSO/KrJDcZ34tvyBBlEhjoC3Yn
+ THxUhhTvn8M8ry01nxrgHW7O1PeWhJXgENalNlgzweOODvgPAaS3EQ8dITIWofIAJGwKtJvReAr
+ 3Jj+VKf3kbQiZjmt6FpG8uqrKxBslGG6cGPm+ZIjqow+Q0+qSm0kEoHkb7ZuFwb4oiXdjM+IcW5
+ QXXZngQ9bsAivxC8D0cDCfMGaNh/gxHtjc+E819WgRsiIokFaz57eF1mFCmBE458Awi3FWrqKyh
+ odQpl/Wt/HPfOECH4ow==
+X-Authority-Analysis: v=2.4 cv=cJB1IVeN c=1 sm=1 tr=0 ts=6ad851a3 cx=c_pps
+ a=oUdh5d0wO9iyjQqwpg+wBw==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+ a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8 a=Vg_lMtDAUzEJadqGD4UA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-21_02,2026-10-19_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0
+ priorityscore=1501 malwarescore=0 clxscore=1015 suspectscore=0 adultscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
+ definitions=main-2610210022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_223843_055863_6475545E 
-X-CRM114-Status: GOOD (  14.85  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261020_224615_958909_C2AD2CBE 
+X-CRM114-Status: GOOD (  23.31  )
+X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,154 +180,252 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Krzysztof，
-	thanks for your review.
 
-On 2026/10/19 14:00, Krzysztof Kozlowski wrote:
-> [ EXTERNAL EMAIL ]
-> 
-> On 19/10/2026 07:34, Junyi Zhao via B4 Relay wrote:
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - amlogic,i3c-a9
->> +      - amlogic,i3c-ao-a9
-> 
-> What is ao?
-
-AO is the Always-On domain on Amlogic SoCs (remains powered in suspend).
-I've documented it in the binding description.
-
-> 
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    minItems: 1
->> +    maxItems: 2
->> +
->> +  clock-names:
->> +    minItems: 1
->> +    maxItems: 2
-> 
-> Names go here
-
-will do.
-
-> 
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - interrupts
->> +  - clocks
->> +  - clock-names
->> +
->> +unevaluatedProperties: false
-> 
-> This goes before example
-
-will do.
-
-> 
->> +
->> +if:
-> 
-> And this in allOf, see example schema or other bindings.
-
-will do.
-
-> 
->> +  properties:
->> +    compatible:
->> +      const: amlogic,i3c-a9
->> +then:
->> +  properties:
->> +    clocks:
->> +      items:
->> +        - description: APB peripheral clock
->> +        - description: I3C fast clock
->> +    clock-names:
->> +      items:
->> +        - const: pclk
->> +        - const: fast_clk
-> 
-> That's just fast
-> 
-> minItems: 1
-
-Will renam to "fast" and updated the driver/DTS accordingly,
-and will add minItems: 1
-
-> 
->> +else:
->> +  properties:
->> +    clocks:
->> +      maxItems: 1
->> +    clock-names:
->> +      items:
->> +        - const: fast_clk
-> 
-> maxItems: 1
-
-will add maxItems: 1
-
-> 
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/interrupt-controller/irq.h>
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +
->> +    i3c@3a7000 {
->> +        compatible = "amlogic,i3c-a9";
->> +        reg = <0x3a7000 0x10000>;
->> +        interrupts = <GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH>;
->> +        #address-cells = <3>;
->> +        #size-cells = <0>;
->> +        clocks = <&clkc 15>,
->> +                 <&clkc 16>;
->> +        clock-names = "pclk", "fast_clk";
->> +        status = "disabled";
->> +    };
->> +
->> +  - |
->> +    #include <dt-bindings/interrupt-controller/irq.h>
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +
->> +    i3c@22000 {
-> 
-> Drop, one example is enough.
-
-will delete one.
-
-> 
->> +        compatible = "amlogic,i3c-ao-a9";
->> +        reg = <0x22000 0x10000>;
->> +        interrupts = <GIC_SPI 72 IRQ_TYPE_LEVEL_HIGH>;
->> +        #address-cells = <3>;
->> +        #size-cells = <0>;
->> +        clocks = <&clkc 17>;
->> +        clock-names = "fast_clk";
->> +        status = "disabled";
->> +    };
->> +...
+On 19/10/26 23:08, Andrew Davis wrote:
+> On 10/19/26 3:07 AM, Moteen Shah wrote:
+>> The k3-socinfo driver reads the JTAG ID through a dedicated MMIO 
+>> region and
+>> then decodes it and registers the SoC device.
 >>
-> 
-> 
-> Best regards,
-> Krzysztof
+>> Newer TI SoCs like TDA54 use a different path for accessing the JTAG ID
+>> register, but the decoding of the JTAG ID into the SoC information 
+>> remains
+>> the same.
+>>
+>> Split the decode and registration part out of k3_chipinfo_probe() into
+>> k3_socinfo_register() and export it, so that other drivers can 
+>> register the
+>> SoC device once they have read the JTAG ID through their own access 
+>> path.
+>>
+>> Since the helper can now be called from modular drivers, it must not 
+>> leak
+>> the SoC device when the caller goes away. Tie the registration to the
+>> calling device with a devm action, which unregisters the SoC device and
+>> frees its attributes on unbind. Callers need no unregister 
+>> counterpart and
+>> the helper keeps returning an int. If the soc bus is not up yet, the
+>> attributes are only parked for later registration and there is 
+>> nothing to
+>> undo, so no action is added in that case.
+>>
+>> Signed-off-by: Moteen Shah <m-shah@ti.com>
+>> ---
+>>   drivers/soc/ti/k3-socinfo.c       | 101 +++++++++++++++++++++++-------
+>>   include/linux/soc/ti/k3-socinfo.h |  11 ++++
+>>   2 files changed, 90 insertions(+), 22 deletions(-)
+>>   create mode 100644 include/linux/soc/ti/k3-socinfo.h
+>>
+>> diff --git a/drivers/soc/ti/k3-socinfo.c b/drivers/soc/ti/k3-socinfo.c
+>> index 48dbef3acceb4..5fae03004e350 100644
+>> --- a/drivers/soc/ti/k3-socinfo.c
+>> +++ b/drivers/soc/ti/k3-socinfo.c
+>> @@ -5,6 +5,8 @@
+>>    * Copyright (C) 2020 Texas Instruments Incorporated - 
+>> http://www.ti.com
+>>    */
+>>   +#include <linux/device.h>
+>> +#include <linux/export.h>
+>>   #include <linux/mfd/syscon.h>
+>>   #include <linux/nvmem-consumer.h>
+>>   #include <linux/of.h>
+>> @@ -12,6 +14,7 @@
+>>   #include <linux/regmap.h>
+>>   #include <linux/platform_device.h>
+>>   #include <linux/slab.h>
+>> +#include <linux/soc/ti/k3-socinfo.h>
+>>   #include <linux/string.h>
+>>   #include <linux/sys_soc.h>
+>>   @@ -152,38 +155,44 @@ k3_chipinfo_variant_to_sr(struct device *dev, 
+>> unsigned int partno,
+>>       return -ENODEV;
+>>   }
+>>   -static const struct regmap_config k3_chipinfo_regmap_cfg = {
+>> -    .reg_bits = 32,
+>> -    .val_bits = 32,
+>> -    .reg_stride = 4,
+>> +struct k3_socinfo {
+>> +    struct soc_device *soc_dev;
+>> +    struct soc_device_attribute *soc_dev_attr;
+>>   };
+>>   -static int k3_chipinfo_probe(struct platform_device *pdev)
+>> +static void k3_socinfo_unregister(void *data)
+>> +{
+>> +    struct k3_socinfo *info = data;
+>> +
+>> +    soc_device_unregister(info->soc_dev);
+>> +    /* The attributes must only be freed after the unregister. */
+>> +    kfree(info->soc_dev_attr->revision);
+>> +    kfree(info->soc_dev_attr);
+>> +}
+>> +
+>> +/**
+>> + * k3_socinfo_register() - Decode a JTAG ID and register the SoC device
+>> + * @dev: device on whose behalf the SoC device is registered
+>> + * @jtag_id: raw JTAG ID register value read by the caller
+>> + *
+>> + * The registration is managed by @dev: the SoC device and its 
+>> attributes are
+>> + * released automatically when @dev is unbound, so callers need no 
+>> matching
+>> + * unregister call. If the soc bus is not yet available, the 
+>> registration is
+>> + * deferred until it is and cannot be released by @dev.
+>> + *
+>> + * Return: 0 on success, negative errno on failure.
+>> + */
+>> +int k3_socinfo_register(struct device *dev, u32 jtag_id)
+>>   {
+>> -    struct device_node *node = pdev->dev.of_node;
+>> +    struct device_node *node;
+>> +    struct k3_socinfo *info;
+>>       struct soc_device_attribute *soc_dev_attr;
+>> -    struct device *dev = &pdev->dev;
+>>       struct soc_device *soc_dev;
+>> -    struct regmap *regmap;
+>> -    void __iomem *base;
+>>       u32 partno_id;
+>>       u32 variant;
+>> -    u32 jtag_id;
+>>       u32 mfg;
+>>       int ret;
+>>   -    base = devm_platform_ioremap_resource(pdev, 0);
+>> -    if (IS_ERR(base))
+>> -        return PTR_ERR(base);
+>> -
+>> -    regmap = devm_regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
+>> -    if (IS_ERR(regmap))
+>> -        return PTR_ERR(regmap);
+>> -
+>> -    ret = regmap_read(regmap, CTRLMMR_WKUP_JTAGID_REG, &jtag_id);
+>> -    if (ret < 0)
+>> -        return ret;
+>> -
+>>       mfg = (jtag_id & CTRLMMR_WKUP_JTAGID_MFG_MASK) >>
+>>              CTRLMMR_WKUP_JTAGID_MFG_SHIFT;
+>>   @@ -198,6 +207,10 @@ static int k3_chipinfo_probe(struct 
+>> platform_device *pdev)
+>>       partno_id = (jtag_id & CTRLMMR_WKUP_JTAGID_PARTNO_MASK) >>
+>>            CTRLMMR_WKUP_JTAGID_PARTNO_SHIFT;
+>>   +    info = devm_kzalloc(dev, sizeof(*info), GFP_KERNEL);
+>> +    if (!info)
+>> +        return -ENOMEM;
+>> +
+>>       soc_dev_attr = kzalloc_obj(*soc_dev_attr);
+>>       if (!soc_dev_attr)
+>>           return -ENOMEM;
+>> @@ -224,6 +237,20 @@ static int k3_chipinfo_probe(struct 
+>> platform_device *pdev)
+>>           goto err_free_rev;
+>>       }
+>>   +    /*
+>> +     * A NULL handle means the soc bus is not up yet and the attributes
+>> +     * were parked for registration at soc bus init. They must stay
+>> +     * allocated and cannot be unregistered, so there is nothing to 
+>> undo.
+>
+> This seems really messy, the only time drivers need to deal with this
+> early_soc_dev_attr hackyness is if they can register before the soc bus,
+> which only happens for drivers using early_initcall(), but that is
+> not the case for either driver using k3_socinfo_register().
+>
+> Can you explain why you added all this?
 
+
+Hey Andrew,
+A miss on my end, I was trying to cover for an edge case which won't 
+happen in the way we are using the socinfo.
+
+i will make it unconditional for V2, should I add a WARN_ON(!soc_dev), 
+in maybe a case if some user in future does an early call anyhow?
+
+Thanks for the review.
+
+Regards,
+Moteen
+
+>
+> Otherwise just allocate soc_dev_attr using devm, k3_socinfo_unregister()
+> action can be added unconditionally, and only needs to call
+> soc_device_unregister().
+>
+> Andrew
+>
+>> +     */
+>> +    if (soc_dev) {
+>> +        info->soc_dev = soc_dev;
+>> +        info->soc_dev_attr = soc_dev_attr;
+>> +        ret = devm_add_action_or_reset(dev, k3_socinfo_unregister,
+>> +                           info);
+>> +        if (ret)
+>> +            return ret;
+>> +    }
+>> +
+>>       dev_info(dev, "Family:%s rev:%s JTAGID[0x%08x] Detected\n",
+>>            soc_dev_attr->family,
+>>            soc_dev_attr->revision, jtag_id);
+>> @@ -236,6 +263,36 @@ static int k3_chipinfo_probe(struct 
+>> platform_device *pdev)
+>>       kfree(soc_dev_attr);
+>>       return ret;
+>>   }
+>> +EXPORT_SYMBOL_GPL(k3_socinfo_register);
+>> +
+>> +static const struct regmap_config k3_chipinfo_regmap_cfg = {
+>> +    .reg_bits = 32,
+>> +    .val_bits = 32,
+>> +    .reg_stride = 4,
+>> +};
+>> +
+>> +static int k3_chipinfo_probe(struct platform_device *pdev)
+>> +{
+>> +    struct device *dev = &pdev->dev;
+>> +    struct regmap *regmap;
+>> +    void __iomem *base;
+>> +    u32 jtag_id;
+>> +    int ret;
+>> +
+>> +    base = devm_platform_ioremap_resource(pdev, 0);
+>> +    if (IS_ERR(base))
+>> +        return PTR_ERR(base);
+>> +
+>> +    regmap = devm_regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
+>> +    if (IS_ERR(regmap))
+>> +        return PTR_ERR(regmap);
+>> +
+>> +    ret = regmap_read(regmap, CTRLMMR_WKUP_JTAGID_REG, &jtag_id);
+>> +    if (ret < 0)
+>> +        return ret;
+>> +
+>> +    return k3_socinfo_register(dev, jtag_id);
+>> +}
+>>     static const struct of_device_id k3_chipinfo_of_match[] = {
+>>       { .compatible = "ti,am654-chipid", },
+>> diff --git a/include/linux/soc/ti/k3-socinfo.h 
+>> b/include/linux/soc/ti/k3-socinfo.h
+>> new file mode 100644
+>> index 0000000000000..487e69d0069d1
+>> --- /dev/null
+>> +++ b/include/linux/soc/ti/k3-socinfo.h
+>> @@ -0,0 +1,11 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +#ifndef __LINUX_SOC_TI_K3_SOCINFO_H__
+>> +#define __LINUX_SOC_TI_K3_SOCINFO_H__
+>> +
+>> +#include <linux/types.h>
+>> +
+>> +struct device;
+>> +
+>> +int k3_socinfo_register(struct device *dev, u32 jtag_id);
+>> +
+>> +#endif /* __LINUX_SOC_TI_K3_SOCINFO_H__ */
+>
 
