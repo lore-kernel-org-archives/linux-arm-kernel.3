@@ -2,69 +2,153 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 974AB606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 08:04:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEA08606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 08:08:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bmQE/vtQ;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=bDpM4kwH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Mo+aCI3F;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=XyDRJYOR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dpk6oZW2/pIfMTZ5y5HTyizlc9Lr7d1oiu8c5BoQlkY=; b=bmQE/vtQXX2YmQku/pm+07fsTb
-	faJOZwipCgJuYwEETCxBIkdXTIybTTZrGfv2D1m/lyKV0d8LT642OJCra8HKtMRitQP7ciAJhgwCf
-	5E0kLxTosp53gspupuF8oHTl7NtU4WZTBGzsh3aIYDMgcrmk4wHxQ+dA39WF/s123rgZpp7xviUiO
-	qGYLuLwczszmrBOR8kh1qaHULvnJVGgReKFiMTcrn6/jcLk3qa16porDpnOigRBDL1djWtsmb6nzD
-	TAbjp7TD10GdT0V47cfUYmnRqoAANjbL9x4EwemKMhC/ne+Kp0b7+YkZr5KJGV2UxqgZqRGJBq++e
-	TdzOkzGw==;
+	bh=RZbxxIpWSZaJEp7DvvsCZkzJ/gFZT3rMsM1MarC4hs8=; b=Mo+aCI3FVwe7zrIkBMwxOYSBcs
+	gZIu2YenFfPabB+sE0rPIABYoxcPl8ARvnw+klkptUbAb3JSQPhQR7icAEup5J7tn2QuI+quwqjKS
+	tuQ6nZc9rMtK5HfQ9MYbIGkdoLr2HgREfLGJuq2IXKJtR7sqpDqaO3v+oMgxVF8zO0VAUaehEL9Pe
+	YTVspi7NLruiCMcZtJWtB7ThYiWQSnC6O6YyqrEbmkD07XPwx9Ul6lFviX7KBAvW8k7xxmoJMYdWL
+	s1b4XpTZ9edqeRlqORn2be5hqJTHrg+kB1lPVbY6KX+fW5CuUYipN8VAlMg4bZ/kdpeDJku1m8/6x
+	4H3yiA8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRIt-0000000BICV-3FrE;
-	Wed, 21 Oct 2026 08:04:07 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xJRMg-0000000BIX1-1fLj;
+	Wed, 21 Oct 2026 08:08:02 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRIr-0000000BIBR-1pmw;
-	Wed, 21 Oct 2026 08:04:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Dpk6oZW2/pIfMTZ5y5HTyizlc9Lr7d1oiu8c5BoQlkY=; b=bDpM4kwHriQ1sFZK2YGUYqM+SJ
-	Ls2GKe9T6Q16wdIVF0sIzmbdiO7gAx2lt4lCag3lyfSN1GaGRIKVpJwultXZbxL0u5mQGwvtc0TQD
-	JXvZG/E5H3HNZjKKqYq4rXaXbCX2zNEpYfY5qPiiWbyzxhey/mkyqwG9lfBlVMWco0SPcM9A2l6ii
-	b0nSfG/YGAAB1uwEdpfxgbiIMeezk3BB817qsMBw7BJvnQ3jldRGTUXcmfQtYMdl/R3NyB74ykCS5
-	Qd7zOjXD/EnxwWM2+rji23j/ZoKJnaub74Vpm2N8aNUxp7beklzAqa9M/+tzxAuKonma76t0gIQTo
-	awv8ofqw==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>
-Cc: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>,
- Michael Riesch <michael.riesch@collabora.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Guochun Huang <hero.huang@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/8] dt-bindings: phy: rockchip,rk3588-mipi-dcphy: Add a cell
- to select TX or RX
-Date: Wed, 21 Oct 2026 10:03:45 +0200
-Message-ID: <3435698.oiGErgHkdL@diego>
-In-Reply-To: <20261021024239.GA3667411-robh@kernel.org>
-References: <20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com>
- <25254818.ouqheUzb2q@diego> <20261021024239.GA3667411-robh@kernel.org>
+	id 1xJRMe-0000000BIWc-0fsg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Oct 2026 08:08:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t4ggYV+HLKCXUOYXLY2asuTqGN35z0bJHscK8T+GOpinw5ZoQZ31SxlptrjcSFVgu1m9gBDHyvfoYQbIyZQLut14vroIsQmx/wDwxR8ytkUBw6f81Kp0xkdxllnsXrhj5ciq94dQQxnKo+K/dvVE5jGJMhvMHfqqhfT1X4ukcecZbd5W2KmdtkakKjRM1uFmiBIy2NcQNFLUbqrs1or0oS7VxwgUFETdG3MZKZSc907q5QNKLmM97hXgEIsDl5Tp0fplstnmYirqqk1DB/1yjFrOGANdkXE36OVnYqblwgH1efZOJHqqwhggG9hxrb/gTwB5679BDbyMaXmTp4rCBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RZbxxIpWSZaJEp7DvvsCZkzJ/gFZT3rMsM1MarC4hs8=;
+ b=XsElxfxsIEJfF2dRnUKdAh1QrKFFhlJRZljGLfzWeQIkK+LZ6lVrLC+oURSOoqAOl6P+EIoXOA7hlA+oibBCGuCIvW8UvdcRaJxEufTspHCg1tgwtHb5Dt7cmP3ODlJ8mx88vtip3R+6T69mtTxe656VNQNvVAMiHI1lBfq/ZVlerhu3iVbICbFEKxjpwDB5HNmbMn4pPBR4Eh3tVzyqrNMI7btKBYjrSrgYnMdmgcEzfvp1TZ6H7pqxjGZ+ZhncGndALZRwv+O5SllUiZPdUrWNTP4KXacJQxJbOelWJVV63oYHgkMnqKtjPnc1chjutVkeIzdOTxmpDOB/v8Hwzg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RZbxxIpWSZaJEp7DvvsCZkzJ/gFZT3rMsM1MarC4hs8=;
+ b=XyDRJYORB9qVRZDIMqiAaEtJgaiAC/eL/BPJTEptZ5B7ssuTf9zkrKYT9NCS3oK8ljehOwTpw+jrU5KNm6QY30fBTkLDgBO50r+plRiWbUk09VMqTmfTRYR6vLS+qdepO9yubdqM8NoT9f6Z1MJ4e/H8cKKoxUb4xlwyF0eTOHEq6ZMrOTsHef/awrJMxHsJA5J6c0d7zDb5hol+hJ7ujYiOy3VbBErOxf5VcLgeeksbJqo49AVh6ktMfauJw7EEb+22f+ldPO52wQ4CqfLrWVr2UR45C3nyHKWntNxGKB82d1X9AuSQDxfiusNs8s5R48ay5w5a4im++f2pcgRwRQ==
+Received: from AMBPR04MB12334.eurprd04.prod.outlook.com (2603:10a6:20b:732::5)
+ by BR0PR04MB472823.eurprd04.prod.outlook.com (2603:10a6:2c8:39::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
+ 2026 08:07:52 +0000
+Received: from AMBPR04MB12334.eurprd04.prod.outlook.com
+ ([fe80::9b4f:ab4e:94c3:c457]) by AMBPR04MB12334.eurprd04.prod.outlook.com
+ ([fe80::9b4f:ab4e:94c3:c457%4]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
+ 08:07:51 +0000
+From: "Zhipeng Wang (OSS)" <zhipeng.wang_1@oss.nxp.com>
+To: Radu Rendec <radu@rendec.net>, "Zhipeng Wang (OSS)"
+	<zhipeng.wang_1@oss.nxp.com>, Thomas Gleixner <tglx@kernel.org>, Marc Zyngier
+	<maz@kernel.org>, Frank Li <frank.li@nxp.com>
+CC: Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Jindong Yue
+	<jindong.yue@nxp.com>, Xuegang Liu <xuegang.liu@nxp.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, dl-EP-SW-ANDROID
+	<EP-SW-ANDROID@nxp.com>
+Subject: RE: [PATCH v6 7/9] irqchip/imx-irqsteer: Allow building as module
+Thread-Topic: [PATCH v6 7/9] irqchip/imx-irqsteer: Allow building as module
+Thread-Index: AQHdVwP4nF4U1ANnEk+eICHvMIFT4bcGZ0+AgAFP9EA=
+Date: Wed, 21 Oct 2026 08:07:51 +0000
+Message-ID: <AMBPR04MB12334C9633ED9F19BFE2614FFEB662@AMBPR04MB12334.eurprd04.prod.outlook.com>
+References: <20261008090231.796511-1-Zhipeng.wang_1@oss.nxp.com>
+	 <20261008090231.796511-8-Zhipeng.wang_1@oss.nxp.com>
+ <f642a27d36844b8cc4d164f518f7177252624975.camel@rendec.net>
+In-Reply-To: <f642a27d36844b8cc4d164f518f7177252624975.camel@rendec.net>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AMBPR04MB12334:EE_|BR0PR04MB472823:EE_
+x-ms-office365-filtering-correlation-id: 9425a82e-4945-4be8-1177-08df2f4a6747
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|23010399003|19092799006|1800799024|366016|38070700021|5023799004|4143699003|11063799006|56012099006|261009223027099003|10067099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: Q0HWeuB4Ii+RLqbQ6000Ryn9J7Z+8uOa+qVp/9mfn9Mgfx46FdkAIBmQFWr4SAgFY1sElKxomgchr3Ga5dd6GGkVcwKJ+O/db8Hf/gecFJWU0TP55XFgCtIUTQKCUdtSRNTVXvDnKa6lYnC6tlVQJm/X89GQJJjovFns/t9cs9+l30ps7I+c7dwluPz7B5UFzsX7hWwzGPNxlx4esR0GCDoUsnqG3Li4taf2pi0Hj9y40IbkfOrJlYADuaN955G1Ejt3j7wXpVzDidmRhr9lFtd47Zd7zVotVuEhIDJkV3BXmEX+hYzbWFPcxv36E7Ovcz2XVwa232A8zUVlDtWSAZNnujnER+isMkpcYGV1lIvdmODFw0d67rFARJrpXgzlnpO4w5fRl1HoGuBGXnGKG27Q1Ch9pijBtI5qACQ/ikd+PTUgUeY67YkOijj7qjx6xhP94pFodP+g6e2VdzWXAH9EhLRRO9f0sqKZbOaFcLefYPJjex1ydI8Ay7lKvAj3OxRrQ9+4XgYjIddvR/RuclTX9SDsWPsXYu3+Nu3rtHTX8UqUyz0RPfwMhoStNAgOPVXsIEDl+ljm5EzwVu1nlN+mYMMK1JQtX5/hmAhb/qA5LNbxONmayhtbHdH8XIyFDudIUc7Fw12iyE5Bm0sjx8caSlP+APhrfBflDVU1G4U=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB12334.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(19092799006)(1800799024)(366016)(38070700021)(5023799004)(4143699003)(11063799006)(56012099006)(261009223027099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MTVRakY4TjYzT2ZuZkY3b2d4QXBGYlBONFBYT1ZTTVFJT1IyaEdJOXJIVVNC?=
+ =?utf-8?B?VEJFUHNydENNR0dCakVjTzJxcEtCb0U5KzhMMjladSthRmtoZlZGWCs0dkJ4?=
+ =?utf-8?B?aUNhMjRIampOY1FETkRsUkY5eVd5M3BxaWcwajhiTExTSHRVZ2NCN2JZOVFP?=
+ =?utf-8?B?YzlyVHVNWFVKMFlXcm1OS1Z2Z3lMY25TUG12ejJreGYvVHZ0VUk4clgxSkFw?=
+ =?utf-8?B?cVp6YzV3TEMwNlRVWHBxajRIUkYrV2VGQ0FjOE5mcU5UbGdWcEV4aVJnWHE4?=
+ =?utf-8?B?Q3RjK0o1Mmw1TVFVS2t6bklTUjhWSDFXZ0lTZ0ZjRWpPa29ZL1JrdWdHUzFq?=
+ =?utf-8?B?OTY2WmVHdkF1UXltdDFvbmRwcWxkTTAxV3l1aUNpSHcxcEErdjVOY0JiOTJS?=
+ =?utf-8?B?dkQ2S0ZaeGE2QUc5OERzZm80Ry9XQU0vVVo4SUtVQm81ZDVnaEhZYXNqbGRj?=
+ =?utf-8?B?V2FlOE5KckkxNkVuNHVhelJhU1Z1WnA4YUxxUDVQem4vVDZTb1pPdFo0SHlC?=
+ =?utf-8?B?bzF0ZE5aSUhIcFFmNDQrbWpyV21iUFl0U0NDQjE5cGJJM3VvL3NYWXg2NFFo?=
+ =?utf-8?B?NmlmT1lPNnM2OWFMSkd0bDZMUnh6WWFpMHBGeEhETkNVazl0L1M0VzNIV1I4?=
+ =?utf-8?B?Q3RFeEE2NStIOTc2UEZNVk5NTXI2QklFeHdNWUg1bmU5UkdxdHBNWC9ZSnRx?=
+ =?utf-8?B?ZFZaWENhTHV6T2JFYVZpMVpBSjJSVzZaVmhKSjdITW91ZnpDUTJyK3JsSmN0?=
+ =?utf-8?B?NVk4NTczQXZlaXNlWGlUSlZLYnRxeXlsTUNuOUV4UE52VXh2b1hUU1pUeHVG?=
+ =?utf-8?B?SmlFMWN2ODZ0YnZ1VWNUMHZLVzJKb2pVMGlkQ2RiU3JNMjQ2RG03TFhvMW1N?=
+ =?utf-8?B?RkNNSUNCMjJ0K3NIbFo4eXk3N3F5WTh5UEdDMXVJMmVZMXBya1E0cmtySUdL?=
+ =?utf-8?B?MmNxWklucGhOVFZyZGEyRWxROFBFVmZ2elcxeTFXdnNXR3Y0T1dtemVBTWI1?=
+ =?utf-8?B?aEtOSWJjVVR5Z1pBTkZqZjBKUW15WXN3VmNheW9IL2JYMzBwWWlQem55TjJo?=
+ =?utf-8?B?MFMxd2VxbDhrbExLNFdoc2p3U2d0RlRsUktsZGxHNUF2cEF6SyszTHI3Sy96?=
+ =?utf-8?B?MktiZkpBbWhUeStwLytFZ2hET094dHRKQmVPVit4OFBjbWRUc3dPRVN1K3p0?=
+ =?utf-8?B?bkYvaURYWFh4RFV0Sk4wV1kwTExMSVFkVHRLN2ZSTTVZVVdISEg1elEzUDY1?=
+ =?utf-8?B?THJjL1VWTU9IMUNkQ1ozV2N0UTVqWHhhS0NENzNGMkhOMTFpS1M5eDNaOGJu?=
+ =?utf-8?B?VHBzQlo4NktKMTRhNXFqdzFoSzJHeFJDSWJWTHkxemZ0UXR6T1dCTFNsZHJm?=
+ =?utf-8?B?ellvenRKOXpuQmI3MmtvMDE1UUtEcWxSUWlWdWdWVXZJbFdCcksxTU1COEdU?=
+ =?utf-8?B?QUZzV3JzNUJTMjlYbFFETnNlYUNZbHB3VzY5QTBKVFgvamZPWVo1Zmg4b0M0?=
+ =?utf-8?B?MDcxQ1Z5eGRRRndZOWZyL2hQbVI5ZGZJd1NQMG1Uc1Q0cG1oQm9KZE5NWDdm?=
+ =?utf-8?B?R0oyMjl6OUZDdlEvNmd6VHFMUWpCT0t3QnV3UmtURkI3RUFWZmtQQWdwZE8r?=
+ =?utf-8?B?WlNtY253T3VTNndNam05aXhBV1JjTDBtRi96bE9lYXJva1E2K3JNUXZiR3U4?=
+ =?utf-8?B?QzNpeVdPMUczVEdFaXd6Q1o3Rkk5L210TUpRK1ViY2crc2lxdUpJVFkrdHNC?=
+ =?utf-8?B?dlVQVmlMZWU1dWo0Y1B4WVNQdTNvVmFmNFNrWmR5UXNBWnE3eDNiSEwxV2Er?=
+ =?utf-8?B?czlQNWQram0wRTJ0WkJiQUYwOExmRTY0RFBQL2M1RXh6cGVHekVBY2dSMUxw?=
+ =?utf-8?B?VGNackVxRkRuQTdVY0hPR0o4MGM3MlRUa01wQStmSmhQZ2EyUnpia2kwWEEv?=
+ =?utf-8?B?Tnl2Vlh2Z0VFQkJ3K2RBM2UxSk5peEhBK0s0S3ZqY0ZBV1dnMlROdS9XR013?=
+ =?utf-8?B?Umg1ZVY2OEhVWnI5Mno4TXNFODZvNmNoSkUybnRCVlkzZmFDYmJ0K3BHaTlN?=
+ =?utf-8?B?WmlubFJSdFZqeHV0V1JiTHB2NEJmRHZNWFZyc3ZYSnN0TmEza1Y0SllkV2NL?=
+ =?utf-8?B?N1UweTVHb1htNll1UGlETUF1dk90OGViUFZjRnFYWmpOSjY0RStEME5FN3ZO?=
+ =?utf-8?B?M0c4Z2ZQbFdiQXMwZmVXR1Q4alMxL1VDVjZuTFRXMzRsKzJ3M1hrR0JjNGRK?=
+ =?utf-8?B?ZzVtbTJiUmJKcEd6NGw4RDl6UzRoQWJIOVhscG5OelRSdW5jczlMY3VWRHZz?=
+ =?utf-8?B?SHFxWlJvNzBwdVhnWldCTVBOUzZSZFZUSFE0U0xhSGlnczBMWW90Zz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB12334.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9425a82e-4945-4be8-1177-08df2f4a6747
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Oct 2026 08:07:51.6082
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: lqr4OOcCd3LvLIdh1CJZoUbivh0iGVq3VQ7Xq1+mTOpmEAZSfKRu93csAOGkcZqz/23yI2cfy7QkFFFDWomFgw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB472823
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_010405_677564_6EA5D4D2 
-X-CRM114-Status: GOOD (  61.89  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261021_010800_204527_51C89627 
+X-CRM114-Status: GOOD (  28.82  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,212 +159,76 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Am Mittwoch, 21. Oktober 2026, 04:42:39 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb Rob Herring:
-> On Tue, Oct 20, 2026 at 04:57:34PM +0200, Heiko St=C3=BCbner wrote:
-> > Am Dienstag, 20. Oktober 2026, 16:10:39 Mitteleurop=C3=A4ische Sommerze=
-it schrieb Rob Herring:
-> > > On Tue, Oct 20, 2026 at 03:37:35PM +0200, Heiko St=C3=BCbner wrote:
-> > > > Am Dienstag, 20. Oktober 2026, 00:20:47 Mitteleurop=C3=A4ische Somm=
-erzeit schrieb Michael Riesch:
-> > > > > Hi all,
-> > > > >=20
-> > > > > On 10/19/26 17:06, Rob Herring wrote:
-> > > > > > On Mon, Oct 19, 2026 at 04:15:03PM +0800, =E6=A5=8A=E6=99=BA=E6=
-=88=90 wrote:
-> > > > > >> Hi Krzysztof, Rob,
-> > > > > >>
-> > > > > >>> Existing OS should ignore surplus cell if the driver is coded=
- properly.
-> > > > > >>> Same as adding new properties or new front-compatible.  The q=
-uestion is
-> > > > > >>> how the existing driver behaves?
-> > > > > >>
-> > > > > >> As you pointed out on 5/8, the xlate checks args_count !=3D 1.=
- The DC-PHY
-> > > > > >> driver was merged in v6.15, so every kernel since 6.15 fails o=
-n a second cell.
-> > > > > >>
-> > > > > >> 1. Keep the second cell. Add the patch as follows:
-> > > > > >>
-> > > > > >> - if (args->args_count !=3D 1) {
-> > > > > >> + if (args->args_count < 1) {
-> > > > > >>     dev_err(dev, "invalid number of arguments\n");
-> > > > > >>     return ERR_PTR(-EINVAL);
-> > > > > >>   }
-> > > > > >>
-> > > > > >> + if (args->args_count > 1 && args->args[1]) {
-> > > > > >> +   dev_err(dev, "only the transmitter is supported\n");
-> > > > > >> +   return ERR_PTR(-EINVAL);
-> > > > > >> + }
-> > > > > >>
-> > > > > >>   With Fixes: and Cc: stable, the stable kernels maintained at=
- that
-> > > > > >>   time (currently 6.18.y and 7.2.y) keep DSI working with the =
-new
-> > > > > >>   dts, and the receiver fails cleanly instead of getting the t=
-ransmitter.
-> > > > > >>   But EOL kernels (6.15, 6.16, 6.17, 6.19, 7.0, 7.1) stay affe=
-cted.
-> > > > > >>   It goes in with the series, since two-cell dts only exist af=
-ter it.
-> > > > > >>
-> > > > > >> 2. Use a flag in the upper bits of the existing cell, as Rob
-> > > > > >>     suggested. Existing kernels are not affected, unless a boa=
-rd enables
-> > > > > >>     the DC-PHY CSI-2 receiver on 7.0 or later without this ser=
-ies.
-> > > > > >>
-> > > > > >> I will write the impact clearly whichever  approach is selecte=
-d in
-> > > > > >> the related commit messages and the cover letter.
-> > > > > >>
-> > > > > >> I think the cell approach is easier to read and more symmetric=
- in the
-> > > > > >> long term,
-> > > > > >> but it breaks more. Which one do you think is better? Thanks.
-> > > > > >=20
-> > > > > > I'm not a user of this platform, so I don't care. Up to the pla=
-tform=20
-> > > > > > maintainers to decide if breakage is acceptible. You just need =
-to=20
-> > > > > > document the issue in the commit message.
-> > > > > >=20
-> > > > > > Rob
-> > > > >=20
-> > > > > It's a bit of a pickle, all this.
-> > > > >=20
-> > > > > I gave it some more thought. In the end this is an IP block with =
-two
-> > > > > PHYs. No more, no less. One cell is sufficient to address those, =
-and it
-> > > > > could be 0 for the transmitting PHY (DSI, display) and 1 for the
-> > > > > receiving PHY (CSI, camera).
-> > > > >=20
-> > > > > Of course the two PHYs can operate in either DPHY or CPHY mode. T=
-he
-> > > > > phy-cells have been (mis?)used to select the proper mode of combo=
- PHYs,
-> > > > > and this principle has been applied here too.
-> > > > >=20
-> > > > > However, we have the special situation here that the mode can onl=
-y be
-> > > > > changed for the complete IP block (and thus for both PHYs at the =
-same
-> > > > > time). As Bryan points out, we need to check and complain if the =
-PHY
-> > > > > mode is not set to the same value for both PHYs.
-> > > > >=20
-> > > > > I suggest using a property
-> > > > >     samsung,cphy-mode;
-> > > >=20
-> > > > I guess, a maybe nicer way would be mimicing
-> > > > 	Documentation/devicetree/bindings/phy/intel,combo-phy.yaml
-> > > >=20
-> > > > with its
-> > > > 	intel,phy-mode =3D <x>
-> > > >=20
-> > > > with x coming from include/dt-bindings/phy/phy.h
-> > > > for the distinction between cphy and dphy, so we don't introduce yet
-> > > > another way to describe this.
-> > >=20
-> > > We already have the plain 'phy-type' property which takes the same=20
-> > > PHY_MODE_x values. We don't need yet another vendor specific property.
-> >=20
-> > even better then ... and I didn't look deep enough it seems.
-> >=20
-> >=20
-> > > > > (name to be bikeshedded) that sets the complete IP block into CPH=
-Y mode
-> > > > > (DPHY being the default) to distinguish between the modes. Since =
-both
-> > > > > modes use a different electrical interface, this is clearly a har=
-dware
-> > > > > thing and thus suitable for device tree.
-> > > > >=20
-> > > > > Then, we can address the two PHYs with the help of the already ex=
-isting
-> > > > > phy cell (without any bitflag tweaks to the value).
-> > > > >=20
-> > > > > The sole drawback is that we need to accept the PHY_TYPE_DPHY and
-> > > > > PHY_TYPE_CPHY values that some OS in the field might pass. (For L=
-inux,
-> > > > > it should only be the former.) And we need to handle those values
-> > > > > correctly. But I think this is not more painful than the other
-> > > > > approaches. At the same time, this design seems to be the most co=
-rrect
-> > > >=20
-> > > > The current cell values are 10 + 11, so as long as we don't re-use =
-those
-> > > > exact values for the other constants the driver should somewhat eas=
-ily
-> > > > be able to recognize an old DT?
-> > >=20
-> > > I think you will still have an ABI issue of what does old OS do with =
-new=20
-> > > values?
-> >=20
-> > wasn't the main contract, a newer kernel should support old DTs ?
->=20
-> Well, yes, it was. That was a position I inherited. I hear complaints=20
-> about the opposite though.
->=20
-> > Aka the DT is parked in some firmware part (u-boot?) and gets handed
-> > to the newer kernel.
-> >=20
-> > I don't see deliberately handing a newer DTB to an older kernel as a
-> > very common occurence?
->=20
-> Do you want things to break when you do a firmware update that's picked=20
-> up a newer DT? I don't.
->=20
->=20
-> > And from a practical standpoint:
-> >=20
-> > We're talking about devices with DSI displays that are at stake here,
-> > so we're in the embedded world.
-> >=20
-> > In other areas we're still fighting basic functionality like actually
-> > handling the type-c orientation correctly in the usbphy.
-> >=20
-> > So I really don't see a device with a user-updateable mainline kernel o=
-ut
-> > in the field, apart from people hacking around on their devices to try
-> > out new features and new kernels, simply because core functionality
-> > is still evolving in mainline.
-> >=20
-> >=20
-> > RK3576/RK3588 devices still ship with a vendor u-boot/kernel, with
-> > completely incompatible DTB afterall.
->=20
-> I can only keep my own house clean...
-
-ok :-)=20
-
-
-> I only ask that compatibility issues be documented. Up to individual=20
-> platforms to decide if they care or not. So, your decision.
-
-The discussion would be a lot different for SoCs like the RK3399 or PX30
-that can and have run mainline software in a usable way for years now.
-RK3568 very likely falls in that area too.
-
-But for the in-progress SoCs RK3576 and RK3588 anybody wanting to run
-a generic userspace would need a heavily patched kernel anyway, with
-other unreviewed/unmerged dt-changes, so personally I can live with it.
-
-Especially if we keep the (in my eyes) more common case
-(old dtb, new kernel) working.
-
-
-Heiko
-
-
+PiBTdWJqZWN0OiBSZTogW1BBVENIIHY2IDcvOV0gaXJxY2hpcC9pbXgtaXJxc3RlZXI6IEFsbG93
+IGJ1aWxkaW5nIGFzIG1vZHVsZQ0KPiANCj4gT24gVGh1LCAyMDI2LTEwLTA4IGF0IDE4OjAyICsw
+OTAwLCBaaGlwZW5nLndhbmdfMUBvc3MubnhwLmNvbSB3cm90ZToNCj4gPiBGcm9tOiBKaW5kb25n
+IFl1ZSA8amluZG9uZy55dWVAbnhwLmNvbT4NCj4gPg0KPiA+IE1ha2UgdGhlIGRyaXZlciBidWls
+ZGFibGUgYXMgYSBtb2R1bGUgYnkgdHVybmluZyB0aGUgS2NvbmZpZyBzeW1ib2wNCj4gPiBpbnRv
+IGEgdHJpc3RhdGUgYW5kIHVzaW5nIG1vZHVsZV9wbGF0Zm9ybV9kcml2ZXIoKSBpbnN0ZWFkIG9m
+DQo+ID4gYnVpbHRpbl9wbGF0Zm9ybV9kcml2ZXIoKSwgYW5kIGFkZCB0aGUgTU9EVUxFX0RFVklD
+RV9UQUJMRSgpIGFuZA0KPiA+IG1vZHVsZSBtZXRhZGF0YSBuZWVkZWQgZm9yIGF1dG9sb2FkaW5n
+Lg0KPiANCj4gSSBiZWxpZXZlIGJvdGggaGlnaC1zZXZlcml0eSBpc3N1ZXMgZmxhZ2dlZCBieSBz
+YXNoaWtvIFsxXSBhcmUgdmFsaWQuDQo+IExvb2tpbmcgYXQgd2hhdCBvdGhlciBkcml2ZXJzIGRv
+IChlLmcuIGRyaXZlcnMvaXJxY2hpcC9pcnEtdHM0ODAwLmMsDQo+IGRyaXZlcnMvaXJxY2hpcC9p
+cnEtcHJ1c3MtaW50Yy5jKSwgeW91IHNob3VsZCBkbyBzb21ldGhpbmcgc2ltaWxhcjoNCj4gaXRl
+cmF0ZSBvdmVyIHRoZSBod2lycXMgYW5kIGNhbGwgaXJxX2Rpc3Bvc2VfbWFwcGluZygpLiBUaGF0
+IHdvdWxkIHNvbHZlIGJvdGgNCj4gcHJvYmxlbXMgYmVjYXVzZSBzeW5jaHJvbml6ZV9pcnEoKSBn
+ZXRzIGNhbGxlZCBpbmRpcmVjdGx5IHZpYQ0KPiBpcnFfZG9tYWluX2Rpc2Fzc29jaWF0ZSgpLg0K
+PiANCj4gVGhlcmUgaXMgbm90aGluZyB3cm9uZyB3aXRoIHRoZSBwYXRjaCBpdHNlbGYgKHRoZSBj
+b252ZXJzaW9uIHRvIGxvYWRhYmxlDQo+IG1vZHVsZSksIHNvIG15IHItYiB0YWcgY2FuIHN0YXkg
+YXMgbG9uZyBhcyB0aGUgYWJvdmUgaXNzdWUgaXMgYWRkcmVzc2VkIGluIGENCj4gc2VwYXJhdGUg
+cGF0Y2guIFRoYW5rcyENCj4gDQo+IFsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvc2Fz
+aGlrby1vdXRib3gtMTYzOTIwQGtlcm5lbC5vcmcvDQo+IA0KSGkgUmFkdSwNCg0KQWdyZWVkLCBi
+b3RoIGlzc3VlcyBhcmUgdmFsaWQuIEknbGwgYWRkIGEgc2VwYXJhdGUgcGF0Y2ggdGhhdCBpdGVy
+YXRlcw0Kb3ZlciB0aGUgZG9tYWluJ3MgaHdpcnFzIGFuZCBjYWxscyBpcnFfZGlzcG9zZV9tYXBw
+aW5nKCkgaW4gcmVtb3ZlKCksIGFzDQppbiBpcnEtdHM0ODAwLmMgLyBpcnEtcHJ1c3MtaW50Yy5j
+LiBBcyB5b3Ugbm90ZWQsIHRoYXQgY2FsbHMNCnN5bmNocm9uaXplX2lycSgpIHZpYSBpcnFfZG9t
+YWluX2Rpc2Fzc29jaWF0ZSgpLCB3aGljaCBjbG9zZXMgYm90aCB0aGUNCnRlYXJkb3duIHJhY2Ug
+YW5kIHRoZSBkYW5nbGluZy1jaGlwLXBvaW50ZXIgcHJvYmxlbS4NCg0KVGhhbmtzIGZvciB0aGUg
+cG9pbnRlcnMhDQpaaGlwZW5nDQo+ID4gVGhlIGNsb2NrLCBydW50aW1lIFBNIGFuZCBJUlEgZG9t
+YWluIGFyZSBhbHJlYWR5IG93bmVkIGJ5IGRldnJlcywgc28NCj4gPiBubyBmdXJ0aGVyIHRlYXJk
+b3duIGlzIG5lZWRlZCB0byBzdXBwb3J0IHVuYmluZCBhbmQgcmVsb2FkLg0KPiA+DQo+ID4gU2ln
+bmVkLW9mZi1ieTogSmluZG9uZyBZdWUgPGppbmRvbmcueXVlQG54cC5jb20+DQo+ID4gU2lnbmVk
+LW9mZi1ieTogWmhpcGVuZyBXYW5nIDx6aGlwZW5nLndhbmdfMUBueHAuY29tPg0KPiA+IFJldmll
+d2VkLWJ5OiBSYWR1IFJlbmRlYyA8cmFkdUByZW5kZWMubmV0Pg0KPiA+IC0tLQ0KPiA+IMKgZHJp
+dmVycy9pcnFjaGlwL0tjb25maWfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgMiArLQ0KPiA+IMKg
+ZHJpdmVycy9pcnFjaGlwL2lycS1pbXgtaXJxc3RlZXIuYyB8IDcgKysrKysrLQ0KPiA+IMKgMiBm
+aWxlcyBjaGFuZ2VkLCA3IGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pDQo+ID4NCj4gPiBk
+aWZmIC0tZ2l0IGEvZHJpdmVycy9pcnFjaGlwL0tjb25maWcgYi9kcml2ZXJzL2lycWNoaXAvS2Nv
+bmZpZyBpbmRleA0KPiA+IDIwYjc3ZmJjNTFlZS4uMTA1MTA4ZDJlNmZmIDEwMDY0NA0KPiA+IC0t
+LSBhL2RyaXZlcnMvaXJxY2hpcC9LY29uZmlnDQo+ID4gKysrIGIvZHJpdmVycy9pcnFjaGlwL0tj
+b25maWcNCj4gPiBAQCAtNTU1LDcgKzU1NSw3IEBAIGNvbmZpZyBDU0tZX0FQQl9JTlRDDQo+ID4g
+wqAJwqAgdGhlIGNvbnRyb2xsZXIncyByZWdpc3Rlci4NCj4gPg0KPiA+IMKgY29uZmlnIElNWF9J
+UlFTVEVFUg0KPiA+IC0JYm9vbCAiaS5NWCBJUlFTVEVFUiBzdXBwb3J0Ig0KPiA+ICsJdHJpc3Rh
+dGUgImkuTVggSVJRU1RFRVIgc3VwcG9ydCINCj4gPiDCoAlkZXBlbmRzIG9uIEFSQ0hfTVhDIHx8
+IEFSQ0hfUzMyIHx8IENPTVBJTEVfVEVTVA0KPiA+IMKgCWRlZmF1bHQgeSBpZiBBUkNIX01YQyB8
+fCBBUkNIX1MzMg0KPiA+IMKgCXNlbGVjdCBJUlFfRE9NQUlODQo+ID4gZGlmZiAtLWdpdCBhL2Ry
+aXZlcnMvaXJxY2hpcC9pcnEtaW14LWlycXN0ZWVyLmMNCj4gPiBiL2RyaXZlcnMvaXJxY2hpcC9p
+cnEtaW14LWlycXN0ZWVyLmMNCj4gPiBpbmRleCAxNWVlNTBmNjVkNTQuLjg1ZWRkNWUzM2NhOSAx
+MDA2NDQNCj4gPiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLWlteC1pcnFzdGVlci5jDQo+ID4g
+KysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1pbXgtaXJxc3RlZXIuYw0KPiA+IEBAIC0xMCw2ICsx
+MCw3IEBADQo+ID4gwqAjaW5jbHVkZSA8bGludXgvaXJxY2hpcC9jaGFpbmVkX2lycS5oPg0KPiA+
+IMKgI2luY2x1ZGUgPGxpbnV4L2lycWRvbWFpbi5oPg0KPiA+IMKgI2luY2x1ZGUgPGxpbnV4L2tl
+cm5lbC5oPg0KPiA+ICsjaW5jbHVkZSA8bGludXgvbW9kdWxlLmg+DQo+ID4gwqAjaW5jbHVkZSA8
+bGludXgvb2YuaD4NCj4gPiDCoCNpbmNsdWRlIDxsaW51eC9vZl9pcnEuaD4NCj4gPiDCoCNpbmNs
+dWRlIDxsaW51eC9wbGF0Zm9ybV9kZXZpY2UuaD4NCj4gPiBAQCAtMzU5LDYgKzM2MCw3IEBAIHN0
+YXRpYyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkIGlteF9pcnFzdGVlcl9kdF9pZHNbXQ0KPiA9
+IHsNCj4gPiDCoAl7IC5jb21wYXRpYmxlID0gIm54cCxzMzJuNzktaXJxc3RlZXIiLAkuZGF0YSA9
+ICZzMzJuNzlfZGF0YSB9LA0KPiA+IMKgCXt9LA0KPiA+IMKgfTsNCj4gPiArTU9EVUxFX0RFVklD
+RV9UQUJMRShvZiwgaW14X2lycXN0ZWVyX2R0X2lkcyk7DQo+ID4NCj4gPiDCoHN0YXRpYyBzdHJ1
+Y3QgcGxhdGZvcm1fZHJpdmVyIGlteF9pcnFzdGVlcl9kcml2ZXIgPSB7DQo+ID4gwqAJLmRyaXZl
+ciA9IHsNCj4gPiBAQCAtMzY5LDQgKzM3MSw3IEBAIHN0YXRpYyBzdHJ1Y3QgcGxhdGZvcm1fZHJp
+dmVyIGlteF9pcnFzdGVlcl9kcml2ZXIgPSB7DQo+ID4gwqAJLnByb2JlCQk9IGlteF9pcnFzdGVl
+cl9wcm9iZSwNCj4gPiDCoAkucmVtb3ZlCQk9IGlteF9pcnFzdGVlcl9yZW1vdmUsDQo+ID4gwqB9
+Ow0KPiA+IC1idWlsdGluX3BsYXRmb3JtX2RyaXZlcihpbXhfaXJxc3RlZXJfZHJpdmVyKTsNCj4g
+PiArbW9kdWxlX3BsYXRmb3JtX2RyaXZlcihpbXhfaXJxc3RlZXJfZHJpdmVyKTsNCj4gPiArDQo+
+ID4gK01PRFVMRV9ERVNDUklQVElPTigiaS5NWCBJUlFTVEVFUiBpbnRlcnJ1cHQgbXVsdGlwbGV4
+ZXIvcmVtYXBwZXINCj4gPiArZHJpdmVyIik7IE1PRFVMRV9MSUNFTlNFKCJHUEwiKTsNCg==
 
