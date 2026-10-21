@@ -2,104 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0900606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 06:01:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D738460A2618
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 06:07:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cyiSoOH6;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=TPrpmawx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Bm7H4JjT;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lAKCu+o+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hZCxWGNKVDrgA8OGLPMyOoCY7CLwULXtFPHSf9AA35s=; b=cyiSoOH6hrWt8f5nDK9kO64t+8
-	p6POd2hV5XnjrJq98Z76c1sndCS1ZnxE3XKfOI5iI83Y/1H0K8GZ5MytZGvvtFolQYZ/q0qDHdLfM
-	DqDhqSwDIRw7I6uDiyTe3U1cKXWByhewHVTEok2k7LobHhBqNe8zfjA5dU2vz+WxB+Yd6KsUBCMBv
-	c6YbMe0mC4bHf1Vd2tyBULbhycUodcFOhXXkA0Q5QkS2eMlwXJNa6RXH+yOY77PkpDndOZOCVRi5o
-	AtXzVwk0RkahmhEL2aNqX5rHBXHgZw4Iay/MrXrLkbYFctH027gNZ280G7K6tCIJGzaLi4y9jU4He
-	yQipA2RQ==;
+	bh=Bxouv0kn7Sc9hHczau5510tqW8b3G6JDVUWPALdKHHY=; b=Bm7H4JjTOoniJl0J5KJntySHmq
+	7RomgDnR+Mf0QhGnc9X84N2rTiEnRIppDFw4Vek1Hq+dA9yk4UI+wlhc7vxp6E3Ph7lcfr+zl8GZJ
+	bw889CAwB57Gnt92xuaBWdV40XS7CbhEBic/fu65PUuTdEhLC2d/P8NunmglhlQlsPW9DOEdij2gM
+	TsWnQFMqkUWJVxLficHume8b2y0iXRPnOni8ntYh980slw99yjOU7rXzo1V21z6wUXucyWq77xdnk
+	vCUls+iKw3poXu8EImlQgfiEW6rbaLudM3RjL2iGfmm49+d2WFqiPxfiGNR0RY45uPiF8LbJJ+ScK
+	ByiELTfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJPNl-0000000B7sM-320C;
-	Wed, 21 Oct 2026 06:01:01 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1xJPUI-0000000B8Ii-1WvC;
+	Wed, 21 Oct 2026 06:07:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJPNj-0000000B7r1-0hUU
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 06:01:00 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-48c4d870d54so189338f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 23:00:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792562456; x=1793167256; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hZCxWGNKVDrgA8OGLPMyOoCY7CLwULXtFPHSf9AA35s=;
-        b=TPrpmawxu29exfU9zdxi15EOJYvXqeXdlKC9swf87s1Q65Yk81Sn3aduwmArcuKc5n
-         uVOuDtUiLiE7MDS4YDYhSmR0drhpIKnD4FHFbAmgc2U0/NaQ0JzbxBeoE/AH5T06dkXI
-         q8afk8BdHU4pmn4FpBwt/QSMoZoRY7fm3rvopQx6OFjfUgS0wVyRU9J7TdGndZxxYmMB
-         P8yNUPA3gczSN4eKsovg6wdmwgT/5WZqqjDYeBtN/jDIWATw3b97gBCe4kDV+ljVe7GZ
-         8SZqJo+PCTjwXbfIg8SFYZhWKZ/DCWK2Xmhe+DiPyR7pxYqC99ABDNJxXvoe9/NBH/po
-         KsDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792562456; x=1793167256;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hZCxWGNKVDrgA8OGLPMyOoCY7CLwULXtFPHSf9AA35s=;
-        b=LxejVDDO/oT7/hWCFwygX76Xrkh4RwyN9Y+5yl0P1N3wMLr/o/VxXSj8G7jQDLqNQr
-         A76+scbKVYSFONhobcnQUjdUHAATa4Jh0otc06YLxHVHfnpFcb2UWgUKITfWyaOSInZO
-         MKefaeBavYC0Iv4VCbxPrNNM8yzQ+eJfmWzTAJspSuJdFMaMMqhfzMWA/8GoJjUe+yxv
-         6SifSP81y+0Vu3RTxAkt3EEnRJ7WEbb4luzg+9tpPBmaJ1ZhIwgzlxSM2hsUp2AdAv81
-         kLsKaLr43K2fvAwKQkqbxO4E83T2JbJxwpCkw57BU/C6jtelfzZ7BP3o8SR2Sv2SMYE1
-         b4BQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw22Yl+3Z1ygz+wZn6AdU5SC+YYyHZmdgh9JRaVHkI+nHaZ9HnsWwB9WNwxToiAlIs8fWi21PaJAQ9hvDWNEX09@lists.infradead.org
-X-Gm-Message-State: AFq9FYLlozbGhgrGjvZL8T6y3ThgQcnpDWYZRlKJTe6hphVfnUgmob4t
-	noKvYo65GTVSuQSdyo6sd0eDynis4t1q08JLaJBVJ20+gQS+D/Izn3QH1FmfGTs2cWzMow==
-X-Gm-Gg: AYBFou3WjNZDhSA0DzaaXrp/0N8HDlAL467L7pOZRg6lrWcwj8zvxPcYjaCNAS8WPTv
-	xwWK/PJikoN24E0fd3yJBZ3Dvwunu1xksZqE4G7xtU5AOhBjpbyThCTerNz5Y1PM8wzfn5gg6qb
-	KzkT86XGIGpDmfg3uHv6LVTGWUf7fFxmdy3KPmkMB28eh6yWp5k0artMhZTn684AtaTLROV8TPt
-	XiBpOEIvYnAD28LSif38co6gyj/UwFjqgFMALlokUP2b9P2PTXoiso9O856U2gE0xAnNVl85zPK
-	IwOdMsVwjq2n3ovxazRpQ7L46lwL1zRBAfHdvOnzSUfZmTQNo0FkPqqZSc8YA4lR+18i2MQwevT
-	bCwDGkmYDg5uyxzSHZtiHbNzCoktk38l4tzG0Ti4Ay8o1JvB8fSoPiHJaBgrZQtHZDchWyd6REr
-	l5yI81uxDQvUytXH9OTHDMinSxMPVqpUyD2s6Kp9iCl4GKlEybYCsbFSZZ/CFL8a8nffRUMaHdu
-	L7Co/SKsTUXsOxTOSLgErgpmkFxdY9mqMl+Coa8ikxmBkP+GndLi3EO1L3yTU5T+Bwxw/jsVKKe
-	YIEeDUfpMKYnPTtwAHS1LoiCQdT12ufpCQRUZJGw64O0i8CF
-X-Received: by 2002:a05:600d:864d:10b0:49f:e941:d6e with SMTP id 5b1f17b1804b1-4a1fdd399dbmr10139275e9.21.1792562455713;
-        Tue, 20 Oct 2026 23:00:55 -0700 (PDT)
-Received: from john-desktop.station ([109.77.5.121])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1fb83ff0dsm63793845e9.7.2026.10.20.23.00.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 23:00:54 -0700 (PDT)
-From: John O'Callaghan <johnocallaghan@gmail.com>
-To: Chuan Liu <chuan.liu@amlogic.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-amlogic@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/4] clk: amlogic: Improve the issue of PLL lock failures
-Date: Wed, 21 Oct 2026 06:59:25 +0100
-Message-ID: <20261021060005.2947837-1-johnocallaghan@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251031-optimize_pll_driver-v3-2-92f3b2f36a83@amlogic.com>
-References: <20251031-optimize_pll_driver-v3-0-92f3b2f36a83@amlogic.com> <20251031-optimize_pll_driver-v3-2-92f3b2f36a83@amlogic.com>
+	id 1xJPUH-0000000B8IT-1q1J;
+	Wed, 21 Oct 2026 06:07:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4BCE0601F1;
+	Wed, 21 Oct 2026 06:07:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDF221F000C9;
+	Wed, 21 Oct 2026 06:07:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792562864;
+	bh=Bxouv0kn7Sc9hHczau5510tqW8b3G6JDVUWPALdKHHY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=lAKCu+o+pALPobQZAUGddKwHbG2VijoTyRwY+eqaavfcyR9AC9fJt0qxzrI8yXjP8
+	 HGCWfJ2+XVVfjt3J4CUTSQNZclicJGWWm4Oph3FvNVAzBOimYdJ9fKwsP5UIofmg93
+	 SkEUYcmKUPdoP0qq7PqfvQcPYvzqd1/anQZR4gg3PO1FO2Xi4F+wkljdplItfxbX1K
+	 xU6HFKBzeA7gESVpLwIpdSE06baOfBpYqF0gj2Tm8Qys+VM0YxXdzGbt0EKFtR7sAJ
+	 Hi6iThLAJ9RVVFU5FLkZv25b9xJbt5geXLip1RTpBRfJZLdA5WJxzZ7fO69qBkUrJ9
+	 a+xsaVawV3iOQ==
+Message-ID: <43b58ad7-5934-4895-b48d-5b5a7b92e253@kernel.org>
+Date: Wed, 21 Oct 2026 08:07:34 +0200
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v10 1/9] dt-bindings: mfd: mt6397: Add MT6392 PMIC
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+ linux-mediatek@lists.infradead.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
+ Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Linus Walleij <linusw@kernel.org>, Val Packett <val@packett.cool>,
+ Fabien Parent <parent.f@gmail.com>, Akari Tsuyukusa
+ <akkun11.open@gmail.com>, Chen Zhong <chen.zhong@mediatek.com>,
+ linux-input@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, mfd@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
+References: <20261020173556.632798-1-l.scorcia@gmail.com>
+ <20261020173556.632798-2-l.scorcia@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261020173556.632798-2-l.scorcia@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_230059_245812_30B043BD 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,44 +124,28 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Chuan,
+On 20/10/2026 19:33, Luca Leonardo Scorcia wrote:
+> Describe the MT6392 PMIC and its RTC and regulator devices. This device
+> is mostly based on MT6323 with some similarities to MT6397 and is usually
+> found on boards using the MT8516/MT8167 SoC.
+> 
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
 
-Jerome asked what was tested; here is a G12A data point.
 
-On a Radxa Zero (S905Y2, G12A) running v7.3, sys_pll_dco occasionally
-fails to lock on cpufreq transitions, at room temperature:
+And here you write clear note about dependency, once you fixed
+bisectability.
 
-  meson_clk_pll_set_rate: pll sys_pll_dco didn't lock, trying to set old rate 6000000000
-
-It happens with all the sys_pll OPPs (old DCO rates 3216, 3408, 3600,
-4800, 5592 and 6000 MHz) but, here, only while the video decoder is
-busy. Reproducer: the userspace governor, random writes of the
-1200-1800 MHz OPPs to scaling_setspeed (~700 transitions/s), with a
-GStreamer v4l2 decode loop (meson vdec, H.264 + VP9 1080p) running
-alongside. 46 C SoC temperature.
-
-                                       transitions   lock failures
-  v7.3                                     500290        33
-  v7.3, no decoder running                 250056         0
-  v7.3 + this series (1-4)                 500089         0
-  v7.3 + patch 2/4 only                    500066         0
-
-So on G12A it is the 20 us delays of this patch that make the
-difference.
-
-Tested-by: John O'Callaghan <johnocallaghan@gmail.com> # Radxa Zero (G12A)
-
-The testing was scripted with the help of an LLM coding assistant; I
-ran it on my board and checked the results.
-
-Thanks,
-John
+Best regards,
+Krzysztof
 
