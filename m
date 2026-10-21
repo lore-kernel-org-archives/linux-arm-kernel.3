@@ -2,79 +2,101 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5ADFA606A330
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 12:45:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 614B3606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 12:46:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=G/cDMcoL;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=YuDfAoht
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ERhAALCP;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=jxnNk48f
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NbUxAF4+fhGaTwU6SyGGMBBPCIGMBSiSpExMIJK1rcE=; b=G/cDMcoLmqUUm8qFO1CgnLO5QF
-	78vDTSAXOj/y0I7IRNll/QynYppLEWK5vEgCfbR5LeudmT8FVFpKaXn7aGbdFDWslXZhQkREC640h
-	6662ypmXFve/6fBBEimyDeEE1pQ5Zb0GjlUf74jdDbKxWBr499jWItL40BKpluAti9fi9yaGO7fLm
-	t8aDXTCxnQ49Xt3AFZ1byaETbpYfcZ+0FH4SWymBAuWB5SFzwCnta45J9sPCNgbymAlCv4gpMMzc2
-	H9rvaSrPOVt+Wxe+9FBt2VSaiwrLzXdPbmwY/U5rUOI0XPN46Ej3PmQjXqUGqNAlKpwpzsqdGxDyK
-	oRJEGDOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8cMpNSZYfsYlTclwX1/iQuhdswpG+2A2KBsZGqDHCHs=; b=ERhAALCPwR9E4eKJ6vQDPqbk4J
+	4pXGV2GY06Izi0yYMzBUuIfzfrtpguOWZQj5fC2ddyrSQ1DKdoUaYbntCTBA4ZrxfSCcsuHEpKq3z
+	2HlGoWuMMKTGOUHJVRf/ZLgK+heKPbR3CCwXgI/ul9kKDhX2sAZsXm6hPgKPA7LpAJmZsh+l75Zxa
+	ArCtIcqmoFVrXAsrSX5dD/YOht+gjbhHl3EFF4YUtMAMFzr08BA22LKgWqy778ghGfv8tvaIX9xyd
+	qS5ir7HiRVMxRYeci5KryZWZ3ogy14jLhUVKg0BlJUkzLAKoVebK9qFusrKcMTUOJxjNt8qvkpPzy
+	/ub+WG3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJVgh-0000000BpL8-0bhS;
-	Wed, 21 Oct 2026 12:44:59 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xJVhw-0000000BpbV-23bu;
+	Wed, 21 Oct 2026 12:46:16 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJVga-0000000BpI0-2JaT;
-	Wed, 21 Oct 2026 12:44:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=NbUxAF4+fhGaTwU6SyGGMBBPCIGMBSiSpExMIJK1rcE=; b=YuDfAoht/p9qIU3gcRDo1zQNIE
-	ZJewm00U8PJGJBWrNWIxjpN84vJBt1FRbw7fyx0Ar2B1AJmeukQ9k+kZNYws/CB1pu3y14Pmpu53S
-	JvCAhGDlO+aArpYaGHTFVQ2Vc84oPDyfJEKxJr8DQJZV5AnBdWVmupbXFYHvV3A/NdZ8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xJVg9-00C5Go-1v; Wed, 21 Oct 2026 14:44:25 +0200
-Date: Wed, 21 Oct 2026 14:44:25 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	id 1xJVht-0000000Bpab-2OjL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Oct 2026 12:46:16 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-8520161fdb9so391335b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 05:46:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792586773; x=1793191573; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8cMpNSZYfsYlTclwX1/iQuhdswpG+2A2KBsZGqDHCHs=;
+        b=jxnNk48f+cbl/XM3WCxWH3nzuwn3IY/3FAcKO5Dn5tI3qNj7/NGw3pPMqJiPN7J6l9
+         wl8zwZjY1QNbbw4gwecK3SCQZydzrDcobfsllyLzR3VpqQmCdvVEeWlva/w5Cr0lY4oA
+         H8sWtsWdvwvRHNC+8E+7HWQ3gyitruMXQWiCts8pniBsd/wA+YeDYIxyGNZjYb2C18O5
+         SyLgvgD/jb0GjITojCJeMUHVR9meAMSZUqsrspGDtBrk0jfAkErJfaZuTrzaMLvtc4NZ
+         tGOkj8vBgA247o3i1SJvl78ZGz8n+nHFmxMRQGzHA2ZfZ45T0AMR6VConjKTtm9O0djL
+         sjTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792586773; x=1793191573;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8cMpNSZYfsYlTclwX1/iQuhdswpG+2A2KBsZGqDHCHs=;
+        b=PQm9L6eCzx6MMPp5QF8fwiF2zMAPLsGv7QBPLCY1nssaw7pUKddR2gsL0M8J3hTkJm
+         EzpRUbMuc8Lj52Vdm9ZNxVkwDwrjUHNcSXnuFqGGfqHBkmJhYYFWd1bHW+QmJBhIwoly
+         HRDb66B48Ee2LWf1as1o9xidU4tAxymaxtGa1qF9+Ed8fjBvdwi8iUX9NYDe5wwansmD
+         5ezBOXUASll7gkbxeOi9z5w6OOKsBel4hQ5mu+MNUIhJx83H/ZDMNhjLrOgk1omX8EyQ
+         2HZM7wBX4ML559YE/EHT/rOTiILDtm+7xJQS/m/bG5Oysurcpz76ng0kHroQ4fJsQYAR
+         a+4A==
+X-Forwarded-Encrypted: i=1; AKwUvBxkS5y1Aa2oQZDpHUKpurPaCEZwIJCdxnHB7VKraokmYJW1vTSMNwBlk7DGk5UgOGzgRckcctLPnNTFjdGKlgt8@lists.infradead.org
+X-Gm-Message-State: AFq9FYIpZX5FmRVoUImm8Kc4LaAMqXDcICcg3VP61y82zlckuumAmPub
+	v0Bi3tyqJ0FLHfsodlJw7aGv+d7cl9t7A1AiZ7mVoTEvT4qvTpxkyk2a
+X-Gm-Gg: AYBFou2jV8eszpgf5h6i8weNSv9ve0N2FzgmI6NLUbrMp775O8DkMtSeXWroKys2k6k
+	qomsoQW3zl9CacSo1Fh0r8UggJyL9As58MDqnodRirpxSCbTb+JAdzSIMheJsoiaWvVk/tJACO/
+	6bMo5aZ/S+PvTlxbPEjKkvAz2EaWK8sVp/mYhi+LryiRFY9zTPYqwnvGlqDm3xFf9vpxyTd0aW/
+	ZWUgXNi6NV3T+CUtPS7ZhXnGPFJ21NRbwo2BJCWm5kyuzSGXmhjCR4kbbNRAW+6QipIrwTOL+kW
+	BM91luba2nqwh9kcuZsaR5FnlCJzV2qeDR9epwX2u3e47xDHV8S7fkOPz6FP7uTTxVDxAH0Pen+
+	QlvE4t4ke2ugbO/Bclz6qkkRnj0vstMJX+d1cAw03op/uLvmlUTUX2QawzFLpmM04EeYyPuMQp2
+	b+qYBH5ZfXkuJV49Ogn9MqhqhqWnQAl8RJE484Qpu9VKJoWmYSD+7RTsdDF0a2+XLgQBu8mlLdr
+	WmcEM5sEsuA0UcGz1qrHGO4MXW09Qwa7hOvBhvbmRUf3S/MRH1A3WfoZC2HdGv17fRSIouTsQ3l
+	x2oiWgjFG2/1Skc=
+X-Received: by 2002:a05:6a00:ad82:b0:899:632a:9613 with SMTP id d2e1a72fcca58-8a089d2c36bmr1490501b3a.40.1792586772365;
+        Wed, 21 Oct 2026 05:46:12 -0700 (PDT)
+Received: from arch.localdomain (123202092053.ctinets.com. [123.202.92.53])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8a08960fa88sm832964b3a.53.2026.10.21.05.46.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Oct 2026 05:46:11 -0700 (PDT)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Biao Huang <biao.huang@mediatek.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Eric Dumazet <edumazet@kernel.org>, kernel@collabora.com,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next v3 2/9] dt-bindings: net: mediatek-dwmac: add
- support for MT8189 SoC
-Message-ID: <838136c0-5f4c-4ed9-a0dc-d05ff338582e@lunn.ch>
-References: <20261016-dwmac-mediatek-mt8189-v3-0-25daf2bbcf35@collabora.com>
- <20261016-dwmac-mediatek-mt8189-v3-2-25daf2bbcf35@collabora.com>
- <b4950f82-0163-4482-9799-a5e3c6eb5964@lunn.ch>
- <c53928fbb9da11b0f32a84592742e6a26e1aed32.camel@collabora.com>
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Jun Yan <jerrysteve1101@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH v2 0/2] ASoC: codecs: Add Everest ES7202 support
+Date: Wed, 21 Oct 2026 20:45:46 +0800
+Message-ID: <20261021124552.767218-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c53928fbb9da11b0f32a84592742e6a26e1aed32.camel@collabora.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_054452_665959_A70CB991 
-X-CRM114-Status: GOOD (  23.62  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261021_054613_614268_ACF95955 
+X-CRM114-Status: GOOD (  15.55  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,55 +107,50 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 11:43:39AM +0200, Louis-Alexis Eyraud wrote:
-> Hi Andrew,
-> 
-> On Fri, 2026-10-16 at 17:40 +0200, Andrew Lunn wrote:
-> > > Finally, update "mediatek,rx-delay-ps" and "mediatek,tx-delay-ps"
-> > > property
-> > > description to add MT8189 RX/TX delay stage divider values, as they
-> > > differ from existing supported SoC.
-> > 
-> > These should be mark deprecated and the standard rx-internal-delay-ps
-> > and tx-internal-delay-ps used in there place for new devices.
-> > 
-> I agree, it makes sense to use them to describe the RGMII internal
-> delay configurations rather than the two existing vendor properties
-> (mediatek,rx-delay-ps and mediatek,tx-delay-ps), and deprecate them, by
-> adding a deprecated flag and the comments you've suggested. It would
-> also need an additional patch for the driver to handle them (while
-> keeping backward compatibility).
-> 
-> But what is bothering me is these two vendor properties description
-> says they can be used in MII and RMII phy mode cases. The driver uses
-> them indeed also to fine tune the RX/TX_CLK (in MII) or the REF_CLK (in
-> RMII) configuration.
-> rx/tx-internal-delay-ps properties are limited to RGMII only ([1]).
-> So they can not substitute them as it and with their description it
-> would wrong to use them for MII/RMII.
-> 
-> At the moment, in the upstream devicetrees, there is no "mediatek,rx-
-> delay-ps" use and the "mediatek,tx-delay-ps" use are very few and only
-> for RGMII phy modes (either rgmii-rxid or rmgii-id), so no MII/RMII
-> real use cases.
-> 
-> So, how to proceed then to make these bindings right?
-> Use rx/tx-internal-delay-ps properties for RGMII and mediatek,rx/tx-
-> delay-ps for MII/RMII or do you see another solution ?
+This series adds support for the Everest ES7202, a 2-channel PDM
+analog-to-digital converter controlled over I2C. Patch 1 adds the DT
+bindings and patch 2 the ASoC codec driver.
 
-If you say "mediatek,rx-delay-ps" is not actually used, then it is not
-an issue. As for "mediatek,tx-delay-ps", i would probably ignore it
-until somebody actually requires it for MII or RMII. At that point, we
-can add specific properties for MII and RMII, and not mix them up with
-RGMII delays.
+The driver is based on the Rockchip BSP driver, reworked for mainline to
+use regmap and devm_ helpers, probe the device ID, and report the actual
+per-step PGA gain.
 
-      Andrew
+Changes in v2:
+- Drop the hard-coded 30.75 dB PGA gain from the power-up sequence; the
+  PGA keeps its power-on default and the capture volume controls apply
+  the requested gain.
+- Keep the PDM outputs muted until a capture stream starts, instead of
+  unmuting at the end of the init sequence.
+- Re-run the power-up sequence on resume before syncing the regmap cache.
+- Handle the regulator_get_voltage() error return as an int.
+- Drop the unnecessary of_match_ptr().
+- Fix the copyright header.
+
+Link to v1: https://lore.kernel.org/linux-sound/20261020143135.623897-1-jerrysteve1101@gmail.com
+
+Jun Yan (2):
+  dt-bindings: sound: add Everest ES7202
+  ASoC: codecs: add support for Everest ES7202 PDM ADC
+
+ .../bindings/sound/everest,es7202.yaml        |  56 +++
+ sound/soc/codecs/Kconfig                      |  10 +
+ sound/soc/codecs/Makefile                     |   2 +
+ sound/soc/codecs/es7202.c                     | 367 ++++++++++++++++++
+ sound/soc/codecs/es7202.h                     | 131 +++++++
+ 5 files changed, 566 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/everest,es7202.yaml
+ create mode 100644 sound/soc/codecs/es7202.c
+ create mode 100644 sound/soc/codecs/es7202.h
+
+-- 
+2.56.0
 
 
