@@ -2,151 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36CCF606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 02:56:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77B9A606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 03:06:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=u43ISone;
-	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=ebzg3HP7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CQ7hbvAF;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CMv2JSWj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HANTeur/Ki+zmOxvulIzVJ7OAanFmdA9rRDzL3y9yCg=; b=u43ISoneV5YEw/j1leFcRGkW2b
-	lvZD9TzlOKzkSHQg/l7xQKrTVcL7/KOVISHWHfzsWIIszBMQnOD+Vfd7+ClV1wMXDK7AgR/feDPXU
-	z6bV5xtjP9KeMt3OUYC1QR8K0+bi/p+3b7XYbbbHBeE7oH3qfLHp/3dHLvPXDGXrMuLGMiLM+1/LB
-	C3ue60pm6nDpIGivBzChXreKCsubvpLlo5y17xnOtV2qW2HlPRPuXJNkfUlpDiZeUbO7grHBPur+/
-	PqybZ4UCAHWYOlFy8BoOReqvxJ873p41u9tuejHEcNcmlECWIXFNuybdzYx1zy2eJfvQ3pBv2R3dr
-	XfelppbA==;
+	bh=YWCBZA77zc/p/5rLcj2aumPqvMgt4N1QGO7iyPGLOqs=; b=CQ7hbvAFPwceSn3OCGAzSycvwp
+	VzynxvUIRIkI+UjtW9VJSeBGYgGB5hI1lnYX4enBX4ibuyEbJP9R9tRRL+eX9c3CT67+B7l4mvPgv
+	sJLLa173eENXEcgvyxz8FA5mRtIcM6nZTYBG/JJlEh558FsfSDDyEWfdkM62cp+fNFALcPtsGLh3R
+	8eVJCYyOQFmgpRPLaah6xqMgV+PQMCDsgJ+6OhO9FDj+y3Yp9J1fR/FlmJlQhN37Np/3e43lzgfHI
+	NodJ2XSeqCwo0QMxWe5EPT+2tOr3WJPmKO6ZzR5zYUAqvHGRw2rrHN1vCTIE23jnW3G+yggwhhkS1
+	GaP8ITgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJMVT-0000000AyML-02cw;
-	Wed, 21 Oct 2026 02:56:47 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1xJMeS-0000000AykX-0AMB;
+	Wed, 21 Oct 2026 03:06:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJMVQ-0000000AyLc-0XcN;
-	Wed, 21 Oct 2026 02:56:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cVxSkQ2oNETEwkIoKYsQTqmZbwApzY7qKjYSaqNzkELi3wT3o4Htog9bdI1m9Ra+7LcMwD6PFhRZy26B8ZaLZZU998c5qW6V6DqNSH58KlZqrL4xKfQvZ1L/KZAOW11BJ6DF3K1D6sOW5QiLMBXK7xYOWrQJ0RBvnbwhMLp5RqpRNL/XYCevtXVfsPi0eqaK19d9sZG5WEjr8oL/u8+QKv+1ivJTfBQIF6IZqXpJyjz3J8SWH5wJZp9p9PAAKRk26TGrJ8ntdsKL52Tkn2cJlfM5btRHRuAmtbn2SYv6jnrDkOi0in8n6LUKKC1tKC4Vpn5BpBSxJTtezzfFlLKYgQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HANTeur/Ki+zmOxvulIzVJ7OAanFmdA9rRDzL3y9yCg=;
- b=qBVHEvqOsk8wCMstcDXD98sOF57IOI7ntgBUIU+tcDCdYZVbplFgV/goxj3+x4kSjsoNlmqD8gIcoW9xK2KBsiRuERGNIoudzw4lIBv9pd2gi63KlDasN9AYybZghic7GHNMIasFSlWsz74aJTXOyt22lAv/BIhd4Dy7W6pUEUom+3gSlzJsjVzPFEix6jMOTMJQhm8hBfyxRaQJHYZ9cNyIFWKOGGM9mrs44kYxeNJu37Q9DhshekXYz0BaCXiu0AF0unr1AxSGDnNJ8m5k/og2PlfDAiiUCxQgtOyGRQXFOqt0ZNkhlihh7EtZ7zdEnspyNn8rf6Pf7roTtyskRQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HANTeur/Ki+zmOxvulIzVJ7OAanFmdA9rRDzL3y9yCg=;
- b=ebzg3HP7ntZ2dFAw34eAMy4oevFQTQ/zm5pp4KssibVWd2OcIm04v3DIcC6ODPOyfN1Ucfp7uaJHRuQWihvGqb++okmx4WzhtSIgaT4RFCBmtOJYEDdRqs6LdK6vjNNX1hNTsd4JfyNZdeucxeesH/gxy70olkIh8vCGq7Npjrf/6a4WBkKnaqI09V/SciUGOLOmb9YuAyRP5X7hbl1a1/i/lzI6C6o0c8yDag2E5UyKJ/Hlu+/X02jOhbXd+WekDUFEEb/m1CE/4Zz6/6y8Z26pdQiyGNl0Z7+xJmKQtZWBIZUz/yQjU6wAkC8JVk7PoxswoD5fIL8sq2NMvLULYg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYZPR03MB5743.apcprd03.prod.outlook.com (2603:1096:400:74::7)
- by KUZPR03MB9662.apcprd03.prod.outlook.com (2603:1096:d10:64::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Wed, 21 Oct
- 2026 02:56:27 +0000
-Received: from TYZPR03MB5743.apcprd03.prod.outlook.com
- ([fe80::7f51:5771:90c4:8c40]) by TYZPR03MB5743.apcprd03.prod.outlook.com
- ([fe80::7f51:5771:90c4:8c40%3]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
- 02:56:27 +0000
-Message-ID: <887f0b2d-3a05-418b-bda5-0b01abbcb409@amlogic.com>
-Date: Wed, 21 Oct 2026 10:56:19 +0800
-User-Agent: Mozilla Thunderbird
-From: Junyi Zhao <junyi.zhao@amlogic.com>
-Subject: Re: [PATCH 1/3] i3c: master: Rework SVC I3C to support vendor glue
- layers
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- linux-i3c@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
- linux-hardening@vger.kernel.org, xianwei.zhao@amlogic.com,
- Kelvin.Zhang@amlogic.com, junyi.zhao@amlogic.com
-References: <20261019-a9_i3c-v1-0-329d819d621f@amlogic.com>
- <20261019-a9_i3c-v1-1-329d819d621f@amlogic.com> <atZ-YyEmG-KvUZAF@SMW015318>
-Content-Language: en-GB
-In-Reply-To: <atZ-YyEmG-KvUZAF@SMW015318>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SE2P216CA0071.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:118::13) To TYZPR03MB5743.apcprd03.prod.outlook.com
- (2603:1096:400:74::7)
+	id 1xJMeQ-0000000AykL-1acN;
+	Wed, 21 Oct 2026 03:06:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 44CAF60416;
+	Wed, 21 Oct 2026 03:06:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C873A1F000C9;
+	Wed, 21 Oct 2026 03:06:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792551961;
+	bh=YWCBZA77zc/p/5rLcj2aumPqvMgt4N1QGO7iyPGLOqs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CMv2JSWjRnAZ2/m4AEei3NrqIExmFUjFGQ1RY/thuH7p1SGY1bj5GCd14enqm6Ef7
+	 Sf65nQBJlLmx6elbTPwkhB/IxYoD6bdGI1ZkYIBdzJM9kZpL2T0lDQ84f1E4kOiyqN
+	 MY2UEqCt82KT7NTkTlqjviUzZrtr7tI3nWRAwJ0S1HwTjn4AaUcpFFstAvhm35Ob8q
+	 Gdx2kqBn5wdbxhPpCHdjLV854oQD1H9q2ocTp4HVU1zdiJZxGw7SmBZN6xqKTzMhkk
+	 KnRyuHFxmOxH7kgh3pMf9v9O2ehLKl2yKSjivHPvR+SzLgKV0eq092neBf+owZFfAg
+	 CvstQOvSTwohg==
+Date: Tue, 20 Oct 2026 22:06:00 -0500
+From: Rob Herring <robh@kernel.org>
+To: Yaozhong Li <yaozhonguwl@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Chris Zhong <zyw@rock-chips.com>,
+	Zhang Qing <zhangqing@rock-chips.com>,
+	Joseph Chen <chenjh@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	mfd@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: mfd: rk8xx: add board level power
+ hold GPIOs
+Message-ID: <20261021030600.GA3816650-robh@kernel.org>
+References: <20261020140127.720-1-yaozhonguwl@gmail.com>
+ <20261020140127.720-2-yaozhonguwl@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR03MB5743:EE_|KUZPR03MB9662:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6b499cdf-fc6c-4e6b-8ac7-08df2f1ee65d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|23010399003|1800799024|6133799003|22082099003|18002099003|10067099003|4143699003|261009223027099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: /B6ug7NleIRCrF3GGt7hV461Jp0gaUHdJvrIZXRDNWyON4quIXTfkcitVG7AqzyWqBq0FGIbSBkttNOWD1FzlK1okNXtkzhrdtGMjYy7PNEey1FJ1Uh0MJkFHIDl45odcUpwPnlz6+Rt+s7uk7jBJs7OxEsep31J+FYVChWjnYxVHVk7CaCelHzEWwdoQ3YDsqAguKTFXeHNwF6sEOfuSDa0bv18v/NHkLuMvTCJzRarc5N3zWQTn+H/Xy94sN4T4ZwcWPa6WJsb6Ys7QlZxZklh4uucV7voJWOKsEqpxFMncig14BgjnbEj2q76eHnYYH+dQKqhI1H8JX0a+8ZE08l9hJRMzETU0xJX7O/EmbzokpKAxQY+zaknC2voO36HVzGo9gvCH5XAiqzxCtyXKdvyZlSCUO9gBRS0xDx/JKFdVishfWdTAUjq/QbUHPN4/yxywyffrjZrozbr+TKa5xfui0L5zVlazKmI7dUur/ZKCjUFeM5mk54GNah4VH1lP0vawBdarfGxYFruouf2I2gwoz4te66Ko2buAWQQJqtCtInuA614n18IxBOipzBBD5AOqrl+7+hlXklotYBTadcTqE3pkO3LU3RC8IE5GX6E1QHRRUYol9ztAk5B4ygPGiBQ+VtIvvWTeN6MFjprz1n+T/FgvoWZbPVH0OFo/jQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB5743.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(23010399003)(1800799024)(6133799003)(22082099003)(18002099003)(10067099003)(4143699003)(261009223027099003)(11063799006)(56012099006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U3JYQVlKeHJhZDVnSEhxT3h4djV5cDgvdkh6NVJhalN3eXJocXRhNGN2RlpX?=
- =?utf-8?B?cVZlb1RSeGFXVTZzWFdCUm5XamtvWmxiajJRMkdVQ3lzblR5aGFheklQVDFs?=
- =?utf-8?B?Uk5DcmtRaWdjeHloekh1Uml4YzE1bzIya3hsSUFDaGRuVWVGalRTaHBHdzVI?=
- =?utf-8?B?MWx3S1R0ZTA4aThIeVVJakR1VjFvdi9WK2xFY0JhWVk4SXZyWGFxVmpPYkM1?=
- =?utf-8?B?MUxxSUhndmtEQVp5aEpXcVMzT1diVW5UL1JZcnVOTGtJZk5sOHBnUnYwUU5v?=
- =?utf-8?B?ZEFwRXliWkFtSVBnUVZVc1JyZ3UxS1FIYUptNDlzTGhUczBJajZYQmNVKzRF?=
- =?utf-8?B?bExUR3V6NXc1S3Z1Y1k0WkJzV0ErM1RHeVI0bUZVWTZBYnBnUXEzdzJRVkZk?=
- =?utf-8?B?U1RjWGFienBYK3FTRFdMMFZOclU5ZjZydmFWRExEKzlmQnZzTW9La1h3RHpZ?=
- =?utf-8?B?am83NDdITU5naGVGYURtSmhJNUdJMDVmWEJZcU1WV2l0T1htMlBBVU1lSGZS?=
- =?utf-8?B?cGlCQ25GbENGVkh1QU5vQTA4QWREVmNEVnBhUEhweXZFejEzTlJzVW5zbTk5?=
- =?utf-8?B?THRPKzk3VEhZV1JsOXhSWkFxY3BtWWIrQ2lXYXR5Mkp1S2greGpHaE9XdGNN?=
- =?utf-8?B?YVppeUJWYWNDZG5uZnJUdWt1d2R6RDJuRG9LdWFab2h1cFRZR3diYjUrVUQ3?=
- =?utf-8?B?WmgrbjFrUEVxYjBYcXpTdjhBWXNGNkM2K0Zob2ZvbmZQQVJxWmIvMFpHMWZY?=
- =?utf-8?B?TDBnM01aTXFITjJSMUJac3dla3lrMHc2RWExQUVkVE1xNUg4WlZBaTlJZTNl?=
- =?utf-8?B?eXZzaTRzVFBqekJCaGJGVHNzZFJ6ZE1DdU0vb2pjYjAvM2tsQW42aDZXMTJY?=
- =?utf-8?B?bmQ5UHcvRkp3MFBJRHpWd0trUDJNV01rdVRsU2UwcjVuKzRzMG55dE5PSUNn?=
- =?utf-8?B?TXhmbWJ5czgvQThZVk9nVml1QTkvQVBXdmVGRnRMWGdseWY4YmhJVG5XdGxR?=
- =?utf-8?B?SnFMelNoQTlneFpIUjNobGJxOVkwZzUzbTBpVFk3cFNNU3loVjI1VUtYVDRP?=
- =?utf-8?B?VGxuQXlDUjNGa0l0bXVrRnM5TDIxYzNZNWdWbUtxWUdaT3pqaVB6VWp6WTk0?=
- =?utf-8?B?dXNXN0pYcWttd2JzbHg4QXhQck0wVnF2TjlKMXJySU85dHdSZzNRUWgzMnR4?=
- =?utf-8?B?MlBkNldMM3M0S1A0RkNTUmVma2dLRjBOUzA3cFZ3THlzMVd0VDhlM0N1YmVQ?=
- =?utf-8?B?S2lZUFU0Y2poVVF5MXVVaEkvRm9COGZtRE8xWXBZWExlTnhLSUl3SU1kd2hm?=
- =?utf-8?B?ZWx6aFlzNkEvc01MbEk1cWJOYktNakhmZXF3b1o4QXJTR0E3MG5qS0syZ3BU?=
- =?utf-8?B?c2sxQkZ0bmgyTytDV1NXVG1PbVYrbDJFNURwZ1dqMUVNc0FObHd2SU1sVjkx?=
- =?utf-8?B?OHJOcWdPOEkxOUhkZ3BneWVyQVBtbHNQVHB4RjJzUkNHZGVPOFd3RkkzaUdV?=
- =?utf-8?B?ZjNNU25odThBOGNkejAwS0pxTWF2ZWFlV3ZBcWJWM3JhTGFSRmZKRmkrU3dT?=
- =?utf-8?B?ZzU3VHd4RG5ObGlldXgzQW8xc0JUZUNNNmhwRU92b2lZdVlHVXYwVDc0bTFk?=
- =?utf-8?B?S0xSQTJnQldyRWZSdWF5b2RDN05pL3pnZUhsMzNUTUxPaCtjclV4TFVqTTl3?=
- =?utf-8?B?SW5kSjQyUXRYaWpKcm9nM1F0NzdtMVZHTENRa2I5NWphWkQwOWx4LzBPYnAr?=
- =?utf-8?B?N1lZSlBpT3dDc0NaV3NzaVMvdVlqWWk4UkN4NTc2Z1ZERFY0WmxJMTRXV0dS?=
- =?utf-8?B?TmRMQ1B4ZFh3TjJEbVBja2ZCcjVHQzlxTk9ibDRLb2wyMndVQ2QrckE5a1JX?=
- =?utf-8?B?ejhOT1JxdXcvY0xqTWFBMVFLWEtadEZ6L0xNc29lYnpyYWZuRzVMSnNraTNC?=
- =?utf-8?B?cVlZTmxVQUxucTJRWDRHVTl3ZGcvYUVVK0xzaGpTVkRZSFlnaDIvbWJ4OVBi?=
- =?utf-8?B?VkgrYmFteFIxK1hWTWFtdVZBdWFFbS9BRjdIZ3pNYU5yTVZQQXVsOUVOSEM3?=
- =?utf-8?B?ZEFWRVBBUVlwK1poQWJpVHlaYUNyMU45SDJxRllxWGZMdDRGS1p5dmZZWFdt?=
- =?utf-8?B?VGxZM2JYa1VySUwydXpKVnVlbjl0MlNUUUI4UTFyOE5QOFE5UWhPWXp1NmFo?=
- =?utf-8?B?N3VaMzQvUnhZVmg2NnFPTzdmcDV2WnQ4QjZRaHZwRElyRXdQWFl2UXBHbXdY?=
- =?utf-8?B?SVFaNlc3cVNYME9IU3FrbWszcGRDNWVTNS9iRnJvZ2NLOWxxWHU5M1NjN3Va?=
- =?utf-8?B?OGxCVElaVjUrZEpGcWsrbGsxUHFHOGxEOXVNckZwRFJURjdGWGEzQT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b499cdf-fc6c-4e6b-8ac7-08df2f1ee65d
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB5743.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 02:56:27.2452
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4JBY6hJjKL7gaY0iYT+JYYjylyL7oDxjgMUFcnCJcvAt+xgqFDObTvEgWwo7krDLNhSgfYaugq3BDQXSuF5xjQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUZPR03MB9662
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_195644_187095_99892A4E 
-X-CRM114-Status: GOOD (  15.60  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261020140127.720-2-yaozhonguwl@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,76 +74,141 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Frank,
-
-Thanks for looking at this.
-
-Amlogic A9 used the same SVC I3C IP engine, but the integration of it
-differs in the resources *around* the controller, which cannot be
-expressed as another quirks entry:
-
-- On the "ao" instance the bus clock is generated by an internal
-   divider (I3C_AO_FCLK_DIV_CTRL @0x304) programmed directly by the
-   driver; there is no CCF clock to clk_set_rate() on, while the
-   common probe assumes the fclk is a plain enable-able clock.
-
-- Amlogic added register blocks outside the Silvaco map: a
-   DMA bridge and a bus monitor (0x200..0x22c).
-   Enabling the DMA bridge later will need hooks in the common
-   transfer path.
-
-Adding A9 support to svc-i3c-master.c directly, would make these
-becomes if-branches in probe()/PM/transfer paths of the shared
-driver, and the next vendor repeats that. With the glue layer,
-i3c-main.c keeps today's logic unchanged: i3c-silvaco.c is the
-current probe code moved as-is (rename with 79% similarity), so
-blame/history is preserved.
-
-If the file move is the main concern, I can keep
-svc-i3c-master.c where it is and only export the alloc/probe/remove/PM/
-interface for glue drivers -- the essential part for me is keeping
-the resource handling out of the common code paths.
-
-Also, per Neil's suggestion I'll try modeling the AO divider as a
-CCF clock in v2, which should drop one hook.
-
-Thanks,
-Junyi
-
-
-On 2026/10/20 4:32, Frank Li wrote:
-> [ EXTERNAL EMAIL ]
+On Tue, Oct 20, 2026 at 10:01:12PM +0800, Yaozhong Li wrote:
+> Some boards route "power hold" lines from the SoC into the board's power
+> circuitry. Those lines have to be held asserted while the system is
+> running and released before the PMIC shutdown request is written,
+> otherwise the rails can drop and come back up instead of staying off.
 > 
-> On Mon, Oct 19, 2026 at 01:34:26PM +0800, Junyi Zhao via B4 Relay wrote:
->> [You don't often get email from devnull+junyi.zhao.amlogic.com@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->>
->> From: Junyi Zhao <junyi.zhao@amlogic.com>
->>
->> The SVC I3C controller IP can be integrated into SoCs from different
->> vendors. Peripheral resources associated with the controller, such as
->> clocks, may vary between vendor implementations.
->>
->> Rework the driver to separate common functionality from
->> vendor-specific extensions. The common logic is shared across all
->> implementations, while platform-dependent operations are provided
->> through vendor-specific hooks.
->>
->> Also add a corresponding MAINTAINERS entry for the SILVACO I3C
->> controller.
->>
->> Signed-off-by: Junyi Zhao <junyi.zhao@amlogic.com>
->> ---
+> Add power-hold-gpios to describe those lines and power-hold-delay-ms for
+> the settle time. The driver reads them for every RK8xx variant that is
+> the system power controller, so add them to all seven RK8xx schemas.
 > 
-> No big difference. Needn't rework svc-i3c-master.c, you can add amlogic at
-> svc-i3c-master.c directly.
+> The array is bounded at two entries. Firefly's vendor kernel handles
+> exactly two such lines, pmic,hold-gpio and pmic,stby-gpio, and its board
+> files use one or both of them, with an RK808 and with an RK818.
 > 
-> Frank
+> The lines are released from the PMIC's power-off path, so they are only
+> meaningful when the PMIC is the system power controller. Require that,
+> accepting whichever spellings of the property each schema allows.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Yaozhong Li <yaozhonguwl@gmail.com>
+> ---
+>  .../bindings/mfd/rockchip,rk801.yaml          | 23 +++++++++++++++
+>  .../bindings/mfd/rockchip,rk805.yaml          | 29 +++++++++++++++++++
+>  .../bindings/mfd/rockchip,rk806.yaml          | 23 +++++++++++++++
+>  .../bindings/mfd/rockchip,rk808.yaml          | 29 +++++++++++++++++++
+>  .../bindings/mfd/rockchip,rk816.yaml          | 23 +++++++++++++++
+>  .../bindings/mfd/rockchip,rk817.yaml          | 29 +++++++++++++++++++
+>  .../bindings/mfd/rockchip,rk818.yaml          | 29 +++++++++++++++++++
+>  7 files changed, 185 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml
+> index 7c71447..2f9554d 100644
+> --- a/Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml
+> @@ -29,6 +29,25 @@ properties:
+>      description:
+>        Telling whether or not this PMIC is controlling the system power.
+>  
+> +  power-hold-gpios:
+> +    minItems: 1
+> +    maxItems: 2
+> +    description:
+> +      Board level power hold lines driven by the SoC. They have to be held
+> +      asserted while the system is running and released before the PMIC
+> +      shutdown request is written, otherwise the rails can drop and come
+> +      back up instead of staying off. Only meaningful when this PMIC is the
+> +      system power controller, as the lines are released as part of its
+> +      power-off path.
+> +      The lines are released in the order listed, and power-hold-delay-ms
+> +      elapses once, after the last of them.
+> +
+> +  power-hold-delay-ms:
+> +    default: 0
+> +    description:
+> +      Time to wait after releasing power-hold-gpios before the shutdown
+> +      request is written, to let the lines settle.
+> +
+>    wakeup-source:
+>      type: boolean
+>      description:
+> @@ -71,6 +90,10 @@ properties:
+>          unevaluatedProperties: false
+>      additionalProperties: false
+>  
+> +dependencies:
+> +  power-hold-delay-ms: [ power-hold-gpios ]
+> +  power-hold-gpios: [ system-power-controller ]
+> +
+>  required:
+>    - compatible
+>    - reg
+> diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
+> index da23915..1a11c98 100644
+> --- a/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
+> @@ -48,6 +48,26 @@ properties:
+>  
+>    system-power-controller: true
+>  
+> +  power-hold-gpios:
+> +    minItems: 1
+> +    maxItems: 2
+> +    description:
+> +      Board level power hold lines driven by the SoC. They have to be held
+> +      asserted while the system is running and released before the PMIC
+> +      shutdown request is written, otherwise the rails can drop and come
+> +      back up instead of staying off. Only meaningful when this PMIC is the
+> +      system power controller, through either system-power-controller or
+> +      the deprecated rockchip,system-power-controller, as the lines are
+> +      released as part of its power-off path.
+> +      The lines are released in the order listed, and power-hold-delay-ms
+> +      elapses once, after the last of them.
+
+If you have paragraphs, you need a '>' modifier and blank line between 
+paragraphs.
+
+> +
+> +  power-hold-delay-ms:
+> +    default: 0
+> +    description:
+> +      Time to wait after releasing power-hold-gpios before the shutdown
+> +      request is written, to let the lines settle.
+> +
+>    wakeup-source:
+>      type: boolean
+>      description:
+> @@ -102,6 +122,15 @@ allOf:
+>          clock-output-names:
+>            maxItems: 2
+>  
+> +dependencies:
+
+If you are going to use dependentSchemas, then use dependentRequired 
+here.
+
+> +  power-hold-delay-ms: [ power-hold-gpios ]
+> +
+> +dependentSchemas:
+> +  power-hold-gpios:
+> +    anyOf:
+> +      - required: [ system-power-controller ]
+> +      - required: [ 'rockchip,system-power-controller' ]
+
+Presumably the latter is deprecated. If you are updating a DT to use 
+power-hold-gpios, then replace 'rockchip,system-power-controller' with 
+'system-power-controller' while you are doing that. Then this can be 
+just a dependentRequired entry.
+
+Rob
 
