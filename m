@@ -2,61 +2,138 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67DB9606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:53:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E65F606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 14:56:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KepTWJGW;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gs2WEUGm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qC+8FWdg;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Ap3yGvVY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k7ZGLplWFKaB8JY5T+15czx4UcwJP0brOC2Z4Smd6YM=; b=KepTWJGWTE3KuxjdepRLU3i2kB
-	6n/oKXMd+ypSqjCUSp9Zqy277y+4e90rA1/72NCykO8H7bqudt1vWumy+K59zTShds0eTKa1aRmGj
-	d8fwV22gHQSRkmJ7i7LSpXcM5ufXCnNBnXMdqz+gkw8WJTELgA81fMIBSvNHbr9f8f58J2QqNrrWa
-	f6/QuoueC7rKqZLV+/+mJOV0bHTOQBYl5wI40UFhb6ubEqYFLU2jSKKvLHNXTvHRc44NJUgLAb0Lr
-	DL23huAB0pV2aeDkBhWZUTcibpOdgKGNqOzEX6uSyPuvOjudUjcE7jQPICDbbXMeJwrKryAJyGgB2
-	A947geXw==;
+	bh=IdAL/YjEfxfTzIMDorklJXWKOEh6Ee/0BL1CYebq/G4=; b=qC+8FWdg1WSsmE4YYAlBsAUka0
+	zOygZE30GN5NRf4emriibOqKhIhZMt6aPMqtQSAABOMGYcXI4kxZoU6mBFNbZQK9Iarhak2xZeeo2
+	Zi8n7FgG8wHJLHXrYfl3dpAFfDOSMJVxg4uP5zT0IIYK2p63bCZxuXPs7WTwqYlhOJPmpZQ3ba6WB
+	HF3lFHrdUysHg14V9TAv7aMfFhznvmao4mRVaDq+HqYLyTuvu9xsxN8sDZZd0zdmPnzl8M7gS2X45
+	IzCcEe7l1Y3KyxRRVGQlwD9BZ0W6h/MlAIkHzozLS4GnA6eGfcfBcsLvsciJ41IGo7lSJagfs4Nok
+	FjRPQ7XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJXhJ-0000000C9TB-15lt;
-	Wed, 21 Oct 2026 14:53:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJXjq-0000000C9ri-2wrY;
+	Wed, 21 Oct 2026 14:56:22 +0000
+Received: from mail-westeuropeazon11010053.outbound.protection.outlook.com ([52.101.69.53] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJXhI-0000000C9T1-40MP
+	id 1xJXjo-0000000C9rA-1v3D
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 14:53:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9BC2440243;
-	Wed, 21 Oct 2026 14:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F4F71F000C2;
-	Wed, 21 Oct 2026 14:53:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792594424;
-	bh=k7ZGLplWFKaB8JY5T+15czx4UcwJP0brOC2Z4Smd6YM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Gs2WEUGm62ZAxSMTfnoYtXqKE0RhuPnkUxecvljB5l6U1FTMYeHfmrX+ob6l47l65
-	 Phc793AjwVhxmGPH8d3WaeGwXLv7NxRkYwv1n4PFOSXBWX1Job+eEpY06+4zuCWbRc
-	 0CakWSkKDyg/6CDnORverYc01G6GX1xDlEbCN81b/IJl9I4mpUri9X5nP5rCUHHx1A
-	 ihuwbN4yDcNUcP3Gt4ahNTPeK7otJ/+GxO2edRlMd1i8OTD389VK+ULVp8wa5Qe0aN
-	 3eEnu+XPxSw+wgmrknS/k1sIwutHZpmmPBdZNFDY+ZylESVpu3aGmVdBaObU/TSwrF
-	 CvVA8SIX36g6g==
-Date: Wed, 21 Oct 2026 15:53:41 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: David Cemin <dcemin@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_ffa: Compare notify_id when looking up
- notifier callbacks
-Message-ID: <20261021-graceful-refined-lizard-1efaff@sudeepholla>
-References: <20261020220902.611138-1-dcemin@nvidia.com>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+	Wed, 21 Oct 2026 14:56:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=u8ncPU2L1jGg9ROrdlTYv7b65oHBxx9WUGQADHUYw0b8KEfu8HNjtz5kD1/tE+o/Fdi6aD/cJiBHNpsnmXr7BRMvcKsZ7k7627txqLFX9xG73KH7Co8jz45u88cW/ijWkxKX1vOFapIPrDX6GhXH1BRiYkJ19yHBSx9baKYnlvQq+b5J3leybjJZrZTu03YiXglm8j33VpzxfhvodybGcJQyuesXPZNHmooer+RrR/YtDxcYn/U3QXmUPJRzOD+AW8tHL2Wu5m79HYHZMEgR8qij3O8o2BG/X+prMomLggbvWgvebdo4n8zB5r0xZCnaBOtZo3xkprXoSuIe0FJE/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IdAL/YjEfxfTzIMDorklJXWKOEh6Ee/0BL1CYebq/G4=;
+ b=B1rKtu56XHCa4HTwQj3HRRpl10bixxYIPbPzh64ekeXm4EeYReOmFjVw9MRmYC/WQFK9wTnsyl10KbsFj1lcW0JxTU3Ncv3RvMQ7DD0otKNwADHhZvGCwYdIk+GNk335wEnjzqOR9nCNf7NWN0ztSvufkqDhVjVin+s+KtF3xoRnQttoclmPkd7oxsv1PAOPLKnHCQRsg2DOIFQ7+PDjI3rNOPZJnrPqKjzdhFqOlQtrrHjGCK3pnIZpPI60HEr9YEh2dQgXecoZwaRMFVyPYdEgHeZyfxZBEKYPtiA1l+i1ZjQ+Cm5YGM13/kbDDmr1RVYn4nrp0q9jlxnu/jDTdA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IdAL/YjEfxfTzIMDorklJXWKOEh6Ee/0BL1CYebq/G4=;
+ b=Ap3yGvVYFyRfg/JF0GF60b7knrGsTxTsDej3XO5s2tTpgPXHNK/xg37CQUOJv5b26YjGe7xJ18wpE6uwv+urerO3o8dyJhQvD6kpvYnS+zCbMSRI0Yq5FlNU1G8KD8OOvM2RqdHDYMkt2cs65RJdgKTUBcUT3a/Q/OF32bz7JN+WuUtqYZeCbPJ6ejuR24m/KUOKcULpxapX1lt07n2vjUyXyaqQ1pzgWU7ssALDBwxCSIOChpUoAzAvLoYOuD3tilGzRhljOfISCNR1HU26Lj3m5oMDItwMv/F7yMcSOQGjyC+YIbobdNY39JaLup2njxmXF+hmAG9J5sr8D7OU9g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by GV4PR04MB11729.eurprd04.prod.outlook.com (2603:10a6:150:2da::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Wed, 21 Oct
+ 2026 14:56:15 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.012; Wed, 21 Oct 2026
+ 14:56:14 +0000
+Date: Wed, 21 Oct 2026 09:56:06 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Leonardo Costa <leoreis.costa@gmail.com>
+Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ernest.vanhoecke@toradex.com,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Leonardo Costa <leonardo.costa@toradex.com>
+Subject: Re: [PATCH 6/6] arm64: dts: freescale: imx8mp-verdin: Add Mezzanine
+ with Toradex Display 10.1" LVDS V2
+Message-ID: <atjShkhCdLzf921d@SMW015318>
+References: <20260813133335.1941580-1-leoreis.costa@gmail.com>
+ <20260813133335.1941580-7-leoreis.costa@gmail.com>
+ <an3brO5COdw_F76m@SMW015318>
+ <rglymw6p4c65yoqz3pjn6e6nq7cil2fa7m7dqghshgdpavby7d@kyza3ceavq6z>
+ <an3tiDOUUYLb8PAq@SMW015318>
+ <t77enz5e4sywcigwdjwpes66jywhtsruzrtf7opde2umfuaock@3aouga4ng3gc>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261020220902.611138-1-dcemin@nvidia.com>
+In-Reply-To: <t77enz5e4sywcigwdjwpes66jywhtsruzrtf7opde2umfuaock@3aouga4ng3gc>
+X-ClientProxiedBy: SA1P222CA0170.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:3c3::26) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|GV4PR04MB11729:EE_
+X-MS-Office365-Filtering-Correlation-Id: c6c75ee4-87fa-4f73-6285-08df2f837407
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|19092799006|366016|1800799024|4143699003|5023799004|11063799006|56012099006|261009223027099003|261009221227099003|10067099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: xt6NNfBSf2udV6nLj/Z2tkl2ESqfymIaVuL43+oKWLoT0589+0ztvNVdcN+obDc6nJCdwizqHlRGWUwZ4oolbANvtBHBmg10rMK9Kq7hIiW4NaYTeYxplejOMnRG1cVaO6ezSlECSh87nauE9ZcFubRS6SbD8+4GjwHfEvW7bAzU0fo9U6sq1viRVpP9ipiNF6hEwGg1ccOCh9XhpA/wbQBzLRhk6jG7XBq4dE8fwAduihfS783U6ypp3fnmjyEyvbkl1TAFxm87NTlECAZfl+XMv+7hSy/rbt5qGt8eSsitZ3afuNbUBl6ADt/wDJX7KQAr+yXdv2sVdu65uauj1C86mQ0cbrKCHiA6w+JYY9T+MqutvNCjnYHhMgkC4RN5slxfwMn7FB5csDWGShpPTOwNxcAM9CaMiL1KgbdFgflVZ5hpXUgGDnGWT1uKPGX1XM3J05eOMNf/zpnpHNRQjmYoVutf+Hse7Qeoz627JCcOqiFntsJYAoI7SfYyBWNWwF6/1UKYJPfMasYg2LpVAOyzgyKD0QtvFrU1d5RYYHQIgmldDxj6PURHylLRqBqYXKULSlCURafEVKkIOrf56J9e9ZVcXeNHD0mT9FLctGmUr8Ft1rdRJpWYOGSleJIm
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(19092799006)(366016)(1800799024)(4143699003)(5023799004)(11063799006)(56012099006)(261009223027099003)(261009221227099003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gq1S5Aa49jOMb5EKtslEUanF/YdLJx5qXpaaHGIco1UApJ2mCH2Wn87pOvpj?=
+ =?us-ascii?Q?wGB7i8hECTqDTQvhgV/beMhmCe6aMlcgusz7tF/MXkgGn86lfGsWGcsQSEk9?=
+ =?us-ascii?Q?dZ8uB3xHiYqATW5TmYhiHKw40LllGQHfGjs4q/vx7CURaE2ddDN/JHcFSew6?=
+ =?us-ascii?Q?RfcusYHuLcJn+cBWR/tfQI1bdIbFpI3I56/nNoJbAj2N2mc8WYcLpdGmq3WY?=
+ =?us-ascii?Q?tIGZkSyrzYr8mmTGHQJzyRYZRaKtOscZSXmKyJXTv08vCGXjLUCy0Kk13PkG?=
+ =?us-ascii?Q?+I/0IMkLXpof7Q1hrbLwFWLPq8G8lUMuw9XLHOEHktc5+5jRxBcjAAZGcjPE?=
+ =?us-ascii?Q?6PYLIUcTaY7LVpUA7Wc3XRFShvh1PTfIrB2CJxP629qjRSTgN9gx1pQdKs42?=
+ =?us-ascii?Q?+B+/FuTEE89LAUxB5Kb7imMqVxuu91c6Xb2PYETo1Kvr51CBO1+h7N4ct2kH?=
+ =?us-ascii?Q?rgW2tZNE8X5nqyiyHqkyZmU2JyGRLitQGGj+vDC5oD4Wnh+ht+lVU7p0JV1B?=
+ =?us-ascii?Q?LHPr/LA6c+1TBGbJR5iWYkRmp9KzWyVmouSKVpgXfSxaH8bsSEf+hpWgv3i5?=
+ =?us-ascii?Q?xPvSqo5A0fik5jYVTmVq8cgNw7ODuhiEM9qAL5MntG2Pg7F08/3VUeodPLOk?=
+ =?us-ascii?Q?cLQXEsp/oZkv8JRX8xeS0y+ucJEizcmV+T8vI28Rw8oD9lc8XsVWytReIoqj?=
+ =?us-ascii?Q?O1nQeMEgiRFbhr2LrtPWbukCKsBm3VF6SnlD8Xtb9kYBX5poLWY9sbXmNSl+?=
+ =?us-ascii?Q?vf+LcmDZgr5pidzi4E44sGGVjKhMi73lyDLnFIbU5/6NeiuTaUzpC27ZsN/l?=
+ =?us-ascii?Q?h6CaJ7y38//OOOn2lqbCi9hlZhPQmluJs8k4oYs7CxfvQDlzqO6LoYDyM/7n?=
+ =?us-ascii?Q?LTQLTiLAn2Rlzgv+PLLpV1DOaOZrzm2ZL4vGgdc3gfPffe1Pjd9Z6/s71zor?=
+ =?us-ascii?Q?/qdkGbhWdbiJ4ekRkLYqSyR1K5QfcDTBNGHlhopNNdFkEzCuKmHiMUA/lJul?=
+ =?us-ascii?Q?Y99vTQMkvn6WX9xT3SWCoBZH9mmx1bX0d20U2WxlmYdGIBibv5PP3vG+wBf7?=
+ =?us-ascii?Q?n8nWLpXpohOCrEqAJHsU2HtaRr96mptBtbVwGuncvjlZcRl0/JtPKRzjAkUn?=
+ =?us-ascii?Q?iUgpEmqW8bFGZjhG7qFajsCuwgbf4htxUXy+pczJVyrp6qkjQ6UQjXXFvD4V?=
+ =?us-ascii?Q?VkrEqlctow6VodDRpJd5+EYat0pos/vF9gy6FQ6/eLCMC8B00fbTcNpj79DI?=
+ =?us-ascii?Q?zelQrkLWzcSea2Vjvru/1bHD1BkUEBcy3RtiTiOazXTm2xQx6mspwp8Mhihr?=
+ =?us-ascii?Q?v5j6ZBx/t7ygwK5JizdYtivsh0NSz+SEk7RefLUOA26DKnGYLKFV2gGlGCok?=
+ =?us-ascii?Q?MkNpMQaSrlJLLwpLNV9HuCXOguv6TCzs1Zt2SkmjQly2ewIfzODrYexxDLzh?=
+ =?us-ascii?Q?qSMZhOXBAclThyd58y32FePxS4pt4WdWyiYbMoHUYnNFsFxMBolFbWHDr0hf?=
+ =?us-ascii?Q?FJxwHROqj3bBUDQ8+fsTi8dD/2GBy2liDrVb2NodPk82ImxbJwI0ymZzPCdR?=
+ =?us-ascii?Q?I4vwCMVWwNOaILc2Tz4YFL5RE2vz+VfJqWlwWMCG7AEkHoUx/E1qU/xVD2Ec?=
+ =?us-ascii?Q?jV2nFwEZyqYs15YIDXi89ZGNSN2pl8Yjf4h2dubLj1pdjMi4GCS65SvMMJpf?=
+ =?us-ascii?Q?usygSZ3u/tjD7i1zpFlvI+4UFKGmzOxu1c7gwAnCP30SLRAYsHgkncXlHjBj?=
+ =?us-ascii?Q?gusxgpYkxW0dNN5PMYCi/RMVwiuibbUf6/q20MhxZ9IRAIGJ78/6?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6c75ee4-87fa-4f73-6285-08df2f837407
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2026 14:56:14.5959
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vQOqSphsfaFb4Lwe6Ym10o8gO/iRuLzWJwGq+k/w0YcQDVZRiO3EPTLESepahJkvuZV1erFZGOI1UC6j/q7bhFhuS35BFqk8HllQHD3d+XCYdrDOpMCwQcEtKHzhpqOc
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11729
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261021_075620_658740_292CEA66 
+X-CRM114-Status: GOOD (  43.01  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,54 +144,241 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 03:09:01PM -0700, David Cemin wrote:
-> The notifier callbacks are kept in a hash table keyed by notification ID,
-> but struct notifier_cb_info does not store the ID and none of the lookup
-> helpers compare it. hash_for_each_possible() walks the whole bucket, so
-> any two IDs that hash to the same bucket are treated as the same
-> registration.
-> 
-> With the 64-bucket table, hash_32() maps IDs 2 and 36 to the same
-> bucket. A driver that requests notifications sequentially therefore
-> fails at the 37th request:
-> 
->   ARM FF-A: Failed to register callback for 36 - -22
-> 
+On Wed, Oct 21, 2026 at 07:39:36AM -0300, Leonardo Costa wrote:
+> Hi Frank,
+>
+> On Thu, Aug 13, 2026 at 11:15:04AM -0500, Frank Li wrote:
+> > On Thu, Aug 13, 2026 at 12:43:29PM -0300, Leonardo Costa wrote:
+> > > On Thu, Aug 13, 2026 at 09:58:52AM -0500, Frank Li wrote:
+> > > > On Thu, Aug 13, 2026 at 10:33:35AM -0300, Leonardo Costa wrote:
+> > > > > From: Leonardo Costa <leonardo.costa@toradex.com>
+> > > > >
+> > > > > Add a device tree overlay enabling the Toradex Capacitive Touch Display
+> > > > > 10.1" LVDS V2 on the Verdin Development Board with Verdin iMX8M Plus
+> > > > > Mezzanine expansion board. The panel connects via the i.MX8M Plus LCDIF
+> > > > > on the Mezzanine LVDS interface (J10). The panel is an Opto Logic
+> > > > > SCX1001511GGC49 10.1" WXGA TFT LCD LVDS and the touch input is provided
+> > > > > by an ILITEK ILI251x capacitive touch controller.
+> > > > >
+> > > > > Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
+> > > > > Link: https://developer.toradex.com/hardware/verdin-som-family/add-ons/verdin-imx8m-plus-mezzanine
+> > > > > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
+> > > > > ---
+> > > >
+> > > > what's difference with Add Toradex Capacitive Touch Display 10.1" LVDS V2
+> > > >
+> > > > why not share one dtso?
+> > > >
+> > > > Frank
+> > >
+> > > Hi Frank,
+> > >
+> > > There are two main differences:
+> > >
+> > > 1. The mezzanine one uses different backlight controll pins, so here we
+> > > use the 'backlight-mezzanine' node, instead of the 'backlight' one, used
+> > > in the one without the mezzanine.
+> > >
+> > > 2. The touchscreen GPIO and interrupt pins are also different with the
+> > > mezzanine board.
+> >
+> >
+> > And there are for imx8mm
+> > https://lore.kernel.org/imx/20260724-v1-verdin-imx8mm-dtbos-v2-3-9d7988bd76f6@toradex.com/
+> >
+> > https://lore.kernel.org/imx/sr26lfvwasgcosfzcf4ydtwxwjjutlio2yqpgxldatpzjo7e4y@77k7gefnjzvl/
+> >
+> > Any ways, it is too late for 7.3, we have enough time for 7.4 to discuss
+> > work on optimization solution.
+> >
+> > If use nexus connectors, we can share one dtso now if there are not
+> > clock settings.
+> >
+> > clock patches is close to pick up
+> > https://lore.kernel.org/all/20260807-schneider-v7-2-rc1-eip201-upstream-v5-1-8785f9531cf0@bootlin.com/
+> >
+> > Frank
+>
+> We tried to make the change to have a single overlay for the boards with and
+> without the Mezzanine. However, in the current state of nexus connectors, this
+> can't be done cleanly yet. When trying to describe the hardware at the level it
+> exists in, following DT guidelines, and using nexus connectors, we still need
+> two separate overlays to enable the native LVDS with and without the Mezzanine,
+> so we don't really reduce the maintenance effort.
+>
+> See the changes at the end of the email, this is the closest we got to a
+> correct and clean implementation that would allow the usage of a single
+> overlay.
+>
+> The root cause of the issue is that we need to claim pinctrl_i2s_2_d_in_gpio
+> and pinctrl_i2s_2_sync_gpio for the touchscreen on the Mallow Carrier Board.
+> Ideally, they would be defined in the nexus connector, as shown in the diff.
+> However, after enabling the connectors in the overlay, the pinctrl groups
+> remain unclaimed. The reason is that nexus connectors have no driver to claim
+> the groups.
+>
+>     root@verdin-imx8mp-14777535:~# cat /sys/kernel/debug/pinctrl/30330000.pinctrl/pinmux-pins
+>     ...
+>     pin 112 (MX8MP_IOMUXC_SAI3_RXD): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+>     pin 113 (MX8MP_IOMUXC_SAI3_TXFS): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+>     ...
+>
+> There is nowhere else in the carrier dtsi's where the pinctrls belong.
+>
+> The pinctrl groups thus need to be added to the touchscreen node defined in the
+> overlay. However, the pins on the Development Board (which uses the Mezzanine)
+> are muxed by pinctrl_gpio2 and pinctrl_gpio3. These groups are in the SoM dtsi,
+> and we cannot claim them in the overlay. Because of this, the Mezzanine needs
+> a different overlay, which doesn't claim any pinctrl.
 
-Nice catch. I dropped the exact same change before posting the support
-on the list. For some unknown reason, I assumed there will be no collisions
-for such small sized buckets, my bad.
+I met similar problem, see below.
 
-> because update_notifier_cb() finds the node registered for ID 2 and
-> rejects the new registration as a duplicate. The same lookup is used on
-> the delivery path, so a notification for a colliding ID can also be
-> dispatched to the callback registered for the other ID.
-> 
-> Store the notification ID in the node and compare it in all three
-> lookup helpers.
-> 
-> This was found on an arm64 laptop whose embedded controller partition
-> declares 38 notifications: the EC driver failed to probe and every
-> EC event (AC, battery, lid, hotkeys) was lost.
-> 
+>
+> We like the idea of a single overlay for both carriers, but sadly the nexus
+> connectors, as they currently are, are not ready to enable this. We therefore
+> have to move forward normally and once connector support matures, we're happy
+> to refactor this and try to reduce the amount of overlays for the Verdin iMX8MP
+> and for other modules.
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi
+> index 72a4f846d694..d73a7e9042ea 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi
+> @@ -4,6 +4,41 @@
+>   */
+>
+>  / {
+> +	lvds_connector: lvds-mezzanine-connector {
+> +		compatible = "toradex,lvds-connector";
+> +		#gpio-cells = <2>;
+> +		/* LVDS_BKL_EN_CON - Verdin GPIO 4 (SODIMM 212) */
+> +		gpio-map = <0 0 &gpio1 6 0>;
+> +		gpio-map-mask = <0xffffffff 0x0>;
+> +		gpio-map-pass-thru = <0x0 0xffffffff>;
+> +
+> +		#pwm-cells = <3>;
+> +		/* LVDS_PWM_CON - Verdin PWM_2 (SODIMM 16) */
+> +		pwm-map = <0 0 0 &pwm2 0 0 0>;
+> +		pwm-map-mask = <0x0 0x0 0x0>;
+> +		pwm-map-pass-thru = <0x0 0xffffffff 0xffffffff>;
+> +
+> +		status = "disabled";
+> +	};
+> +
+> +	touch_connector: touch-mezzanine-connector {
+> +		compatible = "toradex,touch-connector";
+> +		#gpio-cells = <2>;
+> +		/* LVDS_TOUCH_RESET_CON# - Verdin GPIO_2 (SODIMM 208) */
+> +		gpio-map = <0 0 &gpio1 1 0>;
+> +		gpio-map-mask = <0xffffffff 0x0>;
+> +		gpio-map-pass-thru = <0x0 0xffffffff>;
+> +
+> +		#address-cells = <0>;
+> +		#interrupt-cells = <2>;
+> +		/* LVDS_TOUCH_INT_CON# - Verdin GPIO_3 (SODIMM 210) */
+> +		interrupt-map = <0 IRQ_TYPE_EDGE_FALLING &gpio1 5 IRQ_TYPE_EDGE_FALLING>,
+> +				<0 IRQ_TYPE_EDGE_RISING &gpio1 5 IRQ_TYPE_EDGE_RISING>;
+> +		interrupt-map-mask = <0xffffffff 0xffffffff>;
+> +
+> +		status = "disabled";
+> +	};
+> +
+>  	native-hdmi-connector {
+>  		compatible = "hdmi-connector";
+>  		label = "X37";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi
+> index 846b36706821..736f034c7550 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mallow.dtsi
+> @@ -11,6 +11,46 @@
+>  #include <dt-bindings/leds/common.h>
+>
+>  / {
+> +	lvds_connector: lvds-connector {
+> +		compatible = "toradex,lvds-connector";
+> +
+> +		#gpio-cells = <2>;
+> +		/* LVDS_BKL_EN_CON - Verdin I2S_2_D_OUT as GPIO (SODIMM 46) */
+> +		gpio-map = <0 0 &gpio5 1 0>;
+> +		gpio-map-mask = <0xffffffff 0x0>;
+> +		gpio-map-pass-thru = <0x0 0xffffffff>;
+> +
+> +		#pwm-cells = <3>;
+> +		/* LVDS_PWM_CON - Verdin PWM_2 (SODIMM 16) */
+> +		pwm-map = <0 0 0 &pwm2 0 0 0>;
+> +		pwm-map-mask = <0x0 0x0 0x0>;
+> +		pwm-map-pass-thru = <0x0 0xffffffff 0xffffffff>;
+> +
+> +		status = "disabled";
+> +	};
+> +
+> +	touch_connector: touch-connector {
+> +		compatible = "toradex,touch-connector";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_i2s_2_d_in_gpio>,
+> +			    <&pinctrl_i2s_2_sync_gpio>;
 
-I will queue it soon and send it as fix at -rc1 or later.
-Thanks for finding and fixing the issue.
+Thank you try this method.  Can make a pre-defined label for it, such
+such as touch_conn0_pinctrl_gpio0, touch_conn0_pinctrl_gpio1, ....
 
-> Fixes: e0573444edbf ("firmware: arm_ffa: Add interfaces to request notification callbacks")
-> Fixes: c10debfe7f02 ("firmware: arm_ffa: Add support for {un,}registration of framework notifications")
+So touch overlay use this label directly, like other port, i2c ...
 
-Is this because of rework we have 2 fixes tag. Need to check how backport
-would work, hence asking. I will also check before applying.
+After nexus improve by support mapping pinctrl, only few line needs be
+changes.
 
--- 
-Regards,
-Sudeep
+The bad things is that it need define NULL pintctrl for i2c gpio expander.
+
+It is worth to try.
+
+Frank
+
+> +
+> +		#gpio-cells = <2>;
+> +		/* LVDS_TOUCH_RESET_CON# - Verdin I2S_2_D_IN as GPIO (SODIMM 48) */
+> +		gpio-map = <0 0 &gpio4 30 0>;
+> +		gpio-map-mask = <0xffffffff 0x0>;
+> +		gpio-map-pass-thru = <0x0 0xffffffff>;
+> +
+> +		#address-cells = <0>;
+> +		#interrupt-cells = <2>;
+> +		/* LVDS_TOUCH_INT_CON# - Verdin I2S_2_SYNC as GPIO (SODIMM 44) */
+> +		interrupt-map = <0 IRQ_TYPE_EDGE_FALLING &gpio4 31 IRQ_TYPE_EDGE_FALLING>,
+> +				<0 IRQ_TYPE_EDGE_RISING &gpio4 31 IRQ_TYPE_EDGE_RISING>;
+> +		interrupt-map-mask = <0xffffffff 0xffffffff>;
+> +
+> +		status = "disabled";
+> +	};
+> +
+>  	native-hdmi-connector {
+>  		compatible = "hdmi-connector";
+>  		label = "X14";
+> @@ -159,6 +199,16 @@ &i2c5 {
+>  	status = "okay";
+>  };
+>
+> +&iomuxc {
+> +	pinctrl_i2s_2_d_in_gpio: gpio4io30grp {
+> +		fsl,pins = <MX8MP_IOMUXC_SAI3_RXD__GPIO4_IO30 0x1c4>;   /* SODIMM 48 */
+> +	};
+> +
+> +	pinctrl_i2s_2_sync_gpio: gpio4io31grp {
+> +		fsl,pins = <MX8MP_IOMUXC_SAI3_TXFS__GPIO4_IO31 0x184>;  /* SODIMM 44 */
+> +	};
+> +};
+> +
+>  &lcdif3 {
+>  	status = "okay";
+>  };
+>
+> ---
+>
+> Best regards,
+> Leonardo
 
