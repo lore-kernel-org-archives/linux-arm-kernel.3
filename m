@@ -2,92 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDE9F606A321
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 08:31:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17725606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 08:31:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=K2w6FT9f;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=ADoDC1yW;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=G/RBfF3P
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=e/LCc5rd;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=BHg4NXSW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s7Fb6KtcWAXnUfcecLaSQ1H6J8YKvEJFUWN8A6hcpOc=; b=K2w6FT9fhdXvR7eUh9m5kTd9Md
-	BwzcnJFufqF+XxmYDa7sDhoZTkBvis+6ChvyreNx4A/CvHsUr/yyzWiFr2HbcQDKCHklPppWyQQZd
-	56NBDvFJXhWFF0iJM6/3ftazxbaP26rqf+KvkfFVZtazexDWFTCkMaPOc9VfbCbXScYiXmmcjYXrP
-	O26aUSVUzToQLeh8aMkeW5sKqwyHl725nEZnSUtOvo8h5M9ug8u3Zkd4dXwyAIYt8iC0mha8WlXqW
-	MsBU3dN+A6e2FUNi2X8iGJ5lZpgrL2q50XyWEd2/FqbQ+ZI2DE+FPH8dy2GIiLcqEpx7JfDLLJp9f
-	XSCiJobQ==;
+	bh=fKpfFiVoVVnNbFsiCGN8s68JTp1We4GBLmYun2RkI28=; b=e/LCc5rdu/djnKFWUxUrtt0lyy
+	oXo2wj4NANAWT74DEXmpXwhC9SJs9DAKMFeStiHpnQbWVk7SQPuAOAm7tDuLdTPXuZyX0BA2KFu2j
+	g/g+rjU6U41LafeOerJo6dToYo+Yfc3My4KRZ8WBsa0s04i/YUKMt/BshRC9jFZu7ukvLxDPMHybU
+	GUtO5s+Ha0OnOKRLiggbf+ldzNgmAnq3cQ33AkXCX7rEczRqoA0UdotpleD6PqWoO4jZrxFWS/9FI
+	5Z8K3Ezf5FU4bAhZru77YQ15ABr+Sm+RTxaJLNvky8e8oXkZltQdzUQ4CQB5Jh8lPLJHO4+ZQP/gT
+	elV2zCSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRjU-0000000BMfk-3CsH;
-	Wed, 21 Oct 2026 08:31:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xJRjd-0000000BMn2-0Aoc;
+	Wed, 21 Oct 2026 08:31:45 +0000
+Received: from mail-pz2-x08.google.com ([2607:f8b0:4864:3b::8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJRjT-0000000BMeG-12um
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 21 Oct 2026 08:31:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=s7Fb6KtcWAXnUfcecLaSQ1H6J8YKvEJFUWN8A6hcpOc=; b=ADoDC1yWwNJf9PbRcFzxqOvfWy
-	QtVfKGiM14v43UolHSoCgSkOAMTJX9LlUSr6MOdcItyM5KoIY6r262Vvzm6Ky+Xd/SfM9uN7vyfXh
-	weZ7IQuLY4cOaAJSVOXw9n0u/+l5nriAVWR8TwaTqfNgAwjIo0iI1YNU86HYrzOMd+Jk5n3PoardP
-	1Ad+gPADRT0WWYA/HhMyz6vgr6WRfqwpNhtEUO3TxnsC9AmPJs4TSVMzlsfkprE0o1ECGNNJNuejt
-	FAhferG1sNh+C4CcXT4XnU4a6W/b5y2zvlmW4vBsCU9rzUWwN4KT6dlbcq2jHAJEu2ixfoIoSNrgo
-	JztcMdpg==;
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xJRjN-00000005b7Z-1LvU
+	id 1xJRja-0000000BMkm-1igl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 08:31:32 +0000
-Received: by mail-pf1-x442.google.com with SMTP id d2e1a72fcca58-8a0880a46e7so260406b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 01:31:28 -0700 (PDT)
+	Wed, 21 Oct 2026 08:31:44 +0000
+Received: by mail-pz2-x08.google.com with SMTP id 41be03b00d2f7-cd613507bd1so29565a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 01:31:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792571487; x=1793176287; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792571502; x=1793176302; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=s7Fb6KtcWAXnUfcecLaSQ1H6J8YKvEJFUWN8A6hcpOc=;
-        b=G/RBfF3POz5+8CaJzF0JngkL5IMR0GZ6clIlCpy7GEPoBsJvnVK8md93cutbrtQKAe
-         wK15WsQXEiPiSxbt/rdZbRAy1/FuDxwBw6BQpEzKqo3ICoPDQwyDc+SyCQvXzYpJ5fDz
-         /4fEcJfZ63pHmjpJm592Vo1SrWKyyDfTWT4R0qiVmmd1I3FmKatsFJpf0OC5RxkYNc3w
-         lkmsVY70sB304tLhoTlvSk0QLgCrOAyLvYPdiuHiBEBV9EX+hqcV1HMX9O5Sz37tfd3m
-         QmJMEjM1/hsGbNGaeoy4LAKUeKT2i6rFq54032DPmTHDJlULeacOBzutg/NuPpCFJSwp
-         ouLg==
+        bh=fKpfFiVoVVnNbFsiCGN8s68JTp1We4GBLmYun2RkI28=;
+        b=BHg4NXSWd3Q6U6+eNuHq04m0S7bzCh1s9TfOZKxj5COItQbMkgdg1qtVrO+CM7acA7
+         K9D0g2xFpV4S2gstWu7nESUQ/FV0ka1dC6gTez8+gtsS3XbsUgoqQu6UmVAgBneLI+Tg
+         AIifcorR8ADorW4/9om6Hzl7Pbq6663bupn9PYsuoZornD9+vqZ+xEtlxuqD1Nl142uR
+         +nZr4epNclhlYODp7JTyMHwpbRs4P+JRmpETPbjpNqzVV5B17Fpia7gpN7eHTecH7w3n
+         ViORMTy2u22arGTYCCmkPiYWyT0beKr8fVI6JAQ4YQi9Tfw/vgf0FQOonC4Bx1zaHRzp
+         0aKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792571487; x=1793176287;
+        d=1e100.net; s=20260707; t=1792571502; x=1793176302;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=s7Fb6KtcWAXnUfcecLaSQ1H6J8YKvEJFUWN8A6hcpOc=;
-        b=Fr6UDQU6w6eYWVqKgNQVmJ7FYek/sdYthsOB2FTeOkDRVhfJD5AHUNgMTVxPsZstQh
-         1BIMcSqHzdX1ezsTWAkz3s03YEix4P0rh1oqf8FnEn3DL60mNid6UZRnlEcyF4GXF2WL
-         /lH3658NyYkIWOmW4isT8PfY+8rX6pCIuAzTjyuwLHMI/9rM3DLWWtzS4WdsTiu1VdCA
-         8yWBm0mojAudvPxegIIuKMmiMRXjOn/7PpNSvytB6yGwp3o9dRVOFz+8UAmj75ex0U1+
-         NjQpU9zlxirlTAqEehTfbWFUlW1txZPAlSpGXteQL8tDSu+aelLnoqf8N9Zw5KM+rUtU
-         eZkA==
-X-Forwarded-Encrypted: i=1; AKwUvBymu7kqAp6Qd+TP7aGf9K4PszgYNUR5hXHNiTiAcV/1eIHqsGC66zV0Yh8v/3uSOuaykkjybH/iSX9wMI6CBeeh@lists.infradead.org
-X-Gm-Message-State: AFq9FYLCDylSaN+aMhBYLqzYZiZbTygRb/b6VP1bgXx3ok0qViNKQKxm
-	eRl7GYurpFlCxT8mlpW6Ldj4B3MXqpZb2q0B0kwI8zLOa1wSYd1gznZk
-X-Gm-Gg: AYBFou3/SQ2QLPZKvj91QuntjwdFgsm1fZFcB6McvKE1Drr3sclUchDXtNqFVUyfV0u
-	5zreoWgJrQCKreuU2IQ0eYM10JXky53pNfOI1F/clFNSjbFS1+4B/a7OeH0fkLQhZei8nNHaTd5
-	SI5d8tqE641eXwJEak89gj3J/If+eDbmVR6rf9bUfuHNuzZ989PSwAKda5FpfGUC5TELsmgZt5S
-	qvV4Y2eAHi9U/CMeRWlHq8qgNFNQ4OBTgvP907WJNz0yXHR+WSyeIMO625CL8ZJqSs7JYpWZu+E
-	biHAFTq2d8LOmodL0u9x19r9L2FosH1q/oiajX07Ru7mCsHLUtA80yDiDSlF+W5vyVQHQlUhSkf
-	MydV/ij8yzf7F88Ox5IbFVJfh8Va69U/v6wYI5IfYqXwZ+za++f9UAA4qg74bzAHi+6OLwf/LQz
-	ogMm9TT9ozgFR9zKZdDYiVo3sfBpZCqS/zVk4Fld8k9d2LgWBg7plsya1sPNwYv9yXp0cCXnQlW
-	TRO9nb4yUXJplzDZRcOJQAt1zSRAJ1ROeVCSCmJ3cS+gEfvTrt+nQiLocDgkq3hJ4Z23QB6XGCk
-	k1y+MmMWUS3/bg==
-X-Received: by 2002:a05:6a00:2e1e:b0:8a0:4d37:660d with SMTP id d2e1a72fcca58-8a07bf67824mr2764848b3a.2.1792571486193;
-        Wed, 21 Oct 2026 01:31:26 -0700 (PDT)
+        bh=fKpfFiVoVVnNbFsiCGN8s68JTp1We4GBLmYun2RkI28=;
+        b=ReEnpXHEZ1UcqXZkJjY1pMJJpp0ZrZkXBjTesvjlk9hAY7VrtNfBl/M6nOi4FvqiCr
+         M1oORmC2EIcR2pv92FJOy2PVrcLh9ZAxHOnR+1KBRX7AavhhCl4cQ+K262z2VvKJsgnV
+         4GQkofMUQAFvBMTDNhJBjTwEC5QsH9Uu0Py1/pWlAHE+ixEvMY5WOQ/X+sMNZtVI7qEL
+         bmCA8JXQ8DW2De3BKPtFYE/H0F03FQ1DjD/JK5wT9xtsMZa7xptm3hLGV+kDoWkHnH3+
+         OFXkb+hsM7RyZdziunDVXlsf26MMIIzyRwFFolj/HWuaXQzlnJKtKB9keX5Ribj0fATw
+         nmDQ==
+X-Forwarded-Encrypted: i=1; AKwUvBz5u11YH4+AXUzTQjCK8/8tqeGOLtchILfS36mD3lAV4X/ncgucmv4nvGITA8LAd4HO/OKfTc5ZNx2QYO4edfCg@lists.infradead.org
+X-Gm-Message-State: AFq9FYLvdxGk9dXK3/uu4o3XgBRdWPaT094fQqhuYCLrLsLNkuOtEyzZ
+	5zgzvS79qdWQxerEwcJVyEZf1thoriauaOYfKTC5rsnoL4d3QMwdFaXn
+X-Gm-Gg: AYBFou1OBOKR8nNRolS79KrhXx9loT8XeQj/9+fqsn0dKd3jUn4/7KvDx6tGQNr4Cwq
+	pIeQjPlCjdjm+e758uwKzkX6qO9by5w6gLNsDDUiGqFCr34DqaVRm2X+OKgjgMXCDsLF/npKw9T
+	ua9ZIBlKqaIvz4dKpw5qcuTVGnQmEINBv0R6rFT7DW/lXuDetRxl54oN9518WX3jPzWAU4AkWyY
+	KBbHUXcByR4opFee0VMmf4jE29vVQKFCCPSzr+o+ymBPp7Iam3Mmnur7yjWe8l6N4wnFVZmoEFA
+	9wwWASzOOLVA1qhTL4MlmCH7tZJSjr74JqJ1KrcZnowgkJIvggjxzWrjWC0diu6x1HsQ3wBwsOZ
+	mX6FAhNUSpQOlpCKtULH/uFcFc+Z+s4K7uxLctoO4hYuS45wT46lai4HPdUm2FUAChEb5R2yidz
+	gCRzYzrldeYdscvfXoVzXoCSxlLpTt6nx0cqKbvANbiplvXWzWsvp4oG88Heg4CqeBlW0rdqxdI
+	K6YHRmPnhN264aJQ9irAeFqwuDGwwdrJaA5wYVCdSH4lqm9/bbqR0dzqWz8t7PeWvYbKPmoknTv
+	yfHImxDemzisHA==
+X-Received: by 2002:a05:6a00:2d12:b0:882:e366:d99f with SMTP id d2e1a72fcca58-8a089d871famr1118755b3a.51.1792571501524;
+        Wed, 21 Oct 2026 01:31:41 -0700 (PDT)
 Received: from intel.company.local ([122.11.210.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8a0895e273bsm600653b3a.41.2026.10.21.01.31.13
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8a0895e273bsm600653b3a.41.2026.10.21.01.31.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Oct 2026 01:31:25 -0700 (PDT)
+        Wed, 21 Oct 2026 01:31:39 -0700 (PDT)
 From: Wandun Chen <chenwandun1@gmail.com>
 To: robh@kernel.org,
 	baoquan.he@linux.dev,
@@ -122,9 +106,9 @@ Cc: catalin.marinas@arm.com,
 	kexec@lists.infradead.org,
 	linux-mm@kvack.org,
 	iommu@lists.linux.dev
-Subject: [PATCH v9 4/8] crash_core: replace for_each_mem_range() with for_each_mem_region()
-Date: Wed, 21 Oct 2026 16:30:07 +0800
-Message-ID: <20261021083011.2170525-5-chenwandun1@gmail.com>
+Subject: [PATCH v9 5/8] memblock: introduce MEMBLOCK_NODUMP flag
+Date: Wed, 21 Oct 2026 16:30:08 +0800
+Message-ID: <20261021083011.2170525-6-chenwandun1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261021083011.2170525-1-chenwandun1@gmail.com>
 References: <20261021083011.2170525-1-chenwandun1@gmail.com>
@@ -132,9 +116,9 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_093129_614283_C6534E9B 
-X-CRM114-Status: GOOD (  14.04  )
-X-Spam-Score: 0.1 (/)
+X-CRM114-CacheID: sfid-20261021_013142_481138_5AE28A07 
+X-CRM114-Status: GOOD (  14.42  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,68 +139,98 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Wandun Chen <chenwandun@lixiang.com>
 
-for_each_mem_range() skips MEMBLOCK_NOMAP regions implicitly. Switch the
-weak defaults to for_each_mem_region(), which exposes struct
-memblock_region and per-region flags, and filter NOMAP regions explicitly
-via the new crash_should_skip_region() helper. This prepares for a
-subsequent patch to extend the skip filter.
+Add MEMBLOCK_NODUMP to mark regions that should be excluded from
+kdump vmcores.
 
-No functional change.
+The flag is meant for reserved memory that carries no data useful for
+crash analysis. Reusable reserved regions such as CMA may hold useful
+data, so these regions must not be marked MEMBLOCK_NODUMP. Subsequent
+patches wire this up for /reserved-memory entries.
 
+Suggested-by: Rob Herring <robh@kernel.org>
 Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
 Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
-Acked-by: Baoquan He <baoquan.he@linux.dev>
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- kernel/crash_core.c | 25 +++++++++++++++++--------
- 1 file changed, 17 insertions(+), 8 deletions(-)
+ include/linux/memblock.h |  9 +++++++++
+ mm/memblock.c            | 16 ++++++++++++++++
+ 2 files changed, 25 insertions(+)
 
-diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-index 8a861a946e26..e161c8b65e00 100644
---- a/kernel/crash_core.c
-+++ b/kernel/crash_core.c
-@@ -283,25 +283,34 @@ static struct crash_mem *alloc_cmem(unsigned int nr_ranges)
+diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+index 40e6e0aa2f8d..67dbcfda6f49 100644
+--- a/include/linux/memblock.h
++++ b/include/linux/memblock.h
+@@ -52,6 +52,8 @@ extern unsigned long long max_possible_pfn;
+  * know is good to use. It is the only memory that allocations may happen from
+  * in this phase.
+  * @MEMBLOCK_RSRV_HUGETLB: memory is reserved for hugetlb pages
++ * @MEMBLOCK_NODUMP: exclude from kdump vmcore. It carries no data useful
++ * for crash analysis (e.g. firmware carveouts).
+  */
+ enum memblock_flags {
+ 	MEMBLOCK_NONE		= 0x0,	/* No special request */
+@@ -63,6 +65,7 @@ enum memblock_flags {
+ 	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
+ 	MEMBLOCK_KHO_NOPRSRV	= 0x40,	/* memory with no KHO preservations */
+ 	MEMBLOCK_RSRV_HUGETLB	= 0x80, /* memory reserved for hugetlb pages */
++	MEMBLOCK_NODUMP		= 0x100,/* exclude from kdump vmcore */
+ };
+ 
+ /**
+@@ -160,6 +163,7 @@ int memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t size);
+ int memblock_reserved_mark_kern(phys_addr_t base, phys_addr_t size);
+ int memblock_mark_kho_noprsrv(phys_addr_t base, phys_addr_t size);
+ int memblock_clear_kho_noprsrv(phys_addr_t base, phys_addr_t size);
++int memblock_mark_nodump(phys_addr_t base, phys_addr_t size);
+ 
+ void memblock_free(void *ptr, size_t size);
+ 
+@@ -305,6 +309,11 @@ static inline bool memblock_is_kho_noprsrv(struct memblock_region *m)
+ 	return m->flags & MEMBLOCK_KHO_NOPRSRV;
  }
  
- #ifdef CONFIG_ARCH_KEEP_MEMBLOCK
-+/* Exclude NOMAP regions from the vmcore. */
-+static bool crash_should_skip_region(struct memblock_region *reg)
++static inline bool memblock_is_nodump(struct memblock_region *m)
 +{
-+	return memblock_is_nomap(reg);
++	return m->flags & MEMBLOCK_NODUMP;
 +}
 +
- unsigned int __weak arch_get_system_nr_ranges(void)
- {
- 	unsigned int nr_ranges = 2 + crashk_cma_cnt; /* crashk_res + crashk_low_res, +CMA splits */
--	phys_addr_t start, end;
--	u64 i;
-+	struct memblock_region *reg;
- 
--	for_each_mem_range(i, &start, &end)
-+	for_each_mem_region(reg) {
-+		if (crash_should_skip_region(reg))
-+			continue;
- 		nr_ranges++;
-+	}
- 	return nr_ranges;
+ int memblock_search_pfn_nid(unsigned long pfn, unsigned long *start_pfn,
+ 			    unsigned long  *end_pfn);
+ void __next_mem_pfn_range(int *idx, int nid, unsigned long *out_start_pfn,
+diff --git a/mm/memblock.c b/mm/memblock.c
+index a450092a80fb..ab1432241432 100644
+--- a/mm/memblock.c
++++ b/mm/memblock.c
+@@ -1221,6 +1221,21 @@ __init int memblock_clear_kho_noprsrv(phys_addr_t base, phys_addr_t size)
+ 				    MEMBLOCK_KHO_NOPRSRV);
  }
  
- int __weak arch_crash_populate_cmem(struct crash_mem *cmem)
- {
--	phys_addr_t start, end;
--	u64 i;
-+	struct memblock_region *reg;
++/**
++ * memblock_mark_nodump - Mark a memory region with flag MEMBLOCK_NODUMP.
++ * @base: the base phys addr of the region
++ * @size: the size of the region
++ *
++ * Mark the region as not to be included in crash dumps.
++ *
++ * Return: 0 on success, -errno on failure.
++ */
++int __init_memblock memblock_mark_nodump(phys_addr_t base, phys_addr_t size)
++{
++	return memblock_setclr_flag(&memblock.memory, base, size, 1,
++				    MEMBLOCK_NODUMP);
++}
++
+ static bool should_skip_region(struct memblock_type *type,
+ 			       struct memblock_region *m,
+ 			       int nid, int flags)
+@@ -2854,6 +2869,7 @@ static const char * const flagname[] = {
+ 	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
+ 	[ilog2(MEMBLOCK_KHO_NOPRSRV)] = "KHO_NOPRSRV",
+ 	[ilog2(MEMBLOCK_RSRV_HUGETLB)] = "RSV_HUGETLB",
++	[ilog2(MEMBLOCK_NODUMP)] = "NODUMP",
+ };
  
--	for_each_mem_range(i, &start, &end) {
--		cmem->ranges[cmem->nr_ranges].start = start;
--		cmem->ranges[cmem->nr_ranges].end = end - 1;
-+	for_each_mem_region(reg) {
-+		if (crash_should_skip_region(reg))
-+			continue;
-+		cmem->ranges[cmem->nr_ranges].start = reg->base;
-+		cmem->ranges[cmem->nr_ranges].end = reg->base + reg->size - 1;
- 		cmem->nr_ranges++;
- 	}
- 	return 0;
+ static int memblock_debug_show(struct seq_file *m, void *private)
 -- 
 2.43.0
 
