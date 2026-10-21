@@ -2,72 +2,130 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65C20606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 23:42:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC57E606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Oct 2026 23:47:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UWih7Xat;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cGY3K1M7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lVhkis+/;
+	dkim=pass (2048-bit key, unprotected) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=Fss6OWVI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FCttpM/mIWeoisgI4Oe2UgAbsAorju2aXD0ZdeQI/eU=; b=UWih7Xatmx3d1R7xB4SHzr8esN
-	yEO/zD+LM4+D6Kh0231zNP1hdaPUyLdxEQmTUeEwyEWY+UjYiAUGU3jgnhBT0w8p35TZU+O4VTklO
-	TncTLgdMR+HWDa36DYRCyQyiA4Lwyj2ggBFu2lqel9dN8+7+iXWq9spbRWTAGgYp71g9dRcuBv4ZF
-	+mfcN+jhliitfcZUBycrxfyxl9wcADkcpUPyQDluIP+wcsJWXD7qbVfM7iPyTGDAyH1yFdWm3GL2E
-	E8RuC1ucwm3XTSCd57RRqvjcTZwyLTpG+O1sZQSRWJecQpYFxMSyY23olrNRs6+N62KNHbl4gHiWF
-	aXHRaOyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n5hOymfjgaz7xpjT1ssIdHSQ+wD4cuNPKUAfRnejzdg=; b=lVhkis+/hmMpatGAFlY/E+i0Tb
+	qU+iJLgSRNU035gruMCfMOrhLdS/VGW+E16xCQNFOVIzz88S4XbdJw1I0LlzoRZBzDR0W6cdz8hmI
+	TOg9fZolpiDkq+6Gae6HLkAOQw/uiggfSMHDpCEknq/K6Ga8VHs/gZsT2bsZBlx1HIpd5JPydjkqv
+	oUTRiRE4z6vHXRvcett7Vl9aBuH6YjfgAHn/TDAsdtKpa6qWp42lD0ZqhEopyf1veRNORgtb17hfq
+	jxF0rDQLw9KK44lyjnwXwcafqPywh7oWjjpHc3qlpVq13NxGHmIsZ3yJlVqtEhehS8Z4GQkUHHzJP
+	cdLI4vhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJfxE-0000000D3Vr-34Ck;
-	Wed, 21 Oct 2026 23:42:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xJg1G-0000000D3q3-0eMW;
+	Wed, 21 Oct 2026 23:46:54 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJfxC-0000000D3Vf-41Lp
+	id 1xJg1D-0000000D3pc-1SsU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Oct 2026 23:42:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6AD3F60098
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 23:42:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C0691F000C7
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 23:42:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792626162;
-	bh=FCttpM/mIWeoisgI4Oe2UgAbsAorju2aXD0ZdeQI/eU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=cGY3K1M7fCHt+Twn9BLTTxRcWwHGXe/n/oshtl388cWfeDxu9OoK6OywwiaavpZ84
-	 dM5o9tAl9k8qM2pWUnYQl/zBYKFpouhsneqjvoz7jfgcG1RSPR3pGlzP5zLmP0f2ZP
-	 zFmtKN6geV1ZKWVyRGz0ebSnuG5QimrsLqw2qk6DX5RhUdGiEmY2ZzLqDiFaQbH4gx
-	 Rl2CXMZpi7GtzfCHCUDobVvkY8vuBmBn7A2+gHFHB3W4zCW/pzOxI/3wNaOqcAMwyZ
-	 9hEpBKfGb2clVN0MkRmVipfUya7IG4rTBPUvKvXHtt3W62+MSd9m4fwkW0Un5pxb5t
-	 ipnX66rl7+m3g==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5be3ed646a5so971328e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 16:42:42 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByW7/pCO176g4M53ROznZcrC/FSJ3K6S7efMSRUE1bdv93Evw3whru5pmzNjkLUDPBm/L2qiJrGViC69PYTEv1e@lists.infradead.org
-X-Gm-Message-State: AFq9FYKi5arD6S9crOhLXZE6N7+VVv1izihcHrp3vdyB3aQCmJgl+BsL
-	Mn9F8tOSCEv5wsYDVhcQddLq8AFV7vC3TUbMtcfBTgB3pJsQgaNRayHV/RHJxXl42pQxj3LuJWB
-	CW37XQUCNe7meV/WXKlJ52O64XLRR5xU=
-X-Received: by 2002:a05:6512:23a2:b0:5be:478e:c5d2 with SMTP id
- 2adb3069b0e04-5bfa1cdba7emr1474028e87.29.1792626160903; Wed, 21 Oct 2026
- 16:42:40 -0700 (PDT)
+	Wed, 21 Oct 2026 23:46:52 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-93e4c00d71aso139993185a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 16:46:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1792626409; x=1793231209; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=n5hOymfjgaz7xpjT1ssIdHSQ+wD4cuNPKUAfRnejzdg=;
+        b=Fss6OWVI9zcexnGRFHZZgEIcokFDUngbtzsV6a+qJngoAhuDcKg2UQU9lsWaduJ/oA
+         5GbBKu9dxZ02yDH2X5WhtciH60u3WXvrTV7Vek/5TRm5+EGqpb4YDKUUJE+1lVBxkJAX
+         Xx4q5Zpcv7OyRBmPf+0WMwMRLDi+dlxEcKuh1c9P/RYlUoCs+BxQhIMWIHcTwC+py9+3
+         8t4W/zx9RiNsEbxsj2H4ARb7aJpjtzuZjcy99/AIWAv/k6vKsnq6L2byyOv+bEgrjL/C
+         lQZkTRaF89VnvCrJBisKBBJJJQMAsaA55os/p4lLu6Bx67bExn8p+KgO7Q8KNd8eWwyd
+         JAYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792626409; x=1793231209;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=n5hOymfjgaz7xpjT1ssIdHSQ+wD4cuNPKUAfRnejzdg=;
+        b=mHzRVgqt9D2HXWOnRYDveLo0G/RRHSyiT0qGD732HgBwQyWhGlZfn+9M/gZ48QsfRv
+         G/R+aMugf9NjX8aTyTyD6z6UJugMZQWhUZMrEyFphhW2t5HcqOyJV7cn1MhP99vAhdxk
+         ULrgUeMoKb+j7zeiTeqREpiAZkJGgqbdJK49eavXoSQ4tR3bGOnrvl83ogkI+8Nk8K/b
+         J2sdhvwRbyq0QAIgTINf8aNGG6alhOhnY7vmmcRYTQU/N3CQeY79x76LiJ0rNXPrIJOs
+         frEGjNABfNISbFueJocOClogybzH/gnXmpy6TIF4OGvrOLUqNqdseGPLqtkeq+7pBd4S
+         8X4Q==
+X-Forwarded-Encrypted: i=1; AKwUvByWXQ6qMcMqIKJeiCrPFgLYQr397mezFdmKVfIXoQOilZUKjfUEz9irloo5q2dc/JwtIkIX6tMZOy1q5n3xIQUK@lists.infradead.org
+X-Gm-Message-State: AFq9FYKu3oeQ7t2dvU3tF6S5Sw6XJIw95dKF4C1sXCPU0mvCot0+T02B
+	G/RP3ReUGIgNPIQ5Sq8nEA6a9rherqP5V7pOy6HaeA5WUEzxNi/8napUIKzTeaNJmTg=
+X-Gm-Gg: AYBFou2FXh95hO1Td6EjCIywV29lrEUqfhmwzHPK+5Nbw11wAX3hP3++Uah/vsIIbG3
+	ctCCVPYRYRjbPIleN+u4QUSS433bhWivt8/ZuVV+R5HecUVkv5DPo61zebTfCWZj0JiRTxtGlcd
+	9uOCXYah3xSb0GbkC4KQDKp/KiVstOyRSF8N5DCP2szNbf13w/W9EhEjvYzsCahgrd/qzqMr2yd
+	yMPXs1NEySGhhwBHoNTE+6gTfVPUS1sAZUFzzL7IPrN+DzNjYp6HQjWoq0XdBno/bo7PpuddCL2
+	Yu0vix8eNGXlctZ9Khjmf83LGdljUWmLsXTjRwS89HYvsFHyJSM/QHoFjSfHJPC4eznirBV/dpO
+	oMioiSsr+1LwfLjcQEQWzLvPuqBHvkF3I/1I/MT79ADVCSsa0Y4TenfI9B2g3fskWCkXj/kV6EK
+	sSf99MDwChHHRw/TRHPeVSdtE7LfkSuzz1Vqg/A8RBzDzt1SqKNLq7cO9fRL1G8TaiZSeEKV4wv
+	fTydIYyeBMle5RAVv6zmrcTNVthXxfuIvuVCuYbxhwZJx4IVdcswTIIMe8bMJ5zam04ixS8KTyi
+	yWEDNBkDyjYDGdAbbmcYIT+NVPekZ4oCP1UGKNRSJVU4ZElpzcxhGI3YWls=
+X-Received: by 2002:a05:620a:17a1:b0:93f:22f1:97be with SMTP id af79cd13be357-93f5800e406mr694136885a.72.1792626409239;
+        Wed, 21 Oct 2026 16:46:49 -0700 (PDT)
+Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f56e2bee2sm373858385a.42.2026.10.21.16.46.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Oct 2026 16:46:48 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xJg19-0000000EWG8-3cjA;
+	Wed, 21 Oct 2026 20:46:47 -0300
+Date: Wed, 21 Oct 2026 20:46:47 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Samiullah Khawaja <skhawaja@google.com>
+Cc: Fred Griffoul <griffoul@gmail.com>, Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	Kevin Tian <kevin.tian@intel.com>, Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Ackerley Tng <ackerleytng@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org
+Subject: Re: [RFC PATCH v2 06/11] iommufd: Map memory provider files
+Message-ID: <20261021234647.GA3381610@ziepe.ca>
+References: <20261014093733.90312-1-griffoul@gmail.com>
+ <20261014093733.90312-7-griffoul@gmail.com>
+ <atkO08eCJzLX6R58@google.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261021121245.3111563-1-lee@kernel.org> <20261021121245.3111563-22-lee@kernel.org>
-In-Reply-To: <20261021121245.3111563-22-lee@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 22 Oct 2026 01:42:27 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmfKFG7uWWUQg42+vvaRg2NO8GGOji_qT9O+nabf8Q5+Q@mail.gmail.com>
-X-Gm-Features: AclHuK-bW_sOqMKCXDtKCtW_jSZo6X1GW1kVojPPLhylF6_iQYgXHCX5xCW8YWM
-Message-ID: <CAD++jLmfKFG7uWWUQg42+vvaRg2NO8GGOji_qT9O+nabf8Q5+Q@mail.gmail.com>
-Subject: Re: [PATCH 22/28] mfd: abx500-core: Unregister device ops on devm release
-To: Lee Jones <lee@kernel.org>
-Cc: Mattias Wallin <mattias.wallin@stericsson.com>, Samuel Ortiz <sameo@linux.intel.com>, 
-	linux-arm-kernel@lists.infradead.org, mfd@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <atkO08eCJzLX6R58@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261021_164651_512882_42396D8C 
+X-CRM114-Status: GOOD (  14.07  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,34 +136,27 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 2:16=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
+On Wed, Oct 21, 2026 at 08:17:05PM +0000, Samiullah Khawaja wrote:
 
-> abx500_register_ops() allocates struct abx500_device_entry via
-> devm_kzalloc() and links it into the global abx500_list without
-> registering a devres cleanup action.  If a caller's probe function
-> subsequently fails, devres frees the entry while it remains linked in
-> abx500_list, causing use-after-free and list corruption on later
-> traversals.
->
-> Register a devm_add_action_or_reset() callback in abx500_register_ops()
-> to remove the entry from abx500_list before devres frees it.
->
-> Fixes: c211b6b9c014 ("mfd: abx500-core: Convert to managed resources for =
-allocating memory")
-> Closes: https://sashiko.dev/#/bug/linux-6a9c6b8b-8f89-4af5-8cb1-102822e44=
-e6e
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lee Jones <lee@kernel.org>
+> With this approach, silently skipping holes during IOAS_MAP_FILE means
+> iommufd has no tracking of which IOVA ranges in the area are actually
+> mapped, which complicates unmap and could also hide a bug if a hole in
+> the range was not expected?
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+I think if we are going to do this it should only work with iommupt
+and iommupt should provide an unmap that is compatible with the holes.
 
-Yours,
-Linus Walleij
+There are other places that would like such an operation, IIRC.
+
+This will have to block an access reaching into a guest memfd mapping
+as well, so that should be OK.
+
+Jason
 
