@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B59D5606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 17:48:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20B42606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 17:48:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DiY3RDqX;
-	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=WUPJt1Nc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UOgDnyUi;
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=VlMQcpPN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
@@ -14,62 +14,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=SpslVbUahu1lzhSFFj8q6rCig7MM9wSX+fuc0eipTGc=; b=DiY3RDqXYxcmPkKb0vfEdG44yy
-	74sJyA9T2t1B6AkcEsQL0H1OmkoxbnBkhsXi/6O5JpgQL2sS6zzyCCgx1SlAEeN7i+qCtwCwpvCaT
-	NL6RRx2BGUekNAgTkiM7VjGF9Wff1dS75sRKOcIHyD2ykqVtm6b123T+0wvXofSL1UWH3J0DFkTBD
-	PJr6MA3UzEvqEjSYnbibeDCkVsrD2jBR9xCryujFIYIBC+9Ng9zwAIyT5rnBfmb+StcZOQl2gOgAU
-	iCaeX6fnt2kI0tZmgcYh91S//i8CKMuqf0SZxRRgl8lkA9C6bVM/8FB8yqpT1AN6LHKiBePsd+wxM
-	/5yAGjcw==;
+	bh=f9i8wkFVwMHQ4SaJgNQsC2mhEDqyv5B2iC1yR23KMbU=; b=UOgDnyUi1MFlqGWsV3ttrKHnzF
+	CZJIyxh+EkooOPAqPmPu4vD5suQUp1Zq4dqYUWtJVgotRth4tK3okpuUUKfXDKQ0nHnDYBDaZTqTM
+	Va9Vxs5E1N8zIFKbXSMod3OXdHu0dWD+2p4iGEfbrjEywNIjMb3ulrw+voZXiLYslgTXY+SOSJBNW
+	57ZZvQZzb/d6ZZMHM0WXVnTl3FIouXIDVNRi1LGvVZ8vdumeLykXc/uQGKIh42958su1DbSSvi5fS
+	DoFfsNdtzYf/ywiy/V0qdgJydiBOELTfSGcBK9ExTOMmvdyoU1muGvmgpd+rqCQznjzlybE6JiGur
+	agjML6hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJwu6-0000000EdJr-0os6;
-	Thu, 22 Oct 2026 17:48:38 +0000
-Received: from pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com ([34.218.115.239])
+	id 1xJwuC-0000000EdLJ-2thJ;
+	Thu, 22 Oct 2026 17:48:44 +0000
+Received: from pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com ([50.112.246.219])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJwu2-0000000EdJE-2nwD
+	id 1xJwu4-0000000EdJW-3DY4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 17:48:36 +0000
+	Thu, 22 Oct 2026 17:48:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1792691314; x=1824227314;
+  t=1792691316; x=1824227316;
   h=from:to:cc:subject:date:message-id:mime-version:
    content-transfer-encoding;
-  bh=SpslVbUahu1lzhSFFj8q6rCig7MM9wSX+fuc0eipTGc=;
-  b=WUPJt1NcnQblxqp3P5oWwjkt4n1lATGxSMQDEHR7K/9vV55FvpGU2yys
-   mBYb9zmACoWrUiJbsnsAJKQ/7AiKDTtWq08VN2d4t4Q9Novh5qUuy39+w
-   6NWCy++EF5ZlJKTQpMFaIAJDYTF7IfSvC6LD7yABpBBRdIQBTN/G63daF
-   VwwoN1k7td3aEam4lJTqnNlUKElsIPL1jYq7L+0rbkaekbXAyxk8O+2Uj
-   fRskabDSAKm5MPJot5J80n1F2yIN2vfmmouRQ8OmpK0rlvc3tXuKVDHQL
-   bl5RFyeRykQWeDpUk7BkT1NukTqMT7Hcni4tuhm5ojoYwXT866BtdUqFE
-   g==;
-X-CSE-ConnectionGUID: L+EihjG2S0W5i2YMzsl0Uw==
-X-CSE-MsgGUID: xBeVkGZtR9OnaJ0HESE8mw==
+  bh=f9i8wkFVwMHQ4SaJgNQsC2mhEDqyv5B2iC1yR23KMbU=;
+  b=VlMQcpPNQ4RrW7F7j+Cn3f/22rhkpstmCoE2fKQr07xHUIXkemBbspOC
+   343/lc7vCRZoozOjczD1Z4qQIopmP4d4BKfTOV3hunV308scbeGfNweVP
+   t7aZ8eV8N0qVZnHjc3TPTBIJsi5hWlHgdSASlpIEfVcR8zv7YCILfq+gg
+   KPWZlrNK9cHyNWAiNsN6hBCFkuQZmG9+q8/D9Q58fRTq5NNfcpu2SMl4e
+   z4k+5LgJmWOs54YiAEShBTAQw0FP/qiBU5w24NvGuQGDnstCs58ILFbm7
+   P037aUeZM7K8KsN2xVxAZFyYOxstCVHPSDrZ7zGdFu+jtmPCwGFYbQs7u
+   Q==;
+X-CSE-ConnectionGUID: RQZi2DGsSYa+ml+jqpMlvg==
+X-CSE-MsgGUID: yTyMOonyS6GQr5ore6opzg==
 X-IronPort-AV: E=Sophos;i="6.27,172,1787011200"; 
-   d="scan'208";a="31772390"
-Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
-  by internal-pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2026 17:48:31 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.48:11227]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.29.97:2525] with esmtp (Farcaster)
- id dd35c2c1-3ca3-49e5-a666-293da7c32e6d; Thu, 22 Oct 2026 17:48:31 +0000 (UTC)
-X-Farcaster-Flow-ID: dd35c2c1-3ca3-49e5-a666-293da7c32e6d
+   d="scan'208";a="31764559"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2026 17:48:33 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.178:1871]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.41.86:2525] with esmtp (Farcaster)
+ id 4c96b239-c80a-43e4-9e2a-b476f8e81ec6; Thu, 22 Oct 2026 17:48:33 +0000 (UTC)
+X-Farcaster-Flow-ID: 4c96b239-c80a-43e4-9e2a-b476f8e81ec6
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49;
- Thu, 22 Oct 2026 17:48:30 +0000
+ Thu, 22 Oct 2026 17:48:33 +0000
 Received: from dev-dsk-aarnahmd-2a-95203392.us-west-2.amazon.com
  (172.19.38.251) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.53; Thu, 22 Oct 2026
- 17:48:30 +0000
+ 17:48:32 +0000
 From: Aaron Ahmed <aarnahmd@amazon.com>
 To: <stable@vger.kernel.org>
 CC: <maz@kernel.org>, <oupton@kernel.org>, <joey.gouly@arm.com>,
 	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
 	<fuad.tabba@linux.dev>, <linux-arm-kernel@lists.infradead.org>,
 	<kvmarm@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 5.10.y] KVM: arm64: vgic-its: Don't dereference a NULL collection on ITT save
-Date: Thu, 22 Oct 2026 17:45:36 +0000
-Message-ID: <20261022174537.2767-1-aarnahmd@amazon.com>
+Subject: [PATCH 5.15.y] KVM: arm64: vgic-its: Don't dereference a NULL collection on ITT save
+Date: Thu, 22 Oct 2026 17:45:37 +0000
+Message-ID: <20261022174537.2767-2-aarnahmd@amazon.com>
 X-Mailer: git-send-email 2.47.3
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
@@ -78,7 +78,7 @@ Content-Type: text/plain
 X-ClientProxiedBy: EX19D031UWC003.ant.amazon.com (10.13.139.252) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_104834_839105_A8654B06 
+X-CRM114-CacheID: sfid-20261022_104836_877744_98A35C0F 
 X-CRM114-Status: GOOD (  11.80  )
 X-Spam-Score: -11.9 (-----------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,16 +121,16 @@ Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 Link: https://patch.msgid.link/20260807104102.2410744-2-fuad.tabba@linux.dev
 Signed-off-by: Oliver Upton <oupton@kernel.org>
 [aarnahmd: Upstream vgic_its_write_entry_lock() takes in the kind of table
- entry (ite) and looks up its size, while 5.10 takes in the size of an ite
+ entry (ite) and looks up its size, while 5.15 takes in the size of an ite
  directly via ite_esz, because commit 3b2c81d5feb2 ("KVM: arm64: vgic-its:
- Add stronger type-checking to the ITS entry sizes") is not in 5.10.]
+ Add stronger type-checking to the ITS entry sizes") is not in 5.15.]
 Signed-off-by: Aaron Ahmed <aarnahmd@amazon.com>
 ---
  arch/arm64/kvm/vgic/vgic-its.c | 8 ++++++++
  1 file changed, 8 insertions(+)
 
 diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index e6ec0701f5616..07b8ca72111f3 100644
+index 054aec8a72e35..e6ed23b14623f 100644
 --- a/arch/arm64/kvm/vgic/vgic-its.c
 +++ b/arch/arm64/kvm/vgic/vgic-its.c
 @@ -2151,6 +2151,14 @@ static int vgic_its_save_ite(struct vgic_its *its, struct its_device *dev,
