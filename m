@@ -2,81 +2,153 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2648606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 11:35:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06CA2606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 11:44:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=avpSPVB9;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zbvy/0NS
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ng5QQsG1;
+	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=ESMczTLF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=VhH6+z3kKO1Bl5/znvKizz61KSkOxaasQ1jNB2IaQFU=; b=avpSPVB9oB99PjdvWXIv2TrRky
-	xUGP/es2FB/nOrou1d2o9iOfKmZ6oEFONi0uKKfATAwV/hJLvlep0U4lWIZkutm8dPpzM/kD3B54a
-	R2GwK5ovxDq5v9c0Zy4BhGVkH7UcGVxfo+t43WZvrpi4KACsq46tN4Od5vsJZw5YkzFScofJEjufB
-	HdY07OaBaXLnFlmXdVscP2jWmMUdhCUQLSawjwKkuGL+zq2ypBoVH2OVoUsxSooa7YWq6A6q5hRUN
-	l+25yTrwQDU0WcTEkwMF5OLcmx3Z/015PbGm9ivbL5w1vpYv29Iw8znC6zl401m6rJiKnuYlZywH0
-	D/Dsm/Zg==;
+	bh=uGIx2mYr1H8b/VUYu1u/ApjefmPuM8Lgrnb8EdFNicU=; b=ng5QQsG1dSrrBddDQDNS1LexPu
+	6UHLedKEnfMJZs+Ea/a91LaDE4jbZTu/dHjtTd9oyGKqHpG2wNhoOn7rH3mLLHwe78DJJInm9trbc
+	0v7QCTzfbnQHX3JUcbEEesaHG0ildJ02lGRuFtGWWSee9Pk1ObAmYIuIYu5b6GMqhKAievHBhld1z
+	4pAGp7eeBzvkakd5n8K2k2fVeNUG9Zrr7+dC5TMdTuxD6TOlM+uT5A4B6lNTFVYObwFgY/SNBdqxB
+	cKw61oOfuGdoTHRkznVufwaB401va78aaGNij2JIESmMX0akKcPcwS2ROVWJUZ7M4Cn9/DGgjYTGu
+	eIwSgFZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJr4r-0000000E14L-3jh2;
-	Thu, 22 Oct 2026 11:35:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJrDZ-0000000E1bh-43e2;
+	Thu, 22 Oct 2026 11:44:21 +0000
+Received: from mail-japaneastazon11022143.outbound.protection.outlook.com ([52.101.126.143] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJr4q-0000000E14D-2nOa
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 11:35:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 10ED0418E3;
-	Thu, 22 Oct 2026 11:35:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 772231F000C2;
-	Thu, 22 Oct 2026 11:35:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792668919;
-	bh=VhH6+z3kKO1Bl5/znvKizz61KSkOxaasQ1jNB2IaQFU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Zbvy/0NS5hi8ZwGaL0mHdj6PEHhtbpZcgsb2Xp7eB8vNm91KXm6vAJ7shxoujBAe1
-	 dhfj5zW9GQjv2ICnLKITKYEVzIPUmr/T43Jte0mZvaglbKkhuJTD/V6vQcS26uTCFt
-	 OXasMXASP+V7SWvLS7aqv6WgFIHv/Z8rVTdNyptNUr0oy2H7iDd5b7kUaf0Cyoam5X
-	 uCgKS1SFyrbOMkuvNTg7wMFXssb/Zd5v96NUXlFCeDqopZEQD/tE8951DjZUUkufjP
-	 zYi24h+tNP9MH/3GJ/iZijRpORTplyqr7Cmi85uhX3LidPPNuictm20cp7A+p/XIxm
-	 nQb5r+beBBOWQ==
-Date: Thu, 22 Oct 2026 19:15:12 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Ong Boon Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next 2/2] net: stmmac: disable TX checksum offload
- for jumbo frames on bugged cores
-Message-ID: <atnwQKwf8mfQT-2n@xhacker>
-References: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
- <20261012-stmmac-xdp-tx-pre-fixes-v1-2-05fd0c90f7e1@oss.qualcomm.com>
- <6d1d99b5-1c3c-4e59-a0b2-e4d671e594ce@bootlin.com>
- <ata8k2EVDCDTmeE6@xhacker>
- <atbbRqSJIJ_glwuf@xhacker>
- <3ca537e7-c9a3-4306-a2f4-9c7d57123bfc@lunn.ch>
- <athAoWfW-xesPhFP@xhacker>
+	id 1xJrDW-0000000E1ac-2bV6;
+	Thu, 22 Oct 2026 11:44:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=leXb9mQ41wQTfImzSJfgoJ6jlT/z7Gt0jxK4uN4a1emQ2DuGmSM05W3bRr2VgwEUndZVaWGAwkSW+C5VzxwYFxI66YVIFaotNXLO+8DlmM2HUwAJeXMf+ZmQSnDA7tdynZx74c5lbdmTuOzyT86sk/9BZSYCbT8Ml254fFDJP+hCcOV9q5zsUxGhsk+9qJJjeR0g4JVDH6639CtPzfcEz6r09TP2fiLqd26UiAbL0eCT77guuNpNOWLVSuNUwWvegppOaIIBCKDcwAG4/2FqzDFY1ww813CPEgkpwYQLb9quhN3Ws+JS5EAMsttkripFXHRgfFBM+s003hsyK6fFlw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uGIx2mYr1H8b/VUYu1u/ApjefmPuM8Lgrnb8EdFNicU=;
+ b=VWya3e5ASXIb07T5c5Ws/lbFlqbOKkYrsGT1Vu7MHZkNM+lvwmjGDP1Tf6H4649Jl8ad532kQtMJ8cBiY8jB3P/05u1aSBgPsis5OCULE3okN+C/vcdMpR8EtbJP78wZSsCuRWJzE31dYCA4siDxvNEiAFb0wWUJ6FZYSB6TWNdCRGAjas+qMLXHTMSXxbKATcsnc10p2jZvpj71Jcg8+t87XnW1Ms8Xi2DkBBjYqzMW8Yi4Aq6O4NmssRyI3bFIpsXYlepOKDdRUJ3E6CjtPF7DegBGEdPEc7GGGm6yvnfHeXf+ukDUtIw8R0ZHr8bR3ZqfuzofSChxu2rtQ91NQQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uGIx2mYr1H8b/VUYu1u/ApjefmPuM8Lgrnb8EdFNicU=;
+ b=ESMczTLFf36ctASmNazIVHo0JurFI6+teFaNGPHFzeThsWOgNI9TmMbKJw8qD75rorAepWUyOU7fhp6u/9mWgw7QAV72Qed3i9n2aNPu9MY9ySQ7cTVW29zFCx6Nsi3i/d8fSK359NASFq2BxYCrEN6HadclsVhDAZjoH/mwO4DwaRZ0ncQr/EFGq+FJn1+9nNobZgeuK2uTTZOqr4Xd6bmb+IUEVyty6hWhIISx3CQy6nw4QJm88CJPLkHFCEJvb4RxtyQlP3RJzQMF6U94P8ROffnRGsNMsVcY4+/fIbQ5NdqypiEkLJsuPZUZ2EwPovuTVJXCTG1Nominy5m1nQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYZPR03MB5743.apcprd03.prod.outlook.com (2603:1096:400:74::7)
+ by SEYPR03MB7968.apcprd03.prod.outlook.com (2603:1096:101:168::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Thu, 22 Oct
+ 2026 11:44:09 +0000
+Received: from TYZPR03MB5743.apcprd03.prod.outlook.com
+ ([fe80::7f51:5771:90c4:8c40]) by TYZPR03MB5743.apcprd03.prod.outlook.com
+ ([fe80::7f51:5771:90c4:8c40%3]) with mapi id 15.21.0546.012; Thu, 22 Oct 2026
+ 11:44:09 +0000
+Message-ID: <4da3cd55-0115-4817-a19d-18a69b7a7cc6@amlogic.com>
+Date: Thu, 22 Oct 2026 19:44:03 +0800
+User-Agent: Mozilla Thunderbird
+From: Junyi Zhao <junyi.zhao@amlogic.com>
+Subject: [PATCH 1/3] i3c: master: Rework SVC I3C to support vendor glue layers
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ linux-i3c@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
+ linux-hardening@vger.kernel.org, xianwei.zhao@amlogic.com,
+ Kelvin.Zhang@amlogic.com
+References: <20261019-a9_i3c-v1-0-329d819d621f@amlogic.com>
+ <20261019-a9_i3c-v1-1-329d819d621f@amlogic.com> <atZ-YyEmG-KvUZAF@SMW015318>
+ <887f0b2d-3a05-418b-bda5-0b01abbcb409@amlogic.com>
+ <atjOD0PwVGDeh2uL@lizhi-Precision-Tower-5810>
+Content-Language: en-GB
+In-Reply-To: <atjOD0PwVGDeh2uL@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SI2PR02CA0001.apcprd02.prod.outlook.com
+ (2603:1096:4:194::10) To TYZPR03MB5743.apcprd03.prod.outlook.com
+ (2603:1096:400:74::7)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <athAoWfW-xesPhFP@xhacker>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR03MB5743:EE_|SEYPR03MB7968:EE_
+X-MS-Office365-Filtering-Correlation-Id: 866d1f2f-de9f-48a4-f2d6-08df3031c8ca
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|366016|261021121427099003|56012099006|11063799006|4143699003|261009223027099003|10067099003|18002099003|22082099003|261021123027099003|6133799003;
+X-Microsoft-Antispam-Message-Info: xscYFe5Vw9zyXLI4Y+XnLybhG71tO1NWPjaU4fJVcpZwwtGn7aBMEl+4/2s6qWkTRGsU+bGX9d5usagUeD9BmMnCv0Jf4OHUmPATY0DbDGzd4VKPlKahL/hrLkZkTaPkT5or3b89MsQyGSpSEvxosOAKU+wpyAMN33cqONF8BqF24JCfmyfMvlQdi7uQLaJ6u9dTZw50xQWBqZtn/he+5twJOLC8JNzCzIZ8mVymcI6dTd6dgFRjbVNfAwKnTubL81dcC6W8WC4XHdtrB8/cQ0j49lf+3g/6PSRbklf9wrCWosqE1uZduvDjvTzuNDG+MR/LXc5JQMWqagTQXLRd7UDSKPQ2m+hP+rQ/SShExPf/7R5Z681OsowlyHlHPwZz8PUX8ca5OHIRHUBYIeCNGo2Ge/AaFTIHczksmlwXxxMP7uILVOjpXn1xjoOfRFbHcrF/1SiT4GjWhf00OcowMkW55QngG4yZSv0zsKR7YpYqdEu7csNz94EWtncbtLHC2sdj4LDHRREBWgquAxfbWrgfZrmdDnC7HfFmCa98A70u8VLbtgDPaiJyqYMbbdXOsOx0UMLhRqC3iUKyVwSOjGhP7fFtUalG5kVoEfQjKUwZm5RezLWr7KxFjliZGdAxt4UoFUOvnn2rPPp+XtnROmf+18Lw3x9SvknpO7QbKnk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB5743.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(366016)(261021121427099003)(56012099006)(11063799006)(4143699003)(261009223027099003)(10067099003)(18002099003)(22082099003)(261021123027099003)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q1M3Q1VlWXNJMkJhNFBxY2lIL0Z2R1Zrbk5Lb1doSE03NGZHSFF3MDg4RXVh?=
+ =?utf-8?B?Mk5BRlFBL2pqd2R1cGJSY2tCSjJSeUYraFowQXcxSTBZWTJqUit0QlFMOWg1?=
+ =?utf-8?B?aTdQdzgrZzdidzIyc0FCcjBIQUk5TlpvNWo5eEhwa1QwQmZGS3R6QUJRdTJK?=
+ =?utf-8?B?dWNkSm4rZmg5d2luaTFRcHV0bC82aEw5UWE1VzZBSUpPSmZPWmQ0MzJEVjBn?=
+ =?utf-8?B?MGkyRjVxQThhcXU1RGlxSnV0VUNVOXJRMFdUY3crSVllWkxOYUsrek52LytD?=
+ =?utf-8?B?TU5NV3FUZDczdWZlSHFWeGZRbGhOZHN6ZUhldVZaY2pwUGtYM1BDOCtRQU14?=
+ =?utf-8?B?a3RTMW1GOHFLQmIyVC9oeG1iN2UxL1g0TzFVb2ZJcDI4bksxbjZ6b2JhcWVT?=
+ =?utf-8?B?bHVPQnNnK3A1UmtqbGZ6NCtjV2luMmRCN2hENUZzNGpLOGc5NkR2Y01yQmcv?=
+ =?utf-8?B?NFU2UUNLRmpwTXE1Tm81SW9ndUFkSmJIMkMwQWFFV095M3U1RXZtOFhmSnhG?=
+ =?utf-8?B?cG5OWnlsei9jRjN2VEwxcklqcWlnanMzOG9rWXRrajVtWlZBcW5xSEd1QUYx?=
+ =?utf-8?B?QkdLWjVxajlPQlZZUzVBNmY3L1pPbVBHdEtvNllubnY4SkgzVlY1MGdnSGZ4?=
+ =?utf-8?B?aFhUY3Vzbm9XbUlaK0hNTVI2YnRZclVva2UzT3daY21KenNtMnB3cGhMK1Er?=
+ =?utf-8?B?MEZ2UW1PTHArSHJIQ0xSYlllTDFZZnIxK3JZT0l5T3E5ME5CTVhTT2QvWm43?=
+ =?utf-8?B?M21USW9jU0hJQmZ6NmFDeE9vb1NHNzBZSHF6Nk1sTXdsMmNMZFR2WFVWZjhT?=
+ =?utf-8?B?R3Q2K04reUNpMzZGYXVtYkllTGVZRGJqbnVnVk9ZYzQ1N0FCaHhsNUFkYzlp?=
+ =?utf-8?B?TEw5bVRjS2lUSkt0cll3R1RZR2Z5NE1hVFFjSGdWVU5VZjZJbVViNHNDdXZk?=
+ =?utf-8?B?NDhQYWtjQmFlWDJSTWovVWtwRDE1NnF1QmVZY2dZMHd3N0lxTjVBTlFNT1g4?=
+ =?utf-8?B?MTZYYmRGb3NscnFvMFozRlRhWUV1ZWp4VDZVZDJkSExVLzFoRmxRQlVKSnRh?=
+ =?utf-8?B?WmQxeUxOMG1YdkZ0R01sak5qSXBKNkxaM0RwdDRpck1pOGtYWWNMd2d4bGxV?=
+ =?utf-8?B?dE4rZXJPckJwZk1RZWFyZkR2a0xlVHBJMzB3MDhtRERWZjJHa3pscGxqZFZj?=
+ =?utf-8?B?Q0lOM3RkbDhwaWc4Y1RyZU1pWFBEUXN4MHRjTUVUQkJObWVqYnBKTTh1UTUx?=
+ =?utf-8?B?UVIrMitEQllCZkVMNUZEY1cyMnUvMkk0OVR3ZHRyWnhpbzNCa1E3aFlzSXNu?=
+ =?utf-8?B?UTU4RmlmSXhqSUVtZkJ1RGllRGlod0pKYVRBSHR5eFB4Mmpsall2ekpyQTRQ?=
+ =?utf-8?B?WjhrbEJvaWtqb1Z0MzlkbGFyQjZUM3BzT3ZFZ01XUVlPT1o1RnRRK0JNZi9h?=
+ =?utf-8?B?TEY4ZWVvaVNsSjcxVklvd1FnR1ZrU1RmWDZFOVJ0R3VQLzdZWDFlOTNtN1k4?=
+ =?utf-8?B?MU5ROWlKdWFFNFVkM3IrYXFBK3lzYkUzblhCZzZ5SXpab3VTUWV2SHVXT0Qv?=
+ =?utf-8?B?Z0ZqeHBCdEtuNit1RzRoSXdhdVR3YnRiL1lBekZBS0VUSnZOMVMwU3dSTTRT?=
+ =?utf-8?B?RHIwMlA2VEZ5VHQ3dkFmSzlGRnBtbGwrTkNyai9vS2FBSXZ1YjUzM0E2cks5?=
+ =?utf-8?B?TGxFQXdSSXZwTlJoY2xaQTI1TWZkZ1FHajU1K3E3VU4wY2JMb2xjUEhEdHR2?=
+ =?utf-8?B?WjNRTjhLWjBudklzd0JjcHhSb2dYTWV3WGNSbG1hNlpLbXloS0hqOE1SR1dm?=
+ =?utf-8?B?M0RCOG92a2pSSHQxR01uYzRoanZLTjc1aE9QeEZhc1pGM1FiRHlIaktFSjdv?=
+ =?utf-8?B?eWJVbzZiMTdIb2VySWxiSFVaRDJpc2djaGxqN3NDWnNNWjhYWHhGV0pDM1FJ?=
+ =?utf-8?B?K0JGZFE4bGlIeVZQRjVOUS9uRjJYMGtCS3VkN0hqR0lab0RlRFpEbERUaHUz?=
+ =?utf-8?B?a2ZtSkI0dkVvam5jaFBtS2hoM2JRN3ZHSG44RmxWUGo0RERCTkt0cUpwUDlh?=
+ =?utf-8?B?ZjViaktsQXoxOVZxNUpIVmNEak9ZQUxMK1M4aCtlU3ZuNjNYUkpHejhqM2kv?=
+ =?utf-8?B?ZmdDYlNFL29kWjNocmx1eXcwUUZkK3VaKytPb01PUnZVM3RWeGRLbGZmdGNK?=
+ =?utf-8?B?TVliYWVVaFVkMFFjcWRDMDAwQS9KL1lxSGt6Yi9PRzVaQ0tzVDVyd25VbVhx?=
+ =?utf-8?B?NXQ3QnM0cnQyYmhabjEzY0FScVY5TWpJZHVmdUpHTkkyNHNjWkZJYWx5Z2M5?=
+ =?utf-8?B?eDd4M2h0b1VaNGYxYldhNjV4QXlXZjdNNkZZZ24xTGlMNTRVSGI2Zz09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 866d1f2f-de9f-48a4-f2d6-08df3031c8ca
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB5743.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2026 11:44:09.2601
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: umr+7D8HDT8iInYpkHMKhgwXiUWQUTzd51vHW+4eiomhd1+3BATaAYNi4rW43O13rZ/nnEibtqBOsG+CtyyZeg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB7968
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261022_044418_702459_16BC77E0 
+X-CRM114-Status: GOOD (  26.42  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,59 +159,131 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 12:33:37PM +0800, Jisheng Zhang wrote:
-> On Tue, Oct 20, 2026 at 02:28:26PM +0200, Andrew Lunn wrote:
-> > > > Here I want to query a generic rule from netdev maintainers:
-> > > > can XDP frame enable HW checksum on dwmac IP? Per my understanding, the
-> > > > dwmac can only do HW checksum for normal particular packets layouts, such as
-> > > > TCP, UDP. What about if XDP transmits a non-IP frame?
-> > > 
-> > > or a generic XDP guide from netdev maintainers:
-> > > Since XDP can tranmist arbitrary Eth frames, so how does the eth driver cope
-> > > with HW checksum if the HW checksum is intended for supported IP packet
-> > > layouts rather than arbitrary layer2 frames?
-> > > 
-> > > choices:
-> > > c1. Simply disabled HW checksum by default. Then XDP prog must provide
-> > > checksums themselves, lost the HW offload cap for IP packets.
-> > > 
-> > > c2. detect the frame in eth driver's xdp code path, then enable/disable
-> > > HW checksum accordingly. Then how? Any example in exisiting eth drivers
-> > > is appreciated.
-> > 
-> > Why is this specific to XDP? Cannot the network stack transmit
-> > arbitrary layer2 frames? Isn't this a generic problem?
-> > 
+Hi frank，
+	thks for your details.
+
+On 21/10/2026 22:37, Frank Li wrote:
+> [ EXTERNAL EMAIL ]
 > 
-> network stack normal tx supplies the skb->ip_summed metadata, and
-> dwmac driver specifically can decide to enable/disable HW csum
-> by checking the protocol which is extraced from skb, example
-> stmmac_has_ip_ethertype()
-> But XDP path doesn't have the necessary metadata, and I'm not sure
-> whether stmmac_has_ip_ethertype xdb version can be implemented or
-> not. That's the reason I request generic XDP guidence from netdev
-> maintainers.
+> On Wed, Oct 21, 2026 at 10:56:19AM +0800, Junyi Zhao wrote:
+>> Hi Frank,
+>>
+>> Thanks for looking at this.
+>>
+>> Amlogic A9 used the same SVC I3C IP engine, but the integration of it
+>> differs in the resources *around* the controller, which cannot be
+>> expressed as another quirks entry:
+>>
+>> - On the "ao" instance the bus clock is generated by an internal
+>>    divider (I3C_AO_FCLK_DIV_CTRL @0x304) programmed directly by the
+>>    driver; there is no CCF clock to clk_set_rate() on, while the
+>>    common probe assumes the fclk is a plain enable-able clock.
+> 
+> If it is in I3C memory region, you can do that by use callback. otherwise
+> should go through clock framework.
+
+The AO divider register is inside the I3C mem region, so I'll
+handle it with a drvdata callback. I'll also evaluate Neil's suggestion
+of modeling it as a CCF clock for v2; if that works out cleanly, the
+callback goes away entirely.
+
+> 
+>>
+>> - Amlogic added register blocks outside the Silvaco map: a
+>>    DMA bridge and a bus monitor (0x200..0x22c).
+> 
+> Does DMA bridge only for I3C? It should be go through standard DMA engine.
+> 
+> what bus monitor use for.
+> 
+>>    Enabling the DMA bridge later will need hooks in the common
+>>    transfer path.
+> 
+> We also need support DMA in future.
+
+Yes, the bridge is dedicated to the I3C controller, and the data path
+will go through the standard dmaengine framework: our SoC-internal DMA
+controller has its own dmaengine driver, and the I3C driver only uses
+the standard slave API .
+
+"DMA bridge" is a small set of registers inside the I3C mem region,
+  which adapt the I3C FIFOs to the SoC-internal DMA controller. 
+Programming them is part of the I3C controller initialization, not part 
+of the DMA engine configuration.
+
+The bus monitor is a debug block, not necessary, i will drop it.
+
+> 
+>>
+>> Adding A9 support to svc-i3c-master.c directly, would make these
+>> becomes if-branches in probe()/PM/transfer paths of the shared
+>> driver, and the next vendor repeats that.
+> 
+> You can use callback function in drvdata.
+> 
+>> With the glue layer,
+>> i3c-main.c keeps today's logic unchanged: i3c-silvaco.c is the
+>> current probe code moved as-is (rename with 79% similarity), so
+>> blame/history is preserved.
+>>
+>> If the file move is the main concern, I can keep
+>> svc-i3c-master.c where it is and only export the alloc/probe/remove/PM/
+>> interface for glue drivers -- the essential part for me is keeping
+>> the resource handling out of the common code paths.
+> 
+> Now, there are not much user yet. Rename or re-org only when it becomes
+> complex enough.
 > 
 
-Hi,
+Okay， isee your point.
+I'll keep svc-i3c-master.c as a single file and add optional callbacks 
+to struct svc_i3c_drvdata instead of the split and rename.
 
-Given above, I think the dwmac hw csum needs to be disabled by default
-to make XDP always behave properly. Since this patch2/2 has been
-merged, I will update my patch:
-https://lore.kernel.org/netdev/20260929121025.20821-1-jszhang@kernel.org/
 
-1.rebase on the lastest net-next or wait for new rc1
+> Frank
+> 
+>>
+>> Also, per Neil's suggestion I'll try modeling the AO divider as a
+>> CCF clock in v2, which should drop one hook.
+>>
+>> Thanks,
+>> Junyi
+>>
+>>
+>> On 2026/10/20 4:32, Frank Li wrote:
+>>> [ EXTERNAL EMAIL ]
+>>>
+>>> On Mon, Oct 19, 2026 at 01:34:26PM +0800, Junyi Zhao via B4 Relay wrote:
+>>>> [You don't often get email from devnull+junyi.zhao.amlogic.com@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>>>>
+>>>> From: Junyi Zhao <junyi.zhao@amlogic.com>
+>>>>
+>>>> The SVC I3C controller IP can be integrated into SoCs from different
+>>>> vendors. Peripheral resources associated with the controller, such as
+>>>> clocks, may vary between vendor implementations.
+>>>>
+>>>> Rework the driver to separate common functionality from
+>>>> vendor-specific extensions. The common logic is shared across all
+>>>> implementations, while platform-dependent operations are provided
+>>>> through vendor-specific hooks.
+>>>>
+>>>> Also add a corresponding MAINTAINERS entry for the SILVACO I3C
+>>>> controller.
+>>>>
+>>>> Signed-off-by: Junyi Zhao <junyi.zhao@amlogic.com>
+>>>> ---
+>>>
+>>> No big difference. Needn't rework svc-i3c-master.c, you can add amlogic at
+>>> svc-i3c-master.c directly.
+>>>
+>>> Frank
 
-2.update the commit msg of my patch to include above reply.
-
-Kindly let me know if this way can be accepted or not
-
-Thanks
 
