@@ -2,122 +2,122 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20426606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 06:54:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59C0A606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 07:02:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rv9gIYWI;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KVw2Zcb1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=scdazl2p;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=pZ7tXaXc;
+	dkim=pass (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=dbA+IJmf;
+	dkim=neutral header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=qa9LZRM6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yxdirAwaKLgp/l+nW4jbh+UPJE1umgnL6ghCcQXcC3M=; b=rv9gIYWIvhz6Q7SJzgVS1diUaQ
-	FAPMOrPk6IfPJkhrgxcPPm8vo43C508FnnisZaqem6lZ3zFaZlliGHg9/bR5cQgmAR1GVgyGX0o4U
-	51kXNh47LlwOAHgUavixfENV6+lYKHbOWjCFXjAgajie/3AV6BfgqRBvYDS+B9x2f9ydkieWejmUq
-	BiZxHjADI6UHzuuLFBYA81I1ikX40x6Bt7zbT2lludqQvbsyOq46FFX44JBUTA1BRD7G29W2Ov8rP
-	RoL8vl37ccphu//VXbRTcup8D4Ljwn3jydJbaqmUWd7Me2NMve7JZSswtJNP+DGXzG8tcTJgniFkD
-	7JFgGJBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yl5Q0Yhg+88xllrX1kMC1NiLLtnuA2INxcGfBrE9LpI=; b=scdazl2p1Flmk7
+	Y0sqgYZgYSvzt4BscWQ91oI2rBkvQeYW159YYzyQWtvVX54G28cWWICxf74ZN/3D9r0tBwSOQYgR/
+	d9CYq28KOcRJBiDGyfDSl/G4PRcnhxlYYFn7bYBjVhlbYN9OnpLhHbOhfd0JsU16IkUSi7UM/mPZC
+	e4KcDBoGfm6KDNnBuht0r02eL0Doh/+KCwerbXOuR4JofqCCUz6EmFgl4ES7wVnPNOwUs4XtU/Rpt
+	eIEMH2FBRSDIw/TSdYxO8EE27DQ11czaEpwjDSg9f7H6z89aSQrQafTo5OSbojgt6+Pc9Z3uUuoLh
+	we2jxEFa64Ty6Rndx6vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJmge-0000000DWCe-13AL;
-	Thu, 22 Oct 2026 06:54:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJmoE-0000000DWmW-1H0I;
+	Thu, 22 Oct 2026 07:01:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJmgd-0000000DWCV-09Br;
-	Thu, 22 Oct 2026 06:54:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9144943BAA;
-	Thu, 22 Oct 2026 06:54:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03CAB1F000C1;
-	Thu, 22 Oct 2026 06:53:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792652042;
-	bh=yxdirAwaKLgp/l+nW4jbh+UPJE1umgnL6ghCcQXcC3M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=KVw2Zcb19Slr14Hr4y92oVxgyQ2NvXh97GXBNp4VW3ttD88hNXeWrXq75gsoKgdcn
-	 sKUtPVJ41I5fSq5WHkeTHJxFg477E6Cf9EIW81FN89epDuSAZR0ryaqQKr7msKjOua
-	 17NeQLD2Z5AbuMwKyo4etHyyF1kqUec9k+w8P9zwzgb4FXdMhLEn7RwS6XqaRT4e/c
-	 C8WpdeaeCA0ZBWGPXpKGfRSIKyRda2cG/jZzn59ga8BQTmLEgcMhYigUC786gN9pk0
-	 V7dj+aBEoAMzNoywkLBQLf/mxydzYCVX5bGmppVRtJeGGO7apXKMb1SDHaFSLbh4q5
-	 vpRtlJS3fT1zw==
-Message-ID: <936769c6-c8e7-4bf2-b300-b287088c31af@kernel.org>
-Date: Thu, 22 Oct 2026 08:53:55 +0200
+	id 1xJmoC-0000000DWlu-0lOw
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 22 Oct 2026 07:01:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=yl5Q0Yhg+88xllrX1kMC1NiLLtnuA2INxcGfBrE9LpI=; b=pZ7tXaXcz91Y+D+aN2a6f2xg+2
+	uSsOUNxVwmFZXtWW/qVwTM7C+SMPwoI//nIZVjZjZKEb3Zt6quP2dkuAxjfMgm4AXRJVJkclYt613
+	jlJ2lvI1TI9YEoUviQ9KqbWR1cMHgxhoR0UysEFu0ybKQI7UTCHBvDfnUIyi53612+sl1NnF9b2+8
+	81Z/nutgPED3+Fnq+AkTC7RDNy6E+reldDhCtziDy5keoCjMPwt7yZnAKMfYbiG5z5Xz0Y5M733j8
+	vCQ8kduzDPC9E8klZm76j5iHQO1GUUp/5PPVX+K8E34LbgG6ttfUVNJ4voqkkXJaZgLjjFfbsm3q/
+	LDbNdyHg==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xJmo5-00000006XFK-2fNp
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 Oct 2026 07:01:50 +0000
+From: Kurt Kanzenbach <kurt@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1792652501;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=yl5Q0Yhg+88xllrX1kMC1NiLLtnuA2INxcGfBrE9LpI=;
+	b=dbA+IJmf4k/suoYUrdFptKfzRxSbhEQ7jZiVFdAZ6TrwiDGUw/zysfnHprKtLDoICu+cqD
+	QDWSNiooTP7H5zHoTzA70qVJqnNxH6qviwSQNJtQY2rLGr7S+do91ST07Jg/pHYar0NyBj
+	23BEz/BeroANW/o3lEENWh4+KAEW0v63NPL7PAY0SY0IKdolkDB9A6/nQ42oyJZCs1l814
+	7dlh1dFFW5doJyRWY5x6VajgmcH1PMJR969bEsowy2ffj/h6pQtiZWz7LSOlipczZgVgmr
+	T0Js6QFB2s1gjTiiqr+qrIi+awuIvziaNfNioRNB88zGE8w6rKxwoVeb+u0LZQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1792652501;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=yl5Q0Yhg+88xllrX1kMC1NiLLtnuA2INxcGfBrE9LpI=;
+	b=qa9LZRM6NfQ+MtC/BIOnd6FjneUzpjrFH4DtdbEfuigupMVXcShC/XHmcHLoyn+yJZmVc5
+	1c9R5IhTdN9JcECw==
+Subject: [PATCH net-next v4 0/2] net: stmmac: Fix XSK crashes on stm32mp2
+Date: Thu, 22 Oct 2026 09:01:33 +0200
+Message-Id: <20261022-stmmac_xsk_crashes-v4-0-15c0c750bb96@linutronix.de>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/8] dt-bindings: mfd: realtek,rtd1xxx: Add interrupt
- controller child node
-To: =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-Cc: "tglx@kernel.org" <tglx@kernel.org>, "radu@rendec.net" <radu@rendec.net>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "lee@kernel.org" <lee@kernel.org>, "afaerber@suse.com" <afaerber@suse.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "mfd@lists.linux.dev" <mfd@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-realtek-soc@lists.infradead.org"
- <linux-realtek-soc@lists.infradead.org>,
- =?UTF-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>,
- =?UTF-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
- =?UTF-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>
-References: <20261018160653.3940371-1-eleanor.lin@realtek.com>
- <20261018160653.3940371-4-eleanor.lin@realtek.com>
- <20261019-prophetic-moth-of-youth-40dbd6@quoll>
- <b12ff328ebca405f96a9b25decdb7c81@realtek.com>
- <d6d7c3ba-5329-4c90-8994-ea29cedd7c53@kernel.org>
- <ef63cc3df2424f888ba807701af0ce84@realtek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <ef63cc3df2424f888ba807701af0ce84@realtek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAM602WoC/23PwWrDMAwG4FcpPs9DcmyX7rT3GKM4rrx4W5xhu
+ SEj5N3nZKWMkYtASPp+NAumHInF02EWmcbIcUi10Q8H4TuX3kjGS+2FAmXhhFpy6XvnzxN/nH1
+ 23BFLBHc8BovatUbUw69MIU4b+iISFZloKuL1d8LX9p18Wc11t4tchvy95Y+4XdyizF7UiBIko
+ TamCT7U+vwZ07XkIcXp8UJbyKjuDALsM6oy2noLvnVWK9xjmj8MNrtMUxkDwdf/T+CC+s8sy/I
+ DJI/I+GIBAAA=
+X-Change-ID: 20260914-stmmac_xsk_crashes-10a77f614ab5
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+ Jesper Dangaard Brouer <hawk@kernel.org>, 
+ John Fastabend <john.fastabend@gmail.com>, 
+ Stanislav Fomichev <sdf@fomichev.me>, 
+ Song Yoong Siang <yoong.siang.song@intel.com>, 
+ Mohd Faizal Abdul Rahim <faizal.abdul.rahim@intel.com>, 
+ Ong Boon Leong <boon.leong.ong@intel.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Maciej Fijalkowski <maciej.fijalkowski@intel.com>, 
+ Nicolai Buchwitz <nb@tipi-net.de>, netdev@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org, 
+ Kurt Kanzenbach <kurt@linutronix.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1762; i=kurt@linutronix.de;
+ h=from:subject:message-id; bh=CKFc4YQcze+zKieJAJ02zDARwoapA5QsLlCRMkFAJKs=;
+ b=owEBbQKS/ZANAwAKAcGT0fKqRnOCAcsmYgBq2bTU0TnmPz9H28QeFJNjxPJy7hEvZVJVduAF8
+ frD8w3LjDqJAjMEAAEKAB0WIQS8ub+yyMN909/bWZLBk9HyqkZzggUCatm01AAKCRDBk9HyqkZz
+ gqs8D/9rsgS5BD242m5ZHhGynFavy7JQfGNQfvZ3z1nmCZlHSHejvOrfg9VAGHLluF5QRYGdMFi
+ PQxC/pJSTTx6/zSz6KGftJn3qcF5/WkgJcrVv/thIiUJ+m2ISMerEo1cMSMlwvty3vVe7oJRGbm
+ LHPg1dmpcNveiC84UEzwNR5zXS3Z8O4470wGb8xLmhwjm43peFl+9BP6fB231GUB5ziiryJfP/o
+ ShKvGaafWmD720C3xxO5to3TH6Wa6MZI1ZNm24IsoV5pBrozo1vazD7poYtzRBQxPtSDmFvF4O+
+ q71OgXu5AfB6MCOpwO12nNMwDlkeMX7CqPx+cGN6cGgPd0HsSXJq1MZXPNyBKTXD4riNBlhBaAE
+ pQz1YsKxxpx9ZNjFnWtsqz6s/qGAykH16wmH8QX2znKkifInbcu4PiJvuSArqArvde8PFNjy4g4
+ y3pUSIBM/j5ZGleWKW+RGFxIjzSFMYtoW5WzwE9wdI3MYwVPgrjleYaMv9K8oFuOy/EBa2zEgD/
+ dILFswFrE0iOL80LKZVf3PlLe/QKcTLo1OOozzdczDXJfQR3elt993JICMT1XNHjj+U99XPswBl
+ 49uma5Gb1G5BCuKihUCLsFFl1kGkFkZc3W0oDT0VRQxn2iAcNpfOn+qrtytx78vMZe81kQw1+zH
+ hEEgvslF6u/md7w==
+X-Developer-Key: i=kurt@linutronix.de; a=openpgp;
+ fpr=BCB9BFB2C8C37DD3DFDB5992C193D1F2AA467382
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261022_080147_710547_992F115B 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.9 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,125 +128,64 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 22/10/2026 08:44, Yu-Chun Lin [林祐君] wrote:
-> Hi Krzysztof,
-> 
->>>>>  patternProperties:
->>>>> +  "^interrupt-controller":
->>>>> +    $ref: /schemas/interrupt-controller/realtek,rtd1319-intc-iso.yaml
->>>>> +    unevaluatedProperties: false
->>>>> +
->>>>>    '@[0-9a-f]+$':
->>>>>      type: object
->>>>
->>>> What is this for then? Should it be removed?
->>>>
->>>
->>> The original syscon compatible has other child nodes that do have 'reg'
->>> properties and unit addresses, so this pattern is still needed for them.
->>>
->>>>>
->>>>> @@ -76,3 +80,27 @@ required:
->>>>>    - reg
->>>>>
->>>>>  additionalProperties: false
->>>>> +
->>>>> +examples:
->>>>> +  - |
->>>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->>>>> +    #include <dt-bindings/interrupt-controller/irq.h>
->>>>> +
->>>>> +    syscon@7000 {
->>>>> +        compatible = "realtek,rtd1625-iso", "syscon", "simple-mfd";
->>>>> +        reg = <0x7000 0x1000>;
->>>>> +        ranges = <0x0 0x7000 0x1000>;
->>>>> +        #address-cells = <1>;
->>>>> +        #size-cells = <1>;
->>>>
->>>> Why do you have cells it your child has no addressing?
->>>>
->>>>> +
->>>>> +        interrupt-controller {
->>>>
->>>> So the binding requires children with unit address, yes?
->>>>
->>>
->>> The interrupt-controller does not need a unit address because it
->>> accesses the registers via the parent's regmap.
->>
->> That's not really relevant. Child drivers still access via parent's regmap and
->> have unit address. This binding has bus addressing for children, so use it. Do
->> not add random or inconsistent code.
->>
-> 
-> The registers for interrupt controller are quite scattered within the parent
-> syscon block. Take rtd1625-intc-misc as an example, the offsets are 0x4,
-> 0xc, 0x80, and 0x88 After adding unit-address and reg.
-> It would be like:
-> 
-> interrupt-controller@4 {
->     compatible = "realtek,rtd1625-intc-misc";
->     reg = <0x4 0x4>,
->           <0xc 0x4>,
->           <0x80 0x4>,
->           <0x88 0x4>;
->     interrupt-controller;
+Hi,
 
-That would mean that this device is instead part of the parent. If you
-do not have separate address space, how is it a separate device?
+while looking at the TBS thingy [1], I've noticed kernel crashes. That
+happens when opening or closing an AF_XDP/ZC socket while parallel Tx
+traffic is going on.
 
->     ...
-> };
-> 
-> Could you please confirm if this is the correct and preferred approach?
-> 
->>>
->>> Will update the example to remove the unnecessary properties from the
->>> parent as follows:
->>>
->>> syscon@7000 {
->>>     compatible = "realtek,rtd1625-iso", "syscon", "simple-mfd";
->>>     reg = <0x7000 0x1000>;
->>>
->>
->> Still incomplete. Where are other devices?
->>
-> 
-> In the past, Andreas used a generic '@[0-9a-f]+$"' to match child nodes.
-> Because of this, in older SoCs (e.g., rtd129x.dtsi, rtd16xx.dtsi,
-> rtd139x.dtsi), devices like reset-controller, watchdog, and serial were
-> allowed and placed under the iso or misc syscon nodes.
-> 
-> However, I have some doubts about continuing to use that exact structure:
-> 
-> 1. We previously discussed and agreed [1] that devices like serial should
-> actually be placed under rbus, not syscon.
-> 2. For the SoCs introduced in this patch (rtd1319,rtd1319d, rtd1325,
-> rtd1625), the drivers for the other child devices (like watchdog) are not
-> upstreamed yet.
-> 
-> To properly fix the "incomplete example" for the simple-mfd structure,
-> could you please advise:
-> 
-> 1. Should I replace the generic '@[0-9a-f]+$' in the YAML binding with
-> explicit device definitions for these specific child nodes?
-> 2. For the example section, should I just populate it with placeholders
-> (e.g., watchdog) referencing Andreas's older DTs (like rtd129x.dtsi) to
-> illustrate the MFD structure?
-> 
-> [1] https://lore.kernel.org/lkml/15951264289d44f797ebd4e05238b380@realtek.com/
+So far, I see two issues:
 
-If you know that existing pattern is not really correct, please do not
-grow it.
+ - Patch #1: stmmac_xdp_release() seems to have the teardown order wrong
+ - Patch #2: stmmac_xdp_(en|dis)able_pool() does not stop the Tx queue
+   at all
+
+The kernel crashes can be reproduced instantly on the stm32mp2 like this:
+
+ - Run iperf3
+ - Run application which opens an AF_XDP/ZC socket
+
+[1] - https://lore.kernel.org/all/20260812-stm32mp2_txtime-v1-1-f9e2462cc85d@linutronix.de/
+
+Signed-off-by: Kurt Kanzenbach <kurt@linutronix.de>
+---
+Changes in v4:
+- Rebase to net-next (Jakub)
+- Add tags (Nicolai)
+- Link to v3: https://patch.msgid.link/20261013-stmmac_xsk_crashes-v3-0-50fca7790af2@linutronix.de
+
+Changes in v3:
+- Remove txq_trans_cond_update() (Maciej)
+- Add queue stop check for XDP TX etc. (Nicolai)
+- Add tags (Nicolai and Maxime)
+- Link to v2: https://patch.msgid.link/20261005-stmmac_xsk_crashes-v2-0-46c60cba6421@linutronix.de
+
+Changes in v2:
+- Remove RFC. No comments.
+- Link to v1: https://patch.msgid.link/20260915-stmmac_xsk_crashes-v1-0-e14553fcf553@linutronix.de
+
+---
+Kurt Kanzenbach (2):
+      net: stmmac: Disable NAPI before stopping Tx queues in stmmac_xdp_release()
+      net: stmmac: Stop Tx queue when (en|dis)abling XSK pools
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 10 +++++++---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c  | 13 +++++++++++++
+ 2 files changed, 20 insertions(+), 3 deletions(-)
+---
+base-commit: f71ff7d406523748bfb8236830c7eaa6a308aaa1
+change-id: 20260914-stmmac_xsk_crashes-10a77f614ab5
 
 Best regards,
-Krzysztof
+--  
+Kurt Kanzenbach <kurt@linutronix.de>
+
 
