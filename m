@@ -2,96 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83DEB606A323
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 17:28:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A92EF606B7AD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 17:35:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FkS3KDW+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uyUp8mFJ;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lebqlN/r
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=aIigL8Htvs1Eri4VcHQ6P7by4WWQ9ht1cFwpEUONgJM=; b=FkS3KDW+ztsfno
-	ptk0ehHOfnEghj5O304fTwC4H7UkzNWrQgONteiXQhLQ1lISDdKwasBFR36sJCd1ezrSCX83ZpAm+
-	UNpEvJHsbi6ewSVI2zBUYYiwCToLD+wzKfmzitM1jb0R/4MM6+hkEC0VQBSSyIvnRJLgDEiCbGceg
-	HJ9Fz8GD/CP/VLSnDsalwJXF1rBd8lUfHd9hbYzTsllIxYNprLeJCuQCcRFom4735J+rMUqGrAwpS
-	aYWF2+nYdYiQLX8R5G3/zg5uoRrCF3N/z+NbQ6ESE6HYQJ89fLJo/MN51pJNfUwyOimrmiAYEa8ZB
-	lBXRQA42+WFOkomgGxZQ==;
+	List-Owner; bh=UhyAbw4qoriwhozaXu+XfZddUYSkASyU0+JOd2C+mS0=; b=uyUp8mFJU1+Yyq
+	dEYiw/HIUs/7GMjfggs8aVAcfa75AwQ40ILF3WVDxKaV6XeT5O53tF7Lsy+odNLzqEJTFKGMM7ulJ
+	tgeCMEGF2jv+KrRUbwjdTErq4eZjxXrub+tBe26DxHFgfcy9kgA5/DN8DOux8kD2Ac35dWg9o3R/L
+	dYtjjS+A3GWJFFEuBHl9OsfpTQ51DiOD0lgXqBWSADSANRuDfQmIc6kpYyoL+RGvpNvUClaKmpswB
+	NgDIIRGQ6JaPwmV5uojyj55kXoJubq9yU5nMUUkgCInPd4pVJ6QMEX/n1/vIr6Gxwjn+dAA0kFwqd
+	boGWixrHZEvDXZm7EdUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJwaq-0000000EaIp-32R3;
-	Thu, 22 Oct 2026 17:28:44 +0000
-Received: from mail-wm1-f46.google.com ([209.85.128.46])
+	id 1xJwh4-0000000EabV-1qM1;
+	Thu, 22 Oct 2026 17:35:10 +0000
+Received: from out-11.mta1.migadu.com ([2001:41d0:203:375::b] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJwao-0000000EaI1-36YB
+	id 1xJwh1-0000000Eaat-0RuW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 17:28:44 +0000
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4a2001dd4e7so448615e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 10:28:41 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792690120; x=1793294920;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aIigL8Htvs1Eri4VcHQ6P7by4WWQ9ht1cFwpEUONgJM=;
-        b=jYDTwXapkZCITLvMEP5lboGzIVXdkh8GqOljnyxFYmX+SIO0eHpw1iB010GZfA+Ncz
-         Mb1m3NjQsAgxbE8mfamjWuvip0n8oQ/g5bSRP5V/0QXr4mhgdePZODEmdKqQ7OiDSGBM
-         GZNy22hwh6zrqmlxXD/KFivJW4RvqA62p9zecxCqMBRa04055evxJHYYyr/TJ+WNeDzL
-         KPtIL8/sXt+npJX0gc6EFJOVTXGpuXE88ZAUWM+fARpi2onxoUL5iVwsrynOE/4qyFrF
-         qL02kXSh32tcbuqxoIhtmyYdhJ7tRYK8PwjaWeFK2jC/cammlPls78WrmfCjwhQQEEIu
-         McWg==
-X-Forwarded-Encrypted: i=1; AKwUvBxzDOkDnS/bhLfh9dIj/Uw0xjP8J3GYjMsqSnPANJawC8ndAiWZo2G9fb2pPyVpyLXkxagK9Qnzb/xup+HMs05a@lists.infradead.org
-X-Gm-Message-State: AFq9FYKooHWvqFjpYnppzsso8f1cmvGutRRtdzs8/9kBNQaBOeiDasZE
-	C/8pg8uN/7n6AQadmXwFknIChUcko6t5O4JCooQywRnwHWr0sUV5kyCn
-X-Gm-Gg: AYBFou3FyWyb6VanB3oJoBOsTREhJEMa0y80O3NmUP5dIgI+kcP4oZP3CPWjjx8vI05
-	7dH5FIymk724tpYIO+L5glFUXvNttNAVajdJ7l82vQPBQluPkuFYkfrrBmP7NUKYAAdyDCXZonU
-	zqAwo21G8Jc5eMLnvxymNZoiwcNRG3EUIKABKfiX9g14aLhYRElcsw+2riabMX+lnhoBDdhDu46
-	qQIYuuGOnAZgSLScwEG0OT7qRn4KwBDLfvF4wZTAF7PK2ypLAr2QQMwh1GJdO2auAH2LFHgoVxZ
-	FBLKcpSlSce9E3+9httg6MEHHVs5fcO7Q64l6DQPv+AZIk3WmGiiv4afuFYOmgcy19PsQVbt5Zz
-	WWU/IguLzdI72/gWRgytq5ZW0KK8IRXQX18cr5G4V7oH898RilpIkHcao5fp8Y8y4SF8a7ciSDo
-	MDmzd/p3MTnVEOeG38HM4kIb2rwdQLv8+Lkh4d51FRHNngGP0x+XXCJeVNYXShlbvmL/tj5yGZ+
-	8+sMh7ZYMTd2sXLtGGaVbru1YWPZu88YgpOSk9Nqe9rx2oYJ0yLt4sNd0DwL+nRhiw9Y1m2CTnp
-	sUvvxePZxg==
-X-Received: by 2002:a05:600c:8b4c:b0:4a2:729:f7ce with SMTP id 5b1f17b1804b1-4a20729f92bmr52278535e9.8.1792690120279;
-        Thu, 22 Oct 2026 10:28:40 -0700 (PDT)
-Received: from [192.168.1.135] ([81.79.62.202])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a210361ad6sm11491635e9.7.2026.10.22.10.28.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Oct 2026 10:28:39 -0700 (PDT)
-Message-ID: <1ca9d46b-02aa-41bf-b184-2a62f8a284bb@linux.com>
-Date: Thu, 22 Oct 2026 18:28:39 +0100
+	Thu, 22 Oct 2026 17:35:09 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=UhyAbw4qoriwhozaXu+XfZddUYSkASyU0+JOd2C+mS0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792690504; v=1; x=1793295304;
+ b=lebqlN/rZSsxlA9jgeH5wG+Q4iXisCDTIskkPc699DogTycxxjFuIW4eB1IprKxqe1mzVFaw
+ 4vuY4gCnQkLD1W7tCzdujt8PVzEe9sArx+9qTa2PAOtNO0KFgcDN1oRaya6pHqRb4hxCzpmE+uF
+ YQUyy4ForQ57xq9RUe0MO/P8=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 3b6a465357a79fe8;
+	Thu, 22 Oct 2026 17:35:03 +0000
+X-Mizu-Trace-ID: 3b6a465357a79fe8
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org,
+	oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kernel-team@android.com,
+	tabba@google.com
+Subject: Re: [PATCH v2 1/4] KVM: arm64: Make __vgic_v3_init_lrs HVC always available
+Date: Thu, 22 Oct 2026 18:34:59 +0100
+Message-ID: <20261022173459.3692613-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261022140048.2522787-2-vdonnefort@google.com>
+References: <20261022140048.2522787-1-vdonnefort@google.com> <20261022140048.2522787-2-vdonnefort@google.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/8] net: stmmac: dwmac-meson8b: apply the RGMII delays
- the T7 way
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261010105900.247342-1-tanure@linux.com>
- <20261010105900.247342-5-tanure@linux.com>
- <CAFBinCCpo28jZkQnup2=iofwh02GOMzxJ82hGHWctiWzcKTxUw@mail.gmail.com>
-Content-Language: en-US
-From: Lucas Tanure <tanure@linux.com>
-In-Reply-To: <CAFBinCCpo28jZkQnup2=iofwh02GOMzxJ82hGHWctiWzcKTxUw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_102842_971114_FE875865 
-X-CRM114-Status: GOOD (  22.76  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20261022_103507_820265_9733E255 
+X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,71 +80,25 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/10/2026 22:49, Martin Blumenstingl wrote:
-> Hi Lucas,
-> 
-> $subject caught my eye because I didn't understand why there's a "T7
-> way" for adding RGMII delays since we should be following a standard.
-> Patch 8/8 in this series documents the standard. Can you please find a
-> more suitable $subject for this patch?
+Hi Vincent,
 
-Ok.
-> 
-> On Sat, Oct 10, 2026 at 12:59 PM Lucas Tanure <tanure@linux.com> wrote:
-> [...]
->>   static int meson8b_init_rgmii_delays(struct meson8b_dwmac *dwmac)
->>   {
->>          u32 tx_dly_config, rx_adj_config, cfg_rxclk_dly, delay_config;
->> @@ -411,32 +455,34 @@ static int meson8b_dwmac_probe(struct platform_device *pdev)
->>          dwmac->dev = &pdev->dev;
->>          dwmac->phy_mode = plat_dat->phy_interface;
->>
->> -       /* use 2ns as fallback since this value was previously hardcoded */
->> -       if (of_property_read_u32(pdev->dev.of_node, "amlogic,tx-delay-ns",
->> -                                &dwmac->tx_delay_ns))
->> -               dwmac->tx_delay_ns = 2;
-> The 2ns default value in case "amlogic,tx-delay-ns" is absent hasn't
-> been necessary since commit 093d23db4fff ("ARM64: dts: amlogic: add
-> the ethernet TX delay configuration").
-> That commit is part of v4.12. So boards using RGMII and a .dtb without
-> that property haven't been updated in more than 9 years.
-Ok, so for v4 the code is moved probe into the function only the older 
-SoCs use, so it is isolated there and the T7 path never sees it. We can 
-drop it future patch.
+On Thu, 22 Oct 2026 15:00:45 +0100, Vincent Donnefort <vdonnefort@google.com> wrote:
+> The __vgic_v3_init_lrs hypercall only resets the vGIC LRs. Those
+> registers are expected to be 0 when the host is running. As a
+> consequence, it is completely safe to make it available at all times,
+> even when pKVM is enabled and the host was deprivileged.
 
-> 
-> [...]
->> -       ret = meson8b_init_rgmii_delays(dwmac);
->> +       if (dwmac->data->mac_applies_dt_delays)
->> +               ret = meson_dwmac_init_dt_delays(dwmac, plat_dat);
->> +       else
->> +               ret = meson8b_init_rgmii_delays(dwmac);
->  From the discussion in v2 I couldn't understand the overall way forward.
-> I get that new compatible strings should not rely on old, incorrect
-> behavior. But what's the path forward for the other SoCs?
-> 
-> [...]
->>   static const struct meson8b_dwmac_data meson_t7_dwmac_data = {
->>          .set_phy_mode = meson_axg_set_phy_mode,
->> -       .has_prg_eth1_rgmii_rx_delay = true,
->>          .has_pipeline_clk = true,
->> +       .mac_applies_dt_delays = true,
-> This should be a callback function pointer (apply_delays or similar,
-> to match set_phy_mode) unless there's a way to make older SoCs also
-> follow the "correct" RGMII delay specification.
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Agreed. V4 will do it.>
-> 
-> Best regards,
-> Martin
-Thanks
-Lucas
-
+Cheers,
+/fuad
 
