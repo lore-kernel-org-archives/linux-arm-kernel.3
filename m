@@ -2,115 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B205606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 17:13:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7700606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 17:20:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=5CQ3bV/1;
-	dkim=pass (1024-bit key, unprotected) header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=Z3NFlIqi
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3fdMjH5D;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=EymjIcxj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=BxP4L3Q28QKs8ZX4ZIVySQQGIyqmdKOqnViS6m4Za3s=; b=5CQ3bV/1T+I+yd
-	9Y5TxnyNbWso2yKho9O8yo1OLeugKY0kIH/biVxZsmf7I4su+A7va0EqHKOerr8tgQyUlvy+L3OGo
-	byjZW2tADYVF8RspiR0jSbgC+ZuiNXBvm+/EBq9A6LATbCMwQ4e+ikCGOLAR2rTFk4oQGJAiMKn9y
-	PnuBYCWmMOQPwIDeT6SIaUpEy162JfS0W9vPawlHTaMj1BKfQqoSQF6SvMofhQD+5WMrJ4ZzElHH/
-	upNaf73p6xVPvDupxCn/OGgAPeay3C4WeSvzlrYJfqV7p5wWgKuXKwHJVzG6JWodrRYcjRxaB4vhL
-	pRccGrkFspr2WrovMRsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=y7/WaXkP8DG3CQRRArbHcSvJScSIlpQ65Ll/fOy8LWE=; b=3fdMjH5D+nBmcFvJX3lRkvNc/G
+	ttcVwetUCHQcWLd9SPDtNUkrORgoscCrJDDtaofARdfSTlPk/u1fx15zMLD3egh4Ve41g4gHeIB7n
+	ncgTfdBXQYMs+H81YedcmYp7aRjvbttxNr0fSS5bRw2z3ufNQ1+OQ6/8ZdytIvofLA62fVfO3jrgb
+	FizsuAWFp9pGjE8hqSc2FLvSv9F11zw3l6DKjOv7rj0glqPWkDi9hHZ1iBDsTJ0st7jCiA6fHzFjD
+	2ZTmaTOgbXQsw953xlXF5AWwBuelmnbK34uArKZRiEgQcRPTKErWhv6hkoZn/ZGwHDjRXYVxWE8ER
+	e21rA4Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJwM6-0000000EZVF-0G9k;
-	Thu, 22 Oct 2026 17:13:30 +0000
-Received: from ixit.cz ([84.42.129.46])
+	id 1xJwSd-0000000EZpn-3Yet;
+	Thu, 22 Oct 2026 17:20:15 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJwM2-0000000EZUN-2udC;
-	Thu, 22 Oct 2026 17:13:28 +0000
-Received: from [IPV6:2a02:830a:f787:8f00:d622:eaa3:3dd6:8f5e] (unknown [IPv6:2a02:830a:f787:8f00:d622:eaa3:3dd6:8f5e])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id F33D153401FC;
-	Thu, 22 Oct 2026 19:13:06 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1792689187;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=BxP4L3Q28QKs8ZX4ZIVySQQGIyqmdKOqnViS6m4Za3s=;
-	b=Z3NFlIqiL6ubHUlwUPgphNNqwfHWewXF4OTMvhmzNyMAr/K6OiwxM4Ty2Sr/pz/I0LvXqX
-	mnR93+lmvAB1WR0+KS9J8/9ZQX8cdBHtnwNWh1TL0manVbLnFWirPTBPKpGBpZkCb9Db7z
-	4u4NsKqaNnE3N7l4/jQSEa4R2NVXcnk=
-Message-ID: <fbd174d9-261d-4fed-b26e-2990de7af2d0@ixit.cz>
-Date: Thu, 22 Oct 2026 19:13:06 +0200
+	id 1xJwSa-0000000EZp2-0MIu
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 Oct 2026 17:20:14 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-3ac5b090d16so704921a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 10:20:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1792689611; x=1793294411; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=y7/WaXkP8DG3CQRRArbHcSvJScSIlpQ65Ll/fOy8LWE=;
+        b=EymjIcxjtL9ZsK21BdH/edjfYSX9YdWeTudwUvvOtFSTk2Xv4GLxGwlKs3fGWZ4o/x
+         m5iv78JWomgvGClGemilmnoQXLLf25UOw7SF9xMAPp/wR8GrLRSU6VNAzzhwSn1xMH/i
+         Ij4MPubkYODWFfsIGdwx8yC0d0NaqovwfVQFpIOQjIHAwR6i6Bpuia11DAhwBbe215qh
+         Tf3mUnoJjjZ2P+EcBzq+qDpKI/ttrmnZxfml8Vqc76rPvjR7sdWpA/NUQbCm6qjVr5t2
+         OqVLKq6oMmCoWMKTmeoTKJo2hVJGmos0B73It8VGo6xrJ1kn8L/pz75bPwNzhyb8Nd6h
+         s4wA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792689611; x=1793294411;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=y7/WaXkP8DG3CQRRArbHcSvJScSIlpQ65Ll/fOy8LWE=;
+        b=M4masc2LQjYXyFmRlncp+ffv6LVx7nD7ZuWPZkQBuq84USFB/VCYF/7uyv4GKwRFN6
+         +GVpQP92xfUELc6PtYZo6FVO6cR0b5EzUFRYCj2etbjZpP2xR0XpTN68yynlkzq4Gxd6
+         yC7HLaN7y6CV0zkU4Z9vVE5iXkQYBzJozefe89h2s8/irAPfB4QXwWVXmAzNWt0jY8Fv
+         62hJwBFFChgUPx83Wsfz4o64ciROMwKuNLa+3bctiBeHlWirKQmyDQv9Ha9z+OXvVW/S
+         kgtKrI1KWjkIRC/yUOR/YvtmMk/XZgMngMU/lJ3BOYK0EWyuEBYKwe73YIVj2jV9Kneb
+         198w==
+X-Forwarded-Encrypted: i=1; AKwUvBydIxHQX/8j9IH50a/4wyKxv1+kr/Ux/EDggfkaoWm0q+tQTC/Omr1qDo+dhdODotiGr5I0YQm5j7YFZk9crrdx@lists.infradead.org
+X-Gm-Message-State: AFq9FYKiyIE1hJuW240zrnLwTgvQqamt0etJ718kwl33MRNCgNImuHzt
+	0rXKahGxOSl0vCwDQNMeOMLFokrL+lFYmStamB3kqhHqkGMyjiMv8ilRCrF/LeAc/sU=
+X-Gm-Gg: AYBFou14dWu/2CbxmeM8PIT+/2euYZ81WV9A6+KSL4L6+sP3vgpn23LBN7PBpM/pQvD
+	wOKEeB98PUPHEQ4CUKwn3j1+21PF8CgxDxmhdK7Ly5jWgeA39w+N/F3WYFxYH1xcyvDcjyVaDul
+	ZW3sj3ZW1rtlJxen6zGtPsWLkJMPcpUtE48VA18WhjJs5dR2FNriPw41ksWmV2wBZq3NYoQ0KYW
+	pvkLvKGp7dM3+XYWBF73IAS5yVNwfccKxMUILPhgP/OJG9/31BQyqlY28wh3HnQdDd/dKT+DtcP
+	2n+VR2vKXu7z3WnU1bBUK6Qh2uwo80wqeOXaFRsoID2Ul4XQ5jFKHGI+OKCLkpPJdVRwdQjYsjv
+	fxuRzqavGx/c4DGeYCFE2TRXfUfG34ms/U6n9mBWo9cpNtIbykEf3MoP4qsCjoTDmMsqjCnPVLb
+	ehviDTFz56/Z8hNYod89dv5HTkCOsy7Jjrk8Mhro9XUYxJaNSO4U7Xy9IsUamgBVJDUu93DyZ1Y
+	lO3ulnZcxZeoDNm4xY0KKm38UMAO3Eq42+yganOED5OOwQVqmuBU2B+qyg=
+X-Received: by 2002:a17:90b:5109:b0:3ac:928a:68ce with SMTP id 98e67ed59e1d1-3ada6c9d358mr1613182a91.33.1792689610544;
+        Thu, 22 Oct 2026 10:20:10 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:9e85:9169:41c7:bc2d])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ada48bcb45sm4942014a91.16.2026.10.22.10.20.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Oct 2026 10:20:09 -0700 (PDT)
+Date: Thu, 22 Oct 2026 11:20:06 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Frank.Li@oss.nxp.com
+Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>, Francesco Valla <francesco@valla.it>,
+	Daniel Baluta <daniel.baluta@nxp.com>
+Subject: Re: [PATCH v7 0/3] remoteproc: imx_rpoc: use memory-region-names to
+ avoid hidden ABI.
+Message-ID: <atpFxtFoI7IUR9fS@p14s>
+References: <20261020-memory-region-name-v7-0-1413d5928340@nxp.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 3/3] arm64: dts: rockchip: rk3568-photonicat: enable
- SGMII LAN port
-To: Andrew Lunn <andrew@lunn.ch>, Coia Prant <coiaprant@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261022025844.150320-1-coiaprant@gmail.com>
- <20261022025844.150320-4-coiaprant@gmail.com>
- <e7f68299-1c0d-4b0f-948b-4835086c0df8@lunn.ch>
-Content-Language: en-US, cs-CZ
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <e7f68299-1c0d-4b0f-948b-4835086c0df8@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261020-memory-region-name-v7-0-1413d5928340@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_101327_027844_A5B6F763 
-X-CRM114-Status: UNSURE (   6.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261022_102012_198462_602BECA8 
+X-CRM114-Status: GOOD (  22.04  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,31 +111,104 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 22/10/2026 18:58, Andrew Lunn wrote:
->> +	sgmii_phy: ethernet-phy@3 {
->> +		compatible = "ethernet-phy-ieee802.3-c22";
->> +		reg = <0x3>;
->> +		max-speed = <1000>;
+Please change every occurence of "hidden" with "implicit", here and throughout.
+
+On Tue, Oct 20, 2026 at 12:50:20PM -0400, Frank.Li@oss.nxp.com wrote:
+> The driver currently derives the memory region type from the referenced
+> memory node name, creating a hidden DT ABI.
 > 
-> Pointless. SGMII cannot do faster, so there is no need to limit it.
-
-device-tree is a description. whatever the device can do should be there,
-
-"Maximum PHY supported speed in Mbits / seconds." thus 1000 is correct value.
-
-thus max-speed <1000>; LGTM
-
-David
-
+> rsc_table: rsc-table@90000000
+>            ^^^^^^^^
+> {	ret  = <0x90000000>;
+> 	no-map;
+> }
 > 
-> 	Andrew
-
+> m4 {
+> 	...
+> 	memory-region = <&rsc_table>;
+> }
+> 
+> Current require node name have to be rsc-table, but no any binding doc
+> to restrict it.
+> 
+> Since memory node names are not constrained by the binding, incorrect names
+> can silently pass DT validation, as seen in examples using "vdevbuffer"
+> instead of "vdev0buffer" ([1] and [2]).
+> 
+> Add optional memory-region-names property to define such ABI. To keep
+> back compactiblity, use "optional".
+> 
+> Link: https://lore.kernel.org/imx/a3602ef8-2b77-4cc3-adef-2c4cba08a5d9@nabladev.com/ [1]
+> Link: https://lore.kernel.org/imx/alexXTYQHUs76J7v@SMW015318/T/#mb9dc709ff3adc24d9db6d30c973f37b580f6f1f9 [2]
+> 
+> Prevous version
+> https://lore.kernel.org/imx/ail0sH1UhnQBPRkr@SMW015318/
+> 
+> ---
+> Changes in v7:
+> - move imx_rproc_rmem_to_resource() close to caller
+> - collect Francesco and peng fan's review tag
+> - Link to v6: https://patch.msgid.link/20261019-memory-region-name-v6-0-2e46b2e7d667@nxp.com
+> 
+> Changes in v6:
+> - collect rob's review-by tags for binding
+> - move imx_rproc_rmem_to_resource to c file
+> - dts move related memory region node into overlay file
+> - Link to v5: https://patch.msgid.link/20261015-memory-region-name-v5-0-abc358b39a96@nxp.com
+> 
+> Changes in v5:
+> - fix binding region-memory-names's pattern
+> - add vdev1vring0 and vdev1vring1 at dts
+> - collect pan peng's review by tags
+> - Link to v4: https://patch.msgid.link/20260917-memory-region-name-v4-0-260755920ebf@nxp.com
+> 
+> Change in v3
+> - rephrase commit message and cover letter to correct descritpion and
+> reasons.
+> 
+> To: Bjorn Andersson <andersson@kernel.org>
+> To: Mathieu Poirier <mathieu.poirier@linaro.org>
+> To: Rob Herring <robh@kernel.org>
+> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> To: Conor Dooley <conor+dt@kernel.org>
+> To: Sascha Hauer <s.hauer@pengutronix.de>
+> To: Pengutronix Kernel Team <kernel@pengutronix.de>
+> To: Fabio Estevam <festevam@gmail.com>
+> To: Peng Fan <peng.fan@nxp.com>
+> Cc: linux-remoteproc@vger.kernel.org
+> Cc: devicetree@vger.kernel.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> 
+> ---
+> Laurentiu Mihalcea (3):
+>       dt-bindings: remoteproc: imx_rproc: document memory-region-names to avoid hidden ABI
+>       remoteproc: imx_rpoc: use memory-region-names to avoid hidden ABI
+>       arm64: dts: freescale: add DT overlay for MX95-15x15-FRDM RPMSG usage
+> 
+>  .../bindings/remoteproc/fsl,imx-rproc.yaml         | 11 +++
+>  arch/arm64/boot/dts/freescale/Makefile             |  3 +
+>  .../boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso | 81 ++++++++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts | 31 ---------
+>  drivers/remoteproc/imx_rproc.c                     | 32 ++++++++-
+>  5 files changed, 125 insertions(+), 33 deletions(-)
+> ---
+> base-commit: d419d682257d813f6cb7a28e42b35d0edf4ad038
+> change-id: 20260915-memory-region-name-f950eea2b78d
+> 
+> Best regards,
+> --  
+> Frank Li <Frank.Li@nxp.com>
+> 
 
