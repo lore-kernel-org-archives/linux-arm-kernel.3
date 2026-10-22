@@ -2,111 +2,124 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B099A606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 06:45:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E345606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 06:46:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yrh0HWMY;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=lF0fQREk;
-	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=C6iuK5C6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=32CtVTre;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=o89fCFpI;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=nl7TGnJ1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTwJSPOti9Y6zWrCbrnQDZv23h9b8QcoecB+3/18N5w=; b=yrh0HWMYSr9w2d9jU57ooFSWim
-	UOqX2ekQ175gzl9PDD5MJGnU5isxTD6w3cFpaUQF2jF3Chgq3uknmOMGA244dJ9NRDWl6a/cAOvYd
-	y3xgmGvf9A7i6/fscN5AbCuNAdkjZAQ+W9kTlNjOyR4j4ywvCPQ4pho/AOFkuRlcuvb7Ul4Yz361N
-	OM3x2GwjRvJbOlgYj6DFugZCYXg2I3U4OYc9oE7D6HYkXIPnEtqKh1hfHqF9lPn2EJPo/nTDFwxV2
-	KC8UvgpXAmnUhQZ2jfkSMzVZSdmg92C9AYxbaD3cqOOqVTntBCYWBMP/y5Vp+2LXXsXBu/pfvaFwC
-	BSESeuYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6hyPiRO1YLgh5z7vpK+8rbMGtfzuaM8kNLxgiQL1q1o=; b=32CtVTreV3e7Y5N39bFGOS3o+Y
+	dQU/Eila9ttM4J5pSJvfzq3cOsz47n5UafoAeeNWk3E7ptEPkKCTqaqdnzUGr29bSZDajVw12HnVq
+	/4xD5OzC7Xi/ZmgyiJ0NCx9ejiDdquCTdh6aI6zly0v8vZRm876g4Qv85Pf47eQzey/QFcxcuP/NF
+	gKXcyQzDC85PiW0tOPc15wxGsp3uTjvRtrQcqelY2iVdDcAdvfHG3JvyOXMzIz47b+lDOO+MvYJD0
+	O23kNKbDaQ7zjkMGLRRHyL0us3JJxrPhGPYdy8zAi+8q0zSC6g8t6fNq6TTchYZm8tAigialSk3DG
+	ZJYa531g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJmXy-0000000DV9F-1MVB;
-	Thu, 22 Oct 2026 06:45:06 +0000
+	id 1xJmZc-0000000DVKH-1atH;
+	Thu, 22 Oct 2026 06:46:48 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJmXx-0000000DV94-2NWB;
-	Thu, 22 Oct 2026 06:45:05 +0000
+	id 1xJmZa-0000000DVJf-00a7
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 22 Oct 2026 06:46:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=QTwJSPOti9Y6zWrCbrnQDZv23h9b8QcoecB+3/18N5w=; b=lF0fQREkWjhk8uJz6tsihBYWeF
-	NFMpTzRa+Ie+eF1fZ+c9GsHNKJAVk4H6lJ++XVXaj2UIyApQI9Kn0ZQ9G3stg9okNCrjFK4JoVAUY
-	loP3ckA8WnxobWJh2dAZwZZ1x08VmUnWu+ZqDuMHhNTRhD+KIvJON0vUGtXM750mH/oEBJrYg2Ijo
-	BAJiB7fkmiarkbTSRvLGee65znEi/fD+b8N3lehRYrD2I7spgfJit6y/GHluzNUzWrQnnH9ljAsws
-	PQvWiMSN/rJdvQCIxho/GugVxsdMHZ0ZjtXa/ndM0e/l4l3d34bn0ZswuIgQeFCamdLbV/KECMTAL
-	TvNLkBHQ==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=6hyPiRO1YLgh5z7vpK+8rbMGtfzuaM8kNLxgiQL1q1o=; b=o89fCFpIfRVcC4tUzgQMkVhB6o
+	wu2/ChaRhEmAfx8kk6illgp68xC0B0XIeamJ91ksuE3oD4miERoSsiIzSUefL1I5XiIYe5/mkypk+
+	catOx4vCS1cZwwb14hdBMZQ27aejaOSHkRnDUDT7G6P8b3b/xWdnMZYyPRObiba9TAvxujy9PCR7+
+	v746Sor5TYhbbdGwpkqwvcMvizaHhGNmb7zBJ6LZpLMWseqViQi3laVaRWZgH/ofge1N5OgHdoOuv
+	GEVVn52vm12ZFJEIGt/Kj7oJB3Xejkxtu6To7vCnaaqoZ3QagDjWS8Ifr1uPleHl9Ec5Al7ZFI8Ua
+	TU/jQ42g==;
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xJmXr-00000006Wbo-24lc;
-	Thu, 22 Oct 2026 06:45:04 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 69M6iBDv9702485, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1792651452; bh=QTwJSPOti9Y6zWrCbrnQDZv23h9b8QcoecB+3/18N5w=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=C6iuK5C60MiMvm1LQdecBithjKRWy/9qhNHPGw4xDgDT2iXai53/47Xkmq8rtB17j
-	 kXrbYcU2MEDSooTkV0AjvdXfeukAsp74S3j0zR4VBFvjnhEwznDW7RQjbx25/AfxPX
-	 7o87f7/Lp8rtykXc0d40vV3DLyNTKUeTTiY8OSTS2yoOtrnpE+Nt2jaWrmjspLQ2Fy
-	 0+V2Oi4jln1pc7XY5cLrDMLoTi0n8Z2q4oRi/cmnnLKcKgj9ZPgQKnjUPqZIUr8XN6
-	 FaMOCo5rWpBPFfYUUfwCRJD5KoVgerZ/OlC4PBlQB7mT/oXYwM9TsCI0WJAjyw+5Ha
-	 9hBEFpA1d8JDQ==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 69M6iBDv9702485
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 22 Oct 2026 14:44:12 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Thu, 22 Oct 2026 14:44:12 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Thu, 22 Oct 2026 14:44:11 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([::1]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::b3cc:c263:b82d:e87c%10]) with mapi id
- 15.02.2562.049; Thu, 22 Oct 2026 14:44:12 +0800
-From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: "tglx@kernel.org" <tglx@kernel.org>, "radu@rendec.net" <radu@rendec.net>,
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"lee@kernel.org" <lee@kernel.org>, "afaerber@suse.com" <afaerber@suse.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"mfd@lists.linux.dev" <mfd@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"linux-realtek-soc@lists.infradead.org"
-	<linux-realtek-soc@lists.infradead.org>,
-	=?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>,
-	=?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
-	=?utf-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>
-Subject: RE: [PATCH v5 3/8] dt-bindings: mfd: realtek,rtd1xxx: Add interrupt
- controller child node
-Thread-Topic: [PATCH v5 3/8] dt-bindings: mfd: realtek,rtd1xxx: Add interrupt
- controller child node
-Thread-Index: AQHdXxqxrooHtuvy+0+IPKYEf41fuLcED+AAgACnvNCAALIlgIADtvpA
-Date: Thu, 22 Oct 2026 06:44:11 +0000
-Message-ID: <ef63cc3df2424f888ba807701af0ce84@realtek.com>
-References: <20261018160653.3940371-1-eleanor.lin@realtek.com>
- <20261018160653.3940371-4-eleanor.lin@realtek.com>
- <20261019-prophetic-moth-of-youth-40dbd6@quoll>
- <b12ff328ebca405f96a9b25decdb7c81@realtek.com>
- <d6d7c3ba-5329-4c90-8994-ea29cedd7c53@kernel.org>
-In-Reply-To: <d6d7c3ba-5329-4c90-8994-ea29cedd7c53@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1xJmZW-00000006Whw-2MhE
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 Oct 2026 06:46:44 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48b001cd92bso824515f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 23:46:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792651601; x=1793256401; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6hyPiRO1YLgh5z7vpK+8rbMGtfzuaM8kNLxgiQL1q1o=;
+        b=nl7TGnJ1s/u4JwGU4WGeYJ/gJ+LcOScLWJiKhr0JKc+GfPdChOs986Zf/fUs+vgxvH
+         swUEWvvtxfhaksVQ/CHNiXcnX2cuBwBlV/v3hOZlTp1KBYtx/w1d/VEmTOwMWjVDhSlv
+         Sj9UMt/2zyMOXOIzDIBy6SD+XxQid5rTzfsFv2mc9pp19//jj4gVX/TjXMFGP40bOq1d
+         za73bCVCq/u0U5bv3ZCWTewHC2iUjLX7Ld5NHUV1vJOkVSWAgbUK66AtSsBI1pejKQ1Q
+         SPaoP4uNf5ra6vyN8/HNpqhp4nYD/tg+3eqychbn29JlRKSWjAKYswmtLnN1SngCSa2q
+         eGJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792651601; x=1793256401;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6hyPiRO1YLgh5z7vpK+8rbMGtfzuaM8kNLxgiQL1q1o=;
+        b=SEg+L7I0fsb7QsV5GLaeIM4+HtDBzAiYu4JuGdNII+VfXdvzhFVJrk0lHP7egrB5ju
+         uC4VTpaSKNfComN/b4sYilpM7vyUfGi3kG1yAe/8J06kTw1rah17p6/aLL4+6CYTi1Gl
+         pdfcM5kNxo8xs2Zv0hA8FNUwt1k+sonoJc+FG4O9Yvs8sgiYnwEjUK3m9+4YalvvNTh7
+         OFs4IN7OadtbwLdQavVdbsuyG6P7Te2kv57Lma9QAepmrN+hWxMEx3tx9KIUD9M/LPlp
+         99dzhAlVg22eGolTfeSsh0qBMajhnj2qrug8VUlbkTYn+ZUNqfMY6Lr96QpAl9vdFwA5
+         z84Q==
+X-Forwarded-Encrypted: i=1; AKwUvBzWiKede13KOrwXRPPzy7XFmDngGxspxwf9E4HYNaTBgZ2WvAvr4dwqeVhY1Bt4meXzXxF+YjPPTc100czwzb98@lists.infradead.org
+X-Gm-Message-State: AFq9FYJOWKNy35xvYutnLjrwN2A5Ygy0pOntAXVdzGUbqFZc8icyL2f9
+	vVEltET2o6yCyVhhHfG1JzgqEJXf16XuPJTyCgmGCc6bAt+Ya8Q61XfU
+X-Gm-Gg: AYBFou3ig8a74+VcEsfuTK42Gfd9RkLhrdtOPUMtotEbriHURVNej7ThZOApTyapzue
+	qxyu4gku0CNk3CdA6FMYG4b3MKMUOnqWPZr6XLcep59Rd51LE4HT7Uk40BQCzpAgel0luwJQl6B
+	+VXLloGUWRHFtTk65O/GAICbofVR34K6GvZBGGgdGDEN22/cVBd0ftmqqCVnaAGZuUbw4JntCEA
+	XGlWcATbbnhlQMp13p+rxraaQ2rSWfse95fh28XKvYWGSnKEJ3V8ZCu1kWXfzCNDiU1g0MGO2UG
+	Rn7RxLKF3pOWQtdYlECl0fr990MTJ0vPW9stzRrVtcT/Fs09+Zahzh9gqzX2iuLS8XrIhFLLpWS
+	06Nln7ay37bJMVizBWlUabPPgOWw9M/2GOHKE4sikDQzkycq+eT/vyC5wi4z65SQTZWFqc262x9
+	m+SvmKQ7kJwspL1w2Ol3ko2nGALUVaWLiH6V8d264MJNEswa+2ofxF1Iy4I73LnlzG0Hpk9Ldpu
+	yIWyydqdc5xNYnN3g082Wxg8XsrqdG8YV1QATgwnhYEC2kn8bD6AuN154xVhoB/HeZjGd9Wp6fM
+	FKG8PAarJ+JE6/lKueiw9jhEn3LbtJZq0FRMCI2qhPCnMlbZq0Gtao/o67WmgNaAs1UG0vXhQDd
+	nDLm7ROQQSGihmLfbhzUBEVx8/kLjq7osTz9Rln32pfcEfS6f07332cB3VSuxkN3M
+X-Received: by 2002:a5d:64e4:0:b0:48b:118e:7454 with SMTP id ffacd0b85a97d-48e264bd971mr9315929f8f.31.1792651600585;
+        Wed, 21 Oct 2026 23:46:40 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-ad43-d501-2c28-bb72-120d-420e.310.pool.telefonica.de. [2a02:3100:ad43:d501:2c28:bb72:120d:420e])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e25828cd1sm10215624f8f.22.2026.10.21.23.46.38
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 21 Oct 2026 23:46:39 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH 0/3] KVM: arm64: Preserve level IRQ re-pending
+Date: Thu, 22 Oct 2026 08:46:25 +0200
+Message-Id: <20261022064628.4206-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_074502_239542_3ACBF8D3 
-X-CRM114-Status: GOOD (  25.73  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20261022_074643_156233_E65CB0DA 
+X-CRM114-Status: GOOD (  15.18  )
+X-Spam-Score: 0.8 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,74 +130,65 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-SGkgS3J6eXN6dG9mLA0KDQo+ID4+PiAgcGF0dGVyblByb3BlcnRpZXM6DQo+ID4+PiArICAiXmlu
-dGVycnVwdC1jb250cm9sbGVyIjoNCj4gPj4+ICsgICAgJHJlZjogL3NjaGVtYXMvaW50ZXJydXB0
-LWNvbnRyb2xsZXIvcmVhbHRlayxydGQxMzE5LWludGMtaXNvLnlhbWwNCj4gPj4+ICsgICAgdW5l
-dmFsdWF0ZWRQcm9wZXJ0aWVzOiBmYWxzZQ0KPiA+Pj4gKw0KPiA+Pj4gICAgJ0BbMC05YS1mXSsk
-JzoNCj4gPj4+ICAgICAgdHlwZTogb2JqZWN0DQo+ID4+DQo+ID4+IFdoYXQgaXMgdGhpcyBmb3Ig
-dGhlbj8gU2hvdWxkIGl0IGJlIHJlbW92ZWQ/DQo+ID4+DQo+ID4NCj4gPiBUaGUgb3JpZ2luYWwg
-c3lzY29uIGNvbXBhdGlibGUgaGFzIG90aGVyIGNoaWxkIG5vZGVzIHRoYXQgZG8gaGF2ZSAncmVn
-Jw0KPiA+IHByb3BlcnRpZXMgYW5kIHVuaXQgYWRkcmVzc2VzLCBzbyB0aGlzIHBhdHRlcm4gaXMg
-c3RpbGwgbmVlZGVkIGZvciB0aGVtLg0KPiA+DQo+ID4+Pg0KPiA+Pj4gQEAgLTc2LDMgKzgwLDI3
-IEBAIHJlcXVpcmVkOg0KPiA+Pj4gICAgLSByZWcNCj4gPj4+DQo+ID4+PiAgYWRkaXRpb25hbFBy
-b3BlcnRpZXM6IGZhbHNlDQo+ID4+PiArDQo+ID4+PiArZXhhbXBsZXM6DQo+ID4+PiArICAtIHwN
-Cj4gPj4+ICsgICAgI2luY2x1ZGUgPGR0LWJpbmRpbmdzL2ludGVycnVwdC1jb250cm9sbGVyL2Fy
-bS1naWMuaD4NCj4gPj4+ICsgICAgI2luY2x1ZGUgPGR0LWJpbmRpbmdzL2ludGVycnVwdC1jb250
-cm9sbGVyL2lycS5oPg0KPiA+Pj4gKw0KPiA+Pj4gKyAgICBzeXNjb25ANzAwMCB7DQo+ID4+PiAr
-ICAgICAgICBjb21wYXRpYmxlID0gInJlYWx0ZWsscnRkMTYyNS1pc28iLCAic3lzY29uIiwgInNp
-bXBsZS1tZmQiOw0KPiA+Pj4gKyAgICAgICAgcmVnID0gPDB4NzAwMCAweDEwMDA+Ow0KPiA+Pj4g
-KyAgICAgICAgcmFuZ2VzID0gPDB4MCAweDcwMDAgMHgxMDAwPjsNCj4gPj4+ICsgICAgICAgICNh
-ZGRyZXNzLWNlbGxzID0gPDE+Ow0KPiA+Pj4gKyAgICAgICAgI3NpemUtY2VsbHMgPSA8MT47DQo+
-ID4+DQo+ID4+IFdoeSBkbyB5b3UgaGF2ZSBjZWxscyBpdCB5b3VyIGNoaWxkIGhhcyBubyBhZGRy
-ZXNzaW5nPw0KPiA+Pg0KPiA+Pj4gKw0KPiA+Pj4gKyAgICAgICAgaW50ZXJydXB0LWNvbnRyb2xs
-ZXIgew0KPiA+Pg0KPiA+PiBTbyB0aGUgYmluZGluZyByZXF1aXJlcyBjaGlsZHJlbiB3aXRoIHVu
-aXQgYWRkcmVzcywgeWVzPw0KPiA+Pg0KPiA+DQo+ID4gVGhlIGludGVycnVwdC1jb250cm9sbGVy
-IGRvZXMgbm90IG5lZWQgYSB1bml0IGFkZHJlc3MgYmVjYXVzZSBpdA0KPiA+IGFjY2Vzc2VzIHRo
-ZSByZWdpc3RlcnMgdmlhIHRoZSBwYXJlbnQncyByZWdtYXAuDQo+IA0KPiBUaGF0J3Mgbm90IHJl
-YWxseSByZWxldmFudC4gQ2hpbGQgZHJpdmVycyBzdGlsbCBhY2Nlc3MgdmlhIHBhcmVudCdzIHJl
-Z21hcCBhbmQNCj4gaGF2ZSB1bml0IGFkZHJlc3MuIFRoaXMgYmluZGluZyBoYXMgYnVzIGFkZHJl
-c3NpbmcgZm9yIGNoaWxkcmVuLCBzbyB1c2UgaXQuIERvDQo+IG5vdCBhZGQgcmFuZG9tIG9yIGlu
-Y29uc2lzdGVudCBjb2RlLg0KPiANCg0KVGhlIHJlZ2lzdGVycyBmb3IgaW50ZXJydXB0IGNvbnRy
-b2xsZXIgYXJlIHF1aXRlIHNjYXR0ZXJlZCB3aXRoaW4gdGhlIHBhcmVudA0Kc3lzY29uIGJsb2Nr
-LiBUYWtlIHJ0ZDE2MjUtaW50Yy1taXNjIGFzIGFuIGV4YW1wbGUsIHRoZSBvZmZzZXRzIGFyZSAw
-eDQsDQoweGMsIDB4ODAsIGFuZCAweDg4IEFmdGVyIGFkZGluZyB1bml0LWFkZHJlc3MgYW5kIHJl
-Zy4NCkl0IHdvdWxkIGJlIGxpa2U6DQoNCmludGVycnVwdC1jb250cm9sbGVyQDQgew0KICAgIGNv
-bXBhdGlibGUgPSAicmVhbHRlayxydGQxNjI1LWludGMtbWlzYyI7DQogICAgcmVnID0gPDB4NCAw
-eDQ+LA0KICAgICAgICAgIDwweGMgMHg0PiwNCiAgICAgICAgICA8MHg4MCAweDQ+LA0KICAgICAg
-ICAgIDwweDg4IDB4ND47DQogICAgaW50ZXJydXB0LWNvbnRyb2xsZXI7DQogICAgLi4uDQp9Ow0K
-DQpDb3VsZCB5b3UgcGxlYXNlIGNvbmZpcm0gaWYgdGhpcyBpcyB0aGUgY29ycmVjdCBhbmQgcHJl
-ZmVycmVkIGFwcHJvYWNoPw0KDQo+ID4NCj4gPiBXaWxsIHVwZGF0ZSB0aGUgZXhhbXBsZSB0byBy
-ZW1vdmUgdGhlIHVubmVjZXNzYXJ5IHByb3BlcnRpZXMgZnJvbSB0aGUNCj4gPiBwYXJlbnQgYXMg
-Zm9sbG93czoNCj4gPg0KPiA+IHN5c2NvbkA3MDAwIHsNCj4gPiAgICAgY29tcGF0aWJsZSA9ICJy
-ZWFsdGVrLHJ0ZDE2MjUtaXNvIiwgInN5c2NvbiIsICJzaW1wbGUtbWZkIjsNCj4gPiAgICAgcmVn
-ID0gPDB4NzAwMCAweDEwMDA+Ow0KPiA+DQo+IA0KPiBTdGlsbCBpbmNvbXBsZXRlLiBXaGVyZSBh
-cmUgb3RoZXIgZGV2aWNlcz8NCj4gDQoNCkluIHRoZSBwYXN0LCBBbmRyZWFzIHVzZWQgYSBnZW5l
-cmljICdAWzAtOWEtZl0rJCInIHRvIG1hdGNoIGNoaWxkIG5vZGVzLg0KQmVjYXVzZSBvZiB0aGlz
-LCBpbiBvbGRlciBTb0NzIChlLmcuLCBydGQxMjl4LmR0c2ksIHJ0ZDE2eHguZHRzaSwNCnJ0ZDEz
-OXguZHRzaSksIGRldmljZXMgbGlrZSByZXNldC1jb250cm9sbGVyLCB3YXRjaGRvZywgYW5kIHNl
-cmlhbCB3ZXJlDQphbGxvd2VkIGFuZCBwbGFjZWQgdW5kZXIgdGhlIGlzbyBvciBtaXNjIHN5c2Nv
-biBub2Rlcy4NCg0KSG93ZXZlciwgSSBoYXZlIHNvbWUgZG91YnRzIGFib3V0IGNvbnRpbnVpbmcg
-dG8gdXNlIHRoYXQgZXhhY3Qgc3RydWN0dXJlOg0KDQoxLiBXZSBwcmV2aW91c2x5IGRpc2N1c3Nl
-ZCBhbmQgYWdyZWVkIFsxXSB0aGF0IGRldmljZXMgbGlrZSBzZXJpYWwgc2hvdWxkDQphY3R1YWxs
-eSBiZSBwbGFjZWQgdW5kZXIgcmJ1cywgbm90IHN5c2Nvbi4NCjIuIEZvciB0aGUgU29DcyBpbnRy
-b2R1Y2VkIGluIHRoaXMgcGF0Y2ggKHJ0ZDEzMTkscnRkMTMxOWQsIHJ0ZDEzMjUsDQpydGQxNjI1
-KSwgdGhlIGRyaXZlcnMgZm9yIHRoZSBvdGhlciBjaGlsZCBkZXZpY2VzIChsaWtlIHdhdGNoZG9n
-KSBhcmUgbm90DQp1cHN0cmVhbWVkIHlldC4NCg0KVG8gcHJvcGVybHkgZml4IHRoZSAiaW5jb21w
-bGV0ZSBleGFtcGxlIiBmb3IgdGhlIHNpbXBsZS1tZmQgc3RydWN0dXJlLA0KY291bGQgeW91IHBs
-ZWFzZSBhZHZpc2U6DQoNCjEuIFNob3VsZCBJIHJlcGxhY2UgdGhlIGdlbmVyaWMgJ0BbMC05YS1m
-XSskJyBpbiB0aGUgWUFNTCBiaW5kaW5nIHdpdGgNCmV4cGxpY2l0IGRldmljZSBkZWZpbml0aW9u
-cyBmb3IgdGhlc2Ugc3BlY2lmaWMgY2hpbGQgbm9kZXM/DQoyLiBGb3IgdGhlIGV4YW1wbGUgc2Vj
-dGlvbiwgc2hvdWxkIEkganVzdCBwb3B1bGF0ZSBpdCB3aXRoIHBsYWNlaG9sZGVycw0KKGUuZy4s
-IHdhdGNoZG9nKSByZWZlcmVuY2luZyBBbmRyZWFzJ3Mgb2xkZXIgRFRzIChsaWtlIHJ0ZDEyOXgu
-ZHRzaSkgdG8NCmlsbHVzdHJhdGUgdGhlIE1GRCBzdHJ1Y3R1cmU/DQoNClsxXSBodHRwczovL2xv
-cmUua2VybmVsLm9yZy9sa21sLzE1OTUxMjY0Mjg5ZDQ0Zjc5N2ViZDRlMDUyMzhiMzgwQHJlYWx0
-ZWsuY29tLw0KDQpCZXN0IFJlZ2FyZHMsDQpZdS1DaHVuDQoNCj4gDQo+IEJlc3QgcmVnYXJkcywN
-Cj4gS3J6eXN6dG9mDQo=
+A guest can set a level interrupt pending again while handling it. The
+GIC records Active and Pending and delivers the interrupt after
+deactivation. KVM instead drops the second pending state for both the
+GICv2 and GICv3 backends.
+
+The VGIC keeps software pending state outside the LR because commit
+67b5b673ad4d stopped placing Pending and Active together for level
+interrupts. When the LR is folded, KVM cannot distinguish the pending
+state used to populate the LR from a later ISPENDR write. This series
+records the later write and preserves it across deactivation. The last
+patch adds a two-vCPU GICv3 selftest.
+
+The awkward case, and the reason for the RFC, is a write from another
+vCPU while the interrupt remains in an LR. KVM cannot know whether the
+write preceded or followed the guest ack. This series preserves the
+write. A pre-ack write can therefore cause one extra delivery, while a
+post-ack write is no longer lost.
+
+The exact alternative is to stop and synchronize the target vCPU
+before applying such a write, as the active-state accessors do. Is the
+conservative replay acceptable here, or should ISPENDR pay that
+synchronization cost?
+
+The issue was reproduced with Zephyr, NuttX and RT-Thread guests. On a
+Raspberry Pi 400 host with a GIC-400, each GICv2 guest handled the SPI
+once before the fix and twice afterwards. A direct GIC-400 register
+test also delivered the interrupt twice. With a QEMU TCG GICv3 host
+running KVM, the new selftest failed before the fix and passed
+afterwards. Existing vgic_irq and kvm-unit-tests GIC cases passed on
+both versions. Those runtime tests used 8623551a424d.
+
+The series applies without conflicts to kvmarm/next at dd0bc00e3e92.
+The modified VGIC objects pass an arm64 GCC 14 W=1 build there, and the
+selftest builds natively on arm64. GICv5 does not use the LR path
+changed here. I have not tested a mapped physical interrupt or VFIO.
+
+Karl Mehltretter (3):
+  KVM: arm64: vgic-v2: Don't drop pending writes to active level IRQs
+  KVM: arm64: vgic-v3: Don't drop pending writes to active level IRQs
+  KVM: selftests: arm64: Test pending writes to active level IRQs
+
+ arch/arm64/kvm/vgic/vgic-mmio.c              |   9 ++
+ arch/arm64/kvm/vgic/vgic-v2.c                |  13 ++-
+ arch/arm64/kvm/vgic/vgic-v3.c                |  13 ++-
+ include/kvm/arm_vgic.h                       |   1 +
+ tools/testing/selftests/kvm/arm64/vgic_irq.c | 101 +++++++++++++++++++
+ 5 files changed, 131 insertions(+), 6 deletions(-)
+
+
+base-commit: dd0bc00e3e9201fd49b62ff9cc07890c89003afe
+-- 
+2.39.5 (Apple Git-154)
+
 
