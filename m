@@ -2,73 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 213FD606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 18:13:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85B6B606A32A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 18:31:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vSFhXgLV;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CaT8QXJa
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=satJHT8N;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QKKJcfXC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QJqrMCm4IHIw5UKCEBlnLwjUBlVqiEPTc5iWgvNluCw=; b=vSFhXgLVHDcvI2j/anv/TNUMOJ
-	A7SvIdDKtNSzMgYiAz7ahEunuJjrFY4xGa04pk21gP45GTatmj07A7dw3GN9pK4oDHGKa0ZL9bMRW
-	G+/+QnimI7e4+rCnqjW9ERjpsFPuBJ+ZVAV0ZPVyPb9tK25ejstnRFAX3GwYiHIHyHLmWND9rFk8v
-	NKtT60LSrX129dVmPklai7Ioe0N0ASSMUoJ/ays5um2TKnQ3Lzn0iR79lfe2V6rmF3ld1qffp+D7l
-	U/xOQqJ3VgKoy+mU/c8s8twgwErAj0JLD/PeQpX8coO2jZ+rW0Vow7SjvvcM5OUwdvdAhYfa5kylz
-	HNZ2DTWw==;
+	bh=rp9LYTtMZB4juqGaag+zhPciOxxBTLZDtNH3dChyOg8=; b=satJHT8Noco4Lo0z5ppnk8d/i+
+	fDzLVDbP9qU6LoDg4z9OcWGlvXCt+ctX51amLdmlRyQpA0zSK+bFGVW4Y3vNJh3vuOgI828JQWyNS
+	iwFZxSM9DlFifPJieVbWlMe6z5WmirNPG3D6w9lQ55N1meLfMUb2k6ZSkvC/eQhar271f6SJmdww7
+	+VisqVWCiOHZqnRp9lCmcrxKwjCT1u0Qprh1l062iiRhFcsUPxpyrfETaqjWFdEGqEJihdPEhtfGJ
+	Qb3MtoxuUA+4P1ml8Sbul1yr6Q1nDN/Xwzn4orOUQD6LvC5ZSTvnDKUb8PYmo933LFc/T3rGLDv55
+	mGF+cWuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJxHy-0000000Egs7-2o4Y;
-	Thu, 22 Oct 2026 18:13:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJxZ8-0000000Ehhx-1NNM;
+	Thu, 22 Oct 2026 18:31:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJxHx-0000000Egs1-2jxT
+	id 1xJxZ7-0000000Ehhq-1fP3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 18:13:17 +0000
+	Thu, 22 Oct 2026 18:31:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED9D443F8E;
-	Thu, 22 Oct 2026 18:13:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6B571F01825;
-	Thu, 22 Oct 2026 18:13:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 64684411F2;
+	Thu, 22 Oct 2026 18:31:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 486071F031E0;
+	Thu, 22 Oct 2026 18:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792692796;
-	bh=QJqrMCm4IHIw5UKCEBlnLwjUBlVqiEPTc5iWgvNluCw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CaT8QXJas15GFkr8qxCUTT5gFSQqnHXVylSuM90EwHPuiOy0+czeo3jj5F6a0xlq2
-	 HZMS0rHhRYbNZsdRD54g/04gGplZ/0BG5iL+BJ7qcBM0okM2I+7LF6A/urYcqmWili
-	 NVxjLVp+5SwyKbc0X7d4TmAdJoPhQqZiv34tw0fDmWAbvKrmKcKrrJ14eEfH5iQd1d
-	 cv4/Pz7GwlMnum9qUIYmiX+uFHI+T95e3kJhtKAgzkA9gCR7QxorKuzS2hFa7lW/Wd
-	 R6Vm4wbzH0rrVy7noM+2vABDJwY3cJ+7/vYjc7ux+DZ/e+gEA3wFM6FKk9H8bxspIY
-	 JSfEhSXOW2wbw==
-Date: Thu, 22 Oct 2026 19:13:11 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-Subject: Re: [PATCH v3 1/4] dt-bindings: connector: Add Toradex camera
- connector
-Message-ID: <20261022-speculate-stagnate-6b7d98eb2b0d@spud>
-References: <20261022-verdin-imx8mp-hmp-camera-ready-v3-0-90a30b0b0d55@toradex.com>
- <20261022-verdin-imx8mp-hmp-camera-ready-v3-1-90a30b0b0d55@toradex.com>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="NOfcy5AhWSHOJVoL"
-Content-Disposition: inline
-In-Reply-To: <20261022-verdin-imx8mp-hmp-camera-ready-v3-1-90a30b0b0d55@toradex.com>
+	s=k20260515; t=1792693860;
+	bh=rp9LYTtMZB4juqGaag+zhPciOxxBTLZDtNH3dChyOg8=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=QKKJcfXCFWM9giBQ1pqPvL5f8vi/cRzK+5lnOfw0FtlST0SCWZZUJbOGHmUak/Eze
+	 +pAZMr7gpRnt66304ClAj+xk5SM8Bqe534MFjFVY1RKfbkbL3FrhQUpsn2psg/wYZ/
+	 EkFIfLnNSx76toXXwQbW0uQPl7XQRB4cQBt3SgOnaBAf75lLyKs/NMEZPMgMEvucvr
+	 gG+Xg20Sc7GVzBWOsrLU6IYreyXbPFLdiF2UComdRAAl6BmqZKnR/mWDAqzvhr4gV4
+	 Fs/teS206ixQjK630+rOHNmbYBKtR3c6hI9WOASyXmP3ZibsqpzOkNjsaZxWwWOdto
+	 5j9UxNY100d1A==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ECCBA380822E;
+	Thu, 22 Oct 2026 18:30:59 +0000 (UTC)
+Subject: Re: [GIT PULL 1/4] soc: devicetree updates for 7.4 
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <417575f9-464e-4966-b051-5ecb122bcb10@app.fastmail.com>
+References: <6c776ba1-f114-44c3-96ee-938dcd7ac82d@app.fastmail.com> <417575f9-464e-4966-b051-5ecb122bcb10@app.fastmail.com>
+X-PR-Tracked-List-Id: <soc.lists.linux.dev>
+X-PR-Tracked-Message-Id: <417575f9-464e-4966-b051-5ecb122bcb10@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-dt-7.4
+X-PR-Tracked-Commit-Id: 15644868ad522eac914d368fd08c340051f1076c
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 7b9a0e857b427cdda5a08b662dbea7321e6bb470
+Message-Id: <179269385870.87271.867381443730942294.pr-tracker-bot@kernel.org>
+Date: Thu, 22 Oct 2026 18:30:58 +0000
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,46 +74,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
 	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
+X-Archived-By: <archiver.kernel.org>
 
---NOfcy5AhWSHOJVoL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The pull request you sent on Thu, 22 Oct 2026 10:50:39 +0200:
 
-On Thu, Oct 22, 2026 at 04:31:25PM +0200, Ernest Van Hoecke wrote:
-> From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
->=20
-> Toradex boards route the sideband signals of their 24-pin camera
-> connectors to different GPIO controllers. Camera overlays which name
-> those controllers directly must therefore be duplicated for each host
-> board.
->=20
-> Describe reset, power-down, detection and power-control as
-> connector-local GPIO functions. This lets an accessory overlay remain
-> independent of the host wiring. MIPI CSI-2, I2C, clocks and supplies
-> remain described separately because the GPIO nexus does not abstract
-> them.
->=20
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-dt-7.4
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/7b9a0e857b427cdda5a08b662dbea7321e6bb470
 
---NOfcy5AhWSHOJVoL
-Content-Type: application/pgp-signature; name=signature.asc
+Thank you!
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCatpSNwAKCRB4tDGHoIJi
-0ixIAQDnbVkCkuKxskSVSF2V2FdiYpAO+LW5qhoKikflKhcH3QD8DUGoKIoRUdmG
-q+MAmuPsmcB5sp+RPAHq2sdqCd+Odg4=
-=VPLQ
------END PGP SIGNATURE-----
-
---NOfcy5AhWSHOJVoL--
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
