@@ -2,92 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E345606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 06:46:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02E27606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 06:47:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=32CtVTre;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=o89fCFpI;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=nl7TGnJ1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kD4iXYtE;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=KCHuiRV/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6hyPiRO1YLgh5z7vpK+8rbMGtfzuaM8kNLxgiQL1q1o=; b=32CtVTreV3e7Y5N39bFGOS3o+Y
-	dQU/Eila9ttM4J5pSJvfzq3cOsz47n5UafoAeeNWk3E7ptEPkKCTqaqdnzUGr29bSZDajVw12HnVq
-	/4xD5OzC7Xi/ZmgyiJ0NCx9ejiDdquCTdh6aI6zly0v8vZRm876g4Qv85Pf47eQzey/QFcxcuP/NF
-	gKXcyQzDC85PiW0tOPc15wxGsp3uTjvRtrQcqelY2iVdDcAdvfHG3JvyOXMzIz47b+lDOO+MvYJD0
-	O23kNKbDaQ7zjkMGLRRHyL0us3JJxrPhGPYdy8zAi+8q0zSC6g8t6fNq6TTchYZm8tAigialSk3DG
-	ZJYa531g==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M/mYu7fYt3Nnrov1PUQgYA1NNwSASs0rt/VgYt7AiFM=; b=kD4iXYtEpSeE/oehpQwpV59y79
+	L5NTWogtT7YQYQ9UMq9o4bbAhuuOExDtK9P1B6jeR1sv/eusfI/Rk/7Gc9oc/RpKa2LZtSK8MHSKM
+	mHnSjkXbux8PQaahc3KlK7XxhWW12ooiWhuunuO59B9lCqwFQ2OrtQQuNfR7d3JZlVEcFec8WK9+R
+	emx+gz9WDM2lL2bNvZNkhSdBIXfxSQlYI2qk352VsjPI/Hr7+YbIlx5UQaFohwtPnF+/H2tzw35bk
+	Ccs7vnNILwZD7+R9X4CdM/CY4CvWEn3o6M5hqRdOFgt5ICXqnqieEoNm91Mtbjn0WbrVMjk/qv0my
+	+NrEdLtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJmZc-0000000DVKH-1atH;
-	Thu, 22 Oct 2026 06:46:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xJmZi-0000000DVLu-25mN;
+	Thu, 22 Oct 2026 06:46:54 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJmZa-0000000DVJf-00a7
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 Oct 2026 06:46:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=6hyPiRO1YLgh5z7vpK+8rbMGtfzuaM8kNLxgiQL1q1o=; b=o89fCFpIfRVcC4tUzgQMkVhB6o
-	wu2/ChaRhEmAfx8kk6illgp68xC0B0XIeamJ91ksuE3oD4miERoSsiIzSUefL1I5XiIYe5/mkypk+
-	catOx4vCS1cZwwb14hdBMZQ27aejaOSHkRnDUDT7G6P8b3b/xWdnMZYyPRObiba9TAvxujy9PCR7+
-	v746Sor5TYhbbdGwpkqwvcMvizaHhGNmb7zBJ6LZpLMWseqViQi3laVaRWZgH/ofge1N5OgHdoOuv
-	GEVVn52vm12ZFJEIGt/Kj7oJB3Xejkxtu6To7vCnaaqoZ3QagDjWS8Ifr1uPleHl9Ec5Al7ZFI8Ua
-	TU/jQ42g==;
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xJmZW-00000006Whw-2MhE
+	id 1xJmZa-0000000DVJg-296w
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 06:46:44 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48b001cd92bso824515f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 23:46:42 -0700 (PDT)
+	Thu, 22 Oct 2026 06:46:47 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-48e00eee27dso1100222f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 23:46:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792651601; x=1793256401; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6hyPiRO1YLgh5z7vpK+8rbMGtfzuaM8kNLxgiQL1q1o=;
-        b=nl7TGnJ1s/u4JwGU4WGeYJ/gJ+LcOScLWJiKhr0JKc+GfPdChOs986Zf/fUs+vgxvH
-         swUEWvvtxfhaksVQ/CHNiXcnX2cuBwBlV/v3hOZlTp1KBYtx/w1d/VEmTOwMWjVDhSlv
-         Sj9UMt/2zyMOXOIzDIBy6SD+XxQid5rTzfsFv2mc9pp19//jj4gVX/TjXMFGP40bOq1d
-         za73bCVCq/u0U5bv3ZCWTewHC2iUjLX7Ld5NHUV1vJOkVSWAgbUK66AtSsBI1pejKQ1Q
-         SPaoP4uNf5ra6vyN8/HNpqhp4nYD/tg+3eqychbn29JlRKSWjAKYswmtLnN1SngCSa2q
-         eGJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792651601; x=1793256401;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1792651604; x=1793256404; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6hyPiRO1YLgh5z7vpK+8rbMGtfzuaM8kNLxgiQL1q1o=;
-        b=SEg+L7I0fsb7QsV5GLaeIM4+HtDBzAiYu4JuGdNII+VfXdvzhFVJrk0lHP7egrB5ju
-         uC4VTpaSKNfComN/b4sYilpM7vyUfGi3kG1yAe/8J06kTw1rah17p6/aLL4+6CYTi1Gl
-         pdfcM5kNxo8xs2Zv0hA8FNUwt1k+sonoJc+FG4O9Yvs8sgiYnwEjUK3m9+4YalvvNTh7
-         OFs4IN7OadtbwLdQavVdbsuyG6P7Te2kv57Lma9QAepmrN+hWxMEx3tx9KIUD9M/LPlp
-         99dzhAlVg22eGolTfeSsh0qBMajhnj2qrug8VUlbkTYn+ZUNqfMY6Lr96QpAl9vdFwA5
-         z84Q==
-X-Forwarded-Encrypted: i=1; AKwUvBzWiKede13KOrwXRPPzy7XFmDngGxspxwf9E4HYNaTBgZ2WvAvr4dwqeVhY1Bt4meXzXxF+YjPPTc100czwzb98@lists.infradead.org
-X-Gm-Message-State: AFq9FYJOWKNy35xvYutnLjrwN2A5Ygy0pOntAXVdzGUbqFZc8icyL2f9
-	vVEltET2o6yCyVhhHfG1JzgqEJXf16XuPJTyCgmGCc6bAt+Ya8Q61XfU
-X-Gm-Gg: AYBFou3ig8a74+VcEsfuTK42Gfd9RkLhrdtOPUMtotEbriHURVNej7ThZOApTyapzue
-	qxyu4gku0CNk3CdA6FMYG4b3MKMUOnqWPZr6XLcep59Rd51LE4HT7Uk40BQCzpAgel0luwJQl6B
-	+VXLloGUWRHFtTk65O/GAICbofVR34K6GvZBGGgdGDEN22/cVBd0ftmqqCVnaAGZuUbw4JntCEA
-	XGlWcATbbnhlQMp13p+rxraaQ2rSWfse95fh28XKvYWGSnKEJ3V8ZCu1kWXfzCNDiU1g0MGO2UG
-	Rn7RxLKF3pOWQtdYlECl0fr990MTJ0vPW9stzRrVtcT/Fs09+Zahzh9gqzX2iuLS8XrIhFLLpWS
-	06Nln7ay37bJMVizBWlUabPPgOWw9M/2GOHKE4sikDQzkycq+eT/vyC5wi4z65SQTZWFqc262x9
-	m+SvmKQ7kJwspL1w2Ol3ko2nGALUVaWLiH6V8d264MJNEswa+2ofxF1Iy4I73LnlzG0Hpk9Ldpu
-	yIWyydqdc5xNYnN3g082Wxg8XsrqdG8YV1QATgwnhYEC2kn8bD6AuN154xVhoB/HeZjGd9Wp6fM
-	FKG8PAarJ+JE6/lKueiw9jhEn3LbtJZq0FRMCI2qhPCnMlbZq0Gtao/o67WmgNaAs1UG0vXhQDd
-	nDLm7ROQQSGihmLfbhzUBEVx8/kLjq7osTz9Rln32pfcEfS6f07332cB3VSuxkN3M
-X-Received: by 2002:a5d:64e4:0:b0:48b:118e:7454 with SMTP id ffacd0b85a97d-48e264bd971mr9315929f8f.31.1792651600585;
-        Wed, 21 Oct 2026 23:46:40 -0700 (PDT)
+        bh=M/mYu7fYt3Nnrov1PUQgYA1NNwSASs0rt/VgYt7AiFM=;
+        b=KCHuiRV/S6AUIa4bMQ5ViJwijqP0pPUP4loDJCi0zj8ni+d43/ennXzU+gLOvuajFZ
+         ZAJSaIxA2180XLbLjD04vsjniQ8ImBCfCAve9MUgopmhx+do0KkUgnKuxxJGqhR437QW
+         BLHzLMDTNVmAxMLTrtUPSud9eirxQeruEuzGSmGQ5/HXaqur8eQfIMK/Qw+u+TDjSzXk
+         peGzKviy0Gjr7A9sYd5on+4OlasGjzf+EbQWJkmEHSi7FNoOs2xnPTdzFNaXYiAetZeK
+         xel8woG1wmwpZQwJTHhlVgeHomX3cLSgrJeuuEwmnqe0aew3UFSjEz8AeDuStgrKjTJU
+         JL3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792651604; x=1793256404;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=M/mYu7fYt3Nnrov1PUQgYA1NNwSASs0rt/VgYt7AiFM=;
+        b=bcw+KLrmvJSy6UqD2WilLogJyIaO4StGgmiCc3WaSkDzfWUnfLxyW2DXf7GzoWsUxS
+         iN7LvWAp1KogK/8sAExK5jRHm9opP51rE6TY8HyAXmtzeabrUmTYCsOwjujT1qHukgtN
+         9nN02i+Z16SptL5kpVj0FVYjsR3LcxYIHA5i+9/VIoSpExrjOVeoOW33HejlzxcqOLzq
+         bMEJq7R07lm8dxXkeIni8fimN+F0m49a9tUV1+4dIOgbzEQEmLo4BCHsq5qKv0wcpQAV
+         Ctr5pdnDbH/NAat/eHxdoHtpZ0S/kR23rIPeBrIw+ZRk80KDZZhXYzzgunziksElrzYj
+         CfVQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzZqq9pgJ06gN9wzEdlLG+cCx2/ugCNeVwOXDhIeZ9isS4tu/et/3qMayH1qYI/gEKZ6/BXqCVOPIRZueI3Bvew@lists.infradead.org
+X-Gm-Message-State: AFq9FYIT2Tei8InyE1Wqp8jxlR5drgmPafmO1/aQoXc2TCPI+MLxGZwA
+	GZ8oA4ohnQUBW+n6gmBWTkx1o7vRF8eAXImnmOQdrCD0c0MO5nLIw4+v
+X-Gm-Gg: AYBFou27OTVtBgtVB2qon0+RF9Kv8Fo4Db0/8JOvwqgeSsXFH7LrDJXbTvdNqs3nZx+
+	ZPMeN9y6Gerz3NTIKYX3/lIrKmNsLQOWgVQp2mG7IMDkO1tD2x6YMaVVZcKcFaCU/if5QQ6gEsC
+	ydIER6scG2C4fykQW0G0BpI5TuwRcxumZKX50M3+m1xZE6hgKuG9wqy3oZ1MkY3GY7h9blwMMEC
+	pHHh6Q4o+pB1mM78URd+n/38l2AeHuPgY03z9zNUFlhNJIp67U9gpiylbYOvRUkJWX4tGUktWtV
+	QxbCXpsuIQqOlnmBZ6dd7fO7JXTKzAsAAQs+4c+wPll/l2QxMkkY9dxMYPIA/TCI5Afa5XGo/HM
+	w12VVNZcq5fiA91ShjgGnfIA/Dfg4JOUBmgHTBmMLiwpg0tKRvBbeisvRliZ9GbAvti1Q3sEecn
+	+jecVVifpQmXxraACfv5b3wliqkDb22ZAplx5hQXoID84U5sk/QKbR8mjJo5/sahoorxMb8GqfP
+	qkDqRnlHRMyKpL1ctvx61hoNgjp43uMF5GGEL8zrpmtbXaGQpGBV+r78agH/siikSuDNIdtaTdQ
+	pncSfWujxgoKXUsWtCtfQyAXmwmBGNvh0XZY3EGe0CadKMutXoA6Od9TIxoveTFQK5fUF/yLDuA
+	hKgizXI0iWDD+v/EnmICsZP7j4b4EGAjMJC28VgBldNqYGYn7NOFCDMWMB50sYg+f
+X-Received: by 2002:a05:6000:1111:b0:48d:fed0:ccbd with SMTP id ffacd0b85a97d-48e264caa01mr6437578f8f.34.1792651604419;
+        Wed, 21 Oct 2026 23:46:44 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-ad43-d501-2c28-bb72-120d-420e.310.pool.telefonica.de. [2a02:3100:ad43:d501:2c28:bb72:120d:420e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e25828cd1sm10215624f8f.22.2026.10.21.23.46.38
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e25828cd1sm10215624f8f.22.2026.10.21.23.46.42
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 21 Oct 2026 23:46:39 -0700 (PDT)
+        Wed, 21 Oct 2026 23:46:44 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>
@@ -109,17 +94,19 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	kvm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 0/3] KVM: arm64: Preserve level IRQ re-pending
-Date: Thu, 22 Oct 2026 08:46:25 +0200
-Message-Id: <20261022064628.4206-1-kmehltretter@gmail.com>
+Subject: [RFC PATCH 2/3] KVM: arm64: vgic-v3: Don't drop pending writes to active level IRQs
+Date: Thu, 22 Oct 2026 08:46:27 +0200
+Message-Id: <20261022064628.4206-3-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20261022064628.4206-1-kmehltretter@gmail.com>
+References: <20261022064628.4206-1-kmehltretter@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_074643_156233_E65CB0DA 
-X-CRM114-Status: GOOD (  15.18  )
-X-Spam-Score: 0.8 (/)
+X-CRM114-CacheID: sfid-20261021_234646_576544_F942FF21 
+X-CRM114-Status: GOOD (  17.18  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,64 +117,73 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A guest can set a level interrupt pending again while handling it. The
-GIC records Active and Pending and delivers the interrupt after
-deactivation. KVM instead drops the second pending state for both the
-GICv2 and GICv3 backends.
+The GICv3 backend also loses a level interrupt set pending through
+GICD_ISPENDR or GICR_ISPENDR0 while it is active. Its LR handling has
+the same split between pending_latch and an Active-only LR as GICv2,
+and clears the new pending state after deactivation.
 
-The VGIC keeps software pending state outside the LR because commit
-67b5b673ad4d stopped placing Pending and Active together for level
-interrupts. When the LR is folded, KVM cannot distinguish the pending
-state used to populate the LR from a later ISPENDR write. This series
-records the later write and preserves it across deactivation. The last
-patch adds a two-vCPU GICv3 selftest.
+Apply the GICv2 bookkeeping to vgic_v3_fold_lr(). Clear the old latch
+when the LR reports that the interrupt has been acknowledged, and
+preserve a latch which was not represented in the LR.
 
-The awkward case, and the reason for the RFC, is a write from another
-vCPU while the interrupt remains in an LR. KVM cannot know whether the
-write preceded or followed the guest ack. This series preserves the
-write. A pre-ack write can therefore cause one extra delivery, while a
-post-ack write is no longer lost.
+GICv3 permits an implementation to clear register-set pending state on
+ack. Doing so matches the GICv2 backend and makes a later ISPENDR write
+a distinct pending state.
 
-The exact alternative is to stop and synchronize the target vCPU
-before applying such a write, as the active-state accessors do. Is the
-conservative replay acceptable here, or should ISPENDR pay that
-synchronization cost?
+Fixes: 67b5b673ad4d ("KVM: arm/arm64: vgic: Disallow Active+Pending for level interrupts")
+Assisted-by: LLM
+---
+ arch/arm64/kvm/vgic/vgic-v3.c | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
 
-The issue was reproduced with Zephyr, NuttX and RT-Thread guests. On a
-Raspberry Pi 400 host with a GIC-400, each GICv2 guest handled the SPI
-once before the fix and twice afterwards. A direct GIC-400 register
-test also delivered the interrupt twice. With a QEMU TCG GICv3 host
-running KVM, the new selftest failed before the fix and passed
-afterwards. Existing vgic_irq and kvm-unit-tests GIC cases passed on
-both versions. Those runtime tests used 8623551a424d.
-
-The series applies without conflicts to kvmarm/next at dd0bc00e3e92.
-The modified VGIC objects pass an arm64 GCC 14 W=1 build there, and the
-selftest builds natively on arm64. GICv5 does not use the LR path
-changed here. I have not tested a mapped physical interrupt or VFIO.
-
-Karl Mehltretter (3):
-  KVM: arm64: vgic-v2: Don't drop pending writes to active level IRQs
-  KVM: arm64: vgic-v3: Don't drop pending writes to active level IRQs
-  KVM: selftests: arm64: Test pending writes to active level IRQs
-
- arch/arm64/kvm/vgic/vgic-mmio.c              |   9 ++
- arch/arm64/kvm/vgic/vgic-v2.c                |  13 ++-
- arch/arm64/kvm/vgic/vgic-v3.c                |  13 ++-
- include/kvm/arm_vgic.h                       |   1 +
- tools/testing/selftests/kvm/arm64/vgic_irq.c | 101 +++++++++++++++++++
- 5 files changed, 131 insertions(+), 6 deletions(-)
-
-
-base-commit: dd0bc00e3e9201fd49b62ff9cc07890c89003afe
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index 726e20a1da6e7..8009dc6df00db 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -75,7 +75,7 @@ static void vgic_v3_fold_lr(struct kvm_vcpu *vcpu, u64 val)
+ {
+ 	struct vgic_irq *irq;
+ 	bool is_v2_sgi = false;
+-	bool deactivated;
++	bool deactivated, was_active;
+ 	u32 intid;
+ 
+ 	if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
+@@ -93,7 +93,8 @@ static void vgic_v3_fold_lr(struct kvm_vcpu *vcpu, u64 val)
+ 		/* Always preserve the active bit for !LPIs, note deactivation */
+ 		if (irq->intid >= VGIC_MIN_LPI)
+ 			val &= ~ICH_LR_ACTIVE_BIT;
+-		deactivated = irq->active && !(val & ICH_LR_ACTIVE_BIT);
++		was_active = irq->active;
++		deactivated = was_active && !(val & ICH_LR_ACTIVE_BIT);
+ 		irq->active = !!(val & ICH_LR_ACTIVE_BIT);
+ 
+ 		/* Edge is the only case where we preserve the pending bit */
+@@ -103,9 +104,15 @@ static void vgic_v3_fold_lr(struct kvm_vcpu *vcpu, u64 val)
+ 
+ 		/*
+ 		 * Clear soft pending state when level irqs have been acked.
++		 * A latch written while the irq was active is a new pending
++		 * state. A write while the irq was in the LR may also have
++		 * followed the ack, so preserve it too.
+ 		 */
+-		if (irq->config == VGIC_CONFIG_LEVEL && !(val & ICH_LR_STATE))
++		if (irq->config == VGIC_CONFIG_LEVEL &&
++		    !(val & ICH_LR_PENDING_BIT) &&
++		    !was_active && !irq->latch_written)
+ 			irq->pending_latch = false;
++		irq->latch_written = false;
+ 
+ 		if (is_v2_sgi) {
+ 			u8 cpuid = FIELD_GET(GICH_LR_PHYSID_CPUID, val);
 -- 
 2.39.5 (Apple Git-154)
 
