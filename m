@@ -2,149 +2,123 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4316E606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 05:11:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C79A60A2618
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 05:17:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kyBnKqgN;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=WxELNRix
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rajQkhB5;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=JD9prCgu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SUPx8zY1+kcUd4Fjaogw3QAnQedY2aoGxBYkMKek8PI=; b=kyBnKqgNXrUgYsrMS4WkYDf8x3
-	P/rWU7YKqqLGXI5Erqsl3Z8g4g4mgr2P+nvegVfg8CdHaspnMTkLQL/a85bjLtK5uTmBPglyIbFCm
-	xM7/A2R97GjtwvRKano1CelLEuPwIhZG3qaVX9Bb7UlzAU849KnKUZACt2QRTrQpwYpOv1mUaRXcZ
-	94gLSCmlmRMqrRKOsi3j61V5l2NkNH8UeS1qz1dyHSXnwha8ggjfP/n07TD14/J/+MTh1piM84818
-	fZLAuj5ErLQUBmuGn5CPD9yf/6MgTRo0lt1IIIn9QFyJ2069A7WGGmO/xyWBHrKpEFezCc8GSkSk/
-	X5hJL0Og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=H/SXDgdhEaQ9Leps7ngp4tdnFYLEJykx5g1h92ea+nY=; b=rajQkhB5MjICCTwHtHg//LTjg8
+	4RKkcqdomQWzta2ALrpav5FtDwl+tjhn1CroC6rFlKwmEgq+NnpvUvkstQ5ZWAwf0xDGUio1oUlOD
+	JKVAI/4Guh01tiSIwoEEG9d2ZRLNqIMy4r8oMLhem+wdi/gn0V64ZTl9OX60UC80h7jBubOWdK5ZI
+	TY/+evqKZdRaKqnCqFxra1Qqlv1BP1Utq40SF2OWTcaHQhoDlkTk+3C6P9bmY8RA2tLjdThX9eltF
+	QCR/4xhFC//jYC/CqAaIpRBO6yo7y/M7/9/eWvLUxNnQn9LQ9nep5w5S4NQPp6bmyhzsQ+BVEpAxu
+	dw7Ee98A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJl5A-0000000DLz0-2qa1;
-	Thu, 22 Oct 2026 05:11:16 +0000
-Received: from mail-westcentralusazon11010062.outbound.protection.outlook.com ([40.93.198.62] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1xJlB2-0000000DMCB-0H2v;
+	Thu, 22 Oct 2026 05:17:20 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJl57-0000000DLyc-1Imt
+	id 1xJlAy-0000000DMBa-35sX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 05:11:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mrLdq7AI17IJFe+qHFSUt/JB2QEvBVu3Z2pqR3p00BxXWoRZtojiyibm429GGxXWCnr1e7YEjx/Q/adovySr7BRD2eHcnR4IlSKh0rWcPmI6IXr7i9EFJUA41wCVvUJchCrHRvCteG8OXMmAihKX30fTfFEGEJzlQ2yRHElNa0ghY9wb0mY9n6xYyWU3cbzpMCsBfi9h1Rjr/oENmpa3wV3fWVQBV/ByOIZFUkU22kkya538910QBCgTnm/gfdqjTF6hSKM5JvUuVtTI/tA4H3eLyV8jJYqgTxkypz+Ibl0rYQbCRo09rF+v6B9PffNS9TSXdqONNDN79aCHcj1S2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SUPx8zY1+kcUd4Fjaogw3QAnQedY2aoGxBYkMKek8PI=;
- b=icnEXXZBkMMqbnfbJrDWhI4hY1tU8CCC1nmUAidT1SNXBB6jmEwDUdjL9X1pVIFPJwxUVOEisogs3jUop3A6pAGNxIe9+w3+p8faljE4T+e01JHJ2vI0j82HYr3oobCWjciMgqDSeyJ7JP9tbLfVx3d8b1uER2d4sM6LwIa7WAjsePVKqGv6efMj618PQ/zukGiNeUZQ+KcHFU2q4yXlYiuKP1tCr0KdJWJacu7ybZIfsMTAy1AmytCL0J7/X9ILJx9qcJ7a9I6f/c6UBvFzx2oIys0rV7yKJr6lVFt4BM7VArgl+qg810UJRxANoYHjvn8a4z4ca2yFSdubY7cTPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SUPx8zY1+kcUd4Fjaogw3QAnQedY2aoGxBYkMKek8PI=;
- b=WxELNRixywqfbY+OhXxagc4DvsnbXa48uere/cuguR82vt8EJoTxbzldc1/idu2Q5G6Ih68LNjSS3CxQQmPGdG/xKhA4Y5ZfjC5tQxbstMFM5D/dwPyj//ijeSIPXbi3GGt+VvxgXdSA6d1xgEZKqiU1Yv3/Z2nkioD0olbdtB0=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DS4PR12MB999075.namprd12.prod.outlook.com (2603:10b6:8:2fc::20)
- by BN7PPF7C0ACC722.namprd12.prod.outlook.com (2603:10b6:40f:fc02::6d5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Thu, 22 Oct
- 2026 05:11:03 +0000
-Received: from DS4PR12MB999075.namprd12.prod.outlook.com
- ([fe80::4c9d:851d:3f44:800f]) by DS4PR12MB999075.namprd12.prod.outlook.com
- ([fe80::4c9d:851d:3f44:800f%4]) with mapi id 15.21.0546.012; Thu, 22 Oct 2026
- 05:11:03 +0000
-Message-ID: <212a4fc4-437a-409a-821e-86b9b8c7f85c@amd.com>
-Date: Thu, 22 Oct 2026 10:40:53 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/6] dmaengine: zynqmp_dma: Use PM guard for probe-time
- runtime PM reference
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
- Michal Simek <michal.simek@amd.com>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Kedareswara rao Appana <appana.durga.rao@xilinx.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Michael Tretter <m.tretter@pengutronix.de>,
- Harini Katakam <harini.katakam@amd.com>,
- Shyam Pandey <radhey.shyam.pandey@amd.com>, dmaengine@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org, git@amd.com
-References: <20261009-adma-pm-fix-and-per-channel-reset-v4-0-55f5fe409c55@amd.com>
- <20261009-adma-pm-fix-and-per-channel-reset-v4-1-55f5fe409c55@amd.com>
- <asmsVD1RP6FoMN9l@SMW015318>
-Content-Language: en-US
-From: "Golla, Nagendra" <Nagendra.Golla@amd.com>
-In-Reply-To: <asmsVD1RP6FoMN9l@SMW015318>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5P287CA0069.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1b3::17) To DS4PR12MB999075.namprd12.prod.outlook.com
- (2603:10b6:8:2fc::20)
+	Thu, 22 Oct 2026 05:17:18 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4a16aaf2067so16288825e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 22:17:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792646234; x=1793251034; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=H/SXDgdhEaQ9Leps7ngp4tdnFYLEJykx5g1h92ea+nY=;
+        b=JD9prCgubpLjQMK8tPd0yazorBGbjv4B6y8baymxGOqpoVjoWAD0SE+wBWAzHkc474
+         qKu4cXBW6Ow6obAQuiUBpaYqsFDXE7L9AgDq5R0gSYJWGfiyB8Hm4mRj6cX6oNYWQsTU
+         pS1SeaGoxLKkhUaHtnMLY6VXZuT0POLkPNsAFRRr6CjuPGAzcf1wUYT6ICPMw3+HyC8D
+         me0LvfjviqUPgjEanLI6Hh+uroQ52+2FvD5tKJhZTK1pfV4Zc5ltoU3aa+CfcFJ4L096
+         vA8Rb18aA8wH5Vvar7h/jDqL4MFmvQ/kLOfT100BtIleYFhYdwetjHsOqvNLbKGqtQ7+
+         oPXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792646234; x=1793251034;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=H/SXDgdhEaQ9Leps7ngp4tdnFYLEJykx5g1h92ea+nY=;
+        b=u+cn31JpDImT0LLDR5uYAyKD/+bOK3dQefZS/lHymjhRigwX6bQSSQhXX4KEdCnUEF
+         z5oiBX+HA/idHmXD/aNbEjqToaF4ggkbJ7/9+igxY3Z040zpaFCrM40lOgSAPi5m/yyH
+         SZZVtH0uChc18Nfp3ixh0FPZjsB6HiEF3oUp2Wba44DOIoUh2exVpYHs4HmnqC7VDwUQ
+         sZt/opFsgpZB+LHjVytG5JAElDpXsR/6NPitFOunQhaAIiHiKluUkw8rEqbQ+CSXADgl
+         jm8tfV43jYI87i7bB30+fexSkLhhLBqz5SAygxD08Dj88MlVLWkywuZjwwQKPdK80XSu
+         avXA==
+X-Forwarded-Encrypted: i=1; AKwUvBwsWa7n2eKn8r5CXdYVc08qlqnm9wxX7KvaxTV1EBzxLZyxyCSdpErmYmVZxt/W+Ibb7KRNjza2Be82tVVIAzGu@lists.infradead.org
+X-Gm-Message-State: AFq9FYI37muITSJpHOuCXWOkd7I2kyhtJvepNZM7fbNfZA0GPnjdnIng
+	fdav+wbwa8LnVWLyskp9yIonPtx64QyfhIv/JsO8UzcWY/t+Pjj/qgQQ
+X-Gm-Gg: AYBFou0WdINsRpnfMGN8K3rX9Eqkcw82xY6Ig+JkHNjpAQHrgkniFlED1rcv87baRBU
+	uzmvKJJJtN8KSytQmvv2+zhU8hlBvz0KbdTr9GQIyT337SWPDYtBmlemG0NiGLDHnSTigm5+tPg
+	nz8vun7YqeM/EJi2fJ+4F64PGMIxGS9e9Cknl+I/3UfhoQLZqLO7N0c7uQ58o9SCbf7Q59dEeER
+	KEP99CPWNeLC05Bv8iYG2X1dvGTpoLOSn6wZH4TTv7cEn6nlBohHEHeAoCKicknviJRtAyLTpSN
+	nB0wdgeGs2eYLnC6rUPbvhoOZ10lUp9xSvlDyWbJJeJj2wIydpof5piSVacVOggVdPmdm1YVztF
+	Djly/xpc2m1oItXI+nRGryuNdWVzvzbabvIG6py+J3fqw3QnLJso52AcuEkePnyqsnQY5UMsvnN
+	Y6VBmGaWLl62YS13KmusRDVLPw4aSAKDuYYYosdKFjecC0g/bxpwIMpyxMEuNbeSR8Kb6tzmiGN
+	bpf9/cbZL2aNIHUF/F7n4naQ3CnjxeEm2jhhZ1rGowF0oSSdXEQzgIuKnO76nDQueOkUVP2mkdA
+	oKXKA1SXpJKyunSRG9JH8NIj6B7T/3wxkWOnSyk020H4YZHPlyoPdgLHmTcbMR08w11rhtGuwZX
+	UfU6E8Dz60AuZTwmmaTAOygxS0JSWyWMH+qq53UIp/YY6vr1y8G5EU01CJLw=
+X-Received: by 2002:a05:600c:3513:b0:4a1:cedc:ab49 with SMTP id 5b1f17b1804b1-4a1fdd1e97emr87433205e9.31.1792646233938;
+        Wed, 21 Oct 2026 22:17:13 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-ad43-d501-2c28-bb72-120d-420e.310.pool.telefonica.de. [2a02:3100:ad43:d501:2c28:bb72:120d:420e])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1fd0f4427sm90362275e9.3.2026.10.21.22.17.11
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 21 Oct 2026 22:17:12 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	"Paul E . McKenney" <paulmck@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Boqun Feng <boqun@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Hongyan Xia <hongyan.xia@transsion.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	linux-doc@vger.kernel.org,
+	llvm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH 00/12] entry, tracing: Classify early hardirq entry and return tails
+Date: Thu, 22 Oct 2026 07:16:42 +0200
+Message-Id: <20261022051654.79224-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS4PR12MB999075:EE_|BN7PPF7C0ACC722:EE_
-X-MS-Office365-Filtering-Correlation-Id: 27326766-1af6-4b15-015c-08df2ffade51
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|7416014|366016|261021123027099003|56012099006|261009220027099003|4143699003|11063799006|261009223027099003|261009223327099003|261009221227099003|261009221727099003|10067099003|22082099003|18002099003|261021121427099003;
-X-Microsoft-Antispam-Message-Info: 7+eiMIztOftif+r+52w89RZ/S/ya2IvX//KpqKelSkTu9Eyp/S3HJCnPJeHlX3HbeUMMWTVQ+0VTCAurvY2rUM8kRcGMCsLKTNa9fZIgn0AavvcmBpeUraLLrjptpM2xyMfo7GZxaJRfFkLX+UN7Gj+kTbKn0hFVaLdggJo7fuoEEVJ3EpMJFHYsEtDkKJbfo/qVM/XHlGEvlYm3L+MTg8McOzxaL/zqK+c9GqCL6N6fEeMLWsu3jYmPDslC7epfcdffwqb78y9ZEtkgtaBWngj61QmB6Vei3f96xq0HEBBHDOgNzwKekNhxytF9kjDevNlyASW3BxekNqGxco1F0UfSQV9CLZHke+ryziVYMcaZo3DG2KEhwsnAsct4A4iDFwc3S16BlMkvG4NdaqotRbdpURC+kXNj15mghS6WQ26dzBZdqOh1pIJTmDBPjx2Udn7TWcupsh4DwDcP9uYsAHd3DFVlRs6X91W43dlxDLrTVT+dKvspbrIt2D6Sjc49D13by0odn25BQxoaBvinL/E/7KAzLiojVJxqrAPs4LpioI9GTKXA7ddkLLhUsHRJnNlSHF6H+ea3LGK3jrsA7LZVDT447TystAQjvslwT3/4N1nmGtoOcByzsOE0ST3k
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PR12MB999075.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(7416014)(366016)(261021123027099003)(56012099006)(261009220027099003)(4143699003)(11063799006)(261009223027099003)(261009223327099003)(261009221227099003)(261009221727099003)(10067099003)(22082099003)(18002099003)(261021121427099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bXJORUhRNU1uNVhzSWVpTjRQMkxhb291V0JxQmltUjUrck4zaVVhT1lVRzBM?=
- =?utf-8?B?d1E1M0Vad2hRK2F6bloyeEdkbVBnQjd1enQ5NDcvc1pGNnNkV1FST3VvbkFs?=
- =?utf-8?B?S0l4RGwwcXh6RExNTVFvZkROOXlHUU14YmUxbk1mcU5uaGNORGRpQTNleXhG?=
- =?utf-8?B?VDhHTG45Qmg2VDlNUTRNYldaRm5RT3QwYTJjZDN6R0FEdDliWWtubXpyS1hi?=
- =?utf-8?B?Z3g1WEsvanRvZHVVWW02R29aMlNUcDI4ZVpFUC93ZW82cG5DY0t4SHoxV1Nh?=
- =?utf-8?B?SUZuKy9IaHRaV0RwUjhNVDFVWnZHZUhiVmpVOFFoaHBIaDFDdis4ZjR2akd5?=
- =?utf-8?B?aElTZ3p5Y3pmVEY1Vm1zeU5nOHRRQlpMM2J3dzV5UTRmRFozMkFpMFJPZ01K?=
- =?utf-8?B?c2ZNMUhmNm40WE5oenVxL3ZvazREUHlqMHRqZzEyL3o2WXZ5cm1ocWdRV2dl?=
- =?utf-8?B?U3FyUEREdExOakZNTFQvaklxNzFGWktpSFBHQXpMVmIxT0xlODQ2eXBYUHdC?=
- =?utf-8?B?NUtiUnlTd3lsTTI0Rmp0U0xOTjhDMnJxVVE5VUtKajVIWk9pSTZ0cWJwbFZt?=
- =?utf-8?B?QmxCazlNZUpZLzhoSXJHSGJPRWdKZlVwSWtCbG5ud2swWDR0SVJIRGt6QWc3?=
- =?utf-8?B?SXdwbHl3UW91cXp4MnovVTg2aFFEVkxyN20zeVMrZ0pLcWxLMXRwN1Y4YXRu?=
- =?utf-8?B?S0pZRnlDQlV5QXNlZ0grdWc1SjdLU2tUcGFkVFpVaC9MVWwybDg5SStoRHIy?=
- =?utf-8?B?VkEyNWVnR3FCczU1QmRUaXBERm9NNGVkOUFQLzBuQmd3Q3pyeHVuNFRWd3NZ?=
- =?utf-8?B?bzFJU2krNS9TRGxCZ1c1YTVGblJuNmpaejlEQ1JuYzV1alFmWCswbmR6TjBC?=
- =?utf-8?B?dWtEamkwR0JSMDRXU1lKLzFtWUdsbndPT2t1dHhpblRLQkgrQkJiQTMzMmRw?=
- =?utf-8?B?WVBjWTV6cTVlK0wrQlhtVTFMWWxGcld2bGM1aXh0aFhhendqT2IzYXBwUlRX?=
- =?utf-8?B?eTFQOHRLQkRXc3QrM1VLUVc5SVo1NE5VL1V5aFd0S3M4a1JEQTRoNXB5ODRz?=
- =?utf-8?B?OTNqL0FYVWU4Q2JqdjFCYkU1Zi96SDN4R2hFVS9DN0p0eU1sdEZ6b1J1dGJx?=
- =?utf-8?B?bktEeWRrVDZhT2Yzb0NicUNNSHptaHcrMUcxdVlhYnVIdEsrZGdML1ZVT2ZF?=
- =?utf-8?B?SlpJMlRaRzBaeG5qc1E4QnlPalUxTDlzME9ZQXBYMW43cGFSN3RqcDBVWjZp?=
- =?utf-8?B?TmM4K2wydFV1WENtZDlvcWFncTJxZUwwVFYzMmVVUGNDQnMyRk0wMFF3ekpj?=
- =?utf-8?B?Nm10ZHlIMXBpZ3Fyd3lOK01jL1Qzc1kxUzNqTXA3ZlhPRVNNZjVnZ3pkTkhF?=
- =?utf-8?B?OGxac2JHdDNwaFMwdy9JR3VpS2FIL3FWcXNzSnVZQW1ya3JjYW1aaTh5N20w?=
- =?utf-8?B?c2lPTlh2RjhVL1I5a21rMjI1ejA5M0ZGaGJHbVpTMTZNbUZ4VzRYSE1YQnhP?=
- =?utf-8?B?clF5azlpeU81WlYrQy9XUUhXRnhyYTNITGRvNEMyOWh5RHVwZnM0a3QxV3ho?=
- =?utf-8?B?ZEJwQjJQS2Q4dDlOdG4vQTI2azVmZys5MHB0SzFOT2hhVmxId1lBOEVXeVlP?=
- =?utf-8?B?L2J2T1dVVWZpTHlSc0dWSDZmd0NWOVRaS2R1cmprLzVWY012eEFqdGFnQThl?=
- =?utf-8?B?dTZSTDZCeWxWRnRmRVhtNm9yWFY4c1BMWmorTndOR2VjWVk0QzdRU2JhL2dk?=
- =?utf-8?B?NjFjWTFWRVhYa1QxZlBTVVVnU2ErNFI4cktwc3BwelQ4bVk4YkNVQkI3QW15?=
- =?utf-8?B?aWJWYVFDMGJ0UHdCUVBBbTZHMVJGOXlIeG1yMEwwVWk4bUthQUdTU29wbW5P?=
- =?utf-8?B?aEMzbm96UGxqdExNZHpsbmNuaVNCaERwQjllWkJOekNLeEV6MDZMQWEwL0ZX?=
- =?utf-8?B?WEp6dWg2bjdiOC9qSS8wMUh6V0ZhYWlUZ0VGWUswaEJpZS84WU1nZ2g3Rnoy?=
- =?utf-8?B?THdNenpNbUxsQmVJRk4weGU3UFVBRjRhMmRSMk9jWkpJVVdZZFRTcGhXdDlv?=
- =?utf-8?B?NCtWbVdTemg4S0QweHNscEtJaks4ajJBOXlSR1VXVFMrZkltUFZqZ2tGTWov?=
- =?utf-8?B?WUNhMkNlTE5Wam1MUXY5cHpHRkYzNGNnc2hmNHdBWWNBaFBPSlFOM25kajMx?=
- =?utf-8?B?QktsODUxYnE2UWd1VXpoYnh4NUIwSW1LaWtZZ2xTcjFNWHAyd1hpZ2pZYmlZ?=
- =?utf-8?B?R3pud3BwVitOczVEL2d1NGpiakpaZFprUU45T1ViZVJnWXZ2aXNqK2Z2dE9R?=
- =?utf-8?Q?bJet9qSm1gu4ajIsl+?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 27326766-1af6-4b15-015c-08df2ffade51
-X-MS-Exchange-CrossTenant-AuthSource: DS4PR12MB999075.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2026 05:11:03.1332
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2HD3p9n643+igRMJNOHYz3gCgiHblczUMWhB/WviyWC5atxCxMBUxJt0t7cIFvpugYXSXwN1fSSMFUKiYwqKMg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PPF7C0ACC722
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_221113_437110_9BCACCFA 
-X-CRM114-Status: GOOD (  25.85  )
+X-CRM114-CacheID: sfid-20261021_221716_807514_245CE867 
+X-CRM114-Status: GOOD (  17.08  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -156,216 +130,105 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Frank,
+Tracing's transition recursion slot exists because a callback can run after
+architectural hardirq entry but before generic entry increments
+preempt_count(). Steve asked whether the count could be updated soon enough
+to remove that slot. This RFC establishes that entry contract on arm64 and
+closes a separate recursion window exposed by the same tests.
 
-On 10/10/2026 8:39 AM, Frank Li wrote:
-> On Fri, Oct 09, 2026 at 09:30:10AM +0530, Golla Nagendra wrote:
->> Replace pm_runtime_resume_and_get() with the PM_RUNTIME_ACQUIRE_AUTOSUSPEND
->> guard to manage the probe-time runtime PM reference lifecycle. If the guard
->> acquire fails, fail probe immediately so a broken device is never
->> registered.
->>
->> When runtime PM is not enabled for the device, call
->> zynqmp_dma_runtime_resume() directly after pm_runtime_enable() to bring the
->> clocks up for probe.
->>
->> On probe failure after a successful guard acquire, drop the reference with
->> zynqmp_dma_probe_pm_put(), inhibit the guard destructor with
->> retain_and_null_ptr(), and gate the clocks through
->> zynqmp_dma_probe_fail(). When runtime PM is enabled,
->> zynqmp_dma_probe_pm_put() uses pm_runtime_put_sync_suspend(). When runtime
->> PM is not enabled for the device, balance the guard usage counter with
->> pm_runtime_put_noidle() and gate the clocks with
->> zynqmp_dma_runtime_suspend(). Runtime PM does not suspend a device that
->> is already disabled, so pair every direct zynqmp_dma_runtime_suspend()
->> call with pm_runtime_set_suspended() to keep the runtime PM status in
->> sync with the clocks.
->>
->> On probe success, release the probe-time reference with
->> pm_runtime_put_sync_autosuspend() when runtime PM is enabled for the
->> device. When runtime PM is not enabled for the device, balance the guard
->> usage counter with pm_runtime_put_noidle() only and leave the clocks
->> enabled so that later channel allocation can use the hardware. Inhibit the
->> guard destructor with retain_and_null_ptr(pm).
->>
->> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
->> ---
->>   drivers/dma/xilinx/zynqmp_dma.c | 68 ++++++++++++++++++++++++++++++-----------
->>   1 file changed, 50 insertions(+), 18 deletions(-)
->>
->> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
->> index 3b7dfa53f972..a48106e404e7 100644
->> --- a/drivers/dma/xilinx/zynqmp_dma.c
->> +++ b/drivers/dma/xilinx/zynqmp_dma.c
->> @@ -18,6 +18,7 @@
->>   #include <linux/slab.h>
->>   #include <linux/clk.h>
->>   #include <linux/io-64-nonatomic-lo-hi.h>
->> +#include <linux/cleanup.h>
->>   #include <linux/pm_runtime.h>
->>
->>   #include "../dmaengine.h"
->> @@ -1077,6 +1078,29 @@ static const struct dev_pm_ops zynqmp_dma_dev_pm_ops = {
->>   			   zynqmp_dma_runtime_resume, NULL)
->>   };
->>
->> +static void zynqmp_dma_probe_pm_put(struct device *dev)
->> +{
->> +	if (pm_runtime_enabled(dev))
->> +		pm_runtime_put_sync_suspend(dev);
->> +	else
->> +		pm_runtime_put_noidle(dev);
->> +}
->> +
->> +static int zynqmp_dma_probe_fail(struct zynqmp_dma_device *zdev, int ret)
->> +{
->> +	bool rpm_disabled = !pm_runtime_enabled(zdev->dev);
->> +
->> +	zynqmp_dma_chan_remove(zdev->chan);
->> +	zynqmp_dma_probe_pm_put(zdev->dev);
->> +	pm_runtime_disable(zdev->dev);
->> +	if (rpm_disabled || !pm_runtime_status_suspended(zdev->dev)) {
->> +		zynqmp_dma_runtime_suspend(zdev->dev);
->> +		pm_runtime_set_suspended(zdev->dev);
->> +	}
->> +
->> +	return ret;
->> +}
->> +
->>   /**
->>    * zynqmp_dma_probe - Driver probe function
->>    * @pdev: Pointer to the platform_device structure
->> @@ -1087,7 +1111,7 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
->>   {
->>   	struct zynqmp_dma_device *zdev;
->>   	struct dma_device *p;
->> -	int ret;
->> +	int ret, pm_err;
->>
->>   	zdev = devm_kzalloc(&pdev->dev, sizeof(*zdev), GFP_KERNEL);
->>   	if (!zdev)
->> @@ -1128,21 +1152,30 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
->>   	pm_runtime_set_autosuspend_delay(zdev->dev, ZDMA_PM_TIMEOUT);
->>   	pm_runtime_use_autosuspend(zdev->dev);
->>   	pm_runtime_enable(zdev->dev);
->> -	ret = pm_runtime_resume_and_get(zdev->dev);
->> -	if (ret < 0) {
->> -		dev_err(&pdev->dev, "device wakeup failed.\n");
->> -		pm_runtime_disable(zdev->dev);
->> -	}
->>   	if (!pm_runtime_enabled(zdev->dev)) {
->>   		ret = zynqmp_dma_runtime_resume(zdev->dev);
->> -		if (ret)
->> +		if (ret) {
->> +			pm_runtime_disable(zdev->dev);
->>   			return ret;
->> +		}
->> +	}
->> +	PM_RUNTIME_ACQUIRE_AUTOSUSPEND(zdev->dev, pm);
->> +	pm_err = PM_RUNTIME_ACQUIRE_ERR(&pm);
->> +	if (pm_err) {
->> +		retain_and_null_ptr(pm);
-> 
-> Not sure why need call retain_and_null_ptr() here, generally only need
-> call retain_and_null_ptr() at success pass if you use want to keep
-> runtime_pm active. at fail case, needn't do that.
-> 
->> +		pm_runtime_disable(zdev->dev);
-> 
-Thanks for the Review> If use devm_pm_runtime_enable(), needn't this one.
+This is a design RFC, not a merge-ready proposal. I am looking for
+feedback on the entry contract before extending it to other architectures
+or removing TRACE_CTX_TRANSITION.
 
-We intentionally keep the nondevmpm_runtime_enable()pm_runtime_disable() 
-pair here and do not switch to devm_pm_runtime_enable(). 
-devm_pm_runtime_enable() registers a devm action that calls 
-pm_runtime_disable() automatically after .remove returns. Since remove() 
-already calls pm_runtime_disable() explicitly itself, switching to the 
-devm variant would mean pm_runtime_disable() gets called a second time 
-for the same device — driving disable_depth into underflow, along with 
-any other invalid state that comes from disabling an already-disabled 
-runtime PM.
+Clang can outline raw preempt-count updates and
+__kern_my_cpu_offset() from noinstr entry code. This series applies to a
+tree with the following two patches added:
 
-If we remove the explicit pm_runtime_disable() from remove() to avoid 
-that double-disable call, it would affect the fix introduced in commit 
-9c58a42c1612 ("dmaengine: zynqmp_dma: fix race between runtime PM and 
-device removal"), 
-https://lore.kernel.org/all/20260630064844.705173-2-nagendra.golla@amd.com/
-which added that explicit disable specifically to close a race between 
-runtime PM and device removal.
-Dropping it would reopen that same race.
+  - Hongyan Xia, "arm64: Always inline raw preempt count updates"
+    https://lore.kernel.org/all/c3a90368dd6c096af9d918e036a27728696fb8a4.1786603168.git.hongyan.xia@transsion.com/
+  - Will Deacon, "arm64: percpu: Annotate __kern_my_cpu_offset() as
+    '__always_inline'"
+    https://lore.kernel.org/r/20260918161407.2300-12-will@kernel.org
 
-Thanks,
-Nagendra
+Those patches are external prerequisites and are not included in this
+RFC.
 
-> 
->> +		if (!pm_runtime_status_suspended(zdev->dev)) {
->> +			zynqmp_dma_runtime_suspend(zdev->dev);
->> +			pm_runtime_set_suspended(zdev->dev);
->> +		}
->> +		return dev_err_probe(&pdev->dev, pm_err, "device wakeup failed\n");
->>   	}
->>
->>   	ret = zynqmp_dma_chan_probe(zdev, pdev);
->>   	if (ret) {
->>   		dev_err_probe(&pdev->dev, ret, "Probing channel failed\n");
->> -		goto free_chan_resources;
->> +		retain_and_null_ptr(pm);
->> +		return zynqmp_dma_probe_fail(zdev, ret);
->>   	}
->>
->>   	p->dst_addr_widths = BIT(zdev->chan->bus_width / 8);
->> @@ -1151,7 +1184,8 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
->>   	ret = dma_async_device_register(&zdev->common);
->>   	if (ret) {
->>   		dev_err(zdev->dev, "failed to register the dma device\n");
->> -		goto free_chan_resources;
->> +		retain_and_null_ptr(pm);
->> +		return zynqmp_dma_probe_fail(zdev, ret);
->>   	}
->>
->>   	ret = of_dma_controller_register(pdev->dev.of_node,
->> @@ -1159,19 +1193,17 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
->>   	if (ret) {
->>   		dev_err_probe(&pdev->dev, ret, "Unable to register DMA to DT\n");
->>   		dma_async_device_unregister(&zdev->common);
->> -		goto free_chan_resources;
->> +		retain_and_null_ptr(pm);
->> +		return zynqmp_dma_probe_fail(zdev, ret);
->>   	}
->>
->> -	pm_runtime_put_sync_autosuspend(zdev->dev);
->> +	if (pm_runtime_enabled(zdev->dev))
->> +		pm_runtime_put_sync_autosuspend(zdev->dev);
->> +	else
->> +		pm_runtime_put_noidle(zdev->dev);
->> +	retain_and_null_ptr(pm);
-> 
-> You mix use auto cleanup and pm_runtime_put_sync_autosuspen() and
-> pm_runtime_put_noidle() to make code mess up.
-> 
-> Frank
->>
->>   	return 0;
->> -
->> -free_chan_resources:
->> -	zynqmp_dma_chan_remove(zdev->chan);
->> -	if (!pm_runtime_enabled(zdev->dev))
->> -		zynqmp_dma_runtime_suspend(zdev->dev);
->> -	pm_runtime_disable(zdev->dev);
->> -	return ret;
->>   }
->>
->>   /**
->>
->> --
->> 2.43.7
->>
+Patches 1 through 11 split raw preempt-count updates from generic IRQ
+bookkeeping. On arm64, ordinary interrupts add HARDIRQ_OFFSET after the
+pseudo-NMI decision but before instrumentable generic entry work. The
+remaining accounting still happens in irq_enter_rcu().
+
+The exit side has a similar gap. Function-graph and MTE callbacks can run
+after the real hardirq state has been removed, and kernel return may
+schedule before them. The series records ordinary-hardirq provenance and
+restores a synthetic hardirq classification after the preemption decision.
+That tail changes only preempt-count and lockdep state. It does not repeat
+interrupt accounting, RCU, or tick entry.
+
+Patch 12 keeps tracing's recursion state inside one preemption-disabled
+interval. It closes the transition collision reproduced at the IRQ-exit
+reschedule boundary. TRACE_CTX_TRANSITION remains unchanged because
+unconverted architecture entry intervals can still run before
+preempt_count() reflects hardirq context. An x86-64 no-transition control
+still recorded recursion at system-vector entry and exit and in the
+deferred hrtimer return tail.
+
+The base includes "entry: Account the deferred hrtimer rearm as hardirq
+context for lockdep" and "softirq: Preserve interrupt context on return
+from interrupt".
+
+The main questions are:
+
+  - Should generic entry expose separate raw-update and bookkeeping phases?
+  - Are preempt count and lockdep state sufficient for the return tail?
+  - Is arm64 a suitable first user of this contract?
+  - Should the recursion-lifetime fix travel with the entry conversion?
+
+Karl Mehltretter (12):
+  sched: Split preempt-count bookkeeping from raw updates
+  lockdep: Use raw access for pinned hardirq state
+  entry: Add the pre-counted ordinary-hardirq entry/exit contract
+  entry: Skip inactive IRQ-return reschedule calls
+  context_tracking: Split IRQ-exit preparation from the EQS transition
+  lockdep: Prepare IRQ-on state from a hardirq return tail
+  entry: Carry ordinary-hardirq provenance through kernel return
+  entry: Classify ordinary hardirq return-tail work as hardirq context
+  arm64: Use the pre-counted hardirq lifecycle
+  docs: entry: Describe the pre-counted hardirq lifecycle
+  locking/selftest: Exercise hardirq return-tail preparation
+  tracing: Pin recursion state for its complete lifetime
+
+ Documentation/core-api/entry.rst     |  75 ++++++++++--
+ arch/arm64/include/asm/preempt.h     |   2 +-
+ arch/arm64/kernel/entry-common.c     |  25 ++--
+ include/linux/context_tracking_irq.h |  32 +++++-
+ include/linux/hardirq.h              |  29 +++++
+ include/linux/interrupt.h            |   2 +-
+ include/linux/irq-entry-common.h     |  96 ++++++++++++++--
+ include/linux/irqflags.h             |  14 ++-
+ include/linux/preempt.h              |   9 ++
+ include/linux/trace_recursion.h      |  14 ++-
+ kernel/context_tracking.c            |  78 ++++++++++---
+ kernel/entry/common.c                |  38 +++++-
+ kernel/locking/lockdep.c             |  48 +++++---
+ kernel/sched/core.c                  |  68 +++++++++--
+ kernel/softirq.c                     | 166 +++++++++++++++++++++++----
+ lib/locking-selftest.c               |  53 +++++++++
+ 16 files changed, 648 insertions(+), 101 deletions(-)
+
+
+base-commit: 779ab5d73a22c798d1273b4aaf50cf5b8d750be9
+prerequisite-patch-id: 9c009809614854fbff979d65aad6732757d006d5
+prerequisite-patch-id: 764fd197db36a3889548bbc41890dd5b3d902f99
+-- 
+2.39.5 (Apple Git-154)
 
 
