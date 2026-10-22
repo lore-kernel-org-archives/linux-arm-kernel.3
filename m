@@ -2,113 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABAE7606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 10:21:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0627B606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 10:23:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=njVtoFwU;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=jMFCvz6g;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=tLtabJxC
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GAeWj4eE;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=i7gz2s1V
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=YBxTUn7ywMgpmSnO6blmLwOaVhY7BWSoJVdPqCPYsuk=; b=njVtoFwUzcBtX5jmwyxooCt36O
-	wqAitHv7xe1iaqTIOlwgl46m2JAxQwZUWm4ZgLAkeIRSJY9UBWSgUhUSfqRVK3+PEPn1h80eHRP4c
-	gml2ERkFySh5vAiAvu53Lxf1LI/lo4jPlGnbbB1Y1gyBxgsysFVJq7q4g+NM+C1qzbmBDshjPtfmp
-	9HVpKgoCtxAr8n6mN9zQkkh4jcEXYJhlxk3VFh2ANhzPH7laaqqI0kDdZvN76q6wOhxu1Wbyijm/J
-	xAYMHXYhGKiswRZIk0uinlTN1LaMN4L4dx2iIQQ06XUoKrfn0EfdRaI2GzoVLf/l0BSIxL7b3M//7
-	OZbH4Z4w==;
+	bh=aZ3FSAhacOoA0G/LYvZBcAVEF7qI69cr77OqatyrH7k=; b=GAeWj4eEIeWLH1rKpqBH+xTfiv
+	9knkvxi9uC8P9vsSHEM8lkAA3Fr41a1JyIHOCRB1WmpwuPtUC8TRAcKngQDGE2DW7pl0u+mErqjJg
+	nxRCc2yQ6PzyvYvtDyB6L0F4FbJG1/RJRJV8yXRm5wyIR2iUXDDusIzaG2S3ZO1mb/b/4IgnSCFbV
+	BvzSvkRcB2UOSXPgagfXZRNRzXXYkJGqo05Q873BNx4HvO7HOVytEfZ2hpJ4CLWKDyWpKJEwtQWFV
+	QDaCyU2WcVsE/vQ9K11HuAcwPiGUhGFEkbCoR5DGGq8FKmbm4k+bXZw5oYopkt/UDqh1KcxFc5L+9
+	p5yFYAzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJpvX-0000000DvME-2GEc;
-	Thu, 22 Oct 2026 10:21:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJpvW-0000000DvLV-2adg
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 Oct 2026 10:21:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=YBxTUn7ywMgpmSnO6blmLwOaVhY7BWSoJVdPqCPYsuk=; b=jMFCvz6gq79l/BuJs7PiVwybUR
-	4r7XbucLCJoXHZmTeQAKth6JKgudCWIAJnnRrQpOVjM/JwSKU9y0MrGrv97ixYzUYoJmfk9BvNBym
-	5QP4ovxe9QIute/pENI1VGvaR4RYZLvCwSfVT9rHv1Em4wL/Na1qu6KOM8RZbV1xk4vKBzYxh0EQ/
-	0bkTzEx/bHMbI4nbnMDI/9Hhz0W3q/+2Wku/YBAdEltT+yVnFtlxr9YqwaK64HZoQIYQmJggfGgxj
-	tpSTvFPKsx8c8Ied1aU01HjyWUjAgFLB53NZONrBiWP3mERJrMap7/HRhM/1uo5iiXNFiCXAmchor
-	xWyhvPoQ==;
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJpvT-00000006rNw-0bt9
+	id 1xJpxD-0000000DvWh-3MiF;
+	Thu, 22 Oct 2026 10:23:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xJpxA-0000000DvWD-2mMX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 10:21:37 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-89ff475a152so618606b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 03:21:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792664491; x=1793269291; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YBxTUn7ywMgpmSnO6blmLwOaVhY7BWSoJVdPqCPYsuk=;
-        b=tLtabJxC2FTg0Ey9LcJy2LTi4izLURdxA8mTFiRx4iuEIeEAccCY+DdT4Lvts1JDx4
-         Z/WDXcV5sEXgY+pp45JDDKlKUa1PmJ4h9BC4ahfPKK8v/Dp28cLnOwuJTnOfxXVQO+K3
-         Z/Ltf9XCCPp4PefP0rjO7kFsTAkg/NfeFhwheEsV5+FSbGRpY8ZdO9CQzVQWzSPFLdJn
-         pXROKrwh5AhNNUBaeHoaylOw0NvNMtWkCnFW56i4ZjIYvu8hHai6CmG1+aUf+RMdKIzG
-         8owaUqea4t4Ly3/vhFRUsanQMM5+wTIA7vrBPp5/kjQyX4k2eg8bwCJxbPM5mNZIY/BM
-         7LMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792664491; x=1793269291;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YBxTUn7ywMgpmSnO6blmLwOaVhY7BWSoJVdPqCPYsuk=;
-        b=C98O5TQaRTY4MSmwevM2oflmTiO/t+hVR+q4ZeEuxnNuDHlx3plncnXNtPmh9MtO8/
-         OavSlQ1O5H/fK0XQ146VNaNeK9e1ENWuyzPHNM2MuZMqBWXMmRO/ZU5iyLOyTG0FJpX/
-         FLrh/bG1KWhwcMn6xmJ1vwJzNF3c3euUlKvu6dQRTQCDHcy83HJuVszxcyD8nutQ6ghy
-         o+HVFW4QSWpm1LrvChhvCM0m1qw+bi51RnD2xq3v4nudbrQJ02nfLLOPhaVl6AkGzx7p
-         DdyPfP3TkDUd4o3qEg8cvSid3CPNWir35I4VkVtZpYCJEB9HqQq4NSRwht8yDeFEORFg
-         NqbQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzqVtacwNNRlVkD9lWxcZ5L+L4i9JdQcHNzPJZ98yQx2gxHHAL9CyXsunzU3I1XCclMI+/3zVdIekxN5hDwmDQf@lists.infradead.org
-X-Gm-Message-State: AFq9FYLme4Qp1i/YXnj+/Io0zgdyNEhtsGciD/0nXLIznxgMdBEa/3QE
-	KA/FbwionckuYtdTRHFf5b+P7A0bevyh8uRc1PAQC/3WdG5vERBfkKGo
-X-Gm-Gg: AYBFou1TCZ/4GdKJoza+aAf0HgLeTfeFa/vU69lmq1L1G45s1naWHOce/JuafUAiwIZ
-	eQO4rjrX1+QGrfioyGQiSZWv5vIvFoBbQUE4pIYjEyEZcUUkBPI0P5bTPN1nDkyw35fZbguGE/j
-	nrpXITw1XcwB+jfiI6eCfeioBa7MLckpinJOkdj/R1PO7vFRrIke6B3qKG7rmWMYRgbmKb9LwqD
-	tMvnmpBo9FUkMeCNoSmx4k2jBiBsMKUHbPq7JSicKkNeqpnmbj6+3zyRXvEwVjD5KlbgzwI8YT/
-	FuXA1pFrraYAfe6ojH3f1ROM5T1Y02bgJXo6gnz5wovh5l1kxucBW4cKdi7urIojEedhUiuH2QP
-	+J1dCBxaldicghkPjjnJmIBtJn3NmnzV1ulOgfXnXM+ks9BFNDdeEL+RhezYd6jH3qBHQKrpTUw
-	BaY1M382H/CiYdUJeQTXiViRuiRYUUEIO2pC8Zvs3d7Atuo99CRG8qgFaoCPP/gIQ3HVZhHDT7T
-	D9sGH730IaTzEruRiHIP2xr6W+qepnmSFGsPO4HVXJC+6/FJEMd4Mc9XWSoEserkK3+wyEOWe2b
-	giiQbCPVm3eJldTLjq5gOkehrQ5UZjdiUT/YEFWGf4+8zmiSL0tG8IAZJdbF0oPQ+5A6WeCziHo
-	z6tWzFzbjC+bdbu+/ZXhDiG4LrgIjPEFw
-X-Received: by 2002:a05:6a00:2e9e:b0:890:bd5c:5710 with SMTP id d2e1a72fcca58-8a089f6585dmr3709575b3a.41.1792664491420;
-        Thu, 22 Oct 2026 03:21:31 -0700 (PDT)
-Received: from fedora (aipl-202-179-95-46.static.ankhnet.net. [202.179.95.46])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8a08933c9b1sm1943324b3a.3.2026.10.22.03.21.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 03:21:30 -0700 (PDT)
-From: Ninad Naik <ninadnaik07@gmail.com>
-To: Mark Brown <broonie@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ninad Naik <ninadnaik07@gmail.com>
-Subject: [PATCH] spi: mtk-snfi: use min() in mtk_snand_read_page_cache()
-Date: Thu, 22 Oct 2026 15:50:20 +0530
-Message-ID: <20261022102020.107609-1-ninadnaik07@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	Thu, 22 Oct 2026 10:23:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04ECF1595;
+	Thu, 22 Oct 2026 03:23:14 -0700 (PDT)
+Received: from e121740.arm.com (e121740.arm.com [10.33.8.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5DDEB3F7B4;
+	Thu, 22 Oct 2026 03:23:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792664597; bh=LlWXz+PA+zM435hlpcLMlUTS430tdpoSr+PxDjy+z5Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=i7gz2s1V+8RC3RRnbxmDymuL7h2jDLYk4Ge6j4Bzn2SRLYA7flQ08O1OMxby7Bu56
+	 fhWnOI1gmkJasfrzwWWxO/ZndH9TcprW7UxVqeBKx6QilV93iAtNRoSjPa62tIPENr
+	 TetS7yunMuQpOyiteMUIdn8f2NIqA0VkME13bNHs=
+Date: Thu, 22 Oct 2026 11:23:04 +0100
+From: Philip Radford <philip.radford@arm.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@st.com,
+	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org, d-gole@ti.com, souvik.chakravarty@arm.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: Re: [PATCH v9 03/13] firmware: arm_scmi: Refactor powercap domain
+ layout
+Message-ID: <atnkCP6oB4xT65dV@e121740.arm.com>
+References: <20260909220437.1254412-1-philip.radford@arm.com>
+ <20260909220437.1254412-4-philip.radford@arm.com>
+ <20261022-spotted-impetuous-kittiwake-b2adcd@sudeepholla>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261022-spotted-impetuous-kittiwake-b2adcd@sudeepholla>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_112135_527649_BD6A2131 
-X-CRM114-Status: GOOD (  13.18  )
-X-Spam-Score: 0.1 (/)
+X-CRM114-CacheID: sfid-20261022_032320_786958_A47717C9 
+X-CRM114-Status: GOOD (  23.07  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,38 +76,71 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Replace the ternary case with min() to pick the smaller of cap_len and
-req_left.
-No functional change intended. Compile tested only.
-Found using Coccinelle.
+On Thu, Oct 22, 2026 at 11:10:06AM +0100, Sudeep Holla wrote:
+> On Wed, Sep 09, 2026 at 10:04:27PM +0000, Philip Radford wrote:
+> > From: Cristian Marussi <cristian.marussi@arm.com>
 
-Signed-off-by: Ninad Naik <ninadnaik07@gmail.com>
----
- drivers/spi/spi-mtk-snfi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Hi,
 
-diff --git a/drivers/spi/spi-mtk-snfi.c b/drivers/spi/spi-mtk-snfi.c
-index 6e96e50fedad..bbb65a21a684 100644
---- a/drivers/spi/spi-mtk-snfi.c
-+++ b/drivers/spi/spi-mtk-snfi.c
-@@ -1017,7 +1017,7 @@ static int mtk_snand_read_page_cache(struct mtk_snand *snf,
- 			if (req_left)
- 				memcpy(op->data.buf.in + snf->nfi_cfg.page_size,
- 				       buf_fdm,
--				       cap_len < req_left ? cap_len : req_left);
-+				       min(cap_len, req_left));
- 		} else if (rd_offset < snf->buf_len) {
- 			u32 cap_len = snf->buf_len - rd_offset;
- 
--- 
-2.56.0
+> > 
+> > SCMIv4.0 introduces the idea of an optional Concurrent Power Limit (CPL)
+> > for each powercap domain, where CPL0 coincides with the one and only
+> > per-domain constraint limit that was available in pre-v4.0 SCMI Powercap.
+> > 
+> > Refactor the powercap domain descriptors and powercap operations to allow
+> > future v4.0 extensions to cope with multiple CPLs.
+> > 
+> > While at that generalize the powercap protocol API to drop PAI references
+> > in favour of a more generic avg_ivl naming, since from v4.0 the number and
+> > types of averaging intervals will change in a non-backward compatible way,
+> > so let's bury these changes within the protocol layer.
+> > 
+> > Last but not least, make the necessary changes to the ARM SCMI Powwercap
+> > driver in order to support all of these new capabilities.
+> > 
+> > No functional change.
+> > 
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > [Philip: Adjusted domain_id comparitor in scmi_powercap_pai_get]
+> > Signed-off-by: Philip Radford <philip.radford@arm.com>
+> > ---
+> > V7->V8
+> > - Fixed conflict due to changes in 7.2-rc1
+> > ---
+> >  drivers/firmware/arm_scmi/powercap.c | 182 +++++++++++++++++----------
+> >  drivers/powercap/arm_scmi_powercap.c |  52 ++++----
+> >  include/linux/scmi_protocol.h        |  74 +++++++----
+> >  3 files changed, 189 insertions(+), 119 deletions(-)
+> > 
+> > diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
+> > index 96d55921fefc..7c2dbba5002c 100644
+> > --- a/drivers/powercap/arm_scmi_powercap.c
+> > +++ b/drivers/powercap/arm_scmi_powercap.c
+> > @@ -123,7 +123,7 @@ scmi_powercap_set_root_children_enable_state(struct scmi_powercap_root *pr, bool
+> >  
+> >  		if (!scmi_powercap_is_control_type_child(spz))
+> >  			continue;
+> > -		if (!spz->info->powercap_cap_config)
+> > +		if (!spz->info->cpli[0].cap_config)
+> >  			continue;
+> >  		if (prev_state[i] == enable)
+> >  			continue;
+> 
+> You seem to have left one use `powercap_cap_config` above this hunk which
+> breaks the build and hence build bisectability with this series.
+> 
 
+Apologies, I was sure I had tested breaking the build throughout the series.
+I'll amend this.
+
+Regards,
+Phil
 
