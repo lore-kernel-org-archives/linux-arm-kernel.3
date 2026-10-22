@@ -2,111 +2,148 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70538606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 02:51:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9462606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 02:55:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=X7elLVUq;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=n2dEMp46
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=elBYvTAi;
+	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=ObmqC7xh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DgxDvLuT+FrYCt+izSlqoI4afXyKDdrxGMCJ1K0jMX4=; b=X7elLVUqaFrrz07LEWu61y5VWq
-	mSxjm/7gP8/6PtzBxgkUDip2jygo/3ylSAUr1a1Hx29whQ2gI8DD+N9MgQe5Bl/+mJ6SqQkuwtJ7M
-	GEhEj7s45pMjbKiDdwoMsRM9kgt2wSnd4eMN3SikIA0piExkRNwAgoz6SKczZk0Y8zv6cyzdPu4LM
-	gpJDiiD9SHkG2g03qI6Ya7hGHg0jB/dl9Kne1qmWbhIsKBcUIEdINV5h8KuJaUd85b4GUGaSwjqrM
-	RD03/Hhm3IZOI0GfxfbSY3SLOf4Ryvd8SyTS3WjLyRtCeoiuI095LOhicKyHjhLbgJKHA8KxJyqgN
-	AASQ/gVQ==;
+	bh=C9a2YD2gJZMUdlYvF8L+DdAjxH5Ls/5DksBvPjTJBcE=; b=elBYvTAiIX8RVPaLsSjAFoLJ71
+	cSkqtn7RTtg5eMOp7klOCpnsRZ+B8OfFg7meYtGDyBXgqAYix54Tj/EDuDRvVDtPefeZr1O9IlyVi
+	IzJlnMOWJkRzlKYmxo2n5gOmKZsK5PEjCFx95i1ybwboR96JG2cJMzd0Z/O3VQ65dOHDB/t2aMl8j
+	USHzesddoiKEFajEFm+jT9rP5Bta8uknUDKjntdu0hJIiwWi6S7k4L5xHwNECoEAAOig6LnlArPLX
+	xfq+pqzNt5owTEkZCsIXM6Ixd9Vu0YTC4d8WHLV3MKuyDmD8/sjEb6Nc0kdoix/BaorDYxRf/bK9+
+	tzw5+nbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJitz-0000000DEZp-1hi4;
-	Thu, 22 Oct 2026 02:51:35 +0000
-Received: from mail-pf1-f175.google.com ([209.85.210.175])
+	id 1xJixI-0000000DF06-0AeP;
+	Thu, 22 Oct 2026 02:55:00 +0000
+Received: from mail-koreacentralazon11023097.outbound.protection.outlook.com ([40.107.44.97] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJitw-0000000DEYu-0rmS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 02:51:34 +0000
-Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8a089dfee18so229557b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 19:51:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792637491; x=1793242291; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DgxDvLuT+FrYCt+izSlqoI4afXyKDdrxGMCJ1K0jMX4=;
-        b=n2dEMp46Yq+t2R8uayvW8LjFYcnlFz5ZAcsfSdp0l43+DD/IbrXEPJM3pNAJl5r0yI
-         f46nmOwgxVlNeD+Yc6wG7s+YyDmqthwexVdBheW+xds8ZZyoGkKCevujKon30xLi7Rm3
-         Q9M0lJBPa+NonAF83LM9s0HLdZ7htPLid7a8BhJHBkHOKWqXUZzUWqtsossblTKCW8ZX
-         t3mMCkAt8NTs9+XdyvZYvnFgHLfpLtd0hgGElI3LUIZg8FqPoJXh3Q+fAr8IiLt1VT9W
-         G5wyjCXn4KeUCi02lPtAJU+jcU+/bvSboaNu2dygEmkiO2cWvtzAS7MSEK+Xm9M0aed2
-         SV/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792637491; x=1793242291;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DgxDvLuT+FrYCt+izSlqoI4afXyKDdrxGMCJ1K0jMX4=;
-        b=LU8c2tMBMBivheAx8bClhsmu8pgDKgQOAUTgiv8/9DNel15aM0oKiVX8ZYmIs5f9ls
-         HLcnnJwzvJEy49epM5wMFtlPSDZWg0qvePA09ZOZhr77liDYT42bu6SpQMFbtd3vbZUx
-         vmd/IJpmTbi/9FrRxrwdWOffn2Pp/JaSoaa4Q5e+9eANTKmpJ0OqOMiYM9P2gNYCKVpT
-         y7IJFPnfhBpavsSYvOoyQT58A3prF1SQ3dMzyxIBRqF5Kv4vX1Ke1EWaHeXxK7cp+DcY
-         4vn/o1aUh1Gul9CpHD9Xxmrvskwosi3ajK0chhHz8rsxE6wnxEtOmjl6rnUeUFrMWt1O
-         lx7A==
-X-Forwarded-Encrypted: i=1; AKwUvByx+lw3gNo3h2lHxz0Qw/60S3EokJWI3MDJ1qb2NK0KCvtF3OUIjkLONpjZJvFMh0egqkMKENCLxa/AgPdlMcoZ@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ6s2t4mOZlSXsDM4kJdBVmtSQjEDTbEtNi6VZXzO5Wqp+qyRbi
-	sjegqyKxoJZspJtVDFo10BVx/wykHHRkwdPif6EbwfadZDsEUdykTQV8n3LXUuZVyw==
-X-Gm-Gg: AYBFou3NFY4T+bNmhOed1xA04JTfNDAYq/SfSy4gGcOtOsx2Z1niIZLYQG/7UeuSVT/
-	aFbZdIhyAKgLYgR2D+1O3/GcmzPjrELjVejgHVSanyHs4C/n1UhhkEhMCTbgVOnTnSi0IU2lgnL
-	2bRi/71+PxOMP2GL3hwQW9fIMmDr1f5oozcB+CB4qovxsYxlhZgTj2P8I4FCJRKvZGYb2N4d8D/
-	VprmBhstbRiKdhDZR8GzYcmesPoX/5ZwSa85DOKNXvSDC8vhwPKWArFmF/BIWAmHo1ZXbpIfTId
-	62EAvwK+l1nU/fU9r9XfCVZH6tv5iT4+Kdn1nP7xLuzIddC924uSScAyTfOwlhzoZvgOU97ALgg
-	cgkAcxqIfjbdiU0NZhZMh7IOF4mj5hsBMiqheYOl14bl/O11jZ3i07Mn3Aq7xb7qnlIKiVOWQdz
-	GdUg8no91hPJNu4/ChEYHlK32cWehH8z4Ik/m/snNPwnlrBZPlmbJ2bLc+xhnktkNTOkgSqeMwM
-	wonqArNlzeOWK5i8Y0NUYPASAuKs65fF4yYL5tSxIQsS1KrK4kADTJUUtPTzZDJI/rVtkz+PcZI
-	otg0VT9n0QpnprVQng==
-X-Received: by 2002:a05:6a21:3b46:b0:3e2:ea7:621 with SMTP id adf61e73a8af0-3e2a0bed41bmr545882637.42.1792637489967;
-        Wed, 21 Oct 2026 19:51:29 -0700 (PDT)
-Received: from google.com (64.75.127.34.bc.googleusercontent.com. [34.127.75.64])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd6b85e8c9asm635619a12.20.2026.10.21.19.51.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Oct 2026 19:51:28 -0700 (PDT)
-Date: Thu, 22 Oct 2026 02:51:23 +0000
-From: David Matlack <dmatlack@google.com>
-To: Pasha Tatashin <pasha.tatashin@soleen.com>
-Cc: Tarun Sahu <tarunsahu@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org,
-	Mike Rapoport <rppt@kernel.org>,
-	Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de,
-	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com,
-	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org,
-	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com,
-	will@kernel.org, Alexander Graf <graf@amazon.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev,
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
-	kexec@lists.infradead.org, skhawaja@google.com, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 4/4] mm: memfd_luo: Add the 2-bit pair feature
- header
-Message-ID: <atl6K2Juy6Bh29lh@google.com>
-References: <20261021152527.375070-1-tarunsahu@google.com>
- <20261021152527.375070-5-tarunsahu@google.com>
- <CA+CK2bCWo7ixrNLKPvqETn3JSFwSNaB2UsPgy9RHVAhWroJURQ@mail.gmail.com>
- <atlINfvlXY4wMbpO@google.com>
- <CA+CK2bDf-pKbH2J13mRYRT7Ddj-Q+VXaGYePs+E-azSWXKzV5w@mail.gmail.com>
+	id 1xJix8-0000000DEyq-3oWY;
+	Thu, 22 Oct 2026 02:54:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=n5ZGVBdboJmn3ZSJK7mOTpXz+vb6QQ+5Zcd+vd7Z/zY+s6AM6mL5Aps0B82RqfINdgN4k+Uw1mzxza3eVWJVjguy4eIgTbj+uASiERlE86GmriqEwkRpN+l13MWvTQUmHFkyo78Wv0BWEKLthqP1HX8zzQFn0VXhMhr07UP6zkuTDcRDvnwPnohOireBODn8dNlKbMCD/Wt1fYHV4nzlpUX3fDo79z7CbHtmb9+HJPZfXofDKE4rLt4cIgnk6acDX/poNxSpXupHiu5C+J4ZCJwSKqGfpyVzbYomLSSZeLnCu1u4/Ck+QP/a64CEvtBALTqjQvJSopUs5XjHZIos5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=C9a2YD2gJZMUdlYvF8L+DdAjxH5Ls/5DksBvPjTJBcE=;
+ b=r9bYb0X1mfWj4AMXkU+y3C/uLCzJd+vlde/QdYJ3CBNTK4Eu+c1p3Js1Z6yrFWsqNeIG82xger8b/tQHaxFRYBNV3Aa0VArgzjWo6QiOb3lfxVEEPLq7wdhKZv8Tgo9xB9OelNWJNI6c8A/hsL1rABluOeUYDgtL0Wl56aS7Amm5Nv8AFR063RoiLay3b0Oagm/t2ZO2qU1+rM28A88vpOUsvd49o/DF8yLTDwyBHxwCj5EycuecglWO+UqlbC1OPfrj6CmxSx+kpWFYQ5wDbKaJr80qUTiYFQW9heU7G21sgxCKzy1tTqp0xD4Oq8vi91OMoxuAVAxM0/pMQgYk4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=C9a2YD2gJZMUdlYvF8L+DdAjxH5Ls/5DksBvPjTJBcE=;
+ b=ObmqC7xhlxEcw1h8EKJIK1yolsZ0RpUD7t39blE86inodChOhvrgkLjzfOXHzw4TDSn/YQi4VOLXCFR68iMq+mb+RiYfZURIfBQ3/5W6sXG3AiOjaIlWO4psQcPosV/yPbRsV+HKB2LuCmE3VwYz+RutWTZxrK3yVch2uInF2AIZ3G8vDqHKwYklFQmB/BNhK0/31BBLtzM6P0DJuEayvGthZSZJPbssR92LbTQmmry6tgG/VzOIskxlU8iBtgcxIhAAtgMPEMrPkRH9XFBiG+Yava36412uoDiGoidZK6rludA6xMOTE0KeC3MULLo4XrK7kKwsD8uuIwkk2U02oA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYNPR03MB10226.apcprd03.prod.outlook.com
+ (2603:1096:405:3c1::21) by TY1PPFC94CEC410.apcprd03.prod.outlook.com
+ (2603:1096:408::a6b) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Thu, 22 Oct
+ 2026 02:54:23 +0000
+Received: from TYNPR03MB10226.apcprd03.prod.outlook.com
+ ([fe80::ff5:e524:cf10:5d7]) by TYNPR03MB10226.apcprd03.prod.outlook.com
+ ([fe80::ff5:e524:cf10:5d7%6]) with mapi id 15.21.0522.017; Thu, 22 Oct 2026
+ 02:54:23 +0000
+Message-ID: <cecef927-49f8-4351-803c-28ba2a10fed1@amlogic.com>
+Date: Thu, 22 Oct 2026 10:54:18 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 5/5] arm64: dts: amlogic: Add Amlogic S4 Audio
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com
+References: <20261021-audio_drvier-v7-0-2b9aeae9cb8a@amlogic.com>
+ <20261021-audio_drvier-v7-5-2b9aeae9cb8a@amlogic.com>
+ <179259528987.4070168.12089976339610295834.b4-review@b4>
+From: Jiebing Chen <jiebing.chen@amlogic.com>
+In-Reply-To: <179259528987.4070168.12089976339610295834.b4-review@b4>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SG2PR04CA0214.apcprd04.prod.outlook.com
+ (2603:1096:4:187::17) To TYNPR03MB10226.apcprd03.prod.outlook.com
+ (2603:1096:405:3c1::21)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+CK2bDf-pKbH2J13mRYRT7Ddj-Q+VXaGYePs+E-azSWXKzV5w@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYNPR03MB10226:EE_|TY1PPFC94CEC410:EE_
+X-MS-Office365-Filtering-Correlation-Id: db391aa1-423c-4d34-c10c-08df2fe7c731
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|366016|1800799024|22082099003|10067099003|261021123027099003|3023799007|18002099003|4143699003|260925021311599003|5023799004|260925022911599003|11063799006|261009223027099003|260925021911599003|261021121427099003|56012099006;
+X-Microsoft-Antispam-Message-Info: ralrJPmNNKcAmIehgPhHwi1actcvZLG3Luz0WgP6+MNeWrmdUCQLlvsMN/Wss4SHuCaQ9ZVbSInbTBZHL3ZpVTtx7IrUq8Muv+o32mEPJ6zo6mZ5VBQsTlQyJijh91hZHfkeu0KiFPVkuE8696pdoW9GmHV6WPfaOsct4RquCX30LruYv/oGWmjUPIPC4KGHEC5t7Ri5Yij5AOzYoXhiA5wW6qucSyr2XRsjQ/ghe7Qbrl1aeAceOsueIFJTLcjq6HVVmno6HjBagpMu7gGNP34KcDK1mMLwAZp8kKBEAjKvkJ8u1Xgs9jbMZeIEKR6z3/fRObAVM9E5NJVH+G/aXjYvuuMeMd8R+OQp/T3h83ddO2tiJQghIzOvxsNGtDFpX2CVz38mzDkp2VkSGbZbze9xzR61ElQeL2ul9/UoAEBeEiAUcBrIe3oWcijWIbEi5RUzg0DcnL/XrUDtBItWjh/l6hl6ER6peeVqRDPyIAfkzPPtR4mOMuPLONNV8+oXPtwPtVbD5JizANTTwdYaoPyjjkwR8MGMrlFdAGt6r4d6Rw42ArWQlwLlVvXjWLRryeK4Wc2cUoEsZb0J/a2OOtQJLtPoSh1nJwjn3yPjpQJjMv5N7IX30C1sgrKwUzBJOz3uGTtREDuTcVsGtAWSLtxLPD0wfnq4zw8p2KO30Hw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYNPR03MB10226.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(366016)(1800799024)(22082099003)(10067099003)(261021123027099003)(3023799007)(18002099003)(4143699003)(260925021311599003)(5023799004)(260925022911599003)(11063799006)(261009223027099003)(260925021911599003)(261021121427099003)(56012099006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UldoK245SjRnSHBjUVcwYlh3RnRHYXVIdlZGRTloY2l0MEgzQTNsWmpSUHRz?=
+ =?utf-8?B?UDFiZXBDMkNqOEtuV01kSGU2Tld2ajFneWQxRmxtK25xNGg1WVhSeUFLVmZt?=
+ =?utf-8?B?SDFnNnhQS1JHL0laRUg5UjB0anFMcHdLMjNBOFpTc2d3aENIek02SGwrRzZp?=
+ =?utf-8?B?clMvMlpoZVQ1QWhJNlVkdU1xWDJFRlIrYW1QT1BrQUt0bHBLZTdQSkZ0eDVD?=
+ =?utf-8?B?ZFN3V3Foa3ZMaUtldHl5NXpiYVRYZldkeCtFeDE2bkRTTFNtakRQSUtzWlF1?=
+ =?utf-8?B?RnphSU1GaXJzRDBuY0JVOWhiRlRvVzVaMDVqS1Z0SkIwSjFsc2JpSUpQTXhM?=
+ =?utf-8?B?R2RtVUxtK2hKamFNdy9aRitVWW52eTFtRE9VV0NkUlBmSGRMK0d0a1pWSVhU?=
+ =?utf-8?B?U29aZ1QzOWtYNDh3K1ZLWHZYOWFCK0d4aHBwTUU1bVV4ck5tK0ZwN0Vvck83?=
+ =?utf-8?B?TzNXdFlYR3pweWt6S3VyUURPT3VwUmxSMmhpa2x0b2xEQ24rN0FtUHl5a08z?=
+ =?utf-8?B?U3ZQT29GY3VVNzd6S09vdDh5eFhxWlhoM0pxdEYzUkRtdDRmOGdpN0NOVCtw?=
+ =?utf-8?B?bENCd0ZtMllsVWtkclo2Ujg1SEVDZGlkR05zM25mWklITnVyc1hTaTFNdlF5?=
+ =?utf-8?B?eUVXR1FTcDhlVEVZR2c0bDh4bEgxWHl3N0c3KzJEU3lJeEJWTU5lY3Z1VEhP?=
+ =?utf-8?B?WXJONVp4ZVFUTlZlYXZETG9WNXh3QXUva2FDeHhRRkd1UmQ1cm5zcnlXTjVJ?=
+ =?utf-8?B?ako2N2wvSTdhQVQ0WFpLMVhhL0p3aVkyQ3FZdTFBRDBNVytuc3ZnSWlSVFFL?=
+ =?utf-8?B?ejN5SVJib0NZdU8yZncrejU4VnpQYVJtR3VTOGxOTGI0RWpjdENRVERkR0ZD?=
+ =?utf-8?B?N0dUUThKbENLdmJhSzZuZ3pPclZidHMzZFlUcDM3czRBOVV0bUw4UUFpRnV6?=
+ =?utf-8?B?YUpxazdEbEZDbTFDTC9pSEx1TzByK2QydlNlM0JROTFHc1o5MzJ4RFJmWDAr?=
+ =?utf-8?B?ekM5eWNGS3BSa2JpYTVVZzdJMDZxQUZ4UVczYkd4d3VmUUhsMEJreGp6MXRM?=
+ =?utf-8?B?MUlDK0tpRmlNT0tLSUttMGRaSFhBSUdUU3NNTGVESUdSVzFweDJySG5RZ1hH?=
+ =?utf-8?B?dUJadTFJRlFZaWlIRVdYaE1XY3FudUJWdStTcERyREhXS3E1ZGZwT1YzelF3?=
+ =?utf-8?B?NG1scU4yQ0RpcHRsNEg1N3BiZ242WlgxQzBsYVNXakhyejdzMXpGbW50SHND?=
+ =?utf-8?B?ZjVCZ0hOVzBiYnpBVENBWUFGOUJDUG82K3ZqYk1uL2FkcUpxc0FWZnNPelRa?=
+ =?utf-8?B?c3hzelR5dDRQakdaUFhCYzNJMC9qblJYZkh2M0NYLzl5WWE3dFRrREJOMlZa?=
+ =?utf-8?B?Q09yK1Y2WTZHcUxja3FhZVBDanE5NWVlN0FJbkRNUFlpQ0d2QXh1OENERkcy?=
+ =?utf-8?B?TWpBRmFlOVRRV3pucmhBRE0xWU1PcFY3UG1DeUI2M0ZES2R5SFRBV0ZYaFVJ?=
+ =?utf-8?B?VklmTExTREZuMTBOSzB1dVlPUDBRQ0RNci8wZThLSk4rdHlEL3JzTkRzSS9q?=
+ =?utf-8?B?UFFIMFhtU2UwV2dZcUJqbXAyM256bzJWUjJtd1JRQVhPVzlnQ1AxVm8zUnN4?=
+ =?utf-8?B?MDRyRkQ0bDJIYlJOVmhLT0RpNndEVFNVdkJrcUZEMmNKbEx1bTR0UjNlc1BP?=
+ =?utf-8?B?Z3l3TnpHVDVDUnJZL2ZmSWZSZ0ZDMCt0MzlTcTZWOTJNZ3pUdk1sZ0dnUUp3?=
+ =?utf-8?B?K1hoa0Z0SlhiSlQ0a0MzSS9UREtSNjUxbW5raExmWEhRNTE5Z3VmSExncW02?=
+ =?utf-8?B?MlNrZVFIbW54TEZtN0lFcUtqR1RUVEFNUFVrcko4dEpEVFMxRFBYTmtWM2hY?=
+ =?utf-8?B?YlFIVUpkcGRLRkVGNEVoTWtpY293OEJjR2dsOW1PR2tpQk5lVCtrWmlwS1Fl?=
+ =?utf-8?B?Z1Izdi92VkFQbkNhSFVaWnppSHVETVdSNCsrTHV1R2JWZkxRUkY4UmRYejA1?=
+ =?utf-8?B?ekZiL3ExRUlFajVsMmhUb2k0VHFSNGxMOEU2Rk1yaGhLdVJkQ2xZbnFTMkI1?=
+ =?utf-8?B?RVNOZjlLakFNTG0vbDdPT1RZQ1FLak5ucm8vdDNPMkFPRGcya3BYajVLTVg4?=
+ =?utf-8?B?MmVBcHR5S1N5MXdWQVYwVzNnUC9TdEdHbDR4cnFiOE0zbmZxcDFUZUZXcmpj?=
+ =?utf-8?B?WUZlYlQva09GdFUvTnAzaUVtVVIwSGE0cFdTaVJ4M0Mwcmo4eldSaFJXRTdX?=
+ =?utf-8?B?NEMya0RDemJOTlZrQ0YxZnhZaDgwU2lFejFuNlRKckkzYWMyNElYTTZKRUJ6?=
+ =?utf-8?B?akRVNk1iWVVoR0tzMFdrcEJiQ0JGM21TbE12T2JmdjUvOElaeHpxZz09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: db391aa1-423c-4d34-c10c-08df2fe7c731
+X-MS-Exchange-CrossTenant-AuthSource: TYNPR03MB10226.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2026 02:54:23.7415
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LSVoXzz6lYfUurXeO9UzZbd7+R0cE+rw+JDFne3Yr2LXN1EIpfE1hpwkB/0fED3YGM8HwDRLSQEYFBGIZyRywIjjnxU+z/aAW+wmTQcY/PQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY1PPFC94CEC410
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_195133_271942_B2161043 
-X-CRM114-Status: GOOD (  69.65  )
-X-Spam-Score: -17.6 (-----------------)
+X-CRM114-CacheID: sfid-20261021_195456_313388_94D176D3 
+X-CRM114-Status: GOOD (  16.94  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,334 +154,381 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=unavailable
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-10-21 08:41 PM, Pasha Tatashin wrote:
-> > > >  /**
-> > > >   * struct memfd_luo_ser - Main serialization structure for a memfd.
-> > > > + * @features:  ABI feature and size header for memfd_luo_ser.
-> > > >   * @pos:       The file's current position (f_pos).
-> > > >   * @size:      The total size of the file in bytes (i_size).
-> > > >   * @seals:     The seals present on the memfd. The seals are uABI so it is safe
-> > > > @@ -79,6 +103,7 @@ struct memfd_luo_folio_ser {
-> > > >   *             struct memfd_luo_folio_ser.
-> > > >   */
-> > > >  struct memfd_luo_ser {
-> > > > +       struct luo_feature_hdr features;
-> > >
-> > > I have not looked into this yet, but I would prefer to use some kind
-> > > of macro constructor for serialized structs. That way, they will
-> > > automatically include the header, making it easier to search the code
-> > > for what is actually preserved versus what exists only in this kernel.
-> >
-> > If you want to know what is preserved don't you just look at
-> > include/linux/kho/abi?
-> 
-> Yes, and having it initialized and declared in the code correctly with
-> proper macros and verified just gives the right handling and avoids
-> making silly mistakes. The second reason is so we never forget to
-> include the header, and to make it expandable and easy for everyone to
-> use. I think this kind of constructor is just useful overall. Are
-> there any reasons why we wouldn't want to use it?
-> 
-> > > So, I think something like this:
-> > > /* Base serialization header: 4 bytes total size, 4 bytes flags */
-> > > struct luo_ser_hdr {
-> > >     __u32 total_size;
-> >
-> > Why do we need the size? I'm not really opposed to it I just don't
-> > understand what problem it solves.
-> [...]
-> > The luo_ser_hdr is needed for top-level file handler and FLB ser
-> > structs. Those structs are always dynamically allocated and preserved
-> > with KHO.
-> 
-> The top level is not enough. I think it is needed for every single
-> serialized struct in kho/abi - the blocks, the FLBs, etc. They all
-> must
-> be expandable in case we need to allow that. Let's have future
-> protection for everything that gets preserved.
-> 
-> For example, take a look at vCPU preservation:
-> https://lore.kernel.org/all/20260920193650.3373435-9-pasha.tatashin@soleen.com
-> https://lore.kernel.org/all/20260920193650.3373435-11-pasha.tatashin@soleen.com
-> 
-> +struct kvm_vcpu_ser {
-> +    u32 vcpu_id;
-> +    u32 flags;
-> +    u64 vm_token;
-> +    DECLARE_KHOSER_PTR(arch_state, struct kvm_vcpu_arch_ser *);
-> +};
-> 
-> We might want to add fields to the arch-independent part, and we also
-> absolutely must keep the arch-dependent parts expandable. Therefore,
-> the header needs to stay small and flexible enough to grow as needed.
 
-Hm, anything that is dynamically allocated can have it, but anything
-that it is embedded directly or in an array cannot, because those
-structs cannot grow anyway. So I agree it's not exclusive to the
-top-level FLB and FH structs. But I would push back on any a mandate
-that _every_ struct in include/linux/kho/abi needs it.
+在 2026/10/21 23:08, Jerome Brunet 写道:
+> [ EXTERNAL EMAIL ]
+>
+>> Add basic audio driver support for the Amlogic S4 based
+>> Amlogic AQ222 board.
+>>
+>> Signed-off-by: Jiebing Chen <jiebing.chen@amlogic.com>
+>> ---
+>>   .../boot/dts/amlogic/meson-s4-s805x2-aq222.dts     | 219 +++++++++++++
+>>   arch/arm64/boot/dts/amlogic/meson-s4.dtsi          | 360 +++++++++++++++++++++
+>>   2 files changed, 579 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
+>> index 0a3f81ea0fb0..d614dcd6933d 100644
+>> --- a/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
+>> +++ b/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
+>> @@ -75,6 +75,19 @@ vddio_ao1v8: regulator-vddio-ao1v8 {
+>>               regulator-always-on;
+>>        };
+>>
+>> +     vcc5v_reg: regulator-vcc-5v {
+>> +             compatible = "regulator-fixed";
+>> +             vin-supply = <&main_12v>;
+>> +             regulator-name = "VCC5V";
+>> +             regulator-min-microvolt = <5000000>;
+>> +             regulator-max-microvolt = <5000000>;
+>> +             gpio = <&gpio GPIOH_7 GPIO_ACTIVE_HIGH>;
+>> +             startup-delay-us = <7000>;
+>> +             enable-active-high;
+>> +             regulator-boot-on;
+>> +             regulator-always-on;
+> You are adding that for audio and it needs to be always on ?
 
-> 
-> > On retrieve, KHO gives you back the blob of memory. You look at the
-> > header to determine what features are used in the struct, and then
-> > access the fields associated with those features. At no point do you
-> > need to check the size.
-> >
-> > The only time you need the size is for a KHO block array. You want to
-> > store the size of the KHO block array elements so that the retrieving
-> > kernel can correctly initialize the iterator.
-> >
-> > e.g. from the PCI base series:
-> >
-> > /**
-> >  * struct pci_ser - PCI Subsystem Live Update State
-> >  *
-> >  * This struct tracks state about all devices that are being preserved across
-> >  * a Live Update for the next kernel. It contains only state owned by the PCI
-> >  * core; the state a driver needs to resume its device is preserved separately
-> >  * by that driver.
-> >  *
-> >  * @required_flags: Features that the next kernel must support to take over
-> >  *                  the preserved devices. No flags are currently defined.
-> >  * @optional_flags: Features that the next kernel may ignore if it does not
-> >  *                  support them. No flags are currently defined.
-> >  * @dev_ser_size: The size in bytes of each struct pci_dev_ser in @devices.
-> >  * @nr_devices: The number of devices that were preserved.
-> >  * @devices: Physical address of the first KHO block containing pci_dev_ser.
-> >  */
-> > struct pci_ser {
-> >         u64 required_flags;
-> >         u64 optional_flags;
-> >         u32 dev_ser_size; <==========
-> >         u32 nr_devices;
-> >         u64 devices;
-> > };
-> 
-> Having `total_size` embedded in the standard header of every
-> serialized struct solves this uniformly: any struct can be placed in a
-> block array without needing an ad-hoc `*_ser_size` field in the parent
-> struct, and on retrieve we can always sanity-check that the preserved
-> blob is at least as large as the struct fields implied by the flags.
+Thank you for the reminder. I have reviewed the U200 DTS and found that 
+it can be referenced within acodec.
 
-I agree we shouldn't need an ad-hoc *_ser_size field in the parent. But
-I don't think the entries are the right place to store the size.
+  Previously, we configured it as always on for testing.
 
-A KHO block set needs the entry size before it can do anything with the
-incoming blocks. kho_block_set_restore() uses it to validate each
-block's count, and the iterator uses it to locate every entry (index *
-entry_size). The entry size is a property of the block set, not of each
-entry.
+>
+>
+>> +     };
+>> +
+>>        /* SY8120B1ABC DC/DC Regulator. */
+>>        vddcpu: regulator-vddcpu {
+>>                compatible = "pwm-regulator";
+>> @@ -129,6 +142,212 @@ vddcpu: regulator-vddcpu {
+>>                                <699000 98>,
+>>                                <689000 100>;
+>>        };
+>> +
+>> +     dmics: audio-codec-1 {
+> Unused: nothing references dmics.
+Noted with thanks.
+>
+>> +             compatible = "dmic-codec";
+>> +             #sound-dai-cells = <0>;
+>> +             num-channels = <2>;
+>> +             wakeup-delay-ms = <50>;
+>> +             sound-name-prefix = "MIC";
+>> +     };
+>> +
+>> +     dioo2133: audio-amplifier-0 {
+>> +             compatible = "simple-audio-amplifier";
+>> +             enable-gpios = <&gpio GPIOH_8 GPIO_ACTIVE_HIGH>;
+>> +             VCC-supply = <&vcc5v_reg>;
+>> +             sound-name-prefix = "10U2";
+> Did you just copy over the u200 file or is it really the component name ?
 
-Putting the size in a header on every entry means:
+Indeed, it was copied from U200. I was not clear about the original 
+naming intention.
 
- - The block set has to peek into the first entry to learn its own
-   layout, so KHO blocks would depend on the LUO header format of
-   whatever is stored in them.
+Is it acceptable to name it based on the board name, such as aq222?
 
- - Every entry repeats the same value, since all entries in a block set
-   are written by the same kernel using the same struct. For small
-   entries that is a lot of overhead, e.g. struct pci_dev_ser is 8 bytes,
-   so an 8-byte header doubles its size.
+>
+>> +     };
+>> +
+>> +     spdif_dir: audio-spdif-in {
+>> +             compatible = "linux,spdif-dir";
+>> +             #sound-dai-cells = <0>;
+>> +             sound-name-prefix = "DIR";
+>> +     };
+>> +
+>> +     spdif_dit: audio-spdif-out {
+>> +             compatible = "linux,spdif-dit";
+>> +             #sound-dai-cells = <0>;
+>> +             sound-name-prefix = "DIT";
+>> +     };
+>> +
+>> +     sound {
+>> +             compatible = "amlogic,axg-sound-card";
+>> +             model = "aq222";
+>> +             audio-widgets = "Line", "Lineout";
+>> +             audio-aux-devs = <&tdmout_a>, <&tdmout_b>, <&tdmout_c>,
+>> +                              <&tdmin_a>, <&tdmin_b>, <&tdmin_c>,
+>> +                              <&tdmin_lb>, <&dioo2133>;
+>> +             audio-routing = "TDMOUT_A IN 0", "FRDDR_A OUT 0",
+>> +                             "TDMOUT_A IN 1", "FRDDR_B OUT 0",
+>> +                             "TDMOUT_A IN 2", "FRDDR_C OUT 0",
+>> +                             "TDM_A Playback", "TDMOUT_A OUT",
+>> +                             "TDMOUT_B IN 0", "FRDDR_A OUT 1",
+>> +                             "TDMOUT_B IN 1", "FRDDR_B OUT 1",
+>> +                             "TDMOUT_B IN 2", "FRDDR_C OUT 1",
+>> +                             "TDM_B Playback", "TDMOUT_B OUT",
+>> +                             "TDMOUT_C IN 0", "FRDDR_A OUT 2",
+>> +                             "TDMOUT_C IN 1", "FRDDR_B OUT 2",
+>> +                             "TDMOUT_C IN 2", "FRDDR_C OUT 2",
+>> +                             "TDM_C Playback", "TDMOUT_C OUT",
+>> +                             "SPDIFOUT_A IN 0", "FRDDR_A OUT 3",
+>> +                             "SPDIFOUT_A IN 1", "FRDDR_B OUT 3",
+>> +                             "SPDIFOUT_A IN 2", "FRDDR_C OUT 3",
+>> +                             "SPDIFOUT_B IN 0", "FRDDR_A OUT 4",
+>> +                             "SPDIFOUT_B IN 1", "FRDDR_B OUT 4",
+>> +                             "SPDIFOUT_B IN 2", "FRDDR_C OUT 4",
+>> +                             "TDMIN_A IN 0", "TDM_A Capture",
+>> +                             "TDMIN_A IN 1", "TDM_B Capture",
+>> +                             "TDMIN_A IN 2", "TDM_C Capture",
+>> +                             "TDMIN_A IN 3", "TDM_A Loopback",
+>> +                             "TDMIN_A IN 4", "TDM_B Loopback",
+>> +                             "TDMIN_A IN 5", "TDM_C Loopback",
+>> +                             "TDMIN_B IN 0", "TDM_A Capture",
+>> +                             "TDMIN_B IN 1", "TDM_B Capture",
+>> +                             "TDMIN_B IN 2", "TDM_C Capture",
+>> +                             "TDMIN_B IN 3", "TDM_A Loopback",
+>> +                             "TDMIN_B IN 4", "TDM_B Loopback",
+>> +                             "TDMIN_B IN 5", "TDM_C Loopback",
+>> +                             "TDMIN_C IN 0", "TDM_A Capture",
+>> +                             "TDMIN_C IN 1", "TDM_B Capture",
+>> +                             "TDMIN_C IN 2", "TDM_C Capture",
+>> +                             "TDMIN_C IN 3", "TDM_A Loopback",
+>> +                             "TDMIN_C IN 4", "TDM_B Loopback",
+>> +                             "TDMIN_C IN 5", "TDM_C Loopback",
+>> +                             "TDMIN_LB IN 3", "TDM_A Capture",
+>> +                             "TDMIN_LB IN 4", "TDM_B Capture",
+>> +                             "TDMIN_LB IN 5", "TDM_C Capture",
+>> +                             "TDMIN_LB IN 0", "TDM_A Loopback",
+>> +                             "TDMIN_LB IN 1", "TDM_B Loopback",
+>> +                             "TDMIN_LB IN 2", "TDM_C Loopback",
+>> +                             "TODDR_A IN 0", "TDMIN_A OUT",
+>> +                             "TODDR_B IN 0", "TDMIN_A OUT",
+>> +                             "TODDR_C IN 0", "TDMIN_A OUT",
+>> +                             "TODDR_A IN 1", "TDMIN_B OUT",
+>> +                             "TODDR_B IN 1", "TDMIN_B OUT",
+>> +                             "TODDR_C IN 1", "TDMIN_B OUT",
+>> +                             "TODDR_A IN 2", "TDMIN_C OUT",
+>> +                             "TODDR_B IN 2", "TDMIN_C OUT",
+>> +                             "TODDR_C IN 2", "TDMIN_C OUT",
+>> +                             "TODDR_A IN 3", "SPDIFIN Capture",
+>> +                             "TODDR_B IN 3", "SPDIFIN Capture",
+>> +                             "TODDR_C IN 3", "SPDIFIN Capture",
+>> +                             "TODDR_A IN 6", "TDMIN_LB OUT",
+>> +                             "TODDR_B IN 6", "TDMIN_LB OUT",
+>> +                             "TODDR_C IN 6", "TDMIN_LB OUT",
+>> +                             "10U2 INL", "ACODEC LOLP",
+>> +                             "10U2 INR", "ACODEC LORP",
+>> +                             "Lineout", "10U2 OUTL",
+>> +                             "Lineout", "10U2 OUTR";
+>> +             clocks = <&clkc_pll CLKID_HIFI_PLL>,
+>> +                             <&clkc_pll CLKID_MPLL0>;
+>> +             assigned-clocks = <&clkc_pll CLKID_HIFI_PLL>,
+>> +                               <&clkc_pll CLKID_MPLL0>;
+>> +             assigned-clock-rates = <1179648000>,
+>> +                                    <270950400>;
+> 2 PLLs only ?
+> 1st appears to be for the 48k family, the 2nd for 44.1k
+>
+> No 64k support ?
 
- - Nothing enforces that all the entries actually agree.
+I have carefully reviewed our previous records. Only the 48k and 44.1k 
+clock families were taken into account, and 64k was overlooked.
 
-Instead, I think KHO blocks should record the entry size themselves.
-For example:
+Upon checking the U200 DTS, I found that 393216000 is also included 
+there. I will add it in. thanks
 
-struct kho_block_header_ser {
-    u64 next;
-    u32 count;
-    u32 entry_size;
-};
+>
+>> +
+>> +             dai-link-0 {
+>> +                     sound-dai = <&frddr_a>;
+>> +             };
+>> +
+>> +             dai-link-1 {
+>> +                     sound-dai = <&frddr_b>;
+>> +             };
+>> +
+>> +             dai-link-2 {
+>> +                     sound-dai = <&frddr_c>;
+>> +             };
+>> +
+>> +             dai-link-3 {
+>> +                     sound-dai = <&toddr_a>;
+>> +             };
+>> +
+>> +             dai-link-4 {
+>> +                     sound-dai = <&toddr_b>;
+>> +             };
+>> +
+>> +             dai-link-5 {
+>> +                     sound-dai = <&toddr_c>;
+>> +             };
+>> +
+>> +             dai-link-6 {
+>> +                     sound-dai = <&tdmif_a>;
+>> +                     dai-format = "i2s";
+>> +                     dai-tdm-slot-tx-mask-0 = <1 1>;
+>> +                     mclk-fs = <256>;
+>> +                     codec-0 {
+>> +                             sound-dai = <&tohdmitx TOHDMITX_I2S_IN_A>;
+>> +                     };
+>> +                     codec-1 {
+>> +                             sound-dai = <&toacodec TOACODEC_IN_A>;
+>> +                     };
+>> +             };
+>> +
+>> +             dai-link-7 {
+>> +                     sound-dai = <&tdmif_b>;
+>> +                     dai-format = "i2s";
+>> +                     dai-tdm-slot-tx-mask-0 = <1 1>;
+>> +                     mclk-fs = <256>;
+>> +                     codec-0 {
+>> +                             sound-dai = <&toacodec TOACODEC_IN_B>;
+>> +                     };
+>> +                     codec-1 {
+>> +                             sound-dai = <&tohdmitx TOHDMITX_I2S_IN_B>;
+>> +                     };
+>> +             };
+>> +
+>> +             /* 8ch HDMI interface */
+>> +             dai-link-8 {
+>> +                     sound-dai = <&tdmif_c>;
+>> +                     dai-format = "i2s";
+>> +                     dai-tdm-slot-tx-mask-0 = <1 1>;
+>> +                     dai-tdm-slot-tx-mask-1 = <1 1>;
+>> +                     dai-tdm-slot-tx-mask-2 = <1 1>;
+>> +                     dai-tdm-slot-tx-mask-3 = <1 1>;
+>> +                     mclk-fs = <256>;
+>> +                     codec-0 {
+>> +                             sound-dai = <&tohdmitx TOHDMITX_I2S_IN_C>;
+>> +                     };
+>> +             };
+>> +
+>> +             /* spdif hdmi and coax output */
+> No pinctrl on spdifout_a, so the coax output cannot work as is.
 
-kho_block_set_restore() would then take the entry size from the
-previous kernel and verify that every block agrees. Users of the block
-set can read the entry size back and decide how to handle entries
-written by an older or newer kernel, e.g. ignoring fields past the end
-of a smaller entry. That removes dev_ser_size from struct pci_ser, and
-any struct can be stored in a block array without a header or a size
-field in the parent.
+At the time of testing, we only covered SPDIF to HDMI TX.
 
-I also don't think block set entries need their own feature flags. The
-struct that holds the block set (e.g. struct pci_ser) already has
-feature flags, and those flags can describe extensions to the entries.
-For example, an optional flag in struct pci_ser could indicate that
-struct pci_dev_ser has a new field appended. All entries in a block set
-are written by the same kernel, so the flags would be identical for
-every entry anyway. The flags only need to be checked once, before
-iterating, rather than once per entry.
+  I will configure the pinctrl settings to enable coax output.
 
-If a feature only applies to some entries (e.g. some devices), the
-parent flag indicates the field is present and the value of the field
-in each entry indicates whether that entry uses it.
+thanks.
 
-The entry size in the block header and the feature flags in the parent
-are complementary: the entry size lets the iterator step over fields
-the kernel doesn't know about, and the flags say which fields are there
-and whether the next kernel must understand them.
+>
+>> +             dai-link-9 {
+>> +                     sound-dai = <&spdifout_a>;
+>> +
+>> +                     codec-0 {
+>> +                             sound-dai = <&spdif_dit>;
+>> +                     };
+>> +
+>> +                     codec-1 {
+>> +                             sound-dai = <&tohdmitx TOHDMITX_SPDIF_IN_A>;
+>> +                     };
+>> +             };
+>> +
+>> +             /* spdif hdmi interface */
+>> +             dai-link-10 {
+>> +                     sound-dai = <&spdifout_b>;
+>> +
+>> +                     codec {
+>> +                             sound-dai = <&tohdmitx TOHDMITX_SPDIF_IN_B>;
+>> +                     };
+>> +             };
+>> +
+>> +             /* spdif coax input */
+>> +             dai-link-11 {
+>> +                     sound-dai = <&spdifin>;
+>> +
+>> +                     codec {
+>> +                             sound-dai = <&spdif_dir>;
+>> +                     };
+>> +             };
+>> +
+>> +             dai-link-12 {
+>> +                     sound-dai = <&toacodec TOACODEC_OUT>;
+>> +
+>> +                     codec {
+>> +                             sound-dai = <&acodec>;
+>> +                     };
+>> +             };
+>> +     };
+>>   };
+>>
+>>   &pwm_ef {
+>> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+>> index 2a6fbd530836..2cf9a8f3f396 100644
+>> --- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+>> +++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+>> @@ -11,6 +11,11 @@
+>>   #include <dt-bindings/clock/amlogic,s4-peripherals-clkc.h>
+>>   #include <dt-bindings/power/meson-s4-power.h>
+>>   #include <dt-bindings/reset/amlogic,meson-s4-reset.h>
+>> +#include <dt-bindings/clock/axg-audio-clkc.h>
+>> +#include <dt-bindings/reset/amlogic,meson-axg-audio-arb.h>
+>> +#include <dt-bindings/reset/amlogic,meson-g12a-audio-reset.h>
+>> +#include <dt-bindings/sound/meson-g12a-toacodec.h>
+>> +#include <dt-bindings/sound/meson-g12a-tohdmitx.h>
+>>
+>>   / {
+>>        cpus {
+>> @@ -908,4 +913,359 @@ emmc: mmc@fe08c000 {
+>>                        assigned-clock-rates = <24000000>;
+>>                };
+>>        };
+>> +
+>> +     tdmif_a: audio-controller-0 {
+>> +             compatible = "amlogic,axg-tdm-iface";
+>> +             #sound-dai-cells = <0>;
+>> +             sound-name-prefix = "TDM_A";
+>> +             clocks = <&clkc_audio AUD_CLKID_MST_A_SCLK>,
+>> +                      <&clkc_audio AUD_CLKID_MST_A_LRCLK>,
+>> +                      <&clkc_audio AUD_CLKID_MST_A_MCLK>;
+>> +             clock-names = "sclk", "lrclk","mclk";
+> Should they all be disabled by default ?
 
-Please take a look at this series for how I am extending KHO block set
-elements using top-level feature flags:
+Previously, we assumed that audio was always present. I found that U200 
+also configures it as disabled by default.
 
-  https://lore.kernel.org/linux-pci/20261019213054.3157159-1-dmatlack@google.com/
+This approach is more prudent for SKUs without audio. Thank you for your 
+reminder.
 
-> 
-> >
-> > >     __u32 flags;
-> > > };
-> > >
-> > > #define LUO_SER_INIT_HDR(obj, _flags) do {           \
-> > >     (obj)->hdr.total_size = sizeof(*(obj));          \
-> > >     (obj)->hdr.flags = (_flags);                     \
-> > > } while (0)
-> > >
-> > > #define DECLARE_LUO_SER(name, expected_size, members)       \
-> > >     struct name {                                           \
-> > >         struct luo_ser_hdr hdr;                             \
-> > >         members                                             \
-> > >     };                                                      \
-> > >     static_assert(sizeof(struct name) == (expected_size),   \
-> > >                   "LUO struct " #name " size mismatch!")
-> >
-> > Why?
-> >
-> > Practically every change to a serialized struct is going to involve
-> > appending one or more fields to the end of the struct. Asserting the
-> > size means we have to update the hard-coded size as well every time we
-> > do that.
-> >
-> > Is this to protect against embedded structs accidentally changing?
-> >
-> 
-> Yes, exactly. See how kvm_vcpu_arch_ser is proposed in that same series:
-> 
-> +struct kvm_vcpu_arch_ser {
-> +    struct kvm_regs regs;
-> +    struct kvm_sregs sregs;
-> +    struct kvm_mp_state mp_state;
-> +    u32 pad;
-> +    struct kvm_xcrs xcrs;
-> +    struct kvm_lapic_state lapic;
-> +    u8 pad_xsave[40];
-> +    struct kvm_xsave xsave;
-> +    struct kvm_vcpu_events events;
-> +    struct kvm_debugregs debugregs;
-> +    u32 num_msrs;
-> +    u32 cpuid_nent;
-> +    struct kvm_msr_entry msrs[];
-> +};
-> 
-> All the above structs are uAPI, so they are stable compared to random
-> kernel structs, but they still have a size and can be expanded. So,
-> having the size and a static assert guarantees that when we expand
-> these uAPI structs, we automatically catch that in this struct and add
-> the appropriate flag to notify the next kernel of the changed world.
-> Also, it catches implicit compiler padding changes across
-> architectures.
+Thank you for all of your review feedback.
 
-Ok makes sense. Having protection from accidentally changing the offset
-of fields in a serialized struct is a good thing.
-
-> 
-> > >
-> > > Usage:
-> > > /*
-> > >  * Header:  8 bytes (hdr: 4 bytes total_size + 4 bytes flags)
-> > >  * Payload: 8 (pos) + 8 (size) + 4 (seals) + 4 (_pad) = 24 bytes
-> > >  * Total:   32 bytes
-> > >  */
-> > > DECLARE_LUO_SER(memfd_luo_ser, 32,
-> > >     __u64 pos;
-> > >     __u64 size;
-> > >     __u32 seals;
-> > >     __u32 _pad;
-> > > );
-> >
-> > IMO this makes the code harder to read. I think open coding keeps things
-> > simpler.
-> 
-> I am ok switching to a different construct or way of declaring these
-> structs if what I proposed is hard to read. However, we still need
-> standardization so that every serialized struct has a common,
-> expandable header (taking only 8 bytes by default), has its size
-> verified at both compile time and runtime, and is initialized in a
-> uniform way.
-
-I think your idea to have a growable header from the thread basically
-means that the header and the ser struct will be 2 completely separate
-structs and you will need to user pointer arithmetic to jump past the
-header and find your serialized struct. So I think this is probably
-moot.
-
-> 
-> >
-> > struct pci_ser {
-> >         struct luo_ser_hdr header;
-> >         __u32 dev_ser_size;
-> >         __u32 nr_devices;
-> >         __u64 devices;
-> > };
-> > LUO_SER_ASSSERT_SIZE(pci_ser, 32);
-> >
-> > >
-> > > struct memfd_luo_ser *ser;
-> > > ...
-> > > LUO_SER_INIT_HDR(ser, 0);
-> > >
-> > > Thanks,
-> > > Pasha
-> > >
-> > > >         u64 pos;
-> > > >         u64 size;
-> > > >         u32 seals;
-> > > > diff --git a/mm/memfd_luo.c b/mm/memfd_luo.c
-> > > > index 64f8b8cb75bd..ea1f4c8cd259 100644
-> > > > --- a/mm/memfd_luo.c
-> > > > +++ b/mm/memfd_luo.c
-> > > > @@ -84,6 +84,10 @@
-> > > >
-> > > >  #include "internal.h"
-> > > >
-> > > > +static const u8 memfd_luo_features[MEMFD_LUO_FEAT_MAX] = {
-> > > > +       [MEMFD_LUO_FEAT_CORE] = LUO_FEAT_REQUIRED,
-> > > > +};
-> > > > +
-> > > >  static int memfd_luo_preserve_folios(struct file *file,
-> > > >                                      struct kho_vmalloc *kho_vmalloc,
-> > > >                                      struct memfd_luo_folio_ser **out_folios_ser,
-> > > > @@ -284,6 +288,8 @@ static int memfd_luo_preserve(struct liveupdate_file_op_args *args)
-> > > >                 goto err_free_ser;
-> > > >         }
-> > > >
-> > > > +       luo_feature_hdr_init(&ser->features, sizeof(*ser),
-> > > > +                            memfd_luo_features);
-> > > >         ser->pos = args->file->f_pos;
-> > > >         inode_size = i_size_read(inode);
-> > > >
-> > > > @@ -525,6 +531,14 @@ static int memfd_luo_retrieve(struct liveupdate_file_op_args *args)
-> > > >         if (!ser)
-> > > >                 return -EINVAL;
-> > > >
-> > > > +       err = luo_feature_hdr_validate(&ser->features, memfd_luo_features);
-> > > > +       if (err) {
-> > > > +               pr_err("memfd_luo_ser feature header validation failed (size=%llu, flags[0]=%#llx): %pe\n",
-> > > > +                      ser->features.size, ser->features.flags[0],
-> > > > +                      ERR_PTR(err));
-> > > > +               goto free_ser;
-> > > > +       }
-> > > > +
-> > > >         /* Make sure the file only has seals supported by this version. */
-> > > >         if (ser->seals & ~MEMFD_LUO_ALL_SEALS) {
-> > > >                 err = -EOPNOTSUPP;
-> > > > --
-> > > > 2.56.0.212.g129ede20d9-goog
-> > > >
+>
+>> +     };
+>> +
+>> +     tdmif_b: audio-controller-1 {
+>> +             compatible = "amlogic,axg-tdm-iface";
+>> +             #sound-dai-cells = <0>;
+>> +             sound-name-prefix = "TDM_B";
+>> +             clocks = <&clkc_audio AUD_CLKID_MST_B_SCLK>,
+>> +                      <&clkc_audio AUD_CLKID_MST_B_LRCLK>,
+>> +                      <&clkc_audio AUD_CLKID_MST_B_MCLK>;
+>> +             clock-names = "sclk", "lrclk","mclk";
+>> +     };
+>> +
+>> +     tdmif_c: audio-controller-2 {
+>> +             compatible = "amlogic,axg-tdm-iface";
+>> +             #sound-dai-cells = <0>;
+>> +             sound-name-prefix = "TDM_C";
+>> +             clocks = <&clkc_audio AUD_CLKID_MST_C_SCLK>,
+>> +                      <&clkc_audio AUD_CLKID_MST_C_LRCLK>,
+>> +                      <&clkc_audio AUD_CLKID_MST_C_MCLK>;
+>> +             clock-names = "sclk", "lrclk","mclk";
+>> +     };
+>> +};
+>> +
+>> +&apb4 {
+>> +     acodec: audio-controller@1a000 {
+>> +             compatible = "amlogic,t9015";
+>> +             reg = <0x0 0x1a000 0x0 0x14>;
+>> +             #sound-dai-cells = <0>;
+>> +             sound-name-prefix = "ACODEC";
+>> +             clocks = <&clkc_periphs CLKID_ACODEC>;
+>> +             clock-names = "pclk";
+>> +             resets = <&reset RESET_ACODEC>;
+>> +             AVDD-supply = <&vddio_ao1v8>;
+> Board-level regulator referenced from the SoC dtsi.
+>
+> --
+> Jerome
+>
 
