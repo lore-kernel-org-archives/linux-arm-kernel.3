@@ -2,121 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E8C3606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 16:46:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9B7B606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 16:58:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zrke4m4g;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V5QWTSwY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wrIQrxwY;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=EVo7b4Bz;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=DZ9qUTSe
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
-	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=8MPpLo9g8WmfTBzYjDgl1YuODB/LFoNptN280IeFyBE=; b=zrke4m4g4msZlivsVS42ZH5mka
-	Zwl7Gt5Aqoejj6i1YKvonv+mrQDjIhoxogWFFa+qywj757QFvOZVHveOMCO1K6ZAdX1f+rCht1a/e
-	QikmjTKYsfQ8YWu2gXzBasS5VAS51qB8Fxk0h1SkEyOZKxEs/vctEVxqfXG5mi0GEQCROkukvJNxF
-	PgcRMjWClMqqFoRLglNQiWaVb1rDzhBMyr7/Bfb6eQWWo+YOY3vqp4aAUMRodFnMkTRcjyZKsAbDS
-	0DatsTyxfypMJR2Xu43Qg2Kz15Xzoj2QQ3Hpa7UmfXJFcPV1hQRh23/MH6Bea5yenTtLbhz65OH+Z
-	u3Jy4uhA==;
+	bh=lW8Xt0YJtAlPG22lX4O67YHeXeu7KYiXU4EfIgJSL9o=; b=wrIQrxwY7cA5IclKqRRlYD9Zo4
+	TyYYqRTJRaQAxTCHTH9pe8xCs3hUtp5XsWbj8G4X/qL9Uu1COa+i+bksYlWxuVN722S0h7RfEikYV
+	xGlW3ngGIcxz4csczff8T2JswvSCuUOB95rRsfh07Iqc3KFT7h6714FRntVRJPa+af3AbUcpmnbTe
+	RkCNuzdSdzENIKRbf0W3JOwGf0MErbt6zErVMj2h0OqHpnQdJ7t4/FI2eBaQmpIcAyS2WHWKts6Mx
+	7hEyUw7xv/0KRq/0JPuoFwSNfDj/4nUOhSHun0o/IRXe1X6fl33tFu8FjWgTTVUwPvjyNi/1w87M+
+	rAg2Nz1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJvw9-0000000EXMB-3hWW;
-	Thu, 22 Oct 2026 16:46:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xJw7a-0000000EYGy-2xzz;
+	Thu, 22 Oct 2026 16:58:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJvw8-0000000EXL4-1L5m;
-	Thu, 22 Oct 2026 16:46:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6F795601F8;
-	Thu, 22 Oct 2026 16:46:39 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792687599;
-	b=EE77ZGeAuyizkhiMFaBwPiMGDYDSDDaBaceEhj3/RYsshZJ7vTFihKarumEEovWrX/fc
-	 Dl3KzPWTdFkGAf2xc9ofklmBsbvebw30ILCmUigtMoAjtX6uLrxMlYGhr/ldvm7pWlnut
-	 /ZHg6Kb/prp8BCLhpousGODVQM8f0qCj0rFPCOvFue8EQ4uJUoK1iUsvVstvG3Ur3VWiF
-	 MGIGkid/PKeoMmTXQwZwtIu/XDfZKbm3w+vnTYkztvp1d1W+KBJ86HhamuSgAJ4r5XdkZ
-	 pnvoYUoK/c3hgz7RGe7MaD/x7TawW5Ma+5HIZGD0nzoNo92aIVYTIXn2m0VSDcL2HKg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792687599;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=8MPpLo9g8WmfTBzYjDgl1YuODB/LFoNptN280IeFyBE=;
-	b=WxfQjnkrBQoK3f6aU6ZEQyD1NcfB8y0J3e8l7S/ThZGdH61N78NzzmQdOIcfxe1apfOw
-	 GK/smtg5Ppjn7qALT+G1SxY97rk+4TqITBQqASWcjCq1dI5aYyXwjxnmIeI2Dkn7t+kKd
-	 57mmfTnRbNNm+sgl12oCSNqISrG2Pwrca497P8aNLYT6mHogjj+aKx82o37/+MVIN/rll
-	 K3ItgQ2PofTMz7kPRPnj+TWMwMh0pKaCgIGFvAL7InN010xhg9ap33UEH7luhqNBE0bsY
-	 hqoFi0/z44gy7qCDC4kIgUbDbbzE18gnkNrzFtIDECLDihUWRYL/aKMHYIlqHlMIxqw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 9A8EB1F01825;
-	Thu, 22 Oct 2026 16:46:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792687599;
-	bh=8MPpLo9g8WmfTBzYjDgl1YuODB/LFoNptN280IeFyBE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=V5QWTSwYr/J+3WexfvGixiQ5Xczrz43XYlHletgDdEGGa7Af/ljYYH231HBeZEazL
-	 hgGPN4OD6GppuYxIC9DOdReVCOREhkWoCWg8EX0WDZ0MinIFwjK4zpqRlYxPRfNpg5
-	 J8NwMhhYfc28t+xsseQ90+IipUzpgAiu6IyAbwKQb7HslqhjRPG1jXaQwAT7v7FdrY
-	 aiQvtUrcpJczV3qLetmVv1InNTAMmdelS5IBTNSQzV8UA+a91sW3OJHgIDV3qDUDIP
-	 1QaZIv/F5VqzhqcNgsaeHe/P1sfFwj8D6iqCWxTZmHNiJabWRmOCB82ne4cVD4vtll
-	 lwZoKtNAKIcKg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 0083441E7F;
-	Thu, 22 Oct 2026 16:46:38 +0000 (UTC)
-From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
-Date: Thu, 22 Oct 2026 17:46:36 +0100
-Subject: [PATCH 1/2] dt-bindings: phy: samsung,usb3-drd-phy: Add Exynos5515
- compatible
+	id 1xJw7Y-0000000EYGl-40sP;
+	Thu, 22 Oct 2026 16:58:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=lW8Xt0YJtAlPG22lX4O67YHeXeu7KYiXU4EfIgJSL9o=; b=EVo7b4BzS92khx6er0YSKgy/Wd
+	RhsghLfjTyGwBY2u9HlooR7RvQKo9f4V+E+p8sZEoFAghwyBczkeYv00xmvi4DkYVD0r6nqKvQmPN
+	TY5QZiOlC6q1bXrkq9dI89yp/9JT3JOTL5O7vWTmmoPctArA0+gt7Bzm/YkefDNIkEfjRa3AgtRQt
+	5CIariTUKfhk8u8CmUXbsvhJd66e8ZabKT3EOYO1BL7ov1zaR2Qk1Ql6sZkLeS+zvat3adj8DgAYd
+	ZZsF4qZ2E2Us28E5LJpBJWBanF1nGBZSgFfy6laScHOHtWrx8JHRbi0+Tm++XSGinGA1sgy02kF4R
+	tf32ueZQ==;
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xJw7W-00000007Zju-0Rf7;
+	Thu, 22 Oct 2026 16:58:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=lW8Xt0YJtAlPG22lX4O67YHeXeu7KYiXU4EfIgJSL9o=; b=DZ9qUTSeEEseQv/aDXthShbwS2
+	DxN0zVjdwjrHbfGwSEJfQmo0ulGFDy4tea/8sHwWaYw5HssITuNYq8q9EcgbKc2eH4Fq/dFKXOtYz
+	9QSp+ueNkHrySluyEuw2POGQuJpyOEjGv+jJH+yEL0XJtSKpigzet+6JJ4PGaTmdtghk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xJw7K-00CIVE-Az; Thu, 22 Oct 2026 18:58:14 +0200
+Date: Thu, 22 Oct 2026 18:58:14 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Coia Prant <coiaprant@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	David Heidelberg <david@ixit.cz>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v11 3/3] arm64: dts: rockchip: rk3568-photonicat: enable
+ SGMII LAN port
+Message-ID: <e7f68299-1c0d-4b0f-948b-4835086c0df8@lunn.ch>
+References: <20261022025844.150320-1-coiaprant@gmail.com>
+ <20261022025844.150320-4-coiaprant@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261022-for-next-lucky7-usb-phy-v1-1-2e47f8484bf4@member.fsf.org>
-References: <20261022-for-next-lucky7-usb-phy-v1-0-2e47f8484bf4@member.fsf.org>
-In-Reply-To: <20261022-for-next-lucky7-usb-phy-v1-0-2e47f8484bf4@member.fsf.org>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Aiden Isik <aidenisik@member.fsf.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1354;
- i=aidenisik@member.fsf.org; h=from:subject:message-id;
- bh=TSsA+fRx4RBo19oCHI+BqN+RycpJHWo/dLkXD94y3zQ=;
- b=owEBiQJ2/ZANAwAIAUknAbLEetfrAcsmYgBq2j3ssieeYp5OpBBa7/6qfdEtFIdA4uG3F7T2S
- 7t+nJe7sCeJAk8EAAEIADkWIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCato97BsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQSScBssR61+sn+RAA5RsY9YeLzM9rKsLA3zt2qepMy9qla5K
- 8Ym4GmxLjGv4RGD1b34/5GxOOjTG19kRdtsQQkK8Cai+N79QSEw3IcfiMIjplw/iIbdgGyLRdBo
- X4lyTKCnB6ElPcURLBg5hdUuw5nzs820738ld96WELDcelDiZFmzfSQgjWORZYlRdZXK35ODdBA
- 0Eo3SDYoExdOsqjcQEb7yfRdwhU5q5D3/vaub0F/JjmbaHk7JWAn48PCTOf6SLr/kAO8tA6GU56
- Z+0G6oVqzGXSBI4TyXnXQwbWB0eMCgVYedtNByQhWs5w+GdwJKUhJVce/AloHaTBvKbj6154NeE
- ZLFcNZ6usUTnzGQtY6tLQcHkGGYC56oJdpinpvOpzpndeLrSmP3ySjjgJDGYb8vAIeSaus8Kbg+
- iKtSuTBqWviOXF0+IB03T6BAQ8bvaIH2LPuUrtzuGy9se5e6cx0SmJe6lRnf0mTVAoh5qDczFnJ
- 56gC8Lvhqrq3VpqKl8oMLpREgn1qU9P810ITZjTW12Scj7tsXvojTZ/myNUzdGSRAzcrt121o1Y
- PcpwzYnU8uJFz6VCUFBYar3Y+mX3KwjVdUsBRK92wZkpoZX5pwDcnQcHmyG9f1YI0WSGVadHQ9h
- MJ53kzDKK+VyQmOdwT4B8ScpFh33mcRrmFTcA/flKQUU/9jCZYOs=
-X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
- fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
-X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
- auth_id=956
-X-Original-From: Aiden Isik <aidenisik@member.fsf.org>
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261022025844.150320-4-coiaprant@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261022_175826_262435_E8FE7701 
+X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,50 +88,20 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: aidenisik@member.fsf.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Aiden Isik <aidenisik@member.fsf.org>
+> +	sgmii_phy: ethernet-phy@3 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <0x3>;
+> +		max-speed = <1000>;
 
-Add the compatible string for exynos5515-usbdrd-phy. This PHY is
-compatible with the Exynos5420 PHY when running in High-Speed mode,
-in that it uses two clocks, phy and ref, so document it as such.
+Pointless. SGMII cannot do faster, so there is no need to limit it.
 
-Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
----
- Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-index a1b3d9e6a094..a9af03066d8d 100644
---- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-@@ -30,6 +30,7 @@ properties:
-       - samsung,exynos5250-usbdrd-phy
-       - samsung,exynos5420-usbdrd-phy
-       - samsung,exynos5433-usbdrd-phy
-+      - samsung,exynos5515-usbdrd-phy
-       - samsung,exynos7-usbdrd-phy
-       - samsung,exynos7870-usbdrd-phy
-       - samsung,exynos850-usbdrd-phy
-@@ -233,6 +234,7 @@ allOf:
-             enum:
-               - samsung,exynos5250-usbdrd-phy
-               - samsung,exynos5420-usbdrd-phy
-+              - samsung,exynos5515-usbdrd-phy
-               - samsung,exynos7870-usbdrd-phy
-               - samsung,exynos850-usbdrd-phy
-               - samsung,exynos990-usbdrd-phy
-
--- 
-2.54.0
-
-
+	Andrew
 
