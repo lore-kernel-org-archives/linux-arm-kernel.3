@@ -2,88 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D58560A2600
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A76760A381B
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 14:09:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=p91tS4Do;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=mX1xUva1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=O+z9Rfk+;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=YJd5tkLp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=UxR1vV0a0gQBYDHK6NtA7PO5bZkmmtV5vXJv9zlPOvU=; b=p91tS4DoeWVaSv
-	L/vaypZxDAF37r/SWN2DCndLNMGaM8EhdO/4hLophKd7RK068tJ8LJ0b1wj97UGukX8bJBOiCuJJt
-	QWVN8cfUXZ4If6LOJxYvr0ctElR66UmTTHmbl0/aCYZHBcsGI97kJkCy10WBcPGIxvccdNKRYyy8r
-	pOKVyHO3zwrsBpT3iOW3MdzaXSS7LyJ0BUxOcW6r2by7VY2mba6o/91YqjNLTasj87vTr1c06r/j5
-	eOFKG6+uQ4NAa5HTPUnevlRmnWeeIgtB53UlPs2DiLF6Y2jvTuTtt5CInxjzE2gaZ38jnb/4ZS5tF
-	3EF72rSvPPvoc1aM0kNg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=YXago1OoE7za0flCz23UuKhtMvUqXuNpFfpj2dGF/2k=; b=O+z9Rfk+3oXJahVDiT/jRtiKPH
+	hpQwuwMky++AZTDnts7E3Rzzuool53/mmuM5u+MXIeX/q/EhDlLKOVS2qdKH9SdriM1B5nlWFdMMX
+	pMUjJz5/583SFiB2vGqvDwSWgXE5hj7hpXyQgt5AwPgQ+gHRjkO9LD5dJDTmWkAuFJePvYtY6qlwH
+	VB12lYye+MtQsHF++nQ793AO3FWP3P/pxMTl/R6RvBxMxRQXIqumkg9gEpFK1KxCzL21ndjbblYH4
+	SYRA+ndoSpTI1NoTeNMA1NpaYxwDebaYMOLJ3fDvkJztErt7pjENV/i5GBU+5EKFlEzNF93AqdB7z
+	1G4GGd1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJtUG-0000000EGpb-0dNY;
+	id 1xJtUG-0000000EGpQ-0Gcm;
 	Thu, 22 Oct 2026 14:09:44 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJtUE-0000000EGoW-15OT
+	id 1xJtUD-0000000EGoR-2F0y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 14:09:43 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-48dfdd0678dso1560618f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 07:09:41 -0700 (PDT)
+	Thu, 22 Oct 2026 14:09:42 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-48dc202a60eso1004283f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 07:09:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792678180; x=1793282980; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UxR1vV0a0gQBYDHK6NtA7PO5bZkmmtV5vXJv9zlPOvU=;
-        b=mX1xUva1g4uPzF6kEHBq/85jLmooqos0AZiZeMFBiotfPXhLFh20em/HNyfi8hRBK0
-         w/k6AvzjpZ3Km2VOarPo9PJKPBWYduj9m0jkVcYVLPFAke89OZMkOsnwFRIlj4+ihMHc
-         O4aEK1PFrNA6mC92hNWiROXzz5PU4XMihI8LggsQT50kO3bNeHLKufel6f7q2u5dKMkc
-         KF3/fttFUEW4hIu60MtgRgopjBwsqeceREHBG596e3WV5QXtC62c0COE4qWy0iihTD3l
-         Poiscz0Y4EsEzWt6AhPQJpX0TgVb08AGA6ydxwuBp5OQHnAqRHFlggxfBSTn93Eku0or
-         4iDw==
+        d=gmail.com; s=20251104; t=1792678179; x=1793282979; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=YXago1OoE7za0flCz23UuKhtMvUqXuNpFfpj2dGF/2k=;
+        b=YJd5tkLpjarZ6rMf2xek82D1WP4BGE/ZO3EsLG92qg2EKibp93pHwaeVvWscMGjI45
+         JN7IrIIXoZvye1e5UIHPmFN+Ijc4nsL8odpEi0G7iRZnmx0dCbU8ElP3W2WI7GtEtTVQ
+         K0QEADgWN8KVr4PQKU/yx5MdJ21HBI+ed/Zn7dyYq2oz4g+gwA+JRafJTliUxMSJp56X
+         iqUJO8ynGTa7XOhISCgAmqpRl1D4RNcQdlsvtMEWGUg72QQr+XEiIviiEl1t9OsYG98p
+         RANr7BclRgKSrLhi5SOIh87DCsziTAmT7EgCdm3RWI1X8Nf0iudLk1Rf++v9JczyWJS5
+         wHQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792678180; x=1793282980;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UxR1vV0a0gQBYDHK6NtA7PO5bZkmmtV5vXJv9zlPOvU=;
-        b=0CCWdxKJGjRqYQDaBtIYAe26h5WwoJTRlFAONT2LYl+Q3AJfYORWLh5F5Fcp58XgPN
-         lYbNyTKl1c9iBN1TlOSD6IJxU0so768VIHRBNv5h0hDzu/HrVNlnOsZvoKxDYnsfSmnJ
-         hLdK42XL8tMfYuHexz3d8+ajopnomJNGpCxKkViG1G/9xz3ezFyt9+M67PCEWr4QUtH7
-         ZUk4a6MQpmaqj9l3mYXtPyX7QJvprn1qrd5B9Gk1E/6JqinYxZzXLmmlDE/iYcalpFZg
-         /9hJrSu8TJuBtxbO07KbWXQnfAY4iZfp4GGuTQ1s2DbVYw71DdafRoSly2wdkAW3SfYL
-         MOAg==
-X-Forwarded-Encrypted: i=1; AKwUvBzfhD4ZJ6+9hwc0XD/BWcijZNu3QSFFGLXo8pIkbUiziBonWKWUfW399JbqWc70LkSXJSDzZYTZB9Nnqx5YFj8Z@lists.infradead.org
-X-Gm-Message-State: AFq9FYJTm5JvyNMZis8Gx2wLgT9uv6ERSPOJPjYDMPFKrLjJz6F4ESVz
-	dAn5/uOj0LD2dOH74dUCDFHxv1LxeKO4ymyOWEaeTJif5VpD5Uvcrvtj
-X-Gm-Gg: AYBFou2kpyeaWyoG/prNAcYUO+u9E27bXU176FHMgF3zFGrpZpSjkDTiTfTBWCiXETs
-	5/sc994DX2I4AmG+tDkJykpKhlmhx0HUOuTCIISv2JdZzoKIWnw92Rmmm7xtHKEidwii9g79dml
-	ZST9PgfIqJ4A07rW/72m3V58m8I4RM2UMT1DGbQH1mEMV4tm78yq3XP7rA8/ccHNXvmsSUVzJ8P
-	S07rF0m6TjSkbZfVIyM/AKulTRNILpO0QGeDHKyro96jyVvu0eywcFchwzs51kJYcHuMhSeoJdT
-	KIW9rgfPgGp/wBjx3Fnn68C6gMBgkwVYkrzNmmID5fBllDtGXHgwR0pKkESinUZCM3zJfY4V9pg
-	9iyruqnXkO4Nb+/vbzZCKI8vCUaD5ZYuabkkXcG86dBQ1h1x3lyup+4BElvnTgaEHdzO9aRjrKu
-	zdeU08pe9cx8wTLOw7BVmvpOSDRZvjTrA6ZNcbvP/lOW16gmO0XQeqnvA7JY9JyTGoFfftDGil9
-	XC5TPGN6OTRUhUh+hhOO+rFYFCNt9WwSxUWS1noi69jU9Fwhs7dvnmdh/9nHZw/q4SrqZGF9YD3
-	X6gZR5LcoSfefXzAOtsI+VfrNs5QPK6Q3A/TWqcoLH5otg04Kw39Rcg=
-X-Received: by 2002:a05:6000:26c9:b0:48e:1299:663f with SMTP id ffacd0b85a97d-48e264f1802mr11901050f8f.56.1792678180098;
-        Thu, 22 Oct 2026 07:09:40 -0700 (PDT)
-Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e2584e760sm12368150f8f.59.2026.10.22.07.09.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        d=1e100.net; s=20260707; t=1792678179; x=1793282979;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=YXago1OoE7za0flCz23UuKhtMvUqXuNpFfpj2dGF/2k=;
+        b=EX3WT4Yv1VjQIKwLLzq3HmZ434ya1WVXjE+zOqUgze89srhohaM6ttrayhhG8cvmc3
+         SRY48DHBh3wBOwxXaYhXacJ4Y8wnMRdcQbksG+kWyDn9paN+TdbW3of3ryoLlwi33d03
+         jInDm6/aNo6BZvoS6DG4og85DWxZOQHfpDKhySSPcPdzBpL1PmVFqW+YaFTl/e8aarBJ
+         io5y+RSRJcEd2Aw2+3JqTHhXsqnZfls2EqhWTKiR2Yrv2hNphC/KoyT9+ofiiUlRhgXu
+         EUY9rqn5druqA+3zhBsvoJIdIpIDmdesgm9xL+NGLRRomKAWP7qLcNm8lEQFmAJf1xbP
+         oUPA==
+X-Forwarded-Encrypted: i=1; AKwUvByVED2eX6wc5ntKB3l2rasRgBZSxgkDuCoGGnpKcJvC3l9A5jAG1MI32eB+CmLsV/jKKo+mAMtg5scDPYr9b178@lists.infradead.org
+X-Gm-Message-State: AFq9FYLUd6NHOAxxj0A7Yg1/m7LqauAw6925co6o8/leHzYjlHJaGEtY
+	IZPHF+4O4oZJC2M2qhXURAS1Kf9fLtRaQR1YuNzcs0IlyZWSajCMhd48
+X-Gm-Gg: AYBFou2ArlqqcByRy8XNlTA4cKB+0JGggJuayiBQyELbuYjIrYnLAscL+jrC1yDIfJ4
+	wJlJxKafupgB9yWyC4znpJu6cvlvG8HeDbYQw05Mu02RNgQtiW4hYbZYdQTQJ7HtWVxmxiBdKue
+	p1pjPL9buk7WWY0h934gVzQ7VhKQ8i0yhbZJl3Km0FzJXWbHtHIJGVOjp7tZtKg1dh4o14eqn82
+	yyByLafxQ7PvwDN02N7/x/uZxQ04MguZvipNMVO7fhXuxk2c7OzKVZ691AT0BB0YIsaMjoFkEjA
+	9d9XSiJqNnHjfOdJ0Jb9KCotEeKGJkSGPITkFbKQ1BWZcJtFiigqx/CWRr6QSy1Z8cFVSM9DMyT
+	k9o6teiEhPi3VMfiDWQ4pvnGgar2Visn3LdVVgzFHpFi1uiMOAtVepqAaaPEaiyZdQS9UJ1/rhX
+	V+muhirDUmova3Cn332ouAqhXIuabyex0BQm0qOjrJ3r4uIqAF5JNmzfd32MOMZYtpmNaI5Xd+K
+	WtflLtREr7tRSJhIjI6pFmjVHcXlQJ7PeWAMqbxExSiZVp5hTvCaGCB26B2jf0pHnsrZ/JXAZRT
+	x0JRwJ8o7wxhN+wLVkiVzM23fCbIHJAThrnI+0mrQ9jPYHIuX0gHo04=
+X-Received: by 2002:adf:e00e:0:20b0:48e:1e03:687f with SMTP id ffacd0b85a97d-48e264c3ffamr7880482f8f.31.1792678179143;
         Thu, 22 Oct 2026 07:09:39 -0700 (PDT)
+Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e2584e760sm12368150f8f.59.2026.10.22.07.09.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Oct 2026 07:09:38 -0700 (PDT)
 From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Date: Thu, 22 Oct 2026 16:09:33 +0200
-Subject: [PATCH v2 1/5] arm64: dts: freescale: imx8mm-verdin: Share the
- UART_4 MCU overlay
+Subject: [PATCH v2 0/5] arm64: dts: freescale: Share the Toradex Cortex-M
+ UART overlay
+Date: Thu, 22 Oct 2026 16:09:32 +0200
+Message-Id: <20261022-v1-imx95-overlays-v2-0-c769d6eb54fd@toradex.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261022-v1-imx95-overlays-v2-1-c769d6eb54fd@toradex.com>
-References: <20261022-v1-imx95-overlays-v2-0-c769d6eb54fd@toradex.com>
-In-Reply-To: <20261022-v1-imx95-overlays-v2-0-c769d6eb54fd@toradex.com>
+X-B4-Tracking: v=1; b=H4sIABwZ2moC/32NTQ6DIBBGr2JmXRrAnzhd9R6NC8CxTlKlgYZoD
+ Hcv9QBdvpd87zsgUmCKcKsOCJQ4sl8L6EsFbjbrkwSPhUFL3UnUWiQleNmwFT5ReJk9ih5tbVD
+ 1rcUayu4daOLtbD6GwjPHjw/7eZHUz/6rFSNFh42S0ky2se5exmak7er8AkPO+QsnW9p3tAAAA
+ A==
 To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
  Pengutronix Kernel Team <kernel@pengutronix.de>, 
  Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
@@ -94,9 +96,9 @@ Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_070942_330641_03FE08FD 
-X-CRM114-Status: GOOD (  17.01  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261022_070941_597364_F96D4180 
+X-CRM114-Status: GOOD (  10.73  )
+X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,118 +109,67 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-14.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Several Toradex modules assign one UART to firmware running on their
+Cortex-M core: Verdin UART_4 on Verdin iMX8M Mini, Verdin iMX8M Plus
+and Verdin iMX95, Aquila UART_4 on Aquila iMX95 and SER0 on Toradex
+SMARC iMX95. The overlays reserving it only differ in the UART
+instance.
 
-Verdin UART_4 is the UART the module assigns to the Cortex-M4F core.
-Other Toradex modules also assign one UART to their Cortex-M core, such
-as Verdin and Aquila UART_4 and SMARC SER0 on i.MX95, but on a different
-UART instance, so an overlay naming the instance cannot be shared.
+Label that UART uart_mcu in each module device tree and share one
+overlay, imx-tdx-uart-mcu.dtso, which reserves the labelled UART. The
+merged Verdin iMX8M Mini overlay becomes the shared one, and the
+combined Verdin iMX8M Mini DTB keeps its name. NXP's imx9-mqs.dtso
+uses the same pattern with its mqs1_conflict_dev board label.
 
-Label the UART uart_mcu in the module device tree and turn the Verdin
-iMX8M Mini overlay into imx-tdx-uart-mcu.dtso, which reserves the
-labelled UART. The combined Verdin iMX8M Mini DTB keeps its name.
+The overlays mark the port as reserved so Linux does not claim it.
+Firmware remains responsible for configuring the UART and its pads.
 
 Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 ---
- arch/arm64/boot/dts/freescale/Makefile                     |  5 +++--
- arch/arm64/boot/dts/freescale/imx-tdx-uart-mcu.dtso        | 14 ++++++++++++++
- arch/arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso | 14 --------------
- arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi           |  2 +-
- 4 files changed, 18 insertions(+), 17 deletions(-)
+Changes in v2:
+- Share one overlay through a uart_mcu label instead of adding
+  identical per-module overlays (Frank), and include the merged Verdin
+  iMX8M Mini overlay
+- Add Verdin iMX8M Plus, previously posted with the Verdin iMX8M OV5640
+  series:
+  https://lore.kernel.org/r/20261001-verdin-imx8mp-hmp-camera-ready-v2-2-7d1343ecd3ec@toradex.com
+- Drop the Verdin iMX95 NAU8822 BTL patch, now covered by the shared
+  NAU8822 BTL series:
+  https://lore.kernel.org/all/20261022-imx-nau8822-btl-v2-0-b4221ed43650@toradex.com/
+- Rebase onto imx/dt64
+- Link to v1: https://lore.kernel.org/r/20260922-v1-imx95-overlays-v1-0-694100afb4bc@toradex.com
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index a80cccf34eb5..a40bcbe4876d 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -107,6 +107,8 @@ dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-tqmlx2160a-mblx2160a-14-11-x.dtb
- dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-tqmlx2160a-mblx2160a-14-8-x.dtb
- dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-tqmlx2160a-mblx2160a-14-7-x.dtb
- 
-+dtb-$(CONFIG_ARCH_MXC) += imx-tdx-uart-mcu.dtbo
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8dx-colibri-aster.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8dx-colibri-eval-v3.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8dx-colibri-iris-v2.dtb
-@@ -268,7 +270,6 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-yavia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-zinnia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-panel-cap-touch-10inch-dsi.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-panel-cap-touch-7inch-dsi.dtbo
--dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-uart4-mcu.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia-dsi-to-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia-panel-cap-touch-10inch-dsi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia.dtb
-@@ -298,7 +299,7 @@ imx8mm-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch-dtbs := imx8mm-verdin-
- imx8mm-verdin-wifi-dev-nau8822-btl-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-dev-nau8822-btl.dtbo
- imx8mm-verdin-wifi-dev-panel-cap-touch-7inch-dsi-dtbs := imx8mm-verdin-wifi-dev.dtb \
- 	imx8mm-verdin-panel-cap-touch-7inch-dsi.dtbo
--imx8mm-verdin-wifi-dev-uart4-mcu-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-uart4-mcu.dtbo
-+imx8mm-verdin-wifi-dev-uart4-mcu-dtbs := imx8mm-verdin-wifi-dev.dtb imx-tdx-uart-mcu.dtbo
- imx8mm-verdin-wifi-yavia-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-yavia.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
- 
- imx8mm-tqma8mqml-mba8mx-lvds-g133han01-dtbs += imx8mm-tqma8mqml-mba8mx.dtb imx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx-tdx-uart-mcu.dtso b/arch/arm64/boot/dts/freescale/imx-tdx-uart-mcu.dtso
-new file mode 100644
-index 000000000000..001bc3286e8e
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx-tdx-uart-mcu.dtso
-@@ -0,0 +1,14 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Reserve the UART that the module assigns to its Cortex-M core, labelled
-+ * uart_mcu in the module device tree, so that Linux does not claim it.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&uart_mcu {
-+	status = "reserved";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso b/arch/arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso
-deleted file mode 100644
-index 8dbecffe9e7b..000000000000
---- a/arch/arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso
-+++ /dev/null
-@@ -1,14 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
--/*
-- * Copyright (c) Toradex
-- *
-- * Verdin iMX8M Mini UART_4 for Cortex-M4F
-- */
--
--/dts-v1/;
--/plugin/;
--
--/* Verdin UART_4 */
--&uart4 {
--	status = "reserved";
--};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-index 4f64c5da8d15..1ac9d000d415 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-@@ -776,7 +776,7 @@ &uart3 {
-  * Verdin UART_4
-  * Resource allocated to M4 by default, must not be accessed from Cortex-A35 or you get an OOPS
-  */
--&uart4 {
-+uart_mcu: &uart4 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart4>;
- };
+---
+Ernest Van Hoecke (5):
+      arm64: dts: freescale: imx8mm-verdin: Share the UART_4 MCU overlay
+      arm64: dts: freescale: imx8mp-verdin: Add Cortex-M7 UART_4 overlay
+      arm64: dts: freescale: imx95-verdin: Add Cortex-M7 UART_4 overlay
+      arm64: dts: freescale: imx95-aquila: Add Cortex-M7 UART_4 overlay
+      arm64: dts: freescale: imx95-toradex-smarc: Add Cortex-M7 SER0 overlay
 
+ arch/arm64/boot/dts/freescale/Makefile                    | 15 +++++++++++++--
+ arch/arm64/boot/dts/freescale/imx-tdx-uart-mcu.dtso       | 14 ++++++++++++++
+ .../arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso | 14 --------------
+ arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi          |  2 +-
+ arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi          |  2 +-
+ arch/arm64/boot/dts/freescale/imx95-aquila.dtsi           |  2 +-
+ arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi    |  2 +-
+ arch/arm64/boot/dts/freescale/imx95-verdin.dtsi           |  2 +-
+ 8 files changed, 32 insertions(+), 21 deletions(-)
+---
+base-commit: 7f47e8eafbf55a2ad0697e5d28f5e6cff2fa42f9
+change-id: 20260922-v1-imx95-overlays-89b3a9185b93
+
+Best regards,
 -- 
-2.43.0
+Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 
 
