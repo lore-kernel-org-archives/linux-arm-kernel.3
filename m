@@ -2,109 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1B74606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 15:38:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77200606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 15:43:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vDzx7m54;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=rxsFuRQZ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IEKxCjUp;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HkIm1xBS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=xw8Hc90SJ6hLK8A+mne32ZiLGjKs+f67UZdHxuK/A2M=; b=vDzx7m549CRkNliMW1Lffr3LH5
-	HCdCHCtcJ4sIPfX+vgOWYRDLQbNOg9ErqMcypu3zM8a3sDk48iq7EUf0prcDSP1eP9zCNp3nrWuJX
-	DCYJytowN4uW2+GL2S0yqLMZKdsar/jZk+OzDHMhx9v0y5Joq6sTwTPo/L0eSMmZCqnwSRl7lKufQ
-	hZtmsn2bGB++3p/8mUIOYiXFnyRNa23jP2/xePkO/7cuvIbs4Ud2f8W3iw0HhOa+rrNgEIvtS7H+O
-	aD86WdxQ0M2BecdvEpij7eQSjl1gqnWz0ffKHF+1aEHYwDOLO/T79Ph4dJ7Wq7J7i9TCOwhP0p/WS
-	52xCEijw==;
+	bh=H/ZQDZbJUUwaDWq/U/yZ4cIarmdBAnG5+fgMRyphtSo=; b=IEKxCjUpkslmu6SybDqNUm4Qtq
+	GdKIIuR91roc7p/oZlqc/d3guTDpmMgcpYBk/R8UnqzFh03dC4hmKiBAFhAyOPlUHiR2XrMTFdsag
+	AQsShpwETrGyZYyAaI6bcWRDUYd+2e2KjPRAYLnUnT/+eW5UYEDj/G74WWIS2zt50Myp5PB1HdFWR
+	1IfG+Xd7JeeIYTIY3KGJ98iwcw/oo9/HIb+OUUJ1GFZs5mRNrtPQMtP1hfLTqPGCwqhewjGGZE03X
+	XGofyCAzOi5z84mLMZeTJdw8sWtG5HqypsnPa1nsojnvqY5Ma1h3bGBGO9mzYsnb3YiiYzuVXvxv9
+	JNt4dkcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJurd-0000000EQ47-1rWq;
-	Thu, 22 Oct 2026 15:37:57 +0000
-Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
+	id 1xJux2-0000000EQG1-0EhK;
+	Thu, 22 Oct 2026 15:43:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJura-0000000EQ3l-1Ii0
+	id 1xJux1-0000000EQFt-12Mo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 15:37:55 +0000
-Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-486f013db83so907546fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 08:37:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792683471; cv=none;
-        d=google.com; s=arc-20260327;
-        b=FZ/a5FSt+KR12n9x11+7nzKUiMQlx+GTfJfpFLdFMwSnPBdVqKJrBWHgOJJ8n1x1n3
-         4Umdr/2NET4XT5LH8XIjVl+4eq1LpH/d9LBn1CAx8u/H1qnJIG6JMZaiM/7w3y52Zm6R
-         EgiaqFH8ygyeYn/QpJpiYJX9gIbsbYZso6ReryIcEGBR7NWkPYsw4EreOwjmMd3bTqJt
-         +JxkrWGBgtU9kX0waa1Y6s1S44MpZ0hY0ZWFK3RyxlwN64IFNrlJ7zdyQVQGzfsvd/1v
-         xb4py7sS+yH2JUnzQDGebxO1FZjSX2fyPwYG03SC/JZrowuGLMxCHwcACKuuKDMtif5E
-         bZzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :mime-version:dkim-signature;
-        bh=xw8Hc90SJ6hLK8A+mne32ZiLGjKs+f67UZdHxuK/A2M=;
-        fh=uSLpJ05BtSQ0FI84S6eNnYNIKSjaXU2E8nKNr2hdqgk=;
-        b=BKceNLrn4SmkekkBJIbCuptYo7WajB44a3H1/EPU6RtEKxtTR9BZwWdvDWn2lT+V9X
-         7Rpc0OyMEGERRZEYQOmstTosFIm2WNdcowYFQ6ze4mRkIFLwsQZF6uUpZX14xIVF9xBX
-         VSluKkF+VVswWorRb1K4A45GiaKHuuKU0Z4L/0glhwynmwEoTKf/LkdEyuxffb7+BZja
-         uzITVB+/asgrBRgNQHd+eLZge6o3PEYk18Dt5Q29UFdOmnbP736KWDTKaKdP2SseKK0W
-         cAU9v2IV98io/SmZFYBVUDgIWLzXHSUkrvR0l6OI6GobQ3LrGeRwiY5OEj+TB2RRi7Rq
-         pO2Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792683471; x=1793288271; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xw8Hc90SJ6hLK8A+mne32ZiLGjKs+f67UZdHxuK/A2M=;
-        b=rxsFuRQZW8mwlXU/0wRV8rIlHLba+ouNXYG35yKo3GUj57V/4EUqjYgv5dBOTq2nav
-         0SqbqzcPeEyyXMAvzV/KFAM7J1bZ+C4C4lktj5jwQgL2DYrvejonyNU4WD76CwsSrcFy
-         s1mi4GHXDzkdzqyXL/QqNVHpFgT9luSJCTivTdePJzph6Dcb8/FUQ756loly1ggx8oEo
-         Wft5/lJRdNRZXiWF4W5FF+0vwXjtdLbTMtl3O1+8Z5JJhRThAoT3Ppb2BZa250c/hvYx
-         dg5PPUJgGbNcSRoSrexwrwnSVnH53sdnnhFRMyBhM1DxuNxws7+646LWm99suSHU3z5p
-         TIag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792683471; x=1793288271;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=xw8Hc90SJ6hLK8A+mne32ZiLGjKs+f67UZdHxuK/A2M=;
-        b=RXWUzVSBxOHmbb3sZgLZngeGYQDkLiC7UUdTlILnqSvTk4xP4ZTDoccQyvFIFHsI0I
-         S60zh8YPYmv+y7UnnjRxkjKjNWr86T8On7LuzjQ/dSHZIZGNbSX7DpX/YNmGwBEalsPy
-         hgtToyF/I5OvTxXEXV171YGMfzSTFiqTe6V+00bZEhCCykJfiB3uBEomnYi+7FtoLQey
-         e/tr9X/VUWSLMZFlZ1FCAvOxiL9Lq/i6gQWgsf2Ftr6qqy4HT/ZqTkmckDtojiJzAfKG
-         CEjR4nDcduKK4PuHD36dShmkfiE5M2/kX1BxZpCbqET/ycS1cCcapKkT3aOwqT9OdvCI
-         PVug==
-X-Forwarded-Encrypted: i=1; AKwUvBxzddYoZN8opYUIo971dlOylgdTMv8C7RaVXMTyaOb7GJ+36difdmY0ERUNlm3EuE6vY1iFI/iLJlqBRp7Gt7ld@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ6b23WJ39oQDmKnWtWP+XY11EYrAEG1saE4L6QeI2k3WQaJWQp
-	Vb/a82eAqu7rwdVSKqHpTLZ2021yT85s1G1neBIPHekYmSiFkcVStCuVPSMDQkues/inwgbh+yF
-	v69Ecv8IQkUOkN2enR66/ESi3ja6Jo+Q=
-X-Gm-Gg: AYBFou267FXWa7WUchdMVD6A3a556qmz46niYkwAVajyS8s0LRpG9G+6TKZ53Gt3ome
-	EJzfld2AkR1Iea7Ldj7QN1hDUhxYfte/H922D8dewyHAMIY2sIp08/rumNrDSRe89cb2RDo2m3p
-	3m3v0eHHJTbOZ+YR8e0fDQw2WfgEVJ+XkDWjui75aT4IH+s8FjWrkDvHma5lhJkUYcjok4Os3rF
-	vRZ1KO054/1aCDj1+el0bm0rKcYzr5OTSTLQmZcK11F1lHyet2KL/GLbKMfAmo75yyu81axJlQ4
-	8Wvyhw6Irf4iVdgqnOibC5LAEAp6aq1YVEX0IGzhWE0L8MBLB1Qt5fbY2hVWuCkz4KigqG4bu7o
-	nUBZ3Ea1hXE1175pjW1PweFD9WxScV/QnLyze
-X-Received: by 2002:a05:6870:1705:b0:455:e6ea:bd8f with SMTP id
- 586e51a60fabf-4a7dc221558mr3586262fac.16.1792683471524; Thu, 22 Oct 2026
- 08:37:51 -0700 (PDT)
+	Thu, 22 Oct 2026 15:43:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9A5A7417EF;
+	Thu, 22 Oct 2026 15:43:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BFAC1F01825;
+	Thu, 22 Oct 2026 15:43:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792683810;
+	bh=H/ZQDZbJUUwaDWq/U/yZ4cIarmdBAnG5+fgMRyphtSo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=HkIm1xBS2oaBequM1IPluWU8b+N//ZtGRp17ZRz9uHD5bKy2xYcEdA4HU0rNyrgDg
+	 YBJuHEJRMeL+tUCGYtbZjpENSBmdmPC0uQqPh2SUb6uSsREXyD0lUSYkOkV1P70koK
+	 OpBxQh+BqzrF3MFP5RXmvSeTtHZO3/bxhr4B2iDcNcLx6Gpmah9lHKIk8JbDsl0h+w
+	 16pnLvPlrRDp3BcIAmQGfyE+57bIfZzWGhQES485JDv6J/MtvdsOxkexEJGoFqAI9n
+	 lbeEZcJoLlj4jO4oACEpTZEstHuP263QEUjvW+OTTqmS/WKngm8TZDxFNEC0gQ78/P
+	 +b4+D2p5AvpGA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xJuwx-000000067Lk-3k9q;
+	Thu, 22 Oct 2026 15:43:27 +0000
+Date: Thu, 22 Oct 2026 16:43:27 +0100
+Message-ID: <86h5idzqow.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Alex Williamson <alex@shazbot.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	Oded Gabbay <ogabbay@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [RFC PATCH v2 11/15] KVM: arm64: Export stage-2 MMU config
+In-Reply-To: <20261015142552.4128028-12-ryan.roberts@arm.com>
+References: <20261015142552.4128028-1-ryan.roberts@arm.com>
+	<20261015142552.4128028-12-ryan.roberts@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Thu, 22 Oct 2026 10:37:40 -0500
-X-Gm-Features: AclHuK_KO6DMzOAI40roeC_Oa2STIKdlEGirC5hdAD1SmKSOl6vW05usBpoKQCs
-Message-ID: <CABb+yY2rFwmcxXvJSp9=QX5fwNSzhBvb-mz7Yu=4ddW6q_kpCQ@mail.gmail.com>
-Subject: [GIT PULL] Mailbox changes for v7.4
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_083754_408010_78EEF36E 
-X-CRM114-Status: GOOD (  16.24  )
-X-Spam-Score: -2.1 (--)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ryan.roberts@arm.com, gregkh@linuxfoundation.org, arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, oupton@kernel.org, alex@shazbot.org, jgg@nvidia.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, jpb@kernel.org, ogabbay@kernel.org, corbet@lwn.net, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,150 +99,207 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Linus,
+On Thu, 15 Oct 2026 15:25:45 +0100,
+Ryan Roberts <ryan.roberts@arm.com> wrote:
+> 
+> From: Jean-Philippe Brucker <jpb@kernel.org>
+> 
+> Provide an API to drivers that want to share the stage 2 configuration
+> of a VM with their device. At the moment it is rather limited:
+> 
+> * No invalidation notifiers. The TLBs on the device side, if any,
+>   receive CPU TLB invalidations.
+> 
+> * No remote page fault support. All paging still takes the normal data
+>   abort route on the CPU. Options are pinning all guest memory or
+>   device-specific mechanism for reporting pending faults to the guest.
+> 
+> * No nested VMs. Although we could perhaps support assigning devices to
+>   the hyp context of a nested VM, it seems performative.
+> 
+> So for the moment this API works for devices that share the CPU MMU, but
+> the SMMU driver could use it with DVM.
+> 
+> Signed-off-by: Jean-Philippe Brucker <jpb@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_host.h |  11 ++++
+>  arch/arm64/include/asm/kvm_mmu.h  |   1 +
+>  arch/arm64/kvm/mmu.c              | 102 ++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/sys_regs.c         |  14 +---
+>  4 files changed, 117 insertions(+), 11 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 30d0082b15ec..c0932b43f959 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -235,6 +235,14 @@ struct kvm_s2_mmu {
+>  	atomic_t refcnt;
+>  };
+>  
+> +/* stage 2 MMU configuration, for drivers that speak VMSA */
+> +struct kvm_arch_guest_mmu {
+> +	u64 hcr;
+> +	u64 hcrx;
+> +	u64 vtcr;
+> +	u64 vttbr;
+> +};
+> +
+>  struct kvm_arch_memory_slot {
+>  };
+>  
+> @@ -1720,4 +1728,7 @@ static __always_inline enum fgt_group_id __fgt_reg_to_group_id(enum vcpu_sysreg
+>  
+>  long kvm_get_cap_for_kvm_ioctl(unsigned int ioctl, long *ext);
+>  
+> +struct kvm_arch_guest_mmu *kvm_arch_get_guest_mmu(struct kvm *kvm);
+> +void kvm_arch_put_guest_mmu(struct kvm *kvm, struct kvm_arch_guest_mmu *mmu);
+> +
+>  #endif /* __ARM64_KVM_HOST_H__ */
+> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+> index 6eae7e7e2a68..8a9d385fe14d 100644
+> --- a/arch/arm64/include/asm/kvm_mmu.h
+> +++ b/arch/arm64/include/asm/kvm_mmu.h
+> @@ -185,6 +185,7 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu);
+>  int kvm_handle_guest_abort(struct kvm_vcpu *vcpu);
+>  
+>  phys_addr_t kvm_mmu_get_httbr(void);
+> +u64 kvm_mmu_get_hcr(struct kvm *kvm, u64 hcr);
+>  phys_addr_t kvm_get_idmap_vector(void);
+>  int __init kvm_mmu_init(u32 hyp_va_bits);
+>  
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 2d44cd6a5aed..0bf1dff2a41f 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -2805,3 +2805,105 @@ void kvm_toggle_cache(struct kvm_vcpu *vcpu, bool was_enabled)
+>  
+>  	trace_kvm_toggle_cache(*vcpu_pc(vcpu), was_enabled, now_enabled);
+>  }
+> +
+> +#define HCR_MMU_BITS (HCR_VM | HCR_PTW | HCR_DC | HCR_TGE | HCR_RW |	\
+> +		      HCR_CD | HCR_ID | HCR_E2H | HCR_NV | HCR_NV1 |	\
+> +		      HCR_FWB | HCR_ATA | HCR_DCT)
+> +
+> +/* Update MMU-specific host bits of HCR_EL2 */
+> +u64 kvm_mmu_get_hcr(struct kvm *kvm, u64 hcr)
+> +{
+> +	lockdep_assert_held(&kvm->arch.config_lock);
+> +
+> +	WARN_ON(!test_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED,
+> +			  &kvm->arch.flags));
+> +
+> +	hcr &= ~HCR_MMU_BITS;
+> +	hcr |= HCR_VM | HCR_PTW;
+> +
+> +	if (has_vhe() || has_hvhe())
+> +		hcr |= HCR_E2H;
+> +
+> +	if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
+> +		hcr |= HCR_FWB;
+> +
+> +	if (kvm_has_mte(kvm))
+> +		hcr |= HCR_ATA;
+> +
+> +	if (!test_bit(KVM_ARM_VCPU_EL1_32BIT, kvm->arch.vcpu_features))
+> +		hcr |= HCR_RW;
+> +
+> +	return hcr;
+> +}
+> +
+> +/**
+> + * kvm_arch_get_guest_mmu - Get a reference to the guest MMU config
+> + * @kvm: KVM instance. Caller must hold a reference.
+> + *
+> + * Get the stage 2 MMU config of an EL1 VM. The returned object contains
+> + * settings that do not change until the object is released with
+> + * kvm_arch_put_guest_mmu(). This function does not support nested VMs.
+> + *
+> + * HCR has lots of settings, some of which differ between vCPUs, but most of
+> + * them control traps. For EL1 VMs, the bits relevant to MMU translation are
+> + * common to all vCPUs:
+> + * - VM, PTW, DC, TGE, CD, ID, NV, NV1, DCT have fixed values.
+> + * - E2H, FWB, ATA depend on host CPU features (respectively VHE, FWB and MTE2).
+> + * - RW depends on vCPU features. This function does not support 32-bit VMs.
+> + *
+> + * HCRX: EnSDERR, EnSNERR set to 0. TODO: is GCSEn relevant?
+> + *
+> + * VTCR is set once for the VM, depends on the VM's IPA size.
+> + *
+> + * VTTBR:
+> + * - VMID is pinned, until kvm_arch_put_guest_mmu() is called.
+> + * - PGD is allocated and freed with the vm (the caller must hold their
+> + *   reference to @kvm). KVM may create and remove page table mappings at any
+> + *   moment, and uses normal TLB maintenance operations to synchronize with
+> + *   page table walkers. KVM does not notify the caller about mapping changes.
+> + * - CNP is a property of the host system.
+> + *
+> + * Return: a new kvm_arch_guest_mmu instance, or an error pointer on failure.
+> + */
+> +struct kvm_arch_guest_mmu *kvm_arch_get_guest_mmu(struct kvm *kvm)
+> +{
+> +	int ret;
+> +	struct kvm_arch_guest_mmu *mmu;
+> +
+> +	guard(mutex)(&kvm->arch.config_lock);
+> +
+> +	if (is_protected_kvm_enabled())
+> +		return ERR_PTR(-EOPNOTSUPP);
 
-The following changes since commit a90ee4305c4a5df72c11b31dacfdc76e00fcf78a=
-:
+How does this compose with CCA? Can it be restricted to exclusively
+running VHE rather than also dealing with the lesser configurations?
 
-  Linux 7.3-rc6 (2026-10-04 13:45:25 -0700)
+> +
+> +	if (!test_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags) ||
+> +	    test_bit(KVM_ARM_VCPU_EL1_32BIT, kvm->arch.vcpu_features) ||
+> +	    test_bit(KVM_ARM_VCPU_HAS_EL2, kvm->arch.vcpu_features))
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	ret = kvm_arm_pinned_vmid_get(kvm);
+> +	if (ret < 0)
+> +		return ERR_PTR(ret);
+> +
+> +	ret = -ENOMEM;
+> +	mmu = kzalloc_obj(*mmu, GFP_KERNEL_ACCOUNT);
+> +	if (!mmu)
+> +		goto err_unpin_vmid;
+> +
+> +	mmu->vtcr = kvm->arch.mmu.vtcr;
+> +	mmu->vttbr = kvm_get_vttbr(&kvm->arch.mmu);
+> +	mmu->hcr = kvm_mmu_get_hcr(kvm, 0);
 
-are available in the Git repository at:
+How about the hcrx field in the structure?
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
-tags/mailbox-v7.4
+> +
+> +	return mmu;
+> +
+> +err_unpin_vmid:
+> +	kvm_arm_pinned_vmid_put(kvm);
+> +	return ERR_PTR(ret);
+> +}
+> +EXPORT_SYMBOL_GPL(kvm_arch_get_guest_mmu);
 
-for you to fetch changes up to 01a40ad5a9687ea5a837857d4b21ddd764be7aa3:
+It really feels like this is a bit upside down. Since you are actively
+pinning the S2 MMU context, it should only be a matter of taking a
+reference on the kvm struct (just like KVM devices do), and handing
+off the kvm_s2_mmu structure, rather than copying things. When you're
+done with it, drop the reference.
 
-  mailbox: Use named initializers for acpi_device_id (2026-10-21 18:46:54 -=
-0500)
+If there is a need to deal with a different value for HCR_EL2 (or
+anything else), it can be done in the code that makes use of it,
+rather than being in the KVM code.
 
-----------------------------------------------------------------
-mailbox: updates for v7.4
+Thanks,
 
- - altera: shut down RX polling timer on channel teardown
- - arm-mhu: timeout if receiver never comes up in mhuv2, keep combined IRQ
-    enabled during suspend in mhuv3, and drop redundant unregister on probe
-    failure in doorbell
- - axiado: fix RX frame draining and error handling, and fix debugfs name
-    truncation warning
- - bcm74110: cap rx_svc_init_list growth to prevent PMC-induced OOM
- - hisilicon: convert Hi3660 and Hi6220 bindings to DT schema
- - mtk-cmdq: fix runtime PM leak in cmdq_mbox_flush()
- - pcc: free channel before unmapping shared memory and serialize channel
-    updates with teardown
- - qcom: guard against NULL con_priv race in IPCC send_data, use dev_name()
-    for IRQ names, drop stray disable_irq_wake(), read 64-bit register with
-    readq() in CPUCP, drop redundant unregister on probe failure, and add
-    SDM670 and IPQ9650 APCS bindings
- - rockchip: prefix register defines, simplify device variant handling, and
-    convert to use dev_err_probe()
- - ti-msgmgr: add TDA54 main secure-proxy support and DT bindings, read exa=
-ct
-    trailing bytes for non-word-aligned messages, and do not report RX poll
-    timeout as a send failure
- - misc: use designated initializers for acpi_device_id across drivers
+	M.
 
-----------------------------------------------------------------
-Anup Vishwakarma (5):
-      mailbox: qcom-ipcc: Remove redundant
-mbox_controller_unregister() on probe failure
-      mailbox: arm_mhu_db: Remove redundant
-mbox_controller_unregister() on probe failure
-      mailbox: qcom-ipcc: Guard against NULL con_priv in send_data()
-      mailbox: qcom-ipcc: Use dev_name() as IRQ name instead of a static co=
-unter
-      mailbox: qcom-ipcc: remove stray disable_irq_wake() call
-
-Beleswar Padhi (4):
-      dt-bindings: mailbox: ti,secure-proxy: Add TDA54 variant compatible
-      mailbox: ti-msgmgr: Add ti,tda54-main-secure-proxy support
-      mailbox: ti-msgmgr: Do not report rx poll timeout as a send failure
-      mailbox: ti-msgmgr: Read exact number of trailing message bytes
-
-Breno Leitao (1):
-      mailbox: pcc: Free the channel before unmapping the shared memory
-
-Christian Loehle (1):
-      mailbox: pcc: Serialize channel updates with shared memory teardown
-
-Finley Xiao (1):
-      mailbox: arm_mhuv3: Keep the combined IRQ enabled during system suspe=
-nd
-
-Florian Fainelli (1):
-      mailbox: bcm74110: Cap rx_svc_init_list growth to prevent PMC-induced=
- OOM
-
-Linkai Gong (1):
-      mailbox: arm_mhuv2: time out if the receiver never comes up
-
-Pawel Zalewski (1):
-      mailbox: Use named initializers for acpi_device_id
-
-Richard Acayan (1):
-      dt-bindings: mailbox: qcom: Add SDM670 APCS compatible
-
-Rob Herring (Arm) (2):
-      dt-bindings: mailbox: Convert hisilicon,hi3660-mbox to DT schema
-      dt-bindings: mailbox: Convert hisilicon,hi6220-mbox to DT schema
-
-Runyu Xiao (1):
-      mailbox: altera: shut down RX polling timer on channel teardown
-
-Sivansh Gupta (1):
-      mailbox: qcom-cpucp: read mbox hardware register using readq()
-
-Swark Yang (2):
-      mailbox: axiado: fix RX frame draining and error handling
-      mailbox: axiado: fix debugfs name truncation warning
-
-Uwe Kleine-K=C3=B6nig (3):
-      mailbox: rockchip: Add a prefix for register defines
-      mailbox: rockchip: Simplify device variant handling
-      mailbox: rockchip: Convert to use dev_err_probe()
-
-Varadarajan Narayanan (1):
-      dt-bindings: mailbox: qcom: Add IPQ9650 APCS compatible
-
-Wentao Liang (1):
-      mailbox: mtk-cmdq: Fix runtime PM leak in cmdq_mbox_flush()
-
- .../bindings/mailbox/hisilicon,hi3660-mailbox.txt  |  51 ---------
- .../bindings/mailbox/hisilicon,hi3660-mbox.yaml    |  57 ++++++++++
- .../bindings/mailbox/hisilicon,hi6220-mailbox.txt  |  74 -------------
- .../bindings/mailbox/hisilicon,hi6220-mbox.yaml    |  63 +++++++++++
- .../bindings/mailbox/qcom,apcs-kpss-global.yaml    |   2 +
- .../bindings/mailbox/ti,secure-proxy.yaml          |   4 +-
- drivers/mailbox/arm_mhu_db.c                       |   4 +-
- drivers/mailbox/arm_mhuv2.c                        |   9 +-
- drivers/mailbox/arm_mhuv3.c                        |   6 +-
- drivers/mailbox/axiado-mailbox.c                   | 116 ++++++++++++++++-=
-----
- drivers/mailbox/bcm74110-mailbox.c                 |  13 +++
- drivers/mailbox/mailbox-altera.c                   |   2 +-
- drivers/mailbox/mailbox-xgene-slimpro.c            |   4 +-
- drivers/mailbox/mtk-cmdq-mailbox.c                 |   7 +-
- drivers/mailbox/pcc.c                              |  11 +-
- drivers/mailbox/qcom-cpucp-mbox.c                  |   2 +-
- drivers/mailbox/qcom-ipcc.c                        |  20 ++--
- drivers/mailbox/riscv-sbi-mpxy-mbox.c              |   4 +-
- drivers/mailbox/rockchip-mailbox.c                 |  60 +++++------
- drivers/mailbox/ti-msgmgr.c                        |  65 +++++++++---
- 20 files changed, 347 insertions(+), 227 deletions(-)
- delete mode 100644
-Documentation/devicetree/bindings/mailbox/hisilicon,hi3660-mailbox.txt
- create mode 100644
-Documentation/devicetree/bindings/mailbox/hisilicon,hi3660-mbox.yaml
- delete mode 100644
-Documentation/devicetree/bindings/mailbox/hisilicon,hi6220-mailbox.txt
- create mode 100644
-Documentation/devicetree/bindings/mailbox/hisilicon,hi6220-mbox.yaml
+-- 
+Without deviation from the norm, progress is not possible.
 
