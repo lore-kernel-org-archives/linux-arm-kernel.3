@@ -2,100 +2,117 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CCCB606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 14:03:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 921D6606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 14:06:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pk71ja0w;
-	dkim=pass (1024-bit key, unprotected) header.d=konsulko.com header.i=@konsulko.com header.a=rsa-sha256 header.s=google header.b=m7PVjIuP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ja0Scm7M;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=GsUzD+VO;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Ny7Snfey
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=yV1RxJJscrXOeI7Q/8W59C0ANld22tAuW0rA5vcBUxc=; b=pk71ja0wzDX9Hm
-	D6dAnrjJVaOQsP3iUGHQlGoy6SC0gJenT25g+Qoge5hG01f2hmvavZSf1byuRX3NaOZlAHNZCrAki
-	q4IOIc8t9NTHGX6P02OeIzvTv3mXDfuMV3SFK3qx8pWqJehYubF6+1dBl4VD4/CU4IgNbCcJUDlM1
-	kLC8pW9ZQI/VpMDb5Au5KBvcyF+6jvcNlMTaMOokEviPI1ud8j2dkiYS+8KXb16l9i1xz11colyht
-	e/c3eSiI63dRqBeTMqVUd2kbWsyoCx8dP2xidxuNPtCKeND+qI/CI4ngD9Si7xmj5rsgNK5EJX5S9
-	xutaR/wBVgu7eA4NrnBQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=t3RexKatP1kjoAD+7UX1aOwf4BjKeEG2GX7OI7aVWc0=; b=Ja0Scm7MeFWD4+2RzeMjLlZCkQ
+	64NIVlKOK32k4nbBuitv9Toeft6onK6knuwnOSB74VwVhskSNkfSFRItfKKx+cNp9U4hVI2hlWar6
+	Bd2GY045xhoDI+p8SsuqL1niRQCR53h4JlQCWaQPkgZeE7DhfCE896Ti8Vc0r1uBQZatTsXnTzz8/
+	fqZLJh2/2AaYJtkQb/P9AAvir9UonMc+4jVmNuR3QY7p7Zcl3l+36K2r+8OkEKjMLmw2rf+L9wlH+
+	d2y07ejdUgPYxQLoS5DQgOnYsHz+8f+W3fStoDrAdv6V4E3m5ep0KkIDp/TM71ncBA2Gkijo/O6Pa
+	pHnOQThw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJtNx-0000000EG9r-25st;
-	Thu, 22 Oct 2026 14:03:13 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1xJtRB-0000000EGaV-2EAv;
+	Thu, 22 Oct 2026 14:06:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJtNl-0000000EG3E-3gOw
+	id 1xJtRA-0000000EGaO-15I2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 22 Oct 2026 14:06:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=t3RexKatP1kjoAD+7UX1aOwf4BjKeEG2GX7OI7aVWc0=; b=GsUzD+VOMjf/QdGNyLMzJ8IzFM
+	AUX3D84DDhYVtBQqEn6R0p6Waz7o7xXs1ye/9Htc69s59wgC+gMFs9R3pK86lOQqdj4eYSm7+ZOTh
+	L6DNYFUWaDxSMhCnvMvCyUxEQvIrT0oTNXl1Q2RbxQMUoVgQuadJPdZiUiOaN1XWNcnHtjgLo+q7I
+	MZ70EaR20CJm2fyoxmqxLocted4/2FpD3aHDbpZUvj7Vjw1XNNixAFU1Om4MCIOUHCcNdUjTrug5Y
+	V8wf0L+eWL959L9LUJ5VTgBpJXgsoPRsZQlACQUeF/7demcSR2ORkt0smwgtSz1SwoQq8PS6GmAIG
+	QhNxnfCQ==;
+Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xJtR5-00000007GOj-1PRf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 14:03:03 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a1dede3c2cso24251205e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 07:03:01 -0700 (PDT)
+	Thu, 22 Oct 2026 14:06:30 +0000
+Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-3282db206d3so4309323eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 07:06:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=konsulko.com; s=google; t=1792677780; x=1793282580; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yV1RxJJscrXOeI7Q/8W59C0ANld22tAuW0rA5vcBUxc=;
-        b=m7PVjIuPwwllcVlzYGh73CyhLihLpiR4AJ8TbpZjtjydX9NyO/LXeTnrYm+xOAKkpC
-         QrysbdGTIKRqq9XTH11uEoHxbbrtztnDLeMaqaX9Tnyk+uIP0KjfWZCdotm7VQvN5jl2
-         IF26MAoO+AH66nZNgwhy2BM+xXfEDMi1WYHjc=
+        d=gmail.com; s=20251104; t=1792677984; x=1793282784; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=t3RexKatP1kjoAD+7UX1aOwf4BjKeEG2GX7OI7aVWc0=;
+        b=Ny7SnfeyoPPDi2YGT9V+dXlxZHLjl0MPccp1qLARifsjGY95JxEOplduhAgyBMwWB1
+         QfgantgH943fJuMcDW45jqY2oFMObREL7GBV4qnOqLvCBs/46QFBjZllcdoadtnapGuq
+         nspBiNlLIBqX4MBITZteaETMa0IdzPhUuTwsXhwnHJZhUndt6QgejQ8VGu34RxZ/ckPm
+         N/clbKxuWw6tFJelKgPoPjbqt7fWS9CLHxV0jxqFWG3y7EJMero9wrTjNhBHxa3vfZrr
+         mGTga9GDoAzi4QkNEy4zb3HVibrD2JtQdiYAbbc5YuPFB69pf90QBnLjSpFFsoFXFRMj
+         0otA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792677780; x=1793282580;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yV1RxJJscrXOeI7Q/8W59C0ANld22tAuW0rA5vcBUxc=;
-        b=ky4ZABwCB/OFhFJ5Zme5y+x7J8Ug4BBH9SOROdwhNB6G+EMs8xA+bsXgMvKS/EfbWy
-         7dklNBuJ/76SMy3fl70VrnZ4hmGVjYimiJ/OtffHqn4j9PH0oh6dUNRYGV4B5kwzx3mO
-         o1jTyqUUOT1bRSk6U2h+MGoV+satl12YEDBHDhbAX5urwv1hcRpqWhlsi0c5VChlXd/r
-         BTYysxDur++P/PqmgLogOSt9GEIjVnvwI1Iqm074IGWKWN1looqZlPdOgYfPxqYApnLq
-         wKjWyD+4SMJI3sN0mzU9CWw+Ty5CZvHNoF6Ai6WrQJYmYV8EhvUWjRPdGd5GTSJerWjF
-         dwxw==
-X-Forwarded-Encrypted: i=1; AKwUvBwhhU+MgLiUGGt9VWNmb52LepIN2ujheLpr9w58CrWQKXWps6KtTKn1VR6Mx3sk0AUzA8pPVFfsUSidUu1LJzY8@lists.infradead.org
-X-Gm-Message-State: AFq9FYK80GDB/YuEAp/xuVPkE1NTbsHd3Ooqfr+1GY/E6i8ELteegdJd
-	o4+LXkjZeldHMSmGdzjiPPfssmnrAd/1K0zBk36FWhFLyONj3WygaN30ebNXYJc8B0k=
-X-Gm-Gg: AYBFou0mN5OQUmzzLV1zl2SPig0hvI861rk7oXRu2YR+MTIIUCQNA0lrChJVB9cwMwR
-	Jj8ntTsjlZr5Ly70jiZBbmUuicagtDeICtv9PYaLQ34MFIP4z9D+GhGWzP9IoiDGKd2kRx0wjQW
-	+onMPhABq+Z18SAKDfWy5KN3l2/lyRV4dAIZ2iWT/2IgSZcTIrLi7HkaOJM8wM54uYetJ5JkmEY
-	/fXuOSl3eyWVvXGk4p/9UeRupn/GOR+lt4IzWsZUUbVtDYJcyi2+jmS/tN1hj/QnOM3v3e9YywL
-	hisEfVYRkdVLiM61y4flDrqWUt8p8G9ZB/VdPgMX3DOFFGWMblW3g/6RWd3894C+vQNZeBIgJWS
-	H7bwkptPjFizZbiFFfN09O3QcVwlwYfNT9NIgdAJQRdz7GKEFmdSaNGN7oXioeRjp9cgxvkPRkW
-	zb8zK1cziUleCx1cHk9ay/buC0y5i+MPQGYJ0QmRpIQHM667xqJEEBA5wH7CpZ2WBjZ/jjwQWmP
-	ZfOWH6UXHUawpGei4mdCv3Ki0z8q5qhF+7NVIys7QV68Ra0EHBQT5fxA0PIE+LOp7wQeUoF
-X-Received: by 2002:a5d:584d:0:b0:48e:28bd:e010 with SMTP id ffacd0b85a97d-48e28bde4b0mr8838292f8f.7.1792677779627;
-        Thu, 22 Oct 2026 07:02:59 -0700 (PDT)
-Received: from tone.k.g (lan.nucleusys.com. [92.247.61.126])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e2582a53fsm12538258f8f.32.2026.10.22.07.02.58
+        d=1e100.net; s=20260707; t=1792677984; x=1793282784;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=t3RexKatP1kjoAD+7UX1aOwf4BjKeEG2GX7OI7aVWc0=;
+        b=i9H9om2d1qEg7sodMSwVSflGaM+fUXQs5sWJG8rPr60VZ5ccj/l2dRKIN0Ljbr9n74
+         G0733msGYZe9sMIFggqYVLzlrmSl0lnwq4vxZGGVSKQjzURywdgqzVmX8CzxJediWK4g
+         nCtkv03srTVOgHWIyN7iPZZF02Z4nTpspSkwx/cC+eKh4ItR8sflMY5oYxvI+Ab4CPe2
+         S9RNhRnhWk/4geYhPltQLn3/jsNTO+/aOkhMOdFg3OU/5TnfeocOIWkDwg9KN0/F8U9u
+         P1bsQv5eOkeLhqAAxOn8sbR1eHMwjzqv2VQXf96340PH8z68aQteqbOXn/49/jFtptjj
+         5wRg==
+X-Forwarded-Encrypted: i=1; AKwUvBzViPSOpd769JpTeV/2cK3j0b+G425qRUCXQqK0aAl33JcO34Roj+J68sJT/yme5msd2CoGf8gGtBMn+p0qgTX/@lists.infradead.org
+X-Gm-Message-State: AFq9FYIVuvX6c3+X6u+LEeiFiegG7aO0b7att1wLVGEXenqm2HjTmWLr
+	Yb3MFA2j7MdYODlvDDH18HJIIuhcz/6zB31lHcJCeeTga6a+3NlPVZ7U
+X-Gm-Gg: AYBFou2Ats7XpY6JM09eCpeF4BuLBAMNIJF/L7EfEMER4FszKIdArXto5Mg3rh2rP1N
+	RZeQ5mPcA2RcxOXExaGkhRoxm+YBxkOZYfGUc4/LzFXP9yjirgYnBVSQp8bQIC8ypWcSuPOsB4S
+	jPxE2vPC1XFbkgPeg1h7nOWiQ6ydgmNS0/o/b7eZJPzEhFAMKT48reE+a4LhyASHqKGwo9R65o+
+	oCUF0uSPk4pN8oxEOXzYwEfAeIEODxqiAy7zXg8K5Mc0mR3+x2EqTtIM6dMHCoZwGuzGtxX1W/l
+	SV0Tt2ldCPPBAqhBysojnrBhmzkUejhV8dGoqKRiLJv0bOSm/J6qOqngKytzgZH3In1Ed6PfpFc
+	Pwq9LPCv1R6QOm66o2H1Oy9FNHruSvp8/6OhM+1D0rHzXoKHYPqp6crXIzTT50/PdtMQDkMOGzK
+	I0JBhffRsLFRe2cdVGB3YqKfGzGf6jrUE266rmxPq1XHTYApoP155Kkvprk185pVlDDefo9dOkC
+	mTW1AGLyjd5ewAhCUhyyKiLUv6kr1/usr+eCI4Pg85Un/eiphlT0ik2rFK0LfaJhZavAiuo5NRE
+	JUAKYo6oCaMeYb07qlgUoh/av0l55KbrgoMQR03ud8jDAcFDRAk7wMc2fDYvq27dzkOxTdO4iRI
+	0i9eYBdFkWTc=
+X-Received: by 2002:a05:693c:810e:b0:367:941:c253 with SMTP id 5a478bee46e88-3674c93b096mr7616489eec.11.1792677983998;
+        Thu, 22 Oct 2026 07:06:23 -0700 (PDT)
+Received: from kapoor.iiserb.ac.in ([203.18.51.239])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-367405ee5eesm14960559eec.8.2026.10.22.07.06.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 07:02:59 -0700 (PDT)
-From: Petko Manolov <petko.manolov@konsulko.com>
-To: linux-kernel@vger.kernel.org
-Cc: devicetree@vger.kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
+        Thu, 22 Oct 2026 07:06:23 -0700 (PDT)
+From: Arnav Kapoor <kapoorarnav43@gmail.com>
+To: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+	Conall O'Griofa <conall.ogriofa@amd.com>,
+	Jonathan Cameron <jic23@kernel.org>
+Cc: David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	stable@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	arnemaximilian.richter@draeger.com,
-	martynas.grybauskas@draeger.com,
-	Petko Manolov <petko.manolov@konsulko.com>
-Subject: [PATCH v4 2/2] arm: dts: nxp: imx: Add devicetree files for M48
-Date: Thu, 22 Oct 2026 17:02:43 +0300
-Message-ID: <20261022140244.3476844-3-petko.manolov@konsulko.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261022140244.3476844-1-petko.manolov@konsulko.com>
-References: <20261022140244.3476844-1-petko.manolov@konsulko.com>
+	linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] iio: adc: xilinx-ams: fix out-of-bounds accesses when parsing channels
+Date: Thu, 22 Oct 2026 19:36:13 +0530
+Message-ID: <20261022140615.30710-1-kapoorarnav43@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_070301_957826_DBBB93D2 
-X-CRM114-Status: GOOD (  17.17  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261022_150627_743902_A35B343E 
+X-CRM114-Status: GOOD (  25.13  )
+X-Spam-Score: 0.1 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,317 +123,184 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-M48 is a heterogeneous board made by Draeger that is based on two
-independent cpus, that are monitoring each other.  One of them is
-imx6, the other is Altera SoCFPGA Cyclone 5.  The latter is booting
-independently off qspi.
+ams_parse_firmware() allocates room for ARRAY_SIZE(ams_ps_channels) +
+ARRAY_SIZE(ams_pl_channels) + ARRAY_SIZE(ams_ctrl_channels) = 51
+channel specs and lets ams_init_module() fill them for the AMS node and
+each of its children, without telling it how much room is left.
 
-Add the DT for the two variants of M48 that are based on imx6q and
-imx6dl.
+For the PL-SYSMON node, ams_get_ext_chan() appends one channel per
+"channel@N" child after the 10 fixed PL channels. The binding allows
+reg values 20..50, so a PL node can have up to 31 such children, i.e.
+up to 41 PL channels, while only 31 are budgeted for it. Together with
+the 13 PS and 7 AMS control channels, this writes past the end of the
+buffer. Since the modules are filled in device tree order, the fixed
+channel blocks copied after the PL node can overflow as well.
 
-Signed-off-by: Petko Manolov <petko.manolov@konsulko.com>
+ams_get_ext_chan() also only checks the upper bound of reg. ext_chan is
+unsigned, so a reg below 20 makes it wrap and ams_pl_channels[] is read
+far out of bounds.
+
+Pass the remaining capacity down to ams_init_module() and
+ams_get_ext_chan() and fail with -ENOSPC when a module does not fit,
+instead of writing past the buffer. Also reject reg values below 20, as
+the binding requires.
+
+Fixes: d5c70627a794 ("iio: adc: Add Xilinx AMS driver")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
 ---
- arch/arm/boot/dts/nxp/imx/Makefile            |   2 +
- .../boot/dts/nxp/imx/imx6dl-draeger-m48.dts   |  16 ++
- .../boot/dts/nxp/imx/imx6q-draeger-m48.dts    |  16 ++
- .../boot/dts/nxp/imx/imx6qdl-draeger-m48.dtsi | 213 ++++++++++++++++++
- 4 files changed, 247 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6dl-draeger-m48.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-draeger-m48.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-draeger-m48.dtsi
+Changes in v2:
+- Fix the truncated subject line (Andy)
+- Drop the paragraph about an earlier report, I could not find that
+  thread again to reference it properly
+- Pass the remaining capacity as unsigned int and drop the casts (Andy)
+- Keep the ams_get_ext_chan() call on one line (Andy)
+- Rebase on fixes-togreg
+- Drop the bouncing @xilinx.com and @huawei.com addresses from Cc
 
-diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-index 1a2539fa19b4..cdd252fd5109 100644
---- a/arch/arm/boot/dts/nxp/imx/Makefile
-+++ b/arch/arm/boot/dts/nxp/imx/Makefile
-@@ -104,6 +104,7 @@ dtb-$(CONFIG_SOC_IMX6Q) += \
- 	imx6dl-dfi-fs700-m60.dtb \
- 	imx6dl-dhcom-pdk2.dtb \
- 	imx6dl-dhcom-picoitx.dtb \
-+	imx6dl-draeger-m48.dtb \
- 	imx6dl-eckelmann-ci4x10.dtb \
- 	imx6dl-emcon-avari.dtb \
- 	imx6dl-gw51xx.dtb \
-@@ -219,6 +220,7 @@ dtb-$(CONFIG_SOC_IMX6Q) += \
- 	imx6q-display5-tianma-tm070-1280x768.dtb \
- 	imx6q-dmo-edmqmx6.dtb \
- 	imx6q-dms-ba16.dtb \
-+	imx6q-draeger-m48.dtb \
- 	imx6q-ds.dtb \
- 	imx6q-emcon-avari.dtb \
- 	imx6q-evi.dtb \
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-draeger-m48.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-draeger-m48.dts
-new file mode 100644
-index 000000000000..b0bc9a67f5b3
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-draeger-m48.dts
-@@ -0,0 +1,16 @@
-+// SPDX-License-Identifier: GPL-2.0+
+v1: https://lore.kernel.org/all/20261021225356.625288-1-kapoorarnav43@gmail.com/
+
+Compile-tested only (W=1); I don't have ZynqMP hardware.
+
+ drivers/iio/adc/xilinx-ams.c | 54 ++++++++++++++++++++++++++++--------
+ 1 file changed, 43 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/iio/adc/xilinx-ams.c b/drivers/iio/adc/xilinx-ams.c
+index 158e6133abf5..7f0f7778d6aa 100644
+--- a/drivers/iio/adc/xilinx-ams.c
++++ b/drivers/iio/adc/xilinx-ams.c
+@@ -144,7 +144,14 @@
+ #define AMS_PL_CSTS_ACCESS_MASK		BIT(1)
+ 
+ #define AMS_PL_MAX_FIXED_CHANNEL	10
+-#define AMS_PL_MAX_EXT_CHANNEL		20
 +/*
-+ * (C) Copyright 2020 Draeger and Licensors, info@draeger.com
-+ *
-+ * Device Tree file for Draeger M48 Board
++ * The external PL channels are addressed by their channel number. The
++ * binding allows the range from AMS_PL_EXT_CHANNEL_MIN to
++ * AMS_PL_EXT_CHANNEL_MAX. AMS_PL_EXT_CHANNEL_MIN maps onto the first
++ * ams_pl_channels[] entry, AMS_PL_EXT_CHANNEL_MAX onto the last one.
 + */
++#define AMS_PL_EXT_CHANNEL_MIN		20
++#define AMS_PL_EXT_CHANNEL_MAX		50
+ 
+ #define AMS_INIT_POLL_TIME_US		200
+ #define AMS_INIT_TIMEOUT_US		10000
+@@ -1142,20 +1149,31 @@ static const struct iio_chan_spec ams_ctrl_channels[] = {
+ };
+ 
+ static int ams_get_ext_chan(struct fwnode_handle *chan_node,
+-			    struct iio_chan_spec *channels, int num_channels)
++			    struct iio_chan_spec *channels, int num_channels,
++			    unsigned int max_channels)
+ {
+ 	struct iio_chan_spec *chan;
+-	struct fwnode_handle *child;
+ 	unsigned int reg, ext_chan;
+ 	int ret;
+ 
+-	fwnode_for_each_child_node(chan_node, child) {
++	fwnode_for_each_child_node_scoped(chan_node, child) {
+ 		ret = fwnode_property_read_u32(child, "reg", &reg);
+-		if (ret || reg > AMS_PL_MAX_EXT_CHANNEL + 30)
++		if (ret)
++			continue;
 +
-+/dts-v1/;
++		/*
++		 * Anything outside of the range of channel numbers allowed
++		 * by the binding is not a valid channel.
++		 */
++		if (reg < AMS_PL_EXT_CHANNEL_MIN ||
++		    reg > AMS_PL_EXT_CHANNEL_MAX)
+ 			continue;
+ 
++		if (num_channels >= max_channels)
++			return -ENOSPC;
 +
-+#include "imx6dl.dtsi"
-+#include "imx6qdl-draeger-m48.dtsi"
+ 		chan = &channels[num_channels];
+-		ext_chan = reg + AMS_PL_MAX_FIXED_CHANNEL - 30;
++		ext_chan = reg - AMS_PL_EXT_CHANNEL_MIN;
+ 		memcpy(chan, &ams_pl_channels[ext_chan], sizeof(*channels));
+ 
+ 		if (fwnode_property_read_bool(child, "xlnx,bipolar"))
+@@ -1183,7 +1201,8 @@ static void ams_iounmap_pl(void *data)
+ 
+ static int ams_init_module(struct iio_dev *indio_dev,
+ 			   struct fwnode_handle *fwnode,
+-			   struct iio_chan_spec *channels)
++			   struct iio_chan_spec *channels,
++			   unsigned int max_channels)
+ {
+ 	struct device *dev = indio_dev->dev.parent;
+ 	struct ams *ams = iio_priv(indio_dev);
+@@ -1191,6 +1210,9 @@ static int ams_init_module(struct iio_dev *indio_dev,
+ 	int ret;
+ 
+ 	if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-ps")) {
++		if (max_channels < ARRAY_SIZE(ams_ps_channels))
++			return -ENOSPC;
 +
-+/ {
-+	model = "Draeger M48 i.MX6 DualLite";
-+	compatible = "draeger,imx6dl-m48", "fsl,imx6dl";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-draeger-m48.dts b/arch/arm/boot/dts/nxp/imx/imx6q-draeger-m48.dts
-new file mode 100644
-index 000000000000..ff9c337e93fb
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-draeger-m48.dts
-@@ -0,0 +1,16 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * (C) Copyright 2020 Draeger and Licensors, info@draeger.com
-+ *
-+ * Device Tree file for Draeger M48 Board
-+ */
+ 		ams->ps_base = fwnode_iomap(fwnode, 0);
+ 		if (!ams->ps_base)
+ 			return -ENXIO;
+@@ -1202,6 +1224,9 @@ static int ams_init_module(struct iio_dev *indio_dev,
+ 		memcpy(channels, ams_ps_channels, sizeof(ams_ps_channels));
+ 		num_channels = ARRAY_SIZE(ams_ps_channels);
+ 	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-pl")) {
++		if (max_channels < AMS_PL_MAX_FIXED_CHANNEL)
++			return -ENOSPC;
 +
-+/dts-v1/;
+ 		ams->pl_base = fwnode_iomap(fwnode, 0);
+ 		if (!ams->pl_base)
+ 			return -ENXIO;
+@@ -1213,9 +1238,14 @@ static int ams_init_module(struct iio_dev *indio_dev,
+ 		/* Copy only first 10 fix channels */
+ 		memcpy(channels, ams_pl_channels, AMS_PL_MAX_FIXED_CHANNEL * sizeof(*channels));
+ 		num_channels += AMS_PL_MAX_FIXED_CHANNEL;
+-		num_channels = ams_get_ext_chan(fwnode, channels,
+-						num_channels);
++		ret = ams_get_ext_chan(fwnode, channels, num_channels, max_channels);
++		if (ret < 0)
++			return ret;
++		num_channels = ret;
+ 	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams")) {
++		if (max_channels < ARRAY_SIZE(ams_ctrl_channels))
++			return -ENOSPC;
 +
-+#include "imx6q.dtsi"
-+#include "imx6qdl-draeger-m48.dtsi"
-+
-+/ {
-+	model = "Draeger M48 i.MX6 Quad";
-+	compatible = "draeger,imx6q-m48", "fsl,imx6q";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-draeger-m48.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-draeger-m48.dtsi
-new file mode 100644
-index 000000000000..bb2c149c64bb
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-draeger-m48.dtsi
-@@ -0,0 +1,213 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * (C) Copyright 2020 Draeger and Licensors, info@draeger.com
-+ * Based on work by Russell King
-+ *
-+ * Device Tree file for Draeger M48 Board
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+/ {
-+	aliases {
-+		mmc0 = &usdhc3;
-+	};
-+
-+	chosen {
-+		stdout-path = &uart1;
-+	};
-+
-+	/* Will be filled by the bootloader */
-+	memory@10000000 {
-+		device_type = "memory";
-+		reg = <0x10000000 0x80000000>;
-+	};
-+};
-+
-+&fec {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_enet>;
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&ethphy>;
-+	status = "okay";
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy: ethernet-phy@0 {
-+			reg = <0>;
-+			rxc-skew-ps = <1380>;
-+			rxd0-skew-ps = <0>;
-+			rxd1-skew-ps = <0>;
-+			rxd2-skew-ps = <0>;
-+			rxd3-skew-ps = <0>;
-+			rxdv-skew-ps = <0>;
-+			txc-skew-ps = <1860>;
-+			txd0-skew-ps = <0>;
-+			txd1-skew-ps = <0>;
-+			txd2-skew-ps = <0>;
-+			txd3-skew-ps = <0>;
-+			txen-skew-ps = <0>;
-+		};
-+	};
-+};
-+
-+&hdmi {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_hdmi>;
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	clock-frequency = <100000>;
-+	pinctrl-names = "default", "gpio";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+	pinctrl-1 = <&pinctrl_i2c2_gpio>;
-+	scl-gpios = <&gpio4 12 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio4 13 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	status = "okay";
-+
-+	eeprom_mac: eeprom@50 {
-+		compatible = "atmel,24c08";
-+		reg = <0x50>;
-+		pagesize = <16>;
-+	};
-+};
-+
-+&i2c3 {
-+	pinctrl-names = "default", "gpio";
-+	pinctrl-0 = <&pinctrl_i2c3>;
-+	pinctrl-1 = <&pinctrl_i2c3_gpio>;
-+	scl-gpios = <&gpio3 17 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio3 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	status = "okay";
-+};
-+
-+&ldb {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lvds>;
-+	fsl,dual-channel;
-+	status = "okay";
-+
-+	lvds-channel@0 {
-+		fsl,data-mapping = "spwg";
-+		fsl,data-width = <24>;
-+		status = "okay";
-+
-+		display-timings {
-+			native-mode = <&timing0>;
-+
-+			/* LVDS split mode */
-+			timing0: timing-1920x1080 {
-+				clock-frequency = <142380000>;
-+				hactive = <1920>;
-+				vactive = <1080>;
-+				hback-porch = <60>;		/* left * 2 */
-+				hfront-porch = <60>;		/* right * 2 */
-+				vback-porch = <30>;
-+				vfront-porch = <3>;
-+				hsync-len = <60>;		/* hsync * 2 */
-+				vsync-len = <17>;
-+			};
-+		};
-+	};
-+};
-+
-+&uart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart1>;
-+	status = "okay";
-+};
-+
-+&usdhc3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_usdhc3>;
-+	bus-width = <4>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl_enet: enetgrp {
-+		fsl,pins = <
-+			MX6QDL_PAD_KEY_COL1__ENET_MDIO		0x1b0b0
-+			MX6QDL_PAD_ENET_MDC__ENET_MDC		0x1b0b0
-+			MX6QDL_PAD_RGMII_TXC__RGMII_TXC		0x13018
-+			MX6QDL_PAD_RGMII_TD0__RGMII_TD0		0x1b018
-+			MX6QDL_PAD_RGMII_TD1__RGMII_TD1		0x1b018
-+			MX6QDL_PAD_RGMII_TD2__RGMII_TD2		0x1b018
-+			MX6QDL_PAD_RGMII_TD3__RGMII_TD3		0x1b018
-+			MX6QDL_PAD_RGMII_TX_CTL__RGMII_TX_CTL	0x13018
-+			MX6QDL_PAD_ENET_REF_CLK__ENET_TX_CLK	0x1b0b0
-+			MX6QDL_PAD_RGMII_RXC__RGMII_RXC		0x13030
-+			MX6QDL_PAD_RGMII_RD0__RGMII_RD0		0x1b030
-+			MX6QDL_PAD_RGMII_RD1__RGMII_RD1		0x1b030
-+			MX6QDL_PAD_RGMII_RD2__RGMII_RD2		0x1b030
-+			MX6QDL_PAD_RGMII_RD3__RGMII_RD3		0x1b030
-+			MX6QDL_PAD_RGMII_RX_CTL__RGMII_RX_CTL	0x13030
-+		>;
-+	};
-+
-+	pinctrl_hdmi: hdmigrp {
-+		fsl,pins = <
-+			MX6QDL_PAD_EIM_D16__HDMI_TX_DDC_SDA	0x4001b8b1
-+			MX6QDL_PAD_EIM_EB2__HDMI_TX_DDC_SCL	0x4001b8b1
-+		>;
-+	};
-+
-+	pinctrl_i2c2: i2c2grp {
-+		fsl,pins = <
-+			MX6QDL_PAD_KEY_COL3__I2C2_SCL		0x4001b820
-+			MX6QDL_PAD_KEY_ROW3__I2C2_SDA		0x4001b820
-+		>;
-+	};
-+
-+	pinctrl_i2c2_gpio: i2c2gpiogrp {
-+		fsl,pins = <
-+			MX6QDL_PAD_KEY_COL3__GPIO4_IO12		0x4001b820
-+			MX6QDL_PAD_KEY_ROW3__GPIO4_IO13		0x4001b820
-+		>;
-+	};
-+
-+	pinctrl_i2c3: i2c3grp {
-+		fsl,pins = <
-+			MX6QDL_PAD_EIM_D17__I2C3_SCL		0x4001b820
-+			MX6QDL_PAD_EIM_D18__I2C3_SDA		0x4001b820
-+		>;
-+	};
-+
-+	pinctrl_i2c3_gpio: i2c3gpiogrp {
-+		fsl,pins = <
-+			MX6QDL_PAD_EIM_D17__GPIO3_IO17		0x4001b820
-+			MX6QDL_PAD_EIM_D18__GPIO3_IO18		0x4001b820
-+		>;
-+	};
-+
-+	pinctrl_lvds: lvdsgrp {
-+		fsl,pins = <
-+			MX6QDL_PAD_EIM_A22__GPIO2_IO16		0x1b010	/* DISPLAY_EN */
-+			MX6QDL_PAD_EIM_A20__GPIO2_IO18		0x1b010	/* BACKLIGHT_EN */
-+			MX6QDL_PAD_EIM_A18__GPIO2_IO20		0x1b010	/* DISP0_CONTRAST */
-+		>;
-+	};
-+
-+	pinctrl_uart1: uart1grp {
-+		fsl,pins = <
-+			MX6QDL_PAD_SD3_DAT7__UART1_TX_DATA	0x1b010
-+			MX6QDL_PAD_SD3_DAT6__UART1_RX_DATA	0x1b010
-+		>;
-+	};
-+
-+	pinctrl_usdhc3: usdhc3grp {
-+		fsl,pins = <
-+			MX6QDL_PAD_SD3_CMD__SD3_CMD		0x1b060
-+			MX6QDL_PAD_SD3_CLK__SD3_CLK		0x1b060
-+			MX6QDL_PAD_SD3_DAT0__SD3_DATA0		0x1b060
-+			MX6QDL_PAD_SD3_DAT1__SD3_DATA1		0x1b060
-+			MX6QDL_PAD_SD3_DAT2__SD3_DATA2		0x1b060
-+			MX6QDL_PAD_SD3_DAT3__SD3_DATA3		0x1b060
-+			MX6QDL_PAD_NANDF_CS1__SD3_VSELECT	0x1b060
-+		>;
-+	};
-+};
+ 		/* add AMS channels to iio device channels */
+ 		memcpy(channels, ams_ctrl_channels, sizeof(ams_ctrl_channels));
+ 		num_channels += ARRAY_SIZE(ams_ctrl_channels);
+@@ -1245,7 +1275,7 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
+ 		return -ENOMEM;
+ 
+ 	if (fwnode_device_is_available(fwnode)) {
+-		ret = ams_init_module(indio_dev, fwnode, ams_channels);
++		ret = ams_init_module(indio_dev, fwnode, ams_channels, ams_size);
+ 		if (ret < 0)
+ 			return ret;
+ 
+@@ -1253,7 +1283,9 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
+ 	}
+ 
+ 	device_for_each_child_node_scoped(dev, child) {
+-		ret = ams_init_module(indio_dev, child, ams_channels + num_channels);
++		ret = ams_init_module(indio_dev, child,
++				      ams_channels + num_channels,
++				      ams_size - num_channels);
+ 		if (ret < 0)
+ 			return ret;
+ 
+
+base-commit: 2ef6f5c4ee56e90c237c5f7687f09e635f7d30a9
 -- 
-2.47.3
+2.53.0
 
 
