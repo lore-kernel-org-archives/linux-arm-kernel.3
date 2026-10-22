@@ -2,108 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E75F6606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 06:00:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11A3D606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 06:03:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tA5FReY2;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GzuNHu31
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zyCazGAc;
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=iCea2MQt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HUvL51f7V9p0KcCzZsOCgyyG6v93gRvgQUjNHkLc5hE=; b=tA5FReY2CTkddLwooh64zY+NYK
-	3CkEhHjuJRkAtuyohYGb8lhFZtEzmkHPIayYjW8icoMBqkXJdGNC/VbbD9WXo7E9qWaiziWm8n728
-	C6crKyKdGtRwLBhmjfW+GOwpobKPy3ZITXl3yB6bRrWWui7+sjECKmgrHN+1yYYDyq9EjLrBloqeQ
-	9EW5NjTqoiiiXR84Zvl9EPkYH1D63Z5JYtL1thmnDxk5OhWUNV7Bqu1NVGV3KXW5mGK2/9RDczKRL
-	I/Q9mrpw+TKyjSpu+LwKqabM3zqQtP7ZeKujj1E4gI/KJcmGly+VwyI2Lm5m4Uht8Z+Gjyo5SBC1K
-	daOcoXrw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Message-ID:Date:Content-Transfer-Encoding:Content-Type:Mime-Version:Subject:
+	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P7zxgzzTYI172zwYyaCUL/lcmGtqRhZjbLJauuKN8eM=; b=zyCazGAc1eJXcJFegCaSnUs7SK
+	0CkwEOw1FImBdpWm37VPr9fjZ/Tmb8xM9llBD5dgbVEK+DakmtuxzCBwhjZ4cdBDG7UCowLTgLB/K
+	j9Rer4NxNeTd2/XMZ+dTNAlAfyII1JqaWtn9acEKZ1h5/Fammc18I9n6xaDMOiYcsbMPvhr2GipRk
+	fl3UEahAp4hQYizkfTJcB7ZrdrcYs3ffYHkRVTbfLv7OG7Ah8ATJr5HRQH87jxjmiZ8rFGU+elOOC
+	bsooQE+oOYwCTAa54s+wFU3Pa0qR/L+6kQPiaHvSHOboUr6gyR3GtTnnZTVcRwCMnamofpc5jE8/o
+	7QIUjCWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJlqc-0000000DR88-2UuH;
-	Thu, 22 Oct 2026 06:00:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xJltl-0000000DRUM-0WFs;
+	Thu, 22 Oct 2026 06:03:33 +0000
+Received: from out203-205-221-233.mail.qq.com ([203.205.221.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJlqP-0000000DR3d-0A4u
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 06:00:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F3F7644515;
-	Thu, 22 Oct 2026 06:00:01 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792648801;
-	b=CQACgGisau1xqIKP1Ki0xxgpB5acYu8nljfPjpo0VlJtfaqbXiH7dN4/cecNgHODJ/Tb
-	 SX+cYL3mHYGpdNLiAUaKXiFsvqpmTllVL6aYhWwkVlSTdu1Y/wlibxQLauu+tNL1WNeon
-	 Kd31ITtESo4ALtzK/VPw9OB8APSI//GW+0RMVrvuwr3ycQYPAmRAG597KHnTOFuPkSNy9
-	 /yUiHBdbuT/Yx9ok+oytoU8Ap7O8m6pKX4mWuOUybzziSSEFLnrBEcyPiQYTJBp/Unudx
-	 +pwI2m48Q/ioQ3aFMXooVghquPiYBTsFNHJO/Nflq9nUdQ+IzA85u0N0k/MHklmfGyg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792648801;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=HUvL51f7V9p0KcCzZsOCgyyG6v93gRvgQUjNHkLc5hE=;
-	b=kEDzktBxSRILa29vC4vvGXK5pGAAs7OetkXvNZ7bjDyIa5A9P/9UH51mUwtGac8K6YXK
-	 fyPrHSLOGIvVO4c1eU2tR4Czteqjpj7zsndF45f8Kyz1rW7H+iKiSSj//qBTlTfahV6en
-	 JTftEf4UFAuarRN2NI1cOqarwioofCEXUpkhEbuTcxN6o1T5PWSD6cPt44EZVESfcFHrb
-	 IoV3H4UQn8CYatbCY2bIpzpSsiH2jdZtzwyaCaUlYSkyNUKmGxsCwd0cKGhXU7anmAwXn
-	 EROTDuY6r1UmhKXO7qIrC3A5ZOD1KCO5KMJRaR8U9NYgSxvRTq42/3sOf/oxsK+LWBw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4A2781F000C4;
-	Thu, 22 Oct 2026 06:00:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792648801;
-	bh=HUvL51f7V9p0KcCzZsOCgyyG6v93gRvgQUjNHkLc5hE=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=GzuNHu31nkcgETO0ZeQlMzBKieJKEqr5WJUg0dVpNxaier59N3qMfmrFHJwq7tQIJ
-	 ZISEXe72fq7YGSG323ueVeFfmZzV7sMJg+cqJKlXnIQqKyEkeVXF7dzOMn38m7MjJv
-	 ozuP3NCkDLOes7ICfAbuxj5qGociqmilRSd6UzrtxRSKBBxu/hCGqxgV68HHsSZ9Gn
-	 nPsC7dlmH6RlZm3oCpYGEAOceEHVfBsPCIMXrjXH++lXevWhOFEVrfPcwMUnMR0zbT
-	 oSBe+JnFv2rXYuxSadpQe/kAmIVAlv00pwl5iNtQLZFk7sWqVmFnt1b9dPNLOyLhWb
-	 U/+b3dprIBJYA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CB444434FD;
-	Thu, 22 Oct 2026 05:59:59 +0000 (UTC)
-From: Cristian Filipescu via B4 Relay <devnull+filipescu.cristian.gmail.com@kernel.org>
-Subject: [PATCH v2 0/2] arm64: dts: allwinner: Support Orange Pi 3 LTS
-Date: Thu, 22 Oct 2026 05:56:04 +0000
-Message-Id: <20261022-sunxi-orangepi-3-lts-v2-0-70b899252c6a@gmail.com>
+	id 1xJlth-0000000DRTL-1TYq;
+	Thu, 22 Oct 2026 06:03:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1792649004; bh=P7zxgzzTYI172zwYyaCUL/lcmGtqRhZjbLJauuKN8eM=;
+	h=From:To:Cc:Subject:Date:References:In-Reply-To;
+	b=iCea2MQtZFsBRko5lmT234iGtA8hnpAaMIAIMC9xxhHSYsKLv/dyorPMsRnk8tOz3
+	 +YqFVQeHFESL7IhfzGpYEBaBcXZq35Lcq8o1hdjvoQ3muhfPIDB3TfzPTO1oH7okDk
+	 zCKuGfDMCmy2cPvRSdZRC3m9/BhG2PXeckJ1PBB8=
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-XMAILINFO: NNWesLkrH+Yr/HKZIoi0WG9ez0k2A56Ft9TfkyVosLzXtqN3ayo1wQKS32Od7J
+	 rsntzRg61vrbIc0ur6zvUNfs5Z0Re/GHeEv4ABijBGztu7S4IhbA2O+W1V7isKOEZVyEFsz5k3dDi
+	 Fw96qK5EVfIwuEDJFdThOYDlYsVIXiS/39W2CSw+JjCJAlOop4GuZtBTTjddg3ezS9o/f5jA8aHs+
+	 XQdSfw0ncmKJuOpqTPa7o5RWNdr/SDH3/P/I3NNkriRZdoda4WF/wVqhkP8aVExTwMK6cAc6yb93+
+	 uTFozLSsJUDtFFKy6kcpcdfD/ibIoASJAdvZOoGAA9dcCJcBjI5SX7tf+7jbYjS0rOJ8P1Sl6rHaj
+	 tnNhsguhs8jmuI+950uv9/ZPhoAiUQWdmIZIID6UF+NxV7+BwQwOUFfyCitiGG3LiLyw0Zo+2mbTN
+	 6qWZpMFBBE2DBqHF2hu8v0voOhTRovfiFW7P6pttu60Yum6oKPbGqROsXD+tcNl1iAVb5tLvZxcGm
+	 IRGGWv3+znRwYSFxMJT65PqDcaB8fGJVFl82H/BQnybDL2SvB38hjs6FB9zh/EjZH7xjnCFvvvBsg
+	 qzdHXanXjUGfqhte38SjEugNz/onLzs0c2/QUSELOnonEtlQusHT1ODInD1sGno5jj8yFMfnswkpt
+	 GPJ7GVycb7ZJ7nyjFqpBYDrBXDwEYC3qXastmifzSA2fYA6WEKMCk/YLkvI9nVknBf03OHpLGo+Qy
+	 by6MY9w2tvMlbvBJwj2+DAqyiJBQQ+PIkt7pM9vVeeP+vltmP8R+wCl2WgEqGq7i85hQhj8TL6Gyy
+	 4WTFw/ScLocaTGF1qQUcgr5m4UyLE+aV8IxB/rqKVeI69+yWx6UdxbE2giq6P1bBxZ6VI84YPGc6s
+	 5K0O3yZbd4Bhj7lzdB8/OaqtO3323krcv0Ot5FPMRAXQSuxTvVlWbQBftvYNiwND9nw6vVSugWvlP
+	 v4ekI+BK/6J1KNAhJrwn8jeBPTt/Ky1cwMsQlXt57y15zysSbK4UjFP3/6/ycTYqBVYa35JsdueXt
+	 +ha4B7IrhED883s22djs80FgGg4BPFwN6TOaw
+From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
+To: "=?utf-8?B?QW5kcmV3IEx1bm4=?=" <andrew@lunn.ch>
+Cc: "=?utf-8?B?bGludXgtY2xr?=" <linux-clk@vger.kernel.org>, "=?utf-8?B?ZGV2aWNldHJlZQ==?=" <devicetree@vger.kernel.org>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, "=?utf-8?B?bWZk?=" <mfd@lists.linux.dev>, "=?utf-8?B?bGludXgtZ3Bpbw==?=" <linux-gpio@vger.kernel.org>, "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>, "=?utf-8?B?bGludXgtcG0=?=" <linux-pm@vger.kernel.org>, "=?utf-8?B?bGludXgtaTJj?=" <linux-i2c@vger.kernel.org>, "=?utf-8?B?bGludXgtc2VyaWFs?=" <linux-serial@vger.kernel.org>, "=?utf-8?B?bGludXgtbW1j?=" <linux-mmc@vger.kernel.org>, "=?utf-8?B?bGludXgtc3RtMzI=?=" <linux-stm32@st-md-mailman.stormreply.com>, 
+	"=?utf-8?B?bGludXgtcGh5?=" <linux-phy@lists.infradead.org>, "=?utf-8?B?bGludXgtdXNi?=" <linux-usb@vger.kernel.org>
+Subject: Re: [PATCH 14/27] dt-bindings: net: rockchip-dwmac: Add RK3572
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHSl2WoC/yWM3Q6CMAxGX4X02iZYCFFfxXixjSo1ZJCVmSWEd
- 3fVy/P9nB2Uk7DCrdkh8UdUlliBTg2EycUXo4yVgVoazi0Rao5FcEnWrYIdzpti3/krUT+4C49
- Qr2vip5Sf9v74s2b/5rCZyxbeKaOvljBZNEvMBS2E4/gCnxZUk5UAAAA=
-X-Change-ID: 20261022-sunxi-orangepi-3-lts-43b92246a8ed
-To: linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Andre Przywara <andre.przywara@arm.com>, linux-kernel@vger.kernel.org, 
- Cristian Filipescu <filipescu.cristian@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792648566; l=4037;
- i=filipescu.cristian@gmail.com; s=uboot-20261021;
- h=from:subject:message-id;
- bh=UWARrsbcfqqgmoUfwye7apXutTup2/cnkBWxxeBO1G8=;
- b=Fis/SI/NwEVhlFc/JEIH4uS2Tg4IpEa6L7GSS4krojtK6zXY72tIac9VY33JDqYQLUakPuHBD
- mf7uB3uRGEjAK/yrElPyLps0orgN6OxFJqhGscpGQQD6biyzSw/xulm
-X-Developer-Key: i=filipescu.cristian@gmail.com; a=ed25519;
- pk=o7Ui0tU3x+X/6Pq6PZHmd2KFtOdPWttoPuNFOvdD8t0=
-X-Endpoint-Received: by B4 Relay for
- filipescu.cristian@gmail.com/uboot-20261021 with auth_id=1255
-X-Original-From: Cristian Filipescu <filipescu.cristian@gmail.com>
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Thu, 22 Oct 2026 14:03:22 +0800
+X-Priority: 3
+Message-ID: <tencent_5D642036FAE534DDD2B8C81424688CEC060A@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+References: <20261022-add-board-ok3572-c-v1-0-0b0fd85a31ee@qq.com>
+ <20261022-add-board-ok3572-c-v1-14-0b0fd85a31ee@qq.com>
+	<09c223e6-6872-4bb6-a915-870c3ee614cb@lunn.ch>
+In-Reply-To: <09c223e6-6872-4bb6-a915-870c3ee614cb@lunn.ch>
+X-QQ-mid: xmsezb41-0t1792649002tmzzbeu1c
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261021_230329_721335_7CB79CBE 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,95 +84,21 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: filipescu.cristian@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,FROM_EXCESS_BASE64,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Continue Jernej Skrabec's April 2025 Orange Pi 3 LTS series, retaining
-his authorship and Rob Herring's acknowledgement of the binding patch:
-https://lore.kernel.org/linux-sunxi/20250413134318.66681-1-jernej.skrabec@gmail.com/
-
-Add the board compatible and a device tree for the Allwinner H6-based
-Orange Pi 3 LTS, with 2 GiB LPDDR3, 8 GiB eMMC, Motorcomm YT8531C
-Ethernet PHY, USB host ports and HDMI. The wireless module's SDIO wiring
-and power supplies are described; working Wi-Fi/Bluetooth is not claimed.
-
-Changes since v1:
-- Rebase onto current mainline Linux.
-- Fix oscillator naming and use CLK_OSC32K_FANOUT.
-- Chain the GMAC and wireless 3.3 V regulators to their input supply.
-- Keep BLDO3 always on and describe the PM-bank supply.
-- Document the DCDCA/DCDCB polyphase arrangement.
-- Use rgmii-id with zero MAC delays and 1950 ps PHY RX/TX delays,
-  following the Ethernet discussion in the original review.
-- Use green PL7 as the power LED and red PL4 as the status LED.
-- Default green off and red on for Linux startup; userspace can clear
-  both at its readiness milestone. U-Boot overrides its own defaults.
-
-The device-tree hardware settings match the accompanying U-Boot series;
-only include paths differ. U-Boot boot tests of the earlier red-LED
-revision confirmed 2 GiB RAM, SD/eMMC enumeration, DHCP and ping.
-The submitted green-LED U-Boot revision also booted the Linux test
-image from SD. The corrected U-Boot handoff LED sequence has also
-been confirmed on the board.
-
-Validation:
-- Compile both the new LTS DTB and the existing Orange Pi 3 DTB.
-- Run dt_binding_check for arm/sunxi.yaml.
-- Validate both board DTBs against the full processed schema set.
-- Run checkpatch --strict, ignoring FILE_PATH_CHANGES because the new
-  DTS is already covered by the Allwinner MAINTAINERS directory pattern.
-- Build an Allwinner-focused arm64 diagnostic kernel with the required
-  drivers built in and a separate BusyBox initramfs for RAM-only testing.
-
-The proposed eMMC properties remain conservative. Higher-speed eMMC
-modes and the earlier LED drive-strength question are not resolved by
-this revision's build and schema checks.
-
-On-board Linux testing with the diagnostic CONFIG_MODULES=y kernel
-reaches the RAM shell with four CPUs and 2 GiB RAM. AXP806 regulators
-initialize successfully; SD, eMMC and an SDIO card enumerate; eth0 and
-USB host root hubs register. An earlier CONFIG_MODULES=n diagnostic
-build failed to defer pinctrl probing and timed out accessing the PMIC.
-The latest test no longer exhibits that failure.
-
-The YT8531 PHY links at 1 Gbps/full duplex; DHCP, DNS and an IPv6
-Internet ping passed (2/2 received). Two direct 8 MiB reads from each
-of SD and eMMC compared identical. Two cold starts with LED, shell and
-Ethernet checks were confirmed. Sustained transfer, external USB device
-transfers and HDMI output remain untested.
-The installed Fedora IoT deployment is untouched. The test initramfs
-clears both LEDs before opening the shell. After updating the bootloader, Cristian confirmed the complete
-sequence: green in main U-Boot, red at Starting kernel, both off at
-the diagnostic shell.
-
-Codex assisted with adapting the original DTS and review feedback,
-preparing this cover and container build/test tooling, and analyzing
-the supplied serial log. The board boot was performed by Cristian.
-
-Signed-off-by: Cristian Filipescu <filipescu.cristian@gmail.com>
----
-Jernej Skrabec (2):
-      dt-bindings: arm: sunxi: Add Orange Pi 3 LTS board
-      arm64: dts: allwinner: h6: Add Orange Pi 3 LTS
-
- Documentation/devicetree/bindings/arm/sunxi.yaml   |   5 +
- arch/arm64/boot/dts/allwinner/Makefile             |   1 +
- .../dts/allwinner/sun50i-h6-orangepi-3-lts.dts     | 362 +++++++++++++++++++++
- 3 files changed, 368 insertions(+)
----
-base-commit: 4403278e4ea2f654f8130a5c03eb8b4516a0f201
-change-id: 20261022-sunxi-orangepi-3-lts-43b92246a8ed
-
-Best regards,
---  
-Cristian Filipescu <filipescu.cristian@gmail.com>
-
+SGkgQW5kcmV3LAoKPiBTaW5jZSB0aGlzIGlzIGEgbmV3IGRldmljZSwgcGxlYXNlIGRvbid0
+IGFsbG93IHR4X2RlbGF5IGFuZCByeF9kZWxheSwKPiB3aGljaCBzaG91bGQgYmUgY29uc2lk
+ZXJlZCBkZXByZWNhdGVkLCByZXBsYWNlZCBieQo+IHJ4LWludGVybmFsLWRlbGF5LXBzIGFu
+ZCB0eC1pbnRlcm5hbC1kZWxheS1wcy4KClRoYW5rcyBmb3IgdGhlIGZlZWRiYWNrLiBJIHJh
+biBhIG1hdHJpeCB0ZXN0IGFuZCBmb3VuZCB0aGF0IHJnbWlpLWlkIGhhZApsb3dlciBwYWNr
+ZXQgbG9zcy4gRm9yIHYyLCBJJ2xsIHVzZSByZ21paS1pZCB3aXRob3V0IHRoZSBkZWxheSBw
+cm9wZXJ0aWVzLgoKQmVzdCByZWdhcmRzLApDdW5oYW8KCg==
 
 
