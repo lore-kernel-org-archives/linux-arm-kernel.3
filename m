@@ -2,107 +2,99 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9512B606A325
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 05:27:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25EB9606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 05:52:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=onMGNjeV;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nE9PSI1B
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ekwV23me;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=lzvnmwV6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
-	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vZw7X4lb3ksfrAnMAuxx2fg6EzYIhAqap3eUmHgRVu0=; b=onMGNjeVwpIKs5
-	jA575/zKYljGBMm1Msf8chpzvdmTOPFw3verAlQ11MgxylcXCtC+Oa+PtNnvx8hyb0Q+gdKP6rHsz
-	DL8bmHCGEygzKYCJwswReFDdmEZau3RrN/LYABf2gCBXgyXXVLFr3doNcPGTK1J0h0o0zZKWhodi3
-	AMazbKothS0jBOMEFVo9d+zXXF9jX+jGIVd/fMlPzgEwmguhmSbAjd2EOi0diNPpCCeT7Yf3w0MFI
-	g7BsgN1XK+M1wS9CpQE5qnC7QTwnv6R9txZzuAqsRZAGUTY2DfCGp2AnpOtE/baEzq3+EY2JRL0Vn
-	jctLIgVEOuiFR10tk/Zg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7Krj8OjITAThRkCGGSj2U5wCQS4PajnQVLbEtv8Y+ws=; b=ekwV23meJT1FF4fEWjDdm4eQUs
+	lBRnFnME9r3BmOR1cHPrBxkmz0qMqXw204m/0+H7fStsPs1afipJsJSpjAY6VcXD6ej+KHPjO5NsL
+	/8IKUX3O9T0hIvtm2/77hv6tnGr5v6u5sX8GpFh2eEArKd9hBWiHI+/3trH8HJ77MKPx8Bv8MVfGN
+	+UxtTKb0qDHnq/yYNHBijvCyi6exQsiKDGGtqjJ/z7GuV7bcvxH6OCIadg6/ArqMeNZu20pUZL0cO
+	73NV+x+nVIuy8Ym/4Ah1X6rJnY5BHt3wkcyOZ6ikyPYe+jRAfNg+AdK8BvolvBMXjjFWrqxGDQUXp
+	ID4+lekA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJlKh-0000000DNjJ-0wtt;
-	Thu, 22 Oct 2026 05:27:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xJliq-0000000DQJT-1c7T;
+	Thu, 22 Oct 2026 05:52:16 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJlKe-0000000DNgW-3E0v;
-	Thu, 22 Oct 2026 05:27:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E8D260211;
-	Thu, 22 Oct 2026 05:27:15 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792646835;
-	b=m3r7tcjnBXTd+X8wnNnjUljdNzM79xURcz28VK3iFotYLctYACR6GFv/tfHW/3KZ58Er
-	 BannArVORXj76rnc9JKu2pRGBODPMepR2KVo7IYTx/eXN+tCwHknv52hLfsJ/t2QBW2aV
-	 q1yTec6htU6hSk4C83SP07oj2TT05YIo7qJ1wYxoqBSNyeygmtOmiSVDb23gJ07VvAmEy
-	 YpYRnBU3hu2kozsrG9Q9PM5rMpdiD3OHk+hLXKyZTECMZnXYDVK7C2IfcWJIZ+6A55IER
-	 4SVsyotjHKXywlcgvVGAqADOsN9qPEYQelNAl2pTRWvcF288JhrSH+eOloGyaSDsOQw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792646835;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=vZw7X4lb3ksfrAnMAuxx2fg6EzYIhAqap3eUmHgRVu0=;
-	b=Zg/GoOg2lqqHmZQ7IPhKNXC+4cxywKbG48aFV6nsHj6UeaLeVLIUVvxXO58P82YCj0po
-	 YSpe1UsuFdCrZghULqSQKCsKi9jKmBnGvN6HN2yILfBH5BGWp3Awiq72gf08v32mOe0wD
-	 iXqsOw+S3vJS8xmKxNU/wWUUPevD5SpW5ZfzvzTE/cy5vdS/B8T/YKZyl/0N6y7iF+9hG
-	 eGn5JdZlevkSJRZlRLVjKKqLne0HVuznUAxo09ceK+VNxs123PSwQyMrDxFRQWd/O84/S
-	 yzQpazJ/Z4dh33fbTJRHCyBGTHcemjinw3sA3ub2Ngzm96LH/yMmZui46AhIQcwFOqw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id DB12D1F000C1;
-	Thu, 22 Oct 2026 05:27:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792646835;
-	bh=vZw7X4lb3ksfrAnMAuxx2fg6EzYIhAqap3eUmHgRVu0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=nE9PSI1BkQuX2JUDgREpDWRGo7njCyJXhZe28t7966XvBP7eHNTW33TFCAJuh/m+7
-	 hZQ863cuG5OXkk5m3bYA/aBsNvj346k5j11xK+DS/Cc3tdSXZYFPkLWMAnhmFS6DE9
-	 I7ssWcD2EyMiRqJsKrStswgVAm0GTWo783Diy3ysdBUXbxxRp7kSvX5gUUYHBYgyGb
-	 20raI00TICV+o9rs9TPs+ycE7dSfu3/LJD8e+IitHwBbNJzxdfl5MP4JMXWq5LEpJi
-	 3eD/twfgzHDnW2HXFsh8Ob4/drVQXa8Jv5feXRP28ZZwEISGWHxv0XFRLjaOU6+vPH
-	 7QCThpYUSU2xw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 4F315434E9;
-	Thu, 22 Oct 2026 05:27:13 +0000 (UTC)
-From: Zhentao Guo via B4 Relay <devnull+zhentao.guo.amlogic.com@kernel.org>
-Date: Thu, 22 Oct 2026 13:27:01 +0800
-Subject: [PATCH v12 3/6] media: dt-bindings: Add Amlogic V4L2 video decoder
+	id 1xJlin-0000000DQIz-45SZ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 Oct 2026 05:52:15 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso11883385e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 22:52:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792648332; x=1793253132; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7Krj8OjITAThRkCGGSj2U5wCQS4PajnQVLbEtv8Y+ws=;
+        b=lzvnmwV69/qUhG3p+DpaR53eH7mxFUCtTDJ3629zotkexTl27n9hAzLJrAmasimjvW
+         s0PTVAqCirq5wjI10vSwOstzAG6c0LA/D/WIlhV6+k334E9RuTimP7zXXl52HKolfaTz
+         8NBdl7Wzhe6vDnKY0p0LaWZUHFXfgWVltKCHFni6Bbo5yifwGguBeJfHNBW6ZEFrPo5l
+         lEjM5IGdmO4IIWe90OBQhhLNktlds/lgqrihzWK56Bu8XknBEXeUOGkU+AfdFuKBPKCH
+         WsjMtf39zGRPB7C0XvivfBfiw4jfjqt+JAUMFn1phodQMY47Tflk1HUMmnFgm8GqaTXY
+         12oA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792648332; x=1793253132;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7Krj8OjITAThRkCGGSj2U5wCQS4PajnQVLbEtv8Y+ws=;
+        b=bPiX562q9ABe8YcfU9iQPbcYdQrZ+gma4eYVVUd0IpmsF2z5bv2LccjpSsDOUej5Gj
+         OoTprZpE7iwa/jVH7Fpr6FNtZ1NLwMH9bYoW1Z2FfshVTkXbqwIeaSiP0px0lCs1HUr2
+         HyVD6FkZVq5qhGeX2ov20JInVot76LZYpX/w5NB391WUeAoUr5HAX0o7HDRj2QGxL1z7
+         kSc7hYCJ+WJ1B7zowWIOWS7/IyywH69tqQiOjjG1bvpHzU9VWxQi2P6B+pRKIhbWAPEq
+         Go87whNNGdc6t8QdB0zF5IYKkIAHDKJ72/bce4AfUd9Q99wmp9i3RGJez2PVE088c3nt
+         RYmw==
+X-Forwarded-Encrypted: i=1; AKwUvBwXN96HAnQYCk8UxJRjwcphR4l46PpzZzz6SqevBgybQvp3Y5l8+e2nPNxc4i/qREJT+tQcLk388nmWMcKYnzE/@lists.infradead.org
+X-Gm-Message-State: AFq9FYKNtP8xfmBeJZCM/oXKIL8/TaMHK+vq/ZY700eTnKbEN9hqtqN6
+	5ZHJ5Jxj6gpJjODLZWzgqM7r4VNBD3bmixkH5YvL2zNSZwWl1jnDOhqA5lD1ZryP
+X-Gm-Gg: AYBFou0n/K+bEb6EfvaFqFFztBTa0UOSpD4Wf9hMwsCFr7vce2yirsgZJ+hj+MVSv/y
+	mpZ2/Mk35a2Eb2+0UylEHVkckxiwl21TCPj9SnJ9A6jjNy2T/Y39rLckEnWln7+zP4QseZPqFNF
+	hYYQ39Nn2ZrHIO8XsyxtnPuFL7Ku107UPLcJG6BjnE+m7bMF49ZSarcYtZzyOOe+EA9zaSogYuy
+	lpS4eLYAcf8DZOV0139rPmgXlQ9q/LMjJcFLJSEmtuMk180fBeKmTgeelm0LTyXreru83CLdIQX
+	yB8xcGL5Y/nIpvRA++H+deblqJB0g4ACA8paswLxXrMbyFDGFoVeuFtF6aE13PYjRCRS+Jj3frT
+	KPEygI2dmtuNbsDaqpATGaRaZpgHzwHkKpOdgcNg+yqdCNLWUF8ceh1MR9TZV5HwkeD53/kMOfg
+	Tw9cFs0kvaKSrisrGvnTwLkXYXKGxWlb1QONgtDkqvgPtDAYKEJ5yQqPhvjN0a5buYjs7Tvgo7k
+	70P2Xa3dtsm/Igdz+RU7ajGBH5bpuvlECeEnNYkc3jVobrfwcVETx7s+93Cl65nX0EY6VzmJGO9
+	P6ruFqLgqBeNDBO8rWBWGXVYjjKAA0r16spQvXmKGdIvBHyqqJZ6zYinUTcaV9zgWNLA8PrT0Zn
+	wXxa+vn1qntPmrMsk3DAVC3jmof9C3k/vbMmKOfcu5Ko4QrBebYVITIHGXtuTchAGx2wCg49R4q
+	U4YRwk
+X-Received: by 2002:a05:600c:6748:b0:4a2:1a:a122 with SMTP id 5b1f17b1804b1-4a2001aa387mr72903845e9.9.1792648331473;
+        Wed, 21 Oct 2026 22:52:11 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a00-1028-8388-a84e-a0a3-b57b-feb7-50dc.ipv6.o2.cz. [2a00:1028:8388:a84e:a0a3:b57b:feb7:50dc])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a2038ddb20sm41312875e9.0.2026.10.21.22.52.09
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 21 Oct 2026 22:52:10 -0700 (PDT)
+From: Josef Schlehofer <pepe.schlehofer@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Henrik Grimler <henrik@grimler.se>
+Subject: [PATCH v2 0/2] ARM: dts: samsung: Add support for Hardkernel ODROID-U2
+Date: Thu, 22 Oct 2026 07:52:06 +0200
+Message-ID: <20261022055208.17746-1-pepe.schlehofer@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261022-b4-s4-vdec-upstream-v12-3-616240978792@amlogic.com>
-References: <20261022-b4-s4-vdec-upstream-v12-0-616240978792@amlogic.com>
-In-Reply-To: <20261022-b4-s4-vdec-upstream-v12-0-616240978792@amlogic.com>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- devicetree@vger.kernel.org, Zhentao Guo <zhentao.guo@amlogic.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792646831; l=3663;
- i=zhentao.guo@amlogic.com; s=20251024; h=from:subject:message-id;
- bh=sdpnxZqgnjpHOtW3zEsr+0hEfJ2Oq9V4xODbhYXkAYs=;
- b=GOiymRYreeaoKRFwe4SQyASgsTUzFHSGFZZar2eJxjGY5P2HmFfDGJF67XUBGD1zFrFlrHyQ5
- OjEiadj7KuICaBsHqr6TQgdztMOB0ZGWycEd3yPlExUDi8O2jU81bF7
-X-Developer-Key: i=zhentao.guo@amlogic.com; a=ed25519;
- pk=5yfDKrjreXwcAoEUsdtWafy6YN500upXp/CgtnXjLVU=
-X-Endpoint-Received: by B4 Relay for zhentao.guo@amlogic.com/20251024 with
- auth_id=555
-X-Original-From: Zhentao Guo <zhentao.guo@amlogic.com>
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261021_225214_076331_10A63735 
+X-CRM114-Status: GOOD (  16.27  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,149 +104,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: zhentao.guo@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Zhentao Guo <zhentao.guo@amlogic.com>
+This series adds the Hardkernel ODROID-U2, the predecessor of the
+ODROID-U3, based on the Samsung Exynos4412 Prime SoC.
 
-Add bindings for Amlogic hardware decoder accelerator.
+v2 is reworked: as with other closely related boards, such as the
+ODROID-X2 and the ODROID-X, the ODROID-U2 device tree now includes the
+ODROID-U3 one and describes only the differences: the micro-USB port
+is peripheral only, as there is no VBUS supply switch, there is no
+expansion header with SPI, and the 3.5 mm jack is headphone only, with
+an on-board digital microphone instead.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
----
- .../devicetree/bindings/media/amlogic,s4-vdec.yaml | 114 +++++++++++++++++++++
- 1 file changed, 114 insertions(+)
+Ethernet, microSD, USB peripheral mode, the LED, the fan cooling
+device, headphone playback and recording from the digital microphone
+were tested on an ODROID-U2 with v1 on Linux 6.12. With v2, everything
+except audio was checked again on Linux 6.18; the DTB is the same as in
+v1, except for the cs-gpios property of the disabled spi_1 node. The
+eMMC was not tested, as no eMMC module was available.
 
-diff --git a/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
-new file mode 100644
-index 000000000000..75b9ba3cb08d
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
-@@ -0,0 +1,114 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) 2025 Amlogic, Inc. All rights reserved
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/amlogic,s4-vdec.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Amlogic Video Decode Accelerator
-+
-+maintainers:
-+  - Zhentao Guo <zhentao.guo@amlogic.com>
-+
-+description:
-+  The Video Decoder Accelerator present on Amlogic SOCs.
-+  It supports stateless h264 decoding.
-+
-+properties:
-+  compatible:
-+    const: amlogic,s4-vdec
-+
-+  reg:
-+    maxItems: 2
-+
-+  reg-names:
-+    items:
-+      - const: dos
-+      - const: dmc
-+
-+  interrupts:
-+    maxItems: 2
-+
-+  interrupt-names:
-+    items:
-+      - const: hvdec
-+      - const: vdec
-+
-+  clocks:
-+    items:
-+      - description: Clock for dos core
-+      - description: Clock for vdec core
-+      - description: Clock for hvdec core
-+
-+  clock-names:
-+    items:
-+      - const: dos
-+      - const: vdec
-+      - const: hvdec
-+
-+  power-domains:
-+    maxItems: 2
-+
-+  power-domain-names:
-+    items:
-+      - const: vdec
-+      - const: hvdec
-+
-+  resets:
-+    maxItems: 1
-+
-+  amlogic,canvas:
-+    description: Canvas maintains an index-to-physical-address
-+     mapping table that allows the 16-bit AMRISC decoder core
-+     to access 32-bit or 64-bit physical address.
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+
-+  amlogic,secure-monitor:
-+    description: Used to decrypt and load the signed decoder
-+     firmware through ARM SMC (Secure Monitor Call).
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - power-domains
-+  - power-domain-names
-+  - resets
-+  - amlogic,canvas
-+  - amlogic,secure-monitor
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/amlogic,s4-pll-clkc.h>
-+    #include <dt-bindings/clock/amlogic,s4-peripherals-clkc.h>
-+    #include <dt-bindings/power/meson-s4-power.h>
-+    #include <dt-bindings/reset/amlogic,meson-s4-reset.h>
-+    video-codec@fe320000 {
-+      compatible = "amlogic,s4-vdec";
-+      reg = <0xfe320000 0x10000>,
-+            <0xfe036000 0x20>;
-+      reg-names = "dos",
-+                  "dmc";
-+      interrupts = <GIC_SPI 91 IRQ_TYPE_EDGE_RISING>,
-+                   <GIC_SPI 92 IRQ_TYPE_EDGE_RISING>;
-+      clocks = <&clkc_periphs CLKID_DOS>,
-+               <&clkc_periphs CLKID_VDEC_SEL>,
-+               <&clkc_periphs CLKID_HEVCF_SEL>;
-+      clock-names = "dos",
-+                    "vdec",
-+                    "hvdec";
-+      power-domains = <&pwrc PWRC_S4_DOS_VDEC_ID>,
-+                      <&pwrc PWRC_S4_DOS_HEVC_ID>;
-+      power-domain-names = "vdec",
-+                           "hvdec";
-+      resets = <&reset RESET_DOS>;
-+      amlogic,canvas = <&canvas>;
-+      amlogic,secure-monitor = <&sm>;
-+    };
+Changes in v2:
+- Include the ODROID-U3 device tree instead of duplicating it, which
+  also resolves the style issues reported by Henrik
+- Add Reviewed-by from Henrik to the dt-bindings patch
+- Link to v1: https://lore.kernel.org/all/20261018124459.3026-1-pepe.schlehofer@gmail.com/
 
+Josef Schlehofer (2):
+  dt-bindings: arm: samsung: Add Hardkernel ODROID-U2
+  ARM: dts: samsung: Add Hardkernel ODROID-U2
+
+ .../bindings/arm/samsung/samsung-boards.yaml  |  1 +
+ arch/arm/boot/dts/samsung/Makefile            |  1 +
+ .../dts/samsung/exynos4412-odroid-common.dtsi |  6 +--
+ .../boot/dts/samsung/exynos4412-odroidu2.dts  | 42 +++++++++++++++++++
+ 4 files changed, 47 insertions(+), 3 deletions(-)
+ create mode 100644 arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts
+
+
+base-commit: 58161ead29e50d70a317ea26b472e0c7508e69da
 -- 
-2.42.0
-
+2.54.0 (Apple Git-157)
 
 
