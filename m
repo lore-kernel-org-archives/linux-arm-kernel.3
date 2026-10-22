@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B564D606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 14:02:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F25C606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 14:02:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IbeVdz2Q;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=uL8iextk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z+1NewBw;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=J05l4sXA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
@@ -14,63 +14,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=7SQmolXx9Gu1yzUrM62wAZ0O9GWKQf6abuquBr/LlHA=; b=IbeVdz2QnI+HBEbwFt3bfmp4kH
-	MYns6yd4gIwvZGNGhKzwC71S5eDfKLcgzXeJBfEdIsOFTyfZ9vN28kZzNiLts1DAK82MJYduynZsR
-	qi77TSNDD+Lh0Othh3sMo3UklBmhpKIbabBi9DleLzKEfG4p4XiNs8jUMQ/sHvJWz8llKTM0X3qIO
-	rr2F6S6QSreVnZU5So4dD1eK14cQ4rGA65k+i9CSIm61sf/YesL+ahoMts56bWxLS2MPwA/7ok9vV
-	V4sYpwzVvhVNl/sMkFTi2ZxKTccSXy1M9rrjcegCVEDjt8fKBl9Dqo6xDjJBaitzquMkZ2Nly+56T
-	iAVTH5oA==;
+	bh=Hp9JeT3gf9bLn3Zliqx08JQ0NLgTD4FcuPPlzeVHa14=; b=z+1NewBwotkJ89scyZTZIsPK/s
+	gDVzN3nRo1MjWl9ux1AxCH1y9Bu6HPQmvPiQKDq2xVhUru2WBVfIizO18PDZsnciq9A9tGYOaJO8v
+	V2bOy8WU0coASRUhvX+jZcc+Xsf+2/atWOOAlwkjqhZACjtDQAm+nxdy8bVhkADJ3oH/Pp9Fa7BU1
+	fk4iFDi2TWV5HdggZw9e6rjwj2iVnW3Oq3CzLshHEjJAqdKQOHqrjbI4xbAcoPM5NP7kWLrZ991Hk
+	u4Cz2o9hmJPw2y8uLou10ticybAuNlGEYm5GwpJ3NDz+p8FO2gJX1+ZB1s4MTtDpHSBtv9k6/zN+F
+	RkhrjpHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJtN6-0000000EFn9-1Jje;
+	id 1xJtN6-0000000EFna-1yZO;
 	Thu, 22 Oct 2026 14:02:20 +0000
-Received: from mail-wm1-x346.google.com ([2a00:1450:4864:20::346])
+Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJtN2-0000000EFkD-0tEs
+	id 1xJtN3-0000000EFkf-1zfR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 14:02:17 +0000
-Received: by mail-wm1-x346.google.com with SMTP id 5b1f17b1804b1-4a1d1f26a63so18236385e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 07:02:15 -0700 (PDT)
+	Thu, 22 Oct 2026 14:02:18 +0000
+Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-4a20e41008cso979955e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 07:02:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792677734; x=1793282534; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1792677735; x=1793282535; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=7SQmolXx9Gu1yzUrM62wAZ0O9GWKQf6abuquBr/LlHA=;
-        b=uL8iextk/zaGwTMqXgkPmBJxESjuO9xa2x0b1Ela1uZKK5z0vqEeYWFvQZLP8N4G9Y
-         YCpi4chOXlc9lWEfo/1dV6MeHWQ60fNIl6ncMeWf+q96/AT+YywtXxuDo6DbETOv/JQs
-         Tt3z2pCbVeOxxntTJEcI4oT60fTb4q1rMcg/H7gQgH002n/pzG9Hg7wW6xl6aubUZXCm
-         RCKDel/6xu25xQaghfot3/MTi9+Y8FCi3lqnKJFgbn/zlMbQySFlGiYBHdSxqn8NexGD
-         hlbw5qioMMZdlT/CAjMQTUT+dAlo/9h4a/gr48GLRj6vziRYA5Fr5DcZBengKc6N96ml
-         TPKw==
+        bh=Hp9JeT3gf9bLn3Zliqx08JQ0NLgTD4FcuPPlzeVHa14=;
+        b=J05l4sXAJyChXjhcFDty1GnS4628ND0sZj8bLoe4wD9q1Dxms3g2prUo10Rso6JWyY
+         BqVR9VQxsYpCIs76iuF9dON8q56WMcfWWURwOA9lReKbrIAJrf9kMNGwaumSZSVDDHP2
+         YMl2l29fEocX9KQzz7DJvw0jpwKhldl6IDVAJZAbmv3pFk9+XiC0tn9wkuv1oqz3gDAf
+         6ezV+bT9mkt3rR/agnSWm51HaL7KERFTfKKAH0YaxYtWPE6XceT/zc64sxiru4Rcta6t
+         q0qVuqb/eDFaIMgsRuZ3e2Eqt8BTBBnnnlQgvNgBWdScsK0JC6lI23adOmHv4o/iLfja
+         WvtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792677734; x=1793282534;
+        d=1e100.net; s=20260707; t=1792677735; x=1793282535;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7SQmolXx9Gu1yzUrM62wAZ0O9GWKQf6abuquBr/LlHA=;
-        b=G8M/8xL6+O7Hnd+WQNxblIEvVkeqRflUoyV0POLtpLqyb8kWFDYpHNyu3JE0kPXkI9
-         qAhuYxfwiFPBRGcVU37XmwRnqnC0nBIHO7LmVIL4O9tHnhj1zVB6Xf6X2YI2FlY0+sfK
-         ho4p+bz2z/3odxruK3erbbasaRCDsjpmNd5AsCo0/MDW/CbhkW8ICPJ6kQPrPaZMo3gJ
-         0K4DDywZUUIimA4JHJ4tJKBRciyPm0o7f8U0GQnSXCI0qyQA5j60ZL9XpJo7OqL8DKfG
-         YCyQrfB/aF2vl6jsDjVsD7qD8Z8eJ7bLKKVBK2WWt5mE8CdQ2qZMPv81xP5VUnjoyNDt
-         V01Q==
-X-Forwarded-Encrypted: i=1; AKwUvBygwfPJ2AcpsFcSuc8X2UxzziXeMwfQ6aoB22G2eP5+MX8IoCQTRdyKrzZmzEoYTSJXU06pYPPZvX1t5gUD+Gfh@lists.infradead.org
-X-Gm-Message-State: AFq9FYKB/lliwLNz85Wzu3/AH/XrlxSNsns0ihAkQVMNdy8pcA6RuqHG
-	3uAyJ+KzhSgo85HZM/yvk/kMK2J6HTSDXxqMWIge/hxHEpXrAuaElT43vCW7W91x2efzv2bodCr
-	4/PVslJKKXpsqS7j3ghC6qA==
-X-Received: from wmbgz7.prod.google.com ([2002:a05:600c:8887:b0:4a1:a2ef:38dc])
+        bh=Hp9JeT3gf9bLn3Zliqx08JQ0NLgTD4FcuPPlzeVHa14=;
+        b=oEUgJhskOCBUcJafC2A1ZNdEWrfUNhQG5bBlSM652Ksnm8OxKVuITlOmty1noMhM/W
+         0+bCGQCc19vU9q3Kg2FnB5ClxrNKdVX7S1lRQnud5eIwNkp0U0XQ6cFVTYVFNsNlwy/T
+         HOOWiriPc84hZ14lJEyZYjE46KC4Ik9Yg7OYSWcHYuJHPXtE+ZI2yrE6j/Qt4ocoZAx9
+         57mzr4LwzJXQehlDZp9F4vTsZ7faSBqF0UH0VJw8thYlHma7FJLW/2V1oMiCxy76NgML
+         CnNAUOEyJyQp/DXnts485XBVjqnjxX1MIpPv30L61feehfaJTL9DvWWyOZGVI7zzmhax
+         Z9nA==
+X-Forwarded-Encrypted: i=1; AKwUvByVzLblj/SQkR6bpGTmiLB4umlYizq1RgmZpW6FigCGKvqRdGzzUPKBjsnB8xGk48AORaDPHnmV/OMFJlrXDHza@lists.infradead.org
+X-Gm-Message-State: AFq9FYK0XFjclazz5sf9uCg8uKLEpclsipr+m7qpNBLBM1iNIaiaWl15
+	BZ3BUGAhqj2TpZ5+bAQgSPMt9DlXyJmCFy5EbreG21WjTySRiukWl2db+vQpEsk+4hn6zy9Bk5a
+	xR29AtI6qvpAARN1ITfD2wg==
+X-Received: from wmbe11.prod.google.com ([2002:a05:600c:590b:b0:4a1:91fb:4150])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3514:b0:4a1:d248:25c4 with SMTP id 5b1f17b1804b1-4a1fdb17706mr114255665e9.13.1792677733445;
- Thu, 22 Oct 2026 07:02:13 -0700 (PDT)
-Date: Thu, 22 Oct 2026 15:00:47 +0100
+ 2002:a05:600c:46d3:b0:4a1:c5eb:b445 with SMTP id 5b1f17b1804b1-4a1fdd6bec7mr114091885e9.35.1792677734835;
+ Thu, 22 Oct 2026 07:02:14 -0700 (PDT)
+Date: Thu, 22 Oct 2026 15:00:48 +0100
 In-Reply-To: <20261022140048.2522787-1-vdonnefort@google.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
 References: <20261022140048.2522787-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.56.0.257.gf7497c7d27-goog
-Message-ID: <20261022140048.2522787-4-vdonnefort@google.com>
-Subject: [PATCH v2 3/4] KVM: arm64: pkvm: Reset GICv3 LRs in the hypervisor
+Message-ID: <20261022140048.2522787-5-vdonnefort@google.com>
+Subject: [PATCH v2 4/4] KVM: arm64: pkvm: Avoid trapping on HVC_RESET_VECTORS
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -80,8 +80,8 @@ Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_070216_261602_1AD84796 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20261022_070217_519073_AA959806 
+X-CRM114-Status: GOOD (  13.14  )
 X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,30 +101,33 @@ X-Spam-Status: No, score=-26.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-After the host is deprivileged, pKVM can't trust the host for resetting
-the vGIC LRs whose value is architecturally UNKNOWN when the CPU boots
-or resumes. Add a blanket cover in the CPU_ON/CPU_SUSPEND path.
+pKVM prevents the reset of the hypervisor vector and as a consequence,
+kvm_hyp_initialized can never be reset. Add a fast-path for this case to
+skip unnecessary HVCs on the CPU hotplug and PM path.
 
-Fixes: cdf367192766 ("KVM: arm64: Intercept host's CPU_ON SMCs")
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/psci-relay.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/kvm/arm.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/psci-relay.c b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-index e20db999e328..890ced64fb18 100644
---- a/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-+++ b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-@@ -213,6 +213,10 @@ static void __noreturn __kvm_host_psci_cpu_entry(unsigned long pc, unsigned long
- 	write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
- 	write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 4c4e2fb7b660..3d7199a87ca9 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2248,8 +2248,13 @@ static void cpu_init_hyp_mode(void)
  
-+	/* We can't trust the host to reset those registers */
-+	if (hyp_gicv3_nr_lr)
-+		__vgic_v3_init_lrs();
+ static int cpu_hyp_reset(void)
+ {
+-	if (!is_kernel_in_hyp_mode())
++	if (!is_kernel_in_hyp_mode()) {
++		/* pKVM fast-path */
++		if (is_protected_kvm_enabled() && __this_cpu_read(kvm_hyp_initialized))
++			return -EPERM;
 +
- 	trace_hyp_exit(host_ctxt, HYP_REASON_PSCI);
- 	__host_enter(host_ctxt);
+ 		return __hyp_reset_vectors() ? -EPERM : 0;
++	}
+ 
+ 	return 0;
  }
 -- 
 2.56.0.257.gf7497c7d27-goog
