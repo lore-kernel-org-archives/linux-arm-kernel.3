@@ -2,86 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F059460A2614
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 12:51:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD811606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 12:51:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z1TMK9Ds;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=ZDsz4NH7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qR9dtRnQ;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=DME0dOI6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=vcIAT9ULUD3UTihgoNQ39oXw1BrZ4Mf7vBBpZUJnXkY=; b=z1TMK9Ds5l54lO
-	01pHU5pstefbO9K6W2StNgDDjXr0FdYW1a5LxHEmTd5Ad8NO8cJYi2/xzuF0p5RKveIhFOZ71SwWi
-	GnycvrNysb560fsHugw25xyAfupqxqUOWVaJPu5M8ll3hVlLp+xXyFhpERFib1lQNng7QG1mtklpv
-	LBiK9LfepvgdmgQ9dmcyLFz1Z1KivNAN3yfQWBjwaaNt/ik58Jybb+1x0ctBszQYvUU0FdiPaJ5Xw
-	F/2nHlwdDQrFYPyXisYFa3jcjTzh7olYgJi42FQnH+2/QF6Y+sQjBKEC3F3Gw4y3jWb6nYGZkGIL+
-	8apdSMe3VKsPQtAE4HcA==;
+	List-Owner; bh=CTIydlDjwaTx3lfLxh8PmRec7L6PCrLK/369X9etdCw=; b=qR9dtRnQwGpffS
+	laqyT7ETtlno9cUa6v5HS3Con5stNIymt31EclsnkD8Y+bWmigfzKkpMoAIZL8eYIoOXLRSobM1nh
+	CXb0/WYtgKALxyL0YrTCGVxuizj+0+SOxScsWSk37gEdHqFQv8lHN6wNJwm0HrV6/sPBHPFhKmF39
+	juMzjHgb9W8Sh6iN+oYN0XSUfB1yT9+cI+8bU/01EgyWzvdtRXt1iC5phtBjBUHQ4/WwABsk9B7M0
+	dxp9hnKPb9sIlDH9l1gc57+eFjE/oLHzAtvYi2YueJxqoMr4vCpMbnVaYKvk/WEZpjmxDGE1zjhru
+	O6li1wYntRpfzeeqZMlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJsGc-0000000E68h-1sHY;
-	Thu, 22 Oct 2026 12:51:35 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1xJsGh-0000000E6BA-2qxE;
+	Thu, 22 Oct 2026 12:51:39 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJsGZ-0000000E66t-3w9C
+	id 1xJsGd-0000000E68f-2Zkg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 12:51:33 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-48e0d1c095dso1205356f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 05:51:31 -0700 (PDT)
+	Thu, 22 Oct 2026 12:51:36 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a1ec92f655so10652795e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 05:51:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792673490; x=1793278290; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792673494; x=1793278294; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vcIAT9ULUD3UTihgoNQ39oXw1BrZ4Mf7vBBpZUJnXkY=;
-        b=ZDsz4NH74sS97omhpFmK7eZi0zmQJg8squYQTjNhk64GMRAwc989aficBPsPX5puEc
-         14pzGZW9/gjNxB4uDrf8S3V9JriPwtGKP+4sDPvc52CHTOy2uODg1SVGRWaJYh2lhvtS
-         CtfPKnZWL5J/Sq3f/A1SKKTg2haAIQ+d3hOFQUfR7RK5Pz9rav/NENxWADazQNdeYu9I
-         9tRtKVf2Kqjo07Uc/Sd4lKdUw9SxhpFMUWWPlP1RUrpjObSNegtsRnYROzhOH5jfPa78
-         VFbu1uSZc61drjMMovrGQovCzArVRXcqIPtW62iG+wufXheA3LR0BDxOSYhB1HE2zaCL
-         NRcA==
+        bh=CTIydlDjwaTx3lfLxh8PmRec7L6PCrLK/369X9etdCw=;
+        b=DME0dOI6d6x8KShj7cqROSWmYoouf5BgwAyI9/z0hizm+wHqqTfWAFd3Ji2MVEjYfq
+         vbQjQyKn/7RwmE/FAqGUO14ffKWjV6w8RZg8H6BLA7wOrdGd0cO6QUNV4ZUDXHT1wliW
+         QWb77uPH0o2WhvNuHhtXS2MokGMY+ywPC5r1kxs4wleOc6wfV91eBFVZCWHGccg71bT8
+         YwpMGdHJqzXFMgYk0DMiOSFZvBtKjakDhO3HisZeIL+Z0frYAssdC7KKk8SEJfRZ65ex
+         4N0wdSXljqtQ1xe2sqRg2Xyqwzs7itklyq39LgxdfH+VtTCDnZzbzd2RwPyPTjiaUdth
+         sMGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792673490; x=1793278290;
+        d=1e100.net; s=20260707; t=1792673494; x=1793278294;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=vcIAT9ULUD3UTihgoNQ39oXw1BrZ4Mf7vBBpZUJnXkY=;
-        b=iDit20ClsGSKoVNXAFiFs0aejG5vRBnXx0EYIGYGYw7LoVgNU48PMnJz3/djODATAn
-         7KFcxX3LqGSbmEoi3txIRh9CNIygl4oJkiXwaUubHK0zyJVrkLNKamOmxpPZERjdwPeW
-         2ZiOnOqkKgx/O5lPU8+rvlsBsz8aIjHZNGbScnyH1giDdxed5PLVbi5xaJqRgFuBI8ta
-         RmdDkAAHqqkMz5bxl4StibmvvsmnSfOM8OLVeJV03Xl5YikQBL8DYQnTq2gOKiSbRaur
-         I/RsXx2/fTAeuVWOfYbHrR+ehWQNozHYDRSY18WU8wo6fHfHGWqb+ml1aZXbx0Q8fT95
-         3ToA==
-X-Forwarded-Encrypted: i=1; AKwUvBz9TfoSLoJlG5yjwREGxNnkMj1yOlUz75g50ldA/Pe//Zksv63tfZTbm5TiSv+v1EZO2L1FLg0LzcKeIE6acajz@lists.infradead.org
-X-Gm-Message-State: AFq9FYIcMXsq6WsVDipfwT+9gk5ZX1fH7SxxK8SL4rtV5wvYBfVeeo0W
-	UbidhErhZi03vRu0GSDi2Zk/pwX9Gm3htCgs5JslLHouGwHpOSe52ftN
-X-Gm-Gg: AYBFou2kYcfnmCoT2FJT7RCqJnfVm5UDck66onSL031DyGrBZXkoWd2hc3kJ6jVzK4e
-	FdVUTCu0KCE6zKNMAvKxct1327BmJjRDT5C5Ir6xXgVGdYTkeDsre7R7aTkl2TO0RKS24nAQJqM
-	WODDpQi9/Zr8jvpIgzwCaykjQ6Wnd+z+DQerOUahHcJKi/oZwcF9lvJEamKWYvarVp0P8A6c34h
-	nx0sb6/vuOiRTl7VZhEQlXOTfVXORrLenvr/paJ2Z6Bwjp1cxu9JNHVTRO6RhFg07Vq1eKy8lVC
-	cCqM5BzsOmqIZTmAj5WtX+Sxh2zEeqwdprwZ8C/tbX2aP4NMMtc2ehkdHcAfy7grEyHfw5pnH1z
-	l1WgSwNMI5AE9ZrlO6rauiqtfjMDr7o/xilTIQzw1n8kmRn5PKEVIAzCf7uk8cYpNCC6m++8ia0
-	Ed8ahpocENkgsuIF3tLMtzgzq0r8YuN9xBK3OAy/K0meF3KfQcNUP0RYGlVkj+ft9CUw+em9Gv+
-	qC7J9COJVpE8JzsB+4y6bnoucm862ucBNiKJNasfSTuaSlC1OnP1LJFiwwVbRooS/ylXBzg1529
-	f7q43x4fK4wfS5jV9cWDqeXTdt/36rmajlkNXNz1TX6PS7pcOsGCh80=
-X-Received: by 2002:a05:600c:1f88:b0:4a1:f90d:6f4c with SMTP id 5b1f17b1804b1-4a1fdd09ef4mr107714775e9.7.1792673489828;
-        Thu, 22 Oct 2026 05:51:29 -0700 (PDT)
+        bh=CTIydlDjwaTx3lfLxh8PmRec7L6PCrLK/369X9etdCw=;
+        b=RHOQZlCIXAI74OYIeVTmqlK7E2koPj4nT32kKS3+2ynpWLecvoskx43ZJY7y8y4mhO
+         5Opf3VN8lD2Ree8zLuyLvCQEdBmZUUIvHau+o9Xrfh9S7XuhQ65B8CDY8f+1Oimehio+
+         8yk8W7abce8GCHvUuhHGlqoZ7eu3bFGTojzoBqiDOaucGnpcm+QebvoQbNTkqvezRDSM
+         Oj6kVdJ39vQjULqx0+KnAUdJC3hA21X9f9LCLTgvHxdHYNmpKT0cjgdnYh2JRDUgF2kZ
+         qr6DpcnL5qut8rXo0hG2VwTdSZ2GQlCELfEhzFWQSMAp+TZTjvu+y+k1AxcBmuUScvFJ
+         7jog==
+X-Forwarded-Encrypted: i=1; AKwUvBwSAfXWXtCtnoQDhOi1F8K+epcngAxs5LM4ahd+dsPp6mG5gmyk0O20xw8t/ywqz9vOSEIpUNnFfhMuB2EuZMWx@lists.infradead.org
+X-Gm-Message-State: AFq9FYJAOj1Ifm2DQBwDY30JWIe+XLReIzUEyLFxF1NQbLgtC7S3gJXu
+	LbK6Q8Sl9Xh9X3tNn9wOs701IHt3D6Q2baZlRqcVZqNhiPgTqpq4FxeH
+X-Gm-Gg: AYBFou1OmON3vNA35/dvQdua2P3DHPzjpPvxHkzKcMyJShkYYZDOc6/sxlyKtv943mc
+	JBVCDLf3Y//eBGY0si2WiaGKDoSGkyV11eMa9kEYU9OFz8Jsgdd2zQsbNh/tvWCTw6QUxGtx9Vf
+	Dft9IHqpDcOoUUAjfh6fa7KS1LKRogzKVYUO8OZU3kc+JVYc/yByS31lQW7St1xWMbO4D0hxtx+
+	WyfP7n2tCVb25xFAF+0LOuuj6e8bm0jZ392DPHDeFvAiBH1Ef1uMjURl/ZeoVppff1XvHm6yrqT
+	V+JkE6MDG2fhVh4icLVkOICoWLDKE5shanNImqlQvMMN1SSX5NEPh/icPuBkrxp8VcIiRRpnfD3
+	HCSIPBMTEvbyqhfHl8mAFbu2S6kjsPyddu1JweeLC9jNzor9v0cMvM2NSUYDeNAEUOkz94ZGfwL
+	PKgwmqr8p8fTzwqudcwKnLF8Cv7CqsS45Uo41Nydd1FfxigkEIwhK+qN3bKLZcATTwP7U+COwcF
+	0QOo4zSExtsmWlL7TQhqAsHf2LrnspITZJEi+CY+EnIiVBG3+Ez2KSFLxE5pTt5LPn+WqOyuFat
+	pjmFtCvasIuiaXUpza7KaUCPJr/XqOnTZdg9MoGxUkW/A3zjM/Anl8w=
+X-Received: by 2002:a05:600c:a110:b0:4a1:7f96:9b42 with SMTP id 5b1f17b1804b1-4a204bb5994mr34273245e9.15.1792673493483;
+        Thu, 22 Oct 2026 05:51:33 -0700 (PDT)
 Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a203a0f243sm64112995e9.5.2026.10.22.05.51.29
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a203a0f243sm64112995e9.5.2026.10.22.05.51.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 05:51:29 -0700 (PDT)
+        Thu, 22 Oct 2026 05:51:33 -0700 (PDT)
 From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Date: Thu, 22 Oct 2026 14:51:05 +0200
-Subject: [PATCH v2 1/5] arm64: dts: freescale: imx8mm-verdin: Share the
- NAU8822 BTL overlay
+Date: Thu, 22 Oct 2026 14:51:09 +0200
+Subject: [PATCH v2 5/5] arm64: dts: freescale: imx9{1,3}-lino: Add NAU8822
+ Bridge Tied Load
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261022-imx-nau8822-btl-v2-1-b4221ed43650@toradex.com>
+Message-Id: <20261022-imx-nau8822-btl-v2-5-b4221ed43650@toradex.com>
 References: <20261022-imx-nau8822-btl-v2-0-b4221ed43650@toradex.com>
 In-Reply-To: <20261022-imx-nau8822-btl-v2-0-b4221ed43650@toradex.com>
 To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -94,8 +94,9 @@ Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_055132_007840_B6AC9E65 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20261022_055135_690929_290A0E6E 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,55 +118,45 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 
-The NAU8822 audio codec on the Verdin Development Board can combine its
-two loudspeaker outputs into a Bridge Tied Load output. Selecting this
-mode only sets a property on the codec node, labelled nau8822_1a
-independent of the module.
-
-Rename the Verdin iMX8M Mini overlay to imx-tdx-nau8822-btl.dtso so the
-same overlay can be used with other modules on the board. The combined
-Verdin iMX8M Mini DTB keeps its name.
+Combine the shared NAU8822 Bridge Tied Load (BTL) overlay with the Lino
+iMX91 and Lino iMX93 Development Board device trees to provide
+ready-to-use DTBs.
 
 Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 ---
- arch/arm64/boot/dts/freescale/Makefile                               | 5 +++--
- .../{imx8mm-verdin-dev-nau8822-btl.dtso => imx-tdx-nau8822-btl.dtso} | 0
- 2 files changed, 3 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/freescale/Makefile | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index a80cccf34eb5..a4f26aef77fc 100644
+index 18d4ed73eba0..ece4fbd2a904 100644
 --- a/arch/arm64/boot/dts/freescale/Makefile
 +++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -107,6 +107,8 @@ dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-tqmlx2160a-mblx2160a-14-11-x.dtb
- dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-tqmlx2160a-mblx2160a-14-8-x.dtb
- dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-tqmlx2160a-mblx2160a-14-7-x.dtb
+@@ -859,10 +859,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx91-11x11-frdm-s.dtb
+ imx91-11x11-evk-mqs-dtbs += imx91-11x11-evk.dtb imx9-mqs.dtbo
+ dtb-$(CONFIG_ARCH_MXC) += imx91-11x11-evk-mqs.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx91-lino-verdin-dahlia.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx91-lino-verdin-dev-nau8822-btl.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx91-lino-verdin-dev.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx91-phyboard-segin.dtb
  
-+dtb-$(CONFIG_ARCH_MXC) += imx-tdx-nau8822-btl.dtbo
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8dx-colibri-aster.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8dx-colibri-eval-v3.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8dx-colibri-iris-v2.dtb
-@@ -253,7 +255,6 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7901.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7902.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7903.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7904.dtb
--dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-dev-nau8822-btl.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-dsi-to-hdmi.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dahlia-dsi-to-hdmi.dtb
-@@ -295,7 +296,7 @@ imx8mm-verdin-wifi-dahlia-panel-cap-touch-10inch-dsi-dtbs := imx8mm-verdin-wifi-
- imx8mm-verdin-wifi-dev-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
- imx8mm-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch-dtbs := imx8mm-verdin-wifi-dev.dtb \
- 	imx8mm-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
--imx8mm-verdin-wifi-dev-nau8822-btl-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-dev-nau8822-btl.dtbo
-+imx8mm-verdin-wifi-dev-nau8822-btl-dtbs := imx8mm-verdin-wifi-dev.dtb imx-tdx-nau8822-btl.dtbo
- imx8mm-verdin-wifi-dev-panel-cap-touch-7inch-dsi-dtbs := imx8mm-verdin-wifi-dev.dtb \
- 	imx8mm-verdin-panel-cap-touch-7inch-dsi.dtbo
- imx8mm-verdin-wifi-dev-uart4-mcu-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-uart4-mcu.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-dev-nau8822-btl.dtso b/arch/arm64/boot/dts/freescale/imx-tdx-nau8822-btl.dtso
-similarity index 100%
-rename from arch/arm64/boot/dts/freescale/imx8mm-verdin-dev-nau8822-btl.dtso
-rename to arch/arm64/boot/dts/freescale/imx-tdx-nau8822-btl.dtso
+ imx91-9x9-qsb-can1-dtbs += imx91-9x9-qsb.dtb imx91-9x9-qsb-can1.dtbo
++imx91-lino-verdin-dev-nau8822-btl-dtbs += imx91-lino-verdin-dev.dtb imx-tdx-nau8822-btl.dtbo
+ imx91-phyboard-segin-peb-av-18-dtbs += imx91-phyboard-segin.dtb imx91-phyboard-segin-peb-av-18.dtbo
+ dtb-$(CONFIG_ARCH_MXC) += imx91-9x9-qsb-can1.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx91-phyboard-segin-peb-av-18.dtb
+@@ -907,10 +909,12 @@ imx93-14x14-evk-mqs-dtbs += imx93-14x14-evk.dtb imx9-mqs.dtbo
+ dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk-mqs.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-lino-verdin-dahlia.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx93-lino-verdin-dev-nau8822-btl.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-lino-verdin-dev.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
+ 
++imx93-lino-verdin-dev-nau8822-btl-dtbs += imx93-lino-verdin-dev.dtb imx-tdx-nau8822-btl.dtbo
+ imx93-phyboard-nash-jtag-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-jtag.dtbo
+ imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
+ imx93-phyboard-nash-pwm-fan-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-pwm-fan.dtbo
 
 -- 
 2.43.0
