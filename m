@@ -2,155 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 461A6606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 08:15:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17C66606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 08:28:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Bsc5ctOQ;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=h0htjNc1;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=FLxXXfEN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4IZwMfNO;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=gdlkqUZL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TUI+hmYTCu5bYV+y6qlEdBVQQJXoW4DLqjJoc6XO/JQ=; b=Bsc5ctOQePGRmMkx+8Gl3DhW5j
-	u+fFMvQygiZnGV2RkAWUsx0rRwyPosNqdE/0lvWV9qQ/KSckaJKX5itQAy45nuK35dsccjUgZmEgj
-	o7eEhsRHjzFeywkSDxyIDcy5NTBvACvD3nj0yjvqvZ/Wl6HOBt+oXnuy7biGSmZYb6hTVykqH2VL9
-	kEgdU71m98ObbpybDuFAzpr9aY9lw1C+0Ja4cEynJDzGcN52OMVzLuEssQ//ualWCG0Cx1vtFyYWe
-	YjIAPVdgPtybqxlP7iYvnbnlau65m1+D0WCgVqJjzHeIwD1GKXVQheIrvKhqG85mB5NxCTyCiCv9K
-	rVIjSADQ==;
+	bh=iwLOjvHCtgaLp2E9XIBdvGe/pxFGO4huYHU7gKZLKOA=; b=4IZwMfNOCMZJUw9yBQyRURytJo
+	S16vMn5r6OzAB5H1tbCvruqEa6/tGLDE51dDF+Sddftyd9wqwCihgwyaGRX/onHytYEm1UK3R+FDC
+	2y+BbYTqzC/Dm6FKK3B3rAKlN4TOaXkdm6TXV1PgT/jv6n6pZLlFJcwEB9ubheCaDcy9fq3UOtVQA
+	JpdYBdxZYQO2vhpiqQ3XCy8GHTYzTEe/Mibp6jYd8Uy3Y/Le47chYcO/n48qnPIUll+wxLJXj5MPa
+	3R6pb8sAQX9ZioRXsl/pnxxHtAkgdQZMcZAQ55W0Z1KHvwHShjClSwJIHIXLI5uMo4p6Uit8u05mk
+	G/KGL7YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJnx4-0000000Ddb0-2uno;
-	Thu, 22 Oct 2026 08:15:07 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xJo9u-0000000Dee8-3vP6;
+	Thu, 22 Oct 2026 08:28:22 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJnwy-0000000DdZQ-1YKF
+	id 1xJo9s-0000000Dech-43lJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 08:15:02 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69M7049w4110612
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 08:15:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	TUI+hmYTCu5bYV+y6qlEdBVQQJXoW4DLqjJoc6XO/JQ=; b=h0htjNc1Gi/TTbwB
-	2XaQK37cydh256mj0l2Rc0f+BGpNaxoxQoc3hEBAJiR7L3RhAtuyzKVwwDMbLSnV
-	VUuVpIM6jVR+bqd0f0HzxHl74JKQJye2ntDhuLTDGdvPa5P3o1scr8nYIFij6S1S
-	FuYvYcp+PvVTbmR4BuLvOquJqncLx2xoD7pv7k2CRu+tatmn2nP/UhSVv5D4fX14
-	bzLmCHY2bJ5MA4by3LwBTlXj5fvFUqFaZwiVek1eGkKeaDKlE3ofgWNBgzuIXH2C
-	gJ0GBSlNIJa4VNvuzs6L0EZH1OltbNx5X/PnBopbQ32Zd0hdIc9n6i5965OENs41
-	fSzl5w==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hf93ahdt8-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 08:14:59 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93cb1091fffso22036885a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 01:14:59 -0700 (PDT)
+	Thu, 22 Oct 2026 08:28:22 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4a1e34ecb02so10686885e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 01:28:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792656899; x=1793261699; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1792657699; x=1793262499; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=TUI+hmYTCu5bYV+y6qlEdBVQQJXoW4DLqjJoc6XO/JQ=;
-        b=FLxXXfENr5J7DWk/WQ40CsclgY/M1R5oq21sg7kkF1Xh7iwvvbkEkCOAxAGV0SIZV6
-         tjdlT1hQX04PmWxwSpWCYOpOJ5GV6onULirwu4HLrZr7e6/hCI8bfT8VKMlDV0NoIFGi
-         gaQ071YmiRTxdp3GkW5ozSY5FXPza5KyQeOgCkvS2D3va6F8bATFffzGGeZBCCvkxvpr
-         PhUXVFoAg4wY0Z9nVhDpTs6ePrUCt+TOLHGGyQbk0xTZBzgBb59+eEmKzYhLt7onTUKT
-         vi5hfYUd73T4m8s4PHFyB5m0ODbf+wKqP23IIqCHjYrIK4YcQxDDbkxPnsF6Qn7eTUIr
-         6bZg==
+        bh=iwLOjvHCtgaLp2E9XIBdvGe/pxFGO4huYHU7gKZLKOA=;
+        b=gdlkqUZLPZzQ5hWoAzgjTUAi59OyoJxO0W3rT9+4nZsp11+vWp0Sf2V2t+5wmZwiGO
+         MRI2PghBayF2S4ewRwlkqaFI/R9cZziaRJ4pfUvNpUfrSGav2TxFojFdk1YItNbh2Lm2
+         H7PTM7TWM5kS+dGw0/DQBcCyP/pMrMCnjo1UFfylr3hRKRPUhHKYDOGWyVcfdWdFGzDV
+         N8HNNOrgRxmJ7j+j++puBtcTegUxFTTlUj6Zb9EhOHIRtOm7JL7Iw1tOtG+ZMQD08qCE
+         IYYqOB1KtB7Tni0jqaA0LLsy6dGv+Vlxw0uuLPFtDugBEC8NMhNq8wFI5EaXYbk8Ba6S
+         uxBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792656899; x=1793261699;
+        d=1e100.net; s=20260707; t=1792657699; x=1793262499;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TUI+hmYTCu5bYV+y6qlEdBVQQJXoW4DLqjJoc6XO/JQ=;
-        b=iquggUd3Q47d4ZN1EAQvXwws/Q1Yn6prS5r2yU+glxdtD0qIChc4jtSd9RfnxykzAp
-         UIThaspFybelBuEYhJB7WY+SmyPL/KTmjkmFJHn3i5h6n6XjXJ1lZ/LLYnkdMduUP4Eo
-         pAW5ks7H1JU35R+WD9dY2Ss6CXjh2sgoMlCedwJ12I2wJVzyP+f5Wmk2vYbK4I8nXxv9
-         /fdzmhh+Fsm3DBXAKtqb73wFCo5d1nyQZH+tfXiEoopC6utlAyDxxcVPU267ZD9aFnsQ
-         R1RDJFZ+PFAnfRWPulAUXBUNRHg9Xicm/4P5AW3ikwGlBvhIm8KckltPYlJgPoEQXpg4
-         Gdsw==
-X-Forwarded-Encrypted: i=1; AKwUvBw7R/P2rO69l4YBlE5nowdp3qYrFwvnah9IxI/O0MW+HXXkH1XGJr8fEHUVlyapUsk8nMzAvSRftU+2q2dc0VGa@lists.infradead.org
-X-Gm-Message-State: AFq9FYIvyiEh2qCl4ajR5xI3SyBjZ9GPjXttwM2gC63KfQH8LpkxSPif
-	9OTlqCYT3G0mKecW5GpqMKjVfAQjpNVgLL7IkK7cOtZqUREaughYjlhVd0s/U+xOoOya13R18Eb
-	gA7JCz1P545QAM6jsTy17DveSmQM+mOEhw+69MlkeDDOhBcBHAuvXq3URVXj47/gkJBk5uhAdOq
-	ONQoqt8FOBAg==
-X-Gm-Gg: AYBFou34CDPper0ms3HOdx/zlPJb0JZJWA8YdVTkjUU38wzCYWPNuFIE3S5E30wLokq
-	w6PJK8j3psOTKXwAj8HnuHSBMCWBQgRRE99Bo5ZRS3FMLvk/bVICOGSX40E1q3MZForkgORux8B
-	YB6a0jz5COPvFCH+uzuU5y2Ck+rnOJIshuWLV4EtlEV+Ci3gZ1m/xvNIwTNVDXXJi4oki1ulqSJ
-	8YAr2q740ReUARLI+Vch57/LpFmMeX7K1VYQ4Nc/V5Pxecxt9Vo2qaLRmZJqP70JyvCuKZxhZ/q
-	G9JU3TZoxChy5GmFTf6YTTcOU1lBsayexux2EvBZb4fVxC0iA+0DPm3f4obUQo0nkZsBsFHfy3M
-	3ew30ndnWnpmcLRogKh68lg==
-X-Received: by 2002:a05:620a:414b:b0:93c:61e0:81ff with SMTP id af79cd13be357-93f57ed211cmr970996785a.1.1792656898913;
-        Thu, 22 Oct 2026 01:14:58 -0700 (PDT)
-X-Received: by 2002:a05:620a:414b:b0:93c:61e0:81ff with SMTP id af79cd13be357-93f57ed211cmr970994985a.1.1792656898555;
-        Thu, 22 Oct 2026 01:14:58 -0700 (PDT)
-Received: from [192.168.226.26] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c468a55c1c3sm80367966b.32.2026.10.22.01.14.55
+        bh=iwLOjvHCtgaLp2E9XIBdvGe/pxFGO4huYHU7gKZLKOA=;
+        b=DAhGRD6+Z+KkhV0TWATt+4GoKPvNEsoy/E9GdRAjfMmkTXIlbB9weFYwJZtiJwekor
+         GJsXAq7TxovO/mJc6hGyA25H9gKDS+VFafVSHnmdXEDtP07RCZiSrzxeopo+WtZX0pLO
+         KvusDmtXIC87C754X5wp2W5s6RdgO5kR+MW9BthM/ZPZ39ak4RIxcGtNaIRz7BO9XDr6
+         rULpAWubuyP2NN8gC3TjglgHwd17ZG2/sEC11zcgLDEssZAwkI+C+O4DmLJpeIZ8ZRYJ
+         MlUVcubH6EXUVDt9COoXIVenWH9i4C6bK05PISSpvUEGLTAc4YWv5coYCdvF5fi0Gz2X
+         ldJA==
+X-Forwarded-Encrypted: i=1; AKwUvBzjd91U1nVEJC6UOrThDzazi+IWNbsSxq4vANyzKABez5Nk9SHcRlnkXXRZmUQ5nOHSt9ONUCpTDB0MUjZCsKbp@lists.infradead.org
+X-Gm-Message-State: AFq9FYIt48Q0CoEu4dwMfCGIvXRv+knn/pg/2ssZJLudIvOfv2ZR7vFM
+	i4BaePpwoCTIkNgrP7+475M/uXO9kz0O4ZNWyqTEZD//0/owxiAXw5lUoVN3Xmz06NA=
+X-Gm-Gg: AYBFou3U1MkoKe9ZRFhM03iGm9MgOYlG2QkmBUdje7ZQ4quc4NdkZISc8ShIQ8G6E/e
+	8V9xpyD/Nt4et2vRjn6rx1guweYKcVXrRfq7FlwpJ17W+PagWKhVOJWW+et7s1jwG90q92CqlLn
+	jAU62R0oo/fDoViMjOnbJAizt7N01IQOw1j141OvONc5Kb/4lm5+R/6CWcaxRaiCFVE/wW8q2ee
+	ZBROcYe16WsEdaWX+43VDcD6rZvcKHxH1ePECW99ffGE0tYm89riyNEcWhyvSXxakbpHyOBXAH7
+	oMrYHKbhaMH34NTnyMwGmUQ4HPOe8pqi5jKBHXqWvRj539JQKm86Tz+bhnLue76rosSQVmUd4q3
+	HdiOdcYEsiUSFbxY5XgbxCsc4XGdfqG+yKEVibf87fmXPFan3/Q/Ijr+k9LxAMfPzwK+qUvt/SM
+	gdCBMbONudcJUw0db8zL/+I4PrFBqSjZ9e+1ZXa3Wf8oHkYvZJ/li1T78lWZuLzgh3E+YUK2xe2
+	svHDJxsjKU4/aAk3YonI0PO7NoLPCXCO6nx9Y0N7mP4K8lD3SAdzgTu5oib
+X-Received: by 2002:a05:600c:8b6c:b0:4a0:1b14:e283 with SMTP id 5b1f17b1804b1-4a1fd8a7de3mr103361785e9.1.1792657698735;
+        Thu, 22 Oct 2026 01:28:18 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a203963f3fsm62310355e9.2.2026.10.22.01.28.17
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Oct 2026 01:14:57 -0700 (PDT)
-Message-ID: <9da45e28-ca6a-47e4-8a04-f1b916552f80@oss.qualcomm.com>
-Date: Thu, 22 Oct 2026 10:14:54 +0200
+        Thu, 22 Oct 2026 01:28:18 -0700 (PDT)
+Message-ID: <96e51831-ef50-4d0f-aa5c-74d5e3c8ae9e@linaro.org>
+Date: Thu, 22 Oct 2026 09:28:16 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/7] arm64: dts: qcom: shikra: Add display overlays for
- EVK boards
-To: vishnu.saini@oss.qualcomm.com, Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, venkata.valluru@oss.qualcomm.com,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Mohit Dsor <mohit.dsor@oss.qualcomm.com>,
-        Anand Tiwari <anand.tiwari@oss.qualcomm.com>,
-        Shashank Maurya <shashank.maurya@oss.qualcomm.com>
-References: <20261021-shikra_display_overlays-v1-0-adaea735999f@oss.qualcomm.com>
+Subject: Re: [PATCH v3 0/4] perf: cs-etm: HW_ID improvements
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>
+References: <20261002-james-cs-hw_id-output-failure-v3-0-1d8b6ef339c8@linaro.org>
+ <2bc4b058-3a5b-4a9c-a469-eb8c93215594@linaro.org> <atjDCpTIrchbCLt7@x2>
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20261021-shikra_display_overlays-v1-0-adaea735999f@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <atjDCpTIrchbCLt7@x2>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIyMDAzMiBTYWx0ZWRfX+yDrfNh2ySW1
- ewHrf4t2cQF9RJKYOdk5FCZVpuMsOmSkuzhnv3M6CgCzxa5HRRXj7jJFhixR5kIBwMHHayFbQY2
- 3ESSPEm8xniDnjHaHOsMZ5Re8NpeANj0dIvBy74ndKNVpuu6UXlEoEKLVZbYWTKcyvxrbP0QK+j
- q9AoEQQWmCOtUkUARUEttMpk2VGL/DUJIyR7tmxNqa5BPa5Dayv7+aaU9qhFFe936QTqhfiSRmP
- I4bjNs74RxXiANrSPATab24Io6QlHBmHf535zVK7oY9oC3YSpS1CR1xqc39+lWDGEgIxZXJgmHH
- dOi1X9ufhVZon2Z+BPoQmSzA4vjT3jW7ski4lNqFejLudJSeFRQNXAkpcyfxRCyW9CngdgfCfrR
- 3mhkVJlgthNdJ12kRJiJGAwgovF+1Xo6v5yHnL0RsUApO3XIiNnMeH5MGxAoNh4m/JWt2Fxn2qO
- SAWc+7DfKEyQkXEOmTQ==
-X-Authority-Analysis: v=2.4 cv=H7FOUOYi c=1 sm=1 tr=0 ts=6ad9c603 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=XF8Mg0B5h9f6Zh5FesEA:9 a=QEXdDO2ut3YA:10 a=zgiPjhLxNE0A:10
- a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-ORIG-GUID: is0C2FMlTzzDwGQze8VELy37qCGuy18T
-X-Proofpoint-GUID: is0C2FMlTzzDwGQze8VELy37qCGuy18T
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIyMDAzMiBTYWx0ZWRfX5LEfjRAClNnu
- Nk9pF7nTTcRLM9bAMm8Yk3YaSTHZWy9PYj44W1dOkVm3EF5lsqLEOVHQjIJ2y9KccFl5YZVRWMc
- NRbJG2NJMpzJmlYDxyxlXwBKjw4qN3k=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-22_03,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 lowpriorityscore=0 bulkscore=0 malwarescore=0
- phishscore=0 adultscore=0 spamscore=0 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610220032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_011501_165118_B96B366C 
-X-CRM114-Status: GOOD (  12.12  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261022_012821_084346_1C85B964 
+X-CRM114-Status: GOOD (  11.53  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,19 +121,23 @@ X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/21/26 4:21 PM, vishnu.saini@oss.qualcomm.com wrote:
-> Shikra EVK SoC cards (CQS, CQM, and IQS) are mounted on the Lyra carrier
-> card. The DSI0 interface from SoC card is routed to either the 22-pin DSI
-> connector on carrier card named as JDISP1 DSI0 or to the B2B connector
-> named as PDISP1 DSI0, though a MUX which can be selected by a hardware
-> DIP switch. There are multiple daughter cards designed that can be
-> connected to this PDISP1 DSI0 B2B connector.
+
+
+On 21/10/2026 14:50, Arnaldo Carvalho de Melo wrote:
+> On Wed, Oct 21, 2026 at 09:42:24AM +0100, James Clark wrote:
+>> On 02/10/2026 12:15, James Clark wrote:
+>>> James Clark (3):
+>>>         perf: cs-etm: Don't add global v0 HW_IDs to unformatted queues
+>>>         perf cs-etm: Free partially created queues
+>>>         perf: cs-etm: Respect --no-itrace option
+>   
+>> Hi Arnaldo,
+>   
+>> Is it ok to take this one please, Leo has left his review tags.
 > 
-> The below B2B display interfaces are enabled by default in base DTB:
-> - IQS: DSI-to-HDMI using the LT9611UXD daughter card
-> - CQS/CMS: DLC0697 DSI panel using a DLC daughter card
+> Thanks, applied to perf-tools-next, for v7.4.
+> 
+> - Arnaldo
 
-But if they're daughter cards, they should probably be overlays too?
-
-Konrad
+Thanks!
 
