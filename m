@@ -2,117 +2,137 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11602606A321
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 14:47:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2AC960A6F41
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 15:10:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LXehCjzz;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=rW6OAwvX;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Dwv67Dio
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=h/33LCLl;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=aw11csvE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+ulViqmN/gERqSfWWEq4zOnz42D6WlhHjq94c4ttf9o=; b=LXehCjzzCYuLqb
-	dDDyy8hy1YHOIES5do6WRgdyiaTAW+oMbtEcaOQE2edO2CPMlPcMHdv/Lo+kZGSWNcAo9dIF1QHpl
-	CpaWfmfSseMqKYZg9x2+Nmh26Y2b6LFP0KU/CLTexp17OKxEd2/3f1aJoPtxrX9W9MGMZ0LJAlm/H
-	QVjBcJZwnWEOC2pVi4f84TERFCQEJQwMLHwiZ/mcOxDC4txPoSxkF32wVWfxeAygerj/DPLpGRUo8
-	LOY1zuPzzw6ayMEG2owofUMbutw0v4baCZ0DXnfKPtuo3NCgksI+pI9y1I//5+o63sD2cV0VfjE5J
-	UvRTVDzR2fGGu0hSw8PQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=jI2AC+CdF9MgCL1fJFQjIkDxJsvnyd/hxIIiFs3seag=; b=h/33LCLlX6OSbKh6NilHeiTvN4
+	aPNm95jCuLr4VXm/ruA2gIjKtYrO5TW+3pdS/c47lgNeSFCZjQA/HdGDFLaAQJQiJNZz+1ezoIS5V
+	q6Fq6drGNfR1yLFAcomvkFkM/BXIsr9UaEwhVqdLilgpnyRH2lpOGU1iMGPtW+R1D9kuk/RBAXnq8
+	m0MV0nUiDnWMo/CDaBQfkZJ3Eda4w5MHFtyquAuDncXB7QwvU1IjW9yfJkNiF5BJHO58CNMTiQxHb
+	d/3/T50ikoHOgrG3XKJ8JeayPKalZ//fW75FYqpS1IR2aiq+5fFPpG8xWZM+FSTPRCyn/w0sRcWBF
+	1DSBnD3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJu4w-0000000ELLg-10ws;
-	Thu, 22 Oct 2026 14:47:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xJuR2-0000000ENpG-3Tml;
+	Thu, 22 Oct 2026 15:10:28 +0000
+Received: from mail-westeuropeazon11010020.outbound.protection.outlook.com ([52.101.69.20] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJu4p-0000000ELIl-31bR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 Oct 2026 14:47:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=+ulViqmN/gERqSfWWEq4zOnz42D6WlhHjq94c4ttf9o=; b=rW6OAwvXpIUVRMKDltB+5iADfw
-	jNM5lVLy9zjTmrPbRFkPAHhN0galc6vxvwg0MfZOCF+yjFnf3U0POfskv11EjbiBoh8NslkUBpi1Y
-	PE6HXXJizhD/gvEN+w7wJ4LzKLolfqYd0i2GInPLB+JRyg4gilBPaX/b7DD7ZIGbxDmt0iGtzS5LL
-	rx+RJxCKPdgrJk8ay8cgXAwHb7w+MtYjW8Tf9YfRvISG4m9w6YU/4nbYEBYFT0H8VNxrSeLmF0Vdp
-	FasbR+F/cPgXPglYf8D5Qz/9stehpdpc25LQYsuwhhpGXX/sSHtZBENTfOW1p1bSTb+NjhSxEpWlh
-	rj0+U1kw==;
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJu4G-00000007Kq9-1q9Y
+	id 1xJuR0-0000000ENnz-0eL8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 14:47:29 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48e0d1da913so897046f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 07:46:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792680413; x=1793285213; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+ulViqmN/gERqSfWWEq4zOnz42D6WlhHjq94c4ttf9o=;
-        b=Dwv67DiolL/xvkN3dYtf71FAC8F7Fzr4rTVaX/wY5zmIxheFMQE4Qf4FQvooePfyjl
-         wElNIRYmaRLt1Kgiw7PCCG8Md7xL0ASdsVqPO4kGAaFkd0wRv/Gy1m/QOTuuAuAC7WpG
-         laTEqr8DArpIEamVSaSQcPp2kHe3X/M4EU7jTX9amWSyzMyIzka0WFNZAR2Wyu5s8f1G
-         JegmhBFGi4dz/aMJcnBccC7AHCX76vVL4JFdBsOv5hmEO0t7JHtsEFW1xcPFxU+j9UFI
-         6o7VGFuWi7HJQxDqlZndxuDFtUICnNT1BjHKvJzHk6Il25VsNolPWEvZt3syWFnmh3HL
-         0aUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792680413; x=1793285213;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+ulViqmN/gERqSfWWEq4zOnz42D6WlhHjq94c4ttf9o=;
-        b=vGdqppqjR3HJsSJ07UfPUhcmnblT9zO1rs7LELr/bBFMjt/iualxLk5OGOQPZ2/PoJ
-         oeot6SrnsEli6lWNRdF2YUq4WNdz5W14Rl6WKafXCWb5xDH9lsHcvZtUaql30Jutafr4
-         ValebuiGxN5fE8em0sV+dBWycWSChXUgKLAyPtNiwOTfubQuBaZ8/bkYgxkGcK5lSc9x
-         PqbHcdncYuRKrGgqsiDu8PB9UXU5tGOYfdVm6U6gv+7krqJ61rR/oVuYuVbtZlc6heNO
-         fL8UubNyfkycuYXtr+w0jHnGxGfj7wmJ4vBJJI0Smzahocs3ioR20Y6NiZj+gUm8c4fN
-         9+bg==
-X-Forwarded-Encrypted: i=1; AKwUvBzxD9DJRtLKr+wnZyY7l+OrXCkYuV+cLD7HpiuOuoAYeqjVPm1Y1JrpADWhsWn9qx67ily70lVNAuLTJz6zITzm@lists.infradead.org
-X-Gm-Message-State: AFq9FYIE8xUqP7gAD1PAEKEGX7ZOmOU8xQcAxwDdJEj0ISlCVv4Xlnu8
-	dwlQD//6RiDCyliFmxVWXnu2YCcbCA8Qa6QVTY8jzCBzL7WuoZmW71FzOjQ4kMfP
-X-Gm-Gg: AYBFou2MBKXKBs8CR/Y/pqs5+yLIID6bvD2Syz3RViuWGWT3sy6XqRJIwiztYdq18tx
-	zeislosVY2/5ZSNns8/B04V74LBZZh7Se0urDzIzC65aqoGQiszlA4fGA1MSPpuBrvH+TaY8HNV
-	89cVQzYjW9uZTBTE0bCKy5RSd684udfGrgzvZwe4+Iz9XcItcaNTG6oX5O8Ib34vMSWidGR8gnM
-	sWh7bySIeFafJbO9kPuRsOGb7usrv2yXAVLSmayaiqGQl3va1fwHIEEl+f2LmrHH3rxTqLnSOyK
-	yxDqIt7gIJhkVmU83Z0+hLiJxWDiK5gH4Lg0k8alGN3fg016WUyF32mwnOoHyhDIhHWNCVj5UAE
-	w+Yd4z0BofZwGMVB0bjeh7lIIK5c2j+o5MqnbOBWJAyriFFm7xD2TZpZICtcxKwHFudTSSJqLHi
-	fiosbPGQpmyqWrYmCw5HqxTWcNP/iX+4E7MNXsnUngxPXK4ZUdYGY2Gt0xfDpTtLjcra9rkk1up
-	/1QsOr1tWOx8RI9V4dJI/keQAgiHo30rQIrRhYwwiIGYI1s15b5pT2JVynuOY/Z0uDME4wlwt3L
-	8tg6FqNIJlXG3p+hqroQkCOuX2nC5/XhwMIV0T0OXTK9qm4g994+L7M=
-X-Received: by 2002:a05:6000:298e:10b0:48e:eb:56c5 with SMTP id ffacd0b85a97d-48e2d102e96mr4094255f8f.8.1792680413276;
-        Thu, 22 Oct 2026 07:46:53 -0700 (PDT)
-Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e25828c6dsm13672146f8f.24.2026.10.22.07.46.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 07:46:52 -0700 (PDT)
-From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Date: Thu, 22 Oct 2026 16:46:46 +0200
-Subject: [PATCH v2 3/3] arm64: dts: freescale: imx8mp-toradex-smarc: Add
- OV5640 overlays
+	Thu, 22 Oct 2026 15:10:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xtOULvzNR0YfEcPG0YmnOIyk4sekIC7IHQWa+tunhrk6CvJP6Bn9ayuO2ZXuwvfa50oZKgHEdfXBcHcJFI6o240AGDQIGyAUWPDOPoKRgkM/NawgeL3fPz11Gf2AOecgKwpys1gP1uEg7eKWipLBzP1Nm/naIp8rTq8iM4qWuRavqs/9OruA9ODDEtng/gBwe4fvRmsxz1TiAO/cmGUnmzfcWVZMOT6fMhOa9DJw/PgSoz9JzfLruQgNsLIHATkQFS6gx15X1NOYghIymWHCXYx080VRuf7vN3no8LRavUAZgibzRjjnHzYAU8rrTjD+b6CYN0rWr7HRxIQZwmz9cQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jI2AC+CdF9MgCL1fJFQjIkDxJsvnyd/hxIIiFs3seag=;
+ b=IutWhB+0HjSqq1aWBihWg1epdwe89K9hf+D994WXud32KZOwXLzXz1eDnuy0UCtASoaZRNKFa0y2UoMQ9E8OTtBtV445tWc7hr5kFgaVL/m968ViU2ew/+kiAaF9BDgI2roRSqbG6ED3JCfUss1AbgtU0AQs6SrRkXJVHy4agGoDYu6XI56PV4OsmOtHGBz4U1QMC5QHgpP925gOw8PzA0Aa5Sc65qXMVVmVN1OwOA//gohDYfsbvaJM6K9IWc/bcTpEvuJaEFlpW8HTr+Li7JWwzhFt0ZvVCfTGDPFgEKNhJ7spLMYSqQ/LYvbDWAtaEMNbhVsxeq2aGPHm05AHJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jI2AC+CdF9MgCL1fJFQjIkDxJsvnyd/hxIIiFs3seag=;
+ b=aw11csvE54GpQupkC4Z9Pk3aJCnnENMabwpJ/qbPUm6SpAEauZJGC7MKcQNKxasb55shA5Ou3QMgGon+8tPR7F6iGsOX7H+Uk5o+QeJbMX54P5WoJYWHGZvjPszJGG3DGA65+jhttMo+sjRkV6XQbtNjRHUtHN37nmgXBfMfvoY+1FvO7YpuNI3WQHArcXZ4vXuM1wtXGNvvB6Uj4FuUz3uN38FaTqhaC94pzADmqJrQmj5B4XKzZxZ3f6Kv1RQarOFWIPa0Voqmm8CXd3FGNEdezUtg0dXK0aV2T2Cv3MTkRExlQxrAzEsTcMvzzMR9pujdTdOdbgKB01eXTuU5YQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by DB9PR04MB8185.eurprd04.prod.outlook.com (2603:10a6:10:240::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Thu, 22 Oct
+ 2026 15:10:20 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.012; Thu, 22 Oct 2026
+ 15:10:19 +0000
+Date: Thu, 22 Oct 2026 10:10:10 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH v2 1/5] arm64: dts: freescale: imx8mm-verdin: Share the
+ UART_4 MCU overlay
+Message-ID: <atonUhtKvsH3CjKD@SMW015318>
+References: <20261022-v1-imx95-overlays-v2-0-c769d6eb54fd@toradex.com>
+ <20261022-v1-imx95-overlays-v2-1-c769d6eb54fd@toradex.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261022-v1-imx95-overlays-v2-1-c769d6eb54fd@toradex.com>
+X-ClientProxiedBy: DS7P220CA0018.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:8:223::16) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261022-v1-smarc-imx8mp-cameras-v2-3-cfe3d25e7aed@toradex.com>
-References: <20261022-v1-smarc-imx8mp-cameras-v2-0-cfe3d25e7aed@toradex.com>
-In-Reply-To: <20261022-v1-smarc-imx8mp-cameras-v2-0-cfe3d25e7aed@toradex.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-X-Mailer: b4 0.13.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DB9PR04MB8185:EE_
+X-MS-Office365-Filtering-Correlation-Id: 706fd67d-540e-47e4-e1e0-08df304e9606
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|23010399003|7416014|376014|10067099003|22082099003|18002099003|11063799006|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: oBWGdJI7P+y2/5k3i+CzIew3L/07oSv09NZ7vE355so7THxbro761xQ86DQuzDLBkDk7jMl99sS2eZzY7JcRBGEygkYbmTHBusTd+jwmSHMBVI+khonIMjDVZvZz5v73oEITXKvfm/o9QWoowU3/LH6eRwAVfIR8U85lviCM3G1dl0XhHzDXW6MqYCqbW+XsJxTQyGLu8sx9wS4sJMR1hDj7dqz/waAlRe5affuJ8AZgI7KvD/eOL3CncJVboKFTe8UnTx5vnnmoRLKZLlx+O+d8XMjFGAsMXvsuQK6pAKEpy1Fx9cjbbEZhHsJBeOfwopXm+qfn9tOTcBQ/qT2Tdfs8WKBjQMKjKuT0h5NyD0QCnzo5BjykOWmzRsOjNOxIZ4HBPhzWwFbOuFHGVZCMLIf1zlRVIXMuZ+0U++t0Fq6DLbuPs7FdqtVymp156Z9R/s1JvTYJv8B3wLEuBzBp5TAY9LDoKsHrAumH8DjH9DpaZDPscjpAsiWFy5aSULOJ1EWY05BdZKN9deIyAUVYL/dG8ajkrlUkd1E7M0pkyLNPwrskif8vrtm1VSW2OILf8jIS1SzZbn3GnS304oWghl6up21Czza0SOImXk1RsS0IzJkCR+sY1ELRFXkIw774u83yszJQgOonsQDoqds4rQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(23010399003)(7416014)(376014)(10067099003)(22082099003)(18002099003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Yav7R676PljzdCj4k4mjBfgbyMRBWsBoqM0hrVxH7uPgQgUJnj9PETrShZPh?=
+ =?us-ascii?Q?TUS2mdWA4dh4JIBwc8V+v9HPwWvd+/DktFOD9gOs4O+Do8ZkbwqbOGZFgERJ?=
+ =?us-ascii?Q?gHqS4wg4ixCbI5Vn+eJD7Qi2+4XaTGNbGmhBmSV9lwOwYXwoZqUSktcVfVki?=
+ =?us-ascii?Q?UCvD4kkLxKhUaal0NWcjKkTIZrVe1VZng2T4ssxG7Lb66O6MecuQsn0pjzfN?=
+ =?us-ascii?Q?VloyZPGqnpAoQpRyhFlO0ASGgOjlPIcMeNyxk8QzEdCCZDAFcRZvc0nZHMKu?=
+ =?us-ascii?Q?rqTqvHNBRmffxOEXgnogu7RW5EikWw2l3kQQYmtRR7qRpUdR7Qta06yKQYPv?=
+ =?us-ascii?Q?wgRn2U/JLN0mw26qO7ITTu54ANSSXCy2bYUTf3YchXmaPXHzDsQ6UsTptUs1?=
+ =?us-ascii?Q?Skh18gSGnEr77QlfK99R/tSa5a3Lt7gvl1mT4LLXRrJ1ZFSr/gde7t0uOo9K?=
+ =?us-ascii?Q?n5PLAjcvqvK5IRJpFj3T4cFZun8uXdqRsX2QU7pj3z16bgoiwWXsfiyiglRq?=
+ =?us-ascii?Q?92K8+1Y2l4huHA51EHOx1c0My9jali0Sg/3/tqZ+1NvO5WJ5EJQvLHq2EsV1?=
+ =?us-ascii?Q?wL//+crxv+otgZaCZ6Axe+sgXIuURhJMZN1znqZ1YMUfv2jNfbmAsDLX1j8L?=
+ =?us-ascii?Q?r6wI6e0K+X0sGPUSZfP4TZglY26/c5/H788G4XRCscQXE9gxngCgB/+gGFTV?=
+ =?us-ascii?Q?pW4sI1NLfnrkwdG179wA1d2Cb0Vi5Ms/UUytrEJyklFjLpzfizkGCJuB6Gh0?=
+ =?us-ascii?Q?qHcDzSjpB8+UuKBoMBSTdpebq5aaqvedy7O8F9KvClGmhT1cBUKQZodU493n?=
+ =?us-ascii?Q?RhJqOQR+B4u7R4hK1/D2FeGbK5t9cO8HPjl8Jh0FdFaGJ43+n2jO5luDNwY+?=
+ =?us-ascii?Q?WmurIDMJQ6KuOIUYyKoavvqDJZYWm5TZQRT0RdB0uO7+p7b3nWyoimA0JgLV?=
+ =?us-ascii?Q?ZwNcOOGV7WmTT6K+TmTNMT2sVghL6DwmgXewtnmhAtc66n2gWNAp5wmn4BMV?=
+ =?us-ascii?Q?dYIPnYog5orZofA+f5SuyqmtHheYVL5bZiAjcKQq0bpxM0G4RVHnLAJ9SFqh?=
+ =?us-ascii?Q?tkm1DyEAKz0qYlM0R13VoTPo5z8MB3Dq0lj2SAs17sJL53v7LHwTzbydFyQr?=
+ =?us-ascii?Q?woR0nGTm2DS4PTOKS/3zgaur2vlCe7RyyJwFS4d6wQq2i6D7Nlh2kHrnyaca?=
+ =?us-ascii?Q?xA0btbTIC+TJsVPTO2+UkxtjhEsw5PGVrYvzM1Zvk602IoMRoxRl5vg33//C?=
+ =?us-ascii?Q?Ws6IhR9HlnLRrx2VCi6xWcXa3el6KoC/ECGl1yUh+Y8HqjwprPpi283xMREH?=
+ =?us-ascii?Q?LXEfIKSH/MOypAImnRVeUXf/Qt4ssSkrp8RnHWA2pHRdNaiIp4BaIsHV5gFt?=
+ =?us-ascii?Q?6N0MNszvXBRVfP/eFzkovAfKm8CQFy3YPk5iKQBK+Bdnwhqz3lvHGLaYFtvd?=
+ =?us-ascii?Q?sxYwcgtcKUPmv4nRXa+Fz96rCIFIhcCCRYCAzukINWPCIBtaSd/8NDIHT1DO?=
+ =?us-ascii?Q?YWZFG+8026YtcPGZVw+NKk6nJePyppvS/rH7fY+4INEBqcxR1s0rkCMmTRka?=
+ =?us-ascii?Q?SplwpIDChewzuxONFhaXHvecySddt57blHd3L/1GM/LB0nrAwe42Uv4dMrvC?=
+ =?us-ascii?Q?QbPnilf1xpV99Yg4UGQpiFPLKIhVtQ2AO/rwWcOwY+Tw1ayscYqylw6RBgPe?=
+ =?us-ascii?Q?ITWcf4bduPYpFnn3jzrQD0p8PjAq9tC0QGmwEj3LlX928XxnIZETNpUOM7tM?=
+ =?us-ascii?Q?vww8ilHLmhs7N5Q2pITSsZlxouvnHEDuUCuFMfj44PGn0MrcTmSy?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 706fd67d-540e-47e4-e1e0-08df304e9606
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2026 15:10:19.4356
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eSeptOFAQlZbH2O25ybxT0Z4RwMVXXlcYVd6ugRorRygg4OPhDSdyUtEftovq6SXeKrRap0kEml9vAoLrNUv0Y3Foh/OwpbdtFCNzSRj4dZNHxEczbjKxzTWhOPazZfq
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8185
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_154703_253242_5D5E475F 
-X-CRM114-Status: GOOD (  15.11  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20261022_081026_222818_C738D48C 
+X-CRM114-Status: GOOD (  11.82  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,276 +143,29 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+On Thu, Oct 22, 2026 at 04:09:33PM +0200, Ernest Van Hoecke wrote:
+> From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+>
+> Verdin UART_4 is the UART the module assigns to the Cortex-M4F core.
+> Other Toradex modules also assign one UART to their Cortex-M core, such
+> as Verdin and Aquila UART_4 and SMARC SER0 on i.MX95, but on a different
+> UART instance, so an overlay naming the instance cannot be shared.
+>
+> Label the UART uart_mcu in the module device tree and turn the Verdin
+> iMX8M Mini overlay into imx-tdx-uart-mcu.dtso, which reserves the
+> labelled UART. The combined Verdin iMX8M Mini DTB keeps its name.
+>
+> Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> ---
 
-Add device tree overlays for the current 27 MHz and legacy 24 MHz
-Toradex OV5640 camera modules connected to CSI0 and CSI1 on the SMARC
-Development Board.
+Thank you to make shared dtso happen.
 
-CAM_n_CON_PWRCTRL (pin 24) is an active-high power-up input of the
-camera module, so it is described as an active-low powerdown GPIO.
-
-The overlays are also combined with the SMARC Development Board device
-tree to provide ready-to-use DTBs.
-
-Link: https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
-Link: https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
-Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
----
- arch/arm64/boot/dts/freescale/Makefile             | 17 +++++
- .../imx8mp-toradex-smarc-csi0-ov5640-24mhz.dtso    | 15 +++++
- .../imx8mp-toradex-smarc-csi0-ov5640.dtso          | 75 ++++++++++++++++++++++
- .../imx8mp-toradex-smarc-csi1-ov5640-24mhz.dtso    | 15 +++++
- .../imx8mp-toradex-smarc-csi1-ov5640.dtso          | 75 ++++++++++++++++++++++
- 5 files changed, 197 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index a80cccf34eb5..2defe77ee7df 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -709,11 +709,28 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-jutouch-jt101tm023.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-csi0-ov5640-24mhz.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-csi0-ov5640.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-csi1-ov5640-24mhz.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-csi1-ov5640.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev-csi0-ov5640-24mhz.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev-csi0-ov5640.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev-csi1-ov5640-24mhz.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev-csi1-ov5640.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2.dtb
- 
-+imx8mp-toradex-smarc-dev-csi0-ov5640-24mhz-dtbs := imx8mp-toradex-smarc-dev.dtb \
-+	imx8mp-toradex-smarc-csi0-ov5640-24mhz.dtbo
-+imx8mp-toradex-smarc-dev-csi0-ov5640-dtbs := imx8mp-toradex-smarc-dev.dtb \
-+	imx8mp-toradex-smarc-csi0-ov5640.dtbo
-+imx8mp-toradex-smarc-dev-csi1-ov5640-24mhz-dtbs := imx8mp-toradex-smarc-dev.dtb \
-+	imx8mp-toradex-smarc-csi1-ov5640-24mhz.dtbo
-+imx8mp-toradex-smarc-dev-csi1-ov5640-dtbs := imx8mp-toradex-smarc-dev.dtb \
-+	imx8mp-toradex-smarc-csi1-ov5640.dtbo
-+
- imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10-dtbs += imx8mp-tx8p-ml81-moduline-display-106.dtb \
- 	imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtbo
- imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17-dtbs += imx8mp-tx8p-ml81-moduline-display-106.dtb \
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-csi0-ov5640-24mhz.dtso b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-csi0-ov5640-24mhz.dtso
-new file mode 100644
-index 000000000000..7e6991b95dec
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-csi0-ov5640-24mhz.dtso
-@@ -0,0 +1,15 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex CSI Camera Module 5MP OV5640 with 24 MHz oscillator connected
-+ * via Toradex SMARC Development Board CSI0 connector J45.
-+ *
-+ * https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
-+ */
-+
-+#include "imx8mp-toradex-smarc-csi0-ov5640.dtso"
-+
-+&clk_csi0_ov5640_osc {
-+	clock-frequency = <24000000>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-csi0-ov5640.dtso b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-csi0-ov5640.dtso
-new file mode 100644
-index 000000000000..23b155beec2a
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-csi0-ov5640.dtso
-@@ -0,0 +1,75 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex CSI Camera Set 5MP OV5640 connected via Toradex SMARC
-+ * Development Board CSI0 connector J45.
-+ *
-+ * https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
-+ * https://www.toradex.com/accessories/csi-camera-ov5640
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&{/} {
-+	clk_csi0_ov5640_osc: ov5640-csi0-xclk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <27000000>;
-+	};
-+};
-+
-+&isi_0 {
-+	status = "okay";
-+};
-+
-+/* SMARC I2C_CAM0 */
-+&smarc_csi0_i2c {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	status = "okay";
-+
-+	camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&clk_csi0_ov5640_osc>;
-+		clock-names = "xclk";
-+		AVDD-supply = <&reg_carrier_3p3v>;
-+		DOVDD-supply = <&reg_carrier_3p3v>;
-+		DVDD-supply = <&reg_carrier_3p3v>;
-+		/* CAM_0_CON_PWRCTRL, pin 24 */
-+		powerdown-gpios = <&smarc_csi0 3 GPIO_ACTIVE_LOW>;
-+		/* CAM_0_CON_RST, pin 11 */
-+		reset-gpios = <&smarc_csi0 0 GPIO_ACTIVE_LOW>;
-+
-+		port {
-+			ov5640_csi0_to_smarc_csi_rx: endpoint {
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&smarc_csi0_rx_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&smarc_csi0_rx {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+
-+			smarc_csi0_rx_in: endpoint {
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&ov5640_csi0_to_smarc_csi_rx>;
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-csi1-ov5640-24mhz.dtso b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-csi1-ov5640-24mhz.dtso
-new file mode 100644
-index 000000000000..f6bfc3d49f5e
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-csi1-ov5640-24mhz.dtso
-@@ -0,0 +1,15 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex CSI Camera Module 5MP OV5640 with 24 MHz oscillator connected
-+ * via Toradex SMARC Development Board CSI1 connector J46.
-+ *
-+ * https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
-+ */
-+
-+#include "imx8mp-toradex-smarc-csi1-ov5640.dtso"
-+
-+&clk_csi1_ov5640_osc {
-+	clock-frequency = <24000000>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-csi1-ov5640.dtso b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-csi1-ov5640.dtso
-new file mode 100644
-index 000000000000..d78f46a764f8
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-csi1-ov5640.dtso
-@@ -0,0 +1,75 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex CSI Camera Set 5MP OV5640 connected via Toradex SMARC
-+ * Development Board CSI1 connector J46.
-+ *
-+ * https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
-+ * https://www.toradex.com/accessories/csi-camera-ov5640
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&{/} {
-+	clk_csi1_ov5640_osc: ov5640-csi1-xclk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <27000000>;
-+	};
-+};
-+
-+&isi_0 {
-+	status = "okay";
-+};
-+
-+/* SMARC I2C_CAM1 */
-+&smarc_csi1_i2c {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	status = "okay";
-+
-+	camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&clk_csi1_ov5640_osc>;
-+		clock-names = "xclk";
-+		AVDD-supply = <&reg_carrier_3p3v>;
-+		DOVDD-supply = <&reg_carrier_3p3v>;
-+		DVDD-supply = <&reg_carrier_3p3v>;
-+		/* CAM_1_CON_PWRCTRL, pin 24 */
-+		powerdown-gpios = <&smarc_csi1 3 GPIO_ACTIVE_LOW>;
-+		/* CAM_1_CON_RST, pin 11 */
-+		reset-gpios = <&smarc_csi1 0 GPIO_ACTIVE_LOW>;
-+
-+		port {
-+			ov5640_csi1_to_smarc_csi_rx: endpoint {
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&smarc_csi1_rx_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&smarc_csi1_rx {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+
-+			smarc_csi1_rx_in: endpoint {
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&ov5640_csi1_to_smarc_csi_rx>;
-+			};
-+		};
-+	};
-+};
-
--- 
-2.43.0
-
+Frank
 
