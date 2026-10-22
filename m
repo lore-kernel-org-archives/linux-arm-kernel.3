@@ -2,120 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4D07606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 07:02:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85FDF606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 07:04:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Wdv01hS5;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=RswmPdQg;
-	dkim=pass (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=tFVIKvpR;
-	dkim=neutral header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=KoNL7y/D
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zWccb+3/;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=GewONFtE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sCvs1/SP9Or5kUcquJYMmgtgDpHHNPbARp5a+KoBLQA=; b=Wdv01hS5enXL+jJyGlndrP64Sg
-	L3SvUpR4BMhMyZQ9oNdx4ahsHQIIsCvLk8AtzQ2XrnD3kmdRJHdhQCBPskB7scdKb0dcopBQH7dXT
-	JmtsWgXPjHx2wVOuGeUsA+NtHgGM0L6s/QNTr+Fv+uF9GA13y0tSHhKMHIK9yDeveJbO21ZL2rBrF
-	ge1eh/InuDYaVaPsFRWX9C/Attgy+eLO42VgAhg/fbqxuhtZgQxVXwg4JvPZjijGDS9a//+ZbNjAm
-	ViIEvz4LS3vhwKUmxA9EEZaQLlS9h3gdKU6Kml8Ekt7jSG8BLTo+NdswQYHqWwmDznRaYVw/xuKd2
-	2EdvGQhQ==;
+	bh=+ByBpVD7FPTufElpNoOF6mqXMOL+Kv6Ik0YaJGkEPtg=; b=zWccb+3/guF3plZ6UTaBbSIpsa
+	kSGMtjX4RKUWT/qh+drh/Wddg9AB3y7QEO244lM+GVTeabDb+MwTUSs99+MbJCHnvR2PFSLKUsoxV
+	R3HSBv1fqtrzIqFsFkcgcwdoNVyF0kPbCWjyz8D3D/cXrPnAgsMZKV6RoQScS8oABafhWQ5xzartG
+	kSHB5MN9PQ2b0yahP1nuch0PL/8eEC6nlkbmeel3yc/P1ACCuAL6YwWB2dYN85wwu4u9kWPV+gQlk
+	2P7y+ga9XNP7FpOEPu0I7ViiP2zAI/I+hWLN2NRbadkF/WPQ/CEaD19dRm8fhm6tswGX3zbUkUUWU
+	RHrc8nBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJmoJ-0000000DWnh-1ub5;
-	Thu, 22 Oct 2026 07:01:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xJmqa-0000000DX7N-3QOf;
+	Thu, 22 Oct 2026 07:04:20 +0000
+Received: from mail-pj2-x02.google.com ([2607:f8b0:4864:39::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJmoD-0000000DWm2-3ExJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 Oct 2026 07:01:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=sCvs1/SP9Or5kUcquJYMmgtgDpHHNPbARp5a+KoBLQA=; b=RswmPdQgP+H9De6fI7mM6b3kqH
-	xoeJbyTwcKQlFN27MdEo+de6a9T7dfxHCZq6vpZSKVjEMv4Q6+TxK6qKALfO6MVzvjRRUXQK54TtM
-	89iPmpZWdgU8aG72ozu3eTP/lbTTDXEmpxAobuYo6SGrAHH/5WZr5wp5fqmBjtJosbVS3vvMRAkP2
-	2Bpgn1IDjWnn0UT+q23O+NY38fWYi364JZUtA2iD0tMsdenRDX9ShnZgOmCLg+T2qUsL/aVuVHqLg
-	cI9TJ63xwSZ3kQRb6woq6/EPSflrDEY1JAVFIyS5Z7n66QwOGRhqxG/U0Z6Cy3naYsL69xJtM7poi
-	93dhoyag==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xJmo6-00000006XFL-0VA1
+	id 1xJmqY-0000000DX6a-1Tt1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 07:01:52 +0000
-From: Kurt Kanzenbach <kurt@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1792652502;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sCvs1/SP9Or5kUcquJYMmgtgDpHHNPbARp5a+KoBLQA=;
-	b=tFVIKvpRFJp3wOUXQX6Kwgc0ZrJ6vaf9TqGEBeqjAOVQAZ2i1GmhX4SUabMswbvsFre4Ld
-	MR0/mdKLFXZGl5Xn4wRTkbeDAzgg+RRlQy965PrTQn7ni/eBcWtwHYoC6CDxgj6PrPidpY
-	MZdwWd9/uHQA3Rgb9jMxpq+pODUriiUfQVVUiVtj+LK8CcESBTRxTM33nBBNgWx/7PSuQS
-	qyLhnlTXR7dtwBzBlCh2nzo3dQy8b+KfVeDOZ/6M/li/e3Mfpc+fa/6ULIyQI4Dpxof0Kq
-	0qaDOJ52BB8n1433jKEvkeS7WhAmO89zPZ+CQTz2URVY0l70aSbhlHKyr+xv9w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1792652502;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sCvs1/SP9Or5kUcquJYMmgtgDpHHNPbARp5a+KoBLQA=;
-	b=KoNL7y/Dmw5u0J6gOeG2fEpDl+lZoFl8ySlSm1oTMlfWTfOAZ/7RJiQsSRxp+LuPvc42oJ
-	SPEpRzuebnfEabBA==
-Date: Thu, 22 Oct 2026 09:01:34 +0200
-Subject: [PATCH net-next v4 1/2] net: stmmac: Disable NAPI before stopping
- Tx queues in stmmac_xdp_release()
+	Thu, 22 Oct 2026 07:04:19 +0000
+Received: by mail-pj2-x02.google.com with SMTP id d9443c01a7336-2e876f468e5so5077615ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 00:04:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792652657; x=1793257457; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+ByBpVD7FPTufElpNoOF6mqXMOL+Kv6Ik0YaJGkEPtg=;
+        b=GewONFtEPkfPZnIRMeU5EnecWvrmzWCSKgScWzyiY80kPdpys4iWqSE22mRL5ReEK1
+         KDu6xkgFmjcJgwG5MqgbWov7/fCcZeZmI/Pna/fiXi5tAz4UZ7jjjmUUSibt86Fo/Ol9
+         Ewgh0hK50hP3RMVcURUAYWzmzMP4l7G3TY0Vd4L/YXgrrETOA0dPOr5Wnqa6ZcPM9ioL
+         h2fPoPsEQlIAmdY87Gi5l5WN6PyOL+Ttfsonbsv/nqMFdqY0UXf6IGj7zoolXsFWvhnK
+         fT4MZy6kDvFr3JboDEfMLVpiBjYRJ4DBN2ykjfuafURDhXjGzU3N4pxAAQzd1b+M2jGb
+         WWoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792652657; x=1793257457;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+ByBpVD7FPTufElpNoOF6mqXMOL+Kv6Ik0YaJGkEPtg=;
+        b=ISUlFmkvw8pXsWRcwAWGkm+OAaa1/I9g6zBJGcwBRhdSee6osRvxjhuc48gjDsip/T
+         SkOTLZfbuKLn1LO1Tc7eUAS+YoHvXQqwwMpmmKzAUA1mhBYcZWMOGlNfJ1qu6B8lFOWK
+         wctON69aAYF4gCAWINmN8h1czmkhhJD6Szl4XM/4sYIuv+Hza49PVniS1V2rm8NF53en
+         AtNYtUr4p2SXXHKdM57Nmr49gQAYdfkvXBTWi2Le4Zh/+OmEVVr2s+3JwnVCqvAipj5N
+         ONAPdfEBN5OwTCWXFjArmqWNs9SmqXvkh6cSP5OCLlO7ApmHzc56bR0F31pZLAj5rcx2
+         2LDw==
+X-Forwarded-Encrypted: i=1; AKwUvBxUH6JXwNR5XNujMj1ygjzatlxAHgXpJah8eH8mdoh/IObJOxfCa/WMrlsJwpnf0h8WDf5tJPGxlIug0PYLpo+H@lists.infradead.org
+X-Gm-Message-State: AFq9FYK/bg8bp9zXrp91cN7lo+cGPNLtsb0eqNBAosRZsb1q5p5iAUz8
+	4pSeEa9j9j8UQbl5BO15IoIthYLMqGcGSFxgZVGJVhS8fbC/8Zx+LwYh46kPfrdGRLpR4w==
+X-Gm-Gg: AYBFou1ntXqJkfzp4XPUIdgnvIZEQgu2P7YKaJK8J4U/4lzLZbJZSE8LF9whyPEWp7v
+	OLCsr6CPmxMUzgscweP6x51kPMae/Hi45H0QkMBAmjLh1hUD5lsZRPb7/hAAAbpeCLme7X8Cd3n
+	KkOhK5VYZ0k7NAS/6wOAKn1o0Y5/+cvigRo3ZRnSWGhmk52fnZ0E3SMMfQnQoQRYMvFL/kva1sW
+	M+fV6M5SUBYmxTAn/9qoyHfnI4qtPWn4MP/0nfoTKwLTtROOMmwBYXySxMzuXSJVgIOGA3v2piR
+	QVqAKZRVJ1iyym1WBsDCjUtvKecJBGilYm+NoLeuj+hN4zJraxni0O579cS7U7CGxXj+8LX42r8
+	CWIo1Zjo9MGYEUAGy3oLMWDY2aaM3M5iHm8H9bb0GO21Y/H3jZAokpUXe7M1oodp+FWdoiv68k5
+	USip6E09Q+zWp8Vx99iMR2nj/3AIjK095q7d88KN0g4HE/KXVGl5XvxQG9qXgyVuoxN6EHvC28o
+	3Xe+e7pdJDPzPfsd+MNm7TfMtvvmWP1Rgl74OI1yYQN3zaP7BzZe5axHerdD7Q=
+X-Received: by 2002:a17:902:e947:b0:2e9:9bac:2e84 with SMTP id d9443c01a7336-2ea43d3a8e5mr34417885ad.66.1792652657298;
+        Thu, 22 Oct 2026 00:04:17 -0700 (PDT)
+Received: from [10.125.112.22] ([122.11.210.25])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea3b43478csm19901295ad.28.2026.10.22.00.04.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 22 Oct 2026 00:04:16 -0700 (PDT)
+Message-ID: <95f18ef2-8fda-447e-bc64-1732febea363@gmail.com>
+Date: Thu, 22 Oct 2026 15:04:02 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 0/8] kdump: reduce vmcore size and capture time
+To: Rob Herring <robh@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>
+Cc: baoquan.he@linux.dev, m.szyprowski@samsung.com, catalin.marinas@arm.com,
+ will@kernel.org, mark.rutland@arm.com, chenhuacai@kernel.org,
+ kernel@xen0n.name, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ saravanak@kernel.org, akpm@linux-foundation.org, pasha.tatashin@soleen.com,
+ pratyush@kernel.org, ruirui.yang@linux.dev, robin.murphy@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org, linux-mm@kvack.org,
+ iommu@lists.linux.dev
+References: <20261021083011.2170525-1-chenwandun1@gmail.com>
+ <20261021132308.GB3667411-robh@kernel.org>
+Content-Language: en-US
+From: Wandun <chenwandun1@gmail.com>
+In-Reply-To: <20261021132308.GB3667411-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261022-stmmac_xsk_crashes-v4-1-15c0c750bb96@linutronix.de>
-References: <20261022-stmmac_xsk_crashes-v4-0-15c0c750bb96@linutronix.de>
-In-Reply-To: <20261022-stmmac_xsk_crashes-v4-0-15c0c750bb96@linutronix.de>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Jesper Dangaard Brouer <hawk@kernel.org>, 
- John Fastabend <john.fastabend@gmail.com>, 
- Stanislav Fomichev <sdf@fomichev.me>, 
- Song Yoong Siang <yoong.siang.song@intel.com>, 
- Mohd Faizal Abdul Rahim <faizal.abdul.rahim@intel.com>, 
- Ong Boon Leong <boon.leong.ong@intel.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Maciej Fijalkowski <maciej.fijalkowski@intel.com>, 
- Nicolai Buchwitz <nb@tipi-net.de>, netdev@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org, 
- Kurt Kanzenbach <kurt@linutronix.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2497; i=kurt@linutronix.de;
- h=from:subject:message-id; bh=OCa+em1H5J5wWafzD28gkNIjAwMCgeaJcWpy7TC3QkE=;
- b=owEBbQKS/ZANAwAKAcGT0fKqRnOCAcsmYgBq2bTUeVH21Hx1P3muZy32DL2GnrrXQTEnZuAeP
- tE6dL3oiI6JAjMEAAEKAB0WIQS8ub+yyMN909/bWZLBk9HyqkZzggUCatm01AAKCRDBk9HyqkZz
- gl+uD/9ixxcXpdcbbYW2t/aWk7A+IHI8onqg8MPMTrA9oTTxrevRAhmOj8+4oXQfSSw+EIQBWLe
- foEtvIE1toLsFo0ZPOAW5UfG6lF/GFvEVuFsUoV4zjpL8insByxC+At62DANpTXKXYjikd2Rjqz
- fyzfv075quf56G86L6LoPWxhrHyt5rjXbrzPiFqsC7H8qCNNQ6djxqc7EIflqhItXytUOpTHNRe
- IRlE3AC21F5CmWXxmHO2lkgKkxJ6TfT64IYEjL7E7TpgjZ4ibUmgUwXOnhGM6eWMZiDbLbn+F5a
- 1xDFO3v+BN+/KiUkafhCNW8E56M8LX7EMNemwXidHHjYJEJBALCQXKjqj7s20x5b8HAwN2EP4ov
- euW+8ikPGlWQRzCZPc3G3ZTgLHVdkmpVTZcXz5CzfugTTY5H/vdiNf6ZuMEYrtiQWYdAfzqiBC0
- AIoBp6zmWgSDCu6AMKZnG704E+2vXNftEaAsQvtmgXvg5FL7Y1IRNlmIW8YEU/M4vIffOFMPlBY
- IuJ6qOTp1l9QLhrKHMgitsNyIpDkuLmMKEX5W3jCO7sWK4EzoVzBQrRkgwae/dLYFrzSaX8mY8k
- gRPX5RdwJq5EFqO/DtA+CqIsdf/g1nUMzAeHv7sgeVZ6MZLyWW5SyiiWgqaZOBK2lwD2mR/aK13
- Fn+9N7EklnmkQdA==
-X-Developer-Key: i=kurt@linutronix.de; a=openpgp;
- fpr=BCB9BFB2C8C37DD3DFDB5992C193D1F2AA467382
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_080150_333159_3932A7E9 
-X-CRM114-Status: GOOD (  13.50  )
-X-Spam-Score: -0.9 (/)
+X-CRM114-CacheID: sfid-20261022_000418_397798_8C004033 
+X-CRM114-Status: GOOD (  16.28  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,80 +112,89 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Attaching an XDP program while Tx traffic is running results in kernel
-crashes in stmmac_xmit() -> dwmac4_set_addr().
 
-Loading an XDP program tears down and reallocates all DMA resources via
-stmmac_xdp_release() and stmmac_xdp_open(). stmmac_xdp_release() stops
-the Tx queues before disabling NAPI:
 
- stmmac_xdp_release:
-   netif_tx_disable
-   stmmac_disable_all_queues
-   ...
-   free_dma_desc_resources
+On 10/21/26 21:23, Rob Herring wrote:
+> On Wed, Oct 21, 2026 at 04:30:03PM +0800, Wandun Chen wrote:
+>> From: Wandun Chen <chenwandun@lixiang.com>
+>>
+>> On SoCs that carve out large firmware-owned reserved memory (GPU,
+>> camera ISP, ...), kdump currently dumps those carveouts as part of
+>> system RAM even though their contents are firmware state that is not
+>> useful for kernel crash analysis.
+>>
+>> ACPI systems already filter reserved memory out of the vmcore through
+>> their existing path: firmware reports those carveouts as unusable in
+>> the EFI memory map, they get MEMBLOCK_NOMAP set in memblock.memory
+>> (is_usable_memory(), efi-init.c), and the ELF header builder has
+>> always skipped nomap regions; only DT-based systems currently fail
+>> to filter these regions, which is what this series addresses.
+>>
+>> This series introduces a MEMBLOCK_NODUMP flag (suggested by Rob) in
+>> memblock to filter reserved memory on DT-based architectures. A new
+>> flag is needed because MEMBLOCK_NOMAP can only express regions without
+>> a linear mapping, while MEMBLOCK_NODUMP can filter regions that are
+>> linearly mapped. Reserved regions are marked MEMBLOCK_NODUMP by default
+>> so kdump omits them; reusable CMA regions are different because their
+>> pages are handed back to the buddy allocator and may carry crash-relevant
+>> data.
+> 
+> There is little point in continuing to send new versions until Mike 
+> agrees with MEMBLOCK_NODUMP being added. You didn't answer him on v7.
 
-A Tx NAPI poll may still be in flight at that point. stmmac_tx_clean()
-takes the Tx queue lock, reaps completed descriptors and wakes the queue
-again when it observes it stopped with enough descriptors available.
-Nothing stops the queue afterwards, so the Tx path resumes while
-free_dma_desc_resources() releases the descriptor rings underneath it.
+Hi Rob,
 
-On non-coherent platforms dma_free_coherent() tears down the vmalloc
-mapping of the descriptors, so the subsequent stmmac_xmit() faults on an
-unmapped address instead of corrupting memory silently.
+Thanks for the reminder. On v7 your reply to Mike stated exactly what
+I wanted to say, after a week without further objections, so I assumed
+the question was settled and went ahead with next version. That was a
+mistake on my part: I should have gotten Mike's agreement on the flag
+before sending a new version. I'll hold off further versions until then.
 
-Disable NAPI first and stop the Tx queues afterwards, which is the order
-already used by __stmmac_release().
 
-The issue can be easily reproduced by:
 
- 1. Run iperf
- 2. Run application which opens an AF_XDP/ZC socket
+Hi Mike,
 
-Assisted-by: LLM
-Fixes: 77711683a504 ("net: stmmac: ensure tx function is not running in stmmac_xdp_release()")
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-Tested-by: Nicolai Buchwitz <nb@tipi-net.de> # stm32mp215
-Signed-off-by: Kurt Kanzenbach <kurt@linutronix.de>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Sorry for not following up on your v7 question. The reason a new flag
+is needed is described in the v9 cover letter:
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index fb53b1f17714..27c4a249e560 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -7222,15 +7222,15 @@ void stmmac_xdp_release(struct net_device *dev)
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 	u8 chan;
- 
--	/* Ensure tx function is not running */
--	netif_tx_disable(dev);
--
- 	/* Disable NAPI process */
- 	stmmac_disable_all_queues(priv);
- 
- 	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
- 		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
- 
-+	/* Ensure tx function is not running */
-+	netif_tx_disable(dev);
-+
- 	/* Free the IRQ lines */
- 	stmmac_free_irq(dev, REQ_IRQ_ERR_ALL, 0);
- 
+    A new flag is needed because MEMBLOCK_NOMAP can only express
+    regions without a linear mapping, while MEMBLOCK_NODUMP can
+    filter regions that are linearly mapped.
 
--- 
-2.47.3
+Put differently: today, whether a region ends up in the vmcore is a
+side effect of how it is mapped, mapped regions are always dumped,
+nomap regions never are. Nothing can express "mapped, but not useful
+in a crash dump". MEMBLOCK_NODUMP decouples the two, and DT is simply
+the first user.
+
+
+
+> 
+> Also, I intend to apply this[1] before any further reserved memory 
+> changes which will greatly simplify the code.
+
+Understood, and it makes sense. It removes the two-pass reserved_mem
+initialization and indeed simplify the code, I'll rebase on top of
+it once it lands;
+
+
+Best regards,
+Wandun
+
+
+
+
+> 
+> Rob
+> 
+> [1] https://lore.kernel.org/all/20261015082315.56876-1-m.szyprowski@samsung.com/
 
 
