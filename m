@@ -2,70 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0627B606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 10:23:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78BD8606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 10:24:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GAeWj4eE;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=i7gz2s1V
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OgwvUuk2;
+	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=MdjfW2j/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=aZ3FSAhacOoA0G/LYvZBcAVEF7qI69cr77OqatyrH7k=; b=GAeWj4eEIeWLH1rKpqBH+xTfiv
-	9knkvxi9uC8P9vsSHEM8lkAA3Fr41a1JyIHOCRB1WmpwuPtUC8TRAcKngQDGE2DW7pl0u+mErqjJg
-	nxRCc2yQ6PzyvYvtDyB6L0F4FbJG1/RJRJV8yXRm5wyIR2iUXDDusIzaG2S3ZO1mb/b/4IgnSCFbV
-	BvzSvkRcB2UOSXPgagfXZRNRzXXYkJGqo05Q873BNx4HvO7HOVytEfZ2hpJ4CLWKDyWpKJEwtQWFV
-	QDaCyU2WcVsE/vQ9K11HuAcwPiGUhGFEkbCoR5DGGq8FKmbm4k+bXZw5oYopkt/UDqh1KcxFc5L+9
-	p5yFYAzA==;
+	bh=ugyFSCnTfsLdf9m20uVYRw6UIGWGn+LdXLFTD8Rhr/s=; b=OgwvUuk2qefhsD1XhrBIojfcVu
+	9sW5M6HHSD9UofHBVqU4I7aYsBP1PQmsTVpzUaEHaqsQ2mpyMkZ/Jwm/hrEE22zXY19TUA9+2BBpM
+	L3121XWuEGEF0l+F4I9wgHzST7n0PCXk3MBSRXwT5CrBHCSqdR/CG3GyjaV1MW3ZRhW0v8OVM3Hk6
+	BfLs9t4r90obX1nhaYme1oskLyiHTTQEI2jpMMyVRVAUanJ+JFf6sS7qQ1JGdCU+z32nNNaBTjlqA
+	bFcyUY03ryI+Tc0LO8K145S5R0bXhgMA3jbgxmPbrzCD8Uwsgm0soH8bGc41vPlzvyyqpntevVHNW
+	SYOCiZqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJpxD-0000000DvWh-3MiF;
-	Thu, 22 Oct 2026 10:23:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJpxA-0000000DvWD-2mMX
+	id 1xJpyH-0000000Dvd8-0CAt;
+	Thu, 22 Oct 2026 10:24:29 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xJpyC-0000000DvcO-3kZK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 10:23:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04ECF1595;
-	Thu, 22 Oct 2026 03:23:14 -0700 (PDT)
-Received: from e121740.arm.com (e121740.arm.com [10.33.8.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5DDEB3F7B4;
-	Thu, 22 Oct 2026 03:23:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792664597; bh=LlWXz+PA+zM435hlpcLMlUTS430tdpoSr+PxDjy+z5Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i7gz2s1V+8RC3RRnbxmDymuL7h2jDLYk4Ge6j4Bzn2SRLYA7flQ08O1OMxby7Bu56
-	 fhWnOI1gmkJasfrzwWWxO/ZndH9TcprW7UxVqeBKx6QilV93iAtNRoSjPa62tIPENr
-	 TetS7yunMuQpOyiteMUIdn8f2NIqA0VkME13bNHs=
-Date: Thu, 22 Oct 2026 11:23:04 +0100
-From: Philip Radford <philip.radford@arm.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org, d-gole@ti.com, souvik.chakravarty@arm.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: Re: [PATCH v9 03/13] firmware: arm_scmi: Refactor powercap domain
- layout
-Message-ID: <atnkCP6oB4xT65dV@e121740.arm.com>
-References: <20260909220437.1254412-1-philip.radford@arm.com>
- <20260909220437.1254412-4-philip.radford@arm.com>
- <20261022-spotted-impetuous-kittiwake-b2adcd@sudeepholla>
+	Thu, 22 Oct 2026 10:24:27 +0000
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 014142004FF;
+	Thu, 22 Oct 2026 12:24:23 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1792664663;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ugyFSCnTfsLdf9m20uVYRw6UIGWGn+LdXLFTD8Rhr/s=;
+	b=MdjfW2j/k2QDPsZOIHy7PZt5Z2El+wcq2JctgMX74K8hRrhLGybZQrXu3CWicg97R2KP2D
+	Ret1yLcSM3lfSjgcNOl/43Jg3TtiJlCUD5tgCP+gv/bocMeYbsUMt/niP2fXy0PGtAjoaz
+	tp/HNvckDbBnkJAl+5stHagl+SI9nIntwRgaMhq1kuHrZMY5CYdqWqlwf00dGe8IYqT2xl
+	WbGOmj8j3k71dUrFwjS5crsdfXMZtrJ+WoBjIHwhc/+sRJjJx1ebHt2ZbkrGo3sK690aTP
+	W9kdkWYztNp2vhDec1ej6sgcurYNiC0yZ06Mp6GnF7gDli6QPdG7P2XKcN0B1Q==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1792664663; a=rsa-sha256;
+	cv=none;
+	b=edtDA8hUpIe7+mU0hva+zNJQGy6IEOqpNBTRFhWhKoUnjvFzJtFxXZRFh2S99ONFJUZnPu
+	Ne8xVqy21RdhXv5Hlige/XMqWFzrOlDDRgakCDeMYCSht9FA1YGr9s0eTnZvoS4zIHpvkx
+	OWBWZsdzoECmGCI5NJ76c5SbbrieVMkRmHwPLsy3LSjZlon8RAkMDUHwj39cjLQubV6awE
+	M3i0+KmcgNDZ4Bljnlr9XonivOr8CIsNBdbP2nz3cV4a0/J6r+VdnBLLIA6bf9xbhp9YyH
+	0/R+aqMNB4SgpEADu3aoE+1rxj+Ujk/F+gTOxYFoA/8G84iXgng+uIs3Ikh3ag==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1792664663;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ugyFSCnTfsLdf9m20uVYRw6UIGWGn+LdXLFTD8Rhr/s=;
+	b=O44rc3MUCLXCMepH7FcLNVL4aje3eL/Kxcj8GCWeBb3Pk04DyoUO0DAGrvp3a4QHMtBQuH
+	oM3Fi99p1dzV515dvFcH4D85lMfCqJUqjzHPawSQBdDt47otWiFMxoxOX8vNKCOtSApJnN
+	QxqEC0QPB55vp5ECREbj5a9u1uHOlKX34o0vNsW3AzIXHylfDaGfvXbZwsZ2y3BP0M98QM
+	jkegbpg6wVp8KDVMPLvo87Hv0s7WuQv9pXRy4e31lbew19ZQbN8C7t2U6AjT0z6TAqGiZi
+	wxkV4NPED5YymbXEAGOngJ9UdQR7nc5fyzmuhQHyb4kgeFhPX/r8TL5kAzMh2Q==
+Message-ID: <2e28581115962ef23af4834ff274ee11de172344.camel@pengutronix.de>
+Subject: Re: [PATCH v4 4/8] reset: Add
+ reset_control_get_from_provider_exclusive()
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Geert Uytterhoeven <geert+renesas@glider.be>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Stephen Boyd	 <sboyd@kernel.org>, Brian Masney
+ <bmasney+clk@redhat.com>, Jerome Brunet	 <jbrunet+clk@baylibre.com>, Ulf
+ Hansson <ulfh@kernel.org>, "Rafael J . Wysocki"	 <rafael@kernel.org>, Marek
+ Vasut <marek.vasut+renesas@mailbox.org>, Bartosz Golaszewski
+ <bartosz.golaszewski@oss.qualcomm.com>, Konrad Dybcio
+ <konrad.dybcio@oss.qualcomm.com>,  Kevin Hilman <khilman@baylibre.com>,
+ Vinod Koul <vkoul@kernel.org>, Wolfram Sang	
+ <wsa+renesas@sang-engineering.com>, Kuninori Morimoto	
+ <kuninori.morimoto.gx@renesas.com>, Laurent Pinchart	
+ <laurent.pinchart+renesas@ideasonboard.com>, =?ISO-8859-1?Q?Cl=E9ment?= Le
+ Goffic <clegoffic@baylibre.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Cristian Marussi	 <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Date: Thu, 22 Oct 2026 12:24:22 +0200
+In-Reply-To: <b9e68c8df1e545191e0359dba23fe53de31a4ce5.1792163045.git.geert+renesas@glider.be>
+References: <cover.1792163045.git.geert+renesas@glider.be>
+	 <b9e68c8df1e545191e0359dba23fe53de31a4ce5.1792163045.git.geert+renesas@glider.be>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261022-spotted-impetuous-kittiwake-b2adcd@sudeepholla>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_032320_786958_A47717C9 
-X-CRM114-Status: GOOD (  23.07  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261022_032425_586749_D9D15FF4 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,71 +112,29 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 22, 2026 at 11:10:06AM +0100, Sudeep Holla wrote:
-> On Wed, Sep 09, 2026 at 10:04:27PM +0000, Philip Radford wrote:
-> > From: Cristian Marussi <cristian.marussi@arm.com>
+On Fr, 2026-10-16 at 17:55 +0200, Geert Uytterhoeven wrote:
+> When stacking two reset controllers, the upper one should go through the
+> proper channels: request exclusive reset controls and use them via the
+> reset_control_*() APIs.  However, unlike the clock subsystem, which has
+> of_clk_get_from_provider(), the reset subsystem does not offer a way to
+> lookup and obtain a reset from a reset provider.
+>=20
+> Hence add a public helper reset_control_get_from_provider_exclusive()
+> to lookup and obtain an exclusive reference to a reset controller, based
+> on the recently introduced __reset_control_get_from_provider() helper.
+> This will be used by the R-Car X5H Module Controller driver.
+>=20
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Hi,
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-> > 
-> > SCMIv4.0 introduces the idea of an optional Concurrent Power Limit (CPL)
-> > for each powercap domain, where CPL0 coincides with the one and only
-> > per-domain constraint limit that was available in pre-v4.0 SCMI Powercap.
-> > 
-> > Refactor the powercap domain descriptors and powercap operations to allow
-> > future v4.0 extensions to cope with multiple CPLs.
-> > 
-> > While at that generalize the powercap protocol API to drop PAI references
-> > in favour of a more generic avg_ivl naming, since from v4.0 the number and
-> > types of averaging intervals will change in a non-backward compatible way,
-> > so let's bury these changes within the protocol layer.
-> > 
-> > Last but not least, make the necessary changes to the ARM SCMI Powwercap
-> > driver in order to support all of these new capabilities.
-> > 
-> > No functional change.
-> > 
-> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> > [Philip: Adjusted domain_id comparitor in scmi_powercap_pai_get]
-> > Signed-off-by: Philip Radford <philip.radford@arm.com>
-> > ---
-> > V7->V8
-> > - Fixed conflict due to changes in 7.2-rc1
-> > ---
-> >  drivers/firmware/arm_scmi/powercap.c | 182 +++++++++++++++++----------
-> >  drivers/powercap/arm_scmi_powercap.c |  52 ++++----
-> >  include/linux/scmi_protocol.h        |  74 +++++++----
-> >  3 files changed, 189 insertions(+), 119 deletions(-)
-> > 
-> > diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-> > index 96d55921fefc..7c2dbba5002c 100644
-> > --- a/drivers/powercap/arm_scmi_powercap.c
-> > +++ b/drivers/powercap/arm_scmi_powercap.c
-> > @@ -123,7 +123,7 @@ scmi_powercap_set_root_children_enable_state(struct scmi_powercap_root *pr, bool
-> >  
-> >  		if (!scmi_powercap_is_control_type_child(spz))
-> >  			continue;
-> > -		if (!spz->info->powercap_cap_config)
-> > +		if (!spz->info->cpli[0].cap_config)
-> >  			continue;
-> >  		if (prev_state[i] == enable)
-> >  			continue;
-> 
-> You seem to have left one use `powercap_cap_config` above this hunk which
-> breaks the build and hence build bisectability with this series.
-> 
-
-Apologies, I was sure I had tested breaking the build throughout the series.
-I'll amend this.
-
-Regards,
-Phil
+regards
+Philipp
 
