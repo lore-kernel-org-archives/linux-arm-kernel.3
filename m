@@ -2,117 +2,111 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA5C0606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 02:32:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70538606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 02:51:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JqM6oNrH;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=XOY4eqH/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=X7elLVUq;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=n2dEMp46
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q+uH7LfbW9ctIqeI5N5cYZFPbAGWdBnqHFnNZQRtHCo=; b=JqM6oNrHqEHUibC5Je80iB1x25
-	8vQXh8Z/rCt99ECLfTO/sXGa/Mb0t6Ftr3iHv8QCQh42fnonE8+KN1qRt/6B+tAMGj+rhHtHY+jtO
-	Df7RUhHVDxyDO5Kzd697e6HCjgG+GE+CXcdZSO3QatrJJq7qvNP2rgVVxOGo0J3av8NZ8nLxY/UZ3
-	Ogi6SP23pGKW6xGrJkBfUOpn01u15zZguOQg8HtSDKD0jydQd3RZmBFFnZdBZMUfkDOSavOsEO8BR
-	UdgdjvUK6JyVgCGxug0mN7+QP9Sp33NdxRPhDGtvO2ndb0Ufxo+xwo3Su3oSEDwLr0KIayFYZs8ah
-	JuvTTRpA==;
+	bh=DgxDvLuT+FrYCt+izSlqoI4afXyKDdrxGMCJ1K0jMX4=; b=X7elLVUqaFrrz07LEWu61y5VWq
+	mSxjm/7gP8/6PtzBxgkUDip2jygo/3ylSAUr1a1Hx29whQ2gI8DD+N9MgQe5Bl/+mJ6SqQkuwtJ7M
+	GEhEj7s45pMjbKiDdwoMsRM9kgt2wSnd4eMN3SikIA0piExkRNwAgoz6SKczZk0Y8zv6cyzdPu4LM
+	gpJDiiD9SHkG2g03qI6Ya7hGHg0jB/dl9Kne1qmWbhIsKBcUIEdINV5h8KuJaUd85b4GUGaSwjqrM
+	RD03/Hhm3IZOI0GfxfbSY3SLOf4Ryvd8SyTS3WjLyRtCeoiuI095LOhicKyHjhLbgJKHA8KxJyqgN
+	AASQ/gVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJibm-0000000DDLl-06xa;
-	Thu, 22 Oct 2026 02:32:46 +0000
-Received: from mail-ej2-x07.google.com ([2a00:1450:4864:34::7])
+	id 1xJitz-0000000DEZp-1hi4;
+	Thu, 22 Oct 2026 02:51:35 +0000
+Received: from mail-pf1-f175.google.com ([209.85.210.175])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJibh-0000000DDKA-3mJ8
+	id 1xJitw-0000000DEYu-0rmS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 02:32:44 +0000
-Received: by mail-ej2-x07.google.com with SMTP id a640c23a62f3a-c3e0e38c8c2so44067766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 19:32:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792636359; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ZIku6HrQOv/wdT6gkQBNaJkVojk3o34Gd3Yeq6apKtFo+q0TzQ2fRJvdHmuB71gxet
-         BEyHM7mQmU2cPCS6HQYwBTdook+/cI0BhcYRjq5EbEfk1zWFYXrL8bWyBoBY5/A0oeMh
-         FeqXF7nj2jiNF98gkhoWMW9WTJftArBK6mHJ8lZPzMSTZbFa932C/ygAkH5DAUNqGDi5
-         H44PTA54TmFdiqyvexPWiUh5sfdd/HCQ4HSKWlbGTMMTPfhuqS5wAmBFe3MRmcJKffoX
-         udSoiwo1m+aaq61QhbR2AepwLaDGW6ltDLBVv4ZOWwfXzjuU+E+RN1eWJ1FyhyoAL+kr
-         DHlA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Q+uH7LfbW9ctIqeI5N5cYZFPbAGWdBnqHFnNZQRtHCo=;
-        fh=CsSQiD8rVyuj+Fzngw5cGZ6SFuoJK8MhCOTduljzYz4=;
-        b=kcpjknZFSW9aHlKtlQBsixoIk9ZhxXB2vUAJyo2iW2HsNK3TzWuVmp6S/F203lurn7
-         0nersmVEvLwe4BWsTu2q3RYfNg4gXuDuoK8aP4Qq2tNSGbgBfzYp4GUTznJGaGrdOW3c
-         5I2W7TX7zTg/1qYKF+0BdRsJ/XIpAvJ8NAiYqNdTqHNfmKx1Su0WVQIeqh0J+oqXYvq6
-         T/hlJp4pISWjOQ5Yi/gSEY95zQ1juQzSfS5jye2QOATOi0FzCTAt19xq/QX+6sYrCEde
-         sX0anzyIaY5HsIT3wLWWLqKDCEQCm09jtek7jGyDYP9TY9EXSLMfMatrbVwkAPFp2IHl
-         UwaQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 22 Oct 2026 02:51:34 +0000
+Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8a089dfee18so229557b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 19:51:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792636359; x=1793241159; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Q+uH7LfbW9ctIqeI5N5cYZFPbAGWdBnqHFnNZQRtHCo=;
-        b=XOY4eqH/IfU5D85cqXWL2UUzIQCHh/cAJZBy0REQijcPdHKUIM3vsCya4h71xLp7S7
-         VGP9a7qF7m/VDqgujVtKw8F6280O9TFAnjMNV5Cpz0HFG9bvi072SDUooDP4XFWefcvq
-         4e7Vw6HfTs6L7H984sY5SiPVfWq6qAscbjuJf6r4ciqm9kTGkMvxMWIDfaIMj2PDrtlP
-         3mByJUQCDguoreAyNhBeFG+4drT8m4QI6A6oi9klcIgGf9Xx0qgME6tTTXdDM2YS8H54
-         JwVLENpQyXZJa44CrVtyA8pgC75bqasDUcYQOZ4WS8ZW39YmKctngUE52rtUxct8l0Vk
-         TnVg==
+        d=google.com; s=20251104; t=1792637491; x=1793242291; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=DgxDvLuT+FrYCt+izSlqoI4afXyKDdrxGMCJ1K0jMX4=;
+        b=n2dEMp46Yq+t2R8uayvW8LjFYcnlFz5ZAcsfSdp0l43+DD/IbrXEPJM3pNAJl5r0yI
+         f46nmOwgxVlNeD+Yc6wG7s+YyDmqthwexVdBheW+xds8ZZyoGkKCevujKon30xLi7Rm3
+         Q9M0lJBPa+NonAF83LM9s0HLdZ7htPLid7a8BhJHBkHOKWqXUZzUWqtsossblTKCW8ZX
+         t3mMCkAt8NTs9+XdyvZYvnFgHLfpLtd0hgGElI3LUIZg8FqPoJXh3Q+fAr8IiLt1VT9W
+         G5wyjCXn4KeUCi02lPtAJU+jcU+/bvSboaNu2dygEmkiO2cWvtzAS7MSEK+Xm9M0aed2
+         SV/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792636359; x=1793241159;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Q+uH7LfbW9ctIqeI5N5cYZFPbAGWdBnqHFnNZQRtHCo=;
-        b=VZDQKkyi7GFNzTUKoJEJb2NPqM3FTEI7stLJ5yR4sXhrBKRIyW12yzi77ikE7F5Tdq
-         Vc5vcGaucgWI8KETgyQcgWYDgER2rVrQt4VFooLttCebhlz2tlFdobs3cDt6lWl5ShQ9
-         7l5sOOliNqTEq10fRcm93KjAKHLhYOvm0AbrfK0g8RgBSLF/vhmZ0qSzQO+/NfG8oAkq
-         hHUjwAXca3+fL3QWPkbYqmQdu6qguOtfF7At1Y96/jHppNoPqEb9yGlSjbF8HXtT1LvD
-         yiXDnUMVUcNNvyfu3qRiaXPRcr+/5cax8+9ELpKl7NX03VG6xxN3TzFKbS6VFkFPSp5i
-         VgJg==
-X-Forwarded-Encrypted: i=1; AKwUvBxzJc1V/W0a5v8fm2UdDDv+KDRi8kHbcmpqJ7Y1LKPCFzpYVG28/RoKhcVncZVIqo3a1Orf3Ju170fRKxH4xLUh@lists.infradead.org
-X-Gm-Message-State: AFq9FYKX0koLkz6KW9h4RExX1znYMvppKhORWwBp9nsa5Im0BqyP6yQ3
-	cwXsh/5c4CKZp0r6EVUwaT6SWnj59FVudyC0neINX8Og3xCvQAa4FMXg26/kttmQ6Gaq5H2FQ8g
-	Od2rcUFQXIopR7hyz1Qc2LctPsfG1QTY=
-X-Gm-Gg: AYBFou02T58WW0LaY9wewWsJxQdvS+pBn3RbqetNc/JKPJAPUG77rw5YJwJ1khVxkxK
-	f8CDndXmeWwVgdKaoeipelD82c49uUBFA1vo21yzyD0pZu06r0L2S1atvVLIjYgy4OlSqO4qvBL
-	QvwVRLOBVl93QcKiKkmvGDkilhb9f/5he4TABnYtVsewAE+m0owk6Vht972jMPL/hhcMVojRl37
-	5wMJGm9scrr80BvY7p6/mKKnr3bfwabIeObGKv+wnDj0uPEk/t6lHP7aP7O32/SzFsucHo0878t
-	QdHcVg13WcyJBglv5YJoVY8ghB7RvDCUiSwaqHmTmTFcnoq5H3fRKczCcKLu90tZpl0kIeIUReI
-	j+WvW/9tJTCa+FwnwvhNpLGDO4b/2Z9oQX7YocYXEym365J1bPDJPRI27AWP3
-X-Received: by 2002:a17:907:9347:b0:c2e:4f16:fbf with SMTP id
- a640c23a62f3a-c4679797086mr354694766b.31.1792636359268; Wed, 21 Oct 2026
- 19:32:39 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1792637491; x=1793242291;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DgxDvLuT+FrYCt+izSlqoI4afXyKDdrxGMCJ1K0jMX4=;
+        b=LU8c2tMBMBivheAx8bClhsmu8pgDKgQOAUTgiv8/9DNel15aM0oKiVX8ZYmIs5f9ls
+         HLcnnJwzvJEy49epM5wMFtlPSDZWg0qvePA09ZOZhr77liDYT42bu6SpQMFbtd3vbZUx
+         vmd/IJpmTbi/9FrRxrwdWOffn2Pp/JaSoaa4Q5e+9eANTKmpJ0OqOMiYM9P2gNYCKVpT
+         y7IJFPnfhBpavsSYvOoyQT58A3prF1SQ3dMzyxIBRqF5Kv4vX1Ke1EWaHeXxK7cp+DcY
+         4vn/o1aUh1Gul9CpHD9Xxmrvskwosi3ajK0chhHz8rsxE6wnxEtOmjl6rnUeUFrMWt1O
+         lx7A==
+X-Forwarded-Encrypted: i=1; AKwUvByx+lw3gNo3h2lHxz0Qw/60S3EokJWI3MDJ1qb2NK0KCvtF3OUIjkLONpjZJvFMh0egqkMKENCLxa/AgPdlMcoZ@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ6s2t4mOZlSXsDM4kJdBVmtSQjEDTbEtNi6VZXzO5Wqp+qyRbi
+	sjegqyKxoJZspJtVDFo10BVx/wykHHRkwdPif6EbwfadZDsEUdykTQV8n3LXUuZVyw==
+X-Gm-Gg: AYBFou3NFY4T+bNmhOed1xA04JTfNDAYq/SfSy4gGcOtOsx2Z1niIZLYQG/7UeuSVT/
+	aFbZdIhyAKgLYgR2D+1O3/GcmzPjrELjVejgHVSanyHs4C/n1UhhkEhMCTbgVOnTnSi0IU2lgnL
+	2bRi/71+PxOMP2GL3hwQW9fIMmDr1f5oozcB+CB4qovxsYxlhZgTj2P8I4FCJRKvZGYb2N4d8D/
+	VprmBhstbRiKdhDZR8GzYcmesPoX/5ZwSa85DOKNXvSDC8vhwPKWArFmF/BIWAmHo1ZXbpIfTId
+	62EAvwK+l1nU/fU9r9XfCVZH6tv5iT4+Kdn1nP7xLuzIddC924uSScAyTfOwlhzoZvgOU97ALgg
+	cgkAcxqIfjbdiU0NZhZMh7IOF4mj5hsBMiqheYOl14bl/O11jZ3i07Mn3Aq7xb7qnlIKiVOWQdz
+	GdUg8no91hPJNu4/ChEYHlK32cWehH8z4Ik/m/snNPwnlrBZPlmbJ2bLc+xhnktkNTOkgSqeMwM
+	wonqArNlzeOWK5i8Y0NUYPASAuKs65fF4yYL5tSxIQsS1KrK4kADTJUUtPTzZDJI/rVtkz+PcZI
+	otg0VT9n0QpnprVQng==
+X-Received: by 2002:a05:6a21:3b46:b0:3e2:ea7:621 with SMTP id adf61e73a8af0-3e2a0bed41bmr545882637.42.1792637489967;
+        Wed, 21 Oct 2026 19:51:29 -0700 (PDT)
+Received: from google.com (64.75.127.34.bc.googleusercontent.com. [34.127.75.64])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd6b85e8c9asm635619a12.20.2026.10.21.19.51.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Oct 2026 19:51:28 -0700 (PDT)
+Date: Thu, 22 Oct 2026 02:51:23 +0000
+From: David Matlack <dmatlack@google.com>
+To: Pasha Tatashin <pasha.tatashin@soleen.com>
+Cc: Tarun Sahu <tarunsahu@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org,
+	Mike Rapoport <rppt@kernel.org>,
+	Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de,
+	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com,
+	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org,
+	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com,
+	will@kernel.org, Alexander Graf <graf@amazon.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com,
+	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
+	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev,
+	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
+	kexec@lists.infradead.org, skhawaja@google.com, kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 4/4] mm: memfd_luo: Add the 2-bit pair feature
+ header
+Message-ID: <atl6K2Juy6Bh29lh@google.com>
+References: <20261021152527.375070-1-tarunsahu@google.com>
+ <20261021152527.375070-5-tarunsahu@google.com>
+ <CA+CK2bCWo7ixrNLKPvqETn3JSFwSNaB2UsPgy9RHVAhWroJURQ@mail.gmail.com>
+ <atlINfvlXY4wMbpO@google.com>
+ <CA+CK2bDf-pKbH2J13mRYRT7Ddj-Q+VXaGYePs+E-azSWXKzV5w@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261006162807.2843858-1-coiaprant@gmail.com> <20261006162807.2843858-3-coiaprant@gmail.com>
- <ac2a4e80-6d35-457a-bdc5-ee8511198bec@rock-chips.com> <CALj3r0gQ_U2ZUJkRgF4NdB1Gd3A8ZT3T6qjLhwGZPg=VUXLsrQ@mail.gmail.com>
- <CALj3r0hSyVpn4Upbun4DOk5hdOH+fzEFG2E3LpfvS2YUXH8twA@mail.gmail.com>
-In-Reply-To: <CALj3r0hSyVpn4Upbun4DOk5hdOH+fzEFG2E3LpfvS2YUXH8twA@mail.gmail.com>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Thu, 22 Oct 2026 10:32:27 +0800
-X-Gm-Features: AclHuK9kgEi-QHylQHY7HMeWPzlEQ4T2NynHaEv25TGkNX-ohXQB3EsA_FVqaQo
-Message-ID: <CALj3r0jg5Ht9UUJGryuNdJdegBkPQgSTPSE6amjCr0g0PE7i6Q@mail.gmail.com>
-Subject: Re: [PATCH v13 2/2] phy: rockchip: naneng-combphy: add SGMII MAC
- selection for RK3568
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+CK2bDf-pKbH2J13mRYRT7Ddj-Q+VXaGYePs+E-azSWXKzV5w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_193241_949514_1FA3215E 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261021_195133_271942_B2161043 
+X-CRM114-Status: GOOD (  69.65  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,25 +117,334 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-18.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=unavailable
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Vinod,
+On 2026-10-21 08:41 PM, Pasha Tatashin wrote:
+> > > >  /**
+> > > >   * struct memfd_luo_ser - Main serialization structure for a memfd.
+> > > > + * @features:  ABI feature and size header for memfd_luo_ser.
+> > > >   * @pos:       The file's current position (f_pos).
+> > > >   * @size:      The total size of the file in bytes (i_size).
+> > > >   * @seals:     The seals present on the memfd. The seals are uABI so it is safe
+> > > > @@ -79,6 +103,7 @@ struct memfd_luo_folio_ser {
+> > > >   *             struct memfd_luo_folio_ser.
+> > > >   */
+> > > >  struct memfd_luo_ser {
+> > > > +       struct luo_feature_hdr features;
+> > >
+> > > I have not looked into this yet, but I would prefer to use some kind
+> > > of macro constructor for serialized structs. That way, they will
+> > > automatically include the header, making it easier to search the code
+> > > for what is actually preserved versus what exists only in this kernel.
+> >
+> > If you want to know what is preserved don't you just look at
+> > include/linux/kho/abi?
+> 
+> Yes, and having it initialized and declared in the code correctly with
+> proper macros and verified just gives the right handling and avoids
+> making silly mistakes. The second reason is so we never forget to
+> include the header, and to make it expandable and easy for everyone to
+> use. I think this kind of constructor is just useful overall. Are
+> there any reasons why we wouldn't want to use it?
+> 
+> > > So, I think something like this:
+> > > /* Base serialization header: 4 bytes total size, 4 bytes flags */
+> > > struct luo_ser_hdr {
+> > >     __u32 total_size;
+> >
+> > Why do we need the size? I'm not really opposed to it I just don't
+> > understand what problem it solves.
+> [...]
+> > The luo_ser_hdr is needed for top-level file handler and FLB ser
+> > structs. Those structs are always dynamically allocated and preserved
+> > with KHO.
+> 
+> The top level is not enough. I think it is needed for every single
+> serialized struct in kho/abi - the blocks, the FLBs, etc. They all
+> must
+> be expandable in case we need to allow that. Let's have future
+> protection for everything that gets preserved.
+> 
+> For example, take a look at vCPU preservation:
+> https://lore.kernel.org/all/20260920193650.3373435-9-pasha.tatashin@soleen.com
+> https://lore.kernel.org/all/20260920193650.3373435-11-pasha.tatashin@soleen.com
+> 
+> +struct kvm_vcpu_ser {
+> +    u32 vcpu_id;
+> +    u32 flags;
+> +    u64 vm_token;
+> +    DECLARE_KHOSER_PTR(arch_state, struct kvm_vcpu_arch_ser *);
+> +};
+> 
+> We might want to add fields to the arch-independent part, and we also
+> absolutely must keep the arch-dependent parts expandable. Therefore,
+> the header needs to stay small and flexible enough to grow as needed.
 
-Gentle ping on this series.
+Hm, anything that is dynamically allocated can have it, but anything
+that it is embedded directly or in an array cannot, because those
+structs cannot grow anyway. So I agree it's not exclusive to the
+top-level FLB and FH structs. But I would push back on any a mandate
+that _every_ struct in include/linux/kho/abi needs it.
 
-The net-next parts (XPCS glue, dwmac-rk SGMII) are now in linux-next:
-https://git.kernel.org/netdev/net-next/c/5e91edfb0e45
+> 
+> > On retrieve, KHO gives you back the blob of memory. You look at the
+> > header to determine what features are used in the struct, and then
+> > access the fields associated with those features. At no point do you
+> > need to check the size.
+> >
+> > The only time you need the size is for a KHO block array. You want to
+> > store the size of the KHO block array elements so that the retrieving
+> > kernel can correctly initialize the iterator.
+> >
+> > e.g. from the PCI base series:
+> >
+> > /**
+> >  * struct pci_ser - PCI Subsystem Live Update State
+> >  *
+> >  * This struct tracks state about all devices that are being preserved across
+> >  * a Live Update for the next kernel. It contains only state owned by the PCI
+> >  * core; the state a driver needs to resume its device is preserved separately
+> >  * by that driver.
+> >  *
+> >  * @required_flags: Features that the next kernel must support to take over
+> >  *                  the preserved devices. No flags are currently defined.
+> >  * @optional_flags: Features that the next kernel may ignore if it does not
+> >  *                  support them. No flags are currently defined.
+> >  * @dev_ser_size: The size in bytes of each struct pci_dev_ser in @devices.
+> >  * @nr_devices: The number of devices that were preserved.
+> >  * @devices: Physical address of the first KHO block containing pci_dev_ser.
+> >  */
+> > struct pci_ser {
+> >         u64 required_flags;
+> >         u64 optional_flags;
+> >         u32 dev_ser_size; <==========
+> >         u32 nr_devices;
+> >         u64 devices;
+> > };
+> 
+> Having `total_size` embedded in the standard header of every
+> serialized struct solves this uniformly: any struct can be placed in a
+> block array without needing an ad-hoc `*_ser_size` field in the parent
+> struct, and on retrieve we can always sanity-check that the preserved
+> blob is at least as large as the struct fields implied by the flags.
 
-The DTS changes are waiting on this PHY binding and driver to land before
-they can be sent. Is there anything you'd like changed, or is it just
-queued?
+I agree we shouldn't need an ad-hoc *_ser_size field in the parent. But
+I don't think the entries are the right place to store the size.
 
-Thanks,
-Coia
+A KHO block set needs the entry size before it can do anything with the
+incoming blocks. kho_block_set_restore() uses it to validate each
+block's count, and the iterator uses it to locate every entry (index *
+entry_size). The entry size is a property of the block set, not of each
+entry.
+
+Putting the size in a header on every entry means:
+
+ - The block set has to peek into the first entry to learn its own
+   layout, so KHO blocks would depend on the LUO header format of
+   whatever is stored in them.
+
+ - Every entry repeats the same value, since all entries in a block set
+   are written by the same kernel using the same struct. For small
+   entries that is a lot of overhead, e.g. struct pci_dev_ser is 8 bytes,
+   so an 8-byte header doubles its size.
+
+ - Nothing enforces that all the entries actually agree.
+
+Instead, I think KHO blocks should record the entry size themselves.
+For example:
+
+struct kho_block_header_ser {
+    u64 next;
+    u32 count;
+    u32 entry_size;
+};
+
+kho_block_set_restore() would then take the entry size from the
+previous kernel and verify that every block agrees. Users of the block
+set can read the entry size back and decide how to handle entries
+written by an older or newer kernel, e.g. ignoring fields past the end
+of a smaller entry. That removes dev_ser_size from struct pci_ser, and
+any struct can be stored in a block array without a header or a size
+field in the parent.
+
+I also don't think block set entries need their own feature flags. The
+struct that holds the block set (e.g. struct pci_ser) already has
+feature flags, and those flags can describe extensions to the entries.
+For example, an optional flag in struct pci_ser could indicate that
+struct pci_dev_ser has a new field appended. All entries in a block set
+are written by the same kernel, so the flags would be identical for
+every entry anyway. The flags only need to be checked once, before
+iterating, rather than once per entry.
+
+If a feature only applies to some entries (e.g. some devices), the
+parent flag indicates the field is present and the value of the field
+in each entry indicates whether that entry uses it.
+
+The entry size in the block header and the feature flags in the parent
+are complementary: the entry size lets the iterator step over fields
+the kernel doesn't know about, and the flags say which fields are there
+and whether the next kernel must understand them.
+
+Please take a look at this series for how I am extending KHO block set
+elements using top-level feature flags:
+
+  https://lore.kernel.org/linux-pci/20261019213054.3157159-1-dmatlack@google.com/
+
+> 
+> >
+> > >     __u32 flags;
+> > > };
+> > >
+> > > #define LUO_SER_INIT_HDR(obj, _flags) do {           \
+> > >     (obj)->hdr.total_size = sizeof(*(obj));          \
+> > >     (obj)->hdr.flags = (_flags);                     \
+> > > } while (0)
+> > >
+> > > #define DECLARE_LUO_SER(name, expected_size, members)       \
+> > >     struct name {                                           \
+> > >         struct luo_ser_hdr hdr;                             \
+> > >         members                                             \
+> > >     };                                                      \
+> > >     static_assert(sizeof(struct name) == (expected_size),   \
+> > >                   "LUO struct " #name " size mismatch!")
+> >
+> > Why?
+> >
+> > Practically every change to a serialized struct is going to involve
+> > appending one or more fields to the end of the struct. Asserting the
+> > size means we have to update the hard-coded size as well every time we
+> > do that.
+> >
+> > Is this to protect against embedded structs accidentally changing?
+> >
+> 
+> Yes, exactly. See how kvm_vcpu_arch_ser is proposed in that same series:
+> 
+> +struct kvm_vcpu_arch_ser {
+> +    struct kvm_regs regs;
+> +    struct kvm_sregs sregs;
+> +    struct kvm_mp_state mp_state;
+> +    u32 pad;
+> +    struct kvm_xcrs xcrs;
+> +    struct kvm_lapic_state lapic;
+> +    u8 pad_xsave[40];
+> +    struct kvm_xsave xsave;
+> +    struct kvm_vcpu_events events;
+> +    struct kvm_debugregs debugregs;
+> +    u32 num_msrs;
+> +    u32 cpuid_nent;
+> +    struct kvm_msr_entry msrs[];
+> +};
+> 
+> All the above structs are uAPI, so they are stable compared to random
+> kernel structs, but they still have a size and can be expanded. So,
+> having the size and a static assert guarantees that when we expand
+> these uAPI structs, we automatically catch that in this struct and add
+> the appropriate flag to notify the next kernel of the changed world.
+> Also, it catches implicit compiler padding changes across
+> architectures.
+
+Ok makes sense. Having protection from accidentally changing the offset
+of fields in a serialized struct is a good thing.
+
+> 
+> > >
+> > > Usage:
+> > > /*
+> > >  * Header:  8 bytes (hdr: 4 bytes total_size + 4 bytes flags)
+> > >  * Payload: 8 (pos) + 8 (size) + 4 (seals) + 4 (_pad) = 24 bytes
+> > >  * Total:   32 bytes
+> > >  */
+> > > DECLARE_LUO_SER(memfd_luo_ser, 32,
+> > >     __u64 pos;
+> > >     __u64 size;
+> > >     __u32 seals;
+> > >     __u32 _pad;
+> > > );
+> >
+> > IMO this makes the code harder to read. I think open coding keeps things
+> > simpler.
+> 
+> I am ok switching to a different construct or way of declaring these
+> structs if what I proposed is hard to read. However, we still need
+> standardization so that every serialized struct has a common,
+> expandable header (taking only 8 bytes by default), has its size
+> verified at both compile time and runtime, and is initialized in a
+> uniform way.
+
+I think your idea to have a growable header from the thread basically
+means that the header and the ser struct will be 2 completely separate
+structs and you will need to user pointer arithmetic to jump past the
+header and find your serialized struct. So I think this is probably
+moot.
+
+> 
+> >
+> > struct pci_ser {
+> >         struct luo_ser_hdr header;
+> >         __u32 dev_ser_size;
+> >         __u32 nr_devices;
+> >         __u64 devices;
+> > };
+> > LUO_SER_ASSSERT_SIZE(pci_ser, 32);
+> >
+> > >
+> > > struct memfd_luo_ser *ser;
+> > > ...
+> > > LUO_SER_INIT_HDR(ser, 0);
+> > >
+> > > Thanks,
+> > > Pasha
+> > >
+> > > >         u64 pos;
+> > > >         u64 size;
+> > > >         u32 seals;
+> > > > diff --git a/mm/memfd_luo.c b/mm/memfd_luo.c
+> > > > index 64f8b8cb75bd..ea1f4c8cd259 100644
+> > > > --- a/mm/memfd_luo.c
+> > > > +++ b/mm/memfd_luo.c
+> > > > @@ -84,6 +84,10 @@
+> > > >
+> > > >  #include "internal.h"
+> > > >
+> > > > +static const u8 memfd_luo_features[MEMFD_LUO_FEAT_MAX] = {
+> > > > +       [MEMFD_LUO_FEAT_CORE] = LUO_FEAT_REQUIRED,
+> > > > +};
+> > > > +
+> > > >  static int memfd_luo_preserve_folios(struct file *file,
+> > > >                                      struct kho_vmalloc *kho_vmalloc,
+> > > >                                      struct memfd_luo_folio_ser **out_folios_ser,
+> > > > @@ -284,6 +288,8 @@ static int memfd_luo_preserve(struct liveupdate_file_op_args *args)
+> > > >                 goto err_free_ser;
+> > > >         }
+> > > >
+> > > > +       luo_feature_hdr_init(&ser->features, sizeof(*ser),
+> > > > +                            memfd_luo_features);
+> > > >         ser->pos = args->file->f_pos;
+> > > >         inode_size = i_size_read(inode);
+> > > >
+> > > > @@ -525,6 +531,14 @@ static int memfd_luo_retrieve(struct liveupdate_file_op_args *args)
+> > > >         if (!ser)
+> > > >                 return -EINVAL;
+> > > >
+> > > > +       err = luo_feature_hdr_validate(&ser->features, memfd_luo_features);
+> > > > +       if (err) {
+> > > > +               pr_err("memfd_luo_ser feature header validation failed (size=%llu, flags[0]=%#llx): %pe\n",
+> > > > +                      ser->features.size, ser->features.flags[0],
+> > > > +                      ERR_PTR(err));
+> > > > +               goto free_ser;
+> > > > +       }
+> > > > +
+> > > >         /* Make sure the file only has seals supported by this version. */
+> > > >         if (ser->seals & ~MEMFD_LUO_ALL_SEALS) {
+> > > >                 err = -EOPNOTSUPP;
+> > > > --
+> > > > 2.56.0.212.g129ede20d9-goog
+> > > >
 
