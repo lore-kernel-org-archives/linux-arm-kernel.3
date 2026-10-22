@@ -2,102 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0A67606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 05:52:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2418C606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 06:00:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EUpmGjWD;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=XRMVn8Nk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=B89TFajt;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D7gHWThi
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K2tWmEOG35vkyGU1OZ0Xjhu69P/i4beeqfklVuj2BQQ=; b=EUpmGjWDDZks6HNdnESWsyPAr8
-	cirjfujYn1TRyNVV0bgjv10wPK5S9cxAinywPCPmBYi6fI8munXvHmnX5l67JKOn+fjjRq562GJra
-	tsOvLyqVrh3beMFj6jl+XgM7MOs82rMh+BRV9QoUNLQJwA11EPz0e0bdLLB/G0XWoFN0XOT+Lc62e
-	ugTmw7cBqiBwSqfF165azYvfE4FGCIgyN2EwL9VfNP4zar8VNtsHg4dy6pxC0rkxZQWGDflf8AUnt
-	z+/Ag/ULb9v6rma3PZpzfjBTN3r52UhHGd2TutoRD6kctQ+cmb00Oy8jSI3u8mtnVcBAI6tHJmiWu
-	qE69o4lQ==;
+	bh=MeqapdHk4YD2xGr4hOW9N3bcaYW9GCT1w2/RAdnybrA=; b=B89TFajtvp/cXdOBLjWiIVGsow
+	XaFbPlp/cwx4tOu43i6hAjKl8PoNZ9mVzgCdfuannvHBYKYupukzHHMW/2/9vrtgQlqsej8R+mmsA
+	yb5MyEA/z+nzdEikFGJuT/waMmzjbdnQfUKsBQfSpZpGlyZg16QEWw4XjT6GaCbTKCqIpg5pKQBSf
+	IQ8fzQR5OEcjeepxa5ujv3MbePLren1CIhJnu1MbxfoZtGQsaDAynF3DgfzrOiSiTISSlMEots3tn
+	mOMNoF+TIUXxdIGKbrZyR1HCrX8cFcbjOoe15nUw+5uKm4Oik9fuqgV7grc8X3NU7LXcN/olgUOJg
+	I9Sxrmpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJliv-0000000DQLD-3qGy;
-	Thu, 22 Oct 2026 05:52:21 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1xJlqO-0000000DR3x-3JwH;
+	Thu, 22 Oct 2026 06:00:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJlir-0000000DQJU-1bp4
+	id 1xJlqN-0000000DR3Y-35E5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 05:52:18 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4a2072b9832so1187145e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 22:52:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792648336; x=1793253136; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=K2tWmEOG35vkyGU1OZ0Xjhu69P/i4beeqfklVuj2BQQ=;
-        b=XRMVn8NkotQc2dcdlreIjycn1t6KTtGJxsDdLl+NQq9yDdEJDsXux2T7YOQ4nv7hxo
-         H9//z1td3a4wvhQhfyspUUKEjCIQIOFGjiEkIoN0uf4MaQnu8QTynBZrDooKbkIzKbCd
-         ohWcGU3amfsTHhXlVi14uAWzhUx9W9bz3WtdyfosdTcWKrQeozfDUb42c/JYdKFJV43A
-         6mf8nKZfMjHuchrYUPKdYgcHitGBS5mridtxJ+lix9/esPSt2Q16oToM8qjW9FSIC+F+
-         AMqCMnJN1v9LCzVBTi7SFYlxt/rdgS0kIkidYrQo3H9HbS70aX46eBo1BZIGjQ1VoM2s
-         XXcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792648336; x=1793253136;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=K2tWmEOG35vkyGU1OZ0Xjhu69P/i4beeqfklVuj2BQQ=;
-        b=fbRSgAMe3jHCmbfkrKbJ5cjwl5zyXh7NEEMq4xXHvWIR42IQEqqciVCOhc8tCc+SPF
-         6XUJhWyubEHF2XZDP8No8wYfPVypknWwVGQddvOTCSBbNxe2/s3K+HoAznbYv1i4Kc/K
-         os8hgJ1Gl53cxIpyYIjEdqRiACJzyTZ0zl/n03662cBg2UdUr6V06IQklVYpETD7mVPa
-         qWnakeUCK573eLvbbTUby6OrwzMpivMkytBiHhQYPHXYM1otOG3rKzChWxoUEeZLPeVY
-         b0PWVPtBmGT7lkeuVQxYi2pmloeOWJJR5ND4mv3u/EwdwcJp1BMSd82HtIXZcTPoBevm
-         0uGw==
-X-Forwarded-Encrypted: i=1; AKwUvByim+cZWEEEucYR8ViBOrs5JLov3i3u35TsqFhRDokPcqlscOP7ve5Xh/waahlvnwoKl1aSaJuMBdgScaeeYl7t@lists.infradead.org
-X-Gm-Message-State: AFq9FYKKWMIPPp3z4HXZjubAejeodqjiRcGxIzaymEKZ3uC0lipGYvkS
-	7KxqniCiHosBzieIFf0Cvnz3vvElS9N5kYETGcxlSk3yQbNYC0+YPbnj
-X-Gm-Gg: AYBFou0D4Xf44mFspQAOeJqs1nOGji8GzKQRCAexANv9Wihir7q9fWi1ozLJE3o+sD7
-	1A+8+I1dZoeh58gUXOiLXnwze5eGKW+3L8Zbo3dt5AsHnjeaKJt79mWTFSyweu7QfBl0zygrCIN
-	2v0bcy+1bq4Bre+bJ05f6O0JodZNPGfq2x+n3SXenyZTrtPEtQPaGbLn6jGySd2Z1CULUFCeYyC
-	ChAy1upEtZjfdbSE6FHl+9cOSLEAX+C3gij2RaCYSFYrvSt0w3GzTEZWFXJXGnyHmE0PF5OyaoO
-	Unxj2fn7BbUGdYERxhwKg1CV1PTHy0mv8a0a61yVVGmAyf/sLEHMlDuxQKQiUrlN+btYRghvM+O
-	md2UgT22vFVVkXgHGyny+JrmrpxWsOg2RVg37YA1s1pAgqdmC12IdnrdODCDyV0/i0mdogjscQo
-	QdEsW2cB7MP57i0Jt46I0FAIHozDXPUmhIb1u2zu7+1K1OeSHaMlxD7EJaHEplfLflE+fGlZIzu
-	c1Bfoh/KJ31Q2Yt2Zurktq6pElJrgGOjSA1SA5Rc8DOvPQBj7psyHFFMzCOU0QCpc9UyM5Rb5om
-	IHJDiDNaTtj27uhDQzoqz9++46kbyB22m+ZI6/kRlTWYw/iGTonqvrXcCoa6TTfIN/hUACtYKWI
-	4TLSNDxpR4fdFBOA2vGvKWl+OMiQf1PVdf7GXVWitaJC0vBrRe+b7VNofr02YnEbXokrePhnohn
-	K7/wI7
-X-Received: by 2002:a05:600c:a49:b0:49f:ffa2:1c72 with SMTP id 5b1f17b1804b1-4a204b20321mr25966005e9.11.1792648335601;
-        Wed, 21 Oct 2026 22:52:15 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a00-1028-8388-a84e-a0a3-b57b-feb7-50dc.ipv6.o2.cz. [2a00:1028:8388:a84e:a0a3:b57b:feb7:50dc])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a2038ddb20sm41312875e9.0.2026.10.21.22.52.14
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 21 Oct 2026 22:52:14 -0700 (PDT)
-From: Josef Schlehofer <pepe.schlehofer@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Henrik Grimler <henrik@grimler.se>
-Subject: [PATCH v2 2/2] ARM: dts: samsung: Add Hardkernel ODROID-U2
-Date: Thu, 22 Oct 2026 07:52:08 +0200
-Message-ID: <20261022055208.17746-3-pepe.schlehofer@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261022055208.17746-1-pepe.schlehofer@gmail.com>
-References: <20261022055208.17746-1-pepe.schlehofer@gmail.com>
+	Thu, 22 Oct 2026 06:00:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C102060211;
+	Thu, 22 Oct 2026 06:00:01 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1792648801;
+	b=t0+HXvW1enGLhrNMI8H3FIVpA7LIW6CbbEAu+52VmnmNP8nVLtwoYmiO24viQANFl5LN
+	 regG4uGIEQLpCKgXy6mQlwoE3Vu5jTeMBjX34JR1JjG3pXscwIPfKCt7mQgZPRTQ/TCx4
+	 KihSiV0VMHu85jve/5veL+uBFNNDyA5mzQ/nejbvg2zyvTl7QgJm8uM7DF19NNbpgPGUT
+	 sFRDdVoXjo36uPsumsjqszlzvsHvJoPtZbU/Qz2AFik070nHYCORGYKpArTzPwvVdH3tv
+	 MHPSyfVmPK6has/a6JEkFWBiHbn7aLtYFzOOob742z/T3EGCI3aKsmrssLuMBh+N2Pw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1792648801;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=MeqapdHk4YD2xGr4hOW9N3bcaYW9GCT1w2/RAdnybrA=;
+	b=CSj4Msff2qKt+2kByJuif5JD8ZoNzEheY1vPHe9R/y+nRfwSTdBTZXNu6dq0n339h6be
+	 buvv7HLf/8XjbJLhipPUxN6+vbiPc1nWfUn2AGYHyS4WSh+Pn0VigvpjScbfMJjEWyEuJ
+	 TWKgdcb0P3TkuEN0W3KsjQTvJWmgor8bXnjw+iYXPOI+RfBYf2+5ieI4x1FZnLDSDT5Eo
+	 +WYMI4xK3l1g1ScQJqAGfb6lHRsDDzADiIlgh7FVXk+B6UnzVG1wMl5wY8jZOUFpCZ12K
+	 JACz4TXB1urKxSegdzfL/RTrwrLdkrJ9X+pcFtu3XnbYZs5uXBID7Iea998AbMn4HOg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 534741F000C5;
+	Thu, 22 Oct 2026 06:00:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792648801;
+	bh=MeqapdHk4YD2xGr4hOW9N3bcaYW9GCT1w2/RAdnybrA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=D7gHWThiEHCRJAE//0ZvO03APeE4eSO5khBSioNjs1viOKLDlXNM97D0Y1jmC3J4p
+	 WioHP9neImsHWpo9CAheLRo2SwFxOzxA/fO4oZEuCftV07nyEJIWc6a527LqJzlqTM
+	 5xEPLeiwP7LtMeLHloODGF9EKKVPkmeJlen0UytIHe+8NjGxQoSUV2x/+DpBpon5pn
+	 Tme/+kHV/bWmGSq5KA1cy9bCpnESU5Jn0EkdGJde/1EG2QN2lQ67teAumBPeGiEzNm
+	 IsLfrB3rPAmp4Lm6Se4cygPTykusGusKu3Fz+yEigxAFg4WLstvshs//kiLwE6kbKL
+	 cw57PqaNvk47A==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D3EED43511;
+	Thu, 22 Oct 2026 05:59:59 +0000 (UTC)
+From: Cristian Filipescu via B4 Relay <devnull+filipescu.cristian.gmail.com@kernel.org>
+Date: Thu, 22 Oct 2026 05:56:05 +0000
+Subject: [PATCH v2 1/2] dt-bindings: arm: sunxi: Add Orange Pi 3 LTS board
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_225217_466939_D39EE997 
-X-CRM114-Status: GOOD (  24.82  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261022-sunxi-orangepi-3-lts-v2-1-70b899252c6a@gmail.com>
+References: <20261022-sunxi-orangepi-3-lts-v2-0-70b899252c6a@gmail.com>
+In-Reply-To: <20261022-sunxi-orangepi-3-lts-v2-0-70b899252c6a@gmail.com>
+To: linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Andre Przywara <andre.przywara@arm.com>, linux-kernel@vger.kernel.org, 
+ Cristian Filipescu <filipescu.cristian@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792648566; l=1216;
+ i=filipescu.cristian@gmail.com; s=uboot-20261021;
+ h=from:subject:message-id;
+ bh=t1m1y0S3cSpYjFuC+gfshCNEaxwz0B7aj0D0DiamZcc=;
+ b=NWyMN/fe371QAzlJ1JPV7CAU54/0FpQa+6JvwFD18AVO1jIku23xr3877+2ePpVjxPcLhTRRK
+ oe1NGAEHDtYBG0jb7MHbjrFSrvv3pTpNGaeaVmYgXqdDDDpuY/Hvvea
+X-Developer-Key: i=filipescu.cristian@gmail.com; a=ed25519;
+ pk=o7Ui0tU3x+X/6Pq6PZHmd2KFtOdPWttoPuNFOvdD8t0=
+X-Endpoint-Received: by B4 Relay for
+ filipescu.cristian@gmail.com/uboot-20261021 with auth_id=1255
+X-Original-From: Cristian Filipescu <filipescu.cristian@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,139 +111,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: filipescu.cristian@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-ODROID-U2 is a single board computer from Hardkernel based on the
-Samsung Exynos4412 Prime SoC with 2 GB of LPDDR2 RAM. It is the
-predecessor of the ODROID-U3 and shares most of its design:
-- microSD card slot and eMMC module socket
-- SMSC LAN9730 10/100 Ethernet on HSIC0
-- SMSC USB3503A hub on HSIC1 with two USB 2.0 host ports
-- micro-HDMI port with CEC
-- MAX98090 audio codec with a 3.5 mm headphone jack and an on-board
-  digital microphone
-- MAX77686 PMIC
-- 2-pin header for an optional PWM controlled cooling fan
-- blue heartbeat LED
+From: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-Unlike the ODROID-U3, the micro-USB port has no VBUS supply switch, so
-it can only work in peripheral mode, and there is no expansion header
-with SPI. The 3.5 mm jack is headphone only and the speaker outputs of
-the codec are not connected.
+The Orange Pi 3 LTS is similar to the Orange Pi 3, with different
+Ethernet and wireless hardware. It includes 2 GiB RAM and 8 GiB eMMC.
 
-Add a device tree for the board that includes the ODROID-U3 one and
-describes only these differences, as the ODROID-X2 does with the
-ODROID-X, and update the comments in the common dtsi, as the LDO22 and
-BUCK8 constraints are now also used by the ODROID-U2.
+Add its board compatible to the Allwinner platform binding.
 
-Also route "HiFi Capture" to "Mixer DAI RX", as on the ODROID-XU3. The
-odroid sound card driver adds only the playback routes for boards with
-a single CPU DAI, so without it the DPCM capture path to the I2S
-back-end is incomplete and recording from the digital microphone fails
-with "no backend DAIs enabled for Primary".
-
-Link: https://www.hardkernel.com/shop/odroid-u2/
-Link: https://www.hardkernel.com/blog-2/odroid-u2-u-schematics/
-Signed-off-by: Josef Schlehofer <pepe.schlehofer@gmail.com>
+Link: https://lore.kernel.org/linux-sunxi/20250413134318.66681-2-jernej.skrabec@gmail.com/
+Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Cristian Filipescu <filipescu.cristian@gmail.com>
 ---
- arch/arm/boot/dts/samsung/Makefile            |  1 +
- .../dts/samsung/exynos4412-odroid-common.dtsi |  6 +--
- .../boot/dts/samsung/exynos4412-odroidu2.dts  | 42 +++++++++++++++++++
- 3 files changed, 46 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts
+ Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm/boot/dts/samsung/Makefile b/arch/arm/boot/dts/samsung/Makefile
-index e0143ee8c82d..2a173e4b3e1a 100644
---- a/arch/arm/boot/dts/samsung/Makefile
-+++ b/arch/arm/boot/dts/samsung/Makefile
-@@ -16,6 +16,7 @@ dtb-$(CONFIG_ARCH_EXYNOS4) += \
- 	exynos4412-i9305.dtb \
- 	exynos4412-itop-elite.dtb \
- 	exynos4412-n710x.dtb \
-+	exynos4412-odroidu2.dtb \
- 	exynos4412-odroidu3.dtb \
- 	exynos4412-odroidx.dtb \
- 	exynos4412-odroidx2.dtb \
-diff --git a/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi b/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
-index 93ddbd4b0a18..b56b92c78c1d 100644
---- a/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
-+++ b/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
-@@ -414,8 +414,8 @@ ldo21_reg: LDO21 {
+diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
+index f04db28c6..379dc8591 100644
+--- a/Documentation/devicetree/bindings/arm/sunxi.yaml
++++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+@@ -1008,6 +1008,11 @@ properties:
+           - const: xunlong,orangepi-3
+           - const: allwinner,sun50i-h6
  
- 			ldo22_reg: LDO22 {
- 				/*
--				 * Only U3 uses it, so let it define the
--				 * constraints
-+				 * Only U2 and U3 use it, so let them define
-+				 * the constraints
- 				 */
- 				regulator-name = "LDO22";
- 				regulator-boot-on;
-@@ -486,7 +486,7 @@ buck7_reg: BUCK7 {
- 			buck8_reg: BUCK8 {
- 				/*
- 				 * Constraints set by specific board: X,
--				 * X2 and U3.
-+				 * X2, U2 and U3.
- 				 */
- 				regulator-name = "BUCK8_2.8V";
- 			};
-diff --git a/arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts b/arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts
-new file mode 100644
-index 000000000000..bc14df9be9f7
---- /dev/null
-+++ b/arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts
-@@ -0,0 +1,42 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Hardkernel's Exynos4412 based ODROID-U2 board device tree source
-+ *
-+ * Copyright (c) 2026 Josef Schlehofer <pepe.schlehofer@gmail.com>
-+ *
-+ * Device tree source file for Hardkernel's ODROID-U2 board which is based
-+ * on Samsung's Exynos4412 SoC. The board is the predecessor of the
-+ * ODROID-U3, so only the differences from it are described here.
-+ */
++      - description: Xunlong OrangePi 3 LTS
++        items:
++          - const: xunlong,orangepi-3-lts
++          - const: allwinner,sun50i-h6
 +
-+#include "exynos4412-odroidu3.dts"
-+
-+/ {
-+	model = "Hardkernel ODROID-U2 board based on Exynos4412";
-+	compatible = "hardkernel,odroid-u2", "samsung,exynos4412", "samsung,exynos4";
-+};
-+
-+/* No VBUS supply switch on the micro-USB port */
-+/delete-node/ &vbus_otg_reg;
-+
-+&hsotg {
-+	dr_mode = "peripheral";
-+	/delete-property/ vbus-supply;
-+};
-+
-+&sound {
-+	model = "Odroid-U2";
-+	audio-routing = "Headphone Jack", "HPL",
-+			"Headphone Jack", "HPR",
-+			"DMICL", "DMIC",
-+			"DMICR", "DMIC",
-+			"Mixer DAI RX", "HiFi Capture";
-+	samsung,audio-widgets =
-+		"Headphone", "Headphone Jack",
-+		"Microphone", "DMIC";
-+};
-+
-+/* No expansion header with SPI */
-+&spi_1 {
-+	status = "disabled";
-+};
+       - description: Xunlong OrangePi 4A
+         items:
+           - const: xunlong,orangepi-4a
+
 -- 
-2.54.0 (Apple Git-157)
+2.47.3
+
 
 
