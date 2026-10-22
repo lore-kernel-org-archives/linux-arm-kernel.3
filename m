@@ -2,69 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B2A4606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 11:54:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 820CC606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 11:56:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Qi2eHQBC;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VwbgQH6E
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jIVzfePw;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XiygvKaQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=aFj9EOMMM4ZfmH8lB0SRPQlwHihAc++U7Qmw0rZKtAw=; b=Qi2eHQBCb+kzDd+PvSLU+x2g1s
-	kMMsMEZid3uwnG58KhtF1Sc3ZTexlOHIX7YiyK/r9ZH4jmmLq7n1xIbAAwtZFwQyehCv79D1uBHKt
-	RlsXoVVnEFc8j8Q6V4vH8vL41rlqYh15ZJg1azH1avHqI1FBHLS8cByugiv7rEgrfYibWySpEVDDl
-	wXBXfM22k/xce6YmX6KX7xqqtHS+2tY+g0q8zdkwVhji/DsKIQGzoIOyVTTkCga8kGa46QlzgRltK
-	355NxA43k19RW3K35Q0MrlN5dxpX+iSsJ6mlUWbUX1+aTknsNNwmFm8blja37t4UicZKMDH0B8AG/
-	IuRWHpvg==;
+	bh=uSw0hqva5lv8jHz3IgGXQeMNYL3kw4sZIYA08yZ1Xng=; b=jIVzfePwUiZ7iEtBtasUEDUVQo
+	zFmrQKeFNfCu27Pc/3lRR0hwN31zSghq168UYp8CAh5XuNmQnvLw5EE2bcJVyWBlqy1fuN3NMtwA6
+	RAXu2kwpF8txMZDHw0f0lNoJjHNFWwSCWShXQi5SckgPeM2nnVUmWSrFFqWpPfABH0prMySb3m93O
+	YAqVTW5A3+hDXaPRfSF9/fJ883/+k7Xh+alBqwKriU9Eh/hwdCDEPwjU5J8+djnIgt8XJl0E4ZJmN
+	gLohRCpFJ66dnuMBURDa449NSEv3bJsDn53y+jDnySl0ob61UChnwt7k/KxWJZyBKV2rJvJlM3TZF
+	a9nQwsmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJrMo-0000000E2WT-0HKb;
-	Thu, 22 Oct 2026 11:53:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xJrP3-0000000E2mF-1nfZ;
+	Thu, 22 Oct 2026 11:56:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJrMl-0000000E2VY-0WjK
+	id 1xJrP1-0000000E2m4-3lkY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 11:53:51 +0000
+	Thu, 22 Oct 2026 11:56:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4248860A6F;
-	Thu, 22 Oct 2026 11:53:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42F881F000C5;
-	Thu, 22 Oct 2026 11:53:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0DCB960A6F;
+	Thu, 22 Oct 2026 11:56:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B76E91F000C1;
+	Thu, 22 Oct 2026 11:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792670030;
-	bh=aFj9EOMMM4ZfmH8lB0SRPQlwHihAc++U7Qmw0rZKtAw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VwbgQH6E6d2EPY7DrOxy0zWCdu18bjOfHPcC7AtxLsjjNoxU2WijAntIipUbau2H6
-	 SzyLGawID2D2xB3WFoFCq7890+Ml7u9VNIIQFKdaHdOn0AzB3+kpmeVv4tl5+bTSrE
-	 s7Hc4gCSgCjM3DFDo+tNo2WPAyyyP27uW67NO5In8bCrrGOZr3xGMTY38OAM4TqZTM
-	 1rdDjXwP1N22vg1dirZduSskhN+vr0TUkKHAwWiiM/zyvFeYxvGSz/3Uz/RTuR/72q
-	 d3QMKgthEetIcsCackzdQN4/1kTg0Q1+MqnWnLlXuX2bwFA/g+45JC621rhkLufpoJ
-	 T4WYtaaVinzbA==
-Date: Thu, 22 Oct 2026 19:33:44 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	s=k20260515; t=1792670170;
+	bh=uSw0hqva5lv8jHz3IgGXQeMNYL3kw4sZIYA08yZ1Xng=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=XiygvKaQqHrN8jioM3jUCOKES/mevdTuY04wOyxjToclbQdxBqa+8RX/wIr/Qe1hq
+	 4rXbx4/0RuDJ5d4RwUpAFlAJer8xwN0XBEEJ5ZL9ZqePAPy3ZqJjiXvCXKe/A2BXSK
+	 rE+9Z9jL8Crnb65H0ssCKLvGDt00XNHcRYUjW/SybkujFPoL1Zg1yH/jo8qZIVr61r
+	 BJ8rN7A7ifsSGUD6zpKIZhbH0d0k+ry2cCMdagCrFFPg3fFExu1eELX054H/CtpoM/
+	 0e7NkfvITU5Ubhyj6OVQy5FflcB9Q8uw1cdrDq26AX47rQ8VrUA/PnBpUK8pJBeCV/
+	 KdtdxPqDFo51w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xJrOy-000000062XC-1ir3;
+	Thu, 22 Oct 2026 11:56:08 +0000
+Date: Thu, 22 Oct 2026 12:56:07 +0100
+Message-ID: <86ik2uymnc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: stmmac: Disable checksum insertion for XDP frame TX
-Message-ID: <atn0mF-dukVTK6Lh@xhacker>
-References: <20260929121025.20821-1-jszhang@kernel.org>
- <f0d8c25f-96e1-4da8-af6c-3286610338ba@lunn.ch>
+Subject: Re: [PATCH] KVM: arm64: nv: Don't WARN when L1 sets IMO and FMO differently
+In-Reply-To: <20261022100319.3046476-1-fuad.tabba@linux.dev>
+References: <20261022100319.3046476-1-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <f0d8c25f-96e1-4da8-af6c-3286610338ba@lunn.ch>
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seiden@linux.ibm.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, tabba@google.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,46 +89,67 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Sep 29, 2026 at 10:29:14PM +0200, Andrew Lunn wrote:
-> On Tue, Sep 29, 2026 at 08:10:25PM +0800, Jisheng Zhang wrote:
-> > stmmac enables TX checksum insertion for XDP frames whenever the queue
-> > supports it. XDP frames carry no TX checksum offload request, so this
-> > can overwrite a checksum already present in the packet.
-> > 
-> > Pass false to stmmac_prepare_tx_desc() when transmitting an XDP frame
-> > so that the packet is sent with its checksum fields unchanged.
+On Thu, 22 Oct 2026 11:03:19 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
 > 
-> This seems odd to me.
+> When L1 runs L2 with only one of IMO and FMO set in its HCR_EL2,
+> vgic_state_is_nested() WARNs that this isn't supported. KVM then runs
+> L2 as if both bits were set.
 > 
-> If the frame contains a checksum, it is either correct, and the
-> hardware calculated one will come out the same, not an issue.  Or the
-> checksum in the frame is actually wrong, because the frame has got
-> mangled by eBPF before sending it out, and you want the hardware to
-> calculate the correct value.
+> However, IMO and FMO are independent bits, so any L1 can trigger the
+> WARN, which panics a host running with panic_on_warn.
 > 
-> What an i missing?
+> Drop the WARN.
 > 
-Hi Andrew and all,
+> Fixes: 146a050f2d8c4 ("KVM: arm64: nv: Nested GICv3 emulation")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/all/20260714235020.2F4151F000E9@smtp.kernel.org/
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+> I dropped the WARN rather than demoting it to a print, the same way
+> e6e3e0022ef8f ("KVM: arm64: timer: Drop warning on failed interrupt
+> signalling") dropped one that was loud and easy to trigger from
+> userspace.
+> 
+> Tested on QEMU with kvm-arm.mode=nested. A reproducer of mine sets
+> L1's HCR_EL2 to IMO=1, FMO=0, TGE=0 through KVM_SET_ONE_REG and starts
+> the vCPU at EL1. The host WARNs on the first KVM_RUN without this
+> patch, and not with it.
+> 
+> Based on kvmarm/fixes (c5b7894f1a26b), which has the HCR_EL2_* rename.
+> 
+>  arch/arm64/kvm/vgic/vgic-v3-nested.c | 3 ---
+>  1 file changed, 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+> index 82bfc4d4f122f..c70e06c46a7a5 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+> @@ -121,9 +121,6 @@ bool vgic_state_is_nested(struct kvm_vcpu *vcpu)
+>  
+>  	if (is_nested_ctxt(vcpu)) {
+>  		xmo = __vcpu_sys_reg(vcpu, HCR_EL2) & (HCR_EL2_IMO | HCR_EL2_FMO);
+> -		WARN_ONCE(xmo && xmo != (HCR_EL2_IMO | HCR_EL2_FMO),
+> -			  "Separate virtual IRQ/FIQ settings not supported\n");
+> -
+>  		return !!xmo;
+>  	}
+>  
 
-some discussions happened in below thread
-https://lore.kernel.org/netdev/athAoWfW-xesPhFP@xhacker/
+No. Either we fix the bug, or the WARN_ON() stays. There is no
+alternative.
 
-Since it has been merged. Let's move the discussion back to my patch.
+	M.
 
-AIUI, dwmac can only do HW checksum for normal particular packets
-layouts, such as TCP, UDP etc. The stmmac_has_ip_ethertype() has
-well demostrated this limitation.
-Different with normal tx where the common stack supplies the skb->ip_summed
-metadata, XDP path doesn't have the necessary metadata. So to make
-the XDP always work properly when transmiting tranmist arbitrary Eth
-frames, dwmac HW csum needs to be disabled by default currently.
-
-Thanks
+-- 
+Without deviation from the norm, progress is not possible.
 
