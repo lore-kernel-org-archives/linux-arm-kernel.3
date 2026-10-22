@@ -2,103 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06043606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 08:11:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9ECEE606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 08:11:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qnED9MfR;
-	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=bOYSkJ0L
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4DListQB;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=aAAkj5mM;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=jV1eySsX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=thsWnFdh4n3JhHmMbTZXSIeNEKp9gDnd9mJPsgdDwqw=; b=qnED9MfRHhE4sXjdrki0KOBqO9
-	p1+6Y8KUwkV4pSh0jlvGbs/+MYAUNKE2uCg6EKdRHlUKib+yRNypNkoPOFHjKmJxwEpWtx1e9P+vw
-	jRA3bong0OXxEZcQ00jcW0mTxxvDjeT3XtFlnjjA4sODtpXBqVEcjZ6UV3ZMxOFcVVBoLVdqBHU08
-	PnQkUX3d4wvK4xtmwFS//DlVBb3j7tIBr9i45DRb7TEgsxMGMFpAr6M+d1/rqmpxInecVr2I1MYJU
-	PQs7H39m5jUfX7KQecM/FK65YvaqfVFpe6KXhNw14qlkySVhABVhGVWoI/wEfM6ZOjbz//kF+REE0
-	4NZvNo+A==;
+	bh=qYOHuuQ+lfkA5BRdfuA4wsOKx0VJNbOe26fi2cEceWg=; b=4DListQBLrEuN6IkBy5U//HfLm
+	S7Wu1xKMsgSH8ktgFfpeKOJi1ryJals0SArfXzDqH1ro0hwsV9vydUb09z8nk+xMgW6Ttnyi6vJuk
+	lDJuZFhBLjtfJqdN+dpiqmNbpvmwWfALkzLqPGoyobyxh9WWOZCmqgFrjN7f7Sf4ij6fjw5iEyecv
+	QPh8hrMu/5MsyEesB+W5ZmFcTufnlzjzLH27Suo8emgtH5cnsmuEHH1PRPhWGEoyfd+ZmRPsicKT4
+	1NcSVqmOHj2p6H2Akxi9oEK8T5czj7K98Uk1c+dTeHLF4itakPRa1klU9x7v/T6k1NKwEZisJ0xJd
+	GBwdNfCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJntk-0000000DdCS-0plh;
-	Thu, 22 Oct 2026 08:11:40 +0000
-Received: from esa5.hc1455-7.c3s2.iphmx.com ([68.232.139.130])
+	id 1xJnts-0000000DdDy-1IuQ;
+	Thu, 22 Oct 2026 08:11:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJntg-0000000DdB9-0ZL2
+	id 1xJntr-0000000DdDk-0YDx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 22 Oct 2026 08:11:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=qYOHuuQ+lfkA5BRdfuA4wsOKx0VJNbOe26fi2cEceWg=; b=aAAkj5mMJNaHJM6WK/u9yZPDee
+	QYqWfLn9wHf9SYPLv0SlIqdLTb5LyJJw9sOxezdOHi0GSb67FEAanlfHeXNyb50klVajd8YqWfGx+
+	nEn349UKz1IRvABV0ZsY4iFt2aBOmY5XMubk2ofU5+6iFbIQAb6J4Gmi9v+e240YX7q8m74DtLMTl
+	bncUdgCRRD3pTGveW4zg3KPfhdfDCdurUNc1wrfB2qmBh+cTIq1xqqjyefXbv+RY0GfEEavy8xdN+
+	zIdwyXLROmzZGF0vMPGGnA3/RUgURM5zLegkQvIIpSbaU85hlxSIxEsRnplpqIzWuaLqMpAzEGRS/
+	sAj+isxQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xJntl-00000006aB8-4BYs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 08:11:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1792656696; x=1824192696;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=2R7ReUxr0LJZyOrHIF3pnSnWDPoZuBEmJOs39JEz+kk=;
-  b=bOYSkJ0LSV9MZVhp93Fi0bRUNTvz79oP1lWYhomhoBZj3fb+fwkUVpGJ
-   Z07PSUANvG76CXK2d4tyvTlx+9jC9mE/nN7pyUEJZDqRy+GEK1hnMW2WP
-   FPQz+MJ+UCIDQLh+gq/IotAIPZp1vHiPHVcGaVxWPO3iSMFLHQQtTs8Ry
-   k7EBKxHtU3ol7dUJlzfVXgW0MrX7oBXVbxuCZlfD1eAdFwV94CWx1oXYp
-   Ssfe3dXlsL8xb2avKiBSz6Z1H1iFDZxhV0WNQL/G0eFEWn7icw16lJ+hH
-   Yh61vg8c+FHEmbZErphikV680VjbNlc7SSAX/6ffgGlKTs/D24CfAwCwN
-   w==;
-X-CSE-ConnectionGUID: PfeZipKGQ56ZGpcfBvdIBg==
-X-CSE-MsgGUID: QaIEZ+RlR8Wo0mWLqb+Dhw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11942"; a="257296531"
-X-IronPort-AV: E=Sophos;i="6.27,171,1786978800"; 
-   d="scan'208";a="257296531"
-Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
-  by esa5.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2026 17:11:30 +0900
-Received: from az2nlsmgm3.fujitsu.com (unknown [10.150.26.205])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 58DE08398
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 08:11:30 +0000 (UTC)
-Received: from az2uksmom4.o.css.fujitsu.com (unknown [10.151.22.204])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm3.fujitsu.com (Postfix) with ESMTPS id 14F131803202
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 08:11:30 +0000 (UTC)
-Received: from [127.0.1.1] (unknown [10.124.178.20])
-	by az2uksmom4.o.css.fujitsu.com (Postfix) with ESMTP id C2DA1408085;
-	Thu, 22 Oct 2026 08:11:24 +0000 (UTC)
-From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Date: Thu, 22 Oct 2026 17:11:18 +0900
-Subject: [PATCH v2] KVM: arm64: selftests: Test VNCR translation
- invalidation
+	Thu, 22 Oct 2026 08:11:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7DC2C1596;
+	Thu, 22 Oct 2026 01:11:35 -0700 (PDT)
+Received: from e132581.arm.com (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E39B33F673;
+	Thu, 22 Oct 2026 01:11:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792656698; bh=dK/jptfyGpjv63FMuBSceW6BBKYpzO/KNBTZR86K/Xg=;
+	h=From:Date:Subject:To:Cc:From;
+	b=jV1eySsXgMc4w3MGqgbKaG+GojN10rZQi160gqstgYqOtjzJJSZCgzPopatD/kP5P
+	 AgXzifYAwKw23aIqf7KZkV7R9ClbOG4xOBzE8e6eBnOn3slUmzNKGLeG/OJgkCncvg
+	 9Lt74zwEbwz6MBp59jHWCr4wcao8z1kZISLVUfXw=
+From: Leo Yan <leo.yan@arm.com>
+Date: Thu, 22 Oct 2026 09:11:26 +0100
+Subject: [PATCH] coresight: etm4x: Fix event count decoding
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261022-b4-vncr-mapping-test-v2-1-033e63ee055d@fujitsu.com>
-X-B4-Tracking: v=1; b=H4sIACXF2WoC/4WNQQ6CMBBFr0Jm7RhagYgr72FYtGWAIaE0bWk0h
- LsLeACXL3n//RUCeaYAj2wFT4kDz3YHecnADMr2hNzuDDKXlcilRF1gssbjpJxj22OkEPGmxN3
- oolaSJOxT56nj95l9NT8Oix7JxKN1GAOHOPvP+ZvE4f25SAIFUq3asmjLvNL07JaRY1iuZp6g2
- bbtC8vc3qrMAAAA
-X-Change-ID: 20261022-b4-vncr-mapping-test-3a18cb49a2e2
-To: Paolo Bonzini <pbonzini@redhat.com>, 
- Sean Christopherson <seanjc@google.com>, Shuah Khan <shuah@kernel.org>, 
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
- Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
- Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>
-Cc: linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- kvmarm@lists.linux.dev, Itaru Kitayama <itaru.kitayama@fujitsu.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792656684; l=10261;
- i=itaru.kitayama@fujitsu.com; s=20260825; h=from:subject:message-id;
- bh=2R7ReUxr0LJZyOrHIF3pnSnWDPoZuBEmJOs39JEz+kk=;
- b=Det27zPbheZBaH5/1pCeSRVHqaOa6GUsbVkrsFrcOSe5y2LfwCECrkmcFRLV7WcgAr5lzGP9m
- 7g0LO5Z0RCmB0oNUxo79UjH0h8qMVb5mNgiymkfoQ2ifKDyOz63Rcah
-X-Developer-Key: i=itaru.kitayama@fujitsu.com; a=ed25519;
- pk=g9bTnr9giRP7JwNSZHy+OMLQZBEUtSE9tUnXso0hH1Y=
+Message-Id: <20261022-arm_cs_fix_etm4_event_count-v1-1-588b2922a546@arm.com>
+X-B4-Tracking: v=1; b=H4sIAC3F2WoC/x3MQQqDMBBA0avIrA3EabDaq4gMIZ20s0gsSQwF8
+ e4Glw8+/4DMSTjDqzsgcZUsW2wY+g7c18YPK3k3A2ocB42obArkMnn5E5dgiCvHQm7bY1Fm9o/
+ JWPSjfUI7/BK37r4v63le2gtnUm0AAAA=
+X-Change-ID: 20261022-arm_cs_fix_etm4_event_count-49f384a2f6a7
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Amir Ayupov <aaupov@fb.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792656696; l=5144;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=dK/jptfyGpjv63FMuBSceW6BBKYpzO/KNBTZR86K/Xg=;
+ b=xFN48xQcxo/+laWhi1C2/nj87AFBSHvWUdW1T+NF+q9i1Qf4dsvfCmCxWM3ew/V6cvZFu0FrJ
+ 33cGPVYrC2uDyviJ8eUMFKR3pTh7B750mXhpa+P5uoTMe4hHyD6tks0
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_011137_798818_1146FB65 
-X-CRM114-Status: GOOD (  21.70  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261022_091144_401413_5C15FF8B 
+X-CRM114-Status: GOOD (  18.01  )
+X-Spam-Score: -2.5 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,355 +104,134 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add a standalone KVM selftest that checks VNCR accesses after L1
-updates its stage-1 mapping and issues a TLBI.
+TRCIDR0.NUMEVENT normally encodes the number of events minus one.
+From ETMv4.3 onwards, including ETE, a zero TRCIDR4.NUMRSPAIR instead
+means that no events are implemented and NUMEVENT is zero. The sysfs
+event controls currently interpret this combination as one event and
+allow writes to unsupported event fields.
 
-Keep VNCR_EL2 unchanged while remapping its backing page A to B then
-again to A. At each step, L2 reads and writes TPIDR_EL2, and L1
-verifies that the accesses reach the selected page while leaving the
-other page unchanged.
+Decode NUMEVENT after NUMRSPAIR and store the actual number of events
+in nr_event. Use the decoded resource count so that older ETM versions,
+where a zero NUMRSPAIR represents one resource pair, still report at
+least one event. Update both sysfs event controls to use the actual
+count and clear their event fields when no events are implemented.
 
-The test runs with L1-managed stage-2 translation disabled.
+Also correct the instruction event enable mask for the single-event
+case to use INSTEN[0]. The existing mask uses INSTEN[1], preventing
+event 0 from being enabled.
 
-Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+This change depends on the recent driver refactoring. With no reported
+failures, it is not intended for stable backporting.
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
-Changes in v2:
-- Fix inverted page-frame and page-offset masks when mapping
-  the page-table descriptor, as reported by sashiko-bot
-- Link to v1: https://patch.msgid.link/20261022-b4-vncr-mapping-test-v1-1-e9ad54d506be@fujitsu.com
----
- tools/testing/selftests/kvm/Makefile.kvm           |   1 +
- .../selftests/kvm/arm64/nv_vncr_tlbi_test.c        | 303 +++++++++++++++++++++
- 2 files changed, 304 insertions(+)
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 15 +++++++++--
+ .../hwtracing/coresight/coresight-etm4x-sysfs.c    | 29 ++++++++++++----------
+ 2 files changed, 29 insertions(+), 15 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index f43549a56f0b..9f0af6ef54ba 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -181,6 +181,7 @@ TEST_GEN_PROGS_arm64 += arm64/host_sve
- TEST_GEN_PROGS_arm64 += arm64/hypercalls
- TEST_GEN_PROGS_arm64 += arm64/external_aborts
- TEST_GEN_PROGS_arm64 += arm64/mmio_sign_ext
-+TEST_GEN_PROGS_arm64 += arm64/nv_vncr_tlbi_test
- TEST_GEN_PROGS_arm64 += arm64/page_fault_test
- TEST_GEN_PROGS_arm64 += arm64/psci_test
- TEST_GEN_PROGS_arm64 += arm64/sea_to_user
-diff --git a/tools/testing/selftests/kvm/arm64/nv_vncr_tlbi_test.c b/tools/testing/selftests/kvm/arm64/nv_vncr_tlbi_test.c
-new file mode 100644
-index 000000000000..283e03bb007b
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/nv_vncr_tlbi_test.c
-@@ -0,0 +1,303 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Check VNCR translation invalidation through observable memory effects.
-+ *
-+ * L1 keeps VNCR_EL2 unchanged while remapping its virtual address:
-+ *
-+ *     VNCR VA -> page A -> page B -> page A
-+ *
-+ * L2 reads and writes TPIDR_EL2 with HCR_EL2.{NV2,NV} == {1,1}.
-+ * These accesses use the TPIDR_EL2 slot at VNCR offset 0x090.
-+ *
-+ * After each L2 HVC, L1 checks:
-+ *   - the value returned by the redirected register read;
-+ *   - the value written to the selected backing page;
-+ *   - that the other backing page remains unchanged.
-+ *
-+ * No L3 and no L1-managed stage-2 translation are needed.
-+ */
-+
-+#include "kvm_util.h"
-+#include "processor.h"
-+#include "test_util.h"
-+#include "ucall_common.h"
-+
-+#define VNCR_TPIDR_OFFSET	0x090
-+
-+#define SEED_A			0x1111222233334444ULL
-+#define SEED_B			0x5555666677778888ULL
-+#define WRITE_A			0xaaaabbbbccccddddULL
-+#define WRITE_B			0x123456789abcdef0ULL
-+#define WRITE_A_AGAIN		0xfedcba9876543210ULL
-+
-+#define L1_HCR			(HCR_EL2_RW | HCR_EL2_E2H | \
-+				 HCR_EL2_NV | HCR_EL2_NV2)
-+#define L2_PSTATE		(PSR_MODE_EL1h | PSR_D_BIT | PSR_A_BIT | \
-+				 PSR_I_BIT | PSR_F_BIT)
-+
-+static struct test_config {
-+	u64 vncr_va;
-+	u64 *vncr_ptep;
-+	u64 pte_a;
-+	u64 pte_b;
-+	u64 *slot_a;
-+	u64 *slot_b;
-+	u64 l2_sp;
-+} cfg;
-+
-+static unsigned int round_nr;
-+
-+extern void l2_probe(void);
-+extern char l2_after_hvc[];
-+
-+/*
-+ * x1: value to write.
-+ * x0: value read, observed by L1's HVC handler.
-+ *
-+ * No stack accesses or C calls in L2.
-+ * Use the SMCCC convention of a zero HVC immediate.
-+ */
-+asm(
-+".pushsection .text,\"ax\"\n"
-+".balign 4\n"
-+".global l2_probe\n"
-+".type l2_probe, %function\n"
-+"l2_probe:\n"
-+"	mrs	x0, tpidr_el2\n"
-+"	msr	tpidr_el2, x1\n"
-+"	dsb	ish\n"
-+"	hvc	#0\n"
-+".global l2_after_hvc\n"
-+"l2_after_hvc:\n"
-+"	brk	#0\n"
-+".size l2_probe, . - l2_probe\n"
-+".popsection\n"
-+);
-+
-+static void remap_vncr(u64 new_pte)
-+{
-+	u64 hcr = read_sysreg(hcr_el2);
-+	u64 operand = cfg.vncr_va >> 12;
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index e21be6468e9544fe6e22f524de4fef9f89d7484f..b0e286f487017a4155595f14cbb9c9c33b17dc6b 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -1451,8 +1451,6 @@ static void etm4_init_arch_data(void *info)
+ 	caps->trccci = !!(etmidr0 & TRCIDR0_TRCCCI);
+ 	/* RETSTACK, bit[9] Return stack bit */
+ 	caps->retstack = !!(etmidr0 & TRCIDR0_RETSTACK);
+-	/* NUMEVENT, bits[11:10] Number of events field */
+-	caps->nr_event = FIELD_GET(TRCIDR0_NUMEVENT_MASK, etmidr0);
+ 	/* QSUPP, bits[16:15] Q element support field */
+ 	caps->q_support = FIELD_GET(TRCIDR0_QSUPP_MASK, etmidr0);
+ 	if (caps->q_support)
+@@ -1519,6 +1517,19 @@ static void etm4_init_arch_data(void *info)
+ 	caps->nr_resource = FIELD_GET(TRCIDR4_NUMRSPAIR_MASK, etmidr4);
+ 	if ((drvdata->arch < ETM_ARCH_V4_3) || (caps->nr_resource > 0))
+ 		caps->nr_resource += 1;
 +
 +	/*
-+	 * Use the VHE host translation regime for the EL1 TLBI
-+	 * instruction: HCR_EL2.{E2H,TGE} == {1,1}.
++	 * See ARM IHI0064H.b, sections 7.3.32 (TRCIDR0) and 7.3.36 (TRCIDR4).
++	 *
++	 * Before ETMv4.3, one event is always implemented. For ETM v4.3 and
++	 * later, NUMRSPAIR == 0 indicates that no events are implemented.
++	 * Otherwise, NUMEVENT encodes the number of events minus one.
 +	 */
-+	write_sysreg(hcr | HCR_EL2_TGE, hcr_el2);
-+	isb();
++	if (caps->nr_resource)
++		caps->nr_event = FIELD_GET(TRCIDR0_NUMEVENT_MASK, etmidr0) + 1;
++	else
++		caps->nr_event = 0;
 +
-+	/* Break before make. VNCR_EL2 itself is never rewritten. */
-+	WRITE_ONCE(*cfg.vncr_ptep, 0);
-+	dsb(ishst);
-+
-+	asm volatile("tlbi vaae1is, %0" : : "r" (operand) : "memory");
-+	dsb(ish);
-+	isb();
-+
-+	WRITE_ONCE(*cfg.vncr_ptep, new_pte);
-+	dsb(ishst);
-+	isb();
-+
-+	/* Permit return to L2 at EL1. */
-+	write_sysreg(hcr, hcr_el2);
-+	isb();
-+}
-+
-+static void handle_l2_hvc(struct ex_regs *regs)
-+{
-+	u64 esr = read_sysreg(esr_el1);
-+
-+	GUEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_HVC64);
-+	GUEST_ASSERT_EQ(esr & 0xffff, 0x0);
-+	GUEST_ASSERT_EQ(regs->pc, (u64)l2_after_hvc);
-+	GUEST_ASSERT_EQ(read_sysreg_s(SYS_VNCR_EL2), cfg.vncr_va);
-+
-+	dsb(ish);
-+
-+	switch (round_nr) {
+ 	/*
+ 	 * NUMSSCC, bits[23:20] the number of single-shot
+ 	 * comparator control for tracing. Read any status regs as these
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+index db9e603f97ba82cd608d3d61881fe8153db020ff..fb38f0102290a53a681934c827abf107c141a740 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+@@ -513,19 +513,22 @@ static ssize_t event_store(struct device *dev,
+ 
+ 	raw_spin_lock(&drvdata->spinlock);
+ 	switch (caps->nr_event) {
+-	case 0x0:
 +	case 0:
-+		/* Warmed translation: VNCR VA -> A. */
-+		GUEST_ASSERT_EQ(regs->regs[0], SEED_A);
-+		GUEST_ASSERT_EQ(READ_ONCE(*cfg.slot_a), WRITE_A);
-+		GUEST_ASSERT_EQ(READ_ONCE(*cfg.slot_b), SEED_B);
-+
-+		remap_vncr(cfg.pte_b);
-+		regs->regs[1] = WRITE_B;
++		sysfs_config->eventctrl0 = 0;
 +		break;
-+
 +	case 1:
-+		/* Following TLBI, reads and writes must now use B. */
-+		GUEST_ASSERT_EQ(regs->regs[0], SEED_B);
-+		GUEST_ASSERT_EQ(READ_ONCE(*cfg.slot_b), WRITE_B);
-+		GUEST_ASSERT_EQ(READ_ONCE(*cfg.slot_a), WRITE_A);
-+
-+		remap_vncr(cfg.pte_a);
-+		regs->regs[1] = WRITE_A_AGAIN;
-+		break;
-+
+ 		/* EVENT0, bits[7:0] */
+ 		sysfs_config->eventctrl0 = val & 0xFF;
+ 		break;
+-	case 0x1:
+-		 /* EVENT1, bits[15:8] */
 +	case 2:
-+		/* Check invalidation again, with the mapping reversed. */
-+		GUEST_ASSERT_EQ(regs->regs[0], WRITE_A);
-+		GUEST_ASSERT_EQ(READ_ONCE(*cfg.slot_a), WRITE_A_AGAIN);
-+		GUEST_ASSERT_EQ(READ_ONCE(*cfg.slot_b), WRITE_B);
-+
-+		GUEST_DONE();
-+	default:
-+		GUEST_FAIL("Unexpected round %u", round_nr);
-+		return;
-+	}
-+
-+	round_nr++;
-+	regs->pc = (u64)l2_probe;
-+	regs->pstate = L2_PSTATE;
-+}
-+
-+static void guest_code(void)
-+{
-+	GUEST_ASSERT_EQ(get_current_el(), 2);
-+	GUEST_ASSERT(read_sysreg(hcr_el2) & HCR_EL2_E2H);
-+
-+	/*
-+	 * With E2H=1, these EL1 accessors read L1's own configuration.
-+	 * EL12 accessors configure the EL1 context used to execute L2.
-+	 */
-+	write_sysreg_s(read_sysreg(tcr_el1), SYS_TCR_EL12);
-+	write_sysreg_s(read_sysreg(ttbr0_el1), SYS_TTBR0_EL12);
-+	write_sysreg_s(read_sysreg(mair_el1), SYS_MAIR_EL12);
-+	write_sysreg_s(read_sysreg(cpacr_el1), SYS_CPACR_EL12);
-+	write_sysreg_s(read_sysreg(vbar_el1), SYS_VBAR_EL12);
-+	write_sysreg_s(read_sysreg(sctlr_el1), SYS_SCTLR_EL12);
-+	write_sysreg(cfg.l2_sp, sp_el1);
-+	isb();
-+
-+	/*
-+	 * These aliases remain mapped throughout the test. They allow
-+	 * inspection of both backing pages independently of VNCR VA.
-+	 */
-+	WRITE_ONCE(*cfg.slot_a, SEED_A);
-+	WRITE_ONCE(*cfg.slot_b, SEED_B);
-+	dsb(ish);
-+
-+	/* Program the VNCR address exactly once. */
-+	write_sysreg_s(cfg.vncr_va, SYS_VNCR_EL2);
-+
-+	/* VM=0, TGE=0; enable nested register redirection for L2. */
-+	write_sysreg(L1_HCR, hcr_el2);
-+	isb();
-+
-+	GUEST_ASSERT_EQ(read_sysreg(hcr_el2) &
-+			(HCR_EL2_NV | HCR_EL2_NV2),
-+			HCR_EL2_NV | HCR_EL2_NV2);
-+	GUEST_ASSERT(!(read_sysreg(hcr_el2) & HCR_EL2_VM));
-+
-+	write_sysreg((u64)l2_probe, elr_el2);
-+	write_sysreg(L2_PSTATE, spsr_el2);
-+	isb();
-+
-+	asm volatile(
-+		"mov x1, %0\n"
-+		"eret\n"
-+		:
-+		: "r" (WRITE_A)
-+		: "x1", "memory");
-+
-+	__builtin_unreachable();
-+}
-+
-+/* Add a guest virtual alias for an existing guest physical page. */
-+static u64 map_alias(struct kvm_vm *vm, u64 gpa)
-+{
-+	u64 va = vm_unused_gva_gap(vm, vm->page_size,
-+				  KVM_UTIL_MIN_VADDR);
-+
-+	virt_map(vm, va, gpa, 1);
-+	return va;
-+}
-+
-+static void prepare_memory(struct kvm_vm *vm)
-+{
-+	u64 a = vm_alloc_page(vm);
-+	u64 b = vm_alloc_page(vm);
-+	u64 page_offset_mask = (u64)vm->page_size - 1;
-+	u64 stack = vm_alloc_pages(vm, DEFAULT_STACK_PGS);
-+	u64 ptep_gpa, ptep_alias;
-+	u64 *ptep;
-+
-+	cfg.slot_a = (u64 *)(a + VNCR_TPIDR_OFFSET);
-+	cfg.slot_b = (u64 *)(b + VNCR_TPIDR_OFFSET);
-+	cfg.l2_sp = stack + DEFAULT_STACK_PGS * vm->page_size;
-+
-+	/* Initially, the separate VNCR virtual address maps page A. */
-+	cfg.vncr_va = map_alias(vm, addr_gva2gpa(vm, a));
-+
-+	ptep = virt_get_pte_hva(vm, cfg.vncr_va);
-+	cfg.pte_a = *ptep;
-+	cfg.pte_b = *virt_get_pte_hva(vm, b);
-+
-+	TEST_ASSERT(cfg.pte_a != cfg.pte_b,
-+		    "Backing pages must have different descriptors");
-+	TEST_ASSERT((cfg.pte_a & (PTE_VALID | PTE_TYPE_PAGE)) ==
-+		    (PTE_VALID | PTE_TYPE_PAGE),
-+		    "VNCR mapping must use a leaf page descriptor");
-+
-+	/*
-+	 * Map the page containing the descriptor into L1, so L1 can
-+	 * perform its own page-table update and architectural TLBI.
-+	 */
-+	ptep_gpa = addr_hva2gpa(vm, ptep);
-+	ptep_alias = map_alias(vm, ptep_gpa & ~page_offset_mask);
-+	cfg.vncr_ptep = (u64 *)(ptep_alias + (ptep_gpa & page_offset_mask));
-+
-+	sync_global_to_guest(vm, cfg);
-+}
-+
-+int main(void)
-+{
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	struct ucall uc;
-+	u64 mmfr4, cmd;
-+
-+	TEST_REQUIRE(test_supports_el2());
-+
-+	vm = __vm_create_with_one_vcpu(&vcpu, 32, guest_code);
-+	TEST_REQUIRE(vcpu_has_el2(vcpu));
-+
-+	/*
-+	 * Target KVM's exposed NV2-only-or-later nested capability.
-+	 * Merely having a virtual EL2 is insufficient for this test.
-+	 */
-+	mmfr4 = vcpu_get_reg(vcpu,
-+			    KVM_ARM64_SYS_REG(SYS_ID_AA64MMFR4_EL1));
-+	TEST_REQUIRE(FIELD_GET(ID_AA64MMFR4_EL1_NV_frac, mmfr4) >=
-+		     ID_AA64MMFR4_EL1_NV_frac_NV2_ONLY);
-+
-+	vm_init_descriptor_tables(vm);
-+	vcpu_init_descriptor_tables(vcpu);
-+	vm_install_sync_handler(vm, VECTOR_SYNC_LOWER_64,
-+				ESR_ELx_EC_HVC64, handle_l2_hvc);
-+
-+	prepare_memory(vm);
-+
-+	for (;;) {
-+		vcpu_run(vcpu);
-+		cmd = get_ucall(vcpu, &uc);
-+
-+		switch (cmd) {
-+		case UCALL_PRINTF:
-+			REPORT_GUEST_PRINTF(uc);
-+			break;
-+		case UCALL_ABORT:
-+			REPORT_GUEST_ASSERT(uc);
-+			break;
-+		case UCALL_DONE:
-+			pr_info("PASS: VNCR accesses followed A -> B -> A mappings; "
-+		"inactive backing slots remained unchanged\n");
-+			kvm_vm_free(vm);
-+			return 0;
-+		default:
-+			TEST_FAIL("Unexpected ucall %lu, KVM exit reason %u",
-+				  cmd, vcpu->run->exit_reason);
-+		}
-+	}
-+}
++		/* EVENT1, bits[15:8] */
+ 		sysfs_config->eventctrl0 = val & 0xFFFF;
+ 		break;
+-	case 0x2:
++	case 3:
+ 		/* EVENT2, bits[23:16] */
+ 		sysfs_config->eventctrl0 = val & 0xFFFFFF;
+ 		break;
+-	case 0x3:
++	case 4:
+ 		/* EVENT3, bits[31:24] */
+ 		sysfs_config->eventctrl0 = val;
+ 		break;
+@@ -565,22 +568,22 @@ static ssize_t event_instren_store(struct device *dev,
+ 	/* start by clearing all instruction event enable bits */
+ 	sysfs_config->eventctrl1 &= ~TRCEVENTCTL1R_INSTEN_MASK;
+ 	switch (caps->nr_event) {
+-	case 0x0:
+-		/* generate Event element for event 1 */
+-		sysfs_config->eventctrl1 |= val & TRCEVENTCTL1R_INSTEN_1;
++	case 1:
++		/* generate Event element for event 0 */
++		sysfs_config->eventctrl1 |= val & TRCEVENTCTL1R_INSTEN_0;
+ 		break;
+-	case 0x1:
+-		/* generate Event element for event 1 and 2 */
++	case 2:
++		/* generate Event element for events 0 and 1 */
+ 		sysfs_config->eventctrl1 |= val & (TRCEVENTCTL1R_INSTEN_0 |
+ 						   TRCEVENTCTL1R_INSTEN_1);
+ 		break;
+-	case 0x2:
+-		/* generate Event element for event 1, 2 and 3 */
++	case 3:
++		/* generate Event element for events 0, 1 and 2 */
+ 		sysfs_config->eventctrl1 |= val & (TRCEVENTCTL1R_INSTEN_0 |
+ 					     TRCEVENTCTL1R_INSTEN_1 |
+ 					     TRCEVENTCTL1R_INSTEN_2);
+ 		break;
+-	case 0x3:
++	case 4:
+ 		/* generate Event element for all 4 events */
+ 		sysfs_config->eventctrl1 |= val & (TRCEVENTCTL1R_INSTEN_0 |
+ 					     TRCEVENTCTL1R_INSTEN_1 |
 
 ---
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
-change-id: 20261022-b4-vncr-mapping-test-3a18cb49a2e2
+base-commit: 343cfcbb3ecfdb80aa576a428cfa3b65ad783842
+change-id: 20261022-arm_cs_fix_etm4_event_count-49f384a2f6a7
 
 Best regards,
---  
-Itaru Kitayama <itaru.kitayama@fujitsu.com>
+-- 
+Leo Yan <leo.yan@arm.com>
 
 
