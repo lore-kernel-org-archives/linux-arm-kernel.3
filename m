@@ -2,83 +2,160 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BC1A606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 19:00:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD84360A380C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 19:05:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zCpmJRUh;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=ixrteNqs
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t0mfwJYD;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=qKnmRfCB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=RhKt16of56GSIqtS3K+XfsNEUpLs5ygGgmwiyfLWjSI=; b=zCpmJRUhgmIBpdwzcVmy4Q+s2e
-	J5z6TKU89DAa1lTx5GYIzSEYZ4/iJaClTqz6Cm8zLjFEJNs/mme6zfWau+uxw9XsTQo4c++KmBH02
-	F5hJW+/Da7JB5KBjBMOf+5bxOs+idvaf8ppa0UN7jHGykjxe/a7bMVQJbwXf1GB9TBIjTSmfRdTWq
-	rbFOjcY1+7nRNcDGpNOkzPKkxpivDR0E3bFpcRn8Q+LI2yifuQzkBJ3bfH0Ju8G59igMWQJPN8xRk
-	A4tam8S1iSsGjDGtZIDD/VckW213WVENIJv7vwt7GUIlCQQ8eoQsH3MRP4J5ruS8vH4tc/ijPVATG
-	yoiBg32Q==;
+	bh=uxm/yUaSqwop43ZpO6Qrl+/bYkIuIApLhmFjuNrCLNY=; b=t0mfwJYD9dOgHkMkqevyPrBJTd
+	u55WRfH2X2G7Gl5tUYPDNuif+GjDJzmu0+B/AmXkqkn6ZXrY6X83yJkC4d2Gjtgeeq9PLU3zQswkX
+	ktA8itILWQccw3Euq1OnQGCPjui9Wx9ucE46HSo4x3cTVfvdKE/3fWeWF6oR1yYhqcxk9qFVfukKj
+	msBoJmeXSU+SlS8ah6owQOsv0MM1rkg38xZD/iaBf9O389F7v0iiAC7AQsQN9PC6FKAv5Opt861RE
+	6nvxmBlGmfFIhdsbcuT79eqxjVDMgiMmqcjAliGnomYaHbo5pQg6q6uWdF2sjlYWA+9KZsvvVWJsC
+	JneblWQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJxvn-0000000El3K-3g7g;
-	Thu, 22 Oct 2026 18:54:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xJy6H-0000000EmUh-0XIu;
+	Thu, 22 Oct 2026 19:05:17 +0000
+Received: from mail-westeuropeazon11010026.outbound.protection.outlook.com ([52.101.69.26] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJxvm-0000000El2J-2Uh7
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 Oct 2026 18:54:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=RhKt16of56GSIqtS3K+XfsNEUpLs5ygGgmwiyfLWjSI=; b=ixrteNqs7F8wDIEQxpV+JxJYO5
-	0i5CsfggraEYPNmYpPWPXEx5se/wxeS6jDEEkDPO4wQUroGz5nrdNogtVHvZHMG82wdN+Dd8L463Z
-	3CNz1xq/BmGA0S8eU0egqC2Qog6u04tj5zRSXIAn4jcBGlgaZWDRuMAS8j6mU3uj7x/PmeiRjprwO
-	cX1IluqNyRvfuO9E8A3LQIRGzkX9CAwP3AyAxxatsWr6jzeioxLGQZBLxS89b54Xv80GKDTMTUo0d
-	tlmQD+hhohpFK4KOPpM77S7fdumAqnL0tdU9UiSiMHh6xdVx/aE15c/6fm8onKiWZIJbQGly5S50P
-	vyjMtz3Q==;
-Received: from elvis.franken.de ([193.175.24.41])
-	by desiato.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJxvj-00000007mEq-1FSU
+	id 1xJy6E-0000000EmUH-05qq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 18:54:25 +0000
-Received: from uucp by elvis.franken.de with local-rmail (Exim 3.36 #1)
-	id 1xJxva-00029X-00; Thu, 22 Oct 2026 20:54:14 +0200
-Received: by alpha.franken.de (Postfix, from userid 1000)
-	id 7C50EC0970; Thu, 22 Oct 2026 20:50:52 +0200 (CEST)
-Date: Thu, 22 Oct 2026 20:50:52 +0200
-From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Bradford Love <brad@nextdimension.cc>, linux-gpio@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-media@vger.kernel.org, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Russell King <linux@armlinux.org.uk>,
-	Hauke Mehrtens <hauke@hauke-m.de>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>
-Subject: Re: [PATCH v1 5/7] MIPS: BCM63XX: Remove one time use
- ephy_reset_gpio_flags
-Message-ID: <atpbDFIFtFCntTeU@alpha.franken.de>
-References: <20260715185112.1323510-1-andriy.shevchenko@linux.intel.com>
- <20260715185112.1323510-6-andriy.shevchenko@linux.intel.com>
+	Thu, 22 Oct 2026 19:05:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PbLSRqVvu3FMk0PxNBxzq4JFbF5q6pe0Zehf5+dBQ7j+FVGDkOTy2wS/5eHI2TuXT6lYJSgtJwsDSQosUrgeBybak5wkD2BlOZxeYzwXw8QJLzQrlQ03tFZaDEm7ThRRi/QVqg1R3vUN/xdrTfvwOpgkC2fPkjsnmak4nYP1R6OMEP1h0LCTQHWNCPckpXDj5LvAOl7O/F3KZK7CmOHVQQPKDtNVxQkneYSwYZlMjTHs/Y3wu5FSYEgLcq3MjeTU7NE6SxJA/ZHtiLWIVqeYgJR92IEe8xKlX8f+ct8QVqjRtF/5LVSoreCd0d8lhi9kovfT6B1u/F7soa/QGfKHHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uxm/yUaSqwop43ZpO6Qrl+/bYkIuIApLhmFjuNrCLNY=;
+ b=b4LID5A6+/KJI19x3frfTILIZCZFTLBanfVesNmzLbHCsEef1+ArxK9jmhZ/A6fO3A34OD0TVnqH6ONMWHnxkonJ2m1hmmP7QEDN7yTyYB+v/+3YvX4Ynleg4QWYx+DSOEAFwf4QIeW0YVV+SmMnFcvuX27TGa8bIuL6JwxlM3WrDfKkdIOEHpMDBVoG3mBhtk9Uo3wRTypsaMglOWd+kwSuVrTwFFPwowtK4p0ZWZD9QJF0SQzcAO10S5+GIq+QUQOJ5Yn103S9lQjNuVqiVEpwgZIRr131GA8JOSo38dCeHSbO9cLn11sb2196y43gTVHBiL9wYD2XluOAnohNgw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uxm/yUaSqwop43ZpO6Qrl+/bYkIuIApLhmFjuNrCLNY=;
+ b=qKnmRfCBYFl35+a5/Q23KLk4313lkCouOjyEK5wx08OmTO7y6e6Z5UOb4ykN2DNES36/xPlvM4HnjR7PRiAvFyIS0DGy/JRdmrYahSzIc74s3/XXDf2Gnvw6mn99db0w5jpZHcsVhoFyDfJ4RvwCpEkIWGw5A/rnN1UhOJ5XZ0EzMdQ629l1qojyo1MZFjzya2El+SmLC8vnsD2DkuU3d9gpR717i++CBaY+n3vA3bEj/Ade7W6zM/2ydKKnI8tZ7JiSAdnvD7g+XXW6tESY2MQ+vt5R1LX8MGbXfiNlGMwPHx0PJHkbvKoJl0TrE7th/chGwC79yGbN5Sr9nhM0/Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by CPJPR04MB036028.eurprd04.prod.outlook.com (2603:10a6:380:20c::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Thu, 22 Oct
+ 2026 19:05:08 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.012; Thu, 22 Oct 2026
+ 19:05:08 +0000
+From: Frank.Li@oss.nxp.com
+Subject: [PATCH v8 0/2] remoteproc: imx_rpoc: use memory-region-names to
+ avoid hidden ABI.
+Date: Thu, 22 Oct 2026 15:04:58 -0400
+Message-Id: <20261022-memory-region-name-v8-0-ce5ce514a550@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFpe2moC/23PTQ7CIBAF4KsY1mIo5ae48h7GBbRTxaStASUa0
+ 7s71Kg16fKFxzczTxIheIhku3qSAMlHP/QYqvWK1CfbH4H6BjPhjCtmCkk76IbwoAGO2KS97YC
+ 2RjIAy52uGoIfLwFaf5/Q/eGd482dob5mKTdOPl5RmaYmkXufAXppQBKUUXzWUhrOwLW7/n7Z1
+ ENHMp/kFyjY8oZJImBdXcrKlcYa9Q+oOWAWAZU3AKEcB90opf8BPQM4WwQ0AoUoygZPqErBfsA
+ 4ji+Ij8vYhwEAAA==
+X-Change-ID: 20260915-memory-region-name-f950eea2b78d
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
+ Frank Li <Frank.Li@nxp.com>, Francesco Valla <francesco@valla.it>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792695904; l=3113;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=lOJb6NeJMCA0YIxf14QkG5fRIpMQg+cGQnUFBCIsQPU=;
+ b=DIycpGChYjrTfn3qgGwRfv2Oe+0qxl9syW8oR6T6WZAHDT8TktALn2UvaAmxwfUBss9oUa2a5
+ iTu0lHCV1G3DATaXk8ToZV8ZJ2+Yxqc/MzsDv8sFuMGDEgJUAIODkrv
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: PH8PR02CA0041.namprd02.prod.outlook.com
+ (2603:10b6:510:2da::23) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260715185112.1323510-6-andriy.shevchenko@linux.intel.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|CPJPR04MB036028:EE_
+X-MS-Office365-Filtering-Correlation-Id: abef28f2-558e-476d-9c3e-08df306f63f1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|23010399003|1800799024|7416014|376014|261021123027099003|10067099003|18002099003|261022105027099003|5023799004|11063799006|261009223027099003|261021121427099003|56012099006;
+X-Microsoft-Antispam-Message-Info: OeHdR1xgZnpYeurV/nOu88vVPwq9cpMxAf7U6uRqhyHaTwOhbuKajoOd6RinQHwLEO6EUzd/qkH/oIdL/223QaD8f1l8BqJF2KOhK+xLHn4MR+Mr90MSlMugCbWaMLpvsgmymvkhi08PWGJPLRRtyoN3EhzFZswxCWw8FuMIbHhzwxLaRTI//zOUwSWK5VOnmK+qHWWJmghwZ1vQsNa5pqLsH7GsSEqV51lC+/IRrGWpRwt+sjmF2LZvuxefIeqUaF8U1aVkTX/n1JZ4no1Yoc4wOxuIOYHEOoXG3jEwTz+YqA2Ki+ADtk1DwjtEdrMbxY/I8caAKL6cS3gRwrAoFeukEqJxmswkk53tKstOO0IQL1Ub528dhZvsw2P0cv3qVrfXGzGxDF7YJGjtiNpcZWZYbAlWMVXM4wm8ERq8m88s0lSQS0Abats8pwLmDGhD4AJiv7AG+F41qxq6FVfC3C9LsLJQWMWJ0R0tg5XW3HW1ZaIDQsNn45GRm3m1hGljAg0yJYBEBVfafeUtQI3EVCt2TjCArDgAjgCiN3ZmUW63O9dzGK+SGZUNtupDTdlHO6Pf12hZ/iMgzuXvz9OMeUHBGg1DsNhkFFMFweO6IGj64/fyHCqmXx93d+IoMcT9
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(1800799024)(7416014)(376014)(261021123027099003)(10067099003)(18002099003)(261022105027099003)(5023799004)(11063799006)(261009223027099003)(261021121427099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eHlLM3BxUmU0K2NTTjBBYmY4dWt6bUMvTXVjYVlsZ1A0Q01WYU8wd0dqd0Vh?=
+ =?utf-8?B?WmZ1OU1WcllZQTM0TXg3eVhRUGN4L2NoMyt0eFJxMDN4cHVDYUswajFMY1VL?=
+ =?utf-8?B?SS9pR1M3aTFTYm9Ycm5jQUpBamd3V2U2WVFzOU93TDhPaHlFWnhLRXlhcUJ5?=
+ =?utf-8?B?N0ZQR0x0aENocHVnM1RIVGY5UTA2UW9sVURlSW41dFFhS0hsR1YzWkQzNkhG?=
+ =?utf-8?B?K016RE8zSjFHSXdHT1U0RW94UllOdWNveC9nTjRJTFdEa1E3MlgycHhRWEk3?=
+ =?utf-8?B?WGFrSk1ZekVmdTF2R2p1T0NXWEZuNGhSQzVYcmpTMUx5OHZ0NTV5Z2ZoWEJ2?=
+ =?utf-8?B?Q01lN2J3ZDdQS3NxbTRtMnZEMTJ5VHduUG4yWk1YTkNJbFJPR0FyQURiVFNT?=
+ =?utf-8?B?a0hwd3FmV3NSalJ3dHhNMXVBOGUvNmRranJUN0VrdTMyTHF3dkU4N0Z1N0dM?=
+ =?utf-8?B?eC9yc21vOGdrb2h2cTlhTld5clR0NE9sVEpwTllMUTZyZUxPd0g5MDZ1clJJ?=
+ =?utf-8?B?K3phZ2FkdllnRkNCRmFUeThDSVVNTzJ1RXROeXhLaWtZYUtxTU5aL2FBd3N1?=
+ =?utf-8?B?c1MzRXUvZzBUakdnbmlwSURBOHFaTjFDK3hGeG1ZV2VYV1duYWJITUdzWEZK?=
+ =?utf-8?B?b1JlQmw1ajNvMmZHR21hRDYzTkx0NFl3V0wvRkk0bE9URjRPaitzTm5tVEh2?=
+ =?utf-8?B?WXcyTExWa2I2Z3lZMC9wNXJjSFV0ZHZYSEQ4Uk5WRTJwV2pLd2Mxd1JNc2ZG?=
+ =?utf-8?B?aS9LOG5CdDE0eWtxNFdGUGdwNkl0aER6Wk5LLzU2K3ZqQ0ZvOEFmbGo0eVBj?=
+ =?utf-8?B?ZW9tb3BlK0RFemJmODZzS3R6bWxXODNDdnNqdWkyK0hnZnM0eTJpd1lWNHJX?=
+ =?utf-8?B?L0oveWRjNW5oR21rUTJsV0w0bC8vMnR2M2ZFVDE3dUd5WFZYKzRzSTV1Z1ZE?=
+ =?utf-8?B?TEdJTFZ6NVJBbnRLcVJULzJ6YWxnc1JaVHFhdEtReGlMRjdYZUxzeWsvMVJQ?=
+ =?utf-8?B?N3lKL0xsQnZBT3Y1TkZkR20yV3k5bDJ1RzNNMUdDMGY4QzJ5TkpKS1RtT1lQ?=
+ =?utf-8?B?RVBWa3VFeUo1bWV0SGpBTjRvT3M3clI4eE1QQ28yb0podzBLdHlnck5aZmk5?=
+ =?utf-8?B?YzVWRSs4cFE3aWZWOUJDZzhmMC9EZ3Z5eTcraGFIc0UyazNDenRBV0gwR3lL?=
+ =?utf-8?B?Wm9obHVXeS9oUzJybUNZQjVVRUFOcHFxK3luaVkxcyt0UXJSa1R1bU10SzdN?=
+ =?utf-8?B?c2tISHlqRGdNMk1WaWlqdUpNaTgwQm5WbmdBTGN1bW1ENUlXa3pFOEdYZEZt?=
+ =?utf-8?B?RHJCRUlpeWVHSXNGMzlMZS9WWmJ0RTdCOG9jMTBJWWdDQVpRNk41aHlyZnNW?=
+ =?utf-8?B?Z2lnSElzaXJpYVlkTEV1dUZxcXY2NVZYdHlDTlRYV2Zyd3hqT1Qxb1dZTEcw?=
+ =?utf-8?B?VXViaEU1bnl1RzhtZis1RWE4czJxUjJEYzBBUU5yOHNWZXlHMkhPbjZzRVlC?=
+ =?utf-8?B?WVp2UGJSWSswYndVRERHOVNySURnZWJJZnRXOWZIb2JVWEFNZ2RSVUtkODYw?=
+ =?utf-8?B?L3NvQ0UxRVZVVDBJQVJOMnh6eTBtYnZ5YTgrZFJQa2o0MHVMNlc1T0lvUGpj?=
+ =?utf-8?B?bDBsNit5cG40S2pCODRMeElCOTJkU244eGRaWm0vVGhpa1cyaEpnMW1tUThS?=
+ =?utf-8?B?UUFTNFoyVFF3eW1zRzk3Y3BqVnUyaVNOdDZwaXFhZDhDVmY5MUhpNUFGd3Fu?=
+ =?utf-8?B?dGJJM3lyTVFlYmVEVksyOEFlV3hNcUpwT096dkd4TkVMbW11bDlrOGlBb25p?=
+ =?utf-8?B?aFR3bXczODJZZi9yZkp2SXRxQk5reTZuY2FQcmMyZlRYMWcxMzRxOStmcXZM?=
+ =?utf-8?B?TUw2T05hTG9sWEJxREFRNGJ3VXp1ZGdlNG9QVldFeVFkL21YMGxhZXVIV1ls?=
+ =?utf-8?B?TGFpeHlFbXltZjNySWRBNUthaHB5VldVMlNkb01HMnlWcVIxY09zNW9hU1VG?=
+ =?utf-8?B?eEd6dEhGK0xlYVlZUllnVm00dk9IRmdMRWpIYjk1KzVBd0IwRGhMMlRxdHhP?=
+ =?utf-8?B?cmNhRUpYcUErb3kwR3ZCVkJCelhkSlVzZTZwZFVKbjVGa0UrNGNYZVlhZzlu?=
+ =?utf-8?B?WmF2Y0Q2YjlvUHRYQVpwN0REWmx2eXZKNXFIc3grUXgyL1ZJdm1salNLK0ZE?=
+ =?utf-8?B?V1FzUWR6ZDlzRUxxVGgza3dvZXVWdFMwZjBKSDU0aHVwWllKRU5zSnI4YmFG?=
+ =?utf-8?B?ZDdVNlFrQ0E1RDlCay96eHp1aHhZWW1uR1RaUmFMWmFhcEZ0WXFQTkhCUFJV?=
+ =?utf-8?B?bi92OWw0elNZZW5iY2x0WERzTzhYSHZBV1NHNDE1OFBCS3Fkb3FOR2tNbHdr?=
+ =?utf-8?Q?kHKMA1MMRohLGEOCOV1hpy62cdmdTJGoPkEPE?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: abef28f2-558e-476d-9c3e-08df306f63f1
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2026 19:05:08.7224
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fGMGE22/GTsxMA4HwTRJb63GSaUIIen3GAgP/PniUtGWg40WGO4W2+vDfiNQk77/OVCEoDj0Gu1gJVDR7998Gy3swuY1Ox225W+T4DkteSDeUtib7DsY6Pd+88NiULA7
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CPJPR04MB036028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_195423_609310_EAA86676 
-X-CRM114-Status: GOOD (  22.53  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20261022_120514_243614_02581BF4 
+X-CRM114-Status: GOOD (  11.79  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,69 +166,101 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Jul 15, 2026 at 08:46:45PM +0200, Andy Shevchenko wrote:
-> ephy_reset_gpio_flags exists solely to supply polarity to the reset GPIO.
-> But in practice it's kept all the same and currently only a single user
-> present. Drop the member and use hard coded GPIO flags instead.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> ---
->  arch/mips/bcm63xx/boards/board_bcm963xx.c           | 7 +++----
->  arch/mips/include/asm/mach-bcm63xx/board_bcm963xx.h | 3 ---
->  2 files changed, 3 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/mips/bcm63xx/boards/board_bcm963xx.c b/arch/mips/bcm63xx/boards/board_bcm963xx.c
-> index c5617b889b1c..57e916c06792 100644
-> --- a/arch/mips/bcm63xx/boards/board_bcm963xx.c
-> +++ b/arch/mips/bcm63xx/boards/board_bcm963xx.c
-> @@ -42,7 +42,7 @@ static struct board_info __initdata board_cvg834g = {
->  	.expected_cpu_id = 0x3368,
->  
->  	.ephy_reset_gpio = 36,
-> -	.ephy_reset_gpio_flags = GPIOF_OUT_INIT_HIGH,
-> +
->  	.has_pci = 1,
->  	.has_uart0 = 1,
->  	.has_uart1 = 1,
-> @@ -903,9 +903,8 @@ int __init board_register_devices(void)
->  
->  	platform_device_register(&bcm63xx_gpio_leds);
->  
-> -	if (board.ephy_reset_gpio && board.ephy_reset_gpio_flags)
-> -		gpio_request_one(board.ephy_reset_gpio,
-> -				board.ephy_reset_gpio_flags, "ephy-reset");
-> +	if (board.ephy_reset_gpio)
-> +		gpio_request_one(board.ephy_reset_gpio, GPIOF_OUT_INIT_HIGH, "ephy-reset");
->  
->  	return 0;
->  }
-> diff --git a/arch/mips/include/asm/mach-bcm63xx/board_bcm963xx.h b/arch/mips/include/asm/mach-bcm63xx/board_bcm963xx.h
-> index 830f53f28e3f..018a56cbc328 100644
-> --- a/arch/mips/include/asm/mach-bcm63xx/board_bcm963xx.h
-> +++ b/arch/mips/include/asm/mach-bcm63xx/board_bcm963xx.h
-> @@ -46,9 +46,6 @@ struct board_info {
->  
->  	/* External PHY reset GPIO */
->  	unsigned int ephy_reset_gpio;
-> -
-> -	/* External PHY reset GPIO flags from gpio.h */
-> -	unsigned long ephy_reset_gpio_flags;
->  };
->  
->  #endif /* ! BOARD_BCM963XX_H_ */
-> -- 
-> 2.50.1
+The driver currently derives the memory region type from the referenced
+memory node name, creating a hidden DT ABI.
 
-Acked-by: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+rsc_table: rsc-table@90000000
+           ^^^^^^^^
+{	ret  = <0x90000000>;
+	no-map;
+}
 
--- 
-Crap can work. Given enough thrust pigs will fly, but it's not necessarily a
-good idea.                                                [ RFC1925, 2.3 ]
+m4 {
+	...
+	memory-region = <&rsc_table>;
+}
+
+Current require node name have to be rsc-table, but no any binding doc
+to restrict it.
+
+Since memory node names are not constrained by the binding, incorrect names
+can silently pass DT validation, as seen in examples using "vdevbuffer"
+instead of "vdev0buffer" ([1] and [2]).
+
+Add optional memory-region-names property to define such ABI. To keep
+back compactiblity, use "optional".
+
+Link: https://lore.kernel.org/imx/a3602ef8-2b77-4cc3-adef-2c4cba08a5d9@nabladev.com/ [1]
+Link: https://lore.kernel.org/imx/alexXTYQHUs76J7v@SMW015318/T/#mb9dc709ff3adc24d9db6d30c973f37b580f6f1f9 [2]
+
+Prevous version
+https://lore.kernel.org/imx/ail0sH1UhnQBPRkr@SMW015318/
+
+---
+Changes in v8:
+- remove dev_warning
+- remove dts patches
+- Link to v7: https://patch.msgid.link/20261020-memory-region-name-v7-0-1413d5928340@nxp.com
+
+Changes in v7:
+- move imx_rproc_rmem_to_resource() close to caller
+- collect Francesco and peng fan's review tag
+- Link to v6: https://patch.msgid.link/20261019-memory-region-name-v6-0-2e46b2e7d667@nxp.com
+
+Changes in v6:
+- collect rob's review-by tags for binding
+- move imx_rproc_rmem_to_resource to c file
+- dts move related memory region node into overlay file
+- Link to v5: https://patch.msgid.link/20261015-memory-region-name-v5-0-abc358b39a96@nxp.com
+
+Changes in v5:
+- fix binding region-memory-names's pattern
+- add vdev1vring0 and vdev1vring1 at dts
+- collect pan peng's review by tags
+- Link to v4: https://patch.msgid.link/20260917-memory-region-name-v4-0-260755920ebf@nxp.com
+
+Change in v3
+- rephrase commit message and cover letter to correct descritpion and
+reasons.
+
+To: Bjorn Andersson <andersson@kernel.org>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: linux-remoteproc@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+
+---
+Laurentiu Mihalcea (2):
+      dt-bindings: remoteproc: imx_rproc: document memory-region-names to avoid hidden ABI
+      remoteproc: imx_rpoc: use memory-region-names to avoid hidden ABI
+
+ .../bindings/remoteproc/fsl,imx-rproc.yaml         | 11 ++++++++
+ drivers/remoteproc/imx_rproc.c                     | 29 ++++++++++++++++++++--
+ 2 files changed, 38 insertions(+), 2 deletions(-)
+---
+base-commit: d419d682257d813f6cb7a28e42b35d0edf4ad038
+change-id: 20260915-memory-region-name-f950eea2b78d
+
+Best regards,
+--  
+Frank Li <Frank.Li@nxp.com>
+
 
