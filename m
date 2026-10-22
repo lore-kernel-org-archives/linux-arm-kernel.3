@@ -2,84 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB65A606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 09:41:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C172A60A2602
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 09:41:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S/FNUnNI;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=AUSPa3Xr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LLC7fHug;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=KSCVkdYf
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=OYDgm4R1tjaY+JvgEyu2MMXdyhh68gFfDYeaLIp9hAE=; b=S/FNUnNIqrrPSy
-	QgriuCt9ws+lyTJeuUfsvYspWauT8Bt7WyzzxS+8XWrk7lAVASOxRQJDG5RMAZv2pkeJAlwvHIZhH
-	hiruGyzt40NhM4Zebf4/BZYHW61c7XgkzvUPQyqX54w/2g0AsKhtyIX+nSbTXg8mbyIqqWGJjGLsH
-	Ti2+CSSQLUXvgqC3ZnLVipJIFSpFmicy1QOl5gJNMDIjipLwZlM8OtJj/paCqfisj7kF5jxocZIyg
-	5WlR7/u4ic62dGCBvfV1gE+h8EUNUsshyIQ738kPoypRUDPB0jtVKJM0obvrIhLHCyUXLJwFJatpZ
-	rN/AyU8HynOP5EdWPSRw==;
+	List-Owner; bh=YzJYBLOEFNhZEUyVt/ZR8mdxY6kWFw5Zp9fV2xapAVo=; b=LLC7fHugCnpYpT
+	JleZCYaZMisFXrct73p4/4BNpiqvtj1wsxfKTkx2osRJtCC6oL2ed+PdTO/FtJQMnxxlyjZK0ZDwB
+	LwKGWUm0Bg+/AMKz9y+XSIJUz2Yfo/+SrmjjBkSebGVg/Hsbp7D2Wzbi/HPo331cRNXugN7FybHu0
+	DFASV7DSz4wL7ihqLEyC9k+8LtPnQeokiJ5dHkKUOEievxZeUYK2SJAAgQosQOU4a6OcoXoCuOnky
+	sBskDP8fi9ZnGy7c2d4+sAVUsKG97jM9Ji4ku08LHqehMEnHuDmJXEfoMODU/5q7CX9+6Xg1jFxpS
+	ldDjm5QEju4Faipsd/Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJpIv-0000000DrCG-2qDN;
-	Thu, 22 Oct 2026 09:41:45 +0000
+	id 1xJpJ2-0000000DrEy-3Hz2;
+	Thu, 22 Oct 2026 09:41:52 +0000
 Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJpIt-0000000DrBU-2Zm3
+	id 1xJpJ1-0000000DrE9-0dkZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 09:41:45 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2e608cd460eso10041195ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 02:41:43 -0700 (PDT)
+	Thu, 22 Oct 2026 09:41:52 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2e9995ce866so12789165ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 02:41:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792662102; x=1793266902; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792662110; x=1793266910; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=OYDgm4R1tjaY+JvgEyu2MMXdyhh68gFfDYeaLIp9hAE=;
-        b=AUSPa3Xrh9eJILhf+Ar76GyN5lT+OHFIsouxzOlBuNB6/zLqIGcp+Qv9eRsvOQ1DxH
-         1YWeqLomJ/DkL0thc0XAwh2CNHVqWGDbcJsElT/tJYTZy/kH1i7zpQ7B661VpLzOhaFL
-         zMQv+saX7lbWiH7CuGuMoP+elENY486DOBVhbjelkOd6glCIfRqTeyrJ06aDMnWPoB0C
-         m57rasoHk1kvrg3MM+mB9EKe14vUm5PZ1OE/ENRLBZELPvLU2mlZtCBXzoPTbk7dFIiB
-         1FxfFNKhYTjfudy0z9qZ7y9HoWxchBusbzvdOrFSmiQo0mkPv59KMhh0IHo5mhbFKcbm
-         y/2g==
+        bh=YzJYBLOEFNhZEUyVt/ZR8mdxY6kWFw5Zp9fV2xapAVo=;
+        b=KSCVkdYf4w/f2u9jm8reWneaz21ZfG0+Wf/EMu+ImflYhWEZKFfGzAR7sFhPsTAOgf
+         lZuJJ+WvZzXLUY3vZi0VIwNZzynUZuQt6opHYiIRlHj7h0Q2nFoEKPwit/nYC3T8XxTX
+         d77bebXHUboF5Zavwm8Wn4Ufu99dcV/GBrsSELvDydKbinKd1uBsJgiJhsVs6qaNBWr6
+         y4Ri91P8kKsA53MLXahlesVO813u/jWAS+hr9dSQAlow7MDZwxRGIWNz5DQsVZEe+qrJ
+         3qU+1RhYO0G3TGy6WVFj40wgtLRCgDSLjxRjOQdf/NVV2yLv9dLp0zjnyy0d2dV9xy0W
+         0zEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792662102; x=1793266902;
+        d=1e100.net; s=20260707; t=1792662110; x=1793266910;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=OYDgm4R1tjaY+JvgEyu2MMXdyhh68gFfDYeaLIp9hAE=;
-        b=exc9KVh2wF9BKti8Y6wBkyT7rypqNK5M6bC5OHZX60MMuIxfjabmHXlx7+wWXVqRGW
-         hQ8E4zz6llxPADB9aXCaoLTnZWoYh+COMPd8aeQUcmdmymGepzeuRKeL2xbnoC/LDgFt
-         QOPTmdgHiHVrTMKtgi+RKsGnrxWu9aZ5HrRaF1P24Qul2JEwr0mqR/nJyGxdZMtKPaJU
-         mEeEAtViGted+XdXfxVNazdWIYiFDn28Gqtv/pTbabbV0UjDzDv84TNFdNU9s8KkO7OZ
-         mVj+iPJbn2pnf3DDXMX7IrfMCh9qzeKiIYxCPLLSoa47uv2laOqLIKDlu58NwU9zirCw
-         /sKA==
-X-Gm-Message-State: AFq9FYLkS+UsSyIXrhDu6LkBVlJ7q7P5BQjDT3us8cszEF5hieBDygaE
-	KIRjYyrCu8l3se3a2DRy4qitT7pxxgsTSAvJKuJOBNmS21l0DQhMwnBNTpw7VQ==
-X-Gm-Gg: AYBFou3zUBgXdsdK7AVtrcbIsMpKdilMtRiZpxzm7K3CiA7CJe8AkUOgRNtCLQuJUbs
-	6/zINQDRacNwYKQEgv7BqYgHKwnUhsUM4rkOtAqUN68u8SsHmH39XkegIFQvZx1z2B7m4f6HdTZ
-	0/okmDCIc8Uyy8M6MlwdbBJgMjC2eT7e+kgllGROryQlpdzh6cEBCUWZFLqM5v7ZJ9cfCeCK2Da
-	cUtJUvOq7uwrC1VqorWLIC0tFf+xBeiiKgRtd0QC3IDvLCV2IcJlLf1HBQWIBKA7rIw0433chWc
-	NE6xi+6ilUxkVLk3ll9eLf9yEh7cDcbrpSO78hMESnbebua/WQSMKpfE1WQyw5bZ8AePGjmzm6J
-	lV75ouV6jA2rfFxGmlPcBf3rz5mrHs7NNEw9NuD07fe4tg3152g84g4BmyhnxCGTga2tM9SAmLw
-	D00B2tUj9datOs66plF4MYOx8Ec8Iekh/dAy0LaSuR5ahH8IszYfGlH1aZsgbEpSNzPoVh5tZRu
-	qDh24wwk236WvBBx/uxBswNY4tz/NYCCZY7H082BiR/KJZe
-X-Received: by 2002:a17:902:da8a:b0:2e9:660b:35a with SMTP id d9443c01a7336-2ea437b199fmr37175735ad.3.1792662102554;
-        Thu, 22 Oct 2026 02:41:42 -0700 (PDT)
+        bh=YzJYBLOEFNhZEUyVt/ZR8mdxY6kWFw5Zp9fV2xapAVo=;
+        b=H8E8kBMBntasQg70WWDF67vx9MI5KElt/9s7jCWlt0HJSD7VStn5odMT+yvXC1e/nn
+         E63K1qW2agex0pFKa5MNgMfCxlMwQIZSLfVNsC/Ts5aFc/r54ZoCcEiuk7yY7i9rPYqu
+         TAnK5bDVVBo+oZ6295vscaWjtCK1gcyks2aBlyBR/OImXVTU8M0QylwzcCHTnFA8KO+I
+         dubxgdoNypb0FbtsE6k935y5z4yv1P9VV8th4Cd3Lvy6TKkph3qhJCjKhx46GKtbrJLe
+         EV376YPR6SyPjAhuANGOJrqHiiaRDyvav/NGs211VeIytU1QbufYSM28HXlxvjoEGu26
+         ssyQ==
+X-Gm-Message-State: AFq9FYKze++szp59Kh4HEbX6dNMztXWL79KM7F0Y0w2fvfK9GY0BCcCD
+	cfjgFsFXrtHkwFthKvNO/iIyW5aMS8/Gz+pGGxpcbOSiuzAFxT8pqS9eONK/AA==
+X-Gm-Gg: AYBFou3hSCoBZa5suxrQfEZhLf9iQuiQH+R4Be145XF4CYOrlvhAaugqraTFMb5shIT
+	N4LWW9qzemahG3YahP/uQio7tr+rreHTUe+mvkhMkam0My64ir8KWITTHEUAQxbge/q+vkds4te
+	Jd5AmAddgxAklemX198U52hOazBZzFywcXXChuNUTsmD5KCh1SMPhE4SZU2JceQBVSpnY1qSCzt
+	56d1qM4PS2+7K9a5DWIv9ZBna4ZiD/vQmd22kukNb6VDqKyuiV1uERTxZEG49dbOQmjM70FIzBt
+	dyIwYrsUgQpZphzznNl3rMpeH5EsPlMF6MGc9GzmRrSjCRl1Vw4PO9fzpV1p/HmzhdaSErLNy6L
+	Ls5MBWXHOQj0d5bnmj43UqMkPtUEnP4IIENPS5yCWd19BbBLjjHSYfC6RbZfbzwQfpt7gok8iqe
+	dsZRKoJFF+gY+0a5tYNLYPgf+Hw9iIDby01ajpiB5O/e4WodgWlRbl8FuaEl1YeioJb6YY+4We2
+	f8c6MjCZXFXhr/R5VZARxI+Pd3D+Ya+GuIMWMJu6RJ7EZ9w
+X-Received: by 2002:a17:902:da8e:b0:2e9:6788:9369 with SMTP id d9443c01a7336-2ea43e17bb3mr40452615ad.34.1792662110457;
+        Thu, 22 Oct 2026 02:41:50 -0700 (PDT)
 Received: from [127.0.0.2] ([2404:c0:701f:d27a:ab05:82e0:7670:1951])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea3b4356c1sm21483075ad.38.2026.10.22.02.41.35
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea3b4356c1sm21483075ad.38.2026.10.22.02.41.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 02:41:42 -0700 (PDT)
+        Thu, 22 Oct 2026 02:41:50 -0700 (PDT)
 From: Reza Kurniawan <imkyufie@gmail.com>
-Date: Thu, 22 Oct 2026 09:41:10 +0000
-Subject: [PATCH v3 1/4] dt-bindings: arm: psci: Add
- skip-suspend-mode-switch property
+Date: Thu, 22 Oct 2026 09:41:11 +0000
+Subject: [PATCH v3 2/4] cpuidle: psci: Allow skipping the suspend mode
+ switch
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261022-psci-fix-v3-1-9ce2133c5659@gmail.com>
+Message-Id: <20261022-psci-fix-v3-2-9ce2133c5659@gmail.com>
 References: <20261022-psci-fix-v3-0-9ce2133c5659@gmail.com>
 In-Reply-To: <20261022-psci-fix-v3-0-9ce2133c5659@gmail.com>
 To: Mark Rutland <mark.rutland@arm.com>, 
@@ -98,8 +98,8 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  Reza Kurniawan <imkyufie@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_024143_779736_7A20D6D3 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20261022_024151_210578_1D319D3B 
+X-CRM114-Status: GOOD (  16.19  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,50 +121,73 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Alejandro Tafalla <atafalla@dnyon.com>
 
-On some SoCs (e.g. Qualcomm MSM8917 and MSM8937), PSCI_FEATURES reports
-that OS-initiated mode is supported, but every PSCI_SET_SUSPEND_MODE
-call is rejected with NOT_SUPPORTED.
+On some SoCs (e.g. Qualcomm MSM8917 and MSM8937), PSCI reports that OSI
+mode is supported but rejects any PSCI_SET_SUSPEND_MODE call with
+NOT_SUPPORTED. psci_set_osi_mode() then fails with -EOPNOTSUPP and the
+probe is aborted:
 
-PSCI provides no call to read back the current suspend mode, so the OS
-cannot tell which mode the firmware is operating in or why the switch
-is rejected.
+  psci-cpuidle-domain psci: probe with driver psci-cpuidle-domain failed
+  with error -95
 
-Add an optional flag that tells the OS not to issue
-PSCI_SET_SUSPEND_MODE on such firmware.
+Add support for the "skip-suspend-mode-switch" property. When present,
+do not call psci_set_osi_mode() and continue with the topology that was
+already built.
 
 Signed-off-by: Alejandro Tafalla <atafalla@dnyon.com>
-[Reza Kurniawan: split out the patch, rewrote the property description,
- renamed the property]
+[Reza Kurniawan: split out the patch, added log message for skip case, renamed
+ the property, added property check at PSCI initialization]
 Co-developed-by: Reza Kurniawan <imkyufie@gmail.com>
 Signed-off-by: Reza Kurniawan <imkyufie@gmail.com>
 ---
- Documentation/devicetree/bindings/arm/psci.yaml | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ drivers/cpuidle/cpuidle-psci-domain.c | 16 ++++++++++------
+ drivers/firmware/psci/psci.c          |  6 ++++--
+ 2 files changed, 14 insertions(+), 8 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/psci.yaml b/Documentation/devicetree/bindings/arm/psci.yaml
-index 0d04389c81..2eee38d155 100644
---- a/Documentation/devicetree/bindings/arm/psci.yaml
-+++ b/Documentation/devicetree/bindings/arm/psci.yaml
-@@ -98,6 +98,19 @@ properties:
-       [1] Kernel documentation - ARM idle states bindings
-         Documentation/devicetree/bindings/cpu/idle-states.yaml
+diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/cpuidle-psci-domain.c
+index 5722365b94..cc9f14769b 100644
+--- a/drivers/cpuidle/cpuidle-psci-domain.c
++++ b/drivers/cpuidle/cpuidle-psci-domain.c
+@@ -159,13 +159,17 @@ static int psci_cpuidle_domain_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto remove_pd;
  
-+  skip-suspend-mode-switch:
-+    $ref: /schemas/types.yaml#/definitions/flag
-+    description: |
-+      Do not issue PSCI_SET_SUSPEND_MODE.
+-	/* let's try to enable OSI. */
+-	ret = psci_set_osi_mode(use_osi);
+-	if (ret)
+-		goto remove_pd;
++	if (of_property_read_bool(np, "skip-suspend-mode-switch")) {
++		pr_info("Initialized CPU PM domain topology, keeping firmware-set mode\n");
++	} else {
++		ret = psci_set_osi_mode(use_osi);
++		if (ret)
++			goto remove_pd;
 +
-+      Some firmware advertises support for OS-initiated mode but rejects
-+      every suspend mode switch with NOT_SUPPORTED. Since PSCI cannot report
-+      the current mode, the OS cannot verify the state the firmware is in.
-+
-+      This property is an assertion that the firmware works correctly without
-+      a mode switch. This is a workaround for non-compliant firmware, only set
-+      it for devices that ship with firmware known to behave this way.
-+
- patternProperties:
-   "^power-domain-":
-     $ref: /schemas/power/power-domain.yaml#
++		pr_info("Initialized CPU PM domain topology using %s mode\n",
++			use_osi ? "OSI" : "PC");
++	}
+ 
+-	pr_info("Initialized CPU PM domain topology using %s mode\n",
+-		use_osi ? "OSI" : "PC");
+ 	return 0;
+ 
+ remove_pd:
+diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+index e73bae6cb2..3226af6d89 100644
+--- a/drivers/firmware/psci/psci.c
++++ b/drivers/firmware/psci/psci.c
+@@ -791,8 +791,10 @@ static int __init psci_1_0_init(const struct device_node *np)
+ 	if (psci_has_osi_support()) {
+ 		pr_info("OSI mode supported.\n");
+ 
+-		/* Default to PC mode. */
+-		psci_set_osi_mode(false);
++		if (!of_property_read_bool(np, "skip-suspend-mode-switch")) {
++			/* Default to PC mode. */
++			psci_set_osi_mode(false);
++		}
+ 	}
+ 
+ 	return 0;
 
 -- 
 2.56.0
