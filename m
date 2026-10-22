@@ -2,107 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17C66606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 08:28:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A291606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 08:29:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4IZwMfNO;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=gdlkqUZL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SRtmV5ht;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B8x6yJxU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iwLOjvHCtgaLp2E9XIBdvGe/pxFGO4huYHU7gKZLKOA=; b=4IZwMfNOCMZJUw9yBQyRURytJo
-	S16vMn5r6OzAB5H1tbCvruqEa6/tGLDE51dDF+Sddftyd9wqwCihgwyaGRX/onHytYEm1UK3R+FDC
-	2y+BbYTqzC/Dm6FKK3B3rAKlN4TOaXkdm6TXV1PgT/jv6n6pZLlFJcwEB9ubheCaDcy9fq3UOtVQA
-	JpdYBdxZYQO2vhpiqQ3XCy8GHTYzTEe/Mibp6jYd8Uy3Y/Le47chYcO/n48qnPIUll+wxLJXj5MPa
-	3R6pb8sAQX9ZioRXsl/pnxxHtAkgdQZMcZAQ55W0Z1KHvwHShjClSwJIHIXLI5uMo4p6Uit8u05mk
-	G/KGL7YQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lYu0vxaasiD556MfAu5R9CUvlfrPZLDJu4XoI/LGb7U=; b=SRtmV5htYFL+PgCJkq22UlIisn
+	hmnFVf47ZvBLXokzGpVmJcwKTPM8iOSqKV1UXGNzdqRcw/ptJrV+YpTlIR9zy5Fg7mwR5VB+lrN6E
+	N22ey1YMQ8Zd56q4UBU0aejjb9vTW0cUjH2BF0jclnkLMkVMXoPo+1sPw/9T1Y0ihLBUNa5ROWPuj
+	/1SwPXFN5heO9PQS0aYLe5tYqA0xEqJck+fHTgDdlZMvq6CZJvPXX9QziCmSstpS8I0P+ZSvnS67x
+	tzPWp78jjPujFLyyx5AYz3FoCak45ZCJas2skKQ244wEiyj0caWceGzv5UZBPj4kndF/cmDhnf4qO
+	XU2ZsiWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJo9u-0000000Dee8-3vP6;
-	Thu, 22 Oct 2026 08:28:22 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1xJoBI-0000000Dera-0W3z;
+	Thu, 22 Oct 2026 08:29:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJo9s-0000000Dech-43lJ
+	id 1xJoBF-0000000DerE-3QhI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 08:28:22 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4a1e34ecb02so10686885e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 01:28:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1792657699; x=1793262499; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iwLOjvHCtgaLp2E9XIBdvGe/pxFGO4huYHU7gKZLKOA=;
-        b=gdlkqUZLPZzQ5hWoAzgjTUAi59OyoJxO0W3rT9+4nZsp11+vWp0Sf2V2t+5wmZwiGO
-         MRI2PghBayF2S4ewRwlkqaFI/R9cZziaRJ4pfUvNpUfrSGav2TxFojFdk1YItNbh2Lm2
-         H7PTM7TWM5kS+dGw0/DQBcCyP/pMrMCnjo1UFfylr3hRKRPUhHKYDOGWyVcfdWdFGzDV
-         N8HNNOrgRxmJ7j+j++puBtcTegUxFTTlUj6Zb9EhOHIRtOm7JL7Iw1tOtG+ZMQD08qCE
-         IYYqOB1KtB7Tni0jqaA0LLsy6dGv+Vlxw0uuLPFtDugBEC8NMhNq8wFI5EaXYbk8Ba6S
-         uxBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792657699; x=1793262499;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iwLOjvHCtgaLp2E9XIBdvGe/pxFGO4huYHU7gKZLKOA=;
-        b=DAhGRD6+Z+KkhV0TWATt+4GoKPvNEsoy/E9GdRAjfMmkTXIlbB9weFYwJZtiJwekor
-         GJsXAq7TxovO/mJc6hGyA25H9gKDS+VFafVSHnmdXEDtP07RCZiSrzxeopo+WtZX0pLO
-         KvusDmtXIC87C754X5wp2W5s6RdgO5kR+MW9BthM/ZPZ39ak4RIxcGtNaIRz7BO9XDr6
-         rULpAWubuyP2NN8gC3TjglgHwd17ZG2/sEC11zcgLDEssZAwkI+C+O4DmLJpeIZ8ZRYJ
-         MlUVcubH6EXUVDt9COoXIVenWH9i4C6bK05PISSpvUEGLTAc4YWv5coYCdvF5fi0Gz2X
-         ldJA==
-X-Forwarded-Encrypted: i=1; AKwUvBzjd91U1nVEJC6UOrThDzazi+IWNbsSxq4vANyzKABez5Nk9SHcRlnkXXRZmUQ5nOHSt9ONUCpTDB0MUjZCsKbp@lists.infradead.org
-X-Gm-Message-State: AFq9FYIt48Q0CoEu4dwMfCGIvXRv+knn/pg/2ssZJLudIvOfv2ZR7vFM
-	i4BaePpwoCTIkNgrP7+475M/uXO9kz0O4ZNWyqTEZD//0/owxiAXw5lUoVN3Xmz06NA=
-X-Gm-Gg: AYBFou3U1MkoKe9ZRFhM03iGm9MgOYlG2QkmBUdje7ZQ4quc4NdkZISc8ShIQ8G6E/e
-	8V9xpyD/Nt4et2vRjn6rx1guweYKcVXrRfq7FlwpJ17W+PagWKhVOJWW+et7s1jwG90q92CqlLn
-	jAU62R0oo/fDoViMjOnbJAizt7N01IQOw1j141OvONc5Kb/4lm5+R/6CWcaxRaiCFVE/wW8q2ee
-	ZBROcYe16WsEdaWX+43VDcD6rZvcKHxH1ePECW99ffGE0tYm89riyNEcWhyvSXxakbpHyOBXAH7
-	oMrYHKbhaMH34NTnyMwGmUQ4HPOe8pqi5jKBHXqWvRj539JQKm86Tz+bhnLue76rosSQVmUd4q3
-	HdiOdcYEsiUSFbxY5XgbxCsc4XGdfqG+yKEVibf87fmXPFan3/Q/Ijr+k9LxAMfPzwK+qUvt/SM
-	gdCBMbONudcJUw0db8zL/+I4PrFBqSjZ9e+1ZXa3Wf8oHkYvZJ/li1T78lWZuLzgh3E+YUK2xe2
-	svHDJxsjKU4/aAk3YonI0PO7NoLPCXCO6nx9Y0N7mP4K8lD3SAdzgTu5oib
-X-Received: by 2002:a05:600c:8b6c:b0:4a0:1b14:e283 with SMTP id 5b1f17b1804b1-4a1fd8a7de3mr103361785e9.1.1792657698735;
-        Thu, 22 Oct 2026 01:28:18 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a203963f3fsm62310355e9.2.2026.10.22.01.28.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Oct 2026 01:28:18 -0700 (PDT)
-Message-ID: <96e51831-ef50-4d0f-aa5c-74d5e3c8ae9e@linaro.org>
-Date: Thu, 22 Oct 2026 09:28:16 +0100
+	Thu, 22 Oct 2026 08:29:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with UTF8SMTP id 4673342D8C;
+	Thu, 22 Oct 2026 08:29:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 9D2971F000C2;
+	Thu, 22 Oct 2026 08:29:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792657785;
+	bh=lYu0vxaasiD556MfAu5R9CUvlfrPZLDJu4XoI/LGb7U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=B8x6yJxUgG3bqv1qwvA+Elk6beiej5IQqxuu6cLea8Kwj1mr/5wfv06Ah6Sbe+oyd
+	 zXFyfUUW0kwJU7qLEdx1FthXM6deLKsMYLoDabW5Ap+g3m/pwpnLmTxtiERWaM8K6l
+	 agRqpWIWrDooC08lbEOfoq7JO6nZXfhF76hFzXn1Jzg/xVOr4Q36D6hRIy/BBCAFjG
+	 FvFCZP8yMs3FRa3MyAhjmbt1k0AXE84bEimzMhpRPSZ8XvRu38Wr3jE1qjP1hsd6Pk
+	 NNcqLlm2nWMpFqUu03bnfx2thjzLnP1xYsaCQ5NG5Z1pAhffGyq/RInr155CUPMLqJ
+	 W1laGKxSZbBQA==
+Date: Thu, 22 Oct 2026 10:29:42 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	linux-pwm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] pwm: atmel: Fix prescaler for periods of 2^32 clock
+ cycles or more
+Message-ID: <atnHHaOwTkI78_tc@monoceros>
+References: <20261016161221.16553-1-kmehltretter@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/4] perf: cs-etm: HW_ID improvements
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
- linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>
-References: <20261002-james-cs-hw_id-output-failure-v3-0-1d8b6ef339c8@linaro.org>
- <2bc4b058-3a5b-4a9c-a469-eb8c93215594@linaro.org> <atjDCpTIrchbCLt7@x2>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <atjDCpTIrchbCLt7@x2>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_012821_084346_1C85B964 
-X-CRM114-Status: GOOD (  11.53  )
-X-Spam-Score: -2.1 (--)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vqpjgoh36dtmnefm"
+Content-Disposition: inline
+In-Reply-To: <20261016161221.16553-1-kmehltretter@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,31 +70,163 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
+--vqpjgoh36dtmnefm
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2] pwm: atmel: Fix prescaler for periods of 2^32 clock
+ cycles or more
+MIME-Version: 1.0
 
-On 21/10/2026 14:50, Arnaldo Carvalho de Melo wrote:
-> On Wed, Oct 21, 2026 at 09:42:24AM +0100, James Clark wrote:
->> On 02/10/2026 12:15, James Clark wrote:
->>> James Clark (3):
->>>         perf: cs-etm: Don't add global v0 HW_IDs to unformatted queues
->>>         perf cs-etm: Free partially created queues
->>>         perf: cs-etm: Respect --no-itrace option
->   
->> Hi Arnaldo,
->   
->> Is it ok to take this one please, Leo has left his review tags.
-> 
-> Thanks, applied to perf-tools-next, for v7.4.
-> 
-> - Arnaldo
+Hello Karl,
 
-Thanks!
+On Fri, Oct 16, 2026 at 06:12:21PM +0200, Karl Mehltretter wrote:
+> atmel_pwm_calculate_cprd_and_pres() keeps the period in clock cycles in
+> an unsigned long long but derives the prescaler from fls(cycles). fls()
+> takes an unsigned int, so the upper 32 bits are ignored.
+>=20
+> On controllers that the driver configures with a 32-bit period register
+> (SAM9X60, SAM9X7) a request of 2^32 clock cycles or more therefore gets
+> prescaler 0 and a truncated CPRD. The request succeeds and sysfs
+> reports the requested period.
+>=20
+> On a SAM9X75 (PWM clock 266.67 MHz) this affects periods from about
+> 16.1 s on. Requesting 20 s with a 10 s duty cycle
+>=20
+>   # echo 2 > /sys/class/pwm/pwmchip0/export
+>   # echo 20000000000 > /sys/class/pwm/pwmchip0/pwm2/period
+>   # echo 10000000000 > /sys/class/pwm/pwmchip0/pwm2/duty_cycle
+>   # echo 1 > /sys/class/pwm/pwmchip0/pwm2/enable
+>=20
+> programs CPRE=3D0, CPRD=3D0x3de4355c and CDTY=3D0x9ef21aae. The channel r=
+uns
+> with a period of 3.9 s, measured from the period end flag in PWM_ISR.
+> With this duty cycle CDTY is above CPRD, so the output stays inactive
+> and an LED on it stays dark.
+>=20
+> Use fls64() so that the prescaler is derived from the full 64-bit
+> value. The driver then programs CPRE=3D1, CPRD=3D0x9ef21aae and
+> CDTY=3D0x4f790d57. The measured period is 20.0 s and the LED is on for
+> 10 s of every 20 s.
+>=20
+> Controllers configured with a 16-bit period register are unaffected
+> for all representable periods. Some oversized requests of 2^32 clock
+> cycles or more now fail with -EINVAL instead of being programmed with
+> truncated values. Clamping such requests to the maximum possible
+> configuration is a pre-existing issue best addressed when converting
+> the driver to the waveform API.
+>=20
+> The truncation was not reachable when it was introduced. The period
+> was an unsigned int in nanoseconds then, which limits it to about
+> 4.29 s. Commit a9d887dc1c60 ("pwm: Convert period and duty cycle to
+> u64") made longer periods possible.
+>=20
+> Fixes: a9d887dc1c60 ("pwm: Convert period and duty cycle to u64")
+> Cc: stable@vger.kernel.org
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> ---
+> Changes in v2:
+> - Keep only the Fixes tag for the commit that exposed the bug (Uwe).
+> - Clarify the pre-existing handling of oversized requests (Uwe).
+> - Add Microchip's confirmation of the data sheet error.
+> - Rebase onto v7.3-rc7.
+> - No code changes from v1.
+>=20
+> v1: https://lore.kernel.org/r/20261003083036.21584-1-kmehltretter@gmail.c=
+om/
+>=20
+> Notes:
+>     Found while testing a Rust port of this driver on a SAM9X75 Curiosity
+>     board. The port uses a 64-bit fls. Its registers differed from the C
+>     driver for long periods.
+>=20
+>     Tested on that board with a v7.3-rc5-based kernel built with clang
+>     22.1.8. PC20 was routed to PWM2 (peripheral function C) in a local
+>     device tree. The blue LED is on that pin.
+>=20
+>     - Without the patch there are 23 period ends in 90 s, 3.88 s to 3.93 s
+>       apart. The LED stays dark.
+>     - With the patch the period ends are 19.98 s to 20.01 s apart. The LED
+>       is on for 10 s of every 20 s.
+>=20
+>     The SAM9X60 and SAM9X7 data sheets describe the channel counter as
+>     16 bit. That does not match the hardware.
+>=20
+>     - The 20.0 s result needs CPRD=3D0x9ef21aae. All 32 bits are used.
+>     - Commit 0285827d546d ("pwm: atmel: Add support for controllers with
+>       32 bit counters") says 32 bit.
+>     - Microchip's Harmony PWM example for this board programs
+>       CPRD=3D133333333.
+>=20
+>     Microchip support has confirmed that the data sheets are incorrect and
+>     will be corrected.
+>=20
+>  drivers/pwm/pwm-atmel.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/pwm/pwm-atmel.c b/drivers/pwm/pwm-atmel.c
+> index 86918523d821..574020d90a3b 100644
+> --- a/drivers/pwm/pwm-atmel.c
+> +++ b/drivers/pwm/pwm-atmel.c
+> @@ -195,7 +195,7 @@ static int atmel_pwm_calculate_cprd_and_pres(struct p=
+wm_chip *chip,
+>  	 * So for each bit the number of clock cycles is wider divide the input
+>  	 * clock frequency by two using pres and shift cprd accordingly.
+>  	 */
+> -	shift =3D fls(cycles) - atmel_pwm->data->cfg.period_bits;
+> +	shift =3D fls64(cycles) - atmel_pwm->data->cfg.period_bits;
+> =20
+>  	if (shift > PWM_MAX_PRES) {
+>  		dev_err(pwmchip_parent(chip), "pres exceeds the maximum value\n");
+
+just above this code snippet there is:
+
+	unsigned long long cycles =3D state->period;
+
+        /* Calculate the period cycles and prescale value */
+        cycles *=3D clkrate;
+        do_div(cycles, NSEC_PER_SEC);
+
+there is another overflow happening here if state->period * clkrate
+doesn't fit into an u64. A complete fix converts that to:
+
+	cycles =3D mul_u64_u64_div_u64(state->period, clkrate, NSEC_PER_SEC);
+
+which prevents an overflow if clkrate =E2=89=A4 NSEC_PER_SEC.
+The latter can be asserted by checking that at probe time after calling
+clk_rate_exclusive_get().
+
+The options now are I apply your patch anyhow and the above can be
+addressed later, or you rework your patch to a complete fix. What is
+your preference?
+
+Best regards
+Uwe
+
+--vqpjgoh36dtmnefm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmrZyXQACgkQj4D7WH0S
+/k4Z5gf+P23ZuNjCGy3QqwfAby1YXzFwIUQKlB3VaXDXBzPdSBx6mF3pApLnsOJP
+XBf4v0U/6l4Q8Nu20efYTpdzRFRrfnZAXFsViQFiXUuYYrfGZ6HYll6BSR/BEwZR
+kDLWldJXiXTfNVJ/pV0SWcHSJjvQQmko5P7djFCcc1HRWBJDHBelwWpYnwP4Pfvk
++yv/TM6OpPlt/XDa+nNzH/SZcckTKLZ5LBURgYVRG21WV9F5pB+yhfnEkpyqDPxy
+XFmCEPF3iQ9E2T5QIeVDb+8FIvUwMKYt5iPxe7kudsT4bqni9l7eMWM/J4OIKWbs
+WiLS/g7Ts3dqzSiOOexq60i4CRfAHw==
+=3fwJ
+-----END PGP SIGNATURE-----
+
+--vqpjgoh36dtmnefm--
 
