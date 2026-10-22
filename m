@@ -2,84 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86AE360A3801
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 09:42:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5517D606A32F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 09:42:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0sVtYbRi;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=C+1X4ZUp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oMIJoK/5;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=B44T1FV+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=3coeDBrZk8u/krbuiegVJJLUnKMcE1BvLH+6X7PiidU=; b=0sVtYbRiVKUboh
-	GX7BFiL88kTqphysZ/wx1zvtUyRx2CcWG6qCcj3E5nWQ0FyyFMlSFFcttp57q7TiOS/Kn/gbGUe/f
-	4Nnv0jO6lsIuN1F2M9CJfQWsC9GmtmvXJ9Y/s2wP6HtCU32srAEr4eCw77hCoiUervY3Z9lHVwHOC
-	4/DLu33v1MftNKz3zpfnKn2ghYBTaZMvhxyl5uyMjMq53PPbYCBQKG6xWAMnRP4bwvqjxB2hLhzd8
-	M1dHt4yqR/T+cztErlTa6fPL5cgKB7Dt/NHNU+pEH1fWFB1vhZaceTP3/2Hfrkdx/hwHw3yDzPgD6
-	GViwfirltvNfo8VFqVCA==;
+	List-Owner; bh=2nt4hBSHpClOgv3HgtYgoEhMhOYNcFrEBCSUvXNxseY=; b=oMIJoK/59KHgc1
+	efphK9y3vUfy9nfJtXse7b6S6oQkK/PSDhjzLfcJm9Yc3vZQs0Oj3I2Q3W3oXtnZ+Rx+07eyRH4j0
+	B6gVfS/XX3+OCTZ1tG20eT3KRnHgiqdSEl9+7K0w/1WUTblr1NHT8Rk9S/hGQJNwlBhsjacEvpR6X
+	vGDUFtW0MsIwcdMvnRNYJY70gx44LcsfQj9RLGbGyVcJ32tohVO8SpcRcc9lfQL8263LDtZC3K9UQ
+	gtgulcigsIIpCyy7M8d4LPcWDWB89UEdJIybU+OhqDDMv20ScgNIH/GN03lUAWJneUDrgOBm7364t
+	PN4JmbnNzDfaeYyQyQ6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJpJB-0000000DrIU-3hiR;
-	Thu, 22 Oct 2026 09:42:01 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1xJpJK-0000000DrMh-0X7q;
+	Thu, 22 Oct 2026 09:42:10 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJpJ8-0000000DrH5-3PIj
+	id 1xJpJG-0000000DrL9-2JmX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 09:41:59 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2e977109392so10076975ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 02:41:58 -0700 (PDT)
+	Thu, 22 Oct 2026 09:42:07 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2db80fcdf8bso10460655ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 02:42:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792662118; x=1793266918; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792662125; x=1793266925; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3coeDBrZk8u/krbuiegVJJLUnKMcE1BvLH+6X7PiidU=;
-        b=C+1X4ZUpWiUltioh6FsSwZPqoxCMTnZzHP/4avH8gstWriOb4QwyF9WXeWp2Ilh8W5
-         K9Rja1Aj5CJLbPm8tfKXE5XamU0o2tTrebDaodeo0uY2u1Q5EHP/v+A4mmlmkoBnqGyw
-         ZxU4Z6mWbTc6WqTkFUJAr7BlqhB6wt9HLoSSCn1QFESQyI9yHTDKQh+87QULBDVG7muL
-         hdTshSnzbP1OufSe571yVlTBm1L8jyCnORuNGbcWtFOjrCwWaRhF1ZRW7floWO0NmSvs
-         JBvbaF9wSifyoG+nYcK8l9/iMLOZ5PCDQLQSQVJGtGgWg8GE5/PUS9G9OuMSOfCAg4TT
-         w6Gg==
+        bh=2nt4hBSHpClOgv3HgtYgoEhMhOYNcFrEBCSUvXNxseY=;
+        b=B44T1FV+KkrY3wkG6+mhvkgZMJ+YMqx1LMTl8WfY9tRghd61DSIWf6bRdo4JtH7z6n
+         kc/Elnjuz0Qb74Y5AdHR+ARhVCZwpriuosVT/7FXmx/GQWlbbzwslx13hX4SpkmqCXqu
+         x+CvUSFDibThkHFZx+AWb+yq+uvWNlgwbzF73hYeCr1uhxtscI06on+F8HCPberklioX
+         TaFq5m/swE+pnKKODPw4NwRuaZ8iaCMVnT47NFH8AZsqwNLIVzWK0FNzYR/zslcRicjA
+         lmB49HRtQUUifzfVFI+nlbaiohoGZXyalnFx+mzGn3MCivEhctMndJB/0SNJyMO4MlmB
+         gTAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792662118; x=1793266918;
+        d=1e100.net; s=20260707; t=1792662125; x=1793266925;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3coeDBrZk8u/krbuiegVJJLUnKMcE1BvLH+6X7PiidU=;
-        b=i9kP9rl4pRp6IMiTWFlTm7/qcvwBUgQbv/VdgqcMsX7yewtQftRZsiWmYjzEX/I/Hg
-         8dzK2TkOymaL4KxlQJn4P0bthugMU+NWbL3m4YR6JOcvQ8p1rtBQMAIvuiQRe5mBxE6G
-         53kPG4nEVgq30HacN4bZadsxYd7HJybXV17NjpQddNGEqbTjgUyfDHaC5KTvIEFK1qrc
-         dH+9evSuYzCh8zJmseq0Y51eIxWCpgX8vziapdehE0ia9C3E2W7gt8V9Qnq9a9nOfPow
-         Em2Dcv4MrRZ3Ph1MzQQfnfaHfWw07vDXNmv1TPSa6wsIFFqQSnkauO3th+LluoyqaY5N
-         L4QA==
-X-Gm-Message-State: AFq9FYLMoT2C1cl7gYXrsRo2LHCWN4cpoNo8EgaUeUFEtJmoA4U+SMUh
-	qCjQ6VALLqYO/NNCI+Gxzi3L7iT+LEtOZkX/EE4YVdilWySvCNSmPTgjNd3A4g==
-X-Gm-Gg: AYBFou1VmZGLhTK+HjSHSJILUPOCwtsqQA9sQMsOy1JyLiDQKKVm6y7d8H5ynwbwlxZ
-	s89szirSnunKkacWCCrs0LeDBPgGxgMgbOIWQqlZvYHiJyEGInr3nc1j/B6P5yjAI2MW+Y8ayJ8
-	+0vlQs/jtqaedD/Nw7eO2c4vTQnwJQOoravblmc+j09cZcF4CE17EaYcBkk+jNICB/eh8ef9Dq8
-	k3FRCCjheOp5iRmSYKplWcEE9nb8BWvgo+35PheepKVsfgMTEp6iyQlh79VAeW7mzi8r4NNCMWB
-	CxuSkSX49wv1sWlDC2sbk+8+BDgL45PsC1UJPzqVUpP2FG6UAmXD6d9CAyJJPWIEEJsd5i/0jZY
-	/qOmXR+TuQzBTlgMKHT5P4tWfQ8Chlz1S1mgJByl1L0S9RLkmhalKmuBHqeO1/UnNvYhLdRyPU1
-	sqkkhi9doK0GJUE/Gg1r7UfP3hnYPhkBoBEf2nRgONLg+memHnQNMTOX4d1/ZATlJiUts8v7HGm
-	A8wPZDlM45nuMFbb/ZJ+3u57cCMYKS8ucQVwApqQtInnlFi
-X-Received: by 2002:a17:902:f683:b0:2e9:5c55:c46a with SMTP id d9443c01a7336-2ea4396c346mr37258705ad.7.1792662117740;
-        Thu, 22 Oct 2026 02:41:57 -0700 (PDT)
+        bh=2nt4hBSHpClOgv3HgtYgoEhMhOYNcFrEBCSUvXNxseY=;
+        b=1aY8SbjdV7zVkDXusIDZxs15p3g0q6jdw2ujenfqvZm8rNBxKdI586tU9fW3PsHMjh
+         Q73Hqq7+NdQ5aU42+sOeBz5PUXBjC+E4KqGcQCv2cy9zzTLuVr2HX1ki58VcSodee1N6
+         lSehAyGosC1+oLTGzInai5rJHpmt8sdgnUliUwEtSLRr5SNale7l7X5qm9vqbdpg1hmo
+         rANjfgyl6OK/XMuD7kQqKMkEpkVd5BRnt2cXxrdDNymW73LXlbHg6oIGksVMrUuYq1YZ
+         mc5qPCVBpb4b6emuHWBSQZFy/B9nI8W5cC22zdEAxjKLlAiB5MOWAF0npNvNvVkGN+K9
+         N5wQ==
+X-Gm-Message-State: AFq9FYJ9IW4hmkqeqj63KyOEv9Lw0oT86g5bfDqa1NOHa5k5KfuR5yWZ
+	ArdDU2xcglGwIMlpeL0LozHnXcD9iccMO98eCIedcDU9ip2N4hkQNpNRND0LCQ==
+X-Gm-Gg: AYBFou2e9IuuOv9zDk/0ykAGc9sQO2MQGtW8LjWkkAoRnVh0OxXp5XNhAUeglhA9OVH
+	CmF8KHT+9uyWRz/N+4b21LQmhs9TrSMuY7OPe7EOD5HCRmO9IrFDuPy0QSAMSTDKSUqK67PEpk4
+	sS0hPNMXNvmU0/BQb6vOwuQR4tihdXmKItxbwNVJN4Xy/c5auHaBYUOzeDn6yIvFl1+MyhhZ6As
+	W2HPesUK9+2LXRZD3Vl/gTi2qJzL5VqsgyrSx3t1WSmpP/zpmvPcOhKN9SkuxX1BawOX5GyVbuK
+	VNwThylXkR4STZZBfDTH8G/ScvoeNUAk73uhTRQixSVP5f38HYDHys19Yd5fx74v974KTqTDe6C
+	UQPO6vNNIS5crdMlc1Uy1/taz//Q7pFTPCD8LVJlHlMHfj7HCnrUvlxfdHph2Vp47mSFcp1oU/0
+	HZ90zHqv4sgvDwSH2m948M9+Eg6QlGJVq7Iy5P5kGgX0AhjRPIB0MyorYPrzO5/9c3jGQTSVGmy
+	8u28BiYfCsKdaXymT/hJi8Nk7PMivFFtKA8dO3+zU79fYIV
+X-Received: by 2002:a17:902:e892:b0:2df:b250:ad9a with SMTP id d9443c01a7336-2ea43cc2bdcmr36258875ad.48.1792662125463;
+        Thu, 22 Oct 2026 02:42:05 -0700 (PDT)
 Received: from [127.0.0.2] ([2404:c0:701f:d27a:ab05:82e0:7670:1951])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea3b4356c1sm21483075ad.38.2026.10.22.02.41.50
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea3b4356c1sm21483075ad.38.2026.10.22.02.41.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 02:41:57 -0700 (PDT)
+        Thu, 22 Oct 2026 02:42:05 -0700 (PDT)
 From: Reza Kurniawan <imkyufie@gmail.com>
-Date: Thu, 22 Oct 2026 09:41:12 +0000
-Subject: [PATCH v3 3/4] arm64: dts: qcom: msm8917: Use a shallower cluster
- state to fix unresponsive idle
+Date: Thu, 22 Oct 2026 09:41:13 +0000
+Subject: [PATCH v3 4/4] arm64: dts: qcom: Skip suspend mode switch on
+ MSM8917 and MSM8937
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261022-psci-fix-v3-3-9ce2133c5659@gmail.com>
+Message-Id: <20261022-psci-fix-v3-4-9ce2133c5659@gmail.com>
 References: <20261022-psci-fix-v3-0-9ce2133c5659@gmail.com>
 In-Reply-To: <20261022-psci-fix-v3-0-9ce2133c5659@gmail.com>
 To: Mark Rutland <mark.rutland@arm.com>, 
@@ -94,11 +94,13 @@ To: Mark Rutland <mark.rutland@arm.com>,
  Val Packett <val@packett.cool>
 Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, Reza Kurniawan <imkyufie@gmail.com>
+ linux-arm-msm@vger.kernel.org, 
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+ Reza Kurniawan <imkyufie@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_024158_915582_2C03AA3A 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20261022_024206_607897_46165452 
+X-CRM114-Status: GOOD (  13.38  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,47 +120,52 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-MSM8917 is a single cluster SoC, so powering down the cluster means
-powering down the whole system. This causes two problems:
+The PSCI firmware on Qualcomm MSM8917 and MSM8937 reports to support
+OS-initiated suspend mode but rejects call to PSCI_SET_SUSPEND_MODE with
+NOT_SUPPORTED. psci_set_osi_mode() then fails with -EOPNOTSUPP and
+probe of psci-cpuidle-domain is aborted:
 
-1. The system becomes unresponsive, even to common interrupts. Waking it
-   requires an interrupt from the MPM (MSM Power Manager) or scheduling
-   the MPM to wake the system later. Linux currently has no way of doing
-   the latter, so the cluster may never resume operation.
+  psci-cpuidle-domain psci: probe with driver psci-cpuidle-domain failed
+  with error -95
 
-2. Entering power collapse blanks the screen. When the state is entered
-   and exited repeatedly, this shows up as visible flicker.
+Skip the mode switch on these platforms and continue with the topology
+that was already built.
 
-Even if MPM scheduling were implemented, the second problem would remain
-and it wouldn't fix the system being unresponsive at idle.
+This is expected to be safe since it matches the downstream kernel
+behavior, which manages the cluster power level in addition to the CPU
+power level, just like Linux does when OSI is supported.
 
-Replace the idle state with PSCI mode 4 (dubbed GDHS downstream), which
-is less aggressive and can wake up from conventional interrupt sources.
-
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 Signed-off-by: Reza Kurniawan <imkyufie@gmail.com>
 ---
- arch/arm64/boot/dts/qcom/msm8917.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/qcom/msm8917.dtsi | 1 +
+ arch/arm64/boot/dts/qcom/msm8937.dtsi | 1 +
+ 2 files changed, 2 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/qcom/msm8917.dtsi b/arch/arm64/boot/dts/qcom/msm8917.dtsi
-index a2907f8a63..06f7e7f57c 100644
+index 06f7e7f57c..7730977e6e 100644
 --- a/arch/arm64/boot/dts/qcom/msm8917.dtsi
 +++ b/arch/arm64/boot/dts/qcom/msm8917.dtsi
-@@ -112,10 +112,10 @@ core3 {
- 		domain-idle-states {
- 			cluster_sleep_0: cluster-sleep-0 {
- 				compatible = "domain-idle-state";
--				arm,psci-suspend-param = <0x41000053>;
--				entry-latency-us = <700>;
--				exit-latency-us = <1000>;
--				min-residency-us = <6500>;
-+				arm,psci-suspend-param = <0x41000043>;
-+				entry-latency-us = <240>;
-+				exit-latency-us = <280>;
-+				min-residency-us = <806>;
- 			};
- 		};
+@@ -182,6 +182,7 @@ pmu {
+ 	psci {
+ 		compatible = "arm,psci-1.0";
+ 		method = "smc";
++		skip-suspend-mode-switch;
  
+ 		cluster_pd: power-domain-cluster {
+ 			#power-domain-cells = <0>;
+diff --git a/arch/arm64/boot/dts/qcom/msm8937.dtsi b/arch/arm64/boot/dts/qcom/msm8937.dtsi
+index 7de6447de4..a66a544f30 100644
+--- a/arch/arm64/boot/dts/qcom/msm8937.dtsi
++++ b/arch/arm64/boot/dts/qcom/msm8937.dtsi
+@@ -311,6 +311,7 @@ pmu {
+ 	psci {
+ 		compatible = "arm,psci-1.0";
+ 		method = "smc";
++		skip-suspend-mode-switch;
+ 	};
+ 
+ 	rpm: remoteproc {
 
 -- 
 2.56.0
