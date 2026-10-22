@@ -2,64 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C95A060A2608
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 00:30:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16C8B606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 00:30:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wF6YT1JL;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kfqR6qkx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xFhFDMFB;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bybPJTrc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QtjVuPQ7kn36ZSPJwBclqThMAgXwOY5mVnGvm7BncAQ=; b=wF6YT1JLy/AlqKH4D+LnSOg0cT
-	YTzxHaIXdRklTK9HRuy11JLgXD7IGZLAckQEX1yJB6BT5AYRyI7uejzaCQcbVNZJ4sW2iC1e4AhiE
-	X1iE/qIorQSio+v/NSYzN4znNnLvP5ea6R9TYmKnBjbWcl5LNAbaZuxPuUo0wi7Cb9xYObiFHSifa
-	1G+MUS7fmgpHru0bvInYvrQXt6ftS6uJwRnSQnNXF4CCy3IE/lXJpFkUYFPAjCwG7m27nWISDud4e
-	4vJa6tN4/05yl9QHjX/3LvlIQbVuxTouLOaYfNGBNqURY939pPQ0eBsqY4ohkwbg/zmECR6CXAJzp
-	+zARTHVA==;
+	bh=ydO0eraG8WZOqDtntjgt0/RZkDKkzqBP3kzZ637E/uM=; b=xFhFDMFBoLf42fsMrv3UDqf6uK
+	wYS1/pENoUX4NUFSGfGT2qJa+Rkkdda8dJLDOIWiNBfvENTVrcwRIZ5tuVxPchSjkNuW+fTmmYGU1
+	enz0tz+CiCZsq1LGY+pvQqb4MA+ErWlsCFpyX/TBI+Ncqcj/n0MQgOQEbh3diJ0jJlAHne4ZazeJo
+	l0kd98UbSld/WjpncbWgjpLJG4zu9QjHW7s2B3OW3zFX+mv+YGnX8TEyoMNO+30q7rj6wuxasVwOF
+	3FvwT410jxTgIWH6mIYF8zangh4t+DbeuDUD7HebnA43qdZ9JzIZzSFGWvnfuRXiGyfBG+NvdWPbb
+	iCwMr0dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJghH-0000000D5tC-2g8Z;
-	Thu, 22 Oct 2026 00:30:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xJghQ-0000000D5vJ-3H68;
+	Thu, 22 Oct 2026 00:30:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJghF-0000000D5st-3raP
+	id 1xJghP-0000000D5us-1U09
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 00:30:17 +0000
+	Thu, 22 Oct 2026 00:30:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 165C160A86;
-	Thu, 22 Oct 2026 00:30:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF2071F000C5;
-	Thu, 22 Oct 2026 00:30:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DC86A41FF4;
+	Thu, 22 Oct 2026 00:30:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF6D61F000C2;
+	Thu, 22 Oct 2026 00:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792629016;
-	bh=QtjVuPQ7kn36ZSPJwBclqThMAgXwOY5mVnGvm7BncAQ=;
+	s=k20260515; t=1792629026;
+	bh=ydO0eraG8WZOqDtntjgt0/RZkDKkzqBP3kzZ637E/uM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=kfqR6qkxczncMYElE4BFVnPnI+W2MBigg4WNj/sN7Xf7KYaCbop0JoygzdEpJvI2Z
-	 1PjaOLIo/djkdiBvtyX/4p3/Q4MZVQmNZGYJ1cOrIAVmK513u+AKPE7AE44R8uizI8
-	 u8shg3eMO1XMFOBbVNlxTEjSiIuvnaV/pf+Zdc2KTujryjArKRaEwrlkxCJuDAVwB2
-	 JVa8YyxubTfYBYxqmgF0BOYNeF/1Wz+wP8QjiYeBEyu0xDFATbjIE+HFY6IrcRywln
-	 TZn0/VhP4rXq5e74Un6QY2dbPgRfYVrX5l98FqioJWsiPXx9+TDTHRdQ2mkBH8wQAn
-	 inPTpvGtxsnmA==
+	b=bybPJTrcaRjvtcBX5J2JDrzVGmjeNy9U4LuVcwNJ28AOYdawmjm+PBTSe7V4wd340
+	 GVnDFHryU3k2UUjmodK3UiWsWVxisu1g51LXmOyVfopvkPszfCbQuVobzfIUUwqZdb
+	 fCvABp09JxBJSJqTHEYnaoeu7DEsMlUUa/7f9NeafaLXP4HoMpTM69gt/6zYO3XwTy
+	 FG2fKX0DzgjqerdreAH6DBT4JIhP66hIeNg3DY8FDBALk1LrzakmrIUFudy+2QvZev
+	 PUIV8FqP3PiUVUOyEI6EHNKbx1Gu4g2svCADb5FNOQ+MvLExrik165/bNBQxRBCoRm
+	 LL3OuaZVXIZcw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B427E380A963;
-	Thu, 22 Oct 2026 00:30:16 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B42ED380A963;
+	Thu, 22 Oct 2026 00:30:26 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: lan969x: fix DSM calendar for empty taxis
+Subject: Re: [PATCH net] net: sparx5/lan969x: do not clobber the PSFP cycle
+ timer update period
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179262901535.1378903.9048135017181445808.git-patchwork-notify@kernel.org>
-Date: Thu, 22 Oct 2026 00:30:15 +0000
-References: <20261020-lan969x-dsm-empty-taxi-v1-1-14790f1e7430@microchip.com>
-In-Reply-To: <20261020-lan969x-dsm-empty-taxi-v1-1-14790f1e7430@microchip.com>
+Message-Id: <179262902520.1378903.18369274366620935912.git-patchwork-notify@kernel.org>
+Date: Thu, 22 Oct 2026 00:30:25 +0000
+References: <20261020-sparx5-psfp-cycle-timer-v1-1-00f2908f096a@microchip.com>
+In-Reply-To: <20261020-sparx5-psfp-cycle-timer-v1-1-00f2908f096a@microchip.com>
 To: Daniel Machon <daniel.machon@microchip.com>
-Cc: UNGLinuxDriver@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- Steen.Hegelund@microchip.com, netdev@vger.kernel.org,
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com,
+ UNGLinuxDriver@microchip.com, horms@kernel.org, netdev@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,26 +81,25 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This patch was applied to netdev/net.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Tue, 20 Oct 2026 10:58:35 +0200 you wrote:
-> lan969x_dsm_calendar_calc() computes the DSM calendar schedule of one
-> taxi. sparx5_config_dsm_calendar() calls it for each taxi, reusing the
-> same sparx5_calendar_data.
+On Tue, 20 Oct 2026 10:58:58 +0200 you wrote:
+> sparx5_psfp_init() enables the periodic stream gate cycle timer update,
+> which keeps the cycle start time of each stream gate within one cycle
+> time of the current time. SG_CT_CLKS sets the update period, in system
+> clock cycles.
 > 
-> Before this patch, the schedule is only cleared after the n_devs == 0
-> early return. For a taxi with no active ports, the function writes
-> SPX5_DSM_CAL_EMPTY only to schedule[0] and leaves the remaining slots
-> at whatever they held before. For the first taxi that is zero from
-> kzalloc(), so sparx5_dsm_cal_len() returns a bogus length and
-> sparx5_dsm_calendar_check() fails, which fails the probe:
+> Before this patch, the update is enabled with a full register write of
+> SG_CT_UPDATE_ENA only, which also sets SG_CT_CLKS to zero. That is below
+> the documented minimum, the number of stream gates (1024 on sparx5 and
+> 256 on lan969x).
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] net: lan969x: fix DSM calendar for empty taxis
-    https://git.kernel.org/netdev/net/c/a031ec9ff5a2
+  - [net] net: sparx5/lan969x: do not clobber the PSFP cycle timer update period
+    https://git.kernel.org/netdev/net-next/c/5a3dcad8e101
 
 You are awesome, thank you!
 -- 
