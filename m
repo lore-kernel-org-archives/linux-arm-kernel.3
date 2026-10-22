@@ -2,54 +2,54 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 495C8606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 10:46:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD4B2606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 10:48:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WPAlCTpW;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SHQZhDse
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z8k8oN25;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RvlUYCw0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=mLI4vlEwT6S7YaCRg4HD02ImP+QgcIYMVxuK/6xOYeE=; b=WPAlCTpWpjrxCz
-	X4Rq0C5RDoymnQ9i7qr8nrGVCeoHlp2ELnC28kkEA9cTL6ZCZ5TMxs6BXlhdg0oEDgyhghQdPG7ec
-	+m115SFEvR2mwlHiCIStHIYRhg2UWu8evc2xM1/swGesTT7nn6VIx+LCKGRYC0JzyEvOjDibIcX58
-	ADXr46bh78FCqCSeKGGDnkJs+1lOFmc2bP3MkGiXIUPT9s4O7LvJhfV+s2sbe4nM/d3INAswiYi4a
-	fssJ01+hWjaDAP22SJJ/ysjoQ5MjVEQCpB1egc/13wbQ+73xuTZUWkPpWw0BZP3zxFFTs1W2EMqxf
-	xdXo1imF6R05ohBaQwbg==;
+	List-Owner; bh=VMFYo8TGf9T7pW22h9oeX3BwhYw9aJUZp60dfxtT1R4=; b=Z8k8oN25FiPaVW
+	vTaAHYsF56bqRCJ26M09E08UdRdv0meiZUzZHhBRvs5k5m96Kerq089TefXMve6fEogHzKV7IszAm
+	Bez19KcDjLrxvWRnZfMpOYk0B4O4wYfQQW8zlzEhHSoKXOCeUcbXgFEDWI4jsDspRLsKxs64lDG1G
+	Py5Y4yRvIFs1XGrEPFUlur+EEyV4zMR3JKcS1u1EJi0WBB8VZ7RoQ5rz2uUPdGBT0/WcGxOuBs7oe
+	o9Vvu+QGiWbU1ag20YELt/qgGPwgI4vQap6QNgq+HyPv9LWED6NRkTxGFqts5PO6W3P7fBA4GhiT7
+	wRY9nCUk4um2EZl9iqag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJqJ5-0000000DxRo-0kNs;
-	Thu, 22 Oct 2026 10:45:59 +0000
+	id 1xJqLG-0000000DxjP-3Zy7;
+	Thu, 22 Oct 2026 10:48:14 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJqJ3-0000000DxRM-3X3C;
-	Thu, 22 Oct 2026 10:45:58 +0000
+	id 1xJqLE-0000000Dxj0-1J1k;
+	Thu, 22 Oct 2026 10:48:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2083F60210;
-	Thu, 22 Oct 2026 10:45:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60C7A1F000C1;
-	Thu, 22 Oct 2026 10:45:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BE77E601FD;
+	Thu, 22 Oct 2026 10:48:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52C031F000C1;
+	Thu, 22 Oct 2026 10:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792665956;
-	bh=mLI4vlEwT6S7YaCRg4HD02ImP+QgcIYMVxuK/6xOYeE=;
+	s=k20260515; t=1792666091;
+	bh=VMFYo8TGf9T7pW22h9oeX3BwhYw9aJUZp60dfxtT1R4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=SHQZhDsetPxBZBByiYjZBJ+4gLVGaaWNL9UQtERiAE96Lz/7MAaIGxbylA6E47Mwe
-	 2wIj8sIBBCmjUwmXCfD8JHH5kAkngQH/YLdMpshMWIuOLl2d1aL3ft3vnpC1Xnnjsw
-	 I3xfXOBO+Z7AVBS/MciLaSXjElTa8hirHxAwMQwHH7lWklt8KRQ5tCHP5CgqNpPGQT
-	 HYiFo7TToFCxC7twfnjmRbQW183+qxZykaiy3/PsRuB489FRgUuXUa3F7UQx2ZYf8S
-	 X2beLjCSHBiYbUWFeQR3ruM0YzJ1TG597V0qded7RiXsehzECXW5AaoP4Rk+FOuz+5
-	 MsT7cVVwlQfAQ==
-Message-ID: <4b05475b-443e-49d0-9bfd-d78388246706@kernel.org>
-Date: Thu, 22 Oct 2026 12:45:50 +0200
+	b=RvlUYCw0CtlY60DoP88XkLQ6JHIs7ZxwPtxTG+Y4yFYLmMGdm35H1l5u3XoiC3A83
+	 ignsYiKwBrVlI0jzk9Yk8c8sT5teVlloKMtWGFQEkfX7OEfZib79K08yqjeEPNvlYB
+	 6YgnVzcWcgQYR+FGzCuBhaILnrxVBA85WF7OPx2b1zwdT6inZSqOepqaVUBkVW2TZG
+	 k1gEc6PgLXZbbuG7KeetfKTRrgdChT925Fs2faM38AXQzFrRmVgxOj4MZ3dAC9mhEg
+	 myirXaYF6U83jT5zO2zephD+oXAQOhH3bpImQa+m2bPr3QCCuJ92WEeVhki1waTYs4
+	 Ci6yxcBmZkF5g==
+Message-ID: <fa143c9a-722a-402e-84fa-a127494b3f5c@kernel.org>
+Date: Thu, 22 Oct 2026 12:48:05 +0200
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] arm64: defconfig: Enable RPi touchscreen V2 regulator
- and ILI9881C panel
-To: Vishnu Saini <vishnu.saini@oss.qualcomm.com>,
+Subject: Re: [PATCH 5/6] arm64: defconfig: Enable PWM_CLK for backlight PWM
+ support
+To: Anand Tiwari <anand.tiwari@oss.qualcomm.com>,
  Bjorn Andersson <andersson@kernel.org>,
  Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,10 +58,9 @@ To: Vishnu Saini <vishnu.saini@oss.qualcomm.com>,
  Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
 Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, venkata.valluru@oss.qualcomm.com,
- Jessica Zhang <jesszhan0024@gmail.com>
-References: <20261021-shikra_display_overlays-v1-0-adaea735999f@oss.qualcomm.com>
- <20261021-shikra_display_overlays-v1-4-adaea735999f@oss.qualcomm.com>
+ linux-arm-kernel@lists.infradead.org, venkata.valluru@oss.qualcomm.com
+References: <20261021-lyra-display-upstream-post-v1-0-585caa39cd7c@oss.qualcomm.com>
+ <20261021-lyra-display-upstream-post-v1-5-585caa39cd7c@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261021-shikra_display_overlays-v1-4-adaea735999f@oss.qualcomm.com>
+In-Reply-To: <20261021-lyra-display-upstream-post-v1-5-585caa39cd7c@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -128,16 +127,11 @@ X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 21/10/2026 16:21, Vishnu Saini wrote:
-> Enable the regulator driver for the Raspberry Pi touchscreen V2 power
-> and backlight controller, and the Ilitek ILI9881C DSI panel driver, as
-> modules, for the Raspberry Pi 7 inch DSI panel on the 22-pin JDISP1 DSI0
-> connector on Qualcomm Shikra EVK, Talos Lyra EVK boards.
+On 21/10/2026 17:17, Anand Tiwari wrote:
+> Enable CONFIG_PWM_CLK so the generic clock-based PWM driver is
+> available, used by the Talos Lyra EVK LVDS panel overlay backlight.
 
-I don't understand - next commit is saying that it is enabling this for
-"Qualcomm Shikra EVK, Talos Lyra EVK boards."
-
-so why same work is visible twice?
+We do not have Talos vendor, you sure you did not miss dependencies?
 
 Best regards,
 Krzysztof
