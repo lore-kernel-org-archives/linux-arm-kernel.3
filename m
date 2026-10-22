@@ -2,96 +2,121 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC8C4606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 17:41:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E34E606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 17:45:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UdqAWFUQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=T/yuQqvH;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=d2+6BqND
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=lqDNdqh7JWi24rY3vzEqU+LCO6MlMl1qL5MbUIf6AO4=; b=UdqAWFUQYT2AUZ
-	8t743tb0OsfzeENRk3K8ubh1xjFlNe3p+5XNrfhguAP7HkzvTtmwJrOVvWa+5Zb3S2/OKDe1lY5Mn
-	HMJKiu59iycw6c2PnmzVGp32nJ/xPOW/fSnsCqUaAnZNwRwjmSM9qcXOi9E0dgPEhUeOof1DmlyUs
-	TboWvMYMU7fFfri8WH1cDHzCG2eJpKbjtGwYK7XPxXwJBRJvr9Jg+511PN+vyYmQnfWgi2wR3bXF6
-	QEX4FiokgwA1eS2+2fk8lnOPoEaPRdHjFgmQ63n3hdNqDs6Rq/dpU33E6pXhKgHo+u0OSDxPjyt5D
-	IlfbRiUBenvYutS79CSQ==;
+	List-Owner; bh=Q/kJZkRDh+A2dbcPNuvHi4UCiR28b887/rQN2752RCM=; b=T/yuQqvH3rS2hb
+	0iyLhPI74PGzGshZtAQv9adgln/s+cTExWPp9QMDBCbhXUV3DxWawCne5zPWZ7TqsyHLCJCQl2CFX
+	u8fiSCb3z2DGkaxBFoKKMMi02ldPqQOv86tuh3tfDpLWdndAnmmvqMrkwobqEBctDAwGio0URFvHZ
+	68NYrVJLiN7DXtpFX0hHg57Dii7zHtExIQtqQjf/0gufwYRVgPLvTnSfCWruFdJPnPVNhP2XI4SXU
+	nerKT9QjNFl4cDzHZvO29C1ZLIyJzd/CeqglXX8GXV4087ucPbN57ZIeOo4R7Ymbc3GbqufTZQFoU
+	Hr6aSwv+fQDxXRaaWE6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJwmg-0000000EbKU-3GuI;
-	Thu, 22 Oct 2026 17:40:58 +0000
-Received: from mail-wm1-f47.google.com ([209.85.128.47])
+	id 1xJwr8-0000000Ed0l-2ZTR;
+	Thu, 22 Oct 2026 17:45:34 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJwmd-0000000EbJi-35Bq
+	id 1xJwr5-0000000Eczx-2UtA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 17:40:57 +0000
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so555355e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 10:40:54 -0700 (PDT)
+	Thu, 22 Oct 2026 17:45:32 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-c2055573c8cso8344066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 10:45:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792691127; cv=none;
+        d=google.com; s=arc-20260327;
+        b=EzWhv3wCAqLR41N+EovlRvG5JWU604xpJwVv9kRFkyZUXzBWw4+FYaMCIxW4xDt8Pq
+         vlcB0NzuCUU00sxphcICL8NM+PGgG9HmdvjBqosLch8cemr+t0BrFNhJz4lrUKak/rQj
+         oZuReR4uzJlpG0sLa56KLPcikX+/OmAiTBbTP5O6epcz4THbSK8FdFOrrftRbcGyBXSF
+         lKvnnGNt3mwbUb18GbgNRmBlB/uZfXGSJ/BGTIKlKs925DGYRlm4lPkeT7gxJcBRQXDe
+         0nnTosVyeidrRGXuuKpwHMroFKlDwYjv6y1j6lIwCt/U419AWhtXeAW0tBFyukX4VB2i
+         6atg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Q/kJZkRDh+A2dbcPNuvHi4UCiR28b887/rQN2752RCM=;
+        fh=709Pezl1SYIosdZW/xuwnQXYguie3O6+xff/Ns+2w/s=;
+        b=Mb5ywiW7Y/BReYoTgkHaQLfwrL6adlH69pVjfcebvgH2Qw2WjCJN+0Dd2moo9zWBvA
+         TMe+LcG3Iox0vBD2Pt/i5OcVBOYNBVrGf9x3bxaXAbNMIdJ3E9E0rCKCN2413bdfii6W
+         jTW+Y0k4rh8eg62DPHG9kNzWCssOkUgS6p+pQ9H3nN2gNKBSa3rCsbve3HzLnTysyVHA
+         VlIa/9wUIDx8CtxVXcqgBRYL1mr1Gn8piVNRv4+cIna7q3LLFW1jnFcdPcq6gQoe0eAW
+         /gPCA2k1xQA+Rfoc9EXqEujyA0tDydNAoNm34ySwOiTwqaXvCYQenHJRNRwXINsEnlni
+         IbVA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1792691127; x=1793295927; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Q/kJZkRDh+A2dbcPNuvHi4UCiR28b887/rQN2752RCM=;
+        b=d2+6BqNDgc0VtDxT5+xSW9zUuCelkFdrH2s9y5hKLYmpnCEjIEP+JA7ZzxK1/ZGFrT
+         XhuY2ccAb0+BAjFkZBYglgh7ekJrDEj9lPzEb2zgb8Uafy067KkHy2pXyzZ43DmQ+Rni
+         BqYbL8yOeMZWy9EqLdIpyDHJqyw+mXhsT3nC+DM6mrCKxB/NMyeydBb89tgj2X1z7/rq
+         bj1rMK+4mupWQkoyZWY2WyPKxIjiGgsijKOebxk99Sahg1CLzWjJm+XhhwGgTESNcvXJ
+         dTPmlZtvg7nU0tFxLT9DmUstLhcVwrfHZWqlfKF6Fs+PzuCds4EXUnlIlGqFOyORVc3N
+         EYZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792690853; x=1793295653;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lqDNdqh7JWi24rY3vzEqU+LCO6MlMl1qL5MbUIf6AO4=;
-        b=sYtMDXjHJhS/8r8bcBJ6CJyY/iYvcTIkbURYocPyT+VjRqY0XsxdfqT5tXdYrQJ4vP
-         1TaU+1/dN2Oep3bnyTPXTX38buqyIbuyunAcQOjgR3EmzuDk63JN4ktqN8hzvJWRFNpr
-         4/cEX5qRbh0vjBASdYyPAkKDHGx8fmkoJwMA/iRpdKRZ7f5Q8ErCA9H7warPZ6+LDMjK
-         1DvWDBOTzOF+QlcvpRyGejsS/Sk1oNY04s9NW6mqHBTsW1wuwMR8XotdFqmKZ+LGp2Ni
-         JAMPA9imnO8PHtoKe7PSZIwsiQzNMzm6No0Ovf/js1Xv1DrSVQySikhw2mAy1olKqZjj
-         9QGg==
-X-Forwarded-Encrypted: i=1; AKwUvBxnnMDn4VKqJ1yETvpCNBIWO8IIkcicEczRTzHAT3H/jwWRzYvopC4ta2s1tQa0HBOmYqY2uHvzFhvOGaSjO8LI@lists.infradead.org
-X-Gm-Message-State: AFq9FYJUPW5icJWpa88Wqy6BYIdTlxcwOEspPGph4UI3T0zcyBIeymmt
-	4JERsBo6fWKJeX2k4+GIIGRxLBWclcAt/5xxoaZkAmVke6u/wft8zjyr
-X-Gm-Gg: AYBFou0/emFkRXEoy+cIhyNq7nc/CyaS2g4Kh46NHLGBirjEX8YYySnbp/haysR8h+l
-	FecoZL3MfaqdoQT2GkQxgoSx/iGAN1GWk8PAHX9nxuJPiOszeDz51SBryYpxWZ0e8knenCZiAWh
-	cOPatu7ODM6wxc180daPw4diW5A2Q9sbaw/Fs9JUPg/OLim7Eey1bxpN8bbGU05FudwYF2CilUj
-	1WH4Cexgdqsxfi1b4LceDXLTNta/ERM7O0zicbkUGQfM+drk+lbJPA+7MtpOankTMe5/YBo+A5m
-	OHrrrBimYLwWGS5H7sWE4QVUGjlxbPIt0aKQPSPnBR0cGGv5LtBmpssN0p+Go4tkQRNxhT6mBGC
-	+fcM5UdDgzx7kGog7OvwYjXcp9Cu6TrtUso1f4SoLwNE1CKCH+w51Z/500U5Yfp4QYAwQRUIONR
-	35in/x49vSSNTrcVTi2ShIp9quOyt9JX73nHnTtalnDqbs6JW5PHOBQBHIeR7xiSR0u2erACK0K
-	iWWxE6ghZHmMnTRKdq1GJ70Gsd83l7SQEuaBYKGJycIPx+qmS3drO3+A/AnHf2IrI8Wibfv92Ns
-	EsbxOdZvcA==
-X-Received: by 2002:a05:600c:8b45:b0:4a2:a3b:7aa8 with SMTP id 5b1f17b1804b1-4a20a3b7c0emr41739035e9.3.1792690853435;
-        Thu, 22 Oct 2026 10:40:53 -0700 (PDT)
-Received: from [192.168.1.135] ([81.79.62.202])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a2101cd7cesm14216005e9.0.2026.10.22.10.40.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Oct 2026 10:40:52 -0700 (PDT)
-Message-ID: <74840159-62d9-4d6d-a0c3-b079e6e4da6e@linux.com>
-Date: Thu, 22 Oct 2026 18:40:51 +0100
+        d=1e100.net; s=20260707; t=1792691127; x=1793295927;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Q/kJZkRDh+A2dbcPNuvHi4UCiR28b887/rQN2752RCM=;
+        b=pEs8FD676lURkk63xUUco9ZagmldT+Hu/mFWG72dz7F+FxvNpPSkyrkNY2R/Y/C6nq
+         D1nes/xKdksLx1dGwCGE45PwIjDt+iPZ1XPdZ5R46mSVQGXZrjd/B9QSnVf0YNgcRhIm
+         fzhD0sdbWKfo+r9CGAu31t+R0oB14dnpfs1DnacTO8j/vc/ay7NLRa3HRpZWkBtiesdj
+         +7kTIvxvuMVrylmSTtdK//BdPxoBsmqc9HXvEVMrsfUqScQGxHdDkMddUE47/nm6GPOC
+         6y2JIVjod7ab3BY+fjqQ3xAuyBp9RN4Ma6zprNDitMX4QyUW6Q8sWjQJ+CTsI2zMfl40
+         IMOw==
+X-Forwarded-Encrypted: i=1; AKwUvBwDec1YyOFTRdgy4slR75AJggsYK4BZkVSSOe/Q6s9Nm1NPhHRIjacN+ER8B6rZm4yzyD0VCdMLHWuaOjWgE1H3@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ7j/iITjc7jxFoKCjmarvfZKGoNy9g5N4fgbZSOWKdX+GHjUvo
+	4Lgv4E7Nm2whaM8cBBWycI8ODN2Em/xEg+Kd1S1yjmulvK3TaXORsaR3C6LHBvlhqxajKt2iRMn
+	sno0c4weyJBpsvXArLTjk1cm1Gb7Gy7ZLk2c3vlcH
+X-Gm-Gg: AYBFou0Bb6ptItZB+tC1Q1ezgrP+SDYNaPnDJJ11YopswB7wTn7d0VuPnYWW270MVZw
+	YQ0D3Bu1Ljg7k2Wc1cvxvrX80Vo+jBi8cFrG3zKJUDYm0kaJOhToo6A8D6l/IS0bQK69Cuo9VbQ
+	+rx//tWIgFqPl0UwR2iRq/9hyospJbO/Nk2Fty8SA7zUUOS2/OhXgAakUl5V+8u1Z1J50dGnv0c
+	eNciThr08g7M8cdkvKljyQgw1+JOMQL+cLCXJtP7rTZmb33vR4Gq0uyeexQyIQkvqTae4F4Qbyw
+	P9k0jZ7GlhhtlypNOxsiu9SjjCefhXE2XEauNRxAIeGhOBbJ1a2Bdx/B7vTq+KRFqL13VSmrc44
+	ue9o45teAya2HX3HXWO6CrVcWzigVtmVszUDQMcehLGPuXPB+R7pFHJKUdcdjJqtqntmp673Niq
+	/4nMVDpgOSstHPjAqM2+aOnb7Bjcxg69evRgp03kBKA2FJdjcNHlRcZR0CVDrVgBj7NbU5gTZ2p
+	gcr0P/k
+X-Received: by 2002:a17:906:d553:b0:c26:1649:47ad with SMTP id
+ a640c23a62f3a-c467976e841mr649670766b.35.1792691126016; Thu, 22 Oct 2026
+ 10:45:26 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/8] arm64: dts: amlogic: t7: khadas-vim4: enable the
- ethernet port
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261010105900.247342-1-tanure@linux.com>
- <20261010105900.247342-8-tanure@linux.com>
- <CAFBinCC8iKESoc2zEXJMEmqk0cwWbVap-a2KcAtB7-KFKO9Atg@mail.gmail.com>
-Content-Language: en-US
-From: Lucas Tanure <tanure@linux.com>
-In-Reply-To: <CAFBinCC8iKESoc2zEXJMEmqk0cwWbVap-a2KcAtB7-KFKO9Atg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20261003002123.505555-1-jthoughton@google.com>
+ <20261003002123.505555-4-jthoughton@google.com> <B8A44041-1516-4405-976D-534AA2412A49@linux.dev>
+ <CADrL8HUOJwEgjUzefxSUa=AZHj4JO7koonj2_-WYhcL8QcXPZA@mail.gmail.com> <440A9FCF-2B5D-43A9-9B02-C32F5955AC82@linux.dev>
+In-Reply-To: <440A9FCF-2B5D-43A9-9B02-C32F5955AC82@linux.dev>
+From: James Houghton <jthoughton@google.com>
+Date: Thu, 22 Oct 2026 10:44:49 -0700
+X-Gm-Features: AclHuK8OCQjsmkJ8ztkh2B9wQVyT8iKcOFLwut_LnlB7__hy8ym6E5QTYBptOqc
+Message-ID: <CADrL8HWNaurYHGnpvC9qwr6bVU74YhhucCuhoVYcvqmSX+R6+Q@mail.gmail.com>
+Subject: Re: [PATCH v2 03/20] hugetlb_vmemmap: Always flush TLB if needed upon
+ PTE remapping
+To: Muchun Song <muchun.song@linux.dev>, Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Oscar Salvador <osalvador@suse.de>, 
+	Andrew Morton <akpm@linux-foundation.org>, Nikos Nikoleris <nikos.nikoleris@arm.com>, 
+	Linu Cherian <linu.cherian@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	David Hildenbrand <david@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Nanyong Sun <sunnanyong@huawei.com>, Yu Zhao <yuzhao@google.com>, 
+	Frank van der Linden <fvdl@google.com>, David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_104056_074298_F485078E 
-X-CRM114-Status: GOOD (  16.94  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20261022_104531_673383_74B815BA 
+X-CRM114-Status: GOOD (  46.96  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,59 +127,118 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/10/2026 23:00, Martin Blumenstingl wrote:
-> On Sat, Oct 10, 2026 at 12:59 PM Lucas Tanure <tanure@linux.com> wrote:
-> [...]
->> RGMII needs a delay on each of its two clocks, and on this board
->> both come from inside the chips, not from the board traces. The PHY
->> adds the one on receive. Its transmit delay does not work here, so the
->> controller adds that one.
-> [...]
->> +&ethmac {
->> +       status = "okay";
->> +       pinctrl-0 = <&eth_pins>, <&eth_rgmii_pins>;
->> +       pinctrl-names = "default";
->> +       phy-mode = "rgmii-id";
->> +       phy-handle = <&external_phy>;
->> +       tx-internal-delay-ps = <2000>;
-> You're stating that RTL8211F's TX delay doesn't work but not explaining why.
-> I haven't come across this behavior before and I'm worried that that's
-> an issue with a batch of RTL8211F.
-> What if the previous/next batch of RTL8211F will have working TX delay
-> again - wouldn't that mean 4ns delay in total unless the RTL8211F
-> driver is changed?
+On Thu, Oct 22, 2026 at 2:18=E2=80=AFAM Muchun Song <muchun.song@linux.dev>=
+ wrote:
+>
+> > On Oct 22, 2026, at 05:59, James Houghton <jthoughton@google.com> wrote=
+:
+> >
+> > On Wed, Oct 21, 2026 at 2:54=E2=80=AFAM Muchun Song <muchun.song@linux.=
+dev> wrote:
+> >>
+> >> Hi James,
+> >>
+> >>> On Oct 3, 2026, at 08:21, James Houghton <jthoughton@google.com> wrot=
+e:
+> >>>
+> >>> vmemmap_remap_range() can potentially leave the vmemmap in a partiall=
+y
+> >>> optimized state. In this case, a TLB flush should be done if the walk
+> >>> caller asked for it, even if the optimization was not fully applied.
+> >>>
+> >>> A follow-up patch will more completely deal with partially-optimized
+> >>> folios.
+> >>
+> >> Why are we dealing with partial optimization cases right from
+> >> the start?
+> >>
+> >> I know that in patch 12, you try cmpxchg 16 times, and if it
+> >> fails, it leads to the partial optimization state. What I want
+> >> to ask is, why do we limit the maximum number of attempts? Is
+> >> it because during testing you found that this kind of failure
+> >> is very common? If we did not limit the number of attempts,
+> >> was it because during testing you found that the scheduling
+> >> latency caused here is very large? Or is this just defensive
+> >> programming? In my view, scenarios with such intense
+> >> concurrent access to these struct page structures should be
+> >> very rare.
+> >
+> > This was done defensively, yes. With 16 retries, I never hit this
+> > without fault injection. (Perhaps I should try with no retries...)
+> >
+> >> If your testing did not find any problems, my suggestion is
+> >> not to set an upper limit on the number of cmpxchg attempts.
+> >> This should be able to simplify the design of the initial
+> >> version of the code to a certain extent. If we want to
+> >> determine whether an upper limit should be added in the
+> >> future, I think we can add timing monitoring in the arm64
+> >> try_update_vmemmap_pte function and trigger a warning when
+> >> the measured time exceeds a certain threshold. If someone
+> >> reports this kind of warning to the community in the future,
+> >> then I think we can improve it at that time.
+> >>
+> >> What do you think?
+> >
+> > From userspace, you could use kpageflags or page_idle to continuously
+> > access a single struct page over and over again. I think that's a
+>
+> page_idle does not support HugeTLB pages, right? We should only consider
+> /proc/kpageflags; reading this file requires privilege =E2=80=94 unless a=
+ privileged
+> user intentionally creates malicious software.
 
-Yes, you are right. After I understood I had a missing clock I re-tested 
-the everything from scratch.
+Oh yeah, page_idle only uses LRU pages (which HugeTLB pages are not),
+that's right.
 
-On the T7 the register block with PRG_ETH0/PRG_ETH1 sits behind a clock
-gate (the "pclk" clock in patches 2 and 6). My first tests ran before I
-knew about that gate: the block ignored every write and PRG_ETH0 kept
-the value the bootloader left there, 0x1621. Bit 5 of that value is the
-TX clock phase select, 1/4 cycle, which is 2ns at 1Gbit/s. So with
-"rgmii-id" the PHY added 2ns and the MAC added another 2ns nobody asked
-for, 4ns in total. The CRC errors from that made me believe the PHY TX
-delay was not working.
+For kpageflags (and kpagecount and kpagecgroup), I still think it is
+"bad" to provide a mechanism that allows userspace, even privileged
+userspace, to permanently freeze a CPU. Fuzzers could find it, for
+example.
 
-With the clock enabled and a plain "rgmii-id" node, no delay property:
+I wonder what Catalin thinks about my reasoning. :)
 
-   PRG_ETH0 = 0x1601 (TX phase 0), PRG_ETH1 = 0x0
-   RTL8211F page 0xd08: reg 0x11 = 0x0109 (TX delay on),
-                        reg 0x15 = 0x0019 (RX delay on)
-   iperf3: 940 Mbit/s board to PC, 943 Mbit/s PC to board, 0 retransmits
-   0 CRC errors on both ends
+> > pretty good reason to have a bound. Also, the AF can be set even
+> > without an architectural memory access (so a mispredicted branch can
+> > still set AF, for example); that also makes me want to have a bound.
+>
+> However, I don't think this scenario would cause a significant amount of
+> concurrent reads.
 
-v4 drops tx-internal-delay-ps from the VIM4 node and the wrong sentence
-from the commit message. The PHY adds both delays, as the generic text
-expects.
+The fact that AF can be set without an architectural access means we
+can't really reason about what may or may not set the AF. It
+definitely seems implausible for the microarchitecture to continuously
+attempt to set the AF for a generally-unused but valid PTE many times
+in a row, but it isn't forbidden (as far as I can tell).
 
-Thanks
-Lucas
+> >
+> > Catalin also said wanted a bound here. See the bottom of this reply at =
+[1].
+>
+> I see, but I'd still like to explain my reasoning and see what everyone
+> thinks.
+
+Thanks, yeah I'm curious what others think too. I can go either way really.
+
+> >
+> > So I think we should leave it in. The extra complexity is pretty much
+> > entirely in patch #4[2], and I don't think it's too large of a change.
+> > I hope you agree. :)
+>
+> Because I personally feel that having only part of the vmemmap optimized
+> is a somewhat awkward intermediate state =E2=80=94 the all-or-nothing sem=
+antics
+> seems more natural to me. At least until a clear problem actually arises,
+> I'd prefer not to consider it. At the same time, we can also keep the des=
+ign
+> simple.
+
+Yeah that's fair. Thanks for your feedback, Muchun.
 
