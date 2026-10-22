@@ -2,84 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F27E606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 07:06:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C165C606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 07:19:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DK0X6d8T;
-	dkim=pass (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Efe3Tff6;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=YMGU50rg
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eEm/KDAb;
+	dkim=pass (1024-bit key, unprotected) header.d=airkyi.com header.i=@airkyi.com header.a=rsa-sha256 header.s=altu2504 header.b=JnZOZtD5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pUoz53K599fZhg1OLTYQwz8gx2AgSV9orfVTwiVXc3k=; b=DK0X6d8TV4IENErCpCxhNVp8BK
-	J2enjmxGOGjodkLwRogFXhpmaSFzAScyfryyLB7LFGTbnwZ6/5i5f0uehYiC3b3vzMvosfW34t3Gm
-	inyx2K1HyAGQWWoALOUi3KFDWkUXvw7zZztR4+FzZP7WhvJGEe+CXHyKvWawekStPnDXn7Dx42S0a
-	P2IUZtOnY+I2mcusvYobrN6dMo/DVkSnrAPmhVosK4ElmADj9A4RQOrxRPiyHQreFypsl3OFlckiL
-	3Xsij3otwE6Ed7aF+U/Bvu48m+Gtub63ErnLjzXF3f6nW6oYzyZ4bX7AU213wJxXsEhCkWZDHE9ww
-	n3l4Nn9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QjUw+2kIgxNmIRZcsifp7nN5L+j7gN/V3v4KCZkaLmw=; b=eEm/KDAbtd4alTHgmwrmDgbpR7
+	NDF04tfURTd+t9ygniR7M7r3SzzQyPezlAfskHXZ1G2LXjkq7k7BT8Me9mbjfoV054qXNyhhOIBzm
+	YO8mbtTWs0Ha9O0zyZEdf520FXWNVEmV5lLqM07rTM335z3aQV6ZscjidC097Dd2rEto2ivxGo3M6
+	bjUqX13L3YNVtGFcMqG0SjA/2tcDC+YDfkqInTZezwtDTBk0QEQLIl2cmwX4OkE/bScj17tnJPy0i
+	qW9G2hxQpW/0/SytvuaKrGkUmyap1Wtwd0lk3p1pZZraAWVgBTQoplaWRs26uRLOOTYMH83mrPtzm
+	1Dq+6B5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJmsW-0000000DXOJ-37xm;
-	Thu, 22 Oct 2026 07:06:20 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1xJn58-0000000DYD3-0m55;
+	Thu, 22 Oct 2026 07:19:22 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJmsU-0000000DXNo-1p6J
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 07:06:19 +0000
-From: Kurt Kanzenbach <kurt@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1792652776;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pUoz53K599fZhg1OLTYQwz8gx2AgSV9orfVTwiVXc3k=;
-	b=Efe3Tff6ZTEtxF9tszPXm6bbUZ1Lv3XAyKsB4DB9FJk9YGaReK7modBV0WF600PniLUD2X
-	lzu82V68WXDSW2XQ6ejJdg2MATbWENz+l81g7jjqTDq5vgfDkop+cr2ns4CpfBrkB7hhnT
-	uJCO21+J2ADMMh4YHc3/DlW06RPqrmlGo2pV77KIkeR2aBCdAnXZ9kbtKHmaaljLE6lQ8j
-	VddytrVKHagcjzn7Rp8YzAsw78TnYEqJ+o3o70OAmOZpiqbBxlSpOA4h8OOIrGgv1MXJLn
-	Xxe4+ECGXupl07drIsjtU1NYE8lCwR5So0VrWuvx1KPUFb+2c50yfSPBRLffQA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1792652776;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pUoz53K599fZhg1OLTYQwz8gx2AgSV9orfVTwiVXc3k=;
-	b=YMGU50rgv8rAoPhVWhm2yHhmxu47Lc7hl3Gjl8o04pqCgp65LMQoOdWjqHiFfwIhQbJAPO
-	d+8k/n5Gz5jFH4DA==
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Paolo
- Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>,
- Daniel
- Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev
- <sdf@fomichev.me>, Song Yoong Siang <yoong.siang.song@intel.com>, Mohd
- Faizal Abdul Rahim <faizal.abdul.rahim@intel.com>, Ong Boon Leong
- <boon.leong.ong@intel.com>, Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>, Maciej Fijalkowski
- <maciej.fijalkowski@intel.com>, Nicolai Buchwitz <nb@tipi-net.de>,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net v3 0/2] net: stmmac: Fix XSK crashes on stm32mp2
-In-Reply-To: <20261021073306.61972417@kernel.org>
-References: <20261013-stmmac_xsk_crashes-v3-0-50fca7790af2@linutronix.de>
- <20261020140849.12fc79ef@kernel.org> <874iefjjan.fsf@jax.kurt.home>
- <20261021073306.61972417@kernel.org>
-Date: Thu, 22 Oct 2026 09:06:15 +0200
-Message-ID: <87fqxymcyg.fsf@jax.kurt.home>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+	id 1xJn53-0000000DYBw-3djg;
+	Thu, 22 Oct 2026 07:19:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1792653493;
+	bh=QjUw+2kIgxNmIRZcsifp7nN5L+j7gN/V3v4KCZkaLmw=;
+	h=From:To:Subject:Date:Message-Id;
+	b=JnZOZtD5w4AbDz+LqkMLwwojz+oZA/pFrmcwwo5zPlSgGALlGckwfbshZrqmMpTiu
+	 kZothQ4evEFVvIbyKvEgzbOtmmVkjUz0vBF7a7qI9YqY2oF72dxEQc1g1A/7Rjt3+8
+	 CMQJEVZ4DJt4+mSGVxN3s2dWO+pMGw9VCbO/UGnM=
+X-QQ-mid: esmtpgz10t1792653486t4a2ab009
+X-QQ-Originating-IP: h2yaRNFQb6Ei6q1nI4we5w8kZoco3AP8xkEaOsyViFc=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 22 Oct 2026 15:18:03 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 6284087679707757170
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andyshrk@163.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: [PATCH 0/3] drm/rockchip: vop2: Add 8K support for RK3588 vop2
+Date: Thu, 22 Oct 2026 15:17:34 +0800
+Message-Id: <20261022071737.508-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: Odky5wNUcHo/YCa80XQB9bTx/4SXD48tfuBQ2Wes57AEWIvRYAO1apvO
+	m7Emup3ovRwNCE9Bq5AXaf8LWlFzgqMkK0VVvzayrdWOOqWpN7jj0O+nmOFWass6OJ78cm5
+	1dDpcq9yYO9uWweVdbtXF1aMtPqdX4XdgYSx7uHSlnlLrdf2dNXoYCEhghJux8Pv2oJWjSa
+	o802dR76lPhhRQSCZdQGlM0W1sBR+NNEfLDQcWVVpRNehlUNoBdR02Fauo7MOroGVjo5t+/
+	hIAkruBfHyPigZVmCSANRkBgwgWUg6hz5I4OctiTa/QLZsG6JnRIB3DnJTNQi23hOSO2cC0
+	/0lchAlI63m2aaDC8KosJsdXxEJEN6PjaTAkurm8CsJ//1OFMcPvD2yBMU1/Y7oW4RAE1qV
+	l1+osV+HpNtyxPbLFwDv2Pr+x30ipPOI0bCwrDHxLHR6YIpjUY+1rUFPVOfbCeo0kPP88q6
+	Mo7mKsXju8FQAomQ6boFMJoNfkv57Q6Jwgz8nFJgcwA0kRpRsLNFa/TVfZDLT118wyzTZgE
+	8bwjRs1ssQK6FjiF1AnsSQX++4J4rtIgtRuZa87a/icg8EnYia8CkaLgKlDwNQRf/rb9kgk
+	8pw5+8gO3eNslkdg+H5HvGwTCwUbPHPNTdR4Yvcu+SZQE8HItAxQEv4+tc1GNKkUmF8ckvK
+	pk9gLyek6uI/D7tPeARxKtjT65pzYa4Quj4LdJ7tfy6aJ4Y/eifz9m4BhRqw1y2uq83lYlT
+	dJQT314U4EWShGlUOU7jcId6CzUkQWtMx+efBJFhM9QNSDyZqYv2gnUSg7IZztYlEEdBR26
+	hhKoR9IAfQLn6LT+MW8wr+lOANs4bAdW6zMoMe1UF1YFTjSJ0LpzejZW2aESMfJFHkY5v2r
+	kPO+gGj6ZyrfhEKtI/Dcp6Yhjy4scjmWLpkVLPjXNC5H0potFZcXHM4sfqxl+OBvzjjs/fD
+	PdBxoZ0VSAFsVW6f7v4Hz5865C5sjPDhodsKvIKWi4eaKDEpcQUgpJJu6b5C4Fai2flw=
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_000618_617429_03B7A497 
-X-CRM114-Status: GOOD (  11.62  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261022_001918_270835_CB07DB30 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,61 +96,53 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
+X-Archived-By: <archiver.kernel.org>
 
---=-=-=
-Content-Type: text/plain
-Content-Transfer-Encoding: quoted-printable
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-On Wed Oct 21 2026, Jakub Kicinski wrote:
-> On Wed, 21 Oct 2026 15:05:20 +0200 Kurt Kanzenbach wrote:
->> On Tue Oct 20 2026, Jakub Kicinski wrote:
->> > On Tue, 13 Oct 2026 10:57:20 +0200 Kurt Kanzenbach wrote:=20=20
->> >> while looking at the TBS thingy [1], I've noticed kernel crashes. That
->> >> happens when opening or closing an AF_XDP/ZC socket while parallel Tx
->> >> traffic is going on.=20=20
->> >
->> > Let's respin this against net-next. The merge window has started,
->> > applying this to net would give us an immediate conflict and pain.=20=
-=20
->>=20
->> I'll send this against net-next when it opens again. Thank you.
->
-> I mean that you can repost it now, just rebase on net-next.
-> By the time we apply it net-next will be net so to speak.
+Hi,
 
-I see. Rebased to net-next and posted v4:
+This series adds support for 8K output on the RK3588 VOP2. HDMI is not
+ready yet, but I believe @Sebastian and @Cristian might be interested in
+this?
 
- https://lore.kernel.org/all/20261022-stmmac_xsk_crashes-v4-0-15c0c750bb96@=
-linutronix.de/
+8K output on the RK3588 is done by splicing two VPs together, with VP0
+outputting the left half of the screen and VP1 the right half. In
+addition, 8K planes have to be split in half as well to stay within the
+width limit of a single plane. Similarly, there are a few post-processing
+details that need to be handled.
 
-Thanks,
-Kurt
+Note that splice mode is not only usable for 8K output. This means the
+mode can be tested at 4K and even lower resolutions, by simply changing 
+this one line:
 
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
+-#define VOP2_MAX_VP_OUTPUT_WIDTH    4096
++#define VOP2_MAX_VP_OUTPUT_WIDTH    (3840 / 2) /* for 4K test */
 
------BEGIN PGP SIGNATURE-----
+And yes, this has been tested at 4K over HDMI on the RK3588 EVB1 :)
 
-iQJHBAEBCgAxFiEEvLm/ssjDfdPf21mSwZPR8qpGc4IFAmrZtecTHGt1cnRAbGlu
-dXRyb25peC5kZQAKCRDBk9HyqkZzgrWQD/9Jq7mtMI/GNzuGLA1ndFrh32qOiUHN
-N1AsHtaEzUP74uGRgY0nSbO+93zYdhYFkZDMsN2QwU3EVP+TNm47EZ51UpDVFJA5
-1OaxBUHcHi538uRGtuMGRjuclxMWFbZ0wJB96V9epyS2QbwiweGRN0qIJcLJ3kiZ
-Lh27kMjai9NjlgLwbI8tdbfTrOOgCUK1McL4EDeYVkXw7R7ubgTZq0NpIlxGmppc
-bak3br0g0QGMu6AxENEui5LkEb2XnI7UYVWgXdyMkzhYMmkN3106sUP/wfF0GAjd
-e1zKcum/vaWgGnaYpf6XVgpVpPcFud7hkiWWAXihmBHrRwaSPCRvPn4HHVg2Yuda
-R9lBMW587UybrQI9pO2vH7jJqvj/FLVviT+XsYLr2JR/csfgLrOIxKeTlsCVQTSe
-JTML+JiOC2z0mHGnjKJQ67sZ2dX8SoAiyz2k5n/DJegzbONuuSCNt6ZJswpIDglf
-l1O7IO5PrmJ3nGyc4rvJev2a+Hi4i6+yj76jeRaFOpESyle258/I7BdpzL4Qq5wp
-ll2H2x32dUeoZw+tSY5XNoTUx3YntDAFTcNGuLl+S21rC9GE0k0X4EvN+Lsc3mzE
-bx6SyGtX7Qrhzm8JLxcFX9GIZAQj2muF2jd5gs+otuv/FvrPhAU7+XAHToxtMiGQ
-a4QEpY65nsgcxw==
-=3vSL
------END PGP SIGNATURE-----
---=-=-=--
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
+
+Chaoyi Chen (3):
+  drm/rockchip: vop2: Use drm_format_info_min_pitch() for plane offsets
+  drm/rockchip: vop2: Skip UV plane setup for packed YUV formats
+  drm/rockchip: vop2: Support 8K output by splicing two video ports
+
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.h  |   5 +
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 410 +++++++++++++++++--
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  63 +++
+ drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 193 +++++++--
+ 4 files changed, 595 insertions(+), 76 deletions(-)
+
+-- 
+2.53.0
+
 
