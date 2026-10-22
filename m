@@ -2,70 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62F89606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 13:55:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC40B606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 14:02:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AxsWgkKZ;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=CxrBhuig
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CWe+za4+;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=MODeXnLR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=2ojm36jDUBb6pXJrubCoB6gVau8R+P1ZTa/JMKRiThE=; b=AxsWgkKZtP/qMgoui9BuNn8Gzg
-	flm0zEPGendGOJ5zMFE0YkDgUU+RDBdNtyur1WVhQAJYd19Wdvlff8pwU5qBzcmAP2f5tzmKe5bu+
-	ARcFWqY8swmzA5LPftnWzXLFaLuzJPEt7NqVCuwiMkhJvsneO1PgyW7sNHbZiThgkqw9/1Yc1qwk5
-	OAiUr1AcIsOOTpbsSR+6RpWqS9dOYeslVCpp2xWzA5XNamQP0Va9TLlFPFGXIRMdIATIAByD5ZQON
-	iV4JghUAU0pF2tsa8So8ewyzhnH4CmToxZ0GeoCziEOUmy0a9IiL4yQLuVS1ATNXPdbnOvYuKtpnx
-	ygvCHaQw==;
+	bh=vsmRRVaV1+5+TACeJIusWgJrEDczJxQiGTc7WIupIyY=; b=CWe+za4+ehZZOEDjv6nFo1OHjE
+	yP/wimpbU2w7AAGI2U8t+doaotYyZv9bbmOTJI3YVcHxkCS2jnjTcRGkNftjr+8ukf5kj6obZchcs
+	f0pp/oyJFISNqgJ7XE8jaiZGkMsRbd+NJ1aI9MmizrnWiNfhkZmg8tRMfos1T/kr3VnnMdXM6jemS
+	Dw4qrtMAsufR06hx4whoATudOJFn6DzK4I1M67hc4zkoFzZbTwqJl3OB13mjqK0N2d4zF1fx9tAB3
+	7nZ4YXXhVScoEZuyO0Xhui8UneT65nv+DPqZ6bjUcOl3bPG+4On9+WYsrQeDvGt2j+ocl2D4dIAmT
+	V4b71k+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJtGG-0000000EFAU-2W2J;
-	Thu, 22 Oct 2026 13:55:16 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xJtN2-0000000EFkg-03nc;
+	Thu, 22 Oct 2026 14:02:16 +0000
+Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJtGC-0000000EF99-1xul
+	id 1xJtMz-0000000EFje-15NI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 13:55:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=2ojm36jDUBb6pXJrubCoB6gVau8R+P1ZTa/JMKRiThE=; b=CxrBhuigoakpWN5Is0+/mnuMlH
-	7kvWlQaUZz3J10DLYIY62uAy0UDsgHoBxPmyVdeiQfOB69wozYtoATCzfGr+fXCjXhDDZdMBcXeBK
-	TnRlktYSQY0q6QnulyWq8f1vtaS9fInAIMV2u5lngm9VwdpTSQlsXSt13abfxEFN8ios=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xJtFu-00CGU8-KE; Thu, 22 Oct 2026 15:54:54 +0200
-Date: Thu, 22 Oct 2026 15:54:54 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: stmmac: Disable checksum insertion for XDP frame TX
-Message-ID: <741319db-17fb-4768-8606-9105df6bf905@lunn.ch>
-References: <20260929121025.20821-1-jszhang@kernel.org>
- <f0d8c25f-96e1-4da8-af6c-3286610338ba@lunn.ch>
- <atn0mF-dukVTK6Lh@xhacker>
+	Thu, 22 Oct 2026 14:02:14 +0000
+Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-4a1de9dac94so18492875e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 07:02:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1792677730; x=1793282530; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vsmRRVaV1+5+TACeJIusWgJrEDczJxQiGTc7WIupIyY=;
+        b=MODeXnLRBTxgH6j/0EQKLTN8Jc1loWJ+TMndPFLtsXOZjnX2TQRHIfSOmBUA1tHZi4
+         4slsO/sWvr9d0zDUwDddsmKon1vVNsNwZyi1OYw/KN77/Uvd9NLUoEvghp8idJCenuo1
+         Syyh7n4CeYtSczjhKoqhm8bLQwXKI8Rwm7MQ53NRy5LqKGBNU7u0hNSxQQx16H7Ul1OZ
+         0UeAyi5bTHmTO0TKSWVWTipn8CmPQsMKEeX4LxZjodJbyLKFODwwDWU1ewpA5pG18Ywa
+         HyJSdI4LeUs5OOn6RA3kPUPmke6g5uoupCcykR3u5l9gbotwqkEtor7ypHNJRElt6I4L
+         wRzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792677730; x=1793282530;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vsmRRVaV1+5+TACeJIusWgJrEDczJxQiGTc7WIupIyY=;
+        b=Ftv1+qfMoSTlRmdNyeu5dXPX7KgxnCyQVsyLb2qsAxfZ2cxSLzbi46oFLN7my1i711
+         CrPifb1rZu3fK6tnsUyPciAgRKefngsSWg84QmZ+EkfPqpX+fpL3Jh7wgygYtNWBhEoF
+         nC0I3eH/B+MTLAI/uTOtBxsXmCaJyVGc7ejqxOJPm/bM+/Xee5rd3njlDgdDToglN0er
+         0SKN+Xe0blZuAqpCCW0LQCv4od2cT8yPCn379r9kjGD3KnSzYGjlfpm+f1I/lhheYIFN
+         9AjjcdIH/GFZ8kjaxy/lu6K9makcM/91LO9hVKshykM4ajPioQyCsv54EllMFSVc2zhB
+         m4ZA==
+X-Forwarded-Encrypted: i=1; AKwUvByscplaIWq6oA2mopXKyQH3wvL2TgYe/piDAUGJajnDwU7ZAFpfCZF2x82viOg/ZkLPjd88/T/w6CXrx7J2G+qv@lists.infradead.org
+X-Gm-Message-State: AFq9FYLQENE9TNgE1wby2lklx26EQ+f33j3y7rqJa+esj6/KAoc5R2y+
+	RF5Jayz23Ruzbmlt8ZHxO7RebETQ2RSiJqQx3fXWNSZvV/AKu+AkO/YNRDPcqRfgEm0FCkZGwiv
+	1OdVnY2iN0d4VFxLl3TBsFQ==
+X-Received: from wmby14.prod.google.com ([2002:a05:600c:c04e:b0:4a1:fc99:15d6])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:3ba1:b0:4a2:d82:11bb with SMTP id 5b1f17b1804b1-4a20d8214a7mr12734265e9.30.1792677729944;
+ Thu, 22 Oct 2026 07:02:09 -0700 (PDT)
+Date: Thu, 22 Oct 2026 15:00:44 +0100
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <atn0mF-dukVTK6Lh@xhacker>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.257.gf7497c7d27-goog
+Message-ID: <20261022140048.2522787-1-vdonnefort@google.com>
+Subject: [PATCH v2 0/4] KVM: arm64: pkvm: Fix missing reset of GICv3 LRs
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_065512_697364_9004ABC9 
-X-CRM114-Status: GOOD (  21.78  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261022_070213_333197_B5DB6904 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,58 +91,54 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-21.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,USER_IN_DEF_DKIM_WL
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 22, 2026 at 07:33:44PM +0800, Jisheng Zhang wrote:
-> On Tue, Sep 29, 2026 at 10:29:14PM +0200, Andrew Lunn wrote:
-> > On Tue, Sep 29, 2026 at 08:10:25PM +0800, Jisheng Zhang wrote:
-> > > stmmac enables TX checksum insertion for XDP frames whenever the queue
-> > > supports it. XDP frames carry no TX checksum offload request, so this
-> > > can overwrite a checksum already present in the packet.
-> > > 
-> > > Pass false to stmmac_prepare_tx_desc() when transmitting an XDP frame
-> > > so that the packet is sent with its checksum fields unchanged.
-> > 
-> > This seems odd to me.
-> > 
-> > If the frame contains a checksum, it is either correct, and the
-> > hardware calculated one will come out the same, not an issue.  Or the
-> > checksum in the frame is actually wrong, because the frame has got
-> > mangled by eBPF before sending it out, and you want the hardware to
-> > calculate the correct value.
-> > 
-> > What an i missing?
-> > 
-> Hi Andrew and all,
-> 
-> some discussions happened in below thread
-> https://lore.kernel.org/netdev/athAoWfW-xesPhFP@xhacker/
-> 
-> Since it has been merged. Let's move the discussion back to my patch.
-> 
-> AIUI, dwmac can only do HW checksum for normal particular packets
-> layouts, such as TCP, UDP etc. The stmmac_has_ip_ethertype() has
-> well demostrated this limitation.
-> Different with normal tx where the common stack supplies the skb->ip_summed
-> metadata, XDP path doesn't have the necessary metadata. So to make
-> the XDP always work properly when transmiting tranmist arbitrary Eth
-> frames, dwmac HW csum needs to be disabled by default currently.
+The GICv3 List Registers (LRs) are architecturally UNKNOWN when a CPU
+boots or wakes up from a low-power state. When pKVM is enabled,
+__vgic_v3_init_lrs() is currently never called on boot, CPU hotplug, or
+CPU PM resume.
 
-I don't know the XDP code. But...
+Following Marc's comments on v1, instead of handling the LR reset purely
+inside the pKVM hypervisor, this series fixes the host CPU init, hotplug,
+and PM paths to properly reset the vGIC LRs even when pKVM keeps the EL2
+installed. This removes a few calls to is_protected_kvm_enabled() making
+the whole hypervisor init machinery more generic.
 
-Zoom out, look at the big picture:
+Since pKVM can't trust the a deprivileged host, keep the reset in the
+CPU_ON/CPU_SUSPEND path.
 
-What do other MAC drivers does? Do they also disable hardware checksum
-when XDP is enabled on a queue?
+Changelog:
 
-Should XDP actually have the needed meta data? Can it be added in a
-low overhead way? Does the overhead of having it cost less than
-forcing software check sums?
+v2:
+  * Make the __vgic_v3_init_lrs HVC always available. (Marc)
+  * Propagate __hyp_reset_vectors() error and remove
+    is_protected_kvm_enabled() special-casing in the host CPU init/PM
+    paths so the host resets the vGIC LRs. (Marc)
 
-	Andrew
+v1 (https://lore.kernel.org/all/20261021110000.508827-1-vdonnefort@google.com/)
+
+Vincent Donnefort (4):
+  KVM: arm64: Make __vgic_v3_init_lrs HVC always available
+  KVM: arm64: pkvm: Fix missing reset of GICv3 LRs
+  KVM: arm64: pkvm: Reset GICv3 LRs in the hypervisor
+  KVM: arm64: pkvm: Avoid trapping on HVC_RESET_VECTORS
+
+ arch/arm64/include/asm/kvm_asm.h     |  2 +-
+ arch/arm64/include/asm/virt.h        |  2 +-
+ arch/arm64/kvm/arm.c                 | 58 ++++++++++++++++------------
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c   |  5 ++-
+ arch/arm64/kvm/hyp/nvhe/psci-relay.c |  4 ++
+ 5 files changed, 43 insertions(+), 28 deletions(-)
+
+
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+-- 
+2.56.0.257.gf7497c7d27-goog
+
 
