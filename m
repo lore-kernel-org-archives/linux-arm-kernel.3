@@ -2,126 +2,108 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50F31606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 20:54:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA950606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 20:57:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=K6BHS/xw;
-	dkim=pass (2048-bit key, unprotected) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=W54FOMcl
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nO4AgSbB;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=oCxWLZkG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=q7AHGxYo2F1tyAP4/knTgDUev2PNwFvE7RNfo85FnlQ=; b=K6BHS/xwxepYZM
-	0VcGnSjKCqY2JgZ8ul2q57kqxLV6q6m87XQSQ56tSHcBy/G4Cqwkf8Jo4kksjBvOZT5rtwNYfhCEj
-	r4Ny7Zkuldfbvy0RBpKmwBETqY64ZmK8fV3py4wveggVJ89z0VuWsep9GN7wfjsZp8wew9xrq0dLB
-	j22qy6EKvaLcsPia8jYaw0pF2zxsDfvYLObHELrp9BE+2T8i3kMkzk7owhFKZwiUcq0HS0uMcoP4F
-	FBs8l/ICqXlEzV0kZ8n72xmNXnB9OQMhJ6sQxW/LDa6ynKIrp+GWLYGYQQMgwKMr8T5WqsWyVr5AX
-	4BaOr0OSbjtRfxW16y0Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=f7qXl+oFgNrZyAAUVUqI0RrjFdQvCwDXCCumBq2lEJY=; b=nO4AgSbBYQpFf1XqnAic+9ti2j
+	bgPPeMJMQwaiA59O1OQyz+3Msf8EyCYQZe7Sdvi+9WdYveyN88MhMcr0GqRDgwhvo774jOOe7kD0W
+	Y2Vyh4s8ZqGiWHD42htMf7YIJB+quG8QRmF3TO8ZEEzzbsEZv8HxldZXhI72TSHWXzEtCldrA8uaJ
+	G5hTGVsOzZIug/UCW4W6YIPDRSYCuBuk0l0Lv2+SLYjletjqgFeyi6k78UqJJO0/it301vWYYzSaQ
+	bkfDaAe6PqdIxlExuGqIPdT3IPHdhl+x74qAS2zaSYgn6VsjQycnEKWByUrfQ8d5KOq+CU5LW/EYn
+	L/5iHrPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJznd-0000000Exlh-3Sbu;
-	Thu, 22 Oct 2026 20:54:09 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1xJzqL-0000000Ey6y-3MJr;
+	Thu, 22 Oct 2026 20:56:58 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJznc-0000000ExkY-0Jpp
+	id 1xJzqG-0000000Ey5N-3DtH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 20:54:09 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6b1aa2848d2so210966a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 13:54:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792702446; cv=none;
-        d=google.com; s=arc-20260327;
-        b=IAgNuqxqRbOXzbiHlq16Ti8iHU0LtRYGJVpNdxGr/LMA9ihgID64XvwQ+iX/dcJaxN
-         MvGMnbRTAbrNwN0F39E6SYXBMMs5VJh5aZcBcHwD1OhXODgl9XxT2d9X+3idZiMW6B4O
-         bTTguUAIBQAEQHR2FCOFkwgtC5DK/U6mtKYUwotVaMTd1gocrjxwJhln73uEhVXta3ZL
-         6t6OYZZx4oFNdRjFaxHnHLcyEg1vAPpsbwfGr/O9xajoHnNwAWsaAwvKqaI3PNHBDpiI
-         oQ3NDdWedpAZpbQQrGg3E4OEPC4d2Wdik4oxHZOCnEoTrLKPbiak8J2ctbiCGUeA32F+
-         DFsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=q7AHGxYo2F1tyAP4/knTgDUev2PNwFvE7RNfo85FnlQ=;
-        fh=Z/Ui/gVBSsvUbyZ4ZkpZXLJAHvmxypxUqnODmUNnnVw=;
-        b=LiV3daETIPlxKPY1w55IvksmtuTPF2bReQSAYOFzniGunqoQiuAYldVQWP5qh18qsH
-         tbgBm+BCZ3VqqgA1cb7cGFedVOezvTxB35Oy7V4D2Oi1F41JmHicJRCsxhVedWzZYut/
-         9jKoMd+t6rMJtO3SPCZOAcKl35wYkRiD76Qdl4oJFOkeJUQOPDiDuIB+b73mF/Azxlaf
-         hFiuje4I5CAZlCyLWXinaA/bwd3LqVdtaS5YtgEVfOeBmHC3VWwc6mvSpHGoxozNPkvn
-         9i9WfuZSuruE6Ap7G4PXtizR5+YnKQ2z/SJNgTyQhZsEaHIJUH8SlPyqAV5ZdZ0wUyf6
-         Jgtg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 22 Oct 2026 20:56:55 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-cc4ca696de6so154512a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 13:56:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen.com; s=google; t=1792702446; x=1793307246; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=q7AHGxYo2F1tyAP4/knTgDUev2PNwFvE7RNfo85FnlQ=;
-        b=W54FOMcl3MAuOcUGdlr5PxBfeUlJb36wVZ1rlAO6i/W+ynJKk3SqVoorf0uHV+WlwD
-         Mat7eH7JGaqrDe5dYUS0AOW/gwprEyipTWeObMF08JFc6luP2/f4zK9FQfmbNLs5GO6y
-         mSDD9wAFTpO3N/e8zzPWIQnzAFttETlXQaLMqdhvovnlUrWxb3STdFhFUE9bfD/zNOWw
-         zCX9TXOPqBU1bHiptJB29PDZZ2Slt6MUPc1M40zgZjr441djP2++A8/pHodLEDYhqix1
-         C20knvsDZsLko9b3IDHny7BWRKphS6SaQ0T0J9/nfwlhiiR7IXUfTYeHXt7Wz/YFILcS
-         MVkw==
+        d=gmail.com; s=20251104; t=1792702611; x=1793307411; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=f7qXl+oFgNrZyAAUVUqI0RrjFdQvCwDXCCumBq2lEJY=;
+        b=oCxWLZkGANvJlh/QSBsAE6ee9cFddMOxR1wrymIr8dtU455MR6FT+HNOkijZLta662
+         LHemicB4AxWetekCP3+i+vMepu7VW1su0OsVp10gkNF1L5HOMuyFJEsNXA09IR6M2y7K
+         P457K9wrg54c+w+q/feb7yeJYLYceWJ+ioUUGC02QT4fqc+krOwDlygzei/92DheqS9f
+         lpfXid6BNLd+nvVtDNLZGI4nLd6+SpwOlTxOT087mjntY2yvIdaj/29jEpuFhkLkGEBT
+         IWWygOqLZLWLQg7y/RKwZwfBj2iurQE1tINuuO0xtVK5wYrt7x40tacDtUpV+m5ACJDp
+         czBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792702446; x=1793307246;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=q7AHGxYo2F1tyAP4/knTgDUev2PNwFvE7RNfo85FnlQ=;
-        b=Ndpxv5b/pTSjK4DUQgyooNmuaQ5Xd00wa9PoLSosrmfMDHsTAfTgI0GxJ9mOt30Lnq
-         tEgSdPAKeDq+SLOU1T+na8XN4Woe18TOATEdqYGrv2tc8im0VeB7xOyvza+9tqc0WqJG
-         Vo53I+H3/acDtwvwh9ctRpjfjSoh9ewqrw+MtVwcxHQftTXe+bYEXoejEo/oc8H/52bn
-         /C4MwRKGYNdBL86/yMLGE0HdMHcO4SW30pK08c70XYoZT0mEbLMT9vnSQ+wakNAzuHsV
-         YwoSS5uVYqwkvAv+ZAmEiCj1WusOQThsRPu0LDFJUIbLAwpT6Y9NAwR9KkOk9ZUA29GE
-         +UGQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzpB7U7QljATozjgGMMeXKEPRg7c7nTFZLbiqg8VmH88zQzpuUD44YfuvyE7kpmWMU713oyd1q+v7ACKX5rdotI@lists.infradead.org
-X-Gm-Message-State: AFq9FYI95va4lP3sp1R3vza7IdlirXPyAxO3g3HsvGbPv6neimnIzp3r
-	rO0DpqWJOqivN/0z8kowxYszY/FPNRx6VmqjiRw7sPgnwMRNHI1LGHeTrfGjQoEJjtrgY1skQR/
-	KFDk+jdVm9jDCT+6fIBlDimFRh/ctUMUmkCtu5taHWA==
-X-Gm-Gg: AYBFou10+UtDoz8H1PjHuKNsx5A9dryK+Y1WWKBfQnsAQo4fNYR9hbPqWEH5uBdUdr7
-	AMUCeQTMVKEiA1VWEi0eAiNg/NHpdeHJTtoh6Jmey5oKkiZV1o/zwWLbwZktXuVG+B8+f9vHSpM
-	6OwuQ1j9YQ58hXCTrcrzTXEPwhOjEThGzu2Quoqdw93lN/17ZEcSPjx0k2ZwMnOQienCYfTqHTY
-	79yCrLi0Zgr4eH2StfZFrEPnw8cdyjGcgXQxYep5Pq1hYi1FnTs/fEIz0DD6uuPmBfXqTRX+PgA
-	ndLjiNRJ+QcKyArCFTZB4SL8nBvudntllE/8NUT8wMTmZO2+wSt3s9Lgq7oU4h/M3IxGbU6IU+S
-	0+sP1s3C7uE1brl6lZ1/Dzu8dcviOzH7fXxG7Gdr/jgM7RgiAVFn3nsNvAOopFcNwJjFx
-X-Received: by 2002:a05:6402:321c:b0:6b1:c299:b3f8 with SMTP id
- 4fb4d7f45d1cf-6b432c1a486mr859420a12.33.1792702445990; Thu, 22 Oct 2026
- 13:54:05 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1792702611; x=1793307411;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=f7qXl+oFgNrZyAAUVUqI0RrjFdQvCwDXCCumBq2lEJY=;
+        b=GLB9PKFaNz00ysXiVXE8VJsNy7DoQYT4i0aZliVC441wd1y1ZBXhza9RjQyw21yjyJ
+         hkmm3veVWLHD9Pb1i3BzRJ28ZUvABDoK/opIE/hWDSsgi2LPnwR1wfsgrUHB48uwFtzb
+         nIFZq6Q3fJOaTHpGjT+nmh7htQXC5iHymHaq3WvpKgvck//pbBotp4KfIYEu/7wGh9R4
+         mxcgoXTjzQ/xZwDCOu3wvnglOUhVq/UBbioSJ+HCkQtIIUMDTfCpmKJjdoFu+hyMFRg0
+         v1F4xmORkryTf8TRu3eCr4tx4Y7LR44R1Ob4Rl4inxQsbLUzWTgFFdHRgaZkEqnp0AM3
+         qCBg==
+X-Forwarded-Encrypted: i=1; AKwUvBzYDBpXL+TjhyphL1dTsUgcSc3vRVNrX8Gojw5A4rZGNg7nwGTMHCaQN9qOggiC7wH07zf1QRDKOd/cwq7mOJVV@lists.infradead.org
+X-Gm-Message-State: AFq9FYJuMLrRIELmcKtn5KiAxJAsOv845BTctyLVtQDle1FYwqkuL4zE
+	zs6Ro2FWOMNHZcyV8JiVzKhitgwiFFy5lJwple0j4hNTF4eBZqOAQCcN
+X-Gm-Gg: AYBFou1/ldt7WwUXUt7ONsHUap9Z3Uh82jpdVRE3aWjGvH5wiiHM85J7vtrbeqPpNeA
+	2IoFdTMULj/xeEGSTkgVSOx3s4MMpkWfjUQP87P50J8YcBYgjsDIkuIzSdihS7iVpT1tGYxzZXQ
+	AG3vOxbAfyfP/f3AMrTHpQpxAS88+IGUhMV8IWpPIENJyf9/2nz+OalIG87fY3xgNz5Vt6TbLk5
+	7rOZqCvmRB2ErLkawC+/GzqwqS0DsIFHo7VdXthdVhCwG8f8S8AjAdx8qvuLR9wZsRSRqHwSXxA
+	du/YxYchJXqWawJWiWkX5IewAsBExREwOc3PxK223+BRoU/8LDmm839cNVb8YMo1cMfgRXLlx9m
+	K4NkVrN2aBjz5kALF21JbLXxTk+5YVWMPqYMmgN5U8iwPh+CuuCJ1ktTlqhAW8NSdTpchTgsZud
+	v/6QXZwdFmbagIvqty8P+YPlg1aCsqLUKbRY4tV91E7IruPt6PxgSindO9VFFseG33C79P80Y3E
+	YGKmdNOgmVWi1WqiBQ/65YrZ04ARulTV/dldL+CdRx+WPzOQc4QL99/9mN1U/nAlTtICHAxh3eD
+	Erzy86EvVHLgWS8=
+X-Received: by 2002:a17:90b:4a12:b0:3a4:b0f3:6597 with SMTP id 98e67ed59e1d1-3adcd7fe438mr149838a91.0.1792702611337;
+        Thu, 22 Oct 2026 13:56:51 -0700 (PDT)
+Received: from abs.sf.dndws.com ([50.35.86.68])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ada495315dsm6263941a91.15.2026.10.22.13.56.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Oct 2026 13:56:50 -0700 (PDT)
+From: Tao Gong <gongtao0607@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Tao Gong <gongtao0607@gmail.com>,
+	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	=?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net v3] net: dsa: mt7530: trap frames to conduit in MFC on EN7581 and AN7583
+Date: Thu, 22 Oct 2026 20:56:48 +0000
+Message-ID: <20261022205649.2351696-1-gongtao0607@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <CA+CK2bAQbmq3ArP3XMErF_8RC2CUwvgpLY0H83D0nCJTaVKYyA@mail.gmail.com>
- <9huzecdi6go0.fsf@tarunix.c.googlers.com> <CALzav=dLdJoVy=B1pv0FAurD9OhAzLSTjJNbtjTdJRmSqaB0yw@mail.gmail.com>
- <CA+CK2bAQRMAEXZyHTEuUN0_Fo59Sn0hBmYbme_J9ewjx6gPyJQ@mail.gmail.com>
- <atlKsD-aJB3mJr2j@google.com> <CA+CK2bABt4OZO31TenVF2+uBUWVwViWbvfE00=0xbAw=f7K9SA@mail.gmail.com>
- <atl7peoVHdP5hz7z@google.com> <CA+CK2bBFXnJA1kddbLKGq0DAHDgjYhsTSQQay-xeX7jJC1V_UQ@mail.gmail.com>
- <CALzav=e=ho2gVrn+7KpZ3ZyasvH2u15-pC-RSRSS7KcMfKqUJQ@mail.gmail.com>
- <CA+CK2bAJo8dnTOyKMgnnMnk-SCXbTsv+JCLEOWkjyj-wqtEkHg@mail.gmail.com> <atpNFEFIlqAoYIwH@google.com>
-In-Reply-To: <atpNFEFIlqAoYIwH@google.com>
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-Date: Thu, 22 Oct 2026 16:53:28 -0400
-X-Gm-Features: AclHuK_o-bcMo-_bEmG9OJEk39HO6mWdZ96jtolFahfwsqDnw1LYQXgLWQ4gcJk
-Message-ID: <CA+CK2bB2C3Am5ssRuzYpfiU7_vB81vxMGc19HQLq7N=_7YrbTg@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
- a 2-bit pair feature header
-To: David Matlack <dmatlack@google.com>
-Cc: tarunsahu@google.com, Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org, 
-	Mike Rapoport <rppt@kernel.org>, Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de, 
-	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com, 
-	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org, 
-	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com, will@kernel.org, 
-	Alexander Graf <graf@amazon.com>, Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com, 
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev, 
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org, kexec@lists.infradead.org, 
-	skhawaja@google.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_135408_184318_89E73DC9 
-X-CRM114-Status: GOOD (  35.83  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261022_135652_864652_9E93BA41 
+X-CRM114-Status: GOOD (  22.89  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,180 +114,92 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 22, 2026 at 1:51=E2=80=AFPM David Matlack <dmatlack@google.com>=
- wrote:
->
-> On 2026-10-22 12:11 AM, Pasha Tatashin wrote:
-> > On Wed, Oct 21, 2026 at 11:53=E2=80=AFPM David Matlack <dmatlack@google=
-.com> wrote:
->
-> > > > #define DECLARE_LUO_SER(name, expected_size, ext_flags_count, paylo=
-ad_type) \
-> > > >     struct name {                                                  =
-         \
-> > > >         __u32 size;                                                =
-         \
-> > > >         __u32 flags;                                               =
-         \
-> > > >         __u64 ext_flags[ext_flags_count];                          =
-         \
-> > > >         payload_type payload;                                      =
-         \
-> > > >     };                                                             =
-         \
-> > > >     static_assert(sizeof(struct name) =3D=3D (expected_size),      =
-             \
-> > > >                   "LUO struct " #name " size mismatch!")
-> > > >
-> > > > For example:
-> > > >
-> > > > struct luo_memfd_payload {
-> > > >     __u64 pos;
-> > > >     __u64 size;
-> > > > };
-> > > >
-> > > > DECLARE_LUO_SER(luo_memfd_ser, 24, 0, struct luo_memfd_payload);
-> > >
-> > > This looks pretty reasonable but I would name the payload
-> > > luo_memfd_ser. The combined struct that DECLARE_LUO_SER() creates
-> > > should never be used directly since the offset of the payload in that
-> > > struct is only valid in the current kernel. So I would give that
-> > > struct a special name that makes it obvious you shouldn't be using it=
-.
-> >
-> > Lets drop the fourth macro argument and generate the combined struct na=
-me:
-> >
-> > #define DECLARE_LUO_SER(name, expected_size, ext_flags_count)          =
-    \
-> >     struct name##_hdr {                                                =
-    \
-> >         __u32 size;                                                    =
-    \
-> >         __u32 flags;                                                   =
-    \
-> >         __u64 ext_flags[ext_flags_count];                              =
-    \
-> >         struct name payload;                                           =
-    \
-> >     };                                                                 =
-    \
-> >     static_assert(sizeof(struct name##_hdr) =3D=3D (expected_size),    =
-        \
-> >                   "LUO struct " #name " size mismatch!")
-> >
-> > For example:
-> >
-> > struct luo_memfd_ser {
-> >     __u64 pos;
-> >     __u64 size;
-> > };
-> >
-> > DECLARE_LUO_SER_HDR(luo_memfd_ser, 24, 0);
->
-> I think we are getting close, bu I have two remaining concerns:
->
->  * Reserving bits in each flags word for continuation leaves gaps
->    in the flag space that users have to know to skip.
+On EN7581, STP BPDUs received on switch user ports never reach the CPU.
 
-Yes, but callers should never manipulate the raw flag words directly,
-and we can provide simple accessor macros or inlines that take a
-contiguous feature ID (0, 1, 2, ...)
+Like MT7531 and MT7988, EN7581 and AN7583 only set the CPU port bitmap
+in MT7531_CFC and are skipped by mt753x_conduit_state_change(). On
+EN7581 this is not enough: trapped BPDUs reach the CPU only when
+MT7530_CPU_EN and MT7530_CPU_PORT are also set in MT753X_MFC. Add
+EN7581 and AN7583 to mt753x_conduit_state_change().
 
-enum luo_memfd_feats {
-    LUO_MEMFD_FEAT_HUGETLB =3D 0,
-    LUO_MEMFD_FEAT_SEALS   =3D 1,
-    /* ... */
-    LUO_MEMFD_FEAT_FOO     =3D 15, /* Automatically lands in
-ext_flags[0] bits 0:1 */
-    LUO_MEMFD_NR_FEATS
-};
+Tested on an AN7581 board (Gemtek W1700K, airoha,en7581-switch), where
+only lan3 and lan4 are switch user ports. With RSTP BPDUs arriving on
+lan4:
+- without this patch, none reached the CPU;
+- setting CPU_EN and CPU_PORT by hand delivered them, and clearing them
+  stopped them;
+- with this patch, they are received from boot.
 
-if (luo_ser_get_feat(hdr, LUO_MEMFD_FEAT_HUGETLB)) {
-    /* handle hugetlb */
-}
+Only BPDUs were tested. AN7583 is untested and is included because the
+driver sets it up like EN7581.
 
->  * struct name##_hdr only matches structs written by the current kernel
->    (in terms of length of array and offset of payload).
+Fixes: 2b0229f67932 ("net: dsa: mt7530: Add EN7581 support")
+Fixes: d76556db10bf ("net: dsa: mt7530: Add AN7583 support")
+Acked-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Signed-off-by: Tao Gong <gongtao0607@gmail.com>
+---
 
-This is not an issue on the incoming path, we never cast incoming data
-to struct name##_hdr or access ->payload directly. Instead, we parse
-the incoming buffer, dynamically compute the header size from the
-continuation bits, and cast the payload offset to "struct name *"
-based on the negotiated feature flags.
+v2 was withdrawn after 4cb3cd670b2a ("net: dsa: mt7530: untag
+VLAN-aware bridge PVID") fixed what patch 1/2 addressed. Patch 2/2 was
+dropped with it by mistake: the test that seemed to show it was not
+needed received BPDUs on ports that do not go through the switch. On a
+switch user port, BPDUs are still lost without it, as described above.
 
->
-> How about this instead:
->
-> struct luo_ser_hdr {
->     __u32 size;        /* Size of header + payload in bytes */
->     __u32 nr_flags;    /* Number of features encoded in flags[] */
->     __u64 flags[];
-> };
->
-> Each feature occupies 2 bits of flags[], so feature N is always bits
-> [2N+1:2N] of flags[N / 32], with no gaps:
->
->   00: Feature not present
->   01: Feature present, safe to ignore if not supported
->   11: Feature present, must be supported by the next kernel
->   10: Invalid
->
-> The length of flags[] and the header size are computed directly rather
-> than by walking continuation bits:
->
-> static inline u32 luo_ser_nr_flag_words(const struct luo_ser_hdr *hdr)
-> {
->     return DIV_ROUND_UP(hdr->nr_flags, 32);
-> }
->
-> static inline size_t luo_ser_hdr_size(const struct luo_ser_hdr *hdr)
-> {
->     return struct_size(hdr, flags, luo_ser_nr_flag_words(hdr));
-> }
->
-> static inline void *luo_ser_payload(const struct luo_ser_hdr *hdr)
-> {
->     return (void *)hdr + luo_ser_hdr_size(hdr);
-> }
->
-> and bounds checking is just luo_ser_hdr_size(hdr) <=3D hdr->size. The
-> payload is always 8-byte aligned.
->
-> Payload structs are then declared on their own, with no header:
->
-> struct luo_memfd_ser {
->     __u64 pos;
->     __u64 size;
-> };
-> LUO_SER_ASSERT_SIZE(luo_memfd_ser, 16);
->
-> The static_assert covers the payload to catch embedded structs changing
-> size.  Asserting the header doesn't add anything since its size varies
-> by kernel. And because flags[] is a flexible array, the header can't be
-> embedded in front of a payload in a combined struct; it can only be
-> reached through luo_ser_payload().
->
-> I think the only downside is that the header increases to 16-bytes when
-> there is at least 1 flag. But I don't think we need to be so concerned
-> about an 8 byte difference...
+To Paolo's question on v2: the issue is seen on real hardware (AN7581).
+The results above are from the OpenWrt 6.18.55 kernel with this patch
+applied; the code involved is the same in net.
 
-I would prefer to keep the default header at 8 bytes. With 15 features
-fitting directly inside the base __u32 flags word, adding the first 15
-features to a struct keeps the header at 8 bytes and does not shift
-the payload.
+The board has a single CPU port, so the test does not show which of CFC
+and MFC selects the destination CPU port on EN7581. The comment on the
+CPU port bitmap in mt753x_cpu_port_enable() is left unchanged.
 
-Computation-wise it is also very similar: for the 99% of structs that
-have <=3D 15 features, LUO_FLAGS_CONT is 0, so computing the header size
-is just a single bit test with no loop. Even if a struct ever needs
-ext_flags, the loop will walk at most one or two extra words.
+The MT753X_MIRROR_EN() issue on AN7583 found in the v2 review is
+separate and not addressed here.
 
-Pasha
+Changes in v3:
+- Drop patch 1/2, fixed by 4cb3cd670b2a.
+- Add a Fixes tag for AN7583.
+- Update the comment in mt753x_conduit_state_change().
+- Add test results to the commit message.
+- Keep Lorenzo's Acked-by from v1: the code change is the same, only the
+  comment and the commit message changed.
+
+v2: https://lore.kernel.org/netdev/20260923055103.949540-1-gongtao0607@gmail.com/
+
+ drivers/net/dsa/mt7530.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index 96832852c65a..5dbcea38209f 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -3335,10 +3335,13 @@ mt753x_conduit_state_change(struct dsa_switch *ds,
+ 
+ 	/* Set the CPU port to trap frames to for MT7530. Trapped frames will be
+ 	 * forwarded to the numerically smallest CPU port whose conduit
+-	 * interface is up.
++	 * interface is up. On EN7581, trapped BPDUs do not reach the CPU port
++	 * without this, even with the CPU port bitmap set. AN7583 is set up
++	 * the same way as EN7581.
+ 	 */
+ 	if (priv->id != ID_MT7530 && priv->id != ID_MT7621 &&
+-	    priv->id != ID_EN7528)
++	    priv->id != ID_EN7528 &&
++	    priv->id != ID_EN7581 && priv->id != ID_AN7583)
+ 		return;
+ 
+ 	mask = BIT(cpu_dp->index);
+
+base-commit: f4377bf85887f57b59abb5479f7660a81ffe4449
+-- 
+2.56.0
+
 
