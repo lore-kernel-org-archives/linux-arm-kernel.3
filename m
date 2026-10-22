@@ -2,106 +2,121 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1CD8606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 16:45:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C67B2606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 16:46:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BOSQ5JF9;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=eIrsUFw9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HQ9CQrEI;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b7XanTeE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=CzD89pGzOgOnG8GG0pKfl9YPmTEtR6RkDZF0eraj8Us=; b=BOSQ5JF9UGzcGS
-	zIWYJ7/2kJYqC8Njha6+bTg2wnfnYaakwb5gR7hOHxNVfbwlaxJpDSs37IPMGK9bBWZEV1wIYfPxH
-	qm4V4dhOja2NnEC5fwh6rp+Wmx7QjckejsEOBzX4AP+FGoLy/nYwgaoXsCZqrFJgcpw5ym8Z+x7qq
-	cfSdKQT/jKFj1q66nhj9S4PIcax1gpUD8SdC2UgfjwNVwuGB4/t16vAa5mae1a8zeEMNUGjEmMcBT
-	l8b7bwkJ3BZWkr8KBZ2QNyZ1vFPRuF+X3j+7Y7XnlWa3+ro7fJsTBDQfpRX1/XWEJfaIimWoX8BQn
-	PadEx8+jP11KDq+dORGg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
+	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=xOTUwgjwiqoVK48MuNeiJ5tobUcs3ededaPQ2qfxPUE=; b=HQ9CQrEI77V146PkqvYtLs9l9Z
+	PxnNbl6c9un0bjrUhJ2PCBD0gevAlS7qmoaWstJoMJPeXFtYhAYm1Nl92DNIhN0dkSuwTlu/4xBML
+	R6EdVeB42sbOUzK3zpsiEvDivX0MjVjwAbfrUlQg590V5MnnM7MTRX6Q04n1vEl1ebsAg195aIUOd
+	+d60LDSFdUj4JB++J64wmLrWhwu3avKionFwMOGNRFLg8yLmq1AyyUol75bVIbqCCDJzFOAO8CsQW
+	2Cy7IWjCn9l9jz3B4FQPJwmTLSOh+Sa5QUbXG5Rq06luH/KHjv1X1yDZCzjuQYObRUhY20QIpFFxz
+	wwoGpGgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJvub-0000000EXA9-02dP;
-	Thu, 22 Oct 2026 16:45:05 +0000
-Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
+	id 1xJvw9-0000000EXLt-3Ih0;
+	Thu, 22 Oct 2026 16:46:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJvuY-0000000EX9F-1bQB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 16:45:03 +0000
-Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-185fd3a4ca3so1321956c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 09:45:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792687501; x=1793292301; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CzD89pGzOgOnG8GG0pKfl9YPmTEtR6RkDZF0eraj8Us=;
-        b=eIrsUFw9FVqez8fJQA67u+s31NGVuuNdtr/zfna2I2M0dQHVcyLKCrskeqXVW7Rg8C
-         YmAi+YiL/6rdN2eSx2nApV6fRBH40FFyfDF66TG3+5McmmZ76deYwp23+Eb43unyEEzp
-         BAxHDz/rrzb6Amp3tiOL7+tJzOXq8co87ufZj6euZcyBk3qUCEex9iobPLtc3bSppYty
-         xCEkWynDwCzb5K5GOxK9aU9IBgaPt7lZwqxSp7mbcZnY1GElAPu1crWVU1RO41yfwDZF
-         6mlj/H0THiY3Pw7IuCIK8tW/Mh1GbIrD8zcp2VaGohfz6gq6+B3clq3rDE9/8x2Mj4i1
-         MSzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792687501; x=1793292301;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CzD89pGzOgOnG8GG0pKfl9YPmTEtR6RkDZF0eraj8Us=;
-        b=eTkRL2K57AQnIvEBwbDGzodL/ZdkWKSuV7SGPQDSm9P8S6i+XrqhPa2oWjlYMcYrCj
-         ISvvrhJeVm10Ld/IHP+KWmqvp2FhKcPXwTPbPc4xFQqlOE7sAy6rPOPyCEaeY9Lz9ZIE
-         OwjIj3ZKmLs1VO60wYrl1V5U6pAsWORcNK8nu2Y9/VlClfNxyBiA17xKMD96lKuzgtuV
-         B+PFFbJQ7AqSRAjIPQqWC2Yc/BC2tn17u9FBO+nr7eUQRH5T4QchDswEJzhWLuwgz/Vd
-         l1By3jTNg7r0NMvJGTd1XS6uu8Mtlf5yT5yt4t7FMqxgv8SWgsof5QzgNR3puGwvQiJv
-         pj8g==
-X-Forwarded-Encrypted: i=1; AKwUvBwU5x74nUnlTy7J6SraFWUvGfSRVOFkgq+kF5C+2vynd01fgevk4ec5GVCj/wWi2hLaNqjAoYx5kaU24wBtwntf@lists.infradead.org
-X-Gm-Message-State: AFq9FYJq0qF3zWkhhh3wihN3Omu1MStgz1r4rgRyAWB3dhE3PNsiOS2b
-	dAQMgycijsD+Ur/aNH8UsYJPTUJnivxpeqaP5Asxs/1WK/J4weuGgMXn
-X-Gm-Gg: AYBFou13VwdjC4eyuGJsFSwu7jbMccVFSb4rnGki4/ZorJ3Ai5jUPDGqLn3AabdnGMP
-	/Bb/44Q3TUnR2/h0Rt3wwLJMsJmLMx8YHyDe33EMjHrQJ3y0miU/Pq976zS6C8H9TQGJwvm2BXt
-	TSEEOHRceLWIMvvSY1FkpsWEaClL64JO+D9uJ1zphzLaVYazYcmq90m/VYCt6UDqUKaTS3eyH8h
-	Rza5X3KnNYWUKXhiPTODORM/6UkJWxu8fcpIosyLeyISpZrly4/WT2sX16MLStvETGO4DpCnxBL
-	daaFnPMo5lUGGFnoKK+2z2Dktp+Nngj5KC3bSMQpfUbi+uuiDCpMRkU3xSN4HiQWbFpMwjbhwYO
-	45W5miRXYW97gmKtI+SkgV0BHfs++5FXoInvEu6IQRRg3wn6I/GPuU4gu4uJvtPGWbZbscRWUJ5
-	P7xo9uvC+5XndRPp7mSJ7RI10Bl2ZzGewG6GX5MOpQk4cUKbHWEfTti/JnYmBO2PSNWdbIgFGIg
-	GszQPe3SsB6Hq/GzGgr+QUvYFWHboFfS0/+/rB77PLE57bZ6mIoiLQkYuQ2ovjxebTm/iERy6mO
-	plVMSrka2apVR7PX0lNYV9ybkJFDTMdxZWWABU+1sWbIvQnjb5q2K1T6ilU7ruEAtbEAenZSRiQ
-	bEIzVprnTWac=
-X-Received: by 2002:a05:7023:a8b:b0:143:72b1:9004 with SMTP id a92af1059eb24-190a87a3b70mr7623767c88.45.1792687501102;
-        Thu, 22 Oct 2026 09:45:01 -0700 (PDT)
-Received: from kapoor.iiserb.ac.in ([203.18.51.239])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1903a180adasm15841782c88.8.2026.10.22.09.44.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 09:45:00 -0700 (PDT)
-From: Arnav Kapoor <kapoorarnav43@gmail.com>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Frank Li <Frank.li@oss.nxp.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno Sa <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-iio@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: fsl-imx25-gcq: check the return value of the
-Date: Thu, 22 Oct 2026 22:14:50 +0530
-Message-ID: <20261022164452.201416-1-kapoorarnav43@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <ato7b3ydggC9X0_-@ashevche-desk.local>
-References: <20261021225450.628499-1-kapoorarnav43@gmail.com> <ato7b3ydggC9X0_-@ashevche-desk.local>
+	id 1xJvw8-0000000EXL5-0x66;
+	Thu, 22 Oct 2026 16:46:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A580F42ACC;
+	Thu, 22 Oct 2026 16:46:39 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1792687599;
+	b=wZAPmm3nhigupYSPPZpHXdED63UAVhULqOOIQfGY4UvvA6VpaHDmmJqqMaxJzE+QUWsh
+	 0BA5aewg15v0tjbAr2iRcgxHNjHoH74YlyZI5gfdsLzOcLmGS8CFJa6dsgpFT4EcjOLAr
+	 UAwvy8qSDnSDqmT0ChsxA+NKCNPkIeedx2YLYMCUeq8JvQFrypOiekf6KPH1PODHreGAu
+	 /f/Ht7AiLS0fD9VCBusg4yXB8LJqN/jxeEs7Oj7lZbTATf5zwNFlQrcZ1l2zNJEMd+EVl
+	 Oj9C/zkrXPzLRn1PLxrMeU0FdjanCmIAZG9/0aD7/QLXhwE1ocIL0KDbuqEUN3pQbdw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1792687599;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=xOTUwgjwiqoVK48MuNeiJ5tobUcs3ededaPQ2qfxPUE=;
+	b=1Jw8Kcxd3LU9QF+QPzq8v8t4I6XUBjQnkZ0XVjbhP3i7vmWhk42Ig3IFbeudnzU5v7Dx
+	 ypeIeSkvltVg1glrpObDymfzZ0gcXN02J+JGdA7kcQ35JhqtGRX5KG+9c3f/ZnVFktzTl
+	 tvuK3PKyWn0ufZphjLZbU0y8uSr1GQ8IGit18bX1Yt4UNylD0f2IIw7rrTEO4T81sfPZ/
+	 YnMXSHtf0BMoAhkxuF6p74M27f/JSTw5Q30Jlc6Lx/hlpDQCO89j2paptuLQHioIdftUM
+	 xstx/XgQg8rDjC6PcQ3MMVnNFTDugpuTFawzPD4jvVBy3r/1FeIKuFEpOrBB1K8Ln8g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 9A91A1F01828;
+	Thu, 22 Oct 2026 16:46:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792687599;
+	bh=xOTUwgjwiqoVK48MuNeiJ5tobUcs3ededaPQ2qfxPUE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=b7XanTeEkgtsXzleqBFNxp3n84XIRmr1QuQV7ky0pDNbu60roJ/sGOq5UZqwdNQEk
+	 o9PpxaWNN6Vz/SOOf6yNKY0LE+NROfRmHf+r5wYte2iH1e+9/7+N69NshNCWT0ZdwN
+	 34GN/+QkcUDAheguag9vT7r9HcZux5qhZCBdpMV9M4U6V3JK2fOX212ed6iVMcbpue
+	 5D2JBjd+REibPM+E+JVdO10NQnYwOckJiAuXbkuhhGandHlH5XMWSSbq89wFWBBlLR
+	 t1o8UAB8YCPmaa/6mfZMCyNURpPW/u+Iie1sgBYNE4t4EQt0qDfxDPp+rOq+wwIQLL
+	 Nl/bi7pciQH+A==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 09FEA41E83;
+	Thu, 22 Oct 2026 16:46:38 +0000 (UTC)
+From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
+Date: Thu, 22 Oct 2026 17:46:37 +0100
+Subject: [PATCH 2/2] phy: exynos5-usbdrd: Add support for the Exynos5515
+ usbdrd phy
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_094502_445808_C2CB9116 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.9 (-)
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261022-for-next-lucky7-usb-phy-v1-2-2e47f8484bf4@member.fsf.org>
+References: <20261022-for-next-lucky7-usb-phy-v1-0-2e47f8484bf4@member.fsf.org>
+In-Reply-To: <20261022-for-next-lucky7-usb-phy-v1-0-2e47f8484bf4@member.fsf.org>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ Aiden Isik <aidenisik@member.fsf.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2950;
+ i=aidenisik@member.fsf.org; h=from:subject:message-id;
+ bh=Kiiu/e8JIBqj1FtLrHXUkttonZWwk3f0gSxzSjnt6Ys=;
+ b=owEBiQJ2/ZANAwAIAUknAbLEetfrAcsmYgBq2j3tvjE8eTgCSASSGRDwhLex1H6pqWKT0Iw0O
+ pESfG41hkSJAk8EAAEIADkWIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCato97RsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQSScBssR61+sMHhAAsUopH+oG44TXLb0KyNZ1uxDtgyammvw
+ MARBRATeyeRUvvyAxR+ENdfAOfQYAoBKDAuo0s2R0jHI8CEzYvzkQ/w8it1CnQjU/j84Ni9j2k5
+ o55ZGjUZggmKNDKtjIRG36rtrkQKcu9zWIN6A+55PfCf1c3FMXf78tKycXPO+pngBm9EgsDD5xd
+ lAHyTOqxxV9EEjd30IQiq2Riey5A0R/5q37GgGPFhEyTzeIfIILPozVq7cg465VfEhpIxzb+zo4
+ ZtYy5tJPU6FicZn1jGewertAY/IfcXQSbdg08kYcgT73zeBL1KXP+Zshiiu5kM+4SZ3Sp9dgoCd
+ 1wS06y7CeLuyRsZHHUAnh348rqbp93z0cjKqhe9Ywz47kHjKBQGNr5Wp7Ar5DRNHtBs7WA9BEd6
+ KH4nChgwGQLetqtmQowuge88XNMiiNmO8TmaQBJynxK5VurmCcWUjt3EL4JE4Kg7kezAWKHecA6
+ izygaxwmaDEIzmRkjFFXY8EKbEtrtP2dzsKi6JPy8Ve0PgZ00daJgeo9Ugx5YQpxGMjOJfh30gG
+ Cb/r58KUUZKVa0ujhjTyXzitf0CBPS2omURAxka7Z5Zilhcs5/a15xfc+3/dYTy1oH0vrF0sDwX
+ iyiBUvLkOJ51XEsg4TRYNw1NlwjQyoDkVMe4V9ASelqVrhbv7u40=
+X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
+ fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
+X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
+ auth_id=956
+X-Original-From: Aiden Isik <aidenisik@member.fsf.org>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,29 +126,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: aidenisik@member.fsf.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-(Resending as plain text, my earlier reply was rejected by one of the
-lists.)
+From: Aiden Isik <aidenisik@member.fsf.org>
 
-On Thu, Oct 22, 2026 at 07:35:59PM +0300, Andy Shevchenko wrote:
-> I consider this change an unneeded churn until you come up with real life
-> example of how MMIO fails
+The Exynos5515 USBDRD PHY is a USB PHY which supports USB Super-Speed
+and High-Speed. Add support for High-Speed (UTMI+) operation.
 
-You and Frank are right. The regmap here is a plain
-devm_regmap_init_mmio() without a clock, so the accesses can't return an
-error, and the uninitialized-data case can't happen either. Please drop
-this patch.
+Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
+---
+ drivers/phy/samsung/phy-exynos5-usbdrd.c | 43 ++++++++++++++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
 
-Thanks to both of you for the review. And Andy, thank you for going
-through all of my patches today, the feedback has been very helpful.
+diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+index f10cf7b6e0aa..8718e8f01e46 100644
+--- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
++++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+@@ -2075,6 +2075,46 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5433_usbdrd_phy = {
+ 	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
+ };
+ 
++static const struct exynos5_usbdrd_phy_tuning exynos5515_tunes_utmi_postinit[] = {
++	PHY_TUNING_ENTRY_PHY(EXYNOS850_DRD_HSPPARACON,
++			     (HSPPARACON_TXVREF | HSPPARACON_TXRISE |
++			      HSPPARACON_TXRES |
++			      HSPPARACON_TXPREEMPPULSE |
++			      HSPPARACON_TXPREEMPAMP |
++			      HSPPARACON_TXHSXV | HSPPARACON_TXFSLS |
++			      HSPPARACON_SQRX | HSPPARACON_OTG |
++			      HSPPARACON_COMPDIS),
++			     (FIELD_PREP_CONST(HSPPARACON_TXVREF, 15) |
++			      FIELD_PREP_CONST(HSPPARACON_TXRISE, 3) |
++			      FIELD_PREP_CONST(HSPPARACON_TXRES, 3) |
++			      FIELD_PREP_CONST(HSPPARACON_TXPREEMPPULSE, 0) |
++			      FIELD_PREP_CONST(HSPPARACON_TXPREEMPAMP, 3) |
++			      FIELD_PREP_CONST(HSPPARACON_TXHSXV, 3) |
++			      FIELD_PREP_CONST(HSPPARACON_TXFSLS, 3) |
++			      FIELD_PREP_CONST(HSPPARACON_SQRX, 7) |
++			      FIELD_PREP_CONST(HSPPARACON_OTG, 2) |
++			      FIELD_PREP_CONST(HSPPARACON_COMPDIS, 7))),
++	PHY_TUNING_ENTRY_LAST
++};
++
++static const struct exynos5_usbdrd_phy_tuning *exynos5515_tunes[PTS_MAX] = {
++	[PTS_UTMI_POSTINIT] = exynos5515_tunes_utmi_postinit,
++};
++
++static const struct exynos5_usbdrd_phy_drvdata exynos5515_usbdrd_phy = {
++	.phy_cfg		= phy_cfg_exynos850,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos850),
++	.phy_ops		= &exynos850_usbdrd_phy_ops,
++	.phy_tunes		= exynos5515_tunes,
++	.pmu_offset_usbdrd0_phy	= EXYNOS990_PHY_CTRL_USB20,
++	.clk_names		= exynos5_clk_names,
++	.n_clks			= ARRAY_SIZE(exynos5_clk_names),
++	.core_clk_names		= exynos5_core_clk_names,
++	.n_core_clks		= ARRAY_SIZE(exynos5_core_clk_names),
++	.regulator_names	= exynos5_regulator_names,
++	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
++};
++
+ static const struct exynos5_usbdrd_phy_drvdata exynos7_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos5,
+ 	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
+@@ -2936,6 +2976,9 @@ static const struct of_device_id exynos5_usbdrd_phy_of_match[] = {
+ 	}, {
+ 		.compatible = "samsung,exynos5433-usbdrd-phy",
+ 		.data = &exynos5433_usbdrd_phy
++	}, {
++		.compatible = "samsung,exynos5515-usbdrd-phy",
++		.data = &exynos5515_usbdrd_phy
+ 	}, {
+ 		.compatible = "samsung,exynos7-usbdrd-phy",
+ 		.data = &exynos7_usbdrd_phy
 
-Arnav
+-- 
+2.54.0
+
+
 
