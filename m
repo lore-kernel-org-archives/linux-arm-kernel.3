@@ -2,145 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 803FB606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 01:45:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8494E606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 02:01:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ianx8As+;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=UwywWkzr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xs5EGHS3;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Q+4ivRAN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fgauz8AFbiWtkLvR66O2gwRLhM1P4Xq9D9qtas5XDSs=; b=ianx8As+iUhYl1Uzq06uqKd5Uu
-	gvQKY826L+qxvkYq+reD5NppOeDJscmS9pAInjuFv3JxDAEnwAZImpj0VejptU9ihM0psC4Mf7IiX
-	/n448lx2RRAL9HWdjQvh+A4VrAH/Mvjrhvff7n61g8AQqg4lN+mB92jF6+HxkkVjaoLYsr9OYOOyd
-	Bgi+AknHaAtJhb9Nz64eGdy/eZp+3OCF01llv6rSZcpfQ2fZDwXw12PAHC1NV6c2fn+67CprDNc3/
-	4scizD7RwHZp8E0Lw/2d2S3TyY4+pUioE4FCVYuOltnZjJ173vKJVhuOg3wZ0wXppoy//lNleJIR2
-	4mpLF69g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=loBgwUbLOnAAak0q9uGjIQKEwQ4a4j4TVh8P+20MXEg=; b=xs5EGHS3siv2zHQ4dF90dZhVs7
+	QwHCG2Way5IY6OxcQ0BANd3g5WM36l3rNgerpaTKk/9rsbwZaDXEnq+eB/odKMYNZnv9D2hRVPXbq
+	zfywLQIrAQEsjNgUBYPscGgs/3SJxbGqe6XoY99nG6Wbyc8/HGRfW03VkcshVnBIX25yiWulEYi3p
+	Zm7igaOclUiZJHYL3bzfZQ/51MG6xnj3GCdshxOC3mP2ATCgYZOEbFd0wUMzxJVsV+Uhi+0DBgJF6
+	8K0xYQCi/TuoXyKE7QF2oTGCAh4yd0kyD19t6BDyfNf7UMoqUjpNgJ4d72die6lLBC4utFgZOEOr9
+	A3NnObHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJhsI-0000000D9hF-04qn;
-	Thu, 22 Oct 2026 01:45:46 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xJi7M-0000000DAdy-3kJN;
+	Thu, 22 Oct 2026 02:01:20 +0000
+Received: from [113.46.200.225] (helo=canpmsgout10.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJhs9-0000000D9ej-2rLt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 01:45:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=M98hF0cTuQ3C/mmC8NGEVkHIbRUrG8OLSsIBKm5QSKEIbD1oonHi2XPjk2gvhmh+VOWbub0vySwsoeN7n5NJTsIQBdOUWQO1cDH8nDqR2/ko5NP20nImTRVPvgaq4Fx/I1Rxf7b1FA57Y+yn2UTxQYokPd0bKnrF1vamQnSrMAebhmJ4LfLygJ1+mMRQp1k/+8/v7xG7osNIRFQcRrQ+hip+tvN2GYeEW0opAbI6jki+V+/nMuPBTmdU5jjzF+DXPtdWtihEjLkq/N2pK8bjLEk55mhhslkz3nJNiFr/p65OxCY6IFWROrK2a0fwUwXuqcbLWEisfEin47XZUh6qwg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Fgauz8AFbiWtkLvR66O2gwRLhM1P4Xq9D9qtas5XDSs=;
- b=bAEpzVl+gNDJWrPapwpNBRWDaxajFOFJOT/bPxN9ND+7/tVUgYzgqdnkzSQ25Ha2nFI0MBlwi3aMJ4+kEep7GZN4O46sNM851brTquN05CB83DWYht4myk1OWxKPjK8c5XNW05qwItXh80KJd2ZP2vm4oQdaM6Nw600r5WNtia60VGIFjgcoUnHHN1R5RQqsEgUqfcFGo4lwSxJb1Tymme6O0DhWfjX2nO1gN+dVkJOxw+GkZ2849GKEm3kgNO9Vyn06hxzOmDASARC6XMRq5EcK5Xq+DMtnmYUnxR9Goi+lk8DucxuUEU9xEaOeLoF7m/OVWmuYxs4VHcrw/MBXDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Fgauz8AFbiWtkLvR66O2gwRLhM1P4Xq9D9qtas5XDSs=;
- b=UwywWkzrG30vSxNIaELfGIgl+7YVHHlqLAovMZV2NkXOaYyCodG0ahiXBRz6NecsrEHR1DgS2u7Ug8/s2ruALPVANPwb1CmPXFIw7dvLEWGxVhsVMnALZO4qz0dk7gVivSUWKP3NvaC63NrY2tz470UO9rRYzoqYWl1TDEwxVbVBm0IOcUnXaPvaV6qoYuTEa2TBQxGeVx4MEFPX12bS8Y5Sjr10W1js2BRsxCIM1yAlhepWIgqP4tC7Fp/dJQ3U3zOyKc4AFEglTF7H7FgeyfGAcZ2wZQUT2qKo5+K3lgkfgp2GiCqyveQwhLtEx26JB2Mp25nFhQ/VIRQZ7laN3Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by MI7PR04MB114164.eurprd04.prod.outlook.com (2603:10a6:290:10f::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Thu, 22 Oct
- 2026 01:45:32 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0546.012; Thu, 22 Oct 2026
- 01:45:32 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Thu, 22 Oct 2026 09:50:02 +0800
-Subject: [PATCH 2/2] arm64: dts: imx8qm-tqma8qm: Re-enable A72 cluster
- after ERR050104 workaround
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261022-8qm-v1-2-2a597cb3debd@nxp.com>
-References: <20261022-8qm-v1-0-2a597cb3debd@nxp.com>
-In-Reply-To: <20261022-8qm-v1-0-2a597cb3debd@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux@ew.tq-group.com, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.16-dev-7bc12
-X-ClientProxiedBy: SI2PR02CA0014.apcprd02.prod.outlook.com
- (2603:1096:4:194::19) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	id 1xJi7J-0000000DAdA-02YA;
+	Thu, 22 Oct 2026 02:01:19 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=loBgwUbLOnAAak0q9uGjIQKEwQ4a4j4TVh8P+20MXEg=;
+	b=Q+4ivRANcgbbFZT+RuqnOmzfQRgx/LVfmZmJnBznw3aijzTfLqiAXmQFPpHZ4wQr5N/a+UnSk
+	9QkwZygXGFsy6k2d0kw287r6cGCOPL2MK5xfPM3ACXVTWwq6O1+K0stbkZqxhIDb9q0MkhN+DRw
+	UTGHL86gM/CDOpMtrrbG38U=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4j98WL5Vhfz1K972;
+	Thu, 22 Oct 2026 10:00:46 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2FEAB40563;
+	Thu, 22 Oct 2026 10:00:51 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 22 Oct
+ 2026 10:00:49 +0800
+Message-ID: <31d63208-3ef2-420f-a0c2-d9d6d49c5e21@huawei.com>
+Date: Thu, 22 Oct 2026 10:00:49 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|MI7PR04MB114164:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0677b289-85de-4f9a-3c27-08df2fde28ee
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|23010399003|7416014|10067099003|22082099003|18002099003|261021123027099003|11063799006|261009223027099003|261021121427099003|56012099006;
-X-Microsoft-Antispam-Message-Info: FQNpW/xvGUKXfAWS9aeKq/YNBxb4nQR+ZLqK3hSKzPVJWGRn/2p3YwhDSl7dECsqtekO118ARg3UJNKXVtCScCQ8sOk8xRrnNlkHEExstDAc+YeG2nqP19VS3TubjTzMHfa5D5sZyPU3h1J3mpcThAptM9Jl9dxLMJmY3u7d5r110L6ltWQHd+JYnA9MQwhi+eTJptPBRM16LrMiSLKlah+YftbLCLLyV+mf/f0eGYh9Upmd5EGg4pEKOuxPv9aburQVlfS+ia9o8iJB4aYLkIF0p1/f+A3kr3bvTPE8XVEA2UATX/5tLrW8wT3mOBEfI+7Pv91omqailU2QSdGFwpQ49YRUSvDNkrupYKYEcjew72EGLoLjoujsPQTdRCatDVVEIJJBOgRW/6kICPMKDxKTrlk/TnAsezjsSMyK8hWiGxPDffk/ATuP1KKUncoJM3z+Toa+Mul/8e4tihj6EwWCtxECd8oQqHkOX3BqBxrEA3u4UgSmidLgoWw5/hqkUNHTaEQMgDdUvbIBN9uUqYWNnWjdbqbymfaDwdj5tzBeNnmMQwh+6NrBhp85M6Bija3lbYkCFfyPHxQOgNf9Npw4rELw8arVZ3xftlJjJAKHBpvVUnC577uYnMbisCnvLbXxicgOpduHbEgwvsW+C1yMmTQQGZ1rPWwlCeWSS78=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(23010399003)(7416014)(10067099003)(22082099003)(18002099003)(261021123027099003)(11063799006)(261009223027099003)(261021121427099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c1YyVmhLbzJrOFF5NldZeUt2djFvaWNyUjUxbVVTYlQ2bXVLOHB2QjdBU3lI?=
- =?utf-8?B?Vm9lQ3hiVUlndjY4U1FoeHQ5c3RpNFR6VUxPQmpMRFVDM2FGZUppaWxNTFYr?=
- =?utf-8?B?NnRhUmY3bDdmSHZMdWluYjU4aDFnOE4vM0dTdFB6WFV1Z1RhZkxIYXlPcG1r?=
- =?utf-8?B?ZTVPcmttbVpxcWFZRitTdk54b09ManVtUHdYWnREdXVzcEtlckNhR1Mwejgv?=
- =?utf-8?B?bktRcjc4UXhURCtVNmhGTXMzcFRLeUtQV0NvZldHZmVwUms2KzN0ZWlPVkFY?=
- =?utf-8?B?K0dKb09GcDR4OEFBOGhsOW5lVEpQSTJjMTBudjAyazl5RGJNeWtOUXdjb0gz?=
- =?utf-8?B?RlVLbGYyczFlV1drdm0rcjhuQjk5bHR1Nm5lcXU4TWRvNlg1eS9OZExBSGFV?=
- =?utf-8?B?YXF1NG42RUFKRlhWT1dVOE9Hd3A2UWhsemtQZGx5Y001bGdFbU1GZytQQTJG?=
- =?utf-8?B?Q3VNTTM0TGF6cVdHbnMvYXJSMjVVM0VLLzBrSCtaTVBNclRMeG1qK2NCSlNF?=
- =?utf-8?B?QzBXbUZxS29Ua2F6c1lpUWZ2YnlFeW9SZ3pwOUZJeUxDNlNGNENvSmJudDRY?=
- =?utf-8?B?dWZhTVBPWTNhaENXSGpTMndqYU1SeVlQcUNrYjVxTFRTV2dSZWFYVlZWWnIx?=
- =?utf-8?B?djF4ekVvOU1zRGhtdXJCMUNaT1F0eTJqUFQybVFHZUJ5MU4yTFA3c2N1Q1g5?=
- =?utf-8?B?WVlxcEE5d2tzalJNZUNZbVhzUlZvYzRvOFp3SWh2QzdCYkFxUnRER1Q1ajJh?=
- =?utf-8?B?YVN4TEVCTU16TzhaVVRzbmUvUHpDdFRZdW1WUHdDZ1hhTkw5YXVZbnRISUpF?=
- =?utf-8?B?ZUgyN2s0Y1NCWDJqMmxTR1Z0UE5naGhrQkFkVnhzSTlYODV3UTZFcGNrUnRa?=
- =?utf-8?B?M083QUdsd3JVUlpVQ3JRVGNoZEZlNUc2V0lMWmVyd0lHWVlodWNTUWFEbjdN?=
- =?utf-8?B?Zzd6dVVLckkzazhkWUdCYnV0MU5tN3pKcEVDUmdqbU9MYXRrZDhmV0pPVXQ0?=
- =?utf-8?B?Y1ZCNXVJeXg5NnJGRGozbVVqcmpmVVZkRWVlT0JKV2RZYUhyTCt6TWhvYjU2?=
- =?utf-8?B?bmg1ZkszVU9waEl4Z3Y5ZXlPRmJKeEdCQVJQMGo4bzdOYndlQWEzS0JZV09U?=
- =?utf-8?B?VkQzTXV3SVdQNEFzdFJkQW0reFBqZUV0a2NVVTVIVFdlMlJyU09CTlUyUlVU?=
- =?utf-8?B?UDN0cnhGcDR5L2lJVE93QXgrUkFWODZnRVYrc3dOUlQyTEdtYXVablZIcHpW?=
- =?utf-8?B?QWtReldjTFlLeHExdUFxOVprTVlFZTNuUG9BRHNHUW9ZbzFXdUV1THhiKzBP?=
- =?utf-8?B?M1hUeVlYL3BPNTN5a3ZoY3BtbFZIcWdaRHpNOUhxSFFsQjdrMnZFYytoYW9I?=
- =?utf-8?B?OEk2anpCV3h6NnV4azE5VUM2ODNhYkVjTjlRNFV2aDI1ODNOL2s0Vm1HbEVt?=
- =?utf-8?B?THVXNzJkTU92Y3cyeE5zQnRTZE51VGVVZFpWTGdRMFcwOVd4Q0VVc3J3N2tk?=
- =?utf-8?B?dStFNDhlRXppSkx4dllDTUpqR2h0b1FrYnlkV25vRTdnc3FZTVd3ZE94KzFr?=
- =?utf-8?B?eEl3bis0RkRNRVRTZUpTdUJRSHFkeHRET2ltZ3ROUFl3c2Y3RU96TXlhb243?=
- =?utf-8?B?VUwrWno4MjBSWDVONExxekpWb3JrU0ZBME1hNGRUM2VtS3JmTTRHeVd0TVor?=
- =?utf-8?B?bnkzTHBFZGRWWlY1NW9JZVE1VmU1UTRMWVBQbEp1ZDZQd2pRUnVtdWNZT1Ax?=
- =?utf-8?B?dWJjdWlEMDIyWWZuZWdobm8rTlpOVFNzZ2FOUGN0Y0Jld09lTzA4RlMxOFZ1?=
- =?utf-8?B?UEhVQ1B1RHFRb09NY0tpeE5NZnNISW9xK21SMUp1SlhUWjdoekttV0xpcW5R?=
- =?utf-8?B?MGJUL3BudmRYSk1WUlpMNXV2UjEvTCtzWWkvRXFXRTdrMTE5VGpRL1ZjbTMx?=
- =?utf-8?B?YnJNejRMSWNQdkkrMlMxaUJpMm9kcmhhTktodlh4NFV3L0IwanhQd0pNRWpi?=
- =?utf-8?B?R3pKWE5FbTNvRmIwOFFvTU9sd3JkY3FyMUdCZThUTGZBU1BIcjUzL3ZtK1dO?=
- =?utf-8?B?RjdmcFVTSVJOZ2tidEF2M2J6MGJXOFVxQUYxeGY4ZHE4Z2dUeTRtSW9BN0ZM?=
- =?utf-8?B?MzZFdmxrWW52RUdKLzBtYURldGZ3bTgzTmMrRHRZcE5vNExGR1NmQ0ErVnhj?=
- =?utf-8?B?QUxoOWZQUGFTYVk4aUlFZ2RMbnppSWRuTXhENTlTeG90bFk3OG1aZ3hRRHFQ?=
- =?utf-8?B?bVdlVG5ZS0N0YjV3UTcwUDN1VWxvOVZrUWdKa2ZUcVhGMTVGcGt0cnFzeUhH?=
- =?utf-8?B?SzhnOTd1TjViU3pGbTU0UjRYSlgwOEkvMzNBVVh2cHZSc0VPbEJTeUt2WEFC?=
- =?utf-8?Q?FSiOsxVjFz9txr5eOJZMCnhLMY5AvW0T+9rXE?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0677b289-85de-4f9a-3c27-08df2fde28ee
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2026 01:45:32.7181
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3piy1/H2N+JIGougmgxi795elEe1EaK/bX8E0CDEyCJ7mlfaQxD8BQ9YhGiYgxfOMtTDSse4w7+hJogQh1qir/maUpKTF4R/8bnExzrt8f8cxDJnBGlFjJAqAOwNwwAh
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI7PR04MB114164
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 3/8] crash_core: serialize crash header preparation
+ against hotplug
+To: Wandun <chenwandun1@gmail.com>, <robh@kernel.org>, <baoquan.he@linux.dev>,
+	<rppt@kernel.org>, <m.szyprowski@samsung.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <pjw@kernel.org>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <x86@kernel.org>, <hpa@zytor.com>,
+	<saravanak@kernel.org>, <akpm@linux-foundation.org>,
+	<pasha.tatashin@soleen.com>, <pratyush@kernel.org>, <ruirui.yang@linux.dev>,
+	<robin.murphy@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<kexec@lists.infradead.org>, <linux-mm@kvack.org>, <iommu@lists.linux.dev>
+References: <20261021083011.2170525-1-chenwandun1@gmail.com>
+ <20261021083011.2170525-4-chenwandun1@gmail.com>
+ <12e4e687-1ff0-41b2-bdf8-7f48b29e1f2f@huawei.com>
+ <a1665f9e-3116-47bc-974e-98dce408fa37@gmail.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <a1665f9e-3116-47bc-974e-98dce408fa37@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_184538_496400_DC062E01 
-X-CRM114-Status: GOOD (  11.62  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261021_190117_372670_85AA50F8 
+X-CRM114-Status: GOOD (  21.58  )
+X-Spam-Score: -1.2 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,50 +88,175 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Peng Fan <peng.fan@nxp.com>
 
-The ERR050104 cache coherency workaround for i.MX8QM/8QP has been
-merged upstream (d44e08dab27d). The workaround addresses the incorrect
-wiring of upper address bits in the A53 subsystem that corrupts TLBI and
-IC maintenance operations between A53 and A72 clusters.
 
-Previously the A72 CPUs (cpu@100, cpu@101) and cpu-map were removed
-from the TQMa8QM DTSI with an explicit comment "Due to missing
-workaround for ERR050104". With the software workaround is in place,
-remove the workaround-comment block and restore the full SMP topology.
+在 2026/10/21 17:48, Wandun 写道:
+> 
+> 
+> On 10/21/26 17:13, Jinjie Ruan wrote:
+>>
+>>
+>> 在 2026/10/21 16:30, Wandun Chen 写道:
+>>> From: Wandun Chen <chenwandun@lixiang.com>
+>>>
+>>> crash_prepare_headers() counts memory ranges before populating the
+>>> allocated crash_mem array. The weak implementation used by ARM64,
+>>> RISC-V and LoongArch walks memblock.memory, while x86 performs the same
+>>> two-pass operation over system RAM resources. Concurrent memory hotplug
+>>> can change range source between the two walks and make the populate
+>>> pass overflow cmem->ranges.
+>>>
+>>> Take device_hotplug_lock when preparing crash headers during
+>>> kexec_file_load(). The x86/riscv memory hotplug path already takes
+>>> device_hotplug_lock, so call __crash_prepare_headers() directly
+>>> to avoid recursive locking.
+>>>
+>>> Sashiko reported this issue in [1].
+>>>
+>>> Fixes: 3751e728cef2 ("arm64: kexec_file: add crash dump support")
+>>> Fixes: 1bcca8620a91 ("LoongArch: Add crash dump support for kexec_file")
+>>> Fixes: 8acea455fafa ("RISC-V: Support for kexec_file on panic")
+>>> Fixes: dd5f726076cc ("kexec: support for kexec on panic using new system call")
+>>> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+>>> Link: https://sashiko.dev/#/message/20260806101002.1F84E1F000E9@smtp.kernel.org [1]
+>>> Acked-by: Baoquan He <baoquan.he@linux.dev>
+>>> ---
+>>>  arch/riscv/kernel/crash.c  |  2 +-
+>>>  arch/x86/kernel/crash.c    |  2 +-
+>>>  include/linux/crash_core.h |  2 ++
+>>>  kernel/crash_core.c        | 17 +++++++++++++++--
+>>>  4 files changed, 19 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/arch/riscv/kernel/crash.c b/arch/riscv/kernel/crash.c
+>>> index fe5a4b306aae..ac8df2edf2a7 100644
+>>> --- a/arch/riscv/kernel/crash.c
+>>> +++ b/arch/riscv/kernel/crash.c
+>>> @@ -70,7 +70,7 @@ void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
+>>>  	 * Create the new elfcorehdr reflecting the changes to CPU and/or
+>>>  	 * memory resources.
+>>>  	 */
+>>> -	if (crash_prepare_headers(true, &elfbuf, &elfsz, NULL)) {
+>>> +	if (__crash_prepare_headers(true, &elfbuf, &elfsz, NULL)) {
+>>>  		pr_err("unable to create new elfcorehdr");
+>>>  		goto out;
+>>>  	}
+>>> diff --git a/arch/x86/kernel/crash.c b/arch/x86/kernel/crash.c
+>>> index e6f23933a6df..bef008a0cb22 100644
+>>> --- a/arch/x86/kernel/crash.c
+>>> +++ b/arch/x86/kernel/crash.c
+>>> @@ -465,7 +465,7 @@ void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
+>>>  	 * Create the new elfcorehdr reflecting the changes to CPU and/or
+>>>  	 * memory resources.
+>>>  	 */
+>>> -	if (crash_prepare_headers(IS_ENABLED(CONFIG_X86_64), &elfbuf, &elfsz, NULL)) {
+>>> +	if (__crash_prepare_headers(IS_ENABLED(CONFIG_X86_64), &elfbuf, &elfsz, NULL)) {
+>>>  		pr_err("unable to create new elfcorehdr");
+>>>  		goto out;
+>>>  	}
+>>> diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
+>>> index bc087124cd78..28e7a81cf263 100644
+>>> --- a/include/linux/crash_core.h
+>>> +++ b/include/linux/crash_core.h
+>>> @@ -61,6 +61,8 @@ extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_ma
+>>>  				       void **addr, unsigned long *sz);
+>>>  extern int crash_prepare_headers(int need_kernel_map, void **addr,
+>>>  				 unsigned long *sz, unsigned long *nr_mem_ranges);
+>>> +int __crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+>>> +			    unsigned long *nr_mem_ranges);
+>>>  extern int crash_exclude_core_ranges(struct crash_mem **cmem);
+>>>  
+>>>  struct kimage;
+>>> diff --git a/kernel/crash_core.c b/kernel/crash_core.c
+>>> index faa0f22dbb41..8a861a946e26 100644
+>>> --- a/kernel/crash_core.c
+>>> +++ b/kernel/crash_core.c
+>>> @@ -16,6 +16,7 @@
+>>>  #include <linux/mm.h>
+>>>  #include <linux/cpuhotplug.h>
+>>>  #include <linux/memblock.h>
+>>> +#include <linux/device.h>
+>>>  #include <linux/kmemleak.h>
+>>>  #include <linux/crash_core.h>
+>>>  #include <linux/reboot.h>
+>>> @@ -344,8 +345,8 @@ int crash_exclude_core_ranges(struct crash_mem **cmem)
+>>>  	return 0;
+>>>  }
+>>>  
+>>> -int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+>>> -			  unsigned long *nr_mem_ranges)
+>>> +int __crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+>>> +			    unsigned long *nr_mem_ranges)
+>>>  {
+>>>  	unsigned int max_nr_ranges;
+>>>  	struct crash_mem *cmem;
+>>> @@ -382,6 +383,18 @@ int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+>>>  	return ret;
+>>>  }
+>>>  
+>>> +int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+>>> +			  unsigned long *nr_mem_ranges)
+>>> +{
+>>> +	int ret;
+>>> +
+>>> +	lock_device_hotplug();
+>>> +	ret = __crash_prepare_headers(need_kernel_map, addr, sz, nr_mem_ranges);
+>>> +	unlock_device_hotplug();
+>>
+>> I think this patch conflicts with my changes and would also conflict
+>> with the implementation of arm64 crash hotplug.
+>>
+>> https://lore.kernel.org/all/20260921090450.807575-15-ruanjinjie@huawei.com/
+>>
+> Have these patches already been merged? My current work is based on the latest
+> linux-next. If they have already been merged into the maintainer's branch,
+> please let me know, I will update my tree and rebase/re-adapt my changes accordingly.
+> 
+> 
+> Also, regarding the changes in kernel/crash_core.c: it looks like we modified
+> the same spot, the change is not wrong, is that right?
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8qm-tqma8qm.dtsi | 7 -------
- 1 file changed, 7 deletions(-)
+Hi Wandun,
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-tqma8qm.dtsi b/arch/arm64/boot/dts/freescale/imx8qm-tqma8qm.dtsi
-index f0e398eb2aad7..8cd6e75eb87a9 100644
---- a/arch/arm64/boot/dts/freescale/imx8qm-tqma8qm.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-tqma8qm.dtsi
-@@ -15,13 +15,6 @@ / {
- 	model = "TQ-Systems i.MX8QM TQMa8QM";
- 	compatible = "tq,imx8qm-tqma8qm", "fsl,imx8qm";
- 
--	/* Due to missing workaround for ERR050104 */
--	cpus {
--		/delete-node/ cpu-map;
--		/delete-node/ cpu@100;
--		/delete-node/ cpu@101;
--	};
--
- 	memory@80000000 {
- 		device_type = "memory";
- 		/*
+However, I think someone should have informed me in advance; otherwise,
+doing duplicate fix work is pointless.
+
+I see that part of your patch series modifies code I previously changed,
+but I was not CC'd.
+
+> 
+>> arm64 crash hotplug:
+>> https://lore.kernel.org/all/20260918100442.3841135-18-ruanjinjie@huawei.com/
+> 
+> In addition, if arm64 gains crash hotplug support, the code there would indeed
+> need to be modified (to avoid a deadlock). As of now, arm64 crash hotplug
+> support has not been merged yet either, has it? I just want to make sure I
+> haven't missed anything.
+
+Yes, you are right. If your patch series will be merged soon, I will
+develop based on it.
+
+> 
+>>
+>>> +
+>>> +	return ret;
+>>> +}
+>>> +
+>>>  /**
+>>>   * crash_exclude_mem_range - exclude a mem range for existing ranges
+>>>   * @mem: mem->range contains an array of ranges sorted in ascending order
+>>
+> 
 
 -- 
-2.34.1
+Best regards,
+Jinjie
 
 
