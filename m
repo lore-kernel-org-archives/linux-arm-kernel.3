@@ -2,66 +2,127 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB22F606A325
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 07:41:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62D48606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 07:45:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hPwBJZgX;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VauGxlNS
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ChTqegwl;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=Dn8/pWOn;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=sjUxHJpS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CvSBBaIzDOkoLy23YZbhr14hQwtX6X3MtGrLOOizPiQ=; b=hPwBJZgXBcT4MkxjuaTXAjK1xh
-	aO8lgWw03RFNg0lmN0PN8QCKXUpp33Ymmv4mBT+3O8vLZaeia0gdZkg4HrM2bryRwGWl40zAkqcLg
-	Q3NialODNTXOkD33M7epGuJhJrdEbXqMflhe+pFBhtjKpX4uo3EpSC7Jk0icidkj0ZiG6BNwTye4Q
-	jEFlZ9A5M3uphV0JdsZPeE8nrtttWoTbYa8OvicCj5aGbZx5pJ20YEhqTACjcQopVVFI5sPICtUvJ
-	0vqCPX66a01pk8AWn6n9QPPYNQaNmW+yZkSimpeVlemysptOmndki/FD4N06N3TWXsREHRQUcYymr
-	k7Bowk/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HDXHwat4zLpbZennBEg7uZauJYVMECCPqpPno/TLnRE=; b=ChTqegwl+eUJRzhf4y8ennt8Ri
+	xdIIuHfoRgn95R7n0LkJ6o6P5royRFPpduFuzYky6bU7D1Vm26vtwxfQ742pO/QJysJYZBfQresEV
+	3BIT+FfY1WLCGT6l5jTZPURMGa4Z/X+cTZHQueZ4bpL+7u8O4gzOEHA/QhyFrd0jP8MVg+kDjk4UU
+	eP3jokUC+7raEyc2eof8Wlq+AMbi0H1nqqUfsyGRCW74/60KaripzZq80zZbSgRLEb6j3ihstCr/P
+	73nqeYmU6e3KeB/cN9ArR2Z2AScuNi/81sAa7RODgZCHuyrwfKxcvi5RuGZuWYyNQ4CFECFNYBFPW
+	UDiAEDSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJnQj-0000000DaJJ-2w9L;
-	Thu, 22 Oct 2026 07:41:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJnUD-0000000Dae4-1ovs;
+	Thu, 22 Oct 2026 07:45:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJnQi-0000000DaJB-2YFR
+	id 1xJnUC-0000000DadV-1Kzh
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 22 Oct 2026 07:45:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=HDXHwat4zLpbZennBEg7uZauJYVMECCPqpPno/TLnRE=; b=Dn8/pWOnyYOMcrBsqNutvKyOFk
+	p9lJUhyCAWpaTqA6Qh94/0TSuIb8AZkvDz4BDvGL6XcRuRRYxxWalj/tRb7626ahkL3I1MKI7GAuw
+	7nqDrJIR76UjyfM0YGhEFxgBv55fAcfEk3XtVs5Wv/wQzO3qg7Mket26nF1id5A/NjMdmpMvFNsOL
+	d7Po3/lA6dB8IIjiMxaYRBx28ysI2yFj4+tIC1RbOrsNAUNV081TWwg6/eryTFqZIy3FkNMKiQ41d
+	+U217jbtszjt6qP//yLNP/o7/tntZhb8FakEGXUPheKeQU1eCR7MWPUmtd00Vk2fP9plyN+JnI6kR
+	GYaxPNNw==;
+Received: from mail-pj2-x06.google.com ([2607:f8b0:4864:39::6])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xJnU6-00000006Z1g-1Vv8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 07:41:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0E31F41261;
-	Thu, 22 Oct 2026 07:41:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA0BE1F000C2;
-	Thu, 22 Oct 2026 07:41:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792654899;
-	bh=CvSBBaIzDOkoLy23YZbhr14hQwtX6X3MtGrLOOizPiQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VauGxlNSCDVxn2W+8ZVHE+mDaGBaIGWxp4pz619csit3PAWFLuVGr3pOQ49B+Ukn/
-	 NmF7dn0VLUuyL9DJFyXW2TSHiuS9YRfxlTyXEdTXz89xsTLYHgsaKCO4HcEpe0ho6e
-	 /lLvoUUI0pucMrapI63Cl0XMbqnck2nXXKuTCbIaMFSoUq3iV+P0AqBrxdVTsNtgfu
-	 4/hzLx5AcpehlHXJLt3G2lvocwuO3KRtzVFzCRlyinilWraHlyaemBrAv5ENUExpJD
-	 fwcp/hgEDcMr3zxroLdDD8QUXcogTyh7Sib3aTu2o3oLjmI+5lyKAThv+no+5YHXpq
-	 U71XbrUN9eE8A==
-Date: Thu, 22 Oct 2026 00:41:38 -0700
-From: Wei Liu <wei.liu@kernel.org>
-To: Kameron Carr <kameroncarr@linux.microsoft.com>
-Cc: haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
-	mhklinux@outlook.com, catalin.marinas@arm.com, will@kernel.org,
-	mark.rutland@arm.com, lpieralisi@kernel.org,
-	sudeep.holla@kernel.org, arnd@arndb.de, thuth@redhat.com,
-	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH v5 1/6] arm64: rsi: Add RSI host call structure and
- helper function
-Message-ID: <20261022074138.GA1512710@liuwe-devbox-debian-v2.local>
-References: <20261002215725.2015959-1-kameroncarr@linux.microsoft.com>
- <20261002215725.2015959-2-kameroncarr@linux.microsoft.com>
+	Thu, 22 Oct 2026 07:45:13 +0000
+Received: by mail-pj2-x06.google.com with SMTP id 98e67ed59e1d1-3964e7720afso933628a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 00:45:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792655108; x=1793259908; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HDXHwat4zLpbZennBEg7uZauJYVMECCPqpPno/TLnRE=;
+        b=sjUxHJpSA3mI6smHrfY24HuKW/hjm060HnpLLz0J6BF63PvljYtEt3DaB0SmTvuiG7
+         idG6V2Hd5irMkkDIF0mfNdP/lg+JEcgLOpLp4fe9PfgNxdjuyyAigSEuy6D9aGBjMs8l
+         ii6ALoPqGuzkrNtzgxPmk8ega01C1f92HWf1hz1XuFhwUuUa4CZDBqgfA9aNgY7gUqSX
+         5feSC2knT6vhwm/hSIIat7B/4bRT9wNmuqsIfp9CzCVzw/NhrffA+Jhj7Hrv+6RoXZFT
+         YuxYsXLWXXoFRKBkw/AyhR1FlnaKWqwmZw2OaBFUXPP4qAhzYG+4TskwKSQvQUlA/5tc
+         Ak1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792655108; x=1793259908;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HDXHwat4zLpbZennBEg7uZauJYVMECCPqpPno/TLnRE=;
+        b=W0HgPYqV4cFfDicjOUjg2eZOkcCDrR0Kr2ugpsZguSfwa6pCCbcBpAChgHJkdjoWNo
+         3G4V77i94OuSbVsPZq7APPSUHoSsMnrHaCkmpyHW4fLLFlZi/1+zJMaqphm+RLbp+dnr
+         wDslHqSX2tZSBM884Pi4x8JOicf4N0ff9U+FjvH8rvHHYKXk/RAdEWq12HtbSsSNQuz5
+         PT9kYCBOf6CTS6LoAjxjKKq4BuWBtWRc7/ViqJHg5WO56FjIASFXddqwgMtjTX/COhcv
+         s6JWfdPkoHoBfeLpKst3MxZEL1XhUsNVIHAd+stHlAAKUCrHdEmswJKwjrvx7fz4Nrfd
+         5Gdw==
+X-Forwarded-Encrypted: i=1; AKwUvBxmygxMJy6Laojz1epiIhKX9ayTIawa/XEYPz2xjP6WdJbc15ZAAwG2pCV9dXS/c7ac7d3kWIdfAGoqLC3tzHpj@lists.infradead.org
+X-Gm-Message-State: AFq9FYIIZmAoGLWjp4eMzVngmlWLIUL+uyAmwj6bEJkbyb0G9URHOZlb
+	ER4HdTy7ppHy7VhLeDLbBfQ/gmExTeMuTIVSvqEg6j3Au9qWhK2eA3PX
+X-Gm-Gg: AYBFou28+weOSN8eFdS+HW59Sv7nTVGi9TzqaaRw1yF67mdck3GZ/yRZC4HH3y8dn7w
+	01K3VuK/9DD5OolA/GjZMyjYRaGfLgd6WqP6lvpb5ANkwzjyJcdt3iF6q3GxGVyOMtdWXZRLmc6
+	A/7NADYaDV0Q4xeYKgu0gHLyq1X0UmchnxBbpd4XQUUcilvj5Kx4QM34/su/kqufvym1meWYhPz
+	fmZsc92TF0sp01ZXqV7AjUAm6IU5wQx3Xao9R9091SaI9khj/psfPwjGLeR1Bp3jQ20+TVzPJcN
+	RaB2d6MoqcB4t0vy2ChwkdeQsoUoibZCZmoHPHhIlIDstKPracv8kcZVqGl7h80ctNBv69u1rnL
+	2vJO+R3Hvyny/5aM3OPBcsT2dz588CLVhDEKSGsPPT6r+gmh4FtjYmQyeYtfHLXcnjDk3KNeEIA
+	WaCzA6CwvMOu9z7I6Ec6sCBXQ3DfzMuMQal7gWSm9/xYTpPaHvObY3pBVVxZRarfb/hiaK64WS/
+	IPPXuJtEL57lHXjURyK/76CNqf4k97ThJEHLbwNfztLqePEr1bs0zSWt61ajR8=
+X-Received: by 2002:a17:90b:5870:b0:3ab:5758:3766 with SMTP id 98e67ed59e1d1-3ad8707700dmr3724932a91.51.1792655107849;
+        Thu, 22 Oct 2026 00:45:07 -0700 (PDT)
+Received: from [10.125.112.22] ([122.11.210.25])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ada49366fdsm2945920a91.14.2026.10.22.00.44.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 22 Oct 2026 00:45:06 -0700 (PDT)
+Message-ID: <098ff899-81b9-4ccc-a143-1e324446258f@gmail.com>
+Date: Thu, 22 Oct 2026 15:44:48 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261002215725.2015959-2-kameroncarr@linux.microsoft.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 3/8] crash_core: serialize crash header preparation
+ against hotplug
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ hpa@zytor.com, saravanak@kernel.org, akpm@linux-foundation.org,
+ pasha.tatashin@soleen.com, pratyush@kernel.org, ruirui.yang@linux.dev,
+ robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ kexec@lists.infradead.org, linux-mm@kvack.org, iommu@lists.linux.dev,
+ robh@kernel.org, baoquan.he@linux.dev, rppt@kernel.org,
+ m.szyprowski@samsung.com
+References: <20261021083011.2170525-1-chenwandun1@gmail.com>
+ <20261021083011.2170525-4-chenwandun1@gmail.com>
+ <12e4e687-1ff0-41b2-bdf8-7f48b29e1f2f@huawei.com>
+ <a1665f9e-3116-47bc-974e-98dce408fa37@gmail.com>
+ <31d63208-3ef2-420f-a0c2-d9d6d49c5e21@huawei.com>
+Content-Language: en-US
+From: Wandun <chenwandun1@gmail.com>
+In-Reply-To: <31d63208-3ef2-420f-a0c2-d9d6d49c5e21@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261022_084511_057560_04B2D58E 
+X-CRM114-Status: GOOD (  26.81  )
+X-Spam-Score: 0.1 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,88 +133,191 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-14.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 02, 2026 at 02:57:20PM -0700, Kameron Carr wrote:
-> Add struct rsi_host_call to arm-smccc-rsi.h, which represents the host
-> call data structure used by the Realm Management Monitor (RMM) for the
-> RSI_HOST_CALL interface. The structure contains a 16-bit immediate field
-> and 31 general-purpose register values, aligned to 256 bytes as required
-> by the CCA RMM specification.
-> 
-> Add rsi_host_call() static inline wrapper in arm-rsi-cmds.h that invokes
-> SMC_RSI_HOST_CALL with the physical address of the host call structure.
-> This will be used by Hyper-V guest code to route hypercalls through the
-> RSI interface when running inside an Arm CCA Realm.
-> 
-> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
-> Signed-off-by: Kameron Carr <kameroncarr@linux.microsoft.com>
-> ---
->  include/linux/arm-rsi-cmds.h  | 22 ++++++++++++++++++++++
->  include/linux/arm-smccc-rsi.h |  7 +++++++
 
-ARM maintainers, I think this needs an ack from you?
 
-Wei
+On 10/22/26 10:00, Jinjie Ruan wrote:
+> 
+> 
+> 在 2026/10/21 17:48, Wandun 写道:
+>>
+>>
+>> On 10/21/26 17:13, Jinjie Ruan wrote:
+>>>
+>>>
+>>> 在 2026/10/21 16:30, Wandun Chen 写道:
+>>>> From: Wandun Chen <chenwandun@lixiang.com>
+>>>>
+>>>> crash_prepare_headers() counts memory ranges before populating the
+>>>> allocated crash_mem array. The weak implementation used by ARM64,
+>>>> RISC-V and LoongArch walks memblock.memory, while x86 performs the same
+>>>> two-pass operation over system RAM resources. Concurrent memory hotplug
+>>>> can change range source between the two walks and make the populate
+>>>> pass overflow cmem->ranges.
+>>>>
+>>>> Take device_hotplug_lock when preparing crash headers during
+>>>> kexec_file_load(). The x86/riscv memory hotplug path already takes
+>>>> device_hotplug_lock, so call __crash_prepare_headers() directly
+>>>> to avoid recursive locking.
+>>>>
+>>>> Sashiko reported this issue in [1].
+>>>>
+>>>> Fixes: 3751e728cef2 ("arm64: kexec_file: add crash dump support")
+>>>> Fixes: 1bcca8620a91 ("LoongArch: Add crash dump support for kexec_file")
+>>>> Fixes: 8acea455fafa ("RISC-V: Support for kexec_file on panic")
+>>>> Fixes: dd5f726076cc ("kexec: support for kexec on panic using new system call")
+>>>> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+>>>> Link: https://sashiko.dev/#/message/20260806101002.1F84E1F000E9@smtp.kernel.org [1]
+>>>> Acked-by: Baoquan He <baoquan.he@linux.dev>
+>>>> ---
+>>>>  arch/riscv/kernel/crash.c  |  2 +-
+>>>>  arch/x86/kernel/crash.c    |  2 +-
+>>>>  include/linux/crash_core.h |  2 ++
+>>>>  kernel/crash_core.c        | 17 +++++++++++++++--
+>>>>  4 files changed, 19 insertions(+), 4 deletions(-)
+>>>>
+>>>> diff --git a/arch/riscv/kernel/crash.c b/arch/riscv/kernel/crash.c
+>>>> index fe5a4b306aae..ac8df2edf2a7 100644
+>>>> --- a/arch/riscv/kernel/crash.c
+>>>> +++ b/arch/riscv/kernel/crash.c
+>>>> @@ -70,7 +70,7 @@ void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
+>>>>  	 * Create the new elfcorehdr reflecting the changes to CPU and/or
+>>>>  	 * memory resources.
+>>>>  	 */
+>>>> -	if (crash_prepare_headers(true, &elfbuf, &elfsz, NULL)) {
+>>>> +	if (__crash_prepare_headers(true, &elfbuf, &elfsz, NULL)) {
+>>>>  		pr_err("unable to create new elfcorehdr");
+>>>>  		goto out;
+>>>>  	}
+>>>> diff --git a/arch/x86/kernel/crash.c b/arch/x86/kernel/crash.c
+>>>> index e6f23933a6df..bef008a0cb22 100644
+>>>> --- a/arch/x86/kernel/crash.c
+>>>> +++ b/arch/x86/kernel/crash.c
+>>>> @@ -465,7 +465,7 @@ void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
+>>>>  	 * Create the new elfcorehdr reflecting the changes to CPU and/or
+>>>>  	 * memory resources.
+>>>>  	 */
+>>>> -	if (crash_prepare_headers(IS_ENABLED(CONFIG_X86_64), &elfbuf, &elfsz, NULL)) {
+>>>> +	if (__crash_prepare_headers(IS_ENABLED(CONFIG_X86_64), &elfbuf, &elfsz, NULL)) {
+>>>>  		pr_err("unable to create new elfcorehdr");
+>>>>  		goto out;
+>>>>  	}
+>>>> diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
+>>>> index bc087124cd78..28e7a81cf263 100644
+>>>> --- a/include/linux/crash_core.h
+>>>> +++ b/include/linux/crash_core.h
+>>>> @@ -61,6 +61,8 @@ extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_ma
+>>>>  				       void **addr, unsigned long *sz);
+>>>>  extern int crash_prepare_headers(int need_kernel_map, void **addr,
+>>>>  				 unsigned long *sz, unsigned long *nr_mem_ranges);
+>>>> +int __crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+>>>> +			    unsigned long *nr_mem_ranges);
+>>>>  extern int crash_exclude_core_ranges(struct crash_mem **cmem);
+>>>>  
+>>>>  struct kimage;
+>>>> diff --git a/kernel/crash_core.c b/kernel/crash_core.c
+>>>> index faa0f22dbb41..8a861a946e26 100644
+>>>> --- a/kernel/crash_core.c
+>>>> +++ b/kernel/crash_core.c
+>>>> @@ -16,6 +16,7 @@
+>>>>  #include <linux/mm.h>
+>>>>  #include <linux/cpuhotplug.h>
+>>>>  #include <linux/memblock.h>
+>>>> +#include <linux/device.h>
+>>>>  #include <linux/kmemleak.h>
+>>>>  #include <linux/crash_core.h>
+>>>>  #include <linux/reboot.h>
+>>>> @@ -344,8 +345,8 @@ int crash_exclude_core_ranges(struct crash_mem **cmem)
+>>>>  	return 0;
+>>>>  }
+>>>>  
+>>>> -int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+>>>> -			  unsigned long *nr_mem_ranges)
+>>>> +int __crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+>>>> +			    unsigned long *nr_mem_ranges)
+>>>>  {
+>>>>  	unsigned int max_nr_ranges;
+>>>>  	struct crash_mem *cmem;
+>>>> @@ -382,6 +383,18 @@ int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+>>>>  	return ret;
+>>>>  }
+>>>>  
+>>>> +int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
+>>>> +			  unsigned long *nr_mem_ranges)
+>>>> +{
+>>>> +	int ret;
+>>>> +
+>>>> +	lock_device_hotplug();
+>>>> +	ret = __crash_prepare_headers(need_kernel_map, addr, sz, nr_mem_ranges);
+>>>> +	unlock_device_hotplug();
+>>>
+>>> I think this patch conflicts with my changes and would also conflict
+>>> with the implementation of arm64 crash hotplug.
+>>>
+>>> https://lore.kernel.org/all/20260921090450.807575-15-ruanjinjie@huawei.com/
+>>>
+>> Have these patches already been merged? My current work is based on the latest
+>> linux-next. If they have already been merged into the maintainer's branch,
+>> please let me know, I will update my tree and rebase/re-adapt my changes accordingly.
+>>
+>>
+>> Also, regarding the changes in kernel/crash_core.c: it looks like we modified
+>> the same spot, the change is not wrong, is that right?
+> 
+> Hi Wandun,
+> 
+> However, I think someone should have informed me in advance; otherwise,
+> doing duplicate fix work is pointless.
+> 
+> I see that part of your patch series modifies code I previously changed,
+> but I was not CC'd.
 
->  2 files changed, 29 insertions(+)
+Hi Jinjie,
+
+Sorry for not CC'ing you. I keep the per-patch Cc lists short because
+large recipient sets have caused my sends to be cut off midway before,
+(I'm still trying to track down exactly where the problem is) you should
+have been on the list that's my miss. You'll be on the Cc of every future
+version.
 > 
-> diff --git a/include/linux/arm-rsi-cmds.h b/include/linux/arm-rsi-cmds.h
-> index 3f7a6a8..01d292e 100644
-> --- a/include/linux/arm-rsi-cmds.h
-> +++ b/include/linux/arm-rsi-cmds.h
-> @@ -236,4 +236,26 @@ static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
->  	return res.a0;
->  }
->  
-> +/**
-> + * rsi_host_call - Make a Host call.
-> + * @host_call_struct: IPA of host call structure
-> + *
-> + * This call will fail if the IPA of the host call structure:
-> + * * is not aligned to 256 bytes,
-> + * * is not protected / encrypted,
-> + * * is RIPAS_EMPTY
-> + *
-> + * Returns:
-> + *  On success, returns RSI_SUCCESS.
-> + *  Otherwise, returns an error code.
-> + */
-> +static inline unsigned long rsi_host_call(phys_addr_t host_call_struct)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_smc(SMC_RSI_HOST_CALL, host_call_struct, 0, 0, 0, 0, 0, 0,
-> +		      &res);
-> +	return res.a0;
-> +}
-> +
->  #endif /* __LINUX_ARM_RSI_CMDS_H_ */
-> diff --git a/include/linux/arm-smccc-rsi.h b/include/linux/arm-smccc-rsi.h
-> index fddb779..4c8530b 100644
-> --- a/include/linux/arm-smccc-rsi.h
-> +++ b/include/linux/arm-smccc-rsi.h
-> @@ -142,6 +142,13 @@ struct realm_config {
->  	 */
->  } __aligned(0x1000);
->  
-> +struct rsi_host_call {
-> +	u16 immediate;
-> +	u8 _padding[6];
-> +	u64 gprs[31];
-> +} __aligned(256);
-> +static_assert(sizeof(struct rsi_host_call) == 256);
-> +
->  #endif /* __ASSEMBLER__ */
->  
->  /*
-> -- 
-> 2.45.4
+>>
+>>> arm64 crash hotplug:
+>>> https://lore.kernel.org/all/20260918100442.3841135-18-ruanjinjie@huawei.com/
+>>
+>> In addition, if arm64 gains crash hotplug support, the code there would indeed
+>> need to be modified (to avoid a deadlock). As of now, arm64 crash hotplug
+>> support has not been merged yet either, has it? I just want to make sure I
+>> haven't missed anything.
 > 
+> Yes, you are right. If your patch series will be merged soon, I will
+> develop based on it.
+
+Also thanks for your reminder, otherwise I might later overlook the case
+where arm64 has already gained crash hotplug support, and introduce bugs
+as a result.
+
+
+Best regards,
+Wandun>
+>>
+>>>
+>>>> +
+>>>> +	return ret;
+>>>> +}
+>>>> +
+>>>>  /**
+>>>>   * crash_exclude_mem_range - exclude a mem range for existing ranges
+>>>>   * @mem: mem->range contains an array of ranges sorted in ascending order
+>>>
+>>
+> 
+
 
