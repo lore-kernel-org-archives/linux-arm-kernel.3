@@ -2,98 +2,120 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D5A2606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 19:39:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B97E606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 19:41:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aLQaLJ7G;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=mzRmPu4c
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Klyv19rf;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=Qs/wGq65;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=gU6Mx4VM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=b6uibeAd1xqDy+X+4zICpkfe89xnFGYtmkkgNj7URCQ=; b=aLQaLJ7G2vcPFIjNt4uA4P1o7p
-	2ljmv3fgsKCjwH7FVUpLwzIhXQX0W/MP9VlT+E/h/9LlOJ1vdzj7t4yjI4FSN2aYTMk6Nc/xqvbxe
-	7DzgJIjl9qU0ZStprxJSBdHZeeoOxglgeE/QwsJdOhuvGyqFU5QSifKbZH9luiX12tiCs1XsIu0G/
-	XiTleB1OmggwjQRifOCFBQuiUMhIn4p/Yw0uWqvj3AFPu03EhpfoF1t4ukMfQaO/c7oxm/87zlU8w
-	scyXsjb9WZCFN91INqu++6Sz56stDGN3gFpeKrLlG4aK3ODOy8ZYPilcth1wXTEXUZNNqkumMXm3U
-	7vc455HQ==;
+	bh=rMu7gYcxvQNy61MemzFOFXFmQujG4mGCgZD776uY0wk=; b=Klyv19rfFqvHgYA8NcqPf5Plp7
+	thFh22fRfu5ZIvfx12wnze7XdvdS1qDOTZEs1SdvkClr68sCxj2hVMSlTntoeihg3tijgxQ3WtHWe
+	CwjaJ7sGjOVHIOJX2Goe/g2Um3mPHxC92RBnOTU6dqlR2luKTNWqxwJ2KPyQED2JxIaIEZzlUqrPX
+	fvrJI+2ejGyKlPfDWBUgy6IcanTs+s8lgW+61ZF4Dqo1Wyco9GLNnzsw1q2ZJhEFx3zTWSu4Np43O
+	NpflEie6dRXHJPtr88kOggO6GCiYfEmPuM8V6gxaAlMBxwCtBI7AUuTMGSFWKh8IaMDTREBQ3DS1u
+	bM9iVGMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJyd8-0000000EqXA-3hUD;
-	Thu, 22 Oct 2026 19:39:14 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1xJyew-0000000Eqky-1ElI;
+	Thu, 22 Oct 2026 19:41:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJyd5-0000000EqW7-2VEp
+	id 1xJyeu-0000000Eqk8-4A6S
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 22 Oct 2026 19:41:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=rMu7gYcxvQNy61MemzFOFXFmQujG4mGCgZD776uY0wk=; b=Qs/wGq65pdxthwpH188/xzOhSJ
+	Fbob8LXu6X8OYM32G+dXZuTCqIT07A1VIFCw7RmnRg9gLUAS4spKYyzUMQgLUqjmNSZDzj6Pkv5pZ
+	4eN3tGjTEAXUOrwDKz3dcqOl6dMU1OO5gSzAQAKiBiZbVJ6lqBwZV6Q0bL626hIgDj3kIJD7j55Tj
+	arRROoFKMeLTDIV/Bv1P2TNU4QfdTZ9YTumZcQXmOumUx5iqG+DZN8Ueue93TnFxkCceVilNNrwSu
+	MEQ1Tn017ot6aZEk95knjysUJztazxtmokouQ84ilEBerkCOr7dE2khJA43zdfkLPSW5Y4bMoI4Ah
+	0bMy2U+A==;
+Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xJyer-00000007rll-2Lmv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 19:39:13 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-48dfdd0678dso120468f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 12:39:10 -0700 (PDT)
+	Thu, 22 Oct 2026 19:41:03 +0000
+Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-6b8e2d8df4fso120660eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 12:41:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792697949; x=1793302749; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=b6uibeAd1xqDy+X+4zICpkfe89xnFGYtmkkgNj7URCQ=;
-        b=mzRmPu4cn71zNS34MwYTXUBqwRhei5CP/xPD57sHLSvrPRmOfM4n/JBIBg2loh6izW
-         uHgEi8NEolZmxvUZJAr6xOdu6r+ReWyBz2Un50VbkteaFE3E8TZ0Yts4h+yanCR5X4OH
-         wsrZ7TeDDLnTDoWqFaByMsfckLRiBMjk1obHTyG/fY9r4+MChL9dtZVRVLSy3wLN3yFa
-         Je2jERbQpQ272QgIYEQwdIhTTdP+RgwHyQ+2Bhvjvkts8ioySeNpd/Vv/5EXEQMbfBgv
-         XKan8rwodkACzgXz9kh+CHElFnUhghdkBubVELXjMitU0q3oaXf3PRj39RUajV6PN1rM
-         lF1Q==
+        d=gmail.com; s=20251104; t=1792698059; x=1793302859; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=rMu7gYcxvQNy61MemzFOFXFmQujG4mGCgZD776uY0wk=;
+        b=gU6Mx4VMKhfqBd3kwa/3dftGMUZT/UyMrX3jpMoIqi6+3iwXToxc4v4G1d7JHXS4L5
+         8vtLNE6LtKVQyPdZaMgt6JpFvjt1VlH3EIAKOf3CeXCikpuOaJDsfGOocbZWrcMx3Yyu
+         AQmjg5t20NZ9JfIP0FindMqA9XQ4415s4XIiyL5NvC5vDZAKJdNcfKqZHErOI57lc2CY
+         YwpGEC1VXTF9XOi0A5Xj33uUPqAiRXOHvgqHoLUn13VtXuRk6cntE1tQDOAXTUDDDmdr
+         G8Q+m6Dq9R2Z7lY71MgxdrSkF6b1DarQ+LJTnoGK3Ipfr1Fp83axz92BKp+7r0/OsPVQ
+         Gx+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792697949; x=1793302749;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=b6uibeAd1xqDy+X+4zICpkfe89xnFGYtmkkgNj7URCQ=;
-        b=p0eotx9slEsxyPwZRNXODJEB+DUCkQUBSTew3VWM2Tm3D3RZPp1PawFUKBCOSsreHU
-         fhYlttDbTG+5Ozc4iuZv5yXL4hVsUfvNXtDfCRVq5Eb1pyZ9hyDHCG1NOM2PVrt96XbY
-         bOphLwiT3bqBsDMWMFnksZx4tykyiHUKcPuxUiilrv3x7mWRS+xJIxp0ipJLP94dJbs9
-         9+xObxStzrWkbILXez2B0yAM5jCSOj3notTfNBTMLbms8j+qlPoEu2Y4ntz7rXTMOhhi
-         bRQYjJF0qI3aWVR1lrCWp08/Few5cGgZTYQQIxiIWioPX6Qb9JI1Yvbs8Z7FOZvsQopc
-         xz0Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwjpiATls5mPudAf6BdGvFDbrDJcUBj2pU0Qh4ssh6ZAsravIZvVqLJUG0+C4Y7fNOt4u9tMYWreZOqr4u1qG8m@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ9g51yp7sQXXKJ61gxLF4UGJAz/fpsdPkHZ3oRNprSL8Yg16Xf
-	Axekh2BBQoS/3Qn6PeO7C3D4038rn3R5imcf1fMB+BSBjGPvucznwgIq
-X-Gm-Gg: AYBFou1MMpruQlIDUSs55BoM/gfTyrMa62BdriBWVf3kfe03mznZXAIiC1zswDNcm93
-	BPEVtk4Y9We+YCZbAUae76yxnXdMSFpXbUSVV8KTeJlPb9OR7VJNtrAhecgPeHuyV0h2Mayi6ZO
-	mN1W1k/UcrIoQJ26UwAlniAJMdgbzoIiwaCLgWd5bPw7z3SxmDvPw6B/S2b5pCLC17v+5koWsRn
-	oidP0YR/Ox/Vm+877Upy3yRTiHffOdOndH0DtloBWyOlWu3TO6SqZp0xPbiqdOnSYpMMOx/TUNT
-	lp1LYH7B7sur8Zob2/kNnSZpJh8XB0TxvnOKvLVbcPtKrrVxMPyVAtr/Kcwb0jwHKmyXAZ6FeJP
-	jWiz0BJg9H/SWPyi65UgWmO4n90sePIkrwfy3cpj+mYwNKto5HZXQXJIZv0pMpZuSMpcFoiaWqe
-	kowrJ3FKXfyC4nErgLP6rLP1CxPHLnZMFGdEWYpdB1WlU3pDjGbQN3/y3yM/VuXuqxDfnM6AsSh
-	+68j7CK9Q+dHcG3+0tI5GN6j70x5kQaLgn3AlqTNyUdr0fVVY6RdizuPYzod3vgs/kQ6D/pg29K
-	RtpUpUncT5ZdcG4cfcMlA71phFrUJv4lBN4bXE3pBbSJXsb2UvqgYjHvFqUq
-X-Received: by 2002:a05:6000:46c8:b0:48d:eec6:308b with SMTP id ffacd0b85a97d-48e264af00emr8712598f8f.21.1792697948972;
-        Thu, 22 Oct 2026 12:39:08 -0700 (PDT)
-Received: from Ansuel-XPS24.localdomain (93-34-92-187.ip49.fastwebnet.it. [93.34.92.187])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-48e38026a7fsm69730f8f.15.2026.10.22.12.39.06
+        d=1e100.net; s=20260707; t=1792698059; x=1793302859;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=rMu7gYcxvQNy61MemzFOFXFmQujG4mGCgZD776uY0wk=;
+        b=g815Hi9P6po6qHZJloEhuhzaPwa0hur8BDAFzYNfZDk31388LaOyYupw35UReJPtJ4
+         eLI+u7Zbx4EKPpRMdOCObpoOTAYe2SGOWagpy7JpZhHPDlwhGByfuIE8bEYCAyzYT/yS
+         HMXHioQMi334rdmn7LJZXSVKAoL42jMM6wqRgNAHTxo5DL2TnwLcpm9RpTpZuGgw+Z8M
+         4bIAuV02MER985ibz11BjhY4LRp1k2RbSbzbbl7kvFLiLvchPojO1l8nAfcWHfDgcNjS
+         vn+tLmVnEoY61WzvbLOUB5nAFwg2EN7Hp+BX8z++JI9WM8HBlhkoYyl5kfBZS5ISEzeQ
+         Enyg==
+X-Forwarded-Encrypted: i=1; AKwUvBxr7PUAEdv2N0K01Is94FahbDjcBd1ndiDgd3wXSRUfFqqCjTxuTOaDgCDTQyx4J78AdDmmNjpgD7EJHHwk2xQf@lists.infradead.org
+X-Gm-Message-State: AFq9FYJQ4VnXat/x1B76IHzzxA3lOxGiBDTFl28tQ6hPIxIB7VRgqMYB
+	AJ3g9RTJ5+jg2Jydx/qxv3YLNCX/bNFhmMe4VSkxOf1OoOgUGUvNZAkW
+X-Gm-Gg: AYBFou05DIoI7kxm8O/axklcVv5d5Tv+h0d7lYRoALXNgnQb4DnDtwjtkajPco7reAU
+	bem4IXZ4ihKrYpNUwrj5vVPHRW9hxz0PS9MtftZEapWdOwifkmt5vzbp8mGl7wdgfqgOO1skszY
+	G0/hc2+xGSzBsrLxBTEdnUJ6r+R3BINct9bd18cs1+4/CZx2D1ESYjz0ae6JTNenjMrGZQzxeJ+
+	r/s0Jwda7qMyeN2C1oFrEASSu8DrUuNOzAEAN83VSz0GtfOfMlSq1H0KH3wtcd8QNXp3oNoTbh4
+	DMUGhbMxImFcqKRecer4KZcKOxddERAyrT9ynvMB7T97HBqpb/BPwW0xefpEZ+MSAaAoIhGebk4
+	Xgjxv69R3hcVsI7QHJwvbuh1EyjokY68QV6Yr8sMefG//0UE5D5boxEdCMdJ/l7Uhwyk2Uq3LGP
+	bQ8+0m/u3T25jhT+wk+gmlwv2OxOwgCYzxW7Z3vLoLYo33lDlK8B/IEJnG1pUl9uJhFx03I4toh
+	4q+IK/pdR9QNzWJKMXHCveLhCRC8KZXyEjiQqIZEO/hyFw9aYaqL1sCwBCRH2X97np9FqlN/E7u
+	BMu/Hbx3SLJbLqKh5epY8lXGoPW/KvRRf1iFMG4Xue9LpYGJvpM1WlwHULiLDOO+ZUY4L7aWyle
+	S56uOpLxmaGbHASCx/M24XpD5o/OQDRuERkOLubi0lG+LZ6RpcM+S/tx9cWG9I3Bti60BqZZFJ5
+	Xyhw5nRzfn7x/o8krTkVYMs9ww
+X-Received: by 2002:a05:6820:6784:b0:709:8fcf:6d9a with SMTP id 006d021491bc7-70b88aefe41mr234594eaf.78.1792698058797;
+        Thu, 22 Oct 2026 12:40:58 -0700 (PDT)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-70b8b2c4561sm42639eaf.9.2026.10.22.12.40.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 12:39:07 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Stefan Roese <sr@denx.de>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [PATCH RESEND] i2c: mt7621: fix copying uninitialized kernel stack with reduced page_len
-Date: Thu, 22 Oct 2026 21:38:51 +0200
-Message-ID: <20261022193853.670625-1-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        Thu, 22 Oct 2026 12:40:58 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Thu, 22 Oct 2026 13:40:54 -0600
+Subject: [PATCH v2] dmaengine: mediatek: uart: synchronize completion
+ callbacks
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261022-submit-mtk-uart-dma-synchronize-v1-v2-1-fdaef0e2edd6@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WOTQ6CMBCFr2K6dpTyI8SV9zAsShlg1LamLUQk3
+ N0WTuDyTd775luYQ0vo2PWwMIsTOTI6hPR4YHIQukegNmSWJumFJykHNzaKPCj/hFFYD60S4GY
+ tB2s0fREmDryoZJUlWVOUOQugt8WOPtuTe73nQHmg9JEcG41wCI0VARNPgYm6J43nfRcaAzlv7
+ Lx5TjyS/lKKVpB3Zckr2WGX81uvBL1O0ihWr+v6A72DrsYIAQAA
+X-Change-ID: 20261021-submit-mtk-uart-dma-synchronize-v1-158c8303b574
+To: Sean Wang <sean.wang@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Frank Li <Frank.li@oss.nxp.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_123911_822749_4BD09488 
-X-CRM114-Status: GOOD (  12.96  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261022_204101_966647_89A5A913 
+X-CRM114-Status: GOOD (  13.76  )
+X-Spam-Score: 0.1 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,61 +134,82 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When a page_len is less than 5 bytes in mtk_i2c_xfer, uninitialized kernel
-stack data is copied and written to REG_SM0D1_REG. Equally on the read
-part, an unnecessary read is done.
+Terminating a UART APDMA channel waits for its interrupt handler, but
+completion callbacks run in the virt-dma tasklet. A callback already
+removed from desc_completed can still be running after termination
+returns. With no device_synchronize hook, dmaengine_synchronize() does
+not wait for that callback either.
 
-Guard these extra copy/write and read for the page_len to fix leaking
-uninitialized stack memory.
+Add vchan_dma_synchronize() with the DMAengine callback signature and
+use it for UART APDMA. The shared helper wraps vchan_synchronize() so
+drivers can assign it directly to device_synchronize. Document that the
+termination path must have stopped the channel and prevented new
+callbacks before using it.
 
-Fixes: d04913ec5f89 ("i2c: mt7621: Add MediaTek MT7621/7628/7688 I2C driver")
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+This lets clients finish asynchronous cancellation before reusing
+callback state or freeing DMA buffers. Keep the callback wait out of
+device_terminate_all so it can be performed without locks acquired by
+the callback.
+
+Fixes: 9135408c3ace ("dmaengine: mediatek: Add MediaTek UART APDMA support")
+Suggested-by: Frank Li <Frank.li@oss.nxp.com>
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/i2c/busses/i2c-mt7621.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+Changes in v2:
+- Add a documented vchan_dma_synchronize(struct dma_chan *) helper in
+  virt-dma.h and use it directly as the UART APDMA device_synchronize
+  callback, following Frank Li's review [0].
+- Link to v1: https://patch.msgid.link/20261021-submit-mtk-uart-dma-synchronize-v1-v1-1-4f7718cfef41@gmail.com
 
-diff --git a/drivers/i2c/busses/i2c-mt7621.c b/drivers/i2c/busses/i2c-mt7621.c
-index 0a288c998419..9ea5e3f9a763 100644
---- a/drivers/i2c/busses/i2c-mt7621.c
-+++ b/drivers/i2c/busses/i2c-mt7621.c
-@@ -144,7 +144,6 @@ static int mtk_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
- 	u16 addr;
- 	int i, j, ret, len, page_len;
- 	u32 cmd;
--	u32 data[2];
+[0] https://lore.kernel.org/r/atoz6M7RHU14_a3J@SMW015318/
+---
+ drivers/dma/mediatek/mtk-uart-apdma.c |  1 +
+ drivers/dma/virt-dma.h                | 15 +++++++++++++++
+ 2 files changed, 16 insertions(+)
+
+diff --git a/drivers/dma/mediatek/mtk-uart-apdma.c b/drivers/dma/mediatek/mtk-uart-apdma.c
+index f74e9a328588..6bc4f20d8b06 100644
+--- a/drivers/dma/mediatek/mtk-uart-apdma.c
++++ b/drivers/dma/mediatek/mtk-uart-apdma.c
+@@ -514,6 +514,7 @@ static int mtk_uart_apdma_probe(struct platform_device *pdev)
+ 	mtkd->ddev.device_config = mtk_uart_apdma_slave_config;
+ 	mtkd->ddev.device_pause = mtk_uart_apdma_device_pause;
+ 	mtkd->ddev.device_terminate_all = mtk_uart_apdma_terminate_all;
++	mtkd->ddev.device_synchronize = vchan_dma_synchronize;
+ 	mtkd->ddev.src_addr_widths = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE);
+ 	mtkd->ddev.dst_addr_widths = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE);
+ 	mtkd->ddev.directions = BIT(DMA_DEV_TO_MEM) | BIT(DMA_MEM_TO_DEV);
+diff --git a/drivers/dma/virt-dma.h b/drivers/dma/virt-dma.h
+index 59d9eabc8b67..f1fc3bf48275 100644
+--- a/drivers/dma/virt-dma.h
++++ b/drivers/dma/virt-dma.h
+@@ -234,4 +234,19 @@ static inline void vchan_synchronize(struct virt_dma_chan *vc)
+ 	vchan_dma_desc_free_list(vc, &head);
+ }
  
- 	i2c = i2c_get_adapdata(adap);
- 
-@@ -186,6 +185,8 @@ static int mtk_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
- 
- 		/* transfer data */
- 		for (len = pmsg->len, j = 0; len > 0; len -= 8, j += 8) {
-+			u32 data[2] = { };
++/**
++ * vchan_dma_synchronize - DMAengine callback to synchronize a virtual channel
++ * @chan: DMA channel to synchronize
++ *
++ * Use as device_synchronize when device_terminate_all has stopped the channel
++ * and prevented new callbacks from being scheduled. This waits for callbacks
++ * and frees terminated descriptors through vchan_synchronize().
++ *
++ * Context: non-atomic context, with no locks held that callbacks need.
++ */
++static inline void vchan_dma_synchronize(struct dma_chan *chan)
++{
++	vchan_synchronize(to_virt_chan(chan));
++}
 +
- 			page_len = (len >= 8) ? 8 : len;
- 
- 			if (pmsg->flags & I2C_M_RD) {
-@@ -194,7 +195,8 @@ static int mtk_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
- 			} else {
- 				memcpy(data, &pmsg->buf[j], page_len);
- 				iowrite32(data[0], i2c->base + REG_SM0D0_REG);
--				iowrite32(data[1], i2c->base + REG_SM0D1_REG);
-+				if (page_len > 4)
-+					iowrite32(data[1], i2c->base + REG_SM0D1_REG);
- 				cmd = SM0CTL1_WRITE;
- 			}
- 
-@@ -204,7 +206,8 @@ static int mtk_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
- 
- 			if (pmsg->flags & I2C_M_RD) {
- 				data[0] = ioread32(i2c->base + REG_SM0D0_REG);
--				data[1] = ioread32(i2c->base + REG_SM0D1_REG);
-+				if (page_len > 4)
-+					data[1] = ioread32(i2c->base + REG_SM0D1_REG);
- 				memcpy(&pmsg->buf[j], data, page_len);
- 			} else {
- 				if (!(pmsg->flags & I2C_M_IGNORE_NAK)) {
--- 
-2.55.0
+ #endif
+
+---
+base-commit: 93f51579e7df248780214094418f205253383cc5
+change-id: 20261021-submit-mtk-uart-dma-synchronize-v1-158c8303b574
+
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
 
