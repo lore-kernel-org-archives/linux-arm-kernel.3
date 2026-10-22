@@ -2,134 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67A38606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 16:29:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D749606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 16:33:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xCbvJlau;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=UFbZk2Zg
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=STevM5yv;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mGfY8uhP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=JxVvs8kh07+rdyhURSwshuYnSrGrYd8ZDW1qDfaSLvc=; b=xCbvJlauja5YDJr3FCBvTfz1oW
-	3viOiFFEB4L9SjFvn5TJvNgTZLrUDHl79OSeWfa/v+KxJJyk0br8yard8kYUljtjiEt/TkBuabfcC
-	RQGMdFxh3275Q7kcyMuFMJ6F44kJcmroRhJSG0gUhFHZonkU5AnW+rw+YIgfcMG+wNWem3i3hZZeo
-	GzFD3k8+IuklWT17Or2Jq6hVT/bPwPsDCU9KO4FR0V+LJJ25LDixlEN1jBQua493ZtjulcJnegf+r
-	EtljDHzIWT1u0QmGV7oyVh4zUIboCyDVjSiYkIaqRIVVaO/SHDP/4rXbazMYEQh0qh+NCqTkqJrWS
-	bUudjduw==;
+	bh=LpR8WjbHXVeMxwxDz6y1I6beOL7GiQQlFjax9WUKfwY=; b=STevM5yv3AR0z/DHcJ9N2L7j0L
+	O4SWbKjHFqEe0FM7yg9iSrXDUaICXVBc7XsjFScOueSy2w4H1cbbYMVoXm81F+KB9c+iggqTrZjgh
+	71Jb4Y4C0giihUPaicbpltfvMFSVhzQhxs0oorNh1XaikjkN+mUxF/dCecb47oIYgPoScR9QkCdfh
+	FEP+1LtOAxRHQUlbyZxVf2yy6eb/xyqWb5RY7uLMqYJ/LlNzr6IrbHeF+wnRjzIiMY3njMUF3YlmM
+	+uWDyUVhNk68wyax7h71N2hAGOzndl8zFnPM8KdDTBWqD3OPmVup45hFbOOSLf2hIgKlvxXk45MEB
+	RX09xk1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJvf2-0000000EUXt-37dt;
-	Thu, 22 Oct 2026 16:29:00 +0000
-Received: from mail-westeuropeazon11010043.outbound.protection.outlook.com ([52.101.69.43] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xJvjh-0000000EUvb-3QQ1;
+	Thu, 22 Oct 2026 16:33:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJvf0-0000000EUXO-1kM5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 16:28:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VAzfT/Tx6IR+Arh/O8m1os4QwhxQmfcyPDxcxucqbi4be9ZRdTAk4Ni579T4vxyNoVRG8OWUnGymRPfKVpJLOxXjRe4ZnnC0Pd1xpr7HHFyD2k+V5aecpJAPocOncaVFO0HlD286sStiwHZaYnhzSjZ9Kr8bHZ/D+r0Xis9/B3c+2hdsrGgcofVgKj2OHHBrL+k/VnBcWBRGptclC7piXkbBldGEnemeV2fR4deWEX1Z4vWgdFTUZFJ6z4pqx700dI7LtHPhERsdaWlBr2tPsyHBDJu1DPlCNjXFu9oxpZcvlRI2tpP7dOQH9HSzav7EbqE/Wxtb1DpKzkQ1FW/3AA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JxVvs8kh07+rdyhURSwshuYnSrGrYd8ZDW1qDfaSLvc=;
- b=QPj2pA2PIUVEIBafIU30uQ4DhP28koaKhnLr4RmL+o8j3l8PGEM2poPOw++PTaWdjdkImZEU9QdB0W8undAqjCfHVWQmSFtZGHOL14IzyIld0gUDfGAVRIPUf5G/oiZdiLRiFc+EJKfrNivLzoHYob+jUj7TcPOPhcPnyxHrpMdGK33Vi8vFa9iwRbvwNaRF0yT7NROx1yfA4OiLA991WaU7eGe/RcPwHYJrRoWxlbwthx8QJTsmWo0CgRqskuwKF4R8rcdcpBucf8bat4J7bKM9VtmAI4GNgzjVbmDMXzdW/SHb4S2NzuIO0gQGI/y/8w8oE1a1VkSg8jxLGH4z+w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JxVvs8kh07+rdyhURSwshuYnSrGrYd8ZDW1qDfaSLvc=;
- b=UFbZk2ZgzlwDS6QJiNowTePVrlYZ5sos2z4TzEtGFBDRkA1trda2VgP/q8rFB3s3aPUtKE/qZucp6fgX2Jh6f7vIsCmQIrys+mlQEV5feiGW3/cNiPL7m6hVsxMScz3uXZZsPNHUD1tntIH0Vq4yBKXEK0C46QIf/nvsu0klCEdKFhltkngOQh2o5z9HcJ8tO4q176Luh8sEFlUUY/N9lUZCUlCgXeaYNzSx+qEETrydQu3G535NlY+ajHev6vyb9rIF0AUmzUJzXf1zSqojmjmwT+liBrKxuLWWKNlZVextcamxJuzfmuDLMSboSaQQk+wAxZLoSUGmyA/e4HQUFA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by AM8PR04MB7348.eurprd04.prod.outlook.com (2603:10a6:20b:1db::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.16; Thu, 22 Oct
- 2026 16:28:53 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.012; Thu, 22 Oct 2026
- 16:28:53 +0000
-Date: Thu, 22 Oct 2026 11:28:43 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dmaengine: sun6i: use the channel pause enable bit
-Message-ID: <ato5u_Ew-7E3Ll2G@SMW015318>
-References: <20261021-submit-sun6i-dma-pause-bit-v1-v1-1-38d286b69dab@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261021-submit-sun6i-dma-pause-bit-v1-v1-1-38d286b69dab@gmail.com>
-X-ClientProxiedBy: DM6PR02CA0159.namprd02.prod.outlook.com
- (2603:10b6:5:332::26) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	id 1xJvjf-0000000EUvF-3eLF;
+	Thu, 22 Oct 2026 16:33:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8DC5F60A8A;
+	Thu, 22 Oct 2026 16:33:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B02A1F01829;
+	Thu, 22 Oct 2026 16:33:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792686826;
+	bh=LpR8WjbHXVeMxwxDz6y1I6beOL7GiQQlFjax9WUKfwY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mGfY8uhP+J1OJ9zOd5vQO36o8Wtj2BKL2APMuWGIC1cKOoGyd3aiCDYeTt4Gsq3tC
+	 9wXhZz0su8A5X+82eVyls0J/MGt75DSJppM7sPC+XEv2TLKOuaTikGmV7QgdraLnGZ
+	 vkAy2Fmk4wbXqQXys4jSqCBoGBqDYPRFLG0ZepiY3Lnu19OpQu08AT4M3IuLe27XCR
+	 BbEDwunBo5rtR/xnN9r7vgcCmuo5sQWEOm/p6+ZoGp4jxVpmkpZVCI25CS++SfNELW
+	 VKhWfwvhgrVX+NzJMZN0QCs+G3NKs39w3UCmsAOcZRC5iJrmYi621k35bc8gy9X9Qz
+	 IeqViBIxxtuzA==
+Date: Thu, 22 Oct 2026 19:33:30 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Miaohe Lin <linmiaohe@huawei.com>,
+	Naoya Horiguchi <nao.horiguchi@gmail.com>,
+	Oscar Salvador <osalvador@suse.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	kas@kernel.org, kexec@lists.infradead.org,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>,
+	shakeel.butt@linux.dev, linux-efi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	linux-cxl@vger.kernel.org, driver-core@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, rmikey@meta.com,
+	riel@surriel.com, harry@kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH v6 4/7] mm/memblock: add a reserved-region flag for
+ poisoned frames
+Message-ID: <ato62palTbNjLwN7@kernel.org>
+References: <20261016-hwpoison-kho-v6-0-f304255147da@debian.org>
+ <20261016-hwpoison-kho-v6-4-f304255147da@debian.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AM8PR04MB7348:EE_
-X-MS-Office365-Filtering-Correlation-Id: 933180d2-b79b-4fa5-c58f-08df30598fbb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|19092799006|376014|7416014|56012099006|11063799006|261021123027099003|261021121427099003|261009223027099003|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: OBGNeT7++iQI0Cn9SDIYIkxBx4qivhkWhnFSzT8cwY2IgGxcgq3WotTYbAfYCeNL+G5gB/vpz1Q9wUPdYK4Mr3yWd2jt1rI+8gm58wprNvi8NklW/oW0kpfTtTG9LU6ML8zIgIEw5iFSvAexaxaR52+khMU04TmKo/JiedE5fejSMtyv7JVauwJuny+0k4TJcOGjjMj/j6ybPzFY+hcrovUG9iYv/zOI1w/kTOuiMf0l260EAGG0rvgfa8MddIV5MFN2r5U2UmZXmH8nXtXjuXbOHtObWMUuHvQg4zWhGkKFl/HHMS84N+YN7uUOsMp+rGME6ZnVjWfX3xUwwFCG4MA2Aa3GvDgL5QT2vDbGq9lgpRzYUSM7s2vXKT/hA9w7h8/pciSYYP+RgrcFXwxAMyLY1ieOcSUS11ZlBFlfDaO5qb+lVWrv7TkCJkoVRLkOxlgK2rifMKZXR5gNoSwKwwmpSAi0a8hqJJB0SUbVXUFrxDhz+b4ebDpf2ijmwjQk6yZ9d8eysi8VlHR3x7rjq580F4jbppF84VLuT3Z6bHXk+qOiPVIhDzWCo928/K+lU/YRx8G9YqEr0jZpnikc9ewYknCjLtYSTCyqv9htq1yqRI3cNuBsU+Q7et0JLs25VYBHn4tpdA+BjVgqnggwnCKn0YI1IUmbrd55hiTmysE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(19092799006)(376014)(7416014)(56012099006)(11063799006)(261021123027099003)(261021121427099003)(261009223027099003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?g4FiVgUfK+Q6s979HPu/0Q7WXerWwpoYUKwM/eQREXAxv2suhgQf/ADwGw7M?=
- =?us-ascii?Q?LYrue7LfcAVXBiNawCzG0uXTv3w2fBundvABmwWuLfwp4l8kYTi8ngJeK69+?=
- =?us-ascii?Q?EcHJyW2WCj2wLXxzP2Zn+boU9VQUbqtF6Cp15G9XBw+ztfCN1Rw0fIMHHlOe?=
- =?us-ascii?Q?4XPdX0Lc318sEUqx/2sBi6/GHowiVe27K2EYkXYlTirWXD8OrZeBahxYzDrs?=
- =?us-ascii?Q?r15xL7RclwMO6fikpoAocst4IpcGw2Oz514NLsno87SvMP8az3o0OngvehfA?=
- =?us-ascii?Q?DtsARo+/7/IoYxHl/qNYIyT/3apJwaoSDVCoV2gIGrOYblCAl8+Ujsi4VgBO?=
- =?us-ascii?Q?etLTzpKjAYexR7TOipyji3ubm/rvqnZsCK1tXOGPc2p+OeviGjifaD6rW63E?=
- =?us-ascii?Q?eoMu0J7J2XBaUBUQuyEEoc6XuwOFeudNTWbBB2iN+mDRb8Abxy3IZ4BlnbCY?=
- =?us-ascii?Q?7hOtILu/YjVTOdAsHct3z9m0NG+J36oghxKsE3rZwwIhAe0lLUJ0HcqCJPh3?=
- =?us-ascii?Q?EVT+DZHHrshtFCEpEhssiMg1DqckjY0OzGeTaRXgxCmO6f1LViPJ3tRsqiHm?=
- =?us-ascii?Q?l1qVRq+9FGKlDoTuR6J6LSd5qOh8Qovd52i07GWwaHNiXHhG43hBcYSJk7Vq?=
- =?us-ascii?Q?SSefO9YjauIWhbUQZvUyfO3hQlRVVzG83eESKhd8YxpzLOEEOCUCdGPaFEUr?=
- =?us-ascii?Q?qb4g46ceCJEQyTPfVQylpHa2IDHuHrPObqu7iLDfldMIWH4C6rFw8BMv2/DF?=
- =?us-ascii?Q?kmAeDYTWaB+ZDOdygISrvFbV/34/g1MGRrtsbL/iE9Z9cETK1FXNV9RDaRkj?=
- =?us-ascii?Q?8lyYASWEgqDX9E2JGciIXSP/vdp7RfI6hEyOLOzOnJmmFCgn4TlvLLhyksO8?=
- =?us-ascii?Q?XwCFmQrT8atjuiUPEidB6K4KTlwmLz7MnO2FHIb7BpoRTJ3C2M9rd+hZeH3k?=
- =?us-ascii?Q?1XSDDQZD3KG72RjebLMjk7h5Ux4ve6hP1Vz1g3xQZPrrjuQoU/yr1dr7R997?=
- =?us-ascii?Q?IEE6N4LolZZBOCQEUpDoHmp2nG/G8cD+DMkzL8vqAwYI3CamxwxyHPoiDdvR?=
- =?us-ascii?Q?UveIW0DbUXHx7cTUT+dI9ASSAxhjGEgZzZZV7NKxb8hWatU175MtfZ8MrtqN?=
- =?us-ascii?Q?PjyferrLS/aVQ0I3U3t8PEG96kwAISmxTHJqwFogf9KK4JGYUcM7qXCj5WwO?=
- =?us-ascii?Q?2ZNb23yQonPTuC8N66ZNJPMFYNUTtKBIGnuCSi3QQ0Vq2KO2uH8oAEZ/Jf7f?=
- =?us-ascii?Q?oCjVfKbqfpKKILmL1xEMHiSZA+4XamtnsVkr24uhQp7WkRlnEGFn4SJmC14x?=
- =?us-ascii?Q?pOSBMhU1JfBUWXqz3ROxCGlkO0gJTMKnGWlVtddK1td1uz1111PGSrfOrW46?=
- =?us-ascii?Q?aXRkM2aCcM8W71B+n8KVqqMu7C+dz1nTk/30Wh0jQ/yv69mZ/ObLl/SVmvL+?=
- =?us-ascii?Q?3Edw+7n8aSzn1z3KXTFm41v8T8b1LbMIUXs45tD6dJykEJSqn/XNe1V4dXOc?=
- =?us-ascii?Q?JkYuIUMh5fXvoYdb13XUwk1usbvXar1YY9SqfzUeC0boc45WWXFP1nB6rWIX?=
- =?us-ascii?Q?CBza7Ap6x4dU6Cqlsac7l2sLDsLSJQQkIugBzUIlvZU7twnkV2IHosV2zLPN?=
- =?us-ascii?Q?CAsG6YPcYrDoIeqgLzeGHJ3oFkI/Gldy+7t3NBzZElboy2YDnjXpywPr6i+A?=
- =?us-ascii?Q?pyaFtR4dY7ibKRcetv5Gy+9gqqFgBJUm8Su4GhSD2eyltnPTEWPw6gRxYcwk?=
- =?us-ascii?Q?dVxO9I7xq0sCyw28eEZqzV6nJPVDy0ccOy0ns3p2RQOS+z4ZnK+w?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 933180d2-b79b-4fa5-c58f-08df30598fbb
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2026 16:28:53.3420
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BXtB7kCQsuI5BB0B64XJNIk2KY5govDEG+WYh2Eg9+3q6FDXHtaMbNy2Bu97Rqr+N/mpFfB6B1+NBPgYTxXtzv9Qx4SE3gNzWT4h7OWfSatkK+pIjMVY3dbOt7ktixfU
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7348
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_092858_454657_52F6EDED 
-X-CRM114-Status: GOOD (  20.51  )
-X-Spam-Score: -1.9 (-)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261016-hwpoison-kho-v6-4-f304255147da@debian.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,53 +94,231 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 03:02:13PM -0600, James Hilliard wrote:
-> The channel pause register uses bit 0 to suspend DMA requests. Bit 1 is
-> reserved, but sun6i_dma_pause() writes only that bit and returns success.
-> An active peripheral transfer can therefore continue while its client
-> expects it to be paused, for example while the 8250 driver reads RX
-> residue and copies a partially filled receive buffer.
->
-> Use bit 0, as specified by the H616 DMA channel pause register.
-> This fixes the pause request itself; it does not add paused-state
-> reporting or change the handling of transactions already on the bus.
->
-> Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
+Hi Breno,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+On Fri, Oct 16, 2026 at 05:15:44AM -0700, Breno Leitao wrote:
+> memblock allocates from and frees to buddy whatever is not reserved, and
+> knows nothing about frames an earlier kernel found hardware-poisoned.
+> Such a frame can back the memmap, a page table or a percpu area before
+> any hwpoison code runs, and otherwise reaches the buddy allocator like
+> any other free frame.
+> 
+> Add MEMBLOCK_RSRV_HWPOISON for a reserved range holding those frames.
 
->  drivers/dma/sun6i-dma.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-> index 7704b016aed8..204b0b812431 100644
-> --- a/drivers/dma/sun6i-dma.c
-> +++ b/drivers/dma/sun6i-dma.c
-> @@ -60,7 +60,7 @@
->  #define DMA_CHAN_ENABLE_STOP		0
->
->  #define DMA_CHAN_PAUSE		0x04
-> -#define DMA_CHAN_PAUSE_PAUSE		BIT(1)
-> +#define DMA_CHAN_PAUSE_PAUSE		BIT(0)
->  #define DMA_CHAN_PAUSE_RESUME		0
->
->  #define DMA_CHAN_LLI_ADDR	0x08
->
+How much this would fragment memblock.reserved?
+
+memblock is not very scalable, to say the least, and each new flag
+increases the size of memblock arrays which obviously hurts performance.
+
+Do you have some statistics how many regions would be created for the
+poisoned ranges?
+
+> memblock neither allocates from a flagged range nor frees it to buddy.
+> memmap_init_reserved_pages() initializes its struct pages like any other
+> reserved range, including above first_deferred_pfn, but flags the RAM
+> frames PG_hwpoison instead of PG_reserved. That is the state of a frame
+> poisoned by this kernel. Holes in the range stay reserved.
+> 
+> PG_reserved is left clear on purpose. page_is_unmovable() treats a
+> reserved page as unmovable but skips a counted PG_hwpoison one, so a
+> memory block holding an inherited frame can still be offlined.
+> 
+> memblock_reserve_hwpoison() is the entry point. It is best effort. Until
+> the reserved array can be resized it keeps spare slots for the
+> reservations that must not fail. It flags only what no earlier
+> reservation covers, a kexec segment for one: that was placed around the
+> bad frames, and memblock_add_range() would warn about the overlap. A page
+> shared with such a reservation stays with it, so no page is flagged
+> twice.
+> 
+> It returns 0 only when every free part of the range is reserved. If any
+> part cannot be reserved it returns an error, even when another part was.
+> 
+> Name the flag in the debugfs flag table. MEMBLOCK_RSRV_HUGETLB gets a
+> name too: it has none, and would be left as a NULL slot below the new
+> flag, which memblock_debug_show() passes on to seq_puts().
+> 
+> Signed-off-by: Breno Leitao <leitao@debian.org>
 > ---
-> base-commit: 93f51579e7df248780214094418f205253383cc5
-> change-id: 20261021-submit-sun6i-dma-pause-bit-v1-618c1c3877d8
->
-> Best regards,
-> --
-> James Hilliard <james.hilliard1@gmail.com>
->
+>  include/linux/memblock.h | 10 ++++++
+>  mm/memblock.c            | 80 +++++++++++++++++++++++++++++++++++++++++++++++-
+>  2 files changed, 89 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+> index aa845f488327f2..86755be249666d 100644
+> --- a/include/linux/memblock.h
+> +++ b/include/linux/memblock.h
+> @@ -52,6 +52,8 @@ extern unsigned long long max_possible_pfn;
+>   * kernel that we know is good to use. It is the only memory that
+>   * allocations may happen from in this phase.
+>   * @MEMBLOCK_RSRV_HUGETLB: memory is reserved for hugetlb pages
+> + * @MEMBLOCK_RSRV_HWPOISON: reserved memory region holding frames an earlier
+> + * kernel found to be hardware-poisoned.
+>   */
+>  enum memblock_flags {
+>  	MEMBLOCK_NONE		= 0x0,	/* No special request */
+> @@ -63,6 +65,7 @@ enum memblock_flags {
+>  	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
+>  	MEMBLOCK_KHO_SCRATCH	= 0x40,	/* scratch memory for kexec handover */
+>  	MEMBLOCK_RSRV_HUGETLB	= 0x80, /* memory reserved for hugetlb pages */
+> +	MEMBLOCK_RSRV_HWPOISON	= 0x100, /* poisoned by an earlier kernel */
+>  };
+>  
+>  /**
+> @@ -142,6 +145,8 @@ static __always_inline int memblock_reserve_kern(phys_addr_t base, phys_addr_t s
+>  	return __memblock_reserve(base, size, NUMA_NO_NODE, MEMBLOCK_RSRV_KERN);
+>  }
+>  
+> +int memblock_reserve_hwpoison(phys_addr_t base, phys_addr_t size);
+> +
+>  #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
+>  int memblock_physmem_add(phys_addr_t base, phys_addr_t size);
+>  #endif
+> @@ -295,6 +300,11 @@ static inline bool memblock_is_reserved_noinit(struct memblock_region *m)
+>  	return m->flags & MEMBLOCK_RSRV_NOINIT;
+>  }
+>  
+> +static inline bool memblock_is_reserved_hwpoison(struct memblock_region *m)
+> +{
+> +	return m->flags & MEMBLOCK_RSRV_HWPOISON;
+> +}
+> +
+>  static inline bool memblock_is_driver_managed(struct memblock_region *m)
+>  {
+>  	return m->flags & MEMBLOCK_DRIVER_MANAGED;
+> diff --git a/mm/memblock.c b/mm/memblock.c
+> index 31961ed628b0ad..d20d99972a4db0 100644
+> --- a/mm/memblock.c
+> +++ b/mm/memblock.c
+> @@ -36,6 +36,9 @@
+>  # define INIT_MEMBLOCK_RESERVED_REGIONS		INIT_MEMBLOCK_REGIONS
+>  #endif
+>  
+> +/* Reserved slots memblock_reserve_hwpoison() leaves free until a resize. */
+> +#define MEMBLOCK_HWPOISON_SPARE			32
+> +
+>  #ifndef INIT_MEMBLOCK_MEMORY_REGIONS
+>  #define INIT_MEMBLOCK_MEMORY_REGIONS		INIT_MEMBLOCK_REGIONS
+>  #endif
+> @@ -1015,6 +1018,55 @@ int __init_memblock __memblock_reserve(phys_addr_t base, phys_addr_t size,
+>  	return memblock_add_range(&memblock.reserved, base, size, nid, flags);
+>  }
+>  
+> +int __init memblock_reserve_hwpoison(phys_addr_t base, phys_addr_t size)
+> +{
+> +	phys_addr_t end = base + size;
+> +	bool reserved = false;
+> +	int err = 0;
+> +
+> +	while (base < end) {
+> +		phys_addr_t next = end;
+> +		struct memblock_region *r;
+> +		bool covered = false;
+> +
+> +		for_each_reserved_mem_region(r) {
+> +			if (r->base + r->size <= base)
+> +				continue;
+> +			if (r->base >= end)
+> +				break;
+> +			if (PAGE_ALIGN_DOWN(r->base) <= base) {
+> +				base = min(end, PAGE_ALIGN(r->base + r->size));
+> +				covered = true;
+> +			} else {
+> +				next = PAGE_ALIGN_DOWN(r->base);
+> +			}
+> +			break;
+> +		}
+> +		if (covered)
+> +			continue;
+> +
+> +		if (!memblock_can_resize &&
+> +		    memblock.reserved.cnt + MEMBLOCK_HWPOISON_SPARE >=
+> +		    memblock.reserved.max) {
+> +			err = -ENOSPC;
+> +			break;
+> +		}
+> +
+> +		err = __memblock_reserve(base, next - base, NUMA_NO_NODE,
+> +					 MEMBLOCK_RSRV_HWPOISON);
+> +		if (err)
+> +			break;
+> +
+> +		reserved = true;
+> +		base = next;
+> +	}
+> +
+> +	if (err)
+> +		return err;
+> +
+> +	return reserved ? 0 : -EBUSY;
+> +}
+> +
+>  #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
+>  int __init_memblock memblock_physmem_add(phys_addr_t base, phys_addr_t size)
+>  {
+> @@ -2394,6 +2446,27 @@ static void __init memmap_init_reserved_range(phys_addr_t start,
+>  	}
+>  }
+>  
+> +/*
+> + * Frames an earlier kernel found poisoned end up as a frame poisoned by this
+> + * kernel would: PG_hwpoison, not PG_reserved. Holes in the range stay reserved.
+> + */
+> +static void __init memmap_init_hwpoison_range(phys_addr_t start,
+> +					      phys_addr_t end, int nid)
+> +{
+> +	unsigned long pfn;
+> +
+> +	for_each_valid_pfn(pfn, PFN_DOWN(start), PFN_UP(end)) {
+> +		struct page *page = pfn_to_page(pfn);
+> +
+> +		init_deferred_page(pfn, nid);
+> +
+> +		if (memblock_is_map_memory(PFN_PHYS(pfn)))
+> +			hwpoison_boot_page(page);
+> +		else
+> +			__SetPageReserved(page);
+> +	}
+> +}
+> +
+>  static void __init memmap_init_reserved_pages(void)
+>  {
+>  	struct memblock_region *region;
+> @@ -2438,7 +2511,10 @@ static void __init memmap_init_reserved_pages(void)
+>  			if (!numa_valid_node(nid))
+>  				nid = early_pfn_to_nid(PFN_DOWN(start));
+>  
+> -			memmap_init_reserved_range(start, end, nid);
+> +			if (memblock_is_reserved_hwpoison(region))
+> +				memmap_init_hwpoison_range(start, end, nid);
+> +			else
+> +				memmap_init_reserved_range(start, end, nid);
+>  		}
+>  	}
+>  }
+> @@ -2874,6 +2950,8 @@ static const char * const flagname[] = {
+>  	[ilog2(MEMBLOCK_RSRV_NOINIT)] = "RSV_NIT",
+>  	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
+>  	[ilog2(MEMBLOCK_KHO_SCRATCH)] = "KHO_SCRATCH",
+> +	[ilog2(MEMBLOCK_RSRV_HUGETLB)] = "RSV_HUGETLB",
+> +	[ilog2(MEMBLOCK_RSRV_HWPOISON)] = "RSV_HWPOISON",
+>  };
+>  
+>  static int memblock_debug_show(struct seq_file *m, void *private)
+> 
+> -- 
+> 2.53.0-Meta
+> 
+
+-- 
+Sincerely yours,
+Mike.
 
