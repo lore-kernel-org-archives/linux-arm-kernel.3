@@ -2,97 +2,146 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28E03606B43A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 18:37:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8724606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 18:47:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NxI/WmoW;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=MiMVUCuH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ElueYH88;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Hg81PEyH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=m+dbMoF594CwKxVE5qey0vlA+ySrFoGi/fZzuG+HLlk=; b=NxI/WmoWICdWR9
-	8EMoSqbnEQtZikKU+/OVWwB74NA+CGVLdf4Vqbmhkc6KaKHfaQS0xjK/8mYL+KFadvR5Pr52gupP1
-	8KaF+tD11mT0dMsBmeBur6GgJY8h/kVPcQxHz0amVcc+Zbxu61QfDpQK+7OM32gH92dliXXy3SoyZ
-	E7cm5BvNVpe2h0WqX2IzyqUg3S9qlbOAJ7U3Cs7drllIEgrkp75/eo5IwsXv0lH2huCwYNq1MEuFm
-	GPitZ1Bqx3rcnvVUyTe927COT7/jjAOh+EWfDk8cqN7ANPruTj52zTmEvCeGu6C0fK34S4/DX2PD8
-	CxD/Q5sfLEsxw3xtJMsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=5CJblgsBDX6LqD3JHLQ5fZK7mIqs6vGFCZ6V73wpaIE=; b=ElueYH88iJxfX5BskfRJ8zxpxz
+	j7eGtaB6n9Y3CJgMAidLn8ErNOV33pSmDQaTvNiRqtOpOhjD5t+6FSfG8bNWrl5r1eqJlYLS80zKH
+	rhlcuQ9+yldNRBQYlbRYwkgDdVaE9EvtJM3pSJtrxgIVskp+Bz9kvMrbzzSPlIITLmSvSo0Ra4AF/
+	yMfmOHgVetJrmoXoHoDHc9g3uBK7bHn7zZ3QwVmadySycUR1Ni2jujFewkGPvRoTeZ40E3uL+dSSt
+	DSNW0ffaQ+SwXRymlp/RsFn9eJe8Pi+jofii0z0rvLPMKuz3Zxud+5wQ5P0/sN+dKfLCNI9NdK6r0
+	OqoZdiAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJxfR-0000000EjFT-1Yid;
-	Thu, 22 Oct 2026 18:37:33 +0000
-Received: from mail-ua1-x931.google.com ([2607:f8b0:4864:20::931])
+	id 1xJxp9-0000000Ejjn-0tUN;
+	Thu, 22 Oct 2026 18:47:35 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJxfL-0000000EjDP-3jiC
+	id 1xJxp6-0000000EjjP-03ki
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 18:37:29 +0000
-Received: by mail-ua1-x931.google.com with SMTP id a1e0cc1a2514c-99061e2171cso64858241.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 11:37:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792694246; x=1793299046; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=m+dbMoF594CwKxVE5qey0vlA+ySrFoGi/fZzuG+HLlk=;
-        b=MiMVUCuHBjW1Q2XHht1DTnLfXD+UL9ZMozvqVSAUgyT75IqgZms6pQDFjski9qEuNs
-         6lWeEsutg6+5T/HBZ5TtP0PaZrXs+q6yYwwv4e9nCsDmRtGF3ulYYSrKNEaVf2Xnjet8
-         DEmC3g2OqltvS0I9sd/WhdnkcNGLUPXpP2SbLXDb9a60adtUJkFDoyomuj1+BJF4wok7
-         Cvi2TZq24xBkBOQG0RtEPloh8ZwUnF/RAnLZiy+Q1iUD8+AL92SKWfCVxrTeu7cLoS2N
-         GxJuWJ0moBeWFesHVbdzp+1V7SmWkkgAKbgEwMRfzgU6w2DuE4e+Asw6prsXCwgu6yoS
-         /AYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792694246; x=1793299046;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=m+dbMoF594CwKxVE5qey0vlA+ySrFoGi/fZzuG+HLlk=;
-        b=hTA2FjNWdJJdtuTB5VKQ5n2gCraRNtf66k7LmTu8eWb9Or/8XKTfrLC1BK+09WPHH9
-         h5mLk2EZUrPgTtFmAw8Geg7qR58vh417Z25OCbORuPobNvCviRh/m5JwGZV4Y3UoyqVt
-         eXD9NqLl1YRz05CSXXqc6aFSVJGW2BkMqk1Gzw5hIjaolUsHag/VW1X97+MUhmjT/BP+
-         95JbZyvDEPdZfI4RdvciZ5r3NlsJeasvkGOSElOYLpLqZQ4+RjltgraipxAxc890kMlq
-         GTpKWb6TJa4k42ehVjnCbpRlAqYGtHDUJ3WRukG9hB7O7JPiPCttcZ0n1MZGCbAx2+3V
-         2NgQ==
-X-Forwarded-Encrypted: i=1; AKwUvByPwzs/5Z8WPajUOC77HIna+wE5nXUFGCXVBB70BTxFTUrNQY93JEgZLxI+RFAkqrO7Rd/3lmGhtxzwV+9hKru0@lists.infradead.org
-X-Gm-Message-State: AFq9FYKu4xpFq9je82vf+UA0T8OA1kRU9WuWrYy7sVBYBRzZiCmARddJ
-	lDkJMO6A1o2aXRdd6JABxTflEj0Xqbh1gF9ntxivMFIvqAxV6GGS1CJ4
-X-Gm-Gg: AYBFou1ne463tpm2v7s86cGyHmYsLrumiaIFKor2gQ1WCmwLWDJdjexZJ6Y5A88Y4LM
-	E4wL/MJv/bT/vACQLAlwY5ER1V99dvNsZZVa+JAc+XJljoyC1fs44R5+LcJGvb630jOGwnlGW/b
-	g3hqiI5jFF8moS9EQz3K+XjAAdJQgQRCM4qpRzc2gwDNjrLVoybgW+VCPjAcY00sXqBxGiQ+Bxn
-	buTEfM6sfN7HQ09EmuorQAHFTpM+brp+Y3BsGsFPe/0l3i3VRxQycCv5XxUGsSNvsDEEjvaMl1i
-	hgJjLyX7bjm3H3DrDHwg17o+8V1zuB0xn5ns47FeuT5WvNCrdjI/+CMGqrJcRlCKaLGDxfjQf2G
-	3cZYQ5IVMpQh4o8GwJWX3409JibpjTNVboTZEMd+/E3UvBOuc5owhM4kh8+sagbnVN7VXUdohYM
-	KGlsG0giYwKBNaQBf1QTUlXbvTfKDO89vIXAUGUi/od0sM3PvkCYgMmRbtd8V3yfgDhz1nMvQEo
-	1aXHtZfb5766LsoElsanj0N7424w4RXoCLm0bqBWKdNS5TzGDAKwabCBFqcFU4a9jSpTNDus5N7
-	hVWuIwZmMB7f5xNzxGNy
-X-Received: by 2002:a05:6102:370e:b0:7b7:3acf:bd3a with SMTP id ada2fe7eead31-7ccc3090cabmr152501137.4.1792694246314;
-        Thu, 22 Oct 2026 11:37:26 -0700 (PDT)
-Received: from Biostar-A520MT ([187.94.15.233])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7ccc2052f7dsm581623137.3.2026.10.22.11.37.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 11:37:25 -0700 (PDT)
-From: Breno Rodrigues Alves <breno3011alves@gmail.com>
-To: linux@armlinux.org.uk
-Cc: James.Bottomley@HansenPartnership.com,
-	mkp@kernel.org,
+	Thu, 22 Oct 2026 18:47:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sivv8QGHRrkFJm3esc4uXLcA882tQHDEDRqWOpyD+cpxO3xTKTxVUACgs4xEbTCCgjir26bzrKhRAJca1/KtF1PnPZ7Otvz6StbQZH74Og9/mgcbjqnZqjU9fh/CofS2goCAzhcnqijgBkbYrjjTsnA0DNmMDF8DdAqSkT+IE2vEPjeB1DjrIaLPhW64mmIKgInIyHm1VVVV5SMwvJFri2A9IqigMr9q6a5LqRQDGJuXntJAj//ZEt437KepkcNmfZKUFu1lJP7DefOcRRobLpZEoH4UfNWclLi6V28oV/zdtBLSd5sKFPqoNGKe1rfsVK1vDbPcfDFcpIP4J7/CyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5CJblgsBDX6LqD3JHLQ5fZK7mIqs6vGFCZ6V73wpaIE=;
+ b=cx+yRL6elwzuqJavkQVKqY9S1QH7kl5M4IanEWdVmkNAf+zUOCMxtpOEF7Mhj2Yk0MOOEZBj/NiGQM980A7grvbysKeCS7ENj4y4rFcs3HcyuUcHT2/ZoR/wjngttuq7sl4zmr8X/UVV3hZ9ajCL/QNq+/D/COQWb0i582OOuZd9qjJTLvXkHQJBzRvqY2AL1M6fIH+JDl6TGqJqGu8XwY0vJiEoSj13nRRio293kMNbsV+8z22FeN4QsAXeRTy8J2lECQAlaJtDhtNfb0CQ5Vrtvz2lopJv+CdgmjhDcxXQfeHtbnIexgn7O7GvAETvMvV7HAMXBT+r8YJV51VXEg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5CJblgsBDX6LqD3JHLQ5fZK7mIqs6vGFCZ6V73wpaIE=;
+ b=Hg81PEyH45ZNhzTrvGa2itYsEIHgflXrfl6+41VbC5fu+3hB/zjNuY4jw3VtXVHFq01eM8vsBt4V4Pu4gGOsGt2EXjc6azHyh4RT0dclaQ6f4R6sG1LNZHNcacunqR5M6mnHciNoP1X5IvTTAEXGFOb32/GjNlapW5vmKPIsg0HvSgm2Cjc6Vox/hNSnNnEfh8mW3nJ/8mxLaSczXDiiUMQk+uhiYnhc+NGL7UwoVZk8bC1Xh5GhuVLMRNQUAdaqVGx9xSu/+O4ALyVXiflhdKsBjM3IszwnkNVamAcrQ4LyepnpI25QYr/TuAE5ZWB3nK9lq9g6r9Dq83pFSyy02w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by AMBPR04MB12208.eurprd04.prod.outlook.com (2603:10a6:20b:75a::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Thu, 22 Oct
+ 2026 18:47:27 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.012; Thu, 22 Oct 2026
+ 18:47:26 +0000
+From: Frank.Li@oss.nxp.com
+To: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jaidev Shastri <jaidevshastri@vt.edu>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-scsi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Breno Rodrigues Alves <breno3011alves@gmail.com>
-Subject: [PATCH] scsi: arm: Convert acornscsi-io.S to C
-Date: Thu, 22 Oct 2026 15:36:58 -0300
-Message-ID: <20261022183658.58090-2-breno3011alves@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261022183658.58090-1-breno3011alves@gmail.com>
-References: <20261022183658.58090-1-breno3011alves@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] firmware: imx: scu: publish the SCU IPC handles with release semantics
+Date: Thu, 22 Oct 2026 14:47:19 -0400
+Message-ID: <179269466316.1193341.15031967671001602290.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260921-mb-imx-scu-v1-1-2e2eae4246dd@vt.edu>
+References: <20260921-mb-imx-scu-v1-1-2e2eae4246dd@vt.edu>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH7PR02CA0024.namprd02.prod.outlook.com
+ (2603:10b6:510:33d::10) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AMBPR04MB12208:EE_
+X-MS-Office365-Filtering-Correlation-Id: b66160df-1a40-4554-10ac-08df306cead3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|19092799006|366016|261022105027099003|261009223027099003|261022075727099003|56012099006|11063799006|10067099003|18002099003|22082099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info: knUmWb+igDtlqj302q9gMGrwUgF18aaTg0B9iyqDRPc+STNWTE+qaaQBWbYcLLIul60SsiTY9hkaV8E0oOtSsfIld0TiRboU8z543ff/Bqc6yhSlb7FWhfiG/s3dFyWUYBQkbIbbtMZ48BJIUNAv0MjeqX+pA2HEyU6Zd7118RwLCujEFvCfKDN/eqfsfwlmbfP9bvl/cZ7XqKXJtYHna8XyoHJsNMNf36G5Etk1pvEgva6XHc0RxBNWz1FJPVpFp0lM9Pvaf1WG9q38aX5pTvFHn0QzKi83em5lc6RaNtqyzIFh//apZ1QCcbiw5F+1khHfR5lTc0THmP3yiYi53s0Wjkk5pH+px8+VOkXBzs0xg68QXSHYG0410oLo1YpFpFv61/nj2cNDPDuiv+m+IvaltCcBt+St1dG+6FICQhaSsfdSKG+Wc0W2OslVt+IhDY5GVl1gD3MZoF7KJi1oeaw+ejnHnSApZfiWQJFfdniBqn9f9soXkGZDv9AXBuyMIo3JtrUXHhLr3KXUVHd9OLMRgDXW0yFpF5kwKMivYwzNAdMIxRDVfvawZna5A+Kjx11OMk+c4ooiGsoOqAU945+zLcqz55PAYnJ9BmYhGj7aMqGKcKvDwTpXQJuUzFGD8Jjm3tAM+3YO2IaRykWch14IRJlyVqtHbtN3GElWF1w=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(19092799006)(366016)(261022105027099003)(261009223027099003)(261022075727099003)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003)(261021121427099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?am1CbU5haWZxcFlLdWw1WnkxbXNOcjBmWjdCb3JIdXIwLzAxREFvRG9RcWpV?=
+ =?utf-8?B?MVcvWHF4Z3pQNHVlaFJpdG5WOFpDT09qZkN3TWtFcW9ncXRWQUJnUnl4ODZE?=
+ =?utf-8?B?UWxQQzZYNkJRcHplWjZqSlVxUzRzVWhMY0hHWXZwRjFPWnJPeUFudk9Gb3FP?=
+ =?utf-8?B?V1F2L1VXNkYzbjFrWk9yeHNReE5hNTZ2WVpQd3BkUUl0eVRjVWFWNG0wSGF2?=
+ =?utf-8?B?bW5nZjVDQUNnZkxMV3BrUjJEUEdaZUVlN2VGK0o4RURMbFI4OFc3bThoZ1Z0?=
+ =?utf-8?B?WTRNblhOSFhMN01JeGxsMC9CL2F0SDVoK3FqQlhTNnJEZlNKY2M5QTZBVzlW?=
+ =?utf-8?B?OHR5NFhwQWxNdWFNNmNDUlBFbGhLM0hVZFV0ZU5oRGJJMGgzb2N1clZLYXJQ?=
+ =?utf-8?B?dW5ERDR0bXFYNVJKc1FsdTR5ckdBVGE0blV1ZE5PNEVicDBQQXlQVHI2Rllq?=
+ =?utf-8?B?KzU1cmwwMGhPN1ZVQ2ZoY2Jabmh4Qm94R1BGY1hmSzVFRi9DSUkyWVNmL29C?=
+ =?utf-8?B?QW9rdk91OVBDVXRSbXVqRHNUeFBuZ3FlRjZpRVh3SDNxU3ZjRHlUZDJTWjRR?=
+ =?utf-8?B?c0RTMjczVnhvSFU5ZjlNTS9QY2lmWU1hdnJobjBXVEhWSEdvam9XV0N5cGJy?=
+ =?utf-8?B?UC9CeFNBeXFETWNBbEEwZkhLRVB2YndZRzZ6bGxRVFNHbXI1Ykh3QzRxdHFo?=
+ =?utf-8?B?UHJLMHBRQmluK2pMR3VIU0F0bUY5bXp5T3UxT1F4WksrckVjbWlxajRCeW5o?=
+ =?utf-8?B?WUtBaHlpd1VRVGNUemxVdnc5NlpZa3pNZ3prdlNnUHJXM3hucjFZNGZPL3Ex?=
+ =?utf-8?B?aHEwQkRoRTZVYlgwWHBKd29yR0IwYWo0THgrS21OTUhCZDFwdFltR2ErQ0tW?=
+ =?utf-8?B?QUJlWUpLM2VOTGFmQ2JXbXBqSTdWZ2tlMXhFY1J0U2FibTRRWTVSWGhBaVFt?=
+ =?utf-8?B?Rk45Nnl0dGFQdGZSSHdPMm1PUG03aEhkZnl3N01RMEN0R2N2NEk0YStyRS9M?=
+ =?utf-8?B?OU0wL2htay9IalJ6YUJvWlpxOWpVQ0VOYzVBYzJwNzU4THEvcnJzd1Q2Z05N?=
+ =?utf-8?B?bXh2ei9EODFFeHR1bEYxdDNWWXQyTGVCWXJDYjFadWxyN2t2NkpRbldLVndY?=
+ =?utf-8?B?VzQ3UG1LQVM1L2JYcGYrc1FJMVowdVdMS2JOQmczMjl3QTRvbWM1NHFwSkNn?=
+ =?utf-8?B?SkQ0SFhiSDd2QWxBOGttOUlNMjAxSGVCTXc4VlB3SXhUd0hmb29KZW1ISlBH?=
+ =?utf-8?B?SGhWbGdGd1R0TlQvQThUTHpNYjF3dVZyS1BRVFE3RmZkbm1YN2VETzQ3Y1pS?=
+ =?utf-8?B?RnZCR2xacC90cGlmSnZwaFB6QS9ZeUltc2U1dmJvaUdmVTBiZVFYOFJqbjJU?=
+ =?utf-8?B?VnBuN3ZQUkhSbEM2WWdXd1VlUlJrZ2hvaW4xM1JOL1dUanp5WFB2b3VHem1D?=
+ =?utf-8?B?MFRYdGhiM0hOZ3R0UmoxWG0zVDc4a1BtSzhISWFXN3g3YXllYVFTdkc0eVZw?=
+ =?utf-8?B?aGRNem0rdVRQdGs1eVdmWkd3ZzAwc0poa2N0QzRxVG5mU1JJZWVITTM1NGVR?=
+ =?utf-8?B?aGdGdXZ4RnJteFpJcVI0YlNla1k4MEJ5UXltcTFta1FqZVorRHRwald1UFBj?=
+ =?utf-8?B?YmhYeVVZRVNUNnlVeHN4WEZST0xWYlVlNjU0OUNPSEE4RGZ2dUFhTHBZWktC?=
+ =?utf-8?B?RW81WjNkaGIyd1kremhxTTBOR0tVQ1FDMGVmMHYzaGgwK3BkU1lCQThzN0xQ?=
+ =?utf-8?B?MVp6SEJtRU95clYvOGpZTytSRFlteFZTbmsraHNuVFdSL3JWeTY0TGhGdU4v?=
+ =?utf-8?B?alFvQnJjeTF0c1hCR3IzVmNuV3A2RHRaamwvZTFUcXlGaTFsTUp6dzNrcVQz?=
+ =?utf-8?B?bVl5QWg3NHpycExzNnY5QVRYZWhuTGpObUUwcVlvQktTV1VnYUpkcWdFbUZO?=
+ =?utf-8?B?ZkZWYzJPUWU5NVV3NjZCcU05cVI3a2wwem1YVUNzR0dmbTlTT3FwUXh1QWJy?=
+ =?utf-8?B?clUzV25kVVZHdjFGeUNmNFBPaTE0S3JNbmVGOFlCTm55RDdyR05GZENrNFo1?=
+ =?utf-8?B?RGh5azZNbWZuQlU1T2FVM091VDRvUHBPYkNoSW8yUGUxeEllVWdQdnFpR2do?=
+ =?utf-8?B?dHZnTVJzTkhxajlhZ0ZFdlRZV004TnhMMFkrRWFGVmd5NGVUNHY2ckZKU1JG?=
+ =?utf-8?B?N0Zla2FpTEYyZHN4eWlJQml6cG83SUNxakFFdDlkZkRpOGpzL2EvZTN3TzZU?=
+ =?utf-8?B?N3k2aUtPTlZlNGlEak9wR0hwMzZUQ2puc0d4QmxBSE5wT2pOb1prOStWZk9M?=
+ =?utf-8?B?enlVTkVzcnB5R2RidXUvNjhna3pqS216U3QwcnAxVERtLytVOTRkYmNVcGll?=
+ =?utf-8?Q?R1D5d2rHycD0l7FzucmJLzEo6791xSg1V1i0h?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b66160df-1a40-4554-10ac-08df306cead3
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2026 18:47:26.5259
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /+Do6gLFZ16Esg0B+Za7cBQO12YprEfV9+1+DhkhG8ZB2y01nO9Xq0OKeZPd8lHAKoZKsYpizfgxhanDxnJeUO2Z2pQaiIZNyIRyaHpt3vVZoGPSRbcs52ijBY35SifE
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB12208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_113727_979920_57E60459 
-X-CRM114-Status: GOOD (  26.32  )
-X-Spam-Score: 1.2 (+)
+X-CRM114-CacheID: sfid-20261022_114732_115671_E8C32877 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,420 +152,35 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The Acorn SCSI expansion card presents each 16-bit SCSI data halfword
-on the low half of a 32-bit card access.  The hand-written assembly
-in acornscsi-io.S implements the two directions of the data path:
+From: Frank Li <Frank.Li@nxp.com>
 
-  - __acornscsi_in()  : packs pairs of 16-bit card reads into 32-bit
-                        memory words
-  - __acornscsi_out() : expands 16-bit memory halfwords into 32-bit
-                        card writes (duplicating the halfword in both
-                        halves for the bulk of the transfer)
 
-Both routines are simple pointer walks that a modern compiler handles
-just as well as hand-written assembly, so replace the .S file with an
-equivalent C implementation.  The conversion also happens to handle
-odd transfer lengths correctly: the original assembly drops the final
-odd byte.
+On Mon, 21 Sep 2026 20:51:35 -0400, Jaidev Shastri wrote:
+> imx_scu_probe() fills struct imx_sc_ipc with the mailbox channels, the
+> fast_ipc flag, the mutex and the completion, then stores its address to
+> imx_sc_ipc_handle with a plain store. The clk, pinctrl, nvmem, rtc,
+> thermal, gpio, reset, pmdomain, remoteproc, fec, flexcan and SOF drivers
+> fetch it through imx_scu_get_handle() from their own probe and pass it
+> to imx_scu_call_rpc(). Most are not children of the SCU node, so they
+> probe from the deferred probe worker or a module load on another CPU
+> while imx_scu_probe() is still running.
+>
+> [...]
 
-The C version takes its arguments as (void __iomem *, char *, int),
-matching the prototype actually used by acornscsi.c.  The assembly
-version had no C prototype, so the original comment declaring the
-first argument as unsigned int was never enforced; using the caller's
-type removes that latent inconsistency and lets the MMIO accessors
-do the right thing on any architecture.
+Applied to imx/drivers-intend (will apear in linux-next after v7.4-rc1),
+thanks!
 
-No functional change is intended for the normal case of even-length
-transfers, which is what all current callers of these helpers use.
+[1/1] firmware: imx: scu: publish the SCU IPC handles with release semantics
+      commit: bdf1e343170c28e4ffbc2efedf795be77ceb5f19
 
-No Makefile change is required: acornscsi_mod-objs already lists
-acornscsi-io.o, and the build system will pick up the new .c file in
-preference to the removed .S file.
-
-Signed-off-by: Breno Rodrigues Alves <breno3011alves@gmail.com>
----
- drivers/scsi/arm/acornscsi-io.S | 135 -------------------------
- drivers/scsi/arm/acornscsi-io.c | 168 ++++++++++++++++++++++++++++++++
- drivers/scsi/arm/acornscsi-io.h |  14 +++
- drivers/scsi/arm/acornscsi.c    |   4 +-
- 4 files changed, 184 insertions(+), 137 deletions(-)
- delete mode 100644 drivers/scsi/arm/acornscsi-io.S
- create mode 100644 drivers/scsi/arm/acornscsi-io.c
- create mode 100644 drivers/scsi/arm/acornscsi-io.h
-
-diff --git a/drivers/scsi/arm/acornscsi-io.S b/drivers/scsi/arm/acornscsi-io.S
-deleted file mode 100644
-index fdd7237bb..000000000
---- a/drivers/scsi/arm/acornscsi-io.S
-+++ /dev/null
-@@ -1,135 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- *  linux/drivers/acorn/scsi/acornscsi-io.S: Acorn SCSI card IO
-- */
--#include <linux/linkage.h>
--
--#include <asm/assembler.h>
--#include <mach/hardware.h>
--
--#if defined(__APCS_32__)
--#define LOADREGS(t,r,l...)	ldm##t	r, l
--#elif defined(__APCS_26__)
--#define LOADREGS(t,r,l...)	ldm##t	r, l##^
--#endif
--
--@ Purpose: transfer a block of data from the acorn scsi card to memory
--@ Proto  : void acornscsi_in(unsigned int addr_start, char *buffer, int length)
--@ Returns: nothing
--
--		.align
--ENTRY(__acornscsi_in)
--		stmfd	sp!, {r4 - r7, lr}
--		bic	r0, r0, #3
--		mov	lr, #0xff
--		orr	lr, lr, #0xff00
--acornscsi_in16lp:
--		subs	r2, r2, #16
--		bmi	acornscsi_in8
--		ldmia	r0!, {r3, r4, r5, r6}
--		and	r3, r3, lr
--		orr	r3, r3, r4, lsl #16
--		and 	r4, r5, lr
--		orr	r4, r4, r6, lsl #16
--		ldmia	r0!, {r5, r6, r7, ip}
--		and	r5, r5, lr
--		orr	r5, r5, r6, lsl #16
--		and	r6, r7, lr
--		orr	r6, r6, ip, lsl #16
--		stmia	r1!, {r3 - r6}
--		bne	acornscsi_in16lp
--		LOADREGS(fd, sp!, {r4 - r7, pc})
--
--acornscsi_in8:	adds	r2, r2, #8
--		bmi	acornscsi_in4
--		ldmia	r0!, {r3, r4, r5, r6}
--		and	r3, r3, lr
--		orr	r3, r3, r4, lsl #16
--		and	r4, r5, lr
--		orr	r4, r4, r6, lsl #16
--		stmia	r1!, {r3 - r4}
--		LOADREGS(eqfd, sp!, {r4 - r7, pc})
--		sub	r2, r2, #8
--
--acornscsi_in4:	adds	r2, r2, #4
--		bmi	acornscsi_in2
--		ldmia	r0!, {r3, r4}
--		and	r3, r3, lr
--		orr	r3, r3, r4, lsl #16
--		str	r3, [r1], #4
--		LOADREGS(eqfd, sp!, {r4 - r7, pc})
--		sub	r2, r2, #4
--
--acornscsi_in2:	adds	r2, r2, #2
--		ldr	r3, [r0], #4
--		and	r3, r3, lr
--		strb	r3, [r1], #1
--		mov	r3, r3, lsr #8
--		strplb	r3, [r1], #1
--		LOADREGS(fd, sp!, {r4 - r7, pc})
--
--@ Purpose: transfer a block of data from memory to the acorn scsi card
--@ Proto  : void acornscsi_in(unsigned int addr_start, char *buffer, int length)
--@ Returns: nothing
--
--ENTRY(__acornscsi_out)
--		stmfd	sp!, {r4 - r6, lr}
--		bic	r0, r0, #3
--acornscsi_out16lp:
--		subs	r2, r2, #16
--		bmi	acornscsi_out8
--		ldmia	r1!, {r4, r6, ip, lr}
--		mov	r3, r4, lsl #16
--		orr	r3, r3, r3, lsr #16
--		mov	r4, r4, lsr #16
--		orr	r4, r4, r4, lsl #16
--		mov	r5, r6, lsl #16
--		orr	r5, r5, r5, lsr #16
--		mov	r6, r6, lsr #16
--		orr	r6, r6, r6, lsl #16
--		stmia	r0!, {r3, r4, r5, r6}
--		mov	r3, ip, lsl #16
--		orr	r3, r3, r3, lsr #16
--		mov	r4, ip, lsr #16
--		orr	r4, r4, r4, lsl #16
--		mov	ip, lr, lsl #16
--		orr	ip, ip, ip, lsr #16
--		mov	lr, lr, lsr #16
--		orr	lr, lr, lr, lsl #16
--		stmia	r0!, {r3, r4, ip, lr}
--		bne	acornscsi_out16lp
--		LOADREGS(fd, sp!, {r4 - r6, pc})
--
--acornscsi_out8:	adds	r2, r2, #8
--		bmi	acornscsi_out4
--		ldmia	r1!, {r4, r6}
--		mov	r3, r4, lsl #16
--		orr	r3, r3, r3, lsr #16
--		mov	r4, r4, lsr #16
--		orr	r4, r4, r4, lsl #16
--		mov	r5, r6, lsl #16
--		orr	r5, r5, r5, lsr #16
--		mov	r6, r6, lsr #16
--		orr	r6, r6, r6, lsl #16
--		stmia	r0!, {r3, r4, r5, r6}
--		LOADREGS(eqfd, sp!, {r4 - r6, pc})
--
--		sub	r2, r2, #8
--acornscsi_out4:	adds	r2, r2, #4
--		bmi	acornscsi_out2
--		ldr	r4, [r1], #4
--		mov	r3, r4, lsl #16
--		orr	r3, r3, r3, lsr #16
--		mov	r4, r4, lsr #16
--		orr	r4, r4, r4, lsl #16
--		stmia	r0!, {r3, r4}
--		LOADREGS(eqfd, sp!, {r4 - r6, pc})
--
--		sub	r2, r2, #4
--acornscsi_out2:	adds	r2, r2, #2
--		ldr	r3, [r1], #2
--		strb	r3, [r0], #1
--		mov	r3, r3, lsr #8
--		strplb	r3, [r0], #1
--		LOADREGS(fd, sp!, {r4 - r6, pc})
--
-diff --git a/drivers/scsi/arm/acornscsi-io.c b/drivers/scsi/arm/acornscsi-io.c
-new file mode 100644
-index 000000000..ad16d984d
---- /dev/null
-+++ b/drivers/scsi/arm/acornscsi-io.c
-@@ -0,0 +1,168 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ *  Acorn SCSI card I/O
-+ *
-+ *  The Acorn SCSI expansion card exposes each 16-bit SCSI data
-+ *  halfword on the low half of a 32-bit card access:
-+ *
-+ *   - on reads, one 16-bit value is returned per 32-bit card load;
-+ *     consecutive card reads are packed into 32-bit memory words
-+ *
-+ *   - on writes, a 16-bit memory halfword is expanded into a 32-bit
-+ *     card word.  The original assembly duplicates the halfword into
-+ *     both halves of the card word for the bulk of the transfer and
-+ *     writes only the low 16 bits of the trailing partial word,
-+ *     since the hardware samples only the low half.
-+ */
-+
-+#include <linux/align.h>
-+#include <linux/io.h>
-+#include <linux/types.h>
-+#include "acornscsi-io.h"
-+
-+/*
-+ * Transfer a block of data from the Acorn SCSI card into memory.
-+ *
-+ * The card address is rounded down to a 32-bit boundary.  Each
-+ * 32-bit read from the card yields one valid 16-bit halfword in
-+ * the low half; pairs of card reads are packed into single 32-bit
-+ * memory words.
-+ */
-+void __acornscsi_in(void __iomem *addr, char *buffer, int length)
-+{
-+	const u32 __iomem *card = PTR_ALIGN((const u32 __iomem *)addr, 4);
-+	u8 *buf = (u8 *)buffer;
-+
-+	while (length >= 16) {
-+		u32 w0 = readl(card + 0), w1 = readl(card + 1);
-+		u32 w2 = readl(card + 2), w3 = readl(card + 3);
-+		u32 w4 = readl(card + 4), w5 = readl(card + 5);
-+		u32 w6 = readl(card + 6), w7 = readl(card + 7);
-+
-+		card += 8;
-+
-+		((u32 *)buf)[0] = (w0 & 0xffff) | (w1 << 16);
-+		((u32 *)buf)[1] = (w2 & 0xffff) | (w3 << 16);
-+		((u32 *)buf)[2] = (w4 & 0xffff) | (w5 << 16);
-+		((u32 *)buf)[3] = (w6 & 0xffff) | (w7 << 16);
-+
-+		buf += 16;
-+		length -= 16;
-+	}
-+
-+	while (length >= 8) {
-+		u32 w0 = readl(card + 0), w1 = readl(card + 1);
-+		u32 w2 = readl(card + 2), w3 = readl(card + 3);
-+
-+		card += 4;
-+
-+		((u32 *)buf)[0] = (w0 & 0xffff) | (w1 << 16);
-+		((u32 *)buf)[1] = (w2 & 0xffff) | (w3 << 16);
-+
-+		buf += 8;
-+		length -= 8;
-+	}
-+
-+	while (length >= 4) {
-+		u32 w0 = readl(card + 0), w1 = readl(card + 1);
-+
-+		card += 2;
-+
-+		((u32 *)buf)[0] = (w0 & 0xffff) | (w1 << 16);
-+
-+		buf += 4;
-+		length -= 4;
-+	}
-+
-+	while (length >= 2) {
-+		u32 w0 = readl(card);
-+
-+		card++;
-+
-+		buf[0] = w0 & 0xff;
-+		buf[1] = (w0 >> 8) & 0xff;
-+
-+		buf += 2;
-+		length -= 2;
-+	}
-+
-+	if (length >= 1) {
-+		u32 w0 = readl(card);
-+
-+		buf[0] = w0 & 0xff;
-+	}
-+}
-+
-+/*
-+ * Transfer a block of data from memory to the Acorn SCSI card.
-+ *
-+ * Each 16-bit value read from memory is expanded into a 32-bit card
-+ * word, with the halfword duplicated in both halves (matching the
-+ * original assembly).  For the trailing partial halfword the card
-+ * only samples the low 16 bits, so two byte stores are sufficient.
-+ */
-+void __acornscsi_out(void __iomem *addr, char *buffer, int length)
-+{
-+	u32 __iomem *card = PTR_ALIGN((u32 __iomem *)addr, 4);
-+	const u8 *buf = (const u8 *)buffer;
-+
-+	while (length >= 16) {
-+		u32 v0 = ((const u32 *)buf)[0];
-+		u32 v1 = ((const u32 *)buf)[1];
-+		u32 v2 = ((const u32 *)buf)[2];
-+		u32 v3 = ((const u32 *)buf)[3];
-+
-+		writel((v0 & 0xffff) | ((v0 & 0xffff) << 16), card + 0);
-+		writel((v0 >> 16)   | ((v0 >> 16)   << 16), card + 1);
-+		writel((v1 & 0xffff) | ((v1 & 0xffff) << 16), card + 2);
-+		writel((v1 >> 16)   | ((v1 >> 16)   << 16), card + 3);
-+		writel((v2 & 0xffff) | ((v2 & 0xffff) << 16), card + 4);
-+		writel((v2 >> 16)   | ((v2 >> 16)   << 16), card + 5);
-+		writel((v3 & 0xffff) | ((v3 & 0xffff) << 16), card + 6);
-+		writel((v3 >> 16)   | ((v3 >> 16)   << 16), card + 7);
-+
-+		card += 8;
-+		buf  += 16;
-+		length -= 16;
-+	}
-+
-+	while (length >= 8) {
-+		u32 v0 = ((const u32 *)buf)[0];
-+		u32 v1 = ((const u32 *)buf)[1];
-+
-+		writel((v0 & 0xffff) | ((v0 & 0xffff) << 16), card + 0);
-+		writel((v0 >> 16)   | ((v0 >> 16)   << 16), card + 1);
-+		writel((v1 & 0xffff) | ((v1 & 0xffff) << 16), card + 2);
-+		writel((v1 >> 16)   | ((v1 >> 16)   << 16), card + 3);
-+
-+		card += 4;
-+		buf  += 8;
-+		length -= 8;
-+	}
-+
-+	while (length >= 4) {
-+		u32 v0 = ((const u32 *)buf)[0];
-+
-+		writel((v0 & 0xffff) | ((v0 & 0xffff) << 16), card + 0);
-+		writel((v0 >> 16)   | ((v0 >> 16)   << 16), card + 1);
-+
-+		card += 2;
-+		buf  += 4;
-+		length -= 4;
-+	}
-+
-+	while (length >= 2) {
-+		u16 v = *(const u16 *)buf;
-+		void __iomem *cp = (void __iomem *)card;
-+
-+		writeb(v & 0xff, cp);
-+		writeb(v >> 8, cp + 1);
-+
-+		card = (u32 __iomem *)(cp + 2);
-+		buf += 2;
-+		length -= 2;
-+	}
-+
-+	if (length >= 1)
-+		writeb(*buf, (void __iomem *)card);
-+}
-diff --git a/drivers/scsi/arm/acornscsi-io.h b/drivers/scsi/arm/acornscsi-io.h
-new file mode 100644
-index 000000000..64acfb8bb
---- /dev/null
-+++ b/drivers/scsi/arm/acornscsi-io.h
-@@ -0,0 +1,14 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ *  Acorn SCSI card I/O
-+ */
-+
-+#ifndef _ACORNSCSI_IO_H
-+#define _ACORNSCSI_IO_H
-+
-+#include <linux/io.h>
-+
-+void __acornscsi_in(void __iomem *addr, char *buffer, int length);
-+void __acornscsi_out(void __iomem *addr, char *buffer, int length);
-+
-+#endif /* _ACORNSCSI_IO_H */
-diff --git a/drivers/scsi/arm/acornscsi.c b/drivers/scsi/arm/acornscsi.c
-index 79d7d7336..263a1bf24 100644
---- a/drivers/scsi/arm/acornscsi.c
-+++ b/drivers/scsi/arm/acornscsi.c
-@@ -140,6 +140,8 @@
- 
- #include <scsi/scsicam.h>
- 
-+#include "acornscsi-io.h"
-+
- #define VER_MAJOR 2
- #define VER_MINOR 0
- #define VER_PATCH 6
-@@ -886,7 +888,6 @@ static
- void acornscsi_data_read(AS_Host *host, char *ptr,
- 				 unsigned int start_addr, unsigned int length)
- {
--    extern void __acornscsi_in(void __iomem *, char *buf, int len);
-     unsigned int page, offset, len = length;
- 
-     page = (start_addr >> 12);
-@@ -931,7 +932,6 @@ static
- void acornscsi_data_write(AS_Host *host, char *ptr,
- 				 unsigned int start_addr, unsigned int length)
- {
--    extern void __acornscsi_out(void __iomem *, char *buf, int len);
-     unsigned int page, offset, len = length;
- 
-     page = (start_addr >> 12);
--- 
-2.56.0
-
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
