@@ -2,75 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D88BE606A323
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 02:59:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2C73606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 02:59:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BDOiGBCA;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=ipqEWRqS
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gQAw7RWa;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Z9xoFFTe
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E+chekywn+zjR8qKfFmlr4rUPqe8P6DWzkjYSgfwJdo=; b=BDOiGBCAjY8U4Rg9sBs1R6+0e3
-	mydRo4hV875WVjS4x5qV3O4cbBJMkfx0tNPNdlI7E974thQy0Gp5SED5gMF3yajriMxoxVQbOGB2l
-	lJ/bbu6CjjVOXjoSgs10VLsrNImtL/Bfgn8Dl3YEpVQI5IsGJSOTotasWg2kkJooN5Mku6AMShi0s
-	XrQNCX3VmExMnNvdDKrGQ+3sMNrxjvO6RVKliPrOTrEEro7MH5KcsE2Klx42+V5MoZgLZ8nDzaZaS
-	gW2oLBLcU/Ax4wWnWMwMx5HLym3UhBYReZwz8BR0X+ioS5lTB4OTsWW5yoA7akpWvBXwQYH9qurnR
-	Y2Uye3qA==;
+	bh=XWEwn6v/542iwfySD79nms5PIwynC+fVLbCD6LA4gYs=; b=gQAw7RWapQrWLR2zn4erFaqhol
+	GVoeS1/eP1QCFYBJvCqvRMgdbNgbwxo3KLf/hAt+77zUbKV+KwtTYF0o0KYVES3Ln9O68wvjJsZdB
+	mXDDV4vjs51VAYZQUwh9z+8mCxquvl7dXAk4s0SYFCkeKoCxot6mlAYhRXEZpAgxqCzLQcFpvM2Re
+	3S4mxGJKnUPhXT7/prlh3NhE8NUH0QIr+lm/q+ngpZwr/FlR45u4SG7QF3wHPqyMn6n/aHAqec18O
+	4f1I4q+IGZE1ySU7mv33SxG5xTjKHynePaZBa0+0aoSJTEUJBzAJ04Ewm+mfimVXgoBbebqZPvfKW
+	BT4KshAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJj1D-0000000DFX5-2PrU;
-	Thu, 22 Oct 2026 02:59:03 +0000
-Received: from mail-dy1-x1341.google.com ([2607:f8b0:4864:20::1341])
+	id 1xJj1M-0000000DFft-4B0Q;
+	Thu, 22 Oct 2026 02:59:12 +0000
+Received: from mail-dy2-x08.google.com ([2607:f8b0:4864:36::8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJj1A-0000000DFTx-1UFu
+	id 1xJj1F-0000000DFY0-05YJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 02:59:02 +0000
-Received: by mail-dy1-x1341.google.com with SMTP id 5a478bee46e88-368581df789so574993eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 19:59:00 -0700 (PDT)
+	Thu, 22 Oct 2026 02:59:07 +0000
+Received: by mail-dy2-x08.google.com with SMTP id 5a478bee46e88-35e37b4a43cso210644eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Oct 2026 19:59:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792637939; x=1793242739; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792637944; x=1793242744; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=E+chekywn+zjR8qKfFmlr4rUPqe8P6DWzkjYSgfwJdo=;
-        b=ipqEWRqS9GAXjmQyjs7hjVGxdxqo6HPjVA6nn1ZDtpObWEpWKekzEFOqvH/SqiK9gO
-         L4Pi6yd/tQHSmbs+qTNLREDLtf1tkMRhtiz2r7jrNyVyfILoAY3XMEWUetxpKBJx9vN1
-         eHIdgi8uwYCjb2Sx269xNMnW7RRPz0HS3qeYZ4cmSp9nOdMriblLZIjY2j8LJD4hbdba
-         zmXucU0ntnjY5iCbTdAMLj2m9ckVtsFM+sFH9p7Y+wljTIZDPUwoBFb8AghdJBthvk9M
-         32Prdji86nOSwLuapZk9ChlmsWg+tIaWvtW+uXULi0PTfa4/nK4CzVVv9aiOdWFqvuYX
-         Tfmw==
+        bh=XWEwn6v/542iwfySD79nms5PIwynC+fVLbCD6LA4gYs=;
+        b=Z9xoFFTewkTLM22PFys8qpfH3+AC6YM5dK7jdAeiJlmA1zP13Cvi6T0IxDENTHUTQV
+         Em/MF7/qrgtIi6dcDbDbOCccIi5gbxy13GoOCT9dJd5e10raP1/wp1TY/O79uoN2x7GV
+         Z+nU0U0GTwyFI7FEGANEAUE8mVHoUAUMwUG5BscdyTsIJtN7B41UuoJz8AoRaibHYOcQ
+         jx3UPNgwjV72QrNxOPMI7u6wzrzLOD81qNEUtS2iePOXXuHQMhpaaQBI6Sl99r0i/nkV
+         pivrrixHwmGMYg7gwavvuK4hXOcEu3b1PlO9IzuKmLUcVc+/zKw+KfoKLnwNtt35rZix
+         5xgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792637939; x=1793242739;
+        d=1e100.net; s=20260707; t=1792637944; x=1793242744;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=E+chekywn+zjR8qKfFmlr4rUPqe8P6DWzkjYSgfwJdo=;
-        b=oUwIrmOYlv8JNqB7J5iCEOAVl2MtMb8pLhL9JU9mXw7sJ75Mh31+5d5fHak3wuthIm
-         6YDNCKH9p9pEeY6j7Vn7CBKmkhu3Q8XrKMOWC8nXxqR5KyQTtW5ue8ZtexMgW8Iqi+ax
-         fl7Px5Xj88X0Mqn/qoKmNKyY6PKg2xvhTrJZDXA30xtZxL/RA4oSGYRQBg5jbEL6nicC
-         d6MAaiwBPd1MNAFfGw+PBE3SKlMUL9rsYaxPwTb9yljdo6swctzj/z1HxBXeL1slj13k
-         t+SjK3lhqXY347ZOO/KMvwosLTknZVEfNDUBe3iiMDfte+wqsYEYpn2HdbW0coWeZzIF
-         eAHg==
-X-Forwarded-Encrypted: i=1; AKwUvBzscu31EAW0ySVX+FSXyE/SE4/RLKwqpEaj49NAM9LMWanCP09EAq1shKzzg553xlJBKgL0fIEGli78U2LknXUi@lists.infradead.org
-X-Gm-Message-State: AFq9FYITr8nxb/sZ6joMhyE0kWzHVZ+uZuDCVeccrjJLTZnWpBhPzOJl
-	Qcw7fRonFWMpQr7YWmYu2SxdcwlpX6BOpbkvFDYu8rJSJb2MILKtWfjT
-X-Gm-Gg: AYBFou1cBcTrfiCtinWdGDbO98SgvojHL+jYWrqf3/PKG7c0100k6nVoyGI/CPj/4PG
-	FzNatgiSvXMPmZVFbR4GCVdGJpQmUfl7dvoy9CicvoaiT72KZxrxAr6dx63FXjOXhzCfH2qM8gJ
-	8Qnw3pao8rSvdG/mwCmdD/5KVGS/nXGu/PzjZZGl94MmcH6o3/3v/fe7hfObDvg2OQWc7jrZv1v
-	1JPotpq4G1/9drCzyr01sTR6uYhhNv0Ljr01TjAP7qcPRKDhM+eq3U6jTBG7Fq8+RqsLqeTtz7g
-	QXa7cTKGPELR4fdyi4sGLNZuXEzo1ydNlXEEn0oXiiFY6ZbmpKjr/MndJA84R2BmaZf4IdEtrQD
-	K0tmTrXVLBCuKH2gek2EE44vd7qGGjNn7C8finc9XzzUwGxWse8RmCXQEZTjE/CuO/3Lpg4Uiul
-	p7MfHjwh1opJ4jJX5vyF2Jenff//yGb5jc3YvUstvKXc57DeYYxmk5sKcxbfI04GS8/mGvLDfZi
-	0WmXnVFH3xrV0z5DnQ5Njyd9812TE0/dL4GQpuz1/VgWAbdXQs3eA==
-X-Received: by 2002:a05:7300:d407:b0:362:2e2f:c261 with SMTP id 5a478bee46e88-368b15180d8mr1324129eec.27.1792637938909;
-        Wed, 21 Oct 2026 19:58:58 -0700 (PDT)
+        bh=XWEwn6v/542iwfySD79nms5PIwynC+fVLbCD6LA4gYs=;
+        b=smmD7tDrRmAofA6gmZokLskkYsQPEsQg9EEpYFc6Xb5VrdwEjKVg6t1RqqjRgTR7w9
+         86QWCiO8j8Yxp7xuni8tBqi5NgYojoxk8jBI3LhSsWpoq1OobhkpR7WNY0KuwsfIkX7s
+         YHhHeHfOnDHgVKHP5DTPLHa9dC5JeaBxD9+XLRXNrUL565yRMlNSj8P5q+svaljRcWB3
+         xGsixApXvMmVLWomYFFF1ntIK4UgqyALlhx5BcCJ3pM6JXE0Jgl5/kj00cq4HWo82RMt
+         4r6QqZNmChBr6O5ulFiJUhWKVuClCXEWEcCt8dcN1uM7/6+UHO24rVHqOLhV9CP8rBqM
+         lcpw==
+X-Forwarded-Encrypted: i=1; AKwUvByvelnah606SX9KvKIZ2wO5cV0u9/vwXmlJZVEDW+clyleoKRHYKTsqAidboOuGkzpw/B59VIGO7+p0UTu+xyoO@lists.infradead.org
+X-Gm-Message-State: AFq9FYKGcxoPTFlpqxnXaT/1QPASgBhNfZwpTB374DqYcuEuQkM0jgVe
+	jHp3rHYHTp7z0Wrem0V9TuEPmnptmrHDVIuQTpDXQXcW4yJgOm37nso+
+X-Gm-Gg: AYBFou1U57S/Byyt+Wi2WfTq4qLvxZ2pbAgypE2UGg0JLS+E8sz04YCFiCDqBwoEVUZ
+	velXOgY4ecm/BVchktBB+ElCmld2+e2MzkZdpbkUUP579n+GKSJFZAftsd38H6uTffAlg7H8a5I
+	H7vCvHDn4H2nyRRPD6UKFElrG+tUzpM8oYfty1aNsWYkiSAv2QeX7UDeWlRSD5Cd0aXGhpV58Qm
+	tGesG7alcLvpDawyzr8tN/gQiF11o1dZNIFE+9RZbEl0bG+UfeaaZwACnom2mV4apnXeOBKX7iO
+	+etOghZxTbwd5msre9ecirHBW4+HaiajbmqbAF67/cLf6mnlq603tgw4Jqst0MzP/PRNITR4/q/
+	8cCro5A0DKEH41+1WdTxCPvaFZlc4fLmLUGijokHOd+GlNvMp7GZyABIxAGTgf2tqrTu/RoSg7f
+	N6jeVqtlblMEbMuiGDN1jiFTXdDd2nU/BRMySlxrfjvLlKJkBOGLNqns2Dz8IfZzcGtb7tFaNCY
+	RbDrAadAf1qY0msbKcS5tRha+SYoS/sb499KCT8wiO2vqMSnM5I/Q==
+X-Received: by 2002:a05:7301:2b5:b0:358:c5c9:2661 with SMTP id 5a478bee46e88-368af4a36bcmr1633520eec.10.1792637944031;
+        Wed, 21 Oct 2026 19:59:04 -0700 (PDT)
 Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36740cc8c6dsm13029572eec.12.2026.10.21.19.58.54
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36740cc8c6dsm13029572eec.12.2026.10.21.19.58.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Oct 2026 19:58:58 -0700 (PDT)
+        Wed, 21 Oct 2026 19:59:03 -0700 (PDT)
 From: Coia Prant <coiaprant@gmail.com>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: Rob Herring <robh@kernel.org>,
@@ -83,9 +83,9 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Coia Prant <coiaprant@gmail.com>
-Subject: [PATCH v11 1/3] arm64: dts: rockchip: rk3568: add XPCS and fixed-clock nodes
-Date: Thu, 22 Oct 2026 10:58:42 +0800
-Message-ID: <20261022025844.150320-2-coiaprant@gmail.com>
+Subject: [PATCH v11 2/3] arm64: dts: rockchip: rk3568-photonicat: add RGMII PHY LEDs
+Date: Thu, 22 Oct 2026 10:58:43 +0800
+Message-ID: <20261022025844.150320-3-coiaprant@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261022025844.150320-1-coiaprant@gmail.com>
 References: <20261022025844.150320-1-coiaprant@gmail.com>
@@ -93,8 +93,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261021_195900_760606_A0F21A3A 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20261021_195905_718128_038D1DA4 
+X-CRM114-Status: GOOD (  11.38  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,80 +114,56 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The RK3568 SoC integrates a Synopsys DesignWare XPCS that provides
-the Physical Coding Sublayer for 1000BASE-X, SGMII, and QSGMII
-interfaces via its four MII ports.  Add the XPCS device node to the
-SoC device tree.
+The Motorcomm YT8521SC RGMII PHY on the Ariaboard Photonicat has two
+front-panel LEDs wired to it. Describe them in the device tree so that
+userspace can control and monitor them through the LED class.
 
-The XPCS device is accessed via the APB3 bus at 0xfda00000 and
-requires the CSR clock (PCLK_XPCS) for register access and the EEE
-clock (CLK_XPCS_EEE) for Energy Efficient Ethernet operation.  The
-PD_PIPE power domain must be enabled before any register access.
-
-Also add two fixed-clock nodes (clock-xpcs-gmac0 and clock-xpcs-gmac1,
-labelled clk_gmac0_xpcs_mii and clk_gmac1_xpcs_mii) providing the
-125 MHz reference clock for the GMACs when operating with XPCS.  Their
-clock-output-names match the CRU mux parent names in clk-rk3568.c, so
-boards can reparent SCLK_GMAC0_RX_TX / SCLK_GMAC1_RX_TX through
-assigned-clock-parents.
-
-The XPCS node is disabled by default and must be enabled at the board
-level when 1000BASE-X/SGMII/QSGMII is in use.  The fixed-clock nodes
-are always present and do not have a status property, as they are
-static clock sources.
-
-The XPCS node requires a reference to the appropriate Naneng Combo PHY
-via the phys property.  dtbs_check only validates required properties
-for enabled nodes, so the SoC dtsi does not provide phys: boards that
-enable the XPCS must supply it, since the SerDes link is a board-level
-design choice (combphy1 on some boards, combphy2 on others).
+Both LEDs use the "keep" default state, so the PHY's built-in LED
+behaviour is preserved until userspace overrides the trigger.
 
 Signed-off-by: Coia Prant <coiaprant@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3568.dtsi | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ .../boot/dts/rockchip/rk3568-photonicat.dts   | 20 +++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-index 3bc653f027f1f..20a72785adbc2 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-@@ -8,6 +8,20 @@
- / {
- 	compatible = "rockchip,rk3568";
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
+index 58c1052ba8ef3..12ae9159bea87 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
+@@ -3,6 +3,7 @@
+ /dts-v1/;
  
-+	clk_gmac0_xpcs_mii: clock-xpcs-gmac0 {
-+		compatible = "fixed-clock";
-+		clock-frequency = <125000000>;
-+		clock-output-names = "clk_gmac0_xpcs_mii";
-+		#clock-cells = <0>;
-+	};
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/leds/common.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
+ #include <dt-bindings/soc/rockchip,vop2.h>
+ #include "rk3568.dtsi"
+@@ -350,6 +351,25 @@ rgmii_phy: ethernet-phy@3 {
+ 		reset-gpios = <&gpio4 RK_PC0 GPIO_ACTIVE_LOW>;
+ 		rx-internal-delay-ps = <1500>;
+ 		tx-internal-delay-ps = <1500>;
 +
-+	clk_gmac1_xpcs_mii: clock-xpcs-gmac1 {
-+		compatible = "fixed-clock";
-+		clock-frequency = <125000000>;
-+		clock-output-names = "clk_gmac1_xpcs_mii";
-+		#clock-cells = <0>;
-+	};
++		leds {
++			#address-cells = <1>;
++			#size-cells = <0>;
 +
- 	cpu0_opp_table: opp-table-0 {
- 		compatible = "operating-points-v2";
- 		opp-shared;
-@@ -110,6 +124,15 @@ sata0: sata@fc000000 {
- 		status = "disabled";
++			led@1 {
++				reg = <1>;
++				color = <LED_COLOR_ID_AMBER>;
++				function = LED_FUNCTION_WAN;
++				default-state = "keep";
++			};
++
++			led@2 {
++				reg = <2>;
++				color = <LED_COLOR_ID_GREEN>;
++				function = LED_FUNCTION_WAN;
++				default-state = "keep";
++			};
++		};
  	};
+ };
  
-+	xpcs: ethernet-pcs@fda00000 {
-+		compatible = "rockchip,rk3568-xpcs";
-+		reg = <0x0 0xfda00000 0x0 0x200000>;
-+		clocks = <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
-+		clock-names = "csr", "eee";
-+		power-domains = <&power RK3568_PD_PIPE>;
-+		status = "disabled";
-+	};
-+
- 	pipe_phy_grf0: syscon@fdc70000 {
- 		compatible = "rockchip,rk3568-pipe-phy-grf", "syscon";
- 		reg = <0x0 0xfdc70000 0x0 0x1000>;
 -- 
 2.47.3
 
