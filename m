@@ -2,63 +2,63 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E403606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 20:07:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E288B606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 20:07:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zA8lWcpa
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mlcjvmS0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=puIm5drKvsAtTzpQuwSkW9RuuhHt2CPtr5r817ZaEWU=; b=zA8lWcpaX6b9GT
-	E/bhljjXELrxobdO6mMA+LAze5QYtVxbkPCrLGGKX8jzOob95I+9Zvlj9rf9Pq7wVGnBJAzpOIYCq
-	DFeW3Vtr/keBs4rmm825ENEf7ZINLmlyMMiqFc8uCSTa8WKdvxgfwD2Gk9zBSp4mtboCmlO/gQlXs
-	09CDUxFH6ReMyxoVA5vEkFfIE98QWaEPbElbYQU+4jkGfOUipy17ilQwgxIoWTU9AkhXRc3odQ5B9
-	fJXrq0jMjYuzmIqm4/DJN7zW6yHbupeWO7aVC2ibrn/gZEzAloazqZwTl9SCR7PVGEovizPgiCEJG
-	FPdnuYHsEB5Its9Twx8g==;
+	List-Owner; bh=B88mpadYYWmyEssRGoyIfGe+/tgPvAtSdH5NBRIaaYg=; b=mlcjvmS0QvAehq
+	dzxR9BNJW4E3wdbgeVeiLiMVPa2v0G/M2UnnZT8l002GKznVaoRNcvWr6Khwf10ujY43V6Sy/aA2n
+	c93kTIwYfDWG4BxXiJ3PXJDUVm8zp8jjhNS9JhmgyHcQTk2C5hEja4zEWRODtuXmjPq0akOrQJbEM
+	5Rm9SDKO6irElwlUv/dIbgJMRxaWMpJjCXeIxSQdS+8DG2DN9aS/BUzZt4VFLpLiP2YoOxccBXJIk
+	TyDc2IUj5rNL+byTiRsXVmMwK5OJIaSz1eg64mieJMBJ9A/gHVpD1aPCh0s7dfggZp7QDgUcuYLcr
+	E8uTG3JmTF5qM+5ILB8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJz3z-0000000EtBx-0C0c;
-	Thu, 22 Oct 2026 20:06:59 +0000
-Received: from mail-wm1-f47.google.com ([209.85.128.47])
+	id 1xJz44-0000000EtML-1zDu;
+	Thu, 22 Oct 2026 20:07:04 +0000
+Received: from mail-wm1-f50.google.com ([209.85.128.50])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJz3r-0000000Et34-0dvt
+	id 1xJz3v-0000000Et7H-0Mne
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 20:06:52 +0000
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4a1ec92f655so1323725e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 13:06:50 -0700 (PDT)
+	Thu, 22 Oct 2026 20:06:56 +0000
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a1ec92f655so1324205e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 13:06:54 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792699609; x=1793304409;
+        d=1e100.net; s=20260707; t=1792699613; x=1793304413;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=puIm5drKvsAtTzpQuwSkW9RuuhHt2CPtr5r817ZaEWU=;
-        b=KCMA2FnkMka1Y0OILP1vBA/2vEW5MvsgqlsOiQ8flYGHErMtJmwONOrP6+UCo7nlSb
-         PrWQHVuCO+P+EWB20oGeLDNEy89LGj5Mcz6scA3iKm3IVyjmszvVditjNXRtTyJmKLCC
-         WMjj9xBUAD5VhPIgfnn/2WZWpSI+qKznKczRlykcrNOqBkwdq4waE0iU6jvtU9BLO/Q7
-         9Gu0H4IYWtiYRaTmDA8qlRCeqhNl//Vk1ST+3pGa+b2XLiGEYs294wr9FSHtwwJ2OBk2
-         v7NhCFpJeuJmcGz0r69rR8hUaQhOMRpT4yTZLkvU+BsXqcyioZZpyPW/cXiHmIwnlxis
-         X8rg==
-X-Forwarded-Encrypted: i=1; AKwUvBxaoO8U8zI34/lx9LdOO9aVw0ar2ktbMnLqANasT5PMB/rFks2tIIBXiLQfd9vQ8JJu8LcnQKnUntozcGOkLqL0@lists.infradead.org
-X-Gm-Message-State: AFq9FYJz+sSFDZfrjRkHPBPHyouCExV+05VVOaC4zxJJQlzWSwGKYJrv
-	Hxe8XrgcfcTLqTwDbeupjZTFF96T24/IwH3Why7b+sysrJi+7Xo407qm
-X-Gm-Gg: AYBFou3+azYNBAAGtJ61N8gvOxyO3YoXbo+Pfrz+b+tmbeJB3KJdCymfQFhpy675xWs
-	Rgp/LwfR+Qd9c2Xl35pMcL2KdkUekGXcFq9MhL3ALUfEKHN5Z1nbrpu/QXqdA8bFw6U8eE6ETE4
-	xud2hpzF/SdONyHum07IgAL/4yfZCq/Qe/18eC4yX9k8YaVPhiyPy+sXSlvJyh/ghuvN9BvbQse
-	EQ6mksFpmNc8n6k1Bxqe9iqaE92hAcJFDVKGY+raZTfe8crtjwrL1t+o0W+546CmuRysIKXUbAQ
-	Sn8HzDkWrtk81ktVZ60GWM6ZJroOf6nBsSj892mcvHGIzxPhJow1VL5Ah3aNdS641jh8SvXdav4
-	kZC3G8RO89Ot/PztI1gUXGXbBipE9k0Q88tvJH4OTlqIi50W7CM6WjoDxB3k2AagNzQcgwKOoBo
-	d4ujIQURcFvxP29y6JPy/af0k1/rvI9hGatZg0Rmdf18ECTGc0FctF6FyfviZUpTgbtx6MvmeY9
-	afW9P7H4d8zDOH0f//chcmLSPgzYDFCxUCLSFNfeEaOYKSUhZl8GCLalKPjInpfNKkT6x/JUYz/
-	olEfUpPvJY69Iv0=
-X-Received: by 2002:a05:600c:1389:b0:4a1:c6f5:2450 with SMTP id 5b1f17b1804b1-4a211cac456mr2469675e9.17.1792699609209;
-        Thu, 22 Oct 2026 13:06:49 -0700 (PDT)
+        bh=B88mpadYYWmyEssRGoyIfGe+/tgPvAtSdH5NBRIaaYg=;
+        b=bSz7q7/P7hwuEULW7Jld2yyqVW7vJuqAObUABcCpotRYq6oaig/6jwh4LGiSfXzQcV
+         O4mWkzISNZmi3ZPk5Y9xQ3UlTLsIJ0nt/W/n/82Z1bAzYE9cziDyzkzjuJElor+3Lvgi
+         Z6+aS3nAVc3jc7ORNxqL/RH95SCsW4id5j7jnjaR5SyDVyEXmYQXpBJeqKgIiMNRp3G2
+         6KpCeskIv9VWRV9jX2flGY0xMnATgXl9OqLeQ/HQOBuuSEYcqCo7eL7UaUA2371GWMY6
+         hNBmoQQdrfoSt6jQus9r2TxJ1+r9jNl/XPPnvY8tdeohsokj6MymiCaS4xhefnH9LiDM
+         slaQ==
+X-Forwarded-Encrypted: i=1; AKwUvByAimuw1KKEehDBD3eLgJdUES2WijGRKHB6gMunRZMyJb+w/+4aUsRq7BahTttLDG1VaLo6VZDBhWsqwOjIr7UI@lists.infradead.org
+X-Gm-Message-State: AFq9FYLHBsc+O5dfljEOj2TchtMGQucPbyrM1wj+PMDFFgEt/ZsHr/+z
+	xkMhbP2qnFz4HYgbq0AUApw6mvaSAQ/KvZ7Zims+raMwxhEFTxCB81FB
+X-Gm-Gg: AYBFou1r8+XU1d5kNy7JyMfBJrT/jru+36ryortHeXzn2cPgGOUhDLLCVEIqndG6gkn
+	0gvamFoa/r8CMdg7NWP7KHD107D1zhgzhM/RRtvoB1Wyd2oT1GdRN9e5ytpWIcip7IB0jmr1YJ/
+	9eiQTTJWdXjq0biydYxN877Z7R0uV82i9pdLOz5CWsFktfUkwWrQtqQGmr/Kshg3Z1Wk4fmgPM3
+	vMzhjfLV9G9G1Dr0dF8j6lCMd3+O6VIfZWFV513myQi3y0tAPh+DIUFx0iXRqCPqHJH6nYrbQW9
+	kGXlOvVxwBa43/+L2s2U1WLXiDWZnwj9VJ31LzChm8cXMMO8QrorUrztQuyRwu2x6JlT6GC8jXj
+	3fuEiKMfN0egbfWGRN1qyaZwl0kwNNKlemQ3EDjmf6X49ZymMjS+wCN6yErNHlreSlIadJvVLwI
+	jD1eVK3E8IOyStkTt0mt7cMNUPLF+hCD8QewahGjEbp8ubxue+fBmy8UjONH1nfRUeK9xmJ+Unn
+	2Yu2GeNLkVdUpNwAIgT0u4hPxYP4e5R3JuF/hyX8QlGScjdU3HOGsigApO5sjHo1In7U1dVGJHm
+	bTBF28PeLeL34KQ=
+X-Received: by 2002:a05:600c:3b0a:b0:4a0:20b4:ba93 with SMTP id 5b1f17b1804b1-4a211c869d9mr2350165e9.16.1792699613390;
+        Thu, 22 Oct 2026 13:06:53 -0700 (PDT)
 Received: from threads.localdomain ([81.79.62.202])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a2123a1797sm35965e9.1.2026.10.22.13.06.48
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a2123a1797sm35965e9.1.2026.10.22.13.06.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 13:06:48 -0700 (PDT)
+        Thu, 22 Oct 2026 13:06:52 -0700 (PDT)
 From: Lucas Tanure <tanure@linux.com>
 To: xianwei.zhao@amlogic.com,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -81,9 +81,9 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 3/7] net: stmmac: dwmac-meson8b: add support for the Amlogic T7
-Date: Thu, 22 Oct 2026 21:06:36 +0100
-Message-ID: <20261022200640.3101932-4-tanure@linux.com>
+Subject: [PATCH v4 7/7] arm64: dts: amlogic: t7: khadas-vim4: enable the ethernet port
+Date: Thu, 22 Oct 2026 21:06:40 +0100
+Message-ID: <20261022200640.3101932-8-tanure@linux.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261022200640.3101932-1-tanure@linux.com>
 References: <20261022200640.3101932-1-tanure@linux.com>
@@ -91,8 +91,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_130651_341562_AF17C01E 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20261022_130655_301349_728917B6 
+X-CRM114-Status: GOOD (  12.16  )
 X-Spam-Score: -0.7 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,85 +111,60 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The glue registers on the T7 are laid out exactly as the G12A ones, RX
-delay field included, so the T7 can reuse the G12A settings.
+The board carries a Realtek RTL8211F gigabit PHY on the external
+management bus, connected to the MAC over RGMII.
 
-What it does not share is how the controller reaches memory. That path
-runs through a pipeline stage with a gate of its own, and no other
-device has any use for that gate. Nothing claims it, so it is switched
-off as unused and a transfer that has started can never finish.
+Enable the controller, hand it the ethernet pins and point it at the
+PHY. RGMII needs a delay on each of its two clocks. The board traces
+add none, so the PHY adds both, which is what rgmii-id asks of it.
 
-Without that gate the controller cannot do DMA at all, so it is
-required rather than optional: a clear probe failure beats an
-undiagnosable hang later.
+The PHY interrupt output is wired to GPIOH_6, so link changes are
+reported instead of polled. The PHY reset is an RC network on the
+board, not a SoC pin, so there is no reset line to describe.
 
 Assisted-by: LLM
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 Signed-off-by: Lucas Tanure <tanure@linux.com>
 ---
- .../ethernet/stmicro/stmmac/dwmac-meson8b.c   | 19 +++++++++++++++++++
+ .../amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 19 +++++++++++++++++++
  1 file changed, 19 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c
-index e4d5c41294f4..450f7b4b29a6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c
-@@ -81,6 +81,7 @@ struct meson8b_dwmac;
- struct meson8b_dwmac_data {
- 	int (*set_phy_mode)(struct meson8b_dwmac *dwmac);
- 	bool has_prg_eth1_rgmii_rx_delay;
-+	bool has_pipeline_clk;
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+index 0fa83362b417..4914b0dff8a8 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
++++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+@@ -14,6 +14,7 @@ / {
+ 	compatible = "khadas,vim4", "amlogic,a311d2", "amlogic,t7";
+ 
+ 	aliases {
++		ethernet0 = &ethmac;
+ 		serial0 = &uart_a;
+ 		mmc0 = &sd_emmc_c;
+ 		mmc1 = &sd_emmc_b;
+@@ -256,6 +257,24 @@ xtal: xtal-clk {
+ 	};
  };
  
- struct meson8b_dwmac {
-@@ -384,6 +385,7 @@ static int meson8b_dwmac_probe(struct platform_device *pdev)
- 	struct plat_stmmacenet_data *plat_dat;
- 	struct stmmac_resources stmmac_res;
- 	struct meson8b_dwmac *dwmac;
-+	struct clk *pipeline_clk;
- 	int ret;
- 
- 	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-@@ -443,6 +445,13 @@ static int meson8b_dwmac_probe(struct platform_device *pdev)
- 	if (IS_ERR(dwmac->timing_adj_clk))
- 		return PTR_ERR(dwmac->timing_adj_clk);
- 
-+	if (dwmac->data->has_pipeline_clk) {
-+		pipeline_clk = devm_clk_get_enabled(dwmac->dev, "pipeline");
-+		if (IS_ERR(pipeline_clk))
-+			return dev_err_probe(dwmac->dev, PTR_ERR(pipeline_clk),
-+					     "missing pipeline clock\n");
-+	}
-+
- 	ret = meson8b_init_rgmii_delays(dwmac);
- 	if (ret)
- 		return ret;
-@@ -479,6 +488,12 @@ static const struct meson8b_dwmac_data meson_g12a_dwmac_data = {
- 	.has_prg_eth1_rgmii_rx_delay = true,
- };
- 
-+static const struct meson8b_dwmac_data meson_t7_dwmac_data = {
-+	.set_phy_mode = meson_axg_set_phy_mode,
-+	.has_prg_eth1_rgmii_rx_delay = true,
-+	.has_pipeline_clk = true,
++&ethmac {
++	status = "okay";
++	pinctrl-0 = <&eth_pins>, <&eth_rgmii_pins>;
++	pinctrl-names = "default";
++	phy-mode = "rgmii-id";
++	phy-handle = <&external_phy>;
 +};
 +
- static const struct of_device_id meson8b_dwmac_match[] = {
- 	{
- 		.compatible = "amlogic,meson8b-dwmac",
-@@ -500,6 +515,10 @@ static const struct of_device_id meson8b_dwmac_match[] = {
- 		.compatible = "amlogic,meson-g12a-dwmac",
- 		.data = &meson_g12a_dwmac_data,
- 	},
-+	{
-+		.compatible = "amlogic,t7-dwmac",
-+		.data = &meson_t7_dwmac_data,
-+	},
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, meson8b_dwmac_match);
++&ext_mdio {
++	external_phy: ethernet-phy@0 {
++		/* Realtek RTL8211FD-CG */
++		reg = <0>;
++
++		interrupt-parent = <&gpio_intc>;
++		interrupts = <GPIOH_6 IRQ_TYPE_LEVEL_LOW>;
++	};
++};
++
+ &i2c_m_ao_a {
+ 	status = "okay";
+ 	pinctrl-0 = <&i2c0_ao_d_pins>;
 -- 
 2.56.0
 
