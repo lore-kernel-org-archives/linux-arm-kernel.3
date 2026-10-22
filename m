@@ -2,67 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53714606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 12:59:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20045606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 12:59:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fkeFzTMi;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=v1XCxXeT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CqbMG8an;
+	dkim=pass (2048-bit key, unprotected) header.d=fel.cvut.cz header.i=@fel.cvut.cz header.a=rsa-sha256 header.s=felmail header.b=I8qhYii5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:In-Reply-To:References:Cc
+	:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=TPXltwLQAsPQCNRcrw0xdOwjdfkToTs4/p0KQjsifUY=; b=fkeFzTMiLbMjsKqhNOzdLHUMBK
-	WkdgGn5IjN3EQXd88fkzECSW/5bQRltSWwbrjv3xdQxMguzmcnR4S4IjoaoN563rVBc+7adb7L+Ll
-	Fm4TB5v3J6NEUwUi1I0IE1AfUZ3c/M90/6UDaaWFHIAsEFBmwOHU8iLVWp8FrAZiqEVT+Ii9BRcMS
-	2H/fjeXYfyEK1Xin+Dq4cVEstVblwRM3al3w38A1RYMV3rEmFPJVF4E7JyKnqFOPu3O+LsmolFTJh
-	4kQTB7zE0CxhD0E9pIpyBhpLls3yGjM5sHQ+//zO26QwY5ip6Fe4Bqeccx7UxMUjGT3peQcubgge5
-	a6o6t6Yg==;
+	bh=zd7yJ/RnWTOCBnaUFHbPGYWo73OWzFvn3QDUHe+308g=; b=CqbMG8anUd7ensDTuJlW1R6VZn
+	rNoNttu7P6RBJEmMLdyrewYFtnyMI8Yq6nYcMx+POxv7pU0baHPtNho2BxSO1SA9gVohnl1Hy7rhg
+	UiH4ZFJ36k1BQ2tRb4ghQRSjo47TnvsptqdKTucpc8ea1o2UHMazMECHfMtGj23omBnZdAg82MEvP
+	Xat6450j8hygtzc1l9lGmND1b0IyZhXYJZicYzBXqBO/3NKhla+c8ZwnAogDzxdOvP8ugylbjxLHI
+	IfVV+QuBSqLppDDFrE/2YGWNI05EaRDvrLCYDACJ2VqvOLUYVdqEq9OCMNnnntDHytW38tM49tFTU
+	4NnkJrGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJsON-0000000E80a-1aTx;
-	Thu, 22 Oct 2026 12:59:35 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xJsOa-0000000E85g-275C;
+	Thu, 22 Oct 2026 12:59:48 +0000
+Received: from [147.32.210.153] (helo=smtpx.fel.cvut.cz)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJsOK-0000000E800-2HMz;
-	Thu, 22 Oct 2026 12:59:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=TPXltwLQAsPQCNRcrw0xdOwjdfkToTs4/p0KQjsifUY=; b=v1XCxXeTTh88Gb5Wep8pf/75Ay
-	qdxcfs/BaDOd/U2bmDRjsUjRCcDnvG3bBChvEbrdKDp+HxMZ29uIs0pNUA1AbcnUHe9JgQvASxJtR
-	SUpSSGy3OmZaweb7W4RHB8dgUZrazrBL89k6ON8iD7jD8rAteLooHqSKfKoinnvEnFy7Bg3jDJ5jE
-	MNdIKDaA4ZcEIqIWRCd3MoIqG1v7ndRcDbBpeaOU5sSqldS9FcJdiky4u2q0jtE36dM0zTvQVc4rn
-	wwkoxRxF0wE+G5+A4BTib/UO5bDmTDJfy/Mf2fxuKPwckgm/xXSg+b9xmkRXKyTEyHauy3Qdn6XWh
-	QWA4yw1Q==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andyshrk@163.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Chaoyi Chen <kernel@airkyi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH 1/3] drm/rockchip: vop2: Use drm_format_info_min_pitch() for plane
- offsets
-Date: Thu, 22 Oct 2026 14:59:07 +0200
-Message-ID: <2024729.6tgchFWduM@diego>
-In-Reply-To: <20261022071737.508-2-kernel@airkyi.com>
-References: <20261022071737.508-1-kernel@airkyi.com>
- <20261022071737.508-2-kernel@airkyi.com>
+	id 1xJsOW-0000000E82Z-0AlL
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 Oct 2026 12:59:47 +0000
+Received: from localhost (unknown [192.168.200.27])
+	by smtpx.fel.cvut.cz (Postfix) with ESMTP id 20FFBBDE9;
+	Thu, 22 Oct 2026 14:59:38 +0200 (CEST)
+X-Virus-Scanned: IMAP STYX AMAVIS
+Received: from smtpx.fel.cvut.cz ([192.168.200.2])
+ by localhost (cerokez-250.feld.cvut.cz [192.168.200.27]) (amavis, port 10060)
+ with ESMTP id JmNNU5Z5_G85; Thu, 22 Oct 2026 14:59:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fel.cvut.cz;
+	s=felmail; t=1792673975;
+	bh=zd7yJ/RnWTOCBnaUFHbPGYWo73OWzFvn3QDUHe+308g=;
+	h=From:To:Subject:Date:Cc:References:In-Reply-To:From;
+	b=I8qhYii58iF3YZdY4dAY9cqR+sAtngsqX9pRUO4BAu0ivzS3/slJhgVNd1GUFhQBL
+	 NWf8tA58Oi4i8+5HIr+hUwQwzpZ63wHTgJSqsouy1K9DQjqZ1D1Q9n/tHjn5UBo7CR
+	 16/3fDMKXh4LTZKJnJLlR+iVNMu17QxSqye1MDgj1yAbiR5R1dOI9LTYcbWxdTSOfx
+	 86zqW3/K1POZGdnU3xcYKbvHBoxiMjiDixRLZHCLCtUgeDrx3EVZPWl88P+24rTRT/
+	 Mk+Lp5pnQdpXtgoaiEAQWdaVbMlJibG391UWaUKel1to/GoZL5rtxdoG4PkebRnp4I
+	 ni+V7YcRHddhg==
+Received: from [147.32.86.168] (unknown [147.32.86.168])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pisa)
+	by smtpx.fel.cvut.cz (Postfix) with ESMTPSA id 22EF3C0E5;
+	Thu, 22 Oct 2026 14:59:34 +0200 (CEST)
+From: Pavel Pisa <pisa@fel.cvut.cz>
+To: Patrick Zhang <patrzhan@amazon.com>
+Subject: Re: [PATCH 1/3] can: ctucanfd: enable NAPI before starting the controller
+Date: Thu, 22 Oct 2026 14:59:33 +0200
+User-Agent: KMail/1.9.10
+Cc: "Marc Kleine-Budde" <mkl@pengutronix.de>,
+ Vincent Mailhol <mailhol@kernel.org>,
+ linux-can@vger.kernel.org,
+ Ondrej Ille <ondrej.ille@gmail.com>,
+ Harini T <harini.t@amd.com>,
+ Michal Simek <michal.simek@amd.com>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org,
+ Jiri Novak <jnovak@fel.cvut.cz>
+References: <20261021205924.2538511-1-patrzhan@amazon.com> <20261021205924.2538511-2-patrzhan@amazon.com>
+In-Reply-To: <20261021205924.2538511-2-patrzhan@amazon.com>
+X-KMail-QuotePrefix: > 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: Text/Plain;
+  charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Message-Id: <202610221459.33827.pisa@fel.cvut.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_055932_628567_A77E4D6B 
-X-CRM114-Status: GOOD (  14.83  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261022_055944_680113_CD170623 
+X-CRM114-Status: GOOD (  24.07  )
+X-Spam-Score: -5.3 (-----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,76 +92,119 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-20.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-22.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,NICE_REPLY_A,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Chaoyi,
+Hello Patrick Zhang,
 
-Am Donnerstag, 22. Oktober 2026, 09:17:35 Mitteleurop=C3=A4ische Sommerzeit=
- schrieb Chaoyi Chen:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->=20
-> Use the block aware helper instead of cpp[], the latter aliases
-> char_per_block and is wrong for packed 10-bit formats like NV15,
-> NV20 and NV30.
->=20
-> Tested with modetest[0]:
->=20
-> ```
-> 	modetest -s 86:3840x2160 -P \
-> 	59@83:3940x2160~96,0,3840,2160+0+0@NV20 -a
-> ```
->=20
-> fb size (3940x2160), src at (96, 0) with size (3840x2160),
-> dst at (0, 0) with size (3840x2160)
->=20
-> [0]: https://github.com/windowsair/libdrm/tree/src-pos-support
->=20
+thanks for the problem finding and patch.
+
+On Wednesday 21 of October 2026 22:59:22 Patrick Zhang wrote:
+> ctucan_open() starts the controller and unmasks RBNEI in
+> ctucan_chip_start(), prints "ctu_can_fd device registered", and only
+> then calls napi_enable(). A frame that arrives in that window raises
+> RBNEI. ctucan_interrupt() masks RBNEI and calls napi_schedule(). NAPI is
+> still disabled, so napi_schedule_prep() finds NAPI_STATE_SCHED set and
+> the schedule is dropped. napi_enable() then clears SCHED without
+> scheduling anything. Only ctucan_rx_poll() unmasks RBNEI again, and it
+> never runs. The interface receives nothing until the next close.
+> Transmit still works. The RX FIFO fills up and the core sets DOR, but
+> the overrun is only accounted in ctucan_rx_poll(), so rx_errors and
+> rx_over_errors stay at zero and nothing is logged. Every re-open (ip
+> link down/up, a driver rebind) runs the same race again.
+>
+> The netdev_info() in the window makes it much wider on a slow console.
+> This can be reproduced by sending continuous traffic with cangen from
+> another node and repeating "ip link set down/up" on the test device.
+>
+> Enable NAPI before the controller starts, so that an early RX interrupt
+> can schedule the poll. NAPI can be enabled while the controller is in
+> reset, because nothing schedules it until an interrupt arrives. If
+> ctucan_chip_start() fails, disable NAPI again. Otherwise the next open
+> would call napi_enable() on an already enabled instance and trip the
+> BUG_ON() in napi_enable_locked().
+>
+> Tested on QEMU with the ctucan_pci device.
+>
+> Fixes: 2dcb8e8782d8 ("can: ctucanfd: add support for CTU CAN FD open-source
+> IP core - bus independent part.") Cc: stable@vger.kernel.org
 > Assisted-by: LLM
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
->  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/d=
-rm/rockchip/rockchip_drm_vop2.c
-> index 4cce3e336f5b..480aa8c8a8d2 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> @@ -1290,7 +1290,7 @@ static void vop2_plane_atomic_update(struct drm_pla=
-ne *plane,
-> =20
->  	afbc_en =3D drm_is_afbc(fb->modifier);
-> =20
-> -	offset =3D (src->x1 >> 16) * fb->format->cpp[0];
-> +	offset =3D drm_format_info_min_pitch(fb->format, 0, src->x1 >> 16);
-> =20
->  	/*
->  	 * AFBC HDR_PTR must set to the zero offset of the framebuffer.
-> @@ -1309,6 +1309,7 @@ static void vop2_plane_atomic_update(struct drm_pla=
-ne *plane,
->  		int hsub =3D fb->format->hsub;
->  		int vsub =3D fb->format->vsub;
-> =20
-> +		offset =3D drm_format_info_min_pitch(fb->format, 1, src->x1 >> 16) / h=
-sub;
->  		offset =3D (src->x1 >> 16) * fb->format->cpp[1] / hsub;
+> Signed-off-by: Patrick Zhang <patrzhan@amazon.com>
 
-missing removal of the replaced line?
+Acked-by: Pavel Pisa <pisa@fel.cvut.cz>
+Tested-by: Pavel Pisa <pisa@fel.cvut.cz>
 
+I have added patch into our CAN latency testing system
 
-Heiko
+https://canbus.pages.fel.cvut.cz/#can-bus-channels-mutual-latency-testing
+https://canbus.pages.fel.cvut.cz/can-latester/
 
->  		offset +=3D (src->y1 >> 16) * fb->pitches[1] / vsub;
-> =20
->=20
+See in the log for both master 7.3.0-gcac8667a979c
+and RT tested branch 7.1.1-rt2-g1661cb7f80a0
 
+-> Running pre-build script /var/lib/latester/patches-dut/apply-script.sh
+Applying: can: ctucanfd: enable NAPI before starting the controller
+-> Setting up build dir
 
+I have spotted problem appearing in out-of-the-tree device tree overlay
+driver build which is consequence of CAN unrelated this night change
+in mainline which required next fix
 
+--- a/dtbocfg.c
++++ b/dtbocfg.c
+@@ -263,7 +263,11 @@ static struct configfs_attribute *dtbocfg_overlay_attrs[] = {
+     NULL,
+ };
 
+-static struct configfs_bin_attribute *dtbocfg_overlay_bin_attrs[] = {
++static
++#if (LINUX_VERSION_CODE >= KERNEL_VERSION(7, 3, 0))
++const
++#endif
++struct configfs_bin_attribute *dtbocfg_overlay_bin_attrs[] = {
+     &dtbocfg_overlay_item_attr_dtbo,
+     NULL,
+ };
+
+As for fully-preemptive kernel testing, we have been on the git
+
+https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git/refs/heads
+
+at the branch for-kbuild-bot/current-stable but that seems to be no longer
+active to track latest RT development above stable branch so it is
+time to switch to some else branch or master. Ideal would be something
+above next with lattest RT fixes applied before they reach mainline.
+But we probably switch to mainline with RT config if nothing better
+to catch possible RT deviations (changes in latency or some bugs)
+is suggested.
+
+For the curiosity, we have run CTU CAN FD IP core on 64-core
+RISC-V with 7.3 kernel and drivers to control motor servosystem
+based on ESP32C5 over CAN FD on the SUSE booth at Open Source
+Summit for most of the days and it performed well
+
+  https://social.kernel.org/notice/BBBNKOIUZ3NnMKcsXQ
+
+Best wishes,
+
+                Pavel
+
+                Pavel Pisa
+    phone:      +420 603531357
+    e-mail:     pisa@cmp.felk.cvut.cz
+    Department of Control Engineering FEE CVUT
+    Karlovo namesti 13, 121 35, Prague 2
+    university: http://control.fel.cvut.cz/
+    personal:   http://cmp.felk.cvut.cz/~pisa
+    social:     https://social.kernel.org/ppisa
+    projects:   https://www.openhub.net/accounts/ppisa
+    CAN related:http://canbus.pages.fel.cvut.cz/
+    RISC-V education: https://comparch.edu.cvut.cz/
+    Open Technologies Research Education and Exchange Services
+    https://gitlab.fel.cvut.cz/otrees/org/-/wikis/home
 
