@@ -2,68 +2,122 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC2D2606A325
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 13:31:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FDCC60A3819
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 13:43:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=L4JCyo5P;
-	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=NFz4ABAQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z1Nvy4EZ;
+	dkim=pass (2048-bit key, unprotected) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=jhKaYXmq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=unVAESJai7F1UmJzEHO+wzlvQnnF/1GINQlY378qHu4=; b=L4JCyo5P38uCL2mf2yfYAdBlc9
-	1WKWRay1i+ck7Q7fh3Au5q+2Ep/7MpZSt6tmiOfQAdhrqzSkMG7xPxxngFO6xCuBbnDlAKrEa1/fg
-	WFhu787Lmo4UaTIV6zg3y+ffK1quketryNWmObpNq+F0s3aK8BiKpSPInzFXhSJMlOmDSpC6PakIJ
-	hvtkPacgiNNgMxpniZ6H7negE5gsp3JSO00yy/2ZXZrNnk2Mllae9nyGr6NrvZ7sUdU/dU6kVK2Tw
-	Q3KZ5oSbSRviOGPbRmxJ43XaYmjz9w/UawTpvA2xqjvgMzGOBeSNq6C4Okd+ziCN4tHqtTjmQ6Jla
-	veM2RnIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=gizFMxgAiNeNcK9yHAVbAAuSg3KjclB/mQKEXDByXnY=; b=Z1Nvy4EZOxFR1W
+	ecny2XRF+Ag7OvMdTveuBW+dQ9s4Hiffb7s2nrt3LJoLIW099e53Bbn45Ev4meVmFW7SPz04FISYJ
+	IcLm4Vp7M1PVel/WWwErzuNqfaRS/K2Laac0kUnBSydXRMGFhgcSRgtMXG3WTbsnq8wKP1tiT3yaJ
+	E9LIc14iEwwKfme8BsRbd037i0LK4QHw5lrbeKbOoVrSvx8X0X0b5RDECRINEuv8pJOYSEIQbJjwe
+	x8YqhTivg79SKLboPuA3tcWnCEWQ1EaUZFWA6DRq/2onLIe9jYTtNdHnNH6Gcz/O80foc5SsiDt9P
+	hC7plqfphKAtXAkAsZ/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJstc-0000000ED11-0khY;
-	Thu, 22 Oct 2026 13:31:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xJt4U-0000000EE8A-1ZbB;
+	Thu, 22 Oct 2026 13:43:06 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJstb-0000000ED0e-1Qd0;
-	Thu, 22 Oct 2026 13:31:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B0DCD416DE;
-	Thu, 22 Oct 2026 13:31:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1498E1F000C1;
-	Thu, 22 Oct 2026 13:31:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1792675910;
-	bh=unVAESJai7F1UmJzEHO+wzlvQnnF/1GINQlY378qHu4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NFz4ABAQp2vbr4lZ5nTkFb80iPDOMnAyr1zQfTCQfpZitXEgi8Vo/Wue0YC80WX6F
-	 63nxqfyOgmF+WB5jPDHiFnMhPWWI8HpGfjlwZCdgPB5LnBbZmYXq86Co7tqfKIKeQw
-	 FUv8/eV6PIYj+kLeeTNUNo9uxO0HQIVY9Wf8a3b8=
-Date: Thu, 22 Oct 2026 15:31:39 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Martin Wetterwald <martin@wetterwald.eu>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jai Luthra <jai.luthra@ideasonboard.com>,
-	Gaston Gonzalez <gascoar@gmail.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Umang Jain <uajain@igalia.com>, Kees Cook <kees@kernel.org>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org, regressions@lists.linux.dev
-Subject: Re: [PATCH v2] platform/raspberrypi: vchiq: register bus at
- subsys_initcall
-Message-ID: <2026102218-vowel-plutonium-629e@gregkh>
-References: <CAFERDQ0FpdVvA5VJxOyRAE_pgxnPVmFx1tkZio5R272j6Bs4tg@mail.gmail.com>
- <20261022082927.59030-1-martin@wetterwald.eu>
+	id 1xJt4R-0000000EE6y-1vMr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 Oct 2026 13:43:05 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6b1aa2848d2so2801201a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 06:43:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792676581; cv=none;
+        d=google.com; s=arc-20260327;
+        b=pun0kCobMSbfX4vsu35sENuMImBXgAl+cmFF9K33BsDHQC/fKzwDp6Aog4Y2lkL+2D
+         BcmFrLYZx7eBSnT/bE1rW4URolIiEY31gyG8QDchrmKdfMtCfyoussa8NemLswV4Lxwq
+         2vbOwDnlyAFmoRpE7K+QVRMsu9wEIOwFPwWnfr6sF5221kd7QapMWDrytrKEJmbm5wTM
+         QmoqZY0jSLuJw6dVu0XO1IxOPPCH54F+fCiSOpa/HkaCR2VgwNn23fuFa4ESOic03v0a
+         bRzVq5g0JFu2lF9smZlWRyM773iYu/hO3m5m8aGRZPJfS0xGRpRKJiIM3WtEc6IY4BD7
+         IOUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=gizFMxgAiNeNcK9yHAVbAAuSg3KjclB/mQKEXDByXnY=;
+        fh=q6ZU5bN18iDkNMS9O+ePhaVYDHopbSsMvFu1IVIdLOc=;
+        b=OQZhx9STWzg+CmmXg3octHJlTVShWIH3VY/G3XeqtsQ4S2FhyHUfUMSU36xkdaHbRY
+         w3dN8BUowWQfqQTyO3Yd+rcthRnX6e9Ev8zI2rmv+wN3+rx/aTBXcYXErxAHrXxP1UKE
+         qLJboPnW8sGzLLshMndmrutBeQL2L1fDQ4C3hfXYn+fQ8idt3lySLnTQXSVGaKBU406A
+         4dLKXHA4TxzHUAZEiGEoxCGzmVQFi93z2srF9a5xxjHnxnyQudxle4LDreyzj1Om9LhD
+         uObte4bXVndHpYTs0NW3sazZnPwhV4kWT36PywoAMKsMXfGh3ZKatLfqNQ8uMwwjNhH6
+         hlew==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=soleen.com; s=google; t=1792676581; x=1793281381; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=gizFMxgAiNeNcK9yHAVbAAuSg3KjclB/mQKEXDByXnY=;
+        b=jhKaYXmq2SHX+IRxD9Nq7JobKADwz1QbOsmXkUST6XEqzaU0seyIAlNQYMML3kmCmj
+         t/pZGOgWRCxEFPayxzRAEsrUTOvQXABAxjhLvFhWcZ7R0B9Z/DSFvBviMpnLpL/gwtGD
+         1/vyaMqn6oOET/xnRK/3gyt4zjRpHb/o/oAxfhkLWVto5d70ugrRmnM9TZWhNoPg4n4L
+         HSQ6ugY0cDB1LfqTnVrKNDkJfY6pRDCK4P4+ZVJUErD7JHUnmFNSLM+itHBGzO2mlS4I
+         CgzP+2Vla0KhwQE1N+iUHVHd+vpFUAB+ZQ83diePnPc4C8bKRPVzfIhy48mQ6Pb06qGA
+         9QqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792676581; x=1793281381;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gizFMxgAiNeNcK9yHAVbAAuSg3KjclB/mQKEXDByXnY=;
+        b=Oe6+IoK7kpiTVUIrPhf8HxPGjdXXvytEsLTxqU5WC8FePi767PUjpI6BsgAJrSQUi8
+         sYaStElQMKYZCQdwiF9/kiukqfsB/ta46lvFmzLfnAm3jawV3Zd/Zv91dpLRf1qS34lJ
+         9fMvSUN2lxDAGZvNJOolkEot0/s6/iNc+ekJNFPvuBw5fcYE9XJyTQXbRByZgLBatkHZ
+         rpzQDeIg+FF0Kda9jXbyv4+78mVhKiJbeUMjWDRHHG8pgW83Tr7Eale9KldCzhEo0OZl
+         YPm0iAe+gRhLjss3IehBW5IzrQ2HUCV0uk/9SJl64tExkFeqAd01/FND879v6y7CywjJ
+         Njeg==
+X-Forwarded-Encrypted: i=1; AKwUvBwJoW6Ji8q2mLLGPVm5skgxuRJXfqL2AzUw6x/AuORGmgpEhx/DJMVuo7ToDREly/L9tdtIRZPtcWhf/83DLnPo@lists.infradead.org
+X-Gm-Message-State: AFq9FYIgjfONcDigifd16TSCgQ7bw/Jb3Nxx06GUeQafv8K7qvhoGD9l
+	sgSz7SzPBpmO50xf1cCpaJZyjVVGDfsWsy6dU2lWvPqetWclobHlS+IhoBVGhJeC6ltq+lmRsVE
+	R5R8KW7EkjwLYlznx/Mk3ySOD6tF50wwSYStS7vhZHw==
+X-Gm-Gg: AYBFou2MgvJ2kv14h/PfayK9GqsT/D8D2cYjocUlAmMGj0GIS8RXf64qk+wIFEenSkw
+	jmZzvU6oC1nn16kVPiEPSZh7Ldci9yZ2jRbD1XblB4LYqHXH0r2W5bD23H0hqgRUcfNjNyQfHE/
+	rbmIxIw0c/1u25fGZgrNlEQZXq6j/7tHtO9IFRfjSGbI52CXzzM50ulkY07VJlw2Coe0JvOoxBY
+	0LhAw3Uvb0gSXiBsZEeLJBZRX65ekoytxNMvMwADcGy12RR5J41ZD9rxf6Ootyj146RuIBYS2R7
+	xLS4MDRUoG0efEHW01ByXrrV55uNxQ+BGcR6tVwR7HjcsbtX74+m3qwkFigoUoIV7YFuuyAiFrI
+	Ss6pF8gshB9PqxSJm3j3GNGkrFDh0g07rX0D6p79oWufsHmFgU4KmuucWvpp3lngF1g55
+X-Received: by 2002:a05:6402:51cb:b0:6b1:ba86:5f55 with SMTP id
+ 4fb4d7f45d1cf-6b408eda746mr4955017a12.35.1792676580475; Thu, 22 Oct 2026
+ 06:43:00 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261022082927.59030-1-martin@wetterwald.eu>
+References: <20261021152527.375070-1-tarunsahu@google.com> <20261021152527.375070-3-tarunsahu@google.com>
+ <CA+CK2bCnS8wcVDbOymBGeJB6pDUkknOpF22EynbwSV=D5=J4ow@mail.gmail.com> <9huzik2t5281.fsf@tarunix.c.googlers.com>
+In-Reply-To: <9huzik2t5281.fsf@tarunix.c.googlers.com>
+From: Pasha Tatashin <pasha.tatashin@soleen.com>
+Date: Thu, 22 Oct 2026 09:42:22 -0400
+X-Gm-Features: AclHuK8k5bT2ZKs2HYGA795ETIkO2JydSGkbGrRRu0cT3FC7RgYcT81JMzNVsA4
+Message-ID: <CA+CK2bA2zqQJryBqpoNG7RQqnUnQT1+d8G5xwrjx0Dqo58woHA@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 2/4] liveupdate: Select file handler by name in the
+ preserve ioctl
+To: tarunsahu@google.com
+Cc: Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org, 
+	Mike Rapoport <rppt@kernel.org>, Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de, 
+	David Matlack <dmatlack@google.com>, jgg@nvidia.com, robin.murphy@arm.com, 
+	loganodell@google.com, oupton@kernel.org, kevin.tian@intel.com, 
+	alex@shazbot.org, dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com, 
+	will@kernel.org, Alexander Graf <graf@amazon.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	baolu.lu@linux.intel.com, linux-arm-kernel@lists.infradead.org, 
+	linux-arch@vger.kernel.org, sagis@google.com, linux-mm@kvack.org, 
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev, linux-pci@vger.kernel.org, 
+	kexec@lists.infradead.org, skhawaja@google.com, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261022_064303_689804_58043F29 
+X-CRM114-Status: GOOD (  56.33  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,55 +128,350 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 22, 2026 at 10:29:24AM +0200, Martin Wetterwald wrote:
-> Since 6.19-rc1, with CONFIG_BCM2835_VCHIQ=y and CONFIG_SND_BCM2835=y
-> (both builtin), the sound cards bcm2835_headphones and bcm2835_hdmi are
-> not detected anymore (vc4-hdmi is not affected).
-> 
-> dmesg shows:
-> 
->   Driver 'bcm2835-audio' was unable to register with bus_type
->   'vchiq-bus' because the bus was not initialized.
-> 
-> Since the VCHIQ interface was moved out of staging, its bus is no longer
-> guaranteed to be registered before its client drivers. bcm2835-audio,
-> still in drivers/staging, registers at device_initcall level and now
-> runs first.
-> 
-> Register the bus and the platform driver at subsys_initcall so the bus
-> exists before any client driver, independently of link order. The
-> platform driver probe already returns -EPROBE_DEFER while the firmware
-> is not ready, so probing earlier is safe. When built as modules, this is
-> equivalent to module_init() and nothing changes.
-> 
-> Tested on Raspberry Pi 1B rev2, 1B+, 2B, 3B and 4B with VCHIQ and
-> bcm2835-audio both builtin and both as modules.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: aa125180c673 ("platform/raspberrypi: Destage VCHIQ interface")
-> Reported-by: Martin Wetterwald <martin@wetterwald.eu>
-> Closes: https://lore.kernel.org/r/CAFERDQ0FpdVvA5VJxOyRAE_pgxnPVmFx1tkZio5R272j6Bs4tg@mail.gmail.com/
-> Reviewed-by: Jai Luthra <jai.luthra@ideasonboard.com>
-> Tested-by: Gaston Gonzalez <gascoar@gmail.com> # Raspberry Pi Zero
-> Signed-off-by: Martin Wetterwald <martin@wetterwald.eu>
-> ---
-> Hi Greg,
-> this is a regression introduced by aa125180c673 (via your tree) in
-> 6.19-rc1 and present in 6.19.y through 7.3.y. If the staging pull for
-> 7.4-rc1 has not been sent yet, could you take it there? Otherwise,
-> staging-linus would be great. Thanks!
+On Thu, Oct 22, 2026 at 8:50=E2=80=AFAM <tarunsahu@google.com> wrote:
+>
+>
+> I have gone through the discussion in reply to this thread between
+> @dmatlack and @pasha
+>
+> I am not sure If I understood the discussion correctly.
+>
+> userspace IOCTL for FLB compatiblity might not necessary as each FLBs are
+> registered with the file handler. So when new file handler introduced in =
+the
+> system, new flb handlers can be registered that is compatible with this
+> new file handler. I have tried to explain this below.
+>
+> Pasha Tatashin <pasha.tatashin@soleen.com> writes:
+>
+> > On Wed, Oct 21, 2026 at 11:25=E2=80=AFAM Tarun Sahu <tarunsahu@google.c=
+om> wrote:
+> >>
+> >> Currently luo_preserve_file() iterates over luo_file_handler_list and
+> >> picks the first registered handler whose .can_preserve() callback
+> >> returns true. When a subsystem introduces a new, backwards-incompatibl=
+e
+> >> file handler alongside an existing one for the same file type, userspa=
+ce
+> >> has no way to choose which handler preserves a file descriptor, nor ca=
+n
+> >> the kernel keep the existing rollback-safe handler as the default whil=
+e
+> >> allowing callers to opt into the new handler.
+> >
+> > That is not how it will work.
+> > If we are in the .can_preserve() call,
+> > it means the user has already decided which file handlers to use.
+>
+> That is not true.
 
-This is not a staging driver anymore, please route it through the proper
-tree after -rc1 is out.
+Please re-read what I wrote: I said that is not how it *will* work.
+Currently, we only have one FH per supported FD type, and that is how
+it will remain when we supply the target kernel specs. before the live
+update begins.
 
-thanks,
+>
+> From the documentation of the luo_preserve_file(): 3rd point.
+>
+> * This function orchestrates the first phase of preserving a file. It per=
+forms
+>  * the following steps:
+>  *
+>  * 1. Validates that the @token is not already in use within the file_set=
+.
+>  * 2. Ensures the file_set's memory for files serialization is allocated
+>  *    (allocates if needed).
+> =3D>* 3. Iterates through registered handlers, calling can_preserve() to =
+find one
+>  *    compatible with the given @fd.
+>  * 4. Calls the handler's .preserve() operation, which saves the file's s=
+tate
+>  *    and returns an opaque private data handle.
+>  * 5. Adds the new instance to the file_set's internal list.
+>  *
+>
+> luo_preserve_file():
+>
+>         list_private_for_each_entry(fh, &luo_file_handler_list, list) {
+>                 if (fh->ops->can_preserve(fh, file)) {
+>                         if (try_module_get(fh->ops->owner))
+>                                 err =3D 0;
+>                         break;
+>                 }
+>         }
+>
+>
+> the first handler whose can_preserve return true will be selected as the
+> FH;
+>
+> later in code:
+>
+>         err =3D fh->ops->preserve(&args);
+>
+> So can_preserve() is called on every handler for a fd and once it finds
+> the FH which reutrns true, it uses its preserve call to preserve the file=
+.
 
-greg k-h
+And as I explained later in that e-mail, the set of FHs will be
+decided ahead of time:
+
+"Therefore, there should be a luoctl call (i.e via a new ioctl to set
+compatability) that provides the kernel with the specs file of the
+target kernel we are updating to, allowing the kernel to select the
+compatible file handlers. Since .can_preserve() is called when the
+user is already preserving files, the specification must have already
+been supplied, or the kernel should fall back to using the default
+(i.e., latest) file handlers."
+
+The user/admin will configure the active set of FHs *before* the first
+FD is preserved. By the time we search for a compatible FH via
+.can_preserve(), that choice has already been made, and there will be
+ONLY one active FH per supported FD type.
+
+>
+> > We
+> > need to do that before any preservation happens; otherwise, we could
+> > run into conflicts on FLBs i.e. FH of different version require
+> > different FLBs.
+>
+> My change below will select the user passed handler directly if it is
+> valid otherwise it fallbacks to looping .can_preserve based selection.
+>
+> ****For flb****:
+>
+> Registration of flb handlers happens with original
+> subsytem fd handler, for example, for iommu
+>
+>  iommu_liveupdate_register_flb(&iommufd_ser_handler); ->liveupdate_regist=
+er_flb(fh, flb);
+>
+> This function takes the FH argument. So every FH has direct relation
+> with their flbs.
+>
+> If new FH will be introduced within the system, it must register
+> compatible flbs handlers with it by liveupdate_register_flb.
+>
+> Currently, FLB objects are preserved with the first dependent file's
+> preservation. and each flb handler in fh->flb_list (was associated
+> using each flb handler registration) will call its ops to preserve itself=
+.
+>
+> Same on retrieval side, handler name is preserved so the flb name is
+> also preserved. And they can just call their respects ops to retrieve
+> themselves.
+>
+> What about If user try to preserve other dependent but same subsystem
+> files with different handler. Kernel must reject this. I have not
+> integrated this support. Which can also be added as part of this series.
+> Let me know if this sounds good, Then I will add that in the V3?
+
+No, do not go this route. Rejecting mismatched handlers on subsequent
+FDs still leaves handler selection as a per-FD decision, meaning the
+first session/process to preserve an FD dictates the FH and FLB
+version for the entire subsystem. Individual processes preserving FDs
+should not need to know which handler version the target kernel
+supports. Version compatibility is a global orchestration policy and
+should be configured once up front before any FDs are preserved.
+
+Pasha
+
+>
+> ~Tarun
+>
+> >
+> > Therefore, there should be a luoctl call (i.e via a new ioctl to set
+> > compatability) that provides the kernel with the specs file of the
+> > target kernel we are updating to, allowing the kernel to select the
+> > compatible file handlers. Since .can_preserve() is called when the
+> > user is already preserving files, the specification must have already
+> > been supplied, or the kernel should fall back to using the default
+> > (i.e., latest) file handlers.
+> >
+> >>
+> >> Append char handler[LIVEUPDATE_HNDL_NAME_LENGTH] to struct
+> >> liveupdate_session_preserve_fd immediately after token, keeping
+> >> IOCTL_OP min_size at offsetofend(..., token) so callers passing the
+> >> original 16-byte structure continue to work:
+> >> - When handler is empty (all-zero, or zero-filled when userspace
+> >>   passes the 16-byte structure), luo_preserve_file() selects the first
+> >>   registered handler whose .can_preserve() callback accepts the fd.
+> >> - When handler is non-empty, it must be null-terminated within
+> >>   LIVEUPDATE_HNDL_NAME_LENGTH bytes (returning -EINVAL otherwise);
+> >>   luo_preserve_file() looks up the registered handler with that exact
+> >>   name (returning -ENOENT if unknown) and verifies that its
+> >>   .can_preserve() callback accepts the fd (returning -EINVAL if not).
+> >>
+> >> The retrieve ioctl is unchanged because the handler is identified by t=
+he
+> >> name stored in the serialized payload from the source kernel.
+> >>
+> >> Signed-off-by: Tarun Sahu <tarunsahu@google.com>
+> >> ---
+> >>  include/uapi/linux/liveupdate.h  | 12 +++++++++---
+> >>  kernel/liveupdate/luo_file.c     | 21 ++++++++++++++++++---
+> >>  kernel/liveupdate/luo_internal.h |  3 ++-
+> >>  kernel/liveupdate/luo_session.c  |  7 ++++++-
+> >>  4 files changed, 35 insertions(+), 8 deletions(-)
+> >>
+> >> diff --git a/include/uapi/linux/liveupdate.h b/include/uapi/linux/live=
+update.h
+> >> index 509c6236720d..2413b19dabc1 100644
+> >> --- a/include/uapi/linux/liveupdate.h
+> >> +++ b/include/uapi/linux/liveupdate.h
+> >> @@ -126,9 +126,14 @@ struct liveupdate_ioctl_retrieve_session {
+> >>
+> >>  /**
+> >>   * struct liveupdate_session_preserve_fd - ioctl(LIVEUPDATE_SESSION_P=
+RESERVE_FD)
+> >> - * @size:  Input; sizeof(struct liveupdate_session_preserve_fd)
+> >> - * @fd:    Input; The user-space file descriptor to be preserved.
+> >> - * @token: Input; An opaque, unique token for preserved resource.
+> >> + * @size:    Input; sizeof(struct liveupdate_session_preserve_fd)
+> >> + * @fd:      Input; The user-space file descriptor to be preserved.
+> >> + * @token:   Input; An opaque, unique token for preserved resource.
+> >> + * @handler: Input; Optional null-terminated file handler name (max l=
+ength
+> >> + *           %LIVEUPDATE_HNDL_NAME_LENGTH including null terminator) =
+selecting
+> >> + *           which registered handler preserves @fd. If empty (all-ze=
+ro, or
+> >> + *           omitted when passing the 16-byte structure), the kernel =
+selects
+> >> + *           the first registered handler whose .can_preserve() accep=
+ts @fd.
+> >>   *
+> >>   * Holds parameters for preserving a file descriptor.
+> >>   *
+> >> @@ -152,6 +157,7 @@ struct liveupdate_session_preserve_fd {
+> >>         __u32           size;
+> >>         __s32           fd;
+> >>         __aligned_u64   token;
+> >> +       char            handler[LIVEUPDATE_HNDL_NAME_LENGTH];
+> >>  };
+> >>
+> >>  #define LIVEUPDATE_SESSION_PRESERVE_FD                               =
+  \
+> >> diff --git a/kernel/liveupdate/luo_file.c b/kernel/liveupdate/luo_file=
+.c
+> >> index fb81239bedf3..be20e0f1e0aa 100644
+> >> --- a/kernel/liveupdate/luo_file.c
+> >> +++ b/kernel/liveupdate/luo_file.c
+> >> @@ -207,6 +207,8 @@ static bool luo_token_is_used(struct luo_file_set =
+*file_set, u64 token)
+> >>   * @file_set: The file_set to which the preserved file will be added.
+> >>   * @token:    A unique, user-provided identifier for the file.
+> >>   * @fd:       The file descriptor to be preserved.
+> >> + * @handler:  Optional NUL-terminated handler name. If NULL or empty,=
+ the first
+> >> + *            registered handler whose .can_preserve() accepts @fd is=
+ selected.
+> >>   *
+> >>   * This function orchestrates the first phase of preserving a file. U=
+pon entry,
+> >>   * it takes a reference to the 'struct file' via fget(), effectively =
+making LUO
+> >> @@ -238,11 +240,13 @@ static bool luo_token_is_used(struct luo_file_se=
+t *file_set, u64 token)
+> >>   *         -EBUSY if the file descriptor is already preserved by anot=
+her session.
+> >>   *         -EBADF if the file descriptor is invalid.
+> >>   *         -ENOSPC if the file_set is full.
+> >> - *         -ENOENT if no compatible handler is found for the file typ=
+e.
+> >> + *         -ENOENT if no matching handler is registered or accepts @f=
+d.
+> >> + *         -EINVAL if the named handler cannot preserve @fd.
+> >>   *         -ENOMEM on memory allocation failure.
+> >>   *         Other erros might be returned by .preserve().
+> >>   */
+> >> -int luo_preserve_file(struct luo_file_set *file_set, u64 token, int f=
+d)
+> >> +int luo_preserve_file(struct luo_file_set *file_set, u64 token, int f=
+d,
+> >> +                     const char *handler)
+> >>  {
+> >>         struct liveupdate_file_op_args args =3D {0};
+> >>         struct liveupdate_file_handler *fh;
+> >> @@ -266,6 +270,18 @@ int luo_preserve_file(struct luo_file_set *file_s=
+et, u64 token, int fd)
+> >>         err =3D -ENOENT;
+> >>         down_read(&luo_register_rwlock);
+> >>         list_private_for_each_entry(fh, &luo_file_handler_list, list) =
+{
+> >> +               if (handler && handler[0]) {
+> >> +                       if (strcmp(fh->name, handler))
+> >> +                               continue;
+> >> +                       if (!fh->ops->can_preserve(fh, file)) {
+> >> +                               err =3D -EINVAL;
+> >> +                               break;
+> >> +                       }
+> >> +                       if (try_module_get(fh->ops->owner))
+> >> +                               err =3D 0;
+> >> +                       break;
+> >> +               }
+> >> +
+> >>                 if (fh->ops->can_preserve(fh, file)) {
+> >>                         if (try_module_get(fh->ops->owner))
+> >>                                 err =3D 0;
+> >> @@ -274,7 +290,6 @@ int luo_preserve_file(struct luo_file_set *file_se=
+t, u64 token, int fd)
+> >>         }
+> >>         up_read(&luo_register_rwlock);
+> >>
+> >> -       /* err is still -ENOENT if no handler was found */
+> >>         if (err)
+> >>                 goto err_fput;
+> >>
+> >> diff --git a/kernel/liveupdate/luo_internal.h b/kernel/liveupdate/luo_=
+internal.h
+> >> index dac6644bfb18..911ffedec9f3 100644
+> >> --- a/kernel/liveupdate/luo_internal.h
+> >> +++ b/kernel/liveupdate/luo_internal.h
+> >> @@ -101,7 +101,8 @@ int __init luo_session_setup_incoming(u64 sessions=
+_pa);
+> >>  int luo_session_serialize(void);
+> >>  int luo_session_deserialize(void);
+> >>
+> >> -int luo_preserve_file(struct luo_file_set *file_set, u64 token, int f=
+d);
+> >> +int luo_preserve_file(struct luo_file_set *file_set, u64 token, int f=
+d,
+> >> +                     const char *handler);
+> >>  void luo_file_unpreserve_files(struct luo_file_set *file_set);
+> >>  int luo_file_freeze(struct luo_file_set *file_set,
+> >>                     struct luo_file_set_ser *file_set_ser);
+> >> diff --git a/kernel/liveupdate/luo_session.c b/kernel/liveupdate/luo_s=
+ession.c
+> >> index f48e9a4185f9..194ef45907c1 100644
+> >> --- a/kernel/liveupdate/luo_session.c
+> >> +++ b/kernel/liveupdate/luo_session.c
+> >> @@ -266,8 +266,13 @@ static int luo_session_preserve_fd(struct luo_ses=
+sion *session,
+> >>         struct liveupdate_session_preserve_fd *argp =3D ucmd->cmd;
+> >>         int err;
+> >>
+> >> +       if (strnlen(argp->handler, sizeof(argp->handler)) =3D=3D
+> >> +           sizeof(argp->handler))
+> >> +               return -EINVAL;
+> >> +
+> >>         guard(mutex)(&session->mutex);
+> >> -       err =3D luo_preserve_file(&session->file_set, argp->token, arg=
+p->fd);
+> >> +       err =3D luo_preserve_file(&session->file_set, argp->token, arg=
+p->fd,
+> >> +                               argp->handler);
+> >>         if (err)
+> >>                 return err;
+> >>
+> >> --
+> >> 2.56.0.212.g129ede20d9-goog
+> >>
 
