@@ -2,89 +2,198 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CAE3606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 13:21:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B939360A2633
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 13:28:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WgqiP3Js;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UcotnTt8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XQIid51+;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=aXLFJO3a;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=IfN3STrC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=J1cJunRtziCQSI57V0U3l58lyDmUupWkdJUEjrp/6ac=; b=WgqiP3JsO9xvOO7pi8Cm00zTuV
-	GTf0JZy2C7GDrm6bl+Y4c6y6+QrfBjHiP61yDBUYd4LfhB1gmQgfVTD0cAT66aftL9qpt484LOOQr
-	lCEbb1mE0kCDlKE3J8g7tdwKaHZS4rrAm3FtuuPDjTimZLrFRXD7cCE9dcKCv38t4JXzuHvHM7C5O
-	2fCsdmGU7YoQVr87PYbpXICXKI07/oQfNjf3kSS0/ubLm7EZ89ZTjWAa6mZ/p12IGsyTQDFB7LcGf
-	IInWVGRCM5XAdAvpkytBhhdvrHS0xxoHfQmDr4kMvE+9ia8qUf7/s0xAKMLHgKpAsjt33RO8xrRxR
-	nsPOQnJw==;
+	bh=NjKssOS5UH1EpHAkVpfFza2/uTDAmbwdRnncm193YRo=; b=XQIid51+ZFBnMsP5mpkyPgs50w
+	WwSgPsGmU1WLOuzxpqafMekACXdwatFrbFVHzeJHyJo4rjB7pmvFJM8+04tSgFe/i0D5Y2ZPs/D9n
+	4S8Xq6Z1T1NMdRzql05w7TMijYn2zY+EdqT1aJ+C3ZBzVu/Hg0zCnyHCOUY21z7TfylAOxFEyDROZ
+	CrfmB3fnSmvXrfXax7nUQ38OXIYWA9YNXoQXcXSS6Uu03GeIeTgMA3JE+HyK38ZpS2uD72AI3gRbR
+	AJ2+7yfuVwoHvy4DfCk5O563Tj7DSDW5ugpKLelbSEddzO+517Upc2ERt2d93pZ4BhT7Ic3Pac76M
+	MC0tBY4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJsj9-0000000EATF-2omB;
-	Thu, 22 Oct 2026 13:21:03 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1xJsq9-0000000EBET-3xH9;
+	Thu, 22 Oct 2026 13:28:17 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJsj7-0000000EASn-1rjk
+	id 1xJsq5-0000000EBBS-3WQk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 13:21:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1792675262; x=1824211262;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=RPtVW+zJYuGYEvqqnTvxnUJoTo1amg8ZRAWoVfiCZ18=;
-  b=UcotnTt8jrjV6BCokWMpZGOJ7il40IpAplil3gxvglI0+6irLlNy1n0t
-   vmYs/1RkrJruKJcGC9iW9gZ5B/W8NsBs98krcYXvW6he7qKzHtBOjhpcv
-   vlcsS8N2cbXFmomMj2imk1JDM2k1LO+l8iaC8pL3ILG2MWV/d8ivNgud/
-   19wcGePQ4QHjXt2aAtcsjq6wC+2zAflyyeaaUKuw6974Yj4U2822X2sXm
-   VCU5ULq96XgNS9pIeubkoZmaEF4KihtGAm/t9fIm1zMhfljJoe3KdTon3
-   hrQ2gbR4/Qa3FreY6V6vdIB+anb1JF4i5zgcqTUkBgcjCKJVq5Yv5xv5I
-   Q==;
-X-CSE-ConnectionGUID: a6DVYr1SQPGlQ4RVP+0BZg==
-X-CSE-MsgGUID: CNoSNyf9SnqeYjwjPXyM/w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11942"; a="1456208"
-X-IronPort-AV: E=Sophos;i="6.27,172,1787036400"; 
-   d="scan'208";a="1456208"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2026 06:21:00 -0700
-X-CSE-ConnectionGUID: 81646FC0QK+lTVLsXp90pg==
-X-CSE-MsgGUID: Ef+DEytISBOPzyqcvoN+FQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,172,1787036400"; 
-   d="scan'208";a="3293950"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.189])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2026 06:20:57 -0700
-Date: Thu, 22 Oct 2026 16:20:54 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Arnav Kapoor <kapoorarnav43@gmail.com>
-Cc: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
-	Conall O'Griofa <conall.ogriofa@amd.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>,
-	Manish Narani <manish.narani@xilinx.com>, stable@vger.kernel.org,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: xilinx-ams: fix out-of-bounds accesses when
-Message-ID: <atoNtka8rCO3Cil3@ashevche-desk.local>
-References: <20261021225356.625288-1-kapoorarnav43@gmail.com>
+	Thu, 22 Oct 2026 13:28:16 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69MA0DP23116018
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 13:28:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=NjKssOS5UH1EpHAkVpfFza
+	2/uTDAmbwdRnncm193YRo=; b=aXLFJO3agnQGUNjgecN3woAVJc1RiIfW/Mx+aL
+	zCh+zJi7xBBM81JUTKmtNB1nDm3O6QccgFY7MF+Dvzqu+lJHGJC1jAG8lmS2A9JW
+	bj95n7+g3uRPAYkI9H9nikq4mVBh7mjA9t3Exqy9sezREmKfrW3t1QPm44f6/qLm
+	pJua+piHirI+cFUe8ahOmcBKHoP3UMYydLVDoPCzhcXbfe1X+MNGjQWbjwae8F8v
+	ZH7tqChgjw3ppyInw1xRMPQ6vhsw/apU0InG28+PjYZS8Yk8LcjCKh9/qa4nuMnR
+	ymtLMTxO0ElBvDe4k0y+sTcAy7GukQSUqHKcYQgbZnH+j9rQ==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hf93bus35-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 13:28:12 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-9308eafb465so5546485a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 06:28:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1792675692; x=1793280492; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=NjKssOS5UH1EpHAkVpfFza2/uTDAmbwdRnncm193YRo=;
+        b=IfN3STrCpGnYZZ/swqFFmnviArXO10JHem3hEucwzDrQgPsbQg/ft/YekVvFbLSii7
+         W0CmJXBZpjxluZhwHmtyGN3MtOpchiu0J4uwh6Ox4HE4RWUoEUoUrIGsk35/nDdRlYSX
+         3rcfQyyaa3d28plvtCr2r/NkSpWVou8zBkxuWRlkStjDqiDs39gA7gEIqCrlcOt7xIUX
+         gJ3+ycSItqP/hxRygL1eURHA4zzFwlNdCY0Kn2E6j5tstc6OVl0eurVDztz1hhVJowQM
+         o6QvftorRt3CXus9sQAtmIPaLgJkkaEbn/5qyBA1CXcTkb0NypQzUFtRF3N6H2g0Ug8C
+         PSNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792675692; x=1793280492;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=NjKssOS5UH1EpHAkVpfFza2/uTDAmbwdRnncm193YRo=;
+        b=eQo7V3DoLjKWgQvTJiuJuhmRI7P4d2pLib3Fv5lPxJZAuZUQXpqNzXhubDEZr/zle+
+         uiK5QS8c96oCunJDAcgHzEDI07xrC0GkLIGVU+OqCjDaU+CsQWwVn90og0ttTAsWInjv
+         WbBKWrUkBqX6oUTwqldVmT1UL/1t2Tp6m6MWBwCKkqdHgpjh7Yz5SWzzbqijHzEU5LPz
+         lJFDnZg0cN+ABJ+89rwg5jFuHkPCKyyiq7ThR+qYapouTjbwpVYDlitDwnmahTnvJn1q
+         Vkb1q2TrDt7J3GtlJgQY4Qs8WuJ13+4xWuWfinnoiIdd8x9IhLvLDrUp1pcr+HBOq8o7
+         9kAg==
+X-Forwarded-Encrypted: i=1; AKwUvBx7iWLfShRGVZuA/h7rmFlD5pscg+uuRu7WX9QGPrtMa37CigcJLC3J+mqcSy5rPF5go1bJ4bVOtzSl0PybD7q3@lists.infradead.org
+X-Gm-Message-State: AFq9FYJadHLYuQw87rwredHCmccwhBUya1jsizZEwAsxzB3l7pKB7UZy
+	l0xSq8aRvZRtrMJQsXlqazGwnQiEJnB9RbiRtJ4Ru/nQQkibymjDOZHcsaU27cbLbb6wo2mihHd
+	O+CtUrU4V3Srf2Qbxlxp3oUa48qyn6JSm6HG5dIc1ds3cAIr7pDOvtRUawBR9/6VGpcM5ABKvc0
+	PFLA==
+X-Gm-Gg: AYBFou1n5NkUOQj/RF4aPefopUiVllDV7pnn3vO7GufF18yPSzsDsZfCLBKu+TfpcZZ
+	BjGwX9Ji2UCKx+3hraF6WAGCB+yUX/UBiNe+ahIAkgmbsseugKFGAlQlY16b34q3eP/U+TWPedV
+	3mamjlsSrNEgbkBXFKF2Jkk+1//2aXLWdaGoyjsT/WpPt705zIQWxYqKpNwgROUEVm6tiweZDfe
+	EExg5Bw7sayaYARq+Ddc0ky2H1x7fo828N1I4fvETc9MGtQPUNVbNxpsKNjMAuA1839PSTTqaBb
+	uXMSawqJnFy4zpuFIwwZggF8Rf86rFaxEFigQqfPwZN7e5/5ySrxN1KUagoPSKYiuyNDrsk5qYo
+	4+Un9a47aW/N93N/FwgOn9xpLe1D19/cJoIFOW6aAR9vbTfKlTFUtqxUMe+8w5f5g1ItyxaQP2h
+	XJ221XfXcoCAnO
+X-Received: by 2002:a05:620a:838e:b0:93f:35a7:cd4 with SMTP id af79cd13be357-93f57f8dd09mr1043822885a.67.1792675691516;
+        Thu, 22 Oct 2026 06:28:11 -0700 (PDT)
+X-Received: by 2002:a05:620a:838e:b0:93f:35a7:cd4 with SMTP id af79cd13be357-93f57f8dd09mr1043816785a.67.1792675690859;
+        Thu, 22 Oct 2026 06:28:10 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ac4f6683edsm8762201fa.22.2026.10.22.06.28.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Oct 2026 06:28:09 -0700 (PDT)
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: [PATCH v6 0/9] drm: handle IRQ_HPD events correctly
+Date: Thu, 22 Oct 2026 16:27:55 +0300
+Message-Id: <20261022-hpd-irq-events-v6-0-337ea3ddaa62@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261021225356.625288-1-kapoorarnav43@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFsP2moC/3XPwW7DIAwG4FepOI/KGALNTnuPaYdAzMK0Ji2kq
+ FWVdx/pNLVamoulX7I/21eWKAZK7HVzZZFySGHoS9AvG+a6pv8kHtqSGQJqUELx7tDyEI+cMvV
+ j4mTQOjC6qbxgZegQyYfzDXz/+M3pZL/IjbMyd3QhjUO83DZmMff94fo/ngUHLhorvHDeosW3I
+ aXt8dR8u2G/35bC5h0ZHxSEhYJFUYDeExqqqV5R5KMiFoqcFdWi9Qpa79ZuUXdFw26hqKJIsBq
+ tlJXamRWluiv1k4+qongvWgKowZlnt0zT9AOVL/0P3QEAAA==
+X-Change-ID: 20260414-hpd-irq-events-e72bc076a5f1
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Luca Ceresoli <luca.ceresoli@bootlin.com>,
+        Jani Nikula <jani.nikula@linux.intel.com>,
+        Rodrigo Vivi <rodrigo.vivi@intel.com>,
+        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+        Tvrtko Ursulin <tursulin@ursulin.net>,
+        Francesco Dolcini <francesco@dolcini.it>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Pengyu Luo <mitltlatltl@gmail.com>,
+        Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+        intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org,
+        Francesco Dolcini <francesco.dolcini@toradex.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6101;
+ i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
+ bh=wd7X3ygmQ//zp6nuLlLwGvPWEOvYg8cJNzxOVLDEF14=;
+ b=kA0DAAoBizyKPgIpKNUByyZiAGraD17IXihmLxbEsLPpyrTIzdcTunXkv6HcA9yHJFD0eOSPy
+ YkBMwQAAQoAHRYhBExwhJVcsmNW8LiVf4s8ij4CKSjVBQJq2g9eAAoJEIs8ij4CKSjVMQAH/ifo
+ LhD6DCv1Yxl/5bv7RrJi2g1XgUsc3Xrlp8zT7eKMKnrok48qY+fY06zbCSHWf+E3AS9R1B/F8b+
+ JdYv6svg1/vl1NC0ZWPIESK4CUAzqg5yDD7+1ZysXcMhP55HAQHwTZCChjcgP5UQnX0RJUybKK5
+ Uul4U1htEvtQlK7IJU9otxtUJzUARmaFwcKivGuTjnO/Olk0SmRKRhA9pcZpH8EJy36lsnIVQMS
+ 9apCfu+zi2wh1sBMKFO1HmxrZYg0KKQTmS7MAI+CJGaCo7KCK0zY9TdBlHuAf/MuJZBxpyRXTr1
+ eEEAxAdkTq5oKd2NvBaLkiNRtm3uvdH7KlRDUHQ=
+X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIyMDA1MyBTYWx0ZWRfXzeHQzs57SO11
+ CoY6/266nCTsT/jqMv1kcXc6ceNbgwNMPYim62hHVna85gCe28Zl41ZZLVLY8v76ZEhoCCbvmRb
+ tQ7xZ57gtio4FlWEjB/zQILR6uRNzvE=
+X-Proofpoint-GUID: zgJLn3t-M5y-1rboEHhRgClsxITmdRzg
+X-Proofpoint-ORIG-GUID: zgJLn3t-M5y-1rboEHhRgClsxITmdRzg
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIyMDA1MyBTYWx0ZWRfXyYyNyAODicCz
+ WTig6PXBmn5jbR5akBSAOYnrV7HkbiPTdGQpK3Qpumqk8G2PYTcdlufcSHIjEyhQ05fzo2OKDzc
+ O3lOLlr/5+PbgUc6hnc5Me/SJuIUqumfyugXOW9LOuv1iJxPx86GxFVqQLlfghxjrnwIqkqVhoJ
+ 2G2ThAPjr3hXDnCvVh5oxPXd7pAnHgfv+URfHTEgrqAgVZVcfa6ODeup37hRo2Fm8kJ+xKekiUR
+ K2M/spekgM5n/uyaj3y89CS13/wXhE4YP9rJ9ddwWLiy/VqBBHcmS2Dj+z3jpLWM07Sd0hLt5lt
+ VxMI8Fvt8Dr4tX9MNqKPchrKKOLUa45JTkN0JJxxrcDvHAAG/GPyQyRdBz3gcK/grw55AkWygN9
+ rylA4jWpyDnS+iQS10J9z0Ihd5SKRw==
+X-Authority-Analysis: v=2.4 cv=HJxWhYtv c=1 sm=1 tr=0 ts=6ada0f6c cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=bC-a23v3AAAA:8
+ a=EUspDBNiAAAA:8 a=QyXUC8HyAAAA:8 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8
+ a=ag1SF4gXAAAA:8 a=KKAkSRfTAAAA:8 a=P1BnusSwAAAA:8 a=P-IC7800AAAA:8
+ a=GFqr32JmAAAA:8 a=IpJZQVW2AAAA:8 a=mK_AVkanAAAA:8 a=tVI0ZWmoAAAA:8
+ a=s8YR1HE3AAAA:8 a=e5mUnYsNAAAA:8 a=JfrnYn6hAAAA:8 a=eKQTCwoLd85be8zhlTQA:9
+ a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22 a=FO4_E8m0qiDe52t0p3_H:22
+ a=Yupwre4RP9_Eg_Bd0iYG:22 a=cvBusfyB2V15izCimMoJ:22 a=D0XLA9XvdZm18NrgonBM:22
+ a=d3PnA9EDa4IxuAV0gXij:22 a=f02Ha7HRcztGgdyUxOxW:22 a=IawgGOuG5U0WyFbmm1f5:22
+ a=3gWm3jAn84ENXaBijsEo:22 a=-BPWgnxRz2uhmvdm1NTO:22 a=jGH_LyMDp9YhSvY-UuyI:22
+ a=Vxmtnl_E_bksehYqCbjh:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-22_04,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 malwarescore=0 lowpriorityscore=0 suspectscore=0
+ adultscore=0 bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
+ definitions=main-2610220053
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_062101_547791_825D6160 
-X-CRM114-Status: GOOD (  18.59  )
-X-Spam-Score: -4.7 (----)
+X-CRM114-CacheID: sfid-20261022_062814_009617_AC394F5E 
+X-CRM114-Status: GOOD (  18.78  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,87 +204,143 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 22, 2026 at 04:23:34AM +0530, Arnav Kapoor wrote:
+Both DisplayPort and HDMI standards define a way for the Sink / display
+to notify the Source / host about some kinds of events. In case of HDMI
+it's as simple as singnalling changes to the EDID. In case of
+DisplayPort it's more complicated and requires actual checking of the
+DPCD registers.
 
- Subject: [PATCH] iio: adc: xilinx-ams: fix out-of-bounds accesses when
+Currently USB-C drivers don't have a way to deliver the IRQ_HPD
+notifications, leading to missing MST notifications. Provide necessary
+plumbing to let IRQ_HPD events be passed to the DisplayPort drivers.
 
-when what?..
+Note: the Yoga C630 UCSI driver and Acer Aspire1 EC driver are not yet
+enabled to send the IRQ_HPD events. Both of them would need some more
+reverse engineering to find out how the event is being reported by the
+EC.
 
-Please, read what you about to send. Most likely you used AI for all this and
-hence people tend to stop checking all the crap it produces...
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+---
+Changes in v6:
+- Corrected indentation of args after the function rename (Chaoyi Chen)
+- Reordered / rehashed patches to be more logical (Chaoyi Chen)
+- Fixed build error in the OMAPDSS HDMI driver (Sashiko)
+- Fixed IRQ_HPD vs PLUG interaction in drm/msm/dp (Sashiko)
+- Link to v5: https://patch.msgid.link/20260920-hpd-irq-events-v5-0-ff1de0090c72@oss.qualcomm.com
 
-> ams_parse_firmware() allocates room for ARRAY_SIZE(ams_ps_channels) +
-> ARRAY_SIZE(ams_pl_channels) + ARRAY_SIZE(ams_ctrl_channels) = 51
-> channel specs and lets ams_init_module() fill them for the AMS node and
-> each of its children, without telling it how much room is left.
-> 
-> For the PL-SYSMON node, ams_get_ext_chan() appends one channel per
-> "channel@N" child after the 10 fixed PL channels. The binding allows
-> reg values 20..50, so a PL node can have up to 31 such children, i.e.
-> up to 41 PL channels, while only 31 are budgeted for it. Together with
-> the 13 PS and 7 AMS control channels, this writes past the end of the
-> buffer. Since the modules are filled in device tree order, the fixed
-> channel blocks copied after the PL node can overflow as well.
-> 
-> ams_get_ext_chan() also only checks the upper bound of reg. ext_chan is
-> unsigned, so a reg below 20 makes it wrap and ams_pl_channels[] is read
-> far out of bounds.
-> 
-> Pass the remaining capacity down to ams_init_module() and
-> ams_get_ext_chan() and fail with -ENOSPC when a module does not fit,
-> instead of writing past the buffer. Also reject reg values below 20, as
-> the binding requires.
+Changes in v5:
+- Renamed drm_connector_status_extra to drm_connector_dp_event (Maxime)
+- Link to v4: https://patch.msgid.link/20260608-hpd-irq-events-v4-0-30b62b335487@oss.qualcomm.com
 
-> This was previously reported by Weigang He, but the thread stalled
-> before the changes were picked up.
+Changes in v4:
+- Renamed drm_connector_oob_hotplug_event() to
+  drm_connector_dp_oob_status() (Maxime)
+- Reworked commit messages, explaining what it is about (Bjorn)
+- Rearranged commits, making them a bit more logical.
+- Link to v3: https://patch.msgid.link/20260421-hpd-irq-events-v3-0-44d2bf40dfc2@oss.qualcomm.com
 
-Convert this paragraph to Reported-by, Closes, and respective Link tags.
+Changes in v3:
+- Fixed build error if aux bridges are disabled (Intel GFX CI)
+- Link to v2: https://patch.msgid.link/20260420-hpd-irq-events-v2-0-402ffe27e9e9@oss.qualcomm.com
 
-...
+Changes in v2:
+- Change irq_hpd arg to be an enum, possibly desribing other uses (Toni)
+- Account for that, chaning the API accordingly (with_irq -> extra,
+  etc.)
+- Wire up AUX bridge notifications
+- Link to v1: https://patch.msgid.link/20260416-hpd-irq-events-v1-0-1ab1f1cfb2b2@oss.qualcomm.com
 
-> +		ret = ams_get_ext_chan(fwnode, channels, num_channels,
-> +					max_channels);
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+To: Maxime Ripard <mripard@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+To: David Airlie <airlied@gmail.com>
+To: Simona Vetter <simona@ffwll.ch>
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Andrzej Hajda <andrzej.hajda@intel.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+To: Robert Foss <rfoss@kernel.org>
+To: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+To: Jonas Karlman <jonas@kwiboo.se>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>
+To: Rodrigo Vivi <rodrigo.vivi@intel.com>
+To: Joonas Lahtinen <joonas.lahtinen@linux.intel.com>
+To: Tvrtko Ursulin <tursulin@ursulin.net>
+To: Francesco Dolcini <francesco@dolcini.it>
+To: Kevin Hilman <khilman@baylibre.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+To: Rob Clark <robin.clark@oss.qualcomm.com>
+To: Dmitry Baryshkov <lumag@kernel.org>
+To: Abhinav Kumar <abhinav.kumar@linux.dev>
+To: Jessica Zhang <jesszhan0024@gmail.com>
+To: Sean Paul <sean@poorly.run>
+To: Marijn Suijten <marijn.suijten@somainline.org>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+To: Bjorn Andersson <andersson@kernel.org>
+To: Konrad Dybcio <konradybcio@kernel.org>
+To: Pengyu Luo <mitltlatltl@gmail.com>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-usb@vger.kernel.org
+Cc: intel-gfx@lists.freedesktop.org
+Cc: intel-xe@lists.freedesktop.org
+Cc: linux-amlogic@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-arm-msm@vger.kernel.org
+Cc: freedreno@lists.freedesktop.org
 
-Perhaps a single line?
+---
+Dmitry Baryshkov (9):
+      drm/connector: report out-of-band IRQ_HPD events
+      drm/connector: pass down IRQ_HPD to the drivers
+      drm/bridge: pass down IRQ_HPD to the drivers
+      drm/bridge: pass extra events to the HPD callback
+      drm/bridge: aux-hpd: let drivers pass IRQ_HPD events
+      drm/msm/dp: don't take extra references on multiple plug events
+      drm/msm: dp: handle the IRQ_HPD events reported by USB-C
+      soc: qcom: pmic-glink-altmode: pass down HPD_IRQ events
+      usb: typec: ucsi: huawei-gaokun: pass down HPD_IRQ events
 
-...
+ drivers/gpu/drm/bridge/aux-hpd-bridge.c        | 11 +++++----
+ drivers/gpu/drm/bridge/chrontel-ch7033.c       |  3 ++-
+ drivers/gpu/drm/bridge/lontium-lt8912b.c       |  3 ++-
+ drivers/gpu/drm/bridge/lontium-lt9611uxc.c     |  3 ++-
+ drivers/gpu/drm/bridge/ti-tfp410.c             |  3 ++-
+ drivers/gpu/drm/display/drm_bridge_connector.c | 22 ++++++++++--------
+ drivers/gpu/drm/drm_bridge.c                   | 20 ++++++++++-------
+ drivers/gpu/drm/drm_connector.c                | 22 ++++++++++--------
+ drivers/gpu/drm/i915/display/intel_dp.c        |  3 ++-
+ drivers/gpu/drm/meson/meson_encoder_hdmi.c     |  3 ++-
+ drivers/gpu/drm/msm/dp/dp_display.c            | 12 +++++++---
+ drivers/gpu/drm/msm/dp/dp_drm.h                |  3 ++-
+ drivers/gpu/drm/omapdrm/dss/hdmi4.c            |  3 ++-
+ drivers/gpu/drm/omapdrm/dss/hdmi5.c            |  3 ++-
+ drivers/soc/qcom/pmic_glink_altmode.c          |  6 ++++-
+ drivers/usb/typec/altmodes/displayport.c       | 25 +++++++++++++--------
+ drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c    | 11 +++++----
+ include/drm/bridge/aux-bridge.h                | 13 +++++++++--
+ include/drm/drm_bridge.h                       | 31 +++++++++++++++++++++-----
+ include/drm/drm_connector.h                    | 24 +++++++++++++++++---
+ 20 files changed, 158 insertions(+), 66 deletions(-)
+---
+base-commit: 725953d4da85cfb97a4c309fad6346b72f8529e7
+change-id: 20260414-hpd-irq-events-e72bc076a5f1
 
->  	if (fwnode_device_is_available(fwnode)) {
-> -		ret = ams_init_module(indio_dev, fwnode, ams_channels);
-> +		ret = ams_init_module(indio_dev, fwnode, ams_channels,
-> +				      (int)(ams_size - num_channels));
-
-Why do we need casting? is ams_init_module() is aware of negative numbers?
-If so, it can also be aware of some "big" number.
-
->  		if (ret < 0)
->  			return ret;
-
-...
-
-> static int ams_parse_firmware(struct iio_dev *indio_dev)
-
->  	device_for_each_child_node_scoped(dev, child) {
-> -		ret = ams_init_module(indio_dev, child, ams_channels + num_channels);
-> +		ret = ams_init_module(indio_dev, child,
-> +				      ams_channels + num_channels,
-> +				      (int)(ams_size - num_channels));
-
-Ditto.
-
->  		if (ret < 0)
->  			return ret;
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+Best regards,
+--  
+With best wishes
+Dmitry
 
 
