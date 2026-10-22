@@ -2,87 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D658C606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 14:02:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2180606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 14:03:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sl3QjpSo;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=BFw2dysU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0rkyjiM2;
+	dkim=pass (1024-bit key, unprotected) header.d=konsulko.com header.i=@konsulko.com header.a=rsa-sha256 header.s=google header.b=Zt3j2xfZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=hfltIMqe1DPYXUB6u6RGh5+LsUMaEBkzsWt9Y8g2MJ0=; b=sl3QjpSor72o5c9HnxpuC4ITsl
-	f1Kt95jQ90fGBQ6jNkE9xs5dUfJ4Bj+kjN+15+vYz8P3OXmCFR/IH7ll6rraRMwyI1w5HczQ5A/DU
-	ZuzCpTjARwk6R44X8mXO0LB0cbPANBZ4sYOBzhYxtgQem4MRo06B8fxnc5jNEBlmxDe4BZj+GGc3s
-	xirgLaExtv2i4MP3KCyL5mRU0Pv9+49HeTTSaovvxCN+6c45xEKtygIfDmNgGa3mGzXJ0aghjxZnz
-	l0pGrKhbtn9Ig5cR3+87Dx59Cq7BrPmbPdiBiGR8vDU/mqdd/GpXmIMC9zBdN9Su4FnepX4IGCw6r
-	wLGgN9Kw==;
+	bh=cpTBG70GLztkppBlWDxA4zs5YJB3Ae5lFCFEvrLL98I=; b=0rkyjiM247e7us2CO9KPV1ifsS
+	HCYDTCHSFiWI/k2RkorWvM4jlmGwWXTbBrOSdUaPoLQWRx57nYA5JZnfHDM9SF20blwlw2CP89mYE
+	6XFojc4I23toA9M37f8DinzK+RhTFq0ptW7590OCR9c8IgOIsY8eBRbP1p9YYABPU/plzCeuZY6sK
+	8CDVsVF63KDZwGBwQAFfbJBOYsU2SPtrQZwb3NKTNqpXTNkf5ZJFOW489hSNgW+TaGLkmhFSsuqEY
+	7X1NFkrk1XFZRtzs2gy9loH4lpED0021crO91XNwkowJaOPvHUF2ru1k3WRX++iFNbK9UabAojqCX
+	o6yc4WTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJtN6-0000000EFmc-0pJ4;
-	Thu, 22 Oct 2026 14:02:20 +0000
-Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
+	id 1xJtNn-0000000EG50-0M1r;
+	Thu, 22 Oct 2026 14:03:03 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xJtN0-0000000EFjl-28kZ
+	id 1xJtNk-0000000EG2v-1or0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 14:02:16 +0000
-Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-4a20a40d3e9so3246475e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 07:02:13 -0700 (PDT)
+	Thu, 22 Oct 2026 14:03:01 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-48dc202a60eso997239f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 07:02:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792677732; x=1793282532; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+        d=konsulko.com; s=google; t=1792677778; x=1793282578; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hfltIMqe1DPYXUB6u6RGh5+LsUMaEBkzsWt9Y8g2MJ0=;
-        b=BFw2dysUxvOOM9zzZNALWPurSCX1aFU8RvBXKM++lJu4PTdrJEst8IWvC0J9ku8FnP
-         hFMAqHD4yx47Giau6brLbzNFzdaEJ7sbPUwKKpo0aCqXkBa7wK8b/zGpQKtB557IL23q
-         D0jexK20tN+VxxYH8Fa+SyoZghitVTzIjUmXYRrJLAHmVM4L8SQt0k+8Hl/LBHZdVfGs
-         v2FPVx2bP0/2LSw/xSqmB5SjUavjEp5IYkMS4xGg/Q0sX8QC1MUPoRkh6nFcF+MLxIKp
-         SdqNG6fwFdkMpycxr8D9n0fsMqhGeBHTphh8lv2LNybQrRfZpI8i4BQ6VNUw1p1zLLF8
-         ErGQ==
+        bh=cpTBG70GLztkppBlWDxA4zs5YJB3Ae5lFCFEvrLL98I=;
+        b=Zt3j2xfZm406z9M1ZmCEK/pWFGX7zMQhh5I38iuO+yKLy0HLPLRxcTHxnssgJLyNdY
+         jeiiW+Qz/uPrOwHUOLvncfJYZv78i6YXa0987Vo6ZWgPTqQWaIRFMrfznEPWz89IUmGR
+         csl9RH2BidRF9PhSvu5nkDRAzCDeN6GkpuJl8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792677732; x=1793282532;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hfltIMqe1DPYXUB6u6RGh5+LsUMaEBkzsWt9Y8g2MJ0=;
-        b=sADvCMtxxsAi3yEAeOCcmf73a+/+49f8MgKJKrb6/LMdYLm2Wlgpet5CfPTGrxEB8m
-         FodgBxBMmvbw24NwiC0ovoaAiEb0BU3DW7VDfHp9472nZnHKcmQ4h0CVMxXJQPnCfLWP
-         ZhvEr35A7Afrj2+lKFuKKSc1cZuJJa7Y8jjltYZWGo+4dBsKLgqzKZ9QOmgcmV1gfyQo
-         yEGn8VsJmQnpDNbDSmCg/p3JRlyluZVnZCLImtSSFmQivicSsLQ0EaxchxT86xOSZC9k
-         n0bcCn8GJo5O7V5I9nMDRWbIGZ5w5r+E7ZV7mlObJipL4E0WVBPpEj9CwPqyCuEFMvcb
-         12OA==
-X-Forwarded-Encrypted: i=1; AKwUvBy5FJGFuA98CbqvCAEv3syUfmnIa5PX+mOnTbG+P6VVQLTJhkFItzyUN2BIIUL5CZZysdJSUB1tHyIB10Tr1Hu5@lists.infradead.org
-X-Gm-Message-State: AFq9FYIrfns2Ue/TllXw/7lqN68COLQqiW5YcIGJ4+Y9T8HEPiMdeJNK
-	cnRNjtQ8IPNw8y0tNfpV/dYrvFmwBB2jHvAXpNjY5Gbc6IBMMH3HQNfdnowcUW5w5ZWygr3A6OE
-	MVbRdadhGWZgsELmqCjsRkQ==
-X-Received: from wroa12.prod.google.com ([2002:adf:ed0c:0:b0:48d:ef8e:e575])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4fc8:b0:4a1:bd69:526f with SMTP id 5b1f17b1804b1-4a1fd8a7d9dmr118418955e9.4.1792677732158;
- Thu, 22 Oct 2026 07:02:12 -0700 (PDT)
-Date: Thu, 22 Oct 2026 15:00:46 +0100
-In-Reply-To: <20261022140048.2522787-1-vdonnefort@google.com>
+        d=1e100.net; s=20260707; t=1792677778; x=1793282578;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cpTBG70GLztkppBlWDxA4zs5YJB3Ae5lFCFEvrLL98I=;
+        b=Im4Auwwoyx/EH0esA2epdBZLdu/N2fkcVirczqSV1V+lRx9RNYRJ1mr4CyFItXXTBo
+         s3yZZY48teAfCpcUYKospMMK+QhUQy5vXcmOF5vPiy3jA2tBNnFWJfg3mTPeiRNI/u0T
+         PL7irWBV+eS6ZOCck6jVBRVSPSQlidvfByiudQB2yVoIy3UTXIqDtK+lv6ABE25l2gjN
+         2YJxNM0TCyXknVbdJJ8Jv5r5LXWEvjG3UNRcGANexd/iybqaNfXIn7vtKnW6W4zCo8Fs
+         Z7yOC90CE5Jb5KrFiYY3YvCZEUdZ8CIlN9LPPSkuuVeQnPhdl1+om8jJm7Qi47KNJ1/9
+         J/6g==
+X-Forwarded-Encrypted: i=1; AKwUvBw26NMYjsZ/ktI1m4acrrU+Rp9OvXzUmNfYPPAZQpVSE5mZKXD778e0VhrZKgfqZy11eCzjtp+6xdoYSCN+Bgct@lists.infradead.org
+X-Gm-Message-State: AFq9FYKOU0YMhHmLnRALGI5j6fUWE5bEgD4Jn6J8+tTA+FKvTU0Z8ca2
+	JILGQt6yPSiCbw48yPUcZ8NLPPRY5R1bHK6PIUka8mxiCNtjQ3Qoxos2DBv95ERTMRU=
+X-Gm-Gg: AYBFou0d/bh6c9VyW8xU1dTLYhZRF7Sl42Y3s0H5I0D/DV2anC2wzYBoXJhZEX79+po
+	lzlPwa6gDGjTYzTvqFqPYLluVRzj8iIWvAbUKX6wHI9jfFedCL0TvrIOGPDyfLbGb0srLTtUtv+
+	KZOiIniR8MIzNTEq8S/rqXItup+JK7P//38toeEKhpU5hqwdEauPXpweQnb4KrjtR6OrCUkDEyu
+	Q/VADuGlqNZEpkoewxJ2HDHl86kPAiJzGQcysw6n6acrsEw5um0hXoXjeZov9jMSfiOsMnqp4aC
+	2t0nHWmjlcv9BhfuCxp6YPABMB48apmt4ZSghj00A/wfnzqujqkrGn8N8JGTD+EOz6zBraUcXE2
+	5JyxWncuT83PSwteApnzng5xMu6Tzo74p372U8WWLFZC5iQ8BbeAXNK7vhgFn847linqpaZDfYU
+	wGg1kvvLA1/lczZBe7loJ7MX+zhFWDn5wPaoq8utcpgsO3o7s6E4Gk9sXT0Zf3deibyEoal4j1P
+	E5p+808HiRoEKHiVbc0Umtb542RQXUeSfd/0ykRv6rBUIqblpOsDRInvwK9B/zq8IWpVVUE
+X-Received: by 2002:a05:6000:2612:b0:48e:7fb:aed3 with SMTP id ffacd0b85a97d-48e264a5a5bmr11406983f8f.17.1792677776798;
+        Thu, 22 Oct 2026 07:02:56 -0700 (PDT)
+Received: from tone.k.g (lan.nucleusys.com. [92.247.61.126])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e2582a53fsm12538258f8f.32.2026.10.22.07.02.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Oct 2026 07:02:56 -0700 (PDT)
+From: Petko Manolov <petko.manolov@konsulko.com>
+To: linux-kernel@vger.kernel.org
+Cc: devicetree@vger.kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	arnemaximilian.richter@draeger.com,
+	martynas.grybauskas@draeger.com,
+	Petko Manolov <petko.manolov@konsulko.com>
+Subject: [PATCH v4 0/2] arm: dts: nxp: imx: add Draeger M48 CPU board
+Date: Thu, 22 Oct 2026 17:02:41 +0300
+Message-ID: <20261022140244.3476844-1-petko.manolov@konsulko.com>
+X-Mailer: git-send-email 2.47.3
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-References: <20261022140048.2522787-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.56.0.257.gf7497c7d27-goog
-Message-ID: <20261022140048.2522787-3-vdonnefort@google.com>
-Subject: [PATCH v2 2/4] KVM: arm64: pkvm: Fix missing reset of GICv3 LRs
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, fuad.tabba@linux.dev, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_070214_584155_D9B2DF9E 
-X-CRM114-Status: GOOD (  21.27  )
-X-Spam-Score: -9.5 (---------)
+X-CRM114-CacheID: sfid-20261022_070300_512603_B5C1B6B0 
+X-CRM114-Status: GOOD (  12.55  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,169 +106,50 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-26.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,
-	USER_IN_DEF_DKIM_WL autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The vGIC LRs are architecturally UNKNOWN when the CPU boots or resumes.
-However, in protected mode, only the used ones are reset, because the
-HVC __vgic_v3_init_lrs() is never called:
+Adds the device trees for “Dräger M48 on NXP i.MX6 (Q|DL) and Intel/Altera
+SoCFPGA Cyclone V” board variant.  It has both (the SoC and FPGA) on the
+same carrier and they are cross-monitoring each other.  The SoCFPGA boots
+independently off qspi flash.
 
-  * During boot, vgic_present is only set in init_subsystems(), after
-    cpu_hyp_init() was called.
+This is the imx6 devicetree part.  There are two bindings as well as device
+trees, since M48 is using two parts: imx6q and imx6dl.
 
-  * During CPU hotplug, kvm_arch_enable_virtualization_cpu() never calls
-    it either because kvm_hyp_initialized is always set.
+new in v4:
+  - added the missing GPIO_OPEN_DRAIN definitions on I2C recovery GPIOs;
+  - fixed the halved LVDS pixel clock in split mode;
 
-  * During CPU resume, no notifier is registered for pKVM.
+new in v3:
+  - used LLM to cleanup most of the errors and warnings;
+  - proper use of dt-schema this time around;
 
-First, return the error of __hyp_reset_vectors(). On an error, we know
-the hypervisor doesn't allow a reset. Only re-init what the host has
-access to, no matter the KVM configuration, which is the vGIC LRs.
+new in v2:
+  - add the tag from Conor Dooley <conor.dooley@microchip.com>;
+  - it should be clarified that "draeger" vendor prefix is added in
+    my previous Draeger M48 patch series;
 
-Then, cpu_hyp_init() is only called from init_subsystems and
-kvm_arch_enable_virtualization_cpu(). Remove the kvm_hyp_initialized
-gate: when pKVM is enabled, the cpu_hyp_reset() will just return an
-error while for other modes, we already know kvm_hyp_initialized is
-false at this point.
+Petko Manolov (2):
+  dt-bindings: arm: fsl: add Draeger M48 dual-cpu board
+  arm: dts: nxp: imx: Add devicetree files for M48
 
-Finally, enable the PM notifiers for pKVM, it is now safe to do so. It
-will ensure the host properly configures the vGIC LRs regardless of the
-KVM configuration.
+ .../devicetree/bindings/arm/fsl.yaml          |   2 +
+ arch/arm/boot/dts/nxp/imx/Makefile            |   2 +
+ .../boot/dts/nxp/imx/imx6dl-draeger-m48.dts   |  16 ++
+ .../boot/dts/nxp/imx/imx6q-draeger-m48.dts    |  16 ++
+ .../boot/dts/nxp/imx/imx6qdl-draeger-m48.dtsi | 213 ++++++++++++++++++
+ 5 files changed, 249 insertions(+)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6dl-draeger-m48.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-draeger-m48.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-draeger-m48.dtsi
 
-Fixes: fa8c3d65538a ("KVM: arm64: Keep nVHE EL2 vector installed")
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
----
- arch/arm64/include/asm/virt.h |  2 +-
- arch/arm64/kvm/arm.c          | 51 +++++++++++++++++++----------------
- 2 files changed, 29 insertions(+), 24 deletions(-)
-
-diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
-index b546703c3ab9..a5bde8cc5df5 100644
---- a/arch/arm64/include/asm/virt.h
-+++ b/arch/arm64/include/asm/virt.h
-@@ -83,7 +83,7 @@ extern u32 __boot_cpu_mode[2];
- #define ARM64_VECTOR_TABLE_LEN	SZ_2K
- 
- void __hyp_set_vectors(phys_addr_t phys_vector_base);
--void __hyp_reset_vectors(void);
-+int __hyp_reset_vectors(void);
- bool is_kvm_arm_initialised(void);
- 
- DECLARE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 0576c2022ef5..4c4e2fb7b660 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2246,10 +2246,12 @@ static void cpu_init_hyp_mode(void)
- 	}
- }
- 
--static void cpu_hyp_reset(void)
-+static int cpu_hyp_reset(void)
- {
- 	if (!is_kernel_in_hyp_mode())
--		__hyp_reset_vectors();
-+		return __hyp_reset_vectors() ? -EPERM : 0;
-+
-+	return 0;
- }
- 
- /*
-@@ -2300,32 +2302,39 @@ static void cpu_hyp_init_features(void)
- 		kvm_timer_init_vhe();
- 		kvm_debug_init_vhe();
- 	}
--
--	if (vgic_present)
--		kvm_vgic_init_cpu_hardware();
- }
- 
- static void cpu_hyp_reinit(void)
- {
--	cpu_hyp_reset();
--	cpu_hyp_init_context();
--	cpu_hyp_init_features();
-+	if (!cpu_hyp_reset()) {
-+		cpu_hyp_init_context();
-+		cpu_hyp_init_features();
-+	} else {
-+		if (WARN_ON(!__this_cpu_read(kvm_hyp_initialized)))
-+			return;
-+	}
-+
-+	/*
-+	 * Even if the hypervisor didn't allow resetting the vectors we can
-+	 * reset what we have access to.
-+	 */
-+	if (vgic_present)
-+		kvm_vgic_init_cpu_hardware();
- }
- 
- static void cpu_hyp_init(void *discard)
- {
--	if (!__this_cpu_read(kvm_hyp_initialized)) {
--		cpu_hyp_reinit();
--		__this_cpu_write(kvm_hyp_initialized, 1);
--	}
-+	cpu_hyp_reinit();
-+	__this_cpu_write(kvm_hyp_initialized, 1);
- }
- 
- static void cpu_hyp_uninit(void *discard)
- {
--	if (!is_protected_kvm_enabled() && __this_cpu_read(kvm_hyp_initialized)) {
--		cpu_hyp_reset();
-+	if (!__this_cpu_read(kvm_hyp_initialized))
-+		return;
-+
-+	if (!cpu_hyp_reset())
- 		__this_cpu_write(kvm_hyp_initialized, 0);
--	}
- }
- 
- int kvm_arch_enable_virtualization_cpu(void)
-@@ -2353,8 +2362,7 @@ void kvm_arch_disable_virtualization_cpu(void)
- 	kvm_timer_cpu_down();
- 	kvm_vgic_cpu_down();
- 
--	if (!is_protected_kvm_enabled())
--		cpu_hyp_uninit(NULL);
-+	cpu_hyp_uninit(NULL);
- }
- 
- #ifdef CONFIG_CPU_PM
-@@ -2397,13 +2405,11 @@ static struct notifier_block hyp_init_cpu_pm_nb = {
- 
- static void __init hyp_cpu_pm_init(void)
- {
--	if (!is_protected_kvm_enabled())
--		cpu_pm_register_notifier(&hyp_init_cpu_pm_nb);
-+	cpu_pm_register_notifier(&hyp_init_cpu_pm_nb);
- }
- static void __init hyp_cpu_pm_exit(void)
- {
--	if (!is_protected_kvm_enabled())
--		cpu_pm_unregister_notifier(&hyp_init_cpu_pm_nb);
-+	cpu_pm_unregister_notifier(&hyp_init_cpu_pm_nb);
- }
- #else
- static inline void __init hyp_cpu_pm_init(void)
-@@ -2526,8 +2532,7 @@ static int __init init_subsystems(void)
- 	if (err)
- 		hyp_cpu_pm_exit();
- 
--	if (err || !is_protected_kvm_enabled())
--		on_each_cpu(cpu_hyp_uninit, NULL, 1);
-+	on_each_cpu(cpu_hyp_uninit, NULL, 1);
- 
- 	return err;
- }
 -- 
-2.56.0.257.gf7497c7d27-goog
+2.47.3
 
 
