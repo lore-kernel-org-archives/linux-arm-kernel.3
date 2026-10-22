@@ -2,117 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 162BB606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 08:08:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06043606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Oct 2026 08:11:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jYTlr6ql;
-	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm1 header.b=paitTs9q;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm2 header.b=AEhiFeJ3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qnED9MfR;
+	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=bOYSkJ0L
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qCWsWZXzlIkVJ1bwg/ctXg0ZlNLI2VEgz60sAmLxP3s=; b=jYTlr6qlP4cSHCz6ck+M5P/v18
-	RTnT1d0KbeG2VUeV102nPKjtR6nzc2x+e6mSKFUf9Qv6WlwYk0zVe/AOVbNgMgHUCqcOqHZZQ9w3E
-	Z34qVUr6Rr5A6VRHXWaLPX3xOBs64sFImSfp9FqSI/kyAOY2DXzTBHsOKueh0Khvx8xKlP/OK4klU
-	O9V4txf4asvuJfD/M2bRYqlgLIOvX2MvmVLDD0HO6E8dj3FoXBBsNUEKSvMHy2I6zyQ/aGPgxBBzR
-	4hIO/7WoqBC9gSka/Z6oVJNHHKEQJRTUDwMth86hPBn9vqKs6+JjnYhOtCFH+8XdjxTfLCmn8BYCs
-	BUSdi3DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=thsWnFdh4n3JhHmMbTZXSIeNEKp9gDnd9mJPsgdDwqw=; b=qnED9MfRHhE4sXjdrki0KOBqO9
+	p1+6Y8KUwkV4pSh0jlvGbs/+MYAUNKE2uCg6EKdRHlUKib+yRNypNkoPOFHjKmJxwEpWtx1e9P+vw
+	jRA3bong0OXxEZcQ00jcW0mTxxvDjeT3XtFlnjjA4sODtpXBqVEcjZ6UV3ZMxOFcVVBoLVdqBHU08
+	PnQkUX3d4wvK4xtmwFS//DlVBb3j7tIBr9i45DRb7TEgsxMGMFpAr6M+d1/rqmpxInecVr2I1MYJU
+	PQs7H39m5jUfX7KQecM/FK65YvaqfVFpe6KXhNw14qlkySVhABVhGVWoI/wEfM6ZOjbz//kF+REE0
+	4NZvNo+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJnqq-0000000Dcuq-3CJG;
-	Thu, 22 Oct 2026 08:08:40 +0000
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
+	id 1xJntk-0000000DdCS-0plh;
+	Thu, 22 Oct 2026 08:11:40 +0000
+Received: from esa5.hc1455-7.c3s2.iphmx.com ([68.232.139.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJnqn-0000000Dcu3-2qy4
+	id 1xJntg-0000000DdB9-0ZL2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Oct 2026 08:08:39 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.phl.internal (Postfix) with ESMTP id 8A6A9EC0096
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 04:08:33 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Thu, 22 Oct 2026 04:08:33 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm1; t=1792656512; x=1792742912; bh=qC
-	WsWZXzlIkVJ1bwg/ctXg0ZlNLI2VEgz60sAmLxP3s=; b=paitTs9qANsKZvIo99
-	GI9ouujB8FAtVpC/h3GDMex8Da/32VmqexeW6krGkzwe5DwZ4CQunnlklSp39gqg
-	eE3a7/KlVTXyop/R0h8QWqSjkOZpsm9vN5f0SMmaQgMtM6627f6mAX1Okljyy5eO
-	PwYkgrcDLi5GKb+rY4/Aa4caX1VOWcSSbzZycpC4QkHBoMkdn1mRzCCS4Y4ugTjT
-	YJTpIEhqMkUKJhIMjPOGi+nW5wK35XSCWPG3zfnqagVdX8RTBoMR0mnOvZauMcBB
-	WB1ajM3bxY+BXTlT0SUxog5zbCyF7ifBQ1/7h70KI7c1Tlqcv0N9pKCt8J7MML4Y
-	CxMA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1792656512; x=1792742912; bh=qCWsWZXzlIkVJ1bwg/ctXg0ZlNLI
-	2VEgz60sAmLxP3s=; b=AEhiFeJ3Ljdbt8HsMUcUNlitKocqLR2Vz8bjVGor3TEn
-	patX7XSlMhaA74/KekMnUQ+gGzK4sxdgLYUQQQQHyzstD0quIzKgRaUGzrtdZfXk
-	kFVkqlS2hc88Bc8Ezom/+N79nfsjby0FHUnzR5QBIzZ0GTkG3ZhELCiLGO+PEE7C
-	BAALepJAfYFlj/tYdqcJgTS0qEE1G45BnuFDX+HHYsvqpeiQlQw76Ft4gYN2TGZa
-	Bvc4wT+mX9D1nhtDEkFN+IghXcsT4iqyCLL3p/wto9kOMLlzUUWPwcAXtVu2nXQG
-	njW3x7guhMgqjqOdel46ZMr7gP4iq8g3WgEe7SA9xQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-07;
-	repo=github.com/dkim2wg/interop; date=2026-10-18; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1792656512; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
-	s=fm1:rsa-sha256:iM7ey/7jldk06Gt2l+HEgN+dPgAIQmZ2DueoIJHZeUSekwt
-	25Zmc6ua4FuIrZNPiO88rRW8UccWmljTLb1/Di5HizqskNml33Kwnx6frMS0l0m7
-	vmo+Hbl7PIknMyWHWLjBNSJOtcdfTOiW0/luL3bGAbSNFyQdGmrQ6bbjNqW+uWnB
-	cFXuEGrDZtYKg5R+aCJEkdGoHyFjCDpJVUll6vRA2haYoQWm8ZhsVjf+3NeJVAMx
-	0A5gUxCzryj0iv3VA+KlKgEgA76UKFdM37HupQxj7L+Tk6pN7TZdqsBJQLC0IP1V
-	k0iMaryzTZ0O4OebQ0GGy8uj2TraLLTqR+O/Ujw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-07;
-	repo=github.com/dkim2wg/interop; date=2026-10-18; sw=lmtpprox;
-	action=mi-m=1; hc=10;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:VBLg5YZtKwSL01YbU5JCaXHeChAmfQl8LIVHi09UDdQ=:036vB2x/PkQq8v8OBqvh3qALNh9htmEL0DcMl4FNkfo=;
-X-ME-Sender: <xms:fsTZamDCCiGL-CaDdP379PxqTvMCDsOd__52AE8awZrXQbWunXKPVw>
-    <xme:fsTZarXWRQiA-eRPcc8A6dt2lNUwncgLSV0tWb0ShOr7WpNPwP8C-GeWRhGSZeL9o
-    gWsogNb3-vXQqYT75r49T7GJu2DWCrqP1YJuJLXsDo01pflzQU65gWj>
-X-ME-Proxy-Cause: dmFkZTFhNJk4VCqz6DYoNlXTSkJrnGFc5admzae8p8EL2R8LQluaUApHOMwtUK97WfxmCO
-    cKgys9XYom4tF6WqSdustQCIWxgJrAetY0hGgGaIoXA7CKM42YJgfuv2EeF1UHPFKscL4m
-    NEZefm4wPilajjgG/Cp4e1Np2mlHUIpmpwBgTRI5lkqXpqKIYoLkVam8vOlgKbLDhaY3JM
-    96qEUHWp3A56ZjLLY36zQ8vNkLIkzBURD09BHMn3b+nO0ZEr8NO/HRXiB86a4OhVFFJLMI
-    SlmwBTGv1HMMTJaQ5yW1KP1niP4TSjGyzYCzJbwn+CXQh8f8CuSYOSQ/tuvUgpuQWDUkfg
-    l1DFpthnVh/KnRmO5qnZ5zlaWt1ehGUuDGrXadK40D+eR4MH5ECSL9S9OxEQvYbRhpbqxb
-    2MPsZ/mS5NWrZG4X6+CHMwvStQQW8sINmLMAibhh2NN2Ab86jnTI0jGaDGrZp7OUCE7RkI
-    lnDBKHpa22ls5xnZ2vp7xpf/0CIlzBeDnLKTs6JgMcLwS1fO7ydLEOPBRnWf71GTF80xWo
-    o4S1UMft8Bx+S/YSIHVMjuVFudUbtvhSw7q8C0um6+lfl8We5o7V0soJRoMyi0Yp1ntfxo
-    kE+THAbIZ8j5rL8hSgVZIqjMf3tSjp8BuD4FyO606jWHEPBCiQTOiDB+KpXQ
-X-ME-Proxy: <xmx:f8TZavuMwy8djJw7D0dDBl1ysndNZpZHnrZVm2jNX9sb6CmY6Gdyug>
-    <xmx:f8TZanVvfcMrQPE4M5DU4QNrRqh58thiCUy1Nu5yL6SdO9AojJiwqw>
-    <xmx:f8TZarElesdIdwjKcYcn-VMwEZrDkFp0vl6KqGfh0gEe4QPipFtbJg>
-    <xmx:f8TZap08rG8GBaM7JAy4lt8_PRxsjgrLPZRA4mzn2NVNJ9fT8R0coQ>
-    <xmx:gMTZaoli7a0deJm3p66BEiXs2gOJoU_MjbjIXj-pWIv0mDx6VaEYXCXA>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 02C6432A0097; Thu, 22 Oct 2026 04:08:30 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 22 Oct 2026 08:11:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1792656696; x=1824192696;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=2R7ReUxr0LJZyOrHIF3pnSnWDPoZuBEmJOs39JEz+kk=;
+  b=bOYSkJ0LSV9MZVhp93Fi0bRUNTvz79oP1lWYhomhoBZj3fb+fwkUVpGJ
+   Z07PSUANvG76CXK2d4tyvTlx+9jC9mE/nN7pyUEJZDqRy+GEK1hnMW2WP
+   FPQz+MJ+UCIDQLh+gq/IotAIPZp1vHiPHVcGaVxWPO3iSMFLHQQtTs8Ry
+   k7EBKxHtU3ol7dUJlzfVXgW0MrX7oBXVbxuCZlfD1eAdFwV94CWx1oXYp
+   Ssfe3dXlsL8xb2avKiBSz6Z1H1iFDZxhV0WNQL/G0eFEWn7icw16lJ+hH
+   Yh61vg8c+FHEmbZErphikV680VjbNlc7SSAX/6ffgGlKTs/D24CfAwCwN
+   w==;
+X-CSE-ConnectionGUID: PfeZipKGQ56ZGpcfBvdIBg==
+X-CSE-MsgGUID: QaIEZ+RlR8Wo0mWLqb+Dhw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11942"; a="257296531"
+X-IronPort-AV: E=Sophos;i="6.27,171,1786978800"; 
+   d="scan'208";a="257296531"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa5.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2026 17:11:30 +0900
+Received: from az2nlsmgm3.fujitsu.com (unknown [10.150.26.205])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 58DE08398
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 08:11:30 +0000 (UTC)
+Received: from az2uksmom4.o.css.fujitsu.com (unknown [10.151.22.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm3.fujitsu.com (Postfix) with ESMTPS id 14F131803202
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 08:11:30 +0000 (UTC)
+Received: from [127.0.1.1] (unknown [10.124.178.20])
+	by az2uksmom4.o.css.fujitsu.com (Postfix) with ESMTP id C2DA1408085;
+	Thu, 22 Oct 2026 08:11:24 +0000 (UTC)
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Date: Thu, 22 Oct 2026 17:11:18 +0900
+Subject: [PATCH v2] KVM: arm64: selftests: Test VNCR translation
+ invalidation
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Date: Thu, 22 Oct 2026 10:06:59 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Message-Id: <6c776ba1-f114-44c3-96ee-938dcd7ac82d@app.fastmail.com>
-Subject: [GIT PULL 0/4] SoC updates for 7.4
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261022-b4-vncr-mapping-test-v2-1-033e63ee055d@fujitsu.com>
+X-B4-Tracking: v=1; b=H4sIACXF2WoC/4WNQQ6CMBBFr0Jm7RhagYgr72FYtGWAIaE0bWk0h
+ LsLeACXL3n//RUCeaYAj2wFT4kDz3YHecnADMr2hNzuDDKXlcilRF1gssbjpJxj22OkEPGmxN3
+ oolaSJOxT56nj95l9NT8Oix7JxKN1GAOHOPvP+ZvE4f25SAIFUq3asmjLvNL07JaRY1iuZp6g2
+ bbtC8vc3qrMAAAA
+X-Change-ID: 20261022-b4-vncr-mapping-test-3a18cb49a2e2
+To: Paolo Bonzini <pbonzini@redhat.com>, 
+ Sean Christopherson <seanjc@google.com>, Shuah Khan <shuah@kernel.org>, 
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+ Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+ Steffen Eiden <seiden@linux.ibm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>
+Cc: linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.linux.dev, Itaru Kitayama <itaru.kitayama@fujitsu.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792656684; l=10261;
+ i=itaru.kitayama@fujitsu.com; s=20260825; h=from:subject:message-id;
+ bh=2R7ReUxr0LJZyOrHIF3pnSnWDPoZuBEmJOs39JEz+kk=;
+ b=Det27zPbheZBaH5/1pCeSRVHqaOa6GUsbVkrsFrcOSe5y2LfwCECrkmcFRLV7WcgAr5lzGP9m
+ 7g0LO5Z0RCmB0oNUxo79UjH0h8qMVb5mNgiymkfoQ2ifKDyOz63Rcah
+X-Developer-Key: i=itaru.kitayama@fujitsu.com; a=ed25519;
+ pk=g9bTnr9giRP7JwNSZHy+OMLQZBEUtSE9tUnXso0hH1Y=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_010838_255527_717DFF94 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261022_011137_798818_1146FB65 
+X-CRM114-Status: GOOD (  21.70  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,128 +109,363 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-At 1252 non-merge changesets, the 7.4 cycle is rather large for the SoC
-tree, and most of that is arm64 devicetree updates, with smaller changes
-for riscv, 32-bit arm and drivers than the last few times. In both
-drivers and devicetree updates, Qualcomm has by far the most contributions
-including two new SoCs and 22 of the 81 new boards, followed by NXP
-with 19 new machines.
-Other new SoCs include the Apple M4/A18pro and Google Tensor 5.
+Add a standalone KVM selftest that checks VNCR accesses after L1
+updates its stage-1 mapping and issues a TLBI.
 
-There are a couple of trivial conflicts between the soc/dt and
-soc/drivers branch from a driver that ended up getting merged along
-with the DT changes, and from defconfig changes in a previous bugfix
-branch.
+Keep VNCR_EL2 unchanged while remapping its backing page A to B then
+again to A. At each step, L2 reads and writes TPIDR_EL2, and L1
+verifies that the accesses reach the selected page while leaving the
+other page unchanged.
 
-I had originally planned to include a larger update[1] for 32-bit Arm
-to remove most of the remaining legacy board files that were recently
-deprecated. As the idea was to still have them in the LTS kernel and
-there was some confusion whether that would be 7.3 or 7.4, we ended
-up deferring that branch to 7.5, and the associated drivers likely
-won't be dropped until 7.6.
+The test runs with L1-managed stage-2 translation disabled.
 
-The contributions came from 309 individual developers, the most common
-ones being the usual names:
+Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+---
+Changes in v2:
+- Fix inverted page-frame and page-offset masks when mapping
+  the page-table descriptor, as reported by sashiko-bot
+- Link to v1: https://patch.msgid.link/20261022-b4-vncr-mapping-test-v1-1-e9ad54d506be@fujitsu.com
+---
+ tools/testing/selftests/kvm/Makefile.kvm           |   1 +
+ .../selftests/kvm/arm64/nv_vncr_tlbi_test.c        | 303 +++++++++++++++++++++
+ 2 files changed, 304 insertions(+)
 
-     49 Marek Vasut
-     43 Krzysztof Kozlowski
-     40 Abel Vesa
-     36 Krishna Chaitanya Chundru
-     31 Thierry Reding
-     29 Francesco Dolcini
-     21 Lad Prabhakar
-     21 Frank Li
-     19 Svyatoslav Ryhel
-     19 Judith Mendez
-     18 Dario Binacchi
-     17 Chancel Liu
-     16 Janne Grunau
-     15 Yureka Lilian
-     15 Luca Weiss
-     14 Mukesh Ojha
-     13 Peng Fan
-     12 Taniya Das
-     12 Joachim Eastwood
-     12 Geert Uytterhoeven
-     12 Chuan Liu
-     11 Linus Walleij
-     11 Konrad Dybcio
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index f43549a56f0b..9f0af6ef54ba 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -181,6 +181,7 @@ TEST_GEN_PROGS_arm64 += arm64/host_sve
+ TEST_GEN_PROGS_arm64 += arm64/hypercalls
+ TEST_GEN_PROGS_arm64 += arm64/external_aborts
+ TEST_GEN_PROGS_arm64 += arm64/mmio_sign_ext
++TEST_GEN_PROGS_arm64 += arm64/nv_vncr_tlbi_test
+ TEST_GEN_PROGS_arm64 += arm64/page_fault_test
+ TEST_GEN_PROGS_arm64 += arm64/psci_test
+ TEST_GEN_PROGS_arm64 += arm64/sea_to_user
+diff --git a/tools/testing/selftests/kvm/arm64/nv_vncr_tlbi_test.c b/tools/testing/selftests/kvm/arm64/nv_vncr_tlbi_test.c
+new file mode 100644
+index 000000000000..283e03bb007b
+--- /dev/null
++++ b/tools/testing/selftests/kvm/arm64/nv_vncr_tlbi_test.c
+@@ -0,0 +1,303 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Check VNCR translation invalidation through observable memory effects.
++ *
++ * L1 keeps VNCR_EL2 unchanged while remapping its virtual address:
++ *
++ *     VNCR VA -> page A -> page B -> page A
++ *
++ * L2 reads and writes TPIDR_EL2 with HCR_EL2.{NV2,NV} == {1,1}.
++ * These accesses use the TPIDR_EL2 slot at VNCR offset 0x090.
++ *
++ * After each L2 HVC, L1 checks:
++ *   - the value returned by the redirected register read;
++ *   - the value written to the selected backing page;
++ *   - that the other backing page remains unchanged.
++ *
++ * No L3 and no L1-managed stage-2 translation are needed.
++ */
++
++#include "kvm_util.h"
++#include "processor.h"
++#include "test_util.h"
++#include "ucall_common.h"
++
++#define VNCR_TPIDR_OFFSET	0x090
++
++#define SEED_A			0x1111222233334444ULL
++#define SEED_B			0x5555666677778888ULL
++#define WRITE_A			0xaaaabbbbccccddddULL
++#define WRITE_B			0x123456789abcdef0ULL
++#define WRITE_A_AGAIN		0xfedcba9876543210ULL
++
++#define L1_HCR			(HCR_EL2_RW | HCR_EL2_E2H | \
++				 HCR_EL2_NV | HCR_EL2_NV2)
++#define L2_PSTATE		(PSR_MODE_EL1h | PSR_D_BIT | PSR_A_BIT | \
++				 PSR_I_BIT | PSR_F_BIT)
++
++static struct test_config {
++	u64 vncr_va;
++	u64 *vncr_ptep;
++	u64 pte_a;
++	u64 pte_b;
++	u64 *slot_a;
++	u64 *slot_b;
++	u64 l2_sp;
++} cfg;
++
++static unsigned int round_nr;
++
++extern void l2_probe(void);
++extern char l2_after_hvc[];
++
++/*
++ * x1: value to write.
++ * x0: value read, observed by L1's HVC handler.
++ *
++ * No stack accesses or C calls in L2.
++ * Use the SMCCC convention of a zero HVC immediate.
++ */
++asm(
++".pushsection .text,\"ax\"\n"
++".balign 4\n"
++".global l2_probe\n"
++".type l2_probe, %function\n"
++"l2_probe:\n"
++"	mrs	x0, tpidr_el2\n"
++"	msr	tpidr_el2, x1\n"
++"	dsb	ish\n"
++"	hvc	#0\n"
++".global l2_after_hvc\n"
++"l2_after_hvc:\n"
++"	brk	#0\n"
++".size l2_probe, . - l2_probe\n"
++".popsection\n"
++);
++
++static void remap_vncr(u64 new_pte)
++{
++	u64 hcr = read_sysreg(hcr_el2);
++	u64 operand = cfg.vncr_va >> 12;
++
++	/*
++	 * Use the VHE host translation regime for the EL1 TLBI
++	 * instruction: HCR_EL2.{E2H,TGE} == {1,1}.
++	 */
++	write_sysreg(hcr | HCR_EL2_TGE, hcr_el2);
++	isb();
++
++	/* Break before make. VNCR_EL2 itself is never rewritten. */
++	WRITE_ONCE(*cfg.vncr_ptep, 0);
++	dsb(ishst);
++
++	asm volatile("tlbi vaae1is, %0" : : "r" (operand) : "memory");
++	dsb(ish);
++	isb();
++
++	WRITE_ONCE(*cfg.vncr_ptep, new_pte);
++	dsb(ishst);
++	isb();
++
++	/* Permit return to L2 at EL1. */
++	write_sysreg(hcr, hcr_el2);
++	isb();
++}
++
++static void handle_l2_hvc(struct ex_regs *regs)
++{
++	u64 esr = read_sysreg(esr_el1);
++
++	GUEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_HVC64);
++	GUEST_ASSERT_EQ(esr & 0xffff, 0x0);
++	GUEST_ASSERT_EQ(regs->pc, (u64)l2_after_hvc);
++	GUEST_ASSERT_EQ(read_sysreg_s(SYS_VNCR_EL2), cfg.vncr_va);
++
++	dsb(ish);
++
++	switch (round_nr) {
++	case 0:
++		/* Warmed translation: VNCR VA -> A. */
++		GUEST_ASSERT_EQ(regs->regs[0], SEED_A);
++		GUEST_ASSERT_EQ(READ_ONCE(*cfg.slot_a), WRITE_A);
++		GUEST_ASSERT_EQ(READ_ONCE(*cfg.slot_b), SEED_B);
++
++		remap_vncr(cfg.pte_b);
++		regs->regs[1] = WRITE_B;
++		break;
++
++	case 1:
++		/* Following TLBI, reads and writes must now use B. */
++		GUEST_ASSERT_EQ(regs->regs[0], SEED_B);
++		GUEST_ASSERT_EQ(READ_ONCE(*cfg.slot_b), WRITE_B);
++		GUEST_ASSERT_EQ(READ_ONCE(*cfg.slot_a), WRITE_A);
++
++		remap_vncr(cfg.pte_a);
++		regs->regs[1] = WRITE_A_AGAIN;
++		break;
++
++	case 2:
++		/* Check invalidation again, with the mapping reversed. */
++		GUEST_ASSERT_EQ(regs->regs[0], WRITE_A);
++		GUEST_ASSERT_EQ(READ_ONCE(*cfg.slot_a), WRITE_A_AGAIN);
++		GUEST_ASSERT_EQ(READ_ONCE(*cfg.slot_b), WRITE_B);
++
++		GUEST_DONE();
++	default:
++		GUEST_FAIL("Unexpected round %u", round_nr);
++		return;
++	}
++
++	round_nr++;
++	regs->pc = (u64)l2_probe;
++	regs->pstate = L2_PSTATE;
++}
++
++static void guest_code(void)
++{
++	GUEST_ASSERT_EQ(get_current_el(), 2);
++	GUEST_ASSERT(read_sysreg(hcr_el2) & HCR_EL2_E2H);
++
++	/*
++	 * With E2H=1, these EL1 accessors read L1's own configuration.
++	 * EL12 accessors configure the EL1 context used to execute L2.
++	 */
++	write_sysreg_s(read_sysreg(tcr_el1), SYS_TCR_EL12);
++	write_sysreg_s(read_sysreg(ttbr0_el1), SYS_TTBR0_EL12);
++	write_sysreg_s(read_sysreg(mair_el1), SYS_MAIR_EL12);
++	write_sysreg_s(read_sysreg(cpacr_el1), SYS_CPACR_EL12);
++	write_sysreg_s(read_sysreg(vbar_el1), SYS_VBAR_EL12);
++	write_sysreg_s(read_sysreg(sctlr_el1), SYS_SCTLR_EL12);
++	write_sysreg(cfg.l2_sp, sp_el1);
++	isb();
++
++	/*
++	 * These aliases remain mapped throughout the test. They allow
++	 * inspection of both backing pages independently of VNCR VA.
++	 */
++	WRITE_ONCE(*cfg.slot_a, SEED_A);
++	WRITE_ONCE(*cfg.slot_b, SEED_B);
++	dsb(ish);
++
++	/* Program the VNCR address exactly once. */
++	write_sysreg_s(cfg.vncr_va, SYS_VNCR_EL2);
++
++	/* VM=0, TGE=0; enable nested register redirection for L2. */
++	write_sysreg(L1_HCR, hcr_el2);
++	isb();
++
++	GUEST_ASSERT_EQ(read_sysreg(hcr_el2) &
++			(HCR_EL2_NV | HCR_EL2_NV2),
++			HCR_EL2_NV | HCR_EL2_NV2);
++	GUEST_ASSERT(!(read_sysreg(hcr_el2) & HCR_EL2_VM));
++
++	write_sysreg((u64)l2_probe, elr_el2);
++	write_sysreg(L2_PSTATE, spsr_el2);
++	isb();
++
++	asm volatile(
++		"mov x1, %0\n"
++		"eret\n"
++		:
++		: "r" (WRITE_A)
++		: "x1", "memory");
++
++	__builtin_unreachable();
++}
++
++/* Add a guest virtual alias for an existing guest physical page. */
++static u64 map_alias(struct kvm_vm *vm, u64 gpa)
++{
++	u64 va = vm_unused_gva_gap(vm, vm->page_size,
++				  KVM_UTIL_MIN_VADDR);
++
++	virt_map(vm, va, gpa, 1);
++	return va;
++}
++
++static void prepare_memory(struct kvm_vm *vm)
++{
++	u64 a = vm_alloc_page(vm);
++	u64 b = vm_alloc_page(vm);
++	u64 page_offset_mask = (u64)vm->page_size - 1;
++	u64 stack = vm_alloc_pages(vm, DEFAULT_STACK_PGS);
++	u64 ptep_gpa, ptep_alias;
++	u64 *ptep;
++
++	cfg.slot_a = (u64 *)(a + VNCR_TPIDR_OFFSET);
++	cfg.slot_b = (u64 *)(b + VNCR_TPIDR_OFFSET);
++	cfg.l2_sp = stack + DEFAULT_STACK_PGS * vm->page_size;
++
++	/* Initially, the separate VNCR virtual address maps page A. */
++	cfg.vncr_va = map_alias(vm, addr_gva2gpa(vm, a));
++
++	ptep = virt_get_pte_hva(vm, cfg.vncr_va);
++	cfg.pte_a = *ptep;
++	cfg.pte_b = *virt_get_pte_hva(vm, b);
++
++	TEST_ASSERT(cfg.pte_a != cfg.pte_b,
++		    "Backing pages must have different descriptors");
++	TEST_ASSERT((cfg.pte_a & (PTE_VALID | PTE_TYPE_PAGE)) ==
++		    (PTE_VALID | PTE_TYPE_PAGE),
++		    "VNCR mapping must use a leaf page descriptor");
++
++	/*
++	 * Map the page containing the descriptor into L1, so L1 can
++	 * perform its own page-table update and architectural TLBI.
++	 */
++	ptep_gpa = addr_hva2gpa(vm, ptep);
++	ptep_alias = map_alias(vm, ptep_gpa & ~page_offset_mask);
++	cfg.vncr_ptep = (u64 *)(ptep_alias + (ptep_gpa & page_offset_mask));
++
++	sync_global_to_guest(vm, cfg);
++}
++
++int main(void)
++{
++	struct kvm_vm *vm;
++	struct kvm_vcpu *vcpu;
++	struct ucall uc;
++	u64 mmfr4, cmd;
++
++	TEST_REQUIRE(test_supports_el2());
++
++	vm = __vm_create_with_one_vcpu(&vcpu, 32, guest_code);
++	TEST_REQUIRE(vcpu_has_el2(vcpu));
++
++	/*
++	 * Target KVM's exposed NV2-only-or-later nested capability.
++	 * Merely having a virtual EL2 is insufficient for this test.
++	 */
++	mmfr4 = vcpu_get_reg(vcpu,
++			    KVM_ARM64_SYS_REG(SYS_ID_AA64MMFR4_EL1));
++	TEST_REQUIRE(FIELD_GET(ID_AA64MMFR4_EL1_NV_frac, mmfr4) >=
++		     ID_AA64MMFR4_EL1_NV_frac_NV2_ONLY);
++
++	vm_init_descriptor_tables(vm);
++	vcpu_init_descriptor_tables(vcpu);
++	vm_install_sync_handler(vm, VECTOR_SYNC_LOWER_64,
++				ESR_ELx_EC_HVC64, handle_l2_hvc);
++
++	prepare_memory(vm);
++
++	for (;;) {
++		vcpu_run(vcpu);
++		cmd = get_ucall(vcpu, &uc);
++
++		switch (cmd) {
++		case UCALL_PRINTF:
++			REPORT_GUEST_PRINTF(uc);
++			break;
++		case UCALL_ABORT:
++			REPORT_GUEST_ASSERT(uc);
++			break;
++		case UCALL_DONE:
++			pr_info("PASS: VNCR accesses followed A -> B -> A mappings; "
++		"inactive backing slots remained unchanged\n");
++			kvm_vm_free(vm);
++			return 0;
++		default:
++			TEST_FAIL("Unexpected ucall %lu, KVM exit reason %u",
++				  cmd, vcpu->run->exit_reason);
++		}
++	}
++}
 
-The dirstat is:
+---
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+change-id: 20261022-b4-vncr-mapping-test-3a18cb49a2e2
 
-   0.4% Documentation/devicetree/bindings/arm/
-   0.7% Documentation/devicetree/bindings/clock/
-   0.1% Documentation/devicetree/bindings/input/
-   0.1% Documentation/devicetree/bindings/power/
-   0.1% Documentation/devicetree/bindings/soc/starfive/
-   0.1% Documentation/devicetree/bindings/soc/
-   0.2% Documentation/devicetree/bindings/
-   0.1% arch/arm/boot/dts/marvell/
-   2.7% arch/arm/boot/dts/nvidia/
-   2.1% arch/arm/boot/dts/nxp/imx/
-   0.2% arch/arm/boot/dts/nxp/vf/
-   0.1% arch/arm/boot/dts/qcom/
-   0.1% arch/arm/boot/dts/renesas/
-   0.8% arch/arm/boot/dts/st/
-   0.1% arch/arm/boot/dts/ti/omap/
-   0.1% arch/arm/boot/dts/
-   0.1% arch/arm/mach-omap2/
-   0.3% arch/arm/mach-s3c/
-   0.5% arch/arm/
-   0.1% arch/arm64/boot/dts/allwinner/
-   0.1% arch/arm64/boot/dts/amlogic/
-   3.1% arch/arm64/boot/dts/apple/
-   0.2% arch/arm64/boot/dts/broadcom/
-   0.2% arch/arm64/boot/dts/exynos/
-  12.1% arch/arm64/boot/dts/freescale/
-   0.3% arch/arm64/boot/dts/google/
-   0.1% arch/arm64/boot/dts/marvell/
-   0.1% arch/arm64/boot/dts/mediatek/
-   1.0% arch/arm64/boot/dts/nuvoton/
-   3.9% arch/arm64/boot/dts/nvidia/
-  41.0% arch/arm64/boot/dts/qcom/
-   5.8% arch/arm64/boot/dts/renesas/
-   5.7% arch/arm64/boot/dts/rockchip/
-   2.5% arch/arm64/boot/dts/st/
-   0.3% arch/arm64/boot/dts/tesla/
-   1.5% arch/arm64/boot/dts/ti/
-   0.1% arch/arm64/configs/
-   0.5% arch/riscv/boot/dts/spacemit/
-   0.2% arch/riscv/boot/dts/starfive/
-   0.2% arch/riscv/boot/dts/thead/
-   0.1% arch/
-   0.9% drivers/firmware/arm_scmi/transports/
-   0.8% drivers/firmware/arm_scmi/
-   0.2% drivers/firmware/qcom/
-   0.1% drivers/firmware/xilinx/
-   0.2% drivers/input/keyboard/
-   0.5% drivers/memory/tegra/
-   0.2% drivers/memory/
-   1.2% drivers/soc/amlogic/
-   0.1% drivers/soc/apple/
-   0.1% drivers/soc/fsl/qe/
-   0.2% drivers/soc/mediatek/
-   0.7% drivers/soc/qcom/
-   0.1% drivers/soc/renesas/
-   0.1% drivers/soc/samsung/
-   0.1% drivers/soc/starfive/socinfo/
-   0.3% drivers/soc/tegra/fuse/
-   0.1% drivers/soc/tegra/
-   0.2% drivers/
-   1.8% include/dt-bindings/clock/
-   0.3% include/dt-bindings/reset/
-   0.2% include/linux/
-   0.1% include/
- 1235 files changed, 95202 insertions(+), 11056 deletions(-)
+Best regards,
+--  
+Itaru Kitayama <itaru.kitayama@fujitsu.com>
 
-       Arnd
-
-[1] https://lore.kernel.org/lkml/2afd5f78-0174-4955-8c1b-be18aea3800b@app.fastmail.com/
 
