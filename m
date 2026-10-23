@@ -2,109 +2,150 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 473CF606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 08:05:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E7AB606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 08:07:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JFFOXvZP;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QGB6SWuA
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tHB0O6js;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=U4UQBO7O;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=aPFd+fO0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=We23a8YmV1MydTQVOVcqW5epbVH/tjYZRWEjKwty+fM=; b=JFFOXvZPBo+kUcH9yT2SLe5qN/
-	RhcaSLJt96fQfWwuIpG6h18oJ5198nU83QgvKADWAGRQ071uHOtlV/cp6w1yiAiJ2yL2DBV9kMgUg
-	a/KTSam9LaTuewL0OLMQirBkoGg4loxSp1QiUy1FxfdH/ZKQTC6PLlRHdy5atwSS24J8P8wJDzjNH
-	bl3NnHnhCiaK3rso0/To2k6UwnDb0tjQwQY3rFnLgEa6kXT+RRy32o2tdes06eD6rq93ANEtRfQgi
-	KeVBmlasWlD7mc+JxMLMzJHuHLnnOMixajRKCJ2w0BdHVtMpPFuFPhyLPVC97Jh68wGSBQIXF8e1n
-	LuGLTMQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=WkRK8y3p+giH1Dz66bRMZzeRiuELQ+JWzWO1dmY60cA=; b=tHB0O6js78adN8
+	wj843MUnF0OzHYblsR8vr+SCXJPzcw+8L6LRWp2pZsMuqIh70tNUIlLJWFgDj3vgQgZcFE/baZPNX
+	ogGAhgTp/FZrfOPH+Jk3jR+mOn5/hNHF5M7TEMttCDsJcp5dvQzMY7CugAZTabvzLAi4qQclf/QGh
+	4PBR4jgSr/c2Vl52QmNeSvOC6/nDY1+IAGPVPfq3NrJ/FYE1nsSfsb0d6aYIcEul5qWC1Z6LPkbtO
+	vQ/PQoiJWlTBB0GCYLT+b9AF8w4Hk217JHYbsULdPwznzwYpPk2wEU7i0xWu/YdTAUKkhZDOQdFiU
+	7bOB1VcxKh7E6DWg9PPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKAHL-0000000FrlY-1Bo4;
-	Fri, 23 Oct 2026 08:05:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xKAIN-0000000FsD0-0BVZ;
+	Fri, 23 Oct 2026 08:06:35 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKAHJ-0000000FrkU-22Na
+	id 1xKAIJ-0000000FsB3-1Mfq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 08:05:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9620E602CC;
-	Fri, 23 Oct 2026 08:05:28 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792742728;
-	b=gMXJA8mkimIiyQlQeTVw0ROx5LVm+XKrMmmefdGxSn7QkruadJUME6p2s/BzkQy7V/jJ
-	 nYyGkBXl5kEVh//8rTYc6XEuPdU91+u2NSKqZaACQ5U2UYvDftF/xX8Gzd+/+m8dQBkw2
-	 uO96w+Hni/8aZlBd2IFy8dmvpdu83k7RiT54w56mp47HfT8+SqnreGH/9kX0hR72AWvhN
-	 Qb1onsN9YEyLHTJ/GdEwtr6gLtuU/4jGNFlyfHYcTvHa+csh73h5CZbty3Zb2XyNo3I6V
-	 6qcoES95gwSLBNr3t2SX6qIRc8NfA93EWWMon6kWh6dsVXLTzUFqy9RVqGaUE/3u8HA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792742728;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=We23a8YmV1MydTQVOVcqW5epbVH/tjYZRWEjKwty+fM=;
-	b=V/GeItG80FoTyn+xXvb2SZCwxvM02v6jVogLvRCKZmA8pPr6s1ByGMYmwGR7dbQIThd0
-	 9G0k1cvRWxj/tMGYDYpTgs5SVs0UwroAyH3Sjil/wkx1N4Vhdrp1ZAbMt1xC+Cl07zklU
-	 n4N5AsVXLUX1o2E7loxsakm4Q1FVf+C58x7uNja0jgUW5DgKkdMclue0YrgvslES/WMVC
-	 +0TgZabe08hcvkcpxS3M8K3BTQAbr5cTcwIlzrx3fGhHH8pSeadH34/d0iyoXDq9sPJO7
-	 Sy2CCaa7ng96Xzg6JHh2wH1rL7tXBkN0g5QsATytMODDyEfpv2Tmb8pdUc/CFoktsXg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 892AC1F01829;
-	Fri, 23 Oct 2026 08:05:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792742728;
-	bh=We23a8YmV1MydTQVOVcqW5epbVH/tjYZRWEjKwty+fM=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=QGB6SWuA+f/m7Aa9vJN4SrijDRuss5lLsUXtl7iR7KlESLa1CDandkgh1/HA6D6MQ
-	 e9NTZJIfBgyuu1ejFLCnKi2LRwTP3l+TIN+u62q1V6d4MgKZreqTADCiQOZxdSL0M7
-	 ORmSaf/4RXSycmd0MfGwDr2NpfQe4ySp5HPqwJekCO1G1H9mUCZ4eeGHSqEkBMjDVH
-	 UudBVuSPpmkmkjQczZCH1yiSFOtmtxWtWGX+i5dRCxV1VxtcnWLnGPdqzuszJsDvpu
-	 MxNBcZcs9os/sVMVOORwmRsu8oJcAmRAMrnrRERfREQ8VYZu7HjEhfZ5vyz6UJswC8
-	 h9HLHJMvvXmSQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 182F04440C;
-	Fri, 23 Oct 2026 08:05:27 +0000 (UTC)
-From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
-Date: Fri, 23 Oct 2026 10:05:15 +0200
-Subject: [PATCH RESEND v2] i2c: imx: add I2C_M_REV_DIR_ADDR and
- I2C_M_NOSTART
+	Fri, 23 Oct 2026 08:06:32 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69N7F88Z2112107
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 08:06:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	WkRK8y3p+giH1Dz66bRMZzeRiuELQ+JWzWO1dmY60cA=; b=U4UQBO7OvfeVT+v0
+	++oqPsbyXmrsA7tzlP+uwizroGuKX8cWnNIN1LH0ZJpnDSJ8y88P9EfEQH0Fzxpm
+	feBGBzmS4CiQBc1uQCcypry671AEWQ1hKDf+72l3GmdvwMcUC3+CrUV20tfRjkUh
+	gWd8QlybeNXQWyHBckO1C7+0hLRQ1djNec1SosahkPj1T4zG0hIlMXvOa3ZEgIGH
+	nxlFr8Z0mf/WMpYgyVjRNygIpgBioctlRvXTnY7FpkpnLtV1PcbEkDpfKriXj/N+
+	SWa9xsmn9H7fxFsEt0vawjeSWyj7W4D5jbCaCbukP5ddVBOx4rBx4ki7LSBdZFx9
+	Pm2hWQ==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hfsyka2y2-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 08:06:30 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93ea6b66e53so9893185a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 01:06:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1792742790; x=1793347590; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WkRK8y3p+giH1Dz66bRMZzeRiuELQ+JWzWO1dmY60cA=;
+        b=aPFd+fO0aOUxCACcLcC0Mn2mg+IFIWSYOFIEQmFTZpOdlO06SsUiS2fOfWE0woLoKA
+         CThwT8Mbo11I7miEPisnHUEQzmr49vWu+4t0INyXSAiwr0x8rCm/LYTVBixdgbv2NSSc
+         9Qv7+AaZ0ogODYvgQr3Nsbzlt8ITnXYjdN49hjxlIUdrqhd8hZrVgc/QegmHcXudrw1S
+         4V1y1U7eEjzwmSc3nH8kqPm281oWrzUk8Ty4nsu+vhBGfeDQlJ4w2TlT8slPZBg6xRcX
+         Kc5gfCOVRebBSLsnDf9um3A91OLn4VqKUqsHM/psVUvQD8vvyGcadIp+HKvYoLUl/twt
+         Y68A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792742790; x=1793347590;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=WkRK8y3p+giH1Dz66bRMZzeRiuELQ+JWzWO1dmY60cA=;
+        b=YeZxB5mFZ5xWX0dSEfu1568fBgE/P4uEIvxuAw3VsKWkTZ44KG0cV/DbGofRdmUSFI
+         YwkW5/ZFqWUQ/PzwwkMFjQpHmvIMfj/0PtxZq/SaWasFQyM3EdVCHp2ouHEY3+d/8WY3
+         ytv4NSBDtpo/nJTN9yQ0387LncVsogWNhjOCfhEuAT5GQScI8og9mEm39THyx6YkxN61
+         3MIrwl6qo9CP9Ma43O97qnwqseAFsppSqngItsOMXzfqge80fbw8BFDtyPjwDs5sDGio
+         1nswIN4uOvBsYGSwbkyJ/XqJgLRWkVQD4scOZyze2pigzFdPlyV3D/7zWwSdKC4yj0XY
+         h6zA==
+X-Gm-Message-State: AFq9FYKpk3B7mZNCAmsVSWiyOfYfeYIi3gEPdJ/lb9aeHIvv8OMT1RJU
+	Mop/Y3yMNJSpARL85lxnq6lTL48F2QEsjdq0xvR9PfhAsOzXrlqkeQ8ry9br5dsGPukHrQBCxWa
+	wvPBcBxUaDRxBICWg7w94qP4jsZMwILsQa4pj7f9nSnENQyikJS2sxobKlPp4Kj4af+HNtgx2YE
+	Fxlw==
+X-Gm-Gg: AYBFou3kBf0O8Pz92Oi4oKINns4bTon4w6bip1wEKNLGOmF7HasU9K/F8jcjPEiyZrb
+	oHQd8/LK1+FQfekY9Kd+VsT3ZtHtzatsRKVkaq9+YN8EqckzCE0uWmKa8rtGPF1QpNDUctF0nLD
+	NU2z4WkPEdNliE2Ur/0RD3XTOUyLQljN4eG+eDZu1MNrcKy4CbR33KCqs4UEt+Q4PbMrYAizjXq
+	BdoTCfXAXmBvuBmYer2ovkXBD5JcKOpYWIHQdak8m7/HCqeaEpAF0DUTZ+cLp0zeMhgORcll0rV
+	0GtGA7xm5nA8jUBKqnAXWtv/Cn7u92Oy78PhqisHOJdIcq/x0CZ6S8imO9FueuOVAo3Og44C3XE
+	E8J4rmTR8ijd3847DQovsLA==
+X-Received: by 2002:a05:620a:7313:10b0:939:8148:1e3d with SMTP id af79cd13be357-93f6f7f3e78mr296824185a.2.1792742789586;
+        Fri, 23 Oct 2026 01:06:29 -0700 (PDT)
+X-Received: by 2002:a05:620a:7313:10b0:939:8148:1e3d with SMTP id af79cd13be357-93f6f7f3e78mr296819785a.2.1792742788961;
+        Fri, 23 Oct 2026 01:06:28 -0700 (PDT)
+Received: from [192.168.226.26] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c46a5c4d54dsm73770766b.24.2026.10.23.01.06.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 23 Oct 2026 01:06:27 -0700 (PDT)
+Message-ID: <f3c13144-660d-49f6-9933-9d9cead006ee@oss.qualcomm.com>
+Date: Fri, 23 Oct 2026 10:06:25 +0200
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261023-for-upstream-i2c-imx-lx2160-reverse-v2-1-03afae754886@free.fr>
-X-B4-Tracking: v=1; b=H4sIADoV22oC/5XNMQ+CMBCG4b9iOnumd0IBJwddHXQ0DlCv2kTFX
- JFgCP/dyqKjjt9d8ry9Ciyeg1pMeiXc+uDrWxw0nSh7Lm8nBn+MW5Emo3OdgasFHvfQCJdX8GT
- BXzu4dIRGQwRYAkNWFklVpAYxz1WU7sLOd2Nlr7br3XqzUod4P/vQ1PIc4y2O3786LQKCo8xYz
- m1ljF46YZ45GfWWvkSk30R6izhP5hkmNi2LjzgMwwvyGOJULgEAAA==
-To: Oleksij Rempel <o.rempel@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Andi Shyti <andi.shyti@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-Cc: linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Carlos Song <carlos.song@nxp.com>, Haobin Jiang <lemonoutput@foxmail.com>, 
- Vincent Jardin <vjardin@free.fr>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792742726; l=11255;
- i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
- bh=WiWfwJ6/hA56r4jsG0++u+NW6uZ/JjT3AlfhiASLboY=;
- b=nG6AqkL29THn9RuOUVPetlCnVX8fKnK6GM6H+zBVQaCymdlXjyJ6u8b7hdh0QQs8YpBIxI7nv
- 9V3/EuC2gW1CiPwSCWelc6PdFGVV4jCICRCKb5BBDkImDg8tIfn/5iS
-X-Developer-Key: i=vjardin@free.fr; a=ed25519;
- pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
-X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
- auth_id=871
-X-Original-From: Vincent Jardin <vjardin@free.fr>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] iommu/arm-smmu-qcom: Skip PRR setup on SM7250 GPU
+ SMMU
+To: patches@brar.si, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org
+References: <20261023-smmu-sm7250-v2-0-8bb881ce19f5@brar.si>
+ <20261023-smmu-sm7250-v2-2-8bb881ce19f5@brar.si>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261023-smmu-sm7250-v2-2-8bb881ce19f5@brar.si>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIzMDAzMiBTYWx0ZWRfX4rQ+m8bEjiQ/
+ da2klie++7OYuXd9I13juUA/f8DiRH3cEs7WiqzLsZbPK5WZBepuUlD3y/C8fuNoN1o/Sq4S6wJ
+ fwntsZ4OMCBPlgCEqaaof8Hec/McSEFPKOyw4cKKvgPAQFgA8eWL98gG+3BwF76HUESGTo8wTAv
+ sKpU4L8lP8PqOTJWe2iHpvqNIrefXd/3P1KF0S3QRknXPGmlhixrI6623X+shhwUUPAXJx5cayJ
+ ebCVz1sIXiapwO1ZqaOuQY8CTqqvXBzudWgcQOF2hgdKMCT93pUdr6WsysiYWbFEzGI0IF6qAay
+ cyo4plPuZND5gGyzTLnVF7hFwcyQ58Aj+KiETVBtifJbP/Pf8XCO4xPZhCEwiaJ0MQnzax4Txvk
+ tRLiDA6XZ9S0UgnqxLGYQhVXbFBQp0tZFyJ1NmY4S586BFxPcCATD5zoJEo3gsZkOXrXu6B7Tow
+ SPRd3+rro0D8BniWCxg==
+X-Proofpoint-ORIG-GUID: WKWX-9cjDUG-RJi4K6Q_wICHX8SugojO
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIzMDAzMiBTYWx0ZWRfXxooo3dt9lU0v
+ t3KVwCB0xJoLj0mvSTxafgiAT2CsGzJ2jCFQcdTyQbcSwl51ojo7UephGQXQ7bUX0Kl9ow3COvg
+ q6bRZUw/CujxbMaGh/RHae/qqV+Pg5g=
+X-Proofpoint-GUID: WKWX-9cjDUG-RJi4K6Q_wICHX8SugojO
+X-Authority-Analysis: v=2.4 cv=GLKdgeNK c=1 sm=1 tr=0 ts=6adb1586 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=U7Z_fe4AFx8LFHQn5dUA:9 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-23_02,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 bulkscore=0 spamscore=0 lowpriorityscore=0
+ clxscore=1015 priorityscore=1501 suspectscore=0 malwarescore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610230032
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261023_010631_383302_EFBE4298 
+X-CRM114-Status: GOOD (  11.60  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,339 +155,29 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: vjardin@free.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Vincent Jardin <vjardin@free.fr>
+On 10/23/26 9:54 AM, Ishu Brar via B4 Relay wrote:
+> From: Ishu Brar <patches@brar.si>
+> 
+> As on SM8250, the firmware on SM7250 resets the device when the Adreno
+> SMMU PRR registers are written. This happened as soon as the first
+> per-process GPU pagetable was created. Do not install the PRR
+> callbacks for the SM7250 GPU SMMU either.
+> 
+> Tested on a OnePlus Nord (SM7250) with Vulkan.
+> 
+> Signed-off-by: Ishu Brar <patches@brar.si>
+> ---
 
-The Realtek RTL8366SE SMI read frame per:
+Acked-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-  S Addr Rd [A] reg[7:0] [A] reg[15:8] [A] [data[7:0]] A [data[15:8]] NA P
-
-Linux support it using I2C_M_REV_DIR_ADDR on a write message
-that inverts the transmitted R/W bit, and I2C_M_NOSTART on the following
-read message that continues the frame without re-addressing.
-
-This NXP i2c-imx is missing such support, so on an LX2160A the Realtek switch
-could not be used.
-
-Acked-by: Carlos Song <carlos.song@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Vincent Jardin <vjardin@free.fr>
----
-Follow the logics from i2c-algo-bit and i2c-s3c2410 (addr ^= 1).
-
-Documentation/i2c/i2c-protocol.rst says I2C_M_NOSTART "may also be used
-between direction changes by some rare devices"; the RTL8366SE is one of
-such device !
-
-- The NOSTART read turns the bus around without waiting for a completion,
-  because the controller stretches SCL after the previous byte and the
-  frame is therefore still open. That is what lets i2c_imx_read() enter
-  the state the ISR would otherwise have moved to.
-
-- I2C_FUNC_PROTOCOL_MANGLING also covers I2C_M_IGNORE_NAK,
-  I2C_M_NO_RD_ACK and I2C_M_STOP, which this driver does not implement.
-  They are rejected with -EOPNOTSUPP rather than advertised and silently
-  ignored. I2C_M_NOSTART on the first message is rejected as well.
----
-RESEND:
-- No change since v2 of 2026-08-12, only added:
-  Acked-by from Carlos Song and Reviewed-by from Frank Li
-- Resent as a new thread
-- Haobin Jiang's "i2c: imx: honour I2C_M_IGNORE_NAK" v3 is built on top of it:
-  https://lore.kernel.org/r/tencent_342A87BFCECA70C9982E68A79AAD878B6909@qq.com
-- Link to v2: https://lore.kernel.org/r/20260812-for-upstream-i2c-imx-lx2160-reverse-v2-1-f1343714c5a9@free.fr
-
-Changes in v2:
-- message validation with i2c_imx_check_msgs() (Carlos Song)
-  No functional change
-- Link to v1: https://lore.kernel.org/r/20260807-for-upstream-i2c-imx-lx2160-reverse-v1-1-f276ce8cb660@free.fr
----
- drivers/i2c/busses/i2c-imx.c | 153 ++++++++++++++++++++++++++++++++-----------
- 1 file changed, 113 insertions(+), 40 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index 9477d814fde9..7dc9c43673ee 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -1000,16 +1000,10 @@ static inline int i2c_imx_isr_write(struct imx_i2c_struct *i2c_imx)
- 	return 1;
- }
- 
--static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
-+static inline void i2c_imx_setup_read(struct imx_i2c_struct *i2c_imx)
- {
--	int result;
- 	unsigned int temp;
- 
--	result = i2c_imx_isr_acked(i2c_imx);
--	if (result)
--		return result;
--
--	/* setup bus to read data */
- 	temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
- 	temp &= ~I2CR_MTX;
- 	if ((i2c_imx->msg->len - 1) || (i2c_imx->msg->flags & I2C_M_RECV_LEN))
-@@ -1017,6 +1011,18 @@ static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
- 
- 	imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
- 	imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR); /* dummy read */
-+}
-+
-+static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
-+{
-+	int result;
-+
-+	result = i2c_imx_isr_acked(i2c_imx);
-+	if (result)
-+		return result;
-+
-+	/* setup bus to read data */
-+	i2c_imx_setup_read(i2c_imx);
- 
- 	return 0;
- }
-@@ -1172,6 +1178,16 @@ static irqreturn_t i2c_imx_isr(int irq, void *dev_id)
- 	return i2c_imx_master_isr(i2c_imx, status);
- }
- 
-+static u8 i2c_imx_addr_byte(struct i2c_msg *msg)
-+{
-+	u8 addr = i2c_8bit_addr_from_msg(msg);
-+
-+	if (msg->flags & I2C_M_REV_DIR_ADDR)
-+		addr ^= 1;
-+
-+	return addr;
-+}
-+
- static int i2c_imx_dma_write(struct imx_i2c_struct *i2c_imx,
- 					struct i2c_msg *msgs)
- {
-@@ -1200,7 +1216,7 @@ static int i2c_imx_dma_write(struct imx_i2c_struct *i2c_imx,
- 	 * Write slave address.
- 	 * The first byte must be transmitted by the CPU.
- 	 */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
-+	imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
- 	time_left = wait_for_completion_timeout(
- 				&i2c_imx->dma->cmd_complete,
- 				msecs_to_jiffies(DMA_TIMEOUT));
-@@ -1242,14 +1258,20 @@ static int i2c_imx_prepare_read(struct imx_i2c_struct *i2c_imx,
- 	int result;
- 	unsigned int temp = 0;
- 
--	/* write slave address */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
--	result = i2c_imx_trx_complete(i2c_imx, !use_dma);
--	if (result)
--		return result;
--	result = i2c_imx_acked(i2c_imx);
--	if (result)
--		return result;
-+	/*
-+	 * I2C_M_NOSTART continues a frame that is already open, so there is
-+	 * no address phase: go straight to turning the bus around.
-+	 */
-+	if (!(msgs->flags & I2C_M_NOSTART)) {
-+		/* write slave address */
-+		imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
-+		result = i2c_imx_trx_complete(i2c_imx, !use_dma);
-+		if (result)
-+			return result;
-+		result = i2c_imx_acked(i2c_imx);
-+		if (result)
-+			return result;
-+	}
- 
- 	dev_dbg(&i2c_imx->adapter.dev, "<%s> setup bus\n", __func__);
- 
-@@ -1371,16 +1393,18 @@ static int i2c_imx_atomic_write(struct imx_i2c_struct *i2c_imx,
- 	int i, result;
- 
- 	dev_dbg(&i2c_imx->adapter.dev, "<%s> write slave address: addr=0x%x\n",
--		__func__, i2c_8bit_addr_from_msg(msgs));
-+		__func__, i2c_imx_addr_byte(msgs));
- 
--	/* write slave address */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
--	result = i2c_imx_trx_complete(i2c_imx, true);
--	if (result)
--		return result;
--	result = i2c_imx_acked(i2c_imx);
--	if (result)
--		return result;
-+	if (!(msgs->flags & I2C_M_NOSTART)) {
-+		/* write slave address */
-+		imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
-+		result = i2c_imx_trx_complete(i2c_imx, true);
-+		if (result)
-+			return result;
-+		result = i2c_imx_acked(i2c_imx);
-+		if (result)
-+			return result;
-+	}
- 	dev_dbg(&i2c_imx->adapter.dev, "<%s> write data\n", __func__);
- 
- 	/* write data */
-@@ -1402,7 +1426,7 @@ static int i2c_imx_atomic_write(struct imx_i2c_struct *i2c_imx,
- static int i2c_imx_write(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs)
- {
- 	dev_dbg(&i2c_imx->adapter.dev, "<%s> write slave address: addr=0x%x\n",
--		__func__, i2c_8bit_addr_from_msg(msgs));
-+		__func__, i2c_imx_addr_byte(msgs));
- 
- 	i2c_imx->state = IMX_I2C_STATE_WRITE;
- 	i2c_imx->msg = msgs;
-@@ -1411,8 +1435,16 @@ static int i2c_imx_write(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs)
- 	/*
- 	 * By writing the device address we start the state machine in the ISR.
- 	 * The ISR will report when it is done or when it fails.
-+	 *
-+	 * I2C_M_NOSTART continues a frame that is already open and so has no
-+	 * address byte: push the first data byte instead. That raises the same
-+	 * interrupt and the ISR carries on from the second byte.
- 	 */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
-+	if (msgs->flags & I2C_M_NOSTART)
-+		imx_i2c_write_reg(msgs->buf[i2c_imx->msg_buf_idx++], i2c_imx,
-+				  IMX_I2C_I2DR);
-+	else
-+		imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
- 	wait_event_timeout(i2c_imx->queue,
- 			   i2c_imx->state == IMX_I2C_STATE_DONE ||
- 			   i2c_imx->state == IMX_I2C_STATE_FAILED,
-@@ -1529,22 +1561,29 @@ static int i2c_imx_read(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs,
- 
- 	dev_dbg(&i2c_imx->adapter.dev,
- 		"<%s> write slave address: addr=0x%x\n",
--		__func__, i2c_8bit_addr_from_msg(msgs));
-+		__func__, i2c_imx_addr_byte(msgs));
- 
- 	i2c_imx->is_lastmsg = is_lastmsg;
- 
--	if (block_data)
--		i2c_imx->state = IMX_I2C_STATE_READ_BLOCK_DATA;
--	else
--		i2c_imx->state = IMX_I2C_STATE_READ;
- 	i2c_imx->msg = msgs;
- 	i2c_imx->msg_buf_idx = 0;
- 
--	/*
--	 * By writing the device address we start the state machine in the ISR.
--	 * The ISR will report when it is done or when it fails.
--	 */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
-+	if (msgs->flags & I2C_M_NOSTART) {
-+		i2c_imx->state = block_data ? IMX_I2C_STATE_READ_BLOCK_DATA_LEN
-+					    : IMX_I2C_STATE_READ_CONTINUE;
-+		i2c_imx_setup_read(i2c_imx);
-+	} else {
-+		if (block_data)
-+			i2c_imx->state = IMX_I2C_STATE_READ_BLOCK_DATA;
-+		else
-+			i2c_imx->state = IMX_I2C_STATE_READ;
-+
-+		/*
-+		 * By writing the device address we start the state machine in the ISR.
-+		 * The ISR will report when it is done or when it fails.
-+		 */
-+		imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
-+	}
- 	wait_event_timeout(i2c_imx->queue,
- 			   i2c_imx->state == IMX_I2C_STATE_DONE ||
- 			   i2c_imx->state == IMX_I2C_STATE_FAILED,
-@@ -1574,6 +1613,33 @@ static int i2c_imx_read(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs,
- 	return ret;
- }
- 
-+#define I2C_IMX_UNSUPPORTED_PROTOCOL_MANGLING_FLAGS \
-+	(I2C_M_IGNORE_NAK | I2C_M_NO_RD_ACK | I2C_M_STOP)
-+
-+static int i2c_imx_check_msgs(struct i2c_msg *msgs, int num)
-+{
-+	int i;
-+
-+	for (i = 0; i < num; i++) {
-+		/* Reject rather than silently transfer */
-+		if (msgs[i].flags & I2C_IMX_UNSUPPORTED_PROTOCOL_MANGLING_FLAGS)
-+			return -EOPNOTSUPP;
-+
-+		if (msgs[i].flags & I2C_M_NOSTART) {
-+			/*
-+			 * NOSTART continues an already open frame. The first
-+			 * message has nothing to continue from,
-+			 * a 0 length continuation leaves the controller with
-+			 * no byte to clock.
-+			 */
-+			if (i == 0 || msgs[i].len == 0)
-+				return -EOPNOTSUPP;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- 			       struct i2c_msg *msgs, int num, bool atomic)
- {
-@@ -1583,6 +1649,10 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- 	struct imx_i2c_struct *i2c_imx = i2c_get_adapdata(adapter);
- 	int use_dma = 0;
- 
-+	result = i2c_imx_check_msgs(msgs, num);
-+	if (result)
-+		return result;
-+
- 	/* Start I2C transfer */
- 	result = i2c_imx_start(i2c_imx, atomic);
- 	if (result) {
-@@ -1604,7 +1674,7 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- 		if (i == num - 1)
- 			is_lastmsg = true;
- 
--		if (i) {
-+		if (i && !(msgs[i].flags & I2C_M_NOSTART)) {
- 			dev_dbg(&i2c_imx->adapter.dev,
- 				"<%s> repeated start\n", __func__);
- 			temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
-@@ -1636,7 +1706,8 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- #endif
- 
- 		use_dma = i2c_imx->dma && msgs[i].len >= DMA_THRESHOLD &&
--			msgs[i].flags & I2C_M_DMA_SAFE;
-+			msgs[i].flags & I2C_M_DMA_SAFE &&
-+			!(msgs[i].flags & I2C_M_NOSTART);
- 		if (msgs[i].flags & I2C_M_RD) {
- 			int block_data = msgs->flags & I2C_M_RECV_LEN;
- 
-@@ -1730,7 +1801,9 @@ static int i2c_imx_init_recovery_info(struct imx_i2c_struct *i2c_imx,
- static u32 i2c_imx_func(struct i2c_adapter *adapter)
- {
- 	return I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL
--		| I2C_FUNC_SMBUS_READ_BLOCK_DATA;
-+		| I2C_FUNC_SMBUS_READ_BLOCK_DATA
-+		| I2C_FUNC_NOSTART
-+		| I2C_FUNC_PROTOCOL_MANGLING;
- }
- 
- static const struct i2c_algorithm i2c_imx_algo = {
-
----
-base-commit: 3d6d817622b0a9721e3cc404df3469171582be13
-change-id: 20260807-for-upstream-i2c-imx-lx2160-reverse-7a94b9561188
-
-Best regards,
--- 
-Vincent Jardin <vjardin@free.fr>
-
-
+Konrad
 
