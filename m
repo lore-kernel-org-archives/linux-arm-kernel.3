@@ -2,115 +2,108 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59E87606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 12:46:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 378A0606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 12:55:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XB5RIrq+;
-	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=JFCilMtk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xBXTNtPe;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EDwaCfQ4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Dw7ixUsZNlBi2ggGvaFZwX+nWP7PGBtWcR/4kzMhp/c=; b=XB5RIrq++FllSv
-	1s6p/DgFLeWLdzH/T7R8ANCjLnP5CS3G+f/Br5lNQKOJqfI7bRcC6mjFLhl8xPhHJL/usw5nM4PJi
-	sP2NYQ775DatTdWWQMiz/p3f/oZJCQK1R3sl9ifFmVAvclIW0ysOvXkLhZsbw1ijBX74E6lbeKE7A
-	4KwNgBRkB5SIkB2Pxwgs6R0xRXgU8H8KXf9dyoMXNtdHroIAKe6heje4sF8mN3YAS0gNxLesLAR1m
-	tW2D2hkutoAS2oAeRMY8hwZFXr6v6wdkS0nSqrAB/hw07246O3AwKGP4ajffK3dFx8auoTRZpdNtW
-	2nuyWnCguM/a4rAqAFNg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
+	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=+997DNCqR7ECKcfajWdY1tQzietg9A83Oqx5Q3IXzQY=; b=xBXTNtPexk3ayQjpaQg148KlNw
+	fjIBri/5sx81dRFT4RuWQGphVQcYwTAaSADFldMqAGlrU2HaWsvWhOTEDfhFP6vT15jW6weXJynmr
+	G3vFViBSxT8CcmXy3xsHqNwDpJIFe9tTxiMIrWXgFvPVhpi2x+IQ5GhnW1lOsrgwfJqI6j0g/2B+C
+	vAm//kr70umvw5YtG9bNVnKuwByMYvNCvz3x0BdB6/SvxP670bsVRqq8cRLU6iNxMGM26F8UW8bc0
+	TRgWEy3FJDUMgSdZY1zJAs2b/Fn5QjgIfT90/oIOLVFZuC6CjkHL2Zi8+eJePxVOjWtEtnj4OROmm
+	5b2hh6rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKEeT-0000000GJbZ-3Agg;
-	Fri, 23 Oct 2026 12:45:41 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1xKEnc-0000000GKB6-1wmK;
+	Fri, 23 Oct 2026 12:55:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKEeP-0000000GJaW-0Uej
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 12:45:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1792759534;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Dw7ixUsZNlBi2ggGvaFZwX+nWP7PGBtWcR/4kzMhp/c=;
-	b=JFCilMtkUblpG0se/OsDP8XQNcS0g5CbxN4al/yDpGmYxsKAuaBflAG9Ot1vUdjN4LK9kx
-	6KihEPKO+lHEjYmLhUHLQBXjHW8sH5zxS6puIxjSFzPEXhebnff8clkn5/qJZVNpLCKzd4
-	ANALi0his2JyaJHN1lr2Y9JnHEvtemw=
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-140-md3drGbxMrOB-yhu9tovmw-1; Fri, 23 Oct 2026 08:45:33 -0400
-X-MC-Unique: md3drGbxMrOB-yhu9tovmw-1
-X-Mimecast-MFC-AGG-ID: md3drGbxMrOB-yhu9tovmw_1792759532
-Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-c42394d1e41so70589666b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 05:45:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792759532; x=1793364332;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Dw7ixUsZNlBi2ggGvaFZwX+nWP7PGBtWcR/4kzMhp/c=;
-        b=YNcxmGz/K2u74vJoC+AVDutW+s71/UeH6u2X2t0ScVqMqpgapNm53u/c0MCCWhiqfC
-         Mq3zCU+X96Emox0vSc62JMKJ42VVXgx4KYZo6X1tWpl9Y2gXXEQr1IzAkDfSNr5pZLlp
-         iRdbhL9DzpsD7Q+FOSiMR+VeBlDa3pIt2zJ65rRc7UiejKqSKYk3l5gpuUnEI8P04emR
-         TLt8es8jZ3Bnu9SSCvR104qxPLrb9jbdGU+kFrXI71h1xzdChrShvxNL8jzkRxDZaqVf
-         TP9FdN6FE9lmJUBL/6R7kgLsO2O3v+YQIJasKMAEeyQLDl+wQSKhpFd1UaQix7661wps
-         MYDQ==
-X-Forwarded-Encrypted: i=1; AKwUvByaASc6XgyQ4jgjIg4su6hyAcJoeu6y0i/E4my7CPoVnmi88G4fPb9ZJVAUXqrXTuZVdln+XS3J5mCj9t3LSVzX@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ9Kqk0MmO3LvGi8LAa7MUX8IY9RaEcsiNeO4Foh+/S7RJJ0Doy
-	2ncnE1/ylFlMsZiJjPH2/W4eB5e4qF5UEdpzlllmy8UtegBbzRFkUI89Rp/x3pWlx0v8kYwY2vo
-	MO9Mu4y3skLQZbByUsLKl7qRXjbB/F8PEBJyASsH/DPKBaWzjvgNa7bjMayOpL+4pfFarRSY138
-	KOYS3hnKibMF5gyC5mNOMvn/dU6SrjGHXS+d7pMhPhSfGJOoOm4zo=
-X-Gm-Gg: AYBFou3YyqQ4TxyNwGEDe4czcSAEe5K+vJak5Y1O4nfMKfGlaAM/iOofpcH2lGxcu5c
-	dM9z/Rh5S74eHKpssK0rkvl4gsDgPk0LhAjoYgZ+IxRgCwny62+4mw2XFvxt6WX09r7/0cUQnt1
-	Irg/d50jDe3ZYR72r+c2flfN3KXK1jWPKW+DpnLhL7q2vHN2x3cIUiQha8BBBo4BT3MloqU+bzf
-	bxV5lO7lsiJppVyRdQuPPidmVEbYAyCXebx0rstg3Km2ujNS4KM/5oBzjrpIjVdHBN83Rm/uX/+
-	TUw=
-X-Received: by 2002:a17:907:fd8a:b0:c2e:46d0:b802 with SMTP id a640c23a62f3a-c46a92ae6c0mr328360366b.40.1792759531939;
-        Fri, 23 Oct 2026 05:45:31 -0700 (PDT)
-X-Received: by 2002:a17:907:fd8a:b0:c2e:46d0:b802 with SMTP id
- a640c23a62f3a-c46a92ae6c0mr328354266b.40.1792759531460; Fri, 23 Oct 2026
- 05:45:31 -0700 (PDT)
+	id 1xKEnb-0000000GKAE-061y;
+	Fri, 23 Oct 2026 12:55:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 24BB6602C3;
+	Fri, 23 Oct 2026 12:55:06 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1792760105;
+	b=Z0y/XcU6+7xocWqmVHdAobbexcTTxmna1K590qxC1Qvz7DwK0u/Sq79AXJ2I419T4O1r
+	 +dEldyi+C0NQM489/0fvYhWIMptDfZWB1iK3OqeZBZq/V3aN2VpPZq0wyJB9btkZMtmX6
+	 0B/ZCbE8DN2m9OPvM9KuX9nej+pL+jFUfP8pM7/N5IKQ4Dy/ls3yMb5MFD4RWWTvTHFsj
+	 /M4C/+Zn6PbKSfQLAouXddNK6Srup2IdW17ApCsBzD7D2sGKLh1u+vn6tHq4ezEIhim1l
+	 zwdO0u+ZTG9XngZPMXZTKyiVcO8vcibA+h8TdPBN9k7WX9IQ+ttWwp9rP+h7s30mMCw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1792760105;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=+997DNCqR7ECKcfajWdY1tQzietg9A83Oqx5Q3IXzQY=;
+	b=F1858SvgBMC0cT0HDWQoLy7vU3HSsrS2N6PPqiC1w0+4CNPy7UCWkGzVghX2+n2JCHde
+	 1OAUV6+SxJBWXw1jl6UQfH/h2icCxsu35dlZaEtpoQxXuDRUkGZjWOQFIGm/gPC/R8ghc
+	 YODxUcQ4TxTCMBQNJjnsX67nzPBManVGu/LuJMGSIJcB+JqynsWc8+WCAI807EU100VGh
+	 AVZZset87mMve3YX8Q2NVKlMaGcpRT5g0RAvlGgET+YV58qYtdyDN5pTRYc9XOvSNP1hR
+	 rhtHZpScpdVn9YvwPC3qgPZU18d0CZo9sdLijBdnBqULpyLJMSzDYDIg9kL7xJhQiBw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id EE5FC1F01829;
+	Fri, 23 Oct 2026 12:55:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792760105;
+	bh=+997DNCqR7ECKcfajWdY1tQzietg9A83Oqx5Q3IXzQY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=EDwaCfQ4f1QZnD0XAPgf5tJV/085B69uIZ9mEKpe/xC1m01GVwDojdn/iDp4uwcIm
+	 bcYUdjgamgFyg+7H6Yem6Fgues4fauOUQ7lbaIH1zQRxnap386hkb0qGyjiMjzDwFL
+	 z9/Co8KjzR5Nw1HZbOO3rtEKarptkI1jouNlyR8QSVgKdeLZ8lUquqq2rBRzDMlPGo
+	 hy2MoXPNO/wc/Xt/LlmoIpoYre0I3EwDxJMsuDL9dBVE3FsSkw0RQ+nzTUhLi2AKJ/
+	 nHgCEQ0iJttLYnOH1nTJsW67y/nO+i7YqcAk6+u6a/S4kF9ZPDkwYCp2w7KzjL7d8L
+	 xSS5c0vxgcDMQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 54B6644517;
+	Fri, 23 Oct 2026 12:55:04 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Fri, 23 Oct 2026 14:53:51 +0200
+Subject: [PATCH v2 1/3] clk: meson: g12a: fix swapped VID_PLL and
+ VID_PLL_DIV clock ids
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <cover.1790088067.git.rrobaina@redhat.com> <CAHC9VhQ=FFYVNmQdiMsqg+5KDDrSC3SZS+H2=r_GkhfwQox8tg@mail.gmail.com>
- <CAABTaaBL=TScs8Qqu3b8F6KZPGMyvwy6cBC3teDaBL6MGMucNg@mail.gmail.com> <CAHC9VhROsmzbm+AP63Sm7mqCokgEy6Zu0AVMY0gxp8qY75Pqiw@mail.gmail.com>
-In-Reply-To: <CAHC9VhROsmzbm+AP63Sm7mqCokgEy6Zu0AVMY0gxp8qY75Pqiw@mail.gmail.com>
-From: Ricardo Robaina <rrobaina@redhat.com>
-Date: Fri, 23 Oct 2026 09:45:20 -0300
-X-Gm-Features: AclHuK-AKUESe6iHVc-VzwOYib6sgRKlK0BCnAtM6wg5S60Ozyo0oOLLHvDr8CI
-Message-ID: <CAABTaaBOrPknzdxc5S6L9hGu7hbFu2e1RZG=Sxjb_B1Cs4Sixw@mail.gmail.com>
-Subject: Re: [PATCH v3 00/14] audit: log all six syscall arguments in the
- SYSCALL record
-To: Paul Moore <paul@paul-moore.com>
-Cc: audit@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-um@lists.infradead.org, bpf@vger.kernel.org, eparis@redhat.com, 
-	sgrubb@redhat.com, oleg@redhat.com, richard.henderson@linaro.org, 
-	mattst88@gmail.com, linmag7@gmail.com, linux@armlinux.org.uk, 
-	catalin.marinas@arm.com, will@kernel.org, guoren@kernel.org, monstr@monstr.eu, 
-	tsbogend@alpha.franken.de, jonas@southpole.se, 
-	stefan.kristiansson@saunalahti.fi, shorne@gmail.com, 
-	James.Bottomley@hansenpartnership.com, deller@gmx.de, 
-	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
-	davem@davemloft.net, andreas@gaisler.com, richard@nod.at, 
-	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, chris@zankel.net, 
-	jcmvbkbc@gmail.com, tglx@kernel.org, peterz@infradead.org, luto@kernel.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: y8KEqOU0DkWdm3gGw9eVBp4uPJegyPEt5U8kCFT4Jhw_1792759532
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_054537_239474_3582E7FD 
-X-CRM114-Status: GOOD (  18.72  )
-X-Spam-Score: -2.8 (--)
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261023-fix-g12a-clk-v2-1-0b0b9b86d437@aliel.fr>
+References: <20261023-fix-g12a-clk-v2-0-0b0b9b86d437@aliel.fr>
+In-Reply-To: <20261023-fix-g12a-clk-v2-0-0b0b9b86d437@aliel.fr>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jerome Brunet <jbrunet@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jian Hu <jian.hu@amlogic.com>
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1162;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=2dFhwExwBBCr5nuNL1VrJSQXreYDqbsyvEBqlLalx/E=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ9btSGVuZ3ONeevX/mYy+WN19cemgF9fm4Ob+E/IvTv+b
+ vPXLzxbOkpZGMS4GGTFFFn651qeeHf56Jmve9RTYOawMoEMYeDiFICJfC5hZPhScHntV127Oo9g
+ Xbd7x07EHHj5Qu3q2tyXmlPz1v1d1AxUseTk0n96Ol9svUXkl07J27JSepd4yboVgjv+JH9kPJp
+ yiAkA
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,59 +113,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 1:39=E2=80=AFPM Paul Moore <paul@paul-moore.com> wr=
-ote:
->
-> On Tue, Oct 13, 2026 at 8:36=E2=80=AFAM Ricardo Robaina <rrobaina@redhat.=
-com> wrote:
-> > On Thu, Oct 1, 2026 at 6:06=E2=80=AFPM Paul Moore <paul@paul-moore.com>=
- wrote:
-> > > On Tue, Sep 22, 2026 at 3:21=E2=80=AFPM Ricardo Robaina <rrobaina@red=
-hat.com> wrote:
->
-> ...
->
-> > > * As pointed out by Sashiko, when you were converting all of the
-> > > arches, it looks like you missed alpha.  I took a quick look and it
-> > > appears that it should be a pretty straightforward conversion like
-> > > most of the others.
-> >
-> > I've actually dropped the alpha patch as per Magnus's request [1].
-> >
-> > [1] https://lore.kernel.org/audit/CA+=3DFv5T4826T2sd0Gbh-nfZsqcWK_phdBK=
-y4BLWOvDTt92t5Eg@mail.gmail.com/
->
-> The problem is that as things stand, this patchset breaks the build on
-> Alpha.  Perhaps this gets resolved during the current merge window,
-> but as you know we can't break the kernel build ...
->
-> https://lore.kernel.org/oe-kbuild-all/202610041836.6TatRQSm-lkp@intel.com
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-Of course, you're absolutely right that we can't break the build. I
-was afraid that this dependency might cause trouble.
+In g12a onecell data table CLKID_VID_PLL points to g12a_vid_pll_div
+and CLKID_VID_PLL_DIV points to g12a_vid_pll. So the ids are swapped.
 
-I noticed Magnus posted a pull request a few days ago containing the
-"alpha: enable GENERIC_ENTRY" series [1]. It seems this will get
-resolved during the current merge window.
+Swap the ids back to their right entries.
 
-For future reference, what's the best way to handle dependencies on
-other subsystem changes like this?
+Fixes: 085a4ea93d54 ("clk: meson: g12a: add peripheral clock controller")
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+ drivers/clk/meson/g12a.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-[1] https://lore.kernel.org/linux-alpha/ataJlL6L7TrS3gWs@z440.darklands.se/
+diff --git a/drivers/clk/meson/g12a.c b/drivers/clk/meson/g12a.c
+index d0d4c7b6dc82..57fa086b9c8b 100644
+--- a/drivers/clk/meson/g12a.c
++++ b/drivers/clk/meson/g12a.c
+@@ -4622,9 +4622,9 @@ static struct clk_hw *g12a_hw_clks[] = {
+ 	[CLKID_HDMI_PLL_OD]		= &g12a_hdmi_pll_od.hw,
+ 	[CLKID_HDMI_PLL_OD2]		= &g12a_hdmi_pll_od2.hw,
+ 	[CLKID_HDMI_PLL]		= &g12a_hdmi_pll.hw,
+-	[CLKID_VID_PLL]			= &g12a_vid_pll_div.hw,
++	[CLKID_VID_PLL]			= &g12a_vid_pll.hw,
+ 	[CLKID_VID_PLL_SEL]		= &g12a_vid_pll_sel.hw,
+-	[CLKID_VID_PLL_DIV]		= &g12a_vid_pll.hw,
++	[CLKID_VID_PLL_DIV]		= &g12a_vid_pll_div.hw,
+ 	[CLKID_VCLK_SEL]		= &g12a_vclk_sel.hw,
+ 	[CLKID_VCLK2_SEL]		= &g12a_vclk2_sel.hw,
+ 	[CLKID_VCLK_INPUT]		= &g12a_vclk_input.hw,
 
->
-> --
-> paul-moore.com
->
+-- 
+2.43.0
 
--Ricardo
 
 
