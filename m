@@ -2,102 +2,171 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 191ED606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 23:31:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41390606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 23:37:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rg9M3Mro;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=PcVf5iHp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TqVM5pps;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=moYOHMFI;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=R4H1ZEd5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=PWqyUavBnfNEo1DMfRHoVS39e8foN13m8UB6fhUtUw8=; b=rg9M3Mro4uHNNuYyel0tqXdRIo
-	H0OkBsgxHBXqZJNIZsdZA30HiHEJSCEm2kI0IySIoXU5vXSuuhm5XnJjdc+Mid4zsPDVUwTXZPef5
-	saupUbFUeXoLnmJbnRgQyMsDv1K8EbRS7vL8i4Z/Sa9+fwQ53Ca53VeeSyVu7g0dEMtXQ8AO8uqWx
-	f++dsLlszb2hT031BV5iu7TwTr/ooz4dCEjgEKHdSFB6hKRdtMcThpszF8lG9sDnvy7B9q43BxakL
-	a7r4SZdIT9YeDbfnXJtZb3vcqkZjhpkhSwDvGQdzNEL3wTL7UZ3RHQLU9uCJKAgCl/GAnLik3LsvT
-	LxJy5XoQ==;
+	bh=Mgo2dnohmbku8+6gd0EG9FENz+puwwm3rQ80la31iuE=; b=TqVM5ppsOBGRCoIM+yhwT8ZzV2
+	ZQavLKcueHWMCov4LF4DkwfEbjp3eZrUduJMR78m6BJZngB9SWPnc0GZ93DCeX9Y5xCW4Zm6HCgXD
+	4LTqSASwXgt6c3uRCPqxsl0gP3T5zMrkPaIJres4BVNnkTVKNWnfpKijoKiqgHjTKxGH4rlojSmva
+	3ijOpo7ESZkj9yRx8srNbEtpcv8RGQQeNz8tHp4+8TRLL76ZVeJEOotU1SjQzEcGV2udrwxEix43d
+	8nkwLOCE78qNfjYiTMgYRFVv1+bG+WUaM0BlKxAU+DQUbdwvDF8uvazmUKEj4SDXzH5fZ6rtWhmi7
+	4T5vnWpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKOjA-0000000HAdG-1lER;
-	Fri, 23 Oct 2026 23:31:12 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1xKOoj-0000000HB37-0LyP;
+	Fri, 23 Oct 2026 23:36:57 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKOj7-0000000HAcU-2bX2
+	id 1xKOof-0000000HB2l-3tzD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 23:31:10 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ea7f9c11e6so24475ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 16:31:09 -0700 (PDT)
+	Fri, 23 Oct 2026 23:36:55 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69NLurWe877073
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 23:36:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Mgo2dnohmbku8+6gd0EG9FENz+puwwm3rQ80la31iuE=; b=moYOHMFI/3MRcJDz
+	ZA8WnN7yEfSkWsyYp8v9+QFucDkTCQC8SKcTMqg6RzdAtSjs3QzyZzQWJj0B/Ck0
+	RUVQ95Vua/zwF3kcxhebMt86PgFMZy42QbaGG1wXhzJI9u5QVSOEYPxzcdwRGL5g
+	v8e/Cwpg5r/HTWQirguGNfljG9bsB9eUsY068Ty7mtfFWZ0WCbFD0USBCprfm2Cv
+	tP4D5MY2tkdIdOtYAMZUXZa5Di76LOUTGCgvyc8GSjD9Fx7Ln0TieTpXRURC96qg
+	+UKV4UvxmqsF+PWNhqI2HT9ElC6Wn/6oWhECs9FABEYmXr70LNHco9j/K0M4FKGi
+	fs/lwA==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hgcr68waa-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 23:36:53 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93caa0ce0cdso175560985a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 16:36:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792798269; x=1793403069; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PWqyUavBnfNEo1DMfRHoVS39e8foN13m8UB6fhUtUw8=;
-        b=PcVf5iHp3Qd3x1Q8BoRMy7WqObCfEyvBDIhij2XrnWhMY0IRbEBx71zIgMi540pGeX
-         xwuJYTD9PEKpI7HBqMCVGXnINp0PbI7D53v6677IeUUYhgS14sjETr7XgZcr3dEl7g8u
-         gNAhatbNDIpGSLO/JJV1qBv56YMj/NAdzDtc4LWnsfePCa7xN9Nak/PUcNbEkogLCFDv
-         /z6og83BQ7DLcWV98/aVb3sSIi0n94UaEKeHtppL2kOzYon3wKjTN7iP9kTBNv5AoJZL
-         KUuzpFJ4tPLY9dTk1bCL68jX67Ja1q5+Ujz0tE/s8sABENZXPbdYVjd6iMjY5MVjnHW0
-         6X+g==
+        d=oss.qualcomm.com; s=google; t=1792798612; x=1793403412; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Mgo2dnohmbku8+6gd0EG9FENz+puwwm3rQ80la31iuE=;
+        b=R4H1ZEd5Tb3iXHmo8OlIb4wOPl6l6fYdLXXTM2WTn2ul7lTaDXs7d74OevCl8lVltz
+         9QcoLNWA26EkdR6ByDGmdQ5uZ+XfcN3HYulgOipSBUpONquvDe3lJEOjDUTGiRiAt3M+
+         VHHXR+grRsjfaTR9UpeNCfNORZgPQW8X2XAoQ7bLS5EaPGVRA8LyIlFubg9C395BMhQg
+         GJkFIHTo6gO3+xcN7EKCapjubCZYtZhTZg6TYGtqVwKzZ9fQg9Wj93m6uvlVsyOJ7VSV
+         JhRPxmRb0lkj6ygHQvdpknlw1oCdH9d37C5owp0SBcPNi87uBgVUSpfsTGfxBYy/kbip
+         vkKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792798269; x=1793403069;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PWqyUavBnfNEo1DMfRHoVS39e8foN13m8UB6fhUtUw8=;
-        b=qxL2qEnj7Yu71DoyeeOTtAF14tChsqNT59Ph31FMUszTf70FWhYRtCLbcUFcomn5h1
-         Qq55kcBa02o/3JItqzJEbdW3znWYbteyE3R5kJG+JzcYJZTZiJOboHjRztvM7xEwO80F
-         ZHQJTIyAbGBhMzxuOdTNvVEkeFg0ahifr9YK6Jq7MKCfsp/qkN6jOCJ7zIjBodLHJywZ
-         ezYGFGwWq/t40Zj9Fa/UIslVGR65EdvMJbsW5uLkN6TGhyI1GdN+Up3XBiryfhMJ1r0f
-         VGbxd+sPdKfZj5P+ll2kOHoct68MOQII8X9L3FCcoknO5jqFP2Fsqh57mwdPjij9aFYD
-         GIYw==
-X-Forwarded-Encrypted: i=1; AKwUvBwDIrSGxl5CRMNBZwsndF9oOh0yZQnvVzeytAoo1NlxyM2pEdGi/o6iTeTYY3N5yXAmJ5m2F/prS2qn0dwvqOUB@lists.infradead.org
-X-Gm-Message-State: AFq9FYIvynG2ZipkcrK/j0gaCmhohvwjm/3PhenzDN0w23JNvixEE5h+
-	hQHhwTGCro0hbjomOpCuhtlvJtK3UOq+tQM0IujwSRbQMzC3LGDKUO2Zcxx3GLhH6Q==
-X-Gm-Gg: AYBFou2h12R//XCFIwuiHj96ToGL4F72eaYznghtFTuR6+ToLuR0N9TV0qGhk/XOrvX
-	zzw4b1m0UHoBx5eOpDVEfbDWviO4JeguZPSfcSu3W4Kmf095pjnm2fRD2ErikW8YsSRrkz97wJO
-	r6nSyWHUwZiI2Xv3SUJkUC4L59ofoqESOP8cjIy+127+rn6ymOS7TcydqK0qWVpP9uvtBUPi7DE
-	faBKxDo3hhZIxwDbhWJ4oXJYZ3P0qMyd1oklnOPl2Ti3SnwonsmuJyaP2a3103TQB9g9KZlKqrb
-	HC5QnK/uDYMJiru4kSaOhO6wOUu6A6fpwJZ7g4FxYyJum+Of3ToapoFV+FcBnXSxzA+h/WvgVck
-	AxeOHDJSf4V1FCSBMGg4CHD+ApEUoQchzozvemHhuiQhseuP5fM4YkTYUlInAvXFBdYgypgUEtB
-	bNemdBn6D0LRFrMjvDVCt5Ne3Wla95nsxbLqiur9rC99PHeTKrQ8sy0iELzsyah8WiTIHlSLw2t
-	Cr4i4rPqJJsqi+KE38E/1NMweOU3mbA/8HOUgS02bAfISQxNIxYFXGD1qrIKR7dKs7dr2XEBlz3
-	Nw4khQDRlDhCwm+ApkLDApBYRk54FWYzoHJ0NcJY6wuI2jyK
-X-Received: by 2002:a17:903:1cc:b0:2e6:1917:fa with SMTP id d9443c01a7336-2ea9d12a727mr853705ad.7.1792798268197;
-        Fri, 23 Oct 2026 16:31:08 -0700 (PDT)
-Received: from google.com (163.1.145.34.bc.googleusercontent.com. [34.145.1.163])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3adebb27a1bsm707176a91.15.2026.10.23.16.31.05
+        d=1e100.net; s=20260707; t=1792798612; x=1793403412;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Mgo2dnohmbku8+6gd0EG9FENz+puwwm3rQ80la31iuE=;
+        b=jcYjygNHVXypUNe2kVxvsuy9R5WlJGyBoqtOult9v+4X4OtiWbIQrGYg5A4x6Tzp3A
+         ER6NMD5Q96HPCjjHYB2YxEcq2fcasb3nOWeghWmWyj+7FEWqVpMpXbgv+FutaTN42gX1
+         vBtx6GyVutKtYivU7CJ8DXX6c74w6NLHxwzYQChOj2xliBrCLVZ5vp2EgYWuxMM+o7Cw
+         VFRE5qm2vLDRyMiDnPolz+JxoXRU3idMVOksfaA/E/gSDjrvDuH7N6R+4nHRakzkylQr
+         YNAWlSuVYAqZfrCQATUrCkGK4l2BrGVt0C2nPAdxWm79X+EB3IpDu2kXHQ0U33nKnwHT
+         JMLQ==
+X-Forwarded-Encrypted: i=1; AKwUvBybk/Tp1n/oLeYoqsRMZikq3Ny2cVkCw0gcJlw0GKxT41n1ueWVpmgLWoJrdGUl1nYBDOYfIPjbCMqUWewoQgqd@lists.infradead.org
+X-Gm-Message-State: AFq9FYJL+qIxv1+M34zU6PgVE92KBZWPZBf9bM73hBomKYbDsc2ogY6T
+	0kDt5D/fRhiZm7KkujGFieuQn8BywacBGRvunWTzWOV5ZUWL7oA+SFgpjwt79CsZx2S/3zTeIYQ
+	bMzMVXu6BeZgCurJOLMjKATiXO0AGjqKDIEsNmZbcKVC8ITfrvn7OuMvpAJJLE+Der+7fYNYXfk
+	o9uw==
+X-Gm-Gg: AYBFou07axQTBlUn6ZaVslLvF//j2sloCxhmk2sPOp4tKL0Cd/ATlREVvC7C9SFQ0yS
+	kAfi4/0cLVKAJ7Ye4LFe6s2f+B8ljQiDAjh9j+iA+/6XpJNsgaWUI5I6+1x2v2rUajNDHbdcxRt
+	UnDLnn5bZ56KNTvRqlPPSM+ZncNE0LK12JXkkqnhkKtqXckqHdCj5dPjQwHXNvYuEeNImqe1vml
+	PGzjf1OZ1ddndLDLxrQKKwI7G7B0VDQqF5g56oQiCzAJO4Iy8z0miSVLzyWy7N0qas8WvxErKl6
+	+XGfPnU5N5aCth8Q4vYDDgl+knfIEQDv+sbTktXfCJLILJGV8vqa3UPK6BgZasWHE2vQuEg+jvk
+	NeKKlp1q26KOcc5dK735lKWPDXe6jqL3XBhRd74R4iM1lStMZGqXJUAz93Eum6jD4GiX0riRV5g
+	Y0Pwy5uWAUTs9/
+X-Received: by 2002:a05:620a:370b:b0:93b:eb9a:ca47 with SMTP id af79cd13be357-940ef938f5fmr84044485a.31.1792798611950;
+        Fri, 23 Oct 2026 16:36:51 -0700 (PDT)
+X-Received: by 2002:a05:620a:370b:b0:93b:eb9a:ca47 with SMTP id af79cd13be357-940ef938f5fmr84041285a.31.1792798611386;
+        Fri, 23 Oct 2026 16:36:51 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5bfb7a6b051sm67463e87.14.2026.10.23.16.36.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Oct 2026 16:31:05 -0700 (PDT)
-Date: Fri, 23 Oct 2026 23:31:03 +0000
-From: Samiullah Khawaja <skhawaja@google.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
-	Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>, 
-	Alex Williamson <alex@shazbot.org>, iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Pasha Tatashin <pasha.tatashin@soleen.com>, 
-	David Matlack <dmatlack@google.com>, Lu Baolu <baolu.lu@linux.intel.com>, 
-	Pranjal Shrivastava <praan@google.com>
-Subject: Re: [RFC PATCH 3/3] iommu/arm-smmu-v3: Add support for hitless
- replace of S1 domains
-Message-ID: <atvppceAqBVx8G9S@google.com>
-References: <20260925011308.3381953-1-skhawaja@google.com>
- <20260925011308.3381953-4-skhawaja@google.com>
- <3d1eb92f-3447-49f0-a210-fd4fa015304b@arm.com>
+        Fri, 23 Oct 2026 16:36:49 -0700 (PDT)
+Date: Sat, 24 Oct 2026 02:36:47 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Cc: Anna Maniscalco <anna.maniscalco2000@gmail.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, iommu@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH RFC 03/13] drm/msm: look for lpac from dts
+Message-ID: <o2zmplbtmoueumw3iqejfsdmucp5f66woa5hmw3vodbe66reab@syn2ashugzyg>
+References: <20260705-descriptive-name-lpac-upstream-v1-0-01d50c3e0c99@gmail.com>
+ <20260705-descriptive-name-lpac-upstream-v1-3-01d50c3e0c99@gmail.com>
+ <rwohvfbsw2brpxrfg26egu5arwe6g7n2etelo33eegmu5cz65k@3syofuxzsjrc>
+ <dc5aef2e-600e-4e97-b76b-dcc8bd72c709@gmail.com>
+ <m4vwrqt6yyaawpvkyrqfzs3kbipbhygmtrhphuthl2gmjvkgyt@u2d3dnvl2phy>
+ <54cb37bb-aaa5-4c5d-a563-acca4822dd35@oss.qualcomm.com>
+ <t5gu6ciwmxdb2jghc44gtixdsbedkgy4yzke5sgawjrr2h362u@ahvhh3yfe6lx>
+ <wtun2cfukyzxlsfiz2izsejd33k4jpapwqa3uqih5drcsrkff5@e6llkke5dayw>
+ <1f6db59c-b7a9-41a1-8022-6713365fa09e@gmail.com>
+ <fcb86c33-1893-47bb-80eb-20acd65f3805@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <3d1eb92f-3447-49f0-a210-fd4fa015304b@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <fcb86c33-1893-47bb-80eb-20acd65f3805@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=HMRWhYtv c=1 sm=1 tr=0 ts=6adbef95 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=VwQbUJbxAAAA:8
+ a=9jRdOu3wAAAA:8 a=s7fkfekX88plzggl2-cA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22 a=ZE6KLimJVUuLrTuGpvhn:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIzMDA5MyBTYWx0ZWRfX99pGF+P30zUv
+ 0UgbqgjOIQHK5yxNky7ErEOSDwpgHpReIGEthFMdDzj5U1PLsLHnSGh5wSqZROwk0uoWtLfKWYO
+ xmdChky6ZVQfqx49gboTFMhbKwXxUrWSrELFc/Zt9vR25dDbsxNa/VfmkJSp7lmOsx3wZ9tyIQA
+ QPTyd/IuTaDQPbvo2NLlz6HQRaG0ev3Yspc1ruzMhvzxn3u29rYdHzqAwyscnC/Mq2Zkvkv43TC
+ CNAsZvEEGoU1Z/Sck6KtiqN6PPzIr5nP+9tbe9uJpJLHKoHYjPO2KLvfg8G7FL9FkTVY1VAoYMH
+ MAQ3uCOVvasYgOejYRh79pMV33yPFc40AFeYYQ9yfrD64XXBx7C/V9EzfTEWN7++DEkUPE/47Ur
+ 3oVZ80IQTSZUknln1/84fKE9rmtpFKqzxv6A1dqBF+VI34Y/90ErwlDT/ZbwpDUxCKAAsdI40d3
+ SNnpw7uv0bfr1eIQujA==
+X-Proofpoint-ORIG-GUID: cLQSHTQ1eckcZbcj5WI3Wcv-npsry-gy
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIzMDA5MyBTYWx0ZWRfX+08Gy89+rRHk
+ ZxdXRzXkhg/jhf5T42LnAkK+gj/K+jtOMYrEeT/HeIs3JkNTkA3z0PGarNbVr7C3/jDwM22UpSn
+ S3ZNY2WexlsP68Hg/OyUc8z+MCTSziQ=
+X-Proofpoint-GUID: cLQSHTQ1eckcZbcj5WI3Wcv-npsry-gy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-23_06,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 clxscore=1015 suspectscore=0 spamscore=0 phishscore=0
+ priorityscore=1501 impostorscore=0 malwarescore=0 bulkscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610230093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_163109_668938_2C236722 
-X-CRM114-Status: GOOD (  19.44  )
-X-Spam-Score: -17.6 (-----------------)
+X-CRM114-CacheID: sfid-20261023_163654_000267_53198B81 
+X-CRM114-Status: GOOD (  37.42  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,144 +177,84 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-23.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_IN_DEF_DKIM_WL
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23, 2026 at 02:43:28PM +0100, Robin Murphy wrote:
->On 25/09/2026 2:13 am, Samiullah Khawaja wrote:
->>S1 domains are programmed by CD entries in the CD table. During a new
->>domain attach these are updated using write_cd_entry. Since ASID and
->>TTB0 are in different 64-bit words, the write_cd_entry considers it a
->>non-hitless update and sets V=0. This means such an update is disruptive
->>and would generate translation faults if there are ongoing DMAs.
->>
->>Replace the CD entries by using an unused temporary ASID in following
->>sequence to allow hitless replacement of CD entry,
->>
->>- Update the CD entry with temporary ASID.
->>- Update the CD entry with the target TTB0.
->>- Update the CD entry with the target ASID.
->>
->>Signed-off-by: Samiullah Khawaja <skhawaja@google.com>
->>---
->>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 66 ++++++++++++++++++++-
->>  1 file changed, 64 insertions(+), 2 deletions(-)
->>
->>diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>index 5732f3ba0122..59f4b8cf89f6 100644
->>--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>@@ -1641,6 +1641,68 @@ void arm_smmu_write_cd_entry(struct arm_smmu_master *master, int ssid,
->>  	arm_smmu_write_entry(&cd_writer.writer, cdptr->data, target->data);
->>  }
->>+/* Invalidate every stage-1 TLB entry tagged with @asid. */
->>+static void arm_smmu_tlb_inv_asid(struct arm_smmu_device *smmu, u16 asid)
->>+{
->>+	enum arm_smmu_cmdq_opcode op = (smmu->features & ARM_SMMU_FEAT_E2H) ?
->>+					       CMDQ_OP_TLBI_EL2_ASID :
->>+					       CMDQ_OP_TLBI_NH_ASID;
->>+
->>+	arm_smmu_cmdq_issue_cmd_with_sync(smmu,
->>+					  arm_smmu_make_cmd_tlbi(op, asid, 0));
->>+}
->
->Feels like this should probably use the existing invalidation machinery...
+On Fri, Oct 23, 2026 at 03:16:27AM +0530, Akhil P Oommen wrote:
+> 
+> 
+> On 10/22/2026 6:24 PM, Anna Maniscalco wrote:
+> > On 7/9/26 9:39 PM, Dmitry Baryshkov wrote:
+> >> On Thu, Jul 09, 2026 at 05:54:23PM +0300, Dmitry Baryshkov wrote:
+> >>> On Thu, Jul 09, 2026 at 07:12:39PM +0530, Akhil P Oommen wrote:
+> >>>> On 7/7/2026 10:09 PM, Dmitry Baryshkov wrote:
+> >>>>> On Tue, Jul 07, 2026 at 05:02:43PM +0200, Anna Maniscalco wrote:
+> >>>>>> On 7/6/26 5:04 PM, Dmitry Baryshkov wrote:
+> >>>>>>> On Sun, Jul 05, 2026 at 09:13:37PM +0200, Anna Maniscalco wrote:
+> >>>>>>>> In order to associate the SID used by LPAC to it's own domain and
+> >>>>>>>> context bank we need a separate node on the DTS.
+> >>>>>>> Can we use iommu-map instead of adding a new device using the same
+> >>>>>>> addresses? You provide zero explanations, but it seems like you are
+> >>>>>>> trying to separate a part of the GPU into a separate device, but it's
+> >>>>>>> unnecessary.
+> >>>>>> What I was trying to say is that we need to map sid0 and sid1 to different
+> >>>>>> context banks.
+> >>>>>>
+> >>>>>>  From what I recall, so long as we use the same dt node, the iommu drivert
+> >>>>>> provides no way of doing this.
+> >>>>>>
+> >>>>>> What kgsl does is having a node for the iommu and then subnodes for gfx lpac
+> >>>>>> and secure.
+> >>>>>>
+> >>>>>> The address on the lpac device doesn't really matter. I have very limted
+> >>>>>> knowledge of DTSs but I think we could just leave it out altogether?
+> >>>>> I think, you were poined to the Glymur Iris patches. Another option is
+> >>>>> the QDA driver being submitted too. Both ot them use iommu-map to
+> >>>>> describe the same usecase - a set of SIDs which are used by the device
+> >>>>> but which should not be a part of the defaut set. With it in place you
+> >>>>> don't need to have separate qcom,lpac devices, no additional properties,
+> >>>>> etc.
+> >>>>>
+> >>>>> I'd recommend following the same approach.
+> >>>> iiuc, the conclusion in this recent thread is to use child nodes for a
+> >>>> similar case:
+> >>>> https://lore.kernel.org/all/20260618151745.GD231643@ziepe.ca/
+> >>> Let me check internally.
+> >> After a brief discussion: it can be either, depending on what suites
+> >> better (and if you can persuade DMA / IOMMU maintainers to let one extra
+> >> bus or not).
+> >>
+> > One thing sashiko is pointing out is that new dt should work with hold kernel so, in general moving sid1 from there would break it since old kernels don't know how to handle them separately.
 
-I see, I can use the arm_smmu_inv_flush_iotlb_tag() to issue
-invalidation for the ASID.
->
->>+
->>+static void arm_smmu_cd_set_asid(struct arm_smmu_cd *cd, u16 asid)
->>+{
->>+	cd->data[0] &= ~cpu_to_le64(CTXDESC_CD_0_ASID);
->>+	cd->data[0] |= cpu_to_le64(FIELD_PREP(CTXDESC_CD_0_ASID, asid));
->>+}
->>+
->>+static void arm_smmu_replace_cd_entry(struct arm_smmu_master *master, int ssid,
->>+				      struct arm_smmu_cd *cdptr,
->>+				      const struct arm_smmu_cd *target)
->>+{
->>+	struct arm_smmu_device *smmu = master->smmu;
->>+	struct arm_smmu_cd stage;
->>+	u32 tmp_asid;
->>+
->>+	lockdep_assert_held(&arm_smmu_asid_lock);
->>+
->>+	/*
->>+	 * Nothing is translating through an invalid CD, and an update that
->>+	 * invalidates one cannot be made hitless anyway.
->>+	 */
->>+	if (!(cdptr->data[0] & cpu_to_le64(CTXDESC_CD_0_V)) ||
->>+	    !(target->data[0] & cpu_to_le64(CTXDESC_CD_0_V)))
->>+		goto write_directly;
->>+
->>+	if (xa_alloc(&arm_smmu_asid_xa, &tmp_asid, XA_ZERO_ENTRY,
->>+		     XA_LIMIT(1, (1 << smmu->asid_bits) - 1), GFP_KERNEL))
->>+		goto write_directly;
->>+
->>+	/* Copy the existing cd entry and update only the ASID. */
->>+	stage = *cdptr;
->>+	arm_smmu_cd_set_asid(&stage, tmp_asid);
->>+	arm_smmu_write_cd_entry(master, ssid, cdptr, &stage);
->>+
->>+	/* Copy the target cd entry and update ASID to the temporary ASID. */
->>+	stage = *target;
->>+	arm_smmu_cd_set_asid(&stage, tmp_asid);
->>+	arm_smmu_write_cd_entry(master, ssid, cdptr, &stage);
->>+
->>+	arm_smmu_tlb_inv_asid(smmu, tmp_asid);
->>+
->>+	/* Update to the target cd entry as it should be hitless now. */
->>+	arm_smmu_write_cd_entry(master, ssid, cdptr, target);
->>+
->>+	arm_smmu_tlb_inv_asid(smmu, tmp_asid);
->>+	xa_erase(&arm_smmu_asid_xa, tmp_asid);
->>+	return;
->>+
->>+write_directly:
->>+	arm_smmu_write_cd_entry(master, ssid, cdptr, target);
->>+}
->>+
->>  void arm_smmu_make_s1_cd(struct arm_smmu_cd *target,
->>  			 struct arm_smmu_master *master,
->>  			 struct arm_smmu_domain *smmu_domain)
->>@@ -3664,8 +3726,8 @@ static int arm_smmu_attach_dev(struct iommu_domain *domain, struct device *dev,
->>  		struct arm_smmu_cd target_cd;
->>  		arm_smmu_make_s1_cd(&target_cd, master, smmu_domain);
->>-		arm_smmu_write_cd_entry(master, IOMMU_NO_PASID, cdptr,
->>-					&target_cd);
->>+		arm_smmu_replace_cd_entry(master, IOMMU_NO_PASID, cdptr,
->>+					  &target_cd);
->
->No, we cannot blindly do this for arbitrary ->attach_dev calls - the 
->majority of S1->S1 transitions are going to be moving back and forth 
->between the default domain and user domains, where there is zero 
->expectation, let alone guarantee, that the translations would be 
->equivalent and thus not liable to lead to TLB conflict aborts or 
->amalgamation hell.
->
->This needs to be in a dedicated "I know what I'm doing and I fully 
->accept the consequences if I get it wrong" call path.
+The rule is the opposite: new kernels must continue to work with the old
+DTs. If the new DT breaks with the older kernel, just specify it in the
+cover letter so that Bjorn doesn't merge DT changes before the driver
+changes find the way into his tree.
 
-Agreed.
+> > 
+> 
+> + Bjorn/Konrad
+> 
+> Not sure how strict is the requirement for compatibility with older kernel version. An
+> option in your case could be just do an override in the board dts file of the
+> Steam Frame.
 
-I will update this to only be triggered with explicit request from the
-Core to satisfy my live update use case where a preserved iommu domain
-is being replaced by a new domain setup by the user.
+Anyway, would it be a problem? Does GPU normally use SID 1? Or is it
+only used by the LPAC?
 
-Thanks,
-Sami
->
->Thanks,
->Robin.
->
->>  		arm_smmu_make_cdtable_ste(&target, master, state.ats_enabled,
->>  					  STRTAB_STE_1_S1DSS_SSID0);
->>  		arm_smmu_install_ste_for_dev(master, &target);
->
+> 
+> -Akhil.
+> 
+> > Not sure how to address this.
+> > 
+> > Best regards,
+> 
+
+-- 
+With best wishes
+Dmitry
 
