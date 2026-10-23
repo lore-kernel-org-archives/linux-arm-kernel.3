@@ -2,36 +2,36 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D446D606A322
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 17:53:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC5AA606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 17:53:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3BcUmpGn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=M8Y9qZg3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=9ebQlmYnQSHGBUB7xnm9z1TcIdbICsKNFrt5czGiFFU=; b=3BcUmpGn4phRW/
-	8ZrrCF/EPlE1Jwe9ib3Dg+1rF7f41q7wSBRd4Lv8zk8JFQKgHZf9Nfkx5vXMNzIQILFYgwmrUs5B7
-	2OhW3DKJWzcBQ7lYX0j505SNrSjKRFjpSqztPNBAWk+68p4C/TkP58VL614PMklMxUsB9IzFl+Tec
-	PWcNm+N1xog27PZfKC5ka2Cuj3250XfRwphIAMOrYpP0FEP1YzCmGwqk20SseanVsEdBg8tQcx3Ne
-	l11iqQ511HXh3zsd8Sn0TBWAVpzPJ1XNa+Q/51blhcmM5w+Jnx69F92X0khlUztDrCvogm47JQztX
-	8sEAqyO2tsgcd2ga+4TQ==;
+	List-Owner; bh=cmw0kJvPlogc0Dq5lVT/xEgR88keU7nR4P6aPNL3aqg=; b=M8Y9qZg3AT9ivX
+	JwoYKSm/PSJbfeFh+kMRKyL+d91FhJmrdiYf8oqynF6jUUtqInR0IdoynLgzBD1X42sb4stzFmYAN
+	SjwYIPyqUUM8ozMz2FgpCPfzN6UAEC0J3KWsK8poHBK/FIedPEmf79Oc3had5XbQwW3lpXGbbH65l
+	KtMNQazzpEtybNrvJfiGJcmQcwP3wjtT9WbFBdvr8qPue1wGH3VH72arjMYbt/mX5XQjMMTppE/i6
+	btOli8dgwZB5Nb1ZZktIu5/XG9sEmpKTE6C9f/9TBIowb1tZ6vKS2jYEzUvZII4SAZ9LZ6zHvrpgo
+	fV+P1iqcBOSM8F72JhBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKJRm-0000000GktM-08ct;
-	Fri, 23 Oct 2026 17:52:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xKJS0-0000000Gkxv-0eEB;
+	Fri, 23 Oct 2026 17:53:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKJRi-0000000Gkt6-3lmH
+	id 1xKJRy-0000000GkxE-1V5N
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 17:52:50 +0000
+	Fri, 23 Oct 2026 17:53:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C43543A5C;
+	by tor.source.kernel.org (Postfix) with ESMTP id 85EC26020F;
+	Fri, 23 Oct 2026 17:53:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07A3D1F01825;
 	Fri, 23 Oct 2026 17:52:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5412A1F01829;
-	Fri, 23 Oct 2026 17:51:47 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Linus Walleij <linusw@kernel.org>,
 	Bartosz Golaszewski <brgl@kernel.org>,
@@ -50,9 +50,9 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 1/7] gpio: rcar: Convert to gpiochip_generic_{request,free}()
-Date: Fri, 23 Oct 2026 19:50:39 +0200
-Message-ID: <528b079a19bd4043754bfb56db8e5950bdda62f6.1792776697.git.geert+renesas@glider.be>
+Subject: [PATCH 2/7] dt-bindings: clock: renesas,r8a78000-cpg: Add GPIO clocks
+Date: Fri, 23 Oct 2026 19:50:40 +0200
+Message-ID: <624a9fb09e4ec74b1995797e5121b86e7206f5f2.1792776697.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1792776697.git.geert+renesas@glider.be>
 References: <cover.1792776697.git.geert+renesas@glider.be>
@@ -76,47 +76,44 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When a gpio device node has no gpio-ranges property,
-pinctrl_gpio_request() returns -EPROBE_DEFER and its GPIOs are unusable.
-
-Restore the ability to use GPIOs before pin control support is added by
-using the gpiolib helpers instead, which cater for this use case.
+Add definitions for the clocks used by the GPIO modules on R-Car X5H:
+  - R8A78000_CPG_SCPBUSD16_SCP_MAIN,
+  - R8A78000_CPG_S0D24_PERE_MAIN,
+  - R8A78000_CPG_SGD32_PERW_BUS,
+  - R8A78000_CPG_S0D24_HSCN_OTHER.
+Include a few more clocks from the same groups for ordering consistency.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- drivers/gpio/gpio-rcar.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ include/dt-bindings/clock/renesas,r8a78000-cpg.h | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/drivers/gpio/gpio-rcar.c b/drivers/gpio/gpio-rcar.c
-index 54dc47d45de7e861..1192e1f1c6db8433 100644
---- a/drivers/gpio/gpio-rcar.c
-+++ b/drivers/gpio/gpio-rcar.c
-@@ -15,7 +15,6 @@
- #include <linux/irq.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/pinctrl/consumer.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/spinlock.h>
-@@ -309,7 +308,7 @@ static int gpio_rcar_request(struct gpio_chip *chip, unsigned offset)
- 		return error;
- 	}
+diff --git a/include/dt-bindings/clock/renesas,r8a78000-cpg.h b/include/dt-bindings/clock/renesas,r8a78000-cpg.h
+index 14b3885f2d9933a3..cd7192ccecd4e22c 100644
+--- a/include/dt-bindings/clock/renesas,r8a78000-cpg.h
++++ b/include/dt-bindings/clock/renesas,r8a78000-cpg.h
+@@ -12,5 +12,21 @@
+ #define R8A78000_CPG_SGASYNCD16_PERW_BUS	2
+ #define R8A78000_CPG_MSO_SCP_MAIN		3
+ #define R8A78000_CPG_MSOCK_PERW_BUS		4
++#define R8A78000_CPG_SCPBUSD1_SCP_MAIN		5
++#define R8A78000_CPG_SCPBUSD2_SCP_MAIN		6
++#define R8A78000_CPG_SCPBUSD4_SCP_MAIN		7
++#define R8A78000_CPG_SCPBUSD6_SCP_MAIN		8
++#define R8A78000_CPG_SCPBUSD8_SCP_MAIN		9
++#define R8A78000_CPG_SCPBUSD16_SCP_MAIN		10
++#define R8A78000_CPG_SCPBUSD32_SCP_MAIN		11
++#define R8A78000_CPG_S0D1_PERE_MAIN		12
++#define R8A78000_CPG_S0D2_PERE_MAIN		13
++#define R8A78000_CPG_S0D3_PERE_MAIN		14
++#define R8A78000_CPG_S0D4_PERE_MAIN		15
++#define R8A78000_CPG_S0D8_PERE_MAIN		16
++#define R8A78000_CPG_S0D24_PERE_MAIN		17
++#define R8A78000_CPG_SGD8_PERW_BUS		18
++#define R8A78000_CPG_SGD32_PERW_BUS		19
++#define R8A78000_CPG_S0D24_HSCN_OTHER		20
  
--	error = pinctrl_gpio_request(chip, offset);
-+	error = gpiochip_generic_request(chip, offset);
- 	if (error)
- 		pm_runtime_put(p->dev);
- 
-@@ -320,7 +319,7 @@ static void gpio_rcar_free(struct gpio_chip *chip, unsigned offset)
- {
- 	struct gpio_rcar_priv *p = gpiochip_get_data(chip);
- 
--	pinctrl_gpio_free(chip, offset);
-+	gpiochip_generic_free(chip, offset);
- 
- 	/*
- 	 * Set the GPIO as an input to ensure that the next GPIO request won't
+ #endif /* __DT_BINDINGS_CLOCK_RENESAS_R8A78000_CPG_H__ */
 -- 
 2.43.0
 
