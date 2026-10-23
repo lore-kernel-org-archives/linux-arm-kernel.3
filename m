@@ -2,139 +2,121 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47C63606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 15:16:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4E69606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 15:26:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GO/wnBYn;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=RLLVD7dZ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y++cFPNZ;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=rsAID/p+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=5oJpRDVpwsYL5wMq42O/LjLxP7ykplzeP8H6xERXWeg=; b=GO/wnBYnnPibGqRO2Ku1pndA8h
-	1TrUhqbPHvYSvL+vGQg+oCRP9rgDPkmvdKJFbf2UoBEpH8vzAWUqre7OpyS1J0irV/G0arOrbqlzr
-	BpknnB4qFLPx3I1ZXc5chEDOrSnXKjKQJP+XGIxDDXbflkQpW2/JiRmfrwXhFL7sIAnaDKr7RVbUw
-	5mfcV5xhiBt3C5ZdZhvgL3dTqQ4Z1BwiEfzGbckR3SJhCEm2lxrEJvcgR4bzd+zMa+n49Hzs2cBr/
-	LOyixh7QC8iDNBKNn3BKXpov2aEoOsAe5ofr0iUfIyt9VgZvtIsuZf8kr6xV3FSyUFxolEGgX+wth
-	cK07fRsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=4a2HGeqSU90/oPjDCBfIOMhTpn84AQ4hBfmcEVcMu7Y=; b=y++cFPNZLRvOUF
+	W5XlCWFpZrK34JUtQo9f/S6nZkqnF1Xo/RNfNPRA1KDD87KXqamLU993ZUamYDZesEuUUWLFcb50V
+	rBfgxG2JiJ8QEqwqhI+If5hwkuprdPDQdPFBD0iuDSEFcFLRTzTK9DosFElf8uFQ5ZPzo1oRNrIF1
+	uO8X+nWSKPwHdvtGICJMXo37M9ohfPhXUq2/Eo3gGidIsKVW/HLUgDNcRAxPKL0cFgqtHPEPXdRDo
+	sRLyLehMNck5RI1ks6eCWB9VAVE/Lbqo71E3MxxtIwuAHgpqEuQeS/2R1wBE5ji5KsHIKu6NQdgNa
+	ArqLJ+xZPzD3KbImB+sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKH00-0000000Gaph-2QON;
-	Fri, 23 Oct 2026 15:16:04 +0000
-Received: from mail-francesouthazon11011018.outbound.protection.outlook.com ([40.107.130.18] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xKH9i-0000000GbRu-2us4;
+	Fri, 23 Oct 2026 15:26:06 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKGzw-0000000GapG-3mE0
+	id 1xKH9g-0000000GbRA-1HsR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 15:16:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yw6FOWl4vSjsWh0rvQSQfJmO7rEqTM+QyjAvQbfjYu83H8RyQR7MKERuYfHsf4aDuHxDJI9y87OYt+lOZ8Ac6np2LDzgvN/mIOCUjeFgiE8eWv29qy8kz98HAflqC0mo8eI4Zi1XfLfolNUAPIy5PMlc8MO88KpAhygbENnGLXakQmfR/bS+VKNbLdeybsONxW4NIjNUM7ynhvV3h0AJIyB9EqFT0XA7RKyLtjsHTxWcaYq1gBJI+50EVAzF0kv7YnXEdL51SlrOWQutSczjqAJ4JqgIlkkSML3+sQMCYSj2tx4Y6YOX5CXQ5S7Eu+w2fqI8kryZrdC/4+u8yEA8Jg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5oJpRDVpwsYL5wMq42O/LjLxP7ykplzeP8H6xERXWeg=;
- b=oBtzsgnMQUBNylmiTQGjTSqzsSsnoIFmBt4j1puUybQaki02BIQhg2ZMW38GVlaHM5UVIA9JS4ZaCW+R+lQKkjl6+V0zLiSI3TjgjoiS0Jc7CrQPDhem0bLU9AvD21W1ZE5+Md1OaUxtM2w0TUebkK0fZYGf9nI8VqWu0qmLzErh8eg+audCBWqpJrQcG7Ogky+7GJF4QCk8J3YZVdxN0A1clqWTMAoWkf5FyYuI1UsQSHHnphs6UEwoKOUatee1HBrzyZ3+LMXyaP48OSamLOKgJCDGoJnSW2kxAFKeV5a2vTHWY3wJDei2yMDtXJ7beXF22Ou1ZrzKa3LGMiybOw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5oJpRDVpwsYL5wMq42O/LjLxP7ykplzeP8H6xERXWeg=;
- b=RLLVD7dZAXsr6hCPMjXa19ntVtc/iJDJqTUWe/7NpuoB+QkxxNndovb/FgaMKP6rAVdWJZwepGTQRiig0CpgYMsEmJTCGjl7hfP+Xc34JTiCitXq5QL3rE9MJusk3IVWDqC3ri5TYgKNUBmSA4duMFX6Tszy/GDNfnZNqPsgwnaVd/wrrUeTTIoXQob73JCZPMlIS9t8zJRyO7bsWZ86Gb/3idBkgVxX48GCO5nveZ7KB5ypGSj/0pjg5hGQiH1Ya8D03NMfgwJvzWaamiyG8831s0KRwxHro27EYS4fTGhqHq9Dj1nfvdUyg4hltca9pVtQG83pIEZPPFHXfNgXBw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by MA9PR04MB215426.eurprd04.prod.outlook.com (2603:10a6:250:106::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.19; Fri, 23 Oct
- 2026 15:15:53 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.012; Fri, 23 Oct 2026
- 15:15:47 +0000
-Date: Fri, 23 Oct 2026 10:15:36 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	pierluigi.p@variscite.com, Nate.D@variscite.com,
-	Peng Fan <peng.fan@nxp.com>, Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [RFC] arm64: dts: freescale: Supporting Variscite SoM and
- carrier revisions
-Message-ID: <att6GNZAVv64Rlnv@SMW015318>
-References: <20261023115242.11197-1-stefano.r@variscite.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261023115242.11197-1-stefano.r@variscite.com>
-X-ClientProxiedBy: PH0P220CA0030.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:d3::30) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	Fri, 23 Oct 2026 15:26:05 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49d05d51553so7303785e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 08:26:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792769161; x=1793373961; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4a2HGeqSU90/oPjDCBfIOMhTpn84AQ4hBfmcEVcMu7Y=;
+        b=rsAID/p+qD/54FsTmbrUnVN1ll8qOmNngBacLxjCaW0bHlKPW9iwB8qzp68SJxi6e6
+         Yekujotx4cgzlKgiE97Rvq5OcLCRiElcaLIInaQAniicnqBa9xkCtf7fuvLAMb/apPkY
+         O1uA6G2UuzzqwHghSLwx97bFA35n7YEycZs0cJ3J4tRURRJr3eSkSQY6IElUOXAxEjhJ
+         0NpU1EQ0tNxTG3QsJlxFIcAx/KNzWJ9SqFDB4uPXws/Mqh8/Pd+uOQ7aN8RAVClBH0BC
+         qvYA2UafIt+2rbkqm+4k60z7yF7oySYGxdBAiEllDb5RN+kfA3bEiju3MJv1fvtpYV3t
+         /JaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792769161; x=1793373961;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4a2HGeqSU90/oPjDCBfIOMhTpn84AQ4hBfmcEVcMu7Y=;
+        b=OJa81PAzxHLj1z8u8UnNcPasPRg5Y+0prUqCsGUIURZqEiIbakoJ2L7dfN7EGj8zaF
+         sClqKRsXoBKhYMWAAXmb8YDl7HfTdRLa1bqOqD6HTT1AEo6e2iqq3zkthK/9sC+toLzj
+         f61O8yu2GMS9fM0RvGYO800S3mbwsYEsPmZGPbzVl7d0Gc5WuEk4vXxMsdeIqYWvfqB/
+         d3T2Xqvk8ZlLgiKrCFD7uQ4unzxlIoImLo4JOfIEL39b2JEbbwqXU6xZhYGtRi1Ynqhw
+         mA9kYur4SUNuyBb/8A5QRLpAeS70rOmCyA5JkUq5PYQAvLtdfR7t4xwDmnZ0LvG6Lphp
+         j5RQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwQcWMAbCmOvcE9beddH5h7d0bHnBskwk+5g7fpyJs2Yx+yxuYqCH1t75F6w01hCN9KWUidh8vJB1YxgY0EEfo+@lists.infradead.org
+X-Gm-Message-State: AFq9FYJIasj0nq19OfwMnZHql7U/hw23fwyE/vWYfOM/BWm2dgHRYf1t
+	Kh62qi7ClBfvXVBvrAcER0VnCopRgfeJLuD98dUR2jMnlRYq+Xwmi9U=
+X-Gm-Gg: AYBFou0ZmBpps1HVxzaLAKoOQqSMzI39KD6b3k6lvzqxCO8k0LB/DFovaugn0wpu59/
+	/PbvMLd3TDHdCTfuPYOJTiDjNemJx7PpEX1agMJjMRfDUODzxj3vPpQ0yMjj0jS0Jn2M/7kekUF
+	ExZzKa8Mj8xHk7wRtoAhLRf4s+7l/cI+Nuux4w7CY/Pov8nG7dLDr+f0CWRsxfMniqKZZ1UlJyO
+	Ad641/Er9jPr1QJQZqCjTQnGK7Qjb4BqAL1qcjBnTbp0/eYdSce+/nTUJh1PP5hztELxI1snIC6
+	WemnBl980oBpq6E784niZKuvtoecq87zaYWhdLE3ePEalodbtg9NIrqrjSPRInZ3Aj5wX0cWGUN
+	c5WDrN8r2s09ERMzn47LqQEFwvxmdYP1Cbn2jtiKm3DgvuL3VPMWCjB4K7GWGYmSEWpNrjDEtal
+	ffvsT1zzan03gntZV/qk7aZ8kwSSJVnQm39GkemIS7Cn4aTi+1mIcVzEvAnfPuAPmw+9jRwTLl7
+	vuVtcuJRYEQO7yyeMv5dFS6JYDHKYuHh0V2uw2S4FlssiMc38ChR12dCVK0BWy3zSpFkpDXHx7n
+	iDb3Gk7pGSSsCAYUPQ2mMBjBv5V4TIGiHJosvdbjQElEiYyD7FjN9DXdFg==
+X-Received: by 2002:a05:600c:19ca:b0:4a2:397:73f6 with SMTP id 5b1f17b1804b1-4a211c8fa81mr43106325e9.8.1792769161277;
+        Fri, 23 Oct 2026 08:26:01 -0700 (PDT)
+Received: from ?IPV6:2001:b07:2ec:601d:4b26:1672:75c7:805a? ([2001:b07:2ec:601d:4b26:1672:75c7:805a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a29cda9686sm11718245e9.6.2026.10.23.08.25.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 23 Oct 2026 08:26:00 -0700 (PDT)
+Message-ID: <af06c4b0-55a6-45e2-b2d0-81d64fcc845d@gmail.com>
+Date: Fri, 23 Oct 2026 17:25:58 +0200
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|MA9PR04MB215426:EE_
-X-MS-Office365-Filtering-Correlation-Id: 031a1091-420d-4b00-7411-08df311883fb
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|19092799006|23010399003|261022105027099003|261022075727099003|10067099003|56012099006|18002099003|22082099003|11063799006;
-X-Microsoft-Antispam-Message-Info: uN948liOzVwNH3SHQQYOg3hA2o8DxiQ2VqLsOpKePl6X/76phwUcrFnlZV1mlcNDBZj6yFyjcJ65M5iqWAAEnXs1tWDffzu6GG7dkimsFdptX1kDXmkBaFUHGszVJE0IqnkxDvTC84H1CdEBgfK+eC/LbjVMs6b4thAViJa9SAc4/AvmjYw7cvbvzX3hPPg6clqSha+Kx0Jayhy9M09Wcqk7e8sfJ9vuBwlPFNZrusSCy6zElGDeu/o8JPtl2ThGqsbuBuDo7NMtDNALWq+/W30XmqHrXTyITOTALG73gOYsFQqAFJlGH5EW2yX6J9xs4zyAihHZpwY+cmXOF1qJpI3/wS+K5CtYau8wLIB423GrVupv4MyXN2kBpKGXBpRLxk2ZLo5Kg0G/bwTP8Hwds34hXm/x1EmCqOKJYdflKFCtq/zO/D5KoqcsD9IcoqP3CGM7og/iK+kmwclj4G19c43XukhzgWsgVXgJO7nytv7/XPMcYYeQPFW8YB4OflTnDl++q0BmS35MK+2fZvyGlXnSmAlATLLVE2KlG/nFGxGrdD2J4dzYW0AN8xkzoCfRy8KDYP6fvieMNFlbDfM7/o05sZ9pu/4Mqlt5NnJxaYxhfPR0K1R9gF0tBpavv4vK0aB6ZLBrgnC9aNwk2F8jMeTlBcVUdfntiynHK6RChpE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(19092799006)(23010399003)(261022105027099003)(261022075727099003)(10067099003)(56012099006)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yJkmBM6TlVeRh3yanJH7R4ylslpvf72g7Ya+E6ykOiITSEn61GjEySVlKJ0P?=
- =?us-ascii?Q?tRm8Z8OdVUFk5uTXPRmBB3q3/6NLOoXdjmTaBQ/FxUJGk+DTyH6WOSnQNpet?=
- =?us-ascii?Q?gE8F38motOyAiMgwgCvzOjBfKUSDqGmatjMXHsAeXJEz8No7B6XFMGEt9eFF?=
- =?us-ascii?Q?asXWzcb0xIhPRspq3IEAnrauD7b3KbfzZkaMibh1deWGcHN8d9WzOLolaLPH?=
- =?us-ascii?Q?Cu6sz9AfarPbzI0SA+NM3xV8jNyURNFBxkq0XnjCokGgmCrQnPwTV6roAACM?=
- =?us-ascii?Q?mHn6TMhPLMCBqgbGRY0wuv9SRFmxFvDDXtG6Q/ptKqBajGyzN3g89Toa0+/V?=
- =?us-ascii?Q?1ygPs6PGqJl3Dt1RF2Dho1Z3HW+p2gbhHs6mXdDFDvZ1+DC/PNEnJ5REbSXt?=
- =?us-ascii?Q?hELUFZ/srlesmzJ6EFwa95O1486H7lSeSSeJZXCEGTcufixoFDKmANrySyRK?=
- =?us-ascii?Q?FXRGS4HFvbkxYg2NupLDGykzLTFTCO1kpu59Bzdzgry/UZwIwmpru6N2+hDg?=
- =?us-ascii?Q?6lptC/H5nQKyGirFf7z19NsmRBpgPnZ9kFctkca9eXKlrgz0SYAOkekjYEUp?=
- =?us-ascii?Q?aEsA3CD0zORvkvYy02Sqj4O5g4ijbJiGsojYxrKQOdA0h5Iy56QCk5NLvB+n?=
- =?us-ascii?Q?3uB57wy6XeUaSNaKIENKTdRZ4PGruP2Fv+gWGpdrbugk5X1L7cZmO9Nm2iTr?=
- =?us-ascii?Q?JwxAHS/IddVRQaNQR1aUGQrthu/1QiJh/7WWmo1ov3P/m2uRVYKxmXyslD8g?=
- =?us-ascii?Q?lMTPRagH99JDiMsSyhnN7/FqNuhDGkK8BZGTEEf/HGKvNleB1ok8AYkon4gj?=
- =?us-ascii?Q?ulPf3wiRhEeDNuPl8PNSH132meV6LIUKK+Ah3iH3/ScTUwTZsxJI6WFG7DY8?=
- =?us-ascii?Q?GQf8D4Q0xpaXS2ISY+PM0YAP2Ukv9E2sToTzTjKpMOYq6cAs1WlNSEwJJgPo?=
- =?us-ascii?Q?B+BG1IlsUpLiyWBO2zM4cWUP5+D5BBPeW4nBcF3sfLOISYjIyg3cHOwmlKWW?=
- =?us-ascii?Q?Dgi2z0c196gg5tQLdWlsdbhLxgpOihx52I7bsO31hcQEh7Z8fMe+FsW5stbt?=
- =?us-ascii?Q?Y4PTNeQLEn/Fc9N2kKyZg5aVkuZssbkqnXy6U8ZhtE0/iDtSDASKqOPwckyO?=
- =?us-ascii?Q?OpMKe6145OO/+qoN0X3sfw8Ilu2aLXe26rdGtFuve+I+diEMpyAFsJ17b7DY?=
- =?us-ascii?Q?oOscNny9OvayAb2I/UNqeZhSfJglizQJnNWgcZXOG7q523/JurfNqxMMTv7G?=
- =?us-ascii?Q?IAeGXqwwDjoLmMb2mzQ8dAmcW8yzOKLZyoOBzNptZLVWJKSJYIW85PfBYNCi?=
- =?us-ascii?Q?TDJGRaSYkFUqH4CtYO4GumASRcxvl6FCP0nIEUFfTi9cYKjMpp5RpM/ZubmD?=
- =?us-ascii?Q?l1ukniBMIMJ7+Fo9dcfmtc1x0NvRfPTIbc4S0CDBZQdQIoSDQ1iq7K0KZLX4?=
- =?us-ascii?Q?0Jk+WSevc1p30YKI7CU8dBclBw69g7AYj5fdefrf7F2HO99+uL3fCmdS/755?=
- =?us-ascii?Q?dA0+kuaNONuHGW6ks9PnOGaxJX+PlPejKLveP6WG7HGAHrIErTQG0IlTjkwz?=
- =?us-ascii?Q?6HQkooGV154fA54unSaprj0acxlNXxc3yTon8CR7JJS1l0RhfRd38MY1Godj?=
- =?us-ascii?Q?bpAW86Tya7UMv4FQG4TGkBNV8apjRNnglnmgsVddzFdESmOyVSwM1WY6k9Ct?=
- =?us-ascii?Q?cYaBA/VKxk+so3KrBc2A6YanLj5xzuBs48Vva2WCderqeD5wY9B6Q+waWu7T?=
- =?us-ascii?Q?lu7L7UQSrXF8DfAVilt3kxvuUXh8K0QJFE9e+hJUSuDCWYz5VZTR?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 031a1091-420d-4b00-7411-08df311883fb
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2026 15:15:47.5483
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TsntFsBw1CXhi2/Ksgb5wugGO0KlicxSofL0v+eC5jXpk0Ei5GxVSM05gGHQmM+Fc8y5WzSEf4BVCpc2FVEmudDyfoV/uuIq8hGKuTzylnLrVYRl3csveXQBaDq+vL91
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA9PR04MB215426
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 03/13] drm/msm: look for lpac from dts
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+ Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+ Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar
+ <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+ devicetree@vger.kernel.org
+References: <20260705-descriptive-name-lpac-upstream-v1-0-01d50c3e0c99@gmail.com>
+ <20260705-descriptive-name-lpac-upstream-v1-3-01d50c3e0c99@gmail.com>
+ <rwohvfbsw2brpxrfg26egu5arwe6g7n2etelo33eegmu5cz65k@3syofuxzsjrc>
+ <dc5aef2e-600e-4e97-b76b-dcc8bd72c709@gmail.com>
+ <m4vwrqt6yyaawpvkyrqfzs3kbipbhygmtrhphuthl2gmjvkgyt@u2d3dnvl2phy>
+ <54cb37bb-aaa5-4c5d-a563-acca4822dd35@oss.qualcomm.com>
+ <t5gu6ciwmxdb2jghc44gtixdsbedkgy4yzke5sgawjrr2h362u@ahvhh3yfe6lx>
+ <wtun2cfukyzxlsfiz2izsejd33k4jpapwqa3uqih5drcsrkff5@e6llkke5dayw>
+ <1f6db59c-b7a9-41a1-8022-6713365fa09e@gmail.com>
+ <fcb86c33-1893-47bb-80eb-20acd65f3805@oss.qualcomm.com>
+Content-Language: en-US
+From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+In-Reply-To: <fcb86c33-1893-47bb-80eb-20acd65f3805@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_081600_949822_8CD68F8D 
-X-CRM114-Status: GOOD (  26.80  )
+X-CRM114-CacheID: sfid-20261023_082604_398941_DC349DB3 
+X-CRM114-Status: GOOD (  23.61  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -146,84 +128,82 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23, 2026 at 01:52:41PM +0200, Stefano Radaelli wrote:
-> Hi all,
+On 10/22/26 11:46 PM, Akhil P Oommen wrote:
 >
-> At Variscite, we are starting to look at how best to maintain upstream
-> Linux support for multiple hardware revisions of our SoMs and carrier
-> boards. We would appreciate guidance before settling on an approach.
-> Our goal is to support new revisions while allowing customers to keep
-> using current kernels on older hardware.
+> On 10/22/2026 6:24 PM, Anna Maniscalco wrote:
+>> On 7/9/26 9:39 PM, Dmitry Baryshkov wrote:
+>>> On Thu, Jul 09, 2026 at 05:54:23PM +0300, Dmitry Baryshkov wrote:
+>>>> On Thu, Jul 09, 2026 at 07:12:39PM +0530, Akhil P Oommen wrote:
+>>>>> On 7/7/2026 10:09 PM, Dmitry Baryshkov wrote:
+>>>>>> On Tue, Jul 07, 2026 at 05:02:43PM +0200, Anna Maniscalco wrote:
+>>>>>>> On 7/6/26 5:04 PM, Dmitry Baryshkov wrote:
+>>>>>>>> On Sun, Jul 05, 2026 at 09:13:37PM +0200, Anna Maniscalco wrote:
+>>>>>>>>> In order to associate the SID used by LPAC to it's own domain and
+>>>>>>>>> context bank we need a separate node on the DTS.
+>>>>>>>> Can we use iommu-map instead of adding a new device using the same
+>>>>>>>> addresses? You provide zero explanations, but it seems like you are
+>>>>>>>> trying to separate a part of the GPU into a separate device, but it's
+>>>>>>>> unnecessary.
+>>>>>>> What I was trying to say is that we need to map sid0 and sid1 to different
+>>>>>>> context banks.
+>>>>>>>
+>>>>>>>   From what I recall, so long as we use the same dt node, the iommu drivert
+>>>>>>> provides no way of doing this.
+>>>>>>>
+>>>>>>> What kgsl does is having a node for the iommu and then subnodes for gfx lpac
+>>>>>>> and secure.
+>>>>>>>
+>>>>>>> The address on the lpac device doesn't really matter. I have very limted
+>>>>>>> knowledge of DTSs but I think we could just leave it out altogether?
+>>>>>> I think, you were poined to the Glymur Iris patches. Another option is
+>>>>>> the QDA driver being submitted too. Both ot them use iommu-map to
+>>>>>> describe the same usecase - a set of SIDs which are used by the device
+>>>>>> but which should not be a part of the defaut set. With it in place you
+>>>>>> don't need to have separate qcom,lpac devices, no additional properties,
+>>>>>> etc.
+>>>>>>
+>>>>>> I'd recommend following the same approach.
+>>>>> iiuc, the conclusion in this recent thread is to use child nodes for a
+>>>>> similar case:
+>>>>> https://lore.kernel.org/all/20260618151745.GD231643@ziepe.ca/
+>>>> Let me check internally.
+>>> After a brief discussion: it can be either, depending on what suites
+>>> better (and if you can persuade DMA / IOMMU maintainers to let one extra
+>>> bus or not).
+>>>
+>> One thing sashiko is pointing out is that new dt should work with hold kernel so, in general moving sid1 from there would break it since old kernels don't know how to handle them separately.
+>>
+> + Bjorn/Konrad
 >
-> Our platforms are typically described by a SoM .dtsi and a carrier-board
-> .dts, for example imx8mm-var-som.dtsi and imx8mm-var-som-symphony.dts.
-> Both the SoM and the carrier can evolve independently. Some revisions
-> require changes to the hardware description, while others may work with
-> the same DT. Over time, this leaves us with several combinations to
-> support,> without wanting to duplicate complete device trees for each.
->
-> What would be the recommended upstream approach to organizing and
-> maintaining these revisions and their supported combinations?
->
-> One possibility we have considered is keeping the common SoM and carrier
-> descriptions in .dtsi files, with revision-specific .dtsi files extending
-> or overriding them, and small top-level .dts files selecting the required
-> combination. Would this be a suitable structure? Are there established
-> patterns or existing platforms we should follow, particularly to keep
-> changes for newer revisions from affecting older ones?
+> Not sure how strict is the requirement for compatibility with older kernel version. An
+> option in your case could be just do an override in the board dts file of the
+> Steam Frame.'
+In other words that would mean not upstreaming the DTS change? Although 
+we plan
+on keeping LPAC off by default upstream it feels like that would be 
+quite a big
+barrier to enabling it for people that want it.
 
-It is quite depend on how much difference. maybe choose overlay to update.
-but some change is quite big. Have to rename to .dtsi and use difference
-dts to include dtsi.
-
+Also yeah not sure where sashiko got that requirement, maybe it's not a 
+real problem?
 >
-> We are also wondering how to handle revisions that can share the same
-> description. As a concrete example, we have discussed the following
-> possible grouping for DART-MX8M Mini and Sonata:
+> -Akhil.
 >
->   imx8mm-var-dart-2.0-sonata-1.0.dtb
->     DART-MX8M Mini v2.0-v2.1 on Sonata v1.0-v1.3
+>> Not sure how to address this.
+>>
+>> Best regards,
 
-How about use boards compatible string? You add new compatible for new
-boards, so user know this dts cover which boards.
 
->
->   imx8mm-var-dart-2.2-sonata-1.4.dtb
->     DART-MX8M Mini v2.2 on Sonata v1.4
->
-> These are proposed names, assuming that the same DT correctly describes
-> all the hardware combinations covered by each entry.
+Best regards,
+-- 
+Anna Maniscalco <anna.maniscalco2000@gmail.com>
 
-If new boards 2.3 appear, do you plan change to
-imx8mm-var-dart-2.2-sonata-1.4-2.3.dtb?
-
-Rename affect addtional problem or efforts when back port.
-
->
-> Would it be acceptable to keep updating the first DTS to support a
-> compatible revision such as v2.1, retaining the v2.0 filename, as long as
-> it remains correct for all previously supported hardware?
-
-I think it is fine.
-
-Frank
-
-> In this scheme,
-> we would add a separate DTS/DTB for v2.2 only if a different description
-> were needed.
->
-> This is an initial idea rather than a settled design, so suggestions for
-> a different approach would be very welcome.
->
-> Thanks,
-> Best Regards,
-> Stefano
->
 
