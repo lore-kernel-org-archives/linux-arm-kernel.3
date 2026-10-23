@@ -2,87 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CD9E60A260C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 06:40:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 084A8606A322
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 06:40:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ITW8BRy6;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=MKP9owv7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=n72TMa+f;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=HLcwo6BP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=zCs0TMoU/xtdfW2o//Qc3w2kO9KE9uGMF0SrdJknZZc=; b=ITW8BRy6vLhroh
-	gYjRE6jp77FUoKjyZa8pMrACykrA3141y5Sco9aC3tebG4KoqGFT3EQNKlNFwi/1CX0B9e8VTuhk6
-	rauuQNwUKD9r5bEis9l11iO8VnEM6A0mUvK35+x0hHDOsljNBySMahUbaIm9ROdKOSlASIacnWIfK
-	8VchSv5wqHStyFS4OcqtABU2nIHJ5O0nSbhW+AaThGhyA6R2l1StFbYxs66/j1lSzfkW4QPTZig1s
-	DkDXXMuJTlM1on3DK+fOnGQbOvTeCwzEyn9JZJFxmg72nFPkjaqvgujXo7B8E391s1nGzEVwtR496
-	nmtcf2e4VkR9lAxsFzWA==;
+	List-Owner; bh=e9iXPCmoOhpVXWg91psYHS0PCZjsptq0x3nugAHkv9M=; b=n72TMa+f3A7s8T
+	nEIFDaXfpuxzEsHcenzzNeBet8mBvxlodEX/+AMsWKgdYNmLdEH5kmxPcjJvrHI58ZyvMfxnTcqZh
+	6bF67wnqS5T/gRFfkjfO4o0h3fJIz0SIc8Nta4VB1BNKqd06cCXT8KyOgK/83LxyUBNQL3nhNnj44
+	B/j5ZUc/62jx+sk3MNOKTp5rhVA8XJfL/ksvlWoz2FxR1mMIdSTBXFcqyqCvvdv1HUzKP2KxgGFe2
+	OZuKcS+D7nuBb1tHhR7J/3GHjLdZ7Fkk6y041S3fhDSGQZUwVrpi87uvCbGj+Gu45aSveYtpeDLcN
+	FslPymLcLK0Xq4trQrAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK8wP-0000000FbE8-1eJI;
+	id 1xK8wP-0000000FbDu-1GmU;
 	Fri, 23 Oct 2026 06:39:49 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK8wL-0000000FbC5-2w8D
+	id 1xK8wI-0000000FbB4-17tO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 06:39:46 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48e00eee27dso280740f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 23:39:45 -0700 (PDT)
+	Fri, 23 Oct 2026 06:39:43 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a20bdaf39cso5493255e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 23:39:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792737584; x=1793342384; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792737580; x=1793342380; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zCs0TMoU/xtdfW2o//Qc3w2kO9KE9uGMF0SrdJknZZc=;
-        b=MKP9owv7ke1/0oueZNs19f5Q3d95P+i95+x5xtA+DVXlFkx+3EhhPd7pjK3kxjrtld
-         wFdKxCTvr2cDQcYue/YhzR38MJUQJ8HZGSjU5AlJf1npgMGJ8Q40gpU4EA5MAH/bUsLD
-         1zISxvAHyJ2W0EY7/zIOij8mDnCHrh9ra8cFUJv+xwzF1pIpU5a/9/qI/rWrKKmYLiXS
-         H2+5RJBXtL7gMYcr7nsJoK1/Yz2oKuGN3VBKLDrhQpmRhvgQrHs1cCVS7S5PfkFHo5Hs
-         ooU6uQqNdkw14bBwrNya2MEgweuNh/vOorG6zeCaJBUguDWThTJNfPH0e/3XmtcQVjq3
-         HKUQ==
+        bh=e9iXPCmoOhpVXWg91psYHS0PCZjsptq0x3nugAHkv9M=;
+        b=HLcwo6BPSuCYs+0lbulpgOoHJxa5gJP8V9U7QdqDCD7zUoFYmA9zgZc0ueY41DVMTq
+         iAJC4bS07KI54zp/Q5YCK8ocBASHWhYvduXMr7k2l5FfXcRUIf3M2IvWxCFC+QPl2JxC
+         XAnuufRdxdVDkUv8XxU1sm/AVyZy479iagIdnVp20Rz3XA+p+HyXqbghjg7wQJJUaUPM
+         uA+IP/ikjZH6jKnQOrowUHH00sJRAne0096UJTQPM2h//8Md+gIYr4vmKVklOk2K9F7u
+         Zq0+801wjzJCbfWM1ukVUnrFWJzYGUTZ8r/aLI1cixw0oBmK/16Wu9NlXPKYgISIBuQD
+         gunw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792737584; x=1793342384;
+        d=1e100.net; s=20260707; t=1792737580; x=1793342380;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zCs0TMoU/xtdfW2o//Qc3w2kO9KE9uGMF0SrdJknZZc=;
-        b=pnMjf15Va2EaquWhydKkhO0CTA2K7MAgG6yJpc6uO4XFStCpGpPe/sknhdGTZxEJR/
-         z4s84tfEdJikeKnX/3FKr31PPiTbGJUjFffQ8PuALKDXJ/0pRNhwMfsymSY/+3z3yvP+
-         I8y3qT6K0IZfr47EIEq4siTEthSF7Py7B2ZgUFuirACvejkBc+2E7nK3tehWE2ZfxrHl
-         fu6Qmf5z/T7RX7O5OVTkQEkQJHb7UXy0+yZdDifAZyZo/M8kCEXgxYcIIOPeVSfZrPSo
-         clnr7s0ecCN6WqHSB6lOSTwjrdJtiHxl0+XhEZBunVsHwlmbVHKokudxKViPc3j71/sn
-         RivQ==
-X-Gm-Message-State: AFq9FYIvLXLuLadCIB0tgdvidlaGonxT+55ANOF8CJxHDpf5zf1b0aMR
-	rMtJ3zVL8+WF0FZoM6mWb54RdGEJZIR8+aAQA+0ka9QQ/EHlR+q0nrlY
-X-Gm-Gg: AYBFou2F6GTKCL9F8AJAZ6ViDfxFRTuq6zOV7rAcaBnJOC0O4UOkRONhTAfMQRaffoE
-	3AXkdUU0eV+ycUQkjWeJNQ8Swbq8Ulr9T9yK07N1dgYAztCWys9Kqj9EDrnGthvMZMw9F38gZJM
-	hcINifixwE+taOQrtZpfxobuLn11RGo/vD8vap2TY3L0nR5I7Ot4NAf0vCF+op7awd2cB6v4CJO
-	MdmYGRwq9ie5S8kLpAk7Qihs+SlaZ1tl8LeEe8xb/xgSpzaAebYatEIE4ItJKEYiiznVyU4PwPT
-	j6VKdEcHw5OTjfHREEdgAkOQoLcp6vbprpLsBGPdr7QbS9rWo965lGWxKw5LT7D78ZKaiSCbjn6
-	D0Lx/s72lDjYeItcUSAAyyGmCdHSISZ3JZvqsp01YSS+kiZjN24HJk2um1s1scjpIzBCsxiOaQF
-	JVMxEAI6Xd9ffOYVQ1HjIVrdEMvEAuy0BTAn1xdXYRo6FCxpU6pBG8GFsTkFnhO3j5zQZ7JMZ+m
-	qAxNhCw8gm7ENfQtHlHSCJ8ULS5RehoZTlELk8JZh3K2DO3TsuEat0UNVURPgxgkr+GWcB+au6A
-	TjExIPyFumKX6I+Mf5CATPrYY5HjxAeE5Sfbc0iREaP/ni2Fw3vgYw4+gc4zBYScnU8PO7nbpbo
-	kwhU=
-X-Received: by 2002:a05:6000:15d9:b0:48d:ff0d:cfa5 with SMTP id ffacd0b85a97d-48e385b9322mr977703f8f.47.1792737583628;
-        Thu, 22 Oct 2026 23:39:43 -0700 (PDT)
+        bh=e9iXPCmoOhpVXWg91psYHS0PCZjsptq0x3nugAHkv9M=;
+        b=XE2Q4k+wwpgjqHgfLA32CS2fQwolYoXJQD1uEXbexZBNpFpKT2cTTiERNbMcop7fFm
+         hTm0ovz1lX/QZLecc+tbGXWF6eng4Z1RUJZniPCZwk/XdjkCQZTkwrIE9rITwGa1IVKb
+         V/auy+YTO+dOCDFkqAxqQixbQj+MUYyh9F5eeZ9yieChNJGFVByD5luULZYlamCtWeuZ
+         ZsIQgWTBWDGeEJ/7tKXC3W7b5L1fVm52FfI+XmLo3aFf2Q+kosLzEEI03+HPJRHQm/+K
+         te2U1zcYUEKn/LVQt6Quf8cigQJuNs10NuubAHeN9j2jpFXAClAoR9zJ/xd3TMNyv0Un
+         2+vg==
+X-Gm-Message-State: AFq9FYJqkCy3lKkv7PPrgyjqTon/grZF873wKF6IhP/55JedAcX7mehG
+	cVXR3l2MJHN0PKzB+UNVi73b6Qx6eMsSqJE1U7a3Hsky6cMPj0LAMncs
+X-Gm-Gg: AYBFou0hG9rrBuL0L5ea5ezpo+qKfdoowCUhxUGpki7HW+UbKWVxYIGWkdD8XPZYOHj
+	SFKZZJJ/BmA4SsyNiFVnf8w06l1x+XpqaI8YecNUUXrFLa0jDAbLF6w2SR8eIOoSd7FdNhQ4Z3n
+	RkFskBoDMtBWwkJBORaGKfxb+Kzpli6SnnGnsZQiqsRL86R1J3JDqZKwmAxCK4zfPiznAa5b2Wm
+	KwcxzLYIJ0K+4uofqpwkcFlEN8b4tg3tILXz9kff5uu/HNpgKjxTsZn6AnPSZkCHQOJYWHFGwdr
+	5YmJcPEYzRRvUG61t1pKkRR5MM71xwVHQhcDFtDqi0BIfWjNwM2ifJtOBK78H0H8NR3DeZQ468e
+	phttA/XoMxyGJ/LCdMWP9TK2d5nUs9n764BYUqJJ7TDDNkq62KaEAXzeqPrqb2FCZcKfPkw/7Vd
+	/BcDruXpc+wd+e2Tl7DmwNFNuk4yotReypDJBnEbR1rFzlgi+ANzGNwfMerkh62dqP0LbqSouQN
+	T9EH9+MTZEzQBZxowgWIz1cgio714WLHxRNNLpoKuS85HUYHboSXoOhQUIlYAwnDSfLjd6c625g
+	gK1R5UpycY0ooiBQDcCZlZERm2R6dBhrjtCI5atqM/IToPXP3ZtBkuMSXUa2ikZvgfu+nM6TS1I
+	60C8=
+X-Received: by 2002:a05:600c:a46:b0:4a1:db17:c7e6 with SMTP id 5b1f17b1804b1-4a211c50e30mr19135615e9.2.1792737580211;
+        Thu, 22 Oct 2026 23:39:40 -0700 (PDT)
 Received: from [192.168.1.22] (cst-prg-49-173.cust.vodafone.cz. [46.135.49.173])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e38030c47sm3104782f8f.21.2026.10.22.23.39.40
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e38030c47sm3104782f8f.21.2026.10.22.23.39.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 23:39:42 -0700 (PDT)
+        Thu, 22 Oct 2026 23:39:39 -0700 (PDT)
 From: Tomeu Vizoso <tomeu.vizoso@gmail.com>
 X-Google-Original-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Fri, 23 Oct 2026 08:39:27 +0200
-Subject: [PATCH v3 02/16] dt-bindings: remoteproc: k3-dsp: Allow a second
- sub-mailbox
+Date: Fri, 23 Oct 2026 08:39:26 +0200
+Subject: [PATCH v3 01/16] dt-bindings: remoteproc: k3-dsp: Add the L2
+ auxiliary and DRU regions
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261023-thames-v3-2-3ab40aa17157@tomeuvizoso.net>
+Message-Id: <20261023-thames-v3-1-3ab40aa17157@tomeuvizoso.net>
 References: <20261023-thames-v3-0-3ab40aa17157@tomeuvizoso.net>
 In-Reply-To: <20261023-thames-v3-0-3ab40aa17157@tomeuvizoso.net>
 To: Nishanth Menon <nm@ti.com>, "Andrew F. Davis" <afd@ti.com>, 
@@ -113,8 +113,8 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-remoteproc@vger.kernel.org, linux-hardening@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_233945_778378_AF414E79 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20261022_233942_329944_CBB6B04D 
+X-CRM114-Status: GOOD (  11.03  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,11 +134,17 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Allow specifying a second sub-mailbox that could be used by the firmware
-in addition to the first one, which is taken by remoteproc.
+Besides the existing L2 SRAM region, at least some C7x DSPs in K3 SoCs
+have an additional region called in the documentation "AUX L2 SRAM".
+This is just some more SRAM that is accessed separately.
 
-This is required by firmware that doesn't use rpmsg for their
-communication with the Linux kernel.
+Also add the memory region for the control registers of the DRU (Data
+Routing Unit), which allow starting DMA transactions and polling for
+their completion.
+
+The two entries are optional, so existing device trees still validate,
+and are allowed only for the ti,am62a-c7xv-dsp compatible, the C7x
+generation that has them.
 
 Assisted-by: LLM
 Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
@@ -148,30 +154,31 @@ Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
 v3:
 - Initial version
 ---
- .../devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml        | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml
-index 278b88b7f906..d6319c8e96f8 100644
+index 8b1ed384ef22..278b88b7f906 100644
 --- a/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml
 +++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml
-@@ -51,10 +51,12 @@ properties:
+@@ -122,11 +122,17 @@ allOf:
+     then:
+       properties:
+         reg:
++          minItems: 1
+           items:
+             - description: Address and Size of the L2 SRAM internal memory region
++            - description: Address and Size of the auxiliary L2 SRAM aperture
++            - description: Address and Size of the DRU real-time register page
+         reg-names:
++          minItems: 1
+           items:
+             - const: l2sram
++            - const: l2aux
++            - const: dru
  
-   mboxes:
-     description: |
--      OMAP Mailbox specifier denoting the sub-mailbox, to be used for
--      communication with the remote processor. This property should match
--      with the sub-mailbox node used in the firmware image.
--    maxItems: 1
-+      OMAP Mailbox specifiers denoting the sub-mailboxes allotted to
-+      communication with the remote processor. The first is the one the
-+      remoteproc core uses and should match the sub-mailbox node used in the
-+      firmware image. The second is optional.
-+    minItems: 1
-+    maxItems: 2
+   - $ref: /schemas/arm/keystone/ti,k3-sci-common.yaml#
  
-   memory-region:
-     minItems: 2
 
 -- 
 2.54.0
