@@ -2,132 +2,153 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C1C9606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 06:50:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1543606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 06:57:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IMELQY9/;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=D1d4j1y1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BZsvyhFn;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=cFfEZkKz;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hfbxaKgT
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=LfiU4EaGH2mzKnUAqT1yCPBUuJRXe4MmrmSz1Hb5dfc=; b=IMELQY9/TKvEsIclfumtXKqSL3
-	9Q6lyaOfiUYcPauNf7/Nylhp6e0SKPD+v6k3To0joPEvZLOC2jxwQJAHa8D5txgi3b+daHX89pGSW
-	jTkX1bWDC8I1sKwUyC93iPauDFFDRk6x6YwU7vvk5yAB2GYQShSG848M6kXmbAlNmlC/T3fF5u8XF
-	vWqe7+slBdtR6vSN6ARjGarVHkEdQm0FnWXuvHgdiOXege5Fgo6TvAStAIxjT729uqNsJIsT5GbAI
-	zTPnM4/M63kZ0dw5BkqF9p0lkiH1Sn+3do7vhKYDlxUhSD0sg5xOw/tZFAREzDrjyziUZZCnWgsTS
-	wve/UY+w==;
+	bh=DcoXlWRKjuA3ss6Tbgxr6QeVj4UArC2GCkRmhAMcuic=; b=BZsvyhFn9IoEV1q+Ui1i9oGopH
+	bZGXjRtEqDkHGA5J3NaRT/pPX+cOy7JYNRcwA0Xl2+ClEpD15zT18JQy0x+jJIhBm3rU6/K02xo02
+	o2rdYhX0Tc2FZp+eAbmCgT7SBDNQnqCRFkgCzePtCRisuk07cl4SNWv1zMMFudhX+YxtSXb0Dd1zX
+	3VhBKa/QZ2hM4+RtlqZvmjvgC2BTnoqpVa5lM2vs3q0WPrg2Dn8xVQ2ZJnejDg9QmSpnUSDGkvf+4
+	9Docsq/KQ6jtM4hYipS0t7wDnTshDyMQFeP+g2xx/jsjoqm5Vpy/Z7dai3pl2EjZrS/3w2PyFqhQf
+	oqrvKwiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK96q-0000000Fe8C-0uou;
-	Fri, 23 Oct 2026 06:50:36 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xK9DV-0000000Ff5N-1wkV;
+	Fri, 23 Oct 2026 06:57:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK96n-0000000Fe3V-1gqh
+	id 1xK9DR-0000000Ff4X-1Hx7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 06:50:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zNh26LC/d9AyXdc61qdv3HEX3hPivass9brdassYGD7Kcx+xAG5sEiFQF5j5VW/XTxdzjuYC0q1AnhNn8TYVdvnET13i/M0oQqC9rpPV5LD/7Mxk19mBle9dNb/hqP+fmnrnr/whVA8G1EUzZ9Aq0E1JHNep4XlfJ3+NAUkxm0PwUQ2T3oHq4KMvz9Kje6EA4zFZNxn7/NY97hXidOiBM/Hku1T+p4z3L6rSF2tlHP5KXxqZ3FWowDYDhUeQYuZUNuAbFqOYsvoIZLA5mFUnu4PtUUUwADFvdQA9JdLUzyQuswaLS1TJEqUuSyjqm2/9rT0pDHCUqRu/IhaMT26WPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LfiU4EaGH2mzKnUAqT1yCPBUuJRXe4MmrmSz1Hb5dfc=;
- b=PSAbx6F1j9ivngkUMHV4Zwhzf3XxvaI99OwMVELIh5VRvc4PGEQaOVWegEsPEjtCsVBXXiT0Ggl4/YWBnf8VB02BaRB6KTL4QNZnjiVfqA3R4u59beR9YvibuCIjX/gVpsfCw2BN7Vi0v+BkXMLJGnCaadPqD412JNpY6C2BkpkfeIWQMLNXwaXp5PQCxoGGlYBDXl172SA/UzIJbR1YC6ahDW+HzB0JFP1FCItPVA/cs375vl6ZVvoEA9+QJLdWXZvDSdT2dQ6IvnYtDZCPRGrKx9cMiDdkZqnXYW/TyZywEj1iJhzcW4CmFs9yxL9aJNe+ePCm5zRBVVrUQ4P0jA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LfiU4EaGH2mzKnUAqT1yCPBUuJRXe4MmrmSz1Hb5dfc=;
- b=D1d4j1y1JeIxPkFmaBmbxHCexQJJqht3wCU5CUi5P4pQAHejVnZPp+MES9LjVFu8m9meXB8QhBMKvi7FmrTgNqVkErN674ANF1/IJvn4GIID8PzkjjO6zSUP7GIm+Ia6OJva1pQA0TpUFPSqw/aIU1EpjQTY1927pbQVNepvtpnFgMfImNkcUMTB6imVxo+nwUC9/gMKJ+LjlRnXoLIYZBO+fB9bfIn66F3jVZYlzFs88lkhG2fI1p3fdyAI/ybjhCBorOvE+P7u1XqXRga9Cawo2PcO8kmTb80hdLW0wTVAA3tbKwurKhUToQeMGHkmlDi2uwg4MlP6Ble6JRyJcQ==
-Received: from BE1P281CA0273.DEUP281.PROD.OUTLOOK.COM (2603:10a6:b10:84::17)
- by DB4PR10MB7064.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:3f0::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.3; Fri, 23 Oct
- 2026 06:50:26 +0000
-Received: from WA1PEPF00009B38.eurprd05.prod.outlook.com
- (2603:10a6:b10:84:cafe::4d) by BE1P281CA0273.outlook.office365.com
- (2603:10a6:b10:84::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.3 via Frontend Transport; Fri, 23
- Oct 2026 06:50:25 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- WA1PEPF00009B38.mail.protection.outlook.com (10.167.242.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.546.15 via Frontend Transport; Fri, 23 Oct 2026 06:50:25 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 23 Oct
- 2026 08:50:45 +0200
-Received: from localhost (10.252.16.117) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 23 Oct
- 2026 08:50:24 +0200
-From: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-Date: Fri, 23 Oct 2026 08:50:23 +0200
-Subject: [PATCH] clk: stm32mp25: allow MDF kernel clock rate changes to
- propagate to parent
+	Fri, 23 Oct 2026 06:57:28 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69N1F3Yi1869061
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 06:57:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=DcoXlWRKjuA3ss6Tbgxr6QeV
+	j4UArC2GCkRmhAMcuic=; b=cFfEZkKzP1uu2iyYQz7OI9qk4OXKzTsnaPoHyKaD
+	JP1XeIGyQlTOtvR+y9SP+eL1MRCnTFUcTi9/gFVo0/mnlIhCuRHmC0aNod/Tk3LF
+	YpvsVF3lD5MZUKL7pNMmlyAv0j5Dle3n1PyKGSsJ7BjcjcWoaII/dQuFJC9sO0tD
+	GbAyeJdvrpHVMK/slqbhA5ng0ope0skxgIHXH9hpogKheQLEw1C8QWi5N4sofmV+
+	BC5CahCfZs304bu9gFujPQ9176ooSoC7dC2CzycMLoYe4GYbnA9/t+ppfg2zkf60
+	FNqSzJockmnr7VyZkdy8gAby+MBs/pwyGkI9RYL+6Z0fQg==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hfqmjacpy-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 06:57:24 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3ac6971ab44so156338a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 23:57:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1792738643; x=1793343443; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=DcoXlWRKjuA3ss6Tbgxr6QeVj4UArC2GCkRmhAMcuic=;
+        b=hfbxaKgTw+w3WI37AmL0v3b/SN9ksESlwrEyH2IkqgwEXtX+BeGrjezOSji2gyvgKU
+         lfrmjzjkOImbU29OcbP83qQtR68PRxt8K3n0D11Qp91+dRV5w2vFdT9jpjqkS7v3hUBK
+         bEPHsyMtWpehgMXyVSXsbGJ3GHt0VINZ+3HIz5a0DkRew9UgCG8lWv2umC24IuvI4YDx
+         qJYODhNwF6//EAQ/JDzVqfV79ThyO3+z59pOZCejsZZy98N4+snXQqbbCPdbGc0ptW12
+         z5W62FhtrTu4koND6qevBLXhikapV9zdZF0MMl0Y9J4Rcip70CkU8ZbI5OkM+aY6lCAO
+         Wzkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792738643; x=1793343443;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DcoXlWRKjuA3ss6Tbgxr6QeVj4UArC2GCkRmhAMcuic=;
+        b=FAXV5b3Fdo4QLSUPLD2QpUBX0xF2ACiAxtq1je1MBEWpsS6ITlc7v+IhvglZhlAipG
+         LSFVRKlKEhdotaZayhZFU0vEjHuHDkHeDDX3aHgefF7v5jGoQw/cx/fAgOv81plzYN+o
+         kPK8892hIaQ73bhQEN8G8HQwuttzn5c5iZ+pgEUF08Ug+u70J+Ng3CzRpj/GoctTRyur
+         tot3Q11GVL9oJfYXAX9CzO46eKv3dHdJYAYuxwiQu1BBw/M2/r0nxf1jWY6eWblmuEaB
+         P1bfxa0/r+y7EMtRgfSQYHN2OwdRwC39JdLVQD9/KDGBlDOhZAhHOfi3+F0fu8wh1FzY
+         r/Ng==
+X-Forwarded-Encrypted: i=1; AKwUvBw9mUZbUUhK9HOt80PgND8Q8c9k6XKthcm7nZvakARKD+qVpEvLqAp2CnwoCBKbxN66jVFjRRn9C4I9OSF9yMJD@lists.infradead.org
+X-Gm-Message-State: AFq9FYK2GtfcmA3oPU4HlndFJ+j0Z/vJCpb7+1i8tqAdt4d8Okm0bHzf
+	o5PqY6QBpxgeDWTuPgRL7mYzMLWoY9fpv/YVCJhi+1wVZU7qGNWaJd0Jj4eEbQlBjrZfzI3J/ta
+	Ty/4v0oBJYbJ+GTWICE2B0rnkzI8kS4AeYI7WtbAlN3NAL0iuINYwpyXY2KWyF5RA1rh2KEGF09
+	/MNA==
+X-Gm-Gg: AYBFou2TBx+sb/u0QHeY9sUlJnBDq0bV1nEHT//z37emkmsckMgtXGi9J8/aZ4dTaoy
+	H31SFbCEg9VN8LLf0UjcVjw9TKS8O3W17HUYlsA6h1WlaIXtb/mgkFjCpnToA65XM0+iqb+n7En
+	PWd2qw7LzF+AY+7GtFjb7h2Glo+4NHSeEep8BXlhu8St0BiPZShp/hQAooFi2qSwv5sdfVAYqeP
+	7WGcHtx47IPpyaDpi2SZpDjHqaVC71DHxEkt74zGgJpE5a5LtlU8SmBSY3Wdmlf58O4rie2S7rg
+	rHsiFhTp+orGyEaI0U+KEu6oXyYeUNFjdqYbG0GkCP3hQP9R7Aqtk9pryMnk5Xjb1Ai4CTsDoSR
+	l4kPHJZYMuEfVdXsDuSTOpiyikrZGpJR+QuHvwX05RekCfw1e/tJGJHJcIkiITRib0qdRCxGQ4i
+	awyUAtbbxDz00gJXDhSQhsyD3qLNMxYuKVmEI308bkq2bqm7qCr8E=
+X-Received: by 2002:a17:90b:3912:b0:3a6:f1d2:57fa with SMTP id 98e67ed59e1d1-3adce7250b1mr1847194a91.4.1792738643196;
+        Thu, 22 Oct 2026 23:57:23 -0700 (PDT)
+X-Received: by 2002:a17:90b:3912:b0:3a6:f1d2:57fa with SMTP id 98e67ed59e1d1-3adce7250b1mr1847153a91.4.1792738642568;
+        Thu, 22 Oct 2026 23:57:22 -0700 (PDT)
+Received: from hu-vishsain-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3add2994cd2sm650567a91.3.2026.10.22.23.57.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Oct 2026 23:57:22 -0700 (PDT)
+Date: Fri, 23 Oct 2026 12:27:15 +0530
+From: Vishnu Saini <vishnu.saini@oss.qualcomm.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, venkata.valluru@oss.qualcomm.com,
+        Jessica Zhang <jesszhan0024@gmail.com>
+Subject: Re: [PATCH 6/7] arm64: defconfig: Enable Waveshare DSI panel and
+ touch GPIO drivers
+Message-ID: <atsFS4y9cnfKL2uk@hu-vishsain-blr.qualcomm.com>
+References: <20261021-shikra_display_overlays-v1-0-adaea735999f@oss.qualcomm.com>
+ <20261021-shikra_display_overlays-v1-6-adaea735999f@oss.qualcomm.com>
+ <0d4d6a18-ad86-479d-a030-5eed8f5460fc@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261023-ups_mp25_clk_mdf-v1-1-3043b3fd4bc9@foss.st.com>
-X-B4-Tracking: v=1; b=H4sIAK4D22oC/x3MTQqAIBBA4avErBNsKMGuEiFiYw39iVIE0t2Tl
- t/ivQyJIlOCvsoQ6ebE51HQ1BW4xR4zCZ6KASWqRiKKKySzB+yM21azT15o7WzXem2dVlCyEMn
- z8y+H8X0/hI8nNmIAAAA=
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <linux-clk@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Olivier Moysan <olivier.moysan@foss.st.com>, Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792738223; l=1247;
- i=gabriel.fernandez@foss.st.com; s=20261013; h=from:subject:message-id;
- bh=UYJe92XofvwW9024M6MvYoAscbsOueX8CFhCXRbov3k=;
- b=kzM4V5eYaJYY3DiUDiNaeot5DRVy4DMrdBKkjQUT7WEa97Wh5MoAlaVXqE75m5yHn8dxsswR6
- Kaurs+VedX+CZbVzDHtJQHgrn6F1Bj3B8knDv015MmW5qDuCje8uAyo
-X-Developer-Key: i=gabriel.fernandez@foss.st.com; a=ed25519;
- pk=BVZE1QjIfcrviw9RyyOGQGGsg9CNbaxyjYn9pAlkNyQ=
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: WA1PEPF00009B38:EE_|DB4PR10MB7064:EE_
-X-MS-Office365-Filtering-Correlation-Id: e8ceafd7-b1a8-4f39-eb2b-08df30d1eab1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|36860700016|82310400026|56012099006|11063799006|261021123027099003|261021121427099003|261009223027099003|10067099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Dh0D5FMNn8/qOp4Zyt93cIwadN0C7OsLDnDQ6UspeA6G75YjpjOlic5Dr/Yjp5BLgwGfA4UyldPohTBxN152KdBh1KnEvY71mNcK5Tn7xRiOLBR92lqxOSNt9NG78ijURX8fwYgscVg7Ekk/kP1scybZJrKnxC9TknaKAysmyJG/1pwQtHJnEHKyhdO91ti+3mlucgM/xOVXxKG0LSHEXQrWfdKrLcHMAPOsEfVgyfKXp8eqBUimpyShkavK926gUYlfc3heO2E3u/7w2QqdAKHGX8/oQ+d0oMjVi9HemdaJNRSe7j4mv8OZl3BSwGTGAjlc1NR89nUujqrDeaIAmEYWkHqTKwNLFhDuNuFy21klIw2wOry+dgM3xSWgiH8iIYDUPszkuyV0OZdTcT08AtJivKKW0nMH+uWksFVQ0ywV8njanPylvXQxwH0x48111EXIienBs1sdPBq4mfl18p5ZM0L8sg9kUXkKXFusbgPWxxpMSJ9fHhWJAkPQwl0auLz1aKGrcrc7muIK/3TvXHYMCOwqjoHp2OmmtMv5JNHOVN4t/+pau2OaktXxfJNU23O/8930RdlaCrHA6pCoiREsgzAeB9yJ/x49ruaesjnI0vkUb6NKu0w4MkA1bTZs21iY3W8/dPD3eZqNrCIUZdYGGr93d5NLkYxqgz8iSO4uZF3mkqRhNGO7FDkeBnCboVLQivLJr7BvEYUDnrVpuw==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(36860700016)(82310400026)(56012099006)(11063799006)(261021123027099003)(261021121427099003)(261009223027099003)(10067099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: g7NtxhIDu44z3Z2Uq+RiJ/Qc8GZfV4u5bjHs7Q9yNrxQerktwcUeIGc+CWGtw2163rpGqUuQztgPWB+6zdH1+tyyHXud7jK4BXxsmPRW0otsrCbzTwo2c9/e/bDcKNcOojdgjPlpoXcQ6qPLXpoCnmLj6QsDrog898L+fRpMxIDt13ldQxvPPMcs/4yaVE7MjPtWO6KfUwMsHyhINROE0mzE11vgexnkShFigNwBmN1DDouOThNxgtKknRGS3TGP/4ckEshOcYuLM18lU6xYKI5H/oLJptwBW4btd2NnZ6Sg5Av6uS730Wcm6fcDN2CSNUFNiR6uAtBOZ/OvK4jkh16sOf17cuow3N4g6xqg16HYvjVkgA777KjNXuBG+aybSzppsjTgQav6cOQXXTloWtQ66h934y8OBq/5/GKAxWK/1NYWsMLhkoQXUGI06ohf
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2026 06:50:25.2751
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e8ceafd7-b1a8-4f39-eb2b-08df30d1eab1
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: WA1PEPF00009B38.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4PR10MB7064
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0d4d6a18-ad86-479d-a030-5eed8f5460fc@kernel.org>
+X-Proofpoint-GUID: KSlGjie946rZ83wEAebnw5YD1Zycc4Rf
+X-Authority-Analysis: v=2.4 cv=cPR1IVeN c=1 sm=1 tr=0 ts=6adb0554 cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=EUspDBNiAAAA:8 a=phjb7eYm-OhZhg8tdxIA:9 a=CjuIK1q_8ugA:10
+ a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIzMDAyNyBTYWx0ZWRfX5IbhM2G2dE+t
+ FlnKtdycLLj1cud4DoqKCEBc3pOT9NxwugXrMnXAzujaBKoFoqVmEASSq5jJrOOMTbarAg5qaHd
+ 4/GmwVZXkV379f1If8PTODUt+WLyksQ=
+X-Proofpoint-ORIG-GUID: KSlGjie946rZ83wEAebnw5YD1Zycc4Rf
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIzMDAyNyBTYWx0ZWRfX3UxWJkKBHyq1
+ RtE889WrtSxalnTE1sGzm1OM9w6MucCSwFDMhdxFMKNDR6iHaxcX3KDk42UAYFa5tBmrHBG65TB
+ 8aCzbUBDqL+E9c0tLrqxLyetM95u43z5GDrIh4zCLfA2nqb0nsKjKEaDIvlq+NF2J1YenH3winL
+ Og0SHEnD+TUOskM5RuZOr2yPeKNeygvFsu7e8p0hfiIv4ICPwHzYGDe58W8aNDWg+fcg7yXGwH9
+ jLf1Gm7n+w13pePCU0XsqPLGbSUtBZBaiS4TbX/63rVQ1hwD3K8Zi+tYD7FFnv/AP8zlYPytrMB
+ 8tAfl/ARW7HBfjbgC1vRctl/th3QugKY4VKuViViVoVmW5/sXdJhtc11KUVhygLtoqEEGqJREdW
+ YSFdIVjzqWy7CXZzPnU2xaCr4FMe0n6ap3Y0A96TThefYi3PYRFix1cIy28BjZebq52yafBBVVI
+ 4jTKHnzUFaXlP+V29fQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-23_01,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 lowpriorityscore=0 bulkscore=0 spamscore=0 suspectscore=0
+ impostorscore=0 priorityscore=1501 malwarescore=0 clxscore=1015 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610230027
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_235033_799981_99ABD306 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261022_235725_473182_B1CF5381 
+X-CRM114-Status: GOOD (  14.41  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,49 +159,25 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Olivier Moysan <olivier.moysan@foss.st.com>
-
-Add CLK_SET_RATE_PARENT to ck_ker_mdf1 to allow rate requests on the
-MDF kernel clock to propagate to its parent clock, FLEXGEN_23.
-
-Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
-Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
----
-This patch is independent from the other STM32MP25 RCC changes that I
-am sending separately, and can be applied on its own.
----
- drivers/clk/stm32/clk-stm32mp25.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/clk/stm32/clk-stm32mp25.c b/drivers/clk/stm32/clk-stm32mp25.c
-index eb0bc918ecee..8f6fe30b19ca 100644
---- a/drivers/clk/stm32/clk-stm32mp25.c
-+++ b/drivers/clk/stm32/clk-stm32mp25.c
-@@ -999,7 +999,8 @@ static struct clk_stm32_gate ck_icn_p_mdf1 = {
+On Thu, Oct 22, 2026 at 12:45:04PM +0200, Krzysztof Kozlowski wrote:
+> On 21/10/2026 16:21, Vishnu Saini wrote:
+> > Enable the Waveshare DSI touch GPIO/backlight controller driver and the
+> > Jadard JD9365DA-H3 DSI panel driver, as modules, for the Waveshare 8
+> > inch DSI panel on the 22-pin JDISP1 DSI0 connector on the Qualcomm Shikra
+> > EVK, Talos Lyra EVK boards.
+> > 
+> > Signed-off-by: Vishnu Saini <vishnu.saini@oss.qualcomm.com>
+> 
+> That's not a separate commit from other defconfig change.
+These defconfigs are required for Waveshare panel, defconfigs in other commit are for RPI panel.
  
- static struct clk_stm32_gate ck_ker_mdf1 = {
- 	.gate_id = GATE_MDF1,
--	.hw.init = CLK_HW_INIT_INDEX("ck_ker_mdf1", FLEXGEN_23, &clk_stm32_gate_ops, 0),
-+	.hw.init = CLK_HW_INIT_INDEX("ck_ker_mdf1", FLEXGEN_23, &clk_stm32_gate_ops,
-+				     CLK_SET_RATE_PARENT),
- };
- 
- /* OSPI */
-
----
-base-commit: a90ee4305c4a5df72c11b31dacfdc76e00fcf78a
-change-id: 20261022-ups_mp25_clk_mdf-99ca54f9ac96
-
-Best regards,
--- 
-Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-
+> Best regards,
+> Krzysztof
 
