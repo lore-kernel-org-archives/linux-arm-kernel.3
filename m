@@ -2,36 +2,36 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC132606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 17:54:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB2FC606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 17:54:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZnoGhLgf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gnD+LKsT
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ft7W8Aot7m3+1YC13GQrmthgZInPfqoU0+jIRIlM4ck=; b=ZnoGhLgf6gNeSL
-	TXYOMpCDnECicWJRbjvweOcHGeIj01zx+7JapoXsHyy3fIsSvkbkG+gleC0NEIQhQhuw8Sj8eQUEp
-	cUJwwbw/XV9rYCXeqI9IFopEHpjKRKKWfAWDa+UM4f6QlFbLMvp+0GAkH3Om0DpNRm5JmYrT2Nn5T
-	uBPRZP76i/cAIJbLMDepzfGguwzlsiSbioV+lraWeuBnFgR40GvC6sMbXvrN/9uikCdphOCt3kTYf
-	G18keHEQGtQqevrtZQ8AEf2PG17t/hzy5le4Bj3BZ6ATtKOXWkxBjF1mH+96XiuwN2VrebUi9/QYM
-	zgrw5z6thNM/9D2hofNg==;
+	List-Owner; bh=veEtzTzjL8zq0FEnYMOZSeR9nQqTNj9N4Odb5GHoV9A=; b=gnD+LKsTyPb2m9
+	YAt8g9mRRKxweMoGwHmiOuL4V7RkYeipppFacRYJ0MYKGYEMNmpYlTIT0Rd9XlvZ4Gr3RtX9JlSFX
+	9K32A/dmmVT2863X+iOLQeu4eXJuXQKp8QVruH34qrI2cfrfZNlwcOCVHJmPpZhww8umJshcO0VPJ
+	TzDKtH12y5hIV5noMQh2ygpuu+KW0SDTqJao/rRCc9mh/0KxRW7U+wOb/qcH7X+3Y5+5BpDtt90Oz
+	lXrI7a+isoyALm2vzCQBhpmppBfkic08K+6WPsrIIEgcb7EwsVxqbd5uYegxyW6hdYtK2t3hEYT2g
+	PHxwiV2ImltrfxsyKPOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKJT9-0000000GlKX-0Jo6;
-	Fri, 23 Oct 2026 17:54:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xKJTe-0000000GlSZ-1Eq7;
+	Fri, 23 Oct 2026 17:54:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKJT8-0000000GlKJ-03pM
+	id 1xKJTU-0000000GlRD-3G4u
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 17:54:18 +0000
+	Fri, 23 Oct 2026 17:54:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C21E7402DC;
-	Fri, 23 Oct 2026 17:54:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C03E81F01825;
-	Fri, 23 Oct 2026 17:53:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2277B601FA;
+	Fri, 23 Oct 2026 17:54:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42C691F01828;
+	Fri, 23 Oct 2026 17:54:18 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Linus Walleij <linusw@kernel.org>,
 	Bartosz Golaszewski <brgl@kernel.org>,
@@ -50,9 +50,9 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH/DNI 4/7] clk: renesas: r8a78000: Add GPIO clocks
-Date: Fri, 23 Oct 2026 19:50:42 +0200
-Message-ID: <34f97dab00c6d98b7afe8d8df38eeb83abf5c19f.1792776697.git.geert+renesas@glider.be>
+Subject: [PATCH/RFC 5/7] pmdomain: renesas: r8a78000: Add default GPIO support
+Date: Fri, 23 Oct 2026 19:50:43 +0200
+Message-ID: <c7ceec0d203fb01b3bf7c7923bfee50b7a5e3ac1.1792776697.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1792776697.git.geert+renesas@glider.be>
 References: <cover.1792776697.git.geert+renesas@glider.be>
@@ -76,61 +76,60 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add support for the clocks used by the GPIO modules on R-Car X5H.
-This includes SCMI remapping tables and fixed-clock fallbacks.
+All GPIO modules seem to be accessible without SCMI, and at least
+GP05_15..GP05_20 are known to work.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
-This depends on "[PATCH v4 2/8] clk: renesas: r8a78000: Add SCMI
-remapping support"
-https://lore.kernel.org/c38d744c09dffff550a9b882051c211b572b8daf.1792163045.git.geert+renesas@glider.be/
+Do we want this? So far there are no users of GPIO, and future users
+might need SCMI for other reasons anyway.
 ---
- drivers/clk/renesas/r8a78000-cpg.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/pmdomain/renesas/r8a78000-mdlc.c | 25 ++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-diff --git a/drivers/clk/renesas/r8a78000-cpg.c b/drivers/clk/renesas/r8a78000-cpg.c
-index 758cfe78ae58e0fb..1d66082f6f44b5ba 100644
---- a/drivers/clk/renesas/r8a78000-cpg.c
-+++ b/drivers/clk/renesas/r8a78000-cpg.c
-@@ -35,12 +35,16 @@ struct cpg_data {
- };
+diff --git a/drivers/pmdomain/renesas/r8a78000-mdlc.c b/drivers/pmdomain/renesas/r8a78000-mdlc.c
+index af36d8229030f6c0..10089d938f71b27e 100644
+--- a/drivers/pmdomain/renesas/r8a78000-mdlc.c
++++ b/drivers/pmdomain/renesas/r8a78000-mdlc.c
+@@ -606,13 +606,38 @@ static int r8a78000_mdlc_probe(struct platform_device *pdev)
+ 	return 0;
+ }
  
- enum fixed_clk {
-+	FIXED_CLK_33M,
-+	FIXED_CLK_37M5,
- 	FIXED_CLK_66M,
- 	FIXED_CLK_133M,
- 	FIXED_CLK_266M,
- };
- 
- static const unsigned long fixed_clk_rates[] = {
-+	[FIXED_CLK_33M] = 33333000,
-+	[FIXED_CLK_37M5] = 37500000,
- 	[FIXED_CLK_66M] = 66666000,
- 	[FIXED_CLK_133M] = 133330000,
- 	[FIXED_CLK_266M] = 266660000,
-@@ -291,6 +295,10 @@ static const struct clk_map_in r8a78000_cpg_default[] = {
- 	{ R8A78000_CPG_SGASYNCD4_PERW_BUS,	FIXED_CLK(266M) },
- 	{ R8A78000_CPG_SGASYNCD8_PERW_BUS,	FIXED_CLK(133M) },
- 	{ R8A78000_CPG_SGASYNCD16_PERW_BUS,	FIXED_CLK(66M) },
-+	{ R8A78000_CPG_SCPBUSD16_SCP_MAIN,	FIXED_CLK(37M5) },
-+	{ R8A78000_CPG_S0D24_PERE_MAIN,		FIXED_CLK(33M) },
-+	{ R8A78000_CPG_SGD32_PERW_BUS,		FIXED_CLK(33M) },
-+	{ R8A78000_CPG_S0D24_HSCN_OTHER,	FIXED_CLK(33M) },
++static const struct mod_map_in r8a78000_mdlc_aon_mod_default[] = {
++	{ 0x20, 0, -1 },	/* GPIODM0 */
++	{ -1 }
++};
++
++static const struct mod_map_in r8a78000_mdlc_hscn_mod_default[] = {
++	{ 0x50, 0, -1 },	/* PFC_HSCN_GPIODM0 */
++	{ -1 }
++};
++
++static const struct mod_map_in r8a78000_mdlc_pere_mod_default[] = {
++	{ 0x30, 0, -1 },	/* PFC_PERE_GPIODM0 */
++	{ -1 }
++};
++
+ static const struct mod_map_in r8a78000_mdlc_perw_mod_default[] = {
++	{ 0x30, 0, -1 },	/* PFC_PERW_GPIODM0 */
+ 	{ 0x54, 0, -1 },	/* HSCIF0 */
  	{ -1 }
  };
  
-@@ -300,6 +308,10 @@ static const struct clk_map_in r8a78000_cpg_fw[] = {
- 	{ R8A78000_CPG_SGASYNCD16_PERW_BUS,	1663 },
- 	{ R8A78000_CPG_MSO_SCP_MAIN,		1459 },
- 	{ R8A78000_CPG_MSOCK_PERW_BUS,		1667 },
-+	{ R8A78000_CPG_SCPBUSD16_SCP_MAIN,	1454 },
-+	{ R8A78000_CPG_S0D24_PERE_MAIN,		1690 },
-+	{ R8A78000_CPG_SGD32_PERW_BUS,		1660 },
-+	{ R8A78000_CPG_S0D24_HSCN_OTHER,	1499 },
- 	{ -1 }
- };
- 
+ static const struct mdlc_info r8a78000_mdlc_default[] = {
+ 	{
++		.base = 0xc1338000 /* mdlc_aon */,
++		.mod_map = r8a78000_mdlc_aon_mod_default,
++	}, {
++		.base = 0xc9c90000 /* mdlc_hscn */,
++		.mod_map = r8a78000_mdlc_hscn_mod_default,
++	}, {
++		.base = 0xc08f0000 /* mdlc_pere */,
++		.mod_map = r8a78000_mdlc_pere_mod_default,
++	}, {
+ 		.base = 0xc05d0000 /* mdlc_perw */,
+ 		.mod_map = r8a78000_mdlc_perw_mod_default,
+ 	},
 -- 
 2.43.0
 
