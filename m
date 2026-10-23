@@ -2,108 +2,151 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9907E606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 14:20:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7F68606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 14:21:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=m65KGS24;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M1EZiU9s
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=curHb6KW;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=C734oRTY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=dtJsbMDToX25UaJkQ9Vjt0xJWTfjICbAooiSfipFqtI=; b=m65KGS24jMYPlRViNDp68LJ047
-	kKStT6PfGUoNbs4oTenqZ3OKaI6go+FCKpWCK4Yv6TPawzr4BNYPpfPw60NFmi4WadOtQ9YWNJaDq
-	5SNZDirzCajrzcGvOMaZLSfvb5Y2xB/QFK+pyoEAqqdtso08nmu1H8vZgfeotRNX6Ti1t4XEdkfvY
-	tCkN1DMqhnNnjmb3+kTdh8DNq6XiQasYNCYvnKC0EcIJQ2RbjwIAJdfhxXy8uOuGhDNZBLRREi1BX
-	fCL4ZY8Ulid4GRjMKNJJhJApr15Dell951I5QtLGkDNHeg51ysOhi7R4B8ftXvVDrYd22206ijhHt
-	iVWClDEA==;
+	bh=1CVhvj5IbUTw0SYzSbv9o3ZvdCPb8bD9rIcriVhuels=; b=curHb6KW74Q4RzXXOkUp00wWIu
+	XY6PjKE2mg2aSwfsfdKRmm066qHSWiG+jCXMM7VxWzmv822Zv1ZlPgJ8TJ0wY50gClru38+Wdd/Eh
+	KvaXrMCuWTF1l7IMzJKqSb2xSdtNh+kounEbGGmpAuLMVsfuXAA37GOXEvvG8dNHeeN5hakShVl/n
+	iR8QlNJopudtoJ+VSYdXcTVRTI3sGAN5uZZiC3hczXPjWdLXCnjAI9KiF4ZVhUA7beLR3q8CYVWHx
+	84vCAVOgateD5cNUhMagVyXreORVNHlq2VqxHVEoEwkD0e/VhCQOt4PDxl4tHNXrQgKma5SHUEvBy
+	4oFNPvyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKG8E-0000000GVC4-1nOE;
-	Fri, 23 Oct 2026 14:20:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xKG9N-0000000GVOL-2gRP;
+	Fri, 23 Oct 2026 14:21:43 +0000
+Received: from mail-francesouthazon11011067.outbound.protection.outlook.com ([40.107.130.67] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKG8B-0000000GVBU-2Xrz
+	id 1xKG9K-0000000GVN3-1gUZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 14:20:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B062260211;
-	Fri, 23 Oct 2026 14:20:26 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792765226;
-	b=OhuvNphG5QU84UrWdVp4hyrMJxMZWlTcczqjtP/q083Zgbc0gLEKM4rLUUpI4ii3t+SA
-	 e1ANP2+4dz23yzilUSUYIPNfZJi5IG8Z7MBaQQZR/agKyw/Czjv2Ko0YwP5nuRpPI7cCO
-	 crBrSD4GCtL06av7zIK0FWcF7ooCoh+AHZJmSCnNDMeGRIyhsKjeGYT/L0pBCLqrsOETp
-	 ncXbXJ56DPveuAg51Zum68/YhuSdDAaeaOhomhVoNOaMowdTCraIlrdYWtFpszvZdvQDD
-	 FZjv6GwrEfe6mE+W6VXYgJaRiY/b9gMeo6B3wspXSUdjKbld8Fhc/Mb6GENzhpLPgMg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792765226;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=dtJsbMDToX25UaJkQ9Vjt0xJWTfjICbAooiSfipFqtI=;
-	b=iiyvnYjxRScfk56YP4iiW848QLiQqU00wLuB3QABfYCBDA4Vbf8DC0AqAaboKWSetKe9
-	 B1dRzWhwnadUeWEQf1Z29UlNSRc6QCqBwos5D29PUDatJwcvTs4G+l7oMTOMIW7C522/x
-	 zxWYKqJdxf/0cJwLkeVrZ2tFt9s8QHyIE2xp5+cx8sa8E2+Ik79Oa0Y4YGf74AeFU2b+j
-	 Xf4cGpKlcTpIWwGTVNBDZtfExJZ60DBZ860MuRamGw4UIc2wZMU0lUZmcCrERI4mwcWW7
-	 OUwslXI0uz41e8aAubuAxT+Hu928BPV/NN2PwwTdbSb7ANjYY1JbH65GtjhrJnISspw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 837891F01828;
-	Fri, 23 Oct 2026 14:20:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792765226;
-	bh=dtJsbMDToX25UaJkQ9Vjt0xJWTfjICbAooiSfipFqtI=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=M1EZiU9sjV7lFgoaBhOi4N55VCRCZZs8gaWH61qU7L7U+9P6XhupROzxL2eaCv+FB
-	 c1JbRTtoViiUqh8ZqoP/pqnqVab6MHydUknqo59AfmASMYQ/flLcXncEYr8n7wUM9X
-	 7a7IHfY3Vt1v1S8VEW7RfgDE9jHvhBowUppDMo7KfUhFxdfFp82QqVEorMHZ2BRzup
-	 IE6mILFNi7BzeQPUEjxCBOQR1MTubombSzESoGgNQdxupRZ7D4iWl4jm0Jv1K+M/4j
-	 tZ1DDCnpHqGp5DAChQfpVw/7KP61Mr5Icbtj/Is2YkUlXiH0TeZiVxmZzIObUPDGTH
-	 6LsAWncZvOR2w==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D6EBD4454F;
-	Fri, 23 Oct 2026 14:20:24 +0000 (UTC)
-From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
-Date: Fri, 23 Oct 2026 16:20:19 +0200
-Subject: [PATCH v3] i2c: imx: add I2C_M_REV_DIR_ADDR and I2C_M_NOSTART
+	Fri, 23 Oct 2026 14:21:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mk7kqN1oyN7FbL/HOqBjAtMBCg7hLqTwzQD0WQVIGbN4SCNHoglcIAdut34xb84bQ6FgkAGCIESS3LvZYGjFeLBD9JgRfsH7y1dGJAqJfJ/k10xHCRxfL5a76PbwEXtwYDAVXkuYjFUilrzGDx2vucFzinZX1TfNLAOi//IQi/Uq8LlD0oi3sxlvjAl51Ffk24QflfefdJZmE9q5XxQiNRI0xMfjzXOxZkBbNZ1SuSVXt/L1pYjKRnTYbpzXYLNPzCSrU4VLx7eznJsgeYfJXZbi0+Z4Ujf/ukRkqnihFqXfZ6bwKFej1w4XXefLdiaJIAbwacC9RrBFiiH1WsQcxA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1CVhvj5IbUTw0SYzSbv9o3ZvdCPb8bD9rIcriVhuels=;
+ b=tFKxL/nykdbl9QNGg/tcsJmz8xI24i0vJE8MjQbADf8CDgfEqPbhOYsZedSt3P9DSTCjtQtSMvFEPDG9OWNDzjmuFMs0rVOiBwq/hpLe7QDtG2YH5tH6poVkvxkqlrKN9v2CuHLt5iAtfv7aPeg/fMk7t+phYroHAxaabrE3FvDueitl6ETY5JI4dPNZcZ6Q3drIyBMcNhdh49pcok4obJ2U/b7OQQqkmbHw04gg8GWWL2dsf7kFIofLyNPWrAKpyxPEPXRCaNUXK1gReSgHvkQwazF3BpmXb+NwedMXpJEyrmMePcttQEwVkgbdMCHsrAnMnyZkmDopabElNSwFPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1CVhvj5IbUTw0SYzSbv9o3ZvdCPb8bD9rIcriVhuels=;
+ b=C734oRTYQDA2ItgkGWXWBHFegYHt0cLwTnDo2lmlgvkjzlC7VcgHQGrktO+Z1tOlPPlox8hAzzwcBii08KR5caVa5M9FPwg0dfkPt66FsumSPTcZgvWQWHw1BhVA63NzBCuS+ElYmtm+AisvjFfxMnec9J2h69KWNXrAgInhxlGfFrPxgSdL7tRAyjgzkxmn3zOs/EQ0/zVN8wh3Ajg+kwh6m4z0oWh4dj3jxCwleEFptRWegwoBe3GjgYQN8lu9myuewZHnzcRIZaZa+HLWjZE8TDkY4zbyVFmW5XcNE/++7uICQoJV62QuEhhf3unbMH56hC5GqoNx5LDFnW09rg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by DU4PR04MB10861.eurprd04.prod.outlook.com (2603:10a6:10:592::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Fri, 23 Oct
+ 2026 14:21:31 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%5]) with mapi id 15.21.0546.012; Fri, 23 Oct 2026
+ 14:21:31 +0000
+Message-ID: <78c875a1-f90e-4ab3-bb31-f059845ba5fa@oss.nxp.com>
+Date: Fri, 23 Oct 2026 17:25:15 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] arm64: dts: freescale: imx95-aquila: mark +V1.2_DP as
+ boot-on
+To: Francesco Dolcini <francesco@dolcini.it>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261023102408.119509-1-francesco@dolcini.it>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <20261023102408.119509-1-francesco@dolcini.it>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0309.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f6::6) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261023-for-upstream-i2c-imx-lx2160-reverse-v3-1-a07b249df381@free.fr>
-X-B4-Tracking: v=1; b=H4sIACJt22oC/5XPQY7CMAwF0KugrDGKnTZJZzX3GLEIwYFIQJHDV
- EWod5+UkYAlLL8X73/fVGHJXNTX4qaEh1xyf6rBLBcq7sNpx5C3NSvSZLXXDlIv8HsuF+FwhEw
- R8nGEw0hoNVSApTC40DWbrrWI3qsqnYVTHu8tP+ua97lcerneSwecr5/5AwJCImcj+7ixVn8nY
- V4lUbM+0IuI9J5Is4imMQ6b2IbuIS7/f0dN5n1Jm5ACu7bx3j63TdP0B2282+xwAQAA
-To: Oleksij Rempel <o.rempel@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Andi Shyti <andi.shyti@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-Cc: linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Carlos Song <carlos.song@nxp.com>, Haobin Jiang <lemonoutput@foxmail.com>, 
- Vincent Jardin <vjardin@free.fr>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792765224; l=11530;
- i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
- bh=5U+7si5KHQfRi+kyZkNw1CyRUTDh9ShUhHfMbHzoPK8=;
- b=wz5WTmYFk1M5LAaVWF9wi6Sd7J2GLYLZ8358iWYiarw1BE3sVxhZHuICTfMdLtav9VsbDPf8o
- uI003nDXD/1BWlOugHBKPSXVkJM8/rzCUkNCk5XANK2TVXqz8nzyPSY
-X-Developer-Key: i=vjardin@free.fr; a=ed25519;
- pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
-X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
- auth_id=871
-X-Original-From: Vincent Jardin <vjardin@free.fr>
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|DU4PR04MB10861:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7bc1af1-a2ae-4148-1cb2-08df3110ef0c
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|366016|1800799024|10067099003|11063799006|56012099006|22082099003|18002099003|261022105027099003|261022075727099003;
+X-Microsoft-Antispam-Message-Info: gclQO5zyiLeC/Q3NJx4C6DBVMqKbnUnckoGk2xDUfKdMAJRdsCuTlTb3CJeqO+kL/DETfIII42P5svs0eZqolr6XLIRA8BClUJHE70LRQcWBQVTuDryRrIdbKrC8sZhpJxkPjjTiJAXv+ylWFQOHC+Ayqp5U1FDGG5tmJ18Ri4Fq+HIsi+vDoF8Cz8CL2fvnaHxJC8Z2cELqiZQr4/FZsCGlvDWESikOaONHmwPdRWooO+c4/5mR3XxHI8hDJIN9CG0P2FC9ocy0TKPtJXPqj/ka1pu2KoXSxaN6kbNeRg9cgho/SITRY2KKpWWP7qGbzAAF+zhzmuniZJlLZ3nwbBWhhTbbSZbFNaUU/6bw2vqbcm5+AEoEF7DCYcC8ygA0L/wzTstGgdtnCRp6AIAUEVQ+sn6GfohUdwYfGjyHADhdHSUDP0fuHd+K6Q3bYbdQg2yMl5juZgFkorTt94hbB4jyiYFnLyd2gr+UmDXOHqJULhvkI0nLFYkTYoqXEUCFN2jpP9e/UqNisiTDvCGnRdF0Ve31uv+XJjN3Fh5d3M1/U1rOgKBT6OyFReaGneyU4xXZgWqRQ0t6F6WmxvLHRWfPpdItb/ElX9ovM1d3Ig99x1CCqpZbV2xZrxIVQRlz3VpBILuywyScKixyt8rOLvtbEtWxkEWb7ysj7LXzr48=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(366016)(1800799024)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003)(261022105027099003)(261022075727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?REtkelhIR09QWU1RWUE4OEk1SFdCcXljWmJDZEZpbDNkQUpqUlorVzRNYXNC?=
+ =?utf-8?B?S0l3eUJtQVc0Vi82cVpCY0x1OURDZktBZDN5ZXV2ckxKZ2NwaFFsbFlvZ3Vp?=
+ =?utf-8?B?YXR1RUo1cDFQUzFyMmoySVBSK2piR3MzbVVpaDhGV1IxNmpPV1lGUTV3TFFK?=
+ =?utf-8?B?TExaTTgxQTA2S3A0VlZPeDY2a0k2cklZWlNmUUlEQ1FlbFZVb29IUkhQN2lG?=
+ =?utf-8?B?VG53ZERSUi9PeldSYU5YZTFKcTBSTldCd0ZuOCtFdVpLQ01hNE5zQXFuL2dJ?=
+ =?utf-8?B?R2JSZjhkTFBLb05oTUlrWFpWWXV3S2VjVVQxTkk5M3JqMWl2elNRSzZuYUF1?=
+ =?utf-8?B?cTlrRldNaG9zV0gvcytJVDdINmIrc1NKSUJsZ0NLNGZQNmVrTW1NZ1dhbkN2?=
+ =?utf-8?B?STZOVnlHKzNtRUl5NEMzNVpIRmJwS0VhRElwMmd2L2hXMGhVazNzbEtYUEE1?=
+ =?utf-8?B?WnE5MXNZL2hJMTJPMXBVak9HcWFCd3ZDZFpmcjFEM3lNbnh1WjFBSi92VjBk?=
+ =?utf-8?B?UlJ0T3BNT0h4Y25qUlZWbVczTlEzZmlDSTh6d2swRWxNcWhXVE5Mbi8yczI2?=
+ =?utf-8?B?RE84UU4yTDR1aVk2Qmhkc0lpVnNpZE1xbXdBMmowcDYwSHc0WWdtbHEzR1lJ?=
+ =?utf-8?B?aG1MUDRvSHlEV0NJKzI2ZjlORlptcFV6Q1VNNnlGQ0cyTGFuOXc5aFIxcTBt?=
+ =?utf-8?B?anUzN2RjeXRzMXhkRXRUUkE0RnpFZjlsZG5CV2pqVkxuUW5NRVdKMDdWNVlu?=
+ =?utf-8?B?QUVjS3Z2OEtnRllXVmV4aWhrb2FnK0drem5QMVJlbVJUeG9NdWFPSGZ6RWZ4?=
+ =?utf-8?B?RGpScGlsMjFCaUFhVXVqcUU0cTg2aFBHN2p0OFcyelJObzhRRnpWQVZKTXlo?=
+ =?utf-8?B?S0Jpd3JSak5zWlJPb00yWXVyckltNU1pNUtXU0t3Q1dVbHVQTkhPcHI5QnQv?=
+ =?utf-8?B?aUZtNE16VXAxTDBtT1ZqTGQ3Q0ViMzZnSWw2elh0L3RaTXdBYWFTcjFrbEFV?=
+ =?utf-8?B?d3IzYyswWmVkQ0ErcXRXTGx4WnNvVEJtNFhia3FTZG9XUWtIcEJtMWpYY0hr?=
+ =?utf-8?B?c3RuTGdYd0lnNmQwU083cXRYUFFSZmRONkpBeEQvM3NTL1BLd0FpUTM4d0t4?=
+ =?utf-8?B?bm5vZDJpTUpmd3hHaUZxWFBiTEViZHNPL3BXUmtpZ1JmTHh5NUJoa3VzcXRh?=
+ =?utf-8?B?cGZiZjFWUkRIZlIwbXZCeW00YTltSERqbzNCZWVFTDN3ZU9WOUFIMEJ3ZEQ4?=
+ =?utf-8?B?a3o4U2k2UDVaR1gwUzNVYWpjNWpUMmJRVGU2UVRwZUFTNVUxbUNINDJseEIw?=
+ =?utf-8?B?bHRsWnBGZE9lMklSQjdNR25LRmQ3SWlHV2pJL0krK2ZDK2lvTHpPSVhLWm1I?=
+ =?utf-8?B?aEp1VmJpTWJJR3l1OGhsQW42bk9QRXh2U1M4S0RRVG9nVHRCZjgwZVYvK1Bn?=
+ =?utf-8?B?UHRaWW1TWSt1bGZkYkpqbkRLa0dvU1ByNVlZVnpFVVhvVWJacW82K28xMkEv?=
+ =?utf-8?B?MGZwZGhHMHF0TDd1SnlEL1B5NHhKUTVNSmtIWFRrcGI5S2I0cm10RHArWFNu?=
+ =?utf-8?B?a2lTOG1ncXZSalN1eFNxVnZkVDQ0a2RJSWZFVEJiZkVBYXBMb2JhWUhDVVlm?=
+ =?utf-8?B?ZnhKaXpOZU5ieXJ0WWhGcldER0FIQXYxcHU3aXBXNHBraTBNRU1yVnJhSkxK?=
+ =?utf-8?B?UjU3QjlCQklqVWpGNFhQOTlNOFk3T3dhdW1IQ0pKTmVGaDlsZjY0Vi85UFE1?=
+ =?utf-8?B?TFFBdTJvSThzMHovY2E0S1VBT1p2QU1aa29na2JRYXZUYlZBRWVPQm0wRGta?=
+ =?utf-8?B?TXE0QlAvK09sQkppWWdYWFlVZ004OVZ1NE1OeFhRbkc1QzVIenVlS1pZUDdR?=
+ =?utf-8?B?cHhlWnkrOFZEQy9odU9UOWtGaEhhZDUxQ1cxU0FvVUhTL3YzSXZNSno1UUNi?=
+ =?utf-8?B?T3cvcUZmMlJJdFJVYXdQQ08rT2NoK0Q0Y3lQYlVZNTJydnpRODlmTktienY0?=
+ =?utf-8?B?RU4rWlBWblVFNnUvTW1hc25uOWY1a0gyaFhqYlRQOFc3bzNzbG03OFdBOER0?=
+ =?utf-8?B?eTBWWENVZUNOOUo0K0JVRnFGSk8xdElLbDhjL1ZJKzNkWmRhcDZ5US9XZExS?=
+ =?utf-8?B?NWVBQmxzdjAxa0RvODcrMG9ueGhVd21YQ2V6V214MXBkcmZYWDYzUERseXMx?=
+ =?utf-8?B?RjQ4eVlGOUVoM1Y3Vis5QmxOSVppSGNhQ1RjWlBoRU51ZlFOL01tK2Z6dTRD?=
+ =?utf-8?B?YWJsNFMyRTRKTDZkOFhMdDBydEJzSDQrWGpoOTk3ak50UlFiZkFaaUJDdU16?=
+ =?utf-8?B?ckRXZjA1dFBGV0lFcGRMeWNKaENTclp0YmRrT3IyUDFrekZFS1pjZz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7bc1af1-a2ae-4148-1cb2-08df3110ef0c
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2026 14:21:31.1582
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IoRV+D6Evv/Ardt9AD9l79zuksC1SwSWrBYWFssO5QtHuFTs4//rMDrVMd3WHWsy/m35k6eA3f7JhB1JKFoQTA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10861
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261023_072138_455560_1F1A5E29 
+X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,345 +156,31 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: vjardin@free.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Vincent Jardin <vjardin@free.fr>
 
-The Realtek RTL8366SE SMI read frame per:
+On 10/23/26 13:24, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> 
+> Mark the +V1.2_DP regulator as boot-on, matching the hardware: the
+> CTRL_DP_BRIDGE_EN enable line of this supply of the SN65DSI86 DSI-to-DP
+> bridge is pulled up on the module, so the supply is on by default,
+> before any software runs.
+> 
+> Without it the regulator is briefly switched off and on again during
+> the board start-up, potentially disrupting I2C transactions on the bus
+> where the SN65DSI86 is connected.
+> 
+> Fixes: d5c082ba23db ("arm64: dts: freescale: add Aquila iMX95 support")
+> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-  S Addr Rd [A] reg[7:0] [A] reg[15:8] [A] [data[7:0]] A [data[15:8]] NA P
+LGTM,
 
-Linux support it using I2C_M_REV_DIR_ADDR on a write message
-that inverts the transmitted R/W bit, and I2C_M_NOSTART on the following
-read message that continues the frame without re-addressing.
-
-This NXP i2c-imx is missing such support, so on an LX2160A the Realtek switch
-could not be used.
-
-Acked-by: Carlos Song <carlos.song@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Vincent Jardin <vjardin@free.fr>
----
-Follow the logics from i2c-algo-bit and i2c-s3c2410 (addr ^= 1).
-
-Documentation/i2c/i2c-protocol.rst says I2C_M_NOSTART "may also be used
-between direction changes by some rare devices"; the RTL8366SE is one of
-such device !
-
-- The NOSTART read turns the bus around without waiting for a completion,
-  because the controller stretches SCL after the previous byte and the
-  frame is therefore still open. That is what lets i2c_imx_read() enter
-  the state the ISR would otherwise have moved to.
-
-- I2C_FUNC_PROTOCOL_MANGLING also covers I2C_M_IGNORE_NAK,
-  I2C_M_NO_RD_ACK and I2C_M_STOP, which this driver does not implement.
-  They are rejected with -EOPNOTSUPP rather than advertised and silently
-  ignored. I2C_M_NOSTART on the first message is rejected as well, and
-  so is a NOSTART read after a read.
----
-Changes in v3:
-- i2c_imx_check_msgs(): reject a NOSTART read that follows a read. The
-  controller NACKs the last byte of a read, the target then stops
-  transmitting and the continuation would only clock in 0xff.
-  From Sashiko on the v2 resend: no known user sends such a sequence,
-  and i2c-algo-bit has the same limitation. No other changes.
-  I did not want to spend time arguing, it is a safety Sashiko helps with.
-- Link to v2: https://lore.kernel.org/r/20261023-for-upstream-i2c-imx-lx2160-reverse-v2-1-03afae754886@free.fr
-
-Changes in v2:
-- message validation with i2c_imx_check_msgs() (Carlos Song)
-  No functional change
-- Link to v1: https://lore.kernel.org/r/20260807-for-upstream-i2c-imx-lx2160-reverse-v1-1-f276ce8cb660@free.fr
----
- drivers/i2c/busses/i2c-imx.c | 157 ++++++++++++++++++++++++++++++++-----------
- 1 file changed, 117 insertions(+), 40 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index 9477d814fde9..37fd14222b9e 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -1000,16 +1000,10 @@ static inline int i2c_imx_isr_write(struct imx_i2c_struct *i2c_imx)
- 	return 1;
- }
- 
--static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
-+static inline void i2c_imx_setup_read(struct imx_i2c_struct *i2c_imx)
- {
--	int result;
- 	unsigned int temp;
- 
--	result = i2c_imx_isr_acked(i2c_imx);
--	if (result)
--		return result;
--
--	/* setup bus to read data */
- 	temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
- 	temp &= ~I2CR_MTX;
- 	if ((i2c_imx->msg->len - 1) || (i2c_imx->msg->flags & I2C_M_RECV_LEN))
-@@ -1017,6 +1011,18 @@ static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
- 
- 	imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
- 	imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR); /* dummy read */
-+}
-+
-+static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
-+{
-+	int result;
-+
-+	result = i2c_imx_isr_acked(i2c_imx);
-+	if (result)
-+		return result;
-+
-+	/* setup bus to read data */
-+	i2c_imx_setup_read(i2c_imx);
- 
- 	return 0;
- }
-@@ -1172,6 +1178,16 @@ static irqreturn_t i2c_imx_isr(int irq, void *dev_id)
- 	return i2c_imx_master_isr(i2c_imx, status);
- }
- 
-+static u8 i2c_imx_addr_byte(struct i2c_msg *msg)
-+{
-+	u8 addr = i2c_8bit_addr_from_msg(msg);
-+
-+	if (msg->flags & I2C_M_REV_DIR_ADDR)
-+		addr ^= 1;
-+
-+	return addr;
-+}
-+
- static int i2c_imx_dma_write(struct imx_i2c_struct *i2c_imx,
- 					struct i2c_msg *msgs)
- {
-@@ -1200,7 +1216,7 @@ static int i2c_imx_dma_write(struct imx_i2c_struct *i2c_imx,
- 	 * Write slave address.
- 	 * The first byte must be transmitted by the CPU.
- 	 */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
-+	imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
- 	time_left = wait_for_completion_timeout(
- 				&i2c_imx->dma->cmd_complete,
- 				msecs_to_jiffies(DMA_TIMEOUT));
-@@ -1242,14 +1258,20 @@ static int i2c_imx_prepare_read(struct imx_i2c_struct *i2c_imx,
- 	int result;
- 	unsigned int temp = 0;
- 
--	/* write slave address */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
--	result = i2c_imx_trx_complete(i2c_imx, !use_dma);
--	if (result)
--		return result;
--	result = i2c_imx_acked(i2c_imx);
--	if (result)
--		return result;
-+	/*
-+	 * I2C_M_NOSTART continues a frame that is already open, so there is
-+	 * no address phase: go straight to turning the bus around.
-+	 */
-+	if (!(msgs->flags & I2C_M_NOSTART)) {
-+		/* write slave address */
-+		imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
-+		result = i2c_imx_trx_complete(i2c_imx, !use_dma);
-+		if (result)
-+			return result;
-+		result = i2c_imx_acked(i2c_imx);
-+		if (result)
-+			return result;
-+	}
- 
- 	dev_dbg(&i2c_imx->adapter.dev, "<%s> setup bus\n", __func__);
- 
-@@ -1371,16 +1393,18 @@ static int i2c_imx_atomic_write(struct imx_i2c_struct *i2c_imx,
- 	int i, result;
- 
- 	dev_dbg(&i2c_imx->adapter.dev, "<%s> write slave address: addr=0x%x\n",
--		__func__, i2c_8bit_addr_from_msg(msgs));
-+		__func__, i2c_imx_addr_byte(msgs));
- 
--	/* write slave address */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
--	result = i2c_imx_trx_complete(i2c_imx, true);
--	if (result)
--		return result;
--	result = i2c_imx_acked(i2c_imx);
--	if (result)
--		return result;
-+	if (!(msgs->flags & I2C_M_NOSTART)) {
-+		/* write slave address */
-+		imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
-+		result = i2c_imx_trx_complete(i2c_imx, true);
-+		if (result)
-+			return result;
-+		result = i2c_imx_acked(i2c_imx);
-+		if (result)
-+			return result;
-+	}
- 	dev_dbg(&i2c_imx->adapter.dev, "<%s> write data\n", __func__);
- 
- 	/* write data */
-@@ -1402,7 +1426,7 @@ static int i2c_imx_atomic_write(struct imx_i2c_struct *i2c_imx,
- static int i2c_imx_write(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs)
- {
- 	dev_dbg(&i2c_imx->adapter.dev, "<%s> write slave address: addr=0x%x\n",
--		__func__, i2c_8bit_addr_from_msg(msgs));
-+		__func__, i2c_imx_addr_byte(msgs));
- 
- 	i2c_imx->state = IMX_I2C_STATE_WRITE;
- 	i2c_imx->msg = msgs;
-@@ -1411,8 +1435,16 @@ static int i2c_imx_write(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs)
- 	/*
- 	 * By writing the device address we start the state machine in the ISR.
- 	 * The ISR will report when it is done or when it fails.
-+	 *
-+	 * I2C_M_NOSTART continues a frame that is already open and so has no
-+	 * address byte: push the first data byte instead. That raises the same
-+	 * interrupt and the ISR carries on from the second byte.
- 	 */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
-+	if (msgs->flags & I2C_M_NOSTART)
-+		imx_i2c_write_reg(msgs->buf[i2c_imx->msg_buf_idx++], i2c_imx,
-+				  IMX_I2C_I2DR);
-+	else
-+		imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
- 	wait_event_timeout(i2c_imx->queue,
- 			   i2c_imx->state == IMX_I2C_STATE_DONE ||
- 			   i2c_imx->state == IMX_I2C_STATE_FAILED,
-@@ -1529,22 +1561,29 @@ static int i2c_imx_read(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs,
- 
- 	dev_dbg(&i2c_imx->adapter.dev,
- 		"<%s> write slave address: addr=0x%x\n",
--		__func__, i2c_8bit_addr_from_msg(msgs));
-+		__func__, i2c_imx_addr_byte(msgs));
- 
- 	i2c_imx->is_lastmsg = is_lastmsg;
- 
--	if (block_data)
--		i2c_imx->state = IMX_I2C_STATE_READ_BLOCK_DATA;
--	else
--		i2c_imx->state = IMX_I2C_STATE_READ;
- 	i2c_imx->msg = msgs;
- 	i2c_imx->msg_buf_idx = 0;
- 
--	/*
--	 * By writing the device address we start the state machine in the ISR.
--	 * The ISR will report when it is done or when it fails.
--	 */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
-+	if (msgs->flags & I2C_M_NOSTART) {
-+		i2c_imx->state = block_data ? IMX_I2C_STATE_READ_BLOCK_DATA_LEN
-+					    : IMX_I2C_STATE_READ_CONTINUE;
-+		i2c_imx_setup_read(i2c_imx);
-+	} else {
-+		if (block_data)
-+			i2c_imx->state = IMX_I2C_STATE_READ_BLOCK_DATA;
-+		else
-+			i2c_imx->state = IMX_I2C_STATE_READ;
-+
-+		/*
-+		 * By writing the device address we start the state machine in the ISR.
-+		 * The ISR will report when it is done or when it fails.
-+		 */
-+		imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
-+	}
- 	wait_event_timeout(i2c_imx->queue,
- 			   i2c_imx->state == IMX_I2C_STATE_DONE ||
- 			   i2c_imx->state == IMX_I2C_STATE_FAILED,
-@@ -1574,6 +1613,37 @@ static int i2c_imx_read(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs,
- 	return ret;
- }
- 
-+#define I2C_IMX_UNSUPPORTED_PROTOCOL_MANGLING_FLAGS \
-+	(I2C_M_IGNORE_NAK | I2C_M_NO_RD_ACK | I2C_M_STOP)
-+
-+static int i2c_imx_check_msgs(struct i2c_msg *msgs, int num)
-+{
-+	int i;
-+
-+	for (i = 0; i < num; i++) {
-+		/* Reject rather than silently transfer */
-+		if (msgs[i].flags & I2C_IMX_UNSUPPORTED_PROTOCOL_MANGLING_FLAGS)
-+			return -EOPNOTSUPP;
-+
-+		if (msgs[i].flags & I2C_M_NOSTART) {
-+			/*
-+			 * NOSTART continues an already open frame. The first
-+			 * message has nothing to continue from,
-+			 * a 0 length continuation leaves the controller with
-+			 * no byte to clock.
-+			 */
-+			if (i == 0 || msgs[i].len == 0)
-+				return -EOPNOTSUPP;
-+
-+			if ((msgs[i].flags & I2C_M_RD) &&
-+			    (msgs[i - 1].flags & I2C_M_RD))
-+				return -EOPNOTSUPP;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- 			       struct i2c_msg *msgs, int num, bool atomic)
- {
-@@ -1583,6 +1653,10 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- 	struct imx_i2c_struct *i2c_imx = i2c_get_adapdata(adapter);
- 	int use_dma = 0;
- 
-+	result = i2c_imx_check_msgs(msgs, num);
-+	if (result)
-+		return result;
-+
- 	/* Start I2C transfer */
- 	result = i2c_imx_start(i2c_imx, atomic);
- 	if (result) {
-@@ -1604,7 +1678,7 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- 		if (i == num - 1)
- 			is_lastmsg = true;
- 
--		if (i) {
-+		if (i && !(msgs[i].flags & I2C_M_NOSTART)) {
- 			dev_dbg(&i2c_imx->adapter.dev,
- 				"<%s> repeated start\n", __func__);
- 			temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
-@@ -1636,7 +1710,8 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- #endif
- 
- 		use_dma = i2c_imx->dma && msgs[i].len >= DMA_THRESHOLD &&
--			msgs[i].flags & I2C_M_DMA_SAFE;
-+			msgs[i].flags & I2C_M_DMA_SAFE &&
-+			!(msgs[i].flags & I2C_M_NOSTART);
- 		if (msgs[i].flags & I2C_M_RD) {
- 			int block_data = msgs->flags & I2C_M_RECV_LEN;
- 
-@@ -1730,7 +1805,9 @@ static int i2c_imx_init_recovery_info(struct imx_i2c_struct *i2c_imx,
- static u32 i2c_imx_func(struct i2c_adapter *adapter)
- {
- 	return I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL
--		| I2C_FUNC_SMBUS_READ_BLOCK_DATA;
-+		| I2C_FUNC_SMBUS_READ_BLOCK_DATA
-+		| I2C_FUNC_NOSTART
-+		| I2C_FUNC_PROTOCOL_MANGLING;
- }
- 
- static const struct i2c_algorithm i2c_imx_algo = {
-
----
-base-commit: 3d6d817622b0a9721e3cc404df3469171582be13
-change-id: 20260807-for-upstream-i2c-imx-lx2160-reverse-7a94b9561188
-
-Best regards,
--- 
-Vincent Jardin <vjardin@free.fr>
-
-
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
