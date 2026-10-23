@@ -2,156 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04169606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 09:35:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DC80606A33A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 09:42:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jMCl9TLC;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=BHhdeGmn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=va+u8DhW;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=lh1PHg+i
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=/p2dtukBPWbkRywQZ5ucF/rysnjkZ5ykYHpZ9Hr4Ur0=; b=jMCl9TLCrVumsPTsbyqkKbN0dl
-	3AsbQFxmQ9PSZyG7Pu2cOQg5kSckkF7WqRL4d6bh9SjN8H9uzn++mK9xKkrBciPArfC8AQRYy7VAq
-	pvIizDFO/AVxYj/9gHm9CGK95xP6sGBH9gniyp5avUlgP5OVzDLr5hbewuqHpyFmCwLpij/ECuRMT
-	3pgsDXJmWiMmo2OpXY2TnRiP1curiLp/BD2ZHnlLNzGslyE3YyJ5+fvUiOYQmdoWkQ1HBe8fTgmlF
-	tj+76zxydrD8S2E8hQ5vmtoJrSqBoHewvfHyv1mgQn/QgoiLkFRTebIG30ClMR57s1CjIiSD/GutV
-	HCWgAvGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=fFF2D3oBqdNknTwvIUSmhanyWdoVvDAzBCNug1HGEEE=; b=va+u8DhWE+xYDN
+	gVstDCT+8nSG+tKUHxD3Z/ic2bgPdxbvizwA+aUBnagL7ufkSg7/PPMqZZ2UH69ycCpi74xIw6HZf
+	AYF3uiHJ0tbb23fpxl53gsSo7jCi1QO/9Uah3pUqoofBhZw6W4x3scbi7HKCAH07W3QD7u40y9UJx
+	qtEDd3LkkIZM7I4Joxg73Vf5rG9rW8Qh9KXcf+FxY6qp7W4PmVu6jvGXgxuCdTOLpaXHCm39/XmwV
+	q3BSkFlzlM7lILQiCxKcHfMzLjN5ieuECdjda5DYMjCDc94Pz6MzFwDnT1mCtzer4/CcH/lh2AcnE
+	D4B74V0W9P+vBQWgpY2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKBgE-0000000G3fC-1Pix;
-	Fri, 23 Oct 2026 09:35:18 +0000
-Received: from mail-northeuropeazon11012024.outbound.protection.outlook.com ([52.101.66.24] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xKBmf-0000000G47g-1cKT;
+	Fri, 23 Oct 2026 09:41:57 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKBgB-0000000G3d1-1wjF
+	id 1xKBmc-0000000G47F-2yde
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 09:35:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NDx24Y+moeiIQVH/cMfma8l5MZovfIclyXJGJXeMsxMrDve/Du/bZ2KBgAdpMBZXe6AEintAfuMuc9RX7GfVwSr2G1A5IrJJRgIA5/eeZ/uIIVRPJqHTOKQt4z1Ff4oQEO5SX43PDbrIc4UiywK7EgWy39FU3NjVOFUG2g8uOTZlkmpLd5KEOgDjc1l3UiCvvDeEO9bJ788RiOMv5JuSbpk515PqkMdc2RUSb5M7kFkmjxN+vhzJnkRO82jINKs5FG8opiw1vwaVtFFO+GeVpJibPoaN5klcmQd2MMp04FbCkJ8idP8yFa6Tr2+fT6va29cTbauGv/HgGe4bVWn5CA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/p2dtukBPWbkRywQZ5ucF/rysnjkZ5ykYHpZ9Hr4Ur0=;
- b=Al0bYI3xTb0cNg8UVFwevibes8nNYwuDALYk3ALYN/whqBDdB7APGz4angTHqlN5HszSmUUKOYbzwRApIBgj4ATg1g8wCOsxkBWLIDOMzSvKk6FLUT2EFFbU6aeEfU5eT2nsX6q30Xi9MV8Sh8l2ncBEZXEJwIeOuAaqNJa5YSsjHXtbcoL3lR9c/XFjiejYTUN03QQme1sGd7t3YCMC8GP2ZeDvNy7pHace8phdA9fc6zljVCfwJhFAaF16ZQNM7RfJRZsE7K+zo5nsdpXdwdqUU7AIFe4eyyBYzYjPSX03kcOK834QTztHloQ6GD7Xjp60K4grZJ5TbB4pzluZjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/p2dtukBPWbkRywQZ5ucF/rysnjkZ5ykYHpZ9Hr4Ur0=;
- b=BHhdeGmny7woWK4LGfEriHD2VC4WNSxJLwYVabZ+3DiAJOpYwFwyEwh0g9mqNWEaTlSHKTwK5oqoJ/gq908W8NTS7PL10VG7X/sXFPpXnY8R8MrJqec9OLm9CCWwaeyBNvg6nUSYxNjgfn4/Y+sK6AFUXWHgFFKQaiHNV7IDHEm/5LWKyxztFZ5DXDSG3LMrWC6lVukC1gzhvaXOtqTkyVsj65gGw938WBbCfoTb15fTMedjZdvcOXLepPusQBHl/po7ZogFXQF/fQzUEkODmlhx4q12qXkjkpKk54FhlM8WgajEOhzKcolnoVxBgzbdvoSW6vu75n39e6ViSZguOw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VI2PR04MB11276.eurprd04.prod.outlook.com (2603:10a6:800:296::7)
- by AS8PR04MB8643.eurprd04.prod.outlook.com (2603:10a6:20b:42a::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.19; Fri, 23 Oct
- 2026 09:35:10 +0000
-Received: from VI2PR04MB11276.eurprd04.prod.outlook.com
- ([fe80::60d7:a8e5:eb88:9be]) by VI2PR04MB11276.eurprd04.prod.outlook.com
- ([fe80::60d7:a8e5:eb88:9be%6]) with mapi id 15.21.0546.017; Fri, 23 Oct 2026
- 09:35:10 +0000
-From: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
-Date: Fri, 23 Oct 2026 17:37:49 +0800
-Subject: [PATCH] arm64: dts: imx95-19x19-frdm-pro: Move PCIe PERST# and
- vpcie supply to Root Port nodes
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261023-b4-imx95-19x19-frdm-v1-1-a15eecbf9963@nxp.com>
-X-B4-Tracking: v=1; b=H4sIAO0q22oC/x3MOwqAMBAA0avI1i7kq8SriIWaVbdIlAQkIN7dY
- PmKmQcyJaYMQ/NAopszn7FCtg2sxxx3QvbVoITqpFAaF4McirMoXZEOt+QDOmOt0r0Wxq9Qyyv
- RxuW/jtP7fnjWhpxlAAAA
-X-Change-ID: 20261023-b4-imx95-19x19-frdm-9455237304dc
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- sherry.sun@nxp.com
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792748279; l=1826;
- i=sherry.sun@nxp.com; s=20260723; h=from:subject:message-id;
- bh=NWAD1JUJ5hWDt0l5qnBBihQz8UKP30/HI02M3Ngrhx8=;
- b=fg1kthVt+/bngK5bvG1eKNtD59Cn1IC3EGIn94w+Gdeo1YBkXaiIZ3Z06eNnUKZnA+1JWfaLb
- pmL4pm4252kBrz0NCTlSvleU/XWWWJkeHTnw9GoZI8s9srqU4wsjQYQ
-X-Developer-Key: i=sherry.sun@nxp.com; a=ed25519;
- pk=YnYnIFJ2l+5v951x9shBVfHhminNi+3LTfFa3PxSdnI=
-X-ClientProxiedBy: SI2PR01CA0016.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::20) To VI2PR04MB11276.eurprd04.prod.outlook.com
- (2603:10a6:800:296::7)
+	Fri, 23 Oct 2026 09:41:56 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-48e0d1c095dso444457f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 02:41:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1792748508; x=1793353308; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fFF2D3oBqdNknTwvIUSmhanyWdoVvDAzBCNug1HGEEE=;
+        b=lh1PHg+inFZwY7YM53R3BS2LYvdZW1UtZnsJIW636JI1kaZxvWNQnvkj/ZessODnGU
+         Y46zOh8NDUiKZVV6CyuBFaswThsOPSoLfTFIOnOAi99px6c5x25588f0iYVpHm7T85qd
+         q0JlNBL8h4wvasaK1RMBy8mwAORK/K63p0xenMTlx1DYe2Ft7p7pIiokNm2YxIRRzWfb
+         kllQsoFuwxVmfcIL6cCEIkV0Gs2aXVNQC6WF7gSAVw/Fcf3cf82oqwqA8b3IGcugIhJY
+         n9TDnmsCk7y8v6ebVw6APTDT1JS/g4dj+VV6ugWuM77Ge2AqOGIIm111cG7hY+hNCnuH
+         CG8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792748508; x=1793353308;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fFF2D3oBqdNknTwvIUSmhanyWdoVvDAzBCNug1HGEEE=;
+        b=MG+7FVvJx25pLq4Nfyp1A8wJbVIzC+DLk58jv1MhS4c25OiYED+/rqGxyWgVFaXDBG
+         CPUAUHjNfj2ivOMwvMNU6LdYsVFnUOQKZzuAGSSUr+UaN92i9YuY77isy4WfxMkK+eU6
+         J6yoIjIhBBaAesvWKQAHLffxiPueGplhVNVj2eOf2XFfOuRIzC3tHmNk4pWhoESpD7Ij
+         Xhi1G8gUqcrgXzHSEZ8hiuFCpBkLNpGmsuktg7n2pgzsUexZLBtYbQQCSCB2lGMc/A1M
+         PHvEMVgjYZI3/j1vl2uCyctlyI8IS0gtl6VUbSoUSS1JSsHx6s7TLltYNdEHmVeBuH1e
+         kt3A==
+X-Forwarded-Encrypted: i=1; AKwUvByv+RtEMHQEk10hU9xb3125WWk1q8+RakH7CamMPqu8uZ7XcmeUXp+Fm/7yERbWhhpA9XubQWLD6xxi37K7CRcL@lists.infradead.org
+X-Gm-Message-State: AFq9FYI1WEzR4hllImfUurunpPqxfBZXTBJ8E0B9w3wXw6MIRLCiorGx
+	J831oYSRziXZFKmjgFvaYaURBK4JCfGpLAb0x3x7rPonTEXnCzjO//cbiq+lBZ4aQ+nfSIVV1ue
+	qELYR7Zf7lA==
+X-Gm-Gg: AYBFou001dVvwua6K21EYZTnFR9La9RoFBzXIVwacMiuo3x+463gRb7vP2GpYbLJ4f2
+	ykWVDo2ItGsMOE+6MUCnj2mkSaK+sEVKfEWWyZl8FAaULuqGI1zB80WffjRLiJPlNa4PAxmVcOW
+	/cydagEHHIxKPZ3PibfstwJ7jMs8o/ULH8J11K2NQXN87quB/ER7xxeXqYNQQpPA4/yQSrFlCJy
+	J3jWzEwYxEUdtXvWV4DN3mS9WatIQ74k2XCC+tARrnmGpzi2iN4cGEh5aE8+xV2FyKZ+FdC9wM6
+	zfpKuSNOwySzlypxlOtcP9oSYAkuwk3dIG9kzTzWotNUpCO0cn94cfXBcVoWi7ctutwuVypZCIm
+	lCkGboNj2m8lDzEPnwZ96BMRlKn1/LhZQmF/8iBVgv/3bDqTX8w0/HyK/RsgNN4tyfMq2O2F+eC
+	SEh2Oerm62TErB8VbqE8zbwczkLdbeps2+wks7GCD5I9DE6AGvwQxbfXaaaZniblqSBEhI7oJ77
+	rKFuG566nYZ1Lry8W/nADofjbItv3NlH1PtZQ+cIR9usUD8N1cjmDGH6Wzm
+X-Received: by 2002:a5d:5d10:0:b0:48e:21f7:79ff with SMTP id ffacd0b85a97d-48e3859d173mr2609746f8f.33.1792748508060;
+        Fri, 23 Oct 2026 02:41:48 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e37eded3fsm3913978f8f.7.2026.10.23.02.41.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 23 Oct 2026 02:41:47 -0700 (PDT)
+Message-ID: <8ae9c5fb-a481-4437-baf0-6610d8131b3f@linaro.org>
+Date: Fri, 23 Oct 2026 10:41:46 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11276:EE_|AS8PR04MB8643:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb7c7525-ebd1-4121-391e-08df30e8ee4b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|19092799006|260925021311599003|260925021911599003|260925022911599003|11063799006|56012099006|261009223027099003|261021123027099003|261021121427099003|261022105027099003|261022075727099003|10067099003|18002099003;
-X-Microsoft-Antispam-Message-Info: n+4mYuTpZD6bb4IgME0XVebMgd6lvGfGeLOZhd6CCQ+sw4NvQb+bzylL8NqWv+QJ/mRDpjw7HQJqELhz1xSkDODB+hLQ0ZTGBT2mz8YduHj/9+I16zkAdl5KJnJx7qqlWt3BgYIbD465O0qW5e1TQwGroqqrBBf7+Mbld23i5icIQ7vWKU/50d1FM9aPAp9LdRFVodd9i6GdgkNywiR0lufe8Toi1LO7rae2um9bVC8zT2KTBWR+yfmvd0hTCXzl0Q3jLD9y5Yodx3/0aSNeRs59Xc2kBtVHJTI9Ba3E+w3dd4T2WL0RHzkRpTmbYDRmBtzddOB+xlIJayRC1JduUH8iDEOu4gBO3XM48UsBswduvdWJpRipRDw63owJqF68VrA4WY6D9BLeEMWk0PvzyctPDRjq7LkLWmijC7d2zHlY7UH86sBaHvssNhl5s5TQZ79T9SO+S9uMLfa+eidt5vmU+xxRIEi4dznMX2WmDCmb6oR6lPqYRlr1fPJ9fTvUy6XZdnknaiWtPTcL5UPegH4L9aHkLVFGuqR4Wz6bQ6BYuTSGGH19S5cLtXkX5d0jbFAxLTzGkedag/JkJXFXLw0CWpLzmqZgbUQ4fc7kVajkq311YimvoST+O3EG+dMprbKOIDJL2jrnMfVAVqtthOJvBrEfrcfeXcUSjN4bN+A=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11276.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(19092799006)(260925021311599003)(260925021911599003)(260925022911599003)(11063799006)(56012099006)(261009223027099003)(261021123027099003)(261021121427099003)(261022105027099003)(261022075727099003)(10067099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q2RzdjRDL2NRa1h6RWxhaUlvV084SmVMNzN1QVBqa2pCTERFbzUvZEJiR0Vu?=
- =?utf-8?B?OFpobGk5WmZsOWhLcEY2U1l5YWRsS1pqUENhZ2VoSkwwZUt0WjVIbGlhbkxn?=
- =?utf-8?B?eVczVWc5NVpjcXByU2d4VE5yNkJxTDJhelJRN2lpSkN3cmhEVk9OM29sMEVz?=
- =?utf-8?B?K3daT3lIMzBtRTdCU2VOZjBvS0dLdWYrVitWOEo2RGZLd0FGVTcvMUNKT2FX?=
- =?utf-8?B?YXo5OThCMUhMOXdYendRZjVFcTN1QjF0ZFVZYkVuVUZaSGMxZEFCOWdGSFQy?=
- =?utf-8?B?eXBZbVpoRiszbjFnbFFaK2ZjRVR1OCtpYng0QnBjTnN3d3pWN1ZReDZ2ZDNw?=
- =?utf-8?B?Q3ZwbWh2SUVVYnhDOHpPZ3hZNm1hYXZqTURxL0dVcysreEJuNnl6SjQrbnZl?=
- =?utf-8?B?dTVIUHpuY2wxeWlTL3Bob3Jzc3Z4TWszWkpHaVJHOG9JOVFLSkJmQWZsVHBS?=
- =?utf-8?B?UlcvdjlKendZd2pZazJ6VHFZWXMzWUdDbFUzRW9tY2tkbFBNSE9YSEVUYmtM?=
- =?utf-8?B?Y2tUN3RZWlhlNUlncGZadkVZb1o5aEVjSElIai9kSlgrWG4yK254WWJrMy95?=
- =?utf-8?B?b0drbjR1aVRJUENxdkF0dzlvQzJJRU1QaTlTVDJzZHZSUHpJb1BwZk9rZzZ2?=
- =?utf-8?B?YjdBR0xCaWhvWXZXS1o4WmN6bjY5cy9aYWpjMGxuRjFQQXprZ010MTQ1QlEz?=
- =?utf-8?B?VlliQU9kY29ETjVBWllXaU9EbSthdGQ4NWxSRlVHR3QwcmZZd3RGV0tuMTFt?=
- =?utf-8?B?VGRJaGlzMlpwZWJndUhOeWxxVHE1OGdIclc3Um1IRU8rSmovRWhyVjA2Ym5q?=
- =?utf-8?B?dUVmaVNLZmVkakhuZW5sR0JQRTN6TlNSR1luL0dyQmtoOGsyVE96QU1EaXJR?=
- =?utf-8?B?Ri80SzBtNFZIMjErVmZEZkhrV01Id0d6dnFMWTVwbkxEK3VBdzcxUDVZb3pP?=
- =?utf-8?B?eHg2Sk92bTBRT0JkR1F5T1F3ekYyY2p3YThXTldnVEcrRjMwcXpwcXZVc2I2?=
- =?utf-8?B?bjNYVmV1bHBydzRaRUk1Nng5K0xjZmlhWWRYQ05EbThTbVl1VExSWkhqSUlT?=
- =?utf-8?B?Tm5iUEEyV0xiM2VhS25NOXFYeUx4OGhuVExYTlcrZWJNbTdnUVYxYWt5Qm15?=
- =?utf-8?B?NDh3bzl0UDJwNXpjMHhsTDMyTk4zSDAyWFZMNHJETmNha1hTWUM1RWJCblRk?=
- =?utf-8?B?VmNEbjNtbU5YVzdUTXR3SlNIbi9yU3BpRWZ4UjhQWlF5ZktJYUkvQkNNKytp?=
- =?utf-8?B?RWUzWU5PdnJsMnRjSUhYaGRSVXh4R3g5b0F3RCs2V000dHpRMWdGZWV0RTI4?=
- =?utf-8?B?RmVNcnVRL2VxT1lmZkdIem44Qi9YaXFuOTRSMER4M3R3cFJ1QW1VeWhxMHNI?=
- =?utf-8?B?aWIxT1dYL2ZDYW5Say9id1dXNGRCaVQ4ZmNjMStqNmFUdW80Mi9qRk1vR3Fa?=
- =?utf-8?B?a3NvaUFyNDF3M3RlVXZsOFNhYjZYbDNqTml5L1ZlYVdUTE5FY1pNeUtCdlpk?=
- =?utf-8?B?WlQ3aWRldmpHTGNMcWE2YjRrZFJodDgwVVhSc1QxQ09KTlRuVE9vbmIzSXJM?=
- =?utf-8?B?YkZCVmtTK1dzZ0tJYXVYeDM2c0xzbkVPVE0vTmZSbW0ydlZGMDV3bFIxcXVa?=
- =?utf-8?B?UnFXN1AzQ0tpb2o3b21PQ1FrRzdVd2h0OHNkWmI4UFV4R0hqc1ZaQ0RzVDJj?=
- =?utf-8?B?dFAyNGtNQkNDQ09KUi9jckt0OVNyL0tDRzk3Y29HMkNuTzlrYzZBck05NTNW?=
- =?utf-8?B?NVNKVkFOV29makFzT2VlOVdDY1Brd0dzY0R6N3F5Tm02Tkd2d2NHQzhNSmhQ?=
- =?utf-8?B?WitDbEhmRnFpdEhwZkl5VThnb0lMMzZhR3NvSmZMS3pNNytSelJzd01Wa2VD?=
- =?utf-8?B?RFBLZkNzOGE3Q1F0U0R1OUFLTUhUWDZhc1hQUXlSNjFlZmgzbzRBaEh6cnBQ?=
- =?utf-8?B?L243cXdkQ3pwNVI5a0pOK256SmRjaVZvNFMxRlhrbEhOdzR1eEJIK2h3dmRs?=
- =?utf-8?B?SGdPbG9jSW9Cd3RHZlFMc2oxODZZSlY4OE1tSGdCVEduenVzOWVMK0dDaWgz?=
- =?utf-8?B?ZkxiU1NaMC9kU1FrbjErUXA3U1dDQkl3MHVMa2RDL1BHdUMzZmlPUEFSL2o4?=
- =?utf-8?B?eHRyankyMWlreTdLMjVrRUlhaGgzK1FLeVRrWTF4b2RpRm1mbElGOUUzbTQy?=
- =?utf-8?B?dzE1SEFMTng0SlI2TDJnLzBHckRDTldpd1RjVzJtN1dQeXE4OFVEUHM2a3Zs?=
- =?utf-8?B?ckp0SUJEWXRBOFlQVXlLOHpGV1g2NWhBcDUwSnZnMHRYTWxQMEdqUHdoWWd3?=
- =?utf-8?B?U3Y4T2U2TFZPMHpvWjZyZUpQQ0REQldkendIQnJ5TEkwQmJ3U05pQXFOZEdE?=
- =?utf-8?Q?Z+pMlqEz4zulWMTecNomcWlFc2wzDlTTgJKEb?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb7c7525-ebd1-4121-391e-08df30e8ee4b
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11276.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2026 09:35:10.0375
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yRcUUnd3xANeoZt1d0oJpSN+Htq1xOJT2iD0NsXZgsT85TNXa4qY61MBoFF705ZMOWS6arnfIF51Bs7e90a462y5ajIefY51Yne4oOyjoIUsNMbN0JKSLOwDXE8qLkzD
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8643
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] coresight: etm4x: Fix event count decoding
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Amir Ayupov <aaupov@fb.com>
+References: <20261022-arm_cs_fix_etm4_event_count-v1-1-588b2922a546@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20261022-arm_cs_fix_etm4_event_count-v1-1-588b2922a546@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_023515_520689_A1B36285 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261023_024154_979731_42A3B27C 
+X-CRM114-Status: GOOD (  25.83  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,69 +106,145 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Sherry Sun <sherry.sun@nxp.com>
 
-Describing the PCIe PERST# and vpcie supply properties under the Host
-Bridge node is now deprecated. Add the PERST# (reset-gpios) and the
-power regulator (vpcie3v3-supply) in the pcie0_port0 and pcie1_port0
-Root Port node.
 
-Since i.MX95 is the new platform that under development phase, it should
-be fine to simply move the PERST# and power supply properties.
+On 22/10/2026 09:11, Leo Yan wrote:
+> TRCIDR0.NUMEVENT normally encodes the number of events minus one.
+>  From ETMv4.3 onwards, including ETE, a zero TRCIDR4.NUMRSPAIR instead
+> means that no events are implemented and NUMEVENT is zero. The sysfs
+> event controls currently interpret this combination as one event and
+> allow writes to unsupported event fields.
+> 
+> Decode NUMEVENT after NUMRSPAIR and store the actual number of events
+> in nr_event. Use the decoded resource count so that older ETM versions,
+> where a zero NUMRSPAIR represents one resource pair, still report at
+> least one event. Update both sysfs event controls to use the actual
+> count and clear their event fields when no events are implemented.
+> 
+> Also correct the instruction event enable mask for the single-event
+> case to use INSTEN[0]. The existing mask uses INSTEN[1], preventing
+> event 0 from being enabled.
+> 
+> This change depends on the recent driver refactoring. With no reported
+> failures, it is not intended for stable backporting.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 15 +++++++++--
+>   .../hwtracing/coresight/coresight-etm4x-sysfs.c    | 29 ++++++++++++----------
+>   2 files changed, 29 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index e21be6468e9544fe6e22f524de4fef9f89d7484f..b0e286f487017a4155595f14cbb9c9c33b17dc6b 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -1451,8 +1451,6 @@ static void etm4_init_arch_data(void *info)
+>   	caps->trccci = !!(etmidr0 & TRCIDR0_TRCCCI);
+>   	/* RETSTACK, bit[9] Return stack bit */
+>   	caps->retstack = !!(etmidr0 & TRCIDR0_RETSTACK);
+> -	/* NUMEVENT, bits[11:10] Number of events field */
+> -	caps->nr_event = FIELD_GET(TRCIDR0_NUMEVENT_MASK, etmidr0);
+>   	/* QSUPP, bits[16:15] Q element support field */
+>   	caps->q_support = FIELD_GET(TRCIDR0_QSUPP_MASK, etmidr0);
+>   	if (caps->q_support)
+> @@ -1519,6 +1517,19 @@ static void etm4_init_arch_data(void *info)
+>   	caps->nr_resource = FIELD_GET(TRCIDR4_NUMRSPAIR_MASK, etmidr4);
+>   	if ((drvdata->arch < ETM_ARCH_V4_3) || (caps->nr_resource > 0))
+>   		caps->nr_resource += 1;
+> +
+> +	/*
+> +	 * See ARM IHI0064H.b, sections 7.3.32 (TRCIDR0) and 7.3.36 (TRCIDR4).
+> +	 *
+> +	 * Before ETMv4.3, one event is always implemented. For ETM v4.3 and
+> +	 * later, NUMRSPAIR == 0 indicates that no events are implemented.
+> +	 * Otherwise, NUMEVENT encodes the number of events minus one.
+> +	 */
+> +	if (caps->nr_resource)
+> +		caps->nr_event = FIELD_GET(TRCIDR0_NUMEVENT_MASK, etmidr0) + 1;
+> +	else
+> +		caps->nr_event = 0;
+> +
+>   	/*
+>   	 * NUMSSCC, bits[23:20] the number of single-shot
+>   	 * comparator control for tracing. Read any status regs as these
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> index db9e603f97ba82cd608d3d61881fe8153db020ff..fb38f0102290a53a681934c827abf107c141a740 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> @@ -513,19 +513,22 @@ static ssize_t event_store(struct device *dev,
+>   
+>   	raw_spin_lock(&drvdata->spinlock);
+>   	switch (caps->nr_event) {
+> -	case 0x0:
+> +	case 0:
+> +		sysfs_config->eventctrl0 = 0;
+> +		break;
+> +	case 1:
+>   		/* EVENT0, bits[7:0] */
+>   		sysfs_config->eventctrl0 = val & 0xFF;
+>   		break;
+> -	case 0x1:
+> -		 /* EVENT1, bits[15:8] */
+> +	case 2:
+> +		/* EVENT1, bits[15:8] */
+>   		sysfs_config->eventctrl0 = val & 0xFFFF;
+>   		break;
+> -	case 0x2:
+> +	case 3:
+>   		/* EVENT2, bits[23:16] */
+>   		sysfs_config->eventctrl0 = val & 0xFFFFFF;
+>   		break;
+> -	case 0x3:
+> +	case 4:
+>   		/* EVENT3, bits[31:24] */
+>   		sysfs_config->eventctrl0 = val;
+>   		break;
+> @@ -565,22 +568,22 @@ static ssize_t event_instren_store(struct device *dev,
+>   	/* start by clearing all instruction event enable bits */
+>   	sysfs_config->eventctrl1 &= ~TRCEVENTCTL1R_INSTEN_MASK;
+>   	switch (caps->nr_event) {
+> -	case 0x0:
+> -		/* generate Event element for event 1 */
+> -		sysfs_config->eventctrl1 |= val & TRCEVENTCTL1R_INSTEN_1;
+> +	case 1:
+> +		/* generate Event element for event 0 */
+> +		sysfs_config->eventctrl1 |= val & TRCEVENTCTL1R_INSTEN_0;
+>   		break;
+> -	case 0x1:
+> -		/* generate Event element for event 1 and 2 */
+> +	case 2:
+> +		/* generate Event element for events 0 and 1 */
+>   		sysfs_config->eventctrl1 |= val & (TRCEVENTCTL1R_INSTEN_0 |
+>   						   TRCEVENTCTL1R_INSTEN_1);
+>   		break;
+> -	case 0x2:
+> -		/* generate Event element for event 1, 2 and 3 */
+> +	case 3:
+> +		/* generate Event element for events 0, 1 and 2 */
+>   		sysfs_config->eventctrl1 |= val & (TRCEVENTCTL1R_INSTEN_0 |
+>   					     TRCEVENTCTL1R_INSTEN_1 |
+>   					     TRCEVENTCTL1R_INSTEN_2);
+>   		break;
+> -	case 0x3:
+> +	case 4:
+>   		/* generate Event element for all 4 events */
+>   		sysfs_config->eventctrl1 |= val & (TRCEVENTCTL1R_INSTEN_0 |
+>   					     TRCEVENTCTL1R_INSTEN_1 |
+> 
+> ---
+> base-commit: 343cfcbb3ecfdb80aa576a428cfa3b65ad783842
+> change-id: 20261022-arm_cs_fix_etm4_event_count-49f384a2f6a7
+> 
+> Best regards,
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx95-19x19-frdm-pro.dts | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-frdm-pro.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-frdm-pro.dts
-index 1f62d729a5e7..d764d195caec 100644
---- a/arch/arm64/boot/dts/freescale/imx95-19x19-frdm-pro.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-19x19-frdm-pro.dts
-@@ -497,19 +497,25 @@ &netcmix_blk_ctrl {
- &pcie0 {
- 	pinctrl-0 = <&pinctrl_pcie0>;
- 	pinctrl-names = "default";
--	reset-gpio = <&i2c4_gpio_expander_22 19 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_m2_mkey_1_pwr>;
- 	status = "okay";
- };
- 
-+&pcie0_port0 {
-+	reset-gpios = <&i2c4_gpio_expander_22 19 GPIO_ACTIVE_LOW>;
-+	vpcie3v3-supply = <&reg_m2_mkey_1_pwr>;
-+};
-+
- &pcie1 {
- 	pinctrl-0 = <&pinctrl_pcie1>;
- 	pinctrl-names = "default";
--	reset-gpio = <&i2c3_gpio_expander_20 9 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_m2_mkey_2_pwr>;
- 	status = "okay";
- };
- 
-+&pcie1_port0 {
-+	reset-gpios = <&i2c3_gpio_expander_20 9 GPIO_ACTIVE_LOW>;
-+	vpcie3v3-supply = <&reg_m2_mkey_2_pwr>;
-+};
-+
- &sai1 {
- 	clocks = <&scmi_clk IMX95_CLK_BUSAON>, <&dummy>,
- 		 <&scmi_clk IMX95_CLK_SAI1>, <&dummy>,
-
----
-base-commit: 9a482184d910775cf648863148944945b74e2815
-change-id: 20261023-b4-imx95-19x19-frdm-9455237304dc
-
-Best regards,
--- 
-Sherry Sun <sherry.sun@nxp.com>
+Reviewed-by: James Clark <james.clark@linaro.org>
 
 
