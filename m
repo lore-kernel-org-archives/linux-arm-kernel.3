@@ -2,106 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC5F4606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 23:39:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEA8B606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 23:54:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yqWwEhQg;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Qphnz00/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AFFvWDwz;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=HNZ4FoC/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=vk26c3BTQSmOJJ6zClJ284dH3SqVTC5An1nrNJrjOFw=; b=yqWwEhQgz6i6sF
-	o+nD7J4a0V77E4PppWheefQO8II5g98AYkDDrQIoiFPoRhP0IXjU2Zva8K6If9zafW0mIT+fYVlbd
-	C5cnuDJkK6xofDFSb5GrRkZ/tDOo8cWpt0lTgrnDl4670LieVgUYBI2tAv/aC750AswnTKWVg1PgJ
-	K6FnFj7q2fNtw4kvto40Azh9JfDT8RoH2PBf/b+gknS3xHor/G00B8Q03xMzDNa07ayyVquXh/lCT
-	JzsenLDfUfcHJawWxFKmw01DWMevBLDmyThVKp+bHx555oOeQSt+PMpCGOtiECB0o6bsiEIkr18CG
-	2/ilj7wg02TFzQR8Gl+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=WyWU9QEly82UAo6bEoWPREDKCLnVhT5ADM2LPpXyEAo=; b=AFFvWDwz2cp6FqsgjtoVqWVBsr
+	4QuH0lsW9PTlfePEgTLmQ54QMAJbV0qWUMTwSjZsXPvGmP0WEC++FoTvmYGP3C5aUY50HAb7bELve
+	ecfBTD4CV1uSMjT2kO8ODO8xYgmUgv/oInvS20Px5o+YP0eL0NyuvAZG6+n0M9MWLtGYUUYKOMv/c
+	87bWmS+MhCZnLy4njyERP0slxjIX8QdibUmsiOqVlRE8A8H7JWW4anzJD7HZP/Ux2kO5sAR8cIVoE
+	8vyghdvYhs6BzU2xs16vFdjqPVva89/ynfJjKvVEHGf8ka6MEfpBpNS2GKZpiInybi1ZdOuXxHc3Z
+	Cb+1xFpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKOqd-0000000HBWv-0Pwo;
-	Fri, 23 Oct 2026 23:38:55 +0000
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	id 1xKP5t-0000000HD17-3Jhu;
+	Fri, 23 Oct 2026 23:54:41 +0000
+Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKOqO-0000000HBLW-26pH
+	id 1xKP5r-0000000HD0l-0AmD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 23:38:41 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-823b938464fso953477a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 16:38:40 -0700 (PDT)
+	Fri, 23 Oct 2026 23:54:40 +0000
+Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-3282db206d3so1652157eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 16:54:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792798719; x=1793403519; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vk26c3BTQSmOJJ6zClJ284dH3SqVTC5An1nrNJrjOFw=;
-        b=Qphnz00/ajK9DoJZzIuGIPvhWnLIkQrRM1eOYWR554Jyuw+ApGhKG+La617yPpvUB2
-         deSmDlX+qqheaNp6jPC/nqSMsunmdQOW4QrZ3eB7HRIdXaX8u8YtJA9mKpvZtEf1xbPl
-         haBI8oBw+mAYLnQva0mZb0dfhyKgoBrXi2+g4cJfwEvADgF/5EoBQi2hwkN5lgslZ+DS
-         DfLke3SExMCKmRsOAwkBwWqX21UOv5LU8894aIsND2vKTUKmk8+De/1ZC3BgP9Q/VEAl
-         rFhvSKFEtKNZOAVc3qSTxhiMsYfXb3OLCrad9dz8E+wmCYCNZw5wwsiddB+WUwP/ymrt
-         OWHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792798719; x=1793403519;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=chromium.org; s=google; t=1792799678; x=1793404478; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=vk26c3BTQSmOJJ6zClJ284dH3SqVTC5An1nrNJrjOFw=;
-        b=IlW46dFjWl0MjrhdGzv/Dw8UNI8WjjrAAeJvmF3nygK84BP2dHIBX9tSxX4HKFwEuX
-         5f+65iTGB0jXLTyHTX5Zi52L6JV8NUGNw5lhVcAynrGLuxB+godUSmk6m9jYDxlMwkLU
-         dNZfyc6syscaySNSwvIFMXoFzu2/z7SFrsW0ToSmTA29PGZU2UIpVNgkwztJ3lnunhjc
-         eT09qJBG1y1ZCvlCiaVhpjevzwTOm+mpqy5jnjYZVts2fqtbtYZkjIc2qzVO6LOAmAxY
-         xNCpjjSUpMfSfYiNCi5Q2jayUvXbBnO7mnuH04r3SBP7VJcFKOTM0KoTvggNHu54a6fi
-         9oIA==
-X-Forwarded-Encrypted: i=1; AKwUvBztSSPmKQ2eolvVhFTnQWLP/Dh0SC2/2HMbU30paUxQlQrTqtKezTuN3v+GbqWgwM6HTfKsksnq9/Ei4+BQMqQk@lists.infradead.org
-X-Gm-Message-State: AFq9FYLAAhUtavByWrlenB3wjjrIBOMexHLYLjnlT1wQhxttRDusFrl+
-	niyrB1Eef1yroMhwLTsOW1RAZx9sQpSlpafO21wZv161N2ixiDik58O8
-X-Gm-Gg: AYBFou0/RZba1rc7JZeqEXtfeEA8iVi+ND3JPCAdtRkuWh/mtz5UP+Oi6B7oFv58DpS
-	sKGQr5KdpT81qnXMSy17zEJPNzoQNuQCxbz1hdynTAy1q65uW35WJOR8/79B+83Q2MhBzujJhyJ
-	jGFqSrdoZJBzPGSQV0SdzX31VKW585s8UhQ2jQK2KDq74NzM8Dbz2lpjgxko6TtU3F3+6n7lDsj
-	wB2oupXtYByWCt99VK6QJp/KOfYE6u5egST8MziHo7zRJtrTk2dqJQdtSbzucylYc1r2KWzLjFP
-	AcR0iXvab8hqxH/klBA0jSrPi9P6dODQHHfHaflRiqyacNY4+M6f2hazpKvFo3SRPX5KWP5IQmm
-	y969K15pFGFJkjx2E2YZF6UoAFEE3V25e1xxKKkwLdyYD/mUUX3KVyLkwMsNegS2fplzECLTC8l
-	2taSNQa9Icb26IX5aPNgFq3WWRbrhLDui6T8+h0wAL8/k1CAyZHvzHzmSX4el03IuHIRwV+H+Hi
-	bRa2RdtHCpD/VzdTEYSB1hFfQTv+MSNoj8Pzm/dkByOd65Oqtao8yRL9m8tiLMimSdRyF0fORSL
-	HvjgrllJDl1ChyMNhYkaaDdj5bPdtpBdQHXQOl1XASp9U1B08siN/MX6p5dC6wMFN9SfHgNbu4T
-	6rtJ5eL6mViLjkEXQcewWFmJ+rqSIdYCFOfy6UeEuT8T9iuot9VKoyuuBTH4aanetFBDPv87f82
-	h1oetO2ZDSuLsA1VWGAik7Wm1n
-X-Received: by 2002:a05:6808:538b:b0:4d7:2721:cfb0 with SMTP id 5614622812f47-55c002e295emr491276b6e.31.1792798719329;
-        Fri, 23 Oct 2026 16:38:39 -0700 (PDT)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4a843225d69sm284345fac.15.2026.10.23.16.38.37
+        bh=WyWU9QEly82UAo6bEoWPREDKCLnVhT5ADM2LPpXyEAo=;
+        b=HNZ4FoC/2KQdNtCVsNh9Hw9sReydOu3aZj1boBRSaXvHFlwh114JrNmdEYfZkM7Z56
+         T2mlbOxGq9T+r9CvDc5vdHw1xc/cPepci5IbIQIlpKW/YRSceZmHK51Zwnnocys2rtHE
+         X7/2W4gqbS97Co5Q07V4CjmDHtZe4V9fyTMuw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792799678; x=1793404478;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WyWU9QEly82UAo6bEoWPREDKCLnVhT5ADM2LPpXyEAo=;
+        b=eiKWeByy0ydqJzBPFY5ZXnXlSOfH7o5HDrY3mJQwkgOnt/6aihONvKjGEe9OMI5tOv
+         Xtqot1E/OIroSc+0+BLTNytSbUoz5Owqy17ulb/AW6bzjYikxjcG5EbyYx9kbcPT91Nl
+         mSJI5MTETJc8ltKXvMhxtxBpSkox9tRR75CNTwfWHr7AVq1bhXSQcnIiZQnZ0ZDbTBPA
+         gh/XUbDb1VcOCZNt5IsuIa/lHwi2cca/7CPno8d4WUXeg1KDCCjx/PdzLgoutoDwzuHp
+         OezfDau7icIEJvLJgNQCSQ/b3TRy6OgqdHPveELh1QuFzolQyECUYxHMPv9Gzt+kTdai
+         xPQg==
+X-Forwarded-Encrypted: i=1; AKwUvBzGMsbPKLax1Ohi8fMZhexVRlXY6PRRqbj2Z0rG0/GdgxCJSxOjnSs4XtA4tyH1nCquKWMcCNh42F7zdip72Afv@lists.infradead.org
+X-Gm-Message-State: AFq9FYI2ogerP8SpNVkCM77ZTNteJezZYQOFxSC3CbNirJBudA5zF8hC
+	wWNY6U5mf0K3FqHA5iYtsTQqR5e2A2EtqH1iq3HxT8xIuwM+1uY2/JvffwaRzAhT0Q==
+X-Gm-Gg: AYBFou28EBmNOw+TAQyn4hYpZBK0ygU086Z5oXNt7YLJgm8KJ4TS8dxCRzUKmKuDNXh
+	M8+Etak2pWZC+xJ098T237zokocDf7rmZCTImdc9hvplmtTjkZeGPcWimV80njBuA8dHIPkOLc6
+	kNJRn/jPOenZwN3qS03loNYYYBJFJsW9wOPCH9ByWqjtXH/6kI0K6B8ySMmTTaGPCb7DlvheUPn
+	bWK9tDinoj7NzQLZH3POzz11w7i9XpjyNk4TrDub6AvBwTSNalDQ/PphvrvsaTKn3cU6GclqSFA
+	Eu4KLu7TeaiEHWT77niRFfsniLyOVMH8ddvEpOKK9wv3hDr1xZu8Tpl1vUkv3vowURV4K0dTxrZ
+	pLHEptSgcmbLNe/OU7fuGfOwZrhDQ9XglarYdkBzfHQc4NMNobFG0819gPoqTg0cGfqLbEOBnPB
+	5TLN6k5TK4ADOTQaX9vmO2LnT6A3M9kbgZQZHN3ruWdt9DmBUz3dh161ObMq+JpMUyuEQR5/pIu
+	i4ovPIIVZM3bHjArcPDdvQ0EctT+FJPJaoKn35T5l8jA1QFcH5+8hwNcG6DDTuBhWouxt6KysWR
+	R3yThxWq+QggTi4VG7RvgI17kP066ql0rx7qrJVw
+X-Received: by 2002:a05:7301:1694:b0:366:eda6:8dae with SMTP id 5a478bee46e88-369e84b9a3amr1401168eec.18.1792799677639;
+        Fri, 23 Oct 2026 16:54:37 -0700 (PDT)
+Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:f8c2:b3aa:f878:2faa])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-369e8daf444sm1460608eec.18.2026.10.23.16.54.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Oct 2026 16:38:38 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 23 Oct 2026 17:38:24 -0600
-Subject: [PATCH v3 5/9] dmaengine: sun6i: detach completed descriptors
- before invoking callbacks
+        Fri, 23 Oct 2026 16:54:36 -0700 (PDT)
+From: Douglas Anderson <dianders@chromium.org>
+To: Jassi Brar <jassisinghbrar@gmail.com>
+Cc: Joonwon Kang <joonwonkang@google.com>,
+	Subhash Jadavani <sjadavani@google.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Lucas Wei <lucaswei@google.com>,
+	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Brian Norris <briannorris@chromium.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hardening@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: [PATCH v2 0/4] mailbox: Improve the mbox core then introduce the goog-mba driver
+Date: Fri, 23 Oct 2026 16:52:17 -0700
+Message-ID: <20261023235408.3063350-1-dianders@chromium.org>
+X-Mailer: git-send-email 2.56.0.257.gf7497c7d27-goog
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261023-submit-sun6i-dma-lifetime-next-v1-v3-5-ef1acb0be768@gmail.com>
-References: <20261023-submit-sun6i-dma-lifetime-next-v1-v3-0-ef1acb0be768@gmail.com>
-In-Reply-To: <20261023-submit-sun6i-dma-lifetime-next-v1-v3-0-ef1acb0be768@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Arnd Bergmann <arnd@arndb.de>, 
- Maxime Ripard <mripard@kernel.org>, Jens Kuske <jenskuske@gmail.com>, 
- Jean-Francois Moine <moinejf@free.fr>
-Cc: Hongling Zeng <zenghongling@kylinos.cn>, 
- Chengfeng Ye <cyeaa@connect.ust.hk>, 
- Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>, 
- dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_163840_580215_EE944581 
-X-CRM114-Status: GOOD (  16.00  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261023_165439_124135_0C84F51D 
+X-CRM114-Status: GOOD (  19.20  )
+X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,117 +113,86 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Finite completion publishes a descriptor to virt-dma but leaves pchan->desc
-pointing to it until the allocator runs. The virtual-channel tasklet may
-free that descriptor first. A residue query for another incomplete cookie
-can still pass the retired descriptor to sun6i_get_chan_size().
 
-Clear the active descriptor pointer before publishing completion. An
-assigned physical channel without a descriptor is ready for the allocator
-to start its next transfer or release it. Use that state in place of the
-completed-descriptor pointer, so residue queries and termination only
-consult descriptors still owned by the physical channel.
+The goal of this series is to land support for the goog-mba (MailBox
+Array) IP block that's present in Pixel 10 phones.
 
-Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/dma/sun6i-dma.c | 23 ++++++++++-------------
- 1 file changed, 10 insertions(+), 13 deletions(-)
+As can be seen in the device-tree bindings for the goog-mba IP block,
+the mailbox IP block in Pixel 10 phones is fairly sophisticated.
+Notably:
+* It has hardware features that support queuing, meaning that more
+  than one mailbox message can be pending at a time.
+* The "channels" in a given mailbox array aren't homogeneous. Each
+  "channel" in the mailbox array can have a different amount of memory
+  for messages. Really, the "channels" in a mailbox are considered to
+  be full single-channel mailboxes and a grouping of mailboxes is
+  considered a "mailbox array" (hence the IP block being named "mba")
 
-diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-index d3a63c866645..900bb629ba3b 100644
---- a/drivers/dma/sun6i-dma.c
-+++ b/drivers/dma/sun6i-dma.c
-@@ -198,7 +198,6 @@ struct sun6i_pchan {
- 	void __iomem		*base;
- 	struct sun6i_vchan	*vchan;
- 	struct sun6i_desc	*desc;
--	struct sun6i_desc	*done;
- };
- 
- struct sun6i_vchan {
-@@ -490,16 +489,12 @@ static int sun6i_dma_start_desc(struct sun6i_vchan *vchan)
- 	if (!pchan)
- 		return -EAGAIN;
- 
--	if (!desc) {
--		pchan->desc = NULL;
--		pchan->done = NULL;
-+	if (!desc)
- 		return -EAGAIN;
--	}
- 
- 	list_del(&desc->node);
- 
- 	pchan->desc = to_sun6i_desc(&desc->tx);
--	pchan->done = NULL;
- 
- 	sun6i_dma_dump_lli(vchan, pchan->desc->v_lli, pchan->desc->p_lli);
- 
-@@ -536,7 +531,7 @@ static void sun6i_dma_tasklet(struct tasklet_struct *t)
- 
- 		pchan = vchan->phy;
- 
--		if (pchan && pchan->done) {
-+		if (pchan && !pchan->desc) {
- 			if (sun6i_dma_start_desc(vchan)) {
- 				/*
- 				 * No current txd associated with this channel
-@@ -582,6 +577,7 @@ static irqreturn_t sun6i_dma_interrupt(int irq, void *dev_id)
- 	u32 channels_per_reg = sdev->cfg->num_channels_per_reg;
- 	struct sun6i_vchan *vchan;
- 	struct sun6i_pchan *pchan;
-+	struct sun6i_desc *desc;
- 	unsigned long flags;
- 	int i, j, ret = IRQ_NONE;
- 	u32 status;
-@@ -601,13 +597,15 @@ static irqreturn_t sun6i_dma_interrupt(int irq, void *dev_id)
- 		     i * channels_per_reg + j < sdev->num_pchans; j++) {
- 			pchan = sdev->pchans + i * channels_per_reg + j;
- 			vchan = pchan->vchan;
--			if (vchan && (status & vchan->irq_type)) {
-+			desc = pchan->desc;
-+			if (vchan && desc && (status & vchan->irq_type)) {
- 				spin_lock(&vchan->vc.lock);
- 				if (vchan->cyclic) {
--					vchan_cyclic_callback(&pchan->desc->vd);
-+					vchan_cyclic_callback(&desc->vd);
- 				} else {
--					vchan_cookie_complete(&pchan->desc->vd);
--					pchan->done = pchan->desc;
-+					/* Completion transfers ownership to virt-dma. */
-+					pchan->desc = NULL;
-+					vchan_cookie_complete(&desc->vd);
- 				}
- 				spin_unlock(&vchan->vc.lock);
- 			}
-@@ -983,7 +981,7 @@ static int sun6i_dma_terminate_all(struct dma_chan *chan)
- 	pchan = vchan->phy;
- 	list_del_init(&vchan->node);
- 
--	if (pchan && pchan->desc && pchan->desc != pchan->done) {
-+	if (pchan && pchan->desc) {
- 		struct virt_dma_desc *vd = &pchan->desc->vd;
- 
- 		vchan_terminate_vdesc(vd);
-@@ -999,7 +997,6 @@ static int sun6i_dma_terminate_all(struct dma_chan *chan)
- 		vchan->phy = NULL;
- 		pchan->vchan = NULL;
- 		pchan->desc = NULL;
--		pchan->done = NULL;
- 	}
- 
- 	spin_unlock(&vchan->vc.lock);
+In order to cleanly support `goog-mba`, improvements are made to the
+mailbox core to allow `#mbox-cells = <0>` without a custom xlate and
+to allow mailbox drivers that have more than one sub-node (`fwnode`).
+For TX queue mode, as suggested in v1 review, `goog-mba` exposes each
+hardware queue slot as a virtual mailbox channel rather than adding
+queueing support to the mailbox core.
+
+This is a fairly big rewrite from the downstream MBA driver shipping
+on Pixel 10 phones, which jumped through some awkward hoops because of
+the way it got queuing to work. It has been tested on a Pixel 10 Pro
+XL (Mustang) together with work-in-progress Laguna CPM, pinctrl, PCIe,
+and RTC drivers.
+
+Link to previous versions:
+v1: https://lore.kernel.org/r/20260714222338.2965707-1-dianders@chromium.org/
+
+Changes in v2:
+- Rename binding file to google,lga-mailbox-array.yaml.
+- Drop generic "google,mailbox-array" fallback compatible.
+- Add "google,tx-payload-words" property for queue-mode TX message size.
+- Remove unused labels in DT example.
+- Drop "dt-bindings: mailbox: Don't require #mbox-cells to be 1"
+  (handled by deleting old mailbox.txt and updating dt-schema).
+- Drop "mailbox: Simplify circular queue math with mod arithmetic" and
+  "mailbox: Add support for mailbox controllers that can queue".
+- Expose a mailbox channel per TX queue slot instead of adding
+  `has_queue` to the mailbox core.
+- For queue mode, read `google,tx-payload-words` from DT instead of
+  detecting TX payload size on the first transfer.
+- Match "google,lga-mailbox-array" instead of "google,mailbox-array".
+- Move MAINTAINERS entries under GOOGLE TENSOR SoC SUPPORT.
+- Use guard(spinlock_irqsave) and scoped_guard(spinlock).
+
+Douglas Anderson (4):
+  mailbox: Allow #mbox-cells = <0> without specifying a custom xlate
+  mailbox: Find a matching mailbox by fwnode rather than device
+  dt-bindings: mailbox: goog-mba: Add goog-mba mailbox bindings
+  mailbox: goog-mba: Introduce the goog-mba mailbox driver
+
+ .../mailbox/google,lga-mailbox-array.yaml     | 226 +++++++
+ MAINTAINERS                                   |   3 +
+ drivers/mailbox/Kconfig                       |   8 +
+ drivers/mailbox/Makefile                      |   2 +
+ drivers/mailbox/goog-mba-priv.h               | 130 ++++
+ drivers/mailbox/goog-mba-trace.h              | 183 ++++++
+ drivers/mailbox/goog-mba.c                    | 621 ++++++++++++++++++
+ drivers/mailbox/mailbox.c                     |  16 +-
+ include/linux/mailbox/goog-mba-message.h      |  38 ++
+ include/linux/mailbox_controller.h            |   4 +
+ 10 files changed, 1229 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/google,lga-mailbox-array.yaml
+ create mode 100644 drivers/mailbox/goog-mba-priv.h
+ create mode 100644 drivers/mailbox/goog-mba-trace.h
+ create mode 100644 drivers/mailbox/goog-mba.c
+ create mode 100644 include/linux/mailbox/goog-mba-message.h
 
 -- 
-2.53.0
+2.56.0.257.gf7497c7d27-goog
 
 
