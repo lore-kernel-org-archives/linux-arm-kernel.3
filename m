@@ -2,86 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B6C1606A33D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 13:15:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 037C1606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 13:16:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xBT16KAC;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=ONRrkhm2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UXdt3llD;
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=BDqr90wW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
 	List-Unsubscribe-Post:List-Owner;
-	bh=NVcW2Ffyo3xz8xHoLfYrXy/+Ll+4LUkHyKuGCIDnxZ0=; b=xBT16KACBbTjuq6X2FHTZrux1Z
-	TWMoYq1lI5LCgx/YVRPpv25za7anWKYgpA13VOQUwOjzEAScf3NYXxnB0nTkeiDoLAmQkwC38VUxq
-	PVwUNuEx5hWFwQLoJZTKihiQjVUAJK2xQ39REajOGxKfsMBpQIc4C/12Aocw87ZGY/xx5ckSuscnm
-	aOSCumSqgdACLpLB4lOVgGH86Kj074iAAGx8N8G1+nLyZ7Dt5mYSmq+VwYs3UNSWH0VHx/Uyom7LG
-	zilnpPNYb6EhJnqIetwv/5qPql5H4CmVm0vfWtuPWe5YjLjPTT3YsUZMuuKQhnAM1AeXN4nrHjFe7
-	uChFIVtA==;
+	bh=uaG8jSX0cwndvkXbli6K51CcuRBe961ZbKPI7O25bZY=; b=UXdt3llDkH6j3bRnLmuFw+/Kia
+	CuLgsji5iEXeoygnTZDQgKhLFHeb3Rp2WJ3uOX7Eq21jdiHOghwa1RPTn6ZJWy8BoVBku+iC9lW/c
+	LIdRTvYnfoNMEQTOPba5AZMFfmg/EZn14R390Jr5DlKEyNm1OwQ9z6qAJNKUKsCxB9wdKGZNlzZuH
+	YS+K72m9sKXR6AWBNqOj5aPu1zqPd33X26D40GIGnL1duzSWmm4YauRw/NEUqcu2jk/wF+ReoTN6k
+	2rG22aDuvxrjMRTfznyXyKiwCHiGhHWU8fWYE4nkMFIxq7nisCpuzlFKSSPb7NvjMasE3Ts8GCn5q
+	tm6sCohw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKF7X-0000000GMJ7-0pdr;
-	Fri, 23 Oct 2026 13:15:43 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xKF7n-0000000GMNl-3wKR;
+	Fri, 23 Oct 2026 13:15:59 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKF7U-0000000GMHy-3ZCm;
-	Fri, 23 Oct 2026 13:15:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1792761324;
-	bh=rwux77o1GhyryoO0gztA5gaRbZR09g3yJty7OuhiDJU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=ONRrkhm2VFSrNY3s1AQ+91XArmvKeHEc4zj26k8VJa8vpBwuIZbA+NgTUowV1cSHQ
-	 hj/5QvC6tcQJ7SySzBJheMy7MiN9ZSVYito/iR2znhjSjKLzUjQfBt+qgF8JZDfIPU
-	 fqyWoMkjvBcjvrW47OXd/EtKQINnvOz4sdRPAKmjXekoR16aGDdukmd57sjaKUJqVz
-	 HifUzTgJI6ALjIlIIRAAH8keVrV3qCRZMLElBhYsjAudbBHXdTbfXbKsiNk9sGSZTW
-	 Kbu96DI6bW2DzQqhu9xfm+rSGqSOv+qXTisivLShIqYVJ95K89gAU0yYqnE+nSXDAQ
-	 Ovw3PfyNMaTRQ==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 246F217E011B;
-	Fri, 23 Oct 2026 15:15:23 +0200 (CEST)
-Message-ID: <884a934883ee62444c4f9dc34c3d4d0afe1d2831.camel@collabora.com>
-Subject: Re: [PATCH] media: rkvdec: Handle interrupts without a current
- context
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Alex Kazinsky <a.kazinsky@ideco.ru>, Detlev Casanova
-	 <detlev.casanova@collabora.com>
-Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Hans Verkuil
-	 <hverkuil+cisco@kernel.org>, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, lvc-project@linuxtesting.org
-Date: Fri, 23 Oct 2026 09:15:21 -0400
-In-Reply-To: <20261023131124.94116-1-a.kazinsky@ideco.ru>
-References: <20261023131124.94116-1-a.kazinsky@ideco.ru>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-2Xx+Uh8xlyaOkQPPjVUs"
-User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+	id 1xKF7g-0000000GMKA-09P6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 Oct 2026 13:15:59 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20261023131545epoutp03f0e34fc5c254953a687b0b89bda6fbdc~hKvHj1XIb0040000400epoutp03y
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 13:15:45 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20261023131545epoutp03f0e34fc5c254953a687b0b89bda6fbdc~hKvHj1XIb0040000400epoutp03y
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1792761345;
+	bh=uaG8jSX0cwndvkXbli6K51CcuRBe961ZbKPI7O25bZY=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=BDqr90wWxTcJZNYqJ8g7KzFoflDOUdRE2GMYLgdY7F+OQn395fdtqrO1yL9E8Sjsz
+	 5KuIjhdwiHmOXE2ebV1/a8zrpUv6nXXwPMuVlVqyQycn/YAgW3wU8n4ZVnKsYj84mU
+	 L/1N1ZMcRpa58FVHlk7BIX79A7ug1d1ESwDF3dsQ=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20261023131544epcas5p16733dbf6f91b1e351476a6a7f76abbfc~hKvGpgpd30267602676epcas5p1C;
+	Fri, 23 Oct 2026 13:15:44 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.89]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4jB3Rg29Zjz3hhT3; Fri, 23 Oct
+	2026 13:15:43 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20261023131542epcas5p4be95a0825acdeecc2198259839459034~hKvFTD8NR0834608346epcas5p4v;
+	Fri, 23 Oct 2026 13:15:42 +0000 (GMT)
+Received: from vega.samsungds.net (unknown [107.108.73.84]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261023131539epsmtip2472a2f57bab2741b2a79cd9cc299f59b~hKvCet7dw0806808068epsmtip2B;
+	Fri, 23 Oct 2026 13:15:39 +0000 (GMT)
+From: Selvarasu Ganesan <selvarasu.g@samsung.com>
+To: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, peter.griffin@linaro.org, alim.akhtar@samsung.com,
+	Thinh.Nguyen@synopsys.com, selvarasu.g@samsung.com,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: jh0801.jung@samsung.com, h10.kim@samsung.com, dh10.jung@samsung.com,
+	akash.m5@samsung.com, hongpooh.kim@samsung.com, eomji.oh@samsung.com,
+	shijie.cai@samsung.com, muhammed.ali@samsung.com, thiagu.r@samsung.com
+Subject: [PATCH v3 0/2] Add USB DWC3 support for Samsung Exynos8855
+Date: Fri, 23 Oct 2026 18:44:59 +0530
+Message-Id: <20261023131501.3157463-1-selvarasu.g@samsung.com>
+X-Mailer: git-send-email 2.17.1
+X-CMS-MailID: 20261023131542epcas5p4be95a0825acdeecc2198259839459034
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20261023131542epcas5p4be95a0825acdeecc2198259839459034
+References: <CGME20261023131542epcas5p4be95a0825acdeecc2198259839459034@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_061541_075973_A4598003 
-X-CRM114-Status: GOOD (  21.06  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261023_061552_758566_CAEC46B3 
+X-CRM114-Status: GOOD (  17.71  )
+X-Spam-Score: -4.7 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,172 +91,59 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
+X-Archived-By: <archiver.kernel.org>
 
+The Samsung Exynos8855 SoC implements a Synopsys DesignWare USB3 DRD
+controller. The DWC3 core on the Exynos8855 is instantiated with the
+generic DWC3 platform driver using a flattened model, where the
+controller is directly addressable without a separate glue layer.
 
---=-2Xx+Uh8xlyaOkQPPjVUs
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+This is the first Samsung Exynos binding using the flattened
+representation, and this series adds the device tree binding and
+platform driver support for this configuration.
 
-Hi,
+Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
+---
 
-Le vendredi 23 octobre 2026 =C3=A0 17:11 +0400, Alex Kazinsky a =C3=A9crit=
-=C2=A0:
-> The watchdog can finish the current job before the threaded IRQ handler
-> retrieves its context. In that case, v4l2_m2m_get_curr_priv() returns NUL=
-L,
-> but the variant IRQ handlers unconditionally dereference ctx->dev.
->=20
-> Pass the device pointer to the variant IRQ handlers independently of the
-> context. Clear the interrupt status and, for VDPU383, disable interrupts
-> before returning if no current context exists. This avoids dereferencing
-> NULL while still acknowledging the interrupt.
->=20
-> Found by Linux Verification Center (linuxtesting.org) with SVACE.
+Changes in v3:
+- Drop the MAINTAINERS patch.
+- Drop the samsung,snps-dwc3 generic fallback compatible. The binding
+  now uses the SoC specific compatible samsung,exynos8855-dwc3 only.
+- Binding file is renamed to match the compatible string.
+- Remove the "select" from the binding.
+- List the clocks (ref, bus) explicitly and drop the redundant if/then
+  block.
+- Update the driver patch to use the new compatible string.
+- Drop the v2 Reviewed-by (Alim Akhtar) and Acked-by (Thinh Nguyen)
+  tags as the patches changed. re-requesting them.
+- Link to v2:
+  https://lore.kernel.org/all/20260916122229.2604003-1-selvarasu.g@samsung.com/
 
-Can you share you proof of concept please. Can be private if you plane to
-produce a CVE report.
+Changes in v2:
+- Commit 2/3: Clarify this is the first Samsung Exynos binding using
+  the flattened node representation.
+- Commit 3/3: Add the compatible entry in alphabetical order in the
+  of_match_table.
+- Link to v1:
+  https://lore.kernel.org/all/20260903071250.3421499-1-selvarasu.g@samsung.com/
 
-Nicolas
+Selvarasu Ganesan (2):
+  dt-bindings: usb: Add Samsung Exynos8855 DWC3 controller binding
+  usb: dwc3: Add Exynos8855 to the generic platform driver
 
->=20
-> Fixes: f9c7b7deeffd ("media: rkvdec: Support per-variant interrupt handle=
-r")
-> Signed-off-by: Alex Kazinsky <a.kazinsky@ideco.ru>
-> ---
->  .../media/platform/rockchip/rkvdec/rkvdec.c   | 23 +++++++++++++------
->  .../media/platform/rockchip/rkvdec/rkvdec.h   |  4 +++-
->  2 files changed, 19 insertions(+), 8 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/me=
-dia/platform/rockchip/rkvdec/rkvdec.c
-> index 061281f903f3..02f6a574a8eb 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> @@ -1434,15 +1434,18 @@ static void rkvdec_iommu_restore(struct rkvdec_de=
-v *rkvdec)
->  	}
->  }
-> =20
-> -static irqreturn_t rk3399_irq_handler(struct rkvdec_ctx *ctx)
-> +static irqreturn_t rk3399_irq_handler(struct rkvdec_dev *rkvdec,
-> +				    struct rkvdec_ctx *ctx)
->  {
-> -	struct rkvdec_dev *rkvdec =3D ctx->dev;
->  	enum vb2_buffer_state state;
->  	u32 status;
-> =20
->  	status =3D readl(rkvdec->regs + RKVDEC_REG_INTERRUPT);
->  	writel(0, rkvdec->regs + RKVDEC_REG_INTERRUPT);
-> =20
-> +	if (!ctx)
-> +		return IRQ_HANDLED;
-> +
->  	if (status & RKVDEC_RDY_STA) {
->  		state =3D VB2_BUF_STATE_DONE;
->  	} else {
-> @@ -1457,9 +1460,9 @@ static irqreturn_t rk3399_irq_handler(struct rkvdec=
-_ctx *ctx)
->  	return IRQ_HANDLED;
->  }
-> =20
-> -static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
-> +static irqreturn_t vdpu381_irq_handler(struct rkvdec_dev *rkvdec,
-> +				    struct rkvdec_ctx *ctx)
->  {
-> -	struct rkvdec_dev *rkvdec =3D ctx->dev;
->  	enum vb2_buffer_state state;
->  	bool need_reset =3D 0;
->  	u32 status;
-> @@ -1467,6 +1470,9 @@ static irqreturn_t vdpu381_irq_handler(struct rkvde=
-c_ctx *ctx)
->  	status =3D readl(rkvdec->regs + VDPU381_REG_STA_INT);
->  	writel(0, rkvdec->regs + VDPU381_REG_STA_INT);
-> =20
-> +	if (!ctx)
-> +		return IRQ_HANDLED;
-> +
->  	if (status & VDPU381_STA_INT_DEC_RDY_STA) {
->  		state =3D VB2_BUF_STATE_DONE;
->  	} else {
-> @@ -1486,9 +1492,9 @@ static irqreturn_t vdpu381_irq_handler(struct rkvde=
-c_ctx *ctx)
->  	return IRQ_HANDLED;
->  }
-> =20
-> -static irqreturn_t vdpu383_irq_handler(struct rkvdec_ctx *ctx)
-> +static irqreturn_t vdpu383_irq_handler(struct rkvdec_dev *rkvdec,
-> +				    struct rkvdec_ctx *ctx)
->  {
-> -	struct rkvdec_dev *rkvdec =3D ctx->dev;
->  	enum vb2_buffer_state state;
->  	bool need_reset =3D 0;
->  	u32 status;
-> @@ -1499,6 +1505,9 @@ static irqreturn_t vdpu383_irq_handler(struct rkvde=
-c_ctx *ctx)
->  	writel(FIELD_PREP_WM16(VDPU383_INT_EN_IRQ | VDPU383_INT_EN_LINE_IRQ, 0)=
-,
->  	       rkvdec->link + VDPU383_LINK_INT_EN);
-> =20
-> +	if (!ctx)
-> +		return IRQ_HANDLED;
-> +
->  	if (status & VDPU383_STA_INT_DEC_RDY_STA) {
->  		state =3D VB2_BUF_STATE_DONE;
->  	} else {
-> @@ -1521,7 +1530,7 @@ static irqreturn_t rkvdec_irq_handler(int irq, void=
- *priv)
->  	struct rkvdec_ctx *ctx =3D v4l2_m2m_get_curr_priv(rkvdec->m2m_dev);
->  	const struct rkvdec_variant *variant =3D rkvdec->variant;
-> =20
-> -	return variant->ops->irq_handler(ctx);
-> +	return variant->ops->irq_handler(rkvdec, ctx);
->  }
-> =20
->  /*
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/me=
-dia/platform/rockchip/rkvdec/rkvdec.h
-> index a24be6638b6b..2e03ff6e33d7 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> @@ -30,6 +30,7 @@
->  #define RKVDEC_8K_PIXELS		(7680 * 4320)
-> =20
->  struct rkvdec_ctx;
-> +struct rkvdec_dev;
->  struct rkvdec_rcb_config;
-> =20
->  struct rkvdec_ctrl_desc {
-> @@ -72,7 +73,8 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
->  }
-> =20
->  struct rkvdec_variant_ops {
-> -	irqreturn_t (*irq_handler)(struct rkvdec_ctx *ctx);
-> +	irqreturn_t (*irq_handler)(struct rkvdec_dev *rkvdec,
-> +			   struct rkvdec_ctx *ctx);
->  	u32 (*colmv_size)(u16 width, u16 height);
->  	void (*flatten_matrices)(u8 *output, const u8 *input, int matrices, int=
- row_length);
->  };
+ .../bindings/usb/samsung,exynos8855-dwc3.yaml | 74 +++++++++++++++++++
+ drivers/usb/dwc3/dwc3-generic-plat.c          |  5 +-
+ 2 files changed, 77 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/usb/samsung,exynos8855-dwc3.yaml
 
---=-2Xx+Uh8xlyaOkQPPjVUs
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+-- 
+2.17.1
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCattd6QAKCRDZQZRRKWBy
-9A63AQCzB1vOPXb+suCMJtgFXZ+FyF52FIA1oEvASku+5T9XhwEA2+XxwSKL6qQW
-f2xjl5mboiTCt6Q3GwRAsVGr7FNmcgE=
-=gi8E
------END PGP SIGNATURE-----
-
---=-2Xx+Uh8xlyaOkQPPjVUs--
 
