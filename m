@@ -2,80 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28D12606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 13:00:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48E3A606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 13:12:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=x2yEiEtW;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n3b048kK
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ot1dcGb9;
+	dkim=pass (2048-bit key, unprotected) header.d=ideco.ru header.i=@ideco.ru header.a=rsa-sha256 header.s=ics header.b=LOCDYGvM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=sr19VKYUvxwLrJlgEMdcLVEIVJZklrD+FybJ3ZeZXGw=; b=x2yEiEtW5IkMgI
-	0wVYclSjK9NNUtt0lDcOFlBgqhausqbMdgJ822HvYeDPCQXZ+A43ZwP7mdNvtlKY9I0v5xJQIo8hX
-	W+mI6LYL5PaOJ9RhXQiKV7G2Prr2PFlSmMo+QM12CyAQ/oHcBm6/lpa8iC+P/fTU5HAVoIM6U+UrG
-	g46TYqSnaHFExnuLFgzjUGlE36IxwpBgIj3eoFSKrNskNVONhoNroVFyhIPXGcTzdXATzVeRZzUau
-	/KKaojbw5lB5tDhdOYVu0y/qTMlzY/yTeYvbttF4eCQ0s8kwpkENL/DIaVnoU+i3zfVa9OAiauvoT
-	XfogBc/yMT6uPReiKjZQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=HQWUps+5kGPlDRDdYL+5SLCYhu4ASo3c0932u+Z6XFI=; b=ot1dcGb9izDV93z+0H/nGvr4Pl
+	/Aj6BGYdNj6gjeYUtYf67rm+wZjmgfTPUsmZPb5eCoaXYzyxOn/kL2wUh6qxOwIVvuMJOnM0kAO2L
+	7ag7FfIumvtd0PnyzVwXJuVCRMs6r2rerEh0OmQ4s13hecO9zCsASzHzVeM4bnl5Fjnbjm2Tvb24b
+	mNx0owgetrQX2cuoY4X/YVbfEohEvpDvNaUAW+7bLJ/5LvPoUkEImIQXb+/OAG1Kxq4o0NRHNGSPs
+	FirS/GDYenfbqgyV3mPVUtAFF7u1uW1N2XazQT0fPyXNCZldcKNap8tdahh+Gm8C+Na8zRn+tRo2o
+	HT+eCm+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKEsR-0000000GKyK-1e9W;
-	Fri, 23 Oct 2026 13:00:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xKF4E-0000000GLzA-2c9K;
+	Fri, 23 Oct 2026 13:12:18 +0000
+Received: from smtp.ideco.ru ([51.250.56.165])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKEsP-0000000GKy5-33C1
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 13:00:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 90ABB43E0D
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 13:00:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A07D1F031EB
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 13:00:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792760403;
-	bh=sr19VKYUvxwLrJlgEMdcLVEIVJZklrD+FybJ3ZeZXGw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=n3b048kKb1PgtvbhAx1oJQLSk/xFZgNmv8qTeNvWni2JXqRPAezw+xIkNJtW8uarj
-	 eNfLC86mRiNlo1HYYvauwH5Y4zlYITncn7JnpGtbsxk7n4cGeETq6R+MwRdb9nKFUu
-	 RZzgS8/zXAF0lOg3lI/sJVzLrBfvrz1BsYN32R+98eMUJQ87hhhnpaTlUuh4AvtEk1
-	 yT/hUx4TCKNCtMTnkGzm8I76x339WOoxQm4rja12pod/FwXYpLgbAXiyM0M8BQrc/W
-	 yjsuqbpbDNPYMihVezf9pYFVzYL7xp70t1bvJBHg+e4eraqugYKki+NLkEqxTR/ptu
-	 Q2jx4BzZBKi1A==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5ba3ec92031so895218e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 06:00:03 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByE+1nYTOWOATjyP0vJb+XP5MNnOIhNE0eYNa4zYKycWZlqgfaikj1A5Ipe/Lm+GbOP/lyGtoJPQhtu0Fv10n8Z@lists.infradead.org
-X-Gm-Message-State: AFq9FYLRE35MbSITBg6IhYlpX5XrgNROU+3BSQXH5h0bbKHqJSBgQMGh
-	pNO3B+cezsreQmUSzdWnAfeUiMEG5/zU5qcU/0kmxpD41lWfM6/OuvIwS8rJEmdBCaTCfFd3DfE
-	Tzba03PXiO2paBb/acjOdyzY+x3L60kg=
-X-Received: by 2002:a05:6512:1244:b0:5ba:3632:cf9 with SMTP id
- 2adb3069b0e04-5bfb0a4f3a8mr756271e87.66.1792760401405; Fri, 23 Oct 2026
- 06:00:01 -0700 (PDT)
+	id 1xKF4A-0000000GLxe-3vsm;
+	Fri, 23 Oct 2026 13:12:17 +0000
+Received: from [169.254.254.254] (localhost [127.0.0.1])
+	by smtp.ideco.ru (Postfix) with ESMTP id 1E9771B30E;
+	Fri, 23 Oct 2026 18:12:00 +0500 (+05)
+Received: from fedora (5cfcac1b.dynamic.mv.ru [92.252.172.27])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.ideco.ru (Postfix) with ESMTPSA id 98226188C4;
+	Fri, 23 Oct 2026 18:11:33 +0500 (+05)
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.ideco.ru 98226188C4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ideco.ru; s=ics;
+	t=1792761119; bh=HQWUps+5kGPlDRDdYL+5SLCYhu4ASo3c0932u+Z6XFI=;
+	h=From:To:Cc:Subject:Date;
+	b=LOCDYGvMH2T1EYSXUj8+Jhd7/9MUdXnSbmfCgmh1TJbwxmkwiC4ysXNDxj330ZDbt
+	 pIt14aDyMHzWyy00dsCWljytfFm7LjytP80ZZ/+UiWtaxnhISkbMaWNwDyGH/EbPQA
+	 s5Q4RXJ/PUyk/yxpxENa19wUgCYmRJV2YlvevbRcWQ5zII81fUBHQqe98NmuNwXTZn
+	 yNYIla1lpTrjI0zBl3Vq5iXhpJQ9joolnBG9c+V0znDfwCpg5xEg2HPXgYzz34w5uB
+	 R1oO8TDlpSLrvFHE9u7k+ggATm0SJT5dbhjG86ni1wHHvNjVgbO68DEOVBjurQxQFY
+	 h2NysqG6w4B8A==
+From: Alex Kazinsky <a.kazinsky@ideco.ru>
+To: Detlev Casanova <detlev.casanova@collabora.com>
+Cc: Alex Kazinsky <a.kazinsky@ideco.ru>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lvc-project@linuxtesting.org
+Subject: [PATCH] media: rkvdec: Handle interrupts without a current context
+Date: Fri, 23 Oct 2026 17:11:20 +0400
+Message-ID: <20261023131124.94116-1-a.kazinsky@ideco.ru>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20260921-ux500-power-domains-v7-1-v3-4-9352be6b86b1@kernel.org>
- <179242679515.1178810.16625867453853597322.b4-ty@b4> <20261019163732.GH2663669@google.com>
-In-Reply-To: <20261019163732.GH2663669@google.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 23 Oct 2026 14:59:49 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=8ZgrUHoRuPA=tWnP=iODE7hR_zOGUmTS1p7iRNggivg@mail.gmail.com>
-X-Gm-Features: AclHuK-ukw_Hgb4DIFvnusEPhIMVNTAyp8V0dmIgTflHNqlHHkK-tLLwcaoopM4
-Message-ID: <CAD++jL=8ZgrUHoRuPA=tWnP=iODE7hR_zOGUmTS1p7iRNggivg@mail.gmail.com>
-Subject: Re: (subset) [PATCH v3 04/18] dt-bindings: mfd: db8500-prcmu:
- Deprecate EPOD regulators
-To: Lee Jones <lee@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	dmaengine@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261023_061215_352904_0641E6A9 
+X-CRM114-Status: GOOD (  15.21  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +81,134 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 19, 2026 at 6:37=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
-> > On Mon, 21 Sep 2026 00:48:10 +0200, Linus Walleij wrote:
+The watchdog can finish the current job before the threaded IRQ handler
+retrieves its context. In that case, v4l2_m2m_get_curr_priv() returns NULL,
+but the variant IRQ handlers unconditionally dereference ctx->dev.
 
-> > > Deprecate the db8500-prcmu-regulators node and make it optional as EP=
-OD
-> > > control moves to generic power domains. External consumers of VAPE an=
-d
-> > > VSMPS2 now use the actual AB8500 or AB8505 buck regulators.
-> > >
-> > > Stop requiring the individual regulator child nodes while retaining
-> > > their definitions for existing device trees.
-> > >
-> > > [...]
-> >
-> > Applied, thanks!
-> >
-> > [04/18] dt-bindings: mfd: db8500-prcmu: Deprecate EPOD regulators
-> >         commit: c8132247fe4df52e9982d74c986bb199d792b85b
->
-> Hmm ... or would you prefer for the set to go in together?
+Pass the device pointer to the variant IRQ handlers independently of the
+context. Clear the interrupt status and, for VDPU383, disable interrupts
+before returning if no current context exists. This avoids dereferencing
+NULL while still acknowledging the interrupt.
 
-No this is fine, thanks! :)
+Found by Linux Verification Center (linuxtesting.org) with SVACE.
 
-Usually I prefer to trickle in dependency patches.
+Fixes: f9c7b7deeffd ("media: rkvdec: Support per-variant interrupt handler")
+Signed-off-by: Alex Kazinsky <a.kazinsky@ideco.ru>
+---
+ .../media/platform/rockchip/rkvdec/rkvdec.c   | 23 +++++++++++++------
+ .../media/platform/rockchip/rkvdec/rkvdec.h   |  4 +++-
+ 2 files changed, 19 insertions(+), 8 deletions(-)
 
-> If so, how far off are you?  How many more Acks to collect?
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 061281f903f3..02f6a574a8eb 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -1434,15 +1434,18 @@ static void rkvdec_iommu_restore(struct rkvdec_dev *rkvdec)
+ 	}
+ }
+ 
+-static irqreturn_t rk3399_irq_handler(struct rkvdec_ctx *ctx)
++static irqreturn_t rk3399_irq_handler(struct rkvdec_dev *rkvdec,
++				    struct rkvdec_ctx *ctx)
+ {
+-	struct rkvdec_dev *rkvdec = ctx->dev;
+ 	enum vb2_buffer_state state;
+ 	u32 status;
+ 
+ 	status = readl(rkvdec->regs + RKVDEC_REG_INTERRUPT);
+ 	writel(0, rkvdec->regs + RKVDEC_REG_INTERRUPT);
+ 
++	if (!ctx)
++		return IRQ_HANDLED;
++
+ 	if (status & RKVDEC_RDY_STA) {
+ 		state = VB2_BUF_STATE_DONE;
+ 	} else {
+@@ -1457,9 +1460,9 @@ static irqreturn_t rk3399_irq_handler(struct rkvdec_ctx *ctx)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
++static irqreturn_t vdpu381_irq_handler(struct rkvdec_dev *rkvdec,
++				    struct rkvdec_ctx *ctx)
+ {
+-	struct rkvdec_dev *rkvdec = ctx->dev;
+ 	enum vb2_buffer_state state;
+ 	bool need_reset = 0;
+ 	u32 status;
+@@ -1467,6 +1470,9 @@ static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
+ 	status = readl(rkvdec->regs + VDPU381_REG_STA_INT);
+ 	writel(0, rkvdec->regs + VDPU381_REG_STA_INT);
+ 
++	if (!ctx)
++		return IRQ_HANDLED;
++
+ 	if (status & VDPU381_STA_INT_DEC_RDY_STA) {
+ 		state = VB2_BUF_STATE_DONE;
+ 	} else {
+@@ -1486,9 +1492,9 @@ static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static irqreturn_t vdpu383_irq_handler(struct rkvdec_ctx *ctx)
++static irqreturn_t vdpu383_irq_handler(struct rkvdec_dev *rkvdec,
++				    struct rkvdec_ctx *ctx)
+ {
+-	struct rkvdec_dev *rkvdec = ctx->dev;
+ 	enum vb2_buffer_state state;
+ 	bool need_reset = 0;
+ 	u32 status;
+@@ -1499,6 +1505,9 @@ static irqreturn_t vdpu383_irq_handler(struct rkvdec_ctx *ctx)
+ 	writel(FIELD_PREP_WM16(VDPU383_INT_EN_IRQ | VDPU383_INT_EN_LINE_IRQ, 0),
+ 	       rkvdec->link + VDPU383_LINK_INT_EN);
+ 
++	if (!ctx)
++		return IRQ_HANDLED;
++
+ 	if (status & VDPU383_STA_INT_DEC_RDY_STA) {
+ 		state = VB2_BUF_STATE_DONE;
+ 	} else {
+@@ -1521,7 +1530,7 @@ static irqreturn_t rkvdec_irq_handler(int irq, void *priv)
+ 	struct rkvdec_ctx *ctx = v4l2_m2m_get_curr_priv(rkvdec->m2m_dev);
+ 	const struct rkvdec_variant *variant = rkvdec->variant;
+ 
+-	return variant->ops->irq_handler(ctx);
++	return variant->ops->irq_handler(rkvdec, ctx);
+ }
+ 
+ /*
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+index a24be6638b6b..2e03ff6e33d7 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+@@ -30,6 +30,7 @@
+ #define RKVDEC_8K_PIXELS		(7680 * 4320)
+ 
+ struct rkvdec_ctx;
++struct rkvdec_dev;
+ struct rkvdec_rcb_config;
+ 
+ struct rkvdec_ctrl_desc {
+@@ -72,7 +73,8 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
+ }
+ 
+ struct rkvdec_variant_ops {
+-	irqreturn_t (*irq_handler)(struct rkvdec_ctx *ctx);
++	irqreturn_t (*irq_handler)(struct rkvdec_dev *rkvdec,
++			   struct rkvdec_ctx *ctx);
+ 	u32 (*colmv_size)(u16 width, u16 height);
+ 	void (*flatten_matrices)(u8 *output, const u8 *input, int matrices, int row_length);
+ };
+-- 
+2.56.0
 
-Not too much, it's some review comments from Ulf that need
-addressing so some banging the set into shape in early -rc shape
-and I expect we can merge the entire set for v7.5.
 
-The endavour god a bit sidetracked because there was a pile
-of technical debt to churn through to fix bugs in the different
-drivers which were of course extensively refactoring the
-same code lines...
-
-Yours,
-Linus Walleij
 
