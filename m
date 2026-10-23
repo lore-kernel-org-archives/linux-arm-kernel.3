@@ -2,87 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 084A8606A322
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 06:40:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 259E260A2602
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 06:40:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=n72TMa+f;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=HLcwo6BP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xvyqljqq;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=gpFNv2hy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=e9iXPCmoOhpVXWg91psYHS0PCZjsptq0x3nugAHkv9M=; b=n72TMa+f3A7s8T
-	nEIFDaXfpuxzEsHcenzzNeBet8mBvxlodEX/+AMsWKgdYNmLdEH5kmxPcjJvrHI58ZyvMfxnTcqZh
-	6bF67wnqS5T/gRFfkjfO4o0h3fJIz0SIc8Nta4VB1BNKqd06cCXT8KyOgK/83LxyUBNQL3nhNnj44
-	B/j5ZUc/62jx+sk3MNOKTp5rhVA8XJfL/ksvlWoz2FxR1mMIdSTBXFcqyqCvvdv1HUzKP2KxgGFe2
-	OZuKcS+D7nuBb1tHhR7J/3GHjLdZ7Fkk6y041S3fhDSGQZUwVrpi87uvCbGj+Gu45aSveYtpeDLcN
-	FslPymLcLK0Xq4trQrAw==;
+	List-Owner; bh=zM6qRbp5A9CbBlh2Bu/tmcTR/0lPEgQHJG0kewWnWN4=; b=XvyqljqqOXoMQG
+	x7cd6XlMwr8o+ql7xCbVh9Ut8vPPRNbIaTTz3qK/d9etRVQ6Y/ui7O56KcrACabA6BvURHqpj8bY7
+	z0YfjW4H4vLZBofPX55CfT1Gpx5aQeiLEx84HRUb735J0gTt00ePH1PlBX+/vRXtIld5Sv1poU8ik
+	STYH1k9dAMbR4CvcMwLC3L0tm11AXytX1hwh5zh7WzkMLxXPTvNnn7hSEo9Uh/9fpzBGfwE3SIBMi
+	HzGUNT5B7wkLC1dW/fPiCa6KCDEb48c+WqI+72LT9yfwyZgkXkaIstIjBjgwU6noBvAggEsMygKcG
+	/G9FXarQD5nKEBNidRXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK8wP-0000000FbDu-1GmU;
-	Fri, 23 Oct 2026 06:39:49 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1xK8wZ-0000000FbKA-2Yga;
+	Fri, 23 Oct 2026 06:39:59 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK8wI-0000000FbB4-17tO
+	id 1xK8wO-0000000FbDL-1QQg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 06:39:43 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a20bdaf39cso5493255e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 23:39:41 -0700 (PDT)
+	Fri, 23 Oct 2026 06:39:49 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48bbb06e746so216737f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 23:39:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792737580; x=1793342380; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792737587; x=1793342387; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=e9iXPCmoOhpVXWg91psYHS0PCZjsptq0x3nugAHkv9M=;
-        b=HLcwo6BPSuCYs+0lbulpgOoHJxa5gJP8V9U7QdqDCD7zUoFYmA9zgZc0ueY41DVMTq
-         iAJC4bS07KI54zp/Q5YCK8ocBASHWhYvduXMr7k2l5FfXcRUIf3M2IvWxCFC+QPl2JxC
-         XAnuufRdxdVDkUv8XxU1sm/AVyZy479iagIdnVp20Rz3XA+p+HyXqbghjg7wQJJUaUPM
-         uA+IP/ikjZH6jKnQOrowUHH00sJRAne0096UJTQPM2h//8Md+gIYr4vmKVklOk2K9F7u
-         Zq0+801wjzJCbfWM1ukVUnrFWJzYGUTZ8r/aLI1cixw0oBmK/16Wu9NlXPKYgISIBuQD
-         gunw==
+        bh=zM6qRbp5A9CbBlh2Bu/tmcTR/0lPEgQHJG0kewWnWN4=;
+        b=gpFNv2hyJD2P8KnqztuA3B60aCvr7SiHrnZeHir4LhICNRiebotdG7yqa4FmIdzsjB
+         6veDD7MuKKxT7/Q3HcTVfpEH/N4EPW6Ya+edh2rpjSD0wpVcvJBQwKPoc/KR6UyQvuZN
+         OqLJFNegSPKhYuxiMdKzHkRyaDr5oMXZVUjaOeSQPSJscZE28U0f8lSgXJBodLZAgSeb
+         XhqGTK4zIBjZ3ylpx5BkIbj0MUQ2P6p+ASFW7ze/8jJ2AccoH8oOjUkQN4ACVBVn2zfR
+         UzJExNEzyW5jTh5DJXFvfLAPTI/96IJPVMHRBtDJ8DwaM/eDfUwxZOajNGgOCQs1c5y4
+         fmcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792737580; x=1793342380;
+        d=1e100.net; s=20260707; t=1792737587; x=1793342387;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=e9iXPCmoOhpVXWg91psYHS0PCZjsptq0x3nugAHkv9M=;
-        b=XE2Q4k+wwpgjqHgfLA32CS2fQwolYoXJQD1uEXbexZBNpFpKT2cTTiERNbMcop7fFm
-         hTm0ovz1lX/QZLecc+tbGXWF6eng4Z1RUJZniPCZwk/XdjkCQZTkwrIE9rITwGa1IVKb
-         V/auy+YTO+dOCDFkqAxqQixbQj+MUYyh9F5eeZ9yieChNJGFVByD5luULZYlamCtWeuZ
-         ZsIQgWTBWDGeEJ/7tKXC3W7b5L1fVm52FfI+XmLo3aFf2Q+kosLzEEI03+HPJRHQm/+K
-         te2U1zcYUEKn/LVQt6Quf8cigQJuNs10NuubAHeN9j2jpFXAClAoR9zJ/xd3TMNyv0Un
-         2+vg==
-X-Gm-Message-State: AFq9FYJqkCy3lKkv7PPrgyjqTon/grZF873wKF6IhP/55JedAcX7mehG
-	cVXR3l2MJHN0PKzB+UNVi73b6Qx6eMsSqJE1U7a3Hsky6cMPj0LAMncs
-X-Gm-Gg: AYBFou0hG9rrBuL0L5ea5ezpo+qKfdoowCUhxUGpki7HW+UbKWVxYIGWkdD8XPZYOHj
-	SFKZZJJ/BmA4SsyNiFVnf8w06l1x+XpqaI8YecNUUXrFLa0jDAbLF6w2SR8eIOoSd7FdNhQ4Z3n
-	RkFskBoDMtBWwkJBORaGKfxb+Kzpli6SnnGnsZQiqsRL86R1J3JDqZKwmAxCK4zfPiznAa5b2Wm
-	KwcxzLYIJ0K+4uofqpwkcFlEN8b4tg3tILXz9kff5uu/HNpgKjxTsZn6AnPSZkCHQOJYWHFGwdr
-	5YmJcPEYzRRvUG61t1pKkRR5MM71xwVHQhcDFtDqi0BIfWjNwM2ifJtOBK78H0H8NR3DeZQ468e
-	phttA/XoMxyGJ/LCdMWP9TK2d5nUs9n764BYUqJJ7TDDNkq62KaEAXzeqPrqb2FCZcKfPkw/7Vd
-	/BcDruXpc+wd+e2Tl7DmwNFNuk4yotReypDJBnEbR1rFzlgi+ANzGNwfMerkh62dqP0LbqSouQN
-	T9EH9+MTZEzQBZxowgWIz1cgio714WLHxRNNLpoKuS85HUYHboSXoOhQUIlYAwnDSfLjd6c625g
-	gK1R5UpycY0ooiBQDcCZlZERm2R6dBhrjtCI5atqM/IToPXP3ZtBkuMSXUa2ikZvgfu+nM6TS1I
-	60C8=
-X-Received: by 2002:a05:600c:a46:b0:4a1:db17:c7e6 with SMTP id 5b1f17b1804b1-4a211c50e30mr19135615e9.2.1792737580211;
-        Thu, 22 Oct 2026 23:39:40 -0700 (PDT)
+        bh=zM6qRbp5A9CbBlh2Bu/tmcTR/0lPEgQHJG0kewWnWN4=;
+        b=rRcxU6hQGL2IHkutld/5tMWJt3rPR8EwbXPE4iWwvax2ql2pt93knJq3OlVKDnfdOb
+         iNL66cbtRiV3TtoELeGwarEHfa2UorpOEmUfKTGF/f88amWo0k+MoShDBrU5hJE8WX8M
+         yUxhFIA4T0Envm7ysPgT4uH+1X3IdwFvf1ZnNqCFl/bBNNkdEOkHJtvalxCNAjfH1AYJ
+         qtsmIsw2sMNnZyrEjkX6WphOzVPohviDmkc2au7RJraNWph6VZFjlZrvrdQJADTnOS87
+         4+m3Xi75gxNHbOEcPbFhEbO7aSiLwHKZUp6G3xA81VOW9HEFnzi5yIIg2kRxz/5ywiP+
+         kRHA==
+X-Gm-Message-State: AFq9FYI3kIHTZkPJP8LHhO5cGLnFNXM0oTN293QdsYXYHPGXgcgnfch3
+	AgODEvQWQXJmNxdFcJ72Mf/wlDAuYHl6pqBGiBIFzVrtANBSVvyiL312
+X-Gm-Gg: AYBFou2hZ6DjSTy1kq6gOr/trFSUmpEJJg1HOcAWIvpIBCge6x7ofp3B5g7MN7nJ7HR
+	OgE3VkKSkHODg7iFnqLG1aca0lYEcVNyKst9pqviPJBUGj69jDmw4e/+eFeQBkp7rd0FtAH6vo2
+	gYR2bk59IKYUvXuxelK6/j9M67CLK6FVuG8pxKe97tKDU979+KYtBX8YciJdIhBrWLIBauFJ5Hg
+	PbZnIlKUd1J7LLWcmFLlKyI6wY2YY9u80X04ezjpxtLc4jp1egKe1DRBQSsz4YDZLdZvVqqsEq3
+	4A6upgq8h6vVLSNebyJCnox4LMAtsh9BY+vZI/Lmbn6MpJq+QnIaamrUjFa1KojC6uSGoe25P96
+	+pGaJNvo0n96GONRg8c6wuhuCT2P7Hn0xV67LiXdpRmhodO4VBUTOp6LZJA+oNCj2OK2EzAhk5I
+	zwNlDAAWypVcKuiN9YXYdfeQ1Ow72GfRvAfwPeGR9gkx2l2bxa+5xxhcd/JKDivuKdjL+dZTYcD
+	DfVeSumLjbedj9kEXYIgD5wyTOKlykOIGF1RSYqpPOm3SttAvMqvtbL/L1fm1dzvCF50NLbBCzG
+	vYMTxYHM12c5WJv9SdaurbdGKe15sGVsnsgRCFy5dfBDvaSzuyN8HdnD7cCNdHPDuQFggkHzY4x
+	hlSo=
+X-Received: by 2002:a05:6000:41c9:b0:48e:dee:52bc with SMTP id ffacd0b85a97d-48e384e4205mr1725429f8f.0.1792737586551;
+        Thu, 22 Oct 2026 23:39:46 -0700 (PDT)
 Received: from [192.168.1.22] (cst-prg-49-173.cust.vodafone.cz. [46.135.49.173])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e38030c47sm3104782f8f.21.2026.10.22.23.39.37
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e38030c47sm3104782f8f.21.2026.10.22.23.39.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 23:39:39 -0700 (PDT)
+        Thu, 22 Oct 2026 23:39:45 -0700 (PDT)
 From: Tomeu Vizoso <tomeu.vizoso@gmail.com>
 X-Google-Original-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Fri, 23 Oct 2026 08:39:26 +0200
-Subject: [PATCH v3 01/16] dt-bindings: remoteproc: k3-dsp: Add the L2
- auxiliary and DRU regions
+Date: Fri, 23 Oct 2026 08:39:28 +0200
+Subject: [PATCH v3 03/16] dt-bindings: remoteproc: k3-dsp: Allow
+ referencing the timers' power domains
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261023-thames-v3-1-3ab40aa17157@tomeuvizoso.net>
+Message-Id: <20261023-thames-v3-3-3ab40aa17157@tomeuvizoso.net>
 References: <20261023-thames-v3-0-3ab40aa17157@tomeuvizoso.net>
 In-Reply-To: <20261023-thames-v3-0-3ab40aa17157@tomeuvizoso.net>
 To: Nishanth Menon <nm@ti.com>, "Andrew F. Davis" <afd@ti.com>, 
@@ -113,8 +113,8 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-remoteproc@vger.kernel.org, linux-hardening@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_233942_329944_CBB6B04D 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20261022_233948_422220_B1C3B0B2 
+X-CRM114-Status: GOOD (  14.49  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,17 +134,9 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Besides the existing L2 SRAM region, at least some C7x DSPs in K3 SoCs
-have an additional region called in the documentation "AUX L2 SRAM".
-This is just some more SRAM that is accessed separately.
-
-Also add the memory region for the control registers of the DRU (Data
-Routing Unit), which allow starting DMA transactions and polling for
-their completion.
-
-The two entries are optional, so existing device trees still validate,
-and are allowed only for the ti,am62a-c7xv-dsp compatible, the C7x
-generation that has them.
+A firmware may drive the core's timers, which need their power domains
+held; the remoteproc driver does not hold them, so let the DSP node
+reference them for a driver that attaches to the running core to hold.
 
 Assisted-by: LLM
 Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
@@ -154,31 +146,37 @@ Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
 v3:
 - Initial version
 ---
- Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ .../devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml
-index 8b1ed384ef22..278b88b7f906 100644
+index d6319c8e96f8..80eaef0a19b8 100644
 --- a/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml
 +++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml
-@@ -122,11 +122,17 @@ allOf:
-     then:
-       properties:
-         reg:
-+          minItems: 1
-           items:
-             - description: Address and Size of the L2 SRAM internal memory region
-+            - description: Address and Size of the auxiliary L2 SRAM aperture
-+            - description: Address and Size of the DRU real-time register page
-         reg-names:
-+          minItems: 1
-           items:
-             - const: l2sram
-+            - const: l2aux
-+            - const: dru
+@@ -76,6 +76,23 @@ properties:
+ # Optional properties:
+ # --------------------
  
-   - $ref: /schemas/arm/keystone/ti,k3-sci-common.yaml#
- 
++  power-domains:
++    description: |
++      Power domains of the SoC timers the running firmware ticks on and
++      times its work out with. The firmware programs these timers itself
++      and makes no power request for them, and the timers' own nodes are
++      reserved for it, so nothing else requests their power; a client
++      driver of the firmware holds them on while it drives the processor.
++      The processor's own power is managed through ti,sci-dev-id, not here.
++    items:
++      - description: power domain of the first timer
++      - description: power domain of the second timer
++
++  power-domain-names:
++    items:
++      - const: timer1
++      - const: timer2
++
+   sram:
+     minItems: 1
+     maxItems: 4
 
 -- 
 2.54.0
