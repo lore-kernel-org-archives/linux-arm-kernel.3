@@ -2,36 +2,36 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB2FC606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 17:54:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2F03606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 17:55:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gnD+LKsT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jpTsuEpf
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=veEtzTzjL8zq0FEnYMOZSeR9nQqTNj9N4Odb5GHoV9A=; b=gnD+LKsTyPb2m9
-	YAt8g9mRRKxweMoGwHmiOuL4V7RkYeipppFacRYJ0MYKGYEMNmpYlTIT0Rd9XlvZ4Gr3RtX9JlSFX
-	9K32A/dmmVT2863X+iOLQeu4eXJuXQKp8QVruH34qrI2cfrfZNlwcOCVHJmPpZhww8umJshcO0VPJ
-	TzDKtH12y5hIV5noMQh2ygpuu+KW0SDTqJao/rRCc9mh/0KxRW7U+wOb/qcH7X+3Y5+5BpDtt90Oz
-	lXrI7a+isoyALm2vzCQBhpmppBfkic08K+6WPsrIIEgcb7EwsVxqbd5uYegxyW6hdYtK2t3hEYT2g
-	PHxwiV2ImltrfxsyKPOA==;
+	List-Owner; bh=u1NMUq+jqXQwc0QHEPQZUDhJH1xGVhYW8LwKRkp9xfA=; b=jpTsuEpf1xFvMy
+	EOvAGYxXegPFRrJUasTcBQ9G90dCxLdAw84RBDp8BCP9ySsWgciaotjkXuqwhJd/Prttwb5CaY8zd
+	z+8hkD7TZ+ZT4sf3H+zIeYLlr7PvlFbBWWrmNzOJZZEoVUtRrCCT6r6Bdnm9dBq6eszRPdz7az9My
+	If7otXBy2f+YltVnA58qh010P8288awK0HJbKVl+y+FwwWsLzD5bdPKxwCjLDScB1IamCWE5HbjkT
+	er61WXh1Kn+5DaalmZFPuYPgFddUA6ETXl5TcA2pjrW4NZjqfAMP9pNKQS0lXe82VdAJaRVyFaiJR
+	0iiVV+eZaye0PwlYQ2PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKJTe-0000000GlSZ-1Eq7;
-	Fri, 23 Oct 2026 17:54:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xKJUE-0000000Gle2-2NoC;
+	Fri, 23 Oct 2026 17:55:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKJTU-0000000GlRD-3G4u
+	id 1xKJUD-0000000Gldk-3CsY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 17:54:45 +0000
+	Fri, 23 Oct 2026 17:55:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2277B601FA;
-	Fri, 23 Oct 2026 17:54:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42C691F01828;
-	Fri, 23 Oct 2026 17:54:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 37FFB601FA;
+	Fri, 23 Oct 2026 17:55:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDC541F031E1;
+	Fri, 23 Oct 2026 17:55:01 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Linus Walleij <linusw@kernel.org>,
 	Bartosz Golaszewski <brgl@kernel.org>,
@@ -50,9 +50,9 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH/RFC 5/7] pmdomain: renesas: r8a78000: Add default GPIO support
-Date: Fri, 23 Oct 2026 19:50:43 +0200
-Message-ID: <c7ceec0d203fb01b3bf7c7923bfee50b7a5e3ac1.1792776697.git.geert+renesas@glider.be>
+Subject: [PATCH/DNI 7/7] arm64: dts: renesas: r8a78000: Add gpio-ranges
+Date: Fri, 23 Oct 2026 19:50:45 +0200
+Message-ID: <cae27d2d9dd17c081dcea27e3b223a8fb8653796.1792776697.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1792776697.git.geert+renesas@glider.be>
 References: <cover.1792776697.git.geert+renesas@glider.be>
@@ -76,60 +76,108 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-All GPIO modules seem to be accessible without SCMI, and at least
-GP05_15..GP05_20 are known to work.
+Link all GPIO controllers to the Pin Function Controller using
+"gpio-ranges" properties.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
-Do we want this? So far there are no users of GPIO, and future users
-might need SCMI for other reasons anyway.
+This depends on out-of-tree pin control support.
 ---
- drivers/pmdomain/renesas/r8a78000-mdlc.c | 25 ++++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
+ arch/arm64/boot/dts/renesas/r8a78000.dtsi | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/drivers/pmdomain/renesas/r8a78000-mdlc.c b/drivers/pmdomain/renesas/r8a78000-mdlc.c
-index af36d8229030f6c0..10089d938f71b27e 100644
---- a/drivers/pmdomain/renesas/r8a78000-mdlc.c
-+++ b/drivers/pmdomain/renesas/r8a78000-mdlc.c
-@@ -606,13 +606,38 @@ static int r8a78000_mdlc_probe(struct platform_device *pdev)
- 	return 0;
- }
- 
-+static const struct mod_map_in r8a78000_mdlc_aon_mod_default[] = {
-+	{ 0x20, 0, -1 },	/* GPIODM0 */
-+	{ -1 }
-+};
-+
-+static const struct mod_map_in r8a78000_mdlc_hscn_mod_default[] = {
-+	{ 0x50, 0, -1 },	/* PFC_HSCN_GPIODM0 */
-+	{ -1 }
-+};
-+
-+static const struct mod_map_in r8a78000_mdlc_pere_mod_default[] = {
-+	{ 0x30, 0, -1 },	/* PFC_PERE_GPIODM0 */
-+	{ -1 }
-+};
-+
- static const struct mod_map_in r8a78000_mdlc_perw_mod_default[] = {
-+	{ 0x30, 0, -1 },	/* PFC_PERW_GPIODM0 */
- 	{ 0x54, 0, -1 },	/* HSCIF0 */
- 	{ -1 }
- };
- 
- static const struct mdlc_info r8a78000_mdlc_default[] = {
- 	{
-+		.base = 0xc1338000 /* mdlc_aon */,
-+		.mod_map = r8a78000_mdlc_aon_mod_default,
-+	}, {
-+		.base = 0xc9c90000 /* mdlc_hscn */,
-+		.mod_map = r8a78000_mdlc_hscn_mod_default,
-+	}, {
-+		.base = 0xc08f0000 /* mdlc_pere */,
-+		.mod_map = r8a78000_mdlc_pere_mod_default,
-+	}, {
- 		.base = 0xc05d0000 /* mdlc_perw */,
- 		.mod_map = r8a78000_mdlc_perw_mod_default,
- 	},
+diff --git a/arch/arm64/boot/dts/renesas/r8a78000.dtsi b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
+index 36a4fa1e032ee703..946dce6ab38b619d 100644
+--- a/arch/arm64/boot/dts/renesas/r8a78000.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
+@@ -1273,6 +1273,7 @@ gpio0: gpio@c1080110 {
+ 			resets = <&mdlc_aon 0x20>;
+ 			#gpio-cells = <2>;
+ 			gpio-controller;
++			gpio-ranges = <&pfc 0 0 28>;
+ 			#interrupt-cells = <2>;
+ 			interrupt-controller;
+ 		};
+@@ -1287,6 +1288,7 @@ gpio1: gpio@c1080910 {
+ 			resets = <&mdlc_aon 0x20>;
+ 			#gpio-cells = <2>;
+ 			gpio-controller;
++			gpio-ranges = <&pfc 0 32 22>;
+ 			#interrupt-cells = <2>;
+ 			interrupt-controller;
+ 		};
+@@ -1301,6 +1303,7 @@ gpio2: gpio@c1081110 {
+ 			resets = <&mdlc_aon 0x20>;
+ 			#gpio-cells = <2>;
+ 			gpio-controller;
++			gpio-ranges = <&pfc 0 64 29>;
+ 			#interrupt-cells = <2>;
+ 			interrupt-controller;
+ 		};
+@@ -1315,6 +1318,7 @@ gpio3: gpio@c0800110 {
+ 			resets = <&mdlc_pere 0x30>;
+ 			#gpio-cells = <2>;
+ 			gpio-controller;
++			gpio-ranges = <&pfc 0 96 17>;
+ 			#interrupt-cells = <2>;
+ 			interrupt-controller;
+ 		};
+@@ -1329,6 +1333,7 @@ gpio4: gpio@c0800910 {
+ 			resets = <&mdlc_pere 0x30>;
+ 			#gpio-cells = <2>;
+ 			gpio-controller;
++			gpio-ranges = <&pfc 0 128 16>;
+ 			#interrupt-cells = <2>;
+ 			interrupt-controller;
+ 		};
+@@ -1343,6 +1348,7 @@ gpio5: gpio@c0400110 {
+ 			resets = <&mdlc_perw 0x30>;
+ 			#gpio-cells = <2>;
+ 			gpio-controller;
++			gpio-ranges = <&pfc 0 160 23>;
+ 			#interrupt-cells = <2>;
+ 			interrupt-controller;
+ 		};
+@@ -1357,6 +1363,7 @@ gpio6: gpio@c0400910 {
+ 			resets = <&mdlc_perw 0x30>;
+ 			#gpio-cells = <2>;
+ 			gpio-controller;
++			gpio-ranges = <&pfc 0 192 31>;
+ 			#interrupt-cells = <2>;
+ 			interrupt-controller;
+ 		};
+@@ -1371,6 +1378,7 @@ gpio7: gpio@c0401110 {
+ 			resets = <&mdlc_perw 0x30>;
+ 			#gpio-cells = <2>;
+ 			gpio-controller;
++			gpio-ranges = <&pfc 0 224 31>;
+ 			#interrupt-cells = <2>;
+ 			interrupt-controller;
+ 		};
+@@ -1385,6 +1393,7 @@ gpio8: gpio@c0401910 {
+ 			resets = <&mdlc_perw 0x30>;
+ 			#gpio-cells = <2>;
+ 			gpio-controller;
++			gpio-ranges = <&pfc 0 256 32>;
+ 			gpio-reserved-ranges = <16 10>;
+ 			#interrupt-cells = <2>;
+ 			interrupt-controller;
+@@ -1400,6 +1409,7 @@ gpio9: gpio@c9b00110 {
+ 			resets = <&mdlc_hscn 0x50>;
+ 			#gpio-cells = <2>;
+ 			gpio-controller;
++			gpio-ranges = <&pfc 0 288 17>;
+ 			#interrupt-cells = <2>;
+ 			interrupt-controller;
+ 		};
+@@ -1414,6 +1424,7 @@ gpio10: gpio@c9b00910 {
+ 			resets = <&mdlc_hscn 0x50>;
+ 			#gpio-cells = <2>;
+ 			gpio-controller;
++			gpio-ranges = <&pfc 0 320 14>;
+ 			#interrupt-cells = <2>;
+ 			interrupt-controller;
+ 		};
 -- 
 2.43.0
 
