@@ -2,74 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48E3A606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 13:12:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B6C1606A33D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 13:15:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ot1dcGb9;
-	dkim=pass (2048-bit key, unprotected) header.d=ideco.ru header.i=@ideco.ru header.a=rsa-sha256 header.s=ics header.b=LOCDYGvM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xBT16KAC;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=ONRrkhm2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=HQWUps+5kGPlDRDdYL+5SLCYhu4ASo3c0932u+Z6XFI=; b=ot1dcGb9izDV93z+0H/nGvr4Pl
-	/Aj6BGYdNj6gjeYUtYf67rm+wZjmgfTPUsmZPb5eCoaXYzyxOn/kL2wUh6qxOwIVvuMJOnM0kAO2L
-	7ag7FfIumvtd0PnyzVwXJuVCRMs6r2rerEh0OmQ4s13hecO9zCsASzHzVeM4bnl5Fjnbjm2Tvb24b
-	mNx0owgetrQX2cuoY4X/YVbfEohEvpDvNaUAW+7bLJ/5LvPoUkEImIQXb+/OAG1Kxq4o0NRHNGSPs
-	FirS/GDYenfbqgyV3mPVUtAFF7u1uW1N2XazQT0fPyXNCZldcKNap8tdahh+Gm8C+Na8zRn+tRo2o
-	HT+eCm+A==;
+	bh=NVcW2Ffyo3xz8xHoLfYrXy/+Ll+4LUkHyKuGCIDnxZ0=; b=xBT16KACBbTjuq6X2FHTZrux1Z
+	TWMoYq1lI5LCgx/YVRPpv25za7anWKYgpA13VOQUwOjzEAScf3NYXxnB0nTkeiDoLAmQkwC38VUxq
+	PVwUNuEx5hWFwQLoJZTKihiQjVUAJK2xQ39REajOGxKfsMBpQIc4C/12Aocw87ZGY/xx5ckSuscnm
+	aOSCumSqgdACLpLB4lOVgGH86Kj074iAAGx8N8G1+nLyZ7Dt5mYSmq+VwYs3UNSWH0VHx/Uyom7LG
+	zilnpPNYb6EhJnqIetwv/5qPql5H4CmVm0vfWtuPWe5YjLjPTT3YsUZMuuKQhnAM1AeXN4nrHjFe7
+	uChFIVtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKF4E-0000000GLzA-2c9K;
-	Fri, 23 Oct 2026 13:12:18 +0000
-Received: from smtp.ideco.ru ([51.250.56.165])
+	id 1xKF7X-0000000GMJ7-0pdr;
+	Fri, 23 Oct 2026 13:15:43 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKF4A-0000000GLxe-3vsm;
-	Fri, 23 Oct 2026 13:12:17 +0000
-Received: from [169.254.254.254] (localhost [127.0.0.1])
-	by smtp.ideco.ru (Postfix) with ESMTP id 1E9771B30E;
-	Fri, 23 Oct 2026 18:12:00 +0500 (+05)
-Received: from fedora (5cfcac1b.dynamic.mv.ru [92.252.172.27])
+	id 1xKF7U-0000000GMHy-3ZCm;
+	Fri, 23 Oct 2026 13:15:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1792761324;
+	bh=rwux77o1GhyryoO0gztA5gaRbZR09g3yJty7OuhiDJU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=ONRrkhm2VFSrNY3s1AQ+91XArmvKeHEc4zj26k8VJa8vpBwuIZbA+NgTUowV1cSHQ
+	 hj/5QvC6tcQJ7SySzBJheMy7MiN9ZSVYito/iR2znhjSjKLzUjQfBt+qgF8JZDfIPU
+	 fqyWoMkjvBcjvrW47OXd/EtKQINnvOz4sdRPAKmjXekoR16aGDdukmd57sjaKUJqVz
+	 HifUzTgJI6ALjIlIIRAAH8keVrV3qCRZMLElBhYsjAudbBHXdTbfXbKsiNk9sGSZTW
+	 Kbu96DI6bW2DzQqhu9xfm+rSGqSOv+qXTisivLShIqYVJ95K89gAU0yYqnE+nSXDAQ
+	 Ovw3PfyNMaTRQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.ideco.ru (Postfix) with ESMTPSA id 98226188C4;
-	Fri, 23 Oct 2026 18:11:33 +0500 (+05)
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.ideco.ru 98226188C4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ideco.ru; s=ics;
-	t=1792761119; bh=HQWUps+5kGPlDRDdYL+5SLCYhu4ASo3c0932u+Z6XFI=;
-	h=From:To:Cc:Subject:Date;
-	b=LOCDYGvMH2T1EYSXUj8+Jhd7/9MUdXnSbmfCgmh1TJbwxmkwiC4ysXNDxj330ZDbt
-	 pIt14aDyMHzWyy00dsCWljytfFm7LjytP80ZZ/+UiWtaxnhISkbMaWNwDyGH/EbPQA
-	 s5Q4RXJ/PUyk/yxpxENa19wUgCYmRJV2YlvevbRcWQ5zII81fUBHQqe98NmuNwXTZn
-	 yNYIla1lpTrjI0zBl3Vq5iXhpJQ9joolnBG9c+V0znDfwCpg5xEg2HPXgYzz34w5uB
-	 R1oO8TDlpSLrvFHE9u7k+ggATm0SJT5dbhjG86ni1wHHvNjVgbO68DEOVBjurQxQFY
-	 h2NysqG6w4B8A==
-From: Alex Kazinsky <a.kazinsky@ideco.ru>
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Alex Kazinsky <a.kazinsky@ideco.ru>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org
-Subject: [PATCH] media: rkvdec: Handle interrupts without a current context
-Date: Fri, 23 Oct 2026 17:11:20 +0400
-Message-ID: <20261023131124.94116-1-a.kazinsky@ideco.ru>
-X-Mailer: git-send-email 2.56.0
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 246F217E011B;
+	Fri, 23 Oct 2026 15:15:23 +0200 (CEST)
+Message-ID: <884a934883ee62444c4f9dc34c3d4d0afe1d2831.camel@collabora.com>
+Subject: Re: [PATCH] media: rkvdec: Handle interrupts without a current
+ context
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Alex Kazinsky <a.kazinsky@ideco.ru>, Detlev Casanova
+	 <detlev.casanova@collabora.com>
+Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Hans Verkuil
+	 <hverkuil+cisco@kernel.org>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, lvc-project@linuxtesting.org
+Date: Fri, 23 Oct 2026 09:15:21 -0400
+In-Reply-To: <20261023131124.94116-1-a.kazinsky@ideco.ru>
+References: <20261023131124.94116-1-a.kazinsky@ideco.ru>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-2Xx+Uh8xlyaOkQPPjVUs"
+User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_061215_352904_0641E6A9 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20261023_061541_075973_A4598003 
+X-CRM114-Status: GOOD (  21.06  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,134 +92,172 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The watchdog can finish the current job before the threaded IRQ handler
-retrieves its context. In that case, v4l2_m2m_get_curr_priv() returns NULL,
-but the variant IRQ handlers unconditionally dereference ctx->dev.
 
-Pass the device pointer to the variant IRQ handlers independently of the
-context. Clear the interrupt status and, for VDPU383, disable interrupts
-before returning if no current context exists. This avoids dereferencing
-NULL while still acknowledging the interrupt.
+--=-2Xx+Uh8xlyaOkQPPjVUs
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Found by Linux Verification Center (linuxtesting.org) with SVACE.
+Hi,
 
-Fixes: f9c7b7deeffd ("media: rkvdec: Support per-variant interrupt handler")
-Signed-off-by: Alex Kazinsky <a.kazinsky@ideco.ru>
----
- .../media/platform/rockchip/rkvdec/rkvdec.c   | 23 +++++++++++++------
- .../media/platform/rockchip/rkvdec/rkvdec.h   |  4 +++-
- 2 files changed, 19 insertions(+), 8 deletions(-)
+Le vendredi 23 octobre 2026 =C3=A0 17:11 +0400, Alex Kazinsky a =C3=A9crit=
+=C2=A0:
+> The watchdog can finish the current job before the threaded IRQ handler
+> retrieves its context. In that case, v4l2_m2m_get_curr_priv() returns NUL=
+L,
+> but the variant IRQ handlers unconditionally dereference ctx->dev.
+>=20
+> Pass the device pointer to the variant IRQ handlers independently of the
+> context. Clear the interrupt status and, for VDPU383, disable interrupts
+> before returning if no current context exists. This avoids dereferencing
+> NULL while still acknowledging the interrupt.
+>=20
+> Found by Linux Verification Center (linuxtesting.org) with SVACE.
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 061281f903f3..02f6a574a8eb 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-@@ -1434,15 +1434,18 @@ static void rkvdec_iommu_restore(struct rkvdec_dev *rkvdec)
- 	}
- }
- 
--static irqreturn_t rk3399_irq_handler(struct rkvdec_ctx *ctx)
-+static irqreturn_t rk3399_irq_handler(struct rkvdec_dev *rkvdec,
-+				    struct rkvdec_ctx *ctx)
- {
--	struct rkvdec_dev *rkvdec = ctx->dev;
- 	enum vb2_buffer_state state;
- 	u32 status;
- 
- 	status = readl(rkvdec->regs + RKVDEC_REG_INTERRUPT);
- 	writel(0, rkvdec->regs + RKVDEC_REG_INTERRUPT);
- 
-+	if (!ctx)
-+		return IRQ_HANDLED;
-+
- 	if (status & RKVDEC_RDY_STA) {
- 		state = VB2_BUF_STATE_DONE;
- 	} else {
-@@ -1457,9 +1460,9 @@ static irqreturn_t rk3399_irq_handler(struct rkvdec_ctx *ctx)
- 	return IRQ_HANDLED;
- }
- 
--static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
-+static irqreturn_t vdpu381_irq_handler(struct rkvdec_dev *rkvdec,
-+				    struct rkvdec_ctx *ctx)
- {
--	struct rkvdec_dev *rkvdec = ctx->dev;
- 	enum vb2_buffer_state state;
- 	bool need_reset = 0;
- 	u32 status;
-@@ -1467,6 +1470,9 @@ static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
- 	status = readl(rkvdec->regs + VDPU381_REG_STA_INT);
- 	writel(0, rkvdec->regs + VDPU381_REG_STA_INT);
- 
-+	if (!ctx)
-+		return IRQ_HANDLED;
-+
- 	if (status & VDPU381_STA_INT_DEC_RDY_STA) {
- 		state = VB2_BUF_STATE_DONE;
- 	} else {
-@@ -1486,9 +1492,9 @@ static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
- 	return IRQ_HANDLED;
- }
- 
--static irqreturn_t vdpu383_irq_handler(struct rkvdec_ctx *ctx)
-+static irqreturn_t vdpu383_irq_handler(struct rkvdec_dev *rkvdec,
-+				    struct rkvdec_ctx *ctx)
- {
--	struct rkvdec_dev *rkvdec = ctx->dev;
- 	enum vb2_buffer_state state;
- 	bool need_reset = 0;
- 	u32 status;
-@@ -1499,6 +1505,9 @@ static irqreturn_t vdpu383_irq_handler(struct rkvdec_ctx *ctx)
- 	writel(FIELD_PREP_WM16(VDPU383_INT_EN_IRQ | VDPU383_INT_EN_LINE_IRQ, 0),
- 	       rkvdec->link + VDPU383_LINK_INT_EN);
- 
-+	if (!ctx)
-+		return IRQ_HANDLED;
-+
- 	if (status & VDPU383_STA_INT_DEC_RDY_STA) {
- 		state = VB2_BUF_STATE_DONE;
- 	} else {
-@@ -1521,7 +1530,7 @@ static irqreturn_t rkvdec_irq_handler(int irq, void *priv)
- 	struct rkvdec_ctx *ctx = v4l2_m2m_get_curr_priv(rkvdec->m2m_dev);
- 	const struct rkvdec_variant *variant = rkvdec->variant;
- 
--	return variant->ops->irq_handler(ctx);
-+	return variant->ops->irq_handler(rkvdec, ctx);
- }
- 
- /*
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index a24be6638b6b..2e03ff6e33d7 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-@@ -30,6 +30,7 @@
- #define RKVDEC_8K_PIXELS		(7680 * 4320)
- 
- struct rkvdec_ctx;
-+struct rkvdec_dev;
- struct rkvdec_rcb_config;
- 
- struct rkvdec_ctrl_desc {
-@@ -72,7 +73,8 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
- }
- 
- struct rkvdec_variant_ops {
--	irqreturn_t (*irq_handler)(struct rkvdec_ctx *ctx);
-+	irqreturn_t (*irq_handler)(struct rkvdec_dev *rkvdec,
-+			   struct rkvdec_ctx *ctx);
- 	u32 (*colmv_size)(u16 width, u16 height);
- 	void (*flatten_matrices)(u8 *output, const u8 *input, int matrices, int row_length);
- };
--- 
-2.56.0
+Can you share you proof of concept please. Can be private if you plane to
+produce a CVE report.
 
+Nicolas
 
+>=20
+> Fixes: f9c7b7deeffd ("media: rkvdec: Support per-variant interrupt handle=
+r")
+> Signed-off-by: Alex Kazinsky <a.kazinsky@ideco.ru>
+> ---
+>  .../media/platform/rockchip/rkvdec/rkvdec.c   | 23 +++++++++++++------
+>  .../media/platform/rockchip/rkvdec/rkvdec.h   |  4 +++-
+>  2 files changed, 19 insertions(+), 8 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/me=
+dia/platform/rockchip/rkvdec/rkvdec.c
+> index 061281f903f3..02f6a574a8eb 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -1434,15 +1434,18 @@ static void rkvdec_iommu_restore(struct rkvdec_de=
+v *rkvdec)
+>  	}
+>  }
+> =20
+> -static irqreturn_t rk3399_irq_handler(struct rkvdec_ctx *ctx)
+> +static irqreturn_t rk3399_irq_handler(struct rkvdec_dev *rkvdec,
+> +				    struct rkvdec_ctx *ctx)
+>  {
+> -	struct rkvdec_dev *rkvdec =3D ctx->dev;
+>  	enum vb2_buffer_state state;
+>  	u32 status;
+> =20
+>  	status =3D readl(rkvdec->regs + RKVDEC_REG_INTERRUPT);
+>  	writel(0, rkvdec->regs + RKVDEC_REG_INTERRUPT);
+> =20
+> +	if (!ctx)
+> +		return IRQ_HANDLED;
+> +
+>  	if (status & RKVDEC_RDY_STA) {
+>  		state =3D VB2_BUF_STATE_DONE;
+>  	} else {
+> @@ -1457,9 +1460,9 @@ static irqreturn_t rk3399_irq_handler(struct rkvdec=
+_ctx *ctx)
+>  	return IRQ_HANDLED;
+>  }
+> =20
+> -static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
+> +static irqreturn_t vdpu381_irq_handler(struct rkvdec_dev *rkvdec,
+> +				    struct rkvdec_ctx *ctx)
+>  {
+> -	struct rkvdec_dev *rkvdec =3D ctx->dev;
+>  	enum vb2_buffer_state state;
+>  	bool need_reset =3D 0;
+>  	u32 status;
+> @@ -1467,6 +1470,9 @@ static irqreturn_t vdpu381_irq_handler(struct rkvde=
+c_ctx *ctx)
+>  	status =3D readl(rkvdec->regs + VDPU381_REG_STA_INT);
+>  	writel(0, rkvdec->regs + VDPU381_REG_STA_INT);
+> =20
+> +	if (!ctx)
+> +		return IRQ_HANDLED;
+> +
+>  	if (status & VDPU381_STA_INT_DEC_RDY_STA) {
+>  		state =3D VB2_BUF_STATE_DONE;
+>  	} else {
+> @@ -1486,9 +1492,9 @@ static irqreturn_t vdpu381_irq_handler(struct rkvde=
+c_ctx *ctx)
+>  	return IRQ_HANDLED;
+>  }
+> =20
+> -static irqreturn_t vdpu383_irq_handler(struct rkvdec_ctx *ctx)
+> +static irqreturn_t vdpu383_irq_handler(struct rkvdec_dev *rkvdec,
+> +				    struct rkvdec_ctx *ctx)
+>  {
+> -	struct rkvdec_dev *rkvdec =3D ctx->dev;
+>  	enum vb2_buffer_state state;
+>  	bool need_reset =3D 0;
+>  	u32 status;
+> @@ -1499,6 +1505,9 @@ static irqreturn_t vdpu383_irq_handler(struct rkvde=
+c_ctx *ctx)
+>  	writel(FIELD_PREP_WM16(VDPU383_INT_EN_IRQ | VDPU383_INT_EN_LINE_IRQ, 0)=
+,
+>  	       rkvdec->link + VDPU383_LINK_INT_EN);
+> =20
+> +	if (!ctx)
+> +		return IRQ_HANDLED;
+> +
+>  	if (status & VDPU383_STA_INT_DEC_RDY_STA) {
+>  		state =3D VB2_BUF_STATE_DONE;
+>  	} else {
+> @@ -1521,7 +1530,7 @@ static irqreturn_t rkvdec_irq_handler(int irq, void=
+ *priv)
+>  	struct rkvdec_ctx *ctx =3D v4l2_m2m_get_curr_priv(rkvdec->m2m_dev);
+>  	const struct rkvdec_variant *variant =3D rkvdec->variant;
+> =20
+> -	return variant->ops->irq_handler(ctx);
+> +	return variant->ops->irq_handler(rkvdec, ctx);
+>  }
+> =20
+>  /*
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/me=
+dia/platform/rockchip/rkvdec/rkvdec.h
+> index a24be6638b6b..2e03ff6e33d7 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> @@ -30,6 +30,7 @@
+>  #define RKVDEC_8K_PIXELS		(7680 * 4320)
+> =20
+>  struct rkvdec_ctx;
+> +struct rkvdec_dev;
+>  struct rkvdec_rcb_config;
+> =20
+>  struct rkvdec_ctrl_desc {
+> @@ -72,7 +73,8 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
+>  }
+> =20
+>  struct rkvdec_variant_ops {
+> -	irqreturn_t (*irq_handler)(struct rkvdec_ctx *ctx);
+> +	irqreturn_t (*irq_handler)(struct rkvdec_dev *rkvdec,
+> +			   struct rkvdec_ctx *ctx);
+>  	u32 (*colmv_size)(u16 width, u16 height);
+>  	void (*flatten_matrices)(u8 *output, const u8 *input, int matrices, int=
+ row_length);
+>  };
+
+--=-2Xx+Uh8xlyaOkQPPjVUs
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCattd6QAKCRDZQZRRKWBy
+9A63AQCzB1vOPXb+suCMJtgFXZ+FyF52FIA1oEvASku+5T9XhwEA2+XxwSKL6qQW
+f2xjl5mboiTCt6Q3GwRAsVGr7FNmcgE=
+=gi8E
+-----END PGP SIGNATURE-----
+
+--=-2Xx+Uh8xlyaOkQPPjVUs--
 
