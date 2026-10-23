@@ -2,110 +2,134 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9D7A606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 14:29:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 567EC606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 14:32:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pLPNkcfT;
-	dkim=pass (2048-bit key, unprotected) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=hdE9z3GR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=R7bUxWyJ;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=AUfxWgCj;
+	dkim=pass (2048-bit key, unprotected) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=bOlSUyoj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=MtqXElKTNCKa651mdJkZvNuV+haZHv7iacPGuZotGd8=; b=pLPNkcfTICB4SY5JFuAjxW614A
-	OoWQ3zDp54KQr0p1xRd83mqAsXtyE0zwelpyTMpZtgiAG0tSgbR7Gs8j3LtjoeVIfw8wvQYn73J/X
-	rcq72lxlCAdhcY6o+IOt/wJMWCETcPwvYqGrHrIpaxmGcu036xYNMm4NYjvSGw3aBoexmQ8IF1Hro
-	BoiFUtESFrvNpJtZtMEMX2lrjqjNxK0tGpl2UQuB25FKyzhdGByjkR8eoGSVZeXwFL8MT+Y1++uJR
-	W5+JZMeVnzyecDKktFibsn/Nt82/l1L6Brs+I6IkTGXN1W8K8Ep+q7Nb+wwSGYKua5I4t4uXxsYXD
-	cemdekiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=hRGGWRPBVtDZAA4r/kbSByT0vap6yffQdK6YCq0N6Tk=; b=R7bUxWyJ9txK+N
+	pxZ8zRWIl7HP9QLenJZyi/ecH4Wv6rrt4eyBNGS1yuBw8RIh0ZXJrDd+Ey+ispIJZk31CcQHxooPg
+	54VTCcljEueFxzkKZlbsh90DPRgCHEBXJvC8lryT56n/a5YTMOgUAUnKmltH5kXhOD591SIcEAmzQ
+	poID3uaJtIGT0VnuYa25UXcBG/BdY+cQKv7pZKFNCSGRRp5mOfxF3jBfCDk4etgV2mG4nZ8cQsRjv
+	KonfvskzRXi0W40BpqmHKHcr0P+6S8HJVUiE+bsLnBrwxd0BWav+VRroQUFzEJihxgEbJFFw3K50X
+	l1mLZAWuph+f/0bgYl8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKGGh-0000000GWGv-29iF;
-	Fri, 23 Oct 2026 14:29:15 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1xKGKB-0000000GWdG-0JMK;
+	Fri, 23 Oct 2026 14:32:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKGGe-0000000GWGX-1JXm
+	id 1xKGKA-0000000GWcM-09eF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 23 Oct 2026 14:32:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=hRGGWRPBVtDZAA4r/kbSByT0vap6yffQdK6YCq0N6Tk=; b=AUfxWgCjrWAJszYxgi0ftBuy8U
+	QykVwyrK+zVWDd/zpKrZJX2IM/nlrqHc03PbG/U6EcA0tcrut5kLFXTgeX7inYFdO05fQ0DADueNC
+	0YMYHZRWc2/t5vpxLmWLbLQjiktkzVxawsLW4Lvw3xow8MHchDfym1Nhov/Z8ILeixFU1qL89Dl3s
+	MAJqKAcjXjVIN9GfYoTGqzOWD2sEyHcFtMZ4vNQsQaI2dg9jad6RhxQdfTQ/MtmM4HZg1DkJrWRjF
+	AIygC5A7mnQdub/LvU/EmK9faqDdIY8DpLTaoqXfcP+jEo6YZER8cnF9s3xNe+/LapQhTjnMKZmzA
+	GdGIqSCw==;
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xKGK6-00000009q8v-3mQu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 14:29:14 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-93e7ad9f78dso106060985a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 07:29:11 -0700 (PDT)
+	Fri, 23 Oct 2026 14:32:48 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-48dc202a60eso523445f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 07:32:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792765964; cv=none;
+        d=google.com; s=arc-20260327;
+        b=RedS8PDIq8/CyakWJPSMe/LnZhluz99cIoha68QuZQcypDe/x/dA0IFIEUow2FR7EN
+         urXwn2QRzmWAWMYi8wWEA/fY4vCa0x/O+41Pj+lB6yKAcPuWLkd6EzlHSohlxxJOsJrT
+         9D/Lv7tYL5UO/HwWwW2xnLmsh60PPXGYLTTjaH/yKDRIxGfzDJMqUKGj2UpUn/RcUEfP
+         alqVYeDB+37B568UhcMdYtw6vsjMO+oekL8aUUd+d2J1Yfm7AnVFDWWzmDid4vVUGy3P
+         DJYFzUiFei2k5uMJh6GnpWnQ6mbaCeWu4it9gm+zyOt0ZaDy/6bMAcsICGMc5oY1ER7+
+         orVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=hRGGWRPBVtDZAA4r/kbSByT0vap6yffQdK6YCq0N6Tk=;
+        fh=1iBOTiCE+Bx2Yvunynvyc8IzUHhODhQPZJaOfNvwbmE=;
+        b=pROVpacdxNMBbUrMGnQrHEzwjtx+SQRCkekMpKCalKSf0ciQxVU/AdJK5Ge+AECE1y
+         RUrPAtHaeEyLwaoq/WAgD7EEKkEvGDucPrIgwL9UQdPgYBje4QTuItl1gsBa7Q5w9G/v
+         IgnfjZoBRmrTB3fYJMIc1400ISNmUnBkXO0dvranjtDbqjWpUy6dlJaVOmxdlhiMzy0P
+         zQhPhpyA9dmRkakpYXFENpNcXNpBqhvJosv5YyINf4/219WJWtuwOZF2UiJ7cydz96XQ
+         Wb7DtQpFk5D3Dg014iw2fVyf4DCcKj/anEMWkgSUeuU006vcwM0W/NwGo2bjek2HjsUe
+         Kknw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1792765751; x=1793370551; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=brainfault.org; s=google; t=1792765964; x=1793370764; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=MtqXElKTNCKa651mdJkZvNuV+haZHv7iacPGuZotGd8=;
-        b=hdE9z3GRlTs97QuUO72lWSZ4b12nvuj5usLta9GtsXmH6pFn2cpFAz2tyHGmzQfc2/
-         xWNejNWwlqlLvSPoWOlzqcwNTCNPJQ34TfqUwcP5Ayd51q8ruRsUI2ClNOdKUU3/k6Ho
-         AV3vANk+2nTpCkz5jqPth6hRbmE8Q409VC9nAFcEd5EEjisGHj3ZTvmEwfOmO0wJcoeJ
-         9t8ORvfh85mM0HZz4bgmzUHf0SXwn72RMVMnGChqN7KjhCVuDcHI8wJpbnvZnt4hdHYJ
-         +IYKRcbWGSDWsP6hA4HK9WsdY/eNlmwstDz13mSX/dmYZnOwN3uO+JQpWUxQ9VDUwJZW
-         DmsQ==
+        bh=hRGGWRPBVtDZAA4r/kbSByT0vap6yffQdK6YCq0N6Tk=;
+        b=bOlSUyojALvxCl/0iTQjIpE+/1P8zWIUF4Ua+d8RmV9w3OICDQ6+CCvTjwsLBGAe9L
+         IgjMPNY7bV6Im67Q96NlsxdH5WttEGiB1gz0oL19q048ql8AOxzrr1zrfdOUQJGp0+m3
+         rhUxY8PZzMPz/seHLbzJujoDPGSlgKSoreqRTtBNRLk//gqh5ANvGWo+eW0kTIqtgfQW
+         gezq0v557KGYg+yGau+NqRO2yLJtmeRyLI9v8tf2hmE3DNOeGxSNUNwAXV8bK6sDyFoR
+         U74mMYDdhJNOnej83tQjCy0sW7NhZ3zih0Ay9xuQYpdPsBk9BUtlqqJvwhH4eUCOtX+6
+         y0/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792765751; x=1793370551;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1792765964; x=1793370764;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=MtqXElKTNCKa651mdJkZvNuV+haZHv7iacPGuZotGd8=;
-        b=TsW+YnCrFMsBPHosvp30ncGukb/aYQxcCM2ggkaGGdZZvCCGjNMSU2HP/J6iwSA+t7
-         x4x3JHmuYhnrBiTQdvj9yoJ9aQSwIroZ3lxZ+4mjBF8EEOKBvjeQT2Ue/YWLF6ykWaRE
-         7AFq8nlUYCgYqZABXSUcg3Niaid8x5gL3kWJcBxjUxO++7IX01wUAjU6ykWQupbzp8fE
-         /R8OiDp/XYwUDyXpI4sftjQhL86daDrbxb2+PVaFLoX2SuHN/7PekRCrvnaysYU1CaZX
-         wZlc+gty7zNBWNfl9FNyvdKyKjwFbs1yiQbTVxG7j4s0/W96vwKxzV/LuBgJGHf8F5j8
-         aMdw==
-X-Forwarded-Encrypted: i=1; AKwUvBys/W6vh+Ok57Xzuyt1yCNdynW/xTca9sR6GjOvE54RnRMAS2H+pQjrAD+86v+Zr3mQUNaplk0L8zuLutUbfG4y@lists.infradead.org
-X-Gm-Message-State: AFq9FYKzopr3RE3Pgxt0Zps71qHulwEZqcE3LVMDhiKKX47H64NNtwDm
-	Wz8zEKbR4dSAios/6mKbXehmSpuOwDse0DHsAPA73y6mDDwzyxo5r4eTeqjaMLzJUrw=
-X-Gm-Gg: AYBFou0793tgIvAsqbk4vOYCim8MFpuCRM8h7m/P2s7NRClz4CChbgrxCzYCm89dCCy
-	qwJnldggaGDxuznwESW2qss8JRRnEQNmsSsa1IFGduPOk2JBcfKTgiprwjzZZh0bDmNsL4DtLs4
-	zDhEV0GbDCXMI5hW44/mADWKBezwnY+X97K7HaSznSRKHHr9laSBiP6l5PqoS5kusfTt7O86WzX
-	bkpkZF8Vyk6WMFOeQjlJFhV3oLcxxd1x70lnpOCcUBdwmAVa2gMLVXPBz8etY5rC++mFa0C4z9n
-	n4S3LVog2mSLj2Wb2d/KUZWi1mYqWMe9HeNNRD6X3VqA7OJfrDVrgo5fV0Vc6p6ytFhJNqs5X6w
-	bda4oRWNZqSjLe1OVLx5+bZSl+oLVQZjyC0svNdJB7ryb4U1yrlfaKPSeo8ed7ZhyZoKSoDpNNW
-	BLNeew50eNsgO3C0sgzcQ9vf/NZ8gKeWB08LiB6XyWOmxgjdV4lZD0Xc/X+eLSOIu51q9tZv2/2
-	korw+TRwa/U1wxS5UFizxS9UVkYsGqy23yeDmdmcxcq+KHnxN3fUfk4jByPP/EOTTuL/DQAgZK9
-	KpwSSVpnTE2SIxv9luw06SxrVvltpvOwfabdhw==
-X-Received: by 2002:a05:620a:7001:b0:939:b057:daf2 with SMTP id af79cd13be357-93f6f7fef1amr427452285a.45.1792765750875;
-        Fri, 23 Oct 2026 07:29:10 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9404722bccbsm30639685a.8.2026.10.23.07.29.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Oct 2026 07:29:10 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xKGGb-0000000GjTu-3HLf;
-	Fri, 23 Oct 2026 11:29:09 -0300
-Date: Fri, 23 Oct 2026 11:29:09 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Samiullah Khawaja <skhawaja@google.com>, Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Kevin Tian <kevin.tian@intel.com>,
-	Alex Williamson <alex@shazbot.org>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	David Matlack <dmatlack@google.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Pranjal Shrivastava <praan@google.com>
-Subject: Re: [RFC PATCH 3/3] iommu/arm-smmu-v3: Add support for hitless
- replace of S1 domains
-Message-ID: <20261023142909.GG3977851@ziepe.ca>
-References: <20260925011308.3381953-1-skhawaja@google.com>
- <20260925011308.3381953-4-skhawaja@google.com>
- <3d1eb92f-3447-49f0-a210-fd4fa015304b@arm.com>
- <20261023134900.GB3977851@ziepe.ca>
- <d4570e2d-5b92-4f05-a8b3-34d5d5b299bd@arm.com>
+        bh=hRGGWRPBVtDZAA4r/kbSByT0vap6yffQdK6YCq0N6Tk=;
+        b=gG0PZfe+xwJD9qDlE4MwhF7T5JAxJBUPMUjigkTMqFroYOy0F62Ba7rbAd5YMw0PJG
+         68pHgMxD10Ee1+K4sDk8R1W72+eh0nwNWLv6huG2Al147HHdTff3xzRxwDLXLktLmoxX
+         ZaZOUxYZtfgEw+zKNSPBnphkF5G3ekVlEd2+LeGFAydjcQPgKNxAe4YYhR+65LOs+pmW
+         XECFs5JN6l99uTmY6KF3l5miiH8V0OGJSa+x5+9FBUtaGjBdwyCHGCSTdNDrCtveBmDc
+         s4zOkT1rUIziYbv+MBlvAWO/Jw88Gnn+qCQECFrJbffbfX6hpzkczgU1L0Pfe/CTWw6n
+         XFJg==
+X-Forwarded-Encrypted: i=1; AKwUvBytBQi1yY/TCqJ1TFpaTW6LrQd4qSN0VUlrxrjVfvILCe/nGV8CztVAfqlNLgsqhO/liJAtiXXJi9i25MCLLmW0@lists.infradead.org
+X-Gm-Message-State: AFq9FYLFbI+KM+ShqEf6ybgmFdepQNFHe/7+/L8XDF9aIYRwpv41W5IM
+	SULxNqW+U6bpoyWJrlg42I9s4TSxEMQ/h962cePu0YiU2dfdAheScEzuXeLwr9g/cuAalVwGaOS
+	sdcto6YwjO/V8u0ztawY9NcEwpBXIQtUzapG0/V/4Fw==
+X-Gm-Gg: AYBFou05Ze/cX1vXnm66CBuOy3BlyBJv5QQb3h/b3NwpScKpM0HdNHpviyYHpckiCOx
+	66o+QVa4nWm5dkP42YkCDCQiU5EEgd/TEWhIOwgjn19+UeziyCGcquyyOkQhdMrHf3N2mn6VJ7H
+	CPIOTpwPNBbMIGgI1lGwWenbB4P3qNmEbdevYh2c6fWFil2dQY/nZuESrWv8jWDulgMqshgMokl
+	XB6431JTkogJqrm4dhjAFb6ru+OGOQ3ZVKrlPItdkzYEncn7YKZ1mu7N+6DXH7TrfX4+8yplmnX
+	Cwt+OLYmA1o5FOsTt1nAbkAcy2KglT1RN34KULqDVtQ3KzhFb0AsnAY5O+KKzx5TMiwdTZthKUv
+	xqRQXXdyYwyG6tsaQdNeK1NzbmGp3Bux0s5XcWPclRiKxPcypxPTQW5NOs0eWCyVBMmF2ZxcR2t
+	s8lhaa4kjVjF9YT38+rB6SRIXBH7SCcf1l8GDlp2hFGpFSgWDHUGvGokbC
+X-Received: by 2002:a05:6000:98d:b0:48c:7ee3:e07d with SMTP id
+ ffacd0b85a97d-48e385bfc42mr3907352f8f.52.1792765963409; Fri, 23 Oct 2026
+ 07:32:43 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d4570e2d-5b92-4f05-a8b3-34d5d5b299bd@arm.com>
+References: <20260807-counter_delegation-v9-0-58658104e487@meta.com> <20260807-counter_delegation-v9-4-58658104e487@meta.com>
+In-Reply-To: <20260807-counter_delegation-v9-4-58658104e487@meta.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 23 Oct 2026 20:02:30 +0530
+X-Gm-Features: AclHuK_j5l_mLkVqrJqA4yovkMFdDFBB6LDPnRF9bN2ny94R09y2JYZPHifdEPA
+Message-ID: <CAAhSdy3rxvq4X=AFx8ps9dSwKR6Rw6M7m8ra9PEbV42tH9o8Vg@mail.gmail.com>
+Subject: Re: [PATCH v9 04/20] dt-bindings: riscv: add Smcsrind and Sscsrind
+ ISA extension descriptions
+To: Atish Patra <atish.patra@linux.dev>
+Cc: Will Deacon <will@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, Ian Rogers <irogers@google.com>, 
+	Rob Herring <robh@kernel.org>, Paul Walmsley <pjw@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	James Clark <james.clark@linaro.org>, Namhyung Kim <namhyung@kernel.org>, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_072913_318364_2B53A202 
-X-CRM114-Status: GOOD (  17.89  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261023_153247_052663_DD0C707F 
+X-CRM114-Status: GOOD (  17.69  )
+X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,43 +140,86 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23, 2026 at 03:04:23PM +0100, Robin Murphy wrote:
-> On 23/10/2026 2:49 pm, Jason Gunthorpe wrote:
-> > On Fri, Oct 23, 2026 at 02:43:28PM +0100, Robin Murphy wrote:
-> > > > @@ -3664,8 +3726,8 @@ static int arm_smmu_attach_dev(struct iommu_domain *domain, struct device *dev,
-> > > >    		struct arm_smmu_cd target_cd;
-> > > >    		arm_smmu_make_s1_cd(&target_cd, master, smmu_domain);
-> > > > -		arm_smmu_write_cd_entry(master, IOMMU_NO_PASID, cdptr,
-> > > > -					&target_cd);
-> > > > +		arm_smmu_replace_cd_entry(master, IOMMU_NO_PASID, cdptr,
-> > > > +					  &target_cd);
-> > > 
-> > > No, we cannot blindly do this for arbitrary ->attach_dev calls - the
-> > > majority of S1->S1 transitions are going to be moving back and forth between
-> > > the default domain and user domains, where there is zero expectation, let
-> > > alone guarantee, that the translations would be equivalent and thus not
-> > > liable to lead to TLB conflict aborts or amalgamation hell.
-> > 
-> > Heh, yeah this probably only works properly with BBML2 or something so
-> > the temporary ASID doesn't explode.
-> 
-> This is fundamental VMSA behaviour - see R_FVQCK in the Arm ARM. BBML only
-> applies to the one specific case of identical VA->PA translations with
-> identical attributes _only_ differing in the leaf level at which they are
-> described.
+On Fri, Aug 7, 2026 at 1:39=E2=80=AFPM Atish Patra <atish.patra@linux.dev> =
+wrote:
+>
+> From: Atish Patra <atishp@rivosinc.com>
+>
+> Add the S[m|s]csrind ISA extension description.
+>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> Link: https://patch.msgid.link/20260701-counter_delegation-v8-4-7909f863a=
+645@meta.com
+> [pjw@kernel.org: use official extension names in the patch description]
+> Signed-off-by: Paul Walmsley <pjw@kernel.org>
 
-Sigh, I thought ARM got past that 'tlb conflicts catch fire'.
+LGTM.
 
-So, yeah we need a flag that says "I pinky swear these are identical
-translations". And it has to be a kernel only flag since we can't let
-userspace trigger this.
+Reviewed-by: Anup Patel <anup@brainfault.org>
 
-Jason
+Regards,
+Anup
+
+
+> ---
+>  Documentation/devicetree/bindings/riscv/extensions.yaml | 16 +++++++++++=
++++++
+>  1 file changed, 16 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
+cumentation/devicetree/bindings/riscv/extensions.yaml
+> index 5ffc40d599c0..ccff2be1224d 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -181,6 +181,14 @@ properties:
+>              changes to interrupts as frozen at commit ccbddab ("Merge pu=
+ll
+>              request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
+>
+> +        - const: smcsrind
+> +          description: |
+> +            The standard Smcsrind machine-level extension extends the
+> +            indirect CSR access mechanism defined by the Smaia extension=
+. This
+> +            extension allows other ISA extensions to use indirect CSR ac=
+cess
+> +            mechanism in M-mode as ratified in the 20240326 version of t=
+he
+> +            privileged ISA specification.
+> +
+>          - const: smmpm
+>            description: |
+>              The standard Smmpm extension for M-mode pointer masking as
+> @@ -226,6 +234,14 @@ properties:
+>              Profiles Version 1.0, with commit b1d806605f87 ("Updated to
+>              ratified state.")
+>
+> +        - const: sscsrind
+> +          description: |
+> +            The standard Sscsrind supervisor-level extension extends the
+> +            indirect CSR access mechanism defined by the Ssaia extension=
+. This
+> +            extension allows other ISA extensions to use indirect CSR ac=
+cess
+> +            mechanism in S-mode as ratified in the 20240326 version of t=
+he
+> +            privileged ISA specification.
+> +
+>          - const: ssnpm
+>            description: |
+>              The standard Ssnpm extension for next-mode pointer masking a=
+s
+>
+> --
+> 2.53.0-Meta
+>
 
