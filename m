@@ -2,68 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C0BE606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 12:11:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D93B606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 12:13:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RKQ3RSME;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=gkbyTeQN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kRGx2vCv;
+	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=MaivSzgh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+9ABaSJ2TNSe2zyjJ/G3TozbAp2nZSVkr4JqPJVrOhM=; b=RKQ3RSMEM/30B7
-	UP89PsiZ9kkPdLR3BQsiZTYbKJ54MLADznBQ2LXE48AwVKDv+x8djXjPi6dmgVPYOHP9jiMcmkHRy
-	TjuAbEviI+bPTanhpqQRYU4QsCy5t2Pi+8lHdc28igPoixoKL1E+3w4kdFkaOT0+5UE1bpoDv2X5D
-	dEfK+VLEWmQEs7b7PaqL2vDZ22AHnRE9oUpWdZjN3v0dULwiCiUU0hALl1w5wvCwtHCNpiZfURKGo
-	D9PGgIkZlYvZgoHe4YecCSUzDWJjF139d8ZocRpG9eDiaSyG79VrZqIT3XpVjceLLLqp5MMGqmEtS
-	U/SHTGeaFd58bOGOljSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:
+	Mime-Version:From:Cc:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	References:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=qoF1RPn6HPNki8UOdmD2+HVuHX6Hw9QlW7A9xjkpPmY=; b=kRGx2vCvQfcFZW
+	6/mD20KkvC+zpQWbUtQ4xWglAqrstaAVDR0MwfZrfIZllB+mxOzEdvRZKqxqScJ6GXN/iFwBSx5hl
+	0QkeAuNYvo71WhY9ovLeWSBdLLIll71HgAX2N8hbOyIei0OLqnuIIpl//HJ7eYAmIVkb9INGrxeg5
+	hbs9uiPSwnCnDQly44ZmsZ+v+eelSrTq4Hfth2/V3OJWi8iMF8R36yIW6f3YJpkeS20Tj0q8o34Gc
+	ba4IOVm/OfrYtPucbxwLVQGtbHTb1YrX713WYOXJq+LsDBi3AdSAlrSD3h0bM2T3yG2OTUpn3PMq1
+	owtbyWTcGE4nu7guyDMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKE6y-0000000GHDM-3P0k;
-	Fri, 23 Oct 2026 12:11:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKE6v-0000000GHCw-2z8Y
+	id 1xKE92-0000000GHMw-0I2o;
+	Fri, 23 Oct 2026 12:13:12 +0000
+Received: from va-1-114.ptr.blmpb.com ([209.127.230.114])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xKE8y-0000000GHMZ-2gWy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 12:11:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E425B1692;
-	Fri, 23 Oct 2026 05:10:56 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E1713F7B4;
-	Fri, 23 Oct 2026 05:10:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792757460; bh=JWiVKkvqMbPQUX28W4bEe8+RRzv3aXiMK1aPbISQRoo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gkbyTeQN2CCbuK7ji0WSOlNL2NUd3bU79bZU3Du8DyjyL4x3DTnF0oottBvtMuLpS
-	 yfp3kipdCxmmP1RXAilIcKX0BcYzkexbMxwckHAwvl9nvh+Jp+G5hXXEs/rGhPedmc
-	 vZ1DdIPPqqxCcbiqCL+tLjrfCVGG6boDgtTI/wEA=
-Message-ID: <40a2e1a2-138b-42bf-94ea-a42fda128c22@arm.com>
-Date: Fri, 23 Oct 2026 13:10:56 +0100
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/3] iommu/arm-smmu-v3: Add support for hitless
- replace of CD entries
-To: Samiullah Khawaja <skhawaja@google.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Kevin Tian <kevin.tian@intel.com>, Alex Williamson <alex@shazbot.org>,
- iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Pasha Tatashin <pasha.tatashin@soleen.com>,
- David Matlack <dmatlack@google.com>, Lu Baolu <baolu.lu@linux.intel.com>,
- Pranjal Shrivastava <praan@google.com>
-References: <20260925011308.3381953-1-skhawaja@google.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260925011308.3381953-1-skhawaja@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Fri, 23 Oct 2026 12:13:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1792757582; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=qoF1RPn6HPNki8UOdmD2+HVuHX6Hw9QlW7A9xjkpPmY=;
+ b=MaivSzghVkP2FD9N3kGx7UPHk2q91thBRtwjvhEYGQuX73lpbHhRpe6H02Bhga9v1lKmec
+ 7oVUAZYJUEiW57hX/2MeWD7agOBuJQzv8Hbf6NPUYbsHMgNSjGsOnddKL/UDVKeBkysry0
+ wVkdGzJtXRoW49jRzQXguye1trMKtZb1hEPIB1MqADqatcbhZMnObWX1t2ShpNesfYD5gz
+ CWNeNjKb2QOjR6LGgyr2fSXiVHq9AYV+AXB4SMSfUmZBeARdDy/2i3JFNIn6cfa2E+5exK
+ MElIjXWLYT5WdjU2liUtR03E4NQB3CzfNg1NiNC5JME5uEghFaexphiA+iMo3w==
+To: <catalin.marinas@arm.com>, <will@kernel.org>
+X-Lms-Return-Path: <lba+26adb4f4c+58968c+lists.infradead.org+zhaogongyi@bytedance.com>
+References: <20261013093600.54995-1-zhaogongyi@bytedance.com>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20261013093600.54995-1-zhaogongyi@bytedance.com>
+X-Original-From: Zhao Gongyi <zhaogongyi@bytedance.com>
+Cc: <ryan.roberts@arm.com>, <dev.jain@arm.com>, 
+	<baolin.wang@linux.alibaba.com>, <lance.yang@linux.dev>, 
+	<mark.rutland@arm.com>, <akpm@linux-foundation.org>, <david@kernel.org>, 
+	<ljs@kernel.org>, <liam@infradead.org>, <vbabka@kernel.org>, 
+	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>, 
+	<linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>, 
+	<linux-kernel@vger.kernel.org>, "Zhao Gongyi" <zhaogongyi@bytedance.com>, 
+	<stable@vger.kernel.org>
+From: "Zhao Gongyi" <zhaogongyi@bytedance.com>
+X-Archived-By: <archiver.kernel.org>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+Subject: [PATCH v2] arm64/mm: restrict transparent contpte mappings to valid PTEs
+Date: Fri, 23 Oct 2026 20:12:33 +0800
+Message-Id: <c4c33aaddf5741e125e4130f2220b1892b50aa61.1792756709.git.zhaogongyi@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_051101_854159_A6F4B996 
-X-CRM114-Status: GOOD (  30.85  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261023_051308_762162_0ED18F38 
+X-CRM114-Status: GOOD (  16.48  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,134 +74,135 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 25/09/2026 2:13 am, Samiullah Khawaja wrote:
-> This patch series adds support for replacing IOMMU domains with S1 page
-> tables hitlessly, that is without disrupting the ongoing DMAs. This is
-> one of the dependencies of the Liveupdate IOMMU support for Arm SMMUv3.
-> 
-> S1 domains are programmed by CD entries in the CD table. During a new
-> domain attach these are updated using arm_smmu_write_cd_entry(). Since
-> ASID and TTB0 are in different 64-bit words, arm_smmu_write_cd_entry()
-> considers it a non-hitless update and sets V=0. This means such an
-> update is disruptive and would generate translation faults if there are
-> ongoing DMAs.
-> 
-> Replace the CD entries by using an unused temporary ASID in the
-> following sequence to allow hitless replacement of CD entry,
-> 
-> - Update the CD entry with temporary ASID.
-> - Update the CD entry with the target TTB0.
-> - Invalidate the temporary ASID.
-> - Update the CD entry with target ASID.
-> - Invalidate and release the temporary ASID.
+The transparent contpte layer treats PTE_CONT as software grouping state.
+When a valid PTE has PTE_CONT set, the contpte helpers may align an
+operation to a CONT_PTE_SIZE block and operate on the whole block. The
+current single-PTE helpers use pte_valid_cont() to identify such groups;
+this is a helper contract, not an architectural restriction on using
+PTE_CONT with present-invalid descriptors. Explicit users such as hugetlb
+manage their contiguous encodings separately.
 
-Why bother transitioning through a 3rd ASID? The old and new pagetables 
-must contain the same translations anyway, so why not just: switch ASID, 
-switch TTB, invalidate old ASID?
+contpte_set_ptes() currently sets PTE_CONT from alignment alone. Batched
+set_ptes() users can therefore install present-invalid PTEs with
+PTE_CONT set, for example mprotect(PROT_NONE), NUMA hinting through
+modify_prot_commit_ptes(), fork() copying a PROT_NONE large folio, or a
+PMD split installing PAGE_NONE PTEs.
 
-It's perhaps worth noting that for correctness either way this also very 
-much depends on no concurrent map/unmap operations being able to happen 
-in either hwpt while the switch is ongoing, but then I guess it already 
-depends on the caller guaranteeing that the hwpts hold identical 
-translations, which we can't realistically verify at the driver level 
-either...
+This is not a hardware programming problem: invalid descriptors are not
+translated, so the hardware ignores descriptor bits such as PTE_CONT. It
+is a software-state problem. Some arm64 fast paths, such as
+test_and_clear_young_ptes(), test pte_cont() directly instead of
+pte_valid_cont().
 
-Thanks,
-Robin.
+In the observed failure, mprotect(PROT_NONE) installed a full
+CONT_PTE_SIZE range of present-invalid PTEs with PTE_CONT set.
+MADV_GUARD_INSTALL then zapped one PTE. The nr == 1 clear_full_ptes()
+path only unfolds pte_valid_cont() entries, so the neighbouring
+present-invalid entries kept PTE_CONT while the target entry became a
+guard marker.
 
-> The series adds a vfio selftest that triggers a continuous DMA and does
-> the hwpt replace while the DMA is ongoing. Since domain replacement is a
-> race with the translation requests, the test does it multiple times to
-> capture the small window where IOMMU faults can occur.
-> 
-> Without this change we can observe the SMMU faults in the kernel logs
-> and with it the SMMU faults do not occur.
-> 
-> This is only tested on qemu with the emulated SMMUv3 and an out of tree
-> NVMe vfio selftest driver, not on real hardware. Following are not
-> covered and can be done later,
-> 
-> - S2 domains have the same problem, S2VMID is in STE qword 2 and S2TTB is
->    in qword 3. These need the same handling with a temporary VMID.
-> - ATS is not tested, the test environment runs with pci=noats.
-> 
-> Testing:
-> 
-> Without Fix:
-> 
->    TAP version 13
->    1..2
->    # Starting 2 tests from 2 test cases.
->    #  RUN           vfio_iommufd_replace_hwpt_test.domain_replace.memcpy ...
->    [   33.267749] vfio-pci 0000:00:0a.0: enabling device (0000 -> 0002)
->    [   33.270709] vfio-pci 0000:00:0a.0: resetting
->    [   33.385682] vfio-pci 0000:00:0a.0: reset done
->    [   37.128021] arm-smmu-v3 9050000.smmuv3: event 0x0a received:
->    [   37.131885] arm-smmu-v3 9050000.smmuv3:      0x000000500000000a
->    [   37.134585] arm-smmu-v3 9050000.smmuv3:      0x0000000000000000
->    [   37.136961] arm-smmu-v3 9050000.smmuv3:      0x0000000000000000
->    [   37.139631] arm-smmu-v3 9050000.smmuv3:      0x0000000000000000
->    [   37.142188] arm-smmu-v3 9050000.smmuv3: event: C_BAD_CD client: 0000:00:0a.0 sid: 0x50 ssid: 0x0
-> 
->    ...
->    ...
-> 
-> With Fix:
-> 
->    TAP version 13
->    1..2
->    # Starting 2 tests from 2 test cases.
->    #  RUN           vfio_iommufd_replace_hwpt_test.domain_replace.memcpy ...
->    [   33.418253] vfio-pci 0000:00:0a.0: enabling device (0000 -> 0002)
->    [   33.421218] vfio-pci 0000:00:0a.0: resetting
->    [   33.539750] vfio-pci 0000:00:0a.0: reset done
->    #            OK  vfio_iommufd_replace_hwpt_test.domain_replace.memcpy
->    ok 1 vfio_iommufd_replace_hwpt_test.domain_replace.memcpy
->    #  RUN           vfio_iommufd_replace_hwpt_test.noreplace.memcpy ...
->    [   88.416453] vfio-pci 0000:00:0a.0: resetting
->    [   88.531989] vfio-pci 0000:00:0a.0: reset done
->    #            OK  vfio_iommufd_replace_hwpt_test.noreplace.memcpy
->    ok 2 vfio_iommufd_replace_hwpt_test.noreplace.memcpy
-> 
-> Looking forward to your feedback on this.
-> 
-> Dependencies:
-> The patch series includes a patch from the vfio selftest multi iommu
-> series as it is required for the hwpt_replace vfio selftest. It is part
-> of this series since the original code doesn't apply cleanly on the
-> base.
-> https://lore.kernel.org/all/20260505221518.619123-1-skhawaja@google.com/
-> 
-> Related Work:
-> Liveupdate IOMMU patch series:
-> https://lore.kernel.org/all/20260921004834.2601285-1-skhawaja@google.com/
-> Liveupdate IOMMU feature patchset breakdown:
-> https://docs.google.com/document/d/1enDn-uPE9U77U-xHEnzn6HHGKiePSAtMIP8EDU3NO0M
-> 
-> Samiullah Khawaja (3):
->    vfio: selftests: Add support of creating iommus from iommufd
->    vfio: selftests: Add iommufd hwpt replace test
->    iommu/arm-smmu-v3: Add support for hitless replace of S1 domains
-> 
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  66 ++++++-
->   tools/testing/selftests/vfio/Makefile         |   1 +
->   .../vfio/lib/include/libvfio/iommu.h          |   2 +
->   .../lib/include/libvfio/vfio_pci_device.h     |   2 +
->   tools/testing/selftests/vfio/lib/iommu.c      |  60 +++++-
->   .../selftests/vfio/lib/vfio_pci_device.c      |  25 ++-
->   .../vfio/vfio_iommufd_hwpt_replace_test.c     | 171 ++++++++++++++++++
->   7 files changed, 316 insertions(+), 11 deletions(-)
->   create mode 100644 tools/testing/selftests/vfio/vfio_iommufd_hwpt_replace_test.c
-> 
-> 
-> base-commit: 3d7783543c2646af69ad65825e810060494bea21
+clear_refs_pte_range() then reached the marker through:
 
+  ptep_test_and_clear_young()
+  test_and_clear_young_ptes()
+  contpte_test_and_clear_young_ptes()
+  contpte_align_addr_ptep()
+  __ptep_test_and_clear_young()
+
+The marker changed from old_pte=0x00000000000047c0 to
+new_pte=0x00000000000043c0 by clearing PTE_AF. For swap PTEs, bit 10 is
+part of the swap type field, bits 6-10: 0x47c0 is SWP_PTE_MARKER with
+offset 4, while 0x43c0 has type 15 and is decoded as an ordinary swap
+entry. Zap later warned in swap_put_entries_direct() with a bad swap
+entry.
+
+Present-invalid PTEs could retain PTE_CONT as software grouping state,
+but their single-PTE modification paths would then need to recognize
+and unfold those groups consistently. Since current helpers mostly use
+pte_valid_cont() for membership, avoid creating present-invalid
+transparent contpte groups in contpte_set_ptes(). They bring no hardware
+benefit while invalid, and eligible valid ranges can be grouped again
+when they are installed.
+
+The public set_ptes() wrapper already clears PTE_CONT before calling
+contpte_set_ptes(). Return invalid PTEs through __set_ptes() directly,
+and warn if a future direct caller unexpectedly passes an invalid PTE
+with PTE_CONT set.
+
+This is triggerable by a user process against its own address space. On
+systems running with panic_on_warn, the warning becomes a denial of
+service.
+
+Fixes: 4602e5757bcc ("arm64/mm: wire up PTE_CONT for user mappings")
+Cc: stable@vger.kernel.org
+Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+Tested-by: Lance Yang <lance.yang@linux.dev>
+Signed-off-by: Zhao Gongyi <zhaogongyi@bytedance.com>
+---
+Changes in v2:
+- Return invalid descriptors through __set_ptes() directly instead of
+  silently clearing PTE_CONT, as suggested by Lance Yang.
+- Add VM_WARN_ON_ONCE() for an unexpected direct caller that passes an
+  invalid descriptor with PTE_CONT set.
+- Describe valid PTE grouping as the current helper contract rather
+  than an architectural restriction, following David Hildenbrand's
+  feedback.
+
+Validation on arm64 QEMU/KVM with 4 KiB pages, CONFIG_ARM64_CONTPTE=y,
+CONFIG_TRANSPARENT_HUGEPAGE=y, CONFIG_KASAN=y and panic_on_warn=1:
+
+  Unfixed kernel: guard-marker reproducer warned and panicked on its
+                  first iteration.
+  v2 code:        100 guard-marker iterations, five fork probe runs and
+                  five PMD-split probe runs without warnings.
+
+The runtime build used base af32da41b032; arch/arm64/mm/contpte.c
+matched the v2 commit's Git blob ID. The pgtable.h change since that
+run is comment-only. The v2 commit itself is based on 24a19b953e2a
+and was not boot-tested separately.
+---
+ arch/arm64/include/asm/pgtable.h | 3 +++
+ arch/arm64/mm/contpte.c          | 4 +++-
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 6000905a2..6c81a3d22 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -1651,6 +1651,9 @@ extern void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long ad
+  * The contpte APIs are used to transparently manage the contiguous bit in ptes
+  * where it is possible and makes sense to do so. The PTE_CONT bit is considered
+  * a private implementation detail of the public ptep API (see below).
++ * Single-PTE transparent contpte helpers use pte_valid_cont() to identify
++ * grouped PTEs; explicit contiguous-encoding users such as hugetlb manage
++ * their entries separately.
+  */
+ extern void __contpte_try_fold(struct mm_struct *mm, unsigned long addr,
+ 				pte_t *ptep, pte_t pte);
+diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+index 0acab179f..be78d8602 100644
+--- a/arch/arm64/mm/contpte.c
++++ b/arch/arm64/mm/contpte.c
+@@ -460,8 +460,10 @@ void contpte_set_ptes(struct mm_struct *mm, unsigned long addr,
+ 	 */
+ 	VM_WARN_ON(nr == 1);
+ 
+-	if (!mm_is_user(mm))
++	if (!mm_is_user(mm) || !pte_valid(pte)) {
++		VM_WARN_ON_ONCE(!pte_valid(pte) && pte_cont(pte));
+ 		return __set_ptes(mm, addr, ptep, pte, nr);
++	}
+ 
+ 	end = addr + (nr << PAGE_SHIFT);
+ 	pfn = pte_pfn(pte);
+-- 
+2.39.5 (Apple Git-154)
 
