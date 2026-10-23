@@ -2,104 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7782606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 13:17:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75E6C606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 13:25:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UvSr5tH7;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=MLCZSXjI;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=mVGGwHjl
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GPVw+iGy;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=ltJ77d0S;
+	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NrN162d0;
+	dkim=neutral header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NrN162d0;
+	dkim=neutral header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NrN162d0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=cdpF+fVt2Hy2HfAcjpixN/WDxEX2Gn1Ra3OqY32SpVU=; b=UvSr5tH7AmHthM/+UJ0e5a2ZZn
-	Udpi6FV9zwq3eWFa8ClHQfUPyx7mqa9hqpIcCqzemfKs1WrmmM/rSYRZJa/ogNgzSPBN8kf0VSrwd
-	NUeK+PAV28sgOif3o4OfRtmAakxGxOQ6F+Dl/l9ijCcsIaqiGzB+7K5dg/T92q/Ew1+3PZGA+lxjF
-	k8POvC61O/1XHHNi/QAlnhHZRB/BjMkQ2gZujl/vhgjKZjAB/TDuGkV5ulDKrJopgvQNvNRSO2U78
-	h8Eg4D7bO+5rJQjhk7ld3nz/BhSH4ss/cS2CGHWCv/MCTkf8iZRy2rN0ySnmDtRsnZQgA2sgp8Rzu
-	4Ff4dT9A==;
+	bh=9Nv2cVwW/OKu3NQl5AdnfBAI1iL/npttcokjjp7Sh3k=; b=GPVw+iGy6bjoybFXdk9kQTN73m
+	EfJJyMlfrKqQb8tF4NV8gYkq8MbcT5IjSUKDg5zLF8xZyknbb7CvXuyD9cFcir5m0q9fyJuA/DUjC
+	94Y3dm5falPPISzK//8vhxKSHUwT3+NwENUwkI3+PiLDzLEJoeJcH5vgySPf+zS/FbLqthwKZfgd4
+	qMVNwV0TCHz2/EG8+b+RQcvBlj5WBRiZMR1o6JSLBlc7pZfGCTDBdek0tU/WFQFqSnddQrP357vxY
+	fyzW/sKUU9RKTbgoEnm2oR1XZXqKgtGpLyVe7YFNkpxVmsTN45XVKtIedneXAiVFIkKN6XSciTpuP
+	GHqLVfbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKF7v-0000000GMRD-1qEY;
-	Fri, 23 Oct 2026 13:16:07 +0000
+	id 1xKFGG-0000000GN1E-1pTn;
+	Fri, 23 Oct 2026 13:24:44 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKF7s-0000000GMPE-0r8c
+	id 1xKFGC-0000000GN0r-0k7w
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 23 Oct 2026 13:16:04 +0000
+	Fri, 23 Oct 2026 13:24:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:
+	d=infradead.org; s=desiato.20200630; h=Content-Type:In-Reply-To:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=cdpF+fVt2Hy2HfAcjpixN/WDxEX2Gn1Ra3OqY32SpVU=; b=MLCZSXjIJhEqtGTDuNeJdixsy7
-	JVh5aeH2K4SAkLhQ8DSu43a/54+IzXl7FbvhKZWKN64Nr1OV1eEQNryn1/8bf7B+V8bqwY2lyVp4H
-	AeHbSYvTNjjR+62f4k6ZvY45ZKVmYUPKhV9Lm+44qUsuzD/vZ0hOd+tyzxv4FWAs79WsvSpEvFGCa
-	/f2Xtzk22g7AxTkP0OAcBtFVTeB917GZDbVUDkfHuaYvT5nhbyTV+lh9fXoeLEfjgmZHCRBDYfe/z
-	AJ4ubA7EuW0vZHi306wh9clRHDHLIHx01oyS5q92W0VYlzV0Wo03SYx+Ui1H48DskQQGDNn9JyJFc
-	Q/KVxm+Q==;
-Received: from mailout2.samsung.com ([203.254.224.25])
+	bh=9Nv2cVwW/OKu3NQl5AdnfBAI1iL/npttcokjjp7Sh3k=; b=ltJ77d0SXEZfSzgIxqv5R/0Aoi
+	P249PX3Z7aE9rAxo5iHVmkfa+grj7AX6vYcm0W6Ml57NPES12zm/4S/S17TObalix3orCmGMTLRLo
+	AdTAfm+1d8IwATG6HM0JCT2Wzeah2CUvqr7rATgKoHQQVSYbXE28xv1hY99SqCMMN7uGbBmuPCstS
+	hf9UBSqoFj5JkfOO7QPAP85iRX/BX9eE9uzmpFV0kaX1SCXY8igyVJk93hkJMRq/mHxeexGgv61i1
+	Wepi4hTjoEVAltn3Z+iMUhiYaKshrhND7Q9tnVZLtxjZ/hZV4hyKjUMlKvye4D/XglA9j1/7ekpOH
+	UaMzHAgQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKF7o-00000009fOp-2Oec
+	id 1xKFFx-00000009gmd-1eDS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 13:16:03 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20261023131548epoutp02d5e1358b97f8d98559764a8942bf0bfb~hKvK6P4332878028780epoutp02z
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 13:15:48 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20261023131548epoutp02d5e1358b97f8d98559764a8942bf0bfb~hKvK6P4332878028780epoutp02z
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1792761348;
-	bh=cdpF+fVt2Hy2HfAcjpixN/WDxEX2Gn1Ra3OqY32SpVU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mVGGwHjlJfnuh/4+7+Ci5EO+0VrPVE/ID3N16GY7xk2HufMz8Zu7DApt4jlTHlBa7
-	 Kn2rzMwGmklvJWSYc8OYYp8/3WbazSLys/EwhLEjvJr5+KJNWo0S2D6LNDmPQCmemu
-	 Q41VhPDT0SfgZqQAvVd2It/p6hQFyxUGmb3YMlYo=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20261023131547epcas5p209499d6511be03591bb323d282998a0a~hKvJ8q5X10460604606epcas5p2V;
-	Fri, 23 Oct 2026 13:15:47 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.88]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4jB3Rk4SDdz2SSKY; Fri, 23 Oct
-	2026 13:15:46 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261023131545epcas5p1eff195129ccfb0fb476d3c78e6a507bc~hKvIRFYpW3047030470epcas5p1q;
-	Fri, 23 Oct 2026 13:15:45 +0000 (GMT)
-Received: from vega.samsungds.net (unknown [107.108.73.84]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261023131542epsmtip2ba58969fa0472da8c45d845928488ab5~hKvFhqAQp0806808068epsmtip2C;
-	Fri, 23 Oct 2026 13:15:42 +0000 (GMT)
-From: Selvarasu Ganesan <selvarasu.g@samsung.com>
-To: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, peter.griffin@linaro.org, alim.akhtar@samsung.com,
-	Thinh.Nguyen@synopsys.com, selvarasu.g@samsung.com,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	Fri, 23 Oct 2026 13:24:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1792761861;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9Nv2cVwW/OKu3NQl5AdnfBAI1iL/npttcokjjp7Sh3k=;
+	b=NrN162d04CF6jwpfvQN+5mECo3OlE/WNYNoWRLi5iOE7XoWKfWMdFw+XjGw7BK24USx1VI
+	j4r/9dY3iRPp3rmWpbjms4t1md8KGdRG7+KWaB0XE+tr7foNTTMP+AEF89xQ75SkETbQ+/
+	UGT3WzNHF3ML6P0Q6ADKcnyVbRQjeMs=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1792761861;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9Nv2cVwW/OKu3NQl5AdnfBAI1iL/npttcokjjp7Sh3k=;
+	b=NrN162d04CF6jwpfvQN+5mECo3OlE/WNYNoWRLi5iOE7XoWKfWMdFw+XjGw7BK24USx1VI
+	j4r/9dY3iRPp3rmWpbjms4t1md8KGdRG7+KWaB0XE+tr7foNTTMP+AEF89xQ75SkETbQ+/
+	UGT3WzNHF3ML6P0Q6ADKcnyVbRQjeMs=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1792761861;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9Nv2cVwW/OKu3NQl5AdnfBAI1iL/npttcokjjp7Sh3k=;
+	b=NrN162d04CF6jwpfvQN+5mECo3OlE/WNYNoWRLi5iOE7XoWKfWMdFw+XjGw7BK24USx1VI
+	j4r/9dY3iRPp3rmWpbjms4t1md8KGdRG7+KWaB0XE+tr7foNTTMP+AEF89xQ75SkETbQ+/
+	UGT3WzNHF3ML6P0Q6ADKcnyVbRQjeMs=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-497-6qAtnANiPbmUVI0GZIl8pw-1; Fri,
+ 23 Oct 2026 09:24:11 -0400
+X-MC-Unique: 6qAtnANiPbmUVI0GZIl8pw-1
+X-Mimecast-MFC-AGG-ID: 6qAtnANiPbmUVI0GZIl8pw_1792761849
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 20446195394D;
+	Fri, 23 Oct 2026 13:24:08 +0000 (UTC)
+Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id BB84D195608C;
+	Fri, 23 Oct 2026 13:24:05 +0000 (UTC)
+Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
+	oleg@redhat.com; Fri, 23 Oct 2026 15:24:07 +0200 (CEST)
+Date: Fri, 23 Oct 2026 15:24:04 +0200
+From: Oleg Nesterov <oleg@redhat.com>
+To: Zhao Gongyi <zhaogongyi@bytedance.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+	ruanjinjie@huawei.com, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: jh0801.jung@samsung.com, h10.kim@samsung.com, dh10.jung@samsung.com,
-	akash.m5@samsung.com, hongpooh.kim@samsung.com, eomji.oh@samsung.com,
-	shijie.cai@samsung.com, muhammed.ali@samsung.com, thiagu.r@samsung.com
-Subject: [PATCH v3 1/2] dt-bindings: usb: Add Samsung Exynos8855 DWC3
- controller binding
-Date: Fri, 23 Oct 2026 18:45:00 +0530
-Message-Id: <20261023131501.3157463-2-selvarasu.g@samsung.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20261023131501.3157463-1-selvarasu.g@samsung.com>
-X-CMS-MailID: 20261023131545epcas5p1eff195129ccfb0fb476d3c78e6a507bc
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261023131545epcas5p1eff195129ccfb0fb476d3c78e6a507bc
-References: <20261023131501.3157463-1-selvarasu.g@samsung.com>
-	<CGME20261023131545epcas5p1eff195129ccfb0fb476d3c78e6a507bc@epcas5p1.samsung.com>
+Subject: Re: [PATCH v2] arm64: ptrace: don't warn on missing siginfo in a
+ group-stop
+Message-ID: <attf9KALBQyOGyco@redhat.com>
+References: <20261023110710.10145-1-zhaogongyi@bytedance.com>
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+In-Reply-To: <20261023110710.10145-1-zhaogongyi@bytedance.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-Mimecast-MFC-PROC-ID: 0zNY-ENe-lwA-ZiAyZ5AEv6mR0mnyBTX_SUq2vkzwnU_1792761849
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_141601_200269_1CE523C9 
-X-CRM114-Status: GOOD (  15.64  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261023_142425_589861_C070E04B 
+X-CRM114-Status: GOOD (  16.33  )
+X-Spam-Score: 2.7 (++)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,111 +124,58 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
-X-Archived-By: <archiver.kernel.org>
 
-Add the Samsung Exynos8855 DWC3 binding using a flattened node
-representation, where the DWC3 controller is directly addressable
-rather than nested as a child node of a glue layer.
+On 10/23, Zhao Gongyi wrote:
+>
+> --- a/arch/arm64/kernel/ptrace.c
+> +++ b/arch/arm64/kernel/ptrace.c
+> @@ -573,10 +573,6 @@ static void update_syscall_orig_x0_after_ptrace(struct task_struct *target)
+>  	if (regs->syscallno == NO_SYSCALL)
+>  		return;
+>
+> -	/* We should only be called when target is in a ptrace stop */
+> -	if (WARN_ON_ONCE(!info))
+> -		return;
+> -
+>  	/*
+>  	 * For compat tasks, orig_r0 is provided directly through GPR index
+>  	 * 17.
+> @@ -588,7 +584,7 @@ static void update_syscall_orig_x0_after_ptrace(struct task_struct *target)
+>  	 * Don't update orig_x0 for a syscall-exit-stop, as x0 now contains the
+>  	 * return value of the system call.
+>  	 */
+> -	if ((info->si_code & ~0x80) == SIGTRAP &&
+> +	if (info && (info->si_code & ~0x80) == SIGTRAP &&
+>  	    target->ptrace_message == PTRACE_EVENTMSG_SYSCALL_EXIT) {
+>  		return;
 
-This is the first Samsung Exynos binding using the flattened
-representation.
+LGTM, but I don't understand this arm-specific code.
 
-Co-developed-by: Muhammed Ali <muhammed.ali@samsung.com>
-Signed-off-by: Muhammed Ali <muhammed.ali@samsung.com>
-Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
----
- .../bindings/usb/samsung,exynos8855-dwc3.yaml | 74 +++++++++++++++++++
- 1 file changed, 74 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/usb/samsung,exynos8855-dwc3.yaml
+And... Do we need to check target->last_siginfo at all?
 
-diff --git a/Documentation/devicetree/bindings/usb/samsung,exynos8855-dwc3.yaml b/Documentation/devicetree/bindings/usb/samsung,exynos8855-dwc3.yaml
-new file mode 100644
-index 000000000000..d8983c310d31
---- /dev/null
-+++ b/Documentation/devicetree/bindings/usb/samsung,exynos8855-dwc3.yaml
-@@ -0,0 +1,74 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/usb/samsung,exynos8855-dwc3.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Samsung Exynos8855 DWC3 USB controller
-+
-+maintainers:
-+  - Krzysztof Kozlowski <krzk@kernel.org>
-+  - Selvarasu Ganesan <selvarasu.g@samsung.com>
-+
-+description:
-+  Describes the DWC3 USB controller block implemented on the Samsung
-+  Exynos8855 SoC.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - samsung,exynos8855-dwc3
-+
-+  reg:
-+    maxItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    description: |
-+      Two clocks are used:
-+       - ref: Reference clock for SOF/ITP generation.
-+       - bus: Bus (APB) clock for register access.
-+    minItems: 2
-+    maxItems: 2
-+
-+  clock-names:
-+    items:
-+      - const: ref
-+      - const: bus
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+
-+allOf:
-+  - $ref: snps,dwc3-common.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    usb@13200000 {
-+        compatible = "samsung,exynos8855-dwc3";
-+        reg = <0x13200000 0x10000>;
-+        interrupts = <GIC_SPI 436 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&usb_clk 0>,
-+                 <&usb_clk 1>;
-+        clock-names = "ref", "bus";
-+        dr_mode = "peripheral";
-+        phys = <&usbdrd_phy 0>;
-+        phy-names = "usb2-phy";
-+        snps,quirk-frame-length-adjustment = <0x20>;
-+        snps,dis-u2-freeclk-exists-quirk;
-+        snps,gfladj-refclk-lpm-sel-quirk;
-+    };
-+...
--- 
-2.17.1
+ptrace_signal() -> ptrace_stop() path sets ->ptrace_message = 0.
+
+In all other cases: if info != NULL, then .si_code == target->exit_code.
+ptrace_event(event) users always use event != 0 and != 0x80.
+
+So it seems that we can just do
+
+	if ((target->exit_code & ~0x80) == SIGTRAP &&
+	    target->ptrace_message == PTRACE_EVENTMSG_SYSCALL_EXIT)
+
+?
+
+I'll recheck... If I am right, perhaps it makes sense to simplify
+ptrace_get_syscall_info_op().
+
+Anyway, up to you.
+
+Oleg.
 
 
