@@ -2,142 +2,113 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35A92606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 20:33:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBF31606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 20:56:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uERvYhyP;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=lxIXM7fH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=se3Z7Wkf;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NKktgR4r
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=OYv/zjTPslf0rcsVc+BdF44GfTteNk0YJEHO0aQQVcc=; b=uERvYhyP57CpGdSGy1NdAsO1N2
-	p5YGy/Me8aGSKvLWFVuTdJhPUTmsTDWpg+v5bp7mGEB1i5Aqre6h/qnRrAxFiatSbUllYO19gD4Cn
-	CwjT1wK84o7P3c9D3wZYJgAQOhGu42eI7J06F5soMZxwKrHT3squnKaAnHE5RoStgt40LtDURHfxC
-	EZqp52QL4A9sts9hc5MzaS2FpxfAIB5dyaZRzRYdh0ksYrqbUS103q2hiZplQMVpJCG+IYoEqvb96
-	Nyspa8TW/JJWI7ncmiXMgVXeV5DN9xb8K45hadTFC6hvgQCB+pfcwNUtueBlitP+LiLERUdO4eVQg
-	clP7Ijww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=a31hdiyyDF8ZUUv40jZBEIwm/U5+mj/EC+c4Mf/cga0=; b=se3Z7WkfXyEIiv
+	QlQAlH/MZ7cS1LFBJHpLMrCxMcum9RSfc9079HSkoInnh8ZT/Vn6GnzrCSVllVNfMHF0ynsUkZjo3
+	40Qj4JGz5XqWmSFlbDh1Xcu0fnggqU9j8LHBr6hrufMl9TEapW3HGrkNj0ZYCy+XTTOuYMhvF3Mb5
+	8QJD/5FnwH0Ai/lyws0lOmo5/D5L9Vgh90Wh9R3ML+WV4V6pKQMgBuBV144DE/VFQXKIS7KyNGcoE
+	0Imxrwf0IU+hFi/36sfeF0S1pvrkaic52nZU8UKCMagew61RUs9lsmTji9Cemz2Sr1epQsAMNdbD6
+	kIZzj+t6TSIwx15KU/Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKLwr-0000000GvnM-1Gl2;
-	Fri, 23 Oct 2026 20:33:09 +0000
-Received: from mail-norwayeastazon11013041.outbound.protection.outlook.com ([40.107.159.41] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xKMJ3-0000000GxYs-0yml;
+	Fri, 23 Oct 2026 20:56:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKLwo-0000000Gvmx-2ElW
+	id 1xKMJ1-0000000GxYl-3FVb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 20:33:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qm/L5u/anaMZ25/AtoYF535zARN2KTyr1QJ19PcZP/EL9xxQaWDRAlKYKfuZJC6KH/WWCHDlHdRlf++NAYNGeKA2IadbS/0lsggYO2ym0GVeNMHkfBRyWbQ6Tn9BxxwTJhAb/gWddX/WnrISpgprEb4anzcrHLd2M+NkCT3KzgJqpVnoaDaqiyc9C7iDvcI+SPNFJiCkhGTfMnsS7bNL+wsqUa3y//rcP4WQU5eJRBoIGFqSf4H8492Ata9UdoZXhJRfaTMvBZOfsPzsMehsykBZMlzUdQXDtTaoWdd1gs9fhWZ9vi0RPfWTenrxzALJjmEEthbPqbXxo/mIq/fs5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OYv/zjTPslf0rcsVc+BdF44GfTteNk0YJEHO0aQQVcc=;
- b=sG/K9xZtr9Lgx+v2GKhx2R164AzRbIW0/pjEGdmpC5/Qom6m6e1HVYa+mpkAo5Dw8caK1H0R1KI3kgAVYxYfK7uaxmIzhbJcxp8EUdXgcjsOXWEOgR2e/gqcNWf/qGP8hUSN+0pt8aFmfGSHeomXJoOYpyKwj+UOqD5q9SvKg8iCnnkjDTRCNKilyxa63u0K+RPMWmdcf9isdx8mQABFgxMKUE1EAAct3nca+LqPJ0Kmy9ayrI0hASDpkA4CXoXBpoPnrvY+wb/W3WB6UDgayqUdz1oi6WgsQrdE6aq3n+70n7Z9pGhmLKJZg0K7u2QZJN8J35aprL5sWPTIxJiWBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OYv/zjTPslf0rcsVc+BdF44GfTteNk0YJEHO0aQQVcc=;
- b=lxIXM7fHF8o0F5KJ8BwTf1PDYaqhCXFQ6aHzWLSIiAOqTDvhvGvIXRmf3yXSmXUchJshaZu9vr/OxLzVMG0rmYWhmVYkU/axNUDcGTUpriBWBX+6H9r+7jzzsSKQN53qUjN4ZZ7DtlomrzHj8eIysZyyXo9EBRNapUl9HlvVngGukpmPkR45yi1Ozf1oE5GiNuYWMzxUQ3mTpo/RX+z4NwjNm2M7rNenkmZY5606fD4IgGxIzk42KpZzt6bp2cIM6hhPmTIj7lfqWktmPn/KuVerrWuD0sjJwy3jNZLnuZmn0bd/Uhw/greCyUBXSRObSMIv3WXoU5nZ+8ve8SbQYA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by AS8PR04MB7816.eurprd04.prod.outlook.com (2603:10a6:20b:2a3::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.19; Fri, 23 Oct
- 2026 20:33:01 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.012; Fri, 23 Oct 2026
- 20:33:01 +0000
-Date: Fri, 23 Oct 2026 15:32:51 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, Arnd Bergmann <arnd@arndb.de>,
-	Maxime Ripard <mripard@kernel.org>,
-	Jens Kuske <jenskuske@gmail.com>,
-	Jean-Francois Moine <moinejf@free.fr>,
-	Hongling Zeng <zenghongling@kylinos.cn>,
-	Chengfeng Ye <cyeaa@connect.ust.hk>,
-	Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH v2 3/6] dmaengine: sun6i: serialize channel reassignment
- with interrupt handling
-Message-ID: <atvEczwQ8Xh9vcAI@SMW015318>
-References: <20261023-submit-sun6i-dma-lifetime-next-v1-v2-0-c9e07cc44bf8@gmail.com>
- <20261023-submit-sun6i-dma-lifetime-next-v1-v2-3-c9e07cc44bf8@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261023-submit-sun6i-dma-lifetime-next-v1-v2-3-c9e07cc44bf8@gmail.com>
-X-ClientProxiedBy: DS7P220CA0011.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:8:1ca::16) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	Fri, 23 Oct 2026 20:56:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C828860142;
+	Fri, 23 Oct 2026 20:56:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A4021F01825;
+	Fri, 23 Oct 2026 20:55:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792788962;
+	bh=a31hdiyyDF8ZUUv40jZBEIwm/U5+mj/EC+c4Mf/cga0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=NKktgR4rcKUdiO2NkGJRqzAQyHyNqk4IJRrBJu5OAedX8PNttS1iKxSWrk4vI+QCk
+	 YNzgXsxxdNLNEM0LOhDMdTdWBRlT/hiT8BXaWGx9CzvO241Sp7xjXaQQMlT+li1Vmk
+	 xEV8BbhLNv3aETBLsnUYUea273eBkAXi2UlnleTBUcRzusje/zDVOTo7VpvS4HCzqP
+	 XZZoc2CkOJIPULxNsLE8pm7OWICD3bKx8L75lOJptyqzWNQxaZmKTKNYlZZ0t9JZgf
+	 /4WlgKEJZLnCIM0Tuna+bCKkOB1ER1mWz32qJhFlXkmDKNt4I8eWKojYMQm8qkFp7o
+	 rB+6gAabFfuTQ==
+Message-ID: <cc2e3af6-bb56-41b1-9cde-151797c3068d@kernel.org>
+Date: Fri, 23 Oct 2026 22:55:54 +0200
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AS8PR04MB7816:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8b59df03-28fa-4bf9-efce-08df3144d50f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|19092799006|23010399003|1800799024|261022105027099003|261022075727099003|56012099006|10067099003|22082099003|18002099003|4143699003|11063799006|41080700001;
-X-Microsoft-Antispam-Message-Info: ZfAmYOeDLgmZuHkWj81hQrlhq/6g7HJcQSEA6ePNVbW6Y/XOiOFkBzZvNlyo0Ucn8UXpmHej/e1Xncf1niK+uXRiJrkrlbyWUnNueFRHbmvwuhXdWjjk6wDSlnUE7z728wkZ0PSk1oprKu5c3XBo1Wq8NzUmx2kKMq6ZkvqCPlrfXhCn/SI/IsmRXgu55I4VXEcL0cnAgCpeAh4XuOohyfDjub0ykfPqoLp6MCxiJg/YPPB9cbQZ+5pxf4e7s9lmUsl6ZP4L5Upb2Mcm0RIj7Lhkqu1DqMypHor8r2LlPhDrtET5LjRU5k/JapCkTkPvoqS09MrS2YSa3ZDygG+8k30h+ZimSS4dXS9KLicGf7A6rfvszzRaqTPPOFMJUVeAcaOREJjESKSRIPG+2GUEBvcaDhNKTOXHVLEqR+bWI/odwN8FP0+cRMF4aECr941IELWeQdQ9Po6Dpx5SC9kg+Z1P9D0WKuKc9rlwcbGe2Y1CVxs2bK2xQjmivqYBW/VKJTiXpWRT6iJ1DgCC00SZbXsAvprPCMcpzISoOdzVyRyT+JxDBfQ+8MpZ5Cxlaimo1C/0L0fD+0h4npTRW5KB9AGsbUzneH5RlSfoPn9EXKKQ2vEZoPuIYOPKLdysX4CBYbnALoqz+tu98fQlkGqQ7emsZBYMU8uqKc6pk7jyQB0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(19092799006)(23010399003)(1800799024)(261022105027099003)(261022075727099003)(56012099006)(10067099003)(22082099003)(18002099003)(4143699003)(11063799006)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pnosb6uW3Vml6YM9akNSpE1oVzlACR5cMMAJOH56LGaVuvlFhauHDX79miA5?=
- =?us-ascii?Q?n3SAYRgy3XA3nFxBgknUeqFJ1newIjd6p2sVUJPjpCSWRjYqGKsnENtUWjzw?=
- =?us-ascii?Q?4Jhi3kqH03K/+UXIM1J89/CS3q4kjCtpHvcPUvly9N4Ky/4Hdxo0UrNjI15s?=
- =?us-ascii?Q?pwMvoeGKAHnQK7B9J7eznchN1+7mklHC65VJh9yxgrz//ixqL84/i7G+PSJt?=
- =?us-ascii?Q?KC/3b5i+84j0MPTgZUmKM7b+QA2Vil3VzNE1hIpDb9TS4mnTiO20B26q6DO8?=
- =?us-ascii?Q?KCDKRvy5i+fr0EMRLpougIsxMLIT0zQ87EjtiomA2jl/XS2aMfJmsnGldL/+?=
- =?us-ascii?Q?kbWyYzD+H2CpjmuZhB3yaXuj70o+qZlo+fxAuNWNO+5eJ+0v/YNDE7qXHdw0?=
- =?us-ascii?Q?JIdjWBbPSudszaseQoNYET+rTelxOfh/PkUyveq5FPTmRQFLJw31+wFKuclx?=
- =?us-ascii?Q?HrnqT5GIQ6ST1QcO2iqriKsHfo8+5qZUE7ElmodwOP/fCaaUwnHJ3lX+K2C0?=
- =?us-ascii?Q?4JD+hEPgei4YvwXC7NtQiUSipq4rPqW4fAjN3Ehsaa6g2P8pUchHK/RjAPZi?=
- =?us-ascii?Q?Fof+GaQjxLQpqZx64tavgrEHvLzooIVFhf21BK4J0muGfizlhzHGs+Gnwozl?=
- =?us-ascii?Q?9+2EeJcQ8ELWhkSHAMdeJvKy7kiC5LmIORIxnxmheMn2/iOGEsrRe7NYaJaB?=
- =?us-ascii?Q?IkyavJDBiP+b6heux0lncXuBHgQjZkTDZQ7JPTbFt5/qvS4G+9Dvqm7WC9LL?=
- =?us-ascii?Q?nADzP6SwXjMzu9ZS7t/1fAWbEZXfV6cNZ90yIoPaeciD5m2B+vt6/uuNhh4p?=
- =?us-ascii?Q?lqFE7N282QgWS7M8OeX75A+TqSOLs5blLt7fwZ0R/V20VfeyP7XN0ojJ6zVJ?=
- =?us-ascii?Q?vAASAt3Bag5gf4eIp+PfbKCX2IChzH/ynd2JDWJIL/lU4QK50zUrdK0aDmcL?=
- =?us-ascii?Q?R+c0aYhpuq5Do6D6OR618xo7gxjretd9BmbBMxRv3akTIOqNVjVAG8nibmuF?=
- =?us-ascii?Q?1bcVCToRRxVQ6J96pA6uCtL1KJjmLsj8N7TV/HsfwQiC0rbiKQHipKw1PbdZ?=
- =?us-ascii?Q?+AOWhn465MwvKiLNt3kMhgNSE+WAOquhd51jegrK3YJua4afNiJLi4fc6etL?=
- =?us-ascii?Q?leCEHX5Zlpft+atVa28PeYPUyFna+it2Uy6gz3Dj0Suj5CvoDlPb4Ysf9O3j?=
- =?us-ascii?Q?FOzdkuKbPEWCPxMLpg4Wamgg6wWGIv+kf5SQ004mHtL6Z6SXuJTWvdCu44ZU?=
- =?us-ascii?Q?AAO0yCEkUY3HO6rIt5HZ3zL9A9xs7GVn4OxgvXy/n/VVnSuaI5h2SabLeTrL?=
- =?us-ascii?Q?teleQlISAtz8dDvgwet+La9vhF3GVBN/bjrj5QZ7BhZsihca1tQ5eHc5/6VW?=
- =?us-ascii?Q?4Q01TcBR7Ok9HFFvKy7YPuc3IyLK0w8hVk7l+z/wzNYka+rkyQIMJygDNdD2?=
- =?us-ascii?Q?hk+AUj+BFY2bTcuesdOVuMUVU7SsaHEs4esPtqbtESnXZATRpPdjYDe+OZS8?=
- =?us-ascii?Q?TetykXjkvBhi/Hit5RZups+geeTPnJqQ7bc0ViIvoPnO5i/oovMOmGWy+pfo?=
- =?us-ascii?Q?ls4Dqc2Kf6uMMIel/eSA3evQLHmJiaBGtFJqvJ0hRXNCb41zDrlUcGgaKK7T?=
- =?us-ascii?Q?oOgyFjv61f7koV4OYDFL6CknfU/HZeZHnMDh2TkEkUB2TfzVIrPH2evQJ0W/?=
- =?us-ascii?Q?61e7Rdn6GwgqJ1AxlPZpF2OkLKup4QNKy+B7m7bQHIEnehFd+gkyJuZcZfdj?=
- =?us-ascii?Q?BblDnMuVkQjQ0eQMwGlmkTU+mTmzmMKsr7IPrf5phbP8ZtYVNsKg?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8b59df03-28fa-4bf9-efce-08df3144d50f
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2026 20:33:01.4138
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mrGfwQ+lLOjlmFs1WmAovFaWv4K+9+Sm4Vv+GNaV/I0ka/FC9emMCHIBmf4GAT6jCxH0QWjvivMH7qldEN+UMv13RCqjZd5YsT7e5OL8ftzgQRHH9kOC8mp+qEqzxXh9
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7816
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_133306_602599_1809324C 
-X-CRM114-Status: GOOD (  16.71  )
-X-Spam-Score: -1.9 (-)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: restrict transparent contpte mappings to valid
+ PTEs
+To: Zhao Gongyi <zhaogongyi@bytedance.com>, catalin.marinas@arm.com,
+ will@kernel.org, Ryan Roberts <Ryan.Roberts@arm.com>
+Cc: dev.jain@arm.com, baolin.wang@linux.alibaba.com, lance.yang@linux.dev,
+ mark.rutland@arm.com, akpm@linux-foundation.org, ljs@kernel.org,
+ liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, surenb@google.com,
+ mhocko@suse.com, linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20261013093600.54995-1-zhaogongyi@bytedance.com>
+ <daab2f45-56c2-48ad-a24f-aa4f889e4da2@kernel.org>
+ <e0f60526-bb95-4d39-9a7a-72cdf32ca5b6@bytedance.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <e0f60526-bb95-4d39-9a7a-72cdf32ca5b6@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,50 +119,105 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23, 2026 at 12:42:37PM -0600, James Hilliard wrote:
-> The allocator changes vchan->phy and pchan->vchan under sdev->lock, but
-> termination reads the physical channel before taking either lock. The IRQ
-> handler also takes an owner snapshot without protecting it. Termination
-> can therefore miss a new assignment or detach an owner while an interrupt
-> is about to complete its descriptor. An IRQ status snapshot can survive
-> reassignment and be applied to the next transfer.
->
-> Use sdev->lock for physical-channel ownership, pending channels and the
-> shared interrupt registers, nesting vc.lock inside it for descriptor
-> lists and cookie updates. Allocate and start each pending channel in one
-> critical section. Read and acknowledge IRQ status under the same outer
-> lock, and protect cyclic notifications as well as ordinary completions.
->
-> Clear the active descriptor pointer before publishing finite completion
-> to virt-dma, whose tasklet may free it independently of the allocator.
-> An assigned channel without an active descriptor is ready for the
-> allocator to start its next transfer or release it. This replaces the
-> completed-descriptor pointer and keeps residue queries and termination
-> from consulting a descriptor already handed to virt-dma.
->
-> Mask and clear a stopped channel's IRQs before releasing its ownership,
-> and clear pending status before starting a new descriptor. Schedule the
-> allocator after termination so other pending channels can use the released
-> physical channel without depending on another device interrupt.
->
-> This also keeps process-context acquisitions IRQ-safe. Client callbacks
-> remain outside these locks in the virtual-channel completion tasklet.
->
-> Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/r/20260706065650.34B131F00A3A@smtp.kernel.org
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
+On 10/19/26 09:06, Zhao Gongyi wrote:
+> On 10/14/26 5:41 PM, David Hildenbrand (Arm) wrote:
+>> CCing Ryan:
+>>
+>> https://lore.kernel.org/r/20261013093600.54995-1-zhaogongyi@bytedance.com
+>>
+>> On 10/13/26 11:36, Zhao Gongyi wrote:
+>>> The transparent contpte layer treats PTE_CONT as software state: when a
+>>> PTE has PTE_CONT set, the contpte helpers may align the operation to a
+>>> CONT_PTE_SIZE block and operate on the whole block. That invariant only
+>>> makes sense for valid mappings. Explicit users such as hugetlb manage
+>>> their contiguous encodings separately.
+>>>
+>>> contpte_set_ptes() currently sets PTE_CONT from alignment alone. Batched
+>>> set_ptes() users can therefore install present-invalid PTEs with
+>>> PTE_CONT set, for example mprotect(PROT_NONE), NUMA hinting through
+>>> modify_prot_commit_ptes(), fork() copying a PROT_NONE large folio, or a
+>>> PMD split installing PAGE_NONE PTEs.
+>>>
+>>> This is not a hardware programming problem: invalid descriptors are not
+>>> translated, so the hardware ignores descriptor bits such as PTE_CONT. It
+>>> is a software-state problem. Some arm64 fast paths intentionally test
+>>> pte_cont() directly instead of pte_valid_cont(), for example commit
+>>> 9970a9a27ffc ("arm64: mm: implement the architecture-specific
+>>> test_and_clear_young_ptes()"). Fixing the producer side preserves these
+>>> fast paths and covers all consumers.
+>>>
+>>> In the observed failure, mprotect(PROT_NONE) installed a full
+>>> CONT_PTE_SIZE range of present-invalid PTEs with PTE_CONT set.
+>>> MADV_GUARD_INSTALL then zapped one PTE. The nr == 1 clear_full_ptes()
+>>> path only unfolds pte_valid_cont() entries, so the neighbouring
+>>> present-invalid entries kept PTE_CONT while the target entry became a
+>>> guard marker.
+>>
+>> Hm, is there a good reason why we cannot just use the cont-pte bit for all
+>> *present* PTEs, even if HW would not be prepared to benefit (!pte_valid())?
+>>
+>> I guess we really only have to make sure to shatter properly, right?
+>>
+> 
+> 
+> Hi David,
+> 
+> Right, there is no architectural restriction preventing PTE_CONT from
+> being used as software grouping state for present-invalid PTEs. For this
+> particular failure, making contpte_try_unfold() recognize something like
+> 
+>          pte_present(pte) && pte_cont(pte)
+> 
+> would make clear_full_ptes(nr == 1) unfold the block before replacing one
+> entry with the guard marker.
+> 
+> My reason for preferring the producer-side fix is that the existing
+> transparent contpte helpers mostly use pte_valid_cont() as the membership
+> test, including contpte_try_unfold(), ptep_get[_lockless](),
+> pte_batch_hint() and contpte_is_consistent(), while some range fast paths
+> test pte_cont() directly.
+> 
+> If present-invalid PTEs are also considered members of a transparent
+> contpte block, I think we should audit the single-PTE modification paths,
+> rather than changing only this clear path. We would likely also need a
+> pte_present_cont() helper: the pte_present() guard matters because the
+> PTE_CONT bit position is part of the swap offset for non-present entries.
+> 
+> There is no hardware benefit while the descriptors are invalid, and
+> set_ptes() can recreate the contiguous encoding when an eligible range is
+> made valid again. For a stable fix, I therefore preferred to stop
+> contpte_set_ptes() from creating present-invalid transparent contpte
+> mappings, which also matches the pte_valid_cont() contract used by most
+> of the existing helpers.
+> 
+> I agree that saying this invariant "only makes sense" for valid mappings
+> is too strong. I will reword that to describe the current helper
+> contract instead.
+> 
+> If preserving the software grouping across PROT_NONE is the intended
+> semantics, I can rework this as a broader unfold-path audit instead.
 
-Is it possible split to more small change? And you almost add sdev->lock,
-any place only use vc.lock without sdev->lock?
+Hi,
 
-Frank
+sorry for the late reply.
+
+If we have the spare PTE bit, why shouldn't we just use it?
+
+It will make batching over PTEs faster. And we care about that for present PTEs.
+
+So I don't quite see why the stable fix couldn't just do it right away? Do you
+have a prototype that shows that it would require significant code changes?
+
+-- 
+Cheers,
+
+David
 
