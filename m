@@ -2,171 +2,113 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41390606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 23:37:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64D5D60A2607
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 23:38:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TqVM5pps;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=moYOHMFI;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=R4H1ZEd5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BH7YSlea;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=QZQ3+MG5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Mgo2dnohmbku8+6gd0EG9FENz+puwwm3rQ80la31iuE=; b=TqVM5ppsOBGRCoIM+yhwT8ZzV2
-	ZQavLKcueHWMCov4LF4DkwfEbjp3eZrUduJMR78m6BJZngB9SWPnc0GZ93DCeX9Y5xCW4Zm6HCgXD
-	4LTqSASwXgt6c3uRCPqxsl0gP3T5zMrkPaIJres4BVNnkTVKNWnfpKijoKiqgHjTKxGH4rlojSmva
-	3ijOpo7ESZkj9yRx8srNbEtpcv8RGQQeNz8tHp4+8TRLL76ZVeJEOotU1SjQzEcGV2udrwxEix43d
-	8nkwLOCE78qNfjYiTMgYRFVv1+bG+WUaM0BlKxAU+DQUbdwvDF8uvazmUKEj4SDXzH5fZ6rtWhmi7
-	4T5vnWpQ==;
+	bh=5TT2qKFHVhSy1i/+TLyLe7Zn0Ot6zl7si4UQtRA1syU=; b=BH7YSleawiJwgo1L4uhqM2iSNH
+	RS1rGnZtN+CJCdGMkhPwHxQ6Jca9GsEmHxMrx6TlMxfxYdkh+UjqFCEBSEzJcEW3xp4SV9NrofMmw
+	MWEA8nJcwPbodZyC+9TqGSI0awGc9l3j+n+rX8vDx1GruECiGfwmmkTTPYTLHuclqeRpYwWnGI1G3
+	hkLdFr1DfPeZfNgX+JspzMP/UcPLU7iS9kJp/nHn+9dwK5aoZj7vhGdJ4gZBg3luP/NxuXtbBeS/p
+	DlkuV9MqisyJuAH9gvoDbk9fMKSu56QQmqFB9CdZZrH/NcWBDiobFd53qia73JC7aZUByAnTFsU4H
+	4iMcU6eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKOoj-0000000HB37-0LyP;
-	Fri, 23 Oct 2026 23:36:57 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xKOqI-0000000HBHb-1Wer;
+	Fri, 23 Oct 2026 23:38:34 +0000
+Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKOof-0000000HB2l-3tzD
+	id 1xKOqG-0000000HBGq-0knz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 23:36:55 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69NLurWe877073
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 23:36:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Mgo2dnohmbku8+6gd0EG9FENz+puwwm3rQ80la31iuE=; b=moYOHMFI/3MRcJDz
-	ZA8WnN7yEfSkWsyYp8v9+QFucDkTCQC8SKcTMqg6RzdAtSjs3QzyZzQWJj0B/Ck0
-	RUVQ95Vua/zwF3kcxhebMt86PgFMZy42QbaGG1wXhzJI9u5QVSOEYPxzcdwRGL5g
-	v8e/Cwpg5r/HTWQirguGNfljG9bsB9eUsY068Ty7mtfFWZ0WCbFD0USBCprfm2Cv
-	tP4D5MY2tkdIdOtYAMZUXZa5Di76LOUTGCgvyc8GSjD9Fx7Ln0TieTpXRURC96qg
-	+UKV4UvxmqsF+PWNhqI2HT9ElC6Wn/6oWhECs9FABEYmXr70LNHco9j/K0M4FKGi
-	fs/lwA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hgcr68waa-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 23:36:53 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93caa0ce0cdso175560985a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 16:36:52 -0700 (PDT)
+	Fri, 23 Oct 2026 23:38:33 +0000
+Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-4a75171af39so512219fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 16:38:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792798612; x=1793403412; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Mgo2dnohmbku8+6gd0EG9FENz+puwwm3rQ80la31iuE=;
-        b=R4H1ZEd5Tb3iXHmo8OlIb4wOPl6l6fYdLXXTM2WTn2ul7lTaDXs7d74OevCl8lVltz
-         9QcoLNWA26EkdR6ByDGmdQ5uZ+XfcN3HYulgOipSBUpONquvDe3lJEOjDUTGiRiAt3M+
-         VHHXR+grRsjfaTR9UpeNCfNORZgPQW8X2XAoQ7bLS5EaPGVRA8LyIlFubg9C395BMhQg
-         GJkFIHTo6gO3+xcN7EKCapjubCZYtZhTZg6TYGtqVwKzZ9fQg9Wj93m6uvlVsyOJ7VSV
-         JhRPxmRb0lkj6ygHQvdpknlw1oCdH9d37C5owp0SBcPNi87uBgVUSpfsTGfxBYy/kbip
-         vkKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792798612; x=1793403412;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20251104; t=1792798711; x=1793403511; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=Mgo2dnohmbku8+6gd0EG9FENz+puwwm3rQ80la31iuE=;
-        b=jcYjygNHVXypUNe2kVxvsuy9R5WlJGyBoqtOult9v+4X4OtiWbIQrGYg5A4x6Tzp3A
-         ER6NMD5Q96HPCjjHYB2YxEcq2fcasb3nOWeghWmWyj+7FEWqVpMpXbgv+FutaTN42gX1
-         vBtx6GyVutKtYivU7CJ8DXX6c74w6NLHxwzYQChOj2xliBrCLVZ5vp2EgYWuxMM+o7Cw
-         VFRE5qm2vLDRyMiDnPolz+JxoXRU3idMVOksfaA/E/gSDjrvDuH7N6R+4nHRakzkylQr
-         YNAWlSuVYAqZfrCQATUrCkGK4l2BrGVt0C2nPAdxWm79X+EB3IpDu2kXHQ0U33nKnwHT
-         JMLQ==
-X-Forwarded-Encrypted: i=1; AKwUvBybk/Tp1n/oLeYoqsRMZikq3Ny2cVkCw0gcJlw0GKxT41n1ueWVpmgLWoJrdGUl1nYBDOYfIPjbCMqUWewoQgqd@lists.infradead.org
-X-Gm-Message-State: AFq9FYJL+qIxv1+M34zU6PgVE92KBZWPZBf9bM73hBomKYbDsc2ogY6T
-	0kDt5D/fRhiZm7KkujGFieuQn8BywacBGRvunWTzWOV5ZUWL7oA+SFgpjwt79CsZx2S/3zTeIYQ
-	bMzMVXu6BeZgCurJOLMjKATiXO0AGjqKDIEsNmZbcKVC8ITfrvn7OuMvpAJJLE+Der+7fYNYXfk
-	o9uw==
-X-Gm-Gg: AYBFou07axQTBlUn6ZaVslLvF//j2sloCxhmk2sPOp4tKL0Cd/ATlREVvC7C9SFQ0yS
-	kAfi4/0cLVKAJ7Ye4LFe6s2f+B8ljQiDAjh9j+iA+/6XpJNsgaWUI5I6+1x2v2rUajNDHbdcxRt
-	UnDLnn5bZ56KNTvRqlPPSM+ZncNE0LK12JXkkqnhkKtqXckqHdCj5dPjQwHXNvYuEeNImqe1vml
-	PGzjf1OZ1ddndLDLxrQKKwI7G7B0VDQqF5g56oQiCzAJO4Iy8z0miSVLzyWy7N0qas8WvxErKl6
-	+XGfPnU5N5aCth8Q4vYDDgl+knfIEQDv+sbTktXfCJLILJGV8vqa3UPK6BgZasWHE2vQuEg+jvk
-	NeKKlp1q26KOcc5dK735lKWPDXe6jqL3XBhRd74R4iM1lStMZGqXJUAz93Eum6jD4GiX0riRV5g
-	Y0Pwy5uWAUTs9/
-X-Received: by 2002:a05:620a:370b:b0:93b:eb9a:ca47 with SMTP id af79cd13be357-940ef938f5fmr84044485a.31.1792798611950;
-        Fri, 23 Oct 2026 16:36:51 -0700 (PDT)
-X-Received: by 2002:a05:620a:370b:b0:93b:eb9a:ca47 with SMTP id af79cd13be357-940ef938f5fmr84041285a.31.1792798611386;
-        Fri, 23 Oct 2026 16:36:51 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5bfb7a6b051sm67463e87.14.2026.10.23.16.36.48
+        bh=5TT2qKFHVhSy1i/+TLyLe7Zn0Ot6zl7si4UQtRA1syU=;
+        b=QZQ3+MG5H9Lc4KLzW+y61Ja0ClyuFos/uIoP94Ja/VZ3DxOIrVnQVWN9cKHg+hZvpd
+         waXxctehUN2sPMPSm85xR1wWnqExrOUX90hEHx0O+CybbuMhEKeP0lpnZZznw/IKRFxt
+         zPcf68TfI65yo0P7vDskWl35dyFcBhJc4elRqv68hPwR4cpmk0NMjVtitZEaEEf3qFjy
+         g71nWAyHqs8edfxhai6iPGDJduJdK4d6+4SBRj0Rd6lUN4iWnVS/3k/MjWTdDQAC5BI7
+         xRlqT3vcd0R3nk2oZh/OdkvyeoMhxgUk7YqJGrNi9eOVQJ+Ny7SUbl0Htz9zgmCbZFWn
+         TqPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792798711; x=1793403511;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=5TT2qKFHVhSy1i/+TLyLe7Zn0Ot6zl7si4UQtRA1syU=;
+        b=AVkpWrwvpf8p+HObNnVXHai2gCYSCwWG8+VyGTyj8VwyB9EJQGMVrXoOTWgyb8nrro
+         GG0ekwMq0f0HpbUvz5CI4yPCFX/aoo1G6Q2LYy9ZcjuSOyPU3DFpGvNOpWkv/ZAmV3l0
+         d1e/y/30wy6OPuI9q6jgBVg+G3DVyGlkpZN55I6oTyrd35UabSlRn3ETlMhxz1T3LOTh
+         sEjmrJQwhC4zZVo4t5KCL52JdvTHEC06vCIr0txxcvhRbbaEJjH/6uHv0QT5+S7mk1U5
+         Rv5lL4l1Bbr61m7QtLwcL7J83ek3v70646fgYL7DXZVfVFdJLi7s+7AW5rX+JAM3xOJI
+         l8RA==
+X-Forwarded-Encrypted: i=1; AKwUvBxlV+7w+eq6o1GihCIQfVmb958pFF1+wt0Ybzd4RDeXKixY7gcg4fAZbbcOqJ7+3YG5UK9Yft/EvgzaYemaBFG/@lists.infradead.org
+X-Gm-Message-State: AFq9FYJDDjX/b26GOhfnBnXj+0SxhMduxXwpdy3BDUc3rKYtZg75FXrZ
+	kRV5dR0+//IQEbPsE6mL+dTkz5/KlA7c+4yR6NFBgHDXH/rdc9buf18P
+X-Gm-Gg: AYBFou09SztjnP4BMXVbXYAth5CgExwEbjRj/1ETmUIP2t8GJ6hmlpd3AgUOoK1Qmmw
+	MDnA7C1pluVjYnJp0PE25GoEmPksycQGytPbzrYVzdVVWziBPVuHIZdpweiUEkYxgMc477fBdOa
+	Wxe6DXmivCIiFzKrjmcaFxt6sYg7ky9frSB7ZPwmX8XvH0qYcgLI/aEBCf+Y2eWjB5HRW1IOP+0
+	/+P5Cx8ALN2tzD7uKayJH6YIT8LUNMMJfgCj49czlullYs/mRlP6R8B5Q0d3wKN0GEoIqj4/C94
+	Lp518ksJrhUs+mqApE+FdeOxE+6zstQhx9E+qIpoRmF34+ZBnvjXNYBo0GB+9iMC69qlcfotgj7
+	hS1tVnSD+8B+Fti/H370T5IlFOuKNma9AlwvBBPbCAUd4HkFX43y8Vta6Qeq2xBKk2F/AwHfezM
+	GcuUqOLWdga4dfzZXRR6aZrkXOu+XLzVevd6BWOsU+3Hc/dthidJsCUks8H+gSYGc45ZaWTPD3i
+	SaouW1E2Fq/K4kjWVmOC3pfCfXTO6SEtkzxCfWDmrlpQqndf58yZ4bXp/idnzDqJRECZtKnvMSh
+	gySQEMOjxbT4acbxzCkMCZI+HatefiRY1V8/DDX+TMdmVlylXT9nWsEimRKVn5quv00HOm5YcsV
+	jXuBWXiY/qnaNKJz+oK057euhhi5J+tMe0yG/wKKC+sBBjxpPgW6TZyNM0UwhBg8pLEO3Dh+mMF
+	fGb8cP
+X-Received: by 2002:a05:6870:71c5:b0:494:a88e:3ec7 with SMTP id 586e51a60fabf-4a83f5ecc73mr613357fac.39.1792798711052;
+        Fri, 23 Oct 2026 16:38:31 -0700 (PDT)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4a843225d69sm284345fac.15.2026.10.23.16.38.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Oct 2026 16:36:49 -0700 (PDT)
-Date: Sat, 24 Oct 2026 02:36:47 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Cc: Anna Maniscalco <anna.maniscalco2000@gmail.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, iommu@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH RFC 03/13] drm/msm: look for lpac from dts
-Message-ID: <o2zmplbtmoueumw3iqejfsdmucp5f66woa5hmw3vodbe66reab@syn2ashugzyg>
-References: <20260705-descriptive-name-lpac-upstream-v1-0-01d50c3e0c99@gmail.com>
- <20260705-descriptive-name-lpac-upstream-v1-3-01d50c3e0c99@gmail.com>
- <rwohvfbsw2brpxrfg26egu5arwe6g7n2etelo33eegmu5cz65k@3syofuxzsjrc>
- <dc5aef2e-600e-4e97-b76b-dcc8bd72c709@gmail.com>
- <m4vwrqt6yyaawpvkyrqfzs3kbipbhygmtrhphuthl2gmjvkgyt@u2d3dnvl2phy>
- <54cb37bb-aaa5-4c5d-a563-acca4822dd35@oss.qualcomm.com>
- <t5gu6ciwmxdb2jghc44gtixdsbedkgy4yzke5sgawjrr2h362u@ahvhh3yfe6lx>
- <wtun2cfukyzxlsfiz2izsejd33k4jpapwqa3uqih5drcsrkff5@e6llkke5dayw>
- <1f6db59c-b7a9-41a1-8022-6713365fa09e@gmail.com>
- <fcb86c33-1893-47bb-80eb-20acd65f3805@oss.qualcomm.com>
+        Fri, 23 Oct 2026 16:38:30 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Subject: [PATCH v3 0/9] dmaengine: sun6i: fix interrupt routing and channel
+ lifetime
+Date: Fri, 23 Oct 2026 17:38:19 -0600
+Message-Id: <20261023-submit-sun6i-dma-lifetime-next-v1-v3-0-ef1acb0be768@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <fcb86c33-1893-47bb-80eb-20acd65f3805@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=HMRWhYtv c=1 sm=1 tr=0 ts=6adbef95 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=VwQbUJbxAAAA:8
- a=9jRdOu3wAAAA:8 a=s7fkfekX88plzggl2-cA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22 a=ZE6KLimJVUuLrTuGpvhn:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIzMDA5MyBTYWx0ZWRfX99pGF+P30zUv
- 0UgbqgjOIQHK5yxNky7ErEOSDwpgHpReIGEthFMdDzj5U1PLsLHnSGh5wSqZROwk0uoWtLfKWYO
- xmdChky6ZVQfqx49gboTFMhbKwXxUrWSrELFc/Zt9vR25dDbsxNa/VfmkJSp7lmOsx3wZ9tyIQA
- QPTyd/IuTaDQPbvo2NLlz6HQRaG0ev3Yspc1ruzMhvzxn3u29rYdHzqAwyscnC/Mq2Zkvkv43TC
- CNAsZvEEGoU1Z/Sck6KtiqN6PPzIr5nP+9tbe9uJpJLHKoHYjPO2KLvfg8G7FL9FkTVY1VAoYMH
- MAQ3uCOVvasYgOejYRh79pMV33yPFc40AFeYYQ9yfrD64XXBx7C/V9EzfTEWN7++DEkUPE/47Ur
- 3oVZ80IQTSZUknln1/84fKE9rmtpFKqzxv6A1dqBF+VI34Y/90ErwlDT/ZbwpDUxCKAAsdI40d3
- SNnpw7uv0bfr1eIQujA==
-X-Proofpoint-ORIG-GUID: cLQSHTQ1eckcZbcj5WI3Wcv-npsry-gy
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIzMDA5MyBTYWx0ZWRfX+08Gy89+rRHk
- ZxdXRzXkhg/jhf5T42LnAkK+gj/K+jtOMYrEeT/HeIs3JkNTkA3z0PGarNbVr7C3/jDwM22UpSn
- S3ZNY2WexlsP68Hg/OyUc8z+MCTSziQ=
-X-Proofpoint-GUID: cLQSHTQ1eckcZbcj5WI3Wcv-npsry-gy
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-23_06,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 clxscore=1015 suspectscore=0 spamscore=0 phishscore=0
- priorityscore=1501 impostorscore=0 malwarescore=0 bulkscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610230093
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WQzW4CMQyEXwXtuany4zhZTn2PqofEsSFVd2l3F
+ 0SFePcG6AFurRQpGsn+xjOnbuap8tytV6du4kOd625swj2tOtqmccOqlqY7qy0aba2a93moS/t
+ GrKoMSX1U4aUOrEY+LupglHfkjI8CEUzXOJ8TSz1ePV7fbrpB3pmWC/h3YuKvfTNfbmNdTjMr2
+ g3Nar1KIp4xhSCEfQoEvbaAgL4HXUwEa0sgdDeztNC23bxeFXR9BAgIISVdctba58YphDn1yAi
+ WJUV83BIMZCSWWHrWBojQa7HiGiYiWnCaXA4hP25Fb20MsQgwFZBmFUiKa5UZ53tGzj4mw9Jd8
+ m/rvOym72vlB3ON+49229NKGx29YATq5WUzpPrx3Mq60g/2nuj+QrSNSC1uIALIEu+J5/P5ByH
+ 21fMkAgAA
+X-Change-ID: 20261022-submit-sun6i-dma-lifetime-next-v1-53c3158f4841
+To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Maxime Ripard <mripard@kernel.org>, Jens Kuske <jenskuske@gmail.com>, 
+ Jean-Francois Moine <moinejf@free.fr>
+Cc: Hongling Zeng <zenghongling@kylinos.cn>, 
+ Chengfeng Ye <cyeaa@connect.ust.hk>, 
+ Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>, 
+ dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ James Hilliard <james.hilliard1@gmail.com>, stable@vger.kernel.org, 
+ Frank Li <Frank.Li@nxp.com>, Sashiko <sashiko-bot@kernel.org>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_163654_000267_53198B81 
-X-CRM114-Status: GOOD (  37.42  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261023_163832_616954_0161C9E7 
+X-CRM114-Status: GOOD (  10.43  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,84 +119,80 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23, 2026 at 03:16:27AM +0530, Akhil P Oommen wrote:
-> 
-> 
-> On 10/22/2026 6:24 PM, Anna Maniscalco wrote:
-> > On 7/9/26 9:39 PM, Dmitry Baryshkov wrote:
-> >> On Thu, Jul 09, 2026 at 05:54:23PM +0300, Dmitry Baryshkov wrote:
-> >>> On Thu, Jul 09, 2026 at 07:12:39PM +0530, Akhil P Oommen wrote:
-> >>>> On 7/7/2026 10:09 PM, Dmitry Baryshkov wrote:
-> >>>>> On Tue, Jul 07, 2026 at 05:02:43PM +0200, Anna Maniscalco wrote:
-> >>>>>> On 7/6/26 5:04 PM, Dmitry Baryshkov wrote:
-> >>>>>>> On Sun, Jul 05, 2026 at 09:13:37PM +0200, Anna Maniscalco wrote:
-> >>>>>>>> In order to associate the SID used by LPAC to it's own domain and
-> >>>>>>>> context bank we need a separate node on the DTS.
-> >>>>>>> Can we use iommu-map instead of adding a new device using the same
-> >>>>>>> addresses? You provide zero explanations, but it seems like you are
-> >>>>>>> trying to separate a part of the GPU into a separate device, but it's
-> >>>>>>> unnecessary.
-> >>>>>> What I was trying to say is that we need to map sid0 and sid1 to different
-> >>>>>> context banks.
-> >>>>>>
-> >>>>>>  From what I recall, so long as we use the same dt node, the iommu drivert
-> >>>>>> provides no way of doing this.
-> >>>>>>
-> >>>>>> What kgsl does is having a node for the iommu and then subnodes for gfx lpac
-> >>>>>> and secure.
-> >>>>>>
-> >>>>>> The address on the lpac device doesn't really matter. I have very limted
-> >>>>>> knowledge of DTSs but I think we could just leave it out altogether?
-> >>>>> I think, you were poined to the Glymur Iris patches. Another option is
-> >>>>> the QDA driver being submitted too. Both ot them use iommu-map to
-> >>>>> describe the same usecase - a set of SIDs which are used by the device
-> >>>>> but which should not be a part of the defaut set. With it in place you
-> >>>>> don't need to have separate qcom,lpac devices, no additional properties,
-> >>>>> etc.
-> >>>>>
-> >>>>> I'd recommend following the same approach.
-> >>>> iiuc, the conclusion in this recent thread is to use child nodes for a
-> >>>> similar case:
-> >>>> https://lore.kernel.org/all/20260618151745.GD231643@ziepe.ca/
-> >>> Let me check internally.
-> >> After a brief discussion: it can be either, depending on what suites
-> >> better (and if you can persuade DMA / IOMMU maintainers to let one extra
-> >> bus or not).
-> >>
-> > One thing sashiko is pointing out is that new dt should work with hold kernel so, in general moving sid1 from there would break it since old kernels don't know how to handle them separately.
+Correct interrupt routing and serialize physical-channel ownership across
+allocation, completion, pause and termination. Keep paused virtual channels
+off the allocator, drain completion callbacks before releasing resources,
+and associate cyclic state with the descriptor that owns it.
 
-The rule is the opposite: new kernels must continue to work with the old
-DTs. If the new DT breaks with the older kernel, just specify it in the
-cover letter so that Bjorn doesn't merge DT changes before the driver
-changes find the way into his tree.
+The first patch carries Hongling Zeng's physical-channel indexing fix [0],
+adapted to the configurable interrupt-bank size introduced for A733. The
+second handles partially populated banks, including H3's twelve channels.
+The ownership work is split into lock ordering, physical-channel locking,
+completed-descriptor retirement and interrupt cleanup. Pause bookkeeping,
+callback synchronization and per-descriptor cyclic state follow separately.
 
-> > 
-> 
-> + Bjorn/Konrad
-> 
-> Not sure how strict is the requirement for compatibility with older kernel version. An
-> option in your case could be just do an override in the board dts file of the
-> Steam Frame.
+Based on DMAengine next at aff5e6a77fc6, which includes A733 support, with
+the posted IRQ-safe locking fix [1], channel pause-bit fix [2], and the
+virt-dma synchronization helper from [3] applied first. The synchronization
+patch uses that shared helper for the sun6i device_synchronize callback.
 
-Anyway, would it be a problem? Does GPU normally use SID 1? Or is it
-only used by the LPAC?
+[0] https://lore.kernel.org/r/20260706064123.66035-1-zenghongling@kylinos.cn
+[1] https://lore.kernel.org/r/20260926171049.841335-1-tien.nguyenminh@embeddedlinux.blog
+[2] https://lore.kernel.org/r/20261021-submit-sun6i-dma-pause-bit-v1-v1-1-38d286b69dab@gmail.com
+[3] https://lore.kernel.org/r/20261022-submit-mtk-uart-dma-synchronize-v1-v2-1-fdaef0e2edd6@gmail.com
 
-> 
-> -Akhil.
-> 
-> > Not sure how to address this.
-> > 
-> > Best regards,
-> 
+Assisted-by: Codex:gpt-6-astra
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+Changes in v3:
+- Split the ownership patch into four commits covering lock ordering,
+  physical-channel locking, completed-descriptor retirement and interrupt
+  cleanup, following Frank Li's review.
+- Document why virt-dma still takes vc.lock independently of sdev->lock.
+- Check pending interrupt status first in the per-bank loop condition.
+- Link to v2: https://lore.kernel.org/r/20261023-submit-sun6i-dma-lifetime-next-v1-v2-0-c9e07cc44bf8@gmail.com
 
--- 
-With best wishes
-Dmitry
+Changes in v2:
+- Clear the active descriptor pointer before handing finite completion to
+  virt-dma, replacing the completed-descriptor pointer.
+- Release completed physical channels while their virtual channels remain
+  paused, and clear the hardware pause request before reassignment.
+- Keep the ownership changes in patch 3 and the pause policy in patch 4.
+- Link to v1: https://lore.kernel.org/r/20261022-submit-sun6i-dma-lifetime-next-v1-v1-0-01085f684c9f@gmail.com
+
+---
+Hongling Zeng (1):
+      dmaengine: sun6i: fix physical channel index in interrupt handler
+
+James Hilliard (8):
+      dmaengine: sun6i: handle the last partial interrupt bank
+      dmaengine: sun6i: take the device lock before the virtual channel lock
+      dmaengine: sun6i: serialize physical channel ownership
+      dmaengine: sun6i: detach completed descriptors before invoking callbacks
+      dmaengine: sun6i: retire interrupt state before reusing physical channels
+      dmaengine: sun6i: track paused virtual channels
+      dmaengine: sun6i: synchronize callbacks before releasing channel resources
+      dmaengine: sun6i: keep cyclic state with the prepared descriptor
+
+ drivers/dma/sun6i-dma.c | 183 ++++++++++++++++++++++++++++--------------------
+ 1 file changed, 106 insertions(+), 77 deletions(-)
+---
+base-commit: aff5e6a77fc69a7c490246465940d18422d7c631
+change-id: 20261022-submit-sun6i-dma-lifetime-next-v1-53c3158f4841
+prerequisite-patch-id: d6398447647aa0dbb005b5e6dc6ba96e642efa86
+prerequisite-patch-id: f67c1f8d8d9e014cc650f2f37648662430c3b77b
+prerequisite-patch-id: 8522878df4ecd4fb007cfd32611359e6eb58a1ef
+
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
+
 
