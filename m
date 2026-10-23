@@ -2,88 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 827D7606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 18:42:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E759606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 18:43:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uY0dd2jE;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=aAhFZ643
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DTvRc5Sg;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=clvFAiVK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=M4PRNLWENu8KTspo6tzX21p33JWmvMwO8+MOa0PXQoA=; b=uY0dd2jED3z97V
-	FEWPFLX0B1cPcELWFiMFC7MIJ5LoRycjRyB/Z3E279pCxbcpVZTisSbgwnJ7LMbgh3BSQ9B6dV4eE
-	yg7EoA/v7TSVgr8D5uMpNCDCHhj+SaPxO2nfGCn/EjNvYdW+lIBY8ill3zyjZ8peFFpKhsv440X12
-	LTlAK3MiHsM5wxnSV4E7GHWVeOTJxthBoJofWTBiskPMj3zmbU4KFTj4gQxS7RXcVeWgOUR9F31Jl
-	E9dzqmjH14Q94iuQ/QzDtN4VIsVUzlhQdE8eftRFRLaC1vwjEm8OM0+6cCVvgKCN67y3EuxFixXSg
-	3pvPAKO9c5c6kehZpMzg==;
+	List-Owner; bh=Yi+Mby52IcSMxw6Bb+wKdKUkb+i4YW8eVg++kxowvr0=; b=DTvRc5SgFBEAlg
+	asYTVzRIVki+xQFAW7/rK35HImAev+Jwe7qv/SbgzgKXWp+LxibU/AV0Zr/XK9twnzIe50DmQjHnL
+	ZG4oE4Roc9y3qS9rT4dNcnQ05Vjd8k7b2/dSu22U9wtZyQJIM4bbfphUfhgTl+Tq341Ewde/kt0MJ
+	SPRSr2xxDrGYYXE7YlzuF25KSwwxJ7Pzr8Iwv+oTrzAu1rmjhaMc3U3AfDkdqw7WB8/it91dEe1EO
+	wv9DxeuvMdtDaz/2CzckrJnr4XREwU988fheYU6ppi4+AAPLnDDhkbFSPPu9MMzrAUZu+1o915i4s
+	g7NNmvoonWRne6at6xPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKKE9-0000000GnVH-1Ii6;
+	id 1xKKE9-0000000GnUX-0U0h;
 	Fri, 23 Oct 2026 18:42:53 +0000
-Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKKE2-0000000GnRa-1hXR
+	id 1xKKE0-0000000GnR5-3Vxg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 18:42:47 +0000
-Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-843a4ca671eso622037a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 11:42:46 -0700 (PDT)
+	Fri, 23 Oct 2026 18:42:46 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-844a8bf7e25so856267a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 11:42:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792780965; x=1793385765; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792780964; x=1793385764; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=M4PRNLWENu8KTspo6tzX21p33JWmvMwO8+MOa0PXQoA=;
-        b=aAhFZ643kjwDCBhyXAB0iocONuJSZbK9n0vDRftzuUF0BdKREgBGlKFODrbPbrFVg+
-         YNvWNZBCzYQ5p1kWuqL2Zxmqg3eN2kd408k1ZbGfPjVRJtc3v1A60Pn0jHj2/AdXS6xX
-         rbwNs1+yblLx2mclEpEJudEz4KIKXWvVSY1fVtl0M2i+EaYaOhVfIq8Xu8NP2tIe4/WD
-         SBu+Jf0CCLx9Qxx49GxCSwQh1nQIDxj+seTWswW2XhVtA6wIyqSn0ux4e0WfLlh3vmlq
-         X0RiMRhD08zy3KTbmdWQoseMuL6HuS7ndECSVGQzqJdPlkvAIwOAEj4Vocfh+zFiJ3sZ
-         vK2w==
+        bh=Yi+Mby52IcSMxw6Bb+wKdKUkb+i4YW8eVg++kxowvr0=;
+        b=clvFAiVK9/WmBhJrE28v5j9A3XoRUsa5k8pP5RG+eywwQvq+rS3HQfjo4G+klW/U7u
+         orQUNUy66gJ+DcsQBQp/YFv8L/bvXnQPLUCMBIkkTyEm+c5avl79aiN5OhMOSieRznyR
+         y3sYntJhVqgIbkGIFch+MWqNhrQwGrxU06vC+H3ZB4Yk8bBmW9eKtwT/ME+O7yZSnIQm
+         FKruVl38ronM+/nK67RPkmKHg/faV0o61XjL/H8YBjWkWfgaiHA2vZhrA4zvDasxi/Xp
+         ItMDJYAkyxFAyvvkdOSv/JAOB1Rv2eERxOppPVVFRbQYZpRINTfoEVgFX+MRs+UO/LV/
+         +b3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792780965; x=1793385765;
+        d=1e100.net; s=20260707; t=1792780964; x=1793385764;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=M4PRNLWENu8KTspo6tzX21p33JWmvMwO8+MOa0PXQoA=;
-        b=JroQt4VZ3amHhbs6rSshKBe+yk4yZuJdGgZe9dDb5dFzL8KCVdayHxsv6lg/KLPloy
-         dDKYebDgQfR89L2Fip8ZDuQoT/mfBRuHDwxG/hNTuy6xHHRfK3soc1DW+gJSoDfZom5m
-         FlXOfsLJmqHlvRIEJAhhrojcZIbCZS644xqEi/Sz4tStp1YZGyICg4tQfewzMzc4S76c
-         6qEaIPv7oEk8CK/6gXHgrpskVssy8vr7aB6/VKo3PPuxI/lZwZaM/sV8ry4MDfccmg0v
-         YvZLRYdTNgqUXBl3EW8bI7MLy+buO1ef2KTUGo2fkmsmQOCTu2XVwdHwes3gw/jQfl/M
-         drOw==
-X-Forwarded-Encrypted: i=1; AKwUvByA65h+JyT0lvpD4WH7dEd31SzPMX12FjaXRFNk/hY5OrDDNRXXkQlinUvJqvrzOmRE/p0plNSqLadUXamHxKZ0@lists.infradead.org
-X-Gm-Message-State: AFq9FYImQhemSvOrF6zhw08ZVL25EdBXAOz5q2uXVymko2Xzkcm/IjS+
-	vvB49fMNxp54frn7q4uXyf1YD0Bfd+7lQsPeiIGSyvY1A1XGJzKD+mI8
-X-Gm-Gg: AYBFou24Ve2KKtOSAUYANtwVB7ZSTUNBOn01ltKCUqHG6khtM8YZ8DrdSg6L8E7c0fn
-	sa9xP5XquAnOp4IC6wOj4bliUEaVTjhB2YBQrcdCLwDnvDx/aKmSjbYc5Q1S8Hi2d0d0RRzfuB+
-	2j86Ukly6+gWZo0bVVzqr8LFS2/560kdzruAql+Xsgx4qaeM8RovGEc5j1cwa2vL/yH+r7rGWp/
-	A1Cqu51zvmUjTIUUxpiXzleOuiNbf7DUM5T9j6ow1O/jOowkR/bl5l3miPBo4nJVqkZ3c71yiw6
-	GX/G/aR/tYV3dtsugTuM2y9zgufclN1jvgCt6jnr1VbPKyL/g/mVgyjJ6dk6sAg95r/Pf+PpiFV
-	b70pSH5e5cV/MPyoCyb8ov37u24RPfkVzlbkFQJ3ye34Zz/vuK/l8y99dy/IqD6j4ajh+kwcSZr
-	KinPVnAJuJwa/aMad6dXlIzY150LszKbEhPnlCu8QstzSwejNT88oA6Rz40mLCgoQGKCNhHZaFI
-	lEpjx5J4Mjgiv4l2F5zbqy2GoX8JTH7ndRPEOfUm9fl0xpO6EsHc125DetjWBnm9IT39Iq7PO81
-	NPSeR04j1+ELenxsXJYixKAI/gD3/4EnDwyUTp2zJP9ldk0kjpX/AX+AUORQhgMiNX+ytE73hTB
-	b2E/qZ8O+LsjDcvdwUUVV6ECkgD9tNHOqKYgV7+UFKNHU3xkZsZSKCAY9UeIIIZqSANJ3es8WaY
-	KtaQ==
-X-Received: by 2002:a05:6808:1819:b0:539:596f:6623 with SMTP id 5614622812f47-55c0035e613mr53516b6e.64.1792780965312;
-        Fri, 23 Oct 2026 11:42:45 -0700 (PDT)
+        bh=Yi+Mby52IcSMxw6Bb+wKdKUkb+i4YW8eVg++kxowvr0=;
+        b=FLk57GHRZM0JJcC5MGClUupD+7UL5MmxydjkStdHExOKZHHFD0BmcJ9Ny6z5XHRG0S
+         j3PIdczffF+XG9D3mCb2emNvcW3AzOqjbNkCZgiHTjndNcPPVFy0KDXSl7zyvc98+FWi
+         L1qejFU40/Qg8Nq0f8Hv62SUN9UC7GnIeFZAHx2MfuJ7+E8VHm7JaX0soUIZhDMAIK4J
+         wDVpYSBZmyYO3vnqb3GyzU+9gnR6o7JLu6EEk6tacrxtgQbkVbJOqzvCU6rPmt6zVWvF
+         zjzhE9hQ9H6oKyDRBwB0jpHWQAJPhjhZ3da3CIiuLwTqzvJFLoD5vK5sgR1SuTU+OfNN
+         4iCA==
+X-Forwarded-Encrypted: i=1; AKwUvBxItznNHod0HP/R1sM9O5p2XyZgvSIrVxeO4mhKagHQ0Y0We+fhnhlFz66KPGK551uYs8KgJ3ntojvx1AUbYZeA@lists.infradead.org
+X-Gm-Message-State: AFq9FYKDLINeDihK7biUXNF5zrKwh2M33qIN8M50nZiNHbQZllDxWmse
+	SlCcPPlvMEpUh7U6q2HWTcRS20bOMqCm26MfB3SE7Er7Vc40+nRSaX/V
+X-Gm-Gg: AYBFou0K5gx7V1OiTH7wqqh6Ss+rU+KnWTtTvy4pKTru8nTQhrfdePg9q3szF9tMdHL
+	aRDozycNViiXjucs8hQPMP2wXGXv3hlP5sdJWJJMKVoNCVC+TgU3i/YVJTYc0DAQJ1QON/2iVGS
+	DCK8Szd+aFLvNM1zsbKfch/QnTBk5FnHHacxc8pQjGoDZelZaFyMgaVSHPeo2ruWwY6/AsIjcT6
+	XoVVdVknSjk2GucSwMfy9h+6U8mSviaAvLaAuM6pUlspZD0L+opY7rdOH5Wuy4T9UFGYWJjqVzo
+	BRmwcdGfN6seJWLxNkML8FI0JC99P1inviXeY4D96sa0Kqt6ueFYH3ZepjQjqDvxeYglNfzbj7z
+	Wba98EWLwNQIjZp3HgL3+lruZQCPSUkVwtHEUInAfXGcPUuRLzD7VDLXF88Kf+VfEP9s+pps/rE
+	FQ4ZWevdI9at7R7KSvnN8gfQbxvFy3v69EMdQpS9m9Dev+/V+dgTdteWYe0BYSm/7+EI1LB629D
+	iKxG/Jf6BlhkBfsGsw3jzOpIDsYR2m5K9IN2aIYIp7TB6QCq7vP0Z07T27YfITnjncePA5Tm0dp
+	TrgKNbgJNln2vRWfkUGweQjUrQ9tpH8IJ+JL3+67mK214wmCTOjEMhyCnHqxxOaWTZo/YMHCoWT
+	D7DSqML7KrecG6h7nkdG/NBipgRrTwLDAtbE+JVK8yk6pyVezNV1TGHF1KoCcqIQJkTxaKIK+Os
+	Ap6w==
+X-Received: by 2002:a05:6808:30a3:b0:4cb:818f:d56e with SMTP id 5614622812f47-55c0020ff8amr68675b6e.22.1792780963715;
+        Fri, 23 Oct 2026 11:42:43 -0700 (PDT)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-55bfe199544sm336682b6e.13.2026.10.23.11.42.43
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-55bfe199544sm336682b6e.13.2026.10.23.11.42.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Oct 2026 11:42:44 -0700 (PDT)
+        Fri, 23 Oct 2026 11:42:43 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 23 Oct 2026 12:42:36 -0600
-Subject: [PATCH v2 2/6] dmaengine: sun6i: handle the last partial interrupt
- bank
+Date: Fri, 23 Oct 2026 12:42:35 -0600
+Subject: [PATCH v2 1/6] dmaengine: sun6i: fix physical channel index in
+ interrupt handler
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261023-submit-sun6i-dma-lifetime-next-v1-v2-2-c9e07cc44bf8@gmail.com>
+Message-Id: <20261023-submit-sun6i-dma-lifetime-next-v1-v2-1-c9e07cc44bf8@gmail.com>
 References: <20261023-submit-sun6i-dma-lifetime-next-v1-v2-0-c9e07cc44bf8@gmail.com>
 In-Reply-To: <20261023-submit-sun6i-dma-lifetime-next-v1-v2-0-c9e07cc44bf8@gmail.com>
 To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
@@ -96,11 +96,11 @@ Cc: Hongling Zeng <zenghongling@kylinos.cn>,
  Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>, 
  dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- James Hilliard <james.hilliard1@gmail.com>, 
- Sashiko <sashiko-bot@kernel.org>
+ James Hilliard <james.hilliard1@gmail.com>, stable@vger.kernel.org, 
+ Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_114246_450420_8758C34D 
+X-CRM114-CacheID: sfid-20261023_114244_884991_956FB784 
 X-CRM114-Status: GOOD (  14.17  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,52 +121,40 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The number of physical channels need not be a multiple of the number
-covered by an interrupt-status register. H3 has twelve channels and
-eight channels per bank. Rounding down the number of banks leaves its
-channels 8 through 11 without completion handling.
+From: Hongling Zeng <zenghongling@kylinos.cn>
 
-Round up the number of banks to visit, and stop processing the last bank
-at num_pchans so unused status bits cannot index past the physical-channel
-array. Use the controller's configured bank size for both limits and
-the physical-channel index.
+The interrupt handler iterates over register banks in the outer loop,
+but the physical channel lookup uses only the inner loop index. It
+therefore handles every bank as if it belonged to the first channels.
 
-Fixes: f008db8c00c1 ("dmaengine: sun6i: Add support for Allwinner H3 (sun8i) variant")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/r/20260706065650.34B131F00A3A@smtp.kernel.org
+For controllers with eight channels per bank, interrupts from channels
+8 and above are routed to channels 0-7. On A733, each bank covers one
+channel, so every interrupt is routed to channel 0. This can falsely
+complete descriptors for unrelated channels and corrupt their data.
+
+Use the absolute channel index, calculated from the bank number and the
+controller's configured number of channels per bank.
+
+Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
+Cc: stable@vger.kernel.org
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+[james: use the configured bank size and describe the A733 case]
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/dma/sun6i-dma.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ drivers/dma/sun6i-dma.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-index 9d94a37fcf10..0a9645171180 100644
+index 8752969366ff..9d94a37fcf10 100644
 --- a/drivers/dma/sun6i-dma.c
 +++ b/drivers/dma/sun6i-dma.c
-@@ -587,12 +587,13 @@ static void sun6i_dma_tasklet(struct tasklet_struct *t)
- static irqreturn_t sun6i_dma_interrupt(int irq, void *dev_id)
- {
- 	struct sun6i_dma_dev *sdev = dev_id;
-+	u32 channels_per_reg = sdev->cfg->num_channels_per_reg;
- 	struct sun6i_vchan *vchan;
- 	struct sun6i_pchan *pchan;
- 	int i, j, ret = IRQ_NONE;
- 	u32 status;
- 
--	for (i = 0; i < sdev->num_pchans / sdev->cfg->num_channels_per_reg; i++) {
-+	for (i = 0; i < DIV_ROUND_UP(sdev->num_pchans, channels_per_reg); i++) {
- 		status = sun6i_read_irq_stat(sdev, i);
- 		if (!status)
- 			continue;
-@@ -602,8 +603,9 @@ static irqreturn_t sun6i_dma_interrupt(int irq, void *dev_id)
- 
+@@ -603,7 +603,7 @@ static irqreturn_t sun6i_dma_interrupt(int irq, void *dev_id)
  		sun6i_write_irq_stat(sdev, i, status);
  
--		for (j = 0; (j < sdev->cfg->num_channels_per_reg) && status; j++) {
--			pchan = sdev->pchans + i * sdev->cfg->num_channels_per_reg + j;
-+		for (j = 0; j < channels_per_reg &&
-+		     i * channels_per_reg + j < sdev->num_pchans && status; j++) {
-+			pchan = sdev->pchans + i * channels_per_reg + j;
+ 		for (j = 0; (j < sdev->cfg->num_channels_per_reg) && status; j++) {
+-			pchan = sdev->pchans + j;
++			pchan = sdev->pchans + i * sdev->cfg->num_channels_per_reg + j;
  			vchan = pchan->vchan;
  			if (vchan && (status & vchan->irq_type)) {
  				if (vchan->cyclic) {
