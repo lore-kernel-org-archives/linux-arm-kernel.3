@@ -2,75 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84AF3606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 07:53:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1C2C606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 07:53:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2QJddSx1;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=WeDL8XEG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=stGPs5+6;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=OxkQ5Ehu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=bqYeLPaggZUFXZv738RSupX9Fo/Orf1YlGcPsK+V+Xo=; b=2QJddSx1JfAog9
-	9KutLZ4Tusgv+Lcpkk6H3+r5aOvZJmcxR3lVOx8LEOW8rBk6BKRzUevwpVE1NnQ/O/5jTk0RcpRkr
-	rVcAa3ySQseAYwGHFqY8f0upmXfnQeGZGHKw+fdp223I/AjHBdg0tTnwayiebbd6XUAdQFU2gLYAk
-	Ud/QS7hRHWHhng5q5Z+VUW6zirYloD4cDgvs5+gf5N+l7HO1g1sVoAmNEjnb9F/cnEXMFoEj+8GNj
-	jQy0HHro7QeESmZRYrA5kZuJJcxoS7BsgNIR2VcWCCSPYI03TQ+c3dNdHb4oE2D2in1iWpLuF7Jgj
-	ExfPE1LeHVPTkkh1mJiQ==;
+	List-Owner; bh=oKDGcISKRXyb1sB9uqlDY+pTllRaTOFvJWwaXJaklRE=; b=stGPs5+6+ZlA4g
+	gAtQKdMfSB8vgj3e0cxdNVZFTaHkLRvLZiwwQQYk8uEzpMC/HevaiN3SDS6Q3gS5kt6yk/YSnAd/l
+	nGR0xnSxwkpyhzi/hH5v/pkrNT9Vj66dIj1zyjNQjRQGUXOpomEk8++mgsndpgvsLHqsclc4GaFYm
+	v5UNJEboEQK7j2ISIqwmusZv/kybySxeIWwyZCY9wk/fdLPHtcgE4dd2eJ6tAIHj9zmS5WJwUCxqj
+	VS+ewM0gD+mlYz62yiaw0AEAAW6hxtBbevW5P4QlYgscDIg44p0fRNzUv5vWyKsWCby+8ZVyWNbCk
+	cBakuagit80WIlxD91yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKA5Q-0000000FoJH-2nSB;
-	Fri, 23 Oct 2026 07:53:12 +0000
-Received: from mail-dy2-x0b.google.com ([2607:f8b0:4864:36::b])
+	id 1xKA5X-0000000FoQ2-0YkU;
+	Fri, 23 Oct 2026 07:53:19 +0000
+Received: from mail-dl2-x06.google.com ([2607:f8b0:4864:38::6])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKA5L-0000000FoF5-2E7s
+	id 1xKA5Q-0000000FoIS-0NFt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 07:53:08 +0000
-Received: by mail-dy2-x0b.google.com with SMTP id 5a478bee46e88-3535a54c09bso537153eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 00:53:07 -0700 (PDT)
+	Fri, 23 Oct 2026 07:53:13 +0000
+Received: by mail-dl2-x06.google.com with SMTP id a92af1059eb24-14b4e009173so10958c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 00:53:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792741986; x=1793346786; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792741991; x=1793346791; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=bqYeLPaggZUFXZv738RSupX9Fo/Orf1YlGcPsK+V+Xo=;
-        b=WeDL8XEGB9251D7dNAXu997T+xagi+Ht9KCXztA/FHQtp3XnhcxrVkObfFpy1W5Y9U
-         Bq9mnJ0d+g/YO0Q4jiEuGMjXLEB4u/kJuuoV9bL1jyCiCuDJd9XU2vfp1Ai6GLfYQDJa
-         Caqp1tkuLGs/GFB0zNgmGefZfCM1kTqC4hdrbjkT6JerKdhMx3mH+9o77t6Xgi8HSWIE
-         Pw+vrE17m+zr1G598xUfTNGPuaxzZqpudz8jFnyCEtjuDauIH985OrdBWPr0125N+c6U
-         HiOucA2LaA10rFq7qkQlXUBO5gc8G4SmU4Hg7DXqTHhx0tczxXtQd8F/ssZ4L+9abksh
-         CW3g==
+        bh=oKDGcISKRXyb1sB9uqlDY+pTllRaTOFvJWwaXJaklRE=;
+        b=OxkQ5EhupjeipoOrzSjp+SNdWLyQqGWDSJIawjDuRGY9aAF9vfggvjGI29GfDR6AdG
+         iQ9fn7CMvivl0OgB79vSBsPK4O4BnRt/VYCniafaap3UayIDo94yKxDakKtTtO3DQS7M
+         geFTie7ATAUakEpPQeGdDShblD7zE3iMHV5TgOVyNvDezq8B1DRDUZWInxwhXQj7Xzfg
+         lLPdA+oO/FqBhwJg1ne+C4jqWvCcb0OLe23Du/I3232yZmCtZ9KiuERGfWpPARDDwgt3
+         VpCE0WnJyRjOhVC594TjNhsKKThTkOsXeNUwWEJw/Ue4HIhup1AuzNN6y2bT9r37HY+a
+         AecQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792741986; x=1793346786;
+        d=1e100.net; s=20260707; t=1792741991; x=1793346791;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bqYeLPaggZUFXZv738RSupX9Fo/Orf1YlGcPsK+V+Xo=;
-        b=N3q3304IXl2ccaxU4lDZnKyXhU1GKXFMAmMjUAFI+9HNPOSGxGqojbsAjSZ273g9Ry
-         XWU7iVXvu2x3lPhg8vmwJ1/E9xDEMFcmXgrZZ0YmFykYRZ4PecRpZUm9nD0suhzy9GHi
-         H4nC5N0MMiRgeNMsmLqOUjCFLQbWy7WbqNl19coadgOzibElzzBH8IB3D0ZNqH9wxlNG
-         +8EnoTn06XwZZ0uh9A4tWsIruQBevDwV7UbZ2px6irUOflWXzHS9MOOGgLgoNwOkHS69
-         0K0/1uJ4b8YtMNI1SKF4WK4M/jKsq20NDHL8ebc9t4qPuAJs0Gz9k5shoFPpNv/fRoPt
-         quhg==
-X-Forwarded-Encrypted: i=1; AKwUvBy1i+8R2CDZ/1fWw2m4r/xlBsdfBWnrv981EOgpjUUCsteVCr2jg4dedVxnLOAnOGNqY3u0/GLEbnKpLJZ5/iaP@lists.infradead.org
-X-Gm-Message-State: AFq9FYL/m6Nqek2h8Wq7s1GBUiP9yrwkZoXcYcVUa5R6giGK4QL8f7ZL
-	+Q+UWjl43k9++Su7JtbOg0vJ+an/yn7bbDRJU4BUBYi8isccwqEzJe4A
-X-Gm-Gg: AYBFou18027IdKbMES29mnxD6jyF1fOJ4cJR+Z4x1nWDismxI2YuL7gw1qi+/wtGJr0
-	rGOIP6cQ0cN/GfiKKlTqmE2MTES85yTk8Wec7Lqv37Z1mdeJq7AHGlGjmEU8KmxBBADxdhXw5K8
-	GuBr5tvDbl9IVMTuVMpCxnTJiuxS5esnI73w2yUQdPIE+JR5wrVuesepXSEb2qVMdlgy4AfDp67
-	YJ0x2EvQVU5CYyv2V5StXRiiV93c9/BjBHzp13ipddTK8hs8CmGDEl1ziJs88jFyuatpSb1o8dH
-	Agtp6dI1BZtLDYjlRxgA3aGu0NGAEElUrHzBUtExEGr1GwOMKWK831Aob+uzdvUiI2luX9/Xgs7
-	6xjsSnJ3PQYH9LPWQbNP251V8SQw31xGIBpjdx0PYsY18poJKEogGk18GMj0+kOcKRIlGKktRe6
-	4hTBYLn6zDWWcgmYTQeRx2BDAb8jSCDpE5HzE0e/37LenR+G6ii0smEI0eGpSTe/MM1A9oaoVTL
-	NZ2FhIyFVjtyJ4thHyDTmLcIO2CT2reU/WEKH+Jt9Uo1fNIw0epZJSUyd+VYHZw9Pnlfaohaj4=
-X-Received: by 2002:a05:701b:4512:20b0:151:2e62:fe6d with SMTP id a92af1059eb24-195c5ad2b3cmr2019767c88.22.1792741986205;
-        Fri, 23 Oct 2026 00:53:06 -0700 (PDT)
+        bh=oKDGcISKRXyb1sB9uqlDY+pTllRaTOFvJWwaXJaklRE=;
+        b=ZEtvSRJQMpPf+MKH4Wasx5ISwfWLk/a9q6Y83kogm09mV4ESjM/naphEhjHSrB3a2j
+         p9yC9xlQ3dJBQk6OKng8ewq2V8tYKJXD/lIED7irufcCbnM+Ngm8wBYzX62LESLrtsBp
+         vZTflopMtcTUcZWtj4ETJBpzfVFFu+5829NjZ2lkVBudNGfmgQIVHqdeAytCY3Bw8e3q
+         4RgM/B1W5a1mUeepv80PZWTi8wr8hJoy+fR68EQYfVJ06tQlfwxUQlAAbgOky8sMh90d
+         i4aX9RdqErWc1/KWCBrsq7b/ejz+I/BDTkg/8y317i0PwKIa20SAfNXrAQRsRHwEZqxQ
+         /UXA==
+X-Forwarded-Encrypted: i=1; AKwUvByL71F4ftvih4z7CUfqg94CCjQkvfBfpSb/onjN5DyZq0udFUmfNLXYi8KudUAGAV7115K+82gqfB2nHbiK9Sc+@lists.infradead.org
+X-Gm-Message-State: AFq9FYL69qf45vmVYSfkYvZEZfmMp770PHSkOawe3A8ISStBXnohVwRi
+	RUu41l4R2AOKFzn1ULDog7ieGITsqSbxMwGCka0f/IzcoO8uaB7lImB1
+X-Gm-Gg: AYBFou10s0OVgkASNHAuIZcqfWUfQ3RM8qV+LndR0B7Pds2ZKibADmPPcB7wQQwOMrb
+	df7usb+InAj9Cmq6gu0uLYXjUa0N76xedLYKo2DUjfPCNGzdqmoLxMlfJ9gFOBRAypRU0bG97bn
+	oAh9nZl1VmPmaADcXeFlf904FeO3IK1Mm2mpszhP2DcqJTB3fyIPkVoJEp265XR2k9JIzjKy+wk
+	VRXFBP9RlBuNjgIZO0CpSnnko0le2TXdCnTZU21pDWqPqZEYLYeExDMPNNiYKPDJERRFxpg+zqg
+	0U6/3nlUjTfvF4mhguSqUGa+Igz8OPy9SPPS6IhxjXxlnji2RUOZ3qnUqEbazZPW0r575NczPTD
+	vSd8gOcjL5DPMF08TY7YtZamLrPzOXA/LWyOzwYj8Beu5YdRbSZ3MTsPR3kWStOXcP1tWYNHYWl
+	HD+SudWhOXpqXDdGcmrbuEWDsmNQqFI42hO7SUIb0eUFaQvR4sO2S+JIqwGFtJBBYAsIfbzWqPB
+	rMtQuMus5lImJAVnfM9pLP45d7ORUomoX1kAp8665LU+2qyuXaLz0A=
+X-Received: by 2002:a05:7022:3b89:b0:196:b805:9546 with SMTP id a92af1059eb24-196b814d873mr867259c88.10.1792741990964;
+        Fri, 23 Oct 2026 00:53:10 -0700 (PDT)
 Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-195eae0e830sm4122132c88.10.2026.10.23.00.53.01
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-195eae0e830sm4122132c88.10.2026.10.23.00.53.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Oct 2026 00:53:05 -0700 (PDT)
+        Fri, 23 Oct 2026 00:53:10 -0700 (PDT)
 From: Coia Prant <coiaprant@gmail.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Heiner Kallweit <hkallweit1@gmail.com>,
@@ -85,9 +85,9 @@ Cc: Eric Dumazet <edumazet@kernel.org>,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2 2/4] net: pcs: xpcs-plat: fix clock lifecycle for !CONFIG_PM builds
-Date: Fri, 23 Oct 2026 15:52:13 +0800
-Message-ID: <20261023075214.1793922-4-coiaprant@gmail.com>
+Subject: [PATCH net v2 3/4] net: pcs: xpcs-rk: fix cleanup action error message
+Date: Fri, 23 Oct 2026 15:52:14 +0800
+Message-ID: <20261023075214.1793922-5-coiaprant@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261023075214.1793922-2-coiaprant@gmail.com>
 References: <20261023075214.1793922-2-coiaprant@gmail.com>
@@ -95,8 +95,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_005307_595223_6D9DE9A2 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20261023_005312_139339_5CAAF2B4 
+X-CRM114-Status: GOOD (  13.04  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,125 +116,29 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-With CONFIG_PM disabled, pm_runtime_enable() and the runtime resume path
-are compiled out, so the CSR clock is never prepared/enabled. On
-platforms that provide a real "csr" clock this makes register access
-fail.
-
-Handle this by preparing/enabling the CSR clock manually in the !PM case
-and disabling it in the devm cleanup action. The CONFIG_PM path is left
-unchanged and still relies on runtime PM to gate the clock.
-
-Use RUNTIME_PM_OPS() and pm_ptr() for the PM ops as well, so that in
-!CONFIG_PM builds the runtime callbacks are still referenced and .pm is
-NULL rather than pointing at an empty ops structure. This also drops the
-__maybe_unused annotations from the callbacks, which were only needed
-because SET_RUNTIME_PM_OPS() expands to nothing when CONFIG_PM is
-disabled. Both changes are no-ops when CONFIG_PM is enabled.
-
-The CSR clock is optional (devm_clk_get_optional()), so platforms
-without a clock keep working in both cases, and clk_prepare_enable()
-on a NULL clock is a no-op. Because the !PM case is handled in the
-driver, there is no need to select or depend on PM in Kconfig for all
-platforms; keep the current Kconfig as-is to preserve compile coverage.
+The devm action registered by xpcs_rk_init_clk() force-suspends the
+device and disables the EEE clock, but the current error message only
+mentions the EEE clock. Point at the cleanup action by name instead,
+so the message covers both parts of what the action does.
 
 Signed-off-by: Coia Prant <coiaprant@gmail.com>
 ---
- drivers/net/pcs/pcs-xpcs-plat.c | 46 ++++++++++++++++++++++++++++-----
- 1 file changed, 40 insertions(+), 6 deletions(-)
+ drivers/net/pcs/pcs-xpcs-rk.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/pcs/pcs-xpcs-plat.c b/drivers/net/pcs/pcs-xpcs-plat.c
-index 11c4239bfd74..c4404500bac6 100644
---- a/drivers/net/pcs/pcs-xpcs-plat.c
-+++ b/drivers/net/pcs/pcs-xpcs-plat.c
-@@ -275,6 +275,7 @@ static int xpcs_plat_init_res(struct dw_xpcs_plat *pxpcs)
- 	return 0;
- }
+diff --git a/drivers/net/pcs/pcs-xpcs-rk.c b/drivers/net/pcs/pcs-xpcs-rk.c
+index 698a43b75334..6f0a110e32d2 100644
+--- a/drivers/net/pcs/pcs-xpcs-rk.c
++++ b/drivers/net/pcs/pcs-xpcs-rk.c
+@@ -365,7 +365,7 @@ static int xpcs_rk_init_clk(struct dw_xpcs_rk *pxpcs)
  
-+#ifdef CONFIG_PM
- static void xpcs_plat_exit_clk(void *data)
- {
- 	struct dw_xpcs_plat *pxpcs = data;
-@@ -304,6 +305,39 @@ static int xpcs_plat_init_clk(struct dw_xpcs_plat *pxpcs)
+ 	ret = devm_add_action_or_reset(dev, xpcs_rk_exit_clk, pxpcs);
+ 	if (ret) {
+-		dev_err(dev, "Failed to register devm for EEE clock: %d\n", ret);
++		dev_err(dev, "Failed to register devm for xpcs_rk_exit_clk: %d\n", ret);
+ 		return ret;
+ 	}
  
- 	return 0;
- }
-+#else
-+static void xpcs_plat_exit_clk(void *data)
-+{
-+	struct dw_xpcs_plat *pxpcs = data;
-+
-+	clk_disable_unprepare(pxpcs->cclk);
-+}
-+
-+static int xpcs_plat_init_clk(struct dw_xpcs_plat *pxpcs)
-+{
-+	struct device *dev = &pxpcs->pdev->dev;
-+	int ret;
-+
-+	pxpcs->cclk = devm_clk_get_optional(dev, "csr");
-+	if (IS_ERR(pxpcs->cclk))
-+		return dev_err_probe(dev, PTR_ERR(pxpcs->cclk),
-+				     "Failed to get CSR clock\n");
-+
-+	ret = clk_prepare_enable(pxpcs->cclk);
-+	if (ret) {
-+		dev_err(dev, "Failed to enable CSR clock: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = devm_add_action_or_reset(dev, xpcs_plat_exit_clk, pxpcs);
-+	if (ret) {
-+		dev_err(dev, "Failed to register devm for xpcs_plat_exit_clk: %d\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+#endif
- 
- static int xpcs_plat_init_bus(struct dw_xpcs_plat *pxpcs)
- {
-@@ -408,7 +442,7 @@ static int xpcs_plat_probe(struct platform_device *pdev)
- 	return 0;
- }
- 
--static int __maybe_unused xpcs_plat_pm_runtime_suspend(struct device *dev)
-+static int xpcs_plat_pm_runtime_suspend(struct device *dev)
- {
- 	struct dw_xpcs_plat *pxpcs = dev_get_drvdata(dev);
- 
-@@ -417,7 +451,7 @@ static int __maybe_unused xpcs_plat_pm_runtime_suspend(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused xpcs_plat_pm_runtime_resume(struct device *dev)
-+static int xpcs_plat_pm_runtime_resume(struct device *dev)
- {
- 	struct dw_xpcs_plat *pxpcs = dev_get_drvdata(dev);
- 
-@@ -425,9 +459,9 @@ static int __maybe_unused xpcs_plat_pm_runtime_resume(struct device *dev)
- }
- 
- static const struct dev_pm_ops xpcs_plat_pm_ops = {
--	SET_RUNTIME_PM_OPS(xpcs_plat_pm_runtime_suspend,
--			   xpcs_plat_pm_runtime_resume,
--			   NULL)
-+	RUNTIME_PM_OPS(xpcs_plat_pm_runtime_suspend,
-+		       xpcs_plat_pm_runtime_resume,
-+		       NULL)
- };
- 
- DW_XPCS_INFO_DECLARE(xpcs_generic, DW_XPCS_ID_NATIVE, DW_XPCS_PMA_ID_NATIVE);
-@@ -456,7 +490,7 @@ static struct platform_driver xpcs_plat_driver = {
- 	.probe = xpcs_plat_probe,
- 	.driver = {
- 		.name = "dwxpcs",
--		.pm = &xpcs_plat_pm_ops,
-+		.pm = pm_ptr(&xpcs_plat_pm_ops),
- 		.of_match_table = xpcs_of_ids,
- 	},
- };
 -- 
 2.47.3
 
