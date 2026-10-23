@@ -2,83 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52761606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 12:43:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 327C1606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 12:46:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sTU+DdKD;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IIY7U003
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PJve/Yi/;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=U0CC491G
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=IiTpUVrPsntr4c3s5eLquFzntS/9A4Vem272aEb4epg=; b=sTU+DdKDVHQaIgd0qweQ1C6BvV
-	dE6NtfcUijP6P/4jh19KLSOUjMwheyVR8QH/9eQR1uX5PHenXU1nwSMTzYxQzqu9O/xcvLeh1ZhiM
-	ed9oKGhGgrFnWEUQ1LuiRu68+P6PWUu4NhL3BdD5BfQIsDiwmQ4bRHRaNqv9KmLUbonN4vbv3kKn6
-	6/ebiRp4zwJ6MLCVhSrJeyNXGJRoA9ymVaVGYHNd8tvym/MlchsqiK9jRPYg65n3FdIuYPRzhr1SS
-	zqTGqPHux6zyjFA1DI7mGhIaI9SE2HaMui3+ycPt64Q3DDGMwOsLNUCN1V9CANbtrKF+6NLL0pgbD
-	Ja42ALTA==;
+	bh=GDyUAHq5EnMm1c2jA/kc6vkZKZbH8Rr6Mm2+HOczy9s=; b=PJve/Yi/onBbGE/J53FQAA5XlO
+	xtvfhVm7zvaikmi4p8gwhVP6Z/bxy8LAssT2kz8S562fez0qYp7A3iqTDtWnvis2mmjFnzeGuGVMl
+	e9aVQHFW5HFhGfP1MuQH19asskZ9f9/EVjeZQB0xOU796rXQjbtSJ++NBhA1mfnraUP7oP2KIyyCW
+	OABHuwDa7dBZ0UdXB91WScjvpWyExBk1Zfx4nf4Rq5gRqaCGy04gp5xJXeHwDLg2DE77lpubVKhX0
+	d9u3fFa+L1CVE3MpnecjASlkVMmRYPLMpj+oItI+xEe9dOGnfF8ZMUIBvJ5uNNoNfe8HPiH697JOn
+	rKJvvh7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKEcW-0000000GJKw-1V9u;
-	Fri, 23 Oct 2026 12:43:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xKEeo-0000000GJh0-0Lji;
+	Fri, 23 Oct 2026 12:46:02 +0000
+Received: from out-76.mta0.migadu.com ([2001:41d0:1004:224b::4c] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKEcV-0000000GJKm-0Sif
+	id 1xKEek-0000000GJg2-3MQi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 12:43:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7BC5940B17;
-	Fri, 23 Oct 2026 12:43:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C1A41F01825;
-	Fri, 23 Oct 2026 12:43:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792759418;
-	bh=IiTpUVrPsntr4c3s5eLquFzntS/9A4Vem272aEb4epg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=IIY7U0035cGKpwVJ+pBrPs2u6Tw6wEVwqyum5wukse9tTNz3LN4YkwZS+5Ggc7v+q
-	 rMeae4XbHcm4NT6xeu4pli4//Qcs4LisdYWIxlS/Lp0SGEf0CJczXvWV9Hz8eYn9u5
-	 op8n1WwXJay1BWQ3h3WmUjaGjpgd8/9sR4wNtEnFrrcD9HdF5BJ32uH17mp4bXFLWT
-	 kcOCNdEY9wYWIfF5j7pwv8Ug5mG4+sq3+YFTPMCMc2PJKqriWVUNzLT+5qPYkhrq5P
-	 wYzgcVCS+Gb7jJwTmxNDLVnbyS+4tYvWlWuSJ83QiP0BxEFIEoavXeJwdwgMScZaiE
-	 G4u7yEfP4z4pQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xKEcR-00000006SWT-47JU;
-	Fri, 23 Oct 2026 12:43:36 +0000
-Date: Fri, 23 Oct 2026 13:43:35 +0100
-Message-ID: <86bj8kzix4.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Vincent Donnefort <vdonnefort@google.com>,
-	oupton@kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	kernel-team@android.com
-Subject: Re: [PATCH v1] KVM: arm64: Use the host kvm_host_data for nr_event_counters
-In-Reply-To: <CA+EHjTwNOJCphq8YNxK4nUZFj0Xrw31Okx1fiFAS=sHY1Z3cnA@mail.gmail.com>
-References: <20261023092007.3918848-1-vdonnefort@google.com>
-	<CA+EHjTwNOJCphq8YNxK4nUZFj0Xrw31Okx1fiFAS=sHY1Z3cnA@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	Fri, 23 Oct 2026 12:46:00 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=c6sAixXJP4HRlc6nJBz9ZvqV2918RZfRoqM9ID70+bM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792759556; v=1; x=1793364356;
+ b=U0CC491GXrlC+Rxm/aJsxgRIi+HUdJx9klMV8uSTsFfEg3nRJsCn6zzu7hRoKqrME4gnOjfy
+ mp3ChC2eppR1HAW5z1HLYlkbmvyuQM5lS8FHSj6dMdYFhRMk6Jz78tYZmI3vjuLJk+Hc08xntDV
+ mMOwztamGLhAMnE9QzuYRpZ0=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id ee52163fc1968f11;
+	Fri, 23 Oct 2026 12:45:56 +0000
+X-Mizu-Trace-ID: ee52163fc1968f11
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5be4a7b9e6fso5780e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 05:45:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBywT6JQUMN/fzqejbeo+YOdM31XtZi9JO3LiPHZoi2apbJUSyCIOIRpgoGxMStBTEd7+cf4C+8zPI02w7Mnzotk@lists.infradead.org
+X-Gm-Message-State: AFq9FYLLTXSnO0+t9qv3tfHeredw/WwXTOHBKNBFsgwSBT3xfBtgyX3d
+	kbc1LI+DzPHbfFHzyAMRtkEi2SoZO+PNN5BwucCjooXg/I+ZDXgSTNphQZ8sYhAeNoaMy6OBzdc
+	ZuOvmc9aQbDseDNI7/Eln3xyrvPNJ7kuJBpKRpXdv
+X-Received: by 2002:a05:6512:a94:b0:5bf:a5c1:d20 with SMTP id
+ 2adb3069b0e04-5bfb07f2065mr115256e87.16.1792759555215; Fri, 23 Oct 2026
+ 05:45:55 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, vdonnefort@google.com, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+References: <20261023092007.3918848-1-vdonnefort@google.com>
+ <CA+EHjTwNOJCphq8YNxK4nUZFj0Xrw31Okx1fiFAS=sHY1Z3cnA@mail.gmail.com> <86bj8kzix4.wl-maz@kernel.org>
+In-Reply-To: <86bj8kzix4.wl-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 23 Oct 2026 13:45:18 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTxr9g3oir1UvPZFrYAsOVODfWRRtW8rqbD7DxFmr-Ddvg@mail.gmail.com>
+X-Gm-Features: AclHuK-tQ-Fh_fw4NY0r1RDT4Ce-dOpOYM6PPBXIKh7mshfcyGMDD02YdETdbGA
+Message-ID: <CA+EHjTxr9g3oir1UvPZFrYAsOVODfWRRtW8rqbD7DxFmr-Ddvg@mail.gmail.com>
+Subject: Re: [PATCH v1] KVM: arm64: Use the host kvm_host_data for nr_event_counters
+To: Marc Zyngier <maz@kernel.org>
+Cc: Vincent Donnefort <vdonnefort@google.com>, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261023_054559_206892_F844C37E 
+X-CRM114-Status: GOOD (  14.80  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,36 +89,31 @@ X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, 23 Oct 2026 13:29:04 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> Hi Vincent,
-> 
-> On Fri, 23 Oct 2026 10:20:07 +0100, Vincent Donnefort
-> <vdonnefort@google.com> wrote:
-> [...]
-> > So kvm_init_host_debug_data() initialises nr_event_counters in the
-> > hypervisor's kvm_host_data, while kvm_arm_setup_mdcr_el2() reads the
-> > host copy which is 0. With a HPMN of 0, this stops programmable event
-> > counters from counting a non-protected guest.
-> 
-> I tested this in pKVM with a non-protected guest counting with
-> perf_event_open(). On its own the patch doesn't change what the guest
-> sees: every counter, the cycle counter included, still reads 0. That's
-> a separate bug: flush_hyp_vcpu() never copies vcpu->arch.pmu.events to
-> the hyp vCPU, so the guest's events are never enabled on entry. I'll
-> send a fix for that shortly.
+On Fri, 23 Oct 2026 at 13:43, Marc Zyngier <maz@kernel.org> wrote:
+[...]
+> > I tested this in pKVM with a non-protected guest counting with
+> > perf_event_open(). On its own the patch doesn't change what the guest
+> > sees: every counter, the cycle counter included, still reads 0. That's
+> > a separate bug: flush_hyp_vcpu() never copies vcpu->arch.pmu.events to
+> > the hyp vCPU, so the guest's events are never enabled on entry. I'll
+> > send a fix for that shortly.
+>
+> Please synchronise with Vincent and sent this as a series fixing PMU
+> handling on pKVM, not as discrete patches.
+>
+> The approach taken for this patch is wrong anyway, so you have plenty
+> of opportunity to work together.
 
-Please synchronise with Vincent and sent this as a series fixing PMU
-handling on pKVM, not as discrete patches.
+Will do.
 
-The approach taken for this patch is wrong anyway, so you have plenty
-of opportunity to work together.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Cheers,
+/fuad
+>
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
+>
 
