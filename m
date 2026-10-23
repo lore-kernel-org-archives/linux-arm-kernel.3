@@ -2,107 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B13F606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 11:53:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D65B0606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 12:02:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fX4fFUAs;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=tJfDQwHI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TyAqFTdS;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=bxRS2WXI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=J03TI8MCNYKa0Va1UVEBwFeBVNvHx3CWdHxIg7mHyDk=; b=fX4fFUAsj/Jfn21/R+LDi9LuFb
-	17kXrqfkm6DJIvynIuKuVDRLcXfCfE7JTYaKxLIEiU7lWc3rQoPD63ejA/RK8tXz5h5iQVleQl2Nz
-	29uGmIqJpxW9enP3w6KahcZjB1bAshZ176XkAFmRPy/8x1tTOzjXQN8D+4iA7e3EiU47RS7CIT7fk
-	YiezMmdZv7MLmn/x9s20oj/sUX6Jb4CqWY7RGm/EZ4/2IegtYCXXwD6dVR3Pl2+YLza3ga90Q00R/
-	0mx2Cy+RlCdhEeKhz3HgeJ1/6guztRUrz68dHXL/apFTSBMEGKmKdzcYNFl1HNV5kAydUf3oXwC4b
-	zy5F995A==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=jctLZMa3CFFn1fL9CJJAY0fHDymjjHzSukwmoA365k8=; b=TyAqFTdSb94jj9
+	FFeLHwcs05pgIh46vu9rkV9spxxUPWfwtJisuvMHJZvvDqSNOMWTO64x8y4/A3ahwocEhBFFM4KuP
+	B2CmJfSE0hGG4iMa/ZY/lhqKERYaTHhtVCmyGTP7i/x7U22gaeibVEV2GPnC3oCYRxoXlPUW8x7YO
+	orkXgn7uvqP+AD5GYTWEDhQ+kigucCtP8RSSsX27+fgYLOzm3xrJFLrtXFvOjbDktRLNuO1xqVNuZ
+	ocvpeQmDInlvnr7gxMfR0G1mYwhJDceuvN766yxKGSoP1XR8jthvx91wetHUNR4PTzUs7Dt/XHWoe
+	k0xmNCz8VT2oBDZDYPSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKDpT-0000000GFrS-23FH;
-	Fri, 23 Oct 2026 11:52:59 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKDpQ-0000000GFqo-1FVM
+	id 1xKDyM-0000000GGWO-1GSa;
+	Fri, 23 Oct 2026 12:02:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xKDyJ-0000000GGVj-2B5B
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 11:52:57 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4a2167bd087so3402105e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 04:52:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792756374; x=1793361174; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=J03TI8MCNYKa0Va1UVEBwFeBVNvHx3CWdHxIg7mHyDk=;
-        b=tJfDQwHI9zvmQ9WMtUd9Kmto4zkldfyl2oVybJaqIpnI8RPUJGNbEP0YAfHWjE9zpw
-         tMmTsOqtHSuevslxKF9fS7xpAHrsBhYKkxxGhj7ZBHEubOLTOhWOLNgZbwxDHGgTM7p0
-         IOuczNNxAhqkK/qZQL4yqyjhbh52MgIWrRXkpWqdW+p4tkTrMveM8xLu6zdIEtB1qOH4
-         8jGd6IPcUFiBjyTNm1Ei/PmZc76rwzGG4csYBWlIIGRWH9bvENglJYjzpGEZnZ59atej
-         RKp4crJTUQMix7YjZ+2g8nwygk80mp+t+7rDk3DMh+YoIgQtQOaL9hvGN6i0Kf0Tn/u1
-         n6wA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792756374; x=1793361174;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=J03TI8MCNYKa0Va1UVEBwFeBVNvHx3CWdHxIg7mHyDk=;
-        b=SNQjOXV7QR9lps5Odcf2UgA1S1am/a04xJNP334yv0tOzeDqFeJXQeNiU/WuFmJxUV
-         ZWohAO3Y5ibHtj9Dtf96pmJWzsrX/SsPPjFyfv65hVRwSPGxozelIX3X5Nm8D2iBX4DD
-         6031P+P9XZYuofEtltLX/CSMmJ9wL5Eb211Cm37mIko/gB2kCrq6JnIS0Mz8awdOXAqe
-         PTVXNGTbd9uLpMl64ccCYjMDGbMwU+I0NAAlrzkmBc0xh2T4Dbo/PUa1+O4CAey+PLDS
-         REMYQCHmeQRZ36M/7R3dWwFPDwAXIx4qfpztmqJUcfKWceF4/qayemQWyHTJFvWJkO9u
-         XJWw==
-X-Forwarded-Encrypted: i=1; AKwUvBxswRe3cmtWiSY5nCw/mbPgCrue85go9ocvUiiPa5BFNTeJbCBfsc4XlDHUQgrioYbGc40xSYnK/1hWH95twJNN@lists.infradead.org
-X-Gm-Message-State: AFq9FYJkAkJ1kQMl4MDLkgXTPmwj9WLj1fMt77ecTp0zMWxjyliLAFOh
-	Rwk1GZUrtuRM0QppL0CdtBEptRAWOfevr6alVWEXsxj1yjciH0e7tfZf
-X-Gm-Gg: AYBFou1/Wtj+x6TXEe78XcYqKsQ3zfdPoq0WTXtxtNEk+mg1HpFbvY0egg6A2n7vbCS
-	nuYhAizvq/HojEUkBz5akHAOoRyiNDi0DIauB5B8T/buA5fiXxdLoQys2MNys5GkbpMJfbsBVb3
-	bOpfk34iHUJYGjTVF770AX8QamsgLsowghE3kYy96tsOY2Q4+wFIbxLLhk3e1QQmjr4gRedC44i
-	AvqsyWvn7k9kPvfrWrdpDJPC16AVODD+x7kz6BOCpUyaf84gKqTNC06X5hIVeYSFUwPS5pLLs8U
-	Q2+YTA8Y+oV5E9S0soOFdHbzSoOCf4d+zUaSMw/S/rph2g/CVR/3vCy6dhObcEVEgd1AVx6w9Sa
-	Pp26qgJuuAnmc/G3BkTNQQPHld1usfeLw5bUgfyjsZCz83bTzSFh9O9e0s4eGB2GCxdkDTHJhBx
-	YSNbI1ZKCD6NSZQXFqUJpJ9kzuMSIJtsh21Ned11wsLYATFvPdwb5aQe7R2K0TvxcYPcfFHBzPQ
-	6wkz5mKQPBZTaTyJoaNL/VHD6qLx06dQVIpZaMEX/3JUBLYwpcHmV2sLPrw5JEORXC5zN6w9G01
-	r3DwDTFE1koEs9YCQod7ZMwGgkCJk3q0NbYAaJDAh04rrLO2KecLNOwLroIpkUgnbwo7+pY/FYA
-	=
-X-Received: by 2002:a05:600c:c116:b0:4a1:825a:56fd with SMTP id 5b1f17b1804b1-4a211dd9423mr26760585e9.32.1792756373823;
-        Fri, 23 Oct 2026 04:52:53 -0700 (PDT)
-Received: from GLaDOS.station ([187.13.215.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a21045df9dsm83319775e9.8.2026.10.23.04.52.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Oct 2026 04:52:53 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: devicetree@vger.kernel.org,
-	imx@lists.linux.dev
-Cc: Stefano Radaelli <stefano.r@variscite.com>,
+	Fri, 23 Oct 2026 12:02:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF2001691;
+	Fri, 23 Oct 2026 05:02:00 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 18F3F3F7B4;
+	Fri, 23 Oct 2026 05:02:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792756924; bh=WhP+2ZARQeBOK940ZZV2hQ7dkuiCr9Al+UuwIs63AhY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=bxRS2WXIeECIQ2k5nigxQE0z5PLaNETAUfEr+noV/i/NkRlOpHb0Vp+CcZr7aNDlk
+	 PqIv9v832Zymbd8retio17UCU2P2YlX8mZzjXQeJaNBtTGU9zSmCVpzGDPyKopTwlw
+	 hMK699uINLjrdnaCD2KwH1mEgasSdWo23WeKGCek=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	pierluigi.p@variscite.com,
-	Nate.D@variscite.com,
-	Peng Fan <peng.fan@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: [RFC] arm64: dts: freescale: Supporting Variscite SoM and carrier revisions
-Date: Fri, 23 Oct 2026 13:52:41 +0200
-Message-ID: <20261023115242.11197-1-stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 5/5] KVM: arm64: Enable HAFDBS for guests not on migration
+Date: Fri, 23 Oct 2026 13:01:57 +0100
+Message-ID: <attMtUqxNsuPooix@LeoBrasDK>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <3e464bef-8dfe-44a3-afea-3c276ae87cd8@huawei.com>
+References: <20260901171558.2674031-1-leo.bras@arm.com> <20260901171558.2674031-6-leo.bras@arm.com> <aqneWnlsdpocLIl6@kernel.org> <aqqhDs3NyjtkZzXK@LeoBrasDK> <aqsl1_IqnV2r8kUL@kernel.org> <aqvt2gnlBZeNsaf4@LeoBrasDK> <as-mH36YSMxAosND@LeoBrasDK> <3e464bef-8dfe-44a3-afea-3c276ae87cd8@huawei.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_045256_378765_C20E9F33 
-X-CRM114-Status: GOOD (  12.40  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261023_050207_644070_73AB75DA 
+X-CRM114-Status: GOOD (  44.49  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,62 +82,116 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi all,=0D
-=0D
-At Variscite, we are starting to look at how best to maintain upstream=0D
-Linux support for multiple hardware revisions of our SoMs and carrier=0D
-boards. We would appreciate guidance before settling on an approach.=0D
-Our goal is to support new revisions while allowing customers to keep=0D
-using current kernels on older hardware.=0D
-=0D
-Our platforms are typically described by a SoM .dtsi and a carrier-board=0D
-.dts, for example imx8mm-var-som.dtsi and imx8mm-var-som-symphony.dts.=0D
-Both the SoM and the carrier can evolve independently. Some revisions=0D
-require changes to the hardware description, while others may work with=0D
-the same DT. Over time, this leaves us with several combinations to=0D
-support, without wanting to duplicate complete device trees for each one.=0D
-=0D
-What would be the recommended upstream approach to organizing and=0D
-maintaining these revisions and their supported combinations?=0D
-=0D
-One possibility we have considered is keeping the common SoM and carrier=0D
-descriptions in .dtsi files, with revision-specific .dtsi files extending=0D
-or overriding them, and small top-level .dts files selecting the required=0D
-combination. Would this be a suitable structure? Are there established=0D
-patterns or existing platforms we should follow, particularly to keep=0D
-changes for newer revisions from affecting older ones?=0D
-=0D
-We are also wondering how to handle revisions that can share the same=0D
-description. As a concrete example, we have discussed the following=0D
-possible grouping for DART-MX8M Mini and Sonata:=0D
-=0D
-  imx8mm-var-dart-2.0-sonata-1.0.dtb=0D
-    DART-MX8M Mini v2.0-v2.1 on Sonata v1.0-v1.3=0D
-=0D
-  imx8mm-var-dart-2.2-sonata-1.4.dtb=0D
-    DART-MX8M Mini v2.2 on Sonata v1.4=0D
-=0D
-These are proposed names, assuming that the same DT correctly describes=0D
-all the hardware combinations covered by each entry.=0D
-=0D
-Would it be acceptable to keep updating the first DTS to support a=0D
-compatible revision such as v2.1, retaining the v2.0 filename, as long as=0D
-it remains correct for all previously supported hardware? In this scheme,=0D
-we would add a separate DTS/DTB for v2.2 only if a different description=0D
-were needed.=0D
-=0D
-This is an initial idea rather than a settled design, so suggestions for=0D
-a different approach would be very welcome.=0D
-=0D
-Thanks,=0D
-Best Regards,=0D
-Stefano=0D
+On Fri, Oct 23, 2026 at 03:23:04PM +0800, Tian Zheng wrote:
+> 
+> 
+> On 10/14/2026 11:56 PM, Leonardo Bras wrote:
+> > On Thu, Sep 17, 2026 at 02:40:42PM +0100, Leonardo Bras wrote:
+> > > On Wed, Sep 16, 2026 at 04:27:19PM -0700, Oliver Upton wrote:
+> > > > On Wed, Sep 16, 2026 at 03:00:46PM +0100, Leonardo Bras wrote:
+> > > > > On Tue, Sep 15, 2026 at 05:10:02PM -0700, Oliver Upton wrote:
+> > > > > > Hi,
+> > > > > > 
+> > > > > > On Tue, Sep 01, 2026 at 06:15:56PM +0100, Leonardo Bras wrote:
+> > > > > > > When dirty-logging is disabled, even non-write faults make a page dirty,
+> > > > > > > which avoids a second fault when the page is actually written to.
+> > > > > > > 
+> > > > > > > On dirty-logging enable, this approach causes all (writable) pages on the
+> > > > > > > memslot to be marked clean, even if they were not written to, which can
+> > > > > > > take a lot of time, while holding the MMU lock, doing atomic writes to
+> > > > > > > PTEs.
+> > > > > > 
+> > > > > > Do you have any performance numbers for this? Enabling HAFDBS seems a
+> > > > > > bit involved to avoid some stores on the first pass.
+> > > > > 
+> > > > > Not yet, but if the idea does not look too crazy I can find hardware and
+> > > > > collect some data :)
+> > > > 
+> > > > TBH this looks like a micro-optimization so I'm not expecting the
+> > > > performance gains to justify the behavior change.
+> > > > 
+> > > 
+> > > Okay then, I will get a machine to figure the performance gains :)
+> > 
+> > Got the performance numbers here.
+> > I tested both the case where all PTEs are dirty, and the case that 50% of
+> > the PTEs are dirty.
+> > 
+> > For that test, actually patch #5 could make kvm_pgtable_stage2_wrprotect()
+> > slower, which is counter-intuitive, in all platforms tested:
+> > 
+> > When we walk the S2 pagetable to wrprotect, using the new walker, the
+> > write to the PTE itself is so cheap* that the cost of the branch
+> > misprediction (write PTE or not) for the 50/50 case is significantly higher
+> > than the cost of the 50% extra writes, which makes the 50/50 up to 60%
+> > slower than the 100% dirty case. It is still slower in the '25% dirty' as
+> > well, and starts to get even at '10% dirty'.
+> > 
+> > * (non-atomic, everything is in order, walker is small, cpu will probably
+> > bundle it all in a single cacheline write)
+> > 
+> > Since the idea of patch #5 was to reduce PTE writes in the first wrprotect
+> > walk, it becomes faster only if only a small portion (<10%) of the VM was
+> > write-faulted while the remaining was read-faulted, which seems to be a
+> > really reduced audience.
+> > 
+> > Since this comes with increased complexity, and also carry costs of
+> > having HAFDBS itself enabled outside dirty-tracking, I don't think it's a
+> > good idea to further pursue patch #5. It's only value is that it served as
+> > a base for HDBSS implementation.
+> > 
+> > Thanks for reading!
+> > Leo
+> > 
+> Hi Leo,
+> 
+> Thanks for running this, the numbers are really useful.
+> 
+> It means the hardware dirty mode (HD=1) should only be enabled while
+> dirty logging is active with HDBSS support, and stays off otherwise.
+
+Hi Tian,
+
+Correct, it's actually counter-productive for it to stay on without HDBSS 
+before dirty-logging.
+
+> 
+> With HD only enabled during dirty logging, we also keep the DBM-based
+> encoding for the HD=0 case. On systems that support FEAT_HAFDBS, DBM
+> remains the write bit and S2AP[1] the dirty bit even with HD=0. This
+> works because kvm_s2_fault_compute_prot() maps any writable page of a
+> non-tracked memslot writable-dirty (WD), including on read faults:
+> 
+> ```c
+> if (s2vi->map_writable) {
+>         *prot |= KVM_PGTABLE_PROT_W;
+> 
+>         if (s2vi->device ||
+>             !memslot_is_logging(s2fd->memslot) ||
+>             kvm_is_write_fault(s2fd->vcpu))
+>                 *prot |= KVM_PGTABLE_PROT_DIRTY;
+> }
+> ```
+> 
+> So there is no WC entry for hardware to promote, and HD is simply not
+> needed outside dirty logging.
+> 
+> In the next HDBSS version, we'll only turn on HD=1 when dirty logging
+> is active.
+> 
+
+Right! 
+I will also send a new version of the pre-patch (4 patches) for us to 
+discuss. The first 2 patches will change meaning a bit, but should still 
+work as they do today.
+
+Thanks!
+Leo
 
