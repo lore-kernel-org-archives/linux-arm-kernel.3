@@ -2,87 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 259E260A2602
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 06:40:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51CA360A2638
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 06:40:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xvyqljqq;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=gpFNv2hy
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GnL/5lnX;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=HtA9TLbJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=zM6qRbp5A9CbBlh2Bu/tmcTR/0lPEgQHJG0kewWnWN4=; b=XvyqljqqOXoMQG
-	x7cd6XlMwr8o+ql7xCbVh9Ut8vPPRNbIaTTz3qK/d9etRVQ6Y/ui7O56KcrACabA6BvURHqpj8bY7
-	z0YfjW4H4vLZBofPX55CfT1Gpx5aQeiLEx84HRUb735J0gTt00ePH1PlBX+/vRXtIld5Sv1poU8ik
-	STYH1k9dAMbR4CvcMwLC3L0tm11AXytX1hwh5zh7WzkMLxXPTvNnn7hSEo9Uh/9fpzBGfwE3SIBMi
-	HzGUNT5B7wkLC1dW/fPiCa6KCDEb48c+WqI+72LT9yfwyZgkXkaIstIjBjgwU6noBvAggEsMygKcG
-	/G9FXarQD5nKEBNidRXg==;
+	List-Owner; bh=+kWBOdNA2CLKnF7HvCdhEAOcKVb/1PjdN+3pUhazcPM=; b=GnL/5lnX7W3xqS
+	/EqSvW8D3ZCmgKhNu7f1LMY87zXMDyueQ6+zAJVtPQkW1gZudkxtexXxQqa+qY9PuPfEwYQ3g94Ch
+	BSsQuATnXgx6y9AQF/SBHh6C+B6I2SEzujswsRhphjtPqwx5Q0VXFZ3fsyRr15SwFZzr8TA7c97CF
+	8wDHK/zFtCL2dt+9VilTC9bqTGUBir0Mag1jTgkMD5bYkOLkPQIVVGHBKIBx56NSHYR8rJH5YEt1I
+	ydMDZlRLvUnSsHB7kHYC3klElHw2e8l3tA9dd8FmcoCoatcAVVvp4onfdbSun7s/JeydIhvcnj1qV
+	nWYkrqJ6MdFCzFs2tSbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK8wZ-0000000FbKA-2Yga;
+	id 1xK8wZ-0000000FbKV-32la;
 	Fri, 23 Oct 2026 06:39:59 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK8wO-0000000FbDL-1QQg
+	id 1xK8wR-0000000FbF8-3hOJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 06:39:49 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48bbb06e746so216737f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 23:39:47 -0700 (PDT)
+	Fri, 23 Oct 2026 06:39:53 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-48dfc0421d9so388165f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 23:39:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792737587; x=1793342387; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792737590; x=1793342390; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zM6qRbp5A9CbBlh2Bu/tmcTR/0lPEgQHJG0kewWnWN4=;
-        b=gpFNv2hyJD2P8KnqztuA3B60aCvr7SiHrnZeHir4LhICNRiebotdG7yqa4FmIdzsjB
-         6veDD7MuKKxT7/Q3HcTVfpEH/N4EPW6Ya+edh2rpjSD0wpVcvJBQwKPoc/KR6UyQvuZN
-         OqLJFNegSPKhYuxiMdKzHkRyaDr5oMXZVUjaOeSQPSJscZE28U0f8lSgXJBodLZAgSeb
-         XhqGTK4zIBjZ3ylpx5BkIbj0MUQ2P6p+ASFW7ze/8jJ2AccoH8oOjUkQN4ACVBVn2zfR
-         UzJExNEzyW5jTh5DJXFvfLAPTI/96IJPVMHRBtDJ8DwaM/eDfUwxZOajNGgOCQs1c5y4
-         fmcQ==
+        bh=+kWBOdNA2CLKnF7HvCdhEAOcKVb/1PjdN+3pUhazcPM=;
+        b=HtA9TLbJcTyREpJLEt70mEBJVzraF2KCJdig8P7/gQPoUG/o01ycCwQGs8z12gUKz6
+         4Fkmfp8ZIhMgbYik+0n+j6QRPjogjuFbVjaatRd3vEg7h9aSGv5Zn3U12cgkq0JSvECG
+         ZmhiRbBNvzp3vbTNz4BnD6cLOhChQn3b5NIt4lFKSTF6Muq//VddJ2TsZ80aQ/mBhMDw
+         TLVsPSJiLHxpbw1R+IZbYeduqt8PywWdFNSEBkBrBMD8M123uGARbuzI9DnSbglheV5D
+         2+TL2daydP6/xE7wYQmpC2PECPdGVfX2yChIOmmXOtqjcInKhsdX4BLuapAXJzKVJt5X
+         xZ+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792737587; x=1793342387;
+        d=1e100.net; s=20260707; t=1792737590; x=1793342390;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zM6qRbp5A9CbBlh2Bu/tmcTR/0lPEgQHJG0kewWnWN4=;
-        b=rRcxU6hQGL2IHkutld/5tMWJt3rPR8EwbXPE4iWwvax2ql2pt93knJq3OlVKDnfdOb
-         iNL66cbtRiV3TtoELeGwarEHfa2UorpOEmUfKTGF/f88amWo0k+MoShDBrU5hJE8WX8M
-         yUxhFIA4T0Envm7ysPgT4uH+1X3IdwFvf1ZnNqCFl/bBNNkdEOkHJtvalxCNAjfH1AYJ
-         qtsmIsw2sMNnZyrEjkX6WphOzVPohviDmkc2au7RJraNWph6VZFjlZrvrdQJADTnOS87
-         4+m3Xi75gxNHbOEcPbFhEbO7aSiLwHKZUp6G3xA81VOW9HEFnzi5yIIg2kRxz/5ywiP+
-         kRHA==
-X-Gm-Message-State: AFq9FYI3kIHTZkPJP8LHhO5cGLnFNXM0oTN293QdsYXYHPGXgcgnfch3
-	AgODEvQWQXJmNxdFcJ72Mf/wlDAuYHl6pqBGiBIFzVrtANBSVvyiL312
-X-Gm-Gg: AYBFou2hZ6DjSTy1kq6gOr/trFSUmpEJJg1HOcAWIvpIBCge6x7ofp3B5g7MN7nJ7HR
-	OgE3VkKSkHODg7iFnqLG1aca0lYEcVNyKst9pqviPJBUGj69jDmw4e/+eFeQBkp7rd0FtAH6vo2
-	gYR2bk59IKYUvXuxelK6/j9M67CLK6FVuG8pxKe97tKDU979+KYtBX8YciJdIhBrWLIBauFJ5Hg
-	PbZnIlKUd1J7LLWcmFLlKyI6wY2YY9u80X04ezjpxtLc4jp1egKe1DRBQSsz4YDZLdZvVqqsEq3
-	4A6upgq8h6vVLSNebyJCnox4LMAtsh9BY+vZI/Lmbn6MpJq+QnIaamrUjFa1KojC6uSGoe25P96
-	+pGaJNvo0n96GONRg8c6wuhuCT2P7Hn0xV67LiXdpRmhodO4VBUTOp6LZJA+oNCj2OK2EzAhk5I
-	zwNlDAAWypVcKuiN9YXYdfeQ1Ow72GfRvAfwPeGR9gkx2l2bxa+5xxhcd/JKDivuKdjL+dZTYcD
-	DfVeSumLjbedj9kEXYIgD5wyTOKlykOIGF1RSYqpPOm3SttAvMqvtbL/L1fm1dzvCF50NLbBCzG
-	vYMTxYHM12c5WJv9SdaurbdGKe15sGVsnsgRCFy5dfBDvaSzuyN8HdnD7cCNdHPDuQFggkHzY4x
-	hlSo=
-X-Received: by 2002:a05:6000:41c9:b0:48e:dee:52bc with SMTP id ffacd0b85a97d-48e384e4205mr1725429f8f.0.1792737586551;
-        Thu, 22 Oct 2026 23:39:46 -0700 (PDT)
+        bh=+kWBOdNA2CLKnF7HvCdhEAOcKVb/1PjdN+3pUhazcPM=;
+        b=L9mBG4ZlRogEHjQma401XcP+qCwDmebkSJgkER3ovsS/uv2ZpkLMQ8QpjCy5n59Yma
+         aRKR3BH7OTS8oK1q8qMHMPlJx2nocjw+H0pmny7B8TjkmfO1hDuDci1zcEycrYI1iVew
+         vlkSTUIV1rAa4EWd9PNcz7cZ/glVl+2byLwypuzOxl/+7dyzOS8bmBWr494Eo5IfZnip
+         LIArH4bI2uxyrdiF5ACpMsVBpU39Kku6LAxclHcBeK77aBS+asMdQSRXJ5w/rdVTeaIS
+         KED3z6OmZNFPLdaoqa3mCc6RLoAjsA74SD6l7Do3y78f9R2j0h9N6Y1dAkz1ACTJorX6
+         pRWA==
+X-Gm-Message-State: AFq9FYIP/yk3xUq/7wjYp3UfbX8GRqXqmHQaRmVBErEz00z6pOHBu+AP
+	2nCNSX24EKByw3gCs5Ru5Nq7URgJZRxIdkIG1SEaLaoIqCvAZaVdzDH6
+X-Gm-Gg: AYBFou1tIvDLPytohdFiC+3MIXx+8AkqlgnJZhELPG31wp/0XWVdK9zYbRLlCTemUom
+	e8REigZmLO2YMjWjuvcsi/4bw8JYWRvOuEmX3nQewzTPgbpFwDBrmcHDFueKffr38QrXDTgBU7Q
+	5r+nx/Cx+IA6MGC0Pgud2ZQ3DaeftZoxZ6KddTq6M9O3grAQoZFb3oBC6bJp4nr0SWlB8ZaKNUB
+	RbaK6cyievbj+harNBLsQRngLlCT4WkkSqkYkFob8QnAobSo+BdukzJVNCqXsY0eg3u4Ry3hVtm
+	hxVn4L8QhDYNPhy7da0HoEq9JhZnxtBdZ+PpQtBY/9tD6l9mvlHJwsJSFibL4NE8NCw9V+zVKSw
+	vkKsbyIboOyHw7yOogV/Kyo1IB2J5S5xJqHXhPTMGJZ49O6MLhUp7/w55icIlXumcNGZ9GK1pqC
+	ZwWAdegUPHo9heaDcbuu1m6Ou/NuSamEBI3XJZqGEfUpvjgYqX+O09pyrtmYrgr/VxyQhj1WMfQ
+	CJI7FRcDieFmYokcq4Eh3PeQjOSPanz1v32ozi2lDCS+2HtkwnqKM9sR5hjnfVBX6VvQKQCmvy+
+	Ea/kDXHqSCjcvP/RPqbOHdXF2RtBQNjrnzSwrOzzLb9ZhAZgfcrnKLnqq8ZEz1wXCMZL8ROeanh
+	KSG4=
+X-Received: by 2002:a5d:5f45:0:b0:48e:37dc:7ff8 with SMTP id ffacd0b85a97d-48e385a74dcmr1543864f8f.22.1792737589779;
+        Thu, 22 Oct 2026 23:39:49 -0700 (PDT)
 Received: from [192.168.1.22] (cst-prg-49-173.cust.vodafone.cz. [46.135.49.173])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e38030c47sm3104782f8f.21.2026.10.22.23.39.43
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e38030c47sm3104782f8f.21.2026.10.22.23.39.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 23:39:45 -0700 (PDT)
+        Thu, 22 Oct 2026 23:39:48 -0700 (PDT)
 From: Tomeu Vizoso <tomeu.vizoso@gmail.com>
 X-Google-Original-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Fri, 23 Oct 2026 08:39:28 +0200
-Subject: [PATCH v3 03/16] dt-bindings: remoteproc: k3-dsp: Allow
- referencing the timers' power domains
+Date: Fri, 23 Oct 2026 08:39:29 +0200
+Subject: [PATCH v3 04/16] accel/thames: Add header with IPC definitions
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261023-thames-v3-3-3ab40aa17157@tomeuvizoso.net>
+Message-Id: <20261023-thames-v3-4-3ab40aa17157@tomeuvizoso.net>
 References: <20261023-thames-v3-0-3ab40aa17157@tomeuvizoso.net>
 In-Reply-To: <20261023-thames-v3-0-3ab40aa17157@tomeuvizoso.net>
 To: Nishanth Menon <nm@ti.com>, "Andrew F. Davis" <afd@ti.com>, 
@@ -113,9 +112,9 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-remoteproc@vger.kernel.org, linux-hardening@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_233948_422220_B1C3B0B2 
-X-CRM114-Status: GOOD (  14.49  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261022_233952_002817_2770B48D 
+X-CRM114-Status: GOOD (  25.45  )
+X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,17 +125,32 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-14.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_PASS,
+	T_SPF_HELO_TEMPERROR,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A firmware may drive the core's timers, which need their power domains
-held; the remoteproc driver does not hold them, so let the DSP node
-reference them for a driver that attaches to the running core to hold.
+This header defines constants and structs used by both the kernel driver
+and the firmware for communication.
+
+It is versioned following Sound Open Firmware's conventions with some
+measures to avoid having to increase the major (incompatible) version.
+
+An identical copy is in the firmware's code.
+
+Every structure is laid out on 128-byte lines, the coherence line of
+the C7x, with the words the host writes and the words the firmware
+writes on different lines. The Ring has 64 entries and a fault record
+per entry; the Context table has 64 entries, the ASID width the
+firmware reports permitting. The Kernels' stack and save area sit at a
+fixed address in every Context, above 1 TiB, so the firmware's user-mode
+entry needs no per-Context setup. The host writes a random challenge
+into the Ring and the firmware echoes it in the handshake, which tells
+this boot's handshake from one an earlier firmware left in the memory.
 
 Assisted-by: LLM
 Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
@@ -144,39 +158,255 @@ Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
 ---
 
 v3:
-- Initial version
+- Initial version.
 ---
- .../devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+ drivers/accel/thames/thames_abi.h | 238 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 238 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml
-index d6319c8e96f8..80eaef0a19b8 100644
---- a/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml
-+++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-dsp-rproc.yaml
-@@ -76,6 +76,23 @@ properties:
- # Optional properties:
- # --------------------
- 
-+  power-domains:
-+    description: |
-+      Power domains of the SoC timers the running firmware ticks on and
-+      times its work out with. The firmware programs these timers itself
-+      and makes no power request for them, and the timers' own nodes are
-+      reserved for it, so nothing else requests their power; a client
-+      driver of the firmware holds them on while it drives the processor.
-+      The processor's own power is managed through ti,sci-dev-id, not here.
-+    items:
-+      - description: power domain of the first timer
-+      - description: power domain of the second timer
+diff --git a/drivers/accel/thames/thames_abi.h b/drivers/accel/thames/thames_abi.h
+new file mode 100644
+index 000000000000..8f8b8323f747
+--- /dev/null
++++ b/drivers/accel/thames/thames_abi.h
+@@ -0,0 +1,238 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
++/* Copyright (C) 2026 Texas Instruments Incorporated - https://www.ti.com/ */
++#ifndef __THAMES_ABI_H__
++#define __THAMES_ABI_H__
 +
-+  power-domain-names:
-+    items:
-+      - const: timer1
-+      - const: timer2
++/* Shared with the firmware, whose copy is byte-equal. */
++#ifdef __KERNEL__
++#include <linux/types.h>
++#include <linux/stddef.h>
++#include <linux/build_bug.h>
++#else
++#include <stdint.h>
++#include <stddef.h>
++typedef uint8_t __u8;
++typedef uint16_t __u16;
++typedef uint32_t __u32;
++typedef uint64_t __u64;
++#endif
 +
-   sram:
-     minItems: 1
-     maxItems: 4
++#ifndef THAMES_ABI_ASSERT
++#ifdef __KERNEL__
++#define THAMES_ABI_ASSERT(expr, msg) static_assert(expr, msg)
++#else
++#define THAMES_ABI_ASSERT(expr, msg) _Static_assert(expr, msg)
++#endif
++#endif
++
++/*
++ * The kernel driver refuses a firmware whose major differs; a newer minor on
++ * either side is accepted.  A field appended under a minor reads zero from an
++ * older firmware, which means "not reported".
++ */
++#define THAMES_ABI_MAJOR	1
++#define THAMES_ABI_MINOR	0
++#define THAMES_ABI_PATCH	0
++
++#define THAMES_ABI_VERSION \
++	((THAMES_ABI_MAJOR << 24) | (THAMES_ABI_MINOR << 12) | THAMES_ABI_PATCH)
++
++#define THAMES_ABI_VERSION_MAJOR(version)	(((version) >> 24) & 0xff)
++#define THAMES_ABI_VERSION_MINOR(version)	(((version) >> 12) & 0xfff)
++#define THAMES_ABI_VERSION_PATCH(version)	((version) & 0xfff)
++
++/*
++ * No coherence line holds both a field the kernel driver writes and one the
++ * firmware writes.
++ */
++#define THAMES_ABI_LINE_SIZE	128
++
++#define THAMES_RING_DEPTH	64
++#define THAMES_MAX_CONTEXTS	64
++
++/*
++ * The save page sits on an 8 KiB boundary: TCSP keeps a nesting count in bits
++ * 16:13 and reserves bits 12:0 (SPRUIP0 3.7.49.2, Table 3-76).
++ */
++#define THAMES_USER_REGION_BASE		0x10000000000ull
++#define THAMES_USER_REGION_SIZE		0x200000ull
++#define THAMES_USER_SAVE_AREA_BASE	(THAMES_USER_REGION_BASE + 0x2000ull)
++#define THAMES_USER_SAVE_AREA_SIZE	0x2000ull
++#define THAMES_USER_STACK_BASE		(THAMES_USER_REGION_BASE + 0x5000ull)
++#define THAMES_USER_STACK_SIZE		0x1000ull
++
++/*
++ * The uAPI's fault kinds, register indexes and hardware IDs, for the firmware,
++ * which cannot include the uAPI header.
++ */
++#define THAMES_FAULT_KIND_KERNEL	1u
++#define THAMES_FAULT_KIND_FIRMWARE	2u
++#define THAMES_FAULT_KIND_TIMEOUT	3u
++
++#define THAMES_FAULT_REG_IERR		0
++#define THAMES_FAULT_REG_IEAR		1
++#define THAMES_FAULT_REG_IESR		2
++#define THAMES_FAULT_REG_NRP		3
++#define THAMES_FAULT_REG_NTSR		4
++#define THAMES_FAULT_REG_SE0_FAR	5
++#define THAMES_FAULT_REG_SE0_FSR	6
++#define THAMES_FAULT_REG_SE1_FAR	7
++#define THAMES_FAULT_REG_SE1_FSR	8
++#define THAMES_FAULT_REGISTERS		9
++
++#define THAMES_HW_J722S_C7524		1u
++
++/*
++ * Written by the firmware at boot.  Its loop then copies the Ring's challenge
++ * into challenge_echo, which tells this boot's handshake from one an earlier
++ * firmware left in the IPC memory.
++ *
++ * @ipc_address: the address the firmware was linked for.
++ * @dru_kernel_channel_first: the first of the dru_channel_count channels a
++ *	Job's transfers name, all on one page of the DRU's real-time registers;
++ *	the firmware's own channels are on another.
++ */
++struct thames_handshake {
++	__u32 abi_version;
++	__u32 l2_size;
++	__u64 ipc_address;
++	__u32 dru_channel_count;
++	__u32 dru_queue_depth;
++	__u32 asid_bits;
++	__u32 hardware_id;
++	__u32 dru_channel_stride;
++	__u32 dru_kernel_channel_first;
++	__u32 timestamp_hz;
++	__u32 pad;
++	__u64 challenge_echo;
++	__u64 dru_capabilities;
++	__u32 transfer_table_pool_size;
++	__u8 reserved[2 * THAMES_ABI_LINE_SIZE - 68];
++};
++THAMES_ABI_ASSERT(sizeof(struct thames_handshake) == 2 * THAMES_ABI_LINE_SIZE,
++		  "handshake must be two coherence lines");
++
++/*
++ * The firmware invalidates the core's TLB before a Job whose entry's
++ * mapping_generation differs from the one it last honoured.  The page tables
++ * take io-pgtable-arm's attribute indexes for ARM_64_LPAE_S1: 0 non-cacheable,
++ * 1 cacheable, 2 device.
++ */
++struct thames_context_entry {
++	__u64 page_table_base;
++	__u64 mapping_generation;
++	__u32 asid;
++	__u8 reserved[THAMES_ABI_LINE_SIZE - 20];
++};
++THAMES_ABI_ASSERT(sizeof(struct thames_context_entry) == THAMES_ABI_LINE_SIZE,
++		  "context entry must be one coherence line");
++
++/*
++ * SPRUIL1D 10.4.3.3; physical addresses: the DRU does not translate through
++ * the core's MMU.
++ */
++struct thames_dru_record {
++	__u32 words[16];
++};
++THAMES_ABI_ASSERT(sizeof(struct thames_dru_record) == 64, "a DRU record is 64 bytes");
++
++/*
++ * The groups are an array of __u16, each entry the number of transfers in its
++ * group, the groups consecutive in the table's order.
++ */
++#define THAMES_TRANSFER_TABLE_CHANNELS_OFFSET(transfer_count)	((transfer_count) * 64u)
++#define THAMES_TRANSFER_TABLE_GROUPS_OFFSET(transfer_count) \
++	((transfer_count) * 64u + (((transfer_count) + 7u) & ~7u))
++#define THAMES_TRANSFER_TABLE_SIZE(transfer_count, group_count) \
++	((THAMES_TRANSFER_TABLE_GROUPS_OFFSET(transfer_count) + (group_count) * 2u + \
++	  THAMES_ABI_LINE_SIZE - 1u) & ~(THAMES_ABI_LINE_SIZE - 1u))
++
++/*
++ * @context_serial: a change makes the firmware clear what the last Context left
++ *	in the core.
++ * @timeout_ms: 0 is no device timeout.
++ */
++struct thames_ring_host {
++	__u32 context_id;
++	__u32 transfer_count;
++	__u64 seqno;
++	__u64 program_dsp_va;
++	__u64 params_dsp_va;
++	__u64 context_serial;
++	__u32 transfer_table_offset;
++	__u32 transfer_group_count;
++	__u32 timeout_ms;
++	__u8 reserved[THAMES_ABI_LINE_SIZE - 52];
++};
++THAMES_ABI_ASSERT(sizeof(struct thames_ring_host) == THAMES_ABI_LINE_SIZE,
++		  "ring host half must be one coherence line");
++
++/*
++ * Stamps in ticks of the handshake's timestamp_hz; zero when no Kernel ran, and
++ * the Kernel's end stamp also when it faulted or timed out.
++ */
++struct thames_ring_fw {
++	__u64 doorbell_seen_stamp;
++	__u64 run_start_stamp;
++	__u64 run_end_stamp;
++	__u64 fence_value;
++	__u64 kernel_entry_stamp;
++	__u64 kernel_exit_stamp;
++	__u8 reserved[THAMES_ABI_LINE_SIZE - 48];
++};
++THAMES_ABI_ASSERT(sizeof(struct thames_ring_fw) == THAMES_ABI_LINE_SIZE,
++		  "ring firmware half must be one coherence line");
++
++struct thames_ring_entry {
++	struct thames_ring_host host;
++	struct thames_ring_fw fw;
++};
++THAMES_ABI_ASSERT(sizeof(struct thames_ring_entry) ==
++		  sizeof(struct thames_ring_host) + THAMES_ABI_LINE_SIZE, "");
++
++struct thames_ring {
++	__u32 tail;
++	__u32 pad;
++	__u64 challenge;
++	__u8 tail_pad[THAMES_ABI_LINE_SIZE - 16];
++	__u32 head;
++	__u8 head_pad[THAMES_ABI_LINE_SIZE - sizeof(__u32)];
++	struct thames_ring_entry entries[THAMES_RING_DEPTH];
++};
++
++struct thames_fence {
++	__u64 seqno;
++	__u8 reserved[THAMES_ABI_LINE_SIZE - 8];
++};
++THAMES_ABI_ASSERT(sizeof(struct thames_fence) == THAMES_ABI_LINE_SIZE,
++		  "fence must be one coherence line");
++
++/* The fence_value of a failed or refused Job; the Fence still advances past it. */
++#define THAMES_FENCE_ERROR	(~(__u64)0)
++
++/* @seqno tells a record from one an earlier Job left in the same Ring slot. */
++struct thames_fault_record {
++	__u32 kind;
++	__u32 pad;
++	__u64 seqno;
++	__u64 registers[THAMES_FAULT_REGISTERS];
++	__u8 reserved[THAMES_ABI_LINE_SIZE - 88];
++};
++THAMES_ABI_ASSERT(sizeof(struct thames_fault_record) == THAMES_ABI_LINE_SIZE,
++		  "fault record must be one coherence line");
++
++/*
++ * The handshake's transfer_table_pool_size bytes follow the fixed part.  The
++ * IPC memory is mapped in no Context, so a Kernel cannot change a transfer
++ * record after the kernel driver checked it.
++ */
++struct thames_ipc {
++	struct thames_handshake handshake;
++	struct thames_context_entry context_table[THAMES_MAX_CONTEXTS];
++	struct thames_ring ring;
++	struct thames_fence fence;
++	struct thames_fault_record fault_records[THAMES_RING_DEPTH];
++	__u8 transfer_table_pool[];
++};
++
++#endif /* __THAMES_ABI_H__ */
 
 -- 
 2.54.0
