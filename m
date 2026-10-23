@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64F0F606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 15:57:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73C90606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 16:20:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VE2Nc6ET;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TWB7iaoU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zIphnLds;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IdbHZPAQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,64 +14,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=XuZgvrBWboI3rpW18QcCXiO5LrzdiM17tAi+GoKtDEc=; b=VE2Nc6ET+mPzYvMnq3pfFSmAAS
-	B9L4ArqhknFeZjugLyd47YaFF94c54n3zRhXnirLlC5OLB5P56JUP/849rXTHsntEAe+23ZVcvdxD
-	0v1bDbLBpdoVfzxh/I1Tl2+c/CAoyyfM/IIbce3k9ekQgncwp43b8AMVwZM7br/MtWie+Ly/++ToO
-	tZM7flmaY8O2+AxeozHQkWQjTW1Nf13l6QAhpqlxjVWaJ9ZxwsqrARzP93ZTqSNMfGzvMDIOd5F2c
-	2MrZ0bVOaRGokytEU4fHKuqSZRfTrzvCIC3Evv3bWrby5O62hA4Nz3oiP+n3+cTsXIZOz9IKoFhdT
-	nRX70gbQ==;
+	bh=gaEKPTZSxoXAnYK1y13tSuJiEjwopeJd6eksrQwtbXU=; b=zIphnLdsShZZ5XJGqwYeOuNMLo
+	dXl60pDsOfxBYcYI9PmMeNLVxaYcglmiIyaxwRG4PlScH70J5vwLyiULYCGwAMghoMqe+IcYoRWdM
+	s9hDavCNjNOO1h6dx8eu4b6DN4+i6KXKZzWXDPh+oGZrEC7SrK3H9n1tY8prnGe7bZ7hjr2GDdqGB
+	nsEKiWSGYk3A9/uLvTqOW1YSAlgzVYw7De/rvpI/qGVw4JUoCTs+FXBSzNpFN5nzHUnqS+cMZgYs+
+	o7Gn51i1+arzCxk+rJMUkv2xanaJ4DIl7VtlxGc5GJwZxBTcCAp6rKqlNKPuUhsdur9NnOwjRy2IU
+	G6HsPgaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKHdM-0000000GdTv-3yVT;
-	Fri, 23 Oct 2026 15:56:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xKHzn-0000000GeLe-2ft6;
+	Fri, 23 Oct 2026 16:19:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKHcu-0000000GdRP-2L3y
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 15:56:42 +0000
+	id 1xKHzl-0000000GeLT-2NYa;
+	Fri, 23 Oct 2026 16:19:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EEC54438DC;
-	Fri, 23 Oct 2026 15:56:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0351C1F01825;
-	Fri, 23 Oct 2026 15:56:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B1F89601DE;
+	Fri, 23 Oct 2026 16:19:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74CD01F01825;
+	Fri, 23 Oct 2026 16:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792770975;
-	bh=XuZgvrBWboI3rpW18QcCXiO5LrzdiM17tAi+GoKtDEc=;
+	s=k20260515; t=1792772392;
+	bh=gaEKPTZSxoXAnYK1y13tSuJiEjwopeJd6eksrQwtbXU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TWB7iaoU0mqHu7XMC6qJKeP6ShXGY/fvZ0moZp8oYAhvj+Erh31gPg6uk5N+YkGUv
-	 fjw5vIBRdELK/grhuh/8ykk2bF6Seq3+J8EWPILmphRz6hDQrGbQbX3MKbXys7xHpY
-	 6GnGgVrvMOwypfqqPOjVkoduLfcBH3Xmi7WNa5Uu7nsJQK+VeHK3vQvuQsDcfNQyIu
-	 Rv7D7qvQflAOj/K1U6rmyTTwNMrweW6RjE4yNMpWwP6SdPpD3vD/glpmuhlHaMQBV1
-	 /UQv8RJgj6+nvx1zFN+uhYPfGBLVL1u7t8Abgejl7E6cXlzdBIhlcUeIGwCtbSpY4r
-	 JVHRY2AsStYZg==
-Date: Fri, 23 Oct 2026 16:56:46 +0100
-From: Jean-Philippe Brucker <jpb@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Alex Williamson <alex@shazbot.org>,
-	Jason Gunthorpe <jgg@nvidia.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [RFC PATCH v2 11/15] KVM: arm64: Export stage-2 MMU config
-Message-ID: <20261023155646.GA52056@myrica>
-References: <20261015142552.4128028-1-ryan.roberts@arm.com>
- <20261015142552.4128028-12-ryan.roberts@arm.com>
- <86h5idzqow.wl-maz@kernel.org>
+	b=IdbHZPAQBZWH71S9hbs6ylhLMUtGY4vTZ93/sWmj+tMvqAGPq21YaAKvHD475TaCu
+	 JZ1OAuVlRNxVrVVOT7gFuMiypSnpYlc16R2rD4x5xtY5/2wF5r0AhVxzqvvRRcPtYa
+	 d0YQYouzVvqhyhvHP8gt5T0m/3S6pI1pIuF4K7fprd1PTeOHLDBWaRaIlUDiJWU4W/
+	 eECNjRbCPXHGb7IqS9UeNwnNCqz81ruJjdFAfim6D3J94Lvpw2X8rXKVoXsOPIBLEB
+	 5JmioOeabyTaXC7gFB5VaT412rAV1wFENFzPIJUOis8z1QrjqqNmU1OLL06Gq3CytC
+	 wfMQNhw+p4cOg==
+Date: Fri, 23 Oct 2026 18:19:41 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Stefan Roese <sr@denx.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Wolfram Sang <wsa@kernel.org>, linux-i2c@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH RESEND] i2c: mt7621: fix copying uninitialized kernel
+ stack with reduced page_len
+Message-ID: <atuI-J9c7PXTqdCN@zenone.zhora.eu>
+References: <20261022193853.670625-1-ansuelsmth@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <86h5idzqow.wl-maz@kernel.org>
+In-Reply-To: <20261022193853.670625-1-ansuelsmth@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,82 +69,29 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 22, 2026 at 04:43:27PM +0100, Marc Zyngier wrote:
-> > +struct kvm_arch_guest_mmu *kvm_arch_get_guest_mmu(struct kvm *kvm)
-> > +{
-> > +	int ret;
-> > +	struct kvm_arch_guest_mmu *mmu;
-> > +
-> > +	guard(mutex)(&kvm->arch.config_lock);
-> > +
-> > +	if (is_protected_kvm_enabled())
-> > +		return ERR_PTR(-EOPNOTSUPP);
+Hi Christian,
+
+On Thu, Oct 22, 2026 at 09:38:51PM +0200, Christian Marangi wrote:
+> When a page_len is less than 5 bytes in mtk_i2c_xfer, uninitialized kernel
+> stack data is copied and written to REG_SM0D1_REG. Equally on the read
+> part, an unnecessary read is done.
 > 
-> How does this compose with CCA?
-
-This function would reject realm VMs once they're supported. If we
-wanted to assign a CLA device to a realm VM, I think it would be managed
-entirely outside the host:
-
-* EL3 driver reconfigures the device's accesses to
-  physical memory (security state, memory encryption etc),
-* RMM driver owns the PL2 registers to program the stage 2 MTC,
-* the VM owns the rest of the device.
-
-Lack of interrupts should make this assignment relatively simple.
-
-> Can it be restricted to exclusively running VHE rather than also
-> dealing with the lesser configurations?
-
-Yes, I don't think we want to support any nVHE config at this point.
-
-
-> > +	mmu->vtcr = kvm->arch.mmu.vtcr;
-> > +	mmu->vttbr = kvm_get_vttbr(&kvm->arch.mmu);
-> > +	mmu->hcr = kvm_mmu_get_hcr(kvm, 0);
+> Guard these extra copy/write and read for the page_len to fix leaking
+> uninitialized stack memory.
 > 
-> How about the hcrx field in the structure?
+> Fixes: d04913ec5f89 ("i2c: mt7621: Add MediaTek MT7621/7628/7688 I2C driver")
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
-It's 0 because HCRX doesn't seem to have bits relevant to MMU
-translation, except maybe EnSDERR and EnSNERR that KVM doesn't set.
-But it's not entirely clear which bits are relevant to this function,
-because other possible users may access memory differently (eg. no
-instruction fetch or CMO from a CLA device). Your suggestion below
-should simplify this.
-
-> > +
-> > +	return mmu;
-> > +
-> > +err_unpin_vmid:
-> > +	kvm_arm_pinned_vmid_put(kvm);
-> > +	return ERR_PTR(ret);
-> > +}
-> > +EXPORT_SYMBOL_GPL(kvm_arch_get_guest_mmu);
-> 
-> It really feels like this is a bit upside down. Since you are actively
-> pinning the S2 MMU context, it should only be a matter of taking a
-> reference on the kvm struct (just like KVM devices do), and handing
-> off the kvm_s2_mmu structure, rather than copying things. When you're
-> done with it, drop the reference.
-
-OK, I'll update this. The reason for this copy was to keep a clear
-separation between KVM and the CLA driver, so the driver wouldn't have
-to use KVM internals like kvm_get_vttbr() and kvm_has_mte(). I think
-those are the only ones at the moment.
-
-> If there is a need to deal with a different value for HCR_EL2 (or
-> anything else), it can be done in the code that makes use of it,
-> rather than being in the KVM code.
-
-Makes sense
+pushed to i2c/i2c.
 
 Thanks,
-Jean
+Andi
 
