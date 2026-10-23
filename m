@@ -2,100 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78080606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 07:53:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAF0C606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 07:56:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MCS2x2Jo;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Ffqrxkz2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=W7jWSpZZ;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rz9uoQ0i
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
+	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=m6NACu8GwCde3sJ9HWwodKjqPsu0GwIqcYBIIRb4XxU=; b=MCS2x2JoJbpELD8+LV5gPUZ4/q
-	mTIGjF3vgXobTMUwek7qPLgL+U6MWFRAj74PJqOE7vnBxXkkKRP/OpIdI9MKlUiBf+NZmiGFaqyJj
-	7QD6F9QuTT7z3IVPoHjMFiKx+2i7DGnjTsXwGVT2UHzumX5Jt2HN6z0qlZVQ8PZ62cH837dFasw9Y
-	iktd/R5PBLG114mMwLaVWBOtpqn8qFDW2TL5SiDhST/CAv9bWPC4//AzOnmkFEuODBwYHAKstpY76
-	TpxTl5Lv8Ggwe9/PGINuVaoNtp/HSeWPCTaptXlgIIWhC6roD4dSGBlS60774QwnqrPDXWeMGXNlS
-	UT+S7vbw==;
+	bh=T+Q/gijWLNYJalY5gR1Couj/LNq0adkq+xT5gR4tON8=; b=W7jWSpZZxbIXQgE+v9SGzVzUYd
+	0br6gOc8Z/znxWf5dxcY0UVfbMP4MASih2v8Ad5DrVycqFixP31jBwplcUWyGVYNLxESrkmcuLv2X
+	33cJp9yYsSQKuydL4EIbQayDB/6BEJQ5GuFtjdKeoY+X4lMqnk3i6pgeuIJ4n9/1bgYDY13XzkCSu
+	SUDcttMik36LLX+R+l24OKIn/ynCgPVlgbbZfDj9qZdZglKzohNby0d0J9jrE8ir885NgyJesXzpE
+	bxj8wgBe1H7N8brcb1ZYzYUu6+Fa72z7Vmm1gOQ2+Kmqv96AfZd48/YNX/UJ8IYRvaWNSkmRueD1o
+	jRAMvZDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKA5D-0000000Fo9k-3jcT;
-	Fri, 23 Oct 2026 07:52:59 +0000
-Received: from mail-dl2-x0a.google.com ([2607:f8b0:4864:38::a])
+	id 1xKA8M-0000000Fp63-2ww5;
+	Fri, 23 Oct 2026 07:56:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKA5C-0000000Fo92-06s9
+	id 1xKA8I-0000000Fp5I-1K1A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 07:52:59 +0000
-Received: by mail-dl2-x0a.google.com with SMTP id a92af1059eb24-175ec8c4efeso16396c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 00:52:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792741977; x=1793346777; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=m6NACu8GwCde3sJ9HWwodKjqPsu0GwIqcYBIIRb4XxU=;
-        b=Ffqrxkz2hseCPRApamMOU2vgMpPTzeF84kaxM/bGUhxclwfkT1S6rKGXE6bvuCS5Us
-         zC4Sw6xNXSiLTD70WAppxajxqgVG+3J4j2MQqUWN+aof1k6OZAV8J/itAac0dT47A5I9
-         WgbTRBleDownFDeSZ9YZixcNJrFKQOmJga6+sQA4puDCLIpgjgcbFwjNb7VJZOvi8Ybc
-         WHSk5GfmHhlT4akyM7Z+40CgUC00bH4XDxwLdE/r2wFl26Pe1TpM5dultvZkVT8tMW6K
-         2YdyjTitDNPcoZ3mC883DIsBSWNhP7YF7UhxhPcIkuthnYFP6RoiNw6woiDjiUhzoomL
-         kZow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792741977; x=1793346777;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=m6NACu8GwCde3sJ9HWwodKjqPsu0GwIqcYBIIRb4XxU=;
-        b=NNxu0RF+NHj7vUxsSLSTj6BQ8W2RZ4VwDpDX3XRtGL3KnaXCEMnbUM7vwe/lhRQPHI
-         VB3kFLL71a7Nlh60b6zcc9nunHsNkM5hNIgU0tnfk24QACEx3IkXfYE33PIwpub+1WzI
-         eyjiHA26rHXNH2+R2RPhCDwiRAGxLrrVf0Bdp223wzx0M4N2FBbZu1ZJ+uiXV+9PpWWr
-         Q5eQLty1m7donQGgcciJS5qWjxV0h9oikkrlzr7JwPeZXKnBGH3MFTQUv+YrKhN550na
-         IThdnJgWly6351FcwhJsKcJDTeku+3xBPiYStauBLhXw6VvwiHE0xLIdMN/8g6fXWs5E
-         y4nA==
-X-Forwarded-Encrypted: i=1; AKwUvBy42OU2WB+uJbnhFPwF/1fbr9luBD6Dzs8Rfh5KEpf48amHtdgbTTsSC1LfLJKn3m35bE0vLB3cZv8uwlwnCxjs@lists.infradead.org
-X-Gm-Message-State: AFq9FYL44d/iYjlkbjyN/taSD9Rzj5rwlTAEhwhjC/0b+Kz5Epm5iHFR
-	5BCQNwUDGjVpq4Ntpu2/UDCnKScN647uOrvf/3mEqNALsmkgIUp96EgW
-X-Gm-Gg: AYBFou3AOoS0gCXqUU/cqg9CB12df++7wtaUTfoT92Yc/mpegsXHK5nMGmtdt6Xg49I
-	CoMO2taJS2VOrkb7aZSl0p23jNnnHmWSRdRzOkkpErqvADx8ZJRHvLQqldvb4w8T+OKmtL1rePg
-	80lS7a8Gjc0OfdOtsuyGckfR2voju6CLEznrRIjcKrIbUF4nBAcUd67PyZtnu4cyxQwaj1SEcOa
-	p+Wbn777VlW8z8ewbVK8R8pBXmWo1wGGeZEPuA1mCfp/Gmu4p6YbDu2HAk5+uTrs317Q/yZzBiM
-	2SBVb4PCqlK7vpqhirRBwti3isGkSX7Td7TZMJDqrbOR7oc6g6iWvHUxyjO4XSPRO7MnIkrMj4t
-	haPMnWeYHUsrAOJwzksB13WUQqBeoqFoh7ksP/r8yh4HGLGoW9ktPdZEcjido55wMxhTvp9m6Pw
-	0kyohed8Bj62vbJxG8VI3k1oNkVo/DOTxqVa7aAGBHctLUyBk1/pXyrE0V8K/3zCNE7UyrRFPhe
-	0GyFdptyjgJ2b1w0VDk24KKyHp4CdRniqNP0VM/2HBgLPyWf4dNeg==
-X-Received: by 2002:a05:701b:2302:b0:143:2968:564c with SMTP id a92af1059eb24-195c627d93fmr1822085c88.26.1792741976804;
-        Fri, 23 Oct 2026 00:52:56 -0700 (PDT)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-195eae0e830sm4122132c88.10.2026.10.23.00.52.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Oct 2026 00:52:56 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S . Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Coia Prant <coiaprant@gmail.com>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2 0/4] net: pcs: xpcs: fix runtime PM and clock lifecycle
-Date: Fri, 23 Oct 2026 15:52:11 +0800
-Message-ID: <20261023075214.1793922-2-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
+	Fri, 23 Oct 2026 07:56:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C272602CA;
+	Fri, 23 Oct 2026 07:56:09 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1792742169;
+	b=FnkNk9GX+j4ikyxZ0HREX0E9RYHzyfZyiS1kJ/vY9oGmIGLJEjHm4bcG6zLhv0GfGprJ
+	 ZNk28hDB/gBcK5S4KVx8S4wg5wruI6CAQSV/nVMRGNWx/Bwd0zf6y34hneuPldF7SvtTG
+	 LSBEEIzqAWZPuzsiDolcx3e8KhEUbWRO8cUgwI1viFXmb1mU1O8Y+oh2YP5QMaU/LdIC0
+	 3Va7gw2n/IxURgZp97TwPbgRqmH2uGk/ygrh6ehQG/rl2tBM0xGz4gvabYuWy3gpPKTz6
+	 WESrf6Xj/NGU6VhQlfBT21Bmiguzizy3vYRFMwIfry7EWNPe2sE0y1br74myqDFx+Jg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1792742169;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=T+Q/gijWLNYJalY5gR1Couj/LNq0adkq+xT5gR4tON8=;
+	b=Gl5yeYjuSVFKNDFKBZ2zS4jGFEoOM1NT+jE2N2DMMttPXHoyNRiX2OYswPk21n8oxn5l
+	 +kQJvTSHyzrWrD3s6dzbCRivuPXx/zP60YCz6bVDmln0FbGQnfpM55BlgaCn0QeLn0ISs
+	 P2+/Ukl/azFzH1Y9eYQsDEFsI0aASF3Uy3yzqeqSo5s9XSwyv1CTEJuXZxbHBtPTy1ssF
+	 UVOHQXBQ2CsrCE2QU69JcKPZPKcZVaczYQHnsfJntqOsphpfVviqMow3bD5Ubrt0T2NEU
+	 NVcoJ43lHLEiLPx+vKKjS1N4u/V/uvuVOJKz4642hyONsPgDozNhLytOK41X7k7bLvQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id A63BC1F01828;
+	Fri, 23 Oct 2026 07:56:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792742169;
+	bh=T+Q/gijWLNYJalY5gR1Couj/LNq0adkq+xT5gR4tON8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=Rz9uoQ0i85tdIliBOGMo2LILilxsRHrezTaOdeDtJ3Th7wbes7mH5MDfiFHPda/94
+	 SsxvyPVIQZnA+IsHB2nGBH+AT4c6efPq6DnkS825FKS9ay3jPNNGGFD+rnij1XCitY
+	 xyXR4vYKE/4axwCCspr4Jeuyc2S5dTSgVQe3MMNe6JYGRTN+VAofQ/4J/fD++RMnJM
+	 oZUpYgn4TnW1nbcIwwuAQXP1VguwO7jAIi6esT6rLoMuzReJLJ8cuiq/hn1k6DPhIp
+	 CavhWDYLA0IdvJvSMh6lovB5ylnYnxoNB3nF1ws9efumB4NKlBOAm4fYdxJ4naxiOH
+	 dVimjNyqAou0g==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 18C1C4440C;
+	Fri, 23 Oct 2026 07:56:08 +0000 (UTC)
+From: Ishu Brar via B4 Relay <devnull+patches.brar.si@kernel.org>
+Date: Fri, 23 Oct 2026 13:24:32 +0530
+Subject: [PATCH v2 2/2] iommu/arm-smmu-qcom: Skip PRR setup on SM7250 GPU
+ SMMU
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_005258_067641_F40844FD 
-X-CRM114-Status: GOOD (  19.82  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261023-smmu-sm7250-v2-2-8bb881ce19f5@brar.si>
+References: <20261023-smmu-sm7250-v2-0-8bb881ce19f5@brar.si>
+In-Reply-To: <20261023-smmu-sm7250-v2-0-8bb881ce19f5@brar.si>
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Rob Clark <robin.clark@oss.qualcomm.com>
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, Ishu Brar <patches@brar.si>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792742167; l=1110;
+ i=patches@brar.si; h=from:subject:message-id;
+ bh=VF/mGbM1EJsewrS92EWhHwKM9QYUxif31RQPsJ22WkY=;
+ b=dquIgiNHyvz4rhwd+HLQRvAKDNpWA1NSq3XXVL2MODeB2oSQHozaFNUi708en0LVV+Z4zfiFr
+ yaupfqnLzdbCzTFPf7A2QlQfQy6ilCjcxt/uz4nXbEFQpXwaZB2TMrU
+X-Developer-Key: i=patches@brar.si; a=ed25519;
+ pk=Ds+E23E3ntzjPzuBDyVRkOouclcNI5k75R+N42yJtCk=
+X-Endpoint-Received: by B4 Relay for patches@brar.si/default with
+ auth_id=1189
+X-Original-From: Ishu Brar <patches@brar.si>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,84 +112,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: patches@brar.si
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This series fixes the runtime PM and CSR clock lifecycle in the DW XPCS
-platform driver, a misleading error message in the Rockchip glue driver,
-and the MAINTAINERS coverage for the platform driver and its binding.
+From: Ishu Brar <patches@brar.si>
 
-The issue was found while using pcs-xpcs-plat.c as a reference for the
-Rockchip XPCS glue driver (pcs-xpcs-rk.c). On Rockchip the CSR clock
-(PCLK_XPCS) is required for register access, which exposed two problems
-in the generic platform driver:
+As on SM8250, the firmware on SM7250 resets the device when the Adreno
+SMMU PRR registers are written. This happened as soon as the first
+per-process GPU pagetable was created. Do not install the PRR
+callbacks for the SM7250 GPU SMMU either.
 
-  - it calls pm_runtime_set_active() before runtime PM is enabled and
-    before the clock is prepared/enabled, so a later suspend tries to
-    disable a clock that was never enabled;
+Tested on a OnePlus Nord (SM7250) with Vulkan.
 
-  - with CONFIG_PM disabled, the runtime resume path is compiled out
-    and the CSR clock is never enabled at all.
-
-Patch 1 fixes the initial runtime PM status and registers a devm action
-that force-suspends the device on teardown, so the clock does not leak
-when the driver is removed while runtime-active.
-
-Patch 2 handles !CONFIG_PM builds by preparing/enabling the CSR clock
-manually and disabling it in the cleanup action. It also switches to
-RUNTIME_PM_OPS() and pm_ptr(), which are no-ops when CONFIG_PM is
-enabled, so that the runtime callbacks stay referenced and .pm is NULL
-in !CONFIG_PM builds. Because the CSR clock is optional and both cases
-are handled in the driver, Kconfig is left untouched and no PM
-dependency is added.
-
-Patch 3 rewords the cleanup action error message in the Rockchip glue
-driver, which was merged into mainline today and currently mentions only
-the EEE clock even though the action also tears down runtime PM.
-
-Patch 4 lists pcs-xpcs-plat.c and its DT binding under the DW XPCS
-entry. pcs-xpcs-plat.c currently only matches the ETHERNET PHY LIBRARY
-entry, and the binding is only matched by the generic DT and networking
-rules, so the entry does not cover the whole driver.
-
-No upstream platform currently enables pcs-xpcs-plat with a real CSR
-clock dependency, so neither runtime issue is reachable in mainline
-today. Because of that, no Fixes: or Cc: stable tags are included, as
-discussed in the v1 thread.
-
-The patches touch code that is already in mainline: the platform driver
-has been there since f6bb3e9d98c2, and the Rockchip glue driver was
-merged today. They are fixes to existing code, not new drivers or new
-features.
-
-Changes in v2:
-  - drop Fixes: and Cc: stable, and state in the commit messages that
-    no upstream platform can trigger the issue;
-  - add a note on Kconfig: the CSR clock is optional, so there is no
-    need to select or depend on PM for all platforms;
-  - add a fix for the Rockchip glue driver error message;
-  - add MAINTAINERS coverage for pcs-xpcs-plat.c and its binding.
-
-Thread v1: https://lore.kernel.org/all/20260704214808.1566710-1-coiaprant@gmail.com/
+Signed-off-by: Ishu Brar <patches@brar.si>
 ---
-Coia Prant (4):
-  net: pcs: xpcs-plat: fix runtime PM initialization
-  net: pcs: xpcs-plat: fix clock lifecycle for !CONFIG_PM builds
-  net: pcs: xpcs-rk: fix cleanup action error message
-  MAINTAINERS: list DW XPCS platform driver and binding under XPCS entry
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 1 +
+ 1 file changed, 1 insertion(+)
 
- MAINTAINERS                     |  2 ++
- drivers/net/pcs/pcs-xpcs-plat.c | 62 ++++++++++++++++++++++++++++-----
- drivers/net/pcs/pcs-xpcs-rk.c   |  2 +-
- 3 files changed, 56 insertions(+), 10 deletions(-)
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index 795e8ec7e..55071eb03 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -394,6 +394,7 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
+ 	priv->set_prr_addr = NULL;
+ 
+ 	if (of_device_is_compatible(np, "qcom,smmu-500") &&
++	    !of_device_is_compatible(np, "qcom,sm7250-smmu-500") &&
+ 	    !of_device_is_compatible(np, "qcom,sm8250-smmu-500") &&
+ 	    of_device_is_compatible(np, "qcom,adreno-smmu")) {
+ 		priv->set_prr_bit = qcom_adreno_smmu_set_prr_bit;
 
 -- 
-2.47.3
+2.56.0
+
 
 
