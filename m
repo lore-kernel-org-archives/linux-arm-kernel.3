@@ -2,68 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 637B9606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 21:00:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BA3C606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 21:10:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kHdQbm2D;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Twk5Chpi
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S4VEfYTM;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gXhLbcs+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=wMxatn9ZBgj5mTbs6ATeEIyXX0vaFfQVORNtXX+SfPY=; b=kHdQbm2DhLeOxb
-	dICm2UKH3spt9JdNhbCtfjgsPMlGk9esEnaWr7YxV5gZCYn2ZhU8rHE2bDzrCRFRoTwoZvkSV8b3+
-	iqrYHhjOgQHNoN3xP/+3m6HZsi9IaV3OMB0lQaxdJdZPOj0NWO7VbS1Zn5LSOMN4VFhecEFybMV05
-	z7kWHmrDCr5TP2G9lwkg4CoG07KFxmzvcmKzEA8FRwlQWHOVZVW6p0dweQlMS6TUdJnPtcz/MJYT6
-	9hY4Z4HE92hhHJuTttfoNAvHDbUEjcrxB+YJ6TMczjvIDWGsGqWUUkQYCuKhtPa0t7HcoDQVd2TPM
-	AsB6NPnJLTJwisCmwFGw==;
+	List-Owner; bh=aNINpD0OqmqNIeIsXPCMxFESLxmzCmTKDHZXUaQzoLQ=; b=S4VEfYTMrZhABD
+	Pb1IIIN+/Aj3el0S9HqD9d9H9spHSkD/3/2Ckg6GfGa6QmoIbegyzcFqWJKGolLT/65uTr0OwHQen
+	7cS8s/M9I2JhZ2DJOrDQxhBjuxSQgHoP9FEfdC50nv+yXq26HCUE7t4lUZnBPq/4h25ffaK+cfdIp
+	TEjXySzgmJa/qOlFFGX5n+vlZP3EW81NutMDc0L/CF++VpSlgod6+U7gFGF3LqtfAHm0OrAnUa9bQ
+	94AZta7b3cxjRMs41AB5txZGyw2fk1wFixMyjQfFtzUtE7uGC7KMv4oI6FvWopEpBiZ9YjcrbMeTR
+	4XO/TrLg/qSm7P2D+SLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKMNM-0000000Gxql-3Q8r;
-	Fri, 23 Oct 2026 21:00:32 +0000
+	id 1xKMWg-0000000GyOS-0j6i;
+	Fri, 23 Oct 2026 21:10:10 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKMNG-0000000GxqC-15ZJ
+	id 1xKMWe-0000000GyOL-3z2X
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 21:00:29 +0000
+	Fri, 23 Oct 2026 21:10:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A94CD4325A;
-	Fri, 23 Oct 2026 21:00:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A8651F031E0;
-	Fri, 23 Oct 2026 21:00:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E34B5439B8;
+	Fri, 23 Oct 2026 21:10:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C80101F01825;
+	Fri, 23 Oct 2026 21:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792789225;
-	bh=wMxatn9ZBgj5mTbs6ATeEIyXX0vaFfQVORNtXX+SfPY=;
+	s=k20260515; t=1792789807;
+	bh=aNINpD0OqmqNIeIsXPCMxFESLxmzCmTKDHZXUaQzoLQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Twk5ChpiEY7kvnfQzH1fP0t11NZBt/4OZAUPgaTYOicR84dfvLo0W3MDNoLFQiOV1
-	 rJ7wx5x/ZnOhk0lm6IJIL1iO1wcShildb4EOEzIEyFPu50t+I8xVBsv0upailKrgJx
-	 2+5KFkaPVAjPijNF17lATASjFV8a7rQ3DSZ7e2LLj+X35Jl6ILlreBJNejt8gkDxAl
-	 3c5VfputP/93/LWJUFOBjUZCQ7UcJJh1qPoXWPW6f+HiF+NDkSWK7gV1gwZJkXLaPh
-	 X5LaOo4+gcid3UM+bCiOUPCs9mX6VlypoQS73evK9UjpTu2/K0hoxuubl1qDGlyUV0
-	 Jcc7DI34f+coA==
+	b=gXhLbcs+2GvBbodeWXnIW1pHMKWi4m5LdZZuN/0istfhdEOzdKs8rWUr2AvJOsLJj
+	 98m6a3Bw/omDsOuC//vDA4p2sO6Oa8Vphj72M5z3cty0DxMpXXNoSFQMb/V6if6B0O
+	 c1GPh+UjvulHJmeOsKJUBpcGFAzfenKjvjvrXzy+AYtTV70FzAR9OTJn1xypnjusii
+	 mKwVE+yuP157bK9MEf6YINU9FQxnpeQdi8mp5wFtNbjIIgIzH5BMl7kmBT8GJnayHr
+	 tVAwsbtIpE9N4DKfKkb6TEBY8HtNobRxp1CzVPUvYcVnvVpMaVp+xqbFuA2NVGzQH8
+	 B2qP5LKQ97r+w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 815FD391B157;
-	Fri, 23 Oct 2026 21:00:25 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BE56F391B157;
+	Fri, 23 Oct 2026 21:10:07 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] net: sparx5/lan969x: do not read past skb->len when
- injecting a frame
+Subject: Re: [PATCH net v2] net: sparx5: fix tx DCB index drift in fdma xmit
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179278922406.1268720.4078185766615858241.git-patchwork-notify@kernel.org>
-Date: Fri, 23 Oct 2026 21:00:24 +0000
-References: <20261021-sparx5-inject-tail-bytes-v1-1-7dcc035c8ddf@microchip.com>
-In-Reply-To: <20261021-sparx5-inject-tail-bytes-v1-1-7dcc035c8ddf@microchip.com>
+Message-Id: <179278980631.1272863.10742886644709270848.git-patchwork-notify@kernel.org>
+Date: Fri, 23 Oct 2026 21:10:06 +0000
+References: <20261021-sparx5-fdma-last-dcb-v2-1-7b8fabdb9239@microchip.com>
+In-Reply-To: <20261021-sparx5-fdma-last-dcb-v2-1-7b8fabdb9239@microchip.com>
 To: Daniel Machon <daniel.machon@microchip.com>
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
  kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com,
- UNGLinuxDriver@microchip.com, bjarni.jonasson@microchip.com,
- lars.povlsen@microchip.com, steen.hegelund@microchip.com,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
+ UNGLinuxDriver@microchip.com, jensemil.schulzostergaard@microchip.com,
+ horatiu.vultur@microchip.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,21 +84,19 @@ Hello:
 This patch was applied to netdev/net.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 21 Oct 2026 12:48:26 +0200 you wrote:
-> sparx5_inject() writes the frame to the injection FIFO one 32-bit word
-> at a time, and pads frames shorter than 60 bytes with zero words.
-> 
-> Before this patch, the last word is loaded whole even when skb->len is
-> not a multiple of four, so 1 to 3 bytes past the end of the frame are
-> read. For a frame shorter than 60 bytes those bytes are also
-> transmitted, as VLD_BYTES marks the whole last word valid and the
-> padding starts at the next word.
+On Wed, 21 Oct 2026 16:04:59 +0200 you wrote:
+> sparx5_fdma_xmit() advances dcb_index before checking that the FDMA is
+> done with the DCB, and does not undo the advance when the check fails.
+> Before commit f4aa7e361ae2 ("net: sparx5: use FDMA library for adding
+> DCB's in the tx path") the next DCB was always the one after last_dcb.
+> Since then dcb_index drifts one DCB further away from last_dcb on every
+> failed transmit.
 > 
 > [...]
 
 Here is the summary with links:
-  - net: sparx5/lan969x: do not read past skb->len when injecting a frame
-    https://git.kernel.org/netdev/net/c/9642ce6cb51e
+  - [net,v2] net: sparx5: fix tx DCB index drift in fdma xmit
+    https://git.kernel.org/netdev/net/c/1df26063ab9b
 
 You are awesome, thank you!
 -- 
