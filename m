@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EE41606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 07:31:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFA57606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 07:32:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=W8wfwBMA;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=j9iyRC+o
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SC9aqYf2;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=YPeOMxsW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -14,81 +14,83 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=vqy5QIw1/kas6DX7rXU+qCiDfbpbyVW/9On/rw4UvY0=; b=W8wfwBMAdCOKDjndhGUP4fj1ZP
-	SVY+PYh5XmPW+1/KN2F+OM0HYlcPSBToQNr+H4qmfIxPa/7MTCWeHMJiSBF1EI9kEC08WkuA8FfiJ
-	PqbgPPB4JWIF9a2JN8cnvCz5U34S5BBzCl21aNzKrqeaGefWu2S17gr09zprQg3hEwaS85GIukcRi
-	Hf2TWdM2sPyZnvyVhOdKlvh4luQOn41uuw0s4Dm6X9BbYzsemYsdS6rqem0WTNzq5Xrm4BwRmOyiB
-	hdPKdhPpFQv9CuFHHPHcxPZJE4Xwp4XWAh1l1TT7JMlv5os2pkTDcpoMkCNe/x1jSMwy525GBgO/l
-	FLc9qtSA==;
+	bh=bhnlngDTdPCRzQ3WfPeVfNn/5dfQaEbDCnTEYto+WIk=; b=SC9aqYf2bXtAP3/LO1hKg1fERI
+	KWWE1V3yLX11ar2LfZ//+tJa9LbUDgz9QbIBavBX8HP9miK1yEiNnS4oH81FF9O7o/6y750FjCx4t
+	W1qJCdnfJ+ZFY0xCNwezlumxs6h29mGeNNG9WSWsIemNUeW385vO99hVeW/SpmQwRhCRaFMs+zwmj
+	qDJnSkhbNhckkOxrttcWeJ6dCQ8ixJFB6fopm2j6KrPFyrPXoV5Jj/MNmaaP6HL5FXRCnsDp9dsIH
+	h4zJEgjr4Jnejqx75xEZYcctI2P8HGnGI9beU3y/SwdktTaUBOChT1fR3mlQ+/Pq7eO5AAeR+55FH
+	W678P6eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK9ke-0000000Fko6-24pn;
-	Fri, 23 Oct 2026 07:31:44 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1xK9lD-0000000FksB-3INK;
+	Fri, 23 Oct 2026 07:32:19 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK9kb-0000000Fkng-2iL0
+	id 1xK9lB-0000000Fkri-2IL5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 07:31:42 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2e98798cbddso2136155ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 00:31:41 -0700 (PDT)
+	Fri, 23 Oct 2026 07:32:18 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2e946155442so4284325ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 00:32:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792740701; x=1793345501; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792740736; x=1793345536; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vqy5QIw1/kas6DX7rXU+qCiDfbpbyVW/9On/rw4UvY0=;
-        b=j9iyRC+oO+76ndGR8TLfti6qZwU+Mba0ynjzrAY4qdDrDFdfb9WSsPFFzDe7S1nUP5
-         NQz5zlA5HraM9GnP2WMx9rLm8b3HT/XWDGEq618T8uANgugay8iHw/k8a9e2EaiLdzZa
-         J1hNDpq14Fos6p4lFW5xLMvIcvchP9x2Q+j1iYG78XxB6mDhWd0Gjrw1ZJuEVsyU5Dh5
-         TK6J0bMG7dzufCrWde0YOh+V+babWh5umfBgsYjDnSnpInHbj+qwZSWay7kO5l3GosBv
-         KhX7/Qgj9Zs9aIf9Y94lyld/X69COh/MNmNd+63/LVnWfidbmNE7pDP+SZahC1/fEm7T
-         lrnw==
+        bh=bhnlngDTdPCRzQ3WfPeVfNn/5dfQaEbDCnTEYto+WIk=;
+        b=YPeOMxsWx7XpT4a2Ztz9O7e8/vQH7FwvEkoDmlpyZAUfnnV+UCf3EH++LiqCsin5Rl
+         izKcC9uGhSib7i0As4yDidTkYKgTc6RFmtIbrCNaxv8DP1FkXeyHZzapF0Y+78SJgDKg
+         UAibp/Yv/5IQ1Ph1j/iJepmL6lCDN4n9i4+RQ+tmUydrl4DD5m2D9EaP1w1oNGvtvDrP
+         YJZoaOFgw3cjRl9VpSIq3dKrKkE5Qct6xXdrv3sEt7rFnu2PbUMm1WGEyCznXNbcTKVS
+         LGZ9QJNEESsCJEdNmzHB6GQbrHlT6RT4Ms8ohIPqMlNM3qqh8vJT3zDozemNU9dL93Ah
+         V5QQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792740701; x=1793345501;
+        d=1e100.net; s=20260707; t=1792740736; x=1793345536;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vqy5QIw1/kas6DX7rXU+qCiDfbpbyVW/9On/rw4UvY0=;
-        b=QPj+GYhgQMEhp36WjJhMPBFrB+Q4mLFkJFuhwXk0y+nybjE8RjVpLoZcfDe0T+o2EV
-         94rCxJq6iwzwDrJiepXd7KGRIgN9Tt/EWVoQA8EaAqc0vSVpG4ahwJl1BV2xBk5qeOx8
-         1bYDrLSELH5Vv6tZO6JLY8apMdPSrmysrWL7ZEUk8bYgk6fSrREQAuPpUe76MUbSbr5k
-         RiYOZ2mW4x9uBnS60C2hXGH8vahEriB4yqWGnWLgEZOOnYviPYR+OLOsXdP8jwkWo/ko
-         SW7CS+7Rr7eFCbqSIdO40rTVr99xqcTV4sRnXDNFPJ3SUCYdU/D5rOH7wTaFL9Mz97Hz
-         AgJg==
-X-Forwarded-Encrypted: i=1; AKwUvBxsKim2db4maJMdJNOWin2+/jlVJ54b2876XNPl0niX98k+vKMq2m86q/gj5ZxeX0oD0SZidZNdegHhHhKuLytQ@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ83TE3BeurgEaAT+bSNo/HSXT2rJ9dQ1Vc9I06WJuHKQhFlC5V
-	2isIMqB1sZ95ZjIUZ5UzuV5BlLBkTm4h9vFCi/GvODsXSt/W966CGhABoKVN2bYM
-X-Gm-Gg: AYBFou2OCOP+eIl6orRJa0crnrruONblcTa21AmssK/bBgpWfpVfC5R7JUwzOO3mCLe
-	hktZRJ8zJid4pPZnmmwrTrc16dbEtHay+ozm2EPdykNbfm4RO4zk09reQsMIv0ITD+E87Q00kqi
-	BAzv+BcGndqXLaPR0Pw84Y6rKZhwJNNTPJN0NBVPuuHk4fGWDl38u7tt7+hPC1jIKPpqgaCYtJw
-	XM06v9v9xgpVnxSuYMNMtJnUBwt5EpS6AkGodKYCgs9faSF8mWSA/9UYMRLXig/qejJhVGlYuuR
-	4hsrrryg+fQ0t7VDWtQqwdbtkNX+lIfp2BWDAfxS3tMyTPHljRQ0hqeS8N43MUa2sgW1tjjPEmY
-	+ohh65ZmnJZ9eIOJl++kAb4In0KQADUNnFElgFt3x9IhQfOEIi2M1bTlFQIf8jIPARtTyg0yxhF
-	gFrizZboKdFWGgSYuTpBHaw1GkXCfCL625yJkUNytQ53KfEqyBL14y/P9Q5OfJVFznNXRRGkG79
-	35skz+l4qtImpFPVrvjGaJgbra4Pppr3mVG5/VZtJM+NjLNQ7dJ3sJwMIt/Z666/RPp6ZSApx6O
-X-Received: by 2002:a17:903:190d:b0:2e9:9263:a6b with SMTP id d9443c01a7336-2ea7c33245emr14654155ad.40.1792740700661;
-        Fri, 23 Oct 2026 00:31:40 -0700 (PDT)
+        bh=bhnlngDTdPCRzQ3WfPeVfNn/5dfQaEbDCnTEYto+WIk=;
+        b=IMMWF3GaTSOmGAeTRbRDIc4pbTAfD9FVQtN3a3aHKfQYljsVPgJr5tbhv2VG+BP3nr
+         nTC22IujnALuPG9BD0zgzDMKTF6j0w/71h6CI+ADdA5cdZwkjTMFoBXF9gkdBW51QtqR
+         WNJXSV6EUfMVfmEk72+rOUv3t+hd8uRT9VN2319saAT6OdV7uhT9y9UZjKd76d3O+icY
+         HZ9Hq93DbmeKx8gFjB5CwcrcOgFJMdlA8Kc71sarL0SES/+cizS/RQqcBhM3h9b+/DSn
+         uBfzt5KRDqom5/z3wNY0iJqLpx2PH5iehqtmh6lNvxo8Ydi9Y2Bfn+Otr+yXnjza3G7V
+         3GeQ==
+X-Forwarded-Encrypted: i=1; AKwUvByUL9akVOpI8cRdQzrha9A2Ejx4m614DqPTmdRPVmo1tt6sMSgCEzHihnua+NX9Y3+MINwpP72HfZ0/kFO1oLOI@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ1GOXfysOqRNmcqPDZppON3idX4OjahiqZ3kemDmaJ4/6fiuO6
+	Uxgwja3myGAqnaboU6ThEShDJdviCwRlEqUhsYcTadpPtvzfoVjqtexR
+X-Gm-Gg: AYBFou3W5d/1D+Bp4N6y6VMzTrpHF2WdePfKfV3lwbjRQMCUJHjhjQPl3deugJEXLcw
+	gUzkg0D8bcbU+4ERhKkaEmb5Gx8UrR285ndFRjQQKh4LL/oAzz2avihT4omng4bn4vYLoiGIHDe
+	gt3toQOnZ2ufE0JOHNKNZFWdxVdghdFmD9DVljQiA7dEAE6puJMccdkleccjE8m5TLCwsk2O2bu
+	k2tP5d0H4Xl3wSJPy8G7pclhp9jXvRCGqMVattnIyFb00P0DqBJi9DnwZ5XOxlOiPjwCL1SpLzA
+	drp4bTGmNtqklK/gxGRP2Sn0rJFkQakBH9tOOKefUsKrXxetRGRBatGG1EEXC+OsXKxsH7NgZ/2
+	83xGTVWotG3nCvrenviAVfDUtP8kSi+OCTHOVSs4Qsiw2CVldeOr0f3WGaqLjlyvK52tjlW6t1i
+	CYeHuy/F3YvT7QDyxZMChDDYT6dTaGUi2gVlnJz1meZcZyF0xYMuGmwuVWTc16/la8UE31pKUnV
+	vEMAVG3UCTaUmFwcPSQeFZKA5lEHPKyQzVSs3ztNEa4I8nlEBarz1XdScU3pWSHEJ3G9h3aJFU=
+X-Received: by 2002:a17:902:e547:b0:2e4:b112:14d with SMTP id d9443c01a7336-2ea7d132e9fmr13812005ad.54.1792740736475;
+        Fri, 23 Oct 2026 00:32:16 -0700 (PDT)
 Received: from spiderman.taila3fd8c.ts.net ([202.112.47.77])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea7af6eed2sm6766545ad.7.2026.10.23.00.31.37
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea7b3a8cfesm6769735ad.40.2026.10.23.00.32.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Oct 2026 00:31:40 -0700 (PDT)
+        Fri, 23 Oct 2026 00:32:16 -0700 (PDT)
 From: Li Ximo <lixicaicai@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Michal Simek <michal.simek@amd.com>
-Cc: linux-usb@vger.kernel.org,
+To: Sinan Kaya <okaya@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>
+Cc: Frank Li <Frank.Li@kernel.org>,
+	dmaengine@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Wang Haoran <haoranwangsec@gmail.com>,
 	Li Ximo <lixicaicai@gmail.com>
-Subject: [PATCH] usb: gadget: udc-xilinx: Fix wild pointer dereference on empty EP0 queue
-Date: Fri, 23 Oct 2026 15:31:31 +0800
-Message-Id: <20261023073131.637062-1-lixicaicai@gmail.com>
+Subject: [PATCH] dmaengine: qcom: hidma: fix wild pointer stored in mchan->running when active list is empty
+Date: Fri, 23 Oct 2026 15:31:54 +0800
+Message-Id: <20261023073154.744365-1-lixicaicai@gmail.com>
 X-Mailer: git-send-email 2.25.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_003141_694260_6A9796F6 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20261023_003217_593397_1C51430B 
+X-CRM114-Status: GOOD (  14.01  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,65 +112,69 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Wang Haoran <haoranwangsec@gmail.com>
 
-list_first_entry() does not return NULL when the list is empty; it
-returns the result of container_of() on the list head, i.e. a non-NULL
-wild pointer pointing into the enclosing struct xusb_ep rather than to
-a valid request. This was found by code audit.
+While auditing list_first_entry() users we found two call sites in the
+HIDMA driver that invoke it on mchan->active without verifying the list
+is non-empty. list_first_entry() never returns NULL: on an empty list
+head->next == head, so container_of() produces a bogus non-NULL pointer
+into the enclosing hidma_chan structure instead. That wild pointer is
+stored into mchan->running, and is later dereferenced in
+hidma_tx_status() where "if (mchan->running) runcookie =
+mchan->running->desc.cookie" passes precisely because the pointer is
+not NULL, yielding an out-of-bounds read / memory corruption.
 
-xudc_ep0_out() and xudc_ep0_in() are reached from the endpoint 0
-interrupt handler xudc_ctrl_ep_handler() purely based on the hardware
-FIFO status bits, without checking whether ep0->queue actually holds a
-request. The queue can be empty at that point: the gadget driver's
-setup() callback may not queue a request for every control transfer
-stage, and xudc_done() removes the request once it completes, after
-which bus timing can raise another FIFO ready/free interrupt. The
-unconditional list_first_entry() then yields a wild pointer, and the
-subsequent accesses to req->usb_req.actual, req->usb_req.buf and
-req->usb_req.length read or write unrelated kernel memory, leading to
-memory corruption or a crash. On real hardware this is triggerable by
-an external USB host controlling the token timing. Note that the
-enqueue side __xudc_ep0_queue() already guards the same queue with
-list_empty(), which shows the queue can legitimately be empty; the
-dequeue side was simply missing the symmetric check.
+The list can be empty at both sites on entirely normal paths. In
+hidma_callback(), the completed descriptor is first moved from active
+to completed; when it was the last active descriptor, the subsequent
+list_first_entry() runs on the now-empty list. In
+hidma_issue_pending(), a client calling dma_async_issue_pending()
+without any queued descriptor leaves both queued and active empty, and
+the "if (!mchan->running)" branch then fetches the "first" entry of an
+empty active list.
 
-Switch both functions to list_first_entry_or_null() and return early
-when no request is queued, mirroring the existing list_empty() guard
-on the enqueue side.
+Fix both sites by switching to list_first_entry_or_null(), which
+returns NULL for an empty list. This makes the existing NULL check on
+mchan->running in hidma_tx_status() effective, so the paused-channel
+cookie query takes the -EINVAL path instead of dereferencing a wild
+pointer. Both call sites already run under mchan->lock, so no
+additional locking is needed.
 
 Reported-by: Wang Haoran <haoranwangsec@gmail.com>
 Reported-by: Li Ximo <lixicaicai@gmail.com>
 Signed-off-by: Wang Haoran <haoranwangsec@gmail.com>
 ---
- drivers/usb/gadget/udc/udc-xilinx.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ drivers/dma/qcom/hidma.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/usb/gadget/udc/udc-xilinx.c b/drivers/usb/gadget/udc/udc-xilinx.c
-index bef06fe75..032d9f04f 100644
---- a/drivers/usb/gadget/udc/udc-xilinx.c
-+++ b/drivers/usb/gadget/udc/udc-xilinx.c
-@@ -1822,7 +1822,9 @@ static void xudc_ep0_out(struct xusb_udc *udc)
- 	unsigned int bytes_to_rx;
- 	void *buffer;
+diff --git a/drivers/dma/qcom/hidma.c b/drivers/dma/qcom/hidma.c
+index c939635be..925c912e0 100644
+--- a/drivers/dma/qcom/hidma.c
++++ b/drivers/dma/qcom/hidma.c
+@@ -176,8 +176,9 @@ static void hidma_callback(void *data)
+ 		queued = true;
  
--	req = list_first_entry(&ep0->queue, struct xusb_req, queue);
-+	req = list_first_entry_or_null(&ep0->queue, struct xusb_req, queue);
-+	if (!req)
-+		return;
+ 		/* calculate the next running descriptor */
+-		mchan->running = list_first_entry(&mchan->active,
+-						  struct hidma_desc, node);
++		mchan->running = list_first_entry_or_null(&mchan->active,
++							  struct hidma_desc,
++							  node);
+ 	}
+ 	spin_unlock_irqrestore(&mchan->lock, irqflags);
  
- 	switch (udc->setupseqrx) {
- 	case STATUS_PHASE:
-@@ -1875,7 +1877,10 @@ static void xudc_ep0_in(struct xusb_udc *udc)
- 	u8 *ep0rambase;
- 	u8 test_mode = le16_to_cpu(udc->setup.wIndex) >> 8;
+@@ -238,9 +239,10 @@ static void hidma_issue_pending(struct dma_chan *dmach)
+ 	}
  
--	req = list_first_entry(&ep0->queue, struct xusb_req, queue);
-+	req = list_first_entry_or_null(&ep0->queue, struct xusb_req, queue);
-+	if (!req)
-+		return;
+ 	if (!mchan->running) {
+-		struct hidma_desc *desc = list_first_entry(&mchan->active,
+-							   struct hidma_desc,
+-							   node);
++		struct hidma_desc *desc;
 +
- 	bytes_to_tx = req->usb_req.length - req->usb_req.actual;
- 
- 	switch (udc->setupseqtx) {
++		desc = list_first_entry_or_null(&mchan->active,
++						struct hidma_desc, node);
+ 		mchan->running = desc;
+ 	}
+ 	spin_unlock_irqrestore(&mchan->lock, flags);
 -- 
 2.30.2
 
