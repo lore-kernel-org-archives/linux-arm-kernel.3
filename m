@@ -2,78 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DC5B606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 07:44:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8B70606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 07:48:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zG2Ck9pO;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EaM7GVz8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rrBnbgDl;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XgQ2SsC8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=wy/cnaPswmms/QpZfcVOeHijhXMXPHn20ADaK91xPcA=; b=zG2Ck9pO86JTmQmwlkwKO6ir4L
-	htAU/+r8Hbbv5Y9ggxMsWgWVKEGIOpeVJqAYC+RsvTeYLX035yuLTE7SCWoK8eh1kVIj389GVgKzz
-	q0vjPT82+A7/wvA4sjKOWnV/6wRNPPwfTxqLMoQnZKgPMjAw4BcJvik2Y3LF8QEB830aG1P5mJUtZ
-	WJRxn320KJtCZKAfT2RoUdntXK4bLgBslMpXsIny4zmUno3N7Z9J7SunQADNn04hXJGQj0r/FEsMe
-	Z9GGie/CQ86XZhp9x8lH5/QhU+Svcu2LF4pajzOAILb0xCh0EuCyeEO1cnziKpaRZI/5Ms3reo3Tb
-	PfDLI/hw==;
+	bh=T9GOpQK5rtPMBaO9wf0cS2V+Dw+B5rak2UcuAS403G4=; b=rrBnbgDlSmKdjakase5H7jZG8k
+	QBSNXVbG+rHXHHTerosL4b928zaA7mgoN5Q++s7SfyoStcqLaGamNBch7IR1dpBlClAIG0AnEijeu
+	4WSsyIzerwe5lTpNo0LNZPMB5EARks8qIL7gA+mtbIyTtzo79IwxE0YENzroZLeMAyqPxRD2/DDgf
+	kIWy+VW0sn8+cbvKF0865Df3xMDirfg9nfvfP/jr0hL2AG03TJj/VKXQE+i8hjN/VktlQiTVIG5oA
+	ITFl7f6T8ce5ICEeaoYVFW6llP2e8PXXEV2bT6yJaZ1tRfuRYdv2rcVIg1UHUgzfEJRNO9phkY8kd
+	2I1cfnFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK9wn-0000000Fn3w-2kpW;
-	Fri, 23 Oct 2026 07:44:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xKA0P-0000000FnXC-0shL;
+	Fri, 23 Oct 2026 07:48:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK9wm-0000000Fn3h-0I9g;
-	Fri, 23 Oct 2026 07:44:16 +0000
+	id 1xKA0N-0000000FnX4-3Rar
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 Oct 2026 07:47:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 47AFB42B85;
-	Fri, 23 Oct 2026 07:44:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9170D1F01825;
-	Fri, 23 Oct 2026 07:44:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4AB064036E;
+	Fri, 23 Oct 2026 07:47:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E5571F01825;
+	Fri, 23 Oct 2026 07:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792741455;
-	bh=wy/cnaPswmms/QpZfcVOeHijhXMXPHn20ADaK91xPcA=;
+	s=k20260515; t=1792741679;
+	bh=T9GOpQK5rtPMBaO9wf0cS2V+Dw+B5rak2UcuAS403G4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EaM7GVz8N1F1WL1rJOnrhPXJUtKGkqsv14MRU42ie3CqopgX3LNFxUDnl1OPNUi/e
-	 2iQPCPAmrugokeUqdjjGnxoE/8npZif6jkFURSIYhrlahltUYFVTdLrUtWmi4bJDt4
-	 uJpg0nOqXHeMjeyusKILIH3Cl4Mf3vGvpiVoTnLCyKCJvnhkOfk8IhqWDgFcrVZDsw
-	 RQJc+E3xcDPh7iuKo7qjMm+aQPiRzX97cIhkWDsUcyao4CJSpPFEH+7iNFyZcmmnZH
-	 r3znD2zes+BCcnM/Q+slSfn7Uk5g9JQYqOi58zhfrrPLbNKPn/9s/EmGcuM+9Ol3+7
-	 YAzLqgDZtmCpA==
-Date: Fri, 23 Oct 2026 10:44:01 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: tarunsahu@google.com
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org,
-	Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de,
-	David Matlack <dmatlack@google.com>, jgg@nvidia.com,
-	robin.murphy@arm.com, loganodell@google.com, oupton@kernel.org,
-	kevin.tian@intel.com, alex@shazbot.org, dwmw2@infradead.org,
-	pbonzini@redhat.com, seanjc@google.com, will@kernel.org,
-	Alexander Graf <graf@amazon.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev,
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
-	kexec@lists.infradead.org, skhawaja@google.com, kvm@vger.kernel.org,
+	b=XgQ2SsC8b8yiqOgy9mwZFEMdx94JQR57m/DV/APKtOmBQPB7iIgX2nMCFLj1sPUgm
+	 iy6vVuC8zH47hTZNe8th/7TLB+7fG5VK5LDeK9qK69ocZQ3xPCrO+BoEzdZD9JOAw+
+	 SMeM8H1/zoS4vRaqTamiQ/NJZL+pwIGEV2fuRQwdLGd9/39axR0nxPllhg7Y9sOPCc
+	 e1b2tKRavFN9kje4/YC45FYkpyrB2GdwGCltiTuKpU4Ti29yvoW5JEAZPUvxbH26oY
+	 1sgfSuX3F4td6N5GMDsvZZ+k7O15lTVry0i5zmdoRmvJVeUpnQTO4fpAbJ+j7jjrKO
+	 WlWUT9ZSZJ7CA==
+Date: Fri, 23 Oct 2026 08:47:55 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Julian Braha <julianbraha@gmail.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>, mark.rutland@arm.com,
+	lpieralisi@kernel.org, radu@rendec.net, vsethi@nvidia.com,
+	sdonthineni@nvidia.com, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 1/4] liveupdate: Rename handler compatible to name
-Message-ID: <atsQQcUiVhb9KXWZ@kernel.org>
-References: <20261021152527.375070-1-tarunsahu@google.com>
- <20261021152527.375070-2-tarunsahu@google.com>
- <CA+CK2bC_wc4LxvHe0TREbBP7esYW3pcMNtkGK-kqvf6MyvOh2g@mail.gmail.com>
- <9huzik2u6hs5.fsf@tarunix.c.googlers.com>
- <CA+CK2bDyk=F7W3J=q3pKCjsr2wy_PLdgqgu+ywp0F5HL=VoMpA@mail.gmail.com>
- <9huzld7q4zjz.fsf@tarunix.c.googlers.com>
+Subject: Re: [PATCH v4 0/2] irqchip: gic-v3: fix unmet dependency on
+ ARM_PSCI_FW
+Message-ID: <20261023-interesting-wandering-velociraptor-2a7e8d@sudeepholla>
+References: <20261020222817.1231643-1-julianbraha@gmail.com>
+ <86se1zzcet.wl-maz@kernel.org>
+ <20261021-rampant-fabulous-ant-cafccb@sudeepholla>
+ <877bj91k2z.ffs@fw13>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <9huzld7q4zjz.fsf@tarunix.c.googlers.com>
+In-Reply-To: <877bj91k2z.ffs@fw13>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,166 +77,48 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 07:35:28PM +0000, tarunsahu@google.com wrote:
-> Pasha Tatashin <pasha.tatashin@soleen.com> writes:
-> > On Wed, Oct 21, 2026 at 2:16 PM <tarunsahu@google.com> wrote:
-> >> Pasha Tatashin <pasha.tatashin@soleen.com> writes:
-> >>
-> >> > On Wed, Oct 21, 2026 at 11:25 AM Tarun Sahu <tarunsahu@google.com> wrote:
-> >> >>
-> >> >> File handler and File-Lifecycle-Bound (FLB) identifiers name the
-> >> >
-> >> > Please use FLB directly, no need to spell it out.
-> >> >
-> >> >> registered handler or FLB rather than a monolithic compatibility version.
-> >> >> Rename compatible to name across LUO headers, structures, and consumers:
-> >> >> - struct liveupdate_file_handler and struct luo_file_ser name field
-> >> >> - LIVEUPDATE_HNDL_NAME_LENGTH (in include/uapi/linux/liveupdate.h) and
-> >> >>   MEMFD_LUO_FH_NAME
-> >> >> - struct liveupdate_flb name field, LIVEUPDATE_FLB_NAME_LENGTH,
-> >> >>   PCI_LUO_FLB_NAME, and LIVEUPDATE_TEST_FLB_NAME
-> >> >>
-> >> >> Signed-off-by: Tarun Sahu <tarunsahu@google.com>
-> >> >> ---
-> >> >>  drivers/pci/liveupdate.c        | 10 ++++----
-> >> >>  include/linux/kho/abi/luo.h     | 26 +++++++++----------
-> >> >>  include/linux/kho/abi/memfd.h   |  4 +--
-> >> >>  include/linux/kho/abi/pci.h     |  2 +-
-> >> >>  include/linux/liveupdate.h      | 18 +++++--------
-> >> >>  include/uapi/linux/liveupdate.h |  3 +++
-> >> >>  kernel/liveupdate/luo_file.c    | 45 +++++++++++++++++----------------
-> >> >>  kernel/liveupdate/luo_flb.c     | 16 ++++++------
-> >> >>  lib/tests/liveupdate.c          | 22 ++++++++--------
-> >> >>  mm/memfd_luo.c                  |  2 +-
-> >> >>  10 files changed, 73 insertions(+), 75 deletions(-)
-> >> >>
-> >> >> diff --git a/drivers/pci/liveupdate.c b/drivers/pci/liveupdate.c
-> >> >> index 51695782ed42..3cf01d7d615c 100644
-> >> >> --- a/drivers/pci/liveupdate.c
-> >> >> +++ b/drivers/pci/liveupdate.c
-> >> >> @@ -424,7 +424,7 @@ static struct liveupdate_flb_ops pci_liveupdate_flb_ops = {
-> >> >>
-> >> >>  static struct liveupdate_flb pci_liveupdate_flb = {
-> >> >>         .ops = &pci_liveupdate_flb_ops,
-> >> >> -       .compatible = PCI_LUO_FLB_COMPATIBLE,
-> >> >> +       .name = PCI_LUO_FLB_NAME,
-> >> >>  };
-> >> >>
-> >> >>  static void pci_liveupdate_flb_put_outgoing(void)
-> >> >> @@ -667,13 +667,13 @@ static struct pci_flb_incoming *pci_liveupdate_flb_get_incoming(void)
-> >> >>
-> >> >>         /*
-> >> >>          * Live Update is enabled and there is incoming FLB data, but none of it
-> >> >> -        * matches pci_liveupdate_flb.compatible.
-> >> >> +        * matches pci_liveupdate_flb.name.
-> >> >>          */
-> >> >>         if (ret == -ENOENT)
-> >> >>                 return NULL;
-> >> >>
-> >> >>         /*
-> >> >> -        * There is incoming FLB data that matches pci_liveupdate_flb.compatible
-> >> >> +        * There is incoming FLB data that matches pci_liveupdate_flb.name
-> >> >>          * but retrieve failed (pci_flb_retrieve() returned an error or LUO
-> >> >>          * failed to acquire a reference to pci_liveupdate_flb_ops.owner).
-> >> >>          */
-> >> >> @@ -998,7 +998,7 @@ EXPORT_SYMBOL_GPL(pci_liveupdate_is_incoming);
-> >> >>   */
-> >> >>  int pci_liveupdate_register_flb(struct liveupdate_file_handler *fh)
-> >> >>  {
-> >> >> -       pr_debug("Registering file handler \"%s\"\n", fh->compatible);
-> >> >> +       pr_debug("Registering file handler \"%s\"\n", fh->name);
-> >> >>         return liveupdate_register_flb(fh, &pci_liveupdate_flb);
-> >> >>  }
-> >> >>  EXPORT_SYMBOL_GPL(pci_liveupdate_register_flb);
-> >> >> @@ -1009,7 +1009,7 @@ EXPORT_SYMBOL_GPL(pci_liveupdate_register_flb);
-> >> >>   */
-> >> >>  void pci_liveupdate_unregister_flb(struct liveupdate_file_handler *fh)
-> >> >>  {
-> >> >> -       pr_debug("Unregistering file handler \"%s\"\n", fh->compatible);
-> >> >> +       pr_debug("Unregistering file handler \"%s\"\n", fh->name);
-> >> >>         liveupdate_unregister_flb(fh, &pci_liveupdate_flb);
-> >> >>  }
-> >> >>  EXPORT_SYMBOL_GPL(pci_liveupdate_unregister_flb);
-> >> >> diff --git a/include/linux/kho/abi/luo.h b/include/linux/kho/abi/luo.h
-> >> >> index 288076de6d4a..5fb2f46425d7 100644
-> >> >> --- a/include/linux/kho/abi/luo.h
-> >> >> +++ b/include/linux/kho/abi/luo.h
-> >> >> @@ -39,9 +39,9 @@
-> >> >>   *     Multiple blocks are linked via the `next` field in the header.
-> >> >>   *
-> >> >>   *   - struct luo_file_ser:
-> >> >> - *     Metadata for a single preserved file. Contains the `compatible` string to
-> >> >> - *     find the correct handler in the new kernel, a user-provided `token` for
-> >> >> - *     identification, and an opaque `data` handle for the handler to use.
-> >> >> + *     Metadata for a single preserved file. Contains the handler `name` string
-> >> >> + *     to find the correct handler in the new kernel, a user-provided `token`
-> >> >> + *     for identification, and an opaque `data` handle for the handler to use.
-> >> >>   *
-> >> >>   *   - struct luo_flb_header_ser:
-> >> >>   *     Header for the FLB array. Contains the total page count of the
-> >> >> @@ -49,9 +49,9 @@
-> >> >>   *     that follow.
-> >> >>   *
-> >> >>   *   - struct luo_flb_ser:
-> >> >> - *     Metadata for a single preserved global object. Contains its `name`
-> >> >> - *     (compatible string), an opaque `data` handle, and the `count`
-> >> >> - *     number of files depending on it.
-> >> >> + *     Metadata for a single preserved global object. Contains its FLB `name`
-> >> >> + *     string, an opaque `data` handle, and the `count` number of files
-> >> >> + *     depending on it.
-> >> >>   */
-> >> >>
-> >> >>  #ifndef _LINUX_KHO_ABI_LUO_H
-> >> >> @@ -84,18 +84,16 @@ struct luo_ser {
-> >> >>         u64 flbs_pa;
-> >> >>  } __packed;
-> >> >>
-> >> >> -#define LIVEUPDATE_HNDL_COMPAT_LENGTH  48
-> >> >> -
-> >> >>  /**
-> >> >>   * struct luo_file_ser - Represents the serialized preserves files.
-> >> >> - * @compatible:  File handler compatible string.
-> >> >> + * @name:        File handler name string.
-> >> >
-> >> > We are renaming from cpmaptible to name; I am not sure that is
-> >> > necessary. We can still use compatible for the same purpose as name.
-> >> > Unless it really bothers people, but for me 'compatible' works just
-> >> > the same.
-> >>
-> >> Yes it is necessary, For example if we have two handler for a single
-> >> subsystem. We should refer it by handle this or handler that, not like
-> >> handler with compatible string this and handler with compatible string
-> >> that.
-> >
-> > I still feel like compatability makes more sense to me. Take an example:
-> >
-> > We have two file handlers for memfd (i.e., FH_OLD and FH_NEW): one has
-> > compatibility = "memfd", and the other has compatibility =
-> > "memfd_next_generation". The user chooses one of them to preserve the
-> > memfd data, and the compatibility string is saved alongside the FD.
-> > When the next kernel scans through the registered file handlers, it
-> > must find exactly one that is compatible with the preserved data.
+On Thu, Oct 22, 2026 at 11:50:12PM +0200, Thomas Gleixner wrote:
+> On Wed, Oct 21 2026 at 15:49, Sudeep Holla wrote:
 > 
-> I will open this for vote.
+> > On Wed, Oct 21, 2026 at 09:27:22AM +0100, Marc Zyngier wrote:
+> >> On Tue, 20 Oct 2026 23:28:15 +0100,
+> >> Julian Braha <julianbraha@gmail.com> wrote:
+> >> > 
+> >> > ARM_GIC_V3 currently selects HAVE_ARM_SMCCC_DISCOVERY without ensuring its
+> >> > dependency, ARM_PSCI_FW, is met.
+> >> > 
+> >> > Patch 1 of this series adds stubs for arm32 so that patch 2 can make the
+> >> > select conditional on arm64.
+> >> >
+> >> > ---
+> >> > Julian Braha (2):
+> >> >   firmware: smccc: provide stubs when discovery is disabled
+> >> >   irqchip: gic-v3: only select HAVE_ARM_SMCCC_DISCOVERY on arm64
+> >> > 
+> >> >  drivers/irqchip/Kconfig   | 2 +-
+> >> >  include/linux/arm-smccc.h | 7 +++++++
+> >> >  2 files changed, 8 insertions(+), 1 deletion(-)
+> >> 
+> >> This probably needs to go via Sudeep's tree.
+> >> 
+> >
+> > Sure will queue it soon and send it as fixes at -rc1 or later.
+> 
+> Please change the subsystem prefix to "irqchip/gic-v3:" then.
+> 
 
-I'd rather won't ;-)
+Yes I did that already.
 
-"compatible" does not contradict more fine grained bitfields, and still has meaning.
-Just like in FDT world from where we inherited it, it means "these ops are
-somewhat compatible with that serialized format, will check the details and
-will know for sure".
+> Acked-by: Thomas Gleixner <tglx@kernel.org>
 
-And IMO we should keep it.
- 
-And please, trim your responses. I had to scroll 463 lines to see there's
-nothing there.
+Thanks!
 
 -- 
-Sincerely yours,
-Mike.
+Regards,
+Sudeep
 
