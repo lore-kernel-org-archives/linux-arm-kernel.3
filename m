@@ -2,46 +2,46 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48D8E606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 00:00:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3444F606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 00:01:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AisCPMmo;
-	dkim=pass (2048-bit key, unprotected) header.d=rojer.me header.i=@rojer.me header.a=rsa-sha256 header.s=main header.b=Q5iodtEY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bqwDRSrn;
+	dkim=pass (2048-bit key, unprotected) header.d=rojer.me header.i=@rojer.me header.a=rsa-sha256 header.s=main header.b=j0bVKA1e
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=2sW4NG1o44Sm+IiRWo8sNqIjvs8pjqW7WvpxzKFVpkc=; b=AisCPMmoR0Xqja
-	odZHkJwA5jx2j9726QX47sRrXcSWOj47zw29XGhS9W5MqnfKfAQkUtjazDaLgf65BKqymJ0hVqEuw
-	D15L2P4dh6o4PcU8K0/u565JCFrPIBCiC4vkldyHXYxhvIbWRe51iKGrA44cRvhWKKI2kPjfvUpD5
-	bLhuaBmkhk8RFDzIfOKykMpA/0RNnfS23ribAu3qwiEjfnRmuwcLzuZScUfwhNCfTVMHSnPCjiNQV
-	dFb786Z0E38jcxhT2CQ+cbdJ3gjfjQvrfENMulQrFJDwFU9gIsSy5MLTI4nmHwWho0URULbL08Q5j
-	ssAcvOFAibpoWEZ30Kxg==;
+	List-Owner; bh=RVoXlCSb6jIMaGtRjcozIyYGAhMCZqne31Hnbkv4d2I=; b=bqwDRSrnBql9ae
+	ZAIkXK3KZ/9/GR4+dnwa6aM+XVhJujLPEUIR3E8gsV1HMLFzhgEAAwgKnOyh1bG9gjH6O74C+7aGg
+	xZ7xYnGs5kBxlBnGbIwt3FRGgfY1eLpoBVPL2lNvbK2e3qn54wzXB+2hnsCSR4rpu30Ml3sk70bIj
+	hUa7cvbZy9p9fbeknByxoQmH2HHH1DxmX6Qlas91Ef5ritMiH/YxfIVSpJagexI7YF5uaLpRCMwd7
+	Z4x+iDPNKEoBp8MsJNYKvQpXKznEAnR55WYgSIEE+jxbQnOZgZPg+GUZ03w91uJXZQbF7aUNORNC3
+	RS/SS012io95TLG3OFXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKPBB-0000000HDds-3ZfU;
-	Sat, 24 Oct 2026 00:00:09 +0000
-Received: from mail1.rojer.cloud ([2a01:4f8:192:336a::3])
+	id 1xKPBO-0000000HDkj-1eUP;
+	Sat, 24 Oct 2026 00:00:22 +0000
+Received: from mail1.rojer.cloud ([144.76.98.110])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKPB8-0000000HDcY-3KeQ;
-	Sat, 24 Oct 2026 00:00:08 +0000
+	id 1xKPB9-0000000HDcW-0mDL;
+	Sat, 24 Oct 2026 00:00:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=rojer.me; s=main;
-	t=1792800002; bh=X6UhdmMXOtXV/Hzkqp1DtptslFwWC4nSvNqkAO2/h+Y=;
+	t=1792800001; bh=qvU369dgJvWvyI9h764kYcAsK2/h8+Rf6mBdDUM83RU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Q5iodtEYB4CI5F6ReAOByUmCSX8U8GtFH+IingrFPmsum6f1vUMBdxTsvVHuW/GhZ
-	 WQeS9YkoLShMO83tAcIAIJgxqIeM1TknUzqn9LsuSfo7pll37ti71zBhuLYdu4bQrq
-	 ToM6X3F8DI971AhRNsh9l8iI/zgNku+u0nVQkic+92Q8qBKla1RV6jMqUtlx/yOfHc
-	 wQrp+j/gjrnXr6vfPCCDDIPoaVaOUzsLydT3tBxTolWP0L9AzVdVUOXEX30gqYSQga
-	 LllowSHwgYT/MFPjUvXrpd+VyPkuEdB7TFoYhsdiNOlU46f/41h8YKXvjg1o3v54C4
-	 J4SCHcu0JSRSg==
+	b=j0bVKA1em2H2nHaOheBGsJ77Q7+5+oW6aioIXy1KOwEcUyGeiJehGAvbJX8GUdW1e
+	 cl8RKykMcsQrYvTKTSqAZMaK98Tx+qtBjiYhGjULLO4ToEjPV/r0kYL3+vZokTDk/0
+	 QFTU2crl7GDNR/LB62sYUolkYsEY8LqjI39TK0N2lEQB1uvmDoGL12Ajci2nQri20y
+	 pr4DXKLRlJluTRQ/dTE0GG1geUaK602Y9WfwyRAWH2RwGPXXnaYQ4FsEh6r4UJ48dt
+	 b4EtJ4dX6mNUsokpfqfz2LdbmOt87x4NkAVW/dPOJdf4MHHoOBd9F93xuGLGWigPLx
+	 9Z44rmqI/wWyQ==
 Received: from nbf.lan (212-5-142-134.ip.btc-net.bg [212.5.142.134])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (P-256) server-digest SHA256)
 	(No client certificate requested)
-	by mail1.rojer.cloud (Postfix) with ESMTPSA id 17EF81271FF;
-	Sat, 24 Oct 2026 00:00:02 +0000 (UTC)
+	by mail1.rojer.cloud (Postfix) with ESMTPSA id 7B9BE1271E1;
+	Sat, 24 Oct 2026 00:00:01 +0000 (UTC)
 From: Deomid rojer Ryabkov <rojer@rojer.me>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: Rob Herring <robh@kernel.org>,
@@ -54,9 +54,9 @@ Cc: Rob Herring <robh@kernel.org>,
 	Sergey Bostandzhyan <jin@mediatomb.cc>,
 	Jensen Huang <jensenhuang@friendlyarm.com>,
 	Deomid rojer Ryabkov <rojer@rojer.me>
-Subject: [PATCH 2/2] arm64: dts: rockchip: Enable SDIO Wi-Fi on NanoPi R2S Plus
-Date: Sat, 24 Oct 2026 02:59:59 +0300
-Message-ID: <20261023235959.2988087-3-rojer@rojer.me>
+Subject: [PATCH 1/2] arm64: dts: rockchip: Fix VCCIO4/VCCIO6 supplies on NanoPi R2S Plus
+Date: Sat, 24 Oct 2026 02:59:58 +0300
+Message-ID: <20261023235959.2988087-2-rojer@rojer.me>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261023235959.2988087-1-rojer@rojer.me>
 References: <20261023235959.2988087-1-rojer@rojer.me>
@@ -64,8 +64,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_170007_105811_4E7C12A3 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20261023_170007_380942_7F72CA92 
+X-CRM114-Status: GOOD (  10.87  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,102 +85,48 @@ X-Spam-Status: No, score=-24.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The NanoPi R2S Plus has an M.2 E-key slot wired to the sdmmc_ext
-controller in 4-bit SDIO mode, where FriendlyElec fit an optional
-Fn-Link 6222B-SRC (Realtek RTL8822CS) module:
+The NanoPi R2S Plus inherits its io-domain supplies from the NanoPi R2S,
+but the two boards are wired differently. From sheet 6 of the schematics:
 
-  - SDIO signalling at a fixed 1.8V (VCC_18)
-  - WIFI_REG_ON on GPIO3_B0, 32kHz sleep clock from the RK805 CLKOUT2
+NanoPi R2S (NanoPi-R2S-V1.1-2009-Schematic.pdf):
+  VCCIO4 (U12) = VDD_PHY_IO
+  VCCIO6 (H6)  = VCC_IO_33
 
-Enable the controller and add the power sequence. The SDIO pins need
-8mA drive strength for SDR104 tuning to succeed, as in the vendor
-device tree [1]; with the SoC default of 4mA no sample phase works.
+NanoPi R2S Plus (NanoPi_R2S_Plus_2309_SCH.PDF):
+  VCCIO4 (U12) = VCC_IO_33
+  VCCIO6 (H6)  = VCC_18
 
-On boards without the module the controller gives up after about 0.2s
-("mmc2: Failed to initialize a non-removable card"); nothing else is
-affected.
+rk3328-nanopi-r2.dtsi describes the R2S. On the R2S Plus this leaves the
+VCCIO4 domain configured for 1.8V while supplied with 3.3V, and the
+VCCIO6 domain, which carries the M.2 E-key SDIO signals, configured for
+3.3V while supplied with 1.8V; the latter prevents the optional RTL8822CS
+Wi-Fi module from initialising at all.
 
-With the mmc core change for the module's CMD11 handling at a fixed
-1.8V [2], the module is tuned to SDR104 at 150 MHz and works with the
-rtw88_8822cs driver; without it, it runs in high-speed mode at 50 MHz.
+Describe the actual supplies. The vendor's own kernel uses the same
+values [1], although there they come from a .dtsi shared by the whole
+NanoPi R2 family, so the schematics above are the reference. Tested on
+an R2S Plus: Ethernet still links at 1Gbps and the SDIO Wi-Fi module
+enumerates.
 
-[1] https://github.com/friendlyarm/kernel-rockchip/blob/9238df9d21e835bba35c8ba5248784387936cb2e/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2-rev24.dts#L144-L172
-[2] https://lore.kernel.org/linux-mmc/20261023232813.2983368-1-rojer@rojer.me/
+[1] https://github.com/friendlyarm/kernel-rockchip/blob/9238df9d21e835bba35c8ba5248784387936cb2e/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2-common.dtsi#L425-L435
+Fixes: b8c028782922 ("arm64: dts: rockchip: Add DTS for FriendlyARM NanoPi R2S Plus")
 Signed-off-by: Deomid rojer Ryabkov <rojer@rojer.me>
 ---
- .../dts/rockchip/rk3328-nanopi-r2s-plus.dts   | 56 +++++++++++++++++++
- 1 file changed, 56 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dts | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dts b/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dts
-index 6ba4a74cb1f..db19a18ae45 100644
+index 4eff0503928..6ba4a74cb1f 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dts
-@@ -17,6 +17,15 @@ / {
- 	aliases {
- 		mmc1 = &emmc;
- 	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		clocks = <&rk805 1>;
-+		clock-names = "ext_clock";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_reg_on_h>;
-+		reset-gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_LOW>;
-+	};
- };
- 
- &emmc {
-@@ -34,3 +43,50 @@ &io_domains {
- 	vccio4-supply = <&vcc_io_33>;
- 	vccio6-supply = <&vcc_18>;
+@@ -29,3 +29,8 @@ &emmc {
+ 	pinctrl-0 = <&emmc_clk &emmc_cmd &emmc_bus8>;
+ 	status = "okay";
  };
 +
-+&pinctrl {
-+	wifi {
-+		wifi_reg_on_h: wifi-reg-on-h {
-+			rockchip,pins = <3 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+/*
-+ * SDR104 tuning fails with the default 4mA drive strength, use 8mA like the
-+ * vendor device tree.
-+ */
-+&sdmmc0ext_bus4 {
-+	rockchip,pins =
-+		<3 RK_PA4 3 &pcfg_pull_up_8ma>,
-+		<3 RK_PA5 3 &pcfg_pull_up_8ma>,
-+		<3 RK_PA6 3 &pcfg_pull_up_8ma>,
-+		<3 RK_PA7 3 &pcfg_pull_up_8ma>;
-+};
-+
-+&sdmmc0ext_clk {
-+	rockchip,pins = <3 RK_PA2 3 &pcfg_pull_none_8ma>;
-+};
-+
-+&sdmmc0ext_cmd {
-+	rockchip,pins = <3 RK_PA0 3 &pcfg_pull_up_8ma>;
-+};
-+
-+/* Optional M.2 E-key SDIO Wi-Fi module (Fn-Link 6222B-SRC, RTL8822CS) */
-+&sdmmc_ext {
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+	disable-wp;
-+	keep-power-in-suspend;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	no-mmc;
-+	no-sd;
-+	non-removable;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc0ext_clk &sdmmc0ext_cmd &sdmmc0ext_bus4>;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc_io_33>;
-+	vqmmc-supply = <&vcc_18>;
-+	status = "okay";
++&io_domains {
++	vccio4-supply = <&vcc_io_33>;
++	vccio6-supply = <&vcc_18>;
 +};
 -- 
 2.53.0
