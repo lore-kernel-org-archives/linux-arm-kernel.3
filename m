@@ -2,87 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CA87606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 06:40:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2D06606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 06:41:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ke9fdrSB;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=NjmvrBLK
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QTodqeHi;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=W9mU1Py/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=CxhFfAhW586ZAihTRjE9O09NR9LN2oJPMQfSaVxcH9Q=; b=Ke9fdrSB0JTWA3
-	/raK4bAlpILvMgleNq+WpJmutgfiIkbMsOPwrWFHv6IgxfTZDT9Aehs1eW9wtROn3DiQNVkub5mJX
-	NeMMWgeKUVZ4uLYayj+L4w+EtxPKmc4v2Zp7RK08l8oKbHxu1kGhXj+mCBRmEmp9991yTEPFg46CP
-	UGE3a5TYYvZOSgWvISyg5sX5KRWwdkY2EUelltcg839Q2UiEMIEdVRrsP7mf2Oxs4K9bX50Po4IXl
-	9/JgYSoM5HOxApoHWu7mxhI4UTD41UcFzRHkS8mHx838JW/2Hvavz65s/kpg8waor2hG0KsN/7lk5
-	BeYRXaXQio248ypzXXCA==;
+	List-Owner; bh=n5culjdNiNJ57R2F4iUQDyrEkYUxfQtY9v1arbrySgw=; b=QTodqeHivDT6nl
+	aAQOcOO05dNm1QF0dAx24AswEIzoAg0IAFzAmisQryJUpCAMii8HbjuSwxNNPCSaabTqdFsDNbGRr
+	uCM+8JHpoVFkk62l+Kh3fbm3eU9UN2FX4DNTG1JUH26W5ZLmmDXVoHPv6WjPkxGG2y63KUnMiAL3l
+	vqx8XLAfBuY5GiFBcJnXwACovJ0uu+UlsJ3jdI/4ruRFM4yZ7+HuGKWK72+fCc2Q1Wp4xaKdmjXky
+	1PSW+AaHYG8ydCwkD/wjlzGXsyVE/XWli6Fq4nomzm6HIrnykw1p71ldFMMSxvgeJ4ERU4lZVvfrX
+	Y3JptayXyiu6XE8I1Oow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK8wZ-0000000FbLB-3lD1;
-	Fri, 23 Oct 2026 06:39:59 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1xK8ws-0000000FbZy-14O2;
+	Fri, 23 Oct 2026 06:40:18 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK8wV-0000000FbGl-0iPj
+	id 1xK8wf-0000000FbOq-0SJL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 06:39:58 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so2962645e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 23:39:54 -0700 (PDT)
+	Fri, 23 Oct 2026 06:40:07 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a214af2076so1473755e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 23:40:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792737593; x=1793342393; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792737603; x=1793342403; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=CxhFfAhW586ZAihTRjE9O09NR9LN2oJPMQfSaVxcH9Q=;
-        b=NjmvrBLKhZstJJ6xR6uLirUaXIHw94pTRw7j6NStY2GvJVNsYpLFTKGe/acdAgWuJq
-         NKAR69PL04+8VRjsi6EgtIpfkHLbcU0236nxQcljGVe9IB9HamrT59Y1yJhdYPPb1T16
-         NNH+vb02IymoAbVqtRmgZdlkIcpM2Cp4HKgpiE7/2V7a27Lr1k0iQPSjzLOqKRVkwjGz
-         MXJpU2qRnJsBE4ofwVeuF+TA27ErrM2VvVZ1D74byFLN5qz20T5nQnkRtNhz3ocz5Zd+
-         aDOTP4sXVHYMWevkN1vhksFE+Vj/uAExoAtJ0H0eA2pf8XWPnm3NZ+CQQ82/SwM6pI3V
-         55sg==
+        bh=n5culjdNiNJ57R2F4iUQDyrEkYUxfQtY9v1arbrySgw=;
+        b=W9mU1Py/9AVq9j5EXwjGp/14jBtX829G/a8+dYAC+4Xxml7fSmnz+XnkT81eCiyNrC
+         px06SlftqeonxUWT+1vQ8tYAvU1OicGs2RgEc7g0Vd46ujjgtZrxsUPvHEvcaEzjP3VG
+         u2JZ3RDC0Hgt9cnm5otV5TmLWgCcTHavB13bGel8AOJLyYqK18moJzIMVntxJuufFKHl
+         p5y9WWRY2s0RtqMbOQ3tFWC4cK+thBOV0fk+G96JA5JtMHmKkV7EQ3RRHnzvJiXU07TR
+         a1wQGYZEmQWA6+er7lVAVww0fHBUsaH+NQJoL+i6yqLfR/+ODnE0iBRoIjOeADYRj074
+         dz2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792737593; x=1793342393;
+        d=1e100.net; s=20260707; t=1792737603; x=1793342403;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=CxhFfAhW586ZAihTRjE9O09NR9LN2oJPMQfSaVxcH9Q=;
-        b=iyWpz2MGex0uzgKndYzr4GU7PYCW6twIaHU4YZlhQT8+2yW3zJpzPBo9gKEfgx3N/0
-         dxPJ4T9vv3EMK/43+HftU0gm32Qyi2LGULPzIauWCX5Vaoxon+5rjsrKQT6Ufz4mbEye
-         maeDcaDsCDQm1xg6Z6bVuku3l3eh2v7eIMnxhCm0aJm/MiVyrFhOhNrqEmGzPTeKTuFP
-         5uEzV9CGN+3EzNFHToSD2tUoYR71qH183XG86/xBqwrrFEvoM7AzKeVkV+48sYfBJ1f3
-         IFqUiamBz7NRBs0MhuM4JCugQUgwrXaPZKCZD1Mg7gQ+i8/L63Gk0eBgJsqqMMG8kAcW
-         syHQ==
-X-Gm-Message-State: AFq9FYJi6ttE3Ld8tA4AJHrRZvnzk+Eo7gU5lyH8aYnt5gzay+1///0r
-	RgmnTaZwVwMsNsdaA+LfJI4ezy6n8paTiu93ktrQC21r5YZYKwDK2aW3
-X-Gm-Gg: AYBFou1LzEyFvmctGdnyQAH/8vtNyB+O/luQbs1Kte9lLNmNI9zolnS9JfFw+ygDsBQ
-	sAOsr73rlRWkv/lHTgXYXIhp0OQjbkX8Z4PeL0WmylYnTaFTV5u/qwENmshVx1pf+6ImorDZKnR
-	+cGlKxhYbvSVmObayjDNwEzs9XK+eCteOM7Za/i8e/KHz/mbXUvRmEPEhHW2bOZhJ3vdVtn9GK3
-	LK37TvKTvmo8Xirkj7VOQWrRSwUN8uERtj55ovWvErVchdXHVXmR5XKKcn0yREW+bpI5dLE3/v2
-	vrk3L5IZcv9p8WalyIvYX+jvBmpz3sdaQ8Zbk2aoZufcJ0HV49mY5GQm/EqOm22oVl+b4FCn89/
-	pEQOFG3qk9fyJDETISH/B3NL+MoDFuJuaqO1Vlkek070zc/co6Q1opgmPVV4ZocM6kLs6FDsrMC
-	YuM1PRKzcX+HzhqcMvuUteMIj+358kxrigjI48MyipXQh26X9lcyN+soNfmutfeWmqSgfTw0R8d
-	nnip/2pwOl5yEj2kE0ZcdpfKC7tbJgtbpHGi4b+IiSaxCnUQBTbfn/nHS7Fza6r+kmv43ZKrMur
-	SSTXLyJf6dhASp11WiQaV6X6ty3olaJkUP6HCdn6XMjk/K4YLymQkdj71NdWe/zV2vtTQJjPD+I
-	chcQ4F4wbficwwxEJ3sKu14r6
-X-Received: by 2002:a05:600c:8b5b:b0:4a1:6992:f861 with SMTP id 5b1f17b1804b1-4a211c50dd5mr19339445e9.1.1792737592585;
-        Thu, 22 Oct 2026 23:39:52 -0700 (PDT)
+        bh=n5culjdNiNJ57R2F4iUQDyrEkYUxfQtY9v1arbrySgw=;
+        b=OpV2jL/qB9ExohsSrbHAHvxq7bkQtz5jKm8PhQKPkFd0H9m8Z4LJUz6DpI7LZFroj8
+         oTeaahJGTKLcUrXpL5yuMFwk9R2sKhTd+5q7K6+vDjzGVAZlFxHoiHi9z3+o/MOwT7MN
+         iSgvUPzUEgSgjO+hHdlL5JtJxUVrdg8z/YHpmNlzWMoD1Axrhg+GS4lq7H405aw/1Q9m
+         tiiDW/IhjLJswShdJLWnNBPL2NenZPPWXDPfzkkypTGiTkIJh+ahnvfRgiShesVXB6qU
+         J9OhhS64wNcHSmQoh0LYaZqnGv3pOPhXtp59J/c19b2uOirAHBAMNOsbAVH9ZRY7RoTN
+         EfRg==
+X-Gm-Message-State: AFq9FYIxsGXf7tvG0joDb7yAVhg3VJCcR5lL3LiarE5THGzz9MxZ3aTy
+	AOXv8Nyqcw/trvER0TXIFsIIGsNkXrG9x67V+gVMVqjmaPeStmVi6ozy
+X-Gm-Gg: AYBFou0/rFDLXGkaWIPuoW4xzQChMbtMTSjgz+hiRIN0av9nrHGdu79cyuEcsIfIjC0
+	7me699mzkIM9NBoFr4m2t/uhYmogmv8UZbXsPnlOSmSWRor6aMzHJYQXL/P5+xkqIqwn7Imnm7w
+	RUeiFawF4Dk9uhnN1tPfXwlfxrFiZ+iNa0l0ezRlVU/HQJh3MwIJN5GVahoNsq07ioYO3qrPLS6
+	2q9nASaeBLucdGnKes3FGP7Zyum069h0qmG+AlGj1xw2jtPLOCreBXc+WZIKbLgRqpAayNHgnEp
+	4ngqHv49obMiFA787gcRsJ0Y3FaqbhV3vNq8m0cKr3yEMWKMPeprKZ+xBaToZUfWccnYSyWiSoc
+	I196zT5tfQ2M76n4qf6pEnYnTirddEpzNQetexHjIC0Rc28R1KT5l5buXwspsB+mUJtgWSA/zP7
+	WNn0r5Q9qzM8vScbe5mLNeL8RhrExSPYg5wIXXw7rtwW8benaZhm1nTvW2+cJ5UXG9wPTc/rUK3
+	cMq4uZVisWNk734kh7OYL0hlBl/b1ryqaZb52ur1LAcLobkOF/Fxyubm6328CJoeWN/V6LuKWb3
+	qqzb9anRjG4Qx353z71/RWLlkW2qkMee1SOpirt7WacRcAr4vAbwbdxGYi8PW5FrGNVQBM3EDjr
+	r74k=
+X-Received: by 2002:a05:600d:82e1:b0:4a2:59:f568 with SMTP id 5b1f17b1804b1-4a211ce4c9amr18463385e9.14.1792737602834;
+        Thu, 22 Oct 2026 23:40:02 -0700 (PDT)
 Received: from [192.168.1.22] (cst-prg-49-173.cust.vodafone.cz. [46.135.49.173])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e38030c47sm3104782f8f.21.2026.10.22.23.39.49
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e38030c47sm3104782f8f.21.2026.10.22.23.39.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 23:39:51 -0700 (PDT)
+        Thu, 22 Oct 2026 23:40:01 -0700 (PDT)
 From: Tomeu Vizoso <tomeu.vizoso@gmail.com>
 X-Google-Original-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Fri, 23 Oct 2026 08:39:30 +0200
-Subject: [PATCH v3 05/16] accel/thames: Add driver for the C7x DSPs in TI
- SoCs
+Date: Fri, 23 Oct 2026 08:39:33 +0200
+Subject: [PATCH v3 08/16] accel/thames: Add support for submitting DMA
+ operations
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261023-thames-v3-5-3ab40aa17157@tomeuvizoso.net>
+Message-Id: <20261023-thames-v3-8-3ab40aa17157@tomeuvizoso.net>
 References: <20261023-thames-v3-0-3ab40aa17157@tomeuvizoso.net>
 In-Reply-To: <20261023-thames-v3-0-3ab40aa17157@tomeuvizoso.net>
 To: Nishanth Menon <nm@ti.com>, "Andrew F. Davis" <afd@ti.com>, 
@@ -113,8 +113,8 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-remoteproc@vger.kernel.org, linux-hardening@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_233955_516763_8DBAFF6A 
-X-CRM114-Status: GOOD (  36.30  )
+X-CRM114-CacheID: sfid-20261022_234005_492267_8E866691 
+X-CRM114-Status: GOOD (  32.76  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,1556 +134,720 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Some SoCs from Texas Instruments contain DSPs that can be used for
-general compute tasks. This driver initially supports the C7x cores in
-the J722S SoC.
+The C7x has a DMA engine (DRU, Data Routing Unit) that can be used to
+asynchronously copy data around, while compute happens.
 
-It provides a DRM accel uAPI to userspace for submitting jobs to the DSP
-cores and managing the input, output and intermediate memory.
+The DRU does not go through the MMU, so its records hold physical
+addresses. To preserve isolation among clients, a record names the
+Context's own DSP addresses; the kernel bounds each side of the
+transfer, checks it against the Context's mappings, translates the two
+addresses to physical once and keeps the translated records in memory
+no Context reaches. The next commit's job creation IOCTL is where the
+records enter.
 
-This commit attaches to each DSP core that remoteproc has booted, boots
-a core left offline, performs a handshake to make sure that the
-firmware is recognized and reads its capabilities.
+The kernel driver also verifies that a malicious or defective client
+cannot read or write memory other than its own.
 
-Communication with the firmware is made via shared memory and a mailbox
-doorbell, and an unrecognized firmware at handshake is left alone in
-case the user wants to run a different firmware on that core.
-
-Suspend and resume is supported, by powering each core off and on resp.
-and redoing the handshake.
-
-The DSP nodes are bound by the K3 DSP remoteproc driver, so this driver
-cannot bind to them. It registers one platform device of its own for
-the accelerator, finds the DSP nodes by their compatible, attaches to
-each core's remoteproc and links its device to each core's, so the
-accelerator suspends before the cores and unbinds when they do. One
-DRM device serves both cores because a Job may run on either.
-
-The handshake is a block the firmware writes at boot: its ABI version,
-the IPC address it was linked for, the L2 size, the DRU's channel count,
-queue depth, channel stride, first Kernel channel and capabilities, the
-ASID width, the hardware ID it was built for, its timestamp rate and
-the transfer table pool's size. The driver refuses a core whose ABI
-major differs, whose IPC address is not the device tree's, or whose
-hardware ID is not the SoC k3-socinfo identified, and leaves it running.
-To tell this boot's handshake from one a previous firmware left in the
-memory, the kernel writes a random challenge into the Ring and waits up
-to 5 s for the firmware to echo it.
-
-The driver holds the power domains of each core's two timers, which the
-firmware drives with no power request of its own, and links its device
-to each core's so that it suspends before the DSP and unbinds first.
+A Job's translated records form a table in a pool inside the IPC
+memory, where no Context reaches them, carved by a bitmap in 128-byte
+lines. A Job carries up to 512 transfers, and no group may hold more
+transfers on one channel than the DRU's queue depth, which the firmware
+reports. An L2 side is kept as an offset into its aperture and rebased
+for the core that runs the Job when the table is written, since the
+DRU walks physical addresses and each core's L2 has its own. At attach
+the driver checks that the pool holds a 512-transfer table and that
+the firmware's DRU capabilities include type 8, and rewrites the tables
+of the Jobs it keeps when it attaches to a core again.
 
 Assisted-by: LLM
 Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-
 ---
+ drivers/accel/thames/Makefile           |   3 +-
+ drivers/accel/thames/thames_core.c      |  18 ++
+ drivers/accel/thames/thames_device.h    |   8 +
+ drivers/accel/thames/thames_drv.c       |  17 ++
+ drivers/accel/thames/thames_transfers.c | 405 ++++++++++++++++++++++++++++++++
+ drivers/accel/thames/thames_transfers.h |  52 ++++
+ include/uapi/drm/thames_accel.h         |  61 +++++
+ 7 files changed, 563 insertions(+), 1 deletion(-)
 
-v3:
-- Move to shared memory IPC.
-- Attach to a core remoteproc has booted instead of booting it.
-- Discover caps and let userspace query them.
-- Add the uAPI header here, moved from the BO patch.
-- Group and sort the includes, end the Makefile with a newline (Jani
-  Nikula); the driver's own headers stay quoted, as every accel driver
-  does.
-- Every /** block is kernel-doc or a plain comment (Randy Dunlap).
-- Depend on TI_K3_DSP_REMOTEPROC with no COMPILE_TEST (Andrew Davis).
----
- MAINTAINERS                          |   8 +
- drivers/accel/Kconfig                |   1 +
- drivers/accel/Makefile               |   3 +-
- drivers/accel/thames/Kconfig         |  23 ++
- drivers/accel/thames/Makefile        |   7 +
- drivers/accel/thames/thames_core.c   | 624 +++++++++++++++++++++++++++++++++++
- drivers/accel/thames/thames_core.h   |  87 +++++
- drivers/accel/thames/thames_device.h |  58 ++++
- drivers/accel/thames/thames_drv.c    | 360 ++++++++++++++++++++
- drivers/accel/thames/thames_drv.h    |  32 ++
- include/uapi/drm/thames_accel.h      | 200 +++++++++++
- 11 files changed, 1402 insertions(+), 1 deletion(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a08087fb6e67..c63ab2d77b01 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8019,6 +8019,14 @@ F:	Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
- F:	drivers/accel/rocket/
- F:	include/uapi/drm/rocket_accel.h
- 
-+DRM ACCEL DRIVER FOR TI C7x DSPS
-+M:	Tomeu Vizoso <tomeu@tomeuvizoso.net>
-+L:	dri-devel@lists.freedesktop.org
-+S:	Supported
-+T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
-+F:	drivers/accel/thames/
-+F:	include/uapi/drm/thames_accel.h
-+
- DRM COMPUTE ACCELERATORS DRIVERS AND FRAMEWORK
- M:	Oded Gabbay <ogabbay@kernel.org>
- L:	dri-devel@lists.freedesktop.org
-diff --git a/drivers/accel/Kconfig b/drivers/accel/Kconfig
-index bdf48ccafcf2..cb49c71cd4e4 100644
---- a/drivers/accel/Kconfig
-+++ b/drivers/accel/Kconfig
-@@ -30,5 +30,6 @@ source "drivers/accel/habanalabs/Kconfig"
- source "drivers/accel/ivpu/Kconfig"
- source "drivers/accel/qaic/Kconfig"
- source "drivers/accel/rocket/Kconfig"
-+source "drivers/accel/thames/Kconfig"
- 
- endif
-diff --git a/drivers/accel/Makefile b/drivers/accel/Makefile
-index 1d3a7251b950..6e1db1b381f5 100644
---- a/drivers/accel/Makefile
-+++ b/drivers/accel/Makefile
-@@ -5,4 +5,5 @@ obj-$(CONFIG_DRM_ACCEL_ARM_ETHOSU)	+= ethosu/
- obj-$(CONFIG_DRM_ACCEL_HABANALABS)	+= habanalabs/
- obj-$(CONFIG_DRM_ACCEL_IVPU)		+= ivpu/
- obj-$(CONFIG_DRM_ACCEL_QAIC)		+= qaic/
--obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
-\ No newline at end of file
-+obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
-+obj-$(CONFIG_DRM_ACCEL_THAMES)		+= thames/
-diff --git a/drivers/accel/thames/Kconfig b/drivers/accel/thames/Kconfig
-new file mode 100644
-index 000000000000..c621002d8efa
---- /dev/null
-+++ b/drivers/accel/thames/Kconfig
-@@ -0,0 +1,23 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config DRM_ACCEL_THAMES
-+	tristate "Thames (support for TI C7x DSP accelerators)"
-+	depends on DRM_ACCEL
-+	depends on TI_K3_DSP_REMOTEPROC
-+	depends on REMOTEPROC
-+	depends on MAILBOX
-+	help
-+	  Choose this option if you have a Texas Instruments J722S and want to
-+	  use its C7x DSP cores as compute accelerators.
-+
-+	  The C7x DSP cores can be used for general-purpose compute acceleration
-+	  and are exposed through the DRM accel subsystem.
-+
-+	  The interface exposed to userspace is described in
-+	  include/uapi/drm/thames_accel.h and is used by the Thames userspace
-+	  driver in Mesa3D.
-+
-+	  If unsure, say N.
-+
-+	  To compile this driver as a module, choose M here: the
-+	  module will be called thames.
 diff --git a/drivers/accel/thames/Makefile b/drivers/accel/thames/Makefile
-new file mode 100644
-index 000000000000..175247b31cb2
---- /dev/null
+index bb81fcd58927..143a829f24cf 100644
+--- a/drivers/accel/thames/Makefile
 +++ b/drivers/accel/thames/Makefile
-@@ -0,0 +1,7 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+obj-$(CONFIG_DRM_ACCEL_THAMES) := thames.o
-+
-+thames-y := \
-+	thames_core.o \
-+	thames_drv.o
+@@ -5,4 +5,5 @@ obj-$(CONFIG_DRM_ACCEL_THAMES) := thames.o
+ thames-y := \
+ 	thames_core.o \
+ 	thames_drv.o \
+-	thames_gem.o
++	thames_gem.o \
++	thames_transfers.o
 diff --git a/drivers/accel/thames/thames_core.c b/drivers/accel/thames/thames_core.c
-new file mode 100644
-index 000000000000..d74c74b8f8eb
---- /dev/null
+index 1c983580b62a..dff76abd8951 100644
+--- a/drivers/accel/thames/thames_core.c
 +++ b/drivers/accel/thames/thames_core.c
-@@ -0,0 +1,624 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/* Copyright 2026 Texas Instruments Incorporated - https://www.ti.com/ */
-+
-+#include <linux/dev_printk.h>
-+#include <linux/device.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/ktime.h>
-+#include <linux/mailbox_client.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/of_reserved_mem.h>
-+#include <linux/pm_domain.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/random.h>
-+#include <linux/remoteproc.h>
-+#include <linux/sizes.h>
-+#include <linux/string.h>
-+#include <linux/sys_soc.h>
-+
-+#include <drm/thames_accel.h>
-+
-+#include "thames_abi.h"
-+#include "thames_core.h"
-+#include "thames_device.h"
-+
-+#define THAMES_RESTART_TIMEOUT_MS	5000
-+
-+/*
-+ * The IPC memory is the core's first memory-region, which remoteproc allocates
-+ * from only for virtio rings and carveouts this firmware does not have.
-+ */
-+#define THAMES_IPC_MEMORY_REGION	0
-+
-+static_assert(THAMES_HW_J722S_C7524 == DRM_THAMES_HW_J722S_C7524);
-+
-+static const struct soc_device_attribute thames_socs[] = {
-+	{ .family = "J722S", .data = (void *)(uintptr_t)THAMES_HW_J722S_C7524 },
-+	{ }
-+};
-+
-+static int thames_core_read_window(struct thames_core *core, const char *name,
-+				   struct resource *window)
-+{
-+	int index, err;
-+
-+	index = of_property_match_string(core->of_node, "reg-names", name);
-+	if (index < 0) {
-+		dev_err(core->dev, "Missing '%s' reg entry on the DSP node\n", name);
-+		return index;
-+	}
-+
-+	err = of_address_to_resource(core->of_node, index, window);
-+	if (err) {
-+		dev_err(core->dev, "Failed to read the '%s' window: %d\n", name, err);
-+		return err;
-+	}
-+
-+	return 0;
-+}
-+
-+static int thames_core_read_windows(struct thames_core *core)
-+{
-+	int err;
-+
-+	err = thames_core_read_window(core, "l2sram", &core->l2sram);
-+	if (err)
-+		return err;
-+
-+	err = thames_core_read_window(core, "l2aux", &core->l2aux);
-+	if (err)
-+		return err;
-+
-+	return thames_core_read_window(core, "dru", &core->dru);
-+}
-+
-+/*
-+ * Copied once, so a firmware rewriting its handshake cannot change a value
-+ * after the check.
-+ */
-+static int thames_core_read_caps(struct thames_core *core, struct thames_handshake *handshake,
-+				 struct thames_caps *caps)
-+{
-+	struct thames_device *tdev = core->tdev;
-+	u64 l2_window = resource_size(&core->l2sram);
-+	u64 dru_window = resource_size(&core->dru);
-+	u64 dru_kernel_offset, dru_kernel_size;
-+	u32 dru_kernel_channel_first;
-+	size_t pool_offset = offsetof(struct thames_ipc, transfer_table_pool);
-+	int i;
-+
-+	caps->l2_size = READ_ONCE(handshake->l2_size);
-+	caps->dru_channel_count = READ_ONCE(handshake->dru_channel_count);
-+	caps->dru_queue_depth = READ_ONCE(handshake->dru_queue_depth);
-+	caps->asid_bits = READ_ONCE(handshake->asid_bits);
-+	caps->dru_channel_stride = READ_ONCE(handshake->dru_channel_stride);
-+	caps->timestamp_hz = READ_ONCE(handshake->timestamp_hz);
-+	caps->transfer_table_pool_size = READ_ONCE(handshake->transfer_table_pool_size);
-+	caps->dru_capabilities = READ_ONCE(handshake->dru_capabilities);
-+	dru_kernel_channel_first = READ_ONCE(handshake->dru_kernel_channel_first);
-+	for (i = 0; i < THAMES_NUM_WINDOWS; i++)
-+		caps->window_sizes[i] = resource_size(thames_core_window(core, i));
-+
-+	if (!caps->l2_size || caps->l2_size > l2_window) {
-+		dev_err(core->dev, "Firmware L2 size 0x%x does not fit the 0x%llx-byte L2 window\n",
-+			caps->l2_size, l2_window);
-+		return -EINVAL;
-+	}
-+
-+	if (!caps->dru_channel_count || !caps->dru_queue_depth ||
-+	    (u64)caps->dru_channel_count * caps->dru_queue_depth > U16_MAX) {
+@@ -25,6 +25,7 @@
+ #include "thames_core.h"
+ #include "thames_device.h"
+ #include "thames_gem.h"
++#include "thames_transfers.h"
+ 
+ #define THAMES_RESTART_TIMEOUT_MS	5000
+ 
+@@ -132,6 +133,22 @@ static int thames_core_read_caps(struct thames_core *core, struct thames_handsha
+ 		return -EINVAL;
+ 	}
+ 
++	if (THAMES_TRANSFER_TABLE_SIZE(THAMES_JOB_MAX_TRANSFERS, THAMES_JOB_MAX_TRANSFERS) >
++	    caps->transfer_table_pool_size) {
 +		dev_err(core->dev,
-+			"Firmware DRU of %u channels of depth %u is empty or exceeds a group's count of %u transfers\n",
-+			caps->dru_channel_count, caps->dru_queue_depth, U16_MAX);
++			"Firmware transfer table pool of 0x%x bytes is smaller than a %u-transfer table\n",
++			caps->transfer_table_pool_size, THAMES_JOB_MAX_TRANSFERS);
 +		return -EINVAL;
 +	}
 +
-+	if (!caps->dru_channel_stride || !caps->timestamp_hz) {
-+		dev_err(core->dev, "Firmware DRU channel stride %u or timestamp clock %u Hz is zero\n",
-+			caps->dru_channel_stride, caps->timestamp_hz);
-+		return -EINVAL;
-+	}
-+
-+	if (!caps->transfer_table_pool_size ||
-+	    !IS_ALIGNED(caps->transfer_table_pool_size, THAMES_ABI_LINE_SIZE) ||
-+	    pool_offset + caps->transfer_table_pool_size > core->ipc_size) {
++	if (caps->dru_capabilities &&
++	    (caps->dru_capabilities & THAMES_TRANSFER_TYPES) != THAMES_TRANSFER_TYPES) {
 +		dev_err(core->dev,
-+			"Firmware transfer table pool of 0x%x bytes at 0x%zx is empty, not whole lines, or past the 0x%zx-byte IPC memory\n",
-+			caps->transfer_table_pool_size, pool_offset, core->ipc_size);
++			"Firmware DRU capabilities 0x%llx lack the transfer types 0x%lx the driver accepts\n",
++			caps->dru_capabilities, THAMES_TRANSFER_TYPES);
 +		return -EINVAL;
 +	}
 +
-+	dru_kernel_offset = (u64)dru_kernel_channel_first * caps->dru_channel_stride;
-+	dru_kernel_size = (u64)caps->dru_channel_count * caps->dru_channel_stride;
-+	if (caps->dru_channel_count > THAMES_MAX_DRU_CHANNELS ||
-+	    !IS_ALIGNED(dru_kernel_offset, SZ_4K) || dru_kernel_size > SZ_4K ||
-+	    dru_kernel_offset + SZ_4K > dru_window) {
-+		dev_err(core->dev,
-+			"Firmware DRU of %u channels from channel %u, 0x%x bytes apart, is not one page of its own in the 0x%llx-byte DRU window, or exceeds the driver's %d channels\n",
-+			caps->dru_channel_count, dru_kernel_channel_first,
-+			caps->dru_channel_stride, dru_window, THAMES_MAX_DRU_CHANNELS);
-+		return -EINVAL;
-+	}
-+	caps->window_sizes[THAMES_WINDOW_DRU] = round_up(dru_kernel_size, SZ_4K);
-+
-+	if (!caps->asid_bits || caps->asid_bits > 16) {
-+		dev_err(core->dev, "Firmware ASID width %u is not 1 to 16 bits\n",
-+			caps->asid_bits);
-+		return -EINVAL;
-+	}
-+
-+	if (tdev->num_cores && memcmp(caps, &tdev->caps, sizeof(*caps))) {
-+		dev_err(core->dev, "Capabilities or window sizes differ from the first core's\n");
-+		return -EINVAL;
-+	}
-+
-+	core->dru_kernel_channel_first = dru_kernel_channel_first;
-+
-+	return 0;
-+}
-+
-+/*
-+ * remoteproc never frees this memory, so it outlives every stop and start of
-+ * the core and every reload of the driver.
-+ */
-+static int thames_core_map_ipc(struct thames_core *core)
-+{
-+	struct resource res;
-+	int err;
-+
-+	err = of_reserved_mem_region_to_resource(core->of_node, THAMES_IPC_MEMORY_REGION, &res);
-+	if (err) {
-+		dev_err(core->dev, "No shared block as memory-region %d of %pOF: %d\n",
-+			THAMES_IPC_MEMORY_REGION, core->of_node, err);
-+		return err;
-+	}
-+
-+	if (resource_size(&res) < sizeof(struct thames_ipc)) {
-+		dev_err(core->dev, "The shared block %pR is smaller than the layout's 0x%zx bytes\n",
-+			&res, sizeof(struct thames_ipc));
-+		return -EINVAL;
-+	}
-+
-+	core->ipc = memremap(res.start, resource_size(&res), MEMREMAP_WC);
-+	if (!core->ipc) {
-+		dev_err(core->dev, "Failed to map the shared block %pR\n", &res);
-+		return -ENOMEM;
-+	}
-+
-+	core->ipc_address = res.start;
-+	core->ipc_size = resource_size(&res);
-+
-+	return 0;
-+}
-+
-+static void thames_core_unmap_ipc(struct thames_core *core)
-+{
-+	memunmap(core->ipc);
-+	core->ipc = NULL;
-+}
-+
-+static int thames_core_check_abi(struct thames_core *core, u32 abi)
-+{
-+	if (THAMES_ABI_VERSION_MAJOR(abi) == THAMES_ABI_MAJOR)
-+		return 0;
-+
-+	dev_err(core->dev, THAMES_CORE_FMT
-+		" runs firmware of ABI %u.%u.%u, the driver's is %u.%u.%u: majors differ; refusing the core, left running\n",
-+		THAMES_CORE_ARG(core), THAMES_ABI_VERSION_MAJOR(abi),
-+		THAMES_ABI_VERSION_MINOR(abi), THAMES_ABI_VERSION_PATCH(abi),
-+		THAMES_ABI_MAJOR, THAMES_ABI_MINOR, THAMES_ABI_PATCH);
-+	return -ENODEV;
-+}
-+
-+static u64 thames_core_challenge_echo(struct thames_core *core)
-+{
-+	return READ_ONCE(core->ipc->handshake.challenge_echo);
-+}
-+
-+/* The IPC memory may still hold the handshake of a firmware before this boot. */
-+static int thames_core_wait_handshake(struct thames_core *core)
-+{
-+	u64 challenge, found, echo;
-+	ktime_t start;
-+	u32 abi;
-+	int err;
-+
-+	do {
-+		challenge = get_random_u64();
-+	} while (!challenge);
-+
-+	found = thames_core_challenge_echo(core);
-+	WRITE_ONCE(core->ipc->ring.challenge, challenge);
-+	/* Order the challenge before the doorbell. */
-+	wmb();
-+
-+	/*
-+	 * A doorbell rung before the firmware listens is lost; its loop reads
-+	 * the challenge on its first pass all the same.
-+	 */
-+	mbox_send_message(core->mbox_chan, (void *)(uintptr_t)THAMES_DOORBELL);
-+
-+	start = ktime_get();
-+	err = read_poll_timeout(thames_core_challenge_echo, echo, echo == challenge,
-+				10 * USEC_PER_MSEC, THAMES_RESTART_TIMEOUT_MS * USEC_PER_MSEC,
-+				false, core);
-+	dev_dbg(core->dev, THAMES_CORE_FMT
-+		" challenge %#llx, echo %#llx before the wait, %#llx after %lld ms\n",
-+		THAMES_CORE_ARG(core), challenge, found, echo, ktime_ms_delta(ktime_get(), start));
-+	if (err) {
-+		abi = READ_ONCE(core->ipc->handshake.abi_version);
-+		if (abi && thames_core_check_abi(core, abi))
-+			return -ENODEV;
-+
-+		dev_err(core->dev, THAMES_CORE_FMT
-+			" did not answer the challenge within %u ms; refusing the core, left running\n",
-+			THAMES_CORE_ARG(core), THAMES_RESTART_TIMEOUT_MS);
-+		return err;
-+	}
-+
-+	/* Read the handshake after the echo that says it is written. */
-+	rmb();
-+	return 0;
-+}
-+
-+static int thames_core_read_handshake(struct thames_core *core, struct thames_caps *caps)
-+{
-+	struct thames_handshake *handshake = &core->ipc->handshake;
-+	const struct soc_device_attribute *soc;
-+	u64 ipc_address;
-+	int err;
-+
-+	err = thames_core_check_abi(core, READ_ONCE(handshake->abi_version));
-+	if (err)
-+		return err;
-+
-+	ipc_address = READ_ONCE(handshake->ipc_address);
-+	if (ipc_address != core->ipc_address) {
-+		dev_err(core->dev, THAMES_CORE_FMT
-+			" runs firmware linked for a shared block at %#llx, the device tree reserves it at %pa; refusing the core, left running\n",
-+			THAMES_CORE_ARG(core), ipc_address, &core->ipc_address);
-+		return -ENODEV;
-+	}
-+
-+	caps->hardware_id = READ_ONCE(handshake->hardware_id);
-+	soc = soc_device_match(thames_socs);
-+	if (!soc) {
-+		dev_err(core->dev, THAMES_CORE_FMT
-+			" runs firmware for hardware ID %u, and k3-socinfo identified no SoC the driver knows; refusing the core, left running\n",
-+			THAMES_CORE_ARG(core), caps->hardware_id);
-+		return -ENODEV;
-+	}
-+
-+	if (caps->hardware_id != (uintptr_t)soc->data) {
-+		dev_err(core->dev, THAMES_CORE_FMT
-+			" runs firmware for hardware ID %u, the %s SoC's is %u; refusing the core, left running\n",
-+			THAMES_CORE_ARG(core), caps->hardware_id, soc->family,
-+			(u32)(uintptr_t)soc->data);
-+		return -ENODEV;
-+	}
-+
-+	return thames_core_read_caps(core, handshake, caps);
-+}
-+
-+static void thames_mbox_rx(struct mbox_client *cl, void *mssg)
-+{
-+	struct thames_core *core = container_of(cl, struct thames_core, mbox_client);
-+
-+	dev_dbg(core->dev, "Doorbell on " THAMES_CORE_FMT ": 0x%x\n", THAMES_CORE_ARG(core),
-+		(u32)(uintptr_t)mssg);
-+}
-+
-+/* Embedded in struct thames_core: nothing to free. */
-+static void thames_core_mbox_dev_release(struct device *dev)
-+{
-+}
-+
-+/*
-+ * A device of the driver's own carrying the DSP node, so the mailbox core finds
-+ * the node's mboxes without borrowing the K3 driver's device.
-+ */
-+static int thames_core_request_doorbell(struct thames_core *core)
-+{
-+	struct mbox_client *cl = &core->mbox_client;
-+	struct device *mbox_dev = &core->mbox_dev;
-+	int err;
-+
-+	device_initialize(mbox_dev);
-+	mbox_dev->parent = core->tdev->ddev.dev;
-+	mbox_dev->release = thames_core_mbox_dev_release;
-+	device_set_node(mbox_dev, of_fwnode_handle(core->of_node));
-+	dev_set_name(mbox_dev, "thames-mbox.%u", core->index);
-+
-+	err = device_add(mbox_dev);
-+	if (err) {
-+		put_device(mbox_dev);
-+		return err;
-+	}
-+
-+	cl->dev = mbox_dev;
-+	cl->rx_callback = thames_mbox_rx;
-+	cl->tx_block = false;
-+	cl->knows_txdone = false;
-+
-+	core->mbox_chan = mbox_request_channel(cl, 1);
-+	if (IS_ERR(core->mbox_chan)) {
-+		err = PTR_ERR(core->mbox_chan);
-+		core->mbox_chan = NULL;
-+		device_del(mbox_dev);
-+		put_device(mbox_dev);
-+		return err;
-+	}
-+
-+	return 0;
-+}
-+
-+static void thames_core_free_doorbell(struct thames_core *core)
-+{
-+	mbox_free_channel(core->mbox_chan);
-+	core->mbox_chan = NULL;
-+	device_del(&core->mbox_dev);
-+	put_device(&core->mbox_dev);
-+}
-+
-+static int thames_core_rproc_boot(struct thames_core *core)
-+{
-+	int err;
-+
-+	WRITE_ONCE(core->rproc_caller, current);
-+	err = rproc_boot(core->rproc);
-+	WRITE_ONCE(core->rproc_caller, NULL);
-+
-+	return err;
-+}
-+
-+static int thames_core_rproc_shutdown(struct thames_core *core)
-+{
-+	int err;
-+
-+	WRITE_ONCE(core->rproc_caller, current);
-+	err = rproc_shutdown(core->rproc);
-+	WRITE_ONCE(core->rproc_caller, NULL);
-+
-+	return err;
-+}
-+
-+/*
-+ * The firmware drives these timers with no power request and the device tree
-+ * reserves them for it, so the driver holds their power domains on.
-+ */
-+static int thames_core_get_timers(struct thames_core *core)
-+{
-+	const struct dev_pm_domain_attach_data data = {
-+		.pd_flags = PD_FLAG_NO_DEV_LINK,
-+	};
-+	struct dev_pm_domain_list *pds = NULL;
-+	int err, i;
-+
-+	err = dev_pm_domain_attach_list(core->dev, &data, &pds);
-+	if (err < 0) {
-+		if (err != -EPROBE_DEFER)
-+			dev_err(core->dev, THAMES_CORE_FMT ": failed to attach the timers' power domains: %d\n",
-+				THAMES_CORE_ARG(core), err);
-+		return err;
-+	}
-+	if (!pds)
-+		return 0;
-+
-+	for (i = 0; i < pds->num_pds; i++) {
-+		err = pm_runtime_resume_and_get(pds->pd_devs[i]);
-+		if (err) {
-+			dev_err(core->dev, THAMES_CORE_FMT ": failed to power the timers' domain %s: %d\n",
-+				THAMES_CORE_ARG(core), dev_name(pds->pd_devs[i]), err);
-+			goto err_put;
-+		}
-+	}
-+
-+	core->timer_pds = pds;
-+	return 0;
-+
-+err_put:
-+	while (i--)
-+		pm_runtime_put(pds->pd_devs[i]);
-+	dev_pm_domain_detach_list(pds);
-+	return err;
-+}
-+
-+static void thames_core_put_timers(struct thames_core *core)
-+{
-+	struct dev_pm_domain_list *pds = core->timer_pds;
-+	int i;
-+
-+	if (!pds)
-+		return;
-+
-+	for (i = 0; i < pds->num_pds; i++)
-+		pm_runtime_put(pds->pd_devs[i]);
-+	dev_pm_domain_detach_list(pds);
-+	core->timer_pds = NULL;
-+}
-+
-+int thames_core_init(struct thames_core *core)
-+{
-+	struct thames_caps caps = {};
-+	struct rproc *rproc;
-+	int err;
-+
-+	/* Without a phandle the lookup would defer forever. */
-+	if (!core->of_node->phandle) {
-+		dev_err(core->tdev->ddev.dev, "%pOF has no phandle to find its remoteproc by\n",
-+			core->of_node);
-+		return -EINVAL;
-+	}
-+
-+	rproc = rproc_get_by_phandle(core->of_node->phandle);
-+	if (!rproc)
-+		return dev_err_probe(core->tdev->ddev.dev, -EPROBE_DEFER,
-+				     "%pOF: no remoteproc registered for it yet\n", core->of_node);
-+
-+	/*
-+	 * remoteproc's own boot is still to come: booting the core here as well
-+	 * would leave two power counts, and a reset or a suspend could not stop
-+	 * it.
-+	 */
-+	if (rproc->state == RPROC_OFFLINE && rproc->auto_boot) {
-+		rproc_put(rproc);
-+		return dev_err_probe(core->tdev->ddev.dev, -EPROBE_DEFER,
-+				     "%pOF: remoteproc has not booted it yet (auto-boot pending)\n",
-+				     core->of_node);
-+	}
-+
-+	core->rproc = rproc;
-+	core->dev = rproc->dev.parent;
-+	snprintf(core->name, sizeof(core->name), "DSP core %s (index %u)", dev_name(core->dev),
-+		 core->index);
-+
-+	/*
-+	 * The PM core then suspends this driver before the DSP, and an unbind
-+	 * of the K3 driver unbinds this one first.
-+	 */
-+	if (!device_link_add(core->tdev->ddev.dev, core->dev, DL_FLAG_AUTOPROBE_CONSUMER)) {
-+		dev_err(core->tdev->ddev.dev, "Failed to link to %s\n", dev_name(core->dev));
-+		err = -EINVAL;
-+		goto err_put;
-+	}
-+
-+	err = thames_core_read_windows(core);
-+	if (err)
-+		goto err_put;
-+
-+	err = thames_core_get_timers(core);
-+	if (err)
-+		goto err_put;
-+
-+	err = thames_core_map_ipc(core);
-+	if (err)
-+		goto err_timers;
-+
-+	err = thames_core_request_doorbell(core);
-+	if (err)
-+		goto err_unmap;
-+
-+	if (rproc->state == RPROC_OFFLINE) {
-+		err = rproc_boot(rproc);
-+		if (err)
-+			goto err_doorbell;
-+	}
-+
-+	err = thames_core_wait_handshake(core);
-+	if (err)
-+		goto err_doorbell;
-+
-+	err = thames_core_read_handshake(core, &caps);
-+	if (err)
-+		goto err_doorbell;
-+
-+	if (!core->tdev->num_cores)
-+		core->tdev->caps = caps;
-+
-+	return 0;
-+
-+err_doorbell:
-+	thames_core_free_doorbell(core);
-+err_unmap:
-+	thames_core_unmap_ipc(core);
-+err_timers:
-+	thames_core_put_timers(core);
-+err_put:
-+	rproc_put(rproc);
-+	core->rproc = NULL;
-+	return err;
-+}
-+
-+void thames_core_fini(struct thames_core *core)
-+{
-+	if (core->mbox_chan)
-+		thames_core_free_doorbell(core);
-+	/*
-+	 * Drop only our reference and keep the boot count: the core runs on
-+	 * for the next load to reattach to; only a reset or a suspend, which
-+	 * idle it first, stop it.
-+	 */
-+	rproc_put(core->rproc);
-+	core->rproc = NULL;
-+	thames_core_unmap_ipc(core);
-+	thames_core_put_timers(core);
-+	of_node_put(core->of_node);
-+	core->of_node = NULL;
-+}
-+
-+/*
-+ * rproc_shutdown() reaches the system firmware because the core has one power
-+ * count, remoteproc's auto-boot or this driver's boot: the probe defers while
-+ * an auto-boot is pending.
-+ */
-+int thames_core_suspend(struct thames_core *core)
-+{
-+	struct rproc *rproc = core->rproc;
-+	int err;
-+
-+	if (core->suspended)
-+		return 0;
-+
-+	err = thames_core_rproc_shutdown(core);
-+	if (!err && rproc->state != RPROC_OFFLINE) {
-+		dev_err(core->dev, THAMES_CORE_FMT
-+			" is kept running by another power count; refusing the suspend\n",
-+			THAMES_CORE_ARG(core));
-+		thames_core_rproc_boot(core);
-+		err = -EBUSY;
-+	}
-+	if (err) {
-+		return err;
-+	}
-+
-+	core->suspended = true;
-+	return 0;
-+}
-+
-+/*
-+ * The firmware empties the Ring at boot and moves its head to the tail it
-+ * finds.
-+ */
-+int thames_core_resume(struct thames_core *core)
-+{
-+	struct thames_caps caps = {};
-+	u32 head, tail;
-+	int err = 0;
-+
-+	if (!core->suspended)
-+		goto restart;
-+
-+	err = thames_core_rproc_boot(core);
-+	if (err)
-+		goto offline;
-+
-+	core->suspended = false;
-+
-+	err = thames_core_wait_handshake(core);
-+	if (err)
-+		goto offline;
-+
-+	err = thames_core_read_handshake(core, &caps);
-+	if (err)
-+		goto offline;
-+
-+	head = READ_ONCE(core->ipc->ring.head);
-+	tail = READ_ONCE(core->ipc->ring.tail);
-+	if (head != tail) {
-+		dev_err(core->dev, "Ring on " THAMES_CORE_FMT
-+			" is not empty after its boot (tail %u, head %u)\n",
-+			THAMES_CORE_ARG(core), tail, head);
-+		err = -EIO;
-+		goto offline;
-+	}
-+	core->ring_tail = head;
-+
-+	goto restart;
-+
-+offline:
-+restart:
-+	return err;
-+}
-diff --git a/drivers/accel/thames/thames_core.h b/drivers/accel/thames/thames_core.h
-new file mode 100644
-index 000000000000..590c5716f7f5
---- /dev/null
-+++ b/drivers/accel/thames/thames_core.h
-@@ -0,0 +1,87 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/* Copyright 2026 Texas Instruments Incorporated - https://www.ti.com/ */
-+
-+#ifndef __THAMES_CORE_H__
-+#define __THAMES_CORE_H__
-+
-+#include <linux/ioport.h>
-+#include <linux/list.h>
-+#include <linux/mailbox_client.h>
-+#include <linux/mutex_types.h>
-+#include <linux/remoteproc.h>
-+
-+
-+#include "thames_abi.h"
-+
-+enum thames_window {
-+	THAMES_WINDOW_L2SRAM,
-+	THAMES_WINDOW_L2AUX,
-+	THAMES_WINDOW_DRU,
-+	THAMES_NUM_WINDOWS,
-+};
-+
-+#define THAMES_MAX_DRU_CHANNELS	16
-+
-+#define THAMES_DOORBELL		1u
-+
-+struct thames_core {
-+	struct device_node *of_node;
-+	struct rproc *rproc;
-+	struct device *dev;
-+	struct thames_device *tdev;
-+	unsigned int index;
-+	char name[64];
-+
-+	struct thames_ipc *ipc;
-+	phys_addr_t ipc_address;
-+	size_t ipc_size;
-+	u32 dru_kernel_channel_first;
-+
-+	struct dev_pm_domain_list *timer_pds;
-+
-+	struct device mbox_dev;
-+	struct mbox_client mbox_client;
-+	struct mbox_chan *mbox_chan;
-+
-+	u32 ring_tail;
-+	/*
-+	 * @rproc_caller is the task inside the driver's own rproc_boot() or
-+	 * rproc_shutdown(), whose subdevice callbacks then do nothing.
-+	 */
-+	struct task_struct *rproc_caller;
-+
-+	bool suspended;
-+
-+	struct resource l2sram;
-+	struct resource l2aux;
-+	struct resource dru;
-+};
-+
-+static inline const struct resource *thames_core_window(const struct thames_core *core,
-+							enum thames_window window)
-+{
-+	switch (window) {
-+	case THAMES_WINDOW_L2SRAM:
-+		return &core->l2sram;
-+	case THAMES_WINDOW_L2AUX:
-+		return &core->l2aux;
-+	case THAMES_WINDOW_DRU:
-+		return &core->dru;
-+	default:
-+		return NULL;
-+	}
-+}
-+
-+/*
-+ * The index counts attached cores only, so a core left out shifts the ones
-+ * after it.
-+ */
-+#define THAMES_CORE_FMT "%s"
-+#define THAMES_CORE_ARG(core) ((core)->name)
-+
-+int thames_core_init(struct thames_core *core);
-+void thames_core_fini(struct thames_core *core);
-+int thames_core_suspend(struct thames_core *core);
-+int thames_core_resume(struct thames_core *core);
-+
-+#endif
+ 	dru_kernel_offset = (u64)dru_kernel_channel_first * caps->dru_channel_stride;
+ 	dru_kernel_size = (u64)caps->dru_channel_count * caps->dru_channel_stride;
+ 	if (caps->dru_channel_count > THAMES_MAX_DRU_CHANNELS ||
+@@ -618,6 +635,7 @@ int thames_core_resume(struct thames_core *core)
+ 	core->ring_tail = head;
+ 
+ 	thames_context_rewrite_entries(core);
++	thames_transfers_rewrite(core);
+ 	goto restart;
+ 
+ offline:
 diff --git a/drivers/accel/thames/thames_device.h b/drivers/accel/thames/thames_device.h
-new file mode 100644
-index 000000000000..f1cf79f2c2e4
---- /dev/null
+index a1a54d974359..e183c78e2acf 100644
+--- a/drivers/accel/thames/thames_device.h
 +++ b/drivers/accel/thames/thames_device.h
-@@ -0,0 +1,58 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/* Copyright 2026 Texas Instruments Incorporated - https://www.ti.com/ */
+@@ -55,6 +55,14 @@ struct thames_device {
+ 	u32 asid_next;
+ 	struct mutex asid_lock;
+ 
++	/*
++	 * One map for every core: a transfer table sits at the same offset in
++	 * each core's pool.
++	 */
++	unsigned long *transfer_table_pool_map;
++	struct mutex transfer_table_pool_lock;
 +
-+#ifndef __THAMES_DEVICE_H__
-+#define __THAMES_DEVICE_H__
-+
-+#include <linux/atomic.h>
-+#include <linux/bitmap.h>
-+#include <linux/clk.h>
-+#include <linux/container_of.h>
-+#include <linux/idr.h>
-+#include <linux/mutex.h>
-+#include <linux/platform_device.h>
-+#include <linux/workqueue.h>
-+
-+#include <drm/drm_device.h>
-+
-+#include "thames_core.h"
-+
-+/* No holes: two cores' caps compare with memcmp(). */
-+struct thames_caps {
-+	u32 l2_size;
-+	u32 dru_channel_count;
-+	u32 dru_queue_depth;
-+	u32 asid_bits;
-+	u32 hardware_id;
-+	u32 dru_channel_stride;
-+	u32 timestamp_hz;
-+	u32 transfer_table_pool_size;
-+	u64 dru_capabilities;
-+	u64 window_sizes[THAMES_NUM_WINDOWS];
-+};
-+
-+#define THAMES_MAX_CORES	2
-+
-+struct thames_device {
-+	struct drm_device ddev;
-+
-+	struct thames_core cores[THAMES_MAX_CORES];
-+	unsigned int num_cores;
-+
-+	struct thames_caps caps;
-+
-+};
-+
-+#define to_thames_device(drm_dev) \
-+	((struct thames_device *)(container_of((drm_dev), struct thames_device, ddev)))
-+
-+/*
-+ * Each core's page tables map that core's window at the first core's physical
-+ * address, so a Kernel names one address on either core.
-+ */
-+static inline u64 thames_window_va(const struct thames_device *tdev, enum thames_window i)
-+{
-+	return thames_core_window(&tdev->cores[0], i)->start;
-+}
-+
-+#endif /* __THAMES_DEVICE_H__ */
++	struct list_head transfer_tables;
+ 	struct list_head contexts;
+ 	struct mutex contexts_lock;
+ 
 diff --git a/drivers/accel/thames/thames_drv.c b/drivers/accel/thames/thames_drv.c
-new file mode 100644
-index 000000000000..de93bc87756c
---- /dev/null
+index a17e7a90f7c1..030c60963a0a 100644
+--- a/drivers/accel/thames/thames_drv.c
 +++ b/drivers/accel/thames/thames_drv.c
-@@ -0,0 +1,360 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/* Copyright 2026 Texas Instruments Incorporated - https://www.ti.com/ */
-+
-+#include <linux/dma-mapping.h>
-+#include <linux/err.h>
-+#include <linux/idr.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm.h>
-+#include <linux/slab.h>
-+#include <linux/string.h>
-+#include <linux/timekeeping.h>
-+#include <linux/uaccess.h>
-+#include <linux/workqueue.h>
-+
-+#include <drm/drm_accel.h>
-+#include <drm/drm_drv.h>
-+#include <drm/drm_gem.h>
-+#include <drm/drm_ioctl.h>
-+#include <drm/drm_managed.h>
-+#include <drm/thames_accel.h>
-+
-+#include "thames_core.h"
-+#include "thames_drv.h"
-+
-+static struct platform_device *drm_dev;
-+static struct thames_device *tdev;
-+
-+static const struct of_device_id thames_dsp_of_match[] = {
-+	{ .compatible = "ti,am62a-c7xv-dsp" },
-+	{}
-+};
-+
-+static int thames_open(struct drm_device *dev, struct drm_file *file)
-+{
-+	struct thames_device *tdev = to_thames_device(dev);
-+	struct thames_file_priv *thames_priv;
-+	int ret, idx;
-+
-+	if (!drm_dev_enter(dev, &idx))
-+		return -ENODEV;
-+
-+	thames_priv = kzalloc_obj(*thames_priv, GFP_KERNEL);
-+	if (!thames_priv) {
-+		ret = -ENOMEM;
-+		goto err_exit;
-+	}
-+
-+	thames_priv->tdev = tdev;
-+	kref_init(&thames_priv->refcount);
-+
-+	file->driver_priv = thames_priv;
-+
-+	drm_dev_exit(idx);
-+	return 0;
-+
-+err_exit:
-+	drm_dev_exit(idx);
-+	return ret;
-+}
-+
-+static void thames_file_priv_release(struct kref *kref)
-+{
-+	struct thames_file_priv *priv = container_of(kref, struct thames_file_priv, refcount);
-+
-+	kfree(priv);
-+}
-+
-+void thames_file_priv_put(struct thames_file_priv *priv)
-+{
-+	kref_put(&priv->refcount, thames_file_priv_release);
-+}
-+
-+/* Jobs already on a Ring keep the Context until the Fence passes them. */
-+static void thames_postclose(struct drm_device *dev, struct drm_file *file)
-+{
-+	struct thames_file_priv *thames_priv = file->driver_priv;
-+
-+	thames_file_priv_put(thames_priv);
-+}
-+
-+#define THAMES_DRIVER_MAJOR 1
-+#define THAMES_DRIVER_MINOR 0
-+
-+static int thames_query_copy_out(struct drm_thames_dev_query *args, const void *data,
-+				 size_t size)
-+{
-+	u32 copied = min_t(size_t, args->size, size);
-+
-+	if (copy_to_user(u64_to_user_ptr(args->pointer), data, copied))
-+		return -EFAULT;
-+
-+	args->size = copied;
-+
-+	return 0;
-+}
-+
-+static int thames_query_caps(struct drm_device *dev, struct drm_thames_dev_query *args)
-+{
-+	struct thames_device *tdev = to_thames_device(dev);
-+	const struct thames_caps *reported = &tdev->caps;
-+	struct drm_thames_caps caps = {
-+		.l2_size = reported->l2_size,
-+		.dru_channel_count = reported->dru_channel_count,
-+		.dru_queue_depth = reported->dru_queue_depth,
-+		.l2_main_dsp_va = thames_window_va(tdev, THAMES_WINDOW_L2SRAM),
-+		.l2_aux.dsp_va = thames_window_va(tdev, THAMES_WINDOW_L2AUX),
-+		.l2_aux.size = reported->window_sizes[THAMES_WINDOW_L2AUX],
-+		.dru_realtime_dsp_va = thames_window_va(tdev, THAMES_WINDOW_DRU),
-+		.user_region.dsp_va = THAMES_USER_REGION_BASE,
-+		.user_region.size = THAMES_USER_REGION_SIZE,
-+		.hardware_id = reported->hardware_id,
-+		.dru_capabilities = reported->dru_capabilities,
-+	};
-+
-+	return thames_query_copy_out(args, &caps, sizeof(caps));
-+}
-+
-+static int thames_ioctl_dev_query(struct drm_device *dev, void *data, struct drm_file *file)
-+{
-+	struct drm_thames_dev_query *args = data;
-+
-+	switch (args->type) {
-+	case DRM_THAMES_DEV_QUERY_CAPS:
-+		if (!args->pointer) {
-+			args->size = sizeof(struct drm_thames_caps);
-+			return 0;
-+		}
-+		return thames_query_caps(dev, args);
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+/*
-+ * BO_PREP is not entered: it may wait as long as the client asks and touches
-+ * only the CPU caches.
-+ */
-+#define THAMES_IOCTL_ENTERED(func)						\
-+static int thames_ioctl_##func##_entered(struct drm_device *dev, void *data,	\
-+					 struct drm_file *file)			\
-+{										\
-+	int ret, idx;								\
-+										\
-+	if (!drm_dev_enter(dev, &idx))						\
-+		return -ENODEV;							\
-+										\
-+	ret = thames_ioctl_##func(dev, data, file);				\
-+	drm_dev_exit(idx);							\
-+										\
-+	return ret;								\
-+}
-+
-+THAMES_IOCTL_ENTERED(dev_query)
-+
-+static const struct drm_ioctl_desc thames_drm_driver_ioctls[] = {
-+#define THAMES_IOCTL(n, func) DRM_IOCTL_DEF_DRV(THAMES_##n, thames_ioctl_##func, 0)
-+	THAMES_IOCTL(DEV_QUERY, dev_query_entered),
-+};
-+
-+DEFINE_DRM_ACCEL_FOPS(thames_accel_driver_fops);
-+
-+static const struct drm_driver thames_drm_driver = {
-+	.driver_features = DRIVER_COMPUTE_ACCEL | DRIVER_GEM | DRIVER_SYNCOBJ |
-+			   DRIVER_SYNCOBJ_TIMELINE,
-+	.open = thames_open,
-+	.postclose = thames_postclose,
-+	.ioctls = thames_drm_driver_ioctls,
-+	.num_ioctls = ARRAY_SIZE(thames_drm_driver_ioctls),
-+	.fops = &thames_accel_driver_fops,
-+	.name = "thames",
-+	.desc = "thames DRM",
-+	.major = THAMES_DRIVER_MAJOR,
-+	.minor = THAMES_DRIVER_MINOR,
-+};
-+
-+static struct thames_device *thames_device_init(struct platform_device *pdev,
-+						const struct drm_driver *thames_drm_driver)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct thames_device *tdev;
-+	int err;
-+
-+	tdev = devm_drm_dev_alloc(dev, thames_drm_driver, struct thames_device, ddev);
-+	if (IS_ERR(tdev))
-+		return tdev;
-+
-+	dev_set_drvdata(dev, tdev);
-+
-+	dma_set_max_seg_size(dev, UINT_MAX);
-+
-+	err = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(40));
+@@ -23,6 +23,7 @@
+ #include "thames_core.h"
+ #include "thames_drv.h"
+ #include "thames_gem.h"
++#include "thames_transfers.h"
+ 
+ static struct platform_device *drm_dev;
+ static struct thames_device *tdev;
+@@ -152,6 +153,7 @@ static int thames_query_caps(struct drm_device *dev, struct drm_thames_dev_query
+ 		.l2_size = reported->l2_size,
+ 		.dru_channel_count = reported->dru_channel_count,
+ 		.dru_queue_depth = reported->dru_queue_depth,
++		.max_transfers = THAMES_JOB_MAX_TRANSFERS,
+ 		.l2_main_dsp_va = thames_window_va(tdev, THAMES_WINDOW_L2SRAM),
+ 		.l2_aux.dsp_va = thames_window_va(tdev, THAMES_WINDOW_L2AUX),
+ 		.l2_aux.size = reported->window_sizes[THAMES_WINDOW_L2AUX],
+@@ -161,6 +163,7 @@ static int thames_query_caps(struct drm_device *dev, struct drm_thames_dev_query
+ 		.user_region.dsp_va = THAMES_USER_REGION_BASE,
+ 		.user_region.size = THAMES_USER_REGION_SIZE,
+ 		.hardware_id = reported->hardware_id,
++		.transfer_types = THAMES_TRANSFER_TYPES,
+ 		.dru_capabilities = reported->dru_capabilities,
+ 	};
+ 
+@@ -269,6 +272,10 @@ static struct thames_device *thames_device_init(struct platform_device *pdev,
+ 	if (err)
+ 		return ERR_PTR(err);
+ 
++	err = drmm_mutex_init(&tdev->ddev, &tdev->transfer_table_pool_lock);
 +	if (err)
 +		return ERR_PTR(err);
 +
-+
-+	return tdev;
-+}
-+
-+static void thames_device_fini(struct thames_device *tdev)
-+{
-+	WARN_ON(tdev->num_cores > 0);
-+}
-+
-+static int thames_platform_probe(struct platform_device *pdev)
-+{
-+	struct device_node *np;
-+	unsigned int core = 0;
-+	int err;
-+
-+	tdev = thames_device_init(pdev, &thames_drm_driver);
-+	if (IS_ERR(tdev)) {
-+		err = PTR_ERR(tdev);
-+		tdev = NULL;
-+		return err;
-+	}
-+
-+	for_each_matching_node(np, thames_dsp_of_match) {
-+		if (!of_device_is_available(np))
-+			continue;
-+
-+		if (core >= THAMES_MAX_CORES) {
-+			of_node_put(np);
-+			break;
-+		}
-+
-+		tdev->cores[core].tdev = tdev;
-+		tdev->cores[core].index = core;
-+		tdev->cores[core].of_node = of_node_get(np);
-+
-+		err = thames_core_init(&tdev->cores[core]);
-+		if (err == -EPROBE_DEFER) {
-+			of_node_put(np);
-+			of_node_put(np);
-+			goto err_fini_cores;
-+		}
-+		if (err) {
-+			dev_warn(&pdev->dev, "Leaving out the core at %pOF: %d\n", np, err);
-+			of_node_put(np);
-+			memset(&tdev->cores[core], 0, sizeof(tdev->cores[core]));
-+			continue;
-+		}
-+
-+		tdev->num_cores++;
-+		core++;
-+	}
-+
-+	if (!tdev->num_cores) {
-+		dev_err(&pdev->dev, "No DSP core attached\n");
-+		err = -ENODEV;
-+		goto err_fini_dev;
-+	}
-+
-+	err = drm_dev_register(&tdev->ddev, 0);
-+	if (err)
+ 	err = drmm_mutex_init(&tdev->ddev, &tdev->asid_lock);
+ 	if (err)
+ 		return ERR_PTR(err);
+@@ -281,6 +288,7 @@ static struct thames_device *thames_device_init(struct platform_device *pdev,
+ 	if (err)
+ 		return ERR_PTR(err);
+ 
++	INIT_LIST_HEAD(&tdev->transfer_tables);
+ 	INIT_LIST_HEAD(&tdev->contexts);
+ 
+ 	tdev->asid_next = 1;
+@@ -349,6 +357,15 @@ static int thames_platform_probe(struct platform_device *pdev)
+ 		goto err_fini_dev;
+ 	}
+ 
++	tdev->transfer_table_pool_map =
++		devm_bitmap_zalloc(&pdev->dev,
++				   tdev->caps.transfer_table_pool_size / THAMES_ABI_LINE_SIZE,
++				   GFP_KERNEL);
++	if (!tdev->transfer_table_pool_map) {
++		err = -ENOMEM;
 +		goto err_fini_cores;
-+
-+	return 0;
-+
-+err_fini_cores:
-+	while (core--)
-+		thames_core_fini(&tdev->cores[core]);
-+	tdev->num_cores = 0;
-+err_fini_dev:
-+	thames_device_fini(tdev);
-+	tdev = NULL;
-+	return err;
-+}
-+
-+static void thames_platform_remove(struct platform_device *pdev)
-+{
-+	unsigned int core;
-+
-+	if (!tdev)
-+		return;
-+
-+	drm_dev_unplug(&tdev->ddev);
-+
-+	for (core = 0; core < tdev->num_cores; core++)
-+		thames_core_fini(&tdev->cores[core]);
-+	tdev->num_cores = 0;
-+
-+	thames_device_fini(tdev);
-+	tdev = NULL;
-+}
-+
-+static int thames_pm_suspend(struct device *dev)
-+{
-+	struct thames_device *tdev = dev_get_drvdata(dev);
-+	unsigned int core;
-+	int err;
-+
-+	for (core = 0; core < tdev->num_cores; core++) {
-+		err = thames_core_suspend(&tdev->cores[core]);
-+		if (err)
-+			goto err_resume;
 +	}
 +
-+	return 0;
+ 	err = drm_dev_register(&tdev->ddev, 0);
+ 	if (err)
+ 		goto err_fini_cores;
+diff --git a/drivers/accel/thames/thames_transfers.c b/drivers/accel/thames/thames_transfers.c
+new file mode 100644
+index 000000000000..aad4542d5cb9
+--- /dev/null
++++ b/drivers/accel/thames/thames_transfers.c
+@@ -0,0 +1,405 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/* Copyright 2026 Texas Instruments Incorporated - https://www.ti.com/ */
 +
-+err_resume:
-+	while (core--)
-+		thames_core_resume(&tdev->cores[core]);
-+	return err;
++#include <linux/bitfield.h>
++#include <linux/bitmap.h>
++#include <linux/bits.h>
++#include <linux/mutex.h>
++#include <linux/slab.h>
++#include <linux/uaccess.h>
++
++#include <drm/drm_file.h>
++#include <drm/drm_gem.h>
++
++#include "thames_core.h"
++#include "thames_device.h"
++#include "thames_drv.h"
++#include "thames_gem.h"
++#include "thames_transfers.h"
++
++/* SPRUIL1D 10.4.3.3. */
++#define TR_FLAGS		0
++#define TR_ICNT01		1
++#define TR_ADDR_LO		2
++#define TR_ADDR_HI		3
++#define TR_DIM1			4
++#define TR_ICNT23		5
++#define TR_DIM2			6
++#define TR_DIM3			7
++#define TR_FMTFLAGS		8
++#define TR_DDIM1		9
++#define TR_DADDR_LO		10
++#define TR_DADDR_HI		11
++#define TR_DDIM2		12
++#define TR_DDIM3		13
++#define TR_DICNT01		14
++#define TR_DICNT23		15
++
++#define TR_FLAGS_TYPE		GENMASK(3, 0)
++#define TR_FLAGS_STATIC		BIT(4)
++#define TR_FLAGS_TRIGGER0	GENMASK(9, 8)
++#define TR_FLAGS_TRIGGER1	GENMASK(13, 12)
++#define TR_FLAGS_TRIGGER1_TYPE	GENMASK(15, 14)
++#define TR_FLAGS_CFG		GENMASK(31, 24)
++#define TR_FLAGS_SUPR_EVT	BIT(26)
++
++#define TR_TRIGGER_NONE		0
++#define TR_TRIGGER_GLOBAL0	1
++
++#define THAMES_TRANSFER_VA_LIMIT	BIT_ULL(48)
++
++/*
++ * Only global trigger 0 of the record's own channel: any other trigger lets a
++ * record wait on another channel's event; indirect addressing would fetch
++ * addresses never checked.
++ */
++static bool thames_transfer_flags_ok(u32 flags)
++{
++	if (!(THAMES_TRANSFER_TYPES & BIT(FIELD_GET(TR_FLAGS_TYPE, flags))))
++		return false;
++
++	if (flags & TR_FLAGS_STATIC)
++		return false;
++
++	if (FIELD_GET(TR_FLAGS_TRIGGER0, flags) != TR_TRIGGER_NONE &&
++	    FIELD_GET(TR_FLAGS_TRIGGER0, flags) != TR_TRIGGER_GLOBAL0)
++		return false;
++
++	if (flags & (TR_FLAGS_TRIGGER1 | TR_FLAGS_TRIGGER1_TYPE))
++		return false;
++
++	return !(flags & TR_FLAGS_CFG & ~TR_FLAGS_SUPR_EVT);
 +}
 +
-+static int thames_pm_resume(struct device *dev)
++/* SPRUIL1D 10.4.3.3; the footprint includes the strides' gaps. */
++static int thames_transfer_span(u64 base, const u32 icnt[4], const s32 dim[4],
++				u64 *start, u64 *end, u64 *bytes)
 +{
-+	struct thames_device *tdev = dev_get_drvdata(dev);
-+	unsigned int core;
-+	int err, ret = 0;
++	s64 lo = 0, hi = icnt[0];
++	int i;
 +
-+	for (core = 0; core < tdev->num_cores; core++) {
-+		err = thames_core_resume(&tdev->cores[core]);
-+		if (err && !ret)
-+			ret = err;
++	*bytes = 1;
++	for (i = 0; i < 4; i++) {
++		if (!icnt[i])
++			return -EINVAL;
++		*bytes *= icnt[i];
 +	}
 +
-+	return ret;
++	for (i = 1; i < 4; i++) {
++		s64 reach = (s64)(icnt[i] - 1) * dim[i];
++
++		if (reach < 0)
++			lo += reach;
++		else
++			hi += reach;
++	}
++
++	if (base >= THAMES_TRANSFER_VA_LIMIT || (s64)base + lo < 0)
++		return -EFAULT;
++
++	*start = base + lo;
++	*end = base + hi;
++	return 0;
 +}
 +
-+static DEFINE_SIMPLE_DEV_PM_OPS(thames_pm_ops, thames_pm_suspend, thames_pm_resume);
-+
-+static struct platform_driver thames_platform_driver = {
-+	.probe = thames_platform_probe,
-+	.remove = thames_platform_remove,
-+	.driver = {
-+		.name = "thames",
-+		.pm = pm_sleep_ptr(&thames_pm_ops),
-+	},
-+};
-+
-+static int __init thames_register(void)
++static void thames_transfer_hold_bo(struct thames_transfer_table *table,
++				    struct thames_gem_object *bo)
 +{
++	struct drm_gem_object *obj = &bo->base.base;
++	u32 i;
++
++	for (i = 0; i < table->bo_count; i++) {
++		if (table->bos[i] == obj) {
++			drm_gem_object_put(obj);
++			return;
++		}
++	}
++
++	table->bos[table->bo_count++] = obj;
++}
++
++/*
++ * An L2 side is kept as an offset into its aperture and rebased per core when
++ * the transfer table is written: the DRU walks physical addresses.
++ */
++static int thames_transfer_side(struct thames_file_priv *file_priv, u64 start, u64 end, bool dest,
++				struct thames_transfer_table *table, u8 *side, u64 *addr)
++{
++	static const enum thames_window l2[] = { THAMES_WINDOW_L2SRAM, THAMES_WINDOW_L2AUX };
++	struct thames_device *tdev = file_priv->tdev;
++	struct thames_gem_object *bo;
++	unsigned int w;
++	u64 offset;
++
++	for (w = 0; w < ARRAY_SIZE(l2); w++) {
++		u64 va = thames_window_va(tdev, l2[w]);
++
++		if (start >= va && end <= va + tdev->caps.window_sizes[l2[w]]) {
++			*side = l2[w];
++			*addr = start - va;
++			return 0;
++		}
++	}
++
++	bo = thames_context_find_bo(file_priv, start, end, &offset);
++	if (!bo)
++		return -EFAULT;
++
++	thames_transfer_hold_bo(table, bo);
++
++	if (dest && (bo->flags & (DRM_THAMES_BO_READ_ONLY | DRM_THAMES_BO_EXECUTABLE)))
++		return -EFAULT;
++
++	/*
++	 * No IOMMU: a contiguous buffer's DMA address is its physical address.
++	 */
++	if (!(bo->flags & DRM_THAMES_BO_CONTIGUOUS))
++		return -EFAULT;
++
++	*side = THAMES_TRANSFER_SIDE_DDR;
++	*addr = bo->base.dma_addr + offset;
++	return 0;
++}
++
++static int thames_transfer_translate(struct thames_file_priv *file_priv,
++				     const struct drm_thames_transfer *t,
++				     struct thames_transfer_table *table,
++				     struct thames_transfer *out)
++{
++	const u32 *w = t->words;
++	u32 icnt[4], dicnt[4];
++	s32 dim[4] = { 0 }, ddim[4] = { 0 };
++	u64 src, dst, start, end, bytes, dbytes, addr;
 +	int ret;
 +
-+	drm_dev = platform_device_register_simple("thames", -1, NULL, 0);
-+	if (IS_ERR(drm_dev))
-+		return PTR_ERR(drm_dev);
++	if (!thames_transfer_flags_ok(w[TR_FLAGS]) || w[TR_FMTFLAGS])
++		return -EINVAL;
 +
-+	ret = platform_driver_register(&thames_platform_driver);
++	icnt[0] = w[TR_ICNT01] & 0xffff;
++	icnt[1] = w[TR_ICNT01] >> 16;
++	icnt[2] = w[TR_ICNT23] & 0xffff;
++	icnt[3] = w[TR_ICNT23] >> 16;
++	dim[1] = w[TR_DIM1];
++	dim[2] = w[TR_DIM2];
++	dim[3] = w[TR_DIM3];
++	src = (u64)w[TR_ADDR_HI] << 32 | w[TR_ADDR_LO];
++
++	dicnt[0] = w[TR_DICNT01] & 0xffff;
++	dicnt[1] = w[TR_DICNT01] >> 16;
++	dicnt[2] = w[TR_DICNT23] & 0xffff;
++	dicnt[3] = w[TR_DICNT23] >> 16;
++	ddim[1] = w[TR_DDIM1];
++	ddim[2] = w[TR_DDIM2];
++	ddim[3] = w[TR_DDIM3];
++	dst = (u64)w[TR_DADDR_HI] << 32 | w[TR_DADDR_LO];
++
++	memcpy(out->record.words, w, sizeof(out->record.words));
++	out->channel = t->channel;
++
++	ret = thames_transfer_span(src, icnt, dim, &start, &end, &bytes);
 +	if (ret)
-+		platform_device_unregister(drm_dev);
++		return ret;
++	ret = thames_transfer_side(file_priv, start, end, false, table, &out->side[0], &addr);
++	if (ret)
++		return ret;
++	addr += src - start;
++	out->record.words[TR_ADDR_LO] = lower_32_bits(addr);
++	out->record.words[TR_ADDR_HI] = upper_32_bits(addr);
 +
++	ret = thames_transfer_span(dst, dicnt, ddim, &start, &end, &dbytes);
++	if (ret)
++		return ret;
++	if (dbytes != bytes)
++		return -EINVAL;
++	ret = thames_transfer_side(file_priv, start, end, true, table, &out->side[1], &addr);
++	if (ret)
++		return ret;
++	addr += dst - start;
++	out->record.words[TR_DADDR_LO] = lower_32_bits(addr);
++	out->record.words[TR_DADDR_HI] = upper_32_bits(addr);
++
++	return 0;
++}
++
++static int thames_transfers_alloc_table(struct thames_device *tdev,
++					struct thames_transfer_table *table)
++{
++	const unsigned long lines = tdev->caps.transfer_table_pool_size / THAMES_ABI_LINE_SIZE;
++	unsigned long start, nr = table->size / THAMES_ABI_LINE_SIZE;
++
++	guard(mutex)(&tdev->transfer_table_pool_lock);
++
++	start = bitmap_find_next_zero_area(tdev->transfer_table_pool_map, lines, 0, nr, 0);
++	if (start + nr > lines)
++		return -ENOSPC;
++
++	bitmap_set(tdev->transfer_table_pool_map, start, nr);
++	table->offset = start * THAMES_ABI_LINE_SIZE;
++	list_add_tail(&table->node, &tdev->transfer_tables);
++	return 0;
++}
++
++void thames_transfers_free(struct thames_device *tdev, struct thames_transfer_table *table)
++{
++	u32 i;
++
++	for (i = 0; i < table->bo_count; i++)
++		drm_gem_object_put(table->bos[i]);
++	kvfree(table->bos);
++	table->bos = NULL;
++	table->bo_count = 0;
++
++	if (!table->size)
++		return;
++
++	scoped_guard(mutex, &tdev->transfer_table_pool_lock) {
++		bitmap_clear(tdev->transfer_table_pool_map, table->offset / THAMES_ABI_LINE_SIZE,
++			     table->size / THAMES_ABI_LINE_SIZE);
++		list_del(&table->node);
++	}
++
++	kvfree(table->records);
++	kvfree(table->group_counts);
++	table->records = NULL;
++	table->group_counts = NULL;
++	table->size = 0;
++}
++
++/*
++ * Written before the Job's handle reaches userspace and never changed while the
++ * Job lives.
++ */
++static void thames_transfers_write_table(struct thames_core *core,
++					 const struct thames_transfer_table *table)
++{
++	static const unsigned int addr_word[2] = { TR_ADDR_LO, TR_DADDR_LO };
++	const struct thames_transfer *records = table->records;
++	const u16 *group_counts = table->group_counts;
++	void *base = core->ipc->transfer_table_pool + table->offset;
++	struct thames_dru_record *out = base;
++	u8 *channels = base + THAMES_TRANSFER_TABLE_CHANNELS_OFFSET(table->count);
++	u32 i, s;
++
++	for (i = 0; i < table->count; i++) {
++		struct thames_dru_record record = records[i].record;
++
++		for (s = 0; s < 2; s++) {
++			u32 *lo = &record.words[addr_word[s]];
++			u64 addr;
++
++			if (records[i].side[s] == THAMES_TRANSFER_SIDE_DDR)
++				continue;
++
++			addr = ((u64)lo[1] << 32 | lo[0]) +
++			       thames_core_window(core, records[i].side[s])->start;
++			lo[0] = lower_32_bits(addr);
++			lo[1] = upper_32_bits(addr);
++		}
++
++		memcpy(&out[i], &record, sizeof(record));
++		channels[i] = records[i].channel;
++	}
++
++	memcpy(base + THAMES_TRANSFER_TABLE_GROUPS_OFFSET(table->count), group_counts,
++	       table->group_count * sizeof(u16));
++}
++
++/* Same offsets, so the Ring entries of the Jobs still queued stay valid. */
++void thames_transfers_rewrite(struct thames_core *core)
++{
++	struct thames_device *tdev = core->tdev;
++	struct thames_transfer_table *table;
++
++	guard(mutex)(&tdev->transfer_table_pool_lock);
++
++	list_for_each_entry(table, &tdev->transfer_tables, node)
++		thames_transfers_write_table(core, table);
++}
++
++int thames_transfers_build(struct drm_file *file, const struct drm_thames_obj_array *transfers,
++			   struct thames_transfer_table *table)
++{
++	struct thames_file_priv *file_priv = file->driver_priv;
++	struct thames_device *tdev = file_priv->tdev;
++	const struct thames_caps *caps = &tdev->caps;
++	u16 per_channel[THAMES_MAX_DRU_CHANNELS] = { 0 };
++	u16 *group_counts = NULL;
++	u16 *group = NULL;
++	struct drm_thames_transfer *in;
++	struct thames_transfer *out;
++	u32 i;
++	int ret;
++
++	memset(table, 0, sizeof(*table));
++
++	if (!transfers->count)
++		return 0;
++
++	if (transfers->count > THAMES_JOB_MAX_TRANSFERS)
++		return -EINVAL;
++
++	in = thames_get_uobj_array(transfers, offsetofend(struct drm_thames_transfer, words),
++				   sizeof(*in));
++	if (IS_ERR(in))
++		return PTR_ERR(in);
++
++	out = kvcalloc(transfers->count, sizeof(*out), GFP_KERNEL);
++	group_counts = kvcalloc(transfers->count, sizeof(u16), GFP_KERNEL);
++	table->bos = kvcalloc(2 * transfers->count, sizeof(*table->bos), GFP_KERNEL);
++	if (!out || !group_counts || !table->bos) {
++		ret = -ENOMEM;
++		goto err_free;
++	}
++
++	for (i = 0; i < transfers->count; i++) {
++		if (in[i].flags & DRM_THAMES_TRANSFER_GROUP) {
++			if (!group) {
++				ret = -EINVAL;
++				goto err_free;
++			}
++			memset(per_channel, 0, sizeof(per_channel));
++			group = NULL;
++		}
++
++		if ((in[i].flags & ~DRM_THAMES_TRANSFER_GROUP) ||
++		    in[i].channel >= caps->dru_channel_count ||
++		    ++per_channel[in[i].channel] > caps->dru_queue_depth) {
++			ret = -EINVAL;
++			goto err_free;
++		}
++
++		ret = thames_transfer_translate(file_priv, &in[i], table, &out[i]);
++		if (ret)
++			goto err_free;
++
++		if (!group)
++			group = &group_counts[table->group_count++];
++		(*group)++;
++	}
++
++	table->count = transfers->count;
++	table->size = THAMES_TRANSFER_TABLE_SIZE(table->count, table->group_count);
++
++	ret = thames_transfers_alloc_table(tdev, table);
++	if (ret) {
++		table->size = 0;
++		goto err_free;
++	}
++
++	table->records = out;
++	table->group_counts = group_counts;
++
++	for (i = 0; i < tdev->num_cores; i++)
++		thames_transfers_write_table(&tdev->cores[i], table);
++
++	kvfree(in);
++	return 0;
++
++err_free:
++	thames_transfers_free(tdev, table);
++	memset(table, 0, sizeof(*table));
++	kvfree(group_counts);
++	kvfree(out);
++	kvfree(in);
 +	return ret;
 +}
-+
-+static void __exit thames_unregister(void)
-+{
-+	platform_driver_unregister(&thames_platform_driver);
-+
-+	platform_device_unregister(drm_dev);
-+}
-+
-+module_init(thames_register);
-+module_exit(thames_unregister);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("DRM driver for Texas Instruments' C7x accelerator cores");
-+MODULE_AUTHOR("Tomeu Vizoso");
-diff --git a/drivers/accel/thames/thames_drv.h b/drivers/accel/thames/thames_drv.h
+diff --git a/drivers/accel/thames/thames_transfers.h b/drivers/accel/thames/thames_transfers.h
 new file mode 100644
-index 000000000000..2678abc2e2de
+index 000000000000..67963cbcb621
 --- /dev/null
-+++ b/drivers/accel/thames/thames_drv.h
-@@ -0,0 +1,32 @@
++++ b/drivers/accel/thames/thames_transfers.h
+@@ -0,0 +1,52 @@
 +/* SPDX-License-Identifier: GPL-2.0-only */
 +/* Copyright 2026 Texas Instruments Incorporated - https://www.ti.com/ */
 +
-+#ifndef __THAMES_DRV_H__
-+#define __THAMES_DRV_H__
++#ifndef __THAMES_TRANSFERS_H__
++#define __THAMES_TRANSFERS_H__
 +
-+#include <linux/io-pgtable.h>
-+#include <linux/kref.h>
-+#include <linux/mutex.h>
-+#include <linux/spinlock.h>
-+#include <linux/xarray.h>
++#include <linux/bits.h>
 +
-+#include <drm/drm_mm.h>
++#include <drm/drm_gem.h>
++#include <drm/thames_accel.h>
 +
-+#include "thames_device.h"
++#include "thames_abi.h"
 +
-+struct drm_gem_dma_object;
++struct drm_file;
++struct thames_core;
++struct thames_device;
 +
-+struct thames_file_priv {
-+	struct thames_device *tdev;
++#define THAMES_TRANSFER_SIDE_DDR	0xff
 +
-+	/*
-+	 * A binding holds no reference: a buffer can outlive its file through
-+	 * an mmap or an export.
-+	 */
-+	struct kref refcount;
++/*
++ * SPRUIL1D 10.4.3.3: type 8, the 4D block move, the one type whose footprint
++ * the transfer checks bound.
++ */
++#define THAMES_TRANSFER_TYPES		BIT(8)
++#define THAMES_JOB_MAX_TRANSFERS	512
 +
++struct thames_transfer {
++	u8 channel;
++	u8 side[2];
++	struct thames_dru_record record;
 +};
 +
-+void thames_file_priv_put(struct thames_file_priv *priv);
++struct thames_transfer_table {
++	u32 offset;
++	u32 size;
++	u32 count;
++	u32 group_count;
++	struct drm_gem_object **bos;
++	u32 bo_count;
++	struct thames_transfer *records;
++	u16 *group_counts;
++	struct list_head node;
++};
++
++int thames_transfers_build(struct drm_file *file, const struct drm_thames_obj_array *transfers,
++			   struct thames_transfer_table *table);
++
++void thames_transfers_free(struct thames_device *tdev, struct thames_transfer_table *table);
++
++void thames_transfers_rewrite(struct thames_core *core);
 +
 +#endif
 diff --git a/include/uapi/drm/thames_accel.h b/include/uapi/drm/thames_accel.h
-new file mode 100644
-index 000000000000..af427a29b585
---- /dev/null
+index ea556b48f1d7..5671cffaf8f9 100644
+--- a/include/uapi/drm/thames_accel.h
 +++ b/include/uapi/drm/thames_accel.h
-@@ -0,0 +1,200 @@
-+/* SPDX-License-Identifier: MIT */
-+/* Copyright (C) 2026 Texas Instruments Incorporated - https://www.ti.com/ */
-+#ifndef _THAMES_DRM_H_
-+#define _THAMES_DRM_H_
-+
-+#include "drm.h"
-+
-+#if defined(__cplusplus)
-+extern "C" {
-+#endif
+@@ -348,6 +348,67 @@ struct drm_thames_dev_query {
+ 	__u64 pointer;
+ };
+ 
++/*
++ * Starts a new transfer group.  The transfers are cut into groups, in array
++ * order: the first group starts at the first transfer, each later group at a
++ * transfer carrying this flag.  The firmware submits the first group before it
++ * enters the Kernel, and each later group, whole, when the Kernel asks for it
++ * with system call 2.  No group may hold more transfers on one channel than
++ * &drm_thames_caps.dru_queue_depth.  Never on the first transfer.  A Job
++ * without the flag is one group.
++ */
++#define DRM_THAMES_TRANSFER_GROUP	(1 << 0)
 +
 +/**
-+ * DOC: Terms
++ * struct drm_thames_transfer - One DRU transfer of a Job
 + *
-+ * Context: one client's address space on the DSP, a page table and the
-+ * buffers bound in it; a fault belongs to a Context, isolation is between
-+ * Contexts.
++ * @words is a K3 DMA transfer record as the DRU takes it (SPRUIL1D 10.4.3.3,
++ * Table 10-63 for type 15), with its source and destination address fields
++ * holding a dsp_va of the Context.  The kernel reads the type from the flags
++ * word, computes the byte footprint of each side from the counts, strides and
++ * addressing mode of every type and flag it knows how to bound, checks the
++ * source against readable mappings and the destination against writable ones,
++ * and refuses any type, flag or mode it cannot bound; the indirect-address
++ * flags are always refused, since they would let a record fetch addresses the
++ * kernel never checked.  The kernel translates the two addresses to physical
++ * once, at Job creation, and keeps the translated records where no Context
++ * reaches them; the firmware submits the first group before it enters the
++ * Kernel and each later group when the Kernel asks for it (see
++ * DRM_THAMES_TRANSFER_GROUP), and waits for the channels to drain after the
++ * Kernel returns, before the Job's fence signals.  This kernel and firmware
++ * accept type 8, the 4D block move.  The kernel refuses a trigger other than
++ * global trigger 0 (the one the firmware raises by software), a nonzero format
++ * word, a zero count and a side whose byte count differs from the other's.  The
++ * record's own flags say which loop level a software trigger advances; a record
++ * with no trigger runs to completion once submitted.
++ * A Kernel triggers and polls its channels through the page at
++ * &drm_thames_caps.dru_realtime_dsp_va, mapped user read-write in every
++ * Context, which reaches the channels of the core the Job runs on.
 + *
-+ * Kernel: the compiled program a Job runs on a DSP core; never the Linux
-+ * kernel, which is "the kernel driver" here.
-+ *
-+ * Job: an object a client creates once and submits any number of times:
-+ * one Kernel with its parameters and its transfers.
-+ *
-+ * Ring: a core's queue of submitted Jobs, one entry each, run in order.
-+ *
-+ * Fence: a submitted Job's completion as the host sees it, a sequence
-+ * number the firmware writes and a sync object on the host.
-+ *
-+ * DRU: the Data Routing Unit, the DMA engine a Job's transfers program;
-+ * it addresses physical memory, not a Context.
-+ *
-+ * Dispatch: the Job type that runs a Kernel with its transfers; the only
-+ * type today.
++ * A side addresses either a span of one buffer bound in the Context, found by
++ * its dsp_va among all the Context's buffers, the buffer created
++ * DRM_THAMES_BO_CONTIGUOUS (the DRU walks physical addresses linearly, and only
++ * such a buffer is one physical run), the destination in a buffer not created
++ * DRM_THAMES_BO_READ_ONLY or DRM_THAMES_BO_EXECUTABLE; or the L2 main or
++ * auxiliary aperture, at &drm_thames_caps.l2_main_dsp_va and l2_aux, which the
++ * kernel translates to the physical aperture of the core the Job runs on.  The
++ * Job holds a reference on each buffer a transfer resolves to until it is
++ * destroyed and its last submission has completed.
 + */
++struct drm_thames_transfer {
++	/**
++	 * @channel: The DRU channel this transfer queues on, below
++	 * &drm_thames_caps.dru_channel_count.
++	 */
++	__u32 channel;
 +
-+/**
-+ * DOC: IOCTL IDs
-+ *
-+ * enum drm_thames_ioctl_id - IOCTL IDs
-+ *
-+ * Place new ioctls at the end, don't re-order, don't replace or remove entries.
-+ *
-+ * These IDs are not meant to be used directly. Use the DRM_IOCTL_THAMES_xxx
-+ * definitions instead.
-+ */
-+enum drm_thames_ioctl_id {
-+	/** @DRM_THAMES_DEV_QUERY: Query the device's capabilities. */
-+	DRM_THAMES_DEV_QUERY,
++	/** @flags: DRM_THAMES_TRANSFER_* bits; others MBZ. */
++	__u32 flags;
 +
++	/** @words: The transfer record, sixteen 32-bit words, flags first. */
++	__u32 words[16];
 +};
 +
-+/**
-+ * DOC: IOCTL arguments
-+ */
-+
-+/**
-+ * struct drm_thames_range - A range of the Context's address space.
-+ */
-+struct drm_thames_range {
-+	/** @dsp_va: Start of the range. */
-+	__u64 dsp_va;
-+
-+	/** @size: Size of the range in bytes. */
-+	__u64 size;
-+};
-+
-+/**
-+ * enum drm_thames_dev_query_type - Query type
-+ *
-+ * Place new types at the end, don't re-order, don't remove or replace.
-+ */
-+enum drm_thames_dev_query_type {
-+	/** @DRM_THAMES_DEV_QUERY_CAPS: The capability query, &drm_thames_caps. */
-+	DRM_THAMES_DEV_QUERY_CAPS = 0,
-+
-+};
-+
-+/**
-+ * enum drm_thames_hardware_id - &drm_thames_caps.hardware_id
-+ */
-+enum drm_thames_hardware_id {
-+	/** @DRM_THAMES_HW_J722S_C7524: The C7524 cores of the J722S. */
-+	DRM_THAMES_HW_J722S_C7524 = 1,
-+};
-+
-+/**
-+ * struct drm_thames_caps - The capability query
-+ *
-+ * Each window sits at one address whatever core runs the Job and reaches that
-+ * core's own memory.
-+ */
-+struct drm_thames_caps {
-+	/** @l2_size: Size in bytes of each core's L2 SRAM. */
-+	__u32 l2_size;
-+
-+	/** @dru_channel_count: DRU channels a Job's transfers may name, from 0. */
-+	__u32 dru_channel_count;
-+
-+	/**
-+	 * @dru_queue_depth: Transfers one channel queues; no channel's
-+	 * transfers in one transfer group may exceed it.
-+	 */
-+	__u32 dru_queue_depth;
-+
-+	/**
-+	 * @max_transfers: The most transfers one Job may carry; 0 when the
-+	 * kernel driver accepts no transfers.
-+	 */
-+	__u32 max_transfers;
-+
-+	/**
-+	 * @l2_main_dsp_va: Where the L2 main aperture starts in a Context's
-+	 * address space.  A Kernel is compiled against this address.
-+	 */
-+	__u64 l2_main_dsp_va;
-+
-+	/** @l2_aux: Where the L2 auxiliary aperture sits in a Context. */
-+	struct drm_thames_range l2_aux;
-+
-+	/**
-+	 * @dru_realtime_dsp_va: Where the DRU's real-time page starts in a
-+	 * Context: the software triggers and the status counts of the Kernels'
-+	 * channels, the only DRU page a Kernel reaches.  Channel n's registers
-+	 * start at n times the channel stride into it, 0x100 on the J722S.
-+	 */
-+	__u64 dru_realtime_dsp_va;
-+
-+	/**
-+	 * @user_region: Where the kernel driver maps the Context's user stack
-+	 * and save page.
-+	 */
-+	struct drm_thames_range user_region;
-+
-+	/**
-+	 * @hardware_id: The SoC and core the firmware was built for, one of
-+	 * &enum drm_thames_hardware_id.  Userspace keys the facts of the
-+	 * hardware the query does not carry on it.
-+	 */
-+	__u32 hardware_id;
-+
-+	/**
-+	 * @transfer_types: The transfer record types the kernel driver accepts,
-+	 * bit n for type n; 0 when it accepts none.
-+	 */
-+	__u32 transfer_types;
-+
-+	/**
-+	 * @dru_capabilities: The DRU's DRU_CAPABILITIES register as the
-+	 * firmware read it: the record types and formats the hardware supports.
-+	 * Zero when the firmware does not report it.
-+	 */
-+	__u64 dru_capabilities;
-+};
-+
-+/**
-+ * struct drm_thames_dev_query - Arguments passed to DRM_IOCTL_THAMES_DEV_QUERY
-+ */
-+struct drm_thames_dev_query {
-+	/** @type: One of &enum drm_thames_dev_query_type. */
-+	__u32 type;
-+
-+	/**
-+	 * @size: Size of the structure at @pointer.
-+	 *
-+	 * With @pointer NULL the driver writes the structure's size here and
-+	 * copies nothing.  Otherwise it copies min(@size, its own size) bytes
-+	 * and writes the count copied.
-+	 */
-+	__u32 size;
-+
-+	/** @pointer: User pointer to the query type's structure. */
-+	__u64 pointer;
-+};
-+
-+/**
-+ * DRM_IOCTL_THAMES() - Build a thames IOCTL number
-+ * @__access: Access type. Must be R, W or RW.
-+ * @__id: One of the DRM_THAMES_xxx id.
-+ * @__type: Suffix of the type being passed to the IOCTL.
-+ *
-+ * Don't use this macro directly, use the DRM_IOCTL_THAMES_xxx
-+ * values instead.
-+ *
-+ * Return: An IOCTL number to be passed to ioctl() from userspace.
-+ */
-+#define DRM_IOCTL_THAMES(__access, __id, __type) \
-+	DRM_IO ## __access(DRM_COMMAND_BASE + DRM_THAMES_ ## __id, \
-+			   struct drm_thames_ ## __type)
-+
-+enum {
-+	DRM_IOCTL_THAMES_DEV_QUERY =
-+		DRM_IOCTL_THAMES(WR, DEV_QUERY, dev_query),
-+};
-+
-+#if defined(__cplusplus)
-+}
-+#endif
-+
-+#endif /* _THAMES_DRM_H_ */
+ /**
+  * DRM_IOCTL_THAMES() - Build a thames IOCTL number
+  * @__access: Access type. Must be R, W or RW.
 
 -- 
 2.54.0
