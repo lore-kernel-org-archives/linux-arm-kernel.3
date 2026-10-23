@@ -2,73 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8B3F606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 08:12:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E15C606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 08:16:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CrmvbPyP;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WZlK6vdx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GeoGrsmT;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ob6ZXa6z
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=CrmvbPyP5I1Ne04+aRamMWaMdS
-	c6KhGcpwEPiwdVethto9Y4Mipfph0nI9GdlRHWUvf19cqsvUVgwJoAhxiPiUZJcTcbk728yzNF1yC
-	GoOFtjK40aXEAlTXST7vCVA/210wt+IOEsikga3ptZsGVIf3YLjdwhb9hyG5dMEEPfTDRWfruVIje
-	f8TKQEw3NCggjHkCWG51DNBgiPsiT8s3NtgBlsTxw7yFyunUmHNS4zDHHVBtGXDgiFfrCsfWWPr1E
-	FS3bVuO6loMcIx26Dhy5kPq5cS/gSkimGjxOLFxWT53J1/AQcZYE3ty9NJb8StL0Y5Y2y/uR7S0vA
-	zDy7aMlw==;
+	bh=3Y1UNnJLUfF4IHPLVKAOakcJbI9y7VNgBZgpQW6I5jQ=; b=GeoGrsmTNkWblGAjIYxEBp7EoT
+	4FCboW5BHrNDscCYnF8XqozYTj+PEIN4n3PSxncB71KH++GgRnrGpxZ31jh3ds4HGcdjHZOj45V1z
+	zbcKxIKSJP7z1Z2NO/jZ5qAIAZ00lLlQEldAt5DypJEEqk75fg2yQisDNH1RTAl/4qmKKmgkkwl1E
+	8sTPc+H/CvMZju2XN76Yi0ES1NC5dj4+IBTv4F2CaeUiPH9Aj86BQ1Pmz5IuHC++pALdZZU2ZEFxR
+	N96J6ls2pwLJbHrQCP90rb+dWQfr7LqcMZc3+0UEU+GNah5ic8p9aNl0GE0SL601OhHZucUicJ1qT
+	tGdfX8fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKANy-0000000FtwV-0WWc;
-	Fri, 23 Oct 2026 08:12:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xKARI-0000000FuKX-2gOr;
+	Fri, 23 Oct 2026 08:15:48 +0000
+Received: from out-112.mta0.migadu.com ([2001:41d0:1004:224b::70] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKANw-0000000FtwH-4A6V
+	id 1xKARF-0000000FuJq-0Meg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 08:12:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 79119424B5;
-	Fri, 23 Oct 2026 08:12:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 333081F01825;
-	Fri, 23 Oct 2026 08:12:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792743140;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=WZlK6vdx8A1HfliNHee57h1C3Bca4ULGvVKHCPI8fFmOA+Dh7p+5En9JAsHEJ/gvK
-	 8xs3aS3WCECle14NJ1fVPJ74KSF0ACwidMpsacpIn8gTSkTIxUxSEMXcg8sLrgEHXR
-	 iU94ZYK2AaaNaL7Jz3NqZ8ncjJdf0VAuzCCgctCwL9OdI7w8lOVM/NOJyaRAw8QM/W
-	 o+Payx1PgxzoRyHry081qIZsaLUTBQSncmzg7SFIeRwQJpL6YIrix3Mc0jIEytXf7K
-	 vFEbJQ+Sq6EGIFvD8JU2QKFYw70gHRe3v/fXg6oNs6uZPdw+w5qS6QtkViVvEhMl53
-	 wKG+wB5RIimlA==
-From: netdev-bot+sinfo@kernel.org
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>,
- Ong Boon Leong <boon.leong.ong@intel.com>,
- Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
- James Hilliard <james.hilliard1@gmail.com>, Nicolai Buchwitz <nb@tipi-net.de>
-Subject: Re: [PATCH net 0/6] net: stmmac: XDP path fixes
-Date: Fri, 23 Oct 2026 08:12:18 +0000
-Message-ID: <179274313871.3327.10475535220969393247@kernel.org>
-In-Reply-To: <20261023-stmmac-xdp-fixes-v1-0-efb37e19f5bd@oss.qualcomm.com>
-References: <20261023-stmmac-xdp-fixes-v1-0-efb37e19f5bd@oss.qualcomm.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	Fri, 23 Oct 2026 08:15:47 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=3Y1UNnJLUfF4IHPLVKAOakcJbI9y7VNgBZgpQW6I5jQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792743342; v=1; x=1793348142;
+ b=Ob6ZXa6z+Shtn/o70ofJ6MLMuWppAPOomeGXjXF27pEoFqMjHap/51bHj1q4cS1joihbD+XR
+ 7a19LR11RLuSK/6kKQnQReu9i18iIe24D9R8Spg2UxLC27iKTbcwtx1arADdxUZ3q0y5f1CTeV/
+ VWmjmz6DVbYC3mCRtEvQo4Y4=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id e7d1c35a33b1eb04;
+	Fri, 23 Oct 2026 08:15:26 +0000
+X-Mizu-Trace-ID: e7d1c35a33b1eb04
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5be58ad9600so6018e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 01:15:22 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBw+5mVPR4PDbrgQuO5pgFwJQeeX3bTMkb0C0Sv6OvT0aXoP+Ip/my52Xs3zodSdbDDEavU1JC6DdzeZWCJyzb76@lists.infradead.org
+X-Gm-Message-State: AFq9FYIUDIRsBFMlX9Mvbjra83VMf4a7/qGiMuUaZdCy8GnPv/IvF1KZ
+	h7q3R+wexd7eM+hW8BLrSnPXe3EDYWwDsA//vwlx/kU9BiyxcK57ss3BRIw1R6sixGRnvuMdcmh
+	GZZ/INByg4yxziX22xuFSj9dJ2qXFs+hqEXPhlpeh
+X-Received: by 2002:a05:6512:2399:b0:5b4:74e2:4171 with SMTP id
+ 2adb3069b0e04-5bfb00b65e4mr104760e87.4.1792743320286; Fri, 23 Oct 2026
+ 01:15:20 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+References: <20261022140048.2522787-1-vdonnefort@google.com>
+ <20261022140048.2522787-3-vdonnefort@google.com> <20261022173604.3710390-1-fuad.tabba@linux.dev>
+ <atsT4c-JLRSxSreo@google.com>
+In-Reply-To: <atsT4c-JLRSxSreo@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 23 Oct 2026 09:14:44 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTw6yONFTYBbbwBbV=YvYC2Wcio-yCOf9WCcvTUKWeav=g@mail.gmail.com>
+X-Gm-Features: AclHuK8QRPswQkmU_NO-o8BNrXH8cgfaj9wb0MoWlEnDaWgVTOs_RkNMpHxX_IE
+Message-ID: <CA+EHjTw6yONFTYBbbwBbV=YvYC2Wcio-yCOf9WCcvTUKWeav=g@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] KVM: arm64: pkvm: Fix missing reset of GICv3 LRs
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261023_011545_638335_BE5E3DE0 
+X-CRM114-Status: GOOD (  14.05  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,29 +90,24 @@ X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi!
+On Fri, 23 Oct 2026 at 08:59, Vincent Donnefort <vdonnefort@google.com> wrote:
+[..]
+> > Could you say here what happens to a guest when an LR isn't reset, as I
+> > asked on v1? Without this series, on QEMU changed to leave a pending
+> > vINTID 100 in the top LR at CPU reset, the guest warns "Unexpected
+> > interrupt (irqnr 100)". With only the EOI bit set there, the npVM
+> > doesn't print anything in 150 seconds, since the maintenance interrupt
+> > is asserted on every entry. With that in the message, could you also
+> > bring back the Cc: stable you had on v1?
+>
+> Sorry I missed that.
+>
+> Actually I don't know if this should be backported. I believe it was working
+> until now because all SoCs do reset their LRs even though they don't have to do
+> it.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Fair enough, I'm fine with leaving the Cc: stable off.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
-
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by code inspection). If it was triggered please include
-   the symptoms, like the stack trace or error messages.
-
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account. If the series needs another revision for
-other reasons, please include the information in the commit messages
-then.
-
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Cheers,
+/fuad
 
