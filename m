@@ -2,79 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E68EE606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 09:10:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80793606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 09:15:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rYEgSz3c;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YhMEulws
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uE/XvtQr;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=DrGNk5uG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=aHdZ+oKwe6OINwv5V856+JzJxIwxr2tU0lqEBlQhC6Y=; b=rYEgSz3cQiwSZLrgJY083/t3TM
-	jtyyd+eZWWN5KosU28Zav2ooFKVpAzbpE23f5NuuAgo8619xkxvm3vE/LqkjQnhI+Ck/kz3EUYdNb
-	lbyopqjDoFjNgCkYX+IOfG09HKsDX50/iS3ilpPVQtw5rFKFCfoRhdZ9Q1wnIlJdBPsSFKTrN/bae
-	7GNDxmPspNq1sIlX2pNGNmdzQpliO7PpD1qvij66Z6yEtNApWbtXb1JYrM/M2QOTKKvG5Q9pPwesq
-	wenOle5pAnL7Mm94PdHgGqYtUk91HxndwEcIN4htD2t/PR6972GxOUFpZ77RrizBPxUZAUSDu1BC9
-	y4V36hpg==;
+	bh=h0FdeRztEg1QCFC1aOzIYL7zluCbo3+kF/F1IiavlMk=; b=uE/XvtQr4t3oV+bew2anVA2UaG
+	KeuYIl5I3XET+52PO8RZ58Z0giZKwfYKDZyiWiZwOSps9jexG1Oav48eqhAJn9wo8WX1FXMNUgSbE
+	AeTxEOTvZZG5c4nmXcKC09hsFT0ugraIcMY8f6iOxZ8T+so9U1tK5+cq9IF3MBHtjb1JbBrV4mvxF
+	C/sbcX82S1effXQ2Wb22WEOtWwIIM+KgRgRd9/9jn8KEkmO1EyyjVsBqwJ0gk2h1tUI0NABd/daR9
+	0ZEgT9Xqq/x/zZYDCmFqIXmyNVel4uXOYuloXHmNXunGrvPNVqoCRE2UUoX+PkqW9EVjmQ0QaULfe
+	ZvY2lBKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKBGn-0000000FyRI-1t3w;
-	Fri, 23 Oct 2026 09:09:01 +0000
-Received: from out-248.mta1.migadu.com ([2001:41d0:203:375::f8] helo=mta1.migadu.com)
+	id 1xKBME-0000000FyuC-0ofS;
+	Fri, 23 Oct 2026 09:14:38 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKBGk-0000000FyQh-0DLU
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 09:08:59 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=aHdZ+oKwe6OINwv5V856+JzJxIwxr2tU0lqEBlQhC6Y=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792746534; v=1; x=1793351334;
- b=YhMEulwsp/QsUd99VJaV3o26pysi14VNd/bt7eNg9qJ8cFjSdyYVIr0cHMXHtEuvGL5Tu1kM
- +vbuBML+WgXNesu0Ewf6zg08nGE5H02QycFHoaurcDX5nofHaiRGhUTzSyEeTrfhk8MMM5UBcgW
- 3P7/jgV43qH/fLyLHSxGUHqs=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 69bdc8802346e69d;
-	Fri, 23 Oct 2026 09:08:54 +0000
-X-Mizu-Trace-ID: 69bdc8802346e69d
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5be58ad9600so6446e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 02:08:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByUR/EYKI5tft1M6FBMsgGEEa2E8jOZBTNAou+LtZ/Qi7FMBBlEs1SAMrA5fIvGa3T+0hpTnMBk/BndcJEa03YI@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ+YixVdfOHnWUFQWuJy3mZH+IAFrk7JB+OtJZAlLefsNOOKoyr
-	h7TF/eG82wBwaMbZLsELNx6S2elwRn4KwRERJGqcXpghO6X5cGJJzNyA8WF9qrl9wytD+cRKtvS
-	377+nhOzQGIKR8WnoylF7l/m/uXWvjYANiiYRwJ8M
-X-Received: by 2002:a05:6512:3f03:b0:5bf:a49c:ddde with SMTP id
- 2adb3069b0e04-5bfb06b5140mr90492e87.10.1792746528071; Fri, 23 Oct 2026
- 02:08:48 -0700 (PDT)
+	id 1xKBMB-0000000Fyt6-0aW1;
+	Fri, 23 Oct 2026 09:14:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=h0
+	FdeRztEg1QCFC1aOzIYL7zluCbo3+kF/F1IiavlMk=; b=DrGNk5uGKYBSKz+kcA
+	rIa1Ho5I64GbEvOy/71cC+dNcqsd8weRNu5fHPMou2K45cQLSHWaN8/fYcTKiBow
+	/cXPNx8yXnzyshCs4kYyAbOmWIEZY/hLvMDZ+ke6m7EMgwRZAHaq/M5LpxDh2rXZ
+	Y7h6DTrK34evKdIEv5mSGJ5Cw=
+Received: from pc.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD3d3ljJdtqy8kCCA--.31461S2;
+	Fri, 23 Oct 2026 17:14:15 +0800 (CST)
+From: Jiale Yao <yaojiale02@163.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH v2] wifi: mt76: mt7996: stop radios after add failure
+Date: Fri, 23 Oct 2026 17:14:10 +0800
+Message-Id: <20261023091410.627175-1-yaojiale02@163.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261023070110.1833446-1-fuad.tabba@linux.dev>
- <20261023070110.1833446-2-fuad.tabba@linux.dev> <86fqxwzul7.wl-maz@kernel.org>
-In-Reply-To: <86fqxwzul7.wl-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Fri, 23 Oct 2026 10:08:11 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTw08SZC_3Uodt6ew6vXVH-doW-8G41fVCF-rmaKsv+0fQ@mail.gmail.com>
-X-Gm-Features: AclHuK8By_xwbQyrvckEGFfA4cAUoxoiGOv41Z9xRvku379045c1KVkkaVcFF80
-Message-ID: <CA+EHjTw08SZC_3Uodt6ew6vXVH-doW-8G41fVCF-rmaKsv+0fQ@mail.gmail.com>
-Subject: Re: [PATCH 1/2] KVM: arm64: Hide FEAT_LS64_ACCDATA from guests
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Yicong Yang <yangyicong@hisilicon.com>, Zhou Wang <wangzhou1@hisilicon.com>, 
-	Arnd Bergmann <arnd@arndb.de>, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3d3ljJdtqy8kCCA--.31461S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxZFWrGr4DKr4fGrW5tw1kZrb_yoW5uw1kp3
+	yjka98tr17Zr95WF18Cr4jvF1rC3y8Kry3JFs5u3Z0kwn5CrZ3Jr40vF9FvF95CrWxA3Wa
+	vF4kta1DWanxWFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jUIDcUUUUU=
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC8AfzLmrbJWf1LgAA3C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_020858_399739_19981D25 
-X-CRM114-Status: GOOD (  10.54  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261023_021435_523357_9590D6E9 
+X-CRM114-Status: GOOD (  13.43  )
+X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +77,125 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Marc,
+A multi-radio interface can start one radio before starting a later
+radio fails. add_interface returns without stopping the radios started
+by that failed request. It can also leave monitor mode enabled on radios
+that were already running before the failed request.
 
-On Fri, 23 Oct 2026 09:31:32 +0100, Marc Zyngier <maz@kernel.org> wrote:
-[...]
-> Why settle for the least capable option? Context switching ACCDATA_EL1
-> is easy enough, can be gated on guest features, and avoid the
-> userspace horror story.
->
-> I'd rather see that.
+mt7996_run can leave firmware radio state enabled when setup fails after
+radio enablement. Disable the radio on those failures. Track radios
+started by add_interface and monitor states changed by it, then roll
+back both when a later radio fails to start.
 
-Context switching it means accessing ACCDATA_EL1 at EL2, which traps
-to EL3 unless SCR_EL3.ADEn is set. booting.rst doesn't require ADEn
-today, and TF-A only sets it when built with ENABLE_FEAT_LS64_ACCDATA,
-which defaults to off. On such a host, KVM traps to EL3 the first time
-it switches ACCDATA_EL1 for a VM, and every VM has LS64_ACCDATA by
-default. The cap leaves the register alone, and the fine-grained trap
-takes priority over ADEn, so it works whatever ADEn is set to.
+Fixes: 69d54ce7491d ("wifi: mt76: mt7996: switch to single multi-radio wiphy")
+Cc: stable@vger.kernel.org
+Signed-off-by: Jiale Yao <yaojiale02@163.com>
+---
 
-Should we keep the cap as the fix for stable, and post ACCDATA support
-on top? If you agree, I'd rebase your patches 3, 4 and 8 from [1], add
-a booting.rst requirement for ADEn and EnAS0, and lift the cap and the
-compat.
+Notes:
+    Changes in v2:
+    - Rebase on the current mt76 tree.
+    - Handle the newly added TX power setup failure.
+    - Restore monitor state on radios that were already running.
 
-Cheers,
-/fuad
+ .../net/wireless/mediatek/mt76/mt7996/main.c  | 33 ++++++++++++++++---
+ 1 file changed, 28 insertions(+), 5 deletions(-)
 
-[1] https://lore.kernel.org/all/20240815125959.2097734-1-maz@kernel.org/
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 9321c8146e2a..9f1927cad5c4 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -24,20 +24,20 @@ int mt7996_run(struct mt7996_phy *phy)
+ 
+ 	ret = mt7996_mcu_set_chan_info(phy, UNI_CHANNEL_RX_PATH);
+ 	if (ret)
+-		return ret;
++		goto disable_radio;
+ 
+ 	ret = mt7996_mcu_set_thermal_throttling(phy, MT7996_THERMAL_THROTTLE_MAX);
+ 	if (ret)
+-		return ret;
++		goto disable_radio;
+ 
+ 	ret = mt7996_mcu_set_thermal_protect(phy, true);
+ 	if (ret)
+-		return ret;
++		goto disable_radio;
+ 
+ 	ret = mt7996_mcu_set_tx_power_ctrl(phy, UNI_TXPOWER_SKU_POWER_LIMIT_CTRL,
+ 					   true);
+ 	if (ret)
+-		return ret;
++		goto disable_radio;
+ 
+ 	set_bit(MT76_STATE_RUNNING, &phy->mt76->state);
+ 
+@@ -50,6 +50,11 @@ int mt7996_run(struct mt7996_phy *phy)
+ 	}
+ 
+ 	return 0;
++
++disable_radio:
++	mt7996_mcu_set_radio_en(phy, false);
++
++	return ret;
+ }
+ 
+ static int mt7996_start(struct ieee80211_hw *hw)
+@@ -563,6 +568,8 @@ static int mt7996_add_interface(struct ieee80211_hw *hw,
+ 	struct mt7996_vif *mvif = (struct mt7996_vif *)vif->drv_priv;
+ 	struct wireless_dev *wdev = ieee80211_vif_to_wdev(vif);
+ 	struct mt7996_dev *dev = mt7996_hw_dev(hw);
++	unsigned long monitor_changed = 0;
++	unsigned long started = 0;
+ 	int i, err = 0;
+ 
+ 	mutex_lock(&dev->mt76.mutex);
+@@ -577,10 +584,14 @@ static int mt7996_add_interface(struct ieee80211_hw *hw,
+ 			err = mt7996_run(phy);
+ 			if (err)
+ 				goto out;
++			set_bit(i, &started);
+ 		}
+ 
+-		if (vif->type == NL80211_IFTYPE_MONITOR)
++		if (vif->type == NL80211_IFTYPE_MONITOR) {
++			if (phy->rxfilter & MT_WF_RFCR_DROP_OTHER_UC)
++				set_bit(i, &monitor_changed);
+ 			mt7996_set_monitor(phy, true);
++		}
+ 	}
+ 
+ 	mt76_vif_init(vif, &mvif->mt76);
+@@ -590,6 +601,18 @@ static int mt7996_add_interface(struct ieee80211_hw *hw,
+ 
+ out:
+ 	mutex_unlock(&dev->mt76.mutex);
++	if (err) {
++		for_each_set_bit(i, &monitor_changed, MT7996_MAX_RADIOS) {
++			struct mt7996_phy *phy = dev->radio_phy[i];
++
++			mutex_lock(&dev->mt76.mutex);
++			mt7996_set_monitor(phy, false);
++			mutex_unlock(&dev->mt76.mutex);
++		}
++
++		for_each_set_bit(i, &started, MT7996_MAX_RADIOS)
++			mt7996_stop_phy(dev->radio_phy[i]);
++	}
+ 
+ 	return err;
+ }
+-- 
+2.34.1
+
 
