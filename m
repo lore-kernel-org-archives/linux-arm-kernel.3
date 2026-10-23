@@ -2,68 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C152606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 22:42:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4488606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 22:59:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DpLDb71K;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j+xRvqpw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YWHZ504W;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=u7OMnEj4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=4wNHCh54AAWOk3FutPjsVsjqvlf9bK+9IRjfMX0W13o=; b=DpLDb71K31XIUIBp+LbVuX+eQo
-	NHZJulmfdwp8/ykyD2WvDYhXflaPwbflwqvAXIDl7nAIrIeNIHebd/wod4r1IKK+c0slyJ/YM+PY/
-	1NCXZOsUCWgLPqUlTWs3i11ld3SaE5go98zvpCHI8X3JHHj+12sqcFxWvjg5dvPG2LLubAbXRBtBk
-	LjunNF55dTAy3lO4cJWqrVuOyhl9uUdGKgccgXBDsiKgWv/ikxPXd/O0pI2xC6YF0ouXVvdnIvekk
-	bvvtOBL8BUBmK8axJgbf74JF7n7AAzDusxkBLDTtEdveHNietGPT+CL30WwCTzlMouI+8nJW62y7p
-	4wqzIS2Q==;
+	bh=rrOsYLZJDf0TzEPP307WDbeBhrlf1yktibJyBkuCquY=; b=YWHZ504WcNLQq2FadcuLoUw9dF
+	Nqv4BfTR2r5of49f82ko5GmOXspqmlCJ3gm7B27cVpYhHk7mHDc0IREI5tvVl8XJwpG4dpLgUb0w5
+	/zShcdFJfJu6nwWg5zM82n6bja8/rzqElxg7gl4qwrD2iQoYglUP/y1Alk3E/T3GmZ3RpwiPAVeUO
+	YijAZ/cXGYL72UduqcA82uBUDtaiXZgajTU+BoBcx4GKpSilY+p8UXKyUZ3g9/9j6jZ5Kpq3IjEhp
+	jrlmcIBRHn+iuwE2yIkzEDsa85GFGThCIaigBVNV6rPV0drywuYmslAJMIjGEv6dbu0y8LjKoD7je
+	8zGunAVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKNxo-0000000H3is-2pbz;
-	Fri, 23 Oct 2026 22:42:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xKOEE-0000000H7Vq-1etX;
+	Fri, 23 Oct 2026 22:59:14 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKNxe-0000000H3h4-49FP
+	id 1xKOEB-0000000H7U3-1mjt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 22:42:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E9D96022C;
-	Fri, 23 Oct 2026 22:42:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46AEA1F01828;
-	Fri, 23 Oct 2026 22:42:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792795326;
-	bh=4wNHCh54AAWOk3FutPjsVsjqvlf9bK+9IRjfMX0W13o=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=j+xRvqpwXo3YV5EnvWdCGlSJRFzPk5JZV6B4fEY1aVhn/OPu3YsMhudVEiorvn60N
-	 xS9ckhoBCEfM6RN7xqzWydG/Q2wmeKP8/Wi/B1gWO/zF8aAJkUmFAZ/q/bYKpkm/3/
-	 tYdNNtPsFfXt/csyhsM4JAYZ5+wKAZ+zPbn67IJwq9FPfyQZ/FTwMYkfYpkuwzcR2/
-	 obSzLhxrzBIxPN/ZyrVYYgnOuEhLOurWJXaaiN6dRXAo6tMQr5eGuOaKBGbSGJtUVi
-	 602FW790balM50S54Anu4h0yC74XyEBYBKuGKWE14+h+cH1Pe+oHCHWArAO0Ox9G9W
-	 c9D+3u0HoyujQ==
-Subject: Re: [PATCH net 3/3] net: stmmac: dwmac1000: stop hardware from
- dropping checksum-error packets
-From: netdev-bot+sashiko@kernel.org
-To: opensource@grische.xyz
-Cc: netdev@vger.kernel.org, maxime.chevallier@bootlin.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, o.rempel@pengutronix.de,
- stable@vger.kernel.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, aaro.koskinen@nokia.com,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 23 Oct 2026 22:42:04 +0000
-Message-ID: <179279532482.3134.8732796861806998047@kernel.org>
-In-Reply-To: <20261020190319.884375-4-opensource@grische.xyz>
-References: <20261020190319.884375-4-opensource@grische.xyz>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 23 Oct 2026 22:59:12 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2db33db4de9so20905ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 15:59:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1792796349; x=1793401149; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rrOsYLZJDf0TzEPP307WDbeBhrlf1yktibJyBkuCquY=;
+        b=u7OMnEj4GooVYGFOFjuDHTpwvkQ9zTUoog8oyaLUfKPYsjtpHb+4gvhk0fjTgBgP9u
+         BSS2YcQu2N3pnxoAJkx49M1boBwhD/f8lVGxI8+2d4pcFQcjMKiWcjT6OQoBkpE86iT5
+         SQFJjatv61P93eWP8BDws8FIE9fRBes6y/RnsisVT9cdCjqiSnK1jRVOzLYc5plltSf5
+         8wqp7v9S+wCLYYMXTd7agsnm/MQ7SzuTRk1uAveLpNKJ0zZhxUMU3MhEKSeNGo0OPbDC
+         rtA6zkUeHVRsEYQZ2fP1mL16vglbkZ9br4jdaMtIqRaPGis+qu5TrEgjcU16IhAImra2
+         uMWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792796349; x=1793401149;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rrOsYLZJDf0TzEPP307WDbeBhrlf1yktibJyBkuCquY=;
+        b=ynWhhwwZ8PpiRuPLnEgBt0MnoXHyvTkssCMZmxWTZMQtwQfNVSrrWoj/2ILZrQRYhY
+         rFNZgMm8oksUMpZ+sLdb0gl2lZwjuCJ951XLF3wu3S8/6iJ+PaXj19Y97490TYgnt3n2
+         y4Fua+36JZsNXVvvWFhXDJEF2uLlgdSQhWtNNqt0WNmYvoiyx+vKhxEn18PVFSyV4Rjs
+         SDH1Gwz68jNAKppMKvHKjkdXw43lB2iRLtGZxHieuYoaXXJjf3Ig+AVgkunYcSljhi5q
+         I4luQkukU6tfjnjoiVN2nbdaFWz0ToZ1u5k+MwKpiDer0pyqS4RQsYp0QMtq3+bYb3fL
+         SwdA==
+X-Forwarded-Encrypted: i=1; AKwUvByDZvPo1tNaNUfN9Q563EyD1k9gueAD5VfAYOxdz/TXEK7FwVIviIg6fzByEYYbSlVscP93XS1gMohxLomsIYYI@lists.infradead.org
+X-Gm-Message-State: AFq9FYILFFa2Mm0WC/4Gvj1egcidrF3XO7ofcefW7dpsHWa05Li3Rv0Q
+	nLl9D+HBEQAiPICJRwQn8dNdpE3ucBgMw3bKG0IqqrMoLrf5j8utkcqMDUvKj3kt2w==
+X-Gm-Gg: AYBFou0cFjlLrUa4TJ7DSMSdnUwj2cuJiowEtCkxYHfQT6FwC0wD0XWzWy7JIomcJi/
+	3fgfgrV6TDrmq0KyNmhsxEDRbdqtc3U7/FgqVoBlQTYaD31D4n5bJXLNwSY00V90X4vdE4v9Eqb
+	gdeUTnf61NJIbSus0srfNaDVrbGMp7ObcxK8T9kOI6g3/67fS2CKaqzoYtXMno5uAaJemAPb4ct
+	0HyPoN1v64eYii2zbM6DooyUkbcqOgcHBeXsiYtM9spp3jugnEAh2IkjTv76WsmQWcRQtcWcyS9
+	Zene0FLdKDFpF2AjEpUy4cB6XwXZuDQyxKslXW09nwkVkGt+BQJOOpG4Ob/OgMibnkLc9eKF3AC
+	Ab4gv/ysh5XWML6jMNqxmp1spa1By6hvG6tmwJs+ScIHqyeGIUqAIhygm1ftiknU3BZyoczBZnL
+	V1hLXL3yfp+PL3a8e34UWjCwV55JZzehXIbF75B+WzCFiYUIARbzsGDiTOGLqzdLE5R5RjN6U3o
+	2wuAL2b873ftCk1C7EztEIyU83oixWBWk5pT9EHLiFeqmq3ix9LRqYeCCMJvNAaih+gHpcXToYb
+	a0Wt4Q0OWP6QPOpPzuUZgnbmuig63MIlA2baauhPNztP4uvO
+X-Received: by 2002:a17:903:2c0d:b0:2dd:8958:f8d5 with SMTP id d9443c01a7336-2ea9d109b4bmr841245ad.6.1792796348553;
+        Fri, 23 Oct 2026 15:59:08 -0700 (PDT)
+Received: from google.com (163.1.145.34.bc.googleusercontent.com. [34.145.1.163])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3adebe8f09csm649587a91.7.2026.10.23.15.59.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 Oct 2026 15:59:07 -0700 (PDT)
+Date: Fri, 23 Oct 2026 22:59:04 +0000
+From: Samiullah Khawaja <skhawaja@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
+	Will Deacon <will@kernel.org>, Kevin Tian <kevin.tian@intel.com>, 
+	Alex Williamson <alex@shazbot.org>, iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Pasha Tatashin <pasha.tatashin@soleen.com>, 
+	David Matlack <dmatlack@google.com>, Lu Baolu <baolu.lu@linux.intel.com>, 
+	Pranjal Shrivastava <praan@google.com>
+Subject: Re: [RFC PATCH 0/3] iommu/arm-smmu-v3: Add support for hitless
+ replace of CD entries
+Message-ID: <atvmOnAEhVG3Vevk@google.com>
+References: <20260925011308.3381953-1-skhawaja@google.com>
+ <40a2e1a2-138b-42bf-94ea-a42fda128c22@arm.com>
+ <20261023134630.GA3977851@ziepe.ca>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261023134630.GA3977851@ziepe.ca>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261023_155911_505998_E626C13F 
+X-CRM114-Status: GOOD (  22.50  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,112 +108,61 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Fri, Oct 23, 2026 at 10:46:30AM -0300, Jason Gunthorpe wrote:
+>On Fri, Oct 23, 2026 at 01:10:56PM +0100, Robin Murphy wrote:
+>> On 25/09/2026 2:13 am, Samiullah Khawaja wrote:
+>> > This patch series adds support for replacing IOMMU domains with S1 page
+>> > tables hitlessly, that is without disrupting the ongoing DMAs. This is
+>> > one of the dependencies of the Liveupdate IOMMU support for Arm SMMUv3.
+>> >
+>> > S1 domains are programmed by CD entries in the CD table. During a new
+>> > domain attach these are updated using arm_smmu_write_cd_entry(). Since
+>> > ASID and TTB0 are in different 64-bit words, arm_smmu_write_cd_entry()
+>> > considers it a non-hitless update and sets V=0. This means such an
+>> > update is disruptive and would generate translation faults if there are
+>> > ongoing DMAs.
+>> >
+>> > Replace the CD entries by using an unused temporary ASID in the
+>> > following sequence to allow hitless replacement of CD entry,
+>> >
+>> > - Update the CD entry with temporary ASID.
+>> > - Update the CD entry with the target TTB0.
+>> > - Invalidate the temporary ASID.
+>> > - Update the CD entry with target ASID.
+>> > - Invalidate and release the temporary ASID.
+>>
+>> Why bother transitioning through a 3rd ASID? The old and new pagetables must
+>> contain the same translations anyway, so why not just: switch ASID, switch
+>> TTB, invalidate old ASID?
+>
+>The target ASID may be in use by another CD someplace else. Doing it
+>without the temporary could contaminate it with wrong translations
+>from the original TTB0.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
++1
+>
+>From a driver perspective we don't know why the domain replace
+>operation was triggered. iommufd can trigger it for domains that are
+>not identical. Corrupting the target ASID when we don't know for sure
+>what is happening is not safe.
+>
+>Obviously Samiullah's use case is hitless between the same translation
+>so it doesn't need the extra ASID, but the driver can't know this.
+>
+>Samiullah please include this explanation in a comment..
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+I will add this in the next version.
 
-- [High] dwmac1000_dma_operation_mode_rx() now sets CSR6.DT
-  (DMA_CONTROL_DT) on every dwmac1000 core, whichever descriptor format…
-
---
-
-net: stmmac: dwmac1000: stop hardware from dropping checksum-error packets
-
-This patch sets DMA_CONTROL_DT in dwmac1000_dma_operation_mode_rx(). With
-that bit set, the dwmac1000 MAC hands up frames that fail the Rx checksum
-offload check instead of dropping them. The aim is to make VXLAN over IPv6
-with zero UDP checksums work, with the driver marking those frames
-CHECKSUM_NONE.
-
-Link: https://lore.kernel.org/all/20250625132117.1b3264e8@kernel.org/
-Link: https://github.com/freifunk-gluon/gluon/issues/3783
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-> index 3ac7a7949529c..00c8d4dfb553b 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-> @@ -129,6 +129,8 @@ static void dwmac1000_dma_operation_mode_rx(struct stmmac_priv *priv,
->  {
->  	u32 csr6 = readl(ioaddr + DMA_CHAN_CONTROL(channel));
->  
-> +	csr6 |= DMA_CONTROL_DT;
-
-[Severity: High]
-Does this work on dwmac1000 cores that use normal descriptors?
-
-DT is now set no matter which descriptor format is in use. Only the
-enhanced descriptor parser turns checksum-only errors into csum_none, via
-enh_desc_get_rx_status()->enh_desc_coe_rdes0().
-
-stmmac_hw_init() reads enh_desc and rx_coe from separate HW capability
-bits:
-
-    priv->plat->enh_desc = priv->dma_cap.enh_desc;
-    ...
-    if (priv->dma_cap.rx_coe_type2)
-        priv->plat->rx_coe = STMMAC_RX_COE_TYPE2;
-
-stmmac_dwmac1_quirks() then picks ndesc_ops whenever enh_desc is 0. So the
-driver allows a core with normal descriptors and Type-2 Rx COE.
-
-ndesc_get_rx_status() can only return good_frame or discard_frame. It
-never sets csum_none, and nothing in the driver checks
-RDES0_PAYLOAD_CSUM_ERR from descs.h:
-
-    if (unlikely(rdes0 & RDES0_ERROR_SUMMARY)) {
-        ...
-        if (unlikely(rdes0 & RDES0_IPC_CSUM_ERROR))
-            x->ipc_csum_error++;
-        ...
-        ret = discard_frame;
-    }
-
-If ES is set for the checksum error, stmmac_rx() now drops the frame in
-software and counts it as an rx error. Wouldn't VXLAN over IPv6 with zero
-UDP checksums still be broken on these cores?
-
-The comment in enh_desc_get_rx_status() says the databook does not
-require ES for payload-only checksum errors. If ES is clear in that case,
-ndesc_get_rx_status() returns good_frame, and stmmac_rx() does:
-
-    if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb) ||
-        (status & csum_none))
-        skb_checksum_none_assert(skb);
-    else
-        skb->ip_summed = CHECKSUM_UNNECESSARY;
-
-Could a frame with a bad L4 checksum, which the hardware used to drop, now
-reach the stack marked CHECKSUM_UNNECESSARY?
-
-Either way, this part of the commit message would not hold for normal
-descriptors:
-
-  "CoE remains enabled, so the driver still sees the error status and
-   marks the skb CHECKSUM_NONE for the stack to verify."
-
-Would it make sense to set DT only when enhanced descriptors are in use,
-or to make ndesc_get_rx_status() report csum_none for checksum errors?
-
-> +
->  	if (mode == SF_DMA_MODE) {
->  		pr_debug("GMAC: enable RX store and forward mode\n");
->  		csr6 |= DMA_CONTROL_RSF | DMA_CONTROL_DFF;
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261020190319.884375-1-opensource%40grische.xyz
+Thanks,
+Sami
+>
+>Jason
 
