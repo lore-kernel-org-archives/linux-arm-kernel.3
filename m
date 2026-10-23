@@ -2,100 +2,92 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEEE6606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 05:37:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A242606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Oct 2026 05:48:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KNKBIy5y;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=hfKwdDyR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xttkKAUG;
+	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=AgMlnCrx
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=XWEwn6v/542iwfySD79nms5PIwynC+fVLbCD6LA4gYs=; b=KNKBIy5yBv5D+W
-	xgj766lLSzYHHKmPAFGZQ8oegwV6rGDGU0DciuRGtdVNZVtJ56QGGYUy9JcrMwnZ5GMzhalBn8Ztm
-	Uoz8S5JHe+JWb/l0CRCMRXEJ/bVVODuX0uHZcQoUwD6kT3ctKLxRhdnhR+HEMLLCWT9P78a+mxUfD
-	5UZESsgcnTHBes77jqYD7KMrNgt2LeAuHFiHFEPxE2XmnAqiyPcqU7kBWSey1z38F51Z5Io/UglgC
-	eRsylaxz3mobRkAxHqEcZS/uOKCUDvxkMYPHELcjS6CcN4fztRtXrXnUkZoW6a1pdS0Et5WAkuPVC
-	KorJGMkQlon8YWobG9zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=wh7D8Tptc3ILYDf3UejxSTTFaEfE2VaROKuAZO+rrJ0=; b=xttkKAUGKYMeLBG2XaiX5kJXmO
+	JIayaR76CMFWXsDR0bhAqNhJ9CyxvZUNyOxCkWehK0KVQ/FjdLc6tq/oIZtNLNX7QdUxo5MsnGUko
+	WA82S7SHPdcsR/RYoinyqw3p+lBxnmX/jlq+5nnti0V26vHPX/5OJM4wiQ6zP4JEYtTYdbTGvsKv1
+	q11cZnAOrXLF3T8DlHPqMGOdLG2oleBCLBJMwS5zwf/jMfUhHu25sfzCg00RLtwXEDoQJ1Wn16cSu
+	EjlQdlTbUXmpWDs+XVUkPbJG1S/87SmbecedzJekWjyKMZTRgjlCgRxLHhq+hHEBs5aDKMnvZ3A2+
+	V6q95hmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK7wn-0000000FWlp-0J9Z;
-	Fri, 23 Oct 2026 05:36:09 +0000
-Received: from mail-dy2-x09.google.com ([2607:f8b0:4864:36::9])
+	id 1xK88d-0000000FXcx-41dj;
+	Fri, 23 Oct 2026 05:48:23 +0000
+Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xK7wk-0000000FWjt-3LOd
+	id 1xK88a-0000000FXcc-1lab
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Oct 2026 05:36:07 +0000
-Received: by mail-dy2-x09.google.com with SMTP id 5a478bee46e88-35adc681e1aso509480eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Oct 2026 22:36:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792733766; x=1793338566; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XWEwn6v/542iwfySD79nms5PIwynC+fVLbCD6LA4gYs=;
-        b=hfKwdDyR6aermqhs/s5W0UL/Os4PdM68KWJHl238HifiGqYu33H1VN0Y+qXGivyfWG
-         i6/IIGsCNkaw8Q1oveWmYWHrR2M61ryB7bz2jYH+/birXoBLwGBigNcftzYzhsrkt02G
-         ndMUqNFij2rguyaNVCq0yftegYwVyD8Fk8j60/72paRs0oP4wCfN9V3ncIKZryQhNe2R
-         NdiFshq5n/ZLkVhCZl9TQ17EBiNLgMhK2+grUwocMZSMDyNJtOUmkSgHTGaRwj1d87n4
-         4B72jCflrRvNo8UN7g020bRUJCM1RSCoZoBtJz+n50RdiLKuORIZxZBQxsRuYWwGhNJK
-         TXwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792733766; x=1793338566;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XWEwn6v/542iwfySD79nms5PIwynC+fVLbCD6LA4gYs=;
-        b=XoQ09htRDctmyYIrKvIp206atbDxVgXAW9o0Miz617dsCOWrfUeYAJIHkujsPT8l1I
-         /iqQ2D5U8GfRmjqFOPhJv3Ka8OlBqEta1WKmHL0cgr0+QNHJK7J2WNKsFJYmZtdldniW
-         TrNCSxYt/Y/qKPEANOKfnEmByOhjCFq5lfhnayfDB+3wNsLzwYdjdOKYTKy0kSUX3Ux1
-         cQQupOLMN0WV3XWcjfNgyTKIyJPHMUjuBX8rHd5Gpm84IKPHU+jxsPGH9VY8b4ofsY52
-         xIXMvpVBY9dkUinhbept9Xb5vEwacg68S/5JYlvPrbjL6mzVWrB+khG2M/xDN+yu4sGZ
-         5UCg==
-X-Forwarded-Encrypted: i=1; AKwUvBxVomuHrmCXWDlfadDAsPbC5CoyWk59heRK15KkhOa+Vx/olfIuVWsb5WfSKkto/5xZiQefEP5lSyHWYUS+aXBP@lists.infradead.org
-X-Gm-Message-State: AFq9FYLsZAHJHegQy5NaZKaBv4dS8Hw7QjFQY8kwl/NLisqMALg/pVf8
-	tscwrYBCrzfVjHyeBpBakD7XU0txC2CtU8XV7wg61Ha6P2IVpHIm8uPB
-X-Gm-Gg: AYBFou0b6BeOlawCv23wMoHU5jMLv5cLhHyQUx/0Cy2rOc2wwPzGIhRH8DNKBvrEgru
-	IPuplPyEf8/8fkwz6Pp9qHlu4wy2QOrNGusQBXo1PpQ6Eg1sIbpv7HVNJvBSJQ0i+TjGuL9joS7
-	iIjARq0taqU806jKBmGbA4fS3jYntg6bynx1RHn+vWXgc15btTz69EQKjG/U+Y125j5m7WGUoOp
-	DTVZdl4asiCA0lCwDGYAwUNGRI0/lICMMvude4CLNgOR7Cai1JqLbOqXXnmG22A5SlmuvQDPAcb
-	lIK72ZltHL4mFf775tKrnBef72c97Gwo72VJvRnsBqP5IaqIAq0z+tI7v8RPabrxasGjIbl5fm8
-	iWCp3T4KK42/hl4K+3uP5YWF0vlP7Q888t9e1HrzfNAhVGD/Eyba88dprPY/BWLLDfML8wiEgEV
-	Gi5NbysQKi3yzlzN4u2pA3hRnfH7ICGRqOqY6aSuLB9iemBeyZLU51aS5HIQfCs9aLs0lCjFHEu
-	ZzjqOw1TOwzWMutu0rCFzy6e18DaLzcRYuSed2yL2W4F+JXXlEzVQ==
-X-Received: by 2002:a05:7022:b043:10b0:16e:6e3:9a9f with SMTP id a92af1059eb24-195a065903bmr2116014c88.34.1792733766053;
-        Thu, 22 Oct 2026 22:36:06 -0700 (PDT)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-369d9c15883sm3542480eec.3.2026.10.22.22.36.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Oct 2026 22:36:05 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	David Heidelberg <david@ixit.cz>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Coia Prant <coiaprant@gmail.com>
-Subject: [PATCH v12 2/3] arm64: dts: rockchip: rk3568-photonicat: add RGMII PHY LEDs
-Date: Fri, 23 Oct 2026 13:35:47 +0800
-Message-ID: <20261023053548.1595033-3-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261023053548.1595033-1-coiaprant@gmail.com>
-References: <20261023053548.1595033-1-coiaprant@gmail.com>
+	Fri, 23 Oct 2026 05:48:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1792734500; x=1824270500;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jvaFqs1c0Q8y7cq4icfLd9Exgzwezb7YSxz6AKTovJw=;
+  b=AgMlnCrx+GOJg8sg/QUW1xIjNOPF7ra4x4nu8evWimwtll12Ri4CQxSm
+   2Z5Q851ByCFo7Y9minE6Op+w1o2Zf13BeYyrFohjRZugpWCVSify0sVpV
+   qUEWmfAWNHCQb8f5ouEF/ue86JOo9/f2283kKV4SqklVIy36Qudv3ynp4
+   HIthxnzwsczq0F5udRuLczqagUHG+v2aeTop6cIppH/csekzmeYvysrM1
+   mNqNK5G1CC1nCCmK/rWYkX7TdR4PbsF277frjraRC1tPbBIMVoGpJGoru
+   9Er5wCrihh3jdphDOt806oVkGULo0eVv5zodKMK1ZJRbV5kXrJEWPpeut
+   g==;
+X-CSE-ConnectionGUID: LFV6D7VkQP60feSQuYWCdA==
+X-CSE-MsgGUID: 68oD/j1aRjCKRF8CagMhUQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11943"; a="259199973"
+X-IronPort-AV: E=Sophos;i="6.27,173,1786978800"; 
+   d="scan'208";a="259199973"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2026 14:48:18 +0900
+Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 484D33D29
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 05:48:18 +0000 (UTC)
+Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id 049621C002CE
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 05:48:18 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.9.51.144])
+	by az2nlsmom2.o.css.fujitsu.com (Postfix) with SMTP id B947B1800109;
+	Fri, 23 Oct 2026 05:48:13 +0000 (UTC)
+Date: Fri, 23 Oct 2026 14:48:12 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Suzuki Poulose <suzuki.poulose@arm.com>, Steven Price <steven.price@arm.com>, 
+	Sami Mujawar <sami.mujawar@arm.com>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, 
+	Jiri Pirko <jiri@resnulli.us>, GONG Ruiqi <gongruiqi1@huawei.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH RFC 1/3] firmware: arm_firme: introduce arm_firme driver
+Message-ID: <atr0fvi-FP7VCwki@FCCLS0092175.localdomain>
+References: <20261019-firme_interface-v1-0-27895c9cebaa@arm.com>
+ <20261019-firme_interface-v1-1-27895c9cebaa@arm.com>
+ <atnVCFWZLKR8GthP@FCCLS0092175.localdomain>
+ <atoM447tWm2EsoSP@e129823.arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <atoM447tWm2EsoSP@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261022_223606_851027_8BD5CC71 
-X-CRM114-Status: GOOD (  10.97  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261022_224820_970571_1752A8E6 
+X-CRM114-Status: GOOD (  22.80  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,65 +98,75 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The Motorcomm YT8521SC RGMII PHY on the Ariaboard Photonicat has two
-front-panel LEDs wired to it. Describe them in the device tree so that
-userspace can control and monitor them through the LED class.
+On 10/22 14:17, Yeoreum Yun wrote:
+> On Thu, Oct 22, 2026 at 06:48:49PM +0900, Kohei Enju wrote:
+> > On 10/19 15:14, Yeoreum Yun wrote:
+> > > The Realm Management Extension (FEAT_RME) is part of Arm Confidential
+> > > Compute Architecture (CCA) and enables support for dynamic, attestable
+> > > trusted execution environments ("Realms") on Arm systems.
+> > > 
+> > > Realm management flows depend on EL3 firmware for operations such as
+> > > Realm construction, resource allocation and isolation, and attestation
+> > > of initial Realm state.
+> > > 
+> > > The FIRME defines standard interfaces provided by EL3 firmware to
+> > > satisfy these dependencies. These interfaces include:
+> > > 
+> > >   - Granule Protection Table management
+> > >   - IDE key management for PCIe and CXL Root Ports
+> > >   - Memory Encryption Context management
+> > >   - Attestation token management
+> > >   - Integrated device management
+> > > 
+> > > Each group of interfaces forms a FIRME service. A base FIRME service
+> > > is also defined to provide common concepts, service discovery, and
+> > > feature discovery across services.
+> > > 
+> > > FIRME interfaces are implemented at the EL3 boundary between the
+> > > Non-secure, Realm, and Secure states. They may also be used on systems
+> > > without FEAT_RME, for example to provide firmware-based attestation or
+> > > security services.
+> > > 
+> > > arm_firme driver provides the common FIRME framework and service discovery
+> > > support for client drivers using below FIRME services:
+> > > 
+> > >   - Base service.
+> > >   - Attestation token management.
+> > > 
+> > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > 
+> > Does this series assume that the kernel is running in EL2 implicitly?
+> > 
+> > The FIRME spec says:
+> >   An implementation of one or more FIRME services at a valid Exception level boundary between EL3 and the
+> >   highest Exception level in a different Security state is called a FIRME instance.
+> > 
+> > and I think only NS-EL2 can call FIRME interfaces as a NS FIRME
+> > instance, right?
+> 
+> Yeap. but it doens't forbid calling the FIRME from EL1 too.
 
-Both LEDs use the "keep" default state, so the PHY's built-in LED
-behaviour is preserved until userspace overrides the trigger.
+I see. Then it's okay.
 
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
----
- .../boot/dts/rockchip/rk3568-photonicat.dts   | 20 +++++++++++++++++++
- 1 file changed, 20 insertions(+)
+> As a just example, when the host running with pkvm, it could use
+> where kernel running as EL1.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-index 58c1052ba8ef3..12ae9159bea87 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-@@ -3,6 +3,7 @@
- /dts-v1/;
- 
- #include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
- #include <dt-bindings/pinctrl/rockchip.h>
- #include <dt-bindings/soc/rockchip,vop2.h>
- #include "rk3568.dtsi"
-@@ -350,6 +351,25 @@ rgmii_phy: ethernet-phy@3 {
- 		reset-gpios = <&gpio4 RK_PC0 GPIO_ACTIVE_LOW>;
- 		rx-internal-delay-ps = <1500>;
- 		tx-internal-delay-ps = <1500>;
-+
-+		leds {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			led@1 {
-+				reg = <1>;
-+				color = <LED_COLOR_ID_AMBER>;
-+				function = LED_FUNCTION_WAN;
-+				default-state = "keep";
-+			};
-+
-+			led@2 {
-+				reg = <2>;
-+				color = <LED_COLOR_ID_GREEN>;
-+				function = LED_FUNCTION_WAN;
-+				default-state = "keep";
-+			};
-+		};
- 	};
- };
- 
--- 
-2.47.3
+Thanks for the clarification, Yeoreum.
 
+Thanks,
+Kohei
+
+> 
+> [...]
+> 
+> -- 
+> Sincerely,
+> Yeoreum Yun
 
