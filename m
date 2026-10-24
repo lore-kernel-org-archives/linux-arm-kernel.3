@@ -2,76 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C54B606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 11:01:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6799C606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 11:37:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kquK7ZEp;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HxTQ6Kan
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oa8NBxW3;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=alMJRejs
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Mk/nez9nenBsnQjciCAGiDdqXpw8qDo2kH67Oa3IArQ=; b=kquK7ZEpVQ1h6l
-	wTqZGQ9g0UpIDALRi3OLmtOZLJWhzZ4cow/gVmR8YiloB4I7lMWHtuMdU2x5Pc9xZuWb78ZfQ3FLS
-	Cw85/eqdX0gZxFJSQCxckUQ2rD0FtW72I3TElUh6hyqtVUdBjSkS3id+taoVM5bAY/wIslDtMbMYI
-	zjKcNMMpptp1pD6X0gVTX1OUFGpTJyErDAavtnvySye9mrsj7PsaI4/KEGq7X7HH7tiuwX9r3KXGf
-	7aP3LKHvmyXF69lZ9vyc5x0ml5KUTntUczLqW7P1rNfe2eZK2QoSwsK4O33Zj3HcTeMCQGQ7mh/2i
-	rvouQzv06We9vehtUshQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=JGL3qTPNqshUoFon3YlDWfF5+DJcyIa46YLyW1IYigk=; b=oa8NBxW3u0A+jCkDCs8P7XrNFD
+	fAtDJ2iLEgHbQzBdtjnMi2M/oQni8m0u4VSA9SlTN8s8Z9jGMc0UGYQ8XJrU/hwl0RR7EjKP8TpIc
+	sO/l+qNJQeq4SJuVTaiPEe9091DaiyhxfUYRynI5m3sUKfemf6mCb4rgXtXwWcfd4tE185OJKVM/a
+	Ay3vcKurKHv4c5Q+/yMa1xvM5o6SJR9T/NJ1vc9R5x3k30IDYvAtgaxiM5u2KXNNo4+iatsxb+KFi
+	EN5EsdLQuIGgsIz6R6/p7PL8hE9+FKnLTqPrxszV6ZFQTQMg5jS1BM2UgJ4dgUyjW4OF8Q88qfy9N
+	CXpqvR8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKZUv-000000007OW-0Ocf;
-	Sat, 24 Oct 2026 11:01:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xKa2R-000000008F6-2DNj;
+	Sat, 24 Oct 2026 11:35:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKZUu-000000007OP-0Ov0
+	id 1xKa2P-000000008En-4AEL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 11:01:12 +0000
+	Sat, 24 Oct 2026 11:35:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7D4AC40123
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 11:01:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60FBE1F01825
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 11:01:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 59DFE400C8;
+	Sat, 24 Oct 2026 11:35:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CA9F1F01825;
+	Sat, 24 Oct 2026 11:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792839671;
-	bh=Mk/nez9nenBsnQjciCAGiDdqXpw8qDo2kH67Oa3IArQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=HxTQ6KanFVkN6lxvAOgHmwYYWTVapA9CWnHEU7aSzt9ng/nx7AkCgYSxnEzxfpvPj
-	 vK2BNVC+Hz2bKcBcjc0O+0RH3rSdJxaOzdIExJa1Tb9buwOq5k2a1uYfAekhp2H99S
-	 LRI0PcZgNRAVEPPs7ItYR0GD12tExEYIcTE43oQwTTlKfI4LS+P6QsndKON3OPDSrB
-	 i3ISuYf6GGsw4zy3enAfiN5A8/j7+pWIbX0Zs0Ww7GMlI6P0G3Pj4WWUy+AsbPbRFg
-	 IW4Ee47COAzx6qcwkaezXcb6k1jWVvJPprh7ZDF4iM0PemeA6fiR3ynxT9B8ed5/ua
-	 opiJm+DkbE1aw==
-Received: by mail-qk1-f180.google.com with SMTP id af79cd13be357-93f2b8cf037so144438285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 04:01:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwDu3/NTim4QIenbMTD6OhJ1Rp/Ufp9ju1eaqgaEu+Q/WbiMZ3TLnZCT7HSU10dWI6e5X1TQYHQ8Va/XktEGW8r@lists.infradead.org
-X-Gm-Message-State: AFq9FYJyO1KPKNU1Bidsqs3zvL2EPoGxb5Hpx0muP8DdU9IXfTD19zeP
-	qO1LixwU5RLcL6Kd4+rfijHOKVweVOPhl6WnXCHu5KcO1v9TYga6+MC2gHm69tF/003LugUXx0l
-	rAgGKXM3p4/JdYtZIFMuq4WzHqXvaTrg=
-X-Received: by 2002:a05:620a:262a:b0:93f:3863:268a with SMTP id
- af79cd13be357-940ef92bffbmr223374585a.37.1792839669908; Sat, 24 Oct 2026
- 04:01:09 -0700 (PDT)
+	s=k20260515; t=1792841749;
+	bh=JGL3qTPNqshUoFon3YlDWfF5+DJcyIa46YLyW1IYigk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=alMJRejsFi9d108NFZiCBV/ZjD+QtbOYf6AFtksgqO7m4ZPfNoc2lLWXgUJsK02Mm
+	 dVtsxVCOCg9LtAPWHhyhbYJugKNIOC41oCcP+ndiJdDqk1NC2QBhk6CiK90gz6RV75
+	 0Rf7aQxI3zlAQk4JnwbIM+XIoISdMm93OwiGyqAXdC2/w+RMGpBS8cKvu6PZs3GvSu
+	 7ZwyvgAyhuE8xL0f/3ztTEjWPw3ASoeqZCEW5RUUMSTLSIx3PARIHuw/TNIbpK2ayV
+	 tAEtyXvvRb3gl7OhtKWFHC6La5U2M3MDcd3TrdgPW0vWp8otNapSqI0E8jVQ7dn6Hc
+	 pqHuk+XqN55WA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xKa2M-00000006k7u-3Fum;
+	Sat, 24 Oct 2026 11:35:46 +0000
+Date: Sat, 24 Oct 2026 12:39:03 +0100
+Message-ID: <87v76r8h0o.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] irqchip/gic-v3-its: Claim LPI tables inherited across kexec on DT
+In-Reply-To: <20261024075856.835932-1-xiaqinghuan@mail.ustc.edu.cn>
+References: <20261024075856.835932-1-xiaqinghuan@mail.ustc.edu.cn>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-References: <20260802074018.73887-1-baohua@kernel.org> <20260802074018.73887-2-baohua@kernel.org>
- <anCu3DOrXDeMrwi5@lucifer> <CAGsJ_4xM7mmv_Xa3g2mB_0gW0_VtYhMtwz0idgYLyoAYiHFmfg@mail.gmail.com>
- <anH3jVrBlUMLd-28@lucifer>
-In-Reply-To: <anH3jVrBlUMLd-28@lucifer>
-From: Barry Song <baohua@kernel.org>
-Date: Sat, 24 Oct 2026 19:00:59 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4w9eTngW4TbqhmgDgCW6ugd=3Thq+u8ufqJ1WX-c_4p=A@mail.gmail.com>
-X-Gm-Features: AclHuK91tBy5WqlUSNbGFKdzZTc1OWL-WRH6V00N6zby1epMlwqFq2F3wTNVRPE
-Message-ID: <CAGsJ_4w9eTngW4TbqhmgDgCW6ugd=3Thq+u8ufqJ1WX-c_4p=A@mail.gmail.com>
-Subject: Re: [RFC PATCH v1 1/2] x86/mm: use VMA lock for kernel faults on user addresses
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, surenb@google.com, liam@infradead.org, 
-	vbabka@kernel.org, shakeel.butt@linux.dev, david@kernel.org, 
-	linux-kernel@vger.kernel.org, zhanghongru@xiaomi.com, willy@infradead.org, 
-	zhangbo56@xiaomi.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: xiaqinghuan@mail.ustc.edu.cn, tglx@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,47 +87,58 @@ X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Aug 4, 2026 at 10:46=E2=80=AFPM Lorenzo Stoakes (ARM) <ljs@kernel.o=
-rg> wrote:
-[...]
-> > >
-> > > And finally - Willy is working on a grand clean up of this stuff _I t=
-hink_ so
-> > > you probably should coordinate with him also?
-> >
-> > I have no problem waiting for Matthew's work. It is the right
-> > thing to refactor the duplicated code across architectures for
-> > the VMA lock page fault path.
->
-> Seems sensible thanks!
->
+On Sat, 24 Oct 2026 08:58:56 +0100,
+Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn> wrote:
+> 
+> From: Xu Qianhui <xiaqinghuan@mail.ustc.edu.cn>
+> 
+> When a kernel is kexec'd into while LPIs are enabled, the incoming kernel
+> finds GICR_CTLR.EnableLPIs set and tries to re-initialise the LPI tables
+> from scratch.  That requires disabling LPIs first, which is not always
+> possible: on some implementations (e.g. Qualcomm SM8750) the EnableLPIs
+> bit is RES1 once set, the write to clear it is ignored, and
+> redist_disable_lpis() returns -EBUSY.  its_cpu_init() then bails out
+> early, LPIs are never reprogrammed, and every MSI command queued against
+> the ITS waits for its completion timeout: measured 99 timeouts of about
+> 1.25 s each, pushing /init out from 1.3 s to 126 s.
 
-I'm not quite sure when Matthew's cleanup series will be sent.
-Matthew, what's your plan for this?
+But you're missing the point. *nothing* works at all, and this has
+nothing to do with the command queue. Everything is dead.
 
-Maybe we should send RFC v2 of this series on using per-VMA
-locks for kernel faults on user-space addresses to collect
-feedback across different architectures? RFC v1 only included
-demos for two architectures.
+> 
+> The tables themselves are still intact and usable, and the driver already
+> has a path for that (RDIST_FLAGS_RD_TABLES_PREALLOCATED), but it is gated
+> on the tables being reserved memory.  On an EFI boot the outgoing kernel
+> records a persistent reservation; on a DT boot nothing does.  Adding a
 
-We may need feedback from architecture maintainers to confirm
-that we're correctly checking for page faults triggered by
-kernel-space accesses to user-space addresses.
+What makes you think that EFI and DT are incompatible? 90% of my
+machines are DT based and yet boot with EFI.
 
-I also think the cleanup series might need to take this
-requirement into account. So, even if the cleanup series hasn't
-been sent yet, it might make sense to discuss these changes in
-parallel=EF=BC=9F
+> memreserve entry is not an option either: the flattened DTB handed over by
+> the bootloader has no space left for a new one (-FDT_ERR_NOSPACE), and
+> kexec clones that blob when the image is loaded, long before the jump.
+> 
+> So claim the inherited tables in the incoming kernel instead: reserve the
+> property table while LPIs are being probed (memblock still owns the pages,
+> well before memblock_free_all()), and the per-CPU pending tables when the
+> preallocated path is taken.  The preallocated path is then selected
+> normally and the ITS keeps working across the handoff.
 
-Another suggestion I made earlier [1] was to wait for the writer
-to finish and then retry acquiring the VMA lock, rather than
-falling back to mmap_lock when lock_vma_under_rcu() fails on
-the first attempt. I guess this is also something to take into
-account when working on the cleanup series?
+No. This is way too late, and nothing guarantees that these are not
+already used for other purposes by the new kernel. I'm not interested
+in something that only has a statistical chance of working. Either it
+works always, or it doesn't at all.
 
-[1] https://lore.kernel.org/linux-mm/CAGsJ_4wXGf90BMoJp3_z8G4fMTAgED88RXvbp=
-6C4Gf+iy_2nvg@mail.gmail.com/
+The only sane ways to do this is to either use EFI, or to configure
+the LPI tables from the bootloader, reserving them at boot time by
+sticking the reservation in the DT. They are then preserved along the
+whole of the kexec chain. That's what sane platforms do, and this is a
+long enough established practice.
 
-Best Regards
-Barry
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
