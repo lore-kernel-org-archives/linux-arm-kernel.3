@@ -2,87 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D99F606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 20:23:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9F99606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 20:23:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oDEhPyLF;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=OX+DZWao
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YUtLTKx6;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=nYpoGsod
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=quBdTCWmyLOutiiqlKg+zE0eUur6E5vFRS0ZQQJBF/Y=; b=oDEhPyLFdkUlLI
-	FULu+AGf/mws3Re2QBNC0zlp1GaQAM4MiVnSxome0c8SWFa94PycdzRM+gbB5NaCKLueM4ogvNEhb
-	RNk7CYgS1pOgxkfopd3IGklEB6WH0xkV94zuhKRAsdtpmV00DychgNLCwKmZgSySWdvEsZA5zeSeE
-	fp1nopXsdlxtNtgXqZ6Phq1RNprUVuU/y93WIw241wTBkS6eJ/ZNz88ZLJ/uyyWyHP4QwflwySeuk
-	0Ap7dCTfG3tfoQ3Y/HbERxJwM8ggoYTNTQeTe1OBDfuFhTygrx63KQD9zazmU3dEFbwHWW8GIhDJh
-	mXw+kR+g6RjLcG9Hn65g==;
+	List-Owner; bh=YTxJJJ8fbTcAU9VqNhqp+UqN8RZ1Zq5MlC0xiBzcrfM=; b=YUtLTKx6oyqqTX
+	L08NSyRwZSpLlVYigkeiciJNUIC9RLbhAlHXFgKiT6r4WeyeHXugdn2pJ72OfnuXW5QS7ZmsNKkig
+	ibdKfnOAy7EtJxVABKNJ5Id4O56QOJx7enADmEDv8A3qPJ30rkhqI9auvxsr1nEI51V1IaRo7Hd7d
+	lROu/WKQCuoGTJMz7wh/dFpQwoWwV/8LMmMALj/DvI/QtowZ+5d6UAmDLdZw4dkWb2MsxaWvAWaiA
+	k1jEEXvtgfFtIUFDKwXP3Q2QwnzvgeymJrQv9SIT6uo/+qLShVXQVRzIKbw/XBHmOiIr2ORZw6eJW
+	SWjlJwq9mmiWes1868fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKiGK-00000000V5W-39iX;
+	id 1xKiGK-00000000V4y-22og;
 	Sat, 24 Oct 2026 20:22:44 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKiGF-00000000V3G-1T2P
+	id 1xKiGC-00000000V25-1yNH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 20:22:40 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-81ba09a5d23so2339261a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 13:22:38 -0700 (PDT)
+	Sat, 24 Oct 2026 20:22:37 +0000
+Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-81ae6aefdceso1603447a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 13:22:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792873358; x=1793478158; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792873355; x=1793478155; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=quBdTCWmyLOutiiqlKg+zE0eUur6E5vFRS0ZQQJBF/Y=;
-        b=OX+DZWaoH3VkxfJv8UgZ3LGqqSe59JXF6giiFx/KhaPbXCFynkv7hjG3JY8tnjhGoY
-         bfExkawbGOKmF70y3o6I0QA9ni9WSaK2yAdwVeptFSbDUIAtW+3B8cFidLXEjQrMWepw
-         T/VdLmXNRenzehtm5fUN6uth4hUicmRljj9ICy97ys8exyc79JGvlUOTGckX/Pqk2nhO
-         CD8vnWgrvmDCJeY0iK5xhot0LWeygaoC06M4t9/PrfA3KszssA9WTiBGBW9kEq8HjEcj
-         d4tky/T/HYRfnbnnTgvfXehTkH6HTZANqhhMEjVJBS3r+U8+4z+E+enwdZi5rExMe9uY
-         pYCA==
+        bh=YTxJJJ8fbTcAU9VqNhqp+UqN8RZ1Zq5MlC0xiBzcrfM=;
+        b=nYpoGsodiDPXgBWQC/NX8KQ1aO3OcxhnzPTQ9FTWUGoZ+UzxY3+nXLyId9FxHFoDtE
+         JtmnPEUQArTIQ1EyEVccxCJAcJBTeGGbbw0ra4A1TPmlf12YLtbplKTTpKM7AvpKbZ5t
+         KlQeNjNzx9lAglhlhgWFIgzSakaI8YZZlrYnkYONi31VoCScWE9MGGEA0I4p7ZckIrS1
+         hgIhZx0tyTY7UkDW4scyoAgJOy19TvoGl/180djuprrWQYWSZ4M5PAVgQk17PFZOz0Ux
+         saBraKfxOsfR/glU6wUi4Jm/mrZhveXTYgZsfvdSwsgT+fhq3O+l2yhXfJQcyfC77HJM
+         l8Aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792873358; x=1793478158;
+        d=1e100.net; s=20260707; t=1792873355; x=1793478155;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=quBdTCWmyLOutiiqlKg+zE0eUur6E5vFRS0ZQQJBF/Y=;
-        b=beRlA13qIQPuPVexgeRYnF2ZgL83TChJnMDGfF7p7Qb4q4wMe9ncrbzoWJjiyeYS9x
-         mznVxdoYK70gcnwYBK3dMypgbO07GihH0Hlqks6CbMWUVCmN1/J3TstxUvng3JBNCcz8
-         GRhx0eOuXpCtTsy+c1wGJcWUl/PYqlKckatNwZo+3ZnaTKbfm+cGrZ2tWwk+ep3icWk2
-         Kj28qNYTC/B+D92ZKwLDv/gX9/7ojHsgcDRlOleiMXNqDLOnkvWfg7JAcAPEjgWhjcTD
-         lLGBcv0IbKFXNkQMJqDpeiIiyl0ityoY+EABzZzMR+f6XNfk2i2rlmx8Xv58IdA2uxJP
-         Jbrw==
-X-Forwarded-Encrypted: i=1; AKwUvBzev+gHq+NtWB5wmLzbmdZpTpCWIfJS2soUbY70LqiWxQRbKt3G7WHFCkPlY6VtkymsVlgVuWM7jMAAADndXOMM@lists.infradead.org
-X-Gm-Message-State: AFq9FYKW4Im6fHriDZXbZZSOzOO8pbknZtQUX3FyND6nb+mYP5wjLTiR
-	8xUZi1uuGO5h2MPjc7LlrhO75kacAKt9twnxOo0YnMcYAjRx+N6P7piv93X+Mz4d
-X-Gm-Gg: AYBFou3Lc71dxYWrPYBM6a/FJQeuPNAoGDQjUSmVMeoIOIFnNNpnB6hAJrC0Gt2tB7k
-	V/gTA34twdizmICBvHB2Q7i+DpGffcA+i9rh4bFkB58GC7uNjGs2tMJ4XaF0ydvFuMqQsZGJ92/
-	4Rd9jvCBnr5txTHD3VnLzW1dDemauEDEoSRJQMGUJMgil30gbiEmP7MnMFe1U5516lU5I0P8nhA
-	7ZuGhza5dha+TKQZD24cBzI4JGHlhliF/RpQ6kwNxNahFgpzeiajQ2GM/XL2JuuiLfzG4ttLXKy
-	6s8d2mymr4tTVia5rdaB+V89PGeUyNIwv0rG99Ouzlycl5GHe18epS/qFPLebt37ucFyHwgc0lT
-	UrIygoT2UnlsVFW9j97Clr6bXYZFroRfwOIuVpjd6Pkk7ETiJXgA+lZr6sRghJqwZ2VMKH6OiSr
-	sqIveCYDgJ/Vi4RGwuPRexU0wcFFuU7/GVKqzdiHb8yWK5pTjqh2q50TFeLthOmyaxkoTfcq6Wh
-	YqGu2cVWBcXpary+bXvRKCHnoR9nkxlGAGfITtinxvRN5ISTT4zOIY5+y+LVx/WbNes469EECoi
-	S+lOZ29ounVZ8ubZsDOW8W9mhLYzC2NlTfAbSk6GHrILLdWpJOAzOB6BiNyPNy58V3JF8wQAWRV
-	wX7I50EVunNocRyxIucv5cbA0fIwl48hNkAzK/p4XoAOuDozCOh34r8DezA+YUSBz7DMkrsa8gM
-	MOCi5DZX63vRxbONegggCtO5b2
-X-Received: by 2002:a05:6808:1982:b0:4f4:3790:65fd with SMTP id 5614622812f47-55c002b7e97mr1918256b6e.29.1792873358250;
-        Sat, 24 Oct 2026 13:22:38 -0700 (PDT)
+        bh=YTxJJJ8fbTcAU9VqNhqp+UqN8RZ1Zq5MlC0xiBzcrfM=;
+        b=M8uTcjOvHKIU7EH7z/6bfpOLIDPlX7tD7xJKMF8iZ/FghRDBxI9SRZ2N7CR8/FdvW3
+         EB8B5//u7IvKWPUQC9+YerL1su2gruORr/1LvnPWV8RFYpv/XZLlDQfUeIMUWlvhlygs
+         HTrpPKtkyFLl33eqh+F8yDAbAmir3n8wipsFgFa8LE6H8Fe2T5j8kTOE1c2iV7kHnYju
+         E+EMsibubJuB/gxV2BEW/FKXrRRi/tpOW+f+zInQVCGz76mq71CKlxFQ+4D5uWpHN3YF
+         LX9Q8VOYq9HgqG0+nh0SwXdubeIXwrOokH8ViDrbIekEn0RT1r4JRcLNa00PxlY3S5K0
+         bHsw==
+X-Forwarded-Encrypted: i=1; AKwUvBw1xEs+yhg3YpXOBwtsswJUnnm7ubCWcxsLXxuyiehipOzzAYhIluT/6VZy9BYofnQKKrVZ5xcCHPuUJmVl1+Qd@lists.infradead.org
+X-Gm-Message-State: AFq9FYKgmyJa/7OihAvl0SwpWqKT/SIqYL+rZqObg7jgiQZJX7sUCwt/
+	Q0YmEdayDXZXuzSC38di/RZuB99cmFaU/K/KCmDAcEZ4m8/6Q7//meZHT8e0swJV
+X-Gm-Gg: AYBFou0//tO2rxvyCDufsw/VTW3zwfiRCC0vVDYKDmKhtsEbUR1Scv6fIKFBiUljmwO
+	MmlN8TFsSKVOcWfh3nlE52svUdPPkNmkp/Zwtzn1MWYUQLYlmmxBc2mZsH3uJwuH81L9doZU1xY
+	oG6s5B03xfl+4UzX3Q7sNstjQzre+R86WTrAdRFm0qjlO6ZtbaGHYUOTcshy+yP8Ztu5nmTE+ag
+	Mt8V74TVas5seNq8zsr+1l/tA4gfnwbXj5bs7ClP4qoWfZF6gJrpRVFO8IEpfDwYjuslyux3Bq2
+	cDoohyYpq1BB1qXa2vcsp/nzeqiFHLKnevfH7qrq83rx+rrwkASsr5eO41XRrOrhY6AtJgE0Hhy
+	ZfsieeeIkqAco/OuskUjpTjycpb/cn0RLEXtBnwV53u6C98BwqwQg9I1rPKtKiaccriTHZeUiQQ
+	LyJkQJ/dV3ZI7cWur1HPaf1Ma/2EdiEUoSLDODvKd1HzZXOrMTVMzXo5oylEEGmrpwGnnYQo+Rm
+	5gRH86cMrzKN/F3Jn9PEF3OrclC7pOXFWw3I7RBntqaV73fyO42tHe+dXmuIUBZQyu3NHWRSQel
+	Qn5qU6lpedKw7GI0Byflt9Gf2pvfF7H57axxXCUtNKL+10wQ5arg7cW/dpL8SH1Hmu2yWYzH0QN
+	VC7xSeB9ZRb71v7sLfNLPljUaXs/UVGnxSlvjneNTqYLzeFVpnIgHujM/WqbeAUkmLDWhFpu4m8
+	StsrTV/3VWf93etmD77l3ycvgB
+X-Received: by 2002:a05:6808:1786:b0:4ec:d521:9124 with SMTP id 5614622812f47-55c002e11f9mr2173304b6e.30.1792873355240;
+        Sat, 24 Oct 2026 13:22:35 -0700 (PDT)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-55c0424775dsm1815063b6e.5.2026.10.24.13.22.36
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-55c0424775dsm1815063b6e.5.2026.10.24.13.22.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 24 Oct 2026 13:22:37 -0700 (PDT)
+        Sat, 24 Oct 2026 13:22:34 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Sat, 24 Oct 2026 14:22:25 -0600
-Subject: [PATCH v3 3/4] serial: 8250_dw: configure the Allwinner H616 UART
+Date: Sat, 24 Oct 2026 14:22:23 -0600
+Subject: [PATCH v3 1/4] serial: 8250_dw: select port setup through platform
+ data
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261024-submit-h616-uart-fifo-v1-v3-3-286fc1b8c3c1@gmail.com>
+Message-Id: <20261024-submit-h616-uart-fifo-v1-v3-1-286fc1b8c3c1@gmail.com>
 References: <20261024-submit-h616-uart-fifo-v1-v3-0-286fc1b8c3c1@gmail.com>
 In-Reply-To: <20261024-submit-h616-uart-fifo-v1-v3-0-286fc1b8c3c1@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -98,8 +99,8 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  linux-sunxi@lists.linux.dev, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261024_132239_408892_AB5C1A4F 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20261024_132236_526199_32FA0BB5 
+X-CRM114-Status: GOOD (  18.24  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,146 +120,161 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-H616 has 256-byte transmit and receive FIFOs, but its optional DesignWare
-component parameter register reads as zero. Generic 16550 probing leaves
-the port using the 16-byte FIFO configuration and its trigger-level table.
+Select feature discovery and DMA attachment through a platform-data setup
+callback. The generic callback probes the optional registers and attaches
+DMA when a FIFO size is available. Integrations with a fixed configuration
+can supply their own setup before the port is registered.
 
-Keep PORT_16550A and preserve the FIFO size read from firmware by
-uart_read_port_properties(). Use it for the transmit load and derive the
-receive thresholds from the documented 1-byte, quarter-full, half-full
-and FIFO-depth-minus-two mapping. On H616 these are 1, 64, 128 and 254
-bytes; the normal 16550A half-full FCR setting selects 128 bytes.
-
-Serialize trigger changes with termios and hold a runtime PM reference
-while programming FCR, preserving the FIFO contents. Propagate runtime
-resume errors before changing either the FCR shadow or the hardware.
-
-Advertise automatic flow control so CRTSCTS enables MCR.AFCE. The
-DesignWare termios path selects hardware CTS handling, so the capability
-must be present for the corresponding hardware control to be enabled.
-
-Select the fixed configuration through the platform setup callback.
-H616 has debug-divisor and RS485 control registers at the offsets used to
-detect DesignWare hardware RS485 and fractional-divisor support. Avoid
-those probes and retain the BUSY-safe integer divisor hook and software
-RS485 handling.
-
-Use the existing SKIP_SET_RATE quirk to keep the UART clock enabled during
-termios changes. Its clock is a gate on the shared APB2 source, rather than
-an independent baud-rate generator.
+Replace skip_autocfg with the Octeon setup selection. On 64-bit builds,
+Octeon continues to skip optional-register probing while retaining its DMA
+setup; on 32-bit builds it retains the generic setup. Keep generic setup
+for devices without matched platform data as well.
 
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/tty/serial/8250/8250_dw.c | 75 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 75 insertions(+)
+ drivers/tty/serial/8250/8250_dw.c | 48 +++++++++++++++++++++++++++++++--------
+ 1 file changed, 38 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
-index 9c171c5775a6..557832254c37 100644
+index eca02e8bd6d1..9c171c5775a6 100644
 --- a/drivers/tty/serial/8250/8250_dw.c
 +++ b/drivers/tty/serial/8250/8250_dw.c
-@@ -19,6 +19,7 @@
- #include <linux/io.h>
- #include <linux/lockdep.h>
- #include <linux/module.h>
-+#include <linux/mutex.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/property.h>
-@@ -648,6 +649,73 @@ static void dw8250_setup(struct uart_port *p)
- 	dw8250_setup_dma(p);
+@@ -64,6 +64,7 @@ struct dw8250_platform_data {
+ 	u8 usr_reg;
+ 	u32 cpr_value;
+ 	unsigned int quirks;
++	void (*setup)(struct uart_port *p);
+ };
+ 
+ struct dw8250_data {
+@@ -76,7 +77,6 @@ struct dw8250_data {
+ 	struct clk		*pclk;
+ 	struct reset_control	*rst;
+ 
+-	unsigned int		skip_autocfg:1;
+ 	unsigned int		uart_16550_compatible:1;
+ 	unsigned int		in_idle:1;
+ 
+@@ -595,7 +595,6 @@ static void dw8250_quirks(struct uart_port *p, struct dw8250_data *data)
+ 		p->serial_out = dw8250_serial_outq;
+ 		p->flags = UPF_SKIP_TEST | UPF_SHARE_IRQ | UPF_FIXED_TYPE;
+ 		p->type = PORT_OCTEON;
+-		data->skip_autocfg = true;
+ 	}
+ #endif
+ 
+@@ -630,6 +629,25 @@ static void dw8250_shutdown(struct uart_port *port)
+ 	d->no_int_count = 0;
  }
  
-+static unsigned int dw8250_sunxi_rxtrig_bytes(struct uart_port *p, unsigned int trigger)
++static void dw8250_setup_dma(struct uart_port *p)
 +{
-+	switch (trigger) {
-+	case 0:
-+		return 1;
-+	case 1:
-+		return p->fifosize / 4;
-+	case 2:
-+		return p->fifosize / 2;
-+	default:
-+		return p->fifosize - 2;
++	struct dw8250_data *data = to_dw8250_data(p->private_data);
++	struct uart_8250_port *up = up_to_u8250p(p);
++
++	/* If we have a valid fifosize, try hooking up DMA */
++	if (p->fifosize) {
++		data->data.dma.rxconf.src_maxburst = p->fifosize / 4;
++		data->data.dma.txconf.dst_maxburst = p->fifosize / 4;
++		up->dma = &data->data.dma;
 +	}
 +}
 +
-+static int dw8250_sunxi_get_rxtrig(struct uart_port *p)
++static void dw8250_setup(struct uart_port *p)
 +{
-+	struct uart_8250_port *up = up_to_u8250p(p);
-+
-+	guard(uart_port_lock_irqsave)(p);
-+
-+	return dw8250_sunxi_rxtrig_bytes(p, UART_FCR_R_TRIG_BITS(up->fcr));
-+}
-+
-+static int dw8250_sunxi_set_rxtrig(struct uart_port *p, unsigned char bytes)
-+{
-+	struct uart_8250_port *up = up_to_u8250p(p);
-+	unsigned int i;
-+	int ret;
-+
-+	/* Use the nearest lower threshold, as the generic 8250 implementation does. */
-+	for (i = 1; i < UART_FCR_R_TRIG_MAX_STATE; i++)
-+		if (bytes < dw8250_sunxi_rxtrig_bytes(p, i))
-+			break;
-+
-+	guard(mutex)(&p->state->port.mutex);
-+
-+	PM_RUNTIME_ACQUIRE_IF_ENABLED(p->dev, pm);
-+	ret = PM_RUNTIME_ACQUIRE_ERR(&pm);
-+	if (ret)
-+		return ret;
-+
-+	guard(uart_port_lock_irqsave)(p);
-+
-+	up->fcr &= ~UART_FCR_TRIGGER_MASK;
-+	up->fcr |= (i - 1) << UART_FCR_R_TRIG_SHIFT;
-+	/* Changing the trigger alone preserves the FIFO contents. */
-+	serial_port_out(p, UART_FCR, up->fcr);
-+
-+	return 0;
-+}
-+
-+static void dw8250_h616_setup(struct uart_port *p)
-+{
-+	struct uart_8250_port *up = up_to_u8250p(p);
-+
-+	p->type = PORT_16550A;
-+	p->flags |= UPF_FIXED_TYPE;
-+	up->tx_loadsz = p->fifosize;
-+	up->capabilities = UART_CAP_FIFO | UART_CAP_NOTEMT | UART_CAP_AFE;
-+	p->get_rxtrig = dw8250_sunxi_get_rxtrig;
-+	p->set_rxtrig = dw8250_sunxi_set_rxtrig;
-+	p->rs485_config = serial8250_em485_config;
-+	p->rs485_supported = serial8250_em485_supported;
-+	up->rs485_start_tx = serial8250_em485_start_tx;
-+	up->rs485_stop_tx = serial8250_em485_stop_tx;
++	dw8250_setup_port(p);
++	dw8250_setup_dma(p);
 +}
 +
  static int dw8250_probe(struct platform_device *pdev)
  {
  	struct uart_8250_port uart = {}, *up = &uart;
-@@ -870,6 +938,12 @@ static const struct dw8250_platform_data dw8250_dw_apb = {
- 	.setup = dw8250_setup,
+@@ -765,14 +783,11 @@ static int dw8250_probe(struct platform_device *pdev)
+ 
+ 	dw8250_setup_dma_filter(p, data);
+ 
+-	if (!data->skip_autocfg)
+-		dw8250_setup_port(p);
+-
+-	/* If we have a valid fifosize, try hooking up DMA */
+-	if (p->fifosize) {
+-		data->data.dma.rxconf.src_maxburst = p->fifosize / 4;
+-		data->data.dma.txconf.dst_maxburst = p->fifosize / 4;
+-		up->dma = &data->data.dma;
++	if (data->pdata) {
++		if (data->pdata->setup)
++			data->pdata->setup(p);
++	} else {
++		dw8250_setup(p);
+ 	}
+ 
+ 	data->data.uport = serial8250_register_8250_port(up);
+@@ -852,16 +867,23 @@ static _DEFINE_DEV_PM_OPS(dw8250_pm_ops, dw8250_suspend, dw8250_resume,
+ 
+ static const struct dw8250_platform_data dw8250_dw_apb = {
+ 	.usr_reg = DW_UART_USR,
++	.setup = dw8250_setup,
  };
  
-+static const struct dw8250_platform_data dw8250_h616_data = {
-+	.usr_reg = DW_UART_USR,
-+	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
-+	.setup = dw8250_h616_setup,
-+};
-+
  static const struct dw8250_platform_data dw8250_octeon_3860_data = {
  	.usr_reg = OCTEON_UART_USR,
  	.quirks = DW_UART_QUIRK_OCTEON,
-@@ -931,6 +1005,7 @@ static const struct dw8250_platform_data dw8250_tda54 = {
++#ifdef CONFIG_64BIT
++	.setup = dw8250_setup_dma,
++#else
++	.setup = dw8250_setup,
++#endif
+ };
+ 
+ static const struct dw8250_platform_data dw8250_armada_38x_data = {
+ 	.usr_reg = DW_UART_USR,
+ 	.quirks = DW_UART_QUIRK_ARMADA_38X,
++	.setup = dw8250_setup,
+ };
+ 
+ static const struct dw8250_platform_data dw8250_renesas_rzn1_data = {
+@@ -876,16 +898,19 @@ static const struct dw8250_platform_data dw8250_renesas_rzn1_data = {
+ 		     DW_UART_CPR_DMA_EXTRA |
+ 		     DW_UART_CPR_FIFO_MODE_FROM_SIZE(16),
+ 	.quirks = DW_UART_QUIRK_CPR_VALUE | DW_UART_QUIRK_IS_DMA_FC,
++	.setup = dw8250_setup,
+ };
+ 
+ static const struct dw8250_platform_data dw8250_skip_set_rate_data = {
+ 	.usr_reg = DW_UART_USR,
+ 	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
++	.setup = dw8250_setup,
+ };
+ 
+ static const struct dw8250_platform_data dw8250_intc10ee = {
+ 	.usr_reg = DW_UART_USR,
+ 	.quirks = DW_UART_QUIRK_IER_KICK,
++	.setup = dw8250_setup,
+ };
+ 
+ static const struct dw8250_platform_data dw8250_ultrarisc_dp1000_data = {
+@@ -895,11 +920,13 @@ static const struct dw8250_platform_data dw8250_ultrarisc_dp1000_data = {
+ 		     DW_UART_CPR_DMA_EXTRA |
+ 		     DW_UART_CPR_FIFO_MODE_FROM_SIZE(32),
+ 	.quirks = DW_UART_QUIRK_CPR_VALUE,
++	.setup = dw8250_setup,
+ };
+ 
+ static const struct dw8250_platform_data dw8250_tda54 = {
+ 	.usr_reg = DW_UART_USR,
+ 	.quirks = DW_UART_QUIRK_SKIP_EMPTY_FIFO_READ,
++	.setup = dw8250_setup,
+ };
  
  static const struct of_device_id dw8250_of_match[] = {
- 	{ .compatible = "snps,dw-apb-uart", .data = &dw8250_dw_apb },
-+	{ .compatible = "allwinner,sun50i-h616-uart", .data = &dw8250_h616_data },
- 	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
- 	{ .compatible = "marvell,armada-38x-uart", .data = &dw8250_armada_38x_data },
- 	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
+@@ -918,6 +945,7 @@ MODULE_DEVICE_TABLE(of, dw8250_of_match);
+ static const struct dw8250_platform_data dw8250_apmc0d08 = {
+ 	.usr_reg = DW_UART_USR,
+ 	.quirks = DW_UART_QUIRK_APMC0D08,
++	.setup = dw8250_setup,
+ };
+ 
+ static const struct acpi_device_id dw8250_acpi_match[] = {
 
 -- 
 2.53.0
