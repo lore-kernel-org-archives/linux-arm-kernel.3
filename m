@@ -2,82 +2,115 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AFCF606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 05:36:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CE12606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 06:41:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=38p7u+gP;
-	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=prTvNw0e
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DjPDdgU1;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=EpyDMWxG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=MiVht9ym0EURv1bddnJJbI5enBTslXQ1JEWYlf28Cto=; b=38p7u+gP2yHI8M
-	2NLni1MpZ1bnkV4APMtmla/vpgRV5tQwDOsCURSoT2SRHeNmzWBkC1AHs8H8YAeCPAg1pDDTwF7tq
-	m4YjffyUVh7+Z1wp1R9C9uUb/8qI2jd2HtkHOMo0v80sDIHE+UPuCTJ+gNILcPDDOPn68fRytrnLg
-	CltfQO+uQgoHWrfz5vqaDlQ9gKmD/HtKbPzyvdsumYOc8ZUO7K/zQ8ghDtFQV4xt6HGJKP4xDtBXJ
-	/kPO+Kz1Bvth0ZnULSdSAdlVkHdI089ZOyrLEdX3iR2cGsJ5WbIZXv9X2XJs6pQIyTToBIGLoyeDh
-	h9te+gKRd2jHM/79MQ4g==;
+	List-Owner; bh=vTCI+nDxJukp6A5kK1BpAWHpCDcT464wzBcHkx0Jj0Y=; b=DjPDdgU1/Z4SLP
+	SkWFY35L3oyTtjBI74JRBiYpagJnLtQ18Zf3vV64n3860m+1CPmOSpyMJqgDjN85rOJBFD0TaPTTS
+	F4yADMhIA592KFLDCM+TyAL9S6vF10imPKvhZ2RbUb6IwFSnud3V+pp38ZWrCNGT2lXNWAd/TnuUq
+	/zyxhom00/3htXn1ZX6w7tPOEybOwR0Y1v+qrwdpgJNcA+kDonOCDGi6QDEKOHosIu/8PZpcfBV87
+	mnH+9dQODuNH0vmWIuLxW5L0W0AzYJZTlMw9IL70F5h3TUBNgPqXrpZduQj9j36iwD2l0kX+nL6M/
+	W247WcNRH1bbtzAF3ovg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKUPV-0000000HSpa-369M;
-	Sat, 24 Oct 2026 05:35:17 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	id 1xKVR4-0000000HV7w-3eTh;
+	Sat, 24 Oct 2026 06:40:58 +0000
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKUPT-0000000HSor-3Bhe
+	id 1xKVQy-0000000HV5e-1hFD
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 05:35:17 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4jBT9m5Z5pzKnCD;
-	Sat, 24 Oct 2026 07:35:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1792820108;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MiVht9ym0EURv1bddnJJbI5enBTslXQ1JEWYlf28Cto=;
-	b=prTvNw0enYprIWmGhaUdr7P6UZhA+faYgPuaALUaN5kRnUv5IOQZXOpqRtooY2lDAjCSP1
-	7Vpi3t81dZta8GKCcNAj+qBQ0oEuqO/ft8xClKZvXGUHAhg0CJ00xyLWulOlIDLn5TWZ9z
-	rDxV8v0zN3isDvgThk8CJ3jZflJPxvmniS2D8z3mmiGWcYm+LRy+x7exPXgqV7lH0nlcXG
-	DHPRW36n+VLby7NhHJo76mMt838CfUfpE9XO91XL35NNk7dKNcS12AUoi0d03MzkXcG9V3
-	hNgIUS+wSCdgRbsqH/iprgRu10tHbIQMu11ZPjV5QlYEix+YxjnTh2vqceqfmg==
-Message-ID: <d870c163-8d90-48c0-bae0-5f6e0e38c5bc@mailbox.org>
-Date: Fri, 23 Oct 2026 22:51:33 +0200
+	Sat, 24 Oct 2026 06:40:53 +0000
+Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-82380b0f55dso638247a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 23:40:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792824051; x=1793428851; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vTCI+nDxJukp6A5kK1BpAWHpCDcT464wzBcHkx0Jj0Y=;
+        b=EpyDMWxGyb6LJVeOCL4p6v6/Cx2mA15KopyUWMQFY6K/Ld6yxQqHjNtYB6vOg0Eue2
+         3yoXZidH/IBqYSPJBJ6QJ2xgmBEphebLCzIrmQ2C3CxoTZ/FUP7BgyZ/hZTMAEzorYft
+         ohbgI+7tJzdXqB8QH3uoYzbfTO97zuhhwGHXoz8NnANkAggla3lMVYswmCDEHuEK6Boq
+         P59QBsLyKCQGsvrpjzK+Ztvrt+9uFVeuHFuv9/ojd34KZYonq7RSky5xy4haa0togku/
+         iV8mbnj1q2P1osYovOwoOZLhNZq0fcWqjPKnmpZMVcZLxCSLO5V5td29HmIxHHpUIz55
+         KVVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792824051; x=1793428851;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vTCI+nDxJukp6A5kK1BpAWHpCDcT464wzBcHkx0Jj0Y=;
+        b=Osq1bbpXU+FJd/JPOJEXv8gI+9sKJJt3xhiVemW39HY8sn3PoCX0hKFzmrIWJaQTF7
+         SZJHuqtHzfg34kVksa5PGa1BZF7BPtsy/tiVTGCKGHSpkFMKV3ChOt4N9vgRAcjfxvdm
+         8rydZiZDxSb/dWdT0tapjdAJd7Qgnvzx4M141FwxhAESZaNxdyGscbJbT5jdEQ1q/O7e
+         hB66FnDyPmJtYcdTJLN0AVx6GwQHb/jy8G4VuEYP5f94O1cSB+PFVBYmcub+qbmxyxNX
+         AEMveJpP/+AB4TDexKORmKo6daMem+f0vWCM1ESlr0rKp2r+GJ3dcfCBHwYiC7kNHF+u
+         vpCw==
+X-Forwarded-Encrypted: i=1; AKwUvBzkOsqZFVEv1XwNl2L1TCkayn9voXP5AIcOCrAC8GzJGweIKFDYs1nlZmZQxaA34HeNfAlNjxPZnKQipFHkdsbu@lists.infradead.org
+X-Gm-Message-State: AFq9FYJvnJqOqMHru1xIVHhIzu3ZvN3ATvAcKZIrTw+RiWsaMguwLCc3
+	4eFG/YOmPQNQTF1ECcK00IUFgsut/NQENjwHGu0k3usDbSxTUtunrNR0
+X-Gm-Gg: AYBFou0A5caW+k8u/EczkM9RIx3hliuUdAHiCrQI+XukGzzU994x+ORxLMYLG9YYtxc
+	/55RfSEhLr/rPNagiiTpwPeX8nmecbsuKb4AF9pM3XYLtyRxAnwAJz81eh4EBONCVgPORqiXVps
+	hA6rLRiTASg8zIDox9w0HChC90gw0WdfiOz2GRhHRgBN86oEWyk7OU9YRe1pSz1kiS8Ie9sCC/g
+	pXaN151uFSV/Lp/Rn7XYjhEynJeUvHFOeGVdcUYLfGON9sOe6Whur1rKo73FrC8zno4aB5rCtDE
+	23ZeaLS6rTcLIe4d40UNtWa8XOoF3/13DWEAiUx6bwjVPt9I/7bAJYNT9RIT6kWt9PAXME2kXKD
+	unDqrYcZjcZXEpFEQmFRmsyJ9GXmQpdObHxvWk196bLbHBpibm3BYqtGQKCUZ5YCtgyfLsvDUa2
+	WySQIiqerJM7UEctp4KyTU4s5I/r6fVKA4mgy5042Lhtq8a/20fReu/HYlBJGqXqj6inxXr7+qL
+	dEXdYhaMXx7/N9wr9LYB+ROmp59KYv1B5ciUQRFTUYmYg925QX8WXeD1XCUsc2lPPQN5nguGNxT
+	xA0zTCJBHfHt0XpnSfUeJ/z98OWT6Ip5SFl57BnEkWAuPpo/ykmmAnElK1Zbt4PaPO+PYjlBM2c
+	BM5q1POH7WnvdpBhmsR88hfOD6ZGlRBvfljSo8GqPuGa9GPHKNw2A1TSS2FyyL+1rmCx66TUsAW
+	pfTKmWzPVcTJ4/C7cbKGktQ+Y=
+X-Received: by 2002:a05:6808:4fe3:b0:4f0:1f76:8ca0 with SMTP id 5614622812f47-55c003e9dbbmr788058b6e.56.1792824051160;
+        Fri, 23 Oct 2026 23:40:51 -0700 (PDT)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-55c0429c56asm864633b6e.9.2026.10.23.23.40.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 Oct 2026 23:40:50 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Sat, 24 Oct 2026 00:40:40 -0600
+Subject: [PATCH v5 1/5] serial: 8250_omap: separate locked TX DMA
+ completion processing
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/7] arm64: dts: renesas: r8a78000: Add GPIO controller
- nodes
-To: Geert Uytterhoeven <geert+renesas@glider.be>,
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Magnus Damm
- <magnus.damm@gmail.com>, Ulf Hansson <ulfh@kernel.org>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-pm@vger.kernel.org,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-References: <cover.1792776697.git.geert+renesas@glider.be>
- <f9de8214043ad4c8748fadce7fd2cc2fa95b1291.1792776697.git.geert+renesas@glider.be>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <f9de8214043ad4c8748fadce7fd2cc2fa95b1291.1792776697.git.geert+renesas@glider.be>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: 67d5bdyjkzczox9iyuyt8upuxs5tyx3t
-X-MBO-RS-ID: a841861d307c1214dd9
+Message-Id: <20261024-submit-serial-8250-dma-cancel-v1-v5-1-9e52968928d2@gmail.com>
+References: <20261024-submit-serial-8250-dma-cancel-v1-v5-0-9e52968928d2@gmail.com>
+In-Reply-To: <20261024-submit-serial-8250-dma-cancel-v1-v5-0-9e52968928d2@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Raul E Rangel <rrangel@chromium.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Tony Lindgren <tony@atomide.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Richard Genoud <richard.genoud@bootlin.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, "Maciej W. Rozycki" <macro@orcam.me.uk>, 
+ Timur Tabi <timur@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+ linuxppc-dev@lists.ozlabs.org, James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_223515_956803_FA810683 
-X-CRM114-Status: UNSURE (   7.54  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.3 (-)
+X-CRM114-CacheID: sfid-20261023_234052_460017_DED76CAC 
+X-CRM114-Status: GOOD (  12.56  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,35 +121,69 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.1 required=3.0 tests=BAYES_00,DATE_IN_PAST_06_12,
-	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/23/26 7:50 PM, Geert Uytterhoeven wrote:
-> From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> 
-> Add device nodes for the General-Purpose Input/Output Ports (GPIO) on
-> the Renesas R-Car X5H (R8A78000) SoC.
-> 
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> Co-developed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> Changes compared to Marek's original:
->    - Use hardware clocks/power-domains/resets instead of direct SCMI
->      references,
->    - Drop gpio-ranges properties for now, as upstream lacks Pin Function
->      Controller (PFC) support.
+Separate the port-locked completion processing from the DMA callback
+wrapper. Keep the shutdown check and locking in the callback, and retain
+the existing FIFO accounting, delayed register restore and THRI handling
+in the helper.
 
-Is that ^ OK ? If so, good, TIL.
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+ drivers/tty/serial/8250/8250_omap.c | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
 
-The rest is
+diff --git a/drivers/tty/serial/8250/8250_omap.c b/drivers/tty/serial/8250/8250_omap.c
+index 4805b644ccb1..b6f108d34854 100644
+--- a/drivers/tty/serial/8250/8250_omap.c
++++ b/drivers/tty/serial/8250/8250_omap.c
+@@ -1080,18 +1080,13 @@ static int omap_8250_rx_dma(struct uart_8250_port *p)
+ 
+ static int omap_8250_tx_dma(struct uart_8250_port *p);
+ 
+-static void omap_8250_dma_tx_complete(void *param)
++static void omap_8250_tx_dma_complete(struct uart_8250_port *p)
+ {
+-	struct uart_8250_port	*p = param;
+ 	struct uart_8250_dma	*dma = p->dma;
+ 	struct tty_port		*tport = &p->port.state->port;
+ 	bool			en_thri = false;
+ 	struct omap8250_priv	*priv = p->port.private_data;
+ 
+-	guard(uart_port_lock_irqsave)(&p->port);
+-	if (dma->shutting_down)
+-		return;
+-
+ 	dma_sync_single_for_cpu(dmaengine_get_dma_device(dma->txchan), dma->tx_addr,
+ 				UART_XMIT_SIZE, DMA_TO_DEVICE);
+ 
+@@ -1123,6 +1118,18 @@ static void omap_8250_dma_tx_complete(void *param)
+ 	}
+ }
+ 
++static void omap_8250_dma_tx_complete(void *param)
++{
++	struct uart_8250_port *p = param;
++	struct uart_8250_dma *dma = p->dma;
++
++	guard(uart_port_lock_irqsave)(&p->port);
++
++	if (dma->shutting_down)
++		return;
++	omap_8250_tx_dma_complete(p);
++}
++
+ static int omap_8250_tx_dma(struct uart_8250_port *p)
+ {
+ 	struct uart_8250_dma		*dma = p->dma;
 
-Reviewed-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+-- 
+2.53.0
 
-Thank you !
 
