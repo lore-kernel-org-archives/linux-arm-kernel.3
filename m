@@ -2,111 +2,142 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 277DC606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 04:17:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD0F2606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 04:21:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QkGhDHnr;
-	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Qry0wH01
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nDCnn1Mz;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GrLZsrRu;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=kjJHAagj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DHhavRn0J9cbe5Hn+XTsZoIY8SDpwJd+04Mj0eDywPQ=; b=QkGhDHnr0Or+kuF9IXU2ZcMmrp
-	/2+zonmGrE+eLoF21L8CmipoQlH+Ig2ceg2TGta4c/kzAHPNQfK3HxWJY7aMBz0+O4qLDLarrThk3
-	z8femgWtYt9s/FwJXRrBm5lXnw7zdEOojxkHESMSQcdeIjCIv5C0BLgb6iWErNmrxKiN8K9PInjWQ
-	6/+pJcgJzXBInB4DZUf7iTJam1Z/smppjaXCg+i3bIaKv6iOmsbKiteZ31fjgrm5XzB1dRClPZQws
-	ssMSpTXS838NIwZ34BslfsUdRoz06xk3x85zS9Bk+f5j7BhnnChya6Fp36dgsImEKf2FXAPCWQg55
-	8FOOlb3w==;
+	bh=CCFZSnJfbb0t4Od1R7GYxeMrSVgMiZT2YXq4WnpQFGQ=; b=nDCnn1MzdGofIz0imP+cX9l9Nx
+	C9rABx09Mo/ttNxvjxKq/aB1LGbm5HNKi9Zt8i7zUuw7hSHecbsYKttiWtlmBzmImI3vNmKhMNB3B
+	+hCFVvmjPMDApP7cLBuKBkHQ4Z/1nC4chOuknz8nPAnbOkaSMK1uP5rHKR3NdSLWbUJa5gNdS8l97
+	PbbBR/nkn88FrMbM2U/AtQSNYtmdoTYZ4s9aIRIS9hvy0924d0sqI5m3Douxr7Fov1+1JZrwiknJ4
+	nc6PNG5tNSC72Wr13cveb4yX0w0tb+24q+BPtRT4y8fj7AHIHwpGfbTSDslrSgGyLElSpPKBM47s9
+	rC7O6WgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKTBY-0000000HPYl-0JJx;
-	Sat, 24 Oct 2026 04:16:48 +0000
-Received: from mail-pj1-x1063.google.com ([2607:f8b0:4864:20::1063])
+	id 1xKTF2-0000000HPlb-29iQ;
+	Sat, 24 Oct 2026 04:20:24 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKTBT-0000000HPY3-0iQh
+	id 1xKTEz-0000000HPkm-0Tdm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 04:16:44 +0000
-Received: by mail-pj1-x1063.google.com with SMTP id 98e67ed59e1d1-3ac78f4c10bso734146a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 21:16:42 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792815402; x=1793420202;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:dkim-signature:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DHhavRn0J9cbe5Hn+XTsZoIY8SDpwJd+04Mj0eDywPQ=;
-        b=azUqzjpv72jtFcEOqj33YaKh9DRoJkAHBxqiPWNuiBMXIfOzq3lSJnb7+CJ8sv+vPp
-         aeKy1Qrc3TWIXWSSIi4E8ZGrpSC/GHjHkp24pyz9dIw2LXNSAXFvDTEqLrDuxbdTVs74
-         dcyhatQvceJWmklwuBlmKcYhbP3Ta7HlRCbTZZPhCaB2XrT26kwm2kE41dPZ6u/MSxpO
-         bqOgGYgmYwRHZa8usrkkKoEpfAlsE9lPBRy564meYrTjruhipE6KI09PSXfn2LYA5gTv
-         5qh8RDSN2Wk/ViC9VpMUbZCTEkKm1ON+Qsh4fWaShPswSjJ0BoqRx1Sqq3Gqeuqtg8VF
-         p/qg==
-X-Forwarded-Encrypted: i=1; AKwUvBwFzjM3gX6dMXpNY+MMQ7cxOYuQzPhVJUhBhjTxlCDtWvVfCX7wjzT6CiKzzGYJVqL0SRE4Y4VcoB8tPAqvvhTb@lists.infradead.org
-X-Gm-Message-State: AFq9FYLc4ihm53582Cd6uegCPccIyyHZhcCMCE7wVPL8zioUBdSoXT4n
-	c57+EJfJ1KVveNjNn6M+CcvuN72mj+NTpghRQdBalMqLkR/3FOSvVf16i6QGatw1ZTLfa1Jfncf
-	pqp+gZB3hWOacbJNgAohAXDOAdYyKLDV7c28x1+GfCT9WNvJxkhp3q3N4tNBLeSMVYJoFViR06A
-	6Vo4vlwF+CYviWbOABSUebgUrMh14IVSAaKVqIV00gX7gM3BG7qMZZvehjvGGMk/vSgrozwu783
-	2NPXJ1wb6Mey8dKyXCK9821HnWQ4oo=
-X-Gm-Gg: AYBFou2jXfzXe2GRquP3ClDttzXFOEMeot3iWXkWrAV/BlFZtW10/UPyJhb5l11wvaK
-	INy/80nBkeUXkFbGkhW191ddMKUWfWTHHCTSPY4ann1JERVD8KuV/JrpybnNAmXJrePE+GMcUP7
-	WwBcrV1iPgf6zsePFjul7kyeTcxeM5YfAdZpe4QEGGLgiNWsyeK5nE/LnG0ds8CNzE+1rHdMvmc
-	3Aq/GOGmzalSJVIz9chQurPJYhxim9jWgIY1H1ksojx8pnKCSkQDXyZRbyBZvGmtWjIjpSbJOr5
-	FdJqv99Sdl7rZ+jsNF1T4tDQMmtRhxoh5Fq3lE5Q9/3GhFXYPtKwujnFySjtF6GFte1TtZX8FWk
-	7m6WHdGnJG6fXanXrEbdsAd/bhRrQU8qNcB+Nh5B7okruYuira652OCasoLInJRcuqJm7WGCBfp
-	q8LEAVCBL16NLHB0FnM80F/Zrn2kGtLoaG9SeB
-X-Received: by 2002:a17:90b:502:b0:3ad:eb38:9778 with SMTP id 98e67ed59e1d1-3adeb38a086mr653121a91.48.1792815402124;
-        Fri, 23 Oct 2026 21:16:42 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3adebb37c12sm470519a91.5.2026.10.23.21.16.41
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 23 Oct 2026 21:16:42 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-8ace1d95f5eso26289387b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 21:16:41 -0700 (PDT)
+	Sat, 24 Oct 2026 04:20:22 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69O1t2gX3606355
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 04:20:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=CCFZSnJfbb0t4Od1R7GYxeMr
+	SVgMiZT2YXq4WnpQFGQ=; b=GrLZsrRuksQnJKa4mbAlAaFkargDdoV5Kui82d3+
+	48QZ9ZxQ6YHsNP8wMq08yGIvm1fJK+PrEXkcq8jRzeWBxZEyanE1bU0ub8s229iv
+	5N606N2J/T0jZuCTsGLsr+HBVNzvUa5+TiSkgtH09e0el95nisrVJpMFDOCL9XNh
+	jPahp5ow7CR7x2+elXNKY2IqaDlM7n3U7lk6ziX919metEIIUHlnYEJsLqe1JCgq
+	eDXO0S8vsna6ajCW3ezQqzLakZy4hbSQhpwOSKyI2DkhYwZca1NwxQjxgwyAtOiQ
+	i69VDiRvrty5jYBtLxX9ZhAcWuu8cDrHZUfyxJGzvkYTCg==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hgcrt9fh9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 04:20:20 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-33713e5e6daso2552949eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Oct 2026 21:20:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1792815401; x=1793420201; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1792815619; x=1793420419; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=CCFZSnJfbb0t4Od1R7GYxeMrSVgMiZT2YXq4WnpQFGQ=;
+        b=kjJHAagjtI9v9j7TkVjG+6nKo/JGm9O8GmqUMZzFEvlpUQc8o6sIGGsLq3x2qNs0Bf
+         fgHkrtXgMJ9AMepoz3z4vCDb7Jl8DGqGK4uiksHrI76Nr7tWuofAt9Ycyk65Uq0hLLce
+         +2pclJfJzk+1io8sbaDWIa3NdMMrhefFiregem+P6Va81y+nVTo36M0DSKz/j2cggC2D
+         mdFNBpLTQkNXtWUD+wow8YfSAVPXZwJhhkCKmt/omqa9RzrMYbwZHHyAgiMNnRUyHq1W
+         XLl23FeCBEm7OXjgS8cVhd1jJlK/jXL+R23M6s18O4ppXXZ5Z+PsNwaRlgfy8aEMAoPv
+         S1Zw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792815619; x=1793420419;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=DHhavRn0J9cbe5Hn+XTsZoIY8SDpwJd+04Mj0eDywPQ=;
-        b=Qry0wH0156tlW/AnNYnoC4QnrmAdMm+cXdX1eXtEtmFG3a6Kc7vY4vlUvLEPGvTlRW
-         cNJSIlpnW4VEUKxBphrjWrhD1DXmbCvlbB/MGgmJu+WdwQkBdLhEVPCkof5B8DSKrZDS
-         XdwEJsbyByfbiAKXwMzJtgvxP/tKC5d0gLrN0=
-X-Forwarded-Encrypted: i=1; AKwUvBxoZlm5LeHuXfwr09+4B07LoDhFXIerWHICYKLFOKq6JwzsXPONwo4ttlNJXocodcOcLWpQqrR+sQWjVtqGDs+L@lists.infradead.org
-X-Received: by 2002:a05:690c:e1d7:20b0:8b0:e207:34b4 with SMTP id 00721157ae682-8b166b86c4bmr6719957b3.18.1792815400827;
-        Fri, 23 Oct 2026 21:16:40 -0700 (PDT)
-X-Received: by 2002:a05:690c:e1d7:20b0:8b0:e207:34b4 with SMTP id
- 00721157ae682-8b166b86c4bmr6719867b3.18.1792815400478; Fri, 23 Oct 2026
- 21:16:40 -0700 (PDT)
+        bh=CCFZSnJfbb0t4Od1R7GYxeMrSVgMiZT2YXq4WnpQFGQ=;
+        b=RaelYQNkZVuBilBufDLlbiLpdnpAn4rTgWbT/U5v/i4Hv8Q5buqpid4dyEuzX9jym/
+         mn5LyCSAcCtVx9+EIDprxPhJA70IKe8nQXRsgwoIzQ2GqC+rpcA2fuLBM14xt995ztv8
+         8/VMTCDV4aL+vkR8kQ/WOUrcB9C32MRDT9S2YSaAfAct9SqoEEr/ynCDJ7J1BzRHO/gE
+         ZAlQAv5u07tEruPQFixN37zfUVwBVET+I7rKWWZS6ZMxwZpm46o8UIASASiH1AgfY5c7
+         Y1Lp5n2eSNVM9ZrVcgYC+F1PlBR24LP6P3KVjNZKZFBNr39PdG+xefFzBftL017cd9gt
+         4mSg==
+X-Gm-Message-State: AFq9FYIh8aU4VJvSGCx3PsYiRF0awwVSZ7+g3ActlvcJGVgsNOVSJiVH
+	hHWgEMZgY0+26g69u669BqHtEObdN4ZYxA/WgyDf6oZ0KTm+4DFJpRo0wLbEogswbqTXQ59I51h
+	NU+tJbUKP4uy6Prd0mOWjMO3YZ9upir4MXUke39KdQXm8liSnm6Hf0bDrgVc+bpTU8XvgLHtV/v
+	mzdw==
+X-Gm-Gg: AYBFou1zIQWAge5jLkmtO8u7a+RNS2CU4qYaw713ICc1jDJeihRNs8y/2sWeotn7/df
+	13ua+ZmXn349H1opCV2GxJ7vqFzOsklCeAauvQZE/5lbNZx7Ts+b8JYHs+eIv+8zsczwoKwvnIb
+	QA4H5JPBjAbdSjym+qWJ68cFPdEeW6CfSOZ1OHRv8RYnwS0SNIGu2SQ6P5ks7VwNM6HbOb5bNlP
+	XEX6MebK8BdKfT4KWutyDm46faKpAi3CG397AOC3uWLLe9nkcKgbu6SByc4L/al4PQ4O7r+l0ig
+	/G06m/o3Yiwohx5sDrndFpcHQ9lGoEWKR8F9IPWmbImU+1/8PHIV0cuvykcpBllye6Vz0OVc/YY
+	T7eCAYXWuvZDuvVQYJqjQaSRGhunkt7GAi6hzSFfmXc5uZuGN
+X-Received: by 2002:a05:7022:7f06:b0:166:3e26:c4b5 with SMTP id a92af1059eb24-19935be7e56mr1530841c88.18.1792815619356;
+        Fri, 23 Oct 2026 21:20:19 -0700 (PDT)
+X-Received: by 2002:a05:7022:7f06:b0:166:3e26:c4b5 with SMTP id a92af1059eb24-19935be7e56mr1530814c88.18.1792815618827;
+        Fri, 23 Oct 2026 21:20:18 -0700 (PDT)
+Received: from hu-ashoraj-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-198a1bfaf25sm3215224c88.14.2026.10.23.21.20.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 Oct 2026 21:20:18 -0700 (PDT)
+Date: Fri, 23 Oct 2026 21:20:16 -0700
+From: Ashok Raj <ashok.raj@oss.qualcomm.com>
+To: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+        will@kernel.org, mark.rutland@arm.com, maz@kernel.org,
+        lpieralisi@kernel.org, ruanjinjie@huawei.com, liaochang1@huawei.com,
+        Ashok Raj <ashok.raj@oss.qualcomm.com>,
+        Ashok Raj <ashoraj@qti.qualcomm.com>
+Subject: Re: [PATCH 00/38] arm64: Add support for FEAT_NMI
+Message-ID: <atwyAKSnttnBpked@hu-ashoraj-lv.qualcomm.com>
+References: <20260914102102.68597-1-vladimir.murzin@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261021-genexis-xg6846-smp-v7-3-rc1-v3-0-7c871f1755db@kernel.org>
- <20261021-genexis-xg6846-smp-v7-3-rc1-v3-3-7c871f1755db@kernel.org>
-In-Reply-To: <20261021-genexis-xg6846-smp-v7-3-rc1-v3-3-7c871f1755db@kernel.org>
-From: William Zhang <william.zhang@broadcom.com>
-Date: Fri, 23 Oct 2026 21:16:28 -0700
-X-Gm-Features: AclHuK9RuItz_DZ3wVK43enrFIQGul9TWQAwbLIKANHNYfy1pUzBkwXbxgy7ZtY
-Message-ID: <CAHi4H7ES2GEWN+NZbCUUe9n6YvTPnDbVn42XzqyDfAybub2tbA@mail.gmail.com>
-Subject: Re: [PATCH v3 3/3] ARM: dts: broadcom: Use CFE CPU bring-up on the XG6846B
-To: Linus Walleij <linusw@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Russell King <linux@armlinux.org.uk>, Anand Gore <anand.gore@broadcom.com>, 
-	Kursad Oney <kursad.oney@broadcom.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
-Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="00000000000020eaee065e8e5d73"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260914102102.68597-1-vladimir.murzin@arm.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI0MDAxNyBTYWx0ZWRfX8ygo4CH9IpFe
+ KjQhrCoQhCFXMITuutG9QFvuwgnaMvIXgCiB02qnxAqeSd0P8q1Muh2FrChKn3QTuz9hWgDLcGN
+ p+5yoSm8I6qqSZ8NIGzutIdtUsWYeXE=
+X-Proofpoint-ORIG-GUID: tXCHaRFZHy17WgJ0HrEtzddeEnpQoxm9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI0MDAxNyBTYWx0ZWRfXwdzwsOwH4XrP
+ bDFvkvSFvvqQaABqNklDkefqhFJA902Pr62P3OMLtSddZ7IUFwcX5DDzbkSFnNhdEXwLYx+UFWC
+ A/HnxzpYxNjCrgzeIPF4MwSK5J8OaEErn0lYbHAeELfjqt0YkvwH2bATwiDiUlTpl/xychdjyTk
+ EDMBrgruRI9TSVi8UK8ROUuXcFDp2UTRFirB9y9Tu5q4PZ59kI0kmSYUeHNntHB/cZijCDgj5nO
+ q5OEFm2EzMocgPdWIcRDTAGAnjvOv/0ifyfv3IkpKMmo5Rhcg+6BLFi+YWbtXoT9AqtzGLssB+P
+ 6M40NtYYro2cedv6AYwrZiidmFJa3+4q20hgagzK7QE5oY5Euoa0WqiUCg7N7sAVfySjqIDPUD6
+ rEG6UG/bLnzcicmGLDcu9tpTflhl8cDoI7WCKgshJ1FEJDf8pHKIssBKEj6u7vMfPFfhae5ICOy
+ H9ZIEJ/MBFArvuehA9A==
+X-Authority-Analysis: v=2.4 cv=E7lYNqdl c=1 sm=1 tr=0 ts=6adc3204 cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=xBwVfey10Lg1JJy8PxYA:9 a=QEXdDO2ut3YA:10 a=scEy_gLbYbu1JhEsrz4S:22
+X-Proofpoint-GUID: tXCHaRFZHy17WgJ0HrEtzddeEnpQoxm9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-24_01,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0 adultscore=0 phishscore=0 suspectscore=0
+ malwarescore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
+ definitions=main-2610240017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261023_211643_221792_2C03A049 
-X-CRM114-Status: GOOD (  20.68  )
-X-Spam-Score: -2.4 (--)
+X-CRM114-CacheID: sfid-20261023_212021_171661_9BB3553B 
+X-CRM114-Status: GOOD (  17.46  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,186 +148,66 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---00000000000020eaee065e8e5d73
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Mon, Sep 14, 2026 at 11:20:24AM +0100, Vladimir Murzin wrote:
 
-On Wed, Oct 21, 2026 at 8:10=E2=80=AFAM Linus Walleij <linusw@kernel.org> w=
-rote:
->
-> The XG6846B boots through CFE, which parks CPU1 in a holding pen and does
-> not provide PSCI. Starting Linux from CFE does not install a PSCI
-> implementation either. The working PSCI interface in newer GenXOS
-> firmware belongs to a different boot stack.
->
-> Disable the inherited PSCI node on this board so Linux does not issue
-> SMCs to an interface that is absent. Set the CPUs' enable-method to
-> brcm,bca-smp to select the BCMBCA CFE SMP operations. Describe the CFE
-> mailbox in CPU1's cpu-release-addr property. Keep both CPU nodes enabled
-> and leave the SoC's PSCI defaults available to other boards.
->
-> Also remove no-map from the secondary-boot reservation. Its overlap
-> with ARM's initial page tables otherwise causes the reservation to be
-> rejected, leaving CFE's holding pen unprotected.
->
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
-> ---
->  arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts | 16 ++++++++++++=
-+++-
->  1 file changed, 15 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts b/arc=
-h/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
-> index a3616fb7b3a8..45d4df523110 100644
-> --- a/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
-> +++ b/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
-> @@ -34,7 +34,7 @@ reserved-memory {
->                 ranges;
->
->                 secondary-boot@0 {
-> -                       no-map;
-> +                       /* Includes the kernel's initial page tables. */
->                         reg =3D <0x00000000 0x00008000>;
->                 };
->                 pmc3-firmware@8000 {
-> @@ -56,6 +56,20 @@ button-restart {
->         };
->  };
->
-> +/* CFE parks CPU1 in its holding pen and does not provide PSCI. */
-> +&{/psci} {
-> +       status =3D "disabled";
-> +};
-> +
-> +&CA7_0 {
-> +       enable-method =3D "brcm,bca-smp";
-> +};
-> +
-> +&CA7_1 {
-> +       enable-method =3D "brcm,bca-smp";
-> +       cpu-release-addr =3D <0xff800568>;
-> +};
-> +
->  &gpio0 {
->         status =3D "okay";
->  };
->
-> --
-> 2.56.0
->
+> FEAT_NMI provides an architected mechanism for supporting non-maskable
+> interrupts (NMIs) and less-masked interrupts (LMIs).
+> 
+> Since we already support pseudo-NMIs via priority masking, introducing
+> another flavour of NMI on top of the existing infrastructure could
+> easily become messy, making the code harder to follow and reason
+> about.
+> 
+> To avoid that, this series first makes room for the new NMI "tenant"
+> by restructuring the existing exception masking logic (patches 01/38 -
+> 15/38)
 
-Reviewed-by: William Zhang <william.zhang@broadcom.com>
 
---00000000000020eaee065e8e5d73
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Description: S/MIME Cryptographic Signature
+Hi all,
 
-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
-PRi27wH/XHTDMdyL0Org+kxniXue6MSNJvcQwaLO/UQrmgTygBlVGa+Qg9ZFfS00xvuqeYH7tImO
-48WiXeu9rgn5KTH0IWP1+R74KIgxJQ+65la+caZvxwC9V3ik5p/LOGA2qS4GEjGuaYF8QKhRTR4h
-/QBSktqZLbzVxpjJXrqFTA2BLlYRp9hPhqNxbn46WuLufpMWhFtjUoQi/8fRRWRsMAY0o1J0f+kB
-6EI8FoxPTOpvuLRonqHIWMHk5YRnDdqJ3G5Oc8zmV+UCAwEAAaOCAd4wggHaMA4GA1UdDwEB/wQE
-AwIFoDAMBgNVHRMBAf8EAjAAMIGTBggrBgEFBQcBAQSBhjCBgzBGBggrBgEFBQcwAoY6aHR0cDov
-L3NlY3VyZS5nbG9iYWxzaWduLmNvbS9jYWNlcnQvZ3NnY2NyNnNtaW1lY2EyMDIzLmNydDA5Bggr
-BgEFBQcwAYYtaHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyNnNtaW1lY2EyMDIzMGUG
-A1UdIAReMFwwCQYHZ4EMAQUDAzALBgkrBgEEAaAyASgwQgYKKwYBBAGgMgoDAjA0MDIGCCsGAQUF
-BwIBFiZodHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzBBBgNVHR8EOjA4MDag
-NKAyhjBodHRwOi8vY3JsLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjZzbWltZWNhMjAyMy5jcmwwJQYD
-VR0RBB4wHIEad2lsbGlhbS56aGFuZ0Bicm9hZGNvbS5jb20wEwYDVR0lBAwwCgYIKwYBBQUHAwQw
-HwYDVR0jBBgwFoAUACk2nlx6ug+vLVAt26AjhRiwoJIwHQYDVR0OBBYEFHjI7pbQZurVKsSRE/a9
-7gUEyVCkMA0GCSqGSIb3DQEBCwUAA4ICAQCFA4fU1GnG8sY7kyUXp5tle+VeWveoWb272jPauU5R
-w+udkhVXmnR0Kg7RgkCD00PLTKHNRyegXXDMArs3N9NhO3s9eSp9KjDh+h3WuQWCJH3QBHLGW0qE
-fyV87wUtBIy/QsHwO4S8OlOZiXECR7V1EGIF6t3s0W+3UzgYeHL+Ttuhda+2wIVY0EbS0eNH9Vob
-4YG17VTBBe7hyobXFpd9d1JGENFzIWncPUshOE0Wv7KlkrRc6aBOpL4p5xO1pHi9h9w8utyHkMoV
-nefXixkn5YVHnuV/jbSF/IM4Mlqt0E+n/TRp2c0eR+1AauZKENV2syNBo4aMa0BkmikBjLSnDjt/
-TYQdwHNWdV495n71idvueWwTFUhUsnudYcnh42eZENopBOYjVu2WhsffyrNz0hsuR85LriqSuBbf
-drd9DMo3DgtfJ7hh4sEAhSw/x/Br86rfLBftZMU02htlnkOI9Tp1QuDsr9+MsqY6AjKeXAy67m7H
-TVAZ9uyO9N20yU0p7igESOWKR1ccL1TPA1jrSHK18Y75ot5199FNWeE/UKoDKSML39iPZho9XPh/
-/RlsfRFiVOPrI5Gwi4YfIfi0jjEWf310/CYEmA5jrp5gUQSdo/+FgfXLKDFiEHCf5b3B1l70r6bR
-WkDCNNacYJWZtSp87i6jmw+l5xx7OkEJ9DGCAlcwggJTAgEBMGIwUjELMAkGA1UEBhMCQkUxGTAX
-BgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gR0NDIFI2IFNNSU1F
-IENBIDIwMjMCDD2ooFIye/WiO3KgZTANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQg
-mquUAu9dQtewxjHBhnp8oeUn3BuihIc6Y6BluEPXDUUwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEH
-ATAcBgkqhkiG9w0BCQUxDxcNMjYxMDI0MDQxNjQxWjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFl
-AwQBKjALBglghkgBZQMEARYwCwYJYIZIAWUDBAECMAoGCCqGSIb3DQMHMAsGCSqGSIb3DQEBBzAL
-BglghkgBZQMEAgEwDQYJKoZIhvcNAQEBBQAEggEABnlWVpIgsI5eMPTawGdB006DrFLMKLYEP540
-hr72tIjbeEAqyAPU+ITWrBp8Czmz4zGLFQDusiaBhuuHOyHxtm6Gdd4PiHo5v6B0IAhWsS5J92ma
-hL2QU3nX7jJgbp+JxZHAszWBlMFHM4AoXgWM1wXZ8o5tcZt+aIaBOuzZVD9ULb0ol8FxD/BbwbSn
-AHyMqgV4MNGaeICAV0BCA3uT3auLFnQDQNMmeRNSG2UhQFdrMMA7CnEPLRDhMSNRvS93HLmIHIUz
-aon5Fv3MTltzDum67VT3v4ew0pSS/cVheQF1c95kzsefxaqe/R/CqohumQiXXdC/j6uqL4EekDbR
-og==
---00000000000020eaee065e8e5d73--
+I am working on arm64 HEST/GHES Type-4 (NMI) support using FEAT_NMI
+and GIC NMI support.
+
+On arm64, the proposed ACPI semantics are that the Type-4 Vector names
+one GSI corresponding to an NMI-capable GIC SPI. The NMI property belongs
+to that SPI, while its target PE is normal mutable GIC routing state
+(GICD_IROUTER<n>). This also permits a platform to describe multiple
+GHESv2 Type-4 sources, each with a distinct NMI SPI.
+
+The current Linux GHES implementation registers the interrupt with:
+
+    request_nmi(irq, handler,
+                IRQF_PERCPU | IRQF_NOBALANCING |
+                IRQF_NO_THREAD | IRQF_NO_AUTOEN,
+                ...);
+
+request_nmi() requires IRQF_PERCPU, which marks the descriptor IRQD_PER_CPU.
+Generic CPU-offline IRQ migration then skips it. This makes sense for a
+true PPI, but this GHES interrupt is an SPI: if its target CPU is offlined,
+GICD_IROUTER<n> may remain pointed at the outgoing PE and notification can
+be lost, or possibly it might fail the cpu offline since an interrupt
+can't be retargetted. 
+
+The GICv3 affinity callback can retarget an NMI-configured SPI: it masks
+the SPI, updates GICD_IROUTER<n>, unmasks it, and updates effective
+affinity.
+
+Would maintainers prefer that GHES explicitly retarget these NMI SPIs in a
+CPU-hotplug callback while retaining the current request_nmi() contract,
+or should genirq gain an explicit routable-NMI SPI registration model that
+is not marked IRQD_PER_CPU, but remains excluded from automatic balancing?
+
+In either model, the intended policy is that irqbalance must not move the
+interrupt, but OSPM must be able to retarget the SPI before its target CPU
+is removed.
+
+Thanks,
+Ashok
 
