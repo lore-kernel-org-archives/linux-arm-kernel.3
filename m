@@ -2,88 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8415606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 20:52:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF8E2606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 20:52:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Aa/VQpvc;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=ho5Z31Aw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=i0cM/qoG;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=eeOrm43q
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=rBmFQ39D346ZrXUVmjDqiYno67dxEXea+JnyUDrt/bs=; b=Aa/VQpvc26WoCX
-	u/yJHDv4RIZ+NNDXI1sO6/L0Yba9C497Ie9LE03Jkqbi3pT435z/E9QVhw/NZjkE+jp7+Z6qTooDm
-	BzcqPMyI+VqwKjRpu7y6mfKfyxLW+/QQC+pKhrV0xEWrQ/zZ9PzpE7G5tPewGYywhNFuTs/iUlLSW
-	b6KwmNDDULTtbI5gvki+QKhy4xBfiReB7nXI8dVmsHY9TJT5NByeXVcxjScfwyIvJPPP+lqP2Wyrb
-	vl8EmGrtIPKLNDcFm7kzTj1Vcbg080pRayv800ItNcAJpxEXKVqn7vcmg3kXPeEovv9usZ6cQrA80
-	JD7cuf6uvGEnhobUT7dw==;
+	List-Owner; bh=HghwYhffT2wkbiQA375AMS0eWRI47V+WwoxJxlqek0Q=; b=i0cM/qoGUOkANe
+	QAO0bJ8xocSbw6eN4ypPIpiYbrkgkgie7pMPmuVBOQ/n56g5uWMMvk5ACglTx8QArNkc6VHQIYPbR
+	irW0AT3QUJ/kY+NHDtHf9beAOVSUimF7IIctWNrF8+g728MIIeVt/FyjEhGvCaVpaCBHhMuztnK3X
+	ikq2BSI4qK3sE1Mpilu8GcTSf5Vgw2v1JZasahwHEDdXWfeM2V+9/ercheA/55RcqGKceCJX3IiE2
+	8llFiqDwYapYd6p2aMtEO5oM8js5G4GMLx5HgpQhEq6LTIMWBm4L0FecAM0R8r87jdcOMXoc1JTGj
+	fmqmg8pO0N2FoiagDGRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKijJ-00000000Wtg-12OY;
+	id 1xKijJ-00000000WuW-2TFA;
 	Sat, 24 Oct 2026 20:52:41 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKijD-00000000WrX-1KFq
+	id 1xKijF-00000000WsF-12Go
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 20:52:36 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-7fccba9c675so3504406a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 13:52:35 -0700 (PDT)
+	Sat, 24 Oct 2026 20:52:38 +0000
+Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-84a2bea315dso1192068a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 13:52:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792875154; x=1793479954; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792875156; x=1793479956; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rBmFQ39D346ZrXUVmjDqiYno67dxEXea+JnyUDrt/bs=;
-        b=ho5Z31Aw/AlTYfoHOFMzCXRiPFEexbljtOZiA+CbMhc9OHGLiq66leSkkn6hwi0qV+
-         JPOVKAWItCDl/nwACgaGIal3PXL/pR4orrH3JaE/60cmJr445UmtanM1kD8KFTpJOV+n
-         Bft4zD6T/ojDWHCC8AvMAYOMWg1+3bkVIik2Din8DfVOzSCiYhsOJKngZm9rx3Cas6RF
-         HyNOwoP5jvG97p+xuS7mO9B3QluNaC5i9Senw94lbsSjM9kvcMd5bkicIvwKPYKsTddD
-         eNN2PQzA9iGcyJF3svhZlP72DlMo1DTuwkOOaBWIBwer8561FBM/b+28knfknnLnE8ke
-         e61g==
+        bh=HghwYhffT2wkbiQA375AMS0eWRI47V+WwoxJxlqek0Q=;
+        b=eeOrm43qsTNBaXbCkEvFBxMjH5VpQ5Up3G7aGIEH/fJiM+M55l62m1UbfmAO7KXTL2
+         wkOUv5twBJ4w4U/P556ICDCZ9Rer6ywMigQJRwLCqXtnHgO8sGwygLnLW63cUFncdA/X
+         6HbO0U0uMI/bWYQBZUclcpfeF0L74Of9lHiut3O0mzx6D1hD0/Sp6KzPntjbVz28lWc1
+         5bbi6jZZ6APHikxMFWE3wQS3aicHxFJ7e6mgMEbZHQJDrtwCnRK13zWaW6NmXN6zGU9g
+         udfLMQ4OsTyYft4IspM+7fX3YykpJBQu/9vffBOmVPu+5fVyer+PKHoF7uo8qcVfACGR
+         fsoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792875154; x=1793479954;
+        d=1e100.net; s=20260707; t=1792875156; x=1793479956;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=rBmFQ39D346ZrXUVmjDqiYno67dxEXea+JnyUDrt/bs=;
-        b=PZKYIWtg05CjNx1mA7tCNykwV/RVqrZxS9ECdDRbQhA+7XW0D/78dnqaBc7+HMYCHl
-         /d3NRCjn+9NMkd5KEZSi+ZYl730oVdym3ThcFfSLE7EPMsR09TPtjZL3jjxW6xL8bKpN
-         RcMEBvPZk2VQjkSDn3KzAVKPlXws7R+wCLya0HKpzgW/nY98OkxOkxvzKQBkxokUfp85
-         h+6ZDl5VGWnipy757Sddm71yZUgkcWee9QvYEugpL/mdalLRqZZa+E7kILxpcMGc0Lx/
-         ZvUSnozKSXbnNbFzWsWM4miXK8Nglly3jiH3B+AirkeeaEKRZTGk+v+eQbNB5Ysx9pFX
-         137A==
-X-Forwarded-Encrypted: i=1; AKwUvByVqbHWRxhPqfcthw+yZS++CljmAUz/havwDaiuWL0dSKOTS2BCNlH5xN1kKWDwe14389vJOt2kJJnwrB/je4td@lists.infradead.org
-X-Gm-Message-State: AFq9FYLutKkVU3wRHtZNLaB0jx0s9nqhyFX227E/aRhuyIGq8TFl4ss0
-	L5IDG9e5u6oVh1AHbo2eo+ACtw8RpqnbIAjPbEcW6Gh9RWK/rlEPKzYp
-X-Gm-Gg: AYBFou3LJF5PF2qQChM+p4jNjReNvYNBFzobvGUC7pLbn+lckDfYMPccD7J+SqOgjQW
-	ztcd58dFI4UxMkue92HMJueHP8CZVcHMWnZB7CEKdoADu9/FfHao1YV6nDT2fwG905L4BP3KXcK
-	l6dBTIVcQ54VzdPCfkkZUw30vT3XL7eMFIIHPMtjpPhklpXuidCEeb4gtpJX2GmN88QIFeZjtWi
-	LCadKHNT0GONcKOSd34ImcjMcuWjb4a58RGUIzEAc3zMo6b4vQkcSSl0iM9n5Ema68GQkCgjahy
-	V20poDWWE6cC2aStNZ5SP8WDHHOazoJmH5r0e3ocSQPP7M8T/zzAhqlYVB55pM9UvWg7KJFTlJA
-	O1h0daZzLEcX1hwMJ059g+pTKYBZUk4m/MWefr2fdXF65RlvXPN/Nahc+6ZwywzehHDP2PBuGLi
-	35iXARfHDrtHM9CJhtS3fvHGZQq51yRaiyFiw9lvRi5X1qLKiRK2Ll4eo4xi61Ua16kJxvwCUbf
-	TPy8tDAMCczqpq3cVhlxaBpK2HYIgRLxne4vdnoOsr7g6Q4nOOFrJIbdQJLOK4LMMHm5xY9x8KN
-	YFiG5j7LQJc3YfgGmO2NMjWZVqhCNKvRW5sec/9HUDnKpiVmo/o0jVfSG9Qm5aBzdKdgYH3/VgR
-	2QLo7nTzH1JWiAp1biIltdvAlCTy5wA9M5KUEew3dbML0Uxr4zQbP8NAieto1VyfaryCgXlkPpK
-	zxag==
-X-Received: by 2002:a05:6808:66d8:b0:4a4:c95a:38d1 with SMTP id 5614622812f47-55c006d23a4mr1050105b6e.4.1792875154472;
-        Sat, 24 Oct 2026 13:52:34 -0700 (PDT)
+        bh=HghwYhffT2wkbiQA375AMS0eWRI47V+WwoxJxlqek0Q=;
+        b=OHjC3OMgoZKMK8nrM5ihDDiQYdSBiAJMOCVjsin+A3IhKKi+vFa3cbqwB3BsQ/Z+u2
+         xBVRPtK3n/KqbZNIIfvRgg03h0WbGUQlnBfabl/u9vBoOu5j4dWQoW4B6LAvdLUpovJl
+         NjR7EU108QG1wIUOLzq/p6Y/HZly3AQyvoevrbUHPGNGFm1fVvyqlnRv8PksEB7hr4UQ
+         uij8UlXG2yAXZDJUq2A/rf8xKuyDJO9YLBI7iqMEmgtfQwJ5IlvEIclql7CaZcTv5RWm
+         nRPsU8P4Pt6wAFZni6t8catRyG+PsXAPZYKy2QnntXlXsNcbaTsTpBypoVRiKlIFyU7+
+         WP3Q==
+X-Forwarded-Encrypted: i=1; AKwUvBx1x/jU2hs2+7K2+//lJkxyUJV+J0tl+LUajVx/W2S3CmclvIRCjRzNe0Il7g56jLeGIiLj2jdcCNFHXbnrnAtT@lists.infradead.org
+X-Gm-Message-State: AFq9FYLX2xyGSBIKxoiaWwRAC6oAqza69OdidV/ItWa/HLmycIFGFasq
+	4ET19Gk0H9mamb588/W9CXMXMU/bDWidmbLVNB441ySlERksmG4nCvR0
+X-Gm-Gg: AYBFou0UZzPjPmKF7zwygTLj6TSRBd91n+URgbNBj+YfPBmhvs5uDnReUlb+KsOyw/n
+	uIzkECwuDYGMtBvXNxO8QLjfWmJ0Kvu/WDafuswiVQp315K52PnEjJRDB4wzQt+5Ht9drboRjY/
+	5OYlhtxVK2x7XTNjMrZuj4DRRD/Hz/eFMaI9qU8UnP4eKUv16C4bsbdEZUS+zHVb/7bqC9PwOHd
+	jPntHiOfSXfT5718vDXRPXZOvGqnUxbILspEiYVlu+yyBKSK1rWmdTV2GAktOZ65pRl6wXqNV+P
+	u+5xFDncExXH8gDcJ8FAuk6JeWBS+SeTK80PZT3vDNAzxi9Di+KGmsEXhQhjmd6bno0bRJ+A6yv
+	Hp/6oB6oQ97aStJNGY/ItVCf6E2ItvC+SlvXlTtFeduVuwXaX8F2ccSjBQgQgKFv6YT5Le5/O2e
+	hVw9sLnWTb2GEBiFi5j7dkZGhzCN/3Zc7BbTjF4jZa30cc8uqi13ZnrFnBYwtSHtZ8xEgwvCfm2
+	9f4yveMM3LeU6T1THsnC29EtXeohJtl4RjLUa9qNiMqVIzIOlsZc4YaY9Zrc34OZK+TBsvXM0rb
+	lg2SqAoanWqVD9+QNpxHcdbcIowjuA24h11gAZUv9JzjrBsNQH1FjbAi7EgXsY/eNDBzeEzO5+B
+	WVn7Q421duyVOsAus1sRkMurLxM7ybApqdXD35GK0oBjsB+p4PjBH4V60L869fCe+aO8LOef0JS
+	UsrWY=
+X-Received: by 2002:a05:6808:1202:b0:4e6:9390:e153 with SMTP id 5614622812f47-55c002b7fcdmr1881803b6e.24.1792875156018;
+        Sat, 24 Oct 2026 13:52:36 -0700 (PDT)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-55c0429c932sm1986785b6e.7.2026.10.24.13.52.33
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-55c0429c932sm1986785b6e.7.2026.10.24.13.52.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 24 Oct 2026 13:52:34 -0700 (PDT)
+        Sat, 24 Oct 2026 13:52:35 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Sat, 24 Oct 2026 14:52:27 -0600
-Subject: [PATCH v6 2/5] serial: serialize asynchronous write wakeups with
- the port lock
+Date: Sat, 24 Oct 2026 14:52:28 -0600
+Subject: [PATCH v6 3/5] serial: core: allow drivers to reserve flushed
+ transmit storage
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261024-submit-serial-8250-dma-cancel-v1-v6-2-6f366591f566@gmail.com>
+Message-Id: <20261024-submit-serial-8250-dma-cancel-v1-v6-3-6f366591f566@gmail.com>
 References: <20261024-submit-serial-8250-dma-cancel-v1-v6-0-6f366591f566@gmail.com>
 In-Reply-To: <20261024-submit-serial-8250-dma-cancel-v1-v6-0-6f366591f566@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -108,8 +108,8 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261024_135235_441325_ABF87A15 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20261024_135237_309891_40731226 
+X-CRM114-Status: GOOD (  24.81  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -129,535 +129,284 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-uart_write_wakeup() expects the UART port lock to be held. Several worker,
-DMA completion and interrupt paths call it without that lock, including
-indirect calls from uart_handle_cts_change() and the transmit helpers.
+uart_flush_buffer() resets the transmit FIFO before calling the driver's
+flush callback. An asynchronous DMA transfer can still access that storage
+after the callback returns, while a new write can immediately reuse it.
 
-Take the port lock around these notifications or their transmit helper.
-Keep sleeping SPI and regmap accesses outside the locked region, and keep
-the FSL LPUART completion lock held through its wakeup. Acquire the port
-lock after releasing private channel locks to preserve the ordering used
-by UART callbacks. In the MUX timer, publish available FIFO space under
-the port lock and keep the hardware FIFO-drain wait outside it.
+Add uart_xmit_block() and uart_xmit_unblock() so a driver can reserve the
+flushed storage until its transfer and completion callbacks have retired.
+Serialize the reservation with FIFO producers using the port lock.
 
-Use IRQ-safe locking in the Atmel RX and TX tasklets and SB1250 termios
-path, since their interrupt handlers now acquire the same port lock.
-Preserve the caller's interrupt state when releasing those locks.
+While the storage is reserved, write_room() reports no space and write()
+and put_char() accept no data. Defer write-ready notifications until the
+reservation is released, preserving one-shot TTY wakeups. Keep the flush
+wakeup under the port lock so it cannot race another reservation.
 
-Serialize CLPS711x TX servicing and its interrupt-enable state with the
-port lock. Disable TX interrupts without waiting in stop_tx(), since a
-threaded handler may need that same lock. Have an already queued handler
-leave stopped output untouched, and drain it outside the lock during
-shutdown before the transmit FIFO can be released.
+Suppress ordinary TX starts while the FIFO storage is blocked. Preserve
+high-priority flow-control characters, which use separate storage.
+Releasing the reservation wakes writers through the existing TTY wakeup
+path. This preserves immediate logical flushing while applying write
+backpressure until the storage is reusable.
 
-SCCNXP handles interrupts under a controller lock which its UART callbacks
-acquire with the port lock already held. Collect the ports needing wakeups
-while servicing the controller, then release that lock before taking each
-port lock and rechecking the wakeup threshold. Removal drains the IRQ or
-timer before unregistering the ports.
+Track port readiness separately from DMA ownership. Retirement releases the
+reservation even during startup or shutdown, while writes and wakeups stay
+gated until successful startup or resume. Reopening or restarting a port
+wakes deferred writers with either a new or retained FIFO. Restart queued
+output when reusing a FIFO after suspension. Keep its write-ready
+notification pending until the retained output drains below the normal
+wakeup threshold.
 
-This serializes write notifications with port-locked serial-core state
-changes, allowing readiness and transmit-storage reservations to gate the
-notification without a check-versus-shutdown race.
+Publish resume readiness under the same port lock as the TX restart,
+without clearing any reservation. A concurrent flush can then reserve a
+new transfer without resume releasing its storage prematurely.
 
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/tty/serial/21285.c         |  2 ++
- drivers/tty/serial/atmel_serial.c  | 12 +++++-----
- drivers/tty/serial/clps711x.c      | 23 ++++++++++++++-----
- drivers/tty/serial/cpm_uart.c      |  2 ++
- drivers/tty/serial/fsl_lpuart.c    |  2 +-
- drivers/tty/serial/jsm/jsm_cls.c   |  3 ++-
- drivers/tty/serial/jsm/jsm_neo.c   |  9 +++++---
- drivers/tty/serial/lantiq.c        |  3 ++-
- drivers/tty/serial/ma35d1_serial.c |  6 +++--
- drivers/tty/serial/max3100.c       |  6 +++--
- drivers/tty/serial/max310x.c       |  9 +++++---
- drivers/tty/serial/mux.c           | 13 ++++++-----
- drivers/tty/serial/mvebu-uart.c    |  2 ++
- drivers/tty/serial/mxs-auart.c     |  2 ++
- drivers/tty/serial/sb1250-duart.c  | 14 ++++++------
- drivers/tty/serial/sccnxp.c        | 45 +++++++++++++++++++++++++++++---------
- drivers/tty/serial/ucc_uart.c      |  6 +++--
- 17 files changed, 110 insertions(+), 49 deletions(-)
+ drivers/tty/serial/serial_core.c | 100 +++++++++++++++++++++++++++++++++++----
+ include/linux/serial_core.h      |  18 ++++++-
+ 2 files changed, 107 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/tty/serial/21285.c b/drivers/tty/serial/21285.c
-index 4de0c975ebdc..e4149aea4f66 100644
---- a/drivers/tty/serial/21285.c
-+++ b/drivers/tty/serial/21285.c
-@@ -157,6 +157,8 @@ static irqreturn_t serial21285_tx_chars(int irq, void *dev_id)
- 	struct uart_port *port = dev_id;
- 	u8 ch;
- 
-+	guard(uart_port_lock_irqsave)(port);
-+
- 	uart_port_tx_limited(port, ch, 256,
- 		!(*CSR_UARTFLG & 0x20),
- 		*CSR_UARTDR = ch,
-diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
-index c3880259e3bc..0433bc70f279 100644
---- a/drivers/tty/serial/atmel_serial.c
-+++ b/drivers/tty/serial/atmel_serial.c
-@@ -1371,6 +1371,8 @@ atmel_handle_status(struct uart_port *port, unsigned int pending,
- 
- 		if (status_change & (ATMEL_US_RI | ATMEL_US_DSR
- 					| ATMEL_US_DCD | ATMEL_US_CTS)) {
-+			guard(uart_port_lock_irqsave)(port);
-+
- 			/* TODO: All reads to CSR will clear these interrupts! */
- 			if (status_change & ATMEL_US_RI)
- 				port->icount.rng++;
-@@ -1702,10 +1704,9 @@ static void atmel_tasklet_rx_func(struct tasklet_struct *t)
- 							  tasklet_rx);
- 	struct uart_port *port = &atmel_port->uart;
- 
--	/* The interrupt handler does not take the lock */
--	uart_port_lock(port);
-+	guard(uart_port_lock_irqsave)(port);
-+
- 	atmel_port->schedule_rx(port);
--	uart_port_unlock(port);
+diff --git a/drivers/tty/serial/serial_core.c b/drivers/tty/serial/serial_core.c
+index c0deec0e6af4..30358fe8c341 100644
+--- a/drivers/tty/serial/serial_core.c
++++ b/drivers/tty/serial/serial_core.c
+@@ -100,6 +100,11 @@ static inline struct uart_port *uart_port_check(struct uart_state *state)
+ 	return state->uart_port;
  }
  
- static void atmel_tasklet_tx_func(struct tasklet_struct *t)
-@@ -1714,10 +1715,9 @@ static void atmel_tasklet_tx_func(struct tasklet_struct *t)
- 							  tasklet_tx);
- 	struct uart_port *port = &atmel_port->uart;
- 
--	/* The interrupt handler does not take the lock */
--	uart_port_lock(port);
-+	guard(uart_port_lock_irqsave)(port);
++static bool uart_xmit_writable(const struct uart_state *state)
++{
++	return state->xmit_ready && !state->xmit_blocked;
++}
 +
- 	atmel_port->schedule_tx(port);
--	uart_port_unlock(port);
+ /**
+  * uart_write_wakeup - schedule write processing
+  * @port: port to be processed
+@@ -119,10 +124,71 @@ void uart_write_wakeup(struct uart_port *port)
+ 	 * closed.  No cookie for you.
+ 	 */
+ 	BUG_ON(!state);
++	if (!uart_xmit_writable(state))
++		return;
+ 	tty_port_tty_wakeup(&state->port);
  }
+ EXPORT_SYMBOL(uart_write_wakeup);
  
- static void atmel_init_property(struct atmel_uart_port *atmel_port,
-diff --git a/drivers/tty/serial/clps711x.c b/drivers/tty/serial/clps711x.c
-index 83186bf50002..06ed8ba7c9fb 100644
---- a/drivers/tty/serial/clps711x.c
-+++ b/drivers/tty/serial/clps711x.c
-@@ -73,7 +73,8 @@ static void uart_clps711x_stop_tx(struct uart_port *port)
- 	struct clps711x_port *s = dev_get_drvdata(port->dev);
- 
- 	if (s->tx_enabled) {
--		disable_irq(port->irq);
-+		/* The handler also takes the port lock. */
-+		disable_irq_nosync(port->irq);
- 		s->tx_enabled = 0;
- 	}
- }
-@@ -146,9 +147,16 @@ static irqreturn_t uart_clps711x_int_tx(int irq, void *dev_id)
++/* Publish readiness without releasing any transfer's storage reservation. */
++static void uart_xmit_enable(struct uart_port *port)
++{
++	struct uart_state *state = port->state;
++
++	lockdep_assert_held_once(&port->lock);
++	if (state->xmit_ready)
++		return;
++	state->xmit_ready = true;
++	/* Retained output must drain before consuming a write-ready notification. */
++	if (kfifo_len(&state->port.xmit_fifo) < WAKEUP_CHARS)
++		uart_write_wakeup(port);
++}
++
++/**
++ * uart_xmit_block - reserve flushed transmit storage
++ * @port: port whose transmit storage is still in use
++ *
++ * A driver may call this from ->flush_buffer() if DMA still owns the old
++ * transmit data. The logical FIFO has already been emptied, but writers
++ * must not overwrite its storage until uart_xmit_unblock() is called.
++ * write_room() reports zero and write()/put_char() accept no data meanwhile.
++ * Write wakeups are deferred until the reservation is released.
++ *
++ * The driver must unblock after retiring the transfer, including on shutdown.
++ * Serial core separately gates writes and wakeups until startup or resume
++ * has made the port ready.
++ * Repeated calls are idempotent, not nested reservations.
++ *
++ * Context: @port->lock held.
++ */
++void uart_xmit_block(struct uart_port *port)
++{
++	lockdep_assert_held_once(&port->lock);
++	port->state->xmit_blocked = true;
++}
++EXPORT_SYMBOL_GPL(uart_xmit_block);
++
++/**
++ * uart_xmit_unblock - release reserved transmit storage and wake writers
++ * @port: port whose storage is available again
++ *
++ * The old transfer must no longer access the FIFO storage, and any required
++ * DMA synchronization must have completed before this call.
++ * Retirement is recorded even while the port is inactive. Writes and wakeups
++ * remain deferred until startup or resume has made the port ready.
++ *
++ * Context: @port->lock held.
++ */
++void uart_xmit_unblock(struct uart_port *port)
++{
++	lockdep_assert_held_once(&port->lock);
++	if (!port->state->xmit_blocked)
++		return;
++	port->state->xmit_blocked = false;
++	uart_write_wakeup(port);
++}
++EXPORT_SYMBOL_GPL(uart_xmit_unblock);
++
+ static void uart_stop(struct tty_struct *tty)
  {
- 	struct uart_port *port = dev_id;
- 	struct clps711x_port *s = dev_get_drvdata(port->dev);
--	struct tty_port *tport = &port->state->port;
-+	struct tty_port *tport;
- 	unsigned char c;
+ 	struct uart_state *state = tty->driver_data;
+@@ -141,7 +207,10 @@ static void __uart_start(struct uart_state *state)
+ 	struct serial_port_device *port_dev;
+ 	int err;
  
-+	guard(uart_port_lock_irqsave)(port);
-+
-+	if (!s->tx_enabled)
-+		return IRQ_HANDLED;
-+
-+	tport = &port->state->port;
-+
- 	if (port->x_char) {
- 		writew(port->x_char, port->membase + UARTDR_OFFSET);
- 		port->icount.tx++;
-@@ -157,10 +165,7 @@ static irqreturn_t uart_clps711x_int_tx(int irq, void *dev_id)
- 	}
+-	if (!port || port->flags & UPF_DEAD || uart_tx_stopped(port))
++	if (!port || port->flags & UPF_DEAD || uart_tx_stopped(port) || !state->xmit_ready)
++		return;
++	/* High-priority flow-control characters have their own storage. */
++	if (state->xmit_blocked && !port->x_char)
+ 		return;
  
- 	if (kfifo_is_empty(&tport->xmit_fifo) || uart_tx_stopped(port)) {
--		if (s->tx_enabled) {
--			disable_irq_nosync(port->irq);
--			s->tx_enabled = 0;
--		}
-+		uart_clps711x_stop_tx(port);
- 		return IRQ_HANDLED;
- 	}
+ 	port_dev = port->port_dev;
+@@ -375,6 +444,11 @@ static int uart_startup(struct tty_struct *tty, struct uart_state *state,
+ 		return -EIO;
  
-@@ -245,8 +250,14 @@ static void uart_clps711x_shutdown(struct uart_port *port)
- {
- 	struct clps711x_port *s = dev_get_drvdata(port->dev);
- 
-+	scoped_guard(uart_port_lock_irqsave, port)
-+		uart_clps711x_stop_tx(port);
-+
- 	/* Disable the port */
- 	regmap_update_bits(s->syscon, SYSCON_OFFSET, SYSCON_UARTEN, 0);
-+
-+	/* Drain the non-waiting TX disable before releasing the FIFO. */
-+	synchronize_irq(port->irq);
- }
- 
- static void uart_clps711x_set_termios(struct uart_port *port,
-diff --git a/drivers/tty/serial/cpm_uart.c b/drivers/tty/serial/cpm_uart.c
-index 39f54bb7b485..028a01fa02a9 100644
---- a/drivers/tty/serial/cpm_uart.c
-+++ b/drivers/tty/serial/cpm_uart.c
-@@ -214,6 +214,8 @@ static void cpm_uart_int_tx(struct uart_port *port)
- {
- 	pr_debug("CPM uart[%d]:TX INT\n", port->line);
- 
-+	guard(uart_port_lock_irqsave)(port);
-+
- 	cpm_uart_tx_pump(port);
- }
- 
-diff --git a/drivers/tty/serial/fsl_lpuart.c b/drivers/tty/serial/fsl_lpuart.c
-index c8575c965203..cb04571c3d0e 100644
---- a/drivers/tty/serial/fsl_lpuart.c
-+++ b/drivers/tty/serial/fsl_lpuart.c
-@@ -540,10 +540,10 @@ static void lpuart_dma_tx_complete(void *arg)
- 
- 	uart_xmit_advance(&sport->port, sport->dma_tx_bytes);
- 	sport->dma_tx_in_progress = false;
--	uart_port_unlock_irqrestore(&sport->port, flags);
- 
- 	if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
- 		uart_write_wakeup(&sport->port);
-+	uart_port_unlock_irqrestore(&sport->port, flags);
- 
- 	if (waitqueue_active(&sport->dma_wait)) {
- 		wake_up(&sport->dma_wait);
-diff --git a/drivers/tty/serial/jsm/jsm_cls.c b/drivers/tty/serial/jsm/jsm_cls.c
-index 6e40792f92cf..7720796331c9 100644
---- a/drivers/tty/serial/jsm/jsm_cls.c
-+++ b/drivers/tty/serial/jsm/jsm_cls.c
-@@ -571,7 +571,8 @@ static inline void cls_parse_isr(struct jsm_board *brd, uint port)
- 			spin_lock_irqsave(&ch->ch_lock, flags);
- 			ch->ch_flags |= (CH_TX_FIFO_EMPTY | CH_TX_FIFO_LWM);
- 			spin_unlock_irqrestore(&ch->ch_lock, flags);
--			cls_copy_data_from_queue_to_uart(ch);
-+			scoped_guard(uart_port_lock_irqsave, &ch->uart_port)
-+				cls_copy_data_from_queue_to_uart(ch);
- 		}
- 
- 		/*
-diff --git a/drivers/tty/serial/jsm/jsm_neo.c b/drivers/tty/serial/jsm/jsm_neo.c
-index e8e13bf056e2..cbd9af43c68b 100644
---- a/drivers/tty/serial/jsm/jsm_neo.c
-+++ b/drivers/tty/serial/jsm/jsm_neo.c
-@@ -740,7 +740,8 @@ static void neo_parse_isr(struct jsm_board *brd, u32 port)
- 			spin_lock_irqsave(&ch->ch_lock, lock_flags);
- 			ch->ch_flags |= (CH_TX_FIFO_EMPTY | CH_TX_FIFO_LWM);
- 			spin_unlock_irqrestore(&ch->ch_lock, lock_flags);
--			neo_copy_data_from_queue_to_uart(ch);
-+			scoped_guard(uart_port_lock_irqsave, &ch->uart_port)
-+				neo_copy_data_from_queue_to_uart(ch);
- 		}
- 
- 		if (isr & UART_17158_IIR_XONXOFF) {
-@@ -895,7 +896,8 @@ static inline void neo_parse_lsr(struct jsm_board *brd, u32 port)
- 		spin_unlock_irqrestore(&ch->ch_lock, lock_flags);
- 
- 		/* Transfer data (if any) from Write Queue -> UART. */
--		neo_copy_data_from_queue_to_uart(ch);
-+		scoped_guard(uart_port_lock_irqsave, &ch->uart_port)
-+			neo_copy_data_from_queue_to_uart(ch);
- 	}
- 	else if (linestatus & UART_17158_TX_AND_FIFO_CLR) {
- 		spin_lock_irqsave(&ch->ch_lock, lock_flags);
-@@ -903,7 +905,8 @@ static inline void neo_parse_lsr(struct jsm_board *brd, u32 port)
- 		spin_unlock_irqrestore(&ch->ch_lock, lock_flags);
- 
- 		/* Transfer data (if any) from Write Queue -> UART. */
--		neo_copy_data_from_queue_to_uart(ch);
-+		scoped_guard(uart_port_lock_irqsave, &ch->uart_port)
-+			neo_copy_data_from_queue_to_uart(ch);
- 	}
- }
- 
-diff --git a/drivers/tty/serial/lantiq.c b/drivers/tty/serial/lantiq.c
-index 62cd9e0bb377..0d7e06c7d790 100644
---- a/drivers/tty/serial/lantiq.c
-+++ b/drivers/tty/serial/lantiq.c
-@@ -239,7 +239,8 @@ lqasc_tx_int(int irq, void *_port)
- 	spin_lock_irqsave(&ltq_port->lock, flags);
- 	__raw_writel(ASC_IRNCR_TIR, port->membase + LTQ_ASC_IRNCR);
- 	spin_unlock_irqrestore(&ltq_port->lock, flags);
--	lqasc_start_tx(port);
-+	scoped_guard(uart_port_lock_irqsave, port)
-+		lqasc_start_tx(port);
- 	return IRQ_HANDLED;
- }
- 
-diff --git a/drivers/tty/serial/ma35d1_serial.c b/drivers/tty/serial/ma35d1_serial.c
-index 3be30fb05513..ac44681bcb73 100644
---- a/drivers/tty/serial/ma35d1_serial.c
-+++ b/drivers/tty/serial/ma35d1_serial.c
-@@ -295,8 +295,10 @@ static irqreturn_t ma35d1serial_interrupt(int irq, void *dev_id)
- 
- 	if (isr & (MA35_ISR_RDA_IF | MA35_ISR_RXTO_IF))
- 		receive_chars(up);
--	if (isr & MA35_ISR_THRE_INT)
--		transmit_chars(up);
-+	if (isr & MA35_ISR_THRE_INT) {
-+		scoped_guard(uart_port_lock_irqsave, port)
-+			transmit_chars(up);
+ 	serial_base_port_startup(uport);
++	scoped_guard(uart_port_lock_irq, uport) {
++		uart_xmit_enable(uport);
++		if (!kfifo_is_empty(&port->xmit_fifo) || uport->x_char)
++			__uart_start(state);
 +	}
- 	if (fsr & MA35_FSR_TX_OVER_IF)
- 		serial_out(up, MA35_FSR_REG, MA35_FSR_TX_OVER_IF);
  
-diff --git a/drivers/tty/serial/max3100.c b/drivers/tty/serial/max3100.c
-index f858a6669011..5a8817eb82ad 100644
---- a/drivers/tty/serial/max3100.c
-+++ b/drivers/tty/serial/max3100.c
-@@ -287,8 +287,10 @@ static void max3100_work(struct work_struct *w)
- 			tty_flip_buffer_push(&s->port.state->port);
- 			rxchars = 0;
- 		}
--		if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
--			uart_write_wakeup(&s->port);
-+		scoped_guard(uart_port_lock_irqsave, &s->port) {
-+			if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
-+				uart_write_wakeup(&s->port);
-+		}
+ 	return 0;
+ }
+@@ -397,8 +471,11 @@ static void uart_shutdown(struct tty_struct *tty, struct uart_state *state)
+ 	if (tty)
+ 		set_bit(TTY_IO_ERROR, &tty->flags);
  
- 	} while (!s->force_end_work &&
- 		 !freezing(current) &&
-diff --git a/drivers/tty/serial/max310x.c b/drivers/tty/serial/max310x.c
-index a0ed70185555..d9ce6ba53c7f 100644
---- a/drivers/tty/serial/max310x.c
-+++ b/drivers/tty/serial/max310x.c
-@@ -950,8 +950,10 @@ static void max310x_handle_tx(struct uart_port *port)
- 		uart_xmit_advance(port, to_send);
+-	if (uport)
++	if (uport) {
++		scoped_guard(uart_port_lock_irq, uport)
++			state->xmit_ready = false;
+ 		serial_base_port_shutdown(uport);
++	}
+ 
+ 	if (tty_port_initialized(port)) {
+ 		tty_port_set_initialized(port, false);
+@@ -593,7 +670,7 @@ static int uart_put_char(struct tty_struct *tty, u8 c)
+ 		return 0;
  	}
  
--	if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
--		uart_write_wakeup(port);
-+	scoped_guard(uart_port_lock_irqsave, port) {
-+		if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
-+			uart_write_wakeup(port);
-+	}
+-	if (port)
++	if (port && uart_xmit_writable(state))
+ 		ret = kfifo_put(&state->port.xmit_fifo, c);
+ 	uart_port_unlock_deref(port, flags);
+ 	return ret;
+@@ -624,7 +701,7 @@ static ssize_t uart_write(struct tty_struct *tty, const u8 *buf, size_t count)
+ 		return 0;
+ 	}
+ 
+-	if (port)
++	if (port && uart_xmit_writable(state))
+ 		ret = kfifo_in(&state->port.xmit_fifo, buf, count);
+ 
+ 	__uart_start(state);
+@@ -640,7 +717,7 @@ static unsigned int uart_write_room(struct tty_struct *tty)
+ 	unsigned int ret;
+ 
+ 	port = uart_port_ref_lock(state, &flags);
+-	if (!state->port.xmit_buf)
++	if (!state->port.xmit_buf || !uart_xmit_writable(state))
+ 		ret = 0;
+ 	else
+ 		ret = kfifo_avail(&state->port.xmit_fifo);
+@@ -682,8 +759,9 @@ static void uart_flush_buffer(struct tty_struct *tty)
+ 	kfifo_reset(&state->port.xmit_fifo);
+ 	if (port->ops->flush_buffer)
+ 		port->ops->flush_buffer(port);
++	/* Serialize the wakeup with reservation changes, including another flush. */
++	uart_write_wakeup(port);
+ 	uart_port_unlock_deref(port, flags);
+-	tty_port_tty_wakeup(&state->port);
  }
  
  /*
-@@ -1043,7 +1045,8 @@ static irqreturn_t max310x_port_irq(struct max310x_port *s, int portno)
+@@ -1748,8 +1826,10 @@ static void uart_tty_port_shutdown(struct tty_port *port)
+ 	if (WARN(!uport, "detached port still initialized!\n"))
+ 		return;
  
- 		if (ists & MAX310X_IRQ_CTS_BIT) {
- 			lsr = max310x_port_read(port, MAX310X_LSR_IRQSTS_REG);
--			uart_handle_cts_change(port, lsr & MAX310X_LSR_CTS_BIT);
-+			scoped_guard(uart_port_lock_irqsave, port)
-+				uart_handle_cts_change(port, lsr & MAX310X_LSR_CTS_BIT);
- 		}
- 		if (rxlen)
- 			max310x_handle_rx(port, rxlen);
-diff --git a/drivers/tty/serial/mux.c b/drivers/tty/serial/mux.c
-index 3a77a7e5c7bc..8be5b3031749 100644
---- a/drivers/tty/serial/mux.c
-+++ b/drivers/tty/serial/mux.c
-@@ -189,11 +189,14 @@ static void mux_write(struct uart_port *port)
- {
- 	u8 ch;
- 
--	uart_port_tx_limited(port, ch,
--		port->fifosize - UART_GET_FIFO_CNT(port),
--		true,
--		UART_PUT_CHAR(port, ch),
--		mux_tx_done(port));
-+	scoped_guard(uart_port_lock_irqsave, port) {
-+		uart_port_tx_limited(port, ch,
-+			port->fifosize - UART_GET_FIFO_CNT(port),
-+			true,
-+			UART_PUT_CHAR(port, ch),
-+			({}));
+-	scoped_guard(uart_port_lock_irq, uport)
++	scoped_guard(uart_port_lock_irq, uport) {
++		state->xmit_ready = false;
+ 		uport->ops->stop_rx(uport);
 +	}
-+	mux_tx_done(port);
- }
+ 
+ 	serial_base_port_shutdown(uport);
+ 	uart_port_shutdown(port);
+@@ -2391,9 +2471,10 @@ int uart_suspend_port(struct uart_driver *drv, struct uart_port *uport)
+ 		unsigned int mctrl;
+ 
+ 		tty_port_set_suspended(port, true);
+-		tty_port_set_initialized(port, false);
+ 
+ 		scoped_guard(uart_port_lock_irq, uport) {
++			state->xmit_ready = false;
++			tty_port_set_initialized(port, false);
+ 			ops->stop_tx(uport);
+ 			if (!(uport->rs485.flags & SER_RS485_ENABLED))
+ 				ops->set_mctrl(uport, 0);
+@@ -2498,8 +2579,9 @@ int uart_resume_port(struct uart_driver *drv, struct uart_port *uport)
+ 					if (!(uport->rs485.flags & SER_RS485_ENABLED))
+ 						ops->set_mctrl(uport, uport->mctrl);
+ 					ops->start_tx(uport);
++					tty_port_set_initialized(port, true);
++					uart_xmit_enable(uport);
+ 				}
+-				tty_port_set_initialized(port, true);
+ 			} else {
+ 				/*
+ 				 * Failed to resume - maybe hardware went away?
+diff --git a/include/linux/serial_core.h b/include/linux/serial_core.h
+index 4eeb8253752a..41598a38a408 100644
+--- a/include/linux/serial_core.h
++++ b/include/linux/serial_core.h
+@@ -208,8 +208,17 @@ struct gpio_desc;
+  *	Flush any write buffers, reset any DMA state and stop any ongoing DMA
+  *	transfers.
+  *
+- *	This will be called whenever the @port->state->xmit circular buffer is
+- *	cleared.
++ *	This is called after the transmit FIFO has been cleared, with @port->lock
++ *	still held. A driver whose asynchronous transfer can still access the
++ *	flushed storage must call uart_xmit_block() before returning. This keeps
++ *	write_room() at zero and prevents write() and put_char() from reusing the
++ *	storage until the driver calls uart_xmit_unblock().
++ *
++ *	Release the reservation only after the transfer and its callbacks have
++ *	retired and any required DMA synchronization has completed. Shutdown must
++ *	also retire the transfer and release the reservation before returning,
++ *	since serial core then frees the transmit buffer. Serial core separately
++ *	gates writes and wakeups until startup or resume has made the port ready.
+  *
+  *	Locking: @port->lock taken.
+  *	Interrupts: locally disabled.
+@@ -834,6 +843,9 @@ enum uart_pm_state {
+  */
+ struct uart_state {
+ 	struct tty_port		port;
++	/* TX readiness and storage ownership; protected by the UART port lock. */
++	bool			xmit_ready;
++	bool			xmit_blocked;
+ 
+ 	enum uart_pm_state	pm_state;
+ 
+@@ -909,6 +921,8 @@ struct uart_driver {
+ };
+ 
+ void uart_write_wakeup(struct uart_port *port);
++void uart_xmit_block(struct uart_port *port);
++void uart_xmit_unblock(struct uart_port *port);
  
  /**
-diff --git a/drivers/tty/serial/mvebu-uart.c b/drivers/tty/serial/mvebu-uart.c
-index 33ea496c93b2..7bc0d0d3760e 100644
---- a/drivers/tty/serial/mvebu-uart.c
-+++ b/drivers/tty/serial/mvebu-uart.c
-@@ -334,6 +334,8 @@ static void mvebu_uart_tx_chars(struct uart_port *port, unsigned int status)
- {
- 	u8 ch;
- 
-+	guard(uart_port_lock_irqsave)(port);
-+
- 	uart_port_tx_limited(port, ch, port->fifosize,
- 		!(readl(port->membase + UART_STAT) & STAT_TX_FIFO_FUL),
- 		writel(ch, port->membase + UART_TSH(port)),
-diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
-index 697318dbb146..6a310309b55d 100644
---- a/drivers/tty/serial/mxs-auart.c
-+++ b/drivers/tty/serial/mxs-auart.c
-@@ -521,6 +521,8 @@ static void dma_tx_callback(void *param)
- 
- 	dma_unmap_sg(s->dev, &s->tx_sgl, 1, DMA_TO_DEVICE);
- 
-+	guard(uart_port_lock_irqsave)(&s->port);
-+
- 	/* clear the bit used to serialize the DMA tx. */
- 	clear_bit(MXS_AUART_DMA_TX_SYNC, &s->flags);
- 	smp_mb__after_atomic();
-diff --git a/drivers/tty/serial/sb1250-duart.c b/drivers/tty/serial/sb1250-duart.c
-index b4e1b90e5960..a62d65b299dd 100644
---- a/drivers/tty/serial/sb1250-duart.c
-+++ b/drivers/tty/serial/sb1250-duart.c
-@@ -454,10 +454,12 @@ static irqreturn_t sbd_interrupt(int irq, void *dev_id)
- 
- 		if (intstat & M_DUART_ISR_RX)
- 			sbd_receive_chars(sport);
--		if (intstat & M_DUART_ISR_IN)
--			sbd_status_handle(sport);
--		if (intstat & M_DUART_ISR_TX)
--			sbd_transmit_chars(sport);
-+		scoped_guard(uart_port_lock_irqsave, uport) {
-+			if (intstat & M_DUART_ISR_IN)
-+				sbd_status_handle(sport);
-+			if (intstat & M_DUART_ISR_TX)
-+				sbd_transmit_chars(sport);
-+		}
- 
- 		status = IRQ_HANDLED;
- 	}
-@@ -611,7 +613,7 @@ static void sbd_set_termios(struct uart_port *uport, struct ktermios *termios,
- 	else
- 		aux &= ~M_DUART_CTS_CHNG_ENA;
- 
--	uart_port_lock(uport);
-+	guard(uart_port_lock_irqsave)(uport);
- 
- 	if (sport->tx_stopped)
- 		command |= M_DUART_TX_DIS;
-@@ -632,8 +634,6 @@ static void sbd_set_termios(struct uart_port *uport, struct ktermios *termios,
- 	write_sbdchn(sport, R_DUART_AUXCTL_X, aux | oldaux);
- 
- 	write_sbdchn(sport, R_DUART_CMD, command);
--
--	uart_port_unlock(uport);
- }
- 
- 
-diff --git a/drivers/tty/serial/sccnxp.c b/drivers/tty/serial/sccnxp.c
-index cb31e3aceb62..f89efc4a2d77 100644
---- a/drivers/tty/serial/sccnxp.c
-+++ b/drivers/tty/serial/sccnxp.c
-@@ -435,7 +435,7 @@ static void sccnxp_handle_rx(struct uart_port *port)
- 	tty_flip_buffer_push(&port->state->port);
- }
- 
--static void sccnxp_handle_tx(struct uart_port *port)
-+static bool sccnxp_handle_tx(struct uart_port *port)
- {
- 	u8 sr;
- 	struct tty_port *tport = &port->state->port;
-@@ -445,7 +445,7 @@ static void sccnxp_handle_tx(struct uart_port *port)
- 		sccnxp_port_write(port, SCCNXP_THR_REG, port->x_char);
- 		port->icount.tx++;
- 		port->x_char = 0;
--		return;
-+		return false;
- 	}
- 
- 	if (kfifo_is_empty(&tport->xmit_fifo) || uart_tx_stopped(port)) {
-@@ -457,7 +457,7 @@ static void sccnxp_handle_tx(struct uart_port *port)
- 			if (s->chip->flags & SCCNXP_HAVE_IO)
- 				sccnxp_set_bit(port, DIR_OP, 0);
- 		}
--		return;
-+		return false;
- 	}
- 
- 	while (1) {
-@@ -473,12 +473,12 @@ static void sccnxp_handle_tx(struct uart_port *port)
- 		sccnxp_port_write(port, SCCNXP_THR_REG, ch);
- 	}
- 
--	if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
--		uart_write_wakeup(port);
-+	return kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS;
- }
- 
--static void sccnxp_handle_events(struct sccnxp_port *s)
-+static unsigned int sccnxp_handle_events(struct sccnxp_port *s)
- {
-+	unsigned int wakeup = 0;
- 	int i;
- 	u8 isr;
- 
-@@ -491,20 +491,43 @@ static void sccnxp_handle_events(struct sccnxp_port *s)
- 		for (i = 0; i < s->uart.nr; i++) {
- 			if (s->opened[i] && (isr & ISR_RXRDY(i)))
- 				sccnxp_handle_rx(&s->port[i]);
--			if (s->opened[i] && (isr & ISR_TXRDY(i)))
--				sccnxp_handle_tx(&s->port[i]);
-+			if (s->opened[i] && (isr & ISR_TXRDY(i)) &&
-+			    sccnxp_handle_tx(&s->port[i]))
-+				wakeup |= BIT(i);
- 		}
- 	} while (1);
-+
-+	return wakeup;
-+}
-+
-+static void sccnxp_write_wakeup(struct sccnxp_port *s, unsigned int wakeup)
-+{
-+	int i;
-+
-+	/* UART callbacks take s->lock with the port lock already held. */
-+	for (i = 0; i < s->uart.nr; i++) {
-+		struct uart_port *port = &s->port[i];
-+
-+		if (!(wakeup & BIT(i)))
-+			continue;
-+
-+		scoped_guard(uart_port_lock_irqsave, port) {
-+			if (kfifo_len(&port->state->port.xmit_fifo) < WAKEUP_CHARS)
-+				uart_write_wakeup(port);
-+		}
-+	}
- }
- 
- static void sccnxp_timer(struct timer_list *t)
- {
- 	struct sccnxp_port *s = timer_container_of(s, t, timer);
- 	unsigned long flags;
-+	unsigned int wakeup;
- 
- 	spin_lock_irqsave(&s->lock, flags);
--	sccnxp_handle_events(s);
-+	wakeup = sccnxp_handle_events(s);
- 	spin_unlock_irqrestore(&s->lock, flags);
-+	sccnxp_write_wakeup(s, wakeup);
- 
- 	mod_timer(&s->timer, jiffies + usecs_to_jiffies(s->pdata.poll_time_us));
- }
-@@ -513,10 +536,12 @@ static irqreturn_t sccnxp_ist(int irq, void *dev_id)
- {
- 	struct sccnxp_port *s = (struct sccnxp_port *)dev_id;
- 	unsigned long flags;
-+	unsigned int wakeup;
- 
- 	spin_lock_irqsave(&s->lock, flags);
--	sccnxp_handle_events(s);
-+	wakeup = sccnxp_handle_events(s);
- 	spin_unlock_irqrestore(&s->lock, flags);
-+	sccnxp_write_wakeup(s, wakeup);
- 
- 	return IRQ_HANDLED;
- }
-diff --git a/drivers/tty/serial/ucc_uart.c b/drivers/tty/serial/ucc_uart.c
-index 6b7dcbbacd13..60f72c19d67c 100644
---- a/drivers/tty/serial/ucc_uart.c
-+++ b/drivers/tty/serial/ucc_uart.c
-@@ -570,8 +570,10 @@ static irqreturn_t qe_uart_int(int irq, void *data)
- 	if (events & UCC_UART_UCCE_RX)
- 		qe_uart_int_rx(qe_port);
- 
--	if (events & UCC_UART_UCCE_TX)
--		qe_uart_tx_pump(qe_port);
-+	if (events & UCC_UART_UCCE_TX) {
-+		scoped_guard(uart_port_lock_irqsave, &qe_port->port)
-+			qe_uart_tx_pump(qe_port);
-+	}
- 
- 	return events ? IRQ_HANDLED : IRQ_NONE;
- }
+  * enum UART_TX_FLAGS -- flags for uart_port_tx_flags()
 
 -- 
 2.53.0
