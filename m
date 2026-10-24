@@ -2,78 +2,129 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3D10606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 07:59:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0C5C606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 08:17:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=c9H/WMPl;
-	dkim=pass (1024-bit key, unprotected) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Rv4LVBZl
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rDMmchTQ;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=gmdZVtmQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:References:In-Reply-To:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=OS07joxRVIHTq4fBRVjBEm+fhLEIDQPx3a4oSl1o2+A=; b=c9H/WMPlCGbC3S0zqgnq5HyiIA
-	T76HzC+O36nLfzCBdxNoy8djdHyyYxjbA5OAKzjXKqZokGLJ0M1B2rUgyduPq+ndHfIRKqXe7RHxh
-	1HJ47gavV50ntHWOn/rhaCkVdqaA1RsXcQCDjN6rU4dipLxcuIsYZT4O2q7ZttAEBKVAg1K64GkeX
-	V8/lSPKTWUpCclsHv8UkaENmCjlU2T0s1Wy+mG/haKt5yxDlgHgG0kNDRaTpTS/otcnUBnbQ8KkN/
-	V1qKuaUnQvaJU9SzmTE8Ps3g3VmIaYrDyueVf8BZFWKuWLmKeheFWJ04SO9IhwHicB74raBVrhnFt
-	7PVKbu6g==;
+	bh=lPv80ccJgYYw4AUwmqTrRtQb9q7abpSwK/Y4bqqZPDM=; b=rDMmchTQB9hddKLYnwh5g7g3kb
+	Eva0Fxkze/3f9r5VT9ZHjxCPxUC398A0o2tXaQ5qz9UuObvl4bKZmlk2BWIv7FNF/5+2NTa5rVKZw
+	ExWKuzLY8xOKYRt29gdCvDWCzf7a5DGiiXBRG5+1hHTG5s97kCJu89m5qvid+oKKUxy+t3xef9lZz
+	BsixI24trvkz9G19PY4puta6ax7YhWUj/bx+rKg8R2P3DrMhtLWASG7A9Y5mEs4+hsM6SzdWWUx3V
+	ePsc0/35ucXDyR4SScozLUuK802ULaBt5o00LynM5gLkRjOyeqO1er4HDijxXPexVjlDs9f32j/Pb
+	rf7p7zVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKWep-0000000HZok-3r38;
-	Sat, 24 Oct 2026 07:59:15 +0000
-Received: from smtp.ustc.edu.cn ([202.38.64.46] helo=ustc.edu.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKWel-0000000HZoG-0S7Z
+	id 1xKWw0-0000000HaHj-2Tou;
+	Sat, 24 Oct 2026 08:17:00 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xKWvy-0000000HaH5-0Fmk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 07:59:13 +0000
+	Sat, 24 Oct 2026 08:16:59 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-c3f04e0e65fso232791266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 01:16:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792829816; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Zv6/ssnPGNU67ux5q6BqHPvZKYvymIk6HcV54+Nb18FQNU781e05hwlwAnVoxNPEDv
+         miLQnrDKAWQPFcIquWWD4wyKWdBqFgBuLPdMfPXXgOuKCCQwtwsgA/mbWfM196fhvH7x
+         qj0AeY4UukSvGP1hzvvpFVmgq8+z15l2WhG77U53GmZiRVZ9zib/BmAuJCQOxAPOsUX1
+         p/vmyOJauVUbKKN/fiMWCCBK7IIWMqfJSl+bS7lbYw0Eok5Js0mcMkbyGN/KDZBk5ZVp
+         7XZfmuJrn8TcnKRnWtim/4tMnUjOJ2tsmyNVSBck6lusRcLgz+YXLw49CLIJb5Xjyd9p
+         KNfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:references:in-reply-to
+         :mime-version:dkim-signature;
+        bh=lPv80ccJgYYw4AUwmqTrRtQb9q7abpSwK/Y4bqqZPDM=;
+        fh=Q0OlV94DlNxiM8xbORn+1URIvo1+xWCNKWkYji5umnU=;
+        b=cNE8kYHXDYmuIUZFeFBWt2Io1iCHz2HAtlLhOsULNVrtE92Cqp3KWbKn/8ODie7DHV
+         lMCEr135xXNnXEnAmyo2P2nW9Rec/YbSd7/RYEREJe1OydqX3KGJjK33bkPl0+olU2ek
+         SXe9VC/Xs070aFOQpwQFXMOO5CwYdgROTOL1g9u2MDLosh6pZuDWTx2CK6gpMLfRFpuf
+         NQUFfyQESKKzuBQ8YcjNETSiG89ftqiZNU7+E8nJzCwacuK4wxA5D6HT9/E4ckm1K7GC
+         hT9X7HfdKpNqae//KypTIKtydLssSCZi5QX+YnDI2xNoeEBDygKh7710xwMnVgI5HxoP
+         3sRA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-ID:MIME-Version:Content-Transfer-Encoding; bh=OS07joxRVI
-	HTq4fBRVjBEm+fhLEIDQPx3a4oSl1o2+A=; b=Rv4LVBZlXfVRJt2LoPFN1cGqYD
-	zaqfJPFf/gWY9okA08NQIwBvoKh7lleN8pXQqIdyDpeiCsIU3Y9irIn4S8GDbKCJ
-	qkKSBkdCZHtBLUNtuZ++ltU/ZCdPSEaK3BmLYc5vIIysvGNoGlM06/CZb+k5pBYl
-	vxx2o15zSExDj/0Bg=
-Received: from xuqianhui.ustc.edu.cn (unknown [114.214.190.60])
-	by mailimap2024 (Coremail) with SMTP id 3pYKCgBXzjJAZdxqLJM6AA--.446S2;
-	Sat, 24 Oct 2026 15:58:56 +0800 (CST)
-From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Xu Qianhui <xiaqinghuan@mail.ustc.edu.cn>
-Subject: [PATCH] irqchip/gic-v3-its: Claim LPI tables inherited across kexec on DT
-Date: Sat, 24 Oct 2026 15:58:56 +0800
-Message-ID: <20261024075856.835932-1-xiaqinghuan@mail.ustc.edu.cn>
-X-Mailer: git-send-email 2.53.0
+        d=chromium.org; s=google; t=1792829816; x=1793434616; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:references
+         :in-reply-to:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=lPv80ccJgYYw4AUwmqTrRtQb9q7abpSwK/Y4bqqZPDM=;
+        b=gmdZVtmQd4RM9aEUUxg6AvEj3ZnnrLyWG63usxnLJOiWp7rZ19ntqZPQgHT2hCnLV1
+         0RldON2R7T5Hp0lldGJFPbi5MzUXUpgEfp9SUmeqK3r7PEGLerTZ0AgZs719ffJtYylA
+         raw+qZhLWPLJZ4wxf0wQaaNvfEweGK5jiqH+4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792829816; x=1793434616;
+        h=content-type:cc:to:subject:message-id:date:from:references
+         :in-reply-to:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=lPv80ccJgYYw4AUwmqTrRtQb9q7abpSwK/Y4bqqZPDM=;
+        b=f++r/aqTmDp4OKnah5tg0EajgReH/6QIAZ73OOz4gYroQ6Lk6T9PwnB56hwLaAwSMK
+         /N4NrEuOUk+etT+OqunFWn16pDo0CLvUtGO/QDb8kNlKLJ48aMQEFgrzDcYBIX1FqdUP
+         rbIm/a2MpLpNNz4odnN+hODRcm9CHHndi44G/4wGvUwjm9TIIidntdCCp5zT0146W7oA
+         OXPCA5BkzxnKdwBeVaPAQf6POKSWu3IALLK0Zx5l/Kj/PhRArDIC3+6kiw0Uvq0V0OsQ
+         82ekC+PfOuAB0Wffx8+yG3IQjD6vkvbi4nTUrt0qaJNutMgNst3gAxFj2A98jS3//ddV
+         tKhw==
+X-Forwarded-Encrypted: i=1; AKwUvBzz/W74d7daLAvJMuPr5sDDviKSjNNnRgSH8zI5PGIesXeHvtHFhSY9Rmp+GOhGUUy5Yq3qwQy1X8LJPjYYTj6C@lists.infradead.org
+X-Gm-Message-State: AFq9FYIFo499kpcL/+lD9HkfS/lbXUmQZJDwooDJvtyCMvwiuFDLL66F
+	HSjUuUhK01ZANEGZvZb1a9NUWqweDt6YkZ0pscnBgg91fadGIsYw0ZRx+d156qVrmbRQj3xYiJA
+	NzzVSFn7h1NutQMXWZ3++zlyPX6JmgESxGNzMxtxo
+X-Gm-Gg: AYBFou1uMZ2p56wQVAxP2bVtTdh3u5X/1+fBsUpDKx+cnEvbzuzR/wfHl3XHOg0pXnn
+	uO9Dgbfxtp0tdcuEsM/1y47FDov848s6ISaJzsh7V0OYclSh2OffOwBdHDdaQKu4nag+xmb+4pR
+	tmiAbZaR6mqzC59/qUuFmN7o1gz/m3+xZnZ5ErpoShOE/jKjh1fW7zUvVmXDnvuUp1EWSy/ObtV
+	5tfNoO3zPQbKtAXZbrR8A70KFGjIsSmSbSb/vCAsNL6wGVdz+FQAoH4V8mi/bU1ZqIgFO9lNP9V
+	g36WSmitQySPB7/y9S5EiFeHkQcV0rCYi0Ht4+pEDGpg8XSbtLWBpD02h8UEetjdt69S6+Li3gt
+	VIc795RXEccdeceFKLP1y0tn65WullUEGin8=
+X-Received: by 2002:a17:906:9f84:b0:c44:494:692b with SMTP id
+ a640c23a62f3a-c46bde198e0mr151110066b.22.1792829815874; Sat, 24 Oct 2026
+ 01:16:55 -0700 (PDT)
+Received: from 415065739583 named unknown by gmailapi.google.com with
+ HTTPREST; Sat, 24 Oct 2026 01:16:54 -0700
+Received: from 415065739583 named unknown by gmailapi.google.com with
+ HTTPREST; Sat, 24 Oct 2026 01:16:49 -0700
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: 3pYKCgBXzjJAZdxqLJM6AA--.446S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Gw4DWw1xAw1rWrW5Cw4fuFg_yoW7AryDpF
-	4xKrWjyFs5Ga4FkrZxJr1Uu3WFyFWftFWUG3s7K342v3W5Wr9avr1xJryYqFyxJrZ3G345
-	XF4Y9Fy8uF4UuaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvq14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
-	AVWUtwCY02Avz4vE14v_GF4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0x
-	ZFpf9x0JU3R6wUUUUU=
-X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiAREKB2rbtdUUMQAmsP
+In-Reply-To: <20261020153652.2907186-1-dianders@chromium.org>
+References: <20261020153652.2907186-1-dianders@chromium.org>
+From: Simon Glass <sjg@chromium.org>
+Date: Sat, 24 Oct 2026 01:16:54 -0700
+X-Gm-Features: AclHuK_VJyuusU7nyQWEvJVdBRj5rBge31M7RaY0GTXZjSe04p7xrEJjqvNNRK4
+Message-ID: <CAFLszTgzpQ-donjjtcPwy5T3pfWg_u83QMh0GcdpY2JCq_s75w@mail.gmail.com>
+Subject: Re: [RFC PATCH 0/7] arm64: Add fit images for sc7180-trogdor and google,lga
+To: dianders@chromium.org
+Cc: Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, linux-kbuild@vger.kernel.org, 
+	Brian Norris <briannorris@chromium.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Simon Glass <sjg@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>, linux-arm-msm@vger.kernel.org, 
+	Nicolas Schier <nsc@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Devicetree@vger.kernel.org, 
+	Julius Werner <jwerner@chromium.org>, Saravana Kannan <saravanak@kernel.org>, 
+	Will Deacon <will@kernel.org>, Michal Simek <michal.simek@amd.com>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Andrew Jones <andrew.jones@linux.dev>, 
+	Bjorn Andersson <andersson@kernel.org>, Breno Leitao <leitao@debian.org>, 
+	David Sterba <dsterba@suse.com>, Gary Guo <gary@garyguo.net>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Luis Augenstein <luis.augenstein@tngtech.com>, 
+	Marco Elver <elver@google.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Nick Terrell <terrelln@fb.com>, 
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>, Rong Xu <xur@google.com>, 
+	=?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
+	cros-qcom-dts-watchers@chromium.org, linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261024_005912_182694_560E3255 
-X-CRM114-Status: GOOD (  21.11  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261024_011658_267481_9BF300FE 
+X-CRM114-Status: GOOD (  12.33  )
+X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,138 +135,53 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,T_PDS_OTHER_BAD_TLD autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Xu Qianhui <xiaqinghuan@mail.ustc.edu.cn>
+Hi Doug!
 
-When a kernel is kexec'd into while LPIs are enabled, the incoming kernel
-finds GICR_CTLR.EnableLPIs set and tries to re-initialise the LPI tables
-from scratch.  That requires disabling LPIs first, which is not always
-possible: on some implementations (e.g. Qualcomm SM8750) the EnableLPIs
-bit is RES1 once set, the write to clear it is ignored, and
-redist_disable_lpis() returns -EBUSY.  its_cpu_init() then bails out
-early, LPIs are never reprogrammed, and every MSI command queued against
-the ITS waits for its completion timeout: measured 99 timeouts of about
-1.25 s each, pushing /init out from 1.3 s to 126 s.
+On 2026-10-20T15:35:18, Douglas Anderson <dianders@chromium.org> wrote:
 
-The tables themselves are still intact and usable, and the driver already
-has a path for that (RDIST_FLAGS_RD_TABLES_PREALLOCATED), but it is gated
-on the tables being reserved memory.  On an EFI boot the outgoing kernel
-records a persistent reservation; on a DT boot nothing does.  Adding a
-memreserve entry is not an option either: the flattened DTB handed over by
-the bootloader has no space left for a new one (-FDT_ERR_NOSPACE), and
-kexec clones that blob when the image is loaded, long before the jump.
+> 1. It uses a checked-in .its script to associate metadata with each
+>    board's devicetree. Other tools can parse this metadata in order to
+>    craft a package that the Pixel bootloader can understand.
 
-So claim the inherited tables in the incoming kernel instead: reserve the
-property table while LPIs are being probed (memblock still owns the pages,
-well before memblock_free_all()), and the per-CPU pending tables when the
-preallocated path is taken.  The preallocated path is then selected
-normally and the ITS keeps working across the handoff.
+One thing I'd like to check before this goes further. In lga.its the
+metadata is a string packed into the configuration description
+(board_id=...,board_rev=...,soc_id=...,soc_rev=...). The FIT spec
+treats 'description' as human-readable text, so this turns a
+free-form, undocumented string into an ABI that bootloaders and
+packaging tools must parse. I'd much prefer proper properties in the
+configuration node, defined in the FIT spec [1], so that every tool
+can rely on the same names and types. I'm happy to help get that into
+the spec. What do you think?
 
-Measured on SM8750, kexec into the same image with a disk root:
+> How does this series help us?
 
-  before: 99 x "ITS queue timeout", 8 x "Failed to disable LPIs",
-          /init at 126.35 s
-  after:   0 x "ITS queue timeout", 0 x "Failed to disable LPIs",
-          /init at   1.31 s
+The FIT_ITS path is a second way to build image.fit alongside
+make_fit.py, and much of it repeats what make_fit.py already does: it
+puts the root compatible from each DTB into the configuration and
+compresses the DTBs. The series adds fdtget/fdtput, sed parsing of
+/incbin/ paths and a shell loop in Makefile.lib to do the same for a
+hand-written .its file, and the .its files repeat the DTB lists from
+the Makefiles. Have you thought about extending make_fit.py to take
+the per-board metadata (e.g. from a small file next to the DTs, or via
+FIT_EXTRA_ARGS) and to run fdtfactor itself? That would avoid the
+in-tree fdtget/fdtput, the mkimage dependency and most of the Makefile
+logic, and trogdor would come almost for free.
 
-Behaviour on a normal cold boot is unchanged: enabled_lpis_allowed() is
-only consulted when LPIs are already enabled on entry, and the
-preallocated path is only taken when that flag ends up set.
+The new FIT_ITS, FIT_FACTOR_DTBS and FDTFACTOR_ARGS variables aren't
+documented anywhere, including the image.fit entry in the arm64 'make
+help' output. Please can you add something, perhaps alongside wherever
+FIT_DECOMPOSE_DTBS ends up being described.
 
-Signed-off-by: Xu Qianhui <xiaqinghuan@mail.ustc.edu.cn>
----
- drivers/irqchip/irq-gic-v3-its.c | 46 +++++++++++++++++++++++++++-----
- 1 file changed, 39 insertions(+), 7 deletions(-)
+[1] https://github.com/open-source-firmware/flat-image-tree
 
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 6f5811aae5..6dcd903e9f 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -2280,7 +2280,7 @@ static void its_free_prop_table(struct page *prop_page)
- 	its_free_pages(page_address(prop_page), get_order(LPI_PROPBASE_SZ));
- }
- 
--static bool gic_check_reserved_range(phys_addr_t addr, unsigned long size)
-+static bool gic_range_is_reserved(phys_addr_t addr, unsigned long size)
- {
- 	phys_addr_t start, end, addr_end;
- 	u64 i;
-@@ -2300,13 +2300,27 @@ static bool gic_check_reserved_range(phys_addr_t addr, unsigned long size)
- 			return true;
- 	}
- 
--	/* Not found, not a good sign... */
--	pr_warn("GICv3: Expected reserved range [%pa:%pa], not found\n",
--		&addr, &addr_end);
--	add_taint(TAINT_CRAP, LOCKDEP_STILL_OK);
- 	return false;
- }
- 
-+/*
-+ * LPIs are already enabled but the tables we were handed are not reserved
-+ * memory.  On a DT boot there is no EFI persistent reservation and the
-+ * flattened DTB has no room left for a memreserve entry, so the kernel we came
-+ * from (kexec) had no way to hand them over as reserved.  Starting from scratch
-+ * is not an option either: PROPBASER/PENDBASER may only be reprogrammed with
-+ * LPIs disabled, and on some implementations the EnableLPIs bit reads as RES1
-+ * once set.  So keep the inherited tables and claim them before memblock hands
-+ * the pages over to the buddy allocator.
-+ */
-+static bool gic_claim_inherited_lpi_table(phys_addr_t addr, unsigned long size)
-+{
-+	if (gic_range_is_reserved(addr, size))
-+		return true;
-+
-+	return !memblock_reserve(addr, size);
-+}
-+
- static int gic_reserve_range(phys_addr_t addr, unsigned long size)
- {
- 	if (efi_enabled(EFI_CONFIG_TABLES))
-@@ -3067,7 +3081,15 @@ static bool enabled_lpis_allowed(void)
- 	val = gicr_read_propbaser(gic_data_rdist_rd_base() + GICR_PROPBASER);
- 	addr = val & GENMASK_ULL(51, 12);
- 
--	return gic_check_reserved_range(addr, LPI_PROPBASE_SZ);
-+	if (!gic_claim_inherited_lpi_table(addr, LPI_PROPBASE_SZ)) {
-+		pr_warn("GICv3: inherited LPI property table @%pa is neither reserved nor claimable\n",
-+			&addr);
-+		add_taint(TAINT_CRAP, LOCKDEP_STILL_OK);
-+		return false;
-+	}
-+
-+	pr_info_once("GICv3: claiming inherited LPI property table @%pa\n", &addr);
-+	return true;
- }
- 
- static int __init allocate_lpi_tables(void)
-@@ -3175,7 +3197,17 @@ static void its_cpu_init_lpis(void)
- 		paddr = gicr_read_pendbaser(rbase + GICR_PENDBASER);
- 		paddr &= GENMASK_ULL(51, 16);
- 
--		WARN_ON(!gic_check_reserved_range(paddr, LPI_PENDBASE_SZ));
-+		/*
-+		 * Same as the property table: keep the inherited pending table
-+		 * rather than handing the ITS a range the allocator may reuse.
-+		 */
-+		if (!gic_claim_inherited_lpi_table(paddr, LPI_PENDBASE_SZ)) {
-+			pr_warn_once("GICv3: inherited LPI pending table @%pa is neither reserved nor claimable\n",
-+				     &paddr);
-+			add_taint(TAINT_CRAP, LOCKDEP_STILL_OK);
-+		} else {
-+			pr_info_once("GICv3: claiming inherited LPI pending tables\n");
-+		}
- 		gic_data_rdist()->flags |= RD_LOCAL_PENDTABLE_PREALLOCATED;
- 
- 		goto out;
--- 
-2.53.0
-
+Regards,
+Simon
 
