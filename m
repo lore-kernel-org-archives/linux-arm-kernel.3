@@ -2,123 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A167606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 08:40:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9207B606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 10:54:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=e6ZxaQe0;
-	dkim=pass (2048-bit key, unprotected) header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm1 header.b=d2oFM8mz;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm2 header.b=bz7bIU1+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t4TgIi07;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=dPmPQGrm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=dk4e+eedEam13wGCRMmw9y+wJRNgv+ioxH1lvC55NVc=; b=e6ZxaQe0Lcglu/5vNzTtdfYbGh
-	dWtQjna0vOD4e8SEk2DeFzjlkwhr2ov4brqgFCJjptR0VB6/Es1UeqLhBcV9RQkxDolzy5GA3IRB1
-	zExgCF9TRoxNVMGJRNYwMtvA8Ul5pn9tRmLIjdui1VgVeYigE023SnUEhBHemkM6YzpkytJZ4BWsN
-	5v/Q+xYUqrr5MPwAJrAfSTMz5Njy8FofPCU9GCA36B0XWo33nAXP9MMRH4xmflXDp6f7zIDbanO/T
-	ig/8Mwf9mmzwPJV/ns/aDR3NYdXL+ZFqARKgBifilJ0UlafamEc8FpP8UPye+UUCzMTxljeRxz96C
-	Q+dsNvYw==;
+	bh=PImphhu3wIi9qvd60NuK0r09MdROw2ZiyCj8HwZ8s3U=; b=t4TgIi074IsX7sGF87ej+XpINz
+	adPEs5ZnUPew3+Hk3+tFZ+cQcSBPEu4lTfml4JrsRdwzL9kw9ezlk5J5uJXqNqEAZ44uDcpy4Rwqh
+	OHEr+CvM6KDL9fpM+VMalmpRR0G83GJ5By5h5uureUsHzII7ug57d5n3xg+htrxWFjQZPrcZw0Kwc
+	wQi9D5tqcNQCjx7SOujOM+fXJw9UVdeZo1/yc1nN0jkEbe03VBHicQU9BD3aE+xQORjkPxhfPe2hp
+	0xBge5e1CaGOAseGBAUAVKYwbgQT48BWMGjMgmsqoP9MQoxWer8nlDm8GlQahtjO7HcZXSNwyZmk9
+	qtS39ZGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKXI9-000000000dq-3zAt;
-	Sat, 24 Oct 2026 08:39:53 +0000
-Received: from fout-a2-smtp.messagingengine.com ([103.168.172.145])
+	id 1xKZOZ-000000007FL-10Mo;
+	Sat, 24 Oct 2026 10:54:39 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKXI7-000000000d5-0pOC
+	id 1xKZOW-000000007Ez-14OL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 08:39:53 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.phl.internal (Postfix) with ESMTP id 88614EC01A4
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 04:39:47 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Sat, 24 Oct 2026 04:39:47 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm1; t=1792831187; x=1792917587; bh=dk4e+eedEa
-	m13wGCRMmw9y+wJRNgv+ioxH1lvC55NVc=; b=d2oFM8mzMyYcif1eaPVo2jhsA7
-	WOwgW93frOdQJXWbBek6F/HwlA89fPCyZy1+CzKUICrNZUSLZuZCRPdZQt2svot1
-	PDRMmceHJa+FVQ+YV7iMWiE6bTWTpZMI5Cd+T1yb3pizlhTxsJwIwCAr40XHEmmm
-	D/Qo1xJlsO11fqA56nQ/vhzGCLiXQQ4JK6rKuSQ8YokFsqRiTP0Bc6kz6oj/9YfX
-	Qvc+f9dEc3S/0HzSfE7gSkIMTsS/YIFMrkM1oXLaaW+frijSi6nCv1RgeGPinXQk
-	wGJlf9JRC/NExOlpstg6J3c6Lw6Vnzyyzsd2WTylb7nQoQrns7o4iJW9DK+A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1792831187; x=1792917587; bh=dk4e+eedEam13wGCRMmw9y+wJRNgv+ioxH1
-	lvC55NVc=; b=bz7bIU1+txNPYxcw6Lf6y2182964hZRmqA3nEkHJ+0HuoLm/sIn
-	cXHYP8AIpOf6aFJDkKt6fQThYwLZmvC2bd2KLzkk0tSLt+MF5ev1YYJsIRrzHTID
-	OIHqSzw3Np3o72Wwi/hvWRSgNZUfDToPyCry10csGawEK76ZCc4LKLb4rMPtliWN
-	b6huJOGrdeIRimkS145EzjldJzRBNnsCB0vUtSlL0buL0j0bsf8Dxp9/sJy6KbAd
-	SQoNoLfRuA09s+ce7ZA6l33MYYhHKacqMZHWUIXUhVHfv4lzZoRaG/sHwPQZ/kxT
-	jkhUj5oYvXCS6huEfGe68QteHxznF9PJq5A==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-07;
-	repo=github.com/dkim2wg/interop; date=2026-10-18; sw=lmtpprox;
-	action=sign d=gahingwoo.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1792831187; d=gahingwoo.com;
-	mf=PGdhaGluZ0BnYWhpbmd3b28uY29tPg==;
-	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
-	s=fm1:rsa-sha256:qzyBGnI3eQTXOlCcNTUgYIvgP2Y37Sr0dmk0JBcR/tEr4Yd
-	+SNICsHj8ZRhHJS4OmINYnlaT0/ss03AoLGqQTOGLpkVF7i0CpMbFWixgXj8UXfL
-	5WLNnTaVZam6vse6BD8DS+2m7dgr6J86Uu4AAY1Kh/EtXLkE47U40jObLj72b5m6
-	rjd+6t8LlanB4Xtqsg0Rt8ESPRf7uo0WwAiqR6ltZF74ezljW/zj3JzsTPNZ5n6P
-	DphGlHsCCH0RPoYN5ZbUmNr/iMjNKcWZ5zRD3dQcSDeF2E0oII25mRaEzzPNNB8q
-	fNA0fEBIpejwwLlI1GEHiIu/t1zHglN2Nv81OAg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-07;
-	repo=github.com/dkim2wg/interop; date=2026-10-18; sw=lmtpprox;
-	action=mi-m=1; hc=9;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:PnvPF/K/NdvXhLu/i91FAf5qb4UUBnCMoCSJ9dKYvZA=:kWDPm/EXmOFJ312wfG/g9OlfSszOPhrx452WIAG2ZOM=;
-X-ME-Sender: <xms:027cao0QKnJgl2TuVdsLf4LzmCpdLG1R6iN8iEPsoW_ug6veKOAz_g>
-    <xme:027cavqgj2a9BTYILKyNs47uPoKU9Yz6y2s2yg10W3kN4WcuCZ-IPkg6Cyv_kXlYB
-    JSda3XXwht6M3f5UG9oHWKgGwJZwKj-V5idj2DUmittloA7OGlevKGM>
-X-ME-Received: <xmr:027calVf5lsVURzsm9eHjFP4bld6tI7ZO2nteb1O_Hu_lnwxL0I4rjnAT2sxqdxsULs0cz5D>
-X-ME-Proxy-Cause: dmFkZTEilkQ7QRTV3WCqk13zuvyPjR3rvfRKdMmJjP/0IUkSonux5v7d6YiFkowHCHQQMZ
-    UKTuka+etnp0I4pQi4LorcpHTgVejGL0wuRdrC+MGiY+0bYFfrp5Tml1fj2yv6N4JzjygW
-    ciLvzb9zDqU9LKMdU/KronOfZfUPAzti/iKqSp/9Ri+tI9S8gQEpchHvM4CzTKNRPKRrLq
-    fGuXpHBMMyPZae46Tawr8eZeG80mtkUkkmo9JDsT17WuJINe+UpplGjh9UY0mWBDvAjAfm
-    pxNJ1WZSmmsOnyEBqC8Z6C0pfXlBrw+DW0PdJtpX5VPHttAf97aVchdt8+K63vy7glvIkl
-    Yg33go8lQiWCw1mp1AzkNjfPFCf61tY8tRIAvu/+iI5dZca04qH/Xyly2C0tFbtD7X5lOn
-    0u1hJ2xngjMOqOgLIQ8KTDlltMJPvKmTwk0aAEiqNjIiBs8MvGkm0FLPm0iT/MU4j3vJbu
-    iTx/5qwURcN55LtColc3bzrXD3m7oQ6gxkMZJAF+tQ2jNoUbH4TyznDmnnx/stac2kALRJ
-    ZQ1HPB25/TBVyS10xcOvGf4c1Do9Ums1oV4VUw4Co+doLnuS+cGF5qqdF5px4D109sqZxH
-    aUB2lvdblTY5vbbmXjnGpVK7/oIWB6sk7z4hs2dr8VLUbJNmI5NZ+iVkaNqg
-X-ME-Proxy: <xmx:027caor2jeOv-FnZxvtoS_1nX56nfR-TxlOWlrSTlxLCJi7DU_eM5g>
-    <xmx:027casDMR76atB6V3gxHlB0PFBCUIeaG77wohXkh2IG4ZInIy-Zajw>
-    <xmx:027cakgliaDkw1uvOVvES9ms5Hfo3ervdV15hP7SLtfKA2xDSuWhsg>
-    <xmx:027caqb4A_RLixhzDX2E7MCHDs3GGzGJ8NrtjLwMpd6RPr00q8CxfQ>
-    <xmx:027caih8zVv4CLHufmo0XMD8YQU22aSF7R41Zo25Bh-l5WligFRn5A6Z>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 24 Oct 2026 04:39:44 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Jiaxing Hu <gahing@gahingwoo.com>,
-	Rob Herring <robh@kernel.org>,
+	Sat, 24 Oct 2026 10:54:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1792839276; x=1824375276;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xz5PQv0ox+JrG5g9K0fQpO/jVvuTlGpeFFcNwDdTuSA=;
+  b=dPmPQGrmEOjQCbf+835HFTaG60zG6gfWDLPMx/2lyqRV7RHi0+FNKgGw
+   ZSUKvSzwNrQs53MH7BENhITpC2YpscjCsUGTlV/en4n0bIqRDVc0p49vK
+   bYyUzLCl39MwrdkR0F6hwoKUEtAxozw7P32wCtCxZ+WviBoyASBGK7day
+   eg1E1CDmxS23qUTvvZzOaVJ49xRXEa+I5g2g8IMTapWAAnF7M91x3u6WR
+   0R6VEaOmSJxOWNJC+wpiFszclvQoSAZEbWg5yVXbOwVhUeuwfgH1261mm
+   mTsSfWNXZ610yO3RZjdyZIiv31bQ+C1Hw1E/WikjppEs8hHiwqtzgo1CE
+   g==;
+X-CSE-ConnectionGUID: MOy0gr2SQiGIkWcjIj4L2w==
+X-CSE-MsgGUID: 7zSL8FBLSouYWzlRaBYX6A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11944"; a="1588586"
+X-IronPort-AV: E=Sophos;i="6.27,176,1787036400"; 
+   d="scan'208";a="1588586"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2026 03:54:35 -0700
+X-CSE-ConnectionGUID: IE+gK7i/SBCiQ1gyGE/l2Q==
+X-CSE-MsgGUID: hTBVR/MXRzmLcXOjYpwx3A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,176,1787036400"; 
+   d="scan'208";a="4194078"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.221])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2026 03:54:32 -0700
+Date: Sat, 24 Oct 2026 13:54:29 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH RESEND] arm64: dts: rockchip: let TCPM own the USB-C VBUS on CM5-IO
-Date: Sat, 24 Oct 2026 21:39:42 +1300
-Message-ID: <20261024083942.148860-1-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 2/3] serial: 8250_dw: configure the Allwinner H616 UART
+Message-ID: <atyOZcmdRMnpF078@ashevche-desk.local>
+References: <20261023-submit-h616-uart-fifo-v1-v2-0-af0593504635@gmail.com>
+ <20261023-submit-h616-uart-fifo-v1-v2-2-af0593504635@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261023-submit-h616-uart-fifo-v1-v2-2-af0593504635@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261024_013951_469572_735912A9 
-X-CRM114-Status: UNSURE (   9.54  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261024_035436_317965_5688DEA6 
+X-CRM114-Status: GOOD (  26.65  )
+X-Spam-Score: -4.5 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,43 +94,124 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-vcc_5v0_typec0 is the switched VBUS of the USB-C port. It is the
-vbus-supply of the FUSB302, but also the phy-supply of u2phy0_otg.
-The PHY enables it at boot and keeps it on, so TCPM never sees
-vSafe0V and a sink partner stays in SRC_ATTACH_WAIT. A USB-C dock is
-not detected.
+On Fri, Oct 23, 2026 at 03:19:28PM -0600, James Hilliard wrote:
+> H616 has 256-byte transmit and receive FIFOs, but its optional DesignWare
+> component parameter register reads as zero. Generic 16550 probing leaves
+> the port using the 16-byte FIFO configuration and its trigger-level table.
+> DMA attachment also depends on a FIFO size being available during probe,
+> so these ports do not reach the existing 8250 DMA path.
+> 
+> Keep PORT_16550A and supply the FIFO size, transmit load and capabilities
+> when matching the H616 platform data. Provide receive-trigger callbacks
+> for the documented thresholds of 1, 64, 128 and 254 bytes. The normal
+> 16550A half-full trigger selects 128 bytes on this integration. Serialize
+> trigger changes with termios and hold a runtime PM reference while
+> programming FCR, preserving the FIFO contents.
+> 
+> Advertise automatic flow control so CRTSCTS enables MCR.AFCE. The
+> DesignWare termios path selects hardware CTS handling, so the capability
+> must be present for the corresponding hardware control to be enabled.
+> 
+> Skip optional-register probing for this fixed configuration. H616 has
+> debug-divisor and RS485 control registers at the offsets used to detect
+> DesignWare hardware RS485 and fractional-divisor support. Probing these
+> offsets writes unrelated registers and can select incompatible callbacks.
+> Keep the BUSY-safe integer divisor hook and software RS485 handling.
+> 
+> Use the existing SKIP_SET_RATE quirk to keep the UART clock enabled during
+> termios changes. Its clock is a gate on the shared APB2 source, rather than
+> an independent baud-rate generator.
+> 
+> Attach DMA from the fixed configuration before registering the port.
+> Configure single-byte RX and TX bursts because the peripheral request can
+> correspond to just one character. The existing startup path requests the
+> firmware-described channels and falls back to PIO when they are unavailable
+> or the port is a kernel console.
 
-Drop the phy-supply and leave VBUS to TCPM.
+...
 
-Fixes: 44a48a23974b ("arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
----
-Resent with the lists on Cc. The first copy went to Heiko only.
+> +static int dw8250_h616_set_rxtrig(struct uart_port *p, unsigned char bytes)
+> +{
+> +	struct uart_8250_port *up = up_to_u8250p(p);
+> +	int i, ret;
 
- arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5-io.dts | 1 -
- 1 file changed, 1 deletion(-)
+Why is 'i' signed?
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5-io.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5-io.dts
-index 5958b391e..72ca49ec3 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5-io.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5-io.dts
-@@ -306,7 +306,6 @@ &u2phy0 {
- };
- 
- &u2phy0_otg {
--	phy-supply = <&vcc_5v0_typec0>;
- 	status = "okay";
- };
- 
+> +	/* Use the nearest lower threshold, as the generic 8250 implementation does. */
+> +	for (i = 1; i < ARRAY_SIZE(dw8250_h616_rxtrig_bytes); i++)
+> +		if (bytes < dw8250_h616_rxtrig_bytes[i])
+> +			break;
+> +
+> +	guard(mutex)(&p->state->port.mutex);
+> +
+> +	ret = pm_runtime_resume_and_get(p->dev);
+> +	if (ret < 0)
+> +		return ret;
+
+Don't we have a guard()() for this?
+
+> +	scoped_guard(uart_port_lock_irqsave, p) {
+> +		up->fcr &= ~UART_FCR_TRIGGER_MASK;
+> +		up->fcr |= (i - 1) << UART_FCR_R_TRIG_SHIFT;
+> +		/* Changing the trigger alone preserves the FIFO contents. */
+> +		serial_port_out(p, UART_FCR, up->fcr);
+> +	}
+> +	pm_runtime_put(p->dev);
+> +
+> +	return 0;
+> +}
+
+...
+
+> static int dw8250_probe(struct platform_device *pdev)
+
+> -	if (!data->skip_autocfg)
+> -		dw8250_setup_port(p);
+> -
+> -	/* If we have a valid fifosize, try hooking up DMA */
+> -	if (p->fifosize) {
+> -		data->data.dma.rxconf.src_maxburst = p->fifosize / 4;
+> -		data->data.dma.txconf.dst_maxburst = p->fifosize / 4;
+> -		up->dma = &data->data.dma;
+> +	if (data->pdata == &dw8250_h616_data) {
+> +		dw8250_h616_setup(up, data);
+> +	} else {
+> +		if (!data->skip_autocfg)
+> +			dw8250_setup_port(p);
+> +
+> +		/* If we have a valid fifosize, try hooking up DMA */
+> +		if (p->fifosize) {
+> +			data->data.dma.rxconf.src_maxburst = p->fifosize / 4;
+> +			data->data.dma.txconf.dst_maxburst = p->fifosize / 4;
+> +			up->dma = &data->data.dma;
+> +		}
+>  	}
+
+This looks unscalable and too much churn. What you should do is to add
+a .setup() callback member to struct dw8250_platform_data and assign that
+to dw8250_setup_port(), and change the
+
+	if (!data->skip_autocfg)
+		dw8250_setup_port(p);
+
+to
+
+	if (data->pdata->setup)
+		data->pdata->setup(...);
+
+which effectively kills that skip_autocfg. This is done in a separate patch.
+Then in your patch you won't need this churn.
+
 -- 
-2.43.0
+With Best Regards,
+Andy Shevchenko
+
 
 
