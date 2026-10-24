@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59BB3606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 16:11:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D22B606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 17:46:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=el+1Pcvs;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X2Q+YVI4
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hqTksmkM;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=D13NO4In
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -14,62 +14,88 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=W27aSalgzv2Xbhoow/lwveUu1WS93+h0c2znFzv+Gb4=; b=el+1PcvsB2p4UBNT9A3zYtIhdC
-	ZLRSPIVU7MUf627pHvK9e+YsTZQK2bB684PznNivOK+VFnhgpkPAvrrbB89MNvUu1u1VwaH4bvsQb
-	rZWd++xbfvJM8Pj6neHRFKeggZmnCV2kv56jiOaPiswxIe2SKP6NPnqcYgxzCJTErVFn9JFZfUqlL
-	N4sZlz1qKs2DpC538cc8E0pHXnIXjZngtQ10n+gqGgd51EDeFWQAfdo5uLq5VGaPSdSrLP3TH7K80
-	lIeRwCzDa8/2BVVrccdCmFsF632yuwQtbe3GrxrN3odpvbNnv0f4fwpGnQ3BBShZ1+2Z3cUwdiMJa
-	vfmniPcg==;
+	bh=nn33RrLK2jP6yegXcMbyk7CADovV75ox65AHlodMd48=; b=hqTksmkMK9f2BRhuH0AD5S8g1n
+	VK2NwUacLEr6zSltE3VnQX5SZr9vme7KCIUZDTS1i8oHGxJ0w1RPX1Bs/VpKFsH0J1OsltGLqGoZQ
+	mboT6y6JjYRdTohQFD+LcUWUjlN7Fb3zz3wqpaI1ODBa5qUTKALHn7j43SrEpe3ORpSfqwOozEvDg
+	MStyRRc+Pa03RLpnD2hVfpfj//UChYZuGmSEwN5cmDfQW0TB47OZH7JLEHoK05UKzuOIYOrTJxcGa
+	kksRXx7U1JLeO8E1Qkvf8tQ9Y1uI6gMncojwuj0VfIeXLPgrL1be3JG9/HPo8SHu6xcyy+g0MTtpE
+	BEUA+O3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKeL8-00000000MRJ-1v9I;
-	Sat, 24 Oct 2026 16:11:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xKfnm-00000000PLF-430b;
+	Sat, 24 Oct 2026 17:45:06 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKeL5-00000000MQS-1kZw
+	id 1xKfnj-00000000PKP-418T
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 16:11:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B0339601DB;
-	Sat, 24 Oct 2026 16:11:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA6BC1F01825;
-	Sat, 24 Oct 2026 16:11:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792858281;
-	bh=W27aSalgzv2Xbhoow/lwveUu1WS93+h0c2znFzv+Gb4=;
-	h=From:To:Cc:Subject:Date;
-	b=X2Q+YVI4JJRsEhbQrDjwlDFBW1bkYeTfu/NVkgbhJQosNuEypKZGkOILmN4DthdpU
-	 a3kSC4CnRyy5nN+5jfVJz41vPvG+dT6kP8mgSUPKgwb8cbE7xy2KKYj08Vm5/VC74W
-	 wA0ChyCgi01R2pmgS1rKMS7h2P8QISkKN503K3nNbXBSXrQspvLjVPEsSwMR/y6lhM
-	 XOrpsP2NLCJZfh4X7yGbhr13dUhSA0bfC2izzxeFrFfcvmvJ+JdlGhBkGpxRPpwQ4s
-	 rnOnK451RgnTRfzf06YzPhkq5uQrEcBKD5B844ux7BDfWjWdJaDz9LGbIX8wZMX/Sn
-	 Lj7xBvatHsN1Q==
-From: Sasha Levin <sashal@kernel.org>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>,
-	Mark Brown <broonie@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Shuah Khan <shuah@kernel.org>,
-	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
-	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+	Sat, 24 Oct 2026 17:45:05 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-48e20ed3b9dso1554862f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 10:45:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792863901; x=1793468701; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=nn33RrLK2jP6yegXcMbyk7CADovV75ox65AHlodMd48=;
+        b=D13NO4In1izssgStRb8vq1p5ZI/qOCnsUFBbeRh0fg/ZZDoajTfRIB+2fEGb8E8+Ho
+         F+mcwAaOsged7tdPh4n2OrobbteIPcQDFp1pHXpATP+en4uisbabAXk6D9OCOalAeliu
+         FWfjg9Axc1ISbUNFnfUx7PSxf3YJ/3vLN3M3jYZkMjloxw1tVfsaVipDraZ8iy19aU5+
+         /r49y42D5fAjdw7Tqpw4iBCXR0oo78oAHyoI4CMxdzk1Yzv5x/GmyEzgVovvUxm+weyN
+         CLqmP0NdQwpTjhq37nVVkdfgbYyUp93ecJMz8Ljk/l5TLtGqufbuJ/JAhOoKYRzWucao
+         NsfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792863901; x=1793468701;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=nn33RrLK2jP6yegXcMbyk7CADovV75ox65AHlodMd48=;
+        b=a6WJecFO8lIQ65Qp9IlKEm4/IXKrdIZRhxGJuoIo43th80RDtK/RbmlPX5CBmZ18zm
+         Rti//8XsWW+PxU/G/OYjdz172GQMhW0VeMOd9g8zAVoDZPrWpvOgrI0BWtapE9a3CK5Q
+         cH5ki3MsGou28POu2dqkJHC6WikNv33ukECzZ4gsGZlGUxCuLIzJR/sSG7Rq9LFoKMSb
+         VrSOv2qm1csaMuWZC8noTzGkIGQY9CKbV/zPVt3buNGh/a7JFYJdsNx9zUmRni/VsvMg
+         qTYu9vyWQOwdmDlzF+eOzh3e+svAd70APKP36q4qOdwxur22oRyquKl/u4VCmMWAnB2B
+         kICw==
+X-Forwarded-Encrypted: i=1; AKwUvBxKQOsX1QDDI9+mzRYrimGJ9bhJyADfP7orF8v2LUIEVwB7BgJkiupPmkyqMysYGgh7iPNmY9ts/2rlYd47/N3H@lists.infradead.org
+X-Gm-Message-State: AFq9FYLKgh5a3a8TSLA6VlkAf16G4Wj2zMpUIuHMd9xN0n+3XjDnqW3X
+	GzTNXXTTF/TVwbdRi8WKfE/KVOEWJOJINb2IrB1ZTpHOCZZj5b4XS2T8
+X-Gm-Gg: AYBFou08jtP5wtbyjeLbCvsbXaPF5Gi8+Psjk5h5CHz4lSp6wiaFEJ85Zn+/EJvW68M
+	lGFiJngjDVBWOmHnnHHNAftq5vAZxNguWm0VLIq4R7mX6iWKxCnzTPiTb6A91eEYlH6vCGULael
+	Dv+DwCm5wuobq4wyZSotIkCuW7EguPmPNbicyGxGond6RLFFTv+d4pygxbMIpYBkP6lka18R/FM
+	f/GNdf962HuOML+eaFSr2UCbHJr27vpJE75ARfsuYrt/g+DI7gewPkNujijAZFwNDYV2DiPEUfx
+	S0rwNK4bWP/YNkBGMG9jI0/k5socwrnF2ARNRwfkyJuH6g/h5CVj1N0gxv+/HTB0EVVDD8pbXD/
+	15fx+261kgy1/FwWaisbn1n3P3j0hHidvJd7ySeAJbweLCga3Z6p+4Za8C67gIp8obpbCTG7T3g
+	QMOk7k1I8keS84gw9mg5IQGb3++koNnWcBqsUiW7cIGvLWdy1QIWa2/IN+RwbF58pgTMzlfJdFc
+	U6WumpaX7sVsm9WJcABdrHL9CtG6jHcsHMQG4VhIF2+ZM8MYAobJoxiNxB/jQx/khKojNSeETnB
+	6OddHEYnY0TuKLnRNhmRJN5b830=
+X-Received: by 2002:a05:6000:178d:b0:48e:75f:477d with SMTP id ffacd0b85a97d-48e3eb262f0mr3872646f8f.7.1792863900975;
+        Sat, 24 Oct 2026 10:45:00 -0700 (PDT)
+Received: from john-desktop.station ([93.107.83.127])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebcb8d5sm5748244f8f.28.2026.10.24.10.44.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 24 Oct 2026 10:45:00 -0700 (PDT)
+From: John O'Callaghan <johnocallaghan@gmail.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	linux-media@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-amlogic@lists.infradead.org,
+	linux-staging@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] KVM: arm64: selftests: Skip ignored AArch32 ID regs in the failed-run test
-Date: Sat, 24 Oct 2026 12:11:18 -0400
-Message-ID: <20261024161118.1007472-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] media: meson: vdec: reset the VLD before H.264 decoding
+Date: Sat, 24 Oct 2026 18:44:36 +0100
+Message-ID: <20261024174436.1835068-1-johnocallaghan@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261024_104504_018772_FA18A158 
+X-CRM114-Status: GOOD (  17.70  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,99 +106,102 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-20.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-test_idreg_frozen_after_failed_run() checks that changing a feature ID
-register after a failed first KVM_RUN is rejected with -EBUSY, and does
-so for every register in test_regs.
+The H.264 decoder outputs wrong luma until the second IDR picture of a
+stream. Chroma is correct. The top-left macroblocks of the first IDR
+picture hold garbage that is different on each run. Intra prediction
+spreads the error over the picture, and inter prediction carries it to
+the following pictures.
 
-On a host without AArch32 support at EL0, KVM treats the AArch32 ID
-registers as RAZ/WI: aa32_id_visibility() returns REG_RAZ | REG_USER_WI,
-and kvm_sys_reg_set_user() ignores the write and returns 0 before
-set_id_reg() checks whether the ID registers are final. The test then
-fails on the first such register:
+vdec_1_start() resets the VDEC1 blocks with DOS_SW_RESET0 before it
+powers on the VDEC memories with DOS_MEM_PD_VDEC. The VLD then starts
+in an undefined state. The vendor driver resets the VLD, IQIDCT and MC
+again in vh264_prot_init(), after the memories are on. This driver
+does not.
 
-  arm64/set_id_regs.c:870: r < 0 && errno == EBUSY
-  ID_DFR0_EL1_PerfMon write after failed first run: r=0 errno=16
+Reset the VLD (DOS_SW_RESET0 bit 4) in codec_h264_start(). The VLD
+reset alone fixes the corruption. The other resets that the vendor
+driver does (IQIDCT, MC, DBLK, PIC_DC) make no difference.
 
-KernelCI hits this on every run on an AArch64 only GB300 host.
+On G12A, every decode session is affected. On GXBB, only the first
+session after power-on is affected.
 
-An ignored write leaves the register unchanged, so the ID registers are
-still immutable and only the test's expectation is wrong. Skip the
-AArch32 ID registers that KVM_ARM_GET_REG_WRITABLE_MASKS reports as not
-writable for this VM, which is decided by the same
-kvm_supports_32bit_el0() check as the write path. The aarch64_only flag
-that test_vm_ftr_id_regs() uses is not a good fit here, as it comes from
-the EL0 field of another VM's vCPU, which reads as AArch64 only whenever
-that vCPU has EL2 enabled, even on hosts that support AArch32.
-
-Fixes: 00e309933879 ("KVM: arm64: selftests: Check ID regs are immutable after a failed run")
-Link: https://d.kernelci.org/test/maestro:6adcad0c55fda50760800a00
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Fixes: d7647e7c90f5 ("media: meson: vdec: add H.264 decoding support")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: John O'Callaghan <johnocallaghan@gmail.com>
 ---
+How this patch was made: the bug was found and the fix written with an
+LLM coding assistant (Claude Code). I reviewed the fix and ran every
+test below on my boards. checkpatch is clean; W=1 and sparse give no
+new warnings.
 
-Tested on an AArch64 only GB300 (Neoverse V2) running KernelCI's arm64
-build of mainline 5b0764a53235: set_id_regs fails as above without this
-change and passes with it (104 pass, 4 skip, 0 fail) in three runs.
+Users see this bug in normal playback. On G12A, every H.264 video plays
+with the wrong brightness until the second IDR picture: the first
+8 seconds of my test clip, with a band 72 levels too bright on the left.
 
-This does not change the AArch32 ID register readback issue under nested
-virtualization that Itaru reported:
-https://lore.kernel.org/all/as8x38o9taXgKZym@sm-arm-grace07/
+Tested with H.264 High profile clips (1080p and 720p, 600 frames, IDR
+every 250 frames), GStreamer 1.26 (v4l2h264dec) and FFmpeg 7.1
+(h264_v4l2m2m). Every decoded frame was compared by MD5 with the FFmpeg
+software decoder.
 
- .../testing/selftests/kvm/arm64/set_id_regs.c | 19 +++++++++++++++++--
- 1 file changed, 17 insertions(+), 2 deletions(-)
+Radxa Zero (S905Y2, G12A), Armbian kernels 6.18.45 and 7.3, staging
+vdec with Armbian's patches:
+- before: frames 0-249 wrong in every run (10 of 10)
+- after:  all 600 frames bit-exact (32 of 32 runs)
 
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 10849d21c0dd2..c8c9aaf9d7e86 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -815,6 +815,10 @@ static void test_idreg_frozen_after_failed_run(void)
- 		SYS_REVIDR_EL1,
- 		SYS_AIDR_EL1,
- 	};
-+	u64 masks[KVM_ARM_FEATURE_ID_RANGE_SIZE];
-+	struct reg_mask_range range = {
-+		.addr = (__u64)masks,
-+	};
- 	struct kvm_vcpu_init init;
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vm *vm;
-@@ -831,6 +835,7 @@ static void test_idreg_frozen_after_failed_run(void)
+Odroid C2 (S905, GXBB), Armbian kernel 6.18.44:
+- before: frames 0-249 wrong in the first decode after power-on,
+  later decodes bit-exact
+- after:  bit-exact, including the first decode after power-on
+
+Odroid C2, plain v7.3 (no out-of-tree vdec patches), GStreamer:
+- before: frames 0-249 wrong in the first decode after power-on
+- after:  bit-exact. Two GStreamer starts failed first with the known
+  poll() start race, so the decoder had already run before this decode.
+(v7.3 also drops the second-to-last frame at the end of the stream.
+That is a separate bug and is not addressed here.)
+
+The DOS_SW_RESET0 bits were tested one at a time: only bit 4 (VLD)
+changes the result.
+
+Not tested: GXL, GXLX, GXM, SM1, interlaced streams, 4K. On G12A the
+tests ran on Armbian kernels; their vdec patches do not touch
+codec_h264_start().
+
+The same fix is in Armbian:
+https://github.com/armbian/build/pull/11098
+
+ drivers/staging/media/meson/vdec/codec_h264.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/staging/media/meson/vdec/codec_h264.c b/drivers/staging/media/meson/vdec/codec_h264.c
+index a6074de15..497fbada6 100644
+--- a/drivers/staging/media/meson/vdec/codec_h264.c
++++ b/drivers/staging/media/meson/vdec/codec_h264.c
+@@ -182,6 +182,14 @@ static int codec_h264_start(struct amvdec_session *sess)
+ 	if (!h264->sei_vaddr)
+ 		return -ENOMEM;
  
- 	vm = vm_create(1);
- 	vm_enable_cap(vm, KVM_CAP_ARM_WRITABLE_IMP_ID_REGS, 0);
-+	vm_ioctl(vm, KVM_ARM_GET_REG_WRITABLE_MASKS, &range);
- 	kvm_get_default_vcpu_target(vm, &init);
- 	init.features[0] |= (1 << KVM_ARM_VCPU_PMU_V3);
- 	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
-@@ -852,8 +857,18 @@ static void test_idreg_frozen_after_failed_run(void)
- 	 */
- 	for (int i = 0; i < ARRAY_SIZE(test_regs); i++) {
- 		const struct reg_ftr_bits *ftr_bits = test_regs[i].ftr_bits;
--		u64 reg = KVM_ARM64_SYS_REG(test_regs[i].reg);
--		u64 val = vcpu_get_reg(vcpu, reg);
-+		u32 reg_id = test_regs[i].reg;
-+		u64 reg = KVM_ARM64_SYS_REG(reg_id);
-+		u64 val;
++	/*
++	 * vdec_1_start() resets the VLD before the VDEC memories are powered
++	 * on. Reset it again, or the luma of the first pictures is corrupt.
++	 */
++	amvdec_write_dos(core, DOS_SW_RESET0, BIT(4));
++	amvdec_write_dos(core, DOS_SW_RESET0, 0);
++	amvdec_read_dos(core, DOS_SW_RESET0);
 +
-+		/*
-+		 * KVM ignores writes to the AArch32 ID registers when it can't
-+		 * expose AArch32 EL0, and reports them as not writable.
-+		 */
-+		if (sys_reg_CRm(reg_id) < 4 && !masks[encoding_to_range_idx(reg_id)])
-+			continue;
-+
-+		val = vcpu_get_reg(vcpu, reg);
+ 	amvdec_write_dos_bits(core, POWER_CTL_VLD, BIT(9) | BIT(6));
  
- 		for (int j = 0; ftr_bits[j].type != FTR_END; j++) {
- 			u64 ftr = (val & ftr_bits[j].mask) >> ftr_bits[j].shift;
+ 	workspace_offset = h264->workspace_paddr - WORKSPACE_BUF_OFFSET;
 -- 
-2.53.0
+2.50.1
 
 
