@@ -2,41 +2,42 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82CA7606A31D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 639A0606A31A
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 07:14:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zVNeQ8JT;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=fCn+K8Qi
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tmipypWF;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=h318Nj9K
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=FFBN4jVBSpK7+XAViyBm0X7EI9kVp/5kh3B0b5bkumc=; b=zVNeQ8JTX1BeeH
-	aPJ1LZVkibQF8OAPXnZxy0TOnsFxtQU+bA+JFhH3eik/Z6AaiEGfktzNLbjZyfuOx949Z+SeiHT2q
-	J+EtIhduisjXE1m/vMfQAYwiLUcjQnsm2APzNilYm2jOqwXvnDwtiXhDSDTRs4cs6W7MemZaZ6mU+
-	8AtFBnsueGOer32zNvcJ6Z6VAsZioZSXPyzwuiGLEDbXeLZr3ZLa618xu0ofizUmal/Jlbma09V+x
-	rvyMQSbaBvKYkh07wdCPhoI2p/YgbwpBvY78DpqQPYg15dZWZToAeU5e8OtzSDL1WFcTqy2NCsc/v
-	fpV7pdkTcgNeGlu7oFgQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=ZAim7a7Mw2f4u2GqAJJCl39Hm/2+x8OUH9OyNgrjapQ=; b=tmipypWFBV9WdIRxdzqySeiweD
+	XN0kigpvlCZwJDgWJjo8MXwn3AVgsUo42Xl7OLcDMnHGzT31YYklXqAnd7MLrOmQMe+S5BhtYIde9
+	lyeEUYQaN9m7DcLJNgqPFMPN3e3GyTM9zALWdgq1XayF2JiUuje5sJVD2AAXM3VvXHqEzkx7uRJgj
+	Wi2PAqJYWkJCeYBFB4fsd0t/ipf8xUbUyZ9hAFXDAPzbPSK8SVHzVeS6k2mrNuwrYDPV/XPwiP/7G
+	LGppRKCI4dK2I8LVzs43Ve6dWgV/GuYfvX6VMVn8loVHkdqUTVsmIt7nMZeV/SCGorcN+GH8FjMYy
+	DZ7mw6HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKVxD-0000000HXCc-3fpo;
-	Sat, 24 Oct 2026 07:14:11 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1xKVxK-0000000HXEs-0Zgb;
+	Sat, 24 Oct 2026 07:14:18 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKVxA-0000000HXBR-3hsE
+	id 1xKVxC-0000000HXBg-3R0f
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 07:14:11 +0000
+	Sat, 24 Oct 2026 07:14:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=FF
-	BN4jVBSpK7+XAViyBm0X7EI9kVp/5kh3B0b5bkumc=; b=fCn+K8QibR6Z5tEdpc
-	afXewiIa6YOcSF788pOp9f2FGC8qkMuOKfbBkXigEmUPz3voyZOK4HW9BjNFr1y2
-	VwtBddsM0fxOfEOM8AiD/nRRQXVVJ+z7OPt8gvUloUEfHEjNi7vgOAULAg8d59A+
-	wieLfa2TzRiEf5lHQ+IJgjQ8U=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=ZA
+	im7a7Mw2f4u2GqAJJCl39Hm/2+x8OUH9OyNgrjapQ=; b=h318Nj9Khr/oE1jAIF
+	SEnZ4JiNHqtZNfK5S8Omc10942WL/3JHKFO/e7SqTpN0NNEbQW4bjoCWXm6Oa8Q+
+	29UJYqhYOzYzI8qEwMMuU8P78oLR0svw6Htuhn3f6lhL6g+WA51+X0oxUdBl6c/C
+	HbL3qgYNqhZbhWnIOlrNzmZd8=
 Received: from 4CV529F122.company.local (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD310ySWtxq_y0rCg--.41124S4;
-	Sat, 24 Oct 2026 15:13:40 +0800 (CST)
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD310ySWtxq_y0rCg--.41124S2;
+	Sat, 24 Oct 2026 15:13:32 +0800 (CST)
 From: Ding Hui <dinghui1111@163.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -54,24 +55,23 @@ Cc: dinghui@lixiang.com,
 	xiasanbo@lixiang.com,
 	yangchen11@lixiang.com,
 	liuxuanjun@lixiang.com
-Subject: [PATCH net-next v6 2/4] net: stmmac: clean up partially allocated DMA rings on error
-Date: Sat, 24 Oct 2026 15:13:16 +0800
-Message-Id: <20261024071319.875921-3-dinghui1111@163.com>
+Subject: [PATCH net-next v6 0/4] net: stmmac: fix DMA descriptor ring cleanup issues
+Date: Sat, 24 Oct 2026 15:13:14 +0800
+Message-Id: <20261024071319.875921-1-dinghui1111@163.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261024071319.875921-1-dinghui1111@163.com>
-References: <20261024071319.875921-1-dinghui1111@163.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD310ySWtxq_y0rCg--.41124S4
-X-Coremail-Antispam: 1Uf129KBjvJXoWxCr45JryrWFy3Ar4kWry5twb_yoWrJr47pF
-	4xCw4qkryjqr13Jw4DJw48X3Z0kayFyr4YgF47uw4S93ZFyry0kF1YvryUWry8JrykuF1S
-	v3yDC3W5CF1DJwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jJManUUUUU=
-X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC9ASRvWrcWqReYwAA3p
+X-CM-TRANSID: _____wD310ySWtxq_y0rCg--.41124S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxArWkCw4xJFy8Ww4rCw4fAFb_yoW5tFy3pa
+	ySvws8tr98Xr1xJrsxCw4xW3W8Ca1fCF4Ygr17tw1fua15uryF9rWSkrWYgF1DCryjkw1j
+	qryYvasrAFyUA37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jgXo7UUUUU=
+X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC8xyPu2rcWpxixgAA3P
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261024_001409_465287_9B9A59DC 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20261024_001411_715089_3A9745E9 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.7 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,130 +83,97 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 From: Ding Hui <dinghui@lixiang.com>
 
-__alloc_dma_rx_desc_resources() and __alloc_dma_tx_desc_resources()
-allocate resources in multiple steps but return early on failure
-without cleaning up what they have already allocated. The outer
-error paths then call the free helpers on partially-initialized
-queues, relying on the NULL guards added previously.
+Hello,
 
-Fix this by making each allocation function responsible for undoing
-its own allocations on error, following the standard kernel error
-handling pattern of cleaning up in reverse order of allocation.
+This series fixes the NULL pointer dereferences in the stmmac TX/RX
+DMA resource cleanup paths and the associated error path issues,
+found on a DWMAC platform whose descriptor ring allocation may fail
+under memory pressure.
 
-Also free the RX resources in alloc_dma_desc_resources() when the TX
-allocation fails, as the callers only free dma_conf itself on that
-path.
+Patch 1 adds NULL guards in the free helpers and makes them clear
+the pointers they free, so that a NULL pointer reliably means "not
+allocated" for the long-lived priv->dma_conf.
 
-Signed-off-by: Ding Hui <dinghui@lixiang.com>
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 40 +++++++++++++++----
- 1 file changed, 33 insertions(+), 7 deletions(-)
+Patch 2 makes the per-queue allocation functions undo their own
+allocations on error, instead of leaving the cleanup to the outer
+error paths that would then walk partially-initialized queues.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 2f03600cc5bd..a8401b04d79f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2333,15 +2333,19 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
- 	}
- 
- 	rx_q->buf_pool = kzalloc_objs(*rx_q->buf_pool, dma_conf->dma_rx_size);
--	if (!rx_q->buf_pool)
--		return -ENOMEM;
-+	if (!rx_q->buf_pool) {
-+		ret = -ENOMEM;
-+		goto err_destroy_pool;
-+	}
- 
- 	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
- 
- 	addr = dma_alloc_coherent(priv->device, size, &rx_q->dma_rx_phy,
- 				  GFP_KERNEL);
--	if (!addr)
--		return -ENOMEM;
-+	if (!addr) {
-+		ret = -ENOMEM;
-+		goto err_free_buf_pool;
-+	}
- 
- 	if (priv->extend_desc)
- 		rx_q->dma_erx = addr;
-@@ -2357,10 +2361,22 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
- 	ret = xdp_rxq_info_reg(&rx_q->xdp_rxq, priv->dev, queue, napi_id);
- 	if (ret) {
- 		netdev_err(priv->dev, "Failed to register xdp rxq info\n");
--		return -EINVAL;
-+		goto err_free_dma;
- 	}
- 
- 	return 0;
-+
-+err_free_dma:
-+	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
-+	rx_q->dma_erx = NULL;
-+	rx_q->dma_rx = NULL;
-+err_free_buf_pool:
-+	kfree(rx_q->buf_pool);
-+	rx_q->buf_pool = NULL;
-+err_destroy_pool:
-+	page_pool_destroy(rx_q->page_pool);
-+	rx_q->page_pool = NULL;
-+	return ret;
- }
- 
- static int alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
-@@ -2413,14 +2429,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
- 
- 	tx_q->tx_skbuff = kzalloc_objs(struct sk_buff *, dma_conf->dma_tx_size);
- 	if (!tx_q->tx_skbuff)
--		return -ENOMEM;
-+		goto err_free_skbuff_dma;
- 
- 	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
- 
- 	addr = dma_alloc_coherent(priv->device, size,
- 				  &tx_q->dma_tx_phy, GFP_KERNEL);
- 	if (!addr)
--		return -ENOMEM;
-+		goto err_free_skbuff;
- 
- 	if (priv->extend_desc)
- 		tx_q->dma_etx = addr;
-@@ -2430,6 +2446,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
- 		tx_q->dma_tx = addr;
- 
- 	return 0;
-+
-+err_free_skbuff:
-+	kfree(tx_q->tx_skbuff);
-+	tx_q->tx_skbuff = NULL;
-+err_free_skbuff_dma:
-+	kfree(tx_q->tx_skbuff_dma);
-+	tx_q->tx_skbuff_dma = NULL;
-+	return -ENOMEM;
- }
- 
- static int alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
-@@ -2472,6 +2496,8 @@ static int alloc_dma_desc_resources(struct stmmac_priv *priv,
- 		return ret;
- 
- 	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
-+	if (ret)
-+		free_dma_rx_desc_resources(priv, dma_conf);
- 
- 	return ret;
- }
--- 
+Patch 3 releases the descriptor resources through priv->dma_conf
+when __stmmac_open() fails after copying the temporary dma_conf, so
+the long-lived configuration stays consistent with the resource
+cleanup.
+
+Patch 4 holds RTNL around the descriptors_status debugfs reader and
+skips queues whose rings are not allocated.
+
+This series is rebased on top of the current net-next.
+
+Changes in v6:
+  - Split the single patch into a four-patch series as requested
+    during review: NULL guards and pointer clearing, allocation
+    error paths, descriptor resource release through priv->dma_conf
+    on open failure, and the descriptors_status debugfs locking.
+  - Merge the descriptor resource release with the ptp_error unwind
+    from 8181678a92f0 and rebase on top of the current net-next.
+  - Use the "net-next" subject prefix, which was requested back in
+    v1 but mistakenly kept as "net" in all previous revisions.
+  - Link to v5:
+    https://lore.kernel.org/netdev/20261012142458.2845385-1-dinghui1111@163.com/
+
+Changes in v5:
+  - Release the descriptor resources through priv->dma_conf when
+    __stmmac_open() fails, avoiding stale pointers in the
+    long-lived configuration.
+  - Hold RTNL while descriptors_status reads the descriptor rings.
+  - Link to v4:
+    https://lore.kernel.org/netdev/20261001035045.3305816-1-dinghui1111@163.com/
+
+Changes in v4:
+  - Free the RX resources in alloc_dma_desc_resources() when the TX
+    allocation fails.
+  - Skip queues whose descriptor rings are not allocated in
+    stmmac_rings_status_show() and print a hint instead.
+  - Link to v3:
+    https://lore.kernel.org/netdev/20260919121436.1642724-1-dinghui1111@163.com/
+
+Changes in v3:
+  - Use addr directly in __alloc_dma_rx_desc_resources() error path
+    instead of the if/else block on rx_q->dma_erx/dma_rx.
+  - Clear the freed pointers in __free_dma_rx_desc_resources() and
+    __free_dma_tx_desc_resources().
+  - Link to v2:
+    https://lore.kernel.org/netdev/20260905154654.1725313-1-dinghui1111@163.com/
+
+Changes in v2:
+  - Instead of only adding NULL checks in the free helpers, also fix
+    __alloc_dma_rx_desc_resources() and
+    __alloc_dma_tx_desc_resources() to clean up their own
+    allocations on error, as suggested by Andrew.
+  - Link to v1:
+    https://lore.kernel.org/netdev/20260830040610.1156008-1-dinghui1111@163.com/
+
+Ding Hui (4):
+  net: stmmac: guard against NULL pointers when freeing TX/RX buffers
+  net: stmmac: clean up partially allocated DMA rings on error
+  net: stmmac: release descriptor resources through priv->dma_conf on
+    open failure
+  net: stmmac: hold RTNL when reading descriptor rings in
+    descriptors_status
+
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 115 +++++++++++++++---
+ 1 file changed, 98 insertions(+), 17 deletions(-)
+
+--
 2.34.1
 
 
