@@ -2,41 +2,41 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73925606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 07:15:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 185E3606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 07:15:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4fcpHRZq;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=JtEYmq/F
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Jd422+7z;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=cTxKP0oj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=bwf4WuvizE5NsoXFdTXjETdYXegFLEL7OxtAZ9dSDUQ=; b=4fcpHRZqJNg/yp
-	MUtrojdy3TgqnPTH1NPiou5UKVC6sw1DWbzNRfBI6MKVyabNxdYDrbdLCiGkQZLRP8JOnVQRourVy
-	y9hgcqqNyRLZL73LsYCxExLkgGU5b1YLpaw55AGmdWzQQfL4Hcfs6zj7EG7/obrljdyoequBDvAaY
-	ky6zrjIjfkC2YsqS34N4kMbF3/weztv0hSHJ06Nrp3JM6NKq/qkIm1y17N2p0IXmXZaw+LIy8kaPu
-	zgrxSOenYZ7mHovgn8d2A0DBYg8gQkJ4SURmaiudIFTbgxMsgD+xW80WY3QhtY2s36VJZh/VKmIB2
-	8JTZJNpy17VK6onv0sbw==;
+	List-Owner; bh=x0suRdZ6/DF0tbptt+Dz30G9c7M6uSYDspT/LuLlnuM=; b=Jd422+7zHbRSXI
+	IhyHUruCgBeLd3wxB/inVR6WgdwrKbmJMDdJqoTt7+o/6cKr33bHJA0YBbcn4G+JamaoOngjZQn39
+	8No5SnlE4fiQLjOj1yFdrBRdMF1QY3KuuINyzIwJiRdqiAsxct84j4cLBVcDsd8g7Ta+uhPOA0JA8
+	upazx4yxBcQsyla59hCmiMEO37jxSWkxctKbRy0eqv+Q90VfhxGNikPvm2tPejEE49t859hKSKP0j
+	C6OXKUZYGfoqD38GqgIAjdFXuUeHhSi6walIfAnkV1Cvktoa9nxb3ZWKofqq8Xz5jyyIKYb9KIuEq
+	w27xnXOU5Z5BiPNuvyLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKVxK-0000000HXFc-1mT5;
+	id 1xKVxK-0000000HXF9-170e;
 	Sat, 24 Oct 2026 07:14:18 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+Received: from m16.mail.163.com ([117.135.210.5])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKVxD-0000000HXC2-2NGA
+	id 1xKVxD-0000000HXBa-1pL9
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 24 Oct 2026 07:14:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=bw
-	f4WuvizE5NsoXFdTXjETdYXegFLEL7OxtAZ9dSDUQ=; b=JtEYmq/FkqR93/oeFm
-	90LoplFrYwebjoUWMJzB9ZmYDocDPplo3FBqlySLPiiDtvESuVFPAKAQOsbiXFaS
-	P7tM99kXQghzPaK91qd4UQTyDIT7VxwWivzLaNQ6GxaWaDIM8jgfApKIMZq3DF93
-	8VgUl8RA4CZnMLkwC2FlRjvag=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=x0
+	suRdZ6/DF0tbptt+Dz30G9c7M6uSYDspT/LuLlnuM=; b=cTxKP0ojWv2mPX9M3I
+	AeCX9Uu8pYsB7sUtCd1lc/YXCcBn7tpC1O9QOXpVK+xFlDpm4Mu3Iy2p8mlrlL8t
+	+7i97IiR27OmUAjw2BuJbRXmbFxBa+fbztF2BDFMRbSxTftkPXBKes2Y9StBvKCm
+	60O6pVV4iDJyV7oU5TLY/FQj4=
 Received: from 4CV529F122.company.local (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD310ySWtxq_y0rCg--.41124S5;
-	Sat, 24 Oct 2026 15:13:42 +0800 (CST)
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD310ySWtxq_y0rCg--.41124S6;
+	Sat, 24 Oct 2026 15:13:45 +0800 (CST)
 From: Ding Hui <dinghui1111@163.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -54,24 +54,24 @@ Cc: dinghui@lixiang.com,
 	xiasanbo@lixiang.com,
 	yangchen11@lixiang.com,
 	liuxuanjun@lixiang.com
-Subject: [PATCH net-next v6 3/4] net: stmmac: release descriptor resources through priv->dma_conf on open failure
-Date: Sat, 24 Oct 2026 15:13:17 +0800
-Message-Id: <20261024071319.875921-4-dinghui1111@163.com>
+Subject: [PATCH net-next v6 4/4] net: stmmac: hold RTNL when reading descriptor rings in descriptors_status
+Date: Sat, 24 Oct 2026 15:13:18 +0800
+Message-Id: <20261024071319.875921-5-dinghui1111@163.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261024071319.875921-1-dinghui1111@163.com>
 References: <20261024071319.875921-1-dinghui1111@163.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD310ySWtxq_y0rCg--.41124S5
-X-Coremail-Antispam: 1Uf129KBjvJXoWxGry7Cr45ur1kZw1kZryUAwb_yoW5uFykpr
-	Wxua98JryDArn3Jws8Ar4UXFyFyaySyF45Gw1xJ3yfAay5WrZIqrWYqryjvF1UCFWFvw1S
-	qrWYyryUC3WDXF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07bjQ6XUUUUU=
-X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC8waRvWrcWqZjZwAA3X
+X-CM-TRANSID: _____wD310ySWtxq_y0rCg--.41124S6
+X-Coremail-Antispam: 1Uf129KBjvJXoWxXrW7Kr4rAr4kXr13Ww17ZFb_yoW5CrWrpa
+	y3CayqkrykJF15Ja1DCw48Xa45Ga95tFW3Wrn7Gr1fA3WjvFZ0gwnIgry3WFyDGFWkX3Z3
+	K3Wq93sxGFW8C37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jmjgxUUUUU=
+X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC0QmSvmrcWqk0KAAA3t
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261024_001412_002665_E8E11D7D 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20261024_001411_889410_B8E0C989 
+X-CRM114-Status: GOOD (  13.29  )
 X-Spam-Score: -1.7 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,93 +94,91 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Ding Hui <dinghui@lixiang.com>
 
-__stmmac_open() copies the temporary dma_conf passed by its callers
-into the long-lived priv->dma_conf before setting up the hardware.
-When the open fails after this copy, the descriptor resources now
-belong to priv->dma_conf, but the error path returns without
-releasing them and leaves stale pointers behind. The callers then
-free the already-copied resources through the temporary dma_conf,
-which aliases priv->dma_conf after the memcpy.
+The descriptors_status debugfs entry inspects the descriptor rings
+without any synchronization against the control-plane paths that
+tear them down (ndo_stop, MTU change, XDP program release, XSK pool
+reconfiguration). All of those paths hold RTNL, so take the same
+lock around the reader.
 
-Fix this by making __stmmac_open() release the descriptor resources
-through priv->dma_conf on failure. Callers of __stmmac_open() only
-need to free the temporary dma_conf container in that case, while
-failures before the call (PHY setup, serdes power up) still release
-the resources through the temporary dma_conf via the existing
-err_dma_resources path in stmmac_open().
-
-stmmac_open() no longer jumps to the serdes label chain after
-__stmmac_open() fails, as that chain would double-release the
-descriptor resources and double-put the runtime PM reference, so the
-cleanup is done inline instead.
-
-The resource release is merged with the error unwinding that stops
-the DMA engines and the MAC: failures after the hardware setup
-first stop the DMA engines and the MAC, and then fall through to
-the common init_error label that releases the descriptor resources,
-while a stmmac_hw_setup() failure jumps to init_error directly as
-the engines were never started.
+Holding RTNL also makes it safe to report queues whose descriptor
+rings are not allocated: the interface may be IFF_UP with unallocated
+rings when an internal reopen fails (e.g. an MTU change whose
+__stmmac_open() call fails), as those paths do not clear IFF_UP.
+Skip such queues with a hint instead of dereferencing a NULL pointer
+in stmmac_rings_status_show().
 
 Signed-off-by: Ding Hui <dinghui@lixiang.com>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c    | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 27 ++++++++++++++++++-
+ 1 file changed, 26 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index a8401b04d79f..b093119e752f 100644
+index b093119e752f..0f4af7ec3fc8 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4246,7 +4246,7 @@ static int __stmmac_open(struct net_device *dev,
- 	ret = stmmac_hw_setup(dev);
- 	if (ret < 0) {
- 		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
--		return ret;
-+		goto init_error;
+@@ -6707,8 +6707,10 @@ static int stmmac_rings_status_show(struct seq_file *seq, void *v)
+ 	u8 tx_count = priv->plat->tx_queues_to_use;
+ 	u8 queue;
+ 
++	rtnl_lock();
++
+ 	if ((dev->flags & IFF_UP) == 0)
+-		return 0;
++		goto out;
+ 
+ 	for (queue = 0; queue < rx_count; queue++) {
+ 		struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
+@@ -6716,10 +6718,20 @@ static int stmmac_rings_status_show(struct seq_file *seq, void *v)
+ 		seq_printf(seq, "RX Queue %d:\n", queue);
+ 
+ 		if (priv->extend_desc) {
++			if (!rx_q->dma_erx) {
++				seq_puts(seq, "Extended descriptor ring not allocated\n");
++				continue;
++			}
++
+ 			seq_printf(seq, "Extended descriptor ring:\n");
+ 			sysfs_display_ring((void *)rx_q->dma_erx,
+ 					   priv->dma_conf.dma_rx_size, 1, seq, rx_q->dma_rx_phy);
+ 		} else {
++			if (!rx_q->dma_rx) {
++				seq_puts(seq, "Descriptor ring not allocated\n");
++				continue;
++			}
++
+ 			seq_printf(seq, "Descriptor ring:\n");
+ 			sysfs_display_ring((void *)rx_q->dma_rx,
+ 					   priv->dma_conf.dma_rx_size, 0, seq, rx_q->dma_rx_phy);
+@@ -6732,16 +6744,29 @@ static int stmmac_rings_status_show(struct seq_file *seq, void *v)
+ 		seq_printf(seq, "TX Queue %d:\n", queue);
+ 
+ 		if (priv->extend_desc) {
++			if (!tx_q->dma_etx) {
++				seq_puts(seq, "Extended descriptor ring not allocated\n");
++				continue;
++			}
++
+ 			seq_printf(seq, "Extended descriptor ring:\n");
+ 			sysfs_display_ring((void *)tx_q->dma_etx,
+ 					   priv->dma_conf.dma_tx_size, 1, seq, tx_q->dma_tx_phy);
+ 		} else if (!(tx_q->tbs & STMMAC_TBS_AVAIL)) {
++			if (!tx_q->dma_tx) {
++				seq_puts(seq, "Descriptor ring not allocated\n");
++				continue;
++			}
++
+ 			seq_printf(seq, "Descriptor ring:\n");
+ 			sysfs_display_ring((void *)tx_q->dma_tx,
+ 					   priv->dma_conf.dma_tx_size, 0, seq, tx_q->dma_tx_phy);
+ 		}
  	}
  
- 	ret = stmmac_setup_ptp(priv);
-@@ -4282,6 +4282,8 @@ static int __stmmac_open(struct net_device *dev,
- 	stmmac_stop_all_dma(priv);
- 	stmmac_mac_set(priv, priv->ioaddr, false);
- 
-+init_error:
-+	free_dma_desc_resources(priv, &priv->dma_conf);
- 	return ret;
++out:
++	rtnl_unlock();
++
+ 	return 0;
  }
- 
-@@ -4314,8 +4316,13 @@ static int stmmac_open(struct net_device *dev)
- 	}
- 
- 	ret = __stmmac_open(dev, dma_conf);
--	if (ret)
--		goto err_serdes;
-+	if (ret) {
-+		stmmac_legacy_serdes_power_down(priv);
-+		phylink_disconnect_phy(priv->phylink);
-+		pm_runtime_put(priv->device);
-+		kfree(dma_conf);
-+		return ret;
-+	}
- 
- 	kfree(dma_conf);
- 
-@@ -4324,8 +4331,6 @@ static int stmmac_open(struct net_device *dev)
- 
- 	return ret;
- 
--err_serdes:
--	stmmac_legacy_serdes_power_down(priv);
- err_disconnect_phy:
- 	phylink_disconnect_phy(priv->phylink);
- err_runtime_pm:
-@@ -6343,7 +6348,6 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
- 
- 		ret = __stmmac_open(dev, dma_conf);
- 		if (ret) {
--			free_dma_desc_resources(priv, dma_conf);
- 			kfree(dma_conf);
- 			netdev_err(priv->dev, "failed reopening the interface after MTU change\n");
- 			return ret;
+ DEFINE_SHOW_ATTRIBUTE(stmmac_rings_status);
 -- 
 2.34.1
 
