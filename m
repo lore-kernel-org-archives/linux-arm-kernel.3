@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35978606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 11:50:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBED8606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 12:18:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fImQH8fX;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WEjZ1CRI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uMuIuCFK;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cuzqdhn0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
@@ -14,44 +14,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=FuqXf7oFIzUBEcQbKPY0llvBnP0Pu2NRXKoSWtEKfn0=; b=fImQH8fXY3Adc8l80DtxYxw2L7
-	8lCErDBRRm2tZqBw0Ei99RfTZj6sAgkaAYCnOTLAoIIFbJFu2Ir96EJ0MP93b0y/25T/KifNZtkaW
-	mW/XzspXD9yR3aidA+FtLZBkUUcjrwbO7iilHOvxNhVpY7AlAWp0FxJUbvLVdp1k/o3bnLp8Z628f
-	DcgGQH1Smg5gPBuxIx4qZ8xHqYNVveG2ZivZGERdyXUk5JhnSo92uV2SRbUV2RWWzDj/lc8sxot70
-	n5bbBlNnABdRYjLgTWLynu7untetZbnqlvEIqkoK4kgLIkIT7Q0xPZ0Rhc3Y6JZE0R5tdK1Gd1u07
-	MvVxSX5g==;
+	bh=R+Kivv+zlEGPU+9SEUXQD6rceDKEZP4lAk4GmwDpTwk=; b=uMuIuCFK2dIyweymTgQzSxKjFW
+	18DmCpRUwl939fk9dB5qlwwoVL0xQ2fMG1by3OHV6MPW1Bf2QF2tL0FX2w1C1UOYvWYsAP8lPoMhc
+	WY/T9/8z9g10G0wnw8jPGPRJVzsF1/Y2qWqZ2bDKk0Mslqoq9KOTMqvCah/1ZoA6O6HqvjKippWXw
+	eqdZoOR/K9yDysBx5jBHTQx+oqvNDAQLh4rRVG2idCv1CXM4dEq6XfEYtv+2OMU88MTL4ctzncsAt
+	2lilb7wgFwI6/9TaSjJMJT2PQHZRBxk40sFryaEryoZYXVdO8fD5J/nd7WGz8jZ/agrFYSTlxkgWH
+	G+JQ59TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKaFg-000000008fy-2iKR;
-	Sat, 24 Oct 2026 11:49:32 +0000
+	id 1xKah1-000000009sK-3ZDu;
+	Sat, 24 Oct 2026 12:17:47 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKaFe-000000008fj-2CEi
+	id 1xKah0-000000009sD-2h78
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 11:49:30 +0000
+	Sat, 24 Oct 2026 12:17:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CF22D41069;
-	Sat, 24 Oct 2026 11:49:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE9461F01825;
-	Sat, 24 Oct 2026 11:49:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 09A0341989;
+	Sat, 24 Oct 2026 12:17:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE12D1F01825;
+	Sat, 24 Oct 2026 12:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792842569;
-	bh=FuqXf7oFIzUBEcQbKPY0llvBnP0Pu2NRXKoSWtEKfn0=;
+	s=k20260515; t=1792844265;
+	bh=R+Kivv+zlEGPU+9SEUXQD6rceDKEZP4lAk4GmwDpTwk=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=WEjZ1CRIcbCJAp/JIdnJ/lHTbaGXMf7MCXDF9mrTgwfRVdgWDLQeZZ3+EelpxSQX5
-	 SKoLSEERZcVQTB9OD1Vh5eDSMwhPUsrhQPtlWsGhBJ8KDUc9XvShjbHdFA8AC5AZ8N
-	 V5SWdX6Gi4m49WsO7Lpey8V4+pLGfNAK7mQNzV/8MCnNUm8YN0W7ze63PhY4AcUCKi
-	 7IrRuKbkGXgShhOliQe5X2QbCNrQ3SCjhjKtAAPNQSnwRdTLx5PpfjgxeBoJ69aXyB
-	 UJ/ZCC2KhCQVSKL/Tu/v9MmzMGbv3wnsDmUaLm8qHRfarR72rZxxao2RglWbwtoyJ9
-	 AHufBBq1UK93g==
+	b=cuzqdhn04FqsErQkVJnYS7+La9ms9fOlIoOQr1y5n1F7G0rsuKDu/jFUgPLRTtMGN
+	 fouh6gEYOFgOqVQIHuT95nfLObp9mfDkaxxhZCVmO1q7iyOcnwWsSMba2XgmUzIRLw
+	 YsDuYVNuwTMTe41snOBfkhsD7io6gSIW/DU5yyNQFUy6enSUq0fMtsW8gQRlnNX22h
+	 1fQdo/RMFb4NlJ0NJxJFLhkf+51lUh8nng7d1WZq6MnvUwIejUdcBBYoKfu8vedVY7
+	 UpR0Z0D0EKn3Q993vDnoUOWHYEYzYQBJqcmcRvGUeIXrtz0ITCbQDCCwbnMUrH09wO
+	 cd3hPQbNtKazw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xKaFb-00000006kGD-2If9;
-	Sat, 24 Oct 2026 11:49:27 +0000
-Date: Sat, 24 Oct 2026 12:52:44 +0100
-Message-ID: <87tsmb8gdv.wl-maz@kernel.org>
+	id 1xKagx-00000006kav-2zdA;
+	Sat, 24 Oct 2026 12:17:43 +0000
+Date: Sat, 24 Oct 2026 13:21:00 +0100
+Message-ID: <87se1v8f2r.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Amir Noohi <amirmnoohi@gmail.com>
 Cc: Thomas Gleixner <tglx@kernel.org>,
@@ -66,12 +66,14 @@ Cc: Thomas Gleixner <tglx@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
+	Christoffer Dall <cdall@linaro.org>,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] genirq, KVM: arm64: Avoid the irq descriptor lock on vCPU load
-In-Reply-To: <20261024022450.629980-1-amirmnoohi@gmail.com>
+Subject: Re: [PATCH 1/2] genirq/manage: Provide irq_set_percpu_irqchip_state()
+In-Reply-To: <20261024022450.629980-2-amirmnoohi@gmail.com>
 References: <20261024022450.629980-1-amirmnoohi@gmail.com>
+	<20261024022450.629980-2-amirmnoohi@gmail.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -79,7 +81,7 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: amirmnoohi@gmail.com, tglx@kernel.org, oupton@kernel.org, radu@rendec.net, iav@iav.lv, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: amirmnoohi@gmail.com, tglx@kernel.org, oupton@kernel.org, radu@rendec.net, iav@iav.lv, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, cdall@linaro.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -92,42 +94,121 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, 24 Oct 2026 03:24:48 +0100,
+On Sat, 24 Oct 2026 03:24:49 +0100,
 Amir Noohi <amirmnoohi@gmail.com> wrote:
 > 
-> KVM/arm64 vCPUs slow each other down even when every vCPU has a physical
-> CPU to itself. On a 32 CPU Ampere Altra (GICv3, VHE) running mainline,
-> with an in-kernel GICv3 and each vCPU thread pinned to its own otherwise
-> idle CPU, a vCPU which exits to userspace in a loop manages 320k exits/s
-> on its own, 120k when 16 vCPUs do the same and 59k with 31. The aggregate
-> rate stops growing at 8 vCPUs. No two vCPUs share a CPU and nothing is
-> over-subscribed.
+> irq_set_irqchip_state() acquires the bus lock and the descriptor lock of
+> the interrupt. A per CPU devid interrupt has a single descriptor for all
+> CPUs, while its irqchip state is per CPU, e.g. each GICv3 redistributor
+> holds the active and pending state of the PPIs of its own CPU and GICv5
+> keeps that state in per CPU system registers. Callers which modify that
+> state have to be pinned to the CPU anyway, so the descriptor lock only
+> serializes CPUs which update their own private state.
 > 
-> The cause is the interrupt descriptor lock of the host timer interrupts.
-> Every vCPU load sets their active state with irq_set_irqchip_state()
-> (twice on VHE: virtual and physical timer). The timer interrupts are per
-> CPU interrupts, so all CPUs share one descriptor and its lock, while the
-> state being written is per CPU (a redistributor register on GICv3, a
-> system register on GICv5). The lock serializes nothing but CPUs updating
-> their own state. At 8 vCPUs, 99.9% of all lock contention events during
-> the test have __irq_get_desc_lock() or irq_set_irqchip_state() on the
-> stack.
+> KVM on arm64 sets the active state of the host timer interrupts on every
+> vCPU load, i.e. on every KVM_RUN ioctl and every time a vCPU thread is
+> scheduled in. When many CPUs load vCPUs at the same time, they all spin
+> on the descriptor lock of the same interrupt, even when every vCPU has
+> a physical CPU of its own. A global serialization point on the same path
+> was removed before in commit 64b6d1d7a845 ("genirq: Get rid of global
+> lock in irq_do_set_affinity()").
+> 
+> Provide irq_set_percpu_irqchip_state(), which sets the irqchip state of
+> a per CPU devid interrupt on the calling CPU without acquiring the
+> descriptor lock. The irqchip callback is still invoked with interrupts
+> disabled. The caller has to have preemption disabled and has to ensure
+> that the interrupt is neither freed nor reconfigured concurrently, which
+> is the case for an interrupt it has requested. Interrupt chips which
+> require a bus lock are rejected, as the bus lock may sleep and cannot be
+> taken with preemption disabled.
+> 
+> The function is not exported as its only user, KVM on arm64, cannot be
+> built as a module.
+> 
+> Signed-off-by: Amir Noohi <amirmnoohi@gmail.com>
+> ---
+>  include/linux/interrupt.h |  2 ++
+>  kernel/irq/manage.c       | 36 ++++++++++++++++++++++++++++++++++++
+>  2 files changed, 38 insertions(+)
+> 
+> diff --git a/include/linux/interrupt.h b/include/linux/interrupt.h
+> index 3bf969ad8fe0..ab20129615d4 100644
+> --- a/include/linux/interrupt.h
+> +++ b/include/linux/interrupt.h
+> @@ -507,6 +507,8 @@ extern int irq_get_irqchip_state(unsigned int irq, enum irqchip_irq_state which,
+>  				 bool *state);
+>  extern int irq_set_irqchip_state(unsigned int irq, enum irqchip_irq_state which,
+>  				 bool state);
+> +int irq_set_percpu_irqchip_state(unsigned int irq, enum irqchip_irq_state which,
+> +				 bool state);
+>  
+>  #ifdef CONFIG_IRQ_FORCED_THREADING
+>  # ifdef CONFIG_PREEMPT_RT
+> diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
+> index bdb47837c66f..e76fe1cec9fb 100644
+> --- a/kernel/irq/manage.c
+> +++ b/kernel/irq/manage.c
+> @@ -2777,6 +2777,42 @@ int irq_set_irqchip_state(unsigned int irq, enum irqchip_irq_state which, bool v
+>  }
+>  EXPORT_SYMBOL_GPL(irq_set_irqchip_state);
+>  
+> +/**
+> + * irq_set_percpu_irqchip_state - Set the irqchip state of a per CPU interrupt
+> + * @irq:	Linux interrupt number of a per CPU devid interrupt
+> + * @which:	State to be set (one of IRQCHIP_STATE_*)
+> + * @val:	Value corresponding to @which
+> + *
+> + * Variant of irq_set_irqchip_state() which sets the state of the calling
+> + * CPU's instance of a per CPU devid interrupt without acquiring the
+> + * interrupt descriptor lock. The descriptor and its lock are shared by all
+> + * CPUs while the state is not, so acquiring the lock only serializes CPUs
+> + * which modify their own state.
+> + *
+> + * Must be called with preemption disabled on an interrupt which has been
+> + * requested, so that the interrupt chip hierarchy cannot change
+> + * concurrently. Interrupt chips which require a bus lock are not supported.
+> + *
+> + * Return: 0 on success, a negative error code otherwise.
+> + */
+> +int irq_set_percpu_irqchip_state(unsigned int irq, enum irqchip_irq_state which, bool val)
+> +{
+> +	struct irq_desc *desc = irq_to_desc(irq);
+> +	struct irq_chip *chip;
+> +
+> +	lockdep_assert_preemption_disabled();
+> +
+> +	if (WARN_ON_ONCE(!desc || !irq_settings_is_per_cpu_devid(desc)))
+> +		return -EINVAL;
+> +
+> +	chip = irq_desc_get_chip(desc);
+> +	if (WARN_ON_ONCE(chip->irq_bus_lock || chip->irq_bus_sync_unlock))
+> +		return -EINVAL;
+> +
+> +	guard(irqsave)();
+> +	return __irq_set_irqchip_state(desc, which, val);
+> +}
+> +
+>  /**
+>   * irq_has_action - Check whether an interrupt is requested
+>   * @irq:	The linux irq number
 
-Looking at the test case, this really isn't a representative or
-realistic workload.  This is a contrived setup that has trapping to
-userspace as its only purpose.
+It really feels like a leap of faith.
 
-I'm not saying that this is useless observation. But it is not
-something that represents something exacerbated by "real" VMs.
+There is nothing that says that it is safe to call this without
+holding the global lock. For all we know, drivers have been relying on
+it for a good decade, and I don't feel confident letting things rip
+just because it (mostly) works with the GIC.
 
-I'll look at the patches shortly.
+At the very least, something exposed by the irqchip (a per-IRQ flag?)
+should tell you whether it is safe to elide the lock.
 
 Thanks,
 
