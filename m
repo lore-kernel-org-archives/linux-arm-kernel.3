@@ -2,90 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 780CE606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 14:21:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7352E606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 14:47:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tfBZwpL6;
-	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=B9Wslm6Q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cmcSCyQr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=E4v/Pwg/hwmgS8S2uHoRyjMThXPxdp/Fot4x4veOR5s=; b=tfBZwpL61mnYU/
-	h4FF68Bstski3M0OFtlwAfyXzeqYQvUmXpQrLYkLsyTkYqQM3yMGGoE14jwH0xbi7wkK0pFkzYV9I
-	enQFl2yfmM9hJjWI+Vqnn8WdeugwGSd4neg8WYdjmC/12m9YAyMviZaMmtczvNcS+cXZ+aBqbV5gV
-	RyYao6J3MTQCPPj56j8hQDzBJ82q4+VJJqSAbD6+3yYtq1tXmpXODTEm+6QmuDSAQjDnCUmxtE7iF
-	r3IgaaCS1IcWF51Fq2n0PNQIo2kl/K/GrjNxhE0T7pr5oowbu5GKIJfIqItNPxhjPU20U8xYQw7DZ
-	gZwsJyw8gbVT8Hey2tFA==;
+	List-Owner; bh=UeniXD7iZg+6qwS0rvztEQ7XsvYpfeI6N8iAII8kY1o=; b=cmcSCyQrtORi3/
+	b+2J4m/pWI6xFocfjzhlY+ID+UENxO3hcRqk4H/yv96L5WsOv/QCTkAhEBqgxs5SFgrxyfpQmn3Wq
+	iJXNN7wZvB8Rplsv3LOqQjozlHLY75XB5cNOQyrzo9aL+xpA4PwCBjUa2PlarCRhAMPC6ODWFtWUS
+	3tOVwdnSOcxjMxHAdbdoPayq0J6zNZbiE0LktW3JXjLmbu65jmfPeS1izqS0wGOH23sTdTU1HhYoO
+	TKFerATOMra8P8aGlTF9xUgxjFy4wmeuVAPntkTGPvfztr6C3teMqm0Anbi0YpgWx9Q0PSwHIkbfo
+	Rs6w1ensc8YpV/tESdOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKccT-00000000FlS-3XqV;
-	Sat, 24 Oct 2026 14:21:13 +0000
-Received: from 013.lax.mailroute.net ([199.89.1.16])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKccQ-00000000Fl6-3Hqi
+	id 1xKd1K-00000000Glg-1Gbd;
+	Sat, 24 Oct 2026 14:46:54 +0000
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xKd1E-00000000Gk0-10dV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 14:21:12 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by 013.lax.mailroute.net (Postfix) with ESMTP id 4jBhrh4VpTzlfvps;
-	Sat, 24 Oct 2026 14:21:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1792851653; x=1795443654; bh=E4v/Pwg/hwmgS8S2uHoRyjMT
-	hXPxdp/Fot4x4veOR5s=; b=B9Wslm6Q5DW5Kwz6QLoGhUqEouux7juoGoag02X+
-	URaO018ZstkNx/sMI/T17maDecVR7Nb5mnq1QL2SssD5KpaYXQTMFbMBDoUWY90O
-	Pvco0uNXEP0qjt9GUlOQNglnzM2INdjz82o2JmbeFmg6PqNehT1eMasCxS5OJanX
-	nME5+AcVegdZ7Xd0lHOYSK/YODvSGIwFCAxjVowQB92xHg+2KNBwBYfvEkojw7mO
-	XxNd4nkdZrYBoRpIlssHnCUeqDGcyj7DED+9EYmuf2BQ2E64wh+9WDIRQrAC0UDU
-	WwQhkbh1D1zDVFg0hHg1JYSecteKeWeuKNvtCMLLjfZQzg==
-X-Virus-Scanned: by MailRoute
-Received: from 013.lax.mailroute.net ([127.0.0.1])
- by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id HP2YyEJ6iqS8; Sat, 24 Oct 2026 14:20:53 +0000 (UTC)
-Received: from [192.168.51.14] (c-24-6-239-25.hsd1.ca.comcast.net [24.6.239.25])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4jBhrM3ZfTzlfvpN;
-	Sat, 24 Oct 2026 14:20:51 +0000 (UTC)
-Message-ID: <991fd1f4-b054-42ba-a157-cc9d89dc594b@acm.org>
-Date: Sat, 24 Oct 2026 07:20:50 -0700
+	Sat, 24 Oct 2026 14:46:52 +0000
+Received: from prodtpl.icoremail.net (unknown [10.12.1.20])
+	by hzbj-icmmx-6 (Coremail) with UTF8SMTP id AQAAfwDX3lrExNxqK2NrAQ--.61237S2;
+	Sat, 24 Oct 2026 22:46:28 +0800 (CST)
+Received: from WIN-B62RPRBL2BM.localdomain (unknown [218.76.62.144])
+	by mail (Coremail) with SMTP id AQAAf8DwwXPDxNxqm+jwAA--.12400S3;
+	Sat, 24 Oct 2026 22:46:27 +0800 (CST)
+From: Zhu Ling <zhuling2709@phytium.com.cn>
+To: tglx@kernel.org
+Cc: Zhu Ling <zhuling2709@phytium.com.cn>,
+	Marc Zyngier <maz@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] genirq/PM: Re-enable chained interrupts after hibernation
+Date: Sat, 24 Oct 2026 22:46:21 +0800
+Message-ID: <20261024144623.112667-1-zhuling2709@phytium.com.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <87mrtr1p8i.ffs@fw13>
+References: <87mrtr1p8i.ffs@fw13>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] Add S32N79RDB UFS support
-To: Larisa Grigore <larisa.grigore@oss.nxp.com>,
- NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Avri Altman <avri.altman@sandisk.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Martin K. Petersen" <mkp@kernel.org>,
- Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
- Ajay Neeli <ajay.neeli@amd.com>, Manivannan Sadhasivam <mani@kernel.org>,
- Pedro Sousa <pedrom.sousa@synopsys.com>, Joao Pinto
- <Joao.Pinto@synopsys.com>, Hannes Reinicke <hare@suse.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux-scsi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, clizzi@redhat.com, aruizrui@redhat.com,
- eballetb@redhat.com, echanude@redhat.com
-References: <20261024122533.3609180-1-larisa.grigore@oss.nxp.com>
-Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <20261024122533.3609180-1-larisa.grigore@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: quoted-printable
+X-CM-TRANSID: AQAAf8DwwXPDxNxqm+jwAA--.12400S3
+X-CM-SenderInfo: x2kxzxlqjsliuz6sx5pwlxzhxfrphubq/1tbiAQAPAWrXwUoEpgAms9
+Authentication-Results: hzbj-icmmx-6; spf=neutral smtp.mail=zhuling270
+	9@phytium.com.cn;
+X-Coremail-Antispam: 1Uk129KBjvJXoW7CF1rtF4kur18JF4xCryDKFg_yoW8ArWfpF
+	ZrGrZYvrWkJw10gan7Gw4IvFyxGrs3Gw4UXwn3K34DZw4rCFyvyFnag3W3Za4UCrZ3Z3W2
+	vw4Yg3WfCF4DCFJanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUj1kv1TuYvTs0mT0YCTnIWj
+	DUYxn0WfASr-VFAU7a7-sFnT9fnUUIcSsGvfJ3UbIYCTnIWIevJa73UjIFyTuYvj4RJUUU
+	UUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261024_072110_919276_4250E756 
-X-CRM114-Status: GOOD (  20.04  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261024_074648_505282_13F17A08 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.6 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,117 +75,50 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-7.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/24/26 5:25 AM, Larisa Grigore wrote:
-> This series adds support for the UFS host controller found on the NXP S=
-32N79
-> platform. The controller is based on the Synopsys DesignWare (DWC) UFS =
-host
-> architecture and requires S32N79-specific M-PHY initialization/calibrat=
-ion
-> sequence. It is compliant with JESD-223D "Universal Flash Storage Host
-> Controller Interface" v3.0, and supports up to HS-Gear 4 speed grade. I=
-t is
-> compatible with UFS 2.1, 3.0 and 3.1 devices. The MIPI UniPro is compli=
-ant with
-> "MIPI Alliance Specification for Unified Protocol", v1.8. The MIPI M-PH=
-Y is
-> compliant to version 4.1.
+Hi Thomas,=0D
+=0D
+Thank you for the review. I am withdrawing the previous genirq/PM=0D
+proposal. Please do not apply it: forcing chained IRQs through generic=0D
+resume treats the symptom rather than restoring controller state.=0D
+=0D
+I have since reproduced the failure on the Phytium E2000Q platform=0D
+using upstream base 17bb0e2f6c8043f70a693a5f3797471cbed354c8.=0D
+GPIOLIB is disabled and no vendor GPIO driver is involved. An independent=0D
+module registers either an ordinary or chained handler on an idle=0D
+GICv3 SPI (INTID 189) and injects a real GIC pending event before and=0D
+after hibernation. It has no PM callbacks or automatic recovery.=0D
+=0D
+On separate fresh boots, the ordinary IRQ delivers both injections.=0D
+The chained IRQ delivers only the first. After real S4, its descriptor=0D
+still reports started=3D1, disabled=3D0 and sw_masked=3D0, but the hardware=
+=0D
+enable bit is clear and the second event remains pending. An explicit=0D
+unmask delivers that queued event without another injection or handler=0D
+reinstallation.=0D
+=0D
+A GICv3-side SPI context save/restore revision passes the same test=0D
+in both modes: hits=3D2, injected=3D2, unexpected=3D0 and rescued=3D0. Each=
+=0D
+mode was tested for one real S4 cycle on a fresh boot, with CPU0,=0D
+disk=3Dshutdown and pm_test=3Dnone. No introducing commit is claimed.=0D
+=0D
+The test kernels contain a separate 8-line USB host enablement, but=0D
+the unpatched test leaves the IRQ/GIC/PM paths unchanged. The test=0D
+module sets the out-of-tree taint bit; both conditions are disclosed=0D
+in the new cover letter.=0D
+=0D
+I will send v2 as a separate thread, linking this discussion. It=0D
+preserves SPI distributor configuration in GICv3 and does not change=0D
+genirq policy. It is not a claim of complete GICv3/ITS S4 support.=0D
+=0D
+Thanks,=0D
+Zhu Ling=0D
 
-Please take a look at the report below. It comes from an LLM and hence
-may include errors:
-----------------------------------------------------------------------
-
-## Main finding
-
-**Patch 9/10: PRE_CHANGE errors are ignored.** In=20
-`ufshcd_link_startup()` the core calls the PRE_CHANGE hook without=20
-checking what it returns:
-```c
-do {
-	ufshcd_vops_link_startup_notify(hba, PRE_CHANGE);
-	ret =3D ufshcd_dme_link_startup(hba);
-```
-So if `ufs_s32n7_link_startup_pre_change()` fails, DME_LINKSTARTUP is=20
-still sent. That covers an invalid `one_us_tick`, an SRAM_INIT_DONE=20
-timeout after up to 3 s, a calibration failure, or lanes not reaching=20
-Hibern8. The error codes and the `dev_err()` calls in that path have no=20
-effect. Either the series checks the PRE_CHANGE return value in the core=20
-(with an audit of the existing hooks), or the commit message should say=20
-that these failures only get logged.
-
-## Per-patch comments
-
-**Cover letter / all patches**
-- The subject says `[PATCH 00/10]` without `v9`, but the body says=20
-"Changes in v9". It should be `[PATCH v9 nn/10]`.
-- Patches 1, 5, 6, 8 and 9 start with `scsi: ufs:`. Drop the `scsi:` so=20
-they read, for example, `ufs: dwc: =E2=80=A6` and `ufs: s32n7: =E2=80=A6`=
-. That matches=20
-patches 2 and 3 (`ufs: unipro:`).
-
-**Patch 4/10 (Hibern8 TX FSM polling helper)**
-- The prefix is `ufs: host:`, but the helper is added to=20
-`drivers/ufs/core/ufshcd.c`. It should be `ufs: core:`.
-- The commit message names `ufshcd_check_hibern8()`, but the function is=20
-called `ufshcd_dme_check_tx_hibern8()`.
-- "Unlike the initial implementation, the timeout error is now reported=20
-only once=E2=80=A6" describes earlier versions. It belongs below the `---=
-` line.
-- Please don't use `extern` in new prototypes in `include/ufs/ufshcd.h`.
-- The HiSilicon and Qualcomm messages used to print the TX_FSM_STATE=20
-value(s) when a lane failed to reach Hibern8. The new helper only logs a=20
-timeout, so that diagnostic information is lost. Consider logging the=20
-lane and its last state.
-
-**Patch 5/10 (move CREG helpers)**
-- "Dropped `static` from =E2=80=A6" is not in the imperative mood.
-- The commit message should say why removing `static` matters. In=20
-Versal2, `phy_write_attrs[]`/`phy_read_attrs[]` were static arrays that=20
-got modified on every call. Two callers at once, for example two host=20
-instances, could corrupt each other's values. The move fixes that race,=20
-which is worth stating.
-
-**Patch 9/10 (S32N79 driver)**
-- **Hard-coded lane count:** `s32n79_reset_config[]`,=20
-`pwr_change_phy_regs[]` and the calibration tables only cover lanes 0=20
-and 1. But `ufshcd_dme_check_tx_hibern8()` is passed=20
-`hba->lanes_per_direction`. Use a fixed 2 consistently, or check=20
-`lanes_per_direction` in `init`.
-- **Connection setup:** `ufs_s32n7_link_startup_post_change()` repeats a=20
-subset of `ufshcd_dwc_connection_setup()`: local attributes only, no=20
-peer attributes and no `N_DEVICEID_VALID`. Please explain why the shared=20
-DWC helper, or `ufshcd_dwc_link_startup_notify()` with a=20
-`phy_initialization` hook, can't be used.
-- **Unexplained settings:** `UFSHCD_QUIRK_PERFORM_LINK_STARTUP_ONCE` and=20
-`hba->spm_lvl =3D UFS_PM_LVL_5` need a reason in the commit message, for=20
-example whether power is cut during system suspend.
-- **Includes:** `FIELD_PREP()` and `GENMASK()` are used without=20
-`<linux/bitfield.h>` or `<linux/bits.h>`. It compiles only because=20
-`ufshcd.h` happens to pull them in.
-- **Nits:**
-   - Use `u32 data` instead of `unsigned int data` for `ufshcd_dme_get()`=
-.
-   - `SCM_ONE_US_TICK 0x2CU` has a `U` suffix but `SCM_STATUS 0x30` doesn=
-'t.
-   - The comment says "SCM_MPHY_RAM_CONFIG_STATUS" but the macro is=20
-`SCM_STATUS`.
-   - The `dev_err()` in `ufs_s32n7_link_startup_notify()` repeats=20
-messages that the inner functions already print.
-   - `device_get_match_data()` is called in both probe and `init`.
-   - `ufs_s32n7_remove()` is a wrapper that adds nothing.
-
-**Patch 1/10:** the change is fine. The `Fixes:` tag is debatable: the=20
-old positive return of 1 was already treated as a failure by `if (ret)`=20
-callers, so this isn't really a bug fix for stable.
-
-To check these points I read the code in your local tree (`locking`=20
-branch). I did not apply or build the series.
 
