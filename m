@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83F26606A322
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 01:03:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0447B606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 01:03:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t93bu/te;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NfX7pgBQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PK99+lmx;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GJ93YXdH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,72 +14,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=2Kz84VQKPAzFz/tBV0w0WG9msa96nepEBazejBtRhIs=; b=t93bu/tegnjbYo39/aQLDjCoUB
-	EereeI7XuYPqwjqt34oK3BR9T32s3i2dyVxfAo6Rzr7AmObFe9NEwFZ5NiCRDI8g+veiLth1+ZZ9r
-	f+/2nL0oZAaMLOzdFRclJK5A9CopB/BzMIj7VGqB7/OPobfdJUJEugEr5DokGSV2zgrJg+0PRsPtv
-	BbCkKYTND82qN3Y1GdtPluiErB4zNk16j9yKhxwvy2gCPx+XYmFh7gxWPST17TYHREvNzSyEurphs
-	dkxU7LN2H4494QqM09V8DqRCfn3DPwFjFm9QlnkiB4FwS6oiti9h/Q/Q1B0iza0lyFuUlH8rJvScy
-	t129Hu5g==;
+	bh=omGL6LcMhGREa1S5q4pFujxAG/NXDja8zf9xS2NZp5Y=; b=PK99+lmxFL5GfxkU/rls1f1Ifp
+	IKbBP8jtVSDN+adNtcyy0UmDvxrj28ZAUk2/yMerNc282Mq/nB51Imb+B67xJuKcLRGWs6WWWKAuA
+	Rqdz0LY+bbsLKV04q8BYLo6jnAFZJf6odmXqbgzdAmWfTjLTL7KvP8VbuVLe9Ktr9ke/TdZ3m47uQ
+	7UFtC1i/z//13RR6FLgWq4Dt11ZuD2vr7M8FhQGfo2BjESVkYMmKaL+I8QSNM5HzvAEBCa6TafhZA
+	lypx/tByf7MJJSWYRg8jhhDIE3nyXNvIzX3noHivSsthFnqK0yjaKwx4Ze0/1mszVYBK0pmsKNxNf
+	WXh8773g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKQ9v-0000000HJ0X-1Ypd;
+	id 1xKQ9v-0000000HJ0k-22Ui;
 	Sat, 24 Oct 2026 01:02:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKQ9o-0000000HIxi-2c79;
+	id 1xKQ9o-0000000HIxg-2RR1;
 	Sat, 24 Oct 2026 01:02:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F1E14419DF;
+	by tor.source.kernel.org (Postfix) with ESMTP id 9F6BD601DE;
 	Sat, 24 Oct 2026 01:02:47 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1792803767;
-	b=lqIuOAsIuXPKu5N+OECHGy8vKtTmeejgrIubbY3tXR6IqZ63w74hjQ/zM5kLtId83fQj
-	 W3emMCG7c2fxQhdGzdIZpRUp0OBYPSdRZsKjPR6jUYJNCatzOU+WrJ9iALem7nbM0P3F0
-	 hQOtiRdENLuoxRpx5hQQxRzEXzRJoC7/8HCd1YKyrhMu4MnQhzEPeGp/Xz3CTaPgJwrhS
-	 0rWAXVa21CaIkW9XnkiVQGb797FvtjJmtqdKaBBhNjH64zlxAgQO/Nvevisl8ngA/nWFx
-	 2hoGnTs4vRHj4BV1qK9WsQHeiHpzV4rZ+R3r8nUpvI/DzC+re+nwSH9/MeqJqaT21jw==
+	b=zIZQSDVPrkbMX6ntSfQ0jG9XCG5cj01b0obgEVr1qyEfPIsFhXFQgyV5cEO47FqQQfif
+	 c7Ors3Yxji4E5HHlq5oNKQ5OhT4G5PDoY8BBH/G1yQxDtiFx+TURpM5Yr6aytg3kd+Pwc
+	 Vxx0vTewKG9su85y6uvNgEqANeHVxUXgyxx2KyztDlkHdRVsOZGpBiAqQnBn0sEHh4Kxb
+	 8se5F9vFFUUml4e/FPdpqApwBojJdEpH/P5HHYnSygLfVRQJ1Ol7P/Ok5GG632Amb3nBj
+	 tKfNQfdwGm/QV7ms/vWJP8d7frnPLZjhAPhG4Bku1Ox9oA1ROtLVH52PVePBZ72ytZQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1792803767;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=2Kz84VQKPAzFz/tBV0w0WG9msa96nepEBazejBtRhIs=;
-	b=bQDDwAxgtZ2Lq16mHqGbvBYJEH2JdTIGgVLqiRY+zenI6MnDBtbBtStToliejpr/pkbP
-	 b/LLvPC7+N70NFf3odQpSSRCdKtBdOXWWPnHR81+S7nGpJvxxzCcLtGkKyhKWRRKe6Cf2
-	 vg4bp6rieqgpAdFUjqA5IrzlevYKcHvRdkWcAecn3M0YI2/xIfET2K43QsaK3TSwrunoW
-	 BAYL4aQAEYb6X6JlJ28W/FG4N3ovjDM0ZhpWHWoli71MOFge41KJSHnt/oBS+lyH21VlK
-	 L174ByVTWBR0c9IRUwGVLF4ifiK+j/J2ln/rvfiJOb0vVYt9wdhzrR2U8x5YRIAOHyA==
+	bh=omGL6LcMhGREa1S5q4pFujxAG/NXDja8zf9xS2NZp5Y=;
+	b=CjP2C/GOZZntud2HWUMkdnw0oM9cPssnhX4BAYh57j30jC/AuL7aoACW7RcyhxWbCPhq
+	 ZKduBVLbbdGI48KinhGMEXSq0SaEZC7u40AIjuLr+ZLo6XqGxwRP8kUw8mtmO/Jgjg2GJ
+	 Ur4eljNdRhBA2ZElegZpuAfB2GRfJPNuCIeyriqOo1BuLyA+6u8vm2YsR3CxU+2gXg8QD
+	 MPWKwa78oXpFQrmbfcbGRvQsFuNl3gw0mqKlzFQyQrZQKDy5u0qEV/87+IWQkDtojtHsj
+	 lUjhJ9FYCD6sPaumGdz8GUM0Qk4vgBqxZPpJqtjR05qWUSE/8HkIunMg8z1sRY44H2g==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id CADB91F01829;
+	by smtp.kernel.org (Postfix) with ESMTPS id C89C71F01825;
 	Sat, 24 Oct 2026 01:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1792803767;
-	bh=2Kz84VQKPAzFz/tBV0w0WG9msa96nepEBazejBtRhIs=;
+	bh=omGL6LcMhGREa1S5q4pFujxAG/NXDja8zf9xS2NZp5Y=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=NfX7pgBQs5nmw5RohQOPaTQs2tdZhcWQezAEW6SBjI+0EnqjkuIa26+QpMqU+f608
-	 w6M+gB2yr4U1oe9CS4RpChvATXRb4+bqDWrmJWBJUqr9r9FEk8Fx8UrL3opXCarPNa
-	 ndM2JnTnC9Vbb/TVelSNCNeYkO2q636SfuxSDN26a4xfrB6CaR4toxhiH8WRyyuXPk
-	 hmFWgHZIkTxSsYfDTS15uXHykUcHvteZA8XPMqKgXqOQLaROiw1djCPlTcTc+G6pnr
-	 WQTc/krns6U4SU11Ius8yiu6bMg/eRxCXhtueH9iOPLYnxatwjbvnRy7s+CTkldSEN
-	 1sh+l8SvTAdFA==
+	b=GJ93YXdHwFqu6Lsy9cSI74DVafUS1RrKGVdU1MenjUVoc9cP00PVsMQdvPsSGYpKl
+	 jWrmZSzD2j2+WBLOAkM4PyLKsdsLerBcmKGIn3fnI/TVUKz5cE8z+mGzTReNlwr7Xh
+	 pb49StYa19LzNU/M4QS80afgh/yvFWtKSkeUnlDgNnWDDk/say7UqtNuM7GCMBC1q3
+	 1E7tCWJPVxnytN7olYLlA4qFzhrfdFy71cHwW6eZe3LzRwbHxJR62kV8GOdbs3dwcw
+	 6Wn5ZxFY87jB+RQLEc4g1Wy7dUOo9NMDXEjawS+JbP/jW86c009nrE5teNBqdOwlrk
+	 rX3w5Vhw+6mjg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 52117446BE;
+	by lkml.kernel.org (Postfix) with ESMTP id 493C944691;
 	Sat, 24 Oct 2026 01:02:46 +0000 (UTC)
 From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Sat, 24 Oct 2026 04:02:44 +0300
-Subject: [PATCH RFC 2/2] PCI: rockchip-host: Hot-reset the endpoint before
- using the link
+Date: Sat, 24 Oct 2026 04:02:43 +0300
+Subject: [PATCH RFC 1/2] PCI: rockchip-host: Retry link training that times
+ out
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261024-rockchip-pcie-resume-v1-2-58e54a5cf5f1@iav.lv>
+Message-Id: <20261024-rockchip-pcie-resume-v1-1-58e54a5cf5f1@iav.lv>
 References: <20261024-rockchip-pcie-resume-v1-0-58e54a5cf5f1@iav.lv>
 In-Reply-To: <20261024-rockchip-pcie-resume-v1-0-58e54a5cf5f1@iav.lv>
 To: Shawn Lin <shawn.lin@rock-chips.com>, 
@@ -92,13 +92,13 @@ Cc: Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Igor Velkov <iav@iav.lv>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5422; i=iav@iav.lv;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2899; i=iav@iav.lv;
  h=from:subject:message-id;
- bh=JqNmsQpPl/FYQLmd44QeXU02W9GHIDITxGbAly7lXUc=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFl3mLcK7pkcGBx9dmEJ+/NnLWdW/bvpvvmnb77qE01vc
- a7zl+4rdpSyMIhxMciKKbJMOKRxK2PJ1b/+HuYPYOawMoEMYeDiFICJXDBk+KdsOV9s7n9jlwtR
- b1Yd7HQ/O81Q02BlQXXb3DWyJxlVvj9mZNjcFXfszLJj3Es7Os3d/vwz/L7plk7yyZ9nQhK2PDx
- 3r4UdAA==
+ bh=XyiyrHT+pm4QSQTgMimlGl6CYo9QtiIPmsWqK8gJ4SM=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFl3mLfkvz242aLCc9kGMaUY60fpTxlnm+nuqd7PImudz
+ zGF7556RykLgxgXg6yYIsuEQxq3MpZc/evvYf4AZg4rE8gQBi5OAZiI4CRGhjvf9A4u3tt4JNBi
+ 2qysDcdeC+u/XX/soP6jr8vXf/hZ6nuNkWFtyEdT+bgjFXO5zrGdSjbXjDS2Y66bwXex9P81rY/
+ md1gB
 X-Developer-Key: i=iav@iav.lv; a=openpgp;
  fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
 X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
@@ -125,145 +125,88 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Igor Velkov <iav@iav.lv>
 
-On a Kobol Helios64 the JMB585 sometimes trains the link but does not
-answer config reads. On resume, a read in rockchip_pcie_rd_conf(),
-called from pci_power_up(), ends in a synchronous external abort and
-the kernel oopses. At probe, a config read during the bus scan ended in
-an SError on 1 of 4 boots of v7.3-rc7.
+On a Kobol Helios64 the JMB585 SATA controller sometimes does not train
+the link on resume from s2idle. The 500 ms poll times out and
+resume_noirq() returns -ETIMEDOUT. On v7.3-rc7 with the mainline DT
+this happened in the 14th of 14 cycles, and the system did not resume.
 
-After training, hot-reset the endpoint, hold the reset at least 2 ms as
-pci_reset_secondary_bus() does, and wait for the link. Clear the AXI
-link-down status (CDNS_PCIE_AT_LINKDOWN in the Cadence host driver),
-then wait the 100 ms required after a Conventional Reset. Fail probe
-and resume if the hot reset fails.
+When training times out, bring the port up again, at most twice. Each
+attempt initializes the PHYs again and, where PERST# is wired, holds it
+low for at least 100 ms. Without an endpoint, probe now gives up after
+three attempts, in about 2.1 s instead of 0.7 s.
 
-s2idle on v7.3-rc7 with the mainline DT and patch 1:
+Print the LTSSM state with the timeout message.
 
-  sleep    without this patch    with it
-  ~40 s    2 aborts / 30         0 / 100
-  ~25 s    1 abort / 11          0 / 40, then 2 aborts in the next 3
-
-After the hot reset the link came back in 2.8-2.9 ms in the good
-cycles. In the last abort it came back in 25 ms, and the next config
-read aborted. The other abort left no timing. Boots with the patch were
-not counted.
-
-Print how long the link took to come back. This explains the data
-above and helps anyone who runs the code.
+With the patch, one such timeout showed LTSSM 0x10, and the first retry
+trained the link.
 
 Assisted-by: LLM
 Signed-off-by: Igor Velkov <iav@iav.lv>
 ---
- drivers/pci/controller/pcie-rockchip-host.c | 59 +++++++++++++++++++++++++++++
- drivers/pci/controller/pcie-rockchip.h      |  4 ++
- 2 files changed, 63 insertions(+)
+ drivers/pci/controller/pcie-rockchip-host.c | 29 ++++++++++++++++++++++++++---
+ 1 file changed, 26 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-index b4499fc3f90b..f75c2c8358f5 100644
+index 5b071bdc4f90..b4499fc3f90b 100644
 --- a/drivers/pci/controller/pcie-rockchip-host.c
 +++ b/drivers/pci/controller/pcie-rockchip-host.c
-@@ -400,6 +400,57 @@ static int rockchip_pcie_init_port_retry(struct rockchip_pcie *rockchip)
+@@ -325,7 +325,10 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
+ 				 status, PCIE_LINK_UP(status), 20,
+ 				 500 * USEC_PER_MSEC);
+ 	if (err) {
+-		dev_err(dev, "PCIe link training gen1 timeout!\n");
++		status = rockchip_pcie_read(rockchip, PCIE_CLIENT_DEBUG_OUT_0) &
++			 PCIE_CLIENT_DEBUG_LTSSM_MASK;
++		dev_err(dev, "PCIe link training gen1 timeout! (LTSSM %#x)\n",
++			status);
+ 		goto err_power_off_phy;
+ 	}
+ 
+@@ -377,6 +380,26 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
  	return err;
  }
  
-+/* Hot-reset the endpoint; *link_us: time until the link came back, 0 if not reset */
-+static int rockchip_pcie_hot_reset(struct rockchip_pcie *rockchip, s64 *link_us)
-+{
-+	u32 status;
-+	ktime_t start;
-+	int err;
++#define ROCKCHIP_PCIE_INIT_RETRIES	2
 +
-+	*link_us = 0;
-+	rockchip_pcie_write(rockchip, PCIE_CLIENT_HOT_RESET_ASSERT,
-+			    PCIE_CLIENT_HOT_RESET_CTRL);
-+	err = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_INT_STATUS,
-+				 status, status & PCIE_CLIENT_INT_HOT_RST,
-+				 100, 100 * USEC_PER_MSEC);
-+	rockchip_pcie_write(rockchip, PCIE_CLIENT_INT_HOT_RST,
-+			    PCIE_CLIENT_INT_STATUS);
-+	/* Hold the reset at least 2 ms, as pci_reset_secondary_bus() does */
-+	if (!err)
-+		usleep_range(2000, 3000);
-+	rockchip_pcie_write(rockchip, PCIE_CLIENT_HOT_RESET_DEASSERT,
-+			    PCIE_CLIENT_HOT_RESET_CTRL);
-+	if (err)
-+		return err;
-+
-+	start = ktime_get();
-+	err = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_BASIC_STATUS1,
-+				 status, PCIE_LINK_UP(status), 20,
-+				 LINK_TRAIN_TIMEOUT);
-+	*link_us = ktime_us_delta(ktime_get(), start);
-+
-+	/* Clear the AXI link-down status before config traffic, as the Cadence host driver does */
-+	rockchip_pcie_write(rockchip, 0, PCIE_CORE_AXI_LINK_DOWN);
-+
-+	return err;
-+}
-+
-+/* A JMB585 sometimes comes out of reset unable to answer config requests */
-+static int rockchip_pcie_reset_endpoint(struct rockchip_pcie *rockchip)
++/* Pulse PERST# and train again when the link does not come up */
++static int rockchip_pcie_init_port_retry(struct rockchip_pcie *rockchip)
 +{
 +	struct device *dev = rockchip->dev;
-+	s64 link_us;
-+	int err;
++	int i, err;
 +
-+	err = rockchip_pcie_hot_reset(rockchip, &link_us);
-+	dev_info(dev, "hot reset: link back in %lld us, err %d\n", link_us, err);
-+	if (err)
-+		return err;
++	for (i = 0; ; i++) {
++		err = rockchip_pcie_host_init_port(rockchip);
++		if (err != -ETIMEDOUT || i == ROCKCHIP_PCIE_INIT_RETRIES)
++			break;
++		dev_info(dev, "link training retry %d\n", i + 1);
++	}
 +
-+	msleep(PCIE_RESET_CONFIG_WAIT_MS);
-+	return 0;
++	if (!err && i)
++		dev_info(dev, "link up after %d retries\n", i);
++	return err;
 +}
 +
  static irqreturn_t rockchip_pcie_subsys_irq_handler(int irq, void *arg)
  {
  	struct rockchip_pcie *rockchip = arg;
-@@ -908,6 +959,10 @@ static int rockchip_pcie_resume_noirq(struct device *dev)
+@@ -881,7 +904,7 @@ static int rockchip_pcie_resume_noirq(struct device *dev)
+ 	if (err)
+ 		goto err_disable_0v9;
+ 
+-	err = rockchip_pcie_host_init_port(rockchip);
++	err = rockchip_pcie_init_port_retry(rockchip);
  	if (err)
  		goto err_pcie_resume;
  
-+	err = rockchip_pcie_reset_endpoint(rockchip);
-+	if (err)
-+		goto err_err_deinit_port;
-+
- 	err = rockchip_pcie_cfg_atu(rockchip);
- 	if (err)
- 		goto err_err_deinit_port;
-@@ -965,6 +1020,10 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+@@ -938,7 +961,7 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+ 		goto err_set_vpcie;
+ 	}
+ 
+-	err = rockchip_pcie_host_init_port(rockchip);
++	err = rockchip_pcie_init_port_retry(rockchip);
  	if (err)
  		goto err_vpcie;
  
-+	err = rockchip_pcie_reset_endpoint(rockchip);
-+	if (err)
-+		goto err_deinit_port;
-+
- 	err = rockchip_pcie_init_irq_domain(rockchip);
- 	if (err < 0)
- 		goto err_deinit_port;
-diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
-index b5da15601b58..4509e044862b 100644
---- a/drivers/pci/controller/pcie-rockchip.h
-+++ b/drivers/pci/controller/pcie-rockchip.h
-@@ -47,6 +47,9 @@
- #define   PCIE_CLIENT_INT_IN_DEASSERT		HWORD_CLR_BIT(0x0002)
- #define   PCIE_CLIENT_INT_PEND_ST_PEND		HWORD_SET_BIT(0x0001)
- #define   PCIE_CLIENT_INT_PEND_ST_NORMAL	HWORD_CLR_BIT(0x0001)
-+#define PCIE_CLIENT_HOT_RESET_CTRL	(PCIE_CLIENT_BASE + 0x18)
-+#define   PCIE_CLIENT_HOT_RESET_ASSERT		HWORD_SET_BIT(0x0001)
-+#define   PCIE_CLIENT_HOT_RESET_DEASSERT	HWORD_CLR_BIT(0x0001)
- #define PCIE_CLIENT_SIDE_BAND_STATUS	(PCIE_CLIENT_BASE + 0x20)
- #define   PCIE_CLIENT_PHY_ST			BIT(12)
- #define PCIE_CLIENT_DEBUG_OUT_0		(PCIE_CLIENT_BASE + 0x3c)
-@@ -170,6 +173,7 @@
- #define PCIE_CORE_OB_REGION_ADDR1	(PCIE_CORE_AXI_CONF_BASE + 0x4)
- #define PCIE_CORE_OB_REGION_DESC0	(PCIE_CORE_AXI_CONF_BASE + 0x8)
- #define PCIE_CORE_OB_REGION_DESC1	(PCIE_CORE_AXI_CONF_BASE + 0xc)
-+#define PCIE_CORE_AXI_LINK_DOWN		(PCIE_CORE_AXI_CONF_BASE + 0x824)
- 
- #define PCIE_CORE_AXI_INBOUND_BASE	0xc00800
- #define PCIE_RP_IB_ADDR0		(PCIE_CORE_AXI_INBOUND_BASE + 0x0)
 
 -- 
 2.43.0
