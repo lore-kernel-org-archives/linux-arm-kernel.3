@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6799C606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 11:37:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35978606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 11:50:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oa8NBxW3;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=alMJRejs
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fImQH8fX;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WEjZ1CRI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
@@ -14,52 +14,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=JGL3qTPNqshUoFon3YlDWfF5+DJcyIa46YLyW1IYigk=; b=oa8NBxW3u0A+jCkDCs8P7XrNFD
-	fAtDJ2iLEgHbQzBdtjnMi2M/oQni8m0u4VSA9SlTN8s8Z9jGMc0UGYQ8XJrU/hwl0RR7EjKP8TpIc
-	sO/l+qNJQeq4SJuVTaiPEe9091DaiyhxfUYRynI5m3sUKfemf6mCb4rgXtXwWcfd4tE185OJKVM/a
-	Ay3vcKurKHv4c5Q+/yMa1xvM5o6SJR9T/NJ1vc9R5x3k30IDYvAtgaxiM5u2KXNNo4+iatsxb+KFi
-	EN5EsdLQuIGgsIz6R6/p7PL8hE9+FKnLTqPrxszV6ZFQTQMg5jS1BM2UgJ4dgUyjW4OF8Q88qfy9N
-	CXpqvR8w==;
+	bh=FuqXf7oFIzUBEcQbKPY0llvBnP0Pu2NRXKoSWtEKfn0=; b=fImQH8fXY3Adc8l80DtxYxw2L7
+	8lCErDBRRm2tZqBw0Ei99RfTZj6sAgkaAYCnOTLAoIIFbJFu2Ir96EJ0MP93b0y/25T/KifNZtkaW
+	mW/XzspXD9yR3aidA+FtLZBkUUcjrwbO7iilHOvxNhVpY7AlAWp0FxJUbvLVdp1k/o3bnLp8Z628f
+	DcgGQH1Smg5gPBuxIx4qZ8xHqYNVveG2ZivZGERdyXUk5JhnSo92uV2SRbUV2RWWzDj/lc8sxot70
+	n5bbBlNnABdRYjLgTWLynu7untetZbnqlvEIqkoK4kgLIkIT7Q0xPZ0Rhc3Y6JZE0R5tdK1Gd1u07
+	MvVxSX5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKa2R-000000008F6-2DNj;
-	Sat, 24 Oct 2026 11:35:51 +0000
+	id 1xKaFg-000000008fy-2iKR;
+	Sat, 24 Oct 2026 11:49:32 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKa2P-000000008En-4AEL
+	id 1xKaFe-000000008fj-2CEi
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 11:35:50 +0000
+	Sat, 24 Oct 2026 11:49:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 59DFE400C8;
-	Sat, 24 Oct 2026 11:35:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CA9F1F01825;
-	Sat, 24 Oct 2026 11:35:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CF22D41069;
+	Sat, 24 Oct 2026 11:49:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE9461F01825;
+	Sat, 24 Oct 2026 11:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792841749;
-	bh=JGL3qTPNqshUoFon3YlDWfF5+DJcyIa46YLyW1IYigk=;
+	s=k20260515; t=1792842569;
+	bh=FuqXf7oFIzUBEcQbKPY0llvBnP0Pu2NRXKoSWtEKfn0=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=alMJRejsFi9d108NFZiCBV/ZjD+QtbOYf6AFtksgqO7m4ZPfNoc2lLWXgUJsK02Mm
-	 dVtsxVCOCg9LtAPWHhyhbYJugKNIOC41oCcP+ndiJdDqk1NC2QBhk6CiK90gz6RV75
-	 0Rf7aQxI3zlAQk4JnwbIM+XIoISdMm93OwiGyqAXdC2/w+RMGpBS8cKvu6PZs3GvSu
-	 7ZwyvgAyhuE8xL0f/3ztTEjWPw3ASoeqZCEW5RUUMSTLSIx3PARIHuw/TNIbpK2ayV
-	 tAEtyXvvRb3gl7OhtKWFHC6La5U2M3MDcd3TrdgPW0vWp8otNapSqI0E8jVQ7dn6Hc
-	 pqHuk+XqN55WA==
+	b=WEjZ1CRIcbCJAp/JIdnJ/lHTbaGXMf7MCXDF9mrTgwfRVdgWDLQeZZ3+EelpxSQX5
+	 SKoLSEERZcVQTB9OD1Vh5eDSMwhPUsrhQPtlWsGhBJ8KDUc9XvShjbHdFA8AC5AZ8N
+	 V5SWdX6Gi4m49WsO7Lpey8V4+pLGfNAK7mQNzV/8MCnNUm8YN0W7ze63PhY4AcUCKi
+	 7IrRuKbkGXgShhOliQe5X2QbCNrQ3SCjhjKtAAPNQSnwRdTLx5PpfjgxeBoJ69aXyB
+	 UJ/ZCC2KhCQVSKL/Tu/v9MmzMGbv3wnsDmUaLm8qHRfarR72rZxxao2RglWbwtoyJ9
+	 AHufBBq1UK93g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xKa2M-00000006k7u-3Fum;
-	Sat, 24 Oct 2026 11:35:46 +0000
-Date: Sat, 24 Oct 2026 12:39:03 +0100
-Message-ID: <87v76r8h0o.wl-maz@kernel.org>
+	id 1xKaFb-00000006kGD-2If9;
+	Sat, 24 Oct 2026 11:49:27 +0000
+Date: Sat, 24 Oct 2026 12:52:44 +0100
+Message-ID: <87tsmb8gdv.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
+To: Amir Noohi <amirmnoohi@gmail.com>
 Cc: Thomas Gleixner <tglx@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Igor Velkov <iav@iav.lv>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] irqchip/gic-v3-its: Claim LPI tables inherited across kexec on DT
-In-Reply-To: <20261024075856.835932-1-xiaqinghuan@mail.ustc.edu.cn>
-References: <20261024075856.835932-1-xiaqinghuan@mail.ustc.edu.cn>
+Subject: Re: [PATCH 0/2] genirq, KVM: arm64: Avoid the irq descriptor lock on vCPU load
+In-Reply-To: <20261024022450.629980-1-amirmnoohi@gmail.com>
+References: <20261024022450.629980-1-amirmnoohi@gmail.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -67,7 +79,7 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: xiaqinghuan@mail.ustc.edu.cn, tglx@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: amirmnoohi@gmail.com, tglx@kernel.org, oupton@kernel.org, radu@rendec.net, iav@iav.lv, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -87,53 +99,35 @@ X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, 24 Oct 2026 08:58:56 +0100,
-Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn> wrote:
+On Sat, 24 Oct 2026 03:24:48 +0100,
+Amir Noohi <amirmnoohi@gmail.com> wrote:
 > 
-> From: Xu Qianhui <xiaqinghuan@mail.ustc.edu.cn>
+> KVM/arm64 vCPUs slow each other down even when every vCPU has a physical
+> CPU to itself. On a 32 CPU Ampere Altra (GICv3, VHE) running mainline,
+> with an in-kernel GICv3 and each vCPU thread pinned to its own otherwise
+> idle CPU, a vCPU which exits to userspace in a loop manages 320k exits/s
+> on its own, 120k when 16 vCPUs do the same and 59k with 31. The aggregate
+> rate stops growing at 8 vCPUs. No two vCPUs share a CPU and nothing is
+> over-subscribed.
 > 
-> When a kernel is kexec'd into while LPIs are enabled, the incoming kernel
-> finds GICR_CTLR.EnableLPIs set and tries to re-initialise the LPI tables
-> from scratch.  That requires disabling LPIs first, which is not always
-> possible: on some implementations (e.g. Qualcomm SM8750) the EnableLPIs
-> bit is RES1 once set, the write to clear it is ignored, and
-> redist_disable_lpis() returns -EBUSY.  its_cpu_init() then bails out
-> early, LPIs are never reprogrammed, and every MSI command queued against
-> the ITS waits for its completion timeout: measured 99 timeouts of about
-> 1.25 s each, pushing /init out from 1.3 s to 126 s.
+> The cause is the interrupt descriptor lock of the host timer interrupts.
+> Every vCPU load sets their active state with irq_set_irqchip_state()
+> (twice on VHE: virtual and physical timer). The timer interrupts are per
+> CPU interrupts, so all CPUs share one descriptor and its lock, while the
+> state being written is per CPU (a redistributor register on GICv3, a
+> system register on GICv5). The lock serializes nothing but CPUs updating
+> their own state. At 8 vCPUs, 99.9% of all lock contention events during
+> the test have __irq_get_desc_lock() or irq_set_irqchip_state() on the
+> stack.
 
-But you're missing the point. *nothing* works at all, and this has
-nothing to do with the command queue. Everything is dead.
+Looking at the test case, this really isn't a representative or
+realistic workload.  This is a contrived setup that has trapping to
+userspace as its only purpose.
 
-> 
-> The tables themselves are still intact and usable, and the driver already
-> has a path for that (RDIST_FLAGS_RD_TABLES_PREALLOCATED), but it is gated
-> on the tables being reserved memory.  On an EFI boot the outgoing kernel
-> records a persistent reservation; on a DT boot nothing does.  Adding a
+I'm not saying that this is useless observation. But it is not
+something that represents something exacerbated by "real" VMs.
 
-What makes you think that EFI and DT are incompatible? 90% of my
-machines are DT based and yet boot with EFI.
-
-> memreserve entry is not an option either: the flattened DTB handed over by
-> the bootloader has no space left for a new one (-FDT_ERR_NOSPACE), and
-> kexec clones that blob when the image is loaded, long before the jump.
-> 
-> So claim the inherited tables in the incoming kernel instead: reserve the
-> property table while LPIs are being probed (memblock still owns the pages,
-> well before memblock_free_all()), and the per-CPU pending tables when the
-> preallocated path is taken.  The preallocated path is then selected
-> normally and the ITS keeps working across the handoff.
-
-No. This is way too late, and nothing guarantees that these are not
-already used for other purposes by the new kernel. I'm not interested
-in something that only has a statistical chance of working. Either it
-works always, or it doesn't at all.
-
-The only sane ways to do this is to either use EFI, or to configure
-the LPI tables from the bootloader, reserving them at boot time by
-sticking the reservation in the DT. They are then preserved along the
-whole of the kexec chain. That's what sane platforms do, and this is a
-long enough established practice.
+I'll look at the patches shortly.
 
 Thanks,
 
