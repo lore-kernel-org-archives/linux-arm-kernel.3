@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D908D606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 18:23:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47384606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Oct 2026 18:47:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yGYGnJ+H;
-	dkim=pass (2048-bit key, unprotected) header.d=rendec.net header.i=@rendec.net header.a=rsa-sha256 header.s=default header.b=0XNQpWoH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qKti069q;
+	dkim=pass (2048-bit key, unprotected) header.d=rendec.net header.i=@rendec.net header.a=rsa-sha256 header.s=default header.b=lRTw2REA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
@@ -14,54 +14,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=oh6C1/O5rxMMHP4wiGW+MPKKTijulKksxlsF5+eFQm4=; b=yGYGnJ+HLbbvyCgUpLToWN4S1o
-	2lw8C3pHME9zwJFIH0uOVl4v+4bgOtWbFJjXVGoS9QHJB0qJKvtdzDFAFlyXcTFOpnasVe15ANJEA
-	uvq+Ytfk+oRhob0fj2GyBTLxb6bPMe++fyFPGLytuWrqIRNlhjF32voBxtnRVss7BtO3Q+JbM7Vjc
-	aUtZekgAPd0u8hNy+dD1CuJutnnEvX5+RD/A1PNpcy4qm6ycNOCkpKBirjSNHNa1D5SB+uLRaOUkq
-	Pvqj6A+pAiW6poYBXW9fpHNtytbcE2ZavI6PqklnCs91dFdQBOzeSBUUfAacJV8QIaS3YtXQzs0D6
-	ZNQKx/0g==;
+	bh=sMwqTLtobjq9y4v04ViG193gMutnOIBCJMmSiPL0QaU=; b=qKti069qAUJ4rHGolyEqUWB+IL
+	9FQzQj6+igk6gxVeEr4Pfay3Iqh5p032aXxnG3wy2fNtkw0mAfbavmoIbNQ8xGMmNNnvVvvZ7uBuq
+	mEXcXmPkvTftb9v3JbwBr89YiePZECebDxI7odAIWsMTjokwohymdrQ7hGbvho5VB2GCWppv6IBD4
+	RSnsC4z1X+hkxma96aVcLGQg72WZwJ7OQAAyWDb0Pglw/8GAYx5GJ2hz6d1Tmjgs0yKwPu+vFL7HE
+	lSHVH4R906wMs+wbQ9B3Zz0WY5vN3lhrz0N4USc8jPcKD/YUMiaBNLw9BL3vxbJxPsHKVbnxHvrCo
+	aEljYKXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKgNI-00000000QRO-0MZ7;
-	Sat, 24 Oct 2026 18:21:48 +0000
+	id 1xKglu-00000000RJo-3u6j;
+	Sat, 24 Oct 2026 18:47:14 +0000
 Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKgNF-00000000QQe-0c2E
+	id 1xKglr-00000000RJQ-38AA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Oct 2026 18:21:46 +0000
+	Sat, 24 Oct 2026 18:47:13 +0000
 Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
-	by mail.mindbit.ro (Postfix) with ESMTPSA id 67538D312F;
-	Sat, 24 Oct 2026 21:21:42 +0300 (EEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro 67538D312F
+	by mail.mindbit.ro (Postfix) with ESMTPSA id A6AAFD312D;
+	Sat, 24 Oct 2026 21:47:08 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro A6AAFD312D
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
-	s=default; t=1792866103;
-	bh=oh6C1/O5rxMMHP4wiGW+MPKKTijulKksxlsF5+eFQm4=;
+	s=default; t=1792867629;
+	bh=sMwqTLtobjq9y4v04ViG193gMutnOIBCJMmSiPL0QaU=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=0XNQpWoH+Z1V7u3r5AmTmoW7IAQsVwScshRDYjQAb/vYovvkSQUcQBauCxyAodhTz
-	 /Qg6U1W8kqG7iU5HPR+8xgo3My/7MttpJ6AK1U2M7F7cZSvpNKf4CMU4E1D2uLCksh
-	 9LCd9yeNO7dcMLx8I/Nn1IVrJTFZSj3Ape/89S19+tXqgolCiuQ5dKIvqUdMIvaYsf
-	 BWG+EE692W9stUxlzYT6hcOZTTI7IJDHtNoACxzw3jhLFYmgj3GlXeX5NvfhSui0Xu
-	 2vb6T+cgoexsgzFYknBNZAugAAziIMH0xKbrmbQel2DB1TlhtOjVX3rRLGgirfbiPR
-	 FUx/RMgGuN1Ig==
-Message-ID: <58dc82246c85146bba0967df1177c87ede7eabb7.camel@rendec.net>
-Subject: Re: [PATCH 3/4] irqchip/alpine-msi: Add missing space after comma
- in GENMASK_ULL
+	b=lRTw2REAsTGOTHe91Ot2A5V7siQRADaJQxab4/3iubUgCLH30bVdIaOAl8OHheibt
+	 aOrVREhG/GvEnhM3MnxwkdxZlspnA/GepgcgXVBqr+w9x4QFT5U6L0UHg/1CFNEFhN
+	 vRKX/VQUs1cavU41CO8XKvsIXpqkJs1d0izkkJwd7Jmq1W4bIGq+GJcu2o3OjS7n/g
+	 0cPvuB11a96QWx2xINKcCDEmAQKV71DnwjSngCe6TmE+QrQK1U/NoxQdA4SAhSgKmx
+	 EcmRVpN9PTLv6kooZ+2KGHKJxWiFTwB0Hv850wezgqS4/fwbsKpTiFXy3RBpdVmvB1
+	 Uo51+56HppPKA==
+Message-ID: <d413238a3c5533572013d1fb27142345aabdd101.camel@rendec.net>
+Subject: Re: [PATCH 4/4] irqchip/alpine-msi: Add debug logging for MSI
+ allocation
 From: Radu Rendec <radu@rendec.net>
 To: Eliav Farber <farbere@amazon.com>, Thomas Gleixner <tglx@kernel.org>, 
  Antoine Tenart <atenart@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Sat, 24 Oct 2026 14:21:41 -0400
-In-Reply-To: <20260923083703.38974-4-farbere@amazon.com>
+Date: Sat, 24 Oct 2026 14:47:06 -0400
+In-Reply-To: <20260923083703.38974-5-farbere@amazon.com>
 References: <20260923083703.38974-1-farbere@amazon.com>
-	 <20260923083703.38974-4-farbere@amazon.com>
+	 <20260923083703.38974-5-farbere@amazon.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.58.3 (3.58.3-2.fc43) 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261024_112145_359701_21BA46CA 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20261024_114711_995029_5D4E2DBA 
+X-CRM114-Status: GOOD (  16.31  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,34 +82,74 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 On Wed, 2026-09-23 at 08:37 +0000, Eliav Farber wrote:
-> Fix the coding-style issue reported by checkpatch:
->=20
-> =C2=A0 ERROR: space required after that ',' (ctx:VxV)
->=20
-> No functional change.
+> Add log messages to help follow the driver flow when debugging: an
+> info message on successful initialisation, and debug messages on the
+> MSI interrupt allocation and free paths.
 >=20
 > Signed-off-by: Eliav Farber <farbere@amazon.com>
 > ---
-> =C2=A0drivers/irqchip/irq-alpine-msi.c | 2 +-
-> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
+> =C2=A0drivers/irqchip/irq-alpine-msi.c | 10 ++++++++++
+> =C2=A01 file changed, 10 insertions(+)
 >=20
 > diff --git a/drivers/irqchip/irq-alpine-msi.c b/drivers/irqchip/irq-alpin=
 e-msi.c
-> index 20f1f7f7612b..8155f63cfd29 100644
+> index 8155f63cfd29..0e68f81014e7 100644
 > --- a/drivers/irqchip/irq-alpine-msi.c
 > +++ b/drivers/irqchip/irq-alpine-msi.c
-> @@ -210,7 +210,7 @@ static int alpine_msix_init(struct device_node *node,=
- struct device_node *parent
-> =C2=A0	 * To select the primary GIC as the target GIC, bits [18:17] must =
-be set
-> =C2=A0	 * to 0x0. In this case, bit 16 (SPI_TARGET_CLUSTER0) must be set.
-> =C2=A0	 */
-> -	priv->addr =3D res.start & GENMASK_ULL(63,20);
-> +	priv->addr =3D res.start & GENMASK_ULL(63, 20);
-> =C2=A0	priv->addr |=3D ALPINE_MSIX_SPI_TARGET_CLUSTER0;
+> @@ -104,6 +104,8 @@ static int alpine_msix_middle_domain_alloc(struct irq=
+_domain *domain, unsigned i
+> =C2=A0	struct alpine_msix_data *priv =3D domain->host_data;
+> =C2=A0	int sgi, err, i;
 > =C2=A0
-> =C2=A0	if (of_property_read_u32(node, "al,msi-base-spi", &priv->spi_first=
-)) {
+> +	pr_debug("trying to allocate %d msi starting from %d\n", nr_irqs, virq)=
+;
+> +
+> =C2=A0	sgi =3D alpine_msix_allocate_sgi(priv, nr_irqs);
+> =C2=A0	if (sgi < 0)
+> =C2=A0		return sgi;
+> @@ -116,6 +118,9 @@ static int alpine_msix_middle_domain_alloc(struct irq=
+_domain *domain, unsigned i
+> =C2=A0		irq_domain_set_hwirq_and_chip(domain, virq + i, sgi + i,
+> =C2=A0					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 &middle_irq_chip, priv);
+> =C2=A0	}
+> +
+> +	pr_debug("allocated %d msi starting from %d\n", nr_irqs, virq);
+> +
+> =C2=A0	return 0;
+> =C2=A0
+> =C2=A0err_sgi:
+> @@ -132,6 +137,8 @@ static void alpine_msix_middle_domain_free(struct irq=
+_domain *domain, unsigned i
+> =C2=A0
+> =C2=A0	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
+> =C2=A0	alpine_msix_free_sgi(priv, d->hwirq, nr_irqs);
+> +
+> +	pr_debug("freed %d msi starting from %d\n", nr_irqs, virq);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static const struct irq_domain_ops alpine_msix_middle_domain_ops =
+=3D {
+> @@ -235,6 +242,9 @@ static int alpine_msix_init(struct device_node *node,=
+ struct device_node *parent
+> =C2=A0	if (ret)
+> =C2=A0		return ret;
+> =C2=A0
+> +	pr_info("initialized successfully, spi %d to %d\n",
+> +		priv->spi_first, priv->spi_first + priv->num_spis - 1);
+> +
+> =C2=A0	retain_and_null_ptr(priv);
+> =C2=A0	retain_and_null_ptr(msi_map);
+> =C2=A0	return 0;
 
-Reviewed-by: Radu Rendec <radu@rendec.net>
+Not that this matters in reality (because all these numbers are "small")
+but for the sake of correctness: all the variables you added messages
+for are unsigned, so you should use %u on them.
+
+Since you're cleaning up this driver, you may want to look at the other
+prints. For example, the existing pr_debug() in alpine_msix_init() has
+the same problem.
+
+--=20
+Regards,
+Radu
 
