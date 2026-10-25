@@ -2,77 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B317A606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 23:17:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D797606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 23:31:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=w5ZejclX;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ToJEnEMm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nsyIHMej;
+	dkim=pass (2048-bit key, unprotected) header.d=codeconstruct.com.au header.i=@codeconstruct.com.au header.a=rsa-sha256 header.s=2022a header.b=MdM8LbOU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=1hVXHSSffpcrZE2/dIYy72FKUCCmACgLfbWxbiqGBxk=; b=w5ZejclXDpKM6n
-	iW/NPgIlWm6SB3waYJrdnX/N4CXdx4i1zvp7rwSf/PIED1fl52XYuv24IskNmAQ6SsBBf/XjRb9yp
-	RGnjR4HgfidNeqwkrtKE9y6JFwcUGEsyB8dJPzOF+0IFfMl9bnwu9fQTjmOPezP2Q6V38gbUiGXN7
-	5Fg7/6j8gah9c1S8EiRemxBVdtyXJzCopTQaL4EpYj5nNsdr1R/m/ATWTq6RklRx7iZqrf/oac86F
-	2FUosnGMl/ThFe/PR0uzQQmCus06QtQnimAuUZbBzF+2QfSJI5IM2JG0JtiDWIV2lPQ2Coo54KjWe
-	inoeHB7vax7NhOZwKYhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=JvGUTxqAhp/FJcRRh1bkPIKoszluKPLjqotGVQjBjx8=; b=nsyIHMejw9zVAduxlrRAabkCzV
+	FLYLbcdR6qbhpHwgU8y1IJBtwe1XHlqiP+DZHur2h2WG7GUC947t7eedR/dqLb7cqkr/AyakKBciX
+	UlEHODjen0XvwKTXZzvwL5benqhTzXsXL40vCxe7X/6McRKw4fMqGAJ0iX8vE1/c9Q4nUr8YeA046
+	cMKtrbqDL4a6LSKgsHDKCOKHasr9X1vBOW4F44DyBo1Xs9bu4hOs47O7GzZ+zYJgZiJpLz+VMU7fM
+	i9TJgEIcIFVZXqOyJG7dKX8twFwKUccRNGrX/wD4Dx1ch+aIX+LkLSt7+IIiyT2+b99pTzWyeeQtz
+	GkgP1YUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL7T7-00000001UwT-2WBs;
-	Sun, 25 Oct 2026 23:17:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xL7gE-00000001VG4-0eXN;
+	Sun, 25 Oct 2026 23:31:10 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL7T5-00000001UwD-3Jo6
+	id 1xL7gB-00000001VFf-2jS6
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Oct 2026 23:17:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 19B5143FEF
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 23:17:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01DA01F031E2
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 23:17:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792970253;
-	bh=1hVXHSSffpcrZE2/dIYy72FKUCCmACgLfbWxbiqGBxk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ToJEnEMmIVfjGvCctb2YmRbovLJqqptQ0eSV3TAce8knL7eWYTU8PTmxl7Ld/AmZl
-	 vhDC/HZ2XnCdjus2MWVCm+ZXiVoCJHpFf9z6J2Lhrb01hGUfSsZvElxkJlW92uZ80j
-	 GyZ433ftSpxT55G0dDNI58CjFVBlZZqZ27zs7JnTQNCsEeIASZ+sgkJ7L0NTSXKEvI
-	 aeI2yWENQ5WqhSgqUEQGZDLPbtwuMtZ28Jl+tZPuqHhe1/j4s4dmj8rrN/dViySDkY
-	 VVm1d+x6wEsC0dO4zV0HHs+Mp28n52dYY+L7uTI52mzAYEeURH1tNEzfkZqB+VKhc/
-	 CbGThHW6AJjOA==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5ba3ec92031so3202673e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 16:17:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwR/gxAesWlI9PVzrpAOkC4LoK41QGCQLXuJTSLQ64SkcnL5MU01JaTGJgplhiJ6ulaMnZc1OEd0sfOX2eYbJSH@lists.infradead.org
-X-Gm-Message-State: AFq9FYKd1846xu8pn4PLfA1ltFuhvSgYASWqcK3ZSrB7mGVMv3eFDBEP
-	T73VuSTbUR2F0G6XC1xofOebXIW1sHZWPvtw7VB/3Dc0ZknjuPHI1cljVO5TPXvyapyfyiyjjmL
-	m4udetY/vsSIUhR8aKLL6gSAadhXfN4M=
-X-Received: by 2002:a05:6512:128f:b0:5bf:6c49:42b3 with SMTP id
- 2adb3069b0e04-5bfb716e26cmr1579164e87.6.1792970251552; Sun, 25 Oct 2026
- 16:17:31 -0700 (PDT)
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-References: <20261025-genexis-xg6846-smp-v7-3-rc1-v4-0-b352ab54f46b@kernel.org>
- <20261025-genexis-xg6846-smp-v7-3-rc1-v4-3-b352ab54f46b@kernel.org> <CAHi4H7Gc9_b0L5xdEBd7dVdbYMUirWm4vSVaSpDDB6yZP8NSHA@mail.gmail.com>
-In-Reply-To: <CAHi4H7Gc9_b0L5xdEBd7dVdbYMUirWm4vSVaSpDDB6yZP8NSHA@mail.gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 26 Oct 2026 00:17:19 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=sYrL8BV6ap2POTbT5=4iPEjG1mAUexwexiiQGqEUwPA@mail.gmail.com>
-X-Gm-Features: AclHuK8hWfyHYeZsI3EvK84CwASHP7zMUupYjb-JuuwHInkQdWD88LMlReS1FOY
-Message-ID: <CAD++jL=sYrL8BV6ap2POTbT5=4iPEjG1mAUexwexiiQGqEUwPA@mail.gmail.com>
-Subject: Re: [PATCH v4 3/3] ARM: dts: broadcom: Use CFE CPU bring-up on the XG6846B
-To: William Zhang <william.zhang@broadcom.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Russell King <linux@armlinux.org.uk>, Anand Gore <anand.gore@broadcom.com>, 
-	Kursad Oney <kursad.oney@broadcom.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+	Sun, 25 Oct 2026 23:31:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1792971054;
+	bh=JvGUTxqAhp/FJcRRh1bkPIKoszluKPLjqotGVQjBjx8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=MdM8LbOUh425FSEk2CJG/RuZEdiEhPOUrKqYAspOLZrawv24QxPWJ9ioI6T3YT7KE
+	 2YkCKKa5XkpvPz2db/e4woIqq9eW4SjKYJPSuMd5h3vKCtW+cq6MKLk8Uqx5VfDDAe
+	 xkTROPg2vfMUU0VpHhS8E17EJZwSQgSqDNySd2Mg80NzNoy1rTy3vND/VIBBHgM1fr
+	 GcLfHmGDWMyAjcGkTets7PZhsRd3enANbjx7oARxw38EKJBg/DKmO6/cx3Mbi7WcuZ
+	 9EvNWdfxH2snn+igU9I1uAj6AvrMXlbO/XuLkGjhoViMwOM3ZX1dni4/YTD67Axz0j
+	 AkXf9Bk2xp3Dg==
+Received: from [192.168.68.117] (unknown [180.150.112.139])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id D24076B2E4;
+	Mon, 26 Oct 2026 07:30:50 +0800 (AWST)
+Message-ID: <53c6716e5cadedd82d7243dc75a5869c8879fd87.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v3 0/3] arm: dts: aspeed: add Intel AVCRP and JNCRP BMC
+ platforms
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Dawid Glazik <dawid.glazik@linux.intel.com>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	maciej.lawniczak@intel.com
+Date: Mon, 26 Oct 2026 10:00:49 +1030
+In-Reply-To: <9561c180-ff8d-489d-9ad1-8d9a7afb592c@linux.intel.com>
+References: <cover.1792613583.git.dawid.glazik@linux.intel.com>
+	 <fb048449033e125df93c2925d6dccafbd4114685.camel@codeconstruct.com.au>
+	 <9561c180-ff8d-489d-9ad1-8d9a7afb592c@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261025_163108_061845_D0B156D4 
+X-CRM114-Status: GOOD (  19.85  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +76,75 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, Oct 25, 2026 at 7:02=E2=80=AFPM William Zhang
-<william.zhang@broadcom.com> wrote:
+On Fri, 2026-10-23 at 11:20 +0200, Dawid Glazik wrote:
+> Hi Andrew,
+>=20
+> On 10/23/2026 6:17 AM, Andrew Jeffery wrote:
+> > Hi Dawid,
+> >=20
+> > On Wed, 2026-10-21 at 22:26 +0200, Dawid Glazik wrote:
+> > > This series adds initial upstream support for the Intel AVCRP and JNC=
+RP
+> > > BMC platforms based on the ASPEED AST2600.
+> > >=20
+> > > The first patch adds the board compatibles to the ASPEED binding. The
+> > > remaining two patches add the board DTS files and register them in th=
+e
+> > > ASPEED DTB build list.
+> > >=20
+> > > Dawid Glazik (3):
+> > > =C2=A0=C2=A0 dt-bindings: arm: aspeed: Add Intel AVCRP and JNCRP boar=
+ds
+> > > =C2=A0=C2=A0 ARM: dts: aspeed: add Intel AVCRP BMC
+> > > =C2=A0=C2=A0 ARM: dts: aspeed: add Intel JNCRP BMC
+> > >=20
+> > > =C2=A0=C2=A0.../bindings/arm/aspeed/aspeed.yaml=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 2 +
+> > > =C2=A0=C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 2 +
+> > > =C2=A0=C2=A0.../dts/aspeed/aspeed-bmc-intel-avcrp.dts=C2=A0=C2=A0=C2=
+=A0=C2=A0 | 322 ++++++++++++++++++
+> > > =C2=A0=C2=A0.../dts/aspeed/aspeed-bmc-intel-jncrp.dts=C2=A0=C2=A0=C2=
+=A0=C2=A0 | 276 +++++++++++++++
+> > > =C2=A0=C2=A04 files changed, 602 insertions(+)
+> > > =C2=A0=C2=A0create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-in=
+tel-avcrp.dts
+> > > =C2=A0=C2=A0create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-in=
+tel-jncrp.dts
+> > >=20
+> > >=20
+> > > base-commit: e7ae89a0c97ce2b68b0983cd01eda67cf373517d
+> >=20
+> > Can you please discuss why you based this series on v7.1-rc5? v7.3 has
+> > been released, v7.1-rc5 is a long time ago.
+> >=20
+> > In the future please base changes for the AST2600 on the latest -rc1,
+> > or the aspeed/arm/dt branch of bmc/linux.git on git.kernel.org.
+> >=20
+>=20
+> That's my mistake. I'll rebase onto aspeed/arm/dt of bmc/linux.git and=
+=20
+> send v4. For future AST2600 changes I'll use that branch as the base.
 
-> > +&CA7_0 {
-> > +       enable-method =3D "brcm,bca-smp";
-> > +       /* Dummy release address since CPU0 is already online */
-> > +       cpu-release-addr =3D <0x00000000>;
+Thanks.
 
-> Nitpicky. In your dt-bindings patch,  you use <0xff800568> as example.
-> I guess it is better to use the same here to keep consistent, although
-> what value doe not really matter.
+> > > prerequisite-patch-id: 23091b539ec7723a865d82da7703bf70c6ed0222
+> >=20
+> > Can you please rebase this patch to send it to Lee on its own. The
+> > AST2600-based platforms currently generate a warning without it. I had
+> > hoped Lee would apply it in the same cycle.
+>=20
+> Sure, I will reach out to him.
 
-I did it this way on purpose because I didn't want to put 0x00000000 into t=
-he
-example in the binding, lest the DT maintainers would complain
-about that the dummy is not a good example.
+Thanks for this also :)
 
-Yours,
-Linus Walleij
+Andrew
 
