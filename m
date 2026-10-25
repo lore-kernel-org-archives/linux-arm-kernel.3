@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84A57606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA33A606A31B
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 06:40:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qRbdy5MS;
-	dkim=pass (2048-bit key, unprotected) header.d=fb.com header.i=@fb.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=A0lsAGtp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tzQSO8iU;
+	dkim=pass (2048-bit key, unprotected) header.d=fb.com header.i=@fb.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=tGc83Fo9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
@@ -14,42 +14,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=A9bl18hVVgrv7Ih87a3z0Wf/fVitBdQUFLUywp64nL8=; b=qRbdy5MSmj9i9toYKacC1LmuRK
-	O9dF5QSL6FUGwi4V2tGfFDjCo32fWmb9Gwb6LXDM5UZQXslOu2CLdJs9noBX7ypN6W0+IqbZG+P4P
-	LtBOEkNmXywrj7mV/4QLjZ6vpMT8jjlwbq/Z5jUJkbTJGKuJ7k5LnP72x0HnhQP86OqpnFXCPulCT
-	VcoBwOMvO7Nwu4pjwK+JPl/C/A9hhB3IXUQXa80keVqLJhghPBXaa3bJ/2lqimBgstwvKornnDnrZ
-	8dlHwSIRY3QEo8C0kFZrr7dH04Ivc90ZrAS+piTlewpViaDK+drOnniq14AaWVWMRIJDlPfEPqF+m
-	pe5Yun+Q==;
+	bh=jw5VuQf1ANvsD9FFFvRp8AlB3r45zUeN3fSTLXP6SlM=; b=tzQSO8iUA+M1+e/nnOKL9+Tdic
+	ngj+q/OabywhFVg7krp4/KOG4xm9PfIHn6UegK96idKdA7tB1ZgqGclri6EQN9eYWnyhse+/Vmy+b
+	WfNE0lWBkKbtvvUVNH3L8G9jBR/w1/gMUc+m+HzZiHK8wPRS8C5jiLSHd9PGWchHu8x6B3wED8cok
+	tT8UtOsYaXe1Jokocjgzi8ApGAFP26HQ1oagsf//nbbtn4rUqus03gqo7kaMZcYr3InQcvAmyj4RZ
+	vanrAcj5qhn/tDiAphWttblQpC027ZbQACOIaGXjmBLwUMVuqmZGqX1cTJAKYDW1b0Uq2PuAxgYaf
+	XheZDnEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKrte-00000000ntl-1Nfo;
+	id 1xKrte-00000000nss-0GSR;
 	Sun, 25 Oct 2026 06:39:58 +0000
-Received: from mx0b-00082601.pphosted.com ([67.231.153.30])
+Received: from mx0a-00082601.pphosted.com ([67.231.145.42])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKrtE-00000000njA-2d0U
+	id 1xKrtD-00000000ni7-3Qps
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Oct 2026 06:39:34 +0000
-Received: from pps.filterd (m0528005.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69P4sXJ33859554;
-	Sat, 24 Oct 2026 23:39:18 -0700
+	Sun, 25 Oct 2026 06:39:32 +0000
+Received: from pps.filterd (m0109334.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69P4sOTE544352;
+	Sat, 24 Oct 2026 23:39:19 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=A9bl18hVVgrv7Ih87a3z0Wf/fVitBdQUFLUyw
-	p64nL8=; b=A0lsAGtpStmQ1294rM06fJ+MxdROxNzf/Mo+bMXu64inGXv+6Ffm7
-	57kzSfGSUJ4uUQZEur3KSkn/DZBlmuDZb+IF+RohCP3SJDywSKRdijyIfDiUOLtE
-	Cs6pr1SCvVzouhZ7tQfJZnoo+hnqc8TjL96EQG6edGZ5TgIVDguPFzzjkzp244Bu
-	PG4i2pwdwHFVmK2uvcU+PoNhNapYsvpCgG0njiqKAleMEAHvlL646QxjYbo2c2s1
-	zPdIVeW2zRpqArxmXmBxnHM0k7OfH59mLlyFkvMM2E4/nIaVDapSAZU1RoJb4DJT
-	QGiet8SfuK0h0TbE+4Ck1LcGbg1iYJJ2g==
-Received: from mail.thefacebook.com ([163.114.134.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4hh7ucrreq-2
+	pps82601-s2048-2026-q3; bh=jw5VuQf1ANvsD9FFFvRp8AlB3r45zUeN3fSTL
+	XP6SlM=; b=tGc83Fo9azP9Hld1MGo4oT9nIU4PWshaC7wLq6VFFboPQtyqmwGvW
+	CkunPXf3yX9aldKbUUrJ1O+pNjhN19H4ahoZyLCqKOmKAfWQChPFTUcR19Qd+d9o
+	cT6Eq0x7ePKKZ14h5lMFxLc2a5kCdHcVrkrT+SeLBFKAd+1ymYQ+thwn88bgSvyx
+	pa6E2UwRxiFGpOoCDhVwXfxWTkqRaIa7zvsULib/wcWhCo7JY1K8U1gp5Ot3jkci
+	kXLmNcseO4wGFsqhkxw8WOidb297uknJ9gUS11S8JKYOW0kTLpH7wCQ6SMZZ78MT
+	dTgie5XEGdhYWOGE59ANb9WL1mZMFTIMQ==
+Received: from maileast.thefacebook.com ([163.114.135.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4hguyh32kw-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Sat, 24 Oct 2026 23:39:17 -0700 (PDT)
-Received: from localhost (2620:10d:c085:108::150d) by mail.thefacebook.com
- (2620:10d:c08b:78::2ac9) with Microsoft SMTP Server (version=TLS1_2,
+	Sat, 24 Oct 2026 23:39:19 -0700 (PDT)
+Received: from localhost (2620:10d:c0a8:1c::1b) by mail.thefacebook.com
+ (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Sun, 25 Oct
- 2026 06:39:16 +0000
+ 2026 06:39:17 +0000
 From: Amir Ayupov <aaupov@fb.com>
 To: James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
         Suzuki K
@@ -70,9 +70,9 @@ CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
         <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-perf-users@vger.kernel.org>, <linux-doc@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 4/7] coresight: syscfg: Remove unused CS_CFG_MATCH_INST_ANY
-Date: Sat, 24 Oct 2026 23:39:04 -0700
-Message-ID: <52b3c337cbf4a8460e399b084c6f854eb3beee89.1792907333.git.aaupov@fb.com>
+Subject: [PATCH v3 5/7] perf: arm_pmuv3: Add pmuv3_event_implemented()
+Date: Sat, 24 Oct 2026 23:39:05 -0700
+Message-ID: <cd3e622681f7254216b0488f09d2cb2d91a2d8ca.1792907333.git.aaupov@fb.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <cover.1792907332.git.aaupov@fb.com>
 References: <20261012230527.750567-1-aaupov@fb.com> <cover.1792907332.git.aaupov@fb.com>
@@ -80,30 +80,30 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Proofpoint-GUID: g_WBa0SmE3mzO0U886MCEDuPOY2yTsXa
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI1MDAyNiBTYWx0ZWRfXwQs66oe6ZWXq
- smMs4APL3u0kQC9IiDPyBrrPlhnz8UlJUZWTvaE9Rw7EpaeWnxtMAOexkQbelpQF+N6soVbtv14
- d89xy9N7AAf0z7Y0WywG2eFuFwj2Hu1TUWnh67xibC70UKfLZ/4s2DZUkxY+9i4Y9A734RXTr6+
- 9O235KYJpUu5IJx44lJVHVnE765NPT0DGGxqbPTSO8LR7d46yi0xdGlZ8HKU+/C61ZJJ5BLc9yk
- puYKS+gSORFhEpdSwxuZ9RqA19v8QJeQfWBsQEf14D8FuGQe3UK8GGwy63J+gZyy2S2AmmCKrzi
- zpmVn5MYjU1FRQZnaKRuw/JlEGEXNCD0Zj50MpSEFZmHfOugvoT4nzijkzZ6PHm9XaNuvRqYece
- ARh4+NrBKLuXnNrdPv/uQzAoX7d8zChjqqOA6+E2WgJN2THZ+Zn4yLTLWXirVvXINDJifu0jHdB
- J4v5BW6+V/ACihABQ5g==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI1MDAyNiBTYWx0ZWRfX/4NY1D4MmO64
- aN458k/vJX8OGffSUERlI2brIgQl53efnreTDYsw6QJjRIukBUFqngep2aFqQ+ka4bnGInCFoRF
- Gi27a1G4PTsLOshp9LSo/65jIpuJTQw=
-X-Proofpoint-ORIG-GUID: g_WBa0SmE3mzO0U886MCEDuPOY2yTsXa
-X-Authority-Analysis: v=2.4 cv=SN3Xx+vH c=1 sm=1 tr=0 ts=6adda415 cx=c_pps
- a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI1MDAyNiBTYWx0ZWRfX3HpC6ZmlsThT
+ W54cJt5/0v7bB4BoRwEQauwZbrIsCgdYT3B6ceYi3edHzFAE76EMiovNjOsok3q9OxbaIDcBtY3
+ d9MFvBkNNKdxYY8Vv/TzGTn9aPekKsJJwICssCQWx/FOmPEhVmBvH1Gvrv+45uKO4PLgJZp+0rF
+ MDyHDpamEizJ9nug4so42zctRjHqQ71MVIlNQo6A8Wd9C4hJoQOtbN1FXhtVL5bHJg3Gw/+Pqka
+ U2i3DwQEUKa9AkBS/QYQYW6x1ywf7wFb056llmVpEURG94GEsauehr83jzl3VWOmjBL+m5+rYHU
+ kjJFpBfpzvqBkWy4XtWYPJVaRZGVHjWcPapns8wqvARmfmD9BvHMP0cXZX5DT9etkypE9bRg/oe
+ s6nJ/QFleJHl5gTLNFjXfBNrqasd0vzyrBYb6St0Jd2++lokKP4aK4wEuXiBjQ0/ObdETgVK1ur
+ 5DWYyYD6VTuaAIENp8w==
+X-Proofpoint-GUID: K2LKffOrXNyFHYQrvV1nbHrNZ-TI8Yx5
+X-Proofpoint-ORIG-GUID: K2LKffOrXNyFHYQrvV1nbHrNZ-TI8Yx5
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI1MDAyNiBTYWx0ZWRfXwwWf5fIaDzp8
+ kfqlN4UavRsctlzP/hrDzA92SDzyBSuzB8pmHwzPMGZ7kYW8wW3CFv69l6LcvMC7f9iRDcrmYma
+ H5MyE3nrYNsi68TEEAAtAA5FY+6ml7E=
+X-Authority-Analysis: v=2.4 cv=FY+iV5+6 c=1 sm=1 tr=0 ts=6adda417 cx=c_pps
+ a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
  a=660iZSQnnn4A:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=jCddH8ec0KUNCymVuxII:22 a=7CQSdrXTAAAA:8 a=FOH2dFAWAAAA:8
- a=izEjV56Hqa_c8yfQj7cA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
+ a=crHB47gyY4rKiduisYu9:22 a=KKAkSRfTAAAA:8 a=FOH2dFAWAAAA:8
+ a=zNmvvb9I2tHsirClY3sA:9 a=cvBusfyB2V15izCimMoJ:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-25_02,2026-10-21_02,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261024_233932_785843_3AE2B8DE 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20261024_233931_875149_F7AB5308 
+X-CRM114-Status: GOOD (  15.61  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,31 +123,75 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-CS_CFG_MATCH_INST_ANY has been defined since the system configuration was
-introduced but is not used by any configuration, feature or device.
-Remove it.
+Drivers outside the PMU driver may need to know whether the local CPU's
+PMU implements a common event before relying on it, for example a trace
+unit driver checking that the PMU counts its external outputs as
+TRCEXTOUTn.
 
-Suggested-by: Leo Yan <leo.yan@arm.com>
+Add pmuv3_event_implemented(), which reads PMCEID0/1 on the calling CPU:
+events 0x0000-0x003f are reported in bits [31:0], and the common events
+from ARMV8_PMUV3_EXT_COMMON_EVENT_BASE in bits [63:32] from PMUv3p1. Move
+ARMV8_PMUV3_EXT_COMMON_EVENT_BASE next to the event numbers in
+arm_pmuv3.h so it is available without CONFIG_ARM_PMU.
+
+Suggested-by: James Clark <james.clark@linaro.org>
 Assisted-by: Devmate:Opus-5.5
 Signed-off-by: Amir Ayupov <aaupov@fb.com>
 ---
- drivers/hwtracing/coresight/coresight-config.h | 3 ---
- 1 file changed, 3 deletions(-)
+ include/linux/perf/arm_pmu.h   |  1 -
+ include/linux/perf/arm_pmuv3.h | 22 ++++++++++++++++++++++
+ 2 files changed, 22 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-config.h b/drivers/hwtracing/coresight/coresight-config.h
-index f04e73b91d9a6..220bc54f8e5e1 100644
---- a/drivers/hwtracing/coresight/coresight-config.h
-+++ b/drivers/hwtracing/coresight/coresight-config.h
-@@ -39,9 +39,6 @@
-  */
- #define CS_CFG_MATCH_CAP_MASK		GENMASK_U32(15, 8)
+diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
+index 02d2c7f45b527..792283d29d7b5 100644
+--- a/include/linux/perf/arm_pmu.h
++++ b/include/linux/perf/arm_pmu.h
+@@ -124,7 +124,6 @@ struct arm_pmu {
+ 	u64		reg_brbidr;
+ #define ARMV8_PMUV3_MAX_COMMON_EVENTS		0x40
+ 	DECLARE_BITMAP(pmceid_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
+-#define ARMV8_PMUV3_EXT_COMMON_EVENT_BASE	0x4000
+ 	DECLARE_BITMAP(pmceid_ext_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
  
--/* flags defining device instance matching - used in config match desc data. */
--#define CS_CFG_MATCH_INST_ANY		0x80000000 /* any instance of a class */
--
- /*
-  * Limit number of presets in a configuration
-  * This is related to the number of bits (4) we use to select the preset on
+ 	/* Only to be used by ACPI probing code */
+diff --git a/include/linux/perf/arm_pmuv3.h b/include/linux/perf/arm_pmuv3.h
+index d698efba28a27..965c40b28dd77 100644
+--- a/include/linux/perf/arm_pmuv3.h
++++ b/include/linux/perf/arm_pmuv3.h
+@@ -78,6 +78,9 @@
+ #define ARMV8_PMUV3_PERFCTR_STALL_SLOT_FRONTEND			0x003E
+ #define ARMV8_PMUV3_PERFCTR_STALL_SLOT				0x003F
+ 
++/* Base of the common events reported in PMCEID{0,1}[63:32] from PMUv3p1 */
++#define ARMV8_PMUV3_EXT_COMMON_EVENT_BASE			0x4000
++
+ /* Statistical profiling extension microarchitectural events */
+ #define ARMV8_SPE_PERFCTR_SAMPLE_POP				0x4000
+ #define ARMV8_SPE_PERFCTR_SAMPLE_FEED				0x4001
+@@ -315,4 +318,23 @@
+ 
+ #include <asm/arm_pmuv3.h>
+ 
++/*
++ * Whether this CPU's PMU implements a common event, as reported by
++ * PMCEID{0,1}: events 0x0000-0x003f in bits [31:0], and from PMUv3p1 events
++ * 0x4000-0x403f in bits [63:32], which read as zero before PMUv3p1.
++ * Must run on the CPU whose PMU is queried.
++ */
++static inline bool pmuv3_event_implemented(u16 event)
++{
++	bool ext = event >= ARMV8_PMUV3_EXT_COMMON_EVENT_BASE;
++	u16 id = ext ? event - ARMV8_PMUV3_EXT_COMMON_EVENT_BASE : event;
++	u64 pmceid;
++
++	if (id >= 64 || !pmuv3_implemented(read_pmuver()))
++		return false;
++
++	pmceid = id < 32 ? read_pmceid0() : read_pmceid1();
++	return pmceid & BIT_ULL(id % 32 + (ext ? 32 : 0));
++}
++
+ #endif
 -- 
 2.52.0
 
