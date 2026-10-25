@@ -2,67 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17E20606A32A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 09:47:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6596F606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 10:07:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bV+BOrFL;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=S/bnQUUq
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=K++sffAx;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=hHrcQd5/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Subject:Cc
-	:To:From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=6wMi+VRMdXtwGgWeYPr3fgIuVKDrKzKxvHBThVIJSgE=; b=bV+BOrFL0EQRYj40Q0uHquHKLo
-	gzDueonzUGWdtKZOESwijTAEV++aw+S5rqEq+WV2F48pACqaIgErL1n5T3JqpA86vFmMhhcW8DdBR
-	8MebbdW2K0iwIK+SHnqYdVEWUvkcNxsZBSFoJHLuUSAh2TwfpJjatg2LDWkV0lIcScI58GpU0p6ef
-	xoNisnvUYUYU3W/WFbuq0drtpPWQ/H9O1lN1hDGA/bNxh+2yn2O5hQF1w2SC4CnGnlLMj/rozpBWk
-	3OM1W+1AOlMqSqoHhrfNMOEP1lTSYyZAlmcbuQFsodYi1xbtCcjeQ8+LnP49HF28g7MspwQn4z7rn
-	ydAJerrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=OyUY9uNJwoHV4iwApdNFM3PeLlmsfhKj3ed2bSvE2TY=; b=K++sffAxbDzD/B
+	gyxrrq4KAJsKrDz8VRO5QAsMu00Cml37tm0yjgaRdDTttyuvvaQ7RQ1GMxKWullUl/bLF3YkRzFdo
+	EHXa4bV5rWGnW+QbRRUmWXIGcvF6eCISJAKqtXHdhAcxNvCQhULIMCViQYvQjuW+rhPVApwnUbxUC
+	iSVCb/otDzkNIusHh6DCa4n9Gcu1DSgLGCOWdCs26p5ntXxZ8MSqZdNaUyaMT5HcatSQi4mz6kipq
+	mH/sMB2nKbaJmgcLOBJrlBdWrX5pX7GIqAoopZyrQgxCLn2a8NWFktAb7ujv+bN82GGy9i44c/qa1
+	GvLk8jn5Di/vsiZkXuoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKupJ-00000000w13-0Rhe;
-	Sun, 25 Oct 2026 09:47:41 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xKv8j-00000000wpS-0zaY;
+	Sun, 25 Oct 2026 10:07:45 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKupF-00000000vzY-3ouz
+	id 1xKv8h-00000000woa-01rN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Oct 2026 09:47:40 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D97D2493;
-	Sun, 25 Oct 2026 10:45:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1792921522;
-	bh=gaeNNxYSwdfO6+h2u4lvwXbi37LKCI3h3I6UXVoiu3g=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=S/bnQUUqMktsQwHkzY2NAfgTGltXt1OtYw3ryd5rkvGvg0soJFQw+El6kTtmwsX85
-	 itHwM1Vyaqz7iMqHz4d4A0iVtBTYsZZ9Cn4WqR2cDqcQDUdGIuqqPK4xy6Ih3RarBB
-	 GlkkoES43hQ4dntbJIagc0mVrKxAXvJ9hsluWq2w=
-Message-ID: <c76885d0057833361d0f5d5ad0c62dec@killaraus.ideasonboard.com>
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Aristo Chen <aristo.chen@canonical.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Guoniu Zhou <guoniu.zhou@nxp.com>,
- Christian Hemp <c.hemp@phytec.de>, Jacopo Mondi <jacopo@jmondi.org>,
- Stefan Riedmueller <s.riedmueller@phytec.de>, linux-media@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Aristo Chen <aristo.chen@canonical.com>,
- stable@vger.kernel.org
-Subject: Re: [PATCH] media: nxp: imx8-isi: Register the media device only once
-Date: Sun, 25 Oct 2026 11:46:49 +0200
-In-Reply-To: <20261025082419.199021-1-aristo.chen@canonical.com>
-References: <20261025082419.199021-1-aristo.chen@canonical.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+	Sun, 25 Oct 2026 10:07:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Oy
+	UY9uNJwoHV4iwApdNFM3PeLlmsfhKj3ed2bSvE2TY=; b=hHrcQd5/laq1KlukWR
+	M4UFMjNMZxEpoJuMpnJKhIe+I6PqJJ4rUzowx7dBJTh9JPujljRuDv40k91iWFbt
+	RKMU1B8279Yfc880IN0/hzFVlo7t6uIV9CZ4K7iyo1WX+cOAKThdBfT4UD3nQhdE
+	gg95+pDxebit22yFy6NUYnmfk=
+Received: from 4CV529F122.company.local (unknown [])
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wD3_26u1N1q7fwbCQ--.3918S3;
+	Sun, 25 Oct 2026 18:07:01 +0800 (CST)
+From: Ding Hui <dinghui1111@163.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: dinghui@lixiang.com,
+	xiasanbo@lixiang.com,
+	yangchen11@lixiang.com,
+	liuxuanjun@lixiang.com,
+	zhoujing3@lixiang.com,
+	fujiahui@lixiang.com
+Subject: [PATCH net v5 1/2] net: stmmac: honor allocation flags when initializing RX buffers
+Date: Sun, 25 Oct 2026 18:06:35 +0800
+Message-Id: <20261025100636.613670-2-dinghui1111@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261025100636.613670-1-dinghui1111@163.com>
+References: <20261025100636.613670-1-dinghui1111@163.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3_26u1N1q7fwbCQ--.3918S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Kw4Dtw1rZrWxWr17CFyDWrg_yoW8Xrykpa
+	9rAa409r1kXr1xJw4DGw4xZFW3Ka4UKrWUuw4xJFW3Za97KF90qryYqFy5Xr17urW8ZF4a
+	qr1j93s8uF1DAw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j_4SrUUUUU=
+X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC0gZ4pGrd1MaxaQAA31
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_024738_392807_23CEE3B0 
-X-CRM114-Status: GOOD (  33.42  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261025_030743_360529_2EC7E107 
+X-CRM114-Status: GOOD (  12.00  )
+X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,115 +85,50 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello,
+From: Ding Hui <dinghui@lixiang.com>
 
-This is an automated reply.
+stmmac_init_rx_buffers() accepts allocation flags but stopped using them
+when RX buffers were converted to page_pool. As a result, callers passing
+GFP_KERNEL still allocate with GFP_ATOMIC | __GFP_NOWARN and cannot use
+reclaim to satisfy an allocation.
 
-You have sent a patch that appears to have been generated by an LLM. The
-commit message and/or code show little to no real understanding of the
-changes being proposed.
+Use the supplied flags while retaining GFP_DMA32 for hardware without
+64-bit DMA addressing. This also allows the resume path to allocate
+missing RX pages with GFP_KERNEL.
 
-Such patches require a large amount of work to review. They rely on the
-maintainer to propose - and often even implement - a proper design. The
-probability that the author will learn from the experience to improve
-their future contributions is close to zero.
+Fixes: 2af6106ae949 ("net: stmmac: Introducing support for Page Pool")
+Signed-off-by: Ding Hui <dinghui@lixiang.com>
+---
+Changes in v5:
+- Split this fix from the resume fix as requested.
+- Add a Fixes tag for the page_pool conversion.
 
-As a result, to make good use of maintainer time and keep the kernel
-development process sustainable, your patch has been rejected.
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-If you believe the change you proposed is important, take time to study
-the problem, learn, and develop a solution without AI assistance.
-Answering this e-mail or generating a new version of the patch by
-feeding this reply to an LLM will only result in your e-mails being
-ignored.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index b20e5038eead..f5ae12208e85 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1688,7 +1688,7 @@ static int stmmac_init_rx_buffers(struct stmmac_priv *priv,
+ {
+ 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
+ 	struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
+-	gfp_t gfp = (GFP_ATOMIC | __GFP_NOWARN);
++	gfp_t gfp = flags;
+ 
+ 	if (priv->dma_cap.host_dma_width <= 32)
+ 		gfp |= GFP_DMA32;
+-- 
+2.34.1
 
-Please note that if your patch attempted to address an important
-problem, maintainers or other contributors can submit and merge a
-similar or entirely different fix without crediting you.
-
-Your contributions to the Linux kernel will be welcome if you genuinely
-desire to invest your time and learn.
-
-Thank you,
-
-Laurent's mail bot
-
-On Sun, 25 Oct 2026 08:24:18 +0000, Aristo Chen <aristo.chen@canonical.com> w=
-rote:
-> The v4l2-async framework calls the notifier .complete() operation every
-> time the last missing subdev gets bound. This happens again each time a
-> remote subdev is unbound and bound again, for instance when the sensor
-> driver is unbound and rebound through sysfs.
->=20
-> mxc_isi_async_notifier_complete() calls media_device_register()
-> unconditionally. Each call allocates and registers a new media devnode
-> and overwrites mdev->devnode, so every rebind creates an additional
-> /dev/mediaN for the same media device, and leaks the previous devnode
-> and its minor number. As media_device_unregister() only unregisters
-> the most recent devnode, the older ones also stay registered after the
-> ISI is removed, and ioctls on them dereference the freed media_device.
->=20
-> On an i.MX93 board with an AP1302 ISP, every unbind/bind cycle of the
-> AP1302 driver adds one /dev/mediaN: after three binds, /dev/media0,
-> /dev/media1 and /dev/media2 all expose the same media graph.
->=20
-> Register the media device only if it isn't registered yet. Keep the
-> v4l2_device_register_subdev_nodes() call unconditional, as it has to
-> create the device nodes of the rebound subdevs, and it already skips
-> the subdevs that have one.
->=20
-> The issue was found while debugging an unbind crash in the AP1302
-> driver of the NXP BSP kernel. An AI coding assistant helped to find
-> it, and wrote this fix and its changelog.
->=20
-> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Aristo Chen <aristo.chen@canonical.com>
-> ---
-> Tested on an i.MX93 FRDM board running the NXP BSP kernel
-> (lf-6.18.20-2.0.0), whose mxc_isi_async_notifier_complete() is identical
-> to mainline, with the AP1302 driver from the same BSP plus a local fix
-> that makes it possible to unbind it:
->=20
-> - Without this patch, three unbind/bind cycles of the AP1302 driver
->   left /dev/media0, /dev/media1 and /dev/media2.
-> - With this patch, after each of three unbind/bind cycles only
->   /dev/media0 exists, and media-ctl -p on it shows the rebound AP1302
->   and sensor entities. No kernel warnings.
->=20
-> Not tested: the ISI removal path, where the stale devnodes would be
-> dereferenced. Build-tested on top of 330517c63aa9 with W=3D1, no new
-> warnings; sparse was not run.
->=20
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 4 ++++
->  1 file changed, 4 insertions(+)
->=20
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/=
-media/platform/nxp/imx8-isi/imx8-isi-core.c
-> index 0ae5f35e017c..82a03742405d 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> @@ -90,6 +90,10 @@ static int mxc_isi_async_notifier_complete(struct v4l2_a=
-sync_notifier *notifier)
->  		return ret;
->  	}
-> =20
-> +	/* .complete() is called again every time a subdev gets rebound. */
-> +	if (media_devnode_is_registered(isi->media_dev.devnode))
-> +		return 0;
-> +
->  	return media_device_register(&isi->media_dev);
->  }
-> =20
->=20
-> base-commit: 330517c63aa9b48227b6ab45f01003effac77ae4
 
