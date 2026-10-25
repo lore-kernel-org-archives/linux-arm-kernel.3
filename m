@@ -2,78 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 831CB606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 10:08:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC61E606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 10:32:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XPDIUiTM;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=EpRGsXKH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=o5JWlN9j
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ERZR5jPccvo3d9kJQynA8g8Qib1muJ8RwObTD5dMpYU=; b=XPDIUiTMhYlEtdm3nzHOUPPCZ5
-	77RG5XOBFgO5F1iUiTPuq87savUccpFUyD1KJitNdqVTOaQ+EB+zY3hCdSHGYqRIzb7YHxCXQMVDl
-	Ik/H34EgV/3bAbA5OYW5f5c3K7npOEgA2eV2DIULumpjeCHZrcFxdqYra1FPCLkkYYydkPD6kYIWd
-	IR2Jm1nQPcSQ+YWGjLC6dPkBUqUgC1AeK6MjtGOXLYtct3qi7lGF/1JupplVKzvV488OlpwFkr9aj
-	ZHHObGJ8AnwW8tK8KrUjciqM/Ck6bLuu5wC+wKf0v3RUJPJcsDrj4qjunvHaW6OL8dxGguk29pq/f
-	Z3F0jo/Q==;
+	bh=W8I6eZPNeQyfIA2MHqpnCAXBcywuCKbuTriES8lpKTM=; b=o5JWlN9jOPwN00Dk64nS33Olit
+	EMQuswCiecGg8blQIsvhWGA4VVr/QxhN/1q/L0SfXvY/AyqIGn+PBOLxRPYPgffb5I4vQl1pgUMaC
+	Zhl5ENC5EsqdnYS9PhiX/mugjb4Ygi9xogTWxLNiaNLKAMi514pvxWPkGpplekPcqUsIjDYfGZPa9
+	I1JedlLkPwLJLYWj8MfjwOkp2laEjcEekNprdatz1reeYoez7rRcCvuDbXpVmXklEtD0QQocDZaQe
+	B+z31FJ3dfArLCrxpY87xCO3izD9sKs+sKyOrR0WisT8BDz8Q7oDtSowBpdl/lrY9FEdpn/LT9jNI
+	SymyNoew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKv8d-00000000woF-0dAR;
-	Sun, 25 Oct 2026 10:07:39 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1xKvWN-00000000yD4-1D0X;
+	Sun, 25 Oct 2026 10:32:11 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKv8Z-00000000wns-2WFC
+	id 1xKvWJ-00000000yCT-1GjB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Oct 2026 10:07:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=ER
-	ZR5jPccvo3d9kJQynA8g8Qib1muJ8RwObTD5dMpYU=; b=EpRGsXKHNQiWf09er5
-	fn++rTWt/yDaRGjh78dTM43gQOikzH2At5aooPhz45nunfxlYHb6Zdp0mPfa7bOl
-	ASgwg+Fkdlx4hDJGFpdND30g2ZrB2oLHLnVzMrrf7Aok5wd2imN2oKAXSmkrEG2d
-	UJepCeFIuHQYAmRSdPCZ+EQag=
-Received: from 4CV529F122.company.local (unknown [])
-	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wD3_26u1N1q7fwbCQ--.3918S2;
-	Sun, 25 Oct 2026 18:06:58 +0800 (CST)
-From: Ding Hui <dinghui1111@163.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER),
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: dinghui@lixiang.com,
-	xiasanbo@lixiang.com,
-	yangchen11@lixiang.com,
-	liuxuanjun@lixiang.com,
-	zhoujing3@lixiang.com,
-	fujiahui@lixiang.com
-Subject: [PATCH net v5 0/2] net: stmmac: restore RX descriptors on resume
-Date: Sun, 25 Oct 2026 18:06:34 +0800
-Message-Id: <20261025100636.613670-1-dinghui1111@163.com>
-X-Mailer: git-send-email 2.34.1
+	Sun, 25 Oct 2026 10:32:10 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 83D953700F60
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 10:32:01 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id D68B3B6DC7D; Sun, 25 Oct 2026 10:31:59 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
+	aws-us-west-2-korg-listserv-alma10-1
+X-Spam-Level: 
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+Received: from collins (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 752CAB6CD17;
+	Sun, 25 Oct 2026 10:31:58 +0000 (UTC)
+Date: Sun, 25 Oct 2026 11:31:56 +0100
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Caio Vinicius Ferreira <contatocaio.ferreira7@gmail.com>
+Cc: mripard@kernel.org, mchehab@kernel.org, gregkh@linuxfoundation.org,
+	wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org,
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: cedrus: fix typo in comment
+Message-ID: <at3anD2TX8iQZ6Ws@collins>
+References: <20261007140056.7447-1-contatocaio.ferreira7@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3_26u1N1q7fwbCQ--.3918S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAFy3Xw15trWUCw15CFy8Xwb_yoWrJFy8pF
-	WSk3yYyr4kur18Kws5Zw4IqFySka1rArW7W3y0q34Fvw45WFy29rW2kF4YvFyDCrn7G3W8
-	Xr4j9anrCF1DZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jLeOJUUUUU=
-X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC9AN3o2rd1MM3zQAA35
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="odmBEKKySAXLue9n"
+Content-Disposition: inline
+In-Reply-To: <20261007140056.7447-1-contatocaio.ferreira7@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_030736_150023_4926D586 
-X-CRM114-Status: GOOD (  12.44  )
-X-Spam-Score: -1.8 (-)
+X-CRM114-CacheID: sfid-20261025_033207_523596_A448655A 
+X-CRM114-Status: GOOD (  17.97  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,92 +74,77 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
-X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
-	aws-us-west-2-korg-listserv-alma10-1
 
-From: Ding Hui <dinghui@lixiang.com>
+--odmBEKKySAXLue9n
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This series fixes RX descriptor buffer addresses that hardware writeback
-may overwrite between disabling NAPI and stopping RX DMA during suspend.
-Restoring these addresses before restarting DMA on resume prevents a
-fatal bus error.
+Hi,
 
-Patch 1 fixes the ignored allocation flags independently. Patch 2 shares
-buffer preparation with the normal and zero-copy refill paths and restores
-RX descriptor addresses on resume. Missing primary and secondary pages
-are allocated with GFP_KERNEL; failure aborts resume. Unavailable XSK slots
-remain CPU-owned, and all address writes precede the final OWN update.
+Le Wed 07 Oct 26, 11:00, Caio Vinicius Ferreira a =C3=A9crit :
+> Fix a spelling mistake in a comment: Neightbor -> Neighbor.
+>=20
+> Signed-off-by: Caio Vinicius Ferreira <contatocaio.ferreira7@gmail.com>
 
-The earlier fix, commit 9c63faaa931e ("net: stmmac: re-init rx buffers when
-mac resume back"), was reverted by commit 00423969d806 after a Jetson TX2
-suspend/resume regression. This series retains attached buffers and their
-DMA mappings and only allocates missing buffers. It does not repeat the
-recycle-and-reallocate sequence of that fix. Jetson TX2 has not been tested
-with this series.
+Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
+Acked-by: Paul Kocialkowski <paulk@sys-base.io>
 
-Reproduction and testing:
-On our hardware platform, run iperf traffic from a PC to the platform
-(the platform is the receiver), and suspend/resume the platform while
-traffic is running. Without the fix, a fatal bus error occurs after
-resume in almost every run. With the fix applied, the fatal bus error
-was no longer observed under the same test conditions.
+Thanks,
 
-This comparison was performed using a backport of this series to a kernel
-based on Linux 6.12.41, running on our hardware platform that integrates
-a Synopsys XGMAC.
+Paul
 
-Changes in v5:
-- Target net and add Fixes tags to both patches.
-- Split the allocation-flags fix into a separate patch, with a Fixes tag
-  identifying the page_pool conversion that stopped honoring the flags.
-- Share page_pool and XSK buffer preparation with the RX refill paths.
-- Allocate missing secondary pages even when the primary page exists,
-  using the current baseline's buffer2 capability check.
-- Condense the reinitialization kernel-doc to two paragraphs.
-- Restore descriptor addresses before the final dma_wmb()/OWN pass.
-- Clarify that unavailable XSK slots remain CPU-owned and may stop DMA
-  with RBU, rather than claiming that hardware skips them.
-- Power down legacy SerDes if RX descriptor restoration fails.
-- Link to v4:
-  https://lore.kernel.org/netdev/20260627122533.1165324-1-dinghui1111@163.com/
+> ---
+>  drivers/staging/media/sunxi/cedrus/cedrus_h265.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_h265.c b/drivers/s=
+taging/media/sunxi/cedrus/cedrus_h265.c
+> index 780da4a8b5af..f57642c0d8fa 100644
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus_h265.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_h265.c
+> @@ -755,7 +755,7 @@ static int cedrus_h265_setup(struct cedrus_ctx *ctx, =
+struct cedrus_run *run)
+>  	}
+>  	cedrus_write(dev, VE_DEC_H265_SCALING_LIST_CTRL0, reg);
+> =20
+> -	/* Neightbor information address. */
+> +	/* Neighbor information address. */
+>  	reg =3D VE_DEC_H265_NEIGHBOR_INFO_ADDR_BASE(ctx->codec.h265.neighbor_in=
+fo_buf_addr);
+>  	cedrus_write(dev, VE_DEC_H265_NEIGHBOR_INFO_ADDR, reg);
+> =20
+> --=20
+> 2.56.0
+>=20
 
-Changes in v4:
-- Document the return value of stmmac_reinit_rx_descriptors().
-- Link to v3:
-  https://lore.kernel.org/netdev/20260604144557.3175399-1-dinghui1111@163.com/
+--=20
+Paul Kocialkowski,
 
-Changes in v3:
-- Allocate missing page_pool buffers with GFP_KERNEL and abort resume
-  on allocation failure.
-- Try to allocate missing XSK buffers and clear descriptors when the
-  fill ring cannot supply a buffer.
-- Restore OWN after programming addresses and rebuilding chain pointers.
-- Honor the flags argument of stmmac_init_rx_buffers().
-- Restore RX descriptors after stmmac_clear_descriptors().
-- Link to v2:
-  https://lore.kernel.org/netdev/20260526022620.501229-1-dinghui1111@163.com/
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
 
-Changes in v2:
-- Introduce a helper to restore addresses from existing RX buffers.
-- Update the commit message.
-- Link to v1:
-  https://lore.kernel.org/netdev/20260515053856.2310369-1-dinghui1111@163.com/
+Expert in multimedia, graphics and embedded hardware support with Linux.
 
-Ding Hui (2):
-  net: stmmac: honor allocation flags when initializing RX buffers
-  net: stmmac: restore RX descriptor buffer addresses on resume
+--odmBEKKySAXLue9n
+Content-Type: application/pgp-signature; name=signature.asc
 
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 190 +++++++++++++-----
- 1 file changed, 138 insertions(+), 52 deletions(-)
+-----BEGIN PGP SIGNATURE-----
 
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmrd2pwACgkQhP3B6o/u
+lQyZzhAAjpLJ/LCS9ud2LmKBfIDoSIa36gfGD9iUB8J1/bgqENht/+QvFN/62jVi
+gAf0nT1W0HrQ2TIiFwdhhNnphU6VJUfI0C9Z+SpqAoKXf3j+qj34ZPpsSd+thEUB
+4HObZyKK5px6YWkHL1XekYjdbCjh2T6HZ6UTt8rZxR7V5RIFq4QKNZHN/myhUk5X
+X4IqbHpjD9zeD+9TH26kRbc4xlfMXiyfM88YkEWks8dMchnL+h69TOdk91I49y/H
+0wYthqG/WZsqNptz+z0ra6o8esqzgewhCTzNaFcb9GlIBG9gxhWAXi5w8HltGvmr
+DvfdXEj1ENFsiAy94HUstuTjG/76BOFiLHHrGle8u/Yi4iNu3rKVngmrcfltTqhP
+LVB2sqaiHYUH2tpNTv4UXmHbyhMTIA0jF/QW+I/p/2+Uv5dxIgLkwWMGfXZMojfm
+jAaaaA9h1GIkgPN6Sg4O2wn+g3YVTK3GVSBhwtE0D/KQMjsHv3HCZFSMQm6oYibv
+ZSS65D9RiGtg98h7zaFz7+bX01ZlAw5NRc4bbTPpweGFFX+0cidtdhMx9z5gw4wP
+fWbMP4DDoiCNPsjiW4CFNow0elBgsdn/WaW8lFtQ/WoGitoGArpT6iOlLLDRKOsN
+oSBIGryhLuvhFKe+8WNjHfWppj8Q/RVYN/vkE65Y0C8QEeDmsf8=
+=b2qN
+-----END PGP SIGNATURE-----
 
-base-commit: 7076f684d5132e6a6145e1da2fa74771ecd052e5
--- 
-2.34.1
-
+--odmBEKKySAXLue9n--
 
