@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D953A606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 19:19:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89128606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 19:19:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=W5IYXwHo;
-	dkim=pass (1024-bit key, unprotected) header.d=student.uibk.ac.at header.i=@student.uibk.ac.at header.a=rsa-sha256 header.s=prod24a header.b=cXwhVmW8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RPb/3aJy;
+	dkim=pass (1024-bit key, unprotected) header.d=student.uibk.ac.at header.i=@student.uibk.ac.at header.a=rsa-sha256 header.s=prod24a header.b=mc6JDdMy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=M8r5svHUOM8Y59Gw/fCkU5WvrtoHiBC/aQfKFdM2kxc=; b=W5IYXwHo9ywDGO
-	24K+Vos/aLhpTyl7WtCgdH62d1aJlEh+S1BKl+jEqy96+burUgXB1A8z+bYfmSyi7EYxCh2txgH6j
-	5yyImrLws22508UqT4VwOuYNEGDGxgWXOSrSOTHUMt3BgxaInj5YoistZgkdDKLY2ujpnSdSCshDC
-	gcWBs5vkU5oY4/sKmlDE/MHNowONliq1Umvhcjbb69p2E46iVdr570qzwFEDzwGj0e+KNORMs0JKO
-	1VSMudlkstTwdJ1NQg30+dstaHUEO9wW82wDReC/18nSxkP3N7JQ+7zWSQAByy2eRZ4irEjTMPtht
-	LwZgo5WkOuyus5fCumbA==;
+	List-Owner; bh=kABjzP6vhmonisOUAMydsaWiwxh5YB8qUlHCWM3/0mE=; b=RPb/3aJy+n80kP
+	gua00wS9evWTOPfLZhItJjZvJsVZlSeOcKYRjMKX03tPggrKV6TxTSD8BIiatiVz97aHFb8snX/bm
+	yGvVk4UKGfiM+97xUQNJr5o1pfNT4A6+9oKk0HG0rHrWaVNdMWjB9Kn77TLT6OXItnDL+sechRD9P
+	/v4XfqixWHCoI+cNGGasoBAZgbsHb4/3eykXp6dXZGiDcz1quQPS4tHDlk5xMjhvmSa39v0C8X5dy
+	jN4Ns6oc35nm/3JFtz4lSSie/RpwqMwMtMOUxnHekUZ2wNo+i60/vBiXmZsbF8tH4AXHgm65PTpwb
+	l4gQ/KWtBZqO63Z1ltgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL3kl-00000001JzS-1XLW;
-	Sun, 25 Oct 2026 19:19:35 +0000
+	id 1xL3kv-00000001K4E-2nCI;
+	Sun, 25 Oct 2026 19:19:45 +0000
 Received: from smtp.uibk.ac.at ([138.232.1.140])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL3kh-00000001Jyj-2CtY;
-	Sun, 25 Oct 2026 19:19:33 +0000
+	id 1xL3kp-00000001K0K-2i9i;
+	Sun, 25 Oct 2026 19:19:41 +0000
 Received: from surface-pro-5 (178.115.151.51.wireless.dyn.drei.com [178.115.151.51])
 	(authenticated bits=0)
-	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 69PJJ1eV514480
+	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 69PJJ1eU514480
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sun, 25 Oct 2026 20:19:11 +0100
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 69PJJ1eV514480
+	Sun, 25 Oct 2026 20:19:09 +0100
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 69PJJ1eU514480
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=student.uibk.ac.at;
-	s=prod24a; t=1792955952;
-	bh=M8r5svHUOM8Y59Gw/fCkU5WvrtoHiBC/aQfKFdM2kxc=;
+	s=prod24a; t=1792955950;
+	bh=kABjzP6vhmonisOUAMydsaWiwxh5YB8qUlHCWM3/0mE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cXwhVmW8y6tArl5aWad0YcF5TwCQx8nXbr9US6/nskItq6XqsLREapDVWrdL+Dcog
-	 fYa3sB8VLEskFjVvvzIFPBQRCSOEmRTv76A3T+Ir1cpFoVl2QIUGFmggGP3ZUc7Fh2
-	 +ck/vYH6QWkBbv/4vVpIAuVXF2psAb6Y7eZl/VWs=
+	b=mc6JDdMy5tN5josOUsMBXGWVrLJKdZomz2kMEnIP4n24uXGqHe6SnoxvQwVWQj9NI
+	 P81BPEgiiVa6kanEECGVsfwvt8T7YWB5dRlyBRPeZf8lQ/rGnA94QgElG8bwTvQKVZ
+	 p8nyffFCUE8O9WX1TeTcmN0cREEell29XHXwMRQ8=
 From: christian.koever-draxl@student.uibk.ac.at
 To: neil.armstrong@linaro.org, jbrunet@baylibre.com, sboyd@kernel.org,
         bmasney+clk@redhat.com, khilman@baylibre.com,
@@ -47,9 +47,9 @@ To: neil.armstrong@linaro.org, jbrunet@baylibre.com, sboyd@kernel.org,
 Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
         =?UTF-8?q?Christian=20Stefan=20K=C3=B6v=C3=A9r-Draxl?= <ckoever@outlook.de>
-Subject: [PATCH 2/2] clk: meson: s4: propagate rate requests through the CEC 32k muxes
-Date: Sun, 25 Oct 2026 20:18:52 +0100
-Message-ID: <20261025191852.208226-3-christian.koever-draxl@student.uibk.ac.at>
+Subject: [PATCH 1/2] clk: meson: s4: keep the PWM clocks off vid_pll
+Date: Sun, 25 Oct 2026 20:18:51 +0100
+Message-ID: <20261025191852.208226-2-christian.koever-draxl@student.uibk.ac.at>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261025191852.208226-1-christian.koever-draxl@student.uibk.ac.at>
 References: <20261025191852.208226-1-christian.koever-draxl@student.uibk.ac.at>
@@ -60,8 +60,8 @@ Content-Transfer-Encoding: 8bit
 X-Spam-Score: () -13.0 ALL_TRUSTED,RCV_SMTP_AUTH,RCV_SMTP_UIBK,U_H_APTO_LONG,U_RCPTS_11_PLUS
 X-Scanned-By: MIMEDefang_3.2_at_uibk.ac.at
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_121932_188880_65A61B44 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20261025_121940_652317_AFE8E20E 
+X-CRM114-Status: GOOD (  14.50  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,49 +83,111 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
 
-The AO-CEC driver asks its core clock for 32768 Hz. On S4 that request
-stops at ceca_32k_sel / cecb_32k_sel: both are muxes without
-CLK_SET_RATE_PARENT, so it never reaches the dual divider that can
-produce the rate, and probe fails with
+The PWM driver asks the clock framework for the fastest input it can
+get (clk_round_rate() with roughly 0xffff/period), so on S4 every PWM
+channel ends up parented to vid_pll, the fastest input of the PWM mux.
+vid_pll is derived from the HDMI PLL and is reprogrammed on every
+display mode set, which silently changes the period and duty cycle of
+whatever PWM runs from it.
 
-  meson-ao-cec fe044000.cec: core clock set rate failed
-  meson-ao-cec fe044000.cec: CEC controller registration failed
+On boards that use a PWM regulator for the CPU supply this corrupts
+the CPU voltage: on an S905W2 board vddcpu read 699 mV at 1 GHz and
+the first cpufreq transition hung the SoC. Boards that feed the
+32.768 kHz low power clock of an SDIO wifi chip from a PWM see the chip
+intermittently fail to enumerate ("Failed to initialize a
+non-removable card").
 
-The equivalent G12A mux, ao_cec_sel, carries the flag, which is why CEC
-works there. Add it to both S4 selectors.
-
-The other parent of these muxes is the RTC clock, which must not be
-reprogrammed on behalf of CEC, so boards should pin the mux parent to
-the dual divider with assigned-clock-parents.
-
-Only the CECA path was tested; CECB is the same defect in the
-duplicated block.
+Drop vid_pll from the PWM parents and keep the remaining inputs on
+their register values with a mux table. xtal, fclk_div4 and fclk_div3
+cover every PWM rate in use.
 
 Fixes: 57b55c76aaf1 ("clk: meson: S4: add support for Amlogic S4 SoC peripheral clock controller")
 Signed-off-by: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
 ---
- drivers/clk/meson/s4-peripherals.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/clk/meson/s4-peripherals.c | 38 ++++++++++++++++++++----------
+ 1 file changed, 26 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/clk/meson/s4-peripherals.c b/drivers/clk/meson/s4-peripherals.c
-index 329cd526749e..8e303db6154c 100644
+index ba41fcd90588..329cd526749e 100644
 --- a/drivers/clk/meson/s4-peripherals.c
 +++ b/drivers/clk/meson/s4-peripherals.c
-@@ -407,6 +407,7 @@ static struct clk_regmap s4_ceca_32k_sel = {
- 			&s4_rtc_clk.hw
- 		},
- 		.num_parents = 2,
-+		.flags = CLK_SET_RATE_PARENT,
+@@ -2588,51 +2588,65 @@ static struct clk_regmap s4_spicc0_en = {
  	},
  };
  
-@@ -514,6 +515,7 @@ static struct clk_regmap s4_cecb_32k_sel = {
- 			&s4_rtc_clk.hw
- 		},
- 		.num_parents = 2,
-+		.flags = CLK_SET_RATE_PARENT,
- 	},
+-/* PWM Clock */
++/*
++ * PWM Clock
++ *
++ * vid_pll (mux input 1) is left out on purpose. The PWM driver asks for the
++ * fastest clock it can get, which made every PWM pick vid_pll - and vid_pll
++ * is the HDMI PLL, reprogrammed on every display mode set. That silently
++ * changed the period and duty of whatever ran from it: the PWM CPU supply
++ * (a cpufreq voltage change then hung the SoC) and the 32.768kHz clock of an
++ * SDIO wifi chip (which then failed to enumerate).
++ */
++static u32 s4_pwm_parents_table[] = { 0, 2, 3 };
++
+ static const struct clk_parent_data s4_pwm_parents[] = {
+ 	{ .fw_name = "xtal", },
+-	{ .hw = &s4_vid_pll.hw },
+ 	{ .fw_name = "fclk_div4", },
+ 	{ .fw_name = "fclk_div3", },
  };
+ 
+-static S4_COMP_SEL(pwm_a, CLKCTRL_PWM_CLK_AB_CTRL, 9, 0x3, s4_pwm_parents);
++#define S4_PWM_SEL(_name, _reg, _shift) \
++	MESON_COMP_SEL(s4_, _name, _reg, _shift, 0x3, s4_pwm_parents, \
++		       s4_pwm_parents_table, 0, 0)
++
++static S4_PWM_SEL(pwm_a, CLKCTRL_PWM_CLK_AB_CTRL, 9);
+ static S4_COMP_DIV(pwm_a, CLKCTRL_PWM_CLK_AB_CTRL, 0, 8);
+ static S4_COMP_GATE(pwm_a, CLKCTRL_PWM_CLK_AB_CTRL, 8);
+ 
+-static S4_COMP_SEL(pwm_b, CLKCTRL_PWM_CLK_AB_CTRL, 25, 0x3, s4_pwm_parents);
++static S4_PWM_SEL(pwm_b, CLKCTRL_PWM_CLK_AB_CTRL, 25);
+ static S4_COMP_DIV(pwm_b, CLKCTRL_PWM_CLK_AB_CTRL, 16, 8);
+ static S4_COMP_GATE(pwm_b, CLKCTRL_PWM_CLK_AB_CTRL, 24);
+ 
+-static S4_COMP_SEL(pwm_c, CLKCTRL_PWM_CLK_CD_CTRL, 9, 0x3, s4_pwm_parents);
++static S4_PWM_SEL(pwm_c, CLKCTRL_PWM_CLK_CD_CTRL, 9);
+ static S4_COMP_DIV(pwm_c, CLKCTRL_PWM_CLK_CD_CTRL, 0, 8);
+ static S4_COMP_GATE(pwm_c, CLKCTRL_PWM_CLK_CD_CTRL, 8);
+ 
+-static S4_COMP_SEL(pwm_d, CLKCTRL_PWM_CLK_CD_CTRL, 25, 0x3, s4_pwm_parents);
++static S4_PWM_SEL(pwm_d, CLKCTRL_PWM_CLK_CD_CTRL, 25);
+ static S4_COMP_DIV(pwm_d, CLKCTRL_PWM_CLK_CD_CTRL, 16, 8);
+ static S4_COMP_GATE(pwm_d, CLKCTRL_PWM_CLK_CD_CTRL, 24);
+ 
+-static S4_COMP_SEL(pwm_e, CLKCTRL_PWM_CLK_EF_CTRL, 9, 0x3, s4_pwm_parents);
++static S4_PWM_SEL(pwm_e, CLKCTRL_PWM_CLK_EF_CTRL, 9);
+ static S4_COMP_DIV(pwm_e, CLKCTRL_PWM_CLK_EF_CTRL, 0, 8);
+ static S4_COMP_GATE(pwm_e, CLKCTRL_PWM_CLK_EF_CTRL, 8);
+ 
+-static S4_COMP_SEL(pwm_f, CLKCTRL_PWM_CLK_EF_CTRL, 25, 0x3, s4_pwm_parents);
++static S4_PWM_SEL(pwm_f, CLKCTRL_PWM_CLK_EF_CTRL, 25);
+ static S4_COMP_DIV(pwm_f, CLKCTRL_PWM_CLK_EF_CTRL, 16, 8);
+ static S4_COMP_GATE(pwm_f, CLKCTRL_PWM_CLK_EF_CTRL, 24);
+ 
+-static S4_COMP_SEL(pwm_g, CLKCTRL_PWM_CLK_GH_CTRL, 9, 0x3, s4_pwm_parents);
++static S4_PWM_SEL(pwm_g, CLKCTRL_PWM_CLK_GH_CTRL, 9);
+ static S4_COMP_DIV(pwm_g, CLKCTRL_PWM_CLK_GH_CTRL, 0, 8);
+ static S4_COMP_GATE(pwm_g, CLKCTRL_PWM_CLK_GH_CTRL, 8);
+ 
+-static S4_COMP_SEL(pwm_h, CLKCTRL_PWM_CLK_GH_CTRL, 25, 0x3, s4_pwm_parents);
++static S4_PWM_SEL(pwm_h, CLKCTRL_PWM_CLK_GH_CTRL, 25);
+ static S4_COMP_DIV(pwm_h, CLKCTRL_PWM_CLK_GH_CTRL, 16, 8);
+ static S4_COMP_GATE(pwm_h, CLKCTRL_PWM_CLK_GH_CTRL, 24);
+ 
+-static S4_COMP_SEL(pwm_i, CLKCTRL_PWM_CLK_IJ_CTRL, 9, 0x3, s4_pwm_parents);
++static S4_PWM_SEL(pwm_i, CLKCTRL_PWM_CLK_IJ_CTRL, 9);
+ static S4_COMP_DIV(pwm_i, CLKCTRL_PWM_CLK_IJ_CTRL, 0, 8);
+ static S4_COMP_GATE(pwm_i, CLKCTRL_PWM_CLK_IJ_CTRL, 8);
+ 
+-static S4_COMP_SEL(pwm_j, CLKCTRL_PWM_CLK_IJ_CTRL, 25, 0x3, s4_pwm_parents);
++static S4_PWM_SEL(pwm_j, CLKCTRL_PWM_CLK_IJ_CTRL, 25);
+ static S4_COMP_DIV(pwm_j, CLKCTRL_PWM_CLK_IJ_CTRL, 16, 8);
+ static S4_COMP_GATE(pwm_j, CLKCTRL_PWM_CLK_IJ_CTRL, 24);
  
 -- 
 2.56.0
