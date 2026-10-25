@@ -2,94 +2,110 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EDCC606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 17:06:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2454B606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 17:15:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=usamJEGN;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Jpfuyzc+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IjgEO8Ku;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aBUprk/T
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=oUwvHq0P/9gsOPpgAsIiXBykttRf2wfXHYBWY4fgpX4=; b=usamJEGN/aSa7Ty8f+bAb2o29B
-	kgyebIqXwat+CVNYCiw2KAbMs+re1l2rbPIDCVE4V4ABtnaV/JkSHGyokRh2Kdd3HRG6Rew04P3dq
-	SNCgrDE07htnWKdUnss2PZvCjdVqeC/UYEBuCPgxoxgCHaLQ09hkB1hNqm/5owmYNHuxjuyK6nIp0
-	jZy8HERsPkMZ0s2uIwc+wkAi7vXYy/WhzufguHjrqKVFfMheDpqkkKoeq/OdgNvKbGLE6m1TokWya
-	SMIrWpmENDXFb8DRD3qUZSOQxjPJwfz4nRGT00yM+7BrX/Mg8YNItLOcL1UGo8tpY7Y61vQtKaJhc
-	VjrHIg0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=MhHztknkSHPqrXjrHLscjPHwEDTCdUtJkajY/SvLZKw=; b=IjgEO8KukT+VlB
+	LdgYm3bhghzmc9ANsckvYQh6dRiQzIw6uaWFElXQoI14SjAWx05U0Bij0XPYxVQ+bu/zovk4jIxv/
+	ZY5gQuGv90ZVeOdnrq0RM4x5LQOj2eALvkYD+TCmG342KklCAll5AP8T6aNKlcYzslyMXj/CNrEB+
+	r+gpuy2ukN0EERjbZFyQZFM1yRRVlpsBM1N4FHj1pA9sRFnAdmaXloNl02x1CYjUJSuahaIyit/Yb
+	UHX7Z/YYcXsxSHFughvYwFfrTQY09tZR1UrEdonzKHvQ5yqIWFQ2od1mxeGegULBVILRsDMnvUDhK
+	2dK0BY/H+s9vCEsoaX+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL1fd-00000001DCw-3yOz;
-	Sun, 25 Oct 2026 17:06:09 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1xL1nv-00000001DSU-30bD;
+	Sun, 25 Oct 2026 17:14:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL1fa-00000001DCU-0nZm
+	id 1xL1nt-00000001DSL-3PIx
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Oct 2026 17:06:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1792947966; x=1824483966;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=AxOjbFvh/NcIZrioJUJIpPem4ac7BqaQaQFD2sY7xA8=;
-  b=Jpfuyzc+a7br68ER81tmna66JEAETrLktf7kIiMEnczopP0n7CUDMVUB
-   575EFeqruYqiYLFrPP+L4+IOUhMR1MHYG3lAQAqMfu2KTrd3nl7mqzb2n
-   gSiDepyWwdKZGrvrlpsM+GkNZ58auJvXW2K4SscdL/Cdt1PAvuUNL/vPE
-   tJF9b2F5yVqpUghg+eYED0uqqFk4m97YuZdNddlnBm22PNmB6pXD7DM0G
-   p0cUl9ItJDZAhIsJQ6yEADkW/6JTKA7o/a8ceMb1dhuFrySEMkSagJjh+
-   UdGYt2XVTkIv0fia5XfP+7OEuW9iHq+aR7mrDTZ8VO+7028JtoUDaL833
-   g==;
-X-CSE-ConnectionGUID: OKwgKhW6Qemk5tC4IPlTmw==
-X-CSE-MsgGUID: GrxHD7BPQHqhmL8STH824Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11946"; a="1611695"
-X-IronPort-AV: E=Sophos;i="6.27,178,1787036400"; 
-   d="scan'208";a="1611695"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2026 10:06:02 -0700
-X-CSE-ConnectionGUID: 58RfMdFWTXqNG1oYrD8erg==
-X-CSE-MsgGUID: ITdobinPTCSRoDNVxb84cg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,178,1787036400"; 
-   d="scan'208";a="4051939"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 25 Oct 2026 10:05:58 -0700
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xL1fN-00000000UxW-3BwO;
-	Sun, 25 Oct 2026 17:05:53 +0000
-Date: Mon, 26 Oct 2026 01:05:39 +0800
-From: kernel test robot <lkp@intel.com>
-To: Amir Ayupov <aaupov@fb.com>, James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: oe-kbuild-all@lists.linux.dev, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Daniel Pereira <danielmaraboo@gmail.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 5/7] perf: arm_pmuv3: Add pmuv3_event_implemented()
-Message-ID: <202610260043.uPhMX80G-lkp@intel.com>
-References: <cd3e622681f7254216b0488f09d2cb2d91a2d8ca.1792907333.git.aaupov@fb.com>
+	Sun, 25 Oct 2026 17:14:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8E2EC40E36;
+	Sun, 25 Oct 2026 17:14:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CC4F1F01825;
+	Sun, 25 Oct 2026 17:14:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792948480;
+	bh=MhHztknkSHPqrXjrHLscjPHwEDTCdUtJkajY/SvLZKw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=aBUprk/TK0tNCbZt1AonK4UsFkV1ptKhZSpIYnueV7rZEan8xoKMSJhG5kIBuH+Ir
+	 3ltueCVb6gQ7ckASgE9wmXxnKbsBrYOs3wnA6ZYqK93jE3meIEHQIKl2eJdYnHhK5W
+	 dhzTPciAU8j0K3b9Aw53tckmtfhh01je1v+FZQHYFF+xz28AFN1+kUKOFIQgIXBPYB
+	 hvOqEEMm45KHLp6/OmxdZ638iFuuO3vSibghH3Fh8zyD2NsxmShuUF20KR/svHcVGU
+	 mDBRJmB7IbGO/VEADt6ylCZ9cML61rNH0TTQswgJ5EXHknjQQ03I3RctuJKI46DyBx
+	 r7q6FDMwmCVKA==
+Message-ID: <98938da0-6018-433a-9b06-b593bb1cfc11@kernel.org>
+Date: Sun, 25 Oct 2026 18:14:34 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cd3e622681f7254216b0488f09d2cb2d91a2d8ca.1792907333.git.aaupov@fb.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_100606_299043_2BFF2F44 
-X-CRM114-Status: GOOD (  12.09  )
-X-Spam-Score: -4.7 (----)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: samsung: exynos4412-p4note: allow powering off
+ the wifi card
+To: thesame-personal <thesame.personal@gmail.com>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261024-exynos4412-p4note-brcmfmac-v1-1-3d09e496c2c7@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261024-exynos4412-p4note-brcmfmac-v1-1-3d09e496c2c7@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,103 +116,44 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Amir,
+On 24/10/2026 22:48, thesame-personal wrote:
+> sdhci_3 serving BCM4334 was missing cap-power-off-card.
+> On my N8000 this resulted in the following messages after sleeping:
+> [305.759883] PM: suspend entry (deep)
+> [306.514698] brcmfmac: brcmf_ops_sdio_suspend: Failed to set pm_flags 1
+> [306.671504] brcmfmac: brcmf_sdio_htclk: HT Avail request error: -110
+> [307.127267] PM: suspend exit
+> 
+> The regression was triggered by commit 8c3170628a9c
+> ("wifi: brcmfmac: keep power during suspend if board requires it").
+> Midas already has a fix in commit 2ff147fdfa99
+> ("ARM: dts: samsung: exynos4412-midas:
+> turn off SDIO WLAN chip during system suspend").
+> exynos4412-p4note.dtsi does not include exynos4412-midas.dtsi,
+> so p4note did not automatically inherit the Midas fix.
+> 
+> Another affected board was fixed in commit 863d69923bdb ("ARM: dts:
+> samsung: exynos4210-i9100: turn off SDIO WLAN chip during system
+> suspend").
 
-kernel test robot noticed the following build errors:
+Drop paragraph, not needed here.
 
-[auto build test ERROR on 343cfcbb3ecfdb80aa576a428cfa3b65ad783842]
+> 
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Amir-Ayupov/coresight-etm4x-Fix-event-count-decoding/20261024-233901
-base:   343cfcbb3ecfdb80aa576a428cfa3b65ad783842
-patch link:    https://lore.kernel.org/r/cd3e622681f7254216b0488f09d2cb2d91a2d8ca.1792907333.git.aaupov%40fb.com
-patch subject: [PATCH v3 5/7] perf: arm_pmuv3: Add pmuv3_event_implemented()
-config: arm64-allnoconfig (https://download.01.org/0day-ci/archive/20261026/202610260043.uPhMX80G-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 16.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261026/202610260043.uPhMX80G-lkp@intel.com/reproduce)
+Please add Fixed tax and Cc-stable.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202610260043.uPhMX80G-lkp@intel.com/
+> Signed-off-by: Artem Utkin <thesame.personal@gmail.com>
 
-All errors (new ones prefixed by >>):
+Does not match From.
 
-   In file included from include/kvm/arm_pmu.h:11,
-                    from arch/arm64/include/asm/kvm_host.h:38,
-                    from arch/arm64/include/asm/arm_pmuv3.h:9,
-                    from arch/arm64/kernel/cpufeature.c:80:
-   include/linux/perf/arm_pmuv3.h: In function 'pmuv3_event_implemented':
->> include/linux/perf/arm_pmuv3.h:333:26: error: implicit declaration of function 'pmuv3_implemented'; did you mean 'pmuv3_event_implemented'? [-Wimplicit-function-declaration]
-     333 |         if (id >= 64 || !pmuv3_implemented(read_pmuver()))
-         |                          ^~~~~~~~~~~~~~~~~
-         |                          pmuv3_event_implemented
->> include/linux/perf/arm_pmuv3.h:333:44: error: implicit declaration of function 'read_pmuver' [-Wimplicit-function-declaration]
-     333 |         if (id >= 64 || !pmuv3_implemented(read_pmuver()))
-         |                                            ^~~~~~~~~~~
->> include/linux/perf/arm_pmuv3.h:336:28: error: implicit declaration of function 'read_pmceid0' [-Wimplicit-function-declaration]
-     336 |         pmceid = id < 32 ? read_pmceid0() : read_pmceid1();
-         |                            ^~~~~~~~~~~~
->> include/linux/perf/arm_pmuv3.h:336:45: error: implicit declaration of function 'read_pmceid1' [-Wimplicit-function-declaration]
-     336 |         pmceid = id < 32 ? read_pmceid0() : read_pmceid1();
-         |                                             ^~~~~~~~~~~~
-   arch/arm64/include/asm/arm_pmuv3.h: At top level:
->> arch/arm64/include/asm/arm_pmuv3.h:49:19: error: conflicting types for 'read_pmuver'; have 'u32(void)' {aka 'unsigned int(void)'}
-      49 | static inline u32 read_pmuver(void)
-         |                   ^~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:333:44: note: previous implicit declaration of 'read_pmuver' with type 'int()'
-     333 |         if (id >= 64 || !pmuv3_implemented(read_pmuver()))
-         |                                            ^~~~~~~~~~~
->> arch/arm64/include/asm/arm_pmuv3.h:160:19: error: conflicting types for 'read_pmceid0'; have 'u64(void)' {aka 'long long unsigned int(void)'}
-     160 | static inline u64 read_pmceid0(void)
-         |                   ^~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:336:28: note: previous implicit declaration of 'read_pmceid0' with type 'int()'
-     336 |         pmceid = id < 32 ? read_pmceid0() : read_pmceid1();
-         |                            ^~~~~~~~~~~~
->> arch/arm64/include/asm/arm_pmuv3.h:165:19: error: conflicting types for 'read_pmceid1'; have 'u64(void)' {aka 'long long unsigned int(void)'}
-     165 | static inline u64 read_pmceid1(void)
-         |                   ^~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:336:45: note: previous implicit declaration of 'read_pmceid1' with type 'int()'
-     336 |         pmceid = id < 32 ? read_pmceid0() : read_pmceid1();
-         |                                             ^~~~~~~~~~~~
->> arch/arm64/include/asm/arm_pmuv3.h:170:20: error: conflicting types for 'pmuv3_implemented'; have 'bool(int)' {aka '_Bool(int)'}
-     170 | static inline bool pmuv3_implemented(int pmuver)
-         |                    ^~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:333:26: note: previous implicit declaration of 'pmuv3_implemented' with type 'int()'
-     333 |         if (id >= 64 || !pmuv3_implemented(read_pmuver()))
-         |                          ^~~~~~~~~~~~~~~~~
-
-
-vim +333 include/linux/perf/arm_pmuv3.h
-
-   320	
-   321	/*
-   322	 * Whether this CPU's PMU implements a common event, as reported by
-   323	 * PMCEID{0,1}: events 0x0000-0x003f in bits [31:0], and from PMUv3p1 events
-   324	 * 0x4000-0x403f in bits [63:32], which read as zero before PMUv3p1.
-   325	 * Must run on the CPU whose PMU is queried.
-   326	 */
-   327	static inline bool pmuv3_event_implemented(u16 event)
-   328	{
-   329		bool ext = event >= ARMV8_PMUV3_EXT_COMMON_EVENT_BASE;
-   330		u16 id = ext ? event - ARMV8_PMUV3_EXT_COMMON_EVENT_BASE : event;
-   331		u64 pmceid;
-   332	
- > 333		if (id >= 64 || !pmuv3_implemented(read_pmuver()))
-   334			return false;
-   335	
- > 336		pmceid = id < 32 ? read_pmceid0() : read_pmceid1();
-   337		return pmceid & BIT_ULL(id % 32 + (ext ? 32 : 0));
-   338	}
-   339	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+Krzysztof
 
