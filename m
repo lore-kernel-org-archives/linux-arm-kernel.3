@@ -2,61 +2,57 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2DA0606A323
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 07:15:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B264E606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 07:15:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OXiE72f9;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dcXxFAfp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aF9iY2Fn;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iETnJ9cv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=1k/YOFzcHBp/hoasHW07eVZPh9bCyJ8vWurMur7edBQ=; b=OXiE72f9DCVzJWCrMgpx4ODU6A
-	xfrAqbaMpUurcwhUcbiiYDbGNm9+zqRFJNlzlAFVSdx3ucV/vC75mc2PCbeBsagb3L5U56np9w/fe
-	yShGyeimC9LjikWIQyCP+aaLYoanDBdp3/P14wAHo37lBiiStsYH5Q4AqmwN5xNQzwdMG5VjxHjjw
-	lZvb47eBzKf4HPUQ9mHleFojmMv2Glf+hcCNGp3T1+fKPSn4PnBXetAZUsQDIRnGL8YkMmpYiCk8E
-	UFuqtMtqoWQhVP42iMHMxaIpy7Q4fX9l3kQPJkzxJQl0xNAg6zFmapUv0hIvq75kyzfmGP5/gfY+/
-	1amk6DDQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=/Exo4AK19GTzwkvKo3vH6KeH1XDMwNptpNsby8IlEmA=; b=aF9iY2FnnQHfw4
+	GonbDmUM++eLxIZJKMpq3ps3HLkL7lV2oMj3yo3b0ZGZ7MuN3otR42Wo7Ne+4biWAUpqCLYB1T5bl
+	P9kYnrltajbCqfXODo9HM6Qgh/1D/Bq3gRJyyQnXbWV2Lx8jsVQhrIXh+rLB9+WnNilJlPmmjboum
+	peT9sHrvytzjFkfceQDw0+Os4aSHZoHMTBKEcdwlODDZcE0cA0zxiL0FUgzy40Pln0w5Yqjsx+DTi
+	WZPcnZ7VxMScrtE0E4is1grl+oZP4qrZTY1F3TdkXQJ+zI4xb5Gdbv8aW80iEmUsJTjikvt25CrFm
+	hf7cgeMMXQpJNUOLeCOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKsRs-00000000piL-1tz9;
-	Sun, 25 Oct 2026 07:15:20 +0000
+	id 1xKsS4-00000000pl0-2imE;
+	Sun, 25 Oct 2026 07:15:32 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKsRr-00000000piE-0Xz9
+	id 1xKsRx-00000000pj7-3LDA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Oct 2026 07:15:19 +0000
+	Sun, 25 Oct 2026 07:15:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C104600CB;
-	Sun, 25 Oct 2026 07:15:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEE331F01825;
-	Sun, 25 Oct 2026 07:15:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 41667600DA;
+	Sun, 25 Oct 2026 07:15:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E59211F01825;
+	Sun, 25 Oct 2026 07:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792912517;
-	bh=1k/YOFzcHBp/hoasHW07eVZPh9bCyJ8vWurMur7edBQ=;
-	h=From:Subject:Date:To:Cc;
-	b=dcXxFAfpTp0csq2KMjImqdCCQ2mskRHPrHFEjnm5qSIqR8GvRQrxLMMHceIh1V0po
-	 TnNkKvphl7cMQgEVfHoEs4s/6RdDnbc+b3def39JwKEbVceOZQtCUz9ih+dkw+LNlH
-	 BN5hLMa3iNwUOWbk8mLRl7veO9XfyPhADjRvyylJhT0uQ19COmozdQ8wojYWsu0wH5
-	 zanwNVljUu3UAQJpIPM0OrG/MZezI1ftdmjV86612LM2RBvGdFmmIdMHkEBaNFfrYd
-	 dVUVJMw+8dVI8+PVLTiN9CWAs4iz7MabjlyrF/daPPEBcYt3jtZmqEEC2eXyWlsJZw
-	 P5W5pwxYDL4zg==
+	s=k20260515; t=1792912525;
+	bh=/Exo4AK19GTzwkvKo3vH6KeH1XDMwNptpNsby8IlEmA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=iETnJ9cvKshtATIDb2zWkFNTuckYe+HE7to7fAxBrt0IJQQVAyv3g5KiPYeIdNgCR
+	 2cDvV5h+KcCiSwRw4E+EC1rOKKu0GhqaUb0BsbBMpgO08yquo0FqdLqx7XQOENsb+O
+	 R4IWeY/ruaSSQk240BjO4gtrisGZ9UftCFyzhLrPWQbELzypfeRL4qnqCny5l/ue0p
+	 kKNTIeExyA+YuNWCRyJp9mx80/+AIMWTgb9NnIy5FUMutzUqHMSjhJ8noiQHiquuU7
+	 23hRwmz91td5/cUy0MXAlhlEruOI856244KMnhq62+J1fLTfGmClB4YMxzQfjbYu6i
+	 cMoOcPEa9YPWg==
 From: Linus Walleij <linusw@kernel.org>
-Subject: [PATCH v4 0/3] ARM: bcm: Enable CFE SMP on BCMBCA
-Date: Sun, 25 Oct 2026 08:15:11 +0100
-Message-Id: <20261025-genexis-xg6846-smp-v7-3-rc1-v4-0-b352ab54f46b@kernel.org>
+Date: Sun, 25 Oct 2026 08:15:13 +0100
+Subject: [PATCH v4 2/3] ARM: bcm: Add CFE SMP support for BCMBCA
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33PQQrCMBCF4atI1o5k0jQjrryHuGjaSQ1qWxIJl
- dK7mwqCInT5z+J7zCQiB89RHDaTCJx89H2XQ283or5UXcvgm9xCSWVQIkLLHY8+wtiavTYQ7wM
- kggJCjWA1SSdZSU2lyMIQ2PnxrZ/OuS8+PvrwfI8lXK4fV626CUFCVWKjK9ewruh45dDxbdeHV
- ixwUt8YrWMqY9YZq21B2hr+w4ovTK1/nIqMUb0ndEhl2dgfbJ7nF+XYrsxhAQAA
-X-Change-ID: 20261011-genexis-xg6846-smp-v7-3-rc1-b470f0e20475
+Message-Id: <20261025-genexis-xg6846-smp-v7-3-rc1-v4-2-b352ab54f46b@kernel.org>
+References: <20261025-genexis-xg6846-smp-v7-3-rc1-v4-0-b352ab54f46b@kernel.org>
+In-Reply-To: <20261025-genexis-xg6846-smp-v7-3-rc1-v4-0-b352ab54f46b@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -88,54 +84,130 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When booted through CFE and mainline U-Boot, the XG6846B has no PSCI
-provider. CFE powers up CPU1 and leaves it waiting in a holding pen.
+The XG6846B CFE bootloader powers up CPU1 and leaves it in a holding pen
+waiting for an interrupt. After waking, the stub reads the GPIO
+GeneralPurpose register at 0xff800568 and branches to the stored address
+in ARM state. The vendor kernel uses this mailbox and a wakeup IPI.
 
-Add a BCMBCA CFE SMP method selected by enable-method = "brcm,bca-smp".
-It uses a GPIO mailbox and a wakeup IPI, with PSCI retaining priority.
-On the XG6846B, preserve the holding pen and disable the board's inherited
-PSCI setup.
-Tested on the XG6846B with both CPUs coming online.
+Implement the brcm,bca-smp CPU enable-method for BCMBCA systems
+booted through CFE.
+Read the mailbox address from the secondary CPU's cpu-release-addr
+property. Map it as device memory, write secondary_startup_arm and
+complete the write before sending the wakeup IPI. CPU1 is already
+running, so no power or reset sequence is needed. Using the ARM entry
+also supports kernels built in Thumb-2 mode. Clear any Thumb function
+pointer tag before programming this ARM entry address.
 
-These patches were authored with the assistance of an LLM.
+Register the operations with CPU_METHOD_OF_DECLARE() so the CPU
+nodes select CFE bring-up explicitly. Build the BCMBCA machine
+description independently of DEBUG_BCMBCA, keeping the debug UART
+mapping conditional. The generic ARM startup code retains PSCI priority.
 
+Suggested-by: William Zhang <william.zhang@broadcom.com>
+Reviewed-by: William Zhang <william.zhang@broadcom.com>
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
-Changes in v4:
-- Require cpu-release-addr for brcm,bca-smp and provide a dummy release
-  address for CPU0, which is already online.
-- Link to v3: https://patch.msgid.link/20261021-genexis-xg6846-smp-v7-3-rc1-v3-0-7c871f1755db@kernel.org
+ arch/arm/mach-bcm/Makefile       |  2 +-
+ arch/arm/mach-bcm/board_bcmbca.c | 56 ++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 57 insertions(+), 1 deletion(-)
 
-Changes in v3:
-- Use BCMBCA naming for the CFE SMP implementation.
-- Add the brcm,bca-smp binding and select CFE SMP through the CPU
-  enable-method, retaining PSCI priority.
-- Squash the holding-pen reservation fix into the CFE bring-up DTS patch.
-- Boot tested successfully on the XG6846B.
-- Link to v2: https://patch.msgid.link/20261017-genexis-xg6846-smp-v7-3-rc1-v2-0-bf6b4b374b6e@kernel.org
+diff --git a/arch/arm/mach-bcm/Makefile b/arch/arm/mach-bcm/Makefile
+index 6baedf4c6304..fcc4e0174adc 100644
+--- a/arch/arm/mach-bcm/Makefile
++++ b/arch/arm/mach-bcm/Makefile
+@@ -58,6 +58,6 @@ endif
+ 
+ # BCMBCA
+ ifeq ($(CONFIG_ARCH_BCMBCA),y)
+-obj-$(CONFIG_DEBUG_BCMBCA)	+= board_bcmbca.o
++obj-y				+= board_bcmbca.o
+ obj-$(CONFIG_SMP)		+= bcm63xx_smp.o bcm63xx_pmb.o
+ endif
+diff --git a/arch/arm/mach-bcm/board_bcmbca.c b/arch/arm/mach-bcm/board_bcmbca.c
+index b510d959870a..248b8bd77645 100644
+--- a/arch/arm/mach-bcm/board_bcmbca.c
++++ b/arch/arm/mach-bcm/board_bcmbca.c
+@@ -1,9 +1,15 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ // Copyright (C) 2024 Linus Walleij <linus.walleij@linaro.org>
+ 
++#include <linux/io.h>
++#include <linux/of.h>
++#include <linux/smp.h>
++
+ #include <asm/mach/arch.h>
+ #include <asm/mach/map.h>
++#include <asm/smp_plat.h>
+ 
++#ifdef CONFIG_DEBUG_BCMBCA
+ /* This is needed for LL-debug/earlyprintk/debug-macro.S */
+ static struct map_desc bcmbca_io_desc[] __initdata = {
+ 	{
+@@ -13,12 +19,62 @@ static struct map_desc bcmbca_io_desc[] __initdata = {
+ 		.type = MT_DEVICE,
+ 	},
+ };
++#endif
+ 
+ static void __init bcmbca_map_io(void)
+ {
++#ifdef CONFIG_DEBUG_BCMBCA
+ 	iotable_init(bcmbca_io_desc, ARRAY_SIZE(bcmbca_io_desc));
++#endif
+ }
+ 
++#ifdef CONFIG_SMP
++static int bcmbca_boot_secondary(unsigned int cpu, struct task_struct *idle)
++{
++	struct device_node *np;
++	void __iomem *mailbox;
++	u32 release_addr;
++	int ret;
++
++	/* CFE has already powered up CPU1 and left it waiting in WFI. */
++	if (cpu_logical_map(cpu) != 1)
++		return -EINVAL;
++
++	np = of_get_cpu_node(cpu, NULL);
++	if (!np)
++		return -ENODEV;
++
++	ret = of_property_read_u32(np, "cpu-release-addr", &release_addr);
++	of_node_put(np);
++	if (ret) {
++		pr_err("CPU%u: missing or invalid cpu-release-addr property\n", cpu);
++		return ret;
++	}
++
++	mailbox = ioremap(release_addr, sizeof(u32));
++	if (!mailbox)
++		return -ENOMEM;
++
++	/*
++	 * The CFE stub reads GPIO GeneralPurpose after an interrupt and
++	 * branches to it in ARM state. Clear any Thumb function pointer
++	 * tag and complete the MMIO write before sending the wakeup IPI.
++	 */
++	writel(__pa_symbol(secondary_startup_arm) & ~1, mailbox);
++	dsb(sy);
++	arch_send_wakeup_ipi_mask(cpumask_of(cpu));
++	iounmap(mailbox);
++
++	return 0;
++}
++
++static const struct smp_operations bcmbca_smp_ops __initconst = {
++	.smp_boot_secondary = bcmbca_boot_secondary,
++};
++
++CPU_METHOD_OF_DECLARE(bcmbca_smp, "brcm,bca-smp", &bcmbca_smp_ops);
++#endif
++
+ static const char * const bcmbca_dt_compat[] = {
+ 	/* TODO: Add other BCMBCA SoCs here to get debug UART support */
+ 	"brcm,bcm6846",
 
-Changes in v2:
-- Read the CFE mailbox address from CPU1's cpu-release-addr property,
-  as suggested by William Zhang.
-- Link to v1: https://patch.msgid.link/20261012-genexis-xg6846-smp-v7-3-rc1-v1-0-a51d4afde4a7@kernel.org
-
----
-Linus Walleij (3):
-      dt-bindings: arm: cpus: Add brcm,bca-smp enable method
-      ARM: bcm: Add CFE SMP support for BCMBCA
-      ARM: dts: broadcom: Use CFE CPU bring-up on the XG6846B
-
- Documentation/devicetree/bindings/arm/cpus.yaml    | 39 +++++++++++++++
- .../boot/dts/broadcom/bcm6846-genexis-xg6846b.dts  | 18 ++++++-
- arch/arm/mach-bcm/Makefile                         |  2 +-
- arch/arm/mach-bcm/board_bcmbca.c                   | 56 ++++++++++++++++++++++
- 4 files changed, 113 insertions(+), 2 deletions(-)
----
-base-commit: 6356fd3dd29d8b5620507a0ce037c644e052b5dd
-change-id: 20261011-genexis-xg6846-smp-v7-3-rc1-b470f0e20475
-
-Best regards,
---  
-Linus Walleij <linusw@kernel.org>
+-- 
+2.56.0
 
 
