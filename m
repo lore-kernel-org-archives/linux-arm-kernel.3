@@ -2,104 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7529606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 20:45:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94575606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 20:54:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iL/DezyF;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CfMak6rv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kqJj3sdU;
+	dkim=pass (4096-bit key, unprotected) header.d=lausen.nl header.i=@lausen.nl header.a=rsa-sha256 header.s=uberspace header.b=ph6/xYnr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Y1K0RTnG4l4ygM2F8GtIx4eTiSY/f4ozYtbSxngz744=; b=iL/DezyFTWhK37LvRtNQMN8TMk
-	pFvlXt6uwN9v9uGk+ZLAhvEJVJ2Mcd+spJR8MWQ4kt6UNEE7CPrx45ZNNMo964aKPzoX95rU8aDeX
-	PJal9DDX7yov0aIpmQUXzADXpcrIpyQMp7fYnBzT+264tAr4+f6YByw8F7EGy1WC6SyxUowiGv9tx
-	xmHvhPmILrID2ZFLBuFGj5V/QnNlZDMooEzOYjUhnmt7sUoUotSI2kKkYaReJEhOJMjsfH5ky4VtQ
-	yCa0iUmQ0kKGmsTDr1f/8wNZ4uCSid7Kic9ZrgAgwEHWqaPo6DGl7r7xtyf2RxD0kjYC6vKfJIAkc
-	PJcAKu6g==;
+	bh=v5wUyzr+DyPRm9u7hQz3ABD0SUSnHt3iQOyUP/pLhMk=; b=kqJj3sdUSos8sORnf+gx3Debdo
+	ivUTsm7QFCYQ3RqdA45KAVjFwtzxzxp/bDCIZLuMx5vu712oPsmEU9xXnkQ8rOQLdHGAaifPWsdEt
+	rG7pdq2qbLnjZtlEznM4+SJcat6tRsPrdCLiNLWTHhVw5waZJ20lgd8kH4BCjeEofgRvIEwQc6z8x
+	C2HdOZJL9pCg9aGvlNpOqlyepMFjOsapA9eWiO8ZhsIH4nj6VHhkHX+gRZd26I2DJZV3aVGHhrcvn
+	C6c6kCs7kLq8q4np1I2CS0bzaX22TnNeWtcDL2wk5iJmztBdsf3t3KcsTq7iA9BcNmBD8ZvbjqrGs
+	HjKq7iSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL554-00000001R1B-1oyn;
-	Sun, 25 Oct 2026 20:44:38 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1xL5EU-00000001Res-1U9p;
+	Sun, 25 Oct 2026 20:54:22 +0000
+Received: from mailgate01.uberspace.is ([95.143.172.20])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL550-00000001R0p-3HnK
+	id 1xL5ER-00000001Rdz-4By5
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Oct 2026 20:44:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1792961075; x=1824497075;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=eXznDtSLHr+NGm3eF9RB5EGJ3G5yfhG0QIJwsysSxZw=;
-  b=CfMak6rvrJv22LtBpib1ZQADucCHdlW3VsgbrHfSZRRvVYk+XHH9yyu2
-   wni17aZ+c5hM3Mx44Sh57xTDl8ugkZdYr12miHVNHXxiJ6OsLKHxhKAbS
-   LzbUoWbrfUzy3y4cnM2YO1UhBIm5KkYPwQbQWYBAzbiwwpbQlzWwEX4Mz
-   buV48O/SO7OR+rnijkybFMU8bGNcDmS9XVBInxr5D58p2RP3+3j5sszUk
-   zV6eEcywWp9peVXqnuuzFnh+pBVW/Kx+KZj7rJ5rabd+wMzln3+xV78ME
-   ZfUnobhGTM65Cslyhovbu3gypLs1jH34yggsyI1QbGeNivf1yYG5WJ9su
-   Q==;
-X-CSE-ConnectionGUID: /AvyNzIYROaYFYp8prc+iA==
-X-CSE-MsgGUID: GIY6k93wRFm0JKKeIZgfvQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11946"; a="1527864"
-X-IronPort-AV: E=Sophos;i="6.27,178,1787036400"; 
-   d="scan'208";a="1527864"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2026 13:44:33 -0700
-X-CSE-ConnectionGUID: EMIh884NTLyiP+HifSGEoA==
-X-CSE-MsgGUID: K9IknHoWQhyv10Qz/UdTGQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,178,1787036400"; 
-   d="scan'208";a="4080612"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.10])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2026 13:44:27 -0700
-Date: Sun, 25 Oct 2026 22:44:25 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: "Maciej W. Rozycki" <macro@orcam.me.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Raul E Rangel <rrangel@chromium.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Timur Tabi <timur@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v5 2/5] serial: serialize asynchronous write wakeups with
- the port lock
-Message-ID: <at5qKehogAjTa-fA@ashevche-desk.local>
-References: <20261024-submit-serial-8250-dma-cancel-v1-v5-0-9e52968928d2@gmail.com>
- <20261024-submit-serial-8250-dma-cancel-v1-v5-2-9e52968928d2@gmail.com>
- <alpine.DEB.2.21.2610250459200.42255@angie.orcam.me.uk>
- <at4bw-G8czG-G7Wl@ashevche-desk.local>
- <CADvTj4psJcY2T1PG9H8_hJWjz62R7unj3PPgv3FrVquUMFVhGg@mail.gmail.com>
+	Sun, 25 Oct 2026 20:54:21 +0000
+Received: from devico.uberspace.de (devico.uberspace.de [185.26.156.185])
+	by mailgate01.uberspace.is (Postfix) with ESMTPS id 13B9461070
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 21:54:09 +0100 (CET)
+Received: (qmail 25742 invoked by uid 990); 25 Oct 2026 20:54:08 -0000
+Authentication-Results: devico.uberspace.de;
+	auth=pass (plain)
+Received: from unknown (HELO unknown) (::1)
+	by devico.uberspace.de (Haraka/3.1.1) with ESMTPSA; Sun, 25 Oct 2026 21:54:08 +0100
+From: Leonard Lausen <leonard@lausen.nl>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Leonard Lausen <leonard@lausen.nl>
+Subject: [PATCH] arm64: dts: rockchip: Enable Wi-Fi on the NanoPi M5
+Date: Sun, 25 Oct 2026 20:52:48 +0000
+Message-ID: <20261025205339.14539-2-leonard@lausen.nl>
+X-Mailer: git-send-email 2.47.3
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CADvTj4psJcY2T1PG9H8_hJWjz62R7unj3PPgv3FrVquUMFVhGg@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-Rspamd-Bar: /
+X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) BAYES_HAM(-2.999799) MID_CONTAINS_FROM(1) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
+X-Rspamd-Score: -0.099799
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=lausen.nl; s=uberspace;
+	h=from:to:cc:subject:date;
+	bh=vZp7WOiFDniDGGPVB44BCfmjNLNKpcugqLlTg39BwmY=;
+	b=ph6/xYnrrUxOCAl6qoRBXpbH0JRaj0GL9p69gDqEDI9uZ2+N1Pk/Qp5rXwxKv75BLb+K+wUfHc
+	ttxdkc4ak71hq6vAdf1xp2R5T08BgrX0glv4CeV2jb0t2f1lm0I/4fmvP02wSc+OUdkucDW0gA6H
+	HeopSLDqOk+IAHX1IOT6ODedzzQ4dc3sjSIWHAjIbsgeoewnx41tbkTAICtBp2kNXM9zxBad2wxT
+	WV9Yvbpji2KSfrWcug4sTc65mEMra8Q7IunNLTpGfZ5UERBkqA05eGOYN6IPp3V16DFzc1x7uUtU
+	aknRUf8TkdpoowDJgmysVGbkJBIpKRCtFF7n8FHdRK7bg/tMKRa8wysHhJGRxKvLDo5cOYbwvXQM
+	kQUbewTE4MwAgvHSV2IVgfuhUAr5iOtq6T3TxJKAka1zVxb+sYkfaBhKbxL0yO43CNbkMk3vj6Kb
+	HAOnPJNwHwUjKTSoaHr2nhrNhoebOp2YQE1631GDhGgR96vLPLYlzEBPd0m6WB8pfcSQpWkxjUvf
+	duJcssmbBWWECTPTKSLqXikRAq02ksLD3LxW5eVbQmSTvJAqxY54rFBOXTGXzuMIYyh54sXk1owu
+	3Bz07OAOrwyK9ldMTmLyrCnmFB8XxbNkfsay/z6O4mxqN1P/SBifh5BVBPJU55SjjtEhobB1EtvB
+	k=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_134434_837150_72667A36 
-X-CRM114-Status: GOOD (  32.92  )
-X-Spam-Score: -4.5 (----)
+X-CRM114-CacheID: sfid-20261025_135420_205517_FB5DA7E0 
+X-CRM114-Status: GOOD (  10.78  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,94 +85,96 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, Oct 25, 2026 at 02:25:46PM -0600, James Hilliard wrote:
-> On Sun, Oct 25, 2026 at 9:10 AM Andy Shevchenko
-> <andriy.shevchenko@linux.intel.com> wrote:
-> > On Sun, Oct 25, 2026 at 05:10:03AM +0000, Maciej W. Rozycki wrote:
-> > > On Sat, 24 Oct 2026, James Hilliard wrote:
-> > >
-> > > > uart_write_wakeup() expects the UART port lock to be held. Several worker,
-> > > > DMA completion and interrupt paths call it without that lock, including
-> > > > indirect calls from uart_handle_cts_change() and the transmit helpers.
-> > >
-> > >  Fair enough, and thank you for the cleanup and spotting the issue in the
-> > > first place, however...
-> >
-> > He already issues a v6. I think the tactics against AI contributions should be
-> > to not answer for a week or so until there will be a quiescent week.
-> 
-> At least with the workflow I've been using, a good signal for quiescence is
-> simply whether or not the Sashiko reviewer found issues.
-> 
-> I am feeding the Sashiko prompts into my local agent but it seems to
-> sometimes miss issues that get flagged by the public Sashiko reviewer
-> still.
-> 
-> I've been attempting to peel off independently reviewable fixes where
-> feasible as well to minimize the amount of patches/code during respins
-> as well.
-> 
-> > At least that's what I learn from this patch storm.
-> 
-> Whenever my local branch accumulates significant refactoring/changes
-> due to Sashiko or manual reviews I generally try and send out the new
-> revision fairly quickly in an attempt to avoid reviewers wasting time
-> reviewing code that is obsoleted by the new fixes/changes in my local
-> branch.
-> 
-> Locally I actually have far more UART related patches in an integration
-> tree that I've held off on sending for now since they are dependent upon
-> the prerequisite fixes I have already sent. My unposted patches actually
-> have an even larger amount of code changes than all the UART related
-> patches that I've posted so far, at least when measured in terms of total
-> lines of code changed.
-> 
-> The large amount of patches I ended up with seems to have mostly come
-> about due to the AI agent identifying most of these bugs while iterating on
-> and debugging new features(most of which are still largely unsent so far).
-> 
-> The strategy I've been using is to send small isolated fixes separately and
-> then reference them as needed in the larger series that depend on them.
-> I figure this should make the changes easier to review than having them
-> all in a larger series. I contributed the changes[0] to make this compatible
-> with the Sashiko reviewer actually.
-> 
-> I also use a custom AI agent controlled hardware in the loop test harness
-> which makes iterating/testing changes much faster since the AI agent can
-> autonomously test and iterate on changes far faster than is possible to do
-> manually. This test setup also allows much more thorough testing as a lot
-> of error handling or uncommonly hit code paths can then be tested using
-> AI generated fault injection tests on real hardware tailored to the specific
-> fix being validated. I manually review the final changes before sending as
-> well of course.
-> 
-> I'm constantly refining these patch development/review workflows as well
-> so feel free to give me any suggestions for anything I should change to
-> make review easier.
+The NanoPi M5 has an M.2 E-key slot for SDIO Wi-Fi modules such as the
+RTL8822CS-based AC200. The SDIO controller is disabled and the module's
+power sequence is not described, preventing the card from enumerating.
 
-I already gave one: slow down. Better think than loop through AI and keep
-Sashiko busy. Your patches are valuable, no questions, but they are way
-too complicated to catch on withing an hours or a couple of days time frame.
+Enable the controller in four-bit SDR104 mode and connect its 3.3 V card
+and 1.8 V I/O supplies. Describe the active-low reset on GPIO1_C2, the
+200 ms power-on delay used by the vendor device tree, and the external
+32.768 kHz clock from the HYM8563 RTC. Keep the card powered during
+suspend as required by the rtw88 SDIO driver.
 
-Some people might want to test the stuff. And sending too often you actually
-will get the opposite results, people will be tired to even start reviewing
-and/or testing your code as it's changed way too quickly. Settle down first
-with something, put on the cover letter the answer why not all Sashiko's
-comments are being addressed (for example, due to amount of patches or the
-series being focused on a certain issue).
+Signed-off-by: Leonard Lausen <leonard@lausen.nl>
+---
+ .../boot/dts/rockchip/rk3576-nanopi-m5.dts    | 34 +++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-> [0] https://github.com/sashiko-dev/sashiko/pull/389
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+index 3a305408fa16c..bfa18de1ae1af 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+@@ -23,6 +23,7 @@ aliases {
+ 		ethernet0 = &gmac0;
+ 		ethernet1 = &gmac1;
+ 		mmc0 = &sdmmc;
++		mmc1 = &sdio;
+ 	};
+ 
+ 	chosen {
+@@ -212,6 +213,16 @@ vcc_3v3_s0: regulator-vcc-3v3-s0 {
+ 		vin-supply = <&vcc_3v3_s3>;
+ 	};
+ 
++	sdio_pwrseq: sdio-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		clocks = <&hym8563>;
++		clock-names = "ext_clock";
++		pinctrl-0 = <&wifi_reg_on_h>;
++		pinctrl-names = "default";
++		post-power-on-delay-ms = <200>;
++		reset-gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
++	};
++
+ 	sound {
+ 		compatible = "simple-audio-card";
+ 		pinctrl-names = "default";
+@@ -855,6 +866,12 @@ pcie0_perstn: pcie0-perstn {
+ 		};
+ 	};
+ 
++	sdio-pwrseq {
++		wifi_reg_on_h: wifi-reg-on-h {
++			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	sdmmc {
+ 		sdmmc0_pwren_h: sdmmc0-pwren-h {
+ 			rockchip,pins = <0 RK_PB6 RK_FUNC_GPIO &pcfg_pull_up>;
+@@ -890,6 +907,23 @@ &saradc {
+ 	status = "okay";
+ };
+ 
++&sdio {
++	bus-width = <4>;
++	cap-sd-highspeed;
++	cap-sdio-irq;
++	disable-wp;
++	keep-power-in-suspend;
++	mmc-pwrseq = <&sdio_pwrseq>;
++	no-mmc;
++	no-sd;
++	non-removable;
++	sd-uhs-sdr104;
++	vmmc-supply = <&vcc_3v3_s3>;
++	vqmmc-supply = <&vcc_1v8_s3>;
++
++	status = "okay";
++};
++
+ &sdmmc {
+ 	bus-width = <4>;
+ 	cap-sd-highspeed;
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.47.3
 
 
