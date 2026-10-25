@@ -2,57 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE0F3606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 19:22:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1075606A33D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 19:22:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VtnCBHWR;
-	dkim=pass (1024-bit key, unprotected) header.d=student.uibk.ac.at header.i=@student.uibk.ac.at header.a=rsa-sha256 header.s=prod24a header.b=rdiPjhtI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DtPhXmBf;
+	dkim=pass (1024-bit key, unprotected) header.d=student.uibk.ac.at header.i=@student.uibk.ac.at header.a=rsa-sha256 header.s=prod24a header.b=VPiao86v
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=0X/tbl9Q4g7QTtyNOjf8kZ22NcdZe6K4eZsTNrclaaw=; b=VtnCBHWRY5hMLu
-	t/8qj4A2KsfT1ilDvxMX4re8gv8dKMaIuI+jlWg8aeurfCtqCgyt6SGFbZ3JoapTumZc/zwFXfVq1
-	B9FS/A94+4Uny2UEVgro4tYgmSDsnCD/7Rv6uTHnw2mHHAAfYW4/mdeTvnDZQ0oDQafOLcT4v4ulf
-	OvLOPmdkvzjR6OwI+OChP+TfevbYJpvc75lDVvpafgniDhBIOUGktEdP76dOKKDXohCgdSjDYxYYS
-	gxcTVMd4eUI2kjE/xP4wfn9XInrUsnBJglWLW17aOdnvA6OfBrZgpm1fg+j9De/46KLZ2sIRRv4f3
-	fMjk/VqUwdPZgyAWf9vg==;
+	List-Owner; bh=ZTVr2mIS4HSA2/kepG1g/wU2cXkBdxzWnNpIBuQNFP8=; b=DtPhXmBf83ZU8e
+	OykbOFxtrDUP8d6otmNDzp5uPYpK8OrA4A/964ysMsY9z7TaCBDoxz9QXKboAyhWio/BLUwznOxtL
+	8XLJ9TBqKpdeADgQZg7Dms5Tvb9FgE7ISWrnMJ7Vqfdp3ech8LPrFiShhSJy+knGJIOsHNUv6TtKN
+	fVrQm/D0aDhvxFMMgbxpVdllwt32u2qg1mpKDClbA4ZJN6s9WHuP2MvdQSUsUuRbeKnVK3bOwR6Ob
+	a1FHXg4CRt8LX55NaJxbPkF3OFsiwVR83cs4KoLTPI11xZqJ8VkciwuHBWb46/fuRksSjEwDKjjOA
+	gstV4J0NMIFCdPGmGONg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL3nC-00000001KsZ-2z2K;
-	Sun, 25 Oct 2026 19:22:06 +0000
+	id 1xL3nU-00000001L8x-1mNV;
+	Sun, 25 Oct 2026 19:22:24 +0000
 Received: from smtp.uibk.ac.at ([138.232.1.140])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL3n6-00000001Kmh-0reh;
-	Sun, 25 Oct 2026 19:22:01 +0000
+	id 1xL3nN-00000001L09-3v5L;
+	Sun, 25 Oct 2026 19:22:19 +0000
 Received: from surface-pro-5 (178.115.151.51.wireless.dyn.drei.com [178.115.151.51])
 	(authenticated bits=0)
-	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 69PJLko5516701
+	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 69PJM3W7516897
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sun, 25 Oct 2026 20:21:53 +0100
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 69PJLko5516701
+	Sun, 25 Oct 2026 20:22:10 +0100
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 69PJM3W7516897
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=student.uibk.ac.at;
-	s=prod24a; t=1792956113;
-	bh=0X/tbl9Q4g7QTtyNOjf8kZ22NcdZe6K4eZsTNrclaaw=;
+	s=prod24a; t=1792956131;
+	bh=ZTVr2mIS4HSA2/kepG1g/wU2cXkBdxzWnNpIBuQNFP8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=rdiPjhtIbDhRZnlN+dcIhs9BQnfv7mzxnz4QZfouvzZGAl2c819HPQaSMMUMGQPBu
-	 LXYjxl59cPYtVUuATW/WOJ9o4X3nTS9B8E6ejduu2VqAPCyNk2afCKxwSokWbCc/Pm
-	 lkv6KvlQU2qWArd66gl5AO/PzL3u3RsshxfBLwzY=
+	b=VPiao86vCFjxt56jbGEgsEgwU3Tvbi8seYJUJaQPDMk+NiGlEDzCzcjj6s5k2OczA
+	 rqOdUWZkX7E8TRJKfbony3FKmNIzdA1FBkxf3mhUhbDgddAP2IHffcL8KlefaKQ+Nb
+	 foflPTMVX+y86hQI7Lhss4h9xK1mT9W8Dj82R92U=
 From: christian.koever-draxl@student.uibk.ac.at
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com,
-        martin.blumenstingl@googlemail.com
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+To: neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com,
+        martin.blumenstingl@googlemail.com, vkoul@kernel.org, mani@kernel.org,
+        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+        linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
         =?UTF-8?q?Christian=20Stefan=20K=C3=B6v=C3=A9r-Draxl?= <ckoever@outlook.de>
-Subject: [PATCH 2/2] firmware: meson: sm: make power-off work on S4
-Date: Sun, 25 Oct 2026 20:21:44 +0100
-Message-ID: <20261025192144.208954-3-christian.koever-draxl@student.uibk.ac.at>
+Subject: [PATCH 2/2] phy: amlogic: meson-g12a-usb2: add S4 support
+Date: Sun, 25 Oct 2026 20:22:02 +0100
+Message-ID: <20261025192202.209045-3-christian.koever-draxl@student.uibk.ac.at>
 X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261025192144.208954-1-christian.koever-draxl@student.uibk.ac.at>
-References: <20261025192144.208954-1-christian.koever-draxl@student.uibk.ac.at>
+In-Reply-To: <20261025192202.209045-1-christian.koever-draxl@student.uibk.ac.at>
+References: <20261025192202.209045-1-christian.koever-draxl@student.uibk.ac.at>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -60,8 +61,8 @@ Content-Transfer-Encoding: 8bit
 X-Spam-Score: () -13.0 ALL_TRUSTED,RCV_SMTP_AUTH,RCV_SMTP_UIBK,U_H_APTO_LONG,U_RCPTS_11_PLUS
 X-Scanned-By: MIMEDefang_3.2_at_uibk.ac.at
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_122200_796319_AC0A515D 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20261025_122218_327400_0E282621 
+X-CRM114-Status: GOOD (  15.90  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,129 +84,146 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
 
-On S4 the firmware implements PSCI SYSTEM_OFF as DDR self-refresh. A
-press of the power key afterwards jumps back to the kernel resume
-address, where nothing is waiting, and the board hangs until it is
-unplugged.
+The S4 USB2 PHY follows the A1 programming (MPLL DCO clock select, R21
+calibration, R13 analog settings) with a few differences taken from the
+vendor driver:
 
-The vendor kernel avoids this in two steps, both needed:
+ - edge drive trim 2 instead of 3,
+ - HS disconnect reference 3 instead of 1,
+ - a disconnect threshold in R14, and the R13 PMA signal update bit
+   set to latch the analog settings.
 
- - set the firmware shutdown flag (SMC 0x82000042, argument 1) right
-   before SYSTEM_OFF, which makes the firmware cold-boot on the power
-   key instead of resuming;
- - take the secondary CPUs down through PSCI CPU_OFF first. With them
-   only parked in the kernel, the firmware wake-up path hangs as well.
+Without the PMA update the host controller sees no root ports and
+nothing enumerates.
 
-Register a power-off prepare handler that stops the secondary CPUs and
-a high priority power-off handler that sets the flag, for the
-amlogic,meson-s4-sm compatible only.
-
-Tested on an S905W2 board: poweroff followed by the power key
-cold-boots the board.
+Tested on an S905W2 board: devices enumerate and work behind a hub on
+the host ports.
 
 Signed-off-by: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
 ---
- drivers/firmware/meson/meson_sm.c       | 46 +++++++++++++++++++++++++
- include/linux/firmware/meson/meson_sm.h |  1 +
- 2 files changed, 47 insertions(+)
+ drivers/phy/amlogic/phy-meson-g12a-usb2.c | 65 +++++++++++++++++------
+ 1 file changed, 48 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/firmware/meson/meson_sm.c b/drivers/firmware/meson/meson_sm.c
-index ab9751a59b55..5410386603c7 100644
---- a/drivers/firmware/meson/meson_sm.c
-+++ b/drivers/firmware/meson/meson_sm.c
-@@ -10,6 +10,7 @@
+diff --git a/drivers/phy/amlogic/phy-meson-g12a-usb2.c b/drivers/phy/amlogic/phy-meson-g12a-usb2.c
+index 66bf0b7ef8ed..18d40f7e48fb 100644
+--- a/drivers/phy/amlogic/phy-meson-g12a-usb2.c
++++ b/drivers/phy/amlogic/phy-meson-g12a-usb2.c
+@@ -72,6 +72,7 @@
+ 	#define PHY_CTRL_R14_I_C2L_ASSERT_SINGLE_EN_ZERO	BIT(6)
+ 	#define PHY_CTRL_R14_BYPASS_CTRL_7_0			GENMASK(15, 8)
+ 	#define PHY_CTRL_R14_BYPASS_CTRL_15_8			GENMASK(23, 16)
++	#define PHY_CTRL_R14_DISCONNECT_THRESHOLD_S4		GENMASK(27, 26)
  
- #include <linux/arm-smccc.h>
- #include <linux/bug.h>
-+#include <linux/cpu.h>
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of.h>
-@@ -17,6 +18,7 @@
- #include <linux/platform_device.h>
- #include <linux/printk.h>
- #include <linux/property.h>
-+#include <linux/reboot.h>
- #include <linux/types.h>
- #include <linux/sizes.h>
-  #include <linux/slab.h>
-@@ -48,6 +50,7 @@ static const struct meson_sm_chip gxbb_chip = {
- 		CMD(SM_THERMAL_CALIB_READ,	0x82000047),
- 		CMD(SM_A1_PWRC_SET,		0x82000093),
- 		CMD(SM_A1_PWRC_GET,		0x82000095),
-+		CMD(SM_SET_POWEROFF_FLAG,	0x82000042),
- 		{ /* sentinel */ },
+ #define PHY_CTRL_R15						0x3c
+ #define PHY_CTRL_R16						0x40
+@@ -149,6 +150,7 @@
+ enum meson_soc_id {
+ 	MESON_SOC_G12A  = 0,
+ 	MESON_SOC_A1,
++	MESON_SOC_S4,
+ };
+ 
+ struct phy_meson_g12a_usb2_priv {
+@@ -217,7 +219,12 @@ static int phy_meson_g12a_usb2_init(struct phy *phy)
+ 		FIELD_PREP(PHY_CTRL_R18_MPLL_ADJ_LDO, 1) |
+ 		PHY_CTRL_R18_MPLL_ACG_RANGE;
+ 
+-	if (priv->soc_id == MESON_SOC_A1)
++	/*
++	 * The S4 shares the A1's MPLL programming: its stock "pll-setting-3"
++	 * (0xac5f69e5) is the G12A R18 value with MPLL_DCO_CLK_SEL (bit 13)
++	 * set, which is exactly what the A1 path adds here.
++	 */
++	if (priv->soc_id == MESON_SOC_A1 || priv->soc_id == MESON_SOC_S4)
+ 		value |= PHY_CTRL_R18_MPLL_DCO_CLK_SEL;
+ 
+ 	regmap_write(priv->regmap, PHY_CTRL_R18, value);
+@@ -234,15 +241,19 @@ static int phy_meson_g12a_usb2_init(struct phy *phy)
+ 		     PHY_CTRL_R16_MPLL_EN);
+ 
+ 	/* PHY Tuning */
+-	regmap_write(priv->regmap, PHY_CTRL_R20,
+-		     FIELD_PREP(PHY_CTRL_R20_USB2_OTG_VBUS_TRIM_2_0, 4) |
+-		     PHY_CTRL_R20_USB2_OTG_VBUSDET_EN |
+-		     FIELD_PREP(PHY_CTRL_R20_USB2_DMON_SEL_3_0, 15) |
+-		     PHY_CTRL_R20_USB2_EDGE_DRV_EN |
+-		     FIELD_PREP(PHY_CTRL_R20_USB2_EDGE_DRV_TRIM_1_0, 3) |
+-		     FIELD_PREP(PHY_CTRL_R20_USB2_BGR_ADJ_4_0, 0) |
+-		     FIELD_PREP(PHY_CTRL_R20_USB2_BGR_VREF_4_0, 0) |
+-		     FIELD_PREP(PHY_CTRL_R20_USB2_BGR_DBG_1_0, 0));
++	value = FIELD_PREP(PHY_CTRL_R20_USB2_OTG_VBUS_TRIM_2_0, 4) |
++		PHY_CTRL_R20_USB2_OTG_VBUSDET_EN |
++		FIELD_PREP(PHY_CTRL_R20_USB2_DMON_SEL_3_0, 15) |
++		PHY_CTRL_R20_USB2_EDGE_DRV_EN |
++		FIELD_PREP(PHY_CTRL_R20_USB2_BGR_ADJ_4_0, 0) |
++		FIELD_PREP(PHY_CTRL_R20_USB2_BGR_VREF_4_0, 0) |
++		FIELD_PREP(PHY_CTRL_R20_USB2_BGR_DBG_1_0, 0);
++	/* S4 uses edge-drive trim 2; other SoCs use 3 */
++	if (priv->soc_id == MESON_SOC_S4)
++		value |= FIELD_PREP(PHY_CTRL_R20_USB2_EDGE_DRV_TRIM_1_0, 2);
++	else
++		value |= FIELD_PREP(PHY_CTRL_R20_USB2_EDGE_DRV_TRIM_1_0, 3);
++	regmap_write(priv->regmap, PHY_CTRL_R20, value);
+ 
+ 	if (priv->soc_id == MESON_SOC_G12A)
+ 		regmap_write(priv->regmap, PHY_CTRL_R4,
+@@ -252,22 +263,38 @@ static int phy_meson_g12a_usb2_init(struct phy *phy)
+ 			     PHY_CTRL_R4_TEST_BYPASS_MODE_EN |
+ 			     FIELD_PREP(PHY_CTRL_R4_I_C2L_BIAS_TRIM_1_0, 0) |
+ 			     FIELD_PREP(PHY_CTRL_R4_I_C2L_BIAS_TRIM_3_2, 0));
+-	else if (priv->soc_id == MESON_SOC_A1) {
++	else if (priv->soc_id == MESON_SOC_A1 ||
++		 priv->soc_id == MESON_SOC_S4) {
+ 		regmap_write(priv->regmap, PHY_CTRL_R21,
+ 			     PHY_CTRL_R21_USB2_CAL_ACK_EN |
+ 			     PHY_CTRL_R21_USB2_TX_STRG_PD |
+ 			     FIELD_PREP(PHY_CTRL_R21_USB2_OTG_ACA_TRIM_1_0, 2));
+ 
+ 		/* Analog Settings */
+-		regmap_write(priv->regmap, PHY_CTRL_R13,
+-			     FIELD_PREP(PHY_CTRL_R13_MIN_COUNT_FOR_SYNC_DET, 7));
++		value = FIELD_PREP(PHY_CTRL_R13_MIN_COUNT_FOR_SYNC_DET, 7);
++		if (priv->soc_id == MESON_SOC_S4) {
++			/*
++			 * S4: set the disconnect threshold and latch the PMA
++			 * signals so the host controller detects its root ports.
++			 */
++			regmap_update_bits(priv->regmap, PHY_CTRL_R14,
++					   PHY_CTRL_R14_DISCONNECT_THRESHOLD_S4,
++					   FIELD_PREP(PHY_CTRL_R14_DISCONNECT_THRESHOLD_S4,
++						      2));
++			value |= PHY_CTRL_R13_UPDATE_PMA_SIGNALS;
++		}
++		regmap_write(priv->regmap, PHY_CTRL_R13, value);
+ 	}
+ 
+ 	/* Tuning Disconnect Threshold */
+-	regmap_write(priv->regmap, PHY_CTRL_R3,
+-		     FIELD_PREP(PHY_CTRL_R3_SQUELCH_REF, 0) |
+-		     FIELD_PREP(PHY_CTRL_R3_HSDIC_REF, 1) |
+-		     FIELD_PREP(PHY_CTRL_R3_DISC_THRESH, 3));
++	value = FIELD_PREP(PHY_CTRL_R3_SQUELCH_REF, 0) |
++		FIELD_PREP(PHY_CTRL_R3_DISC_THRESH, 3);
++	/* S4 wants a higher HS disconnect reference than the other SoCs */
++	if (priv->soc_id == MESON_SOC_S4)
++		value |= FIELD_PREP(PHY_CTRL_R3_HSDIC_REF, 3);
++	else
++		value |= FIELD_PREP(PHY_CTRL_R3_HSDIC_REF, 1);
++	regmap_write(priv->regmap, PHY_CTRL_R3, value);
+ 
+ 	if (priv->soc_id == MESON_SOC_G12A) {
+ 		/* Analog Settings */
+@@ -360,6 +387,10 @@ static const struct of_device_id phy_meson_g12a_usb2_of_match[] = {
+ 		.compatible = "amlogic,a1-usb2-phy",
+ 		.data = (void *)MESON_SOC_A1,
  	},
++	{
++		.compatible = "amlogic,s4-usb2-phy",
++		.data = (void *)MESON_SOC_S4,
++	},
+ 	{ /* Sentinel */ }
  };
-@@ -303,6 +306,45 @@ static struct attribute *meson_sm_sysfs_attrs[] = {
- };
- ATTRIBUTE_GROUPS(meson_sm_sysfs);
- 
-+/*
-+ * The S4 firmware implements PSCI SYSTEM_OFF as DDR self-refresh: on the
-+ * power key it jumps back to the kernel instead of booting, which hangs the
-+ * board. Setting the shutdown flag first makes it cold-boot instead, and the
-+ * secondary CPUs must have been taken down through PSCI CPU_OFF beforehand,
-+ * otherwise the wake-up path hangs as well.
-+ */
-+static int meson_sm_power_off_prepare(struct sys_off_data *data)
-+{
-+	if (freeze_secondary_cpus(0))
-+		pr_warn("meson-sm: failed to stop secondary CPUs\n");
-+
-+	return NOTIFY_DONE;
-+}
-+
-+static int meson_sm_power_off(struct sys_off_data *data)
-+{
-+	meson_sm_call(data->cb_data, SM_SET_POWEROFF_FLAG, NULL, 1, 0, 0, 0, 0);
-+
-+	return NOTIFY_DONE;
-+}
-+
-+static int meson_sm_register_power_off(struct device *dev,
-+				       struct meson_sm_firmware *fw)
-+{
-+	int ret;
-+
-+	ret = devm_register_sys_off_handler(dev, SYS_OFF_MODE_POWER_OFF_PREPARE,
-+					    SYS_OFF_PRIO_DEFAULT,
-+					    meson_sm_power_off_prepare, NULL);
-+	if (ret)
-+		return ret;
-+
-+	/* Run before the PSCI handler, which never returns */
-+	return devm_register_sys_off_handler(dev, SYS_OFF_MODE_POWER_OFF,
-+					     SYS_OFF_PRIO_HIGH,
-+					     meson_sm_power_off, fw);
-+}
-+
- static const struct of_device_id meson_sm_ids[] = {
- 	{ .compatible = "amlogic,meson-gxbb-sm", .data = &gxbb_chip },
- 	{ /* sentinel */ },
-@@ -343,6 +385,10 @@ static int __init meson_sm_probe(struct platform_device *pdev)
- 	if (devm_of_platform_populate(dev))
- 		goto unmap_out_base;
- 
-+	if (of_device_is_compatible(dev->of_node, "amlogic,meson-s4-sm") &&
-+	    meson_sm_register_power_off(dev, fw))
-+		dev_warn(dev, "failed to register power-off handlers\n");
-+
- 	pr_info("secure-monitor enabled\n");
- 
- 	return 0;
-diff --git a/include/linux/firmware/meson/meson_sm.h b/include/linux/firmware/meson/meson_sm.h
-index 3ebc2bd9a976..3f2fa160e32f 100644
---- a/include/linux/firmware/meson/meson_sm.h
-+++ b/include/linux/firmware/meson/meson_sm.h
-@@ -15,6 +15,7 @@ enum {
- 	SM_THERMAL_CALIB_READ,
- 	SM_A1_PWRC_SET,
- 	SM_A1_PWRC_GET,
-+	SM_SET_POWEROFF_FLAG,
- };
- 
- struct meson_sm_firmware;
+ MODULE_DEVICE_TABLE(of, phy_meson_g12a_usb2_of_match);
 -- 
 2.56.0
 
