@@ -2,79 +2,115 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADA29606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 07:58:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD649606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 08:25:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4HhRKJ6j;
-	dkim=pass (2048-bit key, unprotected) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=bL0ULL9m
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Phf/ZTwE;
+	dkim=pass (4096-bit key, unprotected) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=D1Mx3zSP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=BlV2T+q9mM9P/Dyp0XnJMitUT9+yk7oQfi+fya1bIXg=; b=4HhRKJ6j+Z94DH
-	5G9G1vZ3kmteWVlhHeKygd44yNsdIcqIdBpaAJfVCF3raEPgf/QFrYiU7Lp3nZ6OP2opQsxgJpzci
-	+87IBoZWk4y/CsFCzcWXeX3Tsb3Z8yA1LKwUW/AdXvbrIZMCD18lAOAgpC/JKu/q+DJ8+8P0x72fI
-	IYsc3cXOx3uqjGR7JF8z+oKA3gS1Qx+WJNevStwZtCJ3EURHdL+3usUptAHsNdmQq0mM1FC2Ihq9S
-	Dp/gC4mNY66tWQF2ft64ciemoixVdM+UyCSHtcMioIJal2qZVmgvoDTyw2Bg6QP2v2WaPvHqkgPTm
-	+CNQ5IDarudoVM/4ms3Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=7RWPUVAjdb3F1t8/E4Di9FGAQf/lla3oj1eazW4iQLc=; b=Phf/ZTwEBwmo+O4GU5zTNf0rWE
+	w/m7vyz4Jbm/KZVr+99C0j+lHR+5weKDaXW9ngnMD5xNgtJVOLJf/cw92n2YG5QpOfGgM0uUUfNnO
+	3QkHqqF2xSJc85WBEPred6FNy8xpUFeiO0v4TlQtbGmdRheXc4PEnwRBUNdYSk3SnUuOW4A13LMtr
+	Jsd1nra/RqtoTjh2shM6DZYRc0Y/bOY3mh55PzDE6cA1G1GYaI/q6evJzTOPSuTOebsdA/MztMO9T
+	qENAMc+0YPznhMCpkega9hLY53QuiKwxvyhoTVLZ4TQvQhhSrlPzwNwQXTwBvW3cXnTXYNkQ7KoOd
+	/SaVLJ7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKt7i-00000000rrh-2NmG;
-	Sun, 25 Oct 2026 07:58:34 +0000
-Received: from mout.web.de ([212.227.17.12])
+	id 1xKtXC-00000000scB-1mPW;
+	Sun, 25 Oct 2026 08:24:54 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKt7f-00000000rqI-2xa5
+	id 1xKtX9-00000000sbo-1s3p
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Oct 2026 07:58:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1792915092; x=1793519892; i=markus.elfring@web.de;
-	bh=BlV2T+q9mM9P/Dyp0XnJMitUT9+yk7oQfi+fya1bIXg=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=bL0ULL9m2b58izHCzXjh9cKvT1lmF60+KHANgNeuk4D4CBNzNZZJSJ+zGpyl5Ya3
-	 a0yyrMNJKk+lVn5yB39mlSsf4+3GOpOEszoKjJeVaWg/UpS7TxMoT7Yl3sXdXbtC5
-	 mtjTTcMl5w2X2tf+EYbqL8Q1poQJhl3UL5YroBHSDHxEPOvmWo9tP+IWJxxshlMk/
-	 LxGMwy+HuMA3CkS7ht2MxXLJBE6rB7nMkzUhiL9G3J7+2iLrpI9ctXhTr5wrgxnT2
-	 8ZJkp7gE6SQcR/qdlm1L3juS9BO3QV6/4yfLMUch0KIiIHD2X2jYQfhjErvubT9Zo
-	 86hfLdKrYmtDlVRJyA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MlLE7-1wqkRN0zBF-00lkFe; Sun, 25
- Oct 2026 08:58:12 +0100
-Message-ID: <fa60e7c4-d8ca-4ff4-a56f-6a6e2bfbf3cf@web.de>
-Date: Sun, 25 Oct 2026 08:58:06 +0100
+	Sun, 25 Oct 2026 08:24:53 +0000
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 05CEF3F471
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 08:24:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1792916686;
+	bh=7RWPUVAjdb3F1t8/E4Di9FGAQf/lla3oj1eazW4iQLc=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
+	b=D1Mx3zSPvqL+TX+7jPag7RYNyMUM0k3doAUyLJC0CiaNYZ7855ipsmotb1pBkfzjY
+	 ZeVNk+ZHdfJhgSW4RTfMB2qnwUe3sNOMGV5PGOd3/MnkcGUI4cHhBq724TIgrpNV2I
+	 p//JRJVPEANZ3v+QWCYKsiJ78QYfDbzMB52k4OaSRHOXI3J0CmuGYWs9oD4ue+mJ9R
+	 M6saVe9d2aey2jEgM7g/uKAGegvoqNo1fYYDXH3vvgoGicMJz4KcZJaUB33cDd4TaN
+	 Oav4fGFRmqghR68vZgjIDfmrUkvSmq4GfaEz0Y7FSbcEFBl4t9XDRFGkBzbUIjgW7U
+	 DeihuRop6hVmV0ublJD0BnLH0ocMOwhnO3dslfua+LZ1RY+c8sOI6zliKxgCb/N/DV
+	 MoNUkwE/HJOfT2ON3hHwUDAhDpsP95x//amFZikkc4dLf/PSQEywAzpRzYehgds5kD
+	 8g18kFOXbtmA6FPC2uilCWUNO3siNN/HzmlCDy9VcRVmvf0bkGtCzuQKP+OXNTKteb
+	 4ThIRsytT8hTTh9tdE9Le8o/64NMtrDM8sAzi/inwNbGl6i+WsN3FGe4DIEjCFz0xd
+	 OC7yedH2DdcgPIcwQ9/T6IhAsfmEAliADNmbYWDRMQsQ5w0rJJuAbMzCW8VixSuQDA
+	 1r42nh/GX+27T5PqQ2XWQZN4=
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-35c5aef2a74so10104088eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 01:24:45 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792916684; x=1793521484;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7RWPUVAjdb3F1t8/E4Di9FGAQf/lla3oj1eazW4iQLc=;
+        b=JLxiwwuNAufuCxByLDnZK1xWGRzfoySRUoGgKOHzE8z9UY5BBVm4mCxiraY/4NQjER
+         gCtdTEJ3IF2bCJjpIBsDivr++/ySN64Gy6KSEuzRyL/M0z9WzTtp/qCfMHEZppCQXb0F
+         L2Svuo0x0qBHhlgcL882rzJKpHSKCMDMWukxDsC5KghXPIkGorRpYAvs6XEaw1io8/U/
+         18RCNbPHUE1XInmia1nS8majRvQKMeDe14K79L4G2by+d+DSCbY1FtGOfQM5vuI3WBeh
+         OYJsYLWCkR3oYlc6fzMKZGiIWFBDGJgqtTql1zB78ciCLZA8iuzk6CebK7230Z0R2cmr
+         MmgQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzvTAEgyoTaRxM8/UXCBCxCP3NXQyw6+EfbH9uFeIVGn7Wou7vJpXjuQuULiLf0P4rsUgvG4kMXP2tAG5eHg3Hm@lists.infradead.org
+X-Gm-Message-State: AFq9FYLsrd/j8ypnYESjet+sZu9vRlU875BlX8jX+rFOFuPdAYiVPu34
+	WdG8MVnChfj69c43jKpZtqR+B7EBQGnTd+n7H8W6vJ5cDU6NIsWF4P/51L5qqiAH4LcELNdkIKK
+	lrzZ+bS1qhhq4wgkSWBOfMCpovTGulG1tQ3J8Osl0jo3ex9RNWavzoC9SsFjTmBPvU7CqOwYC9w
+	CY/MpjzR7ImAS+Q+vC
+X-Gm-Gg: AYBFou2eKuUI4TTH+NyzZoYJXYENEsQfElmh3MWcPepYWc9nw4Rn2R5F/Hn28hoifwx
+	ky2qlHRNznsyWJqadDRVSuxq9uqlsKeRSPXTy1LcfrJ8GS2XDmoDByHA+kSwDmdlo9BeoVq3k1Z
+	t5rBqRo3u6GXRrAGCGDzFjRPdoheHtmVYm0v9bcwLh94HeaQw1L82rVahE0HHAa8/lJ7Hq89+OI
+	1N/NgFwGa5IEVkHGYM8J3qYqwEUmGxUjWMB0PkaztpyYY7WOwjuQBREL8liANO+hphoHK+Xvhlj
+	0dpCR/XLIdymSxcL7y4HcDOfedXn1ylIEkhXzNe5u3Svq5OEbPlTjrT3ko/hP8ijcoKDE5yJVSB
+	hwQxVe8NhQ3CcmqLCFXaNkH9dDHxRziFDfrxZeTRomabUdlfUk6jmHrEYFmas+oAMAMqJbJ4=
+X-Received: by 2002:a05:7301:f2b:b0:35d:f3cb:ede with SMTP id 5a478bee46e88-369e836aeeamr5907891eec.5.1792916683832;
+        Sun, 25 Oct 2026 01:24:43 -0700 (PDT)
+X-Received: by 2002:a05:7301:f2b:b0:35d:f3cb:ede with SMTP id 5a478bee46e88-369e836aeeamr5907869eec.5.1792916683321;
+        Sun, 25 Oct 2026 01:24:43 -0700 (PDT)
+Received: from resolute-linux.tail872496.ts.net (211-75-139-218.hinet-ip.hinet.net. [211.75.139.218])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-369f27d5bf8sm10301143eec.4.2026.10.25.01.24.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 25 Oct 2026 01:24:42 -0700 (PDT)
+From: Aristo Chen <aristo.chen@canonical.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Christian Hemp <c.hemp@phytec.de>,
+	Jacopo Mondi <jacopo@jmondi.org>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	linux-media@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Aristo Chen <aristo.chen@canonical.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] media: nxp: imx8-isi: Register the media device only once
+Date: Sun, 25 Oct 2026 08:24:18 +0000
+Message-ID: <20261025082419.199021-1-aristo.chen@canonical.com>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Coia Prant <coiaprant@gmail.com>, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,
- Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: stable@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
- Kevin Hilman <khilman@baylibre.com>, Roger Lu <roger.lu@mediatek.com>
-References: <20261023082948.1854252-1-coiaprant@gmail.com>
-Subject: Re: [PATCH] soc: mediatek: SVS: fix device reference leak in
- svs_add_device_link()
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20261023082948.1854252-1-coiaprant@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:7PAQDvSkIoVoG9l6Xc514PDbWSozfg5ApFfUXDMA0pSlWVxkqjD
- 6B5BF75VF0zb6cCEbfYO73VhcPoeuFVVx4QyBTJ+g4m5nedFa49HSKIYMascfRgaaa1MQJV
- drdy2A8nuy2srQtSe8+AkxksjK5YnOOVIBcGe4qi0pRPaqOxCreg1LnLU6aX9J6r34IWEye
- 670Fw3xCasd1m6B2YIR3Q==
-UI-OutboundReport: notjunk:1;M01:P0:OEpGzE8F+u8=;1TVhvPh/36/7HFm/hVhe6gNy8ZO 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
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_005832_035793_8B630437 
-X-CRM114-Status: UNSURE (   3.80  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261025_012451_870693_906DC435 
+X-CRM114-Status: GOOD (  18.84  )
+X-Spam-Score: -4.7 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,22 +121,81 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-=E2=80=A6
-> Drop the reference before returning on both paths.
-=E2=80=A6
+The v4l2-async framework calls the notifier .complete() operation every
+time the last missing subdev gets bound. This happens again each time a
+remote subdev is unbound and bound again, for instance when the sensor
+driver is unbound and rebound through sysfs.
 
-How do you think about to increase the application of scope-based resource=
- management?
-https://elixir.bootlin.com/linux/v7.3/source/include/linux/device.h#L1363
+mxc_isi_async_notifier_complete() calls media_device_register()
+unconditionally. Each call allocates and registers a new media devnode
+and overwrites mdev->devnode, so every rebind creates an additional
+/dev/mediaN for the same media device, and leaks the previous devnode
+and its minor number. As media_device_unregister() only unregisters
+the most recent devnode, the older ones also stay registered after the
+ISI is removed, and ioctls on them dereference the freed media_device.
 
-Regards,
-Markus
+On an i.MX93 board with an AP1302 ISP, every unbind/bind cycle of the
+AP1302 driver adds one /dev/mediaN: after three binds, /dev/media0,
+/dev/media1 and /dev/media2 all expose the same media graph.
+
+Register the media device only if it isn't registered yet. Keep the
+v4l2_device_register_subdev_nodes() call unconditional, as it has to
+create the device nodes of the rebound subdevs, and it already skips
+the subdevs that have one.
+
+The issue was found while debugging an unbind crash in the AP1302
+driver of the NXP BSP kernel. An AI coding assistant helped to find
+it, and wrote this fix and its changelog.
+
+Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Aristo Chen <aristo.chen@canonical.com>
+---
+Tested on an i.MX93 FRDM board running the NXP BSP kernel
+(lf-6.18.20-2.0.0), whose mxc_isi_async_notifier_complete() is identical
+to mainline, with the AP1302 driver from the same BSP plus a local fix
+that makes it possible to unbind it:
+
+- Without this patch, three unbind/bind cycles of the AP1302 driver
+  left /dev/media0, /dev/media1 and /dev/media2.
+- With this patch, after each of three unbind/bind cycles only
+  /dev/media0 exists, and media-ctl -p on it shows the rebound AP1302
+  and sensor entities. No kernel warnings.
+
+Not tested: the ISI removal path, where the stale devnodes would be
+dereferenced. Build-tested on top of 330517c63aa9 with W=1, no new
+warnings; sparse was not run.
+
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+index 0ae5f35e017c..82a03742405d 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+@@ -90,6 +90,10 @@ static int mxc_isi_async_notifier_complete(struct v4l2_async_notifier *notifier)
+ 		return ret;
+ 	}
+ 
++	/* .complete() is called again every time a subdev gets rebound. */
++	if (media_devnode_is_registered(isi->media_dev.devnode))
++		return 0;
++
+ 	return media_device_register(&isi->media_dev);
+ }
+ 
+
+base-commit: 330517c63aa9b48227b6ab45f01003effac77ae4
+-- 
+2.53.0
+
 
