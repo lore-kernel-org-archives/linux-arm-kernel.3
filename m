@@ -2,126 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DDC1606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 18:47:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1364D606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 19:19:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2ocADFIm;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=R/HY+e3e
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iee/K3gF;
+	dkim=pass (1024-bit key, unprotected) header.d=student.uibk.ac.at header.i=@student.uibk.ac.at header.a=rsa-sha256 header.s=prod24a header.b=tA4kVeKE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=cd/Rf0PmOsf9SbzCT228kopwmzuVCMtn/HtZcsjTHHw=; b=2ocADFIme9M7JE
-	BgBT7ShUYFWNiOLWrbAsJB5aKe3Nk3gL51VATBSj8y6M94ibkOuqGiXpUULGZbJ0u8GZXd1i0r+Er
-	rqbz3fWq8AbbogSpOT9crP0d/eJca/IO9dEq6uWM7oxbC/Sc6QdQhWLv0T1IHa0aay5ws5v5E7/M9
-	cxNYeU/3kDgbWJFe+1VMORrni0Dn5hgpH9LbhBmgEUwGjElt5lE9OAljP0QX8Kco67zk3HZ/bbAlK
-	7STt1sdnvRJjxPpxIQfG2llBomta4/8kU+yZrqbz8CTFhAOLxIVD+7xSzoC/1FuPxtFGifobwrJpU
-	fcmLmpDsae8g0XlqSQ5Q==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=Dqs4z2NY1rb7FbmpNSV5YxzKzMNh1uksqRMZQL4TgK8=; b=iee/K3gFTMehijF7u/CRvjMqGG
+	xkIbQVST2JfSM75a+cz/WspZV/Ti4nPdWK/XhjYPI8LzqsikGuiD2RLgBIbjZJGbcXkiShciyWJFV
+	P66xhAerJ5kui4eakRfCYANV4fq+kXIUbghOJcEaoExWsewBMwBfXd0Zb7kXPiY5Kyf8/L1NiofR3
+	xWyH8mj1sa/5JDDLXsZB6YFz92rU4JqftZ/A5pu0sg6HvjpeMl++ZRlGacEMNauPH5vY3aNymkWAu
+	Wd5TDqhHCU3zI5xYTPvZHjmxJA2J8R/uhXSNvk9TiHSbqpf3rI2M2VugwtK4HpiWx0A4Dr3+Kop6l
+	n3YHYrmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL3FX-00000001IkL-2gn5;
-	Sun, 25 Oct 2026 18:47:19 +0000
-Received: from mail-vk1-xa34.google.com ([2607:f8b0:4864:20::a34])
+	id 1xL3kl-00000001JzW-1sP5;
+	Sun, 25 Oct 2026 19:19:35 +0000
+Received: from smtp.uibk.ac.at ([138.232.1.140])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL3FV-00000001Ijt-10Uj
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Oct 2026 18:47:18 +0000
-Received: by mail-vk1-xa34.google.com with SMTP id 71dfb90a1353d-5ead9f60e26so2961985e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 11:47:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792954036; cv=none;
-        d=google.com; s=arc-20260327;
-        b=jEnDl3kxR+xXxG4L8P9ATYglrs63jrCs4pj+H+dHpBR+lhsEUXlEMr4vvF9GiGtON4
-         CARRo8TYHkoQaLv6KXt6QLXnw96Om7LzXFECnwDGLpn8mko3bT5WCnY3QW8bVooonsTB
-         gDhBiGktaBGbxQmidAE7DLtRmWMF2KWyhUX4ZUY6X8lN4ftXlWTzL6/U9E51KYLMY/dn
-         Ysh4aI+293PoAscF/QWsN6v8oWnVmLlsblIRlDeShbbAZZiIfKnQy59RzumCPR1VyOe5
-         dqv1DrQhQeqjsbg7GGm8KZdgd9BHMsV/BB2x/XM5+0BWozVLBdRQsoD96bcLrn9ikSxd
-         ArjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=cd/Rf0PmOsf9SbzCT228kopwmzuVCMtn/HtZcsjTHHw=;
-        fh=+/UWBB47Y/BvN2WHIADMRXDJA1UGXID5bzQjWpLC2kY=;
-        b=eHMTUNTPR9L55j8uM9xyQQtAZgm0DEpGOHOU7c9gNtQE/juyRxhqKcTsr5LWViUivu
-         rvCKVcANSJ79bJsCigS+mjsAWWUyhlpGcPphzTLjDgfVtOl4zYmGWaqQ7oMA/C6t2IG7
-         b7eC9HW+U0zlGSSD0blsw35F+SgPyq7lk/bX3/jfB5beoqo3qAt8d2qYVriU7oqzns0q
-         ebHq8wfVxfisKbAHzqkAiKDeG+ZqCg/uDOPo1qKa3schlTf6lk8l1npt5jX4kCYrySi5
-         iLTjDONmeJ0DGpyacDp7G1QQC59do4b+2yu6NW3lzMd7jqMCRC+0G8rtafcnI8yB6hj9
-         chrA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792954036; x=1793558836; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=cd/Rf0PmOsf9SbzCT228kopwmzuVCMtn/HtZcsjTHHw=;
-        b=R/HY+e3evPz6kJnf8mC/KLDT763c1PnCMa+d8Lnbsa1tEh2wsqEL/1THqfiOzOqsI/
-         K/bPQO4UxjTi5YeMPhPG4XqQpzCV1QSsOOXwPobmcPVpnwa5Qindgbb9n8Jtc5x0f4KW
-         O6Xf/amZSHF3GAhhWJoV4mFIEYNwFfh/Q8q5KZTWu/E1UxRqNeVcdWXL5tNhRrLAfBD4
-         LzQTjpuvFBR0kSUelG7zkrgVpjIZqmjiQoV8hC6Wk/eFb6+NRaqGD38Nsf9CfOFR04Wu
-         PAeYjKxBaOw9lyaqc05v2q9ryZP1sEKHZi5Nii/vshg5PSV077aSLEXHMcYPawUkO/pX
-         b95Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792954036; x=1793558836;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cd/Rf0PmOsf9SbzCT228kopwmzuVCMtn/HtZcsjTHHw=;
-        b=jgudfUaabxhBHSXJUuSHxC+bWISBnarS2up2DRpaEyWyK4xvZZ3rw1ida0Dg4sIFfk
-         13bgdArp4yiMHk4UmyBBTK8w4ip+cGgMpLX29mRId3A7H23IAhiysDRetTlclPWiGcsV
-         MJv7DSf4W2GLMzrcxRvkbNcukGTuzok2imc9ao7xXGKfrKQ4fCd9+SAQv/7l20K7ugfQ
-         zQqZEpS3F/TRP6/aBu1+vSQbfO+suGwhlcCLFjxPYeCNOZVVXlNqfAC8LwrIVjjAgBrQ
-         NJ2YotDHpNX8+o7gpAcNrFDf4B6VrDODSB3lGc2dP+c2HNQfCsR5eYIADtqfiw6aRCIr
-         JRhg==
-X-Forwarded-Encrypted: i=1; AKwUvBzDG5q/Wf2JPWUOAn8v6UqyntqvJO2/PkPkw9k219HfrZbUN1r3ErQ048aV3uHhmvhJeYVyTEYifuhtYtrB9WTX@lists.infradead.org
-X-Gm-Message-State: AFq9FYIjQ8UaxxFXsebKj/2jZSvVcSwOerMu7oVJnBq7A/0t2938vCRZ
-	cheWiCTlZdlfw+JJ1UtruMg57722ks0MlQZSWNh0mCXLxUrbDHWoq3t6VKnQ6cvqZkCrDl50tre
-	9B91hsjbE2GfPPBbMKtMLT5EpfFGbIRk=
-X-Gm-Gg: AYBFou32off2v6wLpjZrtScqPrGB17ypP2505aDWlBarfMkU1ZIoYLP5OXJzpDSUc+d
-	58HJHIihemNJ4I2Uxh81RIcUPzU7dVseg21W/ZkQKxGPMf9+D0BNuTacvrLvxjH5iDEr68UBCP0
-	FTFgBOJJdiGeUrU0gvA8F8bA7MrVAwd/d7BxLfIKvpix0JXQ9M2Jmko8tBkgO6jQZ3xvn3jahu9
-	INm3w6XHi2iPpHsnQTdEtd0fQHa4wBroNBE/cu+iweyZTWKOs27y+HxlU/Wj0cl3pxDuSSFxPxm
-	kLvtxpEBgvQZw3A+3vOCaxup4VdED7QXYZX7BbnCSK+hQkaVh69WCz3gTUvt8kmOG4JRloC9rId
-	ByzSwd6SHDhixdb/IMxPLqXpuH70dk+jAGLXT+6bpWVz2aBmBuKvsILofY3rN8uqpZ1ppmG4HMC
-	MGrBLAs9IknKKGETqphNqx15nFnRTH1dXcz3iBabfeRKNABZgKM5wGMUGiiEigYYhg9+4SHJncx
-	qLealH2sX3QwPniGfz0gtWr5ujdjQ==
-X-Received: by 2002:a05:6102:b04:b0:7b5:8fd9:27e9 with SMTP id
- ada2fe7eead31-7ce5d005cd0mr1043722137.2.1792954035832; Sun, 25 Oct 2026
- 11:47:15 -0700 (PDT)
+	id 1xL3kh-00000001Jyh-3sDA;
+	Sun, 25 Oct 2026 19:19:33 +0000
+Received: from surface-pro-5 (178.115.151.51.wireless.dyn.drei.com [178.115.151.51])
+	(authenticated bits=0)
+	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 69PJJ1eT514480
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sun, 25 Oct 2026 20:19:04 +0100
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 69PJJ1eT514480
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=student.uibk.ac.at;
+	s=prod24a; t=1792955945;
+	bh=Dqs4z2NY1rb7FbmpNSV5YxzKzMNh1uksqRMZQL4TgK8=;
+	h=From:To:Cc:Subject:Date;
+	b=tA4kVeKENgDnCqlEJ4/6yeAWjQe5GPl9K8OgiL9OoWKSllIreQ9QS+7hgJIIE1sI1
+	 pwhNYsgj5KbD4nNXXPpaJhuN9xkgr6XWQ0toQo/CC5+j1pfAWjpT5Yvg3hWqpTRnfQ
+	 2nlmye3svoCEB8XtpL+QrxHI5cMN5OtfdetVsQEo=
+From: christian.koever-draxl@student.uibk.ac.at
+To: neil.armstrong@linaro.org, jbrunet@baylibre.com, sboyd@kernel.org,
+        bmasney+clk@redhat.com, khilman@baylibre.com,
+        martin.blumenstingl@googlemail.com, yu.tu@amlogic.com
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        =?UTF-8?q?Christian=20Stefan=20K=C3=B6v=C3=A9r-Draxl?= <ckoever@outlook.de>
+Subject: [PATCH 0/2] clk: meson: s4: two peripheral clock fixes
+Date: Sun, 25 Oct 2026 20:18:50 +0100
+Message-ID: <20261025191852.208226-1-christian.koever-draxl@student.uibk.ac.at>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261024-submit-serial-8250-dma-cancel-v1-v5-0-9e52968928d2@gmail.com>
- <20261024-submit-serial-8250-dma-cancel-v1-v5-2-9e52968928d2@gmail.com> <alpine.DEB.2.21.2610250459200.42255@angie.orcam.me.uk>
-In-Reply-To: <alpine.DEB.2.21.2610250459200.42255@angie.orcam.me.uk>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Sun, 25 Oct 2026 12:47:05 -0600
-X-Gm-Features: AclHuK8RfnuoMKUL7_ChiQcwJjtxWWikUNjoVOQNx_xye2F4G1UoFeQQYjFC0tc
-Message-ID: <CADvTj4ryYd91LYMCktJ6a8=ygm0BG6dd4ZyK6XByaVcWvFTvkw@mail.gmail.com>
-Subject: Re: [PATCH v5 2/5] serial: serialize asynchronous write wakeups with
- the port lock
-To: "Maciej W. Rozycki" <macro@orcam.me.uk>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Raul E Rangel <rrangel@chromium.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Tony Lindgren <tony@atomide.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Richard Genoud <richard.genoud@bootlin.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
-	=?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Timur Tabi <timur@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Spam-Score: () -13.0 ALL_TRUSTED,RCV_SMTP_AUTH,RCV_SMTP_UIBK,U_H_APTO_LONG,U_RCPTS_11_PLUS
+X-Scanned-By: MIMEDefang_3.2_at_uibk.ac.at
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_114717_295627_1EF6F04F 
-X-CRM114-Status: GOOD (  21.34  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261025_121932_185317_128DE0B9 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,75 +73,51 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, Oct 24, 2026 at 11:10=E2=80=AFPM Maciej W. Rozycki <macro@orcam.me.=
-uk> wrote:
->
-> On Sat, 24 Oct 2026, James Hilliard wrote:
->
-> > uart_write_wakeup() expects the UART port lock to be held. Several work=
-er,
-> > DMA completion and interrupt paths call it without that lock, including
-> > indirect calls from uart_handle_cts_change() and the transmit helpers.
->
->  Fair enough, and thank you for the cleanup and spotting the issue in the
-> first place, however...
->
-> > diff --git a/drivers/tty/serial/sb1250-duart.c b/drivers/tty/serial/sb1=
-250-duart.c
-> > index b4e1b90e5960..b15f76acd06b 100644
-> > --- a/drivers/tty/serial/sb1250-duart.c
-> > +++ b/drivers/tty/serial/sb1250-duart.c
-> > @@ -454,10 +454,12 @@ static irqreturn_t sbd_interrupt(int irq, void *d=
-ev_id)
-> >
-> >               if (intstat & M_DUART_ISR_RX)
-> >                       sbd_receive_chars(sport);
-> > -             if (intstat & M_DUART_ISR_IN)
-> > -                     sbd_status_handle(sport);
-> > -             if (intstat & M_DUART_ISR_TX)
-> > -                     sbd_transmit_chars(sport);
-> > +             scoped_guard(uart_port_lock_irqsave, uport) {
-> > +                     if (intstat & M_DUART_ISR_IN)
-> > +                             sbd_status_handle(sport);
-> > +                     if (intstat & M_DUART_ISR_TX)
-> > +                             sbd_transmit_chars(sport);
-> > +             }
->
-> ... why do you think the whole functions need to be called with the lock
-> held while they may or may not call the handlers in question even?
+From: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
 
-For sbd_transmit_chars(), locking only uart_write_wakeup() would leave the
-empty-FIFO decision and TX interrupt masking racing with start_tx(). A
-writer could queue data and enable TX after the empty check, then the
-interrupt handler disables TX interrupts and leaves that output stalled.
+Two fixes for the S4 peripheral clock controller found while bringing
+up an S905W2 TV box:
 
-The same lock protects x_char handling and FIFO consumption against
-concurrent updates and flushing. These races predate this series, but
-wakeup-only locking would leave them unresolved. I'd keep the complete TX
-operation locked; each invocation sends at most one character without a
-FIFO-drain wait.
+ - the PWM muxes may pick vid_pll, which is reprogrammed on every HDMI
+   mode set and so changes the period of any PWM that runs from it. On
+   this board that corrupted the PWM CPU regulator (first cpufreq
+   transition hung the SoC) and the 32.768 kHz clock of the SDIO wifi
+   chip;
+ - the CEC 32k selectors lack CLK_SET_RATE_PARENT, so AO-CEC cannot set
+   its 32768 Hz rate and fails to probe.
 
-> I
-> think we should avoid excessive locking where possible to avoid holding
-> execution elsewhere unnecessarily, shouldn't we?
+Tool use (Documentation/process/generated-content.rst):
+This work was done with the help of an AI coding assistant, Claude
+(Anthropic), used through Claude Code over many sessions. It did a large
+part of the hands-on work: it read the vendor kernel and the firmware
+interfaces, probed registers on the board, drafted the code and the
+changelogs, and ran the builds, checkpatch, dt_binding_check and the
+tests on the hardware. I directed the work, reviewed every change and
+the final patches, and take responsibility for them. There is no single
+prompt to quote; the sessions were of the form "find out why X fails on
+this board, fix it, test it on the box".
 
-For sbd_status_handle(), I'd read and filter the change status first, take
-the lock around the CTS/DSR updates, and release it before waking
-modem-status waiters.
+Tested on an Amediatech X98Q TV box (Amlogic S905W2, S4 family, 2 GiB),
+vendor U-Boot and BL31/OP-TEE, Linux 7.3 plus this work.
 
-I'd also move the TX lock into sbd_transmit_chars(), so RX-only interrupts
-don't acquire it. That means two acquisitions when both status and TX need
-servicing, in exchange for narrower critical sections.
+Christian Stefan Kövér-Draxl (2):
+  clk: meson: s4: keep the PWM clocks off vid_pll
+  clk: meson: s4: propagate rate requests through the CEC 32k muxes
 
->
->   Maciej
->
+ drivers/clk/meson/s4-peripherals.c | 40 +++++++++++++++++++++---------
+ 1 file changed, 28 insertions(+), 12 deletions(-)
+
+
+base-commit: 7be4bc52fd9e0e55dc9a2e0232b89427d2c4b614
+-- 
+2.56.0
+
 
