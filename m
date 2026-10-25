@@ -2,44 +2,45 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 927AF606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 07:52:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD2C0606A334
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 07:52:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=taZh8zv4;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HdJQUu1a
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xqHftd08;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TJzimjCe
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=BKCIoewPxqJjcEiMn9aSQhwGTJS5ZRgwusOumNV0ZUQ=; b=taZh8zv4GklVXs
-	WKRVQgOHXOJTL7gUFcEYVSELh7nugNxTxyhc1Su63IcwOK3hBr8L2654R9rCfy9yz9WewWU0hqF2G
-	9LiAo/pg2kHzWq9RdFXJS+2GCAVCOC7JTfuIQ2e2KjJEvbFa5+WSzkBNoYnlPnNkQNywSK1KZhTWb
-	0l2GWok/cd8U4rzTjItTgf7gjlTWZ0b5fOvv/v+DfYQ9sSlfevXye91OKnxzGRBplWMBIW1wHi/XK
-	vJjWB0ZCetcvlVydgC5FMaR/E/0+w9qIzYzOm1XrIMXgcpVAha9PJMoesxYvCN+Zf5WS4J7UHm33u
-	Q0O0EvK20n+MVGT2Dqgg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=z5DPNgnct5lFOm6/GJKN1n5GxtnVi3Rdus7r1K5LOpU=; b=xqHftd08IeRKrHFxAgCj6gZxZ1
+	GfGS+U431ZkgwXyLerMJXrRVd9Bl50663h1OkQiw7tK0PBVwTbJJ5H++uejK+UxUOpyC4q5l67VCw
+	YjwL36t3tkxOOYybW4MAYfqlNy9UiIlpIwXd3hg7YSYpKOuGg3sirVSSqt9wJ7tm0P8wsemBo3iWS
+	0vyv546KKW4LyaDMeHd1xFhPY+Ep/nOKOAYc0mv5UYsDr/m9gHTpJDHFOGXgvPRkZouAu65kG9Fn9
+	gTgAhtCyIi6/xfmRfVn2JQimHm1wePWpLCLFvpLZey+sTCESKKN44kc40Nh7er8/6hS+kTik0qVaE
+	iTjZpEEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKt1J-00000000qt0-01v4;
-	Sun, 25 Oct 2026 07:51:57 +0000
-Received: from out-79.mta1.migadu.com ([95.215.58.79] helo=mta1.migadu.com)
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKt1B-00000000qrP-47kA
-	for linux-arm-kernel@lists.infradead.org;
+	id 1xKt1D-00000000qs3-3fSn;
 	Sun, 25 Oct 2026 07:51:51 +0000
+Received: from out-54.mta0.migadu.com ([2001:41d0:1004:224b::36] helo=mta0.migadu.com)
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xKt1A-00000000qrO-2BDX
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 25 Oct 2026 07:51:50 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=PFBAXwuqQFvijjX3+VrafA0FdNMSxN6wY89RZNPerd8=;
+DKIM-Signature: a=rsa-sha256; bh=+igOoHTp4OV4TccBEgdDYfC02hrHe22jCQcAB41Vkjg=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792914707; v=1; x=1793519507;
- b=HdJQUu1ayqge7qfrxwLdd4FELHnZf0oyAY/CGV7uKs21K5SrdMGw7oHi8l7mi/uI58ddAeMp
- o6vL1PVURof9cmd5g8Bv1tNTluivYqfm3Cn7jO7ATVFwM9qPpBydBp1hNgwkgxnVV0B79jNS9W3
- UE8s+melIna9HJxYBacDbXbE=
+ t=1792914703; v=1; x=1793519503;
+ b=TJzimjCeGdQEUvey4qs+W7p0N+ceRemf1VF9TTaXxN3mbmHBOhvVeZcQWRc+RwMhSeZ2fnGH
+ XM6w9YFsgPaiBi53N/cVIfNcYNo7bSyCPqfMKt2Lt8GZNACVKbCte18mJ8EG5HXX5Txl6nl3VPs
+ vSWv3uQkTnD+rponDLQSjW0k=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id b9760d0147542ea5;
-	Sun, 25 Oct 2026 07:51:47 +0000
-X-Mizu-Trace-ID: b9760d0147542ea5
+Received: by smtp.migadu.com with ESMTPS id 21872143caefef64;
+	Sun, 25 Oct 2026 07:51:43 +0000
+X-Mizu-Trace-ID: 21872143caefef64
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -59,19 +60,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	kvm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/5] arm64: Add override for ID_AA64ISAR1_EL1.LS64
-Date: Sun, 25 Oct 2026 07:51:34 +0000
-Message-ID: <20261025075138.2919734-2-fuad.tabba@linux.dev>
+Subject: [PATCH v2 0/5] KVM: arm64: Support FEAT_LS64_ACCDATA in guests
+Date: Sun, 25 Oct 2026 07:51:33 +0000
+Message-ID: <20261025075138.2919734-1-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261025075138.2919734-1-fuad.tabba@linux.dev>
-References: <20261025075138.2919734-1-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_005150_165466_29C3C1B1 
-X-CRM114-Status: GOOD (  11.06  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261025_005148_852718_A7DD05F4 
+X-CRM114-Status: GOOD (  13.29  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,64 +81,75 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Accesses to ACCDATA_EL1, which FEAT_LS64_ACCDATA adds, trap to EL3
-unless firmware sets SCR_EL3.ADEn. Once KVM context-switches the
-register for its guests, a host whose firmware leaves the bit clear
-can't run them.
+Hi folks,
 
-Add an override for ID_AA64ISAR1_EL1.LS64, with an arm64.nols64 alias,
-so that the feature can be disabled on such a host and for its guests.
-id_aa64isar1.ls64=2 disables only FEAT_LS64_ACCDATA and above.
+Changes since v1 [1]:
+  - Support FEAT_LS64_ACCDATA in guests instead of capping
+    ID_AA64ISAR1_EL1.LS64 at LS64_V. A saved VM keeps its level, so
+    restore no longer has to accept older kernels' levels, and v1's
+    set_id_regs patch goes. (Marc)
+  - Add an arm64.nols64 option. (Marc)
+  - Retitled the series to match.
 
-Cc: stable@vger.kernel.org
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- Documentation/admin-guide/kernel-parameters.txt | 3 +++
- arch/arm64/kernel/pi/idreg-override.c           | 2 ++
- 2 files changed, 5 insertions(+)
+On a host with FEAT_LS64_ACCDATA, KVM advertises ST64BV0 and ACCDATA_EL1
+to guests but doesn't support either. A guest's ST64BV0 hits the WARN in
+handle_other(), and every guest on a CPU shares ACCDATA_EL1.
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 33cd30996e47e..ef690cf6c3664 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -571,6 +571,9 @@ Kernel parameters
- 	arm64.nohaft	[ARM64] Unconditionally disable Hardware managed Access
- 			Flag for Table descriptors support
- 
-+	arm64.nols64	[ARM64] Unconditionally disable 64-byte Load/Store
-+			instructions support
-+
- 	arm64.nomops	[ARM64] Unconditionally disable Memory Copy and Memory
- 			Set instructions support
- 
-diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
-index 274bc72ba98d0..0c7f293779c1f 100644
---- a/arch/arm64/kernel/pi/idreg-override.c
-+++ b/arch/arm64/kernel/pi/idreg-override.c
-@@ -174,6 +174,7 @@ static const struct ftr_set_desc isar1 __prel64_initconst = {
- 	.name		= "id_aa64isar1",
- 	.override	= &id_aa64isar1_override,
- 	.fields		= {
-+		FIELD("ls64", ID_AA64ISAR1_EL1_LS64_SHIFT, NULL),
- 		FIELD("gpi", ID_AA64ISAR1_EL1_GPI_SHIFT, NULL),
- 		FIELD("gpa", ID_AA64ISAR1_EL1_GPA_SHIFT, NULL),
- 		FIELD("api", ID_AA64ISAR1_EL1_API_SHIFT, NULL),
-@@ -253,6 +254,7 @@ static const struct {
- 	  "id_aa64isar1.gpi=0 id_aa64isar1.gpa=0 "
- 	  "id_aa64isar1.api=0 id_aa64isar1.apa=0 "
- 	  "id_aa64isar2.gpa3=0 id_aa64isar2.apa3=0"	   },
-+	{ "arm64.nols64",		"id_aa64isar1.ls64=0" },
- 	{ "arm64.nomops",		"id_aa64isar2.mops=0" },
- 	{ "arm64.nomte",		"id_aa64pfr1.mte=0" },
- 	{ "nokaslr",			"arm64_sw.nokaslr=1" },
+Patches 2 and 3 are Marc's from 2024 [2], rebased. I changed patch 3
+to switch ACCDATA_EL1 for guests only, and only when the new
+ARM64_HAS_LS64_ACCDATA capability is set, for the reasons in its note.
+Patch 4 sets HCRX_EL2.EnAS0. Patch 1 adds arm64.nols64 to disable LS64
+on a host whose firmware leaves SCR_EL3.ADEn clear. It comes
+first so that the option exists in every commit that switches
+ACCDATA_EL1. All five carry Cc: stable. The get-reg-list patch carries
+it because the test fails on a host with the feature once patch 2 is
+in.
+
+Tested on the FVP with arm_v8_7_accelerator_support_level at 3
+(LS64_ACCDATA) in VHE, nVHE and protected mode, and at 4 (LS64WB) in
+VHE, with cpuidle.off=1 so that idle doesn't reset ACCDATA_EL1 between
+VMs. In my reproducer, one VM writes ACCDATA_EL1 and the next VM on the
+same CPU reads it. Unpatched, it reads the first VM's value and ST64BV0
+hits the WARN. Patched, the second VM reads 0 and ST64BV0 doesn't trap.
+
+Based on Linux 7.3-rc3 (fd73f4a665989).
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20261023070110.1833446-1-fuad.tabba@linux.dev/
+[2] https://lore.kernel.org/all/20240815125959.2097734-1-maz@kernel.org/
+
+Fuad Tabba (3):
+  arm64: Add override for ID_AA64ISAR1_EL1.LS64
+  KVM: arm64: Enable ST64BV0 for guests with FEAT_LS64_ACCDATA
+  KVM: arm64: selftests: Add ACCDATA_EL1 to get-reg-list
+
+Marc Zyngier (2):
+  KVM: arm64: Add ACCDATA_EL1 to the sysreg array
+  KVM: arm64: Add context-switch of ACCDATA_EL1
+
+ .../admin-guide/kernel-parameters.txt         |  3 +++
+ arch/arm64/include/asm/kvm_emulate.h          |  3 +++
+ arch/arm64/include/asm/kvm_host.h             |  3 +++
+ arch/arm64/kernel/cpufeature.c                |  7 ++++++
+ arch/arm64/kernel/pi/idreg-override.c         |  2 ++
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h    | 23 +++++++++++++++++++
+ arch/arm64/kvm/sys_regs.c                     | 12 +++++++++-
+ arch/arm64/tools/cpucaps                      |  1 +
+ .../selftests/kvm/arm64/get-reg-list.c        |  2 ++
+ 9 files changed, 55 insertions(+), 1 deletion(-)
+
+
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
 -- 
 2.47.3
 
