@@ -2,86 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ACC8606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 05:03:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 376E9606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 05:04:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xZueSdxa;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=OgixHVJV
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OXeyHzCl;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=oh11t4LW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=XvlUBd9t253/XOnBgnu6wcIP+Rj8CczN5W7bxz4QbhY=; b=xZueSdxa/nb1QN
-	kG5F5zaZDmL8mDkT8cXAQJlsvUSmBwQbH7LKYpmRN9UhE2ru95RdZXURioz2ms8Z+sonyWlG0HvV7
-	KC2cKcIcv+WbNWa9Vuy+6tp9nTX6oIKRTx4f3jlTUwrCj5uEu9kj6MnQm+TXtSy0nzZPGEVBCFUm3
-	vmsSpn1yU4+pX8vFJ2TH1vAjc0iJucb8/9bV/eMTh3anOkM4uUsfVCBIYmniFkhLAaCR/CZ2QSQVO
-	mvGqCjoosJF5F336oqXIVQNGfZif4CbTkmeYmsh8RhyS0g50JALgGV1MobbU1iMljS+fh78i8z0a3
-	2la3zdLMLtUJi7cQEyZw==;
+	List-Owner; bh=TTqaQ6jXWlHRRGLaT8kFyXO3lEvorKEGuHWBDmHOqfE=; b=OXeyHzClpnDJWU
+	wqh5sEH12RR3derlhpht7iFah7NytfGcAbO0aTrawMZCclop/9zgi16Q0NO/HmvpgTrfvDd0qB4Yv
+	4Mr6U740CcFP8dDKU6JtH6yMoQUczDzY4+cihtzDKAExgFz4mV2iZ+BE8rMtoSxYlvH8WvkNoN5o5
+	nupLQL5Q/9Ab/Q8hWHtVsWSjA7OJU/J6fmwMkRD83lMioT4hPoi8oxzTHGJHWfXX/bY0ibtgsrQuJ
+	N/7h0jpBkvdaXhIstzcUP4UekJGUstuWqemSPEJCOuhWVcM0bL+amLjHnSvJWL9nqSYeCXKy7xF2O
+	GtumEZsjA06vT7R95OdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKqOH-00000000jjm-0ujg;
-	Sun, 25 Oct 2026 05:03:29 +0000
-Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
+	id 1xKqOG-00000000jio-3OCl;
+	Sun, 25 Oct 2026 05:03:28 +0000
+Received: from mail-dl1-x122a.google.com ([2607:f8b0:4864:20::122a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKqOE-00000000ji9-23fq
+	id 1xKqO9-00000000jgF-1Y2g
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Oct 2026 05:03:27 +0000
-Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-3645f0f3fcdso3956849eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 22:03:26 -0700 (PDT)
+	Sun, 25 Oct 2026 05:03:22 +0000
+Received: by mail-dl1-x122a.google.com with SMTP id a92af1059eb24-14fc585291cso721571c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Oct 2026 22:03:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792904605; x=1793509405; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792904600; x=1793509400; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=XvlUBd9t253/XOnBgnu6wcIP+Rj8CczN5W7bxz4QbhY=;
-        b=OgixHVJVSMWdUE+O/59swSfTk9Xr1foXQUovMS07LlBTQGoxqXt2K3uX7CbhYaNTh5
-         9I+gRr2CKdR0RFnlht2vtdoUMcQk+M0CUrcZuA82gftLDOjuK00tAQ3EmiDDL4ay6GZs
-         uVuaL0XbIYfJZ84raPNDYZzxCBPASj6n5CvTmQyfNAtBngSEk/9uyAYnMZmpeZaInric
-         XKV1fQLkv2nlMmy5bS6CnTikl+eGFHdPWRci/HTAdwwcXW2xgPWX+ZxPfrjrWyq/KQvo
-         lGBE7JS3H7KQ/URY3b7sac9PyPA56DhGlb4R4w0fnnjjyTae2OJbDkTV5JnV2m1uPYMA
-         g+NQ==
+        bh=TTqaQ6jXWlHRRGLaT8kFyXO3lEvorKEGuHWBDmHOqfE=;
+        b=oh11t4LWgP89UT7uQNhCHdaWat4WeRgKziZcxvJ8VklHbEttdewYXpXYg0WNr2NCyL
+         xqgPjJ4Yb5yPQdOhHVyRYaH4PE1OHiTwwm07V3cNqHN9iIPXD7z4V4ckzBP54S+h7g7K
+         o+uO2reQd2EdboWZZizKNl0ZPb4Ee1Rr7gsuEezERURrNz1ocXm8/xwkC9JMGUDShI5s
+         76ii3hpGx9OA/o3TK5Xm0IUhxAxhL1xWFmA2L+Uf8NzBmwCVhcKIypD9jvNYP3sD59mE
+         bVaUXwve1K4VcWmWgRo0kCFswoOf1UbHW4k2ebBG7a/SEJiBodCwMLKF1X5z53W6MGiY
+         7gRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792904605; x=1793509405;
+        d=1e100.net; s=20260707; t=1792904600; x=1793509400;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XvlUBd9t253/XOnBgnu6wcIP+Rj8CczN5W7bxz4QbhY=;
-        b=YEkpwmcrhnPlYRZx9Whm4rXy4Ki3UCleVIevLTfjodURnIMMmhds9xWtQewMO1KZVQ
-         WFl1WkFWal7ZMj2JjyODeYuEiUG/At9tdwl73fE+0nSEoBWSlxzZHKmYdnK2oaeFVq0m
-         OuSgr78cS9Mw5VMCVwC90Tw+vx3K/JChucAEAYds/w2Ld2TFR4BzEwVNoJvpn9n3InAe
-         qoYUBa5YZIWZMPZvxm4LH/iW97G+57S9hefircSM52g6h4PKcAQxWquONytH4WNSV8AG
-         67Vo550xa4wuDAdqJx4/ARK7lC9QzcqUxcWDyRT4svUxw6cxeROPtTmkn9Z/mDPxWBXq
-         wyKQ==
-X-Forwarded-Encrypted: i=1; AKwUvByik5HT9/riOd5uO6KdMcFGYmLP5eOVLT0h2qe0K8ZOa+gDy0qfuQ35S7HJdrzxlhvrxHd+yqxBLfh0vh7bOOf9@lists.infradead.org
-X-Gm-Message-State: AFq9FYJCTSQGWD2H63Oc3MPZB67az4+lO7kc+2qW52VJOIYiQ4Nbstnq
-	u4raMpJlS9EFuRhBJokAvi3C+npl+KlFv1fyuJLjFk5kgwYM5SLT1/Sv
-X-Gm-Gg: AYBFou2Fp1JmqCJPbacsHqur+WqovjWhI7T4S/HH2j13ug+OldVjHGRnFEvqYDoDAjT
-	Z7Pe0YYjy26WkJ1jbAP6ik+OZ8Fg6bvFi6Zp394EA0YGPIM/Ly3Iei7kNqDKUHw/L+JZ5Gk6xGb
-	utM7hoco/vGE3JfL/2B1lP4bGUmVieTkoqMU5rJCKpB4EZXwhji3AdxhIJImHgxmRZ2pcMQj1hQ
-	zH0KkxbNNIVke9U/nJk8Jx/zZe+JnPyWYlIOrHj4s5Ld36wKmGcid+XxWWzI/IDtW1+Wnb0GYmz
-	u/Y9zGag0XtO1QiPk2ZgT0Bogfhg6mwNxvY29LmOz/ItrVd94l1jm0L62fwcaq+8AeKcDclg7cp
-	QoN1c4qC5AdJ86Ik+HdC746I53FQXPNFc4H/bUQI6A4tOtHFpaQP+adhqn25djI7JAGQch3z7lc
-	aU0ml4vnzWRigJzqQYLJlDqx3OKe37CSW90m1bo4/vGqgbvypn/uDkKluOTDH8xE8MPT/kKmibw
-	8t2Fbe09c40efLDVLKTtfS4JA+TxetV7mZCabkoT9vY5+pgGDUKK5L7lPT+vuRyrBbdUhxL+cIV
-	+fz02dsvOfBBZEWybrT68t26v2z4+AX/mDAmhkDCWDY=
-X-Received: by 2002:a05:7301:e0c1:b0:35c:85fa:5a61 with SMTP id 5a478bee46e88-369e865e4e6mr5016953eec.38.1792904605444;
-        Sat, 24 Oct 2026 22:03:25 -0700 (PDT)
+        bh=TTqaQ6jXWlHRRGLaT8kFyXO3lEvorKEGuHWBDmHOqfE=;
+        b=E+C8ntqooVcZksCL94NdgMXbCJfTHkM7OQdoIheMlwZXneFGQm4Ex1tMh1Vfcp5CaW
+         zDM+FPNm8/foIy++lyEACxuZwDn2mIzJ5G+nZZrCXlK1Ou3yS8zcp404K9H2U+XC68NB
+         8CtDwrDqd6zZjbgyKdCHdNTkWmj+C7qUg7AUyiswAPSW5CRyv2e6fQZPauRzZ9LFodkp
+         EcBESvBfJK/L9r5ZUzj58Uizla8TyRC090qIrCFZNASWeYsHDtNJPW4ZmxmUQZpWwaIy
+         toKWL/ygCs6eK3rhyvrJjQ7BN6ZVvOcAmLhwPpbwBID/vD0ZZPExQ9wo1US+GIsqIJ6M
+         ANyA==
+X-Forwarded-Encrypted: i=1; AKwUvBy9yziPL3+kQyQQsOGqnqra1w+6zetGkXfW+iSu7f82H8U6EwGH2ZLrpz4jKJic/yUHlxYr9xh0D1HeMXy3ExqY@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ/LYbaEh0DRywpNt4D5f1XNQPaI2Eg3Vn2/IgkInrKf0GaiRmO
+	dy4sF8crKrmPLlwcTO5fCmjBQSiq+CnYPN5pQW2V4pWsKfLf/WDK312Q
+X-Gm-Gg: AYBFou211PqAyohB4wlkAnkdPJS4tQhCfYIJxUbHoHx4zfOIwm2gYgQleZSqujcB8T2
+	tkxyKVY5naYcYAtd4iA1MX31gsqE734JrFWrglb02W4+eCcZ7QkSv/YHdj+H81bS/aW4GOWjoEL
+	mg1WYModamYEBUIeuf1WR4+LYTHN+wHknhbII3daNqJR5cyhfRIuyxSbBz8a4eVMnXhdr/2IRtM
+	0DozE7K1CeSUoa2WNifKvbzCFiG7IAWzMgGRjaMh+01wyMKLkQQRWY4Mt5eZyFhiNk5wWvHfWAy
+	Xik9Mf2IG2+GAJkexSpesIBBEodkTdEatTiFxRXBlMSBZNN2v4dj9KeaI7LfsFjPacCSFa1BiXD
+	tj2/HjrD8N1b2rPfhTLyTkcDcBfW+5nQ8za9McxONtwrJUZ26O8gRMeKi6/swRGUm45CCTZlp6R
+	KNJIbZ1LaH5uBSYIJMrR2ft1zGfqUFAh+J61jM5GgOOICZyHC34G8S0dscmqdLoD0PeQ3NWcdcj
+	zbhjmVBZIA/FX5VJJCLNVZMbFDmC9MvtwOcoQrdTUiugHu5SF6J9ikOrJ19H0ialbLaGLhVyczo
+	YTi36OYCbCQopIYfrStVSbzvVs9et0sAGbuVyQPZ9bU=
+X-Received: by 2002:a05:7022:2513:b0:196:7742:3928 with SMTP id a92af1059eb24-1991b420832mr7262785c88.0.1792904600247;
+        Sat, 24 Oct 2026 22:03:20 -0700 (PDT)
 Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:8fe4:693:7158:24de])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-369f44bd644sm4710287eec.15.2026.10.24.22.03.23
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-369f44bd644sm4710287eec.15.2026.10.24.22.03.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 24 Oct 2026 22:03:24 -0700 (PDT)
+        Sat, 24 Oct 2026 22:03:19 -0700 (PDT)
 From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Sat, 24 Oct 2026 22:03:15 -0700
-Subject: [PATCH v4 4/4] ARM: s3c: crag6410: convert WM1250 and SPI0 GPIO
- lookup tables to property entries
+Date: Sat, 24 Oct 2026 22:03:12 -0700
+Subject: [PATCH v4 1/4] mfd: wm831x: Support software nodes for DCDC
+ regulators
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261024-samsung-kp-v4-4-e21253295e68@gmail.com>
+Message-Id: <20261024-samsung-kp-v4-1-e21253295e68@gmail.com>
 References: <20261024-samsung-kp-v4-0-e21253295e68@gmail.com>
 In-Reply-To: <20261024-samsung-kp-v4-0-e21253295e68@gmail.com>
 To: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -93,12 +93,11 @@ To: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
  Arnd Bergmann <arnd@arndb.de>
 Cc: mfd@lists.linux.dev, linux-samsung-soc@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, patches@opensource.cirrus.com, 
- linux-kernel@vger.kernel.org, 
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+ linux-kernel@vger.kernel.org
 X-Mailer: b4 0.17-dev-e56a4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261024_220326_552412_BD6AA002 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20261024_220321_418918_BE00D2D3 
+X-CRM114-Status: GOOD (  20.74  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,212 +117,129 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Static property entries support defining GPIOs and are more similar to
-device tree properties and are not prone to losing link between device
-and a lookup table because of changes in device name. Convert the board
-to use them for WM1250 and SPI0 devices.
+Allow passing software nodes to wm831x DCDC regulators via PMIC platform
+data. This is useful for non-DT/non-ACPI platforms that want to
+associate device properties (like DVS GPIOs) with the regulator devices
+using software nodes.
 
-This also fixes issue with recent conversion to GPIO descriptors
-where GPIO lookup tables were specifying incorrect GPIO chip name
-("GPIO<N>" vs "GP<N>").
+Add software node pointers to the PMIC platform data and have the MFD
+core assign them to the buckv cells.
 
-Fixes: 10a366f36e2a ("ASoC: wm1250-ev1: Convert to GPIO descriptors")
-Fixes: a45cf3cc72dd ("spi: s3c64xx: Convert to use GPIO descriptors")
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
- arch/arm/mach-s3c/devs.c          | 35 -----------------
- arch/arm/mach-s3c/devs.h          |  1 -
- arch/arm/mach-s3c/mach-crag6410.c | 83 ++++++++++++++++++++++++++++-----------
- 3 files changed, 59 insertions(+), 60 deletions(-)
+ drivers/mfd/wm831x-core.c        | 47 ++++++++++++++++++++++++++++++----------
+ include/linux/mfd/wm831x/pdata.h |  2 ++
+ 2 files changed, 37 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm/mach-s3c/devs.c b/arch/arm/mach-s3c/devs.c
-index 35b98a9a9237..7c8dc29b994b 100644
---- a/arch/arm/mach-s3c/devs.c
-+++ b/arch/arm/mach-s3c/devs.c
-@@ -335,38 +335,3 @@ void __init dwc2_hsotg_set_platdata(struct dwc2_hsotg_plat *pd)
- 		npd->phy_exit = s3c_usb_phy_exit;
- }
- #endif /* CONFIG_S3C_DEV_USB_HSOTG */
--
--#ifdef CONFIG_S3C64XX_DEV_SPI0
--static struct resource s3c64xx_spi0_resource[] = {
--	[0] = DEFINE_RES_MEM(S3C_PA_SPI0, SZ_256),
--	[1] = DEFINE_RES_IRQ(IRQ_SPI0),
--};
--
--struct platform_device s3c64xx_device_spi0 = {
--	.name		= "s3c6410-spi",
--	.id		= 0,
--	.num_resources	= ARRAY_SIZE(s3c64xx_spi0_resource),
--	.resource	= s3c64xx_spi0_resource,
--	.dev = {
--		.dma_mask		= &samsung_device_dma_mask,
--		.coherent_dma_mask	= DMA_BIT_MASK(32),
--	},
--};
--
--void __init s3c64xx_spi0_set_platdata(int src_clk_nr, int num_cs)
--{
--	struct s3c64xx_spi_info pd;
--
--	/* Reject invalid configuration */
--	if (!num_cs || src_clk_nr < 0) {
--		pr_err("%s: Invalid SPI configuration\n", __func__);
--		return;
--	}
--
--	pd.num_cs = num_cs;
--	pd.src_clk_nr = src_clk_nr;
--	pd.cfg_gpio = s3c64xx_spi0_cfg_gpio;
--
--	s3c_set_platdata(&pd, sizeof(pd), &s3c64xx_device_spi0);
--}
--#endif /* CONFIG_S3C64XX_DEV_SPI0 */
-diff --git a/arch/arm/mach-s3c/devs.h b/arch/arm/mach-s3c/devs.h
-index 2737990063b1..90a86ade3570 100644
---- a/arch/arm/mach-s3c/devs.h
-+++ b/arch/arm/mach-s3c/devs.h
-@@ -27,7 +27,6 @@ extern struct platform_device *s3c24xx_uart_src[];
+diff --git a/drivers/mfd/wm831x-core.c b/drivers/mfd/wm831x-core.c
+index df8e76e000cc..c4793be419ba 100644
+--- a/drivers/mfd/wm831x-core.c
++++ b/drivers/mfd/wm831x-core.c
+@@ -14,6 +14,7 @@
+ #include <linux/delay.h>
+ #include <linux/mfd/core.h>
+ #include <linux/slab.h>
++#include <linux/string.h>
+ #include <linux/err.h>
  
- extern struct platform_device s3c64xx_device_iis0;
- extern struct platform_device s3c64xx_device_iis1;
--extern struct platform_device s3c64xx_device_spi0;
- 
- extern struct platform_device s3c_device_fb;
- extern struct platform_device s3c_device_hsmmc0;
-diff --git a/arch/arm/mach-s3c/mach-crag6410.c b/arch/arm/mach-s3c/mach-crag6410.c
-index 2855d6d32fa3..330e8cf12ddc 100644
---- a/arch/arm/mach-s3c/mach-crag6410.c
-+++ b/arch/arm/mach-s3c/mach-crag6410.c
-@@ -443,7 +443,6 @@ static struct platform_device *crag6410_devs0[] __initdata = {
- 
- static struct platform_device *crag6410_devs1[] __initdata = {
- 	&crag6410_dm9k_device,
--	&s3c64xx_device_spi0,
- 	&crag6410_lcd_powerdev,
- 	&crag6410_backlight_device,
- 	&speyside_device,
-@@ -777,17 +776,22 @@ static struct wm831x_pdata glenfarclas_pmic_pdata = {
- 	.disable_touch = true,
+ #include <linux/mfd/wm831x/core.h>
+@@ -1449,6 +1450,32 @@ const struct of_device_id wm831x_of_match[] = {
  };
+ EXPORT_SYMBOL_GPL(wm831x_of_match);
  
--static struct gpiod_lookup_table crag_wm1250_ev1_gpiod_table = {
--	/* The WM1250-EV1 is device 0027 on I2C bus 1 */
--	.dev_id = "1-0027",
--	.table = {
--		GPIO_LOOKUP("GPION", 12, "clk-ena", GPIO_ACTIVE_HIGH),
--		GPIO_LOOKUP("GPIOL", 12, "clk-sel0", GPIO_ACTIVE_HIGH),
--		GPIO_LOOKUP("GPIOL", 13, "clk-sel1", GPIO_ACTIVE_HIGH),
--		GPIO_LOOKUP("GPIOL", 14, "osr", GPIO_ACTIVE_HIGH),
--		GPIO_LOOKUP("GPIOL", 8, "master", GPIO_ACTIVE_HIGH),
--		{ },
--	},
-+static const struct property_entry crag_wm1250_ev1_properties[] = {
-+	PROPERTY_ENTRY_GPIO("clk-ena-gpios",
-+			    SAMSUNG_GPIO_NODE('N'), 12, GPIO_ACTIVE_HIGH),
-+	PROPERTY_ENTRY_GPIO("clk-sel0-gpios",
-+			    SAMSUNG_GPIO_NODE('L'), 12, GPIO_ACTIVE_HIGH),
-+	PROPERTY_ENTRY_GPIO("clk-sel1-gpios",
-+			    SAMSUNG_GPIO_NODE('L'), 13, GPIO_ACTIVE_HIGH),
-+	PROPERTY_ENTRY_GPIO("osr-gpios",
-+			    SAMSUNG_GPIO_NODE('L'), 14, GPIO_ACTIVE_HIGH),
-+	PROPERTY_ENTRY_GPIO("master-gpios",
-+			    SAMSUNG_GPIO_NODE('L'), 8, GPIO_ACTIVE_HIGH),
-+	{ }
-+};
-+
-+static const struct software_node crag_wm1250_ev1_swnode = {
-+	.properties = crag_wm1250_ev1_properties,
- };
- 
- static struct i2c_board_info i2c_devs1[] = {
-@@ -800,7 +804,8 @@ static struct i2c_board_info i2c_devs1[] = {
- 	{ I2C_BOARD_INFO("wlf-gf-module", 0x24) },
- 	{ I2C_BOARD_INFO("wlf-gf-module", 0x25) },
- 	{ I2C_BOARD_INFO("wlf-gf-module", 0x26) },
--	{ I2C_BOARD_INFO("wm1250-ev1", 0x27), },
-+	{ I2C_BOARD_INFO("wm1250-ev1", 0x27),
-+	  .swnode = &crag_wm1250_ev1_swnode, },
- };
- 
- static struct s3c2410_platform_i2c i2c1_pdata = {
-@@ -904,15 +909,48 @@ static void __init crag6410_setup_leds(void)
- 
- static struct dwc2_hsotg_plat crag6410_hsotg_pdata;
- 
--static struct gpiod_lookup_table crag_spi0_gpiod_table = {
--	.dev_id = "s3c6410-spi.0",
--	.table = {
--		GPIO_LOOKUP_IDX("GPIOC", 3, "cs", 0, GPIO_ACTIVE_LOW),
--		GPIO_LOOKUP_IDX("GPION", 5, "cs", 1, GPIO_ACTIVE_LOW),
--		{ },
--	},
-+static const struct software_node_ref_args crag6410_spi0_gpio_refs[] = {
-+	SOFTWARE_NODE_REFERENCE(SAMSUNG_GPIO_NODE('C'), 3, GPIO_ACTIVE_LOW),
-+	SOFTWARE_NODE_REFERENCE(SAMSUNG_GPIO_NODE('N'), 5, GPIO_ACTIVE_LOW),
-+};
-+
-+static const struct property_entry crag6410_spi0_properties[] __initconst = {
-+	PROPERTY_ENTRY_REF_ARRAY("cs-gpios", crag6410_spi0_gpio_refs),
-+	{ }
-+};
-+
-+static const struct resource crag6410_spi0_resource[] __initconst = {
-+	[0] = DEFINE_RES_MEM(S3C_PA_SPI0, SZ_256),
-+	[1] = DEFINE_RES_IRQ(IRQ_SPI0),
-+};
-+
-+static const struct s3c64xx_spi_info crag6410_spi0_platform_data __initconst = {
-+	.num_cs = 2,
-+	.cfg_gpio = s3c64xx_spi0_cfg_gpio,
- };
- 
-+static const struct platform_device_info crag6410_spi0_info __initconst = {
-+	.name		= "s3c6410-spi",
-+	.id		= 0,
-+	.res		= crag6410_spi0_resource,
-+	.num_res	= ARRAY_SIZE(crag6410_spi0_resource),
-+	.data		= &crag6410_spi0_platform_data,
-+	.size_data	= sizeof(crag6410_spi0_platform_data),
-+	.dma_mask	= DMA_BIT_MASK(32),
-+	.properties	= crag6410_spi0_properties,
-+};
-+
-+static void __init crag6410_setup_spi0(void)
++static int wm831x_add_devices(struct wm831x *wm831x, int wm831x_num,
++			      const struct mfd_cell *cells, int num_cells)
 +{
-+	struct platform_device *pd;
-+	int err;
++	struct wm831x_pdata *pdata = &wm831x->pdata;
++	int i;
 +
-+	pd = platform_device_register_full(&crag6410_spi0_info);
-+	err = PTR_ERR_OR_ZERO(pd);
-+	if (err)
-+		pr_err("failed to create spi0 device: %d\n", err);
++	struct mfd_cell *local_cells __free(kfree) =
++		kmemdup_array(cells, num_cells, sizeof(*cells), GFP_KERNEL);
++	if (!local_cells)
++		return -ENOMEM;
++
++	for (i = 0; i < num_cells; i++) {
++		struct mfd_cell *cell = &local_cells[i];
++
++		if (strcmp(cell->name, "wm831x-buckv") == 0) {
++			int id = cell->id - 1;
++
++			if (id >= 0 && id < WM831X_MAX_DCDC)
++				cell->swnode = pdata->dcdc_swnodes[id];
++		}
++	}
++
++	return mfd_add_devices(wm831x->dev, wm831x_num, local_cells, num_cells,
++			       NULL, 0, NULL);
 +}
 +
- static void __init crag6410_machine_init(void)
- {
- 	/* Open drain IRQs need pullups */
-@@ -941,18 +979,15 @@ static void __init crag6410_machine_init(void)
+ /*
+  * Instantiate the generic non-control parts of the device.
+  */
+@@ -1620,15 +1647,13 @@ int wm831x_device_init(struct wm831x *wm831x, int irq)
+ 	/* The core device is up, instantiate the subdevices. */
+ 	switch (parent) {
+ 	case WM8310:
+-		ret = mfd_add_devices(wm831x->dev, wm831x_num,
+-				      wm8310_devs, ARRAY_SIZE(wm8310_devs),
+-				      NULL, 0, NULL);
++		ret = wm831x_add_devices(wm831x, wm831x_num,
++					 wm8310_devs, ARRAY_SIZE(wm8310_devs));
+ 		break;
  
- 	software_node_register(&crag_dcdc1_swnode);
- 	i2c_register_board_info(0, i2c_devs0, ARRAY_SIZE(i2c_devs0));
--	gpiod_add_lookup_table(&crag_wm1250_ev1_gpiod_table);
- 	i2c_register_board_info(1, i2c_devs1, ARRAY_SIZE(i2c_devs1));
+ 	case WM8311:
+-		ret = mfd_add_devices(wm831x->dev, wm831x_num,
+-				      wm8311_devs, ARRAY_SIZE(wm8311_devs),
+-				      NULL, 0, NULL);
++		ret = wm831x_add_devices(wm831x, wm831x_num,
++					 wm8311_devs, ARRAY_SIZE(wm8311_devs));
+ 		if (!pdata->disable_touch)
+ 			mfd_add_devices(wm831x->dev, wm831x_num,
+ 					touch_devs, ARRAY_SIZE(touch_devs),
+@@ -1636,9 +1661,8 @@ int wm831x_device_init(struct wm831x *wm831x, int irq)
+ 		break;
  
--	gpiod_add_lookup_table(&crag_spi0_gpiod_table);
--	s3c64xx_spi0_set_platdata(0, 2);
--
- 	pwm_add_table(crag6410_pwm_lookup, ARRAY_SIZE(crag6410_pwm_lookup));
- 	platform_add_devices(crag6410_devs0, ARRAY_SIZE(crag6410_devs0));
- 	platform_device_register_full(&crag6410_mmgpio_devinfo);
+ 	case WM8312:
+-		ret = mfd_add_devices(wm831x->dev, wm831x_num,
+-				      wm8312_devs, ARRAY_SIZE(wm8312_devs),
+-				      NULL, 0, NULL);
++		ret = wm831x_add_devices(wm831x, wm831x_num,
++					 wm8312_devs, ARRAY_SIZE(wm8312_devs));
+ 		if (!pdata->disable_touch)
+ 			mfd_add_devices(wm831x->dev, wm831x_num,
+ 					touch_devs, ARRAY_SIZE(touch_devs),
+@@ -1649,9 +1673,8 @@ int wm831x_device_init(struct wm831x *wm831x, int irq)
+ 	case WM8321:
+ 	case WM8325:
+ 	case WM8326:
+-		ret = mfd_add_devices(wm831x->dev, wm831x_num,
+-				      wm8320_devs, ARRAY_SIZE(wm8320_devs),
+-				      NULL, 0, NULL);
++		ret = wm831x_add_devices(wm831x, wm831x_num,
++					 wm8320_devs, ARRAY_SIZE(wm8320_devs));
+ 		break;
  
- 	crag6410_setup_keypad();
- 	crag6410_setup_gpio_keys();
-+	crag6410_setup_spi0();
+ 	default:
+diff --git a/include/linux/mfd/wm831x/pdata.h b/include/linux/mfd/wm831x/pdata.h
+index 75aa94dadf1c..d5d9d9600756 100644
+--- a/include/linux/mfd/wm831x/pdata.h
++++ b/include/linux/mfd/wm831x/pdata.h
+@@ -12,6 +12,7 @@
  
- 	platform_add_devices(crag6410_devs1, ARRAY_SIZE(crag6410_devs1));
- 	crag6410_setup_leds();
+ struct wm831x;
+ struct regulator_init_data;
++struct software_node;
+ 
+ struct wm831x_backlight_pdata {
+ 	int isink;     /** ISINK to use, 1 or 2 */
+@@ -132,6 +133,7 @@ struct wm831x_pdata {
+ 	struct wm831x_status_pdata *status[WM831X_MAX_STATUS];
+ 	/** DCDC1 = 0 and so on */
+ 	struct regulator_init_data *dcdc[WM831X_MAX_DCDC];
++	const struct software_node *dcdc_swnodes[WM831X_MAX_DCDC];
+ 	/** EPE1 = 0 and so on */
+ 	struct regulator_init_data *epe[WM831X_MAX_EPE];
+ 	/** LDO1 = 0 and so on */
 
 -- 
 2.56.0.257.gf7497c7d27-goog
