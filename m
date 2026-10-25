@@ -2,56 +2,56 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 764DD606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 07:15:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52081606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 07:16:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=29cmq16H;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HVjEsSjT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VTtGprzp;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ndycJccN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+5cbHnUYyslIPSne2eKBDYQ2xujjPbWUVAor+9E51d0=; b=29cmq16H40Cohu
-	IMknolwMq0cfPoLLM+FGznN3hiyKrjf026rJvlSPXmrWOIH0NJbHDbWoJkvDu3ngoLc4ugYgpQ8mj
-	qyN2YRZhoppgA0kkYWmU3gOMi0Rskhi/BGus+iSKcPfn3Kz5wWo+likILagQmxWpd8Dla6RKCGAQh
-	hdSszMtH06RqONX5xeEEjETCco2kh9FFc0TuAin4WCy2wYEH190Y5KGajCnB00TqNc6DVld0G9P7x
-	KmDhVVxISOMt2U69BsWBgps/t5qMHo18Lr1TuydEJkNWo6XfyqyMYKeIrzRpTGYmOeXAUsjIWBECJ
-	4dEfc2beT6iH3HRVtKNg==;
+	List-Owner; bh=upFaLG2iVsKmYKDkUH1tY+pUQEre31IXX8yyMsymuXA=; b=VTtGprzpWLP3i7
+	XviJc4Lrk/G9C6o+AufFBxUKDmwmQjU6wfzPb8YktDjKLt9M61zWFe/9FX2wPuGHP2m5QOXjZ4yW8
+	UW3hNZj4/g5KHAiYN1b8xK8BzfkcxSuFCnUrR7HanaXlm6obFQH3He1nOklBHQEHH8dn0vbf6bVW9
+	PbRYs2CGBmXJdVkQRkPfYuLtJavwi9vsoXu3rYUQ8EC4rJMObV8zfmOoJTqCOLpHwi1BpeEt6uMSR
+	omwp87LCu3qAc8ToKT4hJFekjKSnMDW5eyI3l3IUKv3N5PPq64jkmXB8LweDlTGu7oV7mMw8tvPcy
+	2zV+/sIcfQBOxtCXWudA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKsS4-00000000plK-35ba;
-	Sun, 25 Oct 2026 07:15:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xKsRy-00000000pjJ-2F7j;
+	Sun, 25 Oct 2026 07:15:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xKsS2-00000000pkH-01P4
+	id 1xKsRu-00000000pii-0thB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Oct 2026 07:15:30 +0000
+	Sun, 25 Oct 2026 07:15:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CEB84600D4;
-	Sun, 25 Oct 2026 07:15:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 804601F01829;
-	Sun, 25 Oct 2026 07:15:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A69F4600D4;
+	Sun, 25 Oct 2026 07:15:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5759C1F01828;
+	Sun, 25 Oct 2026 07:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792912528;
-	bh=+5cbHnUYyslIPSne2eKBDYQ2xujjPbWUVAor+9E51d0=;
+	s=k20260515; t=1792912521;
+	bh=upFaLG2iVsKmYKDkUH1tY+pUQEre31IXX8yyMsymuXA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=HVjEsSjTYYi/OID8KrKFUJ3I6njfiKgLuXExzDzJg79aNaEgZB2m7dU8nQKvRN3+H
-	 Er3KkSV0RfrL7g/xWuBKhNStdkMn/tBcb86ORy8CZIDmgnV9fa1jvF+TVV14ZC4/Xx
-	 vYe2r6egDQdZDwFcQY/HpwbdgCiaDq1TPeaWqM5dI7V7OyMbUibKwDxT5bzGWpcIak
-	 YdTf1A7rEOg7c0z63fhZpoJYQOoMPq1dAkFMMS10oWXfih4VbHUxBtKvsWRTxqPIru
-	 oMi4x8KTf/UR2y/KUuczi6eHavbiQ0MUxL9qSQDeyWyth4ncgTl6JVcw1h/1674rVR
-	 2+QOvyVscrXYg==
+	b=ndycJccNFMYCbNOVCMubwiOD4Uvi5aon6iaBegf3wa0C3p7RUMAj5M/vibtCc+EXS
+	 6fBpQqaXOcdlpP36nriTGpTg+yCPPsxmM0hXhQFxDVIy50SDJbqkuKCeC9i7whumOj
+	 JkCo2Oc/3U3BNpT0eXDUbScqBYfFqfe+bMrfONzRobJkp8VaXdFp/TUviGQaq3tzSq
+	 2vDYOj91dhyjFDiINcgPCuD0WIt4DtKfd5jXePB6MW08HvEQEy2SCgndXUjww0RJqf
+	 3Rjy2dzS9ObcgQ59CtsU+Fre8/oTPOW0Oa7REkhD3/U5Rsp7qqOL/KXPMOkuZGnJJ3
+	 abyo9ILqLRyqQ==
 From: Linus Walleij <linusw@kernel.org>
-Date: Sun, 25 Oct 2026 08:15:14 +0100
-Subject: [PATCH v4 3/3] ARM: dts: broadcom: Use CFE CPU bring-up on the
- XG6846B
+Date: Sun, 25 Oct 2026 08:15:12 +0100
+Subject: [PATCH v4 1/3] dt-bindings: arm: cpus: Add brcm,bca-smp enable
+ method
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261025-genexis-xg6846-smp-v7-3-rc1-v4-3-b352ab54f46b@kernel.org>
+Message-Id: <20261025-genexis-xg6846-smp-v7-3-rc1-v4-1-b352ab54f46b@kernel.org>
 References: <20261025-genexis-xg6846-smp-v7-3-rc1-v4-0-b352ab54f46b@kernel.org>
 In-Reply-To: <20261025-genexis-xg6846-smp-v7-3-rc1-v4-0-b352ab54f46b@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -85,64 +85,83 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The XG6846B boots through CFE, which parks CPU1 in a holding pen and does
-not provide PSCI. Starting Linux from CFE does not install a PSCI
-implementation either. The working PSCI interface in newer GenXOS
-firmware belongs to a different boot stack.
+BCMBCA systems booted through CFE can release a secondary CPU by
+writing its ARM-state entry address to a 32-bit MMIO mailbox and
+sending a wakeup interrupt.
 
-Disable the inherited PSCI node on this board so Linux does not issue
-SMCs to an interface that is absent. Set the CPUs' enable-method to
-brcm,bca-smp to select the BCMBCA CFE SMP operations. Describe the CFE
-mailbox in CPU1's cpu-release-addr property. Set CPU0's required release
-address to zero since it is already online. Keep both CPU nodes enabled
-and leave the SoC's PSCI defaults available to other boards.
+Document brcm,bca-smp and require its single-cell cpu-release-addr
+property on each CPU using this enable-method. Add a Cortex-A7 example
+showing both CPU nodes with the shared CFE mailbox address.
 
-Also remove no-map from the secondary-boot reservation. Its overlap
-with ARM's initial page tables otherwise causes the reservation to be
-rejected, leaving CFE's holding pen unprotected.
-
+Suggested-by: William Zhang <william.zhang@broadcom.com>
 Reviewed-by: William Zhang <william.zhang@broadcom.com>
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts | 18 +++++++++++++++++-
- 1 file changed, 17 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/arm/cpus.yaml | 39 +++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts b/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
-index a3616fb7b3a8..23145440e7bc 100644
---- a/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
-+++ b/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
-@@ -34,7 +34,7 @@ reserved-memory {
- 		ranges;
- 
- 		secondary-boot@0 {
--			no-map;
-+			/* Includes the kernel's initial page tables. */
- 			reg = <0x00000000 0x00008000>;
- 		};
- 		pmc3-firmware@8000 {
-@@ -56,6 +56,22 @@ button-restart {
- 	};
- };
- 
-+/* CFE parks CPU1 in its holding pen and does not provide PSCI. */
-+&{/psci} {
-+	status = "disabled";
-+};
+diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
+index 5be89c584026..577a1d352449 100644
+--- a/Documentation/devicetree/bindings/arm/cpus.yaml
++++ b/Documentation/devicetree/bindings/arm/cpus.yaml
+@@ -255,6 +255,7 @@ properties:
+           - amlogic,meson8b-smp
+           - arm,realview-smp
+           - aspeed,ast2600-smp
++          - brcm,bca-smp
+           - brcm,bcm11351-cpu-method
+           - brcm,bcm23550
+           - brcm,bcm2836-smp
+@@ -471,6 +472,22 @@ allOf:
+     then:
+       required:
+         - secondary-boot-reg
++  - if:
++      properties:
++        enable-method:
++          const: brcm,bca-smp
++      required:
++        - enable-method
++    then:
++      properties:
++        cpu-release-addr:
++          $ref: /schemas/types.yaml#/definitions/uint32
++          description:
++            Physical address of the 32-bit MMIO mailbox read by CFE after
++            a wakeup interrupt. The kernel writes the ARM-state entry
++            address before sending the interrupt.
++      required:
++        - cpu-release-addr
+   - if:
+       properties:
+         enable-method:
+@@ -712,4 +729,26 @@ examples:
+         cpu-release-addr = <0 0x20000000>;
+       };
+     };
++  - |
++    // Example 5 (Broadcom BCMBCA with CFE):
++    cpus {
++      #size-cells = <0>;
++      #address-cells = <1>;
 +
-+&CA7_0 {
-+	enable-method = "brcm,bca-smp";
-+	/* Dummy release address since CPU0 is already online */
-+	cpu-release-addr = <0x00000000>;
-+};
++      cpu@0 {
++        device_type = "cpu";
++        compatible = "arm,cortex-a7";
++        reg = <0>;
++        enable-method = "brcm,bca-smp";
++        cpu-release-addr = <0xff800568>;
++      };
 +
-+&CA7_1 {
-+	enable-method = "brcm,bca-smp";
-+	cpu-release-addr = <0xff800568>;
-+};
-+
- &gpio0 {
- 	status = "okay";
- };
++      cpu@1 {
++        device_type = "cpu";
++        compatible = "arm,cortex-a7";
++        reg = <1>;
++        enable-method = "brcm,bca-smp";
++        cpu-release-addr = <0xff800568>;
++      };
++    };
+ ...
 
 -- 
 2.56.0
