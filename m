@@ -2,77 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F903606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 15:04:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BDE9606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 15:21:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Efm8Zzrz;
-	dkim=pass (2048-bit key, unprotected) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=QAD8j98g
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=faDdtK2h;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Zdp1usVO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6hz5uza8UCAu1Jf83s707Rg61KRs8PkOBOl6V9Iw00E=; b=Efm8ZzrzXE5yk8
-	qLN8gnCL9pq+mL+9eWY3NfPexerY33A7gF47oCZXDCgDenBnjYR/hFzfdBWO1WMmnRHyjHI7yHlka
-	DAQjHYOFXRtXD2y+elwJ9bcFXPb5azV4uqqXtw88d/JwNhv/buyspSIJ2p5i7ATcF95tAFckQHXks
-	b+1+tQn63vbLpoecxaThseJFCTgq2+94gwKHrdL3o7oEe6S1plt82wtUX6P6+k2dt5em+fWkCJIiC
-	nj4LC+UMOIR6H40XNjwDjot0I9rbBVkDwj4oLL8Yoct8S0gI7PCbhVh6qhWbikx28woilnkB6WX4t
-	c03rRQmPG79x3WnUfoKg==;
+	List-Owner; bh=NgUZou+QAUenodbqqsNTHG+MAZHRcJXPTQZv1JbHVys=; b=faDdtK2hsYNR5T
+	mrW+Wj94GiwRND9HWEGieiK5oyEtpudOzg6bEGSYAb7+zpb3e0LmMVIPOusgU/c7x0Y7ao+xRP9oO
+	StsnOUw0XRNTvcqEFP9WENKaEj1nHsxYQFGCNyhKfbocuaOM71+0oVy4pNu48kBlD0epvM1lAHYbd
+	Cy6uue1YW9QbXkwryTi/4TbLdVTqjA3ybiMloiq2HytZpHRLpOouFFYEnHwoHAmO6HBWY2AoOBRn9
+	AnZ5PsiL0s97wvWpLpjWFJfrHPq3oIpvBcnnH8xhjYBNXIXb1c5eOf17QkPbeFkcjetTGmFaUqzPm
+	nfFqySQuqpLZgeOMEl/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLMFC-00000002kAE-2nOq;
-	Mon, 26 Oct 2026 15:04:14 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1xLMVg-00000002kjz-15Xg;
+	Mon, 26 Oct 2026 15:21:16 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLMFA-00000002k9v-3msv
+	id 1xLMVd-00000002kjW-023q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 15:04:14 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 08B66109697;
-	Mon, 26 Oct 2026 16:04:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1793027046;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=6hz5uza8UCAu1Jf83s707Rg61KRs8PkOBOl6V9Iw00E=;
-	b=QAD8j98ggHzcW8yd8J1Ifh5uWQm69X822XjTfFT0rPzwR0ZNiYPNci8OXcst+l9ZbNbAqR
-	Ywd+teA3k/qiJidFn9pnBtGSWLvBxZl6/OvVlrE0p/t9+FTjQSQ4+YwdHF3s5vKUGjKnqX
-	oHP0Lp+fIcAI74SaVEFixa2ywzeuCacVYk8ezV/mzRt3XkNKgKl4z2kVVN7zeMoQkKqPZQ
-	9xe9jU3Kgy8c37lQBnUyTyfF2jUvMqrriJvfT7vL2TcP7CQJDA02v2fm0bEYxS/sE+2Rf9
-	FZi4imAAafJd6yU6c+LzHzwf0aaESkeXSRv67TUiblMEXtlkBC/jItlbjoGwOA==
-Message-ID: <eca44457-d3d3-4732-977d-d30a408b7b66@nabladev.com>
-Date: Mon, 26 Oct 2026 16:04:02 +0100
+	Mon, 26 Oct 2026 15:21:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Ng
+	UZou+QAUenodbqqsNTHG+MAZHRcJXPTQZv1JbHVys=; b=Zdp1usVO+wA1HyRZky
+	ELohWUrb/FJ+Wz0rd8BNcMAJLR2AJTCopWLgYZjKLUQrhK2qtFJIp8OBGc82TKSJ
+	XJDf45LKpo/wjE6WreuMLkMg14/R/8xSMf45Cc6Vrixj9BJddKRvmlWXk86cUPr7
+	iHtijdSLB3Vlf6BkvdfoVPlxU=
+Received: from SYPC (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wDXXx3Ub99q1qL2Cw--.8607S2;
+	Mon, 26 Oct 2026 23:20:52 +0800 (CST)
+From: Yang Siyuan <hsyysy@163.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] pinctrl: sunxi: request the per-bank supply optionally
+Date: Mon, 26 Oct 2026 23:20:27 +0800
+Message-ID: <20261026152027.1417178-1-hsyysy@163.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261026144751.1392715-1-hsyysy@163.com>
+References: <20261026144751.1392715-1-hsyysy@163.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/3] arm64: dts: imx95: Add support for Data Modul
- i.MX95 eDM SBC
-From: Marek Vasut <marex@nabladev.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>,
- linux-arm-kernel@lists.infradead.org, Aswath Govindraju
- <a-govindraju@ti.com>, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Marc Kleine-Budde <mkl@pengutronix.de>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, imx@lists.linux.dev, linux-can@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260928204741.175754-1-marex@nabladev.com>
- <20260928204741.175754-3-marex@nabladev.com> <arvPDq8sjjv7na01@SMW015318>
- <49303872-5622-4e1d-8e1a-01394ec29367@nabladev.com>
- <20260930174413.GA2463938@francesco-nb> <ar1bhpji35CbArtY@SMW015318>
- <17f240e5-9c65-4562-ba51-535b0c69c5fd@nabladev.com>
- <ar19W4wX07p8u3_5@lizhi-Precision-Tower-5810>
- <4efdcea6-a099-46a6-8d07-dd5c583b962a@nabladev.com>
-Content-Language: en-US
-In-Reply-To: <4efdcea6-a099-46a6-8d07-dd5c583b962a@nabladev.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDXXx3Ub99q1qL2Cw--.8607S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCFW7AF43XF4fAr4UAFyftFb_yoW5Xr4kpr
+	sxXr1akr4kAFyfKw47uw1xtr1fuan7Ja43CFy0g34rXFs8AFs3Xw1akF4YkFWkGr4kXr4Y
+	yryDZFyxGF45Z3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UH7K3UUUUU=
+X-CM-SenderInfo: 5kv152r16rljoofrz/xtbC7RWj12rfb9XufgAA3T
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_080413_162143_68FE62A0 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261026_082113_489192_6423B130 
+X-CRM114-Status: GOOD (  16.91  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,33 +75,86 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 9/30/26 11:49 PM, Marek Vasut wrote:
+The per-bank "vcc-pX" supplies are optional in the device tree: the
+binding documents them, but notes that many boards do not describe them.
+sunxi_pmx_request() uses regulator_get() anyway, so the regulator core
+falls back to a dummy regulator and warns for every bank that has no
+supply:
 
-Hello Frank,
+  sun50i-h616-r-pinctrl 7022000.pinctrl: supply vcc-pl not found, using
+  dummy regulator
 
->>>> So I suggest remove it now and add it when need.
->>> Can we please go with consistency between these boards from one vendor ?
->>
->> Yes, I am keeping consistency, then ask remove it. I applied alex's v2
->> version. I put v1 link to show krzy's concern.
->>
->> https://lore.kernel.org/imx/20260319125013.2421621-3- 
->> alexander.stein@ew.tq-group.com/
->>
->> Changes in v2:
->> * Changed commit message to imperative form
->> * Remove (currently unused) display and backlight nodes
-> I sent you a V6 with those nodes removed.
+The H616 R_PIO is such a controller, and its PL0/PL1 pins drive the
+R_I2C bus, so every H616 board hits the warning during boot.
 
-Have you had a chance to handle the V6 ?
+Use regulator_get_optional() instead.  A bank supply that is described
+in the device tree is still acquired and enabled, as it powers the
+physical VCC-Px rail, but one that is absent is skipped without a
+warning.
 
-Thank you !
+Signed-off-by: Yang Siyuan <hsyysy@163.com>
+---
+
+Changes in v2:
+- Do not skip the supply on controllers without IO bias configuration:
+  the per-bank regulator also powers the physical VCC-Px rail, so a
+  supply described in the device tree must still be requested and
+  enabled.  Use regulator_get_optional() so only banks that have no
+  supply are skipped, which silences the warning without changing the
+  power management behaviour.
+- Link to v1: https://lore.kernel.org/linux-gpio/20261026144751.1392715-1-hsyysy@163.com/
+---
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index 70099052d..23c1fbd46 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -925,11 +925,19 @@ static int sunxi_pmx_request(struct pinctrl_dev *pctldev, unsigned offset)
+ 	}
+ 
+ 	snprintf(supply, sizeof(supply), "vcc-p%c", 'a' + bank);
+-	reg = regulator_get(pctl->dev, supply);
+-	if (IS_ERR(reg))
++	reg = regulator_get_optional(pctl->dev, supply);
++	if (IS_ERR(reg)) {
++		/*
++		 * The per-bank supply is optional: boards that do not
++		 * describe it simply have no regulator to manage.
++		 */
++		if (PTR_ERR(reg) == -ENODEV)
++			return 0;
++
+ 		return dev_err_probe(pctl->dev, PTR_ERR(reg),
+ 				     "Couldn't get bank P%c regulator\n",
+ 				     'A' + bank);
++	}
+ 
+ 	ret = regulator_enable(reg);
+ 	if (ret) {
+@@ -959,6 +967,10 @@ static int sunxi_pmx_free(struct pinctrl_dev *pctldev, unsigned offset)
+ 					    PINS_PER_BANK;
+ 	struct sunxi_pinctrl_regulator *s_reg = &pctl->regulators[bank_offset];
+ 
++	/* The per-bank supply is optional, so this bank may not have one. */
++	if (!s_reg->regulator)
++		return 0;
++
+ 	if (!refcount_dec_and_test(&s_reg->refcount))
+ 		return 0;
+ 
+base-commit: 091b06388b117fefdcb63336ac09956a4914b961
+-- 
+2.56.0
+
 
