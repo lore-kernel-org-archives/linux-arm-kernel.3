@@ -2,77 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55EF760A260E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:10:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32DF9606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:10:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MlDnP0Gn;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=MW8F0WRC
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fq8G39gx;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=UjQ/kRxo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=HumEFrlMqHCto2ViTmw+G3OxsKbMuowdLIAMmEN3GFQ=; b=MlDnP0GnFMV9bSQw0pmFyzW4ZN
-	YkvVuKQ+GgaF3qltKzRT5mngQeSVkncf2CwDK0uqPxV0W6DDaAZFDEqef9udhfYnyc5EVwLiaKQsL
-	Ay74QXXlFrG41dmNN2w5RzatcYcpWDBx0yVyEUHjd/37CJT1piX9r02sItbeiVTL6wC0w+FOf3u1a
-	i9uY9EzbDIQ1Pzdxt4C0Ga9/7M6uLf+J6m7wCYxtytq8actYfTlMk4OMqF55T0BU8Q7ao7kuXlC/N
-	Gr3FZiw1yoM/WFVmRLF8gJsIdAu1aS/wSRRrWBJQPMSViHJVpq3l3zpLG60jz7lZIjNCTAcDqkyZY
-	im8Rze/w==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=YjhWyGcQ/8hVnGizK5MNNn3D6g+ipWoPWJTbRgGnr1E=; b=fq8G39gxubPZpE
+	jPpN6MzIgkCOINMr4ClUIek6J4bf1O/V2QkLLTh17LSxjaXmMTKRauE74M2OqfJD8Lmav22ilipfk
+	S4OVhzReX5n71PwqonvMH82y8FMfFEHT15LDWX3DrNLlC5YmKhK6RQmQKAbBOqwA8vTfkOP9Blpq/
+	eHrMBMyDnuncc+VVVi+Gjo8XiGlpaBThcf7sUaIyHaEBpGDEinnumpUbk9O5F8m/fjys47QiXv1kX
+	orPPHxI7JOlA3CZ4yxQQapGMaAR5hAHQhnrdPtN7283XcEuIfq2MPPdLi89yI+bQ/tU+W1ju0+62T
+	OAlD6DGt06ZNxBpZEG6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHeI-00000002ELa-44l0;
-	Mon, 26 Oct 2026 10:09:50 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1xLHeO-00000002ENq-0HZO;
+	Mon, 26 Oct 2026 10:09:56 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHeF-00000002EK5-1O6o
+	id 1xLHeH-00000002EKb-0SnM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 10:09:49 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a35ac4475dso12231805e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 03:09:46 -0700 (PDT)
+	Mon, 26 Oct 2026 10:09:50 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a59100fa83so8138675e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 03:09:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793009385; x=1793614185; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HumEFrlMqHCto2ViTmw+G3OxsKbMuowdLIAMmEN3GFQ=;
-        b=MW8F0WRCxxE3FS6YQiMWw1OnLUiCesW7LpfjXtS3zWo5Pu/QtB/M/jnuvG3/77eQzt
-         zCtomtDDMFvnaHgcXUhtdvaCtAitWlrkHkyrjb4TIa/rC9TR67Omyl4MIjueuNZ7bajU
-         BNzft29tUN6urtzfMA+gshuK/Nlv7AYZCKUpowYox1478aGYsMtYcPgIg7doJhqFWMeN
-         Mds97H1iGExpJku+3V1aIjZyNdqJi7Cr3nZps2K9Yh4/QE5Y7WeRDWC92RzXNoSCKogq
-         B3U3e6RPqnRZviWrB4XvjiTV0DfJukCgug0VNhy9w77g14j6EWAHclWuoZdBqcow+oz7
-         y30A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793009385; x=1793614185;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=baylibre.com; s=google; t=1793009387; x=1793614187; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=HumEFrlMqHCto2ViTmw+G3OxsKbMuowdLIAMmEN3GFQ=;
-        b=LOd7AyNcRI4gG1siKw57GprBd4IyELfwtd8vVTaPiOChxOu7QegBpXpEtDG9uEpdSF
-         4JY98JkmzSLObhuCZ8HrNWzBCQCgGxwaQhhOOAsJa5O8lekC9b0o3Jy72yRqjynU7zvc
-         wzjc2vy+ujILrx72oU25Dh8+DS0Lyn9fp4a1U3zJigpKoPOeywZMcMjAnSWgHnkHrc54
-         aYxyFfYhujoWic/fuJsWGDkE39vHilzx+n2ERwvyNTjm/qeeI48yRH8er03NFgjxwQco
-         ZnUdCfC7h685PbYzsiAZ4lR/dU26xNJ68mi7//c5cyHK3TluzjhL8qXiabmozCbSFEMo
-         w0WA==
-X-Forwarded-Encrypted: i=1; AKwUvBxTkPuh/fiCLLAGtkFwpa0/bwy3lW1NpD7cDra+o9EGHrYJigWmFd+evEavDy/pqpbZTjhDUKatsQcz2ngGJpBi@lists.infradead.org
-X-Gm-Message-State: AFq9FYKuMm5kViGREGLb2/TraNPieHbVBHk6J6NXMp6jxyItrmY4tDcs
-	oj5yQw5nvnZ+yAY/UulECyDOxryqzFCZfX4W+4GYqE5MU1sjfb2ig0DF34p1Oy9yAA8=
-X-Gm-Gg: AYBFou0f57IXFnODzFhHDuTjU3YmLtf2EBNkt5VSOlZRJQqo5glahlDgondXNSHe7x9
-	ojxr395rw7l4x8P2PmONW5G5dJ5xQuKiZyw1A5QCsECM6bHXq7yuTE6DAhZ/6i3Xskrt1zBtRgG
-	dtg7fQsXAMzonAeakq8eitcGKiumgRZNb5zppFpubEOfom+Ye9gnRFvjE9p4NVcLbX57d1E8r/D
-	TjzoBKbeXlgv8pYqoXcxWnAfaj7Z2o5TVEUltC/uD3A5z2/XW8kpqr8hkgpmDClQp9zO2uQ6Bzi
-	0Q8TgX4AKrA6nPUmvh874ge0vhKGYh7BbM55sYo9Pe7GXq7eIh6OrIR0SSWncwmxTD5TwPkgviK
-	4TjTgqq5bhWQYLczB/LcCHx354leByZ0ZgClxykDONmei7e6TCzqSSNEBa1jnRzP8B3wmayAHFO
-	WHzmBuBYFpmcAN7vE2DYdpenFr64uUwywxoQu2c99QxdCRLIO+TF+wl6ebLiQ61x4M9aYUe/MzE
-	pjV9tnN/Q3+gyZ1+QF83kdeZC/MfPTbKfHS5I1T+Ec8RQEm5vsH8eiZ0KCBlpkxjwg0YTzhdO+U
-	USp/5zDZzpocijCzlv+7eTbtRmEKcssB6s9o9vkOZQ==
-X-Received: by 2002:a05:600c:1d0f:b0:4a2:47:b79c with SMTP id 5b1f17b1804b1-4a35acc76d6mr115228495e9.32.1793009384948;
-        Mon, 26 Oct 2026 03:09:44 -0700 (PDT)
+        bh=YjhWyGcQ/8hVnGizK5MNNn3D6g+ipWoPWJTbRgGnr1E=;
+        b=UjQ/kRxop+wXmOczHLg2p41fL75b9/UnU8pwhQ2Z8fp7371bcmjZ673eYA/MpWbgPa
+         /q53DNisNSALXvWWS44HPw731kQBqPU4ooRdmkp15nTrlG3ZP+Pe3w76n7rJFVXRyZla
+         xxIPFWieHa2mUc4Yy/x4gmX3d09PGVfNu3yioUoU0Wd7MSoG+7mU1HPBlgQ2aTl2AJIv
+         FMuoDQ+5qsaBpe4Q58Sz40JUVns5fGQcPYmihviZd5qHuofGNRXnMCEdbpZhgHXVJ7is
+         JRXKBDlsKX4RIhBTnbCO0S+x2coSh6izGP55p6QJVGxl8cwyKadxhdohmDpFZsaKZjRW
+         u+0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793009387; x=1793614187;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YjhWyGcQ/8hVnGizK5MNNn3D6g+ipWoPWJTbRgGnr1E=;
+        b=of/Y5IpIbdW7toN3RX/2oMK/1U7sDPh92AWqE/0d15jUbPUI3rGDCEDYOov3DDn04n
+         X6uMpc4B2dvuT/kerUEzC0WcHeURO0zC3sLKKzd7DjD/cSH/KjdWQd0gzajEsuUGmOX8
+         5w2hahfPtc+eVMUqEbsyGC95PHfDWdXGS9Xboigawv9ufjT++mv5tDOz6JmzkfG2wJ+J
+         UnXjC1qzEwUZp2Dxktc7k6iF3ZqS3nOuQYJFyZ9A5CENdtiz1AnEzdnYZ9BuAykHn5dd
+         5Dtw68oxO/g5mO0OQ0GFj3mM3UfwTQiHvFN4HL/RXXxXL2TDLD3DkTMuq1qIgvI+cXCu
+         swaA==
+X-Forwarded-Encrypted: i=1; AKwUvBy4pbdlz17Uc4aSQvEY60XcowMwJ0ZTkdUceayCr2L9bMLM50u0O0MN9XEeyWBW0yKCWDbAt/I/WxFX//POChyO@lists.infradead.org
+X-Gm-Message-State: AFq9FYLu5C9+KztA5lSV6OrCLw3GSxu1McvvoO6WTa1UnuJsKphRIaep
+	B+6DETzAMuWVi08s54ZVZVYfeFw3gXfmiMQouCtu4+w0qCwhcC+c4aYzRWTwM/wHWKI=
+X-Gm-Gg: AYBFou0tmlJ+0DvofpQLE/5oITKj1ApNsMArM6FuG13dCYMGjXQ+El+gYCzV56LaCrO
+	uRYrtZo1bxZE1FU/lIEeD8+nJPUmDd/iH5wK0DeQ2LEKXJdmFAgYb96TVTQJDhUS5zGp6IgwOio
+	vhvBL9DTf0OG8w6q7poYE5JO7mDC3+AMsswRKhy+DlVjrYMFSS6tx6j2LIUHX2Tuh4qJC/gEoKF
+	q3wIVCtKna1DnpeLAmRGJZ25/xpD5h77REOgf43fWA7nAzVMipWWzlN6RSvZaI1YUbvYP0HCrUL
+	0LTPIT17KjTbfhDbvZyNdE1wBGZZS0NmxIEbKlhhmFqOXJyAaKDwvTBXS3+OgS2c0miX1Cqcp2o
+	KSMXuuzhLgpz4YuZIKqhouGzhIv1uFXOjSTbfnHu6r0oPBKmsVFb739YpjXoJe/sIkwJwnBXGZ5
+	5qwv+lRjN1NnCihM4Fcli4ePUO5rr8BOmif9AaiBz1ZIOQVmvIk15YoiOWpcFBebbmOm1+gK9TP
+	W2vRtgdT/RUy3MqDIMHa9nVwJ2Q/3r4yXjxkcht23NcWxlCzwSmAl1p+c9rB1DEUPQplQ/PgKZj
+	WPVlq9ndXtdU+n9OpLQwvWyn1zDrVYjnLF0Y4urSyOI=
+X-Received: by 2002:a05:600c:c08d:b0:4a3:7344:13b4 with SMTP id 5b1f17b1804b1-4a373be2a68mr73417995e9.14.1793009387038;
+        Mon, 26 Oct 2026 03:09:47 -0700 (PDT)
 Received: from localhost (p200300f65f19a904bf765b6740c3076b.dip0.t-ipconnect.de. [2003:f6:5f19:a904:bf76:5b67:40c3:76b])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4a35a59d998sm191748665e9.15.2026.10.26.03.09.43
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4a35a2d6f6fsm178981245e9.12.2026.10.26.03.09.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 03:09:44 -0700 (PDT)
+        Mon, 26 Oct 2026 03:09:46 -0700 (PDT)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: Bjorn Andersson <andersson@kernel.org>,
 	Mathieu Poirier <mathieu.poirier@linaro.org>
@@ -85,19 +85,21 @@ Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] remoteproc: elf_loader: Make rproc_elf_load_segments() more generic
-Date: Mon, 26 Oct 2026 11:09:29 +0100
-Message-ID: <cover.1793008847.git.u.kleine-koenig@baylibre.com>
+Subject: [PATCH 1/2] remoteproc: elf_loader: Create new callback for copying segments to remote cpu
+Date: Mon, 26 Oct 2026 11:09:30 +0100
+Message-ID: <4757287789726692e13b141b3b2af5245ae17e30.1793008847.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1793008847.git.u.kleine-koenig@baylibre.com>
+References: <cover.1793008847.git.u.kleine-koenig@baylibre.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1036; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=p8BCvf4WNLvDTsTcauj4vL9ILkW9KOR07cSl5g6yvHs=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBq3ybbdZZQCmOQEwlRereTB+cpQErFhNTawdaYm 8GKarLnZ5OJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCat8m2wAKCRCPgPtYfRL+ TiTnB/9q/2uqQ7mxzRKdtOBIs8bbAq6IDNldcSzkBYE882FHSYLuF69QzQGYggbfdshBZF6KfEi 72spEUCb74/WTgDet3zcw610iMpBONFQx/bnX2ygNae5l3T8DwcJ/QLRfRstK9JJBodno+45XLP qFCvgs1ubvMdtdoBLpPTCAmEADK2B5fhqO3+LuR6opB9OseqLp4zSO4/4GF/YxM9aZoLnD0V0Zw aqqoMBTyaJNu773gIqT894WQGRijP+G+Q8hiA8RsiEbmHCXr2rSjjEE34SYCF7AQp7nQoeIZX/R 0YHk4Zo2OTearFppBqodw/347Sk1klnFu9Nxl5okTb67O2W6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4531; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=iP/a86pijHCRmv9wBS5FEuq1LQ6MVYUXu9CglvvJMck=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBq3yberBd3EQ5Kxjbd3sOQabalehlLr8is9shUn Mr7VDefgJCJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCat8m3gAKCRCPgPtYfRL+ TnoBCACmPXG59pHH37OKjk0cHYhrDhchNp4kPrX3S2palkOtr/leAierbz+le2U+7KOrhvBU7KO OP80a7baa8OKpNF6noVMplFsMaR+1zwsJh1ljDSDNIWaTCV0iSh9ffxQCGITsepdNgcKiJx2+8Y zc1UyNiNySdsVvA19Uob6xHpTkz1UEvdmm9MBU2AU3FGEV7jED+HEIOSLn0cTCC/+4gMJcR5rWz VpfXJVB8ddeqWCanJj6J9nA9f3OrlROMm3uV8+Y0L6HXRJFE/0BlFpH0w+RJlUii6GXn0RG4Ncw M6aTTX3VJ0mn53FOzapKvPhm9N2hPV+DrHOkOouTEGWRCUN3
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_030947_389328_FD76953A 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20261026_030949_176865_02354A68 
+X-CRM114-Status: GOOD (  21.25  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,40 +111,130 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello,
+Some devices have special needs about how an Elf segment is copied to
+the remote cpu's memory space where the default implementation using
+memcpy_toio/memcpy and memset_io/memset isn't suitable. An affected
+mainline driver is imx-dsp-rproc which includes a near-copy of
+rproc_elf_load_segments() just to handle the IRAM only allowing 32 bit
+accesses. On (not-yet-mainline) ADI SC846 the respective memory isn't
+directly accessible at all and DMA must be used to copy the data.
 
-I'm currently working on remoteproc for ADI's ADSP SoC family (SC598 +
-SC846 and others). On at least SC846 the memory of the remote processor
-isn't directly accessible by the main cpu. (The memory is mapped into
-the cpu's memory space, but cannot be accessed directly from non-secure
-EL2.)
+The new callback can be used to implement just the driver specific
+memcpy + memset to increase code reuse.
 
-Instead of creating another near-copy of rproc_elf_load_segments() that
-just differs by the memory access functions, generalize this function
-and make the driver that already has such a copy benefit from it.
+The patch only appears big because of indentation changes.
 
-This is only compile tested.
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+ drivers/remoteproc/remoteproc_elf_loader.c | 63 ++++++++++++----------
+ include/linux/remoteproc.h                 |  3 ++
+ 2 files changed, 39 insertions(+), 27 deletions(-)
 
-Uwe Kleine-König (2):
-  remoteproc: elf_loader: Create new callback for copying segments to
-    remote cpu
-  remoteproc: imx_dsp_rproc: Implement .memcpy_tova()
-
- drivers/remoteproc/imx_dsp_rproc.c         | 120 ++++++---------------
- drivers/remoteproc/remoteproc_elf_loader.c |  63 ++++++-----
- include/linux/remoteproc.h                 |   3 +
- 3 files changed, 69 insertions(+), 117 deletions(-)
-
-
-base-commit: bd1ecbb61afefc6a8b876ccbc31e9228b44e9eab
+diff --git a/drivers/remoteproc/remoteproc_elf_loader.c b/drivers/remoteproc/remoteproc_elf_loader.c
+index da3cddbe7d4c..0698bba2db89 100644
+--- a/drivers/remoteproc/remoteproc_elf_loader.c
++++ b/drivers/remoteproc/remoteproc_elf_loader.c
+@@ -227,35 +227,44 @@ int rproc_elf_load_segments(struct rproc *rproc, const struct firmware *fw)
+ 			break;
+ 		}
+ 
+-		/* grab the kernel address for this device address */
+-		ptr = rproc_da_to_va(rproc, da, memsz, &is_iomem);
+-		if (!ptr) {
+-			dev_err(dev, "bad phdr da 0x%llx mem 0x%llx\n", da,
+-				memsz);
+-			ret = -EINVAL;
+-			break;
+-		}
++		if (rproc->ops->memcpy_tova) {
++			ret = rproc->ops->memcpy_tova(rproc, da, elf_data + offset, filesz, memsz);
++			if (ret) {
++				dev_err(dev, "Failed to copy segment %d to device addres 0x%llx: %pe\n",
++					i, da, ERR_PTR(ret));
++				break;
++			}
++		} else {
++			/* grab the kernel address for this device address */
++			ptr = rproc_da_to_va(rproc, da, memsz, &is_iomem);
++			if (!ptr) {
++				dev_err(dev, "bad phdr da 0x%llx mem 0x%llx\n", da,
++					memsz);
++				ret = -EINVAL;
++				break;
++			}
+ 
+-		/* put the segment where the remote processor expects it */
+-		if (filesz) {
+-			if (is_iomem)
+-				memcpy_toio((void __iomem *)ptr, elf_data + offset, filesz);
+-			else
+-				memcpy(ptr, elf_data + offset, filesz);
+-		}
++			/* put the segment where the remote processor expects it */
++			if (filesz) {
++				if (is_iomem)
++					memcpy_toio((void __iomem *)ptr, elf_data + offset, filesz);
++				else
++					memcpy(ptr, elf_data + offset, filesz);
++			}
+ 
+-		/*
+-		 * Zero out remaining memory for this segment.
+-		 *
+-		 * This isn't strictly required since dma_alloc_coherent already
+-		 * did this for us. albeit harmless, we may consider removing
+-		 * this.
+-		 */
+-		if (memsz > filesz) {
+-			if (is_iomem)
+-				memset_io((void __iomem *)(ptr + filesz), 0, memsz - filesz);
+-			else
+-				memset(ptr + filesz, 0, memsz - filesz);
++			/*
++			 * Zero out remaining memory for this segment.
++			 *
++			 * This isn't strictly required since dma_alloc_coherent already
++			 * did this for us. albeit harmless, we may consider removing
++			 * this.
++			 */
++			if (memsz > filesz) {
++				if (is_iomem)
++					memset_io((void __iomem *)(ptr + filesz), 0, memsz - filesz);
++				else
++					memset(ptr + filesz, 0, memsz - filesz);
++			}
+ 		}
+ 	}
+ 
+diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
+index 00019b1895e6..ffa22c2f04af 100644
+--- a/include/linux/remoteproc.h
++++ b/include/linux/remoteproc.h
+@@ -75,6 +75,7 @@ enum rsc_handling_status {
+  * @detach:	detach from a device, leaving it powered up
+  * @kick:	kick a virtqueue (virtqueue id given as a parameter)
+  * @da_to_va:	optional platform hook to perform address translations
++ * @memcpy_tova:optional platform hook to copy data into remote memory range
+  * @parse_fw:	parse firmware to extract information (e.g. resource table)
+  * @handle_rsc:	optional platform hook to handle vendor resources. Should return
+  *		RSC_HANDLED if resource was handled, RSC_IGNORED if not handled
+@@ -99,6 +100,8 @@ struct rproc_ops {
+ 	int (*detach)(struct rproc *rproc);
+ 	void (*kick)(struct rproc *rproc, int vqid);
+ 	void * (*da_to_va)(struct rproc *rproc, u64 da, size_t len, bool *is_iomem);
++	int (*memcpy_tova)(struct rproc *rproc, u64 da, const void *src, size_t filesz, size_t memsz);
++
+ 	int (*parse_fw)(struct rproc *rproc, const struct firmware *fw);
+ 	int (*handle_rsc)(struct rproc *rproc, u32 rsc_type, void *rsc,
+ 			  int offset, int avail);
 -- 
 2.47.3
 
