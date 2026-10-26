@@ -2,109 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93565606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 05:49:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77886606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 06:54:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CLZAcR2S;
-	dkim=pass (2048-bit key, unprotected) header.d=fb.com header.i=@fb.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=aFBJWMos
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z9//jPdI;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=RnW3Yfdm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:CC:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=h5CPtsW845wIg8XT+7IjY3h0UyBjrJLt9Tps+aPI7oM=; b=CLZAcR2SXaRjb+38d4WfLp7KbF
-	qQu+iuMXQJvAfpyIimFgUU2bXquMn/ZcIvkvJrGp8aQBlzgoLw5nWYpQp4UbLuADQhWzwXQq+c+Kt
-	odseLx4ZJ6j2PC8Lv1b1jYFJg30dKFlaGO3ha3PohfIiTmxl6xYhMYrK5hasMeHipQnZ75puTeHw6
-	ZZhMvFweJMTojcjgVRHnWMyUddnmmJ6Fidoe8bXL7SHvv80LoIDnXvpj04gTxnz0HYzBjmEwOL0h8
-	H4JsHx907UlJ3JUuPCd5k+jiUWeoG7XqGLWTduRabiTU+x+HtvPZjy//tn6vyR83kVwEQQgWWVwrN
-	DXBI03+w==;
+	bh=SPMA29WPhhsjMxZvTRe+slSGiqdKLUr7sgp7elTz1pA=; b=Z9//jPdIon5Mfpn076vYOcn8Ma
+	Gx1xJljcqtsfZ3G1f3bRIO2P2dlk11W2kjlx/PHTYeZIRnDHlmRWqlw8LMMkhM3msLY/hYwfinZAe
+	aINJrMBXfrkUCsh3XryMT1AX+LBeCVOFBu7GKmp1mVQLZC5KCmqJJZEla2o+11FZh670too9sBfU2
+	6NxLoa8l/f6tzdP/YxEyC0dLWRcFzntpNbk2kxqoTUkpaL3VpJ5F7XqpK3uwsoT+ubcP5rIVJHns6
+	bN22pHJS+F9dU5dgjZAx8bL6ofDLH35TkwsQGsiAMUSc3C6QR0CkCb5bxYtURhV7WhP0HJR/cDqP/
+	7VPsFOsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLDZi-00000001ksL-1LTw;
-	Mon, 26 Oct 2026 05:48:50 +0000
-Received: from mx0a-00082601.pphosted.com ([67.231.145.42])
+	id 1xLEaT-00000001nrg-00yK;
+	Mon, 26 Oct 2026 06:53:41 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLDZg-00000001kqu-1uh4
+	id 1xLEaQ-00000001nr4-0HLu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 05:48:49 +0000
-Received: from pps.filterd (m0044012.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69Q39JjW1063621;
-	Sun, 25 Oct 2026 22:48:33 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=h5CPtsW845wIg8XT+7IjY3h0UyBjrJLt9Tps+
-	aPI7oM=; b=aFBJWMosNrA6X1Fv10uYkYPt8nn62qFrf5mCus4TmQenFDM/8MlTD
-	2U7vMsuEeJMYvpFpqaw3dT/AXAQ+2WozIGuhC9jrFECL1ndQH21V7NX7S8J3+Luw
-	QpjvYyaLaBA1Dc9+kF73HgWduW1/+4r57hhS/jOIbFGNynxJGj75PPdpLLhsen3J
-	aFd5Dh7BqrDL6tjVAgRh1BsVahYEVVU++5+V6NZaejtH5KH5UGIybxhjim4Jk5Db
-	EnNyJ+rcY10LONNINs4zts/MOuquh4uvPZfwmR3Gm44TCuKT1ZsLLahHwCcamvZN
-	2+Gm9xX4LcCsedLA23xROh38SLXjuvoLA==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4hgtc0y640-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Sun, 25 Oct 2026 22:48:33 -0700 (PDT)
-Received: from localhost (2620:10d:c0a8:1b::30) by mail.thefacebook.com
- (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Mon, 26 Oct
- 2026 05:48:32 +0000
-From: Amir Ayupov <aaupov@fb.com>
-To: James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
-        Suzuki K
- Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@arm.com>,
-        Alexander
- Shishkin <alexander.shishkin@linux.intel.com>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        Randy Dunlap
-	<rdunlap@infradead.org>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Daniel
- Pereira <danielmaraboo@gmail.com>,
-        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-perf-users@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH v4 2/7] coresight: syscfg: Fail to enable a configuration not loaded on the device
-Date: Sun, 25 Oct 2026 22:48:22 -0700
-Message-ID: <cc6b083f1ece4625e5bed0aa13b1eac7e4d1e274.1792989860.git.aaupov@fb.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <cover.1792989860.git.aaupov@fb.com>
-References: <cover.1792907332.git.aaupov@fb.com> <cover.1792989860.git.aaupov@fb.com>
+	Mon, 26 Oct 2026 06:53:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=SPMA29WPhhsjMxZvTRe+slSGiqdKLUr7sgp7elTz1pA=;
+	b=RnW3YfdmjVaoRj/dcdAYmw0sQp/hBgrto6g06vSgJHEMk5WtR02u8rgQUW/Ook2+F8BjlVz27
+	Ozlh1tmJtnO1UzDU8OqbS7QNCKIxVe3/gv0IEEDPqVtEmXwJQcuGyJ3plsPbRilCrILn6NvRq0T
+	OY8CTfbakkc/uOHZUiYAGeo=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4jCkq34qGMz1K96Y;
+	Mon, 26 Oct 2026 14:53:19 +0800 (CST)
+Received: from kwepemk300016.china.huawei.com (unknown [7.202.195.98])
+	by mail.maildlp.com (Postfix) with ESMTPS id B6B3040563;
+	Mon, 26 Oct 2026 14:53:26 +0800 (CST)
+Received: from [10.67.109.218] (10.67.109.218) by
+ kwepemk300016.china.huawei.com (7.202.195.98) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Mon, 26 Oct 2026 14:53:26 +0800
+Message-ID: <cf7a043c-384c-0642-204c-8f207eff3d42@huawei.com>
+Date: Mon, 26 Oct 2026 14:53:25 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI2MDAyMiBTYWx0ZWRfX5L69hV7Xtd87
- 8H6cf5+ZWHCEGdUHSdsdQ4y099yJdXLVx+isw5g0wJk3OCX43ukSOtgvpX9BupT21CEN05CyJyu
- w2YVGEsLCclF9KSXNBMH+fGPAjxRvA/GhxKH7UVywuQ6GsII2nWxMcELxnZDhvahEl8U4t6tANB
- K8AaHX02V/HSXp8+EFrtPFZhWApTUqxows4JKaYNvXZzG2tZsoqVhmI7b74UY0fZJoWcJpZt1Zr
- YaKD2GL7A+MQLGaU6JYVHufDZSNKn4uSrG0EkmSwOWIrZFCmW5mh+4YJHSpwfuKyNbKx4iVH2kB
- rem9CKgTFtp0WkO03+iHP3uKwT8BVeFzThv++kkysSBZbV/T5AsMmf7eN0S0YlicvPd3lEZ60l6
- tKMlaeruAf4bJ2XbrAVhM/zF2sdIyURe0Bkn9bC84R/dyFRhO2vu+ieKC7D4VnTsCl5Lo14S79c
- XenssXxBaAI4Tn6mWuw==
-X-Proofpoint-GUID: g1Aifh65k7-KI_eGbyqKsF3Ofe2YmTIr
-X-Proofpoint-ORIG-GUID: g1Aifh65k7-KI_eGbyqKsF3Ofe2YmTIr
-X-Authority-Analysis: v=2.4 cv=eIGGH3p1 c=1 sm=1 tr=0 ts=6adee9b1 cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
- a=660iZSQnnn4A:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=PAz_-FQ8hEVmOPYdF0yf:22 a=FOH2dFAWAAAA:8 a=7CQSdrXTAAAA:8
- a=HF-2DHWplcuDzBJEMXoA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI2MDAyMiBTYWx0ZWRfX0pjfGOs2QLky
- UZkKQengl2V/vIdMa0q/GOp5ngq0mztwp52peIA7QYnRhJ86sHg7PrCnjWj6bs5+GEQyJs7G6OU
- OcPIZTWpdGwsoq4B4KlJGatxANUI4No=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-26_01,2026-10-21_02,2025-10-01_01
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.1.1
+From: Zhang Qiao <zhangqiao22@huawei.com>
+Subject: [QUESTION] sched/clock: Potential timestamp jump due to inter-CPU
+ counter skew?
+To: Thomas Gleixner <tglx@linutronix.de>, <"John Stultz jstultz"@google.com>,
+	<"Stephen Boyd sboyd"@kernel.org>, <"Peter Zijlstra peterz"@infradead.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemk300016.china.huawei.com (7.202.195.98)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_224848_495235_62AE5F9E 
-X-CRM114-Status: GOOD (  19.87  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261025_235338_606567_9EF9C865 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,102 +77,63 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.7 required=3.0 tests=BAYES_00,CTE_8BIT_MISMATCH,
+	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-cscfg_csdev_enable_active_config() looks up the selected configuration in
-the device's loaded configurations, and returns success when it is not
-there. A configuration is only loaded on devices that match at least one
-of its features, so a perf session or sysfs enable that selects it on any
-other device runs without the configuration, with no error.
+Hi all,
 
-Return -EINVAL instead, so enabling the source fails on that device. The
-function is only called with a non-zero configuration hash, so sources
-enabled without a configuration are unaffected.
+While reading kernel/time/sched_clock.c, I had a question about counter
+synchronization requirements across CPUs.
 
-Fixes: f8cce2ff3c04 ("coresight: syscfg: Add API to activate and enable configurations")
-Assisted-by: Devmate:Opus-5.5
-Signed-off-by: Amir Ayupov <aaupov@fb.com>
-Reviewed-by: Leo Yan <leo.yan@arm.com>
----
- .../hwtracing/coresight/coresight-syscfg.c    | 53 ++++++++++---------
- 1 file changed, 28 insertions(+), 25 deletions(-)
+update_sched_clock() updates the shared epoch_cyc using a counter value read on
+the CPU performing the update. Other CPUs subsequently call sched_clock() and
+subtract this shared epoch from the counter value they read:
 
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-index 2bfdd7b45e49c..a816c22c87bc8 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.c
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-@@ -1088,36 +1088,39 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
- 	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
- 
- 	/*
--	 * If found, attempt to enable
-+	 * The configuration is active but not loaded on this device, because
-+	 * none of its features match the device. Fail rather than trace
-+	 * without it.
- 	 */
--	if (config_csdev_active) {
-+	if (!config_csdev_active)
-+		return -EINVAL;
-+
-+	/*
-+	 * Call the generic routine that will program up the internal
-+	 * driver structures prior to programming up the hardware.
-+	 * This routine takes the driver spinlock saved in the configs.
-+	 */
-+	err = cscfg_csdev_enable_config(config_csdev_active, preset);
-+	if (!err) {
- 		/*
--		 * Call the generic routine that will program up the internal
--		 * driver structures prior to programming up the hardware.
--		 * This routine takes the driver spinlock saved in the configs.
-+		 * Successful programming. Check the active_cscfg_ctxt
-+		 * pointer to ensure no pre-emption disabled it via
-+		 * cscfg_csdev_disable_active_config() before
-+		 * we could start.
-+		 *
-+		 * Set enabled if OK, err if not.
- 		 */
--		err = cscfg_csdev_enable_config(config_csdev_active, preset);
--		if (!err) {
--			/*
--			 * Successful programming. Check the active_cscfg_ctxt
--			 * pointer to ensure no pre-emption disabled it via
--			 * cscfg_csdev_disable_active_config() before
--			 * we could start.
--			 *
--			 * Set enabled if OK, err if not.
--			 */
--			raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
--			if (csdev->active_cscfg_ctxt)
--				config_csdev_active->enabled = true;
--			else
--				err = -EBUSY;
--			raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
--		}
--
--		if (err)
--			cscfg_config_desc_put(config_desc);
-+		raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
-+		if (csdev->active_cscfg_ctxt)
-+			config_csdev_active->enabled = true;
-+		else
-+			err = -EBUSY;
-+		raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
- 	}
- 
-+	if (err)
-+		cscfg_config_desc_put(config_desc);
-+
- 	return err;
- }
- EXPORT_SYMBOL_GPL(cscfg_csdev_enable_active_config);
--- 
-2.52.0
+cyc = (rd->read_sched_clock() - rd->epoch_cyc) & rd->sched_clock_mask;
+res = rd->epoch_ns + cyc_to_ns(cyc, rd->mult, rd->shift);
+
+
+If CPU1 observes a new epoch_cyc published by CPU0, but its subsequent counter
+read returns a value strictly less than that epoch (assuming no normal counter
+wrap-around), the unsigned subtraction would underflow. After masking, this
+produces a very large delta and potentially causes sched_clock() to return an
+incorrect, massive timestamp.
+
+For example, consider this hypothetical sequence:
+1. CPU0 reads the counter and gets 1000.
+2. CPU0 completes the epoch update, publishing {epoch_cyc = 1000, epoch_ns = N}.
+3. CPU1 observes the new epoch, but its subsequent counter read returns 993.
+
+Assuming a 56-bit counter mask, CPU1 would calculate:
+(993 - 1000) & ((1ULL << 56) - 1) = 2^56 - 7
+
+Although the counter read on CPU1 is only seven ticks behind the epoch, the
+calculated delta is close to a full counter period. Passing this delta to
+cyc_to_ns() could cause a multiplication overflow or yield a completely
+incorrect timestamp.
+
+This scenario assumes the inter-CPU counter skew exceeds the time it takes for
+CPU0 to publish the new epoch and CPU1 to observe it and read its own counter.
+(All values in this example are hypothetical).
+
+My questions are:
+1. Are there hardware or architecture specifications (e.g., ARM64 architected
+timers, RISC-V) requiring counters on all CPUs—including those on different
+dies/sockets—to be perfectly synchronized? If skew is permitted, is there a
+specified maximum allowed skew?
+
+2. If the sequence above is theoretically possible, does generic sched_clock()
+already have a mechanism to handle a counter read that lags behind the shared
+epoch_cyc?
+
+Any comments or suggestions are welcome.
+
+Best regards,
+Zhang Qiao
 
 
