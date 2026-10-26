@@ -2,102 +2,117 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5C7D606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 20:42:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8008C606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 20:49:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nQ2hrIoF;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=JeFiiXRx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BP7bkbcQ;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=BZvBcIz3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=uNPrYlA+DnonfWUvT/WXv31GUY54FKsXFffmLPGjc3U=; b=nQ2hrIoF6Q1fj/
-	j5tUaBBcsmgS0pm4w/6mOSrrf3m7SypedcVYNVJwWTHYYWrATKAY5utfkj7SD6oSIVAZbPyaFH7Vy
-	IQO5sThd+NUe9kIjRZI90mSiYELaMCgB6eNquwAqIxcD4Xd/JXTuJXf+HlEuqBddS4P2Ct5lV+m0A
-	nQaYENw/mOfHKbJoWKRCpdmpPXMg0VrlRu00hnzRTTetItNy7b+g796J/OMAaMivtOLtDKymcz4/p
-	Ylhv24Q6o7P8jfgubOb/2c7z/6fjy9lclNyac7Nmm/ctprAcybivzzG/q0Qpp2EijJ04COeX1VvhE
-	/PAskNxCZjSifCWUPYSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=PJBAWhG3vQY26e/Nvx85KnaVoYI7FZuNNNc/vdxGNMI=; b=BP7bkbcQRS+xby7zYX2KFdAGTD
+	m6LuT939ZzwDgwYRlaPZ1w++Gt701X+aZlc+UxAoCpNw68KaIbDDRdB1x61snqlvUonomYSEWnrxb
+	nZqRr6o4vA+0EfBcWXV14xMTA5k76yu3Er/2qwSOevewVEdlGNPPssyrfg6SaMjHRs5VsAg+5Rdxp
+	G+YJUMhmrgqEbGcTVts6pemJ48xky9FoXaR1b+XdvKyJc9cuPn0sNXNyft3fZI37jFdgAD/qnqwnK
+	y1p3WlOHWMRPM3o7koURhEhzt7C0bR6qsRcaWJGriWtgoklXP2Exe53YD+rP4dSwasnf2JnGpDXbO
+	3/j+Sykw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLRWG-00000003ENl-0c3l;
-	Mon, 26 Oct 2026 20:42:12 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1xLRd0-00000003F8S-40vB;
+	Mon, 26 Oct 2026 20:49:10 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLRW4-00000003EJw-0F6R
+	id 1xLRcz-00000003F7D-0PtK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 20:42:01 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48dfc0421d9so2997227f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 13:41:59 -0700 (PDT)
+	Mon, 26 Oct 2026 20:49:10 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-3ab752f6244so3414272a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 13:49:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793047318; x=1793652118; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uNPrYlA+DnonfWUvT/WXv31GUY54FKsXFffmLPGjc3U=;
-        b=JeFiiXRxdLh2Ii/HpLdAqhJh3iNLi05Wwqd0ED6p1Q8GskmuSTMPe30VuCp1Vdm9g9
-         +RjAnIrbBDmyZsHcVtL5s9I1KZxo6B6mrs33kl8ldhfA7woQzGzBMGFxFVg9ktSMbb5J
-         XWMqYqVYvH43qly0Dcu4Nk6V32Mmc0SEyHBMenlcEnzEeYGWyqJyO2rEhMBQwcgUS3lQ
-         Ndz2stLalAwsaAmHDp946/fPMYA2k1xfH/9NgBFteuP6ntfpRMmZPFvnhy2J9kJpHuzK
-         iSS8bifORWZ0svSKV7gdcCxxfoU4YxunRyWPCIKeiBbhl9/0WkKo56wgRphLDLdnCKmm
-         QrKg==
+        d=google.com; s=20251104; t=1793047747; x=1793652547; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PJBAWhG3vQY26e/Nvx85KnaVoYI7FZuNNNc/vdxGNMI=;
+        b=BZvBcIz3xbVyVmpis6EsL+D5bk590Ts/aSf+BaskWEICUBeVTJr6xjGwoT2sbHFyyn
+         lxNWpIdIqNPJ4lQZZyR8tgLDzJq8wLFreEUcZIqt4nlYUN9MIWdJDc3v0u4wscqEU5+S
+         IfbFxg00F4t4Ly/m+c2i1p+C+e6PZn3cgLLoElzJXEcKek2ZLj+qM/MoQQBcBHlO5fMR
+         jqyrdHa7f6IAG/1O/HHyt3CYd2Q4J4JG3hl/D+R5bdj8b3wQEhV30nMXe15q+PxemHbH
+         oTWJzXceYlZfs7OctqtTYdPOSVpYFdepaWSpgW3OvjcKUsG/ySt1XDqQAYx1ebiQa9iX
+         dGZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793047318; x=1793652118;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=uNPrYlA+DnonfWUvT/WXv31GUY54FKsXFffmLPGjc3U=;
-        b=RWojis5ppabwUhTv9sAMMHQn799MXzkVbsDCMqTV+r/tBIZwegzFxtuvjIW3R5KEvn
-         b0IjL+SaXAzx3m/g1cllRPDhwu3X4dkq6S81lWGM4rHGdp36h2oI8EUrsRuJ2uv9kCyS
-         TRE/eZhTlMmWU/UxJITZudDuWLyML1SlV51/NWB4cg//zsgfIQYhO72B9fJ6yeDCWb6B
-         ZyWDlSmTbrxj3STCfAL85HxF3SzUYwi0XbTgBQg/GoQhv9Uq4C0jUFNi143wExOMPrkS
-         F316VhIlLVYPCLx1o/vz3fFiIqJHWDQphcF/Amk0f4vg9ffYHs8WbpXaOtAq3C/ODvLg
-         zv7g==
-X-Forwarded-Encrypted: i=1; AKwUvBzRLEbZogACEyodLRTzgJ+dohr00PxAHqeBxzRk1bqbSjLAEDLLNwoj2yW5q2niBcqgfS6pZlkOCRiwc8E8CpY+@lists.infradead.org
-X-Gm-Message-State: AFq9FYJcTM4kLBCI4KXvFILWrea0l7812OS3Pid6G3E9t8XUy+uo0jJ4
-	hEpdOcK26llzvzW+Co9Qy0ffCfFcKNh2dP25kKxqF5cB78EZ+7Ise+6U
-X-Gm-Gg: AYBFou3f7Nl9kvLFdXw8RSxPG43Q9JJMrC9EiQUz9fszcBrANnF9Bhak4+apGmXTo6d
-	UuoXWVk75hnG4/4Ijov7Gtkfei4VKWcGJD+iM4wBQREsO8pFeJkadZ3bw5sAgqWTvxeU2lr61Sl
-	QUIBTWGVScKy4Ze04SQdkcuwg359fDsoq6sH2f92rsCOL1AWRIcTN85YBJUKzoX2bilRPvTr6G5
-	9h4WuCtcpxczznz1qzm1Pj6B3tbz3W09EKzSq0MpVH67tGHIoHdEIUuPcdsMc/bf2V/IjJOF6B0
-	MPS20Nx1gWeXkJ5MgFHiHqHjSpwDP4mJh5xbfGJjSM1oGazLd4zMC3rvGCH/xlLxiRuR0cX477M
-	vpoB6hJkr2drjtGwFHFTTNKI99fWFiNYp5Uw0gT1ql9r40AHYThQDY4TaoAJRio6puIZoSAxtWq
-	/zLP8VTfrIHabLXvd/hkWYaf0aIlrPcR9X8mwr118Q1aDw+Xi6Il7JhGd6gUxqMTG3dpAmDCKHt
-	65PDXlj+ZGL5WgIN4K4ZIhLh7ztFvnEgLZesZDL8NShQtQp3ygZldMfvgK1NwzBwfaHRradCyG0
-	yb2g6H7W2sekhJHrBpBXNwAOiXAgfenozc84SLNf24vOMlQXOE0NlQ8YRsaoj9MWIMToKcZxgal
-	hfGle6Fvop+uDdPga80rp+mONnd8EQW+Gr/q5vl9YNYbA91PR0c7Esr25YZ8aG25ddcZnu+S2Py
-	Yxh18K
-X-Received: by 2002:adf:f284:0:b0:48e:2980:d396 with SMTP id ffacd0b85a97d-48e3eb8d6a5mr12409485f8f.37.1793047318143;
-        Mon, 26 Oct 2026 13:41:58 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a00-1028-8388-a84e-8ce1-bbf6-5949-b0f3.ipv6.o2.cz. [2a00:1028:8388:a84e:8ce1:bbf6:5949:b0f3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebc39b3sm19053152f8f.10.2026.10.26.13.41.57
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 26 Oct 2026 13:41:57 -0700 (PDT)
-From: Josef Schlehofer <pepe.schlehofer@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Henrik Grimler <henrik@grimler.se>
-Subject: [PATCH v3 2/2] ARM: dts: samsung: Add Hardkernel ODROID-U2
-Date: Mon, 26 Oct 2026 21:41:54 +0100
-Message-ID: <20261026204154.26378-3-pepe.schlehofer@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261026204154.26378-1-pepe.schlehofer@gmail.com>
-References: <20261026204154.26378-1-pepe.schlehofer@gmail.com>
+        d=1e100.net; s=20260707; t=1793047747; x=1793652547;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=PJBAWhG3vQY26e/Nvx85KnaVoYI7FZuNNNc/vdxGNMI=;
+        b=YoajGXseaXNwBSEq/f7PNpNWbxD1hCmt4varAUFsobXdKlXXSm0R4xowMl+U3NY00F
+         NIMT5b6+p8H+PDrYzxScjnsglsOwE1nx5CehTEAQXn1PZADsz+OnqD1uyJxpkRDbzEzP
+         tYxuOWI26sHHf+ocpUY8wdbi85DzNj9eVzbd4IxPgr6J0NA0DUbb+eJSlYQY9KE+XR4n
+         v3t0wIxGffBNMIndYHAjWxe5rBifKRoAGsxgO1LFEGAyUnewZHGm2/xoGbWSCLjglJGt
+         +F0P0WgHI4ognO9bR78MbgYNHg92DwDsG7Ed3t6Dudu3tUGlyl9oLQYSh51AHyE9Nb0T
+         krAg==
+X-Forwarded-Encrypted: i=1; AKwUvBy/dETyJU8xC+t1cM72Cbnvb/KjbX1Vd5gMgEsq0cGVJYTF5GDVW7Zk3f7vFbJnRX1sRpEGS2WNIIV7BjIm3NrT@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ+jwDhyOsqYB0n22QpA8RgJhBImk8XlxNw92MfMZwoHAVS782d
+	b2AHTsfwEcqgWsLcDUijkpxFblvtOdEPEvCQ4ztNeUHug6UaytkGA1dPPaHCtvKxPw==
+X-Gm-Gg: AYBFou2I/2gYNjPBELvGAvrhj8bIcNyN3Bbc2vxQf6Zx/WgLsQ5iOHdRN7xUaY/TDIm
+	1zvBKjB19URliBsGLGncSBBCNfYdBtMDvBAYjvyKdx6J9kAgE6/wsij9njxkjav21OGZSDNeYSo
+	zqgoNH3+8XPurTJ2pRj9hmTqq+VAQJw11b3TE7J4Gsv2Mh/JDA52M0hPerzxBhbFv7SLnCDICAm
+	OYb7sd8EWZAH6QmaJ8Jf58Ny8jspcHSl+/KFaPxE4P1/b3Vq2kJ3i6ePm0bLyta5TJve1iQ7kWy
+	XAI97qzOzepuYeZLQsEhij1oQmyKgQTJFID5ZJA7bZZQQdJAKyBwv3g+zF9oMKzxCQB956F1N1s
+	CmXFFKf30pLje0R/CFdiMvVEA4D9gOzP1VfN8BnCFZhvKNZTDj+OIKpIOZnQ3ngBJ+q5hVN9wrr
+	Vwz7ot7aEqzuaLYmy7yWcE8cIsdzp6xlJY0REm6FQ0AadT4j7F2cYtrtcRegK5amNLTJnf3xysK
+	fuaARGf51s29QEsyDW7r/JkNKgs9P6mzBkNa4oNSP9EgUhPBYs8KFnJ081nx//RTW0vyMOZgIGD
+	q4oFsMvA4m1Mg2Vl
+X-Received: by 2002:a17:90b:5105:b0:3ac:9176:e81c with SMTP id 98e67ed59e1d1-3adeae76765mr6903041a91.46.1793047746368;
+        Mon, 26 Oct 2026 13:49:06 -0700 (PDT)
+Received: from google.com (64.75.127.34.bc.googleusercontent.com. [34.127.75.64])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae4066aec8sm743744a91.15.2026.10.26.13.49.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Oct 2026 13:49:05 -0700 (PDT)
+Date: Mon, 26 Oct 2026 20:49:02 +0000
+From: David Matlack <dmatlack@google.com>
+To: Pasha Tatashin <pasha.tatashin@soleen.com>
+Cc: tarunsahu@google.com, Andrew Morton <akpm@linux-foundation.org>,
+	joro@8bytes.org, Mike Rapoport <rppt@kernel.org>,
+	Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de,
+	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com,
+	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org,
+	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com,
+	will@kernel.org, Alexander Graf <graf@amazon.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com,
+	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
+	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev,
+	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
+	kexec@lists.infradead.org, skhawaja@google.com, kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
+ a 2-bit pair feature header
+Message-ID: <at-8vkVpN2SF3XgB@google.com>
+References: <atlKsD-aJB3mJr2j@google.com>
+ <CA+CK2bABt4OZO31TenVF2+uBUWVwViWbvfE00=0xbAw=f7K9SA@mail.gmail.com>
+ <atl7peoVHdP5hz7z@google.com>
+ <CA+CK2bBFXnJA1kddbLKGq0DAHDgjYhsTSQQay-xeX7jJC1V_UQ@mail.gmail.com>
+ <CALzav=e=ho2gVrn+7KpZ3ZyasvH2u15-pC-RSRSS7KcMfKqUJQ@mail.gmail.com>
+ <CA+CK2bAJo8dnTOyKMgnnMnk-SCXbTsv+JCLEOWkjyj-wqtEkHg@mail.gmail.com>
+ <atpNFEFIlqAoYIwH@google.com>
+ <CA+CK2bB2C3Am5ssRuzYpfiU7_vB81vxMGc19HQLq7N=_7YrbTg@mail.gmail.com>
+ <attmFVIFU_mS0Y7p@google.com>
+ <CA+CK2bDXDWbww_d3sD6OZqpo37V1a3t76_ubbrXLQS=9DB3dWA@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CA+CK2bDXDWbww_d3sD6OZqpo37V1a3t76_ubbrXLQS=9DB3dWA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_134200_129623_CAB91ABE 
-X-CRM114-Status: GOOD (  24.60  )
-X-Spam-Score: -1.1 (-)
+X-CRM114-CacheID: sfid-20261026_134909_219561_0CBC55C5 
+X-CRM114-Status: GOOD (  42.02  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,138 +123,138 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-ODROID-U2 is a single board computer from Hardkernel based on the
-Samsung Exynos4412 Prime SoC with 2 GB of LPDDR2 RAM. It is the
-predecessor of the ODROID-U3 and shares most of its design:
-- microSD card slot and eMMC module socket
-- SMSC LAN9730 10/100 Ethernet on HSIC0
-- SMSC USB3503A hub on HSIC1 with two USB 2.0 host ports
-- micro-HDMI port with CEC
-- MAX98090 audio codec with a 3.5 mm headphone jack and an on-board
-  digital microphone
-- MAX77686 PMIC
-- 2-pin header for an optional PWM controlled cooling fan
-- blue heartbeat LED
+On 2026-10-25 04:38 PM, Pasha Tatashin wrote:
+> On Fri, Oct 23, 2026 at 9:50 AM David Matlack <dmatlack@google.com> wrote:
 
-Unlike the ODROID-U3, the micro-USB port has no VBUS supply switch, so
-it can only work in peripheral mode, and there is no expansion header
-with SPI. The 3.5 mm jack is headphone only and the speaker outputs of
-the codec are not connected.
+> > Sure but why deal with all the complexity just to save 8 bytes? All of
+> > these structs are allocated on folios and there are kilobytes of unused
+> > space to fit this header. And even if we optimize that we are talking
+> > about 8 bytes per FH/FLB... or 16 bytes for structs with arch-specific
+> > sub-structs like the KVM ones.
+> 
+> The reason I care about keeping the header compact is that we are
+> defining a foundational kernel ABI and want to use this header across
+> almost every serialized data structure so we can evolve them later
+> without breaking compatibility. While some top-level structs are on
+> sparse folios today, other serialized structs are tightly packed, and
+> we are looking to add KHO slab support in the future where tightly
+> packed allocations will be common.
 
-Add a device tree for the board that includes the ODROID-U3 one and
-describes only these differences, as the ODROID-X2 does with the
-ODROID-X, and update the comments in the common dtsi, as the LDO22 and
-BUCK8 constraints are now also used by the ODROID-U2.
+My intuition is we will have a small number of headers per preserved
+file and per preserved FLB. One for the top-level struct and then
+optionally a few more for sub-structs like arch-specific data. That is
+why I am less worried 8 bytes per header, even if we fix the folio
+problem.
 
-Also route "HiFi Capture" to "Mixer DAI RX", as on the ODROID-XU3. The
-odroid sound card driver adds only the playback routes for boards with
-a single CPU DAI, so without it the DPCM capture path to the I2S
-back-end is incomplete and recording from the digital microphone fails
-with "no backend DAIs enabled for Primary".
+Maybe where our visions differ is when there are collections of
+serialized structs, like KHO blocks. For collections I don't think the
+elements will each have their own headers. Otherwise the elements could
+be different sizes.
 
-Link: https://www.hardkernel.com/shop/odroid-u2/
-Link: https://www.hardkernel.com/blog-2/odroid-u2-u-schematics/
-Reviewed-by: Henrik Grimler <henrik@grimler.se>
-Signed-off-by: Josef Schlehofer <pepe.schlehofer@gmail.com>
----
- arch/arm/boot/dts/samsung/Makefile            |  1 +
- .../dts/samsung/exynos4412-odroid-common.dtsi |  6 +--
- .../boot/dts/samsung/exynos4412-odroidu2.dts  | 41 +++++++++++++++++++
- 3 files changed, 45 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts
+Instead I think the struct that owns the collection will have a header
+that includes features for fields in the elements. The header defines
+which fields in all elements are valid. The field contents then convey
+the per-element information (which might include 0 or -1 values to
+convey this specific element doesn't have this data).
 
-diff --git a/arch/arm/boot/dts/samsung/Makefile b/arch/arm/boot/dts/samsung/Makefile
-index e0143ee8c82d..2a173e4b3e1a 100644
---- a/arch/arm/boot/dts/samsung/Makefile
-+++ b/arch/arm/boot/dts/samsung/Makefile
-@@ -16,6 +16,7 @@ dtb-$(CONFIG_ARCH_EXYNOS4) += \
- 	exynos4412-i9305.dtb \
- 	exynos4412-itop-elite.dtb \
- 	exynos4412-n710x.dtb \
-+	exynos4412-odroidu2.dtb \
- 	exynos4412-odroidu3.dtb \
- 	exynos4412-odroidx.dtb \
- 	exynos4412-odroidx2.dtb \
-diff --git a/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi b/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
-index 93ddbd4b0a18..b56b92c78c1d 100644
---- a/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
-+++ b/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
-@@ -414,8 +414,8 @@ ldo21_reg: LDO21 {
- 
- 			ldo22_reg: LDO22 {
- 				/*
--				 * Only U3 uses it, so let it define the
--				 * constraints
-+				 * Only U2 and U3 use it, so let them define
-+				 * the constraints
- 				 */
- 				regulator-name = "LDO22";
- 				regulator-boot-on;
-@@ -486,7 +486,7 @@ buck7_reg: BUCK7 {
- 			buck8_reg: BUCK8 {
- 				/*
- 				 * Constraints set by specific board: X,
--				 * X2 and U3.
-+				 * X2, U2 and U3.
- 				 */
- 				regulator-name = "BUCK8_2.8V";
- 			};
-diff --git a/arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts b/arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts
-new file mode 100644
-index 000000000000..8a18e65de30c
---- /dev/null
-+++ b/arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts
-@@ -0,0 +1,41 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Hardkernel's Exynos4412 based ODROID-U2 board device tree source
-+ *
-+ * Copyright (c) 2026 Josef Schlehofer <pepe.schlehofer@gmail.com>
-+ *
-+ * Device tree source file for Hardkernel's ODROID-U2 board which is based
-+ * on Samsung's Exynos4412 SoC. The board is the predecessor of the
-+ * ODROID-U3, so only the differences from it are described here.
-+ */
-+
-+#include "exynos4412-odroidu3.dts"
-+
-+/ {
-+	model = "Hardkernel ODROID-U2 board based on Exynos4412";
-+	compatible = "hardkernel,odroid-u2", "samsung,exynos4412", "samsung,exynos4";
-+};
-+
-+/* No VBUS supply switch on the micro-USB port */
-+/delete-node/ &vbus_otg_reg;
-+
-+&hsotg {
-+	dr_mode = "peripheral";
-+	/delete-property/ vbus-supply;
-+};
-+
-+&sound {
-+	model = "Odroid-U2";
-+	audio-routing = "Headphone Jack", "HPL",
-+			"Headphone Jack", "HPR",
-+			"DMICL", "DMIC",
-+			"DMICR", "DMIC",
-+			"Mixer DAI RX", "HiFi Capture";
-+	samsung,audio-widgets = "Headphone", "Headphone Jack",
-+				"Microphone", "DMIC";
-+};
-+
-+/* No expansion header with SPI */
-+&spi_1 {
-+	status = "disabled";
-+};
--- 
-2.54.0 (Apple Git-157)
+> That said, in your proposal, as long as nr_flags == 0 is allowed when
+> a struct has no feature flags yet, luo_ser_hdr_size(hdr) is already 8
+> bytes and only grows to 16 bytes on the first feature flag. I am OK
+> with that.
 
+Yeah the header will be 8 bytes until the first flag is defined, at
+which point it will grow to 16 bytes.
+
+Great, sounds like we are aligned on the header. s/luo/kho also sounds
+good to me.
+
+> > > This is not an issue on the incoming path, we never cast incoming data
+> > > to struct name##_hdr or access ->payload directly. Instead, we parse
+> > > the incoming buffer, dynamically compute the header size from the
+> > > continuation bits, and cast the payload offset to "struct name *"
+> > > based on the negotiated feature flags.
+> >
+> > How?
+> >
+> > This is the only data structure that describes the header. Are you
+> > saying the incoming path will parse the header purely with a void *? Or
+> > use this header but just be careful not to access payload?
+> >
+> > We should have one header structure that can be used on the incoming and
+> > outgoing path. We should not have one header data structure that can be
+> > used on the outgoing path and one that can be used on the incoming
+> > path.
+> >
+> > Also we need a standard header that can be shared across all structs,
+> > not a per struct header. Otherwise you will need to do weird casting and
+> > overlays to implement the shared helper routines that parse it.
+> 
+> Having DECLARE_KHO_SER_WRAP() in include/linux/kho/abi/ makes it
+> immediately clear just by looking at kho/abi/ which serialized structs
+> have the versioned header and which do not, while also enforcing the
+> header when preserving and static-asserting the combined struct size a
+> compile time.
+> 
+> So with your header (and let's use KHO as we want to version KHO
+> structs as well):
+> 
+> struct kho_ser_hdr {
+>         __u32 size;        /* Size of header + payload in bytes */
+>         __u32 nr_flags;    /* Number of features encoded in flags[] */
+>         __u64 flags[];
+> };
+> 
+> The wrapped struct will look like:
+> 
+> #define DECLARE_KHO_SER_WRAP(name, expected_size, nr_feats)                \
+>         struct name##_wrap {                                               \
+>                 __u32 size;                                                    \
+>                 __u32 nr_flags;                                                \
+>                 __u64 flags[DIV_ROUND_UP(nr_feats, 32)];                       \
+>                 struct name payload;                                           \
+>         };                                                                 \
+>         static_assert(sizeof(struct name##_wrap) == (expected_size),       \
+>                 "struct " #name " size mismatch!")
+> 
+> On the incoming kernel we don't use struct name##_wrap, but we use
+> struct kho_ser_hdr for the wrapped data, validate the flags, and
+> unwrap it via kho_ser_payload(hdr) to get back the struct name *
+> payload type.
+
+I still think it's not advisable to define name##_wrap since anyone
+could accidentally start using it on the incoming path and we wouldn't
+notice at first (especially since same kernel Live Update tests would
+keep working totally fine). I also don't think asserting the combined
+size buys us anything. The header size is just a function of the
+number of features, and what we are trying to protect against is
+structs embedded in the payload changing size.
+
+So I would just do:
+
+  /* Marks struct name as a KHO serialized payload with a kho_ser_hdr. */
+  #define DECLARE_KHO_SER(name, payload_size) \
+          static_assert(sizeof(struct name) == (payload_size))
+
+  DECLARE_KHO_SER(luo_memfd_ser, 16);
+
+Plus helpers that allocate and initialize the header and return the
+payload as a typed pointer. Both the outgoing and incoming paths find
+the payload the same way, by computing its offset from the header,
+rather than through a struct with a fixed payload offset:
+
+  /* outgoing */
+  hdr = kho_ser_alloc(luo_memfd_ser, LUO_MEMFD_NR_FEATS);
+  ser = kho_ser_payload(hdr, luo_memfd_ser);
+
+  /* incoming */
+  hdr = phys_to_virt(args->serialized_data);
+  ser = kho_ser_payload(hdr, luo_memfd_ser);
 
