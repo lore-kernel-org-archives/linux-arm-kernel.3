@@ -2,36 +2,36 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8052E606A322
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:55:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC048606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:56:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ih6cfqni
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1GbN2ozQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=MGsjF8yAycNX+1w32e1k8A5z+o58fLHJWlgySWZ9AOo=; b=Ih6cfqnit5s6Lo
-	Rlok1c8eWvCFjmckPhL7yAktjCMne5t6A7y73YX4GPx+6goNjnLf/NCol6DGV+hX6jueY4K0sNGnW
-	6Ze5NStdfPy8z9K6O8fJjmwvGbGW9s+84xRos9t6T8TO9SnIZJF7ju8eEiz1ez5OU79pk0H9SBKQd
-	H4duz6NbZqt97ATKXF6F1rZuCWhz4g/M2IJfPklQykAAaxpClWFzY7LMb3SW4QkaDaY8KmqAbwtQO
-	PBlDdopgdxYD7r63SROPJPEB2jrfxqEMy5QvLbcz0zGH1yNLbx76mLD3kWpeGIm+vVb/UCKuC62ql
-	ipNlbH0xtGK3o5KQ/n6w==;
+	List-Owner; bh=44CTiA7A49EJN2VY0UCM0Rmoy6mh9PnJJvTxNQQxTx8=; b=1GbN2ozQf2WBzp
+	9X7c8hDqO/d0bXflecfnkpPQ8R7EIJC3TYWUPDBwXLo0qiXSCqHe9fA+TLKiUA4IMvyxY97F6C/o9
+	PkPIHQpjSS5hpvBMAtN74wH4qguDSHo2YxJdx9CDKHlfpgU71rwRF9cgWcqvOHRa6BcZg9/PUqJ5S
+	LTNSBCnYnBxFT4ChbDSUJwl9t0BU9HhCwmaVoyT8zl0Zf6/PQVOKTrLCvGgvXomKg7LDJAi/PwLdl
+	GQjmieghdMPpthLL/nzdb6sWHg/FblCuHFQY7qAtmm8/5kTD/QMnR5ZbJ6zx6ncA+r+a4lnz8STyv
+	AmpYnOU5MrD8wPdLy8gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLM6y-00000002iAN-2eVZ;
-	Mon, 26 Oct 2026 14:55:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xLM7I-00000002iJ6-0y5o;
+	Mon, 26 Oct 2026 14:56:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLM6t-00000002i9N-3V5f
+	id 1xLM7F-00000002iH0-09nN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 14:55:39 +0000
+	Mon, 26 Oct 2026 14:56:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 95D70403DF;
-	Mon, 26 Oct 2026 14:55:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B670A1F01829;
-	Mon, 26 Oct 2026 14:55:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 14C2C6021E;
+	Mon, 26 Oct 2026 14:56:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C6B11F01829;
+	Mon, 26 Oct 2026 14:55:55 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
@@ -50,11 +50,10 @@ Cc: linux-pwm@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	linux-pm@vger.kernel.org,
-	Khanh Le <khanh.le.xr@renesas.com>,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 01/11] dt-bindings: pwm: renesas,tpu-pwm: Add support for R-Car X5H
-Date: Mon, 26 Oct 2026 15:55:17 +0100
-Message-ID: <8b2c7719c301a445891fc6c5309456327ec8a94c.1793026273.git.geert+renesas@glider.be>
+Subject: [PATCH 06/11] pwm: rcar: Add support for R-Car Gen5
+Date: Mon, 26 Oct 2026 15:55:22 +0100
+Message-ID: <f09a095ee5128c94c5dd1dadb71e655ec9dac658.1793026273.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1793026273.git.geert+renesas@glider.be>
 References: <cover.1793026273.git.geert+renesas@glider.be>
@@ -78,29 +77,78 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Khanh Le <khanh.le.xr@renesas.com>
+R-Car Gen5 enlarged the PWM output cycle and high-level period fields
+from 10 to 24 bits.  The high parts of each field are stored in a new
+register.
 
-Document support for the 16-Bit Timer Pulse Unit (TPU) in the Renesas
-R-Car X5H (R8A78000) SoC.
-
-Signed-off-by: Khanh Le <khanh.le.xr@renesas.com>
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- Documentation/devicetree/bindings/pwm/renesas,tpu-pwm.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/pwm/pwm-rcar.c | 27 ++++++++++++++++++++++-----
+ 1 file changed, 22 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pwm/renesas,tpu-pwm.yaml b/Documentation/devicetree/bindings/pwm/renesas,tpu-pwm.yaml
-index f85ee5d20ccbb3f9..144a88ff53e5633b 100644
---- a/Documentation/devicetree/bindings/pwm/renesas,tpu-pwm.yaml
-+++ b/Documentation/devicetree/bindings/pwm/renesas,tpu-pwm.yaml
-@@ -33,6 +33,7 @@ properties:
-           - renesas,tpu-r8a779a0  # R-Car V3U
-           - renesas,tpu-r8a779g0  # R-Car V4H
-           - renesas,tpu-r8a779h0  # R-Car V4M
-+          - renesas,tpu-r8a78000  # R-Car X5H
-       - const: renesas,tpu
+diff --git a/drivers/pwm/pwm-rcar.c b/drivers/pwm/pwm-rcar.c
+index 3813094c601efc8c..5e91509de7a7c162 100644
+--- a/drivers/pwm/pwm-rcar.c
++++ b/drivers/pwm/pwm-rcar.c
+@@ -31,7 +31,8 @@
+ #define  RCAR_PWMCR_SS0		BIT(4)
+ #define  RCAR_PWMCR_EN0		BIT(0)
  
-   reg:
+-#define RCAR_PWMCNT		0x04
++#define RCAR_PWMCNTA		0x04		/* Low part */
++#define RCAR_PWMCNTB		0x08		/* High part (R-Car Gen5) */
+ #define  RCAR_PWMCNT_CYC0_MASK	GENMASK(31, 16)
+ #define  RCAR_PWMCNT_PH0_MASK	GENMASK(15, 0)
+ 
+@@ -124,9 +125,15 @@ static int rcar_pwm_set_counter(struct rcar_pwm_chip *rp, int div, u64 duty_ns,
+ 		return -EINVAL;
+ 
+ 	rcar_pwm_write(rp,
+-		       FIELD_PREP(RCAR_PWMCNT_CYC0_MASK, cyc) |
+-		       FIELD_PREP(RCAR_PWMCNT_PH0_MASK, ph),
+-		       RCAR_PWMCNT);
++		       FIELD_PREP(RCAR_PWMCNT_CYC0_MASK, lower_16_bits(cyc)) |
++		       FIELD_PREP(RCAR_PWMCNT_PH0_MASK, lower_16_bits(ph)),
++		       RCAR_PWMCNTA);
++
++	if (rp->cycle_bits >= 16)
++		rcar_pwm_write(rp,
++		       FIELD_PREP(RCAR_PWMCNT_CYC0_MASK, upper_16_bits(cyc)) |
++		       FIELD_PREP(RCAR_PWMCNT_PH0_MASK, upper_16_bits(ph)),
++		       RCAR_PWMCNTB);
+ 
+ 	return 0;
+ }
+@@ -146,9 +153,14 @@ static int rcar_pwm_enable(struct rcar_pwm_chip *rp)
+ 	u32 value, cyc, ph;
+ 
+ 	/* Don't enable the PWM device if CYC0 or PH0 is 0 */
+-	value = rcar_pwm_read(rp, RCAR_PWMCNT);
++	value = rcar_pwm_read(rp, RCAR_PWMCNTA);
+ 	cyc = FIELD_GET(RCAR_PWMCNT_CYC0_MASK, value);
+ 	ph = FIELD_GET(RCAR_PWMCNT_PH0_MASK, value);
++	if (rp->cycle_bits >= 16) {
++		value = rcar_pwm_read(rp, RCAR_PWMCNTB);
++		cyc |= FIELD_GET(RCAR_PWMCNT_CYC0_MASK, value) << 16;
++		ph |= FIELD_GET(RCAR_PWMCNT_PH0_MASK, value) << 16;
++	}
+ 
+ 	if ((cyc & RCAR_PWM_MAX_CYCLE(rp)) == 0 ||
+ 	    (ph & RCAR_PWM_MAX_CYCLE(rp)) == 0)
+@@ -262,8 +274,13 @@ static const struct rcar_pwm_info rcar_pwm_info = {
+ 	.cycle_bits = 10,
+ };
+ 
++static const struct rcar_pwm_info rcar_gen5_pwm_info = {
++	.cycle_bits = 24,
++};
++
+ static const struct of_device_id rcar_pwm_of_table[] = {
+ 	{ .compatible = "renesas,pwm-rcar", .data = &rcar_pwm_info },
++	{ .compatible = "renesas,rcar-gen5-pwm", .data = &rcar_gen5_pwm_info },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, rcar_pwm_of_table);
 -- 
 2.43.0
 
