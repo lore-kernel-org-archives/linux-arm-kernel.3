@@ -2,104 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A101606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:22:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB60F606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:24:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OciioqUu;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=YYQioDVA
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZvVafAuz;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=Uz73HNC5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ssGW1Dqn9NQO094E/8Ttr3abz77jsGgzbaDPU8z6CLQ=; b=OciioqUuja4rFK
-	E79ugnxSF+aNYKXRC95OTm/NdxiU3kzcaji5Cqt0fxER29tW2DtT9UZYSDCxmJz2FZx8lRG94Culp
-	9e78KjKMHTPuYJ4YVRFiRKGRWd2iqC81HjBdJ3M4L4X97N/5RKowOr/ycZifCHa36l554Z1RTYLeh
-	Vr0QQU74P/ABA4tYPA0oHluoakXBAhc+R6MctUm2QYgzdbO7K5CdejFcgKDPw1SfQv6XxJjrKERam
-	Sjvguyj/yscMAMKXLPi8Ji9o1mkRZEy+q88x5hf8X1p+k8PqW9yqcnN1MZ8laTRfdfQSnPa2QvvaP
-	CppMCd0GfreWSSpyJfFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=okdfPAUG/95gVMAQwqPlFeuM9Ab2hbczPB989+Nnh8A=; b=ZvVafAuzfhdutqzKlYmhxJXvN/
+	wMn8w6kMoB7cls4tKB6Fh55W4ti9PVI6KobbYC6mMkxWDv7gm+H9kAZfD05SS5n7ihSkgQ9sCrFQO
+	8Wngiv0U4rTEDinexRVKH4uXANYDh0xRfKTaLszqcD63RFkLfzJtaaVbxzKCxEeE6UW6WqpWeBmCe
+	DT89uJ1MyTQuy0puTCpOyO4DcYzMsww7sCu5n8Jt9ZcV5Pj8P7v3TXbWgduDFAh+idEV6ZRkfwjs/
+	IFUI7lOVivud4QX8ZWW6jR2LTLyuu7Xc8i0f7Hk7whGD49t76BzgNXh6ASCtC3JINfk/vyaEr6NZ5
+	X//fgfog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHqE-00000002Fwl-0r0T;
-	Mon, 26 Oct 2026 10:22:10 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1xLHre-00000002GD3-30Ms;
+	Mon, 26 Oct 2026 10:23:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHq7-00000002Ft2-0aak
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 10:22:04 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a35d5d4a20so15648795e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 03:22:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793010121; x=1793614921; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ssGW1Dqn9NQO094E/8Ttr3abz77jsGgzbaDPU8z6CLQ=;
-        b=YYQioDVAlBa8Ag8vBGIhsxysiel7bfOUPSv/ZuGXEHv+I2iKgdD8P7r70jnLk07G8m
-         lyQSV7SCPw/Mz748U7LdIWcc60RAc6CDw49/DF6s3DZVkNClUgWUeAt83p9eNpPAKD92
-         FgHQRkunQVdYtDb/KRSDmUJT76S1fw4eo1XlJFMqh3mHCUul2lLl3VYUQmrA5aeSKMmI
-         G/pnxwrs9lQvI/sBgASTPPcafa+opW4xcnS0/uJFkiFhDbFNNcJ/9pqQxvizVUW9aDp+
-         7TfLzTC6dF8eD1FwxTF7XvgMZZjAX38QY0LXPtOoV6T7ReJW1a5L611heVxH9sF38kmN
-         xYWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793010121; x=1793614921;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ssGW1Dqn9NQO094E/8Ttr3abz77jsGgzbaDPU8z6CLQ=;
-        b=piEoOzf35ixsoenfbx8yuxCaNx/WKMKr8jBKDpT+xcLSyxt6lBtVz+k/waLm1mXb+Z
-         C4uHFoTVIYskQVz7FlIQA29XSIu4sy9PZ71TgQqyGm/IqW9MTbCuis62Kzd74XBmAyA1
-         SHJcHLDDOLwowsNfBXONcgy/f/TRaHsBuRD98hK7D1SM26KL6wxuYrDIdMMB/OdOmtDX
-         pLA0VIi7uG7L9mmXR4ec3T5uWFrM8peBVoGTHD1UxAmAODGf5jm+d110R2tgf6IV6AX5
-         35y/kR619c6YuIuCWTpIQ+hMzG4Q6iw7nSqCFoUuM6ytEACKumC3YZuxF5UuEGVsMX31
-         nFxQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwKGZog8H+1ymvqi7E5lb/kyw9kctYHpOMypCCD0bXUjFLunbfdGmCDuRMA3tEhC4PDu4VPQVklk2nQtbnDGoBe@lists.infradead.org
-X-Gm-Message-State: AFq9FYKNpAHswHPpC3aX389ABZIuyLYd4PEU998DmKJ1bPD1Z8uEuIQK
-	jk/8u9OybkrMFTQnoRBS4rvC/vY1ilGfS5ckgaQnBrGnWCsLB+8KKdTu
-X-Gm-Gg: AYBFou1edvTKYW/F9WLwCNEWZzNACbrkwEmBZAfaZvSbrw50fN1fMru71mcrgtcYCi2
-	9VH9V89SCrkdcM1VvzVkkXCXx779sDV3mn1p1/EZfw/k09u0pt7OWo47YeVQKyWiYO8A/4kpK/d
-	qLVt+dznrslKU4OqEbvFODb9CTwgPae0vY75YYNegmhH6geP+VwjHQW3Agqn3MSn/a+WHbZt8uU
-	OCDqm2ADTeTjHgXGCFlWwyNMHZ8ZeliuyhcpH18kSNOVU6tju6c6uQF8Ig2s0ieR/sWIQQQxfv+
-	CGm6jfeWRG6RrjsHhyT2DmrtHuZUb4kwgX4eUrwwuHCotGNiJkBOfvJ1FiuYz/CCPONh8cPrjry
-	ChiS4acu5p32gH2f/dpWdoWuTGaM++pC2E3db563ifKFJxgdntJwHaJ2WaBfP1vgvOFQK3FiyIL
-	bx1HAhvJ5ZaliuESGTGFxsLVCDUHnzpZykshv05IWIMRfo648M7oIiCCGJOYW8R+XgGoOXtYT6b
-	RZ6vkeabKd2D1CpJzvejg81m5P0fLuDv6cv7Uu5VVUvmUk6UeY+Usqb3Xoo5QOyLPC4NACGRvgR
-	M59XXH6L9JBSVlXs/UhzlOh5UBe/pMuGpZJ3vUN9kuNzXk63xUrqhDvE1RQq
-X-Received: by 2002:a05:600c:a106:b0:4a3:5aea:21e5 with SMTP id 5b1f17b1804b1-4a35aea23edmr84243625e9.9.1793010121069;
-        Mon, 26 Oct 2026 03:22:01 -0700 (PDT)
-Received: from Ansuel-XPS24.localdomain (93-34-92-187.ip49.fastwebnet.it. [93.34.92.187])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-48e3ebc3932sm16762876f8f.18.2026.10.26.03.21.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 03:22:00 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Chaotian Jing <chaotian.jing@mediatek.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Wenbin Mei <wenbin.mei@mediatek.com>,
-	linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [PATCH 2/2] mmc: mtk-sd: Add Airoha AN7581 MMC compatible
-Date: Mon, 26 Oct 2026 11:21:37 +0100
-Message-ID: <20261026102138.36786-2-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261026102138.36786-1-ansuelsmth@gmail.com>
-References: <20261026102138.36786-1-ansuelsmth@gmail.com>
+	id 1xLHrd-00000002GCm-0kOU
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 26 Oct 2026 10:23:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=okdfPAUG/95gVMAQwqPlFeuM9Ab2hbczPB989+Nnh8A=; b=Uz73HNC5lZ1q0U4x7QEx2+B/ZH
+	W40bkcZxhehHLm0p1STMmTz7+2PlM/pbZ5yUhLMtmFeCaI12vt4B8FtLbVea9wNshblVvSBGjJBGZ
+	/LQPw+P1zZRH4C5aFKd8H+m1ucWRm0HC9yIBPVn5RqfejAvAdHqzazJJZWJvYZcgwOPVQjdYHI4by
+	bNXCqQkqRwS8OBzlFX8rihjDC9kr4XEyo1vuT4ulUZ+v47p360aMQzJ6gSPUarTRBYiVFDRQ9Iej8
+	M/43SnV17EcrU19Eu+ZSduO3ydX5ocr2qbMdhkj3GQBhk7LerKSmC5sk3bqtYuBQb6o30Nl0CaH1Z
+	Qp5C8/Uw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xLHrZ-0000000Dh8Z-1wMg;
+	Mon, 26 Oct 2026 10:23:34 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id AF037300DB9; Mon, 26 Oct 2026 11:23:32 +0100 (CET)
+Date: Mon, 26 Oct 2026 11:23:32 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: zhangqiao22@huawei.com, Zhan Xusheng <zhanxusheng1024@gmail.com>,
+	tglx@linutronix.de, jstultz@google.com, sboyd@kernel.org,
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, zhanxusheng@xiaomi.com
+Subject: Re: [QUESTION] sched/clock: Potential timestamp jump due to
+ inter-CPU counter skew?
+Message-ID: <20261026102332.GB2668200@noisy.programming.kicks-ass.net>
+References: <cf7a043c-384c-0642-204c-8f207eff3d42@huawei.com>
+ <20261026082730.2117173-1-zhanxusheng1024@gmail.com>
+ <86zew0ygqr.wl-maz@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_032203_190736_E4EEF953 
-X-CRM114-Status: GOOD (  11.47  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86zew0ygqr.wl-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,36 +73,42 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add dedicated compatible for Airoha AN7581 SoC that implement a dedicated
-MMC controller based on MT7988 with the difference of having a single clock
-controlling it.
+On Mon, Oct 26, 2026 at 09:05:00AM +0000, Marc Zyngier wrote:
+> On Mon, 26 Oct 2026 08:27:30 +0000,
+> Zhan Xusheng <zhanxusheng1024@gmail.com> wrote:
+> > 
+> > On arm64 the system counter is meant to give all PEs a common view of
+> > time, and keeping the copies on separate dies in step is the
+> > implementation's job.  The kernel has no tolerance for skew.  The counter
+> > errata handled in arm_arch_timer.c (Freescale A-008585, HiSilicon
+> > 161010101, Cortex-A73 858921, Allwinner A64) are all reads on a single
+> > CPU returning a wrong value, worked around by reading twice; none of them
+> > is skew between CPUs.
+> 
+> Indeed. If the implementation cannot give any two arbitrary CPUs
+> anywhere in the system the exact same view of the counter, then this
+> implementation is broken, and unsupported. No discussion.
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- drivers/mmc/host/mtk-sd.c | 1 +
- 1 file changed, 1 insertion(+)
+The limit is the cross-cpu latency.
 
-diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
-index 5b160fdad3f0..736cff2783e2 100644
---- a/drivers/mmc/host/mtk-sd.c
-+++ b/drivers/mmc/host/mtk-sd.c
-@@ -713,6 +713,7 @@ static const struct mtk_mmc_compatible mt8196_compat = {
- };
- 
- static const struct of_device_id msdc_of_ids[] = {
-+	{ .compatible = "airoha,an7581-mmc", .data = &mt7986_compat},
- 	{ .compatible = "mediatek,mt2701-mmc", .data = &mt2701_compat},
- 	{ .compatible = "mediatek,mt2712-mmc", .data = &mt2712_compat},
- 	{ .compatible = "mediatek,mt6779-mmc", .data = &mt6779_compat},
--- 
-2.55.0
+CPU-0			CPU-1
 
+			A = clock();
+t1 = A;
+t2 = clock();
+
+BUG_ON(t2-t1 < 0);
+
+
+CPUs must never be able to tell time goes backwards. This is not to say
+the clocks must be in perfect sync, only up to the point where the error
+is smaller than the observation limit.
+
+So effectively, if software can tell the clock is wobbly, you've lost.
 
