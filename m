@@ -2,89 +2,89 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F7C2606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 21:12:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A443B606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 21:12:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Wvc4pxdQ;
-	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=LPWXY6hM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VH1YE1sJ;
+	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=EWdyuEUY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=nCwaaw/xtqnGmXa8VVCm7Mi3yhp9/gJBGfWg6DotTq8=; b=Wvc4pxdQm9uT/P
-	YBSU5t4Q1zL7zVw6fI7MUS535ljeiqkvvXFz9FbWTRnV4a4hov5soEuCNa7vpTocSvrRvPxONRNqt
-	VHcvHnqFZqtses3Kop/KrZ8pxtPBV0mrz3YOMXx4hJBSiffNa4+2RHne3JY7hzxUF6karox3JVkcH
-	xc/2BWSiCWZgkQwsHwTUWPjXseWzJm0Dnmk+RmdkDUWKVV3M5zuQjH5gR3Qb8onqcYtDHR9XPF/cv
-	rWi9OcjihNh6PfLKPWOp0FJkczdWV8/rhGDtNskoiEeSnhF5wCUXgvldRTn6faY8taTJqiR7m2W12
-	61N/ZtAX6RrbKHjHwxgw==;
+	List-Owner; bh=QkAGfe/UDsHGvMGKL2L3uZbprb9NTy21LdH6RR7axyA=; b=VH1YE1sJA6TrMv
+	uPQ2y3Sc0nRE9eg6urGrG/A/fuoM4rpprBkGmO+j3vqh9FkO2z/9h8nwkxT/WtSSdDGTKqHj8l7c+
+	JmtQOYB/Z74aRrHadKIizI0dCMSriqjh2ZzN8X6yMS/hd5n+IzawYl41vvBUox133DIEwvuM95GAf
+	sO8Z3ym/6/Qo6Ws25BqGqKUdRSuUlUTT/7exQ4XB51jqMiFe6cqxLE43jP7osbZCrIU7NUXn8lADr
+	rt6agjs8Iy8mk8vbsRm6ykF1EwB3nGUzriCH4gbvOyzdUCpd2ue/IfNY7yFzM7SZ3mudf3YQmvgFz
+	jfbxcxkstTfodpGU+6aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLRzH-00000003H1j-13oO;
+	id 1xLRzH-00000003H2O-1sSZ;
 	Mon, 26 Oct 2026 21:12:11 +0000
-Received: from mail-pj1-x1063.google.com ([2607:f8b0:4864:20::1063])
+Received: from mail-pg1-x564.google.com ([2607:f8b0:4864:20::564])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLRzE-00000003H0O-0LKz
+	id 1xLRzE-00000003H0U-2sfk
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 26 Oct 2026 21:12:09 +0000
-Received: by mail-pj1-x1063.google.com with SMTP id 98e67ed59e1d1-3a4b3ac8fb7so1816112a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 14:12:07 -0700 (PDT)
+Received: by mail-pg1-x564.google.com with SMTP id 41be03b00d2f7-cd61cef87f1so1137175a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 14:12:08 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1793049127; x=1793653927;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=nCwaaw/xtqnGmXa8VVCm7Mi3yhp9/gJBGfWg6DotTq8=;
-        b=IbkZzFTNqonoiTEaYdHkp7Nu3tv9BijzlxvT5rzVxcAxGk2nxtNHdVYHI8x5DLCazE
-         WiBtMguRhPC5gidofDXMqHUhSX5v1We0735jIgvCnHnjOidHX3ng8dsrDg/vm/zel6mK
-         a/zJMzy/j/BPAOf0XGmtuLzye5Xlv6i26UJ+B6EJVRQDOWNeTKFKuAGhK9Yoa+iDI73t
-         rZQF6dPJ36Rw+vbPuM7rh+pk/6litahF+WXVRx0k8+cxD8apeWyrYTZfC27gIHOkSiaw
-         zwp0AFKLrQFcnINYb6wUJlpqNp4PFqzQUJi4H7XwkTPmgpksBnoORJVJbY6PpYjmfKbW
-         9xKw==
-X-Forwarded-Encrypted: i=1; AKwUvBz0hy6mg7RC0ZwW4F+gFJlKMxdHA1xTNiZC9MiSFQneCT5rB/qqkptNxwOcPXedN8xDWHkEYlUMdnUywCJRoPuZ@lists.infradead.org
-X-Gm-Message-State: AFq9FYLzoWca7iicsOm/nXJX+57p0+AOTm1GF4zxjgMQR8Vcv0M2jYE4
-	JOvDk+kT4pITeEbUP71nk36NbnYvk8LKvToiHV2bvJWNF304h6+qSy6sjbsmv0nPciWuCqYmDnE
-	NnzDc4iW+6CukGgmotlV4hCN9ySs5hwLGbx9gsju4I4ccax7fb8TNfU+6sh2jb4jc543vcmCruK
-	hc5c53LHr1GG7oGP6oQRUW3uVveLTMRylwRnpcTwGALb9STrHib47yMGW86IJtM2DdNnnJCzfOr
-	NIaXG48+Pd93ihcf9RkitfMcOKKReshQk0=
-X-Gm-Gg: AYBFou2HLymBo9XF59DaRTTRZht2HrxCI4LvSH8WJ/R6R2uf/WorhE6QoOtawp1c/sv
-	/OeW8vNLnzzOVhUrY9agPSxQuMvoXazpXvNHp3yrZ1+QL0rpD2KsZvqmfFMAioHnZc3nXTGLbCN
-	F7X2OOK9rmSLdLmQa1vH+HVLRFMCcpOLARMctzekvTVy6CL10C0OtngNH2dGHiqRaGKQsjTkyKy
-	0Uilijs1w69RP0aQjItY834G/TYUqdeAberyJTtq4PZzd/x2ziC1AtL1VifSARlO2rSADcH4nPy
-	2AW5JuheQrph9o/DRrl11/B7TlbJozWwF52XfOeZFaCDNdSxlUjO3eQyPjKvpLboUjhzaoKUEKW
-	Z82t8NqkAAl7wuuIAnnvpzP2xd7Vlmg+IezUYy00IFke+uVnfabpsGyfZ6U167Hf6jB3IV9Mk1x
-	9aZuB8K7JjP4zHzjR/E7XhBkmIxBHcXp0xL/0JNKaQ
-X-Received: by 2002:a17:90b:1fce:b0:3a8:a1f6:3b32 with SMTP id 98e67ed59e1d1-3adeae6cae9mr6620215a91.38.1793049127171;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QkAGfe/UDsHGvMGKL2L3uZbprb9NTy21LdH6RR7axyA=;
+        b=1u1IddPq97+5nI2jUps5tnbpImS8WsYievoeqo05/7pmS2C1KGGND4lRVURB9jgyAI
+         7bI+crMeSng069qtEsftvRHzPu3r49cBuPV2SsfDX0XqS4DTPOcnb7ixfg3ni4Ryuyat
+         SMV5FDFYeLBHr8Gczp7SFrwJQferaLn4oOGc7Wv9v/zN6gq1GvNrLB/3X/32G11ylD2O
+         +higGqoMX2yimVViXboDeQMGNokf5pPyd9xVuRSqdQk6c/EYChhQADSYeVajykMh4Rpk
+         YBm4tmALLZvhTgy2BIEeBwchESA9VG2+/VIjLEKamAvqVnOLQ7SuwlvYINf+SbCwzlAa
+         x6WA==
+X-Forwarded-Encrypted: i=1; AKwUvBzIPSSJ01vIwjKJwuGne1AoSU4pw6krgg2N0mcfKTMLkRakxbUvPCL5C5hW5eDOgZg8DXbYU2ra1KHxfb4ywenq@lists.infradead.org
+X-Gm-Message-State: AFq9FYK65DTxnm3E5u6cLZ3cSd2GFSb9EtDfnmnTWh5v3FfwYNg9tdBy
+	E20JShuyCJXbrleMLtU1CUymptcRzUg0/WyG8T/OvdVmdsd2+1Jy1qU0flV4RBWo9LfLPsuj75G
+	bYZ3JBfkmDh2eoxoEM2H1G0je9KjchD6fhQI7wtiFgZqkPTjIEJDQOOyMjHcbXuoiyGtJawPAfk
+	u5A1rQytGytaWichqUInE3oP55hJGLOHRvv0KvSTc5/jeDcndvw2x8gv4CsFxgS57ZU3eYUnoTR
+	QN4kVn40ZH0cKMS2PrxM2K377/TaTZIZT7GoA==
+X-Gm-Gg: AYBFou3sKAv2nPZk0RSMRRRj/1GmC8mTp955D8Qzk75SisZ9QFjd0UXUTMtcXI2TRIp
+	kQVXQYkiaB5GLlO+hywzXEAbddHlqR04NjIuuW+tuiOFQf/aQGEN/Lk0t/BveZ0SzamKAZNsZ7q
+	0J2Dprr40sLb5J2oOD9BGdCVyuUpzR3tNHfUDZGUxG21E9TSiwSEHBbABFR0e4JQYBScVeGOqIy
+	QCuT7iIBDQIHvF7JdVXmdt7tvn+j/Qpyl6iNTEbbhFpWLxE53UlrB7qXvxT4/xCHMRoKoU2yfuO
+	rnKZ7JaKbd5lvTUdiksLjsZnRCEc+J8Lb9MhkROS1HwTINqOguA1I33nw474Ex0PxwUS85V2Gzy
+	/fxhfLuj3CLd5guTvVbF1cKP8VSqBq6GlwDFFI2WmzgCostlLVoWzU15NsDFgFkmlzudxYMiRI8
+	5A5WHG3jLDVJ5d9UXG0j/SlEnvQPaw4/Yb93/Fd/DV
+X-Received: by 2002:a17:90b:4a86:b0:3ab:b39f:41da with SMTP id 98e67ed59e1d1-3adeae6dc28mr5939428a91.11.1793049127511;
         Mon, 26 Oct 2026 14:12:07 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3ae405c32d4sm518764a91.0.2026.10.26.14.12.05
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-23.dlp.protect.broadcom.com. [144.49.247.23])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3ae404ce25fsm582504a91.1.2026.10.26.14.12.07
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
         Mon, 26 Oct 2026 14:12:07 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-147be78cd56so585581c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 14:12:05 -0700 (PDT)
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1665200f4c2so4093036c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 14:12:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1793049124; x=1793653924; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nCwaaw/xtqnGmXa8VVCm7Mi3yhp9/gJBGfWg6DotTq8=;
-        b=LPWXY6hMTphOveWRgeqXuk35OGPvBvK/KVpMb0ub2aDwCvXt2IoRaTk7cE3YcAf6Af
-         W4xmtPk+jBhhLHZFfX60i0JodFwkJn7LsFHMnmXipGhmx2VVWEONsoIrNsZhKLZKlGZr
-         mch10tMwVzATNDFV9cSkK2D+XgbcSs93w6VuI=
-X-Forwarded-Encrypted: i=1; AKwUvBzNdFhegsUMXayDC+sTeyZN6E0Sfthg+WbL/m6DwlLtLQwAIY/KiBaw4mMaJi9W9ou+VRKlyJRbmDfn7fVslTVH@lists.infradead.org
-X-Received: by 2002:a05:7022:b05b:b0:196:aa86:fcf3 with SMTP id a92af1059eb24-19937da1c5cmr10506853c88.26.1793049123680;
-        Mon, 26 Oct 2026 14:12:03 -0700 (PDT)
-X-Received: by 2002:a05:7022:b05b:b0:196:aa86:fcf3 with SMTP id a92af1059eb24-19937da1c5cmr10506819c88.26.1793049122843;
-        Mon, 26 Oct 2026 14:12:02 -0700 (PDT)
+        d=broadcom.com; s=google; t=1793049126; x=1793653926; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QkAGfe/UDsHGvMGKL2L3uZbprb9NTy21LdH6RR7axyA=;
+        b=EWdyuEUYZR3CxDabXpruV/XTDdBKZ5i6QsGxCWweHxilzMx6tPR8OjRCnbqGjYPlUR
+         m86FVc11q+nnRvXz04GqGapPzpWYn/aEG8EDJPqid4hJkMIlLhqu0E9qM5VQ2ALjUcTw
+         7LlF+U1TKGcFFj1FRAswmLNlC89UtdFNDK+dc=
+X-Forwarded-Encrypted: i=1; AKwUvBym9ePnEPLeXjJhhO7dPmbmqJUYfM4ibYcqe27wWRyhpeRB7K7OmxByhQZq0Bqm2XWtqpEVLlyL3lAWkWiZHgPl@lists.infradead.org
+X-Received: by 2002:a05:7022:eb50:10b0:191:a5b2:ef4a with SMTP id a92af1059eb24-1993677ac8fmr11277901c88.28.1793049125719;
+        Mon, 26 Oct 2026 14:12:05 -0700 (PDT)
+X-Received: by 2002:a05:7022:eb50:10b0:191:a5b2:ef4a with SMTP id a92af1059eb24-1993677ac8fmr11277868c88.28.1793049125085;
+        Mon, 26 Oct 2026 14:12:05 -0700 (PDT)
 Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-198a0f81ea9sm31915678c88.11.2026.10.26.14.12.00
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-198a0f81ea9sm31915678c88.11.2026.10.26.14.12.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 14:12:02 -0700 (PDT)
+        Mon, 26 Oct 2026 14:12:04 -0700 (PDT)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: linux-kernel@vger.kernel.org
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -105,20 +105,19 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	linux-doc@vger.kernel.org (open list:DOCUMENTATION),
 	linux-perf-users@vger.kernel.org (open list:ARM PMU PROFILING AND DEBUGGING),
 	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS)
-Subject: [PATCH 2/3] perf: Add Broadcom BCM5301X AXI Trace Module counters
-Date: Mon, 26 Oct 2026 14:11:50 -0700
-Message-ID: <20261026211151.3212237-3-florian.fainelli@broadcom.com>
+Subject: [PATCH 3/3] ARM: dts: BCM5301X: Enable AXI PMUs
+Date: Mon, 26 Oct 2026 14:11:51 -0700
+Message-ID: <20261026211151.3212237-4-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261026211151.3212237-1-florian.fainelli@broadcom.com>
 References: <20261026211151.3212237-1-florian.fainelli@broadcom.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_141208_164550_B2C37CA1 
-X-CRM114-Status: GOOD (  27.76  )
+X-CRM114-CacheID: sfid-20261026_141208_727740_40CFB7B2 
+X-CRM114-Status: GOOD (  11.78  )
 X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -138,637 +137,40 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Expose unfiltered fixed counters through system-wide perf events. Keep
-hardware free-running and use per-event baselines, locking, and periodic
-32-bit delta accounting without resetting concurrent measurements.
+Describe the three BCM5301X AXI Trace Modules and enable them on the
+BCM5301X base DTS file.
 
 Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
 ---
- .../admin-guide/perf/bcm5301x-axi-pmu.rst     |  92 ++++
- Documentation/admin-guide/perf/index.rst      |   1 +
- MAINTAINERS                                   |   2 +
- drivers/perf/Kconfig                          |  12 +
- drivers/perf/Makefile                         |   1 +
- drivers/perf/bcm5301x_axi_pmu.c               | 450 ++++++++++++++++++
- 6 files changed, 558 insertions(+)
- create mode 100644 Documentation/admin-guide/perf/bcm5301x-axi-pmu.rst
- create mode 100644 drivers/perf/bcm5301x_axi_pmu.c
+ arch/arm/boot/dts/broadcom/bcm5301x.dtsi | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/Documentation/admin-guide/perf/bcm5301x-axi-pmu.rst b/Documentation/admin-guide/perf/bcm5301x-axi-pmu.rst
-new file mode 100644
-index 000000000000..720f042dfbd0
---- /dev/null
-+++ b/Documentation/admin-guide/perf/bcm5301x-axi-pmu.rst
-@@ -0,0 +1,92 @@
-+.. SPDX-License-Identifier: GPL-2.0-only
-+
-+Broadcom BCM5301X AXI Trace Module PMU
-+====================================
-+
-+The BCM5301X AXI Trace Modules observe the two PL310 master interfaces and
-+the Accelerator Coherency Port (ACP). Each instance registers a PMU named
-+``bcm5301x_axi_<physical-base>``, for example ``bcm5301x_axi_19003000`` for
-+PL310 M0, ``bcm5301x_axi_19004000`` for PL310 M1, and
-+``bcm5301x_axi_19007000`` for ACP.
-+
-+Enable CONFIG_PERF_EVENTS and CONFIG_BCM5301X_AXI_PMU and provide an enabled
-+device-tree node for each instance. Load ``bcm5301x_axi_pmu`` if built as a
-+module. The driver owns the module exclusively; firmware or debug tools
-+must not change its configuration while the driver is bound.
-+
-+Events and scope
-+----------------
-+
-+The ``events`` and ``format`` directories under
-+``/sys/bus/event_source/devices/bcm5301x_axi_*`` describe the ABI. Event IDs
-+0 through 15 select fixed counters:
-+
-+==== ====================================
-+ID   Event
-+==== ====================================
-+0    write_commands
-+1    read_commands
-+2    write_address_cycles
-+3    read_address_cycles
-+4    write_data_cycles
-+5    read_data_cycles
-+6    write_response_cycles
-+7    write_address_stall_cycles
-+8    read_address_stall_cycles
-+9    write_data_stall_cycles
-+10   read_data_stall_cycles
-+11   write_response_stall_cycles
-+12   write_beats
-+13   read_beats
-+14   write_outstanding_cycles
-+15   read_outstanding_cycles
-+==== ====================================
-+
-+Active channel cycles count VALID asserted; stall cycles count VALID
-+asserted while READY is deasserted. Outstanding cycles count cycles with
-+more than zero outstanding commands. These are cycle counts, not the sum
-+of outstanding requests. Counts cover all traffic at the observed port;
-+PL310 hits do not necessarily generate traffic at its master interfaces.
-+ACP can remain idle unless an accelerator uses that interface.
-+
-+All measurements are unfiltered and system-wide. The ``cpumask`` file
-+identifies the CPU managing each PMU, not a CPU traffic filter. Per-task
-+counting, privilege exclusions, sampling, configurable AXI filters,
-+latency measurements, and ATB transaction trace capture are unsupported.
-+Beat counts are reported as beats, without assuming a byte conversion.
-+
-+Each fixed counter can be allocated once at a time. Duplicate requests
-+in a single group are rejected; separate events can be multiplexed by
-+perf. Different counters on one PMU can run together. Groups spanning
-+different hardware PMUs are rejected.
-+
-+The hardware counters run continuously while the driver is bound, with
-+per-event baselines excluding periods when an event is stopped. Starting
-+one event does not reset another event's hardware counter. There is no
-+overflow interrupt. A timer extends the wrapping 32-bit counters to 64 bits
-+every 100 ms while events run. At 500 MHz a counter incrementing once per
-+cycle wraps in about 8.6 seconds. Accuracy requires servicing the timer
-+before a full wrap; long interrupt stalls and suspend intervals can lose
-+counts. Stop measurements before suspending the system.
-+
-+Testing
-+-------
-+
-+Check discovery and count commands and beats over a memory workload::
-+
-+  modprobe bcm5301x_axi_pmu
-+  ls /sys/bus/event_source/devices/bcm5301x_axi_*
-+  perf list | grep bcm5301x_axi
-+  perf stat -a -e '{bcm5301x_axi_19003000/read_commands/,bcm5301x_axi_19003000/read_beats/}' -- sleep 10
-+
-+Repeat during a workload whose working set exceeds the PL310 cache, such
-+as a memory stress test. Compare with idle, test M1 separately, and expect
-+ACP activity only with an ACP user. Network DMA traffic alone need not
-+cross the monitored PL310 ports. Use ``perf stat -a -I 1000`` for interval
-+counts and run for at least a minute under load to exercise counter wrap.
-+
-+Check that adding or removing a second, different counter leaves the first
-+counter accumulating. Two requests for the same event in one group must
-+fail. ``perf record`` and per-task ``perf stat`` must fail. If CPU hotplug
-+is available, offline the CPU listed in ``cpumask`` while counting and
-+verify that management moves to another online CPU and counting continues.
-diff --git a/Documentation/admin-guide/perf/index.rst b/Documentation/admin-guide/perf/index.rst
-index aa12708ddb96..6cf0010a3413 100644
---- a/Documentation/admin-guide/perf/index.rst
-+++ b/Documentation/admin-guide/perf/index.rst
-@@ -31,3 +31,4 @@ Performance monitor support
-    ampere_cspmu
-    mrvl-pem-pmu
-    fujitsu_uncore_pmu
-+   bcm5301x-axi-pmu
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b97f22107fbf..460725721bc8 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -5220,12 +5220,14 @@ M:	Rafał Miłecki <zajec5@gmail.com>
- R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
-+F:	Documentation/admin-guide/perf/bcm5301x-axi-pmu.rst
- F:	Documentation/devicetree/bindings/perf/brcm,bcm5301x-axi-pmu.yaml
- F:	arch/arm/boot/dts/broadcom/bcm-ns.dtsi
- F:	arch/arm/boot/dts/broadcom/bcm470*
- F:	arch/arm/boot/dts/broadcom/bcm5301*
- F:	arch/arm/boot/dts/broadcom/bcm953012*
- F:	arch/arm/mach-bcm/bcm_5301x.c
-+F:	drivers/perf/bcm5301x_axi_pmu.c
+diff --git a/arch/arm/boot/dts/broadcom/bcm5301x.dtsi b/arch/arm/boot/dts/broadcom/bcm5301x.dtsi
+index f06a178a9240..dcae7cba37c4 100644
+--- a/arch/arm/boot/dts/broadcom/bcm5301x.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm5301x.dtsi
+@@ -10,6 +10,21 @@
  
- BROADCOM BCM53573 ARM ARCHITECTURE
- M:	Florian Fainelli <florian.fainelli@broadcom.com>
-diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-index 245e7bb763b9..69674cc3f31f 100644
---- a/drivers/perf/Kconfig
-+++ b/drivers/perf/Kconfig
-@@ -6,6 +6,18 @@
- menu "Performance monitor support"
- 	depends on PERF_EVENTS
- 
-+config BCM5301X_AXI_PMU
-+	tristate "Broadcom BCM5301X AXI Trace Module PMU"
-+	depends on ARCH_BCM_5301X || COMPILE_TEST
-+	depends on OF
-+	help
-+	  Support system-wide perf counting on the BCM5301X AXI Trace Modules
-+	  monitoring the PL310 master interfaces and ACP. Supports commands,
-+	  beats, active/stall cycles, and outstanding-command cycles. Sampling
-+	  and transaction trace capture are not supported.
+ / {
+ 	mpcore-bus@19000000 {
++		axi_pmu_m0: pmu@3000 {
++			compatible = "brcm,bcm5301x-axi-pmu";
++			reg = <0x3000 0x1000>;
++		};
 +
-+	  If compiled as a module, it will be called bcm5301x_axi_pmu.
++		axi_pmu_m1: pmu@4000 {
++			compatible = "brcm,bcm5301x-axi-pmu";
++			reg = <0x4000 0x1000>;
++		};
 +
- config ARM_CCI_PMU
- 	tristate "ARM CCI PMU driver"
- 	depends on (ARM && CPU_V7) || ARM64
-diff --git a/drivers/perf/Makefile b/drivers/perf/Makefile
-index eb8a022dad9a..2a51a963b692 100644
---- a/drivers/perf/Makefile
-+++ b/drivers/perf/Makefile
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_BCM5301X_AXI_PMU) += bcm5301x_axi_pmu.o
- obj-$(CONFIG_ARM_CCI_PMU) += arm-cci.o
- obj-$(CONFIG_ARM_CCN) += arm-ccn.o
- obj-$(CONFIG_ARM_CMN) += arm-cmn.o
-diff --git a/drivers/perf/bcm5301x_axi_pmu.c b/drivers/perf/bcm5301x_axi_pmu.c
-new file mode 100644
-index 000000000000..15da137a4085
---- /dev/null
-+++ b/drivers/perf/bcm5301x_axi_pmu.c
-@@ -0,0 +1,450 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/* Broadcom BCM5301X AXI Trace Module performance counters. */
++		axi_pmu_acp: pmu@7000 {
++			compatible = "brcm,bcm5301x-axi-pmu";
++			reg = <0x7000 0x1000>;
++		};
 +
-+#include <linux/bitops.h>
-+#include <linux/cpu.h>
-+#include <linux/cpuhotplug.h>
-+#include <linux/hrtimer.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/perf_event.h>
-+#include <linux/platform_device.h>
-+#include <linux/sizes.h>
-+#include <linux/slab.h>
-+
-+#define ATM_CONFIG		0x00
-+#define ATM_STATUS		0x04
-+#define ATM_CMD			0x0c
-+#define ATM_CTRL_LOCAL		BIT(0)
-+#define ATM_CMDS_EN		BIT(4)
-+#define ATM_BEATS_EN		BIT(6)
-+#define ATM_BUSY_EN		BIT(8)
-+#define ATM_OUTS_EN		BIT(14)
-+#define ATM_COUNT_ENABLE	(ATM_CMDS_EN | ATM_BEATS_EN | \
-+				 ATM_BUSY_EN | ATM_OUTS_EN)
-+#define ATM_STATE_ENABLE	(BIT(9) | BIT(10) | BIT(11) | BIT(13))
-+#define ATM_STATE_MASK		GENMASK(13, 9)
-+#define ATM_CLEAR		0
-+#define ATM_STOP		1
-+#define ATM_START		2
-+
-+/* At most one increment per AXI cycle for the exposed counters. */
-+#define ATM_POLL_INTERVAL	ms_to_ktime(100)
-+#define ATM_NR_COUNTERS		16
-+
-+static enum cpuhp_state bcm5301x_axi_hp_state;
-+
-+struct bcm5301x_axi_pmu {
-+	struct pmu pmu;
-+	void __iomem *base;
-+	raw_spinlock_t lock;
-+	struct hrtimer timer;
-+	struct hlist_node hp_node;
-+	struct perf_event *events[ATM_NR_COUNTERS];
-+	unsigned int nr_active;
-+	int cpu;
-+};
-+
-+/* Event IDs select fixed counters, not programmable event selectors. */
-+static const u16 bcm5301x_axi_offsets[ATM_NR_COUNTERS] = {
-+	0x10, 0x14, 0x18, 0x1c, 0x20, 0x24, 0x28, 0x2c,
-+	0x30, 0x34, 0x38, 0x3c, 0x58, 0x5c, 0x60, 0x64,
-+};
-+
-+#define ATM_EVENT(_name, _id) \
-+	static struct perf_pmu_events_attr event_attr_##_name = { \
-+		.attr = __ATTR(_name, 0444, perf_event_sysfs_show, NULL), \
-+		.id = _id, \
-+		.event_str = "event=" __stringify(_id), \
-+	}
-+
-+ATM_EVENT(write_commands, 0);
-+ATM_EVENT(read_commands, 1);
-+ATM_EVENT(write_address_cycles, 2);
-+ATM_EVENT(read_address_cycles, 3);
-+ATM_EVENT(write_data_cycles, 4);
-+ATM_EVENT(read_data_cycles, 5);
-+ATM_EVENT(write_response_cycles, 6);
-+ATM_EVENT(write_address_stall_cycles, 7);
-+ATM_EVENT(read_address_stall_cycles, 8);
-+ATM_EVENT(write_data_stall_cycles, 9);
-+ATM_EVENT(read_data_stall_cycles, 10);
-+ATM_EVENT(write_response_stall_cycles, 11);
-+ATM_EVENT(write_beats, 12);
-+ATM_EVENT(read_beats, 13);
-+ATM_EVENT(write_outstanding_cycles, 14);
-+ATM_EVENT(read_outstanding_cycles, 15);
-+
-+static struct attribute *bcm5301x_axi_event_attrs[] = {
-+	&event_attr_write_commands.attr.attr,
-+	&event_attr_read_commands.attr.attr,
-+	&event_attr_write_address_cycles.attr.attr,
-+	&event_attr_read_address_cycles.attr.attr,
-+	&event_attr_write_data_cycles.attr.attr,
-+	&event_attr_read_data_cycles.attr.attr,
-+	&event_attr_write_response_cycles.attr.attr,
-+	&event_attr_write_address_stall_cycles.attr.attr,
-+	&event_attr_read_address_stall_cycles.attr.attr,
-+	&event_attr_write_data_stall_cycles.attr.attr,
-+	&event_attr_read_data_stall_cycles.attr.attr,
-+	&event_attr_write_response_stall_cycles.attr.attr,
-+	&event_attr_write_beats.attr.attr,
-+	&event_attr_read_beats.attr.attr,
-+	&event_attr_write_outstanding_cycles.attr.attr,
-+	&event_attr_read_outstanding_cycles.attr.attr,
-+	NULL,
-+};
-+
-+static const struct attribute_group bcm5301x_axi_events_group = {
-+	.name = "events",
-+	.attrs = bcm5301x_axi_event_attrs,
-+};
-+
-+PMU_FORMAT_ATTR(event, "config:0-3");
-+
-+static struct attribute *bcm5301x_axi_format_attrs[] = {
-+	&format_attr_event.attr,
-+	NULL,
-+};
-+
-+static const struct attribute_group bcm5301x_axi_format_group = {
-+	.name = "format",
-+	.attrs = bcm5301x_axi_format_attrs,
-+};
-+
-+static struct bcm5301x_axi_pmu *to_axi_pmu(struct pmu *pmu)
-+{
-+	return container_of(pmu, struct bcm5301x_axi_pmu, pmu);
-+}
-+
-+static ssize_t cpumask_show(struct device *dev, struct device_attribute *attr,
-+			    char *buf)
-+{
-+	struct bcm5301x_axi_pmu *axi = to_axi_pmu(dev_get_drvdata(dev));
-+
-+	return sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(cpumask_of(READ_ONCE(axi->cpu))));
-+}
-+static DEVICE_ATTR_RO(cpumask);
-+
-+static struct attribute *bcm5301x_axi_attrs[] = {
-+	&dev_attr_cpumask.attr,
-+	NULL,
-+};
-+
-+static const struct attribute_group bcm5301x_axi_group = {
-+	.attrs = bcm5301x_axi_attrs,
-+};
-+
-+static const struct attribute_group *bcm5301x_axi_attr_groups[] = {
-+	&bcm5301x_axi_events_group,
-+	&bcm5301x_axi_format_group,
-+	&bcm5301x_axi_group,
-+	NULL,
-+};
-+
-+static u32 bcm5301x_axi_read_counter(struct bcm5301x_axi_pmu *axi, int idx)
-+{
-+	return readl(axi->base + bcm5301x_axi_offsets[idx]);
-+}
-+
-+/* All counter state, including prev_count, is serialized by axi->lock. */
-+static void bcm5301x_axi_update(struct bcm5301x_axi_pmu *axi,
-+			       struct perf_event *event)
-+{
-+	u32 now = bcm5301x_axi_read_counter(axi, event->hw.idx);
-+	u32 prev = local64_read(&event->hw.prev_count);
-+
-+	local64_set(&event->hw.prev_count, now);
-+	local64_add((u32)(now - prev), &event->count);
-+}
-+
-+static enum hrtimer_restart bcm5301x_axi_timer(struct hrtimer *timer)
-+{
-+	struct bcm5301x_axi_pmu *axi = container_of(timer, typeof(*axi), timer);
-+	enum hrtimer_restart ret = HRTIMER_NORESTART;
-+	unsigned long flags;
-+	int i;
-+
-+	raw_spin_lock_irqsave(&axi->lock, flags);
-+	for (i = 0; i < ATM_NR_COUNTERS; i++) {
-+		struct perf_event *event = axi->events[i];
-+
-+		if (event && !(event->hw.state & PERF_HES_STOPPED))
-+			bcm5301x_axi_update(axi, event);
-+	}
-+	if (axi->nr_active) {
-+		hrtimer_forward_now(timer, ATM_POLL_INTERVAL);
-+		ret = HRTIMER_RESTART;
-+	}
-+	raw_spin_unlock_irqrestore(&axi->lock, flags);
-+
-+	return ret;
-+}
-+
-+static int bcm5301x_axi_event_init(struct perf_event *event)
-+{
-+	struct bcm5301x_axi_pmu *axi = to_axi_pmu(event->pmu);
-+	struct perf_event *sibling, *leader = event->group_leader;
-+	unsigned long used = 0;
-+
-+	if (event->attr.type != event->pmu->type)
-+		return -ENOENT;
-+	if (is_sampling_event(event) || event->attach_state & PERF_ATTACH_TASK ||
-+	    event->cpu < 0)
-+		return -EOPNOTSUPP;
-+	if (event->attr.config >= ATM_NR_COUNTERS || event->attr.config1 ||
-+	    event->attr.config2)
-+		return -EINVAL;
-+
-+	/* A group cannot allocate the same fixed counter twice. */
-+	if (!is_software_event(leader)) {
-+		if (leader->pmu != event->pmu)
-+			return -EINVAL;
-+		__set_bit(leader->attr.config, &used);
-+	}
-+	for_each_sibling_event(sibling, leader) {
-+		if (is_software_event(sibling))
-+			continue;
-+		if (sibling->pmu != event->pmu ||
-+		    test_and_set_bit(sibling->attr.config, &used))
-+			return -EINVAL;
-+	}
-+	if (event != leader && test_bit(event->attr.config, &used))
-+		return -EINVAL;
-+
-+	event->cpu = READ_ONCE(axi->cpu);
-+	event->hw.idx = -1;
-+	return 0;
-+}
-+
-+static void bcm5301x_axi_start(struct perf_event *event, int flags)
-+{
-+	struct bcm5301x_axi_pmu *axi = to_axi_pmu(event->pmu);
-+	unsigned long irqflags;
-+
-+	raw_spin_lock_irqsave(&axi->lock, irqflags);
-+	if (event->hw.state & PERF_HES_STOPPED) {
-+		local64_set(&event->hw.prev_count,
-+			    bcm5301x_axi_read_counter(axi, event->hw.idx));
-+		event->hw.state = 0;
-+		/* Unpinned: the timer can migrate when the managing CPU goes offline. */
-+		if (!axi->nr_active++)
-+			hrtimer_start(&axi->timer, ATM_POLL_INTERVAL, HRTIMER_MODE_REL);
-+	}
-+	raw_spin_unlock_irqrestore(&axi->lock, irqflags);
-+}
-+
-+static void bcm5301x_axi_stop(struct perf_event *event, int flags)
-+{
-+	struct bcm5301x_axi_pmu *axi = to_axi_pmu(event->pmu);
-+	unsigned long irqflags;
-+
-+	raw_spin_lock_irqsave(&axi->lock, irqflags);
-+	if (!(event->hw.state & PERF_HES_STOPPED)) {
-+		bcm5301x_axi_update(axi, event);
-+		event->hw.state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
-+		axi->nr_active--;
-+	}
-+	/* The timer stops itself when no events are running. */
-+	raw_spin_unlock_irqrestore(&axi->lock, irqflags);
-+}
-+
-+static void bcm5301x_axi_read(struct perf_event *event)
-+{
-+	struct bcm5301x_axi_pmu *axi = to_axi_pmu(event->pmu);
-+	unsigned long flags;
-+
-+	raw_spin_lock_irqsave(&axi->lock, flags);
-+	if (!(event->hw.state & PERF_HES_STOPPED))
-+		bcm5301x_axi_update(axi, event);
-+	raw_spin_unlock_irqrestore(&axi->lock, flags);
-+}
-+
-+static int bcm5301x_axi_add(struct perf_event *event, int flags)
-+{
-+	struct bcm5301x_axi_pmu *axi = to_axi_pmu(event->pmu);
-+	unsigned int idx = event->attr.config;
-+	unsigned long irqflags;
-+
-+	raw_spin_lock_irqsave(&axi->lock, irqflags);
-+	if (axi->events[idx]) {
-+		raw_spin_unlock_irqrestore(&axi->lock, irqflags);
-+		return -EAGAIN;
-+	}
-+	axi->events[idx] = event;
-+	event->hw.idx = idx;
-+	event->hw.state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
-+	raw_spin_unlock_irqrestore(&axi->lock, irqflags);
-+
-+	if (flags & PERF_EF_START)
-+		bcm5301x_axi_start(event, PERF_EF_RELOAD);
-+	perf_event_update_userpage(event);
-+	return 0;
-+}
-+
-+static void bcm5301x_axi_del(struct perf_event *event, int flags)
-+{
-+	struct bcm5301x_axi_pmu *axi = to_axi_pmu(event->pmu);
-+	unsigned long irqflags;
-+
-+	bcm5301x_axi_stop(event, PERF_EF_UPDATE);
-+	raw_spin_lock_irqsave(&axi->lock, irqflags);
-+	axi->events[event->hw.idx] = NULL;
-+	event->hw.idx = -1;
-+	raw_spin_unlock_irqrestore(&axi->lock, irqflags);
-+	perf_event_update_userpage(event);
-+}
-+
-+static int bcm5301x_axi_offline(unsigned int cpu, struct hlist_node *node)
-+{
-+	struct bcm5301x_axi_pmu *axi = hlist_entry(node, typeof(*axi), hp_node);
-+	unsigned int target;
-+
-+	if (cpu != READ_ONCE(axi->cpu))
-+		return 0;
-+	target = cpumask_any_but(cpu_online_mask, cpu);
-+	if (target >= nr_cpu_ids)
-+		return 0;
-+	perf_pmu_migrate_context(&axi->pmu, cpu, target);
-+	WRITE_ONCE(axi->cpu, target);
-+	return 0;
-+}
-+
-+static void bcm5301x_axi_hw_stop(struct bcm5301x_axi_pmu *axi)
-+{
-+	writel(ATM_STOP, axi->base + ATM_CMD);
-+	/* Flush the posted command before the resource is unmapped. */
-+	readl(axi->base + ATM_STATUS);
-+}
-+
-+static int bcm5301x_axi_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct bcm5301x_axi_pmu *axi;
-+	struct resource *res;
-+	char *name;
-+	u32 status;
-+	int ret;
-+
-+	axi = devm_kzalloc(dev, sizeof(*axi), GFP_KERNEL);
-+	if (!axi)
-+		return -ENOMEM;
-+	axi->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-+	if (IS_ERR(axi->base))
-+		return PTR_ERR(axi->base);
-+	if (resource_size(res) < SZ_4K)
-+		return -EINVAL;
-+	name = devm_kasprintf(dev, GFP_KERNEL, "bcm5301x_axi_%llx",
-+			      (unsigned long long)res->start);
-+	if (!name)
-+		return -ENOMEM;
-+
-+	raw_spin_lock_init(&axi->lock);
-+	hrtimer_setup(&axi->timer, bcm5301x_axi_timer, CLOCK_MONOTONIC,
-+		      HRTIMER_MODE_REL);
-+	axi->pmu = (struct pmu) {
-+		.module = THIS_MODULE,
-+		.parent = dev,
-+		.task_ctx_nr = perf_invalid_context,
-+		.capabilities = PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT,
-+		.attr_groups = bcm5301x_axi_attr_groups,
-+		.event_init = bcm5301x_axi_event_init,
-+		.add = bcm5301x_axi_add,
-+		.del = bcm5301x_axi_del,
-+		.start = bcm5301x_axi_start,
-+		.stop = bcm5301x_axi_stop,
-+		.read = bcm5301x_axi_read,
-+	};
-+
-+	/* Take exclusive local ownership; disable tracing, filtering and saturation. */
-+	writel(ATM_CTRL_LOCAL, axi->base + ATM_CONFIG);
-+	writel(ATM_STOP, axi->base + ATM_CMD);
-+	ret = readl_poll_timeout(axi->base + ATM_STATUS, status,
-+				!(status & ATM_STATE_MASK), 1, 1000);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Counters did not stop\n");
-+	writel(ATM_CLEAR, axi->base + ATM_CMD);
-+	writel(ATM_CTRL_LOCAL | ATM_COUNT_ENABLE, axi->base + ATM_CONFIG);
-+	writel(ATM_START, axi->base + ATM_CMD);
-+	ret = readl_poll_timeout(axi->base + ATM_STATUS, status,
-+				(status & ATM_STATE_MASK) == ATM_STATE_ENABLE, 1, 1000);
-+	if (ret) {
-+		bcm5301x_axi_hw_stop(axi);
-+		return dev_err_probe(dev, ret, "Counters did not start\n");
-+	}
-+	/*
-+	 * Keep fixed counters free-running. Per-event baselines isolate sessions
-+	 * without clearing or stopping counters used by another perf event.
-+	 */
-+	cpus_read_lock();
-+	axi->cpu = cpumask_first(cpu_online_mask);
-+	ret = perf_pmu_register(&axi->pmu, name, -1);
-+	if (!ret) {
-+		ret = cpuhp_state_add_instance_nocalls_cpuslocked(bcm5301x_axi_hp_state,
-+							       &axi->hp_node);
-+		if (ret)
-+			perf_pmu_unregister(&axi->pmu);
-+	}
-+	cpus_read_unlock();
-+	if (ret) {
-+		hrtimer_cancel(&axi->timer);
-+		bcm5301x_axi_hw_stop(axi);
-+		return ret;
-+	}
-+	platform_set_drvdata(pdev, axi);
-+	return 0;
-+}
-+
-+static void bcm5301x_axi_remove(struct platform_device *pdev)
-+{
-+	struct bcm5301x_axi_pmu *axi = platform_get_drvdata(pdev);
-+
-+	cpuhp_state_remove_instance_nocalls(bcm5301x_axi_hp_state, &axi->hp_node);
-+	perf_pmu_unregister(&axi->pmu);
-+	hrtimer_cancel(&axi->timer);
-+	bcm5301x_axi_hw_stop(axi);
-+}
-+
-+static const struct of_device_id bcm5301x_axi_of_match[] = {
-+	{ .compatible = "brcm,bcm5301x-axi-pmu" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, bcm5301x_axi_of_match);
-+
-+static struct platform_driver bcm5301x_axi_driver = {
-+	.probe = bcm5301x_axi_probe,
-+	.remove = bcm5301x_axi_remove,
-+	.driver = {
-+		.name = "bcm5301x-axi-pmu",
-+		.of_match_table = bcm5301x_axi_of_match,
-+		.suppress_bind_attrs = true,
-+	},
-+};
-+
-+static int __init bcm5301x_axi_init(void)
-+{
-+	int ret;
-+
-+	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN, "perf/bcm5301x_axi:online",
-+				     NULL, bcm5301x_axi_offline);
-+	if (ret < 0)
-+		return ret;
-+	bcm5301x_axi_hp_state = ret;
-+	ret = platform_driver_register(&bcm5301x_axi_driver);
-+	if (ret)
-+		cpuhp_remove_multi_state(bcm5301x_axi_hp_state);
-+	return ret;
-+}
-+module_init(bcm5301x_axi_init);
-+
-+static void __exit bcm5301x_axi_exit(void)
-+{
-+	platform_driver_unregister(&bcm5301x_axi_driver);
-+	cpuhp_remove_multi_state(bcm5301x_axi_hp_state);
-+}
-+module_exit(bcm5301x_axi_exit);
-+
-+MODULE_DESCRIPTION("Broadcom BCM5301X AXI Trace Module PMU");
-+MODULE_LICENSE("GPL");
+ 		a9pll: arm_clk@0 {
+ 			#clock-cells = <0>;
+ 			compatible = "brcm,nsp-armpll";
 -- 
 2.53.0
 
