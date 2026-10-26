@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 039A9606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:21:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65AAF606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:22:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=D+yuilHW;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=fJ8U0Hu+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eiehQb38;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=a/2nMQaJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -14,45 +14,89 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=9iwvQZgnt7hwuOvmuAPn07z84fgtfJ4EdovCl8V1dk4=; b=D+yuilHWCyijO4Svj6MDw0qIb4
-	TUI0NuKd5xqHJkAlbZlqNL0TTJZciehM969x20Ht6eFQvOyGMrzv0Fp2ruZcZ6ldOal7Vbx7QF8tL
-	9uM2fF1S/FWUEMdFni0WAExm2CJ1EbcpcUhSFv2uxQF6Vx1xUUA06kWyyMLwmjMp6eTtjo7ATX2Dl
-	Jg3VipBGbovuzxtto2rF9LgRZ3OYmkN0C5yS8FXXT0biRIgg30Hl++Y2y2A3amvReidiZSLlgF5fT
-	ZxY7byqP3B5Lr21gMVaeipRKh1pZwyyQGAQWCrwxcwPf5ULX1MKP0rKdA3o1ZlvlOZYpxP1WFrzxD
-	0awGq2JQ==;
+	bh=kr1Aa3+HTl57ifUnZ6jARduOXVoJ4F2DQRpWjtSxKvg=; b=eiehQb38qzkRKbVWCaoQkLAace
+	OB/hpv7DswBBcxM2tkh9xbvJUAdVQaiVnB3mtLIAq4w5g9gd0ntTn8nP+E9OXxOQBxTI1KOO04M3g
+	tguq7Vx4I/8ACoZmM0l1NxzCGTyiBXSooaJDZHREMS2EuKHCVnmXWh9RMyF7f7efJnw6n0nPOIKSP
+	KzrGyNf4+bCyHHEDSH5xniVsvMILdhMeuyT//oYhnoJWDIVKT+yPD61/zp8b1Jx5uFqv0nFDXNSoM
+	SQC5wEU+jJKLEIQK3vvyPYGGbb//mOp4bYxXT2ZrDQBf7WxWaLVaSdGz5k3FFfrfzyj/VzJwe4Zz2
+	X07RngTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHoo-00000002Ffo-2GjR;
-	Mon, 26 Oct 2026 10:20:42 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xLHq8-00000002Fu4-04wn;
+	Mon, 26 Oct 2026 10:22:04 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHom-00000002Few-2hih;
-	Mon, 26 Oct 2026 10:20:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
-	Subject:Cc:To:From:Reply-To:Content-Type:In-Reply-To:References;
-	bh=9iwvQZgnt7hwuOvmuAPn07z84fgtfJ4EdovCl8V1dk4=; b=fJ8U0Hu+yjGXC2+RfaOWRxkHXg
-	oKrFh6ESQQPqgdz5Ktj5H/j5+5P+eQH7m7mZ388hWU2ya14urCUm2Usm9bS0ubAjV9bPkIq/3Jx1I
-	+OB0slH/vTs3W6CaB/r6DMrzHGi6//AXt5m7uy0W5oyk0NZgljrDDfM1sP9FafQSUPrYzrujrDSK1
-	K4i4FrCcMvZ6vL+0WCAycRmt56wQWVyn5ciVaUBPg4IKlaDnlDy9zLkVfirlZHxq1KJ2MCYTsxBBr
-	1pQUCFdpbAy5aTwsAqKxO8d0KH/u9W7stGFAUMwRG2ip+wN8PtoDmWn3mLLeMQKhPeb/YhNzXdwl2
-	oUM+kWZg==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: quentin.schulz@cherry.de,
+	id 1xLHq5-00000002Fsu-3n7k
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 Oct 2026 10:22:03 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-48b060ec084so1695146f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 03:22:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1793010120; x=1793614920; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kr1Aa3+HTl57ifUnZ6jARduOXVoJ4F2DQRpWjtSxKvg=;
+        b=a/2nMQaJwqaXD8K8OgA10o+9jItI1duelKMqOAL6lCCwmMV23Lea1QWL9xUEWlECux
+         EtE9jxcoTlC4wLxwBGdhe1ShZyYhiDyPkdqlW9e3/2gwaTrcRgZwzNipA+MWRACC8V4C
+         AnR0kAX37WAQoDNrXpJFGC2K8xATcmOn4XN0vGLuZ6ynEDDQecaNkCoO35EfssESnGo5
+         m8nYeFWnxhrE95zXfOim8EHGH61Mv2raRO5bZfcX52xoez/FhkQRgPeMb35jQhmn0c7R
+         rtnoyrxjw61oyX/Y9cLFqsl26/dv5iSw919ehLzdQkxRl9hh2KGAGqfalsTAIdcj3wno
+         G7kg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793010120; x=1793614920;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kr1Aa3+HTl57ifUnZ6jARduOXVoJ4F2DQRpWjtSxKvg=;
+        b=RY+leCCGPXAYtiGbgkX0DZs62+0hiDyOEVZc0hbAaaRmWw4kMDcXBSO19cpKZenft7
+         lk1kgJPN8aswk9SdwBtvEPjqnoZBVTuX3ZoDUFx61+2W/ZjV7s5BFULtQL5nbcnmFRmf
+         gsvg6Wb8FjzJdy3oACoY/zis+Coo5au5HOgFYP3vCJQFUae7U9goIDrw3dAB9NaM/y/v
+         mSwgQnqx21i4JmPIz1fQWjtMvuujJvtETL3wolDeeHxT1AwSurm9xGp9U8a+ZVcpls0R
+         kVnJV1wwLqd6IgQgZ7LERReIpSWlAiHfsJxNGxw6+ceXUEqmPtRoXvBgeqQi2ud0h7px
+         FCJA==
+X-Forwarded-Encrypted: i=1; AKwUvBy3w6gEMt0s1od3Z6h9KOf2EIYjYnaps/uqEX9d9mydGRULMcR1yGfrAYP+PM17xULZjVIvq5LeaMxfjsUoxBTo@lists.infradead.org
+X-Gm-Message-State: AFq9FYJguBwmOve91tKvwVsKQH8cbcjFMKfN9ug8uoYxOaKdd0oe8qpe
+	6yu84+6PMsQmYJgkQPl21MzesPc5KiD40uv3WWOxbQZ8s9CzmWVwve8I
+X-Gm-Gg: AYBFou27RZUtHBXj6E6vhHXXzUZ+0b0KLVyQbqYkVd9U8ZI4C+fucMJxxYMCHyhZcr2
+	Osff+RZ6r9YA/5aFmq4viQT+79Wux+ldN+5qdmklZiS7zvdTAty56QPZRx9xznUeQTtH/jnw3Ki
+	CyUce6X6ollqMDv2agTyzhGqJrp2bSFFAOYJ6gvITyEmbgqfIx8KB/lmKGk9NLk5Zhbcbh5DDZf
+	sZUIMlWeKxpHbGTYp64w1bGBxUYQbTZG6YnnVMRgCDK0eyHwuUbRzLru0iKL/lJ64wjI5e7oiDY
+	2uxEkM5RPPTS3NdTfLqzPIMjArK95XNEBhGVR8cNRCENOp7GLB04fELYuyMIJ+ito7uTllAjnrj
+	EFE6OY7YxjrGK2/rMzXVJiss2sxhhUuU3NWwOqQEvSyYwtsihPloBglVyFYKspUx/xMoMjAwEPz
+	hQYbIT32a9Z5tAXOyObeJ2oKg/q/aKwSSlXybNe0gnPkLyOQl00dRBJKuYCiLkHnPcdcWMFSvKe
+	L7ySI6IIbsUMBJ3hU36ow9IJEJlJbgd8XU8SH+T9gaHOO3Tzgw7QkBBk6Y53FGaZ+j16maTlF+g
+	4xY23UdluULkaEqHPCy8quDQEumvOX3h82gsE/uBri9JDwb41XQIdnA0nV1Q
+X-Received: by 2002:a05:6000:612:b0:48d:b650:69aa with SMTP id ffacd0b85a97d-48e3eba5700mr11608540f8f.50.1793010119803;
+        Mon, 26 Oct 2026 03:21:59 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (93-34-92-187.ip49.fastwebnet.it. [93.34.92.187])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-48e3ebc3932sm16762876f8f.18.2026.10.26.03.21.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Oct 2026 03:21:58 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Chaotian Jing <chaotian.jing@mediatek.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Wenbin Mei <wenbin.mei@mediatek.com>,
+	linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: [PATCH] arm64: dts: rockchip: enable camera on tiger-haikou video-demo adapter
-Date: Mon, 26 Oct 2026 11:20:27 +0100
-Message-ID: <20261026102027.2451025-1-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.3
+	linux-mediatek@lists.infradead.org
+Cc: Christian Marangi <ansuelsmth@gmail.com>
+Subject: [PATCH 1/2] dt-bindings: mmc: mtk-sd: Document support for Airoha AN7581 SoC
+Date: Mon, 26 Oct 2026 11:21:36 +0100
+Message-ID: <20261026102138.36786-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_032040_946480_C289A643 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20261026_032201_957622_6A4F4257 
+X-CRM114-Status: GOOD (  11.50  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -64,169 +108,47 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Heiko Stuebner <heiko.stuebner@cherry.de>
+Add dedicated compatible for Airoha AN7581 SoC integrated MMC controller.
+The MMC controller is based on the MT7988 with the difference that it does
+have a single clock controlling it.
 
-The video-demo adapter also contains a camera, hooked to the CSI input
-of the RK3588. Add the necessary infrastructure and devices to enable it.
+Add the dedicated compatible to describe the 2 register requirement and
+permit to define only 2 clock (the main one and a fixed clock for HS)
 
-Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- .../rk3588-tiger-haikou-video-demo.dtso       | 95 +++++++++++++++++++
- 1 file changed, 95 insertions(+)
+ Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
-index b8636fcb4f39..c403054c3c16 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
-@@ -12,9 +12,11 @@
- /dts-v1/;
- /plugin/;
- 
-+#include <dt-bindings/clock/rockchip,rk3588-cru.h>
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/leds/common.h>
-+#include <dt-bindings/media/video-interfaces.h>
- #include <dt-bindings/pinctrl/rockchip.h>
- #include <dt-bindings/soc/rockchip,vop2.h>
- 
-@@ -25,6 +27,43 @@ backlight: backlight {
- 		pwms = <&pwm0 0 25000 0>;
- 	};
- 
-+	cam_afvdd_2v8: regulator-cam-afvdd-2v8 {
-+		compatible = "regulator-fixed";
-+		gpio = <&pca9670 2 GPIO_ACTIVE_LOW>;
-+		regulator-max-microvolt = <2800000>;
-+		regulator-min-microvolt = <2800000>;
-+		regulator-name = "cam-afvdd-2v8";
-+		vin-supply = <&vcc2v8_video>;
-+	};
-+
-+	cam_avdd_2v8: regulator-cam-avdd-2v8 {
-+		compatible = "regulator-fixed";
-+		gpio = <&pca9670 4 GPIO_ACTIVE_LOW>;
-+		regulator-max-microvolt = <2800000>;
-+		regulator-min-microvolt = <2800000>;
-+		regulator-name = "cam-avdd-2v8";
-+		vin-supply = <&vcc2v8_video>;
-+	};
-+
-+	cam_dovdd_1v8: regulator-cam-dovdd-1v8 {
-+		compatible = "regulator-fixed";
-+		gpio = <&pca9670 3 GPIO_ACTIVE_LOW>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-name = "cam-dovdd-1v8";
-+		vin-supply = <&vcc1v8_video>;
-+	};
-+
-+	cam_dvdd_1v2: regulator-cam-dvdd-1v2 {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&pca9670 5 GPIO_ACTIVE_HIGH>;
-+		regulator-max-microvolt = <1200000>;
-+		regulator-min-microvolt = <1200000>;
-+		regulator-name = "cam-dvdd-1v2";
-+		vin-supply = <&vcc3v3_baseboard>;
-+	};
-+
- 	vcc1v8_video: regulator-vcc1v8-video {
- 		compatible = "regulator-fixed";
- 		regulator-name = "vcc1v8-video";
-@@ -57,6 +96,23 @@ video-adapter-led {
- 	};
- };
- 
-+&csi4 {
-+	status = "okay";
-+};
-+
-+&csi4_in {
-+	csi4_input: endpoint {
-+		bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+		data-lanes = <1 2>;
-+		link-frequencies = /bits/ 64 <450000000>;
-+		remote-endpoint = <&cam_output>;
-+	};
-+};
-+
-+&csi_dphy1 {
-+	status = "okay";
-+};
-+
- &dsi0 {
- 	#address-cells = <1>;
- 	#size-cells = <0>;
-@@ -96,6 +152,12 @@ &i2c6 {
- 	#address-cells = <1>;
- 	#size-cells = <0>;
- 
-+	focus: focus@c {
-+		compatible = "dongwoon,dw9714";
-+		reg = <0xc>;
-+		vcc-supply = <&cam_afvdd_2v8>;
-+	};
-+
- 	touchscreen@14 {
- 		compatible = "goodix,gt911";
- 		reg = <0x14>;
-@@ -118,6 +180,31 @@ pca9670: gpio@27 {
- 		pinctrl-0 = <&pca9670_resetn>;
- 		reset-gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_LOW>;
- 	};
-+
-+	camera@36 {
-+		compatible = "ovti,ov5675";
-+		reg = <0x36>;
-+		assigned-clocks = <&cru CLK_MIPI_CAMARAOUT_M3>;
-+		assigned-clock-rates = <24000000>;
-+		clocks = <&cru CLK_MIPI_CAMARAOUT_M3>;
-+		avdd-supply = <&cam_avdd_2v8>;
-+		dvdd-supply = <&cam_dvdd_1v2>;
-+		dovdd-supply = <&cam_dovdd_1v8>;
-+		lens-focus = <&focus>;
-+		orientation = <0>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&mipim1_camera3_clk>;
-+		reset-gpios = <&pca9670 6 GPIO_ACTIVE_LOW>;
-+		rotation = <180>;
-+
-+		port {
-+			cam_output: endpoint {
-+				data-lanes = <1 2>;
-+				link-frequencies = /bits/ 64 <450000000>;
-+				remote-endpoint = <&csi4_input>;
-+			};
-+		};
-+	};
- };
- 
- &mipidcphy0 {
-@@ -142,6 +229,14 @@ &pwm0 {
- 	status = "okay";
- };
- 
-+&vicap {
-+	status = "okay";
-+};
-+
-+&vicap_mmu {
-+	status = "okay";
-+};
-+
- &vp3 {
- 	#address-cells = <1>;
- 	#size-cells = <0>;
+diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+index a4d032224dce..49ad2a8a390d 100644
+--- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
++++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+@@ -14,6 +14,7 @@ properties:
+   compatible:
+     oneOf:
+       - enum:
++          - airoha,an7581-mmc
+           - mediatek,mt2701-mmc
+           - mediatek,mt2712-mmc
+           - mediatek,mt6779-mmc
+@@ -238,6 +239,7 @@ allOf:
+         compatible:
+           contains:
+             enum:
++              - airoha,an7581-mmc
+               - mediatek,mt7986-mmc
+               - mediatek,mt7988-mmc
+               - mediatek,mt8183-mmc
 -- 
-2.47.3
+2.55.0
 
 
