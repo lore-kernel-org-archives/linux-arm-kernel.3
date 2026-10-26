@@ -2,130 +2,135 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DCA1606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 16:46:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C28C606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 16:47:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GqC3tSHi;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Q8K09W07
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YogWM3xi;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=E+m5FobF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=sbR6KDZ54pfKvX4mBD6E1CqiOyZSCDGH5Y/Tf8ZG/yY=; b=GqC3tSHiwNq0MC
-	vQYHOhiBen7t5Kvl5LTCWqANvgB5LL+6V45vz0sA5OdnflKPNkInoIvQ0s0bsNFRZUN7PU5IUD/2k
-	n4JcLD4PR4ds7LYrCVtQEkXgH623FpZe/L/vd3urJlc9jkHOSr5P+9QaA2hWu6B02e0xUS6DMTE9E
-	FEPgnaDDTCo2BXnpMiNvonyRaBhcXzMJR81wYCNXP8n85/jU/yDCMb5Ky/OIa8/SKCGssyc8Q4x9U
-	rjeSUmDVJqnpKXeq4di/ZjMwwo5yDP/qPjyZHs1CmvVGsCURKbWEJss6MU9g0ZMEEaOk9nCe0NXaG
-	Ch1wh65+o7q0iL2vMDwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=F2NYMcfm886OZe+D8sPU4LJaiFIUUSrBGz780bUDdX4=; b=YogWM3xiVqKlLw8f/c5P4FJjq0
+	8YnHjHZXss2Mw+k6rsEVnSQnqw55ORp5Z47AhgchWcFnYO1ZPUCYodFjsvge6Axn4h9sKt/9JO4R0
+	BqrvOqD5SdjYrBQi1bpWdWciOrXnFoNJw631OyAQbt3MO0FWmzhU+xegV+sy1pXi5zvSsvx5UWuN5
+	8F39wSczPFpaTWzpduFCMjtWzNu/vJnNXkLlOhhHxEU/t2EPt0bWtK+E1etqaHbq6n5jr/dLG72Ow
+	bOt0npu8IbiB3jt7qu3ypH2EighuIqQrCUTZ98vu683MC3iLdWer1nTmMRz4ZNRZ4qyR/uBtBcPQc
+	ANzcJ2sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLNps-00000002v6G-044B;
-	Mon, 26 Oct 2026 16:46:12 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1xLNrM-00000002vHQ-17yp;
+	Mon, 26 Oct 2026 16:47:44 +0000
+Received: from mail-westeuropeazon11013066.outbound.protection.outlook.com ([52.101.72.66] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLNpp-00000002v5J-3amC
+	id 1xLNrJ-00000002vH1-2eUc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 16:46:11 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6b1aa377c61so4168625a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 09:46:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793033168; cv=none;
-        d=google.com; s=arc-20260327;
-        b=UCw7xvAIOuWLoNnPHrB+h+wq/QDafd9LOhSsx0Um2g53cFBXm7z1IVlA8yZD7uhQic
-         ljel7Rsqe59trwmkPquJilyhQBIDFROUjaWuYEfcoWQgXjbZR58Rc7A0O9JcSf8bG3cx
-         SK815eKskReLWJI8cK34Nl5UcaborZU0Y9t1IqMF9ocKzfe6Kk7fFjR9MpjPSzF/ag4w
-         bMRDK1BBCrEe/kGuuuGUQV7Ochg58wPqDIBcjrtE0lLEWxU5Ux+r5boEFEYT/xvR4Vhk
-         qoXCBafWO8h7Nd0SYRX81lKLmAPI2C4cCvClsx6OtA+ylurTEZMuKbA3BfThWnhyoAiD
-         B6WQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=sbR6KDZ54pfKvX4mBD6E1CqiOyZSCDGH5Y/Tf8ZG/yY=;
-        fh=x3vd5r1MJlfVDFKD1w5h4IELCYvQ/CQiGHcKYXoXZ9k=;
-        b=povZwgByL9LuL+Akp6sGAq7LB2wRVE2bLfuBHRtOaagrL+pC2JhHMJTe+T7UA+7IO5
-         000m3WOulVEmmFvk3K5Kwf9ghwJpRTkzZdpV0r3J9Wp7m07s0Qf9drUwwAS7AlGbyXP/
-         35ZrNoikx3bsE3+X8d4sMPvsUbttWmRgubG75xHb1opJVfMgVp/6cCM7a+CA//B2gnu/
-         tsXq1IBNXXjhJlyFOe3ozVuEpFjkm06MvyGh2MPsh9JX4idfDx6WgV4bx1KrVXqzD1xQ
-         AntfMCoAIOk7PFLnPdhSV65/g5/beaeDQXE9KqPpUacI8XmS4F0dPI40a1F4FYV+twcD
-         hK7Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793033168; x=1793637968; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=sbR6KDZ54pfKvX4mBD6E1CqiOyZSCDGH5Y/Tf8ZG/yY=;
-        b=Q8K09W07Yr46glxbX26+kXo7ibptFGH8IBWSbLPQA3WXAqXlG6wec9jA48jLKYqWUN
-         cvKRU8xX/TI+mAy2k3sCQM3h9gFCqbV7Q1xOg1aHU2IbOzPGNm+Tb0dnz4sp69Iqk8sd
-         2qpPL0oEF3oeHxeEdWEjqfnni8VhdeizQAJFSvZek2JYcFEtSLw1tZJStgDDhIutqFcw
-         tTFHJnCmLzXaKrg3A0n7XhpwFni8Xc/U+ifkINolwlpOg5Ag1Wfxr9hgLbsYGRbB6Xcb
-         bJA8aw4pP/hywPfx4Pwt0OC6Tj+7P4wngrDWnxWUUHZ3eDTn2FcV3aw254O954i7QIRg
-         CJyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793033168; x=1793637968;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sbR6KDZ54pfKvX4mBD6E1CqiOyZSCDGH5Y/Tf8ZG/yY=;
-        b=26RWvliWojHzaz0q+5NAD9nrQk8hZy2IphYjCbfXOkIH0Qx9cB4G3BiLBWmv5IYilT
-         C/BllzM/FzZD9kaqNnguRV18OAewDi03TJaXw+Y5mtia8qo9q3bU4zgYgMdH1NzXU72B
-         V3eVaznG0sk63eZ+yD5sfwcKBqQLeu62/oUucNfKPKfg92EqCjjajNDMW7q6doIkBwMb
-         7qdiX0NImBq4V4nnQu2G30KBmlvyfNntlNLmHa/NMLkHQCE5WyyxbCEgC9pEmLuYSHey
-         Oxn9YakcNezX9DswW5eYUgJHW3Ie9AQ921phtwMxF5kkwKimpCXDGQ99cRp8ZlsQdA27
-         eZdg==
-X-Forwarded-Encrypted: i=1; AKwUvByj2QxiM7+sSlcJhJDWbsetoeINV69ukVVWAK5eYHFftKTlvVtcgWBtKAQAq7PaH1F/K4wDcPpEpodW7r6aO0Uq@lists.infradead.org
-X-Gm-Message-State: AFq9FYKkGRuvmNm35VUMkZF3AqclFPW/wnpuKv/QqQr0xylr5zqH30PV
-	B54K3X7XF85NHnR/M3ZmlM2oHYJvuAg7JqnqXddASa06J3Z+2HogPzjzciAbURkh4UnTupkBkNv
-	CrgnFsCOFluXxgxGTD+NX063JWdzGfgQ=
-X-Gm-Gg: AYBFou3x7OAXtzVK/kAqPBrT5sYWU0KtsL/KZIjdKxVnPwwjE+v6oQIgFxgEXDLtvAz
-	p3JN5sX2v5akZtO0pcYTBlGtQD0OgvDskUpcAA2FEAWsrIbine++ISXOPUQq6GQcc0aKHoDIs+g
-	r3pMXFlTby7Z4MDp4qQHnk94IiX+pVA0gCRGMD/nVPr5K3pGQMKnHetxJiUdMwR0v1dp7deNwyA
-	/1xY59opGNU6ayzgugWsFf9eBVLP6IRPPnehoa1CN6K/iu5XQydRcJMFeqLRqlI7m+tMknYJHzQ
-	8VB9q7qfWnuFBzFTVNJk7HQW9Vftc/LF8Sf1Wykrg8uAXCF6x0PPEl+qKmhnSMeS+KdeT1SO41u
-	UZ4rx/snJKlePosprONX7vM9tsRtgopPoUj5CCDXaaJYRGuqd8ddy1V2RSOMEqlM24DoWDMPNxc
-	RFzY2iEPIiZKRghzdl/tMGSmV6bqCMonWBMSwoFj4BzvXrgCa6NFd+GhMv8//I0FUGiGDxjrQPQ
-	hr2UlcLF8wOPzc6ACr+eIeegXzpihhhdo9IyV/rWqUhsumEzLQ=
-X-Received: by 2002:aa7:ca44:0:b0:6b1:b611:a2af with SMTP id
- 4fb4d7f45d1cf-6b442ff2fd3mr6024136a12.20.1793033167557; Mon, 26 Oct 2026
- 09:46:07 -0700 (PDT)
+	Mon, 26 Oct 2026 16:47:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rcvc7BegtHbbRcGF9wEcdJ5jVHUdg0U8tGvwrZS/E+WDQzmNM0sPTpMhb86AKIBGN3fBNCVn80PcntjmWpUxcX2sS0UMTj/iRPGl20Rtfq2qL2GzcoAe9OSyKSMlLjJalCJ3wDeLQGm2m8YbBcZHCGy/i5fZCm5BKKjlInkdlcf6IXVZ6qtOikWz6IXxARFAu0Uhj2FHp+vfAlLb06pst3DgpZKQYO2maefriAW0mMBMBO553vDFqspCBPI0Lmk5j/+hBjy0pAuc1vPRqqzYh2eEgEGT/PL48T/c4fobgvoaqRmoZw9OBn2UTK7wC+Yp+sU7CY16HaPg6HkRzB4V1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F2NYMcfm886OZe+D8sPU4LJaiFIUUSrBGz780bUDdX4=;
+ b=XPcz4rGdUifRXZebj9COk0aXaHAOal17BMEIokv79vJ3G2s1Uf1AFQyUmJA1hxi/8BGd0u8/3d2qGp6196hPB4H/V8U6p6NoaC+XDhv3G+zPKOYPDQURaC44kpz4wmRo/Lo2hE2tpUpArOK+CAVBRgX6iN4NUMejgeLg2/Z87OL0ve5BOM6rKqbs5zRgwVID3ksh+ov/WLoroL6fZaCgT7rMlu9yGh9RRDvyAv6RvmbmHp1pgNqwTYe/kVVBV6CCj1cw6m7+6z8RMA6u7X7n1xG/AdGLO2S1aCNMKn2k1DVEdvCLzhxdBncdQfeZjrQvTewSV2VmaWlXK8HwQ7DYiw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F2NYMcfm886OZe+D8sPU4LJaiFIUUSrBGz780bUDdX4=;
+ b=E+m5FobFSBRkvan/rGw1cqg5F4EnH2eCLu6+RpKpDJ5VzD3j8PdAOB8AkLwkCXrEHQBPo4sc9/JTWtblDBnPN9lg66ho4J3CweWB+KiskPLNJLRoBfD3+p7zgdQ1600SCW18xI4FjD3DnnhuJNCumvnS7V1pz3U7l1s3D0TxbmSlGlmLPE510A4DYNW7yZmxBlyc45uJsQxRZYlFkJxkO67rDk4V+gsAB+nofCKK1NXdM7uIROnUESGj6ZBxoeBFwdS9XnDQJ/rnJpOPHGMmJ5jFtN9ekLeW7EazG55dJnoEzLTn7kwYzLZxO7/EUtPf58QQmwaJvb9P3+1EgNy/Gg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by DU4PR04MB10340.eurprd04.prod.outlook.com (2603:10a6:10:564::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Mon, 26 Oct
+ 2026 16:47:34 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.021; Mon, 26 Oct 2026
+ 16:47:34 +0000
+Date: Mon, 26 Oct 2026 11:47:25 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Xiaolei Wang <xiaoleiwangxiaolei@gmail.com>
+Cc: aisheng.dong@nxp.com, festevam@gmail.com, Frank.Li@nxp.com,
+	ping.bai@nxp.com, kernel@pengutronix.de, s32@nxp.com,
+	linusw@kernel.org, s.hauer@pengutronix.de, sudeep.holla@kernel.org,
+	cristian.marussi@arm.com, peng.fan@nxp.com,
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] pinctrl: imx: scmi: replace custom dt_free_map with
+ pinctrl_utils_free_map
+Message-ID: <at-EHbO9KntKl7jY@SMW015318>
+References: <20261026040230.22338-1-xiaoleiwangxiaolei@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261026040230.22338-1-xiaoleiwangxiaolei@gmail.com>
+X-ClientProxiedBy: DS1PR03CA0024.namprd03.prod.outlook.com
+ (2603:10b6:8:233::19) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261024-submit-serial-8250-dma-cancel-v1-v5-0-9e52968928d2@gmail.com>
- <20261024-submit-serial-8250-dma-cancel-v1-v5-2-9e52968928d2@gmail.com>
- <alpine.DEB.2.21.2610250459200.42255@angie.orcam.me.uk> <at4bw-G8czG-G7Wl@ashevche-desk.local>
- <CADvTj4psJcY2T1PG9H8_hJWjz62R7unj3PPgv3FrVquUMFVhGg@mail.gmail.com>
- <at5qKehogAjTa-fA@ashevche-desk.local> <CADvTj4qSgE6Rc--mWuqAcc8HTqN9EFOS_JM8Hp8e_=ka_ZLa6w@mail.gmail.com>
- <at8eDFj2WNaXDaot@ashevche-desk.local>
-In-Reply-To: <at8eDFj2WNaXDaot@ashevche-desk.local>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 26 Oct 2026 10:45:54 -0600
-X-Gm-Features: AclHuK9i3gJhID1qYhY2EyC-ofDyvA_hJVRAckf-dNWT3ME93Ru8v8ikGWkk384
-Message-ID: <CADvTj4oNz-bnSZP+kfau-7wBSWLjLTP5jrr6nLfdCHNPo3pS6w@mail.gmail.com>
-Subject: Re: [PATCH v5 2/5] serial: serialize asynchronous write wakeups with
- the port lock
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: "Maciej W. Rozycki" <macro@orcam.me.uk>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Raul E Rangel <rrangel@chromium.org>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Tony Lindgren <tony@atomide.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Richard Genoud <richard.genoud@bootlin.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
-	=?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Timur Tabi <timur@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DU4PR04MB10340:EE_
+X-MS-Office365-Filtering-Correlation-Id: dc9b8227-87c4-4ca0-fe45-08df3380d5e4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|19092799006|366016|261026140227099003|11063799006|56012099006|261009223027099003|261021123027099003|261022075727099003|261022105027099003|261021121427099003|10067099003|261026121527099003|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: fAZABalk+SJZXBsvAgpm3IPYZLs0ylVrAoURAelFZmZv1nyz1Ni7KWkbAWV4XNU3v07GlepN/rhbSMg3BmzOzfms2B91XHKbmAfOuCQ167Nex9jfCPjqhv/tPW0bK/cx0VFlx60I85dqtNTaZSabLlnBb7Qt236oEt0NqbwKEP5OJ5j3YMrCqgUMA/KpE52IUuhI+DKwFjc7rWGQX2TfkkuDZXxTvin6MJG5WR2gTn3do8E+era7KYaJ+exfngKVhZ+GVV9Coqdj2rRW4ZOJqv8G/G46kHcywS9OQ5HbVywZcWBUHXFKCpnE0t6IK+kLboMwSICHroLF/03ukX8ozRNKwGN6FqqnMml9WMZS1msdl5zEwovrBbbvNv87aHmlo5AxERC4EzVlZ5EIVUT9K/2NqFsGV4nyOyez3rRdvqYnvSBv+XUnECs+jrWQJgiKNGuX+0eci9DgJ0VLF9FQ+D2MPrrfO1HjAtvuuE3XVznLX7N6p4bVL8mnEDeEIfmQDtgqlf2rsAxn59Nw3clikvDMqhxT+hUre1PPtDK/Hs6jfeNZj1aks562u2t+sqpVmmVcQQst+sXeKQW3gxlH8lLX7sWFls/AUZcnKJO0dPBLRkuUEVwzKMjzhK8N/0WBYkR8jVurbNeYRwj6kjDHHcAkXmBYyh5BUCcS6l0kyOc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(19092799006)(366016)(261026140227099003)(11063799006)(56012099006)(261009223027099003)(261021123027099003)(261022075727099003)(261022105027099003)(261021121427099003)(10067099003)(261026121527099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zO/9n/cXX/OfkCX265xx7AY+1VXN3YciEBPvxQkmL9i4yuRAcucMDLQQbbTa?=
+ =?us-ascii?Q?PIoroq+kw+x5x7UXbNedSTPak7X7JVBLKPtiB6b38HsRYFGgGj7OjzaAfSbm?=
+ =?us-ascii?Q?eAC2L+gbLCOzz6ybecW8LvPE4XBQC5Qw70jsrfuRdn5W448zyTJjdqSkBZPe?=
+ =?us-ascii?Q?Uf27qLHyBSyT0X6uxFtCzPe6IYMmT7p6m8poPqOHu+qEnACbvE/2QrEJZBYb?=
+ =?us-ascii?Q?GCdJfCBtXxYY1cL0QTkiresxlaAjb7wWgfs27Wadl3GpsVfUdeze0LnSWDK9?=
+ =?us-ascii?Q?F1JgEYByLb5eKPb8BSpGuN4TsFAquCu8flOJcrzKhDZx9ZyZeudJ7jBKjp4c?=
+ =?us-ascii?Q?ZZjWfCbP5qlKdGAMEMtQt6YABR5AtHh4ywqta2J1/NOyO+X7rxvPOi+wIWAI?=
+ =?us-ascii?Q?7L7/H2bN2cBJNOhW59UnQyJN6j8AFXppXSx5Y4cW1EuM6rBy+hByGdLb/Egw?=
+ =?us-ascii?Q?f7yR6IKOg0R1QlzE6AbwfeGDJzRDOjA0CUlgqsyAsTtYOrOWuaj3Kc1i0WQs?=
+ =?us-ascii?Q?2aGkRTxzdSUeHASsurJhCpAB76I8pDzwpGPFNqCTt43Rf6IHnGQyqDj2bOtp?=
+ =?us-ascii?Q?JsXXXPPDuYwe/9dDwzzD8IFj7aI6bBFFxpXG1WEtI2Nk3rQQZJX471cUfhtu?=
+ =?us-ascii?Q?EYDdvpOPejDgSHD8LxfiO3swS9pP139uJkg6Niypi0HEK9s7eI+w0OXbqyib?=
+ =?us-ascii?Q?lMq+HfQ1kRXbZOR/qkNvHT5YYCXZihrSPdpMP2kDz9P8epfIHVZhKUnOKDK4?=
+ =?us-ascii?Q?FDEt0k2o0WR+wbTcBIGnsTUaDAYRPK2C0RFYLbRwOrhkZ2I6mbaJF2ZmiKFn?=
+ =?us-ascii?Q?Iwk3D85OcT40N92adLFm7sofYFgWeusZMGZQNeF8lH75ERe/sOMpiEp6OBDA?=
+ =?us-ascii?Q?WPUVq0v2v7onTr20jufzwSvcIvsBzHuCHmMCe5x/50SQfLy2oGuZ+mCkWUOP?=
+ =?us-ascii?Q?wgxM9uMe25xHwR7GfOXjKbeQ4+B6h8LwJXPsEAf5duVaNU8mW/2BYNpx/MY6?=
+ =?us-ascii?Q?7bwPPSF1X4Mecw2NGuoQWCEClM23kemtiIZXIZPaE0f4lV8YXhuD1NxacYE5?=
+ =?us-ascii?Q?8zZlYi/KXbe4j530D8oV0rYk3L0ShK869KhVi+FSYQKGMwx4F8WPcSjIO8Gd?=
+ =?us-ascii?Q?KnkOF7xaKTqTbDHUjdFamk/rXmO1nMEbwt0VHzxqp8CsGL3x8E9QOtdMuFkk?=
+ =?us-ascii?Q?BUh19RqfD1vB7YM5DR/SDhJ9gp3ljVj5NeusG1jN67AYEUVOeqgzLEdsxd1J?=
+ =?us-ascii?Q?OI0dEFa2OtlMJeEnRxGpxbRqD163aawxIrq8zCxKkuCTH7aqwwrEwsnRpHOm?=
+ =?us-ascii?Q?hCf38zqUQTrowD3xIt964VZbBZZ2KyjLvvV4b9LD4EaB6yhTNXYfgW+PaKVo?=
+ =?us-ascii?Q?G3gbxSl37CIKk9vo1dQbfMEqbSQcPwOOyymLCFpjG9dcrTJQsbRY+9NEeGJO?=
+ =?us-ascii?Q?/5e8gIA2PHL4XoTQ2Nnh/5DEB9IlWKQN4AiG4BzbnmPgEjlk0fqnDOZCxdK6?=
+ =?us-ascii?Q?tEGAmlyrrVIdwvXoecUBEsarh6w6DPQZVJcnFsDPpYDRKSqvcOfgTbbA0ULF?=
+ =?us-ascii?Q?rN8UwmgtsKHpc9Xe/MuBMhCA4Sjp4yjbaVANcFlg0aRsl7F7ixprfz0MRNxy?=
+ =?us-ascii?Q?Qn4d9CLm1PPHvn+eXG78X+TyLjQSSlZ2L6dxa75GhJR2+44gsOHToM/D7jaQ?=
+ =?us-ascii?Q?QHPWUoP6EurmKPxC06B1e5FJUAOLJbM6od8B4pqz/BktkLJyaN3h/IXukB4n?=
+ =?us-ascii?Q?UaiRq+KpVPTJ/GA8WI2mal7XQEAZrkXgUyvLm9eO7yGUDzkEHM9N?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dc9b8227-87c4-4ca0-fe45-08df3380d5e4
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 16:47:34.9064
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lLSgN8Z/eqvEx1V/hGYL9g0HmekuUrYqJG+EhnJUN07af8tHlm2m9dEtqtLx5/2M/1jJ6N0KnWRlVXm5pKtfoTyZ0pzMVdxmnrZzUGPuqQWjjvOIRbSI/Hb6yr8kzD0o
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10340
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_094609_935147_4AB68B63 
-X-CRM114-Status: GOOD (  31.90  )
-X-Spam-Score: -0.8 (/)
+X-CRM114-CacheID: sfid-20261026_094741_693197_771F0855 
+X-CRM114-Status: GOOD (  20.28  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,109 +141,69 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 26, 2026 at 3:33=E2=80=AFAM Andy Shevchenko
-<andriy.shevchenko@linux.intel.com> wrote:
+On Mon, Oct 26, 2026 at 12:02:30PM +0800, Xiaolei Wang wrote:
+> [You don't often get email from xiaoleiwangxiaolei@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 >
-> On Sun, Oct 25, 2026 at 04:11:08PM -0600, James Hilliard wrote:
-> > On Sun, Oct 25, 2026 at 2:44=E2=80=AFPM Andy Shevchenko
-> > <andriy.shevchenko@linux.intel.com> wrote:
-> > > On Sun, Oct 25, 2026 at 02:25:46PM -0600, James Hilliard wrote:
+> From: Wang Xiaolei <xiaoleiwangxiaolei@gmail.com>
 >
-> ...
+> pinctrl_scmi_imx_dt_node_to_map() kmemdup_array()s the pinctrl configs
+> of every pin into map[i].data.configs.configs, but the driver's own
+> pinctrl_scmi_imx_dt_free_map() only frees the map array itself. The
+> pinctrl core releases maps through pinctrl_dt_free_maps(), which calls
+> dt_free_map(); the duplicated configs are therefore never freed and leak
+> every time the DT node is parsed, e.g. on each (deferred) probe attempt.
 >
-> > > Some people might want to test the stuff. And sending too often you a=
-ctually
-> > > will get the opposite results, people will be tired to even start rev=
-iewing
-> > > and/or testing your code as it's changed way too quickly.
-> >
-> > My thought process was that people wouldn't want to be testing code tha=
-t
-> > had known bugs flagged in Sashiko reviews.
+> Replace the custom dt_free_map with the core helper
+> pinctrl_utils_free_map(), which frees the configs of each
+> PIN_MAP_TYPE_CONFIGS_* map before freeing the map itself. Its
+> signature matches pinctrl_ops.dt_free_map(), so the driver-specific
+> implementation can be dropped entirely.
 >
-> Sashiko reviews are not visible in my or any other mailbox. To see them I=
- have
-> to go to some URL and so on, meaning to waste time to see why on the eart=
-h the
-> new version has been sent.
-
-Maybe the Sashiko reviews are getting caught in spam filtering or something=
-?
-They are showing up for me and on the mailing list[0] so I'm a bit confused=
- why
-you aren't seeing them. You shouldn't have to go to the web interface[1] to=
- look
-up the reviews.
-
-[0] https://lore.kernel.org/all/sashiko-outbox-183574@kernel.org/
-
-[1] https://sashiko.dev/
-
-> It's better before addressing Sashiko comments,
-> reply to all people involved and to Sashiko's original email, so it will =
-be
-> visible in the previous version why you issued (actually about to issue) =
-the
-> next version.
-
-Hmm, maybe it makes sense to enable recipients in the reply_to config[2]?
-
-[2] https://github.com/sashiko-dev/sashiko/blob/v.0.6.3/projects/linux/mail=
-ing_lists.toml#L290
-
-> And before even issuing it, wait for a while, people might
-> disagree with Sashiko judgement or your replies on how to address that.
-
-I was assuming everyone was seeing the Sashiko reviews getting posted to
-the mailing list already. The are ending up in lore so unless someone isn't
-subscribed to the list I'm not sure why they wouldn't be seeing those revie=
-ws
-already.
-
+> Detected with kmemleak on an i.MX95 board (FRDM-IMX95).
 >
-> TL;DR: this mailing list is *not* a playground with you and Sashiko, the =
-whole
-> community is behind it.
+> Fixes: b755521fd6eb ("pinctrl: imx: support SCMI pinctrl protocol for i.MX95")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wang Xiaolei <xiaoleiwangxiaolei@gmail.com>
+> ---
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+>  drivers/pinctrl/freescale/pinctrl-imx-scmi.c | 8 +-------
+>  1 file changed, 1 insertion(+), 7 deletions(-)
 >
-> > > Settle down first
-> > > with something, put on the cover letter the answer why not all Sashik=
-o's
-> > > comments are being addressed (for example, due to amount of patches o=
-r the
-> > > series being focused on a certain issue).
-> >
-> > So, in general I've been always attempting to resolve known Sashiko iss=
-ues
-> > in every subsequent re-spin, so that would be a bit tricky since I woul=
-dn't be
-> > aware of the Sashiko issues until after the series has already been sen=
-t.
-> >
-> > Usually the subsequent issues that get flagged are new issues only disc=
-overed
-> > after each new re-spin.
-> >
-> > I do have a bunch of UART/DMA related patches that don't have flagged S=
-ashiko
-> > issues so it probably makes sense to try and review those first while t=
-he larger
-> > series that have Sashiko flagged issues are still stabilizing.
+> diff --git a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
+> index 613552e35070..8cbd66950848 100644
+> --- a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
+> +++ b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
+> @@ -153,18 +153,12 @@ static int pinctrl_scmi_imx_dt_node_to_map(struct pinctrl_dev *pctldev,
+>         return 0;
+>  }
 >
-> Yes.
+> -static void pinctrl_scmi_imx_dt_free_map(struct pinctrl_dev *pctldev,
+> -                                        struct pinctrl_map *map, unsigned int num_maps)
+> -{
+> -       kfree(map);
+> -}
+> -
+>  static const struct pinctrl_ops pinctrl_scmi_imx_pinctrl_ops = {
+>         .get_groups_count = pinctrl_generic_get_group_count,
+>         .get_group_name = pinctrl_generic_get_group_name,
+>         .get_group_pins = pinctrl_generic_get_group_pins,
+>         .dt_node_to_map = pinctrl_scmi_imx_dt_node_to_map,
+> -       .dt_free_map = pinctrl_scmi_imx_dt_free_map,
+> +       .dt_free_map = pinctrl_utils_free_map,
+>  };
 >
-> > > > [0] https://github.com/sashiko-dev/sashiko/pull/389
->
+>  static int pinctrl_scmi_imx_func_set_mux(struct pinctrl_dev *pctldev,
 > --
-> With Best Regards,
-> Andy Shevchenko
+> 2.34.1
 >
 >
 
