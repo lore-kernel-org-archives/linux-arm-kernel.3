@@ -2,114 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98F7B606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Oct 2026 23:34:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0BDC606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 00:34:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NuC6C/+s;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=miWGkCOz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=C5E5Wj3e;
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=HhLY1O7u
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=rFWYZrVjrS/TFQfJR/4h0JKkNeZpD/BpXtbdF7kMWlw=; b=NuC6C/+sXUKZv8
-	GZwwrwbwAje3UbKEpYVU+YTcRwJW+eoOjAoR2xuBhqIS1PlB7sUoCaZMEU2Jvr8vdN6eiUGov3IA0
-	kYLcum8PjjlN4HLNG4mZPwrsaLCHGKgy3JrjWQ13d0z+QZBzmVQtyxIBE6lGzK8ZKNGO6xPAge4XQ
-	JAZS7su7wD8+1rImxM9WrjfN/1Ht7LYM/TIpvUwj3tvDzAaYglj6ay5DF9mHIW3dyL3FaMNSzvs59
-	0p8IR5wR9aVvx8Z8TOhRxlmoXAoI4J8gXBO1Jd9zoQvjQlxZH9fr8iUxsQW8vljD88RNe+r6K+YJu
-	NLZSKZq0ceEQ0zv4s48A==;
+	List-Owner; bh=+9VnkTVZa5ILKHrRCMZEXP+36VdKYsWK9GWspe2p5rE=; b=C5E5Wj3eecxu7Y
+	oxEN+1sJNWR9R8JcGGJ9tRZADCVnHGnlvKhxJVjOmr+ojTcPHjFSKLepTE7Du/AQ3Onx41XEanngL
+	KN00a5tkTPbvrYg0+cwXfO02WYE811I3l02LgEbx0CMwCEMxcYGTpY2woq3ItLWl2RqsiAN5ElP6d
+	TWvx7npaCd5a4zI7Tre+Gnl22UT9Dhw7Pk7rPdg8yTgXwLWFGsAUCSmM162JQisCtoEZKiYOc88gL
+	idBspdPgMIEaHR5JwBBDbwUV6XqWWESW91w5xvqO9zNY1ZsfG45+1N3cKmlf6TuIoFOltrYpqLn/4
+	+6RJpID17LUQCzM7TMOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL7jn-00000001VOW-2YLB;
-	Sun, 25 Oct 2026 23:34:51 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1xL8f3-00000001WsN-12kF;
+	Mon, 26 Oct 2026 00:34:01 +0000
+Received: from mail-m1075.netease.com ([154.81.10.75])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL7jk-00000001VO2-1u9P
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Oct 2026 23:34:49 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-5383c97c8cfso188791cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 16:34:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792971286; cv=none;
-        d=google.com; s=arc-20260327;
-        b=LcpE6aF/jhOaWZ7Ul48fJovWYNdiEgAeWB1QKZQBy+Jid5YkTZHTE1K/1JsM92CW4g
-         ApudifiF6PwAeel5gvSXeFVGCPV3Huz/n1Mo0c+6BtCe3a4JeP7F1DDZcexHWtmIFxyZ
-         X3Q8c78ySe9CeELqbOoDV7XXqPG/5Bi7yuRo0ZFysaV9THB2gTg6DKS1rO3k5rLVy/zQ
-         jR50jjBm4V8PB/BIJ5ybKtF/cdhO5mkhFFxCwR8q45nKUXo7OH+GMbTLfeor/TDhVVu4
-         4wFMIN0D3B/btwJUYbqVNa34o9eyAdPF9KUrRI0CxgYmg+/kSroKdB19g3zlHmBoqPUh
-         7iHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=rFWYZrVjrS/TFQfJR/4h0JKkNeZpD/BpXtbdF7kMWlw=;
-        fh=ZSIOU1HUvHOVAnKwJhdZZ2josHDcQ+KDO/Cy6lQqxOM=;
-        b=neMFzpF9HtQRQ3JneeP89C46g3s6v2Yx35tQCflLDOMCv2CMU26ASI8lYYKQUafMGL
-         hsaOZRIE9KDDfSLA00mYJ0OFX4U0xORwY6j1eUsXly+J85Ii+OeftBWK3SH4QTs28k2e
-         7ISy1IB818EbYiTIa+rdTrdNc7GFODFzovSteQJa84azEofOWuqeJWDzBxnzJ6K9vNUR
-         wsYaOLFKnklE7E+IvC/0025o/Iqneq8sqC9a/IG6s8m3dt0Qeo0qDcUXvYKwliDLrmxe
-         +LIpyQllVfTKxIvi9xK7vlV/xAZekzNz3p8Nb7MxQvG1Wch20ZzZZu43UY8dfmnvDMdr
-         qYxw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792971286; x=1793576086; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=rFWYZrVjrS/TFQfJR/4h0JKkNeZpD/BpXtbdF7kMWlw=;
-        b=miWGkCOzrtiCC0xsB4FQQsJwn7PMz0VGHTQr/AeZoEKGATZ2uCZZ5nVetxQE3NgHzw
-         I4DsfpJZPF6dJIaMBWxqv28DVcn0WZ3mVUACT+o8u2CGC5qL1Od/tlXDhMXfWt/5wTzG
-         22IU/tb7g2WrmJQ0U+ZmU0a2SaC51xdAwpwkObgV0V8gAg0SCqo9DMN+Ifcjg2BHhS+V
-         fyKO3g21+zHBh4mGfLNZX/S1nn8VxSVl4d3KJvSkgNUm/DqU6s5DmN+6lwGA++7sbFLl
-         5B9ja08z6IQ8xkN3axyATa4iGXORizh/HpuNoQ7DGleMw3zEA2JeYlSMf2XTOnIeuNLh
-         yecA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792971286; x=1793576086;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rFWYZrVjrS/TFQfJR/4h0JKkNeZpD/BpXtbdF7kMWlw=;
-        b=rYfFSieqRs7TAL2Q0ft4LpKS6kvA7szVL5HhhAMckUR93Yqt5RHrZLHSGQdGQ7teT/
-         hReD+CAWN/srwk1cfAgF7SnNj2TMq6OJU7LdhNZ9ylWpMxVmCa+c0gjEXJ9+NRBb9Q3t
-         OHBaTZxyK8Mow+xPbwhj+YJ+2pL4RpdJJkoFmGpbKcjcu0sybKFdcPvyduHUIgGMnapX
-         Sx8wH3V+Zxp4tU1QlSebQYZlfBXTh1ef23khwBqhK34rPiK2MInSBkuRZyEoqfBeGCYo
-         ifYHxI4Yd5jn0i9bHPsUtMGfYk3H4/tAKN1zTV+bZHp2PoNv4LHfaT5icR6FzQl11csY
-         J39A==
-X-Forwarded-Encrypted: i=1; AKwUvBx5Ep/kSOn3dSjr9sd+T04f7keLrWLS+g3qObyNfXGllP631fEey+JYLayTDCWRDZ6Ezy3kkvHSU5bUq5cG/ZkM@lists.infradead.org
-X-Gm-Message-State: AFq9FYIfgBMhfJtGLDJai3WtyEE+hDLRTp6n5BAQ+0JuD26NhoHBNCVy
-	nl5nV9hrhkmWV30zmV6o62AMq5fILeUUcxkH+JAicu+D1ccac5/0cd2KE4cEdHZV8frB/4zhdfj
-	xHuUuXhKoJ7jXkCa+A/IEmr1pMxAmZsWn7z3Uge5B
-X-Gm-Gg: AYBFou20s/nE/50enZC8Kr1R4hde41n540EAFzR5VuebXaZHBKI/EI3XUtt33vxPxuH
-	Hi9ysF8UffufalgUmpcWA03kyB+OyFIJtZYSqdII+pTDT3UHxKY/9KrXOJO9eWkfhPRT9qHG2e0
-	RmGoEPl4jZJ6MKgqx79wPc+z+T/iyRO1UrfGYUZ8Jz70lRSzFEqmkUKV7IeIRm64nmkmQC20e+/
-	IskFNcCNvvR5wtzd5s/xs2T61H76gnsZwfCnrNqowrRkCA33B58t4js/1Qh0T9TV4THJrITJfED
-	TU5nE8TYBjjo1luRGimvxW3Ge0bb3qkrXJFWCaabmcfCis87kTpC+OcjECXFrC/UpXE26LpTxDk
-	C0o7xW+RKFM7lq5b+SUAkK2BL/boNohWENA==
-X-Received: by 2002:a05:622a:5806:b0:535:84ef:2e26 with SMTP id
- d75a77b69052e-5383b53f3afmr23124761cf.7.1792971285094; Sun, 25 Oct 2026
- 16:34:45 -0700 (PDT)
+	id 1xL8ez-00000001Wro-18MU;
+	Mon, 26 Oct 2026 00:33:59 +0000
+Received: from [172.16.12.48] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 52470fe96;
+	Mon, 26 Oct 2026 08:33:41 +0800 (GMT+08:00)
+Message-ID: <4b7bd146-93fd-41f8-ad3c-88333adc73b4@rock-chips.com>
+Date: Mon, 26 Oct 2026 08:33:41 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261004195027.227748-1-danielmentz@google.com> <20261016180521.GJ14213@ziepe.ca>
-In-Reply-To: <20261016180521.GJ14213@ziepe.ca>
-From: Daniel Mentz <danielmentz@google.com>
-Date: Sun, 25 Oct 2026 16:34:34 -0700
-X-Gm-Features: AclHuK9W-YhajRJtMqxwo_KiR_knxSPaf7RrqxDVchqoNSjrX0LK8PI-lTwz6Ks
-Message-ID: <CAE2F3rD3WPfJYBu-HPwppwjzdXB1v5gRwu6Dy7rCrgBAs1JBnQ@mail.gmail.com>
-Subject: Re: [PATCH v2] iommu/arm-smmu-v3: Align memory attributes for
- SMMU-originated accesses
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: iommu@lists.linux.dev, will@kernel.org, robin.murphy@arm.com, 
-	joro@8bytes.org, nicolinc@nvidia.com, smostafa@google.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	dawei.li@linux.dev, praan@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, heiko@sntech.de
+Subject: Re: [PATCH] arm64: dts: rockchip: Enable Wi-Fi on the NanoPi M5
+To: Leonard Lausen <leonard@lausen.nl>
+References: <20261025205339.14539-2-leonard@lausen.nl>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20261025205339.14539-2-leonard@lausen.nl>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa175a0986703a4kunm2868e8063c52c7
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTBhDVkwdSU4eGRhJQh9IHVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=HhLY1O7uNKLtSMhQOf0XfdncyG4p3WeNQVKSDyPYpEqyPUruh0VpprvnPhn0gk4CXO3hcA3hJNw5rU38d0ohVwU3ZL0PS7eatueMYSoMngTL/INn+AyrJ7myT37A/c/CTUM8wcWx54/IIgwornfCtkF8mFvoqDfT1OCbAJS65DM=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=+9VnkTVZa5ILKHrRCMZEXP+36VdKYsWK9GWspe2p5rE=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_163448_557254_5D521126 
-X-CRM114-Status: GOOD (  24.79  )
-X-Spam-Score: -17.6 (-----------------)
+X-CRM114-CacheID: sfid-20261025_173357_837826_A792793E 
+X-CRM114-Status: GOOD (  16.49  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,95 +70,100 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-23.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_IN_DEF_DKIM_WL
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
 	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 16, 2026 at 11:05=E2=80=AFAM Jason Gunthorpe <jgg@ziepe.ca> wro=
-te:
-> On Sun, Oct 04, 2026 at 07:50:27PM +0000, Daniel Mentz wrote:
-> > The SMMU specification defines several types of SMMU-originated memory
-> > accesses, including Stage 1 and Stage 2 translation table walks, stream
-> > table accesses (L1STD and STE fetches), CD table accesses (L1CD and CD
-> > fetches), and queue accesses (CMDQ fetch, EVENTQ write, PRIQ write).
-> >
-> > While the memory attributes used for Stage 1 and Stage 2 translation
-> > table walks are configured in io-pgtable-arm based on whether the SMMU
-> > is coherent (ARM_SMMU_FEAT_COHERENCY), the attributes for stream tables=
-,
-> > CD tables, and queues are currently hardcoded to Inner Shareable,
-> > Write-Back.
-> >
-> > On non-coherent systems, however, memory for stream tables, CD tables,
-> > and queues is allocated via dma_alloc_coherent() /
-> > dmam_alloc_coherent(), which provides CPU mappings with Normal
-> > Non-Cacheable attributes. Having a non-coherent SMMU access these
-> > buffers with Inner Shareable, Write-Back attributes results in
-> > mismatched memory attributes between the CPU and the SMMU.
-> >
-> > Configure the memory attributes for tables and queues in
-> > arm_smmu_device_reset() and arm_smmu_make_cdtable_ste() based on
-> > ARM_SMMU_FEAT_COHERENCY, matching the attributes used for translation
-> > table walks:
-> >
-> > - In SMMU_CR1, use Outer Shareable, Non-Cacheable for non-coherent
-> >   SMMUs, while retaining Inner Shareable, Write-Back for coherent SMMUs=
-.
-> >   This applies to stream table accesses as well as queue accesses (CMDQ
-> >   fetch, EVENTQ write, PRIQ write).
-> > - In STE.{S1CIR, S1COR, S1CSH}, use Outer Shareable, Non-Cacheable for
-> >   non-coherent SMMUs, while retaining Inner Shareable, Write-Back
-> >   Read-Allocate for coherent SMMUs. This applies to CD table accesses.
-> >
-> > Assisted-by: LLM
-> > Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-> > Signed-off-by: Daniel Mentz <danielmentz@google.com>
-> > ---
-> > Changes in v2:
-> > - Rename local variables 'cache' and 'sh' to 'cr1_cache' and 'cr1_sh' i=
-n
-> >   arm_smmu_device_reset() (Nicolin, Will)
-> > - Collect Reviewed-by from Nicolin
-> > - Link to v1: https://lore.kernel.org/linux-iommu/20260929032229.353224=
-7-1-danielmentz@google.com/
-> >
-> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 37 +++++++++++++++------
-> >  1 file changed, 27 insertions(+), 10 deletions(-)
->
-> I think this looks OK
->
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
->
-> Did you check the spec that this is every access? I remember there is
-> a table outlining every access and where the memory attribute lives?
 
-Hi Jason,
 
-Thanks for the review!
+在 2026/10/26 星期一 4:52, Leonard Lausen 写道:
+> The NanoPi M5 has an M.2 E-key slot for SDIO Wi-Fi modules such as the
+> RTL8822CS-based AC200. The SDIO controller is disabled and the module's
+> power sequence is not described, preventing the card from enumerating.
+> 
+> Enable the controller in four-bit SDR104 mode and connect its 3.3 V card
+> and 1.8 V I/O supplies. Describe the active-low reset on GPIO1_C2, the
+> 200 ms power-on delay used by the vendor device tree, and the external
+> 32.768 kHz clock from the HYM8563 RTC. Keep the card powered during
+> suspend as required by the rtw88 SDIO driver.
+> 
+> Signed-off-by: Leonard Lausen <leonard@lausen.nl>
+> ---
+>   .../boot/dts/rockchip/rk3576-nanopi-m5.dts    | 34 +++++++++++++++++++
+>   1 file changed, 34 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+> index 3a305408fa16c..bfa18de1ae1af 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+> @@ -23,6 +23,7 @@ aliases {
+>   		ethernet0 = &gmac0;
+>   		ethernet1 = &gmac1;
+>   		mmc0 = &sdmmc;
+> +		mmc1 = &sdio;
+>   	};
+>   
+>   	chosen {
+> @@ -212,6 +213,16 @@ vcc_3v3_s0: regulator-vcc-3v3-s0 {
+>   		vin-supply = <&vcc_3v3_s3>;
+>   	};
+>   
+> +	sdio_pwrseq: sdio-pwrseq {
+> +		compatible = "mmc-pwrseq-simple";
+> +		clocks = <&hym8563>;
+> +		clock-names = "ext_clock";
+> +		pinctrl-0 = <&wifi_reg_on_h>;
+> +		pinctrl-names = "default";
+> +		post-power-on-delay-ms = <200>;
+> +		reset-gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
+> +	};
+> +
+>   	sound {
+>   		compatible = "simple-audio-card";
+>   		pinctrl-names = "default";
+> @@ -855,6 +866,12 @@ pcie0_perstn: pcie0-perstn {
+>   		};
+>   	};
+>   
+> +	sdio-pwrseq {
+> +		wifi_reg_on_h: wifi-reg-on-h {
+> +			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +
+>   	sdmmc {
+>   		sdmmc0_pwren_h: sdmmc0-pwren-h {
+>   			rockchip,pins = <0 RK_PB6 RK_FUNC_GPIO &pcfg_pull_up>;
+> @@ -890,6 +907,23 @@ &saradc {
+>   	status = "okay";
+>   };
+>   
+> +&sdio {
+> +	bus-width = <4>;
+> +	cap-sd-highspeed;
+> +	cap-sdio-irq;
+> +	disable-wp;
 
-I checked section 13.8 ("Attributes for SMMU-originated accesses") in
-the SMMUv3 spec (ARM IHI 0070), and all other accesses are already
-covered:
+disable-wp is for sd cards, please drop it.
 
-- STE fetches (SMMU_CR1.TABLE_*) and Queue accesses
-  (SMMU_CR1.QUEUE_*): updated by this patch.
-- CD fetches (STE.{S1CIR, S1COR, S1CSH}): updated by this patch.
-- Stage 1 and Stage 2 translation table walks (CD.{IR0, OR0, SH0} and
-  STE.{S2IR0, S2OR0, S2SH0}): already handled by io-pgtable-arm
-- VMS fetches: governed by SMMU_CR1.TABLE_* (and not used by the
-  driver).
-- Event queue, PRI queue, and GERROR MSIs (*_IRQ_CFG2):
-  arm_smmu_write_msi_msg() already programs these to
-  Device-nGnRE since they target an interrupt controller.
-- CMD_SYNC MSIs (CMD_SYNC.{MSIAttr, MSH}): the driver only uses
-  CMD_SYNC MSIs (CS_IRQ) when ARM_SMMU_OPT_MSIPOLL is set, and
-  arm_smmu_device_hw_probe() only enables ARM_SMMU_OPT_MSIPOLL when
-  coherent is true. When non-coherent, CS_SEV (or CS_NONE) is used and
-  MSIAttr/MSH are ignored.
+> +	keep-power-in-suspend;
+> +	mmc-pwrseq = <&sdio_pwrseq>;
+> +	no-mmc;
+> +	no-sd;
+> +	non-removable;
+> +	sd-uhs-sdr104;
+> +	vmmc-supply = <&vcc_3v3_s3>;
+> +	vqmmc-supply = <&vcc_1v8_s3>;
+> +
+> +	status = "okay";
+> +};
+> +
+>   &sdmmc {
+>   	bus-width = <4>;
+>   	cap-sd-highspeed;
 
-Daniel
 
