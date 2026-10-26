@@ -2,63 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C47E606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 11:43:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B7E4606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 11:46:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oRshFQmw;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=ZZxz8X7m
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bQYH6Zro;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=mzuqJlL7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=TB6sn/UOQnuPOej6SF5d8mgi4GN0S1GI9A7uaPPzJd0=; b=oRshFQmwft3nFSRsEMAW6phsGZ
-	R7ugnJ0RhOJelt0UalcodqRlYj4G/yq6/a1P+6LMlrudL/HIG8ES6YRbJiv0vpvDO7GXaatceGZLl
-	fXrT+/dupWGXfmw88qcYZeX+6lke3dSejtgMqBvCrqoqUxuBvcS9rxyM+sKMGjjgDrQJvgpjNV2GD
-	tXP5oMChFf/PUwID+lY4jGgk9NqpmS1L/Sa0I4eOvqZQfAX0oGh8gjhMyyx4IXc+9YFyNJACZCN6G
-	/NmrWUDVeVpjLV/gFtpwJsvxO5c1pMF9eeuU6tliI0uLrXewoTv+o3+Tg76JYp45+210g8cMgSTD8
-	tHbl4bxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=waEbYX6KJPSoRNadiwOCD4LDKbTYoW2me5cQNSodTwI=; b=bQYH6ZroEmIYBO
+	3pgKCTLFeUIQ251/HVl1AJW3jaxdH4WsME7RYSW3k0wvhsLqPBlV8pOHBKSmztuIkle1swvBJY9VD
+	iPm8vi3EY8vRB/Ng46KBbj7sZSdPoe9XRNTzFi3XfCImkZSNcLjSgb83oZL7BuLmOFWsd6n1Wer6T
+	6f0UhvQ31ymkQ379EEQUOjvo4tk3qtiMU7w9hK4v2HqXcRgqFtL1uODmimhBGW4eME8CtYlsst7mU
+	Kv7O8/SR55HL0Czwdb72OVkjTiM+iCsuCjDHvr2UEl/PoTb4hNSQR3ZoH0lLFxGV1Nco9V6ZyKpur
+	MMe79aOIVNtCpRbiVX/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLJ6x-00000002P9S-1XIV;
-	Mon, 26 Oct 2026 11:43:31 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLJ6u-00000002P8z-3Z3i;
-	Mon, 26 Oct 2026 11:43:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=TB6sn/UOQnuPOej6SF5d8mgi4GN0S1GI9A7uaPPzJd0=; b=ZZxz8X7mWMciMHa4hyHB52VP/p
-	c7Z2OE3CazrXaOpP3QXj4JYBeDF9Aj3nBpgoTPFqI8La/mnJUfTTO2m3pJ3nUukBWjOR5WBwZyK9A
-	8nTkwpWzyHViZVhL7klpnuNq5ioBiyugDndsBriPlzPOWUBbMGw8NGM6CxZzDllbhA79EPPFawVt1
-	OU3M/+S4n1pNyIZFCe+uxV5Hu5UHkeRy0Gv5k6D6N8Vm2ihWdBV7Y+DTIIqbFZPQ51W23byZEhVuf
-	cDwrSKNSCI3sTvc6g4C9QOdX4J72++KS7Lnt+NlJr4KpPwZckGP5qtHCG2ASkK9tSNVrLI9nG530q
-	kRCdbvGg==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: krzk@kernel.org, Jianfeng Liu <liujianfeng1994@gmail.com>
-Cc: HystericalDragons@proton.me, amadeus@jmu.edu.cn, conor+dt@kernel.org,
- devicetree@vger.kernel.org, hrushirajg23@gmail.com, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, liujianfeng1994@gmail.com,
- macromorgan@hotmail.com, michael.opdenacker@rootcommit.com, naoki@radxa.com,
- robh@kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: arm: rockchip: Add ArmSoM Sige7s
-Date: Mon, 26 Oct 2026 12:43:10 +0100
-Message-ID: <5520293.6fTUFtlzNn@phil>
-In-Reply-To: <20261026075915.203854-1-liujianfeng1994@gmail.com>
-References: <20261026-luminous-traditional-gazelle-0e3bb3@quoll>
- <20261026075915.203854-1-liujianfeng1994@gmail.com>
+	id 1xLJ9l-00000002PZB-3njo;
+	Mon, 26 Oct 2026 11:46:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xLJ9i-00000002PYO-2k5r
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 Oct 2026 11:46:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4DFA61684;
+	Mon, 26 Oct 2026 04:46:14 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1AE3D3F59E;
+	Mon, 26 Oct 2026 04:46:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793015177; bh=fG1932O5DnRLeWO28TC5OCEzVFgP3pBcePlqgLQmTiM=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=mzuqJlL7w1VogY9w2u92PK52BKlIVq3WC5uykPM1cXLMVMUZa12omeT08El7Nu7u2
+	 mTjSVSp6lM91xzRHWsVcz4qdAEmAk4SvhgfsWe7O/IoiOLWEk2aY1y3J/uchKTbOMX
+	 10s26HxS0natqMBJ/41T+1s1GqRrmEweoeRBvLJc=
+Message-ID: <c1e80268-3981-48bb-b251-dcd2218fc9d5@arm.com>
+Date: Mon, 26 Oct 2026 11:46:13 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/7] arm_mpam: Add L2 cache monitors
+To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, mark.rutland@arm.com, corbet@lwn.net,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, james.morse@arm.com,
+ reinette.chatre@intel.com, fenghuay@nvidia.com, tony.luck@intel.com,
+ Dave.Martin@arm.com, babu.moger@amd.com, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261022084821.4014873-1-ruanjinjie@huawei.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20261022084821.4014873-1-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_044328_906999_4395630A 
-X-CRM114-Status: GOOD (  12.43  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261026_044622_955135_C6C76D5E 
+X-CRM114-Status: GOOD (  19.54  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,39 +73,80 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Am Montag, 26. Oktober 2026, 08:59:14 Mitteleurop=C3=A4ische Normalzeit sch=
-rieb Jianfeng Liu:
-> Hi Krzysztof,
->=20
-> On 2026-10-26  7:08 UTC, Krzysztof Kozlowski wrote:
-> >> The ArmSoM Sige7s is an RK3588S-based single-board computer which
-> >> shares its hardware design with the CoolPi 4B.
-> >
-> >How different devices from different vendors can share design?
-> >
-> >
-> >What is exactly is shared and how did you verify that?
->=20
-> I confirmed this with ArmSoM. They purchased the original CoolPi 4B
-> hardware design from CoolPi and confirmed that no hardware design
-> modifications were made for the Sige7s.
->=20
-> So the Sige7s uses the same hardware design as the CoolPi 4B, rather
-> than being independently designed.
+Hi Jinjie,
 
-if it's the completely same board, just with a different print on
-the board, why does it need an empty devicetree. When it's completely
-unchanged, what's speaking against just re-using the original one?
+On 22/10/2026 09:48, Jinjie Ruan wrote:
+> MPAM resource monitors hang off a partitionable resource in an MSC, not
+> off a particular cache level. resctrl only knows about the L3 scope, so
+> the L2 cache monitors that MPAM platforms implement are discovered by
+> the driver but never show up in resctrl.
 
+Yes, it would be good to add support for more monitoring scopes. This is not just relevant for MPAM.
+RISC-V can also have monitors at many places in the system and we should coordinate so we have a
+uniform solution across architectures.
 
-Heiko
+> 
+> An L2 MSC has the same CSU and MBWU counters as an L3 MSC; the cache
+> level comes from the ACPI MPAM table's cache locator. So this is mostly
+> a resctrl scope problem, not a hardware one.
+> 
+> Extend resctrl's monitor scope to L2: register the L2 occupancy and
+> bandwidth events against the L2 resource, pick the L2 classes for them,
+> and borrow a CSU/MBWU monitor for the duration of a read. With CDP the
 
+Borrowing an MBWU monitor doesn't sound right. The MBWU monitor needs to be configured while the
+traffic is happening so that it can keep count of bytes. The CSU is different as it can measure the
+occupancy without having to keep any state.
+
+Thanks,
+
+Ben
+
+> two PARTIDs need separate accumulating monitors, so the borrowed-monitor
+> context becomes one monitor per PARTID.
+> 
+> Patches:
+> 
+>   1-2  Generalise the per-domain read path, add l2c_occupancy and
+>        mbm_core_bytes, update the documentation.
+> 
+>   3    Split the borrowed-monitor context into data and code entries.
+> 
+>   4    Do the CDP num_rmid halving for every mon_capable resource.
+> 
+>   5-7  Pick the L2 classes, describe the events with the L2 resource,
+>        add the read paths.
+> 
+> Tested on QEMU with an L2/L3/memory-controller MSC topology. The L2_MON
+> files show up and are readable; l2c_occupancy reports the modelled
+> occupancy, and mbm_core_bytes reports the modelled bandwidth.
+> 
+> QEMU branch: https://github.com/ruanjinjie-eng/qemu/tree/mpam
+> Test cases: https://github.com/ruanjinjie-eng/mpam_testcase
+> 
+> Jinjie Ruan (7):
+>   fs/resctrl: Generalize __l3_mon_event_count for non-L3 resources
+>   fs/resctrl: Add the L2 monitor events
+>   arm_mpam: resctrl: Split monitor context for code/data
+>   arm_mpam: resctrl: Halve num_rmid for every mon_capable resource on
+>     CDP
+>   arm_mpam: resctrl: Describe the L2 monitor events with the L2 resource
+>   arm_mpam: resctrl: Pick L2 classes for the L2 monitor events
+>   arm_mpam: resctrl: Add the L2 monitor read paths
+> 
+>  Documentation/arch/arm64/mpam.rst |  23 +--
+>  drivers/resctrl/mpam_resctrl.c    | 236 +++++++++++++++++++++++-------
+>  fs/resctrl/monitor.c              |  15 +-
+>  include/linux/resctrl_types.h     |  13 +-
+>  4 files changed, 222 insertions(+), 65 deletions(-)
+> 
 
 
