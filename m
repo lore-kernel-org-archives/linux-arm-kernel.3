@@ -2,81 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03271606A323
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 13:37:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5E9E60A2614
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 13:37:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UZgWVK8N;
-	dkim=pass (1024-bit key, unprotected) header.d=snu.ac.kr header.i=@snu.ac.kr header.a=rsa-sha256 header.s=google header.b=pnMy+/rB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1GkGnZDz;
+	dkim=pass (1024-bit key, unprotected) header.d=snu.ac.kr header.i=@snu.ac.kr header.a=rsa-sha256 header.s=google header.b=gX9VYSC6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=u8dEoOvFyttOe/BrdbS9Lckh8vPBq/eJHO5XvvUziD0=; b=UZgWVK8NVXXsBp
-	TnKkaq/f1XWX0lPrPOZ6u4z33I3ufcCCvLWRpvaEw8wR4wPL7QT10RJPoKYM7L4jCfpAnGL4UA0bp
-	c5CNj9boNRmgh3gKM5gH0no7rZ/wiZt73wwXyMzgFg8CCycKhjr60TDht7M/PjiO5bBjiZjyOwKEr
-	6KYRtsiGJ7qLFb4qnv3cztj6EoONkbKPAaGNND0U23+NysDB89deFEPXvfE1ZRzVY765cf7JffICk
-	To7wMbmqiWdvNdZS+UqflOe4ulVCsMiBOBO572zWFYMROnL+d32YoexwvjdQGDXhUp2GFQqWkainM
-	WgckyREVTbJgdQ8x6R6g==;
+	List-Owner; bh=/4ed/RMVrv6O/H4HMl4G3Xz4VIpFThxQX+sYINSnX4Q=; b=1GkGnZDzyluhZT
+	LeUFp+WlfTz4RqkLYF0sbp6q4g7/Mi/OHtrEj0X4wV89124jJsVozyFINAwMCXuX5YEpEm0XqTn9m
+	/U/3iqGf8+WsC3sSzvwhPRIAIs5vnaMJA/9m26DdO7E6rk2TfGRx1l7NJXpF3IfwU2QyVwSL61loX
+	JmjG6IH+GY6J1Ma5az7jN+K0I9aZG4AE7f6gzMJxO4d98P0v0XfZwdjiCzo+uYMATRVzra+lQxvLV
+	2/nyNGxAQZ/F05x0fFRoUVvatnuLy7bbYKbT0dlpiJlCkVRUQw8sI7ED9ZNLENMwBavWuTwR3tjpA
+	zB28Rn1eiNOJwGz0gJWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLKsq-00000002cPc-0yuR;
-	Mon, 26 Oct 2026 13:37:04 +0000
-Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
+	id 1xLKsw-00000002cRc-1ndM;
+	Mon, 26 Oct 2026 13:37:10 +0000
+Received: from mail-dy1-x1333.google.com ([2607:f8b0:4864:20::1333])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLKsm-00000002cOl-3AX8
+	id 1xLKsq-00000002cPV-0Y2e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 13:37:03 +0000
-Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-15ea896ddc8so5140663c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 06:37:00 -0700 (PDT)
+	Mon, 26 Oct 2026 13:37:05 +0000
+Received: by mail-dy1-x1333.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso8841097eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 06:37:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=snu.ac.kr; s=google; t=1793021820; x=1793626620; darn=lists.infradead.org;
+        d=snu.ac.kr; s=google; t=1793021823; x=1793626623; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=u8dEoOvFyttOe/BrdbS9Lckh8vPBq/eJHO5XvvUziD0=;
-        b=pnMy+/rBfcNVqjjjXsvl/qUVYL/CrWjTqihUJLP0UFBkgOEkmKB2FDrAVxkJHVCQ6X
-         UwzT1HwsiW4NEn26p4rflprrTq2dYTxpVvM7iGrcEZesmOzAvXOgMLMh1CRr57cRg/RS
-         AaQpTNa7EKVEXzsAAr62AoDTozM9j/gK5BMSE=
+        bh=/4ed/RMVrv6O/H4HMl4G3Xz4VIpFThxQX+sYINSnX4Q=;
+        b=gX9VYSC6DwybuJS/JfKxtsZ90M/MvkN6IxAgIKmobCyVZDupvJuutRAg4opd+c1ITU
+         S+vgO04RIKdLQRu5rDBKglg/qmswqImCTOzQXAc5yPxA/54bX442t8dt/4Lq35aOV98p
+         JKAG6A0+wbScpJGJ9Kdb6LNTMFXdR2gsvsBZA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793021820; x=1793626620;
+        d=1e100.net; s=20260707; t=1793021823; x=1793626623;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=u8dEoOvFyttOe/BrdbS9Lckh8vPBq/eJHO5XvvUziD0=;
-        b=XOJKUaD+A66T1Tppql4/LQcmuErAviYueIDNtTe6LuzbT4GqE9/ly4gCaSH5KUledF
-         ALP+WQD/52f0RKW3Na6nqiQKnLoqhGy1hlPDbXm85DyW16g1rxogbxxT8xNLIrtaHrrw
-         yYbnLj4TbCOZVcUoJL/n6ihyJc7uUbV5Rt8uO1laSHCElKYvHwwnlkUSNi6Twih1nQjK
-         ggZ9cxA3pjaS1VdENBHHosnNWDipqsS0R1dNvXBFNdx7W/kyEa8CrBOlVwi0MHm/Qgec
-         o0f4/fuShs6aVfRsG3GZ8dzSrN+Pii9a+AJ6NqUkhPizd8NZuFEnpKUq2S1i9bPYtRCA
-         rLpQ==
-X-Gm-Message-State: AFq9FYJWsvmSKhWvhMpWxMmnK+SfuXCDR8wyB6qy6wAquJqdFzulyqQW
-	Jtmctq+CHGAyKSCyqvDx+bMCsXEnyfZDrXjtvQbIM3wQ1BcxW7/BIAoWmX8dZ9s84YI=
-X-Gm-Gg: AYBFou3xab5ZXqTZQ+8ga5j4IKByyvhgzSYh/J33swdBlAekIEfZmLF4qBNDNN15FsM
-	/nQ0HwsxWX0O7594MSxDI5KWzPqOIigIyWPMuqx7fr/OFnKSjgg7FdgUbaLi4oew3xcoOi0Q0Vp
-	SsRMhgb41WRT5xnckSY518ys1pi+3KUvcN8GANUd5keEdVLkGkEMNXorYcNV2EPp+cSG/XYWkea
-	Qn8KlqE8HP94HTyQVSo9rEI9IXsYySSK4HbmcE9n6HD8azD/YndNRf5ZX3JuRm3tN6OKfVP9Q1G
-	/RvDIHGPtCycAC1t3DrcU6jGRAVnDsK5MbztuTcnQZ650RvbiSZztBgsNSoFK7C1DYKImitd0kF
-	e9MA1xxuVbjKnQsqI+oun9+zToHUEMigRZ+ocaZ+19S9Vr1lLNYyNsQRrXGh5CqOMuU4HOv0Wtq
-	UXKOMp1lWB2EWwF8gOnZoJo5/97Y7MXVGE8gATcLrklMBR61viVMijrYzCHaK9pTMjWmFVklC/C
-	VOQF4A9lemovIA5WuD78vaZJo4ssepfIbIeXjhyX7b21NfJQw==
-X-Received: by 2002:a05:7022:150c:b0:191:ac4:55a7 with SMTP id a92af1059eb24-19934a96e58mr10119771c88.23.1793021819831;
-        Mon, 26 Oct 2026 06:36:59 -0700 (PDT)
+        bh=/4ed/RMVrv6O/H4HMl4G3Xz4VIpFThxQX+sYINSnX4Q=;
+        b=Q/WGjNVOK2w8F8AHBED91K85MFpQn1tUY8pmKl0nh3GWdu6oQJ6AxCYD1GobBdOOoz
+         ES3wThb5idi31rXdteyeJY1a6TYF6/INnwoIJYghDiHyzIjiQQUVmGini0WOKzvMQGML
+         zjNWgjSCGd9J6RNh7j4FrNrcklR981fT3Af9IVUfQZxozEBv5SAWX2slZRVad53eEIGT
+         +rDDvbb1cBtK43BF+RDX5KeL08iUHtJHqgFoPu/eddCgeaStLMXUnY1rSl/CRM+AtxBW
+         OTxZDWN1a2cfdKcCpQnleKSXQ7CYfKN3yu8cSmbn7FiIkrC0lgK/3QDSms9xcOZ0rIgn
+         s0TQ==
+X-Gm-Message-State: AFq9FYJMIplOO1fLxBVjylnxTG6ADQFwVaflVLYx5cvXj7m2REHi17VE
+	DDnUdbBZkwWgAWRN/RFQN/AUnQtelwDaSs2rmCqhxyuU7YMQlkbGWnDgjw8lSA89A5g=
+X-Gm-Gg: AYBFou0lfmmKR0nLOImJWhx+qS6z+mMBt02E7P236gnD/FT0ANDimYLw7RBdPbUHCwK
+	QWqIKGdmiFkiEpwS9j1cxCsHvbtg3F0AoTlESAJ8PLQBUQoPnXwKdZz00/ghdPhrHd98aJmOA8s
+	e8FH432EzKWXX9SNMs92egNnDE3nluYeW5HSUS+h4/AbIyAoiVC+dWSbxI/kX734xwKYQDdNBZb
+	8D2x5NmX9lZZA21yMHxdWHc0WnS7h61JkN12T044v4mPMFSQjiPk8I61nJAtbwEVZcvCEFsAXH+
+	md4M3fqiedY2TMP6L92gUszqqltDFluhxF5cv8SRJM6kcwnO5AtRZJIT/tgpe4eNfdcUtijJZMi
+	yGQAMbMClw7hbfOzDzqz38DRtSrSsWpKjqOvj5S/i8UwY3yXc0N/tDU3/U91zHgjam3gWgrUooh
+	HwVkpWaFXpgkMBCkMzrMoX3W3z4JsL5i1NI7gIWaibhGLFEJlu8/3hxH85EJPwa5rfxDj4uI5q4
+	zqt1OR/B2bWR+cdQKtKnuiyLxhTloNrTrz4ZX7M388r0cexxGg3iUAdmOx4MFNZWTsvj5A=
+X-Received: by 2002:a05:701b:2085:10b0:190:d0d9:3110 with SMTP id a92af1059eb24-199406385f5mr9674399c88.45.1793021823146;
+        Mon, 26 Oct 2026 06:37:03 -0700 (PDT)
 Received: from [172.19.0.2] ([49.142.45.25])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1989ff2ee5asm22432520c88.8.2026.10.26.06.36.56
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1989ff2ee5asm22432520c88.8.2026.10.26.06.37.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 06:36:59 -0700 (PDT)
+        Mon, 26 Oct 2026 06:37:02 -0700 (PDT)
 From: Seongjun Hong <hsj0512@snu.ac.kr>
-Date: Mon, 26 Oct 2026 13:36:43 +0000
-Subject: [PATCH 1/2] iommu/io-pgtable-arm: align next walk address to large
- page size
+Date: Mon, 26 Oct 2026 13:36:44 +0000
+Subject: [PATCH 2/2] iommu/io-pgtable-arm: invalidate iotlb on dirty pte
+ read_and_clear
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261026-iommu-arm-fix-missing-dirty-pages-v1-1-115b6b1cc0f5@snu.ac.kr>
+Message-Id: <20261026-iommu-arm-fix-missing-dirty-pages-v1-2-115b6b1cc0f5@snu.ac.kr>
 References: <20261026-iommu-arm-fix-missing-dirty-pages-v1-0-115b6b1cc0f5@snu.ac.kr>
 In-Reply-To: <20261026-iommu-arm-fix-missing-dirty-pages-v1-0-115b6b1cc0f5@snu.ac.kr>
 To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
@@ -88,8 +88,8 @@ Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
  stable@vger.kernel.org
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_063700_816805_A1DDD65A 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20261026_063704_185008_DD6E64B2 
+X-CRM114-Status: GOOD (  11.85  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,45 +109,86 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Align down walk_data->addr before the increment by page size to prevent
-the missing dirty pages on IOMMU_HWPT_GET_DIRTY_BITMAP ioctl.
+Use io_pgtable_tlb_add_page() instead of iommu_iotlb_gather_add_range()
+to prevent the undesirable case where iotlb invalidation cannot be executed
+because gather->pgsize is not updated before arm_smmu_iotlb_sync().
 
-As Commit e21952d72b47 ("iommufd/iova_bitmap: Ensure that iova_bitmap_set()
-handles the full IOVA") mentioned, the requested iova range can begin in
-the middle of the large page (e.g., 2MB page block). So incrementing walk
-address by large page size (e.g., 2M) could bypass next dirty'd small pages.
+io_pgtable_tlb_add_page() leads to iommu_iotlb_gather_add_page(), which
+updates gather->pgsize. It prevents missing iotlb invalidation because
+arm_smmu_iotlb_sync() invalidates iotlb only when gather->pgsize is not
+zero.
+
+Update gather iova range only when IOMMU_DIRTY_NO_CLEAR flag is not set,
+as record_dirty() does.
+
+Since iommu_dirty_bitmap_record() becomes stale, discard it.
 
 Fixes: 4fe88fd8b4ae ("iommu/io-pgtable-arm: Add read_and_clear_dirty() support")
 Cc: stable@vger.kernel.org
 Signed-off-by: Seongjun Hong <hsj0512@snu.ac.kr>
 ---
- drivers/iommu/io-pgtable-arm.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/iommu/io-pgtable-arm.c | 11 +++++++++--
+ include/linux/iommu.h          | 17 -----------------
+ 2 files changed, 9 insertions(+), 19 deletions(-)
 
 diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 476c0e25631a..01c3f9cd5d9c 100644
+index 01c3f9cd5d9c..6513dac26e79 100644
 --- a/drivers/iommu/io-pgtable-arm.c
 +++ b/drivers/iommu/io-pgtable-arm.c
-@@ -821,7 +821,7 @@ static int io_pgtable_visit(struct arm_lpae_io_pgtable *data,
- 		return ret;
- 
- 	if (iopte_leaf(pte, lvl, iop->fmt)) {
--		walk_data->addr += size;
-+		walk_data->addr = ALIGN_DOWN(walk_data->addr, size) + size;
- 		return 0;
- 	}
- 
-@@ -868,7 +868,9 @@ static int visit_dirty(struct io_pgtable_walk_data *walk_data, int lvl,
- 		return 0;
- 
+@@ -870,9 +870,16 @@ static int visit_dirty(struct io_pgtable_walk_data *walk_data, int lvl,
  	if (iopte_writeable_dirty(*ptep)) {
--		iommu_dirty_bitmap_record(dirty, walk_data->addr, size);
-+		u64 iova = ALIGN_DOWN(walk_data->addr, size);
+ 		u64 iova = ALIGN_DOWN(walk_data->addr, size);
+ 
+-		iommu_dirty_bitmap_record(dirty, iova, size);
+-		if (!(walk_data->flags & IOMMU_DIRTY_NO_CLEAR))
++		if (dirty->bitmap)
++			iova_bitmap_set(dirty->bitmap, iova, size);
 +
-+		iommu_dirty_bitmap_record(dirty, iova, size);
- 		if (!(walk_data->flags & IOMMU_DIRTY_NO_CLEAR))
++		if (!(walk_data->flags & IOMMU_DIRTY_NO_CLEAR)) {
  			iopte_set_writeable_clean(ptep);
++			if (dirty->gather)
++				io_pgtable_tlb_add_page(walk_data->iop,
++							dirty->gather, iova,
++							size);
++		}
  	}
+ 
+ 	return 0;
+diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+index ef5043752a36..df57ead2cc3c 100644
+--- a/include/linux/iommu.h
++++ b/include/linux/iommu.h
+@@ -1106,17 +1106,6 @@ static inline void iommu_dirty_bitmap_init(struct iommu_dirty_bitmap *dirty,
+ 	dirty->gather = gather;
+ }
+ 
+-static inline void iommu_dirty_bitmap_record(struct iommu_dirty_bitmap *dirty,
+-					     unsigned long iova,
+-					     unsigned long length)
+-{
+-	if (dirty->bitmap)
+-		iova_bitmap_set(dirty->bitmap, iova, length);
+-
+-	if (dirty->gather)
+-		iommu_iotlb_gather_add_range(dirty->gather, iova, length);
+-}
+-
+ /* PCI device grouping function */
+ extern struct iommu_group *pci_device_group(struct device *dev);
+ /* Generic device grouping function */
+@@ -1449,12 +1438,6 @@ static inline void iommu_dirty_bitmap_init(struct iommu_dirty_bitmap *dirty,
+ {
+ }
+ 
+-static inline void iommu_dirty_bitmap_record(struct iommu_dirty_bitmap *dirty,
+-					     unsigned long iova,
+-					     unsigned long length)
+-{
+-}
+-
+ static inline void iommu_device_unregister(struct iommu_device *iommu)
+ {
+ }
 
 -- 
 2.43.0
