@@ -2,117 +2,95 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B97F3606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 23:25:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF21A606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 23:29:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LqrimcMf;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n+vLYLtK
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HU4l9hW/;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=iodD3OuE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=kd3Dml8l3wq2mpKC3ZlVeUqbWcVHK5sKBx/wLEoqeB0=; b=LqrimcMfcaNuC/
-	hJUDHKuuabJSJDPZM21MxCi1oPBPUhZ2FxZM1Ytm19d8xZeFDjt8m2GjCQBsJs8xNFLp/b8OvoOx9
-	aM+2FTtzQvbDlvZCYdXWAbGqhWe9MRIu5RW5g4HgKQMJAIOYmRuPUYgFfdO+cXvPNlmrMVtziffNp
-	K63Ud3OECA0jEC49bZXU0H/JM4M0rMWd9DcGRdlXnFVjdbhhUUVnr+aU9hT28bl7XoaYsT/0KbSwo
-	hotT4wCO783IitJ5DSr8rbaidhSLrjmqkcSsRZagn2zTh3/+FGgiw3khnRLJmkX3CvCj3RqqiQQW0
-	7TRjFtQJphV5sD5TYM9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=RxRwD13OM0fFBvRZdfnXU3z0HVhv0MS7kXCqcjKQ5Ko=; b=HU4l9hW/5UtnLy8gWBJYyDiM9Q
+	UwyiGoQWmqtJVlJ+f4gBXjQlPSd7jnFCIyED/P27GTupNPsXKnJmrT6oQbb5O4s5cdvrMaaKsfw2t
+	i83e2DERK1N0VZR0+S2TaR3sIf1kws71bG50julbh4z4utfsZJKqv/X/zVgA+LmOILcIrukahmfE2
+	tt9e16QTVUv0h0FmLq3/FQRcwelqitGGQalIB9uu6COvSOVX5xdlFNAfrzgYOVi9Edg/VMJjDjoRC
+	aiKXiD71w/DrlSWoigmqDVZolTbnOR9Q5iquohLwnVXM0la1AiiDCMRIDlGp0HJJ/zc1NwHRS7RrZ
+	dvCgaOIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLU3j-00000003QMv-45pW;
-	Mon, 26 Oct 2026 23:24:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xLU7Y-00000003RNa-1EMj;
+	Mon, 26 Oct 2026 23:28:52 +0000
+Received: from mail-ed1-x546.google.com ([2a00:1450:4864:20::546])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLU3j-00000003QMi-2mpq
+	id 1xLU7U-00000003RLn-3JRK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 23:24:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 569F643A59;
-	Mon, 26 Oct 2026 23:24:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BBCE1F01829;
-	Mon, 26 Oct 2026 23:24:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793057095;
-	bh=kd3Dml8l3wq2mpKC3ZlVeUqbWcVHK5sKBx/wLEoqeB0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=n+vLYLtKcNv22bWBkMUGXCCk9gajovYZy6u8dQ6jFeLyq4kpoCxdJi0VGVXm/RKKr
-	 TnmJczfopJdIqOKC/bvueb8a1IUKSpHq0MkO3GERMNwu7TWiZRyatNv9gw/jgFmi6l
-	 Q8BLjog93OMzQB4vESNPiBsCz8e3mhea/ge8JeHM6/8pAJbY4IcRf+ZDno2W3EI7mS
-	 NssvA4u/wjqlObgc4uiZDqRGTMQHigLSUgLw+3wYkpC/VA/Qry13ipXJOJ6YlRA1tL
-	 am+DNTfRuyttb6yiNo69/enwFUs3hEtDaPhRTtD01NkLO7sg3EUPIsRen7n35FtD9F
-	 +R6TlPI70Fwew==
-Message-ID: <c267c29a-5678-4c0f-a15d-e5c12ae8c427@kernel.org>
-Date: Mon, 26 Oct 2026 23:33:31 +0100
+	Mon, 26 Oct 2026 23:28:50 +0000
+Received: by mail-ed1-x546.google.com with SMTP id 4fb4d7f45d1cf-6b1a4c9eadeso3626843a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 16:28:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1793057326; x=1793662126; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RxRwD13OM0fFBvRZdfnXU3z0HVhv0MS7kXCqcjKQ5Ko=;
+        b=iodD3OuEp9KNEMRKvHI+Iw5bay/cCs5SVuRsp76U/l1dEYEAgRHEREfVe2snu1xINv
+         9ih240xQbTJDQZtCVOqdPkj6stjRci8hSZkubX/POFOzLVZwGWrrzALGMkRkxaV5A4Nt
+         Pi+5ZzvgdkAS1oGdB8k5KXxfOvTtaCxxIZ6COvojhF1GK77lrp/VqzGFkucNCMgS27Qa
+         J0Mr62RgP8lNmMVbqGYIUbtGmw9lAqaiGKWysfMHsw5ICHG6FjsAd47TsGSRVx2KXOJ1
+         lxPOhXtqfXklV5+YruCaCIoRwXtcVLY42hvgbP+vQw8tj477OWB0VBXtzVG1WQ7K519r
+         neww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793057326; x=1793662126;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RxRwD13OM0fFBvRZdfnXU3z0HVhv0MS7kXCqcjKQ5Ko=;
+        b=nIZdoEJbCcsgnW4cYXsC05sQ40TCk1zSfQhcZviKN2LTXdZUN6bz/Vft6PPDDESQCk
+         qGkONAoG54nB13ed7iXlMU2pA+kS7WdIk274vBC6Abx/1agV8V0VMFbhgWxT78Bchsjw
+         nakxiDbKP0V6ONbQ3n5Q9PBG9WNEQBzLo20lp0ld/K7I1RcvoE5GEUdEXWRPrMkzeUU5
+         WClKqiosEgOk9mWerRB8y5ihURF/ziNl8uxuZGfsQH1RxbarOkqMdnZtdpzGqb2dPQlp
+         1THyzLXXfgiy5zagmxIbF4MvWVDroKRRbfxEIBVJdvPWT5W690EktqNZVXak8+N9R8DS
+         eiLA==
+X-Forwarded-Encrypted: i=1; AKwUvBzUJR0uM6M0V/sfQyr5DXs8fteBUcA2MToGRMmdlsKEBlEu4wYqotou0agIKr0MdCEDHsxyg4O8DmDZCwHZN/Sb@lists.infradead.org
+X-Gm-Message-State: AFq9FYKTTIdKCRoIVRpKnpiKVGp2DRrF+6FozG9R+Vv+XJy56Hx7C3EN
+	QK6m/XLhKxA4/v/dhqn6Po3DaYVr3fL8No6VWK0ABmUJz5TQsKO3MY4Wq4Ukjak1BKHxS1ld1i8
+	KTqQZHOF+ngi23jPiGw==
+X-Received: from edxw25.prod.google.com ([2002:a05:6402:719:b0:6a7:4541:3de3])
+ (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6402:4026:b0:6b4:1037:2b87 with SMTP id 4fb4d7f45d1cf-6b44300b84fmr9392138a12.31.1793057325809;
+ Mon, 26 Oct 2026 16:28:45 -0700 (PDT)
+Date: Mon, 26 Oct 2026 23:28:45 +0000
+In-Reply-To: <at_CncIPYCxOVkLo@google.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: restrict transparent contpte mappings to valid
- PTEs
-To: Catalin Marinas <catalin.marinas@arm.com>,
- Zhao Gongyi <zhaogongyi@bytedance.com>
-Cc: will@kernel.org, Ryan Roberts <Ryan.Roberts@arm.com>, dev.jain@arm.com,
- baolin.wang@linux.alibaba.com, lance.yang@linux.dev, mark.rutland@arm.com,
- akpm@linux-foundation.org, ljs@kernel.org, liam@infradead.org,
- vbabka@kernel.org, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261013093600.54995-1-zhaogongyi@bytedance.com>
- <daab2f45-56c2-48ad-a24f-aa4f889e4da2@kernel.org>
- <e0f60526-bb95-4d39-9a7a-72cdf32ca5b6@bytedance.com>
- <cc2e3af6-bb56-41b1-9cde-151797c3068d@kernel.org>
- <3b57c214-6a43-4fc7-a531-fb5eac196465@bytedance.com>
- <at9H9Vkx57pIcPos@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <at9H9Vkx57pIcPos@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+References: <20261021152527.375070-1-tarunsahu@google.com> <20261021152527.375070-4-tarunsahu@google.com>
+ <atlQ_Er0Ig7CCSxv@google.com> <CALzav=f00C4yOAseNunW8GgQTDUGWT927Qy=TLm-3-J0TEDH8Q@mail.gmail.com>
+ <9huzzew0el59.fsf@tarunix.c.googlers.com> <at_CncIPYCxOVkLo@google.com>
+Message-ID: <9huzecdcghxu.fsf@tarunix.c.googlers.com>
+Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
+ a 2-bit pair feature header
+From: tarunsahu@google.com
+To: David Matlack <dmatlack@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org, 
+	Mike Rapoport <rppt@kernel.org>, Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de, 
+	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com, 
+	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org, 
+	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com, will@kernel.org, 
+	Pasha Tatashin <pasha.tatashin@soleen.com>, Alexander Graf <graf@amazon.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com, 
+	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
+	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev, 
+	iommu@lists.linux.dev, linux-pci@vger.kernel.org, kexec@lists.infradead.org, 
+	skhawaja@google.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261026_162848_874273_527E53D0 
+X-CRM114-Status: GOOD (  37.90  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,47 +101,150 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/26/26 13:30, Catalin Marinas wrote:
-> On Sun, Oct 25, 2026 at 12:00:33AM +0800, Zhao Gongyi wrote:
->> On 10/24/26 4:55 AM, David Hildenbrand (Arm) wrote:
->>> If we have the spare PTE bit, why shouldn't we just use it?
->>>
->>> It will make batching over PTEs faster. And we care about that for present PTEs.
->>>
->>> So I don't quite see why the stable fix couldn't just do it right away? Do you
->>> have a prototype that shows that it would require significant code changes?
->>
->> I tried a small prototype that keeps PTE_CONT on present-invalid PTEs.
->> It leaves contpte_set_ptes() unchanged and makes contpte_try_unfold()
->> recognize pte_present(pte) && pte_cont(pte), instead of checking only
->> pte_valid_cont(pte).
-> 
-> I think it's worth doing but currently not sure it buys us much unless
-> we also change pte_batch_hint() to cover such entries. However, if we do
-> this, we need to audit the other pte_valid_cont() callers (e.g.
-> ptep_get() needs updating as well).
-> 
-> So, if we aren't going to change pte_batch_hint() as a backport fix (I
-> don't think we should, it's an optimisation), I'd rather take v2 now and
-> continue with a proper pte_present_cont() etc. patchset on top.
+David Matlack <dmatlack@google.com> writes:
 
-Your call, the version actually looks quite clean:
+> On 2026-10-26 11:50 AM, tarunsahu@google.com wrote:
+>> Right, Required bit should be source kernel payload property to tell
+>> target kernel that the payload must be handled to correctly deserialize
+>> the data. It should be source kernel (userspace) responsiblity to make
+>> sure it understand the target kernel before doing liveupdate.
+>> 
+>> Saying this, During deserialization, target kernel's required bit is not
+>> necessary. So I propose the following truth table.
+>> 
+>> Source hdr  Target supported[i]  Action
+>> ----------  -------------------  ----------------------------------
+>> 00          0 or 1               Accept: feature absent in payload
+>> 01          0                    Accept: ignore the feature data
+>> 01          1                    Accept: use the feature data
+>> 11          0                    Reject: -EOPNOTSUPP
+>> 11          1                    Accept: use the feature data
+>> 10          0 or 1               Reject: -EINVAL (invalid encoding)
+>
+> Yes, this matches what I had in mind for the semantics.
+>
+> To be explicit: the source kernel should set the bits for each Live
+> Update based on what is actually preserved, rather than generating the
+> header from a static per-kernel array. E.g. memfd would only mark a
+> feature present for memfds that actually use it. That's what allows
+> rollback to an older kernel as long as nothing being preserved depends
+> on the new feature.
+>
+> But looking at this again, I think the required bit is redundant. Whether
+> a feature can be safely ignored is a property of the feature itself, not
+> of any particular file. Every file that has a feature present will have
+> the same required bit for it. The only thing that actually varies per
+> file is whether the feature is present.
 
-https://lore.kernel.org/r/52e7e1f6-3535-474d-9b46-6bb62f96eefc@bytedance.com
+The required bit is subsystem property not the per-file. e.g. memfd_luo,
+it is set at compile time for a kernel. So every file will get that required
+bit set. It is not per file property.
 
-But yeah, audit needed (e.g., no need to flush when shattering such entries that
-are not valid)
+struct u8 memfd_luo_feature_state {
+       [MEMFD_LUO_CORE_FEATURE] = LUO_FEATURE_REQUIRED
+}
 
--- 
-Cheers,
 
-David
+>
+> The required bit still has to be conveyed to the target somehow, since
+> the kernel that needs it is the one that doesn't know about the feature.
+> But it can be conveyed by the feature's number rather than an extra bit:
+> split the flag space into required features and optional features, and
+> assign each feature to one of them when it is defined. This is similar
+> to the required_flags and optional_flags approach in struct pci_ser [1].
+>
+> Keeping the same header shape as discussed with Pasha:
+>
+> struct kho_ser_hdr {
+>     __u32 size;           /* Size of header + payload in bytes */
+>     __u16 nr_required;    /* Number of required feature bits */
+>     __u16 nr_optional;    /* Number of optional feature bits */
+>     __u64 flags[];        /* Required bits, followed by optional bits */
+> };
+>
+> Required feature N is bit N of flags[], and optional feature N is bit
+> nr_required + N (using nr_required from the incoming header). The length
+> of flags[] is DIV_ROUND_UP(nr_required + nr_optional, 64). Both spaces
+> are numbered contiguously, so there are no gaps, and up to 64 features
+> still fit in a 16-byte header.
+>
+> Each bit just means the feature is present, so the truth table becomes:
+>
+> Source bit       Target supports  Action
+> ---------------  ---------------  ------------------------------
+> Not set          -                Accept: feature absent
+> Optional set     No               Accept: ignore the feature data
+> Optional set     Yes              Accept: use the feature data
+> Required set     No               Reject: -EOPNOTSUPP
+> Required set     Yes              Accept: use the feature data
+>
+> There is no invalid encoding left to check.
+
+
+IIUC, I believe this will not work.
+
+To Communicate between source and target, We are defining a protocol, A
+protocol which will be standard for all the kernel. And each bit location in
+flags must have the same meaning in both the source and target kernel.
+
+Now in you approach, If Source kernel send feature N to target kernel,
+target kernel must understand Nth bit as the same feature. Even though
+the bit position in your approach is not fixed but they are fixed
+relative to their starting point.
+
+required: reference is 0th bit: So target kernel will undersatnd the
+          bit as the same feature as source kernel.
+optional: reference is nr_required: So target kernel will understand the
+          bit as the same feature as the source kernel.
+
+To make sure there is harmony between these two kernel. Even though a
+bit is not set in required for a feature that must be 0 in required
+range. and similarly for optional bits.
+
+So flags will look like 0b 0 0 1 1 0 0 0 1 0 0 1 1 1 0
+                               o o o o o o r r r r r r
+
+                        0b 0 0 0 0 0 0 0 0 1 1 1 1 1 1
+                                           o o o r r r <= This is wrong
+                                           because target can never know
+                                           which bit mean what feature.
+                                           So as you said there will be
+                                           no gaps which will not work here.
+
+So, Based on the first, We still using same number of bits and increased
+complexity and no gain.
+
+
+For the current appraoch and V3 [2]. Think the below one as msb is
+required bit and lsb is feature present in payload bit.
+
+00  FEATURE_ABSENT / DEPRECATED
+01  FEATURE_OPTIONAL
+11  FEATURE_REQUIRED
+10  IS INVALID (analogy: required set but feature is not present) which can
+have different meaning in future if in future, a need arises to reuse this
+field.
+
+Deserialization can happen per feature from right to left. without
+jumping back and forth.
+
+Because of all these reasons, I believe current approach presented in
+V3 [2] is the better. It is close to your PCI series with two flags
+field for required and optional except I combined both field into one
+flags. In your above approach you do have two counts but not having gaps
+(which is wrong) and the way you proposed to parse with an offset is different.
+
+Let me know what you think.
+
+[2] https://lore.kernel.org/all/20261026174217.603114-1-tarunsahu@google.com/
+>
+> [1] https://lore.kernel.org/linux-pci/20261013162529.1928093-1-dmatlack@google.com/
 
