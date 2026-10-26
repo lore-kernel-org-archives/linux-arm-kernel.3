@@ -2,154 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5846B606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 16:56:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75DC4606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 16:58:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WBDI/jcU;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NYx0/A4k;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=UaAnT/ub
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lJ4qBMvu;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=AllCAX8h
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=tkzUKEtCzO5UO08cgKt/7yCSBIWF6848XalWEGzU7IQ=; b=WBDI/jcURf3Wxw8pxFCJbsHnoy
-	j5tN6CRRB6xvTNjHIWxaj/tee73Y/jXvCwnJs7jWnNatvnnDkKgC2P3xC8JaROkSx0Eu6mYN+HQs+
-	8Tl/fQC7U0o/+/UQr+FhiPNgGcTMqvDSA9enCp31IYhRmxt5zdsPX4mb3koX+Z4CN4ylaz4+1uKxw
-	S1NfhjQ/P0ppcmY3mjlUUzBatyw8qR2W5bMxKJuP3FK+QMuEYXgq0VTzNVRY0JnVj+jhsCKydbIae
-	1/V82Im9IBX9LSPgcvFrvXdglygrXVpbb1b4CEkWt9AAYdCCbWRTHRR5/bqCU/YrIvswlIm/3rTkE
-	3SSJV8mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=yxHn6IyMEc/gFXG0FL2K57vaxjrPtjjGVPSWUg++9V4=; b=lJ4qBMvuX4/mu9
+	DdBqDyQg7p25PhuMYUHvVU+ZEFunkNw36hzajLgNxgIr7wvhe3FCjUQcyQXU2No415DGn6Z8a5+gI
+	/BwJaGhkjCI/EZdlQD6+k/ci8AvFXQCmLsTQY0Us8oJnoFuCsPjcv+0wH9mPaQPLGRmG0QEadIfQe
+	j9xjKkVgHPq6fxqulHHLyez4jLmJZA2ruWoxHuFWRl0yM541d4hiLgDmDt8AbWcXHvKO6AoUMqzBh
+	iN1SV6cYjvafTgm7MsnZbX4xZ3xdHSVUtcb1wVowb63Q9Q13Ld4xYaZ/ExyQSmsTfOyBGJUrWBUEK
+	4Px+9z+SJ826XH5tyi5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLNzk-00000002w2l-1iBa;
-	Mon, 26 Oct 2026 16:56:24 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xLO1d-00000002wa6-2eMu;
+	Mon, 26 Oct 2026 16:58:21 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLNzh-00000002w1C-1m6i
+	id 1xLO1a-00000002wZI-1DjT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 16:56:22 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69QEvY9B3618541
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 16:56:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=tkzUKEtCzO5UO08cgKt/7y
-	CSBIWF6848XalWEGzU7IQ=; b=NYx0/A4k3qsNe3Mffzj3VBX2lUiIAky7sUTbjT
-	uv/wWx3YTPp1DfaQTMCK1A7BNFaK5Q4/OoV2HimHrpK7qBUDx/Tb9mZbaNY/bwt2
-	RDqU9M/rvzcsV25ImfS0IhPxIZVRvYvpFFooDv61JRnZBXiYp6qTD0vc13QzCYMN
-	cQNltZbc4j9wDpHlBBolGytNN2uIVv9itG6SdyajUYKeKU1an9VIVWF0CoKMPExr
-	ZofA8o6VDrP1bBYdqiddOr3M9Al6cx8kQ5zQATDlA8xnCD54Z09CwtOELr6wT0Ep
-	85b26QsDfNuD7VcRFf+PvyKyZBtAJ9lnH9ztCXtGk+FotdJg==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hj79xry9w-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 16:56:19 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93f26dd2165so828821385a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 09:56:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793033779; x=1793638579; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=tkzUKEtCzO5UO08cgKt/7yCSBIWF6848XalWEGzU7IQ=;
-        b=UaAnT/ub3DItlWAr8/+A0x/Mqjx5GP5TO20vWoEuvDYpfKdrOI5vqKStvWNuT/gcnZ
-         dawvxk8f6/u2uz/Y28Mmvz74M1HTgHt+NRXCRog5swgMWlTdrhuk/O/W8c4aewqQWsTq
-         eclvWgVjCic7ET5LE918iifH7dB+vojdf39sobK/UuJiM+IXxZNHgUdQ4159IEEoITtH
-         C4OjcHSuGuZwTjcM8gT5yu26tocdd3qs6h2ED1BnT8FgvlNpRGUkxtJO4dtMynkkPRCX
-         KS/zB1BNZOIvBmnw95NC4xlQKgsxe6BssyQNqRdWZXx74dLbDmN9zKmPKccb7McAXi3c
-         4SRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793033779; x=1793638579;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=tkzUKEtCzO5UO08cgKt/7yCSBIWF6848XalWEGzU7IQ=;
-        b=l0avhDTxd/gU49syK0dgEr/QamQI1zOsHKQNaSZinJjdsx+Ykowg+q5akPtYFwmvG9
-         FisazyvW6d6KUmI05EZEt7k1v8q5KJHMKyPWFxrMjNXVZ9ePQ7pylbn3zfTNC3/B/5OF
-         +pXdYaK0iyXKOcUhM5WXzmPXTCUbheWNUXNaFQbJQXA++YpJ4JUBf8wX30DnCjSf2oJ0
-         xWvVc1fluktRMACv0V24BNG4N2GgtJM67sWi6yn1xw7HlB2hP5Y/54kgozT2LFYPjWoF
-         9Y264+TrpWzSJeGA0dWqLPMfFqd3kFBMj1ZpwSiPfliSGZM0p8P2hIRg2QyECRGDLecO
-         9i4Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwzsDKFejBhDwwWLNbCSgcNK9Xg1rz3BvFPCZpm+d++tO2eWCu4uHDeoZbWm/nlclLBpj8ehR9ZEUGaLTnrVeL8@lists.infradead.org
-X-Gm-Message-State: AFq9FYJGSFC3NUUqX47Xvl3BNtMRHT+CEXkHOWnfFXX6oJfptjTi221i
-	ZFOxrS5XC3iwwswcxngdEEqWmllS0E2bppdqseWR3ujSBiNBTD8+iLJTNPWC4IT6Vs3nlvERen6
-	4GmE+XWT/0xQKsheca2NI84o4jJBdC62f/zz3awuFp6CuSA50447o0PprVpO2Xyy44IywFFoOkY
-	2gAA==
-X-Gm-Gg: AYBFou2gifwpLiEDbEKawYAmmCT01QmBJoo9aj9SLyeRBZq9kRHOYxIvEjAyrYzmDbc
-	7Nlo822bEGgOJp//prdgvT6qeTrk53bXcKDB1dzGIsgPmAU+dnvctDFZameuurqvmNnrqE6konf
-	n6X7EUN4gM11TrprbDMvsx6/gjov96VExwvRooz5jyHxIV8hLlkOu3t5L4sY3uzbXCG7o1j1mcl
-	VG4yWtyzxEyJ8lAVFp6zZDoWq7spX08r6YgEfCAwBjAJQ4dLkV5ztlvIT72JEEoRYGUFWbqW0il
-	pez1Mr6MpgqwIDJ7Kf2TDQA9xRH6ZGOkaujX95GAMRcr5jonhHVZj5nPywLVg8IID+Hf5lv/PVu
-	12JkaMAcWXWQ=
-X-Received: by 2002:a05:620a:458a:b0:93e:5ef8:c794 with SMTP id af79cd13be357-940ef8f03dcmr1103927885a.38.1793033778633;
-        Mon, 26 Oct 2026 09:56:18 -0700 (PDT)
-X-Received: by 2002:a05:620a:458a:b0:93e:5ef8:c794 with SMTP id af79cd13be357-940ef8f03dcmr1103921985a.38.1793033777993;
-        Mon, 26 Oct 2026 09:56:17 -0700 (PDT)
-Received: from localhost ([93.144.6.81])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebc3932sm18697489f8f.18.2026.10.26.09.56.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 09:56:17 -0700 (PDT)
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Subject: [PATCH net v4 0/3] net: stmmac: re-apply taprio offload in
- __stmmac_open() and stmmac_resume()
-Date: Mon, 26 Oct 2026 17:55:55 +0100
-Message-Id: <20261026-stmmac-est-fixes-v4-0-999dac4de44f@oss.qualcomm.com>
+	Mon, 26 Oct 2026 16:58:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=yx
+	Hn6IyMEc/gFXG0FL2K57vaxjrPtjjGVPSWUg++9V4=; b=AllCAX8heHI5B0M6rm
+	uaSDf4/DxlryL9aKMWSKG8xrdThIwsF0UzOUPYKhIEu1YCaVCbfQUg/R7Fx4GiZi
+	zJfs2C8k0BgUyq8xI3c2XrEIOZHOHSy/8afrTgu1XvFxofxm+RE5zXWdOcCVKh6H
+	Zb93DHSNEyOlUZ1u3TouaW65g=
+Received: from SYPC (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgBXWG+fht9qNCbrCA--.16615S2;
+	Tue, 27 Oct 2026 00:58:08 +0800 (CST)
+From: Yang Siyuan <hsyysy@163.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] pinctrl: sunxi: request the per-bank supply optionally
+Date: Tue, 27 Oct 2026 00:57:42 +0800
+Message-ID: <20261026165742.1478383-1-hsyysy@163.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261026152027.1417178-1-hsyysy@163.com>
+References: <20261026152027.1417178-1-hsyysy@163.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2LwQqDMBAFf0X27EKMRqW/Ih5Sfa17MC3ZIIL47
- 116mMMwzEWKLFB6VBdlHKLySSZdXdGyxfQGy2pO3vm+MVjLvseFoYVfckK5aUMYsI7x6R3Z9s3
- 4B7smSig03/cPxR5v3mcAAAA=
-X-Change-ID: 20261026-stmmac-est-fixes-13557ed8ab20
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Jose Abreu <Jose.Abreu@synopsys.com>,
-        James Hilliard <james.hilliard1@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-        Rayagond Kokatanur <rayagond@vayavyalabs.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-ORIG-GUID: qXn_9j64F9jM8S-H91GupEcncYaZOa1D
-X-Proofpoint-GUID: qXn_9j64F9jM8S-H91GupEcncYaZOa1D
-X-Authority-Analysis: v=2.4 cv=FPyOVOos c=1 sm=1 tr=0 ts=6adf8633 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=kOJWhj_ZTKYB6xKoLZoA:9 a=QEXdDO2ut3YA:10
- a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI2MDA2NyBTYWx0ZWRfX3dv+xnBz+84L
- /jxZvB0LjjSUIB6z7MP0c09iMVRBEs7Og5z8HZuWP8p6AYFqGGe4PKAq+yvKm91DqRASpRdspRk
- /91mJpZMa6FjUHpAomhCqF4ZCO6SshLQGBjPhN5H1t82XQVpVpBpaXrxd6lXodpS+3d/tT3LiJA
- QIuC6tcJGYdJmf8cUvF5s/xzcF/azSAnaa+yYgjggfIFFlS18TheK/RvUDWkvaUtPMaVgrYNMpL
- 9Hu459ZVHXHxKtMXKPb4jzx0Wu9OO6OB71rLAZxaH0t3w9EKSeN/L3wn0VtEd3jjzFnE4EmFCyj
- 41Jzn1Nc6UIt0EcPe58+Q4FJWJH/A+SZaaXK4tcnAPuG9iiKM7TKKpmC1SeQMKCnalXJSYcRJw4
- 8tKKo6zmmBtLBAt/Mv2ofccox+9cU5V39+59v331jf+lQKSr417wTSxErPAxHKnkf8hXL3BRuDh
- 02Z4yXx4Dg+Qi0UrzxA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI2MDA2NyBTYWx0ZWRfX9OptphF7yEa4
- BqSvg3/GdGKUfuLdOYJ3SbWkENhpRW59ERoyyTdUwHSTqvEPjhIVfuSzZ7NwhFGQQSvYqlvbdPY
- gF6KcxDHqiQoG1+EPrN93HKKN+nT8Vc=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-26_03,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 clxscore=1015 spamscore=0 priorityscore=1501 suspectscore=0
- phishscore=0 adultscore=0 malwarescore=0 impostorscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610260067
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PygvCgBXWG+fht9qNCbrCA--.16615S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCFW7AF4rCr1UtrW5trW7CFg_yoWrtF1xpr
+	4fXryayr4rJFyxJw4xAw12yryS9a1xJa43CFykK345AFn8GFy3Jw1jkF4YkFs8Cr4kJr4Y
+	vFyDZ34xGFn8X3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07ULo7_UUUUU=
+X-CM-SenderInfo: 5kv152r16rljoofrz/xtbC7QBckGrfhqBnzgAA3b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_095621_486660_8818B817 
-X-CRM114-Status: GOOD (  11.56  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261026_095818_758460_9803A260 
+X-CRM114-Status: GOOD (  21.54  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,54 +75,136 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Reconfigure MTL_EST registers after sw reset in __stmmac_open().
-Remove priv->est->enable dependency in est_configure().
-Initialize est_lock at probe time.
+The per-bank "vcc-pX" supplies are optional in the device tree: the
+binding documents them, but notes that many boards do not describe them.
+sunxi_pmx_request() uses regulator_get() anyway, so the regulator core
+falls back to a dummy regulator and warns for every bank that has no
+supply:
 
-Changes in v4:
-- Rebase on top of net main branch
+  sun50i-h616-r-pinctrl 7022000.pinctrl: supply vcc-pl not found, using
+  dummy regulator
+
+The H616 R_PIO is such a controller, and its PL0/PL1 pins drive the
+R_I2C bus, so every H616 board hits the warning during boot.
+
+Use of_regulator_get_optional() instead.  A bank supply that is described
+in the device tree is still acquired and enabled, as it powers the
+physical VCC-Px rail, but one that is absent is skipped without a
+warning.
+
+The OF-only lookup matters here: regulator_get_optional() also falls back
+to a global regulator-name lookup.  If a regulator with the same name as
+an absent bank supply is registered later, a subsequent pin request in
+that bank could acquire it and start the per-bank refcount at one, after
+earlier pins in the bank had already been requested without a regulator.
+Freeing any of those pins would then disable the supply while other pins
+in the bank are still active.  Restricting the lookup to the pinctrl node
+makes an absent supply permanent; record that state so later pin requests
+do not retry the lookup.  The refcount therefore stays balanced.
+
+Signed-off-by: Yang Siyuan <hsyysy@163.com>
+---
 
 Changes in v3:
-- Guard priv->est.enable update using est_lock mutex.
-- Embed stmmac_est in stmmac_priv struct.
-- Rework locking in tc_taprio_configure().
-- Fix possible divided by zero crash in tc_taprio_configure().
-- Add missing reconfiguration during stmmac_resume().
-- Honor ptp error code in __stmmac_open() and stmmac_resume().
-- Link to v2: https://lore.kernel.org/r/20260829-stmmac-est-reapply-after-open-v2-1-5e5ccb185e92@oss.qualcomm.com
-
-Changes in v2:
-- Rename stmmac_est_reconfigure() in stmmac_setup_est().
-- Rely on stmmac_setup_est() in tc_taprio_configure().
-- Link to v1: https://lore.kernel.org/r/20260825-stmmac-est-reapply-after-open-v1-1-dfa80735e0a1@oss.qualcomm.com
-
+- Use of_regulator_get_optional() instead of regulator_get_optional().
+  The latter still performs a global regulator-name lookup, which can
+  bind an unrelated regulator that appears after some pins were already
+  requested and unbalance the per-bank refcount.
+- Remember that a bank has no supply so later pin requests skip the
+  lookup, and keep the existing no-regulator check in sunxi_pmx_free().
+- Link to v2: https://lore.kernel.org/linux-gpio/20261026152027.1417178-1-hsyysy@163.com/
+- Link to v1: https://lore.kernel.org/linux-gpio/20261026144751.1392715-1-hsyysy@163.com/
 ---
-Lorenzo Bianconi (3):
-      net: stmmac: initialize est_lock at probe time
-      net: stmmac: pass the desired EST enable state to est_configure()
-      net: stmmac: re-apply taprio offload in __stmmac_open() and stmmac_resume()
-
- drivers/net/ethernet/stmicro/stmmac/hwif.h        |  2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_est.c  | 41 +++++++++-
- drivers/net/ethernet/stmicro/stmmac/stmmac_est.h  | 18 +++++
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 13 +++-
- drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 32 ++------
- drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 93 ++++++++++++++---------
- 6 files changed, 131 insertions(+), 68 deletions(-)
 ---
-base-commit: 6430fb7f1cc4e329e386521b7b208df443de92f2
-change-id: 20261026-stmmac-est-fixes-13557ed8ab20
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c | 29 +++++++++++++++++++++++++--
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h |  1 +
+ 2 files changed, 28 insertions(+), 2 deletions(-)
 
-Best regards,
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index 70099052d..d2345a85a 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -913,23 +913,44 @@ static int sunxi_pmx_request(struct pinctrl_dev *pctldev, unsigned offset)
+ 					    PINS_PER_BANK;
+ 	struct sunxi_pinctrl_regulator *s_reg = &pctl->regulators[bank_offset];
+ 	struct regulator *reg = s_reg->regulator;
++	struct device_node *np = dev_of_node(pctl->dev);
+ 	char supply[16];
+ 	int ret;
+ 
+ 	if (WARN_ON_ONCE(bank_offset >= ARRAY_SIZE(pctl->regulators)))
+ 		return -EINVAL;
+ 
++	if (s_reg->supply_absent)
++		return 0;
++
+ 	if (reg) {
+ 		refcount_inc(&s_reg->refcount);
+ 		return 0;
+ 	}
+ 
++	if (!np) {
++		s_reg->supply_absent = true;
++		return 0;
++	}
++
+ 	snprintf(supply, sizeof(supply), "vcc-p%c", 'a' + bank);
+-	reg = regulator_get(pctl->dev, supply);
+-	if (IS_ERR(reg))
++	/*
++	 * Use the OF-only lookup: regulator_get_optional() would also match
++	 * a same-named regulator from another device.  Such a regulator can
++	 * appear after some pins in this bank have already been requested,
++	 * which would unbalance the per-bank refcount.
++	 */
++	reg = of_regulator_get_optional(pctl->dev, np, supply);
++	if (IS_ERR(reg)) {
++		if (PTR_ERR(reg) == -ENODEV) {
++			s_reg->supply_absent = true;
++			return 0;
++		}
++
+ 		return dev_err_probe(pctl->dev, PTR_ERR(reg),
+ 				     "Couldn't get bank P%c regulator\n",
+ 				     'A' + bank);
++	}
+ 
+ 	ret = regulator_enable(reg);
+ 	if (ret) {
+@@ -959,6 +980,10 @@ static int sunxi_pmx_free(struct pinctrl_dev *pctldev, unsigned offset)
+ 					    PINS_PER_BANK;
+ 	struct sunxi_pinctrl_regulator *s_reg = &pctl->regulators[bank_offset];
+ 
++	/* The per-bank supply is optional, so this bank may not have one. */
++	if (!s_reg->regulator)
++		return 0;
++
+ 	if (!refcount_dec_and_test(&s_reg->refcount))
+ 		return 0;
+ 
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+index 8bd00c6ff..651249b23 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+@@ -162,6 +162,7 @@ struct sunxi_pinctrl_group {
+ struct sunxi_pinctrl_regulator {
+ 	struct regulator	*regulator;
+ 	refcount_t		refcount;
++	bool			supply_absent;
+ };
+ 
+ struct sunxi_pinctrl {
+base-commit: 091b06388b117fefdcb63336ac09956a4914b961
 -- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+2.56.0
 
 
