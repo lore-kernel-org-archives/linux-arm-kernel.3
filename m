@@ -2,105 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB7CF606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 04:02:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2A8E606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 04:37:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PaVGTAMI;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Xlqa7aNL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SXDDf5cQ;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=K/sHrGmF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=K2jKhwM+YQiKdSr1TcQzqEzMoQpUEpx9bgQiDQX0OfY=; b=PaVGTAMI82yNPjgXogOz3BYeXK
-	ngYe/juDnl69nL1HbETwnUX0gYUWobcK3Q7fNoGy+p58bCe2RQY2UEkbXrdLY9XIBmpABARH64H6L
-	vjHVzzyPvATaTxmc8PDFdHxi2q1p3TNPYPzQ5GHhALBbeUg5gFR7yN9V6e6XzKq89aODzjw/HXrut
-	nCkOMB7srJb7LWCbStGhHdgZ6S3TZcCLeuSAjQ+G433FOrgOBC9A/OqQKV15D+GcrB9KEkHCeYaIr
-	RDIr6Di9oYVJKWEGHm+GyNeX7ejrXtPUHANQXcjh6eOHgpOuKy9aDSIMuo8kJW02qbQXwyrcELMAE
-	vUS6BtDA==;
+	bh=N9wqBNwFeUJDyujtnIyKOyjh4O7kEuJC5I05KW0Mx10=; b=SXDDf5cQLQ8P5tRIJY4GJMhcJb
+	srYYOGXEE+IZw5EqfTerOovPvjLUicT9hzlI6hCttI4493dhshdNM3CbhAzjWn7wdJ8aIVRMPxcpV
+	mzG4BE3P+R+O3nWYxUscGC+BheKyXuXTh8+tH65Pw5sDvtS/BXGnVNjhinINwJbhMQFt3ZL5YOORL
+	EFojS/KoLUw4c1N02uw98r0a8wEcg1KIOwZgovpP3Okmt+5wH2VxFAvsNXkDb3DvPEvXa6ty44zU4
+	pflWe2uz0/mM0X/esQgGni56+NIIZGP3YdmJPPlh0lmS/GrAYbfV2qkE2bRnX+EIpPR6qtbB/Vg9w
+	tuYOv8eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLBv6-00000001h49-1Dv7;
-	Mon, 26 Oct 2026 04:02:48 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1xLCSG-00000001hkp-3Oob;
+	Mon, 26 Oct 2026 04:37:04 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLBv3-00000001h3o-3zIv
+	id 1xLCSE-00000001hjn-0ViS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 04:02:47 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2e985106c0cso21670185ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 21:02:45 -0700 (PDT)
+	Mon, 26 Oct 2026 04:37:03 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6aff2e5b322so412510a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 21:37:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792989420; cv=none;
+        d=google.com; s=arc-20260327;
+        b=IfTlEmcS7hrkNM0eqQ94Nzi9wbDtL6dkzSVxyoSMvyA1Ed2VVn6d4AOuiGURz3i5Uz
+         8qLtFrxXbNoxNUxuswiHlZRcCjkRdD/bwZoCqdud2iV8PnsEPB4uFqEO5dat2dbG8sXv
+         ST6pvt/YYs0vJfdub4QT5HGAOpTAuNfbcyNlruGhijpVn1SO34GEKDXzHPxGWYexQSJA
+         PQ3YP31Ez1EfLVYXsda0A/gl0xE7OTX00UMUynY0lsaRZ+ALcRWoOX3Uv4NnB71ypqWe
+         sfS90GmUbJWp8g0todjhiaZVN8MQv8m8LSK5KZKZo+RL5vhrFzGg8/jEZh1Z0gOSnxLa
+         JCig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=N9wqBNwFeUJDyujtnIyKOyjh4O7kEuJC5I05KW0Mx10=;
+        fh=h6inilIYe0JNZEtv2vqID/0yzi4wxXy8KwOoyeXUUEU=;
+        b=exTrcF7o0mnUsxGKCgGeEfrelUGsAiFpJ97GduHxphHUFiZ5MImQPcRx3sg23c/fm4
+         ynWNoOXHlf1D2Oa0cLRL/7iJBuEXsGcFs03A65EtbazCcZWksGVBakE00v8s4zd+9gBw
+         Ja1vplGE/YkD4WPmm1ql4SDQZ68+FNAjYQN2mTlGQtVAtpPy0vzT0lc5dnuSFMncwbw8
+         QxbbXbadH9pG9mpTrGijj6vIfESa7ztDHT6fHLR85GOqHdbVb8coy/Spfp083F8XfROa
+         LvQoIQJTnwKk5YIcE7syIhAzar3HpkOQqAcOak03yS57dxVVbs42QTx9sA3cR3vJzq90
+         YLmA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792987365; x=1793592165; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=K2jKhwM+YQiKdSr1TcQzqEzMoQpUEpx9bgQiDQX0OfY=;
-        b=Xlqa7aNLCn+xQRfNWhrMR8Zf8IVOeEdeJ37tjBQN44qkUC4H8bhgb5b7H3bakDcQUm
-         fnKP82/4ar2vsjFSp5LurOrNHd4iyA1DU1CxpP+Qz26//8jTfPxkBsBBwYyB4h4BUkxF
-         dGNSY7JrxJWOH2Fy/OF0tDxu4RJFfB80QbO5vvSrNboYK5QPP8c2bRg7TJ1n6N1bASHx
-         P97XnrHU1O0CMeSbD02ZitVTdi4QGSDS5HI/M3OzcIxYaMBgFEMBBo0kKhiHNbOANf/R
-         d4HcXPFNXDvRzci67rx6UTashwj72myarNDTKm9vizHFJm6gK4BNlea/0yNfEeb7UFT/
-         cNGw==
+        d=gmail.com; s=20251104; t=1792989420; x=1793594220; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=N9wqBNwFeUJDyujtnIyKOyjh4O7kEuJC5I05KW0Mx10=;
+        b=K/sHrGmFl55Bh3VR6T3+j5V7c6A9Rit4kq7dRsppLOC+0MtvGa8YOqgiGwtGhs8pq1
+         hp6bK25VGQFcjaQbGbr25U9nTQK80wxi1lSza0MeGU0EPDWUWTf5lA0MVtr1tnqGmASP
+         51GOoSAdPJwDsXnjYZKzLwhoj58V+VASxeBLzQym0SpkFfHAQhqgH6bcwpbkDyXoGIq3
+         4jj/3qdqeGEZkXjswhaZIHgkiA9OddOPtbPNSlOBI4tas+kMysnLpiWyV6tuBIexmJ6o
+         gyIxepWIQV10QkuL5r19Xzy2p/DDgU4GZlCK0BJ7s/DvEkVX7u1Z1MILRTOrfoPPnGjU
+         qwmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792987365; x=1793592165;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=K2jKhwM+YQiKdSr1TcQzqEzMoQpUEpx9bgQiDQX0OfY=;
-        b=Evl7IpiGlMg8+mOZemsKx0RJVaPK9chojxeWO24GYsBYZYZkyeszKoemT4X/Rr+hGx
-         tQi9m0CYD+Rp7sRmnpZxtpDTNh6l6RQs5emvBhzIB68au3k+vMH7uCK1aKIQBP+fSFmI
-         i9qjMipbe0mhd1WFKP58J7JvAnC8a0nBWeehzjdkezwhCBsqv6BQQn8/drAumMvLfwSl
-         /WsJEZKmHUwDfufN4DIc49rtyGk2VSPln3ftwAJijxZzqq4z0GOQEbL6qQYXhgLoLez8
-         +0SBVvmjekQ1bgMDFeTNYAwMqz9df6LJYeyzDA8/OuDHAN6wzLC872gjPg6OMpoG8C+c
-         ZJ9w==
-X-Forwarded-Encrypted: i=1; AKwUvBxcE6CqwsfwwRbIZF6kfN+93IhRZ8Z63CnWRmFlb3e30D9+afcKXMEZ/FEfHtUWd8Dmjt13mrmw0KpJYYBgeUaI@lists.infradead.org
-X-Gm-Message-State: AFq9FYIowhv++X7gyLIOMg5ye+aZHyAHB0tAYvD0wHh74K1iLxiYHQ1Y
-	RZW/aNN76sKWWwxe3SNXlVuw9Sp1bn07Z65YKABVol6NBcDgtzRVjd1E
-X-Gm-Gg: AYBFou2P/y0VRZaDU7qqLLjlLm4PNnwumikURCcnSWsCXxxefHBcraJY8GpA89ueXSC
-	DJorfcr5X71duEolFjGViYmZRVc86UeDER9PgHg3PryUt1MCiOE6gjKPiBNbxEhgHuJbSyjoaXc
-	wqhF/jWVJuYz6D3i/vj1xWfx4KZz2+RUT45KodnbiXlxBUgnnSC6sd2fYMasuJzTxtJQEq09A39
-	9vCX0E4HcM/Q266pA6yR4WA7CUj/eiE/YAaMOCG47F6oZ0UGYaZs+uqNkyqd/rnLATSFDbf4LUw
-	f8BYyPznxkSSq4K+LimciQCQGfV2ilWp+jgJ8BY1NI+xH7KGsY0tDh9b79NcswoG8Uv4IrSJPwL
-	eB8NNsu38pPPrY70r/2d5gKNUsg8hXbQGT5xg7+XXh+/UUHPQNs3supxhHgS9gIRdnyf6jDx7h4
-	VtHq6K2edOppQdFhdb98IUb4EzkRxbYUl4afh6GZwyS5+Hw1wEU9+wvt/Zab2rvPw/7gC4Ho35E
-	G5BM/jkVgVM53nJsKZYJPncZufikTi+TQGY7QeSEh0uji19aTL+5LLND1PrLivHrpiPsI1nfVWe
-	AM98yHBig3gXLBtFc/4=
-X-Received: by 2002:a17:902:cf12:b0:2e9:73db:3c78 with SMTP id d9443c01a7336-2ea9c63efcamr46730195ad.17.1792987364597;
-        Sun, 25 Oct 2026 21:02:44 -0700 (PDT)
-Received: from xiaolei-VMware-Virtual-Platform ([219.142.21.190])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ea9b22416bsm10626705ad.72.2026.10.25.21.02.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Oct 2026 21:02:43 -0700 (PDT)
-From: Xiaolei Wang <xiaoleiwangxiaolei@gmail.com>
-To: aisheng.dong@nxp.com,
-	festevam@gmail.com,
-	Frank.Li@nxp.com,
-	ping.bai@nxp.com,
-	kernel@pengutronix.de,
-	s32@nxp.com,
-	linusw@kernel.org,
-	s.hauer@pengutronix.de,
-	sudeep.holla@kernel.org,
-	cristian.marussi@arm.com,
-	peng.fan@nxp.com,
-	xiaoleiwangxiaolei@gmail.com
-Cc: linux-gpio@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] pinctrl: imx: scmi: replace custom dt_free_map with pinctrl_utils_free_map
-Date: Mon, 26 Oct 2026 12:02:30 +0800
-Message-ID: <20261026040230.22338-1-xiaoleiwangxiaolei@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20260707; t=1792989420; x=1793594220;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=N9wqBNwFeUJDyujtnIyKOyjh4O7kEuJC5I05KW0Mx10=;
+        b=vD83WsxDXU2j0dkz7hMh2lNWmSjVVQma63nIi0mJNQzq8QCug4petsrBtZ2LPEj4PV
+         okRe16pMAYie14IIuoy5y2gdEVluloF0TJUilCBw10d7rXnqfBZlpVFjPLpmqsB/fsWl
+         tq/LKQtHJXTvy9405YksLHKPyhxw2CBIYNjvg9LJrJeLisXozrz6qq3FB3VQjEwW9UTy
+         9wF70HrE1xG3Gu7PZBtP+vFHTSaW/aa8eknOc/jMoyto51dgX8RiubSFN9OZ2RWXb422
+         CM41P/c5Ypn7yOXSZaYj5VEHp2NOdSDRjruQmtiy1u/YvMYwY1ccglD7gf/pF8z5VhsQ
+         3Nbg==
+X-Forwarded-Encrypted: i=1; AKwUvByKaBujR4IngvUA9gWzJ5jOJCuXdluxH6jx6RCuodoP+44O5zkmel6WkVFDab+jJxhFJBjQ/MVtdywSpWQiCya+@lists.infradead.org
+X-Gm-Message-State: AFq9FYKZ6wV20A0wMW5NO4MGyKl5jiMXgVQ3t+J5CAsUUBdcDV4rC8n+
+	RLFs2aNBdGa+O4DBKbH+TSECQLsaAtIRrq5CMZ3/jxHRf+cNPPrK/Kh+cATIy4boULjbZ4eTSOf
+	vxa3AKENjIP1aY8jKjk/xVviAsdlCf9w=
+X-Gm-Gg: AYBFou3G8nTEn+8wWB82fh78UXrEbqSDdu2O6rQ0BIOyGhg+sdVztZ24IER7w4zTD0Y
+	+zrUVxGjJKfQIWZLXp4nwK/5K0jDRneJhoqIToHBi9H8VHxtBPxKD02KIjnMFzbl35ZLq62R6qr
+	KldVkXlUhWnW9vfPMWuL42yK2Vd34I4i8kbexO0DekTvg4TEpgeT3GbJbeRbPoYOJybzlXSGUGO
+	RQidQcJzqHq0o9XYEeg5emJr+kwKF0WQlblEUbzfz8lAHWoJJLkDSVGhw1W8nf68QeNwXxbbWDO
+	SZThIZ4rbjPHXB1fig9iyBJ3LluZxe4C7W6cCiNj0R2+W7f3ecRq1Rn9GzywrH5uihisXbGf8nO
+	13axxRH4z4mORs7bm2rb734SHsTKVD2XcEWK2
+X-Received: by 2002:a17:906:100a:20b0:c25:3ec4:9e43 with SMTP id
+ a640c23a62f3a-c46bd90669emr681750866b.0.1792989419265; Sun, 25 Oct 2026
+ 21:36:59 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com>
+ <20261016-dcphy-rx-v1-v5-3-e63b49eabe2d@gmail.com> <f9b60989-e58b-4ac1-81ca-f0d37d4143b4@linaro.org>
+In-Reply-To: <f9b60989-e58b-4ac1-81ca-f0d37d4143b4@linaro.org>
+From: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>
+Date: Mon, 26 Oct 2026 12:38:40 +0800
+X-Gm-Features: AclHuK8vZ0KWZhabRgBdGgKek8QAVY3LLhkkHh4HIG41oJjGA-gl75AkOIcoHmw
+Message-ID: <CAPwA33LZRPs4O7ihinyorahAQiWY69C1pxWnhVE-gTUA556MYQ@mail.gmail.com>
+Subject: Re: [PATCH v5 3/8] phy: rockchip-samsung-dcphy: Move block-level
+ setup to runtime resume
+To: "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Michael Riesch <michael.riesch@collabora.com>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_210246_021213_71E7BEA4 
-X-CRM114-Status: GOOD (  11.83  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261025_213702_187381_823DDA71 
+X-CRM114-Status: GOOD (  12.58  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,63 +124,35 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Wang Xiaolei <xiaoleiwangxiaolei@gmail.com>
+Hi Bryan,
 
-pinctrl_scmi_imx_dt_node_to_map() kmemdup_array()s the pinctrl configs
-of every pin into map[i].data.configs.configs, but the driver's own
-pinctrl_scmi_imx_dt_free_map() only frees the map array itself. The
-pinctrl core releases maps through pinctrl_dt_free_maps(), which calls
-dt_free_map(); the duplicated configs are therefore never freed and leak
-every time the DT node is parsed, e.g. on each (deferred) probe attempt.
+Sorry, I missed this one.
 
-Replace the custom dt_free_map with the core helper
-pinctrl_utils_free_map(), which frees the configs of each
-PIN_MAP_TYPE_CONFIGS_* map before freeing the map itself. Its
-signature matches pinctrl_ops.dt_free_map(), so the driver-specific
-implementation can be dropped entirely.
+> Would you not be better off scheduling a work job when you know both
+> blocks are out of suspend ?
+>
+> That way you always have a known sequence out of reset ?
 
-Detected with kmemleak on an i.MX95 board (FRDM-IMX95).
+The two PHYs share the BIAS block, but each can be used on its own.
+For example, while DSI is running, CSI can start and stop streaming at
+any time, so we cannot know when, or whether, both will be in use.
 
-Fixes: b755521fd6eb ("pinctrl: imx: support SCMI pinctrl protocol for i.MX95")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wang Xiaolei <xiaoleiwangxiaolei@gmail.com>
----
- drivers/pinctrl/freescale/pinctrl-imx-scmi.c | 8 +-------
- 1 file changed, 1 insertion(+), 7 deletions(-)
+So the block-level setup is done in runtime resume. The runtime PM usage
+count makes it run only when the first user comes up, and a second PHY
+coming up does not reset the one that is already running. And in this way,
+I don't need to maintain a refcount in the driver.
 
-diff --git a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
-index 613552e35070..8cbd66950848 100644
---- a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
-+++ b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
-@@ -153,18 +153,12 @@ static int pinctrl_scmi_imx_dt_node_to_map(struct pinctrl_dev *pctldev,
- 	return 0;
- }
- 
--static void pinctrl_scmi_imx_dt_free_map(struct pinctrl_dev *pctldev,
--					 struct pinctrl_map *map, unsigned int num_maps)
--{
--	kfree(map);
--}
--
- static const struct pinctrl_ops pinctrl_scmi_imx_pinctrl_ops = {
- 	.get_groups_count = pinctrl_generic_get_group_count,
- 	.get_group_name = pinctrl_generic_get_group_name,
- 	.get_group_pins = pinctrl_generic_get_group_pins,
- 	.dt_node_to_map = pinctrl_scmi_imx_dt_node_to_map,
--	.dt_free_map = pinctrl_scmi_imx_dt_free_map,
-+	.dt_free_map = pinctrl_utils_free_map,
- };
- 
- static int pinctrl_scmi_imx_func_set_mux(struct pinctrl_dev *pctldev,
--- 
-2.34.1
+The order is also fixed: the phy core resumes the device before
+calling init or power_on of either PHY, so the block-level setup always
+runs before any per-PHY setup.
 
+Best regards,
+Jason
 
