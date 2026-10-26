@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B5FC606A31B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AB27606A322
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 05:49:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bakAQFv2;
-	dkim=pass (2048-bit key, unprotected) header.d=fb.com header.i=@fb.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=XfSR8CFQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ven/GUjd;
+	dkim=pass (2048-bit key, unprotected) header.d=fb.com header.i=@fb.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=hYsoL8Cy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
@@ -14,42 +14,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=gVZ29hv4mBXSdN0ytSbR9uZGNe1W3DPBcdCDlxG+NCg=; b=bakAQFv2PLWWY4bB+s54FC3aKP
-	X09ZLECpznZWpqgvgQc4bf+YNJ20Z/5aa79sHVOOkY9Qmi8BY+Cg3+5Jdocpbi2w4F3xjIQlsyd82
-	Ekt71V+UDuuwAJJBFgvHRI7ObX6QOSneSmdV6d1tF+wlLxlHof2P4H+XL+5F92P6v4Tq2YRVs/tbU
-	cDHu9HIPULgLUYfdeR2WGugVqV0m3B1Jj+O3hZE6gJtZvoNB083H7rJn0UBgM+M7g3ku4VYlZGOiR
-	spDRP9R6n6X+6Lkem2ggun54uTw1Gd1GqHSYqDXRYP2HP/KuXA8TD4ug/91JgGgbHnWHQ1Pt6Hnk+
-	n0tkH1kQ==;
+	bh=eLNIW2q6eZQY3XO2w2wt1tsAR45z7skuJjJhjqBR+08=; b=ven/GUjdqHGYeHJ7kB1cD1en6j
+	UTmKqJdYJqm/nMcKKpgAUaIMJxUT/svqtvw3Ytp6Nz/kwHOsxKsNjGPmIdRxMlu3OhjIOxoXUerNa
+	zkam1TfnXFyQfmdd8dvD8AxQOE4n+caNGOJpyv9ao2qv21RpaBS4kCofu2CvUjPnM7DA8XpFyu0z/
+	2hxsGfnTH4Wx4wooAc/5RuLOQPayFNuadLJCuklUHYPJmSEak1RpXOpcHeMzRXFkDwYy64FZ+I64U
+	wmHORO84fropGgL0Md27Yzj+c1fGNTsjort7CF3Ybc6pgS1Xk8ztMWGE7X+OC5LA+mqYpyCrxIytn
+	k/lzLGGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLDa6-00000001l0t-042z;
-	Mon, 26 Oct 2026 05:49:14 +0000
-Received: from mx0a-00082601.pphosted.com ([67.231.145.42])
+	id 1xLDa5-00000001l0F-3jW8;
+	Mon, 26 Oct 2026 05:49:13 +0000
+Received: from mx0b-00082601.pphosted.com ([67.231.153.30])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLDZo-00000001kup-0Z0B
+	id 1xLDZj-00000001ksP-0Spg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 05:48:57 +0000
-Received: from pps.filterd (m0044010.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69Q4v3ww1908862;
-	Sun, 25 Oct 2026 22:48:42 -0700
+	Mon, 26 Oct 2026 05:48:52 +0000
+Received: from pps.filterd (m0528005.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69Q38q5d2161746;
+	Sun, 25 Oct 2026 22:48:41 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=gVZ29hv4mBXSdN0ytSbR9uZGNe1W3DPBcdCDl
-	xG+NCg=; b=XfSR8CFQYBNgdpJaa6uQ9ZDRGdKD8mfZd0hDGNt0/HQ1RR2j68A5E
-	AJTGVPiQQ/UIb0OCle+9aVo+IYSL3CocAC+f/npRnUdCTHGPjplSvtdTag65XjqR
-	Qo9hAUfKbxcYYrXT5UTffCAowYGRprZaNhVIjgbWqIE/Y5TRDjVa1aGR+ewGyzXV
-	rr3HWolMURhdIGM0bfFx2zQFycYsX/vQu1YaVA/SUYFUMSyInE03QsToQIHqsvko
-	a4N8J+Mp5VINYwFFUKVCyl9HdF/1BmOyGU0o8y+vpJQPZt0zPVt48fSccBJU1+5N
-	QP2sTPEDHUB0YiVGBHyaJfqRYNKh3xh2g==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4hgr03fmcq-1
+	pps82601-s2048-2026-q3; bh=eLNIW2q6eZQY3XO2w2wt1tsAR45z7skuJjJhj
+	qBR+08=; b=hYsoL8Cy/J1Ql3fgbCHcaW+qM3lbO+k6VFlrCA4tUBvK0lYgdSS5K
+	CYB3I/JTnSvy3KfNnok5lluD/v3hJuJyYeN0rGoXV/1TZVMto21ZIsKfxeCYVUZH
+	lSOXk7kMsKcjE/yaQWm7Q1sNE/SP9zOYlRQF/vKMg8Y6+ugsM30cjm98QQr5ABSk
+	0iUI0ZroaQJlNZqJDzEgXKvt3NlH18kP9FMh5EKGoFHhgWtDPYoyLiIKhLMBWrt0
+	01NVr05AFcvJYJF0FfKc76jDl8mVF0yLHRAXodKuCBUygDoknEpHQH1Pw3P5XPIx
+	c8Ez773vLUG0AlFRZ110czCbKYkXqKurQ==
+Received: from mail.thefacebook.com ([163.114.134.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4hhe8h3bh2-3
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Sun, 25 Oct 2026 22:48:42 -0700 (PDT)
-Received: from localhost (2620:10d:c0a8:fe::f072) by mail.thefacebook.com
- (2620:10d:c0a9:6f::8fd4) with Microsoft SMTP Server (version=TLS1_2,
+	Sun, 25 Oct 2026 22:48:40 -0700 (PDT)
+Received: from localhost (2620:10d:c085:108::4) by mail.thefacebook.com
+ (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Mon, 26 Oct
- 2026 05:48:41 +0000
+ 2026 05:48:40 +0000
 From: Amir Ayupov <aaupov@fb.com>
 To: James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
         Suzuki K
@@ -70,9 +70,9 @@ CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
         <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-perf-users@vger.kernel.org>, <linux-doc@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>
-Subject: [PATCH v4 7/7] coresight: Add pmu_pulse/extout_pulse
-Date: Sun, 25 Oct 2026 22:48:27 -0700
-Message-ID: <02268c4958153f6d2e549e4bd7b93f11ed79fa90.1792989860.git.aaupov@fb.com>
+Subject: [PATCH v4 6/7] coresight: etm4x: Report whether the PMU counts the external outputs
+Date: Sun, 25 Oct 2026 22:48:26 -0700
+Message-ID: <a433810b85a9b768489d7b7b3ceb50324a2cd336.1792989860.git.aaupov@fb.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <cover.1792989860.git.aaupov@fb.com>
 References: <cover.1792907332.git.aaupov@fb.com> <cover.1792989860.git.aaupov@fb.com>
@@ -80,30 +80,29 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI2MDAyMiBTYWx0ZWRfX6wJsAXK5ehnz
- cfr/lLFbFBBoVyxUWzhMa34fsL2ScwIAxcpBeh2nw8Y3e2Jhh3cMoOFJiu65p/eqGohDA+4ptWk
- I/YzVFyAb+3adBUIpussSY/Kg5Vkol5KX47ltYVTBfibPdDZjYiygZdyx3HPgQv08WlkebkIWND
- TCzinPctxzOmWK9CKvzsIEMY0pjq82894PwFckPaPtDUirjG7voxTYaylEVJ+8pXKi+se7sP5nU
- U4WTUWlXKAyi54Nge/KVYGwPb6OHH1FxURU8FyqO/Cc8QmW88HR7sNM/MKFrFwlBK4Og27KTzDC
- WdE8h2PsidOgsPXwJLhz6y57CjoOiOgkRVplgpY2s6xwNJUvRwCYAeMCPj7lPC1KHqdxWozWoau
- 9cClUt8itYeJ2f4bGVXagD8Rphe7x+Rn9f+vbCZ3hsyixvbJmw1P7m8lszY66EqkffvnNsmmSyH
- sisp+egH7Lmn68rldrA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI2MDAyMiBTYWx0ZWRfX3bIzD7J2tuSI
- IGvOnGk5N0uKTdufxM0EFBYcprH6/zd5bddtWVLfk47/e/gu+E6Vxg0tu9MfSW6o5NgrA3Ipn0/
- 0jQUEmhvFspwF2+oY5xGZhYAvd2JqP0=
-X-Proofpoint-ORIG-GUID: UHPxfzEKCypr77HWTSnlaXHauvkGnsIJ
-X-Proofpoint-GUID: UHPxfzEKCypr77HWTSnlaXHauvkGnsIJ
-X-Authority-Analysis: v=2.4 cv=DLUacCNb c=1 sm=1 tr=0 ts=6adee9ba cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
+X-Proofpoint-GUID: OE0FGOOpzl1a9VmxpuKfIA8nwIIvmeWD
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI2MDAyMiBTYWx0ZWRfX4vlBIjSebLVH
+ TXkbglJfyai5Xrc1xSDUxl5PnAl6KwI0uzCPYEWxGHwoKh0tuogCNQm3218sTIvDzG7FfeXjD+3
+ yQ7lH8WM9UlOixIZok519uxMME6+YLE=
+X-Authority-Analysis: v=2.4 cv=MbD5KJ/f c=1 sm=1 tr=0 ts=6adee9b8 cx=c_pps
+ a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
  a=660iZSQnnn4A:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=8elwO82fXORLTBIkMd32:22 a=FOH2dFAWAAAA:8 a=pGLkceISAAAA:8
- a=KoH9M_b8ny-f6M6y6wgA:9
+ a=jCddH8ec0KUNCymVuxII:22 a=FOH2dFAWAAAA:8 a=-Z3dWT6n0Uiql5SQPSEA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI2MDAyMiBTYWx0ZWRfX1IX/suv48Ixu
+ ErEriHa9fPCcN+4xic7oS85iiGHUXhYC4ZKjDJE/kvWKTVamzBnl6Vcx0rqcJRXYuMXEX6BeJUM
+ aOBtBDqfl2BwmV8I1JmCGdNAl1sZMDzHdZ+prFlDGD+PmjrEmXaL9GrRTRvowKrVaUmMRrDxA0X
+ wH1Vdhw7uw7a5q8N4mqcgtn70Wx3AkaBSTdorDAP+3B+JyhThWyzUwE5mfdhy0LYlhWtwIL5lHC
+ 6RwtOo84nObcfk0pYod/Xv08SkGK+ILAY6PWYzaUjoqHmSDr0+cvQXo5jczhyiFd039DjbJ1qgJ
+ hENRZzCP++jyXmDn48aJkw0oTXASVPk8Opv89s/B2UJukUuwxQdF8NcoBVnLnYM2dqLvZrrsS/1
+ t57k4vpA0KHHPixlBp9/VSA7djfY8yKHCy9C4VHEjlPyAS/BGoAtASBz+lPot6Y3S9aw2VzJkah
+ Ywr9VCMTORTMmEvX9OA==
+X-Proofpoint-ORIG-GUID: OE0FGOOpzl1a9VmxpuKfIA8nwIIvmeWD
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-26_01,2026-10-21_02,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_224856_175388_DCC242B1 
-X-CRM114-Status: GOOD (  21.74  )
+X-CRM114-CacheID: sfid-20261025_224851_263264_77D532F6 
+X-CRM114-Status: GOOD (  22.16  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,171 +122,152 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add ETMv4 configuration 'pmu_pulse' with 'extout_pulse' feature which
-requires an ETE whose PMU counts its external outputs
-(CS_CFG_MATCH_CAP_TRCEXTOUT): event 1 selects the always-true
-resource and drives TRCEXTOUT1 PMU event which pulses on every cycle
-while the trace unit is enabled.
+Some CPUs count the trace unit's external outputs as the PMU common
+events TRCEXTOUT0-3 (0x4010-0x4013), which lets a configuration drive a
+PMU event from trace unit events. Other CPUs, Neoverse N1 for example,
+have no such events, and a feature relying on them would silently do
+nothing there.
+
+Detect at probe, on the trace unit's CPU, whether the PMU counts every
+external output: the trace unit has an external output for each of its
+events (caps.nr_event), and pmuv3_event_implemented() reports whether
+the PMU implements TRCEXTOUTn. Only check ETE: per its specification, an
+implemented TRCEXTOUTn event counts external output n, while whether that
+output is also an external input is IMPLEMENTATION DEFINED.
+
+Add a CS_CFG_MATCH_CAP_TRCEXTOUT capability match flag, set it on those
+trace units, and show it in the feature's configfs 'matches' attribute.
+With capabilities matched separately from the device class, a feature
+that requires it only loads on those trace units.
 
 Assisted-by: Devmate:Opus-5.5
 Signed-off-by: Amir Ayupov <aaupov@fb.com>
-Reviewed-by: Daniel Pereira <danielmaraboo@gmail.com>
 ---
- .../trace/coresight/coresight-config.rst      |  5 ++
- .../trace/coresight/coresight-perf.rst        | 15 +++++
- drivers/hwtracing/coresight/Makefile          |  1 +
- .../coresight/coresight-cfg-pmu-pulse.c       | 55 +++++++++++++++++++
- .../coresight/coresight-cfg-preload.c         |  2 +
- .../coresight/coresight-cfg-preload.h         |  2 +
- 6 files changed, 80 insertions(+)
- create mode 100644 drivers/hwtracing/coresight/coresight-cfg-pmu-pulse.c
+ .../hwtracing/coresight/coresight-config.h    |  2 ++
+ .../hwtracing/coresight/coresight-etm4x-cfg.c |  6 ++++-
+ .../coresight/coresight-etm4x-core.c          | 26 +++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-etm4x.h |  3 +++
+ .../coresight/coresight-syscfg-configfs.c     |  3 +++
+ 5 files changed, 39 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/trace/coresight/coresight-config.rst b/Documentation/trace/coresight/coresight-config.rst
-index 6d5ffa6f73471..3eed728bf0de1 100644
---- a/Documentation/trace/coresight/coresight-config.rst
-+++ b/Documentation/trace/coresight/coresight-config.rst
-@@ -129,6 +129,11 @@ The following steps take place in the operation of a configuration.
+diff --git a/drivers/hwtracing/coresight/coresight-config.h b/drivers/hwtracing/coresight/coresight-config.h
+index 220bc54f8e5e1..4cf53230854d0 100644
+--- a/drivers/hwtracing/coresight/coresight-config.h
++++ b/drivers/hwtracing/coresight/coresight-config.h
+@@ -38,6 +38,8 @@
+  * a device that matches one of its classes and has all of its capabilities.
+  */
+ #define CS_CFG_MATCH_CAP_MASK		GENMASK_U32(15, 8)
++/* the PMU counts the trace unit's external outputs as TRCEXTOUTn */
++#define CS_CFG_MATCH_CAP_TRCEXTOUT	BIT(8)
  
- 5) At the end of the perf session, the configuration will be disabled.
+ /*
+  * Limit number of presets in a configuration
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+index 52cb036bb04b9..9e4dc5950c13d 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+@@ -176,9 +176,13 @@ static int etm4_cfg_load_feature(struct coresight_device *csdev,
  
-+The built-in 'pmu_pulse' configuration pulses ETM external output 1 for a PMU
-+event to count. It only pulses while the ETM is enabled, so combined with AUX
-+pause and resume the PMU event can time each trace window (see
-+coresight-perf.rst).
-+
+ int etm4_cscfg_register(struct coresight_device *csdev)
+ {
++	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	struct cscfg_csdev_feat_ops ops;
++	u32 match_flags = CS_CFG_ETM4_MATCH_FLAGS;
  
- Viewing Configurations and Features
- ===================================
-diff --git a/Documentation/trace/coresight/coresight-perf.rst b/Documentation/trace/coresight/coresight-perf.rst
-index 0a77741a431ef..6770a455c6b59 100644
---- a/Documentation/trace/coresight/coresight-perf.rst
-+++ b/Documentation/trace/coresight/coresight-perf.rst
-@@ -109,6 +109,21 @@ Example for triggering AUX pause and resume with PMU event::
-         -e cycles/aux-action=pause,period=10000000/ \
-         -e cycles/aux-action=resume,period=1050000/ -- sleep 1
+ 	ops.load_feat = &etm4_cfg_load_feature;
++	if (drvdata->caps.trcextout)
++		match_flags |= CS_CFG_MATCH_CAP_TRCEXTOUT;
  
-+ETM-timed pause events
-+~~~~~~~~~~~~~~~~~~~~~~
-+
-+The built-in ``pmu_pulse`` configuration pulses ETM external output 1 on every
-+cycle of allowed trace, and a PMU event counting that output pauses trace after
-+``N`` pulses, here 1000 cycles::
-+
-+  perf record -a -e cs_etm/pmu_pulse,aux-action=start-paused/u \
-+    -e cycles/aux-action=resume,period=10000000/u \
-+    -e trcextout1/aux-action=pause,period=1000/u \
-+    -- sleep 1
-+
-+Each window is about ``N`` traced cycles plus the pause interrupt latency.
-+The configuration only loads on an ETE whose PMU counts its external outputs.
-+
- Perf test - Verify kernel and userspace perf CoreSight work
- -----------------------------------------------------------
+-	return cscfg_register_csdev(csdev, CS_CFG_ETM4_MATCH_FLAGS, &ops);
++	return cscfg_register_csdev(csdev, match_flags, &ops);
+ }
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index af017bd8a5477..cb5fbb0279b88 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -30,6 +30,7 @@
+ #include <linux/uaccess.h>
+ #include <linux/perf_event.h>
+ #include <linux/perf/arm_pmu.h>
++#include <linux/perf/arm_pmuv3.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/property.h>
+@@ -1399,6 +1400,29 @@ static void etm4_fixup_wrong_ccitmin(struct etmv4_caps *caps)
+ 	}
+ }
  
-diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
-index ab16d06783a57..568e797ac5a17 100644
---- a/drivers/hwtracing/coresight/Makefile
-+++ b/drivers/hwtracing/coresight/Makefile
-@@ -28,6 +28,7 @@ obj-$(CONFIG_CORESIGHT) += coresight.o
- coresight-y := coresight-core.o  coresight-etm-perf.o coresight-platform.o \
- 		coresight-sysfs.o coresight-syscfg.o coresight-config.o \
- 		coresight-cfg-preload.o coresight-cfg-afdo.o coresight-cfg-pstop.o \
-+		coresight-cfg-pmu-pulse.o \
- 		coresight-syscfg-configfs.o coresight-trace-id.o
- obj-$(CONFIG_CORESIGHT_LINK_AND_SINK_TMC) += coresight-tmc.o
- coresight-tmc-y := coresight-tmc-core.o coresight-tmc-etf.o \
-diff --git a/drivers/hwtracing/coresight/coresight-cfg-pmu-pulse.c b/drivers/hwtracing/coresight/coresight-cfg-pmu-pulse.c
-new file mode 100644
-index 0000000000000..61472154dd02a
---- /dev/null
-+++ b/drivers/hwtracing/coresight/coresight-cfg-pmu-pulse.c
-@@ -0,0 +1,55 @@
-+// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Pulse ETM external output 1 on every traced cycle for a PMU event to count.
-+ * Based on coresight-cfg-afdo.c
++ * Whether the PMU counts each external output of this trace unit as
++ * TRCEXTOUTn. The trace unit has an external output for each of its events.
++ * Only ETE is checked: per its specification, an implemented TRCEXTOUTn event
++ * counts external output n.
++ *
++ * Must run on the CPU that owns the trace unit.
 + */
++static bool etm4_pmu_counts_extout(struct etmv4_drvdata *drvdata)
++{
++	int n;
 +
-+#include "coresight-config.h"
++	if (!etm4x_is_ete(drvdata) || !drvdata->caps.nr_event)
++		return false;
 +
-+/* ETMv4 includes and features */
-+#if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
-+#include "coresight-etm4x-cfg.h"
++	for (n = 0; n < drvdata->caps.nr_event; n++) {
++		if (!pmuv3_event_implemented(ARMV8_PMUV3_PERFCTR_TRCEXTOUT0 + n))
++			return false;
++	}
 +
-+/*
-+ * extout_pulse feature: event 1 selects the always-true resource, so ETM
-+ * external output 1 pulses on every cycle while the trace unit is enabled. A
-+ * PMU event counting that output (TRCEXTOUT1), for example with
-+ * aux-action=pause, then fires after as many traced cycles as its sample
-+ * period. Event 0 is avoided because it is the trace unit trigger, and the
-+ * TRBE driver treats a detected trigger as fatal.
-+ */
-+static struct cscfg_regval_desc extout_pulse_regs[] = {
-+	/* event 1: resource selector 1 (always true), drives external output 1 */
-+	{
-+		.type = CS_CFG_REG_TYPE_STD | CS_CFG_REG_TYPE_VAL_MASK,
-+		.offset = TRCEVENTCTL0R,
-+		.val32 = 0x0100,
-+		.mask32 = 0xff00,
-+	},
-+	/* end of regs */
-+};
++	return true;
++}
 +
-+struct cscfg_feature_desc extout_pulse_etm4x = {
-+	.name = "extout_pulse",
-+	.description = "Pulse external output 1 on every traced cycle.\n",
-+	.match_flags = CS_CFG_MATCH_CLASS_SRC_ETM4 | CS_CFG_MATCH_CAP_TRCEXTOUT,
-+	.nr_regs = ARRAY_SIZE(extout_pulse_regs),
-+	.regs_desc = extout_pulse_regs,
-+};
+ static void etm4_init_arch_data(void *info)
+ {
+ 	u32 etmidr0;
+@@ -1562,6 +1586,8 @@ static void etm4_init_arch_data(void *info)
+ 	/* NUMCNTR, bits[30:28] number of counters available for tracing */
+ 	caps->nr_cntr = FIELD_GET(TRCIDR5_NUMCNTR_MASK, etmidr5);
+ 
++	caps->trcextout = etm4_pmu_counts_extout(drvdata);
 +
-+/* create a pmu_pulse configuration */
-+
-+static const char *pmu_pulse_ref_names[] = {
-+	"extout_pulse",
-+};
-+
-+struct cscfg_config_desc pmu_pulse_etm4x = {
-+	.name = "pmu_pulse",
-+	.description = "Pulse ETM external output 1 on every traced cycle for the PMU\n"
-+	"to count as TRCEXTOUT1\n",
-+	.nr_feat_refs = ARRAY_SIZE(pmu_pulse_ref_names),
-+	.feat_ref_names = pmu_pulse_ref_names,
-+};
-+
-+/* end of ETM4x configurations */
-+#endif	/* IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X) */
-diff --git a/drivers/hwtracing/coresight/coresight-cfg-preload.c b/drivers/hwtracing/coresight/coresight-cfg-preload.c
-index 4980e68483c5b..a9a60a1c40845 100644
---- a/drivers/hwtracing/coresight/coresight-cfg-preload.c
-+++ b/drivers/hwtracing/coresight/coresight-cfg-preload.c
-@@ -14,6 +14,7 @@ static struct cscfg_feature_desc *preload_feats[] = {
- #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
- 	&strobe_etm4x,
- 	&gen_etrig_etm4x,
-+	&extout_pulse_etm4x,
- #endif
- 	NULL
+ 	coresight_clear_self_claim_tag_unlocked(csa);
+ 	etm4_cs_lock(drvdata, csa);
+ 	cpu_detect_trace_filtering(drvdata);
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+index 5417280cdb274..33994ad4b2641 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x.h
++++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+@@ -868,6 +868,8 @@ enum etm_impdef_type {
+  * @lpoverride:	If the implementation can support low-power state over.
+  * @skip_power_up: Indicates if an implementation can skip powering up
+  *		   the trace unit.
++ * @trcextout:	The trace unit is an ETE whose PMU counts its external
++ *		outputs as TRCEXTOUTn.
+  */
+ struct etmv4_caps {
+ 	u8	nr_pe;
+@@ -907,6 +909,7 @@ struct etmv4_caps {
+ 	bool	atbtrig : 1;
+ 	bool	lpoverride : 1;
+ 	bool	skip_power_up : 1;
++	bool	trcextout : 1;
  };
-@@ -22,6 +23,7 @@ static struct cscfg_config_desc *preload_cfgs[] = {
- #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
- 	&afdo_etm4x,
- 	&pstop_etm4x,
-+	&pmu_pulse_etm4x,
- #endif
- 	NULL
- };
-diff --git a/drivers/hwtracing/coresight/coresight-cfg-preload.h b/drivers/hwtracing/coresight/coresight-cfg-preload.h
-index 291ba530a6a52..0058627f65ae5 100644
---- a/drivers/hwtracing/coresight/coresight-cfg-preload.h
-+++ b/drivers/hwtracing/coresight/coresight-cfg-preload.h
-@@ -12,4 +12,6 @@ extern struct cscfg_feature_desc strobe_etm4x;
- extern struct cscfg_config_desc afdo_etm4x;
- extern struct cscfg_feature_desc gen_etrig_etm4x;
- extern struct cscfg_config_desc pstop_etm4x;
-+extern struct cscfg_feature_desc extout_pulse_etm4x;
-+extern struct cscfg_config_desc pmu_pulse_etm4x;
- #endif
+ 
+ /**
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg-configfs.c b/drivers/hwtracing/coresight/coresight-syscfg-configfs.c
+index 2b40e556be872..7b3800138f625 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg-configfs.c
++++ b/drivers/hwtracing/coresight/coresight-syscfg-configfs.c
+@@ -250,6 +250,9 @@ static ssize_t cscfg_feat_matches_show(struct config_item *item, char *page)
+ 	if (match_flags & CS_CFG_MATCH_CLASS_SRC_ETM4)
+ 		used += scnprintf(page + used, PAGE_SIZE - used, "SRC_ETMV4 ");
+ 
++	if (match_flags & CS_CFG_MATCH_CAP_TRCEXTOUT)
++		used += scnprintf(page + used, PAGE_SIZE - used, "TRCEXTOUT ");
++
+ 	used += scnprintf(page + used, PAGE_SIZE - used, "\n");
+ 	return used;
+ }
 -- 
 2.52.0
 
