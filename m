@@ -2,73 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 085EF606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 21:45:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16A60606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 21:45:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qVsdEcl1;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=HHlRL+BB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MzW2gZQd;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=dS7+pINS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6W2C5IplodH9p+zbg0ncY61FJ1aii/GuvQjvTf4ZsVE=; b=qVsdEcl1jHCpPA
-	a2lQZyXg3OgqQfVeykjnCyrKTfxGDjMwOUY5RBw3WD0wA+YaVsM8Rf2s355AQg/kf0R2mMXTpT0YE
-	GB9rqoL5RvnyV4yFRZcz2Ma4rgCVk8lEgVv03vIYwsYt+EZECPN1I+uqNXPlKccTJ9Y1Nirj85Yxg
-	QFFIV3AvxcPFzldy7cXnkZkcExkJxB04SjuTE2ceOy4sKrLbUj37+QpwE1sVUblj8y7jXHshRnG3Q
-	guar4m2j4Jc6YCUhwnV4LtYekLyLrrI2O2J/hrHViO35rARf6kZqqxE0XoqoCwdqnC4jEzAiI9KsK
-	CXhrUzMh5TJWCZuTImLA==;
+	List-Owner; bh=8HHe8fHh/yiT7Fx1i3J5r8F+lWtO95Ns+WYgR64n+Jc=; b=MzW2gZQdK5Nwj7
+	T7bZ+axCofc8fYefP8OrnBQIOVuYAARzJ/Rr80wrFmrGvQMxFwNLwXnfMb266bFMd7fTqQT2ulpnC
+	Ve5YL66DOYctlamSUnX0OmjBO437LcZbGXS4eehk8DyO4Bbj7uEGWmZke4j76jVl3HBYcDWi3pOQu
+	+TeQ/zGfp3CU0nl0P5Tp13KCpCfxw3jXT83HvXH9/LPlRwU5CqhKgjqUV+Qju1THFpMNaNvTuxtpL
+	RGxR9kfe1/kRVbTJz3+ipK/3PHsgJYqTJZjNzpD848TbI5JMu4lZG/buxZXDODwd5Taiatycu1SaV
+	PYwWCfQi1IZwQzker3UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLSVF-00000003JUK-1IXn;
-	Mon, 26 Oct 2026 21:45:13 +0000
-Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
+	id 1xLSVR-00000003JbP-05dP;
+	Mon, 26 Oct 2026 21:45:25 +0000
+Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLSVB-00000003JSd-2iH2
+	id 1xLSVI-00000003JWm-2tUQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 21:45:11 +0000
-Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso10203822eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 14:45:09 -0700 (PDT)
+	Mon, 26 Oct 2026 21:45:19 +0000
+Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-35cd4e8bdbdso5692246eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 14:45:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793051109; x=1793655909; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1793051115; x=1793655915; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6W2C5IplodH9p+zbg0ncY61FJ1aii/GuvQjvTf4ZsVE=;
-        b=HHlRL+BBpZqGZSVnprqwON5i5JiMqif7kbhmtRS314jhzciPFK2bUpDDU3kG2uMRgB
-         bpfUEVzLLB6SBFUiF71KTevSbcyfrPE3/IzAadM23jA4s58LCdG+aodYG34lwwCz+K/t
-         1gsPft87cpqJ+yasXlEsDpCdG/AC9fF3Ray90=
+        bh=8HHe8fHh/yiT7Fx1i3J5r8F+lWtO95Ns+WYgR64n+Jc=;
+        b=dS7+pINSzA+7jhQfOp287bphqmvfsJKS8ymDMXhcZg5HwMa6jR1d00ny7isBOiv7Wb
+         BedvPFqj5YW+ZvRPwU8ZjxaPJ9B5Lj19LnoWBNQ++F7Pg/PuL5wVHVlzDQHzkIjTMe28
+         uLkO8CGqnJzD8OjubBBogc2CmQBw8UylwGYSw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793051109; x=1793655909;
+        d=1e100.net; s=20260707; t=1793051115; x=1793655915;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6W2C5IplodH9p+zbg0ncY61FJ1aii/GuvQjvTf4ZsVE=;
-        b=LsysHP62CvDYnfJkrEfOoporo1Ij4kKa4AhcFO/h6yD9fR4+uYLg5cYXVMsxuMvRGQ
-         YvTl827/PF0jZGJBGTL77pOqyal2OsUVT/coKLFy6CbeYY7uOf/D3nlXitaEnYMpqtZl
-         cegziGi1pzXvbjUqXAJuiZvahL6CaYwvQNmWmc7xJQLcisQIXd6KktwyWQQK2tbaqAdY
-         pGx0wfEIWlxCcVNMPaUBVs44iHQHrrsAMdoz5DyOl+0VpT69ZOuXIsSOup7GbKmAADBc
-         9d4JKzFJpq0Z4ODc5gL1ROr1/o6qGjImpq/0JNc94+8Xq2pSIekLKVB7emH840fm144N
-         MB2g==
-X-Forwarded-Encrypted: i=1; AKwUvByRPYw20UeberGwwyb2vQKjjZz89kn/a0qkozEhXi01K8w3/GZse0/RsQeP58K4BjVuH3m7JXuY3EtLBo+Oi1Kp@lists.infradead.org
-X-Gm-Message-State: AFq9FYLlfWK1QtQMz3kBqNPr3qIUlQqP11oTblALCwg0Ll/ZvB8BXAGH
-	/0j96p08dfSRKxN54vy8g2h0p3BbjnrNKWFkFx/tARBWZRzua7hdmg9zT/toBJyxhw==
-X-Gm-Gg: AYBFou0oPOXPRBubejhjv3k5EUjBDdKP4AI+lcJ62jD4XYDVPBBnw9OR/6NoMJXfjnL
-	na6cRjocTWgBY4m3vPLrJMx+LHzjgsvuHpgNe5M2MkkSLLo63Xe4AMXCClqxAJBIk+Aokx6GLbQ
-	VW3/KX8Nj8m4OT1cVlKY+LsSfKZAxMpqRDjhYJRsJQmyWIgBuip6Pqb1/rmmLHC0B9qEBu8DKQT
-	xeKv8ErwwPLwVag6mn6ViXqICT2fHxFOWSmeERIW5aJ274KwToSFc32yMvkS0NjfZjr6DVsAFwu
-	a4tEq2EZNAbDkm8oLcmnA59fQseNIymritNdggc36+JugLn7WZo/Zt7RC8bnZqYuW9TpSeTXgVS
-	eub6cbb5j07kUkkdll1uwHeO0lryEsxbJV1bsP50L030EjP9RiNvHtQV4JWdeuAhzzTuTHKsEJp
-	f2npHGm2za4wJYZQj7MztCuCE6oSW5Q5TAtnneNh1uuK6omLsj8/3i+bKQAoBA8JyzL7fheb3Aj
-	8D1TVriJHx9rHdhGHFyw3Vw1SSpgTM1AHfenQ0pM3BgIldh5kYJZkWB9EwUwTPu0UJxNAggdxtT
-	Kmk2Pobpef+DXbO9IzA=
-X-Received: by 2002:a05:693c:87dc:20b0:350:2a5c:56c with SMTP id 5a478bee46e88-369e84b1873mr12192158eec.20.1793051108206;
-        Mon, 26 Oct 2026 14:45:08 -0700 (PDT)
+        bh=8HHe8fHh/yiT7Fx1i3J5r8F+lWtO95Ns+WYgR64n+Jc=;
+        b=UHuzrHqZ1wIQV/tRRnFjlZldee2xV/gWFbGQ26uLEhQTbdlFEtCvGuinu0M/He0TYk
+         TTskWlRU14KC25HIKpWHVgmizv2vSDZ0icE3CujXuFNWK+633E5aqD0R08qtfWAMz/01
+         SU8SVvBUKac12gFqGy3oE+aDZARmCVL2d/nLvpgMi5PNUOAD2KpUhOaALDKIYnS5PIR9
+         czdlRarHmXVhidB4hBEbK2Q7s5whRK4wa1OBUB3kW8/dSk/bxQIb7qrI9OUhuZLx2Aq4
+         /B/NBUTlcz2+5URgC2XoUxTpiJVnkaInOsHiOM8AvswCrR0O2oH/pAK3FfGiVwVymfP1
+         ZXlg==
+X-Forwarded-Encrypted: i=1; AKwUvByD+BE93ij03WNTrf3Pp7lhfGbGRO113xn7OS0WQjwfB1XgIxkHhzjPQm3FDUjgr+haKSUGJMZH1dj2dvbR9x+N@lists.infradead.org
+X-Gm-Message-State: AFq9FYI/f5ovrAF0LyuuKvcU/t5vh1pwxJxIthmumdzs78RsVsXZqsKL
+	qadSBI+DqG7CBWLJR17NeNiXAGzcTYzfJ/ZTd46efzYmkdrgFIQi6ZOi/Y/onJTuhg==
+X-Gm-Gg: AYBFou3y5THuVvsc3pEc9RzyKtdve/8XqYdFbWZow0eFc0iWUv6lwqrihN6urq3cVGT
+	Mf3TSu4HoqARuC70AZJ4HJYbAs+F//8C4OQ+/EDlu12GXHeeEYhm7Qr05HN57peTz0UFspIc5gX
+	SBi7zpbzL7B/lUhNzvWS3DzarajkieDo1ouwQuP66namL3Coc6pQqz0we5FUi/33RZ9LZgv3uB4
+	ODfME0DkBpJGqJQ7BbXH6UmocfqRyzDVZ9RVAK2BRYZqEdRaGOgPUYAVWivLeJG5ho++hSxfRae
+	/gxSpDvn0N79C7G/xtCAHBEpD6yOKarIp6kBfmhj0hD+YTRV5/PaA8CvEp3j2eYej1W2rRnHnIK
+	pUiCqaYMpQViueNG9SzHdagn+5cXbDk42PKt9gY4cuKKJZuesunV1lnf2TWFZswKHurIQiIXnxB
+	te+yjJulO9qUbVkgIQCrGTOKcsO+R8aWY1T9nIr0wrwP9CbFSas7dcy2E6ntvnJ157hx44VqqI7
+	CzHjK+XfcX9DdAS6LvDjp1Oexd8K5sheH+VXCzqJ8+esdkwI4e2L3UFdWninAe48iOnK7CuSvBM
+	+3DCQydLb/tdFgZf7r8aOjI4BmNyh3K8nTOvUcKk
+X-Received: by 2002:a05:7300:4706:b0:369:f05d:6c67 with SMTP id 5a478bee46e88-369f05d6ea9mr9632627eec.12.1793051114716;
+        Mon, 26 Oct 2026 14:45:14 -0700 (PDT)
 Received: from localhost ([2a00:79e0:2e7c:8:79c5:9cd3:db14:7468])
-        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-36a026e04a0sm9389605eec.1.2026.10.26.14.45.06
+        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-369e8ec864fsm33474769eec.24.2026.10.26.14.45.12
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 26 Oct 2026 14:45:07 -0700 (PDT)
+        Mon, 26 Oct 2026 14:45:14 -0700 (PDT)
 From: Brian Norris <briannorris@chromium.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -93,9 +93,9 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
 	linux-clk@vger.kernel.org,
 	=?UTF-8?q?Jakub=20G=C5=82owacki?= <jglow@google.com>,
 	Brian Norris <briannorris@chromium.org>
-Subject: [PATCH 2/9] dt-bindings: soc: google: Add Google Tensor CPM binding
-Date: Mon, 26 Oct 2026 14:43:40 -0700
-Message-ID: <20261026144346.2.Ib692ddd35c1dbea1757d9b1db6c1c7e938fc4ea6@changeid>
+Subject: [PATCH 4/9] pmdomain: google: Add CPM power-domain driver
+Date: Mon, 26 Oct 2026 14:43:42 -0700
+Message-ID: <20261026144346.4.I42273470eab028b2ae2e128d338783b5bdcb4e55@changeid>
 X-Mailer: git-send-email 2.56.0.307.g5fe7bd680c-goog
 In-Reply-To: <20261026214359.3122870-1-briannorris@chromium.org>
 References: <20261026214359.3122870-1-briannorris@chromium.org>
@@ -103,8 +103,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_144509_725947_F6FAD03F 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20261026_144516_817807_65D81167 
+X-CRM114-Status: GOOD (  27.97  )
 X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,684 +125,1542 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 The Central Power Manager (CPM) is a co-processor on the Google Tensor
-SoCs, as used on Pixel phones. CPM supports power-management and a
-number of other features.
+SoCs, as used on Pixel phones. Among other features, CPM manages most of
+the power domains on these SoCs. We talk to the CPM over a pair of
+mailboxes, and we hide many of these details beneath a
+cpm_send_message() API.
 
-The Application Processor communicates with CPM over a pair of mailbox
-channels. CPM provides clock, power-domain, reset, and interrupt
-services.
+Tensor SoCs consist of various regions called Subsystem Wrappers
+(SSWRP). SSWRPs and their sub-domains can be powered on and off by
+interfacing with the Local Power and Clock Manager (LPCM) associated
+with each SSWRP. Thus, the power-domain mapping tends to consist of a
+"LPCM ID" (the SSWRP) and a "subdomain ID", although the mappings are
+complicated enough we simply expose a single "power domain ID" in the
+device tree binding, and figure out the rest of the details by per-SoC
+tables.
 
-Notably, CPM manages other services that are not yet included in this
-binding -- some attached PMICs, an RTC, and more. For simplicity, we
-don't try to describe and support all features all at once.
+Most of the complexity in this driver is in the hardware tables, and the
+mappings between domains.
 
 Because it may be useful both for reviewers familiar with the downstream
 Linux support for these devices, or for future developers looking at
 adapting/improving/adding further features later on, it's worth noting
-some major deviations from downstream bindings:
+some major deviations from the downstream drivers:
 
- * CPM does not sit on the soc bus, and does not have any IO/reg region
-   of its own. The downstream bindings included some not-quite-related
-   hardware resources in the same "device", to aid doing some similar
-   things in the same driver. For instance, some power domains
-   (specifically, the GPU) are not managed by CPM, and instead are left
-   for direct-register-access. Such a domain should be described
-   separately, and not within the CPM node.
+ * Use auxiliary_bus. The whole CPM-interface structure was reworked for
+   upstream Linux, so rather than a bunch of DT nodes and platform
+   devices, most/all CPM services are simply instantiated as auxiliary
+   devices from the CPM driver, and share the same CPM DT node.
 
- * Downstream bindings tended to describe every CPM-using service as its
-   own node, with a (fake) mailbox-phandle back to the CPM node. We try
-   as much as possible here to avoid separate nodes if we can help it.
-   And see the next point:
+ * As a corollary to the DT restructuring: we eliminate the use of
+   per-domain DT nodes. Downstream DTs would describe each power domain
+   as its own node (with #power-domain-cells = <0>), and a variety of
+   custom DT properties ("irq-safe", "always-on"). These are all encoded
+   in the driver's per-SoC tables instead, and devices simply use a
+   single cell (power domain ID) to refer to which domain they use.
 
- * Downstream bindings tended to describe every individual clock, reset,
-   and power-domain as their own sub-node, with various
-   software-describing properties as part of each node. These properties
-   are inherent to the SoC, however, so we avoid sub-nodes and instead
-   just provide appropriate #{clock,power-domain,reset}-cells, and leave
-   the per-{power-domain,clock} properties to the driver.
+ * Use devm more heavily
+
+ * Drop 'no-auto-resume' feature. This was a Pixel optimization to avoid
+   excessive power-on latency during system resume. It required unsound
+   overrides to basic genpd functionality. I assume it should be
+   replaced by more aggressive use of direct-complete eventually.
+
+ * Drop CPM_LGA_LSIO_S_CLI_GPIO_IRQ_SAFE_ID,
+   CPM_LGA_LSIO_N_CLI_GPIO_IRQ_SAFE_ID, and
+   CPM_LGA_LSIO_E_CLI_GPIO_IRQ_SAFE_ID. They were not actually used
+   downstream.
+
+ * Make our debugfs file readable (downstream has read/write operations,
+   but leaves it mode 0220)
+
+ * Replace a downstream "GENPD_FLAG_ALWAYS_ON" (but only during system
+   suspend) feature with simply applying GENPD_FLAG_ACTIVE_WAKEUP to the
+   SSWRP_AOC domain. This domain is for an "Always On Compute" subsystem
+   on the SoC, but it also can be powered off temporarily for reset or
+   similar. Any drivers for this component should simply manage its
+   wakeup status properly, to ensure it stays "on" in the appropriate
+   system suspend states.
 
 Signed-off-by: Brian Norris <briannorris@chromium.org>
 ---
 
- .../bindings/soc/google/google,lga-cpm.yaml   |  74 +++++++
- include/dt-bindings/clock/google,lga-cpm.h    | 191 ++++++++++++++++++
- .../interrupt-controller/irq-cpm-google.h     |  16 ++
- include/dt-bindings/power/google,lga-cpm.h    |  79 ++++++++
- .../dt-bindings/reset/google,lga-cpm-reset.h  | 175 ++++++++++++++++
- include/dt-bindings/soc/google,lga-lpcm.h     |  54 +++++
- 6 files changed, 589 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/soc/google/google,lga-cpm.yaml
- create mode 100644 include/dt-bindings/clock/google,lga-cpm.h
- create mode 100644 include/dt-bindings/interrupt-controller/irq-cpm-google.h
- create mode 100644 include/dt-bindings/power/google,lga-cpm.h
- create mode 100644 include/dt-bindings/reset/google,lga-cpm-reset.h
- create mode 100644 include/dt-bindings/soc/google,lga-lpcm.h
+ drivers/pmdomain/Kconfig                  |   1 +
+ drivers/pmdomain/Makefile                 |   1 +
+ drivers/pmdomain/google/Kconfig           |  14 +
+ drivers/pmdomain/google/Makefile          |   2 +
+ drivers/pmdomain/google/cpm-power-lga.h   | 467 ++++++++++++++++
+ drivers/pmdomain/google/cpm-power-trace.h |  80 +++
+ drivers/pmdomain/google/cpm-power.c       | 637 ++++++++++++++++++++++
+ drivers/pmdomain/google/lpb_service.h     | 200 +++++++
+ 8 files changed, 1402 insertions(+)
+ create mode 100644 drivers/pmdomain/google/Kconfig
+ create mode 100644 drivers/pmdomain/google/Makefile
+ create mode 100644 drivers/pmdomain/google/cpm-power-lga.h
+ create mode 100644 drivers/pmdomain/google/cpm-power-trace.h
+ create mode 100644 drivers/pmdomain/google/cpm-power.c
+ create mode 100644 drivers/pmdomain/google/lpb_service.h
 
-diff --git a/Documentation/devicetree/bindings/soc/google/google,lga-cpm.yaml b/Documentation/devicetree/bindings/soc/google/google,lga-cpm.yaml
+diff --git a/drivers/pmdomain/Kconfig b/drivers/pmdomain/Kconfig
+index 5341dff669be..aeda621411df 100644
+--- a/drivers/pmdomain/Kconfig
++++ b/drivers/pmdomain/Kconfig
+@@ -6,6 +6,7 @@ source "drivers/pmdomain/amlogic/Kconfig"
+ source "drivers/pmdomain/apple/Kconfig"
+ source "drivers/pmdomain/arm/Kconfig"
+ source "drivers/pmdomain/bcm/Kconfig"
++source "drivers/pmdomain/google/Kconfig"
+ source "drivers/pmdomain/imx/Kconfig"
+ source "drivers/pmdomain/marvell/Kconfig"
+ source "drivers/pmdomain/mediatek/Kconfig"
+diff --git a/drivers/pmdomain/Makefile b/drivers/pmdomain/Makefile
+index d7aee13ae571..608555ba5990 100644
+--- a/drivers/pmdomain/Makefile
++++ b/drivers/pmdomain/Makefile
+@@ -4,6 +4,7 @@ obj-y					+= amlogic/
+ obj-y					+= apple/
+ obj-y					+= arm/
+ obj-y					+= bcm/
++obj-y					+= google/
+ obj-y					+= imx/
+ obj-y					+= marvell/
+ obj-y					+= mediatek/
+diff --git a/drivers/pmdomain/google/Kconfig b/drivers/pmdomain/google/Kconfig
 new file mode 100644
-index 000000000000..546e6c7fff80
+index 000000000000..e2a9bf0a7c82
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/google/google,lga-cpm.yaml
-@@ -0,0 +1,74 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/google/google,lga-cpm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/pmdomain/google/Kconfig
+@@ -0,0 +1,14 @@
++# SPDX-License-Identifier: GPL-2.0-only
 +
-+title: Google Central Power Manager (CPM)
++config GOOGLE_CPM_POWER
++	tristate "Google Tensor CPM power controller driver"
++	depends on ARCH_GOOGLE || COMPILE_TEST
++	depends on GOOGLE_CPM_MBA
++	select PM_GENERIC_DOMAINS
++	default ARCH_GOOGLE
++	help
++	  This driver allows clients to power on/off power domains on Google
++	  Tensor SoCs via the generic power domain framework. It uses SMC or
++	  CPM mailbox array to request toggling the power domains.
 +
-+maintainers:
-+  - Brian Norris <briannorris@chromium.org>
-+
-+description: |
-+  The Central Power Manager (CPM) is an on-chip power management subsystem
-+  found on Google Tensor SoCs. It has a variety of responsibilities, from DVFS
-+  and power management to resets, PMIC control, and even RTC management. The
-+  Application Processor communicates with CPM over a set of mailbox channels.
-+
-+properties:
-+  compatible:
-+    const: google,lga-cpm
-+
-+  mboxes:
-+    items:
-+      - description: TX mailbox channel for sending requests to CPM
-+      - description: RX mailbox channel for receiving responses from CPM
-+
-+  '#power-domain-cells':
-+    const: 1
-+    description: See <dt-bindings/power/google,lga-cpm.h> for power domain IDs.
-+
-+  '#reset-cells':
-+    const: 2
-+    description:
-+      Each reset is specified by an LPCM ID (cell 1) and a reset ID (cell 2).
-+      See <dt-bindings/soc/google,lga-lpcm.h> for LPCM IDs and
-+      <dt-bindings/reset/google,lga-cpm-reset.h> for reset IDs.
-+
-+  interrupt-controller: true
-+
-+  '#interrupt-cells':
-+    const: 1
-+    description:
-+      Interrupt identifiers are assigned by CPM firmware. See
-+      <dt-bindings/interrupt-controller/irq-cpm-google.h> for interrupt IDs.
-+
-+  '#clock-cells':
-+    const: 2
-+    description:
-+      Each clock is specified by an LPCM ID (cell 1) and a clock ID (cell
-+      2). See <dt-bindings/soc/google,lga-lpcm.h> for LPCM IDs and
-+      <dt-bindings/clock/google,lga-cpm.h> for clock IDs.
-+
-+required:
-+  - compatible
-+  - mboxes
-+  - '#clock-cells'
-+  - '#power-domain-cells'
-+  - '#reset-cells'
-+  - '#interrupt-cells'
-+  - interrupt-controller
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    cpm: cpm {
-+        compatible = "google,lga-cpm";
-+        mboxes = <&cpm_ap_ns_req_mba>, <&cpm_ap_ns_resp_mba>;
-+        #clock-cells = <2>;
-+        #power-domain-cells = <1>;
-+        #reset-cells = <2>;
-+        #interrupt-cells = <1>;
-+        interrupt-controller;
-+    };
-diff --git a/include/dt-bindings/clock/google,lga-cpm.h b/include/dt-bindings/clock/google,lga-cpm.h
++	  Say Y or M here to support CPM power domains.
+diff --git a/drivers/pmdomain/google/Makefile b/drivers/pmdomain/google/Makefile
 new file mode 100644
-index 000000000000..6d5a5567226d
+index 000000000000..34ea111208df
 --- /dev/null
-+++ b/include/dt-bindings/clock/google,lga-cpm.h
-@@ -0,0 +1,191 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+
-+#ifndef __DT_BINDINGS_CLOCK_GOOGLE_LGA_CPM_H
-+#define __DT_BINDINGS_CLOCK_GOOGLE_LGA_CPM_H
-+
++++ b/drivers/pmdomain/google/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_GOOGLE_CPM_POWER) += cpm-power.o
+diff --git a/drivers/pmdomain/google/cpm-power-lga.h b/drivers/pmdomain/google/cpm-power-lga.h
+new file mode 100644
+index 000000000000..fc006aeb5cfe
+--- /dev/null
++++ b/drivers/pmdomain/google/cpm-power-lga.h
+@@ -0,0 +1,467 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
 +/*
-+ * LPCM clock ID's of each SSWRPs
++ * Copyright 2023-2026 Google LLC
++ */
++#ifndef _CPM_POWER_LGA_H
++#define _CPM_POWER_LGA_H
++
++#include <dt-bindings/power/google,lga-cpm.h>
++#include <linux/kernel.h>
++#include <linux/pm_domain.h>
++#include <linux/types.h>
++
++#include "lpb_service.h"
++
++#define NOT_SUPPORTED				-1
++
++/* CPM Mapping Definitions */
++enum cpm_lga_sswrp_id {
++	CPM_LGA_SSWRP_AOC_ID,
++	CPM_LGA_SSWRP_AURORA_ID,
++	CPM_LGA_SSWRP_CODEC_3P_ID,
++	CPM_LGA_SSWRP_CPU_ID,
++	CPM_LGA_SSWRP_CPUACC_ID,
++	CPM_LGA_SSWRP_DPU_ID,
++	CPM_LGA_SSWRP_EH_ID,
++	CPM_LGA_SSWRP_FABHBW_ID,
++	CPM_LGA_SSWRP_FABMED_ID,
++	CPM_LGA_SSWRP_FABRT_ID,
++	CPM_LGA_SSWRP_FABSTBY_ID,
++	CPM_LGA_SSWRP_FABSYSS_ID,
++	CPM_LGA_SSWRP_G2D_ID,
++	CPM_LGA_SSWRP_GMC0_ID,
++	CPM_LGA_SSWRP_GMC1_ID,
++	CPM_LGA_SSWRP_GMC2_ID,
++	CPM_LGA_SSWRP_GMC3_ID,
++	CPM_LGA_SSWRP_GPCA_ID,
++	CPM_LGA_SSWRP_GPCM_ID,
++	CPM_LGA_SSWRP_GPDMA_ID,
++	CPM_LGA_SSWRP_GPU_ID,
++	CPM_LGA_SSWRP_GSA_ID,
++	CPM_LGA_SSWRP_GSW_ID,
++	CPM_LGA_SSWRP_HSIO_N_ID,
++	CPM_LGA_SSWRP_HSIO_S_ID,
++	CPM_LGA_SSWRP_INF_TCU_ID,
++	CPM_LGA_SSWRP_ISPBE_ID,
++	CPM_LGA_SSWRP_ISPFE_ID,
++	CPM_LGA_SSWRP_LSIO_E_ID,
++	CPM_LGA_SSWRP_LSIO_N_ID,
++	CPM_LGA_SSWRP_LSIO_S_ID,
++	CPM_LGA_SSWRP_MEMSS_ID,
++	CPM_LGA_SSWRP_TPU_ID,
++	CPM_LGA_SSWRP_COUNT,
++};
++
++#define CPM_LGA_GPU_CORE_LOGIC_ID		0
++
++#define CPM_LGA_HSIO_N_USB_ID			0
++#define CPM_LGA_HSIO_N_PCIE_ID			1
++#define CPM_LGA_HSIO_N_EBU_ID			2
++#define CPM_LGA_HSIO_N_EBU_CORE_ID		3
++#define CPM_LGA_HSIO_N_DP_ID			4
++#define CPM_LGA_HSIO_N_USB_PSW_ID		5
++
++#define CPM_LGA_HSIO_S_UFS_ID			0
++#define CPM_LGA_HSIO_S_PCIE_ID			1
++#define CPM_LGA_HSIO_S_SD_ID			2
++#define CPM_HSIO_S_UFS_PREP_ID			3
++
++#define CPM_LGA_LSIO_CLI_GPIO_ID		0
++
++#define CPM_LGA_DPU_FE0_ID			0
++#define CPM_LGA_DPU_FE1_ID			1
++#define CPM_LGA_DPU_DSI0_ID			2
++#define CPM_LGA_DPU_DSI1_ID			3
++#define CPM_LGA_DPU_DP_ID			4
++
++#define CPM_LGA_ISPFE_TOP_ID			0
++#define CPM_LGA_ISPFE_PIPE_ID			1
++#define CPM_LGA_ISPFE_CSIS_ID			2
++#define CPM_LGA_ISPBE_TOP_ID			0
++
++#define CPM_LGA_GSW_MAIN_ID			0
++
++#define CPM_LGA_G2D_CORE_ID			0
++
++#define CPM_LGA_C3P_CORE_ID			0
++
++#define CPM_LGA_GPDMA_ID			0
++
++#define CPM_LGA_INF_TCU_ID			0
++
++#define CPM_LGA_AOC_CORE_ID			0
++
++struct cpm_power_domain_desc {
++	const char *name;
++	int sswrp_id;
++	int subdomain_id;
++	/* GENPD_FLAG_* to apply. */
++	u32 flags;
++	/* Signifies that the power domain is already on at boot time. */
++	bool on_at_init;
++	/* Control the power domain via SMC calls instead of CPM requests. */
++	bool use_smc;
++	/* Use NOT_SUPPORTED for top-level (SSWRP) domains. */
++	int parent_id;
++};
++
++#define LPCM_GENPD_SSWRP_DPU			0
++#define LPCM_GENPD_SSWRP_HSIO_S			1
++#define LPCM_GENPD_SSWRP_HSIO_N			2
++#define LPCM_GENPD_SSWRP_LSIO_S			3
++#define LPCM_GENPD_SSWRP_LSIO_N			4
++#define LPCM_GENPD_SSWRP_LSIO_E			5
++#define LPCM_GENPD_SSWRP_G2D			6
++#define LPCM_GENPD_SSWRP_GPDMA			7
++#define LPCM_GENPD_SSWRP_ISPFE			8
++#define LPCM_GENPD_SSWRP_AOC			9
++
++static const int lga_sswrp_to_lpb[CPM_LGA_SSWRP_COUNT] = {
++	[CPM_LGA_SSWRP_AOC_ID]			= LPB_SERVICE_AOC_ID,
++	[CPM_LGA_SSWRP_AURORA_ID]		= LPB_SERVICE_AURORA_ID,
++	[CPM_LGA_SSWRP_CODEC_3P_ID]		= LPB_SERVICE_CODEC_3P_ID,
++	[CPM_LGA_SSWRP_CPU_ID]			= LPB_SERVICE_CPU_ID,
++	[CPM_LGA_SSWRP_CPUACC_ID]		= LPB_SERVICE_CPUACC_ID,
++	[CPM_LGA_SSWRP_DPU_ID]			= LPB_SERVICE_DPU_ID,
++	[CPM_LGA_SSWRP_EH_ID]			= LPB_SERVICE_EH_ID,
++	[CPM_LGA_SSWRP_FABHBW_ID]		= LPB_SERVICE_FABHBW_ID,
++	[CPM_LGA_SSWRP_FABMED_ID]		= LPB_SERVICE_FABMED_ID,
++	[CPM_LGA_SSWRP_FABRT_ID]		= LPB_SERVICE_FABRT_ID,
++	[CPM_LGA_SSWRP_FABSTBY_ID]		= LPB_SERVICE_FABSTBY_ID,
++	[CPM_LGA_SSWRP_FABSYSS_ID]		= LPB_SERVICE_FABSYSS_ID,
++	[CPM_LGA_SSWRP_G2D_ID]			= LPB_SERVICE_G2D_ID,
++	[CPM_LGA_SSWRP_GMC0_ID]			= LPB_SERVICE_GMC0_ID,
++	[CPM_LGA_SSWRP_GMC1_ID]			= LPB_SERVICE_GMC1_ID,
++	[CPM_LGA_SSWRP_GMC2_ID]			= LPB_SERVICE_GMC2_ID,
++	[CPM_LGA_SSWRP_GMC3_ID]			= LPB_SERVICE_GMC3_ID,
++	[CPM_LGA_SSWRP_GPCA_ID]			= LPB_SERVICE_GPCA_ID,
++	[CPM_LGA_SSWRP_GPCM_ID]			= LPB_SERVICE_GPCM_ID,
++	[CPM_LGA_SSWRP_GPDMA_ID]		= LPB_SERVICE_GPDMA_ID,
++	[CPM_LGA_SSWRP_GPU_ID]			= LPB_SERVICE_GPU_ID,
++	[CPM_LGA_SSWRP_GSA_ID]			= LPB_SERVICE_GSA_ID,
++	[CPM_LGA_SSWRP_GSW_ID]			= LPB_SERVICE_GSW_ID,
++	[CPM_LGA_SSWRP_HSIO_N_ID]		= LPB_SERVICE_HSIO_N_ID,
++	[CPM_LGA_SSWRP_HSIO_S_ID]		= LPB_SERVICE_HSIO_S_ID,
++	[CPM_LGA_SSWRP_INF_TCU_ID]		= LPB_SERVICE_INF_TCU_ID,
++	[CPM_LGA_SSWRP_ISPBE_ID]		= LPB_SERVICE_ISPBE_ID,
++	[CPM_LGA_SSWRP_ISPFE_ID]		= LPB_SERVICE_ISPFE_ID,
++	[CPM_LGA_SSWRP_LSIO_E_ID]		= LPB_SERVICE_LSIO_E_ID,
++	[CPM_LGA_SSWRP_LSIO_N_ID]		= LPB_SERVICE_LSIO_N_ID,
++	[CPM_LGA_SSWRP_LSIO_S_ID]		= LPB_SERVICE_LSIO_S_ID,
++	[CPM_LGA_SSWRP_MEMSS_ID]		= LPB_SERVICE_MEMSS_ID,
++	[CPM_LGA_SSWRP_TPU_ID]			= LPB_SERVICE_TPU_ID,
++};
++
++static const int lga_sswrp_to_lpcm[CPM_LGA_SSWRP_COUNT] = {
++	[CPM_LGA_SSWRP_AOC_ID]			= LPCM_GENPD_SSWRP_AOC,
++	[CPM_LGA_SSWRP_AURORA_ID]		= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_CODEC_3P_ID]		= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_CPU_ID]			= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_CPUACC_ID]		= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_DPU_ID]			= LPCM_GENPD_SSWRP_DPU,
++	[CPM_LGA_SSWRP_EH_ID]			= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_FABHBW_ID]		= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_FABMED_ID]		= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_FABRT_ID]		= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_FABSTBY_ID]		= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_FABSYSS_ID]		= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_G2D_ID]			= LPCM_GENPD_SSWRP_G2D,
++	[CPM_LGA_SSWRP_GMC0_ID]			= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_GMC1_ID]			= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_GMC2_ID]			= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_GMC3_ID]			= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_GPCA_ID]			= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_GPCM_ID]			= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_GPDMA_ID]		= LPCM_GENPD_SSWRP_GPDMA,
++	[CPM_LGA_SSWRP_GPU_ID]			= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_GSA_ID]			= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_GSW_ID]			= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_HSIO_N_ID]		= LPCM_GENPD_SSWRP_HSIO_N,
++	[CPM_LGA_SSWRP_HSIO_S_ID]		= LPCM_GENPD_SSWRP_HSIO_S,
++	[CPM_LGA_SSWRP_INF_TCU_ID]		= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_ISPBE_ID]		= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_ISPFE_ID]		= LPCM_GENPD_SSWRP_ISPFE,
++	[CPM_LGA_SSWRP_LSIO_E_ID]		= LPCM_GENPD_SSWRP_LSIO_E,
++	[CPM_LGA_SSWRP_LSIO_N_ID]		= LPCM_GENPD_SSWRP_LSIO_N,
++	[CPM_LGA_SSWRP_LSIO_S_ID]		= LPCM_GENPD_SSWRP_LSIO_S,
++	[CPM_LGA_SSWRP_MEMSS_ID]		= NOT_SUPPORTED,
++	[CPM_LGA_SSWRP_TPU_ID]			= NOT_SUPPORTED,
++};
++
++static const struct cpm_power_domain_desc lga_pm_domains[] = {
++	[LGA_PD_SSWRP_AOC] = {
++		.name = "sswrp-aoc-pd",
++		.sswrp_id = CPM_LGA_SSWRP_AOC_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.flags = GENPD_FLAG_ACTIVE_WAKEUP,
++		.on_at_init = true,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_AOC_CORE] = {
++		.name = "aoc-core-pd",
++		.sswrp_id = CPM_LGA_SSWRP_AOC_ID,
++		.subdomain_id = CPM_LGA_AOC_CORE_ID,
++		.on_at_init = true,
++		.parent_id = LGA_PD_SSWRP_AOC,
++	},
++	[LGA_PD_SSWRP_AURORA] = {
++		.name = "sswrp-aurora-pd",
++		.sswrp_id = CPM_LGA_SSWRP_AURORA_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_SSWRP_CODEC_3P] = {
++		.name = "sswrp-codec-3p-pd",
++		.sswrp_id = CPM_LGA_SSWRP_CODEC_3P_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_DPU_DP] = {
++		.name = "dpu-dp-pd",
++		.sswrp_id = CPM_LGA_SSWRP_DPU_ID,
++		.subdomain_id = CPM_LGA_DPU_DP_ID,
++		.parent_id = LGA_PD_SSWRP_DPU,
++	},
++	[LGA_PD_SSWRP_DPU] = {
++		.name = "sswrp-dpu-pd",
++		.sswrp_id = CPM_LGA_SSWRP_DPU_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_DPU_FE0] = {
++		.name = "dpu-fe0-pd",
++		.sswrp_id = CPM_LGA_SSWRP_DPU_ID,
++		.subdomain_id = CPM_LGA_DPU_FE0_ID,
++		.parent_id = LGA_PD_DPU_DSI0,
++	},
++	[LGA_PD_DPU_FE1] = {
++		.name = "dpu-fe1-pd",
++		.sswrp_id = CPM_LGA_SSWRP_DPU_ID,
++		.subdomain_id = CPM_LGA_DPU_FE1_ID,
++		.parent_id = LGA_PD_DPU_FE0,
++	},
++	[LGA_PD_DPU_DSI0] = {
++		.name = "dpu-dsi0-pd",
++		.sswrp_id = CPM_LGA_SSWRP_DPU_ID,
++		.subdomain_id = CPM_LGA_DPU_DSI0_ID,
++		.parent_id = LGA_PD_SSWRP_DPU,
++	},
++	[LGA_PD_DPU_DSI1] = {
++		.name = "dpu-dsi1-pd",
++		.sswrp_id = CPM_LGA_SSWRP_DPU_ID,
++		.subdomain_id = CPM_LGA_DPU_DSI1_ID,
++		.parent_id = LGA_PD_SSWRP_DPU,
++	},
++	[LGA_PD_SSWRP_EH] = {
++		.name = "sswrp-eh-pd",
++		.sswrp_id = CPM_LGA_SSWRP_EH_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_SSWRP_G2D] = {
++		.name = "sswrp-g2d-pd",
++		.sswrp_id = CPM_LGA_SSWRP_G2D_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_G2D_CORE] = {
++		.name = "g2d-core-pd",
++		.sswrp_id = CPM_LGA_SSWRP_G2D_ID,
++		.subdomain_id = CPM_LGA_G2D_CORE_ID,
++		.parent_id = LGA_PD_SSWRP_G2D,
++	},
++	[LGA_PD_SSWRP_GPDMA] = {
++		.name = "sswrp-gpdma-pd",
++		.sswrp_id = CPM_LGA_SSWRP_GPDMA_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.on_at_init = true,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_SSWRP_GPU] = {
++		.name = "sswrp-gpu-pd",
++		.sswrp_id = CPM_LGA_SSWRP_GPU_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_SSWRP_GSW] = {
++		.name = "sswrp-gsw-pd",
++		.sswrp_id = CPM_LGA_SSWRP_GSW_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_SSWRP_HSIO_N] = {
++		.name = "sswrp-hsio-n-pd",
++		.sswrp_id = CPM_LGA_SSWRP_HSIO_N_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.on_at_init = true,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_HSIO_N_USB] = {
++		.name = "hsio-n-usb-pd",
++		.sswrp_id = CPM_LGA_SSWRP_HSIO_N_ID,
++		.subdomain_id = CPM_LGA_HSIO_N_USB_ID,
++		.flags = GENPD_FLAG_ACTIVE_WAKEUP,
++		.on_at_init = true,
++		.parent_id = LGA_PD_SSWRP_HSIO_N,
++	},
++	[LGA_PD_HSIO_N_USB_PSW] = {
++		.name = "hsio-n-usb-psw-pd",
++		.sswrp_id = CPM_LGA_SSWRP_HSIO_N_ID,
++		.subdomain_id = CPM_LGA_HSIO_N_USB_PSW_ID,
++		.flags = GENPD_FLAG_ACTIVE_WAKEUP,
++		.on_at_init = true,
++		.parent_id = LGA_PD_HSIO_N_USB,
++	},
++	[LGA_PD_HSIO_N_PCIE] = {
++		.name = "hsio-n-pcie-pd",
++		.sswrp_id = CPM_LGA_SSWRP_HSIO_N_ID,
++		.subdomain_id = CPM_LGA_HSIO_N_PCIE_ID,
++		.flags = GENPD_FLAG_ACTIVE_WAKEUP,
++		.parent_id = LGA_PD_SSWRP_HSIO_N,
++	},
++	[LGA_PD_HSIO_N_DP] = {
++		.name = "hsio-n-dp-pd",
++		.sswrp_id = CPM_LGA_SSWRP_HSIO_N_ID,
++		.subdomain_id = CPM_LGA_HSIO_N_DP_ID,
++		.parent_id = LGA_PD_HSIO_N_USB_PSW,
++	},
++	[LGA_PD_HSIO_N_EBU] = {
++		.name = "hsio-n-ebu-pd",
++		.sswrp_id = CPM_LGA_SSWRP_HSIO_N_ID,
++		.subdomain_id = CPM_LGA_HSIO_N_EBU_ID,
++		.parent_id = LGA_PD_HSIO_N_USB,
++	},
++	[LGA_PD_HSIO_N_EBU_CORE] = {
++		.name = "hsio-n-ebu-core-pd",
++		.sswrp_id = CPM_LGA_SSWRP_HSIO_N_ID,
++		.subdomain_id = CPM_LGA_HSIO_N_EBU_CORE_ID,
++		.parent_id = LGA_PD_HSIO_N_EBU,
++	},
++	[LGA_PD_SSWRP_HSIO_S] = {
++		.name = "sswrp-hsio-s-pd",
++		.sswrp_id = CPM_LGA_SSWRP_HSIO_S_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.flags = GENPD_FLAG_RPM_ALWAYS_ON,
++		.on_at_init = true,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_HSIO_S_UFS_PREP] = {
++		.name = "hsio-s-ufs-prep-pd",
++		.sswrp_id = CPM_LGA_SSWRP_HSIO_S_ID,
++		.subdomain_id = CPM_HSIO_S_UFS_PREP_ID,
++		.on_at_init = true,
++		.parent_id = LGA_PD_SSWRP_HSIO_S,
++	},
++	[LGA_PD_HSIO_S_UFS] = {
++		.name = "hsio-s-ufs-pd",
++		.sswrp_id = CPM_LGA_SSWRP_HSIO_S_ID,
++		.subdomain_id = CPM_LGA_HSIO_S_UFS_ID,
++		.flags = GENPD_FLAG_RPM_ALWAYS_ON,
++		.on_at_init = true,
++		.parent_id = LGA_PD_HSIO_S_UFS_PREP,
++	},
++	[LGA_PD_HSIO_S_PCIE] = {
++		.name = "hsio-s-pcie-pd",
++		.sswrp_id = CPM_LGA_SSWRP_HSIO_S_ID,
++		.subdomain_id = CPM_LGA_HSIO_S_PCIE_ID,
++		.parent_id = LGA_PD_SSWRP_HSIO_S,
++	},
++	[LGA_PD_HSIO_S_SD] = {
++		.name = "hsio-s-sd-pd",
++		.sswrp_id = CPM_LGA_SSWRP_HSIO_S_ID,
++		.subdomain_id = CPM_LGA_HSIO_S_SD_ID,
++		.parent_id = LGA_PD_HSIO_S_UFS,
++	},
++	[LGA_PD_SSWRP_ISPBE] = {
++		.name = "sswrp-ispbe-pd",
++		.sswrp_id = CPM_LGA_SSWRP_ISPBE_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_SSWRP_ISPFE] = {
++		.name = "sswrp-ispfe-pd",
++		.sswrp_id = CPM_LGA_SSWRP_ISPFE_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_ISPFE_PIPE] = {
++		.name = "ispfe-pipe-pd",
++		.sswrp_id = CPM_LGA_SSWRP_ISPFE_ID,
++		.subdomain_id = CPM_LGA_ISPFE_PIPE_ID,
++		.parent_id = LGA_PD_SSWRP_ISPFE,
++	},
++	[LGA_PD_ISPFE_CSIS] = {
++		.name = "ispfe-csis-pd",
++		.sswrp_id = CPM_LGA_SSWRP_ISPFE_ID,
++		.subdomain_id = CPM_LGA_ISPFE_CSIS_ID,
++		.parent_id = LGA_PD_SSWRP_ISPFE,
++	},
++	[LGA_PD_SSWRP_LSIO_E] = {
++		.name = "sswrp-lsio-e-pd",
++		.sswrp_id = CPM_LGA_SSWRP_LSIO_E_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.flags = GENPD_FLAG_RPM_ALWAYS_ON,
++		.on_at_init = true,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_LSIO_E_CLI_GPIO] = {
++		.name = "lsio-e-cli-gpio-pd",
++		.sswrp_id = CPM_LGA_SSWRP_LSIO_E_ID,
++		.subdomain_id = CPM_LGA_LSIO_CLI_GPIO_ID,
++		.flags = GENPD_FLAG_RPM_ALWAYS_ON,
++		.on_at_init = true,
++		.use_smc = true,
++		.parent_id = LGA_PD_SSWRP_LSIO_E,
++	},
++	[LGA_PD_SSWRP_LSIO_N] = {
++		.name = "sswrp-lsio-n-pd",
++		.sswrp_id = CPM_LGA_SSWRP_LSIO_N_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.on_at_init = true,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_LSIO_N_CLI_GPIO] = {
++		.name = "lsio-n-cli-gpio-pd",
++		.sswrp_id = CPM_LGA_SSWRP_LSIO_N_ID,
++		.subdomain_id = CPM_LGA_LSIO_CLI_GPIO_ID,
++		.on_at_init = true,
++		.parent_id = LGA_PD_SSWRP_LSIO_N,
++	},
++	[LGA_PD_SSWRP_LSIO_S] = {
++		.name = "sswrp-lsio-s-pd",
++		.sswrp_id = CPM_LGA_SSWRP_LSIO_S_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.on_at_init = true,
++		.parent_id = NOT_SUPPORTED,
++	},
++	[LGA_PD_LSIO_S_CLI_GPIO] = {
++		.name = "lsio-s-cli-gpio-pd",
++		.sswrp_id = CPM_LGA_SSWRP_LSIO_S_ID,
++		.subdomain_id = CPM_LGA_LSIO_CLI_GPIO_ID,
++		.on_at_init = true,
++		.parent_id = LGA_PD_SSWRP_LSIO_S,
++	},
++	[LGA_PD_SSWRP_TPU] = {
++		.name = "sswrp-tpu-pd",
++		.sswrp_id = CPM_LGA_SSWRP_TPU_ID,
++		.subdomain_id = NOT_SUPPORTED,
++		.flags = GENPD_FLAG_ACTIVE_WAKEUP,
++		.parent_id = NOT_SUPPORTED,
++	},
++};
++
++struct cpm_power_desc {
++	const int *sswrp_to_lpb_ids;
++	const int *sswrp_to_lpcm_ids;
++	const struct cpm_power_domain_desc *domains;
++	size_t num_domains;
++};
++
++static const struct cpm_power_desc lga_cpm_power_desc = {
++	.sswrp_to_lpb_ids = lga_sswrp_to_lpb,
++	.sswrp_to_lpcm_ids = lga_sswrp_to_lpcm,
++	.domains = lga_pm_domains,
++	.num_domains = ARRAY_SIZE(lga_pm_domains),
++};
++
++#endif /* _CPM_POWER_LGA_H */
+diff --git a/drivers/pmdomain/google/cpm-power-trace.h b/drivers/pmdomain/google/cpm-power-trace.h
+new file mode 100644
+index 000000000000..14c4c3c8e7d8
+--- /dev/null
++++ b/drivers/pmdomain/google/cpm-power-trace.h
+@@ -0,0 +1,80 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright 2023-2026 Google LLC
 + */
 +
-+#define LSIOS_GPIO_CLK			0
-+#define LSIOS_MCLK0_CLK			1
-+#define LSIOS_PWM_CLK			2
-+#define LSIOS_PWM_CFG_CLK		3
-+#define LSIOS_CLI0_CFG_CLK		4
-+#define LSIOS_CLI1_CFG_CLK		5
-+#define LSIOS_CLI2_CFG_CLK		6
-+#define LSIOS_CLI3_CFG_CLK		7
-+#define LSIOS_CLI4_CFG_CLK		8
-+#define LSIOS_CLI5_CFG_CLK		9
-+#define LSIOS_CLI6_CFG_CLK		10
-+#define LSIOS_CLI0_SPI_CLK		11
-+#define LSIOS_CLI1_SPI_CLK		12
-+#define LSIOS_CLI2_SPI_CLK		13
-+#define LSIOS_CLI3_SPI_CLK		14
-+#define LSIOS_CLI4_SPI_CLK		15
-+#define LSIOS_CLI5_SPI_CLK		16
-+#define LSIOS_CLI6_SPI_CLK		17
-+#define LSIOS_CLI0_I2C_CLK		18
-+#define LSIOS_CLI1_I2C_CLK		19
-+#define LSIOS_CLI2_I2C_CLK		20
-+#define LSIOS_CLI3_I2C_CLK		21
-+#define LSIOS_CLI4_I2C_CLK		22
-+#define LSIOS_CLI5_I2C_CLK		23
-+#define LSIOS_CLI6_I2C_CLK		24
-+#define LSIOS_CLI0_UART_CLK		25
-+#define LSIOS_CLI1_UART_CLK		26
-+#define LSIOS_CLI2_UART_CLK		27
-+#define LSIOS_CLI3_UART_CLK		28
-+#define LSIOS_CLI4_UART_CLK		29
-+#define LSIOS_CLI5_UART_CLK		30
-+#define LSIOS_CLI6_UART_CLK		31
-+#define LSIOS_CLI0_I3C_CLK		32
-+#define LSIOS_CLI1_I3C_CLK		33
-+#define LSIOS_CLI2_I3C_CLK		34
-+#define LSIOS_CLI3_I3C_CLK		35
-+#define LSIOS_CLI4_I3C_CLK		36
-+#define LSIOS_CLI5_I3C_CLK		37
-+#define LSIOS_CLI6_I3C_CLK		38
-+#define LSIOS_MCLK1_CLK			39
-+#define LSIOS_MCLK2_CLK			40
-+#define LSIOS_MCLK3_CLK			41
-+#define LSIOS_MCLK4_CLK			42
-+#define LSIOS_MCLK5_CLK			43
-+#define LSIOS_MCLK6_CLK			44
-+#define LSIOS_MCLK7_CLK			45
++#undef TRACE_SYSTEM
++#define TRACE_SYSTEM cpm_power
 +
-+#define LSION_GPIO_CLK			0
-+#define LSION_CLI_INT0_I2C_CLK		1
-+#define LSION_CLI_INT0_I3C_CLK		2
-+#define LSION_CLI_INT0_UART_CLK		3
-+#define LSION_CLI_INT0_SPI_CLK		4
-+#define LSION_CLI_INT0_CFG_CLK		5
-+#define LSION_CLI_INT1_I2C_CLK		6
-+#define LSION_CLI_INT1_I3C_CLK		7
-+#define LSION_CLI_INT1_UART_CLK		8
-+#define LSION_CLI_INT1_SPI_CLK		9
-+#define LSION_CLI_INT1_CFG_CLK		10
-+#define LSION_CLI_INT2_I2C_CLK		11
-+#define LSION_CLI_INT2_I3C_CLK		12
-+#define LSION_CLI_INT2_UART_CLK		13
-+#define LSION_CLI_INT2_SPI_CLK		14
-+#define LSION_CLI_INT2_CFG_CLK		15
-+#define LSION_CLI_INT3_I2C_CLK		16
-+#define LSION_CLI_INT3_I3C_CLK		17
-+#define LSION_CLI_INT3_UART_CLK		18
-+#define LSION_CLI_INT3_SPI_CLK		19
-+#define LSION_CLI_INT3_CFG_CLK		20
-+#define LSION_CLI_INT4_I2C_CLK		21
-+#define LSION_CLI_INT4_I3C_CLK		22
-+#define LSION_CLI_INT4_UART_CLK		23
-+#define LSION_CLI_INT4_SPI_CLK		24
-+#define LSION_CLI_INT4_CFG_CLK		25
-+#define LSION_CLI15_CFG_CLK		26
-+#define LSION_CLI16_CFG_CLK		27
-+#define LSION_CLI15_I2C_CLK		28
-+#define LSION_CLI16_I2C_CLK		29
-+#define LSION_CLI15_SPI_CLK		30
-+#define LSION_CLI16_SPI_CLK		31
-+#define LSION_CLI15_UART_CLK		32
-+#define LSION_CLI16_UART_CLK		33
-+#define LSION_CLI15_I3C_CLK		34
-+#define LSION_CLI16_I3C_CLK		35
++#if !defined(_TRACE_CPM_POWER_TRACE_H) || defined(TRACE_HEADER_MULTI_READ)
++#define _TRACE_CPM_POWER_TRACE_H
 +
-+#define LSIOE_GPIO_CLK			0
-+#define LSIOE_CLI7_CFG_CLK		1
-+#define LSIOE_CLI8_CFG_CLK		2
-+#define LSIOE_CLI9_CFG_CLK		3
-+#define LSIOE_CLI10_CFG_CLK		4
-+#define LSIOE_CLI11_CFG_CLK		5
-+#define LSIOE_CLI12_CFG_CLK		6
-+#define LSIOE_CLI13_CFG_CLK		7
-+#define LSIOE_CLI14_CFG_CLK		8
-+#define LSIOE_CLI7_SPI_CLK		9
-+#define LSIOE_CLI8_SPI_CLK		10
-+#define LSIOE_CLI9_SPI_CLK		11
-+#define LSIOE_CLI10_SPI_CLK		12
-+#define LSIOE_CLI11_SPI_CLK		13
-+#define LSIOE_CLI12_SPI_CLK		14
-+#define LSIOE_CLI13_SPI_CLK		15
-+#define LSIOE_CLI14_SPI_CLK		16
-+#define LSIOE_CLI7_I2C_CLK		17
-+#define LSIOE_CLI8_I2C_CLK		18
-+#define LSIOE_CLI9_I2C_CLK		19
-+#define LSIOE_CLI10_I2C_CLK		20
-+#define LSIOE_CLI11_I2C_CLK		21
-+#define LSIOE_CLI12_I2C_CLK		22
-+#define LSIOE_CLI13_I2C_CLK		23
-+#define LSIOE_CLI14_I2C_CLK		24
-+#define LSIOE_CLI7_UART_CLK		25
-+#define LSIOE_CLI8_UART_CLK		26
-+#define LSIOE_CLI9_UART_CLK		27
-+#define LSIOE_CLI10_UART_CLK		28
-+#define LSIOE_CLI11_UART_CLK		29
-+#define LSIOE_CLI12_UART_CLK		30
-+#define LSIOE_CLI13_UART_CLK		31
-+#define LSIOE_CLI14_UART_CLK		32
-+#define LSIOE_SPMI_CLK			33
-+#define LSIOE_CLI7_I3C_CLK		34
-+#define LSIOE_CLI8_I3C_CLK		35
-+#define LSIOE_CLI9_I3C_CLK		36
-+#define LSIOE_CLI10_I3C_CLK		37
-+#define LSIOE_CLI11_I3C_CLK		38
-+#define LSIOE_CLI12_I3C_CLK		39
-+#define LSIOE_CLI13_I3C_CLK		40
-+#define LSIOE_CLI14_I3C_CLK		41
++#include <linux/tracepoint.h>
 +
-+#define HSIOS_MPHY_REF_OSC_CLK		0
-+#define HSIOS_MPHY_REF_TCX0_CLK		1
-+#define HSIOS_GPIO_REF_OSC_CLK		2
-+#define HSIOS_GPIO_REF_TCX0_CLK		3
-+#define HSIOS_HCLK_CLK			4
-+#define HSIOS_SYS_CLK			5
-+#define HSIOS_T_CLK			6
-+#define HSIOS_LP_T_CLK			7
-+#define HSIOS_MPHY_CFG_CLK		8
-+#define HSIOS_UFS_CFG_CLK		9
-+#define HSIOS_PHY_FW_CLK		10
-+#define HSIOS_PCIE_REF_CLK		11
-+#define HSIOS_UFS_RESET_CLK		12
-+#define HSIOS_UFS_LP_RESET_CLK		13
-+#define HSIOS_UFS_ARESET_CLK		14
-+#define HSIOS_UFS_PHY_RESET_CLK		15
-+#define HSIOS_AUX_CLK			16
++DECLARE_EVENT_CLASS(cpm_power_send_mail_events,
++	TP_PROTO(struct cpm_power_domain *pd, bool on),
++	TP_ARGS(pd, on),
++	TP_STRUCT__entry(
++		__string(name, pd->name)
++		__field(unsigned char, sswrp_id)
++		__field(unsigned char, subdomain_id)
++		__field(bool, on)
++	),
++	TP_fast_assign(
++		__assign_str(name);
++		__entry->sswrp_id = pd->sswrp_id;
++		__entry->subdomain_id = pd->cpm_lpcm_subdomain_id;
++		__entry->on = on;
++	),
++	TP_printk("\t%#04x.%02x:%s\ten:%d",
++		  __entry->sswrp_id, __entry->subdomain_id,
++		  __get_str(name), __entry->on)
++);
++DEFINE_EVENT(cpm_power_send_mail_events, send_mail_lpb,
++	TP_PROTO(struct cpm_power_domain *pd, bool on),
++	TP_ARGS(pd, on)
++);
++DEFINE_EVENT(cpm_power_send_mail_events, send_mail_lpcm,
++	TP_PROTO(struct cpm_power_domain *pd, bool on),
++	TP_ARGS(pd, on)
++);
 +
-+#define HSION_USB_CLK			0
-+#define HSION_DP0_CLK			1
-+#define HSION_DP1_CLK			2
-+#define HSION_PHY_FW_CLK		3
-+#define HSION_PCIE_REF_CLK		4
-+#define HSION_U2PHY_REF_CLK		5
-+#define HSION_USBDP_SUSPEND_CLK		6
-+#define HSION_USBC_NON_STICKY_CLK	7
-+#define HSION_USBC_STICKY_CLK		8
-+#define HSION_USB_DRD_BUS_CLK		9
-+#define HSION_CSR_CLK			10
-+#define HSION_USB_TOP_CSR_CLK		11
-+#define HSION_DP_PCLK_CLK		12
-+#define HSION_DP_CFG_CLK		13
-+#define HSION_U2PHY_APB_CLK		14
-+#define HSION_DP_VCC_CLK		15
-+#define HSION_U3PHY_REF_CLK		16
-+#define HSION_USB2_PHY_RESET_CLK	17
-+#define HSION_USB3DP_PHY_RESET_CLK	18
-+#define HSION_EBU_CLK			19
++DECLARE_EVENT_CLASS(cpm_power_mail_result_events,
++	TP_PROTO(struct cpm_power_domain *pd, bool on, int result),
++	TP_ARGS(pd, on, result),
++	TP_STRUCT__entry(
++		__string(name, pd->name)
++		__field(unsigned char, sswrp_id)
++		__field(unsigned char, subdomain_id)
++		__field(bool, on)
++		__field(int, result)
++	),
++	TP_fast_assign(
++		__assign_str(name);
++		__entry->sswrp_id = pd->sswrp_id;
++		__entry->subdomain_id = pd->cpm_lpcm_subdomain_id;
++		__entry->on = on;
++		__entry->result = result;
++	),
++	TP_printk("\t%#04x.%02x:%s\ten:%d (res:%d)",
++		  __entry->sswrp_id, __entry->subdomain_id,
++		  __get_str(name), __entry->on, __entry->result)
++);
++DEFINE_EVENT(cpm_power_mail_result_events, recv_result_lpb,
++	TP_PROTO(struct cpm_power_domain *pd, bool on, int result),
++	TP_ARGS(pd, on, result)
++);
++DEFINE_EVENT(cpm_power_mail_result_events, recv_result_lpcm,
++	TP_PROTO(struct cpm_power_domain *pd, bool on, int result),
++	TP_ARGS(pd, on, result)
++);
 +
-+#define DPU_DP0_PIX_CLK			0
-+#define DPU_DP1_PIX_CLK			1
-+#define DPU_DSI0_PIX_CLK		2
-+#define DPU_DSI1_PIX_CLK		3
-+#define DPU_DSI1_PHY_CLK		4
-+#define DPU_FE0_CLK			5
-+#define DPU_FE1_CLK			6
-+#define DPU_BE_CLK			7
-+#define DPU_AON_CLK			8
++#endif /* _TRACE_CPM_POWER_TRACE_H */
 +
-+#define GPCM_DPU_PLL_DP_CLK		0
-+#define GPCM_HSION_PLL_DP_CLK		1
++#undef TRACE_INCLUDE_PATH
++#define TRACE_INCLUDE_PATH ../drivers/pmdomain/google
 +
-+#define CPU_SSWRP_TSS_CLK		1
++#undef TRACE_INCLUDE_FILE
++#define TRACE_INCLUDE_FILE cpm-power-trace
 +
-+#endif /* __DT_BINDINGS_CLOCK_GOOGLE_LGA_CPM_H */
-diff --git a/include/dt-bindings/interrupt-controller/irq-cpm-google.h b/include/dt-bindings/interrupt-controller/irq-cpm-google.h
++#include <trace/define_trace.h>
+diff --git a/drivers/pmdomain/google/cpm-power.c b/drivers/pmdomain/google/cpm-power.c
 new file mode 100644
-index 000000000000..26d83bfe39af
+index 000000000000..6dc7a61e30ab
 --- /dev/null
-+++ b/include/dt-bindings/interrupt-controller/irq-cpm-google.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++++ b/drivers/pmdomain/google/cpm-power.c
+@@ -0,0 +1,637 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * This header provides constants for CPM IRQ.
++ * Copyright 2023-2026 Google LLC
++ */
++
++#include <dt-bindings/power/google,lga-cpm.h>
++#include <linux/arm-smccc.h>
++#include <linux/atomic.h>
++#include <linux/auxiliary_bus.h>
++#include <linux/bitfield.h>
++#include <linux/completion.h>
++#include <linux/container_of.h>
++#include <linux/debugfs.h>
++#include <linux/dev_printk.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/pm_domain.h>
++#include <soc/google/goog_cpm_service_ids.h>
++#include <soc/google/google-cpm-mba.h>
++
++#include "lpb_service.h"
++
++enum power_state {
++	PD_STATE_OFF = 0,
++	PD_STATE_ON = 1,
++	PD_STATE_COUNT,
++};
++
++struct cpm_power_controller;
++
++struct cpm_power_domain {
++	struct cpm_power_controller *controller;
++	struct generic_pm_domain genpd;
++	const char *name;
++	bool is_top_pd;
++	bool use_smc;
++	int id;
++	int sswrp_id;
++	int subdomain_id;
++	int parent_id;
++	atomic_t state;
++	struct completion cpm_resp_done;
++	/*
++	 * SSWRP ID that CPM uses internally has a different value depending on
++	 * |is_top_pd|:
++	 * - for top power domain, it is cpm_lpb_sswrp_id.
++	 * - for sub power domain, it is cpm_lpcm_sswrp_id.
++	 */
++	union {
++		int cpm_lpcm_sswrp_id;
++		int cpm_lpb_sswrp_id;
++	};
++	int cpm_lpcm_subdomain_id;
++};
++
++struct cpm_power_controller {
++	struct device *dev;
++	struct cpm_client *client;
++	struct dentry *debugfs_root;
++	struct cpm_power_domain *pds;
++	u32 pd_count;
++	struct genpd_onecell_data pd_data;
++};
++
++#define CREATE_TRACE_POINTS
++#include "cpm-power-trace.h"
++
++#include "cpm-power-lga.h"
++
++#define LPCM_CMD_SET_GEN_PD	1
++#define POWER_ON_BITFIELD	GENMASK(31, 24)
++#define PD_ID_BITFIELD		GENMASK(23, 16)
++#define SSWRP_ID_BITFIELD	GENMASK(15, 8)
++#define REQ_ID_BITFIELD		GENMASK(7, 0)
++
++#define NO_ERROR		0
++#define LPB_STATUS_ON		3
++#define LPB_STATUS_OFF		0
++#define LPB_EVENT_ON		0
++#define LPB_EVENT_OFF		1
++#define CPM_COMMON_PROT_NO_ERR	15
++
++#define SIP_SVC_PD_CONTROL	0x82000701
++
++#define ON_OFF_STR(x)		((x) ? "power_on" : "power_off")
++
++#define CPM_MBX_SEND_TIMEOUT_MS	3000
++#define CPM_MBX_RECV_TIMEOUT_MS	3000
++
++static inline struct cpm_power_domain *to_power_domain(struct generic_pm_domain *d)
++{
++	return container_of(d, struct cpm_power_domain, genpd);
++}
++
++/*
++ * This callback is triggered when CPM signals the transition has finished.
++ */
++static void cpm_power_rx_callback(u32 context, const struct cpm_payload *msg, void *priv)
++{
++	struct cpm_power_controller *pc = priv;
++	struct device *dev = pc->dev;
++	struct cpm_power_domain *pd = NULL;
++	u32 resource_sid = msg->payload[0];
++	int i;
++
++	dev_dbg(dev, "rx callback msg %d %d %d\n", msg->payload[0],
++		msg->payload[1], msg->payload[2]);
++
++	for (i = 0; i < pc->pd_count; i++) {
++		/* For MBA service */
++		if (pc->pds[i].is_top_pd &&
++		    pc->pds[i].cpm_lpb_sswrp_id == resource_sid) {
++			pd = &pc->pds[i];
++			break;
++		}
++	}
++	if (!pd) {
++		dev_err(dev,
++			"cannot find corresponding power domain for ID: %d\n",
++			resource_sid);
++		return;
++	}
++
++	dev_dbg(dev, "%s: power transition completed\n", pd->name);
++	complete(&pd->cpm_resp_done);
++}
++
++static int send_lpb_request(struct cpm_power_domain *pd, enum power_state state)
++{
++	struct device *dev = pd->controller->dev;
++	struct cpm_payload resp_msg;
++	struct cpm_payload req_msg = {};
++	struct cpm_request cpm_req = {
++		.msg_type = REQUEST_MSG,
++		.req_msg = &req_msg,
++		.resp_msg = &resp_msg,
++		.dst_id = CPM_COMMON_LPB_SERVICE,
++		.tout_ms = CPM_MBX_SEND_TIMEOUT_MS,
++	};
++	int ret;
++
++	dev_dbg(dev, "%s: %s: sswrp_id = %d\n", pd->name, ON_OFF_STR(state),
++		pd->cpm_lpb_sswrp_id);
++
++	req_msg.payload[0] = LPB_CMD_SSWRP_STATE_SET;
++	req_msg.payload[1] = pd->cpm_lpb_sswrp_id;
++	req_msg.payload[2] = state;
++
++	reinit_completion(&pd->cpm_resp_done);
++
++	trace_send_mail_lpb(pd, state);
++	ret = cpm_send_message(pd->controller->client, &cpm_req);
++
++	if (ret < 0) {
++		dev_err(dev, "%s: %s: send lpb message failed ret (%d)\n",
++			pd->name, ON_OFF_STR(state), ret);
++
++		return ret;
++	}
++
++	dev_dbg(dev, "%s: %s: lpb response msg %d %d %d\n", pd->name,
++		ON_OFF_STR(state), resp_msg.payload[0], resp_msg.payload[1],
++		resp_msg.payload[2]);
++
++	if (resp_msg.payload[0] != CPM_COMMON_PROT_NO_ERR) {
++		/* We failed completely no additional message is waiting */
++		dev_err(dev, "%s: %s: CPM LPB service failed with err=%d\n",
++			pd->name, ON_OFF_STR(state), resp_msg.payload[0]);
++
++		return -EPROTO;
++	}
++
++	switch (resp_msg.payload[1]) {
++	case LPB_SERVICE_CMD_SUCCESS:
++		/* Command requires no asynchronous processing -- we are done */
++		ret = 0;
++		break;
++	case LPB_SERVICE_PWRUP_STARTED:
++	case LPB_SERVICE_PWRDN_STARTED:
++		/*
++		 * We have received the first response for power on/off.  The
++		 * final result will be received asynchronously.
++		 */
++
++		ret = wait_for_completion_timeout(&pd->cpm_resp_done,
++						  msecs_to_jiffies(CPM_MBX_RECV_TIMEOUT_MS));
++		if (ret == 0) {
++			dev_err(dev, "%s: %s: wait for CPM response timeout\n",
++				pd->name, ON_OFF_STR(state));
++			ret = -ETIMEDOUT;
++			break;
++		}
++		ret = 0;
++		break;
++	case LPB_SERVICE_CMD_FAIL:
++	default:
++		/* Command got through but the result was failure */
++		dev_err(dev, "%s: %s: CPM LPB services returned fail, err=%d\n",
++			pd->name, ON_OFF_STR(state), resp_msg.payload[1]);
++		ret = -EPROTO;
++		break;
++	}
++
++	trace_recv_result_lpb(pd, state, ret);
++
++	return ret;
++}
++
++static int request_lpb_vote_status(struct generic_pm_domain *genpd)
++{
++	struct cpm_power_domain *pd = to_power_domain(genpd);
++	struct device *dev = pd->controller->dev;
++	struct cpm_payload resp_msg;
++	struct cpm_payload req_msg = {};
++	struct cpm_request cpm_req = {
++		.msg_type = REQUEST_MSG,
++		.req_msg = &req_msg,
++		.resp_msg = &resp_msg,
++		.dst_id = CPM_COMMON_LPB_SERVICE,
++		.tout_ms = CPM_MBX_SEND_TIMEOUT_MS,
++	};
++	int ret;
++
++	if (!pd->is_top_pd) {
++		dev_warn(dev, "%s: Only SSWRP vote status is supported\n",
++			 pd->name);
++		return -EINVAL;
++	}
++
++	req_msg.payload[0] = LPB_CMD_SSWRP_STATE_GET;
++	req_msg.payload[1] = pd->cpm_lpb_sswrp_id;
++
++	ret = cpm_send_message(pd->controller->client, &cpm_req);
++	if (ret < 0) {
++		dev_err(dev, "%s: failed to get SSWRP state, MBA err: %d\n",
++			pd->name, ret);
++		return ret;
++	}
++
++	return resp_msg.payload[1] == LPB_STATUS_ON ? PD_STATE_ON :
++						      PD_STATE_OFF;
++}
++
++static int send_lpcm_request(struct cpm_power_domain *pd, enum power_state state)
++{
++	struct device *dev = pd->controller->dev;
++	struct cpm_payload resp_msg;
++	struct cpm_payload req_msg = {};
++	struct cpm_request cpm_req = {
++		.msg_type = REQUEST_MSG,
++		.req_msg = &req_msg,
++		.resp_msg = &resp_msg,
++		.dst_id = CPM_COMMON_LPCM_SERVICE,
++		.tout_ms = CPM_MBX_SEND_TIMEOUT_MS,
++	};
++	int ret;
++
++	if (pd->cpm_lpcm_sswrp_id == NOT_SUPPORTED) {
++		dev_err(dev,
++			"%s: %s: ID %d is not supported by LPCM service\n",
++			pd->name, ON_OFF_STR(state), pd->sswrp_id);
++		return -EPROTONOSUPPORT;
++	}
++
++	dev_dbg(dev, "%s: %s: lpcm_id = %d\n", pd->name, ON_OFF_STR(state),
++		pd->cpm_lpcm_sswrp_id);
++	req_msg.payload[0] =
++		FIELD_PREP(REQ_ID_BITFIELD, LPCM_CMD_SET_GEN_PD) |
++		FIELD_PREP(SSWRP_ID_BITFIELD, pd->cpm_lpcm_sswrp_id) |
++		FIELD_PREP(PD_ID_BITFIELD, pd->cpm_lpcm_subdomain_id) |
++		FIELD_PREP(POWER_ON_BITFIELD, state);
++
++	trace_send_mail_lpcm(pd, state);
++	ret = cpm_send_message(pd->controller->client, &cpm_req);
++	trace_recv_result_lpcm(pd, state, resp_msg.payload[0]);
++
++	if (ret < 0) {
++		dev_err(dev, "%s: %s: send lpcm message failed ret (%d)\n",
++			pd->name, ON_OFF_STR(state), ret);
++
++		return ret;
++	}
++
++	dev_dbg(dev, "%s: %s: got resp from %u, data %u %u %u\n", pd->name,
++		ON_OFF_STR(state), cpm_req.dst_id, resp_msg.payload[0],
++		resp_msg.payload[1], resp_msg.payload[2]);
++
++	switch (resp_msg.payload[0]) {
++	case NO_ERROR:
++		dev_dbg(dev, "%s: %s: lpcm service success\n", pd->name,
++			ON_OFF_STR(state));
++		ret = 0;
++		break;
++	default:
++		dev_err(dev, "%s: %s: unknown error code %d\n", pd->name,
++			ON_OFF_STR(state), resp_msg.payload[0]);
++		ret = -EPROTO;
++		break;
++	}
++
++	return ret;
++}
++
++static inline int lpcm_smc(struct cpm_power_domain *pd, enum power_state state)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_smc(SIP_SVC_PD_CONTROL, pd->sswrp_id,
++		      pd->cpm_lpcm_subdomain_id, state, 0, 0, 0, 0, &res);
++
++	WARN_ON(res.a0);
++	if ((unsigned long)res.a1) {
++		dev_err(pd->controller->dev, "Failed SMC call sswrp:%d sub-domain:%d, res.a1:%lu\n",
++			pd->sswrp_id, pd->cpm_lpcm_subdomain_id, res.a1);
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++static int cpm_set_power_state(struct generic_pm_domain *domain, enum power_state state)
++{
++	int ret;
++	struct cpm_power_domain *pd = to_power_domain(domain);
++
++	if (state >= PD_STATE_COUNT || state < 0)
++		return -EINVAL;
++
++	if (pd->use_smc)
++		ret = lpcm_smc(pd, state);
++	else if (pd->is_top_pd)
++		ret = send_lpb_request(pd, state);
++	else
++		ret = send_lpcm_request(pd, state);
++
++	if (!ret)
++		atomic_set(&pd->state, state);
++
++	return ret;
++}
++
++static int cpm_power_on(struct generic_pm_domain *domain)
++{
++	return cpm_set_power_state(domain, PD_STATE_ON);
++}
++
++static int cpm_power_off(struct generic_pm_domain *domain)
++{
++	return cpm_set_power_state(domain, PD_STATE_OFF);
++}
++
++static int cpm_power_apply_desc(struct cpm_power_domain *pd,
++				const struct cpm_power_domain_desc *domain)
++{
++	struct device *dev = pd->controller->dev;
++
++	if (domain->on_at_init)
++		atomic_set(&pd->state, PD_STATE_ON);
++
++	pd->use_smc = domain->use_smc;
++	pd->genpd.flags |= domain->flags;
++
++	/* If we want it "always on", it must already be on. */
++	if (pd->genpd.flags & GENPD_FLAG_ALWAYS_ON) {
++		if (atomic_read(&pd->state) == PD_STATE_OFF) {
++			dev_err(dev, "%s: always-on PM domain is not on\n",
++				pd->name);
++			return -EINVAL;
++		}
++	}
++
++	/* If we want it "RPM always on", it must already be on. */
++	if (pd->genpd.flags & GENPD_FLAG_RPM_ALWAYS_ON) {
++		if (atomic_read(&pd->state) == PD_STATE_OFF) {
++			dev_err(dev, "%s: rpm-always-on PM domain is not on\n",
++				pd->name);
++			return -EINVAL;
++		}
++	}
++
++	if (pd->genpd.flags & GENPD_FLAG_IRQ_SAFE) {
++		if (pd->genpd.flags & GENPD_FLAG_RPM_ALWAYS_ON) {
++			dev_err(dev, "%s: rpm-always-on and irq-safe both set\n",
++				pd->name);
++			return -EINVAL;
++		}
++	}
++
++	return 0;
++}
++
++static struct cpm_power_domain *cpm_find_pd_by_id(struct cpm_power_controller *pc, int id)
++{
++	if (id >= 0 && id < pc->pd_count)
++		return &pc->pds[id];
++	return NULL;
++}
++
++static void cpm_genpd_remove_action(void *data)
++{
++	struct generic_pm_domain *genpd = data;
++
++	pm_genpd_remove(genpd);
++}
++
++static void cpm_genpd_remove_subdomain_action(void *data)
++{
++	struct cpm_power_domain *pd = data;
++	struct cpm_power_domain *parent_pd = cpm_find_pd_by_id(pd->controller, pd->parent_id);
++
++	pm_genpd_remove_subdomain(&parent_pd->genpd, &pd->genpd);
++}
++
++/*
++ * This flag can be dangerous because it allows power on/off a power domain
++ * without changing reference count in genpd core. This can lead to an
++ * inconsistent state where genpd core thinks the domain is ON while it is
++ * actually OFF and vice versa. Only define this flag for testing purposes.
++ */
++static int cpm_power_debugfs_state_set(void *domain, u64 val)
++{
++	struct generic_pm_domain *genpd = domain;
++	int ret = 0;
++
++	dev_dbg(&genpd->dev, "%s\n", ON_OFF_STR(val));
++
++	mutex_lock(&genpd->mlock);
++	if (val)
++		ret = cpm_power_on(genpd);
++	else
++		ret = cpm_power_off(genpd);
++	mutex_unlock(&genpd->mlock);
++
++	return ret;
++}
++
++static int cpm_power_debugfs_state_get(void *domain, u64 *val)
++{
++	struct generic_pm_domain *genpd = domain;
++	int ret;
++
++	ret = request_lpb_vote_status(genpd);
++	if (ret < 0)
++		return ret;
++
++	*val = ret;
++
++	return 0;
++}
++
++DEFINE_DEBUGFS_ATTRIBUTE(cpm_power_debugfs_state_fops,
++			 cpm_power_debugfs_state_get,
++			 cpm_power_debugfs_state_set, "%llu\n");
++
++static void cpm_power_debugfs_init(struct cpm_power_controller *controller)
++{
++	controller->debugfs_root = debugfs_create_dir("cpm-power", NULL);
++
++	for (int i = 0; i < controller->pd_count; ++i) {
++		struct cpm_power_domain *pd = &controller->pds[i];
++		struct dentry *d =
++			debugfs_create_dir(pd->genpd.name,
++					   controller->debugfs_root);
++
++		debugfs_create_file("state", 0660, d, &pd->genpd,
++				    &cpm_power_debugfs_state_fops);
++	}
++}
++
++static void cpm_power_debugfs_remove(struct cpm_power_controller *controller)
++{
++	debugfs_remove_recursive(controller->debugfs_root);
++}
++
++static int cpm_power_probe(struct auxiliary_device *auxdev, const struct auxiliary_device_id *id)
++{
++	struct device *dev = &auxdev->dev;
++	struct cpm_power_controller *controller;
++	const struct cpm_power_desc *desc;
++	int ret, i, pd_count;
++
++	controller = devm_kzalloc(dev, sizeof(*controller), GFP_KERNEL);
++	if (!controller)
++		return -ENOMEM;
++
++	controller->dev = dev;
++
++	auxiliary_set_drvdata(auxdev, controller);
++
++	desc = (const struct cpm_power_desc *)id->driver_data;
++	if (!desc)
++		return -EINVAL;
++
++	pd_count = desc->num_domains;
++	controller->pds = devm_kcalloc(dev, pd_count, sizeof(*controller->pds), GFP_KERNEL);
++	if (!controller->pds)
++		return -ENOMEM;
++	controller->pd_count = pd_count;
++
++	controller->pd_data.domains =
++		devm_kcalloc(dev, pd_count, sizeof(*controller->pd_data.domains),
++			     GFP_KERNEL);
++	if (!controller->pd_data.domains)
++		return -ENOMEM;
++	controller->pd_data.num_domains = pd_count;
++
++	for (i = 0; i < pd_count; i++) {
++		const struct cpm_power_domain_desc *domain = &desc->domains[i];
++		struct cpm_power_domain *pd = &controller->pds[i];
++
++		pd->sswrp_id = domain->sswrp_id;
++		pd->is_top_pd = (domain->subdomain_id == NOT_SUPPORTED);
++		atomic_set(&pd->state, PD_STATE_OFF);
++		pd->name = domain->name;
++		pd->controller = controller;
++		pd->genpd.name = domain->name;
++		pd->genpd.power_on = cpm_power_on;
++		pd->genpd.power_off = cpm_power_off;
++		pd->id = i;
++		pd->subdomain_id = domain->subdomain_id;
++		pd->parent_id = domain->parent_id;
++
++		pd->cpm_lpcm_subdomain_id = domain->subdomain_id;
++
++		if (pd->is_top_pd && desc->sswrp_to_lpb_ids)
++			pd->cpm_lpb_sswrp_id =
++				desc->sswrp_to_lpb_ids[pd->sswrp_id];
++		else if (desc->sswrp_to_lpcm_ids)
++			pd->cpm_lpcm_sswrp_id =
++				desc->sswrp_to_lpcm_ids[pd->sswrp_id];
++		else
++			return -EINVAL;
++
++		init_completion(&pd->cpm_resp_done);
++
++		ret = cpm_power_apply_desc(pd, domain);
++		if (ret) {
++			dev_err(dev, "%s: failed to parse attributes\n",
++				pd->name);
++			return ret;
++		}
++	}
++
++	controller->client =
++		devm_cpm_request_client(dev,
++					APC_COMMON_SERVICE_ID_POWER_CONTROLLER,
++					cpm_power_rx_callback,
++					controller);
++	if (IS_ERR(controller->client))
++		return dev_err_probe(dev, PTR_ERR(controller->client),
++				     "failed to request mailbox channel\n");
++
++	/* First, register all domains. */
++	for (i = 0; i < pd_count; i++) {
++		struct cpm_power_domain *pd = &controller->pds[i];
++
++		ret = pm_genpd_init(&pd->genpd, NULL,
++				    atomic_read(&pd->state) == PD_STATE_OFF);
++		if (ret) {
++			dev_err(dev, "%s: failed to init power domain\n",
++				pd->name);
++			return ret;
++		}
++
++		ret = devm_add_action_or_reset(dev, cpm_genpd_remove_action, &pd->genpd);
++		if (ret)
++			return ret;
++
++		controller->pd_data.domains[i] = &pd->genpd;
++	}
++
++	/* Next, link subdomains to their parents. */
++	for (i = 0; i < pd_count; i++) {
++		struct cpm_power_domain *pd = &controller->pds[i];
++		struct cpm_power_domain *parent_pd;
++
++		if (pd->parent_id == NOT_SUPPORTED)
++			continue;
++
++		parent_pd = cpm_find_pd_by_id(controller, pd->parent_id);
++		if (!parent_pd) {
++			dev_err(dev, "failed to find parent for %s\n", pd->name);
++			return -EINVAL;
++		}
++		ret = pm_genpd_add_subdomain(&parent_pd->genpd, &pd->genpd);
++		if (ret) {
++			dev_err(dev, "failed to add subdomain %s to %s: %d\n",
++				pd->name, parent_pd->name, ret);
++			return ret;
++		}
++		ret = devm_add_action_or_reset(dev, cpm_genpd_remove_subdomain_action, pd);
++		if (ret)
++			return ret;
++	}
++
++	ret = of_genpd_add_provider_onecell(dev->of_node, &controller->pd_data);
++	if (ret) {
++		dev_err(dev, "failed to add genpd provider: %d\n", ret);
++		return ret;
++	}
++
++	cpm_power_debugfs_init(controller);
++
++	return 0;
++}
++
++static void cpm_power_remove(struct auxiliary_device *auxdev)
++{
++	struct cpm_power_controller *controller = auxiliary_get_drvdata(auxdev);
++	struct device *dev = &auxdev->dev;
++	struct device_node *np = dev->of_node;
++
++	cpm_power_debugfs_remove(controller);
++
++	of_genpd_del_provider(np);
++}
++
++static const struct auxiliary_device_id cpm_power_id_table[] = {
++	{
++		.name = "google_cpm_mba.power-controller",
++		.driver_data = (kernel_ulong_t)&lga_cpm_power_desc,
++	},
++	{},
++};
++MODULE_DEVICE_TABLE(auxiliary, cpm_power_id_table);
++
++static struct auxiliary_driver cpm_power_driver = {
++	.probe = cpm_power_probe,
++	.remove = cpm_power_remove,
++	.name = "cpm-power-controller",
++	.id_table = cpm_power_id_table,
++};
++
++module_auxiliary_driver(cpm_power_driver);
++
++MODULE_DESCRIPTION("Google Tensor CPM power controller driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/pmdomain/google/lpb_service.h b/drivers/pmdomain/google/lpb_service.h
+new file mode 100644
+index 000000000000..4b84e2b8a5a8
+--- /dev/null
++++ b/drivers/pmdomain/google/lpb_service.h
+@@ -0,0 +1,200 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright 2023-2026 Google LLC
++ */
++#ifndef _GOOGLE_LPB_SERVICE_H
++#define _GOOGLE_LPB_SERVICE_H
++
++/* Contains definitions needed to use the LPB mailbox service */
++
++/*
++ * SERVICE_ID: CPM_COMMON_LPB_SERVICE
 + *
-+ * Copyright 2025-2026 Google LLC
++ * Disabled for production
++ * CLI to test LPB
 + *
++ * CMD: LPB_CMD_DEBUG_SET, LPB_CMD_SSWRP_STATE_SET
++ * Queue Mode:
++ * Word 0: Queue mode header
++ * Word 1: Cmd: LPB_CMD_DEBUG_SET | LPB_CMD_SSWRP_STATE_SET
++ *  bit [ 31 - 0 ]
++ *      | cmd    |
++ * Word 2: LPB SERVICE SSWRP ID
++ *  bit [ 31 - 0 ]
++ *      | SERVICE SSWRP ID |
++ * Word 3: Set on or off (1 is on, anything else is off)
++ *  bit [ 31 - 0 ]
++ *      | state  |
++ *
++ * Response:
++ * Word 0: Queue mode header
++ * Word 1: CPM_COMMON_PROT_NO_ERR on success, else error
++ *  bit [ 31 - 0                 ]
++ *      | cpm_common_mba_error_t |
++ * Word 2:
++ *  bit [ 31 - 0                   ]
++ *      | lpb_service_cmd_status_t |
++ * Word 3: LPB Service ID that was changed
++ *  bit [ 31 - 0           ]
++ *      | Service SSWRP ID |
++ *
++ * Polling Mode:
++ * Word 0: Header and data (1 to set on, 0 to set off)
++ *         cmd: LPB_CMD_DEBUG_SET | LPB_CMD_SSWRP_STATE_SET
++ *  bit [ 31 - 16             | 15-0 ]
++ *      | polling mode header | cmd  |
++ * Word 1: LPB SERVICE SSWRP ID
++ *  bit [ 31 - 0 ]
++ *      | SERVICE SSWRP ID |
++ * Word 2: state (1 on, 0 off)
++ *  bit [ 31 - 0 ]
++ *      | state  |
++ *
++ * Response:
++ * Word 0: Header
++ *  bit [ 31 - 16             | 15 - 0 ]
++ *      | polling mode header | unused |
++ * Word 1: CPM_COMMON_PROT_NO_ERR on success, else error
++ *  bit [ 31 - 0                 ]
++ *      | cpm_common_mba_error_t |
++ * Word 2:
++ *  bit [ 31 - 0                   ]
++ *      | lpb_service_cmd_status_t |
++ * Word 3: LPB Service ID that was changed
++ *  bit [ 31 - 0           ]
++ *      | Service SSWRP ID |
++ *
++ * CMD: LPB_CMD_DEBUG_SET, LPB_CMD_SSWRP_STATE_SET
++ *
++ * CMD: LPB_CMD_SSWRP_STATE_GET
++ * Queue Mode: Not supported at this time
++ * Polling Mode:
++ * Word 0: Header and data (1 to set on, 0 to set off)
++ *         cmd: LPB_CMD_SSWRP_STATE_GET
++ *  bit [ 31 - 16             | 15-0 ]
++ *      | polling mode header | cmd  |
++ * Word 1: LPB SERVICE SSWRP ID
++ *  bit [ 31 - 0           ]
++ *      | SERVICE SSWRP ID |
++ *
++ * Response:
++ * Word 0: Header
++ *  bit [ 31 - 16             | 15 - 0 ]
++ *      | polling mode header | unused |
++ * Word 1: lpb_service_state_t (LPB_SERVICE_STATE_ON | LPB_SERVICE_STATE_OFF)
++ *  bit [ 31 - 0              ]
++ *      | lpb_service_state_t |
++ *
++ * CMD: LPB_CMD_SSWRP_STATE_GET
++ *
++ * CMD: LPB_CMD_REQ_DRAM_STATE
++ * Polling Mode:
++ * Word 0: Header and data (1 to set on, 0 to set off)
++ *         cmd: LPB_CMD_REQ_DRAM_STATE
++ *  bit [ 31 - 16             | 15-0 ]
++ *      | polling mode header | cmd  |
++ * Word 1: state (1 on, all else off)
++ *  bit [ 31 - 0 ]
++ *      | state  |
++ *
++ * Response:
++ * Word 0: Header
++ *  bit [ 31 - 16             | 15 - 0 ]
++ *      | polling mode header | unused |
++ * Word 1: Error code (CPM_COMMON_PROT_NO_ERR for success, else an error code)
++ *  bit [ 31 - 0     ]
++ *      | error code |
++ *
++ * CMD: LPB_CMD_REQ_DRAM_STATE
++ *
++ * CMD: LPB_CMD_GET_DRAM_STATE
++ * Polling Mode:
++ * Word 0: Header and data (1 to set on, 0 to set off)
++ *         cmd: LPB_CMD_GET_DRAM_STATE
++ *  bit [ 31 - 16             | 15-0 ]
++ *      | polling mode header | cmd  |
++ *
++ * Response:
++ * Word 0: Header
++ *  bit [ 31 - 16             | 15 - 0 ]
++ *      | polling mode header | unused |
++ * Word 1: 0 for OFF, 1 for ON, else CPM_COMMON_PROT_GENERIC_ERR
++ *  bit [ 31 - 0     ]
++ *      | state |
++ *
++ * CMD: LPB_CMD_GET_DRAM_STATE
++ *
++ * SERVICE_ID: CPM_COMMON_LPB_SERVICE
 + */
-+#ifndef _DT_BINDINGS_INTERRUPT_CONTROLLER_IRQ_CPM_H
-+#define _DT_BINDINGS_INTERRUPT_CONTROLLER_IRQ_CPM_H
-+
-+#define CPM_IRQ_RTC_ALARM_NO			0
-+#define CPM_IRQ_AOC_MIN				7
-+#define CPM_IRQ_AOC_MAX				156
-+#define CPM_IRQ_AP_GDMC_WAKE			157
-+
-+#endif  /* _DT_BINDINGS_INTERRUPT_CONTROLLER_IRQ_CPM_H */
-diff --git a/include/dt-bindings/power/google,lga-cpm.h b/include/dt-bindings/power/google,lga-cpm.h
-new file mode 100644
-index 000000000000..4b35c59df2cc
---- /dev/null
-+++ b/include/dt-bindings/power/google,lga-cpm.h
-@@ -0,0 +1,79 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+
-+#ifndef __DT_BINDINGS_POWER_GOOGLE_LGA_CPM_H
-+#define __DT_BINDINGS_POWER_GOOGLE_LGA_CPM_H
-+
-+/* AOC */
-+#define LGA_PD_SSWRP_AOC		0
-+#define LGA_PD_AOC_CORE			1
-+
-+/* AURORA */
-+#define LGA_PD_SSWRP_AURORA		2
-+
-+/* CODEC_3P */
-+#define LGA_PD_SSWRP_CODEC_3P		3
-+
-+/* DPU */
-+#define LGA_PD_DPU_DP			4
-+#define LGA_PD_SSWRP_DPU		5
-+#define LGA_PD_DPU_FE0			6
-+#define LGA_PD_DPU_FE1			7
-+#define LGA_PD_DPU_DSI0			8
-+#define LGA_PD_DPU_DSI1			9
-+
-+/* EH */
-+#define LGA_PD_SSWRP_EH			10
-+
-+/* G2D */
-+#define LGA_PD_SSWRP_G2D		11
-+#define LGA_PD_G2D_CORE			12
-+
-+/* GPDMA */
-+#define LGA_PD_SSWRP_GPDMA		13
-+
-+/* GPU */
-+#define LGA_PD_SSWRP_GPU		14
-+
-+/* GSW */
-+#define LGA_PD_SSWRP_GSW		15
-+
-+/* HSIO_N */
-+#define LGA_PD_SSWRP_HSIO_N		16
-+#define LGA_PD_HSIO_N_USB		17
-+#define LGA_PD_HSIO_N_USB_PSW		18
-+#define LGA_PD_HSIO_N_PCIE		19
-+#define LGA_PD_HSIO_N_DP		20
-+#define LGA_PD_HSIO_N_EBU		21
-+#define LGA_PD_HSIO_N_EBU_CORE		22
-+
-+/* HSIO_S */
-+#define LGA_PD_SSWRP_HSIO_S		23
-+#define LGA_PD_HSIO_S_UFS_PREP		24
-+#define LGA_PD_HSIO_S_UFS		25
-+#define LGA_PD_HSIO_S_PCIE		26
-+#define LGA_PD_HSIO_S_SD		27
-+
-+/* ISPBE */
-+#define LGA_PD_SSWRP_ISPBE		28
-+
-+/* ISPFE */
-+#define LGA_PD_SSWRP_ISPFE		29
-+#define LGA_PD_ISPFE_PIPE		30
-+#define LGA_PD_ISPFE_CSIS		31
-+
-+/* LSIO_E */
-+#define LGA_PD_SSWRP_LSIO_E		32
-+#define LGA_PD_LSIO_E_CLI_GPIO		33
-+
-+/* LSIO_N */
-+#define LGA_PD_SSWRP_LSIO_N		34
-+#define LGA_PD_LSIO_N_CLI_GPIO		35
-+
-+/* LSIO_S */
-+#define LGA_PD_SSWRP_LSIO_S		36
-+#define LGA_PD_LSIO_S_CLI_GPIO		37
-+
-+/* TPU */
-+#define LGA_PD_SSWRP_TPU		38
-+
-+#endif /* __DT_BINDINGS_POWER_GOOGLE_LGA_CPM_H */
-diff --git a/include/dt-bindings/reset/google,lga-cpm-reset.h b/include/dt-bindings/reset/google,lga-cpm-reset.h
-new file mode 100644
-index 000000000000..d147296dbffc
---- /dev/null
-+++ b/include/dt-bindings/reset/google,lga-cpm-reset.h
-@@ -0,0 +1,175 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+
-+#ifndef __DT_BINDINGS_RESET_GOOGLE_LGA_CPM_RESET_H
-+#define __DT_BINDINGS_RESET_GOOGLE_LGA_CPM_RESET_H
-+
-+/* HSION */
-+#define HSION_PCIE_PERST_RST			0
-+#define HSION_PCIE_APP_HOLD_PHY_RST		1
-+#define HSION_PCIE_INIT_RST			2
-+#define HSION_PCIE_PWR_UP_RST			3
-+#define HSION_USB_DP_CFG_RST			4
-+#define HSION_DP_PCLK_RST			5
-+#define HSION_USB_TOP_CSR_RST			6
-+#define HSION_PIXEL_CK0_RST			7
-+#define HSION_PIXEL_CK1_RST			8
-+#define HSION_U2PHY_APB_RST			9
-+#define HSION_USBC_NON_STICKY_RST		10
-+#define HSION_USBC_STICKY_RST			11
-+#define HSION_USB_DRD_BUS_RST			12
-+#define HSION_USB2_PHY_RESET			13
-+#define HSION_USB3DP_PHY_RESET			14
-+#define HSION_EBU_RST				15
-+
-+/* HSIOS */
-+#define HSIOS_PCIE_PERST_RST			0
-+#define HSIOS_PCIE_APP_HOLD_PHY_RST		1
-+#define HSIOS_PCIE_PWR_UP_RST			2
-+#define HSIOS_UFS_PHY_RST			3
-+#define HSIOS_PCIE_INIT_RST			4
-+
-+/* LSIOS */
-+#define LSIOS_CLI0_I2C_IC_CFG_RST		0
-+#define LSIOS_CLI0_I3C_IC_CFG_RST		1
-+#define LSIOS_CLI0_UART_IC_CFG_RST		2
-+#define LSIOS_CLI0_SPI_IC_CFG_RST		3
-+#define LSIOS_CLI1_I2C_IC_CFG_RST		4
-+#define LSIOS_CLI1_I3C_IC_CFG_RST		5
-+#define LSIOS_CLI1_UART_IC_CFG_RST		6
-+#define LSIOS_CLI1_SPI_IC_CFG_RST		7
-+#define LSIOS_CLI2_I2C_IC_CFG_RST		8
-+#define LSIOS_CLI2_I3C_IC_CFG_RST		9
-+#define LSIOS_CLI2_UART_IC_CFG_RST		10
-+#define LSIOS_CLI2_SPI_IC_CFG_RST		11
-+#define LSIOS_CLI3_I2C_IC_CFG_RST		12
-+#define LSIOS_CLI3_I3C_IC_CFG_RST		13
-+#define LSIOS_CLI3_UART_IC_CFG_RST		14
-+#define LSIOS_CLI3_SPI_IC_CFG_RST		15
-+#define LSIOS_CLI4_I2C_IC_CFG_RST		16
-+#define LSIOS_CLI4_I3C_IC_CFG_RST		17
-+#define LSIOS_CLI4_UART_IC_CFG_RST		18
-+#define LSIOS_CLI4_SPI_IC_CFG_RST		19
-+#define LSIOS_CLI5_I2C_IC_CFG_RST		20
-+#define LSIOS_CLI5_I3C_IC_CFG_RST		21
-+#define LSIOS_CLI5_UART_IC_CFG_RST		22
-+#define LSIOS_CLI5_SPI_IC_CFG_RST		23
-+#define LSIOS_CLI6_I2C_IC_CFG_RST		24
-+#define LSIOS_CLI6_I3C_IC_CFG_RST		25
-+#define LSIOS_CLI6_UART_IC_CFG_RST		26
-+#define LSIOS_CLI6_SPI_IC_CFG_RST		27
-+#define LSIOS_CLI0_SPI_IC_RST			28
-+#define LSIOS_CLI1_SPI_IC_RST			29
-+#define LSIOS_CLI2_SPI_IC_RST			30
-+#define LSIOS_CLI3_SPI_IC_RST			31
-+#define LSIOS_CLI4_SPI_IC_RST			32
-+#define LSIOS_CLI5_SPI_IC_RST			33
-+#define LSIOS_CLI6_SPI_IC_RST			34
-+#define LSIOS_CLI0_SPI_CFG_RST			35
-+#define LSIOS_CLI1_SPI_CFG_RST			36
-+#define LSIOS_CLI2_SPI_CFG_RST			37
-+#define LSIOS_CLI3_SPI_CFG_RST			38
-+#define LSIOS_CLI4_SPI_CFG_RST			39
-+#define LSIOS_CLI5_SPI_CFG_RST			40
-+#define LSIOS_CLI6_SPI_CFG_RST			41
-+#define LSIOS_PWM_IC_RST			42
-+#define LSIOS_PWM_CFG_RST			43
-+#define LSIOS_GPIO_IC_RST			44
-+
-+/* LSION */
-+#define LSION_CLI15_I2C_IC_CFG_RST		0
-+#define LSION_CLI15_I3C_IC_CFG_RST		1
-+#define LSION_CLI15_UART_IC_CFG_RST		2
-+#define LSION_CLI15_SPI_IC_CFG_RST		3
-+#define LSION_CLI16_I2C_IC_CFG_RST		4
-+#define LSION_CLI16_I3C_IC_CFG_RST		5
-+#define LSION_CLI16_UART_IC_CFG_RST		6
-+#define LSION_CLI16_SPI_IC_CFG_RST		7
-+#define LSION_CLI17_INT0_I2C_IC_CFG_RST		8
-+#define LSION_CLI17_INT0_I3C_IC_CFG_RST		9
-+#define LSION_CLI17_INT0_UART_IC_CFG_RST	10
-+#define LSION_CLI17_INT0_SPI_IC_CFG_RST		11
-+#define LSION_CLI18_INT1_I2C_IC_CFG_RST		12
-+#define LSION_CLI18_INT1_I3C_IC_CFG_RST		13
-+#define LSION_CLI18_INT1_UART_IC_CFG_RST	14
-+#define LSION_CLI18_INT1_SPI_IC_CFG_RST		15
-+#define LSION_CLI19_INT2_I2C_IC_CFG_RST		16
-+#define LSION_CLI19_INT2_I3C_IC_CFG_RST		17
-+#define LSION_CLI19_INT2_UART_IC_CFG_RST	18
-+#define LSION_CLI19_INT2_SPI_IC_CFG_RST		19
-+#define LSION_CLI20_INT3_I2C_IC_CFG_RST		20
-+#define LSION_CLI20_INT3_I3C_IC_CFG_RST		21
-+#define LSION_CLI20_INT3_UART_IC_CFG_RST	22
-+#define LSION_CLI20_INT3_SPI_IC_CFG_RST		23
-+#define LSION_CLI21_INT4_I2C_IC_CFG_RST		24
-+#define LSION_CLI21_INT4_I3C_IC_CFG_RST		25
-+#define LSION_CLI21_INT4_UART_IC_CFG_RST	26
-+#define LSION_CLI21_INT4_SPI_IC_CFG_RST		27
-+#define LSION_CLI15_SPI_IC_RST			28
-+#define LSION_CLI16_SPI_IC_RST			29
-+#define LSION_CLI17_INT0_SPI_IC_RST		30
-+#define LSION_CLI18_INT1_SPI_IC_RST		31
-+#define LSION_CLI19_INT2_SPI_IC_RST		32
-+#define LSION_CLI20_INT3_SPI_IC_RST		33
-+#define LSION_CLI21_INT4_SPI_IC_RST		34
-+#define LSION_CLI15_SPI_CFG_RST			35
-+#define LSION_CLI16_SPI_CFG_RST			36
-+#define LSION_CLI17_INT0_SPI_CFG_RST		37
-+#define LSION_CLI18_INT1_SPI_CFG_RST		38
-+#define LSION_CLI19_INT2_SPI_CFG_RST		39
-+#define LSION_CLI20_INT3_SPI_CFG_RST		40
-+#define LSION_CLI21_INT4_SPI_CFG_RST		41
-+#define LSION_GPIO_IC_RST			42
-+
-+/* LSIOE */
-+#define LSIOE_CLI7_I2C_IC_CFG_RST		0
-+#define LSIOE_CLI7_I3C_IC_CFG_RST		1
-+#define LSIOE_CLI7_UART_IC_CFG_RST		2
-+#define LSIOE_CLI7_SPI_IC_CFG_RST		3
-+#define LSIOE_CLI8_I2C_IC_CFG_RST		4
-+#define LSIOE_CLI8_I3C_IC_CFG_RST		5
-+#define LSIOE_CLI8_UART_IC_CFG_RST		6
-+#define LSIOE_CLI8_SPI_IC_CFG_RST		7
-+#define LSIOE_CLI9_I2C_IC_CFG_RST		8
-+#define LSIOE_CLI9_I3C_IC_CFG_RST		9
-+#define LSIOE_CLI9_UART_IC_CFG_RST		10
-+#define LSIOE_CLI9_SPI_IC_CFG_RST		11
-+#define LSIOE_CLI10_I2C_IC_CFG_RST		12
-+#define LSIOE_CLI10_I3C_IC_CFG_RST		13
-+#define LSIOE_CLI10_UART_IC_CFG_RST		14
-+#define LSIOE_CLI10_SPI_IC_CFG_RST		15
-+#define LSIOE_CLI11_I2C_IC_CFG_RST		16
-+#define LSIOE_CLI11_I3C_IC_CFG_RST		17
-+#define LSIOE_CLI11_UART_IC_CFG_RST		18
-+#define LSIOE_CLI11_SPI_IC_CFG_RST		19
-+#define LSIOE_CLI12_I2C_IC_CFG_RST		20
-+#define LSIOE_CLI12_I3C_IC_CFG_RST		21
-+#define LSIOE_CLI12_UART_IC_CFG_RST		22
-+#define LSIOE_CLI12_SPI_IC_CFG_RST		23
-+#define LSIOE_CLI13_I2C_IC_CFG_RST		24
-+#define LSIOE_CLI13_I3C_IC_CFG_RST		25
-+#define LSIOE_CLI13_UART_IC_CFG_RST		26
-+#define LSIOE_CLI13_SPI_IC_CFG_RST		27
-+#define LSIOE_CLI14_I2C_IC_CFG_RST		28
-+#define LSIOE_CLI14_I3C_IC_CFG_RST		29
-+#define LSIOE_CLI14_UART_IC_CFG_RST		30
-+#define LSIOE_CLI14_SPI_IC_CFG_RST		31
-+#define LSIOE_CLI7_SPI_IC_RST			32
-+#define LSIOE_CLI8_SPI_IC_RST			33
-+#define LSIOE_CLI9_SPI_IC_RST			34
-+#define LSIOE_CLI10_SPI_IC_RST			35
-+#define LSIOE_CLI11_SPI_IC_RST			36
-+#define LSIOE_CLI12_SPI_IC_RST			37
-+#define LSIOE_CLI13_SPI_IC_RST			38
-+#define LSIOE_CLI14_SPI_IC_RST			39
-+#define LSIOE_CLI7_SPI_CFG_RST			40
-+#define LSIOE_CLI8_SPI_CFG_RST			41
-+#define LSIOE_CLI9_SPI_CFG_RST			42
-+#define LSIOE_CLI10_SPI_CFG_RST			43
-+#define LSIOE_CLI11_SPI_CFG_RST			44
-+#define LSIOE_CLI12_SPI_CFG_RST			45
-+#define LSIOE_CLI13_SPI_CFG_RST			46
-+#define LSIOE_CLI14_SPI_CFG_RST			47
-+#define LSIOE_GPIO_IC_RST			48
-+#define LSIOE_SPMI_RST				49
-+
-+#endif /* __DT_BINDINGS_RESET_GOOGLE_LGA_CPM_RESET_H */
-diff --git a/include/dt-bindings/soc/google,lga-lpcm.h b/include/dt-bindings/soc/google,lga-lpcm.h
-new file mode 100644
-index 000000000000..d1944afff2b9
---- /dev/null
-+++ b/include/dt-bindings/soc/google,lga-lpcm.h
-@@ -0,0 +1,54 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+
-+#ifndef __DT_BINDINGS_SOC_GOOGLE_LGA_LPCM_H
-+#define __DT_BINDINGS_SOC_GOOGLE_LGA_LPCM_H
 +
 +/*
-+ * LPCM IDs of each SSWRP.
++ * Add all LPB specific definitions here.
++ * Note: CPM, BMSM, and GDMC are not on this list, as they don't have an LPB
++ * sequencer
 + */
-+#define LGA_LPCM_CPM			0
-+#define LGA_LPCM_AOC			1
-+#define LGA_LPCM_LSIO_E			2
-+#define LGA_LPCM_LSIO_N			3
-+#define LGA_LPCM_LSIO_S			4
-+#define LGA_LPCM_HSIO_N			5
-+#define LGA_LPCM_HSIO_S			6
-+#define LGA_LPCM_GPCA			7
-+#define LGA_LPCM_FABHBW			8
-+#define LGA_LPCM_MEMSS			9
-+#define LGA_LPCM_FABMED			10
-+#define LGA_LPCM_FABRT			11
-+#define LGA_LPCM_FABSTBY		12
-+#define LGA_LPCM_FABSYSS		13
-+#define LGA_LPCM_CPU			14
-+#define LGA_LPCM_CPU_MAIN		15
-+#define LGA_LPCM_CPU_CCM0		16
-+#define LGA_LPCM_CPU_CCM1A		17
-+#define LGA_LPCM_CPU_CCM1B		18
-+#define LGA_LPCM_CPU_CCM2		19
-+#define LGA_LPCM_EH			20
-+#define LGA_LPCM_AURORA			21
-+#define LGA_LPCM_CODEC_3P		22
-+#define LGA_LPCM_G2D			23
-+#define LGA_LPCM_GSW			24
-+#define LGA_LPCM_ISPBE			25
-+#define LGA_LPCM_ISPFE			26
-+#define LGA_LPCM_INF_TCU		27
-+#define LGA_LPCM_GPU			28
-+#define LGA_LPCM_GPU_REMOTE_FLL		29
-+#define LGA_LPCM_GPU_REMOTE_SENSOR	30
-+#define LGA_LPCM_TPU			31
-+#define LGA_LPCM_TPU_REMOTE		32
-+#define LGA_LPCM_BMSM			33
-+#define LGA_LPCM_CPUACC			34
-+#define LGA_LPCM_DPU			35
-+#define LGA_LPCM_GDMC			36
-+#define LGA_LPCM_GMC0			37
-+#define LGA_LPCM_GMC1			38
-+#define LGA_LPCM_GMC2			39
-+#define LGA_LPCM_GMC3			40
-+#define LGA_LPCM_GPCM			41
-+#define LGA_LPCM_GPDMA			42
-+#define LGA_LPCM_GSA			43
 +
-+#endif /* __DT_BINDINGS_SOC_GOOGLE_LGA_LPCM_H */
++/* LGA */
++enum lpb_service_sswrp_id {
++	LPB_SERVICE_AOC_ID,
++	LPB_SERVICE_AURORA_ID,
++	LPB_SERVICE_CODEC_3P_ID,
++	LPB_SERVICE_CPU_ID,
++	LPB_SERVICE_CPUACC_ID,
++	LPB_SERVICE_DPU_ID,
++	LPB_SERVICE_EH_ID,
++	LPB_SERVICE_FABHBW_ID,
++	LPB_SERVICE_FABMED_ID,
++	LPB_SERVICE_FABRT_ID,
++	LPB_SERVICE_FABSTBY_ID,
++	LPB_SERVICE_FABSYSS_ID,
++	LPB_SERVICE_G2D_ID,
++	LPB_SERVICE_GMC0_ID,
++	LPB_SERVICE_GMC1_ID,
++	LPB_SERVICE_GMC2_ID,
++	LPB_SERVICE_GMC3_ID,
++	LPB_SERVICE_GPCA_ID,
++	LPB_SERVICE_GPCM_ID,
++	LPB_SERVICE_GPDMA_ID,
++	LPB_SERVICE_GPU_ID,
++	LPB_SERVICE_GSA_ID,
++	LPB_SERVICE_GSW_ID,
++	LPB_SERVICE_HSIO_N_ID,
++	LPB_SERVICE_HSIO_S_ID,
++	LPB_SERVICE_INF_TCU_ID,
++	LPB_SERVICE_ISPBE_ID,
++	LPB_SERVICE_ISPFE_ID,
++	LPB_SERVICE_LSIO_E_ID,
++	LPB_SERVICE_LSIO_N_ID,
++	LPB_SERVICE_LSIO_S_ID,
++	LPB_SERVICE_MEMSS_ID,
++	LPB_SERVICE_TPU_ID,
++	LPB_SERVICE_NUM_SSWRPS,
++};
++
++/*
++ * Used to indicate what has just happened as a result of the below commands.
++ * Can be a generic success/error, or something more meaningful.
++ */
++
++enum lpb_service_cmd_status {
++	LPB_SERVICE_CMD_SUCCESS = 0xf,
++	LPB_SERVICE_CMD_FAIL,
++	LPB_SERVICE_PWRDN_STARTED,
++	LPB_SERVICE_PWRUP_STARTED,
++	LPB_SERVICE_NO_EFFECT,
++};
++
++enum lpb_service_state {
++	LPB_SERVICE_STATE_OFF = 0x1,
++	LPB_SERVICE_STATE_ON,
++};
++
++#define LPB_SVC_MSG_SIZE			(4)
++#define LPB_CMD_DEBUG_SET			(1)
++#define LPB_CMD_SSWRP_STATE_SET			(2)
++#define LPB_CMD_SSWRP_STATE_GET			(3)
++#define LPB_CMD_REQUEST_COMPUTE_SSWRP_OFF	(4)
++#define LPB_CMD_REQ_DRAM_STATE			(5)
++#define LPB_CMD_GET_DRAM_STATE			(6)
++
++#endif /* _GOOGLE_LPB_SERVICE_H */
 -- 
 2.56.0.307.g5fe7bd680c-goog
 
