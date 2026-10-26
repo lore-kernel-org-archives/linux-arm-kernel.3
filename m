@@ -2,98 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BB44606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 11:53:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C66E606A322
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 11:54:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=F0h7ArN6;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Yun00kPE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xYKeZ49h;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=h4TPHmHX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Vt/79XA/yWxO2ogj1KSk8egFEeSfwKKUg9yTYHPXecQ=; b=F0h7ArN6VynSIEg+srwOuSqhjq
-	iQKhMR23LHKK4rmvmcAea6+E414lNXwLBp2MOwI9PwDMhnrlfT/5iRaL/UcoVrJtpRTyF++CZi6Z4
-	e7Ki4ZOKJaXwHhY4dODhVXXu2nmEZasM9z5VEo0DEXR6NrjiTNA2J6pqit6iefzS48XlhTKs7dHyb
-	AmgQVlugp8XTBLb3017Kkwiqy/3DpXBrNC2udPk5abJRcCIKk4Rbhk1GURG6SWWLbqchcB8CGfUmN
-	SPIlMWK9QMSQtJV4qteFT/HuJmghVtz+psYWjw60/DBNcIFGa8RwyYrj0SbZOKkIszGnsLMO0TeL5
-	r0EdWgIQ==;
+	bh=EMx0UqFgbDRUnMXk5gFL4yABiOYwefPK+nAKxnm2hdU=; b=xYKeZ49hW89gbC/+3v0VkdpBR0
+	krIxVwQd3oj6DQRV6S/kuYhDr4gTJUSZRiQqrEL+EVbpAQalkKtxa4hbSPDt2pKuBS7s8YQiQFVAv
+	Dk4TriAheKhAtM5ryHPTOMkO3OMf9ylEB5tmeWiCFPq0FfcZmktrVog2onu4ClHEBAUm8VW1mnqvJ
+	tV/efkxJMHIU6td4dFUbRehxrYUhow85nDIGOPkvb7ahi/mzADgu9tUpEej7pQD57gkNUW4BoPdjE
+	pjXWCyI8YM0ReWbdctjA+hrkUvx+qA4tA8FYfonKsKDDh+UcJlpMrtP5GvquYkseqlR6iYPAyjZB+
+	Tim3B32Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLJFm-00000002QV6-1sfl;
-	Mon, 26 Oct 2026 11:52:38 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1xLJHF-00000002QgI-2gW6;
+	Mon, 26 Oct 2026 11:54:09 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLJFk-00000002QUB-0alO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 11:52:37 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-8a06210b29fso1053326b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 04:52:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793015555; x=1793620355; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Vt/79XA/yWxO2ogj1KSk8egFEeSfwKKUg9yTYHPXecQ=;
-        b=Yun00kPEvHu6rMpC9R0F6N2uZb1/EiX3Hc7P2+LrjUrcoL7QuWj5Qg9i76RlnvC/M0
-         WUY/8x78+Xfn5sj4FeW3uLLlf9K7TmpNGDfIPx4E3YvBjrx4PEe/s4Dr0a8iL/m/SzC1
-         QkrQ5+sb2Pj43EGWVNjAmZMnIwS+sAV3sDa4gW42k/l6CU2wVCjSTw1LTgR07bksVKS+
-         YcV2aizo1EIVttduPj1WDZf+xjdnwVoyQt5bGQdFOuzaubIo1RpzWmN8EpCy8PqPJ9Pm
-         J5Op9hpfjIoQ3Ou9xPm5yeJGSonfyGvPAHHhxtHZWRRhANps6PiSpwMhzfisVBPWUb6k
-         8R3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793015555; x=1793620355;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Vt/79XA/yWxO2ogj1KSk8egFEeSfwKKUg9yTYHPXecQ=;
-        b=bQioyO+qbzjqTY63pahKrsJHrcFm0JuNjU8k9d6jVThucFYWvvGhKWg1e6Qxog4QqK
-         4i455mk8PvSQ+Cp3CZGvFEtK1zxDtsP/EwMFoGy4M0OD23lKuYRr+KrSvmYMq88w90oN
-         r8xBs6vKhR3E0S1IVbZwsI1xUwfLozjMDuoJyx4A3DMM+ko3RtXFwwNtd0OARQcD9on0
-         LYsCuStImCFiu3oDBGhATEmUsx17OcfTI01yGqZXsKjH+vIO1S74zjSTNrFJPCXYxf85
-         Vj7aw5qZv2AvWocHKvIWvSF6V6mJWpmyZNu5ZCdxdV7XnNy7kGXixVSKrg0/iIW9ulWo
-         O1tw==
-X-Forwarded-Encrypted: i=1; AKwUvBxBMK65PvuzweoI2OuMmGoFevy1DCTIRfQslAlPWR2bJLjVXglyVHDGYFzb9RhP798VXwIak9/kPUZjZ5PWp6QC@lists.infradead.org
-X-Gm-Message-State: AFq9FYK1MKnpucBktsU02xJRc6bow7cqcr732L+Gv+0fH6+5Z6WVyNFM
-	FA71Mho5E78l3xGfmz+bCmfMnuZzgKkAheof4FkSTQLGRGZRzzumLOFZ
-X-Gm-Gg: AYBFou2nH7fONRiNRwvLlSNWZbXU3BwTxyj8Tr3moFxa0BugQvKgeeILmwJFLdi5i63
-	vAXow3tAccxIFxEs6nprSo8/noWn16f3VTQQO/BgXoCLD5TmYaHxQvR5H1W4KkEv9SC46uzj0vM
-	pozMRB9F4n8XSo8Nbp+JEi7VXeM9uchxSZ5mI0rpbWSu6m+BxmupIfCSe5THxkewwVTeb5mcjtG
-	tNi+V/i31Kx8L2F7NVERYnnR8emV/iLKvpO0tA9Odpq78Kf/cQiHTlZbRU2UtApfPYO+/asG1U5
-	GjZEcf3dJutFT+UkPVRs1DwGJ8etHuPuvpvquyMlghNUwU7kvP+BS3R7ZQsEuD5yEx/AZuSzrT4
-	emWka8D6QVwVRob+lzDPQjPx+gPuTTldnu7XlwBbEpTC0AH4neThYv8VmD4DNlAN7h+EHEtD9aG
-	Tvl5P6xKJixZ84vL73KCB79GaGNO6kJv4mGm73TF0W3JuoBn8cHmYenDQbBuZQSGKGizlJSHYIU
-	sR+puf8AIJ2ebDVtfQukafDWyCxayUE5fsz6NtPnvZzy2BUJuAQAw==
-X-Received: by 2002:a05:6a00:1808:b0:87d:ee98:606 with SMTP id d2e1a72fcca58-8a367f0eb74mr4959061b3a.23.1793015554801;
-        Mon, 26 Oct 2026 04:52:34 -0700 (PDT)
-Received: from lgs.. ([101.76.249.61])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8a36ada2805sm1233497b3a.12.2026.10.26.04.52.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 04:52:34 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Gregory Fong <gregory.0xf0@gmail.com>,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Guangshuo Li <lgs201920130244@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] gpio: brcmstb: fix UAF after IRQ domain setup failure
-Date: Mon, 26 Oct 2026 19:52:26 +0800
-Message-ID: <20261026115227.41779-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1xLJHD-00000002Qfo-3dXm;
+	Mon, 26 Oct 2026 11:54:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=EMx0UqFgbDRUnMXk5gFL4yABiOYwefPK+nAKxnm2hdU=; b=h4TPHmHX9RJu90VSZsNimFg7ns
+	3Jzhr3hQMhcxA8gLFfGhGOvIvh9+Q2ybI4SzLgDMBXhYjTHO7SBN9GVFKb7O5bNL+P5MeLK9YihQS
+	34NmFOqIT3DPpvmjl9pSfM15yvxEvwiUnHGX7mGv3+pn9pzakQz4mSAcM3G24wTJIro9AL2lpL7jy
+	vC5GEAGAUQMNYgwekifw9aknEzCHRzAk+ralTfDjg7xeIN/Y39py0KOf5XOlwpP0t5616O5c/G09g
+	X4UCcURat8BZo1n2rnY0VOrelLvPjXgZWkZzI/DCYFuqI3vi+oUfXKIKVefK9Co3gobQw6wIQhR80
+	xpIOY9AQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: 1579567540@qq.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Elaine Zhang <zhangqing@rock-chips.com>, Ulf Hansson <ulfh@kernel.org>,
+ Finley Xiao <finley.xiao@rock-chips.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] pmdomain: rockchip: Add RK3572 boot peripheral domains
+Date: Mon, 26 Oct 2026 12:53:59 +0100
+Message-ID: <3329883.fEcJ0Lxnt5@phil>
+In-Reply-To: <d4e92131-ceb8-4143-b8f8-21e7f9638bdb@rock-chips.com>
+References: <20261026-add-board-ok3572-c-pmdomain-v3-0-70d614d3d921@qq.com>
+ <18fcfe7a-e25a-4516-810f-d787b779914d@rock-chips.com>
+ <d4e92131-ceb8-4143-b8f8-21e7f9638bdb@rock-chips.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_045236_178908_720E9BAE 
-X-CRM114-Status: GOOD (  10.66  )
-X-Spam-Score: -1.8 (-)
+X-CRM114-CacheID: sfid-20261026_045407_922299_F73F2427 
+X-CRM114-Status: GOOD (  13.96  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,49 +70,46 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,FROM_LOCAL_DIGITS,FROM_LOCAL_HEX,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When devm_request_irq() fails in brcmstb_gpio_irq_setup(), the error
-path removes the IRQ domain but leaves priv->irq_domain non-NULL.
+Hi Finley,
 
-The probe error path subsequently calls brcmstb_gpio_remove(), which
-checks priv->irq_domain and attempts to access the already-freed
-domain through irq_find_mapping(). It also attempts to remove the
-domain again, resulting in a use-after-free and potentially further
-memory corruption.
+Am Montag, 26. Oktober 2026, 12:37:06 Mitteleurop=C3=A4ische Normalzeit sch=
+rieb Finley Xiao:
+>=20
+> =E5=9C=A8 2026/10/26 16:47, Finley Xiao =E5=86=99=E9=81=93:
+> >
+> > =E5=9C=A8 2026/10/26 11:21, Cunhao Lu via B4 Relay =E5=86=99=E9=81=93:
+> >> From: Finley Xiao <finley.xiao@rock-chips.com>
+> >>
+> >> Add support for the RK3572 NVM0, NVM1, PHP, and VOP power domains.
+> >>
+> >> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+>=20
+> I have to point out that the changes (the shutdown/restore
+> rework, pending-state tracking, etc.) were not made by me, and I have
+> not reviewed them in detail. Therefore, I should not remain as the
+> author (From:) of this patch, nor should my Signed-off-by be kept on
+> it.
 
-Set priv->irq_domain to NULL after removing it so that the common
-cleanup path skips the already-freed IRQ domain.
+As this seemingly comes from the vendor-tree, _some_ Rockchip authorship
+should be kept I think?
 
-This issue was found by our static analysis tool under development.
+Do you have a suggestion who that should be other than you? :-)
 
-Fixes: 0ba31dc201de ("gpio: brcmstb: consolidate interrupt domains")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
----
- drivers/gpio/gpio-brcmstb.c | 1 +
- 1 file changed, 1 insertion(+)
+I guess as you suggested splitting this anyway, that authorship
+could also be split.
 
-diff --git a/drivers/gpio/gpio-brcmstb.c b/drivers/gpio/gpio-brcmstb.c
-index 44ca798cf832..3b1aaea63951 100644
---- a/drivers/gpio/gpio-brcmstb.c
-+++ b/drivers/gpio/gpio-brcmstb.c
-@@ -513,6 +513,7 @@ static int brcmstb_gpio_irq_setup(struct platform_device *pdev,
- 
- out_free_domain:
- 	irq_domain_remove(priv->irq_domain);
-+	priv->irq_domain = NULL;
- 
- 	return err;
- }
--- 
-2.43.0
+
+Thanks
+Heiko
+
+
+
 
 
