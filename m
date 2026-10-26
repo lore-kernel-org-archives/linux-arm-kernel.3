@@ -2,93 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF0D760A2635
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 12:01:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA8DC60A3812
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 12:01:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sv0iSQzm;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=l3Ic3VYd
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xFP+ktqU;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d4w8gOM9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Eooql/PWw9JrcOSkmPC1JhQXpt0yj7tFL/LJ7TTte3w=; b=sv0iSQzm52NOFx
-	QyiDEoM+y/lSZ5+6YXY60QOV/qfuqCJNgUiHjoQJxtWmPS3oQL5AXZm55USLhRW7znYgC17MdASHE
-	eM9s1B1EJ6S/HBZz4NkblmTUfmKUVCCLjYNaBn4IbhTvDIuR3ixKH/qstZbKrfX2SjdDXeSH+wdJK
-	6JSvWN/8j0P7oIR9gR6CJWqCmmSJoEaNw1tAReGmCxwVHFTJsqX/Hu8VYiz5xzCMamZ7MefTyoeJg
-	glxxLewZMnU98mecCDX5oFpFH+hJG+qATToDXVBkTGG1q4dCvFa9q2J5GNl3THX8rcdOLUqAN/tss
-	UpNxSNHrz/3ouxQQI2HQ==;
+	List-Owner; bh=+HC72Y1jKdcbuWDLnQBb8Fp4fKK/OIykYftoe6H0k2o=; b=xFP+ktqUHLx3dn
+	lC04p0GODYpepwM+RfzL36X6igwrc2BkcqAKw4WxiZdLj+/sqei0T3rdUCoqByjNCCGHWRVF9x/EU
+	TwPyEh/CxgB8PmaETK/Ddu+kd1Ru/d2r9erbT5fOqQH4SHTTwDBngfESq7fXnLRNhAlf3JcB9AXvG
+	suYaNQhTQtq+n9fkS+/+DktvDOPw+c6nJ5uisGHzvTt6vH4iaR2KZ+IpIKy75kWJXvUAs4HU5K6DX
+	sSWqUwQT/KT8BY1MEY6K6bRtXpyRF7QnVe4VoQwFjSHNpf4x7PWOSXZfLyYRL0XZXgGkocGlomujv
+	0zM+DTU5YPdCIFf4ekug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLJO3-00000002RGx-3EXb;
-	Mon, 26 Oct 2026 12:01:11 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1xLJOB-00000002RIz-3cX3;
+	Mon, 26 Oct 2026 12:01:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLJNz-00000002RGP-456v
+	id 1xLJOA-00000002RI7-2D5W
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 12:01:09 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20261026120100epoutp035e740c6d2fefc1e87b9893eb2216a03c~iEpt30p3N1660616606epoutp03U
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 12:01:00 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20261026120100epoutp035e740c6d2fefc1e87b9893eb2216a03c~iEpt30p3N1660616606epoutp03U
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1793016060;
-	bh=Eooql/PWw9JrcOSkmPC1JhQXpt0yj7tFL/LJ7TTte3w=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=l3Ic3VYd+gMtyXg1JgRhU7okFwCOEiwEoqoWQDb8N1n2G+hoj2eoZZjWy6BNeiazL
-	 2DLAFM7Juqu38NPweXOp6vDulsFjwTCue8tgAufNaF3R6CYajbtnN7XuldaVgfYdFk
-	 vbHCxmFrIiDGFXUvx/j/FTwNZV5RKJvAZVG2sES0=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20261026120059epcas5p1bdaf5a44a5c532174e91bbfd3d5400a6~iEptUuaTR0298902989epcas5p1a;
-	Mon, 26 Oct 2026 12:00:59 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.90]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4jCsf26vfDz6B9m5; Mon, 26 Oct
-	2026 12:00:58 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20261026120058epcas5p32b10714e9c7e86c757b03baf88c6b40b~iEpr3-hd61524215242epcas5p3M;
-	Mon, 26 Oct 2026 12:00:58 +0000 (GMT)
-Received: from [107.122.5.126] (unknown [107.122.5.126]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261026120055epsmtip160f476325e622f7e86ea621ffb4427f6~iEppABK6U1282912829epsmtip1P;
-	Mon, 26 Oct 2026 12:00:55 +0000 (GMT)
-Message-ID: <c09bd0c9-5173-4cb8-a2c0-2b5008b63712@samsung.com>
-Date: Mon, 26 Oct 2026 17:30:54 +0530
+	Mon, 26 Oct 2026 12:01:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 08E7041285;
+	Mon, 26 Oct 2026 12:01:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD1751F01825;
+	Mon, 26 Oct 2026 12:01:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793016077;
+	bh=+HC72Y1jKdcbuWDLnQBb8Fp4fKK/OIykYftoe6H0k2o=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=d4w8gOM9JmL0XNVTh4Q53d7oRI5ss1U4vYzcbfoJvM8QcKcNnrYW4DDaur8Me2LpX
+	 kqVbb0xenDVMDlPVR++8Qo3VyCYxi9U/YQ7Uob3rdjEUdFa8t/lQpk/WLN5c7p2l4g
+	 F38TxfpzaCnnyLi3vF/Q6N/PdYORpb7hVJhq+ivHCgHfkRWRLbCkv1OuG1L+XbYNGc
+	 7kayykz7VYnhinzVcYyTQa+ddxhRGKK44T7DP/fZJKjKj8QqmGYAqrqhWEcrxZ2ZtE
+	 o1v0N2Pn0tQI8diuCvb5PAKTj4flWbairPg/h/QcYA7jV50ElUkJORWKlLOp2hg0qG
+	 tfTD6SG3Zs3Eg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xLJO8-00000007Fr6-0u1z;
+	Mon, 26 Oct 2026 12:01:16 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] KVM: arm64: vgic-its: Fix LPI double mapping and DISCARD
+Date: Mon, 26 Oct 2026 12:00:59 +0000
+Message-ID: <179301587180.2527370.8777107405308568501.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261013081646.933312-1-fuad.tabba@linux.dev>
+References: <20261013081646.933312-1-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: usb: Add Samsung Exynos8855 DWC3
- controller binding
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, peter.griffin@linaro.org, alim.akhtar@samsung.com,
-	Thinh.Nguyen@synopsys.com, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	jh0801.jung@samsung.com, h10.kim@samsung.com, dh10.jung@samsung.com,
-	akash.m5@samsung.com, hongpooh.kim@samsung.com, eomji.oh@samsung.com,
-	shijie.cai@samsung.com, muhammed.ali@samsung.com, thiagu.r@samsung.com
-Content-Language: en-US
-From: Selvarasu Ganesan <selvarasu.g@samsung.com>
-In-Reply-To: <20261026-attractive-puma-of-merriment-0dfbe4@quoll>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20261026120058epcas5p32b10714e9c7e86c757b03baf88c6b40b
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261023131545epcas5p1eff195129ccfb0fb476d3c78e6a507bc
-References: <20261023131501.3157463-1-selvarasu.g@samsung.com>
-	<CGME20261023131545epcas5p1eff195129ccfb0fb476d3c78e6a507bc@epcas5p1.samsung.com>
-	<20261023131501.3157463-2-selvarasu.g@samsung.com>
-	<20261026-attractive-puma-of-merriment-0dfbe4@quoll>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_050108_348418_D63EC3A3 
-X-CRM114-Status: GOOD (  11.88  )
-X-Spam-Score: -4.7 (----)
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,38 +87,35 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On Tue, 13 Oct 2026 09:16:44 +0100, Fuad Tabba wrote:
+> Changes since v1 [1]:
+>   - Dropped the second mapping of an LPI at MAPTI, instead of keeping a
+>     doubly mapped LPI out of GICv4 forwarding. (Marc)
+>   - Keyed that check on whether an ITE maps the LPI, not on whether its
+>     vgic_irq exists.
+>   - Added a patch that makes DISCARD remove the pending state. (Marc)
+> 
+> [...]
 
-On 10/26/2026 3:14 PM, Krzysztof Kozlowski wrote:
-> On Fri, Oct 23, 2026 at 06:45:00PM +0530, Selvarasu Ganesan wrote:
->> Add the Samsung Exynos8855 DWC3 binding using a flattened node
->> representation, where the DWC3 controller is directly addressable
->> rather than nested as a child node of a glue layer.
->>
->> This is the first Samsung Exynos binding using the flattened
->> representation.
-> Ah and:
-> A nit, subject: drop second/last, redundant "binding". The
-> "dt-bindings" prefix is already stating that these are bindings.
-> See also:
-> https://protect2.fireeye.com/v1/url?k=f1571c7b-aecc251e-f1569734-000babff32e3-08400c25edf5bcfb&q=1&e=549cd4c8-34f1-4b98-afc6-3f62b054ef3c&u=https%3A%2F%2Felixir.bootlin.com%2Flinux%2Fv7.1-rc7%2Fsource%2FDocumentation%2Fdevicetree%2Fbindings%2Fsubmitting-patches.rst%23L23
->
-> Best regards,
-> Krzysztof
+Applied to fixes, thanks!
+
+[1/2] KVM: arm64: vgic-its: Don't map an LPI from more than one event
+      commit: de81b28f0b83b22163d7d9a9b708d7aa912e0ef7
+[2/2] KVM: arm64: vgic-its: Remove the pending state of a discarded LPI
+      commit: e99ff76f4a02be8542e2c3ecc8843d7339a0200d
+
+Cheers,
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
 
 
-Hi Krzysztof,
-
-Thanks for pointing this out. Sure, will drop the redundant "binding" in 
-the next version.
-
-Thanks,
-Selva
 
