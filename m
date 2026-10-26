@@ -2,157 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77548606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 17:16:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 079CA606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 17:26:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GDCZjoSX;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=VuCy7dwv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zKyjVjc7;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=EuQoFvcT
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DKu8h8jZccXIPbVfOdq0PTeasDuAup9VtgL5mknB8Vs=; b=GDCZjoSXCGPjGE5AIS0dj6u37r
-	+ed7RP0DvlSPI4tE9pMjKNvbkS0iSQcM5eACDj1LpQ1tDqbsBaIhHZaAt+OjOEIJ0EEyxfXgOmFsH
-	/7CEFlw40PLz79GkVbqedQiJ8IA+XLez4dBR93S8yG98yuA90PbuyraLAaNgwwSFF6uljIF8xkCxw
-	iGz8aK4NGb6Ol4T637VCohrQmJngLjpodxlkJJHWvACrpFI97rclaoPoNkwVUnbdNjLgck6UQ2QVJ
-	tMR/nO6ybbUZ8GwoaExovzjSuuOzlXf5yQApqbWNghpu6qfjh0JBG27FYbxVSWRHYYU+JXzSHnXgr
-	w4PCmfjA==;
+	bh=buxG7wzvUrhysQ03B60L3jHsDzOHP1rRWLo5WHGJFa8=; b=zKyjVjc7HwPB4kKYIlVR8qkZvX
+	tVWo2nCU/oCAz+RQM/s4pYE0NDPV5ypZUL3wYFpUyq/55xWIUb/dBaSvwV9HVoCD/TaUuYRvu1+KZ
+	4YbGpYV6ZeA8ap7zGAFLqdkL+T6iO0LDRbAYjGghkKsIDQmD1Aei7fPnSdB++JAivxp7aKvN7aUuu
+	n6P1Wlr4R+pcpLGldi4aiPO7FbINVRSX4VYJDvs5dWG2mnNtrYFzuj5GpDjcstl8ku8yCWG/y/8eW
+	69TKINr5uFhDv1W8VJyTQ2a8A/IBLhXW+6slznmcEuKhxT7h1QkdcfHnvm50aTdYT0834P2ShyA27
+	Xx/TKPwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLOI6-00000002yCv-3Ts5;
-	Mon, 26 Oct 2026 17:15:22 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1xLOS2-00000002yuD-44H2;
+	Mon, 26 Oct 2026 17:25:38 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLOI4-00000002yCE-0MaM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 17:15:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TNAbBgOCgitEDjSKEuCK4YChgoGy0kr0MQ4l/i/FyXMJTuK7uvytirTEcR2hrMBLRPxksRt5xghiCNfCjFCJ/4MND5zEM6/djq2Y2vTtbj9QoKxr076BNeDEOGqbLMNaqaAs4eZeBJQfvMxSWxCW9vh1u8QvjHZ2u/QNbcmHIP3c3sSEzwHFvSz6ufVs8nxTx/b5rST5L+AyoiiUB3VCnR91K63L2gqECjQm5MYYZJOxLoRBdPWFue2XEA1eMgYbcn8B4Ov2bB5+Fm+yGq3M8Q6PnF9VADgUvEXhaNMV66x5rXuBV5NapKfPUH5l276Q42FqqVdBPObQKtcv4LqK0w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DKu8h8jZccXIPbVfOdq0PTeasDuAup9VtgL5mknB8Vs=;
- b=JZHPpV6jk4sB4CASJ8b0XBPdum7rdQVPRAMCqycGn63FdyJnyW58eG9biCH95ENS1RXsEdtqTbJN40gkyqqw1xmRfCHXUxktthzXansPTigj9PltqlmRsJ45ty7fbs+W07mjcDmcKPUKT6biqti4k06Ua02YN9J9pK2EDvZDxOnvMkDlpEGjb15jw3cm+4oN62DEflhoOXJmQXEwZyAdLybxHpe1LFbraA1qqklKsHq9zuD3Jm4z6VT6ZlPCWmxMFLUVdOkXqwTTZ9aE0LwcZrg81H1OcNhEf1NNgKjoantuEGlB5C8xgs8AvGXjP0r0i8EXE7j1OwdXZgck2ufElQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DKu8h8jZccXIPbVfOdq0PTeasDuAup9VtgL5mknB8Vs=;
- b=VuCy7dwvRWRNQH3XaU2jJNtQS5bXIjpIMJJcAyW/ZEJbWyLsl4s3sbRFXHBebJKkfs+AjWwlmI6mPDhxC5yNgVmdHO/iFDl9p8ICnSoeuKxOHRDIicnySfR4gLz7dyO6vzjTlAPXD4Zy9RGg91ygs8BsYnDFnBo6ZNIrNw9vMNM=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from AT6PR12MB174769.namprd12.prod.outlook.com
- (2603:10b6:170:116::6) by SN7PR12MB7251.namprd12.prod.outlook.com
- (2603:10b6:806:2ab::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Mon, 26 Oct
- 2026 17:15:06 +0000
-Received: from AT6PR12MB174769.namprd12.prod.outlook.com
- ([fe80::3903:e1e2:f33f:ed44]) by AT6PR12MB174769.namprd12.prod.outlook.com
- ([fe80::3903:e1e2:f33f:ed44%5]) with mapi id 15.21.0546.021; Mon, 26 Oct 2026
- 17:15:05 +0000
-Message-ID: <ddbedd49-c27a-4786-9b81-c8a3d31d2903@amd.com>
-Date: Mon, 26 Oct 2026 10:15:02 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/6] dt-bindings: mailbox: Add AMD PL Mailbox IP
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
- "andersson@kernel.org" <andersson@kernel.org>,
- "mathieu.poirier@linaro.org" <mathieu.poirier@linaro.org>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "Simek, Michal" <michal.simek@amd.com>,
- "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Levinsky, Ben" <ben.levinsky@amd.com>
-References: <20261014213426.2957480-1-ben.levinsky@amd.com>
- <20261014213426.2957480-4-ben.levinsky@amd.com>
- <20261015-humble-eager-mushroom-9db4aa@quoll>
- <DM4PR12MB644859F1CA3A936684A3338B839C2@DM4PR12MB6448.namprd12.prod.outlook.com>
- <7067e343-24b9-4e3e-8e5e-42c98239ccae@amd.com>
- <0df4bfd4-2bcc-42fd-a22d-e704e4b41d5f@amd.com>
- <cbd2e370-c8f1-46c1-87a8-fa25fdf6ea97@kernel.org>
- <d89b656d-44cf-440a-8e06-6e13cef2dbe9@amd.com>
- <835fb494-ad66-474e-9fbc-71a9dd7d7608@kernel.org>
-Content-Language: en-US
-From: Ben Levinsky <blevinsk@amd.com>
-In-Reply-To: <835fb494-ad66-474e-9fbc-71a9dd7d7608@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SA0PR11CA0003.namprd11.prod.outlook.com
- (2603:10b6:806:d3::8) To AT6PR12MB174769.namprd12.prod.outlook.com
- (2603:10b6:170:116::6)
+	id 1xLORz-00000002ys1-3J3z;
+	Mon, 26 Oct 2026 17:25:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=buxG7wzvUrhysQ03B60L3jHsDzOHP1rRWLo5WHGJFa8=; b=EuQoFvcTmdF1MqhFINMp9kW4jn
+	j4134NOWSe6VQzg3ql4+9o6rRcYSKwYYS+jPZIJDAJcUNXEAG79n6U7S60Ewwx/eKpabnRmMsKd95
+	Uox2Wg7cZpNtvz1ZLGryqszWJ55+zPphKeoxIpSvElwfFvPlct1yjlrQzZ00VsB5jIMbYhnPtvbvW
+	rbuGFvT9yBMLmTOYzxWtlcFUXZIes9qbDoSYCgPoenq9R+Mw7mNLwWuJ1Aspw1qme0grL2SmA8VJR
+	Slv8bT7AHy09dEp/4zcbR7u5Qak62kGVUiFeySL1koTWdBHd5D7RuoxGxLecrCkU8+2z2nceTcPDw
+	xB03/g7w==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: =?UTF-8?B?5byg5pm0?= <zhangqing@rock-chips.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Richard Cochran <richardcochran@gmail.com>, Cunhao Lu <1579567540@qq.com>
+Cc: linux-clk <linux-clk@vger.kernel.org>,
+ devicetree <devicetree@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-rockchip <linux-rockchip@lists.infradead.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>, netdev <netdev@vger.kernel.org>
+Subject: Re: [PATCH v3 3/3] clk: rockchip: Add RK3572 clock and reset support
+Date: Mon, 26 Oct 2026 18:25:14 +0100
+Message-ID: <3062797.SvYEEZNnvj@diego>
+In-Reply-To: <tencent_6876096D2306016F88487E0E4D78345B3208@qq.com>
+References: <20261026-add-board-ok3572-c-clk-v3-0-dbabfa39d692@qq.com>
+ <0d5de6fd-3150-4898-a652-7f5b64dcaf07@rock-chips.com>
+ <tencent_6876096D2306016F88487E0E4D78345B3208@qq.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AT6PR12MB174769:EE_|SN7PR12MB7251:EE_
-X-MS-Office365-Filtering-Correlation-Id: b5a7132b-672c-4e69-f0fd-08df3384ade5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|18002099003|22082099003|261026140227099003|56012099006|11063799006|261021123027099003|10067099003|261021121427099003|261022105027099003|261026121527099003|4143699003;
-X-Microsoft-Antispam-Message-Info: Upqg7E67TH9nww7ZVM3KTTCQlRBOZjVfljA6X2jXp0KYGnVYZk7YdKk4uC12NIih2pMamaZMBRG5k5g1sXRnQylW3Vf97zg7JDz59+mPmBwQAfSRcovltZRqx4AlPQpc+MW2oumS65QP+Mio2UyImJGgUbvSV5IP3dGfsVPkzD4l9ZOwb538B5GYkBXEGvX9kaeUzBNinJwStoUL2PeXJcVZDDroXbdssfWx8LxWAj00JV8pgss2wJnGZF8DeZgP189D1O6JBz031Y3jRsN3XEiWuAM3oHxSy/pNbyxPjLMAWOA3qOMuG2y21nuboeMZEvP8Ii91No6+F5LML4/5aALJ4oEVsm43D+dk4IbISTwVOSmHoAyMs2LY8CaFJBElrkhDdsNen04wnYVlRhHJ2cXFPw4qiS3JrjkTH+5ksMFo4pGgydWvbpSLHo1sthp9OlUgU1Wi5uz9No49sCqRgsSLGGSep4g4pik/58vKifkk+a4aEyHfupFoOuPohA8nclSY9qN7O8Lb94OU8F2Z3jLdQ5a/8USoM2dmDhLTEVArJ03jcmciyuC19MSw0opdMvFrP08GLpYTDSvj3XFXmRIKlQT2x5hdkFwKa9YVfpLKOFHyM/JMvYHUgFgmUGS8P03e0mbcD7dQHZIdlClZDgw8Kprp6Psu2Jtaw7Tutdc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AT6PR12MB174769.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(18002099003)(22082099003)(261026140227099003)(56012099006)(11063799006)(261021123027099003)(10067099003)(261021121427099003)(261022105027099003)(261026121527099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VVVIbU93MDhSMEVEdjR4MHhKRkRsQ1JrZFlTMjNGcVBqRU5IVmt0eHZvd2xp?=
- =?utf-8?B?MlcvMjVQRjhvT3FzUVNEQnpBN05ONElZWlRhVmZxMHVmRHFvaUJSS293ZTlO?=
- =?utf-8?B?dEFZOWNnUkdVa01PSEYvNytwMjdBemhjY3BHNUZ1YUprMkpRWDZFRGNIUmlt?=
- =?utf-8?B?S2c3RVZsWk5HN2dvTXhwVHMwS1dxdllHeHRlQjRjWVdxNWRXaFlxSjRnVWph?=
- =?utf-8?B?aEpQTWh2bDE3RkdHWEttbjFEQ1FRYW5wNGJVNVk5TzJWaVQvanJtcGltQ3JQ?=
- =?utf-8?B?ek1RTkJrdm54L3FwcHlWVHh4aFBrY0xsS3FmNG9OM2Q1ZFpCdEoxQ29mT0Uy?=
- =?utf-8?B?U25JTkFTalQzeDBZOUd0T2p0T1lsY2VMNWVJeWJ3bkg1TGpCUlh2bXFObmhH?=
- =?utf-8?B?Q0FrYnhxU0RzcEFTSzY0emlnWHJvTXZ4Q2p0UjBRVllnMlY5UnVjRE9zUHRN?=
- =?utf-8?B?Q3Zxd2FTd1ZRaTl0TnBMa0dINjVnNGZ4bzRQTWozWTd6VVJGNmlkSnBoc01m?=
- =?utf-8?B?bkNxUG5iVkRhakUycTFmbndtaUtBd2QwSmNTd2ZsS1JvaWhPdStUWWZ0eVZp?=
- =?utf-8?B?RkxsVXE1dUZIT1pDaVBWL1FWS0NmZXNYRm80SWR4b3RvSFBrTHJPc0ZUYjNl?=
- =?utf-8?B?WU1nbHJiYS91RlhRbFd1bjMvVFZzb1JkWXNFTXdZVHJnNkZHZUtJRGQxdk1k?=
- =?utf-8?B?UEV0V3NOaG1MeG5Sd014RnVzSHJEaHVuakhnbWtyaG9iSlREdm9JbnNlODl4?=
- =?utf-8?B?WExYV0NXbXYvb3ViK1RYZkprc3ZMbWRiOHR6OHVIWlpsV1V2VGE2dzJSUUwv?=
- =?utf-8?B?Q0x1TnFvQnFHM3ovdndyYWVidDFRbDBxSmZhRmJ4QWxNZnlKamE1NnVnR2lL?=
- =?utf-8?B?YW55aHh2c0FZcEdneDJkT1ljRytiZlpvK084bFd4S0JmNnZGU3dvZnJrQlJB?=
- =?utf-8?B?UlVWK3RqU2NDekVvRHNmbERYcFliVWgyRllMYTE5WXFpZ01YcGpHeEtVcTRq?=
- =?utf-8?B?NlI0NEYyblJWOE9NbktxeEZrcFN1K29abGdTakdaZXM2bGFTWWYreEFYUmRx?=
- =?utf-8?B?a05vZzR0UEhYNEF4S2tVTlF1Z3dJaVBZY0UycGF6VjA0QmpVM2JBUWYrM0Mr?=
- =?utf-8?B?T3R0YjRvY1hOSk16eGNFbjVJSVUyQ2xNdkd1KzdoUFdObWZIbXNuSmRvR1Zl?=
- =?utf-8?B?YzRXRU56UW1yU1NhU2xESC8rVjRaS2s4UTlaWkg1OWxlK2VHSE5YTDlPdHJ2?=
- =?utf-8?B?TitzelJNL2FrbFRLUzR4cENIR3BWcWh4Zkh3VmpNSnplaVZHQlNFS29sWkVo?=
- =?utf-8?B?MmV2LzZIR1VRaWxnTUJEZkV3Z1VUbTVhdXlXMHVWSlZCYlBQdlI3cWp2cUtR?=
- =?utf-8?B?ZjYvSFVoRDhXVUY1dXNIOGZYVXBjaGUwSUJGUkNkcWxtVEoxNS80c0JQajhP?=
- =?utf-8?B?MUx3Y0NOejcvWVBLckhoL0FmZXRhOFZNdmFzVWxFMURwSlF2ajFxRmliMFV0?=
- =?utf-8?B?bWRwTXoyT01IdjlPQUo4MmpldVUxOXBBQjZoUytCcTVxcXlucjllOUNaeUxn?=
- =?utf-8?B?anh3WitUYnpZc0ROTDlkWEVDejlld1FRM0t0KzRTMVBjUC9vRk5wL1U3QnFZ?=
- =?utf-8?B?MDl3SGx3bEdNT2xQeFFUTzJYbkw4NmJIRXBzMG5aODFiazN5Z01ISkJUT3Rm?=
- =?utf-8?B?c1QvTEc0MHcyOS9TU3FVM1RmVUh1aGluMXNrSlJJUEhaRUwxVUpFUmNrU3NF?=
- =?utf-8?B?SEN0RzJBQjFwbTh6NUhGa1pqMEtDOEF6ZzJ1Qk5yUlNTakZSK2E4L2NoS2ty?=
- =?utf-8?B?WktGdFhVa21tV0JDQ0psNGtDRmE0VzQ0TFdNaFBsaVVSWE1UMHBlSlJDUEV0?=
- =?utf-8?B?SWZsQ3E3MXRISVQrSnVzUUZTTWYvaFo1MGV5T1FFUHRGc0FLcnczMVcybXM1?=
- =?utf-8?B?bUNERmNNRjI5Ym5XT0hSd0o0QzZNTVhNM1dRdkxHVWVFTHhwWFZlUzhUb3Ny?=
- =?utf-8?B?dm5jMWxabUMvb29zTlhtbmJYTlNaQXNnY1hKQ2xNL3kxbk8wZHA4OHlnRWFB?=
- =?utf-8?B?cjhoajF0ZzFuMHNWcm1Sa3BTaFZpYVlqZGpBY095bjJnMy9ZUnM1c0Q5UGt3?=
- =?utf-8?B?UjA2R05Pa081MU5pRkVYWTFtTVMvSXc1L2k1Qk5kMllzc0hqbmk5OHZrS1U1?=
- =?utf-8?B?UnBNdWdUQ0xiV3RNdk5GbDJoNnoyb0JiWTl2UE1VdTRHTG9Ma2xRejZCZWdZ?=
- =?utf-8?B?ZDk3emR0NitXYWRpeld0SVFmZm4xdFRubkVSR3BqenM0SHgxOGxBT2lmQUo5?=
- =?utf-8?Q?yuxAmBsJzeHIlqOSey?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b5a7132b-672c-4e69-f0fd-08df3384ade5
-X-MS-Exchange-CrossTenant-AuthSource: AT6PR12MB174769.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 17:15:05.7238
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XjvEFYfNi3X4p/ooDgcC1iQ2Lnx3GiWe0kyJHtnSm8h/6OwtCxuowLJnMxmXCTqBzyB1VXoXDAElI6Lk2NJDCA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7251
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_101520_160306_FFC6CBB3 
-X-CRM114-Status: GOOD (  14.05  )
-X-Spam-Score: -2.4 (--)
+X-CRM114-CacheID: sfid-20261026_102535_875294_EF2837E6 
+X-CRM114-Status: GOOD (  22.01  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,66 +74,88 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Am Montag, 26. Oktober 2026, 15:56:06 Mitteleurop=C3=A4ische Normalzeit sch=
+rieb Cunhao Lu:
+> Hi zhangqing,
+>=20
+> > This is in clk.h, please submit it separately.
+>=20
+> Thanks for the review. I will move COMPOSITE_MUXTBL to clk.h and add it
+> in a separate preparatory patch.
+>=20
+> > This is incorrect here; there should be no negative values. Two's
+> > complement is used here, so a conversion is needed. For example,
+> > -12955 should be 52581.
+> >
+> > In clk-pll.c, cur.k & BIT(15) is used to determine the two's complement
+> > conversion.
+>=20
+> I agree that the hardware expects a 16-bit two's complement encoding:
+> -12955 is encoded as 0xcd65, which is 52581 when read as unsigned. The
+> difference here is how that coefficient is represented in the rate
+> table on the kernel version this series targets.
+>=20
+> I found the cur.k & BIT(15) branch in Rockchip's downstream develop-6.12
+> tree. There, k is unsigned int, so the driver explicitly checks bit 15
+> and subtracts the magnitude of a negative fractional coefficient.
+>=20
+> This series uses the upstream implementation. Both v2 and v3 are based
+> on a804c5742bff, which already contains commit
+> 581478883477 ("clk: rockchip: Fractional PLL coefficient on RK3588/RK3576
+> is two's complement"). That commit changed the k member of
+> struct rockchip_pll_rate_table to:
+>=20
+>         s16 k; /* fractional part, 16 bit two's complement */
+>=20
+> On this base, rockchip_rk3588_pll_recalc_rate() uses signed arithmetic:
+>=20
+>         s64 frac_rate64 =3D (s64)prate * cur.k;
+>         postdiv =3D cur.p * 65536;
+>         rate64 +=3D div_s64(frac_rate64, postdiv);
+>=20
+> The signed type represents the negative coefficient directly, so this
+> implementation does not need a separate cur.k & BIT(15) branch. For
+> example, the mainline RK3576 rate table already contains:
+>=20
+>         RK3588_PLL_RATE(955520000, 3, 478, 2, -15730),
+>         RK3588_PLL_RATE(785560000, 3, 393, 2, -14419),
+>=20
+> These are exactly the same entries as in this RK3572 patch, including
+> p, m and s. Mainline RK3588 uses the same entries as well. Since RK3572
+> uses this shared upstream PLL implementation, I will follow the
+> mainline RK3576 convention for its rate table.
+>=20
+> Writing 52581 directly into an s16 initializer would require an
+> out-of-range implicit conversion; a reduced compiler test reproduces
+> Clang's constant-conversion diagnostic. An explicit cast such as
+> (s16)52581 would produce the same signed coefficient, but would add a
+> conversion that the existing mainline tables avoid. Using -12955
+> directly makes the value used in the rate calculation clear and stays
+> consistent with RK3576.
+>=20
+> The register encoding is preserved: the write path passes k through
+> HIWORD_UPDATE() with a 0xffff mask, so -12955 still writes 0xcd65 into
+> the coefficient field. The five initializer changes from v2 to v3 only
+> make the signed values explicit; they do not change p, m, s or the
+> 16-bit coefficient encodings. In particular, no further adjustment of
+> m is needed for these representation changes.
+>=20
+> I will therefore retain the signed coefficients, following mainline
+> RK3576.
 
+I definitly agree. For reference the commit fixing rk3588/rk3576 and
+containing all the details is
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?=
+id=3D5814788834774ed6ad1a27ae91b44eeca80cd27f
 
-On 10/20/26 5:18 AM, Krzysztof Kozlowski wrote:
-> On 16/10/2026 16:11, Shah, Tanmay wrote:
->>
->>
->> On 10/16/2026 8:59 AM, Krzysztof Kozlowski wrote:
->>> On 15/10/2026 17:31, Shah, Tanmay wrote:
->>>> We use 'amd' vendor prefix for all new drivers & bindings. Also, there
->>>> is dedicated IPI hardware which can be used as mailbox too, and we
->>>> should distinguish it with this PL mailbox. So I that is included in the
->>>> compatible string. (pl-mbox).
->>>>
->>>> If we are also to include SOC name as well (per compatible property
->>>> guideline), then we should include one of the SOC name as well:
->>>>
->>>> So, I think 'amd,zynqmp-pl-mbox-2.1' is good.
->>>>
->>>> Krzysztof, are you okay with above name? The 2.1 is FPGA IP design
->>>> version number and not the SOC version number. So in future let's say
->>>> that FPGA IP design is improved then the name (pl-mbox) will remain
->>>> same, but only version number will be updated i.e. (from 2.1 to 3.0). Is
->>>> it okay if we explicitly mention this in the binding description?
->>>
->>> So you will release the same SoC with different versions of the block?
->>>
->>
->> Yes correct.
-> 
-> Well, then this does not look like SoC block at all.
-> 
+Heiko
 
-  Hi Krzysztof,
-
-  Right, it is not a SoC block. The Mailbox is a soft IP core from the AMD
-  IP catalog (Mailbox v2.1) that is instantiated in programmable logic ("PL" acronym), so
-  the IP version, not the SoC, defines the programming model.
-
-  Following the other PL soft IP bindings, which use a single IP-versioned
-  compatible without a SoC name (e.g. xlnx,tmr-manager-1.0,
-  xlnx,axi-can-1.00.a), v2 would use:
-
-    compatible = "amd,pl-mailbox-2.1";
-
-  with the driver matching only that compatible. The amd prefix follows
-  what we use for new AMD bindings, and "pl" distinguishes it from the IPI
-  mailbox hardware. Is that acceptable?
-
-  Thanks,
-  Ben
-
-> Best regards,
-> Krzysztof
 
 
