@@ -2,161 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4C37606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:16:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 039A9606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:21:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MRTFxW04;
-	dkim=pass (2048-bit key, unprotected) header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b=aDtkMkz9;
-	dkim=pass (1024-bit key, unprotected) header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b=l8hYJuAI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=D+yuilHW;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=fJ8U0Hu+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=vwm1kNv2QlyU6ltlxEkW8D/FhpLyU7xouyiPkxyl0mk=; b=MRTFxW04e/b+0gHNY2p0+2P8rB
-	miItp2QVpFPd/7y/JJJa50fLAhfESFZ1LF78Pi7hxzlLmmEKI5g06brtAgqJVb0TFonBc3R6+tcoF
-	8GS8QQUofTS/zrj4ZJnpg2pmv1SrCo6xrjHKo+Ruql6RK342OABN29QJzzeGiFjC3aSdREootPYcS
-	P1/n/LgmVi3zFDXQwBfGvKX5bhMHNSrz0C88dedjJGfbqpwG57jv7KMP6z+4eulFBr8KGVfjJ6Q10
-	efCyEo1DfENzfzq3Wl/tSuJJk2wgU37JjC1SaXoymLtUSwOY6hhNtd0RbOPx/YH80c/GA3q3xgdtK
-	jQZUSeWw==;
+	bh=9iwvQZgnt7hwuOvmuAPn07z84fgtfJ4EdovCl8V1dk4=; b=D+yuilHWCyijO4Svj6MDw0qIb4
+	TUI0NuKd5xqHJkAlbZlqNL0TTJZciehM969x20Ht6eFQvOyGMrzv0Fp2ruZcZ6ldOal7Vbx7QF8tL
+	9uM2fF1S/FWUEMdFni0WAExm2CJ1EbcpcUhSFv2uxQF6Vx1xUUA06kWyyMLwmjMp6eTtjo7ATX2Dl
+	Jg3VipBGbovuzxtto2rF9LgRZ3OYmkN0C5yS8FXXT0biRIgg30Hl++Y2y2A3amvReidiZSLlgF5fT
+	ZxY7byqP3B5Lr21gMVaeipRKh1pZwyyQGAQWCrwxcwPf5ULX1MKP0rKdA3o1ZlvlOZYpxP1WFrzxD
+	0awGq2JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHjo-00000002FKv-1M6F;
-	Mon, 26 Oct 2026 10:15:32 +0000
-Received: from mx0b-001ae601.pphosted.com ([67.231.152.168])
+	id 1xLHoo-00000002Ffo-2GjR;
+	Mon, 26 Oct 2026 10:20:42 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHjm-00000002FKQ-2GPy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 10:15:31 +0000
-Received: from pps.filterd (m0077474.ppops.net [127.0.0.1])
-	by mx0b-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69Q4eiG11630592;
-	Mon, 26 Oct 2026 05:15:16 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=PODMain02222019; bh=vwm1kNv2QlyU6ltlxE
-	kW8D/FhpLyU7xouyiPkxyl0mk=; b=aDtkMkz91/RX2QuAE/nahgRLHLhKWqKqP9
-	u9qbyphx8kabfEcyoOA7Dxaw696opQuhj0MT+pFfsOoDNpSxG+ariFTkDR2MpqLD
-	jnnehfSLv+jCFuhdfhCxic53GRJpOUqL4tQwoFV3UnO2MGTLfgfV3dE1AS0B/AEk
-	q50RpF7+WypR1YfP3LB5JYbsIJ2HuaVm1W2quvKZAUwjyHvLX3/8T54GUagmxFZ9
-	a/1UgXcOHatfx6c8DbnUt1kAj3vHuD+0jq7Yw+SlHTf8E8qP2CYI+ctl+7hTMTrw
-	R9c3QwJRuZa4CIAR02ZRDn7k3nzUt59b2tnIN7xF8w9hJGjknWpQ==
-Received: from co1pr03cu002.outbound.protection.outlook.com (mail-westus2azon11020098.outbound.protection.outlook.com [52.101.46.98])
-	by mx0b-001ae601.pphosted.com (PPS) with ESMTPS id 4hgs3j9x29-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 26 Oct 2026 05:15:16 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ERwQvvBquod9Q9m8OaOBf8gWsih8zppKXWEveUE7JjgSCovwUmoRrg0OOim/Bze9obtvhWI/W09TZtUcl3CoRzwxZCx9yNNO5zmN6UsyLPVJy4S9Opr0Ve+lLiSOMIFwotc7AIeZU6QOAfdxSXsMbX4LASFXjTWbuHax4reDwJvdQ6xR1JlVPFLc2vKjxHthWaxhxzL2WXHHFH8pbJTM4U7TSliDaRxuwuOlBH2qw+bIr9rDGfDS1W1zl9pPqLjHwDFIok2GJz50b3Pd5LHUMIGZBw9k+MKVBCDvQqaLeit9aEjWjZuZNJkEHDUu+ksCaSk9fSZ0WLyFe5vbueMzEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vwm1kNv2QlyU6ltlxEkW8D/FhpLyU7xouyiPkxyl0mk=;
- b=AibwL7NqyFfRF/gsBsi4YjRQKcmJNOED89ftACWY8go6V7hnfHJW0Glpx/j52UT1aCQ5NmuuIFpwdNYMyF3Ylkebs1xTd//meGSuoDS9WOjPqiwiq8W/ym6KhrGYTbkzondKb35xwk/T4R/GQlncp1ffR8jHf39BtxQaYAFxJukSx92JtyMFPW8r5BPFz6mkeJkB73/9QXFidd5BwTVj82SHoVTgk/p6ACQaOWs/FkJ5Kc1NUsb2jPf+xKV735MByyHgt0+wNSXewBdUKaL8UUyhC5Niy6A3hG0wmE89pDLEX7cpIvyfKc0dnc4+b6NeQknFFvrMCOokHT0oPrzyIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 84.19.233.75) smtp.rcpttodomain=armlinux.org.uk
- smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
- action=oreject header.from=opensource.cirrus.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vwm1kNv2QlyU6ltlxEkW8D/FhpLyU7xouyiPkxyl0mk=;
- b=l8hYJuAI7OCXlJMcvWWbHi6OxSZl+JiK8KplEtF/bIju3NvPAIu6a4dOzpwxjNkcNyr3OlVP3iNXFOf120e8D2hIzVjulUyKPA1TRCPdZMTuhwpipMVlAm0F4m6Bd/mJSRdfqjBR1UMtr+Byhij6+Rx9cEl5vZ9YKslhWc15uBc=
-Received: from CYXPR02CA0016.namprd02.prod.outlook.com (2603:10b6:930:cf::19)
- by CHBPR19MB901682.namprd19.prod.outlook.com (2603:10b6:610:402::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Mon, 26 Oct
- 2026 10:15:11 +0000
-Received: from PH3PEPF00059616.namprd05.prod.outlook.com
- (2603:10b6:930:cf:cafe::a6) by CYXPR02CA0016.outlook.office365.com
- (2603:10b6:930:cf::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.22 via Frontend Transport; Mon,
- 26 Oct 2026 10:15:11 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
- IP is 84.19.233.75) smtp.mailfrom=opensource.cirrus.com; dkim=none (message
- not signed) header.d=none;dmarc=fail action=oreject
- header.from=opensource.cirrus.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
-Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
- PH3PEPF00059616.mail.protection.outlook.com (10.167.243.20) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.4
- via Frontend Transport; Mon, 26 Oct 2026 10:15:10 +0000
-Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id C9F2E406540;
-	Mon, 26 Oct 2026 10:15:08 +0000 (UTC)
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id A5875822556;
-	Mon, 26 Oct 2026 10:15:08 +0000 (UTC)
-Date: Mon, 26 Oct 2026 10:15:07 +0000
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
-        Peter Griffin <peter.griffin@linaro.org>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        Russell King <linux@armlinux.org.uk>, Mark Brown <broonie@kernel.org>,
-        Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-        Arnd Bergmann <arnd@arndb.de>, mfd@lists.linux.dev,
-        linux-samsung-soc@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, patches@opensource.cirrus.com,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/4] mfd: wm831x: Support software nodes for DCDC
- regulators
-Message-ID: <at8oK+BLf2FQjp9U@opensource.cirrus.com>
-References: <20261024-samsung-kp-v4-0-e21253295e68@gmail.com>
- <20261024-samsung-kp-v4-1-e21253295e68@gmail.com>
+	id 1xLHom-00000002Few-2hih;
+	Mon, 26 Oct 2026 10:20:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Reply-To:Content-Type:In-Reply-To:References;
+	bh=9iwvQZgnt7hwuOvmuAPn07z84fgtfJ4EdovCl8V1dk4=; b=fJ8U0Hu+yjGXC2+RfaOWRxkHXg
+	oKrFh6ESQQPqgdz5Ktj5H/j5+5P+eQH7m7mZ388hWU2ya14urCUm2Usm9bS0ubAjV9bPkIq/3Jx1I
+	+OB0slH/vTs3W6CaB/r6DMrzHGi6//AXt5m7uy0W5oyk0NZgljrDDfM1sP9FafQSUPrYzrujrDSK1
+	K4i4FrCcMvZ6vL+0WCAycRmt56wQWVyn5ciVaUBPg4IKlaDnlDy9zLkVfirlZHxq1KJ2MCYTsxBBr
+	1pQUCFdpbAy5aTwsAqKxO8d0KH/u9W7stGFAUMwRG2ip+wN8PtoDmWn3mLLeMQKhPeb/YhNzXdwl2
+	oUM+kWZg==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: quentin.schulz@cherry.de,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH] arm64: dts: rockchip: enable camera on tiger-haikou video-demo adapter
+Date: Mon, 26 Oct 2026 11:20:27 +0100
+Message-ID: <20261026102027.2451025-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.3
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261024-samsung-kp-v4-1-e21253295e68@gmail.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH3PEPF00059616:EE_|CHBPR19MB901682:EE_
-X-MS-Office365-Filtering-Correlation-Id: 992fd0d2-f5e1-451a-49d9-08df334a0456
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|61400799027|36860700016|82310400026|11063799006|4143699003|56012099006|261022105027099003|10067099003|16102099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: aOjtDQTeCvtTAUjBNqjmDS+mjgZ62fyLC8zsIA367DX49kcWsA/fzjohWlLbo3c8zO5gekrNp1PDgAdJasSu2sohgpO/OPX0R0qrhRvFacyYgh/kioBbnrzILdX19SYzKUPoyIR4dgYbmx7Kui5CV3AW+tIxozji0qHSHF6CEdV0UeMPiZ2LjRM111w+Vx+x4okWzh8Eoc6imUnG5Xon4Y7pEiqbgwU1Ot5b2IBxv+FeKwkefhm7Ikl+zUnKYQElk2Vc1WDVJpudA5d/etJkbxmge7jE6uwGysUBROui3nKrgq7X4LdEfTbZY3bkPqv2wm5V7Hhfqh/n1xNFQjoIDjPUP/4agoEq4C71BB8EG1ivb6c3+PoIihZgs8XbKLF+UZniU/rOewNTlgIfsp76HotgEJ0hNus52AK58PZ/Q7vltfAMU5es7/zWknwmE5Gw/Lt5zEltKy6efUo03j007XHwYtlcSTxJInULJZDckvv5UGp06iGNPX5Nv/alCV1pl7iYE10IgvTpkxiIDT2MX+X4c9cue0v6QHAMf5XGF/UNKChO+E0xO6G6UpkGweeW8fhrI55/hv1iH43w1YmU6nggKAxcj8RcRECVmmQvA3JxeXAWwT8ny6ihRvhHMqley4qJ88VZ/ExNo+TcXvzQsYjCeYYMFXrmoWzIlBU6HixjL9alucDVAtCGr7YX2K+8V/AonuGpi+r8ebXWjqO8Lw==
-X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(61400799027)(36860700016)(82310400026)(11063799006)(4143699003)(56012099006)(261022105027099003)(10067099003)(16102099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: kiisTVRUknwwbMFVx3MjldOVJDjKvpJUfEkV2G+lwWCHvGrPPuMMhvsTK2h4ZRDVHqHa77FjhMIfBdcisll9Zhz+r1QLzYvTbDJevEegmNAg6GOlArwjNq3Eiz0+GtOTHvYJSbjccxX0k7CNSrA3nSkc3UESgHTw+8ZCqqRj437NHxG0+fy/RZVsZlh5CskNCQOEb0ev0xNfm6xrGqs6+HxVGz06ScWmIJI7MQmXoELc3+OBw6Qw9ke0AwfIeoEtqIDhW6Jn98Jb0TvHIH85W0CQNDgJhEI11x0oeYgN/GXOXjUP98A25APxvY52p5KR7x4a9ofgq73m6SRYwCodxinFhcEHcHUTuqskO2NfdwKwjoV0fJHFKh/Tnw8Ll7ZicPp96uByUoN3fgH1dqnDpDw4qn+q8+1Aq+ztOsH90AD6kSmDjGSDnh6dHWY9Dk3A
-X-Exchange-RoutingPolicyChecked: 2BIRLxo7xqoJJOhvoIdgkdQDxbSjB9fP7R+q00M7Rl0PF/jPOmvOeLRc7bM8T1lr8CDYn6e4zs7/OhdPevsCdzbCCEtiZ4uvUqE6pHi6zGmhBDnQ3bQlpCkQljs65KaFG8IJmSe2av79x1FG3KtTK55TxRRCVkZPmv0LgFGU5T0eDaEeZQdh3q/dUCRZKWEgxgLtVBcdAzcLwPzf5aELwmUqb6iJNBqZwnEZOTnqMrhHnQBfcFBWN+GEFRsg6pmStou3jyMoubo6vbEF7I+soyJ0eQiaQ3pp97ZCJFB4/kaQWe8135v5clWn7tPMcK7sp9n2V7+epI1T9/1Aglah5Q==
-X-OriginatorOrg: opensource.cirrus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 10:15:10.0191
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 992fd0d2-f5e1-451a-49d9-08df334a0456
-X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-PH3PEPF00059616.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CHBPR19MB901682
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI2MDA0MCBTYWx0ZWRfX2XPaMbkOeeZH
- dLP2xB114ODBD6DpL8Me8zP/WXuiq1zPyJ1GE+tcmnojaYUgV+z9vW7IdW0Dp1Xnhm7ntx+ba4G
- yaTwW5LGXlGHER3cdACH0UD2pN+wOHk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI2MDA0MCBTYWx0ZWRfX5+UToS1f422v
- 8xj1UbxgW5YS5U9lK3/HQLP/ABJyuwFwZpH9wBUALCmOMsrZYn/cN32tNF4CkDuTYEoWYhaYgvV
- Ifi65SFWVVWcC7Eb65hh4FcLTA2KRxQwuCHmRU965GUIF8CEFTi77UEibOgPkmnRmmxyAkE4aI2
- N+kziiVQlNMJhQu2OfNKbx5h+qQBoW2w5ntMQTbC8r0RyCpmgZoLJYiiQNmIXnTFn3FE/axr34V
- /QggxKAqCkahUSXNGj1oMDw/XH6LpUJR2LRLVFrwmSQ/Gc3Gb+5TssqI5x2HGZ0/KCEsnAFh9nt
- VXssZqrS90UsRa2rBxEt7E2CODwItPPCYnx0CU/L5e/StfR9FBaSABTZlJoch2vkdbvXLrpkAGd
- Rpa7WMhGGv7SO4Jj4RwfRIDTm1rR1ZAD30LzkPdGIr0MGIutLAhK3sgPsuSoh0KOBCzPWEs9Ln9
- n93vA6Q+7C3gxq+Wn+Q==
-X-Authority-Analysis: v=2.4 cv=dbIVTnXe c=1 sm=1 tr=0 ts=6adf2834 cx=c_pps
- a=jzpQLMhUvwWo5cn4Ul+sFQ==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=KfkQE9S9VqCBgivYGm0O:22
- a=pGLkceISAAAA:8 a=w1d2syhTAAAA:8 a=jZ_tYwO_ofv8OuE6UmYA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: AEtsWP36Ds2MGtlBxuE2kRlqiDjPXeJf
-X-Proofpoint-ORIG-GUID: AEtsWP36Ds2MGtlBxuE2kRlqiDjPXeJf
-X-Proofpoint-Spam-Reason: safe
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_031530_707219_5378CC6A 
-X-CRM114-Status: GOOD (  12.68  )
-X-Spam-Score: -2.6 (--)
+X-CRM114-CacheID: sfid-20261026_032040_946480_C289A643 
+X-CRM114-Status: GOOD (  10.35  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,27 +64,169 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, Oct 24, 2026 at 10:03:12PM -0700, Dmitry Torokhov wrote:
-> Allow passing software nodes to wm831x DCDC regulators via PMIC platform
-> data. This is useful for non-DT/non-ACPI platforms that want to
-> associate device properties (like DVS GPIOs) with the regulator devices
-> using software nodes.
-> 
-> Add software node pointers to the PMIC platform data and have the MFD
-> core assign them to the buckv cells.
-> 
-> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-> ---
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+The video-demo adapter also contains a camera, hooked to the CSI input
+of the RK3588. Add the necessary infrastructure and devices to enable it.
 
-Thanks,
-Charles
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+---
+ .../rk3588-tiger-haikou-video-demo.dtso       | 95 +++++++++++++++++++
+ 1 file changed, 95 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
+index b8636fcb4f39..c403054c3c16 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
++++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
+@@ -12,9 +12,11 @@
+ /dts-v1/;
+ /plugin/;
+ 
++#include <dt-bindings/clock/rockchip,rk3588-cru.h>
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/leds/common.h>
++#include <dt-bindings/media/video-interfaces.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
+ #include <dt-bindings/soc/rockchip,vop2.h>
+ 
+@@ -25,6 +27,43 @@ backlight: backlight {
+ 		pwms = <&pwm0 0 25000 0>;
+ 	};
+ 
++	cam_afvdd_2v8: regulator-cam-afvdd-2v8 {
++		compatible = "regulator-fixed";
++		gpio = <&pca9670 2 GPIO_ACTIVE_LOW>;
++		regulator-max-microvolt = <2800000>;
++		regulator-min-microvolt = <2800000>;
++		regulator-name = "cam-afvdd-2v8";
++		vin-supply = <&vcc2v8_video>;
++	};
++
++	cam_avdd_2v8: regulator-cam-avdd-2v8 {
++		compatible = "regulator-fixed";
++		gpio = <&pca9670 4 GPIO_ACTIVE_LOW>;
++		regulator-max-microvolt = <2800000>;
++		regulator-min-microvolt = <2800000>;
++		regulator-name = "cam-avdd-2v8";
++		vin-supply = <&vcc2v8_video>;
++	};
++
++	cam_dovdd_1v8: regulator-cam-dovdd-1v8 {
++		compatible = "regulator-fixed";
++		gpio = <&pca9670 3 GPIO_ACTIVE_LOW>;
++		regulator-max-microvolt = <1800000>;
++		regulator-min-microvolt = <1800000>;
++		regulator-name = "cam-dovdd-1v8";
++		vin-supply = <&vcc1v8_video>;
++	};
++
++	cam_dvdd_1v2: regulator-cam-dvdd-1v2 {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpio = <&pca9670 5 GPIO_ACTIVE_HIGH>;
++		regulator-max-microvolt = <1200000>;
++		regulator-min-microvolt = <1200000>;
++		regulator-name = "cam-dvdd-1v2";
++		vin-supply = <&vcc3v3_baseboard>;
++	};
++
+ 	vcc1v8_video: regulator-vcc1v8-video {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc1v8-video";
+@@ -57,6 +96,23 @@ video-adapter-led {
+ 	};
+ };
+ 
++&csi4 {
++	status = "okay";
++};
++
++&csi4_in {
++	csi4_input: endpoint {
++		bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
++		data-lanes = <1 2>;
++		link-frequencies = /bits/ 64 <450000000>;
++		remote-endpoint = <&cam_output>;
++	};
++};
++
++&csi_dphy1 {
++	status = "okay";
++};
++
+ &dsi0 {
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+@@ -96,6 +152,12 @@ &i2c6 {
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+ 
++	focus: focus@c {
++		compatible = "dongwoon,dw9714";
++		reg = <0xc>;
++		vcc-supply = <&cam_afvdd_2v8>;
++	};
++
+ 	touchscreen@14 {
+ 		compatible = "goodix,gt911";
+ 		reg = <0x14>;
+@@ -118,6 +180,31 @@ pca9670: gpio@27 {
+ 		pinctrl-0 = <&pca9670_resetn>;
+ 		reset-gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_LOW>;
+ 	};
++
++	camera@36 {
++		compatible = "ovti,ov5675";
++		reg = <0x36>;
++		assigned-clocks = <&cru CLK_MIPI_CAMARAOUT_M3>;
++		assigned-clock-rates = <24000000>;
++		clocks = <&cru CLK_MIPI_CAMARAOUT_M3>;
++		avdd-supply = <&cam_avdd_2v8>;
++		dvdd-supply = <&cam_dvdd_1v2>;
++		dovdd-supply = <&cam_dovdd_1v8>;
++		lens-focus = <&focus>;
++		orientation = <0>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&mipim1_camera3_clk>;
++		reset-gpios = <&pca9670 6 GPIO_ACTIVE_LOW>;
++		rotation = <180>;
++
++		port {
++			cam_output: endpoint {
++				data-lanes = <1 2>;
++				link-frequencies = /bits/ 64 <450000000>;
++				remote-endpoint = <&csi4_input>;
++			};
++		};
++	};
+ };
+ 
+ &mipidcphy0 {
+@@ -142,6 +229,14 @@ &pwm0 {
+ 	status = "okay";
+ };
+ 
++&vicap {
++	status = "okay";
++};
++
++&vicap_mmu {
++	status = "okay";
++};
++
+ &vp3 {
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+-- 
+2.47.3
+
 
