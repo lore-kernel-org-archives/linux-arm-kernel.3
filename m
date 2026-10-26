@@ -2,140 +2,101 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41F60606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 18:30:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 611A7606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 18:31:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ul569IzS;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=Gf6FjFaO;
-	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=UuhWwFNd
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JtsNXG5M;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=DLkv8KU1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=AaqGunwSleeDLPx2z6NkDc6zUunPgMcaEWPlGCr1dr4=; b=Ul569IzS+vSgTd
-	Xnbn6jl8jdejgdXGxwpvkzFArK8JeTxO9F/4/4H9BSGTp8Rq2pEJTGUVVojUu8KzDNWwnpaiKM3BA
-	Jx1f67zrEuSGmNqh9sgYFCPHKkHMe1riH4h6DYz6AZYXG5famNjoLlHA9L4picVDwgRTW5ooIfCej
-	U7Sm6GpVo3PZFV6U5iH3EfPF5PFSw+z31JCRAkxcxp1uSGJohS8GIMmMHQQ6GEK9kjNLt8m/dKW2Y
-	80BbRTssFbfohtReW4tKWY1HpAjV47doa8V6TiSqR6segVseXn7JEKTXwaQlQnSBC+bHDcUa4d/Qq
-	Oo8xprnUJ24crxWLYqCQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=hDzwNGKF3X9STRFxmJBhcRpaL+ED6BGdlNgUocMroeE=; b=JtsNXG5MFkvA84a+DnEhP9tH+i
+	b2rWTTwSU+/VLfGHSiXTsr7u1VLGKwSmZRG7bW0bS2niNWDnYtzbvE2gvpZOJHQHVCVvm4w+ZQ5rt
+	R26i94439zJdFKmTUMuTrZBUx/8Ah4rUM9jfyfx3/akXJ4LHT4uOiSjpQW3YT3oaR3gVieDP3CYn+
+	idVb9P+KxbDCK+IEVB3RrT3ShN7ZmLB4ZocmYkzmM5hj9V0vd0iUF0oWKHb1EEKv698MbJ5PLD26L
+	OaSV9G7dCK0W+QDxBSW/xkc1qN/X+CW7sWwqcbeii9+Qni1WCfhRzxuvg/Ouar+NbvaBAWSmbKlm+
+	bonwGuRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLPRv-000000034YB-3ITQ;
-	Mon, 26 Oct 2026 18:29:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xLPTG-000000035FH-1BlS;
+	Mon, 26 Oct 2026 18:30:58 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLPRs-000000034Um-3N4J
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 26 Oct 2026 18:29:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=AaqGunwSleeDLPx2z6NkDc6zUunPgMcaEWPlGCr1dr4=; b=Gf6FjFaOlzj+pnv/17SWtzA8Bh
-	GhNQ39Q7ixJ0JNd6zoFOvlYZSB35TaEr2m91hFjLcmMRhyX/tanFB+qBhu4/OKxFkZ1Wd0V6QusT8
-	vk7k3kx1f4tiy7/GLZLf5FBqp1dhrp2JRwVVFj6hjVxT0UWrGslvK5g4txSnN7XTcChOIz8tBZDx8
-	RTpZfYcjwHa/Me0/EuIbL9XubXzuEWXcP+gU1QE8fHzRyYmynYUO/GqgztqKJIP9mqkfB8E/paPQ5
-	8p8K5Da5VzO34ySkJGzgYzrZ16oy8CKzFfuFpcDackPII31EGlV3On2U/S3UwhJam/t4hjkFRUwv6
-	J/GOTwIA==;
-Received: from mail-pg1-x562.google.com ([2607:f8b0:4864:20::562])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLPRp-0000000E6os-2x6D
+	id 1xLPTE-000000035Eb-1akJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 18:29:31 +0000
-Received: by mail-pg1-x562.google.com with SMTP id 41be03b00d2f7-cc4c02ddd62so2222663a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 11:29:29 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793039367; x=1793644167;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AaqGunwSleeDLPx2z6NkDc6zUunPgMcaEWPlGCr1dr4=;
-        b=ZCxbFrEqXUddzGlryJ7Z+qSQbkJrqT4WVAdiyoWGSzEaGb6fmE1SiK0QNpsA5m2SiB
-         ZEsOAB2jitFgQcBAVChSmAieqA25K5DocoIDbU22uyi8KwiBKnq92nysdGNFGmgXcCcA
-         58hNaESD48rOKXMPKSUpLRaRNNxmdKnFVdhnaVQnKe9FVZrjtRO58LGR+clmBYzp/jap
-         FZQ23jAl/1CubpH+1SuqmF5FyUPsFhczT5ixj4MMvYpBlGwh5byegZI76u1fX/7yGVdc
-         pRbnkNl53OfLXYHtFXyaehjFelFibNtjpMzigt8dmHWXGkTOXImMO5wjOjqycGcC6cpz
-         7lWQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzylmoHRRLV+yXSDPl3Ga2ewdWOIwURFw7am3hI7cKiYqwkfj5ytsQJv+A3i7vjiiyQ7Txg4UdeO0DZjlAOIWML@lists.infradead.org
-X-Gm-Message-State: AFq9FYJczgCmMc8xaAkjziey0vvoT+q0gtxezzL8DIkNk/lgG9ET0Juo
-	ohR0pighQX7vXj4x1qphgKADscYs98llBe0XElqGQtOqsqNIyFiMnbRgRYFYy63U2PAwU7UUCmG
-	ES9FHJDL2ZyVsz34BqtU24e18U1kOEVCimfUUtiO1wGaoQ5saNEd7uqc9NGvV4Par5Y6LJLOcwZ
-	PYMmGrN86Q21khHIHmma9nOw4Y7Jk5SYxkplaj6Ssp6ku18ZYAABVTmbMilTtkJcyDsVd6BtDru
-	eLsF7H79C1cM+4MbQQJ06gWOwx8SPFMxuU=
-X-Gm-Gg: AYBFou3JkGPLukLvnBA4Q4YJ+3lbcArjiq1z+FUUH0zvGhwYQeYNB6t/WZ/+pF0Bx3Q
-	vMExT8ZCOftyqA/Lbb2dM3id9CbLbkeiP1vv524hkCdCiF5cUx+KR8UB4+5EPYdL19cURa1Cp6S
-	7mBPu/dMAanKyuYgx2d2jHQSRG/VsvVWqTIuYMfsDLA9U0CN6+EXIuO+kX7HG6LbdFjZspPyZcx
-	3QHOL5fMqgg4KIPEG89GMdZMRH/UycdvTue2ve0JOSz63V81caIZSDAmAu4JaZtkes5ybiNgPaA
-	4mkyLc1XGeuco4ds59iWRSjAhz6+t5L7g62zZcPmaYsrI6c141EMBP3f2FEjzKqssVVkPnAYtOn
-	s3sAXn3Rc2R7sePdUaXTWcbq4ZSBGRm23Ckh4vQzzeUCvyG5FCgNHXc3pnz7qbJXO8MiIPlP8Fw
-	PKEo0uI/sSPkCMI8LpXg1bTq6ebofUkzQoAt0abHuQ
-X-Received: by 2002:a17:90b:57c4:b0:39e:21a7:5df5 with SMTP id 98e67ed59e1d1-3adeabde85amr6161322a91.24.1793039367449;
-        Mon, 26 Oct 2026 11:29:27 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3ae40784dfasm231606a91.3.2026.10.26.11.29.27
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 26 Oct 2026 11:29:27 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3510d0baf63so9419348eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 11:29:26 -0700 (PDT)
+	Mon, 26 Oct 2026 18:30:57 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a20a37703bso25776875e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 11:30:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1793039366; x=1793644166; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1793039454; x=1793644254; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hDzwNGKF3X9STRFxmJBhcRpaL+ED6BGdlNgUocMroeE=;
+        b=DLkv8KU1o1o9OLVqeRBKq7GNHEzHruhtmjWi96ETdmD+HQ96ryDcDtQxCrsLPiQVZu
+         9WwEym60Wu/wHHtM5A/YbQjTwZ+6FnuzBdI7WZCHynxeXi0EBRzs1OEN3mwrQbJ1SyUz
+         w+ZgSSJVmyS4ymbmrWyjo4jke1VbiZAYWz8pe/FUtSIrUhgpoqDY5Cgm1jII8uj0hRgZ
+         jYlWxJJ/2NbGe/vzEG2O3WNCH6PYrTosLG6H8uKTTZramKXOUUVw30n6OvlhYNlHqC9w
+         TXqBaiJOgSQZ+WE7Z0HbXgFbG3/6Vh7gAyKLYStAZwAWWq09zAxmqY6u8+/c98Usycji
+         kpGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793039454; x=1793644254;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=AaqGunwSleeDLPx2z6NkDc6zUunPgMcaEWPlGCr1dr4=;
-        b=UuhWwFNdgG3GOQdsGN5DMsVGIXEacim7PlpL9U7VckVjwSbtTbH8uv9qNv8ROJT3Ml
-         aPZmGZ+FDG/67YhQY7eCCQwmW+oKBn+WvwUjfevErdhtfH72CfYbRlUpM2Ct05XXL6Bf
-         Eo5mcRWBypVGD+9UISJ6ye1XRL135xeiAdydE=
-X-Forwarded-Encrypted: i=1; AKwUvBxS3OaOmw4iTWa3k+fUr8CvjaPsuCHz5xh7WZPKxv6SBGc3gXUrhgcOF+GasvJWFIVj1dMNNL4liF+QXBQgurxX@lists.infradead.org
-X-Received: by 2002:a05:693c:80cd:b0:34c:fb30:3e30 with SMTP id 5a478bee46e88-369e842cbf2mr12303458eec.7.1793039365316;
-        Mon, 26 Oct 2026 11:29:25 -0700 (PDT)
-X-Received: by 2002:a05:693c:80cd:b0:34c:fb30:3e30 with SMTP id 5a478bee46e88-369e842cbf2mr12303426eec.7.1793039364706;
-        Mon, 26 Oct 2026 11:29:24 -0700 (PDT)
-Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36a01fa4c58sm24657259eec.21.2026.10.26.11.29.23
+        bh=hDzwNGKF3X9STRFxmJBhcRpaL+ED6BGdlNgUocMroeE=;
+        b=vHyi5V3rgbb4cczoHVlKEoQrRq7+6hDeOc3ULNcQL7vZhUMaL9+vN3q1LBOPUezAd7
+         mI5AgWTJFsHfEu9GvUp7fckI2CjiQeBMILgNYFczXgD65wGUsAew/QAwDhe9izbmSpD/
+         LAgrDMGf7tu7adq50iU68Yynl5JrHWWPCp2cFsWCBMKJGVVBzadWreI4re4SB3/VQRYg
+         AyQPSvru5JWCUqJ8KvdtHRU22HmFgB9Wni//mgFpWKmImBwyKQySKES6BjWXkrCC/r/p
+         zy+ZmkndNnN74y6u0gFbdubl9f3Ko3UXEyHJ7j+o6mDUT6g9ibl2z8fiQoZdC3yOT82j
+         y5zw==
+X-Forwarded-Encrypted: i=1; AKwUvBxJrD3lRkuaD6jfGZlPLRX3E4MNICAor1tqHZi0vaU2hbRyUiQ0ZlzD3S1nfLq68oV+Zi+ql4azyJdgAyux5zq6@lists.infradead.org
+X-Gm-Message-State: AFq9FYKADGew1KOxi9WthPT7l/UYBn5H1GFn2D2YREqUh7w6k779MyZA
+	CFsaG8y7DrffacR2QkQ5+njl2jX88DmcKiE4M3hVYJfQHrvC6f5EnOns
+X-Gm-Gg: AYBFou0KW6tFCfJvMmagB4tEjv0aYq1ELW5BIvzpyMlkQPcttSsnWNL+ZXPBVcv5X7Y
+	0afEX2E+JAUE8JmpK6b8OVuCfj8RcRepjrxW0qOU3+iTZVPocEWaj7rh4nep/fsDYS7srmjNr7G
+	G0rAyJ6awgALixOWGSM+DCrudy9xJxIT0fIdC1LugbsS3o1FNA2VlGZncI4b0hzIPw72p/Gohu4
+	7SRMNreAFzdMianMwkuORq7cZPassNgsBHp4msMgwQ2T7zJgi5ZyP9HO+odWy0+hqP2SvzxyyUG
+	g5stwwgPfJtEsSKrRJt4YBW0kMsqJiImSZyy6xkKauUxvniZAhJNrNto+RmpwmyMt39o40PQGlL
+	kTJ61NgoQKJrgJ6aPKletJfdxfTi89dBBu8qQaE9x8KbW8BeO8CLgFnBgFNfc2/ytdLAknI/Z0N
+	j0R9fDi5zGk0BKT4p0JcFKRGU+QMgzAcNedvh6K/wFw8KjcYrSLTLCkMJXY94lmYLPoFaz0eMkG
+	vyORr5iKT72bNrYe5Z5KugRFlhWFVPmeawozQZiQgyywlfGHfRwPNxjYGFw3b6SEkeWaLqwEL3c
+	3Uqhmg==
+X-Received: by 2002:a05:600c:3486:b0:49f:f099:6fb1 with SMTP id 5b1f17b1804b1-4a35ac95955mr122964795e9.15.1793039453713;
+        Mon, 26 Oct 2026 11:30:53 -0700 (PDT)
+Received: from SMW032656.wbi.nxp.com ([128.77.15.89])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a35a30e11bsm250727985e9.1.2026.10.26.11.30.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 11:29:24 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: linux-kernel@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+        Mon, 26 Oct 2026 11:30:53 -0700 (PDT)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Tejun Heo <tj@kernel.org>,
-	Yendapally Reddy Dhananjaya Reddy <yendapally.reddy@broadcom.com>,
-	linux-ide@vger.kernel.org (open list:LIBATA SUBSYSTEM (Serial and Parallel ATA drivers)),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM IPROC ARM ARCHITECTURE),
-	linux-phy@lists.infradead.org (open list:GENERIC PHY FRAMEWORK)
-Subject: [PATCH v2 1/6] phy: broadcom: brcm-sata: Keep NSP ports in the shared PCB window
-Date: Mon, 26 Oct 2026 11:28:51 -0700
-Message-ID: <20261026182856.3168686-2-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261026182856.3168686-1-florian.fainelli@broadcom.com>
-References: <20261026182856.3168686-1-florian.fainelli@broadcom.com>
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	elena.popa@nxp.com,
+	cosmin.stoica@nxp.com
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: imx95-navq: add USB1/USB2 nodes
+Date: Mon, 26 Oct 2026 20:21:50 +0200
+Message-ID: <20261026182150.11330-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_182929_891228_427AE210 
-X-CRM114-Status: GOOD (  15.31  )
-X-Spam-Score: -0.5 (/)
+X-CRM114-CacheID: sfid-20261026_113056_466819_8F50A79D 
+X-CRM114-Status: GOOD (  10.82  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,58 +107,176 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Northstar Plus has one PCB register aperture for both SATA ports. Its
-per-port OOB settings use separate banks, while the PLL registers are
-shared.
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-The 40nm MDIO refactor made all non-40nm platforms use a 0x1000 per-port
-stride. NSP previously passed the shared base directly to the helpers.
-For port 1, the new stride moves the bank selector from 0x1804033c to
-0x1804133c in the AHCI register window, outside the PHY resource, and
-prevents the second PHY from being initialized correctly.
+Add and enable the DT nodes for USB1 and USB2.
 
-Exclude NSP from the per-port aperture offset in both read and write
-helpers, preserving its existing bank selection.
-
-Fixes: 0ed41b33882c ("phy: brcm-sata: Correct MDIO operations for 40nm platforms")
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
- drivers/phy/broadcom/phy-brcm-sata.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/freescale/imx95-navq.dts | 121 +++++++++++++++++++
+ 1 file changed, 121 insertions(+)
 
-diff --git a/drivers/phy/broadcom/phy-brcm-sata.c b/drivers/phy/broadcom/phy-brcm-sata.c
-index fb69e21a0292..b5fb9dff1ae9 100644
---- a/drivers/phy/broadcom/phy-brcm-sata.c
-+++ b/drivers/phy/broadcom/phy-brcm-sata.c
-@@ -215,9 +215,10 @@ static void brcm_sata_phy_wr(struct brcm_sata_port *port, u32 bank,
- 	void __iomem *pcb_base = priv->phy_base;
- 	u32 tmp;
+diff --git a/arch/arm64/boot/dts/freescale/imx95-navq.dts b/arch/arm64/boot/dts/freescale/imx95-navq.dts
+index 7860c113e9e0..5fe245b62306 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-navq.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-navq.dts
+@@ -5,6 +5,8 @@
  
-+	/* NSP has one shared PCB window; its per-port OOB banks are selected below. */
- 	if (priv->version == BRCM_SATA_PHY_STB_40NM)
- 		bank += (port->portnum * SATA_PCB_REG_40NM_SPACE_SIZE);
--	else
-+	else if (priv->version != BRCM_SATA_PHY_IPROC_NSP)
- 		pcb_base += (port->portnum * SATA_PCB_REG_28NM_SPACE_SIZE);
+ /dts-v1/;
  
- 	writel(bank, pcb_base + SATA_PCB_BANK_OFFSET);
-@@ -233,7 +234,7 @@ static u32 brcm_sata_phy_rd(struct brcm_sata_port *port, u32 bank, u32 ofs)
++#include <dt-bindings/usb/pd.h>
++
+ #include "imx95.dtsi"
  
- 	if (priv->version == BRCM_SATA_PHY_STB_40NM)
- 		bank += (port->portnum * SATA_PCB_REG_40NM_SPACE_SIZE);
--	else
-+	else if (priv->version != BRCM_SATA_PHY_IPROC_NSP)
- 		pcb_base += (port->portnum * SATA_PCB_REG_28NM_SPACE_SIZE);
+ / {
+@@ -80,6 +82,72 @@ i2c3_gpio_expander_21: gpio-expander@21 {
+ 		pinctrl-0 = <&pinctrl_i2c3_gpio_expander_21>;
+ 		pinctrl-names = "default";
+ 	};
++
++	ptn5110_usb3: tcpc@50 {
++		compatible = "nxp,ptn5110", "tcpci";
++		reg = <0x50>;
++		interrupt-parent = <&gpio4>;
++		/* USB_PTN5110_ALERT_B - shared IRQ line with tcpc@51 */
++		interrupts = <25 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-0 = <&pinctrl_typec>;
++		pinctrl-names = "default";
++
++		/* no SINK circuit (EN_SINK1 tied to TP32) */
++		connector {
++			compatible = "usb-c-connector";
++			label = "USB1 3.0 Type C";
++			data-role = "dual";
++			power-role = "source";
++			self-powered;
++			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					typec1_con_hs: endpoint {
++						remote-endpoint = <&usb3_data_hs>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					typec1_con_ss: endpoint {
++						remote-endpoint = <&usb3_data_ss>;
++					};
++				};
++			};
++		};
++	};
++
++	ptn5110_usb2: tcpc@51 {
++		compatible = "nxp,ptn5110", "tcpci";
++		reg = <0x51>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <25 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-0 = <&pinctrl_typec>;
++		pinctrl-names = "default";
++
++		/* no SINK circuit (EN_SINK1 tied to TP30) */
++		connector {
++			compatible = "usb-c-connector";
++			label = "USB2 2.0 Type C";
++			data-role = "dual";
++			power-role = "source";
++			self-powered;
++			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
++
++			port {
++				typec2_con_hs: endpoint {
++					remote-endpoint = <&usb2_data_hs>;
++				};
++			};
++		};
++	};
+ };
  
- 	writel(bank, pcb_base + SATA_PCB_BANK_OFFSET);
+ &lpuart1 {
+@@ -145,6 +213,10 @@ pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
+ 		fsl,pins = <IMX95_PAD_SD2_RESET_B__GPIO3_IO_BIT7			0x31e>;
+ 	};
+ 
++	pinctrl_typec: typecgrp {
++		fsl,pins = <IMX95_PAD_ENET2_RD1__GPIO4_IO_BIT25				0x31e>;
++	};
++
+ 	pinctrl_uart1: uart1grp {
+ 		bootph-pre-ram;
+ 		fsl,pins = <IMX95_PAD_UART1_RXD__AONMIX_TOP_LPUART1_RX			0x31e>,
+@@ -198,6 +270,55 @@ pinctrl_usdhc2: usdhc2grp {
+ 	};
+ };
+ 
++&usb2 {
++	disable-over-current;
++	dr_mode = "host";
++	usb-role-switch;
++
++	status = "okay";
++
++	port {
++		usb2_data_hs: endpoint {
++			remote-endpoint = <&typec2_con_hs>;
++		};
++	};
++};
++
++&usb3_dwc3 {
++	adp-disable;
++	dr_mode = "otg";
++	hnp-disable;
++	srp-disable;
++	usb-role-switch;
++	snps,dis-u1-entry-quirk;
++	snps,dis-u2-entry-quirk;
++
++	status = "okay";
++
++	port {
++		usb3_data_hs: endpoint {
++			remote-endpoint = <&typec1_con_hs>;
++		};
++	};
++};
++
++&usb3_phy {
++	orientation-switch;
++	fsl,phy-pcs-tx-deemph-3p5db-attenuation-db = <17>;
++	fsl,phy-pcs-tx-swing-full-percent = <100>;
++	fsl,phy-tx-preemp-amp-tune-microamp = <600>;
++	fsl,phy-tx-vboost-level-microvolt = <1156>;
++	fsl,phy-tx-vref-tune-percent = <100>;
++
++	status = "okay";
++
++	port {
++		usb3_data_ss: endpoint {
++			remote-endpoint = <&typec1_con_ss>;
++		};
++	};
++};
++
+ &usdhc1 {
+ 	bootph-pre-ram;
+ 	bus-width = <8>;
 -- 
 2.53.0
 
