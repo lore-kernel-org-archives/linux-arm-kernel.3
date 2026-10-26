@@ -2,36 +2,36 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57483606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:56:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55377606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:56:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IWLfz3t6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ej9OMxrc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=qTszvocLaYOpsjYueDSx5WsodbShfzlk4+GQlonfBSM=; b=IWLfz3t6sYx9y+
-	cdbky7L5NYJPx0Qk3SYJZMqc9h3hPK204+Argzsp6ZymGoRnllqQ+FDUbLHJ+vWrUo0/td0F2OGva
-	x0+tdTbfZv+oVd8OgUsEuk7jOUBvr8JsX9HQ4vzxef9qPVzHuTdfd9MCuOGZ5tHOfxFE3s/F0952Z
-	EO7bVZCN3iS+o3DEFTLxw0Ewux9PtZedYyR4cD1/Ef22K2HbZ1JyPnhUppES6bUe3HAsSS4rSnojq
-	uatW/arEofk3lH3cTQkhhnBV7fQjgc0zf2JplMrz1Enz6U6PNv5XM9FkBKCMN1xruwGqjwpH+AZA3
-	DF8GiLC4K89hQB8lsG7w==;
+	List-Owner; bh=6j5fPmNl4JXPUL19Fwb3C5vWLLpOlOJYPelcoa3tW+0=; b=ej9OMxrcSLLC+3
+	p33GilSKFdBqeP9iJK2R0f+iNvtNlNMBOtHullDrXr1i+6Zi6hoAmLlEBggcvbwv6MWskFIOdxAZP
+	xNk+fqUOCgreehYFHxi9BFgG4r9hRd4FZ7q6+b7oseImBhHpcxq9e3z9qZapbVW2+blldQ8/rU0XY
+	vPguZpZ4UE8wDEGTqWAGrEWtPRQQKwqAq3S2XQwG43YSepmjjqIMnx3RemStlpkTmzQvWD2J5sTOL
+	7xIQvBNd7aKm42uaBl3uHe8PYGvhZtDzx9SKq85qR8JGUBFm910SpJQ3nriXRCOrkD2LkkSDCyFLJ
+	ziXnwkARqAlhiNdIoPgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLM75-00000002iD6-3cEA;
-	Mon, 26 Oct 2026 14:55:51 +0000
+	id 1xLM7Y-00000002iXd-35ER;
+	Mon, 26 Oct 2026 14:56:20 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLM71-00000002iBZ-3W4B
+	id 1xLM7M-00000002iO6-2iXN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 14:55:47 +0000
+	Mon, 26 Oct 2026 14:56:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 960B940897;
-	Mon, 26 Oct 2026 14:55:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6F891F031E4;
-	Mon, 26 Oct 2026 14:55:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 699194349C;
+	Mon, 26 Oct 2026 14:56:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76A231F01829;
+	Mon, 26 Oct 2026 14:56:04 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
@@ -51,9 +51,9 @@ Cc: linux-pwm@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 03/11] pwm: rcar: Use FIELD_PREP() for PWMCR_CC0 access
-Date: Mon, 26 Oct 2026 15:55:19 +0100
-Message-ID: <3bc3726cfb6e59c378500a63fd5e52a6f0f8cf5c.1793026273.git.geert+renesas@glider.be>
+Subject: [PATCH 08/11] arm64: dts: renesas: r8a78000: Add PWM nodes
+Date: Mon, 26 Oct 2026 15:55:24 +0100
+Message-ID: <8912d1d4e99b95fc7e9f0d1cf3c596689c470e09.1793026273.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1793026273.git.geert+renesas@glider.be>
 References: <cover.1793026273.git.geert+renesas@glider.be>
@@ -77,38 +77,146 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Use the FIELD_PREP() helper instead of open-coding the same operation.
-Drop the now unused RCAR_PWMCR_CC0_SHIFT definition, and redefine
-RCAR_PWMCR_CC0_SHIFT using GENMASK() while at it.
+Add device nodes for the Pulse Width Modulation (PWM) modules and the
+16-Bit Timer Pulse Unit (TPU) on the Renesas R-Car X5H (R8A78000) SoC.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- drivers/pwm/pwm-rcar.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/renesas/r8a78000.dtsi | 121 ++++++++++++++++++++++
+ 1 file changed, 121 insertions(+)
 
-diff --git a/drivers/pwm/pwm-rcar.c b/drivers/pwm/pwm-rcar.c
-index 1733cd700693713e..4641f258df531baf 100644
---- a/drivers/pwm/pwm-rcar.c
-+++ b/drivers/pwm/pwm-rcar.c
-@@ -25,8 +25,7 @@
- #define RCAR_PWM_MAX_CYCLE	1023
+diff --git a/arch/arm64/boot/dts/renesas/r8a78000.dtsi b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
+index 946dce6ab38b619d..c5e48eac4c3712d8 100644
+--- a/arch/arm64/boot/dts/renesas/r8a78000.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
+@@ -1243,6 +1243,127 @@ hscif3: serial@c071c000 {
+ 			status = "disabled";
+ 		};
  
- #define RCAR_PWMCR		0x00
--#define  RCAR_PWMCR_CC0_MASK	0x000f0000
--#define  RCAR_PWMCR_CC0_SHIFT	16
-+#define  RCAR_PWMCR_CC0_MASK	GENMASK(19, 16)
- #define  RCAR_PWMCR_CCMD	BIT(15)
- #define  RCAR_PWMCR_SYNC	BIT(11)
- #define  RCAR_PWMCR_SS0		BIT(4)
-@@ -99,7 +98,7 @@ static void rcar_pwm_set_clock_control(struct rcar_pwm_chip *rp,
- 
- 	div >>= 1;
- 
--	value |= div << RCAR_PWMCR_CC0_SHIFT;
-+	value |= FIELD_PREP(RCAR_PWMCR_CC0_MASK, div);
- 	rcar_pwm_write(rp, value, RCAR_PWMCR);
- }
- 
++		tpu: pwm@c0720000 {
++			compatible = "renesas,tpu-r8a78000", "renesas,tpu";
++			reg = <0 0xc0720000 0 0x200>;
++			interrupts = <GIC_ESPI 23 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cpg R8A78000_CPG_SGASYNCD16_PERW_MAIN>;
++			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x76>;
++			resets = <&mdlc_perw 0x76>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
++		pwm0: pwm@c0740000 {
++			compatible = "renesas,pwm-r8a78000",
++				     "renesas,rcar-gen5-pwm";
++			reg = <0 0xc0740000 0 0x10>;
++			#pwm-cells = <2>;
++			clocks = <&cpg R8A78000_CPG_SGASYNCD16_PERW_MAIN>;
++			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x70>;
++			resets = <&mdlc_perw 0x70>;
++			status = "disabled";
++		};
++
++		pwm1: pwm@c0741000 {
++			compatible = "renesas,pwm-r8a78000",
++				     "renesas,rcar-gen5-pwm";
++			reg = <0 0xc0741000 0 0x10>;
++			#pwm-cells = <2>;
++			clocks = <&cpg R8A78000_CPG_SGASYNCD16_PERW_MAIN>;
++			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x70>;
++			resets = <&mdlc_perw 0x70>;
++			status = "disabled";
++		};
++
++		pwm2: pwm@c0742000 {
++			compatible = "renesas,pwm-r8a78000",
++				     "renesas,rcar-gen5-pwm";
++			reg = <0 0xc0742000 0 0x10>;
++			#pwm-cells = <2>;
++			clocks = <&cpg R8A78000_CPG_SGASYNCD16_PERW_MAIN>;
++			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x70>;
++			resets = <&mdlc_perw 0x70>;
++			status = "disabled";
++		};
++
++		pwm3: pwm@c0743000 {
++			compatible = "renesas,pwm-r8a78000",
++				     "renesas,rcar-gen5-pwm";
++			reg = <0 0xc0743000 0 0x10>;
++			#pwm-cells = <2>;
++			clocks = <&cpg R8A78000_CPG_SGASYNCD16_PERW_MAIN>;
++			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x70>;
++			resets = <&mdlc_perw 0x70>;
++			status = "disabled";
++		};
++
++		pwm4: pwm@c0780000 {
++			compatible = "renesas,pwm-r8a78000",
++				     "renesas,rcar-gen5-pwm";
++			reg = <0 0xc0780000 0 0x10>;
++			#pwm-cells = <2>;
++			clocks = <&cpg R8A78000_CPG_S0ASYNCD8_PERW_MAIN>;
++			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x70>;
++			resets = <&mdlc_perw 0x70>;
++			status = "disabled";
++		};
++
++		pwm5: pwm@c0781000 {
++			compatible = "renesas,pwm-r8a78000",
++				     "renesas,rcar-gen5-pwm";
++			reg = <0 0xc0781000 0 0x10>;
++			#pwm-cells = <2>;
++			clocks = <&cpg R8A78000_CPG_S0ASYNCD8_PERW_MAIN>;
++			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x70>;
++			resets = <&mdlc_perw 0x70>;
++			status = "disabled";
++		};
++
++		pwm6: pwm@c0782000 {
++			compatible = "renesas,pwm-r8a78000",
++				     "renesas,rcar-gen5-pwm";
++			reg = <0 0xc0782000 0 0x10>;
++			#pwm-cells = <2>;
++			clocks = <&cpg R8A78000_CPG_S0ASYNCD8_PERW_MAIN>;
++			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x70>;
++			resets = <&mdlc_perw 0x70>;
++			status = "disabled";
++		};
++
++		pwm7: pwm@c0783000 {
++			compatible = "renesas,pwm-r8a78000",
++				     "renesas,rcar-gen5-pwm";
++			reg = <0 0xc0783000 0 0x10>;
++			#pwm-cells = <2>;
++			clocks = <&cpg R8A78000_CPG_S0ASYNCD8_PERW_MAIN>;
++			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x70>;
++			resets = <&mdlc_perw 0x70>;
++			status = "disabled";
++		};
++
++		pwm8: pwm@c0784000 {
++			compatible = "renesas,pwm-r8a78000",
++				     "renesas,rcar-gen5-pwm";
++			reg = <0 0xc0784000 0 0x10>;
++			#pwm-cells = <2>;
++			clocks = <&cpg R8A78000_CPG_S0ASYNCD8_PERW_MAIN>;
++			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x70>;
++			resets = <&mdlc_perw 0x70>;
++			status = "disabled";
++		};
++
++		pwm9: pwm@c0785000 {
++			compatible = "renesas,pwm-r8a78000",
++				     "renesas,rcar-gen5-pwm";
++			reg = <0 0xc0785000 0 0x10>;
++			#pwm-cells = <2>;
++			clocks = <&cpg R8A78000_CPG_S0ASYNCD8_PERW_MAIN>;
++			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x70>;
++			resets = <&mdlc_perw 0x70>;
++			status = "disabled";
++		};
++
+ 		stcm_transport: sram@c1060000 {
+ 			compatible = "mmio-sram";
+ 			reg = <0x0 0xc1060000 0x0 0x1c00>;
 -- 
 2.43.0
 
