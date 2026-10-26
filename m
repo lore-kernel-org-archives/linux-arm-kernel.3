@@ -2,112 +2,159 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE608606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 16:22:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 062A8606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 16:24:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1jI9WVap;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=a52g/HHC
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=E1dHlhi5;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=lsNrZREB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=K3sKvuhBViiGlLU3TkCVl1Keg1pObMrKBIESSV0t2zI=; b=1jI9WVapKrRfoC
-	vukH5tm5ty0uiVHe/bw5pYetAd75XcyHfKnmRzKUscBcxQYkTJD8S23DBbO8NcFuV37JquEFe4dO9
-	0pcJlOk+xzV55zosPsHHmaNe8tBG2YsS8sjgFadeZoysqJ9FF8djjXpffJvYp0I7oKEZe6Wyu8py9
-	fuqKA5lN4vlyPQBC12IC2qRd6sq3c4RQ/pUifD+Z8CLfYiwfCagbONFpqNABuRB+IIxPvb8A38OOO
-	HFVAv65INtf/HZIJt8QPG3zHzNwd/Rk3DYKH2ip6jTxlgcIEGUinZ0fzeusN8wefGEIdpLKreukP/
-	HUmr9MrWJxnfZSO0V9lA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=DajPTuRGlwcD4J4PQkOl0tYDfpyADr1jZ7qC3/V/b3M=; b=E1dHlhi5WiHfCf
+	vyLEV4013pKSOwY+93Fzt4R4eTNi80AABjmlKFfm1vUHCq/tGGZTthehGHF//u0xfUTt0LS+y8oAH
+	O+0gq5PXm5ijlCqbjaGlRB3omSx2o6Zjwtt4BkrK3MkaffnssbtOc6Mr2ZgsEzdcyJIZUcb5nMt89
+	bjtTWUBN79OQe30Mdo+7sWPyoSL7zaUUYvOsMebN07E5iDxJvJCGhUFXLBcMe3oNRgdjWHY0sOlv8
+	GmJLiFumnJX0ONId14CQIuh+hzDlbKjakNeGGUgOFGI/IDYduiYVxcG/w1UI900umKOiCZtxWdmxj
+	tHbOxEQE+RxLlB0mipJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLN8p-00000002oV0-0dTL;
-	Mon, 26 Oct 2026 16:01:43 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1xLNV3-00000002s5J-3aZm;
+	Mon, 26 Oct 2026 16:24:41 +0000
+Received: from omta036.useast.a.cloudfilter.net ([44.202.169.35])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLN8g-00000002oLq-0AKL
+	id 1xLNV0-00000002s3M-0Ycw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 16:01:35 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-c3f8d72d7ceso487770766b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 09:01:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793030492; x=1793635292; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=K3sKvuhBViiGlLU3TkCVl1Keg1pObMrKBIESSV0t2zI=;
-        b=a52g/HHCc81L9JwW75kd2IKPmt/UXobn0DmdiPQKkWuXYEREn1/2/llmsTQznbQZXT
-         QTIb6++GoqJGR7ONStFq/x/J/EFnGzkspjX9xShJKi0GpcRDRZuM9TYeGt9ua9H1BAqU
-         Rv28IyHXimP3RuP/zm59hYe5Gt/guMpBmjyDLRYXSkvRy3Su7h4jh8gPWnfdZAE9iUj6
-         4j4V5fflnsnW/mTTjiyuFMud8nfcNqscQ/Oz6FzM6PLqO6FhM2pj46HQ7nGg5g9+Inp0
-         HbYD4pLcCJX3ktwlheWw5aLyVSRDRQPv+vfK6ASD86g/sgU40CRyy03A8DgqU4gxE5HX
-         9gJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793030492; x=1793635292;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=K3sKvuhBViiGlLU3TkCVl1Keg1pObMrKBIESSV0t2zI=;
-        b=ZLTiFos6crj0jVbfmKIfhj0V4mte7ltebC8rzHRQTIqqgH6EvBBQquUFw/QW84mGZ4
-         XA0neiWmwQ/zAq7ZgaLmgE/RELcIovmhTWpNzYFyv66AMOf/UcX/DQfG520G6QHKqLOw
-         SwB9AwH5rykCFujlLnYwJTaTtZBtCMQmI56KDe3IRabt6K2fSbJPA/dC/PTIkorCGglD
-         bLGZIhLQZQah0/16QmTZ/jb3sv5LGCl5Q2n8T5dLK0K+2AcDuj6kQMzZMEs17iPUAu9G
-         IQ477J/cYysHgRRi24pq1vKAW5+efyKh1gbTLHmKwizICXa5z8ntYBJTgs43w+vo+n7i
-         LZGQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwWdYKnyyxeBeFHulWC4lNPWTTYN7orGmcsoOg3dK5cm+KB9ipPkpjFaQuE87O2gUG5bgUWcchfd7QJq1ADa3nn@lists.infradead.org
-X-Gm-Message-State: AFq9FYJGTaMSCqonOXUuw0j1a9TR5HqtsZafE7IcVlzmBkJvevDkjjtG
-	8ELF9TZf8INItclKy9f6VLkYpmV/xY9Y8U6JOhwKEgLuj7UyXmWNO46P/oUSik+TTWc=
-X-Gm-Gg: AYBFou0fpf1IkWWxRVl1DUKo4ZU0kcWbGbOsK3/qfgzNBMKtD0e+6y+Dt7IXVOCm7Mv
-	0r52zxulgqU5Kxb+bXuvkpKPYDydYmWef6hHCaTRmoLXGCl00kDwSX/Db5Oi+/LSV7wxmcn1KYG
-	mKAvmL3IcpZN/sHk7Q7WrEArlGYgvFOPk14a+fl6KvwDfvt6u62m+ItJON4Wciu/del3N4gGL+R
-	iBeqUub9Cd+/3wLfRxm4EQ3wqEVeyvX0t+05P8LaUYasjxNeXmTX0YC/jnZqaUlHh0VUWNvC63t
-	opg42yS1Os+55auVx0uF/Gs59Tk+M+WvkA+RF4+mCQ5AN2/Ynn7CWPP/SP31JNogD3lqxHwoGSr
-	rET2R+Mm7k133OBMFUA1QypVNxh27jL4Uqc3pQF+gQMtlypmQXY3yt+mmgwF5+lRoZUXR26p6UP
-	Gy33y27oN3uJMUU/0txetXjDr7heti/JtHQWHYFgMv7mlsYP2qaVnoAixiXFV/LjGb4SNh0PxqL
-	wsH1T6G/2etWbgL6ianLSDgyFHxt8iW4P6nox4ae2ySavktme0VTAWN60ampjpAlHPYNaWxaxMA
-	Ro2PHv8x2zDZJlInPs7vco/bFjr1rrHGrdDf
-X-Received: by 2002:a17:907:3f1e:b0:c3e:d0ca:d2fd with SMTP id a640c23a62f3a-c46bddaefadmr876184966b.12.1793030492156;
-        Mon, 26 Oct 2026 09:01:32 -0700 (PDT)
-Received: from ta2.c.googlers.com (231.141.38.34.bc.googleusercontent.com. [34.38.141.231])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c49a530f520sm17307466b.23.2026.10.26.09.01.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 09:01:31 -0700 (PDT)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Mon, 26 Oct 2026 16:01:28 +0000
-Subject: [PATCH 11/15] thermal/drivers/samsung: acpm-tmu: Rename platform
- driver to "exynos-acpm-tmu"
+	Mon, 26 Oct 2026 16:24:39 +0000
+Received: from eig-obgw-6002b.ext.cloudfilter.net ([10.0.30.203])
+	by cmsmtp with ESMTPS
+	id LMqkx4GkTLvgbLNUnxlLl1; Mon, 26 Oct 2026 16:24:25 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id LNUlxPn8nWuAqLNUmxAIMH; Mon, 26 Oct 2026 16:24:24 +0000
+X-Authority-Analysis: v=2.4 cv=IpUecK/g c=1 sm=1 tr=0 ts=6adf7eb8
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
+ a=iox4zFpeAAAA:8 a=tt6zo4tp7eAlrjPKee4A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=WzC6qhA0u3u7Ye7llzcV:22 a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
+	List-Archive; bh=DajPTuRGlwcD4J4PQkOl0tYDfpyADr1jZ7qC3/V/b3M=; b=lsNrZREBaNyV
+	34I/2MbZZFS63thif2qT+LwMsLC5dLGoqiCLbUJia0eyD7/PVaTnwaZHHWBpIRHUpZ+kP/A9qlsnH
+	LqSVDEQc4PwHDdqZElYdGktKtpvwrnoiWjROMvd4FIMmyEezANBlLwMHzae7YjSJjqa2NJ5umz4wc
+	+NYwr866ZOiDKLpxuf7nDfNXJm6ykgXrQNvHi5lixAMBJC6/MC9cpSZc1vt4cFDy7cGaWf7O/RPLN
+	UDkdRAa2PNjqUHhh3tLciDF5bwZZUKJjwIEzW3utdUXbkZoSkLtEUaSrtcIUnP+M2iPZOOkdGWCNC
+	LOnjiQRDB+ichCBDvYCJDA==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:55640)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xLNUh-00000000J3G-11yk;
+	Mon, 26 Oct 2026 21:54:19 +0530
+Message-ID: <7df58d42-517c-4936-88b0-9d044d30882c@roeck-us.net>
+Date: Mon, 26 Oct 2026 09:24:16 -0700
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261026-acpm-tmu-fixes-v1-11-0637431b7268@linaro.org>
-References: <20261026-acpm-tmu-fixes-v1-0-0637431b7268@linaro.org>
-In-Reply-To: <20261026-acpm-tmu-fixes-v1-0-0637431b7268@linaro.org>
-To: Daniel Lezcano <daniel.lezcano@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
- Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Alexey Klimov <alexey.klimov@linaro.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Juan Yescas <jyescas@google.com>, linux-pm@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793030483; l=1029;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=kKFEY7/HvEq+100xRnR+XskO/ds5n+vISMebLJ4Xmr4=;
- b=ec7B0504Wi6Z8WS8KfhDktthnTx3XbHQeg00S34wCbflTe0KQVBU5L4yBFWkH1RAfbPukMl7S
- +PP33+KjN88BE+Y3NUBrjPmJBAV/M7X3mNPO26BGuX5nceHOnSZjuZL
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 0/4] hwmon: Add fan tachometer support for Raspberry
+ Pi RP1
+To: Andrea della Porta <andrea.porta@suse.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+ <ukleinek@kernel.org>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Gregor Herburger <gregor.herburger@linutronix.de>,
+ Stanimir Varbanov <svarbanov@suse.de>, linux-hwmon@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-pwm@vger.kernel.org,
+ Gary Guo <gary@garyguo.net>,
+ Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+References: <cover.1792748690.git.andrea.porta@suse.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <cover.1792748690.git.andrea.porta@suse.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xLNUh-00000000J3G-11yk
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:55640
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 18
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfPcKr09iG+Of5okfOagZh68ATDRqRdoHMhM8Eevv8fKZ/e4fzJiK5H5kM/kGJpC5ZE2RNvQe+PeN/0IbJyL8KAUC9YhVNiJgD9/+JTf4K6og1ySxp/d+
+ wszeEVfA4huMiFuB0TGfckxvUMCgPIq2oKv3Ok40+B5qxJVsFyk95X/VtXUIWCSy86K8MviolrIHU5veJINonV3XGVRC0oS8PFv6rUm1cvXGnvanWbf9qG1b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_090134_105594_B44BDEAB 
-X-CRM114-Status: GOOD (  14.81  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261026_092438_241708_21ED13BB 
+X-CRM114-Status: GOOD (  23.94  )
+X-Spam-Score: -1.4 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,40 +165,109 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Rename the platform driver from "gs-tmu" to "exynos-acpm-tmu" to reflect
-that the ACPM TMU architecture is shared across Samsung Exynos SoCs
-(such as GS101, AutoV920, and Exynos850) rather than being specific to
-GS101, matching "exynos-acpm-protocol" in drivers/firmware/samsung/.
+On 10/23/26 03:15, Andrea della Porta wrote:
+> Hi,
+> 
+> This patch series adds fan tachometer / RPM monitoring support for the
+> Raspberry Pi RP1 southbridge found on the Raspberry Pi 5.
+> Please note that the patchset in [1] is a prerequisite for this one.
+> 
+> On the Raspberry Pi RP1, the active cooling fan speed is controlled via
+> the RP1 PWM controller. In addition to generating PWM signals, the RP1
+> monitors fan tachometer pulses. The pulse measurement and RPM calculation
+> are performed autonomously by the RP1's onboard Cortex-M microcontroller
+> core, which periodically writes the computed RPM value directly into
+> dedicated MMIO registers located within the RP1 PWM hardware block.
+> 
+> During earlier discussions, Uwe Kleine-König explicitly indicated a
+> preference to keep the core PWM controller driver (drivers/pwm/pwm-rp1.c)
+> focused strictly on PWM duties, rather than bloating it by registering an
+> hwmon device directly from within the PWM driver (see [2]).
+> 
+> Because the Linux PWM subsystem currently lacks a generic framework or
+> consumer API for reporting hardware-calculated tachometer readings, this
+> series implements a standalone hwmon driver (rp1-fan) using the following
+> structure:
+> 
+> -  The PWM driver exposes and exports rp1_pwm_read_tachometer() within a
+>     dedicated symbol namespace ('RP1_PWM') to read the RPM value from
+>     the MMIO block.
+> -  A companion DT binding (raspberrypi,rp1-fan.yaml) introduces a vendor
+>     property, 'raspberrypi,pwm-tachometer', to link the fan node to the
+>     PWM controller node without overloading or abusing the standard 'pwms'
+>     property.
+> -  The rp1-fan hwmon driver parses this phandle, establishes a device link
+>     for proper runtime and unbind dependency management, and registers the
+>     standard hwmon 'fan1_input' sysfs attribute.
+> 
+> An alternative architectural approach to the DT phandle + exported helper
+> method would be to model the tachometer as a child device using the
+> auxiliary bus framework (drivers/base/auxiliary.c). In that model, the RP1
+> PWM driver would instantiate an auxiliary device for the tachometer, and
+> the hwmon driver would bind to that auxiliary bus device without requiring
+> a separate DT node.
+> 
+> However, adopting the auxiliary bus would require a more significant
+> rework and refactoring of the existing RP1 PWM driver.
+> 
+> I'd appreciate any feedback on whether the current companion driver with
+> a dedicated DT property is acceptable, or if an auxiliary bus-based
+> refactoring of the PWM driver is the preferred upstream path.
+> 
+> Patch Breakdown
+> ---------------
+> Patch 1: pwm: rp1: Export helper to read fan tachometer RPM
+> Patch 2: dt-bindings: hwmon: Add Raspberry Pi RP1 fan binding
+> Patch 3: hwmon: Add driver for Raspberry Pi RP1 fan tachometer
 
-Suggested-by: Alexey Klimov <alexey.klimov@linaro.org>
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
----
- drivers/thermal/samsung/acpm-tmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This seems conceptually wrong.
 
-diff --git a/drivers/thermal/samsung/acpm-tmu.c b/drivers/thermal/samsung/acpm-tmu.c
-index 42b338d8d093..2324efcffb84 100644
---- a/drivers/thermal/samsung/acpm-tmu.c
-+++ b/drivers/thermal/samsung/acpm-tmu.c
-@@ -597,7 +597,7 @@ static const struct dev_pm_ops acpm_tmu_pm_ops = {
- 
- static struct platform_driver acpm_tmu_driver = {
- 	.driver = {
--		.name   = "gs-tmu",
-+		.name   = "exynos-acpm-tmu",
- 		.pm     = pm_ptr(&acpm_tmu_pm_ops),
- 		.of_match_table = acpm_tmu_match,
- 	},
+Have you considered implementing the hwmon driver as auxiliary driver
+and accessing the register in question through regmap ?
 
--- 
-2.56.0.257.gf7497c7d27-goog
+> Patch 4: arm64: dts: broadcom: bcm2712-rpi-5-b: Add RP1 fan tachometer node
+> 
+> Thanks,
+> Andrea
+> 
+> 
+> LINKS:
+> [1] - https://lore.kernel.org/all/cover.1790686331.git.andrea.porta@suse.com/
+> [2] - https://lore.kernel.org/all/adLTwOTbkJ0VQXy6@monoceros/
+> 
+> Andrea della Porta (4):
+>    pwm: rp1: Export helper to read fan tachometer RPM
+>    dt-bindings: hwmon: Add Raspberry Pi RP1 fan binding
+>    hwmon: Add driver for Raspberry Pi RP1 fan tachometer
+>    arm64: dts: broadcom: bcm2712-rpi-5-b: Add RP1 fan tachometer node
+> 
+>   .../bindings/hwmon/raspberrypi,rp1-fan.yaml   |  39 +++++
+>   Documentation/hwmon/index.rst                 |   1 +
+>   Documentation/hwmon/rp1-fan.rst               |  41 ++++++
+>   MAINTAINERS                                   |   1 +
+>   .../boot/dts/broadcom/bcm2712-rpi-5-b.dts     |   5 +
+>   drivers/hwmon/Kconfig                         |  11 ++
+>   drivers/hwmon/Makefile                        |   1 +
+>   drivers/hwmon/rp1-hwmon.c                     | 136 ++++++++++++++++++
+>   drivers/pwm/pwm-rp1.c                         |  27 ++++
+
+Either case, there is no such driver in mainline or linux-next.
+
+Guenter
+
+>   include/soc/bcm2835/raspberrypi-pwm-rp1.h     |  10 ++
+>   10 files changed, 272 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-fan.yaml
+>   create mode 100644 Documentation/hwmon/rp1-fan.rst
+>   create mode 100644 drivers/hwmon/rp1-hwmon.c
+>   create mode 100644 include/soc/bcm2835/raspberrypi-pwm-rp1.h
+> 
 
 
