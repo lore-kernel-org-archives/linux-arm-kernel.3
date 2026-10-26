@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A5F4606A325
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 16:40:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01EFD606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 16:40:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mVUcgdlW;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=m+co55mb
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pr6jMnk2;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=bUQFIZYr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
@@ -14,63 +14,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=j+pgUU2lCypiF+bjpCYVvnGGlayFnQSVpYHqlC0Ubm8=; b=mVUcgdlWU36eZa43zUuTbr0BnT
-	m1JBCF0ZXRnshfZeXf/cwX+rSMZnswccpR+txkwvVi8FXJI9HhOPuwV9XCWMTyEfUh1TQe5cNLuvb
-	w6W8En0NRSg0c5rMhHcfhyFrJwvwlr3Ky1JkLWoZlpuAZXJiClnSo8crGu5u/4+mR+eQqCGIZfrKX
-	fS1T5zkIPPPMIug2ndR/fx0YqvY9rEM1WxRD8yQjXplvDP5mfngpIMEZHm3+RUzoGNJofA+seBRZn
-	iu2GJmcUsgVaeKCfBJ53M+W7Ut4f8DpVbRFZ88kqQ9/Nsjgp29w63tLIftV5wNXcqaNXk82P+b7kR
-	NHyWQuzA==;
+	bh=poQqnkjlBPuX9RdULowmTFcXX7UXKmqTRfjOTQXFTR8=; b=pr6jMnk2T23qsbZ097yGDZCX2B
+	HUiqeyPLwnWEs/D+4TTJAsajm28us8KThQJ/uokoW735r2r00yqX23p7mZ0WdJvT7ZPguQlfXU/Ok
+	UN97vw2kLOFkgUdNEzv9AAzP6qGYfzsCBEutpm0VzKK7JCNJX0OyFX2RwQToAlhDTR8Wqse305vXx
+	wZ5TTmV4KvxqykFZpZA37ZEF5dcL8Bhfs67b14ypqAl3RhrXABsJ1D7bOz6HENWD8YGuhs1oWo+qr
+	YKBOtZAFnDrWXlVRP3ufB44Bbasvd4bPDtVSMvtaBoXdJehEaqs+6ntLbB6KOQMXiTkuOiN3D+Z+w
+	uFnag0Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLNjs-00000002uD2-1Mlr;
+	id 1xLNjs-00000002uDM-22TC;
 	Mon, 26 Oct 2026 16:40:00 +0000
-Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
+Received: from mail-wr1-x447.google.com ([2a00:1450:4864:20::447])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLNjk-00000002u9j-1F3m
+	id 1xLNjl-00000002u9n-2UJj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 16:39:53 +0000
-Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-4a1d1f26a63so32647055e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 09:39:51 -0700 (PDT)
+	Mon, 26 Oct 2026 16:39:54 +0000
+Received: by mail-wr1-x447.google.com with SMTP id ffacd0b85a97d-48dff112136so2221963f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 09:39:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1793032790; x=1793637590; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1793032791; x=1793637591; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=j+pgUU2lCypiF+bjpCYVvnGGlayFnQSVpYHqlC0Ubm8=;
-        b=m+co55mbZAwhdvYV72IvUsrHylHKDGQOk2GXsfTclAa6BhT++gaP62Z91FDo/TZn36
-         Ft+D4ti/R2M42SgMTrBXEcbe48mEKfs+6OlCPBLcXotqhf3CuzaobKcz47XdILLwbnXb
-         vCZn/Yy2C1gFA67gdAUFZL6gDRXqVBj0DApQo02V6H6uyWJNuX2R1ClZjxh3E8dPyRuJ
-         CCk+rBRt6Xw7P6bFRyhgQO9C9ioj79aKaUZ1/98eF3wzsdpewzlv5hWx6i5KMIYC74A3
-         3uCYle6oFdikZ6fGkm07jI8M7wHw1j1Cg5jylyELvx5EwvjFxmk1bjoqiCdVMD64CWS2
-         ZGAw==
+        bh=poQqnkjlBPuX9RdULowmTFcXX7UXKmqTRfjOTQXFTR8=;
+        b=bUQFIZYrCTKTsXly+aYUcMzWYPx7uUgJNCIspblQ1NbS9ZX7qcXSg359RCDdIIywyt
+         equ1ophKIeRrTXTLzkAqzMTlhflZ119FwKZRyyhs2u38EvVwBoYiXdYF7AdcXriX1CWL
+         8b+N33/qfm6CyMmbV/2iiaYnEotCr34+uYrFuYeY61AyRgW12DoQueIBBiV93+xN3M+S
+         +Vj6RCCm80AszJggfph50OECsqtwHpBkAHzqMYGjD/JIOuQH+HdWsbl65ib8R5dGnmmB
+         tu5+OA9mm6GpGVSANc2JCzqyMIaLavLW3QqSe7TLrRixbhRlFdFbVXGBL4tedJIeF9QY
+         bl4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793032790; x=1793637590;
+        d=1e100.net; s=20260707; t=1793032791; x=1793637591;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=j+pgUU2lCypiF+bjpCYVvnGGlayFnQSVpYHqlC0Ubm8=;
-        b=wmAd3AHIeiop3g1pfyUyE77AEzub8Nw1KQtx/jpnDRb6urwjkLHYiu4EShWY7aAbVm
-         7+Lh/arWXlovpRAujjD7qpNC3SuxfYlpoVo7gjyRZa88LJeqTKdT2cuZVlbiqsmg66NH
-         nCWDHQ26HP35+/DWr6jyoKgUHj/+8flLQcEU28slvtj0j9uDxrBMcqL0fjmEVDsV8y5g
-         i6aIiGqcKEoa9KxkIglMiW566H/l4H7cIIDGKvANceKupiATTcddq5o8yrMn5wrt9x/P
-         zQR5cFTji5mT5ms6/RtrnIl9rUHPH3vcxB+YKIuev+H7Qy1To9UQS7u4/UmpiT5D9IOW
-         nZSQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzf/wHrOlCgHvXUioH0s1OAlzsWUWLDnhBk6vSM4eFrtIPzJaHfY6QrVOO96Cc3j3UTGZfjgrYUsJu5WeLO++Bi@lists.infradead.org
-X-Gm-Message-State: AFq9FYLlNS0uT4PpayyuVWE+a5ufAwrLi72/hR5797BR530fdUHQktkZ
-	3F6042qSqo6jEDdCXuSSpAQt3XbHaROIxHnyg1ynBBaOU6yTtmAm/HIQje/xKP/lEqpCMGLSWOE
-	YnCfraAcmNiqIWNTwjoLtCQ==
-X-Received: from wmv5.prod.google.com ([2002:a05:600c:26c5:b0:4a2:c1:cb3f])
+        bh=poQqnkjlBPuX9RdULowmTFcXX7UXKmqTRfjOTQXFTR8=;
+        b=IuqsxUcb4I2JpEdw+8MC+TcoqZkgft0qvzS/UOcBAf5sBaUQo0dPcizWXYSJh36M0t
+         28UXvNYFs/MqOEWniLbDJB93pSbXdBvH03MBLu7eGh7zELv7krbdey16UHY1WjoLXcdV
+         yXg483tnd3oOP8fScUCzP5Q3i05iBCpKAXJIUNxRI2NKvpagibiTZKQdlBsODBYDIfgd
+         VjqnIZ+sIQLhgP7vbBcSKMvBfbSIIymaQhQR9iZuqAzJvUdaRxF6sqjm8Gz9riNb7vjd
+         j9X1uO0ad1tiG4zsgalQROUiBDysOLYfTGWOkXLnpBj9UdgmSlF7CiPmt5WZdrEfI3md
+         oGlA==
+X-Forwarded-Encrypted: i=1; AKwUvByzjkDNp7k4IVJTn/zoUloi0pyGMkREP+aClKEEo/sZfswGUdJr+l4GdtlNYYlzNGcEacAigCCgeJWCaVMAFRR6@lists.infradead.org
+X-Gm-Message-State: AFq9FYLaKQPAuupQbziQoefDT78ACl1UBqDYKWFVMYumb9KJnCi+K4Km
+	7/S1MEqYFCPwkT33ofpIUqJarnJqWDeKGPP6/I/yZd0nOfywE3W0ABXLtMPOKewwzoABdUCWu5p
+	c83/R7Yy7GOx5uhi0Fr79mg==
+X-Received: from wmbhi16.prod.google.com ([2002:a05:600c:5350:b0:4a1:f1e1:c6d6])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:c0c8:b0:4a4:de70:2ad4 with SMTP id 5b1f17b1804b1-4a4de702b8bmr87155095e9.22.1793032789761;
- Mon, 26 Oct 2026 09:39:49 -0700 (PDT)
-Date: Mon, 26 Oct 2026 16:39:35 +0000
+ 2002:a05:600c:e547:20b0:4a6:b49f:9ae5 with SMTP id 5b1f17b1804b1-4a6b49f9e0bmr33320305e9.34.1793032790938;
+ Mon, 26 Oct 2026 09:39:50 -0700 (PDT)
+Date: Mon, 26 Oct 2026 16:39:36 +0000
 In-Reply-To: <20261026163937.963087-1-vdonnefort@google.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
 References: <20261026163937.963087-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.56.0.257.gf7497c7d27-goog
-Message-ID: <20261026163937.963087-2-vdonnefort@google.com>
-Subject: [PATCH v3 1/3] KVM: arm64: Make __vgic_v3_init_lrs HVC always available
+Message-ID: <20261026163937.963087-3-vdonnefort@google.com>
+Subject: [PATCH v3 2/3] KVM: arm64: pkvm: Fix missing reset of GICv3 LRs
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -80,8 +80,8 @@ Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_093952_355018_0498478C 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20261026_093953_675851_395F16B3 
+X-CRM114-Status: GOOD (  22.16  )
 X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,70 +101,166 @@ X-Spam-Status: No, score=-26.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The __vgic_v3_init_lrs hypercall only resets the vGIC LRs. Those
-registers are expected to be 0 when the host is running. As a
-consequence, it is completely safe to make it available at all times,
-even when pKVM is enabled and the host was deprivileged.
+The vGIC LRs are architecturally UNKNOWN when the CPU boots or resumes.
+However, in protected mode, only the used ones are reset, because the
+HVC __vgic_v3_init_lrs() is never called:
 
-Fixes: 057bed206f70 ("KVM: arm64: Disable privileged hypercalls after pKVM finalisation")
+  * During boot, vgic_present is only set in init_subsystems(), after
+    cpu_hyp_init() was called.
+
+  * During CPU hotplug, kvm_arch_enable_virtualization_cpu() never calls
+    it either because kvm_hyp_initialized is always set.
+
+  * During CPU resume, no notifier is registered for pKVM.
+
+If left uninitialised, those registers may inject spurious interrupts or
+worse, if EOI is set, livelock the vCPU, since no one is in position to
+clear it.
+
+First, return the error of __hyp_reset_vectors(). On an error, we know
+the hypervisor doesn't allow a reset. Only re-init what the host has
+access to, no matter the KVM configuration, which is the vGIC LRs.
+
+Then, cpu_hyp_init() is only called from init_subsystems() and
+kvm_arch_enable_virtualization_cpu(). Remove the kvm_hyp_initialized
+gate. It is possible because when pKVM is enabled, a CPU may already be
+initialised but then cpu_hyp_reset() simply returns an error, so we know
+we can skip the full init, while for the other modes, we know for sure
+it is never initialised when it hits this path.
+
+Finally, enable the PM notifiers for pKVM, it is now safe to do so. It
+will ensure the host properly configures the vGIC LRs regardless of the
+KVM configuration.
+
+Fixes: fa8c3d65538a ("KVM: arm64: Keep nVHE EL2 vector installed")
 Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
 Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- arch/arm64/include/asm/kvm_asm.h   | 2 +-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 5 +++--
- 2 files changed, 4 insertions(+), 3 deletions(-)
+ arch/arm64/include/asm/virt.h |  2 +-
+ arch/arm64/kvm/arm.c          | 50 +++++++++++++++++++----------------
+ 2 files changed, 28 insertions(+), 24 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index e5b92ac09e69..ca7e55d8eec3 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -60,7 +60,6 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___pkvm_create_private_mapping,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_cpu_set_vector,
- 	__KVM_HOST_SMCCC_FUNC___kvm_enable_ssbs,
--	__KVM_HOST_SMCCC_FUNC___vgic_v3_init_lrs,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_get_gic_config,
+diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+index b546703c3ab9..a5bde8cc5df5 100644
+--- a/arch/arm64/include/asm/virt.h
++++ b/arch/arm64/include/asm/virt.h
+@@ -83,7 +83,7 @@ extern u32 __boot_cpu_mode[2];
+ #define ARM64_VECTOR_TABLE_LEN	SZ_2K
  
- 	MARKER(__KVM_HOST_SMCCC_FUNC_MIN_PKVM),
-@@ -85,6 +84,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___tracing_reset,
- 	__KVM_HOST_SMCCC_FUNC___tracing_enable_event,
- 	__KVM_HOST_SMCCC_FUNC___tracing_write_event,
-+	__KVM_HOST_SMCCC_FUNC___vgic_v3_init_lrs,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_aprs,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index ac64a036b0a9..c1f0de3ec43f 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -627,7 +627,8 @@ static void handle___vgic_v3_get_gic_config(struct kvm_cpu_context *host_ctxt)
+ void __hyp_set_vectors(phys_addr_t phys_vector_base);
+-void __hyp_reset_vectors(void);
++int __hyp_reset_vectors(void);
+ bool is_kvm_arm_initialised(void);
  
- static void handle___vgic_v3_init_lrs(struct kvm_cpu_context *host_ctxt)
- {
--	__vgic_v3_init_lrs();
-+	if (hyp_gicv3_nr_lr)
-+		__vgic_v3_init_lrs();
+ DECLARE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 0576c2022ef5..dca6b7a43e92 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2246,10 +2246,12 @@ static void cpu_init_hyp_mode(void)
+ 	}
  }
  
- static void handle___vgic_v3_save_aprs(struct kvm_cpu_context *host_ctxt)
-@@ -910,7 +911,6 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__pkvm_create_private_mapping),
- 	HANDLE_FUNC(__pkvm_cpu_set_vector),
- 	HANDLE_FUNC(__kvm_enable_ssbs),
--	HANDLE_FUNC(__vgic_v3_init_lrs),
- 	HANDLE_FUNC(__vgic_v3_get_gic_config),
- 	HANDLE_FUNC(__pkvm_prot_finalize),
+-static void cpu_hyp_reset(void)
++static int cpu_hyp_reset(void)
+ {
+ 	if (!is_kernel_in_hyp_mode())
+-		__hyp_reset_vectors();
++		return __hyp_reset_vectors() ? -EPERM : 0;
++
++	return 0;
+ }
  
-@@ -931,6 +931,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__tracing_reset),
- 	HANDLE_FUNC(__tracing_enable_event),
- 	HANDLE_FUNC(__tracing_write_event),
-+	HANDLE_FUNC(__vgic_v3_init_lrs),
- 	HANDLE_FUNC(__vgic_v3_save_aprs),
- 	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
- 	HANDLE_FUNC(__vgic_v5_save_apr),
+ /*
+@@ -2300,32 +2302,38 @@ static void cpu_hyp_init_features(void)
+ 		kvm_timer_init_vhe();
+ 		kvm_debug_init_vhe();
+ 	}
+-
+-	if (vgic_present)
+-		kvm_vgic_init_cpu_hardware();
+ }
+ 
+ static void cpu_hyp_reinit(void)
+ {
+-	cpu_hyp_reset();
+-	cpu_hyp_init_context();
+-	cpu_hyp_init_features();
++	if (!cpu_hyp_reset()) {
++		cpu_hyp_init_context();
++		cpu_hyp_init_features();
++	} else if (WARN_ON(!__this_cpu_read(kvm_hyp_initialized))) {
++		return;
++	}
++
++	/*
++	 * Even if the hypervisor didn't allow resetting the vectors we can
++	 * reset the LRs.
++	 */
++	if (vgic_present)
++		kvm_vgic_init_cpu_hardware();
+ }
+ 
+ static void cpu_hyp_init(void *discard)
+ {
+-	if (!__this_cpu_read(kvm_hyp_initialized)) {
+-		cpu_hyp_reinit();
+-		__this_cpu_write(kvm_hyp_initialized, 1);
+-	}
++	cpu_hyp_reinit();
++	__this_cpu_write(kvm_hyp_initialized, 1);
+ }
+ 
+ static void cpu_hyp_uninit(void *discard)
+ {
+-	if (!is_protected_kvm_enabled() && __this_cpu_read(kvm_hyp_initialized)) {
+-		cpu_hyp_reset();
++	if (!__this_cpu_read(kvm_hyp_initialized))
++		return;
++
++	if (!cpu_hyp_reset())
+ 		__this_cpu_write(kvm_hyp_initialized, 0);
+-	}
+ }
+ 
+ int kvm_arch_enable_virtualization_cpu(void)
+@@ -2353,8 +2361,7 @@ void kvm_arch_disable_virtualization_cpu(void)
+ 	kvm_timer_cpu_down();
+ 	kvm_vgic_cpu_down();
+ 
+-	if (!is_protected_kvm_enabled())
+-		cpu_hyp_uninit(NULL);
++	cpu_hyp_uninit(NULL);
+ }
+ 
+ #ifdef CONFIG_CPU_PM
+@@ -2397,13 +2404,11 @@ static struct notifier_block hyp_init_cpu_pm_nb = {
+ 
+ static void __init hyp_cpu_pm_init(void)
+ {
+-	if (!is_protected_kvm_enabled())
+-		cpu_pm_register_notifier(&hyp_init_cpu_pm_nb);
++	cpu_pm_register_notifier(&hyp_init_cpu_pm_nb);
+ }
+ static void __init hyp_cpu_pm_exit(void)
+ {
+-	if (!is_protected_kvm_enabled())
+-		cpu_pm_unregister_notifier(&hyp_init_cpu_pm_nb);
++	cpu_pm_unregister_notifier(&hyp_init_cpu_pm_nb);
+ }
+ #else
+ static inline void __init hyp_cpu_pm_init(void)
+@@ -2526,8 +2531,7 @@ static int __init init_subsystems(void)
+ 	if (err)
+ 		hyp_cpu_pm_exit();
+ 
+-	if (err || !is_protected_kvm_enabled())
+-		on_each_cpu(cpu_hyp_uninit, NULL, 1);
++	on_each_cpu(cpu_hyp_uninit, NULL, 1);
+ 
+ 	return err;
+ }
 -- 
 2.56.0.257.gf7497c7d27-goog
 
