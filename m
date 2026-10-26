@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21AB8606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 20:18:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CA91606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 20:19:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Go3pQWsM;
-	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=WQIqj/SU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iDN9eLD+;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jl5TJde5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
@@ -14,38 +14,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=EXPccEg8PSk/FPbldfN5ElUkJbs3+4X/rrbmRLSFjcI=; b=Go3pQWsMffUaU2bNuvK4Mp/dBr
-	KNbu8fwb6msbZmllBOwGq4+HBiN9aEIZfEKjeVuv23hPij/eVJkbO4rzkKte4cV/3vuhjlx/ssZ/M
-	faPd+9WifR9Hhf8eLUGThmPeBOeTBFWd3I2x5b8HRr7YXwAeiCaywp++Ez6E4qtaUk41v2T/9J5bm
-	UbjhoN1Z8RImN5rond75VKdiz6nhm8OMoLcFIGNpOtaLtXf5JjdiPxYzMeiu0NZT4luJjCDjepbtP
-	VQ2rP/S8DWP6wOVZgmaqVJbfaS1JNfdpFCVaky4MCp93t9F9jOJRXl8RQ7tzvjGFNUMrfEg8wOSV9
-	dd4MxjUQ==;
+	bh=krAfBfFlNHgNlSxlUe+LuQnLSnJioLdfsgot8iO3v1A=; b=iDN9eLD+2opeEg6niQhFAa/WEL
+	mdSYahT1b2t9NkkockWv5gCZaOXb+Lg5HCbwPU6jvvaNYVdGZyXv9UYXiz3enLT+1NxCchHKUBp4A
+	YgjAlpSt8odbbOMGiTQ8MlGq932+lCSBTHKe+6ykHbzLkDwIqdrwS1j9Vgq7eNUvmG8TbBY2++49c
+	Iqy5/cfwXxv+SQSztHFHUrrs2IR8KFvsYalQ7YexYE4b0NPq2VH8vvO1OagMoJUAOo4t5+QKoCmRZ
+	uIHqJMLoeKAgR0NCkOOcl4nXkFI8XXp8KNXXB/oI2C4RBO9upZkdRSVXNNP1JWwFiJjXaWT2+n4Ur
+	LTU2rXog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLR8j-00000003D3M-03SF;
-	Mon, 26 Oct 2026 20:17:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xLR9m-00000003DAI-1HS2;
+	Mon, 26 Oct 2026 20:18:58 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLR8h-00000003D3G-2GZ6
+	id 1xLR9j-00000003D9h-2FjQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 20:17:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D08BC43DDC;
-	Mon, 26 Oct 2026 20:17:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 099921F01825;
-	Mon, 26 Oct 2026 20:17:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1793045870;
-	bh=EXPccEg8PSk/FPbldfN5ElUkJbs3+4X/rrbmRLSFjcI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WQIqj/SUn/Ep8siMYxNqhk65QHI6lcikUCAau4WKhbMqOIl/8zBKdF6cqe1Q/4Yli
-	 k2wRhtdJL3Rf9DtT8MMm78k5j/NIi/pvfSUk7R8hMnm0uEVBHZhEuSI+qgfPAY4T/S
-	 5xgihK4Ioq2m0TrRcn0CNSyRgre/w+Wfrf+wP7oo=
-Date: Mon, 26 Oct 2026 21:17:50 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+	Mon, 26 Oct 2026 20:18:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793045936; x=1824581936;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=zUbmRDmK8gkD3yRwfjA9S4957SSqr5wODL3BCxfAj1I=;
+  b=jl5TJde56uOX2zhbxCgWPPBH12Mt6ba/sEt1d7GNfREOpYbjx0EGL4PY
+   EclDClY7ol6A8LpQGVpqocBZOxGdnLxhR1b9jreFmMJDC93b9JqXd1vuh
+   +zjhxRr2jgbmDdysPs3cN/Q5LvkN7LnNEcDS+Rdins9RLkwzgpNhWy3VL
+   F9GUr2G7qdBq2Kv/5eGWkpE7/qu0ZTnP/5ryj3WzEQ3EU/NsTPuLfecuU
+   XNWK8uro2kRZWeVAau8P5i28HhWme58mrzQCfPyHGVT+6UqIKGs97DEOo
+   5XeNZtScu0aqn+7IbFmdLokGBaX9k9xCBJaESNVcHCcq2lCEhLrV0Uyu6
+   g==;
+X-CSE-ConnectionGUID: sB/G9SFFS6uejb5ma4HWAA==
+X-CSE-MsgGUID: ksS/55hHSLOrigR8u4uweg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11947"; a="1745587"
+X-IronPort-AV: E=Sophos;i="6.27,180,1787036400"; 
+   d="scan'208";a="1745587"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2026 13:18:54 -0700
+X-CSE-ConnectionGUID: kT+5/UsFQh2DCAfQ8Ot76A==
+X-CSE-MsgGUID: CH2gncsbTPOGQRV4g+nYQw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,180,1787036400"; 
+   d="scan'208";a="4311398"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.93])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2026 13:18:47 -0700
+Date: Mon, 26 Oct 2026 22:18:45 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	"Maciej W. Rozycki" <macro@orcam.me.uk>,
+Cc: "Maciej W. Rozycki" <macro@orcam.me.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Jiri Slaby <jirislaby@kernel.org>,
 	Raul E Rangel <rrangel@chromium.org>,
 	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
@@ -67,7 +82,7 @@ Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	linuxppc-dev@lists.ozlabs.org
 Subject: Re: [PATCH v5 2/5] serial: serialize asynchronous write wakeups with
  the port lock
-Message-ID: <2026102631-stove-preview-b534@gregkh>
+Message-ID: <at-1pU9Fq-8bXZY4@ashevche-desk.local>
 References: <20261024-submit-serial-8250-dma-cancel-v1-v5-2-9e52968928d2@gmail.com>
  <alpine.DEB.2.21.2610250459200.42255@angie.orcam.me.uk>
  <at4bw-G8czG-G7Wl@ashevche-desk.local>
@@ -84,6 +99,12 @@ Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 In-Reply-To: <CADvTj4o_CENc3i92OQEZudOErSKPUptT4t2CCqDaGbseuK0QcQ@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261026_131855_837762_717DE9C0 
+X-CRM114-Status: GOOD (  43.02  )
+X-Spam-Score: -4.5 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,18 +115,16 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 On Mon, Oct 26, 2026 at 01:59:06PM -0600, James Hilliard wrote:
 > On Mon, Oct 26, 2026 at 1:53 PM Andy Shevchenko
 > <andriy.shevchenko@linux.intel.com> wrote:
-> >
 > > On Mon, Oct 26, 2026 at 10:45:54AM -0600, James Hilliard wrote:
 > > > On Mon, Oct 26, 2026 at 3:33 AM Andy Shevchenko
 > > > <andriy.shevchenko@linux.intel.com> wrote:
@@ -113,9 +132,9 @@ On Mon, Oct 26, 2026 at 01:59:06PM -0600, James Hilliard wrote:
 > > > > > On Sun, Oct 25, 2026 at 2:44 PM Andy Shevchenko
 > > > > > <andriy.shevchenko@linux.intel.com> wrote:
 > > > > > > On Sun, Oct 25, 2026 at 02:25:46PM -0600, James Hilliard wrote:
-> >
-> > ...
-> >
+
+...
+
 > > > > > > Some people might want to test the stuff. And sending too often you actually
 > > > > > > will get the opposite results, people will be tired to even start reviewing
 > > > > > > and/or testing your code as it's changed way too quickly.
@@ -160,10 +179,37 @@ On Mon, Oct 26, 2026 at 01:59:06PM -0600, James Hilliard wrote:
 > 
 > Do we want those reviews going to recipients as well as the mailing list?
 
-For serial patches, we decided to only have it go to the submitter and
-the list.
+I am neither maintainer, nor an owner of the linux-serial@ mailing list.
+I can't answer to this.
 
-thanks,
+> > You can ask at helpdesk@ how this is configured on the kernel.org side.
+> >
+> > > > TL;DR: this mailing list is *not* a playground with you and Sashiko, the whole
+> > > > community is behind it.
+> >
+> > > > > > Settle down first
+> > > > > > with something, put on the cover letter the answer why not all Sashiko's
+> > > > > > comments are being addressed (for example, due to amount of patches or the
+> > > > > > series being focused on a certain issue).
+> > > > >
+> > > > > So, in general I've been always attempting to resolve known Sashiko issues
+> > > > > in every subsequent re-spin, so that would be a bit tricky since I wouldn't be
+> > > > > aware of the Sashiko issues until after the series has already been sent.
+> > > > >
+> > > > > Usually the subsequent issues that get flagged are new issues only discovered
+> > > > > after each new re-spin.
+> > > > >
+> > > > > I do have a bunch of UART/DMA related patches that don't have flagged Sashiko
+> > > > > issues so it probably makes sense to try and review those first while the larger
+> > > > > series that have Sashiko flagged issues are still stabilizing.
+> > > >
+> > > > Yes.
+> > > >
+> > > > > > > [0] https://github.com/sashiko-dev/sashiko/pull/389
 
-greg k-h
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
