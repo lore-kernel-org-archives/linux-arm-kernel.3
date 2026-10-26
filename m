@@ -2,101 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5B24606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 13:30:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C2A2606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 13:31:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dPpS7Rar;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=peQV7KXt
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FFAdI552;
+	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=DP6Ih9JU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=+8H3O6quflUjqnAfb6xhcXaxZg/Y3GPcBLpYGFoqzbM=; b=dPpS7RarRjvxiO9bHnU2ERDNjA
-	L/53zbDIXOrraTUCcVHLyCMDg0U4/0aDeIgG68IFs6GEHl+vzyhycYgsk3wXYrahETkhXa/LnT8wu
-	E/JvLyDybjrikz4MpRrR7D5E67o5gqWX94197hxe0NXpSXNNQ0eoxSt++8oHQE6bJ1xGHiAUKAtRr
-	QmUubStqeS2M6F42g0pjf57cg3nSlhP4uxHOxTZNzpsfWRx5pOi0ksah+A4XL+3HWxuWg7bDEyUNc
-	+96WwQRkLUza5RltZU3tygbINsROGoyZdpfjjJ2eSTFm4STCtd7U28PSHklp2dIlp3xA7VecWd7vv
-	P+yF3Ksg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Mime-Version:Message-Id:Date
+	:From:Cc:To:References:In-Reply-To:Subject:Content-Transfer-Encoding:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=J4UXRSWdp9L+slM0l5w1zWdkgLQIsp44pt/Clrth68c=; b=FFAdI552gpeduj
+	ElbLflLlWsGhcBklpHM8X/ByLBy3+Pu+/SsshRIETYRqkJgSEhtKiBBjylRnzAnqjzL+Nj9pSWhU9
+	RjlQLzgIIM8AtEr8HXAWEXl6LovKA5e2mrUxH9oVm1VlM9g1aHlBVUpdjY0f9EldXAEAgN9wFA1eb
+	BhqcyYzwF3l3CpDokk3W8hgtMuAtgGy22SfnttmAYsYWhM5uQtr/+tH9i7uNGRE6lngvpjGITyIc4
+	IpB5Ne+DElaSWXHVVCm1gcCCAlWtcxlu3dQP8EYKae675QrL+76h8bVqanocvFfsaLIJcftnw25Ik
+	2cbabJdNtxhkssR84m5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLKlz-00000002bHf-1JOI;
-	Mon, 26 Oct 2026 13:29:59 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1xLKmz-00000002bi1-0rJX;
+	Mon, 26 Oct 2026 13:31:01 +0000
+Received: from va-1-114.ptr.blmpb.com ([209.127.230.114])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLKlv-00000002bFX-2h2o
+	id 1xLKmx-00000002bfv-01Og
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 13:29:58 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a2072b9832so21062515e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 06:29:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793021393; x=1793626193; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=+8H3O6quflUjqnAfb6xhcXaxZg/Y3GPcBLpYGFoqzbM=;
-        b=peQV7KXtlP/nx8XIa//dWyB58bWPPHlq56OuEOPUUMQhP0zvuUg4dhcAF1qLplocS2
-         KKS1+zVyDPjyRF6Wc1yEaDws01EwvkztrM+Z7jtltO0EzB78kgwbO+X9aVZvvx1oE20T
-         qxNOwU8F3xjnhy9EkUTocEkNqt4SIA0X5gNT6j6Vq1W7X+UJ6EEKHLLDKfWUREHFSCEx
-         6XT0yEPbLakcD+RDjo2DP6CKlpv+1YZ213gAwh67NsiiSqehdep2508CPja67Zm9PNvo
-         MdMxVqUShnp1GAD0T1XSNILTqZTd5o3fRLMjowngbAj3eCveYRcTjdIKP6mhaKyXPu0e
-         BaZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793021393; x=1793626193;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=+8H3O6quflUjqnAfb6xhcXaxZg/Y3GPcBLpYGFoqzbM=;
-        b=x3ae1Ab3hkyqdrghpK1civH4DN0WHNMjBLI+/FKITXwCRbU9PJrnJ1D1oXcZzc6tAn
-         N4GmAYM1/MOxEM5ysU031/2VbZVE7VQIU8v088GJ6WSMD1Yq+N9NfIRQcQMA5IXboQkx
-         0Ac8CfDD5FyLeVhAPbesStpVB46vEWxKqfi5UpeOH7ScMLhH+oVjElL6DS1hkbj0iSJ0
-         ypVUw7CGkhpuxF1gogPU4S3Y9vAafhSCkrLLhv0YWTCpi54nTWIoSPP4JfSyzU7Gxbt8
-         IxFH4IvWe8T0V3qzFBXQd9xmhlAqUbAgb8s/xnPdRmbUZnuCzPaiEHpJ1o0angSGaVvo
-         R7Hw==
-X-Forwarded-Encrypted: i=1; AKwUvBxxTrjefa/YHKxAjYUR0TttTFsS3uBGEY7WEFfdO821X/BolzAYqNN6FBw9ZWI4Kd2qnPMo2bRQLWf6sS2ywtDn@lists.infradead.org
-X-Gm-Message-State: AFq9FYIjKszpNtiYVFGBujTvKX82hizmkHEAqrUapNto6R0TWOgq993v
-	455gtDU3Reow02XHbK+yUDIpvN2w/gYyzAiVPQLxAf6SiGTKnfPgFPFDTR6B2FXEKXU=
-X-Gm-Gg: AYBFou00kSjV3OOmysrob3lWMCRekkjZ5rtA2IBI/Ch6lRXFX8DJerCmn4pURhJqMwS
-	fXpSc4UdualKxt04kxKqMfR8flOX9XfcNKZUaC3jrBJHZYBL72+BjwG4hShsgwYFURr0gigxAjG
-	Dv3UBHA/GmLTNHuMXGNSy7R+O8yV3yHYtB/CA65lwiZwPIy9rl1Aui4B9rvQsfeqZaLu2sZnheK
-	MmFpTWdTrhKF7vdzATJMwv84q712ea0eviXL/CpfcQEbdLzyaCDwUhLzBXJF2ypinwSKs1SvDGT
-	wdvS7V3ZlopeAKPQUOfFbnydL50ahy+0uwoQvvtjHIenzCWtAs+CpVHlv4IZK9/SUsp89RjpTnn
-	flYBeI8N28eG8SpFe5SAFGmlPaacQGVYZ+Az41zMPiqbj0AgAVhxMLhmB8ccViNlPeauUv2LRxW
-	nSN6wzMsePk9EUDAgDdc5fn9oTBOnnzEGXMjwv2gzUKsL+XaBDQwoO5ehxaeGEJ6uCbzkvwditQ
-	dufKWFb1UKnqAqGWeVIO3Kp+xrSiJxeiSqjjkASNDlNp7U/7prDJiyNsdc3714Wkw8fM4YF+JFU
-	7HjT9xipsBTUfpTfkJEm7iAtA3KU9MxxifvYayN0eZEdXOMQOBADxOMzezS7N+ap6O1roOFE
-X-Received: by 2002:a05:600c:8b63:b0:4a2:1960:6fa with SMTP id 5b1f17b1804b1-4a35ae7027emr137803465e9.4.1793021393144;
-        Mon, 26 Oct 2026 06:29:53 -0700 (PDT)
-Received: from macbook.homenet.telecomitalia.it (host-95-246-144-141.retail.telecomitalia.it. [95.246.144.141])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a359fbb725sm194507095e9.0.2026.10.26.06.29.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 06:29:52 -0700 (PDT)
-From: Carlo Caione <ccaione@baylibre.com>
-Subject: [PATCH 0/2] Fix rate rounding for Meson read-only dividers
-Date: Mon, 26 Oct 2026 14:29:43 +0100
-Message-Id: <20261026-upstream-clk-regmap-ro-divider-v1-0-c8216b0fb93a@baylibre.com>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Mon, 26 Oct 2026 13:31:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1793021448; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=J4UXRSWdp9L+slM0l5w1zWdkgLQIsp44pt/Clrth68c=;
+ b=DP6Ih9JUTFHJoJ6beHoY5BaEe7d958V6WxgXvakOnJLZXpVkQEOcM0/N0cKL8kgrOk1NQw
+ cdXwr5CfUFsWgpejmChAasJS28yJSGdTRnAIRuPwr0vOkGJI2pPv5vnX7A+D7s4XKE/yMt
+ LN7YPQxWeCtsu+Wzgv7ckda0sM1xuuV3AmxVUyZLbQCQaP1vCFcQm2HtQsLCNZJPxDwGjw
+ JAnrx9LXT5xkjzKqaIk5+wTtR3KGbOnmfCaa+RBsQ3giDBE8rciRgjP8JhiWM51rv1ed6j
+ ZsmD9MbUg1nJgkR3Xg0miLmNUxT1UN1/Z71kuoXZMxFBvevjpwLmA690gREaOQ==
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNwQ6CMBCE4Vche3YTW6KJvorxUNoprgo0WyAkh
- He3yGEO3+WflTJUkOleraSYJcvQF5hTRf7l+hYsoZjs2V5NGU8pjwrXsf9+WNF2LrEOHGSWAOV
- 4A+pLbWMDQyWSFFGW/8HjeThPzRt+3Ku0bT81nJl3ggAAAA==
-X-Change-ID: 20261026-upstream-clk-regmap-ro-divider-f9ee3532fbe1
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Jerome Brunet <jbrunet@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Carlo Caione <ccaione@baylibre.com>
-X-Mailer: b4 0.16.0
+Subject: Re: [PATCH] arm64/mm: restrict transparent contpte mappings to valid PTEs
+X-Lms-Return-Path: <lba+26adf5606+efad95+lists.infradead.org+zhaogongyi@bytedance.com>
+In-Reply-To: <1c0141e8-3033-4f59-b247-34dee14cbb1f@kernel.org>
+References: <20261013093600.54995-1-zhaogongyi@bytedance.com> <daab2f45-56c2-48ad-a24f-aa4f889e4da2@kernel.org> <e0f60526-bb95-4d39-9a7a-72cdf32ca5b6@bytedance.com> <cc2e3af6-bb56-41b1-9cde-151797c3068d@kernel.org> <3b57c214-6a43-4fc7-a531-fb5eac196465@bytedance.com> <1c0141e8-3033-4f59-b247-34dee14cbb1f@kernel.org>
+X-Original-From: Zhao Gongyi <zhaogongyi@bytedance.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>, <catalin.marinas@arm.com>, 
+	<will@kernel.org>, "Ryan Roberts" <Ryan.Roberts@arm.com>
+Cc: <dev.jain@arm.com>, <baolin.wang@linux.alibaba.com>, 
+	<lance.yang@linux.dev>, <mark.rutland@arm.com>, 
+	<akpm@linux-foundation.org>, <ljs@kernel.org>, <liam@infradead.org>, 
+	<vbabka@kernel.org>, <rppt@kernel.org>, <surenb@google.com>, 
+	<mhocko@suse.com>, <linux-arm-kernel@lists.infradead.org>, 
+	<linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>, 
+	<stable@vger.kernel.org>
+User-Agent: Mozilla Thunderbird
+From: "Zhao Gongyi" <zhaogongyi@bytedance.com>
+Date: Mon, 26 Oct 2026 21:30:08 +0800
+Message-Id: <52e7e1f6-3535-474d-9b46-6bb62f96eefc@bytedance.com>
+X-Archived-By: <archiver.kernel.org>
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_062955_986863_6C0A0A11 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261026_063059_119327_368D0B43 
+X-CRM114-Status: GOOD (  11.89  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,38 +74,63 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Meson read-only dividers can round a requested rate using a divisor they
-cannot program. The clock core may then adjust child clocks using the
-wrong parent rate.
+On 10/25/26 8:34 PM, David Hildenbrand (Arm) wrote:
+> 
+> Can you paste the code here for easy review if that it the right approach?
+> 
 
-This series uses the divisor already set in hardware. The first patch
-adds a missing /4 entry to the GXL and G12A HDMI divider tables so that
-all their register values can be read correctly.
+Hi David,
 
-Signed-off-by: Carlo Caione <ccaione@baylibre.com>
----
-Carlo Caione (2):
-      clk: meson: add the missing HDMI divider /4 alias
-      clk: meson: regmap: use the current divisor for read-only clocks
+Sure. Here is the minimal prototype I tested. It leaves
+contpte_set_ptes() unchanged, so present-invalid PTEs can retain
+PTE_CONT. The pte_present() check excludes swap entries, where the
+same bit position can be part of the swap offset.
 
- drivers/clk/meson/clk-regmap.c | 34 +++++++++++++++++++++-------------
- drivers/clk/meson/g12a.c       |  3 ++-
- drivers/clk/meson/gxbb.c       |  3 ++-
- 3 files changed, 25 insertions(+), 15 deletions(-)
----
-base-commit: 363f97a1ce635b86be7fd263d56a040fbd87bdbb
-change-id: 20261026-upstream-clk-regmap-ro-divider-f9ee3532fbe1
+diff --git a/arch/arm64/include/asm/pgtable.h 
+b/arch/arm64/include/asm/pgtable.h
+index 6000905a2..2f89959ec 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -185,6 +185,7 @@ static __always_inline bool pte_present(pte_t pte)
+   * Returns true if the pte is valid and has the contiguous bit set.
+   */
+  #define pte_valid_cont(pte)	(pte_valid(pte) && pte_cont(pte))
++#define pte_present_cont(pte)	(pte_present(pte) && pte_cont(pte))
+  /*
+   * Could the pte be present in the TLB? We must check mm_tlb_flush_pending
+   * so that we don't erroneously return false for pages that have been
+@@ -1704,7 +1705,7 @@ static __always_inline void 
+contpte_try_fold(struct mm_struct *mm,
+  static __always_inline void contpte_try_unfold(struct mm_struct *mm,
+  				unsigned long addr, pte_t *ptep, pte_t pte)
+  {
+-	if (unlikely(pte_valid_cont(pte)))
++	if (unlikely(pte_present_cont(pte)))
+  		__contpte_try_unfold(mm, addr, ptep, pte);
+  }
 
-Best regards,
---  
-Carlo Caione <ccaione@baylibre.com>
+The diff is against 24a19b953e2a. The runtime tests used the same
+changes on an arm64 tree whose base pgtable.h and contpte.c blobs
+matched. In a QEMU/KVM guest with KASAN enabled, the guard-marker
+reproducer passed 100 iterations, and the fork and PMD-split probes
+passed five runs each, without warnings or KASAN reports. The
+unmodified kernel failed on the first guard-marker iteration in the
+earlier A/B test.
 
+This shows that the reported failure can be prevented by a small
+change to the unfold check. As Catalin pointed out, this prototype
+does not extend pte_batch_hint() to present-invalid entries or address
+the other pte_valid_cont() users. I agree with taking v2 as the current
+fix and considering the broader grouping changes separately.
+
+Thanks,
+Gongyi
 
