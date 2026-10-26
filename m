@@ -2,36 +2,36 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC048606A31D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8AF3606A31F
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:56:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1GbN2ozQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JQQLYKCS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=44CTiA7A49EJN2VY0UCM0Rmoy6mh9PnJJvTxNQQxTx8=; b=1GbN2ozQf2WBzp
-	9X7c8hDqO/d0bXflecfnkpPQ8R7EIJC3TYWUPDBwXLo0qiXSCqHe9fA+TLKiUA4IMvyxY97F6C/o9
-	PkPIHQpjSS5hpvBMAtN74wH4qguDSHo2YxJdx9CDKHlfpgU71rwRF9cgWcqvOHRa6BcZg9/PUqJ5S
-	LTNSBCnYnBxFT4ChbDSUJwl9t0BU9HhCwmaVoyT8zl0Zf6/PQVOKTrLCvGgvXomKg7LDJAi/PwLdl
-	GQjmieghdMPpthLL/nzdb6sWHg/FblCuHFQY7qAtmm8/5kTD/QMnR5ZbJ6zx6ncA+r+a4lnz8STyv
-	AmpYnOU5MrD8wPdLy8gQ==;
+	List-Owner; bh=Dnm/tcUJmHvrsoD+AO8fIj+Ywcx6TXnaqfDc8lUuFK0=; b=JQQLYKCScnj7Ya
+	6CMQ2JMp008/aziVyxi1gvhhw5Yhd7EZH2vIV2L+gbln0cd3/BQmmxtPQhGIdZOS+4pfwFjHSE/Vw
+	DrleEkO/XtQwgANJsyqja9v2jrT7vdBWEhc8tfz6oHPKBNmhzaT7lmgIrxp9erXeUvB7//94wkdUK
+	wHaMeeYR828rQhwGJNit0YcCCoCs3CDE41KTg3+HT7U3G0jF8O7illI8A5cI8EXvuGIdHoLhNlxHR
+	JE1hjdrJ8t07JmHLFlMDyZbTcODfSGDZHyWel6rzjCTrneyWKjCAe8J3fxLcU3EjyhBmvOReWXM50
+	RNSugIRNBPd4IGFUgb9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLM7I-00000002iJ6-0y5o;
-	Mon, 26 Oct 2026 14:56:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xLM7H-00000002iIY-49po;
+	Mon, 26 Oct 2026 14:56:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLM7F-00000002iH0-09nN
+	id 1xLM77-00000002iCj-02Ex
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 14:56:01 +0000
+	Mon, 26 Oct 2026 14:55:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 14C2C6021E;
-	Mon, 26 Oct 2026 14:56:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C6B11F01829;
-	Mon, 26 Oct 2026 14:55:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9F70D4049C;
+	Mon, 26 Oct 2026 14:55:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E91871F01825;
+	Mon, 26 Oct 2026 14:55:47 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
@@ -51,9 +51,9 @@ Cc: linux-pwm@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 06/11] pwm: rcar: Add support for R-Car Gen5
-Date: Mon, 26 Oct 2026 15:55:22 +0100
-Message-ID: <f09a095ee5128c94c5dd1dadb71e655ec9dac658.1793026273.git.geert+renesas@glider.be>
+Subject: [PATCH 04/11] pwm: rcar: Add helper variable dev to rcar_pwm_probe()
+Date: Mon, 26 Oct 2026 15:55:20 +0100
+Message-ID: <05d7b0c93b90f1d9d7dd3a54eb4c299b9b40442e.1793026273.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1793026273.git.geert+renesas@glider.be>
 References: <cover.1793026273.git.geert+renesas@glider.be>
@@ -77,78 +77,61 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-R-Car Gen5 enlarged the PWM output cycle and high-level period fields
-from 10 to 24 bits.  The high parts of each field are stored in a new
-register.
+rcar_pwm_probe() has many users of "&pdev->dev".
+Introduce a shorthand to simplify the code.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- drivers/pwm/pwm-rcar.c | 27 ++++++++++++++++++++++-----
- 1 file changed, 22 insertions(+), 5 deletions(-)
+ drivers/pwm/pwm-rcar.c | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/pwm/pwm-rcar.c b/drivers/pwm/pwm-rcar.c
-index 3813094c601efc8c..5e91509de7a7c162 100644
+index 4641f258df531baf..f1f68bfe016f729f 100644
 --- a/drivers/pwm/pwm-rcar.c
 +++ b/drivers/pwm/pwm-rcar.c
-@@ -31,7 +31,8 @@
- #define  RCAR_PWMCR_SS0		BIT(4)
- #define  RCAR_PWMCR_EN0		BIT(0)
+@@ -202,11 +202,12 @@ static const struct pwm_ops rcar_pwm_ops = {
  
--#define RCAR_PWMCNT		0x04
-+#define RCAR_PWMCNTA		0x04		/* Low part */
-+#define RCAR_PWMCNTB		0x08		/* High part (R-Car Gen5) */
- #define  RCAR_PWMCNT_CYC0_MASK	GENMASK(31, 16)
- #define  RCAR_PWMCNT_PH0_MASK	GENMASK(15, 0)
+ static int rcar_pwm_probe(struct platform_device *pdev)
+ {
+-	struct pwm_chip *chip;
++	struct device *dev = &pdev->dev;
+ 	struct rcar_pwm_chip *rcar_pwm;
++	struct pwm_chip *chip;
+ 	int ret;
  
-@@ -124,9 +125,15 @@ static int rcar_pwm_set_counter(struct rcar_pwm_chip *rp, int div, u64 duty_ns,
- 		return -EINVAL;
+-	chip = devm_pwmchip_alloc(&pdev->dev, 1, sizeof(*rcar_pwm));
++	chip = devm_pwmchip_alloc(dev, 1, sizeof(*rcar_pwm));
+ 	if (IS_ERR(chip))
+ 		return PTR_ERR(chip);
+ 	rcar_pwm = to_rcar_pwm_chip(chip);
+@@ -215,9 +216,9 @@ static int rcar_pwm_probe(struct platform_device *pdev)
+ 	if (IS_ERR(rcar_pwm->base))
+ 		return PTR_ERR(rcar_pwm->base);
  
- 	rcar_pwm_write(rp,
--		       FIELD_PREP(RCAR_PWMCNT_CYC0_MASK, cyc) |
--		       FIELD_PREP(RCAR_PWMCNT_PH0_MASK, ph),
--		       RCAR_PWMCNT);
-+		       FIELD_PREP(RCAR_PWMCNT_CYC0_MASK, lower_16_bits(cyc)) |
-+		       FIELD_PREP(RCAR_PWMCNT_PH0_MASK, lower_16_bits(ph)),
-+		       RCAR_PWMCNTA);
-+
-+	if (rp->cycle_bits >= 16)
-+		rcar_pwm_write(rp,
-+		       FIELD_PREP(RCAR_PWMCNT_CYC0_MASK, upper_16_bits(cyc)) |
-+		       FIELD_PREP(RCAR_PWMCNT_PH0_MASK, upper_16_bits(ph)),
-+		       RCAR_PWMCNTB);
+-	rcar_pwm->clk = devm_clk_get(&pdev->dev, NULL);
++	rcar_pwm->clk = devm_clk_get(dev, NULL);
+ 	if (IS_ERR(rcar_pwm->clk)) {
+-		dev_err(&pdev->dev, "cannot get clock\n");
++		dev_err(dev, "cannot get clock\n");
+ 		return PTR_ERR(rcar_pwm->clk);
+ 	}
  
- 	return 0;
- }
-@@ -146,9 +153,14 @@ static int rcar_pwm_enable(struct rcar_pwm_chip *rp)
- 	u32 value, cyc, ph;
+@@ -225,12 +226,12 @@ static int rcar_pwm_probe(struct platform_device *pdev)
  
- 	/* Don't enable the PWM device if CYC0 or PH0 is 0 */
--	value = rcar_pwm_read(rp, RCAR_PWMCNT);
-+	value = rcar_pwm_read(rp, RCAR_PWMCNTA);
- 	cyc = FIELD_GET(RCAR_PWMCNT_CYC0_MASK, value);
- 	ph = FIELD_GET(RCAR_PWMCNT_PH0_MASK, value);
-+	if (rp->cycle_bits >= 16) {
-+		value = rcar_pwm_read(rp, RCAR_PWMCNTB);
-+		cyc |= FIELD_GET(RCAR_PWMCNT_CYC0_MASK, value) << 16;
-+		ph |= FIELD_GET(RCAR_PWMCNT_PH0_MASK, value) << 16;
-+	}
+ 	platform_set_drvdata(pdev, chip);
  
- 	if ((cyc & RCAR_PWM_MAX_CYCLE(rp)) == 0 ||
- 	    (ph & RCAR_PWM_MAX_CYCLE(rp)) == 0)
-@@ -262,8 +274,13 @@ static const struct rcar_pwm_info rcar_pwm_info = {
- 	.cycle_bits = 10,
- };
+-	pm_runtime_enable(&pdev->dev);
++	pm_runtime_enable(dev);
  
-+static const struct rcar_pwm_info rcar_gen5_pwm_info = {
-+	.cycle_bits = 24,
-+};
-+
- static const struct of_device_id rcar_pwm_of_table[] = {
- 	{ .compatible = "renesas,pwm-rcar", .data = &rcar_pwm_info },
-+	{ .compatible = "renesas,rcar-gen5-pwm", .data = &rcar_gen5_pwm_info },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, rcar_pwm_of_table);
+ 	ret = pwmchip_add(chip);
+ 	if (ret < 0) {
+-		dev_err(&pdev->dev, "failed to register PWM chip: %d\n", ret);
+-		pm_runtime_disable(&pdev->dev);
++		dev_err(dev, "failed to register PWM chip: %d\n", ret);
++		pm_runtime_disable(dev);
+ 		return ret;
+ 	}
+ 
 -- 
 2.43.0
 
