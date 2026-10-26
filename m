@@ -2,143 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2983606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 09:29:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E75AD606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 09:34:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sbkvYTMN;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=MyXd42Mh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y0N5tsHh;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YtyHNLng
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=V/GtyAf3yTXulWWvbgAIMpCFSmjkkpMrX8lUFxgtWiI=; b=sbkvYTMNIv/AutkXjDdTnNRuIx
-	v1yjKsme8m9oxcXRZnJMkIPQJaJGvcY5EnEkGGKNLaI958P9YWDDDiPY0HodHgBqMDYJiIFZHo6k1
-	sVSxnfGm6nySCAhodVEXFuXjLxf9wka+mfIJjgPlFU5WmejMDNumJXhW2TGJqAJ/p+Nnrw/zcNaBv
-	I/r1gq/zEXVkl+hDMOHnqnxy4oD9v68Uc4vWQmor/JTACmOsesKq8akSt0ag8zyeGzP33o7bjRIOe
-	Yf3/xDYC6awM8J7ybbh5hAVnFXBwNdJf86oamdUPzxS3zopqDpm66BM76gjX7NKrW6iJeb7S1P52X
-	v1R+jTyA==;
+	bh=0WRy0PlXijTVPaZN+8guL59byar3K3OLJbxaZMhuvdo=; b=y0N5tsHhDboG1VadvAk7Je3Ggx
+	GQmBtCF56ksnPlQV+mEr7ujH1Ku7lWdY6APOkV/6rl57XfBR5FOlK6ei+8x+zA5Vmbw9eI0ldUYoh
+	L1GSjtdUUQ23s2Dlr0zY0jNguJPQ2lGPDRLm+uxcT4W7ut8oQ/9uDo9wpGEJt3cuYDko+rtsDfRWp
+	xftpWNeqism2jyoJ8YvZy5XtJC2Jxz+hWFbcMprR/VXo7g1egJwtBI5KS/CXKZy2hhLHHK3XYR6CK
+	MwLNqzQpz1/54fm8OXdVk4kwoxsPMtvczi/H+UW+SuDBqxok4CI4gMW0lPlvgZABqh/BObZ0R+fRS
+	iAe8tE/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLH0l-000000024Gm-3ZEO;
-	Mon, 26 Oct 2026 09:28:59 +0000
-Received: from mail-northeuropeazon11011037.outbound.protection.outlook.com ([52.101.65.37] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1xLH5Y-000000024uz-4Ag8;
+	Mon, 26 Oct 2026 09:33:56 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLH0j-000000024FU-1LL4
+	id 1xLH5W-000000024uc-1PzM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 09:28:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cr2PgAfJGe0FTPzQ8MvNWFy2hwH2D1wXlxB3rWqGPsoKjdzZQd374p0Fz67ZSPUavIHI99T1JY9PWuUHdavk6BqDU8P52hZpQTIVVXso72yL2T9+t/LaSylNUoAmoMueJ1BxYpRSYp3ASAcWVzW+eFU9f51HZ38g5C9o5z2aikS1U7AeRBxH581w7oOTfCOtOyIlpmquxbh2J5uBWdJ2iHMRJ7rO7wcF0jCQigX68n1sELLOp8ItjkFL5KSasDQB+0CqcXPB7QOwgyum69mRYRIV+qezfL3ng9yyUUDGS916rrdTNjHCCoH1QVq0EXXKlQyYyG4BAISKWd/UAYGQyA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V/GtyAf3yTXulWWvbgAIMpCFSmjkkpMrX8lUFxgtWiI=;
- b=q5fAFP8VdzTlmAsNhEFqJak1v5CZXRswkjMMThkim6l75SOWT5Idjc6qURhe4TrBRjxishmd6jJXTfuqWGFt5Q47wL+MKtYHDBYPhaT0lYFSFVXsQw1E34hfYlAGHbQuwaC5LBDK7Y5y+fKKgSRZTIBD38G05/75mDaQCZDymAYgX1qIGBq6wyBWs3WxYmdpxKVtJZSMg133dl+qPHtvOSYQ5BMZo2EyJIB5R9nQRYmW9v7NFCT3c0xocIQCtQl5RW7uy9buRzLUiYwHbmUIXP6O6lg4XbGcYAepZWzCGQOidvgcQnV3wHUbFNc1LrZ0b7Z6KSIsvqGN+jCh/6b6oQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V/GtyAf3yTXulWWvbgAIMpCFSmjkkpMrX8lUFxgtWiI=;
- b=MyXd42MhUR00JKZAuN7tT0hxVxm/99ODBCCJpG4K2YljxdgH2WyH0zIiajUgMpRMxPGzhjUwUlqtOPbIL9PO/fM6T8rRrVI6MTDrtJg8hF98qkwgLtotBSC2hfDJeZsmT7ylz70hmZQHMMNMbdBX4ucDVUgddfMoIquPMKcAelBHsuGgQdgUEd3y5alTc3p82ukPHMDw7hB/4ptUBNuKijPgokElayZM+RlFcLYFu+s9EFXQNzLnt16L4F4pE/znr5AMiT76wfqXRb9ZQ69m7axuRHOMV/MMxsnNdDn2SktPN84/DjOwMhN277ym7RwWMbi+rAGeotni4jp+xmr+sw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
- by AM0PR04MB7124.eurprd04.prod.outlook.com (2603:10a6:208:1a0::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Mon, 26 Oct
- 2026 09:28:50 +0000
-Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
- ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
- ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0546.021; Mon, 26 Oct 2026
- 09:28:50 +0000
-Date: Mon, 26 Oct 2026 17:30:27 +0800
-From: Liu Ying <victor.liu@nxp.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
+	Mon, 26 Oct 2026 09:33:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793007235; x=1824543235;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=f84sV62ooKOvjIhQKXtEC/TuKGIbIDblS98potdMs0c=;
+  b=YtyHNLng3N7z+phYyQNLde/PjsSeqbLi3mGRAMIiyqp3Ts8INDyaKXEt
+   jF7QeaKGf9vDYnqEPGwH3ovOZ6+AAInPyCeWLwEIpDBrZ/ofXoJG0jrn2
+   2kbFE27qfrUhzONO0oe3XXSlcGNtP9Oix2YDpv9z2DHC8pDWrpHVQMMQa
+   JeI2rCY+X4YkwSpGPWiqyAepT6DgoWKsAXaDVunxgz62pwvtRMU1/BtPT
+   dd0H2AQ5o4jQiL3lL2lR594Oqa8a42Sii6IP7n0B7FJZKB3q9iHc1xtny
+   KhHcov+iMU0GcB8gp1p8DL2ONFNK46bBSCsyGy2UlabTzoDOiWdyTAMp4
+   A==;
+X-CSE-ConnectionGUID: PqNeAAbzQcG39tZ6vQkXug==
+X-CSE-MsgGUID: 4KCGvytHRcGfuB36qiQOhQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11946"; a="1546612"
+X-IronPort-AV: E=Sophos;i="6.27,179,1787036400"; 
+   d="scan'208";a="1546612"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2026 02:33:53 -0700
+X-CSE-ConnectionGUID: fVvhHvtoSG2AkfgtDxVUUQ==
+X-CSE-MsgGUID: OqFYijmUSTSItatMUaeiwA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,179,1787036400"; 
+   d="scan'208";a="4200056"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.93])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2026 02:31:59 -0700
+Date: Mon, 26 Oct 2026 11:31:56 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: "Maciej W. Rozycki" <macro@orcam.me.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Raul E Rangel <rrangel@chromium.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Richard Genoud <richard.genoud@bootlin.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@mailbox.org>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v6 04/13] drm/imx: dc-crtc: Disable at boot
-Message-ID: <at8ds0P-sN9QQbDB@raspi>
-References: <20260904-imx8-dc-prefetch-v6-0-26643e3f6cb7@nxp.com>
- <20260904-imx8-dc-prefetch-v6-4-26643e3f6cb7@nxp.com>
- <app-rzrdgsxVozsI@houat>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <app-rzrdgsxVozsI@houat>
-X-ClientProxiedBy: MA5P287CA0207.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1ab::15) To MI9PR04MB350878.eurprd04.prod.outlook.com
- (2603:10a6:290:c0::7)
+	Fabio Estevam <festevam@gmail.com>, Timur Tabi <timur@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH v5 2/5] serial: serialize asynchronous write wakeups with
+ the port lock
+Message-ID: <at8eDFj2WNaXDaot@ashevche-desk.local>
+References: <20261024-submit-serial-8250-dma-cancel-v1-v5-0-9e52968928d2@gmail.com>
+ <20261024-submit-serial-8250-dma-cancel-v1-v5-2-9e52968928d2@gmail.com>
+ <alpine.DEB.2.21.2610250459200.42255@angie.orcam.me.uk>
+ <at4bw-G8czG-G7Wl@ashevche-desk.local>
+ <CADvTj4psJcY2T1PG9H8_hJWjz62R7unj3PPgv3FrVquUMFVhGg@mail.gmail.com>
+ <at5qKehogAjTa-fA@ashevche-desk.local>
+ <CADvTj4qSgE6Rc--mWuqAcc8HTqN9EFOS_JM8Hp8e_=ka_ZLa6w@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|AM0PR04MB7124:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3de82cb2-9c77-4304-571c-08df33438b6b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|19092799006|260925022911599003|260925021911599003|260925021311599003|11063799006|56012099006|261009223027099003|261022105027099003|261022075727099003|261021123027099003|261021121427099003|4143699003|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: uHcaJX0z/cEZMLOvTA+VSP87MNnjRGiMuHosJLvbrAY8JG1YJYBmrm+22S4gERoR5mXpky10EhOmlOOXDGARa+755wAofDi07OuoG/P70qCJ0SmQrWt+Z/nYdlZq47jBhuGupGHgW/B7/o3qNBk3epsl91Y79ZXSD3TGp6/hHsN/qKiTEomkwNFTVyoy2ooPsITGHpM71Uig0ZGLmuXE3iyELDBilcdOyI3a02Vkze4lBhHKwOvz6cQl5O+wralqPyxVVrtx6UKs/7Upo65LxS3z2RKXT788B2gbAaftLEXuStRHul28rViuaQIOM7fH8iCfc6kY/+M7M1Apt5/BOrYkDWsoeqN3SVOj4Pvcm6Ypdg2k7rtizMpJxiaTdF83y513VkvE3uMh9kEYGuiHXpl9zb7u4Z5QDc2tjx1JthsoOiWWN8RVgjl8LabOfUSsn2bICekOLx7tDx91o64n2VwXpcHF1ob7yt/6o/wOPx7NK/yb7wgI691l+9wB2p72OAZsr2hvYe9MBFZFzUEhZEApEWtKvR/7FKhl4aJobdD8Fv0qfsSzYiON35B6ZObXoxKWY/QjUOKdM2Z6MbUrtS94+SGO7AKj2thEn6B/ZT5xmYlcG13KNhS4jq5QdFxO
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(19092799006)(260925022911599003)(260925021911599003)(260925021311599003)(11063799006)(56012099006)(261009223027099003)(261022105027099003)(261022075727099003)(261021123027099003)(261021121427099003)(4143699003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CVckCg7j/OCwehjBQYmmNPcraCBcQLashpKtaIuDebADF+fSxq7I0FJx99/h?=
- =?us-ascii?Q?H0pb/wQMij6ffvKq+eLb1aLC5RsPRfhheTKW09KLvfKLtAcDCUYTqsUBc0WC?=
- =?us-ascii?Q?wbWMqTBWPv5OFjpg+1LU7H5xMrwxIfI9QtBmKEQPr8J1BgL+9kkHz7ZLDjox?=
- =?us-ascii?Q?2ldvThmkFkUzwRiCKwd3bkr/kK0apjTWyy/0PXGqH4dpq+2Cmw5hsoRwuFRz?=
- =?us-ascii?Q?KCor2nIbvoXUB7V/6LLWgFsBoSlqmF8jtiUCB26IlyV27qQKttx4Go8nApUn?=
- =?us-ascii?Q?56PLWpx55eo2KTUIIx9NHzFhLADo87MrudVxeFHa4KUVXSGwKQb/cdw7Ghcd?=
- =?us-ascii?Q?9Jux/kRg2yfoE1oCxquG98xh+BpSSdfMzeE4sYcJp0ib88KjzafbwnklBDc7?=
- =?us-ascii?Q?APnUwfelpMQAxm5oSrQi4SYOnzMTFyXYceocJekiVd9rPyMJ3jag6eV0aZ0y?=
- =?us-ascii?Q?dQlQxkpC2Sl3kx01TZvzzoTYuQsbxDK7WQ6e3UzF0jRqXHWs1NPzH/+UXwZR?=
- =?us-ascii?Q?E3+hPkYWIrtjKInznLa8ztCTQDq/aMne9TvWa/oDAqyu50W0nD4072saZ8OJ?=
- =?us-ascii?Q?6p5XGwD3i/oaHTyt4UZ0Qh8e873VbQ1r7NMxLf91s3DxhzevpWQei44oF/IJ?=
- =?us-ascii?Q?ull79Zvz027r2hIMxw7WTNy9YMZE7fK9q0S10Z6YV5zDK6RQNaMCEBBA4zGF?=
- =?us-ascii?Q?i69neAc1iqfmpMM7PkQ996S+63a2SHJ8j7ab/P0qEYTlKD/bM+i+OUOhvdL3?=
- =?us-ascii?Q?TARv8rpFwrwyN+mybjW0Fqj+ErEujL5Wx5DgDPtW9lnv+5je040/4YTkO2Mh?=
- =?us-ascii?Q?GDOiVzzNKlVnyT8uQiai/w/3szOp8k74GJtX/dG5bs1X7x7WE3jgkaF8ZqoR?=
- =?us-ascii?Q?ZmmXIY7GJDGkme466i1O/LO9if2Byly2/Wtm4PW9lJTGc6vm/iX6mrKS0h1E?=
- =?us-ascii?Q?5vGNcA79TbE3vAQ5oPdNC8yynQU5FcQ2Ahqkm5+IvuF0lA55MCE3duq/f9Hj?=
- =?us-ascii?Q?WIFNateMOvdlVXboIGvaqXobWoZbf4KL5Ql/+yWbVd2eIHqOX7pWAUlM2i5V?=
- =?us-ascii?Q?T7Nc6lBPMIatD6IGW/lbA8vzbCUZwXqSRdUE1/vS5zXMexIxaHXYJ9AKRj1c?=
- =?us-ascii?Q?V7Bkjq3y/uVRLacYBaSsJOMdAK7m8mDdbqU2K8V8rf3Dr/KdbzOGRlsDnNdX?=
- =?us-ascii?Q?YVPvejFIi5jNNJd4SjNNI8+kWy7Uk3Cbn0kla1dZZMXBY0AY4Xxjf3yygHqP?=
- =?us-ascii?Q?9+dchitbwCwRxqsTRN0HD+UwQhmv64BWC6XSYXFX4MEjcdSSR37WVmgM9sRu?=
- =?us-ascii?Q?z4JzRr3ZY9szRG6MHVDdnD5sWYUFqwSAlQ/8U6IFHqXUvbVZAgLTRk0S4fsW?=
- =?us-ascii?Q?/W/iNanWzqdza4TDYg+rR0D2nXvQ+I0pXuQtJYLAyxFanAwvseQsjAV5V25V?=
- =?us-ascii?Q?cE595TCjDsS4jm+d1gPgLJ6EsufAizDLDr4n7STKh64iqp2qkFg6lnNYlhVT?=
- =?us-ascii?Q?hS1xAz/oCAnEHTFsa4ow/XNN3NDtuXAFxIXWqw84EcoqYIDXIPlyRzBj8fvi?=
- =?us-ascii?Q?B9gX+HevRzsc5vM8OMilAELT/K/UVGL7IEQIcBmtvsLWrIvuph6iaKURqdpm?=
- =?us-ascii?Q?2KuZm3hHKi3FMX7k8yi9JFAHawUqXIJusoGgKi/boCNUq0Gj0bomCdG9ZHha?=
- =?us-ascii?Q?oKJtK0MvsqrlbrFXchfdPVbdpzkclGW29+KZ7pTnCmIoshYnPtl9pAZLRmaN?=
- =?us-ascii?Q?d7KBjseC7w=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3de82cb2-9c77-4304-571c-08df33438b6b
-X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 09:28:50.6949
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CDlddffkO+zRj0xapl8M3Z1IQjzqcZ+VUK1GDxJa2n99Mp1IniAOC6d3/s7gkho9eVcdv75r8gsO6S/uSCCtdA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7124
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CADvTj4qSgE6Rc--mWuqAcc8HTqN9EFOS_JM8Hp8e_=ka_ZLa6w@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_022857_386800_F388135D 
-X-CRM114-Status: GOOD (  34.72  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261026_023354_452761_1F3A0EE0 
+X-CRM114-Status: GOOD (  24.37  )
+X-Spam-Score: -4.5 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,146 +112,61 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Sep 04, 2026 at 10:27:41AM +0200, Maxime Ripard wrote:
-> Hi,
+On Sun, Oct 25, 2026 at 04:11:08PM -0600, James Hilliard wrote:
+> On Sun, Oct 25, 2026 at 2:44 PM Andy Shevchenko
+> <andriy.shevchenko@linux.intel.com> wrote:
+> > On Sun, Oct 25, 2026 at 02:25:46PM -0600, James Hilliard wrote:
 
-Hi,
+...
 
-Sorry for late reply.
-
+> > Some people might want to test the stuff. And sending too often you actually
+> > will get the opposite results, people will be tired to even start reviewing
+> > and/or testing your code as it's changed way too quickly.
 > 
-> On Fri, Sep 04, 2026 at 03:54:54PM +0800, Liu Ying wrote:
-> > CRTC(s) could still be running after the DRM device is unplugged by
-> > calling drm_dev_unplug(), because the CRTC disablement logic is
-> > protected and bypassed by the drm_dev_enter()/drm_dev_exit() pair.
-> > Hence, Pixel Engine's AXI clock use count(managed by Pixel Engine
-> > driver's runtime PM) and pixel clock use count could be inbalanced
-> > after removing and re-installing the driver module.  To fix this,
-> > add a helper dc_crtc_disable_at_boot() and call it to properly
-> > disable all CRTCs before advertising DRM device to user-space by
-> > calling drm_dev_register().
-> > 
-> > Fixes: 711a3b878366 ("drm/imx: Add i.MX8qxp Display Controller KMS")
-> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> > Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> My thought process was that people wouldn't want to be testing code that
+> had known bugs flagged in Sashiko reviews.
+
+Sashiko reviews are not visible in my or any other mailbox. To see them I have
+to go to some URL and so on, meaning to waste time to see why on the earth the
+new version has been sent. It's better before addressing Sashiko comments,
+reply to all people involved and to Sashiko's original email, so it will be
+visible in the previous version why you issued (actually about to issue) the
+next version. And before even issuing it, wait for a while, people might
+disagree with Sashiko judgement or your replies on how to address that.
+
+TL;DR: this mailing list is *not* a playground with you and Sashiko, the whole
+community is behind it.
+
+> > Settle down first
+> > with something, put on the cover letter the answer why not all Sashiko's
+> > comments are being addressed (for example, due to amount of patches or the
+> > series being focused on a certain issue).
 > 
-> Just as a heads-up, the readout series I'm working on is probably going
-> to help you deal with it:
-> https://lore.kernel.org/r/20260629-drm-state-readout-v4-0-5966657980ed@kernel.org
-
-Good to know it.  Maybe, imx8-dc can use it in the future.
-
+> So, in general I've been always attempting to resolve known Sashiko issues
+> in every subsequent re-spin, so that would be a bit tricky since I wouldn't be
+> aware of the Sashiko issues until after the series has already been sent.
 > 
-> > ---
-> > v6:
-> > - Rebase onto the latest drm-misc-next and resolve conflicts.
-> > 
-> > v3:
-> > - Collect Frank's R-b tag.
-> > ---
-> >  drivers/gpu/drm/imx/dc/dc-crtc.c | 55 +++++++++++++++++++++++++++++++++-------
-> >  drivers/gpu/drm/imx/dc/dc-drv.c  |  5 ++++
-> >  drivers/gpu/drm/imx/dc/dc-drv.h  |  3 +++
-> >  3 files changed, 54 insertions(+), 9 deletions(-)
-> > 
-> > diff --git a/drivers/gpu/drm/imx/dc/dc-crtc.c b/drivers/gpu/drm/imx/dc/dc-crtc.c
-> > index 0d64186a9901..1a537cf88daf 100644
-> > --- a/drivers/gpu/drm/imx/dc/dc-crtc.c
-> > +++ b/drivers/gpu/drm/imx/dc/dc-crtc.c
-> > @@ -293,23 +293,29 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
-> >  	dc_crtc_queue_state_event(new_crtc_state);
-> >  }
-> >  
-> > -static void
-> > -dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
-> > +static inline void __dc_crtc_disable_fg(struct drm_crtc *crtc)
-> >  {
-> > -	struct drm_crtc_state *new_crtc_state =
-> > -				drm_atomic_get_new_crtc_state(state, crtc);
-> > -	struct dc_drm_device *dc_drm = to_dc_drm_device(crtc->dev);
-> >  	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
-> > -	int idx;
-> > -
-> > -	if (!drm_dev_enter(crtc->dev, &idx))
-> > -		goto out;
-> >  
-> >  	enable_irq(dc_crtc->irq_dec_seqcomplete);
-> >  	dc_fg_disable(dc_crtc->fg);
-> >  	DC_CRTC_WAIT_FOR_COMPLETION_TIMEOUT(dec_seqcomplete_done);
-> >  	disable_irq(dc_crtc->irq_dec_seqcomplete);
-> > +}
-> >  
-> > +static void
-> > +dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
-> > +{
-> > +	struct drm_crtc_state *new_crtc_state =
-> > +				drm_atomic_get_new_crtc_state(state, crtc);
-> > +	struct dc_drm_device *dc_drm = to_dc_drm_device(crtc->dev);
-> > +	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
-> > +	int idx;
-> > +
-> > +	if (!drm_dev_enter(crtc->dev, &idx))
-> > +		goto out;
-> > +
-> > +	__dc_crtc_disable_fg(crtc);
-> >  	dc_fg_disable_clock(dc_crtc->fg);
-> >  
-> >  	/* request pixel engine power-off as plane is off too */
-> > @@ -331,6 +337,37 @@ dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
-> >  	spin_unlock_irq(&crtc->dev->event_lock);
-> >  }
-> >  
-> > +void dc_crtc_disable_at_boot(struct drm_crtc *crtc)
-> > +{
-> > +	struct dc_drm_device *dc_drm = to_dc_drm_device(crtc->dev);
-> > +	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
-> > +	int ret;
-> > +
-> > +	ret = pm_runtime_resume_and_get(dc_crtc->de->dev);
-> > +	if (ret < 0) {
-> > +		dc_crtc_err(crtc, "failed to get DC display engine RPM: %d\n",
-> > +			    ret);
-> > +		return;
-> > +	}
-> > +
-> > +	if (!dc_fg_wait_for_frame_index_moving(dc_crtc->fg)) {
-> > +		dc_crtc_dbg(crtc, "FrameGen frame index isn't moving\n");
-> > +		goto out;
-> > +	}
-> > +
-> > +	dc_crtc_dbg(crtc, "disabling at boot\n");
-> > +	__dc_crtc_disable_fg(crtc);
-> > +	dc_fg_disable_clock(dc_crtc->fg);
-> > +
-> > +	if (!dc_drm->pe_clk_axi_disabled) {
-> > +		clk_disable_unprepare(dc_drm->pe->clk_axi);
-> > +		dc_drm->pe_clk_axi_disabled = true;
-> > +	}
-> > +
-> > +out:
-> > +	pm_runtime_put(dc_crtc->de->dev);
+> Usually the subsequent issues that get flagged are new issues only discovered
+> after each new re-spin.
 > 
-> I'm not sure you actually need the pe_clk_axi_disabled flag. If you make
-> it handled by runtime_pm, then you can also use pm_runtime_set_active to
-> flag the device as active already when you probe, and the runtime_pm
-> will know when to enable / disable things properly.
+> I do have a bunch of UART/DMA related patches that don't have flagged Sashiko
+> issues so it probably makes sense to try and review those first while the larger
+> series that have Sashiko flagged issues are still stabilizing.
 
-Because imx8-dc supports two CRTCs and dc_drm_bind() calls this function
-to disable both the CRTCs, pe_clk_axi_disabled flag is just used to avoid
-disabling clk_axi twice.  clk_axi is managed by runtime PM, so it can only
-be enabled once.
+Yes.
 
-> Maxime
+> > > [0] https://github.com/sashiko-dev/sashiko/pull/389
 
 -- 
-Regards,
-Liu Ying
+With Best Regards,
+Andy Shevchenko
+
+
 
