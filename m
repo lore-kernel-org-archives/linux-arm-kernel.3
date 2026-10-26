@@ -2,108 +2,161 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE1F9606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:14:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4C37606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:16:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=W6F9wGVA;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=ClSoIIVD
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MRTFxW04;
+	dkim=pass (2048-bit key, unprotected) header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b=aDtkMkz9;
+	dkim=pass (1024-bit key, unprotected) header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b=l8hYJuAI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=LYT4qnsyxafx/l9LYQg7BsWMfeGrcGwjTkvojDxY8FU=; b=W6F9wGVA5sR0OAWvPijN/DOsTP
-	w1hd+R0xYptwdnfhLj40IoBbg6xVwX0N5bH6ilLPA8wlopuDZmOKqffV/dGoQGh0ocdBxOAB7NP7T
-	u8zDxo5xcV1ZBlA/w8UyThVJXc7TdIxsDUPD3f6O8ZfmVEwAG7DIU2rIZt03hcLYJA6x5nzbSjW9w
-	Ta0KrrKjIM9OUxZMArsjHG+Yd89ldzBW4YV4K7+j8+AGGYVmrRI5XcTa2iES2DpCXGiX2guBFfsGo
-	3k/e8YaxPrkvQZZWu8H3S6xgs8R3WfBvNwA6W32eYUhYrmHE+DnX//QdTGW4M19/aVbsMdurXXs7U
-	5I5zSxhw==;
+	bh=vwm1kNv2QlyU6ltlxEkW8D/FhpLyU7xouyiPkxyl0mk=; b=MRTFxW04e/b+0gHNY2p0+2P8rB
+	miItp2QVpFPd/7y/JJJa50fLAhfESFZ1LF78Pi7hxzlLmmEKI5g06brtAgqJVb0TFonBc3R6+tcoF
+	8GS8QQUofTS/zrj4ZJnpg2pmv1SrCo6xrjHKo+Ruql6RK342OABN29QJzzeGiFjC3aSdREootPYcS
+	P1/n/LgmVi3zFDXQwBfGvKX5bhMHNSrz0C88dedjJGfbqpwG57jv7KMP6z+4eulFBr8KGVfjJ6Q10
+	efCyEo1DfENzfzq3Wl/tSuJJk2wgU37JjC1SaXoymLtUSwOY6hhNtd0RbOPx/YH80c/GA3q3xgdtK
+	jQZUSeWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHis-00000002FA8-3kqf;
-	Mon, 26 Oct 2026 10:14:34 +0000
-Received: from mail-vs1-xe31.google.com ([2607:f8b0:4864:20::e31])
+	id 1xLHjo-00000002FKv-1M6F;
+	Mon, 26 Oct 2026 10:15:32 +0000
+Received: from mx0b-001ae601.pphosted.com ([67.231.152.168])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHip-00000002F9k-27zv
+	id 1xLHjm-00000002FKQ-2GPy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 10:14:32 +0000
-Received: by mail-vs1-xe31.google.com with SMTP id ada2fe7eead31-7cc0e865dd1so839933137.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 03:14:30 -0700 (PDT)
+	Mon, 26 Oct 2026 10:15:31 +0000
+Received: from pps.filterd (m0077474.ppops.net [127.0.0.1])
+	by mx0b-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69Q4eiG11630592;
+	Mon, 26 Oct 2026 05:15:16 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=PODMain02222019; bh=vwm1kNv2QlyU6ltlxE
+	kW8D/FhpLyU7xouyiPkxyl0mk=; b=aDtkMkz91/RX2QuAE/nahgRLHLhKWqKqP9
+	u9qbyphx8kabfEcyoOA7Dxaw696opQuhj0MT+pFfsOoDNpSxG+ariFTkDR2MpqLD
+	jnnehfSLv+jCFuhdfhCxic53GRJpOUqL4tQwoFV3UnO2MGTLfgfV3dE1AS0B/AEk
+	q50RpF7+WypR1YfP3LB5JYbsIJ2HuaVm1W2quvKZAUwjyHvLX3/8T54GUagmxFZ9
+	a/1UgXcOHatfx6c8DbnUt1kAj3vHuD+0jq7Yw+SlHTf8E8qP2CYI+ctl+7hTMTrw
+	R9c3QwJRuZa4CIAR02ZRDn7k3nzUt59b2tnIN7xF8w9hJGjknWpQ==
+Received: from co1pr03cu002.outbound.protection.outlook.com (mail-westus2azon11020098.outbound.protection.outlook.com [52.101.46.98])
+	by mx0b-001ae601.pphosted.com (PPS) with ESMTPS id 4hgs3j9x29-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 26 Oct 2026 05:15:16 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ERwQvvBquod9Q9m8OaOBf8gWsih8zppKXWEveUE7JjgSCovwUmoRrg0OOim/Bze9obtvhWI/W09TZtUcl3CoRzwxZCx9yNNO5zmN6UsyLPVJy4S9Opr0Ve+lLiSOMIFwotc7AIeZU6QOAfdxSXsMbX4LASFXjTWbuHax4reDwJvdQ6xR1JlVPFLc2vKjxHthWaxhxzL2WXHHFH8pbJTM4U7TSliDaRxuwuOlBH2qw+bIr9rDGfDS1W1zl9pPqLjHwDFIok2GJz50b3Pd5LHUMIGZBw9k+MKVBCDvQqaLeit9aEjWjZuZNJkEHDUu+ksCaSk9fSZ0WLyFe5vbueMzEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vwm1kNv2QlyU6ltlxEkW8D/FhpLyU7xouyiPkxyl0mk=;
+ b=AibwL7NqyFfRF/gsBsi4YjRQKcmJNOED89ftACWY8go6V7hnfHJW0Glpx/j52UT1aCQ5NmuuIFpwdNYMyF3Ylkebs1xTd//meGSuoDS9WOjPqiwiq8W/ym6KhrGYTbkzondKb35xwk/T4R/GQlncp1ffR8jHf39BtxQaYAFxJukSx92JtyMFPW8r5BPFz6mkeJkB73/9QXFidd5BwTVj82SHoVTgk/p6ACQaOWs/FkJ5Kc1NUsb2jPf+xKV735MByyHgt0+wNSXewBdUKaL8UUyhC5Niy6A3hG0wmE89pDLEX7cpIvyfKc0dnc4+b6NeQknFFvrMCOokHT0oPrzyIw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 84.19.233.75) smtp.rcpttodomain=armlinux.org.uk
+ smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
+ action=oreject header.from=opensource.cirrus.com; dkim=none (message not
+ signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793009670; x=1793614470; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=LYT4qnsyxafx/l9LYQg7BsWMfeGrcGwjTkvojDxY8FU=;
-        b=ClSoIIVDQ+WOjl1Wm/EtuhnBnDgsHJ4fgPT1EcRFTvEUQb8+XFutBWrVZQN5dDQN60
-         aYPSDFiTIAOPYBS4eGvrcg6wGIlqg8qxRyBnvuZP45PWIGp+qF7N4W3zTeEugPtXBp97
-         Qa83KXYCI3wgHIYNqMfovKqHvERVU9u+cHzg0WfXdX9SCOjbGKbyxeLWvKcw1YGcdWpb
-         rCIrVdSTZ718mgwhHrHPnL0/W3i9Ro04eJjQ1S8ESowqIU7U/8lNMXfQvz/O/VFQVJ9q
-         wajVpFaGXEus4XVQDZYYuVKVmIzgQMz04gt64mFmgjp2Zh6RcqLGWulXOX71uKTgeajK
-         CuXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793009670; x=1793614470;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=LYT4qnsyxafx/l9LYQg7BsWMfeGrcGwjTkvojDxY8FU=;
-        b=PGYhFujGseS0cydSA0vBCHOjIthv27WLlrE+ECnVpYbn+MnABrOREzYTd2aoard3aZ
-         JrlBL2nQ1epw42kt11tJPUvmtjy4gVNfeo7kmf0ly1ir0AnyNaaMuakmf37cPmJeiBQY
-         c4wdpzXz/i51j57I6C/0bgCmSHoO39zpYtLFQr80TpLs6EK0d7hdq+Y7fC1JLiZaIwAb
-         8W+C4mmCVcRgTGK+WSTxixhvvehi1+VrYkOh3DvICrwtOIB8+b4lKk9krfIsP+U4HPDk
-         TRuRp4qE11OpLIpPqoyccye7h5b00IX0XFXuH5OafZnjCYU1AodPuo6R+ZBsOa0e+fTV
-         VAaw==
-X-Forwarded-Encrypted: i=1; AKwUvBwjePvqKnz+OpEN24mZuC6MPHCV7lUEl2uAV+R79ND/nz0/E0V6aEaCQfb8IPLnBojItXvSyS8L/5k0tdN6NVJr@lists.infradead.org
-X-Gm-Message-State: AFq9FYKm1s36lZbvEdnpGm0Z9cLbGM2YU9LABnUDZZlnDhNLKqqnyyLK
-	vhqtZfF67UtDSQoTsGemIczy3Ec92vHyaCIj9GMzbl4YTi4RWijYLtlh
-X-Gm-Gg: AYBFou2c+RKP0uX6oDAg5FhvbiE4sAzuxAz28lGCUXDGbgTvOvklyPl/+xdKC3SyWGf
-	FjBbsc8peQxz1X9um3c5OH88Mo+4H/Zvg/UyFAy14Pot8T9uLUjyHRFjQTWXSQZWCEdoh36H0pn
-	Gi0px4gjj2avNf9JeFXpKwIazgmmT+wxMElSvWXBuS8o2k7tBWby9eW7CqoZaQ8AyNTSkgbCoRu
-	oFaIiz2m6/fSxXF/bc5145LjjV0IMnixgFCzsC4rQg9GQWVRZcVXWiGaFPt7fZUNHSyVfinZT1v
-	6UMrzdxPNhWdZo0knjB+lqDB1hmMdAUqvco2EidAaNMc8CGq677Tda3V/EATtqmFzdENY6I/dva
-	paxJXpI0ls/Rv5I0TSrtJ0+CbguR+f6BJuihXI/zszsvs8jULuI14XUv4TeaPE6CIUqVjpCQiw2
-	6fKIwY1oZ+XlV3SjbnH9Az5euY7DtW+kSmwSJJonQbitRm4IPPEbcVC8jVrYDxUmO92ndbk4G6v
-	SBilYG0bvmJp9+Kac4wgL8y4FIvZfr2na7HYuUFBiOdo7XEPQOC2RHETjLX
-X-Received: by 2002:a05:6102:14a3:b0:7cc:28a6:ee1c with SMTP id ada2fe7eead31-7ce5ca1e4bbmr1849285137.2.1793009669485;
-        Mon, 26 Oct 2026 03:14:29 -0700 (PDT)
-Received: from [127.0.1.1] ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ec234a940bsm7549112e0c.15.2026.10.26.03.14.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 03:14:28 -0700 (PDT)
-From: Leonardo Costa <leoreis.costa@gmail.com>
-Date: Mon, 26 Oct 2026 07:13:26 -0300
-Subject: [PATCH] arm64: dts: freescale: imx8mp-toradex-smarc: Add Toradex
- Capacitive Touch Display 10.1" LVDS V2
+ d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vwm1kNv2QlyU6ltlxEkW8D/FhpLyU7xouyiPkxyl0mk=;
+ b=l8hYJuAI7OCXlJMcvWWbHi6OxSZl+JiK8KplEtF/bIju3NvPAIu6a4dOzpwxjNkcNyr3OlVP3iNXFOf120e8D2hIzVjulUyKPA1TRCPdZMTuhwpipMVlAm0F4m6Bd/mJSRdfqjBR1UMtr+Byhij6+Rx9cEl5vZ9YKslhWc15uBc=
+Received: from CYXPR02CA0016.namprd02.prod.outlook.com (2603:10b6:930:cf::19)
+ by CHBPR19MB901682.namprd19.prod.outlook.com (2603:10b6:610:402::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Mon, 26 Oct
+ 2026 10:15:11 +0000
+Received: from PH3PEPF00059616.namprd05.prod.outlook.com
+ (2603:10b6:930:cf:cafe::a6) by CYXPR02CA0016.outlook.office365.com
+ (2603:10b6:930:cf::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.22 via Frontend Transport; Mon,
+ 26 Oct 2026 10:15:11 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
+ IP is 84.19.233.75) smtp.mailfrom=opensource.cirrus.com; dkim=none (message
+ not signed) header.d=none;dmarc=fail action=oreject
+ header.from=opensource.cirrus.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
+Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
+ PH3PEPF00059616.mail.protection.outlook.com (10.167.243.20) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.4
+ via Frontend Transport; Mon, 26 Oct 2026 10:15:10 +0000
+Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id C9F2E406540;
+	Mon, 26 Oct 2026 10:15:08 +0000 (UTC)
+Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id A5875822556;
+	Mon, 26 Oct 2026 10:15:08 +0000 (UTC)
+Date: Mon, 26 Oct 2026 10:15:07 +0000
+From: Charles Keepax <ckeepax@opensource.cirrus.com>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+        Peter Griffin <peter.griffin@linaro.org>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        Russell King <linux@armlinux.org.uk>, Mark Brown <broonie@kernel.org>,
+        Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+        Arnd Bergmann <arnd@arndb.de>, mfd@lists.linux.dev,
+        linux-samsung-soc@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, patches@opensource.cirrus.com,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/4] mfd: wm831x: Support software nodes for DCDC
+ regulators
+Message-ID: <at8oK+BLf2FQjp9U@opensource.cirrus.com>
+References: <20261024-samsung-kp-v4-0-e21253295e68@gmail.com>
+ <20261024-samsung-kp-v4-1-e21253295e68@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261026-v1-arm-dts-freescale-imx8mp-toradex-smarc-add-lvds-displays-overlays-v1-1-9e8bef9b13ba@toradex.com>
-X-B4-Tracking: v=1; b=H4sIAMYn32oC/x2OywrDIBBFfyW47oBa6OtXSheDM7aCxjATxBDy7
- 5XszoED9+5GWRKreU27EW5JU52HuMtkwg/nL0Oi4cZbf3PWO2gOUArQqhCFWQPm0ZT+KAusVZC
- 4gxaUAEgEuZECJV0ybgq1sZyA/n7lp+UYiMyYWoRj6ueN9+c4/vIXLsyWAAAA
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Leonardo Costa <leonardo.costa@toradex.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793009661; l=6126;
- i=leonardo.costa@toradex.com; s=20261001; h=from:subject:message-id;
- bh=u/Bc4IIPj0XbmMSFY+ai/Y9DOy3qq0yjkSExtBotmVo=;
- b=ngMwqUQ/9OTzcsZpCu5XUiDjMR13gCY0595b6OwqVq/NkcYBWAZmNTzQanHzpmbIfM0DI6wPU
- IKQK1q/A2iYC9tHaZUn4HP43EazzxqVp322urQ7zglp1IkpShilGAym
-X-Developer-Key: i=leonardo.costa@toradex.com; a=ed25519;
- pk=4xvoVLDt+NxIz9D8BJHhT0fD43Ig6XgSDw4jRN/gHzk=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261024-samsung-kp-v4-1-e21253295e68@gmail.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH3PEPF00059616:EE_|CHBPR19MB901682:EE_
+X-MS-Office365-Filtering-Correlation-Id: 992fd0d2-f5e1-451a-49d9-08df334a0456
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|61400799027|36860700016|82310400026|11063799006|4143699003|56012099006|261022105027099003|10067099003|16102099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: aOjtDQTeCvtTAUjBNqjmDS+mjgZ62fyLC8zsIA367DX49kcWsA/fzjohWlLbo3c8zO5gekrNp1PDgAdJasSu2sohgpO/OPX0R0qrhRvFacyYgh/kioBbnrzILdX19SYzKUPoyIR4dgYbmx7Kui5CV3AW+tIxozji0qHSHF6CEdV0UeMPiZ2LjRM111w+Vx+x4okWzh8Eoc6imUnG5Xon4Y7pEiqbgwU1Ot5b2IBxv+FeKwkefhm7Ikl+zUnKYQElk2Vc1WDVJpudA5d/etJkbxmge7jE6uwGysUBROui3nKrgq7X4LdEfTbZY3bkPqv2wm5V7Hhfqh/n1xNFQjoIDjPUP/4agoEq4C71BB8EG1ivb6c3+PoIihZgs8XbKLF+UZniU/rOewNTlgIfsp76HotgEJ0hNus52AK58PZ/Q7vltfAMU5es7/zWknwmE5Gw/Lt5zEltKy6efUo03j007XHwYtlcSTxJInULJZDckvv5UGp06iGNPX5Nv/alCV1pl7iYE10IgvTpkxiIDT2MX+X4c9cue0v6QHAMf5XGF/UNKChO+E0xO6G6UpkGweeW8fhrI55/hv1iH43w1YmU6nggKAxcj8RcRECVmmQvA3JxeXAWwT8ny6ihRvhHMqley4qJ88VZ/ExNo+TcXvzQsYjCeYYMFXrmoWzIlBU6HixjL9alucDVAtCGr7YX2K+8V/AonuGpi+r8ebXWjqO8Lw==
+X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(61400799027)(36860700016)(82310400026)(11063799006)(4143699003)(56012099006)(261022105027099003)(10067099003)(16102099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: kiisTVRUknwwbMFVx3MjldOVJDjKvpJUfEkV2G+lwWCHvGrPPuMMhvsTK2h4ZRDVHqHa77FjhMIfBdcisll9Zhz+r1QLzYvTbDJevEegmNAg6GOlArwjNq3Eiz0+GtOTHvYJSbjccxX0k7CNSrA3nSkc3UESgHTw+8ZCqqRj437NHxG0+fy/RZVsZlh5CskNCQOEb0ev0xNfm6xrGqs6+HxVGz06ScWmIJI7MQmXoELc3+OBw6Qw9ke0AwfIeoEtqIDhW6Jn98Jb0TvHIH85W0CQNDgJhEI11x0oeYgN/GXOXjUP98A25APxvY52p5KR7x4a9ofgq73m6SRYwCodxinFhcEHcHUTuqskO2NfdwKwjoV0fJHFKh/Tnw8Ll7ZicPp96uByUoN3fgH1dqnDpDw4qn+q8+1Aq+ztOsH90AD6kSmDjGSDnh6dHWY9Dk3A
+X-Exchange-RoutingPolicyChecked: 2BIRLxo7xqoJJOhvoIdgkdQDxbSjB9fP7R+q00M7Rl0PF/jPOmvOeLRc7bM8T1lr8CDYn6e4zs7/OhdPevsCdzbCCEtiZ4uvUqE6pHi6zGmhBDnQ3bQlpCkQljs65KaFG8IJmSe2av79x1FG3KtTK55TxRRCVkZPmv0LgFGU5T0eDaEeZQdh3q/dUCRZKWEgxgLtVBcdAzcLwPzf5aELwmUqb6iJNBqZwnEZOTnqMrhHnQBfcFBWN+GEFRsg6pmStou3jyMoubo6vbEF7I+soyJ0eQiaQ3pp97ZCJFB4/kaQWe8135v5clWn7tPMcK7sp9n2V7+epI1T9/1Aglah5Q==
+X-OriginatorOrg: opensource.cirrus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 10:15:10.0191
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 992fd0d2-f5e1-451a-49d9-08df334a0456
+X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-PH3PEPF00059616.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CHBPR19MB901682
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI2MDA0MCBTYWx0ZWRfX2XPaMbkOeeZH
+ dLP2xB114ODBD6DpL8Me8zP/WXuiq1zPyJ1GE+tcmnojaYUgV+z9vW7IdW0Dp1Xnhm7ntx+ba4G
+ yaTwW5LGXlGHER3cdACH0UD2pN+wOHk=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI2MDA0MCBTYWx0ZWRfX5+UToS1f422v
+ 8xj1UbxgW5YS5U9lK3/HQLP/ABJyuwFwZpH9wBUALCmOMsrZYn/cN32tNF4CkDuTYEoWYhaYgvV
+ Ifi65SFWVVWcC7Eb65hh4FcLTA2KRxQwuCHmRU965GUIF8CEFTi77UEibOgPkmnRmmxyAkE4aI2
+ N+kziiVQlNMJhQu2OfNKbx5h+qQBoW2w5ntMQTbC8r0RyCpmgZoLJYiiQNmIXnTFn3FE/axr34V
+ /QggxKAqCkahUSXNGj1oMDw/XH6LpUJR2LRLVFrwmSQ/Gc3Gb+5TssqI5x2HGZ0/KCEsnAFh9nt
+ VXssZqrS90UsRa2rBxEt7E2CODwItPPCYnx0CU/L5e/StfR9FBaSABTZlJoch2vkdbvXLrpkAGd
+ Rpa7WMhGGv7SO4Jj4RwfRIDTm1rR1ZAD30LzkPdGIr0MGIutLAhK3sgPsuSoh0KOBCzPWEs9Ln9
+ n93vA6Q+7C3gxq+Wn+Q==
+X-Authority-Analysis: v=2.4 cv=dbIVTnXe c=1 sm=1 tr=0 ts=6adf2834 cx=c_pps
+ a=jzpQLMhUvwWo5cn4Ul+sFQ==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=KfkQE9S9VqCBgivYGm0O:22
+ a=pGLkceISAAAA:8 a=w1d2syhTAAAA:8 a=jZ_tYwO_ofv8OuE6UmYA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: AEtsWP36Ds2MGtlBxuE2kRlqiDjPXeJf
+X-Proofpoint-ORIG-GUID: AEtsWP36Ds2MGtlBxuE2kRlqiDjPXeJf
+X-Proofpoint-Spam-Reason: safe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_031431_578766_8BF1D15D 
-X-CRM114-Status: GOOD (  16.13  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261026_031530_707219_5378CC6A 
+X-CRM114-Status: GOOD (  12.68  )
+X-Spam-Score: -2.6 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,176 +167,27 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Leonardo Costa <leonardo.costa@toradex.com>
+On Sat, Oct 24, 2026 at 10:03:12PM -0700, Dmitry Torokhov wrote:
+> Allow passing software nodes to wm831x DCDC regulators via PMIC platform
+> data. This is useful for non-DT/non-ACPI platforms that want to
+> associate device properties (like DVS GPIOs) with the regulator devices
+> using software nodes.
+> 
+> Add software node pointers to the PMIC platform data and have the MFD
+> core assign them to the buckv cells.
+> 
+> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+> ---
 
-Add a device tree overlay for the Toradex Capacitive Touch Display 10.1"
-V2 on the Toradex SMARC Development Board LVDS0 interface. The panel is
-an Opto Logic SCX1001511GGC49 10.1" WXGA TFT LCD and the touch input is
-provided by an ILITEK ILI251x capacitive touch controller.
+Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
 
-The overlay is also combined with the Toradex SMARC Development Board
-device tree to provide a ready-to-use DTB.
-
-Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
-Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
----
-This change depends on other patch series, and should be applied after
-it:
-
-- https://lore.kernel.org/all/20261002-smarc-imx8mp-display-submit-v1-0-f578c63fb676@toradex.com/T/#u
-
-  Adds the other overlays for SMARC iMX8M Plus. This series is required
-  because it adds the 3.3V power regulator used in the panel node. It's
-  also needed for the patches to apply cleanly.
----
- arch/arm64/boot/dts/freescale/Makefile             |  4 +
- ...radex-smarc-panel-cap-touch-10inch-lvds-v2.dtso | 98 ++++++++++++++++++++++
- 2 files changed, 102 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 1310b34178e5..94d39af8b8c9 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -715,9 +715,11 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev-adapter-panel-cap-touch-10inc
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev-adapter-panel-cap-touch-7inch-dsi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev-dsi-to-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev-panel-cap-touch-10inch-lvds.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev-panel-cap-touch-10inch-lvds-v2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dsi-to-hdmi.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-panel-cap-touch-10inch-lvds.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-panel-cap-touch-10inch-lvds-v2.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2.dtb
-@@ -729,6 +731,8 @@ imx8mp-toradex-smarc-dev-adapter-panel-cap-touch-7inch-dsi-dtbs := imx8mp-torade
- imx8mp-toradex-smarc-dev-dsi-to-hdmi-dtbs := imx8mp-toradex-smarc-dev.dtb imx8mp-toradex-smarc-dsi-to-hdmi.dtbo
- imx8mp-toradex-smarc-dev-panel-cap-touch-10inch-lvds-dtbs := imx8mp-toradex-smarc-dev.dtb \
- 	imx8mp-toradex-smarc-panel-cap-touch-10inch-lvds.dtbo
-+imx8mp-toradex-smarc-dev-panel-cap-touch-10inch-lvds-v2-dtbs := imx8mp-toradex-smarc-dev.dtb \
-+	imx8mp-toradex-smarc-panel-cap-touch-10inch-lvds-v2.dtbo
- 
- imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10-dtbs += imx8mp-tx8p-ml81-moduline-display-106.dtb \
- 	imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-panel-cap-touch-10inch-lvds-v2.dtso b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-panel-cap-touch-10inch-lvds-v2.dtso
-new file mode 100644
-index 000000000000..0235aa1acbac
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-panel-cap-touch-10inch-lvds-v2.dtso
-@@ -0,0 +1,98 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex Capacitive Touch Display 10.1" V2 connected via Toradex SMARC
-+ * Development Board LVDS0. Connect the panel to J48 and the touch controller
-+ * to J49.
-+ *
-+ * https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
-+ * https://www.toradex.com/accessories/capacitive-touch-display-10.1-inch-lvds
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/imx8mp-clock.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+&{/} {
-+	backlight_lcd0: backlight-lcd0 {
-+		compatible = "pwm-backlight";
-+		brightness-levels = <0 45 63 88 119 158 203 255>;
-+		default-brightness-level = <4>;
-+		/* SMARC LCD0_BKLT_EN (SMARC S127) */
-+		enable-gpios = <&som_gpio_expander 5 GPIO_ACTIVE_HIGH>;
-+		/* SMARC LCD0_BKLT_PWM (SMARC S141) */
-+		pwms = <&pwm2 0 6666667 0>;
-+	};
-+
-+	panel-lvds-native {
-+		compatible = "optologic,scx1001511ggc49", "panel-lvds";
-+		backlight = <&backlight_lcd0>;
-+		power-supply = <&reg_carrier_3p3v>;
-+		data-mapping = "vesa-24";
-+		height-mm = <136>;
-+		width-mm = <217>;
-+
-+		panel-timing {
-+			clock-frequency = <64500000>;
-+			hactive = <1280>;
-+			hback-porch = <20>;
-+			hfront-porch = <20>;
-+			hsync-len = <2>;
-+			vactive = <800>;
-+			vback-porch = <5>;
-+			vfront-porch = <5>;
-+			vsync-len = <3>;
-+			de-active = <1>;
-+			hsync-active = <0>;
-+			vsync-active = <0>;
-+			pixelclk-active = <0>;
-+		};
-+
-+		port {
-+			panel_lvds_native_in: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
-+		};
-+	};
-+};
-+
-+/* SMARC I2C_LCD */
-+&i2c2 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	touchscreen@41 {
-+		compatible = "ilitek,ili251x";
-+		reg = <0x41>;
-+		/* SMARC GPIO6 (SMARC P114) - LVDS_TOUCH_INT# */
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <29 IRQ_TYPE_EDGE_RISING>;
-+		/* SMARC GPIO4 (SMARC P112) - LVDS_RST# */
-+		reset-gpios = <&gpio4 18 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&ldb_lvds_ch0 {
-+	remote-endpoint = <&panel_lvds_native_in>;
-+};
-+
-+&lvds_bridge {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
-+			  <&clk IMX8MP_VIDEO_PLL1>;
-+	/*
-+	 * This display uses 64.5 MHz pixel clock, so IMX8MP_VIDEO_PLL1 needs
-+	 * to be 7 times 64.5MHz, or 451.5 MHz as the internal divider will
-+	 * always divide the output LVDS clock by 7.
-+	 */
-+	assigned-clock-rates = <0>, <451500000>;
-+
-+	status = "okay";
-+};
-
----
-base-commit: 4aeb54e451181c68bb1135f761281b6391fcb5a5
-change-id: 20261021-v1-arm-dts-freescale-imx8mp-toradex-smarc-add-lvds-displays-overlays-a273e90efcdd
-
-Best regards,
--- 
-Leonardo Costa <leonardo.costa@toradex.com>
-
+Thanks,
+Charles
 
