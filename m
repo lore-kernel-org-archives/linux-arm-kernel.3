@@ -2,70 +2,108 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9413606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 19:09:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 117A1606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 19:10:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kZfrwMJn;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jz1aYOFB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=awyCfBcM;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Dt7+TDmH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=9Q3+v3GR7ZhEH6o1z10j/nYGlQFCqSiOFWl4b/lYCXY=; b=kZfrwMJn3JbwTES3jEbopxsqC+
-	sR3KM7tUBURvyhP+POWkStTcba7H8G14murILMImTy9Edi1IoXk1ecTzfNIDic1nTOCqZgaT1Dtxd
-	/PwT1kUGal7qhZMjImhCMweVugjj1Cih00Y9o0cfG1qSHFKsSgbTKKJDsRJqqeMYcUOgopc0pHqyB
-	LM/f9cFDjylv+95tA7mVjKiroWFp2M0mLb5CEMcORzhEQeicD0v1vW4nxHSvQKSDSbeEUeP/SeDcR
-	WKFc87j7QzYiu2W8GQm1bmjsEJ0PWfLWdYucThaIR/AxLFTo/aAJybDbacGdJNe2KMvq4Ajl3Stwl
-	6NF0cHyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=618ppnTTAMIe+DoCnrNMfZTILgIDF8MyT0GWuzKsSm0=; b=awyCfBcMCo1BVH
+	2kk1GaBoFd1uc5TRWgToFT0lY7X1rDdUGtdmYTqgpXTBoKXTE3DqLt4uod041VlxUPXJc5+938BOx
+	R1p++cNkE11yLDHWT3NE+rN31qVy8gYjBTMwje7kUE6HqvgxddXAVQ7oEzbR7CkVj8rM4gJUygn0Y
+	F7IAjbPHsvLq7DG7zWbbahO8+Wfcsh7lXm2O1D3Re6boGLIawabqcunZXNrVZY/HZjsm3rdYQVrW7
+	8WfwPfro7Dh87qvialfVM8eoQX4SZfxeb063jSBsLNwF0VczbyxuiEmC4XsOO1rfCaJefpOb1Fomn
+	yhP/VAxRFPYXF2K4vDIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLQ47-000000038Ei-0zMq;
-	Mon, 26 Oct 2026 19:09:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xLQ5s-000000038Wd-3we4;
+	Mon, 26 Oct 2026 19:10:52 +0000
+Received: from mail-oi2-x0b.google.com ([2607:f8b0:4864:32::b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLQ46-000000038Eb-06Fc
+	id 1xLQ5n-000000038Pz-0Agu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 19:09:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 20F61601EF;
-	Mon, 26 Oct 2026 19:09:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 901031F01825;
-	Mon, 26 Oct 2026 19:09:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793041740;
-	bh=9Q3+v3GR7ZhEH6o1z10j/nYGlQFCqSiOFWl4b/lYCXY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jz1aYOFBJsbfbEPwQpmnRudtsa80TD5qRFNVVS7AgOHc5hvYzADRoZlGJEDhhBxmR
-	 zCSsxcpMkiEnbpW3nOco7+Pbad36IMfT3gJihWaLaS0UW0IXmKx5UtUpW9LR5RbuiL
-	 rFV9eFb9xaPHWFakuPr6xjhFFijS+Z4wCdD/n6vL5bHTsx9i43LBhtoQTe8da+tiAL
-	 x1+XsFelr9T4yiOhM0UUZTIZWJijssSK19m/UG/o8hk4kMEils2nhc6TPrxN7cTa9N
-	 BhdA8CIXZKSKmg29OjyRfDkheBjDC8mQM7v3rBaRNzPWCfhCTBMTT0LOm1iN6iErJ0
-	 oeEMbzoiE6j2g==
-Date: Mon, 26 Oct 2026 12:08:59 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Tian Zheng <zhengtian10@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 0/3] Set DBM bit on writable pages
-Message-ID: <at-lSy7H-K60LhCB@kernel.org>
-References: <20261026144413.441566-1-leo.bras@arm.com>
+	Mon, 26 Oct 2026 19:10:49 +0000
+Received: by mail-oi2-x0b.google.com with SMTP id 5614622812f47-539edfadfa9so1437714b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 12:10:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1793041844; x=1793646644; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=618ppnTTAMIe+DoCnrNMfZTILgIDF8MyT0GWuzKsSm0=;
+        b=Dt7+TDmHXGs3FPkhvrC/HD54BAoZG02N/Ti/JIN9WFBlsRUyvrY/RFhG4G87WdY7AJ
+         zO7DfqE64c+k39+2gAoi0TUYl6LXdy1alfcCiLuPr1NPIjxb4a89cznaiMe97b4lHQz7
+         WTtor7fyJP4IxkxIaL55sRqR3R05Q7aJHzIz4jHi633UVuFNdXoVg6ToSH7cexillELX
+         +FKNU1DrI58d+xz3km1TXvfNPN+U5Aggh5z6EAmOeTftYq+2pPOTJpw2ABDvjY9xurnc
+         ETNWFUeX2BofVlJP3py6YBsj6nQbwXYQ/hwd5INp19qYU4jpOnKGKiy1nvEyZbBgmyEG
+         D5DQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793041844; x=1793646644;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=618ppnTTAMIe+DoCnrNMfZTILgIDF8MyT0GWuzKsSm0=;
+        b=VdvcHfT3iDEv4/1FqW/E9DMeBQPTItSN2Yz0n6WIb4spgeeFd2L5kDqI28z+bOtY1B
+         9vryA5kYMbwdLen2QahrIE3jRIMjYZKs9FFLxItZYaNSsA1KiRxPrYHRWdyabT8UHhN6
+         5giTTD8/ZgifzmpPD1Lyz6TKjo5cjj8B6xFJ4iLqqzvY0eGpdTzTcLLkLOEZ0bX4jMHn
+         XSecLkssfnzrnbWHhiFxhd6cWyAaIa/rIZweRB4Iw1NgejR0ThIgrIYN54MPHZ/ILuzH
+         2oX+1ZNxj2o4hWIE9mESE7PKaQA25pnPPuft5C/LqLaYYqbJkd4USurGZ5P72rALGIwk
+         iTug==
+X-Forwarded-Encrypted: i=1; AKwUvBwmTl2nzgDUses6m3Kp08J7g7z/2OD8RktbMDedkQgyPJTfefU8P9dyMq1DEg3cSkpnq/Qx95tCTUSozvRNOmfr@lists.infradead.org
+X-Gm-Message-State: AFq9FYIeWFMy5PZAhlHJ6alsm4pjlm7JeDpE2Vns5P79Q2JD9LiQUi35
+	72PSGHnAFvHUps4LKWTHGAbmk4aFklVvI82CUcJmvC2neEF5qscuou6l
+X-Gm-Gg: AYBFou3p+R1zXGtFKJSsIKRp0vSQJWAs9X72++UKZnynFLcPIAT5BIvKrdLR61r2fyV
+	TEF5zShmDLhUQMxwqc62w1ZydqQn3gYTNKLfmn9HRORBfwXPs6AS5uBFpmcP6mKLuWJHDaS5+4J
+	/8OjqLmWYZSaV3ZUHMcBrqUr4qBRtcc6wcmxRDrYvAxwXpt8D1IVKuKkWqudKeIoGjz2M30BwdV
+	1ivHOGm/Q0az6md292+Yo2vCUjAkCX09vPR+Mx2ro+/x9S+jaUlf58oPNHMn0cHY/zrcqOxSnCC
+	GFr1sgtlKp7nSeqJUmNSvCV9lqegiExebIkcNuyU2gy8HerhvUthWTCGJesPQ0PXu4h0EAQ/+ZK
+	v98j+ZvaAaHNOVXQ1PSckI9vVF3IMmz2rVROsTd01It1X5auckY9NrdgY/UJfPUzi7W11QWoVeQ
+	RWnaQDCJA03qFx/5EWYo45/cCphsSedBc4bAH4IUIH9k0GlxmBJvUIVIJpYk0hfbQF143r97zXY
+	J4h+Ri26jo1r6wiT7EK2liJZ0WoQOZQeqZi/qCL7Z4RwaSYCzBpnzQnf7fH5SEe/P3zsPSkN+PE
+	iuswMQcmOLc5hukj65fL9cUCXWqPlJxVjLZDGQ7TuQ28iEbU5mrB1MVegp+L9ym+2k0=
+X-Received: by 2002:a05:6808:1209:b0:4d6:90f3:74a3 with SMTP id 5614622812f47-55c003118bemr5492504b6e.46.1793041843805;
+        Mon, 26 Oct 2026 12:10:43 -0700 (PDT)
+Received: from [10.10.18.223] (wsip-64-207-253-118.tu.ok.cox.net. [64.207.253.118])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-55c03dc3524sm5740834b6e.0.2026.10.26.12.10.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Oct 2026 12:10:42 -0700 (PDT)
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+Date: Mon, 26 Oct 2026 14:10:36 -0500
+Subject: [PATCH 1/4] wifi: mt76: mt7663s: don't advertise random MAC
+ address scans
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261026144413.441566-1-leo.bras@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261026-rbrue-sheldon-upstreaming-mt7663s-v1-1-944b1f7e63a8@gmail.com>
+References: <20261026-rbrue-sheldon-upstreaming-mt7663s-v1-0-944b1f7e63a8@gmail.com>
+In-Reply-To: <20261026-rbrue-sheldon-upstreaming-mt7663s-v1-0-944b1f7e63a8@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Ryan Brue <ryanbrue.dev@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793041838; l=1887;
+ i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
+ bh=ZxzBWCMIVzBy2zHcQbyAGCsHpmwqwCbczZ1Y+dIdAUw=;
+ b=JQfaph5OJQ4fE5sflHyc3YV9ljMuTh+tTrOIW1IgQQ0aFKTtqLSEtsrcaemUK4HFew0sfFGir
+ 3w4+xgm3WyyBDexS52kgyrjuzRFqDFkswzrbmOnDeL9cZqTcguX/7yc
+X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
+ pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261026_121047_092887_1F521722 
+X-CRM114-Status: GOOD (  14.25  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,62 +114,58 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 26, 2026 at 02:44:06PM +0000, Leonardo Bras wrote:
-> When HAFDBS is enabled (VTCR_EL2.{HA,HD}={1,1}), having a DBM bit allows 
-> hardware to promote a non-writable page to writable by setting (S2AP[1]=1),
-> without having to take a fault.
-> 
-> The reason for this patchset is to add the DBM bit when setting-up writable 
-> pages, so the code is prepared for future patches that make use of 
-> HDBSS/HACDBS to accelerate dirty-tracking. Write-bit detection still 
-> happens based only in S2AP[1], so no change in that aspect.
-> 
-> Having DBM set on block entries is undesired, as we benefit from the first 
-> fault for splitting it in PAGE_SIZE entries, which is the granularity used 
-> to track the dirty pages in KVM. So introduce a new walker that, on top of 
-> clearing S2AP[1] for every entry, also clear DBM for block entries.
-> 
-> Also introduce a new VCPU request to reload Stage2, as it will be needed on 
-> future HDBSS/HAFDBS patchsets. 
-> 
-> Please let me know of what do you think!
+With the MT7663 offload firmware (N9 3.1.1, build 20200604161656) on
+SDIO, a hw scan with NL80211_SCAN_FLAG_RANDOM_ADDR completes in about
+50 ms with no results, while the same scan without the flag takes about
+5 s and finds every BSS in range:
 
-I'm pretty sure I shared this feedback before, but patches that enable
-DBM do not make sense in isolation. We need a single series that
-contains the DBM enablement as well as the corresponding HDBSS support.
+  iw dev wlan0 scan flush            -> 17-23 BSSes in 5 s
+  iw dev wlan0 scan flush randomise  -> 0 BSSes in 0.05 s
 
-> Changes since RFCv1:
-> - Dropped patch #5 on enabling HAFDBS on non-dirty-tracking guests, as it 
->   proved to be counter-productive on wrprotect, contrary to expectations
-> - No more moving writable-bit to DBM. That does not seem to be the intended 
->   use. It makes sense and it's easier to convert code to new DBM approach.
+NetworkManager randomizes the scan address by default, so on an
+mt7663s it lists no networks, or only the few whose beacons happen to
+arrive during a scan, and it can't find the network it is configured
+for.
 
-Sorry, where was this concluded?
+Stop advertising NL80211_FEATURE_SCAN_RANDOM_MAC_ADDR on SDIO, so user
+space falls back to the device address. Scheduled scans have their own
+MT7663 request layout and are left alone. Only the SDIO variant was
+tested; the PCIe and USB ones load the same firmware and may need the
+same treatment.
 
-The abstract permission flags need to have a WRITE an DIRTY state, which
-we then map to hardware based on the capabilities of the system.
+Fixes: a66cbdd6573d ("mt76: mt7615: introduce mt7663s support")
+Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7615/init.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-!FEAT_HAFDBS:
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/init.c b/drivers/net/wireless/mediatek/mt76/mt7615/init.c
+index 665b0f1e939f..e6685c51fa6e 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7615/init.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7615/init.c
+@@ -200,6 +200,12 @@ mt7615_check_offload_capability(struct mt7615_dev *dev)
+ 				   WIPHY_FLAG_HAS_REMAIN_ON_CHANNEL |
+ 				   NL80211_FEATURE_P2P_GO_CTWIN |
+ 				   NL80211_FEATURE_P2P_GO_OPPPS;
++		/*
++		 * On SDIO the firmware ends a hw scan with a random source
++		 * address at once, with no results.
++		 */
++		if (mt76_is_sdio(&dev->mt76))
++			wiphy->features &= ~NL80211_FEATURE_SCAN_RANDOM_MAC_ADDR;
+ 	} else {
+ 		dev->ops->hw_scan = NULL;
+ 		dev->ops->cancel_hw_scan = NULL;
 
-	DIRTY	=> S2AP[1]
-	WRITE	=> S2AP[1]
+-- 
+2.55.0
 
-FEAT_HAFDBS:
-
-	DIRTY	=> S2AP[1]
-	WRITE	=> DBM
-
-Beyond making the whole HAFDBS easy to reason about, I want this for
-FEAT_S2PIE which reimagines bit 7 as a literal dirty bit that can be
-managed by software or hardware.
-
-Thanks,
-Oliver
 
