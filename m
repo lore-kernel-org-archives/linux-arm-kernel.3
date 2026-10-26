@@ -2,117 +2,130 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8008C606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 20:49:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF682606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 20:49:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BP7bkbcQ;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=BZvBcIz3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RufSrWWg;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Sv4uUvbq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=PJBAWhG3vQY26e/Nvx85KnaVoYI7FZuNNNc/vdxGNMI=; b=BP7bkbcQRS+xby7zYX2KFdAGTD
-	m6LuT939ZzwDgwYRlaPZ1w++Gt701X+aZlc+UxAoCpNw68KaIbDDRdB1x61snqlvUonomYSEWnrxb
-	nZqRr6o4vA+0EfBcWXV14xMTA5k76yu3Er/2qwSOevewVEdlGNPPssyrfg6SaMjHRs5VsAg+5Rdxp
-	G+YJUMhmrgqEbGcTVts6pemJ48xky9FoXaR1b+XdvKyJc9cuPn0sNXNyft3fZI37jFdgAD/qnqwnK
-	y1p3WlOHWMRPM3o7koURhEhzt7C0bR6qsRcaWJGriWtgoklXP2Exe53YD+rP4dSwasnf2JnGpDXbO
-	3/j+Sykw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=eEKPapKQIiWh5bUIcb5N/LuB8yx8USeXRcJ+z78vdxU=; b=RufSrWWgAgSTDn
+	ayIEFTx1LX0gUTi1/XVdITfsNYSVmW0NC/HxCknOjVTIWm6fibwiYCNiwV8opdM7QFcu5tn2oKQT9
+	zswfNnbLkyrxGRRuewRNYBNqMTOqXPLLtDs9PTT7sVnrvqFokyhojyO+t8XqWZhNhj5XUrkXTp5qG
+	Gh++U8JL6y7vcEciT8cGE0L9/O+8gy7cwtcQrSe9l4dc1b4qoS2uigtjJjrwvE7k6IS5papHfWiTp
+	2TMmndPMFzJWWV0ZvonTM8jRzVDzhllcmeWxI9Nycw+l3KiF+0y3cJ/bKa/k14ebkrUFIi0ORNGq0
+	ujpJNOAfxZXW+9e+hSuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLRd0-00000003F8S-40vB;
-	Mon, 26 Oct 2026 20:49:10 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1xLRdU-00000003FGn-1Fxw;
+	Mon, 26 Oct 2026 20:49:40 +0000
+Received: from mail-vs1-xe34.google.com ([2607:f8b0:4864:20::e34])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLRcz-00000003F7D-0PtK
+	id 1xLRdR-00000003FFc-3JJi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 20:49:10 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-3ab752f6244so3414272a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 13:49:07 -0700 (PDT)
+	Mon, 26 Oct 2026 20:49:39 +0000
+Received: by mail-vs1-xe34.google.com with SMTP id ada2fe7eead31-7ce77f98658so488868137.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 13:49:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793047776; cv=none;
+        d=google.com; s=arc-20260327;
+        b=gPNmvnh1FfCrXLFs7nknRGZ3sHaU9XbfJztLhnGL8eFz45NttAiMPkXHXJUbd/Mef1
+         BiYO958mfpZnSCCOxfeRmQq2s2N2yaMtHoRnLWygTA0INcAC2Btem4FcnM+cP6qeA8zS
+         F+sfldeVL0NeCMU+bUC04EFrqUydOspiEQnthFj9lvPZRfbxJ/RvIFTDRse6BR5ofmJP
+         X2BGkpDS9YdAaOKsm02P/fcv0IfNemvlg6M/5m1tfbvy5BhomeusvmaSuX/Qe+B9ueZq
+         iOgr9+BJBwFvYkxQJ4+oN15RaFfw2JGJmmR6ct0alAG8a3/AumP5+/JqcXSmVfzb2yTR
+         +NWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=eEKPapKQIiWh5bUIcb5N/LuB8yx8USeXRcJ+z78vdxU=;
+        fh=3QMgO4L0i4vtFhjDBvo7IUqXHi5c+0pVfWPj9mLdW+s=;
+        b=A84lG5Fk76X1QYznz/bdBmonOX2arNDZ5FQvtaWs+b0qgNl2LBOIcmOfC8HAG6bxcc
+         aQLn3mQSIacXnNzubP82PctZSCTvy8/nEVoD7DCQG/CENYryPUThJ4eLLVUJdTDF70n4
+         56LkCWfq0gapd2m/ynoiYWSlFac1xbDf+udHMIqSNaUyLpTi2lALMKX1Dw/ianEDSTCz
+         b8wscxd5hRFrfGRP/X/a68YeIutRaMnkWPorM4INkqs2OnYPfuWhpmjCYkbQzLm7Wuqf
+         M/g1FYQ0QCEJnLf3A4HBZXzpUKbb1oO/5/XGPkFuPQxuu7wzs9HK0+NQDygacJKKF2Uv
+         WNpQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1793047747; x=1793652547; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PJBAWhG3vQY26e/Nvx85KnaVoYI7FZuNNNc/vdxGNMI=;
-        b=BZvBcIz3xbVyVmpis6EsL+D5bk590Ts/aSf+BaskWEICUBeVTJr6xjGwoT2sbHFyyn
-         lxNWpIdIqNPJ4lQZZyR8tgLDzJq8wLFreEUcZIqt4nlYUN9MIWdJDc3v0u4wscqEU5+S
-         IfbFxg00F4t4Ly/m+c2i1p+C+e6PZn3cgLLoElzJXEcKek2ZLj+qM/MoQQBcBHlO5fMR
-         jqyrdHa7f6IAG/1O/HHyt3CYd2Q4J4JG3hl/D+R5bdj8b3wQEhV30nMXe15q+PxemHbH
-         oTWJzXceYlZfs7OctqtTYdPOSVpYFdepaWSpgW3OvjcKUsG/ySt1XDqQAYx1ebiQa9iX
-         dGZQ==
+        d=gmail.com; s=20251104; t=1793047776; x=1793652576; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=eEKPapKQIiWh5bUIcb5N/LuB8yx8USeXRcJ+z78vdxU=;
+        b=Sv4uUvbqrkdPQIQd4h/pShSO7Vj7oK4DLy4UhyFLBjaSLGjmzV2dVuwNm6RnYr9527
+         fmExaBbtPEtRqlHGNEiS3ZOogAQU1P4iOGjJQ/W+UINUOl5KwY+EWaJbAfGBlf6tL37O
+         T9PBR+C6Ej590keKQ1zHZYbXjDmDS6QmyClOCPS/kxI6tNWmo698y8XI6IxUnOVBO8HX
+         GR79DMJX+qenaSZhpb/BZO9c9rTHxl8AWqLnXshMo5pZu3EvaWhaLGT0jECN8YOdAmr5
+         ltRkd3xBRng+mleIZ4za1L3Q8nwT62gyCv3W87a/Vf2BxsGf6+JDpG5x4won4fhlSuVB
+         QGog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793047747; x=1793652547;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=PJBAWhG3vQY26e/Nvx85KnaVoYI7FZuNNNc/vdxGNMI=;
-        b=YoajGXseaXNwBSEq/f7PNpNWbxD1hCmt4varAUFsobXdKlXXSm0R4xowMl+U3NY00F
-         NIMT5b6+p8H+PDrYzxScjnsglsOwE1nx5CehTEAQXn1PZADsz+OnqD1uyJxpkRDbzEzP
-         tYxuOWI26sHHf+ocpUY8wdbi85DzNj9eVzbd4IxPgr6J0NA0DUbb+eJSlYQY9KE+XR4n
-         v3t0wIxGffBNMIndYHAjWxe5rBifKRoAGsxgO1LFEGAyUnewZHGm2/xoGbWSCLjglJGt
-         +F0P0WgHI4ognO9bR78MbgYNHg92DwDsG7Ed3t6Dudu3tUGlyl9oLQYSh51AHyE9Nb0T
-         krAg==
-X-Forwarded-Encrypted: i=1; AKwUvBy/dETyJU8xC+t1cM72Cbnvb/KjbX1Vd5gMgEsq0cGVJYTF5GDVW7Zk3f7vFbJnRX1sRpEGS2WNIIV7BjIm3NrT@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ+jwDhyOsqYB0n22QpA8RgJhBImk8XlxNw92MfMZwoHAVS782d
-	b2AHTsfwEcqgWsLcDUijkpxFblvtOdEPEvCQ4ztNeUHug6UaytkGA1dPPaHCtvKxPw==
-X-Gm-Gg: AYBFou2I/2gYNjPBELvGAvrhj8bIcNyN3Bbc2vxQf6Zx/WgLsQ5iOHdRN7xUaY/TDIm
-	1zvBKjB19URliBsGLGncSBBCNfYdBtMDvBAYjvyKdx6J9kAgE6/wsij9njxkjav21OGZSDNeYSo
-	zqgoNH3+8XPurTJ2pRj9hmTqq+VAQJw11b3TE7J4Gsv2Mh/JDA52M0hPerzxBhbFv7SLnCDICAm
-	OYb7sd8EWZAH6QmaJ8Jf58Ny8jspcHSl+/KFaPxE4P1/b3Vq2kJ3i6ePm0bLyta5TJve1iQ7kWy
-	XAI97qzOzepuYeZLQsEhij1oQmyKgQTJFID5ZJA7bZZQQdJAKyBwv3g+zF9oMKzxCQB956F1N1s
-	CmXFFKf30pLje0R/CFdiMvVEA4D9gOzP1VfN8BnCFZhvKNZTDj+OIKpIOZnQ3ngBJ+q5hVN9wrr
-	Vwz7ot7aEqzuaLYmy7yWcE8cIsdzp6xlJY0REm6FQ0AadT4j7F2cYtrtcRegK5amNLTJnf3xysK
-	fuaARGf51s29QEsyDW7r/JkNKgs9P6mzBkNa4oNSP9EgUhPBYs8KFnJ081nx//RTW0vyMOZgIGD
-	q4oFsMvA4m1Mg2Vl
-X-Received: by 2002:a17:90b:5105:b0:3ac:9176:e81c with SMTP id 98e67ed59e1d1-3adeae76765mr6903041a91.46.1793047746368;
-        Mon, 26 Oct 2026 13:49:06 -0700 (PDT)
-Received: from google.com (64.75.127.34.bc.googleusercontent.com. [34.127.75.64])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae4066aec8sm743744a91.15.2026.10.26.13.49.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 13:49:05 -0700 (PDT)
-Date: Mon, 26 Oct 2026 20:49:02 +0000
-From: David Matlack <dmatlack@google.com>
-To: Pasha Tatashin <pasha.tatashin@soleen.com>
-Cc: tarunsahu@google.com, Andrew Morton <akpm@linux-foundation.org>,
-	joro@8bytes.org, Mike Rapoport <rppt@kernel.org>,
-	Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de,
-	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com,
-	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org,
-	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com,
-	will@kernel.org, Alexander Graf <graf@amazon.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev,
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
-	kexec@lists.infradead.org, skhawaja@google.com, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
- a 2-bit pair feature header
-Message-ID: <at-8vkVpN2SF3XgB@google.com>
-References: <atlKsD-aJB3mJr2j@google.com>
- <CA+CK2bABt4OZO31TenVF2+uBUWVwViWbvfE00=0xbAw=f7K9SA@mail.gmail.com>
- <atl7peoVHdP5hz7z@google.com>
- <CA+CK2bBFXnJA1kddbLKGq0DAHDgjYhsTSQQay-xeX7jJC1V_UQ@mail.gmail.com>
- <CALzav=e=ho2gVrn+7KpZ3ZyasvH2u15-pC-RSRSS7KcMfKqUJQ@mail.gmail.com>
- <CA+CK2bAJo8dnTOyKMgnnMnk-SCXbTsv+JCLEOWkjyj-wqtEkHg@mail.gmail.com>
- <atpNFEFIlqAoYIwH@google.com>
- <CA+CK2bB2C3Am5ssRuzYpfiU7_vB81vxMGc19HQLq7N=_7YrbTg@mail.gmail.com>
- <attmFVIFU_mS0Y7p@google.com>
- <CA+CK2bDXDWbww_d3sD6OZqpo37V1a3t76_ubbrXLQS=9DB3dWA@mail.gmail.com>
+        d=1e100.net; s=20260707; t=1793047776; x=1793652576;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=eEKPapKQIiWh5bUIcb5N/LuB8yx8USeXRcJ+z78vdxU=;
+        b=hx8GtsoZuEDSv2/L5Iquxc6dHXY+Jim4eEj8qeh1JdPKOnGPph38Y+FojDvimSGJEa
+         93josyWd3XLdjiIMt5hN5V2sBZVm6bStPJnSJMKqNv1PdXjp+UjnuXT93DP4jNnqLbfs
+         7R/M9zYKNkVbBHAt//zokwSQw9PZygwHhDgEV/fbDoOE2xao628bUoKNNTvBgNiu2P7z
+         neU+WQks684iUnCyGU3/EEOrwM6Sss3YidUihHpnOTeB82zGeua87WOpc/bZJ1KgLXPe
+         8LcgxBWHp8ynoci/hO3VRrH+h3XKPM2JIc4ayCqPviQfBJoA7ewHvU4Ji3uZK/yJRpXX
+         +QbA==
+X-Forwarded-Encrypted: i=1; AKwUvBxFoKavjStQrI0662hltsMVdMzPDWhF5sR7sH2ObXMBBcVoPuOe81w1MH7MKHqOdCh59Caz1T6D2w2S+2mhbpjA@lists.infradead.org
+X-Gm-Message-State: AFq9FYIhKw9doBRlC2PYdbXw9671JpDgzuxgx+WfSRh5jUldMkhrqJnJ
+	+hYUVFVJb3s7A21WnOhRjeAChJSuJBxjAQjNbI+kCDNUikTU2KMZ6gR/4gsoRuTXKQFb6Kuowfh
+	lutpy/HYkE06lrkTGZIqSqyqIzR5+qN8=
+X-Gm-Gg: AYBFou3Jrx+v4nSoHDafLYMyyqqXzsYmKnJ6+eoS3ikxoFsMWzrMW0D4ORP+XzkkU97
+	9/XtPTWzt7Vd21KmQeDE26qtUYwMlvBZmbJZt4ejdFJ2cU05dbAKpDKsDSybHqJENU7649N39vQ
+	plcWNDPVEsSM8b834Gr1AXenB6YsHd7t6oHXKLem2M6Wmx8zFZfF0Su3zRPzfV8C+Hb6PNeoyRj
+	sBSOZHgLIwa3cCK9usO0jCqXYYY9tAiPZB/g6WsKINZ5Z2KfBdbePOPq9wuoXZf37Q/XJc3odZy
+	uqPZvQaqU3JwqPE8N6Wfar4T3C4/dDQRbU3+4bZzjcbAAb4yk3uD0jg+4A41X599rZ/SYB59PJN
+	6KdJ3TielHvEDO2gV3/Z9gFAwo98rzV/CjhzwlT4SGGKpKWKCZCzZPiPBX/EP1rG1r1Z5d72a/M
+	V2J1ykPul9IIEbBrh+l65GCzverx1fGC42OKdfSnpNDcTr3guf1gKiVDJSeyOS3gdYEJnUnuIk6
+	9EjBAuolxmuR9sggt+2gFog0G5QJ+h13EWM0HBnkDWvXrlcOkk=
+X-Received: by 2002:a67:e114:0:b0:7be:37d8:1567 with SMTP id
+ ada2fe7eead31-7ce5ccdca48mr2010224137.10.1793047776347; Mon, 26 Oct 2026
+ 13:49:36 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+CK2bDXDWbww_d3sD6OZqpo37V1a3t76_ubbrXLQS=9DB3dWA@mail.gmail.com>
+References: <at4bw-G8czG-G7Wl@ashevche-desk.local> <CADvTj4psJcY2T1PG9H8_hJWjz62R7unj3PPgv3FrVquUMFVhGg@mail.gmail.com>
+ <at5qKehogAjTa-fA@ashevche-desk.local> <CADvTj4qSgE6Rc--mWuqAcc8HTqN9EFOS_JM8Hp8e_=ka_ZLa6w@mail.gmail.com>
+ <at8eDFj2WNaXDaot@ashevche-desk.local> <CADvTj4oNz-bnSZP+kfau-7wBSWLjLTP5jrr6nLfdCHNPo3pS6w@mail.gmail.com>
+ <at-vyZ1sDhYPu0W5@ashevche-desk.local> <CADvTj4o_CENc3i92OQEZudOErSKPUptT4t2CCqDaGbseuK0QcQ@mail.gmail.com>
+ <2026102631-stove-preview-b534@gregkh> <CADvTj4pCnnzx4B28H_1BuY4gm2fh_8HYL9jLpsAoJcWfiUXOHw@mail.gmail.com>
+ <2026102657-tubby-tragedy-5f1b@gregkh>
+In-Reply-To: <2026102657-tubby-tragedy-5f1b@gregkh>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Mon, 26 Oct 2026 14:49:24 -0600
+X-Gm-Features: AclHuK9UNYlzFhcHxdKzFFVeehL7ZLxndmHwf2zdIRC7OGdlKpLpZQpwjo4GLVA
+Message-ID: <CADvTj4oFBznFO9ZxL_8wZtcPaweSSt-a_brVkmQKzqJsBX2P5w@mail.gmail.com>
+Subject: Re: [PATCH v5 2/5] serial: serialize asynchronous write wakeups with
+ the port lock
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	"Maciej W. Rozycki" <macro@orcam.me.uk>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Raul E Rangel <rrangel@chromium.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Tony Lindgren <tony@atomide.com>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Richard Genoud <richard.genoud@bootlin.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+	=?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Timur Tabi <timur@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_134909_219561_0CBC55C5 
-X-CRM114-Status: GOOD (  42.02  )
-X-Spam-Score: -17.6 (-----------------)
+X-CRM114-CacheID: sfid-20261026_134937_870272_55F3D92C 
+X-CRM114-Status: GOOD (  35.13  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,138 +136,125 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-7.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-10-25 04:38 PM, Pasha Tatashin wrote:
-> On Fri, Oct 23, 2026 at 9:50 AM David Matlack <dmatlack@google.com> wrote:
-
-> > Sure but why deal with all the complexity just to save 8 bytes? All of
-> > these structs are allocated on folios and there are kilobytes of unused
-> > space to fit this header. And even if we optimize that we are talking
-> > about 8 bytes per FH/FLB... or 16 bytes for structs with arch-specific
-> > sub-structs like the KVM ones.
-> 
-> The reason I care about keeping the header compact is that we are
-> defining a foundational kernel ABI and want to use this header across
-> almost every serialized data structure so we can evolve them later
-> without breaking compatibility. While some top-level structs are on
-> sparse folios today, other serialized structs are tightly packed, and
-> we are looking to add KHO slab support in the future where tightly
-> packed allocations will be common.
-
-My intuition is we will have a small number of headers per preserved
-file and per preserved FLB. One for the top-level struct and then
-optionally a few more for sub-structs like arch-specific data. That is
-why I am less worried 8 bytes per header, even if we fix the folio
-problem.
-
-Maybe where our visions differ is when there are collections of
-serialized structs, like KHO blocks. For collections I don't think the
-elements will each have their own headers. Otherwise the elements could
-be different sizes.
-
-Instead I think the struct that owns the collection will have a header
-that includes features for fields in the elements. The header defines
-which fields in all elements are valid. The field contents then convey
-the per-element information (which might include 0 or -1 values to
-convey this specific element doesn't have this data).
-
-> That said, in your proposal, as long as nr_flags == 0 is allowed when
-> a struct has no feature flags yet, luo_ser_hdr_size(hdr) is already 8
-> bytes and only grows to 16 bytes on the first feature flag. I am OK
-> with that.
-
-Yeah the header will be 8 bytes until the first flag is defined, at
-which point it will grow to 16 bytes.
-
-Great, sounds like we are aligned on the header. s/luo/kho also sounds
-good to me.
-
-> > > This is not an issue on the incoming path, we never cast incoming data
-> > > to struct name##_hdr or access ->payload directly. Instead, we parse
-> > > the incoming buffer, dynamically compute the header size from the
-> > > continuation bits, and cast the payload offset to "struct name *"
-> > > based on the negotiated feature flags.
+On Mon, Oct 26, 2026 at 2:40=E2=80=AFPM Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+>
+> On Mon, Oct 26, 2026 at 02:24:58PM -0600, James Hilliard wrote:
+> > On Mon, Oct 26, 2026 at 2:17=E2=80=AFPM Greg Kroah-Hartman
+> > <gregkh@linuxfoundation.org> wrote:
+> > >
+> > > On Mon, Oct 26, 2026 at 01:59:06PM -0600, James Hilliard wrote:
+> > > > On Mon, Oct 26, 2026 at 1:53=E2=80=AFPM Andy Shevchenko
+> > > > <andriy.shevchenko@linux.intel.com> wrote:
+> > > > >
+> > > > > On Mon, Oct 26, 2026 at 10:45:54AM -0600, James Hilliard wrote:
+> > > > > > On Mon, Oct 26, 2026 at 3:33=E2=80=AFAM Andy Shevchenko
+> > > > > > <andriy.shevchenko@linux.intel.com> wrote:
+> > > > > > > On Sun, Oct 25, 2026 at 04:11:08PM -0600, James Hilliard wrot=
+e:
+> > > > > > > > On Sun, Oct 25, 2026 at 2:44=E2=80=AFPM Andy Shevchenko
+> > > > > > > > <andriy.shevchenko@linux.intel.com> wrote:
+> > > > > > > > > On Sun, Oct 25, 2026 at 02:25:46PM -0600, James Hilliard =
+wrote:
+> > > > >
+> > > > > ...
+> > > > >
+> > > > > > > > > Some people might want to test the stuff. And sending too=
+ often you actually
+> > > > > > > > > will get the opposite results, people will be tired to ev=
+en start reviewing
+> > > > > > > > > and/or testing your code as it's changed way too quickly.
+> > > > > > > >
+> > > > > > > > My thought process was that people wouldn't want to be test=
+ing code that
+> > > > > > > > had known bugs flagged in Sashiko reviews.
+> > > > > > >
+> > > > > > > Sashiko reviews are not visible in my or any other mailbox. T=
+o see them I have
+> > > > > > > to go to some URL and so on, meaning to waste time to see why=
+ on the earth the
+> > > > > > > new version has been sent.
+> > > > > >
+> > > > > > Maybe the Sashiko reviews are getting caught in spam filtering =
+or something?
+> > > > > > They are showing up for me and on the mailing list[0] so I'm a =
+bit confused why
+> > > > > > you aren't seeing them. You shouldn't have to go to the web int=
+erface[1] to look
+> > > > > > up the reviews.
+> > > > > >
+> > > > > > [0] https://lore.kernel.org/all/sashiko-outbox-183574@kernel.or=
+g/
+> > > > > >
+> > > > > > [1] https://sashiko.dev/
+> > > > > >
+> > > > > > > It's better before addressing Sashiko comments,
+> > > > > > > reply to all people involved and to Sashiko's original email,=
+ so it will be
+> > > > > > > visible in the previous version why you issued (actually abou=
+t to issue) the
+> > > > > > > next version.
+> > > > > >
+> > > > > > Hmm, maybe it makes sense to enable recipients in the reply_to =
+config[2]?
+> > > > >
+> > > > > It's up to the list owners / subsystem maintainers.
+> > > > >
+> > > > > > [2] https://github.com/sashiko-dev/sashiko/blob/v.0.6.3/project=
+s/linux/mailing_lists.toml#L290
+> > > > > >
+> > > > > > > And before even issuing it, wait for a while, people might
+> > > > > > > disagree with Sashiko judgement or your replies on how to add=
+ress that.
+> > > > > >
+> > > > > > I was assuming everyone was seeing the Sashiko reviews getting =
+posted to
+> > > > > > the mailing list already. The are ending up in lore so unless s=
+omeone isn't
+> > > > > > subscribed to the list I'm not sure why they wouldn't be seeing=
+ those reviews
+> > > > > > already.
+> > > > >
+> > > > > I assume you already answered your Q. mailing list in this sense =
+doesn't mean
+> > > > > recipients. I think it simply goes to the mailing list without fo=
+rwarding.
+> > > >
+> > > > Do we want those reviews going to recipients as well as the mailing=
+ list?
+> > >
+> > > For serial patches, we decided to only have it go to the submitter an=
+d
+> > > the list.
 > >
-> > How?
-> >
-> > This is the only data structure that describes the header. Are you
-> > saying the incoming path will parse the header purely with a void *? Or
-> > use this header but just be careful not to access payload?
-> >
-> > We should have one header structure that can be used on the incoming and
-> > outgoing path. We should not have one header data structure that can be
-> > used on the outgoing path and one that can be used on the incoming
-> > path.
-> >
-> > Also we need a standard header that can be shared across all structs,
-> > not a per struct header. Otherwise you will need to do weird casting and
-> > overlays to implement the shared helper routines that parse it.
-> 
-> Having DECLARE_KHO_SER_WRAP() in include/linux/kho/abi/ makes it
-> immediately clear just by looking at kho/abi/ which serialized structs
-> have the versioned header and which do not, while also enforcing the
-> header when preserving and static-asserting the combined struct size a
-> compile time.
-> 
-> So with your header (and let's use KHO as we want to version KHO
-> structs as well):
-> 
-> struct kho_ser_hdr {
->         __u32 size;        /* Size of header + payload in bytes */
->         __u32 nr_flags;    /* Number of features encoded in flags[] */
->         __u64 flags[];
-> };
-> 
-> The wrapped struct will look like:
-> 
-> #define DECLARE_KHO_SER_WRAP(name, expected_size, nr_feats)                \
->         struct name##_wrap {                                               \
->                 __u32 size;                                                    \
->                 __u32 nr_flags;                                                \
->                 __u64 flags[DIV_ROUND_UP(nr_feats, 32)];                       \
->                 struct name payload;                                           \
->         };                                                                 \
->         static_assert(sizeof(struct name##_wrap) == (expected_size),       \
->                 "struct " #name " size mismatch!")
-> 
-> On the incoming kernel we don't use struct name##_wrap, but we use
-> struct kho_ser_hdr for the wrapped data, validate the flags, and
-> unwrap it via kho_ser_payload(hdr) to get back the struct name *
-> payload type.
+> > When it goes to the list is it supposed to go to list subscribers as
+> > well or only to lore?
+>
+> All list subscribers as well, I've watched your interactions just fine
+> :)
 
-I still think it's not advisable to define name##_wrap since anyone
-could accidentally start using it on the incoming path and we wouldn't
-notice at first (especially since same kernel Live Update tests would
-keep working totally fine). I also don't think asserting the combined
-size buys us anything. The header size is just a function of the
-number of features, and what we are trying to protect against is
-structs embedded in the payload changing size.
+Andy, are you subscribed to the linux-serial list?
 
-So I would just do:
+I'm wondering if some mail is getting dropped, in this particular thread I =
+never
+actually received the review from Maciej W. Rozycki <macro@orcam.me.uk> at
+all and had to manually import the email from lore. I think that's the
+only review
+email that I saw go missing myself.
 
-  /* Marks struct name as a KHO serialized payload with a kho_ser_hdr. */
-  #define DECLARE_KHO_SER(name, payload_size) \
-          static_assert(sizeof(struct name) == (payload_size))
+That one getting dropped seems especially strange since it had a
+direct reply to me.
 
-  DECLARE_KHO_SER(luo_memfd_ser, 16);
-
-Plus helpers that allocate and initialize the header and return the
-payload as a typed pointer. Both the outgoing and incoming paths find
-the payload the same way, by computing its offset from the header,
-rather than through a struct with a fixed payload offset:
-
-  /* outgoing */
-  hdr = kho_ser_alloc(luo_memfd_ser, LUO_MEMFD_NR_FEATS);
-  ser = kho_ser_payload(hdr, luo_memfd_ser);
-
-  /* incoming */
-  hdr = phys_to_virt(args->serialized_data);
-  ser = kho_ser_payload(hdr, luo_memfd_ser);
+>
+> thanks,
+>
+> greg k-h
 
