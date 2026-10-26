@@ -2,12 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C55C6606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 19:25:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EDAC606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 19:39:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=b55hzJ/H;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=arEFb7bq;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=S/b4avnF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CNYadqja;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PVYlDZxA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -15,133 +14,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=eaDHkc9G/I0MAe6m0voUWtzSygLUX4fM6x1I6ZOZ+m0=; b=b55hzJ/HkNy0Lb8QEEl7qXGZTi
-	yHu9yu5VHes1MfPQQCWwEmpl88O/JcafAWl7NEzSN+fB7q43jrXsctn089SzqufeDbAF+yDtIBMNM
-	nJ1SE48/wk40VBUgiq0JtqotpH2AC6ncsJT/v8GXsATA12zxxNcNS66o4pGxy/keXFJQe+hVR3t7g
-	Jt7T6BNvayoVQ2fFwvTK9azksrjs+8VXEgn+aWEeDvL9GurqOTEKHOKoS1TPuLJpJik/9FWGYTxB7
-	26cPx7UFwF+Wr1908PwKEsKSin6/cvCgsX4UEPYvJut95IMDK3elm+DFa9wVCXDLqO3nwGBrCSGHU
-	r+U99irg==;
+	bh=Iz8nEeRUoSx59BuYet9dNiyHKe/fPrgbXO6zBJt1wYU=; b=CNYadqjaUF0a//1YbLwyBWyMEp
+	h4kebNrtys/I0BspiMtMc0Eo7WaEQGHQ2rYrxbFWRA0Qnt1vDaqJQW7K/6viCuENXfvPY5rqf3r+I
+	ROqduZ9/okAF9MJynMZjny1ldB2l13/gI5JbejomwK8ieypjzH1cGEzTS6PbqqoutQwTv634bDDwU
+	FgBOdR4irWgxESqK6biH21DxVnXdhVex+hhr77szPn6+xsQvMXEEkubZcK/NyZKZ4PJnuLnvt4ubk
+	bVjdhNAtI3hqR3MfCCT7pBNqz4Nq4KxWhvBq/gPvx0ZvgYJbvMNs9fNcGma0j2H5EhFZ55oDP8hf5
+	Pxb/dQVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLQKB-00000003AVB-1uBd;
-	Mon, 26 Oct 2026 19:25:39 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xLQXV-00000003Akp-30A5;
+	Mon, 26 Oct 2026 19:39:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLQK9-00000003AUo-1n0U
+	id 1xLQXU-00000003Aki-2PIt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 19:25:38 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69QIopeo4080963
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 19:25:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=eaDHkc9G/I0MAe6m0voUWtzS
-	ygLUX4fM6x1I6ZOZ+m0=; b=arEFb7bqzSn+1ft6dBD3V0Oqup+tgDCV93IqQZan
-	BA+7g68BfxsOvo8g14TZZxQywWxXArLMcRoFmI57Ak5MXjanhiminaVz8ONem4WA
-	zFqJAShqTPdMUE62U6FgMBZGRqhUhmyQC6ZPVFQUgcIR3v+0rEPxPnRjLwGMWPgJ
-	C4pim3qbtRmjdo2V0bH/UcSfxEzElA0X/RHarnQZK/Pg6Jt1k1k28FMBxR/H5Tn3
-	JPcysHTrTxMsxz5AL+FehYa0w4T1a2Udxr0VT1o4jHAWXI5j8WLnnSIXNmGqImhc
-	lAi+tI+HPoNgvBkt2nth5IjnGzo1YdyTWCppYW0aKu6KJw==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hj56y223y-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 19:25:25 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-33713e5e6daso6273077eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 12:25:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793042724; x=1793647524; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=eaDHkc9G/I0MAe6m0voUWtzSygLUX4fM6x1I6ZOZ+m0=;
-        b=S/b4avnFkAHMK3GeHm7gageqQncPYNjzO8yIVGkvqk6+/yLnoIeJOpeqAboJcsKFGW
-         ReqfUxFSUZ1MiZt9naNGEKiZNeBT2SO0OHwtxZVpiAWrNgeHmv7s3BqcsfEDN5HPAZP5
-         4Cs7+3XQSJXJNFly3484lWdyQnBphwjKMJP+HxK7Y3LJxWAHG4hnkFwO13wViq4bWail
-         teHPO6uP4y3bD20cUx7bq0/1/KPPnKBjdrnJOEeqXh2Bp5I5gC2QFUaDoH72wOOPaqKc
-         /lryaftmfD/IfZxR2RBpsrgMWRq3o8yBTCkRE/bC+T81TWT5fiInnc+ZltCw2Crzxwdx
-         3bAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793042724; x=1793647524;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=eaDHkc9G/I0MAe6m0voUWtzSygLUX4fM6x1I6ZOZ+m0=;
-        b=eYOAHwDyiJONsUDRlb9t+b6vWQr8lbwzNp/D2d68Mxv1Ww+Zlljua25BXDeFuKLyXO
-         HCYTyLfYbSa4kHHpeUHGCk1oLG1Aj8MQW3LOFSb7Kz7c6raFypEcHs7+Ux+MOWlodhPL
-         E3WnRCiltn3i/sA9Apa5ezlm3ORZ1sRLxieu2urQXqdSmWTsfjCxhBQdTyxfAlZI1DWp
-         zYWC/QypWQ7hcm8q4+qpNK4yiLP8UO6RobRIB2Z8Yzvuwey8RAXrj3ywlIgZkKgT2/L3
-         RMuQki8iyXl/SZzGmAHaCz3dXcgvNqSIuJwRLTwldhI1jzAawMjYjqxqG6TFESJykEVM
-         MLcw==
-X-Gm-Message-State: AFq9FYJdkUHlrJxm3SDINlbvgSrMOiw/nk3EJsqY3XcrZj8lAvbhN4ZD
-	sV2OmXtWFG2gmEl3mR/Xjfim2kgahPEWZejU8EYJc02WugZoYwEZrYUie14nqrDmEnnp6xmvH1W
-	EYVd+ruNSjOU7RLhpINnZNYZaN6bF34fTy6VuUvtmWEbLZPKyzXmwDcZ+MEX3RuB0MIPhL+6Ikz
-	F0+A==
-X-Gm-Gg: AYBFou1QBQGy8O66rUqwXBbbSmpdokSewrIcAQAlwy8C8buPpFLqIb5hqcsb9j6aBxE
-	3+Pw3uetFHh7GD6vRvCwpYOxcnKYEhEBg8br9myVDcOn5UpmLtnZNjcSfHzSoaS5/xOwNsq44Qg
-	54Q3uvdwRhDce9C62AmzmmsUUPAxzi+5KhDB5utobKPqRFKC95DVjUEKMY6WezRYfoxFyPbpG/A
-	8DyY4JTSRg5LAH9qZWdVySUERysTU8XAeYR90jt392EX0vrPs8NX5bfesDcUhP+bs0sj+pMq/LZ
-	F/jUz22qrcBEQACe2nVwwdxLmBHazrlpYcFEHu/bn2inl/7DeGwHDIcH+EuTaoDsmhvjTGOmN8v
-	f/brB1ujhO01X07r+4Gb0XwXJhc5nLo82Ukk78H7e3HV9+JjSHx9U82Ylfkmk7ucoBGnIgDyAIT
-	IzUWowItb5D/Q69IbnnNOUEw==
-X-Received: by 2002:a05:701b:4211:20b0:144:c123:4036 with SMTP id a92af1059eb24-19937307397mr10845367c88.35.1793042724286;
-        Mon, 26 Oct 2026 12:25:24 -0700 (PDT)
-X-Received: by 2002:a05:701b:4211:20b0:144:c123:4036 with SMTP id a92af1059eb24-19937307397mr10845331c88.35.1793042723659;
-        Mon, 26 Oct 2026 12:25:23 -0700 (PDT)
-Received: from hu-ashoraj-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-198a2e32479sm24128417c88.21.2026.10.26.12.25.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 12:25:23 -0700 (PDT)
-Date: Mon, 26 Oct 2026 12:25:21 -0700
-From: Ashok Raj <ashok.raj@oss.qualcomm.com>
-To: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-        will@kernel.org, mark.rutland@arm.com, maz@kernel.org,
-        lpieralisi@kernel.org, ruanjinjie@huawei.com, liaochang1@huawei.com,
-        Ashok Raj <ashoraj@qti.qualcomm.com>,
-        Jonathan Cameron <jic23@kernel.org>,
-        Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-        Ashok Raj <ashok.raj@oss.qualcomm.com>
-Subject: Re: [PATCH 00/38] arm64: Add support for FEAT_NMI
-Message-ID: <at-pIUZFm60hiVyQ@hu-ashoraj-lv.qualcomm.com>
-References: <20260914102102.68597-1-vladimir.murzin@arm.com>
- <atwyAKSnttnBpked@hu-ashoraj-lv.qualcomm.com>
+	Mon, 26 Oct 2026 19:39:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 74BA7601EF;
+	Mon, 26 Oct 2026 19:39:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED12B1F01825;
+	Mon, 26 Oct 2026 19:39:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793043563;
+	bh=Iz8nEeRUoSx59BuYet9dNiyHKe/fPrgbXO6zBJt1wYU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PVYlDZxAsoEZDhQ1SN8wVNatwEHENQSAY05RbTkmfvFILekO3ZTUsJBpd/6La9FsX
+	 fWathrT5ToN3EwPvWnXF6G00oEC3og7IisJsTcVxMRaSOO7rK4JyN7yF6ukAh2xDbm
+	 i2OdwD2yxqXwWw+7CCFuZSMt0DrMhlSdPxpu0X1War4kn/iHShJIpkqXd5yR7s23Pv
+	 2TiHkS4SNPeK19GQjB6hmrGLHTXQ9dFnpGTdvA1NYIX8aPeSHhom2vcRstngeSVQ6B
+	 /O/xkR4QUlFFa1ZpwKIgT+BULORX1zf8IDIiA+PsekM149JYZ1C2cM2oeUHtBxTyIv
+	 wu80iWmo9V2hw==
+Date: Mon, 26 Oct 2026 12:39:21 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Eric Auger <eric.auger@redhat.com>, Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] KVM: arm64: vgic-v4: Don't allocate vPEs when
+ userspace clears nASSGIcap
+Message-ID: <at-saZT_ixQxsZIr@kernel.org>
+References: <20261026152639.3926498-1-fuad.tabba@linux.dev>
+ <20261026152639.3926498-3-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <atwyAKSnttnBpked@hu-ashoraj-lv.qualcomm.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI2MDA3NyBTYWx0ZWRfXyOkl7ZD5rGLj
- ZjvkPLVFabiX5CPc1dmbEOhkSS75G6xmzA6SCF8PMxZx2EeknReQ3OSGCCqGF4z5uQl34YCLcrz
- Onzo8SWWG0nX36G1yorm741uQ9XSp+M=
-X-Authority-Analysis: v=2.4 cv=eMeGH3p1 c=1 sm=1 tr=0 ts=6adfa925 cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=NEAV23lmAAAA:8 a=yLKLN7fOTSLvfP9gS9EA:9 a=QEXdDO2ut3YA:10
- a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI2MDA3NyBTYWx0ZWRfX712KYXJ5uLsn
- MPfcz759z6u80dZqxFjZCtUVRuKfsWACOCyEd3BJ5Yi0oyVmHYE/v6Obn+z0oUIheBTKC+oUgeC
- l6MWUFNknVr1FaKpb7U3sPKoGkyg5JriplVYyMdfKn59Blw/w9pPwsSIOpwqirUDTng8h9CAmPH
- dd4HEtyYXamtgscaeUPI23/86kIeG1cTyHw6neraG58gXsX4MpkwkXN3HbJ1Pde7T7VfPpPQ5k0
- sgGklQaMG3maVk0NsQ/K26qy5gywAFqFkm+SLZ9y9bpBy6b0RhELTrhW04Pf5GbXh2UtODyJBqk
- bwsXC+l/fMyDGD9jqY/5STh0RsmVJCy0Z3OdOVsW3H2KKcGyCnSndOquElYeIsxUfWiq0w131fz
- UMDH6c4ELm73h6jwT8uBzwzodbqFmiU31ggPsuE+FNICaw4IdWga23taPa4SYKxQ2evEhJBpU5w
- KX5XTf9ruzqqvZ4+3vw==
-X-Proofpoint-GUID: oJ5mA-hz6MhQJObK0g4ITL3Y8MrOwqiA
-X-Proofpoint-ORIG-GUID: oJ5mA-hz6MhQJObK0g4ITL3Y8MrOwqiA
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-26_04,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 bulkscore=0 clxscore=1015 lowpriorityscore=0
- spamscore=0 phishscore=0 priorityscore=1501 adultscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610260077
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_122537_595661_88B6CB59 
-X-CRM114-Status: GOOD (  20.36  )
-X-Spam-Score: -2.8 (--)
+In-Reply-To: <20261026152639.3926498-3-fuad.tabba@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,50 +75,114 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23, 2026 at 09:20:16PM -0700, Ashok Raj wrote:
-> On Mon, Sep 14, 2026 at 11:20:24AM +0100, Vladimir Murzin wrote:
+Hi Fuad,
+
+On Mon, Oct 26, 2026 at 03:26:39PM +0000, Fuad Tabba wrote:
+> Since commit c652887a92887 ("KVM: arm64: vgic-v3: Allow userspace to
+> write GICD_TYPER2.nASSGIcap"), userspace can disable vPE allocation for
+> a VM on a GICv4.1 host with vSGIs by clearing nASSGIcap before the vgic
+> is initialised. vgic_init() then skips vgic_v4_init(), and
+> kvm_vgic_dist_destroy() skips vgic_v4_teardown(). vgic_its_create()
+> still calls vgic_v4_init() for an ITS created after the vgic is
+> initialised, though, and vgic_v4_init() allocates the vPEs and requests
+> a doorbell IRQ for each vCPU. Destroying the VM leaks them, and leaves
+> each doorbell handler registered with a vCPU that's about to be freed.
 > 
-> > FEAT_NMI provides an architected mechanism for supporting non-maskable
-> > interrupts (NMIs) and less-masked interrupts (LMIs).
-> > 
-> > Since we already support pseudo-NMIs via priority masking, introducing
-> > another flavour of NMI on top of the existing infrastructure could
-> > easily become messy, making the code harder to follow and reason
-> > about.
-> > 
-> > To avoid that, this series first makes room for the new NMI "tenant"
-> > by restructuring the existing exception masking logic (patches 01/38 -
-> > 15/38)
+> Rather than gate on vgic_supports_direct_irqs(), which reads has_its
+> before vgic_its_create() sets it, check for a cleared nASSGIcap in
+> vgic_v4_init().
 > 
+> Fixes: c652887a92887 ("KVM: arm64: vgic-v3: Allow userspace to write GICD_TYPER2.nASSGIcap")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  arch/arm64/kvm/vgic/vgic-v4.c | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
-> Hi all,
-> 
-> I am working on arm64 HEST/GHES Type-4 (NMI) support using FEAT_NMI
-> and GIC NMI support.
-> 
-FYI: I have submitted a code-first proposal for the Type-4 HEST/GHES
-changes.
+> diff --git a/arch/arm64/kvm/vgic/vgic-v4.c b/arch/arm64/kvm/vgic/vgic-v4.c
+> index a01de4de608a6..12a57921f6af3 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v4.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v4.c
+> @@ -251,6 +251,10 @@ int vgic_v4_init(struct kvm *kvm)
+>  	if (!kvm_vgic_global_state.has_gicv4 || dist->vgic_model != KVM_DEV_TYPE_ARM_VGIC_V3)
+>  		return 0; /* Nothing to see here... move along. */
+>  
+> +	/* Userspace disabled vPE allocation by clearing nASSGIcap */
+> +	if (system_supports_direct_sgis() && !vgic_supports_direct_sgis(kvm))
+> +		return 0;
+> +
 
-I have some internal things to iron out to submit directly, thanks to
-Jonathan for helping out in the review and upload the document.
+Looking at both of the patches now, I'd rather we just fix the
+predicates and use those to consistently gate GICv4. Untested as always:
 
-
-https://github.com/tianocore/edk2/issues/13392
-
-I have patches to work with this on top of the latest posted FEAT_NMI
-series all tested on Qemu SBSA ref. Will post them in a bit.
-
-Please help with the review. 
-
-Thanks a ton!
-
-Cheers,
-Ashok
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index 9e782a4fea7e..2b22f096a504 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -1866,9 +1866,16 @@ static int vgic_its_create(struct kvm_device *dev, u32 type)
+ 
+ 	mutex_lock(&dev->kvm->arch.config_lock);
+ 
++	/*
++	 * Make an early indication that this VM has an ITS so calls to
++	 * vgic_supports_direct_irqs() work as intended, rolling back state
++	 * if we fail to setup GICv4.
++	 */
++	dev->kvm->arch.vgic.has_its = true;
+ 	if (vgic_initialized(dev->kvm)) {
+ 		ret = vgic_v4_init(dev->kvm);
+ 		if (ret < 0) {
++			dev->kvm->arch.vgic.has_its = false;
+ 			mutex_unlock(&dev->kvm->arch.config_lock);
+ 			kfree(its);
+ 			return ret;
+@@ -1893,7 +1900,6 @@ static int vgic_its_create(struct kvm_device *dev, u32 type)
+ 	xa_init(&its->translation_cache);
+ 
+ 	dev->kvm->arch.vgic.msis_require_devid = true;
+-	dev->kvm->arch.vgic.has_its = true;
+ 	its->enabled = false;
+ 	its->dev = dev;
+ 
+diff --git a/arch/arm64/kvm/vgic/vgic-v4.c b/arch/arm64/kvm/vgic/vgic-v4.c
+index ed236f083f0d..c65bd8783284 100644
+--- a/arch/arm64/kvm/vgic/vgic-v4.c
++++ b/arch/arm64/kvm/vgic/vgic-v4.c
+@@ -248,8 +248,8 @@ int vgic_v4_init(struct kvm *kvm)
+ 
+ 	lockdep_assert_held(&kvm->arch.config_lock);
+ 
+-	if (!kvm_vgic_global_state.has_gicv4)
+-		return 0; /* Nothing to see here... move along. */
++	if (!vgic_supports_direct_irqs(kvm))
++		return 0;
+ 
+ 	if (dist->its_vm.vpes)
+ 		return 0;
+diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+index b71d486ae514..bd1614c9ff05 100644
+--- a/arch/arm64/kvm/vgic/vgic.h
++++ b/arch/arm64/kvm/vgic/vgic.h
+@@ -509,6 +509,10 @@ static inline bool vgic_supports_direct_irqs(struct kvm *kvm)
+ 	if (vgic_is_v5(kvm))
+ 		return true;
+ 
++	/* GICv2 never supports direct IRQs */
++	if (!vgic_is_v3(kvm))
++		return false;
++
+ 	return vgic_supports_direct_msis(kvm) || vgic_supports_direct_sgis(kvm);
+ }
+ 
+-- 
+Thanks,
+Oliver
 
