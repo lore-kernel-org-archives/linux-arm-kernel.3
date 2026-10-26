@@ -2,96 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DD6D606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 11:50:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CCA1606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 11:51:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eBKIWtTs;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=usfu+WED
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZpfWko1Z;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=B1593lYj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=E6ehAr+5O7aPeLIKo6+S6CS8cvliVvtVKcymE8BrUws=; b=eBKIWtTslgzGtsDLH7xnkiEObD
-	ukDYuDtlsRA0iWLP9Tj6N1pcmLIsNaQeXcaQVIKI+Qcc6undNCcQL3/n/qCW2P65JYAP8v/PpVzbe
-	Z/H+FxHRMtfmS7y0Un43ubrBaYLvTQwbkHP+OrUghMNGjTaxfgeGwuIuMXZMSfcngz9mXDnMwqCb6
-	NxNZao2ItH+plgbN2NxH4q+PxbItJ2Luv2CnGRqE+T7kQ/cGfrF7TWZgfZXwIgAejfklbxktjB7nk
-	D9ZCxQT9NIfCHtEB2gRE109zUtnaZOdIT67FmonrdAvPZquaQiASPwwXmbZ4/Lx8wfm39nFEX7Czd
-	EeiMS5lQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=IMqP5d2GpqKsgJhfrXjzZSIVvDhsXw2uZqS/tTymGN4=; b=ZpfWko1ZFKLVWf
+	DdzpQfL1m4ES2ENd6RJscCJGwkDHOW67eaido7mrJq+G1tvOE16tWElNbkPih/1b86y6s4YmRKE6Y
+	N4h9qG8mvI+i/pkIELWpZJoWf8DWq69ZN2NJWQI2/KaAh5acJE1c+g77VXRc8LtNcTHnEEh5TNd73
+	DaIi5P3gfRbyEi6EWX2z+Pkn/xrFkl8Ego6bkMXeu9Hh0Wiq0HEAjR/U4oV6v2qQedRUc63WDPe+C
+	IJeAtF2mTON7FOXN3Jbg6miCR2A3kAOMtCtXVV0sW4aOzftNCBnxlKqijwfiqXVYh2dg9ii/TdXIa
+	3XGZfb7ZiPtIAiwXJybQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLJDU-00000002Ptn-27Pt;
-	Mon, 26 Oct 2026 11:50:16 +0000
-Received: from mail-ed1-x547.google.com ([2a00:1450:4864:20::547])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLJDR-00000002Ps5-289n
+	id 1xLJE1-00000002Q6E-3Rtr;
+	Mon, 26 Oct 2026 11:50:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xLJDz-00000002Q5F-16jJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 11:50:14 +0000
-Received: by mail-ed1-x547.google.com with SMTP id 4fb4d7f45d1cf-6b1f5b673baso2890805a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 04:50:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1793015411; x=1793620211; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=E6ehAr+5O7aPeLIKo6+S6CS8cvliVvtVKcymE8BrUws=;
-        b=usfu+WEDEEAfq8y/OoUdwJYoRRPs5Jzm/xvUPefAjYV6i7PRj0Ff83t4T/11i+eTfc
-         Wy5+OI3mgApTBTgDUpRlPdQ216/qw5ew6ts7HNLCmPqxHXb54GITzgFGNq9NqLeraVpv
-         gTff5vm2L9D39KOwUoXvQoU2ScLdJuVnuIwQkHYda12AcT3BIy0MpPtly7gwlbveyj75
-         b6CtyoDL/TaIP45QQd5oZXgC1AanD6ySkKhLQYWvQgPD/b2oj7Q/rrSnYGKCgW5vPBNf
-         2o/umcF/al+0IwTT8lrYWjvH9bgUwATN3dXO4ZHP1v4WMrIliCBaIznFSrlQxUXF89lw
-         2I0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793015411; x=1793620211;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=E6ehAr+5O7aPeLIKo6+S6CS8cvliVvtVKcymE8BrUws=;
-        b=N1RLuJAhbz0rQ4dGtzlNUzKnsRLEP92v1lPW1fsRCsqeMUEsfDDbBevBCXqOLOkzIP
-         BZcxlttbB9FdIZxMem5/hwKMi1w3ooVsrreLz/rt4Ly89rS+mmhJ+wG3ORA/EI/VaF13
-         UKPqB7eMT0Gtk8QJSLTZHTn5pgH3wo+SrOOiOFeVT6m5Ni0fCxPF5Bf5KLEtPv1yS/1O
-         3B1levp0uA5JYyUHdWQeiKIgIOlhIs5hv6q9zC9Uj1NKSjrVuSkGcN9uNlyQzL8k7p7m
-         X7JaXlC3weN+TQ4394Z40uEppmvW5yKMHexOg4h3vAjhinw0SLlMnZSX6VaQFuaB2pGj
-         FzQg==
-X-Forwarded-Encrypted: i=1; AKwUvBzZ638OOAscYm6N3lccWUBEcYEOKJEzX9mhkt0wN+HvV57NvR43pHk8u1a2TKzuSwGwTl3dT5iwJZZTAw5hwV7k@lists.infradead.org
-X-Gm-Message-State: AFq9FYIY4um1D0Mvb7Ut4gHd2Vlxj9lKpbtWa4RE3jsrVROiwac+aWc7
-	aZKM0QDqdInNN1NBJLmSAaNnOiXGs70wydFDQAdAPRL+1mnp0FqBhSEgrDQsYqDjbQEhlridXDl
-	sHQ5kVCsE+l9IYVR8Ww==
-X-Received: from edrd16.prod.google.com ([2002:aa7:d690:0:b0:6b3:8448:41c6])
- (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:249e:b0:6b1:c7d9:b622 with SMTP id 4fb4d7f45d1cf-6b442fffef3mr7891637a12.26.1793015410774;
- Mon, 26 Oct 2026 04:50:10 -0700 (PDT)
-Date: Mon, 26 Oct 2026 11:50:10 +0000
-In-Reply-To: <CALzav=f00C4yOAseNunW8GgQTDUGWT927Qy=TLm-3-J0TEDH8Q@mail.gmail.com>
+	Mon, 26 Oct 2026 11:50:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F31421684;
+	Mon, 26 Oct 2026 04:50:42 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C02823F59E;
+	Mon, 26 Oct 2026 04:50:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793015446; bh=G+G01ItkIFohq402BAAUlhnrkeJG8Ezyba+2qQt36bU=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=B1593lYjBN+4eNbhB643XLJJfGmT5+PuzpSL8xUN9GPjr/WvSKD61pDCAAvXa5ArN
+	 1pnmDqpxDCeX5YJU4awrn2r776ZroCdD0xdamoNGUtzFDaHBLFPCDHCL5LsRe99+St
+	 KItdwL0IkOtxLwiJ0efIFKE+oxhC1hvHm56++PYc=
+Message-ID: <68fa8cba-cccc-4b4c-9421-5b631f539727@arm.com>
+Date: Mon, 26 Oct 2026 11:50:42 +0000
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-References: <20261021152527.375070-1-tarunsahu@google.com> <20261021152527.375070-4-tarunsahu@google.com>
- <atlQ_Er0Ig7CCSxv@google.com> <CALzav=f00C4yOAseNunW8GgQTDUGWT927Qy=TLm-3-J0TEDH8Q@mail.gmail.com>
-Message-ID: <9huzzew0el59.fsf@tarunix.c.googlers.com>
-Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
- a 2-bit pair feature header
-From: tarunsahu@google.com
-To: David Matlack <dmatlack@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org, 
-	Mike Rapoport <rppt@kernel.org>, Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de, 
-	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com, 
-	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org, 
-	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com, will@kernel.org, 
-	Pasha Tatashin <pasha.tatashin@soleen.com>, Alexander Graf <graf@amazon.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com, 
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev, 
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org, kexec@lists.infradead.org, 
-	skhawaja@google.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 2/7] fs/resctrl: Add the L2 monitor events
+To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, mark.rutland@arm.com, corbet@lwn.net,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, james.morse@arm.com,
+ reinette.chatre@intel.com, fenghuay@nvidia.com, tony.luck@intel.com,
+ Dave.Martin@arm.com, babu.moger@amd.com, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261022084821.4014873-1-ruanjinjie@huawei.com>
+ <20261022084821.4014873-3-ruanjinjie@huawei.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20261022084821.4014873-3-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_045013_589734_8D677BCC 
-X-CRM114-Status: GOOD (  36.12  )
-X-Spam-Score: -9.5 (---------)
+X-CRM114-CacheID: sfid-20261026_045047_385319_4688E0AC 
+X-CRM114-Status: GOOD (  34.39  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,152 +74,150 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-David Matlack <dmatlack@google.com> writes:
+Hi Jinjie,
 
-> On Wed, Oct 21, 2026 at 4:55=E2=80=AFPM David Matlack <dmatlack@google.co=
-m> wrote:
->>
->> On 2026-10-21 03:25 PM, Tarun Sahu wrote:
->> > LUO and its file handlers validate handed-over state with monolithic
->> > compatibility strings ("luo-v5", "memfd-v2"). Any change to a serializ=
-ed
->> > structure, even an optional additive one, must bump the string, which
->> > breaks live update between adjacent kernels. Replace the string in
->> > struct luo_ser with a feature header, so that the target kernel can
->> > accept or reject the source kernel state per feature.
->> >
->> > struct luo_feature_hdr is a fixed 128-byte header: the serialized
->> > structure size from the source kernel followed by 15 chained u64 featu=
-re
->> > flags entries. The fixed size keeps payload field offsets identical in
->> > every kernel, regardless of how many flags entries a source kernel use=
-s.
->> >
->> > Each feature has a 2-bit pair (req, active) state (enum luo_feat_state=
-:
->> > LUO_FEAT_DISABLED, LUO_FEAT_OPTIONAL, LUO_FEAT_REQUIRED). A flags entr=
-y
->> > holds 31 features, and bits [63:62] =3D 0b11 chain to the next entry (=
-465
->> > features in total). Each subsystem defines its feature states as a
->> > static const u8 array indexed by its feature enum, which
->> > luo_feature_hdr_init() packs into 64-bit flags entries with
->> > LUO_FEAT_EXT_MASK chain bits. The target kernel validates the header f=
-rom
->> > the source kernel against its own feature array via
->> > luo_feature_hdr_validate() according to the per-feature (req, active)
->> > truth table:
->> >
->> >   Source Target Action
->> >   (1,0)  (x,x)  Reject -EINVAL: invalid source kernel (req without act=
-ive)
->> >   (x,x)  (1,0)  Reject -EINVAL + WARN_ON_ONCE: invalid target kernel
->> >   (0,0)  (0,0)  Accept: feature absent
->> >   (0,0)  (0,1)  Accept: feature absent
->> >   (0,0)  (1,1)  Reject -EOPNOTSUPP: target kernel requires the feature
->> >   (0,1)  (0,0)  Accept: ignore payload data
->> >   (1,1)  (0,0)  Reject -EOPNOTSUPP: source kernel requires the feature
->> >   (x,1)  (x,1)  Accept: use payload data
->>
->> I think we have different definitions of "required".
->>
->> In the PCI series [1], required and optional flags describe the _data_
->> the previous kernel handed over, not the kernel itself. A required bit
->> means "this preserved state depends on feature X; a kernel that does
->> not understand X must not take it over". An optional bit means "the
->> data for X is here, but you can safely ignore it". The source kernel
->> only sets a bit when the preserved state actually uses the feature.
->>
->> It's up to the FLB/FH retrieve how to handle the scenario where a
->> required bit is set that the target kernel does not understand. For the
->> PCI FLB we panic since failing to adopt the PCI state could lead to
->> memory corruption as preserved devices can be doing DMA.
->>
->> The target kernel never requires anything from the source. If a
->> feature is absent, the target kernel must handle that, e.g. by
->> falling back to default behavior. If it can't, that is a compatibility
->> break and should be handled by the compatible string.
->>
->> In this patch each kernel has a single static feature array that is used
->> both to generate the header and to validate the incoming header.  So if
->> kernel N marks a new feature X as required (so that older kernels reject
->> data they cannot understand), then kernel N will also reject every
->> kernel that does not have X, because of the (0,0) -> (1,1) row in the
->> truth table. That breaks forward updates from N-1 to N, and rollbacks
->> from N to N-1 even when **nothing being preserved uses X**. Therefore,
->> every new required feature becomes a compatible string bump.
->>
+On 22/10/2026 09:48, Jinjie Ruan wrote:
+> Add the L2 cache occupancy (l2c_occupancy) and L2 bandwidth
+> (mbm_core_bytes) monitor events, and route RDT_RESOURCE_L2 through the
+> same per-domain read path as the L3.
+> 
+> As ARM MPAM Specification said, MPAM resource monitors are associated
+> with a shared partitionable resource in an MSC, not with a particular
+> cache level: the level comes from firmware's description of the MSC.
+> L2 monitors were only missing a resctrl scope. The events are
+> exposed once an architecture reports the L2 resource
+> mon_capable; x86 never does.
+> 
+> Update Documentation/arch/arm64/mpam.rst to mention L2.
+> 
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  Documentation/arch/arm64/mpam.rst | 23 ++++++++++++++---------
+>  fs/resctrl/monitor.c              |  9 +++++++++
+>  include/linux/resctrl_types.h     | 13 ++++++++++++-
+>  3 files changed, 35 insertions(+), 10 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm64/mpam.rst b/Documentation/arch/arm64/mpam.rst
+> index 67fe515ed501..f0697dedde03 100644
+> --- a/Documentation/arch/arm64/mpam.rst
+> +++ b/Documentation/arch/arm64/mpam.rst
+> @@ -32,8 +32,9 @@ Because the user interface to MPAM is via resctrl, only MPAM features that are
+>  compatible with resctrl can be exposed to user-space.
+>  
+>  MSC are considered as a group based on the topology. MSC that correspond with
+> -the L3 cache are considered together, it is not possible to mix MSC between L2
+> -and L3 to 'cover' a resctrl schema.
+> +the L3 cache are considered together, as are MSC that correspond with the L2
+> +cache; it is not possible to mix MSC between L2 and L3 to 'cover' a resctrl
+> +schema.
+>  
+>  The supported features are:
+>  
+> @@ -61,9 +62,11 @@ The supported features are:
+>    When the MPAM driver finds multiple groups of MSC it can use for the 'MB'
+>    schema, it prefers the group closest to the L3 cache.
+>  
+> -* Cache Storage Usage (CSU) counters can expose the 'llc_occupancy' provided
+> -  there is at least one CSU monitor on each MSC that makes up the L3 group.
+> -  Exposing CSU counters from other caches or devices is not supported.
+> +* Cache Storage Usage (CSU) counters expose the occupancy of the cache they
+> +  monitor: 'llc_occupancy' for the L3 group and 'l2c_occupancy' for the L2
+> +  group, provided there is at least one CSU monitor on each MSC that makes up
+> +  the group. Exposing CSU counters from other caches or devices is not
+> +  supported.
+>  
+>  * Memory Bandwidth Usage (MBWU) on or after the L3 cache.  resctrl uses the
+>    L3 cache-id to identify where the memory bandwidth is measured. For this
+> @@ -82,10 +85,12 @@ The supported features are:
+>    have a corresponding L3 cache. 'mbm_local_bytes' is not exposed as MPAM
+>    cannot distinguish local traffic from global traffic.
+>  
+> -  All these restrictions based on L3 cache are due to resctrl, currently, only
+> -  supporting monitoring at the L3 scope. It is expected that going forward more
+> -  MBWU monitors can be exposed to the user after support for more monitoring
+> -  scopes is added to resctrl.
+> +  MBWU monitors on an L2 MSC expose the bandwidth the cache sees as the
+> +  'mbm_core_bytes' event on the L2 resource.
+> +
+> +  These restrictions are due to resctrl only supporting monitoring at the L2
+> +  and L3 cache scopes. MBWU monitors on caches at other levels, or on devices,
+> +  are not exposed.
+>  
+>  Reporting Bugs
+>  ==============
+> diff --git a/fs/resctrl/monitor.c b/fs/resctrl/monitor.c
+> index f9f4d4486c1b..ee296c27c6e8 100644
+> --- a/fs/resctrl/monitor.c
+> +++ b/fs/resctrl/monitor.c
+> @@ -543,6 +543,13 @@ static int __mon_event_count(struct rdtgroup *rdtgrp, struct rmid_read *rr)
+>  			return __mon_event_count_one_domain(rdtgrp, rr);
+>  		else
+>  			return __l3_mon_event_count_sum(rdtgrp, rr);
+> +	case RDT_RESOURCE_L2:
+> +		WARN_ON_ONCE(rr->evt->any_cpu);
+> +		if (WARN_ON_ONCE(!rr->hdr)) {
+> +			rr->err = -EINVAL;
+> +			return -EINVAL;
+> +		}
+> +		return __mon_event_count_one_domain(rdtgrp, rr);
+>  	case RDT_RESOURCE_PERF_PKG: {
+>  		u64 tval = 0;
+>  
+> @@ -1032,6 +1039,8 @@ struct mon_evt mon_event_all[QOS_NUM_EVENTS] = {
+>  	MON_EVENT(QOS_L3_OCCUP_EVENT_ID,		"llc_occupancy",	RDT_RESOURCE_L3,	false),
+>  	MON_EVENT(QOS_L3_MBM_TOTAL_EVENT_ID,		"mbm_total_bytes",	RDT_RESOURCE_L3,	false),
+>  	MON_EVENT(QOS_L3_MBM_LOCAL_EVENT_ID,		"mbm_local_bytes",	RDT_RESOURCE_L3,	false),
+> +	MON_EVENT(QOS_L2_OCCUP_EVENT_ID,		"l2c_occupancy",	RDT_RESOURCE_L2,	false),
+> +	MON_EVENT(QOS_L2_MBM_CORE_EVENT_ID,		"mbm_core_bytes",	RDT_RESOURCE_L2,	false),
+>  	MON_EVENT(PMT_EVENT_ENERGY,			"core_energy",		RDT_RESOURCE_PERF_PKG,	true),
+>  	MON_EVENT(PMT_EVENT_ACTIVITY,			"activity",		RDT_RESOURCE_PERF_PKG,	true),
+>  	MON_EVENT(PMT_EVENT_STALLS_LLC_HIT,		"stalls_llc_hit",	RDT_RESOURCE_PERF_PKG,	false),
+> diff --git a/include/linux/resctrl_types.h b/include/linux/resctrl_types.h
+> index a5f56faa18d2..f31b8f2ccb8b 100644
+> --- a/include/linux/resctrl_types.h
+> +++ b/include/linux/resctrl_types.h
+> @@ -37,7 +37,14 @@
+>  /* Number of memory transactions that an MBM event can be configured with */
+>  #define NUM_MBM_TRANSACTIONS		7
+>  
+> -/* Event IDs */
+> +/*
+> + * Monitor Event IDs, representative a variety of monitoring events:
+> + * QOS_L3_OCCUP_EVENT_ID:     L3 Cache Occupancy statistics event
+> + * QOS_L3_MBM_TOTAL_EVENT_ID: Global Memory Bandwidth statistics event
+> + * QOS_L3_MBM_LOCAL_EVENT_ID: L3 Cache Bandwidth statistics event
+> + * QOS_L2_OCCUP_EVENT_ID:     L2 Cache Occupancy statistics event
+> + * QOS_L2_MBM_CORE_EVENT_ID:  L2 Cache Bandwidth statistics event
+> + */
+>  enum resctrl_event_id {
+>  	/* Must match value of first event below */
+>  	QOS_FIRST_EVENT			= 0x01,
+> @@ -50,6 +57,10 @@ enum resctrl_event_id {
+>  	QOS_L3_MBM_TOTAL_EVENT_ID	= 0x02,
+>  	QOS_L3_MBM_LOCAL_EVENT_ID	= 0x03,
+>  
+> +	/* ARM MPAM L2 Events */
+> +	QOS_L2_OCCUP_EVENT_ID,
+> +	QOS_L2_MBM_CORE_EVENT_ID,
 
-Right, Required bit should be source kernel payload property to tell
-target kernel that the payload must be handled to correctly deserialize
-the data. It should be source kernel (userspace) responsiblity to make
-sure it understand the target kernel before doing liveupdate.
+These are essentially, L2 versions of L3 events. Does it not make sense to generalize the existing
+events to apply in different scopes?
 
-Saying this, During deserialization, target kernel's required bit is not
-necessary. So I propose the following truth table.
+Thanks,
 
-Source hdr  Target supported[i]  Action
-----------  -------------------  ----------------------------------
-00          0 or 1               Accept: feature absent in payload
-01          0                    Accept: ignore the feature data
-01          1                    Accept: use the feature data
-11          0                    Reject: -EOPNOTSUPP
-11          1                    Accept: use the feature data
-10          0 or 1               Reject: -EINVAL (invalid encoding)
+Ben
 
-Where Supported bit is extra bit information used by target kernel to
-deserialize the data. Which is static information of target kernel and
-will never be used in serialization payload.
-
-Like,
-
-static bool memfd_feat_supported[MEMFD_NR_FEATUERS]{
-       [MEMFD_CORE_FEATURE] =3D true
-}
-
-This makes every kernel 3 bit information.
-
-required+active: used by source kernel and embedded in serialized hdr
-supported: used by target kernel to deserialize the data if it supports.
-
-~Tarun
-
-
-
->> I would drop the target-side required state entirely and let the source
->> kernel decide which flags to set for each Live Update based on what is
->> _actually_ preserved. Accessing a field added after the original struct
->> then always requires checking its flag.
->>
->> At the end of the day it is up to userspace to never start using a
->> required feature while they can still rollback to a kernel that does not
->> support it. Cloud Providers know how to do this since Live Migration has
->> the same problem. This also means we must be very careful when adding
->> new required features, as they need some way for userspace to explicitly
->> opt-into them. I do _not_ think we should try to have some generic LUO
->> opt-in for required features. That is up to the File Handlers and FLBs,
->> as they have their own uAPI.
->>
->> [1] https://lore.kernel.org/linux-pci/20261013162529.1928093-1-dmatlack@=
-google.com/
->
-> Oh and please see the follow-up PCI series to preserve BARs and bridge
-> windows for some examples of using optional_flags to extend struct
-> pci_ser with additional data without breaking backwards compatibility.
-> e.g. https://lore.kernel.org/linux-pci/20261019213054.3157159-5-dmatlack@=
-google.com/
->
-> I don't yet have a use-case for a required_flag.
-
-
-
+> +
+>  	/* Intel Telemetry Events */
+>  	PMT_EVENT_ENERGY,
+>  	PMT_EVENT_ACTIVITY,
 
 
