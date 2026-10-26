@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45819606A321
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:05:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BB0960A3816
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:05:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Klg0HWiE;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=ZsvmYIY6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mMl0l4mt;
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=TLewGmXv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
@@ -14,52 +14,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=xZWYhz8UBVxbfz3eY2rIqI2/WPETFHEx60/NAmF4410=; b=Klg0HWiE4Qw5IV0V8s1IyeAKoY
-	aH9Dld6L+s7fTyz6sNKyaq0iak8LSRNNloFaxu/DskFKx8MY41KAZca2WhiB00qpHgsjPjf1kZ12m
-	n31fzalKKCyor+v5BAOHMuZejuOAzkQ85v2C7FhR0nRbkgravZeUrKslq3fVAmItzuDvvONFbIDxU
-	fd50S8nEbIU2nDkyBb+oo1X0+GLWUEEnZnNVTNH2+We7V69PVAYIfxyvjBBcChPSJZTkxzjrDw5er
-	G3abMJAKN6u5FvCLXkVsIb4gvg5mpwBrRXzY6/LXr/tBkFNRCwzXyx/Ey0bZXj9ke9CpGDCS/YO1m
-	t8pAEYdg==;
+	bh=/+gPCWzIAdsVPYkrizOXOeMwNsWbBjc3l8QYVxshcrI=; b=mMl0l4mtpWaYKECM2KH3VO6o0k
+	4QENLOegCUPVRQPmi0K4KLejuegdE0IB+rPiyuMLoUn6olSCZFYHwn1BE1VM3VfoSiupR6bq2Lo3g
+	l2wxzGWn9m6PfoFvdqE+ULWjHGe+8Nh1CLq6EwTwo6E3O6LDP9OaB7TUMUy8WRXT3tLI4ibKB0EOx
+	NJ00LgZeSg/uzGj3IxbKK7z+P348RxRbMQ6JkcadQxB+Y1kitfOQiJHodhbwCIfrZ0enHjgQ3daVe
+	rYByKxGGdiejQ09mO1ZdW15DBpB5bfclX3HVBKjKWR85cWk0xXcMzZyZ/IQQDYng01qX/ab1SRGnz
+	hMjMQPHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHZh-00000002CnF-05yv;
-	Mon, 26 Oct 2026 10:05:05 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1xLHa5-00000002D98-1dYn;
+	Mon, 26 Oct 2026 10:05:29 +0000
+Received: from mail-francesouthazon11011041.outbound.protection.outlook.com ([40.107.130.41] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHZO-00000002COH-3nKw
+	id 1xLHZt-00000002Csv-0AJ9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 10:04:50 +0000
+	Mon, 26 Oct 2026 10:05:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=roSCS0fOM+V98a1Pq1exLRiWKMDio71xTusWdR0kS+Ki0ZaiJKs1FgXVz8XWUUnUr5FucMtdsxTy5ezIhv5ciU+gjrAd7auOPG3a/VMugMQ6pEt80QSrc1dtnxE7Ub+Bgeqjq+EIcDIRJDN5cesQ0DF5Eng+0p1f2FFX91ZsptiIrOSGFtnKbq/J9elTamcnCP96xnm0s5B3beWGScomJufCuuzq7cHM8Mg5IL5VsHg66g6TOx58Wn2+F5E/fCSHaWZ/KWB/o9p2ybG05SyMxkxOcKPbdH44zmPrH8DsMSlSRL+aq+ZzDw0zWU8Vlpz02T4e4Mtq8eOtcC6TX0oQKA==
+ b=TOTCc/zLhZdUjpsVVLY81Z7SyKssIHPoteCLGfU6gIRS2mLbyYvjW5N9pE+4bNjQWsO/0WyiKxtIc289fnhJNxXGn+4wWeg6IeHVX+tnk6b42SWIJaZpfj8JSy3uyNzh3xkwFQUAe1thYnMeBP9CiBFDVATykk7oCCTL9oq8JTIrYIv/Mu+04tG7s76RfrslsUKBIIJMGDfsfWvEV+Y4T8JwpXZzLWAW00/jsFI8cAAAB6+sh/bS6bsP8p9WMcAHMzuw8+IMteN32mB+gNIay5mDz8DQjXnuubjKFvKhlvEzTCBoRYUk9h9eoUelQ0j53KOI71GF8QBgERNO1AzqCQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xZWYhz8UBVxbfz3eY2rIqI2/WPETFHEx60/NAmF4410=;
- b=RaqJm8ohlkDLbl6nuaGPdEJbeWhQ0OIVaC2VpB0ZpJh6j5OH5ZwtRkXm/DoPwp9SKwIqrA+BOziGAco1+St5SdmWoUV5/jlo3D8n+2oafacHnMYfgSR/xsBx9IJeEBDr4hD9VlRONhkN0GTvY5rU2oKI8rc0q9A3K+QQsbbz7QBh5ZQKZT9pjv7NuL9oVCUE0nsc12b+77+PfWNw55soxJKhEh1CBHZkg7Y98vTMxm+Be7zS71BWKhiYeTsUMNZ39GnTIRMRPQOBAhmBq8WZ40mcP18DxfO17NrKkx4lxNio23vyAiDeX13PNeIULudGSsLqzZyOdwf2JvlnAtmGsw==
+ bh=/+gPCWzIAdsVPYkrizOXOeMwNsWbBjc3l8QYVxshcrI=;
+ b=vNAhdC+rS128ZLPGIKDcJAmpMuPNxcSJiWznCbao76P74fAsqGdnqv2hdxNcfDaex1za2mlbMCNwj5c2TXtsnZdIwdRibSTsHB/aH7wqllCyTIx5+QZAJLJB5+oWfixSaOFRwLKlCQOh+vNNErU+v5QiwCoRuIkOP586YKlWXIXidKOvxXMveSAl2gazoCqD4mO2NNnclKOfKJM6/PkQIDHImcNEwIazB4nNRHiz0WE2iWjG80c2KwTSYM+cN6sdwAb4SU02/znZtSpoJl6Tp2k1Z8ZgHM6PSbyQXz6+LzwUNfKz7f/RjG29EcHqehgvFwExxktJKmZLFMHeam440Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xZWYhz8UBVxbfz3eY2rIqI2/WPETFHEx60/NAmF4410=;
- b=ZsvmYIY6TBJOYj/q6Wa2o96krSLr7ozXKHkgGuCrgJxffbTP31JjgwCFWNtdnJD626Z+eW8Sh1xair1d/KGPuSWSjKn5r4lPw76g3VxO17s/M3zY0de5SkUTnw5nnx0Ua3jN5w+EF5DBVMHzr5++txHeqTUZ/HqLqlPQ+8iMyr7cWJK7B1HhkKTD6IWfIBrDlsshDLjcTkNgXiaeV0t3Pn+g+DTTry3S+r/jHvi/f/C1JiCpX+4WXPEDzhXixskW7AsdECJgL/7t80qDHiUyqSASQ4w8PubB1ggOG9Bx5lQ9yQP1X/IXueT1rBM+bECgqJoLRJY4nGG9wztaQDZYvA==
+ bh=/+gPCWzIAdsVPYkrizOXOeMwNsWbBjc3l8QYVxshcrI=;
+ b=TLewGmXvDxAv4ZMzxsDeFlwsZwILRvj/SZZbiNzShFoOpTnJYSjU4LzNAAY5fhSy8RCopP2gwor2zkvUhshMjUdAJ8I3cI85BdOzcossSFVJWG2OqFwO0JrKftDrr6ryQWthN58Pxou1eeX1PyLlmoI8sND2sBra9pbSKXxq7e24eZjeqBg2lUwvODCQIIo5siYLSMLQZ+myc6b5Ea3Kax+NE0ku9nsCQKR3EMLptJDZom8bAbmSD9IQUv54TJR2tmqGWMRR9NkftijuaiK2JVYMnrV3UqRzf69sT6JFmaZOrBPChdg0DzslWRlW+tSzpcNGZqKYkQ4WnLZr0qIY8Q==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
  by GVXPR04MB11500.eurprd04.prod.outlook.com (2603:10a6:150:288::14) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Mon, 26 Oct
- 2026 10:04:28 +0000
+ 2026 10:04:59 +0000
 Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
  ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
  ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0546.021; Mon, 26 Oct 2026
- 10:04:28 +0000
+ 10:04:59 +0000
 From: Liu Ying <victor.liu@nxp.com>
-Date: Mon, 26 Oct 2026 18:05:14 +0800
-Subject: [PATCH v7 09/15] drm/imx: dc: Use TCON operation mode
+Date: Mon, 26 Oct 2026 18:05:19 +0800
+Subject: [PATCH v7 14/15] drm/imx: dc-fu: Get DPR channel
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261026-imx8-dc-prefetch-v7-9-a0b50cc4fc65@nxp.com>
+Message-Id: <20261026-imx8-dc-prefetch-v7-14-a0b50cc4fc65@nxp.com>
 References: <20261026-imx8-dc-prefetch-v7-0-a0b50cc4fc65@nxp.com>
 In-Reply-To: <20261026-imx8-dc-prefetch-v7-0-a0b50cc4fc65@nxp.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>, 
@@ -77,74 +77,74 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  Alexander Stein <alexander.stein@ew.tq-group.com>, 
  Liu Ying <victor.liu@nxp.com>, Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.15.2
-X-ClientProxiedBy: SI2P153CA0027.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:190::22) To MI9PR04MB350878.eurprd04.prod.outlook.com
+X-ClientProxiedBy: SI2PR04CA0009.apcprd04.prod.outlook.com
+ (2603:1096:4:197::8) To MI9PR04MB350878.eurprd04.prod.outlook.com
  (2603:10a6:290:c0::7)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|GVXPR04MB11500:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8f4d552e-0dac-4be5-241b-08df334885a6
+X-MS-Office365-Filtering-Correlation-Id: 9d407bbf-d9dd-45ae-974b-08df33489835
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|23010399003|1800799024|921020|11063799006|56012099006|261021121427099003|261022105027099003|261022075727099003|261021123027099003|261009223027099003|10067099003|18002099003|22082099003|18092099006|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: DgpkH++/GtILoL211D8jE3K6vmrg0+na7hkRaT8SrWAfSu6yerHPILeJI1Ahw9u6gQlfvaO5aHfRg+vs6B4ypr6oveLCsW6wMEbhL1mJeLql/EuzoUIMNFv7YggpqDlRODa6eoYo0TQFFmFcfWXrXE1pLPEVBAbu5ZHen/tLsTsGooJbODu+98eKVUupXkJL7Pw9URHywrLxwxycjQyajmTbmR+o8Ct8+lV5+PaN5tJ55g4Nz0d03I38+OCHuMHJJsE436J4ssQw0OUWi3KyNMZfXdaVihTrwemCcySViOdW7kDGq6A1QEv2mmfiv/8SNtLidrxaKnghfCIep2m+cCjkLhCZky2pVvPz3+8bmMC19T6ZkoIxjtwie2Sf0OSNziYNXMsGiCriibSAUfJijrzsycektoj9UL0VJlslOlIGN8tKbAj1CEfe8JX/2F6neRF8S52Q8zsC9iqmeL0r4uGpXZ3DwwWAtYFJOSOMoh8j8TDlHF2F4ysAByg8on/iuHOPLYthy2HYfi7HQyHmiwsuSnt+b9HKECaTE0tkhWA0VjTyrBbqunouZ2Ur+QP+ag5ijlbpktzbuc/GbR/3GQyXn72YJwsiVewDxu92N4GDZ7zkWcAoKe9mkekjzgth3fF2COES/KHLeEE16gIDXfD78pXeadEE4tzwJpmg0/Dk7MrkKsO8wixn/34VYyKw/98bUFR/sYcMqZ3joZ8mzw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(23010399003)(1800799024)(921020)(11063799006)(56012099006)(261021121427099003)(261022105027099003)(261022075727099003)(261021123027099003)(261009223027099003)(10067099003)(18002099003)(22082099003)(18092099006)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|23010399003|1800799024|921020|11063799006|56012099006|261021121427099003|261022105027099003|261021123027099003|261009223027099003|260925021311599003|260925021911599003|260925022911599003|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: Z9DGG8w/f2RhiEiY3x1zU5qAwsCqOKJ9JlBQ/YYnLEAHaRj+cWEorlsuTLxxtZnq+Yn8SND7DGhp70Qd0akYJlh/AWP+pFBNUUk1dCrhslCalMngfpaJ1pTW25W1UZjaOi+D1x2Z1ItP+eq9B9JtaOsR3nsIikT+ARgQcQn1aaJ/X19sk1ZuKHaXOULa37pKUrKFMuAK/jrMoQpSDOHPtVnXziADSq/zHyWZTpY6IhfEXWBA/b5S9db5irS0C/tfAWrUJIdLElPEK9cq/3tZnz4R4YqkYUXy4EpAbMaMybiQkFcih9AzYrCZHsmBimAFfG4zxLDYh0LqzP87r7gM3lkQnpEc4/4FMnX6TTyj8yjAI6Um2sO9Eet9r/qY/7VbdjBDF3Mp1VZ7e7Y7sUIqvHbThjuO+VTowAY2qKGmu+t9MHLe355jlGoAoBrE7sH05JkxgKXQ7dzqwtEy8FjgsoOBSMb1sgxPFFUI1FxGzXXWp8itAwaCSMSAu3WNEdxTIihD88/M605aOQEnwUJRt6nl/0dlDpf82mhmRehYBMg5NUIAqtqPxew/tpep3crY/iREUwqegKJXNqHzYJ9xqiQQc/eW6ebAhkqa/15qFLILicwZMf/EBjbGH0Hjzr8hVtFldzp/GmqBtPq6XDb51WBmMcNvPrJDNZM0tROE92T1PH8WdlBP9DkUY2gazwHMY2rcGQfmz94NiUCgMpBpRA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(23010399003)(1800799024)(921020)(11063799006)(56012099006)(261021121427099003)(261022105027099003)(261021123027099003)(261009223027099003)(260925021311599003)(260925021911599003)(260925022911599003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ellSUjRTRkt4RVBHYnd0R3IzWUdFaE5iczFNMUxjNnFiNnFadmhTYkg5alZH?=
- =?utf-8?B?dmFVb0NHQndFamVZRHI3ZmdNWVpVYkFNWG1OUVI4ZzduYVBkdSsrN2ZrWWNt?=
- =?utf-8?B?cVpQbXFWRGQ5dnR5QUtxRjN3VWhKMlA2eXBGU1NnNUxYLzhCTzJ2UjB0TDNa?=
- =?utf-8?B?MHZMNU1TWUYzdll1N3loZjl6b081eHpsZmdLS3g5QXZocU9Dc2ZyWG9LTkRq?=
- =?utf-8?B?VzNMMjBrRWM0Z01CRWJySDlzd1Yrd0U0b1lmbVIwMisvQ2YrWUFKUkRsL3BZ?=
- =?utf-8?B?cXNHYU1NRXcvQUVVdUF4NVo5SUxRZERpUXVzUEUxRDRieFIwVXhIZlJmczlv?=
- =?utf-8?B?MGdRRmRqd0RNSnhmZHhXRUlYS3d0OHJuMU9aSHN5MnZQYVhlc1hrSUlhWTVu?=
- =?utf-8?B?ak1PYmJhSG9vNU1TSlpGUlNpaTVLZ0M2ZS9mUzNOVUdOWmtMbzJKVlhPY0or?=
- =?utf-8?B?UEVPQjR3MHlHMFZUNGNKeUR4Z1M0YWl1Y3RSM1AyaTk3cFRJNkl2TVFiUzhW?=
- =?utf-8?B?YWlzK1pnb3NQOXoxRkJ5ZjlSalJxb2VBVno3aXZoenhyWVcySEFMYkwzZHBs?=
- =?utf-8?B?Z1hzWGRVWXJyYmRoRTdUYTRadERaY0pxWVJGQUxNMkd6Z0V1MGErcUNwbmxo?=
- =?utf-8?B?TVJNOEpjZWpucWNkR0syTlhFVjltbWJYekw3bk05clY1M05HNURydFIveVNH?=
- =?utf-8?B?cmhiMmY1SFJja3BoL0tvQXpmd1k5eitnMklKNVNDT3o0Q3NGUVp4TzdseFVN?=
- =?utf-8?B?WEtVZjVsSEZXd1FZcmpLc2tnSCs2R3dVMEpaUGpBNnJGTmg1TmI3MldBNkI0?=
- =?utf-8?B?d2VrR0ZLeUJ1c3V3clFxNm01T3daYkxVK0t6cU82b3ZvQWRhRnhmSGdzMnZs?=
- =?utf-8?B?c290NU00enBpQThnTVpNQ01wUzR6M2dmZ052OENLMmJLemZEOUMweHRQYncv?=
- =?utf-8?B?K0RHSHlRaE14R0hxcnlBMmpnTENBc01qUEhFSzdzVVVpdEtKRWtOckdGTlVN?=
- =?utf-8?B?VU5xUytrdEhkaUJsbEE0Y2hER2g5UVJNd1lIdytqeDlvb3l6K0VjV2xqMDVm?=
- =?utf-8?B?MU1kWndnVmhYaDF3aCtWczNFYUk2QmtYWnIvODJXbmx6Ym5ISkJFOGZXa3lN?=
- =?utf-8?B?bjkvS0lNSUhES1hiODlBMlo0c0tNbFBDb3JzMm52eGNqeVQxTkRYTm1uOWVa?=
- =?utf-8?B?TzhuTDBtSlBUWCtZQ3N5WElGVlRTOEJjbTJSTFBuTjBCYVdNR0lTUks1NVJk?=
- =?utf-8?B?RC9GRlJiNVd2cFlhS2ZVa2pNc0RZNm83RHI0bDVkemJlU3FTZWRMbnRsK05j?=
- =?utf-8?B?YmdVTk5telFmaFJmWm5aM2JqN0FETkR5eXcwYVhaQXI0MC9tVklEK3pzNnpz?=
- =?utf-8?B?b3gvaXBtZ1V0QmJ1bkE3Q3p2VWlEUUZzSUtNVFo2cktXMEhWaXBvUWV5ZURM?=
- =?utf-8?B?clJYZFo5SVN6WFZ4b283YlhBNDF3b1h0SWcvQXE3NUU4SFRTaU1Tb21QT0dM?=
- =?utf-8?B?U3hLTFU3N1hwRTJvdUtLYjc1TFZiWVJTa3QxSzVwaUg2ZmtvbGJ0VFNsTW5I?=
- =?utf-8?B?MVNGWEFDQm9tUlN0bGF2Yml2eDVzYW03dm4waEpSV2R3b0tkQkxrcUFkWGR6?=
- =?utf-8?B?VDBXNFU3QW5oN28rcTh4RHo1eHZ5V1dBR3VqdlI2Y1BqeGhXMmhtaURUUEVB?=
- =?utf-8?B?SEFkUVJuaWVrZVJuQTdCcWJjcVZJUVU2RHJVRERBSmZORVNtQjNoc3hmMGxT?=
- =?utf-8?B?WDE0L0NOR1F0Z21YY2xoMmNFaUV3MzJMUFh4NDY4WnBGcEZ4TUc4YitXRmFo?=
- =?utf-8?B?T3hMc0RwTk9YSTB6TU4xb0JqR24wWTdHUVhWTWdCdHFpRHZZSW1HR2pwajZi?=
- =?utf-8?B?dG5OZnVaMWI0Mlo3TklpNTZURG5ybEFjUXVIc0R6azI2WlhWd1RwRTFBWFQ5?=
- =?utf-8?B?NXl6eWd4RGdscWJHeWJYcGZ0a1FaKzQ0ell3ZkJQL2hkK0NaZXVPYzVCTU05?=
- =?utf-8?B?K1NySG5zdXRNMU9xUmx5Y0ljSjcxbjhFZUJqRWFYVzV2ZlQvcm5IL0tIOTRw?=
- =?utf-8?B?S3F1WVVpR2Z0UUNoaTk3enRnSDhVWlNpRXQxamtoK0IxN2ZiWGVYQ0dNQUhh?=
- =?utf-8?B?b0NQSURiRjArak1kb2pjTDhLdmVaWEN6Y1A5SUl3VjBTQ1dDam0vRGM5b0pY?=
- =?utf-8?B?VmVrYTdFekhYNEZQcUpnaUVrS2N0NGZSL2JzME9UYUIvNmtDVno5WUhxVjlQ?=
- =?utf-8?B?dmlVVENVRlAvRllhWlE5bFhqRlBoS0xBZVBjUDhhbnc0aHZibnFOQXovcGFp?=
- =?utf-8?B?eEpJanN3RVRSVnRQQXVjOVpQTjBrZStPTEdGelBlUTFhUzRsR1J1dz09?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WnRFckpMYVFkTUJLODQ2U09WbFg3Q0E1NFgxblViQ1cxcXNTVXdHQUIyWndK?=
+ =?utf-8?B?ci8reVd5ZDl1RW5GRDRqU1hJTmdzTy9HR1dnTUhON283NEQ1azFqMUIwVDFN?=
+ =?utf-8?B?dk1nUlcvcjJ0cWV2NGZXRExhUk51NS9tV2RJSWc3ZUsrTkpoZjN0WFdRMFZM?=
+ =?utf-8?B?bkZlMytTblh6NU9yT0lsbDdsNTI2cFNSeE5vVmcxclBJYktZaUk4dGxHZEIv?=
+ =?utf-8?B?K3lMWmYyWHViWDFKbytvejA1Y0RqYTJyQWY2Y05oRGVyYkpQa2lJLy84anVY?=
+ =?utf-8?B?aXc2YXJzRzlNMnZZdytoSXhXbk5rWkNycytlS05hdnIwLzZ4QUlJcHFqdGd5?=
+ =?utf-8?B?T0NRVGVJT1RBVnJsZUl3QzdRWTdtbHhHUTA1SUMzYmxiTmQ1VTFWc0wvNFN1?=
+ =?utf-8?B?bUx5ME5jMHZWMU0ybWFrVTZSYkIxYVhQRGRoaStQZUZKT2xTVkZYUlZ4MXBa?=
+ =?utf-8?B?TGtaZDZLUVVNZmdYMHkzRC80R05SamtReEVYVzBOMzBaZE53c1BDY3ViUFRC?=
+ =?utf-8?B?dUVSOGtZeThhTC9hWGFjdFcxZ29sL1NEY1ZOQzM2WjNrMjR6RzhPK0ZuNVhG?=
+ =?utf-8?B?MU41N25CSUJwaGNZSDB1cWRneWR6Q2sxM3MwNEUzR3VRdnNGUFRxcGxEZndV?=
+ =?utf-8?B?S2JHZkZkb0FyZDl6ZzFub2RlejAwRW5WRDFCdS9Fb05wU1RHcHVpcEp3ZzRv?=
+ =?utf-8?B?NGYwaVBGcmxFYU8yYlhvQXdXK09HbUZ3cG1ydUUwWEY4L3FGMjNySmhYV1ow?=
+ =?utf-8?B?YUdJTXRtMGxjZDJWNmFSSG9yV1lIOFZOTG9jQ0REbTIyWFVuYzlnWUpVWG1P?=
+ =?utf-8?B?S1JmVzRyL3pUUXUrclV1aGIyV3FGU1Q2c01Vb2NGZzRMMVhFWDVHVGJucFFn?=
+ =?utf-8?B?MHRPWXlLeEN3KzBHRUR3WFM3b0I3NGQwQ3RlTnBKT2VMRmtlN1RIeVM2VHRU?=
+ =?utf-8?B?NSs1RytzemszdHQrZVJJMHpHS3c4cm5hdHRLTU10SDBabyt5UWF0UWpsU2Jm?=
+ =?utf-8?B?L0hIZlJrc0hSaGJuczhSZGM2ZTZJcWdLWDZBZ2RPNzVTdjYrS1VHd0xrR1VI?=
+ =?utf-8?B?am5SZGpiTGtKNXRCS2xLblI3VXo4c2F2MUlnWnBsMWppdHRPbmVCbzBVRmps?=
+ =?utf-8?B?UERQMjl3SGZRQWhYUmY2QXJaMCs2SWxEOE5yUHduRTdOT2FmV0pEaFlmamxJ?=
+ =?utf-8?B?U09ZN1NEU1ZTQzZpZnNLVEZZb2xYOENWZkJqTlpNbk9QWHJ5N2pOL05UVHF0?=
+ =?utf-8?B?eXJxM1Z1NEdkNUMyVkkzVFZ0bFJUMWkwdzcxdHpZK0tFOFRMUkU0S2QxejNG?=
+ =?utf-8?B?dFduQnNCZVphWE9OSldNUzhNQVJXVE94Nml6aThpRzQzaXhHSmdFRWQ3ckxn?=
+ =?utf-8?B?QkdNNTFMWlkzazdzOVpNQlV4YTRKaE1qdTJOK3NWbzg3UTdyRkM4c3IzZzY3?=
+ =?utf-8?B?dEI2S2VBZWprOVBDV1hMK29IVS9NRGZTd1hiVGt2cFNoOWxneWdwNDZFLy9m?=
+ =?utf-8?B?V3BwZFZ1WENjRVhYckVQL0huSmdwMkV5aVlGSkRVaEtkNjdqOWYwUE4zSjNu?=
+ =?utf-8?B?TDRsYjNYNndZb2JwRTJ0VVp2cE96UklCbHlOSXd2L2RGdXN0MXZBOTBwOTNo?=
+ =?utf-8?B?TGJSeTk2ZndmNFh0eCs4WDBFUGtPYVNDRHJoOEIvT0l4WDNEZHBLWlNlSHB1?=
+ =?utf-8?B?blhkUitRSUVJR2h2UEwrRFVVakhlNGRyNlRJemJCcVlocVQwVFhMYk02Nktl?=
+ =?utf-8?B?eXNxZEJHbXE3UHJFNGtRYXhmM21aQk1TdDMzTEJId3NSdkNkTEdWcDVLWUk1?=
+ =?utf-8?B?MTFoR2QzNVFIcVVFTGJHaCtRNGVYV0NkbHVJV0FNTmlYVjZlVi9ZZHRVcVdN?=
+ =?utf-8?B?V2pRUFJPaVBtT3Iya0h0Sk4vOWdWS2NsSHJQRXNUVDc4cC9RcFJhRWhONG1m?=
+ =?utf-8?B?dXJURWw4MlRTSmdpTjZmNzlGMzZPbXhyTDlYWWQzMEtkRUZFSDVSd1hzdlU0?=
+ =?utf-8?B?YmNKWE1jUGJqUk92ZndXTzJTMjZPSWNaeVMxZ1hCM29ERUdITW5zY2FMZTNK?=
+ =?utf-8?B?UXVXVnAzYUhiSGZlZUVScDBDSytYNktGaHM4dFhDbGFYWjBKeDBOZm51RVNV?=
+ =?utf-8?B?a3dhOG5PSXM1YytwZnBzbVpCUkJ6VUtYUVVmM2hOSUVJMUF3NWhFODlBMlJx?=
+ =?utf-8?B?U0Z0a1RRMGV2VHQxeUJUL0N4VmVvb2FSazZJNlRDaHFRU0pTNVQ3YlorenFo?=
+ =?utf-8?B?L1ZYNVZ0ZjJYRzVRSlFZbjN0OVZSWGVncGQ4eFlMVm9ZRmNDMmJIZzZBd2RI?=
+ =?utf-8?B?bjkrQnNKWG5xd1F2M2dqTUFBQ2hCQkk2TDFEUjJmZUNtZGZsSnd6QT09?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8f4d552e-0dac-4be5-241b-08df334885a6
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9d407bbf-d9dd-45ae-974b-08df33489835
 X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 10:04:28.4023
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 10:04:59.7148
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2B+7REq8UzfYryiGKpgL0M3WTw9zo/6Eb/Xag3O5RH3GU21pl8cr92PzduW4U6213GiICGwAURpZO6bQSmRelQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: StB/HU3CQUCEwraJ2sgI2bxH0PLVwjCb06XjKbM+LJQDBKSt596jtG239khev94jWGxAAsAvqngpq9gO3XEz/w==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11500
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_030447_048070_6C536101 
-X-CRM114-Status: GOOD (  17.98  )
-X-Spam-Score: -1.1 (-)
+X-CRM114-CacheID: sfid-20261026_030517_125506_227B22D2 
+X-CRM114-Status: GOOD (  16.31  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,366 +163,161 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In TCON operation mode, sync signals from FrameGen are ignored, but
-a much more customized output timing can be generated by the TCON
-module.  By using TCON operaton mode, generate KACHUNK signal along
-with HSYNC/VSYNC/data enable signals.  The KACHUNK signal is used as
-a synchronization signal inside the prefetch engine(DPRC + PRG(s),
-attached to FetchUnit(s)).  Carefully switch TCON bypass mode to TCON
-operation mode when CRTC is being enabled so that the prefetch engine
-may evade the first dumb frame generated by the display controller.
-The switching is done with local irq and preempt disabled to ensure
-it is done right after FrameGen frame counter moves as instructed by
-design team.  Set use_raw_spinlock flag in flag in FrameGen and Tcon
-regmap configurations to avoid sleeping on PREEMPT_RT when switching.
-Also, replace jiffies with timekeeping API ktime_add_ms(), ktime_get()
-and ktime_before() in dc_fg_wait_for_frame_index_moving() to avoid a
-potential hard lockup when switching.
-
-Since TCON BYPASS bit is controlled by KMS driver when doing atomic
-commits, drop the bit setting when initializing TCON.  This also
-avoids accidentally initializing TCON BYPASS bit to 1 when driver
-module removing and re-installing where an upcoming patch would
-disable a CRTC at boot in TCON operation mode if needed.
+Add a helper dc_fu_get_dprc() to get DPR channel for FetchUnit.
+And, call it from dc_{fl,fw)_bind() to get DPR channels for
+FetchLayer and FetchWarp.
 
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Acked-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Liu Ying <victor.liu@nxp.com>
 ---
 v7:
-- Set use_raw_spinlock flag in FrameGen and Tcon regmap configurations to
-  avoid sleeping on PREEMPT_RT.  (Sashiko AI bot)
-- Replace jiffies with timekeeping API ktime_add_ms(), ktime_get() and
-  ktime_before() in dc_fg_wait_for_frame_index_moving() to avoid a
-  potential hard lockup.  (Sashiko AI bot)
-- Use adjusted timings(e.g., m->crtc_hdisplay) in dc_tc_cfg_videomode()
-  instead of logical mode timings (e.g., m->hdisplay).  (Sashiko AI bot)
-- Update commit message.
+- Collect Maxime's A-b tag.
+- Call dc_dprc_get() in dc_fu_get_dprc() to create a device link between
+  consumer FetchUnit and supplier DPRC to avoid potential UAF when
+  accessing fu->dprc.  (Sashiko AI bot)
 
-v6:
-- Rebase onto the latest drm-misc-next and resolve conflicts.
-
-v3:
+v2:
 - Collect Frank's R-b tag.
 ---
- drivers/gpu/drm/imx/dc/dc-crtc.c |  28 +++++++++
- drivers/gpu/drm/imx/dc/dc-de.h   |   2 +
- drivers/gpu/drm/imx/dc/dc-fg.c   |  11 +++-
- drivers/gpu/drm/imx/dc/dc-kms.h  |   2 +
- drivers/gpu/drm/imx/dc/dc-tc.c   | 119 +++++++++++++++++++++++++++++++++++++--
- 5 files changed, 155 insertions(+), 7 deletions(-)
+ drivers/gpu/drm/imx/dc/dc-fl.c |  7 ++++++-
+ drivers/gpu/drm/imx/dc/dc-fu.c | 25 +++++++++++++++++++++++++
+ drivers/gpu/drm/imx/dc/dc-fu.h |  5 +++++
+ drivers/gpu/drm/imx/dc/dc-fw.c |  7 ++++++-
+ 4 files changed, 42 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/imx/dc/dc-crtc.c b/drivers/gpu/drm/imx/dc/dc-crtc.c
-index c7dbe5f500b4..1ca1c9229e94 100644
---- a/drivers/gpu/drm/imx/dc/dc-crtc.c
-+++ b/drivers/gpu/drm/imx/dc/dc-crtc.c
-@@ -6,8 +6,10 @@
- #include <linux/completion.h>
- #include <linux/container_of.h>
- #include <linux/interrupt.h>
-+#include <linux/irqflags.h>
- #include <linux/irqreturn.h>
- #include <linux/pm_runtime.h>
-+#include <linux/preempt.h>
- #include <linux/spinlock.h>
+diff --git a/drivers/gpu/drm/imx/dc/dc-fl.c b/drivers/gpu/drm/imx/dc/dc-fl.c
+index 9f03df44a63a..f7b8c4909c80 100644
+--- a/drivers/gpu/drm/imx/dc/dc-fl.c
++++ b/drivers/gpu/drm/imx/dc/dc-fl.c
+@@ -100,13 +100,18 @@ static int dc_fl_bind(struct device *dev, struct device *master, void *data)
+ 	void __iomem *base_cfg;
+ 	struct dc_fl *fl;
+ 	struct dc_fu *fu;
+-	int i, id;
++	int ret, i, id;
  
- #include <drm/drm_atomic.h>
-@@ -68,6 +70,14 @@ do {									\
- 							__func__);	\
- } while (0)
+ 	fl = devm_kzalloc(dev, sizeof(*fl), GFP_KERNEL);
+ 	if (!fl)
+ 		return -ENOMEM;
  
-+#define DC_CRTC_WAIT_FOR_FRAMEGEN_FRAME_INDEX_MOVING(fg)		\
-+do {									\
-+	if (!dc_fg_wait_for_frame_index_moving(fg))			\
-+		dc_crtc_err(crtc,					\
-+			"%s: FrameGen frame index isn't moving\n",	\
-+							__func__);	\
-+} while (0)
+ 	fu = &fl->fu;
++	fu->dev = dev;
 +
- static inline struct dc_crtc *to_dc_crtc(struct drm_crtc *crtc)
- {
- 	return container_of(crtc, struct dc_crtc, base);
-@@ -230,6 +240,7 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
- 	struct dc_drm_device *dc_drm = to_dc_drm_device(crtc->dev);
- 	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
- 	enum dc_link_id cf_link;
-+	unsigned long flags;
- 	int idx, ret;
++	ret = dc_fu_get_dprc(fu);
++	if (ret)
++		return ret;
  
- 	dc_crtc_dbg(crtc, "mode " DRM_MODE_FMT "\n", DRM_MODE_ARG(adj));
-@@ -250,6 +261,7 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
- 	enable_irq(dc_crtc->irq_ed_safe_shdload);
+ 	res_pec = platform_get_resource(pdev, IORESOURCE_MEM, 0);
  
- 	dc_fg_cfg_videomode(dc_crtc->fg, adj);
-+	dc_tc_cfg_videomode(dc_crtc->tc, adj);
+diff --git a/drivers/gpu/drm/imx/dc/dc-fu.c b/drivers/gpu/drm/imx/dc/dc-fu.c
+index 2e197b3344bd..d9933218069c 100644
+--- a/drivers/gpu/drm/imx/dc/dc-fu.c
++++ b/drivers/gpu/drm/imx/dc/dc-fu.c
+@@ -8,8 +8,10 @@
+ #include <linux/bits.h>
+ #include <linux/math.h>
  
- 	dc_cf_framedimensions(dc_crtc->cf_cont,
- 			      adj->crtc_hdisplay, adj->crtc_vdisplay);
-@@ -274,7 +286,22 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
- 	dc_ed_pec_sync_trigger(dc_crtc->ed_cont);
- 	dc_ed_pec_sync_trigger(dc_crtc->ed_safe);
- 	dc_fg_shdtokgen(dc_crtc->fg);
-+
-+	/* Don't relinquish CPU until TCON is set to operation mode. */
-+	local_irq_save(flags);
-+	preempt_disable();
-+
- 	dc_fg_enable(dc_crtc->fg);
-+	/*
-+	 * Turn TCON into operation mode as soon as the first dumb
-+	 * frame is generated by DC(we don't relinquish CPU to ensure
-+	 * this).  This makes DPR/PRG be able to evade the frame.
-+	 */
-+	DC_CRTC_WAIT_FOR_FRAMEGEN_FRAME_INDEX_MOVING(dc_crtc->fg);
-+	dc_tc_set_operation_mode(dc_crtc->tc);
-+
-+	local_irq_restore(flags);
-+	preempt_enable();
++#include "dc-dprc.h"
+ #include "dc-fu.h"
+ #include "dc-pe.h"
++#include "dc-prg.h"
  
- 	DC_CRTC_WAIT_FOR_COMPLETION_TIMEOUT(ed_safe_shdload_done);
- 	DC_CRTC_WAIT_FOR_COMPLETION_TIMEOUT(ed_cont_shdload_done);
-@@ -562,6 +589,7 @@ int dc_crtc_init(struct dc_drm_device *dc_drm, int crtc_index)
- 	dc_crtc->ed_cont = pe->ed_cont[crtc_index];
- 	dc_crtc->ed_safe = pe->ed_safe[crtc_index];
- 	dc_crtc->fg = de->fg;
-+	dc_crtc->tc = de->tc;
- 
- 	dc_crtc->irq_dec_framecomplete = de->irq_framecomplete;
- 	dc_crtc->irq_dec_seqcomplete = de->irq_seqcomplete;
-diff --git a/drivers/gpu/drm/imx/dc/dc-de.h b/drivers/gpu/drm/imx/dc/dc-de.h
-index 211f3fcc1a9a..c39f2ef5eea9 100644
---- a/drivers/gpu/drm/imx/dc/dc-de.h
-+++ b/drivers/gpu/drm/imx/dc/dc-de.h
-@@ -54,6 +54,8 @@ enum drm_mode_status dc_fg_check_clock(struct dc_fg *fg, int clk_khz);
- void dc_fg_init(struct dc_fg *fg);
- 
- /* Timing Controller Unit */
-+void dc_tc_set_operation_mode(struct dc_tc *tc);
-+void dc_tc_cfg_videomode(struct dc_tc *tc, struct drm_display_mode *m);
- void dc_tc_init(struct dc_tc *tc);
- 
- #endif /* __DC_DISPLAY_ENGINE_H__ */
-diff --git a/drivers/gpu/drm/imx/dc/dc-fg.c b/drivers/gpu/drm/imx/dc/dc-fg.c
-index 3741dc66c0d9..26b786e146d4 100644
---- a/drivers/gpu/drm/imx/dc/dc-fg.c
-+++ b/drivers/gpu/drm/imx/dc/dc-fg.c
-@@ -8,7 +8,7 @@
- #include <linux/clk.h>
- #include <linux/component.h>
- #include <linux/device.h>
--#include <linux/jiffies.h>
-+#include <linux/ktime.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
-@@ -122,6 +122,11 @@ static const struct regmap_config dc_fg_regmap_config = {
- 	.reg_stride = 4,
- 	.val_bits = 32,
- 	.fast_io = true,
-+	/*
-+	 * Registers could be accessed with local irq and preempt disabled,
-+	 * so use a raw spinlock to avoid sleeping on PREEMPT_RT.
-+	 */
-+	.use_raw_spinlock = true,
- 	.wr_table = &dc_fg_regmap_write_table,
- 	.rd_table = &dc_fg_regmap_read_table,
- 	.max_register = FGCHSTATCLR,
-@@ -230,7 +235,7 @@ u32 dc_fg_get_line_index(struct dc_fg *fg)
- 
- bool dc_fg_wait_for_frame_index_moving(struct dc_fg *fg)
- {
--	unsigned long timeout = jiffies + msecs_to_jiffies(100);
-+	ktime_t timeout = ktime_add_ms(ktime_get(), 100);
- 	u32 frame_index, last_frame_index;
- 
- 	frame_index = dc_fg_get_frame_index(fg);
-@@ -238,7 +243,7 @@ bool dc_fg_wait_for_frame_index_moving(struct dc_fg *fg)
- 		last_frame_index = frame_index;
- 		frame_index = dc_fg_get_frame_index(fg);
- 	} while (last_frame_index == frame_index &&
--		 time_before(jiffies, timeout));
-+		 ktime_before(ktime_get(), timeout));
- 
- 	return last_frame_index != frame_index;
+ /* STATICCONTROL */
+ #define SHDLDREQSTICKY_MASK		GENMASK(31, 24)
+@@ -256,3 +258,26 @@ void dc_fu_common_hw_init(struct dc_fu *fu)
+ 		dc_fu_set_pixel_blend_mode(fu, i);
+ 	}
  }
-diff --git a/drivers/gpu/drm/imx/dc/dc-kms.h b/drivers/gpu/drm/imx/dc/dc-kms.h
-index cd7860eff986..a25d47eebd28 100644
---- a/drivers/gpu/drm/imx/dc/dc-kms.h
-+++ b/drivers/gpu/drm/imx/dc/dc-kms.h
-@@ -50,6 +50,8 @@ struct dc_crtc {
- 	struct dc_ed *ed_safe;
- 	/** @fg: framegen */
- 	struct dc_fg *fg;
-+	/** @tc: tcon */
-+	struct dc_tc *tc;
- 	/**
- 	 * @irq_dec_framecomplete:
- 	 *
-diff --git a/drivers/gpu/drm/imx/dc/dc-tc.c b/drivers/gpu/drm/imx/dc/dc-tc.c
-index d0d4faba790e..626758904f77 100644
---- a/drivers/gpu/drm/imx/dc/dc-tc.c
-+++ b/drivers/gpu/drm/imx/dc/dc-tc.c
-@@ -8,11 +8,30 @@
- #include <linux/platform_device.h>
++
++int dc_fu_get_dprc(struct dc_fu *fu)
++{
++	struct dc_dprc *dprc;
++	struct dc_prg *prg;
++
++	prg = dc_prg_lookup_by_phandle(fu->dev, "fsl,prg", 0);
++	if (!prg)
++		return dev_err_probe(fu->dev, -EPROBE_DEFER,
++				     "failed to lookup PRG\n");
++
++	dprc = dc_prg_get_dprc(prg);
++	if (!dprc)
++		return dev_err_probe(fu->dev, -EPROBE_DEFER,
++				     "failed to get DPR channel from PRG\n");
++
++	fu->dprc = dc_dprc_get(fu->dev, dprc);
++	if (!fu->dprc)
++		return dev_err_probe(fu->dev, -EPROBE_DEFER,
++				     "failed to get DPR channel\n");
++
++	return 0;
++}
+diff --git a/drivers/gpu/drm/imx/dc/dc-fu.h b/drivers/gpu/drm/imx/dc/dc-fu.h
+index cc93317e3001..9fbd7aadd264 100644
+--- a/drivers/gpu/drm/imx/dc/dc-fu.h
++++ b/drivers/gpu/drm/imx/dc/dc-fu.h
+@@ -8,11 +8,13 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/device.h>
  #include <linux/regmap.h>
+ #include <linux/types.h>
  
-+#include <drm/drm_modes.h>
-+
- #include "dc-drv.h"
- #include "dc-de.h"
+ #include <drm/drm_fourcc.h>
  
- #define TCON_CTRL	0x410
--#define  CTRL_RST_VAL	0x01401408
-+#define  SPLITPOSITION_MASK	GENMASK(29, 16)
-+#define  SPLITPOSITION(n)	FIELD_PREP(SPLITPOSITION_MASK, (n))
-+#define  DUAL_SWAP	BIT(15)
-+#define  MINILVDS_OPCODE_MASK	GENMASK(14, 12)
-+#define  MODE_4PAIRS	FIELD_PREP(MINILVDS_OPCODE_MASK, 0x1)
-+#define  LVDS_CLOCK_INV	BIT(11)
-+#define  LVDS_BALANCE	BIT(10)
-+#define  LVDSMODE	BIT(9)
-+#define  ENLVDS		BIT(8)
-+#define  INV_CTRL_MASK	GENMASK(7, 4)
-+#define  BYPASS		BIT(3)
-+#define  TCON_SYNC	BIT(2)
-+#define  CHANNELMODE_MASK	GENMASK(1, 0)
-+#define  CTRL_RST_MASK	\
-+		(SPLITPOSITION_MASK | DUAL_SWAP | MINILVDS_OPCODE_MASK | \
-+		 LVDS_CLOCK_INV | LVDS_BALANCE | LVDSMODE | ENLVDS | \
-+		 INV_CTRL_MASK | TCON_SYNC | CHANNELMODE_MASK)
-+#define  CTRL_RST_VAL  (SPLITPOSITION(0x140) | MODE_4PAIRS | LVDS_BALANCE)
++#include "dc-dprc.h"
+ #include "dc-pe.h"
  
- /* red: MAPBIT 29-20, green: MAPBIT 19-10, blue: MAPBIT 9-0 */
- #define MAPBIT3_0	0x418
-@@ -24,6 +43,16 @@
- #define MAPBIT27_24	0x430
- #define MAPBIT31_28	0x434
- 
-+#define SPGPOSON(n)	(0x460 + (n) * 16)
-+#define SPGMASKON(n)	(0x464 + (n) * 16)
-+#define SPGPOSOFF(n)	(0x468 + (n) * 16)
-+#define SPGMASKOFF(n)	(0x46c + (n) * 16)
-+#define  X(n)		FIELD_PREP(GENMASK(30, 16), (n))
-+#define  Y(n)		FIELD_PREP(GENMASK(14, 0), (n))
-+
-+#define SMXSIGS(n)	(0x520 + (n) * 8)
-+#define SMXFCTTABLE(n)	(0x524 + (n) * 8)
-+
- static const struct dc_subdev_info dc_tc_info[] = {
- 	{ .reg_start = 0x5618c800, .id = 0, },
- 	{ .reg_start = 0x5618e400, .id = 1, },
-@@ -32,6 +61,8 @@ static const struct dc_subdev_info dc_tc_info[] = {
- static const struct regmap_range dc_tc_regmap_ranges[] = {
- 	regmap_reg_range(TCON_CTRL, TCON_CTRL),
- 	regmap_reg_range(MAPBIT3_0, MAPBIT31_28),
-+	regmap_reg_range(SPGPOSON(0), SPGMASKOFF(4)),
-+	regmap_reg_range(SMXSIGS(0), SMXFCTTABLE(3)),
+ #define FRAC_OFFSET			0x28
+@@ -99,6 +101,7 @@ struct dc_fu_ops {
  };
  
- static const struct regmap_access_table dc_tc_regmap_access_table = {
-@@ -44,9 +75,14 @@ static const struct regmap_config dc_tc_regmap_config = {
- 	.reg_stride = 4,
- 	.val_bits = 32,
- 	.fast_io = true,
-+	/*
-+	 * Registers could be accessed with local irq and preempt disabled,
-+	 * so use a raw spinlock to avoid sleeping on PREEMPT_RT.
-+	 */
-+	.use_raw_spinlock = true,
- 	.wr_table = &dc_tc_regmap_access_table,
- 	.rd_table = &dc_tc_regmap_access_table,
--	.max_register = MAPBIT31_28,
-+	.max_register = SMXFCTTABLE(3),
+ struct dc_fu {
++	struct device *dev;
+ 	struct regmap *reg_pec;
+ 	struct regmap *reg_cfg;
+ 	char name[21];
+@@ -114,6 +117,7 @@ struct dc_fu {
+ 	enum dc_link_id link_id;
+ 	struct dc_fu_ops ops;
+ 	struct dc_lb *lb;
++	struct dc_dprc *dprc;
  };
  
- /*
-@@ -59,10 +95,85 @@ static const u32 dc_tc_mapbit[] = {
- 	0x13121110, 0x03020100, 0x07060504, 0x00000908,
- };
+ extern const struct dc_fu_ops dc_fu_common_ops;
+@@ -123,6 +127,7 @@ void dc_fu_get_pixel_format_shifts(struct dc_fu *fu, u32 format, u32 *shifts);
+ void dc_fu_shdldreq_sticky(struct dc_fu *fu, u8 layer_mask);
+ void dc_fu_set_src_bpp(struct dc_fu *fu, enum dc_fu_frac frac, unsigned int bpp);
+ void dc_fu_common_hw_init(struct dc_fu *fu);
++int dc_fu_get_dprc(struct dc_fu *fu);
  
-+void dc_tc_set_operation_mode(struct dc_tc *tc)
-+{
-+	regmap_write_bits(tc->reg, TCON_CTRL, BYPASS, 0);
-+}
-+
-+void dc_tc_cfg_videomode(struct dc_tc *tc, struct drm_display_mode *m)
-+{
-+	int hdisplay, hsync_start, hsync_end;
-+	int vdisplay, vsync_start, vsync_end;
-+	int y;
-+
-+	hdisplay = m->crtc_hdisplay;
-+	vdisplay = m->crtc_vdisplay;
-+	hsync_start = m->crtc_hsync_start;
-+	vsync_start = m->crtc_vsync_start;
-+	hsync_end = m->crtc_hsync_end;
-+	vsync_end = m->crtc_vsync_end;
-+
-+	/*
-+	 * Turn TCON into operation mode later after the first dumb frame is
-+	 * generated by DC.  This makes DPR/PRG be able to evade the frame.
-+	 */
-+	regmap_write_bits(tc->reg, TCON_CTRL, BYPASS, BYPASS);
-+
-+	/* dsp_control[0]: HSYNC */
-+	regmap_write(tc->reg, SPGPOSON(0), X(hsync_start));
-+	regmap_write(tc->reg, SPGMASKON(0), 0xffff);
-+
-+	regmap_write(tc->reg, SPGPOSOFF(0), X(hsync_end));
-+	regmap_write(tc->reg, SPGMASKOFF(0), 0xffff);
-+
-+	regmap_write(tc->reg, SMXSIGS(0), 0x2);
-+	regmap_write(tc->reg, SMXFCTTABLE(0), 0x1);
-+
-+	/* dsp_control[1]: VSYNC */
-+	regmap_write(tc->reg, SPGPOSON(1), X(hsync_start) | Y(vsync_start - 1));
-+	regmap_write(tc->reg, SPGMASKON(1), 0x0);
-+
-+	regmap_write(tc->reg, SPGPOSOFF(1), X(hsync_start) | Y(vsync_end - 1));
-+	regmap_write(tc->reg, SPGMASKOFF(1), 0x0);
-+
-+	regmap_write(tc->reg, SMXSIGS(1), 0x3);
-+	regmap_write(tc->reg, SMXFCTTABLE(1), 0x1);
-+
-+	/* dsp_control[2]: data enable */
-+	/* horizontal */
-+	regmap_write(tc->reg, SPGPOSON(2), 0x0);
-+	regmap_write(tc->reg, SPGMASKON(2), 0xffff);
-+
-+	regmap_write(tc->reg, SPGPOSOFF(2), X(hdisplay));
-+	regmap_write(tc->reg, SPGMASKOFF(2), 0xffff);
-+
-+	/* vertical */
-+	regmap_write(tc->reg, SPGPOSON(3), 0x0);
-+	regmap_write(tc->reg, SPGMASKON(3), 0x7fff0000);
-+
-+	regmap_write(tc->reg, SPGPOSOFF(3), Y(vdisplay));
-+	regmap_write(tc->reg, SPGMASKOFF(3), 0x7fff0000);
-+
-+	regmap_write(tc->reg, SMXSIGS(2), 0x2c);
-+	regmap_write(tc->reg, SMXFCTTABLE(2), 0x8);
-+
-+	/* dsp_control[3]: KACHUNK */
-+	y = vdisplay + 1;
-+
-+	regmap_write(tc->reg, SPGPOSON(4), X(0x0) | Y(y));
-+	regmap_write(tc->reg, SPGMASKON(4), 0x0);
-+
-+	regmap_write(tc->reg, SPGPOSOFF(4), X(0x20) | Y(y));
-+	regmap_write(tc->reg, SPGMASKOFF(4), 0x0);
-+
-+	regmap_write(tc->reg, SMXSIGS(3), 0x6);
-+	regmap_write(tc->reg, SMXFCTTABLE(3), 0x2);
-+}
-+
- void dc_tc_init(struct dc_tc *tc)
- {
--	/* reset TCON_CTRL to POR default so that TCON works in bypass mode */
--	regmap_write(tc->reg, TCON_CTRL, CTRL_RST_VAL);
-+	/* reset TCON_CTRL to POR default except for touching BYPASS bit */
-+	regmap_write_bits(tc->reg, TCON_CTRL, CTRL_RST_MASK, CTRL_RST_VAL);
+ const struct dc_fu_ops *dc_fu_get_ops(struct dc_fu *fu);
  
- 	/* set format */
- 	regmap_bulk_write(tc->reg, MAPBIT3_0, dc_tc_mapbit,
+diff --git a/drivers/gpu/drm/imx/dc/dc-fw.c b/drivers/gpu/drm/imx/dc/dc-fw.c
+index 14512c01ea78..030970d4f987 100644
+--- a/drivers/gpu/drm/imx/dc/dc-fw.c
++++ b/drivers/gpu/drm/imx/dc/dc-fw.c
+@@ -130,13 +130,18 @@ static int dc_fw_bind(struct device *dev, struct device *master, void *data)
+ 	void __iomem *base_cfg;
+ 	struct dc_fw *fw;
+ 	struct dc_fu *fu;
+-	int i, id;
++	int ret, i, id;
+ 
+ 	fw = devm_kzalloc(dev, sizeof(*fw), GFP_KERNEL);
+ 	if (!fw)
+ 		return -ENOMEM;
+ 
+ 	fu = &fw->fu;
++	fu->dev = dev;
++
++	ret = dc_fu_get_dprc(fu);
++	if (ret)
++		return ret;
+ 
+ 	base_pec = devm_platform_get_and_ioremap_resource(pdev, 0, &res_pec);
+ 	if (IS_ERR(base_pec))
 
 -- 
 2.43.0
