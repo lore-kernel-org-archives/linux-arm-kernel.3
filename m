@@ -2,128 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7084D606A33D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 11:08:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BB0A606E722
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 11:11:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HKGwxmSG;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=jY4hKmWu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OUec7pI2;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iMi+t1Ff
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=tD0Lls83Il+mQLYthxWqSv/YIy5kSUrF6JCqhkv/8Wo=; b=HKGwxmSGQJ+uok
-	+I/+IKey7Mr6isU9zr6Xkx9njrDw8JezJ/IHfhLXCACp3BzNGhvjOptyh1I7M0WOVn77K+t/YFh9i
-	o0+xbWCAzc/qw4raMc+Y5rRO7lPYKE4YxQrZdsUKP1+6s2pNf3qBbS+53VLxWNYWKpZuioPmVMgH/
-	p6k2sIEeJgo4+uR3VloWYw9mKS7BQHVLI6h2KK+S9A3ZlUehPEZdOC9DXxhrgPgF9U//Nf0ETGjcg
-	/PiCM1LaiYywOkZ/b2Bpgrwr7a6ldi3LHSMl8LttpXeZM/aOj2hnsWC9HMWiGAseQDwMtBlaSe2Rx
-	vxis3+uzXYypdzJT9gwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=k9sMhNFN8pOnQFMDY6q9oFH8xW41MAWGt8ZsO6lOl84=; b=OUec7pI2ywZTycOZoZab+SBlb/
+	+apvKakYShB4knxip/l4egQ5dcGvpdyan4OwPuNJjNQjfIxC6oaGUgWJoL+3dlWpATGPVdFs2bq/B
+	becA6FpdvE9ZzB4hI36F3Cent6XM6zLNUiWvenVRZaqKqBD9xjQj/kYyIt0y4NutbZa4M7T0Aqs20
+	nqx+AXkuWLEZUTaG9m5B1u/nuPEfVy16BNPqonbUgT0XANqwLYvix8nySMVWYwA+z8ZkkUvjYsROs
+	CRNAMoK77WcvQ6nFU5G2QI1rsIud4tARrsKzUe6BDJwwwNiTRwr4NS/vK/Rq8t5hMNgo73RH8vqN7
+	kz/yVrfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLIZ0-00000002K29-2Seu;
-	Mon, 26 Oct 2026 11:08:26 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1xLIbC-00000002KdL-0pDm;
+	Mon, 26 Oct 2026 11:10:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLIYy-00000002K1b-0fgh
+	id 1xLIb9-00000002KWO-2SxJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 11:08:25 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-8ac4806e210so20651027b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 04:08:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793012903; cv=none;
-        d=google.com; s=arc-20260327;
-        b=OkYFimoUpvsKlCg/E9RocZCGr1j/I+hpann9gPrhl/qN1kgr/aRIhJqBl3WawEuVJo
-         56twA7EDRn1+CZdWv0EGvbN9eDFJ+BTGwGP9eEkeDvPCNXV7ejbo70lW4MacqEUZjwRo
-         EvvLpZhsLUWXwIiBUIksCRL//EDckaNUf9C42ql/c1fIh5WUx+MUHqs7yu5Ov61X5vm5
-         wX9ftp6Yz2tSq9zdM6Qb90brbMKt6dYDQxZ3pK+K3+is5y8jn3kSr+XSvb8JfmKazGnd
-         gVLulNQi5b5l52rTOgg7zu13la/tp0kA5UM25wajoP/7cGZajS3HW8gjBIeJxMXOq2C8
-         2R7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=tD0Lls83Il+mQLYthxWqSv/YIy5kSUrF6JCqhkv/8Wo=;
-        fh=4lSzRoLz1kWQYAPmRukeFo81TkqBDc66jW103HRqYys=;
-        b=PDjdv5tz07BNuPKkFP/PYzzdmg91IabhYYvNwPiZrQOcSNTSjYNlZRqZko365bptsg
-         hMnFlc+XnE3pr4VV9LXCkgw0InOqOyAC98T7jZ7GKPiC3PxVFV60drFpU6HvF64uZS0m
-         FSCOPHNNlfZIRBa/ts2mU7G8VO13tBN+3blgvWUSWvfGqa5IE0nGZd8S8RAA5zS/R0lc
-         L4+IkeiAIAz8BoqFrGFTRjqOE5IdfEWoBKzCfPlmv3lNXXAhKZgNobkH48SVfc4rfJAg
-         yop36hmR4F3G5Mezynd2jY6lrCP/ZkZ4CsUUC43361weWnwIAhOuAT2IDDJMEgBAW2We
-         Hl8w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793012903; x=1793617703; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tD0Lls83Il+mQLYthxWqSv/YIy5kSUrF6JCqhkv/8Wo=;
-        b=jY4hKmWu/30XYXF3E/1ldB6T7hfLMicEkjb57AyplgJyvo7rTOKMPlRfMcOMyft9CM
-         cURg4RERS3uE2BIZB1CfPb6Xuba2TjL3ryOkzugA36QWTUQhb7KOwvXOnLlHWcHMO6Vf
-         Brt+cHf/rVyGgO4DsJiQkDa7bsQS0GeZbgbC28+YcPVhk+7T4yq1KgVgmb+z+Y7wvMT/
-         P89HYKXfxJ0MtDiQR/d047f50wvvoi1gOMoH/GJJX2ExfMqQ5XHxBtwDanjB3hdguF2i
-         DFC9YOWewn2cgsttc+l2/Imh6jksnA/wnea3RBks/Mee2vPDPY+ROjSL3/RRgrZ2C5g/
-         AbAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793012903; x=1793617703;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tD0Lls83Il+mQLYthxWqSv/YIy5kSUrF6JCqhkv/8Wo=;
-        b=oKMPmXRGuT0wDdtMltl6pRclbMc4eo4SWmCSpB8AfBUsKxBY9y0JM3SN4bDsKIUScC
-         sVc4Letsdr9BH5d8rmELukhdtksxtDNhzEhQ/lZhR4kKPPtp74qXY/dloi/gSbAskIqC
-         aW7Nlvdy1yXsfZK4kc1YFV1EbURClYj4MU7e5lS62XQkVhRW+Vo6wuix9A7h3GXi8Qps
-         v9tmwOSOy0+j1ARGVtn6nOmcw4VsxS3cDqTG53KsdaccsqrAebJInKZB6ZBACd/tlZeg
-         yXFP1XIGejhd25cI/UPcf+o3LgKIdFqU1cRx3AgxfjWzS6x5KxEOLWq3Mod3ssSh2x4O
-         Cv1g==
-X-Forwarded-Encrypted: i=1; AKwUvBzlSt44UG3RhwOmKLHQmqU3t2yqBzsR+qx4Q+Vg/fklFCxPpQ7EUeXH4RMxdtIsME+0xBJHPcbYq+NlCmYdFas1@lists.infradead.org
-X-Gm-Message-State: AFq9FYL2AfN38AEjN0jWAWrsnWdXLp83oLrFOBB0qL72FSoVpR+DkheD
-	6r6aKmGwnFzYNgi0aJ5uzecpNwwuXR4GmuGeryR3bS4bLG1IcdU3CM2yZc4RZIs7og8BUVo6+ZB
-	z2Wc4eBozmIwWeQopHsy9uCu1YOmimsk=
-X-Gm-Gg: AYBFou3HIhsytoHtNN47pJLwPZxr+ZxRbjE/NB7eDjQsdbW2DPY8yeKigGGoayWKDQL
-	WK3bJIy7dq//A3ZeZGoC08UJUQNsQoIPF9XxNE+4db6F52mIwgxQhgbt1EsNr17Kty+n6ONkQio
-	JunZvNxEtU59F+1MlRQfsgvjcAUDoAOcLVPwlELtVLH3D1sSVSZxmDPKnvZX1pShjILS2PPnR5b
-	DlZvkv01wdrJJODeLtLNIKvNhHDqb117VN0Kks+lCAxzhNnIIDpD2hQ6BbShpoC1g0VOvIVzkEF
-	jiIe5ZlNvS7MLzy+n6TqtJJgjk3XS5mwN8DpZAgrmMHBHPjyCB5q0Vr+joHlc7dBrAdWph3wfl9
-	pICUiL4+nlbsprD1i6Y6LxxY0C80lVytRv6yV4g==
-X-Received: by 2002:a05:690c:c50e:b0:8aa:148:7706 with SMTP id
- 00721157ae682-8b1669caf65mr45460507b3.8.1793012902608; Mon, 26 Oct 2026
- 04:08:22 -0700 (PDT)
+	Mon, 26 Oct 2026 11:10:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C511A444FC;
+	Mon, 26 Oct 2026 11:10:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3BCE1F01346;
+	Mon, 26 Oct 2026 11:10:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793013038;
+	bh=k9sMhNFN8pOnQFMDY6q9oFH8xW41MAWGt8ZsO6lOl84=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=iMi+t1FfCEegigLJ9CuoGz3CSAN+cfgqvwzs7L/SqFHfrcFlgcwdNWxScd1sKwkPU
+	 l5kOoCpcHPtSEvJTFXADtdsNcBefGldeTCd9CIxFt1ZHR1WKMbd217EhkZ8wQZrvhj
+	 mqENI6fMi38hrFLC6ZEfRxq5IRqXgXLlFA2DWovxVc0ZUcX4Dz9BpLbMZiL3DVJm3v
+	 rG23D4MT5ar93ux9Z23URNnPvVZHZnjFVulOfy5L3mLg/3bAY/G4+C2I1FerFem5nQ
+	 W48X2hjHFIq0JNHi9cn1pYo3ri6yucJEel9dzMadss/grFM05ToPrbHGSL4QtFAy8m
+	 AJxvRDz1VAycw==
+Subject: Re: [PATCH net v5 2/2] net: stmmac: restore RX descriptor buffer
+ addresses on resume
+From: netdev-bot+sashiko@kernel.org
+To: dinghui1111@163.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dinghui@lixiang.com, xiasanbo@lixiang.com, yangchen11@lixiang.com,
+ liuxuanjun@lixiang.com, zhoujing3@lixiang.com, fujiahui@lixiang.com
+Date: Mon, 26 Oct 2026 11:10:37 +0000
+Message-ID: <179301303716.3134.2346618514026272618@kernel.org>
+In-Reply-To: <20261025100636.613670-3-dinghui1111@163.com>
+References: <20261025100636.613670-3-dinghui1111@163.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <CAD_a9macSzuBsmmoLu2Cu1doLADvcpASFi-6ADnOvmMdgDEfHA@mail.gmail.com>
-In-Reply-To: <CAD_a9macSzuBsmmoLu2Cu1doLADvcpASFi-6ADnOvmMdgDEfHA@mail.gmail.com>
-From: Prasanth <prasanth.padarthi10@gmail.com>
-Date: Mon, 26 Oct 2026 16:38:11 +0530
-X-Gm-Features: AclHuK8Cpr6C86Ogdt3iNPcZespgzJH98h_TGBqL0O48_bvZRHN6DW3ckIu6Ds0
-Message-ID: <CAMFFDGgygzu3OdFkq6+ztZOzaFMMTdYFqtkvmOtHNovQvabXQA@mail.gmail.com>
-Subject: Re: [OpenBMC] Guidance on Getting Started with OpenBMC and Choosing a
- Development Board
-To: KAVYA M M <kavyamadarsh@gmail.com>
-Cc: openbmc@lists.ozlabs.org, linux-aspeed@lists.ozlabs.org, 
-	andrew@codeconstruct.com.au, changhuang.liang@starfivetech.com, 
-	Shuah Khan <skhan@linuxfoundation.org>, Jani Nikula <jani.nikula@intel.com>, 
-	Vitaly Lubart <lubvital@gmail.com>, Hanjun Guo <guohanjun@huawei.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Alexander Usyskin <alexander.usyskin@intel.com>, 
-	Jason Gunthorpe <jgg@ziepe.ca>, Breno Leitao <leitao@debian.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	James Morse <james.morse@arm.com>, Paolo Abeni <pabeni@redhat.com>, 
-	Stephen Hemminger <stephen@networkplumber.org>, Dave Penkler <dpenkler@gmail.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Jonathan Cameron <jic23@kernel.org>, Dan Williams <djbw@kernel.org>, 
-	Mukesh Rathor <mrathor@linux.microsoft.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
-	Alexandra Winter <wintera@linux.ibm.com>, Julian Braha <julianbraha@gmail.com>, 
-	Karthikeyan KS <karthiproffesional@gmail.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Joel Stanley <joel@jms.id.au>, 
-	Chia-Wei Wang <chiawei_wang@aspeedtech.com>, Oskar Senft <osk@google.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_040824_217651_4D42AF61 
-X-CRM114-Status: GOOD (  32.22  )
-X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,125 +74,279 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Kavya,
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-Thanks for sharing your platform details and starting a separate thread.
+Critical: 0 · High: 2 · Medium: 1 · Low: 1 (1)
 
-I am also Working On OpenBMC through ASRock Rack B650D4U enablement.
-My work is still in progress, and I have not worked on the Gigabyte
-MZ32-AR0 or evaluated development boards within your budget, so I
-cannot recommend a specific platform confidently.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-For the vendor-restricted shell, I would suggest contacting Gigabyte
-support about supported debugging access and recovery procedures.
+- [High] On cores with legacy enhanced/normal descriptors (DWMAC100,
+  DWMAC1000, DWMAC 3.x: enh_desc_ops and ndesc_ops), an XSK RX slot with…
+- [High] On GMAC4/XGMAC, the XSK 'leave CPU-owned holes' approach puts
+  unfilled slots in the middle of the ring, inside the region the RX…
+- [Medium] The patch adds an allocation-dependent way for stmmac_resume()
+  to fail, and that failure leaves the netdev unrecoverable.
+- [Low] stmmac_reinit_rx_descriptors() publishes every restored
+  descriptor with stmmac_set_rx_owner(priv, p, false), so…
 
-My practical recovery experience is limited to the ASRock Rack B650D4U
-that I am currently working on. I use a CH341A external SPI flash
-programmer for BMC firmware recovery.
+Pre-existing issues:
+- [Low] stmmac_reinit_rx_descriptors() can attach XSK buffers to slots
+  that had none at open or pool-enable time, but it never updates…
 
-I have not worked on the Gigabyte MZ32-AR0, so I cannot confirm its
-recovery procedure or programmer compatibility. Please verify the
-flash device, required voltage, and board-specific recovery
-instructions before attempting external programming.
+--
 
-On Mon, Oct 26, 2026 at 4:07=E2=80=AFPM KAVYA M M <kavyamadarsh@gmail.com> =
-wrote:
->
-> Hello OpenBMC Team,
->
-> I am new to OpenBMC development and would appreciate your guidance on get=
-ting started with developing and validating an OpenBMC image for a server p=
-latform.
->
-> I have a few general questions:
->
-> 1. What hardware documentation is normally required to develop a reliable=
- OpenBMC image for a new motherboard? Are the user manual and BMC reference=
- schematic sufficient, or are the complete motherboard schematic and board-=
-specific signal mappings essential?
-> 2. If the original BMC firmware is available only as a binary and the mot=
-herboard schematic is unavailable, what is the recommended approach for ide=
-ntifying the hardware configuration and developing the initial image?
-> 3. Which existing OpenBMC reference platforms are suitable for beginners =
-who want to learn the Yocto/BitBake build system, device trees, machine con=
-figuration, sensor integration, and required services?
-> 4. Which hardware platforms provide good support for testing sensor monit=
-oring, fan PWM/tachometer control, Redfish, GPIO, host power control, and p=
-ower sequencing?
-> 5. Which functions can be tested in QEMU, and what hardware documentation=
- and recovery facilities are necessary before proceeding with physical-boar=
-d testing?
->
-> Request for Guidance on Restricted BMC SSH Access
->
-> I would also like to understand how to access the underlying Linux shell =
-on a BMC when SSH access is restricted by the vendor firmware.
->
-> For example, some BMCs provide SSH access but expose only a restricted in=
-terface, such as SMASH-CLP, instead of a standard Linux shell. In such case=
-s, what is the recommended and authorized method for accessing the underlyi=
-ng Linux environment for debugging, inspecting system configuration, and un=
-derstanding the running services?
->
-> Are there standard OpenBMC debugging methods or configuration options for=
- enabling SSH shell access during development? If access is restricted by t=
-he vendor firmware, what documentation or permissions would be required to =
-investigate this further?
->
-> My current hardware
->
-> I currently have access to a Gigabyte MZ32-AR0-00 motherboard with an ASP=
-EED AST2500 BMC.
->
-> I am considering using this board for my OpenBMC development. However, I =
-do not have access to the complete motherboard schematic, and some board-sp=
-ecific hardware mappings are difficult to confirm from the available docume=
-ntation and original vendor firmware.
->
-> I would appreciate your advice on whether this is a suitable platform for=
- learning and developing OpenBMC, or whether a different, better-documented=
- development platform would be a more practical starting point.
->
-> Request for development-board recommendations
->
-> My budget for purchasing a BMC development board is approximately =E2=82=
-=B95,000=E2=80=93=E2=82=B910,000.
->
-> Could you recommend a specific development board or server motherboard th=
-at is affordable, well documented, and preferably has an existing upstream =
-OpenBMC machine configuration?
->
-> Ideally, I would like a platform that supports learning and testing:
->
-> - OpenBMC image building using Yocto/BitBake.
-> - Hardware sensor monitoring and integration.
-> - Fan PWM/tachometer control and cooling failsafe behavior.
-> - Redfish and other BMC management interfaces.
-> - GPIO, host power control, and power sequencing.
-> - QEMU-based software testing followed by physical-board validation.
->
-> My preference is for a platform with an existing reference implementation=
-, accessible hardware documentation, and a reliable firmware recovery metho=
-d. Used development boards or server motherboards would also be suitable if=
- they are available within my budget.
->
-> My goal is to choose the most practical platform, build and validate an i=
-nitial OpenBMC image, and gradually learn the hardware integration process =
-before attempting to flash a physical BMC.
->
-> I would be grateful for any recommendations on suitable hardware, existin=
-g reference platforms, documentation, or practical guidance from developers=
- experienced in OpenBMC platform development.
->
-> Thank you for your time and support.
->
-> Best regards,
-> Kavya M M
+net: stmmac: restore RX descriptor buffer addresses on resume
+
+This patch restores RX descriptor buffer addresses in stmmac_resume() after
+stmmac_clear_descriptors(). On GMAC4/XGMAC, hardware writeback can overwrite
+those addresses for descriptors that completed but were not refilled before
+suspend. It moves buffer setup into stmmac_prepare_rx_buffer() and
+stmmac_prepare_rx_buffer_zc(), which the refill paths also use, allocates
+missing pages with GFP_KERNEL, and leaves XSK slots that have no buffer
+CPU-owned.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index f5ae12208e85b..e56f5d044fc8a 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+
+[ ... ]
+
+> @@ -1688,32 +1722,98 @@ static int stmmac_init_rx_buffers(struct stmmac_priv *priv,
+
+[ ... ]
+
+> +static int stmmac_reinit_rx_descriptors(struct stmmac_priv *priv,
+> +					struct stmmac_dma_conf *dma_conf,
+> +					u32 queue)
+> +{
+> +	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
+> +	struct stmmac_rx_buffer *buf;
+> +	struct dma_desc *p;
+> +	int i, ret;
+> +
+> +	for (i = 0; i < dma_conf->dma_rx_size; i++) {
+> +		buf = &rx_q->buf_pool[i];
+> +		p = stmmac_get_rx_desc(priv, rx_q, i);
+> +
+> +		if (rx_q->xsk_pool) {
+> +			ret = stmmac_prepare_rx_buffer_zc(priv, rx_q, buf, p);
+
+[Severity: Low]
+This is a pre-existing issue, not one introduced by this patch, but
+rx_q->buf_alloc_num is not updated when this loop attaches XSK buffers to
+slots that had none at open time.
+
+stmmac_hw_setup()->stmmac_init_dma_engine() programs the RX tail from it:
+
+	stmmac_set_queue_rx_tail_ptr(priv, rx_q, chan,
+				     rx_q->buf_alloc_num);
+
+Also, stmmac_set_queue_rx_buf_size() uses the XSK frame size only when
+buf_alloc_num is non-zero.
+
+If the fill ring was short at open, slots filled here at index
+buf_alloc_num or above may lie beyond the programmed tail. If
+buf_alloc_num is 0, the buffer size falls back to dma_buf_sz.
+
+The open path uses the same stale value, and so did the code before this
+patch, so this is only a bookkeeping mismatch.
+
+> +			if (ret) {
+> +				/* An empty fill ring must not prevent TX-only use. */
+> +				stmmac_clear_desc(priv, p);
+> +				continue;
+> +			}
+
+[Severity: High]
+On cores with the legacy enh_desc_ops or ndesc_ops, does this leave the
+slot DMA-owned with a buffer address of 0?
+
+stmmac_clear_descriptors() has just run init_rx_desc on every RX
+descriptor, and that sets OWN in des0:
+
+enh_desc_init_rx_desc() {
+    ...
+	p->des0 |= cpu_to_le32(RDES0_OWN);
+    ...
+}
+
+On these cores, the ->clear op only clears des2:
+
+static void enh_desc_clear(struct dma_desc *p)
+{
+	p->des2 = 0;
+}
+
+static void ndesc_clear(struct dma_desc *p)
+{
+	p->des2 = 0;
+}
+
+The final loop below skips this slot when !buf->xdp, but nothing clears
+OWN. These DMA engines have no RX tail pointer, so the DMA keeps walking
+the ring while OWN is set. The next frame that lands in this slot would be
+written to bus address 0.
+
+XSK zero-copy is advertised on every core (NETDEV_XDP_ACT_XSK_ZEROCOPY in
+xdp_features), and stmmac_xdp_enable_pool() has no descriptor-format
+check, so these cores can reach this path.
+
+Before this patch, des2 here still held the previous, still-mapped UMEM
+chunk address. The commit message says such a slot "must not receive an
+invalid buffer address".
+
+Could OWN be cleared explicitly here, for example RDES0_OWN in des0 on
+enh/ndesc? Only dwmac4 and xgmac zero the whole descriptor in ->clear.
+
+[Severity: High]
+On GMAC4/XGMAC, can a CPU-owned hole in the middle of the ring stall RX on
+this queue permanently?
+
+stmmac_reset_queues_param() has set cur_rx = dirty_rx = 0, so a hole at
+slot D sits in the region the RX path treats as hardware-owned. The DMA
+fills slots 0 to D-1 and stops at D with an RBU event.
+
+In stmmac_rx_zc(), dwmac4_wrback_get_rx_status() does not report a fully
+zeroed descriptor as dma_own. So cur_rx moves to D+1 before the missing
+buffer is noticed:
+
+stmmac_rx_zc() {
+    ...
+	rx_q->cur_rx = next_entry;
+    ...
+	if (!buf->xdp)
+		break;
+    ...
+}
+
+stmmac_rx_zc() is the only caller of the refill, and only once the dirty
+count reaches STMMAC_RX_FILL_BATCH:
+
+	if (dirty >= STMMAC_RX_FILL_BATCH) {
+		failure = failure ||
+			  !stmmac_rx_refill_zc(priv, queue, dirty);
+
+If D < 15, dirty stays at D+1, the hole is never refilled, and the DMA
+stays stopped at D. stmmac_xsk_wakeup() only schedules NAPI, so refilling
+the fill ring from userspace does not recover the queue.
+
+If D >= 15, a later refill fills D and moves the tail. Software has already
+moved past D, though, so that frame would be consumed a full ring later
+and out of order.
+
+Could the holes be placed in the dirty region instead, for example by
+setting dirty_rx and the tail to the first unfilled slot?
+
+> +		} else {
+> +			ret = stmmac_init_rx_buffers(priv, dma_conf, p, i,
+> +						     GFP_KERNEL, queue);
+> +			if (ret)
+> +				return ret;
+> +		}
+>  	}
+
+[ ... ]
+
+> +	/* GMAC4/XGMAC secondary address writes overwrite the OWN bit. */
+> +	dma_wmb();
+> +	for (i = 0; i < dma_conf->dma_rx_size; i++) {
+> +		buf = &rx_q->buf_pool[i];
+> +		if (rx_q->xsk_pool && !buf->xdp)
+> +			continue;
+> +
+> +		p = stmmac_get_rx_desc(priv, rx_q, i);
+> +		stmmac_set_rx_owner(priv, p, false);
+
+[Severity: Low]
+Should the disable_rx_ic argument here follow priv->use_riwt instead of
+always being false?
+
+stmmac_clear_rx_descriptors() passes priv->use_riwt as disable_rx_ic. On
+GMAC4/XGMAC that choice is lost, because dwmac4_set_sec_addr() assigns
+des3 outright:
+
+	p->des2 = cpu_to_le32(lower_32_bits(addr));
+	p->des3 = cpu_to_le32(upper_32_bits(addr));
+
+This loop then always sets IOC through dwmac4_set_rx_owner():
+
+	if (!disable_rx_ic)
+		flags |= RDES3_INT_ON_COMPLETION_EN;
+
+With RIWT coalescing enabled, every descriptor in the first ring pass
+after resume would raise a completion interrupt. That continues until
+stmmac_rx_refill() or stmmac_rx_refill_zc() re-arm the descriptors using
+stmmac_rx_need_ic().
+
+> +	}
+>  
+>  	return 0;
+>  }
+
+[ ... ]
+
+> @@ -8503,6 +8577,18 @@ int stmmac_resume(struct device *dev)
+>  	stmmac_free_tx_skbufs(priv);
+>  	stmmac_clear_descriptors(priv, &priv->dma_conf);
+>  
+> +	for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++) {
+> +		ret = stmmac_reinit_rx_descriptors(priv, &priv->dma_conf, queue);
+> +		if (ret) {
+> +			netdev_err(ndev, "Failed to restore RX queue %u: %d\n",
+> +				   queue, ret);
+> +			stmmac_legacy_serdes_power_down(priv);
+> +			mutex_unlock(&priv->lock);
+> +			rtnl_unlock();
+> +			return ret;
+> +		}
+> +	}
+
+[Severity: Medium]
+If stmmac_reinit_rx_descriptors() returns -ENOMEM here, what state is the
+netdev left in?
+
+This early return skips stmmac_enable_all_queues(), phylink_resume() and
+netif_device_attach(). NAPI stays disabled from stmmac_suspend(), the
+device stays detached, and phylink_prepare_resume() is never matched by
+phylink_resume(). netif_running() is still true.
+
+A later close then runs:
+
+dev_close()
+  stmmac_release()
+    __stmmac_release()
+      stmmac_disable_all_queues()
+        napi_disable()
+
+on NAPI instances that are already disabled. napi_disable_locked() waits
+for NAPIF_STATE_SCHED to clear, but that bit is still set from the first
+disable, so the close would hang with RTNL held.
+
+The existing stmmac_hw_setup() failure path has the same problem. This
+patch adds a new trigger that depends on a GFP_KERNEL allocation
+succeeding during system resume.
+
+The XSK branch already tolerates missing buffers. Could the page_pool
+branch do the same, for example by leaving the slot CPU-owned for the
+refill path to retry, instead of failing the whole resume?
+
+>  	ret = stmmac_hw_setup(ndev);
+>  	if (ret < 0) {
+>  		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261025100636.613670-1-dinghui1111%40163.com
 
