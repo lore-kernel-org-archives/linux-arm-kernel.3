@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2249E606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 12:49:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0312D606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 12:52:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=O8oYjESE;
-	dkim=pass (2048-bit key, unprotected) header.d=ideco.ru header.i=@ideco.ru header.a=rsa-sha256 header.s=ics header.b=ZnG4lyXx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=i3/ftGr0;
+	dkim=pass (2048-bit key, unprotected) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=eSWucYVB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -14,62 +14,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=x3tZrNEj6Izrz6Ol6so5T/1/B/wLw4Q2nD05/ulbAI4=; b=O8oYjESEGqWZrWYRDybmJXLcDV
-	QKTBpMiMzyrwne1L2BPwtUrxuoYcPPwOOPXiV0IDnNphAZBS2FEHGaQY07dj6BTZPMEK4a+OBDQxA
-	3O9UFYLX2Gvzy80EiqFpePDUp400Wnd8ZrDKZj/f7p3KBfFAFz8RiUkVC7oJlLZLcvQLCGi2i1qgA
-	4MvXHFFs2a7u4yzNbeH506qHO7JeNPyD3YR3zbYOWk2xgAcIWfgL44DAuy4VcIYIWamxSmshqE2hV
-	N51OqsjyfNYADONDMYo8/lUoSipupmuTOgol8oBrElDxkA1TbN97Gqmzw5riGXcGfiSs3wvkoa3Dp
-	LPw+NdVg==;
+	bh=ONPO9iv+gG/8/my8a4wsEXO1rhD3B0oGFhZA4jXD498=; b=i3/ftGr0zxymnQaemd8DJgBCB9
+	4hXg22auG+PBhExn8rflAuihDhYVsFoDxj0jVq5hGVI4C5mBIriMs1SVp48jRGMJR/L0rr74wyyO1
+	d7ZHENynBGaM/HezYRPn/T0NS6R8N/8THKT4DKUgn7rSIbejb7q/JNrM17tSBcQEMChjDonIrS70B
+	G6V7vG3Rbtjjp2LbKJ+C8rheHfyqAcoGsLYQKgdAzC5/G5rYofq++ZqVEQhzmKCXdCkn+RPmbzYhz
+	FM63DUyhq25p+d6hKO4Hf6ZR3Y66Ih6sZ8KCgJvcYrv7lmYg+0D7h8rxhVFH/Wl1GCu8MMAdoymiQ
+	kTs1ngcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLK8X-00000002XBX-31pH;
-	Mon, 26 Oct 2026 12:49:13 +0000
-Received: from smtp.ideco.ru ([51.250.56.165])
+	id 1xLKBX-00000002XWP-1cwO;
+	Mon, 26 Oct 2026 12:52:19 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLK8U-00000002XAW-0tZl;
-	Mon, 26 Oct 2026 12:49:12 +0000
-Received: from [169.254.254.254] (localhost [127.0.0.1])
-	by smtp.ideco.ru (Postfix) with ESMTP id 1B9B618A4E;
-	Mon, 26 Oct 2026 17:48:55 +0500 (+05)
-Received: from fedora (5cfcac1b.dynamic.mv.ru [92.252.172.27])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.ideco.ru (Postfix) with ESMTPSA id 723C133363;
-	Mon, 26 Oct 2026 17:48:25 +0500 (+05)
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.ideco.ru 723C133363
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ideco.ru; s=ics;
-	t=1793018934; bh=x3tZrNEj6Izrz6Ol6so5T/1/B/wLw4Q2nD05/ulbAI4=;
-	h=From:To:Cc:Subject:Date;
-	b=ZnG4lyXxmaYqab22+7p1mNqqmEpiLAp4nPsQqZmK24/PYwag4HNi05WuXboXdSxSE
-	 gMAttKm6++CN3tGJ890xlA8WhE3zbE5muBfE33sJmxI2obZqMzrswYkXQsuMG3EWlc
-	 7KsiHQxW7e08SBJ+F5Ul1vj0pO0Jii88M0K/LoP5ePoX40hv8BMBA/hMPbAzQ5mWnD
-	 5bmy8jvDhn2qqn4fYJM4j3Sv7uG/holFmNbn0WxUiRzqWol8G8z1E6azBqMID9hOyL
-	 +UMySHZpUvRmZ9z1cFvwAd/tTd0TtQvf01pcdz4r/De9GRNS17u6Pp9VBcyexkIG0R
-	 vQjudsoFN9q1Q==
-From: Alex Kazinsky <a.kazinsky@ideco.ru>
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Alex Kazinsky <a.kazinsky@ideco.ru>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
+	id 1xLKBV-00000002XUW-1IRb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 Oct 2026 12:52:18 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2DD01108493;
+	Mon, 26 Oct 2026 13:52:03 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1793019125; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=ONPO9iv+gG/8/my8a4wsEXO1rhD3B0oGFhZA4jXD498=;
+	b=eSWucYVBc5laiV8IH04jLFMhd1NqSSAgVFtoBYhzz8ofkfrMWNiTQScay55YlczBNsLLzJ
+	NkCDA6A6AMVK50wEPUP4VnM4TV5eiFVgienl86d5xGXbMlPjQyJETeSyc1CemKKD0GKRBb
+	f0wsWwV2mdC7KDSw5j7GEA93jiXGxlCU/7IBFGNTeHmBBprrVJUlMkWh9KL6Q/k5BMjcXN
+	iO057G9cQcL0Imoi+xSqROEys44E+lxaRiG6oYhOdD9AFgAdNrhLBQLQMw/v0Rq/6O5pV0
+	Wepe63+vL175llrR9nEo2NwiJxhDK6cdtWDq3OLmqfpQCnDw32O7HTanq2ZlKA==
+From: Marek Vasut <marex@nabladev.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marex@nabladev.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	kernel@dh-electronics.com,
 	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org
-Subject: [PATCH v2] media: rkvdec: Handle interrupts without a current context
-Date: Mon, 26 Oct 2026 16:48:07 +0400
-Message-ID: <20261026124808.642373-1-a.kazinsky@ideco.ru>
-X-Mailer: git-send-email 2.56.0
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH] arm64: dts: st: Move Bluetooth to USART2 on STM32MP23xx DHCOS SoM
+Date: Mon, 26 Oct 2026 13:51:38 +0100
+Message-ID: <20261026125201.76716-1-marex@nabladev.com>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_054910_808286_FC1C3422 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20261026_055217_626008_3388761B 
+X-CRM114-Status: GOOD (  11.06  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,141 +82,69 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The watchdog can finish the current job before the threaded IRQ handler
-retrieves its context. In that case, v4l2_m2m_get_curr_priv() returns NULL,
-but the variant IRQ handlers unconditionally dereference ctx->dev.
+The Bluetooth chip is connected to USART2 on STM32MP23xx DHCOS SoM,
+adjust the DT to match the schematic.
 
-Pass the device pointer to the variant IRQ handlers independently of the
-context. Clear the interrupt status and, for VDPU383, disable interrupts
-before returning if no current context exists. This avoids dereferencing
-NULL while still acknowledging the interrupt.
-
-Found by Linux Verification Center (linuxtesting.org) with SVACE.
-
-Fixes: f9c7b7deeffd ("media: rkvdec: Support per-variant interrupt handler")
-Signed-off-by: Alex Kazinsky <a.kazinsky@ideco.ru>
+Fixes: 6642d6a47901 ("arm64: dts: st: Add support for DH electronics STM32MP23xx/STM32MP25xx DHCOS SoM and Breakout Board and DHSBC")
+Signed-off-by: Marek Vasut <marex@nabladev.com>
 ---
-Link to v1: https://lore.kernel.org/all/20261023131124.94116-1-a.kazinsky@ideco.ru/
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Christoph Niedermaier <cniedermaier@dh-electronics.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: kernel@dh-electronics.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-stm32@st-md-mailman.stormreply.com
+---
+ .../arm64/boot/dts/st/stm32mp23xx-dhcos-som.dtsi | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-This issue has not been reproduced on hardware. The watchdog/IRQ race
-described above is based on code analysis.
-
-A possible test would be to submit a single decoding job and temporarily
-delay the IRQ thread before v4l2_m2m_get_curr_priv() for longer than the
-watchdog timeout. This would artificially widen the suspected race window.
-This experiment has not been performed.
-
-Changes in v2:
-- Fix continuation-line alignment in the IRQ handler declarations.
-- Clarify that the issue has not been reproduced on hardware and
-  describe a possible test.
-
- .../media/platform/rockchip/rkvdec/rkvdec.c   | 23 +++++++++++++------
- .../media/platform/rockchip/rkvdec/rkvdec.h   |  4 +++-
- 2 files changed, 19 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 061281f903f3..da4ed7bde05c 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-@@ -1434,15 +1434,18 @@ static void rkvdec_iommu_restore(struct rkvdec_dev *rkvdec)
- 	}
- }
+diff --git a/arch/arm64/boot/dts/st/stm32mp23xx-dhcos-som.dtsi b/arch/arm64/boot/dts/st/stm32mp23xx-dhcos-som.dtsi
+index ffdcceb2fa237..5d4624c3200ad 100644
+--- a/arch/arm64/boot/dts/st/stm32mp23xx-dhcos-som.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp23xx-dhcos-som.dtsi
+@@ -24,7 +24,6 @@ &rv3032 {
+ 	interrupts-extended = <&gpiod 10 IRQ_TYPE_EDGE_FALLING>;
+ };
  
--static irqreturn_t rk3399_irq_handler(struct rkvdec_ctx *ctx)
-+static irqreturn_t rk3399_irq_handler(struct rkvdec_dev *rkvdec,
-+				      struct rkvdec_ctx *ctx)
- {
--	struct rkvdec_dev *rkvdec = ctx->dev;
- 	enum vb2_buffer_state state;
- 	u32 status;
+-/* Bluetooth */
+ &usart1 {
+ 	pinctrl-names = "default", "sleep", "idle";
+ 	pinctrl-0 = <&usart1_pins_a>;
+@@ -32,15 +31,9 @@ &usart1 {
+ 	pinctrl-2 = <&usart1_idle_pins_a>;
+ 	uart-has-rtscts;
+ 	status = "okay";
+-
+-	bluetooth {
+-		compatible = "infineon,cyw55572-bt";
+-		brcm,requires-autobaud-mode;
+-		max-speed = <3000000>;
+-		shutdown-gpios = <&ioexp 2 GPIO_ACTIVE_HIGH>;
+-	};
+ };
  
- 	status = readl(rkvdec->regs + RKVDEC_REG_INTERRUPT);
- 	writel(0, rkvdec->regs + RKVDEC_REG_INTERRUPT);
- 
-+	if (!ctx)
-+		return IRQ_HANDLED;
++/* Bluetooth */
+ &usart2 {
+ 	pinctrl-names = "default", "sleep", "idle";
+ 	pinctrl-0 = <&usart2_pins_b>;
+@@ -48,4 +41,11 @@ &usart2 {
+ 	pinctrl-2 = <&usart2_idle_pins_b>;
+ 	uart-has-rtscts;
+ 	status = "okay";
 +
- 	if (status & RKVDEC_RDY_STA) {
- 		state = VB2_BUF_STATE_DONE;
- 	} else {
-@@ -1457,9 +1460,9 @@ static irqreturn_t rk3399_irq_handler(struct rkvdec_ctx *ctx)
- 	return IRQ_HANDLED;
- }
- 
--static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
-+static irqreturn_t vdpu381_irq_handler(struct rkvdec_dev *rkvdec,
-+				       struct rkvdec_ctx *ctx)
- {
--	struct rkvdec_dev *rkvdec = ctx->dev;
- 	enum vb2_buffer_state state;
- 	bool need_reset = 0;
- 	u32 status;
-@@ -1467,6 +1470,9 @@ static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
- 	status = readl(rkvdec->regs + VDPU381_REG_STA_INT);
- 	writel(0, rkvdec->regs + VDPU381_REG_STA_INT);
- 
-+	if (!ctx)
-+		return IRQ_HANDLED;
-+
- 	if (status & VDPU381_STA_INT_DEC_RDY_STA) {
- 		state = VB2_BUF_STATE_DONE;
- 	} else {
-@@ -1486,9 +1492,9 @@ static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
- 	return IRQ_HANDLED;
- }
- 
--static irqreturn_t vdpu383_irq_handler(struct rkvdec_ctx *ctx)
-+static irqreturn_t vdpu383_irq_handler(struct rkvdec_dev *rkvdec,
-+				       struct rkvdec_ctx *ctx)
- {
--	struct rkvdec_dev *rkvdec = ctx->dev;
- 	enum vb2_buffer_state state;
- 	bool need_reset = 0;
- 	u32 status;
-@@ -1499,6 +1505,9 @@ static irqreturn_t vdpu383_irq_handler(struct rkvdec_ctx *ctx)
- 	writel(FIELD_PREP_WM16(VDPU383_INT_EN_IRQ | VDPU383_INT_EN_LINE_IRQ, 0),
- 	       rkvdec->link + VDPU383_LINK_INT_EN);
- 
-+	if (!ctx)
-+		return IRQ_HANDLED;
-+
- 	if (status & VDPU383_STA_INT_DEC_RDY_STA) {
- 		state = VB2_BUF_STATE_DONE;
- 	} else {
-@@ -1521,7 +1530,7 @@ static irqreturn_t rkvdec_irq_handler(int irq, void *priv)
- 	struct rkvdec_ctx *ctx = v4l2_m2m_get_curr_priv(rkvdec->m2m_dev);
- 	const struct rkvdec_variant *variant = rkvdec->variant;
- 
--	return variant->ops->irq_handler(ctx);
-+	return variant->ops->irq_handler(rkvdec, ctx);
- }
- 
- /*
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index a24be6638b6b..8bcb51db5105 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-@@ -30,6 +30,7 @@
- #define RKVDEC_8K_PIXELS		(7680 * 4320)
- 
- struct rkvdec_ctx;
-+struct rkvdec_dev;
- struct rkvdec_rcb_config;
- 
- struct rkvdec_ctrl_desc {
-@@ -72,7 +73,8 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
- }
- 
- struct rkvdec_variant_ops {
--	irqreturn_t (*irq_handler)(struct rkvdec_ctx *ctx);
-+	irqreturn_t (*irq_handler)(struct rkvdec_dev *rkvdec,
-+				   struct rkvdec_ctx *ctx);
- 	u32 (*colmv_size)(u16 width, u16 height);
- 	void (*flatten_matrices)(u8 *output, const u8 *input, int matrices, int row_length);
++	bluetooth {
++		compatible = "infineon,cyw55572-bt";
++		brcm,requires-autobaud-mode;
++		max-speed = <3000000>;
++		shutdown-gpios = <&ioexp 2 GPIO_ACTIVE_HIGH>;
++	};
  };
 -- 
-2.56.0
-
+2.53.0
 
 
