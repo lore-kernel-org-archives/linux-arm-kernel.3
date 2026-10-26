@@ -2,181 +2,151 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A160606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 16:56:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68F70606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 16:56:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PrFmRF/6;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=A3eJS67i
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OUQiukdE;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Y7PdC8nF;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Px0S92S2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=c1PvbHqAbLCjax7wCsxnME47q4eWqBPpBrNhZmYhg0w=; b=PrFmRF/6WGGhtou5GiSL17C3Yj
-	xh56f55ki80h8tQRaXzH8omle5bJ0o8pEvclQUzmfGkWW/ruxZV7w31zVZD4+ZC6Q8YLvbYkRHEwF
-	qQoHzg+KXpC0bGZ6oq9Iz3XG/wXazDm84CfbMkqZotQZPxkC+H5OI0bqAUAqAfp9+i2vKOcYNYPQ6
-	lpRmavOfLhlrrtMhac5qHF9g843ILQfPV38MKmblaRV0UxSf7PAAK5GM6sDyVGYIHRgKl4l5QP2S2
-	KqcJtkqX22Qzz20EtDW932igHpjxUHWjvDW5JsuVv08N67B6U9jcc18IVF91Fa1ruyfRHYepUBazA
-	hV4+K/QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=F7HsIGgAX4kJ2vdSLJyB0ReVskjk1f4s2+YTG04Qsws=; b=OUQiukdEI6OXQf
+	QlLXEjM15Yb6wg4xvMhMPfsMWIpXTAdsKhRk8NwUg5baOXtVVoK1L5SOGWgeTyhnw3eor8NceU8Ca
+	UjUUyzlxyXaWU3gp7iKdde+tvGKBzAQr0lXIx3ssNe5A/trFf30q5ftyKSiVO1pFZ1cYK7riJbYGm
+	hURE9+3cfZMBwfvXPdboRvwZ1LZrx9xKSDIXPDBm1/x4/FWtA/ZsX1O6qOQGtziPlfu41786eFsyG
+	ygI53Hs3/SrteZ5PmlZqQrjh0fVOKig8zM+c5C+UGu/3oHOWcCYOTPtyCLu+HfpgyWDD1IetRyyo/
+	BHjeb0ILeVJes1/HC0Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLNyy-00000002vwg-16AQ;
-	Mon, 26 Oct 2026 16:55:36 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1xLNzk-00000002w2u-2Exp;
+	Mon, 26 Oct 2026 16:56:24 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLNyv-00000002vwE-2mA0
+	id 1xLNzh-00000002w1d-3XAc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 16:55:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793033734; x=1824569734;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=SXgXPemDxpZpwctkgUGhijs9IOw906k8/b47MJAcUzI=;
-  b=A3eJS67iq7IZ6NaWyWihALXp75dGJ8u/uxo0lmRJNFjhX5yWGmLURN2+
-   tBLju62JnEpkZWYLfNuI4yb112l4YPZdMqO3BHdCAvRbnvuBeneOcHUTs
-   3dcN2xzELALvNLTfYSxeBW75sMVYtWpi+b6p/+D2tIZ9orlgyRws0tSLH
-   lMXuinnkM4v5POcBVBgwBAeFbwLQ5dAx1LjzkLGmMasZPYAnB2gYYkjCv
-   bR25RlUCLrWAYyuyhyTXDx3sK/8cMcaCDjVRsXiy/wN0Fp3/HJ/ru3ATW
-   AytBTvc6kwS3/bKMnbhf8zmIzpSVYrcXzcnYlQJOvr2QaxiNeHtqWBcx7
-   Q==;
-X-CSE-ConnectionGUID: 53IuVHUBSiuHmMDtXgTGCw==
-X-CSE-MsgGUID: AZ+UYuVHS1W0tEPsCqZpnA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11947"; a="1704052"
-X-IronPort-AV: E=Sophos;i="6.27,179,1787036400"; 
-   d="scan'208";a="1704052"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2026 09:55:32 -0700
-X-CSE-ConnectionGUID: rYNcTx57TQKqfVvYk6airw==
-X-CSE-MsgGUID: 1xOwtrzFRVCnW/QjW7KP7w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,179,1787036400"; 
-   d="scan'208";a="4428574"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2026 09:55:31 -0700
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Mon, 26 Oct 2026 09:55:30 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49 via Frontend Transport; Mon, 26 Oct 2026 09:55:30 -0700
-Received: from PH8PR06CU001.outbound.protection.outlook.com (40.107.209.7) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Mon, 26 Oct 2026 09:55:30 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HM5wOsilGpQctTU7Dlb1aPYQ90S1v/J3QUmgXKcW9hBLNm6BaP5Cjydom5LxEXQCoh+2g0mcECmk2oL4zCyc6TDs++Ok4OWZjRXyL49m91Y2N8w6dih1UtLfZ1JJtnsfXOTqnC70DKzhXpkkbQsmehPlLVulhWvhIfd2uf4Ip5k7UdOTSrFPzIz+QPNiIyll1H+peBXzMt/5Z0lpFoKSQwreue5tmg8GmokGzvXEKFQAqFeFXJBKx1i12e6SSE9ibNRf/QBynb5pOVfgvL9Kb2dQBOvXTnHjikXwOI8nX9TTZYrcTEev7xfz05W1rge8qku3u9YOHGtgHykSho9wDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=c1PvbHqAbLCjax7wCsxnME47q4eWqBPpBrNhZmYhg0w=;
- b=TYLfufzPe/RA0N+Qf++wj94RDsvo7wMwfGVnGkLSbqtDx6tX305eEZ3cLzpcPsIFgjbvzPE2qum9I/V+rCWROqaUiZZVExjukucYCFfn3kvPI+prl83gdzhdUuliXPQLd3f1QubTiQF/UstnTTQ7LN4sPH//Jrpc7Dw1PSMdjsLFwMgU0HBbyaybSNF2XpzpZSbaUWzK3MQPMQMUmMERk1f9N05Du1+ywZQT+LSGcUq/YpuWuL9OzXW1k0NBXSf10pXMVUNyRfB554KKLGwScC0jO/0KssYs/nScJlOkxO7bLJhfc6t68PLv5NQY5zS4ch1TSz8g0ZdliDOpkqmOIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by EAYPR11MB9562.namprd11.prod.outlook.com (2603:10b6:303:2bf::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Mon, 26 Oct
- 2026 16:55:23 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%6]) with mapi id 15.21.0546.016; Mon, 26 Oct 2026
- 16:55:21 +0000
-Message-ID: <f288691b-6064-456e-89fc-2c4b2e6712b6@intel.com>
-Date: Mon, 26 Oct 2026 09:55:19 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 05/10] arm_mpam: resctrl: Give the monitoring
- domain its own structure
-To: Jinjie Ruan <ruanjinjie@huawei.com>, <ben.horgan@arm.com>,
-	<james.morse@arm.com>, <Dave.Martin@arm.com>, <fenghuay@nvidia.com>
-CC: <tony.luck@intel.com>, <yu.c.chen@intel.com>, <babu.moger@amd.com>,
-	<fustini@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
-References: <cover.1792443633.git.reinette.chatre@intel.com>
- <2238eab97cc66852d0d0d1a5c6ff191c03ce9e0d.1792443633.git.reinette.chatre@intel.com>
- <52fdd67b-49b6-44b6-8eaa-17b29fd92947@huawei.com>
-Content-Language: en-US
-From: Reinette Chatre <reinette.chatre@intel.com>
-In-Reply-To: <52fdd67b-49b6-44b6-8eaa-17b29fd92947@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MW4PR03CA0160.namprd03.prod.outlook.com
- (2603:10b6:303:8d::15) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	Mon, 26 Oct 2026 16:56:23 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69QEwE6K3075124
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 16:56:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	F7HsIGgAX4kJ2vdSLJyB0ReVskjk1f4s2+YTG04Qsws=; b=Y7PdC8nFYb84EkT8
+	53Jiip9p9MA4fsuiX6aA5hG2XK5Rf7ZO4wcX+oMtG1DKKKPXKkCV5Ea0zxH5Ayq2
+	7Q568PHjxn0ElgtDNLmIVaseMOHzcNqEnGtCR0PGocGUUEUsELZGqv9wpMmtZuHc
+	pMaVB9FYVe7hjheSTNPS2fSrMZ5L3R627798gyzLM3VdbIP52SBb4WPyOHLOZZGi
+	QRVfehpBV5ZZrblHjoaw3/VEjfhtqh32J934pbRS3V8tRxcjdXX8BwANJNvJ8VaD
+	QSxcs5Y1s5nEcCjwDuNEmurVQQevDmte5Eklk5Ir8X6ETSRPiIpTseesofStoVkL
+	1Fn1gg==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hhsjdbfar-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 16:56:21 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93cb6391e89so677004085a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 09:56:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1793033780; x=1793638580; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=F7HsIGgAX4kJ2vdSLJyB0ReVskjk1f4s2+YTG04Qsws=;
+        b=Px0S92S2FIZoGhszKRp6oCJlCBq7pEmiTb46toEPILlOGGOPMLk30QwT8Xp43CUIpZ
+         FGSeyhDiAKAfLq1ovtpwnmuvCPhO0ws0gFTgcWQxCHwwIBhowK7lZHsT/8cYrsxJZDa5
+         Lrl3h9zZeiG2wyipsXbiXQ9ucVfAGF3IXqYj5c4nXlUt4obrxxy523YJ7y/1NDhKxazC
+         eg3fXTJeGT2ap5XrzTz73chltzm9DS4gMTDMImaCN9leNxWMWizoy4/3R0ORCdKpVOUw
+         v9EDfhZVnbpOr4XixdxRfuyd22OYyRFKwOvxTKaBWU+Ge4/YHbkNvJ//Ur2EkQYVAX82
+         gX0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793033780; x=1793638580;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=F7HsIGgAX4kJ2vdSLJyB0ReVskjk1f4s2+YTG04Qsws=;
+        b=xOPsXqCoRrDZFmdNAJCJ1muEQF60HWRV/mm5ymVzSzTEK3zn1/i9yjwXwCjoBg+Wdq
+         O4zkPPjGd8Y27sol8Vyt+Fcp815NTPz5pT0sxjMSeuGSk/UAEADna9fk1ZY7XfEv70Y7
+         RXAzI0HJxEsVhQOIwidVJsX9GrA3WdEMzkUMoMHm2JIRnDZgJZr6jXXSaS9MIKRWTZIy
+         Gq7N+qMWnkT6qGuyZ0yUg+MOfTuohQmGqkfaZiAWrHkU+1RoDEfXRI6XHDUN6iUIOaCV
+         U/q6KEEpK6fXvorBjA6aekbs23AYItVLlqILdk+uI7qZRCTQ1wE6LtmzUWnSyR7WvOyD
+         lY0A==
+X-Forwarded-Encrypted: i=1; AKwUvBx9j+TRzjKnB+wnUGPujZmqlJ0Luuc4c1RmVHlOHd7xrGJp5eYVUsp+BCepUDhhtHP/B0VOtLXLDELgULtQ21cL@lists.infradead.org
+X-Gm-Message-State: AFq9FYIeSGq330rv5V5iyj0uEIxz5zpa67rQeo8H6cyUSGV3SYfB30Ez
+	8ILDG9h4u37S02JkCOERTjjr018gmPvJ3eCCPbyv8DkFvYspJVOkFMgK7zmy28k61ho1pmw6zpP
+	2OHHNnueuTpLxiQXw8DvuoTj/TOWNLK6ociY0+3ubaKgsJiNrfmtIN50aTAxWoWLTxW8Sqe8p1i
+	n4xw==
+X-Gm-Gg: AYBFou0P5AGFRGA1mmSIELfdaA5F5J9O9xwgi27RwvwdE+wtUV1LjkK+E+29AXzDomY
+	LEDYIukviKruG5ReYcGu9umx5OK/YdHI6tfVEZ+VSoeP6vQg296NW2a4/700Q/oYk+miPh5CMQH
+	5mfjZdQNxbpnjJf+Nr18R/zhRsIo2bTaZv8m2OmET2Wk37liyHfqKn9iUGk/FXBn3TtR0Qnbzs4
+	YRZwSqwjN6+3DHCb2isP4JfO6AO+9zMi53nAiah/suT4xk71NlvSAGgLwC0UkZTtIUKpFZwx7zJ
+	VmiKrkm+t1qaQeAu26Til5sMQVPwrjWvhhrfv/u+A9tOWpIFucYoXRhdT33uQGlBGS+sbOtRORh
+	JVtcCDo5/6SsRfM35+42IJ3FD3kiQNP3ffLlFTj+oBF+eCQz1
+X-Received: by 2002:a05:620a:2b4a:b0:93e:3824:4123 with SMTP id af79cd13be357-940ef9a6b9cmr1108919285a.65.1793033780156;
+        Mon, 26 Oct 2026 09:56:20 -0700 (PDT)
+X-Received: by 2002:a05:620a:2b4a:b0:93e:3824:4123 with SMTP id af79cd13be357-940ef9a6b9cmr1108914085a.65.1793033779685;
+        Mon, 26 Oct 2026 09:56:19 -0700 (PDT)
+Received: from localhost (net-93-144-6-81.cust.dsl.teletu.it. [93.144.6.81])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a35a56992dsm195870245e9.6.2026.10.26.09.56.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Oct 2026 09:56:18 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date: Mon, 26 Oct 2026 17:55:56 +0100
+Subject: [PATCH net v4 1/3] net: stmmac: initialize est_lock at probe time
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|EAYPR11MB9562:EE_
-X-MS-Office365-Filtering-Correlation-Id: bab204ab-ac4b-4beb-a177-08df3381ec17
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|261009223027099003|261021121427099003|261022105027099003|261021123027099003|10067099003|56012099006|261026140227099003|18002099003|22082099003|261026121527099003|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: JS0aNMQRZIXxSyrZ3USVnPYJKRt7THF2RSONM89JYp3pY/qCy9+s4lDleofVab9otwAMzXoa3mz/gsuLjd256L5o5G+LFFCWQV/yb60C4b0WX0rIfq5kg2azsZfbyYvOJMKQfNIAZVloerZPRD/R77+Dnv+94UaUu7ZB6VvMF6l0fZOKBO4+PLY06wU+J1w7CImslYYQoyYchXfyJvJk9wKsmx1IPT7MnRPYBqLVHxRdDNGccAakFOSBmmyPPIdc360R9mzPQEFQdH/pGK/xxy22NZgiobJpa94lSZgd00PQtqVWT0577e3h9hYms+BGrg3Qx2yfXQ0u2DRgN4Xy50l3ovBNq3fpkAxA8kLw8lcmUPP2iFiPdBDH0/ups9hwjbY89YXIrXvIDDmNnXVgVcgfFkEfgJq1GC8KBYb7wrb2x6Zmd4SXp+Z3Mqrwk7HqiffeMZWFmiuVn8ga4r/FGxi/H6lCgwnqVkh6ocywgadZhLFHCJrPjQwCxpb6IW9P4ktCPjB/57jFmpkVD//tjeqQLtrqSzZoNucp4lxNUGSFMA7v49IN9FL2RBcw2mqXENKMqB2GlpA2YU4yzgh5G/q5NSg6rv6+ceD4aZE6ts+cz8YoMZZsempkzctsR2abb3rsnjitRsnKBTloF2LwxRSNN9fCKj5YxWww+3N3cEs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(261009223027099003)(261021121427099003)(261022105027099003)(261021123027099003)(10067099003)(56012099006)(261026140227099003)(18002099003)(22082099003)(261026121527099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WHhsNGN0VUdZMHhmK0JlYiswdTQrZHg1N2VMVXBlUjZKbnAvdnB5cm1KZ203?=
- =?utf-8?B?KzlnemxFd1JNTW5rbC9pdmRkMS81QkdlR3BmbHVGcXNHSjJlZlp0V2h2cFFB?=
- =?utf-8?B?NFJXd3Yzd1VZQ0NKZ0Z0dS8zbmxQV2tjMHljcHk2emwxUFVrMnhGRFhlRDlU?=
- =?utf-8?B?WWRZT2k3aFVrdWJIS0QwaVhoVHNXcDZxZWJlbzR4aS9qS0dkcDUySHI5WVQy?=
- =?utf-8?B?aUZ1c2JqT3grazBwbys2UkhYeDJrdU1paG5FQndNbGFVMm83VGhCY1BDUjhr?=
- =?utf-8?B?V0VEN04yMUZVdzhVOURVQW10UGx0ZytNZnF3bFEwVEtxemxCbDRuWVVic3Rw?=
- =?utf-8?B?Q0dycmFncG0wTHVod0lBa2UweGVlbDIzZ3YwZ1hXdzlKS3Z6d0oxdUc5K2da?=
- =?utf-8?B?cStKUHJTTGpMdlNiZGdsR2ptb2lXcDNaK2FjWHkvY0JSQmM5S2FpZytmT0N0?=
- =?utf-8?B?bmRSMEwvRU8wOUpnTnJidTVWcDlFWmZkdlVEZ2cxZy9GdUdCNVdkNzZsN3Bw?=
- =?utf-8?B?ZFhna3pGWFppb1FEZ1FHMTVkSlp6ZUZqT3JaMkQrQnFjYWJzS0xTTEZDVlFa?=
- =?utf-8?B?SmZUdnFiNk5yemFYdWJQOUUvQlZXKzVnRnBZMWFYYnRZZjZmZ2REdThGamp2?=
- =?utf-8?B?bUZnY1dHUENwTlBkeGc5RzhoeVV6YkoybFREeU95MC9VLzRnY0lJd2Q3dGRo?=
- =?utf-8?B?eGtTSFlzb0M2cmowb0k1MUlHTmtKY0g1Yml4N01ycmFCaWtJaEZTc2tjU2Ry?=
- =?utf-8?B?OUNsTElBZWhNbGxIbGRoQTdIbjRFUlVBbEw1ZEJjSWM5UXE3TGFlaWplZm5G?=
- =?utf-8?B?ZGg5dVo1WWRTQXkvK1pxOTlWb3NjZlA4QkdMWHBaY01XUEZuUUFUNGhvbGpR?=
- =?utf-8?B?K2JyTVBxeFYrdzBKZ1RGOEpmZUNIRlRlenFZSUZNTDJzdHRnMFJ4M1JmQVZk?=
- =?utf-8?B?MitVZ3djR3IwT2F2cGpaTWx2cS92OWI0VUdUbFNreTRaWkpuUmFDWTVnME90?=
- =?utf-8?B?MWUxUDFFOTV2ZCtGOTR4SlRDdS9SNlJlcnNvelVyYk1od21wWnJ5NytNK3pn?=
- =?utf-8?B?SlZreWZWWDJ0aThhLzI1SlR2dkIyUXMxbVNabmxCQnRMVThIQW1EYjl6QTFR?=
- =?utf-8?B?eXk1clkydzZwRlREMUl4ckFkcDdqbWRnZE5xbnJ6enFDUThRUWJxR1E3YzFR?=
- =?utf-8?B?WisyL1pGTjExM2VpM0xpeHgvWEhBZTd4NTBNSkxFdEpqeSt2dTh3aFpiZGZO?=
- =?utf-8?B?WkZzYlZuNDlGMmNLTU5rd0c2bHJHM01vVHhBcGFjRkl3YjQwZ0xoOHV6cVU0?=
- =?utf-8?B?K0RvMVRqb1Bicmt4TFZ2T3FLWjVwSnQybFZOUFlxS2sxZzcvMWo4akdYQmd5?=
- =?utf-8?B?cWNmZi9UUWY1SDgyVStja2RFb3NndGZQRkFQTEJHZkRTS1A5Nlk3YUl4Nk44?=
- =?utf-8?B?RXkweGticzNVd0NZY1YxWVJLT00wQVBCcVdNZngyS0hxdC8zSlFEMXJCZlR5?=
- =?utf-8?B?aU1XUURua1U3MU5JSVVFV3ZLNllwaEdUVFJxR0JqV0NGM21Tak5LR05vZkl6?=
- =?utf-8?B?VlRhZS9TYVYwbGlzK1I4ekZ5VzJFK2ZDSnRZandYbXh0akNmRStZNyt4Wk40?=
- =?utf-8?B?Vmx4TTJhSFd2QWtRWXF5T2VsdWRmWUcxNllNcnFWWWdzYWpSMC9FUmd1Zit1?=
- =?utf-8?B?blAzZnlXV3Vrd3dwTXJ0YU0zaGU0RGJXZWRSS2ZqZG54TzR5RXNRQ2VCcU5Q?=
- =?utf-8?B?TEloWlJFVUNPZGZoQktESENoSVlUTWRDajdhWWprZ1FHN2pTeHFUUTlzVTRo?=
- =?utf-8?B?RVhLOWpvak5HMHNkRVJwU2dXODd5dHBqSHhTay9PbnNpWTdjemdINk4zclNN?=
- =?utf-8?B?VFdOSjF3UUM4NEszV2MyelBRNE5hZmZBVXpMelZzS1FMUENJZnBXSm5kSUZM?=
- =?utf-8?B?NmVpM1AvWmxZRjdhQVJLamhaY1NvOEVTUEVUZStkdVFNTkd1MzRYUWdiL3pR?=
- =?utf-8?B?c25iQ29WMEl3K2l6K2FFSCszQkdRMjA2SlZsc2pTNU1ZQy9vUmEzUmlxNWlu?=
- =?utf-8?B?YzNPR1pTMWw2NndGYVpQbVVYNlVybmk0THlVWUxTZ1VrdTdZNmVYQUVnSEk0?=
- =?utf-8?B?RkduZ2JWdjVyNXQ5SGhZc3BCVHdLSEZqVTVwSnBzSk81Ry9HalZBUGxNUlIz?=
- =?utf-8?B?aTFYRnp4dHBSUllHZjNzN01YT2dqTFhiMHF6ZkV6SDU0eDhGM05PbTVBcENh?=
- =?utf-8?B?a2M2akt3ZW13Uk1EM2thc0g2dFBSdFZPeHowbytnV1plK0daNDZnR1Qvc25x?=
- =?utf-8?B?UnZpVjg5QzM1QWRrM2NBTHRkemRJek5iQ2M5S3VzWlppSmFlaUxCb1ZVMVFn?=
- =?utf-8?Q?xGy430s+3ddd/tjI=3D?=
-X-Exchange-RoutingPolicyChecked: jhCB03y1sPZw1u01+4rzvJArFuwRLjgtS+fGYkNQ7Le+g048S7cz4jgzlD9oXGdACQcR6rgt3rHZKi0CBNz8zQgdrwjkVmQYnfaI+HRPJGcUgNhinaKYwDWTdrOADx4cBlIn7qC1cgCPM7K3M7g2ADWyx/J0bXMLHzzCK/I1RgV4ByjGrbb1NPd9x8acKVSeMS1Sdkd7ObMkHy7vkWrsTbSqlbulo9WK/v4/tGs94v85BTymqMp7DcyBxmH2hjweh1NqELk3CKAozXXNXNlZ67Ys3LQ31GveI8nFzoOd7hFP3kelFhcnelzRBzrWcs+LWyBW34VVpjJZ9ClLCUZXVQ==
-X-MS-Exchange-CrossTenant-Network-Message-Id: bab204ab-ac4b-4beb-a177-08df3381ec17
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 16:55:21.6263
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7W1ar93FHV6ZvaXmS4+IcWnsYQiYr7fKJvJt6phqukLWTYYbhy7C8IEqx3GiXQiiBgOoFS9KpAnO/3TjWsRgg0yv3tQ4ZoCW4A5lmCind08=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: EAYPR11MB9562
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261026-stmmac-est-fixes-v4-1-999dac4de44f@oss.qualcomm.com>
+References: <20261026-stmmac-est-fixes-v4-0-999dac4de44f@oss.qualcomm.com>
+In-Reply-To: <20261026-stmmac-est-fixes-v4-0-999dac4de44f@oss.qualcomm.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Jose Abreu <Jose.Abreu@synopsys.com>,
+        James Hilliard <james.hilliard1@gmail.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Proofpoint-ORIG-GUID: nHY6ceAvZASpDZq541v8XEJDdwiI-ulF
+X-Proofpoint-GUID: nHY6ceAvZASpDZq541v8XEJDdwiI-ulF
+X-Authority-Analysis: v=2.4 cv=a4elZkSF c=1 sm=1 tr=0 ts=6adf8635 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=122XcF769uAcj9t3WpgA:9 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI2MDA2NyBTYWx0ZWRfX+U6T+qy8GBhY
+ GOQCHGNP3Bg52FbioEZD9HKPR3MUIp+P5MFVirunJoHCOqdmHa1UV1nI8jFVTm+gdm0ij9VmFtH
+ kYshznbr+ksb+8xpWKEz/62hh4gOawg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI2MDA2NyBTYWx0ZWRfX01t7cuEWqmas
+ 2qEVWHKWPeodr4/VhezImzFuaMrnuCKZ6nDpVUjlhf+dLHu1oiDK3jlLnl3vHiIqpt/SIa0YWEN
+ UwsF3hN+v/tmV5JM5kTAZYRviii91/nr95WvQadV8vd8dHV5ljemWKUcIx6dZ4HstjXqUaGSyXV
+ 99G4pbX8AGGToP7GRAbfhakFpoDFx+dfwQHhHTfAq7hCLKsTdSZzArnQ5+nQSMyJ4CVx7Ao6v9l
+ GvvaJvDTmOW+zveqiW4IsOFeCpDJoY5ir8XX5/nx3oykmGFT76Mpz8Cxwvfoq8QB8Vc52/psQgk
+ RwG1IADOc9eXm5XuwI7ZGuZycKFOzerEGL066xyMcDqVXnBvPx2uuqUq6w3TKlhVfUL3/ZY75qC
+ nWwvB1PDPqcTLE2SqIFahsmDCNvCCRpFxbASOg2V9bqufOrjStmYi4XMta2WRxKClY4SLeBXQGL
+ zekJU6gzedcPmANVeNA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-26_03,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0 bulkscore=0
+ priorityscore=1501 impostorscore=0 spamscore=0 clxscore=1015 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610260067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_095533_770418_1C2707CE 
-X-CRM114-Status: GOOD (  18.79  )
-X-Spam-Score: -4.7 (----)
+X-CRM114-CacheID: sfid-20261026_095621_898132_1F8753D0 
+X-CRM114-Status: GOOD (  16.83  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,182 +157,68 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Jinjie,
+priv->est is allocated with devm_kzalloc() on the first TAPRIO REPLACE
+and priv->est_lock is initialized in the same place, which ties the
+validity of the lock to whether TAPRIO has ever been configured. The
+lock is also never destroyed.
 
-On 10/26/26 5:14 AM, Jinjie Ruan wrote:
-> 在 2026/10/20 6:07, Reinette Chatre 写道:
+Initialize priv->est_lock in __stmmac_dvr_probe() next to priv->lock
+and destroy it in stmmac_dvr_remove(). This keeps the lock valid for
+the entire lifetime of the device, independent of the TAPRIO state,
+and removes the lazy initialization from the TAPRIO configuration
+path.
 
-...
+No functional change intended.
 
->> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
->> index 246560247a28..ce5519635c51 100644
->> --- a/drivers/resctrl/mpam_resctrl.c
->> +++ b/drivers/resctrl/mpam_resctrl.c
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 ++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 2 --
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-...
-
->> @@ -542,7 +542,7 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
->>  			   enum resctrl_event_id eventid, u64 *val)
->>  {
->>  	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
->> -	struct mpam_resctrl_dom *l3_dom;
->> +	struct mpam_resctrl_mon_dom *l3_dom;
->>  	struct mpam_component *mon_comp;
->>  
->>  	if (!mpam_is_enabled())
->> @@ -551,7 +551,7 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
->>  	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
->>  		return -EINVAL;
->>  
->> -	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
->> +	l3_dom = container_of(d, struct mpam_resctrl_mon_dom, resctrl_mon_dom);
->>  	mon_comp = l3_dom->mon_comp[eventid];
-> 
-> Maybe following code could be extracted into a helper
-> 
-> 553 >-------if (!mpam_is_enabled())
->  554 >------->-------return -EINVAL;
->  555
->  556 >-------if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
->  557 >------->-------return -EINVAL;
->  558
->  559 >-------l3_dom = container_of(d, struct mpam_resctrl_dom,
-> resctrl_mon_dom);
->  560 >-------mon_comp = l3_dom->mon_comp[eventid];
-> 
-
-Below shows an example of such helper created (for convenience) on top of this
-series. Only compile tested. Is this what you had in mind? If it looks ok I will
-rebase to the beginning of this series as a new preparatory patch since it refactors
-code adjacent to this series.
-
----8<---
- drivers/resctrl/mpam_resctrl.c | 62 ++++++++++++++++++++++------------
- 1 file changed, 41 insertions(+), 21 deletions(-)
-
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 61fbde9c0960..d75954f8a0ad 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -7,6 +7,7 @@
- #include <linux/cacheinfo.h>
- #include <linux/cpu.h>
- #include <linux/cpumask.h>
-+#include <linux/err.h>
- #include <linux/errno.h>
- #include <linux/limits.h>
- #include <linux/list.h>
-@@ -536,26 +537,51 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
- 				 closid, rmid, val);
- }
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index b20e5038eead..9e09e11cc35e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -8204,6 +8204,7 @@ static int __stmmac_dvr_probe(struct device *device,
+ 	stmmac_napi_add(ndev);
  
--/* MBWU counters when in ABMC mode */
--int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
--			   u32 closid, u32 rmid, int mon_idx,
--			   enum resctrl_event_id eventid, u64 *val)
-+/**
-+ * find_mbwu_mon_comp() - Find the component counting @eventid in a domain
-+ * @d:		The monitoring domain to search.
-+ * @eventid:	The event to find the counting component for.
-+ *
-+ * The counters reached through this component are the monitors MPAM
-+ * pre-allocated for bandwidth counting. Cache occupancy is not counted by
-+ * those monitors, it is read on demand via resctrl_arch_rmid_read().
-+ *
-+ * Return: the component counting @eventid in @d, or an error pointer when
-+ * MPAM is disabled, when @eventid is cache occupancy, or when no class was
-+ * picked to count @eventid.
-+ */
-+static struct mpam_component *find_mbwu_mon_comp(struct rdt_l3_mon_domain *d,
-+						 enum resctrl_event_id eventid)
- {
--	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
- 	struct mpam_resctrl_mon_dom *l3_dom;
--	struct mpam_component *mon_comp;
-+	struct mpam_resctrl_mon *mon;
+ 	mutex_init(&priv->lock);
++	mutex_init(&priv->est_lock);
+ 	rwlock_init(&priv->ptp_lock);
  
- 	if (!mpam_is_enabled())
--		return -EINVAL;
-+		return ERR_PTR(-EINVAL);
+ 	stmmac_fpe_init(priv);
+@@ -8337,6 +8338,7 @@ void stmmac_dvr_remove(struct device *dev)
  
-+	mon = &mpam_resctrl_counters[eventid];
- 	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
--		return -EINVAL;
-+		return ERR_PTR(-EINVAL);
+ 	destroy_workqueue(priv->wq);
+ 	mutex_destroy(&priv->lock);
++	mutex_destroy(&priv->est_lock);
+ 	bitmap_free(priv->af_xdp_zc_qps);
  
- 	l3_dom = container_of(d, struct mpam_resctrl_mon_dom, resctrl_mon_dom);
--	mon_comp = l3_dom->mon_comp[eventid];
- 
--	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu,
--				 USE_PRE_ALLOCATED, closid, rmid, val);
-+	return l3_dom->mon_comp[eventid];
-+}
-+
-+/* MBWU counters when in ABMC mode */
-+int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			   u32 closid, u32 rmid, int mon_idx,
-+			   enum resctrl_event_id eventid, u64 *val)
-+{
-+	struct mpam_component *mon_comp;
-+
-+	mon_comp = find_mbwu_mon_comp(d, eventid);
-+	if (IS_ERR(mon_comp))
-+		return PTR_ERR(mon_comp);
-+
-+	return read_mon_cdp_safe(&mpam_resctrl_counters[eventid], mon_comp,
-+				 mpam_feat_msmon_mbwu, USE_PRE_ALLOCATED,
-+				 closid, rmid, val);
- }
- 
- static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-@@ -598,20 +624,14 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d
- 			     u32 closid, u32 rmid, int cntr_id,
- 			     enum resctrl_event_id eventid)
- {
--	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
--	struct mpam_resctrl_mon_dom *l3_dom;
- 	struct mpam_component *mon_comp;
- 
--	if (!mpam_is_enabled())
--		return;
+ 	pm_runtime_disable(dev);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+index e137fb9012d4..aea235a69105 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+@@ -1028,8 +1028,6 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 					 GFP_KERNEL);
+ 		if (!priv->est)
+ 			return -ENOMEM;
 -
--	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
-+	mon_comp = find_mbwu_mon_comp(d, eventid);
-+	if (IS_ERR(mon_comp))
- 		return;
- 
--	l3_dom = container_of(d, struct mpam_resctrl_mon_dom, resctrl_mon_dom);
--	mon_comp = l3_dom->mon_comp[eventid];
--
--	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
-+	reset_mon_cdp_safe(&mpam_resctrl_counters[eventid], mon_comp,
-+			   USE_PRE_ALLOCATED, closid, rmid);
- }
- 
- /*
----8<--- 
+-		mutex_init(&priv->est_lock);
+ 	} else {
+ 		mutex_lock(&priv->est_lock);
+ 		memset(priv->est, 0, sizeof(*priv->est));
 
->> @@ -1770,11 +1723,97 @@ mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
->>  			return dom;
->>  	}
->>  
->> -	if (r->rid != RDT_RESOURCE_L3)
->> -		return NULL;
->> +	return NULL;
-> 
-> LGTM
-> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> 
-Thank you very much.
-
-Reinette
+-- 
+2.56.0
 
 
