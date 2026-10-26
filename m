@@ -2,107 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECE0E606A33B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 08:29:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DA21606A918
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 08:30:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=J0qeAb6r;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=k0cFXBO0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pc7IGIuY;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eNjS8GtB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=diTjf1RR+6hk2NNUcDUFo32N0NHYnwNLtS5/2ivO+gA=; b=J0qeAb6rC5vULFhiEy6NYjEQLu
-	FqF/T0d7cQlcRUvL+NxZdRT5Su3YT7FuzBhoXnVznG24hbi4BKniyblPwaLRCDoKA0zmVOu4VQHP4
-	jHSaAHLgJ2Og43qQGYnH/6SCKIKvrgFqsk5dgsJOiQAfS1HjA2DZ/yTU9GGBHBr01UsRd6vEyez4L
-	Wqp7/UGk1Osx4gHvYcpWK9PVeCfcAlGlztIFFYV8yYIriKbm1yYEWTzj90Ju4vLmIkRVgzaRns5Xs
-	kkOBY+EMyoqT9FnUve875GVEWCTnW86SXsHTbfzV6g2uxJLa++4xKPrtfP2pBhi/psS3Hh1rbydrM
-	apCoL46w==;
+	bh=G63bq4wpgZslgc8Jrbf5zqBVwNjBpTm05EKH4grfb9g=; b=pc7IGIuYW5sXoEoYLFPwdAKiIt
+	bP0iSPTtxeS2mbRo9oJsfEav+22MZIVlODRAGn9WZ30mrSShgKNwv44jOf2l65ovAzXNmMvRkm9GQ
+	LCAp1FvguUVutQ95cIt3nA6aBjDHJsqXfU3fzBQlCATWVqKlQFwr+0AG1gGWcmSx9pc5QPqUW6tBO
+	R7LY+rzij7gC3q1lLJmnc921Hw6xKv7CUqMxZ7bqrjP59JIIhMDyUBPXrsnmFgqwVkyqTy1ywkfRv
+	zQpicGaQy70GlurmxzlIbiGbBs1jPsZNgJ/Kn4zbCxU3jKHDsqQOGd8/imUV58N5vwMQEYcw3Hjlz
+	Rrt2wIUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLG5T-00000001x11-2Xls;
-	Mon, 26 Oct 2026 08:29:47 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1xLG5r-00000001x6R-3lWe;
+	Mon, 26 Oct 2026 08:30:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLG5R-00000001x0a-2VjJ
+	id 1xLG5r-00000001x6B-0C66
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 08:29:46 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a2000d5fb1so16922595e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 01:29:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793003383; x=1793608183; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=diTjf1RR+6hk2NNUcDUFo32N0NHYnwNLtS5/2ivO+gA=;
-        b=k0cFXBO0hS22tkmbobMMjbu9XIGIE/JjY/aImJrkzC96CnYltKKl5ALbucV92fw91Q
-         fJlyCJG09QIrzitvAkJVpthjmr9i8kNg9cbCxjqVNbVMv7a+27rdmUUdDTRWO+pR8j1S
-         gwoHu61Tf/dtaNK47aukq6UUchImJTrt15x+eLjychc8cRz7FNsn5YZAq5JoBav4RIyP
-         fMEVJjgMz6NKCefRvFeBK+RbuGEL+QxcBuZ3ltyYlMNtTFAHcraDG+IqFT6RbSG1+Eup
-         Sx0iAqx0Z30EZbbONLFxQIvAq23Sl8Da8r4YHkyEGHxYx2dHAr29Voa++OSOf0gRm2pA
-         PTeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793003383; x=1793608183;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=diTjf1RR+6hk2NNUcDUFo32N0NHYnwNLtS5/2ivO+gA=;
-        b=NDahMkkiLlsd157mm8okicYjJ425FzjU7H7VlUV4QHsoGYwEhxQM3mGphEQOK4hQMI
-         Z7V5io6yp8q6Upo3nr6tVNU4Fm1HzBmG8Rfzwhfg4D4gc+s62dZEfQQHxNvg6wJowVSb
-         aw6KtiMp5IdWaQGQrW4n61JqFK4iyw1yQOQ8bqiXVigkMMPo7XwoFPEcPSHGUm23zUin
-         Wa8kgvcnizKAn63BcUQO2HVp51P9VYMsKsA9G4BrHwOb1WBOpuY1TnGoCbUUiSY/E3ak
-         GdCij3I06zKs89BWfp1/oVQgByJLMVT0DkjTu87BH4inVZkpa0bwfi0H5LWMfT7VdECp
-         4scQ==
-X-Forwarded-Encrypted: i=1; AKwUvByGByaczPCIFiD4eeBqLGzDq+9ON8PMmNN8BebSQdnxeNmcGpF6sHaMtnipARf7idvqYQr00rQGn6jZMPPshom2@lists.infradead.org
-X-Gm-Message-State: AFq9FYJHtfiltf0P26poEuFWDNTq8nXN0DQ2JziDr91Cqmi0HSFWsilG
-	03mh0WNphDFjlUhkHUnyIv3eY8q8hvn8neD1sQK+Pvo/sFyT3rKWBPkD
-X-Gm-Gg: AYBFou0rPpuOQs2LPQ1TfsHPqK8yBEl2ICFE4Zp9bQbGj347pKK1tmjzAM9A5V+aUf9
-	mieS6J9o/Dvahqj2MotfNLwRsqjKdpCWJRsIUtBr4odTYJkDDVF6yN3V553S8tJBqrogIgt8M0J
-	N+7MxXQGPZpmatXYEKVVCYxLbUktmh90Vk6VQz1sNBd4ha38PYOte1lm9a4lkk3tIvUpJRM8Htz
-	AgOr67Sulf3K8wWdOjtaEw6/xkjVABcHvyb3RCbJ6WtDgxLA0itjZUdzGoolFt5aLP6G4no+QF7
-	7rqabRVaer6XoZ4UuSYDcBhfME1WdvALjHqDS882l37ikwqmGCh1bZDk/ImvWUie1AX66A7M39n
-	GtuiXSd/E77gVDcZXqJ6kkj+e41OW6oft1os9d2p5c9UD3yKx6ArP6SMZGqDwEQVu4PRM5MkuMN
-	jzziXfUNEfsWbEho0a4hQK+YlkX0hnsETYvQEUCP46XP5Sjs3Xst3YF3LuH8be1RvB7o9R0j58/
-	Ig2tCCp/pYp0praOdpCROzCSEBvPgAr+fiX22aA0yO1aGO0VBUDCCOmJLlUx3fYuvbBhqtwIexT
-	YcnOqv0+s9WnVwR6hRY1EvqxvnMorVWOOazwCuONzonIdHw1pVHNfP3ZW7vFCo2IDsLV0jYXdXE
-	VhEQjOyY=
-X-Received: by 2002:a05:600c:4f4f:b0:4a3:5a42:b29c with SMTP id 5b1f17b1804b1-4a35acbc00bmr116641935e9.26.1793003383367;
-        Mon, 26 Oct 2026 01:29:43 -0700 (PDT)
-Received: from GLaDOS.station ([187.13.216.220])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a35a30e22csm178673445e9.2.2026.10.26.01.29.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 01:29:42 -0700 (PDT)
-Date: Mon, 26 Oct 2026 09:29:39 +0100
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	pierluigi.p@variscite.com, Nate.D@variscite.com,
-	Peng Fan <peng.fan@nxp.com>, Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [RFC] arm64: dts: freescale: Supporting Variscite SoM and
- carrier revisions
-Message-ID: <at8Pc9jDy0dX8Sr9@GLaDOS.station>
-References: <20261023115242.11197-1-stefano.r@variscite.com>
- <att6GNZAVv64Rlnv@SMW015318>
+	Mon, 26 Oct 2026 08:30:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 27B88601EF;
+	Mon, 26 Oct 2026 08:30:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFF321F01825;
+	Mon, 26 Oct 2026 08:30:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793003409;
+	bh=G63bq4wpgZslgc8Jrbf5zqBVwNjBpTm05EKH4grfb9g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=eNjS8GtBeBPyA8EYl+0IroArRKZqddmttCe/pqhYkfWRzMvjs0xHUdFA5zBuwJ/dB
+	 cexNnd49Tts1u13A+p4i8tn4a6PQV0NVL4aKqOnr5UNq3cxWOoYv8fpIfiswUtP92d
+	 Z/9qaxzZpNLLPgIMFYE9xf3BEexK7pTS8AmZRw3kFDaXrDQy/VvVUq+JtED9OnVfGc
+	 ZydQEiSyZc1cxdXcaC5pdQtGfR9YCuabQKeK0u7lqpU5YbBU1ouoQYk3TpT3VuHNZj
+	 +NcclCy7JnHtweFs19IZK/1wJ01Z598SreYQSegk757HsENmnfVqZE/Na5wDhrrM/1
+	 utx8qgxT6pVpQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xLG5n-00000007ABg-2krT;
+	Mon, 26 Oct 2026 08:30:07 +0000
+Date: Mon, 26 Oct 2026 08:30:07 +0000
+Message-ID: <861p9czwxc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v3] KVM: arm64: selftests: Test VNCR translation invalidation
+In-Reply-To: <20261026-b4-vncr-mapping-test-v3-1-7c094a00d46e@fujitsu.com>
+References: <20261026-b4-vncr-mapping-test-v3-1-7c094a00d46e@fujitsu.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <att6GNZAVv64Rlnv@SMW015318>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_012945_654269_0BB0FF78 
-X-CRM114-Status: GOOD (  18.90  )
-X-Spam-Score: -1.9 (-)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: itaru.kitayama@fujitsu.com, pbonzini@redhat.com, seanjc@google.com, shuah@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,55 +91,36 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Frank,
-
-On Fri, Oct 23, 2026 at 10:15:36AM -0500, Frank Li wrote:
-> >
-> >   imx8mm-var-dart-2.2-sonata-1.4.dtb
-> >     DART-MX8M Mini v2.2 on Sonata v1.4
-> >
-> > These are proposed names, assuming that the same DT correctly describes
-> > all the hardware combinations covered by each entry.
+On Mon, 26 Oct 2026 03:10:10 +0000,
+Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
 > 
-> If new boards 2.3 appear, do you plan change to
-> imx8mm-var-dart-2.2-sonata-1.4-2.3.dtb?
+> Add a standalone KVM selftest that checks VNCR accesses after L1
+> updates its stage-1 mapping and issues a TLBI. This guards against
+> stale VNCR translations, as KVM caches L1's translation of
+> VNCR_EL2 and must drop it when L1 invalidates the mapping in
+> kvm_handle_s1e2_tlbi().
 > 
-> Rename affect addtional problem or efforts when back port.
+> Keep VNCR_EL2 unchanged while remapping its backing page A to B then
+> again to A. At each step, L2 reads and writes TPIDR_EL2, and L1
+> verifies that the accesses reach the selected page while leaving the
+> other page unchanged.
 
-No, our intention is to keep the filename unchanged. For example,
-imx8mm-var-dart-2.0-sonata-1.0.dtb would retain that name even if it
-also supports later revisions, provided that the same description
-remains correct for all previously supported hardware.
+If you were tracking cross vcpu invalidation and exercising all the
+architecture corner cases (such as permission changes and co), that
+would be helpful.
 
-Regarding the filename itself, would it be acceptable to include both
-the SoM and carrier hardware revisions, as in the example above?
-Or is there a preferred upstream naming convention for distinguishing
-these combinations? I have not found a clear example to follow where
-both revisions are included in the filename.
+But as it is, it doesn't help much as a validation tool. Its scope is
+way too narrow.
 
-We would introduce a separate DTS/DTB only when the hardware requires
-a different description, sharing the common parts through .dtsi files.
-Our preference is to distribute complete DTBs that the bootloader
-can load directly.
+	M.
 
-> How about use boards compatible string? You add new compatible for new
-> boards, so user know this dts cover which boards.
-
-Could you give an example of how you would handle the root compatible
-property when the same DTB is used unchanged on multiple revisions?
-
-For instance, if SoM v2.0 and v2.1 on the same carrier can share exactly
-the same DT, would you retain the existing board compatible, or
-introduce revision-specific strings? How would those be represented
-in the shared DTS?
-
-Thanks,
-Stefano
+-- 
+Without deviation from the norm, progress is not possible.
 
