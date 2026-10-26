@@ -2,85 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 484C5606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 19:11:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F539606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 19:11:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=37o7+qpo;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=ADY2plTw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kBxF0tqi;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=BonthFNX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=QIiFmRnFhWPNQzBn5gMjyz5irv/bhFzVi5C0pT/z1+E=; b=37o7+qpoS0YEy8
-	8pmdJfgyaUgKc4Aqbqdq5okOoYlQcdzvaujDnlcOiboBLweS+I/GyCBAB35WHpidOODv0aAVEr1sN
-	DchLObyn8ysXwK8oZyzmJXdN7p9ACc/uPvxk/zRBsuvd+OsD6uwHZelCBFORk8OoAB3sg7ET42vXJ
-	yK0BTvqVfj+narEvLoys8Bfd5c9/daxezCnZ4hTpLZTFGr1Whh7cMMS6S9ZSqqc/kndRxHgX9deFu
-	31EIfLbyLUBb/seoRXdY7kebcxjoerTqljWvph8VfgahK7gcHWvWeXwf+P1TA3GYACGdSUozqL+YM
-	+iLumMVpjL0TMEqhBQ2w==;
+	List-Owner; bh=DMuTtuJ1h4xjmqX6Q6LPbxG38lJtzTTle+6VtZKNkrY=; b=kBxF0tqiD/++C/
+	bQqkX2rDdncCx1se9w2/YHcQQqqrNfCYaOwCfqrRMKpP8PtqzTEWeHTvCuCrp60M1CiqxUI4gP+ue
+	PFTyFTMFcr8jeCImcToGzQuK+/wxjeY4LObcY4eKIQi7Hy2hxGqZpAvH0lrMvZ09WGTXpktqRkGm4
+	HevzaBUrsaAmND6U6X1MraV8bWZ++e/kcakW1VO9AhQKfj68ow0A2HwlNw7gzBUhWFUH1/ZTxhpka
+	eYUk3Km3BRTbXX/vWn2omtCETcLM7kAMarC9XJ+A+ZkzHdNrXdaT1SheOJ5gXvuT9XTFO3LuDru/8
+	Zqh9j9eyd3Tu13HsGBjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLQ6A-000000038mo-36Pg;
-	Mon, 26 Oct 2026 19:11:10 +0000
-Received: from mail-oo2-x05.google.com ([2607:f8b0:4864:31::5])
+	id 1xLQ5t-000000038X2-0Hmg;
+	Mon, 26 Oct 2026 19:10:53 +0000
+Received: from mail-oi2-x08.google.com ([2607:f8b0:4864:32::8])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLQ5t-000000038VG-2W8C
+	id 1xLQ5n-000000038QG-1Txv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 19:10:54 +0000
-Received: by mail-oo2-x05.google.com with SMTP id 46e09a7af769-84585465aabso490665a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 12:10:53 -0700 (PDT)
+	Mon, 26 Oct 2026 19:10:49 +0000
+Received: by mail-oi2-x08.google.com with SMTP id 5614622812f47-4b94bb43008so301432b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 12:10:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793041851; x=1793646651; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1793041846; x=1793646646; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=QIiFmRnFhWPNQzBn5gMjyz5irv/bhFzVi5C0pT/z1+E=;
-        b=ADY2plTwv7kz8tNQByODXDrpjoVax5vQZ4bYLQMqx4OYO9FruU3dTJFYSfz79wSecD
-         buW/YZ4tf8iIXkqcKfmX7+6Z/ZvEtQgGkOrMV60pw0pO41TLFUOPZwwsYTkmXG//1YAo
-         n37A3AU6qT9GUB32s1NvFD4EB6Pqvt/pvGAV0NS2znwTITIhG9VvWRfSHhM3FDS3kluO
-         Ww+5UQkc1VhVBltBBvmNgTyQ/4J1FsibaKhw9mIQ6pkpHmWDbuf1DOssfNZb2QPluKwg
-         TnmmIyQTEpr0HWcmgyMuT221tDhfPkiQeCzomIx+kdtyM0JdzZ7esMiP9mXawIWLFgDh
-         BRQg==
+        bh=DMuTtuJ1h4xjmqX6Q6LPbxG38lJtzTTle+6VtZKNkrY=;
+        b=BonthFNXR/e3ra+/r8BgFJtrF1bTzw5p2h7JdhucK8y/CG/I/XjPpQ0mLFEgPSu8aS
+         LHgx4RNqa2651I2KEvjYRYrocRO0ieGPq53+GjxFhLvFA/sW+OGNw+ACAaUQ8rzbw779
+         iybKb2IwHJz6ZRMFR64dQByb98kfQSP4PxlP9ums+agBmDFldVzOqBZbS6shXuW0iSGN
+         Ix+eGDTHjwOPl1tRr2Na+OCCb7tzsXgvlR8ub3fNQaL1dDIgzRpTocBzAkHv2ZperU81
+         mlK5sz4PdUhMoi14mmz2104je+00XgP3PVkqw78HJl6wyRQOCnkTo9zqA5E++cKPyJ/P
+         GTQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793041851; x=1793646651;
+        d=1e100.net; s=20260707; t=1793041846; x=1793646646;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=QIiFmRnFhWPNQzBn5gMjyz5irv/bhFzVi5C0pT/z1+E=;
-        b=d8rnR3fgS3jODBDdm79+XxT+Jo+pigonX0eiqDAdxlYGPSMArLRXoTHLePDxNclifY
-         8hxUKHX13Ob4SkoqiU2UZQhl6BdB81GPF4Escvqc9TOHnZKV3Ux/CLZQpmclUncW9+lu
-         BQdwG9j+GRcAEBjTdGWdYrB0CaTHCnI3Kk5Blm1TsNPE+SMCEiLInMaX20BPbCOBAYEa
-         FT9+rUQsKg4AU0SM+4kgyuYP/gBTTuC/qVEso8cDv1ClOfNVXtEGaSAoqYhhL3zsa8Mj
-         gc+X9dJ9NWkCKCekdc8nbDCSC3YrKy0nBzMoe381f/HpHCJrjnPEC5yzRrBYykqkZrhQ
-         NUOQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzwucNIwE6ozCgOSOhXNmnm2lbNjER5gTTX9NSUXUJHtykNWLElOPuu2epY6go6SUUeOvDdGhaYnuGg4rwUEDUC@lists.infradead.org
-X-Gm-Message-State: AFq9FYIL3J04z6DcCJahVI8VBioK+ovqdH3sdy4fAXK+HYp+U8tPwypx
-	ONzb+Hhqyx1J4V2P86AlkmZUCKC7Xh2eXBQi5aZoLPnJUSv46J6h8hVc
-X-Gm-Gg: AYBFou33Esy5smwS8ZQpV7VAtlYGFR0cUjAyKPMflN4mBTU61/pQcstUxda96SxbHSn
-	QicpGrM9IGMGthueUkzmo+2TqC5B0BnNDeEVPIDXj431qyazCkLc6Zu5GBcRJcjBAs95fj4vtyx
-	dK9F4nqA0eZNrgSTNGSmkbdwLJ3w6yZjEPQWMDQT1ae1Yim+x7b2ArgcgLOuXc9oxDiXMpnae1m
-	Y9yI709JTMFnvj9Uzui+Rnw07ibmtiYJRTLIVtNFeyPqIMxFM1n+0ezvPVRs5Y/6Ew4UHKmnKXe
-	eQtPebvHuMTgBwa+imB9cOFPBNq6o5sf+xniOFCk7w5VK17s+FHEofJOmSH+iUzJjkPXkNhxYVJ
-	sXz0MRfS4hKQj3Gu1FmmALH77xY+8j5eTi68QyFR1659aPhEiABlc0zKRZoEfln2IrKfG0++jQz
-	F6au+BgyE9nbWhq4cNiZaFvdMM2aQJoH5F6NF6E30CCl5GEZmc90wQ8YFpkXBUdhuYQjfGCb6a0
-	uhPwr3VMGPQOl8NDgwJrT7ukdKkg2hSF4jcoENgemmRGDUA6fG/t64MFhAXDHhrIj51ukHCd4PM
-	inzaNhWipUvS1Vx9MG8ZVgMlguL/tOMGmjpG+P8DURRvn9A=
-X-Received: by 2002:a05:6808:150a:b0:532:6c52:9778 with SMTP id 5614622812f47-55f6af83955mr374971b6e.20.1793041850651;
-        Mon, 26 Oct 2026 12:10:50 -0700 (PDT)
+        bh=DMuTtuJ1h4xjmqX6Q6LPbxG38lJtzTTle+6VtZKNkrY=;
+        b=StlzFFvd9w4A127xYz9xIq8cxaijMKFSFHXgGCeiTeL5yPAxWSc3eRi2SqKrtD56fg
+         lxNdrTHVSI8ZwmorJpfoCedqarNbd6usn6BkvJ1rhxWQ/XR6Tu8h1HDikXXuwlDIzD/2
+         vOoASU5JnZNUuVO5wmNnc0zZqV1AvfPjewsFgZ57rDwJFFDmZX7h2tywTN6KvPzWwl13
+         i+h+LCf6WCWm6OtUh5d4n+UsIo+sxBYH0AmEns/vnSGc3Po1Lc1uad2Fq3PJPfrKiYzQ
+         yN8ZTs0GcPyXTZI+GUqjfErrF1NBDDAAka7RDvW71VDMq39ohj8OVVgclNGYL0ElvOU4
+         73og==
+X-Forwarded-Encrypted: i=1; AKwUvBwWhDTudt5xG2MrvG7v+ZLKIMGwJNIQPUxcL8t7HYaNnBv47WmFPzdfD9WYN2ejS7sB9jrTakYb9k0i5Si+agxj@lists.infradead.org
+X-Gm-Message-State: AFq9FYJQVJzhMrGDKBiNxiVb7wpLoYI839okl99af0HOUDPnojdn9KkR
+	dvOWZu7neEGFI+Z93N3Ptz5VzrSbu4ZWoqxXC0AKs3RZkhTNcU3579cq
+X-Gm-Gg: AYBFou0tc1355VEccu+DH2uxptx88t/SWVLdTYzEB7qmfd1XFX4xx13yZgghjeTKwUs
+	npsNGVleO45zY3kNRFr+aynqPGDauSkGKroh4bK/QXg+ISMa0YXT2HUtKyG5+YA2ojQi5frb4wk
+	R7hY8KmnOiI4y58VQlOZcjbr5jY80bAHq9BA2RT2ot6qn9zrXs2rJ73KkP/EH9QHtBejgdBNhdH
+	TEG97A74Ri5GWUw0WIMfKJ7UGQxZCBytm6qlwau8jYRpAJikGg0AeiK5ZV0eU6P9/8dlj6S6hqO
+	5SRg104+e2KvVPkIaZBcy/9uwyPXi8p3UzkANaYUvFSkfEptP8DP4vpcdQQvD42MEII/1jVuZUl
+	n80Fz3jeFx3JsmOjw85EnhD+p++5tBTzSiY8VJj/djJe02fDHUkYC3LVCEBlrhTR5zd/XechIVI
+	PUrl/Ujah1HdvHDExJnu1uu+3fUcz9ri+zxDjgI846Qh2BSHc40DyFD57NAFiG0LZf314EfuHTY
+	nehpguafeMI/8AaEiERhgIwPNhfM+aR5eJvEdu7/vOeYKrHHt8a6tMY8bswPZrGA3mombo2sryp
+	7ECmJh0pNDQQo0OZfESRyfihAJ4e6W3z/M2d1vVkbKdTq5UaoH6JXuHv/IDYv29kPK8=
+X-Received: by 2002:a05:6808:1919:b0:4d6:90d4:6bc with SMTP id 5614622812f47-55c002d9eb8mr6575517b6e.46.1793041845770;
+        Mon, 26 Oct 2026 12:10:45 -0700 (PDT)
 Received: from [10.10.18.223] (wsip-64-207-253-118.tu.ok.cox.net. [64.207.253.118])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-55c03dc3524sm5740834b6e.0.2026.10.26.12.10.48
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-55c03dc3524sm5740834b6e.0.2026.10.26.12.10.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 12:10:50 -0700 (PDT)
+        Mon, 26 Oct 2026 12:10:45 -0700 (PDT)
 From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Mon, 26 Oct 2026 14:10:39 -0500
-Subject: [PATCH 4/4] wifi: mt76: mt7663s: use RX enhance mode
+Date: Mon, 26 Oct 2026 14:10:37 -0500
+Subject: [PATCH 2/4] wifi: mt76: mt7615: wait while Bluetooth downloads the
+ MT7663 patch
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261026-rbrue-sheldon-upstreaming-mt7663s-v1-4-944b1f7e63a8@gmail.com>
+Message-Id: <20261026-rbrue-sheldon-upstreaming-mt7663s-v1-2-944b1f7e63a8@gmail.com>
 References: <20261026-rbrue-sheldon-upstreaming-mt7663s-v1-0-944b1f7e63a8@gmail.com>
 In-Reply-To: <20261026-rbrue-sheldon-upstreaming-mt7663s-v1-0-944b1f7e63a8@gmail.com>
 To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
@@ -92,16 +93,16 @@ Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  Ryan Brue <ryanbrue.dev@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793041838; l=5919;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793041838; l=2027;
  i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=3uU3p0eYN0gWkFjqNQLRhAPcmSmlrPjUlBG9Bxgtb3g=;
- b=4BBBF/yUowDPHwMwWDdDl2PGA2yooKLBaQvgJiKnkDgfIFukdubCZ0Lb/ZE35bsg1OP3qaTHm
- 0MGOuDWtAcRBRC1D1bDKhM5vRsE0gBXaVcupju6xvGzrzB9FXvHck+t
+ bh=HkEhUCJzkwct3RuygSMeROndtW02Wv2ZhGyJ5rVshHo=;
+ b=Xp3Ukesylfb4khPHpZ11/Jn435KT1nrvFR8ZhqyM/mUHsf6//IDNqy25niqgUN/TogKP5/5MO
+ H4QgjZPCBcVCwSr69a0/W6h771CNP1sQjSp1Qa2GvYgSEJiwTO2+/Pa
 X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
  pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_121053_679378_42A0B37C 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20261026_121047_401973_3E93AAED 
+X-CRM114-Status: GOOD (  15.59  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,164 +122,57 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In RX enhance mode (WHCR bit 16), the chip appends the next interrupt
-status block to every RX data read: after the frames come 4 bytes of
-zero padding and then the same 112-byte block a WHISR read returns.
-mt76 never enabled it, so the txrx worker read WHISR before every RX
-read, about two status reads per frame. MediaTek's own driver for these
-chips runs in enhance mode and only reads WHISR when no appended status
-is pending.
+On MT7663 the Bluetooth SDIO function (btmtksdio) shares the ROM patch
+with Wi-Fi, guarded by a semaphore in the firmware. When Bluetooth wins
+the race at boot and is downloading the patch, the semaphore request
+returns PATCH_NOT_DL_SEM_FAIL and mt7663s gave up:
 
-Do the same for mt7663s: read the extra 116 bytes with the frames, keep
-the appended status when its padding is zero, and let the next
-parse_irq() use it instead of reading WHISR. Each status is used once,
-so the read-clear TX quota counts are neither lost nor counted twice.
-mt7663s reads only RX port 0, so a pass of the worker makes at most
-one RX read and no appended status is overwritten before it is used.
-A 1.5 KB frame plus the status still fits in four 512-byte blocks, so
-the reads don't grow.
+  mt7663s mmc2:0001:1: Failed to get patch semaphore
+  mt7663s mmc2:0001:1: failed to load mediatek/mt7663pr2h_rebb.bin
 
-Measured with ftrace on an MT7663 SDIO module under a UDP stream: 881
-WHISR reads for 857 RX reads (2.1 per RX read before), with TCP and UDP
-throughput unchanged on that air-limited link, no added loss, and no TX
-stalls over 30 s of transmit.
+Retry every 100 ms, for up to 5 s, while the semaphore is held, then
+find the patch downloaded. Tested on an MT7663 SDIO module with
+btmtksdio built in: across repeated boots, whichever function downloads
+the patch, both come up.
 
+Fixes: a66cbdd6573d ("mt76: mt7615: introduce mt7663s support")
 Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 ---
- drivers/net/wireless/mediatek/mt76/mt76.h        | 10 +++++++++
- drivers/net/wireless/mediatek/mt76/mt7615/sdio.c | 28 +++++++++++++++++++-----
- drivers/net/wireless/mediatek/mt76/sdio.c        |  3 +++
- drivers/net/wireless/mediatek/mt76/sdio_txrx.c   | 15 +++++++++++--
- 4 files changed, 48 insertions(+), 8 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mt7615/mcu.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
-index 9e851dea71d9..9c637ebddb52 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-@@ -700,6 +700,16 @@ struct mt76_sdio {
- 	struct sdio_func *func;
- 	void *intr_data;
- 	u8 hw_ver;
-+
-+	/*
-+	 * RX enhance mode (CONNAC1): the chip appends the next interrupt
-+	 * status (intr_size bytes, after 4 bytes of zero padding) to every
-+	 * RX data read, saving a separate status read while frames stream.
-+	 */
-+	bool rx_enhance;
-+	bool intr_pending;
-+	u16 intr_size;
-+	void *intr_next;
- 	wait_queue_head_t wait;
- 
- 	int pse_mcu_quota_max;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/sdio.c b/drivers/net/wireless/mediatek/mt76/mt7615/sdio.c
-index 46188951ad19..f744240ebd34 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7615/sdio.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7615/sdio.c
-@@ -56,12 +56,19 @@ static int mt7663s_parse_intr(struct mt76_dev *dev, struct mt76s_intr *intr)
- 	struct mt7663s_intr *irq_data = sdio->intr_data;
- 	int i, err;
- 
--	sdio_claim_host(sdio->func);
--	err = sdio_readsb(sdio->func, irq_data, MCR_WHISR, sizeof(*irq_data));
--	sdio_release_host(sdio->func);
--
--	if (err)
--		return err;
-+	if (sdio->intr_pending) {
-+		/* appended to the last RX read (RX enhance mode) */
-+		memcpy(irq_data, sdio->intr_next, sizeof(*irq_data));
-+		sdio->intr_pending = false;
-+	} else {
-+		sdio_claim_host(sdio->func);
-+		err = sdio_readsb(sdio->func, irq_data, MCR_WHISR,
-+				  sizeof(*irq_data));
-+		sdio_release_host(sdio->func);
-+
-+		if (err)
-+			return err;
-+	}
- 
- 	intr->isr = irq_data->isr;
- 	intr->rec_mb = irq_data->rec_mb;
-@@ -124,6 +131,15 @@ static int mt7663s_probe(struct sdio_func *func,
- 	if (ret < 0)
- 		goto error;
- 
-+	mdev->sdio.intr_size = sizeof(struct mt7663s_intr);
-+	mdev->sdio.intr_next = devm_kmalloc(mdev->dev, mdev->sdio.intr_size,
-+					    GFP_KERNEL);
-+	if (!mdev->sdio.intr_next) {
-+		ret = -ENOMEM;
-+		goto error;
-+	}
-+	mdev->sdio.rx_enhance = true;
-+
- 	ret = mt76s_hw_init(mdev, func, MT76_CONNAC_SDIO);
- 	if (ret)
- 		goto error;
-diff --git a/drivers/net/wireless/mediatek/mt76/sdio.c b/drivers/net/wireless/mediatek/mt76/sdio.c
-index ba5f123f7e39..95af0a90546c 100644
---- a/drivers/net/wireless/mediatek/mt76/sdio.c
-+++ b/drivers/net/wireless/mediatek/mt76/sdio.c
-@@ -269,6 +269,9 @@ int mt76s_hw_init(struct mt76_dev *dev, struct sdio_func *func, int hw_ver)
- 	case MT76_CONNAC_SDIO:
- 		/* set WHISR as read clear and Rx aggregation number as 16 */
- 		ctrl = FIELD_PREP(MAX_HIF_RX_LEN_NUM, 16);
-+		if (dev->sdio.rx_enhance)
-+			ctrl |= RX_ENHANCE_MODE;
-+		dev->sdio.intr_pending = false;
- 		break;
- 	default:
- 		ctrl = sdio_readl(func, MCR_WHCR, &ret);
-diff --git a/drivers/net/wireless/mediatek/mt76/sdio_txrx.c b/drivers/net/wireless/mediatek/mt76/sdio_txrx.c
-index 311c31e87ee5..f15746a13991 100644
---- a/drivers/net/wireless/mediatek/mt76/sdio_txrx.c
-+++ b/drivers/net/wireless/mediatek/mt76/sdio_txrx.c
-@@ -9,6 +9,7 @@
- #include <linux/kernel.h>
- #include <linux/iopoll.h>
- #include <linux/module.h>
-+#include <linux/unaligned.h>
- 
- #include <linux/mmc/host.h>
- #include <linux/mmc/sdio_ids.h>
-@@ -87,7 +88,7 @@ mt76s_rx_run_queue(struct mt76_dev *dev, enum mt76_rxq_id qid,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
+index 152b75178b27..e5c2ad5fb458 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
+@@ -1241,7 +1241,7 @@ static int mt7615_load_patch(struct mt7615_dev *dev, u32 addr, const char *name)
  {
- 	struct mt76_queue *q = &dev->q_rx[qid];
- 	struct mt76_sdio *sdio = &dev->sdio;
--	int len = 0, err, i;
-+	int len = 0, data_len, err, i;
- 	struct page *page;
- 	u8 *buf, *end;
+ 	const struct mt7615_patch_hdr *hdr;
+ 	const struct firmware *fw = NULL;
+-	int len, ret, sem;
++	int i, len, ret, sem;
  
-@@ -97,6 +98,10 @@ mt76s_rx_run_queue(struct mt76_dev *dev, enum mt76_rxq_id qid,
- 	if (!len)
- 		return 0;
- 
-+	data_len = len;
-+	if (sdio->rx_enhance)
-+		len += 4 + sdio->intr_size;
-+
- 	if (len > sdio->func->cur_blksize)
- 		len = roundup(len, sdio->func->cur_blksize);
- 
-@@ -117,7 +122,13 @@ mt76s_rx_run_queue(struct mt76_dev *dev, enum mt76_rxq_id qid,
- 		return err;
+ 	ret = firmware_request_nowarn(&fw, name, dev->mt76.dev);
+ 	if (ret)
+@@ -1253,7 +1253,17 @@ static int mt7615_load_patch(struct mt7615_dev *dev, u32 addr, const char *name)
+ 		goto release_fw;
  	}
  
--	end = buf + len;
-+	/* The next interrupt status follows the frames and a zero pad */
-+	if (sdio->rx_enhance && !get_unaligned((u32 *)(buf + data_len))) {
-+		memcpy(sdio->intr_next, buf + data_len + 4, sdio->intr_size);
-+		sdio->intr_pending = true;
+-	sem = mt76_connac_mcu_patch_sem_ctrl(&dev->mt76, true);
++	/*
++	 * On MT7663 the Bluetooth function shares the ROM patch, and the
++	 * semaphore is refused while it downloads the patch: wait for it.
++	 */
++	for (i = 0; i < 50; i++) {
++		sem = mt76_connac_mcu_patch_sem_ctrl(&dev->mt76, true);
++		if (sem != PATCH_NOT_DL_SEM_FAIL)
++			break;
++		msleep(100);
 +	}
 +
-+	end = buf + data_len;
- 	i = 0;
- 
- 	while (i < intr->rx.num[qid] && buf < end) {
+ 	switch (sem) {
+ 	case PATCH_IS_DL:
+ 		goto release_fw;
 
 -- 
 2.55.0
