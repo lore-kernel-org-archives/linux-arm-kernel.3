@@ -2,108 +2,113 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B42C1606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 03:23:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CFD1606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 03:35:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PHfNsI2s;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HlHQLLWN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IL/KMISF;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=FH12MvDL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=NbE8+EkvU8qKTKBXp8MrzwQWpu9rEN62vlfyhAKPT8M=; b=PHfNsI2sxBjXK9/QDMCHWzrdcd
-	UG2gnw3PYfylWxnouDhH9VHkwY6ikelTuHHMVMwA8xwq93yr7LjGnxVXHm0SYvXhDPCjjAUtehLx4
-	r6FAa1Rggja87IlLLm5Q2gF+yvT37o7e7k1mWHQ/iBRVB99cIZ3KyxhGasvQpXxJgvwvhOhH77DKT
-	k+pIsaTPk4GKaiwdV0gcLkkyPZ0lRgQmA5VgS+46GOjGoy/mxFf9XEjAQTH8dPFaHnZN9uwIo/Pzf
-	NBzjoOK/RTAMbBCMJol86yR3c2egaldG06SHmw7kZovjKcnjcPrNxEzOqj5c/ff88bDDMcOQJTRL0
-	MrWMIR2Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=qvFzouQF9MYPvoxr1/BdmBibADJU3LaIGGor9Gt6xfo=; b=IL/KMISFAuCLDj
+	m2lDHL3K6WpFw3iNQXIfc6ttFCc4FVtdM8hTXEW/aJGAkANparTMaYXDgNGS/hP/5HgH2FBtTsz3O
+	abvn4tTpw9S5XWFywCqC0rhrFkXt4nHR9XWVJ/6yIvxkZgm0hzT9sx5LISuxKSnD80erGnc2I5qN4
+	YI3nksO/Mtd3ev0vW85OGblT+FcdP0vzVA4ROahpsbxcqIvvtyw/GENMspPMoRqmC6flTbyjJ7HSR
+	tsZN/bg1BMq+iSv+vdKcpSb/OGPa5G9MEc66izccjrh9Ctp9jIwLuaZrerAiOO79ZqsPMxMnDjwV/
+	+QMs64aFYaoTQR42uoXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLBHl-00000001egA-0jWq;
-	Mon, 26 Oct 2026 03:22:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xLBUB-00000001fEo-2uuN;
+	Mon, 26 Oct 2026 03:34:59 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLBHf-00000001eds-0lLK;
-	Mon, 26 Oct 2026 03:22:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5061360136;
-	Mon, 26 Oct 2026 03:22:02 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792984922;
-	b=xwgDwlf3GaaubyyW0zqGwGicPxlJJdLMbITTOJxyY3pcCgO2d0vOVCRW7KjmgRUg8wkN
-	 CBmzUR2f+QgR4GeckWG3+RTbGEFZoHEix9dMYjAijLLpV56W3Y7d9OvU5oC+pcHWw+cNT
-	 YMGb439KrTVjRaRg3GvI6rBWfU4iB8PcdcfAKL29WM+ncXWyw+//yXYCVQVCuH04Dn82y
-	 /FGF7b0oYukQA5Gr7E/hQXAnzw8bGBNDFj+mpDN7+s3HP/g9ltknBXLN0rv4Jc48PEu47
-	 5S/xsjlV9Hbv1EQIjJwVl1+sUg4kA+3SQjD9uIO0/4yIYcUYUBa/N1uHANskB3dUSaQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792984922;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=NbE8+EkvU8qKTKBXp8MrzwQWpu9rEN62vlfyhAKPT8M=;
-	b=SvdTQP3cwPUG6hcQR4nAuXYG/e/H/Dgz1PRDjc3MLg9cLpRmmHJ/FhwGwNKbeIW3bl+7
-	 xzYWojKPoC+Kp16f2HBAURYx9QYZ5EXH1NE5ioBmYYQ+AeL59HTPPeapkxwM9raEUA+oU
-	 IeOxRR0koksBJqflb0LOnsSy2OeWXWf+jcEB9ooUQMTHF3e1XbAYXRUoy/vIGgvEj4Mt9
-	 eed8R3U7ddcQMSSHfC7yVu7Fv4YxNTd2VXmyrA5EmCxjtzF8HjstD0O1QNT5rvqq2+aY2
-	 5gBNCOA0yW7Y1y4Ll4BP1WRpS/DOQS4kjBxhpH1/EJDs/eEaDFJg0IY89WBxHftI/hg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id DACE21F01825;
-	Mon, 26 Oct 2026 03:22:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792984922;
-	bh=NbE8+EkvU8qKTKBXp8MrzwQWpu9rEN62vlfyhAKPT8M=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=HlHQLLWN+eJAJZCUKCSfGnHNnMBGrFJpj0sZbjoiVdGCFWuRsG79pfb8GDXVprRtn
-	 bWqAwrW0/DOlg9X6Za2PgR69iVucvAf9eF+Aw1plsIYzuZ9FTgp+yFvoNbL3DpOBfP
-	 yqERxpd9PLnxhAVgHPDCl7Xtv9r3yG9Hx5IZC7rppM1jIR3v/Vq//0Qo5FM0q71jKE
-	 4Jqt+Azq+QNd3mi4F1EE0Z9PO3O2ECqeFhxChm+XK/KXGryErtSsQa5TnEfBSmm/g8
-	 ONv2D0LiFAUgfhOnrEj5az16fIh+a7LMp7d4Uu67l4hOmxCvEnMleqGRx7P2g4KUW7
-	 w+2J/sGfqUyEQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 542DC44BDD;
-	Mon, 26 Oct 2026 03:22:00 +0000 (UTC)
-From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
-Subject: [PATCH v3 0/2] pmdomain: rockchip: Add RK3572 boot peripheral
- domains
-Date: Mon, 26 Oct 2026 11:21:37 +0800
-Message-Id: <20261026-add-board-ok3572-c-pmdomain-v3-0-70d614d3d921@qq.com>
+	id 1xLBU9-00000001fES-1SLt
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 Oct 2026 03:34:58 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-8b0d91601bdso26992637b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 20:34:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792985695; cv=none;
+        d=google.com; s=arc-20260327;
+        b=C7ngslvxknGo+hLOB0EqTf6JkiXhwDN6Oz/6qCUdLy2OG60Ntxb6/2RYS4LklDZlDs
+         GkDmow+8WHBdTU6pImQoKaWnEUsK6ikGrQ3etc2X/k8jLil6moyngvLzUIalICt7lXV5
+         QcEVrnqDndg1tWbKc/owNoOW/qW0pZEq2BfCaEfemVmrJVEXpee0KNX0qGWvSe5C5GH1
+         fDdA/yteX7VEjRyJ/IsOeNUf8s4dWo+F4BmwwVxNM1pCTqX6dI1sg9uemOx10D6eafpK
+         JMYOfj+3HI/gaML0YhYL5rVIIG5bHGe/rPjww6QLd2ut2K46w30cM0yIiihXUKqQdt7a
+         SvsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=qvFzouQF9MYPvoxr1/BdmBibADJU3LaIGGor9Gt6xfo=;
+        fh=t4/iMhUHisGm0Uba2Tu/TEzpFo2xzFYv6vpoHkv4EqY=;
+        b=E0kv+gnlJKmAq0IjBXcslUGrw44EjPbYwv9Q8+AWM2U5gwzTTa0lglGiF2ZrJBmLa2
+         51O+42SMB1hYyvdmRONlr/ngslwyxcO+bwuXAceH/OvxMJdTkCxKVCmm6gFEGkyKlOid
+         Y+6QccL0mF65I8gq6kJBcZ8KZzoXIdFqck1Q8BUrrKoAAQjP82P6fnhGaYFv5RgGx4Z/
+         2RFnom09l5WU04atq4YovMK0Ru5aJONLUrHnmbrUzCwcUYJGZM81qRZRXSyArB4zqxWy
+         IVHekIORt4daDPCSSpkgBREEXjpHsNwqkJPHvLuTy3r/AbqlRp5xewKEEztpRqu6tpin
+         bE5g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792985695; x=1793590495; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qvFzouQF9MYPvoxr1/BdmBibADJU3LaIGGor9Gt6xfo=;
+        b=FH12MvDLVKXodSQ+ZGpj6VbusNHZziA/28GuLj9Gmd3Yq16cPSHMVu7nRSvhRwaNkt
+         eUdWoaLDUpyR7w9yLtUN7X8LyvlV1PYw9KeXGCiPGdFwa1DDSPa1wAJ2BvmjHzgKsJMZ
+         YqqwYfpQGqOUM6s1MHSk17xYBSVgswN01bu7bF+zp+nHXJdlBX5kfdJXPhv2VoN3u5mh
+         7eClIrZACviRNKQpE4S1ZNyrfRMxPxWABkBzHehTtI8AIx8B3lSiUyMj3YvPAP3zWZjz
+         BU7PxX+qLcJxOI9lkxUsCyxxl/WuS1pbZ+GI+ypSYQmf95q+nLuylqOoOXIghL5ecHI0
+         x6ng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792985695; x=1793590495;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qvFzouQF9MYPvoxr1/BdmBibADJU3LaIGGor9Gt6xfo=;
+        b=mLjeA+7dpGHXY3vRo3ghqf1UqDfmSb9PI+vfWqYrGTrB7tNB1wOVVfVjiI/SEQP6Pt
+         0wJ9xhMibLHgiJLQpzTD7wmOdY5rX5y2nEw0+fKn07cKmIiBkaH7p5prfFiNFU/sHWzc
+         z+t+TbWn05wHh2ze56mOPtzeOa+O5t9pnxZbyG0PpjKzFg/AR2mzSx/0DPOUXWfiLvga
+         J/7aIwAhvk8ZvdGQIHIDjSL14Ie5iq322h+sI9SuuBtoFMzDrOT2iPWgAlbk2krXJ/fG
+         4f/oTAkJHfaIMOXFzIqzugx9G9rm1E24tQ9nF3CRoZYe/H8naDma61P6MLvaWvhvmTvC
+         DxAw==
+X-Forwarded-Encrypted: i=1; AKwUvBwFHYzvO/DcBZbMEP5KWl2+KNyU/u6bAEyczgimn/PJs9SpTj2/lvc7wEZ7xl9tIFTIkS9eB/I8KRIrD4Ecz+I/@lists.infradead.org
+X-Gm-Message-State: AFq9FYKCX0AmGywBprNo5r/4esf1N8au4DAksQWOAVJxVZeGFcXSG3Q5
+	EmUGy5/VDjkTS2cEUFFd7oz21+JDE/dCTeU+oN9cwQ/s31bb5aMuFXVJjhiwXgZDRCHolhtJN8Y
+	b1f7fO5JdUv/rSX7ZjuczhGIn8koNiuFyu8mX
+X-Gm-Gg: AYBFou0YOyMsOlXLB9XXsSyuo0jgd88OB7cUhdnIrMBE54dp1Q5tXrV5YLGFQFTF9cC
+	Iz+q1T1NjUSgMTvLxLs04NOqctDTm7ohr49MKbPQgeYUYQGV48QZe6M0dV+D+Oln4wjtZSEr4KX
+	mRMk9Bg83aNmj+4kJreyw/BwEKiV28FBjHfQpz5X2lqfnxCqzid+PdtMqwTBIwDePfeKjVs8igF
+	a9F5bVVf2vg08WudaN6ctT44x/buKTnSgYLdTE7jq8uZAdfzyoQ1EM4x5WuI3YULF/MHFtEH8CF
+	i8y2xtW/SoOctkYncAixYygDIJCo4YTxprPsZ6Vct8U6jFHUUqtmI6AZo3HIxwetKpRPG4r5ekB
+	aZumMgnAf3fvN10Gnrt4aqLkXyMoyOcF8rhzP
+X-Received: by 2002:a05:690c:e3cc:b0:8b0:56e6:54ff with SMTP id
+ 00721157ae682-8b1671e0cb1mr39578197b3.6.1792985695228; Sun, 25 Oct 2026
+ 20:34:55 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAEHH3moC/32OQQ6CMBBFr0K6dkw7FUVX3sO4KJ1Bq4Fqi42Gc
- HcBo3FhXL7kz3vTicjBcRSbrBOBk4vONwPoWSbs0TQHBkcDC5S4VBI1GCIovQkE/qzzFYKFS02
- +Nq4BrCSSUUoXSxaD4RK4cvfJvtu/ON7KE9t2VI6Lo4utD48pn9S4e5fwVykpkCBLWVGRG62Yt
- 9fr3PpajPaE3/f/P004iFZrIlogr9Gqj6jv+yeBnQf9FQEAAA==
-X-Change-ID: 20261023-add-board-ok3572-c-pmdomain-2f02da11386e
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Elaine Zhang <zhangqing@rock-chips.com>, Ulf Hansson <ulfh@kernel.org>
-Cc: Cunhao Lu <1579567540@qq.com>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- Finley Xiao <finley.xiao@rock-chips.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792984919; l=5260;
- i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
- bh=AcZhQE2h3agPWP8/xjxv38mEgdS8HpR3PNxcZ2ZWylw=;
- b=ibcpCH/0lvTn1T/jrYlbaE11ZcaSxH4CSYMvzvOanFPwW7EYWBaz2YcfIYbpzPiOP19liBy+2
- 8OeSYy0uPwgBX+WVMc1x61I4EiOXHYiAQTR3MqsSO6QTQOPxi1vUvXm
-X-Developer-Key: i=1579567540@qq.com; a=ed25519;
- pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
-X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
- auth_id=1177
-X-Original-From: Cunhao Lu <1579567540@qq.com>
+References: <20261002062933.26497-1-prasanth.padarthi10@gmail.com> <20261002062933.26497-3-prasanth.padarthi10@gmail.com>
+In-Reply-To: <20261002062933.26497-3-prasanth.padarthi10@gmail.com>
+From: Prasanth <prasanth.padarthi10@gmail.com>
+Date: Mon, 26 Oct 2026 09:04:44 +0530
+X-Gm-Features: AclHuK9g2QPyjNGvOYOKw3ICZuN5ZkwaHqbNNAHIXI0yRtldeEML3mZWQVHrKk0
+Message-ID: <CAMFFDGjmJTRR8GOX=S+kKnMA-bG+gbZP0sS8dG_d+taDPPRDZQ@mail.gmail.com>
+Subject: Re: [PATCH v8 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
+To: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org
+Cc: linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, joel@jms.id.au, 
+	andrew@codeconstruct.com.au, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, Andrew Lunn <andrew@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261025_203457_412962_E9FF54B1 
+X-CRM114-Status: GOOD (  20.69  )
+X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,147 +118,205 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: 1579567540@qq.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	FREEMAIL_REPLYTO_END_DIGIT,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,WEIRD_QUOTING
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This is one of the subsystem submissions for RK3572 support.
+Hi,
 
-This series adds the RK3572 power-controller binding and power IDs,
-followed by support for the NVM0, NVM1, PHP, and VOP power domains.
-The driver uses the system GRF to check firmware shift-ready status.
+A gentle follow-up on the B650D4U BMC device-tree series posted on October =
+2.
 
-The RK3572 SoC has eight CPU cores: two Cortex-A73 cores and six
-Cortex-A53 cores. It also integrates an Arm Mali-G310V2 MC1 GPU.
-The OK3572-C board provides two Gigabit Ethernet ports, three USB3 Type-A
-ports, a Type-C dual-role port, eMMC, microSD, and UART.
+Could you please let me know whether any further changes or validation
+are needed before this series can be picked up?
 
-Power-on progress and restoration are tracked separately so that a
-failed transition can be retried without losing pending memory resets or
-QoS state. The shared Rockchip power-domain code is updated to support
-the RK3572 register layout and retry behavior.
+Thanks,
+Prasanth
 
-Testing was performed with Debian 13 minimal and Linux 7.3 on the
-OK3572-C with the FET3572-C module. Shared peripheral tests were run with
-the system booted from SD, while eMMC validation covered the complete
-boot chain.
-
-Passed functionality:
-
-- SD and eMMC complete the firmware, kernel, and root filesystem
-  boot chain.
-- UART console works at 1500000 baud.
-- SD read/write and data persistence checks pass.
-- All eight CPUs start; CPU frequency scaling and hotplug checks pass.
-- Both Ethernet ports obtain IPv4 addresses and pass bidirectional file
-  transfers.
-- All three Type-A ports pass USB2 and USB3 enumeration, data transfers,
-  and reconnect persistence checks.
-- Type-C host and device modes pass in both plug orientations. Physical
-  reconnects correctly select the expected device, host, and device roles
-  in sequence.
-
-Stability:
-
-- Repeated cold and software reboots complete on SD and eMMC without
-  data integrity failures or power-domain transition failures.
-- A combined CPU, memory, network, SD, and USB3 stress test completes
-  without a crash, lockup, CPU offline event, or thermal shutdown.
-- Ethernet error and drop counters do not increase during bidirectional
-  network tests.
-
-Power-domain fault-path validation:
-
-- Host tests extracted the transition logic and memory operations from
-  the driver and simulated register failures during power-status checks,
-  memory chain/off/on operations, idle exit, and firmware shift-ready checks.
-- The tests also cover retries, shutdown after a failed power-on,
-  clock-enable failure, regulator loss, and domains without a firmware
-  shift-ready mask. QoS preservation and memory-reset counts were checked.
-- The simulated tests pass ASan and UBSan.
-
-Build and checks:
-
-- The kernel, modules, and board DTB build successfully.
-- The series passes checkpatch with --strict; only generic reminders about
-  new MAINTAINERS entries remain.
-
-Untested hardware and paths:
-
-- NPU
-- PCIe
-- GPU, video output, and audio
-- CPU rates above 1.2 GHz and voltage scaling
-- Other low-speed external interfaces
-
-Some files in this series are derived from the Forlinx OK3572-C BSP
-Alpha1. Thanks to Forlinx for their support.
-Thanks also to Rockchip's David Wu, Elaine Zhang, Finley Xiao, Frank
-Wang, William Wu, and Ye Zhang for providing the driver source files.
-
-AI assistance:
-
-- Codex / DeepSeek V4.1 Flash were used for:
-  - Reviewing and adjusting code style to follow community conventions
-  - Automating tests
-  - Collecting data
-
-Signed-off-by: Cunhao Lu <1579567540@qq.com>
----
-Changes in v3:
-- Track incomplete shutdowns to preserve QoS and complete firmware updates.
-- Preserve pending memory resets across shutdown and cancel unfinished
-  power-on requests.
-- Attempt to restore the domain after power-off errors, while preserving
-  the original error returned to genpd.
-- Link to v2:
-  https://patch.msgid.link/20261023-add-board-ok3572-c-pmdomain-v2-0-79ddd42e92c1@qq.com
-
-Changes in v2:
-- Split the original RK3572 support series by subsystem.
-- Track low-level power-on and restoration separately. Retain unfinished
-  memory resets across retries, avoid repeating completed resets, and
-  preserve QoS snapshots when shutting down after a failed power-on.
-- Link to v1:
-  https://patch.msgid.link/20261022-add-board-ok3572-c-v1-0-0b0fd85a31ee@qq.com
-
----
-Raw dmesg: see v2 cover letter.
-
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-To: Elaine Zhang <zhangqing@rock-chips.com>
-To: Ulf Hansson <ulfh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-pm@vger.kernel.org
-
----
-Finley Xiao (2):
-      dt-bindings: power: rockchip: Add RK3572 power domains
-      pmdomain: rockchip: Add RK3572 boot peripheral domains
-
- .../bindings/power/rockchip,power-controller.yaml  |  17 ++
- drivers/pmdomain/rockchip/pm-domains.c             | 187 ++++++++++++++++++---
- .../power/rockchip,rk3572-power-controller.h       |  30 ++++
- 3 files changed, 214 insertions(+), 20 deletions(-)
----
-base-commit: a804c5742bff224d4cb4d25dd383554d598be32b
-change-id: 20261023-add-board-ok3572-c-pmdomain-2f02da11386e
-
-Best regards,
---  
-Cunhao Lu <1579567540@qq.com>
-
-
+On Fri, Oct 2, 2026 at 11:59=E2=80=AFAM Prasanth Kumar Padarthi
+<prasanth.padarthi10@gmail.com> wrote:
+>
+> Add the device tree for the ASRock Rack B650D4U BMC, which is
+> based on the ASPEED AST2600 SoC.
+>
+> Describe the BMC memory, SPI NOR flash layout, UART console,
+> GPIO line names, video framebuffer memory, I2C EEPROM, and MAC0
+> connected to an RTL8211F Ethernet PHY.
+>
+> Use the EEPROM on I2C7 as the NVMEM provider for the MAC0 address.
+>
+> Configure MAC0 to use the RTL8211F in RGMII-ID mode.
+>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch> # MAC0 and MDIO nodes only
+> Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+> ---
+>  arch/arm/boot/dts/aspeed/Makefile             |   1 +
+>  .../dts/aspeed/aspeed-bmc-asrock-b650d4u.dts  | 135 ++++++++++++++++++
+>  2 files changed, 136 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dt=
+s
+>
+> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed=
+/Makefile
+> index 6b68671f9379..b109491d5c8f 100644
+> --- a/arch/arm/boot/dts/aspeed/Makefile
+> +++ b/arch/arm/boot/dts/aspeed/Makefile
+> @@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
+>         aspeed-bmc-ampere-mtmitchell.dtb \
+>         aspeed-bmc-arm-stardragon4800-rep2.dtb \
+>         aspeed-bmc-asrock-altrad8.dtb \
+> +       aspeed-bmc-asrock-b650d4u.dtb \
+>         aspeed-bmc-asrock-e3c246d4i.dtb \
+>         aspeed-bmc-asrock-e3c256d4i.dtb \
+>         aspeed-bmc-asrock-paul-ipmi-card.dtb \
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts b/arc=
+h/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+> new file mode 100644
+> index 000000000000..a4e384588a54
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+> @@ -0,0 +1,135 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/dts-v1/;
+> +
+> +#include "aspeed-g6.dtsi"
+> +
+> +/ {
+> +       compatible =3D "asrock,b650d4u-bmc", "aspeed,ast2600";
+> +       model =3D "ASRock Rack B650D4U BMC";
+> +
+> +       aliases {
+> +               serial0 =3D &uart5;
+> +       };
+> +
+> +       chosen {
+> +               stdout-path =3D "serial0:115200n8";
+> +       };
+> +
+> +       memory@80000000 {
+> +               device_type =3D "memory";
+> +               reg =3D <0x80000000 0x20000000>;
+> +       };
+> +
+> +       reserved-memory {
+> +               ranges;
+> +               #address-cells =3D <1>;
+> +               #size-cells =3D <1>;
+> +
+> +               gfx_memory: framebuffer {
+> +                       compatible =3D "shared-dma-pool";
+> +                       alignment =3D <0x01000000>;
+> +                       reusable;
+> +                       size =3D <0x01000000>;
+> +               };
+> +       };
+> +};
+> +
+> +&fmc {
+> +       status =3D "okay";
+> +
+> +       flash@0 {
+> +               compatible =3D "jedec,spi-nor";
+> +               reg =3D <0>;
+> +               label =3D "bmc";
+> +               spi-max-frequency =3D <50000000>;
+> +               spi-rx-bus-width =3D <4>;
+> +               m25p,fast-read;
+> +
+> +               status =3D "okay";
+> +
+> +#include "openbmc-flash-layout-64.dtsi"
+> +       };
+> +};
+> +
+> +&gfx {
+> +       memory-region =3D <&gfx_memory>;
+> +
+> +       status =3D "okay";
+> +};
+> +
+> +&gpio0 {
+> +       gpio-line-names =3D
+> +               /* A0-A7 */     "","","","","","","","",
+> +               /* B0-B7 */     "","","","","","","","",
+> +               /* C0-C7 */     "","","","","","","","",
+> +               /* D0-D7 */     "","","","","","","","",
+> +               /* E0-E7 */     "","","","","","","","",
+> +               /* F0-F7 */     "","","","","","","","",
+> +               /* G0-G7 */     "","","","","","","","",
+> +               /* H0-H7 */     "","","","","","","","",
+> +               /* I0-I7 */     "","","","","","","","",
+> +               /* J0-J7 */     "","","","","","","","",
+> +               /* K0-K7 */     "","","","","","","","",
+> +               /* L0-L7 */     "","","","","","","","",
+> +               /* M0-M7 */     "","","","","","","","",
+> +               /* N0-N7 */     "","","","","","","","",
+> +               /* O0-O7 */     "","","","","","","","",
+> +               /* P0-P7 */     "button-reset-n","control-reset-n",
+> +               "button-power-n","control-power-n",
+> +               "button-nmi-n","control-nmi-n",
+> +               "","",
+> +               /* Q0-Q7 */     "","","","","","","","",
+> +               /* R0-R7 */     "","","","","","","","",
+> +               /* S0-S7 */     "","","","","","","","",
+> +               /* T0-T7 */     "","","","","","","","",
+> +               /* U0-U7 */     "","","","","","","","",
+> +               /* V0-V7 */     "","","","","","","","",
+> +               /* W0-W7 */     "","","","","","","","",
+> +               /* X0-X7 */     "","","","","","","","",
+> +               /* Y0-Y7 */     "","","","","","","","",
+> +               /* Z0-Z7 */     "","","","","","","","";
+> +};
+> +
+> +&i2c7 {
+> +       status =3D "okay";
+> +
+> +       eeprom@57 {
+> +               compatible =3D "atmel,24c128";
+> +               reg =3D <0x57>;
+> +               pagesize =3D <16>;
+> +
+> +               nvmem-layout {
+> +                       compatible =3D "fixed-layout";
+> +                       #address-cells =3D <1>;
+> +                       #size-cells =3D <1>;
+> +
+> +                       eth0_macaddress: macaddress@3f80 {
+> +                               reg =3D <0x3f80 6>;
+> +                       };
+> +               };
+> +       };
+> +};
+> +
+> +&mac0 {
+> +       nvmem-cells =3D <&eth0_macaddress>;
+> +       nvmem-cell-names =3D "mac-address";
+> +       phy-handle =3D <&ethphy0>;
+> +       phy-mode =3D "rgmii-id";
+> +       pinctrl-0 =3D <&pinctrl_rgmii1_default>;
+> +       pinctrl-names =3D "default";
+> +
+> +       status =3D "okay";
+> +};
+> +
+> +&mdio0 {
+> +       status =3D "okay";
+> +
+> +       ethphy0: ethernet-phy@0 {
+> +               compatible =3D "ethernet-phy-ieee802.3-c22";
+> +               reg =3D <0>;
+> +       };
+> +};
+> +
+> +&uart5 {
+> +       status =3D "okay";
+> +};
+> --
+> 2.47.3
+>
 
