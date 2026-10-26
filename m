@@ -2,85 +2,98 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DA21606A918
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 08:30:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C022C606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 08:32:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pc7IGIuY;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eNjS8GtB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y4yEKbQi;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=aXiMSi7I
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=G63bq4wpgZslgc8Jrbf5zqBVwNjBpTm05EKH4grfb9g=; b=pc7IGIuYW5sXoEoYLFPwdAKiIt
-	bP0iSPTtxeS2mbRo9oJsfEav+22MZIVlODRAGn9WZ30mrSShgKNwv44jOf2l65ovAzXNmMvRkm9GQ
-	LCAp1FvguUVutQ95cIt3nA6aBjDHJsqXfU3fzBQlCATWVqKlQFwr+0AG1gGWcmSx9pc5QPqUW6tBO
-	R7LY+rzij7gC3q1lLJmnc921Hw6xKv7CUqMxZ7bqrjP59JIIhMDyUBPXrsnmFgqwVkyqTy1ywkfRv
-	zQpicGaQy70GlurmxzlIbiGbBs1jPsZNgJ/Kn4zbCxU3jKHDsqQOGd8/imUV58N5vwMQEYcw3Hjlz
-	Rrt2wIUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=FTBCK/49FHYyjT64MBODQZDYUzxg0z0ieIJxPQn3hTo=; b=y4yEKbQi11WwoT
+	19Yu8thPaeLlDo51i331iQxDi7auFN9GEzXZWSNLfVaKR+8K3HLCireNN/X+3YTv29Mwt6S0g5Zu/
+	c0g3SuJm6QCctyXghsE/fG5trHBBJmJPQJkGE8a8DiYfDJdUubFUcmdeu+OgforA1AmP8PPuxws0I
+	nUipHq2ttnHHlds7UEQpjRQ8jQp8vwUDCLlJCbM3oUKVTPc242lh1CDeRsU6aujbuWi1j/3kGlq0G
+	6xBpn4Bho6/16bdQYEY+/y/lzDyKMFipzvpHA6MOujqd+fwp/H877AwVR3DuoD/m3czdvRaC7EEL9
+	X5eBf5cQEpOavdjfcHhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLG5r-00000001x6R-3lWe;
-	Mon, 26 Oct 2026 08:30:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xLG7x-00000001xLe-0YJH;
+	Mon, 26 Oct 2026 08:32:21 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLG5r-00000001x6B-0C66
+	id 1xLG7t-00000001xKV-2xxc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 08:30:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 27B88601EF;
-	Mon, 26 Oct 2026 08:30:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFF321F01825;
-	Mon, 26 Oct 2026 08:30:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793003409;
-	bh=G63bq4wpgZslgc8Jrbf5zqBVwNjBpTm05EKH4grfb9g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=eNjS8GtBeBPyA8EYl+0IroArRKZqddmttCe/pqhYkfWRzMvjs0xHUdFA5zBuwJ/dB
-	 cexNnd49Tts1u13A+p4i8tn4a6PQV0NVL4aKqOnr5UNq3cxWOoYv8fpIfiswUtP92d
-	 Z/9qaxzZpNLLPgIMFYE9xf3BEexK7pTS8AmZRw3kFDaXrDQy/VvVUq+JtED9OnVfGc
-	 ZydQEiSyZc1cxdXcaC5pdQtGfR9YCuabQKeK0u7lqpU5YbBU1ouoQYk3TpT3VuHNZj
-	 +NcclCy7JnHtweFs19IZK/1wJ01Z598SreYQSegk757HsENmnfVqZE/Na5wDhrrM/1
-	 utx8qgxT6pVpQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xLG5n-00000007ABg-2krT;
-	Mon, 26 Oct 2026 08:30:07 +0000
-Date: Mon, 26 Oct 2026 08:30:07 +0000
-Message-ID: <861p9czwxc.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3] KVM: arm64: selftests: Test VNCR translation invalidation
-In-Reply-To: <20261026-b4-vncr-mapping-test-v3-1-7c094a00d46e@fujitsu.com>
-References: <20261026-b4-vncr-mapping-test-v3-1-7c094a00d46e@fujitsu.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	Mon, 26 Oct 2026 08:32:19 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-48bbb06e746so1325978f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 01:32:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1793003535; x=1793608335; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FTBCK/49FHYyjT64MBODQZDYUzxg0z0ieIJxPQn3hTo=;
+        b=aXiMSi7I6QCdmHa2+gj60QU+xPc+njNgrEqIqBubKF+eq2f+doRmmm97UoXwS9ZsYS
+         XKcUf/xtiAZD1pbTG9mBRNommFUh54aabqgcU5tpnvkJCptkJZp9nVVVo5yeKBZ7dKRU
+         F7OqXx9gRM2yS4PgUrjVUEDfmhvq+h7Cg1V+o3gQIXCSkQpXLq1mYyPi/xPouYbgqWcw
+         ktdO751XMFWDztuFzcRnkWl6VeNi/QZpywHEcRTHGDHb6z7zfNAUCy3MNghLj2ISdB0Y
+         LmzUCstHGVNnQu5ooLmfCkJWQWiGszJT4gyMrF0+RdckMALPI5v80l6d/LbngRCqcTMk
+         YxuQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793003535; x=1793608335;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FTBCK/49FHYyjT64MBODQZDYUzxg0z0ieIJxPQn3hTo=;
+        b=RBaKfpCjk67iajUeFqHgmHuKOwEKkeUdlySSglW5tCNl/tTVFIfgddAx86Cgg3meme
+         /16vb0TOvTMLUPTFTtwY6UpqLRlyvcjdJzaYKk9/1NKdafl+Oa9NiyjcmQt0iy+G/j9R
+         ML7UOGkAqgrkhPlEflkg1cRUWbGc+GUgSWFqCtRU5ikpYAm6fBpaYuUqM0NKiGEBqpqx
+         qNoAxv9t4TavdjpUJwpnn5HWKs8k0iwVjwx6OdMkksPbF+WK/qEETbbOVtsCqPW9xX8w
+         TnZEZxbLmGCJ3lIUoI9gaUEYW3+9bpI2Kxz1NYLP9EJ+c6tBYPJW7D0nGHX2oLjTtugJ
+         hixw==
+X-Forwarded-Encrypted: i=1; AKwUvByAccxLa6libdyi9EQKbHatD8L7AUKYelUM3iYoQvLvJZAriasn61oupIMuJiEnfw8xhkX+xOtvfLr8Xsy06nnf@lists.infradead.org
+X-Gm-Message-State: AFq9FYITDj3+i6sNMXrYCmDbg/830Ue5qv2o8gCCP3I91yTADhVwKWFu
+	TRs5mKZdpMowLz6X4MjsEHDIL4HgzKs43snPoL6TaQCtxyl5icIFpbJ30kWIDOGBr84=
+X-Gm-Gg: AYBFou2fAwKBZcVRaWCx0yL6va3rfGxGpIriFQhac/NWBL6VdRdrDvlyoSdIGDBdkrH
+	AGvDS2XuEkdyXVUE7dDmUsnjLq3s/AaPnILPeu4XB6hK3HqiIAPKPCH+PNwaKbpqwoi6tFs3/rU
+	DyIXLYGHc08yAVmm2sCe7ldmxGjoeBPpQrlhzjlVKYGivv2UmmsHNbHQ5lvVwbIU4gqS2r85jBo
+	IyKf8AtILofljuLvNQ7XSeDDGa52MTUTsYNsq4A1wH1f4XValUk49eGBUYswtZaStGBVrq9aMTK
+	0wElIslT6lky0Xwm04+rqqqnBkHLVm4HjIz9xyPLXV4dtkI2RnPEuO/c84XE3Ulj5s3KPmG+6w+
+	i8dRUvibyQsD9rvjUDSUcyf937wmkc8Q+461PmSDgYgS+FTcMsGGVwfQbRRtGDKF1Vz7kzJRyou
+	jCz4fizBLe8d0/7sVf6tGP81tijsplCsGPoNc46lARpUbQvdXhKvZztDN6dWyot3RlMoJap5/bL
+	ffcVCqF1a42CIZXFYOp/kKhrvoxf6gRHCi3qR7TuCZSNmoyOWF8LCMzt4Sl91bKZaG9Noz+dcHy
+	bgZUUs4GnCbl9MjGai7+
+X-Received: by 2002:a5d:4fd0:0:b0:48a:f59f:8b70 with SMTP id ffacd0b85a97d-48e3eb9fc55mr7018739f8f.46.1793003535324;
+        Mon, 26 Oct 2026 01:32:15 -0700 (PDT)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebc3a1csm15026669f8f.16.2026.10.26.01.32.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Oct 2026 01:32:14 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: christian.koever-draxl@student.uibk.ac.at, neil.armstrong@linaro.org,
+ sboyd@kernel.org, bmasney+clk@redhat.com, khilman@baylibre.com,
+ martin.blumenstingl@googlemail.com, yu.tu@amlogic.com
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Christian Stefan =?utf-8?B?S8O2dsOpci1EcmF4bA==?= <ckoever@outlook.de>
+Subject: Re: [PATCH 1/2] clk: meson: s4: keep the PWM clocks off vid_pll
+In-Reply-To: <20261025191852.208226-2-christian.koever-draxl@student.uibk.ac.at>
+References: <20261025191852.208226-1-christian.koever-draxl@student.uibk.ac.at>
+ <20261025191852.208226-2-christian.koever-draxl@student.uibk.ac.at>
+Date: Mon, 26 Oct 2026 09:32:13 +0100
+Message-ID: <1jpkwwkgky.fsf@starbuckisacylon.baylibre.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: itaru.kitayama@fujitsu.com, pbonzini@redhat.com, seanjc@google.com, shuah@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261026_013217_784587_9FFDA585 
+X-CRM114-Status: GOOD (  27.77  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,36 +104,157 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, 26 Oct 2026 03:10:10 +0000,
-Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
-> 
-> Add a standalone KVM selftest that checks VNCR accesses after L1
-> updates its stage-1 mapping and issues a TLBI. This guards against
-> stale VNCR translations, as KVM caches L1's translation of
-> VNCR_EL2 and must drop it when L1 invalidates the mapping in
-> kvm_handle_s1e2_tlbi().
-> 
-> Keep VNCR_EL2 unchanged while remapping its backing page A to B then
-> again to A. At each step, L2 reads and writes TPIDR_EL2, and L1
-> verifies that the accesses reach the selected page while leaving the
-> other page unchanged.
+On dim. 25 oct. 2026 at 20:18, christian.koever-draxl@student.uibk.ac.at wr=
+ote:
 
-If you were tracking cross vcpu invalidation and exercising all the
-architecture corner cases (such as permission changes and co), that
-would be helpful.
+> From: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de>
+>
+> The PWM driver asks the clock framework for the fastest input it can
+> get (clk_round_rate() with roughly 0xffff/period), so on S4 every PWM
+> channel ends up parented to vid_pll, the fastest input of the PWM mux.
+> vid_pll is derived from the HDMI PLL and is reprogrammed on every
+> display mode set, which silently changes the period and duty cycle of
+> whatever PWM runs from it.
 
-But as it is, it doesn't help much as a validation tool. Its scope is
-way too narrow.
+While I agree with the general principle of the change,
+"The PWM driver asks the clock framework for the fastest input" is a
+fairly inaccurate representation of what the PWM driver does and it gets
+repeated. Please fix this.
 
-	M.
+You've disclose the usage AI, it is great. It would be even better if
+you could summarize its output a little bit. This is very verbose
+for a simple problem: vid_pll is dedicated to another usage in general
+and should actually not be provided to PWM devices, eventhough the HW
+allows it
 
--- 
-Without deviation from the norm, progress is not possible.
+>
+> On boards that use a PWM regulator for the CPU supply this corrupts
+> the CPU voltage: on an S905W2 board vddcpu read 699 mV at 1 GHz and
+> the first cpufreq transition hung the SoC. Boards that feed the
+> 32.768 kHz low power clock of an SDIO wifi chip from a PWM see the chip
+> intermittently fail to enumerate ("Failed to initialize a
+> non-removable card").
+>
+> Drop vid_pll from the PWM parents and keep the remaining inputs on
+> their register values with a mux table. xtal, fclk_div4 and fclk_div3
+> cover every PWM rate in use.
+>
+> Fixes: 57b55c76aaf1 ("clk: meson: S4: add support for Amlogic S4 SoC peri=
+pheral clock controller")
+> Signed-off-by: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de>
+> ---
+>  drivers/clk/meson/s4-peripherals.c | 38 ++++++++++++++++++++----------
+>  1 file changed, 26 insertions(+), 12 deletions(-)
+>
+> diff --git a/drivers/clk/meson/s4-peripherals.c b/drivers/clk/meson/s4-pe=
+ripherals.c
+> index ba41fcd90588..329cd526749e 100644
+> --- a/drivers/clk/meson/s4-peripherals.c
+> +++ b/drivers/clk/meson/s4-peripherals.c
+> @@ -2588,51 +2588,65 @@ static struct clk_regmap s4_spicc0_en =3D {
+>  	},
+>  };
+>=20=20
+> -/* PWM Clock */
+> +/*
+> + * PWM Clock
+> + *
+> + * vid_pll (mux input 1) is left out on purpose. The PWM driver asks for=
+ the
+> + * fastest clock it can get, which made every PWM pick vid_pll - and vid=
+_pll
+> + * is the HDMI PLL, reprogrammed on every display mode set. That silently
+> + * changed the period and duty of whatever ran from it: the PWM CPU supp=
+ly
+> + * (a cpufreq voltage change then hung the SoC) and the 32.768kHz clock =
+of an
+> + * SDIO wifi chip (which then failed to enumerate).
+> + */
+> +static u32 s4_pwm_parents_table[] =3D { 0, 2, 3 };
+> +
+>  static const struct clk_parent_data s4_pwm_parents[] =3D {
+>  	{ .fw_name =3D "xtal", },
+> -	{ .hw =3D &s4_vid_pll.hw },
+>  	{ .fw_name =3D "fclk_div4", },
+>  	{ .fw_name =3D "fclk_div3", },
+>  };
+>=20=20
+> -static S4_COMP_SEL(pwm_a, CLKCTRL_PWM_CLK_AB_CTRL, 9, 0x3, s4_pwm_parent=
+s);
+> +#define S4_PWM_SEL(_name, _reg, _shift) \
+> +	MESON_COMP_SEL(s4_, _name, _reg, _shift, 0x3, s4_pwm_parents, \
+> +		       s4_pwm_parents_table, 0, 0)
+> +
+> +static S4_PWM_SEL(pwm_a, CLKCTRL_PWM_CLK_AB_CTRL, 9);
+>  static S4_COMP_DIV(pwm_a, CLKCTRL_PWM_CLK_AB_CTRL, 0, 8);
+>  static S4_COMP_GATE(pwm_a, CLKCTRL_PWM_CLK_AB_CTRL, 8);
+>=20=20
+> -static S4_COMP_SEL(pwm_b, CLKCTRL_PWM_CLK_AB_CTRL, 25, 0x3, s4_pwm_paren=
+ts);
+> +static S4_PWM_SEL(pwm_b, CLKCTRL_PWM_CLK_AB_CTRL, 25);
+>  static S4_COMP_DIV(pwm_b, CLKCTRL_PWM_CLK_AB_CTRL, 16, 8);
+>  static S4_COMP_GATE(pwm_b, CLKCTRL_PWM_CLK_AB_CTRL, 24);
+>=20=20
+> -static S4_COMP_SEL(pwm_c, CLKCTRL_PWM_CLK_CD_CTRL, 9, 0x3, s4_pwm_parent=
+s);
+> +static S4_PWM_SEL(pwm_c, CLKCTRL_PWM_CLK_CD_CTRL, 9);
+>  static S4_COMP_DIV(pwm_c, CLKCTRL_PWM_CLK_CD_CTRL, 0, 8);
+>  static S4_COMP_GATE(pwm_c, CLKCTRL_PWM_CLK_CD_CTRL, 8);
+>=20=20
+> -static S4_COMP_SEL(pwm_d, CLKCTRL_PWM_CLK_CD_CTRL, 25, 0x3, s4_pwm_paren=
+ts);
+> +static S4_PWM_SEL(pwm_d, CLKCTRL_PWM_CLK_CD_CTRL, 25);
+>  static S4_COMP_DIV(pwm_d, CLKCTRL_PWM_CLK_CD_CTRL, 16, 8);
+>  static S4_COMP_GATE(pwm_d, CLKCTRL_PWM_CLK_CD_CTRL, 24);
+>=20=20
+> -static S4_COMP_SEL(pwm_e, CLKCTRL_PWM_CLK_EF_CTRL, 9, 0x3, s4_pwm_parent=
+s);
+> +static S4_PWM_SEL(pwm_e, CLKCTRL_PWM_CLK_EF_CTRL, 9);
+>  static S4_COMP_DIV(pwm_e, CLKCTRL_PWM_CLK_EF_CTRL, 0, 8);
+>  static S4_COMP_GATE(pwm_e, CLKCTRL_PWM_CLK_EF_CTRL, 8);
+>=20=20
+> -static S4_COMP_SEL(pwm_f, CLKCTRL_PWM_CLK_EF_CTRL, 25, 0x3, s4_pwm_paren=
+ts);
+> +static S4_PWM_SEL(pwm_f, CLKCTRL_PWM_CLK_EF_CTRL, 25);
+>  static S4_COMP_DIV(pwm_f, CLKCTRL_PWM_CLK_EF_CTRL, 16, 8);
+>  static S4_COMP_GATE(pwm_f, CLKCTRL_PWM_CLK_EF_CTRL, 24);
+>=20=20
+> -static S4_COMP_SEL(pwm_g, CLKCTRL_PWM_CLK_GH_CTRL, 9, 0x3, s4_pwm_parent=
+s);
+> +static S4_PWM_SEL(pwm_g, CLKCTRL_PWM_CLK_GH_CTRL, 9);
+>  static S4_COMP_DIV(pwm_g, CLKCTRL_PWM_CLK_GH_CTRL, 0, 8);
+>  static S4_COMP_GATE(pwm_g, CLKCTRL_PWM_CLK_GH_CTRL, 8);
+>=20=20
+> -static S4_COMP_SEL(pwm_h, CLKCTRL_PWM_CLK_GH_CTRL, 25, 0x3, s4_pwm_paren=
+ts);
+> +static S4_PWM_SEL(pwm_h, CLKCTRL_PWM_CLK_GH_CTRL, 25);
+>  static S4_COMP_DIV(pwm_h, CLKCTRL_PWM_CLK_GH_CTRL, 16, 8);
+>  static S4_COMP_GATE(pwm_h, CLKCTRL_PWM_CLK_GH_CTRL, 24);
+>=20=20
+> -static S4_COMP_SEL(pwm_i, CLKCTRL_PWM_CLK_IJ_CTRL, 9, 0x3, s4_pwm_parent=
+s);
+> +static S4_PWM_SEL(pwm_i, CLKCTRL_PWM_CLK_IJ_CTRL, 9);
+>  static S4_COMP_DIV(pwm_i, CLKCTRL_PWM_CLK_IJ_CTRL, 0, 8);
+>  static S4_COMP_GATE(pwm_i, CLKCTRL_PWM_CLK_IJ_CTRL, 8);
+>=20=20
+> -static S4_COMP_SEL(pwm_j, CLKCTRL_PWM_CLK_IJ_CTRL, 25, 0x3, s4_pwm_paren=
+ts);
+> +static S4_PWM_SEL(pwm_j, CLKCTRL_PWM_CLK_IJ_CTRL, 25);
+>  static S4_COMP_DIV(pwm_j, CLKCTRL_PWM_CLK_IJ_CTRL, 16, 8);
+>  static S4_COMP_GATE(pwm_j, CLKCTRL_PWM_CLK_IJ_CTRL, 24);
+>=20=20
+> --=20
+> 2.56.0
+>
+
+--=20
+Jerome
 
