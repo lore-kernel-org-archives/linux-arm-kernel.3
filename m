@@ -2,59 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B801B606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:44:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43401606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:47:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cN8WQ94O;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bDpw8+ys
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hNQYzjXY;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YL5aGo/3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Wf0uPaRwggOutnw7/pw6//TwuSgBGQaNrdvQ/zHEx5w=; b=cN8WQ94OsxvXG5
-	73laAiqXuvFpCIlPwRHdRXl0vpoZ6be4QhvKWJDhBiV//5X8ywoaqi/4EGPOZXYuLTiPICdRhXJJJ
-	QBiXaRF40urkQNbuipVu7R+TNvK52cEJstkH1tNbiClpd671UqSlA+8d5tcwcROSCG3F3pESu4ooh
-	dImiX5HI9xlOBcHi9S1MDET+AEDAqpnh9xTXvGZzaes45CyxpeF500uRa0KCVZt9R8HHnj0RfDqWx
-	o8i51e8zU0jIsNHxD4rUlaIQNTK3B4cS2AEOKnW1yC88khGBzUlf/2NUweDV3Vdb5gjB1ZdGLV2hI
-	3duXx3+R7FyvrjbOKF4Q==;
+	List-Owner; bh=8T6J8yDzBrrY8+0J5W7yruUUBqoBGCuuq5Evn3v44KM=; b=hNQYzjXYteH/uJ
+	yZFi1G0ZLypwZ2Ud6r5Dw0i7jPuQiQaocASZHJDeY4ckz61omAP3/dasqjAnsfDAABgfibta2czvi
+	6NA6ctWiryPMKQR6Vm7rMo7K6RKADntXqDhJiaJf/4udh8Ot+SelCfZeEPRLPrOv/diKGMnTF+/Gi
+	JrBV2ukcKvv+H3EAxvrYjlRDiE8Jsc3MvoC+yP3Ar9x61JXCiKTyLV6R9IOCA+w6JWftYCCnjAE3V
+	FBABeEKu3OOl9SZyOmxsFHdFQ3qLi6YbMNQCZRauSOFbwZMfyn7UTeRaJhzbd81Nw7VsW9VFLxaxG
+	UgHuyE4W1+vDsVeo+ILg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLIBM-00000002HRa-1j35;
-	Mon, 26 Oct 2026 10:44:00 +0000
+	id 1xLIDr-00000002HnD-0NuD;
+	Mon, 26 Oct 2026 10:46:35 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLIBK-00000002HRP-2b28
+	id 1xLIDp-00000002Hn7-3Xk6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 10:43:58 +0000
+	Mon, 26 Oct 2026 10:46:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1909E41579;
-	Mon, 26 Oct 2026 10:43:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7B3E1F01825;
-	Mon, 26 Oct 2026 10:43:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1788242BA6;
+	Mon, 26 Oct 2026 10:46:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C3601F01829;
+	Mon, 26 Oct 2026 10:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793011438;
-	bh=Wf0uPaRwggOutnw7/pw6//TwuSgBGQaNrdvQ/zHEx5w=;
+	s=k20260515; t=1793011592;
+	bh=8T6J8yDzBrrY8+0J5W7yruUUBqoBGCuuq5Evn3v44KM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=bDpw8+yswp51VW2WiUh1P9jbp4Ygh2PYzvQLx8Ul1/aD1+J3+PSCr3CU/lTqC3lSX
-	 aNOOMWQwFUPiNQRBm2bO/QxIqDB+Zchx9SClqQfjhCMjqon9mG3eqAMw/tebqlKEvN
-	 +1pVhkCSu7nB41rjOpFAavh0oJkWXtkWxTchDdZN+nHn0aoFjxUtGN5hjxdYs14zpA
-	 +OmMJK1tpwkhM5A3Bv7IjI2t98IhQNzO4mYqFVGXlnIi/7EJUP7WX8f3fuMEG6AYkI
-	 XA/xzsYKyQ1iyL3nZXNWd/lgT9/3XIkeMWfDdND0dVNwBBmABGAEvE9naRIsc+Zmll
-	 Vcykj16VfAnmA==
+	b=YL5aGo/39dTI+cih6/OaLzbIL/1z1YCq23fgbGwaBHXiNPAke7lmvEa2zzM0fRTW7
+	 CEsO9bqaM4xGgxqQ+OS3QGoKRe23WPhnaQxWzRctSixGPIZTsxJOAdfQ0dG42FXiI0
+	 DjS8A3NLtM+42EWp4oPnMuCv71SfXhd15BCPYCOCN8D/3+5ODYvu4eRKtrBfQpZEA7
+	 OklV5XMgvqzIA/xLjVoqp/gfUJukcSbdXfA77Jf2a9y9NY8WxZdSvkGU+K58CGWOrm
+	 mZwOoJp+YT0zruYqkaEfPBkaMFl9o7lL1k06EkjzZcXJjbp8e2B1GLVtqXQhtMBjk5
+	 mFsyxAx1/kFjQ==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-To: David Cemin <dcemin@nvidia.com>
+To: mark.rutland@arm.com,
+	lpieralisi@kernel.org,
+	tglx@kernel.org,
+	Julian Braha <julianbraha@gmail.com>
 Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	radu@rendec.net,
+	vsethi@nvidia.com,
+	maz@kernel.org,
+	sdonthineni@nvidia.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_ffa: Compare notify_id when looking up notifier callbacks
-Date: Mon, 26 Oct 2026 10:43:51 +0000
-Message-ID: <179301133069.1771203.5657844869255921300.b4-ty@b4>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 0/2] irqchip: gic-v3: fix unmet dependency on ARM_PSCI_FW
+Date: Mon, 26 Oct 2026 10:46:26 +0000
+Message-ID: <179301154574.1773497.7405050699126931502.b4-ty@b4>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261020220902.611138-1-dcemin@nvidia.com>
-References: <20261020220902.611138-1-dcemin@nvidia.com>
+In-Reply-To: <20261020222817.1231643-1-julianbraha@gmail.com>
+References: <20261020222817.1231643-1-julianbraha@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
@@ -77,23 +83,19 @@ X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 20 Oct 2026 15:09:01 -0700, David Cemin wrote:
-> The notifier callbacks are kept in a hash table keyed by notification ID,
-> but struct notifier_cb_info does not store the ID and none of the lookup
-> helpers compare it. hash_for_each_possible() walks the whole bucket, so
-> any two IDs that hash to the same bucket are treated as the same
-> registration.
+On Tue, 20 Oct 2026 23:28:15 +0100, Julian Braha wrote:
+> ARM_GIC_V3 currently selects HAVE_ARM_SMCCC_DISCOVERY without ensuring its
+> dependency, ARM_PSCI_FW, is met.
 > 
-> With the 64-bucket table, hash_32() maps IDs 2 and 36 to the same
-> bucket. A driver that requests notifications sequentially therefore
-> fails at the 37th request:
-> 
-> [...]
+> Patch 1 of this series adds stubs for arm32 so that patch 2 can make the
+> select conditional on arm64.
 
-Applied to sudeep.holla/linux (for-next/ffa/fixes), thanks!
+Applied to sudeep.holla/linux (for-next/smccc/fixes), thanks!
 
-[1/1] firmware: arm_ffa: Compare notify_id when looking up notifier callbacks
-      https://git.kernel.org/sudeep.holla/c/8ab2e426762d
+[1/2] firmware: smccc: provide stubs when discovery is disabled
+      https://git.kernel.org/sudeep.holla/c/6cc03818814a
+[2/2] irqchip: gic-v3: only select HAVE_ARM_SMCCC_DISCOVERY on arm64
+      https://git.kernel.org/sudeep.holla/c/40b097fdfd00
 -- 
 Regards,
 Sudeep
