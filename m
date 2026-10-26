@@ -2,81 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E9C0606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 08:10:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CAE9606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 08:12:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EHCOdPzK;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GVB4NyXl
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oXD0UCv3;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SkrhOp0e
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=SU/p59HmrY1l63uWO1J6fBGj9iSaP1sfb4BVk3OH0dM=; b=EHCOdPzKvcgT59bWN1etP5hVeG
-	vU+txIkml4fkV6Thv+UG7qe74qHXTggkgjh6MG8GC41xSCicUY9x8tK+GO+GZOOnFBu8hv06oz6Jo
-	5oglnUZGRp4xkXjNw5bHnlo0ozHLkHUJxoC0QwzVhx6w/o7Q9a+XnWzTesEQQvPW3h1E6aJIb5D7M
-	1ulyEzDfu32iVf4rhqDR4As6sKxCIhkL/O7vjVcCvlLgrhAJJRAoHN13WeBWY+JBUYFUCiXc+N/Az
-	RSrzo/xSXT/WVYqtBAh6k4u4qxXoj0h2uAwE9+F68aI9+aR/6JsyESithBU0gwkWpLOjVC2dS7D+X
-	bWP7pi8A==;
+	bh=788vu28/RmpbuxZcV5D6HBDXw42mfNytDK356zbWFxI=; b=oXD0UCv3XP9RAaveC1gaiz8POq
+	MqneTit9PjNrTFkv1Pdrca408nRG1bCrogCGaU3t4C+GtSs0sjuERVq7NNprPAoADDqdooHWae4vJ
+	Fc+NMqc11IgQLgbLJubVIHMHa0UMqD+XC/0cJs9BttNAStB34uPxg/LVhH1z7k7Y/Th41QGM+4Nv2
+	vT5s2QcfkUm5qjGTHVoexlZZwYzwWwO083y/p1ZAZMW8GiXvsMgkBUoTal2Yq8jcw4oEAcbCoI/aW
+	x2NXO9bMrJcxeDNFc2ckXRUMn+ngWbUWDWvRZhCJMf9nLd/xHHiLi7ptVL5cG4Jvadv3qbCutvw91
+	hH2S1q/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLFmf-00000001vYx-2vj7;
-	Mon, 26 Oct 2026 08:10:21 +0000
-Received: from out-98.mta0.migadu.com ([2001:41d0:1004:224b::62] helo=mta0.migadu.com)
+	id 1xLFoV-00000001viE-3oOk;
+	Mon, 26 Oct 2026 08:12:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLFmc-00000001vYO-3zpr
+	id 1xLFoU-00000001vi7-2tqj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 08:10:20 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=SU/p59HmrY1l63uWO1J6fBGj9iSaP1sfb4BVk3OH0dM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793002213; v=1; x=1793607013;
- b=GVB4NyXlnFX9OJ6PHFkTR1Kh6n2gJq/JcPdWFE358T+Faq3/DgQFNcv0V7BAEl0OnG15RPuT
- tqUIzGkn/TnunME3ZDBYu+ogaz5B1Uy+OYmv0j1uaq0VTwFFjyXEDYIwOvi7MNEU5pI5ML1Fo6A
- ZShr+KFJijmWM2v159W+g2uM=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 8e4ea8107c634eaf;
-	Mon, 26 Oct 2026 08:10:13 +0000
-X-Mizu-Trace-ID: 8e4ea8107c634eaf
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5bcbb378fc9so8556e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 01:10:10 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzilqcjoadC2BQpyvlFcm7gE7DqARTKe0uhFA0EO4oIQOXW/ryY0YfLM9s94E/COhXuGixcP/aEOAER1QfEHrDs@lists.infradead.org
-X-Gm-Message-State: AFq9FYIFSxFWNKVZqAtuUWjqlOKUbye6vsyKjfDKkUOU4fA9bP9OBpe4
-	wUbg04agXD8SbyLyEaCrPXbGBXFys+pZsKV+ttglmQCS96Sf33EoeUgY/f/nTq2yAeoLQ68y3y4
-	OvwpgA5IKpaENNdkNI8GdANQCQZA0VKK4xjYdhovV
-X-Received: by 2002:a05:6512:3f03:b0:5bf:a28a:f2d9 with SMTP id
- 2adb3069b0e04-5bfb79dafd3mr111700e87.4.1793002210084; Mon, 26 Oct 2026
- 01:10:10 -0700 (PDT)
+	Mon, 26 Oct 2026 08:12:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BAABB601FB;
+	Mon, 26 Oct 2026 08:12:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 799B21F01828;
+	Mon, 26 Oct 2026 08:12:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793002333;
+	bh=788vu28/RmpbuxZcV5D6HBDXw42mfNytDK356zbWFxI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SkrhOp0e/e07xdOA0NDEcNPwlL2Nasi5VA7pBzAWQODpGpG9ijvkEVaxFupqoizIL
+	 2Uj5ucNWlMY7KR2dj2lF+aT+B2UA4NKpSrTK5Qgx8uBl9F0sHSIEoFVBIF02kRkfp6
+	 32Xy42c2RUPwIX81GkNaK4/kQ7UNu8bzeuTwRsM+iDE8e+WujeZ8IKIMgWCD62iznl
+	 Byss+a7f2GeKaArfI6iiM1AaeIgTYNA8QLfxQ9NRAGSHGxiLwMFFxDEi37sHDBXWPP
+	 NpVRWDpqZ2RWQUeY0JJD3mglfrXetvjjULZkXB8MMbvb7LdNk1aZwFKAukBJ7OPrTr
+	 Yhl4wJXOnkzOw==
+Date: Mon, 26 Oct 2026 09:12:09 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jelly Jia <Jelly.Jia@cixtech.com>
+Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, robin.murphy@arm.com, sboyd@kernel.org, bmasney+clk@redhat.com, 
+	jbrunet+clk@baylibre.com, devicetree@vger.kernel.org, Frank.Li@kernel.org, 
+	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, joakim.zhang@cixtech.com
+Subject: Re: [PATCH v1 1/5] dt-bindings: soc: cix: Describe the Sky1 AUDSS
+ DMA IRQ controller
+Message-ID: <20261026-able-complex-skunk-d7db4c@quoll>
+References: <20261023093045.3248630-1-Jelly.Jia@cixtech.com>
+ <20261023093045.3248630-2-Jelly.Jia@cixtech.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261026012128.2270251-1-sashal@kernel.org>
-In-Reply-To: <20261026012128.2270251-1-sashal@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 26 Oct 2026 08:09:33 +0000
-X-Gmail-Original-Message-ID: <CA+EHjTzF5PsNt+riasW-SK-nhkLYh3kojMFyCEqs372-Mficnw@mail.gmail.com>
-X-Gm-Features: AclHuK9ieRbKRZ3vlLRpK7x9lOVSGw-njZY_CzO5qLbrpHOtyOHbR5m8v7LhEMQ
-Message-ID: <CA+EHjTzF5PsNt+riasW-SK-nhkLYh3kojMFyCEqs372-Mficnw@mail.gmail.com>
-Subject: Re: [PATCH v2] KVM: arm64: selftests: Skip unwritable ID fields in
- the failed-run test
-To: Sasha Levin <sashal@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>, Shuah Khan <shuah@kernel.org>, 
-	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_011019_151542_6DF55947 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261023093045.3248630-2-Jelly.Jia@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,29 +72,29 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Sasha,
+On Fri, Oct 23, 2026 at 05:30:41PM +0800, Jelly Jia wrote:
+>  examples:
+>    - |
+> -    audss_cru: clock-controller@7110000 {
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    gic: interrupt-controller {
+> +        #address-cells = <2>;
+> +        #interrupt-cells = <4>;
+> +        interrupt-controller;
+> +    };
 
-On Mon, 26 Oct 2026 01:21:28 +0000, Sasha Levin <sashal@kernel.org> wrote:
-> test_idreg_frozen_after_failed_run() checks that changing a feature ID
-> register after a failed first KVM_RUN is rejected with -EBUSY, and does
-> so for every field of every register in test_regs.
-[...]
+Drop node, not relevant.
 
-I tested v2 on the FVP AEM model configured with no AArch32 at any EL
-and with PMUv3, under nVHE: set_id_regs fails on ID_DFR0_EL1_PerfMon
-without this patch and passes with it. It also passes on QEMU (which
-supports AArch32 at EL0) under VHE, nVHE and pKVM.
+Best regards,
+Krzysztof
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
-
-Cheers,
-/fuad
 
