@@ -2,76 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A71A1606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:45:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 843C9606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:48:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=W+3je/J9;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Lvj66Pft
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wwAjQQ+A;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=jUES+ATa
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=kxE4A0VSnxahND1X2MPTQwXDknQ6I/xJGaQ331/gno0=; b=W+3je/J9zfVu2q
-	JpfGFBeCm3TvLkly6OcUjofEK1TEUFA7zeyMveJRg0GVIv3vb2HQUU5EMQ6XRTrV+1OsLM/1ju9+I
-	qAXzB4EOMe+4JLlnLyHS66KZFlMNUOYPFc96BsYK2OG+EDc/o9yS+UXM4auZiRuDVXmfCO80d9Zsl
-	z+mBmTI/5CgENq/JWa9DLCM5dJsC5tvhCT7yarDrFetOj8ZNZ+xV/elFv3kioB6qxrJ/ZeqYVITRh
-	hTKMlKSWRt9emFLL/qqi6rAqF4ApV/gH4q9Bsdm2Li4/1wyhbBIzsdGC1tAVHk10hZZtcAOOReeZO
-	fp6G5zynd03vcV5IyBug==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=YvL7WO9Qw1q6ibNOgJWDcAWvN4SLSOgyAvGF80Zshr4=; b=wwAjQQ+AohN/WxBxxa9ztCf9zH
+	BUJIAbGL4ySZuqOW+rOOdefkQZ0Xy3pYArnYgEeHq2WqTg8WFn++Ahh5zHoVX62mahSX1Lny4Q4zp
+	tnH6+ksnoJI8sZAa8L966RIhcCNhq17DeEezURLnb6QQihunhhstl6J3bJtnVjFYRW+YVgK82dsVS
+	P2s0E6bd8SBrGic7MAg0cpE4vMsB/NUBcUc1mVAeOUWCTtM5x3rs10o/M5IQkph41YlL6bINT35Ue
+	sZPHX2Zt05rslrLHPEPk93Ro5cTQ9V0DuP5tFjJqdHFo96xa+tjG1/N7gUEEjTROLAaPeETG8t1PF
+	HMmjOk7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLLwc-00000002gtE-09qZ;
-	Mon, 26 Oct 2026 14:45:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLLwP-00000002gp4-1k42
+	id 1xLM07-00000002hOk-2023;
+	Mon, 26 Oct 2026 14:48:39 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xLM04-00000002hNn-0Nbp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 14:44:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52B4C2944;
-	Mon, 26 Oct 2026 07:44:45 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 799A23F7B4;
-	Mon, 26 Oct 2026 07:44:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793025888; bh=OkxornoEoZZzTD9JkMHL7VjKUUICLPzAPrCszeD7jDM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Lvj66Pft/b5dAog1VNhauP81Y+dBkss0Lvw+CzO+pCycppBi5sy4gTTaBlqAGbn8u
-	 3oInMG+TTxS4/aDUJXK+N/RnL8/3ov8j/t2yr5FX+MzGXIcqj56kBmsQPWH5BRfraV
-	 QdwjMZGTefzsx9bywG/PhA++h1lgFKnKfcpTRPmU=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Oliver Upton <oupton@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Leonardo Bras <leo.bras@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Tian Zheng <zhengtian10@huawei.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v2 3/3] KVM: arm64: Add KVM_REQ_RELOAD_STAGE2
-Date: Mon, 26 Oct 2026 14:44:09 +0000
-Message-ID: <20261026144413.441566-4-leo.bras@arm.com>
+	Mon, 26 Oct 2026 14:48:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Yv
+	L7WO9Qw1q6ibNOgJWDcAWvN4SLSOgyAvGF80Zshr4=; b=jUES+ATay1UNY6Zu+4
+	877kKgw2yEEO1AaQJzGqdbxkzFiFt7ddfiQfdLBN87IxnIu9Yx73HAWjjBAyPTGM
+	S4/TfyoaZfCA96ynYMu8n8cG5xvBE0LdPNl8esffgPx54Y0bgQMvdkziRKKEr/BM
+	3FGoHnjBJmDZvR7IcvUFDJGtE=
+Received: from SYPC (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgA36gkvaN9qPCpOCA--.62724S2;
+	Mon, 26 Oct 2026 22:48:16 +0800 (CST)
+From: hsyysy@163.com
+To: Linus Walleij <linusw@kernel.org>
+Cc: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Yang Siyuan <hsyysy@163.com>
+Subject: [PATCH] pinctrl: sunxi: skip unused per-bank supply on controllers without IO bias
+Date: Mon, 26 Oct 2026 22:47:51 +0800
+Message-ID: <20261026144751.1392715-1-hsyysy@163.com>
 X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261026144413.441566-1-leo.bras@arm.com>
-References: <20261026144413.441566-1-leo.bras@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1971; i=leo.bras@arm.com; h=from:subject; bh=OkxornoEoZZzTD9JkMHL7VjKUUICLPzAPrCszeD7jDM=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLLup1swN6SWyZ98NceO75vTdPtfvz9p/dwxSSRZdtGCH 2ZfJE8Hd5SyMIhxMciKKbLIPpq/iuf7lIwjV34sgJnDygQyhIGLUwAmIqzOyNBscHTbxGOu4U5b BbJWWE9PfGV07GlN4NvFtb2H7aV8WVIZGY4JyLM7Xr3/RH3p/7cpE/Rz7wvq3Vvn/lptt8C3Hay bXrAAAA==
-X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PSgvCgA36gkvaN9qPCpOCA--.62724S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxJr17Kr1xAw1kZF1ktr1fWFg_yoW8ur4rpF
+	sxXFyayr18XF4aqwsrC34ayFy3Gan7G34fCF48KryrXFsxCan8ury2kryrKF4kGrZ5Xr4Y
+	qrZ8ZasFgFn8XaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pi2NtOUUUUU=
+X-CM-SenderInfo: 5kv152r16rljoofrz/xtbC7hC47GrfaDABZAAA3i
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_074449_536087_61C30E2C 
-X-CRM114-Status: GOOD (  13.23  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261026_074837_003475_110EA296 
+X-CRM114-Status: GOOD (  13.12  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,72 +75,68 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add a vcpu request to exit guest, reload Stage2, and then come back to
-guest.
+From: Yang Siyuan <hsyysy@163.com>
 
-This will be used on future patches that enable HDBSS, as they may need to
-change VTCR bits for enabling/disabling the feature when the vcpus are
-still running.
+sunxi_pmx_request() always requests the "vcc-pX" regulator of the pin's
+bank, but that supply is only consumed by
+sunxi_pinctrl_set_io_bias_cfg(). Controllers without io_bias_cfg_variant
+never use it, so the request only makes the regulator core warn:
 
-On non-VHE systems, just skip this request as Stage2 is being reloaded
-on every guest entry.
+  sun50i-h616-r-pinctrl 7022000.pinctrl: supply vcc-pl not found, using
+  dummy regulator
 
-Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+The H616 R_PIO is such a controller, and its PL0/PL1 pins drive the
+R_I2C bus, so every H616 board hits the warning during boot.
+
+Return early when the controller cannot configure the IO bias voltage,
+and teach the free path that no supply was requested for that bank.
+
+Signed-off-by: Yang Siyuan <hsyysy@163.com>
 ---
- arch/arm64/include/asm/kvm_host.h |  2 ++
- arch/arm64/kvm/arm.c              | 10 ++++++++++
- 2 files changed, 12 insertions(+)
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index cd9b9d2462f9..86a4d6e50934 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -53,10 +53,12 @@
- #define KVM_REQ_RESYNC_PMU_EL0		KVM_ARCH_REQ(7)
- #define KVM_REQ_NESTED_S2_UNMAP		KVM_ARCH_REQ(8)
- #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
- #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
- #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
-+#define KVM_REQ_RELOAD_STAGE2 \
-+	KVM_ARCH_REQ_FLAGS(12, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
- 
- #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
- 				     KVM_DIRTY_LOG_INITIALLY_SET)
- 
- #define KVM_HAVE_MMU_RWLOCK
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 0576c2022ef5..d311637e0b13 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1173,10 +1173,20 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
- 			return kvm_vcpu_suspend(vcpu);
- 
- 		if (kvm_dirty_ring_check_request(vcpu))
- 			return 0;
- 
-+		/* Non-vhe systems already reload Stage2 on guest entry */
-+		if (kvm_check_request(KVM_REQ_RELOAD_STAGE2, vcpu) &&
-+		    has_vhe()) {
-+			unsigned long flags;
-+
-+			local_irq_save(flags);
-+			__load_stage2(vcpu->arch.hw_mmu);
-+			local_irq_restore(flags);
-+		}
-+
- 		check_nested_vcpu_requests(vcpu);
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index 70099052d..a5222cfbd 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -924,6 +924,15 @@ static int sunxi_pmx_request(struct pinctrl_dev *pctldev, unsigned offset)
+ 		return 0;
  	}
  
- 	return 1;
- }
++	/*
++	 * The per-bank supply is only used to configure the IO bias voltage.
++	 * Controllers without bias configuration (e.g. the H616 R_PIO) have no
++	 * supply to request, and asking for one only makes the regulator core
++	 * warn about the missing regulator for every bank in use.
++	 */
++	if (!pctl->desc->io_bias_cfg_variant)
++		return 0;
++
+ 	snprintf(supply, sizeof(supply), "vcc-p%c", 'a' + bank);
+ 	reg = regulator_get(pctl->dev, supply);
+ 	if (IS_ERR(reg))
+@@ -959,6 +968,10 @@ static int sunxi_pmx_free(struct pinctrl_dev *pctldev, unsigned offset)
+ 					    PINS_PER_BANK;
+ 	struct sunxi_pinctrl_regulator *s_reg = &pctl->regulators[bank_offset];
+ 
++	/* No supply was requested for this bank (no IO bias configuration). */
++	if (!s_reg->regulator)
++		return 0;
++
+ 	if (!refcount_dec_and_test(&s_reg->refcount))
+ 		return 0;
+ 
+base-commit: 091b06388b117fefdcb63336ac09956a4914b961
 -- 
 2.56.0
 
