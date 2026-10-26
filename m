@@ -2,146 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9925E606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 03:14:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08244606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 03:22:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CzZpaYkZ;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=coXZM9CP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vdT3/68G;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CBCFuc9M
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=vJElXUuu23Tmr33Ek8+YXRuweKEpn1hlvFNUSPvtfXQ=; b=CzZpaYkZxTrJroF2vLEAuMeyUC
-	/n9OD5acpIEEv86o6AMr6d/cg3T0pvX0wHBf4VDX8yhGnteOyOsaPg8ZKTLckL5JK12a5eTeOXMR3
-	BpNW/gEO7OJNHCINHfp8rsHJEwQ3sMAdg3MvpEDMJhaF9lkiwLfDa4yZY5Vxk9+XR5P5J3so3StYY
-	MWJExBY8CxZB/1zmMwfoZ6yr58avLXKTKAwKy01n4L5KXewkSMf9EvMqr9euleD14uPbhd7MOQ8Cl
-	e/3jLKVfd8VtnZLrzeahVR+ZgIFIMWUtwI0/wWUoyBu9RaTRHfQ2I4nVIYXzaQP/AmHcP+VCJIVwT
-	sBce8+Mg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=NbQy+6FvGK6X5jKByFItZyE1kW62PV6QqwJIAZ4DL7g=; b=vdT3/68GDM9EGA
+	d+/xR7QUfaASCIOIjnCBjRBuI/SfPa7xeMksR1Wcs4Va5wp4fnFdnjKexJbv29+C8g62uPWw2NrbZ
+	ju3FGwfInHLAj81NYRyrGED4m1Px3E8+s90A361Jp/NFH5nwAEqVwrbeDIXMuE3xdf2chxKfeN9Vl
+	gaX3p8389Ns/IWPqO83w2EomIrqdeYju/3NMdSZtqmJqnH6VDvpYbElkoUmWq/HhqZuEyNpnRMMVm
+	0JpKW+c9wKvYNnhztB9YhHj9h6u/UcJmFNjLkJhLxVoSB8VWYYHV+6TNR0RqbAPyqx1yYPnOfWs7p
+	LvYosCkz4mfCX/9hRo+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLBA4-00000001eOh-3zON;
-	Mon, 26 Oct 2026 03:14:12 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1xLBHf-00000001ee9-31q6;
+	Mon, 26 Oct 2026 03:22:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLBA1-00000001eOK-47Wi
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 03:14:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=au1oCUkwILIHY7UpmgMocKWIf8SjE+RWfB1d548iyvRWbjqrXdBeNUYP0zf1tQRvwqxzhrOcdAcViQmlnDQMWfjdekqUX8h6hxSnVvS16I2MTud1gBGzptf7PhKRC2VREPdykjU3SEnkE6fQz9swFlIxXxW62lAnXrT/ZU6iqAHAH/yxtVhYrzTlvaCOrD9HQZSX3aPhwypk4C87vr3/82ZjOwtMv1I7zhj47PJXxJXFx0u+ZxbzaTD3PxSv12Zg3lYq864UBBfLGBohICIfxHKG0ZXsicOb+8oUPVMUzVNOezNOaJFH/B1mUsUpyZtBIEH0ubyTzP/WQv4E6lLaoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vJElXUuu23Tmr33Ek8+YXRuweKEpn1hlvFNUSPvtfXQ=;
- b=BX67koEfUH5KdGX1RmH7So/IhO81d1ll7duaMRux3KDStgggE61NO0rfXZcuUIssnHmABJIj1Gj9DAYpvM0rOqi7dbWcRmVr7kkRXMm7GZ90/r7jt6JrmOMI2W5aZRLYH5/lqCuKt7owPsLQotv8lZR1TWCmP04ICthq1tZu4+Vd/UICgVH3M5vWZuI4uBVknXY6wcfB7oNiKAkyzv3hxEb+oZU5OEg+5/xSH0QarrXppqhsqsAQ2lbc0JlDga83cXNAepadUYqLvKnaAMluX0uas02eOztzsXt56ivuEXiaLVeIcOmxwuhllfgDYR7Yk2k3Rgkf+GYDI/zffxdo0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vJElXUuu23Tmr33Ek8+YXRuweKEpn1hlvFNUSPvtfXQ=;
- b=coXZM9CPY3d6zJoAK2y8SuclRR3DxTmhaFlD7QNSnA/Bs+uvYmiPNhAXKK6Izgg2SLJXwIesWTi1u1sIsjMgMNQAltTlDjCzVyr19RActUbw4NlvQgDfHooCk39UHlC62odYT0MyGZcUcXFXa68UOgA6zKlOqRXhW4s4FaO51OoPu2cfvKLbUiiuZIxwzghGEI9Y3/77mv39VZYjhPiQm3NVwgzdDzbuJe7dKmJ/99bvtj85PKgi1fvonP5ln2owFwjDABeKqQPjQG7zH9CBJkPMAID0VOdko1PMh1QE+jTeMobL3h5C8B1V0jIuBMJKmoljFRIz35B8NFaUDxG86w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
- by PAWPR04MB9838.eurprd04.prod.outlook.com (2603:10a6:102:380::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Mon, 26 Oct
- 2026 03:14:03 +0000
-Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
- ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
- ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0546.021; Mon, 26 Oct 2026
- 03:14:02 +0000
-Date: Mon, 26 Oct 2026 11:15:38 +0800
-From: Liu Ying <victor.liu@nxp.com>
-To: Frank.Li@oss.nxp.com
-Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Sam Ravnborg <sam@ravnborg.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Robert Chiras <robert.chiras@nxp.com>, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v4 3/7] drm/panel: simple: Add Waiken WKS101WX001-WCT
- panel support
-Message-ID: <at7F2sW6hZzdngZV@raspi>
-References: <20261023-dxl_lcdif-v4-0-4ae8395a4b23@nxp.com>
- <20261023-dxl_lcdif-v4-3-4ae8395a4b23@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261023-dxl_lcdif-v4-3-4ae8395a4b23@nxp.com>
-X-ClientProxiedBy: MA5P287CA0299.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:21e::18) To MI9PR04MB350878.eurprd04.prod.outlook.com
- (2603:10a6:290:c0::7)
+	id 1xLBHe-00000001edi-0O4b;
+	Mon, 26 Oct 2026 03:22:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8E9EF40A7C;
+	Mon, 26 Oct 2026 03:22:01 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1792984921;
+	b=eE/OeYxDuGKr584QVRX/xn10jZmI5hxejyVkl9e+hDpNsmt1MAZBV/Rysg2U1HgWtqzb
+	 25PztK3tBTvR4/yz28p6MtH3KdEtnrpT3deD/+jX+RxTJrPpjGU/B916EVcp+CvxMJp6M
+	 g/K2VIM3TyXYGQktRo39YtVDH+lGo7Yimlvr68SMDb0HQLvneZPNSAFzo5RVTOdBl+bUP
+	 V2VyK3y1Vz0WLmnJXkpwI1mYcw8IWvRw9NqK0SbtYsz/RNNRaCS4e/Ec51dErDt+46Olh
+	 dDb50ZVcABHjjS3mL9Up+K0zvfqiJKF3LRnNFf7Ezjfd+r/RohjvHDUNX3I9H0XP6lQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1792984921;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=NbQy+6FvGK6X5jKByFItZyE1kW62PV6QqwJIAZ4DL7g=;
+	b=lIK9TksCDHIMg7u0tnJQRh+ymDh1cFnO5p9DBIs3kjZBxMci+q2QDci2kMh17dzvtlIR
+	 UIBmRbtLJkAACJ9M8uMdLAvPeM/KKPOGbXRQ7uZGEPUKn5eWh+iphAYazJ7/yrrgZdM7z
+	 tWjAq5P/QyxQm1yBB5Qt6456mMTmEFwnnSk/tMyeQlV/eKpN3/IvZDF25h+NIoRRH2a94
+	 opD6kO9rblKTDtrlAswXKqJ2waOoOVXFsmGniL6u8kZF7kRkU7Y/H5RHczqU3hd2TGTMl
+	 iLQsqzgMzyH7t2pg8JwVoU5nBV5GqLCm1qTvf92Y4xW2EiEC3nbraEW+13av6Mp13ZA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id E99791F01829;
+	Mon, 26 Oct 2026 03:22:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792984921;
+	bh=NbQy+6FvGK6X5jKByFItZyE1kW62PV6QqwJIAZ4DL7g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=CBCFuc9MC7EV3WVfl8fzef9Y18+T18rHMSAZTUHirHLILXfGO8kVCe5uTUoe3DFs0
+	 uvz6tBc+fdjQ6CuDS5ouiKltg4iVTJOc4mw/nwSASEx6m8k2jxFRF6/C8mgUcJuvi8
+	 3qB9S2yYWlZfEnCUTcrBzHQHHnEf1ISzkQSYq/xj3R9/Fv6eDJsV1yXmpyhdYNS3wk
+	 UaYmT9lA7+ZFxtQ1fXeNzrF5K7B/aIkw1NlcGWMxTeruf0qCo6u/lUA8z9siEkL1OT
+	 UJnfjUSParJptrZgbx4gwq+b8/DaAXxuJfWaJ4hZuTMDzVUAkBZzGVnD8vMLAWsyt3
+	 yezn1MZRI2VgQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 6321A44BD9;
+	Mon, 26 Oct 2026 03:22:00 +0000 (UTC)
+From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
+Date: Mon, 26 Oct 2026 11:21:38 +0800
+Subject: [PATCH v3 1/2] dt-bindings: power: rockchip: Add RK3572 power
+ domains
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|PAWPR04MB9838:EE_
-X-MS-Office365-Filtering-Correlation-Id: db7f3966-644b-4874-9077-08df330f2fb6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|366016|1800799024|6133799003|18002099003|22082099003|56012099006|4143699003|11063799006|261022075727099003|10067099003|261021121427099003|261009223027099003|261022105027099003;
-X-Microsoft-Antispam-Message-Info: 2iFEZkPdpLjsaoeq8kuzS2PrX1qNueetofI66zlnrHXpyqyY/Mc+I91ZWYODx7fSPAzWAeMUx4pHgs/5n160zpvLD3/Xgn2K/XpcMS7RmToP/4PN8j0XKoAPF3ELWKw9Of+MJwVHR2JUeZjku8AbxfF4tbzhh7cIgd5qY5kjOvZjhY6+OPaeaikLUSL6gZMvteOok4zAH1aGG+J/trD08zDOAHgSeT9eoF1OiUoe6flsHT5LwFr6RDkOiS0dQL/qujSyIEwjWIlaknNV7C/Y/XY8HgwlvCgWwq9Ap3IKHy8Uuh/9HwTiXCQaq3q8vKodte4uJOzgxg+hbRE916mvGeEQBW9zxJLBjtZdEg34eotg1d1tSp41+keFvMhoSDnq0peKLF8EclpW4IrKTDoTBdNkrLTG283/ZE/Gx3aoRKNRAx3SSJzSJypCFWV33dADhI/C4PWppc1k0OPRsZbDJYZJmaGzw3zOVY6d64wTKDAjEoQO2ErZtjeohdAA7dm9rWp4sUMwSaJ5JYBpg38K7+y606qzUbAnBlM7I/V7eqEyX7QOj8uFLRyJmuzKfkQnFFGCfAqzrS4HhDvk8jcKM3HN8oAT6pR1hYJNBEPwK0ZBn7U3o5rDAxCa9qUxLzr/Eg4q484sXcxfxDAyiopGq8GSSVCZGgRxIHIlRg3G9G0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(366016)(1800799024)(6133799003)(18002099003)(22082099003)(56012099006)(4143699003)(11063799006)(261022075727099003)(10067099003)(261021121427099003)(261009223027099003)(261022105027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?a1wkSsAq6IRA2VTvSHxILxyW7yNP/LdejPLhTqCe3oIUStJaZjV7fPSgREhD?=
- =?us-ascii?Q?r+j0IGmYDzPO8+hMIogi0yhabwgvEF7IZ8c7EZ2tUYDubItSILMFtt7sFhCV?=
- =?us-ascii?Q?PViB561bFTDiBJDPeGFycv8zX8Au6epJmeVPFazvxpLSezSRlZclN1hupHHB?=
- =?us-ascii?Q?54tp7m8JWCIzyVbpOw8Y45V+MTppu9T9uY5V03RWbwwelNTgoRhFwm0JwBHw?=
- =?us-ascii?Q?MN/nQiHTy++HmsWPg3i492xJn+DvBq51SQpS1dwimoszWpyNsHsDExjfWQ/i?=
- =?us-ascii?Q?M0I2d3xfvt8mBTlwNeMcwKp7fktRakIYoy+lDy/b4rXkJP4fgnDXHftmgJiC?=
- =?us-ascii?Q?g992rP6dQWV894T6nYn2Q9M0cI1eBCyZT32qLSfMwgUoLLxQmosiovtUGEL5?=
- =?us-ascii?Q?aM8CmfcKn0WjXP6uSPZm44HzhaLXsy/+xIk82Ya/jdRTlep1WXKjkoctZwcN?=
- =?us-ascii?Q?YlEiV7QOVfYyXhC+S0vx3VjJx/+lQy9YUZ/KRLUNNksvm5bUa4cPqc+m3rSY?=
- =?us-ascii?Q?NWFmdn/ORFHKKIrvFxFtiQtLxiOgHML4hqDkiamnb3LzOAdSqnGlF67aYcFf?=
- =?us-ascii?Q?V5EFUs65iOqktAUV/JWjUT324VEq11tJFQyIuGd/LD6G5+D82tASyL6RPXsD?=
- =?us-ascii?Q?EqklJIHQvrlnZaF4p7OtlGc4M0fuugjJVrQpMRHcy2ppKnd/nc1tre9MyYav?=
- =?us-ascii?Q?bFrhT94Im4hLNmZbHbebrwRTNoQbCRf/qMbSO1pvgKqC+uHeG9Zh/7dyi6ZT?=
- =?us-ascii?Q?WboWMzLz7Irqf45BlyLtbWWZ68hJOv+0PexVvnEsrpuVIgm79dPS3HiKReaI?=
- =?us-ascii?Q?JM37zIyMxV59TN5TBB15BgKZsmOgpdw9m/pI+uc29upj1CE/CKJUncq5zieH?=
- =?us-ascii?Q?GnE9TK116WfvqZSS4M13hwqp4KrjAj3IpKdamYG4uDqPceuQIONtyUFWEftY?=
- =?us-ascii?Q?8zfzm5afvZgd7o4UIYGXUVfZTCZJ42V2Tv+QVBIH2MfM4GyWI+Q5l4NLYuYa?=
- =?us-ascii?Q?gNk3dKaodTzO8mciTwJoJ9IKIGY29IsX3xQYmUZjdKanAFVCzr0utDapsGJP?=
- =?us-ascii?Q?X6fgQEhVP9BRbFX/4aWtSB+RTcr0lCHBrPHxUa15WFpY34aE7Hr0qSDkeAVS?=
- =?us-ascii?Q?l9hv/jMgfZ4VX/3VkiFoS0z/c86C660TrUTymuh2E6+f962Atq+zcoFKMBfk?=
- =?us-ascii?Q?W9RkEJ1w1N6YoZpsgbc+HDQkLev3tdS7KnEEOn5cX68b5J2vkW23K7oMraCS?=
- =?us-ascii?Q?EiE6pviL17jV+y+jP6RzVTLamO1nTCSlCgr3OacNO63wx7q8GSNbtRtWSQC5?=
- =?us-ascii?Q?DOkdlGKUHOX6Jfbophl7L7jxGD3z2W6ueHvuGM1EdKDYsb7F1YXBxndMd8Xg?=
- =?us-ascii?Q?HOGopvsXhV1GnGiH4y/EKejWAtcpomz4N72RefV0xxp4uz6s/xmbHNSZ0PLS?=
- =?us-ascii?Q?Dv0lStpjWGufVE30MhGNDuPExECGJTiFhXZoFcfvU1wMQnZZ7pLfyIFwpoEt?=
- =?us-ascii?Q?cB+4yDST/qn3JYJxDPTRj5Pl9T7gFKkkr7uiTaHLg3AkDAtiReepweyS8Rgf?=
- =?us-ascii?Q?pAqMuRLKyFqTjQljM3lbW1NaoXgwrqg4jgUR+LK19089Jw2UcHCbGGGmO8M/?=
- =?us-ascii?Q?Y5LDz/ZN8bKOcuNNj5hgq2ZQQNmHpP9j1sLOAI/Beac4BQT6XU60qljKEuU9?=
- =?us-ascii?Q?srvtcB7I9zPhbKw06bgVHJCwATAwaRpGLHre+pIEhdlKCKLWN5QD/WxeUYP7?=
- =?us-ascii?Q?wcZ0Ai65tg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: db7f3966-644b-4874-9077-08df330f2fb6
-X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 03:14:02.8857
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nN0iK2UIHYviCv/SUE2VeOYzpSyQNhj24AGMeK+25uLz4sd4YwHWmV/d269wFc3siqSE50ZLgV9tT1infp3VLQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9838
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_201410_040106_BCD66668 
-X-CRM114-Status: GOOD (  19.64  )
-X-Spam-Score: -1.1 (-)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261026-add-board-ok3572-c-pmdomain-v3-1-70d614d3d921@qq.com>
+References: <20261026-add-board-ok3572-c-pmdomain-v3-0-70d614d3d921@qq.com>
+In-Reply-To: <20261026-add-board-ok3572-c-pmdomain-v3-0-70d614d3d921@qq.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Elaine Zhang <zhangqing@rock-chips.com>, Ulf Hansson <ulfh@kernel.org>
+Cc: Cunhao Lu <1579567540@qq.com>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ Finley Xiao <finley.xiao@rock-chips.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792984919; l=2764;
+ i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
+ bh=cT6JHEpcZjaM7LJOx2D1IVr8V7su8PuGOgyEm3QbaTA=;
+ b=PR4yWhGC+yRazQh3xN3KSarwGtayjUbgLTImTpA0t3YDit44F6mAqqVNryku/ENqh5wOlKsHI
+ A7bw0TxlErrB56nzC8vBCZBxsx8WSwNxB1URZG9tceJ2GIdQ4a+6gPp
+X-Developer-Key: i=1579567540@qq.com; a=ed25519;
+ pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
+X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
+ auth_id=1177
+X-Original-From: Cunhao Lu <1579567540@qq.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,58 +109,106 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: 1579567540@qq.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	FREEMAIL_REPLYTO_END_DIGIT,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23, 2026 at 03:45:11PM -0400, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> Add support for the Waiken WKS101WX001-WCT, an industrial-grade 10.1-inch
-> IPS TFT LCD panel with a capacitive touchscreen.
-> 
-> Although the module advertises LVDS support, enabling LVDS operation
-> requires hardware modification, including the removal of several on-board
-> resistors. As there are currently no known users of the LVDS configuration,
-> only the default interface mode is supported.
-> 
-> If LVDS support is needed in the future, a dedicated driver can be
-> introduced to handle switching between LVDS and DBI modes.
+From: Finley Xiao <finley.xiao@rock-chips.com>
 
-s/DBI/DPI/
+Define the RK3572 power-domain IDs. The driver uses the system GRF to
+check firmware shift-ready status after powering on a domain.
 
-I assume that there would be a new compatible string for the panel in LVDS mode,
-instead of a new dedicated driver to "handle switching between LVDS and DPI
-modes".  So, I'd rather drop the last sentence.
+Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
 
-With this address:
-Acked-by: Liu Ying <victor.liu@nxp.com>
+- Added the rockchip,grf property.
+- Made the phandle required only for RK3572.
 
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> change in v4
-> - s/LDB/DPI
-> - variable use 101wx001_wct
-> 
-> change in v3
-> - add wct surfix and change to use MEDIA_BUS_FMT_RGB888_1X24
-> - Add information about lvds support plan.
-> 
-> change in v2
-> - update height to 135 from 136 (sashiko)
-> ---
->  drivers/gpu/drm/panel/panel-simple.c | 31 +++++++++++++++++++++++++++++++
->  1 file changed, 31 insertions(+)
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+---
+ .../bindings/power/rockchip,power-controller.yaml  | 17 ++++++++++++
+ .../power/rockchip,rk3572-power-controller.h       | 30 ++++++++++++++++++++++
+ 2 files changed, 47 insertions(+)
 
-[...]
+diff --git a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+index b41db576f95d..f8afb0fabe80 100644
+--- a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+@@ -43,6 +43,7 @@ properties:
+       - rockchip,rk3528-power-controller
+       - rockchip,rk3562-power-controller
+       - rockchip,rk3568-power-controller
++      - rockchip,rk3572-power-controller
+       - rockchip,rk3576-power-controller
+       - rockchip,rk3588-power-controller
+       - rockchip,rv1126-power-controller
+@@ -57,6 +58,22 @@ properties:
+   "#size-cells":
+     const: 0
+ 
++  rockchip,grf:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: System GRF with firewall readiness status.
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          const: rockchip,rk3572-power-controller
++    then:
++      required:
++        - rockchip,grf
++    else:
++      properties:
++        rockchip,grf: false
++
+ required:
+   - compatible
+   - "#power-domain-cells"
+diff --git a/include/dt-bindings/power/rockchip,rk3572-power-controller.h b/include/dt-bindings/power/rockchip,rk3572-power-controller.h
+new file mode 100644
+index 000000000000..c2316fa859df
+--- /dev/null
++++ b/include/dt-bindings/power/rockchip,rk3572-power-controller.h
+@@ -0,0 +1,30 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++/*
++ * Copyright (c) 2026 Rockchip Electronics Co., Ltd.
++ * Author: Finley Xiao <finley.xiao@rock-chips.com>
++ */
++
++#ifndef __DT_BINDINGS_POWER_RK3572_POWER_CONTROLLER_H__
++#define __DT_BINDINGS_POWER_RK3572_POWER_CONTROLLER_H__
++
++/* VD_NPU */
++#define RK3572_PD_NPU		0
++
++/* VD_GPU */
++#define RK3572_PD_GPU		1
++
++/* VD_LOGIC */
++#define RK3572_PD_NVM0		2
++#define RK3572_PD_NVM1		3
++#define RK3572_PD_DSMC		4
++#define RK3572_PD_PHP		5
++#define RK3572_PD_AUDIO		6
++#define RK3572_PD_IMG		7
++#define RK3572_PD_VDEC		8
++#define RK3572_PD_VI		9
++#define RK3572_PD_VENC		10
++#define RK3572_PD_VO		11
++#define RK3572_PD_VOP		12
++#define RK3572_PD_VOP_PRE	13
++
++#endif
 
 -- 
-Regards,
-Liu Ying
+2.34.1
+
+
 
