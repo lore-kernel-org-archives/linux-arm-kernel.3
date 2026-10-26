@@ -2,76 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74691606C227
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C95A5606C22D
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 09:58:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wa+l61aF;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=SLleNbsv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=E+BVuOy7;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=AiCMRiXh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=HcffSPuimDSKjJ+Q27cp2ryrVy584pPTd3AryXWHadY=; b=wa+l61aFzBr3ie
-	86F/O2gUajHx/x9x8MkfPpCRO8rn1S/f603htugF4AVku1bK4M0NKqDKip1pWW/J6nBwBE2Z3dpKR
-	mYrZ4/nS+aciq8kHNw5n7IbJxdwXvvVu1bV+B7KZO4vTBU0I1xAvntpZ+uy1Xv/S9PEmuSR7udKpz
-	Oq/og2GwkkSAx/FKnS+3gEGJ5wN4JotMZjWnYnCLIPXOLLJm7C5srzU59sddzC66GRs6SAWhOMhsu
-	2DK/F68dF93ragabeXWaFjqMPFa2hu+5zUCn4l4Gp/01y1Duc+okXTPyhIYzUOCN8DB8wynUYxdz8
-	HR0U+o65H8GLDh3SCXlw==;
+	List-Owner; bh=tOz2JFjjkTi3TUHkJpJV4spG7QQFNKVaT1zkl6n7spk=; b=E+BVuOy7N5B7pB
+	S9KoCCyQBLBEDb62FDoy3KLKPJu2zL4J2DPteXaRxqXVDVb+nTrhYo5QTSUy2EEglkJpH6ofZ1IQA
+	/1CnzRAaMFtGsCkSxefPnjihhTYSKE63KK1U7AuKS5F+e2s05UVKJYHrDlfiREvYa1tIrukHFNxyL
+	PBhIDVrrFWjY20z8vqF3mRAwXA28CnxGwZYbe1wj1odG/8j4e8ALSKlyxD202GuVfpXlZjMjZHn5a
+	InxF6n/xJfgRQqTQ4IQDGWpiCxE/vy9aUPX3f/zMXJJxTp0T/Vr7h8QfQLiGx25xT+G0GxELEuMxF
+	DnYA0gvRa/6WbJIMdfOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHSj-000000029aD-071H;
+	id 1xLHSj-000000029bv-2Lx0;
 	Mon, 26 Oct 2026 09:57:53 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHSb-000000029Oz-2VtZ
+	id 1xLHSd-000000029R2-0lgX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 09:57:47 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a2167bd087so16510505e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 02:57:45 -0700 (PDT)
+	Mon, 26 Oct 2026 09:57:48 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a3517554f7so17312915e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 02:57:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793008664; x=1793613464; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1793008665; x=1793613465; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=HcffSPuimDSKjJ+Q27cp2ryrVy584pPTd3AryXWHadY=;
-        b=SLleNbsvVObGb0AbyCwQUCLrfkdfC5dWMhoyqQ7O++ox0tv4DfN8LVcaP0ubb0Ips/
-         QpKw5LrbIV1c0Iae8+5kcXk/DoP/sF/ioXCy4M12fAaIEEEtMYTSMtMydiqURcpOFZZO
-         aISMaMd6lFolNJzxRrN6Jvh5h6+uv2ugFbcS6KQKZaPNtJbHx6IQKBZs1D/igStvPptu
-         FngzZexAAxC/NzG7TAPsAnw2SSAzfVfqqohWNrCnQpqnb2IVQO86kZJ1o/kzEYPcKymR
-         3BM+DxCk0GVztHngdF2j72NJxSyt6RuGL1Wvz15ISg7v5W4PTpOPd+YmX5gsJv7X7mcY
-         p+2g==
+        bh=tOz2JFjjkTi3TUHkJpJV4spG7QQFNKVaT1zkl6n7spk=;
+        b=AiCMRiXhL7GIHj7IyJANX4uRjX17krhGDFuHqXwwFyd4kn/8ppWJadjMa/qFdAWfzl
+         DROasGnkBnQ5QvbxgCRehTt+DlTG82LocZxveq2+M2cH85e74AbE1COTwnjoEGHEFFXN
+         e4x3IF4iFgmuEJGWB58tMozrLjPcm64P1J16ONccY6FAfLmiC0my6GLw0KJSUOVHpvBm
+         Oq+JBxrPhd1/BtpMoWgGe1Y1N1kOqJitV0RPwFKZM3k0EJzJnLclhicRCQ8Am0QJwF4u
+         vwFQW8gBUHC9f1w3rLuwnawC7G9dwxEDJXylrq9gp0d1DNLP0MziE+Wmm5SQ3yzq5XM+
+         jTlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793008664; x=1793613464;
+        d=1e100.net; s=20260707; t=1793008665; x=1793613465;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=HcffSPuimDSKjJ+Q27cp2ryrVy584pPTd3AryXWHadY=;
-        b=sq+iXpGRPFGeiSspUrDZ6lAHL2PXfHj+tAe3CYMfSXoyff1yjEhppSHlz0FQ7xV1tP
-         W2SagNM79kfm0XiQHUeiltKL5EFHSlQ5r8wMmRugnaRH8T06lyPb2VxaZE74+YqMtYW4
-         xiFNT2dAQslLiGej8nRMW/zAZ59mMYfygBKMKyanliXZBoqEukOQMYcWRbQHhMdVgpNW
-         fRXC0V/KudUSbY3UMZ4G9E+TAWSN7mI1sF9QPooTrcbP5a/J8W1FlBamsa0+Z7pnOUoq
-         GI+WiGZaiygpILy8urCDlCTqd2gqbc9OWJF+4+dN6nwKohNg8UU+JgDiYjVs+Z9/fk7i
-         Yn0w==
-X-Forwarded-Encrypted: i=1; AKwUvBwSfEpD0dMjxWbKoe6O4X+0JoU46USiVzeF9eQAfJFxUP/EVW3LZmztm/oRzgfuNK74FCNme1Jg78o2t9TZ60Fu@lists.infradead.org
-X-Gm-Message-State: AFq9FYLq1tqJ0LI8d/V14OFB0NmKBr18XFww+7FYqdypGGjw6l3WHrM2
-	jyOCX23wKlVI8cb4I4IA9ud+/udaao69pv3w0lOstvDIjfRpZbHcf1Tp
-X-Gm-Gg: AYBFou1Tw1lm7ObiIWRngptw7NtDPyh0wIkI/5qXwtxEFqg5vK9QlEwTiqQDe5rVtnK
-	hcYQL12SdGRw/CBt18szai68FUvwph/S5HWq71oW0s/imTUKEVcMJw+Z1wWEg7hq9me5zcHtkv1
-	vLLu17KLBqXl5A2LoSNw3zBKGJUDvTY7tUfoLOamRtO6c40p94tMu8NY+HDIPu1lqCmaKFnTZUf
-	0ErghsOfua7otk/MZfw5otuq4WUvOI4215yxE9h927C241D2DHygHinHOyz1dRWrdiZbxjNKNtf
-	hZTEZxjxPS25fbr97Gb2rxkgzDnizDMO8PU0eW9hHgh8ooI/+bk5wl9yt0GUdmm3RA+8MLXoNhV
-	dS8H28lxjiMdDOKwIRpntaccSFuxzdZLTiUmfbhoKpbW5uQP0WbPrB689o+3k1bIW56GeaGGFu8
-	fCDjHuO8tK0PLNyTTsiGafoXaG9kbBJBgukBmtf6BtVBIOUmlr+lRW6Fkrn3Uk9rP3gbhWB4ueL
-	kXsMVefNRzVUim+JUBkL8BXbzEHDXvcltiN6Zr194oWSMIL3qDbXdlLed/Re9FNj9pliwgYdLWZ
-	0uROButq9dj/AA5R5KirLW3sGyg3V15GymYLk0o2vwkUoQ8XtYy5mdwMAqLB
-X-Received: by 2002:a05:600d:82c3:b0:4a5:1cf1:b7bd with SMTP id 5b1f17b1804b1-4a51cf1b880mr83369685e9.16.1793008663905;
-        Mon, 26 Oct 2026 02:57:43 -0700 (PDT)
+        bh=tOz2JFjjkTi3TUHkJpJV4spG7QQFNKVaT1zkl6n7spk=;
+        b=mTSAWLOKj9nFeL9U/ZRSbaqOyg2I/yXeG7FDIkYOJz4yCWl+M7d4d6+lc1sd+cD+Ki
+         GKQn835snu2sNu4Q2HTaMbORMX5WsH+ryC3QS6WX9/5r1pVuD5cgwqLx2SoXYENxc3+u
+         FxczbBDZrpizNA+krbD/0cNyujciJp/1TJMDkclG0qkXOPLKKCLIxgxgYQvtgiFRtpeL
+         TptEPDA7VMMQ5cYsHTLbltTNg/b9WY+Wf8mKDeFgSzlharv8eKUPzmAikFfuIFjumQZT
+         vFciMxESXa9zltiJ5wtTkEnzwiG3e6UDUVrjZBVjrm6EFoyfAM4tsjFV/T0EKYySlwhy
+         TBnw==
+X-Forwarded-Encrypted: i=1; AKwUvBxjCuJslxWLWHZrp8suCNRGZmP22XPs/+V6jfq7/hWb+coYdvgh1G4XEldEKvibZlVlQzN4SPkvxLnCKSufU+7J@lists.infradead.org
+X-Gm-Message-State: AFq9FYIE29GRxGFQnDJ/n8lH4Jm3I7si/86LfUMAWz7XWpq71tmJdAEN
+	YCmJ9O6n4RPCC1A/DiO1uMqvWN9RfVO7SmCjTL7CgvmmcrBiGz++FB7f
+X-Gm-Gg: AYBFou0r0djF5hnAb8PqxTxMyOXpxkFjVZyKcvucEi6TjVhatHpm7ZUEINZONN3slw8
+	oPRd9NtqSzm2+lffx2hF5sejjj76E+v3Hj/TE70le22TaYLEjdY7yTrfP+5ksjitTj1DJgsbLeU
+	oOtH6hlROr9NfwDM7ZiWI1wGABop/n2K+0MQIcc0cOtwgAlkbDq6gEdgaB2XLa7qMpSfEU6PbG9
+	ufqC0FjyHpNHzfn0XbetU3u9qBnkZh++gZoJRWkwKI4RJDw/3JJqGAwoHCyYAzAh8zvbH3ACxYa
+	el6fkCt73u99oCnpYw4R04GY0/bBrcqbT7YFC0rwXbvDkzt3TlvKjx8ERZ43A1s2bhg7QeYPGZP
+	dhn/tuqUp/Sf0UJhxT+XyXwi0BwhgHEA4lT7fXtPEtxNQ1zbIr8AmESzXSt3IBa4XPOg2Qc6qP9
+	occYvOFDp3y9IEWkeSC1igWyYMoJFaaoaJU9IW5nOxfKgCG8ztnRq2+sX1kVA2t2XtaL21LYMPJ
+	bBVQIz2do7MJwqu+JSZEdcz9XWjPh41yq5GJQBWsX+XS7CErplHSW0kR/sI894TgJ1NThhmlJP2
+	j1ZP6GR0iIuAGinW+kbbbA9unS4AO0EeKEproKUJ1i5H9VX3108/mYS0JQN6
+X-Received: by 2002:a05:600c:8114:b0:4a1:dec1:4e1 with SMTP id 5b1f17b1804b1-4a35aca4ab5mr96619105e9.22.1793008665078;
+        Mon, 26 Oct 2026 02:57:45 -0700 (PDT)
 Received: from Ansuel-XPS24.localdomain (93-34-92-187.ip49.fastwebnet.it. [93.34.92.187])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4a35a0cc374sm190382825e9.9.2026.10.26.02.57.42
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4a35a0cc374sm190382825e9.9.2026.10.26.02.57.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 02:57:43 -0700 (PDT)
+        Mon, 26 Oct 2026 02:57:44 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -83,9 +83,9 @@ To: Matthias Brugger <matthias.bgg@gmail.com>,
 	linux-mediatek@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 7/9] arm64: dts: airoha: en7581: add nodes for all supported uart and hsuart
-Date: Mon, 26 Oct 2026 10:57:13 +0100
-Message-ID: <20261026095727.31708-8-ansuelsmth@gmail.com>
+Subject: [PATCH 8/9] arm64: dts: airoha: en7581: add crypto node
+Date: Mon, 26 Oct 2026 10:57:14 +0100
+Message-ID: <20261026095727.31708-9-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261026095727.31708-1-ansuelsmth@gmail.com>
 References: <20261026095727.31708-1-ansuelsmth@gmail.com>
@@ -93,8 +93,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_025745_659881_F37FD145 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20261026_025747_253065_388FB2EE 
+X-CRM114-Status: GOOD (  10.55  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,85 +114,31 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add all the nodes to support the existing uart and hsuart present on the
-SoC. Also update the compatible for the already defined uart to use the
-more specific UART configuration.
+Add crypto node to support the integrated Inside Secure SafeXcel EIP93.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- arch/arm64/boot/dts/airoha/en7581.dtsi | 46 +++++++++++++++++++++++++-
- 1 file changed, 45 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/airoha/en7581.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
-index 760f0c3e6090..ee1633f01068 100644
+index ee1633f01068..f214fa3a3e2b 100644
 --- a/arch/arm64/boot/dts/airoha/en7581.dtsi
 +++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
-@@ -470,13 +470,24 @@ fixed-link {
+@@ -470,6 +470,13 @@ fixed-link {
  			};
  		};
  
-+		serial@1fbe1000 {
-+			compatible = "airoha,an7581-hsuart";
-+			reg = <0x0 0x1fbe1000 0x0 0x40>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
-+			clock-frequency = <7372800>;
++		crypto@1fb70000 {
++			compatible = "airoha,en7581-eip93", "inside-secure,safexcel-eip93ies";
++			reg = <0x0 0x1fb70000 0x0 0x1000>;
 +
-+			status = "disabled";
++			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
 +		};
 +
- 		pbus_csr: syscon@1fbe3400 {
- 			compatible = "airoha,en7581-pbus-csr", "syscon";
- 			reg = <0x0 0x1fbe3400 0x0 0xff>;
- 		};
- 
- 		uart1: serial@1fbf0000 {
--			compatible = "ns16550";
-+			compatible = "airoha,en7523-uart";
- 			reg = <0x0 0x1fbf0000 0x0 0x30>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -517,6 +528,39 @@ en7581_pwm: pwm {
- 			};
- 		};
- 
-+		serial@1fbf0300 {
-+			compatible = "airoha,en7523-uart";
-+			reg = <0x0 0x1fbf0300 0x0 0x30>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
-+			clock-frequency = <7372800>;
-+
-+			status = "disabled";
-+		};
-+
-+		serial@1fbf0600 {
-+			compatible = "airoha,en7523-uart";
-+			reg = <0x0 0x1fbf0600 0x0 0x30>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
-+			clock-frequency = <7372800>;
-+
-+			status = "disabled";
-+		};
-+
-+		serial@1fbf0700 {
-+			compatible = "airoha,en7523-uart";
-+			reg = <0x0 0x1fbf0700 0x0 0x30>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
-+			clock-frequency = <7372800>;
-+
-+			status = "disabled";
-+		};
-+
- 		i2c0: i2c@1fbf8000 {
- 			compatible = "mediatek,mt7621-i2c";
- 			reg = <0x0 0x1fbf8000 0x0 0x100>;
+ 		serial@1fbe1000 {
+ 			compatible = "airoha,an7581-hsuart";
+ 			reg = <0x0 0x1fbe1000 0x0 0x40>;
 -- 
 2.55.0
 
