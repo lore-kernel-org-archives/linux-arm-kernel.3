@@ -2,108 +2,99 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68C52606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 08:45:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8E38606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 08:47:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LAeTP8gs;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mQ8kgciu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cR4SsLyB;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=Aft1cNwV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
-	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=xEGFMoBSqlCkE1A3S7YRAvd7sH19TwEaNbWjjfQgI9I=; b=LAeTP8gs1Ea+8SgORowtFHJSSp
-	Z8ANHa/8q761RrwEWOwocAi2GBdf1rARBDYpnlZAZ4sewcdenFsp5uABgSvYqjemgim13mOqv0TI3
-	VmStKHal9ZXvMjtdH0ar0OO3eNZw0dE/GyiBMjMoZnUiyjtuvgO4dOU9lBlCZ+pp/B3AGfvFvT1z1
-	/y0411HcDHjdnBsQEm2+DdW4SsoFfqhoTNItUV4Q3nSM+1H1qqVCGUDa/vcN0Q1R5WkehuS+vKI2y
-	bTMq7Y35UmRk4IJj5GtwWyzFcYNM6pDAbH5SE5P65DHnTMb44qM8vMRaErDEa3t+qZap5eaDBu0LI
-	3SKvQ71g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=5I9G++sBFZBEvdUOgC96XBerDJBhmVoXeNlZeIKbjBA=; b=cR4SsLyBO36Tkk
+	QD5dzE9b1sxFhHCnR7ACXT4sKSul/KOchwzcDdoLU1jBzNl0cGsqRQaXbKWnTxaOh4tVFm56YMqD6
+	tL3x7oDeLQ1s1kr8vCe4OHACUmoCVbiJDsiw6HeU6ppWxWV0C1zMgiV0cqvuHoqwTmXnMvwwrVVWw
+	x1zhMaGe3EFq4qjjt89sJU34esXkAdOHqmxbk18AcO24Rgnojk7Oz5aRH89UkCju52KBSvWKZ3ec8
+	Qm/PK1B8ht4rRYUUA1oox3MxQ+EPocleesY9GrpY49K+ugM2kf1m/pFhDPqzwqevvniBE7jSGzz95
+	aD/Y8sT15YmMgnFMyD9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLGKG-00000001yHI-1T0x;
-	Mon, 26 Oct 2026 08:45:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xLGLd-00000001yre-18AB;
+	Mon, 26 Oct 2026 08:46:29 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLGK9-00000001yEd-46hm
+	id 1xLGLb-00000001yq1-0JUr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 08:44:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B355E43C6B;
-	Mon, 26 Oct 2026 08:44:55 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793004295;
-	b=0SyfhU9oz03BL0ldli+0fcDQunM5HVWF9ZdL4W9c/aTipC4HyrY+KUV+1WdIu1X4XwnP
-	 5Vt90wCH9yF+KQ51xCAt30np9I/jshcMRbivVuZPhjG34HQEcoXrDbHM+HGqx1NxZy5sF
-	 Z22OYzJZdijDzbt4w6OZ23rRv7v79l2rk9CkyyfD80AIjJ39b0FRSXlqkbSSIOaIdSsw9
-	 Wm/pfIe+biNU9/D4mcofiL6mVLjV1+5O5mifzhKYXl9/yEe2Hwqu3qlF+V4u115QWNF4/
-	 G9jG0/bLXLlFu1EjramlAXdksR3LuHdoLw6L8hi1dmoee0SzSyCI3xKCKKjyeJtv3rw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793004295;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=xEGFMoBSqlCkE1A3S7YRAvd7sH19TwEaNbWjjfQgI9I=;
-	b=r5p73S8WQhI00Ia60CmB4hKoNQcUI8RaaBRcIzTqmzFKZcbzBSBTR7fmKTVobVOw1so+
-	 nry/XdFLLdX+z8M7vmfdMMOfyOC+u6VsPzdCPVWZ2kwKXwB7H0AsXAqLF7sseVuY/N/BY
-	 Gn+XrtswMYBOW48FHSs0XGuSonfyiwYxOjYj2/Tx+Ifh3BhcICvI3/BXrb+6/wA2YUMua
-	 Yr8igp2JYoBT9HTfqp8b2JGVeULJM1prYOLjw4GrJqYD/dPXK9O2vIfKpN8sxOcekv2mC
-	 A6q0YEsEvfRS0tYNaXDYKRC7n9NXaUT6v6/dWTYpDFAHhc8UuC2FWd6P+kLjOTQE5pQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6D69D1F01828;
-	Mon, 26 Oct 2026 08:44:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793004295;
-	bh=xEGFMoBSqlCkE1A3S7YRAvd7sH19TwEaNbWjjfQgI9I=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=mQ8kgciuLtx28dkxCOTRzbeMcOaH+IQPUg10oV7RhkISkE9sloLazxOHhRgnjm4/C
-	 Sc4zIac4G4HR2gNTeXhvvLy3Du8O8PQ24OpJSuIBE44T7Lw5oZLBELm539UxcW8KB7
-	 SNCy4CCajdzPo8THscby490MJz3yG5SUyAKajNeLhSQLNY/X1o2a3+olODgDvyylwn
-	 jv9LL5Y7MAvnUrtGd1rRAnZBoCRF5p71mDt2D3PM+pjLYvDNJpg9+qQAwZV7mMUj4Y
-	 1ymIKeoXt2UYC2C8lg/KCmiE6ZUdAsiLLGHCGm4PiMdogmM43vw9zt10mOxiTDC1Si
-	 Wm4Is3X6Vyadw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D69B844C73;
-	Mon, 26 Oct 2026 08:44:53 +0000 (UTC)
-From: Enric Balletbo i Serra via B4 Relay <devnull+eballetb.redhat.com@kernel.org>
-Date: Mon, 26 Oct 2026 09:44:33 +0100
-Subject: [PATCH 2/3] clocksource/drivers/nxp-stm: Fix missed comparator
- match in set_next_event
+	Mon, 26 Oct 2026 08:46:28 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a20bdaf39cso27697615e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 01:46:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1793004385; x=1793609185; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5I9G++sBFZBEvdUOgC96XBerDJBhmVoXeNlZeIKbjBA=;
+        b=Aft1cNwVWNvT0QdXUnsPs76bDOLZrzNhrtHYC0M8xxdOJunRW9zgzaY4BJGu7iaSIV
+         6cHfcJowdmllcb6+vfMh4fdNSrKIh8yE1Q6ARF2B/VEOMDavElf/BiCt1cVpmCSOahtH
+         xuGOXysqrMt3qDgaoFgK2mz6U9cBBWJTcg4anSWCTHQgQ6onIDyRwPiY0I3jX0ocsAMm
+         DHZlre9q0iVdI0F7fKRMxmZ39JJotza5594TSYd+S4cH79T5ZuHFYVFcrl25N3Qs9Hje
+         OsIMvH6WxqHqfNGBXhJbSPIzLvnQpMZrrBI1xSqq7Lu6L6mhztHFZnfxvWboyqoty5X7
+         MWxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793004385; x=1793609185;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5I9G++sBFZBEvdUOgC96XBerDJBhmVoXeNlZeIKbjBA=;
+        b=WMtvdTJKkp/AqpFT/R9iaV/AEGvfFN0LuB/KK/23iK3xPZkELjKQnyonpCe2bDRRb6
+         ZsFF2L1pDCrJA27dxXFHIM3nYRUqyaRQOROZerzHwhkTu+6qvPs6CAoVlJuq/lqvqw/2
+         SiQKV+Ev60pbOfJ5XRYlR5GlWLoBXbik0ETmIv6ZAyYzNr13P2sehowakdeOOITeejwF
+         y8MKdgS4xjclAYyw3eC1izfzynWCwNapsij9X79V7FPllv8S2WWyWglF09jpL7E/8aZn
+         Q9dAgog7n9xrHDtABy0qWTlzMtd7Pr6xnGjsWt4CQ4x7STy7dZmc0F1guL93TIilgLUx
+         SU9Q==
+X-Forwarded-Encrypted: i=1; AKwUvBzqOTR0nz5o1hoeKRlvPH+4Ml+Zk8X5VkVEiUDf7nvTuL0V09jH7bxbyJSgy6WFOybFZ3Sbgj8DgOa4+4TDvmQc@lists.infradead.org
+X-Gm-Message-State: AFq9FYJwCCmaQbBWZgpX6PQJ5adavhygIPPEMqLUDETTAY9wFOGjVWQH
+	K5YoCvHEnLwyqEae8R54YV48bZ4TwvEHZmZ9TcKtvuIsp4/xGqxUMLsM0jl9w7VQrKE=
+X-Gm-Gg: AYBFou0PP8fU1N+6IAqyYY2sDRbq93AjAfhUtHge4Y/HrsdIMpnUlgG1cNPgrpyKefe
+	NCSxG+33UJKeF2H/9q0U9DShLblyoM8nhlcKiiUqK9WTFPnDVZQAmCYhw6ade9WVY7LaaBYFjdZ
+	tLBWwkx/ECnW5BFl4TBToHFW/nxqE7Bp9cUkLue0U4RMbtCUER5eaxAHVpNBY6i8i8rsjvdByr9
+	BvPX+qM0Y035R1Lrd4CA3vH9yDI24L6dNSsaGbdwF7zcsWVGvzeqmvUtb6ye8sverGYjFMeGoRz
+	efwTqB7QmDGbpRkS7YNHSFyIApQ5PgrFrBX92c3iSe0wzVF7P88SnImyq2ZvZNlxPttCUZFooGM
+	ScZyFQgT2nE58xJ/R7KwCQhu1nK1DaF2VbGhf0ewABa/MSuZg3u/6uzJIJGHVzAZREkB7WsHVRp
+	qD2A7U9AMSohB85lPcsh9KYxeUDBuxHQwG6A/g0/V572dVn9l9/CHsyhhBQlkh/dCETKnqXLwBP
+	oqBBEXPxni9uflNqYZDOYwvQp0Aa5yB7E1pdkZiSMZwVuifj6v8KNtjiAjQ6G5raP+0254Wc7E=
+X-Received: by 2002:a05:600c:6384:b0:4a2:a3b:7aa8 with SMTP id 5b1f17b1804b1-4a35ac3acb7mr105232365e9.3.1793004385073;
+        Mon, 26 Oct 2026 01:46:25 -0700 (PDT)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a35a033702sm146277845e9.2.2026.10.26.01.46.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Oct 2026 01:46:23 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: christian.koever-draxl@student.uibk.ac.at, neil.armstrong@linaro.org,
+ sboyd@kernel.org, bmasney+clk@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, lgirdwood@gmail.com,
+ broonie@kernel.org, khilman@baylibre.com,
+ martin.blumenstingl@googlemail.com, perex@perex.cz, tiwai@suse.com
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Christian Stefan =?utf-8?B?S8O2dsOpci1EcmF4bA==?= <ckoever@outlook.de>
+Subject: Re: [PATCH v7 0/7] Add support for S4 audio
+In-Reply-To: <20261025192404.209695-1-christian.koever-draxl@student.uibk.ac.at>
+References: <20261025192404.209695-1-christian.koever-draxl@student.uibk.ac.at>
+Date: Mon, 26 Oct 2026 09:46:21 +0100
+Message-ID: <1jik2okfxe.fsf@starbuckisacylon.baylibre.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261026-nxp-stm-fixes-v1-2-20a64a4ea454@redhat.com>
-References: <20261026-nxp-stm-fixes-v1-0-20a64a4ea454@redhat.com>
-In-Reply-To: <20261026-nxp-stm-fixes-v1-0-20a64a4ea454@redhat.com>
-To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
-Cc: linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev, 
- Enric Balletbo i Serra <eballetb@redhat.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793004293; l=2807;
- i=eballetb@redhat.com; s=20261026; h=from:subject:message-id;
- bh=L1v5tjj5j+Wq0siw9q/hKpdjRRXRlMLbbuhC7iKp4ic=;
- b=cGWaYFHHdQAsdou2DcXrTVsUM5zfG6BRmXstksyJxMgAfkKif+TedfSdBhJTJ4xbtCHlyzVNj
- 9tqansaOe7dBKdq00wXcVflgmQKIeqRmfXu0rqghT4itUZO/ol+DvI8
-X-Developer-Key: i=eballetb@redhat.com; a=ed25519;
- pk=5zh6xuAxTiQwglL2NXQFqWuyRPmCE8T5KPXLbNXhnKI=
-X-Endpoint-Received: by B4 Relay for eballetb@redhat.com/20261026 with
- auth_id=1324
-X-Original-From: Enric Balletbo i Serra <eballetb@redhat.com>
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261026_014627_129320_CEA87225 
+X-CRM114-Status: GOOD (  23.25  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,81 +104,86 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: eballetb@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Enric Balletbo i Serra <eballetb@redhat.com>
+On dim. 25 oct. 2026 at 20:23, christian.koever-draxl@student.uibk.ac.at wr=
+ote:
 
-The NXP STM generates an interrupt only on exact match between STM_CNT
-and STM_CMP0. If the counter passes the comparator value before the
-overshoot check runs, the match is missed and the hardware must count
-through all 2^32 ticks (~32.2s at 133 MHz) before firing, causing soft
-lockups.
+> From: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de>
+>
+> This picks up Jiebing Chen's "[PATCH v6 0/4] Add support for S4 audio"
+> (and the tohdmitx S4 patch) unchanged apart from rebasing, with
+> Jiebing's authorship kept, and adds one fix on top:
+>
+>  6: g12a-toacodec: fix the S4 source mux read-back. The S4 DAT_SEL
+>     field moved, so the mux always read back as input A and DAPM never
+>     powered the selected path.
+>
 
-The existing overshoot check:
-    if (val > nxp_stm_clockevent_read_counter(stm_timer) + delta)
-simplifies to checking if counter_before > counter_after, which only
-detects a 32-bit counter wrap and misses the normal overshoot case where
-the counter advances past val.
+Jiebing has posted a v7 already.
 
-Use a signed comparison on the difference between the target and current
-counter values instead, following the established pattern in
-timer-imx-gpt. If the counter has reached or passed val, the signed
-difference goes to zero or negative and we return -ETIME so the
-clockevents layer retries immediately.
+Using AI is certainly nice but I would advise that you slow down a
+little and get used to working with the mainling before sending 7 series
+in a matter of hours.
 
-Fixes: cec32ac75827 ("clocksource/drivers/nxp-timer: Add the System Timer Module for the s32gx platforms")
+> [ckoever: Jiebing, if you have a newer version or prefer to post this
+> yourself, I am happy to rebase the fix onto that instead.]
+>
 
-Signed-off-by: Enric Balletbo i Serra <eballetb@redhat.com>
----
- drivers/clocksource/timer-nxp-stm.c | 16 ++++++----------
- 1 file changed, 6 insertions(+), 10 deletions(-)
+For example, instead of this you could have tried to ping him privately
+before trying to takeover from him. He would probably have told you
+that he has already sent a v7 and (I suppose) is working on v8.
 
-diff --git a/drivers/clocksource/timer-nxp-stm.c b/drivers/clocksource/timer-nxp-stm.c
-index ee249fed1b91..ed7662a4e2bc 100644
---- a/drivers/clocksource/timer-nxp-stm.c
-+++ b/drivers/clocksource/timer-nxp-stm.c
-@@ -247,7 +247,7 @@ static int nxp_stm_clockevent_shutdown(struct clock_event_device *ced)
- static int nxp_stm_clockevent_set_next_event(unsigned long delta, struct clock_event_device *ced)
- {
- 	struct stm_timer *stm_timer = ced_to_stm(ced);
--	u32 val;
-+	u32 val, now;
- 
- 	nxp_stm_clockevent_disable(stm_timer);
- 
-@@ -258,16 +258,12 @@ static int nxp_stm_clockevent_set_next_event(unsigned long delta, struct clock_e
- 	writel(val, STM_CMP0(stm_timer->base));
- 
- 	/*
--	 * The counter is shared across the channels and can not be
--	 * stopped while we are setting the next event. If the delta
--	 * is very small it is possible the counter increases above
--	 * the computed 'val'. The min_delta value specified when
--	 * registering the clockevent will prevent that. The second
--	 * case is if the counter wraps while we compute the 'val' and
--	 * before writing the comparator register. We read the counter,
--	 * check if we are back in time and abort the timer with -ETIME.
-+	 * If the counter reached or passed 'val' during or before the
-+	 * write to the comparator, the hardware match will be missed,
-+	 * resulting in a full 32-bit (32.2s) wraparound lockup.
- 	 */
--	if (val > nxp_stm_clockevent_read_counter(stm_timer) + delta)
-+	now = nxp_stm_clockevent_read_counter(stm_timer);
-+	if ((int)(val - now) <= 0)
- 		return -ETIME;
- 
- 	nxp_stm_clockevent_enable(stm_timer);
+So please be patient.
 
--- 
-2.52.0
+> Tested: HDMI audio up to 192 kHz; the TDM-C to internal codec path
+> plays without errors at 44.1 to 192 kHz (not listened to).
+>
+> Tool use (Documentation/process/generated-content.rst):
+> This work was done with the help of an AI coding assistant, Claude
+> (Anthropic), used through Claude Code over many sessions. It did a large
+> part of the hands-on work: it read the vendor kernel and the firmware
+> interfaces, probed registers on the board, drafted the code and the
+> changelogs, and ran the builds, checkpatch, dt_binding_check and the
+> tests on the hardware. I directed the work, reviewed every change and
+> the final patches, and take responsibility for them. There is no single
+> prompt to quote; the sessions were of the form "find out why X fails on
+> this board, fix it, test it on the box".
+>
+> Tested on an Amediatech X98Q TV box (Amlogic S905W2, S4 family, 2 GiB),
+> vendor U-Boot and BL31/OP-TEE, Linux 7.3 plus this work.
+>
+> Christian Stefan K=C3=B6v=C3=A9r-Draxl (1):
+>   ASoC: meson: g12a-toacodec: fix the S4 source mux read-back
+>
+> Jiebing Chen (6):
+>   dt-bindings: clock: meson: Add audio power domain for S4 soc
+>   dt-bindings: Asoc: axg-audio: Add S4 audio tocodec
+>   ASoC: meson: g12a-toacodec: Add S4 tocodec driver
+>   clk: meson: axg_audio: add S4 support
+>   ASoC: dt-bindings: amlogic,g12a-tohdmitx: add S4 compatible
+>   ASoC: meson: g12a-tohdmitx: add S4 support
+>
+>  .../clock/amlogic,axg-audio-clkc.yaml         |  18 +-
+>  .../bindings/sound/amlogic,g12a-toacodec.yaml |   1 +
+>  .../bindings/sound/amlogic,g12a-tohdmitx.yaml |   1 +
+>  drivers/clk/meson/axg-audio.c                 | 165 ++++++++++++++++++
+>  sound/soc/meson/g12a-toacodec.c               |  51 ++++++
+>  sound/soc/meson/g12a-tohdmitx.c               |  80 ++++++++-
+>  6 files changed, 312 insertions(+), 4 deletions(-)
+>
+>
+> base-commit: 7be4bc52fd9e0e55dc9a2e0232b89427d2c4b614
+> --=20
+> 2.56.0
+>
 
-
+--=20
+Jerome
 
