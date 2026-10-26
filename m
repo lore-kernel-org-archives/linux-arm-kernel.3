@@ -2,81 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3DE7606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 07:09:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42697606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 07:24:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=g5FaXfP1;
-	dkim=pass (4096-bit key, unprotected) header.d=lausen.nl header.i=@lausen.nl header.a=rsa-sha256 header.s=uberspace header.b=vaYQs3dN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=X/xPnpHp;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gn0pQZO7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=XS9KwLB01NoVCXUuf/ejMfBtMZWXSj9p9xOCVCK+cgs=; b=g5FaXfP1ISP8dx
-	DWs2nQU+/5iFAaGkaq7HdYvBWv5ZMY43JxbafyNGmYw0ypp47kQSDmK7C0IyZhcuYuRlR2Ain1W3x
-	DQmWhUbUFs+VR7J564CPF1iCjlYMHFCZBHhFMtwxWpDEd29BM7kwG/N4rbP6/ZKc+g4yqPSVBnelO
-	GiPpN2BEvVbeM+MlhunTumDisuevz6DGtcmJ5WkgUIeYxoskniwnWrXxC3nwRxU+iyynQoR5e8zpL
-	b2JFumFT5hQGPFkHc9yExRS+i17s0RpqKYIekI3nGVNXm3dYszSJsMfseNncqlQ1B2ka1rnTXqlVp
-	MWEIgHEGFYxc80B1XFfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=JJgpvEkPumvlVtURp/qLJngATfKKtQ96oi4A6w8xMPs=; b=X/xPnpHpOBAbScNu9btjVuibyQ
+	1ck1AV0p2egeOnkmqBvqBEoFhfFOi7RWjf79qbYlrUIln+HHH9Zg1maWv3+vGxXtiWJSkUg8pHSxz
+	19i0G8eFp6L2T7uo+OFgN+hVt5vNlTxh3x8NU2y8dJIlbJMRIAsz2y9BsNrxUBNViwTzEbvQDQ/Em
+	mFVOrplu9yUfw1i9cS9+LwqjymH4fm8Tm+/ZdvGD9EF8uZgNCYDjzwBF58jPBNfY0Ud6MNCGGI5J+
+	AXKricYr+Vx9gT8/GRCAN0K3U9gTZi3ytYusQR0GWbMiA0Qk8aWT4+dYk6vBk3cyvwyYYzSf2FCDa
+	LDkHFPLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLEpG-00000001pCZ-2po0;
-	Mon, 26 Oct 2026 07:08:58 +0000
-Received: from mailgate01.uberspace.is ([95.143.172.20])
+	id 1xLF4K-00000001pxt-0yyC;
+	Mon, 26 Oct 2026 07:24:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLEpC-00000001p9x-44Pq
+	id 1xLF4J-00000001pxc-1kWX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 07:08:56 +0000
-Received: from devico.uberspace.de (devico.uberspace.de [185.26.156.185])
-	by mailgate01.uberspace.is (Postfix) with ESMTPS id 4BBD461371
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 08:08:51 +0100 (CET)
-Received: (qmail 20805 invoked by uid 990); 26 Oct 2026 07:08:51 -0000
-Authentication-Results: devico.uberspace.de;
-	auth=pass (plain)
-Received: from unknown (HELO unknown) (::1)
-	by devico.uberspace.de (Haraka/3.1.1) with ESMTPSA; Mon, 26 Oct 2026 08:08:50 +0100
-From: Leonard Lausen <leonard@lausen.nl>
-To: Shawn Lin <shawn.lin@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: leonard@lausen.nl,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] arm64: dts: rockchip: Enable Wi-Fi on the NanoPi M5
-Date: Mon, 26 Oct 2026 07:06:50 +0000
-Message-ID: <20261026070821.324094-1-leonard@lausen.nl>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <4b7bd146-93fd-41f8-ad3c-88333adc73b4@rock-chips.com>
-References: <20261025205339.14539-2-leonard@lausen.nl> <4b7bd146-93fd-41f8-ad3c-88333adc73b4@rock-chips.com>
+	Mon, 26 Oct 2026 07:24:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 85C0E41462;
+	Mon, 26 Oct 2026 07:24:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FAE31F01825;
+	Mon, 26 Oct 2026 07:24:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792999470;
+	bh=JJgpvEkPumvlVtURp/qLJngATfKKtQ96oi4A6w8xMPs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Gn0pQZO73NyS8gRkUMi8fTS8Q1RCv5iL7aBMd14ewKA2GUoXzCc0jBPy4yd2ADuSm
+	 TDDcuBZblCYDpN33YCQAplP6xvngTlEXevDS6QxrrUuFHcLnLaJRQMOR6Q2ige0+zT
+	 IfSDFERGaV9jBA4mZUqvfaBtZN7D44GGxSOxVStovSTbVO79UQmezteDeHwRJ/aeAe
+	 BERuCjUzgWlrNHm4CBdTxeg9PY5xMfI6M9MkyD8MEH5bgbBCRICxRAB6DTKT8ygSWI
+	 FJ/X+MatIUb+YAxhzP+wlHcHuxW7yyxoQrzD5KiXi9wbpXL8fVqGUSEFbfF6yCA0U8
+	 mfP+joOIxYdBA==
+Subject: Re: [PATCH net-next v4 1/2] net: stmmac: Disable NAPI before stopping
+ Tx queues in stmmac_xdp_release()
+From: netdev-bot+sashiko@kernel.org
+To: kurt@linutronix.de
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ kuba@kernel.org, pabeni@redhat.com, edumazet@kernel.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, yoong.siang.song@intel.com, faizal.abdul.rahim@intel.com,
+ boon.leong.ong@intel.com, bigeasy@linutronix.de, maciej.fijalkowski@intel.com,
+ nb@tipi-net.de, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Date: Mon, 26 Oct 2026 07:24:28 +0000
+Message-ID: <179299946882.3134.17106790246487017966@kernel.org>
+In-Reply-To: <20261022-stmmac_xsk_crashes-v4-1-15c0c750bb96@linutronix.de>
+References: <20261022-stmmac_xsk_crashes-v4-1-15c0c750bb96@linutronix.de>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Bar: /
-X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) BAYES_HAM(-2.999998) MID_CONTAINS_FROM(1) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
-X-Rspamd-Score: -0.099998
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lausen.nl; s=uberspace;
-	h=from:to:cc:subject:date;
-	bh=6jaYzEbyOL1fFmh22Tr1O/asMP7njL7VHu3q4kDem18=;
-	b=vaYQs3dN18Htr4p3MPYbZDShKiii0TkZv8915CYmEBUcHnpO7NsEJHzyPuUS0llY844XxRfOYm
-	9dDI1VVRApxloGmUSynoAQJf1vX3r7kYL5ACQWQoDOzSLXMAi6arEIuxJg2LnixK7JtZ/kkDVQYA
-	8maxKkKEjR8Pdw+5CTMH/16vYy3+kniaqTZ4kY5Kwgbh8ebVV+Lqelya8BFyx0mVjlSHwz2Le6Zv
-	DId0OEiTPhML0xFJuxTKdUZ4sXF8b9zuuIwsShDjPtJEcJpLxsnGVU3Yx/ec4SKOahPsm7LDCTNP
-	dL3C48IRdIyh/LjjRsmKKlJ/MJ5xpkchkPsmLOmPrtFdFpoGXmIPfGkOixysppMFwfENq4VNBYFI
-	GaqT+BUd5h5wboED7zy/OnEUcApMrP47wf0KkBsHvlt57SjQM+erq2BuuHkZmYxTm9nt1/rwwRH2
-	h7lT2scL3TCQNVAsrQ4YPrZgSiqH1Ym0lWrAORs68rTIOsFqtg9DBK/5eFQ3G1h6wnZGKFkraaNR
-	4Rs3eDj9lr+ljCH9Htwpu5+CzR1/B9ga+6k/kpCpyKX6U0GEW+0fr0vCSIFFxxrtSRGJhhuYoIuK
-	4q70ANBu33TuU6bWDkStsdd3hJfV34nkwqdy7Ema7fHY6YDk3pMG3MYrttnkxaoHIDBdtUj7dVCF
-	Y=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_000855_148371_C1927D89 
-X-CRM114-Status: GOOD (  13.53  )
-X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,116 +76,207 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-24.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The NanoPi M5 has an M.2 E-key slot for SDIO Wi-Fi modules such as the
-RTL8822CS-based AC200. The SDIO controller is disabled and the module's
-power sequence is not described, preventing the card from enumerating.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Enable the controller in four-bit SDR104 mode and connect its 3.3 V card
-and 1.8 V I/O supplies. Describe the active-low reset on GPIO1_C2, the
-200 ms power-on delay used by the vendor device tree, and the external
-32.768 kHz clock from the HYM8563 RTC. Keep the card powered during
-suspend as required by the rtw88 SDIO driver.
+Critical: 0 · High: 2 (1) · Medium: 0 · Low: 0
 
-The SDIO wiring and reset timing are based on FriendlyElec's NanoPi M5
-vendor device tree by jensen <jensenhuang@friendlyarm.com>.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Link: https://github.com/friendlyarm/kernel-rockchip/commit/6f07f3e0b7ec54be90ae30f097d2a9d5aea80974
-Assisted-by: LLM
-Signed-off-by: Leonard Lausen <leonard@lausen.nl>
----
-Hi Shawn,
+- [High] stmmac_xdp_release() now runs napi_disable (via
+  stmmac_disable_all_queues()), then hrtimer_cancel() on every…
+- [High] The commit says the Tx queue must not be woken again after
+  netif_tx_disable() in stmmac_xdp_release(), and it fixes this only for…
 
-> disable-wp is for sd cards, please drop it.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but
+  stmmac_xdp_set_prog() discards the return value of stmmac_xdp_open()…
 
-Thank you. Dropped it from the SDIO controller in v2.
-This was mistakenly copied from vendor source.
+--
 
-Changes in v2:
-- Drop disable-wp from the SDIO controller (Shawn Lin).
-- Credit the original vendor source and document AI assistance.
+net: stmmac: Disable NAPI before stopping Tx queues in stmmac_xdp_release()
 
-AI assistance was used to inspect the vendor DTS and schematics, draft
-the DTS changes and commit message, and run build/style checks.
+This patch reorders stmmac_xdp_release() so that NAPI is disabled and the
+Tx coalescing timers are cancelled before netif_tx_disable(). The goal is
+to stop stmmac_tx_clean() from waking the Tx queue after it was stopped,
+which let stmmac_xmit() run on descriptor rings freed by
+free_dma_desc_resources().
 
- .../boot/dts/rockchip/rk3576-nanopi-m5.dts    | 33 +++++++++++++++++++
- 1 file changed, 33 insertions(+)
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index fb53b1f17714..27c4a249e560 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -7222,15 +7222,15 @@ void stmmac_xdp_release(struct net_device *dev)
+>  	struct stmmac_priv *priv = netdev_priv(dev);
+>  	u8 chan;
+>  
+> -	/* Ensure tx function is not running */
+> -	netif_tx_disable(dev);
+> -
+>  	/* Disable NAPI process */
+>  	stmmac_disable_all_queues(priv);
+>  
+>  	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
+>  		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
+>  
+> +	/* Ensure tx function is not running */
+> +	netif_tx_disable(dev);
+> +
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
-index 3a305408fa16c..baf1dea2cfa98 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
-@@ -23,6 +23,7 @@ aliases {
- 		ethernet0 = &gmac0;
- 		ethernet1 = &gmac1;
- 		mmc0 = &sdmmc;
-+		mmc1 = &sdio;
- 	};
- 
- 	chosen {
-@@ -212,6 +213,16 @@ vcc_3v3_s0: regulator-vcc-3v3-s0 {
- 		vin-supply = <&vcc_3v3_s3>;
- 	};
- 
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		clocks = <&hym8563>;
-+		clock-names = "ext_clock";
-+		pinctrl-0 = <&wifi_reg_on_h>;
-+		pinctrl-names = "default";
-+		post-power-on-delay-ms = <200>;
-+		reset-gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
-+	};
-+
- 	sound {
- 		compatible = "simple-audio-card";
- 		pinctrl-names = "default";
-@@ -855,6 +866,12 @@ pcie0_perstn: pcie0-perstn {
- 		};
- 	};
- 
-+	sdio-pwrseq {
-+		wifi_reg_on_h: wifi-reg-on-h {
-+			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	sdmmc {
- 		sdmmc0_pwren_h: sdmmc0-pwren-h {
- 			rockchip,pins = <0 RK_PB6 RK_FUNC_GPIO &pcfg_pull_up>;
-@@ -890,6 +907,22 @@ &saradc {
- 	status = "okay";
- };
- 
-+&sdio {
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+	keep-power-in-suspend;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	no-mmc;
-+	no-sd;
-+	non-removable;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc_3v3_s3>;
-+	vqmmc-supply = <&vcc_1v8_s3>;
-+
-+	status = "okay";
-+};
-+
- &sdmmc {
- 	bus-width = <4>;
- 	cap-sd-highspeed;
+[Severity: High]
+With this order, ndo_start_xmit is still live while the hrtimer_cancel()
+loop runs. Can stmmac_xmit() or stmmac_tso_xmit() re-arm txtimer after it
+has been cancelled?
 
-base-commit: ae965b9856f033145e292b0c29082a26bcc45efd
+Both of them end with stmmac_tx_timer_arm(), which does:
+
+stmmac_tx_timer_arm() {
+    ...
+	if (unlikely(!napi_is_scheduled(napi))) {
+		if (unlikely(!(hrtimer_active(&tx_q->txtimer))))
+			hrtimer_start(&tx_q->txtimer,
+				      STMMAC_COAL_TIMER(tx_coal_timer),
+				      HRTIMER_MODE_REL);
+    ...
+}
+
+Nothing makes this check-then-start sequence atomic with respect to
+napi_disable() and hrtimer_cancel(). One possible interleaving:
+
+CPU1 (stmmac_xmit, holding txq lock)
+  napi_is_scheduled(napi) -> false
+                                CPU0 (stmmac_xdp_release)
+                                stmmac_disable_all_queues()
+                                hrtimer_cancel(&tx_q->txtimer)
+                                  timer not armed, returns at once
+  hrtimer_start(&tx_q->txtimer, ...)
+                                netif_tx_disable(dev)
+                                  only waits for CPU1 to drop txq lock
+
+Nothing later in stmmac_xdp_release() cancels the timer. It stays queued
+for tx_coal_timer, which is 5ms by default and up to 100ms via ethtool -C.
+A hardirq on CPU1 widens the window. On PREEMPT_RT it can be arbitrarily
+long.
+
+stmmac_xdp_set_prog() then calls stmmac_xdp_open() right away, and that
+function does:
+
+stmmac_xdp_open() {
+    ...
+		hrtimer_setup(&tx_q->txtimer, stmmac_tx_timer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
+    ...
+}
+
+Would this re-initialize an hrtimer that is still linked in the per-CPU
+timerqueue and corrupt the hrtimer base?
+
+Before this patch, netif_tx_disable() ran first and serialized against
+in-flight xmit callers. Only NAPI could arm the timer, and NAPI was
+disabled before the cancel.
+
+Would the order napi disable, then netif_tx_disable(), then the
+hrtimer_cancel() loop avoid this?
+
+>  	/* Free the IRQ lines */
+>  	stmmac_free_irq(dev, REQ_IRQ_ERR_ALL, 0);
+>  
+
+[Severity: High]
+The commit message says the problem is the Tx queue being woken again
+after netif_tx_disable(), and this patch covers the stmmac_tx_clean()
+waker. Is there still a waker in IRQ context?
+
+netif_tx_disable() still runs before stmmac_free_irq() and
+stmmac_stop_all_dma(). At that point the DMA interrupt handlers are still
+installed and Tx DMA is still running.
+
+stmmac_xdp_release() never sets STMMAC_DOWN, so the STMMAC_DOWN check in
+stmmac_interrupt() and stmmac_msi_intr_tx() does not stop the handlers.
+
+On a Tx fatal bus error (tx_hard_error), stmmac_dma_interrupt() or
+stmmac_msi_intr_tx() calls stmmac_tx_err(), which ends with an
+unconditional wake:
+
+stmmac_tx_err() {
+    ...
+	priv->xstats.tx_errors++;
+	netif_tx_wake_queue(netdev_get_tx_queue(priv->dev, chan));
+}
+
+The qdisc is still active in the XDP reconfigure path. In ndo_stop,
+dev_deactivate_many() has already run, but not here. So the wake can
+start stmmac_xmit() again:
+
+stmmac_xdp_release()
+  netif_tx_disable(dev)
+                            stmmac_dma_interrupt()
+                              stmmac_tx_err()
+                                netif_tx_wake_queue()
+  stmmac_free_irq()
+  stmmac_stop_all_dma()
+  free_dma_desc_resources()
+                            stmmac_xmit()
+                              writes into tx_q->dma_tx / dma_etx
+
+free_irq() only waits for handlers that are already running. It does not
+undo the wake, and nothing stops the queue again after it.
+
+Could stmmac_xmit() then write descriptors into rings that
+free_dma_desc_resources() has already freed?
+
+Moving netif_tx_disable() after stmmac_free_irq() might close this path.
+Another option is a teardown flag that stmmac_tx_err() and the ISRs
+check. The last patch of the series ("net: stmmac: Stop Tx queue when
+(en|dis)abling XSK pools") does not seem to cover this case.
+
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch. It is
+on the same release/reopen path, though. stmmac_xdp_set_prog() ignores
+the return value of stmmac_xdp_open():
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c:stmmac_xdp_set_prog() {
+    ...
+	if (if_running && need_update)
+		stmmac_xdp_open(dev);
+    ...
+}
+
+stmmac_xdp_open() can fail in alloc_dma_desc_resources(),
+init_dma_desc_rings() or stmmac_request_irq(). On failure it frees the
+descriptor resources and returns before stmmac_enable_all_queues(),
+netif_carrier_on() and netif_tx_start_all_queues(). Userspace is still
+told the XDP update succeeded.
+
+What happens on the next ifdown in that state? The call chain
+stmmac_release()->__stmmac_release()->stmmac_disable_all_queues() calls
+napi_disable() on NAPI instances that stmmac_xdp_release() has already
+disabled. In napi_disable_locked():
+
+	val = READ_ONCE(n->state);
+	do {
+		while (val & (NAPIF_STATE_SCHED | NAPIF_STATE_NPSVC)) {
+			usleep_range(20, 200);
+			val = READ_ONCE(n->state);
+		}
+
+Both bits are already set, so wouldn't this loop forever while holding
+rtnl_lock and the netdev instance lock? Another XDP program change would
+take the same path through stmmac_xdp_release().
+
+Should stmmac_xdp_set_prog() propagate the error, and should the device
+be left in a state that a later close can handle?
+
 -- 
-2.47.3
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261022-stmmac_xsk_crashes-v4-0-15c0c750bb96%40linutronix.de
 
