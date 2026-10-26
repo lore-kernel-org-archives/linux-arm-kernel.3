@@ -2,87 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2754606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 16:02:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A513606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 16:02:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DQ+q9H29;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=rRjrD399
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qhBT8U5k;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=GaLIa8Qo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=HWaT+wPpmTfJJ1DIQuA8Cru6WQxlbWyH1qkN23llu4Y=; b=DQ+q9H297J5HwZ
-	/9ho3W1flwvZ8BVv+kPlxI6tfS1HONpZs2Fplt7R9doY9Jp956l3uMEBT5HQKIBo01rZgMKqjs3Lm
-	555+uBPlsNg31QXz14K05ECdgCHCEkuARGpMv5tUNMp5GKHrf/3+TJmd7WfZemhajZp2jXdfDTOmd
-	cZB9iLFOQxC1S4jbmQrt7uTE5sYN++atsb8O9hwRXf5QDwbaNjnlTFp5a/4NTtTVpx7Qou2LjqxgU
-	+rGAm96hKZ+4ZIBWr6Fla7eVCGLtdBnCaEDA6KPNjZNhIeXGGun4RHvEH8tFzy3RLLa/gPLGaW41H
-	dXIEqMBTs4MKYMOc/jFQ==;
+	List-Owner; bh=uqme9Wp5homb4GKnr1RiyXTopVTpMqOF0DSF1J4+ZFA=; b=qhBT8U5k27wyGa
+	w9b0yeaFihPx0xfwFQS26OmU2Xxsmih3aCiSeCGXsM6oprDissB5NJjBToiFeQX5WYfHBHA5cnTKd
+	oqipYxogqsKZem8fTJ1+Fb2t0oO1PAhbHYpGYgQKeQMuHLOxkDmJpAfWE5c1yh3f2QJbbhPcEUPMA
+	oirNGRYsSoOoVgU8FjZlQMDDpu9Z/20GQE+RWLqN3bgOFr7vMwoQ8sFZ7Hx5YcSm96A1peyn2/yiz
+	SiML+Bujz45FQ5Ya/GzCtIw1d8sv9qnln/FC/N5DnbVQnNpy8QULnNX9ixyxifQbHNPysS3Do6vyF
+	7Qd039jwvrS1GlmjI9Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLN8n-00000002oR1-1ald;
-	Mon, 26 Oct 2026 16:01:41 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1xLN8n-00000002oSa-4AnZ;
+	Mon, 26 Oct 2026 16:01:42 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLN8c-00000002oJ2-2EcN
+	id 1xLN8d-00000002oKA-2aVn
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 26 Oct 2026 16:01:32 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-c3f8d72d7ceso487755966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 09:01:30 -0700 (PDT)
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c46d41f6af3so196542866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 09:01:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793030489; x=1793635289; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1793030490; x=1793635290; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HWaT+wPpmTfJJ1DIQuA8Cru6WQxlbWyH1qkN23llu4Y=;
-        b=rRjrD399Ds8hNZMaeDYr0EVSDkmZkRELqKcbpyIFDMwPwVPNDdkT21f6aN0vcFdswG
-         Dt+WBdyrNrgozxm4eLbY6MCCpjWp1TdOrSUQJyvbMlHyvyosmcgdwolRfD/Jn+7nuQ1N
-         njtpCpajJ0uwJWUqNEK8g6XzHrNB0511kfFmW4iVZngqlfazJmA6O1FY0rZbj5tVoCV0
-         +kVi9HFQzJ5QwNY4JyRVbzWJBcDb+eZ87nL1zfHZvaIyNXBqdY0uGjxrxDRcj/Gh0ES2
-         srYqU5ffMxpzY6XkfXqDhVFsxraBNSWhQ3lxjGItE8O69MsLT56R5fTFOnb0cHBrLr0t
-         8/XQ==
+        bh=uqme9Wp5homb4GKnr1RiyXTopVTpMqOF0DSF1J4+ZFA=;
+        b=GaLIa8QoEaJm4mdnMMTY9L+RRW06BAs33CdY5WjLlwx+QgF/9E/Xy0vyCmu45noUwc
+         rPJ8uZWSHOQMxoA2ylh7kUJk1tCSHPujzln71cOpk5TBjXHOUH+huM34iKWkuwPMhN8H
+         sbYZaflQEfO6QsMLl6+HnFmRP5zVdB3U2DPdfoVtU5Vs+/I0XZPiTEkDHoBY5FpV/2Yo
+         ipdvg6yzf6yUR0i5JnFG/X1KhrQ446g5u3HzV2WGSYiIjSCoOaSrsXgoLJGmMRyT67rW
+         xt8UuyCr3XTPaYlVQoI9HuvxYeR3sc+LNF3L0RkfBi82shq6OeZrzcw3wWp1A37j3t1M
+         SwwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793030489; x=1793635289;
+        d=1e100.net; s=20260707; t=1793030490; x=1793635290;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=HWaT+wPpmTfJJ1DIQuA8Cru6WQxlbWyH1qkN23llu4Y=;
-        b=mUwftd8vsedjw2q/gQINEttNkcqiPg299TS814QuR0Nts8SDq/syQYziKi3YZbpe+3
-         wnDR/QrvMf1F//lBo7TI+Lkec3qibPxD0o41qlVepc0W7eLEeQ4mEf9TmP74xLlmAIxS
-         Xg2XijIBm6pksTrdN4Jc9qOTDgLxMGhbU3MZWRXfpBYtBAToY3yKKESjQhOF7dC0aCTk
-         rVD3j9dnFKbaxa8GC+42XWewE75J7lXh5AH46fFw54g+pFrCUGMpdgMRYkf87ZEhwc2N
-         jlY6f+vXqq/3qpC6BsxUgoVJxpvFjyhaP2VPZoLgvHg2v0TdYiV7N46HkGKJqssDiUws
-         LWSQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxAj+0uQzIs4FzVp7J5sEpIrzR9aV8cdiHXXOG+fgoLMJG06KBp356Nd5lOAEPSzJDytAYSVeTwupzG4ROg4g3V@lists.infradead.org
-X-Gm-Message-State: AFq9FYLcslZvF+L7MtMPPTbNLpNdN9c0NZTyAm7AFPCSElS/+K7i+HSm
-	by+g2tng9wyC3E12S6rD6I/ZzaKZGZMZzFuzGkne5jmB48QtE6PgyhPDn4+S5ilyl7o=
-X-Gm-Gg: AYBFou0SzSpU1cRHhB+j0Y3RatscYv8Vog3fZXJM+7LCZF0eo2DxgW6LUsKelxeuDh5
-	RiLEscN433XD5ynfFNj9SoWXTT4F/Rft6wvNeMn2dOFFyDRHBaix5gnSlvcv1DL0/OKfYC6l2+z
-	RywO5x4STpJQTAZkH5+ntGXEMtsQKwRfQ1Se3xuoa3zKFbBcy/UGpn2ZHzoiMXwGfI2OmpWp1ao
-	8AUZD4rMMVhm9+0e4rDWSKt7HOM2XERwoJC6gnbiDx49T9S1+O3TQ1aBDmC9F8rThWimBdhHYuI
-	IkASZDFWk50Zxx8jRZ37kkEP/Ogy00yQ3pnm/dR02GwzEOE0k48iAtDiL1VVwLia1fbO83eGdkJ
-	GabXe4tF1LpafByHwLiGtzNocd2MNIJk+bBv00VUhGPXRa+F/UGDqYmhlM+hTIQB1g1ygNmvDC7
-	4uf2EKtUR7Q+26P/S3MlpuUXou21UJDWd15wScHonzM2ETLunnlNMh873g01KJRQyNIEOb7bzAB
-	6XB8eSuhuRe7w5sH5rWb+Ot49qjNqlfb4mMb+wQoaTlwfBWuFwNvC+unAadnIHjC/lLOHapFgW6
-	LbiyJhthRlF0ZSNYNI95wQoql8s5zbF6daMr27bIGKBkRSjbRwuQ+bbsSXdlP5v49kyiRiNiL/C
-	8GVxO+71ZKw==
-X-Received: by 2002:a17:907:3ea1:b0:c41:b4e4:7958 with SMTP id a640c23a62f3a-c46bd95983emr863865266b.0.1793030488581;
-        Mon, 26 Oct 2026 09:01:28 -0700 (PDT)
+        bh=uqme9Wp5homb4GKnr1RiyXTopVTpMqOF0DSF1J4+ZFA=;
+        b=OZIPjfLjKPQdIL1AZZmbf9IE8uE9JbNdTvxkCFad2+mvQyqrEGpVDsQRL4ucJbGg0w
+         PlTEAYV5C+2YfCl5XEbmC1qvjMJ0kRkmB2VjOwdFCez1E1bOZniXdR9geDFZwQ504Q3I
+         vOd+wyOovH3bGlVOY+TJ7HGk6cufAZ3HJ60UDQ5EZV7N+HMcYOMBD5IUHA12uK6+2Q+O
+         BOPi7zNZ9GhiwAdGW2z7LGuSbP/9uIQFnzWi9zpCeRFSQNRWX6/WB0R9i5B/ibVZWm7w
+         XD5psERGZ6CUcJg6uBT9ePW9WUAKvyuuos4ssuqQXx247P3Ow4ao1e8ms1tvYiyxr7NY
+         xtYQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzp0Fa1AI43A/p+P3QxVDIVc6yqVDv3Bytks1KgMrpOYunhfEBjefVMH2Cvnw4bhxof5ygEPJzSuCFoFInDaSC5@lists.infradead.org
+X-Gm-Message-State: AFq9FYIBaecKleJeEmzVymX3lKbq/zt5rj4R+RHKe5IKQaqRHiBUIoo7
+	4MKCBAJ71jV5s4b5qxK81sf/8i5v7m+E49BWXRye6F13Z22477zM4dPjj/3GVjdG1qE=
+X-Gm-Gg: AYBFou1aILBv4Rz48Q1XuyPrZu8Eqdrgwza8zyQBvgOAEWm358IfYl0EJgmBS1yTq9e
+	TLOgA8HJuGXYK2f4nvCdQds/3FugKtZJVX4agcXAwCMHkZhyGY8bTuR3VpluBxr4Oa6NnoJZX9B
+	BQ3zUuOy/gn5kt9sONsbkjiPCe0rgS2WGkACdaZpeMQx/cIViRV/2hOgrcq2+FAtvZ3c7QSKeCj
+	FN2AKH/ecTukKzw+ArpSbtk9qDLwhnrVuDw4HX3hR/Ats78STlR7+qHeJv4Gq++3AE45xKNWmCy
+	TbiYK+h5nx0rTBGI78GFfVAon2RJZZrtv92cNdPKiKPH3LPtTQMskP/ra+sUfD+sFpsRfPTLhLc
+	FuVn1tV3PaRQtKK3bletF5ro6KXjJrDIa6C2E10rUV6eqVSNd30uumi/Ayp8WnocPlAeECqxb6p
+	kr1Y3Z4K19jysUDTr/PcMLbGVPL6ZqDTBgvhJvw0WsPzLkbgJDUsYdR17d+wiUCLMV3/yORB5X7
+	VPgySpS4/lLEpEfd7qUWCgs6ivjS6uLxA5LxIJ8zOVgVAcHWxlJimSs1YfjGxh3iV9gGKR1iMuN
+	4TNOu3HBdb2msV5lRqTG0eVvgecKl/N2uqav+gRFDigqvXXVTir/ZcnOyht/RLOErgZT0ZK3xlM
+	cLXCZZyrTnA==
+X-Received: by 2002:a17:907:7f9e:b0:c41:5970:2360 with SMTP id a640c23a62f3a-c46bde8d65dmr797137366b.41.1793030489913;
+        Mon, 26 Oct 2026 09:01:29 -0700 (PDT)
 Received: from ta2.c.googlers.com (231.141.38.34.bc.googleusercontent.com. [34.38.141.231])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c49a530f520sm17307466b.23.2026.10.26.09.01.27
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c49a530f520sm17307466b.23.2026.10.26.09.01.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 09:01:28 -0700 (PDT)
+        Mon, 26 Oct 2026 09:01:29 -0700 (PDT)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Mon, 26 Oct 2026 16:01:23 +0000
-Subject: [PATCH 06/15] thermal/drivers/samsung: acpm-tmu: Rely on devres
- for probe error and remove teardown
+Date: Mon, 26 Oct 2026 16:01:25 +0000
+Subject: [PATCH 08/15] thermal/drivers/samsung: acpm-tmu: Annotate lockless
+ sensor->enabled access
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261026-acpm-tmu-fixes-v1-6-0637431b7268@linaro.org>
+Message-Id: <20261026-acpm-tmu-fixes-v1-8-0637431b7268@linaro.org>
 References: <20261026-acpm-tmu-fixes-v1-0-0637431b7268@linaro.org>
 In-Reply-To: <20261026-acpm-tmu-fixes-v1-0-0637431b7268@linaro.org>
 To: Daniel Lezcano <daniel.lezcano@kernel.org>
@@ -96,19 +96,18 @@ Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
  Juan Yescas <jyescas@google.com>, linux-pm@vger.kernel.org, 
  linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Sashiko <sashiko-bot@kernel.org>
+ linux-kernel@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793030483; l=4225;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793030483; l=1693;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=IJeXySMGcYifUwBq633Cferss1iIcf0iRvDQk01LEvI=;
- b=hYIgikztdPaJbrzUwRxNl8rAWnP8eNJqKC6JvSPvy4S9fPCi5C3d1Q6+OnF91mTrK6fBTrreF
- T4AnaiUwDdjDqxmKUH8Rck13WpJ6EtVUR2R71anCWahkYFYvQsA+hGd
+ bh=s+vlmicvmxoIoV/zG2HTAfaht+VsOMx3OvHNh06nsKQ=;
+ b=sr3Gr7+wPMBcALGw6z7oTnVQMKMSvhD4VWlJImkrIylHLhmr5t9yYa8CM8+YcRQX0+qwzTdZ7
+ MYcDNOc0I6uAEEX6sHSgfiz0P4Wgj2B+LSwh2tq1C1/bqWW9EUL4LL6
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_090130_617969_84016140 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20261026_090131_685533_02AE3DB4 
+X-CRM114-Status: GOOD (  13.33  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,137 +127,52 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Disabling sensors manually on acpm_tmu_probe() failure or in
-acpm_tmu_remove() happens before devres unregisters the thermal zones,
-leaving live zones backed by disabled hardware.
+acpm_tmu_get_temp() reads sensor->enabled outside sensor->lock as a fast
+path before resuming the device via runtime PM, while
+acpm_tmu_op_tz_control() updates sensor->enabled under sensor->lock.
+Because both accesses are plain C accesses, concurrent execution is a
+data race.
 
-With .change_mode() implemented, devres tears down the IRQ, thermal
-zones, and runtime PM in reverse registration order:
-devm_thermal_of_zone_release() disables each sensor via
-thermal_zone_device_disable(), and devm_pm_runtime_enable() disables
-autosuspend and runtime PM.
-
-Drop acpm_tmu_remove(), acpm_tmu_control_rollback(), and the manual
-teardown in acpm_tmu_probe(), and switch acpm_tmu_control() to
-pm_runtime_put_autosuspend() since pm_runtime_put_sync() was only needed
-by acpm_tmu_remove().
+Pair READ_ONCE() on the lockless fast-path read with WRITE_ONCE() in
+acpm_tmu_op_tz_control() to prevent compiler misoptimizations and KCSAN
+data-race warnings.
 
 Fixes: 50a2c5d4062a ("thermal/drivers/samsung: Add Exynos ACPM TMU driver GS101")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Link: https://sashiko.dev/#/patchset/20260603-acpm-tmu-v8-0-0f1810a356e6@linaro.org?part=2
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
- drivers/thermal/samsung/acpm-tmu.c | 56 ++++----------------------------------
- 1 file changed, 5 insertions(+), 51 deletions(-)
+ drivers/thermal/samsung/acpm-tmu.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/thermal/samsung/acpm-tmu.c b/drivers/thermal/samsung/acpm-tmu.c
-index 69793fce3bf1..4257bec802c1 100644
+index 1f56c69af76f..65be8884a8c5 100644
 --- a/drivers/thermal/samsung/acpm-tmu.c
 +++ b/drivers/thermal/samsung/acpm-tmu.c
-@@ -153,26 +153,6 @@ static int acpm_tmu_op_tz_control(struct acpm_tmu_sensor *sensor, bool on)
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/cleanup.h>
+ #include <linux/clk.h>
++#include <linux/compiler.h>
+ #include <linux/device/devres.h>
+ #include <linux/err.h>
+ #include <linux/firmware/samsung/exynos-acpm-protocol.h>
+@@ -148,7 +149,7 @@ static int acpm_tmu_op_tz_control(struct acpm_tmu_sensor *sensor, bool on)
+ 	if (ret)
+ 		return ret;
+ 
+-	sensor->enabled = on;
++	WRITE_ONCE(sensor->enabled, on);
+ 
  	return 0;
  }
+@@ -199,7 +200,7 @@ static int acpm_tmu_get_temp(struct thermal_zone_device *tz, int *temp)
+ 	 * concurrent disabling is caught by the second check under the lock
+ 	 * after PM resume.
+ 	 */
+-	if (!sensor->enabled)
++	if (!READ_ONCE(sensor->enabled))
+ 		return -ENODATA;
  
--static void acpm_tmu_control_rollback(struct acpm_tmu_priv *priv, int start_idx)
--{
--	int i;
--
--	for (i = start_idx; i >= 0; i--) {
--		struct acpm_tmu_sensor *sensor = &priv->sensors[i];
--		int ret;
--
--		if (!sensor->tzd)
--			continue;
--
--		mutex_lock(&sensor->lock);
--		ret = acpm_tmu_op_tz_control(sensor, false);
--		mutex_unlock(&sensor->lock);
--		if (ret)
--			dev_err(priv->dev, "Rollback: Failed to disable sensor %d: %d\n",
--				i, ret);
--	}
--}
--
- static int acpm_tmu_control(struct acpm_tmu_priv *priv, bool on)
- {
- 	struct device *dev = priv->dev;
-@@ -199,7 +179,7 @@ static int acpm_tmu_control(struct acpm_tmu_priv *priv, bool on)
- 			err = ret;
- 	}
- 
--	pm_runtime_put_sync(dev);
-+	pm_runtime_put_autosuspend(dev);
- 
- 	return err;
- }
-@@ -489,7 +469,7 @@ static int acpm_tmu_probe(struct platform_device *pdev)
- 	ret = acpm_handle->ops->tmu.init(acpm_handle, priv->mbox_chan_id);
- 	if (ret) {
- 		ret = dev_err_probe(dev, ret, "Failed to init TMU\n");
--		goto err_pm_put;
-+		goto out_pm_put;
- 	}
- 
- 	for (i = 0; i < priv->num_sensors; i++) {
-@@ -510,7 +490,7 @@ static int acpm_tmu_probe(struct platform_device *pdev)
- 			}
- 
- 			ret = dev_err_probe(dev, ret, "Failed to register sensor %d\n", i);
--			goto err_rollback;
-+			goto out_pm_put;
- 		}
- 		sensor->tzd = tzd;
- 
-@@ -522,39 +502,14 @@ static int acpm_tmu_probe(struct platform_device *pdev)
- 	ret = devm_request_threaded_irq(dev, priv->irq, NULL,
- 					acpm_tmu_thread_fn, IRQF_ONESHOT,
- 					dev_name(dev), priv);
--	if (ret) {
-+	if (ret)
- 		ret = dev_err_probe(dev, ret, "Failed to request irq\n");
--		goto err_rollback;
--	}
- 
-+out_pm_put:
- 	pm_runtime_put_autosuspend(dev);
--
--	return 0;
--
--err_rollback:
--	acpm_tmu_control_rollback(priv, i - 1);
--err_pm_put:
--	pm_runtime_dont_use_autosuspend(dev);
--	pm_runtime_put_sync(dev);
- 	return ret;
- }
- 
--static void acpm_tmu_remove(struct platform_device *pdev)
--{
--	struct acpm_tmu_priv *priv = platform_get_drvdata(pdev);
--
--	/* Stop IRQ first to prevent race with thread_fn */
--	disable_irq(priv->irq);
--
--	/*
--	 * Disable autosuspend to force the subsequent pm_runtime_put_sync()
--	 * inside acpm_tmu_control() to synchronously suspend the device
--	 * immediately, preventing clock leaks when the driver is removed.
--	 */
--	pm_runtime_dont_use_autosuspend(&pdev->dev);
--	acpm_tmu_control(priv, false);
--}
--
- static int acpm_tmu_suspend(struct device *dev)
- {
- 	struct acpm_tmu_priv *priv = dev_get_drvdata(dev);
-@@ -648,7 +603,6 @@ static struct platform_driver acpm_tmu_driver = {
- 		.of_match_table = acpm_tmu_match,
- 	},
- 	.probe = acpm_tmu_probe,
--	.remove = acpm_tmu_remove,
- };
- module_platform_driver(acpm_tmu_driver);
- 
+ 	ret = pm_runtime_resume_and_get(dev);
 
 -- 
 2.56.0.257.gf7497c7d27-goog
