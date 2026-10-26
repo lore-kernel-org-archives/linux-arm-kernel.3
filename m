@@ -2,44 +2,45 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA73F606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:44:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BC6E606A32A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:45:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bj2SEURi;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=tc2dGiQf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3CJiuDfB;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=cc641w2U
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=GSEN1e/y0bwGfJJMQ9Hg+c2qcQyTslgLVny4UlJpg1o=; b=bj2SEURis3CMez
-	93VullOSoewTLomMdLNMAoRahNaUSBI58MwoKi2q4ggUPlZCiLDV+cWrKEMhmjF7l6jG+EYGAZowd
-	lLoboFlMuINjXK9EdFXuae5GxkDAau8bRGyXODuDlnUQplNJFk2lIeDma7xM/kw5fZu5hgtqeUvZe
-	RCn8pnJvVEMVvggazNlaunjNX7QdXDP9fn/ecs6FvrKqUc5W/1qow6ZakYCgKhFPQz7W+MEHlqFkx
-	N7RiD2TbPu827czrW3ptYTSqn6sdzJ/uzQg9rlya1/0khUUwqS2BouZabOpQdRyAscFlOJClJ6L7S
-	2EGi6N1g7VJ6GFyzjBdg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=2bC/tKvsMyQSFyWd/4grWajRGenpXtC7/e5rOkNlwlE=; b=3CJiuDfB4i/G5E5ZMZos7yn4Nl
+	1dOP9VLEWQeNadjB7Myqcx3/aeufB60NQQxw+/3MU3XK/Oop8xPvm8sPeaih3MAnZmSLAe/Nhn0w3
+	GWawIZXHLwyOcT5xYmuD1CJJnbf9tbpbwz0A5FaRvZYwnjQnVlIf9qZA+6/SzVGbueGA3i4XyVZ1K
+	x6Yrdy6q+bcPJG7PydhDg6X0r/6EevdzSNWPmvJtqHiFERPgPTFs0Otp8lkwaI85B0yN72VIc0Oxp
+	LTc/1AOXVGqorfHyIqb3NRuT1IHHYuZBZU4q5raTeZQZj6pwN5VfW/oXgsbOzRMrZkVxDXWS+KKe+
+	8QtDLMqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLLwQ-00000002gpP-2EjG;
+	id 1xLLwQ-00000002gpa-2jyB;
 	Mon, 26 Oct 2026 14:44:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLLwN-00000002gnl-0WQ4
+	id 1xLLwM-00000002gnZ-46Gi
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 26 Oct 2026 14:44:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2BDC2720;
-	Mon, 26 Oct 2026 07:44:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D1F415A1;
+	Mon, 26 Oct 2026 07:44:38 -0700 (PDT)
 Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD66B3F7B4;
-	Mon, 26 Oct 2026 07:44:41 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 932E83F7B4;
+	Mon, 26 Oct 2026 07:44:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793025883; bh=lqK7uGIZ/jkYXTWUZmtWT+d67C2f5jU7aALBqK7r/3M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tc2dGiQfjBvRRqB83xDgLfT7zZBGGXCOJ/y/RYJCTy0uzkUQD6qVBVtFxLC4QFy0P
-	 QMrVMRfz9N6Tu4NyMPmo9maOMAYfFWxIMFkCTSiuBjeLbF1mhFwY1juF6ZmQIItpJq
-	 tEwHexZYWuH2RcdnrBz20PdT3yRc/HTIUBk41W2U=
+	t=1793025881; bh=cXwGQ1sgxxKZyhdDrXpdQtNttNvD0RVFexoJ9R9VXl8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=cc641w2UwlCKZjaZ6pVm4urYV48alptH2J9aWv5cKo5Wo1XqBvDykrSj2aRAF1H9i
+	 5sGR5B/F9mKusRhXjgKIwz+SfGLvQJp9Dzctg82Pwl7Yp9JDNQ3UD0zpTgP0sbOIKI
+	 y/kJZBx0ZBNZF5QpiXnZvHAD6GEi0iCyS14f6D4k=
 From: Leonardo Bras <leo.bras@arm.com>
 To: Oliver Upton <oupton@kernel.org>,
 	Marc Zyngier <maz@kernel.org>,
@@ -57,20 +58,18 @@ To: Oliver Upton <oupton@kernel.org>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v2 1/3] KVM: arm64: pgtables: Set DBM attribute on writable Stage-2 PTEs
-Date: Mon, 26 Oct 2026 14:44:07 +0000
-Message-ID: <20261026144413.441566-2-leo.bras@arm.com>
+Subject: [RFC PATCH v2 0/3] Set DBM bit on writable pages
+Date: Mon, 26 Oct 2026 14:44:06 +0000
+Message-ID: <20261026144413.441566-1-leo.bras@arm.com>
 X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261026144413.441566-1-leo.bras@arm.com>
-References: <20261026144413.441566-1-leo.bras@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3059; i=leo.bras@arm.com; h=from:subject; bh=lqK7uGIZ/jkYXTWUZmtWT+d67C2f5jU7aALBqK7r/3M=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLLup5u3z2By3Ri9qyTVOL/ze8XX5j+3r3DXf9jx7tzrd S86Vge/7ihlYRDjYpAVU2SRfTR/Fc/3KRlHrvxYADOHlQlkCAMXpwBMxLaWkeHF7OOelhsb3O52 xp20aLMsf1ic4ltp/X76thmVUZ+qODYyMtzMubvoaMYU0d3TzL5kXngj45Lzab/2Ln22Rc5PuM5 ObmUFAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2136; i=leo.bras@arm.com; h=from:subject; bh=cXwGQ1sgxxKZyhdDrXpdQtNttNvD0RVFexoJ9R9VXl8=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLLupxsaJqiuV//2b+8U5p99kl2hzS61uzMNn29+8EIr9 PfZwLlhHaUsDGJcDLJiiiyyj+av4vk+JePIlR8LYOawMoEMYeDiFICJ/F7IyDDpjlbE/mvLLW3a F9sVzTFn1cmZdlVw/gepVAshs0UTFu5jZFjdof9mzTn9Loub/25bWaR+uPTkvOrnlX+bt+6J8NG de4MLAA==
 X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_074447_249905_4D1DF0E5 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20261026_074447_102795_AFEF4BE7 
+X-CRM114-Status: GOOD (  14.32  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,96 +81,61 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-As a preparation to the introduction of HAFDBS-based features, set the DBM
-bit (along with S2AP[1]) to all writable PTEs. Also unset DBM and S2AP[1]
-when a PTE is made read-only again.
+When HAFDBS is enabled (VTCR_EL2.{HA,HD}={1,1}), having a DBM bit allows 
+hardware to promote a non-writable page to writable by setting (S2AP[1]=1),
+without having to take a fault.
 
-DBM bit works as following:
-- If HAFDBS is disabled, DBM bit is ignored.
-- If HAFDBS is enabled, and DBM bit is set, a write to non-writable page
-  can promote it's PTE to writable (S2AP[1]=1) without taking a fault.
+The reason for this patchset is to add the DBM bit when setting-up writable 
+pages, so the code is prepared for future patches that make use of 
+HDBSS/HACDBS to accelerate dirty-tracking. Write-bit detection still 
+happens based only in S2AP[1], so no change in that aspect.
 
-Since it's being set on writable and unset on read-only, it should cause no
-functional change.
+Having DBM set on block entries is undesired, as we benefit from the first 
+fault for splitting it in PAGE_SIZE entries, which is the granularity used 
+to track the dirty pages in KVM. So introduce a new walker that, on top of 
+clearing S2AP[1] for every entry, also clear DBM for block entries.
 
-Signed-off-by: Leonardo Bras <leo.bras@arm.com>
----
- arch/arm64/include/asm/kvm_pgtable.h | 3 +++
- arch/arm64/kvm/hyp/pgtable.c         | 5 +++--
- 2 files changed, 6 insertions(+), 2 deletions(-)
+Also introduce a new VCPU request to reload Stage2, as it will be needed on 
+future HDBSS/HAFDBS patchsets. 
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 41a8687938eb..37baa86d6fd8 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -91,14 +91,17 @@ typedef u64 kvm_pte_t;
- #define KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
- #define KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
- 
- #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
- 
-+#define KVM_PTE_LEAF_ATTR_HI_S2_DBM	BIT(51)
-+
- #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
- 
- #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
- 					 KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W | \
-+					 KVM_PTE_LEAF_ATTR_HI_S2_DBM | \
- 					 KVM_PTE_LEAF_ATTR_HI_S2_XN)
- 
- /* pKVM invalid pte encodings */
- #define KVM_INVALID_PTE_TYPE_MASK	GENMASK(63, 60)
- #define KVM_INVALID_PTE_ANNOT_MASK	~(KVM_PTE_VALID | \
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index b74dd5ce1efd..8c2320c6a7f1 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -730,11 +730,11 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
- 
- 	if (prot & KVM_PGTABLE_PROT_R)
- 		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
- 
- 	if (prot & KVM_PGTABLE_PROT_W)
--		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-+		attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
- 
- 	if (!kvm_lpa2_is_enabled())
- 		attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S2_SH, sh);
- 
- 	attr |= KVM_PTE_LEAF_ATTR_LO_S2_AF;
-@@ -1286,10 +1286,11 @@ static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
- }
- 
- int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
- {
- 	return stage2_update_leaf_attrs(pgt, addr, size, 0,
-+					KVM_PTE_LEAF_ATTR_HI_S2_DBM |
- 					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
- 					NULL, NULL,
- 					KVM_PGTABLE_WALK_IGNORE_EAGAIN);
- }
- 
-@@ -1366,11 +1367,11 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
- 
- 	if (prot & KVM_PGTABLE_PROT_R)
- 		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
- 
- 	if (prot & KVM_PGTABLE_PROT_W)
--		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-+		set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
- 
- 	if (prot & KVM_PGTABLE_PROT_X) {
- 		ret = stage2_set_xn_attr(prot, &xn);
- 		if (ret)
- 			return ret;
+Please let me know of what do you think!
+
+Changes since RFCv1:
+- Dropped patch #5 on enabling HAFDBS on non-dirty-tracking guests, as it 
+  proved to be counter-productive on wrprotect, contrary to expectations
+- No more moving writable-bit to DBM. That does not seem to be the intended 
+  use. It makes sense and it's easier to convert code to new DBM approach.
+- No new PROT_DIRTY, so drop patch #2
+- Tried adding a PROT_DBM, but does not seem necessary to fault a page as 
+  writable-clean. 
+- KVM_REQ_RELOAD_STAGE2 now depends on VHE, as it already reloads Stage2 on 
+  guest entry otherwise. 
+Link: https://lore.kernel.org/all/20260901171558.2674031-1-leo.bras@arm.com/
+
+Thanks!
+Leo
+
+Leonardo Bras (3):
+  KVM: arm64: pgtables: Set DBM attribute on writable Stage-2 PTEs
+  KVM: arm64: Introduce a dedicated walker for stage2 write-protect
+  KVM: arm64: Add KVM_REQ_RELOAD_STAGE2
+
+ arch/arm64/include/asm/kvm_host.h    |  2 ++
+ arch/arm64/include/asm/kvm_pgtable.h |  3 +++
+ arch/arm64/kvm/arm.c                 | 10 ++++++++++
+ arch/arm64/kvm/hyp/pgtable.c         | 30 ++++++++++++++++++++++------
+ 4 files changed, 39 insertions(+), 6 deletions(-)
+
+
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
 -- 
 2.56.0
 
