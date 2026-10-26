@@ -2,67 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7033606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:04:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB3C7606A332
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 10:04:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=l52cS1/d;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=lbJz6e35
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4mJKW23w;
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=DW21dW5Z
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=vJPb65xdCggsCd4rDUvrzjjr3FMznVVlmFXpXbFDOmo=; b=l52cS1/dr5b7qcI/4VfjHd6O6B
-	C6dCbeB5mJuoF+fpqTM/aTakXu1YIoQ63sGespPu1V5EIscAd+ib78GixUywTYaVgFaRjMjw8fHI7
-	EA53VlnrbeUL4xtKHuoTpsWjBa+95kRjI98URJ+z7IU/vCo34EMFAhY98Fl6IYqSL8zJyznLhqtKl
-	rSaGtVM8HM+icO4UNJuuVxM7v5aApLXUJeAtGalgN9N/Y0czxOsYfT5uDNOCYlzxTrapHFAR+6RIh
-	yhMTczr4oCQpJew79SPgd0ehSuJGtJ0wvfUkXcJyohk3KGeqeazDsIovNzFyzKJhcU55ioh4+qzek
-	aKkRY4vg==;
+	bh=zitnMhRtyIgBuNaK35Xz7hkSxvPKScUd7evQVMToKac=; b=4mJKW23w1ea8qff3WQXrUMDJxe
+	+EkAynXZbmy2G9AlP8+DFa6yQJyEhiR8nEz4QkDhe9pbDzKEPPbUgXuaBg92bto7yqvYMzzi6Fiwq
+	lDg9qsUW4+BIQHLUREa7iOggYMIyrlW5DJecq6rEN8Jl8r1yZcXTWnlvX3dr0UqKC5iq/ABLpQQdv
+	EajHDtX24RYvV54AHSsFnNsQ7/V5Zs6aEieSSvC6oSGwsvq2hjXTbCUj6EPSxisAlKlJdyZtWxceg
+	00jjnNeRfoZb5O1FrmLKNkxaVWhLGCroCwJijVPBhzU44W2WmibrpHOcZ3RUPC+APE3vcwM/ajSqW
+	liKQvStw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHYY-00000002BzH-2DhY;
-	Mon, 26 Oct 2026 10:03:54 +0000
-Received: from mail-westeuropeazon11010000.outbound.protection.outlook.com ([52.101.69.0] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xLHYL-00000002Buf-0rsK;
+	Mon, 26 Oct 2026 10:03:41 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHYW-00000002BxA-0r0i
+	id 1xLHYI-00000002Btl-35Z1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 10:03:53 +0000
+	Mon, 26 Oct 2026 10:03:40 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uN1kG1pAI3keVy51A0YPL7Vb+Otah047JNVCFQX/RITEpjKOGU+LbKUfiKvdRGFcSySdurp0zDxh8Eh0fBD7rvHubdhbD43HWJdI6QsL6eIJyWDYmy9H7v29TvoftZG88+Hf/x3T31WCQK/dECqiZq1B26QqpmQu/v2CtLhZyOTtRf/GJfgb02Ijz0sCXPnpvzq4rZhT3b9rAiZZesBffFPtNeyjwOGw+gc0K9iThSoTl29TOakj9e9HmwLmRQycIKAh+2YL6UOt5pPjT0f++U3qnhfm/6iLgY8IuRLlZTtdKNK+Nzp7htOdLmUi3u1rNeBrDa7pAItBAHurT5FJGg==
+ b=nfqkFnwRnuRAOX7aVhoNJ2WXBqm8mOUm5lM3ck1hHRDDGY+cmJ0K09DHy3l+txvxpDNs/tqazGPfX9LaM+dLUsy6mEXP9wbTm+FuN/eVcaWh2iDziNmEnKfmaZD0vV+kS54D0i/maSPBIENBI/ORWbzBJtLjmfG5Up/als1PPvcKRUOcuq3raFX8sfsCiOvs3KoaMCYzJ7pNYKFkmCYBDurro7kVn/ZDhZN/Ql0YoRYWHnXEIhjxxD9WW0OrhMfhd63XURsEFEVTjxQbRcqwC9pyRIswz/D73unBGtVpQtwsSI+BvcNC/n+cJPB5CESBUT9kFdHt1j8k7x984lho/Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vJPb65xdCggsCd4rDUvrzjjr3FMznVVlmFXpXbFDOmo=;
- b=QpJqVMVegNymwGLUiUPIcKaglukK+l6DKuia5Ela99D50YEp+Z2WswfruR2BRNTUQz7x0wFSVvhbAXIjdFgk+4rzBdzakXd/Pl+cFUOmHXzsDwUIUojcBGL8RfLhuNQOiaQQ6N7AGp+aV2W6zKYaeuPS5r9QFwIHCAxIJ0BD4RG4qKPf1TOtnRvSYy6i4Fy7XGyTeAQCJWw1yVG5q8bDMuuaYQ2T+L+klBZ/XPcqvADxJBhPdTT2vuQvV7ak3u8NK78/fReSGcpb77ZI32+i3BEMVPn3/j4qB+NUQZ9tyR5ZILcrKrs862UFbsz+DEcT/LRGOqM915sdHSsEGt46sA==
+ bh=zitnMhRtyIgBuNaK35Xz7hkSxvPKScUd7evQVMToKac=;
+ b=JAinp4IKe3aM9KpBlih9i5tgwa2L7fvIZKlBVzbV3bm+Tv7AzKnTBed6KFEP6Iireo6fFyeR+PylW96oGeBvPRE4evIvo8Ce1/U683vtBKLmoPq6X0beEC5xIFIF7bfgbCSwVpM2X+ZXU5fUZCLzAagZsrE4bSZsOfujGpwL6QHbxZIic+kqv8Hn+OhPMB2MyVcEPtFdQddItTCgqbxWRLUEBOnAejueQ/XGGy1OVFPVzsaKGgQ99A7y/MkzFWS2pTeRAzulg8anx69RMYY4heR6TsCyazX+agLpiV7mcm4KOFxYg95d38XxptJC4zCyOOYYccxmt5MD86fNtH4glg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vJPb65xdCggsCd4rDUvrzjjr3FMznVVlmFXpXbFDOmo=;
- b=lbJz6e35hz5tDnqRAwTSIiGtv3RClhZjKuGf8QRsxrXm/TohzghRM6fbKfiotZWu8fMQaQlgxxC4xmXu28J7PSFcxedkt2cPmpxGP/B4pO5cGEEHOk/KCqo4QRvd/PF4/ekBrTaSL9cwDORWpZywjgs6g9EzfABzeE9Dj6kl1Hdqm+LzlFqF84/Ds1A2EpKLNLNtRoxmekQgTtDG1OqnkNErPll3eN1OsHGrle9C4jQrj9lKp7w72wcl37/Xg8yTvKYKG1bP83mIlW9VryZO7T9LSjZt2FYHWlyTvmRopRxv64wNnybh3wOsYRnKayFSTOwSzDnDy7GIg2vLlqoKAw==
+ bh=zitnMhRtyIgBuNaK35Xz7hkSxvPKScUd7evQVMToKac=;
+ b=DW21dW5Z7PM7ysCwoVCvBD6FVO5Pi4AN0238JKrsEstR0yXm+P0GHQTmK5nDbTxhCfVLzu27wCZNtrW5fEGPIyezIcZTOdkpe1jvu3GBjDO04Y7ZG9zQtfAgjj+TzDWhyMMZRK6eeCoMFJMCOd+o3CpSMI1qJ+9HEaIq2SVLAZ4GaV+LVGI53MfIMvwVnBty0Q9ewJKeXPDLDLVotL9nPczL3/mgz57X+lXv36Oix/LLdX1rIbYFu48AZ5P2Kb4Ci2VinIE9rLkFnm3PAOg2nh+Fwj5uf2uTrXZ1YcoZnsLVF9v6KX72G42nnUAhQbj+xNRgVThmsM13qcltDXiq1Q==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
  by DU4PR04MB10529.eurprd04.prod.outlook.com (2603:10a6:10:55a::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Mon, 26 Oct
- 2026 10:03:46 +0000
+ 2026 10:03:34 +0000
 Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
  ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
  ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0546.021; Mon, 26 Oct 2026
- 10:03:46 +0000
+ 10:03:34 +0000
 From: Liu Ying <victor.liu@nxp.com>
-Date: Mon, 26 Oct 2026 18:05:07 +0800
-Subject: [PATCH v7 02/15] dt-bindings: display: imx: Add i.MX8qxp/qm DPR
- channel binding
+Subject: [PATCH v7 00/15] drm/imx: dc: Use prefetch engine
+Date: Mon, 26 Oct 2026 18:05:05 +0800
+Message-Id: <20261026-imx8-dc-prefetch-v7-0-a0b50cc4fc65@nxp.com>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261026-imx8-dc-prefetch-v7-2-a0b50cc4fc65@nxp.com>
-References: <20261026-imx8-dc-prefetch-v7-0-a0b50cc4fc65@nxp.com>
-In-Reply-To: <20261026-imx8-dc-prefetch-v7-0-a0b50cc4fc65@nxp.com>
+X-B4-Tracking: v=1; b=H4sIANEl32oC/23QTW6DMBAF4KtEXtfV+G+Mu+o9qixgxhQvAhFEF
+ lXE3WMipQkty+fR92bkq5jimOIkPg5XMcacpjT0Jfi3g6Cu7r+jTFyy0KAdeDAyneZKMsnzGNt
+ 4oU6CrqIBdEERisLWQZrvlV/Hkrs0XYbx574hq/X1UWb/l2UlQfrKEpiW0br2s5/P7zScxFqV9
+ ZMHvXNL1oU7xsAUaqoat+XmlYcdbgonUAwIVc2st9z+cgUKd7gtnFuujfXUGPqz3b1w7Xe4K9x
+ GapCQbbBqy/HBEcLu12HhGtGaaFqkxj/5siw3b1q/TOkBAAA=
+X-Change-ID: 20250703-imx8-dc-prefetch-028e306591c6
 To: Philipp Zabel <p.zabel@pengutronix.de>, 
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
@@ -76,76 +79,76 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@mailbox.org>, 
  Alexander Stein <alexander.stein@ew.tq-group.com>, 
- Liu Ying <victor.liu@nxp.com>
+ Liu Ying <victor.liu@nxp.com>, Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.15.2
-X-ClientProxiedBy: SI1PR02CA0057.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::10) To MI9PR04MB350878.eurprd04.prod.outlook.com
+X-ClientProxiedBy: SI1PR02CA0049.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::18) To MI9PR04MB350878.eurprd04.prod.outlook.com
  (2603:10a6:290:c0::7)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|DU4PR04MB10529:EE_
-X-MS-Office365-Filtering-Correlation-Id: 34be0108-c954-4096-4d19-08df33486cad
+X-MS-Office365-Filtering-Correlation-Id: fb18aa2b-b7cf-4502-6a47-08df33486582
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|366016|1800799024|7416014|376014|261009223027099003|261022105027099003|261021121427099003|10067099003|56012099006|3023799007|22082099003|18002099003|11063799006|921020;
-X-Microsoft-Antispam-Message-Info: 7952NjKebOzjzG1oKLhjo0aR+yWiNy1EWJaXAzgXHU7ncI4NJi2yM9nz2PUwfh3/ui7jpuYz2qNHLdkpal81HuhNQcDo6Cu9qiAi9p+XQpzpq5xMYib9YrjLQfduPcCF1N4Q0zWM7sYeoF8mknqGZXA2OMaKljLC8TGhxAEAbFY+mk1VCh8Aj73JI9bAns4iFoE1fWYZcwnydvZYEpqVYfMUvyd2JeJ20IbThuBnRlPdNKHiZqlH+UyBKJpE1x26jokH5Zwt0QOOoq68Ub93OLRW38rH2V7v0cvw63Z0dfV+G7cDb/mdTFdH83wXtRzji8VqKr19jdF21sUClfRtBOkQcb8q5f5PcwMl+funoHHUXNkSCgpDAfE6D02n2sH7FV23lNos3iurZsUO/yt3Wms7r2Rrwuqd7SnUwEGeTOxl/vSZsu14tB5f/BSxgjPbrahPpBVYtR+aqiDKKiwJXEU3FyWDhfz4U2E//Zy3LAvob2Y4GhX+H6WqnnvdT0CrHcdsTX7h8FbKQsP+LP8MSl8xgxEcjm1lTpetIRP2CIra6YyHuivc7w85aBKP763OXP3Sin8j4y1NCDuogl94MpvlgQgjLjVlBERbFFuS2cqbZDpVwLw6E2HkoEqiLTCScvKuUYsPASiF2Es6xU+WGIG/YuhjPCS8tCI15xFJ7Dk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(366016)(1800799024)(7416014)(376014)(261009223027099003)(261022105027099003)(261021121427099003)(10067099003)(56012099006)(3023799007)(22082099003)(18002099003)(11063799006)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|366016|1800799024|7416014|376014|261009223027099003|261021123027099003|261022075727099003|261022105027099003|261021121427099003|10067099003|56012099006|3023799007|18002099003|5023799004|11063799006|921020;
+X-Microsoft-Antispam-Message-Info: Xlt2HBqMqfarhPDA1azqmus+hCC67plevqU8IpKaSfXf4ee5zGYwlgmVjhRq/HK0WvuZnVf8GB55l+CljUVEMKjnE4QhFvoaX+MtnYQEFPewwo0k5MwTQY51s/ptb8sAPAZ1qqG+W/2V1C/sWdOiAhOqxvOzE5e7uNRSFThHTGyH1r7bBO32nTjkUMwQvjKX/jbSZXd9lEeK2RBbDIeisjLy20RZz/Pia6mSmxo+qyEnq6vUHaNKsMmMcH0OW1zXI3fTFQwF9RQf70snztVAsMKWCLNOgbodcglewOT5bFkO6wLNqc9NzS0qEVG3HDfP5tbOD7w8IWiwoDBmoEb4/QC8+m9TCLfE9LpBKESH873X87dQJVJqG5PbwoM08BgeDbnsJkfY6MHfgEQU1k85BcQA78yKpqO/AUtgHSlt7Pctaauds2r2JkCO6bK5OQPjaNYLNWN6Y/xKdp02Pfloy+DBkM47VTN42ybVAX+WgUJK2mZ2CtBWkY1K2IAtW2kq4Yy4JLG/222KOT2NmUJmLfGGnXM1j0CtKdZ76q0zgm6nKazjDf6s6g3h+OIgBkyMpmILat5syFH8cQXkzcotlZAloZCdjYZ24sIbuscF+L5KneV0OEN0lDAuQvDO+GfH6X61SXbayclg+77vKmpsRxIgs9gJI0+Kjd1KatXhKeo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(366016)(1800799024)(7416014)(376014)(261009223027099003)(261021123027099003)(261022075727099003)(261022105027099003)(261021121427099003)(10067099003)(56012099006)(3023799007)(18002099003)(5023799004)(11063799006)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SFRPWHNTbGdnaFd5cmJOTVNHc0FVQjBoalgrUnhRdlJPN1F5TTFpNWlDT3pW?=
- =?utf-8?B?RzJRWkRwVTZTUzJsR2dqNy9LbWt6eVNJS3lNTFNZeFRlbFJUVzZoUGhwcVNl?=
- =?utf-8?B?VXZsaFNqSTBra0lqTU1FZEt4MFBOMGRvUm10UXFkdmlscWYvVVlJTnUyRWg2?=
- =?utf-8?B?QlZWYTRMMk04ck5VSHljS3lMSUJ5ZEVqRG5CZERuYWthZkRBdUNORUdLanBJ?=
- =?utf-8?B?NnFCQktIR0NZeU1hYmFsZDZSMXd6emVvWUl3VUFuMnVJdDZCZStGM1FiVTRu?=
- =?utf-8?B?cmQ2WkUxOVp3Zkl2UU1SWG9BMHJlY2FqRkl2cTd6REcwektXbFlySXloTXJy?=
- =?utf-8?B?dVcyWXFmK3djQjlXQWFGTWVBalVxd3NWcW05MzNSbFZoWTZhRmFXaXJZNWw4?=
- =?utf-8?B?STZNS0ptSEVOMDhGNDNvWjJ3dzBEZUtkcTlRWG9MYzg5dE5nbTZqaVNYUjRn?=
- =?utf-8?B?elFrbVBsenBmVjEzSFlWeFZaMTErTXYzMW02YmRFQ2pCSWg3L3pXWW96SWkw?=
- =?utf-8?B?Z2dzdFhCVWhhWlQ2bTNaT0VhTU5UYkpXa3lrYTIyYXFScUN5N2dNZ0FRWFpy?=
- =?utf-8?B?aEluMm80VEJEN0lBRjZCc3gyTEVyREo3VG1ESEpnUi9HQmo2ai84UnBLaFZU?=
- =?utf-8?B?MEhlbW5RWVd3QjhFTkM1ZnpuMWhmaXZ4WjRFOHBmdERiclhoQ0huMzNVYXlk?=
- =?utf-8?B?MHhmdGRCS2xiTVhDVXh6dWFvRytleXFqU1dBUFhiWjFBQ1kvQWFDNnNiejNC?=
- =?utf-8?B?aW1qOUdoRUlGeUE1VkhCS3pMNStjcUNPaTlNWW5NbEp2OEErU1gzb1ZNTlNi?=
- =?utf-8?B?Y2ZyUlhoSHA2MDlZMW9hdnNpOFp1ZzBPRnVCZUpRbTRDVnI2dVJLT3NOOVEr?=
- =?utf-8?B?ajhWYmhueXNJOUxlSjBvNHYyY3NxWEZtUjM5Rmc2dmFkVHpuZjNScEhEdzR1?=
- =?utf-8?B?ZDJFYlhXMzhMZEIyNjh5cTBnWDZYYWRkV1RZTjNOcmZoMlkzV09aMnpaSWFG?=
- =?utf-8?B?MGFPcjNDSGFZcmVWejZlQmFScFpEaW0wYUd4Y01LdG5NVFhRVTU0dlVsc3hU?=
- =?utf-8?B?RC9NUW1jWWM5Njk3eTJJL0NKVlZxR1BJNStHUlppZTdCbDRSeFlMU1hKQXE5?=
- =?utf-8?B?TzcwSmZFZlR1WXVtWXlpNk1pY0VvbEd0ZWE2SGhZaXlOWS90SXJpYTVIZ002?=
- =?utf-8?B?VnNpN3lsa0tHMmE0MWZpNXZod1FPNkhTZ0g2Uit6NGVGSTJVWmhkaEEyVWdR?=
- =?utf-8?B?NFlsVVdpZS9kZHhhcGszb1d3MTVYd3p4LzdxWUI2L3J3YTY1V0lBenI0RFNG?=
- =?utf-8?B?M2hDM0lQRGhrL1MzYWNGZzlpa3pCU1FxY3BZcHlJOEVzKy9CdFpsMk5Demlv?=
- =?utf-8?B?KzdKN3pFc0xGSmVHSU5meHZMS21VbmFNWnlyQ01ETkRiZHRhNGoyejVQR2hB?=
- =?utf-8?B?TUZCUjFNRFJ1UU9lUXAyTEtFY0RBS1FXRmRTMC92YU5seVRNWjFwYUxTMTkx?=
- =?utf-8?B?UEU3cURMRUlYQnUzRXB4ZzYrWGRjV2lnZDcrNWQzQXNOVWZ3bDdYTkZjaDFC?=
- =?utf-8?B?RHlqcGk3RDJXVFdCRHdTMnFTYzJOMFlTeHJLeVRtbW5XVElRamxxU2JJNDZW?=
- =?utf-8?B?RG1JQ252bWZlbjMvNVc4bzFqRCtMTHNXNnczLzJxZGN0YlhscFpGTXhoMms5?=
- =?utf-8?B?dUt6dklNNFp6OHNwb3crT1RObzFaWHozTlpDQ3RpYzNNL3RLd21qN05mcDRL?=
- =?utf-8?B?NEJOWHJiWUtYQW5XUmU1U2tFWTBUZDRGaHNhSGJMQTNONkROTXRYbjF2cktm?=
- =?utf-8?B?RWlwOW1oQlduTm0wZWVVbGFBM2E5cGord1oraW5CcHZuM2txZlNPN2FJS1Rl?=
- =?utf-8?B?SGtad1IzMGhXaElDRHVNdkdkM05JZGhQb2tBYUd6ZHlVS1B1MStXY2NLcWRh?=
- =?utf-8?B?WWYxWVRNbjVVWHM0bkpsTSszTEdpQlJGeERPYWZNbkFxQ0pGRUJOZmhyY05D?=
- =?utf-8?B?SjhyZU4wMXhUY3R6eE5wZ01KT1MvMjhMUVNkM3lPUWRrYy9vdEQ4SzVGaHo5?=
- =?utf-8?B?UXBNTlMzM0lBdUN2cEJwYURhTW5XY2FHalBPdFFEcXNLSHZuYmd0d0M3eXA1?=
- =?utf-8?B?cENRNjNNS0lRRUo4bDlrdGdTZnlPNm5Wbm9Sa1JpRnZYQlkybWg3VE1ZdU1p?=
- =?utf-8?B?bkM2eXcrZk84Uks0SXdTN2Vmck83VVVUVUdNSEhsZEJqc2trdTd4R3J3b0ti?=
- =?utf-8?B?eHNSdmxrNzNoeFBwbzRjWEF5aTJLYkdwRktaRDlEV0VjL200WWRVMHpoa25m?=
- =?utf-8?B?bVNmMExiRHRFRGZOOEkzN1NZdXlEeWdzekRNS05zWkJDNDZVd0JDQT09?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MjJUUk5TTmZmajIzL1JRUGhuVUFLenhtYVd1U3hVcllFeHZKTHVkWGpEWUtB?=
+ =?utf-8?B?b2t2UzN6ZVcrc09Jc25yOFowTTFQVW8rQkYvNDFkRGZ4MWFnbnI3TERwK3BI?=
+ =?utf-8?B?d1Zqdy9zaWxBQWlnUFJpRkxtWk13eXp2bGYzSmx3Y2VZNWM2cXZWRjliWGY2?=
+ =?utf-8?B?amJLTTdLam5NbEVSeW9yOS8yOWI0S0lFODRqMCtZcTFWWXNBK1Vtd0JCTEZI?=
+ =?utf-8?B?eEZtNWZhS2JEQ1J2MUVKc0RJekJzTEl0cjllTXVBdDZkY3RiTVBNQ1lhOTdn?=
+ =?utf-8?B?MGNuck1meTh0MUtZeFRFdE9URXBVNCtNWWdDcGZydFZoZ2R1UWF5ZGg2NjBY?=
+ =?utf-8?B?akNnMC9LMXJEZFlFbmlkcC9GYVR1eENraWpIekxpUFMxK0dOWFpGKzBQUGtR?=
+ =?utf-8?B?SCtNc3pIZXlwRGxCd2VldklnclBubkw5SVFPYXh6anM5Z25VdW9pWTdtWGVu?=
+ =?utf-8?B?UWhwblNBbTM5ZVRXT1RXRnlQNWpaZU9zTldIcTJ1V3oxMlJCZnpqSWYrVFVl?=
+ =?utf-8?B?bU1oVnIrZFVuazc5OGpSYzhYbWNQS2Q3MEMwWElRMjJ1ZkNnUmgwc042YzRM?=
+ =?utf-8?B?VEJaWEcyTUlkbC8vVDRRd01nQlRDeXZKa2R0VXhIOThLbWk1TGprQ3hYdy9y?=
+ =?utf-8?B?LzZSaHZMSjRRRCtLcEhBZkNiSWdKTm5UM0VXaFY2b0VDdE44Rm5oNWhlSFNN?=
+ =?utf-8?B?NURDeWlsODZWMTFCL0t2dG1kOGFoTzh6TXAvSnVjTmxvdisrNmRIa1FzTUxX?=
+ =?utf-8?B?VldOaUhhQ3Ixc2dSMU1KYU5ZTkYwWmNHYmp2dWVTTFhreWdGMTYvenY1TG5s?=
+ =?utf-8?B?QU5vZkplOXJOT3FUc3QxWCszYzVvb0kveHNnZkRNejN4RkltUHM4bWtzb2dK?=
+ =?utf-8?B?MmQ3eHBVRVFEZ01tQWdWWVIrZC9Ca2tEMC83dEg4UlRXRkQyTmlUNnIyQXpN?=
+ =?utf-8?B?NG1DbGlDZVEyc0lPSDJpaVBiSVhUb1F5VWZOTTRPRW1wL2ZjNEJ0NlcyME1I?=
+ =?utf-8?B?dXdveWlucWlLL2dSeEgzcHhaaEtFcWdDVTJtRXp1WXRoSzNNUFh0WWtLdDFT?=
+ =?utf-8?B?S05JNGhnM21JY0ZSdlV1M1cxenRqZTlvY3lDMDhCUEdxZ2ptUzZ1eXNzc2M5?=
+ =?utf-8?B?NS9iN2wyZXVIOWx4Mk5xWmxOaExCRDFPdGtsTkV3aVE3cWJoRXJ5UVhYSjkr?=
+ =?utf-8?B?MW40L3A4Q3pDQmE3MkpZYlc3Nk1KTXFsdWFSNUFYZnl0bkhocFJVV0FkcTFK?=
+ =?utf-8?B?RGVjSVdubS9GTzFYSHhqRUlLTVFKc0xsdjVMaDk4SkNhTXZ3V2luQjhlVzVW?=
+ =?utf-8?B?Z1BieGtxOFdQYnlxU3BNVEE0YVdvQVZDQUMxTXRIKzZhOFlHUnNEZEU3ZE5N?=
+ =?utf-8?B?VTZYOElXcmprT2J5MkhzdjlQcXBhdzQwaWEzN3ZhWWN5ekZydy9JRHg5dkJp?=
+ =?utf-8?B?UXFOM0pVczcrY2MwVGE1SGJOTXlHRmRDbUdoeGZrOWRpVFZ4eWIyaXpHcUZz?=
+ =?utf-8?B?VU03aWVJMTJ2UDJ4RVFsY1M2dDJnbFY0V2c4M0Jha3YvbzBuVmN0Rzcxek1w?=
+ =?utf-8?B?WS83MnltZWYra2pKSVlZZjQzcG02ZmR2YjZPQURxOHhFd05Qd1hEWTNoWXVn?=
+ =?utf-8?B?c2lXVjZGUEtMTXIxK2VrZ004Sm9KUDdIMVpoNHlnVnRWL3dicG9QQ2JhTmh2?=
+ =?utf-8?B?bERzZ1lqZjNIRy9QWXVNLzJmc0RONlMxQ2hsR05SUzZKL2ZmR2k2ZmNPc2lC?=
+ =?utf-8?B?VzdOWWJLVFRLck9aL2FxVnVlWnljKzROYWpxTFNBdlRLYlRnemJ5SnRPQVd4?=
+ =?utf-8?B?LzFyTHdrTU1jRm15UEUxNitOdzdZZHBWOXRpYTRuNGhlTHNIQkt6Y1MzYTVN?=
+ =?utf-8?B?U2lxWVRlUFpqbXVPT1JVbkVXM3cyV1RSK0NESnZYR1VZd3pKWE94RWRmZmNi?=
+ =?utf-8?B?OEkvbkl1Yi8yZXpvQ3RFNS9sdlBES2tLLytuVXNYaTkwNzlhR2MvSmYzL2Jy?=
+ =?utf-8?B?R1p1T2xLSWZGWHB4TjFTa01qZHV1ZkdOOXZKSllMb1A4SHpzb04xcFI1OGtW?=
+ =?utf-8?B?c254b0Z6dFZGdmVLL29FS2tKdGN5eU0rbEI4MGZoTUJhL3ZiNjg1Um50TWxx?=
+ =?utf-8?B?RjI1eHVYYzZ6bUNrSmZuVXhNbUUzdU1LSk1DL3N3S2F5WWJVMmlCNzhYaTRR?=
+ =?utf-8?B?RGd5R0JDOHhDTnVSR0grdzFuWjBQOGxNODJhYnNtRFdFZnNDOE5EMVpJTmx5?=
+ =?utf-8?B?di96eXg1a3dUQk5FWHBnT1lNcFpRRERCK0ZsU1JGN3hDUGI5M2Z3Q055UjV1?=
+ =?utf-8?B?NUpTdGNqNGQ2U2VjZTV5b2hQUEdULzVwQkZTeDUxNWJxS1pPTW1LZz09?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 34be0108-c954-4096-4d19-08df33486cad
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb18aa2b-b7cf-4502-6a47-08df33486582
 X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 10:03:46.4898
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 10:03:34.5781
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5re7EqtPY53u7GAZwpvzxyMC6yx7nHku9OE9rKr2Dz1oc2rPcwWIAnO8svmu/PUPJTme36tJSA+Q6FzagQjTOQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: FnHwkIX/O7hUlu0flIryeBBiMnwjb5LBkEc54tAVZeEowZaJuuv8zfQN64CpBTO0jzGxeAg0FtaRLHj6PCwTDA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10529
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_030352_274201_29F27663 
-X-CRM114-Status: GOOD (  16.94  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261026_030338_926817_39E862AF 
+X-CRM114-Status: GOOD (  18.38  )
+X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,140 +167,131 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add bindings for i.MX8qxp/qm Display Prefetch Resolve Channel.
+Hi,
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+This patch series aims to use prefetch engine in imx8-dc KMS driver.
+
+One prefetch engine consists of one DPR Channel(DPRC) and one or two
+Display Prefetch Resolve Gaskets(PRGs).  It prefetches data from
+DDR, resolves data in tile formats if needed and outputs the result
+data to FetchUnit(s).  When one PRG is used, a prefetch engine supports
+processing pixel formats with one planar, e.g., RGB formats.  When two
+are used, pixel formats with two planars are supported, e.g., NV12.
+
+For now, this patch series only supports prefetch engines with one PRG
+because it is enough for XRGB8888 which is the only pixel format
+supported by imx8-dc plane driver.  Two PRGs would be supported by
+future patches.
+
+Patch 1 and 2 add dt-bindings for DPRC and PRG.  They were reviewed
+by Rob[1][2].  I slightly modified the patches' commit message to use
+imperative mood.
+
+Patch 3 fixes invisible plane issue reported by Sashiko AI bot in v6.
+
+Patch 4 fixes FetchUnit dimensions as related to prefetch engine function.
+
+Patch 5 flags CRTC status in GERNERALPURPOSE register as needed by patch 6.
+
+Patch 6 disables CRTC at boot if needed to support prefetch engine better.
+
+Patch 7 and 8 add PRG and DPRC drivers.
+
+Patch 9 to 14 do preparations before using prefetch engine in imx8-dc KMS
+driver.
+
+Patch 15 uses prefetch engine in imx8-dc KMS driver.
+
+[1] https://lore.kernel.org/lkml/20201207165945.GA430214@robh.at.kernel.org/
+[2] https://lore.kernel.org/lkml/20201207170206.GA434964@robh.at.kernel.org/
+
 Signed-off-by: Liu Ying <victor.liu@nxp.com>
 ---
-Changed commit message to use imperative mood.
+Changes in v7:
+- Collect Maxime's A-b tags.
+- Fix Sashiko AI bot's comments.  See detail changelog in each patch.
+- Trivial tweaks.
+- Cc Alexander.
+- Link to v6: https://patch.msgid.link/20260904-imx8-dc-prefetch-v6-0-26643e3f6cb7@nxp.com
 
-v5:
-- Add the DT binding file in MAINTAINERS.  (Krzysztof)
+Changes in v6:
+- Rebase onto the latest drm-misc-next and resolve conflicts in patch 4&7&13.
+- Include "dc-drv.h" in patch 5&6 to avoid build warnings with C=1.
+- Fix PRG BYPASS programming in patch 5.
+- Link to v5: https://lore.kernel.org/r/20251027-imx8-dc-prefetch-v5-0-4ecb6c6d4941@nxp.com
+
+Changes in v5:
+- Squash MAINTAINERS file update into patch 1&2.  (Krzysztof)
+- Link to v4: https://lore.kernel.org/r/20251016-imx8-dc-prefetch-v4-0-dfda347cb3c5@nxp.com
+
+Changes in v4:
+- Rebase onto the latest drm-misc-next and resolve conflicts in patch 4&10.
+- Sort bits and bitfields in descending order for register PRG_CTRL in patch 6.
+- Cc Marek as stakeholder of the driver due to recent i.MX95 DC patches posted.
+- Link to v3: https://lore.kernel.org/r/20250929-imx8-dc-prefetch-v3-0-c01d0608add2@nxp.com
+
+Changes in v3:
+- Call dc_dprc_enable() only when start == true in patch 7.  (Frank)
+- Collect Frank's R-b tags.
+- Link to v2: https://lore.kernel.org/r/20250923-imx8-dc-prefetch-v2-0-5d69dc9ac8b5@nxp.com
+
+Changes in v2:
+- Rebase the patch series onto next-20250922.
+- Collect Alexander's and Frank's R-b tags.
+- Manage PRG's and DPRC's clocks with bulk interfaces in patch 6&7.  (Frank)
+- Sort variables in probe function in reverse Christmas tree fashion in patch 7.  (Frank)
+- Link to v1: https://lore.kernel.org/r/20250704-imx8-dc-prefetch-v1-0-784c03fd645f@nxp.com
+
 ---
- .../bindings/display/imx/fsl,imx8qxp-dprc.yaml     | 100 +++++++++++++++++++++
- MAINTAINERS                                        |   1 +
- 2 files changed, 101 insertions(+)
+Liu Ying (15):
+      dt-bindings: display: imx: Add i.MX8qxp/qm PRG binding
+      dt-bindings: display: imx: Add i.MX8qxp/qm DPR channel binding
+      drm/imx: dc-plane: Disable plane when it is invisible
+      drm/imx: dc-fu: Fix dimensions
+      drm/imx: dc: Flag CRTC status in GERNERALPURPOSE register
+      drm/imx: dc-crtc: Disable at boot
+      drm/imx: dc: Add PRG support
+      drm/imx: dc: Add DPR channel support
+      drm/imx: dc: Use TCON operation mode
+      drm/imx: dc-ed: Support getting source selection
+      drm/imx: dc-lb: Support getting secondary input selection
+      drm/imx: dc-ed: Drop initial source selection
+      drm/imx: dc-lb: Drop initial primary and secondary input selections
+      drm/imx: dc-fu: Get DPR channel
+      drm/imx: dc: Use prefetch engine
 
-diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dprc.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dprc.yaml
-new file mode 100644
-index 000000000000..bd94254c1288
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dprc.yaml
-@@ -0,0 +1,100 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/imx/fsl,imx8qxp-dprc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Freescale i.MX8qm/qxp Display Prefetch Resolve Channel
-+
-+maintainers:
-+  - Liu Ying <victor.liu@nxp.com>
-+
-+description: |
-+  The i.MX8qm/qxp Display Prefetch Resolve Channel(DPRC) is an engine which
-+  fetches display data before the display pipeline needs the data to drive
-+  pixels in the active display region.  This data is transformed, or resolved,
-+  from a variety of tiled buffer formats into linear format, if needed.
-+  The DPR works with a double bank memory structure.  This memory structure is
-+  implemented in the Resolve Tile Memory(RTRAM) and the banks are referred to
-+  as A and B.  Each bank is either 4 or 8 lines high depending on the source
-+  frame buffer format.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - fsl,imx8qxp-dpr-channel
-+      - fsl,imx8qm-dpr-channel
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts-extended:
-+    items:
-+      - description: DPR wrap interrupt
-+      - description: |
-+          'r_rtram_stall' interrupt which indicates relevant i.MX8qm/qxp
-+          Prefetch Resolve Gasket(PRG) or PRGs are forcing an underflow
-+          condition in the RTRAM.
-+
-+  interrupt-names:
-+    items:
-+      - const: dpr_wrap
-+      - const: r_rtram_stall
-+
-+  clocks:
-+    items:
-+      - description: apb clock
-+      - description: b clock
-+      - description: rtram clock
-+
-+  clock-names:
-+    items:
-+      - const: apb
-+      - const: b
-+      - const: rtram
-+
-+  fsl,sc-resource:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: The SCU resource ID associated with this DPRC instance.
-+
-+  fsl,prgs:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    description: |
-+      List of phandle which points to PRG or PRGs associated with
-+      this DPRC instance.
-+
-+  power-domains:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts-extended
-+  - interrupt-names
-+  - clocks
-+  - clock-names
-+  - fsl,sc-resource
-+  - fsl,prgs
-+  - power-domains
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/imx8-lpcg.h>
-+    #include <dt-bindings/firmware/imx/rsrc.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    dpr-channel@56100000 {
-+        compatible = "fsl,imx8qxp-dpr-channel";
-+        reg = <0x56100000 0x10000>;
-+        interrupts-extended = <&gic GIC_SPI 51 IRQ_TYPE_LEVEL_HIGH>,
-+                              <&dc0_irqsteer 324>;
-+        interrupt-names = "dpr_wrap", "r_rtram_stall";
-+        clocks = <&dc0_dpr1_lpcg IMX_LPCG_CLK_4>,
-+                 <&dc0_dpr1_lpcg IMX_LPCG_CLK_5>,
-+                 <&dc0_rtram1_lpcg IMX_LPCG_CLK_0>;
-+        clock-names = "apb", "b", "rtram";
-+        fsl,sc-resource = <IMX_SC_R_DC_0_VIDEO0>;
-+        fsl,prgs = <&dc0_prg4>, <&dc0_prg5>;
-+        power-domains = <&pd IMX_SC_R_DC_0>;
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d9a6bdc65826..cbb8aef958e5 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8806,6 +8806,7 @@ L:	dri-devel@lists.freedesktop.org
- S:	Maintained
- T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc*.yaml
-+F:	Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dprc.yaml
- F:	Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-prg.yaml
- F:	drivers/gpu/drm/imx/dc/
- 
+ .../bindings/display/imx/fsl,imx8qxp-dprc.yaml     | 100 ++++
+ .../bindings/display/imx/fsl,imx8qxp-prg.yaml      |  60 +++
+ MAINTAINERS                                        |   2 +
+ drivers/gpu/drm/imx/dc/Kconfig                     |   1 +
+ drivers/gpu/drm/imx/dc/Makefile                    |   6 +-
+ drivers/gpu/drm/imx/dc/dc-crtc.c                   | 214 ++++++++-
+ drivers/gpu/drm/imx/dc/dc-de.h                     |   2 +
+ drivers/gpu/drm/imx/dc/dc-dprc.c                   | 522 +++++++++++++++++++++
+ drivers/gpu/drm/imx/dc/dc-dprc.h                   |  37 ++
+ drivers/gpu/drm/imx/dc/dc-drv.c                    |  83 ++++
+ drivers/gpu/drm/imx/dc/dc-drv.h                    |  12 +
+ drivers/gpu/drm/imx/dc/dc-ed.c                     |  35 +-
+ drivers/gpu/drm/imx/dc/dc-fg.c                     |  11 +-
+ drivers/gpu/drm/imx/dc/dc-fl.c                     |   7 +-
+ drivers/gpu/drm/imx/dc/dc-fu.c                     |  59 ++-
+ drivers/gpu/drm/imx/dc/dc-fu.h                     |  11 +-
+ drivers/gpu/drm/imx/dc/dc-fw.c                     |   7 +-
+ drivers/gpu/drm/imx/dc/dc-kms.h                    |   7 +
+ drivers/gpu/drm/imx/dc/dc-lb.c                     |  27 +-
+ drivers/gpu/drm/imx/dc/dc-pe.h                     |   2 +
+ drivers/gpu/drm/imx/dc/dc-plane.c                  | 100 ++--
+ drivers/gpu/drm/imx/dc/dc-prg.c                    | 326 +++++++++++++
+ drivers/gpu/drm/imx/dc/dc-prg.h                    |  39 ++
+ drivers/gpu/drm/imx/dc/dc-tc.c                     | 119 ++++-
+ 24 files changed, 1726 insertions(+), 63 deletions(-)
+---
+base-commit: cf61bef3801c3c9d0d8c39026b7b2fb242898a3a
+change-id: 20250703-imx8-dc-prefetch-028e306591c6
 
--- 
-2.43.0
+Best regards,
+--  
+Regards,
+Liu Ying
 
 
