@@ -2,63 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0BDC606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 00:34:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45539606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 00:41:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=C5E5Wj3e;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=HhLY1O7u
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xy7THq+U;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=CVmrRTzW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+9VnkTVZa5ILKHrRCMZEXP+36VdKYsWK9GWspe2p5rE=; b=C5E5Wj3eecxu7Y
-	oxEN+1sJNWR9R8JcGGJ9tRZADCVnHGnlvKhxJVjOmr+ojTcPHjFSKLepTE7Du/AQ3Onx41XEanngL
-	KN00a5tkTPbvrYg0+cwXfO02WYE811I3l02LgEbx0CMwCEMxcYGTpY2woq3ItLWl2RqsiAN5ElP6d
-	TWvx7npaCd5a4zI7Tre+Gnl22UT9Dhw7Pk7rPdg8yTgXwLWFGsAUCSmM162JQisCtoEZKiYOc88gL
-	idBspdPgMIEaHR5JwBBDbwUV6XqWWESW91w5xvqO9zNY1ZsfG45+1N3cKmlf6TuIoFOltrYpqLn/4
-	+6RJpID17LUQCzM7TMOA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=PFobPJXVsXDz19LQO+RLD3R/7cNmq2aYjbNBSXJLmQE=; b=xy7THq+UAq9i27PfBiCJZqInaE
+	jD8aNpYSLKJIB+iGK/PGLwYsJfEkn+BJ6UnW+79qQaz52rScLzeO8BnIM07T1pNuPTPtIka/fthNB
+	ta/SqnlQ1oyo8c0Nj/4dujZTU/ZxQhUvc+lyB9t+jNq61g01T3kwYygeX/5JENLPrkirAV3p3Sb33
+	fslQAj4rFPI3pgFhRrB+3bXJ9QQ4kwX9Dbv362vTj/R8Ksq8Gwcjgzj+NuFeK0Z7vsVcZc1SfUVho
+	j8mi+hTa61bmgxrIbjNyQpi90oZg+s3z8fE7TEatPgMWVxrMBl4duY+8jKEj2exLaiDXnuwwaLulG
+	GFa4+U4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL8f3-00000001WsN-12kF;
-	Mon, 26 Oct 2026 00:34:01 +0000
-Received: from mail-m1075.netease.com ([154.81.10.75])
+	id 1xL8m2-00000001XgJ-0jST;
+	Mon, 26 Oct 2026 00:41:14 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xL8ez-00000001Wro-18MU;
-	Mon, 26 Oct 2026 00:33:59 +0000
-Received: from [172.16.12.48] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 52470fe96;
-	Mon, 26 Oct 2026 08:33:41 +0800 (GMT+08:00)
-Message-ID: <4b7bd146-93fd-41f8-ad3c-88333adc73b4@rock-chips.com>
-Date: Mon, 26 Oct 2026 08:33:41 +0800
+	id 1xL8m0-00000001Xfy-1ohT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 Oct 2026 00:41:13 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a208d93758so28078085e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Oct 2026 17:41:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792975270; x=1793580070; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PFobPJXVsXDz19LQO+RLD3R/7cNmq2aYjbNBSXJLmQE=;
+        b=CVmrRTzWqefFMwEUObzkIt8/EG4fcgAENZWyLcwjEHu7Kav133S/zydLOtKONbBJOC
+         uD40zagMgyOEpxU7Ofxw+vwmTY53pb9sbNU354cPNGeC7G+q1eD7Gzk6t3I92xZT2TeL
+         pXS4Nm77kMTC4TR55Y8DIhGnWZpu+8+nm2YB2esDm3KygKwKSRp4G2mGLFpYUKbzSa2q
+         9iyHeuqI1hlEtj8KhOz0yfH7Urd4kFtuHRetzaL/kVVLABqvvfaiNt1kpqKLhOG0fBy1
+         GPFNJLbYBFGgNJvdQF07Q6eEzT9o3hE6gG8c7jO4ALk64yXDMdj2C9nbghUXX02IaslS
+         gyxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792975270; x=1793580070;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PFobPJXVsXDz19LQO+RLD3R/7cNmq2aYjbNBSXJLmQE=;
+        b=vaHnMEFrlzj/+Fe/ALCWY0YU5mutsBDnvD2vIoVO8FAtHPVhPv/noOa2mex3kSHnSK
+         fvDmJWV8mBfpYGpMwuIukT1DQVBfk1hq7yH4xi3O0WFgfVHuFr7AEPJT4GEELamKFI5R
+         YyAIg7lTfGI/+sueS8PgLf9eErBIvZwR/bHv/HmqkE97tfea10WNbYMTcfTept0yj5ng
+         VCQBt7SPZrh9HjesDxPxYq6pKqfW7bGp/YpgDQoJwTgTi5HJrzY0B1RcWxjgPd2nqVUd
+         barRDp9tv/LHHVWnHLKK1vi+pOweRG6RhvBsAlgFY23pYMBu1N65jPUWyqYHLg/kfj4t
+         uoPA==
+X-Forwarded-Encrypted: i=1; AKwUvByRf2NNUzOdkcGiI3vwU/oPPOMlf0kCAfw72NFav+FqIXRPJmW5eVJsUGH+xWdDEYditCBX5t9tFdNOP+im8+Op@lists.infradead.org
+X-Gm-Message-State: AFq9FYL6xjmrTtOmW91yfZUownzIcIrydV8t6C6uodgQJWngnmgBCcA2
+	TWZ08kJpNapmyWGBYtZ7tTEQEq7oKHJuoVq2hYM/8xdVwtlv41QaPHK4
+X-Gm-Gg: AYBFou3RA21RI7zC1hUdmEdwIWPpkZa8jqsQjsdmf9rXhSPi4qM5Yf1ZExi4aAhkdly
+	vA3dsb7bWKY7bg2j9rjbhG2I2nu+K0bj/6Oe+1txPM2y5PpA5pon3jcwfi0+ocIeJlB7F6EqQt2
+	E7sNEZ3ghhD36JR7QcOBVYRhHJ5aWbuxcXqNGduqSgcO991MbZIK6Xbrqc0RnWOozJtps9LqjqA
+	lFUolStP8Nr/4GfS7Zpsnhnc3rA08Sd1B2YHtXh6hNO091l2zkNQcrZVIGkAHCTnAzPMTWkQTNP
+	9nH/ixnABJ6ueL2xy6FJ/LVgjuXGDei+TZHDVxX2VUZPqspbMuogIH/8kL0XCo9A2HL9h282dSg
+	YB3wGJpxi5NZFRvaVDBOYBKnFXh0+7D9v66m6nlm+CFLbKBGM0nzfCdpRCT/goExp9QX4fR99Wb
+	RV/ZlbNhHd8/pxqEqMAoT0QyWrefXOSG2QtApfIxgThO1muOAmazXwYuGD/6CiwYTbeJ60mYjmE
+	pWO6+KRnjKTnblBhwvNNixsp/zIheK2NwbzXjL4ZrWI38N5jxaAap+S2ZQnAc5J0YmrIjYEFE92
+	e9sT8+n7XF6WCQ==
+X-Received: by 2002:a05:600c:1c1b:b0:4a2:1a:a116 with SMTP id 5b1f17b1804b1-4a35aae5c48mr101973045e9.0.1792975270272;
+        Sun, 25 Oct 2026 17:41:10 -0700 (PDT)
+Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a35a07ebc0sm74574555e9.3.2026.10.25.17.41.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 25 Oct 2026 17:41:09 -0700 (PDT)
+From: Pablo Mazzini <pmazzini@gmail.com>
+To: Mark Brown <broonie@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Lee Jones <lee@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pablo Mazzini <pmazzini@gmail.com>,
+	Alistair Francis <alistair@alistair23.me>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hwmon@vger.kernel.org,
+	mfd@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/7] sy7636a: power the panel only during updates
+Date: Mon, 26 Oct 2026 00:39:11 +0000
+Message-ID: <20261026003918.155321-1-pmazzini@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, heiko@sntech.de
-Subject: Re: [PATCH] arm64: dts: rockchip: Enable Wi-Fi on the NanoPi M5
-To: Leonard Lausen <leonard@lausen.nl>
-References: <20261025205339.14539-2-leonard@lausen.nl>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20261025205339.14539-2-leonard@lausen.nl>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa175a0986703a4kunm2868e8063c52c7
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTBhDVkwdSU4eGRhJQh9IHVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=HhLY1O7uNKLtSMhQOf0XfdncyG4p3WeNQVKSDyPYpEqyPUruh0VpprvnPhn0gk4CXO3hcA3hJNw5rU38d0ohVwU3ZL0PS7eatueMYSoMngTL/INn+AyrJ7myT37A/c/CTUM8wcWx54/IIgwornfCtkF8mFvoqDfT1OCbAJS65DM=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=+9VnkTVZa5ILKHrRCMZEXP+36VdKYsWK9GWspe2p5rE=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261025_173357_837826_A792793E 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20261025_174112_512629_6A1A9630 
+X-CRM114-Status: GOOD (  11.62  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,100 +111,55 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+The SY7636A hwmon driver keeps VCOM on from probe, so a display driver
+can not power the panel only during updates.
+
+Read the temperature in the regulator driver instead, as the TPS65185
+and FP9931 drivers do, and remove the hwmon driver. Boards that relied
+on VCOM staying on mark it always-on. The regulator also switches VCOM
+with VCOM_EN, gains VCOM voltage control and binds to the I2C device
+directly.
+
+Tested on a PocketBook Verse (B288).
+
+Pablo Mazzini (7):
+  ARM: dts: imx: keep the SY7636A VCOM on
+  regulator: sy7636a: fix the chip name
+  regulator: sy7636a: add VCOM voltage control
+  regulator: sy7636a: wait for power good, then switch VCOM_EN
+  regulator: sy7636a: report the temperature
+  regulator: sy7636a: bind to the I2C device directly
+  ARM: imx_v6_v7_defconfig: drop the SY7636A MFD and hwmon options
+
+ Documentation/hwmon/index.rst                 |   1 -
+ Documentation/hwmon/sy7636a-hwmon.rst         |  26 --
+ arch/arm/boot/dts/nxp/imx/e70k02.dtsi         |   1 +
+ .../boot/dts/nxp/imx/imx7d-remarkable2.dts    |   1 +
+ arch/arm/configs/imx_v6_v7_defconfig          |   2 -
+ drivers/hwmon/Kconfig                         |  10 -
+ drivers/hwmon/Makefile                        |   1 -
+ drivers/hwmon/sy7636a-hwmon.c                 | 102 --------
+ drivers/mfd/Kconfig                           |  10 -
+ drivers/mfd/simple-mfd-i2c.c                  |  11 -
+ drivers/regulator/Kconfig                     |   6 +-
+ drivers/regulator/sy7636a-regulator.c         | 240 +++++++++++++++---
+ include/linux/mfd/sy7636a.h                   |  34 ---
+ 13 files changed, 205 insertions(+), 240 deletions(-)
+ delete mode 100644 Documentation/hwmon/sy7636a-hwmon.rst
+ delete mode 100644 drivers/hwmon/sy7636a-hwmon.c
+ delete mode 100644 include/linux/mfd/sy7636a.h
 
 
-在 2026/10/26 星期一 4:52, Leonard Lausen 写道:
-> The NanoPi M5 has an M.2 E-key slot for SDIO Wi-Fi modules such as the
-> RTL8822CS-based AC200. The SDIO controller is disabled and the module's
-> power sequence is not described, preventing the card from enumerating.
-> 
-> Enable the controller in four-bit SDR104 mode and connect its 3.3 V card
-> and 1.8 V I/O supplies. Describe the active-low reset on GPIO1_C2, the
-> 200 ms power-on delay used by the vendor device tree, and the external
-> 32.768 kHz clock from the HYM8563 RTC. Keep the card powered during
-> suspend as required by the rtw88 SDIO driver.
-> 
-> Signed-off-by: Leonard Lausen <leonard@lausen.nl>
-> ---
->   .../boot/dts/rockchip/rk3576-nanopi-m5.dts    | 34 +++++++++++++++++++
->   1 file changed, 34 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
-> index 3a305408fa16c..bfa18de1ae1af 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
-> @@ -23,6 +23,7 @@ aliases {
->   		ethernet0 = &gmac0;
->   		ethernet1 = &gmac1;
->   		mmc0 = &sdmmc;
-> +		mmc1 = &sdio;
->   	};
->   
->   	chosen {
-> @@ -212,6 +213,16 @@ vcc_3v3_s0: regulator-vcc-3v3-s0 {
->   		vin-supply = <&vcc_3v3_s3>;
->   	};
->   
-> +	sdio_pwrseq: sdio-pwrseq {
-> +		compatible = "mmc-pwrseq-simple";
-> +		clocks = <&hym8563>;
-> +		clock-names = "ext_clock";
-> +		pinctrl-0 = <&wifi_reg_on_h>;
-> +		pinctrl-names = "default";
-> +		post-power-on-delay-ms = <200>;
-> +		reset-gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
-> +	};
-> +
->   	sound {
->   		compatible = "simple-audio-card";
->   		pinctrl-names = "default";
-> @@ -855,6 +866,12 @@ pcie0_perstn: pcie0-perstn {
->   		};
->   	};
->   
-> +	sdio-pwrseq {
-> +		wifi_reg_on_h: wifi-reg-on-h {
-> +			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +
->   	sdmmc {
->   		sdmmc0_pwren_h: sdmmc0-pwren-h {
->   			rockchip,pins = <0 RK_PB6 RK_FUNC_GPIO &pcfg_pull_up>;
-> @@ -890,6 +907,23 @@ &saradc {
->   	status = "okay";
->   };
->   
-> +&sdio {
-> +	bus-width = <4>;
-> +	cap-sd-highspeed;
-> +	cap-sdio-irq;
-> +	disable-wp;
-
-disable-wp is for sd cards, please drop it.
-
-> +	keep-power-in-suspend;
-> +	mmc-pwrseq = <&sdio_pwrseq>;
-> +	no-mmc;
-> +	no-sd;
-> +	non-removable;
-> +	sd-uhs-sdr104;
-> +	vmmc-supply = <&vcc_3v3_s3>;
-> +	vqmmc-supply = <&vcc_1v8_s3>;
-> +
-> +	status = "okay";
-> +};
-> +
->   &sdmmc {
->   	bus-width = <4>;
->   	cap-sd-highspeed;
+base-commit: aac26bee2287c88af5be5a5ff96d783b19a28790
+-- 
+2.52.0
 
 
