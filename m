@@ -2,72 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 254B7606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 13:16:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EA5B606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 13:20:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jH1F71uH;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=WTkj1Hz9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wFGGRpXn;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=j+VFRwAm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=LChBFc7NyA4kYe4eWX6P8OUX1NQ9dlfzg5VF5MaM0QQ=; b=jH1F71uHL4SmNJ
-	fldpMAjB2YI5/DDH/mxba3IlF66EOoVfHvnRIyDvFHYpO7qbXH2vPWj7P6lfNvC2WSOVH+YLJIxpU
-	egCQ2oEEvwi5SloaWKQIqqK0EBB1llnJuh6KR1g63YXtGAEcdVXK2S94Hp8mV/0X8u9O1GiX0qfXJ
-	2ksUpEz7bGCq+9NGFO3QkKYEJm1xhUjJSeyGmBlgz3XjFgU9gdeDKrNvvBPa+DoOevjkGzv7pQ3XM
-	w9dwnDjWsrU+xTcg3FsFfUIwfy2Kw/zbn39OOphA1b+V/Yl6sKGhoooKUI01rqY6C0G+JeHcgJLwL
-	EQU6pE32rp0Aom/LZT9w==;
+	List-Owner; bh=0kGdvRUS0dLRvNimoHsfs/WP9lwMRZf3ZAqeb280LWk=; b=wFGGRpXnpwqtB9
+	bIONgPzoy4q0dWP2lZo5/vPZ/4N1FUzwxR/RG553YWEWWoL+nPcm0YYyfkOK2WO07QZNJ8ODdOzQQ
+	Xt+1fWE323NnE3FRNXOq4oMZ0IuwTPeelZRU6GXaFSBMcE2nmjzmoaYWv1CWc2w0A3oqQmXw4VhiO
+	k8aMx35UlOx4q/6RBmKq3DzEDP1DKa6ppkSQPuHxXuLDzawsgkuJTgoZicznHwtTo4yUrCYkOWwKH
+	I3v3mH5nbkjD+aNCz0y0H1eJwkMsv/+75gyrC2VPhc9Pa0SPSNyR8HaIYkjeMkptjq9+13jAkw4Hg
+	NXFnya9iATob/EKw94Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLKXn-00000002a1E-1l9M;
-	Mon, 26 Oct 2026 13:15:19 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1xLKd7-00000002abC-0lNJ;
+	Mon, 26 Oct 2026 13:20:49 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLKXj-00000002Zzj-3Llt
+	id 1xLKd3-00000002aaa-3Aae
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 13:15:18 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=LChBFc7NyA4kYe4eWX6P8OUX1NQ9dlfzg5VF5MaM0QQ=;
-	b=WTkj1Hz98KtbFvD5jQZgc5A9tiEOtCFlXYcuRZDUmncC+ctfEjtQL7bIKLjyuGoa8fnjIv3TP
-	I3dhb7S9tqk3koarvwaJAiz1JTH+SXMXwaJM9x3a0pOfMtPoyoZArP8zf4lCX8Pj1xZW6SJltVM
-	DrodVf9ZMa0Ao8lFm8Z+Nlk=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jCvHK44Bzz1prQ6;
-	Mon, 26 Oct 2026 21:14:53 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 925744056D;
-	Mon, 26 Oct 2026 21:15:00 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 26 Oct
- 2026 21:14:59 +0800
-Message-ID: <ce191ccd-1948-448f-8279-b30008191b8b@huawei.com>
-Date: Mon, 26 Oct 2026 21:14:59 +0800
+	Mon, 26 Oct 2026 13:20:47 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6ae14eecc64so3984286a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 06:20:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1793020843; x=1793625643; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0kGdvRUS0dLRvNimoHsfs/WP9lwMRZf3ZAqeb280LWk=;
+        b=j+VFRwAmqOxDBF8+/hnJxqthurHRA/ru2BGxwJv/ze9C4aukiQ5HxVIZg26k+bV9h5
+         ZFbztelQD6MEkxc0qR8Ri1Fxt0uwaq2F7w0Qu95U4uEfCXr3k1Pj2bYPOLqS67jX4l4f
+         xTBLhKptzLiRvrseHhL2+geUq+8tsAVELAhpMi3zc2SV3R0kZlLhFRvIcJ7ebSm5Lnaj
+         s7PmN3aQOV33Tb9+76UqceUjY6q+nueBHZxVjWCcdFV9jIPnU2mtWNuFaJCSj14Y9Co5
+         vooB5qtaomahbVHBIHsxtE9s2Aoy8wR+CHhlPiNh51nVEzH4cjg3/Y3iIDmAi3V3sojg
+         Oigg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793020843; x=1793625643;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0kGdvRUS0dLRvNimoHsfs/WP9lwMRZf3ZAqeb280LWk=;
+        b=WFoJK6Obd4eKmjFEIpr60tmO9/057DXFo7+ClKuvmWClJhQlkab2RgkPjKKhT3oDw/
+         BvHXtGbb8LO++B+E+6H1nOAArA1s30XnviqW3ybYk9HJ4DNMrLwJx41ErW268Zxwt2Ds
+         LazwIUEpYfkBrcNFRj3YqPbkiIatB17ZTnQO4qtUa19Ort0RONwPqTzGkNrgUSkEYMwR
+         xrzxcP49Oz2Tu3/b2bMlx21aaS2f8p3nRBI8KQQyytMwjYEUaaCAxWzxnLO4q4q4TOgF
+         L1+pR6HQa65J5t9aGoEUpwLO2QGCRC38cqmdlv/YHRDIGPev1vQe6toWNrP9WZZPLEKG
+         pSvQ==
+X-Forwarded-Encrypted: i=1; AKwUvByMxS7o+SbBalwLZRcmDwxtW3x1/Y4qVcpii19PwralA0vpEPy7CGvaZv85OZA/H9r9GSBW45qnP4PpBwfW/UqL@lists.infradead.org
+X-Gm-Message-State: AFq9FYJCHgvTsLsbRFF8ZTusjSBwMfuvOmqJzjaS22n2dZXQhZR/7/f8
+	B5Jmf0q1KmrSFqrdABItC/h6sTpcX8MZa/za1ubyG/9ajlpnhjX1RFfT
+X-Gm-Gg: AYBFou3fdDuqbN9B21ILRIByv2KtBowM7iHP+n09gcDewDvtIQNmRFNw1Cfk+HBlKDD
+	C43cntwrAItt98uHFPOlw7UaOV+I2ALRrFHMk59TO3XAjUUC8hry1HJObxjAJs16o4TZGnjhAf2
+	Rcof9fEjc5KwOJFnZEijk7KNSWN7yeMKATuYLKRz5X9cE3XHicjY2nmM4FiUKqMOKOEBFTVNqlM
+	ZSH703QOyCbVZEG7NdEmuTBOTAGgZ0MXDzlQ+8laZeO2uHDSqjmIXBKHCsv/pX/VEEqYIrVntL2
+	vNqbQ+FpoeM2IUPiJhCPGL0Aj5Jcfys/yckICCfL/cCiCfZxAwD786dUhzKbGpOQG92ILnOgtmC
+	qhz/7XPlHDVHIlQ6uzbtCaxLAmUV1CBORKuYIh/fGXFLapBIvmbCWJqhb/AWIlv91A0NJ8RCCp1
+	rzm8W74tMAYB4nPo2JxYtsPS9qoSYlSSQvUPLAgNXQmimnlT98mEKf8zsbb/sxzz3FD7GTiIUzn
+	IMzT9yGWCYPW7dLnMKnYMfWNa34Ui05mFoyb7xBpsQUG6aB
+X-Received: by 2002:a17:907:2da5:b0:c33:ca5e:8ddb with SMTP id a640c23a62f3a-c46bde088d3mr773260366b.28.1793020843337;
+        Mon, 26 Oct 2026 06:20:43 -0700 (PDT)
+Received: from beelink ([187.13.23.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c46bd35004asm314324466b.4.2026.10.26.06.20.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Oct 2026 06:20:42 -0700 (PDT)
+From: Aldo Ariel Panzardo <qwe.aldo@gmail.com>
+To: Li Ximo <lixicaicai@gmail.com>
+Cc: Wang Haoran <haoranwangsec@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Aldo Ariel Panzardo <qwe.aldo@gmail.com>
+Subject: Re: [PATCH] usb: gadget: udc-xilinx: Fix wild pointer dereference on empty EP0 queue
+Date: Mon, 26 Oct 2026 10:20:21 -0300
+Message-ID: <20261026132021.220391-1-qwe.aldo@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261023073131.637062-1-lixicaicai@gmail.com>
+References: <20261023073131.637062-1-lixicaicai@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 07/10] arm_mpam: resctrl: Warn when no monitoring
- component is found for a CPU
-To: Reinette Chatre <reinette.chatre@intel.com>, <ben.horgan@arm.com>,
-	<james.morse@arm.com>, <Dave.Martin@arm.com>, <fenghuay@nvidia.com>
-CC: <tony.luck@intel.com>, <yu.c.chen@intel.com>, <babu.moger@amd.com>,
-	<fustini@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
-References: <cover.1792443633.git.reinette.chatre@intel.com>
- <1c68a6ae981095ec93250cf0e394bb4df15c7e66.1792443633.git.reinette.chatre@intel.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <1c68a6ae981095ec93250cf0e394bb4df15c7e66.1792443633.git.reinette.chatre@intel.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_061516_334685_C694A128 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20261026_062045_803888_A08008DB 
+X-CRM114-Status: UNSURE (   5.33  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,58 +104,13 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-
-在 2026/10/20 6:07, Reinette Chatre 写道:
-> Setting up a monitoring domain fails if no monitoring class has a
-> component that contains the CPU. This is not expected to happen: a
-> resource only supports monitoring when at least one monitoring class
-> was picked, and only classes that cover all possible CPUs are picked
-> for monitoring.
-> 
-> The failure path calls WARN_ON_ONCE(0), which never warns. The
-> unexpected failure is thus silent and the CPU is left without a
-> monitoring domain with nothing reporting why.
-> 
-> Warn when no monitoring component is found for the CPU, as is already
-> done when setting up a control domain finds no component in the
-> resource's class.
-> 
-> Signed-off-by: Reinette Chatre <reinette.chatre@intel.com>
-> ---
->  drivers/resctrl/mpam_resctrl.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index 022920be1862..63c5bf45856d 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -1665,10 +1665,8 @@ static int mpam_resctrl_setup_mon_domain(unsigned int cpu,
->  		if (mon_comp)
->  			any_mon_comp = mon_comp;
->  	}
-> -	if (!any_mon_comp) {
-> -		WARN_ON_ONCE(0);
-> +	if (WARN_ON_ONCE(!any_mon_comp))
->  		return -EFAULT;
-> -	}
-
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
->  
->  	mpam_resctrl_domain_hdr_init(cpu, any_mon_comp, r->rid, &mon_d->hdr);
->  	mon_d->hdr.type = RESCTRL_MON_DOMAIN;
-
--- 
-Best regards,
-Jinjie
-
+Reviewed-by: Aldo Ariel Panzardo <qwe.aldo@gmail.com>
 
