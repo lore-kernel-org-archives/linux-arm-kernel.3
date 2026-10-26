@@ -2,74 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52421606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 08:52:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C628606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 08:57:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oFqusWce;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Su7NXPDB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TcbyNlO4;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=FZH/k1ke
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=xelDIWCq6o8kmC+FCPg90bobohtYm5tcKa8G8a0jIQ4=; b=oFqusWcebXfY+y
-	7brXJbVqqf5N2dhWTbzYy3Md4lacHacJ5sBOGCXaIO4znH961d7Zxz1UdNcuD644jAW1A8e2mKhWF
-	VFwnbh4uu3Dln6sndbKtHTURDWMsSZ2IgjLJXrXh2jgHxhF3NC4o4P4C0tDyhe4UB9kE1kbtjjmlb
-	yNnCJo9T5ihdC3X9HJbrTxsO9NcDc+/MBi9ZW8rvUEaQWx5zvuP8qZDJoLc2cn/v3DESMIFJCv6gD
-	brccpOvpUlpMOPeGGdPeNDXRK4t5vw/Sga1o4I0eH7z1kAz3wL77uqWyCTyLA/C8sh/pHwMqwFi3L
-	IoqJg5NynCExjvFR8P1w==;
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=bI1K7WpjHruW52kJjg4X/MW1X2UQCXM+sxLT9XP/nlQ=; b=TcbyNlO4ieRcU1
+	oBsKSKQVGl2GUl+yWjCSZJGdMXGYh2ZQvzOXGUg9DfasQzU9RV0B1Wf185K+L2yYkgU1bjqzzOrJb
+	JxWjyCPJdAFO3TgvhMGlGxDRiqFBhDo96gupi8N/B0LMHm2PlgZgTiHuE9X0A2NxBL3gBsxIXOB1n
+	71070Ea24s8DftLl/XSJ+18PLuXgerl5ufcwiKp5pBUJN8zCObQ6uT3IomLTU6RAC8w0R812kKDJf
+	A51tQYjLjRrftIVsRJSR8x4kiMKQIQEwnSX2O3s69WGV1ZDAYlEWOgbT53wuI8eKS5gljCVdPy8Zv
+	wC1Q8tSqXBXSG802atyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLGRR-00000001zeU-2DJn;
-	Mon, 26 Oct 2026 08:52:29 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1xLGWG-00000001zwE-0U4R;
+	Mon, 26 Oct 2026 08:57:28 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLGRO-00000001zdX-1dg4
+	id 1xLGWD-00000001zvE-0pBn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 08:52:28 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=xelDIWCq6o8kmC+FCPg90bobohtYm5tcKa8G8a0jIQ4=;
-	b=Su7NXPDB9RNH+c3Xzmu6p5J8+RP1/lBmbkPZMyD5dGyoXsIDcNNRWbbt8brCkBjrInOB6ZI4H
-	PVedpc5Pyz9Tz0LeBu+R397efS7tLlo0B9sTpqd9G24Im6tbIABcqeukF9KRHxaMkkDA/u7WR27
-	XVK8ucTl912vLWM0NWoMICU=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4jCnSC70Ybz1K96Y;
-	Mon, 26 Oct 2026 16:52:11 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1869D4058A;
-	Mon, 26 Oct 2026 16:52:19 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 26 Oct
- 2026 16:52:18 +0800
-Message-ID: <88c40977-28f1-4f01-aa5c-6dedac822d21@huawei.com>
-Date: Mon, 26 Oct 2026 16:52:17 +0800
+	Mon, 26 Oct 2026 08:57:27 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a214af2076so18663905e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 01:57:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1793005043; x=1793609843; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bI1K7WpjHruW52kJjg4X/MW1X2UQCXM+sxLT9XP/nlQ=;
+        b=FZH/k1keSJfKvQBTM0KaK0w0iGv05im1wn8ciBgPcQTADJEUMH5fbh1k3f+DILdenR
+         9wqPCbCrbrsVKAcspfvwXCP5Nw7ixB8i/1vZcwrAyFPed86P7kISzT+gnOQr6WpH/Agb
+         sT7LqYamiD+wfPaxYJ+V6gO/g4MpiChExqCo9TRE6xJ3ronDWOIgmilLNp9thzZmczrH
+         QDT9GpNndjXGUUFfgUaX+PJAw7UkTWNGQFb7jhkSsFf33a9xqK9YoGqLtXfFIG0vhMe0
+         cQrJF76nKVEHdQuuB4MYmfpg3T9ScRdAHhQNPg1GtrwvI5zrStXlqpNrByevKun1LdVK
+         He3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793005043; x=1793609843;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bI1K7WpjHruW52kJjg4X/MW1X2UQCXM+sxLT9XP/nlQ=;
+        b=AECp00vNUtZxRvzMVf5LhFOybXi8VTY3fA0Vr6yo3OehofMYdUvWvyOIJ7EMgF34ZQ
+         ZgexqE46ptn9fwMwIb5MNjEwZ8xyOswKDAx43Nd2K4Hf09xmwLl4HCs0J9pGlc0tCBCm
+         iekljaKr0BmZjlGE604pneYTBy0VVrqx8b8+zfqDbALanfoxWODyg+l6nNJ051KoU3zG
+         PHsM4Wc3XD2EeEJmqIeN9mG0JCH4oUxMmepSr4Ned/Hjin/SbaNDk1btOqVl8Ua1ndWU
+         9Vt1ZQ8k0BkrATtHw+YRRBD05v5eJPZPLOMUDKRyTBY2RXww7zu0DOxPIgr1zoS0l4St
+         z/Bg==
+X-Forwarded-Encrypted: i=1; AKwUvBzcjRV7Cvup2KjcvuJuPrxT5A5f+JTm84C0l3MbL7fb8HDalLahx2XkTfndZhkTYmsG2PtkgzUaySw/3ODNK2vr@lists.infradead.org
+X-Gm-Message-State: AFq9FYJQCxAV+KKh2cDtb2e1OSoxmMHOG5zD0RLA9cq1UTYUwQNKGLsQ
+	2hsGhZd5WH8XJPKP0viltJOxzWFXff0Pkw+0QbN/4bzUnkQ57AZY04+fJnqYD8qKf8k=
+X-Gm-Gg: AYBFou2xT0zjmGHwK7cT7o3359gfO44YYx2f+k5O4e7UE4c5X/9NwS21PkxrF6263Dq
+	K59QlhKzQQdW6Oxvr568JiDIBU2J/FTIFhImdBRhlmnDPQWIYY3MEZrg7g6HyD56roYgSS+n5qS
+	iMihj7hmvVWCzROXA5Q8FKX2pAO2UtFTFqvZeJNognwOyVvgWhOPaAs4yidPqDbk1JeNrIQzCRz
+	dAqPExw9OxiagDKEnpzFdzRNl5vpWWdTfse8fzgIMS+eF4iEpfcz25dwE18t982soKaqdPPuag0
+	MtP/2jws6FGPxmUBUzryTQr7rScr/LjYqf/1CJ0HUAKQScyQHRqNJASLkKZphynJh84kOeFxDRF
+	YWJ4D1uL6YbGdWA5RW9xnjGdksc92Z+xj5G40dZ/S7nmNdy1SBByEGU5OMilWDWpe081vzk0Lza
+	/mDGtaXUbopV9wOqxX0s+IcqqEfofViE+Gf7n+nCp3FZrjLAUMrSMp9oO0Z/l1WVsCoJan89BJ4
+	0/3cBsR20GrOQg+AmcrqP5As160BdMB8js2yL0l1jGnYUekg0H6T4tYRuuHzwR9V/TH9npPmy4=
+X-Received: by 2002:a05:600c:3b25:b0:4a2:1a:a128 with SMTP id 5b1f17b1804b1-4a35ac9f1ecmr118305925e9.19.1793005043279;
+        Mon, 26 Oct 2026 01:57:23 -0700 (PDT)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a35a59d998sm187484365e9.15.2026.10.26.01.57.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Oct 2026 01:57:22 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Viresh Kumar <viresh.kumar@linaro.org>,
+ christian.koever-draxl@student.uibk.ac.at
+Cc: neil.armstrong@linaro.org, sboyd@kernel.org, bmasney+clk@redhat.com,
+ khilman@baylibre.com, martin.blumenstingl@googlemail.com,
+ rafael@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-kernel@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, Christian Stefan =?utf-8?B?S8O2dsOpci1EcmF4?=
+ =?utf-8?B?bA==?=
+ <ckoever@outlook.de>
+Subject: Re: [PATCH 4/4] cpufreq: add an Amlogic speed-bin driver
+In-Reply-To: <at7lXEqds7ukoR2V@vireshk-B250M-D3H>
+References: <20261025192219.209137-1-christian.koever-draxl@student.uibk.ac.at>
+ <20261025192219.209137-5-christian.koever-draxl@student.uibk.ac.at>
+ <at7lXEqds7ukoR2V@vireshk-B250M-D3H>
+Date: Mon, 26 Oct 2026 09:57:22 +0100
+Message-ID: <1jbj8gkff1.fsf@starbuckisacylon.baylibre.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v20 00/15] arm64: entry: Convert to Generic Entry
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<oleg@redhat.com>, <shuah@kernel.org>, <kees@kernel.org>,
-	<luto@amacapital.net>, <wad@chromium.org>, <peterz@infradead.org>,
-	<ada.coupriediaz@arm.com>, <linusw@kernel.org>, <kevin.brodsky@arm.com>,
-	<yeoreum.yun@arm.com>, <james.morse@arm.com>, <thuth@redhat.com>,
-	<tglx@kernel.org>, <vladimir.murzin@arm.com>, <broonie@kernel.org>,
-	<ryan.roberts@arm.com>, <liqiang01@kylinos.cn>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>
-References: <20260930101805.1770358-1-ruanjinjie@huawei.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260930101805.1770358-1-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_015226_737894_C347DED5 
-X-CRM114-Status: GOOD (  26.04  )
+X-CRM114-CacheID: sfid-20261026_015725_275999_707D4450 
+X-CRM114-Status: GOOD (  14.85  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,166 +109,58 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On lun. 26 oct. 2026 at 11:00, Viresh Kumar <viresh.kumar@linaro.org> wrote:
 
+> On 25-10-26, 20:22, christian.koever-draxl@student.uibk.ac.at wrote:
+>> From: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de>
+>>=20
+>> Every S4 speed bin runs the same CPU frequencies but needs its own
+>> voltage curve, and the bin can only be read through the secure monitor.
+>>=20
+>> Read the bin from the firmware, select the matching
+>> "opp-microvolt-speed<bin>" property for all CPUs, then register
+>> cpufreq-dt. Bins outside the known range fall back to bin 0, which
+>> has the highest voltages. Like sun50i-cpufreq-nvmem, the driver binds
+>> on the SoC compatible and needs no node of its own, and S4 is added to
+>> the cpufreq-dt-platdev blocklist so cpufreq-dt is only created after
+>> the bin has been applied.
+>>=20
+>> Signed-off-by: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.d=
+e>
+>> ---
+>>  MAINTAINERS                          |   1 +
+>>  drivers/cpufreq/Kconfig.arm          |  14 ++
+>>  drivers/cpufreq/Makefile             |   1 +
+>>  drivers/cpufreq/amlogic-cpufreq.c    | 184 +++++++++++++++++++++++++++
+>>  drivers/cpufreq/cpufreq-dt-platdev.c |   2 +
+>>  5 files changed, 202 insertions(+)
+>>  create mode 100644 drivers/cpufreq/amlogic-cpufreq.c
+>
+> Is it safe to apply just this one ? I can take this via the PM tree then.
 
-在 2026/9/30 18:17, Jinjie Ruan 写道:
-> This series converts arm64 to the generic entry infrastructure.
-> 
-> Currently, architectures such as x86, RISC-V, LoongArch, PowerPC
-> and s390 use generic entry, which significantly reduces maintenance
-> burden and improves code elegance.  arm64 already adopted generic IRQ
-> entry in commit b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"),
-> making it the right time to complete the conversion.
-> 
-> This work brings arm64 in line with other major architectures,
-> reducing duplicated code and enabling future improvements like
-> Syscall User Dispatch and rseq time slice extension optimizations.
-> 
-> The series is rebased on v7.3-rc4 and has been tested with stress-ng,
-> hackbench, kselftests (ptrace, breakpoints, arm64/abi, arm64/fp, vDSO),
-> ptrace stress test, Pseudo-NMI load test, and the rr test suite [1].
+I would advise to wait a little for Amlogic to chime in.
 
-Hi Mark and all,
+Patch 2 is something I already rejected back when S4 support was
+initially introduced. I suppose AI just unearthed it and did not bother
+to mention it.
 
-Ping.
+Amlogic was supposed to migrate to SCMI at that point, and possibly
+handle CPU frequency scaling through the secure fw entirely.
 
-Are there any further review comments or new suggestions for changes?
-I’m happy to address anything that comes up.
+They did on later SoCs, I don't know where their FW stands on the S4.
 
-Thanks!
-Jinjie
+>
+> --=20
+> viresh
 
-> 
-> A new kselftest ("selftests/arm64: Add ptrace SYSEMU/single-step tests")
-> is included at the end of the series, covering the syscall-exit
-> pseudo-step and single-step behaviour touched by this work.
-> 
-> Observable (non-ABI) changes worth calling out:
-> 
-> - The traceable functions on the syscall path change: syscall_trace_enter,
->   syscall_trace_exit and el0_svc_common.constprop.0 are replaced by
->   trace_syscall_enter, trace_syscall_exit and syscall_enter_audit, the
->   same names x86, RISC-V, LoongArch and s390 already expose.
-> 
-> - CONFIG_DEBUG_RSEQ becomes unselectable on arm64 once GENERIC_ENTRY is
->   set (rseq_syscall() becomes a no-op stub), so the earlier rseq_syscall()
->   reordering is only temporary and the equivalent is handled by
->   __rseq_debug_syscall_return().
-> 
-> On gVisor with systrap mode, the Syscall User Dispatch (SUD) feature
-> yields a slightly lower performance gain on arm64 (3% ~ 5%), similar to
-> that on x86 [2].
-> 
-> Result: the average over 1M getpid calls, ns/op
-> 
-> 	| KVM VM Configuration | SUD    | no-SUD | Savings % |
-> 	| -------------------  | -----  | -------| --------- |
-> 	| 2 vCPU, pinned       | 4269.8 | 4509.5 | 5.3%      |
-> 	| 4 vCPU, pinned       | 4175.4 | 4369.1 | 4.4%      |
-> 	| 8 vCPU, pinned       | 4352.6 | 4485.4 | 3.0%      |
-> 
-> Note that this series does not yet enable SUD or the rseq time slice
-> extension on arm64: SUD additionally needs
-> ARCH_SUPPORTS_SYSCALL_USER_DISPATCH [3] and the rseq slice extension needs
-> HAVE_GENERIC_TIF_BITS [4], neither of which arm64 selects today.  The
-> numbers above are the motivation for enabling them in a follow-up.
-> 
-> Testing follow-up that still requires real hardware:
-> 
-> - MTE: run the MTE selftests on real hardware; part of them do not run
->   under QEMU.
-> 
-> [1]: https://github.com/rr-debugger/rr/wiki/Building-And-Installing#tests
-> [2]: https://github.com/google/gvisor/commit/a45d6227b521012109cde9a942d644d778eb773b
-> [3]: https://lore.kernel.org/all/20260721081858.1169276-16-ruanjinjie@huawei.com/
-> [4]: https://lore.kernel.org/all/20260320104222.1381274-1-ruanjinjie@huawei.com/
-> 
-> Changes in v20:
-> - Add a kselftest covering the syscall-exit pseudo-step
->   and single-step behaviour.
-> - Reword the first patch: it skips the pseudo-step for the emulated
->   syscall rather than "fixing a redundant exit stop", and drop the
->   Fixes: tag and Reviewed-by.
-> - Add Tested-by.
-> - Cover letter: document the observable changes and the testing
->   follow-ups.
-> - Link to v19: https://lore.kernel.org/all/20260922035510.1090299-1-ruanjinjie@huawei.com/
-> 
-> Changes in v19:
-> - Rebased on v7.3-rc4.
-> - Fix build problem as Karl pointed out.
-> - Remove has_syscall_work() later to make it more clear.
-> - Add gvisor test data.
-> - Link to v18: https://lore.kernel.org/all/20260902095537.602517-2-ruanjinjie@huawei.com/
-> 
-> Changes in v18:
-> - Rebased on v7.3-rc1.
-> - Drop the SUD patch as Mark suggeted.
-> - Update the commit message.
-> - Add Reviewed-by.
-> - Link to v17: https://lore.kernel.org/all/20260721081858.1169276-1-ruanjinjie@huawei.com/
-> 
-> For changes in v7 to v16, please refer to the individual patch threads:
-> - v16: https://lore.kernel.org/all/20260629130616.642022-1-ruanjinjie@huawei.com/
-> - v15: https://lore.kernel.org/all/20260511092103.1974980-1-ruanjinjie@huawei.com/
-> - v14: https://lore.kernel.org/all/20260320102620.1336796-1-ruanjinjie@huawei.com/
-> - v13: https://lore.kernel.org/all/20260317082020.737779-1-ruanjinjie@huawei.com/
-> - v12: https://lore.kernel.org/all/20260203133728.848283-1-ruanjinjie@huawei.com/
-> - v11: https://lore.kernel.org/all/20260128031934.3906955-1-ruanjinjie@huawei.com/
-> - v10: https://lore.kernel.org/all/20251222114737.1334364-1-ruanjinjie@huawei.com/
-> - v9: https://lore.kernel.org/all/20251204082123.2792067-1-ruanjinjie@huawei.com/
-> - v8: https://lore.kernel.org/all/20251126071446.3234218-1-ruanjinjie@huawei.com/
-> - v7: https://lore.kernel.org/all/20251117133048.53182-1-ruanjinjie@huawei.com/
-> 
-> 
-> 
-> Jinjie Ruan (15):
->   arm64: ptrace: Drop redundant pseudo-single-step for SYSEMU_SINGLESTEP
->   arm64: ptrace: Rework audit_syscall_entry()
->   arm64: ptrace: Open-code seccomp check in syscall_trace_enter()
->   arm64: ptrace: Rename and clean up syscall_trace_enter()
->   arm64: ptrace: Protect rseq_syscall() from tracer PC modifications
->   arm64: syscall: Rework the syscall exit path in el0_svc_common()
->   arm64: ptrace: Pass thread flags to trace enter/exit
->   arm64: ptrace: Extract arm64_syscall_exit_to_user_mode_work() helper
->   arm64: ptrace: Align syscall exit work semantics with generic entry
->   arm64: syscall: Use exit-specific flags check in el0_svc_common()
->   arm64: syscall: Simplify el0_svc_common() syscall exit path
->   arm64: ptrace: Make return type of arm64_syscall_trace_enter() bool
->   arm64: entry: Convert to generic entry
->   arm64: Inline el0_svc_common()
->   selftests/arm64: Add ptrace SYSEMU/single-step tests
-> 
->  arch/arm64/Kconfig                            |   2 +-
->  arch/arm64/include/asm/entry-common.h         |  77 ++++++++++
->  arch/arm64/include/asm/syscall.h              |   5 +-
->  arch/arm64/include/asm/thread_info.h          |  16 +--
->  arch/arm64/kernel/debug-monitors.c            |   8 ++
->  arch/arm64/kernel/entry-common.c              |   2 +-
->  arch/arm64/kernel/ptrace.c                    | 115 ---------------
->  arch/arm64/kernel/signal.c                    |   2 +-
->  arch/arm64/kernel/syscall.c                   |  34 ++---
->  tools/testing/selftests/arm64/Makefile        |   2 +-
->  tools/testing/selftests/arm64/ptrace/Makefile |   9 ++
->  .../selftests/arm64/ptrace/ptrace_common.h    |  84 +++++++++++
->  .../arm64/ptrace/single_step_signal_handler.c | 131 ++++++++++++++++++
->  .../arm64/ptrace/single_step_syscall_stop.c   | 130 +++++++++++++++++
->  .../ptrace/sysemu_singlestep_intercept.c      |  93 +++++++++++++
->  .../ptrace/sysemu_singlestep_no_exit_stop.c   |  81 +++++++++++
->  16 files changed, 631 insertions(+), 160 deletions(-)
->  create mode 100644 tools/testing/selftests/arm64/ptrace/Makefile
->  create mode 100644 tools/testing/selftests/arm64/ptrace/ptrace_common.h
->  create mode 100644 tools/testing/selftests/arm64/ptrace/single_step_signal_handler.c
->  create mode 100644 tools/testing/selftests/arm64/ptrace/single_step_syscall_stop.c
->  create mode 100644 tools/testing/selftests/arm64/ptrace/sysemu_singlestep_intercept.c
->  create mode 100644 tools/testing/selftests/arm64/ptrace/sysemu_singlestep_no_exit_stop.c
-> 
+--=20
+Jerome
 
