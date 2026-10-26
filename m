@@ -2,109 +2,131 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CA91606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 20:19:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADB2C606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 20:25:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iDN9eLD+;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jl5TJde5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=08AvfEjT;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=WECzAvya
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=krAfBfFlNHgNlSxlUe+LuQnLSnJioLdfsgot8iO3v1A=; b=iDN9eLD+2opeEg6niQhFAa/WEL
-	mdSYahT1b2t9NkkockWv5gCZaOXb+Lg5HCbwPU6jvvaNYVdGZyXv9UYXiz3enLT+1NxCchHKUBp4A
-	YgjAlpSt8odbbOMGiTQ8MlGq932+lCSBTHKe+6ykHbzLkDwIqdrwS1j9Vgq7eNUvmG8TbBY2++49c
-	Iqy5/cfwXxv+SQSztHFHUrrs2IR8KFvsYalQ7YexYE4b0NPq2VH8vvO1OagMoJUAOo4t5+QKoCmRZ
-	uIHqJMLoeKAgR0NCkOOcl4nXkFI8XXp8KNXXB/oI2C4RBO9upZkdRSVXNNP1JWwFiJjXaWT2+n4Ur
-	LTU2rXog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=pU0NwAlmN/1H5GxbKnpqpM7HbDpz94JrESY0WvDe6G0=; b=08AvfEjTqjo4hf
+	yatmk9kaSXBbJYlyaRaRKjShtzZ6+xnEV5QBAbgNMGSwNmIiRphcZRdLfw9xUEOaZoleVquGkCOmG
+	h97NktO2dvvEF7x7WqzPLM7BSwUDZx8BUNvBfZ5/903wkAD4WJL+TN/zFs/A0158tSnru9ViHkDZZ
+	M0jUKOS1R8aSEWXC5U+NjWkpGncJC0j/rW2N8X9Kueh7VlSz6tCqGrCrosdj9F2lfWyCUX4DXnHrQ
+	lit+7uSDyfu4fbi36Wd2bDiWObhuqJJ5qBe9dnHy0Y1e1CBcyEA0vjmaWJYNTMxOlQS31rc/CRuDE
+	894tESCF8rfjuDOnYhmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLR9m-00000003DAI-1HS2;
-	Mon, 26 Oct 2026 20:18:58 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1xLRFq-00000003DQT-4A41;
+	Mon, 26 Oct 2026 20:25:15 +0000
+Received: from mail-ua1-x936.google.com ([2607:f8b0:4864:20::936])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLR9j-00000003D9h-2FjQ
+	id 1xLRFo-00000003DPm-1De7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 20:18:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793045936; x=1824581936;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=zUbmRDmK8gkD3yRwfjA9S4957SSqr5wODL3BCxfAj1I=;
-  b=jl5TJde56uOX2zhbxCgWPPBH12Mt6ba/sEt1d7GNfREOpYbjx0EGL4PY
-   EclDClY7ol6A8LpQGVpqocBZOxGdnLxhR1b9jreFmMJDC93b9JqXd1vuh
-   +zjhxRr2jgbmDdysPs3cN/Q5LvkN7LnNEcDS+Rdins9RLkwzgpNhWy3VL
-   F9GUr2G7qdBq2Kv/5eGWkpE7/qu0ZTnP/5ryj3WzEQ3EU/NsTPuLfecuU
-   XNWK8uro2kRZWeVAau8P5i28HhWme58mrzQCfPyHGVT+6UqIKGs97DEOo
-   5XeNZtScu0aqn+7IbFmdLokGBaX9k9xCBJaESNVcHCcq2lCEhLrV0Uyu6
-   g==;
-X-CSE-ConnectionGUID: sB/G9SFFS6uejb5ma4HWAA==
-X-CSE-MsgGUID: ksS/55hHSLOrigR8u4uweg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11947"; a="1745587"
-X-IronPort-AV: E=Sophos;i="6.27,180,1787036400"; 
-   d="scan'208";a="1745587"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2026 13:18:54 -0700
-X-CSE-ConnectionGUID: kT+5/UsFQh2DCAfQ8Ot76A==
-X-CSE-MsgGUID: CH2gncsbTPOGQRV4g+nYQw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,180,1787036400"; 
-   d="scan'208";a="4311398"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.93])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Oct 2026 13:18:47 -0700
-Date: Mon, 26 Oct 2026 22:18:45 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: "Maciej W. Rozycki" <macro@orcam.me.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Raul E Rangel <rrangel@chromium.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Timur Tabi <timur@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v5 2/5] serial: serialize asynchronous write wakeups with
- the port lock
-Message-ID: <at-1pU9Fq-8bXZY4@ashevche-desk.local>
-References: <20261024-submit-serial-8250-dma-cancel-v1-v5-2-9e52968928d2@gmail.com>
- <alpine.DEB.2.21.2610250459200.42255@angie.orcam.me.uk>
- <at4bw-G8czG-G7Wl@ashevche-desk.local>
- <CADvTj4psJcY2T1PG9H8_hJWjz62R7unj3PPgv3FrVquUMFVhGg@mail.gmail.com>
- <at5qKehogAjTa-fA@ashevche-desk.local>
- <CADvTj4qSgE6Rc--mWuqAcc8HTqN9EFOS_JM8Hp8e_=ka_ZLa6w@mail.gmail.com>
- <at8eDFj2WNaXDaot@ashevche-desk.local>
- <CADvTj4oNz-bnSZP+kfau-7wBSWLjLTP5jrr6nLfdCHNPo3pS6w@mail.gmail.com>
- <at-vyZ1sDhYPu0W5@ashevche-desk.local>
- <CADvTj4o_CENc3i92OQEZudOErSKPUptT4t2CCqDaGbseuK0QcQ@mail.gmail.com>
+	Mon, 26 Oct 2026 20:25:13 +0000
+Received: by mail-ua1-x936.google.com with SMTP id a1e0cc1a2514c-98301b325c4so786308241.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 13:25:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793046311; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DN18d1+qFewodKbipdmZD5z5578x7STdnf90T9o5dnGf9S3wuqW2TOK8vommfqb0Ew
+         MMgccFVAV3mOSqwO7mvpB+JgBxhGLbWpoV45QNZX8+qar068JtTZjtpz2mTWXyS7jQoy
+         WIGtNF6oAJN5jzmeXt5TDhN9FkdQr9FnPjNJeLXoRgO4vFTcyuARGornWHagitnZhVYa
+         qP2VT/isTryzGTbinTTnEkti05iBXX866RYVbdQPn7tg1er3v+xtPanj4KSzeQGMjIWZ
+         eH834SAO+LHwIQMCAKF7lTSjKc8y3AwNt8CAIJ9sQDyNEXfTJVVqh3nILmKnuP461Yw6
+         4a4A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=pU0NwAlmN/1H5GxbKnpqpM7HbDpz94JrESY0WvDe6G0=;
+        fh=iYFcjqFBed7B0CqtS0YbWIqqKeSqfHOy2c04jOqn83A=;
+        b=MOynt2DXX3EWlYK0lfU7Yp/R3SnbCYH16+DEeUw1zrmlJNTQWcg3R4Wlp/UfX6mFYC
+         1AI9r/euWcmjfmBgxMwQE+UknRPOt35uO96AXUQARVJM5A4mmfM3tqUn+Rq+XxgPjX7/
+         beMoJFOBQLG/NIwwvCCDGEkOxbppXA3h7Qr7xjDz79eEDl5WVYTEFPGkUmR1gw3yrtID
+         zCmDSJe23qZAHPi5lHMOOi/lUcwk0DR0wC7gc9PnPpHSCzhaO9M3Kp4OeTI+BjlSLFh5
+         WzaOOBzfu7LvkOYwUmL32L66rGRHmqP/bB5asXs+k8DVhnVe02vby3Jhaj3NjUKSCDuj
+         vyNg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1793046311; x=1793651111; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pU0NwAlmN/1H5GxbKnpqpM7HbDpz94JrESY0WvDe6G0=;
+        b=WECzAvya286/4/Brq6Er/uH7o8BXaFO1H1HkRMt43umJHqc062NeDNTz/5hq301mWH
+         79M5EEE0D6l0PtxtUJo7UxqGXsmuQoTCI1Ri8vUjdIeP7TxDlSEn/OctZgbXVADQa0MS
+         5JmA1poqvjN97TM9+9iqIMkqU2A7sjecChOK9eiNr6lZ2KlPbVYlsHSWfR2Sx7ioocPh
+         af3Lt2rI0hJMjQm2cAIhfsABbG87NYVGykSCWme4N9OlWgWP9M1+Cz3u2AaEdAcquzHl
+         6vcWIDXupHwYXlXHWMqP5RVM624krEkAbj78e53FJCEglKC9F6FZtpAov9wZ4kEpbGPw
+         dFnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793046311; x=1793651111;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pU0NwAlmN/1H5GxbKnpqpM7HbDpz94JrESY0WvDe6G0=;
+        b=q78Wk0PI0AFaKPI5AijlFR6mgYXEvJMZ/ovt/xSrIKQWg3noPWgl5oYv/mcs9SeYv5
+         alvK9RmYNlnwovqHScSyJn2PBC17dMlgB74e7rppYlGY4cUNFEaYNLGPUqCIVM18oKqm
+         irJ8kIu/7xRgRC2lK+VhIkzJpNpofYGi1+rUx74dMAGLiZmz4BaZ1NgbMsFddqmIXKUn
+         dObtnkQVEDh6+fgzna5tdMEtg7KNOH4RlM9epF5nEGd3JMFTSibq/6qR2RGGfDJRlRA3
+         1ZLhGy+d2gxbyXKUVh66m9PH41IoXfZhsPz8UD9k40VQOd5KRbeBLDg5xFZvGVbhCRnd
+         hHIw==
+X-Forwarded-Encrypted: i=1; AKwUvBzOTUOxz8rrjD6ywsBd/ZrTExR3Fw5Z9eD0K6smrIVlO25ZhDHkCYu7sOyCPSFu485Gt522wPiVSTNO6WKFlzLU@lists.infradead.org
+X-Gm-Message-State: AFq9FYIumWF70Szd9vRDmDLZajSkdlLNxA9o5wteoRY1C+Scl3Wh0cS8
+	eEXjOLH3GMxSWwvFzm6f7oFxoRgbScjoZt3YorwAEFZUN62o26pstOaiwbKaXaogmB7d9RLEesx
+	ULB/PVLHdXIG0GGhMntJlt9DOph2anrI=
+X-Gm-Gg: AYBFou2YWrhvExzftZUxxKOK1qHiXRw01wV6hMe2gVhZKGE2YjfNzW6YJBCAHWWS/ac
+	GhkD1jLDFbVWJgm3QVdD3iLv31lKozuHQD5wsUoyXZ10Tgh+qCttJ14bzggAfx9of+jWc+cp5D3
+	FzaQe3rea9dMjoTrOTpWxgNooekcw+PRK+SU/JmqQMju7vh2p1PBD85RKqBA/O8tQ2Op3POD8hC
+	1qRG4GRZfhQMNx8UXKj3HyQ6vPcPsl6oddyMj2UBpg0kRclwDmKIOuEj/3M086W6AdGsVu5y5AJ
+	Cvrqayu0iGb9RVc8Ob48zZNWZUtCu5LkyjR8k3s+Px0D09DLkpfHG+6zQikLhPI22+IKjjXsW+1
+	b8/fqfaxj6tcqSUjKX9m5hXuhPyoicRElthLyCxzkne9avMjjzGGwPQuDX9iAH6DjCB69tGMjXY
+	JLRo8r1QtgaBYki/FXTsRwDRQ913zHJhgiGJRHyaXttqgeFy7PE7DxlOs/hOoyClfpRYMazzUVe
+	Z815TXfIB/X5RX5xUZWqi4Cf9vy6w==
+X-Received: by 2002:a05:6102:83cb:b0:7c1:6de4:9f67 with SMTP id
+ ada2fe7eead31-7ce5ca62390mr2075068137.2.1793046310592; Mon, 26 Oct 2026
+ 13:25:10 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CADvTj4o_CENc3i92OQEZudOErSKPUptT4t2CCqDaGbseuK0QcQ@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20261024-submit-serial-8250-dma-cancel-v1-v5-2-9e52968928d2@gmail.com>
+ <alpine.DEB.2.21.2610250459200.42255@angie.orcam.me.uk> <at4bw-G8czG-G7Wl@ashevche-desk.local>
+ <CADvTj4psJcY2T1PG9H8_hJWjz62R7unj3PPgv3FrVquUMFVhGg@mail.gmail.com>
+ <at5qKehogAjTa-fA@ashevche-desk.local> <CADvTj4qSgE6Rc--mWuqAcc8HTqN9EFOS_JM8Hp8e_=ka_ZLa6w@mail.gmail.com>
+ <at8eDFj2WNaXDaot@ashevche-desk.local> <CADvTj4oNz-bnSZP+kfau-7wBSWLjLTP5jrr6nLfdCHNPo3pS6w@mail.gmail.com>
+ <at-vyZ1sDhYPu0W5@ashevche-desk.local> <CADvTj4o_CENc3i92OQEZudOErSKPUptT4t2CCqDaGbseuK0QcQ@mail.gmail.com>
+ <2026102631-stove-preview-b534@gregkh>
+In-Reply-To: <2026102631-stove-preview-b534@gregkh>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Mon, 26 Oct 2026 14:24:58 -0600
+X-Gm-Features: AclHuK-jg_V963WeCj8dDZYyLMETxUQLvBlHikJJBrwQZYN579iKyQfuGLYZuh0
+Message-ID: <CADvTj4pCnnzx4B28H_1BuY4gm2fh_8HYL9jLpsAoJcWfiUXOHw@mail.gmail.com>
+Subject: Re: [PATCH v5 2/5] serial: serialize asynchronous write wakeups with
+ the port lock
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	"Maciej W. Rozycki" <macro@orcam.me.uk>, Jiri Slaby <jirislaby@kernel.org>, 
+	Raul E Rangel <rrangel@chromium.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Tony Lindgren <tony@atomide.com>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Richard Genoud <richard.genoud@bootlin.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+	=?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Timur Tabi <timur@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_131855_837762_717DE9C0 
-X-CRM114-Status: GOOD (  43.02  )
-X-Spam-Score: -4.5 (----)
+X-CRM114-CacheID: sfid-20261026_132512_348637_519ACA3A 
+X-CRM114-Status: GOOD (  33.24  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,101 +137,104 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-7.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 26, 2026 at 01:59:06PM -0600, James Hilliard wrote:
-> On Mon, Oct 26, 2026 at 1:53 PM Andy Shevchenko
-> <andriy.shevchenko@linux.intel.com> wrote:
-> > On Mon, Oct 26, 2026 at 10:45:54AM -0600, James Hilliard wrote:
-> > > On Mon, Oct 26, 2026 at 3:33 AM Andy Shevchenko
-> > > <andriy.shevchenko@linux.intel.com> wrote:
-> > > > On Sun, Oct 25, 2026 at 04:11:08PM -0600, James Hilliard wrote:
-> > > > > On Sun, Oct 25, 2026 at 2:44 PM Andy Shevchenko
-> > > > > <andriy.shevchenko@linux.intel.com> wrote:
-> > > > > > On Sun, Oct 25, 2026 at 02:25:46PM -0600, James Hilliard wrote:
-
-...
-
-> > > > > > Some people might want to test the stuff. And sending too often you actually
-> > > > > > will get the opposite results, people will be tired to even start reviewing
-> > > > > > and/or testing your code as it's changed way too quickly.
+On Mon, Oct 26, 2026 at 2:17=E2=80=AFPM Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+>
+> On Mon, Oct 26, 2026 at 01:59:06PM -0600, James Hilliard wrote:
+> > On Mon, Oct 26, 2026 at 1:53=E2=80=AFPM Andy Shevchenko
+> > <andriy.shevchenko@linux.intel.com> wrote:
+> > >
+> > > On Mon, Oct 26, 2026 at 10:45:54AM -0600, James Hilliard wrote:
+> > > > On Mon, Oct 26, 2026 at 3:33=E2=80=AFAM Andy Shevchenko
+> > > > <andriy.shevchenko@linux.intel.com> wrote:
+> > > > > On Sun, Oct 25, 2026 at 04:11:08PM -0600, James Hilliard wrote:
+> > > > > > On Sun, Oct 25, 2026 at 2:44=E2=80=AFPM Andy Shevchenko
+> > > > > > <andriy.shevchenko@linux.intel.com> wrote:
+> > > > > > > On Sun, Oct 25, 2026 at 02:25:46PM -0600, James Hilliard wrot=
+e:
+> > >
+> > > ...
+> > >
+> > > > > > > Some people might want to test the stuff. And sending too oft=
+en you actually
+> > > > > > > will get the opposite results, people will be tired to even s=
+tart reviewing
+> > > > > > > and/or testing your code as it's changed way too quickly.
+> > > > > >
+> > > > > > My thought process was that people wouldn't want to be testing =
+code that
+> > > > > > had known bugs flagged in Sashiko reviews.
 > > > > >
-> > > > > My thought process was that people wouldn't want to be testing code that
-> > > > > had known bugs flagged in Sashiko reviews.
+> > > > > Sashiko reviews are not visible in my or any other mailbox. To se=
+e them I have
+> > > > > to go to some URL and so on, meaning to waste time to see why on =
+the earth the
+> > > > > new version has been sent.
 > > > >
-> > > > Sashiko reviews are not visible in my or any other mailbox. To see them I have
-> > > > to go to some URL and so on, meaning to waste time to see why on the earth the
-> > > > new version has been sent.
-> > >
-> > > Maybe the Sashiko reviews are getting caught in spam filtering or something?
-> > > They are showing up for me and on the mailing list[0] so I'm a bit confused why
-> > > you aren't seeing them. You shouldn't have to go to the web interface[1] to look
-> > > up the reviews.
-> > >
-> > > [0] https://lore.kernel.org/all/sashiko-outbox-183574@kernel.org/
-> > >
-> > > [1] https://sashiko.dev/
-> > >
-> > > > It's better before addressing Sashiko comments,
-> > > > reply to all people involved and to Sashiko's original email, so it will be
-> > > > visible in the previous version why you issued (actually about to issue) the
-> > > > next version.
-> > >
-> > > Hmm, maybe it makes sense to enable recipients in the reply_to config[2]?
-> >
-> > It's up to the list owners / subsystem maintainers.
-> >
-> > > [2] https://github.com/sashiko-dev/sashiko/blob/v.0.6.3/projects/linux/mailing_lists.toml#L290
-> > >
-> > > > And before even issuing it, wait for a while, people might
-> > > > disagree with Sashiko judgement or your replies on how to address that.
-> > >
-> > > I was assuming everyone was seeing the Sashiko reviews getting posted to
-> > > the mailing list already. The are ending up in lore so unless someone isn't
-> > > subscribed to the list I'm not sure why they wouldn't be seeing those reviews
-> > > already.
-> >
-> > I assume you already answered your Q. mailing list in this sense doesn't mean
-> > recipients. I think it simply goes to the mailing list without forwarding.
-> 
-> Do we want those reviews going to recipients as well as the mailing list?
-
-I am neither maintainer, nor an owner of the linux-serial@ mailing list.
-I can't answer to this.
-
-> > You can ask at helpdesk@ how this is configured on the kernel.org side.
-> >
-> > > > TL;DR: this mailing list is *not* a playground with you and Sashiko, the whole
-> > > > community is behind it.
-> >
-> > > > > > Settle down first
-> > > > > > with something, put on the cover letter the answer why not all Sashiko's
-> > > > > > comments are being addressed (for example, due to amount of patches or the
-> > > > > > series being focused on a certain issue).
-> > > > >
-> > > > > So, in general I've been always attempting to resolve known Sashiko issues
-> > > > > in every subsequent re-spin, so that would be a bit tricky since I wouldn't be
-> > > > > aware of the Sashiko issues until after the series has already been sent.
-> > > > >
-> > > > > Usually the subsequent issues that get flagged are new issues only discovered
-> > > > > after each new re-spin.
-> > > > >
-> > > > > I do have a bunch of UART/DMA related patches that don't have flagged Sashiko
-> > > > > issues so it probably makes sense to try and review those first while the larger
-> > > > > series that have Sashiko flagged issues are still stabilizing.
+> > > > Maybe the Sashiko reviews are getting caught in spam filtering or s=
+omething?
+> > > > They are showing up for me and on the mailing list[0] so I'm a bit =
+confused why
+> > > > you aren't seeing them. You shouldn't have to go to the web interfa=
+ce[1] to look
+> > > > up the reviews.
 > > > >
-> > > > Yes.
+> > > > [0] https://lore.kernel.org/all/sashiko-outbox-183574@kernel.org/
 > > > >
-> > > > > > > [0] https://github.com/sashiko-dev/sashiko/pull/389
+> > > > [1] https://sashiko.dev/
+> > > >
+> > > > > It's better before addressing Sashiko comments,
+> > > > > reply to all people involved and to Sashiko's original email, so =
+it will be
+> > > > > visible in the previous version why you issued (actually about to=
+ issue) the
+> > > > > next version.
+> > > >
+> > > > Hmm, maybe it makes sense to enable recipients in the reply_to conf=
+ig[2]?
+> > >
+> > > It's up to the list owners / subsystem maintainers.
+> > >
+> > > > [2] https://github.com/sashiko-dev/sashiko/blob/v.0.6.3/projects/li=
+nux/mailing_lists.toml#L290
+> > > >
+> > > > > And before even issuing it, wait for a while, people might
+> > > > > disagree with Sashiko judgement or your replies on how to address=
+ that.
+> > > >
+> > > > I was assuming everyone was seeing the Sashiko reviews getting post=
+ed to
+> > > > the mailing list already. The are ending up in lore so unless someo=
+ne isn't
+> > > > subscribed to the list I'm not sure why they wouldn't be seeing tho=
+se reviews
+> > > > already.
+> > >
+> > > I assume you already answered your Q. mailing list in this sense does=
+n't mean
+> > > recipients. I think it simply goes to the mailing list without forwar=
+ding.
+> >
+> > Do we want those reviews going to recipients as well as the mailing lis=
+t?
+>
+> For serial patches, we decided to only have it go to the submitter and
+> the list.
 
--- 
-With Best Regards,
-Andy Shevchenko
+When it goes to the list is it supposed to go to list subscribers as
+well or only
+to lore?
 
-
+>
+> thanks,
+>
+> greg k-h
 
