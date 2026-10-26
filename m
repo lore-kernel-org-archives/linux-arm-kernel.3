@@ -2,36 +2,36 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66BDF606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:56:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E48C606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:56:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lDNRgqi5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Pdnaw2Yb
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Fj8cRFNdTuS88avz+KuVmikpDiQtONWEEH1nURlLM7Q=; b=lDNRgqi5np/wgt
-	xuaCv6tyfvYJO/3lgcRogO5Yf7lir3UrT2X/lHzn6KlzwsuReuPYPhyyKU8znsrbtwIldQ+eAwyJM
-	3qLGPLXbxrScvhQ/9FDcDk8x+JFOpfcbdZGaRzz77E0FOV1nwj9YVuHfnhsTOxFDIoZyMQLLak8Df
-	rqheBBLvYQ7qeErQf1Gd9XQ9Zgp+enw+CutL/5+idJpufOEWNBAOkfr2/79VQzHfUPAd3zfCP+wQD
-	MPyyMqIvNoNf1rp4sSsaqGsaMaO/yuWuE8gDfAmYe/bR1b0hQEpVt9yqFy5mQjLTYE59Pvx75HoLE
-	V6MIW/4tsqNxkLySI6Dg==;
+	List-Owner; bh=ngZ+YChJ683ub5nqZmPTKf2cgTQixpdwXS2UrmArJoI=; b=Pdnaw2Ybj9ctkJ
+	R1uYMDQBl+eHSOk0hoJzGoApRn08G3kjD0/I6Fv9YEETzrEQD7PVfon3OV7IpE6HvJIMimGktQix2
+	cBEfJ/QEav5ZTrK18V6NGsyZFLX9P2JPuO3bpTzg58zVNMDfi77+18XDwlA4s/x+tywV2h/EbVfbS
+	xtK95+tBXTYex9nHi08QNIpY2b7PEzZPOrdhmpYCkFkQmzdRrNCh3rUmjUM28U0EP/c+LHOV14bi+
+	R6H8oN4NwJlBK1Tq0k7MWDDXjgI+i0sEEAMCRhGfy7z7eVviwbPS5JJ3HHFtbMsxgQgkXKeQN5oDT
+	29QfMksCS8pJuPV2CYrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLM7I-00000002iIc-0PRs;
-	Mon, 26 Oct 2026 14:56:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xLM7Y-00000002iY0-3ay3;
+	Mon, 26 Oct 2026 14:56:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLM79-00000002iFa-49O7
+	id 1xLM7Q-00000002iRX-3Syy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 14:55:56 +0000
+	Mon, 26 Oct 2026 14:56:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BAE3443ECC;
-	Mon, 26 Oct 2026 14:55:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F32871F01828;
-	Mon, 26 Oct 2026 14:55:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9304F417FA;
+	Mon, 26 Oct 2026 14:56:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C25931F01825;
+	Mon, 26 Oct 2026 14:56:08 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
@@ -51,9 +51,9 @@ Cc: linux-pwm@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 05/11] pwm: rcar: Parametrize cycle counter field size
-Date: Mon, 26 Oct 2026 15:55:21 +0100
-Message-ID: <a11daddd0c005d9bdf2b36e3b8b93720f1da4f55.1793026273.git.geert+renesas@glider.be>
+Subject: [PATCH/DNI 09/11] clk: renesas: r8a78000: Add PWM clocks
+Date: Mon, 26 Oct 2026 15:55:25 +0100
+Message-ID: <4fc4232a28fe500b270d2cc26412a1909c12f5aa.1793026273.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1793026273.git.geert+renesas@glider.be>
 References: <cover.1793026273.git.geert+renesas@glider.be>
@@ -77,145 +77,56 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Prepare for the advent of PWM blocks with output cycle and high-level
-period fields larger than 10 bits by parametrizing the field size.
+Add support for the clocks used by the PWM modules on R-Car X5H.
+This includes SCMI remapping tables and fixed-clock fallbacks.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- drivers/pwm/pwm-rcar.c | 51 +++++++++++++++++++++++++++---------------
- 1 file changed, 33 insertions(+), 18 deletions(-)
+This depends on "[PATCH/DNI 4/7] clk: renesas: r8a78000: Add GPIO
+clocks"
+https://lore.kernel.org/34f97dab00c6d98b7afe8d8df38eeb83abf5c19f.1792776697.git.geert+renesas@glider.be
+---
+ drivers/clk/renesas/r8a78000-cpg.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/pwm/pwm-rcar.c b/drivers/pwm/pwm-rcar.c
-index f1f68bfe016f729f..3813094c601efc8c 100644
---- a/drivers/pwm/pwm-rcar.c
-+++ b/drivers/pwm/pwm-rcar.c
-@@ -22,7 +22,7 @@
- #include <linux/slab.h>
- 
- #define RCAR_PWM_MAX_DIVISION	24
--#define RCAR_PWM_MAX_CYCLE	1023
-+#define RCAR_PWM_MAX_CYCLE(rp)	GENMASK(rp->cycle_bits - 1, 0)
- 
- #define RCAR_PWMCR		0x00
- #define  RCAR_PWMCR_CC0_MASK	GENMASK(19, 16)
-@@ -32,14 +32,17 @@
- #define  RCAR_PWMCR_EN0		BIT(0)
- 
- #define RCAR_PWMCNT		0x04
--#define  RCAR_PWMCNT_CYC0_MASK	0x03ff0000
--#define  RCAR_PWMCNT_CYC0_SHIFT	16
--#define  RCAR_PWMCNT_PH0_MASK	0x000003ff
--#define  RCAR_PWMCNT_PH0_SHIFT	0
-+#define  RCAR_PWMCNT_CYC0_MASK	GENMASK(31, 16)
-+#define  RCAR_PWMCNT_PH0_MASK	GENMASK(15, 0)
- 
- struct rcar_pwm_chip {
- 	void __iomem *base;
- 	struct clk *clk;
-+	unsigned int cycle_bits;
-+};
-+
-+struct rcar_pwm_info {
-+	unsigned int cycle_bits;
+diff --git a/drivers/clk/renesas/r8a78000-cpg.c b/drivers/clk/renesas/r8a78000-cpg.c
+index 1d66082f6f44b5ba..9b1ff5a8ff1bdc31 100644
+--- a/drivers/clk/renesas/r8a78000-cpg.c
++++ b/drivers/clk/renesas/r8a78000-cpg.c
+@@ -38,6 +38,7 @@ enum fixed_clk {
+ 	FIXED_CLK_33M,
+ 	FIXED_CLK_37M5,
+ 	FIXED_CLK_66M,
++	FIXED_CLK_100M,
+ 	FIXED_CLK_133M,
+ 	FIXED_CLK_266M,
+ };
+@@ -46,6 +47,7 @@ static const unsigned long fixed_clk_rates[] = {
+ 	[FIXED_CLK_33M] = 33333000,
+ 	[FIXED_CLK_37M5] = 37500000,
+ 	[FIXED_CLK_66M] = 66666000,
++	[FIXED_CLK_100M] = 100000000,
+ 	[FIXED_CLK_133M] = 133330000,
+ 	[FIXED_CLK_266M] = 266660000,
+ };
+@@ -299,6 +301,8 @@ static const struct clk_map_in r8a78000_cpg_default[] = {
+ 	{ R8A78000_CPG_S0D24_PERE_MAIN,		FIXED_CLK(33M) },
+ 	{ R8A78000_CPG_SGD32_PERW_BUS,		FIXED_CLK(33M) },
+ 	{ R8A78000_CPG_S0D24_HSCN_OTHER,	FIXED_CLK(33M) },
++	{ R8A78000_CPG_SGASYNCD16_PERW_MAIN,	FIXED_CLK(66M) },
++	{ R8A78000_CPG_S0ASYNCD8_PERW_MAIN,	FIXED_CLK(100M) },
+ 	{ -1 }
  };
  
- static inline struct rcar_pwm_chip *to_rcar_pwm_chip(struct pwm_chip *chip)
-@@ -77,7 +80,7 @@ static int rcar_pwm_get_clock_division(struct rcar_pwm_chip *rp, int period_ns)
- 	if (clk_rate == 0)
- 		return -EINVAL;
- 
--	div = (u64)NSEC_PER_SEC * RCAR_PWM_MAX_CYCLE;
-+	div = mul_u32_u32(NSEC_PER_SEC, RCAR_PWM_MAX_CYCLE(rp));
- 	tmp = (u64)period_ns * clk_rate + div - 1;
- 	tmp = div64_u64(tmp, div);
- 	div = ilog2(tmp - 1) + 1;
-@@ -111,21 +114,19 @@ static int rcar_pwm_set_counter(struct rcar_pwm_chip *rp, int div, u64 duty_ns,
- 
- 	/* div <= 24 == RCAR_PWM_MAX_DIVISION, so the shift doesn't overflow. */
- 	tmp = mul_u64_u64_div_u64(period_ns, clk_rate, (u64)NSEC_PER_SEC << div);
--	if (tmp > FIELD_MAX(RCAR_PWMCNT_CYC0_MASK))
--		tmp = FIELD_MAX(RCAR_PWMCNT_CYC0_MASK);
--
--	cyc = FIELD_PREP(RCAR_PWMCNT_CYC0_MASK, tmp);
-+	cyc = min(tmp, RCAR_PWM_MAX_CYCLE(rp));
- 
- 	tmp = mul_u64_u64_div_u64(duty_ns, clk_rate, (u64)NSEC_PER_SEC << div);
--	if (tmp > FIELD_MAX(RCAR_PWMCNT_PH0_MASK))
--		tmp = FIELD_MAX(RCAR_PWMCNT_PH0_MASK);
--	ph = FIELD_PREP(RCAR_PWMCNT_PH0_MASK, tmp);
-+	ph = min(tmp, RCAR_PWM_MAX_CYCLE(rp));
- 
- 	/* Avoid prohibited setting */
- 	if (cyc == 0 || ph == 0)
- 		return -EINVAL;
- 
--	rcar_pwm_write(rp, cyc | ph, RCAR_PWMCNT);
-+	rcar_pwm_write(rp,
-+		       FIELD_PREP(RCAR_PWMCNT_CYC0_MASK, cyc) |
-+		       FIELD_PREP(RCAR_PWMCNT_PH0_MASK, ph),
-+		       RCAR_PWMCNT);
- 
- 	return 0;
- }
-@@ -142,12 +143,15 @@ static void rcar_pwm_free(struct pwm_chip *chip, struct pwm_device *pwm)
- 
- static int rcar_pwm_enable(struct rcar_pwm_chip *rp)
- {
--	u32 value;
-+	u32 value, cyc, ph;
- 
- 	/* Don't enable the PWM device if CYC0 or PH0 is 0 */
- 	value = rcar_pwm_read(rp, RCAR_PWMCNT);
--	if ((value & RCAR_PWMCNT_CYC0_MASK) == 0 ||
--	    (value & RCAR_PWMCNT_PH0_MASK) == 0)
-+	cyc = FIELD_GET(RCAR_PWMCNT_CYC0_MASK, value);
-+	ph = FIELD_GET(RCAR_PWMCNT_PH0_MASK, value);
-+
-+	if ((cyc & RCAR_PWM_MAX_CYCLE(rp)) == 0 ||
-+	    (ph & RCAR_PWM_MAX_CYCLE(rp)) == 0)
- 		return -EINVAL;
- 
- 	rcar_pwm_update(rp, RCAR_PWMCR_EN0, RCAR_PWMCR_EN0, RCAR_PWMCR);
-@@ -202,11 +206,16 @@ static const struct pwm_ops rcar_pwm_ops = {
- 
- static int rcar_pwm_probe(struct platform_device *pdev)
- {
-+	const struct rcar_pwm_info *info;
- 	struct device *dev = &pdev->dev;
- 	struct rcar_pwm_chip *rcar_pwm;
- 	struct pwm_chip *chip;
- 	int ret;
- 
-+	info = of_device_get_match_data(dev);
-+	if (!info)
-+		return -ENODEV;
-+
- 	chip = devm_pwmchip_alloc(dev, 1, sizeof(*rcar_pwm));
- 	if (IS_ERR(chip))
- 		return PTR_ERR(chip);
-@@ -222,6 +231,8 @@ static int rcar_pwm_probe(struct platform_device *pdev)
- 		return PTR_ERR(rcar_pwm->clk);
- 	}
- 
-+	rcar_pwm->cycle_bits = info->cycle_bits;
-+
- 	chip->ops = &rcar_pwm_ops;
- 
- 	platform_set_drvdata(pdev, chip);
-@@ -247,8 +258,12 @@ static void rcar_pwm_remove(struct platform_device *pdev)
- 	pm_runtime_disable(&pdev->dev);
- }
- 
-+static const struct rcar_pwm_info rcar_pwm_info = {
-+	.cycle_bits = 10,
-+};
-+
- static const struct of_device_id rcar_pwm_of_table[] = {
--	{ .compatible = "renesas,pwm-rcar" },
-+	{ .compatible = "renesas,pwm-rcar", .data = &rcar_pwm_info },
- 	{ }
+@@ -312,6 +316,8 @@ static const struct clk_map_in r8a78000_cpg_fw[] = {
+ 	{ R8A78000_CPG_S0D24_PERE_MAIN,		1690 },
+ 	{ R8A78000_CPG_SGD32_PERW_BUS,		1660 },
+ 	{ R8A78000_CPG_S0D24_HSCN_OTHER,	1499 },
++	{ R8A78000_CPG_SGASYNCD16_PERW_MAIN,	1651 },
++	{ R8A78000_CPG_S0ASYNCD8_PERW_MAIN,	1653 },
+ 	{ -1 }
  };
- MODULE_DEVICE_TABLE(of, rcar_pwm_of_table);
+ 
 -- 
 2.43.0
 
