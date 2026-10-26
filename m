@@ -2,111 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0669B606CFA9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 09:58:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF593606CFB2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 09:58:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UHtedGVq;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=b6dDOc7k
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gDw5yZ38;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=OMKEBNUr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=TRb4tYcOuZPVhYjPWbt4D3gJvCANnKN9gzX1O8Pld2Y=; b=UHtedGVqVPle/rxOiNlegW/fmb
-	tA6MSpgli19D45HJgBdppVdVp8c/wYnN2BFw/v2NWafvY7008kza1przEQtLMXNGfylU/nMvv8V9K
-	XhdJdQP1F/e7iXGRdsMFbKlZETeWjxsYMVEY5gYIen4EcapV36f5j31YDUP+vhXjKsBm6ciBnhVxm
-	Ox5M3nDxg5cg5RBP8OIyK5njCXdGZzjcNQ4Jvhztm5D4DsOATGHg6FMVcVL5DeltXa6wF0aJU9gE0
-	T0E/05IlJt8qK3Q/JYWdMdjGhArDJKauWGvQS/19V57bxvm/S98JcV8QpV3yok2SIpIT61bxWoTip
-	kwA2NXvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=A4/6vwXIUif3dD3pS/Qgzp/66VECYeTyTVvRPkRIT1Q=; b=gDw5yZ3800tsYf
+	VKNo8WMsZJFn0rjQGtFbW3JZd3S8OXz2RQb8nYdRZtDXUl1ipK63Hy+1awwtj7rWODU0l06Ypznm7
+	GzsXITf0n+WVljUt+U1tf3Z846AZnu4JvDSLWhlGwAZEL5Wey/UB4K69xjnlQUj9mbWp/vmaTGGmN
+	foAnWF4i1BlPUtQd2wVqMtcgocPf8i8hiBdN/mEbF/agCQQyseA5IgMvEC5uuxtFsAApNMcqUcZMd
+	0GeDA3rKMvN4p19Flc1RiG68A35wT1+29cGVgZ+Yp8Ir0HqvGD/7a4UImbo5DcMGmEc7yirrt2wCo
+	5TmeygMSlBOxsfeJ+YSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHSt-000000029y4-2pxT;
-	Mon, 26 Oct 2026 09:58:03 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1xLHSb-000000029Px-2IFM;
+	Mon, 26 Oct 2026 09:57:45 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHSk-000000029bY-0Xsc
+	id 1xLHSU-000000029GI-17eZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 09:57:55 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-cc7e79c1eaaso854395a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 02:57:53 -0700 (PDT)
+	Mon, 26 Oct 2026 09:57:39 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-48dfc0421d9so2392770f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 02:57:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793008673; x=1793613473; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20251104; t=1793008656; x=1793613456; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=TRb4tYcOuZPVhYjPWbt4D3gJvCANnKN9gzX1O8Pld2Y=;
-        b=b6dDOc7kREcWdcvpJY0R97fFY+QbQ0MEdXHHsygiZLTfG0PDykWe/YMXrC5ELAo5GD
-         jc7gbdjzNmcKFFNuooNGnRfRg8YJuRHYuD7rsFtk6emi7Qd/uM+RwiRc3eBbHS9PS3Ik
-         5vIco/MQHq1n1GCyiZPp7RkBhEJk0XJV3Jy33PAoffbz/QM6tX8dF4CoFbPSg69x3s5N
-         J/oo4H58e4rER8xgN75RAPFXZjUIdqOLRs8h5Sf4RpdaAZgZkoJ+AX2Jqyt+aW/XNxeW
-         vaVCQbAvIFMJllypIsLNRtP+aS1/XxiZNIc3YgAaxIVfB2rYzhCM76EEgZ+c245M35U7
-         KM0w==
+        bh=A4/6vwXIUif3dD3pS/Qgzp/66VECYeTyTVvRPkRIT1Q=;
+        b=OMKEBNUr+6zQ5TiFP0YK77drrMxIzu8rjUfeEMZmHyR+pr1qrTGF6yyIyWfMFRu16U
+         4KtjBWOxVcUiU1fRUDvO5d8ppng171VZ/qtD4CpkDzZlzZKbUoCTi2jNpX9eVPfgxtq3
+         ul4gTyon+hEBPKcaQw3lYhtuF7w9lHZFSRz00uiDFC75BNRqzrulUqo/qRbSopWO6TMu
+         aj8PMyUvB2ND+9IGtSVCAV6tia0W4RK2OGDf+piyXz7nA3koBQfvr0lPiceXi50wQC+1
+         jvE/kBDO/ZCIJPoipvZrbEUDWaEamhMnyy0HVkKB6DckyoHrqpMSzLYy6i4XMNQzK5h8
+         puLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793008673; x=1793613473;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=TRb4tYcOuZPVhYjPWbt4D3gJvCANnKN9gzX1O8Pld2Y=;
-        b=TnKjUzVgse4QRxhabTIvN8wkaFysb3qTD4sPY8yVdps3TavE/LyF2XjlZ+k9PIM0fF
-         vkgaYLt7UBjDAWGuoXMVFu5J0kjC0HESX7nW8YRw6VAKhmhUP+pFqMxK6ulv/ybc+E7h
-         L3G5hlPT3O5T/WVdn5/gZutu34R7Dpm0d3tNBl25xOeqTAHesFzF4HQ+Q+SbpPg0dgtA
-         rPqivXqAjl9Xe2/O8Lgv8xgy5yDfqEoCTQ4IrqmRNpmXMpoojavWgNfQac8BuyX+XcyN
-         VKN91KyHDgyM0vOrzNUTX8H/2QVrgT+VzkEjltMRIfAZDrFUrfdjXCMBNGPYf0ssbGDt
-         fZyQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxLUc3PuzS/WCTVV4SLTwsH+0+9iTrAhZSb7e91CNNr2BNMOMmzkZ5RJjXkMu5IByvgzlGtB/aEgeF9HnX8UR8c@lists.infradead.org
-X-Gm-Message-State: AFq9FYIc/bP3L6xT89ThN2twjeEiLhNu6ChMw16smaJnZ/fzdxYpXMcU
-	lif+ZKv4qKEil1QG4ijrodC/uWLLugsJsIfR0rzFKHR6b2aHr5nf7sv+
-X-Gm-Gg: AYBFou0N8cLlJRZvOq2qvIuvLBhMyMG39uwhxR4YB6QJGo25zHk2zG53cYk64OY1o48
-	+zRvryfUoU6quA3Cl6RENh9aNdIw0v62z9UcHDxAlm/tMdqNhdHXr3+Flp7shTSMMTjLHLkUx9s
-	HJuR8T4J2mSIuqxpk5iIbFz2iY/KL99vkJblb7k+2Do8qm0kaD5R8AfnmhLREDNuy/Q6AdsCesA
-	P9VowaDvftlSRgkGRM1YBT6wvSjcWn00U0uGzd60XuMhn6b6Ug+HHOJHuWIYxon0N87GrYUbAk1
-	CwrCpCvpy/2FG+Kzq52U8xdN4FlkH/D/0TwbDp+tTombflmLJSDZv/BP0bsYReDJ1JhFKCKis8t
-	nguyLrwjFihyqjmIS4v+SEh1pgEzmlCEKYWtUtTHJHfG2TWGaKYxRjJ+KQRzF7p0x23ABtuAjlH
-	qoZgM4EInNKyIiPEl9pSsUbHoDB70wBRsvu7B3Q+akcxfsQ4DgnRVV9RxbpffSCdWErZUjT7m5a
-	fmfhAr+M5t4iCMCiDawE9n0OV/DRTe5zcrasVjgeVniZufTrybcTqB4nNjb7PsaUg2y4v8AMpiG
-	gt/Dp4rGko98lNIHgoMs7VPH5WYOcW4=
-X-Received: by 2002:a05:6300:6bc9:b0:3e2:59b5:a6a3 with SMTP id adf61e73a8af0-3e7a1b97c06mr4376109637.0.1793008672624;
-        Mon, 26 Oct 2026 02:57:52 -0700 (PDT)
-Received: from [127.0.1.1] (59-127-145-64.hinet-ip.hinet.net. [59.127.145.64])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8a36bf0f4dcsm1095577b3a.44.2026.10.26.02.57.48
+        d=1e100.net; s=20260707; t=1793008656; x=1793613456;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=A4/6vwXIUif3dD3pS/Qgzp/66VECYeTyTVvRPkRIT1Q=;
+        b=onvdGCOATmmYZpFePsG2GhhObd9IOPttChAJS6S1nkpUwCIUfmc9RwuRtx7xrtYtut
+         9Lpyq+6kr2F5lPKL78M6GJGnsLBF/L3telsGRnlVz1Dee2tpdtCDS1g4sbwXBz+4uuIq
+         lNTUisocZSmnyy8j6SI529XRkvuwPRqByT19N+HdxmYuIBzo4XJW0f1XRDWDZn00ocMf
+         1Qj2ZTPqtJ8EvGAyVM8XIcRYmZ6+YmNpNVkvk5Gywna1vfw5xHnnu/wH0KwVF67qOSqY
+         FcteM+st3B7y3iOEyG4TzAPqQs8P7OzUkPAU3id57ZpHZvQZJGaC74zU+ujuU2fwA3Xa
+         Zcng==
+X-Forwarded-Encrypted: i=1; AKwUvBxqg0KNWbcbg2/vbfbwN37rA/JDE9Hq/4vyC8CPsXVRBZSP2wo/eG3Ke8qqbTZHBSt//jkgym3feS9Z12N8lfQj@lists.infradead.org
+X-Gm-Message-State: AFq9FYJHmLeqBi8w7iKjhS2kbRi3wVn+b7Td40jgwev1zzDEKpTjBGvU
+	m3JJqf20+0I7SOt6cplbph87wdG/W63ABq1ERsRGCJVK8a9KBnGO6U2L
+X-Gm-Gg: AYBFou0W0+/nfVfAwe4eQEx/tzgunMy0PYEiMjlUXUlOv1IICp/dk+p9YGdQvj7rDel
+	v6rOHEImRwNjKZwK+mtxnDy6wr/rgJKxha9Xoj7OBDA25cka89e3WfX+jd7JZk9KpPC7qF2eQL9
+	C2uV5XEHAyvU4Du+WjzKEwHSdQhzo9J9UQLNt2W7oJIdbZNJTRlcDq1uy+MWOO6dDxhOoJTLM6X
+	Evjs7TpxHLhHvf1DxxeorJsnqjsyd4Lr1kTXLEy58JgTH/4CvcSFduU+9U416PVeT0P4TlIlv/W
+	Pk8gFkXYu59BDmkhJ0/W3hELSfVEEx/UPjY+v1gYjMjRjH4Rithb0Gn/zXwsAp77+nXA8OQki0H
+	to1KW+5X0+s3gkkyTpVsMmaT/n9ShcRJ6ggmWzdihV5wTZxmc9tR8JBwi2UaeGPWOzAyybgieWa
+	9/6iQHcVz0dEZYwarQ4GdGFLzbOvQiY0G4LgTlhNWeXxUwseA6KUyq1GO3dZSwMCoB18KtnRLBv
+	yX8vFJ4mUZnaWovv8/FGUII6PjZuMw4d6EqY/p9fLQUbkBXTCi1EWW6g/c1rDSv/JvguJP2+8nd
+	zkSrNEbV58a0nk9AMMA6i3ZpLZnaIqw2MQ1vmJdsY2mH1qfNFDBxOeOomKWq
+X-Received: by 2002:a05:600c:1987:b0:4a1:db17:c7e6 with SMTP id 5b1f17b1804b1-4a35ac3a7b1mr104695045e9.2.1793008656237;
+        Mon, 26 Oct 2026 02:57:36 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (93-34-92-187.ip49.fastwebnet.it. [93.34.92.187])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4a35a0cc374sm190382825e9.9.2026.10.26.02.57.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 02:57:52 -0700 (PDT)
-From: Zhi-Jun You <hujy652@gmail.com>
-Subject: [PATCH net v6 0/4] net: ethernet: mtk_wed: misc fixes
-Date: Mon, 26 Oct 2026 17:57:27 +0800
-Message-Id: <20261026-wedfix-v6-0-a52f6b15d2fc@gmail.com>
+        Mon, 26 Oct 2026 02:57:35 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/9] arm64: dts: airoha: en7581: reorder nodes following incremental regs
+Date: Mon, 26 Oct 2026 10:57:07 +0100
+Message-ID: <20261026095727.31708-2-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261026095727.31708-1-ansuelsmth@gmail.com>
+References: <20261026095727.31708-1-ansuelsmth@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyzHQUlJIzE
- vPSU3UzU4B8JSMDIzNDA0ML3fLUlLTMCt1EMwNLA1NDUwMTcyMloOKColSgMNigaKW81BKlWIh
- gcWlSVmpyCcgIpdpaAELEUQZvAAAA
-X-Change-ID: 20261018-wedfix-a60905150472
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Sujuan Chen <sujuan.chen@mediatek.com>, Rex Lu <rex.lu@mediatek.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Sashiko <sashiko-bot@kernel.org>, Zhi-Jun You <hujy652@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793008668; l=2955;
- i=hujy652@gmail.com; s=20261026; h=from:subject:message-id;
- bh=549qJPyhyqlBNx06uotz1gnmv+Qgyf4W7lO1nGNCwHk=;
- b=s6R3dKe4amKcP5NVpaUVkILmnGN7AjJuw87IEHxjMsgOZ4RpuDVhDNjo6RwpCw1Nd9be1Olqg
- dFeUk96NAcuCyw/2hqTkfxI7BpUwpPLsEq0U1p4SG/c/MXdoXkslwoX
-X-Developer-Key: i=hujy652@gmail.com; a=ed25519;
- pk=uXjqvnRsKEfHEyUr63sOg4fEJIDs4AmiW/rB1cWarXg=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_025754_196519_8ACFEE54 
-X-CRM114-Status: GOOD (  13.77  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261026_025738_346210_A5AC74FB 
+X-CRM114-Status: GOOD (  11.53  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,88 +106,294 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-11.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	UNWANTED_LANGUAGE_BODY,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Ths patch series includes some fixes for issues that were discovered
-by Sashiko and one original patch fixing issue I encountered.
+Reorder nods position following incremental register. This is to tidy
+things up and no additional code is added.
 
-Patch 1,2,3 fix issues that were found by Sashiko.
-Patch 1 was compiled test only.
-Patch 2,3,4 were tested on a mt7986.
-
-Patch 1 fixes tx wdma ring reset for WED v3.
-Patch 2 fixes the reset condition for rx wdma.
-Patch 3 fixes rx ring and tx wdma ring not being freed up
-Patch 4 fixes WED on non-DBDC mt7986.
-
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
-Changes in v6:
-- Update cover letter to address the platform that the patches were
-  tested on.
-- Update message of patch 2 to clarify what's the issue.
-- Update patch 3 to rely on ring descriptor instead of an extra flag.
-- Squashed patch 5 into patch 4.
-- Lin to v5: https://lore.kernel.org/all/20261016-wedfix-v5-0-8b02e78fd34f@gmail.com/
+ arch/arm64/boot/dts/airoha/en7581.dtsi | 246 ++++++++++++-------------
+ 1 file changed, 123 insertions(+), 123 deletions(-)
 
-Changes in v5:
-- Add cover letter.
-- Add patch 3 to address Sashiko review on rx ring and tx wdma ring not
-  being freed up.
-- Add patch 5 to address Sashiko review on error handling.
-- Link to review: https://lore.kernel.org/all/179000700034.2160803.10594281691384015089@kernel.org/
-
-Changes in v4:
-- Add patch 2 to address Sashiko review on rx wdma reset condition.
-- Link to review: https://lore.kernel.org/all/20260730090030.201100-1-pabeni@redhat.com/
-
-Changes in v3:
-- Add patch 1 to address Sashiko review on WED v3 tx wdma ring reset.
-- Link to review: https://lore.kernel.org/netdev/20260706101044.161059-1-pabeni@redhat.com/
-
-Changes in v2:
-- Address issues raisied by Sashiko in patch 4
-- Link to review: https://lore.kernel.org/all/20260706101044.161059-1-pabeni@redhat.com/
-- Add comment to explain the special case
-- Link to v1: https://lore.kernel.org/all/20260630144831.1109-1-hujy652@gmail.com/
----
-
-To: Felix Fietkau <nbd@nbd.name>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>
-To: "David S. Miller" <davem@davemloft.net>
-To: Eric Dumazet <edumazet@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Sujuan Chen <sujuan.chen@mediatek.com>
-To: Rex Lu <rex.lu@mediatek.com>
-Cc: netdev@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-mediatek@lists.infradead.org
-
----
-Zhi-Jun You (4):
-      net: ethernet: mtk_wed: skip ring reset in wdma_tx_ring_setup for WED v3
-      net: ethernet: mtk_wed: fix reset condition for rx wdma
-      net: ethernet: mtk_wed: free up rings during detach
-      net: ethernet: mtk_wed: setup WDMA_RING_TX(0) for non-DBDC MT7986
-
- drivers/net/ethernet/mediatek/mtk_wed.c | 27 ++++++++++++++++++++++++---
- 1 file changed, 24 insertions(+), 3 deletions(-)
----
-base-commit: 7076f684d5132e6a6145e1da2fa74771ecd052e5
-change-id: 20261018-wedfix-a60905150472
-
-Best regards,
---  
-Zhi-Jun You <hujy652@gmail.com>
+diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
+index ff6908a76e8e..83b30a340950 100644
+--- a/arch/arm64/boot/dts/airoha/en7581.dtsi
++++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
+@@ -173,18 +173,6 @@ spi_nand: nand@0 {
+ 			};
+ 		};
+ 
+-		scuclk: clock-controller@1fb00000 {
+-			compatible = "airoha,en7581-scu";
+-			reg = <0x0 0x1fb00000 0x0 0x970>;
+-			#clock-cells = <1>;
+-			#reset-cells = <1>;
+-		};
+-
+-		pbus_csr: syscon@1fbe3400 {
+-			compatible = "airoha,en7581-pbus-csr", "syscon";
+-			reg = <0x0 0x1fbe3400 0x0 0xff>;
+-		};
+-
+ 		pciephy: phy@1fa5a000 {
+ 			compatible = "airoha,en7581-pcie-phy";
+ 			reg = <0x0 0x1fa5a000 0x0 0xfff>,
+@@ -199,6 +187,129 @@ pciephy: phy@1fa5a000 {
+ 			#phy-cells = <0>;
+ 		};
+ 
++		rng@1faa1000 {
++			compatible = "airoha,en7581-trng";
++			reg = <0x0 0x1faa1000 0x0 0xc04>;
++			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
++		scuclk: clock-controller@1fb00000 {
++			compatible = "airoha,en7581-scu";
++			reg = <0x0 0x1fb00000 0x0 0x970>;
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
++
++		eth: ethernet@1fb50000 {
++			compatible = "airoha,en7581-eth";
++			reg = <0 0x1fb50000 0 0x2600>,
++			      <0 0x1fb54000 0 0x2000>,
++			      <0 0x1fb56000 0 0x2000>;
++			reg-names = "fe", "qdma0", "qdma1";
++
++			resets = <&scuclk EN7581_FE_RST>,
++				 <&scuclk EN7581_FE_PDMA_RST>,
++				 <&scuclk EN7581_FE_QDMA_RST>,
++				 <&scuclk EN7581_XSI_MAC_RST>,
++				 <&scuclk EN7581_DUAL_HSI0_MAC_RST>,
++				 <&scuclk EN7581_DUAL_HSI1_MAC_RST>,
++				 <&scuclk EN7581_HSI_MAC_RST>,
++				 <&scuclk EN7581_XFP_MAC_RST>;
++			reset-names = "fe", "pdma", "qdma",
++				      "xsi-mac", "hsi0-mac", "hsi1-mac",
++				      "hsi-mac", "xfp-mac";
++
++			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 55 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
++
++			status = "disabled";
++
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			gdm1: ethernet@1 {
++				compatible = "airoha,eth-mac";
++				reg = <1>;
++				phy-mode = "internal";
++				status = "disabled";
++
++				fixed-link {
++					speed = <10000>;
++					full-duplex;
++					pause;
++				};
++			};
++		};
++
++		pbus_csr: syscon@1fbe3400 {
++			compatible = "airoha,en7581-pbus-csr", "syscon";
++			reg = <0x0 0x1fbe3400 0x0 0xff>;
++		};
++
++		uart1: serial@1fbf0000 {
++			compatible = "ns16550";
++			reg = <0x0 0x1fbf0000 0x0 0x30>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
++			clock-frequency = <1843200>;
++		};
++
++		system-controller@1fbf0200 {
++			compatible = "airoha,en7581-gpio-sysctl", "syscon",
++				     "simple-mfd";
++			reg = <0x0 0x1fbf0200 0x0 0xc0>;
++
++			en7581_pinctrl: pinctrl {
++				compatible = "airoha,en7581-pinctrl";
++
++				interrupt-parent = <&gic>;
++				interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
++
++				gpio-controller;
++				#gpio-cells = <2>;
++
++				interrupt-controller;
++				#interrupt-cells = <2>;
++			};
++		};
++
++		i2c0: i2c@1fbf8000 {
++			compatible = "mediatek,mt7621-i2c";
++			reg = <0x0 0x1fbf8000 0x0 0x100>;
++
++			resets = <&scuclk EN7581_I2C2_RST>;
++
++			clocks = <&clk20m>;
++			clock-frequency = <100000>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			status = "disabled";
++		};
++
++		i2c1: i2c@1fbf8100 {
++			compatible = "mediatek,mt7621-i2c";
++			reg = <0x0 0x1fbf8100 0x0 0x100>;
++
++			resets = <&scuclk EN7581_I2C_MASTER_RST>;
++
++			clocks = <&clk20m>;
++			clock-frequency = <100000>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			status = "disabled";
++		};
++
+ 		pcie0: pcie@1fc00000 {
+ 			compatible = "airoha,en7581-pcie";
+ 			device_type = "pci";
+@@ -284,116 +395,5 @@ pcie_intc1: interrupt-controller {
+ 				#interrupt-cells = <1>;
+ 			};
+ 		};
+-
+-		uart1: serial@1fbf0000 {
+-			compatible = "ns16550";
+-			reg = <0x0 0x1fbf0000 0x0 0x30>;
+-			reg-io-width = <4>;
+-			reg-shift = <2>;
+-			interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
+-			clock-frequency = <1843200>;
+-		};
+-
+-		rng@1faa1000 {
+-			compatible = "airoha,en7581-trng";
+-			reg = <0x0 0x1faa1000 0x0 0xc04>;
+-			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
+-		};
+-
+-		system-controller@1fbf0200 {
+-			compatible = "airoha,en7581-gpio-sysctl", "syscon",
+-				     "simple-mfd";
+-			reg = <0x0 0x1fbf0200 0x0 0xc0>;
+-
+-			en7581_pinctrl: pinctrl {
+-				compatible = "airoha,en7581-pinctrl";
+-
+-				interrupt-parent = <&gic>;
+-				interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
+-
+-				gpio-controller;
+-				#gpio-cells = <2>;
+-
+-				interrupt-controller;
+-				#interrupt-cells = <2>;
+-			};
+-		};
+-
+-		i2c0: i2c@1fbf8000 {
+-			compatible = "mediatek,mt7621-i2c";
+-			reg = <0x0 0x1fbf8000 0x0 0x100>;
+-
+-			resets = <&scuclk EN7581_I2C2_RST>;
+-
+-			clocks = <&clk20m>;
+-			clock-frequency = <100000>;
+-			#address-cells = <1>;
+-			#size-cells = <0>;
+-
+-			status = "disabled";
+-		};
+-
+-		i2c1: i2c@1fbf8100 {
+-			compatible = "mediatek,mt7621-i2c";
+-			reg = <0x0 0x1fbf8100 0x0 0x100>;
+-
+-			resets = <&scuclk EN7581_I2C_MASTER_RST>;
+-
+-			clocks = <&clk20m>;
+-			clock-frequency = <100000>;
+-			#address-cells = <1>;
+-			#size-cells = <0>;
+-
+-			status = "disabled";
+-		};
+-
+-		eth: ethernet@1fb50000 {
+-			compatible = "airoha,en7581-eth";
+-			reg = <0 0x1fb50000 0 0x2600>,
+-			      <0 0x1fb54000 0 0x2000>,
+-			      <0 0x1fb56000 0 0x2000>;
+-			reg-names = "fe", "qdma0", "qdma1";
+-
+-			resets = <&scuclk EN7581_FE_RST>,
+-				 <&scuclk EN7581_FE_PDMA_RST>,
+-				 <&scuclk EN7581_FE_QDMA_RST>,
+-				 <&scuclk EN7581_XSI_MAC_RST>,
+-				 <&scuclk EN7581_DUAL_HSI0_MAC_RST>,
+-				 <&scuclk EN7581_DUAL_HSI1_MAC_RST>,
+-				 <&scuclk EN7581_HSI_MAC_RST>,
+-				 <&scuclk EN7581_XFP_MAC_RST>;
+-			reset-names = "fe", "pdma", "qdma",
+-				      "xsi-mac", "hsi0-mac", "hsi1-mac",
+-				      "hsi-mac", "xfp-mac";
+-
+-			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 55 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
+-
+-			status = "disabled";
+-
+-			#address-cells = <1>;
+-			#size-cells = <0>;
+-
+-			gdm1: ethernet@1 {
+-				compatible = "airoha,eth-mac";
+-				reg = <1>;
+-				phy-mode = "internal";
+-				status = "disabled";
+-
+-				fixed-link {
+-					speed = <10000>;
+-					full-duplex;
+-					pause;
+-				};
+-			};
+-		};
+ 	};
+ };
+-- 
+2.55.0
 
 
