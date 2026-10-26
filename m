@@ -2,136 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DF21606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 08:50:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52421606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 08:52:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2PaJQGLE;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=LgjDzaVx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oFqusWce;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Su7NXPDB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=sEk2VBaznvhGmg4g3M3jT5cfRnUHKeukKWOZwf574Eg=; b=2PaJQGLE1GotSKZt8QUl9n7nio
-	phsf0l/M33hFdbT9rUZPnI9cFA84HtdBchQMTPr6BT95noVu1VXmYHUKQaTWkaf+eNgydcAnPukiU
-	DjazNnaibZXw9UYVZEiU13XcQYr5iZ/q7yzMXiEw7fIhdF4uhsOt3RUUjICfvwd0r5JrXuAeHUm1o
-	mMbJXIVyRiKreJNapi/iRSdeSzuye1GUmcvzrRAxBsgATZUs+WU1qt6qfuB9BBIVXa/C+RFFmPep5
-	+qfxFHaN7p1pr7JxQivqKkprhob/ZoIRQIgWA1mYZAKa7xQeFW/FHiSEoApnfQthYe6sCR2n08s+a
-	rQDdTCKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=xelDIWCq6o8kmC+FCPg90bobohtYm5tcKa8G8a0jIQ4=; b=oFqusWcebXfY+y
+	7brXJbVqqf5N2dhWTbzYy3Md4lacHacJ5sBOGCXaIO4znH961d7Zxz1UdNcuD644jAW1A8e2mKhWF
+	VFwnbh4uu3Dln6sndbKtHTURDWMsSZ2IgjLJXrXh2jgHxhF3NC4o4P4C0tDyhe4UB9kE1kbtjjmlb
+	yNnCJo9T5ihdC3X9HJbrTxsO9NcDc+/MBi9ZW8rvUEaQWx5zvuP8qZDJoLc2cn/v3DESMIFJCv6gD
+	brccpOvpUlpMOPeGGdPeNDXRK4t5vw/Sga1o4I0eH7z1kAz3wL77uqWyCTyLA/C8sh/pHwMqwFi3L
+	IoqJg5NynCExjvFR8P1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLGPa-00000001zSE-0tAi;
-	Mon, 26 Oct 2026 08:50:34 +0000
-Received: from mail-swedencentralazon11013050.outbound.protection.outlook.com ([52.101.83.50] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xLGRR-00000001zeU-2DJn;
+	Mon, 26 Oct 2026 08:52:29 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLGPX-00000001zRd-3yka
+	id 1xLGRO-00000001zdX-1dg4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 08:50:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xjgQ5oO+S+ud1y8vjGGvXaj3syZrQsbIUCAlP+71o29PiU55qJ2hGIlmfz3rGxI7Gg1GHSZKNwns5YfC1kbl8OFon2uHF4AOx4ZzL40UCaHf5WvtsRtrnJx/HK6yJ53PSrAu4KozJlEVnjpWsS+QJk9dVXG3kLaB4dvG+UKB6UkogonrJsvD26ToQ37hkRseKiaTm8K5jMDpwTJJslxux6IQ+x9Jm1NK4q0bAYcQ17wp0Be9jQ4eizNkx90/oL2EnkXs/0yvKg0FkcIiGEDRFB/7FRdOx6yMK2QmflHAZwP9rMDw+h6l8zvysQFNN6WrErTYtNbjx1r9omLv9aChRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sEk2VBaznvhGmg4g3M3jT5cfRnUHKeukKWOZwf574Eg=;
- b=rF6KNSkTha/SisKjDZUC8wFtCrIw/96OudK456dqFVykX3L3ihCU3lsx2BqY340TbhLVosBCcWHzQV2WZBnnk7QsVNZf2BTRptlVuf69rMcwOrRRBLuw+R1USsGSvnhB6rf+5ctl/6nkuWfJ0DE2H1McDyzje/HR91CdoQL+PAOQK0ORkF9UCGfa+/MYVR5yJ0DKPjjz1dxH6anBX/RtXfXSS4IsqOB3CZz6CNpiniYWrz6VV/4N2V5IOsjvn03k70mNWgFFNLS6k5EgrQ85nSFk6drXyZcIZukxed8eJGT3DTDwJWqX04OI6VOYMEut3UQyg/HU8/uQeR0VBNkKXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sEk2VBaznvhGmg4g3M3jT5cfRnUHKeukKWOZwf574Eg=;
- b=LgjDzaVxjeIuusgmQArmeKmBI/h36Fw8J3XeynCsWYbRPTa+TPAFlyUbRFt0hfxnxDAOleUAT62CgGUPeEJk7d9cXfokcZx/14713DT2uyGRvlYyA9Sk/wXn/UVP/fH4/PcEDEdftZWe124UDaOnbyPAkT5RU0XFv1mazvx3D5/LC0TYPRap9OOZjApKC0dzq0bSAu52py5bAQ2NkbYEZrcuuMi5D4p+YQVYSqQNBXbjQ9hQrKGLj0VtPDyybuVfqnvSssDF5fQMkUQ63j95SffHRCZRBuRU+ekTMtXKB2jhZWYYk4WbxKugAatgLOZ9PvsdhbryHap7hffugXYAUA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9351.eurprd04.prod.outlook.com (2603:10a6:102:2b6::17)
- by MIWPR04MB915355.eurprd04.prod.outlook.com (2603:10a6:290:ed::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Mon, 26 Oct
- 2026 08:50:25 +0000
-Received: from PAXPR04MB9351.eurprd04.prod.outlook.com
- ([fe80::1058:a430:52c1:5aa]) by PAXPR04MB9351.eurprd04.prod.outlook.com
- ([fe80::1058:a430:52c1:5aa%6]) with mapi id 15.21.0546.021; Mon, 26 Oct 2026
- 08:50:25 +0000
-From: shengjiu.wang@oss.nxp.com
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: imx952-frdm: support AONMIX MQS
-Date: Mon, 26 Oct 2026 16:53:52 +0800
-Message-Id: <20261026085352.4009534-1-shengjiu.wang@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5PR01CA0025.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:178::13) To PAXPR04MB9351.eurprd04.prod.outlook.com
- (2603:10a6:102:2b6::17)
+	Mon, 26 Oct 2026 08:52:28 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=xelDIWCq6o8kmC+FCPg90bobohtYm5tcKa8G8a0jIQ4=;
+	b=Su7NXPDB9RNH+c3Xzmu6p5J8+RP1/lBmbkPZMyD5dGyoXsIDcNNRWbbt8brCkBjrInOB6ZI4H
+	PVedpc5Pyz9Tz0LeBu+R397efS7tLlo0B9sTpqd9G24Im6tbIABcqeukF9KRHxaMkkDA/u7WR27
+	XVK8ucTl912vLWM0NWoMICU=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4jCnSC70Ybz1K96Y;
+	Mon, 26 Oct 2026 16:52:11 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1869D4058A;
+	Mon, 26 Oct 2026 16:52:19 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 26 Oct
+ 2026 16:52:18 +0800
+Message-ID: <88c40977-28f1-4f01-aa5c-6dedac822d21@huawei.com>
+Date: Mon, 26 Oct 2026 16:52:17 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9351:EE_|MIWPR04MB915355:EE_
-X-MS-Office365-Filtering-Correlation-Id: 13694b8b-2a89-4d99-fd3d-08df333e2d22
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|23010399003|1800799024|7416014|376014|261009223027099003|261022075727099003|261021121427099003|261022105027099003|260925021311599003|260925021911599003|260925022911599003|10067099003|56012099006|3023799007|18002099003|921020|11063799006;
-X-Microsoft-Antispam-Message-Info: VwK2glhn0JGdg9lZ0pBpHqoxeH35P+8IcIo5ZBoE/qVp3ZWhmIunBzBtrksggH5YSv8DYkW3uqWeY8djTxTCeJ8iSNQDuBpYvqIcc/jXGwnOI32PmCpuFfK13cjd1poFAUtbiED7Q/vdAcFzwmBOkX9AnYK3fj8ObReLk+CRnsN4dHbERzjRPLX8NKp87vb/n2P4D6K8HU2Z6Dzi9urBP+Rznqy3AcNEyUOA5Gcg0GoQEDdImr8Lf8M02fRjMrmT+0KHXXUlKdx4+GiDFV4glhkRrp/jQbQXFoOS91Uq58Rl5QolCiRr/sxsZCoZEoIHTVAKSzulQ7/RqwtPk3kMlsevCdz8hySnrGY5l0NgVZZGNLFwcr6KcX97tPVRdgYZUbxT5dxJ2m3aU4gH+IMKlS9y1nvgPZNiqprW/z8ABmwtxmGupGhEWMubHif3QyhyJ/ptIXczL+d0Rp3KTQjcbrBT2jjXhBiu31HE2NO+4ZVSs0IlQYxQl5KwIuIoC0faDWPjIqSJBH//+Ox7ebFCExA6reD/Ww/p0xJTWdmbLRnvB2+HPuW8/JqqlDWYBybAt9SJpE3TVAtB97XQM2xtdJWhHXpruHn0Y+VaEf38anPIoX6/aiEm2XZbO1ADaVibJb8UhpgXN7VOkerAc2sucWn9qsPfcn3sGcjWev28IH/dSz4W7ue5Zlhkk7HRATCrcDWne7RoKlccXBjYAHTcbg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9351.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(1800799024)(7416014)(376014)(261009223027099003)(261022075727099003)(261021121427099003)(261022105027099003)(260925021311599003)(260925021911599003)(260925022911599003)(10067099003)(56012099006)(3023799007)(18002099003)(921020)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Kgbe3jsKEXqZnk0EzzDJQ+dnIkqhxFdeV/4F82WY+65LXVdKDQIK4in6FCtz?=
- =?us-ascii?Q?7gnXfEodeNy+fzZwP5XmU3gFAHAKsj6g1yGE0pyJzV5h8uYT60b1pZVGETyL?=
- =?us-ascii?Q?8pArhaZtw0xRFnelikV3RcoW1ihBF0g6mhyZqpZo0ZfnZ8meN6TgklzYyUo1?=
- =?us-ascii?Q?wSDqIU81dMNllf7b7o8IaxcwS6Bq5e/uENwoq/+U3hz/oEOUTi14AoSDnaPt?=
- =?us-ascii?Q?4eArlBKRqHW4ENUrzDB5RFQcM8zhgsfjtXEtc+PmBAfosqVwLmFwMyGJZYBu?=
- =?us-ascii?Q?NJeKFdrB1uqR1pmEdk1Ow+TwjNUN34UHnOVjQwN3lB5Bd9U/EKw98ew8U/Sz?=
- =?us-ascii?Q?vguOiFDbu9LoHVUUb1E4D0XTqSzcec7m3ZGRb+gytdBUoplRDRNJrA90oEcs?=
- =?us-ascii?Q?xN1PvwPXRBixv1A2FxNCZ+ot0YxXrseFRgdcAgvN7j0ytXJCK92yyF3BGzdK?=
- =?us-ascii?Q?Yp0O5mUoWDbplUx89pKE6uv0cUKZ+SVRcTpbll6v83sO7JGHBSyFKT0GPm/N?=
- =?us-ascii?Q?yjCdNsui/TRC1VZW3dUMrUd6zDkd+uH92UTeXNRgq7NkZyg67W0YoJbu7B1n?=
- =?us-ascii?Q?sSpRwNZVPlrgilT0d6i1W05R7rr37Ra17NEQILoqcuCZtTdNS8Pl0+xpWts5?=
- =?us-ascii?Q?//WA6gd6RoTm7YEfC4pxTBVqoPFYLQKo8QcX7cdfplTwnvMX/Iocy4lMpkvt?=
- =?us-ascii?Q?KJTYbrDzwE1v3ER8tpqDJjLfXRQebyVD9dTGnYztVfQ3JjV457KUwQ2rIcOl?=
- =?us-ascii?Q?MzxpdbOrmrFY8HZMOoOE1JjBvnb6PGXdqP7l+JNvZ/N5PjQLXbXtKf2TrF9V?=
- =?us-ascii?Q?jZzqAJ8FBNfwQO/MFnMFDHJ/OtOCzYn3mWgxoGDM64KzPaufOivetyJ5voOa?=
- =?us-ascii?Q?+TkNxE9ryu0uM3H1SwQJsemiIqt9xBFyvrITp7vIYVA1QAODYF/j24FMofGh?=
- =?us-ascii?Q?vILh8OjpLJ9xOAC8N5lC58VfOPvK+lA0Z6l9T74EcpL6IpGHPTpAJY1Xyhyo?=
- =?us-ascii?Q?m43OCBKl8n1oKrLgI5fqT4prUjFHMknRZS3xlYsgehekVj0tZf26+FXHmQe4?=
- =?us-ascii?Q?79C1Fp4XibLWCwVSsfY3bDRobOe5KZ4lufOJwiYurgS6eEXSL6MktQR+fy6L?=
- =?us-ascii?Q?L0cGHbvwhwIfHAgt1SDE8AM0JB3Jd1ja00KZeLBOLsBkjqI4MkmyiDJkYJX9?=
- =?us-ascii?Q?Sfc0P/6lsgTFWd2HCjIWYD5BaAW61D1RKaWEIaHV09TYwev2AIwFDvZNopKk?=
- =?us-ascii?Q?YrVeC9Q8QqwIq1oM/7Oi6dYJflpo+ZDHPBcjQs86jHfgQKEyxa4YjWteZiXX?=
- =?us-ascii?Q?lBARBcr5Y6Th0NsIrBt3TZqXjLQBn4P7S9QF/usPWc0F5jPgHGa5FwoyLE2G?=
- =?us-ascii?Q?j6d73dTnjW8QqEpOVeGFxf2NUUUwZmFYpWtylZJFLfmcNTbY7K8HJN6cnhS1?=
- =?us-ascii?Q?iODFEo7LlsmnZJHe1SEX4QpfxAoZnmZJ/OF6OXEOdywoFFnbRDdx7opXSf7H?=
- =?us-ascii?Q?CKtNc5fQuBQLaYdUMOvRGjgxpjXdj9crJLIe4crE/5MWZJHQFJZgsheULqc8?=
- =?us-ascii?Q?sjB9bE2mSsu+qFlAYTrTDq1HPzOOb9tlvUc7z02xNA2MGPBtdCWBWmjGKaTb?=
- =?us-ascii?Q?Pu9+/dL9cdDIDmhbekBeg87WSCWHBmrOAglTVJU5W6a1OzveZ4VdWfmQx3aw?=
- =?us-ascii?Q?a5WWKfjcFxkNh/BeXmeZdnf8am4fIeo07ugoNnuduMPNeKFFRvFlgGmkUUM/?=
- =?us-ascii?Q?f2L6Gg+QFbEHml0n5C5YXZBG5uSFxvyOazAwGbZgThdJIuApwIOv?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 13694b8b-2a89-4d99-fd3d-08df333e2d22
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9351.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 08:50:25.2475
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dhAa8HS4hl/GHE+e+YWeZrqaE0FPv24evwsD4IehXwmhZwF+rEMyIGUQePXCzLV9mPaiUqpOfKltbLljH/AUH9S/6+zUAGYE1b6VKxkNMoxQS/BGubKxKwy8/OgJMq1f
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MIWPR04MB915355
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v20 00/15] arm64: entry: Convert to Generic Entry
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<oleg@redhat.com>, <shuah@kernel.org>, <kees@kernel.org>,
+	<luto@amacapital.net>, <wad@chromium.org>, <peterz@infradead.org>,
+	<ada.coupriediaz@arm.com>, <linusw@kernel.org>, <kevin.brodsky@arm.com>,
+	<yeoreum.yun@arm.com>, <james.morse@arm.com>, <thuth@redhat.com>,
+	<tglx@kernel.org>, <vladimir.murzin@arm.com>, <broonie@kernel.org>,
+	<ryan.roberts@arm.com>, <liqiang01@kylinos.cn>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>
+References: <20260930101805.1770358-1-ruanjinjie@huawei.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260930101805.1770358-1-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_015032_001070_8AC512CB 
-X-CRM114-Status: GOOD (  10.15  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261026_015226_737894_C347DED5 
+X-CRM114-Status: GOOD (  26.04  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,125 +81,166 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
 
-Add support for AONMIX MQS (i.e. MQS1).
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
----
- .../arm64/boot/dts/freescale/imx952-frdm.dtsi | 77 +++++++++++++++++++
- 1 file changed, 77 insertions(+)
+在 2026/9/30 18:17, Jinjie Ruan 写道:
+> This series converts arm64 to the generic entry infrastructure.
+> 
+> Currently, architectures such as x86, RISC-V, LoongArch, PowerPC
+> and s390 use generic entry, which significantly reduces maintenance
+> burden and improves code elegance.  arm64 already adopted generic IRQ
+> entry in commit b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"),
+> making it the right time to complete the conversion.
+> 
+> This work brings arm64 in line with other major architectures,
+> reducing duplicated code and enabling future improvements like
+> Syscall User Dispatch and rseq time slice extension optimizations.
+> 
+> The series is rebased on v7.3-rc4 and has been tested with stress-ng,
+> hackbench, kselftests (ptrace, breakpoints, arm64/abi, arm64/fp, vDSO),
+> ptrace stress test, Pseudo-NMI load test, and the rr test suite [1].
 
-diff --git a/arch/arm64/boot/dts/freescale/imx952-frdm.dtsi b/arch/arm64/boot/dts/freescale/imx952-frdm.dtsi
-index 7785eb1a68fc..750046e1a5c4 100644
---- a/arch/arm64/boot/dts/freescale/imx952-frdm.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx952-frdm.dtsi
-@@ -222,6 +222,12 @@ cpu {
- 		};
- 	};
- 
-+	sound-mqs {
-+		compatible = "audio-graph-card2";
-+		label = "mqs-audio";
-+		links = <&sai1_port1>;
-+	};
-+
- 	usdhc3_pwrseq: usdhc3-pwrseq {
- 		compatible = "mmc-pwrseq-simple";
- 		reset-gpios = <&pcal6416 8 GPIO_ACTIVE_LOW>;
-@@ -390,6 +396,70 @@ &micfil {
- 	status = "okay";
- };
- 
-+&mqs1 {
-+	clocks = <&scmi_clk IMX952_CLK_SAI1>;
-+	clock-names = "mclk";
-+	#sound-dai-cells = <0>;
-+	pinctrl-0 = <&pinctrl_mqs1>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	mqs1_port: port {
-+		playback-only;
-+
-+		mqs1_endpoint: endpoint {
-+			dai-format = "left_j";
-+			remote-endpoint = <&sai1_endpoint1>;
-+		};
-+	};
-+};
-+
-+&sai1 {
-+	clocks = <&scmi_clk IMX952_CLK_BUSAON>, <&clk_dummy>,
-+		 <&scmi_clk IMX952_CLK_SAI1>, <&clk_dummy>,
-+		 <&clk_dummy>, <&scmi_clk IMX952_CLK_AUDIOPLL1>,
-+		 <&scmi_clk IMX952_CLK_AUDIOPLL2>;
-+	clock-names = "bus", "mclk0", "mclk1", "mclk2", "mclk3", "pll8k", "pll11k";
-+	assigned-clocks = <&scmi_clk IMX952_CLK_AUDIOPLL1_VCO>,
-+			  <&scmi_clk IMX952_CLK_AUDIOPLL2_VCO>,
-+			  <&scmi_clk IMX952_CLK_AUDIOPLL1>,
-+			  <&scmi_clk IMX952_CLK_AUDIOPLL2>,
-+			  <&scmi_clk IMX952_CLK_SAI1>;
-+	assigned-clock-parents = <0>, <0>, <0>, <0>,
-+				 <&scmi_clk IMX952_CLK_AUDIOPLL1>;
-+	assigned-clock-rates = <3932160000>, <3612672000>,
-+			       <393216000>, <361267200>, <24576000>;
-+	fsl,sai-mclk-direction-output;
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* leave unconnected - no RX in the context of MQS */
-+		port@0 {
-+			reg = <0>;
-+
-+			endpoint {
-+			};
-+		};
-+
-+		sai1_port1: port@1 {
-+			reg = <1>;
-+			mclk-fs = <512>;
-+			playback-only;
-+
-+			sai1_endpoint1: endpoint {
-+				bitclock-master;
-+				dai-format = "left_j";
-+				frame-master;
-+				remote-endpoint = <&mqs1_endpoint>;
-+				system-clock-direction-out;
-+			};
-+		};
-+	};
-+};
-+
- &sai5 {
- 	assigned-clocks = <&scmi_clk IMX952_CLK_AUDIOPLL1_VCO>,
- 			  <&scmi_clk IMX952_CLK_AUDIOPLL2_VCO>,
-@@ -443,6 +513,13 @@ IMX952_PAD_GPIO_IO11__WAKEUPMIX_TOP_LPSPI3_SCK		0x39e
- 		>;
- 	};
- 
-+	pinctrl_mqs1: mqs1grp {
-+		fsl,pins = <
-+			IMX952_PAD_SAI1_TXFS__AONMIX_TOP_MQS1_LEFT		0x31e
-+			IMX952_PAD_SAI1_RXD0__AONMIX_TOP_MQS1_RIGHT		0x31e
-+		>;
-+	};
-+
- 	pinctrl_pcal6416: pcal6416grp {
- 		fsl,pins = <
- 			IMX952_PAD_GPIO_IO34__WAKEUPMIX_TOP_GPIO5_IO_14		0x31e
--- 
-2.34.1
+Hi Mark and all,
 
+Ping.
+
+Are there any further review comments or new suggestions for changes?
+I’m happy to address anything that comes up.
+
+Thanks!
+Jinjie
+
+> 
+> A new kselftest ("selftests/arm64: Add ptrace SYSEMU/single-step tests")
+> is included at the end of the series, covering the syscall-exit
+> pseudo-step and single-step behaviour touched by this work.
+> 
+> Observable (non-ABI) changes worth calling out:
+> 
+> - The traceable functions on the syscall path change: syscall_trace_enter,
+>   syscall_trace_exit and el0_svc_common.constprop.0 are replaced by
+>   trace_syscall_enter, trace_syscall_exit and syscall_enter_audit, the
+>   same names x86, RISC-V, LoongArch and s390 already expose.
+> 
+> - CONFIG_DEBUG_RSEQ becomes unselectable on arm64 once GENERIC_ENTRY is
+>   set (rseq_syscall() becomes a no-op stub), so the earlier rseq_syscall()
+>   reordering is only temporary and the equivalent is handled by
+>   __rseq_debug_syscall_return().
+> 
+> On gVisor with systrap mode, the Syscall User Dispatch (SUD) feature
+> yields a slightly lower performance gain on arm64 (3% ~ 5%), similar to
+> that on x86 [2].
+> 
+> Result: the average over 1M getpid calls, ns/op
+> 
+> 	| KVM VM Configuration | SUD    | no-SUD | Savings % |
+> 	| -------------------  | -----  | -------| --------- |
+> 	| 2 vCPU, pinned       | 4269.8 | 4509.5 | 5.3%      |
+> 	| 4 vCPU, pinned       | 4175.4 | 4369.1 | 4.4%      |
+> 	| 8 vCPU, pinned       | 4352.6 | 4485.4 | 3.0%      |
+> 
+> Note that this series does not yet enable SUD or the rseq time slice
+> extension on arm64: SUD additionally needs
+> ARCH_SUPPORTS_SYSCALL_USER_DISPATCH [3] and the rseq slice extension needs
+> HAVE_GENERIC_TIF_BITS [4], neither of which arm64 selects today.  The
+> numbers above are the motivation for enabling them in a follow-up.
+> 
+> Testing follow-up that still requires real hardware:
+> 
+> - MTE: run the MTE selftests on real hardware; part of them do not run
+>   under QEMU.
+> 
+> [1]: https://github.com/rr-debugger/rr/wiki/Building-And-Installing#tests
+> [2]: https://github.com/google/gvisor/commit/a45d6227b521012109cde9a942d644d778eb773b
+> [3]: https://lore.kernel.org/all/20260721081858.1169276-16-ruanjinjie@huawei.com/
+> [4]: https://lore.kernel.org/all/20260320104222.1381274-1-ruanjinjie@huawei.com/
+> 
+> Changes in v20:
+> - Add a kselftest covering the syscall-exit pseudo-step
+>   and single-step behaviour.
+> - Reword the first patch: it skips the pseudo-step for the emulated
+>   syscall rather than "fixing a redundant exit stop", and drop the
+>   Fixes: tag and Reviewed-by.
+> - Add Tested-by.
+> - Cover letter: document the observable changes and the testing
+>   follow-ups.
+> - Link to v19: https://lore.kernel.org/all/20260922035510.1090299-1-ruanjinjie@huawei.com/
+> 
+> Changes in v19:
+> - Rebased on v7.3-rc4.
+> - Fix build problem as Karl pointed out.
+> - Remove has_syscall_work() later to make it more clear.
+> - Add gvisor test data.
+> - Link to v18: https://lore.kernel.org/all/20260902095537.602517-2-ruanjinjie@huawei.com/
+> 
+> Changes in v18:
+> - Rebased on v7.3-rc1.
+> - Drop the SUD patch as Mark suggeted.
+> - Update the commit message.
+> - Add Reviewed-by.
+> - Link to v17: https://lore.kernel.org/all/20260721081858.1169276-1-ruanjinjie@huawei.com/
+> 
+> For changes in v7 to v16, please refer to the individual patch threads:
+> - v16: https://lore.kernel.org/all/20260629130616.642022-1-ruanjinjie@huawei.com/
+> - v15: https://lore.kernel.org/all/20260511092103.1974980-1-ruanjinjie@huawei.com/
+> - v14: https://lore.kernel.org/all/20260320102620.1336796-1-ruanjinjie@huawei.com/
+> - v13: https://lore.kernel.org/all/20260317082020.737779-1-ruanjinjie@huawei.com/
+> - v12: https://lore.kernel.org/all/20260203133728.848283-1-ruanjinjie@huawei.com/
+> - v11: https://lore.kernel.org/all/20260128031934.3906955-1-ruanjinjie@huawei.com/
+> - v10: https://lore.kernel.org/all/20251222114737.1334364-1-ruanjinjie@huawei.com/
+> - v9: https://lore.kernel.org/all/20251204082123.2792067-1-ruanjinjie@huawei.com/
+> - v8: https://lore.kernel.org/all/20251126071446.3234218-1-ruanjinjie@huawei.com/
+> - v7: https://lore.kernel.org/all/20251117133048.53182-1-ruanjinjie@huawei.com/
+> 
+> 
+> 
+> Jinjie Ruan (15):
+>   arm64: ptrace: Drop redundant pseudo-single-step for SYSEMU_SINGLESTEP
+>   arm64: ptrace: Rework audit_syscall_entry()
+>   arm64: ptrace: Open-code seccomp check in syscall_trace_enter()
+>   arm64: ptrace: Rename and clean up syscall_trace_enter()
+>   arm64: ptrace: Protect rseq_syscall() from tracer PC modifications
+>   arm64: syscall: Rework the syscall exit path in el0_svc_common()
+>   arm64: ptrace: Pass thread flags to trace enter/exit
+>   arm64: ptrace: Extract arm64_syscall_exit_to_user_mode_work() helper
+>   arm64: ptrace: Align syscall exit work semantics with generic entry
+>   arm64: syscall: Use exit-specific flags check in el0_svc_common()
+>   arm64: syscall: Simplify el0_svc_common() syscall exit path
+>   arm64: ptrace: Make return type of arm64_syscall_trace_enter() bool
+>   arm64: entry: Convert to generic entry
+>   arm64: Inline el0_svc_common()
+>   selftests/arm64: Add ptrace SYSEMU/single-step tests
+> 
+>  arch/arm64/Kconfig                            |   2 +-
+>  arch/arm64/include/asm/entry-common.h         |  77 ++++++++++
+>  arch/arm64/include/asm/syscall.h              |   5 +-
+>  arch/arm64/include/asm/thread_info.h          |  16 +--
+>  arch/arm64/kernel/debug-monitors.c            |   8 ++
+>  arch/arm64/kernel/entry-common.c              |   2 +-
+>  arch/arm64/kernel/ptrace.c                    | 115 ---------------
+>  arch/arm64/kernel/signal.c                    |   2 +-
+>  arch/arm64/kernel/syscall.c                   |  34 ++---
+>  tools/testing/selftests/arm64/Makefile        |   2 +-
+>  tools/testing/selftests/arm64/ptrace/Makefile |   9 ++
+>  .../selftests/arm64/ptrace/ptrace_common.h    |  84 +++++++++++
+>  .../arm64/ptrace/single_step_signal_handler.c | 131 ++++++++++++++++++
+>  .../arm64/ptrace/single_step_syscall_stop.c   | 130 +++++++++++++++++
+>  .../ptrace/sysemu_singlestep_intercept.c      |  93 +++++++++++++
+>  .../ptrace/sysemu_singlestep_no_exit_stop.c   |  81 +++++++++++
+>  16 files changed, 631 insertions(+), 160 deletions(-)
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/Makefile
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/ptrace_common.h
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/single_step_signal_handler.c
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/single_step_syscall_stop.c
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/sysemu_singlestep_intercept.c
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/sysemu_singlestep_no_exit_stop.c
+> 
 
