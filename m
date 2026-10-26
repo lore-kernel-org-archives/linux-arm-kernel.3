@@ -2,100 +2,110 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6015C60A383E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 09:58:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C30A606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 09:58:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YBEmeRvs;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=OTPW0OpI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DDv9+C8r;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=mhWk2P0i
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=R9h+DEGkE7OfbxbTlOhlkSwyAQZZrV9VsqfeUYO7TCM=; b=YBEmeRvs/OVbIPDdSuyPZcr1+o
-	KjfJaaek2QhvX7sKmJNdqi4V8ujruyEuQf5xvKpVhg1gildvx5EsBfimUyRPQfjAHJvqIyaSDSCv7
-	FXMSltFy0g9QeHFAwkgKDDaEvMySq3B5jPqrKGXbX5FDqQcPkj1rofxVx3aSkzURzre/uPxfqp5LB
-	CidZfu5F2Qa+sD1LwbKOdp3u715jarYuJTqH/O32pjQmMoGpX6xP5XZUrKdQhpuf6wHKYgwKGy35d
-	mD4LXr4dHP0/uJHXWQdyoZcFPzElQweNjsG2yCDDBobl3D1iLs9wIlhUGJ5b/mmG1e8mQ9azgFax8
-	gtqw1/6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=ZkrjTGKpjcuZ/tYx9QE/Yhm7rGoild+k5lq+5pxzVsM=; b=DDv9+C8rYrPEwb
+	gF+zlQze28Y1yeVNXR55Kh3+XK6XPl4UB3B0k5FDqOcMhhZG1KfLG8OaMT0sExMCmTS8p3R28mDY+
+	DHXEqMVvjMvhtM05XW918DCUlNBqnegx0jmRWAT2aExCJ5HD9zO4PLlyFv2H2/EOYQxPKRMFZpONq
+	Q6rU9vzvxeNx+sTiLvTvcrzdDqxtShzDn1VwM40Mp3P4vCt6pCjKPujsHyDMxFbAKqhsQADz/ii0H
+	rHuNgz/FmSAR/yGM0UJp7UR9bNdzjObzG4Q0iXu/K4kDIddwYOKZciy3G8RoDmEclpjskmsuTfSBt
+	sX/OP3zI0OpbngG/Cg3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHSW-000000029IU-0h8x;
-	Mon, 26 Oct 2026 09:57:40 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1xLHT6-00000002AEX-3Afs;
+	Mon, 26 Oct 2026 09:58:16 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLHST-000000029Fr-34Tm
+	id 1xLHSt-000000029wW-16Xe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 09:57:38 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso12136745e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 02:57:36 -0700 (PDT)
+	Mon, 26 Oct 2026 09:58:06 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-8a06ca6e8f4so1942011b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 02:58:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793008655; x=1793613455; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=R9h+DEGkE7OfbxbTlOhlkSwyAQZZrV9VsqfeUYO7TCM=;
-        b=OTPW0OpIze2z1aHjHVMEolCe+3UFfMVcqZ8QI7EOaKYGocbES7TPVcmapXQUC4ZF01
-         uqa5egcWzYQEDDy88hH/o8CgsARwfRxs+OPPLZ/BjuXq7r7N/be0MuqEwxBb9rpfnncK
-         vtvbI7LN5YYO0fduEn7fe4WStFGHBJMGvzJthUXyh4vXFgaEoWZt4P7Wm/urRkllQAqJ
-         vdWT4KvOZA/OX0j6Hkwykxw32hpbx4PTVFtzCSFzwR9L3lOHUT5rcGBZyna++JVwSaqB
-         hE99ZAluEk36hI0Tx2Em12JOnK4QQ+a70HyDTGz3n3rl5xPmOVR/z6ZQ+fghCBsx2AmJ
-         lQ4g==
+        d=gmail.com; s=20251104; t=1793008682; x=1793613482; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZkrjTGKpjcuZ/tYx9QE/Yhm7rGoild+k5lq+5pxzVsM=;
+        b=mhWk2P0i34lcUqs4PzvwvqK6ZJDz5+r9zFEbkvb71n6WRNh20qkkHKcvPKRscp+Uo3
+         8WId0ctM9oOw3y+aPFI6NMdGSZEIuGoWmcG8BfeEYedvJlBOC8Mp5cy5vPhtLtp7Po8q
+         hesIvwsid+eNOopDsYshEL5eQbxFaTphM/Yp6cvvIE1xezock3US/Wl1fhkwjUFGQntP
+         89FUz67YMSxVg0/Z/eRHWRRP862kU6WzkDWjTo+A1Zb7FP2mIGmTU5ti2EMyh/CJ9+Je
+         8oj9yvQO2mzhvPHze85K/WafIp9bJ7xtmVUecEnrA0AcVMbuL4RMz+Vh9dR771vcklgV
+         SFOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793008655; x=1793613455;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=R9h+DEGkE7OfbxbTlOhlkSwyAQZZrV9VsqfeUYO7TCM=;
-        b=B5F55IT/oVG2Mf8yrGaJm2pbqTx85rr0pa/DLp1Iv3lrb4Cl5azsb/cocf/Ly5r2ml
-         lhb0R/mYxLdlBt8rwnx/XmPrEx7sOcYN7/T3YmA0Eracxtm8Aacgze78ho1BPm92uuj9
-         bYaOv750ukd8GE8t45y7rzJiPDEdiqk6WnKn8Jy3eCr+b5OlhEv9SOzU6w1xC7sde8w9
-         rskzLzwubLd1OCwau++Bfy2JpJtDmsPrUBGV/O2pRNN15L+gDf7cbV6JUT6fVAHy1FkH
-         rP4Hb0DMhoaIopm3To1opP2+gtXtuA7isHJPD6bhstcESvpNQcnRlCdl82FLtEGHOI+1
-         o2IA==
-X-Forwarded-Encrypted: i=1; AKwUvBzfG5jP2n4OwdjoawEi5bfsP/ZPt8b8DsJ5tRn/TTizGP9ZTEbE9BWjpBhIyVId39ovKUB8jMcfifUX9XMQyaIu@lists.infradead.org
-X-Gm-Message-State: AFq9FYIOkd5m8GUUB5jzQfBILRiGyD9ig8O+hsGFV+Kk0H2Ao1PzuuO9
-	hmzfi0fKmDDXpOPImHPfz8vn10kOuHZWk47rVu5OGkn9HlgBp585fcpx
-X-Gm-Gg: AYBFou3oJngctxBYu2LKT2nnLoOvsVcZDzDTHs2pFJ2WCnB6FukzobpcQPaSel1L2M6
-	8IhmmPl8N+INi4bKypM4lF9E3fl0vQmoAskyIE74p6PT/XKEhNP6YFa3BiNP1jDUu+fDL0TZXF9
-	3QOH5bXzg+/VX+vbGaRKb24t2L8DgOucKt+j9O9DctPZ0tBUiz0zC/XA1uiCU/oOsTth9tr2vvH
-	c/vHlg07qfNFsBbU2Vhf7/ufSZKEp8zlyx8540GBPCeTJEsH60c1R21rwoOXLIiJ8kAd9oeAvnB
-	M+pOS3dlygEAVM0WAamxc5Nxpknc76C931myoJdp+uiWC3S41cY21KcOQp+UVUeUu/aj5TYtvGd
-	M6qP+wFqHXCT1Oe6nGB/bHvYTM+UvfgkxF6QGjyxovSYX+XrvyQ15g3MqGUvr4QhoELvSJUu+np
-	c+E07iIuwzpesS2LXosdlv40tZzDhLX9oKR5kP0pwYQskrUiR2ELhs+1u2l86ZmVL6q8Y7nixbt
-	BXQ8mdXV3vutl2nZ1+LsbPTtJLj5oA3PkGBxyB5bJ8p1b1lKRA6sXJfpH5PQEsivwnQjmMm0IQ2
-	jt/34vkeb0/sQT+Qh6aCrP9k/fvGxGOxMHCuR5AqzxcyLRTtbmeAbu9zloNxBDfdWRd8wJArwOs
-	hCpyRKw==
-X-Received: by 2002:a05:600c:4e8b:b0:4a0:23f:8b0d with SMTP id 5b1f17b1804b1-4a35ac3cb16mr111294555e9.2.1793008655265;
-        Mon, 26 Oct 2026 02:57:35 -0700 (PDT)
-Received: from Ansuel-XPS24.localdomain (93-34-92-187.ip49.fastwebnet.it. [93.34.92.187])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4a35a0cc374sm190382825e9.9.2026.10.26.02.57.34
+        d=1e100.net; s=20260707; t=1793008682; x=1793613482;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZkrjTGKpjcuZ/tYx9QE/Yhm7rGoild+k5lq+5pxzVsM=;
+        b=IPgE/qKMiPXBf6chUPn0eENG1gkMk+UKs4WwZ5HBrXlSdGZ4vnOO7F6oX5htx+zC3G
+         m0TuLHeURP+M6YhQxb9YcJ5W+ePqspaYkmBt3r3EPCgPm3IFrY5I+GEHQ8up7ot84Gs9
+         bx7uR+QUCsKFsMH+JgW45OgETuMWpZIDWejLmPVdtDIh6KnidYf3cvX/sXMam9xxdw0H
+         wbjm7O/J74W7Ui5digYpDROqQnnhrHi/KQpplF5RNBIsAl/RLB0CZQDkex0B5NXY3KJv
+         QjrLTgKjIcKzGn1EfFX9oXwjg/0vdVMiJX0p39KedAHZjTC2Z4Qh3wjtFGmoebBsj4h7
+         +Cjg==
+X-Forwarded-Encrypted: i=1; AKwUvBzvTYBk2kFWw08dMovH4SmHDENTWadq6qTpgWNSHyd2BDs6EpTjTdnqzOXYMF/CljucjhY1ZHk0LaRfhUrrY3SH@lists.infradead.org
+X-Gm-Message-State: AFq9FYJD96ReOF2YOXsTlEg+SWdrW1yLA9PyRyYs3jHUVgKuWcaQIi7p
+	D3ZbxPomvPnzk8I/F17r3/AzGDOWHTN3MCR76qKe0rbQ/LAymIystyFj
+X-Gm-Gg: AYBFou1f4rMQWA/syGeLRJhoDjTnGwML9KIKCfV1a6DK8rU41SdmM1ONNbjmkmQSUk4
+	POX6mImOAu8HfsadpEf8aGjN8WkLXX61TTogu+eJ80R3NbhT9qwSnfuwrmzJn72b+pzFpqOHhjU
+	oBkA/akp5V6zOtRe1HHCTKisJfMPOn83L2L9asbESe/15ni8dE7f1TwUPhVt4CehesyjTF19unb
+	GyuxDC5Xl0QEzYkiCvgpxs+7jyeJbqCZTNgejYkcc6j6tm672KDDOcp1LNpXO5k3CfRhYVLeIPz
+	j59AqXlLi3HtMetIC6nFF4c4MIldf9A2iokrJuXn+lbI6XqP2HNiP3T6DRfGolXkhxeupP9/Q6F
+	Yg8B7NB4YLCOS0PboYOwQJELc398DG1bkqHhpwDg/C6xebfePjMGchUXvGbV5AIfFkY5qXFMPFd
+	hmjvXdVU7wgVZQxmLHcZM392UfcUXpaNrcmsQHooWSGme7hXMCn32z/mzRN+12+PmpROoo1/YAs
+	4SrJL3mD1D2UWvJlFzQKaPuibWaOGYwmquPAnOQXC6zashl9Ow47djZSsFwKuQYE+ANk9mcEy8x
+	/jbaiY66fA==
+X-Received: by 2002:a05:6a00:9093:b0:878:3783:8a88 with SMTP id d2e1a72fcca58-8a3689a9e0amr5082831b3a.52.1793008682324;
+        Mon, 26 Oct 2026 02:58:02 -0700 (PDT)
+Received: from [127.0.1.1] (59-127-145-64.hinet-ip.hinet.net. [59.127.145.64])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8a36bf0f4dcsm1095577b3a.44.2026.10.26.02.57.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 02:57:34 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/9] arm64: dts: airoha: en7581: cumulative nodes addition
-Date: Mon, 26 Oct 2026 10:57:06 +0100
-Message-ID: <20261026095727.31708-1-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        Mon, 26 Oct 2026 02:58:02 -0700 (PDT)
+From: Zhi-Jun You <hujy652@gmail.com>
+Date: Mon, 26 Oct 2026 17:57:29 +0800
+Subject: [PATCH net v6 2/4] net: ethernet: mtk_wed: fix reset condition for
+ rx wdma
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261026-wedfix-v6-2-a52f6b15d2fc@gmail.com>
+References: <20261026-wedfix-v6-0-a52f6b15d2fc@gmail.com>
+In-Reply-To: <20261026-wedfix-v6-0-a52f6b15d2fc@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sujuan Chen <sujuan.chen@mediatek.com>, Rex Lu <rex.lu@mediatek.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Sashiko <sashiko-bot@kernel.org>, Zhi-Jun You <hujy652@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793008668; l=1247;
+ i=hujy652@gmail.com; s=20261026; h=from:subject:message-id;
+ bh=KHuNb2dXEaBZgB0w45LgKUexXhH4JlXqWzUxUbg3sfY=;
+ b=ZGYVb454jS3iS7dka2Wxnt/z9ajD8qAN2Wb5iUIt2lWi9KINhIlEdsUJT8NTJapNe+/51Z8Oq
+ /hngfvKzvT+AkkuPLM0fGdef/c2DGWGBEQtdQ/RmPTv9fVm7MLdmsdb
+X-Developer-Key: i=hujy652@gmail.com; a=ed25519;
+ pk=uXjqvnRsKEfHEyUr63sOg4fEJIDs4AmiW/rB1cWarXg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_025737_773889_FF64161D 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261026_025803_334010_271156A7 
+X-CRM114-Status: GOOD (  14.31  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,31 +116,45 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This small series adds all the nodes of what is currently supported
-upstream for this SoC.
+In mtk_wdma_rx_reset, currently only resets the CPU index of the rings
+that doesn't have a descriptor. This is wrong because no descriptor
+means the ring is not configured.
 
-Christian Marangi (9):
-  arm64: dts: airoha: en7581: reorder nodes following incremental regs
-  arm64: dts: airoha: en7581: add CPU OPP and scaling nodes
-  arm64: dts: airoha: en7581: add Chip-SCU accessor node
-  arm64: dts: airoha: en7581: add thermal sensor nodes
-  arm64: dts: airoha: en7581: add watchdog node
-  arm64: dts: airoha: en7581: add PWM node
-  arm64: dts: airoha: en7581: add nodes for all supported uart and
-    hsuart
-  arm64: dts: airoha: en7581: add crypto node
-  arm64: dts: airoha: en7581: add integrated switch node
+Also mtk_wed_start makes sure that all rx_wdma rings are set up this
+would lead to no ring getting their CPU index reset.
 
- arch/arm64/boot/dts/airoha/en7581.dtsi | 673 ++++++++++++++++++++-----
- 1 file changed, 553 insertions(+), 120 deletions(-)
+Fix this by inverting the reset condition so allocated rings will be
+reset.
+
+Fixes: 4c5de09eb0d0 ("net: ethernet: mtk_wed: add configure wed wo support")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Link: https://sashiko.dev/#/patchset/20260724172040.1653-1-hujy652%40gmail.com
+Signed-off-by: Zhi-Jun You <hujy652@gmail.com>
+---
+ drivers/net/ethernet/mediatek/mtk_wed.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+index d55042ccaff1..3f0be70c3f14 100644
+--- a/drivers/net/ethernet/mediatek/mtk_wed.c
++++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+@@ -257,7 +257,7 @@ mtk_wdma_rx_reset(struct mtk_wed_device *dev)
+ 	wdma_w32(dev, MTK_WDMA_RESET_IDX, 0);
+ 
+ 	for (i = 0; i < ARRAY_SIZE(dev->rx_wdma); i++) {
+-		if (dev->rx_wdma[i].desc)
++		if (!dev->rx_wdma[i].desc)
+ 			continue;
+ 
+ 		wdma_w32(dev,
 
 -- 
 2.55.0
