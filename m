@@ -2,87 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10C89606A31D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26677606A31F
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 19:02:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Eskfm+/i;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=LdkTRSH9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mZabHX1U;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=dugtSS7G
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=C0/sOWlN1MqwJBr0A98O/WByIk4UA9hHkggdJ3H2bxw=; b=Eskfm+/iEgL+w5
-	bV9vjuEHmVdsd4rNObCitf7eu3Z26hExAtYZ4gXyJCIq8o6d8PZqr9305XQJNL28bo6rSRestfCph
-	+3ZxXM95dqNZOzVwAeMvgqn7z9T+5QTXiOMP8ubLKalPrCJWazlm1C4prSrrdKgCL9deS6m7k2PI9
-	BjNvA3ZfnHTI1iyhwnyO1E3feldqeKXUrfdWB5gaFPJvv7PAX4lFVwpKdYpVYts6jiKtbLplnpkf8
-	+w+HyVzYjCFRUpMMImoUdLtp2416tfzq8/R4+gBIE4nDhCa1tWVzUAjqe+HEHegU9hZ0rLJn+pNn5
-	FWYU7iK19Y44DhhN2vcQ==;
+	List-Owner; bh=07HklJOx/r3iefKPdEdock1PeAL0doe52SrNOxBdYeA=; b=mZabHX1U168R7q
+	tkkWXiXX1H3gcBpxffyyv2PxEiodLl+xjz4OH9CeNIh6HZwamDILyl9vosTvDVW5hQyeZ/1KD6+EZ
+	P22K7t1PXbyTNVQRczZQPCl46VKjEbnyAhfP2KucPWwQfmFTh/ttQegqrb2OIr8cSY3Gy1mBXPzKs
+	J8X6P74dNrIG3rTOOomFEi0DJEaIt40QRQTnTJN1Blf7naXTqMKTz7EXKVanGVjADU7K8AL32Ahei
+	b9RdUrGCEKnUBavRbIog1McWOptLV9CsbV8oUFBhYCKEEte+dn/JL/LvgNaSwjjVDCY/jLFZW7mWS
+	6blhfPjWq5a92BpDbbgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLPxn-000000037dj-1Nsd;
+	id 1xLPxn-000000037dy-1qEa;
 	Mon, 26 Oct 2026 19:02:31 +0000
-Received: from mail-oi2-x09.google.com ([2607:f8b0:4864:32::9])
+Received: from mail-oi2-x0b.google.com ([2607:f8b0:4864:32::b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLPxh-000000037ZG-1ndC
+	id 1xLPxk-000000037bZ-268h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 19:02:26 +0000
-Received: by mail-oi2-x09.google.com with SMTP id 5614622812f47-5179f3beaedso1472290b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 12:02:25 -0700 (PDT)
+	Mon, 26 Oct 2026 19:02:29 +0000
+Received: by mail-oi2-x0b.google.com with SMTP id 5614622812f47-53c4858eb76so1444433b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 12:02:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793041344; x=1793646144; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1793041347; x=1793646147; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=C0/sOWlN1MqwJBr0A98O/WByIk4UA9hHkggdJ3H2bxw=;
-        b=LdkTRSH9oajDSwkuBLFfo31BdfbY/gDBHzDlk6kiQUkMgw/KB5rbUk/TgaGV+UkuJf
-         T5m2Zu3xF4nz8hhI+SHCUzfojLbcIWtaLIOK6fsSGVYz6qEYG8nxb8HAemfThamZ0hGO
-         3NwXYCP4TRr72bT/aF+y6ezMWncCi644+kNfuBuvnc3EnJ3TfK9NoBmNcTvlj/kMIEje
-         jEOt+c/B9Bm06RIxHFQMCOIfnRefapvXiKuVkRyR2LjViegs3aB+mRQKAIp9ArTnxNwe
-         GSQpdiqCBpxHgVbnqhy2GgTINVKDKuWI8AH9V9Ixulc23f1PM+4HcJRof9QfykD3VKk3
-         xx7Q==
+        bh=07HklJOx/r3iefKPdEdock1PeAL0doe52SrNOxBdYeA=;
+        b=dugtSS7Gfoxf8l1IXEwr5Lz4M9P0knxSbn+qQjsJBQiSRsKHJj26gLxQ7lrI+VvjEH
+         JrRaVcrS4akWkfMVlCtTzsG0ju8YX5dzO7n9MUpsWY0LjTdgjVEaZ+GIlOHV5aDZbFiS
+         1KQ430qCCxpZGC4rToPGE6/RiIjshD8LXfrwAvqeP4o9/L1ExzyM15VzVTN4jYR7z2/n
+         SlXd/ki6JMaXCYnl1kwZwOL6xVGe+oUyJcLJGnwtHq1jVx73+6MXfyMWgzbTYspV6IKL
+         LI8cY94FysUatIV1Jx/vI5M1Aqu8cnqfVGWZhHfTiscrVxXphAm6qkNCAdkdqOZV1o/s
+         couA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793041344; x=1793646144;
+        d=1e100.net; s=20260707; t=1793041347; x=1793646147;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=C0/sOWlN1MqwJBr0A98O/WByIk4UA9hHkggdJ3H2bxw=;
-        b=DakFfzLNxCqFBngWMxkKMJ3teV3dYiQgZiYg9f429kOtzkm/1NtSPVx8KEKW43pe6m
-         jSrpUl3MTgK9tQk/T4DZC9qLVlssAbReJ8NfZuBjAouB1JQN25Hy+gO9ltfUZkuXVWrH
-         CJGwll2PElLvaUokYPTywcME+ZBhC7v9RzlZMbzJ1ijFEkucln2qUWE6q7cxSxRggFM6
-         2puBZS09hKA6sMdsHg+j9eW+fBqDhfMoIYLJRd3ukz5eqWRjZSnWdSMp0EjWXLh5b8L5
-         nY47vOEQYwP1t9I+ay+Mw6i2Yxl+Lxhw7VupqEgXHLmzyTmyTo8cdu+8XL4pFpFOYMxI
-         L7jA==
-X-Forwarded-Encrypted: i=1; AKwUvBx11gg1PDQfmPqG/NMEvkedcXBdPbMetX8g8RYsO8T3vE8n+u8qiiMNIpdFx7siwTfXzOSIHZ6xfJDnw0vFGkcG@lists.infradead.org
-X-Gm-Message-State: AFq9FYKi6Rsuc6d08c6JRBNixNYMVMMVJhhZ5wtoihrNdr3KZmAmMpqF
-	XGY8pPL9i+/2ImV6O2IsS+ZibWY1QEF97dHuxppWGWXb5iWN7KcpeV5R
-X-Gm-Gg: AYBFou3kDS9PVcFs5lxsF6ianrh9Rts11C6WSqqzynjTo62VpMLkwvuFDF8CLA8IwMq
-	f0LLrjC9F7IlCveyUX09Sq7OVndixutF3bgSOwuUuFoCNTyeZ5zSpM5Jz/ehs0zKFZ/xpw6oK0c
-	LyJB2DImbnq4bxdrEVuNXL1L5L9i6G1h0VFMlHnJvzGIoICR/va9xBTiWCihJ9l/OcVFpZZ1UU9
-	0NqxBWvot2WMmkejNFpj07xmFqVTMjZzEKaT/gCKxt7DeBW49dnR4GdAsiNd7KaYOW5OXSXI0rc
-	6ns4yOVziHfsRUqNCkultQldDbI2cGLW7iIk4T8G1lNVPN+P+grC0AIwcZMOMjgMOeedMNmfU9O
-	QG1KvRBozoz2PNpRWnW6BcmOqcAXLD7tEZoT28ujEjJClgUkD1Tvd+XayvkNOJNM9rxLxNeXMaE
-	qZmV0WpXcbhh7ILjLUuZylr/Ly82uV1ZTWjbiwUB4bqTgiEydYqT+K2IxRXCngqBxr9lMvqJObX
-	o8H01KBd0IhXdpUq1Wayxa0tEgo0nEciFmuZnzjV7lKeW210TnUN9/IGhzDj91gRKcls9/zbGrk
-	JV9m2Fn+wjxv50OILgOe6j3OwRYReSHX14vgXPq22eZExMXyxde1HtT/j0bTlNTUTGe5nU2KcbT
-	6dMJsCL18LC9uOU5mqnc=
-X-Received: by 2002:a05:6808:c2f1:b0:4f5:d3bf:edf3 with SMTP id 5614622812f47-55c0038dac2mr5576376b6e.59.1793041344128;
-        Mon, 26 Oct 2026 12:02:24 -0700 (PDT)
+        bh=07HklJOx/r3iefKPdEdock1PeAL0doe52SrNOxBdYeA=;
+        b=qH/X8IjuxfuiCTMh/j7w7e2ztpDDVkTFgPFZ09cdzUYWDoXotLS77cpyHKhVPhBdZd
+         /TrEbTa5+/K4rOhksBG1apeKp7HDBk/0A8FRUd1bwMlaGqmHwcRA8rsLz4j70rFZ4Ybq
+         4qJK06wkLSUdI+XP9ze/07hGBXLT8CwqGe9zjbvRie6GkaXWmnW3FFHOkwyo8HFufKhM
+         /RIexBM0k/ilT8HHAS4mTifPcSrgc/Z2bkWIRxG333eeUXEPF9aRdslLgpwerQEQxSfK
+         bMoY6R7v/kNNvh8L9Eb442e7d1Kj5YdYjdB2f/nZF3m3bFaHI6GV+mLwQFvG7Fy1ked2
+         x0RQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxffTQPM141qLX0jPriNme4UFkvZfw7FxLiXcoHEFHVWRHZrHiTXmR4riepOCRyKGAv3tyI/jjR80dgk1cQmYPW@lists.infradead.org
+X-Gm-Message-State: AFq9FYLuiIx3i1HAX1VVNgxux95jBD1RcsRYftahAZk6GgDs2Db2XU+B
+	q+iblijXiqctu6wBUP815Tre61Ce/uxDlRkduG2SomwQ0T7vKsgfQ1hP
+X-Gm-Gg: AYBFou1o4eGuiBo+hop4BabHYL2vakEaxILJDrnNUPnqxsP0V1CSAkZ98iH0bVruj3o
+	ODmqBC8q6oUP4iYB5pfk4kmOPqHrrEKzX+Z2nyfmLSd2cqH6ebj7L/p/Rkv/3VQVjVZ1sR8igRn
+	7gt6ddEliZ4+d1H73DDBSWFf5w2Kd+7epkczy4tj+PswTXyaeogOq3ce6yhm8QbeS6TJnC+2FXC
+	E6nVadDJKonEoeHdrNmwaYy/PafiLTFl6cqlX2HyETst9qKFJSHgtiFcrnM2/SfrRomTV/4zXeZ
+	Vw4wAbxfXkvVqpSEuZJhAVWhlsRqHTokRJug8hyDcZfSwAITFUumdWS1vTQE7h7iqZ6GKAh9P+p
+	wYSWFb8EBdz6y6D8u2Ny1QQzOcRv8tpSULEeo2aE8x7WWC6Nt/MrETNgULtnJXTg+5wWagCgSfc
+	oZucU/muTSkIEDmqNZe7NjUwSPJ9qWMuFygh/Ns2nkhpvr0FWDtF0UR6WheewrSLFsGQNVrWg7v
+	L0LusgFafZwhlctRBgsFhXZ0683TbEgmGPLNAZwRL+MHfN8PzecHHFETDdGacng/QwYYBfJLczJ
+	JEannK6k1cEt+B073GZj+jiDfyfoX5/OeV9gj7w9gSiQjA==
+X-Received: by 2002:a05:6808:c226:b0:4e7:851c:23f5 with SMTP id 5614622812f47-55c003fa3f9mr4544096b6e.59.1793041347210;
+        Mon, 26 Oct 2026 12:02:27 -0700 (PDT)
 Received: from [10.10.18.223] (wsip-64-207-253-118.tu.ok.cox.net. [64.207.253.118])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-55c04311a8asm5958356b6e.16.2026.10.26.12.02.21
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-55c04311a8asm5958356b6e.16.2026.10.26.12.02.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 12:02:22 -0700 (PDT)
+        Mon, 26 Oct 2026 12:02:25 -0700 (PDT)
 From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Mon, 26 Oct 2026 14:02:13 -0500
-Subject: [PATCH 1/2] Bluetooth: btmtksdio: wait while Wi-Fi downloads the
- shared patch
+Date: Mon, 26 Oct 2026 14:02:14 -0500
+Subject: [PATCH 2/2] Bluetooth: btmtksdio: retry enabling the function on
+ MT7663/MT7668
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261026-rbrue-sheldon-upstreaming-btmtksdio-mt7663-v1-1-121792305f72@gmail.com>
+Message-Id: <20261026-rbrue-sheldon-upstreaming-btmtksdio-mt7663-v1-2-121792305f72@gmail.com>
 References: <20261026-rbrue-sheldon-upstreaming-btmtksdio-mt7663-v1-0-121792305f72@gmail.com>
 In-Reply-To: <20261026-rbrue-sheldon-upstreaming-btmtksdio-mt7663-v1-0-121792305f72@gmail.com>
 To: Marcel Holtmann <marcel@holtmann.org>, 
@@ -94,16 +93,16 @@ Cc: linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  Ryan Brue <ryanbrue.dev@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793041338; l=3241;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793041338; l=2175;
  i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=ddztoRYUESDPWb2PQYPya2Tntue+gD/4f8ofmkkWRzw=;
- b=Xpakt9Wyhh2fH44z/HY3v5CV//e6jdBro+k8eFbYlXhtJ3WfwmxDtQGqwSusmrwJNYH6TjbNb
- 2hHcf/PxIVLDax2JTueLWoyqslFrC7Zmb2Rbz+fxerGE9NUNOiar/kM
+ bh=p5no/S8PpFqMwynWIKqGncsBNwjfIsmYO/W2PvcD6mQ=;
+ b=IJ298NG14mxx/gBOBanVXzZJRrSHN5am2KydNnQfi4ZzU5GBakO03eJI17yPJL1Tz8N0Tb2xS
+ iLeV3zN+1+pBrri+wlcCSBgNRlJh/9gFw2i6TTiZ85XBNSg0HrlsWbj
 X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
  pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_120225_481462_F4C94D2D 
-X-CRM114-Status: GOOD (  22.01  )
+X-CRM114-CacheID: sfid-20261026_120228_560506_4405CE99 
+X-CRM114-Status: GOOD (  17.35  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,94 +122,68 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On MT7663 and MT7668 the Bluetooth and Wi-Fi SDIO functions share one
-ROM patch, guarded by a semaphore in the firmware. The WMT semaphore
-query answers 0 while the other function holds the semaphore and is
-downloading the patch, 1 when the patch is ready, and 2 when it needs
-downloading (MediaTek's own driver: PATCH_IS_DOWNLOAD_BY_OTHER,
-PATCH_READY, PATCH_NEED_DOWNLOAD). btmtksdio treated 0 like 1, so when
-it probed while mt7663s was downloading, it went on to enable the
-Bluetooth function on a half-loaded patch. On an MT7663 module
-(Amazon Fire TV Stick) that left the chip unresponsive until reset:
+Right after the Wi-Fi function of an MT7663 combo chip starts its
+firmware, the WMT function-enable request is refused (the reply's flag
+byte is 2). btmtksdio ignored the reply, so the following low power
+setup command then timed out and setup failed:
 
-  Bluetooth: hci0: Firmware already downloaded
-  Bluetooth: hci0: Execution of wmt command timed out
-  mt7663s mmc2:0001:1: Message 00000007 (seq 13) timeout
-  mt7663s mmc2:0001:1: Failed to start patch
+  Bluetooth: hci0: command 0xfc7a tx timeout
+  Bluetooth: hci0: Failed to apply low power setting (-110)
 
-Map 0 to BTMTK_WMT_PATCH_PROGRESS, and poll every 100 ms, for up to
-5 s, while the other function is downloading, as MediaTek's driver
-does.
+Check the result and retry every 500 ms, up to ten times, as MediaTek's
+own driver retries its power-on command. With mt7663s probing first, the
+function now starts on the second attempt and setup completes.
 
 Fixes: 9aebfd4a2200 ("Bluetooth: mediatek: add support for MediaTek MT7663S and MT7668S SDIO devices")
 Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 ---
- drivers/bluetooth/btmtksdio.c | 35 +++++++++++++++++++++++++++++------
- 1 file changed, 29 insertions(+), 6 deletions(-)
+ drivers/bluetooth/btmtksdio.c | 28 ++++++++++++++++++++++------
+ 1 file changed, 22 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
-index b9563df72983..bb311986271f 100644
+index bb311986271f..239393a15e46 100644
 --- a/drivers/bluetooth/btmtksdio.c
 +++ b/drivers/bluetooth/btmtksdio.c
-@@ -234,8 +234,16 @@ static int mtk_hci_wmt_sync(struct hci_dev *hdev,
+@@ -909,17 +909,33 @@ static int mt76xx_setup(struct hci_dev *hdev, const char *fwname)
+ 		goto ignore_func_on;
+ 	}
  
- 	switch (wmt_evt->whdr.op) {
- 	case BTMTK_WMT_SEMAPHORE:
-+		/*
-+		 * 0: the other function (Wi-Fi on MT7663/MT7668) holds the
-+		 *    semaphore and is downloading the shared patch
-+		 * 1: the patch is ready
-+		 * 2: the patch needs downloading
-+		 */
- 		if (wmt_evt->whdr.flag == 2)
- 			status = BTMTK_WMT_PATCH_UNDONE;
-+		else if (wmt_evt->whdr.flag == 0)
-+			status = BTMTK_WMT_PATCH_PROGRESS;
- 		else
- 			status = BTMTK_WMT_PATCH_DONE;
- 		break;
-@@ -842,20 +850,35 @@ static int mt76xx_setup(struct hci_dev *hdev, const char *fwname)
- 	struct btmtk_hci_wmt_params wmt_params;
- 	struct btmtk_tci_sleep tci_sleep;
- 	struct sk_buff *skb;
--	int err, status;
-+	int err, status, i;
- 	u8 param = 0x1;
- 
--	/* Query whether the firmware is already download */
+-	/* Enable Bluetooth protocol */
 +	/*
-+	 * Query whether the firmware is already downloaded. While the Wi-Fi
-+	 * function downloads the shared patch, wait for it to finish.
++	 * Enable Bluetooth protocol. While the Wi-Fi function of a combo
++	 * chip is still starting its firmware, the request is refused, so
++	 * retry it.
 +	 */
- 	wmt_params.op = BTMTK_WMT_SEMAPHORE;
- 	wmt_params.flag = 1;
- 	wmt_params.dlen = 0;
- 	wmt_params.data = NULL;
- 	wmt_params.status = &status;
+ 	wmt_params.op = BTMTK_WMT_FUNC_CTRL;
+ 	wmt_params.flag = 0;
+ 	wmt_params.dlen = sizeof(param);
+ 	wmt_params.data = &param;
+-	wmt_params.status = NULL;
++	wmt_params.status = &status;
  
 -	err = mtk_hci_wmt_sync(hdev, &wmt_params);
 -	if (err < 0) {
--		bt_dev_err(hdev, "Failed to query firmware status (%d)", err);
+-		bt_dev_err(hdev, "Failed to send wmt func ctrl (%d)", err);
 -		return err;
-+	for (i = 0; i < 50; i++) {
++	for (i = 0; i < 10; i++) {
 +		err = mtk_hci_wmt_sync(hdev, &wmt_params);
 +		if (err < 0) {
-+			bt_dev_err(hdev, "Failed to query firmware status (%d)",
++			bt_dev_err(hdev, "Failed to send wmt func ctrl (%d)",
 +				   err);
 +			return err;
 +		}
 +
-+		if (status != BTMTK_WMT_PATCH_PROGRESS)
++		if (status == BTMTK_WMT_ON_DONE)
 +			break;
-+		msleep(100);
++		msleep(500);
 +	}
 +
-+	if (status == BTMTK_WMT_PATCH_PROGRESS) {
-+		bt_dev_err(hdev, "Patch download by the other function did not finish");
-+		return -EBUSY;
++	if (status != BTMTK_WMT_ON_DONE) {
++		bt_dev_err(hdev, "Bluetooth function refused to start");
++		return -EIO;
  	}
  
- 	if (status == BTMTK_WMT_PATCH_DONE) {
+ 	set_bit(BTMTKSDIO_PATCH_ENABLED, &bdev->tx_state);
 
 -- 
 2.55.0
