@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DE60606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 12:25:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51486606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 12:31:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KyWKr8cr;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=dwX70xLL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UrNWTS3t;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=a51umk1S
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,96 +14,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Uy/PqV0xn8AdfJOF2rmqxMZ7uFIic9NZvt40QP1514k=; b=KyWKr8crGoo9ciZ84jRXxijdFc
-	plgphKcMEsUDEUv1ede7zJBeF6hF9AhTI4WQgAofa64+2fXj33Vq0BIM6cdZbeCwYG75PsgwRMCiJ
-	EoxxUC7g54nnZeMRdJSGU3YgymbmaLct/DKBlvLxGykOxxZZtJpXJ0tqdk4NHD1csnpoWYi0vqTUb
-	KdFcr1qboV6u8Zw3QEQKkmjhKyCYono7Mwv9o4YSKHW5rTKOveWdnqhBqbSMN/9OsSJgQgBzd+Tl+
-	CRXbXJ7QG4mtOICB5+32NAwnh9XesyPKqfSL4UVFooG7QQFAYv3rAU1lpZ4uAoyrejFH2jhMySwHY
-	OZ7gtXhQ==;
+	bh=TRZt7x37p8LUgQOIpKaz3b3988dBzwRGltnd5ZVeEBQ=; b=UrNWTS3tLbW6DgXcgHNKpsCXHn
+	FfuBdkOR5utVujjXSFWiXoeE3HHNyKgihPk7QZgxRWkB0ozqHIwEKgjKVk3dvtH1eGyBnSZuJ7f0F
+	QgKl3uPXBImsc+RW1OpuMNWu+SSMVyOrepw4zQwziwEN8weVxHMclc0Vv2JxhLFAwuQEoNyjHYDMy
+	r1//bjtJaNKPSlGn7D1KbpS+hG2EHN5zargu6Cott7YN1aOqGVxd2S6F48aq88mI6rnPJo4FenqV0
+	Ohn+rKRnYeopJLBkXJ/ON3DaVQqIeUuaJaixFrWK37MRMCIqaNZnVFO/JnRLKe2AS/YzSza2ZaduZ
+	Mgmz871A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLJle-00000002VJn-43iW;
-	Mon, 26 Oct 2026 12:25:34 +0000
-Received: from mail-ua1-x92e.google.com ([2607:f8b0:4864:20::92e])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLJlc-00000002VJH-1Muv
+	id 1xLJqq-00000002VeP-2ztw;
+	Mon, 26 Oct 2026 12:30:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xLJqn-00000002Vdy-2psL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 12:25:33 +0000
-Received: by mail-ua1-x92e.google.com with SMTP id a1e0cc1a2514c-98febe968deso2233808241.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 05:25:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793017531; x=1793622331; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Uy/PqV0xn8AdfJOF2rmqxMZ7uFIic9NZvt40QP1514k=;
-        b=dwX70xLLLwc/QaGfPpaqQWTXVc4GfdHvCVqIcJXpLu/oHNC4d65VX+viHvu8Cn2F7B
-         VFw16ZQwBOEyiSqHLPXqaHz8JJ6Pc4rBfjq7TV/tdQWXuxBhZbgi0cGGilvtTUOSYxs3
-         ZX+1tOrOOKzIGXhhPT0Aq9Wh4o+eIvIt4hPpadYWVxyJnGWltPihny51SDK0hamFOrzE
-         Kac/jE9GhSuDglru93vzB+zxdRfQsEeyW3T7m3P0bZr9HQisLww3MYIh8CZD2Ol/2i+2
-         JDOBl8NWygOuFJpJfsOZ6BkKF/3gQgihG5K9ESdcvGuAUWGyX26fY3aY+skLngn7SUlF
-         q1YA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793017531; x=1793622331;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Uy/PqV0xn8AdfJOF2rmqxMZ7uFIic9NZvt40QP1514k=;
-        b=Ean29fCg5ytgybGwoaOE5r9g7LDftFEBqppmXu4zdIaNnQP+jf8FSemkuJYW6C3p7w
-         uMABpF2fPdTSUBcT/nntwzQW5SF1qtrQvcDnhY7Sex6Vqs1tJcjocf6+tiiW8kdl++lu
-         qpJSPAldK0CeXk1R9WGlGEbZA5HPZnq32XI6tyzxot5iQIG3QcrswTMZf/RHXUdk5Wjb
-         kKo56W/SCn3H2zIF1f98PRvoTtYccW/14tC8ke+ywvyuO1g4fpQ+aMddJXemvlkuwhUy
-         rqceHNVyi0oX5H2iVFehygMQtghscKAKF/58hi580nBuvfxLzSQDl6D9P1ZnF8b7JM8b
-         fqGA==
-X-Forwarded-Encrypted: i=1; AKwUvByQaOwjDzhCAp1aH96HG+iCo53xoMJA5YToDrF2O8lspiePBm7f1WEV6UiMo3axCZjKCCbT043pHNbyXXZkNUL3@lists.infradead.org
-X-Gm-Message-State: AFq9FYJFPkmLaiMzDrKdIzyJi86hKACR/FMxlwwb25bx/s63mHZrk1BT
-	gdIiRDE/QEYNOAapWJWITQyBXq5FLW9DKNkFWrFn/SYrsMdVZnM5KumU
-X-Gm-Gg: AYBFou3707zcfUGBXYabQCxOM0Zy/AE7HypV0cmNusKuBlY4LJa3HlDzWvd79d6fhx6
-	LLtm6RVa0fgcKXoCMldhq2/+1gfhqFgK3mBqLSqmQNfhsHIfuzRCcCXy2LOSxc0VEeUz5BCKrXW
-	zycbgdzpJwhFLQjjHTvViGF48xZSXJ+F4uX6nu/K0p6u68p9dlI+OI57tEfcTETXQWW/GhpcpPd
-	BiOOxcar6lmsot9kxI92zksVlHQLOWL2HxoFjCyAmJpQs0haeOn2CkfRSb5bBmpofa70lC71rYx
-	QJdytoBpCR8l1rqYeoRyYRRpPYd+cRZfEwTQVRQs/jyUhySTRd5JBSKN6c3U5Ua4klZ0ZtNIt4N
-	qhD2llFJlf/Dw1pIlVAQ6Yq1aACSmpcexKBbBr49p4Ezj02orUjTpkrNt5x1aHqyfch/RynaIfO
-	zYxuBesl+wTN8wrJjUcXu2z2klY5W1mnvYGyVvasTkhTD7rUPQbH/UxDSJEYeKpD4UMydpgQR9M
-	BOAIB8Mj00nyuYrsiKlddkNqeCFnGe8tKcfaLLkTWky8DFp9Txhy24p4yAx8g==
-X-Received: by 2002:a05:6102:604e:b0:7cc:1b19:9258 with SMTP id ada2fe7eead31-7ce5ca1e48fmr1995133137.3.1793017530653;
-        Mon, 26 Oct 2026 05:25:30 -0700 (PDT)
-Received: from leonardoc-nb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-9910e7b7069sm8121766241.3.2026.10.26.05.25.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 05:25:30 -0700 (PDT)
-Date: Mon, 26 Oct 2026 09:25:20 -0300
-From: Leonardo Costa <leoreis.costa@gmail.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Leonardo Costa <leonardo.costa@toradex.com>
-Subject: Re: [PATCH v2 3/3] ARM: dts: imx6q-apalis: Add VGA overlay
-Message-ID: <wancrsxcem5uep5oy5pnw5prewefqah7drmhiu5wrq3ctykltl@akwvtqbebblb>
-References: <20261019-v2-apalis-imx6-enable-vga-v2-0-ef6a3a780472@toradex.com>
- <20261019-v2-apalis-imx6-enable-vga-v2-3-ef6a3a780472@toradex.com>
- <atZxhWaUWthEHkti@SMW015318>
- <lozimedmt3h7v6odvp4svvmatvk7726a4ztn3j7ft44oto7p5p@dmrudrmzyz3s>
- <ateQWqoTtXSBSBvm@SMW015318>
+	Mon, 26 Oct 2026 12:30:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F3F025DF;
+	Mon, 26 Oct 2026 05:30:47 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 16F583F7B4;
+	Mon, 26 Oct 2026 05:30:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793017850; bh=X7sXgG5KeOSy1aHvYxzPYxQhid9EVso1C+EnXtpcXiA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a51umk1SJn3Qg0uasCVQzZnOrDFKghUAEP7EkrWFXdPPNFIMzLLrV9N8cjkr3aGKF
+	 z8GG4zNZ3Tm/0q6VoX6Psp3ZxfySUkB3fkJWOhbNWs22m0DRA+otCMqkcURphbPTl5
+	 fFeWa3OFzRFlj5VqI9kqkZNToJ4SuBOlO68fncXY=
+Date: Mon, 26 Oct 2026 12:30:45 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Zhao Gongyi <zhaogongyi@bytedance.com>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>, will@kernel.org,
+	Ryan Roberts <Ryan.Roberts@arm.com>, dev.jain@arm.com,
+	baolin.wang@linux.alibaba.com, lance.yang@linux.dev,
+	mark.rutland@arm.com, akpm@linux-foundation.org, ljs@kernel.org,
+	liam@infradead.org, vbabka@kernel.org, rppt@kernel.org,
+	surenb@google.com, mhocko@suse.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/mm: restrict transparent contpte mappings to valid
+ PTEs
+Message-ID: <at9H9Vkx57pIcPos@arm.com>
+References: <20261013093600.54995-1-zhaogongyi@bytedance.com>
+ <daab2f45-56c2-48ad-a24f-aa4f889e4da2@kernel.org>
+ <e0f60526-bb95-4d39-9a7a-72cdf32ca5b6@bytedance.com>
+ <cc2e3af6-bb56-41b1-9cde-151797c3068d@kernel.org>
+ <3b57c214-6a43-4fc7-a531-fb5eac196465@bytedance.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ateQWqoTtXSBSBvm@SMW015318>
+In-Reply-To: <3b57c214-6a43-4fc7-a531-fb5eac196465@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_052532_394821_1A2F5D77 
-X-CRM114-Status: GOOD (  27.17  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261026_053053_788735_C44652A5 
+X-CRM114-Status: GOOD (  16.06  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,65 +79,36 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Frank,
-
-On Tue, Oct 20, 2026 at 11:01:30AM -0500, Frank Li wrote:
-> On Tue, Oct 20, 2026 at 07:33:10AM -0300, Leonardo Costa wrote:
-> > On Mon, Oct 19, 2026 at 02:37:41PM -0500, Frank Li wrote:
-> > > On Mon, Oct 19, 2026 at 07:17:16AM -0300, Leonardo Costa wrote:
-> > > > From: Leonardo Costa <leonardo.costa@toradex.com>
-> > > >
-> > > > Add a device tree overlay for the VGA output available on the Apalis
-> > > > Evaluation Board, which is driven from a parallel RGB interface passing
-> > > > through a non-programmable video DAC to a VGA connector, without VESA
-> > > > DDC I2C signals.
-> > > >
-> > > > The non-programmable video DAC consists of a simple resistor ladder that
-> > > > converts the digital 16-bit RGB signal to VGA. The VGA output is gated by
-> > > > an active-low data-enable signal.
-> > > >
-> > > > The overlay is also combined with the various Apalis Evaluation Board
-> > > > device trees to provide ready-to-use DTBs.
-> > > >
-> > > > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
-> > > > ---
-> > > >  arch/arm/boot/dts/nxp/imx/Makefile                 | 21 ++++++
-> > > >  .../boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso    | 80 ++++++++++++++++++++++
-> > >
-> > > what's difference with
-> > >
-> > > https://lore.kernel.org/imx/20261019-colibri-imx6-overlays-v1-5-e4d028727382@toradex.com/T/#u
-> > >
-> > > Is it possible share one dtso also?
-> > >
-> > > Frank
-> >
-> > Hi Frank,
-> >
-> > The Apalis iMX6 one needs to set up the connection between the IPU the
-> > LCD interface (endpoints ipu2_di0_disp0 and vga_display_in), and the
-> > Colibri iMX6 one uses a DVI connector instead of a VGA one. Most of all,
-> > the bridge on the Colibri iMX6 doesn't have any control signals, while
-> > this one on the Apalis iMX6 has an active-low data-enable signal
+On Sun, Oct 25, 2026 at 12:00:33AM +0800, Zhao Gongyi wrote:
+> On 10/24/26 4:55 AM, David Hildenbrand (Arm) wrote:
+> > If we have the spare PTE bit, why shouldn't we just use it?
+> > 
+> > It will make batching over PTEs faster. And we care about that for present PTEs.
+> > 
+> > So I don't quite see why the stable fix couldn't just do it right away? Do you
+> > have a prototype that shows that it would require significant code changes?
 > 
-> This make sense to use difference dtso to cover it. Is it use name
-> imx6q-ipu-di0-vga.dtso, because this dtso have not boards specific part,
-> which can reuse for other similar hardware? Or we can rename it when reuse
-> happen.
+> I tried a small prototype that keeps PTE_CONT on present-invalid PTEs.
+> It leaves contpte_set_ptes() unchanged and makes contpte_try_unfold()
+> recognize pte_present(pte) && pte_cont(pte), instead of checking only
+> pte_valid_cont(pte).
 
-I think the overlay should be kept as imx6q-apalis-eval-vga.dtso. As it
-currently is, it's easy to identify the hardware it may be used with. If
-another board is added which uses the same interface in this same way,
-we can evaluate if it's adequate to change names for reusability.
+I think it's worth doing but currently not sure it buys us much unless
+we also change pte_batch_hint() to cover such entries. However, if we do
+this, we need to audit the other pte_valid_cont() callers (e.g.
+ptep_get() needs updating as well).
 
-Best regards,
-Leonardo
+So, if we aren't going to change pte_batch_hint() as a backport fix (I
+don't think we should, it's an optimisation), I'd rather take v2 now and
+continue with a proper pte_present_cont() etc. patchset on top.
+
+-- 
+Catalin
 
