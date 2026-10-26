@@ -2,64 +2,154 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA98E606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:57:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 752CC606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 14:59:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LNCmbfx9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RkH0ta8D;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=HaOnoQFq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=wLFuu8tZf1E/YQuDfViod9+RbMD86cfFucSt/ed8wOA=; b=LNCmbfx9qjxeI4
-	V50hzprIP0Q/4eapRWbmFdvIMgySu8/uW++o4KURZkCWXX/2MsMZZSChZ+k6Jrrkqg2Hzkd7IrhfB
-	Y/JptsdmXUNoVFESasvdj6SA+oqU4s8YC93scYw7PaOXpfnz+/QO8AZyXrYhQm/vSgmk/oluSsBsZ
-	P2QVqoECuGxCV9VjZbWvuNq0kG6xthiheUSWJlQwYkHQM7ASMTN1Q+QI/z/Lf2B+9dacqyaSgvLU6
-	ERjDUUu75xpuQazyxpuK7dTD6W/6c8Cqw4yKxNffFK1cHiDNXJo9GGTexXcy1fFCBsJW51u1CDWds
-	qP8UDdItiN/z83xl0ZCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=QSmOZrIpRY65/d5vWIFXFZ1Wq5EMAjQ6Og4Ui6Xnkoo=; b=RkH0ta8Depe9Ip4NFowLYT4Bxz
+	uEfwf+zadCy0WYYvWl+I240VZEXwgdxSHQ9evxkOy88xJsj+Elk4qQ8QzVgiOgzTllrUJDO2IovC+
+	Y1tasebo9k3QGMaTwTcqArPyr8uD+vOeb42KHKLMCTBGQkeNK3uSmN4ktdLyXnUAcNCYFpENEkcIu
+	C99nx8825UaHMhn3wM4J2qosglpSj1NZgQwEAHyGftldHQjscdExeliNUfjl8qrMxukHQYdX8701q
+	KiBCOxGai+7PKyNsyPMZZoU1fkRrpgxS6HcPYdbRiOFvY4H834xLiicUZ4zNHAIa62t87TiTComku
+	njkDJyvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLM7Y-00000002iXS-2eAv;
-	Mon, 26 Oct 2026 14:56:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xLMA6-00000002jYt-07rm;
+	Mon, 26 Oct 2026 14:58:58 +0000
+Received: from mail-northeuropeazon11012002.outbound.protection.outlook.com ([52.101.66.2] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLM7I-00000002iIs-1bFC
+	id 1xLMA3-00000002jY9-0LQc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 14:56:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 20D6D4061B;
-	Mon, 26 Oct 2026 14:56:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BD6E1F031E0;
-	Mon, 26 Oct 2026 14:56:00 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	Mon, 26 Oct 2026 14:58:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UMmJ8i7MQYrgznJ5pScjKOLFjJ4PT5tmm4jN/ScCHUXwdzaejSmOim3UGV7mb2dgStvuAjGqELIg81c9fvE/hHKMtiwX322AzlIPljHBAdj5Dur3QDTFsZqo+pV+3vkHEEaiykv8hX7Kh+1A5wZ0sdzFYe7wC/F++6B9cwoCDKMbW8/Ae/BCHoHIUDiKVx8DuS36yVF9vrcuyYYib4rGCHsyHyP43LwEgUdKehsiG6b1O1fkb8D++dD/I16UyiZDDhIpnTQhFbX16UD+dmbcR6EYk2iitCO0nJ0fw+gCF36dg36Vu4/GMlpg8ukj7GbtxUgw1rlC8Ve38GH3MTubyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QSmOZrIpRY65/d5vWIFXFZ1Wq5EMAjQ6Og4Ui6Xnkoo=;
+ b=r7GJsFLCJx9el/4O/ulWK4ulFVCQOTVKiCM8ACXhYfED3hiCs1oyltljxLmgerBMNnRbxY0L+/qSURtUDECs72iWYmWqXP0xPHuhpWrinyqwxJghZ53WFlLnDRyxi2grWNEnwv58baF8Ax4zTukW1Z9tr3OOgB+FkCQm0a7Vmcp1clgVvyBU3tGoD1/I+nMDY+MiAuC2AfGmbcYrqc5LW6OacjywIK48bJZpin8Wf9th1IppUEJvouRFfkzHq1SABy04NNgyCr/duHbQhOHvKSC0tbdBZi+/RafUI65OO00GnmKjAmyT4x1kH7W8oPJTD8bav1fZzIbNWhGU7izoag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QSmOZrIpRY65/d5vWIFXFZ1Wq5EMAjQ6Og4Ui6Xnkoo=;
+ b=HaOnoQFq8lGPJuieI9gNNGjxQdnmbdNqC3w7n0SxXa5MSzEX/78RQ7h1VNgX8B2B2BeWBpAbliyYUICpIawgjKveY8e4XDiV59iLnOJj6HCe0pXdYU4Xrjf/sRdoT5FsREjoDIyTBJjzItmHwUc52p76nu/iY51Pqa1QxAXnMu43nB6ksEcdNJvkZqvOEJ0YjVqyh5Hfbqmvm/5UawA5Qe70TIqO3HS2ffZaMk7NENoQo7fy8D3ib9/PYwa9J2DzTJpunJuHOXeg+ntvkLR9gBMBNydUoBZ4mLY0tM68/YV5YcZiku7Hci+0K6EUCD27p47hcVv+002wOmk7ad44rw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by AM0PR04MB662462.eurprd04.prod.outlook.com (2603:10a6:20b:7fb::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Mon, 26 Oct
+ 2026 14:58:50 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.021; Mon, 26 Oct 2026
+ 14:58:50 +0000
+Date: Mon, 26 Oct 2026 09:58:38 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Leonardo Costa <leoreis.costa@gmail.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>
-Cc: linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 07/11] dt-bindings: clock: renesas,r8a78000-cpg: Add PWM clocks
-Date: Mon, 26 Oct 2026 15:55:23 +0100
-Message-ID: <e723696e02cfb34fb808e2ae3ccb6faf68528c00.1793026273.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1793026273.git.geert+renesas@glider.be>
-References: <cover.1793026273.git.geert+renesas@glider.be>
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Leonardo Costa <leonardo.costa@toradex.com>
+Subject: Re: [PATCH v2 3/3] ARM: dts: imx6q-apalis: Add VGA overlay
+Message-ID: <at9qnn_njux-hwj2@SMW015318>
+References: <20261019-v2-apalis-imx6-enable-vga-v2-0-ef6a3a780472@toradex.com>
+ <20261019-v2-apalis-imx6-enable-vga-v2-3-ef6a3a780472@toradex.com>
+ <atZxhWaUWthEHkti@SMW015318>
+ <lozimedmt3h7v6odvp4svvmatvk7726a4ztn3j7ft44oto7p5p@dmrudrmzyz3s>
+ <ateQWqoTtXSBSBvm@SMW015318>
+ <wancrsxcem5uep5oy5pnw5prewefqah7drmhiu5wrq3ctykltl@akwvtqbebblb>
+ <20261026124328.GA82443@francesco-nb>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261026124328.GA82443@francesco-nb>
+X-ClientProxiedBy: DS7PR03CA0296.namprd03.prod.outlook.com
+ (2603:10b6:5:3ad::31) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AM0PR04MB662462:EE_
+X-MS-Office365-Filtering-Correlation-Id: a2809a36-084d-4543-b8ae-08df3371a53b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|23010399003|366016|1800799024|261026140227099002|261026121527099002|4143699003|11063799006|56012099006|261021121427099003|261022105027099003|261009223027099003|10067099003|18002099003|22082099003|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info: yXqFxykwJji3vXgxki86xjKpVDHjKJtd8T5BafR4Gkm6VSBQQ7iOMoC9AARo+AZOCoRJXNDshbGA3D7KoZd3I2pcc92SHn2TJXVshu2I4j/lQU2rYa5ntlpgjCV36leX5ndOu4PrXayP+urNieVrmt14IC8gWEeJnjlRZ9gYZnHuEMCz+rnHvzlprOfk6WgDPNjRHHoBlfiuzTLJkqIOddCg8BAklOXK7zy0B8hQninGEREI2x+f11l7EcFJmTrV5eEr/JfUrdcOE8HE/i7r6WMvOJUGs8z+R9SOZUCzjszzkI3Us6zY2paGtC8BnpvT7os6lmTQed1yp+6iIRYjQBPYYYPLguJNVgXYp73XetIG4DcAwEzdaHxUxlzFkz+QDWY6wOZZCoHPqmHnQaq2zHZ5hcKRu5iE+kSCLzdCjP77z1FICH3kZJsoFC9LfRQrO4JrZ6mplTOzOiWH8ii7kqK1sJPTHwTibyldARFnqA8NKW7Wg43j5LA9+Y8Uzw1XviRLPKky12VXkT0VvMrNnO9y/+noWtCv/47f5/1hAbsHIXGERL+kMIu9sFEDEJIJ05hQxGhrRGgE5vMUuibApF1tmOAQcwkdjh8c0rgx/78a/K6F3fYQVd/bkgGxT17a
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(23010399003)(366016)(1800799024)(261026140227099002)(261026121527099002)(4143699003)(11063799006)(56012099006)(261021121427099003)(261022105027099003)(261009223027099003)(10067099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ujRAjjNxBonV26zJ8am51G3tm9XDLDcx4lGXt11Ir4yvl+viksWDyAUOMkiF?=
+ =?us-ascii?Q?tdXrusU/HSDsEBa/i6J8eMtZAbLAghi9ootYf88kAMs2bqPrMcuPElgGvT2D?=
+ =?us-ascii?Q?5Bfd1JIGT6kk6w7w2C0EBI1hlXDB2picoqKQ90xXD4peJ2GO130ZradGNpDF?=
+ =?us-ascii?Q?AfZWdTs4ul7mBx/f9G2AGu22QtlJSaeca4xLhb9zS8OXPJPpSgH6xIX7emuj?=
+ =?us-ascii?Q?zoTnT48DzHg4WSsps/pYdP0/3EuOsbi2vjDVkJxT+zWY8dBauwVpYRwQ4WAK?=
+ =?us-ascii?Q?1Hi6msNIITKWCRXQJFcEPwKtloFPoxtR7Jj0DGgBUI2tf1Pu/0isY+pi4dkG?=
+ =?us-ascii?Q?gQ9FBAaSwTMnRSj6kLyfRvqz39gQmVtfcP3lFHhmBPLwcKov9MsxqBUQOuI2?=
+ =?us-ascii?Q?t4caScUZmWxyV5n071FnqLdtrHthcBohvW/edSXBmXpUYvR3thgKS5o7w9bn?=
+ =?us-ascii?Q?8XdlxndC6jJ9Me+LQCCxiwI+W1aumA30K2VBCnyBp6LmCXL2pK+9UbpXOpBk?=
+ =?us-ascii?Q?t8vnKAWinOYjLXnngYa6o/rwkwUZpZH9xnruHml8Nr7eBCR7E8Y/EkcQNtEP?=
+ =?us-ascii?Q?L1vKugOGEZzN09+Xg/qOQ+D8megSWwEDVHd3E9OLp5U+zVlwEo+4Cce1At91?=
+ =?us-ascii?Q?rOjwK1o5KDU0nlGxPfyxBFoMMH/XDu3SgBf/5auhLZBE2gNt2ecQIQvNpyg2?=
+ =?us-ascii?Q?CdH15m7Db28iAwilTJsxdmCUzGRbYwwLb0zY2DdoC6D0IA0sUD1EA5OgkJLD?=
+ =?us-ascii?Q?Bj81OQxrk/sKCuJpQqpbfY+E22YAkfpnybe3K2Zvnntl5mriT1D7IIT7i8Rw?=
+ =?us-ascii?Q?Aq/eIf57sP3dAx8QBJeL3DWAwQ4Vec1cXHW5ZHwhVfv2sfDtekX9xv2smj1r?=
+ =?us-ascii?Q?sxPHvXpcZ676MJtho3jluyWxtcZtypfbuAJ1CSO9xdf4YV0yh0DVXSnaFXd3?=
+ =?us-ascii?Q?dU2lN+YtQlDy3NhzEDB1HadUQu4Fm38BqSz3zGwPbJmBI0aGTgRNfDzIiwNg?=
+ =?us-ascii?Q?v++cKlepFsiyX2aNKqjdUVAXorOt4oqzRm0GS7ZIhtrmOqpaq4mCauoTi689?=
+ =?us-ascii?Q?iCSru8qqWocg8NQxIjUHDn8+r6Mim7GJaQhXNAN6FTGN/57VrgmvKKdI2kF/?=
+ =?us-ascii?Q?mkC1zD2lEPKRhk/AC/imaALezY9QY4d5yrcfIEeza6KFGt/cDPKounvbUEvQ?=
+ =?us-ascii?Q?vf/iFlL5cfM+q748LhuxQwAMWBBGJZGTPm1i2+qWAkF5hRGtBJpfZDDQ9v5d?=
+ =?us-ascii?Q?o1GGAnjOzoqXtcuRR33Z/WCu2xfkiqIQ7gw+szicUWFcW53OZbzKkwNoLEGV?=
+ =?us-ascii?Q?q0A3XOUq13IaqxfCXT4lbzmli2wcUEQZhfTKjCAVHqgHXVrrSi3ioZx+F0NA?=
+ =?us-ascii?Q?QJbBASihQgMBpqSYHAcj1U7jnga9jZh3rux/ZGidemBSn27CLEiQSRXzZJpG?=
+ =?us-ascii?Q?rNbfmvdq2OEzf12XJVtSnsVtQ6Et/IFSGDvmysmdNLKUDk8y947nwAJeiCsE?=
+ =?us-ascii?Q?9m3E/ihybFX12Wsg4PVly74UOohG7ehpsMbEbxvdX080zzEpyB8or5R/DPpu?=
+ =?us-ascii?Q?9hnkhw39dhMORzZqHOufVLySSL2DqaXp8U0U5usH8wJGrAZIkyLVEtx3GkjS?=
+ =?us-ascii?Q?YKmRaOzpVUBudrgLQNDa/hrTkzslVkn1jAn/3gcf+/INoz/N4vBmIZr4xsFq?=
+ =?us-ascii?Q?ezzQZXdXLm1VxkLHav1PDDJDzjJzrPpbNYXPF/QUpZt47VqApQ60V41lgK7S?=
+ =?us-ascii?Q?El29u+Z27z9s14oF+JMhDQAikpnT7e0p5NDFUVLon6l25QroFjWf?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a2809a36-084d-4543-b8ae-08df3371a53b
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2026 14:58:50.8279
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3UpClUqnueZ3CjW1B+NgrgJ1hrSnS/NA2lSNYF1O/4l6vTFhCj+TiBOConBzsrAINggtAE9liaMS2+H5oiD6ZRhwpk47+ah//TdqNjEGDo02/sgneYkspK/auflsiXb5
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB662462
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261026_075855_156781_3CDEBDEE 
+X-CRM114-Status: GOOD (  30.69  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,41 +160,77 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add definitions for the clocks used by the PWM modules on R-Car X5H:
- - R8A78000_CPG_SGASYNCD16_PERW_MAIN,
- - R8A78000_CPG_S0ASYNCD8_PERW_MAIN.
-Include R8A78000_CPG_SGASYNCD8_PERW_MAIN for ordering consistency.
+On Mon, Oct 26, 2026 at 01:43:28PM +0100, Francesco Dolcini wrote:
+> On Mon, Oct 26, 2026 at 09:25:20AM -0300, Leonardo Costa wrote:
+> > Hi Frank,
+> >
+> > On Tue, Oct 20, 2026 at 11:01:30AM -0500, Frank Li wrote:
+> > > On Tue, Oct 20, 2026 at 07:33:10AM -0300, Leonardo Costa wrote:
+> > > > On Mon, Oct 19, 2026 at 02:37:41PM -0500, Frank Li wrote:
+> > > > > On Mon, Oct 19, 2026 at 07:17:16AM -0300, Leonardo Costa wrote:
+> > > > > > From: Leonardo Costa <leonardo.costa@toradex.com>
+> > > > > >
+> > > > > > Add a device tree overlay for the VGA output available on the Apalis
+> > > > > > Evaluation Board, which is driven from a parallel RGB interface passing
+> > > > > > through a non-programmable video DAC to a VGA connector, without VESA
+> > > > > > DDC I2C signals.
+> > > > > >
+> > > > > > The non-programmable video DAC consists of a simple resistor ladder that
+> > > > > > converts the digital 16-bit RGB signal to VGA. The VGA output is gated by
+> > > > > > an active-low data-enable signal.
+> > > > > >
+> > > > > > The overlay is also combined with the various Apalis Evaluation Board
+> > > > > > device trees to provide ready-to-use DTBs.
+> > > > > >
+> > > > > > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
+> > > > > > ---
+> > > > > >  arch/arm/boot/dts/nxp/imx/Makefile                 | 21 ++++++
+> > > > > >  .../boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso    | 80 ++++++++++++++++++++++
+> > > > >
+> > > > > what's difference with
+> > > > >
+> > > > > https://lore.kernel.org/imx/20261019-colibri-imx6-overlays-v1-5-e4d028727382@toradex.com/T/#u
+> > > > >
+> > > > > Is it possible share one dtso also?
+> > > > >
+> > > > > Frank
+> > > >
+> > > > Hi Frank,
+> > > >
+> > > > The Apalis iMX6 one needs to set up the connection between the IPU the
+> > > > LCD interface (endpoints ipu2_di0_disp0 and vga_display_in), and the
+> > > > Colibri iMX6 one uses a DVI connector instead of a VGA one. Most of all,
+> > > > the bridge on the Colibri iMX6 doesn't have any control signals, while
+> > > > this one on the Apalis iMX6 has an active-low data-enable signal
+> > >
+> > > This make sense to use difference dtso to cover it. Is it use name
+> > > imx6q-ipu-di0-vga.dtso, because this dtso have not boards specific part,
+> > > which can reuse for other similar hardware? Or we can rename it when reuse
+> > > happen.
+> >
+> > I think the overlay should be kept as imx6q-apalis-eval-vga.dtso. As it
+> > currently is, it's easy to identify the hardware it may be used with. If
+> > another board is added which uses the same interface in this same way,
+> > we can evaluate if it's adequate to change names for reusability.
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-This depends on "[PATCH 2/7] dt-bindings: clock: renesas,r8a78000-cpg:
-Add GPIO clocks"
-https://lore.kernel.org/624a9fb09e4ec74b1995797e5121b86e7206f5f2.1792776697.git.geert+renesas@glider.be
----
- include/dt-bindings/clock/renesas,r8a78000-cpg.h | 3 +++
- 1 file changed, 3 insertions(+)
+Okay, we can rename at that time.
 
-diff --git a/include/dt-bindings/clock/renesas,r8a78000-cpg.h b/include/dt-bindings/clock/renesas,r8a78000-cpg.h
-index cd7192ccecd4e22c..8c30476d41448cf5 100644
---- a/include/dt-bindings/clock/renesas,r8a78000-cpg.h
-+++ b/include/dt-bindings/clock/renesas,r8a78000-cpg.h
-@@ -28,5 +28,8 @@
- #define R8A78000_CPG_SGD8_PERW_BUS		18
- #define R8A78000_CPG_SGD32_PERW_BUS		19
- #define R8A78000_CPG_S0D24_HSCN_OTHER		20
-+#define R8A78000_CPG_SGASYNCD8_PERW_MAIN	21
-+#define R8A78000_CPG_SGASYNCD16_PERW_MAIN	22
-+#define R8A78000_CPG_S0ASYNCD8_PERW_MAIN	23
- 
- #endif /* __DT_BINDINGS_CLOCK_RENESAS_R8A78000_CPG_H__ */
--- 
-2.43.0
+Frank
 
+>
+> 2 more cents. There is no such other board in the toradex portfolio and
+> it's very unlikely we are going to build any new board with an old VGA
+> interface.
+>
+> Francesco
+>
+>
+>
 
