@@ -2,72 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2723606A330
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 12:40:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 911F4606A334
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Oct 2026 12:43:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HK7VW2QC;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=uNqZM3HM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TpFvb8LV;
+	dkim=pass (2048-bit key, unprotected) header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b=c0j25kco
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ihE3J0tMhcm8xJUaaHT/JhbOlKVqb9U5D80ilvr1OUQ=; b=HK7VW2QCNlrG1G
-	q3qs/e3XzC8QCdzXamsOiTIk4xQOggWTJb3Ycid/6knT0vKyTv5s4SjAphbqcYDX2p8DLJRs1n+OV
-	A6hWQj3hY7fK6880vE18sZn3jGU8N3m89/ZHyd6syxq29ahiKNJ7qdfFVrQjfUCvOhvDj8vm8gnyo
-	Fy4P3KPxB5hzg7qduxV+R0Zjas2xP+gRb0OVVHafiF9zQrr+lsmAreP5BQ9CNui0lWQ255rrdXFe+
-	bE1VDmd+vvNPIgxrB02tA/jE9I0jrKd+VUv81ga8dZd44oGyibPMHs9wX3Wih9t70jkblFtgIEziB
-	uMPboQ71qRLYnwpniZ1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=8Jq41rEZlW8dpYSa9haaT2V6LwzTgLLlt9p+Cr4IhUw=; b=TpFvb8LVh7lajQOSWdnu3CH7KK
+	OoATAsz+ag3y+Yzp/GHT5RnJWl8gskjvY2JFHi9XiW34wRtfpPG1VckiOa1siMlvfF6WWS3pRporm
+	hAtB6pk4pRAfVbJLB23U3+FK7kS8nmCYwvDwhp5uJU/sT223CzflipVjIKeWtsu7Fgop8gImBzCrS
+	mxFgZ47Ec4IYoQX3xtn2e4G3QRUvlYC0q0HNw/KmoBAKvr6eugqC7O7CiMpC7VFBZOi933t/K0B0j
+	JNSgMuPMg2O8m9b74YmowQAcrnmaToNpcxz2JOtFA+TnHYOqdATaiROeAR8F+VWhkqN5/5I1lnNig
+	pNvDAgQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLJzz-00000002WTy-2CVG;
-	Mon, 26 Oct 2026 12:40:23 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1xLK37-00000002Wku-3xLA;
+	Mon, 26 Oct 2026 12:43:37 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLJzu-00000002WTI-2nYx
+	id 1xLK35-00000002WkJ-0qU7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Oct 2026 12:40:21 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ihE3J0tMhcm8xJUaaHT/JhbOlKVqb9U5D80ilvr1OUQ=;
-	b=uNqZM3HMTQk9Xu0sNLqrju0QZDjawzqeIsP44Uzit3ceBjCo26aeQZ5A0ydLfrwhewGbTQkXv
-	e8bfZW6CITdgUHVckYH7sONZYnXt/JUb3hMIw4EGjTCeSww7wtZYWv/JyKKWEjklt62bJFtQsYC
-	e5HBTHxLlvihKPry+4HlAY8=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4jCtW470pPzKm9S;
-	Mon, 26 Oct 2026 20:40:00 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id D49CB40586;
-	Mon, 26 Oct 2026 20:40:08 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 26 Oct
- 2026 20:40:08 +0800
-Message-ID: <d77ead72-4c5c-42bb-b002-f5928c2ae496@huawei.com>
-Date: Mon, 26 Oct 2026 20:40:07 +0800
+	Mon, 26 Oct 2026 12:43:36 +0000
+Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
+	by mail11.truemail.it (Postfix) with ESMTPA id C19941F973;
+	Mon, 26 Oct 2026 13:43:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1793018612;
+	bh=8Jq41rEZlW8dpYSa9haaT2V6LwzTgLLlt9p+Cr4IhUw=; h=From:To:Subject;
+	b=c0j25kcozqWxHZK8k4lBZiOqMKsEnvOVVj0qHrqrR5JU1hPOJdPXOnBp59eFFHruV
+	 7xPUxXwmDCu4kK4gP0UOBk0fNhZop+bAQKW6xBjFmAsIWAXfguyWbP/hYY9cKcb/oA
+	 jo6AqaoPi3wOtfZh2E9jY4j6/jBdwqEEAjBHhW07kuoP5L2zA2Jr2bCN6pbpmvv/8V
+	 vzt0BgOaUCSuqefPmlAOG/DIhcDrqoM27vAJecaG4SjGUW8EhswlMYUVhfHY+48mys
+	 yylU3vezcoKyrdCeUbqQ6Z6NeLulsM+7faYDOB4wt0RZffywk8+1CYXGilqIJQV2GB
+	 T4scWNfIGgZGA==
+Date: Mon, 26 Oct 2026 13:43:28 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Leonardo Costa <leoreis.costa@gmail.com>
+Cc: Frank Li <Frank.li@oss.nxp.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Leonardo Costa <leonardo.costa@toradex.com>
+Subject: Re: [PATCH v2 3/3] ARM: dts: imx6q-apalis: Add VGA overlay
+Message-ID: <20261026124328.GA82443@francesco-nb>
+References: <20261019-v2-apalis-imx6-enable-vga-v2-0-ef6a3a780472@toradex.com>
+ <20261019-v2-apalis-imx6-enable-vga-v2-3-ef6a3a780472@toradex.com>
+ <atZxhWaUWthEHkti@SMW015318>
+ <lozimedmt3h7v6odvp4svvmatvk7726a4ztn3j7ft44oto7p5p@dmrudrmzyz3s>
+ <ateQWqoTtXSBSBvm@SMW015318>
+ <wancrsxcem5uep5oy5pnw5prewefqah7drmhiu5wrq3ctykltl@akwvtqbebblb>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 06/10] arm_mpam: resctrl: Rename struct
- mpam_resctrl_dom to mpam_resctrl_ctrl_dom
-To: Reinette Chatre <reinette.chatre@intel.com>, <ben.horgan@arm.com>,
-	<james.morse@arm.com>, <Dave.Martin@arm.com>, <fenghuay@nvidia.com>
-CC: <tony.luck@intel.com>, <yu.c.chen@intel.com>, <babu.moger@amd.com>,
-	<fustini@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
-References: <cover.1792443633.git.reinette.chatre@intel.com>
- <fe38eaea025896ace1baa536fa8e73b409f22b9a.1792443633.git.reinette.chatre@intel.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <fe38eaea025896ace1baa536fa8e73b409f22b9a.1792443633.git.reinette.chatre@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <wancrsxcem5uep5oy5pnw5prewefqah7drmhiu5wrq3ctykltl@akwvtqbebblb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_054019_420468_D06E7F92 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20261026_054335_402617_90CF112A 
+X-CRM114-Status: GOOD (  28.81  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,133 +92,72 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-
-在 2026/10/20 6:07, Reinette Chatre 写道:
-> struct mpam_resctrl_dom holds the control domain of a resource, while
-> its monitoring domain is held by struct mpam_resctrl_mon_dom. Unlike the
-> name of the monitoring structure, the name struct mpam_resctrl_dom does
-> not say which kind of domain the structure holds.
+On Mon, Oct 26, 2026 at 09:25:20AM -0300, Leonardo Costa wrote:
+> Hi Frank,
 > 
-> Rename it to struct mpam_resctrl_ctrl_dom to match its monitoring
-> counterpart.
+> On Tue, Oct 20, 2026 at 11:01:30AM -0500, Frank Li wrote:
+> > On Tue, Oct 20, 2026 at 07:33:10AM -0300, Leonardo Costa wrote:
+> > > On Mon, Oct 19, 2026 at 02:37:41PM -0500, Frank Li wrote:
+> > > > On Mon, Oct 19, 2026 at 07:17:16AM -0300, Leonardo Costa wrote:
+> > > > > From: Leonardo Costa <leonardo.costa@toradex.com>
+> > > > >
+> > > > > Add a device tree overlay for the VGA output available on the Apalis
+> > > > > Evaluation Board, which is driven from a parallel RGB interface passing
+> > > > > through a non-programmable video DAC to a VGA connector, without VESA
+> > > > > DDC I2C signals.
+> > > > >
+> > > > > The non-programmable video DAC consists of a simple resistor ladder that
+> > > > > converts the digital 16-bit RGB signal to VGA. The VGA output is gated by
+> > > > > an active-low data-enable signal.
+> > > > >
+> > > > > The overlay is also combined with the various Apalis Evaluation Board
+> > > > > device trees to provide ready-to-use DTBs.
+> > > > >
+> > > > > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
+> > > > > ---
+> > > > >  arch/arm/boot/dts/nxp/imx/Makefile                 | 21 ++++++
+> > > > >  .../boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso    | 80 ++++++++++++++++++++++
+> > > >
+> > > > what's difference with
+> > > >
+> > > > https://lore.kernel.org/imx/20261019-colibri-imx6-overlays-v1-5-e4d028727382@toradex.com/T/#u
+> > > >
+> > > > Is it possible share one dtso also?
+> > > >
+> > > > Frank
+> > >
+> > > Hi Frank,
+> > >
+> > > The Apalis iMX6 one needs to set up the connection between the IPU the
+> > > LCD interface (endpoints ipu2_di0_disp0 and vga_display_in), and the
+> > > Colibri iMX6 one uses a DVI connector instead of a VGA one. Most of all,
+> > > the bridge on the Colibri iMX6 doesn't have any control signals, while
+> > > this one on the Apalis iMX6 has an active-low data-enable signal
+> > 
+> > This make sense to use difference dtso to cover it. Is it use name
+> > imx6q-ipu-di0-vga.dtso, because this dtso have not boards specific part,
+> > which can reuse for other similar hardware? Or we can rename it when reuse
+> > happen.
 > 
-> No functional change.
+> I think the overlay should be kept as imx6q-apalis-eval-vga.dtso. As it
+> currently is, it's easy to identify the hardware it may be used with. If
+> another board is added which uses the same interface in this same way,
+> we can evaluate if it's adequate to change names for reusability.
 
-LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+2 more cents. There is no such other board in the toradex portfolio and
+it's very unlikely we are going to build any new board with an old VGA
+interface.
 
-> 
-> Signed-off-by: Reinette Chatre <reinette.chatre@intel.com>
-> ---
->  drivers/resctrl/mpam_internal.h |  2 +-
->  drivers/resctrl/mpam_resctrl.c  | 18 +++++++++---------
->  2 files changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 1df439ecb055..dc304e4e0dc0 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -432,7 +432,7 @@ struct mpam_msc_ris {
->  	struct mpam_garbage	garbage;
->  };
->  
-> -struct mpam_resctrl_dom {
-> +struct mpam_resctrl_ctrl_dom {
->  	struct mpam_component		*ctrl_comp;
->  	struct rdt_ctrl_domain		resctrl_ctrl_dom;
->  };
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index ce5519635c51..022920be1862 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -1375,7 +1375,7 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
->  	struct mpam_config *cfg;
->  	struct mpam_props *cprops;
->  	struct mpam_resctrl_res *res;
-> -	struct mpam_resctrl_dom *dom;
-> +	struct mpam_resctrl_ctrl_dom *dom;
->  	enum mpam_device_features configured_by;
->  
->  	lockdep_assert_cpus_held();
-> @@ -1384,7 +1384,7 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
->  		return resctrl_get_default_ctrl(r);
->  
->  	res = container_of(r, struct mpam_resctrl_res, resctrl_res);
-> -	dom = container_of(d, struct mpam_resctrl_dom, resctrl_ctrl_dom);
-> +	dom = container_of(d, struct mpam_resctrl_ctrl_dom, resctrl_ctrl_dom);
->  	cprops = &res->class->props;
->  
->  	/*
-> @@ -1435,7 +1435,7 @@ int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
->  	struct mpam_config cfg;
->  	struct mpam_props *cprops;
->  	struct mpam_resctrl_res *res;
-> -	struct mpam_resctrl_dom *dom;
-> +	struct mpam_resctrl_ctrl_dom *dom;
->  
->  	lockdep_assert_cpus_held();
->  	lockdep_assert_irqs_enabled();
-> @@ -1448,7 +1448,7 @@ int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
->  	 * resctrl_arch_update_domains() relies on this.
->  	 */
->  	res = container_of(r, struct mpam_resctrl_res, resctrl_res);
-> -	dom = container_of(d, struct mpam_resctrl_dom, resctrl_ctrl_dom);
-> +	dom = container_of(d, struct mpam_resctrl_ctrl_dom, resctrl_ctrl_dom);
->  	cprops = &res->class->props;
->  
->  	if (mpam_resctrl_hide_cdp(r->rid))
-> @@ -1618,7 +1618,7 @@ static struct mpam_component *find_component(struct mpam_class *class, int cpu)
->  static int mpam_resctrl_setup_ctrl_domain(unsigned int cpu,
->  					  struct rdt_resource *r,
->  					  struct mpam_component *comp,
-> -					  struct mpam_resctrl_dom *dom)
-> +					  struct mpam_resctrl_ctrl_dom *dom)
->  {
->  	struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
->  	int err;
-> @@ -1710,10 +1710,10 @@ static struct mpam_resctrl_mon_dom *mpam_resctrl_get_mon_domain_from_cpu(int cpu
->  	return NULL;
->  }
->  
-> -static struct mpam_resctrl_dom *
-> +static struct mpam_resctrl_ctrl_dom *
->  mpam_resctrl_get_ctrl_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
->  {
-> -	struct mpam_resctrl_dom *dom;
-> +	struct mpam_resctrl_ctrl_dom *dom;
->  	struct rdt_resource *r = &res->resctrl_res;
->  
->  	lockdep_assert_cpus_held();
-> @@ -1730,7 +1730,7 @@ static void mpam_resctrl_add_cpu_ctrl_domain(unsigned int cpu,
->  					     struct mpam_resctrl_res *res)
->  {
->  	struct rdt_resource *r = &res->resctrl_res;
-> -	struct mpam_resctrl_dom *dom;
-> +	struct mpam_resctrl_ctrl_dom *dom;
->  	struct mpam_component *comp;
->  
->  	lockdep_assert_held(&domain_list_lock);
-> @@ -1780,7 +1780,7 @@ static void mpam_resctrl_remove_cpu_ctrl_domain(unsigned int cpu,
->  						struct mpam_resctrl_res *res)
->  {
->  	struct rdt_resource *r = &res->resctrl_res;
-> -	struct mpam_resctrl_dom *dom;
-> +	struct mpam_resctrl_ctrl_dom *dom;
->  
->  	lockdep_assert_held(&domain_list_lock);
->  
+Francesco
 
--- 
-Best regards,
-Jinjie
+
 
 
