@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A05C606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 10:06:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18820606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 10:08:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hj5kTKp+;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y5KlNVyN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uE1ety1C;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=NGCBUMdX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,57 +14,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=oyUjBB6oJFyp1IO71ofZ8tStrZCd29m9RWKeAe2qToI=; b=hj5kTKp+9pKylHLzaCLetX9RGR
-	/+xcQsjYIfPotgs+CHZu4LAOYCA4r4tXNA8bySoCCDX2aHfpf6YOR43IwE9Ue+RxgxbpWTcqy4tyq
-	NGObNEwLjp4D+nYYHbpCinnsYWAiFF3ik7Q0GRbkDPTe6xn0WRXwCaP8Yfls6oLdpCXLvUM38nPFf
-	ox0IA1zFsdKDM7cqtQqaq1yrHWhQYlpcxhZHex7RLz8fTIH6zLdsNcDE6P4FYOIpLiWVYTg3JZ8DF
-	c+6YBwsLO3TeKeqHRIQVw+ES3NSzzq+xHCxJJtDw6gLXZULB0h/llca2qD9ygpLAHW2wf/QDIYwwn
-	PhvuUOQA==;
+	bh=qiaO6NvHT131FFl120scy8yJd6FUUFlCG1Hv9v54ahE=; b=uE1ety1CWyuWd1GkPxmGLPC2+d
+	RQRtIngDLQqXTNWLoViyIrbnVVovtw5b6Paf5XZvt48+1vbTPrjpbiNH9aiGn3Q2VDJ/L226T2vVv
+	6jOiqZ2eT/bRaHJ6W3G+6Hm0AjZQQY4DeGKha5FLguPuDOrBHd1H8u9c5bxF67JPr5uScFmAwRs+G
+	vFfrysGcZmZ1+aVRgiWCqbXH6+u8gVDEigXJKx7lt5nD6Zjgntn7s0pOBFvJ3qWoeHUvmvaQD4Sp/
+	e5Vv5bsjiMbXqMA/CWpepg3yTi2HUDIpTe/kNzQp6ApV7p5wvNsDJdZalwcTjYVMwRc2KjE5wQItb
+	HAqkxVmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLe45-00000004G45-2LQ5;
-	Tue, 27 Oct 2026 10:05:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xLe6t-00000004GOO-48wW;
+	Tue, 27 Oct 2026 10:08:51 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLe44-00000004G3v-0iKz
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 10:05:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9BA2660052;
-	Tue, 27 Oct 2026 10:05:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 851671F01825;
-	Tue, 27 Oct 2026 10:05:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793095555;
-	bh=oyUjBB6oJFyp1IO71ofZ8tStrZCd29m9RWKeAe2qToI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Y5KlNVyNVIUIyqglh5jwznCe1GB/mi3Q1fSFhPw1xEfS5ffznBWc6GIX29nJ0zBl7
-	 XX//Nk3878WurTyps5rLbf486eiL+ryBJdtJfuv0dtBhyhoRAt1sYqqjPp+13DNiLA
-	 fPn9kOhaKltxWOJmQgYGMGRUp1f6qxTarhpJVWM5heRTcwHUL+MdZbhIHmueZWSrG0
-	 HRah2A3/1iqCL/Igf2L10Vt+VcbMggXVzYhEk+HQWjM8/lLZx/WsibPZKVdyk4l75r
-	 /ugGkjS81XZ3fekHUmpGCNGKqUorwVLWpUMGCv/zXvOFk7cYw2P29Vrpw21S+hU9+z
-	 pcPPW2dfmzyZw==
-Date: Tue, 27 Oct 2026 11:05:51 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Selvarasu Ganesan <selvarasu.g@samsung.com>
-Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, peter.griffin@linaro.org, alim.akhtar@samsung.com, 
-	Thinh.Nguyen@synopsys.com, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	jh0801.jung@samsung.com, h10.kim@samsung.com, dh10.jung@samsung.com, akash.m5@samsung.com, 
-	hongpooh.kim@samsung.com, eomji.oh@samsung.com, shijie.cai@samsung.com, 
-	muhammed.ali@samsung.com, thiagu.r@samsung.com
-Subject: Re: [PATCH v4 1/2] dt-bindings: usb: Add Samsung Exynos8855 DWC3
- controller
-Message-ID: <20261027-puzzling-didactic-polecat-ae02af@quoll>
-References: <20261026135715.33071-1-selvarasu.g@samsung.com>
- <CGME20261026135751epcas5p42c28c8315cd25554a11032714b85bbed@epcas5p4.samsung.com>
- <20261026135715.33071-2-selvarasu.g@samsung.com>
+	id 1xLe6s-00000004GNz-0zoS;
+	Tue, 27 Oct 2026 10:08:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=qiaO6NvHT131FFl120scy8yJd6FUUFlCG1Hv9v54ahE=; b=NGCBUMdXdJFVTJj/z7nivuoX+x
+	CSbKmBIGQqxpLcFazgufw9fMYp0JyrILLrWQDML7QuHtBndH792b+RdtE3kRq9V6oT2HgvEso/rad
+	JYDY8nBxqwqzCP5uDMP88K/QyIf1xMX38sEUkKKWpEpcHPOe1ZYVEoaIoyM4RxKwd+rXOdDhKw9JB
+	w5W3VXGbtLBDiS3xEhiiLGnyvycGD/C8FQOgfy+JyKc+Oh0fVP6DNAKuwICnx9RGFlU+M28hW+hE7
+	CU48hgn6IuCXWODpk2UPqQtPHcKrWwzqOso/g5h3RX/7JsDBEIWEGbm6yW/c0q/k5lFCQBzEl60Ng
+	ITd03XIA==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xLe6m-0000000CuBU-48NO;
+	Tue, 27 Oct 2026 10:08:45 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 08E3A300DB9; Tue, 27 Oct 2026 11:08:44 +0100 (CET)
+Date: Tue, 27 Oct 2026 11:08:43 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Chris Down <chris@chrisdown.name>
+Cc: Ingo Molnar <mingo@redhat.com>, Kees Cook <kees@kernel.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Ard Biesheuvel <ardb@kernel.org>, Will Deacon <will@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kernel-team@meta.com
+Subject: Re: [PATCH 1/3] sched/core: Skip the shadow stack end check when SCS
+ is disabled
+Message-ID: <20261027100843.GA2668564@noisy.programming.kicks-ass.net>
+References: <cover.1793082868.git.chris@chrisdown.name>
+ <0e607d3aa7c2c4cc1b5b8ba7b0e25ebdb55726af.1793082868.git.chris@chrisdown.name>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261026135715.33071-2-selvarasu.g@samsung.com>
+In-Reply-To: <0e607d3aa7c2c4cc1b5b8ba7b0e25ebdb55726af.1793082868.git.chris@chrisdown.name>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,33 +87,45 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 26, 2026 at 07:27:14PM +0530, Selvarasu Ganesan wrote:
-> Add the Samsung Exynos8855 DWC3 binding using a flattened node
-> representation, where the DWC3 controller is directly addressable
-> rather than nested as a child node of a glue layer.
+On Tue, Oct 27, 2026 at 02:36:09PM +0800, Chris Down wrote:
+> With CONFIG_DYNAMIC_SCS, shadow call stacks are only used when the boot
+> CPU lacks pointer authentication. scs_release() already checks
+> scs_is_enabled() before it looks at the shadow stack since commit
+> 9beccca09840 ("scs: add support for dynamic shadow call stacks"), but
+> schedule_debug() does not.
 > 
-> This is the first Samsung Exynos binding using the flattened
-> representation.
+> With CONFIG_SCHED_STACK_END_CHECK=y it therefore checks init_task's
+> unused shadow stack on every context switch. That is harmless right now,
+> but the check is redundant and costs a load from an unrelated cache line
+> in __schedule().
 > 
-> Co-developed-by: Muhammed Ali <muhammed.ali@samsung.com>
-> Signed-off-by: Muhammed Ali <muhammed.ali@samsung.com>
-> Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
+> So, let's guard on scs_is_enabled(). It is a static branch, and it folds
+> to true when CONFIG_DYNAMIC_SCS is not set.
+> 
+> Signed-off-by: Chris Down <chris@chrisdown.name>
 > ---
->  .../bindings/usb/samsung,exynos8855-dwc3.yaml | 71 +++++++++++++++++++
->  1 file changed, 71 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/usb/samsung,exynos8855-dwc3.yaml
+>  kernel/sched/core.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+> index d7c3b43158de..fc269fd10192 100644
+> --- a/kernel/sched/core.c
+> +++ b/kernel/sched/core.c
+> @@ -6152,7 +6152,7 @@ static inline void schedule_debug(struct task_struct *prev, bool preempt)
+>  	if (task_stack_end_corrupted(prev))
+>  		panic("corrupted stack end detected inside scheduler\n");
+>  
+> -	if (task_scs_end_corrupted(prev))
+> +	if (scs_is_enabled() && task_scs_end_corrupted(prev))
+>  		panic("corrupted shadow stack detected inside scheduler\n");
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
-
+How about you push that scs_is_enabled() into task_scs_end_corrupted(),
+this makes less noise here, and also keeps the next patch saner, no?
 
