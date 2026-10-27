@@ -2,90 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7B17606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:44:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4451C60A3808
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:45:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=io8j/OuO;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d/gf83wv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=U0/5c308;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=UGpMc23Z
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=nx17FIAQCfOlFkP17EZEoi5gViilW8Y7/HSO+vAKVsw=; b=io8j/OuOXDfya2N+eR9iJGaRMf
-	ayhWi7osBmGTBgLpNQBSiLtSByeoVDv8Htbg50QC9yeW8DZAyrjpO5OooCSV4esjUWFm6tV0sNXOD
-	8b9eQ4HUS1xWqXtGR4Ogk/wm2Cm/WZdRDGeehiFoo6ZksslFvMVzqirNGAf8hfUxzZcPAeWNASD7D
-	z8obeFAsmGDVuNLxy6jgNDzbcurVBc5Yx8CRgK+aRXWTOi7MRuqJ4Sgu2GQOde6Lp34zXx/YUes8V
-	C86pnUmgD9UpwEA+AEGZL/TBen1b6zTCwXzF25sRkwFgB9XZ9wd+9K7jS6VXSqHuspOBTTzPsx6U9
-	5TQMayKQ==;
+	bh=uzYeYiHrkcESUMf2Bad0aFg730ZfeR2cikrxrYtPo2s=; b=U0/5c308K6sHZnonflmp7Jb/Q8
+	I0TO044INKgVtVSMpp6WO7KGfEybdctR/1gPZ9fwfdMxHb+3tnZ1GPMJ8uWefIkMsMlYVjX9yAUHc
+	DcTyvVg84OEreNtzAnUtAeI+pybetwYNyjst66Nq3BAOYJHgvUHXw0xc89DXD1nvZENXAiLl8UOD9
+	WT5HF2iYBreji+Z76OxsQYA7NF/hPj1rAC0NNCohbifj9EigUH3K816n03X+1NVSIfDdrKXVvDnoe
+	0h/fT+xVb7607Omlk6z40X36oimiZIyZKNQUgZlinhQSKRfe+4F/pEDPVjM6fb7RecdNV4ko0p77Q
+	pcPAZrQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLkHY-00000005Oxm-0UTp;
-	Tue, 27 Oct 2026 16:44:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLkHW-00000005OxG-2qwp
+	id 1xLkIt-00000005PCj-2sZ4;
+	Tue, 27 Oct 2026 16:45:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xLkIq-00000005PCF-4AlL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 16:44:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5803460219;
-	Tue, 27 Oct 2026 16:44:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08FB71F01825;
-	Tue, 27 Oct 2026 16:44:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793119453;
-	bh=nx17FIAQCfOlFkP17EZEoi5gViilW8Y7/HSO+vAKVsw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=d/gf83wvfXAhjxM5t1yPfeZXqDU0qDuWGm2q+pJ72nQhojJ7vCMmngQcQix56nhYC
-	 6Xezdj3m6GEpl35gmKf4SG3W8X6BYFzOmoSKWGlZNMdkSWW4vOokAvdeEeENXKDU4X
-	 3CfCOkNJohOJxcl4gWf+/m9kYb+BS7LmckkyVLWy7PTi3ZbEWFCzEwpc5u1lNSrwRp
-	 X0FE8aFBk2PWFTJxd3Zzpxia+2d30yB0Gq8QEx1qWlYeDe82ebBD90W4NSa5Unlcx5
-	 FfzyJhFf0G+loppwSMVkbb6sC8v3de2UwiY1a+RJZM+UgIQLYQfgWhaMiqcRmf4lDy
-	 zDKUuf55D2WrA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xLkHS-00000007oLP-2Vpc;
-	Tue, 27 Oct 2026 16:44:10 +0000
-Date: Tue, 27 Oct 2026 16:44:10 +0000
-Message-ID: <86se1rxfdx.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Amir Noohi <amirmnoohi@gmail.com>
-Cc: Thomas Gleixner <tglx@kernel.org>,
+	Tue, 27 Oct 2026 16:45:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5161B15A1;
+	Tue, 27 Oct 2026 09:45:32 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE2993F59E;
+	Tue, 27 Oct 2026 09:45:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793119535; bh=rnhwTZUYMyNC6LhGd7EvjwdU5unqPfJSXAia5nseGlY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UGpMc23ZVSkzbfErHN7Z6gjPhpk5iz/QK3wltY10jtOZwCRtPdr/HxKYmEsipfcbB
+	 CNjzr+i4WdRJeAIOwgWPDEAbVJg91iMEk0swBau4nbXuczwWhyUkvFKk3uwBKwEl8m
+	 kLp4KuoApUVM5xVs7KKu3F5Bf4L/7bOOfc7gQrfk=
+Date: Tue, 27 Oct 2026 16:45:27 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Thorsten Blum <blum@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Robin Murphy <robin.murphy@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Igor Velkov <iav@iav.lv>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Christoffer Dall <cdall@linaro.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] genirq/manage: Provide irq_set_percpu_irqchip_state()
-In-Reply-To: <20261024212844.3405617-1-amirmnoohi@gmail.com>
-References: <20261024022450.629980-1-amirmnoohi@gmail.com>
-	<20261024022450.629980-2-amirmnoohi@gmail.com>
-	<87se1v8f2r.wl-maz@kernel.org>
-	<20261024212844.3405617-1-amirmnoohi@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	Yureka Lilian <yureka@cyberchaos.dev>,
+	Marc Zyngier <maz@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: idreg-override: Detect trailing "--" in
+ __parse_cmdline()
+Message-ID: <auDVJ0tuVyvGGh95@arm.com>
+References: <20261015161054.357595-3-blum@kernel.org>
+ <auCVj80cR8LILhXB@arm.com>
+ <auC6CbIclUCJK094@kernel.org>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: amirmnoohi@gmail.com, tglx@kernel.org, oupton@kernel.org, radu@rendec.net, iav@iav.lv, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, cdall@linaro.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <auC6CbIclUCJK094@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261027_094537_071560_B0D117EC 
+X-CRM114-Status: GOOD (  26.80  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,83 +75,56 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, 24 Oct 2026 22:28:44 +0100,
-Amir Noohi <amirmnoohi@gmail.com> wrote:
+On Tue, Oct 27, 2026 at 03:49:45PM +0100, Thorsten Blum wrote:
+> On Tue, Oct 27, 2026 at 12:14:07PM +0000, Catalin Marinas wrote:
+> > On Thu, Oct 15, 2026 at 06:10:54PM +0200, Thorsten Blum wrote:
+> > > __parse_cmdline() detects "--" only if it is followed by whitespace.
+> > > However, at the end of the command line, it converts the dashes to
+> > > underscores and tries to match "__" as an option.
+> > > 
+> > > Detect trailing "--" directly instead of converting it to "__".
+> > > 
+> > > Fixes: dc3f5aae0638 ("arm64: idreg-override: Avoid parameq() and parameqn()")
+> > > Signed-off-by: Thorsten Blum <blum@kernel.org>
+> > > ---
+> > >  arch/arm64/kernel/pi/idreg-override.c | 5 +++--
+> > >  1 file changed, 3 insertions(+), 2 deletions(-)
+> > > 
+> > > diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+> > > index acaf56234973..38aa28d19650 100644
+> > > --- a/arch/arm64/kernel/pi/idreg-override.c
+> > > +++ b/arch/arm64/kernel/pi/idreg-override.c
+> > > @@ -352,8 +352,9 @@ static __init void __parse_cmdline(const char *cmdline, bool parse_aliases)
+> > >  
+> > >  		cmdline = skip_spaces(cmdline);
+> > >  
+> > > -		/* terminate on "--" appearing on the command line by itself */
+> > > -		if (cmdline[0] == '-' && cmdline[1] == '-' && isspace(cmdline[2]))
+> > > +		/* Stop at "--" appearing as a separate argument. */
+> > > +		if (cmdline[0] == '-' && cmdline[1] == '-' &&
+> > > +		    (!cmdline[2] || isspace(cmdline[2])))
+> > >  			return;
+> > 
+> > I guess that's more of a cleanup. Does it actually fix anything to
+> > deserve a Fixes tag? We skip an unnecessary lookup for "__" but there's
+> > no functional difference.
 > 
-> Hi Marc,
+> Yes, it's a cleanup.
 > 
-> On Sat, 24 Oct 2026 13:21:00 +0100, Marc Zyngier <maz@kernel.org> wrote:
-> > It really feels like a leap of faith.
-> >
-> > There is nothing that says that it is safe to call this without
-> > holding the global lock. For all we know, drivers have been relying on
-> > it for a good decade, and I don't feel confident letting things rip
-> > just because it (mostly) works with the GIC.
-> >
-> > At the very least, something exposed by the irqchip (a per-IRQ flag?)
-> > should tell you whether it is safe to elide the lock.
-> 
-> Agreed, and v2 does that. There's a new IRQCHIP_PERCPU_STATE_LOCKLESS
-> flag, and irq_set_percpu_irqchip_state() only skips the descriptor lock
-> if the chip implementing irq_set_irqchip_state() has it set. Otherwise,
-> or if there's a bus lock, it just calls irq_set_irqchip_state(), so
-> drivers that don't opt in see no change.
+> Functionally, the behavior is equivalent because it also happened to
+> work before. However, commit dc3f5aae0638 removed the explicit detection
+> of a trailing "--", so I added the Fixes tag mostly for provenance.
 
-I'm not sure this is the correct option. Making it per irqchip is
-again assuming that the irqchip has a uniform handling of the state
-across all interrupts. I'm afraid that's not universally true, which
-is why I hinted at a per-IRQ flag.
+Makes sense. We might make it a comment when applying rather than a
+dedicated Fixes tag.
 
-Alternatively, you can audit all the providers of this API and work
-out if is it safe to do so, and split the corresponding callbacks.
-Good luck with that. :-/
-
-> 
-> Only GICv3 sets it, in a separate patch. For SGIs/PPIs/EPPIs its
-> callback only touches the local redistributor (gic_data_rdist_sgi_base()
-> and the RWP poll), nothing shared.
-
-Read the code again. There is *one* callback for all distributor-owned
-interrupts, which also involves SPIs/ESPIs.
-
-> FWIW, irq-gic.c, irq-gic-v3.c and
-> irq-gic-v5.c are the only drivers with both per-CPU devid interrupts and
-> an irq_set_irqchip_state() callback. KVM's own timer chip (GICv5, no HW
-> deactivation) doesn't set it either, so those keep the lock.
-
-The KVM chip inherits whatever it is pushed upon, and it is still a
-per-CPU interrupt. To be clear, this is an all or nothing approach as
-far as KVM is concerned, so anything that KVM uses should be converted
-to the lockless approach.
-
-Even in the GICv5 case, the ICC_PPI_ENABLER0 register cannot be
-modified concurrently, so it should be safe to advertise these as
-lockless.
-
-> 
-> On GICv2 in QEMU it still takes the lock like mainline does (333k vs
-> 321k acquisitions in lock_stat, within 4%), and on GICv3 it doesn't
-> take it at all. arch_timer, arch_timer_edge_cases, vgic_irq and
-> vgic_init pass on the Altra. Under QEMU with lockdep, DEBUG_PREEMPT and
-> DEBUG_ATOMIC_SLEEP, the selftests pass on GICv3 (VHE and nVHE) and
-> GICv2 (the vGICv3 ones skip there). No splats.
-> 
-> I made it a chip flag since it's about the callback, but I can make it
-> per-IRQ if you prefer.
-
-I reckon this is a requirement.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
