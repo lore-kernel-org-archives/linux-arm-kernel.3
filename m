@@ -2,68 +2,136 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27049606A323
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:58:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E18E60A2609
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 14:09:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2b4BNsRU;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=ejPHUn6R
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ltXa76Yv;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=EzHULtNx
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=kgs6DMIElefIDmmG0Lqe7pZUKcoCtWm8n8LIAs8gWNY=; b=2b4BNsRUcpDaYY
-	LV6Es9nW0K1K+ebuhQI5EiJb4t3UFcGNLATfgxfGIRAvpceuzrpOo2ROqBeDTKQXn/fJYwzpWRl2I
-	njdE+OvqGnynNsAEmR/Ui7oqB0Gy3fwd9IvlyHNJ4mK9ZwJNtA50nO0YlcjPzYrG6k/LNpkvFiLRU
-	ryiNA8rzheSUi1Pq93w0swaZpkBeaT79f8qcDZgXRsL2RgbFkNCNSYWTu0ByB3AvnJsZiCrjf+RK8
-	PAoFhOjnIu+chltc+Np7QXqjdljJCqkVrMRlNzD7N7YoCuE1OPyIX3IC9cn/GeQm1aff2sqlaaZb2
-	AF+GEFkr9db6a7g/M6Dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=o1dOquPO3Q8giVnqwPbJ8EdU/orvsgyZnUYy2574ehc=; b=ltXa76Yv85AaIDWg+sJoUdtkvY
+	Gs+XAlh6LEzFbzJvpREfkiMYH8gBZ6zdeAVPjOKQx5WkTHX+MC2ybBH9ujl1rguqJyGsJFbyyCsrS
+	Tva4yirmcLA5X+889oMG3DnrdbVhbvIcVXhTVRJL925IjvORxWZsCU2F7yb7mDiK8x+OVftXsmRRp
+	BdQdUtYHYwbfEEVw0H+D4ziv93hKBaynOqRVDQ6D5ij8yxoWCcN1uHVNAvklfms4MNhQByE4YxH84
+	c8mVBSyTcJHJ09tYUE2Wao27c3gaRRkx58HGQmTaT7RHuGL9UKnEIn8JTldWu68rDbP1vo5KRNDaY
+	5yY22CFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLhgw-00000004y3H-07B5;
-	Tue, 27 Oct 2026 13:58:18 +0000
-Received: from mail-m83249.xmail.ntesmail.com ([156.224.83.249])
+	id 1xLhri-00000004zJm-1lJp;
+	Tue, 27 Oct 2026 14:09:26 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLhgr-00000004y21-4AI1;
-	Tue, 27 Oct 2026 13:58:16 +0000
-Received: from [172.16.12.48] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5287e04b6;
-	Tue, 27 Oct 2026 21:58:09 +0800 (GMT+08:00)
-Message-ID: <38baaf87-4d5c-48bc-a11f-a5b6c04c20a8@rock-chips.com>
-Date: Tue, 27 Oct 2026 21:58:07 +0800
+	id 1xLhrg-00000004zI2-07tg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Oct 2026 14:09:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uXLQK+HjO9rdzsWs+aAa0J0lVCymdcb1K+RL9/ZF/pTeWzNewPceqtHFa0n4Y9RZHKHYcZ0iBQFHeahxuz2nbmvuG/90pZpIC40J/Gh912Cg9Ny0icoKUVaX/ZTAN/qiOIACvy4OmAjDr3lLgTPDSB6YObKG8Fq6iErrWpn8cLRbkifw/gD9hSRCsfXkKZIaA9J7P9i4fGkK/WY9+NQP/RDrlfc2Ty7Py0eSMJQovqWCLUcDbw8M+ihSpiKLurGHRyG6EAWTSDjJ4KrZ8CsdKAa6KukZ9w2h4pVnePgcGY+gDIhvnZjkEAAc1v4bCHKan44AKBzCToLaGF1agg+jbQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=o1dOquPO3Q8giVnqwPbJ8EdU/orvsgyZnUYy2574ehc=;
+ b=Sh2hwq7N5n7A8xy/qCG0g8eojC7h7WHVQOPd7pwkO1UtbD4RIB16u/6110YfkcgQh/VSYI0dmEr6wpZVEqmtfSl0JRpWASPpPXDBo3pQtAjJB4/rjuy6XXaYIHs5dZjno+gYCngcABntmSE22gF2oU6SUAGsAuH7bESCHvlvAXrKzveudXNKk9QrYtNinaOz5uoRJ2TYvOPivlke8rpTO/0bzWpPJJqZAeN7jtSMrUZiDa7qxImINuHOU6ItYmCikXTB3LwANpnA7jGhAONGfJSxmRymTsw5KeQx3yfLOllO/jNmca7vnmlq/lqbGsBlPMMuLa6/9+fkV1Ogbcm2lA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=o1dOquPO3Q8giVnqwPbJ8EdU/orvsgyZnUYy2574ehc=;
+ b=EzHULtNxTvgRP9fG+ZaiD5MHZmyMDFJQZLMo8X1+gfG1Ddj/MhTQ4w3jvuX8EczRYsTFilsfrE6UxLrCTMKXTCaQKKAYfh2tZJ3tdvdJqpq2pOi20pnn0tzj0nwquDBK+urowL6PmFIuAHa1PRYQjUFtt2bAMKZo333HWzHcrARkjnalfVypq1+UiznWe0riioTLc34C6pxDmVa84t0+w59oqvpHVI2mv7l0U4f+vFnVoKgXYzIE9gV8wMuBse1izOBwChF7XIO6VWLquOeiTTcH2Hd8y5LA5/G+IligL9nXAjMNymaKdVz27lz2VAK0hD0wccE2b2Q2AG4zbjOjKQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by VI0PR04MB350952.eurprd04.prod.outlook.com (2603:10a6:800:364::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
+ 2026 14:09:18 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
+ 14:09:18 +0000
+Date: Tue, 27 Oct 2026 09:09:09 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v7 01/12] gpio: mxc: use irq_set_irq_wake() to simplify
+ code
+Message-ID: <auCwhTbPC4pkCsMA@SMW015318>
+References: <20261027-gpio-mxc-cleanup-v7-4-v7-0-7b602d70c149@nxp.com>
+ <20261027-gpio-mxc-cleanup-v7-4-v7-1-7b602d70c149@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261027-gpio-mxc-cleanup-v7-4-v7-1-7b602d70c149@nxp.com>
+X-ClientProxiedBy: DS7PR03CA0120.namprd03.prod.outlook.com
+ (2603:10b6:5:3b7::35) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Sergey Bostandzhyan <jin@mediatomb.cc>,
- Jensen Huang <jensenhuang@friendlyarm.com>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Enable SDIO Wi-Fi on NanoPi R2S
- Plus
-To: Deomid rojer Ryabkov <rojer@rojer.me>, Heiko Stuebner <heiko@sntech.de>
-References: <20261023235959.2988087-1-rojer@rojer.me>
- <20261023235959.2988087-3-rojer@rojer.me>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20261023235959.2988087-3-rojer@rojer.me>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa17da7790103a4kunmcef2bd90e493
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaQkpCVktPHk1NTksZTUNNH1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=ejPHUn6RV6C6gpkCiecTD0LdymLzVdtND/i7tW+egwUwmUnVzgwg1PuoPjdEnE2WzH7LaBj1GyIIUE4DDgWf3rNIFIKLdN6tvHEb3Z+LKLFSWVwyWiCt/civ7J17a+XQ7mdCOCGie+xdPZJ8Pzv6aMTpvJfEauBvYDDLli8VQyI=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=kgs6DMIElefIDmmG0Lqe7pZUKcoCtWm8n8LIAs8gWNY=;
-	h=date:mime-version:subject:message-id:from;
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|VI0PR04MB350952:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3741f60f-be4c-441a-a0ca-08df3433e3f6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|366016|376014|1800799024|4143699003|11063799006|56012099006|261021123027099003|261021121427099003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: hd1AKauv9YMtpqGdQxyuk4cZPtzRTU7YZ+YnQzEBPoKA16vKWnpaZZhHi62G+SH/aaWSpXi/D1KHmFxvPZwH/O98SGCuTCnGMrmNiO9bqyMF8RVLB7CsuG60DrEax0yTRWOGow2F0I/Kz3VCLNYtBpXcfVdYXG7QfJNPiMnAxA4QYd7/PiDugiBh2lj+TfdqkeaUaG6suUnEUhEXuJe4mBMB76veRhQtf9LzR3lr/ZB6s5wA7wZlHeTYjvIG5UhjCgoPW2pwXf1Xrb1+clnvI6305ERk7mY6+MwlSPotmegmAUvo1hm3h0jML50CUwZZANjKBIgJTxkBjuLDOHqC4PEO5aitalUcq7dt3OBH44dYBci76ohhHFzsHKj143iICpt4AZrzL5iQfburpmN8oXDYNL3V0HUEdzoMiSoBn3Tuh+/+rGqwDuE+KHj/Jj8NS5h5V0Bvccvhxka8cvPAQM/6AViiD3jytAwK8iVQLauPuyRHgXJfitoUYsCNPnvzFU8vauJ6t1qAsWQQ8I+Sp1zI0O2EtmAtAKUvnqjzK98R3857+qU80oYpgr20zVZWGC/l859dWnsM5r/fnrxsqVxnxXo4nPCp5ocTV5rLz3RWnl/zDOvaMxy/Q3jP7f+A89mr5K7M6jEJJhAQeFquYWHzPSGxvNNESDWpIQ+G+5E=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(366016)(376014)(1800799024)(4143699003)(11063799006)(56012099006)(261021123027099003)(261021121427099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DnsMVtakSHCua4HiZ4wj3XjQxBf5uSir4dAa7wpcRFK0pFUM27SX/+yr2Q3/?=
+ =?us-ascii?Q?I7VmbU1KcxDJuQzuNOuXsNvu8TUJg3ujnxIWbekc7XPVXzvMflsfPET5o2jR?=
+ =?us-ascii?Q?iQLDGg3H9cUYHqJ+NCIYx5ZONXq2GKrV8NRwEEfTsQtphZQ6eKZPX+3lXJ1o?=
+ =?us-ascii?Q?s+HbcT9m721MmShS7T1GpxA6ix/+cpm0jb85wj3/LLrXAWb0M65gXPJcQuXo?=
+ =?us-ascii?Q?N6HWrz/PovogFD+/Fm4CmNQETx4khpM6XFv4lYJDzC3UnCxt4hx+Q8xEcT7e?=
+ =?us-ascii?Q?nJWFXIqGI9JA78rdFYiV/u7KxL/FH4EZoEr2NBEqhxfmmGOjwuBoDjTfq0D3?=
+ =?us-ascii?Q?YeIjFARbCOSr0OhCYe1N/OscoBYORFV7BOK7oJnurz0YC1LPMxHSX+k6+yo6?=
+ =?us-ascii?Q?Nxeq8Geo7rqFjVYrDiu5FS0yzNvcZty/wig4FRWRfQyMqizvHIC4+6PS6BFA?=
+ =?us-ascii?Q?A012+WMupg31Kgn8Bpx67fENMJ9NT5RYuwfxzZHE2G6Co1ggz/JtM0G5wAcO?=
+ =?us-ascii?Q?WIv7tnNzoPO+9U1+TnAse+Txau7c1Nv9B11yGsDC4ldZVRH1WTfCe5YQ1qbn?=
+ =?us-ascii?Q?bJu6Dc6DZ82bQPComaiZjRMDNInDXpcCr20gTj1vqkAAiIcvMSiOxYVryrgZ?=
+ =?us-ascii?Q?GB5QxFw/C2P09byJvf5AN7nQZtpLP+MEEJokPV8pF0TX1K9xbT1spO+QpAbe?=
+ =?us-ascii?Q?QexGfeHYmKKc64yVLcE1Ck8CddZbmcbcsEVkEeW+oLZuLskkYuf2BwK0WpBh?=
+ =?us-ascii?Q?ytPo22K2LYfijx5f4HAzuJxMyI3qsrtyvv5sey9jEeLDqK81+oY781fPJmLL?=
+ =?us-ascii?Q?FljiShEJ1nR1K3m8R+XdHIimAafeAwGWzUGPPP3ybhT1bsaciVEgmaCllZip?=
+ =?us-ascii?Q?euAlCvwx8fDLpPqNkmYrrfOXHTH/z5CcJIYIlZKCcu0gR8DGRPM1S7EgHvOQ?=
+ =?us-ascii?Q?WqotL7/JURGgXx/HIJja/3jxs/SAAZi67/XcJVO5TZYcfkGZSyWpjrbTIV++?=
+ =?us-ascii?Q?Da4ZUpvkfy5zHzTuWRAVKaHgqSx3RbB+C0Fufi41eA6CMenVTPYQ5j7rTmvW?=
+ =?us-ascii?Q?ykHKoeM/1tCMr73QL034a8LAZoTk+HOZGqiuWD4NBK2LOGXqUKB6JoQTwYPU?=
+ =?us-ascii?Q?h8zkNtEcnDDU1enedg1vJbUU6QualD9qOXwHCPWJdBgb/9wLMcLjr/yCZBM7?=
+ =?us-ascii?Q?h3kWLY7Zz5FoaCaT6lhfnJD4HOrIflHOZElRtTPIyo6pow3u5xJR/jZu6umr?=
+ =?us-ascii?Q?tYvBP+TqQZWM16N8pm1k+Wx4t6ulWEryB3Hc6BJR2k/IgDo6wAvPNOPy7Njf?=
+ =?us-ascii?Q?TR4eAY/3A1kUiGF7pOMxH/DCczx61jZyymuJF/taaueHbDr0WAVhtKsnJXDI?=
+ =?us-ascii?Q?W8s08yIXbkQMrToR3oXh5VmNLqDSES1SMNflX26tU6Y6V9GbAeIRW0qZidhW?=
+ =?us-ascii?Q?Z0rRP7RKNtUSxVb3h8Mv+2fMvyri31l5nAl/+SrU86VeElQi6BxJqJG2vKdi?=
+ =?us-ascii?Q?Ng4f2jkfu253qxa6UvMQ+UUjmqwbEttUU0raaTxps4FtqW21uwENfKIxG2PI?=
+ =?us-ascii?Q?Ix6wXW972VCOQiVbNM3KcJr8qCF42D8Cku5FJgo0/gnZeHQ61slpqhD4byWa?=
+ =?us-ascii?Q?eG7JFXCRqG/Rr95Knz9AhUVmt8vRHWSeoQsKN5lps95M0oQJ68MdcAWmy/LH?=
+ =?us-ascii?Q?VVPlysM+GbybGa/j0xp2sp9P2IkeT1uc3YIGBRLcpMsn2Vho/me9Ie/lDS3M?=
+ =?us-ascii?Q?mhRZsdXCcReAIO+BtZAr2y+ZlnfQWjGyUBglSwW3zYGBg9t01LTy?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3741f60f-be4c-441a-a0ca-08df3433e3f6
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 14:09:18.3338
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Nmsxn0/Uv3wSkpOLmBFxd4yL3T4aeIiCuBrLhP8RagtHhZOKQS4/x8RwLVZjiPG9S09k4wCSuf/M+E/m55YCFWeTtGQ5PNxfm79U3QcdXDoks95nPhfu699Wnz9qmaVI
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB350952
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_065814_326279_5B963267 
-X-CRM114-Status: GOOD (  19.08  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261027_070924_074275_568CBA73 
+X-CRM114-Status: GOOD (  16.83  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,120 +142,56 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-22.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Deomid
-
-在 2026/10/24 星期六 7:59, Deomid rojer Ryabkov 写道:
-> The NanoPi R2S Plus has an M.2 E-key slot wired to the sdmmc_ext
-> controller in 4-bit SDIO mode, where FriendlyElec fit an optional
-> Fn-Link 6222B-SRC (Realtek RTL8822CS) module:
-> 
->    - SDIO signalling at a fixed 1.8V (VCC_18)
->    - WIFI_REG_ON on GPIO3_B0, 32kHz sleep clock from the RK805 CLKOUT2
-> 
-> Enable the controller and add the power sequence. The SDIO pins need
-> 8mA drive strength for SDR104 tuning to succeed, as in the vendor
-> device tree [1]; with the SoC default of 4mA no sample phase works.
-> 
-> On boards without the module the controller gives up after about 0.2s
-> ("mmc2: Failed to initialize a non-removable card"); nothing else is
-> affected.
-> 
-> With the mmc core change for the module's CMD11 handling at a fixed
-> 1.8V [2], the module is tuned to SDR104 at 150 MHz and works with the
-> rtw88_8822cs driver; without it, it runs in high-speed mode at 50 MHz.
-> 
-> [1] https://github.com/friendlyarm/kernel-rockchip/blob/9238df9d21e835bba35c8ba5248784387936cb2e/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2-rev24.dts#L144-L172
-> [2] https://lore.kernel.org/linux-mmc/20261023232813.2983368-1-rojer@rojer.me/
-> Signed-off-by: Deomid rojer Ryabkov <rojer@rojer.me>
+On Tue, Oct 27, 2026 at 08:09:28PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Simplify the logic by consolidating into a single irq_set_irq_wake()
+> call based on the enable parameter.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
->   .../dts/rockchip/rk3328-nanopi-r2s-plus.dts   | 56 +++++++++++++++++++
->   1 file changed, 56 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dts b/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dts
-> index 6ba4a74cb1f..db19a18ae45 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dts
-> @@ -17,6 +17,15 @@ / {
->   	aliases {
->   		mmc1 = &emmc;
->   	};
-> +
-> +	sdio_pwrseq: sdio-pwrseq {
-> +		compatible = "mmc-pwrseq-simple";
-> +		clocks = <&rk805 1>;
-> +		clock-names = "ext_clock";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&wifi_reg_on_h>;
-> +		reset-gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_LOW>;
-> +	};
->   };
->   
->   &emmc {
-> @@ -34,3 +43,50 @@ &io_domains {
->   	vccio4-supply = <&vcc_io_33>;
->   	vccio6-supply = <&vcc_18>;
->   };
-> +
-> +&pinctrl {
-> +	wifi {
-> +		wifi_reg_on_h: wifi-reg-on-h {
-> +			rockchip,pins = <3 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +};
-> +
-> +/*
-> + * SDR104 tuning fails with the default 4mA drive strength, use 8mA like the
-> + * vendor device tree.
-> + */
-> +&sdmmc0ext_bus4 {
-> +	rockchip,pins =
-> +		<3 RK_PA4 3 &pcfg_pull_up_8ma>,
-> +		<3 RK_PA5 3 &pcfg_pull_up_8ma>,
-> +		<3 RK_PA6 3 &pcfg_pull_up_8ma>,
-> +		<3 RK_PA7 3 &pcfg_pull_up_8ma>;
-> +};
-> +
-> +&sdmmc0ext_clk {
-> +	rockchip,pins = <3 RK_PA2 3 &pcfg_pull_none_8ma>;
-> +};
-> +
-> +&sdmmc0ext_cmd {
-> +	rockchip,pins = <3 RK_PA0 3 &pcfg_pull_up_8ma>;
-> +};
-> +
-> +/* Optional M.2 E-key SDIO Wi-Fi module (Fn-Link 6222B-SRC, RTL8822CS) */
-> +&sdmmc_ext {
-> +	bus-width = <4>;
-> +	cap-sd-highspeed;
-> +	cap-sdio-irq;
-> +	disable-wp;
 
-Drop disable-wp.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Otherwise,
-
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
-
-> +	keep-power-in-suspend;
-> +	mmc-pwrseq = <&sdio_pwrseq>;
-> +	no-mmc;
-> +	no-sd;
-> +	non-removable;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&sdmmc0ext_clk &sdmmc0ext_cmd &sdmmc0ext_bus4>;
-> +	sd-uhs-sdr104;
-> +	vmmc-supply = <&vcc_io_33>;
-> +	vqmmc-supply = <&vcc_18>;
-> +	status = "okay";
-> +};
-
+>  drivers/gpio/gpio-mxc.c | 15 ++++-----------
+>  1 file changed, 4 insertions(+), 11 deletions(-)
+>
+> diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
+> index 32ded7b548fb..95dfe199409a 100644
+> --- a/drivers/gpio/gpio-mxc.c
+> +++ b/drivers/gpio/gpio-mxc.c
+> @@ -326,17 +326,10 @@ static int gpio_set_wake_irq(struct irq_data *d, u32 enable)
+>  	u32 gpio_idx = d->hwirq;
+>  	int ret;
+>
+> -	if (enable) {
+> -		if (port->irq_high && (gpio_idx >= 16))
+> -			ret = enable_irq_wake(port->irq_high);
+> -		else
+> -			ret = enable_irq_wake(port->irq);
+> -	} else {
+> -		if (port->irq_high && (gpio_idx >= 16))
+> -			ret = disable_irq_wake(port->irq_high);
+> -		else
+> -			ret = disable_irq_wake(port->irq);
+> -	}
+> +	if (port->irq_high && (gpio_idx >= 16))
+> +		ret = irq_set_irq_wake(port->irq_high, enable);
+> +	else
+> +		ret = irq_set_irq_wake(port->irq, enable);
+>  	if (ret)
+>  		return ret;
+>
+>
+> --
+> 2.51.0
+>
+>
 
