@@ -2,149 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D59CC606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 10:17:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 808D4606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 10:22:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dgI1aRCt;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Qwl64+46;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=RDBH5hHu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S+Lf76J1;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=CXza558X
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=/t88iT6pncol1pshGXVfM2oybT+zrFU83dtwkNkrIjE=; b=dgI1aRCtBRTCy4SBiCOkuRcwTS
-	gqK/iH4ycTCtuM+Aop1WXXvrcxjk98ja1FznKwRA5GyTRMDjBS4Tz8eT9023ceBFLbMeWo+sOVsuK
-	YMO0KJ8tZZRBaw3UV0KDntn9Eu3OzluBw6hLCBhvqdUAuKgsyVh5BlrItbNXFmeWONVgVuPgR51PN
-	EEVhqk+zBRAnQ9pjGis5/RZpUrXzmluoki07qkSwgmZNn73V+E6YpYBlh+Eb0B4Z574MAXOhwCrwF
-	fY25HDwiqeILl32w2LqZLfpuojfpd1JxCbZYo9WqGu2h8xnZh9C8TXLd9IZbdBHvkxVF3rj7kERqk
-	ZQGLUhgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=Txz3OjJcCusHpkz1mnsFRsjrPbuP5hB0e5979S9csEw=; b=S+Lf76J166ZuL1
+	/ChL2LG1E5Zhb1PbjWebdvlbg9GZevGbgoNPPHuQYxVc74CvEKu4TUgfhlqRJshhETHUUtaTLkjKc
+	f+qQeCOvTaeu353v+Vply38ENDvQw47U1165lWwuJTQgC8H0rEAdon92RMAxRY/N/4izaV3M+4tnP
+	rrD/wy1q51boPCT9/zIWzewomJXEIpCpACxQRiv5BEv6XYGX8/gDcAPW1ojUHD+bPSGNruKvcIdLD
+	glykGNaFEqkvDruLHXhvFZfjOw8UjuM3VvzA23445Iij/RK2g6wmcn5wvnV1V+6tZxfdjUV9vWY29
+	tpvUAi9hOqMB9QZnp8Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLeFO-00000004HYd-1jPn;
-	Tue, 27 Oct 2026 10:17:38 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xLeK9-00000004I1E-1XzC;
+	Tue, 27 Oct 2026 10:22:33 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLeFL-00000004HXP-1PvM
+	id 1xLeK5-00000004I0F-33Gy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 10:17:37 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69R8gtK4633883
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 10:17:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=/t88iT6pncol1pshGXVfM2oy
-	bT+zrFU83dtwkNkrIjE=; b=Qwl64+467SA6hnQNW54Xt65gR/ajEbZk7GPiqWZb
-	y0CafU72GVa68Es1LrghjWsfFPFH1xeRrJ8KSyXlFgl3NItCLYTkYGIQlXTUSQ09
-	CrzmBSRtkkeBDDwFFIuFt2eyZCoAwHWNZDHyqjEIuSDjzA2PbO7nKBYd2bmjxQW8
-	ggKDA9+K5n+lDsmqrNhw0xhJ2JL4fB05zXo1Bq21sN56+2URpe7a4cnFG8U1ClUJ
-	d2l0dwiQdn5WrLKIDDFxrJORNQCEm4Hlv+Ye0KV262w1ktKCOxnmHOr5erIemsbU
-	c55qHE+22sJNuSJqBDca5xwi18n1jsm6B9wXzPoRrBMCHQ==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hj8smuy0x-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 10:17:33 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93f2373e9b4so422815985a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 03:17:33 -0700 (PDT)
+	Tue, 27 Oct 2026 10:22:31 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a35db1f202so22034015e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 03:22:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793096253; x=1793701053; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/t88iT6pncol1pshGXVfM2oybT+zrFU83dtwkNkrIjE=;
-        b=RDBH5hHusgylK4wEpMqLU9+CFu+2BbOEP9WzbW2OuHkJ1/j0vjVhMT6M3NaQbPYNLY
-         lYPrP2nZhqDYEe33K7jJ/uXzJ32D4QzBvEQJz++NtsaX53rP0yQ71rELNrYL3rc5CvpA
-         wwp2aUdYs3JaufIs63oxpZ3YPWanenJpMHPBP5G5w3Cl8RgxB4SIp8AKrIrIOmP8frYJ
-         oxPpvAueiyDjcwTChsakjhXwj+o80ElD2Pm52QCHKhUH6GmZJV4G5fF39zfjZN49Y8L/
-         riziuGZny8FxNB+tgud5q22C0HY6PChlsSKYf3JeDSawjrymQE2RNSIBkd6aTqDuFI2q
-         hMMg==
+        d=gmail.com; s=20251104; t=1793096547; x=1793701347; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:content-type:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Txz3OjJcCusHpkz1mnsFRsjrPbuP5hB0e5979S9csEw=;
+        b=CXza558XwHaD6oFW1tyte4+cdnwvJ5nSXl6pGDvaxuvcO8/DQLdjRc7KNB38awFnAx
+         2TVJmoIjfngrC5DpRF7v1/cKYs3BNcytLfSu8loo91ZkYWvjc3Z4IwE967ZW/amyGfI4
+         dWzyTaYH7aEDcQGva1bML3VXRXlRiuJccJfHn5ChFhSgpnYMPy5DGVTM7dBpSHPucHVu
+         kc3quf3fnDFc9Ln99MacqymXifI+2EgVs3Xtu+XTQ200cBq/OsKE4uK32zTyr5M9qFZH
+         LABuJ8tNPNO2Hr+EHUneOk3prWhaRtvejego7KQX3hna3scoGr/814qYWhxaphZ34eSw
+         Qh0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793096253; x=1793701053;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1793096547; x=1793701347;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:content-type:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=/t88iT6pncol1pshGXVfM2oybT+zrFU83dtwkNkrIjE=;
-        b=V5lL5B0L2lGgN8E8R1cb0qxkLdMvM2hF8N2mWV9FvEyDjCWG0WzmRnph4ztS5yx5CM
-         hehNZnOqvOjggaNpmcbEP1g8R3eJjkFavGs5UF0TqstaehyEYWmBMgEmHqlUAktV1NiQ
-         RZBakWsquO8W0vVvE3e6FKO8NwUu3yhOlvp2zDBDXF6gxwhf4d5xd0IIICl85niAHCZh
-         xPSFHnGenIg7GOqVavtU+6i/hz0R2S7MzYddNXxhk1QQ8Dz9eEUoKOaltGgR4FCfDbRQ
-         YmVeuqKf/6q2LE2pWArPNRlTLOJwA2S37OMjs33Su29IFHyMnOMe6g1Y8JxqaYgPe5zd
-         ToYA==
-X-Forwarded-Encrypted: i=1; AKwUvBz8naJlXxM/Ia/T1dJ/rQwxxokPjRcDNymOc8UDDvH7pze9LUyEHjOFLGJIqxVXAYzQzqZl0XF2wS/G+YJ5rSA6@lists.infradead.org
-X-Gm-Message-State: AFq9FYJJ17jDQqZGS6QWNgCYF/5PqEUcQChB53sTK9pcgODbiEvuIU5p
-	ZUXpAL0J4hJjaQp7gs0g15+FOhCZqLTU6NzWuBd5YArujUERHcJ+g/SOOYUQCeR2Z/uYi38Ut1G
-	ZJCAO+cv5sE/k8HmrEU+zWnX5mfGFil3leRJcON8r4l3hCnazmhXTYRchU2lrmuTwuzKSmgY1bG
-	bDfQ==
-X-Gm-Gg: AYBFou06oJcVW8YBMCOSxAqNB0rN+sAsdKPRzcKkCdIzMennz3sujErB6xEVORxIeb4
-	3cVN0qneO4yBcTSjiZ2XXF0hsIzsKxlEEJGTes4KmlrpuZ1ARTk8new88AzmqGTbT2PVF22gzYp
-	bPuKSQqY/vt4mBTTvRA7vuWhqrv+Y7u6HSvp1zDXCD/4VvNO601fVUFgXl7unvjpAv/2D6rVYQ5
-	jVhitnlbNqS4mFJBGMK5bWCYMU7T1s+/+C1d7Zhe6R8HA1pZxNteJxwEKSM7ZGgiqXn0mcPcPZd
-	RqhTTYOrLn2wfNYw1FE5LXVqNYdDA5w5OZl/o2rMyROkrQ4ovEMY5pZ9s7g6bOc70eoZPE/YF7l
-	ZLZ3nbzOJo98FSXOKVwhtYVYuRpAObMQ8usx2QqKKFfg8y+K/
-X-Received: by 2002:a05:620a:a883:10b0:940:f224:5a69 with SMTP id af79cd13be357-940f2245d1emr986103585a.65.1793096253133;
-        Tue, 27 Oct 2026 03:17:33 -0700 (PDT)
-X-Received: by 2002:a05:620a:a883:10b0:940:f224:5a69 with SMTP id af79cd13be357-940f2245d1emr986099185a.65.1793096252391;
-        Tue, 27 Oct 2026 03:17:32 -0700 (PDT)
-Received: from localhost (net-93-144-6-81.cust.dsl.teletu.it. [93.144.6.81])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ecd37f4sm25852940f8f.44.2026.10.27.03.17.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Oct 2026 03:17:31 -0700 (PDT)
-Date: Tue, 27 Oct 2026 11:17:30 +0100
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-        edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-        ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-        john.fastabend@gmail.com, sdf@fomichev.me, Jose.Abreu@synopsys.com,
-        boon.leong.ong@intel.com, o.rempel@pengutronix.de,
-        netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        bpf@vger.kernel.org
-Subject: Re: [PATCH net 2/6] net: stmmac: drop split frames on AF_XDP
- zero-copy RX
-Message-ID: <auB6OpACJerXjBec@lore-desk>
-References: <20261023-stmmac-xdp-fixes-v1-2-efb37e19f5bd@oss.qualcomm.com>
- <179309225249.3134.13360572151220701495@kernel.org>
+        bh=Txz3OjJcCusHpkz1mnsFRsjrPbuP5hB0e5979S9csEw=;
+        b=QOlbqNqSBs1c9QYZYeN1LptVM+eyZ/mXluddDMBGjjjJTmPeS4MvHn285uHnjUnbME
+         dnu/DghCxwpgSBHCbamu3NRSrrrIvv0r1quXZEHiXTw6G7XNEhQDFRRfs7V7u+zb7eGH
+         8D2/Uny9iAiPEVC4R5n9tCby+HImXWMX+l2h1gYWtKkP0znMowrE1DNfAbFfiH4gt7li
+         b1EwNDllYcDTAVQskHf51Uam2pvOic40ETcQIdb+vBe+u4+GPg53Zwkz7AaASB+9MeGv
+         u001r4gcvJJO9kgn9ne0yQDk2ST6iHY6y611kU6jln2MFoyxZIgQmwbMqqgHr7Ij6Z75
+         Nfdw==
+X-Forwarded-Encrypted: i=1; AKwUvBwztnnc7gEPxKv5Npd8Hwd4NR+o+UER2yj48enstUz5uNvlG/r3mlaL6EkHUapRn49aNyRMqXv34btPbJrAMIbN@lists.infradead.org
+X-Gm-Message-State: AFq9FYJDjKZj2zbOc0WljsSO1pZrFyT+9ULjlkx1fNyAvxpUQGaqv3fG
+	HeLL1TseUM2q5Wydk4dTsdhusXWCf8cfLN947prQud9Ro507RAmgFc7p
+X-Gm-Gg: AYBFou3O5BjRKO4oinPEYvJSxtEvWyH1DvFl5ZdUaVqDHSbT+SgENSunnkRiRpn+/o9
+	/CXOXbTJRbU1dxcBnVmKL/r3AfCeK+bUOs5psnq/1Hp/fY4ow/nwDTrhprMZ5CFP+av8FiAIrnf
+	V7KQN0DS9UDScjnfIdfIxiBAPvu6/+Hd6qcHI7kNB/fmP1c7BUhgxMp7+AQltN3eWAdoDo68xk+
+	q6duEdP2GbCNfWqUPwSdI+I6JW5y/DpEqqGGXkfhhKt011k/v5Bh/i5QhII/u3cVT8Fm7JN7/FM
+	ftl+6QicqHU5O8AtYcGwZEWusjNB/QqP+0OjzPxA4jOS3LnoyQXBv9+RBzr4ChkBmnSxaGzdFRx
+	UD/MwzWECGyY1+zJG4TxacFLqMDLiyNv3OLEiRPNumwDWQZTJ1M71cdvrT3eKXMokkbRrtRnA66
+	5gYhzjH4rVx5ddawFlq7YQSKTbBACJ95adTlzqnyZ7Wk/DRJ8XYzCMM5c/Xgb5icMgip44y3rhy
+	6q+Ce98cPsKiy5hrOrEcNrGWr1L/Ubmr6DYOUShzFZ10zZiUE0ky1/V4KVrTAL/kSr/6V7wGDkx
+	qeoU2HtKIg==
+X-Received: by 2002:a05:600c:4e12:b0:4a1:702f:c736 with SMTP id 5b1f17b1804b1-4a35ac3f7bdmr182539685e9.3.1793096547086;
+        Tue, 27 Oct 2026 03:22:27 -0700 (PDT)
+Received: from smtpclient.apple ([87.200.95.144])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebd4be6sm20023565f8f.37.2026.10.27.03.22.22
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 27 Oct 2026 03:22:25 -0700 (PDT)
+Content-Type: text/plain;
+	charset=utf-8
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="GP/MfWl9BvU7lFD7"
-Content-Disposition: inline
-In-Reply-To: <179309225249.3134.13360572151220701495@kernel.org>
-X-Proofpoint-ORIG-GUID: ZN40c5ToSIVInzR5x9xH9NwMuM0gAS0n
-X-Authority-Analysis: v=2.4 cv=Sfti5fRu c=1 sm=1 tr=0 ts=6ae07a3e cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=9R54UkLUAAAA:8
- a=EUspDBNiAAAA:8 a=BnUPfLnITP_tn7LcAckA:9 a=QEXdDO2ut3YA:10
- a=twnd7clgSCzMtR1pb0oA:9 a=PEH46H7Ffwr30OY-TuGO:22 a=YTcpBFlVQWkNscrzJ_Dz:22
-X-Proofpoint-GUID: ZN40c5ToSIVInzR5x9xH9NwMuM0gAS0n
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI3MDA0MCBTYWx0ZWRfX3YjxKQKOWrV4
- cPMnSnfQqEaz4n+v36ZWpp2781dWCyPOE+IRDfwqdEaFtmUtn/CG6sHDkN1tX+rTeobgdvXG7sk
- KPI3deF6liC0TdFv60iR8IY8K3kTYR8=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI3MDA0MCBTYWx0ZWRfX/KLw/GvXBp4F
- Kj6WCrDJNnqwUIVGmbe8VOHeNqGdE95TVcb34der4e73G31gq32wucgtRkRU0FNGjlrcUefYiFr
- d1KdGWnAF9YWKbbwUdB4f+YyV8ywErf0l5JWZkmzqLdZyest8bsidAP2h9kXYbAzcmwGIyyLXJC
- O/gYKayybqNqDP6BKb8KPCQVlYcCfN2d1VxFHdhLQRE9F1fgxCtJAkr4ruH7oyaegQzB9pzrU1Y
- q4Li6J5bvYlj6L47ZXTy1Rkz+2MqyDfgTx+cNXtBINaMq1Ok03pr7R+ytrAC43TY6OF8I67rAAM
- 9+MnYaZJ0YOOSCnMly0htjobSmHtv3Hx/0zjvxeaVHF46cuHq9wXYGj/iodHiK2siUZCwcrQF4+
- RPF/zSm0CzbRKJ6ezy0hXGv5FergOWaN/FPm0UpoKZaJEUGRNwrFMwzARzDdMZb+TkTit48k5HR
- viFvkfNuQMnE1VSOTUg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-27_02,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 bulkscore=0 clxscore=1015 adultscore=0 priorityscore=1501
- malwarescore=0 lowpriorityscore=0 impostorscore=0 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610270040
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.700.51.1.3\))
+Subject: Re: [PATCH 4/4] cpufreq: add an Amlogic speed-bin driver
+From: Christian Hewitt <christianshewitt@gmail.com>
+In-Reply-To: <9556e959-daf3-4c85-8794-9613e7e7a9ae@gmail.com>
+Date: Tue, 27 Oct 2026 14:22:09 +0400
+Cc: Viresh Kumar <viresh.kumar@linaro.org>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ christian.koever-draxl@student.uibk.ac.at,
+ neil.armstrong@linaro.org,
+ sboyd@kernel.org,
+ bmasney+clk@redhat.com,
+ khilman@baylibre.com,
+ martin.blumenstingl@googlemail.com,
+ rafael@kernel.org,
+ robh@kernel.org,
+ krzk+dt@kernel.org,
+ conor+dt@kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-amlogic@lists.infradead.org,
+ linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ =?utf-8?Q?Christian_Stefan_K=C3=B6v=C3=A9r-Draxl?= <ckoever@outlook.de>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <A45EC676-5B14-4932-A4CF-87ED3B71108D@gmail.com>
+References: <20261025192219.209137-1-christian.koever-draxl@student.uibk.ac.at>
+ <20261025192219.209137-5-christian.koever-draxl@student.uibk.ac.at>
+ <at7lXEqds7ukoR2V@vireshk-B250M-D3H>
+ <1jbj8gkff1.fsf@starbuckisacylon.baylibre.com>
+ <at8WfX_G0tfTlFrm@vireshk-B250M-D3H>
+ <9556e959-daf3-4c85-8794-9613e7e7a9ae@gmail.com>
+To: Chuan Liu <chuan.liu686@gmail.com>
+X-Mailer: Apple Mail (2.3864.700.51.1.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_031735_501172_3617149A 
-X-CRM114-Status: GOOD (  50.49  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261027_032229_798070_3E059005 
+X-CRM114-Status: GOOD (  22.86  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,275 +124,108 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---GP/MfWl9BvU7lFD7
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> On 27 Oct 2026, at 1:26=E2=80=AFpm, Chuan Liu <chuan.liu686@gmail.com> =
+wrote:
+>=20
+> Hi Viresh, Christian,
+>    Could you please hold off for now on the patches adding cpufreq =
+driver support on S4? There are still two issues that need to be =
+resolved first:
+>  - The clock driver currently does not support setting the CPU clock.
+>  - The CPU regulator needs some time to stabilize after the voltage is =
+changed. Without a proper delay, the CPU clock frequency may be raised =
+before the regulator voltage has actually reached the target value, =
+which can hang the system. The S4 CPU regulator handling currently lacks =
+the logic to wait for the regulator voltage to settle, so this part =
+needs to be completed first.
+>=20
+> We are currently working on submitting our own cpufreq driver. We are =
+considering how to address the issues above, taking into account the =
+hardware characteristics of previous SoCs and evaluating factors such as =
+the transition latency. S4 will be covered by that work (as well as SoCs =
+from S4 onward, such as C3, T7, ..., A9). So please give us some time.
 
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
->=20
-> Critical: 0 =C2=B7 High: 0 (2) =C2=B7 Medium: 1 (2) =C2=B7 Low: 0
->=20
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
->=20
-> - [Medium] The commit message does not describe one behaviour change the
->   patch makes, and nothing explains the second Fixes tag.
->=20
-> Pre-existing issues:
-> - [High] On GMAC4/XGMAC, stmmac_rx() in native (non-ZC) XDP mode still
->   handles split RX frames wrongly at this commit.
-> - [High] On AF_XDP zero-copy XDP_PASS, stmmac_dispatch_skb_zc() ignores
->   the csum_none bit from the descriptor status.
-> - [Medium] In stmmac_rx(), if napi_build_skb() fails on the first
->   descriptor of a multi-descriptor frame, the code does `rx_dropped++;=E2=
-=80=A6
-> - [Medium] priv->xstats.rx_dropped and priv->xstats.rx_errors are device-
->   wide `unsigned long` counters.
->=20
-> --
->=20
-> net: stmmac: drop split frames on AF_XDP zero-copy RX
->=20
-> When stmmac_rx_zc() drops a frame that spans more than one RX descriptor,
-> it now sets error, so the remaining descriptors are freed and the tail is
-> not handled as a new frame. The dwmac100/dwmac1000 descriptor callbacks n=
-ow
-> return rx_not_ls together with discard_frame for non-last descriptors. The
-> discard_frame checks in stmmac_rx_zc() and stmmac_rx() change from =3D=3D=
- to &.
->=20
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
-s/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index fba21599a5e15..3fa2c15222d88 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -5710,18 +5710,21 @@ static int stmmac_rx_zc(struct stmmac_priv *pri=
-v, int limit, u32 queue)
-> >  		if (priv->extend_desc)
-> >  			stmmac_rx_extended_status(priv, &priv->xstats,
-> >  						  rx_q->dma_erx + entry);
-> > -		if (unlikely(status =3D=3D discard_frame)) {
-> > -			xsk_buff_free(buf->xdp);
-> > -			buf->xdp =3D NULL;
-> > -			dirty++;
-> > +
-> > +		if (unlikely(!error && (status & discard_frame))) {
-> >  			error =3D 1;
-> >  			if (!priv->hwts_rx_en)
-> >  				rx_errors++;
-> >  		}
->=20
-> [Severity: High]
-> This is a pre-existing issue, but with this test, a dwmac4 frame that only
-> has csum_none set still reaches the XDP program. That covers an L4 payload
-> checksum error without RDES3 ERROR_SUMMARY. On XDP_PASS the frame goes to
-> stmmac_dispatch_skb_zc(), and that function never receives status:
+Please don=E2=80=99t top-post, keep inline threading!
 
-This issue has not been introduced in this patch and it needs to be fixed w=
-ith
-a dedicated patch.
+FWIW, the recent bindings/clock/driver work I=E2=80=99ve done for S4 is =
+here:
 
->=20
-> stmmac_dispatch_skb_zc() {
->     ...
-> 	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
-> 		skb_checksum_none_assert(skb);
-> 	else
-> 		skb->ip_summed =3D CHECKSUM_UNNECESSARY;
->     ...
-> }
->=20
-> dwmac4_dma_rx_chan_op_mode() always sets MTL_OP_MODE_DIS_TCP_EF, so the
-> hardware does not drop these frames. dwmac4_wrback_get_rx_status() reports
-> them with no discard_frame:
->=20
-> 	if (rdes1 & RDES1_IP_PAYLOAD_ERROR) {
-> 		x->ip_payload_err++;
-> 		ret |=3D csum_none;
-> 	}
->=20
-> Can a packet with a bad TCP/UDP checksum get marked CHECKSUM_UNNECESSARY
-> on the AF_XDP zero-copy XDP_PASS path and be delivered to sockets?
->=20
-> stmmac_rx() checks (status & csum_none) before it sets
-> CHECKSUM_UNNECESSARY. Should stmmac_dispatch_skb_zc() do the same check?
-> The gap is still there at the end of the series.
->=20
-> [ ... ]
->=20
-> > @@ -5730,8 +5733,9 @@ static int stmmac_rx_zc(struct stmmac_priv *priv,=
- int limit, u32 queue)
-> >  		if (likely(status & rx_not_ls)) {
-> >  			xsk_buff_free(buf->xdp);
-> >  			buf->xdp =3D NULL;
-> > +			rx_dropped++;
-> > +			error =3D 1;
-> >  			dirty++;
-> > -			count++;
-> >  			goto read_again;
-> >  		}
->=20
-> [Severity: Medium]
-> This is a pre-existing issue, but the rx_dropped count added here is added
-> to the device-wide counter at the end of stmmac_rx_zc():
->=20
-> 	priv->xstats.rx_dropped +=3D rx_dropped;
-> 	priv->xstats.rx_errors +=3D rx_errors;
->=20
-> stmmac_rx() does the same thing, and stmmac_dispatch_skb_zc() does
-> priv->xstats.rx_dropped++. These are plain unsigned long read-modify-writ=
-es
-> with no lock, no atomic and no per-queue split.
->=20
-> NAPI polls for different RX queues can finish at the same time on
-> different CPUs. Can they lose increments here, so that stmmac_get_stats64=
-()
-> under-reports rx_dropped and rx_errors?
+https://github.com/chewitt/linux/commits/amlogic-7.3.y
 
-This issue has not been introduced in this patch and it needs to be fixed w=
-ith
-a dedicated patch.
+My speed-bin driver is based on earlier work from Martin Blumenstingl:
 
->=20
-> [ ... ]
->=20
-> > @@ -5898,7 +5902,8 @@ static int stmmac_rx(struct stmmac_priv *priv, in=
-t limit, u32 queue)
-> > =20
-> >  		if (priv->extend_desc)
-> >  			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx + entr=
-y);
-> > -		if (unlikely(status =3D=3D discard_frame)) {
-> > +
-> > +		if (unlikely(status & discard_frame)) {
-> >  			page_pool_put_page(rx_q->page_pool, buf->page, 0, true);
-> >  			buf->page =3D NULL;
-> >  			error =3D 1;
->=20
-> [Severity: Medium]
-> The commit message does not seem to describe this change or explain the
-> second Fixes tag:
->=20
->     Fixes: 644b8437ccef9e ("net: stmmac: dwmac4: report Rx checksum error=
-s in status")
->=20
-> Is this change from =3D=3D to & the actual fix for 644b8437ccef9e?
-> dwmac4_wrback_get_rx_status() sets ret =3D discard_frame on
-> RDES3_ERROR_SUMMARY. It then ORs in csum_none on RDES1_IP_HDR_ERROR or
-> RDES1_IP_PAYLOAD_ERROR, so it can return discard_frame | csum_none.
->=20
-> The old status =3D=3D discard_frame test missed that value. Frames with C=
-RC,
-> overflow, watchdog or giant errors that also failed the IP checksum were
-> passed to the stack in stmmac_rx(), or to XDP/XSK in stmmac_rx_zc().
->=20
-> The fix looks correct. However, the body only covers the AF_XDP zero-copy
-> 1:1 drop and the dwmac100/dwmac1000 descriptor change, and this hunk
-> changes the regular non-XDP RX path on every GMAC4/XGMAC system.
->=20
-> Could the commit message describe this change and the 644b8437ccef9e
-> regression it fixes?
->=20
-> [Severity: High]
-> This is a pre-existing issue, but does stmmac_rx() in native XDP mode
-> still mishandle split frames on GMAC4/XGMAC? For a non-last descriptor,
-> dwmac4_wrback_get_rx_status() returns rx_not_ls without discard_frame:
->=20
-> 	if (likely(!(rdes3 & RDES3_LAST_DESCRIPTOR)))
-> 		return rx_not_ls;
->=20
-> So the discard_frame drain above never starts, and the XDP program sees
-> the first fragment as a complete frame. On XDP_DROP:
->=20
-> 				if (xdp_res & STMMAC_XDP_CONSUMED) {
-> 					...
-> 					skb =3D NULL;
->=20
-> 					if (unlikely((status & rx_not_ls)))
-> 						goto read_again;
->=20
-> skb is NULL and error is still 0. The tail then goes through XDP again
-> and can be passed to the stack as a new packet.
->=20
-> On XDP_TX or XDP_REDIRECT the code does goto next, which clears
-> in_progress. The next iteration resets len to 0, so stmmac_rx_buf1_len()
-> reports the full dma_buf_sz for the tail. Can that expose stale page_pool
-> contents that DMA did not write for this frame?
->=20
-> This is the same kind of bug the patch fixes for stmmac_rx_zc(), but here
-> stmmac_rx() is only covered for dwmac100/dwmac1000. The next patch in the
-> series, "net: stmmac: drop multi-buffer frames in XDP mode", appears to
-> fix it. That patch sets error on rx_not_ls in XDP mode, drops frames that
-> use buf2_len, and makes the XDP_CONSUMED path goto next.
+=
+https://github.com/chewitt/linux/commit/77e12d4d584d6a8bbd93304bbd4e9bbbb6=
+ee159a
 
-I will fix the commit message in v2.
+Setting a ramp-delay was the key to opp transition stability:
 
->=20
-> [Severity: Medium]
-> This is a pre-existing issue, but stmmac_rx() has a similar problem when
-> napi_build_skb() fails on the first descriptor of a multi-descriptor
-> frame:
->=20
-> 			skb =3D napi_build_skb(page_address(buf->page),
-> 					     rx_q->napi_skb_frag_size);
-> 			if (!skb) {
-> 				page_pool_recycle_direct(rx_q->page_pool,
-> 							 buf->page);
-> 				buf->page =3D NULL;
-> 				rx_dropped++;
-> 				count++;
-> 				goto drain_data;
-> 			}
->=20
-> error is not set, so drain_data jumps to read_again with skb =3D=3D NULL =
-and
-> error =3D=3D 0. If allocation succeeds on the next descriptor of the same
-> frame, the if (!skb) branch builds a new skb from only the tail fragment.
->=20
-> At the last descriptor, pskb_trim(skb, len) does nothing. len still
-> includes the dropped first fragment, so it is larger than skb->len.
->=20
-> Does this pass the tail to the stack as a standalone packet with its FCS
-> still attached, and count the frame against the budget twice? Should this
-> path set error so the rest of the frame is drained?
->=20
-> At the end of the series this only happens in non-XDP mode, because XDP
-> mode now sets error on rx_not_ls.
+=
+https://github.com/chewitt/linux/commit/ca7a99e86e23677c7b5af887e6f3b3c8ce=
+3470d2
 
-This issue has not been introduced in this patch and it needs to be fixed w=
-ith
-a dedicated patch.
+CH.
+also a Christian, to confuse people :)
 
-Regards,
-Lorenzo
-
+> On 10/26/2026 4:59 PM, Viresh Kumar wrote:
+>> On 26-10-26, 09:57, Jerome Brunet wrote:
+>>> On lun. 26 oct. 2026 at 11:00, Viresh Kumar =
+<viresh.kumar@linaro.org> wrote:
+>>>=20
+>>>> On 25-10-26, 20:22, christian.koever-draxl@student.uibk.ac.at =
+wrote:
+>>>>> From: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de>
+>>>>>=20
+>>>>> Every S4 speed bin runs the same CPU frequencies but needs its own
+>>>>> voltage curve, and the bin can only be read through the secure =
+monitor.
+>>>>>=20
+>>>>> Read the bin from the firmware, select the matching
+>>>>> "opp-microvolt-speed<bin>" property for all CPUs, then register
+>>>>> cpufreq-dt. Bins outside the known range fall back to bin 0, which
+>>>>> has the highest voltages. Like sun50i-cpufreq-nvmem, the driver =
+binds
+>>>>> on the SoC compatible and needs no node of its own, and S4 is =
+added to
+>>>>> the cpufreq-dt-platdev blocklist so cpufreq-dt is only created =
+after
+>>>>> the bin has been applied.
+>>>>>=20
+>>>>> Signed-off-by: Christian Stefan K=C3=B6v=C3=A9r-Draxl =
+<ckoever@outlook.de>
+>>>>> ---
+>>>>>  MAINTAINERS                          |   1 +
+>>>>>  drivers/cpufreq/Kconfig.arm          |  14 ++
+>>>>>  drivers/cpufreq/Makefile             |   1 +
+>>>>>  drivers/cpufreq/amlogic-cpufreq.c    | 184 =
++++++++++++++++++++++++++++
+>>>>>  drivers/cpufreq/cpufreq-dt-platdev.c |   2 +
+>>>>>  5 files changed, 202 insertions(+)
+>>>>>  create mode 100644 drivers/cpufreq/amlogic-cpufreq.c
+>>>>=20
+>>>> Is it safe to apply just this one ? I can take this via the PM tree =
+then.
+>>>=20
+>>> I would advise to wait a little for Amlogic to chime in.
+>> Sure, I wasn't going to wait for the maintainers to respond anyway.
 >=20
 > --=20
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261023-stmmac-xdp-fixes-v1-0-efb37e19f5bd%40oss.qualcomm.com
+> Best regards,
+> Chuan
+>=20
+>=20
+> _______________________________________________
+> linux-amlogic mailing list
+> linux-amlogic@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-amlogic
 
---GP/MfWl9BvU7lFD7
-Content-Type: application/pgp-signature; name=signature.asc
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCauB6OgAKCRA6cBh0uS2t
-rOgfAQDIbO8+ywdj3y0cEjOd1Ng1xFi+0PbimDta7J1gyk/25AD/bjfdp9HiQ6wp
-DiTWtNtRQw3Tk4vs7Nv29PoRt8pmpg4=
-=klEX
------END PGP SIGNATURE-----
-
---GP/MfWl9BvU7lFD7--
 
