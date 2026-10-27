@@ -2,98 +2,105 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5DE5606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 02:59:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ECC9606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 03:00:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2ttBDXvL;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=f1mDrVd/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=o7pJ4Wdq;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=GxUj9QwG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=hSnvvzDhM2uKqCBxyLgpEZ66FQuzFPilOEd8OHc2tQE=; b=2ttBDXvLz/JuNo
-	rGJXfQfCbBDo5wOWfU0T4Yky3mZs8TQIyFk/8VrxJCAF1crq6ZibJuyr6nVeo7ScoHfjns1x/OEAM
-	PayRr49mWeMpGds6sA1AFqpCWCSKIDEFE7WtlkVZ89dXvkSAwDGL+3xCQ5gbIgVlLvTBecA1yfD/c
-	R5iVtgqHXg6s5efwBJPmDAqFErL7YNO/0CZNkZqKPGAz3L83bEMQvVkZT758iAxBHt+QVqT7y9oWS
-	thgOEg/1dbJH/gBN3+Y7J3TV/cG0iC2COo3A2x65kL5xxEXG+asGoYKoOcPHANPZg8MF4FGg8GNtq
-	t8VTs4AlIPDnSWPGwKWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=DVZYAzp5y3OZA2PjGNx37RsXlUC5F7cYH3MmvY5PMVk=; b=o7pJ4WdqU/6SuYOeeEDrt48LPm
+	/1BNMvyI4gLt9hgx/k6jy4V/5hr9pi2HnoskrLf4hLdBYeNdiuq+H7ivQ72Ry+EUWyAt09nW3g7hD
+	/ArihxM/FtU45J3F7TndKypecqTV7m/eJblBzYf2M2B82VJiZn16ZaSbUga0ySqb2Cx19fgXdVxBl
+	3qMAo7x2hFrSXAWtWDyaHR4G3XEyAcMcLsf56BVHezGVQDn1E1hPyvVkEKcN66fvJlwvj7Cx/Bkj/
+	EEVlbhJMHuc5IPHYK9RsrHHKTfYsg0WkJs2EJf5wUt/u9/fNT2kpWeaTEdZWBw5wCak5sLWF1g6pm
+	zuMKR+Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLXPY-00000003frV-1LJh;
-	Tue, 27 Oct 2026 02:59:40 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1xLXPQ-00000003foY-0XfO;
+	Tue, 27 Oct 2026 02:59:32 +0000
+Received: from omta38.uswest2.a.cloudfilter.net ([35.89.44.37])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLXPV-00000003fqJ-1Wwm
+	id 1xLXPN-00000003fnl-2bCp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 02:59:38 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ea138a3497so23648775ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 19:59:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793069976; x=1793674776; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hSnvvzDhM2uKqCBxyLgpEZ66FQuzFPilOEd8OHc2tQE=;
-        b=f1mDrVd/0Jz+nQ5NV/nNosKvUOrx6n1EBtYScxkvqCsWcdo2OEUEpwqx0XhG3p5d04
-         eLqy1RiXcTssbLj+GSAsGbDaVA/1gYBvz3teT3Q4gOiF1MVoITf7I/d2uLN1Aikj3KEg
-         gHWPPzlCTZ8BYt/r1TVkuhP0qcM/7jwHhOJkhbPaTdxEqZC9A8b3EcDZhKp1CaTo0byi
-         4XZWQRYdA86FQVrBDs7geUr39TEU5Y32Hppk3SyxTrTdNwXQMI1TL4uf58m0Lkb3i5cl
-         wzoIqtEne8n2goOOgtQQxuFLKwjExpXTUJve6HhsmDhTYteBwxVyc2WtWKuxN2lxnIhB
-         CZ/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793069976; x=1793674776;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hSnvvzDhM2uKqCBxyLgpEZ66FQuzFPilOEd8OHc2tQE=;
-        b=bIIpyAU2qnttt0HFowxVVa2fNS3Yo0GxvTcbva8Gie1jgqm7xsCTCjfbnulg5YEroP
-         wh2SNTEdBGEQklbMbeYHBaJnkgiOXElSGUXGMfUB0U3SLzgQ/3FoxG9WE+UBcAbLHdFX
-         AAoiSWuJ54yPPYlSoT0CffAvvrfqkxf7cBUi1oTYKd1EtczA7XJIZufAdsGXAfqn5vPf
-         4DzhlJqEUgNZ+ydCFpk+wIrm1Fnhpf90T7q9Sk3ygipemEuA9GrFEukcRxxbHyyC4pmp
-         5be09uUh1A0i3es2b0w9F+O9JsTB2ju3TBgwlNftVQ+yE3skK5dpblWN5TxADFKo43FZ
-         7i/Q==
-X-Forwarded-Encrypted: i=1; AKwUvBx8h1ZlUonf37Mi14c0WgN540pC/C4NhoYF/jKHV2A7ejQ4Cdbd1HtICDqgNR7smvOkbyUjduLoYaal7HyA1Bcj@lists.infradead.org
-X-Gm-Message-State: AFq9FYIZJPOeibcKU2eDXjy/0zXH51iAhP10KMR4ZBesJT1eB/8InpM4
-	DudnO7arGkanoNk5Xqlpv6D7eI9j8R+3SkF8ZxYNbniIxmuavbyfSAeF
-X-Gm-Gg: AYBFou2Tkb8cvj6z5FM6dt+Ml8iTalO2vQ6Y0K9Z3OTsNqBhp2ttpNBvWUObqmTEB8L
-	H1RmnZT6EIw5f2Sca5zdJElf1ok+lsDZ3ZUoDycRXwx4xK3NjEQ7SHe7nF1XLjDIIoKv4AIvTEb
-	F3bMiYCNOD2w9qahNvgO9ab5EsZ2OxhPkPDuVmOKaXG45vhfCqWpMsPXKX0MjHjr2qbtJzXLduw
-	UU/4KBoFTOKQtoLeuNYI+JqR1VffLujMGHBOjfOHtAV6t1hFg9zxjRVSThDCaf86rEbtx25GnVw
-	lyCw029FD3L3nzGcxggxySONQ4BK4XXwxzxDBKEfLJ9tNF2l3KuQHWTs87TV4kE+wC7Q/EpSmYL
-	RpUF4Wu6q00lTbUxzukdo7mGdi/QHRWg023F5/ZAkfWsUvyD4mYIcFT2VFkbaK+BN+AVWCaasTg
-	vYIhNOhRQrnhECWiPx2kutFHm16BE1Fm1LS4cTbNqvCOX29ZGR+pOOKXw6sZwmbHj8Bgsms3b9z
-	/n8Fw44tMg+Xfke5ADh3yeJBwbbFfktYLyUORo/gq3CLHwzJjxLkkU4ofmaglzhAOFkXKcGIWYZ
-	QyVu5WM1+9BxO4pI1Uci
-X-Received: by 2002:a17:902:d48e:b0:2e9:5d1f:dffe with SMTP id d9443c01a7336-2ea9c9875fbmr71515405ad.57.1793069975922;
-        Mon, 26 Oct 2026 19:59:35 -0700 (PDT)
-Received: from [10.25.164.32] ([128.77.72.132])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eae6c912f9sm2255465ad.60.2026.10.26.19.59.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 19:59:35 -0700 (PDT)
-Message-ID: <9b6c85f4-5881-46d8-b247-ae6bbfef8f91@gmail.com>
-Date: Tue, 27 Oct 2026 10:59:28 +0800
+	Tue, 27 Oct 2026 02:59:30 +0000
+Received: from eig-obgw-6003b.ext.cloudfilter.net ([10.0.30.175])
+	by cmsmtp with ESMTPS
+	id LS3ZxugV6v0ndLXPMxFugx; Tue, 27 Oct 2026 02:59:28 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id LXPKxcVRA7CfWLXPKxzJcz; Tue, 27 Oct 2026 02:59:26 +0000
+X-Authority-Analysis: v=2.4 cv=Z8HsHGRA c=1 sm=1 tr=0 ts=6ae0138e
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=M0FbrtG7MMAA:10
+ a=mitAZJTLCVS27zc7Mg0A:9 a=CjuIK1q_8ugA:10 a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
+	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=DVZYAzp5y3OZA2PjGNx37RsXlUC5F7cYH3MmvY5PMVk=; b=GxUj9QwG56pBayE0cKAJfw7cw+
+	Wk73qh/ugxciGuEcKJvE39S+9pEZnrcM95ki2IDBrqYdx+kprmRMNxrloLsdQXR0aQs87VTPMtcca
+	7kG91AWECmiiPHhfZDbOTMf1tmpc2Z+03QU96mSDIwDUk9ZelIPxkyOF5x+zZDSiQTtgpl9pOv62N
+	R10DRSTq4g7LptaXSbZgEl9V6PSPVQffYosI8wWNeKgz8Ru7iYMtIGPUNIgEjtDmaCglhfmI0rAL1
+	IN7IEZynP9YMYZiPBBIgHkRxKyFNL9COZb4BPfJELtJ4V+GP5qxB1Fuqw7nuoqZ4dpEvxvU+bjqxR
+	rckPkmag==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:45506 helo=server.roeck-us.net)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xLXPJ-00000001xoi-2zHC;
+	Tue, 27 Oct 2026 08:29:25 +0530
+Date: Mon, 26 Oct 2026 19:59:24 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Igor Velkov <iav@iav.lv>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Philippe Boos <pboos@baylibre.com>, linux-watchdog@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] watchdog: meson_gxbb_wdt: fix suspend/resume handling of
+ HW_RUNNING watchdog
+Message-ID: <5e77e129-f822-4134-afaa-1a0cc088978e@roeck-us.net>
+References: <20261020-meson-gxbb-wdt-suspend-v1-1-d5abe4340008@iav.lv>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: imx952-frdm: support AONMIX MQS
-To: shengjiu.wang@oss.nxp.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261026085352.4009534-1-shengjiu.wang@oss.nxp.com>
-Content-Language: en-US
-From: Chancel Liu <chancel.liu@gmail.com>
-In-Reply-To: <20261026085352.4009534-1-shengjiu.wang@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261020-meson-gxbb-wdt-suspend-v1-1-d5abe4340008@iav.lv>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xLXPJ-00000001xoi-2zHC
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:45506
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 3
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfNDv1L8SJLIhfHTe2gQOT80d6PGTV4xdgCvoZ5/pwtAHOAR+CLLdY1K9KJGTDX/8AKpIdXP03Ja84Sj01yb7OmzxocNBGDXjqym0RIcVAe2HSoeQlYtC
+ Ob+KN59fpOTkMSDsktVDYDszBnywBjMm3XYTZIa8uWNJgjvDUVuBHqcJB8EXk7IWxKgA2gtsjsUo/7R6d674WEh4EFVkIlYR9yg45UAoGUm/Tsttjnx34Y+D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_195937_418582_5AFDBE0F 
-X-CRM114-Status: GOOD (  14.73  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261026_195929_724562_A69F7E3B 
+X-CRM114-Status: GOOD (  10.35  )
+X-Spam-Score: -1.4 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,52 +111,38 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> From: Shengjiu Wang <shengjiu.wang@nxp.com>
+On Tue, Oct 20, 2026 at 08:28:37PM +0300, Igor Velkov wrote:
+> From: Igor Velkov <iav@iav.lv>
 > 
-> Add support for AONMIX MQS (i.e. MQS1).
+> meson_gxbb_wdt_suspend() and meson_gxbb_wdt_resume() only check
+> watchdog_active(). Since commit 6adbfbab0f03 ("watchdog: meson: keep
+> running if already active"), probe keeps a watchdog left running by the
+> bootloader and sets WDOG_HW_RUNNING. If userspace never opens the
+> device, WDOG_ACTIVE stays clear and the timer is not stopped for system
+> suspend.
 > 
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> ---
->  .../arm64/boot/dts/freescale/imx952-frdm.dtsi | 77 +++++++++++++++++++
->  1 file changed, 77 insertions(+)
+> On an ODROID-HC4 (S905X3) whose U-Boot starts the watchdog, with no
+> userspace owner, the board does not wake from deep suspend
+> (rtcwake -m mem -s 60) in 2 of 2 attempts and needs a power cycle.
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/imx952-frdm.dtsi b/arch/arm64/boot/dts/freescale/imx952-frdm.dtsi
-> index 7785eb1a68fc..750046e1a5c4 100644
-> --- a/arch/arm64/boot/dts/freescale/imx952-frdm.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx952-frdm.dtsi
-> @@ -222,6 +222,12 @@ cpu {
->  		};
->  	};
->  
-> +	sound-mqs {
-> +		compatible = "audio-graph-card2";
-> +		label = "mqs-audio";
-> +		links = <&sai1_port1>;
-> +	};
-> +
->  	usdhc3_pwrseq: usdhc3-pwrseq {
->  		compatible = "mmc-pwrseq-simple";
->  		reset-gpios = <&pcal6416 8 GPIO_ACTIVE_LOW>;
-> @@ -390,6 +396,70 @@ &micfil {
->  	status = "okay";
->  };
->  
-> +&mqs1 {
-> +	clocks = <&scmi_clk IMX952_CLK_SAI1>;
-> +	clock-names = "mclk";
-> +	#sound-dai-cells = <0>;
+> Stop the timer on suspend and restart it on resume also when it is only
+> running in hardware, as sp805_wdt does. With this change the board
+> wakes from deep suspend in 4 of 4 attempts, and the kernel pings the
+> watchdog again after resume.
+> 
+> Fixes: 6adbfbab0f03 ("watchdog: meson: keep running if already active")
+> Assisted-by: LLM
+> Signed-off-by: Igor Velkov <iav@iav.lv>
 
-Above 3 properties have been defined in dtsi node. No need to add again.
+Applied.
 
-Regards,
-Chancel Liu
-
+Thanks,
+Guenter
 
