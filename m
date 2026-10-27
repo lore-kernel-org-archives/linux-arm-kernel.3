@@ -2,92 +2,92 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8487B606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDBC6606A32F
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 12:50:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=unXL73yH;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=pdBcTLf1;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=CL9RTVFn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oRwHxa1Q;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=Zuo8+DtT;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=chNblgFR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=FYHn/wr28N2yNDPHhw1evl1S59ARQnHWvpuXjgekTs4=; b=unXL73yHDMnlF6
-	Y/HGJtO9PM4ImHNWm0WmQpE4ATac4J2wJa8wfmkQfM/UNkVKF/33TEsedMSw6V21xGX5nV+4ae1q7
-	wQEGybA3R4ZWqBeC6Pr3+/0uBKytEbdJB1YXA1OKvbX16KWyAMNjAwxP/QOqQ1uscdQ4BVjzlryAL
-	zXGjqI0APF+NninbqnnQ/auYRI85VeOhe3J4RQsnN2RTvzQUuA02E5QbZecx7lrR+9EscLvmqU4kl
-	f7+KkceJm7SxSlhN8AS9yxkrg3xPUL/ndU1J5jwxEFGkQCaY1QyC44vidTIQMOM2dxjqj3s/e6GB/
-	gzvrDeh75WoI4tGYA5zQ==;
+	List-Owner; bh=+ZfYLczmvRoSi6CaREX5Mwnwxrh4r7FBoQ6OBNNjGi4=; b=oRwHxa1QBzzKxf
+	omTl7MCABEmwLvk63fO3HJTs9fqJSELuuUSg3GjWIJzf1vK5Fq4DembDBuBV5cpsax/uxybCDMM/x
+	Y9JUUyogJ1+BbrZs3g7f5FwZSpt53tObHwXSPP7DmA7s3vmj2pvTPcehTKFr4h9QaodN5Yg6YoeyO
+	wF+gRA/T+ySqWywURP39/2ES+pbM4ozkPTWfnXDLDZ5oS6+VCPDQk2CbBUOgBmeQeDAbYrv88T4pj
+	QjZmNtVycP49EPlECtOjgiBGCnyd2gk5tdGcxJ4eMEZnbKsy9jV/Gd92AehVSYnUXjb2nsRsSCumF
+	tPTIrfUeq72/exxerz+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLgdD-00000004hae-0uPg;
-	Tue, 27 Oct 2026 12:50:23 +0000
+	id 1xLgdE-00000004hes-3Cc8;
+	Tue, 27 Oct 2026 12:50:24 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLgd2-00000004hO3-2WhY
+	id 1xLgd4-00000004hRM-1Vsn
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 27 Oct 2026 12:50:12 +0000
+	Tue, 27 Oct 2026 12:50:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=FYHn/wr28N2yNDPHhw1evl1S59ARQnHWvpuXjgekTs4=; b=pdBcTLf10W5NWqnadITfhDSq2M
-	p5QPDFpfwKyu8YRFWo8DSUzx7mBJ14Cee+c14zpBL5rlfigyf4BJmngrrDW6v1AIUb+EDvl/lA5nE
-	UnJo1S0FsbkshLEM96NmsX76lOQcwxbGoxaHF+RSdwKJJuTaitev4M3x7QJreaVOOEA7i4nSRJhEG
-	1U+EdX0k58HZmDo+D0vzWo9FVXrwC+UVrKyVXXFYvjQhyX5TuVP/S1bdO4JwBO1Qmqzr33W+rfVeR
-	yHgYgdu9PXpwD/bKdfCBTl7Mwjc6g4LhKEsJ3OaNZLdF7bPqEzD82lBnxTaJG8e5TTc+iNoGJ2+pY
-	OCNKbljg==;
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	bh=+ZfYLczmvRoSi6CaREX5Mwnwxrh4r7FBoQ6OBNNjGi4=; b=Zuo8+DtT/G7chb+EYqJBSiu5yg
+	urAwmyJ7zSLisMfr5Yf1T26SOxwjYehj13y7VKl5kymD7idwt28lmiuvqEo1RfWeQzbq+XRMu7tfZ
+	zibOJgsJF0e35t1GteThRwwidy5Lv5Eq/Ci6Inoq3VVN6JFbjWJabW1kHPgNP/eNDR5YeKDtO3tC5
+	IjMuHQaPYll6Ttga26USvqDaOo/5UZLjhxE13aa5/N1MzpmI5UGV7Tgcoe3k+dAEwO0dY7s49pNW4
+	ngP7fizvjot7SVKst0qyAQgZOdukycv/WqJU8HACafh8yVvrFwOBRVizhi8QuoY3w+cH0UG0UjVjC
+	uutJV+aA==;
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLgcy-0000000ExuT-3fXu
+	id 1xLgd1-0000000ExvT-3VEg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 12:50:11 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5be3cff0f6cso2629189e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 05:50:08 -0700 (PDT)
+	Tue, 27 Oct 2026 12:50:13 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5be4d648aacso3747866e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 05:50:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793105407; x=1793710207; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1793105410; x=1793710210; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FYHn/wr28N2yNDPHhw1evl1S59ARQnHWvpuXjgekTs4=;
-        b=CL9RTVFnj5ZcJyvSSVjEB/P4t/gNeS46zqVmq4jsxi8Xw06C0LLYHTpKEhOdrudDPz
-         wPiGDLlHKENaYUkkEOPj++FpTBXMXow5zyxoz38rt6TlcU2HVAtp+Y0DrqH+j4/tdyW1
-         cPKSljDNPOcpFQcveJkp1w1NJSloqLar0EehxK5MHTM53EQ+PiZ7e/+k2yxgZlSl+XFz
-         BsPAkrz1HImdTsQHFxBXRMnlgOkeRNuT51O+rfmNt+oLCbXTQ0Bk5sCquT7FH37NzNc3
-         owS6Pqdj+jOHS8ahbKl3qTbDXYgqHYg4bpIWPa6YINgPzHqtZYj8VazKlXahMPk0oPN+
-         RduA==
+        bh=+ZfYLczmvRoSi6CaREX5Mwnwxrh4r7FBoQ6OBNNjGi4=;
+        b=chNblgFRC93SjKAmarA6LT8wcZS7/KRNFLPDCenMj5Eq5YLGPnlzw+NIj+9NPJ27DZ
+         SqRtdD9bqARlR7+mr0qLkrtAUCZAn8rNuXsEGF9n295PrwtO5GYfiq1L+hjck8I/EijI
+         0mVg+n9MIbG2+6l3kZB4nmB9Akk1PiQzXiIF0S2WlDLQnZpKTS9xWxKP1eEwHKPwkPeN
+         sTbmJL0paeI55MkSrrkkEWK/oAdr1Gn1uX6dPHCQtk3smK52l1wP7/hL3DAndkVrGmts
+         /kRt0HJACmvtZeabVeG/tsCPR1AunKVD/Aq3EkkFqfBg9YMvrL5EOK4QX+wDG8j6xuRN
+         g1dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793105407; x=1793710207;
+        d=1e100.net; s=20260707; t=1793105410; x=1793710210;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FYHn/wr28N2yNDPHhw1evl1S59ARQnHWvpuXjgekTs4=;
-        b=2uUPcBwrbAYKEayynkbPP4KW6dpmzdvdrzkusPWAuwdU0Ry+XFStHRh+tyr9SGhuVI
-         NuBE/nsoWvfHeMfgfB2CB5+fLVh6Lo93t7GwR2bvJiBCj805loo1mWqKMHZUaFESqB/w
-         3xBT6+wCQeu2Ejl44c3mIiYf+js64i81nfp89efHsyoklJC8glf07i9XDD6h/nzxb/8C
-         YdWag2W4c2xohgkXRSnXAQkPq3BmbaF9maTZdlo7hkkgQ+mzVBOU2IlNuz1Qcor6GH0b
-         uwf8i90bNHfBA2hhyfssxf24NawQFrnUMRDsxkmgW7U3BBhH1zDoOQSj5IbSYS4zkmkz
-         FHCQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwhvVuYlQn8bIsyYrNZtSjnZd8U6mY+P9SkPViqBWIFhGAoRVK3l/OaZd3tK8phmCwyJK0kWvySkei6jWcCMOao@lists.infradead.org
-X-Gm-Message-State: AFq9FYJOZDoiWB152VE0BCz1FCdOSF7dpKr7s6dMc1FdQQCO+boqZrRG
-	ernuolM9eyiWvSgd7udxkJcJMEOCI43qh4w+HXUNSSEfIdtxTiGDZXRl
-X-Gm-Gg: AYBFou01iCBVdVOAKNVWQ3wlgVulDDQqAHu0UdsfbLTeEfAw2WLFinNH/ADTDemUx5x
-	b8ao01sIYRH6H3y+w0ylKYyYaMUrpNfrh2mOjlseoiSxEoGWfb2Eewji3xiCWFAdq22u2ymLStE
-	fTv2pf5UpY0pK5eT9Ke+ddcNa3UplK0CHIHZ3KPW94EPKQop2bjdCfZG3t2wc0nsVME+uLOUq5p
-	IUoGzBq7m5f7nx65hoICbYPhfnbi5OY9SEqXvmjVusmW5Gt0pYEE24EUrMNNKCtmaYOyd/n4VQb
-	SPcgMB3KPtE/oeIDSOnkvWlORaEr6WP2K1Oe7ABgEjLf0V2v1FllGQiz18mTwjJJ0VViPBFDQ0x
-	p6RbI7lNVAHPKPOIZFgjNcdyP/Jspi1fKZAjEV7iUP1K8nnP1lanGZTQJvpVbCGfzui8c3NXYWz
-	eKG7eAeIl5GbjjxPU3/TPWJwfFGoq1ZQUzyRVI2MtMf5gX7bUxSoyw7JOaOc8D2+Dk39mG7O7op
-	RNY2F+wIG1rASgMd21KHjI+EzPYfXmvVQdhKnjMo95oJ1+p57QpyWNnTqJFg2wb8hnDKe270S3p
-	NwqTPVtT3EfId//Y1nGXMV3kd4+D6okdwKoVH4HkdPmyeV0fH9MPqOo+FwLFHOIVHQ==
-X-Received: by 2002:a05:6512:3409:b0:5be:50f5:f789 with SMTP id 2adb3069b0e04-5bfb71c4555mr3678914e87.45.1793105406758;
-        Tue, 27 Oct 2026 05:50:06 -0700 (PDT)
+        bh=+ZfYLczmvRoSi6CaREX5Mwnwxrh4r7FBoQ6OBNNjGi4=;
+        b=eMxelAs1oHH3cRL6B4UDXBgWWSONlEbuHZgDKLC752iUQUBwrJ4cyf9pPcssi442nN
+         77kyQc8x5LYvNkLmmpxjCkiFWSrCMlbrfeOpIGeqyGJfFRpQWr6+wdrNKuV3XKUq8trc
+         GmVVz8lUU3sGVdu/8YVHue/oDKNUXOcOzIrAgFhpzlh44YzizAhLzdtYHsAYpVZSceF6
+         CEzpfaIcivCBSV3D5QrCXlYg7ZhxlC9t4/3sVfnfADGRT6tOUt1AZHKlM11R0fX1hCXN
+         7Jhmikm5pS42Ga24zDsel2J+CrWnQkxcMMK/z7YVlqQ2X2QlZRtAeJwmG2L46wE3B98y
+         RSHg==
+X-Forwarded-Encrypted: i=1; AKwUvByn9/AvYOMLGK5aYi2skn/TLeK6f8IQWQOuhxa6LevhQBI1u20agt8rR6BFC+u+zwYhaDShOaBjLENxpjdfHGX8@lists.infradead.org
+X-Gm-Message-State: AFq9FYKZYIVRwsySU2qGFl2uqU/7juNqMQr05pGMU49OMPWZoJxPJh5A
+	B3aKiodc/4vFHpvsdf3oBH3RQOJFBgme1G0Qh2CUHlaSo0gl/Uh3k6p2
+X-Gm-Gg: AYBFou2WAtUi5lUXlC8HfrikD4nxGYkzVCQDj0ysArdGRHjKhxeHKku0nQXOaUhgcW8
+	iko7qzAa5508/G5Slmh2ebgyhQ+uqkgNodtMaXpmF7T33aVTEHT4qYIbgCACgnKrd3eK+T9gXLV
+	uDukNGea3lHtVAQkH3IryNpojWp6nMlhND1R1rjJlDeLf0F8GvURfOdhrsqnJM4Zz7xQFbsSCUs
+	FyoTC/vjRY16MHB/cXSkjZYj6NCl1Aa5k7OjbF40L48n+GIAwzwwWZAB9uprgG1t/9ZUOpTJfWc
+	WXbWiDCHl6RtvdysYu08XgvCSQjvCp6PCcHUOwC7WXLq2F0QcSfQxzuQ7LBJhti9Kx7RNZiv7/l
+	+jOixmEKyO+Dq3yPWH2lbqpNTZ4ucj2NGV2PTh1QMUA+NBi0CjJ8DO/GOxnZph8egt3sURaFRqM
+	phO9gVpwgiVbnvRyW33bltyAMQMdmG7Lsvs9XAjA+1BHFUoee+Yh39MewZeG8pwuVc8B4syX8yB
+	AkTd0r19m90q/Vl6/vhuYWDJcvvhRIImHA05UZLldesXB1bJ+/RKlmE6os04V0HkzHniuY/bHQU
+	RTGO97BIJzo/4YYYX3tJ2yHJRmcLcHAJK6/5bVpuVJ5T/pJHfb/EqODWGUiyIMPUvQ==
+X-Received: by 2002:a05:6512:10ca:b0:5bf:c27b:8e52 with SMTP id 2adb3069b0e04-5bfc27b8f26mr1690144e87.65.1793105409656;
+        Tue, 27 Oct 2026 05:50:09 -0700 (PDT)
 Received: from yantra.. (nekmmqtcmoboczbkdcs-1.v6.elisa-laajakaista.fi. [2001:99a:d7d:c300:55c8:a52b:6ba2:979c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5bfb7e7cb24sm2052803e87.25.2026.10.27.05.50.05
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5bfb7e7cb24sm2052803e87.25.2026.10.27.05.50.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Oct 2026 05:50:06 -0700 (PDT)
+        Tue, 27 Oct 2026 05:50:09 -0700 (PDT)
 From: Rupesh Majhi <zoone.rupert@gmail.com>
 To: Alex Lanzano <lanzano.alex@gmail.com>,
 	Andy Shevchenko <andy@kernel.org>,
@@ -116,9 +116,9 @@ Cc: chrome-platform@lists.linux.dev,
 	Rupesh Majhi <zoone.rupert@gmail.com>,
 	Marco Elver <elver@google.com>,
 	Bart Van Assche <bvanassche@acm.org>
-Subject: [PATCH v4 4/9] iio: accel: kionix-kx022a: annotate the lock helpers
-Date: Tue, 27 Oct 2026 14:49:49 +0200
-Message-ID: <20261027124954.110697-5-zoone.rupert@gmail.com>
+Subject: [PATCH v4 7/9] iio: light: opt3001: mark the interrupt handler __context_unsafe
+Date: Tue, 27 Oct 2026 14:49:52 +0200
+Message-ID: <20261027124954.110697-8-zoone.rupert@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261027124954.110697-1-zoone.rupert@gmail.com>
 References: <20261027124954.110697-1-zoone.rupert@gmail.com>
@@ -126,8 +126,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_125009_030726_1A3FE03B 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20261027_125011_909499_45B52EBE 
+X-CRM114-Status: GOOD (  12.37  )
 X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -147,38 +147,31 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-kx022a_turn_off_lock() returns with data->mutex held when it succeeds,
-and kx022a_turn_on_unlock() releases it. Annotate both so context
-analysis follows the lock into the callers.
+opt3001_irq() takes opt->lock only when ok_to_ignore_lock is false, and
+releases it under the same test. Context analysis does not follow a
+lock taken and released on a condition, so mark the handler
+__context_unsafe().
 
 Signed-off-by: Rupesh Majhi <zoone.rupert@gmail.com>
 ---
 Cc: Marco Elver <elver@google.com>
 Cc: Bart Van Assche <bvanassche@acm.org>
 
- drivers/iio/accel/kionix-kx022a.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/iio/light/opt3001.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/iio/accel/kionix-kx022a.c b/drivers/iio/accel/kionix-kx022a.c
-index add89512af79..a132af87fb5e 100644
---- a/drivers/iio/accel/kionix-kx022a.c
-+++ b/drivers/iio/accel/kionix-kx022a.c
-@@ -484,6 +484,7 @@ static int __kx022a_turn_on_off(struct kx022a_data *data, bool on)
+diff --git a/drivers/iio/light/opt3001.c b/drivers/iio/light/opt3001.c
+index a948353014ac..cfd4a0ba9bd7 100644
+--- a/drivers/iio/light/opt3001.c
++++ b/drivers/iio/light/opt3001.c
+@@ -817,6 +817,7 @@ static int opt3001_configure(struct opt3001 *opt)
  }
  
- static int kx022a_turn_off_lock(struct kx022a_data *data)
-+	__cond_acquires(0, &data->mutex)
+ static irqreturn_t opt3001_irq(int irq, void *_iio)
++	__context_unsafe(/* lock only taken when !ok_to_ignore_lock */)
  {
- 	int ret;
- 
-@@ -496,6 +497,7 @@ static int kx022a_turn_off_lock(struct kx022a_data *data)
- }
- 
- static int kx022a_turn_on_unlock(struct kx022a_data *data)
-+	__releases(&data->mutex)
- {
- 	int ret;
- 
+ 	struct iio_dev *iio = _iio;
+ 	struct opt3001 *opt = iio_priv(iio);
 -- 
 2.43.0
 
