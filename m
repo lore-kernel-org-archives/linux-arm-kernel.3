@@ -2,101 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 536F2606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 08:38:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A2C060A2609
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 08:38:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QjpilgU3;
-	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=FDAPL5Op;
-	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=mfgYWaNt
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=B7PTT0zK;
+	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=qvhp4f/a;
+	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=AXgy8zxy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=YPeGlwt/Jg1WgszRpGAIDnD32Jdwvy9myiqGxccB72U=; b=QjpilgU3zG+u79tLehdT3SscR8
-	eJS97u1elzhX042CUeZUsQPqxOB/O0NqN2tuyKnfTlcFWPjAKZrEZMvxWKRJeL7V9t226Y5I0wVKi
-	gG75hwDVFGcbLq+p1E9KjaQxK7L3AFN7Q7UVP214sX+CRnJpE4KP10YaLx3xY9aOXdHBE37GddCr0
-	eQhnqFhFP4snmlfPYxYaHvOOrGH9FIia7N31L6HEWA337ZR68WxubRz3IFz+ryc2XAPR5Ln2XxjEY
-	m714qnTDPDkVx3E51LWduW3PRF1K0vwuhYYVCNhnSDmIBQVFHnt8vVU+CIwuxVcqIhuJqEfpMdblu
-	YG0o2Uig==;
+	bh=21cKorImqIxAoOe3k0UPqCqrgwXzfOKOAMH49e1C3xI=; b=B7PTT0zKhLqujnIMIyIkrz7dIy
+	G6i99clk3iDSUVFFvioc3XA6anjhcMiklkhZFWxfpxsUMjd3Q+AI/1CPO7Y98sD0CcEIhiJBjZ8/W
+	dK2eV8N+3lzNWTZF7ZvccLdcMpKNN92ymRe0qusLtkLRmfVuf40upd+Y9nHUQFr8YLnl6AyhB5hnP
+	o+nNAs/mCjN6YI1zShrQlOMy4cWGNeteS9S8MW10+RoIY4h/UNSsxXdpQnPOQZk+9DQ12ftiKXkM2
+	eGXnCwZYslVNSMQ+mC4gYCWWFAhZsQswlp6EWQjbDeugdV47Pl4fV6dILXRlcm8fEg7+zFhXeH5O2
+	7F1MJ6vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLcgu-000000043Ue-0Gf0;
+	id 1xLcgu-000000043Uz-0if3;
 	Tue, 27 Oct 2026 08:37:56 +0000
 Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLcgm-000000043RH-2MHt
+	id 1xLcgn-000000043Rg-47sp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 08:37:50 +0000
+	Tue, 27 Oct 2026 08:37:51 +0000
 Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69R5j4Sb485457;
-	Tue, 27 Oct 2026 03:37:40 -0500
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69R5j4Sh485457;
+	Tue, 27 Oct 2026 03:37:47 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=proofpoint-05-2026; bh=YPeGlwt/Jg1Wg
-	szRpGAIDnD32Jdwvy9myiqGxccB72U=; b=FDAPL5OpHKHNCEHULAq64NNk2OSUF
-	aD2W4UcUQDrDeRPqGuWvOlXOrH/4L4Xd4r8kerNVUDyz9Oq9i6E9dlfHTE9S+CJU
-	tlCpcLFkxMHeoWyByOfr+P85TqHopiX3/qn56E4hWi1pvWG/QFa/DF1kC7TJXgA2
-	scCnJX527OE/JEZugiANrqDOw7x68FtbQO75/OAW0LQUe8U4nE1T94NoU/Zff48q
-	kD8oAeZWA+uQHYRkR2SXaHaCMZORfjRTdmHs1SkNsqMNCyNWwjFghSJ21n9pC/3E
-	LvQkN2IjvOg2+nT4G9A8vufZfbR23COC6ZOp0YVV0TR0GLQhYPTGHHXSw==
-Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11010011.outbound.protection.outlook.com [52.101.193.11])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4hjp2ygy12-1
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=21cKorImqIxAoOe3k0UPqCqrgwXzfOKOAMH49e1C3
+	xI=; b=qvhp4f/aek0L+AABJVWLTVi4JaLfVMcMrVOd3mAF0vpezzTLraO9DlwGh
+	vW/qdMtrB/OWX9IsNwznDlJJkrqPumpSE6uAGqZDjISEx/4WOq/LOQe/dNGXHY7G
+	HKoBsaafrkItIzQSlylAKkqD8GS/oCI1Ty8AFJ7rqPFcFVhh7DoBuHnif8/2uEC2
+	PeB4FlQL5QH14TH/sfoedYsDo4NYLN803wsDB4GAt91q3A4ZJu9Zc09CvOwXo241
+	8iJykaTFVzxR59W1Phlpi2df3Zyp+cYV4z1saQfXbTkCd6QtTUMDuNZPfuIEHRjs
+	022gZ5R0i0ThogjsQatxcCVYbpkBQ==
+Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11010058.outbound.protection.outlook.com [52.101.193.58])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4hjp2ygy1x-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 27 Oct 2026 03:37:39 -0500 (CDT)
+	Tue, 27 Oct 2026 03:37:47 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EyBQkSgOwyF/HzoabvMTudZfZ7D9BE99XZAvLovkt6DiPGLTGeiun+esHqjfr6DM2P5Q7N1cIRg2+AVhKby7JfGk0+/ngSlzlT2eY74/O58Y7Z6DduMFPAroKtWUqJNE0SqoCaB9hv+Dietuu2TbSZfreCF2Jb6/RxHNPkfi3lK+n8BAW3lCDzdnUQtS6jbiCLW3Q/l3mIJesdIbxsrp490I69IaBx7cbHZy5+iFi3vx1AJaH9IOxPYoJtytk7FyNixWWPIlPNMkl1+MDPZV0uLSOBsVPQj8SsjXjLzqytGO1I2cfUF9UcO7ROVCmUVuDV3BysD97SEjYKGFShHbvQ==
+ b=sE7nRSQVopoTHvDkIu+ZpKF/izU7VOWU0eHEPEPX/3cMvjniQvdYf7rtfnzHfg7yLMXYB5bAePNz9vA9L3C8noRYIwYJpbxLYv4j3AjDJLwzEUgkEAgAcqlecRuEf6sZ/D0rZbZJkoqZGoI0GJE+uwALq7fTKTI5gvmP13QSngVKYf2GIRirHR+ulppxdh35MqnG5vJFPwo5vxnKWyYAzsuqqD3k3OTRoohy21E1w/rRAAzHcWrH/7kCCY0OLJ54znic4vaCE0bfMqFGDSkNOYH/mT6qgEOHdpSMIqzTsReXKduwG3t5xbkxb6eOyc8MAOKZ0ENTAwirjSJeMfM+kQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YPeGlwt/Jg1WgszRpGAIDnD32Jdwvy9myiqGxccB72U=;
- b=f7VKiBzMeofV/saftISa7xrldS8hIxJPYvj7TQS2h4N2N01REP5EjrJiJCA2UmhSbJGwzIKQ9CHIIv7CW4ZCS34C0/DMxveqeFpCl8+a9kLsUif3qMMar/3kUZ5mNGQoqwSnkZXuaZBpv5aHP4zHT7nICBv0jNlBhA7VpT5HHwHC0cUoLsqhrWt1LG0Z+0OnOcf4Xcynd/WHRexQgF7cKDNFNGOEqx/l2htVmTKydFJbIpLMK3aNlaCUPu3A2zhG66rorpz1pnxd8eMvRT6KkKPWb7XEVoEnJTNwGCmKy+9xB06ePDRxXmc1RoZscL/HJyMJTOCa1+3riYqA2UNmlQ==
+ bh=21cKorImqIxAoOe3k0UPqCqrgwXzfOKOAMH49e1C3xI=;
+ b=TMyKUeZ+yw+V1YMJooGyflIzA8DJYcAlaGjQSfFxCNMTeNE25YDLzAy4C2NPkJbLYi+cZApMNBY1JyMquCmOG0WcGC6o2u4LuQE/2ojeRRK76gHYzNzhWMpTUQDHiGXk26/dGb61B5XdyVM/JdqFpw0kgtuxSdj/VI6NWe4FLgJidVyjmkq4BzNBumRoSp6nwcl+sK4B0JgPXb/Fr/oPt4bt2buMEbRgOfGxO5XlYVhVDGg7UzwxhsMn2OrDIa64xYU3L7G/0UpTWk88d7KCBvIldoKw7+kMwJlqbepBePnxajHC7YlQEHhVAVSqRNKigXMcHP88fQ3Jp9n0A1rMsQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YPeGlwt/Jg1WgszRpGAIDnD32Jdwvy9myiqGxccB72U=;
- b=mfgYWaNtJJUzgtGnblihqYoR5ofNsc4IChfNlMjFbU5qSbRTzb1cOG/bTyAEnPbFLJl6rYkIL8shIpQfcqm2K4rkHvwiowZxc2O8lPcAmFQ9izWKV0tFyq8ewrBsUukcEzxLtEeIIC6EWBAv9UaVVPx8bypjHJu+pPIirADXGS0=
-Received: from DS1PR06CA0021.namprd06.prod.outlook.com (2603:10b6:8:23e::6) by
- LY0PR10MB154434.namprd10.prod.outlook.com (2603:10b6:404:226::7) with
+ bh=21cKorImqIxAoOe3k0UPqCqrgwXzfOKOAMH49e1C3xI=;
+ b=AXgy8zxyghIb83K9lHHUpwzwKwyzmNN6iQAjFUFQw6wx4Mfaxa9xFk7tQ9DWoR0lm9+hh9770ek8qu3bu7JZwUYg8gLn9oX1/6YQERHdahzaeV4XSxSn01ZW6tH5v4YNS3pqCRr7sjM5mxeJh8Jsf040o1aGgpHPfXNdd4tbjcg=
+Received: from CH5P221CA0019.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:1f2::26)
+ by IA1PR10MB6807.namprd10.prod.outlook.com (2603:10b6:208:429::14) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
- 2026 08:37:36 +0000
-Received: from CH7PEPF00000015.namprd21.prod.outlook.com
- (2603:10b6:8:23e:cafe::69) by DS1PR06CA0021.outlook.office365.com
- (2603:10b6:8:23e::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.18 via Frontend Transport; Tue,
- 27 Oct 2026 08:37:36 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.16; Tue, 27 Oct
+ 2026 08:37:44 +0000
+Received: from CH2PEPF00000143.namprd02.prod.outlook.com
+ (2603:10b6:610:1f2:cafe::ae) by CH5P221CA0019.outlook.office365.com
+ (2603:10b6:610:1f2::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.22 via Frontend Transport; Tue,
+ 27 Oct 2026 08:37:44 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CH7PEPF00000015.mail.protection.outlook.com (10.167.244.164) with Microsoft
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ CH2PEPF00000143.mail.protection.outlook.com (10.167.244.100) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.569.0 via Frontend Transport; Tue, 27 Oct 2026 08:37:35 +0000
-Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.569.4 via Frontend Transport; Tue, 27 Oct 2026 08:37:43 +0000
+Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 27 Oct
- 2026 03:37:06 -0500
-Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE201.ent.ti.com
+ 2026 03:37:12 -0500
+Received: from DFLE210.ent.ti.com (10.64.6.68) by DFLE201.ent.ti.com
  (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 27 Oct
- 2026 03:37:06 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 03:37:11 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE210.ent.ti.com
+ (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Tue, 27 Oct 2026 03:37:06 -0500
+ Transport; Tue, 27 Oct 2026 03:37:11 -0500
 Received: from moteen-ubuntu-desk.dhcp.ti.com (moteen-ubuntu-desk.dhcp.ti.com [10.24.50.20])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69R8b1hD1558035;
-	Tue, 27 Oct 2026 03:37:01 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69R8b1hE1558035;
+	Tue, 27 Oct 2026 03:37:06 -0500
 From: Moteen Shah <m-shah@ti.com>
 To: <conor+dt@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <nm@ti.com>, <ssantosh@kernel.org>
@@ -105,65 +106,68 @@ CC: <u-kumar1@ti.com>, <gehariprasath@ti.com>, <m-shah@ti.com>,
         <y-abhilashchandra@ti.com>, <johan@kernel.org>, <kees@kernel.org>,
         <jm@ti.com>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2 0/3] soc: ti: Add TDA54 SCM configuration syscon support
-Date: Tue, 27 Oct 2026 14:06:57 +0530
-Message-ID: <20261027083700.1964371-1-m-shah@ti.com>
+Subject: [PATCH v2 1/3] dt-bindings: soc: ti: Document the ti,tda54-mcu-scm-conf binding
+Date: Tue, 27 Oct 2026 14:06:58 +0530
+Message-ID: <20261027083700.1964371-2-m-shah@ti.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261027083700.1964371-1-m-shah@ti.com>
+References: <20261027083700.1964371-1-m-shah@ti.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH7PEPF00000015:EE_|LY0PR10MB154434:EE_
-X-MS-Office365-Filtering-Correlation-Id: 78621037-e584-41f6-b909-08df34058cdc
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000143:EE_|IA1PR10MB6807:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0eb02cc3-7d09-4c01-7f9c-08df34059193
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|23010399003|376014|1800799024|6133799003|18002099003|261026121527099003|13003099007|56012099006|10067099003|261009223027099003|261009221227099003|261022075727099003|261021121427099003|261022105027099003|261026140227099003|261021123027099003;
-X-Microsoft-Antispam-Message-Info: EYTyxTTMDfDRamjKBW9K9nGACQ+c02/TkgPagXiO+/8VV6aM4TlG/hxjiTs4gEN2/UlB1Sw2l1dlTEPLTcmy++P8oPZqE2EjK8zKfUc7PVCCLrKNNLAa/rs9v11/NeElSOfwYAcg9JyrX6Vmtp6mJR8eMkvzA46F+/4vw8DSc5UCLG74AeEjkp8/Ef/Au8Bl5IbW4vza6DotXvAbFIEMco09S00phePTAEd7DWVftmS6euPzv/wrfm5dJPwpkwmlzOELgVa8Wq5Rti+QmZzCa8sA3B3HVEI46AOVROKYWM72IVAFmqoGLp6Hy+KnF6nJAGjxYrvnKJcQba43QAYFZmWETlrOQe8nNbAuvl9QNHqFQTvZUdHkj9szcyY0VOIs9Te0GHR5mI/Qjx1p5mUnqarms69Z94z/4IMdnn3mHt4qBV6PElHqVZWMNREC8E7czhh8+n4jEpxHmR6QTFt/Mxuhrbe7ZA+jc6sLCsxBwgopmx6zWvcvjYeyDqZvRIkFgTp0XdqBS4NbKnk5j/DhNZcNuEkNGf7ckmy4t5NBsScZPEJMQdh/7wyDtxiWcWmCQYA3AjzaG8lJZcyGSMgaGSFHnyGUqlCCxoMpbk+zgOK14YkB4+xdUr7KlJf1y/XDemeMYS1+zCFYFQoBAVp/xQ==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(23010399003)(376014)(1800799024)(6133799003)(18002099003)(261026121527099003)(13003099007)(56012099006)(10067099003)(261009223027099003)(261009221227099003)(261022075727099003)(261021121427099003)(261022105027099003)(261026140227099003)(261021123027099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|23010399003|82310400026|6133799003|18002099003|22082099003|261026121527099003|261022105027099003|3023799007|261022075727099003|13003099007|261009223027099003|261021121427099003|261026140227099003|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: KzPysc0GPZHvqb5WWW9MiJKiHuA/fP9lBWK/SijMbohNtJRsiDBN47WwpO+LrGckJSmqtzTN7ofMSPxCA+C/DobFHA8elLinEaSebId+f25SedNjdILxf8u+X+nlf9CUAE1iJ8TsqVuLp/PL1OSBG0zd5TXR2MD4J+Bhru4m6V6HXCP/k/wvJeo1MnBRJ2QnvwMllhvzYoVN4E3t2LalO8yPOjpKIu13SyLRTnlnAYd3AzNsK0SzRYuiTCdf5DZrqyXIAeN7WeoVYX6MoqEhIc0Yb7eSgHQjEK6ZCjpFZIoL38TTI5KgXAgcaHG+ZunOKt5wuXV3gs+UkpYDWb2ZoTYmXGaqcESUMfoKvAINU3CY1M4rv27sewBxSm8aXHsukkgV1vaYMW2lxvZs+0RICGxWl11GixXvTgZT/cBLrhaKvs/d+uqFJImmpRhmqy3w7ASA6SE6NU/FheBA84yMqw06ivvMcl6FG1ODfyLxxcDahlUim2jtPLzrJ0QTVk8ZUMj2ALpMJEO+ojwqZDYQT+woz4DYnVB4u+d3DwtkbeniN15yWhGCTHGBcqr1NktWB4WTbdNOt/U/ar6ZpQhGGqAVh7CPZdtDLSh3LzdG2DiWdaIltYcWtzXAjgz5C0JsIeHgX+dZmVwiNdZjBB9EnQ==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(23010399003)(82310400026)(6133799003)(18002099003)(22082099003)(261026121527099003)(261022105027099003)(3023799007)(261022075727099003)(13003099007)(261009223027099003)(261021121427099003)(261026140227099003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 2Rm4T+cid7Tpv6xWEMnncbpMcIGSUb43p65a5roYi/z+C6MEmoIVB+xygu4Rvkqdpmeu05hyOCmMo4dPX1zWYGb+naSIKS+awZrBxnnDB1bkvnxhS8JmjsgChfbqrImRqnirwqqy1VvdI0r21uZLobtypeYp9cVDEk+/8bu3aSHiwPHNnuNYMuvm0Ot+xb8BfS/Q9t2CBL+WLWMXlfqBcbHJAe5aLzAAfFq48LIywEdbIGLveBoIuh7Gaa1i8Vp2FvSlnM28iHXajQI2liRCaImxBPd4MY4SpCg27uGcEF50vCV4r93NsHLZn/ztaBkco11XQtTdLs4rpTlx6IYbPyFYe4xkMymw79IWr/9iv1PPjIfIoxrgsuu+hVEPmXViVwRryWa+xHWoSwaHMqKikzdEPb51tYFjo9CpnYUwffXSyVw/d4bD2vLaMZEqeCZJ
-X-Exchange-RoutingPolicyChecked: izQBEk3oaClK7ySZGJwBEnOwWi+h0GJVzMMdpJmh10gza/Em+ZgS3+WgkzD24BKY3w3zAFfsy9zx4/pnvJdssI3A4Vn28znx6gyLttbgRvE5QaavEQ/v/um0B7p94sVMrDPj3/lfwmmC0b27ZvJmo7OgnVvet2L9yDustVXAYsplTEynYCPj5hhdZp3DN1oJ7KZl7ktvyVljkk2V5pVRVVqZF/ZmwB/pavn710L3jExcGignKvjUCbdGDraqf9pVh+fR0k/6rjp25jDN8w7Fem0QbI2HR1U72Ji8gWmXp+2uLpNJD+VDhdeRa3nJA/cbjDMepTyR2+vY6BgIGzs+dA==
+X-MS-Exchange-AntiSpam-MessageData-0: dJ9VR9X1eVrD7Ork56lwuutPFBopghcVe+o1K2S4GgU3ol4I0k9uEsIPoPq22eAfdWP2ptDOe8M2vxFg1zs1ruS3LNa+MlDCI1+jCHTQG2A6RP+SLXoX4+q7u2TCMCRIcVZfHhcrTGo1Kh0G/bDdPzDhMRcuKjk9ai++nekz95s8SKodtBKHiQkZn5gHG07XM/nz+Ojuy3+M806HqeIQSXRrf3tFzf90Ex0iEAykX7FVltoAtYQQRUO2gLfs0M6N6bdy7lwAoJbhOfPlSisir72w2xS8MLFUyUotKzm5DuQRcYlPHdLvDU4uKcnrgneL6iRsGb8kPLZGCFcDY09MlnlH8DcOg4JUsmpJtNGxe3RW6R6Zu33K8LSMs+IU0A9KeB+6pCTZNhdLPG2eK+piONm+9XmrjWQdBNge3TQ1iXlKVSL15BLC9u0tjs7cLWzl
+X-Exchange-RoutingPolicyChecked: kUQ3DX3DVBnQSZLUWpKGjN0RP6NvnUgD5+NCiF2yJc86SoFah1s0+4mXU/YT4uRNBc7GkpMZ2FSzI4jJAZxBN/qDH2uMAgZuJIpkoLlLOkOOwHKolzVUV7LbHfg/Ub73iOyzxXaipWOOworC8nMlqFDaRC6yi8DzXgWPf2sc9VSIJj9a+8T5Kw95dsBWuvPXsRJLw/Iflt26mqoEhVJOU9epMRChjAIHYCNjBC0seKMk+E26bud9swdPgOC0K7X/JJzj4sLZkGwqHWPYRhKeVms7RIOB3Eh4pRiKZik+7InjYUVSq8KbUXzHOJ2U4NOAt84M2hqpgp3kIonT2eppYw==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 08:37:35.1782
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 08:37:43.0790
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 78621037-e584-41f6-b909-08df34058cdc
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0eb02cc3-7d09-4c01-7f9c-08df34059193
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH7PEPF00000015.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000143.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LY0PR10MB154434
-X-Proofpoint-ORIG-GUID: D8zn3S7Fp8JBQJ9TiGcWUS8ZgFUnP2Kv
-X-Proofpoint-GUID: D8zn3S7Fp8JBQJ9TiGcWUS8ZgFUnP2Kv
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI3MDAzMyBTYWx0ZWRfXyhZ6MGgk5oYJ
- 05iDslcYsvANsEi/WGURnm6PWnTq22AmxH6+HYNGT5heL44fAkpwCP2IVXDNHdt3w3LQqL2GQ+O
- u/jNgaMRaPjymIufotsEfW4hqZTLJ9zW4XSFoPhIYve1ZaicSjv5U3XhRWXNydJtDh+kcuKzpKa
- cDSq4YMGz2Xgdy8Cl5BiNZ9I0pfc/gQMLxB0vzGulTNAsQIVyRQlqIhl9cTZEAZ3F9i0pUCOygp
- 1Zizjq1eOskZXn8KUT7tmrwORCRcKaOzN6IaIyYwb77VdXhu30RU09yNYJ8nv5CFjcq5GwVstT+
- McH4OGtemWPBc3B8nle75HmAQEFADH+yb1E3+o/COiCqlswOHZaK/azYqKECKtJ/EaVIkSslh8i
- e8h7l3fGqodE8pc0bp18U38Bz1FKQ4uabI3Utwenc2WU4UxsKELD0XJybPZUMxnKR1BXJyDBoxf
- 3ugce2fjq+ODWe0w9LQ==
-X-Authority-Analysis: v=2.4 cv=FbaiV5+6 c=1 sm=1 tr=0 ts=6ae062d3 cx=c_pps
- a=OswsEo8IlqVTC7zrgcx7Gg==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB6807
+X-Proofpoint-ORIG-GUID: EEoezybHesm5nhcLOhWGT5ELyUzedIHu
+X-Proofpoint-GUID: EEoezybHesm5nhcLOhWGT5ELyUzedIHu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI3MDAzNCBTYWx0ZWRfX/seAPigBP5S6
+ GrZS6uu8aQKiFLimffpsYK2ICP769shLhYdnSyxb2EMKWiT+z1svdccTMK/jC6UKjMP70sgcS0F
+ hJPageTTyM6aQ0QgVbFqufOLaZzvG8v3i/Tw3yoXuPAeRdJQG1G5eB4vmi3WHhmdZyyIs0BmTkY
+ Z8DneKEj5ThU2GgM4G7bW3qJ/8pn7jazs6GQt+FBVTahgo2yjCQz2LOOWLJYP58kV87cXjf6ou+
+ 6eW+4vSqSNF8bhpPULq9IfR8HtThH2A/QZo1CHuF7H0PbytQE4SQW1hJAXEvmj1ity6mOQCWfMC
+ uiVDO4JVDmAJikxbqiefcRGPRagSQdzLMWM6mDrhjUHh3D7uBw79CydKUvayFdreYI5bgyEHs0t
+ mDod4NntjR2dCwv1qB3Cso9rMgPYS1pnnCvVAHJdBdZ68/Et5x3TmknaWfX3OkQKJHDf2s/gAok
+ WFobGK+r8jFoOoAby/w==
+X-Authority-Analysis: v=2.4 cv=FbaiV5+6 c=1 sm=1 tr=0 ts=6ae062db cx=c_pps
+ a=jJEkL6Umpl9hNhu6gfQ4Mg==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=660iZSQnnn4A:10 a=AlMIdn_sM9wA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22
- a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=UCzFRFlywXcFtRv7-asA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI3MDAzMyBTYWx0ZWRfX0FIFbDi21biT
- ptnVovHv/tkF00OC6s5d1Fv5rFfjVs3bUOc5wegrqyYvgIqZ6C5dGobCkWx/k9UcMWbfe1Rz8Mx
- xjloZHHRFl5u6EAg+lqAhrxOlf+zAiI=
+ a=gEfo2CItAAAA:8 a=sozttTNsAAAA:8 a=cuEB9orMtnWyPlDtN_AA:9
+ a=sptkURWiP4Gy88Gu7hUp:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI3MDAzNCBTYWx0ZWRfX0j/P7LBiuExc
+ w0SIPpqnKIMhSedT5V69gn8VLXrynTWPiQmxk1UyXFzEGFHJJhWOsdKtt7st9GtanfTlH59+duY
+ 4GXanKJrYWB5MvMII082gokxoDWjSvY=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-27_02,2026-10-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  phishscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0 suspectscore=0
- spamscore=0 malwarescore=0 clxscore=1015 impostorscore=0 priorityscore=1501
+ spamscore=0 malwarescore=0 clxscore=1011 impostorscore=0 priorityscore=1501
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610270033
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610270034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_013748_737166_B811A407 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20261027_013750_166910_E995DA57 
+X-CRM114-Status: GOOD (  15.32  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -175,55 +179,117 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This series adds support for the TDA54 SCM configuration region in the MCU
-domain. The region is shared by several peripherals, so it is exposed as a
-syscon regmap for other drivers to look up by phandle.
+TDA54's MCU domain exposes a shared scm_conf syscon region that other
+peripherals, including chipid, access into rather than owning a
+dedicated register window. Rather than a bare fallback entry in the
+generic syscon compatible list, give it a dedicated binding
+describing the region and the proxy/claim/lock arbitration scheme
+that gates write access to a subset of its registers.
 
-Patch 1 adds the device tree binding for ti,tda54-mcu-scm-conf.
+Some of the claimable registers are gate clock controls, so also
+document the required "#clock-cells" property that lets the node be
+referenced directly as a clock provider for those gates. The clock
+specifier selects the ePWM time-base gate by instance number.
 
-Patch 2 splits the SoC decode and registration logic out of
-k3_chipinfo_probe() into k3_socinfo_register() and exports it. The helper
-lets other drivers register SoC information after reading the JTAG ID through
-their own access path, and uses devm cleanup for registered SoC devices and
-their attributes.
-
-Patch 3 adds the TDA54 SCM configuration driver. It provides proxy-aware
-register access with SCM unlock and claim handling, publishes the regmap
-through syscon, and registers TDA54 SoC information through the helper from
-patch 2. The option defaults to m on ARCH_K3.
-
-Changelog:
-Link to V1: https://lore.kernel.org/all/20261019080736.944127-1-m-shah@ti.com/
-
-Changes in v2:
-- No changes to the device tree binding patch.
-- Use devm-managed allocation for the SoC attributes and revision string in
-  k3-socinfo, and simplify the cleanup of the registered SoC device.
-- Enable fast_io for the TDA54 SCM configuration regmap.
-
-Moteen Shah (3):
-  dt-bindings: soc: ti: Document the ti,tda54-mcu-scm-conf binding
-  soc: ti: k3-socinfo: Export SoC registration helper
-  soc: ti: Add TDA54 SCM configuration syscon support
-
- .../soc/ti/ti,tda54-mcu-scm-conf.yaml         |  78 +++++++
- drivers/soc/ti/Kconfig                        |  16 ++
- drivers/soc/ti/Makefile                       |   1 +
- drivers/soc/ti/k3-socinfo.c                   | 121 ++++++----
- drivers/soc/ti/tda54-mcu-sysconf.c            | 217 ++++++++++++++++++
- include/linux/soc/ti/k3-socinfo.h             |  11 +
- 6 files changed, 402 insertions(+), 42 deletions(-)
+Co-developed-by: Aniket Limaye <a-limaye@ti.com>
+Signed-off-by: Aniket Limaye <a-limaye@ti.com>
+Signed-off-by: Moteen Shah <m-shah@ti.com>
+---
+ .../soc/ti/ti,tda54-mcu-scm-conf.yaml         | 78 +++++++++++++++++++
+ 1 file changed, 78 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/soc/ti/ti,tda54-mcu-scm-conf.yaml
- create mode 100644 drivers/soc/ti/tda54-mcu-sysconf.c
- create mode 100644 include/linux/soc/ti/k3-socinfo.h
 
+diff --git a/Documentation/devicetree/bindings/soc/ti/ti,tda54-mcu-scm-conf.yaml b/Documentation/devicetree/bindings/soc/ti/ti,tda54-mcu-scm-conf.yaml
+new file mode 100644
+index 0000000000000..111cbb739b5f1
+--- /dev/null
++++ b/Documentation/devicetree/bindings/soc/ti/ti,tda54-mcu-scm-conf.yaml
+@@ -0,0 +1,78 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/soc/ti/ti,tda54-mcu-scm-conf.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Texas Instruments TDA54 SoC MCU Domain System Control Module Configuration registers
++
++maintainers:
++  - Aniket Limaye <a-limaye@ti.com>
++  - Moteen Shah <m-shah@ti.com>
++
++description: |
++  The TDA54 SoC's MCU domain exposes a System Control Module configuration
++  register region (scm_conf) containing miscellaneous control and status
++  registers for MCU domain peripherals, including the JTAGID/device
++  identification registers, boot configuration and status registers, and
++  device feature registers.
++
++  A subset of these registers is write-protected by a proxy/claim scheme:
++  each register is mirrored across 8 proxy regions, and a host must unlock
++  via LOCK_KICK. Any proxy other than proxy-0 must also claim a register
++  through its CLAIM register before writing through that proxy. Proxy-0 is
++  the default access proxy: its claim bits are tied low, so it needs no
++  claim and can write any register that is not claimed by another proxy.
++  For example: Proxy0's CLAIM0 register sits at offset 0x3100, while the
++  same register mirrored at ProxyN sits at N * 0x4000 + 0x3100.
++
++  Each of the 8 proxy regions also has its own fault status and
++  interrupt registers, but a fault can only be handled through proxy-0.
++  Hence, interrupt/fault handling is not described by this binding.
++
++  Some of the claimable registers are gate clock controls (e.g. the
++  ehrpwm_tbclk gates). This node is the clock provider for those gates;
++  writes to them are still routed through the proxy claim scheme described
++  above.
++
++properties:
++  compatible:
++    const: ti,tda54-mcu-scm-conf
++
++  reg:
++    maxItems: 1
++
++  ti,proxy-id:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    minimum: 0
++    maximum: 7
++    description:
++      Proxy region (0-7) through which this node's clients access
++      claimable registers and their fault status registers.
++
++  "#clock-cells":
++    const: 1
++    description:
++      The cell selects the ePWM time-base clock gate. Values 0 to 12 select
++      ehrpwm_tbclk0 to ehrpwm_tbclk12, i.e. the gate for ePWM instance N is
++      specifier N.
++
++required:
++  - compatible
++  - reg
++  - ti,proxy-id
++  - "#clock-cells"
++
++additionalProperties: false
++
++examples:
++
++  - |
++    scm_conf1: syscon@5e800000 {
++        compatible = "ti,tda54-mcu-scm-conf";
++        reg = <0x5e800000 0x20000>;
++        ti,proxy-id = <0>;
++        #clock-cells = <1>;
++    };
++
++...
 -- 
 2.34.1
 
