@@ -2,106 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0939D606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:25:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91D8360A260E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:27:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PqLmdXbO;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=khtZvs1g
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PUE1HCiI;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AYF6Nujr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=mGr7t/EAFXFSUA+jAEctWicl0dyfbpawNQjldrWR+2E=; b=PqLmdXbOf9HJ2L
-	llqif5nkSXB2lOoKKmvwX9fAO/8qlsRR1mdZ+blkbsdLvoFt2upev/UameS20DH1KcCdVsIOYudHP
-	1i0mNErvz1gslkExXzh9iV/5bTO2sCpj9srl94OlpqHBrUBO/Nn68P9SYRZOywPDMxebvdE5NK2Ej
-	mRy2PaQfTC2i88kkqbTO+BxlJDouoS1DNLMhoAdGAwIcp4FDXpmNZZc+y3hTY9h3htP+svMGtx4ss
-	T6FMRnZLeJ7op86LyNXWx9SumzrTPsfQOZjY0nep2Uin2U0yw8IEm7qoAHKvTytjghopkXi/OhR5a
-	SbqRCYHBPbRt+193+8qA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=PVztOefSr6RGv9a+LEvxXW9LNnBlncUZ/0ear6QgNKQ=; b=PUE1HCiIzwoeWhuL/sdIyd5RAJ
+	W5Xrpou3Jd2l1X2LBesNn/9jz9A5C67itObDRX5gTkvJt5+CB7+6Fx/GS66Twb9zyDBJ0hiveaZq4
+	769yKWAZPejDt49tHd4mGFVu0LseraIER78643gBhpPB0EtuAtUsb6jSSLqpdE1+IPloI+ks0fCbZ
+	h7wArnBSwHywws+16M0qjb/vdMMZBxjig/kVjywJRl02wuwvKzJpZ4LTbl6nfC2isz75b9R6/aCkU
+	LvOkdpANrnbUXxx/FZj7TUhQ2rl964NlIigdpoFza0E9PNTTJAsfs1HWkmzydolRoynGLsc5xHRyi
+	KGoCg0sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjzh-00000005LiE-1Wdv;
-	Tue, 27 Oct 2026 16:25:49 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1xLk0l-00000005Ly3-2rME;
+	Tue, 27 Oct 2026 16:26:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjzb-00000005Lfe-1xEX
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 16:25:44 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a1b07c3c5fso150895e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 09:25:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793118341; x=1793723141; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mGr7t/EAFXFSUA+jAEctWicl0dyfbpawNQjldrWR+2E=;
-        b=khtZvs1gFcwV/f7ihsf1fDhZBKOeYKhoiWpnOAEK2mD99KPLylkTN28VvFJdEfFtFv
-         9UWud8P7c2KPv16glmmvNwOi/GNghsAJNamQOSIHl9QBI9UvQ3Ryw8e5u0EYZVbnKFYP
-         IAQ++9uTluUqE8+eGJU4+EA9FU9kAd562fUw1oPn1x8GUxmGhri9FUn7CijhS9sTALRB
-         /f1S9oRyIfHkGcVpieSWXamBze8OpgSXwjV26UPFO/ZcwkObw7HWZkl4y8W7JPGqk4JW
-         gQZEQJH94Xnf0XO1EDBo/1oZx0DhucQH9nir7+2PemIR09dAjQgCjiuKi/ZyrqSU+QT2
-         041g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793118341; x=1793723141;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mGr7t/EAFXFSUA+jAEctWicl0dyfbpawNQjldrWR+2E=;
-        b=XlJbNdkrTEeyEf/l+HaGSFiTTOnDx/LNkx8sgexdkHuialMIexWCGEao9FdklPGeQI
-         38apWpGOwBGe7z796sFyPRfP1KaOXoCTr/jZ8ixqJKEodNgLov1nbuCh5Jnkmv/cEA2S
-         8V02vO3eCey6SQIJ6S/MqTn2WThoa5OgqpkhJgL7Hy7qGh9ZYHPL6Ns49cVKRYPvOTke
-         ZTWMFFwCPsDCX+5pdptob++eYV0XwM61EKBubHf8YYVHv68MaNt+r4JSWVpTh/QjrYS+
-         yOgv5Knrz27QPRjvlWGA2EvMgOhmiIpFcGvnbpv5525KkpAkvXEfoRLLAqG+n8oqM4SS
-         SypQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwbu5te18RoSGVVjDddpFeoCmCGzFkhMhoUSgQDuITw1+fMcbcn1oC4uUVjqEC0LirdKhordh57BIU1fLchgY8T@lists.infradead.org
-X-Gm-Message-State: AFq9FYKs/hsZ19iqyVQaN58CVR1T+tVsIzbJ81Qnzfle7qBSjuPZRNFF
-	gGqJv9HattOOl5mqLS2/Yx63SeZjUFeRvgSgNWo7yZZ1TQ3dZHY0NnaxlVRHNzw207I=
-X-Gm-Gg: AYBFou3HF3Z2y0AZWV6f41gY7gTe/+oucfidE49wu/wwFLeqpwuSgiSHeKyX/K5P0qs
-	8HVMlE/tWcxpo2cetWRfE9t0S6uj3W4yAGMSKGqTd9lpJl7p1jO7qGjasT2ZJgc6wUGqJRTZzcy
-	ZMnMhlfSzzmrYa78fXpp73M720lg1vMIbXTa7OO5qcsfMBLThD8iK4eZbR2g+BS6Z2somRyO+DN
-	hL+M7apWFp1iesbqOKWyY5JYqQpENk11trD62KQq2a7BLzPRFYRKVPHVMaR+h8efnhqGUsD6WHk
-	iWrFMDsL6jfjoibWCZp08qLRtPdIwpCiEH8qzk4g49mOezQJss5WdsHCGoT3q7jhp9UTESnHMx3
-	xbLa/Cnptgx9K4ziqVX/Qxf0XNqVdxrqJyynI9t8lSXj1A6aCkZZFvwhIUYbmX2IwBTEas36bvv
-	rjkgBsZsW7jYbDJ9RXQY2Css11319erOaXupfd9nYVdbTu4Uuv1sSIkSt9qok8gVFL2eKlncUzV
-	uTrob+7w8hfPO4W4kvSiumoP1pTVpBap8eRq/wvXok4UmtMYn/6H3yhayJZxjuV1Txn/1zuLZBF
-	uW4x2VAp3ecpoeGNnscUvzuRKXao/9vdpn/1OLmp6gEv
-X-Received: by 2002:a05:600c:8708:b0:4a2:1655:87db with SMTP id 5b1f17b1804b1-4a35aae70b1mr197677005e9.0.1793118341151;
-        Tue, 27 Oct 2026 09:25:41 -0700 (PDT)
-Received: from localhost (p200300f65f19a90461358920bbb0c5ad.dip0.t-ipconnect.de. [2003:f6:5f19:a904:6135:8920:bbb0:c5ad])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-48e3ecd37f4sm27880521f8f.44.2026.10.27.09.25.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Oct 2026 09:25:40 -0700 (PDT)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v2 2/2] remoteproc: imx_dsp_rproc: Implement .memcpy_tova()
-Date: Tue, 27 Oct 2026 17:25:21 +0100
-Message-ID: <dc0e679eba5a0283b0d34e756c71db569583073c.1793117996.git.u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1793117996.git.u.kleine-koenig@baylibre.com>
-References: <cover.1793117996.git.u.kleine-koenig@baylibre.com>
+	id 1xLk0l-00000005Lxu-0CMW;
+	Tue, 27 Oct 2026 16:26:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EE8216022E;
+	Tue, 27 Oct 2026 16:26:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D75B1F01825;
+	Tue, 27 Oct 2026 16:26:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793118413;
+	bh=PVztOefSr6RGv9a+LEvxXW9LNnBlncUZ/0ear6QgNKQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AYF6Nujr9m//y5ikHA4j466AfvrCQx4vNn/XB/n7NEExqqcW6ZpNIEMDq3FFbZmBL
+	 o1Hur8PsCuovf3g9AxXHBJrE3r/kKSk4vTe1xjoUHFg4yAzCRq+xer6ywBG0Nd1vSD
+	 82Y9oCIPZQbhC3ypd1xjTPpPBsmljLlMoBgoJZnHErRqYEgAGT6XmSjYEOOttGbY6P
+	 ULahHSJEshFYy/gm0WSYHeg9Y6lx1PkcRYz+HE8gX+awXWIPCV1JNMaeFr8Jpt6yPs
+	 4K8gbzfPgF94BwtUft4WlXRuoSoaIrz5W7sZHkvwN8lZUnsIhvAoZExUL7TtjY1ASP
+	 u52r8Xsn29uPA==
+Date: Tue, 27 Oct 2026 16:26:39 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Matthew Wilcox <willy@infradead.org>
+Cc: Barry Song <baohua@kernel.org>, Hongru Zhang <zhanghongru06@gmail.com>, 
+	akpm@linux-foundation.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	surenb@google.com, david@kernel.org, liam@infradead.org, mhocko@suse.com, 
+	rppt@kernel.org, shakeel.butt@linux.dev, vbabka@kernel.org, zhaonanzhe@xiaomi.com, 
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+	linux-arm-kernel@lists.infradead.org, chenhuacai@kernel.org, kernel@xen0n.name, 
+	loongarch@lists.linux.dev, maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, 
+	chleroy@kernel.org, linuxppc-dev@lists.ozlabs.org, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-riscv@lists.infradead.org, agordeev@linux.ibm.com, gerald.schaefer@linux.ibm.com, 
+	hca@linux.ibm.com, gor@linux.ibm.com, borntraeger@linux.ibm.com, 
+	svens@linux.ibm.com, linux-s390@vger.kernel.org, dave.hansen@linux.intel.com, 
+	luto@kernel.org, peterz@infradead.org, tglx@kernel.org, mingo@redhat.com, 
+	bp@alien8.de, x86@kernel.org, hpa@zytor.com, 
+	Hongru Zhang <zhanghongru@xiaomi.com>
+Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
+Message-ID: <auDGPs8jzC-90-_y@gremlin>
+References: <20260911025613.1220845-1-zhanghongru@xiaomi.com>
+ <arFYRAa-i7CIwmHL@gremlin>
+ <arF-E3Nsw9ZliH0t@casper.infradead.org>
+ <arI_w2wTfA00Mgy9@gremlin>
+ <armexcXDiG8ryZd6@casper.infradead.org>
+ <CAGsJ_4xuFi7K+crAcFQ998SxXS0xPM6QeA34JV+6+Sy005rXLg@mail.gmail.com>
+ <ar7MsOb6IJLt4eLo@casper.infradead.org>
+ <ar-o1TrOMGrrcxLX@gremlin>
+ <ataDTEZIKOYtwhUF@casper.infradead.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5297; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=zxEn3GKmjIkApottOw2da7a+5Ym3eFer8LHtbjoIoLM=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBq4NB4Y61sfaRi2UYlrmaLCQ3nunydMgUidzF3j s/XqaKg0N2JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCauDQeAAKCRCPgPtYfRL+ ToLAB/0aPuOObiuuIObcbkpH5A5QaaL4H3cXCd9/01L5Dh5K0yCQBGnI9uKXHZ1b2qeSP4TkJL+ W2NNHrkuYMlM+Prx/DYaYy4U694aG+lqt5lcHM+jH6T+lWzq8ee66w9k1P+8kT06/RFyKlGfR60 2NcgdzlKqrZNk2Sh5RbGERfBzxy9hnDgz9+XTdxQ6iCkLKIKeh0IBdxGnDWnUa1rztDoUHtbhXL cfXos9ahRqgGyXOnfMAwnHGgX9S8eDfISFJTdXDe5kuXX/7mqK4tmLQP+20PNtWy0OBT5xfC6gE jxveX618fTLZ1vq7f72HZkRmkxo2Tf0Yl4wQGaz9J+uSfE2Y
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_092543_555335_DAB57F57 
-X-CRM114-Status: GOOD (  20.78  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ataDTEZIKOYtwhUF@casper.infradead.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,183 +87,228 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This callback allows to use the core's rproc_elf_load_segments()
-function instead of reimplementing it for very minor changes.
+(Thanks to Suren for his reply also, Replying to this mail to make it
+easier for me to quote :)
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
----
- drivers/remoteproc/imx_dsp_rproc.c | 120 ++++++++---------------------
- 1 file changed, 30 insertions(+), 90 deletions(-)
+On Mon, Oct 19, 2026 at 09:53:32PM +0100, Matthew Wilcox wrote:
+> On Fri, Oct 02, 2026 at 02:12:35PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > On Thu, Oct 01, 2026 at 10:12:16PM +0100, Matthew Wilcox wrote:
+> > > So what I didn't realise is that fork() waits for page faults to finish.
+> > > I don't think that's necessary, so we can just stop doing that (whitespace
+> > > damaged):
+> > > I think this is safe.  I've booted a kernel with this change, and
+> >
+> > I'm afraid it's not safe :)
+> >
+> > We already actually did this (by mistake I think?) before. See commit
+> > fb49c455323f ("fork: lock VMAs of the parent process when forking") - we shipped
+> > that in 6.4.0 -> 6.4.2 and it corrupted memory all over the place.
+> >
+> > Reports + a consistent reproducer:
+> >
+> > https://bugzilla.kernel.org/show_bug.cgi?id=217624
+> > https://lore.kernel.org/all/dbdef34c-3a07-5951-e1ae-e9c6e3cdf51b@kernel.org/
+> > https://lore.kernel.org/all/b198d649-f4bf-b971-31d0-e8433ec2a34c@applied-asynchrony.com/
+>
+> I wonder if we still need this.  The commit message says:
+>
+>     A concurrent page fault on a page newly marked read-only by the page
+>     copy might trigger wp_page_copy() and a anon_vma_prepare(vma) on the
+>     source vma, defeating the anon_vma_clone() that wasn't done because the
+>     parent vma originally didn't have an anon_vma, but we now might end up
+>     copying a pte entry for a page that has one.
+>
+> But we're holding the mmap_lock for write here, and we need to hold the
+> mmap_lock for read in order to change a vma->anon_vma (asserted in
+> __anon_vma_prepare() with mmap_assert_locked()).
 
-diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-index 96d619daf3f5..324c10f18507 100644
---- a/drivers/remoteproc/imx_dsp_rproc.c
-+++ b/drivers/remoteproc/imx_dsp_rproc.c
-@@ -864,97 +864,41 @@ static int imx_dsp_rproc_memset(void *addr, u8 value, size_t size)
- 	return 0;
- }
- 
--/*
-- * imx_dsp_rproc_elf_load_segments() - load firmware segments to memory
-- * @rproc: remote processor which will be booted using these fw segments
-- * @fw: the ELF firmware image
-- *
-- * This function loads the firmware segments to memory, where the remote
-- * processor expects them.
-- *
-- * Return: 0 on success and an appropriate error code otherwise
-- */
--static int imx_dsp_rproc_elf_load_segments(struct rproc *rproc, const struct firmware *fw)
-+static int imx_dsp_rproc_memcpy_tova(struct rproc *rproc, u64 da, const void *src,
-+				     size_t filesz, size_t memsz)
- {
- 	struct device *dev = &rproc->dev;
--	const void *ehdr, *phdr;
--	int i, ret = 0;
--	u16 phnum;
--	const u8 *elf_data = fw->data;
--	u8 class = fw_elf_get_class(fw);
--	u32 elf_phdr_get_size = elf_size_of_phdr(class);
-+	void *ptr;
-+	int ret;
- 
--	ehdr = elf_data;
--	phnum = elf_hdr_get_e_phnum(class, ehdr);
--	phdr = elf_data + elf_hdr_get_e_phoff(class, ehdr);
-+	/* grab the kernel address for this device address */
-+	ptr = rproc_da_to_va(rproc, da, memsz, NULL);
-+	if (!ptr) {
-+		dev_err(dev, "bad phdr da 0x%llx mem 0x%zx\n", da, memsz);
-+		return -EINVAL;
-+	}
- 
--	/* go through the available ELF segments */
--	for (i = 0; i < phnum; i++, phdr += elf_phdr_get_size) {
--		u64 da = elf_phdr_get_p_paddr(class, phdr);
--		u64 memsz = elf_phdr_get_p_memsz(class, phdr);
--		u64 filesz = elf_phdr_get_p_filesz(class, phdr);
--		u64 offset = elf_phdr_get_p_offset(class, phdr);
--		u32 type = elf_phdr_get_p_type(class, phdr);
--		void *ptr;
--
--		if (type != PT_LOAD || !memsz)
--			continue;
--
--		dev_dbg(dev, "phdr: type %d da 0x%llx memsz 0x%llx filesz 0x%llx\n",
--			type, da, memsz, filesz);
--
--		if (filesz > memsz) {
--			dev_err(dev, "bad phdr filesz 0x%llx memsz 0x%llx\n",
--				filesz, memsz);
--			ret = -EINVAL;
--			break;
--		}
--
--		if (offset + filesz > fw->size) {
--			dev_err(dev, "truncated fw: need 0x%llx avail 0x%zx\n",
--				offset + filesz, fw->size);
--			ret = -EINVAL;
--			break;
--		}
--
--		if (!rproc_u64_fit_in_size_t(memsz)) {
--			dev_err(dev, "size (%llx) does not fit in size_t type\n",
--				memsz);
--			ret = -EOVERFLOW;
--			break;
--		}
--
--		/* grab the kernel address for this device address */
--		ptr = rproc_da_to_va(rproc, da, memsz, NULL);
--		if (!ptr) {
--			dev_err(dev, "bad phdr da 0x%llx mem 0x%llx\n", da,
--				memsz);
--			ret = -EINVAL;
--			break;
--		}
--
--		/* put the segment where the remote processor expects it */
--		if (filesz) {
--			ret = imx_dsp_rproc_memcpy(ptr, elf_data + offset, filesz);
--			if (ret) {
--				dev_err(dev, "memory copy failed for da 0x%llx memsz 0x%llx\n",
--					da, memsz);
--				break;
--			}
--		}
--
--		/* zero out remaining memory for this segment */
--		if (memsz > filesz) {
--			ret = imx_dsp_rproc_memset(ptr + filesz, 0, memsz - filesz);
--			if (ret) {
--				dev_err(dev, "memset failed for da 0x%llx memsz 0x%llx\n",
--					da, memsz);
--				break;
--			}
-+	/* put the segment where the remote processor expects it */
-+	if (filesz) {
-+		ret = imx_dsp_rproc_memcpy(ptr, src, filesz);
-+		if (ret) {
-+			dev_err(dev, "memory copy failed for da 0x%llx memsz 0x%zx\n",
-+				da, memsz);
-+			return ret;
- 		}
- 	}
- 
--	return ret;
-+	/* zero out remaining memory for this segment */
-+	if (memsz > filesz) {
-+		ret = imx_dsp_rproc_memset(ptr + filesz, 0, memsz - filesz);
-+		if (ret) {
-+			dev_err(dev, "memset failed for da 0x%llx memsz 0x%zx\n",
-+				da, memsz);
-+			return ret;
-+		}
-+	}
-+
-+	return 0;
- }
- 
- static int imx_dsp_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-@@ -969,7 +913,6 @@ static int imx_dsp_rproc_load(struct rproc *rproc, const struct firmware *fw)
- 	struct imx_dsp_rproc *priv = rproc->priv;
- 	const struct imx_dsp_rproc_dcfg *dsp_dcfg = priv->dsp_dcfg;
- 	struct rproc_mem_entry *carveout;
--	int ret;
- 
- 	/* Reset DSP if needed */
- 	if (dsp_dcfg->reset)
-@@ -985,11 +928,7 @@ static int imx_dsp_rproc_load(struct rproc *rproc, const struct firmware *fw)
- 		}
- 	}
- 
--	ret = imx_dsp_rproc_elf_load_segments(rproc, fw);
--	if (ret)
--		return ret;
--
--	return 0;
-+	return rproc_elf_load_segments(rproc, fw);
- }
- 
- static const struct rproc_ops imx_dsp_rproc_ops = {
-@@ -998,6 +937,7 @@ static const struct rproc_ops imx_dsp_rproc_ops = {
- 	.start		= imx_dsp_rproc_start,
- 	.stop		= imx_dsp_rproc_stop,
- 	.kick		= imx_dsp_rproc_kick,
-+	.memcpy_tova	= imx_dsp_rproc_memcpy_tova,
- 	.load		= imx_dsp_rproc_load,
- 	.parse_fw	= imx_dsp_rproc_parse_fw,
- 	.handle_rsc	= imx_dsp_rproc_handle_rsc,
--- 
-2.47.3
+I don't think that changed anything. Actually that paragraph is probably
+just a bad example, since previous to a373baed5a9d lock_vma_under_rcu()
+did:
 
+	/*
+	 * find_mergeable_anon_vma uses adjacent vmas which are not locked.
+	 * This check must happen after vma_start_read(); otherwise, a
+	 * concurrent mremap() with MREMAP_DONTUNMAP could dissociate the VMA
+	 * from its anon_vma.
+	 */
+	if (unlikely(vma_is_anonymous(vma) && !vma->anon_vma))
+		goto inval_end_read;
+
+So the example cited couldn't happen then either.
+
+I think fundamentally the biggest issue is that, for CoW, we update the
+_parent_ as well as the child to do wrprotect.
+
+So you can end up with a stale TLB entry, which can result in data loss:
+
+Thread A (Parent)          | Thread B (Parent)       | Thread C (Parent)
+---------------------------|-------------------------|----------------------
+< Fork >                   |                         | < has TLB entry >
+copy_present_ptes()        | < no TLB entry >        |
+  wrprotect parent page X  |                         |
+  -> 2 mappings, refs      | *ptr = x                |
+                           | < Page fault >          |
+                           | do_wp_page()            |
+                           |   < shared, so CoW >    |
+                           |   wp_page_copy()        |
+                           |     copy X -> new pg N  |
+                           |                         | *ptr = x;
+                           |                         | [ OOPS! stale TLB,
+                           |                         |   lands in X not N ]
+                           |     ptep_clear_flush()  |
+                           |       < TLB flush >     |
+                           |     parent PTE -> N     |
+                           |     [ X now child-only ]|
+                           |                         | ASSERT(*ptr == x);
+flush_tlb_mm(oldmm)        |                         | // fails! N lacks x
+  < far too late >         |                         |
+
+
+David raised this at:
+https://lore.kernel.org/all/7e3f35cc-59b9-bf12-b8b1-4ed78223844a@redhat.com/
+
+So the real hazard here is doing the copying with concurrent faults.
+
+I don't really think there's a sensible way around that, unfortunately.
+
+The above is also likely what the bugzilla observed.
+
+>
+> At the time of this commit, lock_vma_under_rcu() contained:
+>
+>         /* find_mergeable_anon_vma uses adjacent vmas which are not locked */
+>         if (!vma->anon_vma && !vma_is_tcp(vma))
+>                 goto inval;
+>
+> so we really did have to wait for read holders to finish the fault.
+> But commit a373baed5a9d deferred the check for a NULL anon VMA until we
+> actually needed it, so I think commit fb49c455323f's logic was invalidated
+> by a373baed5a9d.
+>
+> Maybe I'm wrong.  This is all a bit out of my normal area.
+>
+> > Also we have asserts for this lock in copy_page_range() and
+> > copy_hugetlb_page_range() which will now fail (and possibly more further down
+> > the stack?)
+>
+> Possibly we have to adjust some assertions to check that either we have
+> the VMA locked or we have the MM write locked.  That doesn't seem
+> unreasonable.
+
+Well, no, because the VMA locks are designed such that an mmap write lock
+doesn't exclude them, so that would be undermining their intent.
+
+The thing is that we allow VMA read locks without an mmap read lock lock, so if
+I hold an mmap write lock, I can have parallel reads of any VMA that is
+not explicitly VMA write locked.
+
+>
+> > > My argument for why it's safe is that a thread which takes a page
+> > > fault during fork() might have taken the page fault either before or
+> > > after fork().  The faults will definitely happen in the parent process.
+> > > They may or may not have happened in the child process, which can't
+> > > possibly care whether or not they've happened.
+> >
+> > The problem isn't the child it's the parent - copy_page_range() _modifies_ the
+> > _parent_'s page tables in-place, on assumption that nothing else can access
+> > them (for CoW).
+>
+> I was perhaps unclear.  What I mean is that the child may or may not
+> observe them as having happened.
+
+Sure, but the issue is in the parent. CoW really scuppers things here :)
+
+>
+> > And actually nowadays things are _even_ worse, you could also have concurrent
+> > page faults, MADV_DONTNEED, MADV_FREE, MADV_GUARD_INSTALL/REMOVE, UFFDIO_COPY +
+> > UFFDIO_MOVE (yikes) all of which might introduce new issues + would have to be
+> > audited too.
+>
+> Yup.
+>
+> > So - it turns out a lot of stuff implicitly assumes VMA write lock now:
+> >
+> > 1. CoW - deferred TLB flush race
+> >
+> > (The issue above)
+> >
+> > https://lore.kernel.org/all/20230705171213.2843068-2-surenb@google.com/
+> >
+> > This happens because __copy_present_ptes() does wrprotect_ptes() on the parent
+> > without a TLB flush (that's deferred until the end of the fork).
+> >
+> > But unfortunately without a VMA write lock something can then replace the page
+> > table entry in the meantime and you can end up with data loss as a result.
+>
+> Is it that fb49c455323f commit message is insufficient and we need to
+> prevent simultaneous fork/page fault for other reasons, then?
+
+Yeah, as above, the example given isn't great.
+
+>
+> > Same issue exists with hugetlb wp too. And god only knows with uffd wp :)
+> >
+> > 2. THP - can destroy parent THP mappings
+> >
+> > copy_pmd_range() does:
+> >
+> > 	if (pmd_is_huge(*src_pmd)) { copy_huge_pmd(); ... }
+> > 	if (pmd_none_or_clear_bad(src_pmd))
+> > 		continue;
+> >
+> > Without the write lock, a concurrent fault can install a huge PMD via
+> > do_huge_pmd_anonymous_page() or filemap_map_pmd()/do_set_pmd().
+> >
+> > The issue is that pmd_bad() fires for leaf PMD (ugh) on at least x86 and arm64,
+> > meaning that'll clear the page table entry.
+> >
+> > I think Hugh left a comment alluding to this before:
+> >
+> > 	 * copy_pmd_range()'s prior pmd_none_or_clear_bad(src_pmd), and the
+> > 	 * error handling here, assume that exclusive mmap_lock on dst and src
+> > 	 * protects anon from unexpected THP transitions; ...
+> >
+> > It's like the mess around pmd_trans_unstable() :(
+>
+> ... could we fix this by taking the ptlock during the copy operation?
+
+Well, that's a long time to hold that lock, and while it might address the
+pmd_none_or_clear_bad() thing, the CoW issue remains the same, since really
+the issue there is TLB invalidation.
+
+And the only way to address that is to just now allow faults to happen
+during fork.
+
+(I also fear there are other subtle bugs that might emerge from all this,
+we do like to make _implicit_ assumptions about things).
+
+Actually there's a pleasing thing you came up with at the time:
+
+	Calling fork() from a multi-threaded program is fraught with
+	danger.  It's a rare thing to do, and we don't need to optimise for
+	it.  It does, of course, need to not crash.  But we can slow it
+	down as much as we want to.  Slowing down single-threaded programs
+	calling fork is much less acceptable.
+
+https://lore.kernel.org/all/ZKQZnAfLRPVqnxiO@casper.infradead.org/
+
+:))
+
+It does feel a bit like we're bending over backwards for a broken use-case.
+
+And anyway, even if we did somehow find a way to make all this work, I fear
+we'd just move the contention somewhere else.
+
+Perhaps the 'genius' hack of mine isn't so bad after all? :P
+
+--
+Cheers, Lorenzo
 
