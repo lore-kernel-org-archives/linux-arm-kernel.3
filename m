@@ -2,66 +2,149 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C774F606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 20:50:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05E05606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 21:22:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nk0H57S1;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n+g8D9oO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rJ8y7UrB;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=axPQl6oz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=womGwJTHKJOD+1XH3NXRfs1nx4BuGXpRtnEuUmoaI/A=; b=nk0H57S1m9oi7WCZRuJ8IMvW8Z
-	SWGIvO0pJrir9o5bupPgIQzm+d7+rnGk5jJe3Ezf3445nUQPPNwK7JQeM9GFoo0r//IoPRQvW3aB1
-	FH32Gsq/bZo//WaeHQvUKMletwZjkt83J7PP+QFYPg+fSCXbqLLTy/zMiMIK/+fo2TYPHB2z4CIQb
-	3HxwKd4UlztGZjPN+cgaOezvcrVA3p67/CvxOfEA+GKL4DM8r/bgxpyV78Gf0tA/ybpL4PrKG81iD
-	kdWlIAA56muMl5wKMNWJ9abPZr1FzzLbaodXNzgKLC8JN115UJxpAwxFLeM5jAF7bbz0P/1Jd+LYU
-	9Pyh4UpA==;
+	bh=MszK2b39TiNQK4E9xoalkTwZvjcxSNRIUnOyqHVl01I=; b=rJ8y7UrBcspQ6HMw4r0Dg+EC06
+	ZgKaCPgtwStQBIJKLFpZoYT+bcLEwaGt90EDCU+VYRzxobuNdAU1jfPcI1CS3POI8b2AmlXuerVJz
+	eBHALEtoOdDxFTomSCIM0Rnt8IkOFjGAYU7ptvtiAf9Ezl8R+JpW9eZEhoc8OdIlg8hW1Nc/0wHfd
+	3nHwottr6MZwDKYH/9cHy6JivmRb7vLnfROXyEcMZNtbbFQ3teDcnlSlf5yv4baZZaZvAGe+fJWju
+	S8RBKlWwdrjnSHQkGFHDLzMovFCl4fAjTOwFbeZp02BWxpyM/1VrlkhLjf1ugiFb2dHiQVVMqchZU
+	evCJvKtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLo7L-00000005l6L-1S2d;
-	Tue, 27 Oct 2026 20:49:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xLocG-00000005mgi-10fM;
+	Tue, 27 Oct 2026 21:21:56 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLo7J-00000005l68-2aQh;
-	Tue, 27 Oct 2026 20:49:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A31443C93;
-	Tue, 27 Oct 2026 20:49:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDD611F01825;
-	Tue, 27 Oct 2026 20:49:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793134197;
-	bh=womGwJTHKJOD+1XH3NXRfs1nx4BuGXpRtnEuUmoaI/A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=n+g8D9oOWgSr6eO7E3AJwHkYv7P+3NtQQWr3w96N/lGGIecQSI3UOQDRkzC+9W1kq
-	 hc8K9ipWWWfgXBi1kDHX6NSt5La2dD0J6ijk35St7Hau/FGpWcma2ONjsBtaluYbUh
-	 eSUa9shwBBOx2kgsfZY0TLc1QX+D0Qvl53807eoj7u02+F4Ly2t5Nqo3V675BPu/KH
-	 oyzsS5B031jep4KsRCFL+8fdrj2N6MUSv6J2ZbXxYwU2m9gM3r/soqO7Djt39LlMBp
-	 KI3OBjmfYNcH2jd1STfUIxNn/bzIdfxlyjCckHnP1CRoC5ojbrHRngDpoPBcPCWusU
-	 kIIIjyCljcw3w==
-Date: Tue, 27 Oct 2026 15:49:52 -0500
-From: Rob Herring <robh@kernel.org>
-To: =?utf-8?B?TWljaGHFgiBLb3BlxIc=?= <michal@nozomi.space>
-Cc: ulfh@kernel.org, angelogioacchino.delregno@collabora.com,
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/4] arm64: dts: mediatek: mt8188: Use
- access-controllers in the power controller
-Message-ID: <20261027204952.GA896421-robh@kernel.org>
-References: <20261011184755.2058017-1-michal@nozomi.space>
- <20261011184755.2058017-5-michal@nozomi.space>
+	id 1xLocE-00000005mgN-0dlZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Oct 2026 21:21:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vU9Xb6aPlQy5HL5MKct5DiQqgo/lYyZJTGE+viWP3MWL3V+yAFGMjvs05AV5YjJM3BajGKPDjK8V+Az/jyljLoML2NyzNpYGRCphnZNnmSkyc+RpWV4D1B+X8DXLaARwyyasvJ+0oM/kiSyZe6efpQ4VIn+N/nu5k+62wKogOo5Gy9VZEOHQRPY/k+OH4wzL2mLsTZtw4mWAvVqS8fsHwBieRPXvWbqqf7QqdKbCIgFGWa7Pt0mV6tq6/valjx7PQfo4/YxRtDtEd0C11vGjW+1bRISfAezKZAkIiGWNe2O58i3IDjgxiwlo5coshw63hnRylOvIMNsI3Bn/a5WNvA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MszK2b39TiNQK4E9xoalkTwZvjcxSNRIUnOyqHVl01I=;
+ b=Ms45q34m21NSbuUNKUeVkfiAyOnmRfAsWQmrclEFomgvy+fgx7exYwy0URH1kJ5LaTg+T4mvYE/vXUf+Aev7EdmEGiG0ruenpYvZzY7AYtTp0EM8XdXxBDWJ6F+WyWqxh77n+NJs5s1eRnBj5SnU26FUR6qaMOMiGmNKERIVqkWDP5wXo4lhq0ywJjCG8+4PltXp0UliKcPocNUMSawlJ0St+VeE62qW8FrlJUKJkVYTCXqEkPTD8o/pZTTVOYgfqW8h8jWqBOo6WqR1HjCtC6OXnNKHU6Cks69nu601AOFmhi94cg3sTP+et/S8PGpuqxRFETjhm4MSxK+07YySDQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MszK2b39TiNQK4E9xoalkTwZvjcxSNRIUnOyqHVl01I=;
+ b=axPQl6ozps2JtRmz7cLg+tHb3MfUjXK8LVz5mt0b/SGRSEG3Nhpk8Sw5iY/i6OtjFfd5GHAdzPA0ddFc6AiZlhiDqw2dpAte4MKVItD7NYxCJ1UNJX1ztOwcFeGfBrNW4LcJcelOea+C7ZLPlb2NUxlVvaeiFhl70GpKTaUr0GxO5dv1aMhY29OOfduVKOr24lf3WX/HUFVKl6INsrtqkaN7hJeIX1FdWuBLnHjVFeN2AsalcPWKjTepmee2B08hqd1i8LgBcEApZUzR5GguKeDhDs04/m61ExysjdDQE0ftDfRvZKGVG4EXmIVWUck0MKHQiowq2Pd0vhGU0bFjHQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by AM9PR04MB8455.eurprd04.prod.outlook.com (2603:10a6:20b:414::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
+ 2026 21:21:48 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
+ 21:21:48 +0000
+From: Frank.Li@oss.nxp.com
+To: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Peng Fan <peng.fan@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Felix Gu <ustc.gu@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] soc: imx8m: fix clock reference leak in imx8m_soc_prepare()
+Date: Tue, 27 Oct 2026 17:21:40 -0400
+Message-ID: <179313607406.344724.6134525075748073104.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260626-soc-imx8m-v1-1-62657e3376dc@gmail.com>
+References: <20260626-soc-imx8m-v1-1-62657e3376dc@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: DS1P220CA0025.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:8:44c::11) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261011184755.2058017-5-michal@nozomi.space>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AM9PR04MB8455:EE_
+X-MS-Office365-Filtering-Correlation-Id: e1ebb2e1-a558-4bbe-6d39-08df34704f81
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|376014|1800799024|261009223027099003|261022105027099003|10067099003|56012099006|261026121527099003|22082099003|18002099003|261026140227099003|11063799006;
+X-Microsoft-Antispam-Message-Info: JuATlFTR/e4aSmkt2dcp1wm16QuCdyBhLLFAAiNpAsSEv3XV+ZNi+RFq2u5NNOUQBwNUkq/PggTsuSWneoTbdhWGZIe9ad0lHo0cbH6NgguML9gVUIS0zpriWP0cCvXVqsYz+eEi1c6G6kwXR4jldLN9KOjjlf5ikw6igXUN/z8C3YxMqjDvFuKWK+bmMKsheQgsl7/nU8qgh7N6fd4KFKRjcMadxmHWMAJf5fL4izmoJ1Jr3LLpSiTBCUiJ8jXzb+eLRIrnCxqXJJdd9eYAUEqrkAL//rmqgOZyFalD1HbPnhhCbvjZ9ggAKneMWRlA22UviwRayGG3uYeJKnUEOE1yMT/fo3JRV0HBSTIf0ZjeiDGv7tCaRN8G9/9tmVUiQGmnzTilb6f0ae3sTSs2OL1E7ye602LU3YiDKK9OvlJa2ww6OPPtSPsVMlFANAZS2iQXhWXNk/57UOqw3pxVlb+xs3doUoYUZ6k7gPcmHyez3Z8svyLh9FPSgAoHusFl8UoRcoB+/g0UqAS1xqeWtvLvrlJ0wvrUE1dmLkSot9Y+bNRXl8X8EZTo3l7MElGUbwh37QQlPsycw/etYGOIxjYUf2uh0pw4i2MA/JyU1bBPZHu6YUNsAchrhSqUt6Zw8bBppAqEgrFT39evgFtINagsqPy+kMejl1eCMgTxVdI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(376014)(1800799024)(261009223027099003)(261022105027099003)(10067099003)(56012099006)(261026121527099003)(22082099003)(18002099003)(261026140227099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZEFQU0RpbmYxenAvQTlyVXRhSTJzcmM4VDdPSGgrclhsd2ttODhaOWpmeEZE?=
+ =?utf-8?B?eXBiRFR6UFRGUkZDdEFTR1RLb2xvTGgyV0Q5YmlmRVJOME0wUlpSK3BleU9n?=
+ =?utf-8?B?NC83Qy9JQVhleW5ObkYvY3NpUGtibVBWVEpxUjVLUWhlTE5NL1ZZOHVqbGt6?=
+ =?utf-8?B?Nmp3Y0JUejR0dUVuOE9VV3UyR0ljRXBPUzlOMER5Vzc1NXJsTjJlRG5CK2VP?=
+ =?utf-8?B?Sm9xOGJaNGhuT25LTWVxSkZ6WmpCZXY0Yi9iNlBRQnVaa2ZTQ2FhSEVFZmdx?=
+ =?utf-8?B?cXdCckJoRTNVOXpJd1A3VmpDSHc1QXlUWFU3UFQrc0swZzJ1T2dQQUFyWDRp?=
+ =?utf-8?B?dXZKUURiWDhpdVR0czlGVnc3RXhqa3Z6TG8zd2VwZWdTeGs1WGM0ZjFJN2dV?=
+ =?utf-8?B?ai9hUFlsQm1Hb0N2VGFvMjFzNjREd0hQNHJHRHNGbkNWc21sUUNnd1Awc3cx?=
+ =?utf-8?B?ZUsyMVVLL2tTUUJoSzJWeFZ4V0wySlI5S1dzcVZpV05Za1VQYmxFZ2czSTBy?=
+ =?utf-8?B?a0NZMnNvQjVxdDFRS3R4dWo1VDZidUV3UjBteG44UFFmOS9lbUhvdGhaN1hJ?=
+ =?utf-8?B?TTdzYUpXbUExT0tlQTlRQnFDSm9TSGRnZlBmdUtLdUNUdmhmdTNCV0ZnbUt6?=
+ =?utf-8?B?UnFyRHFwQ0tQbnphUThDL0VQUUMzcjRUcDZmYXRBczhyTEFONWxMRlh4NktI?=
+ =?utf-8?B?R3Y5NTZQUWVVL2R5MlFHdVpxaFNrajlIeDg5MnVLSWt5SHBlRkhOYWtZVFNJ?=
+ =?utf-8?B?SElSdUtXQVMyR1NHMkdnUGNmazNMUG4ram1aK0tsSGw1QU8xSEdpWDlZZGsv?=
+ =?utf-8?B?NnJSa0k0elhPZ2RaUVk3YmpXZlNBZnFDbWVTRCtCc3Ryc1YvcVZYc1dEem1y?=
+ =?utf-8?B?Vmsvc05yK3pRQ1ZyRk1vTVZLcFVIbVJxRWlsYXMvVzFLcmFlWGVBMlBySmkw?=
+ =?utf-8?B?M05SMGlTNE5aaFJTT3lYbG1HcmRnZklwc096R0VQd3lTTlBKVTFQd1ZsaHdz?=
+ =?utf-8?B?cTNFbXBmUkJkb3ZHUUlKRDc2Y1BGMHZ1K3J1VHZrb05wVitxK25MNGRJWjFO?=
+ =?utf-8?B?bUljd2I1Vk5mVVU3RzFPQ2FISjdRamZ1M1RORHpsU0FNUks5R0lhekxLR1F6?=
+ =?utf-8?B?dkJUb21DK2Uwd2RCYndYMUR6VmlleER3MVpOK1JzSFRiczI0Nzd4b0ZKYUM5?=
+ =?utf-8?B?dm5pQ0JsV21aQ1drekl0d1I3VC9iRTQzbHRMWmIvMk9OWVF0Z21odmZKY0JE?=
+ =?utf-8?B?UWxiaGk4VkNlZlVQYTRVNEIzQWNjdVM1UktVVDlWZjZHWGdNWi94S2VxNFd2?=
+ =?utf-8?B?enBRRlp6azdwYS93ZFpnMFVxclYwSTJobU55blhFTDk5Wnl1c0Iwc0djd1Yy?=
+ =?utf-8?B?NUZJbDZ0RDU5ZnU1TFpXWFhzNlJOZjBSZk52Q2RhUzdtdXlJeGRHdFZFa2RW?=
+ =?utf-8?B?MnRPSDZBS3YxeitVWm5JQVplcVhRTThGNEY1RFIwSjk4T1VQZW9BUm85Sm5n?=
+ =?utf-8?B?MURYcU5XWEdnVldwSTNTZFZoekJaemdLWWI4dEw3M1pHQ3FNcmZKbzVYQ3B6?=
+ =?utf-8?B?ZnNGZ1dRZDZRZlY0SFpIcnozdGxuTUlzOGRsOWhvU0xvbmdiQ1M2NHFqblhF?=
+ =?utf-8?B?R1NOSFBNYnJoSWVEcjNTYWtXdDdOcVhqanRTcjRMWWJOUGxuVXhBVDF2V0Vu?=
+ =?utf-8?B?akRpZndXVlh4SHl5dGpMNFBnVzg2VE5tTURZSDAwQ2Z5K3ZXUDJhVlV1czA2?=
+ =?utf-8?B?bGxxYnY1QitTMHVIUmRRRmRHNU5Yd2RUOHJiQkpCZE83a1ZyMGZxWXFuR2Vm?=
+ =?utf-8?B?QWFTVHNITkhZYjl1YSsyWWVrZjdYK3NJNGIvQXRrWVVIUlBCcmYrK0duRGsw?=
+ =?utf-8?B?SUIvb3M2eGh1QUdFR0Z4elVIb0V4Vm5xeHhFOWJaK3FkbStaOHdsQ1NOQUtD?=
+ =?utf-8?B?RkNYa2hnMGNLTllyUVJVdjN1NEtkUFZoamNRTGgvUk81MkpzdWhScGl6MVRU?=
+ =?utf-8?B?NWZ3MkRobFplWnM0eGtzL215TTFXRExjT3E0ZVRnWiszd2lmUTNwTFJRQW9j?=
+ =?utf-8?B?L0F6ZTFXYXppMFgrejhKTUVMM2xMS3RMWG9tV0t4V1NOTGl5YnQyS0hnSWt3?=
+ =?utf-8?B?Ym9TcWRtVEU5K1ZwWVhKUmh3NEtmWTRGcVh1clQ4eGNaVWo0MXYxbHBIZ255?=
+ =?utf-8?B?SlNRS1BZTUxBUDRURENnbEFUeXRHUDNRU0dPRjJEejRwOUpNOGFxNCtERXI2?=
+ =?utf-8?B?ZnkvSDEzeU13QUw4OThEQmFmbi91Tm5aKy9uQjRUUmtwM09FTkcraEdVaWpQ?=
+ =?utf-8?B?SG9VQVRtQ2pWS0VKZ2c2dlpjdG9ESmJwVVYzRUo2eGZaSnBuZC93cFRWYjBV?=
+ =?utf-8?Q?1134DjvxbLXfvecpCabGao0KTin9IS0koKiqv?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e1ebb2e1-a558-4bbe-6d39-08df34704f81
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 21:21:48.5783
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 55Q+VxDd76Z6zz41m9Pmr02NzAWtcrVF8xvCC2McfZoKF4eoNpnHFEckeUfvBVytLx0wtFPwDeLBzAIm2GA4LJInTBXGZSWsC1Hyo0PncL+W4ltDM3ryNYnG6j8Gglt5
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8455
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261027_142154_217926_B4A8DACB 
+X-CRM114-Status: UNSURE (   7.09  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,40 +155,28 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, Oct 11, 2026 at 08:47:55PM +0200, Michał Kopeć wrote:
-> List the blocks that the power controller accesses in access-controllers
-> instead of the deprecated per-domain mediatek,infracfg phandles, and add
-> MFGCFG, which the power controller needs to enable the GPU timestamp
-> counter whenever it powers MFG1 on.
-> 
-> Signed-off-by: Michał Kopeć <michal@nozomi.space>
-> ---
->  arch/arm64/boot/dts/mediatek/mt8188.dtsi | 22 +---------------------
->  1 file changed, 1 insertion(+), 21 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-> index 14a320f0c70cb..cf0da77c5fd29 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-> @@ -1000,6 +1000,7 @@ scpsys: syscon@10006000 {
->  			/* System Power Manager */
->  			spm: power-controller {
->  				compatible = "mediatek,mt8188-power-controller";
-> +				access-controllers = <&infracfg_ao>, <&mfgcfg>;
+From: Frank Li <Frank.Li@nxp.com>
 
-Do these providers have #access-controller-cells? Doesn't look like it 
-to me. You should have some cells here that define which access 
-control in infracfg_ao (and mfgcfg) the power-controller uses. Looks 
-like you are abusing the binding to me.
 
-Rob
+On Fri, 26 Jun 2026 22:37:35 +0800, Felix Gu wrote:
+> When clk_prepare_enable() fails, the error path does not release the
+> clock reference obtained by of_clk_get_by_name(). Add clk_put() to
+> the error path before iounmap().
 
+Applied to imx/drivers-intend, will see in linux-next after v7.4-rc1,
+thanks
+
+[1/1] soc: imx8m: fix clock reference leak in imx8m_soc_prepare()
+      commit: 7077362fdfbafa7febb94d1c595f6edaae3b8c3c
+
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
