@@ -2,76 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3FA2606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 06:36:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E773A606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 06:36:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pwT3xzgq;
-	dkim=pass (1024-bit key, unprotected) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=b9SUelzg
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wEiHOEzy;
+	dkim=pass (1024-bit key, unprotected) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=Odr0VIDB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=aZp+29bWJnemlJ9gnuNYF6ybAmwjMMYwBmFx7KL7rmE=; b=pwT3xzgqXVGTfT463wVlvtuIyn
-	YFtz0ewkCmDKCN8owAfNlsyJ37I3EzNCCtDkkMGbuEPTACPfEU3ZrI+33kuZ08+CCLoEYW8F5GYz6
-	fKI7kbBOh/xGeP50tmUsVRPZyZ020ljxPNknG5PDeDEZ+HoawLmod4DlLpjlZoY2cYTaV0eydQhyF
-	SaJQ7GFPEccSb4NFlKU3GR2V4IszEoI1wLucag02WiX0E6dQZWBn58N9JAqBCOr/id7QqJH+23FvN
-	WUOeRarPigP5dHP8gdZdp7pnEkipN/mW7LidV1tufakYcLgb+DVR+4gyQaaoFGnJmBUU9OHcvSlnu
-	H8vlHxeQ==;
+	bh=/4xZBRPqWoqmG3ZLUyWqQC80cb8SEBhLFlhSnr0xrG4=; b=wEiHOEzyCOKRD98d9bPhroOqlo
+	U3GD7LtELOtTqDu628C80YaE4ZmKZcbd3TNZYuNXJy5DuHF1TlpwUT/D+OL+P6M9RWXX9qosLDSx+
+	rKImIp0uFfQDYlpgEmQBYEnFZN692IWxfl2h12FRmrUjwlG70gKPBs8NCTrHoeoqBcM10HLV6LPQX
+	lxQ0RLWWFpxeFzxTNSu1NgzB+30oxKCZt/Ul+NicdCcugO0oP/lUNGnHscnpnakeYdmNOsLU3t+7I
+	ApF5RwCz+D4kUZ74mxSV/wNBQ8cSKZDv1RCw82k+kG2/e2v+rgx3dXuVCmA6fBDlkIMvd9GmnnSqp
+	SdmVy1mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLan4-00000003qH2-0kWx;
-	Tue, 27 Oct 2026 06:36:10 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1xLanB-00000003qKZ-29PD;
+	Tue, 27 Oct 2026 06:36:17 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLan1-00000003qGF-1hKh
+	id 1xLan8-00000003qIq-0v8h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 06:36:09 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-8a4c72951b8so1284920b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 23:36:06 -0700 (PDT)
+	Tue, 27 Oct 2026 06:36:15 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3ace1f3897cso1971557a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 23:36:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1793082966; x=1793687766; darn=lists.infradead.org;
-        h=user-agent:content-disposition:content-type:mime-version:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aZp+29bWJnemlJ9gnuNYF6ybAmwjMMYwBmFx7KL7rmE=;
-        b=b9SUelzgjQWuZJVdlz65m99Dc1D91+73Vy2fNKng3ycbZRZ/VJqxRHyUGZC7RD2JXZ
-         TxXN7Cvr1BjCxSdB9BCSb2cQbaxP2mH3QmCRTK0c0QLTst1gCIRh16ramN7DVWyG4dha
-         SjVvxg9ZJOqQft7nMOEPSWDdwZzvUExAyMR+0=
+        d=chrisdown.name; s=google; t=1793082973; x=1793687773; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=/4xZBRPqWoqmG3ZLUyWqQC80cb8SEBhLFlhSnr0xrG4=;
+        b=Odr0VIDBDDF5haK485dSktldqca2oXKasd/KUMLwZpq33oW3jwMnF5zDhJExes4xda
+         ByvFyOPQRc1zwNiV5cCHUqmogZeBGolSM/qSfHF792zzdk1uIP8PFO7sXyik2L2aezzc
+         bpDVv00AP+cPjcFHjyFlZscGpORTPicYI7h8o=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793082966; x=1793687766;
-        h=user-agent:content-disposition:content-type:mime-version:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=aZp+29bWJnemlJ9gnuNYF6ybAmwjMMYwBmFx7KL7rmE=;
-        b=EnTAwYPQLwqhIKu59F5A6xqv7DYQuoc0h+DPOLT6fv9BP4AMyABOIdG3kToAPxWd8Y
-         BAGHaYxwH6UmTWKleZJtJDEaYh1+xgTF6t1hbR8gVUGVRKt/Y+rks/ZQvpxOlqeKdYb1
-         oAqkPuNrmFyp//spdHRCi1n8lPXObMldKCqhmlGnygXzdU/SB7ySrTo0IqPwyapcsqSs
-         a5Dyz9qOeuybDWeKxCvfKIbFLtI4YvRqMgV1dCRZhpXRJbEpmaIjqTsDDsxQVpO/8g9u
-         OTldGyFeKbpbqoa6SD9l7x2QuYcZfhMx5vBBhEA0pvZh09VWgDWxM3RqADn3AJUQ24iH
-         tV+Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwJjg6ftd7TZ3SGK+qrv/K9gGawIye7AQ1Lw+CozO5g6x0pphCv5xdnfiN5nFWubNZDn0YVfTDk+fWh1odTGB6X@lists.infradead.org
-X-Gm-Message-State: AFq9FYI5Xle39un+6QfF3jWnjeo0005io3YJCjS/k8rDmV7Jx8KNN7bA
-	oaQMg0yTRqkakuUMwX9VxEH7gz9cjlvVRmT1OZk7YabCL3GnsEDh8ViP7c4INNxC1FY=
-X-Gm-Gg: AYBFou0jyU91L0MqJ5itZqmV61DRBJkYfElvxT+Oh3PHR8/+CE37MS/OdCrGx7zd0EP
-	CHwgGDfWYmyDgwD9gE8ZSo91fP+gHgqe1tMf4CgIPv3QMvDAQ7ZG+Vb68fZyNnNYugAooKa6NlE
-	wrmEuPHoFyuTE2V5KLD4SxkeqsFUmPVBIxeaKWjX+Iftunm7uARUChmUgIINr6BYeH6e6pr+ErP
-	T15L6tqwPiVTTzhvNRSPMtz6gALazQdpk77Bp3JTriOcPy5TrotaT1YTQgQUbtG0ct+EAdprGPO
-	gnQ+wMl3X+BxAJVCQdO48dnnvIKvxUN8Uh31pLC+m9lXiyux/N5/0eesg2vLkzueu55FaxZklgC
-	KgGuobA40bbc0BR9Y0YhImY5Z7ZgrUiA+F3mMVPbvUn7EePoRMsc0TPRBppb5JCmoErNfZprKCr
-	kRG7ci+KtvvAW42gkrVdwTbHSvBUlgopbFEwpCk4R8IgS+vqEfBX6xKlm23QgQWNkf1/6shhi0R
-	rrOLrCyOmyF8FUsfvprMtW65B1kPSNSLdkYCLgncjv1fLVL9JVExH/Ax577XD/oyieb06CoqV3z
-	SpAqSIgKGUIoO8tx09M6nbHMNkn2l8M2GNYkOfX1M6+DWXf4zVo1+bWSErdS+ZsOCvMgTb1vEDH
-	EF0PpWQkLCPaxKEEYq7dHMUo=
-X-Received: by 2002:a05:6a00:21d5:b0:899:e80c:1ec1 with SMTP id d2e1a72fcca58-8a367a39106mr7234616b3a.18.1793082966170;
-        Mon, 26 Oct 2026 23:36:06 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1793082973; x=1793687773;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/4xZBRPqWoqmG3ZLUyWqQC80cb8SEBhLFlhSnr0xrG4=;
+        b=cfdNrcVXjedsA2mPaB1KBWCvjWwhdnmI7SUAbt7nHIRs4talbQ7GRZGA4K8+Uzqv8W
+         DHEVxIox+zWooZAUEOx4VGSlI3NnQvYAM2OBIdm/x7H9e2lr4QY6O2xmGofR76j3nNHm
+         9+fnJtorlP4aXqccYurKQD8DyFmYsX8BEoDc/uUG9JYwWSmLCyikdd/mK7x/mLUbzCf+
+         CAULtcrC4TWHSBe3HbHo1oAZU9ACQpYYpVOK8YFZbY/DHx5DP3trABqXvWKJEM5EM4p+
+         lTUJop/bpbCC9Oh35QupFMKBpM9V/JqTvNVjU2HFMv1xcEwBB49rxItbaHzxGcRMaO2Q
+         LLBA==
+X-Forwarded-Encrypted: i=1; AKwUvBxlyfDlKH6LSEE0/ZWN58or2EvoMHdP+tUYLfI2P3Iuz/3LVgHx3G2ENUMku5hurisPyRNboTAlbGUakZeyGSqe@lists.infradead.org
+X-Gm-Message-State: AFq9FYIQcDO8f7EoJBfKDngSpeTslfxYWIkwcmeDje3L/gz8Gtew/4/5
+	vWjdrslXDNr/DAPd4vdvxtZryOPah+Xv0WN23IGNG36Ku2bKq6ECRJR0rAl9w/KyxIk=
+X-Gm-Gg: AYBFou1CMfVnZ0AUpuoUg7lnJATEpmLf1pq/Aoz+bRuvHUoVlhsw8VcvD+Di6/sczzx
+	FPh8k9ItiCz/1lFuKZVIGxFgew26zR4lpAQbyA2yo1dBz6/Z+IqejMoOpNwtGOt5PoRJLCIVy8b
+	V73qsEg0p5bK9Hbv8sYQ890A5ccKyXEf0KTzYi2SsTAPG1J2BYKd3e5x4UwNUt3fThS6CynEFXm
+	FH2YbrhWT8jmdGCYCEYVrmFqAcxA1UTrLJdnAxSbt2Y1pBd0OdA39Y0/cxw6uGIgT8HGuEMmgyR
+	qYUsiT/WDexvjcO6SkHIp7AemlUQ6YcLtZgpaaJtkdy5ci5L/4W3oYMBr2A7rpbpXBuw0c/yLn/
+	nA9v3rwsjhonRxRzO0GD9z6owXd/uuse8Al3VzUWff45erYQN+hlsX+wBlAe4UJTUPifkcOh0iN
+	vD82S+SnEte+82bej84+rkl1Fu18nbIGGdkbn6FfYnf3gj2aASQZl/5M/gDkbt68rZTwXwG4A2S
+	MsaoY2LpMVBKtRLVhCHqlF6k7kxOwDD6PAN/b1+7diPvZWq0Bimhiel0nIkV/+BPOu8Ui3kBBF8
+	FQnxK0/b3c8nk3k7w35ZQNI2YPu13t/N+TYbz5jm7q5ujuo3uGAczNvVNaL+FWj9LOUkkLDJHVa
+	GrSJPRzIIk5UR9u594/QJY0A=
+X-Received: by 2002:a17:90b:1c0b:b0:3ac:9e5e:d19c with SMTP id 98e67ed59e1d1-3adea8990f5mr7512458a91.17.1793082972994;
+        Mon, 26 Oct 2026 23:36:12 -0700 (PDT)
 Received: from localhost ([116.86.153.182])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8a368d87afasm2004475b3a.7.2026.10.26.23.36.05
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae40614daasm2254704a91.4.2026.10.26.23.36.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 23:36:05 -0700 (PDT)
-Date: Tue, 27 Oct 2026 14:36:01 +0800
+        Mon, 26 Oct 2026 23:36:12 -0700 (PDT)
+Date: Tue, 27 Oct 2026 14:36:09 +0800
 From: Chris Down <chris@chrisdown.name>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	Kees Cook <kees@kernel.org>
@@ -94,16 +95,19 @@ Cc: Juri Lelli <juri.lelli@redhat.com>,
 	linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	kernel-team@meta.com
-Subject: [PATCH 0/3] Make the scheduler stack end check selectable at boot
-Message-ID: <cover.1793082868.git.chris@chrisdown.name>
+Subject: [PATCH 1/3] sched/core: Skip the shadow stack end check when SCS is
+ disabled
+Message-ID: <0e607d3aa7c2c4cc1b5b8ba7b0e25ebdb55726af.1793082868.git.chris@chrisdown.name>
+References: <cover.1793082868.git.chris@chrisdown.name>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <cover.1793082868.git.chris@chrisdown.name>
 User-Agent: Mutt/2.3.3 (9073d26d) (2026-06-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_233607_459900_1ACA81CA 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20261026_233614_279232_27A40D41 
+X-CRM114-Status: GOOD (  17.32  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,39 +119,46 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-At Meta, some of our host types enable CONFIG_SCHED_STACK_END_CHECK, but
-we don't want it generally on because of the extra work on every context
-switch.
+With CONFIG_DYNAMIC_SCS, shadow call stacks are only used when the boot
+CPU lacks pointer authentication. scs_release() already checks
+scs_is_enabled() before it looks at the shadow stack since commit
+9beccca09840 ("scs: add support for dynamic shadow call stacks"), but
+schedule_debug() does not.
 
-Right now this is only configurable by setting the Kconfig option at
-build time. Let's make it so we can also select it at boot with
-sched_stack_end_check=, so that those hosts can share one kernel image.
+With CONFIG_SCHED_STACK_END_CHECK=y it therefore checks init_task's
+unused shadow stack on every context switch. That is harmless right now,
+but the check is redundant and costs a load from an unrelated cache line
+in __schedule().
 
-(Patch 1 is a cleanup I happened upon while working on this, it can
-also be taken independently.)
+So, let's guard on scs_is_enabled(). It is a static branch, and it folds
+to true when CONFIG_DYNAMIC_SCS is not set.
 
-Chris Down (3):
-  sched/core: Skip the shadow stack end check when SCS is disabled
-  sched/core: Add sched_stack_end_check= boot parameter
-  lkdtm/bugs: Add CORRUPT_STACK_END to test the scheduler stack end
-    check
+Signed-off-by: Chris Down <chris@chrisdown.name>
+---
+ kernel/sched/core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- .../admin-guide/kernel-parameters.txt         |  8 +++++
- drivers/misc/lkdtm/bugs.c                     | 21 ++++++++++++
- kernel/sched/core.c                           | 33 +++++++++++++++----
- tools/testing/selftests/lkdtm/tests.txt       |  1 +
- 4 files changed, 57 insertions(+), 6 deletions(-)
-
-
-base-commit: b99b7f60c5b473d374c68b53753153b4aa9e0702
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index d7c3b43158de..fc269fd10192 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -6152,7 +6152,7 @@ static inline void schedule_debug(struct task_struct *prev, bool preempt)
+ 	if (task_stack_end_corrupted(prev))
+ 		panic("corrupted stack end detected inside scheduler\n");
+ 
+-	if (task_scs_end_corrupted(prev))
++	if (scs_is_enabled() && task_scs_end_corrupted(prev))
+ 		panic("corrupted shadow stack detected inside scheduler\n");
+ #endif
+ 
 -- 
 2.54.0
 
