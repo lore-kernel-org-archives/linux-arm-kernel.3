@@ -2,118 +2,160 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 026FA606A323
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:48:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 211B9606A338
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:49:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OI6n2Tbq;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=SpXCwzbR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Mf+uChRu;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=kendgb81;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=CpOdAmzK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=xnmTt7xAHrUILK2F5tw9jpxyescs2qacR8TokbmgBtk=; b=OI6n2Tbqy/dF5CD6aqSz5VUO0Y
-	LV/vee66NOgot9LhxE79ontzdvAId22gsW9XJSoIHT6zoerZbOIY8hwPV5alQ+iiVqj7MIGEaGAJd
-	a2oQlPcJiK31NKr5Zmn3H9v4tCDSz+B4k7kPz2xUiSOKFC10iR3pt/4IkyUhcr584Pkcj/q6FwNkF
-	HlFbmblSirNfgQzrzsKufiX6nFzGAAxItXDpTyfAII6rpEZUGhrlppqtrEhKVPpo6kgGymle2k2BA
-	iOEjBCLGbKPjnCYo45UHx02NroOv4UNewgvMC6A5Fs5EpOclYm+1MHG8c+9CgVNoBaRO8cOz/lUfO
-	ts4S8NOQ==;
+	bh=gogy6K4mHkApebhkUBNBSa8MX+km/CbZiAD1dzn6BOk=; b=Mf+uChRuRKbBG9wyxKt+XFOGuM
+	w99Bbaxt/EloUfavzK+3Tbba5plDsZ/syRIojCDiadC4gNSO/MvsrZa+kRSyE5qFFO/A6atslRsKx
+	qHY4Akgk0EK2U9Dk8GW7rdcJjzDR//MTQwaYkVLctKeoUCBi4hUwmbQ722L+c6mA+R29q+tWP3PnD
+	9N0aBEb5I1bnszEibMdy66kW7BKAbJh8nNyxhv+pibSa5LpyP1c/fiFQSkiXgkzi1E53IjuX0gsJJ
+	BbmAygYi3lDGGCxtHc2F0oIpgHwFQdiprrFqAoMeSVWaZR78peMcZ8MeYGRiHpq1ip9rZDnSb0KBQ
+	jzM4PLqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLhXn-00000004viR-3nih;
-	Tue, 27 Oct 2026 13:48:51 +0000
-Received: from omta40.uswest2.a.cloudfilter.net ([35.89.44.39])
+	id 1xLhXy-00000004vmy-0mWr;
+	Tue, 27 Oct 2026 13:49:02 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLhXm-00000004vhF-0k9G
+	id 1xLhXu-00000004vkZ-3Mqg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 13:48:51 +0000
-Received: from eig-obgw-6003b.ext.cloudfilter.net ([10.0.30.175])
-	by cmsmtp with ESMTPS
-	id LfUcxFYSwc3XsLhXkxgJcA; Tue, 27 Oct 2026 13:48:48 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id LhXixssHX7CfWLhXixDzPj; Tue, 27 Oct 2026 13:48:47 +0000
-X-Authority-Analysis: v=2.4 cv=Z8HsHGRA c=1 sm=1 tr=0 ts=6ae0abbf
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=8nJEP1OIZ-IA:10 a=660iZSQnnn4A:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
- a=iox4zFpeAAAA:8 a=SGJkWrW82lNR26rtH8EA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
- a=WzC6qhA0u3u7Ye7llzcV:22 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=xnmTt7xAHrUILK2F5tw9jpxyescs2qacR8TokbmgBtk=; b=SpXCwzbRcHVw
-	N2YxxPeLLeWmEdPesF9F/Tvwg3/Ur+cwc0BNs5PkwRihIB8ZMpHxkfenhxHZpiilczHaa4BtNtJ1l
-	MQnh1TC5aAZMz+jcAA5b/5ruWpsHOZrFPKBcqgrpVB3caHvWBe1ZNul0by2cPjbo+g7bcc2QVh+57
-	V6+/SqH5BLHSkzcWPPnOglmu2ivP6fkSwwKLoaDhSDx727CnyZj1Tp4091tI/+Uj6SFEuba4GhaTl
-	igg3Fb3jjUNUqPtxHIgSUTYnREXjUpO4E5Wjps/Jf4KT2tqED6oeLR6WZpxmMaRsTbbMxiLK7yK0h
-	Q6z0bqsN0q8zSZQDFgNCgQ==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:34878 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xLhXf-00000003hnK-28cN;
-	Tue, 27 Oct 2026 19:18:43 +0530
-Date: Tue, 27 Oct 2026 06:48:42 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Gregor Herburger <gregor.herburger@linutronix.de>,
-	Stanimir Varbanov <svarbanov@suse.de>, linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-pwm@vger.kernel.org,
-	Gary Guo <gary@garyguo.net>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Subject: Re: [PATCH RFC 0/4] hwmon: Add fan tachometer support for Raspberry
- Pi RP1
-Message-ID: <53a4b4bb-271c-4d2d-a9e4-cec4e0ce214b@roeck-us.net>
-References: <cover.1792748690.git.andrea.porta@suse.com>
- <7df58d42-517c-4936-88b0-9d044d30882c@roeck-us.net>
- <auBzvB8TsvIK8Hik@apocalypse>
+	Tue, 27 Oct 2026 13:49:00 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69RAe3ff1935897
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 13:48:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=gogy6K4mHkApebhkUBNBSa
+	8MX+km/CbZiAD1dzn6BOk=; b=kendgb81mmep/bYskIEz2TaH/+8gari5zUDnUM
+	l4OzLDP1YMi6b7/oECUovafhPY44oIAqGpo1CKoOs67WAJOmwDBBdEZr5nS0nXTO
+	eNFnjOjCJeMF8ZfmP0bb1vr6NTO2eqDthyejVB44FFpZOmvWcbTdAx9RzX5jL7Yt
+	ylPs0o6naSYjurrf/qN9TgiyMqheefsrnXdtg0TuzjEDKW+x/qhqijQgU93hEkr6
+	ctgdJVmWHJ6CevI91z9q17KIbT5bsCUHg/ZXnWOChLoRvkhOMKFArWycBlEfjp1J
+	7yovPzFx+2MNL8e7fziPZlsa+tNo1QFNl581PJjQST2Epi0w==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hjfavu54h-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 13:48:57 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93c5ab5c136so725207985a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 06:48:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1793108937; x=1793713737; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=gogy6K4mHkApebhkUBNBSa8MX+km/CbZiAD1dzn6BOk=;
+        b=CpOdAmzKaGt+IaaPITmdqDnzPaDmR/Hmfaalh70MOevgjdrYdAn0IK3/7I/br3APhD
+         Y9PXdfSVcBzC9tgYqWoV6L32G3cHaCf7s20Su+T7I1r/6GVQlJv4IFG8q69XC+L7SxLT
+         O2zHFO+R9Z+hOBXe1phUuEKewQC/yCasXImNV3TISZlw/bIcloJrO37h1kTqXoXXBwn/
+         4CNdrx5vMT9fCtVyANLXloFBbTV0PyAq2NMiMtU+I8//SpLJ0x7Iw3LhAi6ZqcsLMP0t
+         kCkLhbl2dzzsuAcx+w7tZ6aWYbSRO10BCeCSobia1fjd/nuR7hWduveqivL8f82aaP+d
+         WLKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793108937; x=1793713737;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=gogy6K4mHkApebhkUBNBSa8MX+km/CbZiAD1dzn6BOk=;
+        b=IFg5oejnVNVqOO5Q9GLsZdpVFEV7qoD5voJGLtbtUnQ/79qmOHGWTYi6lF2lbfG922
+         A0JZNSHBnxi/bY+Zcmj+l0Nqty/zmtP3DfdnXEr0qseP60fyqmhwGWrTzwR1JgEedSuJ
+         sgpZkjPTpHb7+GislIJ7yqUsEbh4pcpRl4wwwgViovA4Wj0GvZe9omNUW25qE3awJRCA
+         8H6+s/yE9mvi7kH92kzIy7nNznEXc2H2gbICosk3/isG5JSyCfb08mGY3dKsy7cQ5ems
+         nu1WQUD2pC6Kd8QwkSZO6Lxzl79oEXKJaMeUYVuWDD9zhQugciq8wvJKeXt/TZY/BkyW
+         2shQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzF4OgeaVpIFucu5cN6ou6mKAYAljHrAhF5a+gznqtgXYyiKtIDMDUVEtGr/U7p275ftvIxhM3nnqGemu+Gzlib@lists.infradead.org
+X-Gm-Message-State: AFq9FYJaoFkDEN5RtlnRlCXaAqpuG4gxU5EBu2cuJbNxLOFEeNtqHeV6
+	xFNHhHTAa4i3AkIxMVN4YMShjUmoC4EQpOW4rOYqMF/chwhrhxjK0MZIcOoVCuJlywBRsaPy2pq
+	zLFTaVzRvcqLDImYA94Bmu3cbMOLbXtKiRlf/oS5NVSbzpsavTVE0OLQPyMx/+cz5m2FxV5Ztll
+	g/Ng==
+X-Gm-Gg: AYBFou0Qeg3sm1okW05GOfGtBFIq9KHL2DZTQJDRJoV7DYAjrk73DhFehyaiX6HVeLV
+	SgQ6T0v5AcayuoFEI/twmKa0hULwr0pqSOxdJL+37mqvqLX7TiqfMnEK2nmVWQpVljjCQubZAzD
+	WRJe9MBsqEyBLiVidEw1cmLzhk5v6nUl7tXJ9dbgFzas1UkF/BGGFwgd+r4M3nLIvmxAqjseNys
+	wMy2MkZMMNaZ2NRvtUgK8vw/mNLS/A3FEzqcNZl6JwHSqJZ2bTitvFwor07BzlrhnTt3gQhNHCF
+	GLerRbKMdA1MobeNKlrlcz86yE4kpTRE8CNjbPgQba3jQSJJNLm7E3fxMFeaGfywWfddDHJf8dx
+	Dvvx4ZejC42o=
+X-Received: by 2002:a05:620a:4150:b0:939:4a44:5f99 with SMTP id af79cd13be357-940ef79eef6mr1574207585a.10.1793108936771;
+        Tue, 27 Oct 2026 06:48:56 -0700 (PDT)
+X-Received: by 2002:a05:620a:4150:b0:939:4a44:5f99 with SMTP id af79cd13be357-940ef79eef6mr1574201185a.10.1793108936217;
+        Tue, 27 Oct 2026 06:48:56 -0700 (PDT)
+Received: from localhost ([93.144.6.81])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c46bd7981a7sm455880366b.72.2026.10.27.06.48.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Oct 2026 06:48:54 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Subject: [PATCH net v2 0/6] net: stmmac: XDP path fixes
+Date: Tue, 27 Oct 2026 14:48:35 +0100
+Message-Id: <20261027-stmmac-xdp-fixes-v2-0-10eae8a093a8@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <auBzvB8TsvIK8Hik@apocalypse>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xLhXf-00000003hnK-28cN
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:34878
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 7
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfI2olFRqGa4wX93N6LAo5k+Qcj51Bd1LjZIobt9cN4A/8a5P1bFCIrtlKcAwpk+DuKDPsAHNyTpheFWohoKMPNodngscsWLqW5OD/b5rure7L0gm0M5G
- DytlS86oQ7p1vl6uqPinATy8kcIOwRoe+c2vM+UC26vq1/xDId5YekwtNgtYahczTIjJ3PM+tDVlguwSMpu4Y1o54KtMvVTP1E5qw8/YpibA3vKRIKn8FhwF
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNwQqDMBBEf0X23JUkYsWe+h/FQzSbGmgSm7ViE
+ f+9IfdeBmYeM3MAU3LEcKsOSLQ5djFkoy4VTLMOT0Jnsgcl1FUK1SCv3usJd7OgdTsxCqG1ak3
+ Xaysh15ZEBeTWAwKtMORwdrzG9C03myzo/+ImUSDZselI9rYdzT0y1++Pfk3R+zoLDOd5/gBnV
+ dJLvAAAAA==
+X-Change-ID: 20261023-stmmac-xdp-fixes-00aa25d79af1
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann <daniel@iogearbox.net>,
+        Jesper Dangaard Brouer <hawk@kernel.org>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav Fomichev <sdf@fomichev.me>,
+        Jose Abreu <Jose.Abreu@synopsys.com>,
+        Ong Boon Leong <boon.leong.ong@intel.com>,
+        Oleksij Rempel <o.rempel@pengutronix.de>,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        bpf@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>,
+        Nicolai Buchwitz <nb@tipi-net.de>
+X-Mailer: b4 0.14.3
+X-Proofpoint-GUID: ZPbR6oz_D2kDv86qmARq1a8FlJeMDZBC
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI3MDA1NCBTYWx0ZWRfX1hKLw0y24lBv
+ 6wSST9yPbDX9eBNVrsUsmUFXv/05k9hOXVy+7FG2AyTV00rzZCdVv0nDN9ZKrtv5ZfIg+9oygDz
+ 5qjUAf91z9nwFK7Flp+d0xpNDCGZIwM=
+X-Authority-Analysis: v=2.4 cv=EIeTQFZC c=1 sm=1 tr=0 ts=6ae0abc9 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=gDgEgTsMjVfdaljlQWwA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-ORIG-GUID: ZPbR6oz_D2kDv86qmARq1a8FlJeMDZBC
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI3MDA1NCBTYWx0ZWRfX+fRM47o1nt60
+ vhKEA4M9pEJLxuKCrpa4XCtuT7UxpC0LDUUCxO0XN5ubD4cm3uYNbV5DykbkJNcl5bBHt0nUqEC
+ SIOAe258KuxVo70W8gf6aDOI6sg06aV7tGAzM44RmwLhV2Xj4DH7SVrid+6f67AC32eIqZcATrV
+ g+UVvMMCQ82LEdRpv+4U12LRmlUgfDreIRn/x2cOYY3kSLJW7TLUjfzbkD0w2xjv30bDk4g2pm1
+ u6O5q3KW0L/K9TQn7sWto5Saz997M8g88w9ecIn9Zhb+ljP75cIwI6e38KWmAQ3Pc99IYkhZzar
+ j5l8Co5VItyAjGyTgs/3SMmwRLl+8sK7AY6EaBcFq0/VGoX/Taai5c7FfVroOEm4PmsbNVShCjE
+ EJmn7wOyl8Zr4cPqCxIK+DhKDFlNtIrzCRZ2Rt3CrQ9h/jSKUt66wx/bbLtKHhvgvMqIqLTDExL
+ vDzN6O8eFe1+h4HVwMw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-27_02,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 adultscore=0 suspectscore=0 spamscore=0 phishscore=0
+ bulkscore=0 malwarescore=0 impostorscore=0 lowpriorityscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
+ definitions=main-2610270054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_064850_281909_FFEA51FC 
-X-CRM114-Status: GOOD (  35.98  )
-X-Spam-Score: -1.4 (-)
+X-CRM114-CacheID: sfid-20261027_064858_970016_B52CD9C9 
+X-CRM114-Status: GOOD (  12.19  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,109 +166,46 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 27, 2026 at 10:49:48AM +0100, Andrea della Porta wrote:
-> Hi Guenter,
-> 
-> On 09:24 Mon 26 Oct     , Guenter Roeck wrote:
-> > On 10/23/26 03:15, Andrea della Porta wrote:
-> > > Hi,
-> > > 
-> > > This patch series adds fan tachometer / RPM monitoring support for the
-> > > Raspberry Pi RP1 southbridge found on the Raspberry Pi 5.
-> > > Please note that the patchset in [1] is a prerequisite for this one.
-> > > 
-> > > On the Raspberry Pi RP1, the active cooling fan speed is controlled via
-> > > the RP1 PWM controller. In addition to generating PWM signals, the RP1
-> > > monitors fan tachometer pulses. The pulse measurement and RPM calculation
-> > > are performed autonomously by the RP1's onboard Cortex-M microcontroller
-> > > core, which periodically writes the computed RPM value directly into
-> > > dedicated MMIO registers located within the RP1 PWM hardware block.
-> > > 
-> > > During earlier discussions, Uwe Kleine-König explicitly indicated a
-> > > preference to keep the core PWM controller driver (drivers/pwm/pwm-rp1.c)
-> > > focused strictly on PWM duties, rather than bloating it by registering an
-> > > hwmon device directly from within the PWM driver (see [2]).
-> > > 
-> > > Because the Linux PWM subsystem currently lacks a generic framework or
-> > > consumer API for reporting hardware-calculated tachometer readings, this
-> > > series implements a standalone hwmon driver (rp1-fan) using the following
-> > > structure:
-> > > 
-> > > -  The PWM driver exposes and exports rp1_pwm_read_tachometer() within a
-> > >     dedicated symbol namespace ('RP1_PWM') to read the RPM value from
-> > >     the MMIO block.
-> > > -  A companion DT binding (raspberrypi,rp1-fan.yaml) introduces a vendor
-> > >     property, 'raspberrypi,pwm-tachometer', to link the fan node to the
-> > >     PWM controller node without overloading or abusing the standard 'pwms'
-> > >     property.
-> > > -  The rp1-fan hwmon driver parses this phandle, establishes a device link
-> > >     for proper runtime and unbind dependency management, and registers the
-> > >     standard hwmon 'fan1_input' sysfs attribute.
-> > > 
-> > > An alternative architectural approach to the DT phandle + exported helper
-> > > method would be to model the tachometer as a child device using the
-> > > auxiliary bus framework (drivers/base/auxiliary.c). In that model, the RP1
-> > > PWM driver would instantiate an auxiliary device for the tachometer, and
-> > > the hwmon driver would bind to that auxiliary bus device without requiring
-> > > a separate DT node.
-> > > 
-> > > However, adopting the auxiliary bus would require a more significant
-> > > rework and refactoring of the existing RP1 PWM driver.
-> > > 
-> > > I'd appreciate any feedback on whether the current companion driver with
-> > > a dedicated DT property is acceptable, or if an auxiliary bus-based
-> > > refactoring of the PWM driver is the preferred upstream path.
-> > > 
-> > > Patch Breakdown
-> > > ---------------
-> > > Patch 1: pwm: rp1: Export helper to read fan tachometer RPM
-> > > Patch 2: dt-bindings: hwmon: Add Raspberry Pi RP1 fan binding
-> > > Patch 3: hwmon: Add driver for Raspberry Pi RP1 fan tachometer
-> > 
-> > This seems conceptually wrong.
-> > 
-> > Have you considered implementing the hwmon driver as auxiliary driver
-> > and accessing the register in question through regmap ?
-> 
-> Yes, I also proposed that in the cover letter because auxbus seems also a viable
-> solution.
-> 
-> The current implementation is a consequence to the discussion about the companion
-> PWM driver, from here (and the revisions that followed):
-> 
-> https://lore.kernel.org/all/cover.1775223441.git.andrea.porta@suse.com/
-> 
-> To give a short and hopefully coherent view of the decisions, here's a breakdown:
-> 
-> - first proposal: PWM driver + fan hwmon (to read the RPM), all in the same driver
-> 
-> - V2: Uwe preferred to split the PWM driver from the hwmon one, so the hwmon was
->   dropped from teh PWM driver in favor of a future (fan) driver. To accomplish this,
->   I moved from readl/writel to regmap + syscon.
-> 
-> - V8: Gary proposed to export a function to read the fan RPM as a viable
->   solution. As a result, the regmap/syscon was dropped as it was no longer needed
->   and the function has been exported from the PWM driver
-> 
-> - new patchset for fan driver: the now independent hwmon moodle just call the
->   exported function from thw PWM driver.
-> 
-> If the auxiliary bus is indeed the preferred approach, I'd like to ensure we are
-> all aligned, as this would also require refactoring the PWM driver.
-> 
+This series adds some stmmac XDP preliminary fixes needed to introduce XDP
+RX multi-buff support.
 
-Let's say it that way: If you don't want to implement the auxiliary driver,
-and you insist using the exported function, I would prefer for you to go back
-to the first solution. The one thing I really dislike is conceptually broken
-code, and I consider the current approach broken. Your call, but the one thing
-I won't accept is the code with the exported function.
+---
+Changes in v2:
+- Rebase on top of net main branch
+- Fix commit messages
+- In order to avoid possible dirty cache overwrites, sync the full page
+  dropping the xdp_buff in stmmac_rx().
+- Link to v1: https://lore.kernel.org/r/20261023-stmmac-xdp-fixes-v1-0-efb37e19f5bd@oss.qualcomm.com
 
-Guenter
+---
+James Hilliard (1):
+      net: stmmac: take ownership of saved RX state at poll entry
+
+Lorenzo Bianconi (5):
+      net: stmmac: drop split frames on AF_XDP zero-copy RX
+      net: stmmac: drop multi-buffer frames in XDP mode
+      net: stmmac: copy XDP metadata in AF_XDP zero-copy RX
+      net: stmmac: fix VLAN tag stripping on short and non-linear RX frames
+      net: stmmac: fix XDP RX buffer DMA sync length
+
+ drivers/net/ethernet/stmicro/stmmac/enh_desc.c    |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/norm_desc.c   |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 194 ++++++++++++----------
+ 3 files changed, 112 insertions(+), 86 deletions(-)
+---
+base-commit: f75062536e2d45ee182828f0e47e0124be2fdc8d
+change-id: 20261023-stmmac-xdp-fixes-00aa25d79af1
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+
 
