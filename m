@@ -2,118 +2,114 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96A5E606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:21:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39B42606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:22:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sNRt9ayl;
-	dkim=pass (2048-bit key, unprotected) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=HmsO7bof
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Vwcrzea2;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YSe/wnNo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=PxRb990Xj/uwND6b4fXh9A/3T5i+xI2zB08D/68nqZA=; b=sNRt9aylqzrqDc9c78OQI3R/AG
-	oFc+Eq3CSuuvO3xtV1EdvyVIpzDiGfW7W7euXgg741kHg09KlXqdxVcbNyWRC2HOXrzJubqY7/fTG
-	HqIC3Chu8OVrKB/VGVph80j/y31J13kHOkdmKxeUGr1KlC7qX3umujbj6qYYgUVbOS4XfdjyeKmSF
-	WwgVap6NhR0Rs+mxcLVbi5zFXDAMRrqqjvcIVp7Exc2LqT1F78zGx1YnhGOs337zjXDh2iEdFOg60
-	u97exMxaG8WAFT3+DwfFGPtIQukD6zDr0DlHlA87xop/aG08qV6Rpcjk7Fs9CuPipHG/UbZpMfmrt
-	9aKTdUfg==;
+	bh=Je9f2sBUTCO/EZacvnUN8CZNhT1Vz5vHYja71Ddfujk=; b=Vwcrzea2wrEgyohuSuWbMs+ay1
+	gcjMSZojk89y77EsWHxdJQDxwwolLjEv9I24fObX3MjTtbacc8LL8GH3Quw5swSdpgUcrwfTQNNSs
+	ZQZ0F8VyLx9V+z3BuRSliazWu3XMGv6iHvMn5rqdI8a/pDXFRvnh+HjKC+JHxq6FS81nUe4yxyN53
+	hbkx+8uLgOW/x8EntrDXRbr6JDwnY2uJSP7oqsdkodQvSXbZ3ObHlX55rmc0BsCcjV6pB3S2VO3ur
+	1VxM4eJ+q9vW891eJNTGIAaTg2XZEE1rTJyVIylU6g8l7ZzYJSdROUpGPu+tFwl+7/hXavZcWjx6i
+	BrRED7ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjvK-00000005L8w-1aw9;
-	Tue, 27 Oct 2026 16:21:18 +0000
-Received: from mail-vk1-xa2e.google.com ([2607:f8b0:4864:20::a2e])
+	id 1xLjwZ-00000005LMg-2nHb;
+	Tue, 27 Oct 2026 16:22:35 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjvH-00000005L8C-2PMX
+	id 1xLjwX-00000005LM8-43OP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 16:21:16 +0000
-Received: by mail-vk1-xa2e.google.com with SMTP id 71dfb90a1353d-5eac4855401so48999e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 09:21:14 -0700 (PDT)
+	Tue, 27 Oct 2026 16:22:35 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-8ac525c1f05so39196487b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 09:22:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793118153; cv=none;
+        d=google.com; s=arc-20260327;
+        b=npt+I+DAK6ST7XuVanAp1Div2wtMBF9H86ydYGvYkeZm1Xl/XveCnPEOOnJR7djWXI
+         FyJCR9LdqbIcu1wGQeanwctbhABRSuDv9Hr2pGz9EiChhhHmvDYTBWbFfe9yPQNxvPhj
+         k+FmXvb1vzZIeX8fBGEiRlzCQFm95NVtDhd+dtrGJmMmgJSPnkco2C0NP6J0PN0ykQBQ
+         w09/NMuI44dTsqLLZe57AHfppNktgeuPORb68LMv4ipP3G10GDE39MaCsKsFjHcnAfGD
+         v02LFlpu5gIkiiiuE8z70wTOevEHALIoEB21/qmXxIFSns2bNXkTyVfOCbK7RR85WqCs
+         Tc1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Je9f2sBUTCO/EZacvnUN8CZNhT1Vz5vHYja71Ddfujk=;
+        fh=7rHK+aFHC6iOsmZjYEWs8m/2j4kU1gDV280k9Y+zbZ4=;
+        b=UxzO3YQ3YK5bRXgze3ws/ZAG4JSULu7PrXXpgA18xHmdrEDPQUNd47IDm1DeAAHBie
+         d8V6znmOmXRv8ugYwgqex1KaPZmenwEyUCI0e58sS93WTDpvghZ5MBSXcmKOvfCM4zx/
+         i3dcUDZR0LE6plVslitQ6IkTxB9XQdGu9fh8RzqVAsbCuM4sFf8QfSEGQ1pqlcjaQKWu
+         HkrGOVn2ZmT+UCpipVAa919baG45TbP4rwsVXMSG0VD67XLAuizjgcDZPtHL4GQrr/Uq
+         KZpPp4/HuQ2s1VSLrTH7sHnYjVaODpVnHMRAUN4dOA+6H2yOB9hKTV3Rd/dFMHbRZNfn
+         cY4g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen.com; s=google; t=1793118073; x=1793722873; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PxRb990Xj/uwND6b4fXh9A/3T5i+xI2zB08D/68nqZA=;
-        b=HmsO7bofLpLzzYOQ+DvCciHyJr+cPRxf2AJ5rkdTo/mPGbf1CfgYnCtC6uKzpvPWsR
-         FCb9XaS6NG45bmDjJHabexKXKHTw2CIfATLnBiP7ROf891a9jM8n5PiS5chIAc9wuL8z
-         ZR13TOb5EAxaisCh8+qazbh3Vuy/woZB8zeVtiJ7+YozrjRYjyWs3QIe4/QRKkbydk7j
-         /ov8e4PD579SYmvtNPOBhlIAB9EBcyfwX3nhcRt2wo4JGGWHdLPI2G2vG7gnEWAyCUqg
-         VbhIEW5DRpno2tC9/2R4sI83a+ZjgB0d/ToU3KVbpOYGTbEHdomHAFooWJmVg5ouWIFq
-         Q3sw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793118073; x=1793722873;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1793118153; x=1793722953; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PxRb990Xj/uwND6b4fXh9A/3T5i+xI2zB08D/68nqZA=;
-        b=tFkKVKl4lBdWhFkBXuvuDxv5bb2dn4eXIGWYs/Y+4kcClUb/IqxZT5e9bfVsvGrqoZ
-         Kxrk8xyk5SH4djYR6qqPfkY1YaebPLpTHtlGjDnniF0MjFHO1gALAOrB8D8dZ/cg8uRe
-         Oh1sNn1miBUDLhV0iRmi8j6rDkiblmI7UoOb7HqOnCgBTUvB5lUTXOkxmuAfUoNTZUW9
-         nACIA6pfyECR+Su/j1COlEsPcd0wTBGQMIZLKhuvLMkimqlZj3CBQpkpU1RoYY+o7x8C
-         NZOpAxeLYmxrXOdPz+TD+vLLeyGdHhav3XjxZJiLIFXqL81RH3QPKQ2LvFBn2nQ2KdCS
-         IUeg==
-X-Forwarded-Encrypted: i=1; AKwUvBzkXHgGKbs16HK1IAc7AUPWM23bg2QYfx+trJZzGp0XFRSBctEtVNqS7Z018yyLSOCoWeCTH5zRia4/j8MmkPF1@lists.infradead.org
-X-Gm-Message-State: AFq9FYLWfOVFjtDcAm5DBUnq1H61alosb0DGX46qlZtpkDahyHV/lkXg
-	Q1rPhSaIX8816i92W7G2KTkO5OmUraHoLyn8hVlPfnBRWVz4pb0gmwVt/dpO36lwJGU=
-X-Gm-Gg: AYBFou2iX4Syitx+AsomyMk1vi295BIKu6UdPnFMGOe3u4G4832nee3HFnyLJRHB4iv
-	x59/lUleG77qqL2v6a9ElCfHh/jyrjSphZERn+3V5h4zAmzPPmsru0BtiPNLBhlxNgHKbeSsNQb
-	ttQUtHCQ+41kclALfBNytwEkdh16jZ21AGhqhM1PVXzGoh6Mb0FNLEzCpV2Kppjd8BsZbCsnUfH
-	CnlF6HuxcBU7FU5k6qivAHNCbRuQr87SROQcU/j2lLzCse66xDM/odvdzWSW3WJkManKL5z1HKl
-	50MQ0/+dC517z0uBQTE7lWzJ25Rr5Z9cQUi2t2NDSRzcUY0+sKEH1OAYJ9LPnkjXWcrLDPQKvic
-	1Xsaq9tOXqhB9bcSYKDV/2jYv2BimnRJ0iu4Qvs5RaNw6+T+YrjlV7XpU0knLJ9Uim8smlSQRiG
-	7Xa+AZtnzXc8zzMYib4iTTmiVcAsFVxif7+0p+PjwyFJLbInjs2TMULTDBtbW5RqdEwdFvCOB4k
-	ScBdnqMeIF0/uv8+DiYv98UZJD4FnmhAGyP8Mru2jPU5yWpNIJaqHMeVROw2r09p2+40EV2oNZS
-	vRcluFiKNJyHUZW5X9g0tsURPCxvPswdyoDUqprNN1dSpEFa+7HLYSANFWa5+hFSVIHsDwTvfX4
-	Ak/SjmPaFF2ZoybSu/cMtxyLpsAXJsw==
-X-Received: by 2002:a05:6122:1352:b0:5c9:c60e:3a40 with SMTP id 71dfb90a1353d-5ec232e48ecmr4515149e0c.18.1793118073126;
-        Tue, 27 Oct 2026 09:21:13 -0700 (PDT)
-Received: from google.com (16.49.199.35.bc.googleusercontent.com. [35.199.49.16])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ec4a5f26c7sm304662e0c.9.2026.10.27.09.21.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Oct 2026 09:21:12 -0700 (PDT)
-Date: Tue, 27 Oct 2026 12:21:11 -0400
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-To: David Matlack <dmatlack@google.com>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>, tarunsahu@google.com,
-	Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org,
-	Mike Rapoport <rppt@kernel.org>,
-	Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de,
-	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com,
-	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org,
-	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com,
-	will@kernel.org, Alexander Graf <graf@amazon.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev,
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
-	kexec@lists.infradead.org, skhawaja@google.com, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
- a 2-bit pair feature header
-Message-ID: <auDPd6tjzACQVszf@google.com>
-References: <CA+CK2bABt4OZO31TenVF2+uBUWVwViWbvfE00=0xbAw=f7K9SA@mail.gmail.com>
- <atl7peoVHdP5hz7z@google.com>
- <CA+CK2bBFXnJA1kddbLKGq0DAHDgjYhsTSQQay-xeX7jJC1V_UQ@mail.gmail.com>
- <CALzav=e=ho2gVrn+7KpZ3ZyasvH2u15-pC-RSRSS7KcMfKqUJQ@mail.gmail.com>
- <CA+CK2bAJo8dnTOyKMgnnMnk-SCXbTsv+JCLEOWkjyj-wqtEkHg@mail.gmail.com>
- <atpNFEFIlqAoYIwH@google.com>
- <CA+CK2bB2C3Am5ssRuzYpfiU7_vB81vxMGc19HQLq7N=_7YrbTg@mail.gmail.com>
- <attmFVIFU_mS0Y7p@google.com>
- <CA+CK2bDXDWbww_d3sD6OZqpo37V1a3t76_ubbrXLQS=9DB3dWA@mail.gmail.com>
- <at-8vkVpN2SF3XgB@google.com>
+        bh=Je9f2sBUTCO/EZacvnUN8CZNhT1Vz5vHYja71Ddfujk=;
+        b=YSe/wnNoVC1pIc4lUagxeQZZTuCAMkDY7y2NtOjFYLFt9Gfi4jnqmYb9RxipHDiF4w
+         LaGWAj1EwZe6XSnWw7bH11Fl+fbolfmTl0g0szW8FgepWMIfKZVIUx4MMFvO6tGovpjX
+         KyW80yFtKIVUuUqpYXTBdD1yT+n37uUHtqfPzX/gTaZ2o3tdrDX5DtR6cDl2s5D6yiSG
+         RIagT3SAFX5j8Sh9yGDIv0DPdIXLLVNB2LDDPE/AmswNTI6HBT0QaCz88f+sodZo/MLp
+         U+Zrwmkh5s9B0cLB2fgPHHk/bww1Rn4P+nflNJoXZqN1Xi9IE4hEqLIg4y3AaSNn8Di9
+         tr+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793118153; x=1793722953;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Je9f2sBUTCO/EZacvnUN8CZNhT1Vz5vHYja71Ddfujk=;
+        b=XaSCgjOprh9xyRdYyiqAHshMdfzBxrotuTYw9wNZLCFNd0RAuVfTAWxrKVL+G0Sj4k
+         sBn1ZRSc2nJAS4AiNBHogZPyDcN9U1Tw3pHpccB8SiPpNDO34m8E8qKNWJQwPaeOJY0j
+         2BQXK9hZt9JIcBiktAeQulVJN7wb28HBTeOUsPPySw9GC1vSZ76Mz+BacUtU3sBa8Qhv
+         L8bH3ckiZ2IneiRT9+wLAe7thkJD+kB405CzYyjhDiR5SOo0+GW3rKi3oGS6MkSPdF3y
+         3UFBFfR244RSJrYPMh23Ui9a65QYp3sha9//9XPZ4bjaDBBcACjw4pirzyVeF8A2UeKW
+         CdHw==
+X-Forwarded-Encrypted: i=1; AKwUvBzxYFfSatr9HPrqspxjnV0NyUmBkiPBTdxiDPG86S6EFzRqfBdwheubqnOS9StSXhg91OoBz/Jvc79QmMHmwmzk@lists.infradead.org
+X-Gm-Message-State: AFq9FYIC+RG7uTNIoY21/jCnsPWo6nvxh6xGah5J2Yx6t0ncutwH2+Yc
+	LnzbXk+bwMWlq/vI1LblurQWLdNp40Fv9JuaCg/A0tTym0NtcdJveeZITEvJgx4YzMmWp6xot+m
+	cjLDpGmrr1VkWLxb0xb+bb5QK5zgZYGQ=
+X-Gm-Gg: AYBFou1FjwHAZ/pwgDYe12cTV1bHDVlGdviU5kVL678LvvIbgnnXcH6dyYOL/B9paRu
+	WITbo8DTOyzYrnS80UPOEdwvg7HKG2G9HI1t9j5DAzYlAGmkoq9lQvc4LniEzA82U7YJkEExT8e
+	/1Z7Oq7l3/4euOlfmDeqFaiNYAwklBOTZCHtSLv0ZqbbvWTBaq8/KPP3HDS5H2c1nkWkUKfGvj4
+	bLL3jIITmHZP1aKaLqDGvvZ27AOijpfDwoTly+pQydHdXU/BdeP8CwXNSU+Th5JklRImQuJ7O+v
+	ItiqHqISdQFaYQLMcWnogPjEMZKDhtyLTIDkS08zIOQrXbcrmHAZV8Y5lxN6rsnv1ws3VB8cqoz
+	I6BiK3qmw5NhkRZp9wGT5p75FmdfkhCWaCk/5
+X-Received: by 2002:a05:690c:dd6:b0:8b0:cee8:53cf with SMTP id
+ 00721157ae682-8b1669cb374mr84387667b3.3.1793118152555; Tue, 27 Oct 2026
+ 09:22:32 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <at-8vkVpN2SF3XgB@google.com>
+References: <20261027145313.136305-1-lgs201920130244@gmail.com> <f7d242b6-a401-4ea0-bfac-e988f1497bc0@kernel.org>
+In-Reply-To: <f7d242b6-a401-4ea0-bfac-e988f1497bc0@kernel.org>
+From: Guangshuo Li <lgs201920130244@gmail.com>
+Date: Wed, 28 Oct 2026 00:22:22 +0800
+X-Gm-Features: AclHuK9WhSZ_5Xj4ee9jEQ2X-wRviwNJD5dHM2yTu5byUlkX8Eudsa4g1RS5X-w
+Message-ID: <CANUHTR_RYcMEOTevXWRF2iS83oNDc4pXqsbBZKLV7QbSUeYh=A@mail.gmail.com>
+Subject: Re: [PATCH] media: exynos4-is: fix DMA memory double free
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Hans Verkuil <hverkuil@kernel.org>, 
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_092115_658756_72BD01C5 
-X-CRM114-Status: GOOD (  17.22  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261027_092234_015890_41BE0EE9 
+X-CRM114-Status: GOOD (  18.86  )
+X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,78 +120,59 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-7.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,FROM_LOCAL_DIGITS,FROM_LOCAL_HEX,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10-26 20:49, David Matlack wrote:
-> I still think it's not advisable to define name##_wrap since anyone
-> could accidentally start using it on the incoming path and we wouldn't
-> notice at first (especially since same kernel Live Update tests would
-> keep working totally fine). I also don't think asserting the combined
-> size buys us anything. The header size is just a function of the
-> number of features, and what we are trying to protect against is
-> structs embedded in the payload changing size.
+Hi Krzysztof,
 
-Fair point.
+On Tue, 27 Oct 2026 at 23:32, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> On 27/10/2026 15:53, Guangshuo Li wrote:
+> > fimc_is_alloc_cpu_memory() frees the coherent DMA buffer when its
+> > DMA address does not satisfy the firmware alignment requirement,
+> > but leaves is->memory.vaddr non-NULL.
+> >
+> > Because firmware loading is asynchronous, this error path may run
+> > after probe has returned successfully. A later remove can then
+> > attempt to free the same DMA allocation again.
+> >
+> > Set is->memory.vaddr to NULL after freeing the buffer so the
+> > existing NULL check in fimc_is_free_cpu_memory() skips the
+> > already-freed allocation.
+> >
+> > This issue was found by our static analysis tool under development.
+> >
+> > Fixes: db47622c13ae ("media: platform: exynos4-is: remove all references to physical addresses")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> > ---
+>
+> More of postings by bot ignoring any feedback.
+>
+> Best regards,
+> Krzysztof
 
-> 
-> So I would just do:
-> 
->   /* Marks struct name as a KHO serialized payload with a kho_ser_hdr. */
->   #define DECLARE_KHO_SER(name, payload_size) \
->           static_assert(sizeof(struct name) == (payload_size))
-> 
->   DECLARE_KHO_SER(luo_memfd_ser, 16);
+Thank you for your feedback, and I apologize if our recent submissions
+gave the impression that we were ignoring your previous comments.
 
-My main requirement is that DECLARE_KHO_SER() in include/linux/kho/abi/ 
-must be enforced by the compiler rather than being just a bare 
-static_assert() that someone could forget to add. Since kho/abi/ headers 
-contain both versioned structs and unversioned sub-structs, it must be 
-mandatory to declare versioned structs in kho/abi/ with their 
-static_assert size check before the kho_ser_*() helpers can be used on 
-them.
+We did take your earlier suggestions into account and subsequently
+submitted a patch series accordingly.
 
-So, how about adding enum names like this, that are going to be required 
-in accessor functions later:
+For the more recent patches, however, since they address issues in
+different drivers, we thought it would be more appropriate to submit
+them separately rather than group them into a single series.
 
-#define DECLARE_KHO_SER(name, payload_size, nr_feats)             \
-    static_assert(sizeof(struct name) == (payload_size),          \
-                  "struct " #name " size mismatch");              \
-    enum {                                                        \
-        __KHO_SER_SIZE_##name = (payload_size),                   \
-        __KHO_SER_NR_FEATS_##name = (nr_feats),                   \
-    }
+We certainly did not intend to disregard your feedback. We appreciate
+your time and guidance, and we will be more careful with our future
+submissions.
 
-> Plus helpers that allocate and initialize the header and return the
-> payload as a typed pointer. Both the outgoing and incoming paths find
-> the payload the same way, by computing its offset from the header,
-> rather than through a struct with a fixed payload offset:
-> 
->   /* outgoing */
->   hdr = kho_ser_alloc(luo_memfd_ser, LUO_MEMFD_NR_FEATS);
->   ser = kho_ser_payload(hdr, luo_memfd_ser);
-> 
->   /* incoming */
->   hdr = phys_to_virt(args->serialized_data);
->   ser = kho_ser_payload(hdr, luo_memfd_ser);
+Thank you for your understanding.
 
-These would become, where without enum, the init would fail:
-
-#define kho_ser_init(buf, name)                                     \
-      __kho_ser_init(buf, __KHO_SER_SIZE_##name,                    \
-                          __KHO_SER_NR_FEATS_##name)
-
-And payload can also check the existance of DECLARE_KHO_SER, using 
-(expr1, expr2):
-
-#define kho_ser_payload(hdr, name)                                  \
-      ((void)__KHO_SER_SIZE_##name,                                 \
-       (struct name *)__kho_ser_payload(hdr))
-
-We can also add an optional kho_ser_alloc(name) to allocate, init, and 
-preserve.
+Best regards,
+Guangshuo Li
 
