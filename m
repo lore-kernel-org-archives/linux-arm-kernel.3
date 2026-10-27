@@ -2,135 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 234ED606A33E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:35:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63BBF606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:35:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eS4L2IDJ;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Jsv7GN4e
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zSfj2uzn;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AG/jofRC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=fsZYIfFgk4WYetdMXm1NDJEKlFtStMd756fw9XYMzCg=; b=eS4L2IDJFI8OwAYsJ+xYXLjkq/
-	z/ijfZOID7CIlCUzUMGavkMyoGzo8wbseUcdXNWbK6cjmUjfhB+/REknolHbEY8t4sAsA54uY3oIS
-	GqUKEIFFk/a3C+us3DJ553IV6RwQt97SS2du3C01nnFk5MorBAu+6vDHHvx8EEqEOx6rjXMv1jQJn
-	g6Yqr3uFFmtpYWvrhYue7OIWw6nYXdILrfAMHVGZTShIjn4wC3EF1hvkANEzfLAPgz5ntW2QJ/GlY
-	z83vmOQJAQUXX3hxE3uSSOUu3QsbPS+i1pWpBx45nTpasDVMiYMBjsN638/jcsTekZLiS6+MMw8zI
-	rFseX5ag==;
+	bh=o/9wK8ypPDBVfzWamrLQ9Cbs+itMuvLYD6oeTJnRkog=; b=zSfj2uznQ2lmifXxmSSIJaXDhl
+	OAS3eCOUpwLLvyj+uCiIDqKkjIuJoYbdL3gFBW4Og+6R3s7EAbk4nyyetr8TUAQCHj0XHrcjokVqz
+	G2++XPPly1MH9iAAm2jKUW69PAxekeTOLGbIe2c5Vf07u8gyfG2SeYPzr8jv/I0KfBJJrr+Aen05B
+	qRZY8WLUxaMSiz8Nku5R1Q6TXO697nx+l6NX9/foamE978wRaz+44MraWhqwKg8ND0LR7j88Dg1Ir
+	gHmtRmAdOXxSrR1QBEFTLVzZTWCybde9Qry6kvYvSO01bpXhhcFmzLki2X/HzsgdX65Z3WWawNBvK
+	QJH3TGHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLk93-00000005Nat-2KHh;
-	Tue, 27 Oct 2026 16:35:29 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xLk9E-00000005NgH-3QEG;
+	Tue, 27 Oct 2026 16:35:40 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLk91-00000005NZc-1yz0;
-	Tue, 27 Oct 2026 16:35:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kzgRd9EFPebsujo9szvEWVZKAGhcgZZP6iK0GMmGbF4kchGIbJk/iZ06uDOkk7eDoZzjAbqicIcjRIDYvtasxIATce6860y6+1rYgJemc/kB7FVLEwNsWnBkOZz7hr5qY7KXXCCh4pS1Thit3U8/STLr/FXTXW+Lvgu0rBCWX3/SyMfbRLpcYOgAAfnNN+yx9cE0Xys6+I6Rdso3yJYzau2JeGz8uZb6uoDhzOueELtvHy3tu2jYggPKf/W8S1pDeDLEM9r9LSuzImoKH5nqgWehSlilMG1R3P74Jz/U4qwkHGoDcTQb7z7saJJVFZ52gi5U7FLrmdxCYhOK72UFgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fsZYIfFgk4WYetdMXm1NDJEKlFtStMd756fw9XYMzCg=;
- b=zOXb+zDMGlpUmCKn5/pEPUp3NDyTqOuLnYFGjKi1BZ8ycTYdylr30PCvjhrVez631nzyl0AWz1Ku6CZh2Z8IGepSMFAEHHZOp3F7imNi8zIJqgomdIip+zO0n+20Bp/IX98B5f+RtIEIt2NsEMhJTIlXsVLdum/ue1GQI6M+hKj3W3KDllP/eChRQP0+WFeDTdsJRgNyvzFlg0F+GVQHIvf+f5eJGelD0qlHiH+5ZOuZeF4cQW+wHK3/IeWxnubGs7+qgzxfW6yktna64YGavkMj6F36gyee8BYio56GCehJH/x5WT/7+KSQ7F/O9mwPzmzK8sPQ3yMEjMJuWO/3aQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fsZYIfFgk4WYetdMXm1NDJEKlFtStMd756fw9XYMzCg=;
- b=Jsv7GN4eZwcXWIro9WsmnlfXLbEx9bL5V6pNjOGfb8saUkj3meWvYZe3pdBbIwcSyEOcuPNsXf/8xwjG2pMmaO0R4laoZfJx9lqWlEeZtkjnWcOEWikgqKffzEFtN/8aQKeRZ3pU7FrkqMbNpqmagUR3jmAKndmFJuzKnvxnL0jrPpI5pZhZNst+SQ3R4IPzPmCIZFvmXAq5aIw8fZXht32cat6f2pw33Eyr6P2zGiAJBi8gLBvt4V1PSwb5Hd+Rt3b20AEwHdmsAunV+gjU0gAxSox8q6yRZfXfq7xPN/Ud0p7SYCHMArbWEf/jTNHvmh9dPRX476e/4WVgR3N3fg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by ZR6PR04MB786831.eurprd04.prod.outlook.com (2603:10a6:910:dc::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.19; Tue, 27 Oct
- 2026 16:35:21 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
- 16:35:21 +0000
-Date: Tue, 27 Oct 2026 12:35:12 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Sean Wang <sean.wang@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Guillaume Ranquet <granquet@baylibre.com>,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] dmaengine: mediatek: uart: clear the active descriptor
- on termination
-Message-ID: <auDSwHFea_ctju7J@lizhi-Precision-Tower-5810>
-References: <20261022-submit-mtk-uart-dma-retire-v1-v1-1-3f9b99a9d89a@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261022-submit-mtk-uart-dma-retire-v1-v1-1-3f9b99a9d89a@gmail.com>
-X-ClientProxiedBy: PH0PR07CA0053.namprd07.prod.outlook.com
- (2603:10b6:510:e::28) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	id 1xLk9C-00000005NfI-2ryA
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Oct 2026 16:35:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793118939; x=1824654939;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Utev8fXbgts7UcDCdj3uyCBF4API0Y6uebtPL9YZJpY=;
+  b=AG/jofRCwhvlzzbJztJSJBPFamqUU1/oR7/uIjuXJ7cem2D/iESvDG9Z
+   UHCN+4AaKtALNypaGkz12rJsWywxtRy+uRR5MewgKF0Im2Hg2FhmcV/nH
+   t2E+GS5aHgRUpNKUGquMqk1bej+vZf9Pl16mTpDAueQI6hy14lgmV3ao3
+   dQcAvzTNc94XHpHp/1N7DrrtD5SbH/k1FmxIgqTyx7qO+Rd9Q4ubxRxUe
+   K6wCliMJmJnZwIWn0c5VrTi17AXFBrVm/9mVMXY0JVQs2aa+XXB6fQbX7
+   cqpHmdEelewVDsNDLm2kRPGmhPlZZqAQeAZ+/8JmEWI2KjHM5XWSOUfs6
+   Q==;
+X-CSE-ConnectionGUID: k6EjVbLdQVaB+X6L1oE4Eg==
+X-CSE-MsgGUID: vENqAIQ7TSSpCKWQ3whKdg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11948"; a="1701107"
+X-IronPort-AV: E=Sophos;i="6.27,181,1787036400"; 
+   d="scan'208";a="1701107"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2026 09:35:38 -0700
+X-CSE-ConnectionGUID: s49YAcbWQDyVutQPsQymtw==
+X-CSE-MsgGUID: qDTWBopHSNi+M/18y/ykAg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,181,1787036400"; 
+   d="scan'208";a="6461434"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.196])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2026 09:35:35 -0700
+Date: Tue, 27 Oct 2026 18:35:32 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v7 02/12] gpio: mxc: use for_each_set_bit() to iterate
+ wakeup pads
+Message-ID: <auDS1FpY-kQhP1C6@ashevche-desk.local>
+References: <20261027-gpio-mxc-cleanup-v7-4-v7-0-7b602d70c149@nxp.com>
+ <20261027-gpio-mxc-cleanup-v7-4-v7-2-7b602d70c149@nxp.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|ZR6PR04MB786831:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7e9421f7-8fa3-472a-4273-08df34484b10
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|7416014|376014|366016|1800799024|22082099003|18002099003|261026121527099003|56012099006|11063799006|261022105027099003|10067099003|261009223027099003|261021121427099003|261026140227099003;
-X-Microsoft-Antispam-Message-Info: bBQXM1h47NfflRBcLlicZ9aNCB9ym5FzVPvWegJ3++vmM6EoRaoFF3Z2ZlFegOYMmuFGV+l8n6GMCpCKNHF87jvh8iUqSIVar3sWXQPQCk8Ga28ZUOzyPw8pIvUzu74VYlNKzXXydyCFascAW+CRxz4ZtTIaL/4TdxiBAAE5YMOzeel3tM0o6yzrkk6wkrNmaU1TsLdvHmjFAu+3l+SOKz7zJwxTlDlzif8elYXs85n/xggCAPLVbv5Zh1nqO+T8YuUQsBR1pdg9f5NoQMa1cVdwZKrSloTtR3Fl+zvSf5HspQNVAjZVUFBD6x344iTRxE/F+yzw148KIvoP3vz+skVM9leFygvU7Y68c+clJYUKAN6aC6qtjc7GEE9ID6i79GIxGp0jo6snKMQ/6yeFzT7eLra/wU9KgqBbFtcyjXwASoAsC7az6hFaELFS4jxSkE7uEOtkafYZnDqbbyZ72s7qCCQS8StITzB3pStyE/P4JuLCeRnu3prTCRLeTLCep1d6gXkc8X/p8OznaDRsluDyy8PcrJTBbXvKwtoG0H2FiGPBZ1JnrQuxAbsE395cgDX69s/MU+wO2nyha7irH3qFJaEpPDJzZQYnWf7i1zFfuceUxIB6jT8ZnVLbSZz1ii4TdNHTi/FIQpN90J2VWZRfp+EDKlgrRIyO2GGVcC4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(7416014)(376014)(366016)(1800799024)(22082099003)(18002099003)(261026121527099003)(56012099006)(11063799006)(261022105027099003)(10067099003)(261009223027099003)(261021121427099003)(261026140227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?TIlzxGgHtqBNHSTRlMbbpO8yixKlB8sRt+LZ0nFOs4y668qLiy20y7Zz6sAR?=
- =?us-ascii?Q?4oETvOfgRkVu297oRI2frtF9ivDnGgO1yBsYjXPKB4mA1akihtvRm+KxTbFM?=
- =?us-ascii?Q?BFz7gUKaAf/GcFaWIj3UUW1Z5ADOjfQtn5l6fz8SDMSsK8gU37QrcGtYpxen?=
- =?us-ascii?Q?BzfWYcM0ywRSvWo5W2MBKYHvFC3RhvKw0iTWSaHU2JK8yV0H3ry7Lext6fbg?=
- =?us-ascii?Q?X4J5d/VtNBBSOK97/2guHze+wmwulJST/WTrYThVWRcoqiulrY3v9Tou7hlj?=
- =?us-ascii?Q?3zp13Y5zrF9rjkWsMw91bpgboNbFNx9OTxju5TUBndDZrfAPLK4LAbzez8Jg?=
- =?us-ascii?Q?NOTrXME8jZLxuWNBFUPgGczIDsJ+S4mR5UBDh41nSqWB6+jPbsldOWV3h3P+?=
- =?us-ascii?Q?acxHNzIt2ACKFMzDy82ebpxb4HDhhTot6zNNpZoKHavdoKHIB5DSXBRsg7Yr?=
- =?us-ascii?Q?QnpnKYa5WrIoaiWEPyIt+egLPHk4YlcqlNr0FWYXGtTJY0PqeS1TAfi/EJRg?=
- =?us-ascii?Q?xwdH/H//X7dIkiTKwHkro83hT4kuxduiKfPI2vZqsUnjRSdpVu369bPLH+u0?=
- =?us-ascii?Q?1p11QU6sIpj23ZR/5Z59sa8lUJJ4GUbSx1OwcBCMFi4EyaT3cu5M1kbtU1L1?=
- =?us-ascii?Q?VUSxV68tRJu6FxALwMZt5DVpQi97jqBGzLbND/0zc0hjqHSxxPqUp4N/0dVZ?=
- =?us-ascii?Q?+xGHIgQThc08R+H5n84n4Fc9xTuAZYQLiOXitiIwMzw6THyeJL/B2Nb/PLb8?=
- =?us-ascii?Q?uEKyJ75+lQouRtJONyDjBxqTsfMiW4CpP/GSNshm0CXe3tEz1G668tLo5K4R?=
- =?us-ascii?Q?wCCJIMrxk2WiTqBKSOgB4D2D5BO4wlEG+fzRpt3SUizSTI2ZWJwXF7mBbgwO?=
- =?us-ascii?Q?/bHMHxhQvwKMgVOsGKlDTORaJmMGGfO6YxRvFP/3lxIAsKZ4rDz15TMLVNnK?=
- =?us-ascii?Q?eOr/TGlp0sEUvIIVhDrD1XRKtwTtdebakGDMgRV+U46GN8t3D82uDahn1KHk?=
- =?us-ascii?Q?Eefd1EtR+tvLJCWfK3l3jMYvfvxrdYgzzhMM9rTkobEaUKFzWTkLlWprSuxB?=
- =?us-ascii?Q?e/FZguVFlkLYnCS8BSkCyG65ql3ObZDhlIYooowUEdrXt3cuSROBLUOCVu5l?=
- =?us-ascii?Q?1ZNPPUD+cYkIrKbSqvCa+OEReGk6ZKdeDMXSH38e4W4ULGdDhIwQKpm3sJu7?=
- =?us-ascii?Q?UWrrXKPjymaM/P5uDGe+Tt5Z/WN/LNAX8kFcg20kCy+XIecowxa30hq7RbsM?=
- =?us-ascii?Q?ZR4gzO36c9I0EIHYUPYD9eUNoCiEr+ryre9BskcWfzIU+5/SqsWnAoOIuPip?=
- =?us-ascii?Q?wcrwcXhFMN5ljg9AjYZgbu9R+xzLwMZx1QlkfrwsnTOESfDgAZVDNgeFCZaB?=
- =?us-ascii?Q?wKLhEF8Gjs8ILLoZDZNWWksQqwzw1+dnh2XQ/ljK/DDDFYNqDwxbjmERLYCC?=
- =?us-ascii?Q?axWqZKk0Iqvcd0VJAmupQa6TVp7MnbIwcO2Hd9JTryREnLyu0X6gQh8D8PEw?=
- =?us-ascii?Q?rKg8hqZ4lFyKNKd61CXub0jg2FVcVG2NQeJfxQZBrWH9mQ5C/NSibAKeQVML?=
- =?us-ascii?Q?yqE9W9HKFvBm+h7ESH2cC7Oxw5NsDXAR+obBWOYXwXmEkSOdFrdy0Oy/0VGY?=
- =?us-ascii?Q?5PwMX4B4Vj2wMt4d4lXnFAPk8tMFSFdgPJfbyF757qm7mVXy4V8w0Np9GUGM?=
- =?us-ascii?Q?vNC2V6DWEgnX4O+X34UzRP08hNKJiN++MNDukndzceMuekwxm2xNVRZYAIa3?=
- =?us-ascii?Q?PocDC+KogAvA/o8hLiYzM6GU/fR/HXdYCegeymIANg/eceFj7zKv?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7e9421f7-8fa3-472a-4273-08df34484b10
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 16:35:21.2394
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qMC6Q5L1YLDHmpa7dOZeKZoK6iIcjSLFaRG6E4U5yCB4DvAQf/hgBy0sknrJecs7hev3VnnwM9sly5LitLuiwhiT+JKR9sCOpcYdacIoccrqHG89mlFbaQy1FyUHF1c+
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR6PR04MB786831
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261027-gpio-mxc-cleanup-v7-4-v7-2-7b602d70c149@nxp.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_093527_517552_7A6907E4 
-X-CRM114-Status: GOOD (  17.68  )
-X-Spam-Score: -1.0 (-)
+X-CRM114-CacheID: sfid-20261027_093538_759940_9175CE56 
+X-CRM114-Status: UNSURE (   6.58  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,55 +93,23 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 22, 2026 at 03:11:41PM -0600, James Hilliard wrote:
-> mtk_uart_apdma_issue_pending() keeps the active descriptor in desc_issued
-> and stores an alias in c->desc. Terminating the channel collects and frees
-> that list, but leaves c->desc pointing at the retired descriptor unless
-> the completion interrupt has already cleared it.
->
-> The next issue_pending() requires c->desc to be NULL before starting a
-> transfer. Canceling an active transfer can therefore leave the channel
-> unable to start subsequent transfers, even after synchronization.
->
-> Clear c->desc under the virtual-channel lock when collecting the terminated
-> descriptors, after the existing interrupt shutdown and synchronization.
->
-> Fixes: 2537b40b0a4f ("dmaengine: mediatek: do not issue a new desc if one is still current")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
+On Tue, Oct 27, 2026 at 08:09:29PM +0800, Peng Fan (OSS) wrote:
+> 
+> Use for_each_set_bit() to iterate over the enabled wakeup pads instead
+> of checking every bit individually.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
->  drivers/dma/mediatek/mtk-uart-apdma.c | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/drivers/dma/mediatek/mtk-uart-apdma.c b/drivers/dma/mediatek/mtk-uart-apdma.c
-> index f74e9a328588..d9427d56bc50 100644
-> --- a/drivers/dma/mediatek/mtk-uart-apdma.c
-> +++ b/drivers/dma/mediatek/mtk-uart-apdma.c
-> @@ -433,6 +433,7 @@ static int mtk_uart_apdma_terminate_all(struct dma_chan *chan)
->
->  	spin_lock_irqsave(&c->vc.lock, flags);
->  	vchan_get_all_descriptors(&c->vc, &head);
-> +	c->desc = NULL;
->  	spin_unlock_irqrestore(&c->vc.lock, flags);
->
->  	vchan_dma_desc_free_list(&c->vc, &head);
->
-> ---
-> base-commit: 93f51579e7df248780214094418f205253383cc5
-> change-id: 20261022-submit-mtk-uart-dma-retire-v1-fe71753c51ff
->
-> Best regards,
-> --
-> James Hilliard <james.hilliard1@gmail.com>
->
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
