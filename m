@@ -2,179 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABC4D606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 14:23:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FA8A606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 14:24:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=r3o2P/Z0;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PP6px/qc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZvXZSPwV;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UrCfeUe+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=3TeHgegcSUqtInBgiNa7xjibMFcHinMGaPSHlz8CPjo=; b=r3o2P/Z0PMQQh8tyWXRSxfli25
-	kuwW33yTsy5iNzm4zu9nOMCP4rm7YkQiT+Y8vR00XmDbyLQBP39aYlsgWiLBsHzOQ2VLcqONxakUY
-	qtE4ZAV/hGjO0mhIU/Vj0f6MgWhBaJMYz6wzV32HNLcy/t9UjbDq6gVrnpOy/qNga87IJGw/5L16b
-	evAI7KK/POr+1luXG96EbNBlQzDhnrBJoANtywrQlr5HhRv9BCRdSiqoXbQ1LsNIYvDph7t2ya69m
-	nm6GQCgyKKr4SLolCxl7ReMarYcQj9//CIB6OOmaUkt33S1NkMFPbp6f2672QgA3xBsSYTXG9D1UT
-	/GNRGQBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=jwywrlpki9bMHHIBRrQFn5CCln+QEbHNkdjd7saLhsU=; b=ZvXZSPwVzsEu3Y
+	94EN8+nvRvv1aQmhDXzcsxF5ZncKt90eaTfvdO3zjgrznjca7O6u9OdSObIallRn6o9wRrMjYr9+k
+	3z8SFBLqFwn3f/FM492xHQXT+/yZDyjCH6eGUjJSLhTto+cW+pvtywRaGnMamshACw/Xfy92rWCTF
+	UnVxs5r1HgUGrQwQ5ZAD+4QxA+BVYWBzV0E30l3J4CU+zpDTjgq3tH+cm4hduv4b29QRJCDpA/hkc
+	HC6dKUrIg2FpJFqfUtI449iKsTLfvP3de6irzA3XTPRFm9KzyfABLobiW8CU+FaqzQXf2XDbRxkCB
+	rybYYaVzHoscH6i4xpZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLi5Y-000000051Ss-1sXP;
-	Tue, 27 Oct 2026 14:23:44 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1xLi6H-000000051fd-1HQX;
+	Tue, 27 Oct 2026 14:24:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLi5V-000000051Rb-0NE4
+	id 1xLi6G-000000051fO-16O4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 14:23:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793111021; x=1824647021;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=wJlm3Gexn4Ss+9p1ILTdppk7rwsENKDoWIRmqtfbLAQ=;
-  b=PP6px/qcoyEhGqdk2C/tETsHqV7XRrgNPOWuIm/rnPqo/QsEGophw4G6
-   OX7dK5FCk5C2Eh5p0SY5318kPt/RET/XXicMEBwMaw4IGuAmXKeMJEkF+
-   HqE7vYEcvqpgD/8QTH4/gBF9fGY+KHNhqVCg7OaXwaLKDOQ9FjB06rIzM
-   nnQTqe3vGAWJZZoY7VmrYK/ZM4mdNO4PFbEpK6TRE8IjT8IY9cyUSjm4g
-   bNXtn0h4A+9ewwIJuN9/haRlqNKM9kMxXbsXGpqtcMqgqeABLk5E6bMLc
-   qf2T90hx3EDXbtltXO6N/Reo1zKOIslt+D63L3UOM67qrzSGtKnLmDfNj
-   Q==;
-X-CSE-ConnectionGUID: znvGvgPTTpidjMSQCXBobQ==
-X-CSE-MsgGUID: Jib4qq+3R+SrMf8RonyiSw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11948"; a="1842962"
-X-IronPort-AV: E=Sophos;i="6.27,181,1787036400"; 
-   d="scan'208";a="1842962"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2026 07:23:40 -0700
-X-CSE-ConnectionGUID: 8n9w6V2vRsmfN8O8lMuYRg==
-X-CSE-MsgGUID: 8Ax3tJJwTcmO2I2ZVIvB7Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,181,1787036400"; 
-   d="scan'208";a="6397928"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by fmviesa013.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2026 07:23:40 -0700
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 27 Oct 2026 07:23:39 -0700
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49 via Frontend Transport; Tue, 27 Oct 2026 07:23:39 -0700
-Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.66) by
- edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 27 Oct 2026 07:23:39 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j4EurZX9ZlnTVMPNGBdvi+LJoqj58MTc47mS90+n7+ueLXmobnMXqjIeWSTvG1TbxFTxK3xguhYB+UkNVxi9ZOmwufrUuYE/qOFeUhcOG9ZDvViwkcIjXLDV3Ul8lHuotpqM3d+/awE7ZXNXTe813uTBkHZf8+xs9xg2qWtYc842mak8kA85WmiT3qP4qvTgFvN52SQ58eP61/wdticy98Qx6bMhqcjGFjKpayYK+P32x9WpoTatVhndKdu+pSuLbVZymkQ5+zxCx0p8YFXa0O44YO8j4PwOTQShg0UxncwomeEwef8ulJjICPPXPl2z32HhcBldHHB+w10qqRri6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3TeHgegcSUqtInBgiNa7xjibMFcHinMGaPSHlz8CPjo=;
- b=h7Qp5K0gJDvpIwe0NltTYqeCHFuLlFMckrWqb8GxH/wbIBk5L6HQSUhapzIhSeL4uFzjHgSdXDC9vRzKqg6S+J36EszHZx7xX8Qd9TAicklhg/5SwXaqFHt6+wCC/lzYngYyQvH98qTxAo6tbTUbFm8GrKwLfHa+lgYTFjnkJOWSM/Qh/uqJv4DtasXn3Eani2F49wmOZh9AH7FVENd6zEFA8qPNebV4U/wFsKv0E0nzckBdf/PEkGceunow3gmr65fn57OmSg0hXgWqsvS5UQyxYvDQ1JLenojysdtbZOslBbx3/gxs7rGyeO1T7LqYoJEn7VEH1qu7GFGZCJnxUw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by SA2PR11MB4827.namprd11.prod.outlook.com (2603:10b6:806:11f::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
- 2026 14:23:37 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%6]) with mapi id 15.21.0546.016; Tue, 27 Oct 2026
- 14:23:37 +0000
-Message-ID: <3d64061e-e571-43ea-8216-170a726b4029@intel.com>
-Date: Tue, 27 Oct 2026 07:23:34 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 00/10] arm_mpam: resctrl: Separate MPAM domains
-To: Jinjie Ruan <ruanjinjie@huawei.com>, <ben.horgan@arm.com>,
-	<james.morse@arm.com>, <Dave.Martin@arm.com>, <fenghuay@nvidia.com>
-CC: <tony.luck@intel.com>, <yu.c.chen@intel.com>, <babu.moger@amd.com>,
-	<fustini@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
-References: <cover.1792443633.git.reinette.chatre@intel.com>
- <9e0521af-4ae2-4a53-bbd5-2d86cceb69c3@huawei.com>
-Content-Language: en-US
-From: Reinette Chatre <reinette.chatre@intel.com>
-In-Reply-To: <9e0521af-4ae2-4a53-bbd5-2d86cceb69c3@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MW4PR03CA0069.namprd03.prod.outlook.com
- (2603:10b6:303:b6::14) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	Tue, 27 Oct 2026 14:24:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 88DFA6021E;
+	Tue, 27 Oct 2026 14:24:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BCC41F01829;
+	Tue, 27 Oct 2026 14:24:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793111067;
+	bh=jwywrlpki9bMHHIBRrQFn5CCln+QEbHNkdjd7saLhsU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=UrCfeUe+fb3TmiBWvrRfzazy9kqW+cw4mJpuRy/iD27QfDHrJs+CYjvuCemQ1D9LU
+	 KzBvECnAI1cG7LQLmeBcRdRb9qC+PlPw+WOPTp8C8cSMMrq3uAjgMmbG5e6W+rTOoS
+	 IvJgLkhR4dcp848RYdR3/+yOQCKMvvpAmPxhe7BwbRbOoukZNovKujzpyc+cU2NZw9
+	 bi16C2AYxa+UTIZV/jKLDxHOma+ijQ03hAPR40Bq11z+EbBKGtIOd6hoxCdKZJKQnC
+	 Agd6K9KO0iXA9NZvxMkf6xViYvnO8A5QBdw5ctZjjgjzJO5InPQ/cwIQWsexqLhR7V
+	 oAtq4FBvcV2tw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xLi6C-00000007k8T-2lj1;
+	Tue, 27 Oct 2026 14:24:24 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	Eric Auger <eauger@redhat.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Yuan Yao <yaoyuan@linux.alibaba.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/4] irqchip/gic-v4, KVM: arm64: Fix the vgic init error paths
+Date: Tue, 27 Oct 2026 14:24:22 +0000
+Message-ID: <179311103723.2732161.15358895757190897834.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260921072958.2918477-1-fuad.tabba@linux.dev>
+References: <20260921072958.2918477-1-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|SA2PR11MB4827:EE_
-X-MS-Office365-Filtering-Correlation-Id: e07020fd-fe03-4de8-2c28-08df3435e39c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|261026140227099003|260925021911599003|260925022911599003|260925021311599003|4143699003|11063799006|56012099006|261022075727099003|261022113327099003|261022105027099003|261021121427099003|261009223027099003|10067099003|18002099003|261026121527099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: Wz2oP3tveXsLlMaoYXJfCBFqOkZ8HuK2vGUo6ez/MD9Ec5WMhkhThBm2d+GX58Uamm/p9Tbrv8BJ0fROJ/9pygMa0O06k17JKqNQ2lB3SmRYyB4kqyjKJYgwoxX1tzZzmBpbeJ8EETi8Wcb+WnuRbymCiLPtaTZpVQMIdJq4w88QxbSzeQa4dy2zne10KqFCz/dt03b13neG4w7ngSEHMytinAyDl02cVxPIN+59xq9Di3PQXKp6Of/MJgKoyKzhJ1grLRlkE5EUk9wjpISPX9ngDcdxJ8i/PCJmY1dSEOpWP4UrLookgwOXvIbXMeWDB9SoZzBj6+zJVmMaRrgWXTtW8NvzIMWMMdcimYmMrzu+SfB1TLpXJ/PiZpF83bd3EzJ6HggT5TPiLaCFZXgk1feNFGIGLYq7rQI8jsnFFzVP/cwV5b3Rp46WszKi/9Q7xh0wuHRUk/gYEbVix1pboltDshv9VcZnwK/0lFZl0wuEqFf+LcHCklVkScCJceIrSSzIINGeoSRNLfSenSrCc13gu3MtNJWxY4LIyD1xwl7S8nL2r+SPDJAXUQykaWXAThzCSj7BzV8WSb9ayGSqncPw+H+SrqIA0y1reqK98daaF0h4ryX4hD2F3/2BzETV
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(261026140227099003)(260925021911599003)(260925022911599003)(260925021311599003)(4143699003)(11063799006)(56012099006)(261022075727099003)(261022113327099003)(261022105027099003)(261021121427099003)(261009223027099003)(10067099003)(18002099003)(261026121527099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MVVtUFZWZkV3bXFqc09WREN1c3FNaG9hdE84Y2hhSWlNd2VVM2JZdmRuclJj?=
- =?utf-8?B?WTZjMUJISXVrVDE5NmNXaS90YURiTDNuUXV1N2toazlreHB5WlI0VDBWczVw?=
- =?utf-8?B?VHEzdEN0RDAzM1dYQUM5cmJOVHlrOXdnWlBJSmQ4TjNRWWNmQU5ocHVoMlNL?=
- =?utf-8?B?eE9tMDBlSDJzN1ZiSWF0cEg0amdRQWNTdHN6K3QyNVJKT2NPcWNTa2dOc0x4?=
- =?utf-8?B?MlMxZGFTczdMcFZLR2FYcFhCNkxibm96SUdod0tPWlZta2d4cERLcWI0d3U3?=
- =?utf-8?B?QThmTVBpVHBrWTZkMW1GU1FTRlFuVlhhcElhTXJpNlFkMFMrZTJEc1pSM2VO?=
- =?utf-8?B?dlNsRElaOS9vU3ZyaDMvSS81a1cxYkdQaUFVWUhjRzBNK1B6S0tncjFGbGJV?=
- =?utf-8?B?b1NEV2dncERwd0NaMnZLaGkxM2NJZ1QwR3dzZVc0U0l3NzVXTzZzK1praDU2?=
- =?utf-8?B?TXBWVmlKSXFmY0dSMEJsYVZXajl6UDlBUS8yNUxJTXA0ci9YVHdHSTFaSUha?=
- =?utf-8?B?ZFQ1RmQzbWhiOWZnZHBYby9qZnpHVU45M2QycDNpN0hWK0NncmFNSzFIcXlX?=
- =?utf-8?B?dHkwOGtmSGh5bVhyakltUkpsT3NidmxKUTZCTXFSY1dWaU5zVmM3REpvMTVx?=
- =?utf-8?B?bi8wQjJNaXVsQVN6N2EwTTZHS3NvRy9BbkNFcG9qUXRJNjF0U2h4MXBEamd2?=
- =?utf-8?B?bElUTkNINElQSlBxTWpQTW5LR09FNHltY2JpWGpCNHhLd0RDY2tCRWlDNk9R?=
- =?utf-8?B?SjhiZHF4eFZ0ZzVoNS9FUDBqSnU0QzhSR2JBUFkyd2diVHRtT0psT0VleXF3?=
- =?utf-8?B?dXE1VysvVVpTRzhvMjJUb2RVWHEvTVF6U2ZodHR6c2pCYVVoNlFoazZmWHhE?=
- =?utf-8?B?emhCcm9VRWkzREhzcFlPMXRockoybWVCeXo3T1JKSGprU2ZaNHFxZ1c1aDBx?=
- =?utf-8?B?YnhrRXFUR0lEY0h3cVFBYUpuRUJ4aS9rS291MGpuYjZOdnhCTHRlVWUwYzVU?=
- =?utf-8?B?RW9xOEw1dmx1R0xHOXhHZmVwSVN3QkV4UEc1RlpMU005ZS9YdXFuN1YvOHI5?=
- =?utf-8?B?K01uVnk2b29lckJobG0zaDZkNmlyY0lUUDlhSCtOYzUxK3MxMktZdlNtRFB2?=
- =?utf-8?B?Rnh4V0p2N0ZqdzN3K2VXZldmbzlwekgrT0d1NldnLzd6c1dFeEdmcjhyUHhN?=
- =?utf-8?B?TWh0b0Q1SEo3M00yQk9SODdIOWVTZU9YVjhNUnVON0NhZUNOSXR6em5zSXRt?=
- =?utf-8?B?TDRKUGIzcXRTUDljL2lWa3lsSklWREM4aHpHc01wbjQ0ZytOSjFqNnEyOTVm?=
- =?utf-8?B?N1IwcUxhNGhZNzQ0cE4zeWlEV1R0cVNORXFVR1k1VFhWNWRKNFhWdmRLT3ZM?=
- =?utf-8?B?UGxKd0ovOWdHMGNlM2NKclp2QVJyNFBkVUswWng5bFNOSUgxajNDSmZrSmJr?=
- =?utf-8?B?eHJKQ3NxK3lIYlF4Z005S1hjYzFCY1h3UmQ3b3BheXVXb3k2ekNKMmlESlRw?=
- =?utf-8?B?elJ4MFF4NTJVWGtTQ2Y0ODdUQ2ZhRitjTG1YeCt4Lzh2eU11MnRLcy85MFNy?=
- =?utf-8?B?dFRLQVE2dVpDRnhIYTNzN3k3bXl5NHlHV3ZZcWMyU2FPZXJhSmhCZHVPeWUr?=
- =?utf-8?B?YUJnTUphcmwzVVp4TnR6MHROay9VK3BMNkJRbG5KOHpaMHV4dWorK1FVVG0y?=
- =?utf-8?B?NHM1RXZxRlk4M0JsanBHZExZRFJER0l4Skt4a2o0cnl6allWOVF3Y0hDQUJG?=
- =?utf-8?B?ejR5azgyUHROcVF0dWlVc2tnWVVCVUtTRlVId3I0dlJjeG1pTDk5cWpRdWg4?=
- =?utf-8?B?N2JhUFpRZ0JCMVI0YWhLeWhpdVZaMVVBc05UV1hYSzFTWEFZUWE2bFNoclRK?=
- =?utf-8?B?ODhTb1JJSzhwR3JmQ2w3YzdmMFRMVU1ubWMxV2liY2lqY294bEJFdG0zTlpO?=
- =?utf-8?B?K2NVWFpBMkV5ZGFaUTlTdWRNTjJEOUREdStLYkVQdGxKZkRjR2FPSDZBSTZi?=
- =?utf-8?B?WW5hL0NIaEtwR084eXRocGFzbmswWi9lLzVJREg4NnAyQ2lZb1IwUmdORUFU?=
- =?utf-8?B?RW1uK3NxdWdkeDZtdjdDTklIOExkWkhWVUF2MGdhaHBOK3FYM2plNGliRGNU?=
- =?utf-8?B?MTVxVzNlSmFaMjhnbXc0VW9FS3pXTlFHY3N6VHU4Y3NDaXoxT2IybEJzdXFX?=
- =?utf-8?B?cTZ0Q0lIcW9kUkE4Zlc2K3lCVWpjS0F3M1BjSmlrdjh6Q2FjRzFXMWs4c1po?=
- =?utf-8?B?OFdoWE4zNDMwMk12UlFldzZxVEJmTE1VbnN5ZnhDbGFDN2tpWXZVd3NTSHVz?=
- =?utf-8?B?MXVYN0RwZjFTWGV1cXQ3UkY4QVdsK0F0dDhaakIweWZFeERZNHJESmFRZ0Fz?=
- =?utf-8?Q?d7HkV8jt7KFZ2+Hk=3D?=
-X-Exchange-RoutingPolicyChecked: Pngtny6Vgg0Empj4zLkIQLyfm3vs1LYkgku2zZQFU+nP+ltp6p2Mf4Ygp0QSn+Bx2Gb0MfWAZka25hK4mXPbe4UHaX1zq8nnwHUi0XQj0ewVL9iRA9EpkE/F+0Y6jdpFda0LM3P+RITHuq9bjsc2x+1kkfBCHfpewjZA0JSSforlMZXqi84QQIA4oP9KiPcl4az6QTWZOpCUS3OzReCDu7PhSlWicF2DU87sU2ND2VgBxd2npsDGQuDfj9wVIbdlrRWRb4nUrZBxvSKMofOv4ISAKyRUZYKc1WwsGM/meMFypw4C+/L8DldOtmMGlkCab5N5OH4CpqKCjcsAsiHdUA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: e07020fd-fe03-4de8-2c28-08df3435e39c
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 14:23:36.8743
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kaTcOVB3CSdoFAatouHXWoWHVNGhpkZA9+LQl+kgmDyolUgLClMH/4FrssungLjfUdY+QaDcldLzvHbRMQoT5q4N+mAIqjd/rlYXXHAJ8Mo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR11MB4827
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_072341_162721_2E7B270B 
-X-CRM114-Status: GOOD (  22.32  )
-X-Spam-Score: -4.4 (----)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, fuad.tabba@linux.dev, tglx@kernel.org, eauger@redhat.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, Sascha.Bischoff@arm.com, sebastianene@google.com, yaoyuan@linux.alibaba.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,87 +89,41 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Jinjie,
+On Mon, 21 Sep 2026 08:29:54 +0100, Fuad Tabba wrote:
+> Changes since v2 [1]:
+>   - Patch 3: a vgic_v4_init() failure now frees only the SPI array,
+>     since that function unwinds its own state; the teardown label is
+>     for the routing failure. (Yuan Yao)
+>   - Rebased on kvmarm/next, where the routing failure already tears
+>     down the GICv5 state. Patch 3 moves that into the shared label, so
+>     the SPI array is freed on that path too.
+>   - Collected Reviewed-by from Yuan Yao on patches 1 and 2. (thanks!)
+> 
+> [...]
 
-On 10/26/26 8:42 PM, Jinjie Ruan wrote:
-> 
-> 
-> 在 2026/10/20 6:07, Reinette Chatre 写道:
->> RFC v1: https://lore.kernel.org/lkml/85ca29e89eacf12cfa7071249419e7cadb8f0691.1788220029.git.reinette.chatre@intel.com/
->>
->> The MPAM driver represents a resctrl domain with a single structure,
->> struct mpam_resctrl_dom, that holds both a control domain and a
->> monitoring domain. On a system that supports both allocation and
->> monitoring, one instance is created for each domain and its two
->> domains are added to the resource's control and monitoring domain
->> lists.
->>
->> Holding both domains in one structure requires control and monitoring
->> to be done at the same scope, and ties each control domain to a
->> monitoring domain. This does not fit the proposed support for multiple
->> controls per resource [1]. There, each control of a resource, for
->> example a "min" and a "max" memory bandwidth control, has its own list
->> of control domains while the resource keeps a single list of
->> monitoring domains. With one structure for both, every control domain
->> would come with a monitoring domain of its own, which does not reflect
->> the resource.
->>
->> This series gives control and monitoring domains their own structures,
->> set up and torn down independently as CPUs come online and go offline,
->> in preparation for supporting multiple controls per resource. Along
->> the way it stops failing CPU online when a domain cannot be set up,
->> and adds checks when setting up a monitoring domain.
->>
->>   1-2   Preparatory cleanups of domain allocation
->>   3     Do not fail CPU online when domain setup fails
->>   4-6   Separate the control and monitoring domain structures
->>   7-9   Checks when setting up a monitoring domain
->>   10    Comment update, kept separate for review
->>
->> An earlier version of the domain split was posted on its own [2]. This
->> version incorporates the feedback from that discussion. It gives each
->> type of domain its own structure instead of duplicating the shared
->> one, sets up each domain independently instead of undoing one domain
->> when setting up the other fails, and adds the checks in patches 8 and
->> 9.
->>
->> Patch 7 turns a WARN_ON_ONCE(0) into a warning that fires. It is a
->> separate patch because it is not clear whether the silent failure was
->> intended. If it was, the patch can instead drop the dead
->> WARN_ON_ONCE().
->>
->> This is an RFC because I am only able to compile test MPAM changes,
->> which is also why the patches are small and each change is justified
->> on its own. Patches can be squashed if preferred, for example patch 10
->> into patches 5 and 9. Testing on MPAM hardware would be greatly
->> appreciated, as is any other feedback.
-> 
-> Hi Reinette,
-> 
-> I tested it on a QEMU with MPAM rebased on v7.3-rc6 and all pass:
-> 
-> 1、Resctrl mounts，L3/L2 each report 32 closids (control IDs)
-> 2、Cache and memory bandwidth controls
-> 3、Priority, min, max, option and hard-limit: write, read back, and the
-> 
->    emulated hardware shows the same value
-> 4、CDP mode and usage/bandwidth counters
-> 5、All builds pass without warnings: arm64/x86_64, debug on/off,
->    self-tests on/off, resctrl off, ACPI off
-> 
-> Test cases: https://github.com/ruanjinjie-eng/mpam_testcase/tree/qemu
-> 
-> Tested-by: Jinjie Ruan ruanjinjie@huawei.com
-Thank you very much for this thorough testing. It is much appreciated.
+Applied to fixes, thanks!
 
-Reinette
+[1/4] irqchip/gic-v4: Clear the domain and fwnode pointers after freeing them
+      commit: 1fbdcc13ab303987048669c73134352ef5706666
+[2/4] irqchip/gic-v4: Unwind what its_alloc_vcpu_irqs() allocated on failure
+      commit: 6b44f7777ee826360714044b1a82fbdb1388304c
+[3/4] KVM: arm64: vgic: Tear down what vgic_init() created when it fails
+      commit: 25993ec8c5bb30baa746936d7a76f03c58150927
+[4/4] KVM: arm64: vgic-v4: Restore nr_vpes before freeing the vPE resources
+      commit: 99ec74a33d52219f57cc61a2bc7bd5114cc997b0
+
+Cheers,
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
 
 
