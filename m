@@ -2,101 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B98D606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 18:25:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7757E606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 18:31:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NyomVhiY;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=bCe0DApS
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=A2XTWbCK;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RtOJEvqY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=yYVnZVngw4wIyvUedHrp/RCi4DEk87r28LIRWXpCLH0=; b=NyomVhiYE6zjSF
-	F68jCNn+A16YWp6UNFo1EGA1OiKFV6K2uzJKDkypT6n0MMPcPiEW6pR/+xnQZGnrJw1hL26l0bZy9
-	BCRAJwgCcKrMqIvxImO/ySPyyIhWNhfqgfsPFR4tsN7PL2QSVGqf0tRJheIWYdj9492O7qfl1Jqbq
-	Ghyy43xow4leCS4/9kt1qGA0RK0PX3j1iMOvsIRbK7ZeuEphuptb8c5LkROTvZJoytYgi6pCw5bgw
-	3lQteMrJM+V3mP/FTTtbgXqTKhlogDdQ62R+Ia4ES2KdqlCHafO7sviY8bUPoZLz4pSXcuTRDcVIQ
-	Xp+x0npNeWixzzzCDqBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=jwVMYqATmMoi+MfU2NzwBtahzJeExlYAhj124bRfpQQ=; b=A2XTWbCKLlMZ7K/kloJW1JTXdB
+	adXu1oz1nYXqW83qy6P9oKrn1dQjtF5qcvOqpeh39KXfBZuJDag1UFi6gcEo+z4biqtE1JFqMfAM7
+	yECNgSuE6drFZVYJXqktE0kuztWWrs5utSVrKNrAtOkgEAoHPrRwene/QKNxncbhZ+6haXWSP++AL
+	JRruY3h03U5KGQoxnggBKFK6nLuHP/8DsZn9b7xkD+PaNL76drVD/dLHrr22zxPNyosPyw2lOdprg
+	fGeVvTDjilvX2NTBoiTijyRMadK7JJrW1ash5S6qEfCD8l4mGuOJV6A9sV+WhBpMwcyXO+rGStYkb
+	QWHo90mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLlrq-00000005YnA-0BDE;
-	Tue, 27 Oct 2026 18:25:50 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1xLlxZ-00000005ZOk-3tIw;
+	Tue, 27 Oct 2026 18:31:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLlrl-00000005Ylw-3ued;
-	Tue, 27 Oct 2026 18:25:49 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261027182540euoutp01808e2a0784b22e974d6c8ffe88c8195c~idi3U5q2O1070810708euoutp01J;
-	Tue, 27 Oct 2026 18:25:40 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261027182540euoutp01808e2a0784b22e974d6c8ffe88c8195c~idi3U5q2O1070810708euoutp01J
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1793125540;
-	bh=yYVnZVngw4wIyvUedHrp/RCi4DEk87r28LIRWXpCLH0=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=bCe0DApSTMa5hEEGgVvneqzfJYakD7qrG9r1rRA787dJcmFkxZeM041kJvQzf1sWi
-	 mFAb6eOSUU0Yw/Y6KAUriZpeXdgumQlCNkdGsLLdF/sfW7mYHnWBx2d7wOenrOEkLR
-	 zJJaDP1dZxSCFavYWwIcrbMKnu0ZvjvRL33YUuUE=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261027182539eucas1p2af97fa5bad6b7de6ca761cb86172737b~idi2gJHhp1120011200eucas1p2b;
-	Tue, 27 Oct 2026 18:25:39 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261027182538eusmtip2789b0e5587293524b9c364f453c89396~idi03PmTX1528615286eusmtip2f;
-	Tue, 27 Oct 2026 18:25:38 +0000 (GMT)
-Message-ID: <5fec923f-36bb-4dcc-bf3a-13be3eaa8f83@samsung.com>
-Date: Tue, 27 Oct 2026 19:25:37 +0100
+	id 1xLlxY-00000005ZOV-10uS;
+	Tue, 27 Oct 2026 18:31:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 723EA60236;
+	Tue, 27 Oct 2026 18:31:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78FA31F031E1;
+	Tue, 27 Oct 2026 18:31:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793125903;
+	bh=jwVMYqATmMoi+MfU2NzwBtahzJeExlYAhj124bRfpQQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RtOJEvqYrmf4Gv3UUj4FUc1RKQOAxGc7QrR8+1C1H1aKLA19ft2ieBfxRDtSAiEpn
+	 kiL6ortvW8eU/9nAcAGvFFt5MgbzfiQB/xlqVgMSqGnxtf3vQPOeFqGONlo+hgljzJ
+	 CCsqczZ09+ye4LnWxoyU9d9DXwPJKQr4lZGOFMG2IXerAVFeqNP8pXSxIG85VwRRT+
+	 ksPN5+6lhWv7XsC/C9cpj+Lv2EecXKSQY/aHrhCC+sf4APC4qngySz1DRCzPlUwo1e
+	 BaCcjc7JUexHnEw0K5Q6iPfsNP+9GM8pHsl4eoBpUo/tVFgNTkbvtvm8n8fBHbgStw
+	 sgZznyV1gpaJQ==
+Date: Tue, 27 Oct 2026 19:31:39 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Cunhao Lu <1579567540@qq.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Elaine Zhang <zhangqing@rock-chips.com>, Richard Cochran <richardcochran@gmail.com>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v4 1/4] dt-bindings: clock: rockchip: Add RK3572 CRU
+Message-ID: <20261027-amiable-dazzling-kelpie-cef3ab@quoll>
+References: <20261027-add-board-ok3572-c-clk-v4-0-d4152b4fedaa@qq.com>
+ <20261027-add-board-ok3572-c-clk-v4-1-d4152b4fedaa@qq.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 19/20] riscv: dts: starfive: jh7110: Update DT for
- display subsystem
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss
-	<rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
-	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
-	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
-	Brunet <jbrunet+clk@baylibre.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	mfd@lists.linux.dev, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org, Marek Szyprowski
-	<m.szyprowski@samsung.com>, Maud Spierings <maud_spierings@murena.io>,
-	Graham Markall <hello@big-grey.co.uk>, Chaoyi Chen
-	<chaoyi.chen@rock-chips.com>, Joshua Peisach <jpeisach@ubuntu.com>,
-	=?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <b5eb69f3f41a98b5a98694435df25a632babf05a.camel@iscas.ac.cn>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261027182539eucas1p2af97fa5bad6b7de6ca761cb86172737b
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260915153248eucas1p27d8d2c9fa536bbd951e0102b04416dad
-X-EPHeader: CA
-X-CMS-RootMailID: 20260915153248eucas1p27d8d2c9fa536bbd951e0102b04416dad
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	<CGME20260915153248eucas1p27d8d2c9fa536bbd951e0102b04416dad@eucas1p2.samsung.com>
-	<20260915-jh7110-clean-send-v4-19-f0e4fd6f2cc8@samsung.com>
-	<b5eb69f3f41a98b5a98694435df25a632babf05a.camel@iscas.ac.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_112546_575882_C87A890E 
-X-CRM114-Status: GOOD (  23.57  )
-X-Spam-Score: -4.4 (----)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261027-add-board-ok3572-c-clk-v4-1-d4152b4fedaa@qq.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,134 +72,33 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-
-On 9/29/26 17:06, Icenowy Zheng wrote:
-> 在 2026-09-15二的 17:32 +0200，Michal Wilczynski写道：
->> Activate the display subsystem by describing the video output
->> subsystem,
->> which the documentation calls dom_vout_top, as a bus node covering
->> the
->> whole 0x29400000 region, with dc8200, the HDMI block, the video
->> output
->> system controller and voutcrg as its children.
->>
->> The subsystem node owns the resources its children share: the NoC
->> display
->> bus clock and reset that gate access to every register in the region,
->> and
->> the PD_VOUT power domain. Modelling it this way keeps a shared gate
->> owned
->> by the block that shares it rather than by whichever consumer happens
->> to
->> probe first, and lets dc8200 inherit dma-noncoherent for framebuffer
->> DMA
->> from the bus it sits on.
->>
->> The monolithic hdmi node is in turn modelled as a container with
->> hdmi_phy
->> and hdmi_controller children. This lets the PHY (clock provider,
->> depending only on xin24m) and the controller (clock consumer) probe
->> independently, breaking the circular clock dependency with voutcrg.
->>
->> voutcrg consumes the pixel clock from the &hdmi_phy node instead of
->> the
->> old fixed-clock, and dc8200 gets its pixel clocks from voutcrg's
->> MUXes.
->> The old, incorrect hdmitx0-pixel-clock fixed-clock node is removed.
->>
->> The HDMI controller gets a phandle to the video output system
->> controller,
->> which holds the mux selecting the DC8200 output that drives the HDMI
->> transmitter.
->>
->> CMA is enlarged and constrained to memory the display controller can
->> address, because the default pool is too small for its framebuffers.
->>
->> Co-developed-by: Dominique Belhachemi <db@domibel.de>
->> Signed-off-by: Dominique Belhachemi <db@domibel.de>
->> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+On Tue, Oct 27, 2026 at 06:04:28PM +0800, Cunhao Lu wrote:
+> From: Elaine Zhang <zhangqing@rock-chips.com>
 > 
-> ```
-> Tested-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> ```
+> The RK3572 CRU uses the PMU0 GRF for the AUPLL reference mux.
+> Describe the controller and define its clock and reset IDs.
 > 
-> But,
+> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
 > 
->> ---
->>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 121
->> +++++++++++++++++++++++-
->>  arch/riscv/boot/dts/starfive/jh7110.dtsi        | 105
->> ++++++++++++++++----
->>  2 files changed, 203 insertions(+), 23 deletions(-)
->>
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->> b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->> index
->> a7a1c09a2c9075711f3a214a49618911fdc7b421..a4c3daf712a63b177f744e8c613
->> 416d22e0c9dbd 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->> @@ -33,6 +33,27 @@ memory@40000000 {
->>  		bootph-pre-ram;
->>  	};
->>  
->> +	reserved-memory {
->> +		#address-cells = <2>;
->> +		#size-cells = <2>;
->> +		ranges;
->> +
->> +		/*
->> +		 * The display controller allocates its framebuffers
->> from CMA,
->> +		 * and the default pool is too small for them. Keep
->> the pool
->> +		 * inside the range the controller can address; it
->> fits in the
->> +		 * memory every VisionFive 2 variant has.
->> +		 */
->> +		linux,cma {
->> +			compatible = "shared-dma-pool";
->> +			reusable;
->> +			size = <0x0 0x20000000>;
->> +			alignment = <0x0 0x1000>;
->> +			alloc-ranges = <0x0 0x70000000 0x0
->> 0x20000000>;
->> +			linux,cma-default;
->> +		};
->> +	};
->> +
+> - Documented the xin24m input.
+> - Made the PMU0 GRF phandle required.
+> - Updated the example.
+> - Closed the reset ID gap while preserving each named reset's register
+>   mapping.
+> - Removed CLK_NR_CLKS from the clock binding.
 > 
-> I don't know whether constraining the CMA pool in the DT is a good
-> idea.
-> 
-> Thanks,
-> Icenowy
->
+> Signed-off-by: Cunhao Lu <1579567540@qq.com>
 
-So I've tested the version without alloc-ranges and some of the modetest
-runs failed especially the higher resolutions. It seems this is because
-without alloc-ranges __reserved_mem_alloc_size() allocates top down with
-MEMBLOCK_ALLOC_ANYWHERE so the pool lands above 4 GB, which the DC8200
-cannot reach - vs_dc.c sets a 32-bit DMA mask.
-
-25 of the 42 advertised modes failed with "failed to create dumb buffer:
-Cannot allocate memory" - every 4K and 1080p mode, down to 1360x768.
-Only 1280x800 and below survive.
-
-So the range seems to be a hardware limit which is why I think it
-belongs in the DT. I'd like to keep it in v6.
+Same comments as in other places. I probably responded to older version.
 
 Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+Krzysztof
 
 
