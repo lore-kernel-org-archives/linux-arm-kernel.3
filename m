@@ -2,68 +2,61 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F101606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 09:56:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 664D2606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 09:57:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Waihzas0;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FUAGOVkK
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=x1pCXQKt;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NT1znik9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=xG04b/pMlxUdyEELh4CAqRO0ERstFWipTHgPIUgZB3M=; b=Waihzas0bthh2r
-	RS69Cajas+1n8HubOimt9Lk6O1hD0Z1Z/FwlTinR+6vH8vbDgOLt8lImYuohN/kW1frLZckiCpb/f
-	Tp+HE6WVYMplg3Mv5HCRUCDYatoqLsfwa4LiHlmOaH+Vcrcx4xF9P31S1omkmj256DQSv56RO/sgl
-	FZ0K+GZ+6c7Mr+ICJNJgl6a90Tw6dFp358V61exy96rcoXdqMqloGBxlxxPc4JBPhgZXbmxKyBY4g
-	fanJcIeZJ9Xrh+3U2LH8isjADOuXQuxT48MyTqS9RnqNU+O0YIhSNw9wW7k8tr635DdFvILDs3wi5
-	QqXhxSVuAbg+BjhktB3Q==;
+	List-Owner; bh=GP5oharGv0apk4U72jFVlwAbHHN87kFMPLSACqzLjUs=; b=x1pCXQKty2yUyA
+	oteVsfJwMoVhNqXyvNLkXi9PwLc4nhrGtIidXr346POBEZ49hkY+wLoT2+YJFmbNZ4sLFLtWLaOIP
+	EL4WQaxQVR+1bSijvkxLq2Nm3N9A9xnrHLyCoqCSHPQehBilAhcdLxsifHrR69A5vBYS7657rbHVZ
+	HODJXSAtQj81vtDhchY2gS+YxylKp+YwNuPWmegvdg2Trd9Im/1OOJBG1r7wc0rmaA405ytLD57lJ
+	hq7Pu3R0UckQAHUsJtz59K9/pd+Iilt/CG+t28kl/uZbzK8gb7AVMPtY7OFg44hzlM7FjATpb0OpY
+	qv6mfZMQi5BTccyqhWAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLdue-00000004EQ1-0Ujd;
-	Tue, 27 Oct 2026 09:56:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xLdvK-00000004EYC-1N8T;
+	Tue, 27 Oct 2026 09:56:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLdud-00000004EPv-2XQw
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 09:56:11 +0000
+	id 1xLdvI-00000004EXs-3PUT;
+	Tue, 27 Oct 2026 09:56:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2BE79434AC;
-	Tue, 27 Oct 2026 09:56:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB1F01F01825;
-	Tue, 27 Oct 2026 09:56:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D8D542B82;
+	Tue, 27 Oct 2026 09:56:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F1791F01825;
+	Tue, 27 Oct 2026 09:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793094971;
-	bh=xG04b/pMlxUdyEELh4CAqRO0ERstFWipTHgPIUgZB3M=;
+	s=k20260515; t=1793095012;
+	bh=GP5oharGv0apk4U72jFVlwAbHHN87kFMPLSACqzLjUs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=FUAGOVkKXkI4UsW3wrFBYTCA0kqbRMh+Qb22fLxWLeyLXvR5AmqQ8iUsfC2KNhdKi
-	 GLER+hHxYpCkJx2sagTG7Qj29Vzo3XGG4xciuElBW1QgjfKfTr2djVEDdxCvQmjebW
-	 w5NFysCQvmFJMbNBCsnzIlls7keuOehiWC+eh3/jv2m2oL2LKe/aW5K2q6kR8Mf5JD
-	 8tKWjOm7ql6eWIQH12Vn0AHFuIm3ejrsiwqNyv+I6GwQe81PcbkeGJlsf/IRHunm9y
-	 NyxQ1fKER+4r5Ebr7izwizSYKQVHKF6Ogm7obIrwBEE9LBWflint7YM6VS1gi88i4L
-	 Lj+3CcR/62pWg==
-Message-ID: <3287a7db-fbab-4b23-9ee0-d40c52fe855a@kernel.org>
-Date: Tue, 27 Oct 2026 10:56:02 +0100
+	b=NT1znik9uR+3gc3Tt3ZFxzdRSRBStmc3sLNfoepUakyw+eIZeOE1KrHR+tVHWUxYt
+	 noAz+K62TqwcKkFrDmnLeeMiv3sKZtc19JKRLql6TM/QtA06HkHJhL3JM7aikHo/76
+	 dcB1qRsVBsu24P7qgMKVEqJZFBpLEFp9k/rbhFqtxfraBT7OhZ3aXBwQmsqhc0qCl/
+	 2ck0cMkgJa6qxc/PPp2ctQfcHG7a+jBEm79C+T1dJPV/OJZIaZlLKViM/1WLTGHcWG
+	 StF0ItbyTTis5VD6Y7i1xChzfTMmo2Oig5gvA715s2a8tdrlLBUaI3y62ALm8LBZzj
+	 I+kzJhs3fATIQ==
+Message-ID: <7b993a3e-d2b4-417b-90a3-a41d1f454cda@kernel.org>
+Date: Tue, 27 Oct 2026 10:56:44 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] dt-bindings: serial: snps-dw-apb-uart: add
- Allwinner H616
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-References: <20261024-submit-h616-uart-fifo-v1-v3-0-286fc1b8c3c1@gmail.com>
- <20261024-submit-h616-uart-fifo-v1-v3-2-286fc1b8c3c1@gmail.com>
- <20261027-nifty-reliable-octopus-6cbac5@quoll>
- <CADvTj4qrBYSyT39=xK3_oGgHdFoSH=oyDvTtLCSzW=F9KAgi3Q@mail.gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: arm: rockchip: Add ArmSoM Sige7s
+To: Jianfeng Liu <liujianfeng1994@gmail.com>
+Cc: HystericalDragons@proton.me, amadeus@jmu.edu.cn, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, heiko@sntech.de, hrushirajg23@gmail.com,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ macromorgan@hotmail.com, michael.opdenacker@rootcommit.com, naoki@radxa.com,
+ robh@kernel.org
+References: <20261027-angelic-caribou-of-wonder-02ccc8@quoll>
+ <20261027085634.380872-1-liujianfeng1994@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,9 +102,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <CADvTj4qrBYSyT39=xK3_oGgHdFoSH=oyDvTtLCSzW=F9KAgi3Q@mail.gmail.com>
+In-Reply-To: <20261027085634.380872-1-liujianfeng1994@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,61 +115,40 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 27/10/2026 10:39, James Hilliard wrote:
-> On Tue, Oct 27, 2026 at 2:02 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On Sat, Oct 24, 2026 at 02:22:24PM -0600, James Hilliard wrote:
->>> The H616 UART has 256-byte transmit and receive FIFOs, but its DesignWare
->>> component parameter register does not report the FIFO depth. Its optional
->>> register layout also differs from the generic DesignWare integration.
->>>
->>> Add a specific compatible for the integration and allow the standard
->>> fifo-size property to describe the capacity. Require the documented
->>> 256-byte size for H616, retaining snps,dw-apb-uart as a fallback.
->>>
->>> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
->>> ---
->>>  .../devicetree/bindings/serial/snps-dw-apb-uart.yaml    | 17 +++++++++++++++++
->>>  1 file changed, 17 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
->>> index e2ca126d58ba..0f8fd0485879 100644
->>> --- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
->>> +++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
->>> @@ -13,6 +13,18 @@ allOf:
->>>    - $ref: serial.yaml#
->>>    - $ref: rs485.yaml#
->>>
->>> +  - if:
->>> +      properties:
->>> +        compatible:
->>> +          contains:
->>> +            const: allwinner,sun50i-h616-uart
->>> +    then:
->>> +      properties:
->>> +        fifo-size:
->>> +          const: 256
->>> +      required:
->>> +        - fifo-size
->>
->> Why do you require fifo-size if is const? It is implied by the
->> compatible.
+On 27/10/2026 09:56, Jianfeng Liu wrote:
+> Hi Krzysztof,
 > 
-> H616 has a fixed depth, but other sunxi integrations have different
-> depths between UART instances. For example, D1 has 64-byte FIFOs on
-> UART0 and 256-byte FIFOs on UART1–5.
+> On 2026-10-27  7:48 UTC, Krzysztof wrote:
+>> Maybe just install the DTB under new name if they are identical?
 > 
-> Should I keep this explicit for consistency for all sunxi uarts?
+> Thanks for the suggestion.
+> 
+> Installing the existing CoolPi 4B DTB under a different filename would
+> solve the DTB naming issue, but the model and compatible properties would
+> still identify the device as a CoolPi 4B.
+> 
+> This is my main concern. Users running Linux on a Sige7s would still see
+> "RK3588S CoolPi 4 Model B" in /proc/device-tree/model, even though they
+> purchased an ArmSoM Sige7s.
+> 
+> I agree that we should avoid duplicating the hardware description, since
+> the boards are identical. However, I think preserving the correct board
+> identity in the device tree is useful, especially for a product that is
+> still being manufactured and will receive ongoing upstream support.
+> 
+> Would it be acceptable to share the entire hardware description while
+> keeping separate model and compatible properties for the two boards?
 
-I am confused, there are no other instances here.
+Yes, just be sure to capture this in commit msg and maybe Sige7s DTS
+comments.
 
 Best regards,
 Krzysztof
