@@ -2,73 +2,101 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DED56606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 00:57:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B58DF606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 01:07:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=K5gJs/gt;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=hV1UNJnX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tiGzcfcR;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=VbCwu4xP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=LTWlkC3bqSlTG2YkDHxmrbiZeaSggK5ojxGD1nHsNsI=; b=K5gJs/gtpw6vdu
-	fWJb3oUO91ybEZJSa0sQtY7dwupwnHXo7DH5/rX+FQ8eXjYdCEQMkVhhKHkcYrKI+AUgo+E2Xdl36
-	pDwRXQHrmXlQG1x01Zb2m2xbR+c2UOJDtAmnB0ORIAEbvgZ2FJTZU1RRLFCjXVIxiCmOJmR9vPz6M
-	KpgzI1hxF6/4eGBRU9VrHc0HD340StlbRTpVLhBdayp/sX1e1mGiI+0LZlZZ2gXOQqiiRmOXD8Mlg
-	0r//TX/rrK8cqj0s5JV2p2ASyJUNHALR/A30YyKSlHIOVWh0yTXcc2BkxgDeBKiK/Dj5eJIJpPo+X
-	+6dymE9fYr5S4VpGQaSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=vBhaO6Es9PKt4idPNg62EPh8XgJdwaGm+jmpwXvFRC8=; b=tiGzcfcRUennI+jE9N2etBkHfT
+	FRInAtsm36IatPljoCFcweOWxVlJvHesV2cbPkQLv0OL/igdLVbptv9qUe0AQWNRtoH8BaUbsZkOO
+	n7Inumdrmpcsg4xnBFFwxFQqQ6bECopqdQGlqRvRQHYdynut/QAT2VY3bG8TvvpVT4BMUNJVkLH8i
+	kUun0B2f9E/wjDQhpI85N/7aBn4cuDbhZHJPlZ3Y8WsMIN9B/Z06ZArODkRUiumLwKsyDlyUx8uk2
+	6coYoJeWJn/5oHKCivtos8FO8ethZEUefwJpk1Ay03xuFpLjjv6sCtBm0NEdujZoH8Zd8WaPePSH8
+	QpYEpjBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLVV3-00000003ZGn-27hX;
-	Tue, 27 Oct 2026 00:57:13 +0000
-Received: from mail-m822136198.xmail.ntesmail.com ([8.221.36.198])
+	id 1xLVen-00000003Zhj-1Q6z;
+	Tue, 27 Oct 2026 01:07:17 +0000
+Received: from mail-dl1-x1234.google.com ([2607:f8b0:4864:20::1234])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLVUz-00000003ZFS-3sQy;
-	Tue, 27 Oct 2026 00:57:12 +0000
-Received: from [172.16.12.93] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 526eb68c8;
-	Tue, 27 Oct 2026 08:57:04 +0800 (GMT+08:00)
-Message-ID: <9f8114fc-c4bd-4f50-8c5a-a8afc94249b8@rock-chips.com>
-Date: Tue, 27 Oct 2026 08:57:02 +0800
+	id 1xLVek-00000003ZhI-1tk2
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Oct 2026 01:07:15 +0000
+Received: by mail-dl1-x1234.google.com with SMTP id a92af1059eb24-1438d9363fbso466763c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 18:07:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1793063233; x=1793668033; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vBhaO6Es9PKt4idPNg62EPh8XgJdwaGm+jmpwXvFRC8=;
+        b=VbCwu4xPiJC0jK752ooyWrVjpoLF38wWs1mkqfTlqb8EEg9SCGOvhCqZexPdO9NSTH
+         8K4Sr4VieQw+8Z1E1oDvbyvb/MZdx9LDD5J/htSijN9jT1OggsGvrSfWMqMQWNDGHVtx
+         f0TEIdn+YziDms6GHZAODM6UM9qqqFfwzu9xgXLEIotakYVT0ST4BaLUMVQy9RBNclvn
+         1tvoTvaVBKqBm9BwB8kZbpAALTbhNfhQAD0OTZjg7V+LRxRbjRQXwiDsEXO3cTDHkPXZ
+         HKBM8oASPvotT0ZEC0ODIXdoYetlNoL8G8+8dKwriQsSJbyqXSr9FigjxZa3YxzqotLz
+         7JkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793063233; x=1793668033;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vBhaO6Es9PKt4idPNg62EPh8XgJdwaGm+jmpwXvFRC8=;
+        b=p0vc8+60sLU9vtknFhiqMg828GoBxb1pxkUYnnYZIbbr+XrR1z4gVb9YZgjPRABau4
+         XwOdwWsOmJ2S8Rv+k2JywAe25sAJQ6QzAjuYI76WaljEhFoyuJ3fCwatbYsQcuvP9g8W
+         UvDMReG3BlGLtRG9KLYzKj/y3tBgPwkfbSt9EbaLSfPn0ep6O1M53+9GXyrqWh7n2pUw
+         +z2xo5ac3mbp7f9f74e3lb5zWJ0hZJRnD0OwvlxnclcCPRWnMIiAgimm/VC1i6IrZabg
+         PQJ6mS9zoN7VgTJ/vquw74bbpLs1KO7VFzrd+mzQzOfTBjtq7RAArI42Ryqi03v5qrJP
+         CB1w==
+X-Forwarded-Encrypted: i=1; AKwUvBwHan5D/g5HMkl/LFnWldhVMmdyMeOhDHWnaSyhbavEW3wzXOFAIAubtt8HBCTBqk9f47goGGBZTNOHYPwf1n9B@lists.infradead.org
+X-Gm-Message-State: AFq9FYI8BkcyJ2Ys4AotGMbPkt7Fp5eCzltp568ooEsPNDmRvrj1OS/p
+	+hF1KSnPo8UBxwK4rhRZAGVBqRFkCdy+xcpWo4D0gOWGOqJ5gmQuntvj
+X-Gm-Gg: AYBFou0IpJha0GJe8cT+ZkeIQ57qXd+BKEd942eTERK6fgmmoZrmxkaEcq86HQpGeHn
+	NLZVMopGRv7KZiSTRP8b0g5c0bVRCLMdfBdVJfw0/KBraJ647Dbq85AFtnngFj4+eSs0Tt052W7
+	BsRqAOkSk4mjXmtkEFhB1wj1TKQEZYQEwmVIiGp8os+iJOidgnGMC507I5sQrnkoUANlqw7avpZ
+	fbmammyS/i23gBl7JdMzgfXdVkG8oppN6LBT5CqFjDLq25gw2tYnnDOqVD/ZbAeqpIbZvDAsY3a
+	hvaxSjJDmr3FFX8myD4ZGJx7tmYMpmCAN2HpjoM9brGsw2z852bSr6XQxaxzxuYUL+GP90VV5ad
+	RP1138u3i47An5riJhRMYVAOMYTVUzTgYMJ5AsiydgKDW7Muq7GNhxXwMBCuipidbUfAQJoFvJD
+	VJnmuD2UwydLTz3RKxZu/p47iioSRrPN2ZhI4SrnhTEZioBzk+CLNtEjSdinE2ro4kNfQoaPB/s
+	/nNloXfYBjOedAxe8OXoZvFNZ1NSq4hYaFCT3uF+a/30qo4Vv6tY4wfXoFDzGIF73wH4CEuklJL
+	9pDklExISfzSOGmfRIicL90=
+X-Received: by 2002:a05:7023:c013:b0:17a:a3d4:8b17 with SMTP id a92af1059eb24-1a3c485419amr1593552c88.12.1793063232714;
+        Mon, 26 Oct 2026 18:07:12 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2ebe:8:2dc1:2e1d:6b4d:5a9a])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-19894d59f90sm27239759c88.3.2026.10.26.18.07.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Oct 2026 18:07:12 -0700 (PDT)
+Date: Mon, 26 Oct 2026 18:07:08 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Russell King <linux@armlinux.org.uk>, Mark Brown <broonie@kernel.org>, 
+	Charles Keepax <ckeepax@opensource.cirrus.com>, Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, mfd@lists.linux.dev, linux-samsung-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, patches@opensource.cirrus.com, linux-kernel@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v4 0/4] ARM: s3c: crag6410: Convert to software nodes and
+ properties
+Message-ID: <at_45tVmsWaYAv7W@google.com>
+References: <20261024-samsung-kp-v4-0-e21253295e68@gmail.com>
+ <a6df6043-9f0d-4b03-8efc-d3e47a82f096@app.fastmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] clk: rockchip: Add RK3572 clock and reset support
-To: Cunhao Lu <1579567540@qq.com>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk <linux-clk@vger.kernel.org>,
- devicetree <devicetree@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-rockchip <linux-rockchip@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>, netdev <netdev@vger.kernel.org>
-References: <20261026-add-board-ok3572-c-clk-v3-0-dbabfa39d692@qq.com>
- <20261026-add-board-ok3572-c-clk-v3-3-dbabfa39d692@qq.com>
- <0d5de6fd-3150-4898-a652-7f5b64dcaf07@rock-chips.com>
- <tencent_6876096D2306016F88487E0E4D78345B3208@qq.com>
-From: =?UTF-8?B?5byg5pm0?= <zhangqing@rock-chips.com>
-In-Reply-To: <tencent_6876096D2306016F88487E0E4D78345B3208@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa17adc5aa409d2kunmf1cad9ec130d7c4
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDQ0JJVkhLTU1JSB8dQ05LHlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
-	5LVUpLS1VKQktCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=hV1UNJnX6QxnjUOiSLVmQD2uma3cke/feZxFVH5S4idvDB+vzdGr/E9wgn464etOHYT4aZjOe+e90+ba5lq8wnXpsEnx+r0uShc0/GkpQM+Mdf57U1BSBg7TzTBAjAc4coCZPgYikVjqHNbeHLnvM30slTEgbXfdnZ7gyX4ZygI=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=LTWlkC3bqSlTG2YkDHxmrbiZeaSggK5ojxGD1nHsNsI=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a6df6043-9f0d-4b03-8efc-d3e47a82f096@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_175710_946025_EA1024E9 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20261026_180714_498676_19D40221 
+X-CRM114-Status: GOOD (  25.59  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,82 +108,59 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-7.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On Mon, Oct 26, 2026 at 02:51:16PM +0100, Arnd Bergmann wrote:
+> On Sun, Oct 25, 2026, at 06:03, Dmitry Torokhov wrote:
+> > Hi,
+> >
+> > This series converts the Cragganmore 6410 board to generic software nodes
+> > and device properties, allowing the removal of legacy GPIO lookup tables.
+> >
+> > We add software node propagation support to the wm831x MFD core to route
+> > DVS GPIOs to the PMIC regulator, and convert the peripherals on the
+> > Cragganmore board (PMIC DVS GPIO, basic-mmio-gpio, LEDs, WM1250, and SPI0)
+> > from legacy GPIO lookup tables to software nodes and properties. This
+> > eliminates the legacy GPIO lookup tables on the board and fixes incorrect
+> > GPIO chip names from previous conversions.
+> >
+> > Hopefully Krzysztof can finish merging the series through the soc tree
+> > once Lee acks the MFD part.
+> 
+> Hi Dmitry,
+> 
+> This all looks good to me,
+> 
+> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> 
+> I'm a bit unsure about how this fits into your wider plan, i.e. why it
+> is helpful to replace the lookup tables with device properties in
+> this file:
+> Are you working towards eliminating all gpio lookup tables from
+> the ~50 files currently defining them, or is there an immediate
+> benefit to doing this one in particular even without the others?
 
-在 2026/10/26 22:56, Cunhao Lu 写道:
-> Hi zhangqing,
->
->> This is in clk.h, please submit it separately.
-> Thanks for the review. I will move COMPOSITE_MUXTBL to clk.h and add it
-> in a separate preparatory patch.
->
->> This is incorrect here; there should be no negative values. Two's
->> complement is used here, so a conversion is needed. For example,
->> -12955 should be 52581.
->>
->> In clk-pll.c, cur.k & BIT(15) is used to determine the two's complement
->> conversion.
-> I agree that the hardware expects a 16-bit two's complement encoding:
-> -12955 is encoded as 0xcd65, which is 52581 when read as unsigned. The
-> difference here is how that coefficient is represented in the rate
-> table on the kernel version this series targets.
->
-> I found the cur.k & BIT(15) branch in Rockchip's downstream develop-6.12
-> tree. There, k is unsigned int, so the driver explicitly checks bit 15
-> and subtracts the magnitude of a negative fractional coefficient.
->
-> This series uses the upstream implementation. Both v2 and v3 are based
-> on a804c5742bff, which already contains commit
-> 581478883477 ("clk: rockchip: Fractional PLL coefficient on RK3588/RK3576
-> is two's complement"). That commit changed the k member of
-> struct rockchip_pll_rate_table to:
->
->          s16 k; /* fractional part, 16 bit two's complement */
->
-> On this base, rockchip_rk3588_pll_recalc_rate() uses signed arithmetic:
->
->          s64 frac_rate64 = (s64)prate * cur.k;
->          postdiv = cur.p * 65536;
->          rate64 += div_s64(frac_rate64, postdiv);
->
-> The signed type represents the negative coefficient directly, so this
-> implementation does not need a separate cur.k & BIT(15) branch. For
-> example, the mainline RK3576 rate table already contains:
->
->          RK3588_PLL_RATE(955520000, 3, 478, 2, -15730),
->          RK3588_PLL_RATE(785560000, 3, 393, 2, -14419),
->
-> These are exactly the same entries as in this RK3572 patch, including
-> p, m and s. Mainline RK3588 uses the same entries as well. Since RK3572
-> uses this shared upstream PLL implementation, I will follow the
-> mainline RK3576 convention for its rate table.
->
-> Writing 52581 directly into an s16 initializer would require an
-> out-of-range implicit conversion; a reduced compiler test reproduces
-> Clang's constant-conversion diagnostic. An explicit cast such as
-> (s16)52581 would produce the same signed coefficient, but would add a
-> conversion that the existing mainline tables avoid. Using -12955
-> directly makes the value used in the rate calculation clear and stays
-> consistent with RK3576.
->
-> The register encoding is preserved: the write path passes k through
-> HIWORD_UPDATE() with a 0xffff mask, so -12955 still writes 0xcd65 into
-> the coefficient field. The five initializer changes from v2 to v3 only
-> make the signed values explicit; they do not change p, m, s or the
-> 16-bit coefficient encodings. In particular, no further adjustment of
-> m is needed for these representation changes.
->
-> I will therefore retain the signed coefficients, following mainline
-> RK3576.
-OK
->
-> Best regards,
-> Cunhao
+Yes, I would like to eventually remove the lookup tables and rely only
+on software nodes. How quickly I can do that is a big question, but
+I'll try ;)
+
+> 
+> Do you plan to also eliminate the uses of the legacy gpio
+> interfaces in mach-s3c, e.g. the hardcoded numbers
+> in {pca953x,wm831x}_platform_data, crag6410_lcd_power_set(),
+> crag6410_machine_init(), or the pin config in
+> s3c64xx_i2s_cfg_gpio()?
+
+Let me take a look.
+
+Thanks.
+
+-- 
+Dmitry
 
