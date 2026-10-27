@@ -2,84 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8271F606D930
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 15:37:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90CF3606D93B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 15:37:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VLJl4CaD;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k1TtMq6c
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y2EljUTZ;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cnGXNasM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Wg/4rCc9Y69RwQr7t1OslmfPJs2UBZmRz8gauVCMqkE=; b=VLJl4CaDBqdDFP
-	PZXBpXKieYYAJrBBMSciegCyBuQqYW4Zr0IuUWFLEq8IIqkFlH52mq/y5n8Z3+1dgXZFi4MzPGtSM
-	lQGo18ZBmsRhFXfdyjlsMqkEi6psqSW7NaJH0+LgusBsEWNpxggVsEn1LIElBPkMAIA7d+D9dndy0
-	ZU58GH+jxEnYhVs9v/g/LWsSHiuv2Y5jWORWhDBTv248VZPShlMrBCiyGTSHdtQU5jW12lqZD37OM
-	unGzs2+2QKvjk4gAV1GLcb0ltPQ1pDN47rhLJWhD5kEbP4Mf72/3gcX4H8Bxak5osZI58jQorpY++
-	6PZK6aOCHVajsMuUTkvw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
+	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=D/80EfwAtXJCC0tZxo33X7RmKZW37FWB78bJeXvz28M=; b=Y2EljUTZxnx9+QtxWXzYuDObNc
+	Y3Uvxp32qV389816QxYQ7YjfzEDX6uEkgd9G4Q+CDCVcoF6S9bziBBlaNZ0CfsEMo5DXgal7RIsab
+	0a8XZDwgDlFx/MaBKRf3c74HhAO6ln8bqbnHBBw/rg2yb23RCxN3nD1tPXJh3bntDO/QrZfagb1fY
+	2ZLOog+dtnrXrxisKxBjyYmsil5KzkuKd3T186VGa76u4UKerL1t+eKgVwhsez/PpIkH/CLQtDaLq
+	MEEZdyuuaHfDsDZajQOKYRmoYcCI1oqkuQTVv3wE8R4MsKP31RyPPuEWhmzhzq5iGClT+L6eVlz5x
+	nehyby7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjEq-00000005CA7-2fJG;
-	Tue, 27 Oct 2026 15:37:24 +0000
+	id 1xLjF3-00000005CTy-3sha;
+	Tue, 27 Oct 2026 15:37:37 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjEX-00000005Bkv-2X6l;
-	Tue, 27 Oct 2026 15:37:05 +0000
+	id 1xLjEX-00000005Bjf-44Ja;
+	Tue, 27 Oct 2026 15:37:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52E8443EBA;
+	by sea.source.kernel.org (Postfix) with ESMTP id CC3A743D4C;
 	Tue, 27 Oct 2026 15:37:05 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1793115425;
-	b=Ywa8MSiejR/f1YYcj/kiGYnf8OoFAOwaugBiii4/UJ9OfL/t74fa3rQgsPtOcdIC3BFz
-	 f1Q9ufGaq1jZlhEwaHCYllIKk0HXiY9UEa7WKfglEzTUlbHH7YoXhCxMw3xiG7cI4L8N2
-	 iDvaJXt5XC9l8trhUGVNY/vbiT+e0yQXZ0D1ilWSOwBN18bktDLiAOj2pr3BkMbTFEP3R
-	 oAOE7D0oletW5OHlvY94F/GPgEtYHzE3s7+8l579yoTvW32a10H4iKlHkzbrnoIOJTnrz
-	 vNXihvhsc8hOvKGtB3s5gzVn2c7OXTcWq8OYgbaV+spihG33TR3inB6LzIw6DFIl5zg==
+	b=WKogAzpMuZyEIVz3zgmPN2Dkw0hWb6ZrT9eyC7dkEe/a6CdSkkDYLLc47/iHvHOMoj/L
+	 oY1/E+qDGA7drlQmthV9mm3SP37au+eGbPf1WTmjXmoYIx17RYTGiIqBFW57z3jHdSrhF
+	 4Gc9o0lajHgPsmkX4R9L3hTunZqD0Ax6rn6LlwWRa+s+WAtOACCS1vf8p6kOwgig5O9mc
+	 ybNuhubKEIhdCAaKUFvwfnECSxf1ln+q5KUaFCDRUYZmVlbx29/e0V9rQrmfM17Qhe3JV
+	 iMzlzdkglVhX4kClxYJh7odRknfGVfIjGICFSZ+yXKKRHZwb/3F6sekMO874bO3jAQg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1793115425;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=Wg/4rCc9Y69RwQr7t1OslmfPJs2UBZmRz8gauVCMqkE=;
-	b=U6HPvvbCj+wLEPhNIqlywgF7J7cKl4LmjF+NuhyVa0VqQREnFnYX/Vcw80XrsHhnKj4V
-	 LPO+tVI3Vt3Nk0CoiZgH6uFU0/lMtjazQs3BtpdIAkTOaizjjLGKnK2jTsYgxwxLJjC4h
-	 XV+sxC2m3bJJCDnGzh30/INaWib59CHZ4+ve5TV+QUSDgvatQx5honHY//Ow7ZUWeoYPB
-	 y0UQkgaLALlKbkfuhGY2Gsd4R1wJ6ZTfNusGPVscelhHdC2hmxQFaVmj6NmAxFU2jOEcF
-	 e9i9jThPMt6BPkWETHKn1qsAq3qcgG0bKdZwKQpeAYAmWmp7RwdcUQFC6FAShUbzdUA==
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=D/80EfwAtXJCC0tZxo33X7RmKZW37FWB78bJeXvz28M=;
+	b=dm5ZrH/rFgFLQUN4ckrpPzq1SwsNBi6R8V3llAgQpavNeaQd98FHs1905ma77IRP0I8m
+	 0+aKtAyOKtQOvFwQIeby78rkkk335DbY8IbRFnm3w0jmQsW+GOPSKdVKX6EOvopDeNEy7
+	 hXKvHFVKYLKKAPMqtS144UF46bWt4Mrj/oaS5vqIkW4U+JAW55sn3vLdYZwHSyCejwF+x
+	 LtHmDkj8U0C/ZUNoy9/sYfpPF/DAPDgxn90kSlShRT5NRuEH76Xp6N13MrXJkAlCduCvV
+	 FXpJB53I6ami0mTGMPiK0kreI9uRsWp0cdQSvQ+gKxDad2Yz8pglRhn/xuB4rnDG3ig==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id BE2A51F031F1;
+	by smtp.kernel.org (Postfix) with ESMTPS id C9B831F031F5;
 	Tue, 27 Oct 2026 15:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1793115425;
-	bh=Wg/4rCc9Y69RwQr7t1OslmfPJs2UBZmRz8gauVCMqkE=;
+	bh=D/80EfwAtXJCC0tZxo33X7RmKZW37FWB78bJeXvz28M=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=k1TtMq6c/WTv48i4q3qBxo5ssYXw2BOWw1W18j15xuLHNw4DwX2jGcb51WY+M6Cei
-	 5Xetw0blVNtzG1xYHxoJBM6srZDGtw5e9zY1z1CCikpjEThb91yw6yLTsBVRCsYYqo
-	 DW68+lxNR/WAYqioYEIw+8zjFTM93ioRLFEkW+Taus2iPJZVXklGA5ypRH+BGjngKQ
-	 shPrZI16eq+pg3YnmwpuOwSVbDEFqs0dfzj7ZW6OSMKC3QwxGgJVof1B66FOOi0dz5
-	 p/M9L/pmRzACbByKLDDKEyfDXAdJ3nV+u4dFvJBOvu54OZmo+qq+krAuKdtXpjrVHT
-	 zHVg+46ytmT7g==
+	b=cnGXNasMvPhkUgVo+5pt8BHt5kuJCKFeYrIiu42mUM0QP11MS6LX0of0qAYnaPp4+
+	 j9Y0tsYR/3VQeZfIuZVo694LxCh0kvBMjfKqq7hJ7yW4OqpaShMgqcPEoV4eA0b7O2
+	 2iTN4ggOr2AJYQFchhc6Bif/H/5GtLANw3RjQe3+cq2QxOtOIVKTz6LB4FTDsG1Zgw
+	 KlezO6mH+Ijj+els/+KsJLPROUO4/WHkBDvw1U0vD1JlgtShD1Tot6doKABlRrWVBs
+	 Jouc0j/HKfZ7kzpqD950880hI5yTzJoJzeqLE0V0Vr7sxzgrtVTH7i3ehVbkLIcG51
+	 vn4lv9UVylwtw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7344545157;
+	by lkml.kernel.org (Postfix) with ESMTP id 895A64515F;
 	Tue, 27 Oct 2026 15:37:01 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 27 Oct 2026 23:36:59 +0800
-Subject: [PATCH RFC 08/18] dt-bindings: interrupt-controller: add Zhihe
- A210 PLIC
+Date: Tue, 27 Oct 2026 23:37:01 +0800
+Subject: [PATCH RFC 10/18] dt-bindings: timer: add Zhihe A210 CLINT
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261027-a210-scmi-v1-8-74d58ce85bd8@iscas.ac.cn>
+Message-Id: <20261027-a210-scmi-v1-10-74d58ce85bd8@iscas.ac.cn>
 References: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
 In-Reply-To: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
 To: Sudeep Holla <sudeep.holla@kernel.org>, 
@@ -107,16 +106,17 @@ Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
  linux-serial@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793115418; l=961;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793115418; l=807;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=MYmNcIdDPzIqU+lFcft+1pLSNPlzC5ZsJ4TFo0L1GrE=;
- b=Vhx+1FMKGBmb9XNkIq6p+G9/3cD2jq2U9rQkE36iw94gvXsWmdIZaqbb+gQDI3rmihzrmhBNC
- uFqJfWO5xdtCbVnBFGZ7UJCwkdi2VTYeHduCK06ARF1vJDnM8k3m/a5
+ bh=mOLkOh4/jpI+bhz73rcyph1kni8iu4RhyVF0Wak3gq4=;
+ b=KeI1lFZVfnK0DXd8ETZZgB+ksVJayuij7OJj1hfsbtb1XteWB98ctRke9ZnIc7FXDmCk4+PVq
+ /wpwjTFIHK9AdFBNUk034oWabJBv0PFrOe5o8bM35iqFLP0putZ2BR0
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
  auth_id=1262
 X-Original-From: Han Gao <gaohan@iscas.ac.cn>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,28 +136,27 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
+From: Han Gao <gaohan@iscas.ac.cn>
 
-Add the A210 PLIC compatible with the thead,c900-plic fallback.
+Add the A210 CLINT compatible with the thead,c900-clint fallback.
 
-Signed-off-by: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- .../devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml      | 1 +
+ Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index cde4bb691897..fd5b61db3f5f 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -80,6 +80,7 @@ properties:
-               - sophgo,sg2042-plic
-               - sophgo,sg2044-plic
-               - thead,th1520-plic
-+              - zhihe,a210-plic
-           - const: thead,c900-plic
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index 3673836e14de..805262bb6cd3 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -56,6 +56,7 @@ properties:
+               - sophgo,sg2000-clint
+               - sophgo,sg2002-clint
+               - thead,th1520-clint
++              - zhihe,a210-clint
+           - const: thead,c900-clint
        - items:
-           - const: ultrarisc,dp1000-plic
+           - const: sifive,clint0
 
 -- 
 2.55.0
