@@ -2,108 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D370606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:52:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F1B9606BA3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:54:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PqkmsdfY;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Y3vVEUsN;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=AiZoY4H3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AThu8cyk;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=cnTpACR7;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NC6PrnHy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=LZ4WRLlBWNlzgKoZ6xjmyCXgKrbMPKnWr5tgehi8fhg=; b=PqkmsdfYoMNo2O
-	7OqKHdgRc6vXMWg9puC6T6RwpSTFARulmE+tF10O1uTdbhlOb56OtTnQiXvTbS/CEUOk9oHryTpDH
-	35oBGv7PT4xx2h6tK50zwr36/znLIDhlqZYP3eTPAxakV1JWWJKXKSEdXD55XqP70VRQs2sN4D4qy
-	p0jb6uKNftzz+xGqfQ0KIe0KJ4hLn/VlreKIgPRJfj7RYyeZOMXh0YnNKfQg5bV7wg48Kt4z6xB7x
-	AOsbv4qyzIO5a4o+q7JoK9xlQImXvKz0f1MHgizGJnK9OLGn5C5rnDwUZKBMR431XBM3j2voCn3nv
-	lFHNdVyA6PCugaSoZHvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=v9r3g5keo8SdS9B4mGrqQdcoTte1OjZar4nWVFfkp8s=; b=AThu8cyk2Mj0t0Bx9G+nvLzlnh
+	rfUhouQpDU6NDoFg9JHE960y3sBmoUzCc4qb7NdWNmprdZGtFa6+KMHEKk5CqthQs/Tm3BROaqvTj
+	oYy8Mh53EQR4smZRAQdjelkyz0vvM3C6nV8frn/neSKY93TP4+AziIflUm8KaAlIE1gMNmKR9kVtG
+	tyHOWPPSJAfbeERGGe3JrugfGJmrfEf4/Ue1YejDLVEWkWb/hTH9p4tEtWVffp8LF3eOUsxNc3cj8
+	JKMdoeAoRqjp+AaQr24C4KDQMCxA1EWTHkIbXbeklXqJkBclqwRKe5os4uFwBsIkhe6vIPG9772iO
+	Eq5r0I+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLhY3-00000004vqy-0dng;
-	Tue, 27 Oct 2026 13:49:07 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xLhdG-00000004xRf-3aCc;
+	Tue, 27 Oct 2026 13:54:30 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLhXw-00000004vlW-2pkf
+	id 1xLhdE-00000004xR2-24qZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 13:49:02 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69RAdxGb2458146
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 13:48:59 GMT
+	Tue, 27 Oct 2026 13:54:29 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69RDoPIp2397365
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 13:54:28 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	LZ4WRLlBWNlzgKoZ6xjmyCXgKrbMPKnWr5tgehi8fhg=; b=Y3vVEUsNC330BLEp
-	JM0cQuSacvAwmVnVp/VCR0EEQihekahq5pngYSHdDr9MXc937gqUS5o3kIpBgRns
-	lJKWiylUA4bfLfGXugfQOCL8hpYqtlk8PQKPwThLAmePpKf/r9Aj8YA1yTxoNu0Q
-	/AfwSNaK9WVfYQzExYDc3hX7CmBPN9l1ls5Yy6D5WJdTDwtroQAOlc0Itoc09Td8
-	A0Vzk1TlZ++3Mzm/FcVSczhxYRwEPlJaTFgbts7eJCRFyqpf/8MLclCeW39lYF44
-	k81/Nc0rCyS7rr0TVaF+o74VsuS4Ku6Fcwn44zjuxZbH6NBuIl3gIaINGMXdfgps
-	b/37hA==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hjjbtajj7-1
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=v9r3g5keo8SdS9B4mGrqQdco
+	Tte1OjZar4nWVFfkp8s=; b=cnTpACR7Ca15wLGgLXZxFnkBR6lQFrKltQqV4MeH
+	MyOGSawRypQrtAkwkKSwCIIocHhwNmD8vT1sa0Ejw58JGwNk29gUJuEW6CpH4Gf0
+	XgxjpqVWjxO5NmlorvmBch2tXjvHPAX96+k1WXXEqjNk7dNpSikHjJt1nBKLs7h1
+	4EYdKoREtnKcoVekxMC4VswLs1nMIvRT+gU7g0g3Wvl6W1eElypkqcc95+aQzE3B
+	FGSy/T0Dq60GQU48UNPOut+Nfkt4aBMXSEidxbpwCGdE9BCtVY12kN+nMRWyw7Yk
+	HJHzyJzaiD4+YFxC4ycFc8lwsQJsUvT5j0P1YS3b9kGaoQ==
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hjst1gvu7-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 13:48:59 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93f1f2fafeaso554219785a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 06:48:59 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 13:54:27 +0000 (GMT)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-91c79ad0decso5557586d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 06:54:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793108939; x=1793713739; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LZ4WRLlBWNlzgKoZ6xjmyCXgKrbMPKnWr5tgehi8fhg=;
-        b=AiZoY4H3Nt/ZZUNOll8AW1ccdGvr0QxSA4clJfCTwz5DPyyBlRxdodL+w/eq4coMdU
-         qKyjiAZ5MjyloELHnphzcrlgiajyBBuhb6CpiW2ayU0IzFBczvNgzWHHhARbpWhnT2c9
-         clCPalpI0PZVIGVc7D/MqDXr6bkDfanzL8k0ynwaD4114DPZwFTNjk2uGpA07rRPQMCV
-         i5NKtEct/cILGd8DrIw68zN6J7L+tfA+TtnI3Y8eMrqr/SKdnlLSjCsE6xXTkeb7rXrX
-         D0oUxhSPOUh4QqE0O1zp3aP+YUAX5gGpFTs5PgeEfSsi8hYs57CDkq7xZq45tcH+YBN7
-         HvZw==
+        d=oss.qualcomm.com; s=google; t=1793109267; x=1793714067; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=v9r3g5keo8SdS9B4mGrqQdcoTte1OjZar4nWVFfkp8s=;
+        b=NC6PrnHyrDg/qp/2eZkWTj+XRvG9GB0Gf0ZHRBsBwrlu9Exuz+bANGA2E5xKkzB25f
+         XBXUpgaPSQUyJz8OLJHUKaLrBdrSIt/3Sb87M5NSmgkcMPw/J8McjMkzbiuCdNRg2t+H
+         vw4qquy3fj3t0A7zRcYnQni6TJdnpD39Ze8jrp9LW0IXl8GcjeYfWkFIoYcwYp4Qb/jx
+         dZPknjx1THCad6wDQyu1FXO8eTUQUtIyulzJgTosV2eFlsUGEhoKIPs0YjonSzAhKwnp
+         8ym5sXi9H9uSMH8YUZvmfb/WQxhgA+8dqFSDC2lUjIuMX2yD1HY6eePlYaRAc3ApLEOC
+         MKUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793108939; x=1793713739;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1793109267; x=1793714067;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=LZ4WRLlBWNlzgKoZ6xjmyCXgKrbMPKnWr5tgehi8fhg=;
-        b=dtAIcB2NSXCEU8OXlc8nKkG6qLnz+TcN+4Y0j0jPtA01a15uQUwgnmL1CrDKfObg7L
-         1hOTcTdoFQQ2AKs9JKDRJJ+gejeEshOMRv1nba0+m/cszuUtqMcx2ORP2Hu+WWK6FhBp
-         ngTSZFGjmAkW5hCqoLZD3XTFjVbcLF8CPBTFRx/ClNmuAacXs/LNcf7gm38ndk4sUnXS
-         TnhDeqi1qg/Bd4LdpGLr9yWGHCTfVSOF45iaHtBdCA34RyJvSd9bSf4Ap7Zdj+sApo6y
-         1BHQ0I8CWY3Q7cxn7KpSbu/4Vi6ZcLqjn5+BysMW3Z0Rcnj04f7I9mvLK10jFNQSswZI
-         isCg==
-X-Forwarded-Encrypted: i=1; AKwUvByiRYRNxcdqupbaMH4UZ8giZKi3s+kdAFclEMSBPmODLzZkx1YqKSUe+ybSbLc5dpYObMPQkd7Ne+BH3OixpNkN@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ325YhB8J37bvmZhNOX5PJ8o9mIZfyNRvFOcPhps2IwzNaSqjg
-	MR3Vl2rKO8MTst2lIOIJuDsYQ3v+jolJ7Fa28LYLHeQD/vO5gND5eNY22VGZDdxnp79bDXLU13D
-	C5E4o0P/6r44uaHIREOApIfa/d+9i3dGQouZweDdVXfgz8Y+9kXH3or9WQMZ/Vji2CpQd2jPCI+
-	gglw==
-X-Gm-Gg: AYBFou3i+1fYOz1Ird7lVyMs60KzMd/VzYjaAwha9aGUTBQM9HO3QpxPohFOkeEpuUu
-	X+rjB0qLpRH27kaqRWCh8FQ711KXsYlrc6p/ff4syIRgTnngJUoQCX2AZMMSP0vZSPL8XvaLHRi
-	BjI3nCuXewx4GhOldwiCR7I9zJ+xyvyWM88LXp9oVIhdunIvmyLliNAkeSSiXsnn8EXCs+AmROE
-	rmCpJGLEu9d39K9cJFzkZqvnDbpvBGS9LjeNqIJEF8OqDZ9d7uBNC2RT6aCKWj+eoFy5QqPZnCJ
-	6C6381rR4mBMuTolxfloGvd7+hsgKm90eygNX8cEnmYkqw37XQGdT8XYxEJsWtYTtXcHatY3/dc
-	6ifDSeUsNKSY=
-X-Received: by 2002:a05:620a:4725:b0:93e:94f2:ada5 with SMTP id af79cd13be357-940ef914f06mr1534342885a.25.1793108938564;
-        Tue, 27 Oct 2026 06:48:58 -0700 (PDT)
-X-Received: by 2002:a05:620a:4725:b0:93e:94f2:ada5 with SMTP id af79cd13be357-940ef914f06mr1534336485a.25.1793108937851;
-        Tue, 27 Oct 2026 06:48:57 -0700 (PDT)
+        bh=v9r3g5keo8SdS9B4mGrqQdcoTte1OjZar4nWVFfkp8s=;
+        b=ARKM3+SsE6lz0J/NJFnu5pUiLmyAX4Vns+yiWZPSIr/VtLpa2uU+EmJJz6SVWy0yVE
+         upGcTOKTb1M+ShFfeRFO1lH1cv269hsAbeWNSz+bFaZ6BMo4pCjTYiL2XPfIwbsE4Skh
+         f/EB5kVQml3HACxtYSr6V2h9JbhNF4PvAutWjyo1hBmqrXCAVi8jCJtZYwDYfRJ9eYLG
+         19t111kgM1lB0MMHeb6KNy+hybp9HQjNTIInDzhFKh85NmEDbeApz6LGm9LlA+T23Jnc
+         DXdgMGvdtDgn8Xvm3uAPzym4deOREHzvOoXMInIckrbydbbrw3+1Ubaq4F1Yjebtt3d4
+         PfGA==
+X-Forwarded-Encrypted: i=1; AKwUvBxntIH9bcKB4PpLotuLIQds75PdKSNfmL5D9J68nn4TTmEbg2kOKWjYObywszSEL2VqtUjBcMRG8l5mxPwU/qNR@lists.infradead.org
+X-Gm-Message-State: AFq9FYLnnuSFsIfZUN2l6EkdPG3ZjBEUAWcNuQOTtw2leJLbIT6roDWC
+	V/hyzwd0zh607RqDPwe/+zLecJEK556Xd2s3dP1Pk2uoDZxbt685h8nFIE0jE5n8jydWd94CpCu
+	WjafPOMc2FMScXl1Z0/hL6IjhW6oVVtpNEEHdCVr4DayOlWKuBYEaaQQxGRjBJAKV8BpKykW2oU
+	ogQg==
+X-Gm-Gg: AYBFou04356F0WsF1qFbYXqZ1bgX7PS8a9vx/KE17s5Frcv2iB/+dVFbha3tMwSZxqn
+	1GQxTUvfXmKDqFQmNteR3+u2NJVIPgp5lErVTV3voc2p46YeASb4YfC1UU0Y4yi2mD0NiqVLs0Q
+	LCIz23QoE7ksu5z3hHBugJumOHC/lskhCuPWA3og6MNQc1cvy1r2GwslP3nj8ofwEcAT/+zdpDy
+	KsMTHPRAsjKkTH0q051yTj7sQZNimuqZjmw1DMMrc5pCEQMPBlasIs6NDirbOeZ1+ADYjgBVmrW
+	6ELd5vBqtVxaIlWC92NQMzNPVNTrJjc5Yo0BQeWTiEfwL9vm4BbcpNKc1wEDxxGg/GwCA4rYwbq
+	q++8Rqd4Fq8A=
+X-Received: by 2002:a05:620a:3945:b0:93e:f931:a886 with SMTP id af79cd13be357-940ef927359mr1664223585a.57.1793109266510;
+        Tue, 27 Oct 2026 06:54:26 -0700 (PDT)
+X-Received: by 2002:a05:620a:3945:b0:93e:f931:a886 with SMTP id af79cd13be357-940ef927359mr1664218585a.57.1793109265836;
+        Tue, 27 Oct 2026 06:54:25 -0700 (PDT)
 Received: from localhost ([93.144.6.81])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c46bd77e1e9sm459291666b.67.2026.10.27.06.48.56
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c49a4e208d1sm144595566b.85.2026.10.27.06.54.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Oct 2026 06:48:57 -0700 (PDT)
+        Tue, 27 Oct 2026 06:54:24 -0700 (PDT)
+Date: Tue, 27 Oct 2026 14:54:24 +0100
 From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Date: Tue, 27 Oct 2026 14:48:36 +0100
-Subject: [PATCH net v2 1/6] net: stmmac: take ownership of saved RX state
- at poll entry
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261027-stmmac-xdp-fixes-v2-1-10eae8a093a8@oss.qualcomm.com>
-References: <20261027-stmmac-xdp-fixes-v2-0-10eae8a093a8@oss.qualcomm.com>
-In-Reply-To: <20261027-stmmac-xdp-fixes-v2-0-10eae8a093a8@oss.qualcomm.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+To: netdev-bot+sinfo@kernel.org
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
         Andrew Lunn <andrew+netdev@lunn.ch>,
         "David S. Miller" <davem@davemloft.net>,
         Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
@@ -117,43 +109,51 @@ To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
         Stanislav Fomichev <sdf@fomichev.me>,
         Jose Abreu <Jose.Abreu@synopsys.com>,
         Ong Boon Leong <boon.leong.ong@intel.com>,
-        Oleksij Rempel <o.rempel@pengutronix.de>,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        bpf@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>,
+        Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+        James Hilliard <james.hilliard1@gmail.com>,
         Nicolai Buchwitz <nb@tipi-net.de>
-X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI3MDA1NCBTYWx0ZWRfX0AwXjmXSS694
- hQoct88SkqjSTffckRAjnYqKzMSjp5sBIn5ElkNjgHAkkP45IgVntyRYsPqFn81AI/ghYHdIRs6
- SLQ/S1gNoG1H3MUJsg24MAPfKiAcVwU=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI3MDA1NCBTYWx0ZWRfX8PHS4EIAX7ze
- Ehjq1tYc+W2KM1DNJZ8M5v3UP0sfgB8xDCnhcLLXpHR2uxQAx3ILsHdyUHCUAKS1kn9zXJGOxBw
- yUszZ7MvlIinU4GjO3j6GWbE8EU+uZleFsaPEfxTo8AOdZuRWhF5kdQYblMxznnTeVMdaPJAT+i
- US/gMtcsqqFcf6ul5xfrdTe5Yidy+BpjqXtSQ/J6n/E/Y+oHj1z9EMFkPqh+WJ9L5DcrVzo9Axs
- 6H3a1GRHJax5MDGi4JVfg5hCv+EX08UOTTg626VkdGSRSqBKh4RbmsMUJIkS4y1zE9cm9ul9p/d
- UUjbzWsbPBQX1+jx4yOQwBL9TgEb2oh/yuD7Ck5AF0hxlvWuyGbTx9KsSH3/qkCSUDwX1UO+rga
- eITh11OqdvDUFTGYXwpq6JZCiyRcaTOB9ZB5AMgjhonpC2HiN87dMv5G5W9Wa4BU3N/ceFn+IPR
- e9XINowqXtqsPcp91Lw==
-X-Proofpoint-ORIG-GUID: 1rpKwKloJooaQwpNsGZrzPZTvoDbW4Sv
-X-Proofpoint-GUID: 1rpKwKloJooaQwpNsGZrzPZTvoDbW4Sv
-X-Authority-Analysis: v=2.4 cv=XaIcX455 c=1 sm=1 tr=0 ts=6ae0abcb cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=-gjLCbu4MZEjzEcwt_QA:9 a=QEXdDO2ut3YA:10
- a=NFOGd7dJGGMPyQGDc5-O:22
+Subject: Re: [PATCH net v2 0/6] net: stmmac: XDP path fixes
+Message-ID: <auCtEFmNWwGPHKxp@lore-desk>
+References: <20261027-stmmac-xdp-fixes-v2-0-10eae8a093a8@oss.qualcomm.com>
+ <179310900894.3327.16366770051104266138@kernel.org>
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Wa2Ya5IEJj5sSuGt"
+Content-Disposition: inline
+In-Reply-To: <179310900894.3327.16366770051104266138@kernel.org>
+X-Authority-Analysis: v=2.4 cv=HJ1WhYtv c=1 sm=1 tr=0 ts=6ae0ad13 cx=c_pps
+ a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=VwQbUJbxAAAA:8
+ a=jeKYxtEjmYGD5WCmXysA:9 a=CjuIK1q_8ugA:10 a=LoTJxW7uYgufmn43WDUA:9
+ a=pJ04lnu7RYOZP9TFuWaZ:22
+X-Proofpoint-ORIG-GUID: Mdwg1yhZXfBhl9O6hzwmSTZBcf1IDMe1
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI3MDA1NCBTYWx0ZWRfX9MS42Z0kizo0
+ XyC8avshXlvb7jrpTaxEEHcajxqox3Q/oxCYbPwE+nqY/HD9m2mmzVTEtjFLuNrMa6eTVVJb7IH
+ rEBrTIp3I0M5RH/yK5X1jJ6hMtIrMn0=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI3MDA1NCBTYWx0ZWRfX+QxP0QaUbcag
+ D+Se7ddRIlVgZ7omIelMadfZyRSBG0VJbEwocvaYwc1iPSrnKQ9bMv44aK2TkpFOd0H8Xmp1ZYN
+ onuD2ySuR1tZ5NUqzzeN1I9TLhJ7s65z/NoI8QajK0uiSNFDXu1psqs4S4pU9IiY1KjCDi95wVv
+ w5tNR5kcM3DOTcOHJuPwyRPa7qQzY0H6bQmhzJjylhG8KRVDmDXvTYsXOCR5xL75RO6qnJohsRd
+ ylMZtxY9HVWNtuIkaqWBHVWOdJnjtsb+3YY5DXvq5UA0KrMzr7HPRJLXV0CogXtqlm7Nfm3zPs2
+ uG39H1rl+WJypgyfEsWnttSAviePAQNo5Y/Kb/IdKyZoQK1dWd7/YaDvtIt/FhWYfi85PJ9GYJr
+ Vm4HfZyyfoJv0p3MUYAcCW30D4UlxhHS3AjN4xRHl/RsS0tYCTQGalazhmbbDvTwLWi876As5Rn
+ QiV9+gFOyL//W6ituJw==
+X-Proofpoint-GUID: Mdwg1yhZXfBhl9O6hzwmSTZBcf1IDMe1
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-27_02,2026-10-21_02,2025-10-01_01
+ definitions=2026-10-27_03,2026-10-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 phishscore=0 spamscore=0 bulkscore=0 priorityscore=1501
- clxscore=1015 lowpriorityscore=0 suspectscore=0 impostorscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
+ malwarescore=0 priorityscore=1501 suspectscore=0 lowpriorityscore=0
+ impostorscore=0 adultscore=0 spamscore=0 phishscore=0 clxscore=1015
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
  definitions=main-2610270054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_064900_845081_978057C6 
-X-CRM114-Status: GOOD (  26.02  )
+X-CRM114-CacheID: sfid-20261027_065428_539663_1B10DFA7 
+X-CRM114-Status: GOOD (  24.02  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -165,263 +165,67 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: James Hilliard <james.hilliard1@gmail.com>
+--Wa2Ya5IEJj5sSuGt
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-When a saved partial packet completes with a poll budget of one, the
-old loop can leave state_saved and state.skb pointing at an skb that
-has already been delivered or freed. The next poll then reuses that
-pointer, causing a use-after-free or double free.
+On Oct 27, netdev-bot+sinfo@kernel.org wrote:
+> Hi!
+>=20
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>=20
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
 
-Take the saved state at poll entry and clear the stored ownership
-immediately. Save it again only if the packet remains incomplete,
-including when the next descriptor is still DMA-owned.
+The issues are reported by sashiko or spotted during code development
 
-Track the frame-in-progress flag independently of the status read from
-the next descriptor. The old code keyed the save on the status of the
-last descriptor looked at, so a loop stopped at a DMA-owned descriptor
-(rx status not yet valid) could drop the saved error/length bookkeeping
-in stmmac_rx_zc().
+>=20
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by code inspection). If it was triggered please include
+>    the symptoms, like the stack trace or error messages.
 
-Drop the saved state both when the queue parameters are reset and when
-the ring is destroyed. stmmac_reset_rx_queue() is reached from
-__stmmac_open(), stmmac_xdp_open(), stmmac_resume() and
-stmmac_enable_rx_queue(); without draining it there, a partial frame
-saved before suspend (or before a queue is disabled and re-enabled)
-survives while cur_rx and dirty_rx are rewound to zero. On the resume
-path the ring is only re-armed in place: stmmac_clear_descriptors()
-sets the ownership bits and stmmac_init_dma_engine() restores the tail
-pointer, but the RX buffer addresses are not reprogrammed. The first
-poll would then resume the stale skb against a ring position that no
-longer matches the descriptors it was built from.
-__free_dma_rx_desc_resources() releases it on teardown.
+They are real issues reported by sashiko or found during code inspection
 
-Apply the same state handling to stmmac_rx_zc(), which also leaves
-state_saved set when a saved frame finishes at the budget boundary.
-That path saves only error and length bookkeeping, not an skb pointer.
+>=20
+>  - What hardware the change was tested on. For driver fixes please
+>    mention the device (and if relevant firmware version) used for
+>    testing, or say that the change was not tested on real hardware.
 
-Fixes: ec222003bd94 ("net: stmmac: Prepare to add Split Header support")
-Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-Co-developed-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 72 +++++++++++++----------
- 1 file changed, 42 insertions(+), 30 deletions(-)
+The series has been tested on Qualcomm rb3-gen2 board.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 9ded31150fbe..fa7108919e90 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2182,6 +2182,9 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
- 	else
- 		dma_free_rx_skbufs(priv, dma_conf, queue);
- 
-+	dev_kfree_skb_any(rx_q->state.skb);
-+	rx_q->state.skb = NULL;
-+	rx_q->state_saved = false;
- 	rx_q->buf_alloc_num = 0;
- 	rx_q->xsk_pool = NULL;
- 
-@@ -5629,12 +5632,12 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 	unsigned int count = 0, error = 0, len = 0;
- 	int dirty = stmmac_rx_dirty(priv, queue);
- 	unsigned int next_entry = rx_q->cur_rx;
-+	bool in_progress = rx_q->state_saved;
- 	u32 rx_errors = 0, rx_dropped = 0;
- 	unsigned int desc_size;
- 	struct bpf_prog *prog;
- 	bool failure = false;
- 	int xdp_status = 0;
--	int status = 0;
- 
- 	if (netif_msg_rx_status(priv)) {
- 		void *rx_head = stmmac_get_rx_desc(priv, rx_q, 0);
-@@ -5645,23 +5648,25 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 		stmmac_display_ring(priv, rx_head, priv->dma_conf.dma_rx_size, true,
- 				    rx_q->dma_rx_phy, desc_size);
- 	}
-+
-+	if (rx_q->state_saved) {
-+		error = rx_q->state.error;
-+		len = rx_q->state.len;
-+		rx_q->state_saved = false;
-+	}
-+
- 	while (count < limit) {
- 		struct stmmac_rx_buffer *buf;
- 		struct stmmac_xdp_buff *ctx;
- 		unsigned int buf1_len = 0;
- 		struct dma_desc *np, *p;
--		int entry;
-+		int entry, status;
- 		int res;
- 
--		if (!count && rx_q->state_saved) {
--			error = rx_q->state.error;
--			len = rx_q->state.len;
--		} else {
--			rx_q->state_saved = false;
-+		if (!in_progress) {
- 			error = 0;
- 			len = 0;
- 		}
--
- read_again:
- 		if (count >= limit)
- 			break;
-@@ -5700,6 +5705,8 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 		if (!buf->xdp)
- 			break;
- 
-+		in_progress = status & rx_not_ls;
-+
- 		if (priv->extend_desc) {
- 			/* Read the extended status after the own bit */
- 			dma_rmb();
-@@ -5776,7 +5783,7 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 		count++;
- 	}
- 
--	if (status & rx_not_ls) {
-+	if (in_progress) {
- 		rx_q->state_saved = true;
- 		rx_q->state.error = error;
- 		rx_q->state.len = len;
-@@ -5818,9 +5825,10 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
- 	struct stmmac_channel *ch = &priv->channel[queue];
- 	unsigned int count = 0, error = 0, len = 0;
--	int status = 0, coe = priv->hw->rx_csum;
- 	unsigned int next_entry = rx_q->cur_rx;
-+	bool in_progress = rx_q->state_saved;
- 	enum dma_data_direction dma_dir;
-+	int coe = priv->hw->rx_csum;
- 	unsigned int desc_size;
- 	struct sk_buff *skb = NULL;
- 	struct stmmac_xdp_buff ctx;
-@@ -5840,25 +5848,28 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 		stmmac_display_ring(priv, rx_head, priv->dma_conf.dma_rx_size, true,
- 				    rx_q->dma_rx_phy, desc_size);
- 	}
-+
-+	if (rx_q->state_saved) {
-+		skb = rx_q->state.skb;
-+		error = rx_q->state.error;
-+		len = rx_q->state.len;
-+		rx_q->state.skb = NULL;
-+		rx_q->state_saved = false;
-+	}
-+
- 	while (count < limit) {
- 		unsigned int buf1_len = 0, buf2_len = 0;
- 		enum pkt_hash_types hash_type;
- 		struct stmmac_rx_buffer *buf;
- 		struct dma_desc *np, *p;
--		int entry;
-+		int entry, status;
- 		u32 hash;
- 
--		if (!count && rx_q->state_saved) {
--			skb = rx_q->state.skb;
--			error = rx_q->state.error;
--			len = rx_q->state.len;
--		} else {
--			rx_q->state_saved = false;
-+		if (!in_progress) {
- 			skb = NULL;
- 			error = 0;
- 			len = 0;
- 		}
--
- read_again:
- 		if (count >= limit)
- 			break;
-@@ -5887,6 +5898,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 
- 		prefetch(np);
- 
-+		in_progress = status & rx_not_ls;
-+
- 		if (priv->extend_desc) {
- 			/* Read the extended status after the own bit */
- 			dma_rmb();
-@@ -5904,11 +5917,10 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 
- 		if (unlikely(error && (status & rx_not_ls)))
- 			goto read_again;
-+
- 		if (unlikely(error)) {
- 			dev_kfree_skb(skb);
--			skb = NULL;
--			count++;
--			continue;
-+			goto next;
- 		}
- 
- 		/* Buffer is good. Go on. */
-@@ -5982,9 +5994,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 						      STMMAC_XDP_REDIRECT)) {
- 					xdp_status |= xdp_res;
- 					buf->page = NULL;
--					skb = NULL;
--					count++;
--					continue;
-+					goto next;
- 				}
- 			}
- 		}
-@@ -6041,10 +6051,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 		/* Remove FCS if needed */
- 		if (!fcs_stripped && pskb_trim(skb, len)) {
- 			dev_kfree_skb_any(skb);
--			skb = NULL;
- 			rx_dropped++;
--			count++;
--			continue;
-+			goto next;
- 		}
- 
- 		stmmac_get_rx_hwtstamp(priv, p, np, skb);
-@@ -6069,14 +6077,15 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 
- 		skb_record_rx_queue(skb, queue);
- 		napi_gro_receive(&ch->rx_napi, skb);
--		skb = NULL;
--
- 		rx_packets++;
- 		rx_bytes += len;
-+next:
-+		in_progress = false;
-+		skb = NULL;
- 		count++;
- 	}
- 
--	if (status & rx_not_ls || skb) {
-+	if (in_progress || skb) {
- 		rx_q->state_saved = true;
- 		rx_q->state.skb = skb;
- 		rx_q->state.error = error;
-@@ -8421,6 +8430,9 @@ static void stmmac_reset_rx_queue(struct stmmac_priv *priv, u32 queue)
- {
- 	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
- 
-+	dev_kfree_skb_any(rx_q->state.skb);
-+	rx_q->state.skb = NULL;
-+	rx_q->state_saved = false;
- 	rx_q->cur_rx = 0;
- 	rx_q->dirty_rx = 0;
- }
+Regards,
+Lorenzo
 
--- 
-2.56.0
+>=20
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account. If the series needs another revision for
+> other reasons, please include the information in the commit messages
+> then.
+>=20
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
 
+--Wa2Ya5IEJj5sSuGt
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCauCtEAAKCRA6cBh0uS2t
+rIR1AQCr+nG/Dx+y/qw8KFwMjZLoidUREPuG+M43m63c8kjpngD/Smo+d7AhTLzI
+C30f4bu34pPv+D7xj0sZCyysyVmqZws=
+=pve4
+-----END PGP SIGNATURE-----
+
+--Wa2Ya5IEJj5sSuGt--
 
