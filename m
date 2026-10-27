@@ -2,87 +2,137 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59D78606A336
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:36:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE75C606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:38:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z+CVSFxF;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=E99MNzy8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=u8/F/emc;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=ZvgkpKYJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=l+oxUfMJg5eV+CJD17FHu7pJx+SYawZ0ncZOWsVGuog=; b=z+CVSFxF2SpbChSGQx4Rd6Z3qG
-	J+wp/AVZjSPbkQCWl2QVRlhOfYRQII/LgVu4NENKbMm/Nl+3uEa5SlyY0Yc4+ov4yoQ88enR1Te+d
-	0W+FzEPguFnY3Ks22e4VcAIDS8ngpFQMvXJlLyRJNpr2cU55YY1jfzyVH/poDts74P0h2WIXhJ66R
-	KDO0xg1mkdrmGi/X9aKHSOEjibR/y64v0ZbbP8qiDmRAqbk6hkqpAal4MBQ7ibrp/ApWZk4tDeyj8
-	2mLS0EAJAnaKi+217edqa4bInGngo9iulzXMYWiwe3RwhOdMPUorcOvC1+m+LuNbQx8hltv4zrFDT
-	EekZ12XA==;
+	bh=9nVkKEC20L9XARdllr2jkQiQ5TE6i8ajrNHfbsRP6cY=; b=u8/F/emchQDgPBTkxoyFv+J7Rp
+	gbNUOgCogwbutn9S32xhf+NOQcWMu1Hwv7b7rHXo8voRV54Krrpm1iEUqP5y1Q4U1oOgTorJqlgjz
+	goWh6/gO5/fqbhIZn9XMQ07EcbYH0r5TIDP39OXCUqlxyyNfA3qgjyAVfWFWENqZWsz4AsotQ+AnO
+	nOLZSXDs8hflqT9SX7T5Xr/Ffk+EY1Vmfq0ebMk9MGkjT+1ZshelMLroN9DULWwWnZVG2D11x40WB
+	hVFbO5KUdW/qP32xcfV8P0rTOjcGqcCRYwhjY9HsCh2OBNX63YN0nJFxVSVF2bGvSXTrKK0aDup6U
+	oc/GVorA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLk9i-00000005Nnp-3u0W;
-	Tue, 27 Oct 2026 16:36:10 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1xLkBK-00000005Nzl-0qXO;
+	Tue, 27 Oct 2026 16:37:50 +0000
+Received: from mail-northeuropeazon11010008.outbound.protection.outlook.com ([52.101.84.8] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLk9h-00000005NnK-1YGw
+	id 1xLkBH-00000005NzO-45Vv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 16:36:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793118970; x=1824654970;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0npx0Foow+/UEvoNo/yJRWIrCYEDXYV8oP9hRaaHqlQ=;
-  b=E99MNzy8Sub3bjggOPOOel1xizdcvO/T1tx09KRQxqcBw9B31F+z/d2/
-   rIRLJiOiUEXoY9lZR3KkMtxmyYzn69VChdebcjc1U1GRp6/R9bmAnJvpH
-   1yZdqmlFwU/7KBPjepDVvuYLwQOXERgt4pY2YtZWvyYf0kmQJjtO5kUeJ
-   L2lqm8DbfpiJUiabgz3l14fQgItZxNiYpgMYGzT4B0EUgNL9Jo3H0DTcP
-   51hqZ7jI8qZWsKSvz+rz4+U+E6NPBDByDE8SGeWUhuG9b+k0T3zTldFXc
-   7ktF+iyOJY9KKhNRm8AJB/Q31sXYsPRWsXXnCZzjeTeL+IIMQfdqhjKtV
-   Q==;
-X-CSE-ConnectionGUID: Cfry46niQzSCijLTtJAFFA==
-X-CSE-MsgGUID: IiLySQuOSmGio3nktm+n9g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11948"; a="1701225"
-X-IronPort-AV: E=Sophos;i="6.27,181,1787036400"; 
-   d="scan'208";a="1701225"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2026 09:36:09 -0700
-X-CSE-ConnectionGUID: VoqCGL52RIG83ecyOWnq+g==
-X-CSE-MsgGUID: WN7IMjxQSviqS3YmeY8qTA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,181,1787036400"; 
-   d="scan'208";a="6461608"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.196])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Oct 2026 09:36:04 -0700
-Date: Tue, 27 Oct 2026 18:36:01 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v7 03/12] gpio: mxc: use 'unsigned int' instead of bare
- 'unsigned'
-Message-ID: <auDS8cXSmKjW3sfJ@ashevche-desk.local>
-References: <20261027-gpio-mxc-cleanup-v7-4-v7-0-7b602d70c149@nxp.com>
- <20261027-gpio-mxc-cleanup-v7-4-v7-3-7b602d70c149@nxp.com>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+	Tue, 27 Oct 2026 16:37:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vwvOSmqPiN4R4IqD4r3Nf9Xy9rtijcpHlNTM9QHaFnlQKd2OL4/Vs6SzAOqFJ2ic60heitxPPfi/kss7VQ6GIjKZlecjssWZSZkOy4XBiLVZg50v52eItDHjlDCOIkn7TZ9Le3C3GdmCkJSGXA7cuJs74xXYnKK0EotBrueJznwQPznDRCKtCug1xLn2BwdXEJ6YsnypAKdlMBIuPCfRrAJPPZYTFewsWrJqY0SefLVpkrJLJ0OjlNYAvD1TAET5mowClOTF6frQDY88xtGfNevCRLXKn+9voAAzPFD9y/N3zqHzs7q8ordYVti/DFa1f4Hhv1ivFFMM7nPo+9svgA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9nVkKEC20L9XARdllr2jkQiQ5TE6i8ajrNHfbsRP6cY=;
+ b=cjZ3pi1PK0dS6XKty/3JSGASVYeQ14v8cZWcI6rdrfNwNThd1vedTMtRhr7xaTLF69811Sdml17w5ZmZjTDmznJx1YLJBr4242inuaE8YIpomiNFPNNRTthwGw1C5LzSsfHWpqjCj+JOlc8rWmM5kHYzrsao/ltd8DhQRvf56gB0upNDJ/mZ8bg+phZIUcbCbolvIMmTwZN5pQoCHRUVOKb+IbqfVKpUpnBIN5B/K2FmShuw2aoVpFLrtHb0g9y+sZpl75MA9fwWetd0NHE/klGzGQxxQqNbCjTJV2OEU6sdBR+VlzBYlobs0IqVFhqD+yVjp3GZufLYCVxh8Wrqig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9nVkKEC20L9XARdllr2jkQiQ5TE6i8ajrNHfbsRP6cY=;
+ b=ZvgkpKYJzkhUZ157PYjiOFyQb3WeMrZTu6uH710fEL/nw1xgTR64RP9QdbmYKOUnCcJXi4zXci1iYoe2mOzwE3m1egCAyUTxjpyxxOVJv9GNQ3ag4CKyvUvJvD7rp1/mDw4t5kmfGzqYIO5jywKNEj6XIqemiu+msFDvXXwlSBM1ZTOVZgCgxEpkImATh5D2hJ66n8CQRLnyua5caXlDjWO2KXrL8t6bfasOR04RempKT553iOSfr3sT1URsa/x+jJAO43tnTOMH+d5q01D3nyYEBdUw0SK8uMqSsM+ggqmxyJxW8bGA8Ze0wEtqoOYcniPjPRHi7NwCc5yC+CT/hg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by DU2PR04MB8743.eurprd04.prod.outlook.com (2603:10a6:10:2e1::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
+ 2026 16:37:43 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
+ 16:37:43 +0000
+Date: Tue, 27 Oct 2026 12:37:35 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: "Jeff C. Jensen" <kernel@nullptr.com>
+Cc: Vinod Koul <vkoul@kernel.org>, dmaengine@vger.kernel.org,
+	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	Suraj Gupta <suraj.gupta2@amd.com>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Alex Bereza <alex@bereza.email>,
+	Folker Schwesinger <dev@folker-schwesinger.de>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/5] dmaengine: xilinx_dma: Reject transfers that map no
+ data
+Message-ID: <auDTT7A-SpD7nXEN@lizhi-Precision-Tower-5810>
+References: <20261022-xilinx-dma-work-v1-0-20faea2e7a80@nullptr.com>
+ <20261022-xilinx-dma-work-v1-1-20faea2e7a80@nullptr.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261027-gpio-mxc-cleanup-v7-4-v7-3-7b602d70c149@nxp.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20261022-xilinx-dma-work-v1-1-20faea2e7a80@nullptr.com>
+X-ClientProxiedBy: PH7P220CA0062.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32c::28) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DU2PR04MB8743:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95873120-bde9-4bbf-4e72-08df34489fae
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|376014|7416014|1800799024|19092799006|261026121527099003|56012099006|261021121427099003|4143699003|11063799006|261022105027099003|261009223027099003|10067099003|18002099003|22082099003|261026140227099003;
+X-Microsoft-Antispam-Message-Info: d2n0UOHgA3U9aMQhYjPy3gE5WRXnSZKiZuPALxaliWQ+fTsYVTQoYxdPnQ7OtqbZ4y5eDZ9KjjEI5H1yzHqj61u48bKH6judifPOpzYhor/UzxDuLAuBbS6vg0yeO25dMLkwPDR48hGxOMm/TwzofYg2NvGs9YX6j/V11M80iXup1Cw2uXb/sAIboaC3XOPz0eVupPWAsrxXctoAT4GlB8sBwu5ZqnMlPe2tJzltyTkTqHCIXpcSbANeeJvnwAi93cR2m/2JzTAqelkGqE3tXCeYm+tyh4LMXGbB3JbO0n/kzzF1x8qKmlWS7hmLVQpkB7XkRxg9HX7pWC1oefK4G6pA9Up/NeNklJfBcvas82ddrGMrc04BfcOA60Omv+R/3MH7oOkzYIKWUF7EIiMOFKDKM7hdhWb/DiKZy905TrG/cS4guBsZCXqvLhC1pUKtmb96x1HM6GaNrCxPIw2Bdc8sYRBb9BEuzsErb7ZqZl3fifZ6FPjFO8rjiiYQ29/tQydTEUwIyACH/hcM5Bp7VkG3kgnlv+mwIJ7rL0Q+OLVu1ihSM6T02POmQMcCm1i+Q/TQEjW9pNA/F68FCDaH4HDrVgefFTaBkZuN7/TlZ2jsayhlyrKPJduTUCC76tJ/VvQswPW8dx36Dkvocv7ohZ783uWbhKVB+FmVRyJxods=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(7416014)(1800799024)(19092799006)(261026121527099003)(56012099006)(261021121427099003)(4143699003)(11063799006)(261022105027099003)(261009223027099003)(10067099003)(18002099003)(22082099003)(261026140227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XoRxCGGlegQPRYWlMnq9aqE9O9orn+b1bfoFyDZ1mR0XnGjgyegD/mG7f02w?=
+ =?us-ascii?Q?qs7VZvjSw75K+bm6MYgLFAbyCK1viaBnFEntiSG3h4Cl0mUF48ZvmRAD7eey?=
+ =?us-ascii?Q?yIIIcHWyZjNLdSJYopFsJFK1W6h/3h7wINnhOe3ldVL7Ohr6A1AEeSx3+OnD?=
+ =?us-ascii?Q?jCgpbxc/9x27ySzu2azLnYtPC9YJ38QV6Vuaf+tA2bZB03NHMPoFsMy50aJl?=
+ =?us-ascii?Q?KZQmlHKzMcDkti0C4cwP16fVk6HNEWo7H219vaX2uG2NZVRV0CDvszbuKHb/?=
+ =?us-ascii?Q?Vx4cspkS4fqzKAAeTGgCtub30iTy5+F7GjPnlx/xu+K8PqCFCqaTYY/wcWvr?=
+ =?us-ascii?Q?nd0qcj0jb9Lcz2NiOn+vnlMJH5xDH6hzpGxE3jBjOi5xeEJKRG9q6lZOxjRy?=
+ =?us-ascii?Q?SCSJHlv7ZSERpXmeHOatMxhC3zQhR7uwSguAiWQbBiUVUQYRMuuoGq2b40aQ?=
+ =?us-ascii?Q?ITaruOhvq6smFZ7Bou+1DAZTZywttM7otxwl2WDzrW5uMj8JdkTiz52LHOvN?=
+ =?us-ascii?Q?i2ml99uaNvv8r9nrGKsXUka3n1RB3XI2DxHwrklARdc5/F1iHHeUfg27ThHZ?=
+ =?us-ascii?Q?IieZrpG+4scBHH6ENIlwk95VgjsMND27o2UqupySdbaxs0EK2Dd2AUokdkv5?=
+ =?us-ascii?Q?nTt+Nlzv+cbPJAtYePegF1ULkskaUvh2nB2aqItJQNPdcKLONF05bZncPwyn?=
+ =?us-ascii?Q?4KkwY7GmSGWhRJzrK6dC7c6W+WqGqDUVv6L6/KyzL9p0e/acVz1wBro8/Bw3?=
+ =?us-ascii?Q?MaRlIEfvbrZpaP+j31OTotOy31DSUwqhmN1MTQA5hm6fLQBSuc0/w+O28oMS?=
+ =?us-ascii?Q?c6hK8OY3SyQgQOvz8HCxTLfNkJdU1gG8FYVA/oipiW6Q8NccIpfeJdJnYTi6?=
+ =?us-ascii?Q?l9cnDmrMjRMn7RiCDB9qtij3yXw9X2viB0l6bcvUKkdClwG66mWKwDO75K53?=
+ =?us-ascii?Q?68sa4R1ozfpKgP8QMReLRfSIsEAubDe9ScaJqlJ69jHuWlpFBVcBpt7NqfSl?=
+ =?us-ascii?Q?KuDpDfiHWnBwnrUAbJXo4cfJtB6QjTai2c2TpMLeFhAxry5NhwN9Cr4emKhC?=
+ =?us-ascii?Q?4sII3vYUz45v1aAF1c6YjAn1EvrRis1XGTly43ctJOkiZUz6CUk+RJgjVkQx?=
+ =?us-ascii?Q?VXRdhK9wxYG0+PjrkYVo2l7Z+28D651AIibpQ6FFmW2Oj6Zz+RIvuVzPL84M?=
+ =?us-ascii?Q?64vY0f2lKM5Abidz64J2JvkBeGn2oILGJA8NQIiun/+kNOjwZE3Op/a795Cp?=
+ =?us-ascii?Q?bHgjsQEwZG2rW+wueUdBJqsnER5xqtVl3/fIi1vaDeFnxrmRltjYOpIM+sq/?=
+ =?us-ascii?Q?90yYVwDecB8fn/mLRp9v7bcN4jb5RIiHxiQ8YufXmLYRtTrDfJkhD7OPe/eN?=
+ =?us-ascii?Q?plSPHbBlSChwpAp8WB5RfNifZM9uQBF7cisxc9VhZRV9yQQID1t6s6VJZUdA?=
+ =?us-ascii?Q?bcLNmnCBHgSllxzVJgUU/yK/k81okATCTjZzVME7M9q50n6wOBH31jLCHsQU?=
+ =?us-ascii?Q?Fcko+5lO84sE69l9GsNjLevI8rSZ+O8slnfCa/h7vZ3sG5zAjWXiFnj2wPjF?=
+ =?us-ascii?Q?vpeyDqeYoNkDSyNN+txsrN8LaiT55BqZHuCNo8Ohb/vMT8fAGliW8vBzuvl6?=
+ =?us-ascii?Q?LI6E65cLKf3gLq/rvl2kkW/tuKz3lz17p2YF9e8PiB8LP48ei6RIfou6Kbsy?=
+ =?us-ascii?Q?8K5pHiskW0hrG6yuXpn66955bndawJSMl5yHBaerEomKF2woAv5wiMxhSI/a?=
+ =?us-ascii?Q?ivfKwHqDsYfwJqdHUahIjUvW4kLrG/vmzJxzpGZbn4vRxRYppd+V?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95873120-bde9-4bbf-4e72-08df34489fae
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 16:37:43.2131
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 87qiEYKRU0FHR2Dv5ml+j6S7gB/nlQeSBuMBBx68tMPRxyJD8rtFcB3XpnNjh+efV8dM5aS5xpzYAJqwamsDTKDpHGqRVganUVAIxfpEUimKMZU4++miI3iIjmpDINJE
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8743
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_093609_457978_46853C1C 
-X-CRM114-Status: UNSURE (   6.83  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261027_093748_020489_F4F7B180 
+X-CRM114-Status: GOOD (  17.94  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,25 +143,73 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 27, 2026 at 08:09:30PM +0800, Peng Fan (OSS) wrote:
-> 
-> The kernel coding style prefers 'unsigned int' over bare 'unsigned'.
-> Fix all instances in struct mxc_gpio_hwdata and mxc_gpio_to_irq().
-> 
-> No functional change.
+On Thu, Oct 22, 2026 at 03:11:30PM -0700, Jeff C. Jensen wrote:
+> If every entry of a scatterlist or a DMA vector array has zero length,
+> the preparation loops in xilinx_dma_prep_slave_sg(),
+> xilinx_dma_prep_peripheral_dma_vec() and xilinx_mcdma_prep_slave_sg()
+> allocate no segments. Each function then takes list_first_entry() of the
+> empty segment list anyway, so desc->async_tx.phys, which is later
+> programmed as the current descriptor, is derived from the list head
+> rather than from a segment. For DMA_MEM_TO_DEV, the SOP and EOP bits are
+> also set through pointers that do not point at a segment.
+>
+> Fail the preparation when no segment was allocated.
+>
+> Fixes: c0bba3a99f07 ("dmaengine: vdma: Add Support for Xilinx AXI Direct Memory Access Engine")
+> Fixes: 6ccd692bfb7f ("dmaengine: xilinx_dma: Add Xilinx AXI MCDMA Engine driver support")
+> Fixes: 38433a6fdfb7 ("dmaengine: xilinx_dma: Support descriptor setup from dma_vecs")
+> Assisted-by: Claude:claude-fable-5-1
+> Signed-off-by: Jeff C. Jensen <kernel@nullptr.com>
+> ---
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+>  drivers/dma/xilinx/xilinx_dma.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+> index cffe7c6fa640..5ccc9f9d58a3 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -2305,6 +2305,9 @@ static struct dma_async_tx_descriptor *xilinx_dma_prep_peripheral_dma_vec(
+>  		}
+>  	}
+>
+> +	if (list_empty(&desc->segments))
+> +		goto error;
+> +
+>  	head = list_first_entry(&desc->segments, struct xilinx_axidma_tx_segment, node);
+>  	desc->async_tx.phys = head->phys;
+>
+> @@ -2406,6 +2409,9 @@ static struct dma_async_tx_descriptor *xilinx_dma_prep_slave_sg(
+>  		}
+>  	}
+>
+> +	if (list_empty(&desc->segments))
+> +		goto error;
+> +
+>  	segment = list_first_entry(&desc->segments,
+>  				   struct xilinx_axidma_tx_segment, node);
+>  	desc->async_tx.phys = segment->phys;
+> @@ -2613,6 +2619,9 @@ xilinx_mcdma_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
+>  		}
+>  	}
+>
+> +	if (list_empty(&desc->segments))
+> +		goto error;
+> +
+>  	segment = list_first_entry(&desc->segments,
+>  				   struct xilinx_aximcdma_tx_segment, node);
+>  	desc->async_tx.phys = segment->phys;
+>
+> --
+> 2.43.0
+>
 
