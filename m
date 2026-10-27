@@ -2,162 +2,101 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B592C606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:19:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 574A3606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:21:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EXCNVGGW;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=I/qb+VLd;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=uv6FT5B1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rjsNYpDy;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=r0l7owgL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Yopc8iRlPwx9QiclX5KhwkDVR9Xi/rHhmebOByH1+7g=; b=EXCNVGGWNl7hX5xCJ59YOq+HKl
-	GTtqk6vBe4wgM0pQlUbqmhsEnZH1EhcTI1QgTkwiMIQ3dR0b0i1F6K5XE8yICKe5uAXPnwBTCQ7S0
-	eDZFbVcNSdRFxrN3MO+NCf8fNUnspPlj3IZfn/zZDeGApc8QNLxj2Lk5xdBiQw0lpyC0JatK/GiCK
-	F5tWhcYKAxy84I077gOtT2JexQXx2scKpnmsLGaF6iDbIJp8jCsr8NoEWncb12aiY7GK2AziAUiBc
-	uoVHSGcuiUhZj1XzyubmgV3XYE4/hW/IUoCfDz+p2hrrhUDyEX7pecU3wPb7Vxy2BmxiLfZpfmQnX
-	g7+xp5IA==;
+	bh=PI+wWLA/0HjZUtFhvg6XuCK4doWx6E1ESuzMR7f3jIc=; b=rjsNYpDyUI3EVdx5ZPACuRSTKQ
+	K82NsCkMzHk7vVeMXW29s0iKE8x32cZkuFeZc/h8Y4O57JONdJyLSIWsmVVVMndfNvkAFVryYBLDY
+	xBJ3nq5PTiqaG20fSrEmU8gKQNt7f0YY+41ZDHjzDSa4w8VGROKLT/npnOHLPaDkpZCp6AicQ6hgn
+	i7g7nI/5xyR485V5ZbGAoqb0niLbvJmZKUI3U9wRKQsMk4lWpX6OvLg4pwxuZdvC0rJQBly9gKDLp
+	WHc3Lx797GuWkUkIq311LtDEv33QHcV/7TwSvGwJrh5o6uOno3AHbCRVkoW2h4e5WPwPtEX/LFZDc
+	p++WXG4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLg3e-00000004abZ-3ZFD;
-	Tue, 27 Oct 2026 12:13:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xLh6z-00000004muQ-11VT;
+	Tue, 27 Oct 2026 13:21:09 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLg3b-00000004aXW-42UJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 27 Oct 2026 12:13:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Yopc8iRlPwx9QiclX5KhwkDVR9Xi/rHhmebOByH1+7g=; b=I/qb+VLdblPHhsueVVyhUvS1MO
-	nQ8P8AbDhIvydkHmkrB4PREIroLsJMxtbrkCrkvAb+eceqzlN9806HgffaIRKB1CPXiiYCi4mpKRk
-	PpIYX+AfMHvw1rMQCDohgsok6PJMt07usfa+5kznwNLw1vKMdgUdtUHpWLcHqCuQXl5csrc7Rw8fv
-	0aRvbNgxE8vOuXDFt1QmasnCNk7LVIR706/29N34E2FF0SpQG+7itJOcDsRZwibwzWChQzrBcM5Rr
-	P5AXdymqNH6UpCOM24EMUBBIEVNpnFTwo+JgJl4AlL2d1GTOoH3iBOmUEUM3lFg8lQt20CMVieR7k
-	E8YXYnqw==;
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLg3Y-0000000EugR-3UXu
+	id 1xLh6w-00000004mtk-2fCj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 12:13:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Tf6ZtpMVY4J8d2+QVCZnYde/6QAHFr4eezqgT0lGCT0ESYT5nfX2L2YmxiNBXDDwaTUBLiXL0VLx0cJdT6qolesfvERMwIzamPJBrUmXLzWIjLCIzeI8KhXwmAou35beKVChvxve5tpjtikEkYKjtvEp5vHvKdQBuDkWUkOyNYth6Di6Rsd20ZRJanE+mDJdmBgdPVKq0Vou87vRN563BAeICQbP/BguZMgqXsB+WEySnwRTi6af8lF3U1TGc1Dk7uxl1z6NW1YNXdwzW/H36H4jRk4SdR7LW2RMIxYXcnb+KI0/NcZemu5MUslq6/FeXZD89fZcVhBgbqxlk0DzZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Yopc8iRlPwx9QiclX5KhwkDVR9Xi/rHhmebOByH1+7g=;
- b=s+/kH/L+JZNJqFUt51gfokVByAm5OGpSej2/AaQih+bpiVkx2fQOqGIVlTo/+WubxXjswoc/zB+10cTuPOiUT601QozIYol8icbM9uzKcDdkw1vlcOBL4sWQrnrEH/QSRTEPIn2rPEZ3TC2y8/Qltwx2FBlLZtUf8B2Hc7EQafTFI+a6JxdOxD3KSi2mHxQXkNFvqwXujOP/ymsephYqtnA/Tcrna+jzJDhCV8DJnbY3C3p0rKDDWC72oxPoRswRxJfguQOWZLVJbEd9AFdnVbUucF/DTr0gviIBnGs79dTOreXRjr1zXkoJdoqcXfRSs96EVqypC9R0A1/mphzL8Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Yopc8iRlPwx9QiclX5KhwkDVR9Xi/rHhmebOByH1+7g=;
- b=uv6FT5B1mdLrzwgdOJWf3kRxPwBGu6CnxCuc2MPKnr9j5o1pXQ8c0GObw5NwhR/T/Ff4SK6b2HrbRYBMhrTsBbSlbgr4ADE6mH+TUk9mDD7oYGDZGGdMOxR+FQpiCA6vIH85Z4XtLD6KV2nWsm4x2r8hIMI47zYB/hI/ik3ETedVI2avnT7jcbBRAf2f5w1QJKN4pz+6ibWLE8HJ/hU1K9pGFNsUwmO7ELaS2TF9XT21GszDHBVl7zuNqa48HSZpJafJiYxFKbKkkuy3j9yhtFFGY0HICejaAcp1nI6kZ8AUpaHYkeJeEE0a/oSxX9gEdMafrUnuad1NzueQrr+9Zg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by DBAPR04MB7462.eurprd04.prod.outlook.com (2603:10a6:10:1a0::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
- 2026 12:13:28 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
- 12:13:28 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Tue, 27 Oct 2026 20:09:34 +0800
-Subject: [PATCH v7 07/12] gpio: mxc: use __free guard for runtime PM
- cleanup
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261027-gpio-mxc-cleanup-v7-4-v7-7-7b602d70c149@nxp.com>
-References: <20261027-gpio-mxc-cleanup-v7-4-v7-0-7b602d70c149@nxp.com>
-In-Reply-To: <20261027-gpio-mxc-cleanup-v7-4-v7-0-7b602d70c149@nxp.com>
-To: Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.15.2
-X-ClientProxiedBy: SI2PR04CA0007.apcprd04.prod.outlook.com
- (2603:1096:4:197::19) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Tue, 27 Oct 2026 13:21:08 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a1df4c0966so7098185e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 06:21:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1793107265; x=1793712065; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PI+wWLA/0HjZUtFhvg6XuCK4doWx6E1ESuzMR7f3jIc=;
+        b=r0l7owgL0WMFQRCzQIo46Z4J2aHTVnzF73aFGxx4F31Xfdyk3e2bLuh1DUBAm3y00m
+         0rckHUnOTIqoYBBAxFaKaW9JcErGNw7kV8XmhZd2l/Oev13vWQJonKq9vOYipRSFv9Ni
+         U/2NRYZr4LkoND6TGJ5Zw4OUNkN/lWfl8AY5L2ZpVhUwbnpKWwdPxU4tl180eWqSjTmg
+         5rzp1pmFem5K++3+FNQq1Sp4Y/p9TJsb7YW4v4Y9vVO9eiXs6kXD8iWgfdEaMi6Mz2dR
+         Xh8XHdouSjMF3lRVp3pIr849Ow/V8OBuSMXDUsXn4zCJn2X7rS0VnlDkLvouXX1huZca
+         S9Cw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793107265; x=1793712065;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PI+wWLA/0HjZUtFhvg6XuCK4doWx6E1ESuzMR7f3jIc=;
+        b=Pr+NAWmnqniUPyW8Zd2jBrDbzENPhrh+E25QIAvz+Wp7y6/67fk+zXPnGZgnl7QjuB
+         6t0SaIgR5Ax06xCeXF2PhLXHE9R2kOelNBoV9KQ2fnCB85gT5j6pM9GFPwOCvvtJ9ybi
+         1eJd832IzzTPKE9btPISUJAp+M9xGHgwntmuIB41IEFmBnY4y1OkP/5YEB/uKyqtgGHO
+         LnM/VUY1RDNLyRDY18s9zpYl/Oq2zh3fpCCo3MOl3vVZRnj0dAgQKBk35cJT33L+R1sq
+         RWLvQ7aRoCUGZ4L2t9+ZUdXD5VDP+xtMIl//Db07FombAGzqOF3foVMCGRtu/3nRBqUX
+         f2LQ==
+X-Forwarded-Encrypted: i=1; AKwUvByczxEDQPy1YqV0c0bM+3k8MLHshHyo0IO/lIJJQNhULDocvvbyn0JAZtBAJcf7YhNgflzkYIBleRpnC8J7FAPX@lists.infradead.org
+X-Gm-Message-State: AFq9FYKJFxP5S3DYUPgEitOQNAnfItrWbQtMRM8WmrP6R3D65huBehTp
+	dhAUwg7LrqxeEjuyH58GE1/OL24mJF4HDT4OFJFbZmhJRMGV2DlDXCLM
+X-Gm-Gg: AYBFou19nCinSP/fkxzh6ErX/MxtJKx1U/LvXJaoqsN7pXiixa+y/wDVRejpEXDL5GW
+	0KYFinZGCh1c38jQADf9skh344raU/HY0cKE3+eJJcrNuCClHD1gL0PhzfkAhTdFBRvRZvlcpty
+	5zIV3/tRYsz/tQmmmtLeW0dPZwv7HsmwLqVxfNrgk2j/VkDl1YuuXV93zln21lmXHNZLKATHt0I
+	RxZ2N1Te5SHKe05U9ChQSMJgpLaWmr41GrKA4hCOR9ky+Dorae/VtDadzxkATseb8m5gp2V0jpC
+	nrCgUXg7Zmpng3bkHvG3Az6+TdGni1XmTQlmKRkYiNd4ZDK8WE5eyJtSMd4f+TqW6phAr3nq1iu
+	vTkG7kQ8tPIi7y77AoGoiUUW7fm0EvWWuybw9D93xB4WXV0J63LJezoAMTHCq3P8zLNbOCR+7z7
+	t6dG+tUf1HvEUw6a0t8cdfVmO6GSq4KJVcq0AHBSQIG4PsbS6oBBAPruAB6xDttn/IGlc5iY/L/
+	iEtgzRL+mbnydyTjmCyfI9bjIFXqqBtm5R/rtVEWCO+2+ToaJDJ+J8xMXgghyyWBq9ULZKs8DMX
+	91Pac5wLZ9w7X5KDwIh52AS+cG22kw==
+X-Received: by 2002:a05:600c:3c98:b0:4a0:20b4:ba93 with SMTP id 5b1f17b1804b1-4a7c1c845a2mr58333335e9.16.1793107264222;
+        Tue, 27 Oct 2026 06:21:04 -0700 (PDT)
+Received: from SMW032656.wbi.nxp.com ([128.77.115.158])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a35a08dcbfsm177568315e9.2.2026.10.27.06.21.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Oct 2026 06:21:02 -0700 (PDT)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	elena.popa@nxp.com,
+	cosmin.stoica@nxp.com
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] arm64: dts: imx95-navq: add USB1/USB2 nodes
+Date: Tue, 27 Oct 2026 15:16:30 +0200
+Message-ID: <20261027131630.575-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DBAPR04MB7462:EE_
-X-MS-Office365-Filtering-Correlation-Id: 14a56ac6-4382-4b1a-103e-08df3423b589
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|1800799024|23010399003|261026140227099003|11063799006|261026121527099003|261021123027099003|261021121427099003|261009221227099003|261009223027099003|56012099006|261022105027099003|10067099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: 4omvFSr7xvHPu1u1Icsww3nBsLeenZjCHd1veHPCfdKZxp6dnLBpGA8nabuhcZzjExRckOMGZhfdWUMEXvozdNK897GlJ1dFstNvqpJzwz/MwWYiGAF+ohIdsG8t5Ca3TZ5gELnoiDiF2OzVRBtZk5w8nPQI7Z5SWKNd77pPPKq0EvQAS9YRr06oIbKKZf8J0lJ1CsR4/tJtMxSD8Jl0SvslXagaMIyO23nSI6sLwIO8o85cGAJWs/KVaRyf6W+gUmbMdD8PSMcoJxxxaDDUxEWLc7SHg9MDkiZat4GOPmtgHpOTQj8nkE/Eqw15MOT8XSFNR2jJKIwIXKYaKGom+11jvGDll+bruyeRDCPzxNuRc4WVdH64qq5dZacvjc1RfNWVipNxLEyLVJBGyXN4jl6Dl3k5miUQteDUAFepq7wI5tsDH/WzcDbMmrsop1U2ZpwIYmnmp1Khd4xoDxBYnN7GeGcBJRJsLYrkH8ho6ad5/scneJSJvGkCAcuxWyQYaThYnO4TZ5BLVuro7F+XTPPDdE2FwSmZP6w5YJKMRvpWC1Ue13JyPLQO5OkAc9nruQ7AvoAIBPa06P+NEEv/4ugR9492WNydK2QCa9K7gVkqFHE5Beg3f76o+vG65xAtOVujfuMs2uKiQNWUgoUhCDarfLiFio2QbSnODbfE5Mk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(1800799024)(23010399003)(261026140227099003)(11063799006)(261026121527099003)(261021123027099003)(261021121427099003)(261009221227099003)(261009223027099003)(56012099006)(261022105027099003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RGNmUTFGcElVT3liYlRBOTlqOU9leGFaN0kydHZVdVAwdVUvSUI0WVBZSE1J?=
- =?utf-8?B?bXB1cHNTU2hMTks2T2pVYXYxcWhIL2FydDVuaEt2eFE4MnNZQlJvZEdOU3k4?=
- =?utf-8?B?blF2UERKUlIzSEUyUFZ0dk9sbUljdU9uZUlmRERTMUhleFpGdyt2UGJBWUNS?=
- =?utf-8?B?NEZIMDlFamN3eWN3N2RXbC8wdGlDTTc0NFVBRGZwdjM3Q05rZGFIT0VPazRX?=
- =?utf-8?B?TWlCdDIzcGx2R2NuSG1lT1BGeldzUkdOMlF2UTh5OXNodzJjU0lIb2hKcHZq?=
- =?utf-8?B?UUkvYThiK0l4dXc0U3NIaU1jZjZCU2xhaSsralhHZ3J5MEd0UHNxcU1aaXQr?=
- =?utf-8?B?UHVzV0lvR1d1QTh6MWwxbkN3T05lTnVXRmZ4TmRjZ1luNUxrYng5bms4em12?=
- =?utf-8?B?YjhPbmFhYWo3NE5Fbjd6RDJLM3NPUzFkcFpLK2E3VTAybDlRMzZsOWMvbUQx?=
- =?utf-8?B?ZDdCWXJTcHNmbW1HT1ZaNXR4VUNIai8wS25BVnBKMVZuS01zbEVaTXBIUGJ0?=
- =?utf-8?B?RDJXdFdkTVRYODMvcFRVU3BIb1lVeDM2V0RaUC9CSTNoY0J0b09BVWtYb3E3?=
- =?utf-8?B?T1A4dTh0M3F2dW9FU2tzRGRSQmp6WEZJdVNObjVoY210T050aVdzQVBUanhr?=
- =?utf-8?B?MlE5ZWsyUG96d1VqUVh6SmVQWnVLRVRqNXpnNFYrR3RTemU1SUdqcVR1YmlI?=
- =?utf-8?B?bTYwcTZWTXcwamVoL1hQeTRUOC9GeEVvQ3c3OHZxVVNOUWFRemt0VXJOSWJT?=
- =?utf-8?B?T2Z4WkVySnlIcHBkK2F3Z0dKRlNYUW02TzhrTGpCY25qa1dXMkFmVU1pMHho?=
- =?utf-8?B?VFJQVThPbjdwMWdLV09zNldwU2NVbUNEcHdoWnM0a2VVODk5c2E1dktXL3lP?=
- =?utf-8?B?YkRVaDdETTY1K08yQnlFdnhnQXdmeSsrWllCU0ZDRU1acWx0ZXNSb1pRSGN5?=
- =?utf-8?B?akpZdjRRS1pwREI4c1plMW50V3lIYVZ5bkd5cDlNcWpmQVVmelZLQmtpOHFJ?=
- =?utf-8?B?eldTR2N2UGZiekE2aUZQTnZyNWo1YTdSVVFvSitTSXpKZW5oVXBjR1VoWXhH?=
- =?utf-8?B?aEpmQVFUZGVLYUVSWVZlRk9NTUhmY2tVZjNkd083VG5qQkdoY2I3d3lBakl5?=
- =?utf-8?B?UWlOM3kxcmFwZE1pNDMwWnNIMzdvelZ4WUwxZHV3MDBwSGVwTEpsTWk2eUR4?=
- =?utf-8?B?YVVhV28vUjVPeFdManNzdXpwbzR3d0laa3NsV0lYWHBMcmQySkVBVHhMNUJQ?=
- =?utf-8?B?aFRQTkNXa1I3SHFMYU1QSUcxSWl2N0UvSjZXa1NJTCs2UWlIM1M4dlVZM0hv?=
- =?utf-8?B?dXVNZEx5VmcrTFhYLzFCeGhRc3VUczBwVHhxdmV3aHZJc0lua2NvejNvMkdR?=
- =?utf-8?B?ZElERzJjYXc3ME1YSVluM1lEWWYxRVJBMjZiV3NZNkxHbXdKc05aSHBxeG5o?=
- =?utf-8?B?bUNjdGd6dHo1cDFsZHBnejVNOUZySFJDL0VjWmZxaTFrOCtYcUI5R0hYaTN5?=
- =?utf-8?B?NWNXMFlzQy9HWkJJQkxQN2ZqdVNyVmtMVmhLU1BXVXpzNFZtcWR3bEpTL0dK?=
- =?utf-8?B?UDczVDNOZFVhdFVtYlFPUmJtYjMvWk5wWFpKZGVOVHZyYlVlNEEzMTV5RFd0?=
- =?utf-8?B?c3VHSWlIY2czbjllN0pJN09ydUlDc2ZORnhZQzdPNHZHamlSa0hGWUtPUnRF?=
- =?utf-8?B?SFJSN2VIYTVmajRPaFErTzQ3YlhYZVBXZXY1azhyN1orTS9ocUIvQ0k0SmZY?=
- =?utf-8?B?ZFdBNjlLYklKZ1EweXVkLys2SUNjdHRPUEMzOU9memFEeUcvTU9EbkZVVWtr?=
- =?utf-8?B?a3RvUk5jNDBFTmF3UkttVXJhZEh3WGFpM3FFUUhZZm14eU5oZ2lNYWt5Y2hq?=
- =?utf-8?B?V01LRUp2WjhzbStNbVh4OHJYQXFXTVVQZmc0bmFaalBEcHF3ekhhaVlIS1Nn?=
- =?utf-8?B?eG9DaUI4TUtmc0FLbkgyMTJTUzFvNkFZTkZpbnJ4blFXdFRVNURWMzV0NTJB?=
- =?utf-8?B?OEJZbWtLMjFwMzJ2ZDJZYnRveHFScmprYnRMOHVibnY1RXYxOWQ5bE41MFlu?=
- =?utf-8?B?d1JZTUNidWd1TFFmejdrYnMyU0dsN3Y0Z09JZFcydFpnaUtkZ3dCUHBteWxq?=
- =?utf-8?B?Y3RJWDZwaDdTUWE3bVhobTI2UVk4MktET0tlc21UaElZOExYZXVDQ2JPU3Y1?=
- =?utf-8?B?Qml2NzNGTldXd1NlRVJsL3hVUUE2dEFYVkJZMW1zRTFmdGdMNTI5VXE2TnRu?=
- =?utf-8?B?ZFUzVEo3OWpabkhYbnRUbzl6TFlyQWxLNkNRNEJyT1FaOElQbDJaOXZyc3Np?=
- =?utf-8?B?VXV0TlVGRlh3YlowaDZTWFFlODgwZkpzMXNHbm4vZEZDeHQybXdFcG1pWXUz?=
- =?utf-8?Q?bNffvWhMqu6v88FqNzC+hahCVbs+xVC8rMQAs?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14a56ac6-4382-4b1a-103e-08df3423b589
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 12:13:28.5156
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UwULeITv3AoYbUQWVitHxF++C0ZjE248bXfJq2s9UQreWF6+HL9C+dmM643n5FcGQ/HBX9yxi3WKiwFgxDV545mKzf9gcB8+3E9O7qKqAwWpbbfVHjJ6YFNeSRgIHcMq
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7462
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_121333_199430_60615128 
-X-CRM114-Status: GOOD (  12.62  )
-X-Spam-Score: 1.9 (+)
+X-CRM114-CacheID: sfid-20261027_062106_705880_DB6F600E 
+X-CRM114-Status: GOOD (  11.82  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,84 +107,184 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Peng Fan <peng.fan@nxp.com>
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Use a scope-based cleanup guard to disable runtime PM and drop the
-probe-scoped pm_runtime_get_noresume() reference on error paths.  Disarm
-it with retain_and_null_ptr() before the success-path
-pm_runtime_put_autosuspend().
+Add and enable the DT nodes for USB1 and USB2.
 
-The guard keeps the required order: pm_runtime_disable() runs before
-pm_runtime_put_noidle(), so dropping the reference cannot trigger a
-runtime suspend callback while probe is still unwinding.
-
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
- drivers/gpio/gpio-mxc.c | 21 +++++++++++++++++++--
- 1 file changed, 19 insertions(+), 2 deletions(-)
+v1 -> v2:
 
-diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
-index 21c74b244c1f..68857730b5e3 100644
---- a/drivers/gpio/gpio-mxc.c
-+++ b/drivers/gpio/gpio-mxc.c
-@@ -28,6 +28,20 @@
- #include <linux/of.h>
- #include <linux/bug.h>
- 
-+static void mxc_gpio_pm_release(struct device *dev)
-+{
-+	if (!dev)
-+		return;
-+
-+	if (pm_runtime_enabled(dev))
-+		pm_runtime_disable(dev);
-+
-+	pm_runtime_put_noidle(dev);
-+}
-+
-+DEFINE_FREE(mxc_gpio_pm_cleanup, struct device *,
-+	    mxc_gpio_pm_release(_T))
-+
- #define IMX_SCU_WAKEUP_OFF		0
- #define IMX_SCU_WAKEUP_LOW_LVL		4
- #define IMX_SCU_WAKEUP_FALL_EDGE	5
-@@ -487,6 +501,9 @@ static int mxc_gpio_probe(struct platform_device *pdev)
- 		return PTR_ERR(port->clk);
- 
- 	pm_runtime_get_noresume(dev);
-+
-+	struct device *pm_guard __free(mxc_gpio_pm_cleanup) = dev;
-+
- 	pm_runtime_set_active(dev);
- 	pm_runtime_enable(dev);
- 
-@@ -562,6 +579,8 @@ static int mxc_gpio_probe(struct platform_device *pdev)
- 	mxc_update_irq_chained_handler(port, true);
- 
- 	platform_set_drvdata(pdev, port);
-+
-+	retain_and_null_ptr(pm_guard);
- 	pm_runtime_put_autosuspend(dev);
- 
- 	return 0;
-@@ -569,8 +588,6 @@ static int mxc_gpio_probe(struct platform_device *pdev)
- out_irqdomain_remove:
- 	irq_domain_remove(port->domain);
- out_bgio:
--	pm_runtime_disable(dev);
--	pm_runtime_put_noidle(dev);
- 	dev_info(dev, "%s failed with errno %d\n", __func__, err);
- 	return err;
- }
+* change USB2 DR mode to OTG to match TypeC connector configuration. The
+controller should actually support the software-based host <-> device
+switch.
 
+---
+ arch/arm64/boot/dts/freescale/imx95-navq.dts | 121 +++++++++++++++++++
+ 1 file changed, 121 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx95-navq.dts b/arch/arm64/boot/dts/freescale/imx95-navq.dts
+index 7860c113e9e0..b668c752905b 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-navq.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-navq.dts
+@@ -5,6 +5,8 @@
+ 
+ /dts-v1/;
+ 
++#include <dt-bindings/usb/pd.h>
++
+ #include "imx95.dtsi"
+ 
+ / {
+@@ -80,6 +82,72 @@ i2c3_gpio_expander_21: gpio-expander@21 {
+ 		pinctrl-0 = <&pinctrl_i2c3_gpio_expander_21>;
+ 		pinctrl-names = "default";
+ 	};
++
++	ptn5110_usb3: tcpc@50 {
++		compatible = "nxp,ptn5110", "tcpci";
++		reg = <0x50>;
++		interrupt-parent = <&gpio4>;
++		/* USB_PTN5110_ALERT_B - shared IRQ line with tcpc@51 */
++		interrupts = <25 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-0 = <&pinctrl_typec>;
++		pinctrl-names = "default";
++
++		/* no SINK circuit (EN_SINK1 tied to TP32) */
++		connector {
++			compatible = "usb-c-connector";
++			label = "USB1 3.0 Type C";
++			data-role = "dual";
++			power-role = "source";
++			self-powered;
++			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					typec1_con_hs: endpoint {
++						remote-endpoint = <&usb3_data_hs>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					typec1_con_ss: endpoint {
++						remote-endpoint = <&usb3_data_ss>;
++					};
++				};
++			};
++		};
++	};
++
++	ptn5110_usb2: tcpc@51 {
++		compatible = "nxp,ptn5110", "tcpci";
++		reg = <0x51>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <25 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-0 = <&pinctrl_typec>;
++		pinctrl-names = "default";
++
++		/* no SINK circuit (EN_SINK1 tied to TP30) */
++		connector {
++			compatible = "usb-c-connector";
++			label = "USB2 2.0 Type C";
++			data-role = "dual";
++			power-role = "source";
++			self-powered;
++			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
++
++			port {
++				typec2_con_hs: endpoint {
++					remote-endpoint = <&usb2_data_hs>;
++				};
++			};
++		};
++	};
+ };
+ 
+ &lpuart1 {
+@@ -145,6 +213,10 @@ pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
+ 		fsl,pins = <IMX95_PAD_SD2_RESET_B__GPIO3_IO_BIT7			0x31e>;
+ 	};
+ 
++	pinctrl_typec: typecgrp {
++		fsl,pins = <IMX95_PAD_ENET2_RD1__GPIO4_IO_BIT25				0x31e>;
++	};
++
+ 	pinctrl_uart1: uart1grp {
+ 		bootph-pre-ram;
+ 		fsl,pins = <IMX95_PAD_UART1_RXD__AONMIX_TOP_LPUART1_RX			0x31e>,
+@@ -198,6 +270,55 @@ pinctrl_usdhc2: usdhc2grp {
+ 	};
+ };
+ 
++&usb2 {
++	disable-over-current;
++	dr_mode = "otg";
++	usb-role-switch;
++
++	status = "okay";
++
++	port {
++		usb2_data_hs: endpoint {
++			remote-endpoint = <&typec2_con_hs>;
++		};
++	};
++};
++
++&usb3_dwc3 {
++	adp-disable;
++	dr_mode = "otg";
++	hnp-disable;
++	srp-disable;
++	usb-role-switch;
++	snps,dis-u1-entry-quirk;
++	snps,dis-u2-entry-quirk;
++
++	status = "okay";
++
++	port {
++		usb3_data_hs: endpoint {
++			remote-endpoint = <&typec1_con_hs>;
++		};
++	};
++};
++
++&usb3_phy {
++	orientation-switch;
++	fsl,phy-pcs-tx-deemph-3p5db-attenuation-db = <17>;
++	fsl,phy-pcs-tx-swing-full-percent = <100>;
++	fsl,phy-tx-preemp-amp-tune-microamp = <600>;
++	fsl,phy-tx-vboost-level-microvolt = <1156>;
++	fsl,phy-tx-vref-tune-percent = <100>;
++
++	status = "okay";
++
++	port {
++		usb3_data_ss: endpoint {
++			remote-endpoint = <&typec1_con_ss>;
++		};
++	};
++};
++
+ &usdhc1 {
+ 	bootph-pre-ram;
+ 	bus-width = <8>;
 -- 
-2.51.0
+2.53.0
 
 
