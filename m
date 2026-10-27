@@ -2,175 +2,154 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF4F3606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 08:49:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C5CF606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 08:50:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pKs13S31;
-	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=n6xBxOTy;
-	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=in72CcJb
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lqS0TNuQ;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ib9L1Dlh;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=UlxclWWo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ai/rPj0k/dcF6qIR2ojbTz+PmJVaAiOnPaNdcLE5drE=; b=pKs13S31+QhSLS
-	RRGoeVrKkyfJCNsKqB4S5rnxy3LIlpACLsi7uJ9YGjOYEN0DUZwU/AKQapt2lpwAQkVUAFPp7nyNk
-	9osm8aJRxZ0yh4KSaCx4X7rldCxI+ereYvbff7zjiazBGvfFouGxJvYoRKCCBzvqiTFOns9AINApr
-	VCj6FKVFTF1hu/yVNquoBGB+qAS4onP4ARY2dqVlOBpwiDHcGUFl3d/rg/y17eM3eaRtj+1SknTVU
-	5NM55YbyYrkSVas2Tb2GLrfLGq0BTCzpi9cr+ipkrrymVRDHVmsSrL77lbcTaXrW6vln0YNdEbC7u
-	V2I4a4yJRCURpg3i1I8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=mmllJ+uXvvHcM6LuUW8/Fr+YPtzrcmRcBhLz9Ri9Lqg=; b=lqS0TNuQw1xoFdUUpFDb+H1/rB
+	fkYQTqUDK3/Go8ZVrRryaxQWBx/xS3A5EsOx0TLasUzORQS6+hE35UHCmNiZG36WQLtNaThBzK2Gh
+	+N/KZDUtH0Fb1bTP0aF5Y0SAkm37/NGFs4QnwImJYcFTD7MObaRc/E3X+7eASYNikxEfktDBfaYRP
+	Ka26nLX3G/lXaZbUvUNUI7o51EjZJbUk/yASO00Y0jvrmdgZzGnSwOVBbD/fRx4nVeEHwL2XYj5nv
+	9IiiB4Zd/rin8PCLRob7/X0y/v1uY2i/KE0gJ1ohn/97HQd/0qpXyx0k4UJCfop7igt7mW7oQ5N64
+	cYj23FIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLcsR-000000045wI-3737;
-	Tue, 27 Oct 2026 08:49:51 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1xLcsq-0000000461u-3jHG;
+	Tue, 27 Oct 2026 08:50:16 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLcsO-000000045vb-2hwf
+	id 1xLcso-0000000461G-1U9h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 08:49:50 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69R5Y2ag4055693;
-	Tue, 27 Oct 2026 03:49:44 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=ai/rPj0k/dcF6qIR2ojbTz+PmJVaAiOnPaNdcLE5d
-	rE=; b=n6xBxOTysMMZYn/fVWb/cEWvE+GnMUUNhhPqts+HKKUjqDgJ6u+DbbIit
-	4SelxHBQ08UoEqy1ne2bMoY6QRBqtkwyMlwTQEqAApiTfcdXK6Ss0ftVL2DfVFq8
-	0LJbGBArFgTL44C2lZNplA5e/dA1SOwJ2ysSiaAOapBgkeMTtEB3HsF6pQP9P1rE
-	JuTs2W/oC9zkxd3Fn7vjNicB7pBfwcEe4zDg/dnsu5K/v2KggsC2jMOlP8ueIca/
-	HxIMK8cOozDmBMoIav62Pf6q//KpacucpNxlYakFmynWjuZxJKiYalGwNW5QDqOe
-	jmQcapr10xBgFkRJr+pqazmcLiopA==
-Received: from sa9pr02cu001.outbound.protection.outlook.com (mail-southcentralusazon11013007.outbound.protection.outlook.com [40.93.196.7])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4hj9sgwaxe-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 27 Oct 2026 03:49:44 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YTcRWqoNNRjfxnuRh58Jbyeuw2WNVK9DVQ8wk/GLxZH1woCgVy4EMLjzkwbwvCXMDhzXheY2QIpFrz1PBPggX1Patp4DG7YO5AC+ANksavim07EzLqx2v0Yx4y6qkOPM8mrGSFjdUqUAzqJ8fTcHSlOTLyW7W7kczEcJF6WwRLFDjccexMMi5YeG3Hqy0h4bM+8Vlw3tsyqoan43JxISvbAKKbyrVVXFimgVvv8+dPgaNxl1gWymA+MJdHPYwN2kBNmITv3CaUtA8qQ3HbEBSdUoM/WXy4CpcY/XY03Hgqm6GVgzrFjIsqyiP3m1Uk083NVwg1V/B9volnamLur1rA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ai/rPj0k/dcF6qIR2ojbTz+PmJVaAiOnPaNdcLE5drE=;
- b=JOJten7MrDJjzsmhQ75czwy1si9UNDwCrQZH6TH5aEBYTTqKt8vVT3cKXex+8rUFcQHcHeSWLikS8P5npRqeRnqSch5ONxeKlJ5WitVOUQA69TACeM2OGKny3tlDHAuM7YJCWQaeQpI2w/WtOsb/yRGqA2m1RAcgP0DbarKAD/521VMF/JptPdRKUJwf4GjrW52LaAXI6Gu1aMbXMSgr4Mv6CmfmPN7mASZKb/t/xhSPvXQUBFZq87wrNJnYAClckO9uK8jX4wxP+mAVsvvRl754DGABSbf6WRylGozED6bgBSLW/nBws7nNSmfLCLVyPUu+JXUEguzGH8/84g56ow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
+	Tue, 27 Oct 2026 08:50:15 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69R8gFwX2761222
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 08:50:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=mmllJ+uXvvHcM6LuUW8/Fr+Y
+	PtzrcmRcBhLz9Ri9Lqg=; b=ib9L1DlhuUsKOMYtISN8lfypSlHItgn9BDIPAo72
+	yl0jbtnqDgrk61AmyeiZJz7oGslsv7sjZm21eXi9hmwmixHh53AEZpuaeWG9gpPb
+	IR0eXAJWOARj0HFGK0QL4AC3AL8YmMkhizY5Wc+RcdL2QyKcGX2Jf1Bxq2sYpz3V
+	zlk25sTbfB2gDiQjTNforaAwxUaS2LZSxJG5AFLYoO44GHwVRJjQ0RRwQrir6BTi
+	gut56YRJM8+z2PS1/jgjitLk37eyqeys+AK/+BO/clS7+rJHwrZYrnEjUOLfjGoG
+	niKop6X35isBcWeoAUCe7ZQsH1uoaP+x0FfDI+cHqj/uXw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hjh919kv4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 08:50:13 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93ecdc701a2so516033085a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 01:50:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ai/rPj0k/dcF6qIR2ojbTz+PmJVaAiOnPaNdcLE5drE=;
- b=in72CcJb9w/ABYsnzlxQ7G1fy1RmNeolqBXYOTNE2IuML1jlt9mDb6nxIy42OQ97D+FOrGvG12O3OGYPI6wfs6QhukSYU2MZSrGUrEFHJLz0SosFJ6Y+1v7E/Z187fBbPugaN1SzNvKc9hD5vdm+UHjIGWd/Xta9Yb/+P5oEQ4Y=
-Received: from CH2PR18CA0035.namprd18.prod.outlook.com (2603:10b6:610:55::15)
- by SA2PR10MB4537.namprd10.prod.outlook.com (2603:10b6:806:116::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
- 2026 08:49:41 +0000
-Received: from BN1PEPF0001854A.namprd05.prod.outlook.com
- (2603:10b6:610:55:cafe::3d) by CH2PR18CA0035.outlook.office365.com
- (2603:10b6:610:55::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.15 via Frontend Transport; Tue,
- 27 Oct 2026 08:49:41 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.23.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- BN1PEPF0001854A.mail.protection.outlook.com (10.167.248.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.569.4 via Frontend Transport; Tue, 27 Oct 2026 08:49:41 +0000
-Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 27 Oct
- 2026 03:49:29 -0500
-Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 27 Oct
- 2026 03:49:28 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Tue, 27 Oct 2026 03:49:28 -0500
-Received: from [10.24.51.219] (abhilash-hp.dhcp.ti.com [10.24.51.219])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69R8nN4g2530301;
-	Tue, 27 Oct 2026 03:49:25 -0500
-Message-ID: <6c2e06e2-95b8-4e19-b344-1010ac948c25@ti.com>
-Date: Tue, 27 Oct 2026 14:19:23 +0530
+        d=oss.qualcomm.com; s=google; t=1793091012; x=1793695812; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mmllJ+uXvvHcM6LuUW8/Fr+YPtzrcmRcBhLz9Ri9Lqg=;
+        b=UlxclWWo7QBmJSJDpEH/07a87/zZ4OVsGvsVLOb044CALULbLmZIYgx/wwlPVHrfIA
+         HAetFD3lQHIbrzuBP9Ul9TK1iahc3MefSQcuXqfhv+xAEAu9zcGvDkd5RL6sErBgodCc
+         H8HNxVPedOX0H6YZHXrBK4w3N2GRzASJBHiIHXB6DiwADWZoM4okB17QtpEiam9LkXxy
+         0JNlrwh6TlB1LXOr2ouV/DrzA2xjRZy9WrGT7dWpgBlZcyWawwGU/ZEmyrrn3CbdEix5
+         s6Zm1413vHw9n9Il+/pS0ffne3dTnXnXoQ9X7KB8LFnMr7fUfI56emyPuV22K2t4EPbF
+         sXag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793091012; x=1793695812;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mmllJ+uXvvHcM6LuUW8/Fr+YPtzrcmRcBhLz9Ri9Lqg=;
+        b=jd5xFCDi7vUKVZIPWV7/VtLVSsa+dROfwMU0opiRskMduLLM6de0lh4VVi3fsoF5U6
+         JZrLHfWKT4qxzVzHjT88cm83kiqn8PO5HByVMRJDq9m3yfbqm8Gik3JL4wKRWcXalqO2
+         fBzRFT7qd5zYYR+Wn7pn/51tS90UwrrntF+Qmt5iyLUXxC4/8awpmLHcQlC56bmB0VQU
+         G2dDqFmX8PbxhPnlGWt8vRdSvZoQJfWrgLBrz2kGi5OI9gIJYStxwD4kFqgX8cbgEa6n
+         QATDpjXxZlkhFF+9oTrdOvRE22eyiBl88+OY1in8gGWQ+zgRvPK1rGfJh7MRbD2bg1n+
+         vozw==
+X-Forwarded-Encrypted: i=1; AKwUvBzxxtroLAXEUvNkjNZK1/+PnJbSPOusxjrXEnsLbkWryEstTRN1x1J3XtyzER+L4CshSckTWx+3yr1FnDC3GnAI@lists.infradead.org
+X-Gm-Message-State: AFq9FYJF1AZ+ryGWtwDuzUtuYmMZrGF/Rrxg91T3JnmQQpMQ2Gzy4z13
+	l5RxrxReTu+20tEnPk3Xk67wdITI37rwF4lA82ncetXzqNV5i/TmQV3YD2MrqlKRhI4OcY0B6M6
+	L65Cr4ERcatNWQP7CBqFJrF05vgDkUzGeiWbpCvt0yLzEsFI7O1qEgRYVE28aJtVCnTHed97gnL
+	yGOLOpCW9+6A==
+X-Gm-Gg: AYBFou2wuTlFb0Dgwooh6KDmUJHMOAVaM7wdiYkQtSzCHYFlEJI9/7H2fIwACVSn6FJ
+	pxFuhY/qB8TrNl1zOQmQI/tAPu0Y/oWnTHMB7luilocdRhDlMl0AJ9b7SoexwLFUb5U+nstIKig
+	a63SGl4lXKo9CmmG9mOYLmj0dKv/HhKlodiKzHQj7o9JI1ctGKAISzlFQMS9sovowVUqdsKl2EB
+	KFRJv90U04fycYK6/kYeh2KfM7s25D9SI/jv6t2Hrmk3QNmgk3nxLAhofapI+iJL2yqwJ2NrOVx
+	V5PcyfMzmwr5AD5kB5j4NrUnpS13NuYJPq+DTjYSt3W6Bm0gFTUBYf7/dBSajedK3nr8PRoa2ha
+	N6ENuLA7LmtFKHG12/4Blcdvv/PR6/mJTpcRgkTX+B3igWyFj
+X-Received: by 2002:a05:620a:4009:b0:93a:48a:167 with SMTP id af79cd13be357-940ef952696mr1440550285a.39.1793091012169;
+        Tue, 27 Oct 2026 01:50:12 -0700 (PDT)
+X-Received: by 2002:a05:620a:4009:b0:93a:48a:167 with SMTP id af79cd13be357-940ef952696mr1440547985a.39.1793091011553;
+        Tue, 27 Oct 2026 01:50:11 -0700 (PDT)
+Received: from localhost (net-93-144-6-81.cust.dsl.teletu.it. [93.144.6.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebd49afsm21753979f8f.35.2026.10.27.01.50.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Oct 2026 01:50:10 -0700 (PDT)
+Date: Tue, 27 Oct 2026 09:50:09 +0100
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: netdev-bot+sinfo@kernel.org
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Jose Abreu <Jose.Abreu@synopsys.com>,
+        James Hilliard <james.hilliard1@gmail.com>, netdev@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Rayagond Kokatanur <rayagond@vayavyalabs.com>
+Subject: Re: [PATCH net v4 0/3] net: stmmac: re-apply taprio offload in
+ __stmmac_open() and stmmac_resume()
+Message-ID: <auBlwUjTDbmP-5b4@lore-desk>
+References: <20261026-stmmac-est-fixes-v4-0-999dac4de44f@oss.qualcomm.com>
+ <179303405498.3327.6709797406209936415@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: pinctrl: Add TI TDA54 pin controller
-To: Linus Walleij <linusw@kernel.org>
-CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <brgl@kernel.org>,
-        <linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <afd@ti.com>, <u-kumar1@ti.com>
-References: <20260930092020.1047221-1-y-abhilashchandra@ti.com>
- <20260930092020.1047221-2-y-abhilashchandra@ti.com>
- <CAD++jLnok0bz9kXiW=O8+4fPBYvm9nG-AA-8CopDpc-DBvBiJA@mail.gmail.com>
-Content-Language: en-US
-From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-In-Reply-To: <CAD++jLnok0bz9kXiW=O8+4fPBYvm9nG-AA-8CopDpc-DBvBiJA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF0001854A:EE_|SA2PR10MB4537:EE_
-X-MS-Office365-Filtering-Correlation-Id: 78641030-0e1b-48f9-12a4-08df34073d8e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700016|23010399003|1800799024|4143699003|56012099006|261021135927099003|261021123027099003|261021121427099003|261022115727099003|261022105027099003|261022075727099003|261026121527099003|261026140227099003|261009223327099003|261009223027099003|261009221727099003|261009221227099003|261009220027099003|10067099003|18002099003|22082099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: 6XoqzhlLENP7Di6FrZ1xVVt+O64AsbJkZ2bsrx9soLB6iU7XAEHgiYX5XMsRCrrUCuyhziFeKZsLKhQlmZtRmq1d/17/kiGJJzARNE/LSwLYSlN3BZ/+Zp2Md8DpX5ERnQ68UbWcT67zp0tKSePqI8gkMgJaXRah2P2YE1cIfsDGNF/xAdfocQhpkcz37B/moigSoiPDGuoXC2ntoAY6vxbZB6IUfSO1/KKKQs2YXfehoF8mC2kDTYZVcLoBSAz9hvTuNFQ56+E2oWUUe+Rd9HXE14JfWcJ3y6PDIesmHwhSS9kNq2Wzs7Smef8GTeSdk+EMNn0P6dW4j0gKzl4sgZU+WStlXJ8Cg21PeZy8m6wpV010btKHbGlt6IvsvalPgbx0me3dScvvchdf+p/rIs33VnspmkYYicZ7HpMLOV8Gw55kECFxTAIx2UMnLUA4xxyrwl/OB8UKICxAu65qz5HSFqdPFBILtFR+t3wq/Bnn+uphxVr7MZCbT4QcBXlPhAVpmyzeHgMqeYIiabwxndRY5bXGUXOGWPXfRVyX8LYiZlF9yfgvfaGaXEha3N7F+hF9NRIz9/aGxRCHBfjKG13kVdEuWHFXVv4Y0dxuHTE7h/WkAaYhgTf7kU5gJfftGwbx+wTNgjasY+3O5uG8Vu7V532Fyab8qtakgcTIPPhcpOcbAbQvsyAQfYuwct9eXW92ypNPoV9ndIwBIYUAKw==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700016)(23010399003)(1800799024)(4143699003)(56012099006)(261021135927099003)(261021123027099003)(261021121427099003)(261022115727099003)(261022105027099003)(261022075727099003)(261026121527099003)(261026140227099003)(261009223327099003)(261009223027099003)(261009221727099003)(261009221227099003)(261009220027099003)(10067099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: T4qNOb3jQUqBDsumjyjrRim+Dps6iMIHQFEHu/GIZNdGx2yL0/c+dvvgDH9CU2wJXqRBoDC1DggmbFC8Es+eTxJJ5MA9heLtC4glDy026rups0w0CVMIYBox/BFNIWQtf6q1uNRuQKjd34v+4OGJyNgPnr8LXSDCRNBoI94aQJsc53aAKfSJFKIx73laKzw+np5YZpe5mivQyG6iuNlLfRGNS0uLDa/1VQo8SsDHK6K6PwrpyhDgubwfHbPuPViMR2htrung9aOItH9Pj0/1OjYa7miVjxVfUyGzqMfbW7Ed8WTTRUheeL8Xp7KLd4Fd1ge5RTCTONOFFGcQmiOXVjA3gqcfevDXcsoK9e6eLc6JKCg6u4JNRbYLeYtEPTVAk9eKQJOyUAHrGCT2cxmZYmfwndOKDsU5fsQyYoiwD+mLXSvG6w4vn4EiWIF2Apsf
-X-Exchange-RoutingPolicyChecked: LueA/vm6Hh0HPB7yrkGrHdbv0NaUZ0/7PkhBk3Xj88VHgMNgOVKrBn3qLovG2jPyhnJKlJL0w96kYjCtdc6eOLVIoHZUnrRTwtWlxHSZQ9S+7ksyP+xbhEH2zoAsdoxnA37kh7K6s5hFt7C4Eg4NbH1vpflxeZJTr/rpNya/s2qNhwbntsz3xRpAvXu2Z9hMY/1kX3C029vLSYGyIt/0j809Ol2I8/JkvxXMRE5u8WxwuuRdYQz7XSmbq3936AokGVRH2DfPCS0GAoXc0EY/PQwmHmtQWxiXvlNg4b3cGBFuyYZ6NfoeDXKr9x72Kmi/aBKW7pnVX+BPXPATP5rJfw==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 08:49:41.0834
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 78641030-0e1b-48f9-12a4-08df34073d8e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0001854A.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4537
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI3MDAzNCBTYWx0ZWRfX9uZ1+Oxci5CQ
- Y2rhRXEWdppFyNkytPT8M/RbG7wjFAEnaGmgAWTPHtwp590u3QQ3bs+uiqAzHCN0nFTNY9YfDsH
- 4eY128+YkCJUOQvGvXP2cj/w2n3Z6GY=
-X-Proofpoint-ORIG-GUID: T533jy8RFSPJesNxI9Rd2qKy0_89aSk5
-X-Authority-Analysis: v=2.4 cv=O5GsLx9W c=1 sm=1 tr=0 ts=6ae065a8 cx=c_pps
- a=B1kIKGfTVomdQYahC0fm5g==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
- a=s63m1ICgrNkA:10 a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22 a=sozttTNsAAAA:8
- a=MwKMck8DkIoZLm6_TacA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: T533jy8RFSPJesNxI9Rd2qKy0_89aSk5
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI3MDAzNCBTYWx0ZWRfX5ANRpKGx7Gdx
- O2QMRHKMcmj6yZCYSiYvUTo5CvUwQVO2fHcXw1cqe8dSiRl3NoMLqCTMosSczsQI5tFemAg6zdi
- +BoXRgeAm3KVSQPjh2y0yIJ0+kLXcfZ00HJhvnxMGXr9mOI5sjQ/mc2v16oUmsNXtNwP5EXk9JJ
- cCVlHwgkHCwsiXXalBCz9tUzFRdjTwe5Zo7cE+xQ2oyvfwP6nuUA2NgShMBb6TQFPupIT7pRaST
- u/O5/zhV+2bsbsOnNKzR8toYFotyu2MLECSyR4+HMxtfoMvfLjsAmHza/JznZzHgo6dnBWJ0C5C
- xUJkz2TE6Mpu9pF1qDJlKDQncFuw6MXCKoYFQFBLlI0HsHW7reK9nzspNhWWKBb3v1tmFyzwGEC
- 9f6MPA46UozBrSN1K2wUpiktfdRCgzsvS0LiZ4KVpspbrgWrj+VL3LSblmDI1mpe6433ygJkU0R
- kaHaw5rPt6jNU/loyGg==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vlBb5iuXm9umAb6K"
+Content-Disposition: inline
+In-Reply-To: <179303405498.3327.6709797406209936415@kernel.org>
+X-Proofpoint-ORIG-GUID: pynqBR42CAhdttXRRQr6A7gRrHrT_MNQ
+X-Proofpoint-GUID: pynqBR42CAhdttXRRQr6A7gRrHrT_MNQ
+X-Authority-Analysis: v=2.4 cv=TuxzFzXh c=1 sm=1 tr=0 ts=6ae065c5 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=VwQbUJbxAAAA:8
+ a=jeKYxtEjmYGD5WCmXysA:9 a=CjuIK1q_8ugA:10 a=tIGJ7Hrp7TI-VMH61SMA:9
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI3MDAzNSBTYWx0ZWRfX60P4ZbYUuc7m
+ CY6OLuoFWXCIuMmxvMpX48hTPEBxieNsktEDJsFPz1oI4M9dhkHwQ0OqY0lWF584YZXf/mJzNEA
+ z5do2ukccVbocdmmByTNZFQS++Yei+VFYTKmmbKuQCN8EXgVhPkdJmJXaOaC7jVQU+wdiVOKrSA
+ 10pS3ZSSgtolqkDfh27M+GswSbY4as7d+scLHi4S+2e2v047FVeUqCsdpBZkK4CbasYP2/bpvL0
+ NDdbxpsJAMT5yOSSxlKFkAfuXL5eCJdfdjOAdA4pAEAsHNCh7azSl4TNQIoWboHtqyRjlK6rJQi
+ dc2gEO7a/6NZa2zXc/RggQ+VJnvVCwXBPfxQ+UtPT1yo5w0J/9e43IPLSjyrkt3GHrhcvdGm363
+ 9bjIuowJBPHSBnQeTNw1LHhBaRrhRmK0pio2rQKlcUPVlqbNLQu6ZVRYZmAyVUzztWct9eLN3Ea
+ Rwop8T6mgmWxZPC3yJQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI3MDAzNSBTYWx0ZWRfXwWTnu/cSl57v
+ qHRFe9SkMvDThR5y80DapZF0przR02VRST0hcMzBaliAEP25/Qg1xD3IuCxnIf6d0zPuJrV9ylA
+ k5cLiH5XLXobMfNY0ZYP3EZHjND1PQ0=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-27_02,2026-10-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 lowpriorityscore=0 priorityscore=1501
- malwarescore=0 adultscore=0 spamscore=0 clxscore=1015 impostorscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
- definitions=main-2610270034
+ clxscore=1015 malwarescore=0 spamscore=0 priorityscore=1501 bulkscore=0
+ adultscore=0 suspectscore=0 lowpriorityscore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610270035
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_014948_805312_CF21BB0F 
-X-CRM114-Status: GOOD (  26.08  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261027_015014_403743_7E2506E4 
+X-CRM114-Status: GOOD (  25.33  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,233 +160,68 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Linus,
+--vlBb5iuXm9umAb6K
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 02/10/26 02:40, Linus Walleij wrote:
-> Hi Yemike,
-> 
-> thanks for your patch!
-> 
+On Oct 26, netdev-bot+sinfo@kernel.org wrote:
+> Hi!
+>=20
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>=20
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
 
-Thank you for the review and apologies for the delay.
+The issue has been reported by sashiko
 
-> On Wed, Sep 30, 2026 at 11:21 AM Yemike Abhilash Chandra
-> <y-abhilashchandra@ti.com> wrote:
-> 
->> +      ti,debounce-select:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        enum: [0, 1, 2, 3, 4, 5, 6]
->> +        description:
->> +          Selects which DBOUNCE_CFGn period register in the control module
->> +          drives the debounce filter for this pad. 0 disables debouncing,
->> +          1 to 6 select DBOUNCE_CFG1 to DBOUNCE_CFG6.
-> 
-> What's wrong with the existing input-debounce property?
-> 
->    input-debounce:
->      $ref: /schemas/types.yaml#/definitions/uint32-array
->      description: Takes the debounce time in usec as argument or 0 to disable
->        debouncing
-> 
-> Just translate usec:s into your custom format in the code, problem solved.
-> 
+>=20
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by code inspection). If it was triggered please include
+>    the symptoms, like the stack trace or error messages.
 
-The pad register doesn't really store a debounce time. It just has a 0-6
-selector that points to one of six DBOUNCE_CFGn registers, and the actual
-periods are set in those registers, which sit in a separate control module,
-not in the pin controller.
+This is a real issue reproduced on a Qualcomm rb3-gen2 baord. Flipping the
+interface down/up the EST MTL configuration is lost.
 
-I did think about using input-debounce, but putting 1 to 6 in there to
-mean "use DBOUNCE_CFG1..6" felt like misusing a property that's meant
-to be in usec. That's why I went with a custom property.
+>=20
+>  - What hardware the change was tested on. For driver fixes please
+>    mention the device (and if relevant firmware version) used for
+>    testing, or say that the change was not tested on real hardware.
 
-Happy to go either way though, let me know what you'd prefer.
+I tested the fix on a Qualcomm rb3-gen2 baord.
 
->> +      ti,virt-gpio-instance:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        enum: [0, 1, 2, 3, 4, 5, 6, 7]
->> +        description:
->> +          Selects which virtual GPIO instance controls this pad, allowing
->> +          protection between multiple virtual views of the GPIO control
->> +          registers. Has no effect unless the pad is muxed to GPIO mode
->> +          (muxmode 7).
-> 
-> Wow crazy stuff. OK keep it :D
-> 
->> +      ti,wakeup:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        enum: [0, 1, 2, 3]
->> +        description: |
->> +          Wakeup event configuration for this pad.
->> +          0 - wakeup disabled
->> +          1 - wakeup triggered by any change of the pin input value
->> +          2 - wakeup triggered by a low value on the pin
->> +          3 - wakeup triggered by a high value on the pin
-> 
-> I just have the feeling this should be a generic property. It seems so useful.
-> 
-> Can you just add this as wakeup-mode = <custom value> in
-> Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
-> 
+Regards,
+Lorenzo
 
-Understood. As suggested, I'm adding a few of these as generic properties
-to the common bindings and the driver for v2.
+>=20
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account. If the series needs another revision for
+> other reasons, please include the information in the commit messages
+> then.
+>=20
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
 
->> +      ti,retention-bias:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        enum: [0, 1, 2]
->> +        description: |
->> +          Enables the internal I/O pullup/pulldown resistor when pin enters
->> +          TDA54 I/O retention mode, and configures the I/O pull resistor
->> +          direction.
->> +          0 - OFF mode pad pull resistor disable
->> +          1 - Select OFF mode pulldown resistor
->> +          2 - Select OFF mode pullup resistor
-> 
-> Use names inspired by the generic config types and flags instead
-> of enums.
-> 
-> ti,retention-bias-disable;
-> ti,retention-bias-pull-down;
-> ti,retention-bias-pull-up;
-> 
+--vlBb5iuXm9umAb6K
+Content-Type: application/pgp-signature; name=signature.asc
 
-I will do this change in v2 as generic retention bias settings.
+-----BEGIN PGP SIGNATURE-----
 
->> +      ti,retention-offmode:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        enum: [0, 1]
->> +        description: |
->> +          I/O behaviour when retention mode is active.
->> +          0 - I/O maintains its previous state
->> +          1 - I/O state is forced to the OFF mode value
-> 
-> Behaviour of *what*?
-> 
-> The driver stage?
-> 
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCauBlwQAKCRA6cBh0uS2t
+rG4XAPwPblbkFMjt3UOpk9xsG7z+kYXCKiPBWyd2rgnb+wB1lgD/Q34ricHLI7TE
+XHy8rWR5LMTrhrHLLZEYgaz7Den7YgE=
+=emFh
+-----END PGP SIGNATURE-----
 
-Not just the driver stage, it's the whole pad. I checked this with our
-HW team. When this bit is set and I/O retention kicks in, the pad
-switches over to its retention settings (output driver, pull and the
-pad level). I will add this detail in the description in v2.
-
-> I suspect you should make two bool flags
-> ti,retention-output-hold;
-> ti,retention-output-disable;
-> 
-
-Since it isn't output specific, and retention-output-disable
-would clash with the retention output flags below, how about:
-
-   retention-hold-state;
-   retention-offmode-enable;
-
->> +      ti,retention-output:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        enum: [0, 1, 2]
->> +        description: |
->> +          Output driver behaviour while the pad is in retention mode.
->> +          0 - output driver disabled
->> +          1 - output driver enabled, pad driven low
->> +          2 - output driver enabled, pad driven high
-> 
-> Make three flags:
-> ti,retention-output-disable;
-> ti,retention-output-low;
-> ti,retention-output-high;
-> 
-
-Will do in v2.
-
->> +      ti,retention-force:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        enum: [0, 1]
->> +        description: |
->> +          I/O retention controls.
->> +          0 - gated by the Device Manager logic
->> +          1 - forced active, overriding the Device Manager gating logic
-> 
-> This is clearly a bool flag. It should contain device-manager as that
-> magic entity is involved.
-> 
-> ti,retention-device-manager-enable;
-> ti,retention-device-manager-forced-active;
-> 
-> Both seems to be related to the device manager whatever that is.
-> 
-
-I will switch to boolean properties in v2.
-
-
->> +      ti,isolation-bypass:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        enum: [0, 1]
->> +        description: |
->> +          I/O isolation for this pad.
->> +          0 - isolation preserved
->> +          1 - isolation bypassed
-> 
-> What does this even mean electronically speaking? Explain in a description:
-> statement.
->
-
-When the SoC goes into low power, each pad is isolated, it latches its
-current settings and is cut off from the core, so it holds its state
-while the core supply is off. With bypass set, the pad skips this and
-keeps working normally, which needs the core to stay powered. I'll add
-this to the description in v2.
-
-> ti,isolation-preserve;
-> ti.isolation-bypass-enable;
-> 
-> perhaps?
-> 
-
-I will switch to boolean properties in v2.
-
-> Some of the retention settings seem *very* generic, c.f. this
-> from include/dt-bindings/pinctrl/nomadik.h that has been
-> around forever:
-> 
-> #define SLPM_DISABLED           0
-> #define SLPM_ENABLED            1
-> #define SLPM_INPUT_NOPULL       0
-> #define SLPM_INPUT_PULLUP       1
-> #define SLPM_INPUT_PULLDOWN     2
-> #define SLPM_DIR_INPUT          3
-> #define SLPM_OUTPUT_LOW         0
-> #define SLPM_OUTPUT_HIGH        1
-> #define SLPM_DIR_OUTPUT         2
-> #define SLPM_WAKEUP_DISABLE     0
-> #define SLPM_WAKEUP_ENABLE      1
-> 
-> SLPM means "sleep mode", yeah pretty much retention...
-> 
-> I think the corresponding retention settings for things that are really
-> quite generic should just be added to the generic pin config bindings.
-> 
-
-Agreed. For v2 I plan to make wakeup-mode, retention-bias-*, 
-retention-output-*
-and the retention offmode generic, and keep isolation bypass and the 
-device manager
-force as ti, properties since those are TI specific. Let me know if you 
-have any
-other preferences.
-
-Thanks and Regards,
-Yemike Abhilash Chandra
-
-
-> Yours,
-> Linus Walleij
-
+--vlBb5iuXm9umAb6K--
 
