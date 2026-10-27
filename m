@@ -2,85 +2,89 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FC19606AA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 15:37:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF046606B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 15:37:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=u7MnpA8a;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rx+apCM6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PlE2uwpm;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iS+pr4n3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=RsU/Miju2jeqymvYcNJXTnmmqKzjTj43vuEKKcaUunA=; b=u7MnpA8aEryJ2E
-	TbvZBudnRI9K29dkGt9744qaZV4RwyEqR3CvFIky/zGKPFuUdRRnuMz0pydLvilwY9JmBOT7R5NJs
-	k30sNkOP/jS9QbvB2cdP8/Pn1VNE9ui8XEknLzExUYgJCBDbg4DE8V17lB1Sf1VzL43jnvb6zqpLK
-	3tjyopud2NePwlzzXrODnPdqC556LePNNEz1Ik8euF4G1S/0yVb5OKT4NljMPSTsZy5vr1rL/MB+f
-	5NdCo15BN0hm4PolcGDSAe0j9m/0c4vKzWR5HMvnzwgLn6ZPme6c2A97O6PMlFB73WnNG2+elKy03
-	e/er5eUuVNCb/IDDBaHQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=GypxdrjecN8KIJyiiak/GYNGwcUauuUB7cV55gyKVME=; b=PlE2uwpm7JlFLTqoCd9KieUYnk
+	Zu/SDA5D0eTN1ENDSLVLUZ7HO/xiaRK6oR015juYNJxsUZv6b+/QlaWZkLkNU0WN5qAsb17swj0ds
+	zI4fmEdeqEFiAdZV1hDA1JHKcvPWCvtUDczeoF69vuFpu8sRnrAAu1NF7OXhWxEmbdTESW87QvT2B
+	Ivgh/HS+33xUQTX3MXPgVLzf5GJm5nPcqgnVUjEtFQWHprWU61synQFnKk4GxwEbW0kXRsUfYt6Jo
+	BGS4jYRnMK+AjWiZVtN3ckGhmJTd3FMn0keO30VUw2zKKKeuFvOJY2YFuaHJR06dMddSAzHZ6rYn+
+	ovgQtGhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjEW-00000005BkJ-3mn3;
-	Tue, 27 Oct 2026 15:37:04 +0000
+	id 1xLjEe-00000005Bt0-0IkL;
+	Tue, 27 Oct 2026 15:37:12 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjEV-00000005BjM-0gyC;
-	Tue, 27 Oct 2026 15:37:03 +0000
+	id 1xLjEW-00000005Bju-21rG;
+	Tue, 27 Oct 2026 15:37:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8BF3540A65;
-	Tue, 27 Oct 2026 15:37:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B3AB40907;
+	Tue, 27 Oct 2026 15:37:04 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793115422;
-	b=I58PmCtMOsJSyv7CfUgoJnDx9r7C1YjBQXD4CryF2Jr7SAgsMSvejo7cqiV5cDQxIv9u
-	 hSpUHHj+bNXqXtD3j6WEReMrrIHYaJ/S02Go4KngscpHHl1uee4JUZAMDBfvuDKs+QjvP
-	 9+qSft/lJ+UN5G4U87yXp4XlHi2B/BxiEzxyJ10k+yLTT8cuvTczkum2gCGk/62k5LJm0
-	 w5+8GXD+oAe5GjtuOnAyQD6yKln3bfntUJSzQBHX5V3zKQwhIteOLj0MM1LTRSCkrg9SF
-	 B3p4cm8Huyc2TXUbmHrGWJcvcawCcV/CVs1JChhLRNHw3ha/bIBn0MWVMajhoIsosWA==
+	t=1793115424;
+	b=hAGfkOJJdXSy1Mf3Tgca6Xnve7ujph3vekUVXfxwIKijA/ewvAuINDKK0/TjVA7nC4Pd
+	 6ZuGQNalXk1TdkK+uXw94hVDvRRezv1AuyCe8kfiwKQNOg71lTV1ytQ3hsQHqt9olFZKl
+	 kQSwXFBmk9uHdQm8PLqpMxxOiq64Z5xjb6411kZutowoTe8BFFPB8KIzamdj2fMqokgnA
+	 iloo2TAiyei3BZE4eOCmkZkO4qYOohKj9I8iO36wU/8V8kpXxnkep6Efxq1oGFzW+RghZ
+	 L4x5mTu8SF15e9ml5EAHwZMA7DjVIFVYdKTZaXtQCwGnvWuEJBsRFHCcE6QTDRfEfAA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793115422;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	c=relaxed/relaxed; t=1793115424;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=RsU/Miju2jeqymvYcNJXTnmmqKzjTj43vuEKKcaUunA=;
-	b=B3ELMtPMzhBI6yFmB0tt5UqJdykqeSycVTzrDEyamoGX3wmFWsF+v5jvs5kLtKBQBf6n
-	 Joow1II8vLA7sAOgBYKBflh46xjASbfA9yCEAFXj1jCeBakRxhSD62MFnPWT6dJAIWaDM
-	 floZSnftuzBeUi3Yn/Ux1xO1wQbS2kZicAqTgywC/AK7mlJZIMJV5OG0iS0QN7odSCYL7
-	 0HabDrEgned981lX1EFKyeHGnSjVh28zL0xqKuz5LVIaAuX6WX+m6J84omY2hZp9UPKYJ
-	 9KtwmNHLeocbeXp/JLm+eeT0e1KlqgA4qzixn0Wg7+pYAoDjPTzlH/aIy+i7J48Vvpw==
+	bh=GypxdrjecN8KIJyiiak/GYNGwcUauuUB7cV55gyKVME=;
+	b=unMviPcIU7WhpNQL+eMZHmr6MMEProLde5C6U+m+2nFitOZe3WSpc+NrOyvdixFjyNsm
+	 FMVFw+akUToy/ANlcSOPJ6OIAQpAMW/hFjb2WiVQXWohhOcxPk7PYEeoVG4hXBRAPTHs6
+	 b8/wb7UL/FqZgCnZQn4IcQ78YesXJXieuZTYJ4uv2U+zENSf8g+tcGCNatM2nT6lTKEmJ
+	 HRJ3eM1nfEAo7puQn8bkIFoXNpTu6zUBlksWI+Z0BqohzodgEtLaDh8mpBTOdu3825IUe
+	 Tu27C2UX7B92DCX/WBkexKJPb/6qswR+D+PbEjCs8hU8x0Dy4CPn5vSecAnsqPEB1uw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B4BA91F031E8;
+	by smtp.kernel.org (Postfix) with ESMTPS id B4C7B1F031EA;
 	Tue, 27 Oct 2026 15:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793115422;
-	bh=RsU/Miju2jeqymvYcNJXTnmmqKzjTj43vuEKKcaUunA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Rx+apCM6EluEKSCZHQo3m3NYIdPozD/nSGfKZYRDvgzctsvybIhlceKPKQToC/Is3
-	 oMeFqxtKbu4VVFQs5ztaZPY1cOVHEhbC2dB0HEqyL2ZUTZbON4oGZIJkfiAPski2oJ
-	 TZoA0yExKlRpeUYIpaDOaRkuAUqgw5uu7dAQuzcvQXJOH8IHfA3DqvSjnXaP2KZuRJ
-	 UcoBoIjgt0u07m0Em7NPyBQsWeN1woMnwI2wzVxUdcpMlLih2zQwTSBHAt+7se5Q85
-	 YU2ELf3VqHg4vfgFb9u7BiMkXrCqVBS2qnclhf102ifK3/AbU5wm55HD37c4SS/Ju5
-	 b3hVKEIuSh9qw==
+	s=k20260515; t=1793115423;
+	bh=GypxdrjecN8KIJyiiak/GYNGwcUauuUB7cV55gyKVME=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=iS+pr4n3gC9r9s4ucW2TpcvGXCzy9hUElOcJw49iIH55SewUdaNEVkiM9br5CwjXE
+	 Rvxn/IiMAaMVrLU02su9wF8dR7LpIDCedk+qJn0Tte4YLRUKKhtFlT1i8JifRS14Vg
+	 GSSj/G8+DX9OMWMzb4r39Xf8sG1eB6lfodCJeHPkhYI35PjomoRioWzC0n4YRqYeV8
+	 IRoe+y9tfY+bgm9UNcUigH3ec+uPyTls3IlNYo0cU7dutMwvDUeROLuEid1eqKdVh/
+	 Yeqnoeko/wLTx2M+ViEdfcGnCf1HbGTOxyBQTodZrbj7g/ifhkpXBSjwMlPOwh6Wne
+	 bAJS9uvUU8VzA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 307A64513F;
+	by lkml.kernel.org (Postfix) with ESMTP id 0CBD44513B;
 	Tue, 27 Oct 2026 15:37:01 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 27 Oct 2026 23:36:53 +0800
-Subject: [PATCH RFC 02/18] dt-bindings: vendor-prefixes: add Zhihe
+Subject: [PATCH RFC 00/18] riscv: add initial Zhihe A210 support using SCMI
+ clocks and resets
+Date: Tue, 27 Oct 2026 23:36:51 +0800
+Message-Id: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261027-a210-scmi-v1-2-74d58ce85bd8@iscas.ac.cn>
-References: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
-In-Reply-To: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDAyNz3UQjQwPd4uTcTN3UZGOjtJRkIxOzRDMloPqCotS0zAqwWdFKQW7
+ OSrEQweLSpKzU5BKQKUq1tQCJqu29cgAAAA==
+X-Change-ID: 20261027-a210-scmi-ec32fdc246a6
 To: Sudeep Holla <sudeep.holla@kernel.org>, 
  Cristian Marussi <cristian.marussi@arm.com>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -106,11 +110,11 @@ Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
  linux-serial@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793115418; l=842;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793115418; l=6057;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=78H4CNA6muw7rwfV33m2sQ0QfyIqTcYL4B8JahPXMn4=;
- b=ZlIYxo13cmOAFrP5dhVx8YBV6beEABXC/eF22oDJ1AKXa+I4RIFByDZzWBlPUSIX3TUDFFQ9X
- hNEt/8H6owrBYrIHLOg2GkAvpO6b8uJOp8WCZ+bCF9Bmd7iZjztiPwo
+ bh=P7Y5z1f6Tkh/Q3KiPBOp/5vmjX4oz+hIamtC2Vo8fak=;
+ b=x/DrQ1NmZ2c8zWtjnEHRQ0ZPwH8TsOUeEpjVVZ67VaXGF/F1Aow5MlMFgn4c4fu4Dmv9mIOp1
+ HoN+N5uEapaCDub3xsptlnAHkRIXE2XbyBU6Oj3UewA8zxBXfGjLwKv
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -127,40 +131,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Reply-To: gaohan@iscas.ac.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-24.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
+This adds initial support for the Zhihe A210 SoC and the Melon Pi V1
+and V2 boards. It replaces the earlier series [1]. The way clocks and
+resets are handled changed completely, so I am posting it as a new RFC
+rather than as v2.
 
-Add the vendor prefix for Zhihe Computing.
+The A210 has eight RISC-V cores in two clusters, four C908 and four
+C920, plus an E902 management core. In [1] Linux drove the clock and
+reset registers directly. Review pointed out that those blocks were not
+modelled properly, and they are also used by the E902 firmware, which
+owns the power, PMIC and CPU DVFS sequencing. This series leaves those
+registers to the firmware and uses the standard SCMI clock and reset
+protocols instead.
 
-Signed-off-by: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
+I also looked at RPMI before settling on SCMI. The firmware has to
+provide reset domains for the UARTs and pad controllers and sensors for
+thermal management, and RPMI has no ratified protocol for either yet.
+SCMI covers everything the firmware exposes today: clock, reset, power
+domain, performance, voltage, sensor and system power. Linux, U-Boot
+and EDK2 already have SCMI clients, so on the Linux side only the
+mailbox transport is new. RPMI support in U-Boot is also still being
+debated [8].
+
+The SCMI related changes compared to [1]:
+
+- The native clock and reset drivers and their bindings are gone.
+- A new mailbox driver for the AP to E902 doorbell. One channel carries
+  SCMI requests, the other carries notifications from the firmware. The
+  shared memory lives in the AON SRAM.
+- arm_scmi transports can be built on RISC-V.
+- New dt-bindings headers for the SCMI clock and reset IDs exported by
+  the firmware. Only the IDs used here are defined for now. More will
+  be appended later without renumbering the existing ones.
+- Each UART has separate APB and serial resets, so the UARTs get a
+  "zhihe,a210-uart" compatible with two resets, as Philipp suggested.
+- The pin controllers take their pad resets from SCMI.
+
+Other changes since [1]: the pinctrl binding explains the SDIO pad names
+and the shared SDIO mux bit, pin nodes are ordered as pins, function,
+then configuration, and the defconfig commit explains why ten 8250
+ports are needed.
+
+The series covers the mailbox, the pin controller, the UARTs and the
+bindings and device trees around them. It is based on v7.3 and boots on
+a Melon Pi V2 to a shell on the UART console with all eight CPUs online.
+I would mostly like feedback on the SCMI approach and the ID headers
+before sending the rest of the platform.
+
+The E902 firmware is a Zephyr based SCMI server [2]. The rest of the
+boot chain is coreboot [3], OpenSBI [4] and EDK2 [5][6]. The complete
+Linux tree with the remaining peripherals is at [7].
+
+[1] https://lore.kernel.org/r/20261022-a210-init-v1-0-5e438f972d24@iscas.ac.cn
+[2] https://github.com/RevySR/zephyr/tree/xuantie/scmi
+[3] https://github.com/revyos/coreboot/tree/a210/scmi
+[4] https://github.com/revyos/opensbi/tree/a210/scmi
+[5] https://github.com/revyos/edk2/tree/a210/scmi
+[6] https://github.com/revyos/ruyiedk2/tree/a210/scmi
+[7] https://github.com/RevySR/linux/tree/a210/scmi-bootchain-v7.3
+[8] https://lists.u-boot-project.org/pipermail/u-boot/2026-October/635007.html
+
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+Han Gao (10):
+      firmware: arm_scmi: Allow SCMI transports on RISC-V
+      dt-bindings: mailbox: add the A210 AP to E902 doorbell
+      mailbox: add A210 AP to E902 doorbell support
+      dt-bindings: timer: add Zhihe A210 CLINT
+      dt-bindings: firmware: add A210 SCMI clock and reset IDs
+      dt-bindings: serial: snps-dw-apb-uart: add Zhihe A210 UART
+      riscv: dts: zhihe: add A210 module memory
+      riscv: dts: zhihe: add Melon Pi V1 and V2
+      riscv: defconfig: enable A210 support
+      MAINTAINERS: add Zhihe A210
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index ba2002969373..21142578837b 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1973,6 +1973,8 @@ patternProperties:
-     description: Zealz
-   "^zeitec,.*":
-     description: ZEITEC Semiconductor Co., LTD.
-+  "^zhihe,.*":
-+    description: Zhihe Computing Limited
-   "^zidoo,.*":
-     description: Shenzhen Zidoo Technology Co., Ltd.
-   "^zii,.*":
+Zhiguo Zhu (8):
+      dt-bindings: vendor-prefixes: add Zhihe
+      riscv: add Zhihe A210 support
+      dt-bindings: pinctrl: add Zhihe A210 pin controller
+      pinctrl: zhihe: add A210 support
+      dt-bindings: interrupt-controller: add Zhihe A210 PLIC
+      dt-bindings: riscv: add Melon Pi V1 and V2
+      riscv: dts: zhihe: add A210 core support
+      riscv: dts: zhihe: add A210 UARTs
 
--- 
-2.55.0
+ .../interrupt-controller/sifive,plic-1.0.0.yaml    |    1 +
+ .../bindings/mailbox/zhihe,a210-ap-mailbox.yaml    |   76 ++
+ .../bindings/pinctrl/zhihe,a210-pinctrl.yaml       |  211 ++++
+ Documentation/devicetree/bindings/riscv/zhihe.yaml |   27 +
+ .../bindings/serial/snps-dw-apb-uart.yaml          |    5 +-
+ .../devicetree/bindings/timer/sifive,clint.yaml    |    1 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |    2 +
+ MAINTAINERS                                        |   14 +
+ arch/riscv/Kconfig.socs                            |   10 +
+ arch/riscv/boot/dts/Makefile                       |    1 +
+ arch/riscv/boot/dts/zhihe/Makefile                 |    2 +
+ arch/riscv/boot/dts/zhihe/a210-melonpi-common.dtsi |   55 +
+ arch/riscv/boot/dts/zhihe/a210-melonpi-v1.dts      |    9 +
+ arch/riscv/boot/dts/zhihe/a210-melonpi-v2.dts      |    9 +
+ arch/riscv/boot/dts/zhihe/a210-som.dtsi            |   11 +
+ arch/riscv/boot/dts/zhihe/a210.dtsi                |  619 ++++++++++
+ arch/riscv/configs/defconfig                       |   10 +
+ drivers/firmware/arm_scmi/Kconfig                  |    2 +-
+ drivers/mailbox/Kconfig                            |    9 +
+ drivers/mailbox/Makefile                           |    2 +
+ drivers/mailbox/mailbox-a210.c                     |  205 ++++
+ drivers/pinctrl/Kconfig                            |   14 +
+ drivers/pinctrl/Makefile                           |    1 +
+ drivers/pinctrl/pinctrl-a210.c                     | 1212 ++++++++++++++++++++
+ include/dt-bindings/clock/zhihe,a210-scmi.h        |   15 +
+ include/dt-bindings/reset/zhihe,a210-scmi.h        |   13 +
+ 26 files changed, 2534 insertions(+), 2 deletions(-)
+---
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+change-id: 20261027-a210-scmi-ec32fdc246a6
+
+Best regards,
+--  
+Han Gao <gaohan@iscas.ac.cn>
 
 
 
