@@ -2,34 +2,34 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A47C9606CB66
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:28:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7751A606A337
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:28:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=s5IyUXeG;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=RpqB08MI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=B4YQEz2u;
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=kB8o1cJz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=SXX6rcJ6t7qO3AFMfJUNJ/O/a3edu/GbWoqukjcSVpk=; b=s5IyUXeG5kyIPd
-	swBb9zjMKkEMiCzss+w9OLqKhkFNfkb4MCfmXziAgLpvAxokFdZCBpEQxYIGCKqPQUV4U60Sy9L5m
-	0lqyuye8/A2k8jS2aRdlTbCWq4/fhEXMY3jRtl5c7aNM70kpTX4tPGh1gJS87xB14zZAvAEY7LC51
-	2uhxjQ1+BYySzbMb9g2YFEcF3n7T3UVSJE7ssaAo/yc6aEndt7s5H5g2TYpFqVu684uqPKsApUOzs
-	TVnyCsIfAPH9+AXwUhPG6AhgZgE0vsxOvufAnj3ZPM5rzyL6gLBQjAgbBg0OBJLQGcfbltRQz2pEI
-	w+x8IrWY5AAQonqOrzAA==;
+	List-Owner; bh=XNuY/Vo6Av48O204IEijKEDS+EVPpGFz9/aSQiiHflQ=; b=B4YQEz2uwuhy/h
+	GhoYSRzGAkAXz0/T9kLkdTximo784SHPLkRto1ruBE3R9bh6DgbWB9Ls6SsRRRvkjqf89gWlCtmeV
+	/DpEXxXVAyp86yhE1MDWZ54Hn8RIRltnJ0eMCfL4nVAStqMxTxmT4O+RklQEvFe3QLNa6HqBRTZ8I
+	SxTJYmEyNpE7yCSDtbIZpSfzM5Z8QwZ5kmMOAvp+Rsj1sDkzXcQwlUiPzhYEeLU2XTwtzwzxvbMfN
+	tILLDSNakPIM1RiicHG/64/V0SDHPqFtX/dtxF7T5O/esEheATxZ2YFSa6LGq+naxYMB9V80s6+QM
+	PZClfxBYe6FwQvl6n2Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLhEM-00000004rBx-1ayy;
-	Tue, 27 Oct 2026 13:28:46 +0000
-Received: from mail-m6026.netease.com ([210.79.60.26])
+	id 1xLhEL-00000004r9z-3Gws;
+	Tue, 27 Oct 2026 13:28:45 +0000
+Received: from mail-m83249.xmail.ntesmail.com ([156.224.83.249])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLhE6-00000004qpp-2FVC;
-	Tue, 27 Oct 2026 13:28:32 +0000
+	id 1xLhE3-00000004qp7-1znu;
+	Tue, 27 Oct 2026 13:28:29 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 528777a30;
-	Tue, 27 Oct 2026 21:28:23 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 528777a21;
+	Tue, 27 Oct 2026 21:28:15 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -59,28 +59,29 @@ Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v5 07/18] drm/bridge: analogix_dp: Extend clear_hotplug_interrupts to accept IRQ bitmask
-Date: Tue, 27 Oct 2026 21:27:59 +0800
-Message-Id: <20261027132810.1746118-8-damon.ding@rock-chips.com>
+Subject: [PATCH v5 01/18] drm/bridge: Select VIDEOMODE_HELPERS for DRM_OF_DISPLAY_MODE_BRIDGE
+Date: Tue, 27 Oct 2026 21:27:53 +0800
+Message-Id: <20261027132810.1746118-2-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261027132810.1746118-1-damon.ding@rock-chips.com>
 References: <20261027132810.1746118-1-damon.ding@rock-chips.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa17d8c354503a8kunm87c266213d5701
+X-HM-Tid: 0aa17d8c16f003a8kunm87c266213d56d6
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZGEgZVh9JGR9LHU0fHU5JT1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTklNVk9NTElCTkgfTx4ZHVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=RpqB08MIsuy6X75yLHWMwS+YQGDkSTRb9Z4FFEJIm7aIClEjlnLf3WZMIbygRh+77nMPjFrW/Xa4Kj6c1G7emHDym4DQ1br21WpPahCkJE9CkNhpq6pBvNzVr6XEdTPAcJT876TCBzItvC/o3vh0SsowIOlMG1WT46R03qufVIs=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=SXX6rcJ6t7qO3AFMfJUNJ/O/a3edu/GbWoqukjcSVpk=;
+	b=kB8o1cJzHgMZGv09PQcCJqJpZah9Efo0zygBC5d9OK5du1UaDA/DlX0ppbvNrztap+hIgAbtchxke2/HG/EcqpmyUtGEP00nV8deKlnzIExF6d242nUTZeABDogRJszn74cBMp29OYCU6msqCyscgw6lMZqEkPzmwbZj12Qi/xc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=XNuY/Vo6Av48O204IEijKEDS+EVPpGFz9/aSQiiHflQ=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_062831_365477_AA44ABFC 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20261027_062827_832065_60AC206B 
+X-CRM114-Status: UNSURE (   7.13  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,118 +101,33 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Update analogix_dp_clear_hotplug_interrupts() to take an irq_type
-bitmask argument. Instead of clearing all hotplug interrupt bits
-unconditionally, only clear the interrupt flags corresponding to the
-triggered events.
+The of-display-mode-bridge driver calls of_get_drm_display_mode(),
+which is provided when VIDEOMODE_HELPERS is selected.  So far the
+dependency has been satisfied by the users selecting
+VIDEOMODE_HELPERS themselves (e.g. the Exynos and i.MX DRM drivers),
+which breaks as soon as a user does not, resulting in undefined
+references to of_get_drm_display_mode() at link time.
 
-Pass the detected IRQ bitmask from the irq thread handler, and use the
-full HPD_IRQ_ALL mask during HPD initialization.
+Select VIDEOMODE_HELPERS from DRM_OF_DISPLAY_MODE_BRIDGE, so that the
+dependency is always satisfied.
 
-Tested-by: Heiko Stuebner <heiko@sntech.de>
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-
 ---
+ drivers/gpu/drm/bridge/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes in v2:
-- Add separate patch for IRQF_ONESHOT to resolve interrupt mask issues
-  triggered by interrupt preemption. (Sashiko)
-
-Changes in v3:
-- Rename newly added macro HPD_IRQ to HPD_IRQ_ALL.
-
-Changes in v4:
-- Add Tested-by tag.
----
- .../drm/bridge/analogix/analogix_dp_core.c    |  2 +-
- .../drm/bridge/analogix/analogix_dp_core.h    |  2 +-
- .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 28 +++++++++++++------
- 3 files changed, 22 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 8dcfde38a61a..97a943f29cf1 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -720,7 +720,7 @@ static irqreturn_t analogix_dp_irq_thread(int irq, void *arg)
- 
- 	irq_type = analogix_dp_get_irq_type(dp);
- 	if (irq_type)
--		analogix_dp_clear_hotplug_interrupts(dp);
-+		analogix_dp_clear_hotplug_interrupts(dp, irq_type);
- 
- 	if (irq_type & DP_IRQ_TYPE_HP_CABLE_IN ||
- 	    irq_type & DP_IRQ_TYPE_HP_CABLE_OUT) {
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-index cc3466304531..068be3464521 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-@@ -197,7 +197,7 @@ int analogix_dp_init_analog_func(struct analogix_dp_device *dp);
- void analogix_dp_init_hpd(struct analogix_dp_device *dp);
- void analogix_dp_force_hpd(struct analogix_dp_device *dp);
- u32 analogix_dp_get_irq_type(struct analogix_dp_device *dp);
--void analogix_dp_clear_hotplug_interrupts(struct analogix_dp_device *dp);
-+void analogix_dp_clear_hotplug_interrupts(struct analogix_dp_device *dp, u32 irq_type);
- void analogix_dp_reset_aux(struct analogix_dp_device *dp);
- void analogix_dp_init_aux(struct analogix_dp_device *dp);
- int analogix_dp_get_plug_in_status(struct analogix_dp_device *dp);
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-index 49c1961e4326..2c1d4655114b 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-@@ -24,6 +24,11 @@
- #define COMMON_INT_MASK_4	(HOTPLUG_CHG | HPD_LOST | PLUG)
- #define INT_STA_MASK		INT_HPD
- 
-+#define HPD_IRQ_ALL		(DP_IRQ_TYPE_HP_CABLE_IN | DP_IRQ_TYPE_HP_CABLE_OUT | \
-+				 DP_IRQ_TYPE_HP_CHANGE | DP_IRQ_TYPE_IRQ_HPD)
-+#define COMMON_INT_4_HPD_IRQ	(DP_IRQ_TYPE_HP_CABLE_IN | DP_IRQ_TYPE_HP_CABLE_OUT | \
-+				 DP_IRQ_TYPE_HP_CHANGE)
-+
- void analogix_dp_enable_video_mute(struct analogix_dp_device *dp, bool enable)
- {
- 	u32 reg;
-@@ -375,18 +380,25 @@ int analogix_dp_init_analog_func(struct analogix_dp_device *dp)
- 	return 0;
- }
- 
--void analogix_dp_clear_hotplug_interrupts(struct analogix_dp_device *dp)
-+void analogix_dp_clear_hotplug_interrupts(struct analogix_dp_device *dp, u32 irq_type)
- {
--	u32 reg;
-+	u32 reg = 0;
- 
--	if (dp->hpd_gpiod)
-+	if (dp->hpd_gpiod || !irq_type)
- 		return;
- 
--	reg = HOTPLUG_CHG | HPD_LOST | PLUG;
--	writel(reg, dp->reg_base + ANALOGIX_DP_COMMON_INT_STA_4);
-+	if (irq_type & COMMON_INT_4_HPD_IRQ) {
-+		if (irq_type & DP_IRQ_TYPE_HP_CABLE_IN)
-+			reg |= PLUG;
-+		if (irq_type & DP_IRQ_TYPE_HP_CABLE_OUT)
-+			reg |= HPD_LOST;
-+		if (irq_type & DP_IRQ_TYPE_HP_CHANGE)
-+			reg |= HOTPLUG_CHG;
-+		writel(reg, dp->reg_base + ANALOGIX_DP_COMMON_INT_STA_4);
-+	}
- 
--	reg = INT_HPD;
--	writel(reg, dp->reg_base + ANALOGIX_DP_INT_STA);
-+	if (irq_type & DP_IRQ_TYPE_IRQ_HPD)
-+		writel(INT_HPD, dp->reg_base + ANALOGIX_DP_INT_STA);
- }
- 
- void analogix_dp_init_hpd(struct analogix_dp_device *dp)
-@@ -396,7 +408,7 @@ void analogix_dp_init_hpd(struct analogix_dp_device *dp)
- 	if (dp->hpd_gpiod)
- 		return;
- 
--	analogix_dp_clear_hotplug_interrupts(dp);
-+	analogix_dp_clear_hotplug_interrupts(dp, HPD_IRQ_ALL);
- 
- 	reg = readl(dp->reg_base + ANALOGIX_DP_SYS_CTL_3);
- 	reg &= ~(F_HPD | HPD_CTRL);
+diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
+index c7da6b02d7b6..f717523014e8 100644
+--- a/drivers/gpu/drm/bridge/Kconfig
++++ b/drivers/gpu/drm/bridge/Kconfig
+@@ -266,6 +266,7 @@ config DRM_NXP_PTN3460
+ config DRM_OF_DISPLAY_MODE_BRIDGE
+ 	tristate
+ 	depends on DRM_BRIDGE && OF
++	select VIDEOMODE_HELPERS
+ 	help
+ 	  This is a DRM bridge implementation that uses of_get_drm_display_mode
+ 	  to acquire display mode.
 -- 
 2.34.1
 
