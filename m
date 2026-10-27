@@ -2,105 +2,138 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ECC9606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 03:00:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75C95606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 03:01:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=o7pJ4Wdq;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=GxUj9QwG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SjktLKfy;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=puqCT/IC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DVZYAzp5y3OZA2PjGNx37RsXlUC5F7cYH3MmvY5PMVk=; b=o7pJ4WdqU/6SuYOeeEDrt48LPm
-	/1BNMvyI4gLt9hgx/k6jy4V/5hr9pi2HnoskrLf4hLdBYeNdiuq+H7ivQ72Ry+EUWyAt09nW3g7hD
-	/ArihxM/FtU45J3F7TndKypecqTV7m/eJblBzYf2M2B82VJiZn16ZaSbUga0ySqb2Cx19fgXdVxBl
-	3qMAo7x2hFrSXAWtWDyaHR4G3XEyAcMcLsf56BVHezGVQDn1E1hPyvVkEKcN66fvJlwvj7Cx/Bkj/
-	EEVlbhJMHuc5IPHYK9RsrHHKTfYsg0WkJs2EJf5wUt/u9/fNT2kpWeaTEdZWBw5wCak5sLWF1g6pm
-	zuMKR+Qw==;
+	bh=xfsj8J6DRrAk6IdySR8zPkAcIznHjqGA5j2wFtnTo48=; b=SjktLKfyhQ/VAtShvR7dzDzNc0
+	pRkn0Ici9gbhtopGIC3ovN9RoU8v6zOJIx/ndTbxBwU65Qt/nONx0OHKfpcx+Cm0Gkxqd10G+w6nH
+	/GVjhJKvA/SZiKgOX8kyjen5oIwRY7xKmIMThFotvVPu6jLLoTUITnv3s3YmPWvnnUfCABaR2e3d7
+	DOgPZntrpC/r+lOhvYxMfMWraYqvhF+PbEYAsl8hWwj39DMXkXKFGwLhqq7iTkdQUgakk5qX/khAZ
+	7X/0dYQXiO8tYD2qAbJXS4Ih+EgqXhTgC6ZqFI56LDv5WIxUlseTDC3xEq960fDYo1PP/M2lm64eq
+	Ny/EUXfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLXPQ-00000003foY-0XfO;
-	Tue, 27 Oct 2026 02:59:32 +0000
-Received: from omta38.uswest2.a.cloudfilter.net ([35.89.44.37])
+	id 1xLXRG-00000003g6O-3EZ4;
+	Tue, 27 Oct 2026 03:01:26 +0000
+Received: from mail-northeuropeazon11011039.outbound.protection.outlook.com ([52.101.65.39] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLXPN-00000003fnl-2bCp
+	id 1xLXRD-00000003g61-2eU2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 02:59:30 +0000
-Received: from eig-obgw-6003b.ext.cloudfilter.net ([10.0.30.175])
-	by cmsmtp with ESMTPS
-	id LS3ZxugV6v0ndLXPMxFugx; Tue, 27 Oct 2026 02:59:28 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id LXPKxcVRA7CfWLXPKxzJcz; Tue, 27 Oct 2026 02:59:26 +0000
-X-Authority-Analysis: v=2.4 cv=Z8HsHGRA c=1 sm=1 tr=0 ts=6ae0138e
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=M0FbrtG7MMAA:10
- a=mitAZJTLCVS27zc7Mg0A:9 a=CjuIK1q_8ugA:10 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
-	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=DVZYAzp5y3OZA2PjGNx37RsXlUC5F7cYH3MmvY5PMVk=; b=GxUj9QwG56pBayE0cKAJfw7cw+
-	Wk73qh/ugxciGuEcKJvE39S+9pEZnrcM95ki2IDBrqYdx+kprmRMNxrloLsdQXR0aQs87VTPMtcca
-	7kG91AWECmiiPHhfZDbOTMf1tmpc2Z+03QU96mSDIwDUk9ZelIPxkyOF5x+zZDSiQTtgpl9pOv62N
-	R10DRSTq4g7LptaXSbZgEl9V6PSPVQffYosI8wWNeKgz8Ru7iYMtIGPUNIgEjtDmaCglhfmI0rAL1
-	IN7IEZynP9YMYZiPBBIgHkRxKyFNL9COZb4BPfJELtJ4V+GP5qxB1Fuqw7nuoqZ4dpEvxvU+bjqxR
-	rckPkmag==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:45506 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xLXPJ-00000001xoi-2zHC;
-	Tue, 27 Oct 2026 08:29:25 +0530
-Date: Mon, 26 Oct 2026 19:59:24 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Igor Velkov <iav@iav.lv>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Philippe Boos <pboos@baylibre.com>, linux-watchdog@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] watchdog: meson_gxbb_wdt: fix suspend/resume handling of
- HW_RUNNING watchdog
-Message-ID: <5e77e129-f822-4134-afaa-1a0cc088978e@roeck-us.net>
-References: <20261020-meson-gxbb-wdt-suspend-v1-1-d5abe4340008@iav.lv>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+	Tue, 27 Oct 2026 03:01:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s5GUo+WuRSRxnKk5S8Fi6apEG+F9WPiTlM9X07VsVW/7wIFT8Febr1vENmZzqM5T5c0IWc6VymqFzptpDpiFAo5oAUKtUjf+0Oprr8jBUuVybJUD2BCp757DZ3xUGM343Q83pkJhQmerIANHbqe8U8OZBfRGConJ/P6kcI2RIIaryDRfY+hOjtB8U2kEElebeipzEYl0FPfZmyIBtDHDbURZlpFhH1jlbe77+UZAI4mLdklqPGwA7E2Vu23QT3DHjhMfns/95ATZeG8RqFY7+zJw8oLzzmZ3QTxvqqHtA75HbjE3Fgcozpd+U6aQme5UpVgpFng4V01mH3iu2OXb4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xfsj8J6DRrAk6IdySR8zPkAcIznHjqGA5j2wFtnTo48=;
+ b=YQ+GJWEvMmCzeQ1AUiLc4cj2V9CkNSMhv3CP60W73+D5LDfeS8TGGkyJufUAyTCL2EoQHpviMxy4iUe3AkuzwrDsGKBPfK9FfYjNKZBOqnjOCkAfsmvoZuqrJ7cATa0vU2KzglyboBzCYYA80stSg3J/a5P1fapOJQ3moqNSVEbJcfOS+VecyPgsEfbkO9IPiToPRk4jgIZuuEBIF/fYzhngXD7PV0xSXj06+0Y7xVsL9+ksNRUjIIZhsqX2jfdbPcDrGwO2Dj076/jrxNYH6x4IsEfb6ooklgyBlGxKG7WcoqTzKgl3xBbQ/o4PllHeydBCwl8TDKK22MzGyAe3gg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xfsj8J6DRrAk6IdySR8zPkAcIznHjqGA5j2wFtnTo48=;
+ b=puqCT/ICpdfcjOQTrRm7RneNr1SDdPeMVPdGbdf+XqXKwpEGDmXHJR/YgWdvauJh9Pf7GGn6/Aq3vq2RUTCgzK8OYstQozgPC/FuepBkRDdBV/sjY4COTEw2bcyMXis3uo0MdoPmFmt8kcL4cCniZ3HAC/yszH8vwmw+W2BFji9r60dxMZ1nBVLbIuROAbQbzpYU/X1vpRxVvlGwmaMY1N6LhChTxpIeXuD8JTZtMnV0gQ0v5P9x5eyifcOoXWjxX2jwc+nA9AC6i/DSGa7LenYynK086CWu8WKc/EekMegAY4KV/6pi8/ri9awsIsz4ltljDS3jEUoPy819RhIG7w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by GV1PR04MB10193.eurprd04.prod.outlook.com (2603:10a6:150:1a4::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
+ 2026 03:01:15 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
+ 03:01:15 +0000
+Date: Tue, 27 Oct 2026 10:58:16 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Uwe Kleine-K??nig <u.kleine-koenig@baylibre.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] remoteproc: elf_loader: Create new callback for
+ copying segments to remote cpu
+Message-ID: <auATSNiJH3LauMNL@nxa18884-linux-1.ap.freescale.net>
+References: <cover.1793008847.git.u.kleine-koenig@baylibre.com>
+ <4757287789726692e13b141b3b2af5245ae17e30.1793008847.git.u.kleine-koenig@baylibre.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261020-meson-gxbb-wdt-suspend-v1-1-d5abe4340008@iav.lv>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xLXPJ-00000001xoi-2zHC
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:45506
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 3
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfNDv1L8SJLIhfHTe2gQOT80d6PGTV4xdgCvoZ5/pwtAHOAR+CLLdY1K9KJGTDX/8AKpIdXP03Ja84Sj01yb7OmzxocNBGDXjqym0RIcVAe2HSoeQlYtC
- Ob+KN59fpOTkMSDsktVDYDszBnywBjMm3XYTZIa8uWNJgjvDUVuBHqcJB8EXk7IWxKgA2gtsjsUo/7R6d674WEh4EFVkIlYR9yg45UAoGUm/Tsttjnx34Y+D
+In-Reply-To: <4757287789726692e13b141b3b2af5245ae17e30.1793008847.git.u.kleine-koenig@baylibre.com>
+X-ClientProxiedBy: SI1PR02CA0054.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::13) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|GV1PR04MB10193:EE_
+X-MS-Office365-Filtering-Correlation-Id: 92d428dd-55eb-4f62-1988-08df33d6907d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|19092799006|366016|23010399003|261021121427099003|261026121527099003|4143699003|56012099006|261021130227099003|261022115727099003|261022105027099003|261021133027099003|261022113327099003|261021135927099003|11063799006|261022075727099003|10067099003|261021123027099003|261026135527099003|18002099003|22082099003|261026140227099003|261026130827099003;
+X-Microsoft-Antispam-Message-Info: KMyx8y3h8E414hrF+IkuZB1YB0xNUcpqa89TN6mVIwAL7YKkpWMEgjJcgzk9RfBMR+pBuhOyMg7kj1qriKNVpsy0R+eCz9+MpNp/I59a1+27lbEyefDJCkZr7ItWSEqO6Nd/sqLBASBABju+mOfd5FEoyTmRcrCp6I7rSvDDwar/uEivC25UpLavNzkli1wDktna53Bhl/fkSYO2wDIH09mJ16nLHCRpasB5m/9X2WRljjCUL0us37qwl6uVdb0BlX4RvI9KUlmHNjY1YAa0nPkNZSjUaPqLPideKFeRgpC4g9nnRPCU07L+dRqRBeIcM9vyTei8dZf2mg7ipQq63Yh9Oi5OAzQ8Q3hwVwBw5NrMpJtxnPq5mP42oh88uzJt4k88LWcP7V/Ul4eg7SJAKu3lBd4wlefjWsgoHiIPwgk17n9mDc6AEA3hr5qbIFsFagcetkIjW/pXsGdR9BzVHukteEYvLLwb1EG5iI8/LXuyDcF+wZ2bqIMd0OR0RdtFKdxkslBvRhZtviJN0k6GZt/1iRDcYdXr4W0dCQliMmJupztCStsxFWU6ZzQfENXalmpNQqIAj3GLOH0lzlJK2SKF7XC9UcKLhlcsvg8lGfy9dfkuo0rT2Q1Lxyiprrtf51dmNfiftoimRlw6C7dAGBjC6OIkCfb+W5rqbA7a2Tw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(19092799006)(366016)(23010399003)(261021121427099003)(261026121527099003)(4143699003)(56012099006)(261021130227099003)(261022115727099003)(261022105027099003)(261021133027099003)(261022113327099003)(261021135927099003)(11063799006)(261022075727099003)(10067099003)(261021123027099003)(261026135527099003)(18002099003)(22082099003)(261026140227099003)(261026130827099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1/06qhCrGPt7aslw9h5DEWRTlwd6AP6fJ8MAST0fWY910OiJN+o3FUvDyHuy?=
+ =?us-ascii?Q?9uuteVTcEIWI5tW49Q6BJSDsaDI2vdcaZMcXhNdDPPqb5mZRkrew5gfoiBah?=
+ =?us-ascii?Q?X8eoTdjP9iO1ny2uQ+l3TW8o8mNhv556WQBBY6nkb2Ijd9rXY/I/FDMTmadI?=
+ =?us-ascii?Q?cbWqmVHf9HujQb6uxuIVTaod/oxmtqRVutdp8GMFjnoi68geTP9NiBjwOpoD?=
+ =?us-ascii?Q?oy2/rXHR0sWS1Fn+f/Lvya/tld8sKWj6Wxql48asWUqkT5RpF42k5PDl1NgC?=
+ =?us-ascii?Q?S2SH55XbQQQPPpGmyBMosH/xT8vgqUAenDx+dGZS/vwtzP0VdUsfEJcd4Cf9?=
+ =?us-ascii?Q?2IAjbuBDpVEdicO3TrajSfUfA4E09IuFzTm3gCEHjpRLt2xzFfnrEMCKgwbj?=
+ =?us-ascii?Q?PCxtSaKQlVOzG78sLrCEulQ/LPR0Kl0dQ7uxVKIX7qHOYR/cGTx+ojvfpAfR?=
+ =?us-ascii?Q?rCZvoY/qtSjEoCkCUUL42OIlHEYsS3ZVmVQbCsreGuF56gdmhuem5dEzq6i4?=
+ =?us-ascii?Q?28tOUxUaEbRkGXFncsn0op48ng0E+FA1AkROmfQJzuNLnm8tZAe5x5f43B0g?=
+ =?us-ascii?Q?8oV7llcK4HbAPV48XAIzenyIz/kTzysjB7uM7DMTl0E2sK08OSM9t7aydwUS?=
+ =?us-ascii?Q?mvt56ep6Nlnkc2lUJBehdBZoZYwg52TwP4CTbk3E0iQENtUmVmfProNJTRhU?=
+ =?us-ascii?Q?Q2WYcDY8zBTL50UGnztObidEeFdeTl9BDcSl0dUgoUFxh5mEuDTTWnKbvq8C?=
+ =?us-ascii?Q?hIa1FQnNX5IibwMXAv+qnHx2B7hKhn6BNCrXIA4GEYlPxgIwzDuZG4T3KU1M?=
+ =?us-ascii?Q?R9Gl37SsrsvQrZppNTPj3toPKGaFHkHEyrhekXd6af7oct66GlaaJNzN3Wh8?=
+ =?us-ascii?Q?A9ZSJ9OkwtWJKz1aYg6QQX6XrDZQNs1XPdRx5l5+uwekdMToY5ZvnA+jt/c5?=
+ =?us-ascii?Q?HPY7Xc2kuEqSJHyLIPbwF0TcYx5QeEsw7Cecvdmby48n7e9uZPkqnWkQtulV?=
+ =?us-ascii?Q?SvJBD70cNOzi//2eLkLGgri0/wO5tBuBOfglsXwC3TQkNuKiMtRNtd5vRZnN?=
+ =?us-ascii?Q?+lZaERVJY2YdwEgDimZ+rFNYanyaYcCTWW2e7PoHxyWvUOGrnzffgMKx39Kr?=
+ =?us-ascii?Q?N3/bd6zdZuUm6Hkt7JHtpR73i5CoKg4LmESrMv1aEvXQ+DWQoSM1mci4VgTv?=
+ =?us-ascii?Q?xA/CwNWXq1dGT1yZHt9IWwi2ZdYdllThZxVW8oEw0+5Jz2Zjjxs0bBGSOfxf?=
+ =?us-ascii?Q?WRL7TJ1pT0EpOI0DRd4DtqJaMCymN5T5ANYFA/6Wvm3LwvAIwijqLlqMtZdJ?=
+ =?us-ascii?Q?XNvtPkxdbL1PtTp/BjE5vdp10FKUzijTo8QDa2RC9MMfjfJhy7RyhQTQYU3v?=
+ =?us-ascii?Q?7wMgoF2EAXM7puZ/1kCC6nwyZd0L+ZUq/Ou7r0/qkWzvHzDH1ls+AddOEVKE?=
+ =?us-ascii?Q?55hF10OpL5Niye864zDO9D5juEmBCmFkjq4XVZgZ6JJVQOEKQULRzlGQu+R/?=
+ =?us-ascii?Q?jZzyAro9fZKaDEtbieuvwDYiRjcF1x4aRf0HhGK41l9Ks0KmztywnHnM/8qk?=
+ =?us-ascii?Q?ZxjIzFeQjz1DcEOjv4QyI8LgdS7P8OivU9bR+WvycrMdqYHVtaDzGTjaL+De?=
+ =?us-ascii?Q?WjmO29OKOypgRrPkEn/YdQNK/RWXU2JCMFyV/SFQICkCUERRW7ad7pefaPDj?=
+ =?us-ascii?Q?O59ljaUOSZ1f5iLRrLTzc4jHgiPkXQo1vik8FBRn8Oko+O1w32ce5uShER25?=
+ =?us-ascii?Q?CuCTPWyxHmKNo3KOPiJl53yGWzC4qeYQq8MLCbUpwVOrgVp5NJy1?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 92d428dd-55eb-4f62-1988-08df33d6907d
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 03:01:15.2946
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: to1KkXdiLX4k9r0LHsgY6aXwUF+qg836MrH3a9/rLnm8wiL9cTK6ABXFVvdlv+KGYiR9G4fJiY5vm0bIShjseU/GIP3CkMpQEZggpQBn5fojNm4kFvwP4N32xURkM1AH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10193
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_195929_724562_A69F7E3B 
-X-CRM114-Status: GOOD (  10.35  )
-X-Spam-Score: -1.4 (-)
+X-CRM114-CacheID: sfid-20261026_200123_683565_55B0C767 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,38 +144,28 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
 	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 08:28:37PM +0300, Igor Velkov wrote:
-> From: Igor Velkov <iav@iav.lv>
-> 
-> meson_gxbb_wdt_suspend() and meson_gxbb_wdt_resume() only check
-> watchdog_active(). Since commit 6adbfbab0f03 ("watchdog: meson: keep
-> running if already active"), probe keeps a watchdog left running by the
-> bootloader and sets WDOG_HW_RUNNING. If userspace never opens the
-> device, WDOG_ACTIVE stays clear and the timer is not stopped for system
-> suspend.
-> 
-> On an ODROID-HC4 (S905X3) whose U-Boot starts the watchdog, with no
-> userspace owner, the board does not wake from deep suspend
-> (rtcwake -m mem -s 60) in 2 of 2 attempts and needs a power cycle.
-> 
-> Stop the timer on suspend and restart it on resume also when it is only
-> running in hardware, as sp805_wdt does. With this change the board
-> wakes from deep suspend in 4 of 4 attempts, and the kernel pings the
-> watchdog again after resume.
-> 
-> Fixes: 6adbfbab0f03 ("watchdog: meson: keep running if already active")
-> Assisted-by: LLM
-> Signed-off-by: Igor Velkov <iav@iav.lv>
+On Mon, Oct 26, 2026 at 11:09:30AM +0100, Uwe Kleine-K??nig wrote:
+>Some devices have special needs about how an Elf segment is copied to
+>the remote cpu's memory space where the default implementation using
+>memcpy_toio/memcpy and memset_io/memset isn't suitable. An affected
+>mainline driver is imx-dsp-rproc which includes a near-copy of
+>rproc_elf_load_segments() just to handle the IRAM only allowing 32 bit
+>accesses. On (not-yet-mainline) ADI SC846 the respective memory isn't
+>directly accessible at all and DMA must be used to copy the data.
+>
+>The new callback can be used to implement just the driver specific
+>memcpy + memset to increase code reuse.
+>
+>The patch only appears big because of indentation changes.
+>
+>Signed-off-by: Uwe Kleine-K??nig <u.kleine-koenig@baylibre.com>
 
-Applied.
-
-Thanks,
-Guenter
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
