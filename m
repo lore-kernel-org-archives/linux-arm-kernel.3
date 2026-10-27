@@ -2,83 +2,96 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 555E1606A321
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 10:02:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A191606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 10:02:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3/Y9Ts3o;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iD962t4O
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VhJ8aGdp;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=denzTsfU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=VbkC5PiXkuQEdYLYK/YUR9pdO4ULkJikWXO9Pu6awtg=; b=3/Y9Ts3oxVrcs0tbuyWlN7ttkD
-	phFQ6FSAQPpf8O9G6tVMaaMaUHcPRvIynHMI0izahvcQFsMw/trXjQAtR661E3WsZeUVcuzLdYQzz
-	896IzZ/fxAc2ifslg/dI8o0dVxCNIyvv/ToymLqzle/bshwowF5VYumeNZHy/pv/f0rmx38bE/vBg
-	HzzDSzG2xPphEhfpuSCDYWRtKNnc1QKmf+YPr11oDraRZ0kRoRQtSYA3XjAsLLsNMQl+vh9bSPAvN
-	Uxaw9f9Ex7Ptk+KG8UDXNV+dPJZXTPnbwjsd+Ttk1jOMKFOmKKoBTgzbqVpRvlPxpVCWLmhRl5TkY
-	m3pTkr3g==;
+	bh=kx3une51RST/V2RY3+/klMLxji5UgJfr3Zk+LcFLoTs=; b=VhJ8aGdpY/iUQhwdDg9T2wIKlc
+	FwDptgTo731Xo91Z1JUqpiQkA8DwegvwFyuK/KxgfCWfLiNK3vghPKDnC2QIaMS+nRU1rOczpP71Q
+	Ncsa7AFj3WZWFj33suRCEeSeuKKPd9f9//xLoC6H2k/+1AK8+hzTuvxQHThlekqHSLRxSssBDniTo
+	gwz4G8LC9F64BOgrjYvxAqIbXKaX3ghauaOjabDh0GKpq/7abJDCvadHS3W+QdCjQJsY2sy0moEPo
+	raYK+16fk+Jo4vWRIx61x339xqumSHQYMXR618Pmp6nP6FlHFu0oXukWqBu9aDkDsLMCJIkDS6x86
+	+0dlY1uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLe0u-00000004F3a-17DP;
-	Tue, 27 Oct 2026 10:02:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xLe10-00000004F5l-1bKG;
+	Tue, 27 Oct 2026 10:02:46 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLe0s-00000004F3M-2opP
+	id 1xLe0x-00000004F4T-3V8V
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 10:02:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 312DD437E1
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 10:02:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15E581F01829
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 10:02:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793095358;
-	bh=VbkC5PiXkuQEdYLYK/YUR9pdO4ULkJikWXO9Pu6awtg=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=iD962t4OeYl8fq9bTKX9Iflx2I8f4Vh717mX7u9d7sgpo3vSQSuZKwQe07yLRktiO
-	 gFdNC4bR0scWTeYeG9TlkR7+3xN4DJoKt17dRAPIvmpfuk9X3NLIT+RijO1qwXbOh1
-	 mR5OHKL7wb/iz9+5aMbhW+2FAfECvIlTyr5QtUWw5O926DvgT+4ibSkwaFOcbxHQkP
-	 W5Io98xLEQYQN5altOp6mwTly7u+9RMwt5X1lVQLP5ehGoFuIWthAYn+3X7P52B4qp
-	 /mgz5VjRAGHHSfDNtJam+ZWFb7e1U5bYIQaVa8VphujDC4wpURh4MQSpqcHAzm6Non
-	 0VXVfNNsi8ZsQ==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-3ab27e45e7cso29712221fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 03:02:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBya42PG1uPqXnVeBX/hQHUipAecBjjudYmagdIYAOkw6GRLOElp5R7gDioTB0gYijC5F7W8P0bakTVlSMokwkzs@lists.infradead.org
-X-Gm-Message-State: AFq9FYLwD0gRwzUE2cQSOKeWa4V60b+dhwulwCImzFmyP/zv1+FS7Zkv
-	UpUspOaaSaTXnujJdgl6H92UnAgBSWcw24I9NGTyKDfpWyqc7oHLrPkiNlvqq6yDK2NUozVFuUF
-	a55hmYQG0RA+KLm1p0CeFb2H5QydDov8=
-X-Received: by 2002:a2e:a99d:0:b0:3ab:48e6:6785 with SMTP id
- 38308e7fff4ca-3ac6fde8009mr25044611fa.27.1793095356530; Tue, 27 Oct 2026
- 03:02:36 -0700 (PDT)
+	Tue, 27 Oct 2026 10:02:45 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2e942864693so20658095ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 03:02:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1793095362; x=1793700162; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kx3une51RST/V2RY3+/klMLxji5UgJfr3Zk+LcFLoTs=;
+        b=denzTsfU6uygF1AgYUWl8sbXjGr1xbPDPsXLOd8GsrNVA7cgB8WtcjnGBU5E5ajB7u
+         CfcrOVJsOjIAQ20QfUj3noH0LKWj5hNvvLSC15VolMu5nLCRpi6WCE7H0bKkreW0o5aT
+         qKsdPPr83Wj35e6HdkvpFWWPft4E77YajxE3D5W4QOnPkdflivizytVSCcy/m3ZUs4Ig
+         Oqd2Ri+Zdb1z5hLss54mM8lW69HfcLm+63NX5hmuW7HkkEtZrTzaN8foXh6edlYU9jEn
+         0GNa/KGQvE86gZs/cjuPP85515WJr94fs1xAnKaGNkzECBjgifeK1UqmMLC0xkDcMKh7
+         H3fA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793095362; x=1793700162;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kx3une51RST/V2RY3+/klMLxji5UgJfr3Zk+LcFLoTs=;
+        b=uhwQypYqXTwQklH2p28VI4sXn0Ry25adQ/ZMDyrFaXSzUcHsy4AKvUF4DxwY/owg4k
+         jdh1L0gkGXRiZFkby6k8pP16BE4/S/n0Fda4/kmYCYbLSNJt2G42aCpD3LgmTSLS2O4Z
+         Ao4SOVUal5RBGgvFfaV/1wpGei0ERGJer3QhDSLIyB8XEP6AgEhHtxtZ3aGoG9Hozl6s
+         K+D/0HTCjwG7EZVHTwBBJJiOzy9VDtF03s3DlbCiCC4Wcgr5XGP68lAcx8n5db26oz4d
+         sPo1GmGXEjNDUWqYQQP2G24O9pWVtXk5nAK+Yzu0FwRYeyGOFbNgjUskVIE0dv3QkmDy
+         vShA==
+X-Forwarded-Encrypted: i=1; AKwUvBzHfc/FXGN4x6iTRS5j9HKNx1xMwVRZ0LJc73VXzYIhIUSTwXPBxwBlT87T5o/m8bz13YMSzqwQ/8InEer2C81m@lists.infradead.org
+X-Gm-Message-State: AFq9FYLdwOKnjCk6F72RlvogFuSNVjpvNe2Yzyxk64RWTmT62Q743g1v
+	tDP9RgHW8Bzno6k+YLFU7CT5JwQPHId41tl+BQlelfHGLglljO7htMfe
+X-Gm-Gg: AYBFou2nAqzY4v/UmeVjs5lmz5eMEhuFl4yxvyjQrWQtj9LWPb/aIusK87TxneB0plR
+	eBZgmMFBps+aTzMRNsVHo5O9NB39VY3tNhUido+B+qSes6ZP3WrIm/aQXtBQzwiUviXnmmj/4O5
+	eKwsOpFn1/hQ4fGA7/6Hy90XtExX2GaFupdGFnyyfU3Zzi6C/MZD0FSdXg7XYSMvnaCkOXj6dAU
+	5dLWVI9GsmAsRvwOeIFvIo7PzmqW2fp2SQJavIO8wzUIFdFvDXk31nXpr7B/iz5kJxKnPNxNKg/
+	CE5c0MtB/vFzKzIhgWGn3fPhRQ7czYkaE1ooyHa9BYbiOdO6+UaJ+W455D1vcjo5skGbDwFYVIH
+	wfrpD1EIhSaaJ9Yte+XRTeQYZYKbDrHjKigpl94Bz4l0ggGdEWWv+ig/GOHJrrrVZT4ClxGUSsi
+	FhzafNaoI40+AQHHUD2z3yfkKl+gbm36ERmRc96UU/j8rmCJhEwNSJSrRmC2zjpoNbE3BdRhFSZ
+	NwkN9Rdx7JvWTevQ4TC95DxmeRp9NwiQw6FOc1I4fPSh8qKJcZlw2oXLyrZHM9TwS286ccJ1csK
+	kBreibrtNvjaKQuFd3ECaJyNqYVeDtg=
+X-Received: by 2002:a17:902:e5c3:b0:2e5:d33a:88da with SMTP id d9443c01a7336-2ea9c68c6fdmr88394985ad.16.1793095362449;
+        Tue, 27 Oct 2026 03:02:42 -0700 (PDT)
+Received: from localhost ([47.88.78.126])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eae64564b5sm7074135ad.5.2026.10.27.03.02.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Oct 2026 03:02:41 -0700 (PDT)
+From: Lai Jiangshan <jiangshanlai@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: Lai Jiangshan <jiangshan.ljs@antgroup.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Thomas Huth <thuth@redhat.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] arm64: mm: Stop using the previous ASID for init_mm
+Date: Tue, 27 Oct 2026 18:02:27 +0800
+Message-Id: <20261027100231.31184-1-jiangshanlai@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261024-submit-h616-uart-fifo-v1-v3-0-286fc1b8c3c1@gmail.com>
- <20261024-submit-h616-uart-fifo-v1-v3-2-286fc1b8c3c1@gmail.com>
- <20261027-nifty-reliable-octopus-6cbac5@quoll> <CADvTj4qrBYSyT39=xK3_oGgHdFoSH=oyDvTtLCSzW=F9KAgi3Q@mail.gmail.com>
- <3287a7db-fbab-4b23-9ee0-d40c52fe855a@kernel.org>
-In-Reply-To: <3287a7db-fbab-4b23-9ee0-d40c52fe855a@kernel.org>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 27 Oct 2026 18:02:24 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64Qr-XCRdgi+RNS2XkKUn=F8zW+8WUKaauM2PjzL2XgWg@mail.gmail.com>
-X-Gm-Features: AclHuK-r-0qVcGxijtfK3XLHMgbsvhgpkiCG_8sJWoMVAePUb1PQB2bHv8-O4VU
-Message-ID: <CAGb2v64Qr-XCRdgi+RNS2XkKUn=F8zW+8WUKaauM2PjzL2XgWg@mail.gmail.com>
-Subject: Re: [PATCH v3 2/4] dt-bindings: serial: snps-dw-apb-uart: add
- Allwinner H616
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: James Hilliard <james.hilliard1@gmail.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261027_030243_890058_D674D991 
+X-CRM114-Status: GOOD (  14.17  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,73 +101,82 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 27, 2026 at 5:56=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 27/10/2026 10:39, James Hilliard wrote:
-> > On Tue, Oct 27, 2026 at 2:02=E2=80=AFAM Krzysztof Kozlowski <krzk@kerne=
-l.org> wrote:
-> >>
-> >> On Sat, Oct 24, 2026 at 02:22:24PM -0600, James Hilliard wrote:
-> >>> The H616 UART has 256-byte transmit and receive FIFOs, but its Design=
-Ware
-> >>> component parameter register does not report the FIFO depth. Its opti=
-onal
-> >>> register layout also differs from the generic DesignWare integration.
-> >>>
-> >>> Add a specific compatible for the integration and allow the standard
-> >>> fifo-size property to describe the capacity. Require the documented
-> >>> 256-byte size for H616, retaining snps,dw-apb-uart as a fallback.
-> >>>
-> >>> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> >>> ---
-> >>>  .../devicetree/bindings/serial/snps-dw-apb-uart.yaml    | 17 +++++++=
-++++++++++
-> >>>  1 file changed, 17 insertions(+)
-> >>>
-> >>> diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uar=
-t.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-> >>> index e2ca126d58ba..0f8fd0485879 100644
-> >>> --- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-> >>> +++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-> >>> @@ -13,6 +13,18 @@ allOf:
-> >>>    - $ref: serial.yaml#
-> >>>    - $ref: rs485.yaml#
-> >>>
-> >>> +  - if:
-> >>> +      properties:
-> >>> +        compatible:
-> >>> +          contains:
-> >>> +            const: allwinner,sun50i-h616-uart
-> >>> +    then:
-> >>> +      properties:
-> >>> +        fifo-size:
-> >>> +          const: 256
-> >>> +      required:
-> >>> +        - fifo-size
-> >>
-> >> Why do you require fifo-size if is const? It is implied by the
-> >> compatible.
-> >
-> > H616 has a fixed depth, but other sunxi integrations have different
-> > depths between UART instances. For example, D1 has 64-byte FIFOs on
-> > UART0 and 256-byte FIFOs on UART1=E2=80=935.
-> >
-> > Should I keep this explicit for consistency for all sunxi uarts?
->
-> I am confused, there are no other instances here.
+From: Lai Jiangshan <jiangshan.ljs@antgroup.com>
 
-I think the point is that it is going to be needed in the future when
-we add the compatibles for the SoCs that do have UARTs with different
-FIFO sizes.
+Switching to init_mm should prevent further accesses through the
+previous address space's translations.
+
+Commit e53f21bce4d3 ("arm64: Use the reserved TTBR0 if context switching
+to the init_mm") avoided installing init_mm.pgd as a user page table.
+At the time, the ASID was held in TTBR0, so installing the reserved
+TTBR0 also switched to ASID 0.
+
+Since commit 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1"),
+installing the reserved TTBR0 no longer changes the active ASID.
+Consequently, switching to init_mm leaves the CPU using the previous
+address space's ASID. An empty page table does not prevent TLB hits
+for that ASID.
+
+This can retain access beyond the lifetime of the backing pages.
+During fullmm teardown, user data pages can be freed before their
+cached translations are invalidated. If those pages are subsequently
+reused for kernel data, an erroneous uaccess that hits a surviving
+translation can read or corrupt that data instead of faulting.
+
+Fixes: 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1")
+Signed-off-by: Lai Jiangshan <jiangshan.ljs@antgroup.com>
+
+diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
+index 803b68758152..7e56099c5fbb 100644
+--- a/arch/arm64/include/asm/mmu_context.h
++++ b/arch/arm64/include/asm/mmu_context.h
+@@ -235,15 +235,6 @@ enter_lazy_tlb(struct mm_struct *mm, struct task_struct *tsk)
+ 
+ static inline void __switch_mm(struct mm_struct *next)
+ {
+-	/*
+-	 * init_mm.pgd does not contain any user mappings and it is always
+-	 * active for kernel addresses in TTBR1. Just set the reserved TTBR0.
+-	 */
+-	if (next == &init_mm) {
+-		cpu_set_reserved_ttbr0();
+-		return;
+-	}
+-
+ 	check_and_switch_context(next);
+ }
+ 
+diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
+index 0f4a28b87469..a96ebe904dd7 100644
+--- a/arch/arm64/mm/context.c
++++ b/arch/arm64/mm/context.c
+@@ -218,6 +218,16 @@ void check_and_switch_context(struct mm_struct *mm)
+ 	unsigned int cpu;
+ 	u64 asid, old_active_asid;
+ 
++	/*
++	 * init_mm.pgd contains kernel mappings, so use the reserved page
++	 * tables for TTBR0 and switch TTBR1 to ASID 0. Leave active_asids
++	 * unchanged to preserve the ASID rollover bookkeeping.
++	 */
++	if (mm == &init_mm) {
++		cpu_do_switch_mm(__pa_symbol(reserved_pg_dir), mm);
++		return;
++	}
++
+ 	if (system_supports_cnp())
+ 		cpu_set_reserved_ttbr0();
+ 
+-- 
+2.39.5 (Apple Git-154)
+
 
