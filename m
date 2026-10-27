@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49348606A31B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52CAA606A320
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 09:11:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cIsl2Ykb;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tqh+XQG+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PfAYSj/+;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KbNMM3s5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=IMZYF5n/1Lsri4GEmH8cmKPfHLB3rZjCJ015owF/4NA=; b=cIsl2YkbXT74lTPN88w3C0jWf2
-	coqe+ptqBZFaTMU07eV1D0/S1eJfmZAzgeF1j29G+hO302H+NYiYxvDDc5h9FvfFmKFYyeQrCsTdz
-	BwDdVbwDhOWfNKQOiDQMCev/Zjs/wvU6DjTlMq03FE/SYCZ/U5aTZRtAulG1EGdsBhccoiaxhdtbc
-	T8G28b+La5If+CdKGHsfDYbjvheZtYFIanURe6w0fU7Qj0To834EMBFz4emDpftX7PsXu7cTSWBRt
-	woEUqW/MrFpKMKno0Cg+JCTpbuoREUqUTpBGp/yTmtlgJCnlwNFavahW7CaD/vxBOxxwty8bQ4TEj
-	DitU+ULw==;
+	bh=uGJBMOzeGvE2Nb+TZ2KRWS5LM8HfN0Oo/8rnIRB4zSs=; b=PfAYSj/+PiztaBAiEUFiWW+QHd
+	V+Tm+SdL/kr24fJn4j7BcCMSJr0uXwn8zY4FdSBB3e9f1005gLRLGxFV56pUJ1Xz6WnkrrAZG0bVU
+	Px7vF9vAJpYTR1AxBCtiRv+g16a2eiXUqxm9kGxUMiUXSumqABoLho0iefDiLj6JlQPVgI00vFPf+
+	DqN0mb9ZlzUOsEJcSdCRbnnWsPBvwQVKSUbJLWoTLBKa514fef4DTOc3z2RBTtU4llaZs9t64RWVD
+	l4MdOmgLRrHYMkloelg8i/ucwd1Ck2gVKGoRpgXVlRYPewtLVixN0TyllkYwcKurx73Fb5roFnBmt
+	yRF2chCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLdCv-000000047wN-30hP;
+	id 1xLdCv-000000047vw-2NWq;
 	Tue, 27 Oct 2026 09:11:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLdCs-000000047uE-0ZRk
+	id 1xLdCq-000000047tH-0M5q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 09:10:58 +0000
+	Tue, 27 Oct 2026 09:10:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 476C460052;
-	Tue, 27 Oct 2026 09:10:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0554C1F01825;
+	by sea.source.kernel.org (Postfix) with ESMTP id 88EA6434BD;
 	Tue, 27 Oct 2026 09:10:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70AEC1F031E1;
+	Tue, 27 Oct 2026 09:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793092257;
-	bh=IMZYF5n/1Lsri4GEmH8cmKPfHLB3rZjCJ015owF/4NA=;
+	s=k20260515; t=1793092255;
+	bh=uGJBMOzeGvE2Nb+TZ2KRWS5LM8HfN0Oo/8rnIRB4zSs=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Tqh+XQG+qJuOt8n1H+Wqcj9F2hhNtFH31Rh+ROMn1IdLM5EJbIelvvzc1s6pRzPW7
-	 lACP2mLocq/oMG/zgnr0Kqeot19kh0Cc0nW+kDGQnYkMCDlk9xRT+FlSg0O6NFFxut
-	 Noykj33QTBtuSgk/iEahfaI6tcv0sq+PIW2u2LbJ79qt7BOKUGvlpPJf2Iy9CbNoq5
-	 R9mkI7B7IYlBP7zuIcjijzRnW5m+vg8ZACvOO0gVRRJd8SLBwomsV82R/oY7EWY+3l
-	 b5eX4759EJXiVPkge6Dw90nwcLf+b11PbxdXCEkLaYHRC1NOmNJlSxABbsuNOSxO9J
-	 0gik9cXrTiQqg==
-Subject: Re: [PATCH net 4/6] net: stmmac: copy XDP metadata in AF_XDP zero-copy RX
+	b=KbNMM3s58kunelRF3V/7PEtxaciElEGQUR4fCSgo9Uzw7Qvj/y7mze/HfbTb7dAWL
+	 9tSY5hNQGCNDR3QfNL5KiCdD7Wj/Q1VZN/bHjwufVZO9K2he3lpcs3gmSGxiQ4JpV7
+	 n1d0IkKPps2yxzyOv8MVhiNhdfWF1rE94IuXfSs9WLvU5Ts0PLUgbrtSffMwYsUa9N
+	 If2VqsBU31BRRuhKZ8AQGqPw0laFcOU54J2hObG6eMpzKNHJs0bs1Z2qsYxMUJHoC+
+	 ffzBeUlXTXFep45t5iY7mpE/pWbxYWRhmZvSbaElcO79TpDccbJ0IGJeLxrhtELnfo
+	 rcXv2e8NiTSNA==
+Subject: Re: [PATCH net 3/6] net: stmmac: drop multi-buffer frames in XDP mode
 From: netdev-bot+sashiko@kernel.org
 To: lorenzo.bianconi@oss.qualcomm.com
 Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -54,11 +54,11 @@ Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  sdf@fomichev.me, Jose.Abreu@synopsys.com, boon.leong.ong@intel.com,
  o.rempel@pengutronix.de, netdev@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Date: Tue, 27 Oct 2026 09:10:55 +0000
-Message-ID: <179309225560.3134.9863766306670060785@kernel.org>
-In-Reply-To: <20261023-stmmac-xdp-fixes-v1-4-efb37e19f5bd@oss.qualcomm.com>
-References: <20261023-stmmac-xdp-fixes-v1-4-efb37e19f5bd@oss.qualcomm.com>
-X-sashiko-severity: Medium
+Date: Tue, 27 Oct 2026 09:10:54 +0000
+Message-ID: <179309225404.3134.13890305235467768199@kernel.org>
+In-Reply-To: <20261023-stmmac-xdp-fixes-v1-3-efb37e19f5bd@oss.qualcomm.com>
+References: <20261023-stmmac-xdp-fixes-v1-3-efb37e19f5bd@oss.qualcomm.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
@@ -80,86 +80,187 @@ X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+- [Low] The patch cites only `Fixes: 5fabb01207a2` ("net: stmmac: Add
+  initial XDP support").
 
-- [Medium] At this commit, the commit message says
-  stmmac_construct_skb_zc() 'keeps the metadata aligned when…
+Pre-existing issues:
+- [High] Without an XDP program, stmmac_rx() still re-parses the rest of
+  a frame as a new frame when napi_build_skb() fails on a non-last…
+- [Medium] stmmac_rx() adds its per-poll local counters to the device-
+  wide `priv->xstats.rx_dropped` and `priv->xstats.rx_errors` (plain…
 
 --
 
-net: stmmac: copy XDP metadata in AF_XDP zero-copy RX
+net: stmmac: drop multi-buffer frames in XDP mode
 
-This commit changes stmmac_construct_skb_zc() so that it copies the XDP
-metadata in [xdp->data_meta, xdp->data) into the new skb together with
-the packet data. The metadata ends up right before skb->data, and
-meta_len is recorded with skb_metadata_set().
+This patch makes stmmac_rx() drop frames that span more than one
+descriptor, or that use the second buffer of a descriptor, while an XDP
+program is attached. Discarded buffers are no longer returned to the page
+pool, so stmmac_rx_refill() can reuse them in place. The re-parse of the
+remaining descriptors after an XDP_CONSUMED verdict is also removed.
+
+> Fixes: 5fabb01207a2 ("net: stmmac: Add initial XDP support")
+
+[Severity: Low]
+Should this also carry a Fixes tag for 88095728511e ("net: stmmac: fix rx
+Scatter-Gather support")? Two of the failures described in the commit
+message seem to come from that commit, not from the initial XDP support.
+
+First, the buf1_len underflow. Before 88095728511e, stmmac_rx_buf1_len()
+returned min_t(unsigned int, dma_buf_sz, plen) for the last descriptor. A
+tail re-parsed after XDP_CONSUMED therefore got dma_buf_sz bytes.
+
+88095728511e changed the return to:
+
+	return min_t(unsigned int, priv->dma_conf.dma_buf_sz, plen - len);
+
+It also moved the XDP-mode FCS strip into the if (!skb) block:
+
+	if (stmmac_xdp_is_enabled(priv) && !buf2_len) {
+		buf1_len -= ETH_FCS_LEN;
+
+Together, these two changes let a 0-3 byte buf1_len underflow.
+
+Second, the second-buffer case. Before 88095728511e, stmmac_rx_buf2_len()
+started with:
+
+	if (!priv->sph_active)
+		return 0;
+
+stmmac_xdp_set_prog() clears sph_active while XDP is enabled, so buf2_len
+was always 0 in XDP mode. That check is now:
+
+	if (!stmmac_rx_check_buf2_cap(priv))
+		return 0;
+
+So "GMAC4/XGMAC always provide a second data buffer per descriptor" has
+only been true since 88095728511e. The new buf2_len drop fixes a condition
+that commit introduced.
+
+The last patch in this series ("net: stmmac: fix XDP RX buffer DMA sync
+length") already carries Fixes: 88095728511e.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 30a2774d722b7..8a2faf50d6957 100644
+> index 3fa2c15222d88..30a2774d722b7 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -5519,7 +5519,8 @@ static struct sk_buff *stmmac_construct_skb_zc(struct stmmac_channel *ch,
->  		return NULL;
+> @@ -5903,18 +5903,23 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+
+[ ... ]
+
+> -		if (unlikely(error && (status & rx_not_ls)))
+> -			goto read_again;
+> +		/* We do not support SG in XDP mode */
+> +		if (unlikely(!error && (status & rx_not_ls) &&
+> +			     stmmac_xdp_is_enabled(priv))) {
+> +			rx_dropped++;
+> +			error = 1;
+> +		}
 >  
->  	skb_reserve(skb, xdp->data - xdp->data_hard_start);
-> -	memcpy(__skb_put(skb, datasize), xdp->data, datasize);
-> +	__skb_put(skb, datasize);
-> +	memcpy(skb->data - metasize, xdp->data_meta, datasize + metasize);
->  	if (metasize)
->  		skb_metadata_set(skb, metasize);
+>  		if (unlikely(error)) {
+> +			if (status & rx_not_ls)
+> +				goto read_again;
+> +
+>  			dev_kfree_skb(skb);
+>  			goto next;
+>  		}
+
+[Severity: High]
+This is a pre-existing issue, and this patch did not introduce it. The new
+error-and-drain handling only runs when stmmac_xdp_is_enabled() is true.
+Without an XDP program, can the same re-parse still happen when
+napi_build_skb() fails on a non-last descriptor?
+
+The failure branch in stmmac_rx() leaves skb == NULL and error == 0:
+
+	skb = napi_build_skb(page_address(buf->page),
+			     rx_q->napi_skb_frag_size);
+	if (!skb) {
+		page_pool_recycle_direct(rx_q->page_pool,
+					 buf->page);
+		buf->page = NULL;
+		rx_dropped++;
+		count++;
+		goto drain_data;
+	}
+	...
+drain_data:
+	if (likely(status & rx_not_ls))
+		goto read_again;
+
+The next descriptor of the same hardware frame then passes the error check
+and is handled as the start of a new frame.
+
+SPH is active by default on SPH-capable GMAC4/XGMAC when no XDP program is
+attached. In that case stmmac_rx_buf1_len() returns 0 for this descriptor:
+
+	if (priv->sph_active && len)
+		return 0;
+
+napi_build_skb() then builds an skb with an empty linear area, and the
+payload is only in a buf2 frag. pskb_trim(skb, len) does nothing, because
+the stale len is larger than skb->len.
+
+With the default hw_vlan_en, nothing pulls the header into the linear area
+before this call chain:
+
+	eth_type_trans()
+	  eth_skb_pull_mac()
+	    skb_pull_inline(skb, ETH_HLEN)
+	      __skb_pull()
+	        BUG()
+
+Under memory pressure, could an on-link peer panic the machine this way by
+sending a frame larger than one buffer? GMAC_CONFIG_JE is set in
+GMAC_CORE_INIT, so such frames are accepted even at MTU 1500.
+
+Without SPH, the stack instead gets a frame whose Ethernet header comes
+from the middle of the peer's payload.
+
+This path is still unchanged at the end of the series. The VLAN rework in
+"net: stmmac: fix VLAN tag stripping on short and non-linear RX frames"
+adds pskb_may_pull() only to the software stmmac_rx_vlan() path.
+
+Would it drain the frame correctly to set error = 1 in the
+napi_build_skb() failure branch, as this patch does for XDP mode?
+
+> @@ -5926,6 +5931,14 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+>  		buf2_len = stmmac_rx_buf2_len(priv, p, status, len);
+>  		len += buf2_len;
+>  
+> +		/* Drop the packet if it is split over buf1 and buf2 on a
+> +		 * single descriptor if the interface is running in XDP mode.
+> +		 */
+> +		if (unlikely(stmmac_xdp_is_enabled(priv) && buf2_len)) {
+> +			rx_dropped++;
+> +			goto next;
+> +		}
 
 [Severity: Medium]
-The commit message says this change:
+This isn't a bug introduced by this patch. The new drop paths add to
+rx_dropped, which stmmac_rx() folds into a device-wide counter at the end:
 
-  "keeps the metadata aligned when stmmac_rx_vlan() relocates it with the
-  MAC header while stripping a tag."
+	priv->xstats.rx_dropped += rx_dropped;
+	priv->xstats.rx_errors += rx_errors;
 
-Is that true at this commit? Here, stmmac_rx_vlan() still moves only the
-two MAC addresses:
+These are plain unsigned long fields in struct stmmac_extra_stats. They
+are updated with a non-atomic read-modify-write, and no shared lock is
+held.
 
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_rx_vlan() {
-    ...
-		vlanid = ntohs(veth->h_vlan_TCI);
-		memmove(skb->data + VLAN_HLEN, veth, ETH_ALEN * 2);
-		skb_pull(skb, VLAN_HLEN);
-    ...
-}
+Each RX queue has its own NAPI instance. Can two queues polled on
+different CPUs lose each other's increments here? The napi_syncp section
+just before this only protects the per-queue rxq_stats.
 
-The software pop path runs when hw_vlan_en is false, CTAG or STAG RX
-offload is enabled, and a tagged frame arrives. In that case,
-stmmac_dispatch_skb_zc() calls stmmac_rx_vlan() before eth_type_trans():
+The race goes back to 133466c3bbe171 ("net: stmmac: use per-queue 64 bit
+statistics where necessary").
 
-    stmmac_rx_vlan(priv->dev, skb);
-    skb->protocol = eth_type_trans(skb, priv->dev);
-
-The metadata stays at [old_data - metasize, old_data), but mac_header is
-set to old_data + VLAN_HLEN. skb_metadata_end() returns skb_mac_header(),
-so the metadata window seen by TC BPF and the stack is shifted by 4
-bytes.
-
-Wouldn't that drop the first 4 bytes the XDP program wrote, and return
-the first 4 bytes of the destination MAC as the last 4 bytes of
-metadata?
-
-The next patch in the series, "net: stmmac: fix VLAN tag stripping on
-short and non-linear RX frames", changes stmmac_rx_vlan() to move
-meta_len + ETH_ALEN * 2 bytes starting at skb->data - meta_len. That
-fixes this by the end of the series.
-
-Until then, this commit is a bisection window. A stable backport that
-takes this patch without the next one would also have the problem.
-Would it make sense to reorder the two patches? Another option is to
-reword the commit message so it doesn't depend on a change that hasn't
-landed yet.
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261023-stmmac-xdp-fixes-v1-0-efb37e19f5bd%40oss.qualcomm.com
