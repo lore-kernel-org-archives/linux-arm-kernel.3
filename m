@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFBB2606A333
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 09:11:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38AED606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 09:11:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IzlfxoZj;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KzWgtNHV
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1XxREmZm;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YsUzvWop
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
@@ -14,38 +14,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=wy7JHxQwUZNHWq+XEZMf1oDxplyRZe0up+B5GG9yIXw=; b=IzlfxoZjYrU8R4Q5iw5t5urTD4
-	N0D9kou2zcGMb4/w10Q502rkHWLuYplSlUKAseXSJM9Z3ntDzMPcS864RjatL0rB9FTrdBKzfgfcK
-	0S4rMeztbZvfoLhX/H6HjaX9jmm3jgNOBxNfUyOdumNLLvWVvX6d0dLidklBmJ+biBGZgNxGJ7YUe
-	W7xwKgc0q5h+RsbrKIWw66jh1jllsEMtKSvblInZ1JoGHm39rcBDG9ZrqAhCxg/nfCZ306ty5hmfw
-	UxtjqSOjbPz0WqWa4wZ/CqTWw70GW1VcLJ47K7cjAr1iHeUkB8+JIq1kjHpyhaBo5b6Y7dyiC63lu
-	Hdwy/zng==;
+	bh=mlggcwoG0DvfTCXP7ejSDYVRjRbl/qkcqpGTFuN6n2s=; b=1XxREmZmzhzpX0kbkuQYEID3Ft
+	97lEOtOl0yRkYVtrWlRWsj0rVYSfUxTtQzU45lS+MzjH5MNAyN2NoOBHSY8+a5xf85DsxGmuYqjhX
+	HhNFc+VjIS9+M1JoGTopL4KFqSbxfmI3YLmL71pKyBbSvCvKf/z9T/RziAARys3s1Xbyt+NydWkin
+	/bwPGvjEkhQjN7iFU+AQ6WBou57BnxTqKflq+D7lhJMJR9Tp6lukInMnntoDyXEhmi6ZPiY5l1ALR
+	Z8zZQLoaAtfVjE7oYeIzA/tOLoV8N3QkNGXF119aZblF9ZCoGEqB/Ix4lfRkXHJxv5+J2DCvl3sf6
+	61Bcw+Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLdCo-000000047sA-0ALC;
-	Tue, 27 Oct 2026 09:10:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xLdCw-000000047x0-000G;
+	Tue, 27 Oct 2026 09:11:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLdCn-000000047rr-0OK3
+	id 1xLdCt-000000047un-0BzZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 09:10:53 +0000
+	Tue, 27 Oct 2026 09:10:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6DB9042B18;
-	Tue, 27 Oct 2026 09:10:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 410261F01825;
-	Tue, 27 Oct 2026 09:10:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C89A240B97;
+	Tue, 27 Oct 2026 09:10:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 953231F031E1;
+	Tue, 27 Oct 2026 09:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793092252;
-	bh=wy7JHxQwUZNHWq+XEZMf1oDxplyRZe0up+B5GG9yIXw=;
+	s=k20260515; t=1793092258;
+	bh=mlggcwoG0DvfTCXP7ejSDYVRjRbl/qkcqpGTFuN6n2s=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KzWgtNHVe49QUMir0cIGD8U+6iphp40+xr4a81O50teAKy8Z/+FEXIwEmB16qhjye
-	 6IVcDsFlwEipT6ASUk7D8Zs3n1XCQKoPxs3BNL9xQT9f1WxHeHynFHMyOQvstJZljk
-	 QzHXZhagO7IBOanIjfXuNG5eD35KN2xcJUIOczUifLFpRIRDotqP4EDKAnaT9CGNu2
-	 voaDjT/wCL8OEwu7LeYvw7xFFWjzZ1ll5uqRWNULc9ZAMTv7BAFD6/G2xD/5end9zo
-	 UKwIoozQ3M/S7uMP/VJqm6GQdI5BTrwtRCBtV1LzMgRrjpFnpHucD8sIwUP3BJ3Mqc
-	 CP/x5TdEfVEiQ==
-Subject: Re: [PATCH net 1/6] net: stmmac: take ownership of saved RX state at
- poll entry
+	b=YsUzvWopm3C/u14vd2Db/AOVOM0G0Qyw/Xz2nXXSUQgeLOjWiQqOCDJ0AVroBk6bP
+	 ppvu0E+RoPeukmmAUh70/0DWFBh285VvP2xD88PwA0ZXejzaCMs1r8zfoDy/mh5FXO
+	 i8CAqHmReZ0qAH48AWsmXV1iwJzUv/ZyFFolIyWn+ymenLABah90ekVv44jKGTPoVC
+	 mrqLZm8pA6YjKFauaLH2ZRMaFUuSXOqGX1FkCUHvPywwniDfpIX6WA948vmSSlgNGH
+	 qNWcqPFENOwxPOxIVINLQCYn2EvfgsbUhHwqWgdWBJLq5uxufSG3DqnmjtGlBbUPxX
+	 v+pUdOQPQg+8g==
+Subject: Re: [PATCH net 5/6] net: stmmac: fix VLAN tag stripping on short and
+ non-linear RX frames
 From: netdev-bot+sashiko@kernel.org
 To: lorenzo.bianconi@oss.qualcomm.com
 Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -55,11 +55,11 @@ Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  sdf@fomichev.me, Jose.Abreu@synopsys.com, boon.leong.ong@intel.com,
  o.rempel@pengutronix.de, netdev@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Date: Tue, 27 Oct 2026 09:10:50 +0000
-Message-ID: <179309225078.3134.4254254722485703329@kernel.org>
-In-Reply-To: <20261023-stmmac-xdp-fixes-v1-1-efb37e19f5bd@oss.qualcomm.com>
-References: <20261023-stmmac-xdp-fixes-v1-1-efb37e19f5bd@oss.qualcomm.com>
-X-sashiko-severity: High
+Date: Tue, 27 Oct 2026 09:10:57 +0000
+Message-ID: <179309225715.3134.11251912403308890296@kernel.org>
+In-Reply-To: <20261023-stmmac-xdp-fixes-v1-5-efb37e19f5bd@oss.qualcomm.com>
+References: <20261023-stmmac-xdp-fixes-v1-5-efb37e19f5bd@oss.qualcomm.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
@@ -81,168 +81,178 @@ X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 1 · Medium: 0 (1) · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The commit message says that on resume a saved partial frame
-  would be resumed "with descriptors from the freshly initialized ring",…
+- [Low] In stmmac_rx_vlan()
+  (drivers/net/ethernet/stmicro/stmmac/stmmac_main.c), the patch adds an…
 
 Pre-existing issues:
-- [Medium] In stmmac_rx()
-  (drivers/net/ethernet/stmicro/stmmac/stmmac_main.c), the…
+- [Medium] Only one of the two stmmac RX paths that call stmmac_rx_vlan()
+  records XDP metadata in the skb.
+- [Medium] The new VLAN-error drop branch in stmmac_dispatch_skb_zc()
+  does a plain `priv->xstats.rx_dropped++` (line 5567).
 
 --
 
-net: stmmac: take ownership of saved RX state at poll entry
+net: stmmac: fix VLAN tag stripping on short and non-linear RX frames
 
-The saved partial-frame RX state is now taken and cleared at the start of
-stmmac_rx() and stmmac_rx_zc(). It is saved again only if the frame is
-still incomplete when the poll ends. The saved skb is also dropped in
-stmmac_reset_rx_queue() and __free_dma_rx_desc_resources().
+This patch changes stmmac_rx_vlan() so that it pulls ETH_HLEN before
+reading h_vlan_proto, and pulls VLAN_ETH_HLEN before reading the TCI. It
+returns an error so callers can drop frames that claim a VLAN tag but lack
+the full header. It also moves XDP metadata together with the MAC
+addresses when the tag is popped.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index b20e5038eeadd..fba21599a5e15 100644
+> index 8a2faf50d6957..32b2c5834c340 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5102,22 +5102,35 @@ static netdev_features_t stmmac_features_check(struct sk_buff *skb,
+>  	return vlan_features_check(skb, features);
+>  }
+>  
+> -static void stmmac_rx_vlan(struct net_device *dev, struct sk_buff *skb)
+> +static int stmmac_rx_vlan(struct net_device *dev, struct sk_buff *skb)
+>  {
+> -	struct vlan_ethhdr *veth = skb_vlan_eth_hdr(skb);
+> -	__be16 vlan_proto = veth->h_vlan_proto;
+> -	u16 vlanid;
+> +	struct vlan_ethhdr *veth;
+>  
+> -	if ((vlan_proto == htons(ETH_P_8021Q) &&
+> +	if (!pskb_may_pull(skb, ETH_HLEN))
+> +		return -EINVAL;
 
-[ ... ]
+[Severity: Low]
+This pull happens before the h_vlan_proto and dev->features checks. A frame
+shorter than ETH_HLEN is now freed and counted in rx_dropped by both
+stmmac_rx() and stmmac_dispatch_skb_zc(), even with CTAG/STAG RX stripping
+disabled. The hw_vlan_en branch in those callers has no matching check.
 
-> @@ -6032,10 +6042,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
->  		/* Remove FCS if needed */
->  		if (!fcs_stripped && pskb_trim(skb, len)) {
->  			dev_kfree_skb_any(skb);
-> -			skb = NULL;
->  			rx_dropped++;
-> -			count++;
-> -			continue;
-> +			goto next;
->  		}
+Is that intended? The commit message says:
+
+    untagged frames, including short ones, are left untouched.
+
+That holds only for frames between ETH_HLEN and VLAN_ETH_HLEN in length.
+
+XDP doesn't seem able to reach this case, because bpf_xdp_adjust_head()
+and bpf_xdp_adjust_tail() both refuse to go below ETH_HLEN. Dropping such
+a runt is also arguably safer than handing it to eth_type_trans().
+
+Could the commit message mention that frames shorter than ETH_HLEN are now
+dropped?
+
+> +
+> +	veth = skb_vlan_eth_hdr(skb);
+> +	if ((veth->h_vlan_proto == htons(ETH_P_8021Q) &&
+>  	     dev->features & NETIF_F_HW_VLAN_CTAG_RX) ||
+> -	    (vlan_proto == htons(ETH_P_8021AD) &&
+> +	    (veth->h_vlan_proto == htons(ETH_P_8021AD) &&
+>  	     dev->features & NETIF_F_HW_VLAN_STAG_RX)) {
+> +		__be16 vlan_proto = veth->h_vlan_proto;
+> +		u8 meta_len = skb_metadata_len(skb);
+> +		u16 vlanid;
+> +
+>  		/* pop the vlan tag */
+> +		if (!pskb_may_pull(skb, VLAN_ETH_HLEN))
+> +			return -EINVAL;
+> +
+> +		veth = skb_vlan_eth_hdr(skb);
+>  		vlanid = ntohs(veth->h_vlan_TCI);
+> -		memmove(skb->data + VLAN_HLEN, veth, ETH_ALEN * 2);
+> +		memmove(skb->data - meta_len + VLAN_HLEN,
+> +			skb->data - meta_len, meta_len + ETH_ALEN * 2);
 
 [Severity: Medium]
-This isn't a bug introduced by this patch, but can a multi-descriptor
-frame reach the stack as a truncated fragment when napi_build_skb() fails
-on a descriptor that is not the last one?
+This isn't a bug introduced by this patch, but skb_metadata_len() can only
+be non-zero for skbs built by stmmac_construct_skb_zc() on the AF_XDP
+zero-copy path:
 
-The allocation failure path in stmmac_rx() does not set error:
+stmmac_construct_skb_zc() {
+    ...
+	memcpy(skb->data - metasize, xdp->data_meta, datasize + metasize);
+	if (metasize)
+		skb_metadata_set(skb, metasize);
+    ...
+}
 
-	skb = napi_build_skb(page_address(buf->page),
-			     rx_q->napi_skb_frag_size);
-	if (!skb) {
-		page_pool_recycle_direct(rx_q->page_pool,
-					 buf->page);
-		buf->page = NULL;
-		rx_dropped++;
-		count++;
-		goto drain_data;
-	}
+On the page_pool path, stmmac_rx() calls xdp_prepare_buff() with
+meta_valid set to true, so bpf_xdp_adjust_meta() succeeds there. The
+XDP_PASS skb is then built without recording the metadata length:
 
-When status & rx_not_ls is set, drain_data jumps back to read_again. At
-that point skb == NULL and error == 0, and len still holds the bytes of
-the dropped prefix.
+stmmac_rx() {
+    ...
+			/* XDP program may adjust header */
+			head_pad_len = ctx.xdp.data - ctx.xdp.data_hard_start;
+			skb_reserve(skb, head_pad_len);
+			skb_put(skb, buf1_len);
+			skb_mark_for_recycle(skb);
+    ...
+}
 
-With no XDP program attached, stmmac_xdp_run_prog() returns NULL. The next
-descriptor of the same frame then builds a new skb from a mid-frame
-buffer.
+So skb_shinfo(skb)->meta_len stays 0 for these skbs. Doesn't that mean
+metadata written by a non-ZC XDP program is lost before tc BPF can see it?
+It would also mean this memmove only moves metadata for zero-copy skbs.
 
-On the last descriptor, len still includes the dropped prefix. So
-pskb_trim() does nothing, because len is not smaller than skb->len:
+Should stmmac_rx() also call skb_metadata_set() with
+ctx.xdp.data - ctx.xdp.data_meta?
 
-	return (len < skb->len) ? __pskb_trim(skb, len) : 0;
+This patch's own claim still holds on that path, since meta_len is 0
+there and data_meta cannot end up pointing at the wrong bytes.
 
-Wouldn't that pass a mid-payload fragment, with its FCS still attached,
-to napi_gro_receive()? Its ip_summed would come from the status of the
-whole frame, and rx_bytes would be counted with the full-frame len.
-
-The same thing seems to happen across a poll boundary. In that case
-in_progress saves skb == NULL, error == 0 and len.
-
-The old status & rx_not_ls save condition behaved the same way. Later in
-the series, "net: stmmac: drop multi-buffer frames in XDP mode" sets
-error for rx_not_ls when XDP is enabled. The non-XDP path is unchanged.
+>  		skb_pull(skb, VLAN_HLEN);
+>  		__vlan_hwaccel_put_tag(skb, vlan_proto, vlanid);
+>  	}
+> +
+> +	return 0;
+>  }
 
 [ ... ]
 
-> @@ -8412,6 +8421,9 @@ static void stmmac_reset_rx_queue(struct stmmac_priv *priv, u32 queue)
->  {
->  	struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
+> @@ -5546,12 +5559,15 @@ static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
+>  	}
 >  
-> +	dev_kfree_skb_any(rx_q->state.skb);
-> +	rx_q->state.skb = NULL;
-> +	rx_q->state_saved = false;
->  	rx_q->cur_rx = 0;
->  	rx_q->dirty_rx = 0;
->  }
+>  	stmmac_get_rx_hwtstamp(priv, p, np, skb);
+> -	if (priv->hw->hw_vlan_en)
+> +	if (priv->hw->hw_vlan_en) {
+>  		/* MAC level stripping. */
+>  		stmmac_rx_hw_vlan(priv, priv->hw, p, skb);
+> -	else
+> -		/* Driver level stripping. */
+> -		stmmac_rx_vlan(priv->dev, skb);
+> +	} else if (stmmac_rx_vlan(priv->dev, skb)) {
+> +		dev_kfree_skb_any(skb);
+> +		priv->xstats.rx_dropped++;
 
-[Severity: High]
-The commit message says that without this drain, a partial frame saved
-before suspend would be resumed "with descriptors from the freshly
-initialized ring". Is the ring actually freshly initialized on the
-stmmac_resume() path?
+[Severity: Medium]
+This is a pre-existing issue, but priv->xstats.rx_dropped is one
+device-wide unsigned long in struct stmmac_extra_stats. Every channel's
+NAPI poll updates it with a plain read-modify-write:
 
-stmmac_resume() does:
+stmmac_dispatch_skb_zc()
+    priv->xstats.rx_dropped++;
 
-	stmmac_reset_queues_param(priv);
+stmmac_rx_zc() and stmmac_rx()
+    priv->xstats.rx_dropped += rx_dropped;
 
-	stmmac_free_tx_skbufs(priv);
-	stmmac_clear_descriptors(priv, &priv->dma_conf);
+stmmac_napi_add() registers a separate rx_napi/rxtx_napi for each channel,
+so these polls can run at the same time on different CPUs. No lock, atomic
+or u64_stats_sync protects the counter.
 
-	ret = stmmac_hw_setup(ndev);
+Can drop increments be lost this way? stmmac_get_stats64() also reads the
+field without READ_ONCE().
 
-stmmac_clear_rx_descriptors() calls stmmac_init_rx_desc() on every RX
-descriptor, and that only sets ownership bits:
+This patch only adds one more site that follows the existing pattern.
 
-- dwmac4_rd_init_rx_desc() and dwxgmac2_init_rx_desc() OR OWN|BUF1V into
-  des3.
-- enh_desc_init_rx_desc() and ndesc_init_rx_desc() OR RDES0_OWN into
-  des0.
+> +		return;
+> +	}
+> +
+>  	skb->protocol = eth_type_trans(skb, priv->dev);
 
-Buffer addresses are never reprogrammed and empty slots are not refilled.
-stmmac_init_dma_engine() then sets the RX tail pointer to buf_alloc_num,
-which gives every descriptor back to the DMA.
-
-Suppose page_pool_alloc_pages() failed in stmmac_rx_refill() for the
-slots used by the saved partial frame. The loop then breaks before
-stmmac_set_desc_addr():
-
-	if (!buf->page) {
-		buf->page = page_pool_alloc_pages(rx_q->page_pool, gfp);
-		if (!buf->page)
-			break;
-	}
-
-Those descriptors keep the DMA addresses of pages that state.skb now
-owns, and buf->page == NULL.
-
-With this change, stmmac_reset_rx_queue() returns those pages to the
-page_pool through dev_kfree_skb_any(). The same descriptors are then
-re-armed and the DMA is restarted.
-
-Can the device then DMA into pages that have already been recycled or
-freed?
-
-There is a separate problem on dwmac4 and xgmac. A descriptor that was
-written back but not refilled before suspend still holds write-back data
-in des0/des1. For example, dwmac4_wrback_get_rx_vlan_tci() reads the VLAN
-tag from des0. Re-arming that descriptor would make the DMA treat the
-write-back data as a buffer address.
-
-The re-arm-without-refill behaviour predates this patch: an earlier
-upstream re-init on resume was reverted. Before this patch, the stale skb
-would also have been completed and freed on the first poll after resume,
-while those descriptors were still armed. So this change frees the pages
-earlier rather than creating the problem.
-
-Since the resume handling depends on the ring being freshly initialized,
-should the commit message be corrected? And should the resume path refill
-and reprogram the RX descriptors before the DMA is restarted?
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261023-stmmac-xdp-fixes-v1-0-efb37e19f5bd%40oss.qualcomm.com
