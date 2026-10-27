@@ -2,66 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43E7D606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 14:19:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CAF3606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 14:20:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EBuqwiIM;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bTrYKY/N
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hlVQ/8or;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I/3197F/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=65YpN1lY+wIR6jDJdFChwRJvAOKrauAXqkCBZN30u8c=; b=EBuqwiIMA2v4cM
-	HT4P/Jo/2zQOSBzyRjUXHcrXtVaglD+mh1r3PDTE9MBov2LIMdB1zXOnXvvPhVDqu+jFt83/98hre
-	f5GJwHEJNTlVNZbpalJBY534CT/FGu/D0rdPQ73n6FizqNHkEUl8ozBHoS19EEkmttRBbliJn3tQb
-	OBbVI05YY7//lkGeSFH4nkAT9Bco6d+AY51WJbMXvsblfMS+PcuYJu7pcbphnJohYNNaBmUQ/EnPm
-	m2MAZEkGiXUNeQC4Ujyhj4TeHK6cIugNQau8L0eRT+NAiQRWIIQK6H3r6L8rGax4cFR+vWP1l8nGL
-	dOTbSCURJbc0ITbkl+Fw==;
+	List-Owner; bh=GGNr41yBdTpZYx2SDxAZUmAJloAwnOll1e229XCkLow=; b=hlVQ/8orIk+aaU
+	p0UelD54qHF+WtJCT2OMX80DR58+ULL/tEBeMEObQJwwaC2FkVVnk9u7fvctOIqntgjLjLfA0Qf2k
+	23aSzHqyczWMCVXoxePsVQ6yQyskunpZaAobilZAwzByZgDPTCH2Uow8W4Vrt4b7RUQuumjFz6yJk
+	20WMy9TySMReocsJTheV7T4/PqaxholPkuJKUL5f8fMX2NLlgtHhG7bRbG4Wy8O+/YY9LfN5S5eGY
+	9L6eoXqVf/hvjNdGwYnXKTdz+5rzYXFcllcvsbYSy66oqLW8dihOTlIq3FOQNE425aZKbqRYP/DNb
+	DrLatmhMCEklMyoj8yVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLi1m-000000050s8-2fdg;
-	Tue, 27 Oct 2026 14:19:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xLi2P-000000050xD-3H9o;
+	Tue, 27 Oct 2026 14:20:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLi1l-000000050s1-0oDl
+	id 1xLi2O-000000050ww-1duj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 14:19:49 +0000
+	Tue, 27 Oct 2026 14:20:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5BEC860236
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 14:19:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11B7F1F031E4
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 14:19:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E63F543BB1
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 14:20:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB4DE1F031E2
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 14:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793110788;
-	bh=65YpN1lY+wIR6jDJdFChwRJvAOKrauAXqkCBZN30u8c=;
+	s=k20260515; t=1793110827;
+	bh=GGNr41yBdTpZYx2SDxAZUmAJloAwnOll1e229XCkLow=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=bTrYKY/NCtBQEqHzZxx5FWO4+paP6G4Zi606u8ECeNkDqyadFAAmZ//dG3grmowVm
-	 d1tciUMEEDAQFCj1uYrrSKri/n6ePDG9eeISLDcFHhEl557VzR+RXrO31eGIO8eQNU
-	 JTkprt7vienttMNV5MxlOGduU7dpzTNS/y8MU50kvrBTrwzhzoZISIeYECH7ena7Eq
-	 6/otvp2wsbwRx5Z6CXoWzFM/wTZbzOIWo8tv42AVzG1/qMANM2RCs0xSe/KNLOlSZN
-	 VdzIxQpxYfFhHzkRW3TnKUV0ZddDh5zMSpZ/iEme/pBnRjBgjgAb+2lpT9sdJJYSA7
-	 LB+VxUC7mQXQQ==
-Received: by mail-oa1-f46.google.com with SMTP id 586e51a60fabf-451a49abd8aso3950768fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 07:19:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBy3XdKEawL9QPnLcWu20fMYUiOGeb+MoGihcLZaXYCNrlFUCCB6oYwgEKyBrXj8GYsMPgJXgnyf/mUz8PeaQpYx@lists.infradead.org
-X-Gm-Message-State: AFq9FYIONZrkvQ8QALE8Va7iboBxW5Hu9Y7/89rZmQzvBrB3t0owe6dK
-	VfIhKxzysRHyQu08fztuj39yR4RThZNHUOQtFg1gmIrfXHc5DMQewIpkG6EXLL/sS/S1fStgCS8
-	XtVE465jN+vs6ARQWcWYKljXIBR9vyAw=
-X-Received: by 2002:a05:6870:8109:b0:48f:e0e5:a205 with SMTP id
- 586e51a60fabf-4a83f55fc6amr6537849fac.57.1793110787343; Tue, 27 Oct 2026
- 07:19:47 -0700 (PDT)
+	b=I/3197F//5bf406jcAf97sCVxQOGKU6UQ+ppRF4YfsIIKbMuoTYo9LTj5Sjy3AD8w
+	 KzUFb/HWCvyqo6L0w0RA7Mux0i2L9tlWeNARzqQCoTEuRvWNWYhZUgP4kshPwZnbqR
+	 qLTdSi5pTD64Oq88TgupSzSmf5UvVYDrrasz4m671Snyp+Qd5JLlhhCzeJ6yacD0A1
+	 ot3I4+kOrMBuvLutRTGJ/d8Tc0Og1ksLmp6oy4CedyYgX6NINvi1kEE5e0iYTsAhic
+	 BWtWbqRrF12zvUIqmwHD09OsGL0TYIP5ow6FProRbLMo8vvbOqpDP+oG7cmSY0LqTR
+	 dCULZxEgiBaxQ==
+Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-4a71d0c4233so1681279fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 07:20:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzSw4KLqIqJyB+zvTq/QZaVf9b2jm/q5EY7Gz3aujKR6u3MYjfGcf8V1NaD2BDyanTNXumKiz5gruapGWnIPsW8@lists.infradead.org
+X-Gm-Message-State: AFq9FYJbVCIAcACXoJbRzhTjQT6mNPAhOiSKNItnWuO9/s8j3rbZIDux
+	6oIKikwHtxOtaNYvrScihPCc1o+424VBPVvKY7M1txxaRV1g72JUfXj+Pzw1Ij52oce3sLWCaTQ
+	AlWnjhsaD13rwzNQvhWIZ34wAFLONjAk=
+X-Received: by 2002:a05:6870:c2b5:b0:47d:b8a7:40f5 with SMTP id
+ 586e51a60fabf-4a83f533260mr6584722fac.22.1793110827181; Tue, 27 Oct 2026
+ 07:20:27 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <cover.1792776697.git.geert+renesas@glider.be> <528b079a19bd4043754bfb56db8e5950bdda62f6.1792776697.git.geert+renesas@glider.be>
-In-Reply-To: <528b079a19bd4043754bfb56db8e5950bdda62f6.1792776697.git.geert+renesas@glider.be>
+References: <cover.1792776697.git.geert+renesas@glider.be> <cae27d2d9dd17c081dcea27e3b223a8fb8653796.1792776697.git.geert+renesas@glider.be>
+In-Reply-To: <cae27d2d9dd17c081dcea27e3b223a8fb8653796.1792776697.git.geert+renesas@glider.be>
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 27 Oct 2026 15:19:29 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkgVwJCKbQEpapoBtrUdfBLTyR-UpcDxfduw5cOfOHsaA@mail.gmail.com>
-X-Gm-Features: AclHuK9sHLPk_RjSdPfQ2Qb8ggjUTeBfa7KowfsZSBkBlD3ysUfPGnnDgLhFvkE
-Message-ID: <CAD++jLkgVwJCKbQEpapoBtrUdfBLTyR-UpcDxfduw5cOfOHsaA@mail.gmail.com>
-Subject: Re: [PATCH 1/7] gpio: rcar: Convert to gpiochip_generic_{request,free}()
+Date: Tue, 27 Oct 2026 15:20:12 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=7GkFOS9i46WDuKHcJa0S-VemJ1OW33H8EKK-SZ67ufQ@mail.gmail.com>
+X-Gm-Features: AclHuK9MY21FRxc3OT2vCWHfUpZZ9cxWX59B-lOuZ_icl7P9J24tGPdGErZiGJg
+Message-ID: <CAD++jL=7GkFOS9i46WDuKHcJa0S-VemJ1OW33H8EKK-SZ67ufQ@mail.gmail.com>
+Subject: Re: [PATCH/DNI 7/7] arm64: dts: renesas: r8a78000: Add gpio-ranges
 To: Geert Uytterhoeven <geert+renesas@glider.be>
 Cc: Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -89,14 +89,11 @@ X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23, 2026 at 7:52=E2=80=AFPM Geert Uytterhoeven
+On Fri, Oct 23, 2026 at 7:55=E2=80=AFPM Geert Uytterhoeven
 <geert+renesas@glider.be> wrote:
 
-> When a gpio device node has no gpio-ranges property,
-> pinctrl_gpio_request() returns -EPROBE_DEFER and its GPIOs are unusable.
->
-> Restore the ability to use GPIOs before pin control support is added by
-> using the gpiolib helpers instead, which cater for this use case.
+> Link all GPIO controllers to the Pin Function Controller using
+> "gpio-ranges" properties.
 >
 > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
