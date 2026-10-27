@@ -2,89 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0026360A3838
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 12:01:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1D4D606C942
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 12:02:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=41CrtGvZ;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dmPWVoyC
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ClPFYkAg;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XlEtH5aB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
+	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=7L8M1iP1QH6iutHY0JulFrTECdA08ORV1N5WHofrpBc=; b=41CrtGvZGLlfkdIBNycwv1DvLA
-	Z1tNvcX/XO3+gJ2rqp6m9GgdEHQil9ausC7JGQmH7jIm1UNbyW3MonvfWG1K0+93ElwJUsAlnhC5r
-	Jw06bF6gYl2ZWzc2yeOmZy9i3ZrLqXWGnTh5BmLOZYI+Ad+IJQi4fPHKWLuQH6QqPzX+Ap7rogtuO
-	NYCsYaF2DGnM95Yc2KHpziiagtCBvuT+aZGHCsJ+9bHExgymFm0MPJoPBHolAdsTg6GDlNFr+6dGf
-	Kxr4aQ+cwsRL9/1SFzHseFcZ3/12NfejfHrvqrPWb6cH4SW+WGzEiSIPBEq0emVrMzIU8eTiktDhk
-	MAJOu17g==;
+	bh=9PKoT2dIlJjvHTGxbwsQtrc6PkpA5XS+xE62DA1tMf8=; b=ClPFYkAgp0jmnx9gqStM2Y8mtU
+	r5bV2FpiT6RFGjQEwqtA0bknsaIZ6rQ9Tt9CO4dMjk6KhcVUcfbXgoW0SSujNgdcTfKsBKwfXLpTx
+	z/F1i+UZmRUzfQYvINFR4bRCnDFMCbT8pIu2DQnMZjXzpqpAeyIKquzajEOhs50psQUIUnyWiktbA
+	bViVLyugjQFWsVzBUvRwrKO4ziXyQ+Y+Ou4h9VSzjkq9KkouXpNNM8coVQPyZ3y52CcHI5uyKnu4/
+	dxtUBkBlCgGEdyYDuN9QVYuNmSkc1xEnImI9C0l7xT7MP1Eze0s+5scEGx06PVkgrIt3Z30BAKbmz
+	NZWlb3Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLfsG-00000004YBR-1tJl;
-	Tue, 27 Oct 2026 12:01:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xLfsR-00000004YHn-2kME;
+	Tue, 27 Oct 2026 12:02:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLfsF-00000004YB5-0qKs
+	id 1xLfsG-00000004YBH-1HC6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 12:01:51 +0000
+	Tue, 27 Oct 2026 12:01:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 500A46021D;
-	Tue, 27 Oct 2026 12:01:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 84D4860232;
+	Tue, 27 Oct 2026 12:01:51 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793102510;
-	b=3WBQYccgjVrqwevOvCQ5TnU9AnyD9gpqaeiK/SGVP/kfO10plY/6G/Hi5ZTKkUsD913s
-	 AIFpdcD8ktOF/VGvh0KfaiXP3OMvaggVtiHt68g/RZllbztVoaiywIgcM1CywVTiTp6ow
-	 xkxw5wL9E2y7vv88rtVupTHNtXQO2G+SbsZccStn3vXekBJHGWu/eeTPVdQmbVAGLni1C
-	 iPrMy9bc6Qg5MZuFm4hit2wMQlPIeNw/PB/DjKi237X6O6E2tVC2ww18BtJ70gST7n1kL
-	 6UUue8o7ic3nbqKCfQlzgZp/z9X0UD4WElCCU6vyLBgjRdjMFcX9UUoSH6OsYMkvKYQ==
+	t=1793102511;
+	b=u7TS03UhmkoK5z0qffu3vDcXH5qwoOdX3UMCWlJMW8cgGBAW+h5ZWQErrDu0j94SUpoS
+	 eBTBRSteyYvI6BlwNC3cEftVKSx8J4/bzSEL+x6axRPU4TgpvEIK0WCo/8ox8ssgbtl4v
+	 5g+S1lhOAlB2eUMywpbBP39TantL5/+K/ZybkuE8mNeO7sWjhnQzTQYAh+icA2vQ4hBrG
+	 9aP7IB13aeZD+y4DuLBYad1c5Qd2EkSZ+xCuGHUDcqn1AngMnbjtJ+CmY9E78EjXZsm2f
+	 kzIJaSDe8L9JZscl+40qZ2XClpj2y077mLkAUWj3j71uSqlmz1li/4C87JfetE4lKNQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793102510;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=7L8M1iP1QH6iutHY0JulFrTECdA08ORV1N5WHofrpBc=;
-	b=aFKyp9f48LWpzM1Iwj5VMmWSce9DzX6N1UHtVsKBb3b5o91YWFpsyBTOSk3UklfC4k4r
-	 iH1Glegahv3tGK4mFLlYx1iLL3C+m4vkWYbQ1An0nsgD9+cWMXXzldz4ihmURu/JZ7UEC
-	 yawhc0n7vX1qzdNJlUMwClm905J5bcD4x8dPH8bF0On5K0zOik2xCamyuPjPVl5xita7L
-	 G+HuI78qWLASCoaiOka82MUpRfqdyAcAQhB+4yiT17aSyOy4errltgHJgjtnT6L7hIGQp
-	 LvNrlClj62mdWgPJ//YUweHUsKJI5iY+zIR07gq4TigiXGQovnLNOGzFt2r9lkY6PXg==
+	c=relaxed/relaxed; t=1793102511;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=9PKoT2dIlJjvHTGxbwsQtrc6PkpA5XS+xE62DA1tMf8=;
+	b=eUuDoWn21FvOTmLsdsLn/kaS3RD08/U+hrcuO5E+8FvvGAhbjSajaJL3wEQno5RKeoB5
+	 FVGpo5CoyO4lWCnjDL2Unr4vpW1Zs87YPac8XV+zEhDkrc7s5gZ14M1LPvblVbTBCZRIq
+	 42figRPtgVUp6X+FiX+N/A0FO8Nlk1nwdsiNrz026PrmMnTU35fkTEBuu7vwwbUbq5GAK
+	 JAiyNXuYeh8UwZLLhmFb6EWuitqBBLztBYQ9AtYxSjeIxGIAoAQkA4C7NBNDnTDoGZzjO
+	 45enb+MkOYgd+uNwy/FOjItCB8VZPjgreg0s6nPfsas6MfZxx+42XByC6YQJLIYQ7SA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6F0BA1F01240;
+	by smtp.kernel.org (Postfix) with ESMTPS id 8DD881F01244;
 	Tue, 27 Oct 2026 12:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793102510;
-	bh=7L8M1iP1QH6iutHY0JulFrTECdA08ORV1N5WHofrpBc=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=dmPWVoyCg38cMuvYN/x0mUrO9j72CBtuBZFjJWNpwDlcPj+It4A33L6fpdxd3+qjI
-	 tkcbmS/wuCpmyJsQQpQcSyzbpnoqnIjRhMCe+x8goEBcrRd0U5nAivq52VPIN6AVva
-	 pdjLgAAEcAoDXcYT0LJCjLNlSRcieZGmxlN0RlpHQqNXvVvqUTgayJdAJjNxdCDLFN
-	 ZpbEgElD1JWJIfnOaqdscYhM1mY11cQYDrCRl6w0vep7X4Qln1uegDvPYi4QbG4NdY
-	 s4Q0wGD4wvUw+oR1/r3Kg1PNYVuyVPmxmJeTx738pZii9QN8eRdYfc1+VyhWVQjSAs
-	 qPz/qBQ7oFm2A==
+	s=k20260515; t=1793102511;
+	bh=9PKoT2dIlJjvHTGxbwsQtrc6PkpA5XS+xE62DA1tMf8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=XlEtH5aBTOcIcxQsLqDWZ60DYPqcIzCiM2EzxX0ul8hkxGKe91qKNVAmkXRtzrafD
+	 c7MYncU6sKdPCMMG+OmdVB6Q9iiNXwSufwPmqowb8PbM6BY4luQ58majTAptmV8Nff
+	 o1rIIhecgr+pHaxQikYg5Zn2sCluc3x9eRbQZLUQYnIGFOhDam+u/NqKo65jdwu1Am
+	 sZXIVPa4vSr5Q5KvpF/wNGE19652DuysTTVAtWlqEWK23L3EknWoaItmIKi9ffIWW2
+	 3/82edMSeqKJcRmCBx8ZWYlk0NYnuNGjIU0XY/lkZeZq7XufdPGRbnDr9unOebiUP9
+	 vORj1VZShRSiw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id E42D1450B8;
-	Tue, 27 Oct 2026 12:01:48 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 19A3A450C0;
+	Tue, 27 Oct 2026 12:01:49 +0000 (UTC)
 From: Alexandre Marquet via B4 Relay <devnull+tb.a-marquet.fr@kernel.org>
-Subject: [PATCH 0/3] DRM Google Nexus 10 display support
-Date: Tue, 27 Oct 2026 13:01:41 +0100
-Message-Id: <20261027-drm-misc-next-manta-auxbus-v1-0-3a45c3cf531d@a-marquet.fr>
+Date: Tue, 27 Oct 2026 13:01:44 +0100
+Subject: [PATCH 3/3] drm/panel_edp: Add SEC LTL101DL02-002 panel
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKWS4GoC/yXMSw7CIBAA0Ks0s3YSSuP3KqaLAaY6JqBhwJA0v
- buoy7d5KyhnYYXLsELmt6g8U8e4G8DfKd0YJXSDNfYwGjthyBGjqMfErWCkVAipNlcVj27vzBL
- OZKYT9OCVeZH2y6/z31rdg335jrBtHzB4lBJ+AAAA
-X-Change-ID: 20261023-drm-misc-next-manta-auxbus-7b5b0fd9a038
+Message-Id: <20261027-drm-misc-next-manta-auxbus-v1-3-3a45c3cf531d@a-marquet.fr>
+References: <20261027-drm-misc-next-manta-auxbus-v1-0-3a45c3cf531d@a-marquet.fr>
+In-Reply-To: <20261027-drm-misc-next-manta-auxbus-v1-0-3a45c3cf531d@a-marquet.fr>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
  Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
@@ -107,16 +104,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Henrik Grimler <henrik@grimler.se>, Hendrik Noack <hendrik-noack@gmx.de>, 
  Alexandre Marquet <tb@a-marquet.fr>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793102508; l=1681;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793102508; l=1407;
  i=tb@a-marquet.fr; s=20261023; h=from:subject:message-id;
- bh=f1oj+Wwd1+MToNnaYOltu8jkeNrOGt2+b4GvKUkx/kE=;
- b=Q0u6yl+Xldh8lvEwFZiCC6j8shd8C4WEjiYDtBxaeb0XJroPskxBtvIJTcwV/EGuT4XB09eLL
- r+xuM9wpOfMA+j1X2uFV2iSJPDad00KP9+96VeELoZoM+EysL0shsAK
+ bh=4fctdAPZww1iVpPpwL2XCKsDWQyA0MaebiMf6gEsHbQ=;
+ b=o3A1Ojwx5Tfs8ZqshJEniFaiuo4fpm96yAtfpomYTagxOiFN/Aj/7xsp+e0gp6OkNJjnZ7YW9
+ ED3dMu2pOFfA+VHKoZ0ZfcyGqxEBS+XvTS8mz7I2OZfGQwjbqBh1wcq
 X-Developer-Key: i=tb@a-marquet.fr; a=ed25519;
  pk=zVRSO6FDK46rqmeA2GuzAhM24eFlUq1QpmXi9/KCFyk=
 X-Endpoint-Received: by B4 Relay for tb@a-marquet.fr/20261023 with
  auth_id=1334
 X-Original-From: Alexandre Marquet <tb@a-marquet.fr>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,41 +134,43 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This series proposes to add an entry in panel_edp for the panel used in
-the Google Nexus 10, as well as two modifications in analogix_dp and exynos_dp,
-which allow to effectively enable the use of aux-bus on the platform.
+From: Alexandre Marquet <tb@a-marquet.fr>
 
-It is actually a follow up of [1], with only the drm patches kept, as suggested
-in [2].
+Add an entry for the eDP SEC LTL101DL02-002 panel used in
+google-manta.
 
-I preferred not to label this series as v2, and opted to change the title
-instead. Indeed, this series contains only drm patches, which are actually all
-new with respect to [1], following the guidance received to use aux-bus if
-possible (in [3]), which it is, building upon recent work on analogix_dp, and
-after applying the patches of this series.
+Raw EDID dump:
 
-[1] https://lore.kernel.org/all/20260423-manta-display-v1-0-196f80c5673a@timmermann.space/
-[2] https://lore.kernel.org/all/20260425-uncovered-otter-of-sunshine-d00ed0@quoll/
-[3] https://lore.kernel.org/all/CAD=FV=VNvPtG_f1W942SKJfM4ptK8Wvd-nZs4geBCG3bO_A0BA@mail.gmail.com/
+00 ff ff ff ff ff ff 00 4c a3 0f 9c 00 00 00 00
+05 0e 01 03 80 21 19 78 0a 87 fe 98 57 51 8c 27
+21 50 54 00 00 00 01 01 01 01 01 01 01 01 01 01
+01 01 01 01 01 01 14 69 00 a0 a0 40 2e 60 30 20
+36 00 1e d6 10 00 00 19 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 9e
 
 Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
 ---
-Alexandre Marquet (3):
-      drm/bridge: analogix_dp: deassert DP_PHY_PD on power-on for exynos
-      drm/exynos: exynos_dp: change poweron/off to encoder enable/disable
-      drm/panel_edp: Add SEC LTL101DL02-002 panel
+ drivers/gpu/drm/panel/panel-edp.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
- drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c | 19 +++++++----
- drivers/gpu/drm/exynos/exynos_dp.c                | 40 ++++++++---------------
- drivers/gpu/drm/panel/panel-edp.c                 |  2 ++
- 3 files changed, 28 insertions(+), 33 deletions(-)
----
-base-commit: cf61bef3801c3c9d0d8c39026b7b2fb242898a3a
-change-id: 20261023-drm-misc-next-manta-auxbus-7b5b0fd9a038
+diff --git a/drivers/gpu/drm/panel/panel-edp.c b/drivers/gpu/drm/panel/panel-edp.c
+index 94bc54c3833a..c92985363093 100644
+--- a/drivers/gpu/drm/panel/panel-edp.c
++++ b/drivers/gpu/drm/panel/panel-edp.c
+@@ -2198,6 +2198,8 @@ static const struct edp_panel_entry edp_panels[] = {
+ 	EDP_PANEL_ENTRY('L', 'G', 'D', 0x0778, &delay_200_500_e200_d200, "134WT1"),
+ 	EDP_PANEL_ENTRY('L', 'G', 'D', 0x07fe, &delay_200_500_e200_d200, "LP116WHA-SPB1"),
+ 
++	EDP_PANEL_ENTRY('S', 'E', 'C', 0x9c0f, &delay_200_500_e50, "LTL101DL02-002"),
++
+ 	EDP_PANEL_ENTRY('S', 'H', 'P', 0x1511, &delay_200_500_e50, "LQ140M1JW48"),
+ 	EDP_PANEL_ENTRY('S', 'H', 'P', 0x1523, &delay_80_500_e50, "LQ140M1JW46"),
+ 	EDP_PANEL_ENTRY('S', 'H', 'P', 0x153a, &delay_200_500_e50, "LQ140T1JH01"),
 
-Best regards,
---  
-Alexandre Marquet <tb@a-marquet.fr>
+-- 
+2.43.0
 
 
 
