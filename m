@@ -2,69 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D107F606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 00:45:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9807606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 00:53:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BaK5RKGj;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=DzxT93fh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bBsz5c0X;
+	dkim=pass (1024-bit key, unprotected) header.d=collabora.com header.i=sebastian.reichel@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=RDkvC6IQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=5/VwNhxDqFDjAFzXiE0EgjT10Of3veuyQvr8j5Q5Fl8=; b=BaK5RKGjjvtWZ2
-	tVc0s+spnB5WsYgp/jRDGrt/WcIsz8usxYRINDxQuRJ1OdSLG+tT4RydIXi5tj2UXVHBIkmYCW7ye
-	uJrXV4odgpqmTeily7D7/355buGtYuyMlb4pZqnTFLlL2+In1YzJ5vxSGPu5kNctjJEHPJ1gw0leW
-	xkumhvvf0cN9D5Xh1mi6VZ37WA62sq/t1PmVLhpAiGATdSen6Pky2gJ83JIG8wPgiQAMoha6Jh4BH
-	8bHjQI2TvNDR8KM8o/qdc8HF5iwT3Ug8qMz2seevqE0skATgKVcIW6k9hkAsDbYj4NewKd/QheoLg
-	pdKryU4HIuzECGgxcXKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=LV3nvll6ocea2pGpXpqxwrvIE5cHIXvRNjAOQNo/YIg=; b=bBsz5c0Xk8IVn5QLGWZZJ6ShIH
+	fR8+5wiNH9Qwwfe6Ne4FANlqbe5g6gRZ38h1+JHkolv995ux/naJBOfEkPYhHxv6jFxElaTQxO4CB
+	NBiUfDAvLN8XEfch+8HjR6k2w6kvSjKjbZYcbKIt17xyxAFADOYQz0o6qCmlu2gO6olMxAtmz2Qid
+	sF302pDXA8gdPxHEJMe1IWXIvGMIxNk+V/aak8926ZwuKNMQwcE11mVF6xJEFlzOkuwwdYyqOAiY9
+	LMiayQIMXmQXnDP6wT59E+dXDIdvogCghCeHD+0h2e8zqXDDT0f1zvRklNrPWa0clkHRRWf1Co2m1
+	RtlOZGMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLVIl-00000003XuP-3mZA;
-	Tue, 27 Oct 2026 00:44:31 +0000
-Received: from mail-m82236.xmail.ntesmail.com ([156.224.82.236])
+	id 1xLVRd-00000003YkH-1cmp;
+	Tue, 27 Oct 2026 00:53:41 +0000
+Received: from sender5-op-o11.zoho.com ([165.173.182.11])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLVIh-00000003Xsy-3Us6;
-	Tue, 27 Oct 2026 00:44:30 +0000
-Received: from [172.16.12.48] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 526dfc65c;
-	Tue, 27 Oct 2026 08:44:12 +0800 (GMT+08:00)
-Message-ID: <ff204558-dc22-4d38-b0dc-2c727f983f9f@rock-chips.com>
-Date: Tue, 27 Oct 2026 08:44:09 +0800
+	id 1xLVRa-00000003YjY-3QD3;
+	Tue, 27 Oct 2026 00:53:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1793062412; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=dFuocb8ycShV2gsV34w7258uQ0k75T0RaMI6aAP4Tbd6IF1AJuYMCpeGE1dfXN4OHD9+o2ekNutwCEpk/1oIT4pLiVIMM6j2leMpsxsonhU5/1EZ2s7EXZsAfjQvX258MYkftXDcUrWv4jCKL3vZvOpaA9pumPd+fQExAk79Ves=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1793062412; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=LV3nvll6ocea2pGpXpqxwrvIE5cHIXvRNjAOQNo/YIg=; 
+	b=DKod82D6tBqEcaTfeDeSwyoGDq35Ln6yZw2Sq3zOMtdPuQ/kvCPtQYTR0h5Ao/3XBbWE4D/58GcQHyZnTZxbCPrw6tC9oVAOLe8GcvN7YobVNQUI1jsKqRVe0WFeCPHVCZTtWq4U1j5cF15g0OBQ5uYos649kakx1b2A80Vuars=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1793062412;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=LV3nvll6ocea2pGpXpqxwrvIE5cHIXvRNjAOQNo/YIg=;
+	b=RDkvC6IQ07UUiLpy6XnwY3M3znvIF9a8+hBlf+JMzHy5J6C6/h6ylG+cQKbjV6fA
+	rpTL7v2LlSvfyeCXdng0Ev159CXq1EktSTOqKNBqhDgn8iVV7uG+/hy/F4ufRQ7EHWg
+	cqewg9YJFdnwvqFx6vlsb73S0vn+M2OZ8dNY87ps=
+Received: by smtp.zohomail.com with SMTPS id 1793062410582888.148462197187;
+	Mon, 26 Oct 2026 17:53:30 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 2CDC71806C8; Tue, 27 Oct 2026 01:53:27 +0100 (CET)
+Date: Tue, 27 Oct 2026 01:53:27 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Jiaxing Hu <gahing@gahingwoo.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND] arm64: dts: rockchip: let TCPM own the USB-C VBUS
+ on CM5-IO
+Message-ID: <at_1n-ujVQIPUsMT@venus>
+References: <20261024083942.148860-1-gahing@gahingwoo.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas
- <bhelgaas@google.com>, Rob Herring <robh@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 0/2] PCI: rockchip-host: Retry training and hot-reset
- a JMB585 on RK3399
-To: Igor Velkov <iav@iav.lv>
-References: <20261024-rockchip-pcie-resume-v1-0-58e54a5cf5f1@iav.lv>
- <4316c1da-f7ff-4fa5-a330-512800474e45@rock-chips.com>
- <20261026-rockchip-pcie-shawn-reply-1@iav.lv>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20261026-rockchip-pcie-shawn-reply-1@iav.lv>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa17ad0966603a4kunmdefc543f472a32
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZGkJLVk9LH0IYHUNPSRodQlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
-	5LVUpLS1VKQktCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=DzxT93fhhkUwadv+bNoSjWR3pa5Fg+2lO5H9x8aSzNv8PZ+Qij6U/dj5xWoWHaGEJ7t4dnDPK6w9r5pe6dQJwgGwOTd768UARevM+xTQPOP53tGaz1hrcKKHOiDtaMitWBQMU76SNQ0Dbod6URXqogHljnpFuJAa1C0tI+KJP2I=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=5/VwNhxDqFDjAFzXiE0EgjT10Of3veuyQvr8j5Q5Fl8=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="sjwqdswbfmk7owwp"
+Content-Disposition: inline
+In-Reply-To: <20261024083942.148860-1-gahing@gahingwoo.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/293.40.76
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_174428_470864_BFBE9FA1 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20261026_175338_911998_0719F85E 
+X-CRM114-Status: GOOD (  19.41  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,58 +83,87 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-在 2026/10/27 星期二 2:28, Igor Velkov 写道:
-> Hi Shawn,
-> 
-> On 2026/10/26, Shawn Lin wrote:
->> The host cannot distinguish this case.
-> 
-> The controller seems to tell before the config read. On 26 Oct the
-> link came back 2.9-4.5 ms after a hot reset in ~50 cases, all fine,
-> and 10.9-35.4 ms in 8, each followed by an abort on the next config
-> read. PCIE_CLIENT_BASIC_STATUS0 read 0x240 after each of 4 slow links
-> and 0x1240 after each of 16 fast ones. What does bit 12 mean, and can
-> the driver rely on it after link training?
-> 
 
-I have no idea about it. The PCIE_CLIENT_BASIC_STATUS0 says:
+--sjwqdswbfmk7owwp
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH RESEND] arm64: dts: rockchip: let TCPM own the USB-C VBUS
+ on CM5-IO
+MIME-Version: 1.0
 
-14:12  	RO  max_payload_size
+Hi,
 
-So you are saying different MPS in different cases, not linking status.
+On Sat, Oct 24, 2026 at 09:39:42PM +1300, Jiaxing Hu wrote:
+> vcc_5v0_typec0 is the switched VBUS of the USB-C port. It is the
+> vbus-supply of the FUSB302, but also the phy-supply of u2phy0_otg.
+> The PHY enables it at boot and keeps it on, so TCPM never sees
+> vSafe0V and a sink partner stays in SRC_ATTACH_WAIT. A USB-C dock is
+> not detected.
+>=20
+> Drop the phy-supply and leave VBUS to TCPM.
+>=20
+> Fixes: 44a48a23974b ("arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+> ---
 
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
->> You've tried PERST# with the patch 1 applied. So perhaps it's doesn't
->> help.
-> 
-> Patch 1 pulses PERST# only after a training timeout. With PERST# in
-> the DT a slow link still occurred (25 ms, then an abort).
-> Re-initializing the port, without PERST# or a power cycle, brought
-> each of 4 slow links back in 2.9 ms with the endpoint answering.
-> 
->> I've attached a vendor's debug patch, perhaps you could try it without
->> your patch.
-> 
-> It hooks do_serror() only and registers after pci_host_probe(). Here
-> both SErrors and synchronous external aborts occur, at probe and on
-> resume (the cover had that wrong), so we will move the hook before
-> pci_host_probe() when we try it.
+Greetings,
 
-Yep.
+-- Sebastian
 
-> 
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
-> 
+> Resent with the lists on Cc. The first copy went to Heiko only.
+>=20
+>  arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5-io.dts | 1 -
+>  1 file changed, 1 deletion(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5-io.dts b/arch=
+/arm64/boot/dts/rockchip/rk3576-armsom-cm5-io.dts
+> index 5958b391e..72ca49ec3 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5-io.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5-io.dts
+> @@ -306,7 +306,6 @@ &u2phy0 {
+>  };
+> =20
+>  &u2phy0_otg {
+> -	phy-supply =3D <&vcc_5v0_typec0>;
+>  	status =3D "okay";
+>  };
+> =20
+> --=20
+> 2.43.0
+>=20
+>=20
 
+--sjwqdswbfmk7owwp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmrf9f4ACgkQ2O7X88g7
++prMhg/8Cs9QKPoOyCygjstmCc2nf2HUBu1Gbm7UZAQpVYzVWe4PPR8YaBQsUUCP
+GFHqoh1+1ODRX4cBXOzTa3ECuRYe7Ao05UnisBMTA2uvTF4eLDcjc1QG6MWJRDvy
+B/etdI5+gc2IAcnGaOcHatcT9rA8zv4dSU5db++NptI+X6mAezeIUhFVZGqfPe2K
+q59i2cK0kwUotfv7w2wzQXXqdZVfSqx18iLQnVzyB/CWnfynVpu9lmMk9o22ZVgd
+05yGPj6F9pHdHeGLB+EsUr/qi7ddJVbOez3s0h6BRLqaUt8bjYjKcy9IXGOPtkYt
+lWfL0z0f/e++u00ayMIYFpfvglX/fLuQygUqmJfwCF6fXXqnRi1kNbeH6QcuOVL0
+3tbvCutae/GL1LbVzMq0Zqe83fAgHdC3IVYKwut+EGXHXkjT9jcy/OHFPttaXntj
+NG041d99loG3M+xpPC11mZvGJQ7UfKXcSpHoTuJN4DBgceX0rzWXkFAv1yzo4f52
+GJpRTQJ4388LqsNSW5g8yo29AYjrw/bT08vzNgZHwQC/xYvsStq8zsBiiVnPR+/t
+TvXYzh4P+7JUjiGjT/EJulbd/gqzPzaqU7XlaarLutPjx55LQd6fgJYa2UJuM250
++c3Uw/63NhXLlUUog31hU4Vw2tRRjrjXBlW7RBZWMj6BavFAfvw=
+=a9T6
+-----END PGP SIGNATURE-----
+
+--sjwqdswbfmk7owwp--
 
