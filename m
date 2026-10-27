@@ -2,34 +2,34 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02E3760A2606
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:28:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7186D606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:29:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=akSEQ3lN;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=kcO5vXQ8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Jh0/7Ss8;
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=IrIPNZFm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=z7IlOPVDz65xHvVhnircAjPuEYNDnAd/2ppdOAW4azo=; b=akSEQ3lNHTUmkl
-	oOldTjYoGV7sIZ7a3P3me8R1IDmj0G7178UzXa0RwebbfI0OKmWUdqjWBnukvyJBoOcAck044Ta7R
-	sv2oAOacyZpE5EwIsvspV3K9W5DNK5PHfojsiivybFBrsCwovl76uadZf6UHxSVWeJG9BPRC3HDjE
-	0AcvoBg8t3mwnn7iMO7/OCQ8YVs/ZRo5nL5LP5yhXN+hN+RTA+5UHqxjDI+Xx0+fQcXhSpEuOv2c4
-	gadusXdETwtRdYLVquAQkxRQnenMlTyEdIh8GWRB6xvKmyukDKnlL3khTDgE5D/G2BA7u5DMJ2YBZ
-	vyIkV3Qx8izrUW5ISHeQ==;
+	List-Owner; bh=CAzYdmJLVepJ08iaC2Wrs5PVOHKqjdTppJaoKTJ86Pw=; b=Jh0/7Ss8kfYzNl
+	E/A6wTi5UaMFjFE33vzqzPhjBXojdxVWd3Fi9z3AuVWEmwNz6dHQLsmXUG7XvUBraue1bCqyAkCnK
+	JDRNZ731t2n0td4/zgGGOT/FcoHmoizSv/oH9qzWm+WAHhMvGH6Vv3ySsLcmWgM2R7wZKc+/bMft4
+	6JYP/ILIQxRwQ/Kei93Z8b+BFo2KYq/J+yFjWh0siGC8Zi/Kajykeog/W83khwmGwX5w4odRCTMk1
+	cNK6kXZM3FD/qKyLRkli5lCQSRJ4fQ09/Yx/0xscH65Nusp3noQRqIDTHH1+ZAkm49OX3wv9mhJR+
+	awUqDqpwqOeri5woGR8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLhEK-00000004r6z-0n08;
-	Tue, 27 Oct 2026 13:28:44 +0000
-Received: from mail-m822136197.xmail.ntesmail.com ([8.221.36.197])
+	id 1xLhEX-00000004rRQ-2l0z;
+	Tue, 27 Oct 2026 13:28:58 +0000
+Received: from mail-m8389.xmail.ntesmail.com ([156.224.83.89])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLhE0-00000004qpC-0E3B;
-	Tue, 27 Oct 2026 13:28:28 +0000
+	id 1xLhEA-00000004qvr-0Dxs;
+	Tue, 27 Oct 2026 13:28:36 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 528777a26;
-	Tue, 27 Oct 2026 21:28:17 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 528777a3a;
+	Tue, 27 Oct 2026 21:28:29 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -59,28 +59,29 @@ Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v5 03/18] drm/bridge: analogix_dp: Restrict forced connected status to panel endpoints
-Date: Tue, 27 Oct 2026 21:27:55 +0800
-Message-Id: <20261027132810.1746118-4-damon.ding@rock-chips.com>
+Subject: [PATCH v5 12/18] drm/rockchip: analogix_dp: Unbind bridge when connector init fails
+Date: Tue, 27 Oct 2026 21:28:04 +0800
+Message-Id: <20261027132810.1746118-13-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261027132810.1746118-1-damon.ding@rock-chips.com>
 References: <20261027132810.1746118-1-damon.ding@rock-chips.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa17d8c20f403a8kunm87c266213d56e0
+X-HM-Tid: 0aa17d8c4e3903a8kunm87c266213d571c
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaTE0ZVkhDTRpLHk4fTR0fSVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZTxlPVh8eSExKHU9LGh9NS1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=kcO5vXQ8yssbBA1/7VOjo1+VKqKcsjtbpe3wcPwShKN/Mi55bmuBBYHfp4FCtAzOItRj3BdJWRGKy09NrRu7YkkGVFMLx3Ioa+uY2z1Ia4sW5HBCvVBx3lBD9+jwnTqKBLiarVC67ybXPL4hybQfaGM+iqCuWaCOTNNefPL3xd4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=z7IlOPVDz65xHvVhnircAjPuEYNDnAd/2ppdOAW4azo=;
+	b=IrIPNZFmBwH0pCXfzEJEHVZQ+NPQJV3GTxc4VylSkHaNrwqoEwgl2idGW+YR345A8NS4ScPfWZiCUC8qOhoYYht00k8nZIAQSFFtrX4Wi4yiUJOSAvfWNdNODA9UT0hEYA7G1nsvasW8jqXDrabZt1xk0YMi4s9aBm2uhr7+bcs=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=CAzYdmJLVepJ08iaC2Wrs5PVOHKqjdTppJaoKTJ86Pw=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_062825_133841_E076C982 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20261027_062834_932797_72B0B064 
+X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,129 +101,29 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Limit the forced connected status so that it only applies when the
-bridge chain ends with a panel and no downstream bridge supports
-DRM_BRIDGE_OP_DETECT, which is tracked by the new
-&analogix_dp_device.force_connected_mode.  For all the other cases,
-rely on analogix_dp_detect_hpd() to report the accurate hotplug
-state.
+The rockchip_dp_bind() returns without unwinding analogix_dp_bind()
+when drm_bridge_connector_init() fails.  The aux device registered by
+analogix_dp_bind() is then left behind with a dangling drm_dev
+pointer, which could be accessed on later AUX transfers.
 
-Background for the special handling:
-- If the chain ends with a DP connector bridge, the connector relies
-  on Analogix DP to perform detection. We must avoid hardcoding
-  connected status here.
-- For intermediate bridges such as PS8625 / PTN3460 without detect
-  support [1], historically the bridge connector defaults to connected
-  via drm_helper_probe_detect() when no per-bridge detect callback
-  exists.
+Call analogix_dp_unbind() in the error path to release the aux device.
 
-[1] https://lore.kernel.org/all/4939d55e-b560-4235-8295-adf8e48d9b74@samsung.com/
-
-Reported-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/all/5209243.oAaWjsssbx@diego/
-Tested-by: Heiko Stuebner <heiko@sntech.de>
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-
 ---
+ drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes in v3:
-- Add missing drm_bridge_put() after drm_bridge_chain_get_last_bridge()
-  to fix a reference count leak. (Sashiko)
-- Report panel endpoints as always connected from
-  analogix_dp_get_plug_in_status() via newly added
-  &analogix_dp_device.force_connected_mode.
-
-Changes in v4:
-- Add Tested-by tag.
-
-Changes in v5:
-- Move the force_connected_mode check from
-  analogix_dp_get_plug_in_status() to analogix_dp_bridge_detect(), as
-  the hardware status reader is also used by the force HPD fallback
-  and the AUX HPD waiting paths. (Sashiko)
-- Hold a runtime PM reference in analogix_dp_bridge_detect(), since
-  analogix_dp_detect_hpd() may access the registers while the device
-  is runtime suspended. (Sashiko)
----
- .../drm/bridge/analogix/analogix_dp_core.c    | 37 ++++++++++++++++++-
- .../drm/bridge/analogix/analogix_dp_core.h    |  1 +
- 2 files changed, 37 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 19f3cec5a691..35b273a803a0 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -904,16 +904,42 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *conne
- {
- 	struct analogix_dp_device *dp = to_dp(bridge);
- 	enum drm_connector_status status = connector_status_disconnected;
-+	int ret;
- 
--	if (dp->bridge.next_bridge)
-+	if (dp->force_connected_mode)
- 		return connector_status_connected;
- 
-+	ret = pm_runtime_resume_and_get(dp->dev);
-+	if (ret)
-+		return connector_status_unknown;
-+
- 	if (!analogix_dp_detect_hpd(dp))
- 		status = connector_status_connected;
- 
-+	pm_runtime_mark_last_busy(dp->dev);
-+	pm_runtime_put_autosuspend(dp->dev);
-+
- 	return status;
- }
- 
-+static bool analogix_dp_bridge_force_connected(struct analogix_dp_device *dp)
-+{
-+	struct drm_bridge *last_bridge;
-+	bool force_connected = false;
-+
-+	drm_for_each_bridge_in_chain_from(dp->bridge.next_bridge, bridge) {
-+		if (bridge->ops & DRM_BRIDGE_OP_DETECT)
-+			return false;
-+	}
-+
-+	last_bridge = drm_bridge_chain_get_last_bridge(dp->encoder);
-+	if (last_bridge)
-+		force_connected = drm_bridge_is_panel(last_bridge);
-+	drm_bridge_put(last_bridge);
-+
-+	return force_connected;
-+}
-+
- static int analogix_dp_bridge_attach(struct drm_bridge *bridge,
- 				     struct drm_encoder *encoder,
- 				     enum drm_bridge_attach_flags flags)
-@@ -933,6 +959,15 @@ static int analogix_dp_bridge_attach(struct drm_bridge *bridge,
- 			dev_err(dp->dev, "failed to attach following panel or bridge (%d)\n", ret);
- 			return ret;
- 		}
-+
-+		/*
-+		 * Only assume connected when the bridge chain ends with a panel.
-+		 * Panel bridges lack a detect callback and historically rely on
-+		 * this shortcut. For other next bridge types (e.g., DP connector
-+		 * bridges), fall back to analogix_dp_detect_hpd() to report
-+		 * accurate hotplug state.
-+		 */
-+		dp->force_connected_mode = analogix_dp_bridge_force_connected(dp);
+diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+index 38c78360842f..e6310d66e8e3 100644
+--- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+@@ -419,6 +419,7 @@ static int rockchip_dp_bind(struct device *dev, struct device *master,
+ 	if (IS_ERR(connector)) {
+ 		ret = PTR_ERR(connector);
+ 		dev_err(dp->dev, "Failed to initialize bridge_connector\n");
++		analogix_dp_unbind(dp->adp);
+ 		goto err_cleanup_encoder;
  	}
- 
- 	return 0;
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-index 4560597604ad..64aaba67e669 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-@@ -170,6 +170,7 @@ struct analogix_dp_device {
- 	bool			force_hpd;
- 	bool			fast_train_enable;
- 	bool			psr_supported;
-+	bool			force_connected_mode;
- 
- 	u8 dpcd[DP_RECEIVER_CAP_SIZE];
  
 -- 
 2.34.1
