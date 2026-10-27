@@ -2,69 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F15C6606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 08:02:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 485CB60A2606
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 08:03:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xqJ+i8CR;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M/p3r4pf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TT8zsGER;
+	dkim=pass (1024-bit key, unprotected) header.d=cyberchaos.dev header.i=@cyberchaos.dev header.a=rsa-sha256 header.s=mail header.b=hU7Wm6go
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=BsTtHMn7/Bq0A/1jvysGVk9cJngoUv9+EZ/xJZLo98o=; b=xqJ+i8CRTYJgntRgVcVJ5bG8BY
-	jDj4iJr2Lbj3aDG5RZ5hd23LlroAv31eK+SN2ov4BFI2/eIT728iaZQlae7/nq1EUHySxeJOsxwn+
-	+c6s3ASTq/c7IQw/HRta2lcJtsTJJHs5zIPfUjx7inuAsOglljnUu3Jw+OSictVyaXuTVLuzytfok
-	tXxWP28Ofhp591mqLMicqjqUQ4Z017LTj97uteGk3jclOXAUxhZlCKvLWFSi/Se8fiUCoM1VCe1Zp
-	B9v0G+RgUgGLYbD7K0sArzHJEhaNAPU3yFMhKXfQHVmPCLrdLwg3HxYMR6DF3qTsl0bVI/Id8E8da
-	4d0L8fvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=OvRAW5jWXAqOgYFFCKh4yUQJFXVArQqv2tM8QSxA/7E=; b=TT8zsGEROv3BuN
+	EOqQxiHjZgkZJIUE5UKK4eFCv6yIEbsXWC02+BfegjnZ27oPuuBJOlJM5ILmMyQCL1fk8ZhtjyTjs
+	5Gcz1qde/YwLgyKfn12f69HR2XYyGjDLCaWscbPq9hhyVSC92pM4avMUCm8LyPTj6kh9/gNXOixEn
+	S01s26RjdiwzblUG/fx09ZUZIiGkmoXXqrpad33AhEw+LLrhMTwb9zhWCxUB5Eh6q7Gv+8EnxPTF1
+	2CTPK+QX0Uq39hDLbm9XLaIXZNfAvWrhIZNH3BSxMe0dh/psrpL95+9pq34F4N7qgNyQvS3Bp2tgG
+	SqC/w4/o4XHn7WEvTEpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLc8H-00000003yHf-05JW;
-	Tue, 27 Oct 2026 08:02:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xLc9j-00000003yVA-1TcY;
+	Tue, 27 Oct 2026 08:03:39 +0000
+Received: from mail.cyberchaos.dev ([195.39.247.168])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLc8F-00000003yHK-295d
+	id 1xLc9f-00000003ySj-3Sgq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 08:02:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4727241983;
-	Tue, 27 Oct 2026 08:02:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B5531F01825;
-	Tue, 27 Oct 2026 08:02:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793088127;
-	bh=BsTtHMn7/Bq0A/1jvysGVk9cJngoUv9+EZ/xJZLo98o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=M/p3r4pfigJ7VF+xQ0guSGeBUGwLd64vkoeDEiXMbpltCsl9kIARqtyP5zs+5LJha
-	 Dwjr6VP1tBEIK1fHQCUZJO45RR3Iyf0I77avSMKMt+k9fvOm+SWpUQHql6Yy+dUK1r
-	 UxaLx9qeY9mxHdCigK8e7b2Z4a1x5qR+6UrVoEf/ni3psUBCTB7vx2Yl6842504Zh9
-	 0ySfbkpAJKZhQVDAw4qMMoHOByorG/qzjR4YV/ybSyoIbnm5d27zjGLKqrr0exTZMO
-	 koEuEpeep51+fCr+T6Kj2scDB2u/QEycVZ3blpmviHRc17/MwsmvyJNTtciBGiamsY
-	 zBpYxE8Ttyp7A==
-Date: Tue, 27 Oct 2026 09:02:03 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v3 2/4] dt-bindings: serial: snps-dw-apb-uart: add
- Allwinner H616
-Message-ID: <20261027-nifty-reliable-octopus-6cbac5@quoll>
-References: <20261024-submit-h616-uart-fifo-v1-v3-0-286fc1b8c3c1@gmail.com>
- <20261024-submit-h616-uart-fifo-v1-v3-2-286fc1b8c3c1@gmail.com>
+	Tue, 27 Oct 2026 08:03:37 +0000
+From: Yureka Lilian <yureka@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1793088211;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OvRAW5jWXAqOgYFFCKh4yUQJFXVArQqv2tM8QSxA/7E=;
+	b=hU7Wm6goihcwaiFPvNDQmNagCPPBiB2424huaCjAhpUn75tb8dKyR9+vZYkVk2rzesedAN
+	ljLKAqepiU3P19/MyzSF8sLlWCy6C+eVBZ34yw0UNlSoAMnHiDz0N0FDiJ92+zT6rTRhh9
+	IN73x+o5FEmXrS6259UH/eTpqd22rNg=
+Date: Tue, 27 Oct 2026 09:03:24 +0100
+Subject: [PATCH 04/10] dt-bindings: arm: power: apple,pmgr-pwrstate: Add
+ t8142 compatible
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261024-submit-h616-uart-fifo-v1-v3-2-286fc1b8c3c1@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261027-apple-m5-initial-devicetrees-v1-4-1356181bc50d@cyberchaos.dev>
+References: <20261027-apple-m5-initial-devicetrees-v1-0-1356181bc50d@cyberchaos.dev>
+In-Reply-To: <20261027-apple-m5-initial-devicetrees-v1-0-1356181bc50d@cyberchaos.dev>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Radu Rendec <radu@rendec.net>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Hector Martin <marcan@marcan.st>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Sasha Finkelstein <k@chaosmail.tech>, Linus Walleij <linusw@kernel.org>, 
+ Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ Yureka Lilian <yureka@cyberchaos.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261027_010336_098510_E9B6EBBF 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,66 +87,29 @@ X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, Oct 24, 2026 at 02:22:24PM -0600, James Hilliard wrote:
-> The H616 UART has 256-byte transmit and receive FIFOs, but its DesignWare
-> component parameter register does not report the FIFO depth. Its optional
-> register layout also differs from the generic DesignWare integration.
-> 
-> Add a specific compatible for the integration and allow the standard
-> fifo-size property to describe the capacity. Require the documented
-> 256-byte size for H616, retaining snps,dw-apb-uart as a fallback.
-> 
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
->  .../devicetree/bindings/serial/snps-dw-apb-uart.yaml    | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-> index e2ca126d58ba..0f8fd0485879 100644
-> --- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-> +++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-> @@ -13,6 +13,18 @@ allOf:
->    - $ref: serial.yaml#
->    - $ref: rs485.yaml#
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: allwinner,sun50i-h616-uart
-> +    then:
-> +      properties:
-> +        fifo-size:
-> +          const: 256
-> +      required:
-> +        - fifo-size
+The device power state management of the PMGR blocks on the Apple
+silicon M5 SoC (t8142) is compatible with the M1-M4 SoCs.
+Add "apple,t8142-pmgr-pwrstate" as M5 specific compatible.
 
-Why do you require fifo-size if is const? It is implied by the
-compatible.
+Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+---
+ Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-> +
->    - if:
->        properties:
->          compatible:
-> @@ -60,6 +72,7 @@ properties:
->            - const: renesas,rzn1-uart
->        - items:
->            - enum:
-> +              - allwinner,sun50i-h616-uart
->                - anlogic,dr1v90-uart
->                - brcm,bcm11351-dw-apb-uart
->                - brcm,bcm21664-dw-apb-uart
-> @@ -120,6 +133,10 @@ properties:
->        - const: tx
->        - const: rx
->  
-> +  fifo-size:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: Transmit and receive FIFO capacity in bytes.
+diff --git a/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml b/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
+index a37a837a4eac..451f2a80f844 100644
+--- a/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
++++ b/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
+@@ -51,6 +51,7 @@ properties:
+               - apple,t8122-pmgr-pwrstate
+               - apple,t8132-pmgr-pwrstate
+               - apple,t8140-pmgr-pwrstate
++              - apple,t8142-pmgr-pwrstate
+           - const: apple,t8103-pmgr-pwrstate
+ 
+   reg:
 
-Drop property, not used by any of the devices here.
-
-Best regards,
-Krzysztof
+-- 
+2.56.0
 
 
