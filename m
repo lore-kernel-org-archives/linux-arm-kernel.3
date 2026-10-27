@@ -2,67 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77206606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 09:11:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C003606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 09:12:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cU5O5rJu;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ivj4YrMJ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cNUtx5nB;
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=UuR7/ceK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=NMwzOBgLak0sHODIyBF4CYGTZyqMPZeg2NfCnH9H41E=; b=cU5O5rJu/nneVBfqoAK4g2sIwJ
-	uRV4raNVPLUcYUgHaaY+tYmV7uyBLuQl5PXItl9BrJXOun/lZlcIJq6aPFQ1M8uRugncatIaSFM1U
-	FjkMOQUFodAvjHExvzRDVwBKOI7tbGKTcX0+/6YzeNfjMbhKZ79V1Q9S4mZg4uzPSJedRq2FdNrW6
-	nLVc5kQm0Mf7OKFVjrtRCLQWFnH6ivkJTeExbJXD9H+J3A61dj28PRc9lwe1enZW/QmBYdJH0nPbj
-	VsQEOQgn1AdaBKL+bON/78kLQbBtRsS9FPHnL3LEiNQkM+uZTyTEJyRcDBAHoDvO0gYCbCXLiC0QT
-	4sEMSicA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=T79Dr75s1wvEXUoDZaE7cn4PwcHACPes5COGJi8oy7U=; b=cNUtx5nBjruOIM
+	FKepSO2kFz4uC4PV6zD5tXy4ugIfn/0NX05xwMh4A9aDukDjbmwzG/6oesAJAo09IIMb/Gi05C5Zt
+	jD2lEV+J6BnsF3tFgegss5lUDPgFXs12Ip+cAOKTzYFF54gvthor5FPU2/XpAPEsCC+RXK61HwdH4
+	zGr1fP7RVwI2VSnSUfNNhljTKWpkNeUE3JmFAVt+reue9hTCmlBOZK0jDXzxmMYnhQyE7GYsU08/Y
+	89D9UwLbrzeWkxlPmsjPBaEP6QLpPC+/EBc9SK86rscrctcYxRYumf/q+cfnXerhj+kjnpmThN2k1
+	a7ZRt9i+LH+o5nTwjRtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLdDL-000000048D6-1YH3;
-	Tue, 27 Oct 2026 09:11:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xLdDq-000000048R5-26YA;
+	Tue, 27 Oct 2026 09:11:58 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLdCu-000000047v7-2bwW
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 09:11:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6012F42EA0;
-	Tue, 27 Oct 2026 09:11:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 473211F01825;
-	Tue, 27 Oct 2026 09:10:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793092260;
-	bh=NMwzOBgLak0sHODIyBF4CYGTZyqMPZeg2NfCnH9H41E=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Ivj4YrMJUMYBYm++ZtfNi8DsvatmvdbpZhlDJ/0FzEzKVTh4qKyW2ctQlHCPBDo2x
-	 e/6nOVVWxx3NOxYdLBnAA4ny7IwV7xP/svJzlQ+2x9qLK07sHBK0FhDzea706Y6iBo
-	 QeBjfnKuwCFiuC5og/0i+ybPPaBgg98We38cW14aizhB3MYTGdOM7t2eMvz1vySB/h
-	 wrgJJdQWYInNndHboKVqsOPQIW8rYFtLKEUjnrFfElGuAfz6AmJSfkmDrfpSeZk2Dz
-	 CToDXnRpczImzHyOIZ+UhAOF37BUdxppn/3K05DJuYbGZ0ZRODkJnc8qlgBbjPSfuc
-	 Z/n+7Dn/jRrFg==
-Subject: Re: [PATCH net 6/6] net: stmmac: fix XDP RX buffer DMA sync length
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- sdf@fomichev.me, Jose.Abreu@synopsys.com, boon.leong.ong@intel.com,
- o.rempel@pengutronix.de, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Date: Tue, 27 Oct 2026 09:10:58 +0000
-Message-ID: <179309225887.3134.17502896212947474889@kernel.org>
-In-Reply-To: <20261023-stmmac-xdp-fixes-v1-6-efb37e19f5bd@oss.qualcomm.com>
-References: <20261023-stmmac-xdp-fixes-v1-6-efb37e19f5bd@oss.qualcomm.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xLdDn-000000048Oy-1BhJ;
+	Tue, 27 Oct 2026 09:11:57 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id AE9BCC5846F;
+	Tue, 27 Oct 2026 09:12:52 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2E838603BD;
+	Tue, 27 Oct 2026 09:11:51 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C36211032904F;
+	Tue, 27 Oct 2026 10:11:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1793092309; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=T79Dr75s1wvEXUoDZaE7cn4PwcHACPes5COGJi8oy7U=;
+	b=UuR7/ceKR3WvRHfZBPIedxhdV4OfAZXNIaXp3g8W7wt1efy1uoDsg0DMZTk5cRNDiNtala
+	Omvkg8mIONIePJs1AXs12/YATeNT0fD5h/EXQZicnjbXevpQ2CpHVhz/8haGqX0ZlIo+JA
+	EG6OC5DHxEGXP9hOB3ylx3BkmW4u5czjzb4XHEq4dL9KXjgmT9wjq8veuW4iAgbI/Q6kOE
+	Tq92N6JhK2VGV1QVFyN8UjliNVqXShOUtGsP3SZLgsFopKDji/FB71MDawONogQloIyLEt
+	h9rUVj8ZpDSYFZlyEq+sOxwNupUnHhkapAE3hbDZlc4ft2t38vmFeyK1r2tU1Q==
+Message-ID: <42d26a0b-c517-4fc5-8d19-e0b7c4506cbf@bootlin.com>
+Date: Tue, 27 Oct 2026 10:11:37 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 13/20] dt-bindings: pinctrl: berlin: Support Synaptics
+ SL261X SoCs
+To: Jisheng Zhang <jszhang@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Andi Shyti
+ <andi.shyti@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Frank Li <Frank.Li@nxp.com>, Lee Jones <lee@kernel.org>,
+ Linus Walleij <linusw@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-i3c@lists.infradead.org, mfd@lists.linux.dev,
+ linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260929061417.20733-1-jszhang@kernel.org>
+ <20260929061417.20733-14-jszhang@kernel.org>
+Content-Language: en-US, fr
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Organization: Bootlin
+In-Reply-To: <20260929061417.20733-14-jszhang@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261027_021155_488950_A414A80B 
+X-CRM114-Status: GOOD (  12.81  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,120 +91,64 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Le 29/09/2026 à 08:14, Jisheng Zhang a écrit :
+> Document the dt-bindings for pinctrl in Synaptics SL261X SoCs.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>   .../bindings/pinctrl/marvell,berlin2-soc-pinctrl.yaml  | 10 ++++++++--
+>   1 file changed, 8 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/pinctrl/marvell,berlin2-soc-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/marvell,berlin2-soc-pinctrl.yaml
+> index 6ace3bf5433b..fb60a310a24e 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/marvell,berlin2-soc-pinctrl.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/marvell,berlin2-soc-pinctrl.yaml
+> @@ -37,6 +37,8 @@ properties:
+>             - marvell,berlin4ct-soc-pinctrl
+>             - marvell,berlin4ct-system-pinctrl
+>             - syna,as370-soc-pinctrl
+> +          - syna,sl261x-soc-pinctrl
+> +          - syna,sl261x-system-pinctrl
+>   
+>     reg:
+>       maxItems: 1
+> @@ -44,8 +46,10 @@ properties:
+>   additionalProperties:
+>     description: Pin group configuration subnodes.
+>     type: object
+> -  $ref: /schemas/pinctrl/pinmux-node.yaml#
+> -  additionalProperties: false
+> +
+> +  allOf:
+> +    - $ref: /schemas/pinctrl/pinmux-node.yaml#
+> +    - $ref: /schemas/pinctrl/pincfg-node.yaml#
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+The special value bias-pull-up=2 is handled has a strong pull-up in the 
+code, maybe that's something that needs a documentation in the binding
+(or the strong pull up value is really 2 Ohms, and in this case, 
+everything is ok)
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+>   
+>     properties:
+>       groups:
+> @@ -60,6 +64,8 @@ additionalProperties:
+>       - groups
+>       - function
+>   
+> +  unevaluatedProperties: false
+> +
+>   allOf:
+>     - if:
+>         properties:
 
-- [High] In stmmac_rx()
-  (drivers/net/ethernet/stmicro/stmmac/stmmac_main.c), the length passed…
-
---
-
-net: stmmac: fix XDP RX buffer DMA sync length
-
-This commit changes the XDP path in stmmac_rx() so that pre_len and
-sync_len are measured from data_hard_start, and buf->page_offset is no
-longer subtracted. That matches the page_pool DMA window, which now
-starts at offset 0. The goal is for page_pool_put_page() on the
-consumed XDP path to sync the whole region the CPU touched.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 32b2c5834c340..c51358c51fae7 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -5980,8 +5980,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
->  			xdp_prepare_buff(&ctx.xdp, page_address(buf->page),
->  					 buf->page_offset, buf1_len, true);
->  
-> -			pre_len = ctx.xdp.data_end - ctx.xdp.data_hard_start -
-> -				  buf->page_offset;
-> +			pre_len = ctx.xdp.data_end - ctx.xdp.data_hard_start;
->  
->  			ctx.priv = priv;
->  			ctx.desc = p;
-> @@ -5991,8 +5990,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
->  			/* Due xdp_adjust_tail: DMA sync for_device
->  			 * cover max len CPU touch
->  			 */
-> -			sync_len = ctx.xdp.data_end - ctx.xdp.data_hard_start -
-> -				   buf->page_offset;
-> +			sync_len = ctx.xdp.data_end - ctx.xdp.data_hard_start;
->  			sync_len = max(sync_len, pre_len);
-
-[Severity: High]
-
-Does this cover the furthest point the CPU touched if the XDP program
-grows the tail and then shrinks it again before it returns?
-
-The comment says the sync covers the "max len CPU touch". However,
-max(sync_len, pre_len) only looks at data_end before the program runs
-and after it returns. bpf_xdp_adjust_tail() writes to the grown area
-when the tail grows:
-
-net/core/filter.c:bpf_xdp_adjust_tail() {
-    ...
-	/* Clear memory area on grow, can contain uninit kernel memory */
-	if (offset > 0)
-		memset(xdp->data_end, 0, offset);
-
-	xdp->data_end = data_end;
-    ...
-}
-
-A later negative adjust only moves data_end back.
-
-Take a 64 byte frame at page_offset 256 and a program that does
-adjust_tail(+512), then adjust_tail(-512), then returns XDP_DROP. Both
-pre_len and sync_len end up at the original end, around 316. The memset
-dirtied the cache lines in [316, 828), but this call does not clean
-them:
-
-    page_pool_put_page(rx_q->page_pool,
-                       virt_to_head_page(ctx.xdp.data),
-                       sync_len, true);
-
-__page_pool_dma_sync_for_device() caps the length at p.max_len but
-never extends it. The direct recycle cache does no further sync.
-stmmac_rx_refill() gives the buffer back to the device after dma_wmb(),
-with no more cache maintenance.
-
-max_len is dma_buf_sz + stmmac_rx_offset(priv), which is 1792 with
-dma_buf_sz = 1536. So that range lies inside the window the device DMAs
-into.
-
-On a non-coherent platform, could one of those dirty lines be evicted
-after the device has written the next frame into the recycled page, and
-corrupt that frame? It looks like the same failure the commit message
-describes:
-
-    Dirty cache lines in the tail of the frame can be written back
-    after the device has DMA'd a new frame into that page.
-
-The commit message names "grow the tail" as a trigger and says "the
-whole CPU-touched window is synced". The max(pre, post) approach was
-already there before this patch.
-
-Would it be better for the STMMAC_XDP_CONSUMED path to sync the full
-pool window instead of checking only the two endpoints? Passing
-p.max_len, or using page_pool_recycle_direct(), would do that.
-
->  
->  			/* For Not XDP_PASS verdict */
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261023-stmmac-xdp-fixes-v1-0-efb37e19f5bd%40oss.qualcomm.com
+Regards,
+Richard
 
