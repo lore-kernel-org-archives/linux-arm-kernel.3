@@ -2,83 +2,165 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30B08606A322
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 15:19:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FFBA606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 15:24:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=q7taPbLh;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Lx9IsB10
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1Vb8/Sm/;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=JalROohb;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=hlP5ucYl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=qVOyjGft3yl8t21QQK6X5h58hFCy9arSFXCjxP8+GvE=; b=q7taPbLhNysCMs
-	kSp/6or1595c680jobLslMoXxZUVawIdAZHCTFpqN1D698pwrwrAU2g5y+6Be7UhfRDfbDvRGjbGn
-	bDmS6Ic4wHAyVaSUKJ3kOXAEdqs0QlY/lbXFGx1Y9rWzBcYIRlWrFtnJSSUfhOLj/HKjPrvOtmQOj
-	Ps7f4OQDJfFFSAsor3/4oNdXL4LLjk5LPWE5qetcSMhaGMpT3YImv49RMG/WQOVFFNl+LzNLXB8v2
-	ak9lFNS2gLKyHaDTm65sftUJjQpFBQ5kJiemcvRKEKni4ReuxZoDd3unjCEYr8QUSRn4WYgn4WBJa
-	B66ozxd0qT6O1Vjwh5nQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=ov+uIYxKRlS4tyHwlxVw/W0Jy93UkxYNyEYxhxcExPw=; b=1Vb8/Sm/Xap5xTQ32aGyRv4/sV
+	l7lWcs4NPqeCZRLMFFB0nZQ8/avBe+nAo2KxK6XAeq+hiYUIdqIz23gONS86V0rBO53j9YXXvIz7G
+	pY5L/VKUH0mBkm2K8mjNLRqknoYIibrvHAFazSSSfPwo9Q3Mdsfl6fneksJ9coJh5dZuXY79zko4L
+	55H91LsBaCY1r5tCeWwxiLBjZzqTNZ8WTFcuGKCocobvT7jUJuSKSkIvYk+DLlxHwZuOkjW9w/r0g
+	VivGX3rjs9Xb3X/EPTKTfXFLmavrgf26LLn6AB9M8JkNcmIssAM+7VWwEqpWZU5yd/R+9ZC1aEVp3
+	m9TespTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLixJ-000000059Fk-34wo;
-	Tue, 27 Oct 2026 15:19:17 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1xLj2Q-000000059oj-2JRG;
+	Tue, 27 Oct 2026 15:24:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLixE-000000059E9-2sbq
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 15:19:15 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 56794C79AB4;
-	Tue, 27 Oct 2026 15:20:09 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 90477603BD;
-	Tue, 27 Oct 2026 15:19:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D8E5310328D57;
-	Tue, 27 Oct 2026 16:18:54 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1793114346; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=qVOyjGft3yl8t21QQK6X5h58hFCy9arSFXCjxP8+GvE=;
-	b=Lx9IsB10zLwRififq18Vz4f1nNHDehrBnlXxwgOhAP+wxSg7U/q43gZuD1al62hhYFIKuQ
-	y3lOVI+kCxXZk0VZhn45QsWfo1FeRxHHug5oXzJeBBz/pkMDW2wkzQFF4RNTSX1PRwVVOu
-	fZfkA3d+qLoIvSI3d6ISPM5Nv0r16emp9QCCwyfnB1l3/tD+YVJR9MZjUFJGKrVFpE0vjY
-	Pd7NeZBp4SF2WXTNrslrxtNGsc9xFcHEwxFEhqp5GbjG1Bwkv8Lsjx2gxDCxzBld3lvHNy
-	xWb0PMGxdayeOXdOiQwtR+WicMTwJp5IEI04oxKrke+MRAV+Q2Y5TAvgWXja+w==
-Message-ID: <8a1547bb-cc42-465b-8a8a-d4790cd0867f@bootlin.com>
-Date: Tue, 27 Oct 2026 16:18:53 +0100
+	id 1xLj2O-000000059nz-1ymA;
+	Tue, 27 Oct 2026 15:24:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ov+uIYxKRlS4tyHwlxVw/W0Jy93UkxYNyEYxhxcExPw=; b=JalROohbSQE5R17Yfkb/1xS0o4
+	sWHtMKSkFNvLj1ClmezflH43EICLFv3YzKQNRzccyj4HX4RF19r+ek3WVGnN+CgEwrqtKgCv5PS+i
+	xNwROv9cYb/c+3TI5s/PbS+ZEos1azu6ztukZqgAIrsBy43dRhzZvT061tuUn0+BWr+oBLaM9tg3a
+	sTKb2WBPKLKBkca4a/g6oqN45eT0pYsiQxjZsDr0uJ1Kq4ah0Z/lU+avilGqK+C2vYyxoillj8Yun
+	hXoYNMCOjS479928hFUNCfgo7qLL2pTiAmNqpcs820lBx7zu0TltZVgl5zR5luLLHxQy70SLa0obD
+	XsRfHfEA==;
+Received: from mail-centralusazon11011038.outbound.protection.outlook.com ([52.101.62.38] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xLj2L-0000000F8jt-2xQB;
+	Tue, 27 Oct 2026 15:24:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aLaEKgGb4nXMfJtXe9lBYwdQNo13ioD/LDFbF3LDl6CQAMWK4fvbnSLJorjg44NDdU5vMT7ZWcaHX4O7pF6qYsaL7L6K8HUvePDluasobCaxS4vR1vl5rt8bxtlD+ulsNB9D6mwq7tCGvw+5f9+8x6RrITWbF9c4ZQE/NDXv52TO8mMQ2RXlTJa/+a8vEXFQWOOBMwWYQwR6lBiJgvctb3Jl/fLaEABsI7/gCvJykhmJXv5NjG6x156Ej7veXt0ZNsfJNFRjXpI9Z5nfPE/70q+JTEs/UeY5hDTqJX6T0bwCJzVdEVhT0CfV55spoVwnqF5HjS5Uvq8IVNDbnYkkVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ov+uIYxKRlS4tyHwlxVw/W0Jy93UkxYNyEYxhxcExPw=;
+ b=nDYOZoiIf6XgSzPdXPzadBxveQKOOlQgsPobE3b7RrBc+KrEVE4LPJZsTsQ/RsvDGJIHVjYqvb2lhRRThqUGFaI3aVfe0JJG94YiiETNFLL2djCdReQCdwGslikKXpb31xRYSoMYb1F2o14JHzD/5egIFyPngSDyy+EraXqyyboxwauyVdzxQus/S7x9Axx0sqM/v0QQDESCmh//N1raXcG/j1x/mvseVP/XjbZL/MfeqCE4JOEknM1swhkGhy6+SpS0gMIx/pLmSlj7xzk2FSJ5iXcWJq5hmP5eI+W8A5ldBGfAG7BBI7y/ZJgpUlC9LyqXULSCtq1TOcBywY5xaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ov+uIYxKRlS4tyHwlxVw/W0Jy93UkxYNyEYxhxcExPw=;
+ b=hlP5ucYlf8bG5tQc8aw+AY7NeLVBcvjwacgOfQNl3WhQuY2fZEsq1bcHBHyQ6XFFoo9DrRB0AMc9ZxCE18OHcFcGdTh3FLoEmozffU40++NrRhmijVG5wz7cqRbWjN+/qb/sPf+i2n1S4WoIIGOFzsigrPsNu2Jsw3Mr+aucqBMwgRbWy9NvVQWVsMihp7b9J5IimIZ53clDKXt/TDGfeuH70aehnN7pm1O9C2yAK9ntLrUx/IhGvbeVDmrpssGZgAh8HXxKJpmqRyyQWWWsvohR5vCwD/6GE2KBNILxvASB6mnYW1YByzRdGnWU9q/E2/lSUorwout7hooQl2hsvg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by MN2PR12MB4424.namprd12.prod.outlook.com
+ (2603:10b6:208:26a::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
+ 2026 15:22:40 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
+ 15:22:40 +0000
+Date: Tue, 27 Oct 2026 12:22:38 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Simon Glass <sjg@chromium.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-integrity@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
+	Piotr =?utf-8?B?S3LDs2w=?= <piotr.krol@3mdeb.com>,
+	Ross Philipson <ross.philipson@gmail.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Song Shuai <songshuaishuai@tinylab.org>
+Subject: Re: [PATCH v2 08/15] efi/libstub: Have efi_kaslr_relocate_kernel()
+ handle extra_size
+Message-ID: <20261027152238.GA2418472@nvidia.com>
+References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+ <8-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+ <20261021100622.00007ae5@oss.qualcomm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261021100622.00007ae5@oss.qualcomm.com>
+X-ClientProxiedBy: YT1PR01CA0094.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:2d::33) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/1] net: stmmac: descriptor management issue during PM
- sequence
-To: Thomas Bourgoin <thomas.bourgoin@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>,
- Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Christophe Roullier <christophe.roullier@foss.st.com>,
- Ding Hui <dinghui1111@163.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org
-References: <20261027150556.51209-1-thomas.bourgoin@foss.st.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20261027150556.51209-1-thomas.bourgoin@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|MN2PR12MB4424:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2b44f077-42da-4850-eae6-08df343e2380
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|261026140227099003|4143699003|11063799006|56012099006|261026121527099003|261021121427099003|261022105027099003|261022075727099003|261009223027099003|261022115727099003|10067099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: XBgydWvB75vDZW7ogVTqRl+D4bxjnugDFNr783TYPMPKl2cwp438PZE1dOVoUNZ/YIKDt6H9RCjvXVBfwMPWCw5+Rn6Z6Z7WtBjHRj4sNp8f0Dv6xS23tAP9c3GUq3i5EpfOXG+8V2pxRvjo28z0VuHWHVYySTdE5/aJTF5RfFSDV5mXe6zaVv3fyOq203fA0dEu3WAaZjrlAIRPHVEZXbO3g1zV2rSMaMSqeTTykNWKaaHQZ5Q+T1JnnIiXX90NpH3Ms6JC3hTzY5/BhPz8trgk7pDGS+R4onVALsjjMGdw90VGCXMXKPvNqtej//gD2ivO4xUfFnxow03ilrjeYseNAb2mcREfRxawVVCiB+e7dzk/Y4TrUGM4BaR0BicXS2Zs5R3C+m+E46PCCLORoY5tWsZYrI2UuYkYHnvIn6y9m8uKE6cvJ8VdWNzNypYXrkg7pp5RMHDllkJEfBO7RurgXLtP3FXrE/WYFO+5GPtHYUdBm2JH8z8piRn2QbVv3WQnIxlfmmBygx+Neg+8Z/D38a3J/DmVjasL4uyfFuqwXL5Fm5YVSaFWh/6VphFfMf+ieHCXEeQ/KMMx5VXDL3+e976/F4819Y2BUi+in4fLaAPYEtEajy7UvhFoZuszPFiTaEdE8TspWCXkNFD0QtCITf/QSDYNvQWpa2iEHKA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(261026140227099003)(4143699003)(11063799006)(56012099006)(261026121527099003)(261021121427099003)(261022105027099003)(261022075727099003)(261009223027099003)(261022115727099003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kSDVw74HBnftF/CikeMQjkauzSk3OEVDCE5PV7X8Rr5vv1CkD7ApOYavjIzU?=
+ =?us-ascii?Q?wo6wPgfsjogPuJQvFnpkztv0Km/0VZQjDx5A++W287oLV9ZpiNh67p1uGwkM?=
+ =?us-ascii?Q?mIjMw7DYNRDDlflpFe/Yqsa0zKIt2MkFOpzOjJUs0yvlAxoL9zwk6Q//sZ+G?=
+ =?us-ascii?Q?V8FWHB0kFK17mfP3V9NQ70uWMNLP6ZAwldln+BJ1ag4EGqgC/6qnxQ6t4hrh?=
+ =?us-ascii?Q?lgF1/tR+SzVhQF63PSJBz+BrTcjFlx2OguOcicjKyc/9w0kkGi5kBkxZ9GHB?=
+ =?us-ascii?Q?tWvFWGkWxQ0Hm+n/FaoVR86vd2ZxDXXJDkC/3mHv/TslYlfW77D82bjAZYjS?=
+ =?us-ascii?Q?g6tqhfmXTQocuLHgc9OKkXyHsoPrVD51HO0xAM+t2gpk97pvlC87T+FbqjTB?=
+ =?us-ascii?Q?CqdwMLT+5edoHihKKiWfZfGR2AY4+7+5FxUKQOb7D6mriSIy4LoSk/3IvbK6?=
+ =?us-ascii?Q?HU4aCCi/WCVOUoptqQSWT6YHsJjDbWEvvMhuqPFf1rqg8RNnGc5nX+HCUCXQ?=
+ =?us-ascii?Q?TdI7cgiqmtAJfv85+LuJJBNgw106y2ITc+oDA6YeofmRHl8xy/V/VpZM5T2W?=
+ =?us-ascii?Q?A0RDoDHfyIooPpHM/1C8A4ZwplP/81vUOwdtj6z/QzLmVAPPfiiSGXE5h6bn?=
+ =?us-ascii?Q?fZEUC4ss3LXSAbBa6Az6c2Ac5KDgZN9ceFkBOU6AV9HZjxBRYQyq7gmWhCaD?=
+ =?us-ascii?Q?qoGqPY21qPLWLMvOlj/oAhOqNyXNTfUlSpyjf0G8337pbb5v89Yg1O6YSmG7?=
+ =?us-ascii?Q?ANkPXlwq3rZZpa9Vz7v5eU0jiFCjXHNabSOlfFqCHHgR2zJHBdIJqnEHuSxE?=
+ =?us-ascii?Q?AlSGmB15AiW3xqtesK0xy9zxCgOV5FmQRiQ96NaEsN9OLew0NFB8DjohG7oA?=
+ =?us-ascii?Q?sbyNh/zlZTH/pZ9rAsznyEeysTpphJoVhy7HUhm39hm/u5sZGUkiF7KvIBE+?=
+ =?us-ascii?Q?TRJ8wjGkQ+aEfl75s2p2BapIAKO/T7DvCx9lKNLWr+d+OWYOZgAjtNbzVZuD?=
+ =?us-ascii?Q?GaQuPQubzagUIEubLbo+kWDJgU6s62NE2z/7u1Q9dEIbb3FJR3ks9bCSsxw6?=
+ =?us-ascii?Q?Rdbhs+aJZde83nC9gAY5XC8KL6BtOhxr0XFChluZq3pPsTFXQLkkem66kKVb?=
+ =?us-ascii?Q?cmf4TOgrl+/o/I1HDBdFkUVWZEhpKocFW+Xo58IA/XUgauWgI0QXX+4t6zYs?=
+ =?us-ascii?Q?OzeW1jOB9ETg5b1NnBKs6WoWUs5/P/fKJv7EMDgH6NB3JjvNCZRCJHzFZ5Vv?=
+ =?us-ascii?Q?hTSfmEDzTtMJQRAgPLzUbK561w48PxlSpPOReF/LbLHxZYkRIIcvRh7ZYEi6?=
+ =?us-ascii?Q?E5TVeGcrTgPWHaR6rW5fz7NaRZcQYnWHON+Hs5KTyBzT7W1lZTuW/+XVxunr?=
+ =?us-ascii?Q?FGp4xT+OJU0puQzIYgv8d6Twn5l8V6PA08M0HKy+8pVpdMSo8BciFC7NSnPE?=
+ =?us-ascii?Q?5kdBFn6c7w2+YIk0CfT7qIP0/ka+08I0WgJAXGvqJ76Q5f5Bx05zelH/C/PQ?=
+ =?us-ascii?Q?pjROfh/wAivklrzrur1ro9uCcZ/QeJfgEj2U8wbLfXmQmRE3fR4WlzeS483A?=
+ =?us-ascii?Q?zRpObG/invtUR9fN3asOnPVj1WZzfWzPhnWWJNffa1seM0kEgW7d5DN6GsNs?=
+ =?us-ascii?Q?3LM4fdTkI/EcqsN6aZpWq39ZXIKktrrOFxlSH9Nfc5rjX/Qq4vNvP7ITGeOE?=
+ =?us-ascii?Q?gtzwjF5rG+HQHaJkL4yzbCy/VdlMuZ/G+zXf5Y4pWjtUysHn?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b44f077-42da-4850-eae6-08df343e2380
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 15:22:39.9906
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 780O6B0wxnsvJGinZvPLW9qrtsDMZ50Wad4sAmrAhXALJyleociAUR0W8BtohHzW
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4424
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_081912_920081_EA7113A9 
-X-CRM114-Status: GOOD (  19.86  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261027_152429_799904_57142E92 
+X-CRM114-Status: GOOD (  17.16  )
+X-Spam-Score: -0.5 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,55 +171,59 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Thomas,
+On Wed, Oct 21, 2026 at 10:06:22AM -0700, Jonathan Cameron wrote:
 
-On 10/27/26 16:05, Thomas Bourgoin wrote:
-> Hello,
+> > @@ -125,16 +164,29 @@ efi_status_t efi_kaslr_relocate_kernel(unsigned long *image_addr,
+> >  	}
+> >  
+> >  	if (status != EFI_SUCCESS) {
+> > -		if (!check_image_region(*image_addr, kernel_memsize)) {
+> > +		bool image_region_ok =
+> > +			check_image_region(*image_addr, kernel_memsize);
+> > +
+> > +		if (!image_region_ok) {
 > 
-> During low power sequence on STM32MP21 we sometimes observe out of range access
-> to the DDR by the GMAC ethernet. I managed to narrow down the issue to the
-> resume sequence of the RX descriptors with the function
-> stmmac_clear_descriptors().
-> 
-> On resume, stmmac_clear_descriptors() returns RX descriptors to the DMA
-> without restoring their buffer addresses. On DWMAC4, the DMA will
-> therefore consider a descriptor for the application as one for the DMA.
-> This can lead to illegal access from the DMA anywhere.
-> On STM32MP21 the DMA address bus is 40 bits, thus the extended status from the
-> write-back descriptor is read as an high address by the DMA. DMA will then try
-> to write in the DDR at 0x100000000 whereas on STM32MP215f-dk DDR is only 2Gb
-> from 0x8000 0000 to 0xffff ffff and nothing is mapped at 0x100000000.
-> All the other SoCs of the STM32MP1x or STM32MP2x are using a GMAC with a 32bits
-> DMA address, so I do not have illegal attemps.
-> 
-> To fix this, I propose to reconstruct the RX descriptors that have been used by
-> the DMA but not forwarded to the NAPI function stmmac_rx() before suspend.
-> 
-> I'm not used to this driver especially the xsk management and zero copy part.
-> Since this driver is used by a lot of plateforms I'm open to all suggestions.
-> 
-> This V1 propose to reuse stmmac_init_rx_buffers() but maybe using
-> stmmac_refill() would better fit the issue. From what I read, I could not call
-> stmmac_refill() as rx_q->cur_rx is only updated in stmmac_rx(), so
-> stmmac_rx_dirty() returns 0.
+> Why this change?  I don't particularly mind but seems to be churn that isn't
+> necessarily needed.
 
-Thanks for the series :) However it looks like this is already being addressed by
-Ding Hui's series (currently in V5) :
+Ah, I had something else here once, I put it back
 
-https://lore.kernel.org/r/20261025100636.613670-1-dinghui1111@163.com
+> >  			efi_err("FIRMWARE BUG: Image BSS overlaps adjacent EFI memory region\n");
+> >  		} else if (IS_ALIGNED(*image_addr, min_kimg_align) &&
+> > -			   (unsigned long)_end < EFI_ALLOC_LIMIT) {
+> > -			/*
+> > -			 * Just execute from wherever we were loaded by the
+> > -			 * UEFI PE/COFF loader if the placement is suitable.
+> > -			 */
+> > -			*reserve_size = 0;
+> > -			return EFI_SUCCESS;
+> > +			   (unsigned long)_end + extra_size < EFI_ALLOC_LIMIT) {
+> > +			if (!extra_size) {
+> > +				/*
+> > +				 * Just execute from wherever we were loaded by
+> > +				 * the UEFI PE/COFF loader if the placement is
+> > +				 * suitable.
+> > +				 */
+> > +				*reserve_size = 0;
+> > +				return EFI_SUCCESS;
+> > +			}
+> > +
+> > +			status = allocate_image_tail(*image_addr,
+> > +						     kernel_memsize, extra_size,
+> > +						     reserve_addr,
+> > +						     reserve_size);
+> 
+> I'd move reserve_size up a line to group it with reserve_addr.
 
-Can you take a look and maybe provide some reviews/tested-by tags ?
+As long as nobody minds the 81 cols that creates..
 
 Thanks,
-
-Maxime
-
+Jason
 
