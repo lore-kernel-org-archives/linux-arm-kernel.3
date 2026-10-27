@@ -2,53 +2,55 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA00F606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 08:04:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E180B606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 08:04:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EWSu5J34;
-	dkim=pass (1024-bit key, unprotected) header.d=cyberchaos.dev header.i=@cyberchaos.dev header.a=rsa-sha256 header.s=mail header.b=V4ZneEwX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=w5pqz4jZ;
+	dkim=pass (1024-bit key, unprotected) header.d=cyberchaos.dev header.i=@cyberchaos.dev header.a=rsa-sha256 header.s=mail header.b=crVEQopE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Xd6NZ4k5ZIVUi71tjBF1YXBwfdFJEiHzXxxQAyEHsDQ=; b=EWSu5J34a97sMi
-	fnLmVOrtCOAb4qnNAGuSFJdg2vVPZorUZ3ImuKonHZfoAoFFyyhBu0xG3dCqZVx39aaU2Okdebz4B
-	+HZa/LdSeCvRnwT1o+/CGTKmF6pUjDyaTy9Uh+bRtdcEWkbb0CP7ggQi7hs4VFhSL+1Zw3M+3mKsI
-	X7xrEmSahGDqfNE4R4eu0VupgN4xTbMqAW8wCVRDRi3cj/W9b30z4kHqqKeL5xhlSOBlq55/YFENG
-	5GK9D5RcMJyQbdrdG25bJXgGdh9ShZ6DoLdiqIba3v4aXmD9vTyupSi/eGPzasYGJFSTUn7fVBGpB
-	JIP3XRa0QVTYjRYxz5hQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=P5c0ApmIJ3lAMNaYphnR5Mx0YPPl4nsPPZL16lmRKXY=; b=w5pqz4jZJRliJRJVdSpBjiMAU9
+	GdDmu43Tjzf1c4weRWNQDheeiehgQzaXiJVEFphuj/yT7/6nWHPwQYqbAt06Xn5AaCSS7XjsN6dbt
+	XaG1mowiTAVmC1SkX8lY7N/y+rm1UYvlFFre45dUd1cQyf83xvSnEvrVWMZqIoT0WPu6Bjx19Nr1R
+	AuUf7Pi6/p3CqKm3RnYITaKgw/6K24K2+30o7GdC37eysdCXfN4vwNPYyGxAYU2jA9Ng7RB5iruRK
+	U0zOKbG5XdyhQqk3uLnzJ9FUqqUw1doTU81lAxJVC/H4YfUVAmFuSLycKoTOWst9ZdmP9pyenOtau
+	UAiN3feA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLc9u-00000003yba-2ZUD;
-	Tue, 27 Oct 2026 08:03:50 +0000
-Received: from mail.cyberchaos.dev ([195.39.247.168])
+	id 1xLcAU-00000003z67-2hwC;
+	Tue, 27 Oct 2026 08:04:26 +0000
+Received: from [2a0f:4ac0::3a11] (helo=mail.cyberchaos.dev)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLc9f-00000003ySg-3TQd
+	id 1xLc9o-00000003ySd-0Ukl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 08:03:38 +0000
+	Tue, 27 Oct 2026 08:03:45 +0000
 From: Yureka Lilian <yureka@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1793088211;
+	s=mail; t=1793088208;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Xd6NZ4k5ZIVUi71tjBF1YXBwfdFJEiHzXxxQAyEHsDQ=;
-	b=V4ZneEwXI+ZU7aWPf3J3ahFZYELK6rDrQZWBrIOeEgSF2byh+G7ULtAfdkWS1BvpVHbSR0
-	sM+ekVDFHsmAfk9Crhh6VbH5v6u/CIV5IAtX9DDKtOb+tiT2m2oh033eEGE8tQlr6DTtX7
-	p6lv5gPCu6OOefLamgjDcqVfDT299iw=
-Date: Tue, 27 Oct 2026 09:03:23 +0100
-Subject: [PATCH 03/10] dt-bindings: arm: cpus: Add Apple M5 CPU core
- compatibles
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=P5c0ApmIJ3lAMNaYphnR5Mx0YPPl4nsPPZL16lmRKXY=;
+	b=crVEQopEfm3vY6etwK7PdIB3SmLmyRWj8Epua/Soc+v5Rbpb7o+MA91lYVv9dA4lORKBQw
+	4mjWnEQToB5OR/G7JHCcBrdfWMV83H8c0Esd3NJdj6D0SCOe0QCqPkKB5TaoHXvSMDQs/P
+	EUuJISIwf1ADXGzbly7QiU3Vl3vIuls=
+Subject: [PATCH 00/10] Initial Apple Silicon M5 device trees and
+ dt-bindings
+Date: Tue, 27 Oct 2026 09:03:20 +0100
+Message-Id: <20261027-apple-m5-initial-devicetrees-v1-0-1356181bc50d@cyberchaos.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261027-apple-m5-initial-devicetrees-v1-3-1356181bc50d@cyberchaos.dev>
-References: <20261027-apple-m5-initial-devicetrees-v1-0-1356181bc50d@cyberchaos.dev>
-In-Reply-To: <20261027-apple-m5-initial-devicetrees-v1-0-1356181bc50d@cyberchaos.dev>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMywrCMBBG4Vcps3YgqbZSX0Vc5PKrIzWGTBSh9
+ N2NuvwW5yykKAKlQ7dQwUtUHqnBbjoKV5cuYInN1Jt+tMaO7HKewfeBJUkVN3NsVUAtgPIuwvh
+ pP0x+66ktcsFZ3r/98fS3Pv0NoX6ftK4f2RlBo4AAAAA=
+X-Change-ID: 20261016-apple-m5-initial-devicetrees-4de0b9759b3b
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
  Neal Gompa <neal@gompa.dev>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
  Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
@@ -65,10 +67,10 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
  Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_010336_099332_4D6093C6 
-X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-CacheID: sfid-20261027_010344_335750_DC32CB98 
+X-CRM114-Status: UNSURE (   8.21  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-Spam-Score: -1.3 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +89,60 @@ X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add "apple,hidra-e" and "apple,hidra-p" compatibles for the M5
-efficiency and performance CPU cores respectively.
-The compatible strings are chosen based on SoC codename ("Hidra") plus
-core type (E-Core / P-Core).
+Hi,
+
+This series adds initial device trees and dt-bindings for the Apple
+Silicon devices using the M5 (t8142) SoCs.
+
+This series covers only a minimal amount of hardware, which is useful
+as a basis for future developments. The hardware added here has remained
+largely unchanged from the earlier Apple Silicon generations.
+
+I applied some version of dt-check-style formatting to all new files
+with the exception of the generated pmgr nodes.
+
+Merge strategy:
+Since there are no actual driver changes, we'd prefer to merge the
+dt-bindings changes through the apple-soc tree once Acked by the
+respective maintainers.
 
 Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 ---
- Documentation/devicetree/bindings/arm/cpus.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+Yureka Lilian (10):
+      dt-bindings: watchdog: apple,wdt: Add t8142 compatible
+      dt-bindings: interrupt-controller: apple,aic2: Add t8142 compatible
+      dt-bindings: arm: cpus: Add Apple M5 CPU core compatibles
+      dt-bindings: arm: power: apple,pmgr-pwrstate: Add t8142 compatible
+      dt-bindings: arm: apple: apple,pmgr: Add t8142 compatible
+      dt-bindings: pwm: apple,s5l-fpwm: Add t8142 compatible
+      dt-bindings: pinctrl: apple,pinctrl: Add t8142 compatible
+      dt-bindings: i2c: apple,i2c: Add t8142 compatible
+      dt-bindings: arm: apple: Add M5 based devices
+      arm64: dts: apple: Add minimal t8142 (M5) device trees
 
-diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
-index aff78fc331c1..beac0ac196a2 100644
---- a/Documentation/devicetree/bindings/arm/cpus.yaml
-+++ b/Documentation/devicetree/bindings/arm/cpus.yaml
-@@ -92,6 +92,8 @@ properties:
-           - apple,donan-p
-           - apple,everest
-           - apple,firestorm
-+          - apple,hidra-e
-+          - apple,hidra-p
-           - apple,hurricane-zephyr
-           - apple,icestorm
-           - apple,mistral
+ Documentation/devicetree/bindings/arm/apple.yaml   |   15 +
+ .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |    1 +
+ Documentation/devicetree/bindings/arm/cpus.yaml    |    2 +
+ .../devicetree/bindings/i2c/apple,i2c.yaml         |    1 +
+ .../bindings/interrupt-controller/apple,aic2.yaml  |    1 +
+ .../devicetree/bindings/pinctrl/apple,pinctrl.yaml |    3 +
+ .../bindings/power/apple,pmgr-pwrstate.yaml        |    1 +
+ .../devicetree/bindings/pwm/apple,s5l-fpwm.yaml    |    1 +
+ .../devicetree/bindings/watchdog/apple,wdt.yaml    |    1 +
+ arch/arm64/boot/dts/apple/Makefile                 |    3 +
+ arch/arm64/boot/dts/apple/t8142-j704.dts           |   36 +
+ arch/arm64/boot/dts/apple/t8142-j813.dts           |   36 +
+ arch/arm64/boot/dts/apple/t8142-j815.dts           |   36 +
+ arch/arm64/boot/dts/apple/t8142-jxxx.dtsi          |   50 +
+ arch/arm64/boot/dts/apple/t8142-pmgr.dtsi          | 1131 ++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8142.dtsi               |  512 +++++++++
+ 16 files changed, 1830 insertions(+)
+---
+base-commit: 498a03715b45515444fe1fc6d7b34177cafb6c38
+change-id: 20261016-apple-m5-initial-devicetrees-4de0b9759b3b
 
--- 
-2.56.0
+Best regards,
+--  
+Yureka Lilian <yureka@cyberchaos.dev>
 
 
