@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D93FB606BAC2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 15:38:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF954606A322
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 15:38:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CDQhslww;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qzgxugg6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=421Ro/GW;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bR7xm1Ty
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,72 +14,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=1zaehfOEpJIBB309vW4ZfiHlvl8pXwnDzU4ZiFmfjLs=; b=CDQhslwwVzPRUe+CJ9/gTjFAeM
-	/oKhHWmC8lBMH2nxWObs/5VqAekqXD45GIQSU3BIHsjc8sXzIrxRC+x4V9ipAFegEXk9OFNKyja+e
-	7HOWQpi8c/DoqOcQaOAYms1SoEdu4Fd71VSfVmzSPkJKuIbPUI74cNFAAXU+Q1P1zHYAhZ/9jKlJT
-	j/YUV9wU2xN7vlqNGfzV4Dmwi3F5R3ZJltxc88OokQ9SFUohq09sA6TsI/28YnSTxjQZduiT4BgeZ
-	JmcNanUtoR4YSkxQ0DKpCNMKvvs9HelDooqr1QdKThQkHvRIZid3FSylASSqnil0fbiqt2PSxSjRz
-	VA94NHDg==;
+	bh=E+Sl1Gk0Izp8iNjXVvH7BXDYK1wVBrrJEHxdo0B8yl4=; b=421Ro/GW5MfGGgFQGJ2lQVrMdw
+	l5S+EfINBY/ujAS5J3xERpSW44IWrMEpo7mwcy5sJif82rSuPpp4iYk18DBpf6dSoDm0K6ralnE13
+	sRvxHVkvs56x7zeIH45xrPdErph78KSmypnFDzCwn9JjspV0pklEpAtctozLsqBjlDw/8qYwI5Gr5
+	G/jyp509jddyHFmoCy1niDwZOcA9hg9NV7zQgW0UakegbIjJvW8vYHYy1TN59HxmEsz2D8efWI4fI
+	8cMC3T6VOowG3iC1j16G2uImh5lx8WTQkzZlpILJoJeL0DsE6Xvs9/xx9ZRdv8tTDVDzWc+bE3XKG
+	FoezR7rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjFR-00000005D1u-1ME5;
-	Tue, 27 Oct 2026 15:38:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xLjFY-00000005DCf-3AKh;
+	Tue, 27 Oct 2026 15:38:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjEa-00000005Box-3r3D;
-	Tue, 27 Oct 2026 15:37:08 +0000
+	id 1xLjEb-00000005Bp4-12vH;
+	Tue, 27 Oct 2026 15:37:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A64E940A65;
+	by sea.source.kernel.org (Postfix) with ESMTP id EF92143A80;
 	Tue, 27 Oct 2026 15:37:08 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1793115428;
-	b=PhJfo9UrLkTsWJ3CPLRsgXkHwArtNunPxUJzQnwSJEknuRfuJTJmEROmceA/dCADUpH0
-	 pQ00jRSF3ozronkMV6Jsxk6/Z1HLuWoz/TifdHj/BMTEUE21TheUmPxkST+Twk7D5SPmN
-	 7+gnAUwDYgJ78Yn0K0tYxj52KSiqysU3Sv8fZ7D7aHhiU7sEGwinVQb/sojYZt2Agl4Ds
-	 9xxZt45RM/BARErYZJ5LkjoHoT2aC4cUuf/KJtTpDhwIusH+RmM5w065VX/o4lEdHPfyL
-	 2abj8AJL5uws9OC9nIQfPmWkgs8bJbPCRAxiQhAxVRsu1vYVv7J56va6t8+wz8kQ3hg==
+	b=EGu+2KVzaXW2+DtaK+sP18j54eG/LBIEchI1zB5LzytuA1hgELdJikQB//jZjwhw8pUu
+	 i3ztChLrnYpxg9Kqte9uEUCIj+WsZmBoW7mHRLvwYDFAo8dqIRarWbXlue+HwtkjGpi/l
+	 yIATVrgHKPHyNCvzplDoHyVHANK55L/a5k6PxKPF/xaC0hnStIy8nAgSEI2F2h/EVMv2Q
+	 0uMCPl/htuuMXtK1QLtPDg0TAcppj2s+JSh9hWOCcvBUk4IKx8nPXyB59fVQLq+/YS/iE
+	 bBr5I8XbEqLrnXIObmcKUs8VBMZoSulLSGcZyWWsfJCzjLBzqZcf2ZtkgJFr1Xh1UYg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1793115428;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=1zaehfOEpJIBB309vW4ZfiHlvl8pXwnDzU4ZiFmfjLs=;
-	b=gqFiMA994Ngr5KgD8D01lzmV5w7IaLHpMDGJK1QoIGlzhiXy1z17SLrB4D6wqNzm0htP
-	 yuQ7GTuTVwlm2OFJ7GwaR0Rap+JyTMhO8k/zhMWNzvpbVz9JQ/yZfK5kE7AVlP1DSqMRe
-	 6xpQ1LfV5hkX0rqDldEHi2ViLRPRB6DQ7i5lQd3l2uGj8nMTeS7qyDUSVDShO0ZEPaWbt
-	 rGxP7Pa8wQY83qQQKqRlMI6Vvb0eP4Z6iEas9D/dD1/luX1ATCtKywILmru+Jqp3ogvn0
-	 CE7Ru5UAFSrebNU1pFcZFT6gezKcVdSru1Ey4+g/F9j5TssfLBDRG8M1YXqY4SyVlsA==
+	bh=E+Sl1Gk0Izp8iNjXVvH7BXDYK1wVBrrJEHxdo0B8yl4=;
+	b=SRvDRoidAwMrjgsTnWGooogBZNNXuMhrh3rPqVTJ0cS3VgR60Yxe/X1x4Gl82b/5xhNE
+	 6/R6DNE58TqNrGvLtahYFLPQ4BjOYLYMGP1Nz3rH5elzwl0zM5AGHzwuXiGxigBcfv1C3
+	 1ye4FaSuVRE2tR9BlY67rhj66SEG8vX8GkzKZmQWmcRqxqLdPGyvFjnQ6ZWkHoAyr+4BO
+	 3+3dyri9inWYO2CbHxmxmmmsKYWY64AbXseYEDFH5nNFbeYFAUued3II0Md8kTJl4kVeA
+	 B3ip1G8QqkVpBpaD/dwKPW5Y+MDoGzM5yV5xKz1MIJ9eatWJqtdxdVADvPh8Jaimk2w==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 8F5E01F031E7;
-	Tue, 27 Oct 2026 15:37:04 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 6ED991F01406;
+	Tue, 27 Oct 2026 15:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1793115428;
-	bh=1zaehfOEpJIBB309vW4ZfiHlvl8pXwnDzU4ZiFmfjLs=;
+	bh=E+Sl1Gk0Izp8iNjXVvH7BXDYK1wVBrrJEHxdo0B8yl4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Qzgxugg6Yi2n5p5cv1o5MFs5+QwZdFYNQsvGEeSMlILyYKi8y3iii7l+HzG5EaaNy
-	 ctVOj+u25rVekWnHu00IYukiwdK4njy1v4l3+wBRzOs7s0WCOZAXH4lLLjXBEqTvpU
-	 Kqydrdh7SDpH7CeaV3cxNZ6p9zUI/93iDLJw54c0y1EJnvArxGTdBf4WxkFPaR0IDR
-	 rM4OBGiFrgXA8jrnyn/z80bd5kkmnyiJ1KmWcxHAqOb4xP0XFkP+AsSWAHa6Ws0o3Y
-	 GnpcP3o4wgCl35hTdQdp2ez0DFwZgqIAVnMTA63dfubzBlB1ncwJtqqhh0oIQ3ir8x
-	 VLsxDVazKW+0g==
+	b=bR7xm1TyW/mZ+g+K/JQDfjq+WTR2Q+KQ9xV05YUFS1rrOy4h1D5+At02UypeQSNcb
+	 areiyLyVtV4MdZGki/4mpnmGs4eVLPd/CW+fZYVNgLs48LYiIPEgVS7c4vZwOFLwFc
+	 z3/n4HuXcNIhI/S6ep2Hyh9LuZ8xBAeCQw+RnmY0+vSKFM9+yWJLlE5GEl13ocI+Gh
+	 79p2ZWliSe1hFyoIdFj7Tg3ytQyVYugzlCZz/rvkh9h2+vFSuVLPCdIAHt++z6bN/M
+	 brY3RCs4vkYZ+kIr/010xWXKel5iO4FBT2XTRljYkvf3y7Umd4LxlmlWD8CKrCTihe
+	 y1p70T1808Tyg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 9563845163;
+	by lkml.kernel.org (Postfix) with ESMTP id C4E7245173;
 	Tue, 27 Oct 2026 15:37:01 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 27 Oct 2026 23:37:02 +0800
-Subject: [PATCH RFC 11/18] dt-bindings: firmware: add A210 SCMI clock and
- reset IDs
+Date: Tue, 27 Oct 2026 23:37:06 +0800
+Subject: [PATCH RFC 15/18] riscv: dts: zhihe: add A210 module memory
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261027-a210-scmi-v1-11-74d58ce85bd8@iscas.ac.cn>
+Message-Id: <20261027-a210-scmi-v1-15-74d58ce85bd8@iscas.ac.cn>
 References: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
 In-Reply-To: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
 To: Sudeep Holla <sudeep.holla@kernel.org>, 
@@ -107,11 +106,11 @@ Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
  linux-serial@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793115418; l=1905;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793115418; l=777;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=cHyzHGe6C3hGqmqu+74Uf23AwBzHigG0TJ40txxDzZQ=;
- b=E380Dv6zaJZQluLlzXLNBYuGUXD5AMN+wkU/OKBHqGlcCbNfmOk1GGvnTFt5OQcKfn489dj4/
- mo0jkwjU3KRDRTt+HmLpg7mYFznHabr2FUPq+S9y1Hrz1BHN2dwZ8Iu
+ bh=YcgMhPuDLQowVTt+MvNEeWTBEwtrbKzVnPLSZwTdXCU=;
+ b=aUMIJL92mbux7iKL81HC8BugLUrnFHAYSK4Kw4wHQGnOxZD4j4gnfd866EGabI+4vyPwKFYDP
+ sZTzA4FsxPbBmnaie1KIQJHeJ87wIlZuzcWbbwJzVsdRHl1t2mYFYd/
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -139,56 +138,31 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Han Gao <gaohan@iscas.ac.cn>
 
-Define the SCMI clock and reset IDs for the A210 UARTs, pad controllers
-and AON I2C1. Each UART has separate serial and APB reset lines, so
-they get separate reset IDs, numbered like the matching clocks.
+Add the A210 module memory node with a default 4 GiB range for boot
+firmware to update with the detected capacity.
 
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- include/dt-bindings/clock/zhihe,a210-scmi.h | 15 +++++++++++++++
- include/dt-bindings/reset/zhihe,a210-scmi.h | 13 +++++++++++++
- 2 files changed, 28 insertions(+)
+ arch/riscv/boot/dts/zhihe/a210-som.dtsi | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/include/dt-bindings/clock/zhihe,a210-scmi.h b/include/dt-bindings/clock/zhihe,a210-scmi.h
+diff --git a/arch/riscv/boot/dts/zhihe/a210-som.dtsi b/arch/riscv/boot/dts/zhihe/a210-som.dtsi
 new file mode 100644
-index 000000000000..b8f6441ac650
+index 000000000000..a77447e402d7
 --- /dev/null
-+++ b/include/dt-bindings/clock/zhihe,a210-scmi.h
-@@ -0,0 +1,15 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+#ifndef _DT_BINDINGS_CLOCK_ZHIHE_A210_SCMI_H_
-+#define _DT_BINDINGS_CLOCK_ZHIHE_A210_SCMI_H_
++++ b/arch/riscv/boot/dts/zhihe/a210-som.dtsi
+@@ -0,0 +1,11 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +
-+/* SCMI clock IDs; existing entries must not be renumbered. */
-+#define A210_CLK_UART_SCLK(n) (n)
-+#define A210_CLK_UART_PCLK(n) (10 + (n))
-+#define A210_CLK_PERI1_PAD 20
-+#define A210_CLK_PERI2_PAD 21
-+#define A210_CLK_PERI3_PAD 22
-+#define A210_CLK_AON_SYS 23
-+#define A210_CLK_AON_I2C1_IC 24
-+#define A210_CLK_AON_I2C1_PCLK 25
++#include "a210.dtsi"
 +
-+#endif
-diff --git a/include/dt-bindings/reset/zhihe,a210-scmi.h b/include/dt-bindings/reset/zhihe,a210-scmi.h
-new file mode 100644
-index 000000000000..53e108c15407
---- /dev/null
-+++ b/include/dt-bindings/reset/zhihe,a210-scmi.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+#ifndef _DT_BINDINGS_RESET_ZHIHE_A210_SCMI_H_
-+#define _DT_BINDINGS_RESET_ZHIHE_A210_SCMI_H_
-+
-+/* SCMI reset IDs; existing entries must not be renumbered. */
-+#define A210_RESET_UART_SRST(n) (n)
-+#define A210_RESET_UART_PRST(n) (10 + (n))
-+#define A210_RESET_PERI1_PAD 20
-+#define A210_RESET_PERI2_PAD 21
-+#define A210_RESET_PERI3_PAD 22
-+#define A210_RESET_AON_I2C1 23
-+
-+#endif
++/ {
++	/* The loader replaces this reference capacity after DDR training. */
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x0 0x80000000 0x1 0x0>;
++	};
++};
 
 -- 
 2.55.0
