@@ -2,137 +2,114 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96E7A606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:39:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 708EE606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:40:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hKTZ5TiD;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=LSFilaTs
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KN2ZGqbN;
+	dkim=pass (2048-bit key, unprotected) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=cnzisrvb
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bsSSL1v6kG7ZPxtFD+LkBFbCWBFQWy1eNk2FJQSikKg=; b=hKTZ5TiDxPT8RDV7niHNVPQ4eg
-	F4LFR5/Io7BBCqIjg+rsrSnDXAb2GwGqTeSYvrAbFGhnL6e47cI1YzyuK6pjJSvsM2/hDbp0N8Ldw
-	4bmGXiawg63J1bchCpshcUAt610nlNR3hdQM2ZnOP1ffi2/2WAg5K0C6ci8rVMwUxyuCaLBglvBBi
-	H+GYlXHQ4sql/MyWrbUH3Kfk0SB1ifFF++xVQTTtMHVVv7NoIQAQxP/QzZn2YvDIMoucTwtUeKXrx
-	+aQQAUFYjol4wiLxlaFchjSaD+NadQ/lOnpxgWxxgmlzLZXAvuMtq0DIXppYH/M99PmndZQrztsTc
-	XgETDl0w==;
+	bh=gbXuStreYRF1M4k9Su5zd2++RJBOLVmoBCN1Uwl3TZ0=; b=KN2ZGqbNPkajamUpnXB+ZOiv8s
+	K71BTCIjNRUR5w1YP945cie7vI14hWhaIphPHd8OqXFa5aRILGRiXiEtSjyHsp5PfbrNPVxz+eZgU
+	FOT9oFqwvNHJmjVMZE8Vay4jfypefmkvKnypYmUPCNAfMrcZm8aWQUI7jxkUGENewL5Quv4BUx/Z0
+	vjsBhNLQpujWt6EZH9p6mvmWKz/OnpTsxTFBY4soQpVwKUsrQZwLZhIrZes45eqJ+IkIcJ6o01TyC
+	cv8c9ekyTGuQKBJXkDoWv/Y88iHrJjnfufX/7V5gMfR7r0RcjwTWSeEzX573dfoXrhfn+M6mtD7fb
+	hXk4eS2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLkCx-00000005OFE-1yH1;
-	Tue, 27 Oct 2026 16:39:31 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1xLkDa-00000005OOT-2tjY;
+	Tue, 27 Oct 2026 16:40:10 +0000
+Received: from mail-ua1-x935.google.com ([2607:f8b0:4864:20::935])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLkCv-00000005OEs-0Wol
+	id 1xLkDX-00000005OMn-1NI9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 16:39:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gS0Orzh98YoHdr+jrK9SLhtLHXIHrfBx7L5BnUMLOfqAPagtEJ3t6MXhr0gayA6wYGLqGhoybsqN8+/BcHIdFtlXFWo1PDkwMThY54H8wR8My5l4h988jICJnaf2T1Ryv2pLbZOxMM106FjO5OoPR0Jn2FdbCFFD1UC8Z87zxmtNgx0HeDarEtWPWQ9kbmZYHWWDsyRf/M7oN/+hJBCyWlUvae0KOlZHwDWnpxEYwAY8r+vSkTcI5zyFm6myyPV53alHEsciUuUE1mDySHKIhoNWnJz8fqjX7LkNum6fxPRWk7vk9VS3K1zLXGO0tMF1IkGL616zT+CQyn9AiU7rpQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bsSSL1v6kG7ZPxtFD+LkBFbCWBFQWy1eNk2FJQSikKg=;
- b=j63VHtfozUgw0jc/DaOwybXDghjzTNVUNJY882sJJ05j4nogUAwgcHHpetTxqJ0Ga1E2uQJjV9tH6WL4f8hlQz1wvy3tOcSLgH/OBbqOmMjf/cFqtz7rvu77KQwGngNZMPM2Mfc1SMQE8eXoMxC68a2dgXpQp9YNdGE17xLcMA8N9plaz7u49YLbV/n93aqqI5lWJXpF0J+737dkiKKgtnjn64k/aEyd1BsvzFELy/mb6ddT24SfTPE32lWYkZFIvb0VCY6Aypn50SCEUJS8YBUd9zsOnr++AJZ8MfpBZFOvr6HUttFvU3adDqPbStCcwzKfU5kBQfjz/GcJ48pIdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bsSSL1v6kG7ZPxtFD+LkBFbCWBFQWy1eNk2FJQSikKg=;
- b=LSFilaTs5l7PSKN0XcQmavM0gLePOxId1F6ba+opxb/Qa7V7+mFgssrYeVVQqYzW0wPECyPsDczDHOD7Wxd9PcB2dFPIdtvhTJoa30ZHHzZG0bpv76j3zxjHw8xBtmZSTJovNWCsne2IhzYbvkXyxEe6RhE9XB6PP0W+15WaSAYrjfhrdkyOytcOx6dSgComhLd8crQWMCVS3DmDv5eCjHjuR5r0kpgcW7h12o/8cZC4OGIM1mmAjraNzYY6VaEwTVjNWJqvG12hpEHidTM/GEX2C4vs70Req7DX/jtzzG0uw+y69DXm5Jxq2wXJ3WEpsMV576NifVlTQjsFhbAVxA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by WA4PR04MB805442.eurprd04.prod.outlook.com (2603:10a6:1d0:2c::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
- 2026 16:39:20 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
- 16:39:20 +0000
-Date: Tue, 27 Oct 2026 12:39:13 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Jeff C. Jensen" <kernel@nullptr.com>
-Cc: Vinod Koul <vkoul@kernel.org>, dmaengine@vger.kernel.org,
-	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
-	Suraj Gupta <suraj.gupta2@amd.com>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Alex Bereza <alex@bereza.email>,
-	Folker Schwesinger <dev@folker-schwesinger.de>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/5] dmaengine: xilinx_dma: Fix cyclic period count
- truncation
-Message-ID: <auDTsTibC3c_W5B8@lizhi-Precision-Tower-5810>
-References: <20261022-xilinx-dma-work-v1-0-20faea2e7a80@nullptr.com>
- <20261022-xilinx-dma-work-v1-2-20faea2e7a80@nullptr.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261022-xilinx-dma-work-v1-2-20faea2e7a80@nullptr.com>
-X-ClientProxiedBy: DS7PR03CA0344.namprd03.prod.outlook.com
- (2603:10b6:8:55::28) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	Tue, 27 Oct 2026 16:40:09 +0000
+Received: by mail-ua1-x935.google.com with SMTP id a1e0cc1a2514c-988c7371716so55157241.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 09:40:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=soleen.com; s=google; t=1793119206; x=1793724006; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=gbXuStreYRF1M4k9Su5zd2++RJBOLVmoBCN1Uwl3TZ0=;
+        b=cnzisrvbKbW0pFuDaz+kHMmxXiIezPBvVCc91p55CF1D2bHf1Db3F09sdK7bWgGt34
+         5ov5IgJ5BMQZmj0DqZm6oDX+jWwCxnY0VQbp3qHWAn0/pRNIv9/28eULp4D1s4NutGZt
+         OsVzZzrpGosEwuZLRteiWiauEvebDx9oHrVSDtzSsjctdYHwt/8WvThKOR+b0BT9Vz8d
+         m2fpqgylo1WVDHW3cIg13ONLoqd3d5rXc896ZGhiC5bFg5Op+AQ2oILumVD3ztFrGO1a
+         0mG4xZPzG3KzmSdEwVxPHmlmOZdGK/2ZIhdruWhXgbkZr4f32pDMCuOFI2n+ExibQKyL
+         BcQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793119206; x=1793724006;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gbXuStreYRF1M4k9Su5zd2++RJBOLVmoBCN1Uwl3TZ0=;
+        b=Cecz+EAnGHsZLO1YEAj2TvivNpPqDCtkHpYDM+E+4b+dfoMmDnlEGpUUguc/F17DDr
+         mgmRevHESUob+/hnNRt9FGrA1qEqEis4At/RrZ1qHAHZgyfSqmq7wKOHLCFSrsD1nZRN
+         Zry/W4fXELthrmoy6Qq5NiQWp6R+NmNjXtnso+YTH3j+1i0s1vAPCMwILKYTrCOxeu4l
+         /nG9MizP4nBuJf+sPfH/P3wyC6MTI0Ng63tmQ4lUkelEkTTJKCtfCA9Po4QpJXpiCZee
+         J9eHwmKiIwcCqjIaOrPzfajE0n8ylcAgaVRd0ma5bNn77zcQMG/6EFhKjoUAJjtt2F+D
+         4+Kg==
+X-Forwarded-Encrypted: i=1; AKwUvBxvFK0uUmYq3QUouYxEm7oXP0xNikzFJprt0lHr8riCyFD8LX4mXJsgLCEpQHCYiPfngY8VLIQzJ+im8yreqJxa@lists.infradead.org
+X-Gm-Message-State: AFq9FYJDLLBzodSe26aCcf/Wk6TxBRd3/K9wT7ibZbQ2Lt+h3LC4XOPX
+	0xGQuyihhoyRYaKFA6c3IYJHrnxQIp8aziaiUyuHEvdoAl9M+6wXy5X4FIIQ9c/Nbaw=
+X-Gm-Gg: AYBFou29AfZrsyPN6b4VHzp3g6mUBkxppYNc5k/PNUa86h9vcgoD+r4L3k6BKE+5iOT
+	PozfIk8E04rtiNOIy5Yz0pdw2zPJMiAYCVxL+tjhWOaZwAKiht1+cGzcfLkU8kvwU5WnSF4+PUQ
+	lga2lXFmFRygmYxtS1zRkgcN3+MKL6A3FBLhvqw3thZzYBavcQy+bm79SNYl63s+W4CCTf0fo5e
+	9XEhHSEXcViIQaiCwq8u/nKWPjXOIm70XlOUROfywmlQV8MPjlAQo39rpT+IFf/gW4K76RCwZCs
+	UOr6pbhY0LLFBSknhFC6U3mzlh1na9kvz2dowetHQ2YodsKks9JDXUj2GwVPcILLiPs+SlA2xTG
+	nBDclnzjE6NYqp+y3J7KVNefGVPo8a3mS2LbUZAZ+SVdTs3+8Qfw07TSqyaacl6i69NJs/eFV+l
+	wUGgQa2FWZ5zytYvMC4fXBW7D/WvRJhZo0k9x+2L+UX4JqX+L9eqYR7vtGeyf0EcHX/Rq2xpC58
+	F6az13rfbNZOGihXCdEKqfh/ZtK1x5DrmRN3fI4yoYk148bPDZIWGo/wk1640GTln6tByVdZS4M
+	TfJ4dtsEtebGhKqj6R3aGXudm4Y/CZJWYulz0VolF2rF0Nrp303kvAAj0ExJGBFMmQPqs2F+9aI
+	jOEj9ioSldXgJDZxfHjZCO/qYdH0QWqwKMKNdADFPlOgMBzxWSWA=
+X-Received: by 2002:a05:6102:5048:b0:7bf:74c1:b606 with SMTP id ada2fe7eead31-7ce5ce4227dmr3243460137.34.1793119205875;
+        Tue, 27 Oct 2026 09:40:05 -0700 (PDT)
+Received: from google.com (16.49.199.35.bc.googleusercontent.com. [35.199.49.16])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-9912da2d9d1sm442866241.7.2026.10.27.09.40.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Oct 2026 09:40:05 -0700 (PDT)
+Date: Tue, 27 Oct 2026 12:40:04 -0400
+From: Pasha Tatashin <pasha.tatashin@soleen.com>
+To: David Matlack <dmatlack@google.com>
+Cc: tarunsahu@google.com, Andrew Morton <akpm@linux-foundation.org>,
+	joro@8bytes.org, Mike Rapoport <rppt@kernel.org>,
+	Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de,
+	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com,
+	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org,
+	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com,
+	will@kernel.org, Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Alexander Graf <graf@amazon.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com,
+	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
+	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev,
+	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
+	kexec@lists.infradead.org, skhawaja@google.com, kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
+ a 2-bit pair feature header
+Message-ID: <auDT5MjXYq3lcQjE@google.com>
+References: <20261021152527.375070-1-tarunsahu@google.com>
+ <20261021152527.375070-4-tarunsahu@google.com>
+ <atlQ_Er0Ig7CCSxv@google.com>
+ <CALzav=f00C4yOAseNunW8GgQTDUGWT927Qy=TLm-3-J0TEDH8Q@mail.gmail.com>
+ <9huzzew0el59.fsf@tarunix.c.googlers.com>
+ <at_CncIPYCxOVkLo@google.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|WA4PR04MB805442:EE_
-X-MS-Office365-Filtering-Correlation-Id: be961a7e-26a9-4e43-3b64-08df3448d9c7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|19092799006|366016|376014|23010399003|1800799024|4143699003|11063799006|56012099006|261021121427099003|261021123027099003|261009223027099003|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: f+IV4oL3KgcmqWP6GoHvF5oBq31rxpXjX4IfmgcSijdqxYIXXRi53cDhYka6gecfM6/ksRvxCQjwlHQdS4aGTF8H9bBovmEG5wRiUJspG34BR5f1OZ8R0cesdz8emjR4Q/yUuGe1UOZtIWhoBmY9DX0DpFHLic08ZooZ8W7SZ63TuTJcHuFZE+SGHkIUG3Lgc0NsseB0v+Y/zk4sMqIpGm5NI+3wIs2TFdcz26WwI9I3P4iET+9OIRzcUcAgLiIDvR4JO2ollnpcwbCEeWu2K4ILrjKEjcN/EEHOtTIUBCM658IjVE1nVNr0IfHUTufiEt7t0S7bXBIm0Mt5qYRzS2S7jl56QHNA0CJYNGLJYdGmZmDv3qq6PBveLejyQpTvnoChjTySgYbsl3KHyowOmv5s2UTccVfRNXEJaxT8dU31AYk5sS7Uhczox7N0nfnfKgUhwqsOedvHWuO04XTaX+0LFy8UHeC+Y/lgS1FH1DYlL+T7uMxdfzkJn0Yj7tnyG6Jvm+M+smTEdRL2KlTsZ1eSyYvZh22qP6qW6yVQiWOfEFGTvOe5yJwnb+rj7vjkjwTIPar0gIj7lPxIyta2XOkNpP+KdS6cuS9I9928oolOw8UTDT3v2C2mYI+U0UtQKL9CmA4vkhs4WU3NGrAvpWgbeB2+n3IB1y63TZuloxs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(366016)(376014)(23010399003)(1800799024)(4143699003)(11063799006)(56012099006)(261021121427099003)(261021123027099003)(261009223027099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Wgz4WoHkrzlsrOkf4afof+s/cG5lqAemhUxaeDEIGLYyniyRRxPFcJkFMnud?=
- =?us-ascii?Q?VHMKJBdF94/yTBDPPbkpq//wWTBlZUZHgytw4FjlzW9zdTPHJcBDorkvP6Dd?=
- =?us-ascii?Q?7/HNTI/YbuXhaj0EAyCbP2goqlyDsaHiCKDk1A6Hp2plgusDGxxNJ0Rxrbef?=
- =?us-ascii?Q?aoJgmsVBm1yojAubW1dK5myF6ZARP5sS69NE8+b9CiRG7PVUTK0qSsckyDxe?=
- =?us-ascii?Q?S4obWezxsAc5AGySTdR8quQvfgZ7INj8Ak5ucnnLcQipg6DiblOyChdtlfby?=
- =?us-ascii?Q?FYh1y/zUplwYkUbWcI2MKCYD5H73+P51aZs2/EF0AqYps77HaIHcOC7RScO1?=
- =?us-ascii?Q?XswAkitjZ64sGmrZ01chI/9kAL5YNM7igW9rUd//W7NgFCGNatbJVWLDcJJu?=
- =?us-ascii?Q?fGmaEM50tULYgCPAJz7hJx6+AR+LJcmRAg0o9KLViW5z5+Yk5hg1h6ZYYgMN?=
- =?us-ascii?Q?o2bMJnSiz/GtBUr4rVNJgdQJT/4tTnYa7H7EaZbdOjCjJtLoaJhyxCx1FTLJ?=
- =?us-ascii?Q?Wxl0sHCiC15wQb8JSrwzFdOh3DVsWnGj6NCSB4iA61e4rxoq/zYC23hsU1vC?=
- =?us-ascii?Q?oaNpRZmYvTuBLDRMoAkXxWEZ50+9IyclpOcgYIlEZ1OnI5Or/YITImDhm2BG?=
- =?us-ascii?Q?La/NO+7tGJ6Rg6r3nJCe2xMbx4Dg9NT+PXGzLRQ+tPsGd+UwEAmxP20exW18?=
- =?us-ascii?Q?Sk9Xn2Uw8IzmVRibrZFgncppTBJ4n1Yj76EVMi3e+5qNpuynX3mEpcpURAP3?=
- =?us-ascii?Q?PXPHVqHrT6/jpsavGsTenVizfkoXGYIXT2wmZKEr77V08r/xoWrRFifCr4jP?=
- =?us-ascii?Q?Shs4nAYesIQNMIWJB43vJUp3nQfVNe5JJYrwk+JnGmp0hUmRBHgjObDKN75J?=
- =?us-ascii?Q?9GDeqfwf1JrhfSQZ8R29H1jIQT4MrHtS2PescWNG76dN+nso/RvIJf5A7+k3?=
- =?us-ascii?Q?kLqZvKKVSQfbogJHt2vIZk/jDPz3pbaG+LY5zoBEVET6lP6uQiPxHZ+BwPdJ?=
- =?us-ascii?Q?8z83HUG/vcS2r3ISKuuGwp2QTAnLmOed72BMIu8o0UlwFkW14KsemCYp3rAt?=
- =?us-ascii?Q?zDr3MPOaHXiW5UUs0hDHBzFQI15+L5/go6rEg8GFIRpIxeAz3hObPHIO9yKn?=
- =?us-ascii?Q?kL+189JZxuOfrFS4qBV8YE1a5vgB3nNqd99esf8VSbDPHVBK5VnDlE+9MUvi?=
- =?us-ascii?Q?wne9kVas1B7NBCSbWM8wWo5AfFv8rVF4nu7hr6TSxTez42Gh2IbaM1eT3Qmm?=
- =?us-ascii?Q?Di8Fj2Pjzw6cGGAL5inaJxzdBRsHRPgGO9jFUJblK8kWraCgvFKt1tECEbsg?=
- =?us-ascii?Q?JgEllhV8vEiSJIp+UWAg+IRMTlIMB+xQ6JyHSFRkmC/TSgaZH2qLMq3PtkXN?=
- =?us-ascii?Q?bkL8A4DA9cKwPa4+7db2FPd8Ez0TqbaKZGM98mcgbvYbzVCCsKdMNMk3ka24?=
- =?us-ascii?Q?hZW3rKeaP2QLjcXxDiBLKeHdxeWp2E2NgImmsmZzEyTXuItyLgPhjUL1ynsj?=
- =?us-ascii?Q?BnE6Mb7y0zq3ob3zz5KR67dmb90f1nt8chd7Z73la3efLpYd0yQUqZsV5Ono?=
- =?us-ascii?Q?iQdFSvQEJ8jicAHLQvsg78oBgv5GyGW+CKcBeXnqeRvVDg5AOmLMFxTe2Gce?=
- =?us-ascii?Q?Lb6WgyRNv+XoJKiRG/uudvjU79b+6X7zwhBcK+aPHW0e0zJtEh3lqcdm2jtA?=
- =?us-ascii?Q?Sf39epX2jM3gSv3Pa6fBBLO/Yw+K/Lt+zYvfF74IWXfLdWS0CSljKO75HlmX?=
- =?us-ascii?Q?4tKArHtJ++gx5w1/f8NkFqj9tvnDqGMPN3zVYJATs/txYi4ZKH6N?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: be961a7e-26a9-4e43-3b64-08df3448d9c7
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 16:39:20.6586
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AFvst7Kc3AVO4NHNISp2ytqmpMDx6xZvlqQEpqLp+4TOjNOln8cHcOLErqTn7Al5pnBRC45SOreSFHc9kWGBN16Va+aGU3gX7R9JrvgAi+AdpbBWskNzJk5O4Ng9VQt0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: WA4PR04MB805442
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <at_CncIPYCxOVkLo@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_093929_587176_1F2EBC09 
-X-CRM114-Status: GOOD (  17.39  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261027_094007_382560_240486E8 
+X-CRM114-Status: GOOD (  30.64  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,65 +120,88 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 22, 2026 at 03:11:31PM -0700, Jeff C. Jensen wrote:
-> xilinx_dma_prep_dma_cyclic() stores buf_len / period_len, a size_t
-> quotient, in an unsigned int. On 64-bit builds the count can be
-> truncated: a buffer of 2^32 + 1 bytes split into 1-byte periods becomes
-> a single period, and the transfer covers one byte of the buffer the
-> client asked for.
->
-> Compute the quotient as a size_t and reject it if it exceeds
-> XILINX_DMA_NUM_DESCS before narrowing it. Each period needs at least one
-> hardware descriptor, so a larger count could never be prepared from the
-> pool anyway.
->
-> Fixes: 92d794dfb699 ("dmaengine: vdma: Add support for cyclic dma mode")
-> Assisted-by: Claude:claude-fable-5-1
-> Signed-off-by: Jeff C. Jensen <kernel@nullptr.com>
-> ---
+On 10-26 21:14, David Matlack wrote:
+> On 2026-10-26 11:50 AM, tarunsahu@google.com wrote:
+> > Right, Required bit should be source kernel payload property to tell
+> > target kernel that the payload must be handled to correctly deserialize
+> > the data. It should be source kernel (userspace) responsiblity to make
+> > sure it understand the target kernel before doing liveupdate.
+> > 
+> > Saying this, During deserialization, target kernel's required bit is not
+> > necessary. So I propose the following truth table.
+> > 
+> > Source hdr  Target supported[i]  Action
+> > ----------  -------------------  ----------------------------------
+> > 00          0 or 1               Accept: feature absent in payload
+> > 01          0                    Accept: ignore the feature data
+> > 01          1                    Accept: use the feature data
+> > 11          0                    Reject: -EOPNOTSUPP
+> > 11          1                    Accept: use the feature data
+> > 10          0 or 1               Reject: -EINVAL (invalid encoding)
+> 
+> Yes, this matches what I had in mind for the semantics.
+> 
+> To be explicit: the source kernel should set the bits for each Live
+> Update based on what is actually preserved, rather than generating the
+> header from a static per-kernel array. E.g. memfd would only mark a
+> feature present for memfds that actually use it. That's what allows
+> rollback to an older kernel as long as nothing being preserved depends
+> on the new feature.
+> 
+> But looking at this again, I think the required bit is redundant. Whether
+> a feature can be safely ignored is a property of the feature itself, not
+> of any particular file. Every file that has a feature present will have
+> the same required bit for it. The only thing that actually varies per
+> file is whether the feature is present.
+> 
+> The required bit still has to be conveyed to the target somehow, since
+> the kernel that needs it is the one that doesn't know about the feature.
+> But it can be conveyed by the feature's number rather than an extra bit:
+> split the flag space into required features and optional features, and
+> assign each feature to one of them when it is defined. This is similar
+> to the required_flags and optional_flags approach in struct pci_ser [1].
+> 
+> Keeping the same header shape as discussed with Pasha:
+> 
+> struct kho_ser_hdr {
+>     __u32 size;           /* Size of header + payload in bytes */
+>     __u16 nr_required;    /* Number of required feature bits */
+>     __u16 nr_optional;    /* Number of optional feature bits */
+>     __u64 flags[];        /* Required bits, followed by optional bits */
+> };
+> 
+> Required feature N is bit N of flags[], and optional feature N is bit
+> nr_required + N (using nr_required from the incoming header). The length
+> of flags[] is DIV_ROUND_UP(nr_required + nr_optional, 64). Both spaces
+> are numbered contiguously, so there are no gaps, and up to 64 features
+> still fit in a 16-byte header.
+> 
+> Each bit just means the feature is present, so the truth table becomes:
+> 
+> Source bit       Target supports  Action
+> ---------------  ---------------  ------------------------------
+> Not set          -                Accept: feature absent
+> Optional set     No               Accept: ignore the feature data
+> Optional set     Yes              Accept: use the feature data
+> Required set     No               Reject: -EOPNOTSUPP
+> Required set     Yes              Accept: use the feature data
+> 
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+I like this proposal. I bet most features are going to be either 
+optional or required, and even if we ever have a magical 
+sometimes-optional feature, it can have its own required flag. So, no 
+need to pay double the cost on every flag.
 
->  drivers/dma/xilinx/xilinx_dma.c | 9 +++++----
->  1 file changed, 5 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index 5ccc9f9d58a3..aa714effd10d 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -2454,7 +2454,7 @@ static struct dma_async_tx_descriptor *xilinx_dma_prep_dma_cyclic(
->  	struct xilinx_dma_chan *chan = to_xilinx_chan(dchan);
->  	struct xilinx_dma_tx_descriptor *desc;
->  	struct xilinx_axidma_tx_segment *segment, *head_segment, *prev = NULL;
-> -	size_t copy, sg_used;
-> +	size_t copy, sg_used, periods;
->  	unsigned int num_periods;
->  	int i;
->  	u32 reg;
-> @@ -2462,10 +2462,11 @@ static struct dma_async_tx_descriptor *xilinx_dma_prep_dma_cyclic(
->  	if (!period_len)
->  		return NULL;
->
-> -	num_periods = buf_len / period_len;
-> -
-> -	if (!num_periods)
-> +	/* a period takes at least one descriptor */
-> +	periods = buf_len / period_len;
-> +	if (!periods || periods > XILINX_DMA_NUM_DESCS)
->  		return NULL;
-> +	num_periods = periods;
->
->  	if (!is_slave_direction(direction))
->  		return NULL;
->
-> --
-> 2.43.0
->
+Just need to make sure that optional features always start from 0, in 
+their own enum, so the offset can be computed correctly in the incoming 
+kernel.
+
+Pasha
 
