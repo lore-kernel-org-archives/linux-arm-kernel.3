@@ -2,105 +2,105 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34A3E606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 808CE606A31B
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:49:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DFpCRptn;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=c0OQ0ueG;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=bScYgMVt
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SQfhDy8B;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GJtwWxEG;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=bCz7SjYA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=AmQqM/FOqOqOLJNrO9V4EKVQvKZuNX4OQLoiG1lHBVQ=; b=DFpCRptnJu1anG
-	mMMUDi6jkjJjswwTraxgH1mUISrj8lIf7ScmxQEf9qPKRKmRU1M8vXZtPb3jRRxz7C++K5hIcUo8W
-	w1qSwTYsrjq/Bh5qBv0MIRB8QKeOoWEh3YV5sAxTkR5uLzxFyw6guVWORG4PQyMyZ+XnDR4/GNAc9
-	n39WXG/weEsiSLVsJrBq0/HarPKgjzgHxqYvjsDEtDN5FSiUdBMXwl3EU+TRB2UrEFyyXQWPJJH2u
-	r9+DRnh2QwGI5dGHzQH14Uany6Ox4FVJgYk+FgtsRxe0IYmvV5l77K3OFExcqkvMS4P8TCp8L3p5O
-	w05ilwvkBMCsJmniUrdw==;
+	List-Owner; bh=/rk6zsEoSC9vyEa7aELMlRYShi+YOe7ujM2O0/y5nRs=; b=SQfhDy8B2Jwjw6
+	MF1c2aV2FzDQhZVP3Cy7HGgAH1GOLizKcyfA3cPmGfFIvFDCqBM3xvpFWrUcyP21AMww21ZUrJdyd
+	GGIBeLr1oxk3yKvhIwsUYLaQDUiGEdhFzvZn3AKM9MecR4xLdWbnCe1FdUH0aMH2T0cm5H4aDOqWt
+	OvoYFta4O1+if8aQE886oLSK6A3OtYTVthKgBw3tKR+z27Qt0xmwd4H8J4yqSjqxLzS9BBKjhm3Zw
+	+L8PgDq8vLGXVm7GeZaYG8vOjkaFuAKnNgTre6E57fPDetO654buI5JLwrRb1E4NTtMOdNu5lkzkN
+	MpCGGQ2nGl4gBxmOgFSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLhY3-00000004vrE-179U;
+	id 1xLhY3-00000004vsQ-3KB1;
 	Tue, 27 Oct 2026 13:49:07 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLhXy-00000004vma-0DRg
+	id 1xLhY1-00000004vpP-0EDD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 13:49:04 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69RAe47r1922071
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 13:49:01 GMT
+	Tue, 27 Oct 2026 13:49:06 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69RAdwpO2458090
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 13:49:04 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	AmQqM/FOqOqOLJNrO9V4EKVQvKZuNX4OQLoiG1lHBVQ=; b=c0OQ0ueGVcdWzglE
-	IF1UIuArvMziDXsKE8kJBLLUw79fGM2gk1iwYg/t9ARtp//FuZy9iAgxlOpLvU9h
-	exgmrU8P+85NaiUI0al8fZBTBzO2SnoBTft2cw/JgJSo7DQoyW0JeKlqU8ITFQsL
-	3dKth69mKMlV+h+bn+wgPI0X/SsN14orv4DE87fuX11kkayyts5nucNSI97Ibp7G
-	VXDWcIMBSfK9/+qGzhXrXErw9d36OmVdmqUluiJ2jHpEY+fzFrJ6BWv0To3mx/tq
-	LlmTc+Q8cenPaORezymRRDjpCxBUo15YMyVomS9zSZ7RTgMLojnUW+eeokIMZRyo
-	COOAnw==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hjrq695hn-1
+	/rk6zsEoSC9vyEa7aELMlRYShi+YOe7ujM2O0/y5nRs=; b=GJtwWxEG9BWyuIF0
+	OZmt83Pz8xiqShipwY/KqIKoUpMQ6HoP5r4/KEsv2rB8R/sUi0OUewC9yz/15ZJn
+	JJTZgXolj9EWoGV5YaigdFNXeZeLAtrwZRTujVL8DJ/PDYTE8FCI024Mg0gn4skW
+	XbYZEe5yMCqEKgU8ocUSTRlzzDI2veGGk/UJ5hdAVBnDTFdXR2R+grKa5GiN3Eyj
+	sTVQXAXiL60KmQMl15YzrzTTqHVryVXUZjMHO4iUp1IX651O3TnjKpWAmqkzHslz
+	RIMeQpP4ul6PYFhf8GcTZ8jFq8CsyS5u65piLhA0bLOcL+U4cq9Am5rNeGcMW2T1
+	qfTaQA==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hjjbtajjw-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 13:49:00 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93dd3c3badbso987156485a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 06:49:00 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 13:49:03 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-9308eafb465so974292285a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 06:49:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793108940; x=1793713740; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1793108943; x=1793713743; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=AmQqM/FOqOqOLJNrO9V4EKVQvKZuNX4OQLoiG1lHBVQ=;
-        b=bScYgMVt/SUb4GFE6swo1009MgIxhrqS+3pU8RY4U8l/nKbnO2Cvp907IbOCXz6LaN
-         kSQZc5l8h6pYlXiudM7xVW+UzCuEzj0dO9G2ztIMKGFQwaVW0b7b1s71Ysq/22ODm4aP
-         /KmI23baALNFsSe2Fd/G4EtnwyCr9P71cidFoI1f8rbf0tVed+XybkdDa11jsjZGySQ+
-         uSsgpsve9J/bj8W5WsiEEsk3ui6aSLCocIJBcY/2r69Cr6scsXiU4RfwJ0NIf/WlQ9na
-         o/v6cqVIhvKG7rz81V+yqSW3icRD5yiVlCzFAcFUvan9o/uLRRrUX1M/5Iehre51pPcB
-         M/+A==
+        bh=/rk6zsEoSC9vyEa7aELMlRYShi+YOe7ujM2O0/y5nRs=;
+        b=bCz7SjYAYTGRZfYvy1TlDmPk9boyZi1cCYA2V0cTr3E4kYtvjjI3MYxDAZRzY/B1/8
+         nMNOVAsPRUV06EggYawyNWlvRD/69Ev/3vh3HETRk3DiHmNNsazqgBuEOYSsVXky/Bjs
+         9Va5jYW4zgbh4u1doa5oaOpXZOz6rp7hfsvvFPhkZ+fg1IronX4CrYfyCbqTeKN5UlD1
+         /hy3nUwbeH5K4viqFFyx8KvmpHkmsVs2Rnu6hsg72QDUDmqUpzZxxiW1d0joZT63je9B
+         XhNKsW39ZyXro94lh9KQTviiLJbK13YTeAjT5ZHDAiKWB1yNbyUE+ckorPZrNg7HYf5v
+         Ojwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793108940; x=1793713740;
+        d=1e100.net; s=20260707; t=1793108943; x=1793713743;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=AmQqM/FOqOqOLJNrO9V4EKVQvKZuNX4OQLoiG1lHBVQ=;
-        b=tMXjzLZcIdqQOUEdbUZrZQqGN0jHzDFCdpL6xuLoCh/xe1eHqBsD2x8CqGQJsj9YhN
-         La0XWGaodDPUdlrlK+MAMrrFJTWcnl0R7OYLiNrFimiIcP4q6qBXrQDXwxyWBtU5aqtr
-         e27pv2qHImp6q0wNl6+orE6HUqOFBlP489gPvKjjRg9iU/F9GJzlS2mXA+T2Z43SfcOZ
-         viZMXTT9GSGQeV1WrTOemZC3QMs7bI2kGsebB+1JutiNmlhw6Y9ERrcgvSoryDpnvGiM
-         +I9MY2FT6s1+oO5kYp+RqwZhULa1FogaDLjOok2wR53z9LCi7hmQmC/B2rA6U7RuG7do
-         cjpw==
-X-Forwarded-Encrypted: i=1; AKwUvBzIbx5dKHKh8UNgQKqfJFCx56Lu+oAbuU510ckxVy18i7597XMKPYx9zsCGWBQxCi2Kq61/FPQwdkLVSGiac274@lists.infradead.org
-X-Gm-Message-State: AFq9FYLsBnxQxlhUnASEGN4t22pqqExEi34LYb/8yC29d1nLYaDsGgvZ
-	fHH7eyRcbYtDQ2vAgeL1aX8PIaSNoqt9FhsqaM67WcrdcI9pSnUaUvXX5Wr/W2sPmqQJH++EdxR
-	qEemhdczV393oc9vwg6GSsVh8zf2Cd9CnIlagG+hRLKP4yXSsAhWdZICySMTEr6ujAmVhHv6rU9
-	cNrQ==
-X-Gm-Gg: AYBFou0Gv/c10yRnP/vezy4P7PaiDPKbfsN2UV7kxopVttS5zk7TUv/sGJ0NVnpIPDJ
-	+m8mRa/x0Ne4Lc5I/A7Dosm1Dk/i+WyXngyxO98U/bmaLlGWl8478otpzHaE8TBrJZTw+CboWnQ
-	EWQ/QwmSehDbHgFqRW7cJBKyDogAR9mwlhfQA3VM4L/i3WxLu5dA1W9Wm2QdK+KvRmX8yUZLkPT
-	pzO5jfpyniTraEmpgxyBzaLJcXvvOdPvhnXnmlJ+IqERCwVXepi+3Q/0BOTzBsNONoLaqCnqFOx
-	WQAI3gNxX5/nBy8oajaSrKuFaZwhhX3nkLlbm9OJ6Sh3pvnnZLh9ZLjBG4M15/Y6FzO950bHEnL
-	Jukmd4yDE0NQ=
-X-Received: by 2002:a05:620a:a895:20b0:943:b019:f011 with SMTP id af79cd13be357-943b019f025mr869449385a.28.1793108939970;
-        Tue, 27 Oct 2026 06:48:59 -0700 (PDT)
-X-Received: by 2002:a05:620a:a895:20b0:943:b019:f011 with SMTP id af79cd13be357-943b019f025mr869445885a.28.1793108939391;
-        Tue, 27 Oct 2026 06:48:59 -0700 (PDT)
+        bh=/rk6zsEoSC9vyEa7aELMlRYShi+YOe7ujM2O0/y5nRs=;
+        b=0JgvHgTPA+ywMj49ZTtb87rElCrEXaK3dYv6UQb9vSZOvSMiw6hKfl1VtTcgFVdUgm
+         H7ifNRgSUT2xwlK4sJW6qUDYqaUdhyNx2VoL7OtVOeZQAhFPVIM16Py3ZEXD27UW1Tpe
+         j1i/jXN8AQDBq+32oI2CpnUUuDEtAN/7zQpwoKIrPtCBtpps/HEyFsiaVwRdRfWlgdkD
+         fESjJlLUw3ICyprLbOIGMel0AKxfNN1fvILVlxXLybwi3NdEvc6EaajYJ7v1h0C+URNS
+         PVAei12zFHX9BWmXWObIIRDZQM/vJNnRomhNgmTBVulj2404SjeXpHzS7+vLUmgiMVq0
+         wPqA==
+X-Forwarded-Encrypted: i=1; AKwUvByIe9tMVp7TbEZ/l52cHUAvsBM5FQwkFfYzf1TftkCsauP3BrjzQC/MWrjITaYvShj5dQKn51PuNFH6ZVBlfLhy@lists.infradead.org
+X-Gm-Message-State: AFq9FYKusH/1mJYBh0WKbGVPBrolpV1lslaaJeJtyu3nEG/dVZf9wnpT
+	iPawhPMCYNvBHE26//iM4zb2X70+WKKfdXpEa3tkjCnctbD8fFPQGBsJVfIku+tnHcnieDrd4Mw
+	/dv3B0exlcLKsqyddSq2ym1wUDq3XvBbp5PC2lt/E004Eu6On0gYIbiLGNz3F08dqxRLjcIl+wZ
+	iQzA==
+X-Gm-Gg: AYBFou2Q8dtwjpPDVQxHg4VPL1WPuo6UIAOnZ2BZ8G1GaExxoRO/jbweb8jtwtcIEGx
+	5lbb1IKjzp3Yh1cPbEBYEhRyDERFN5suC17zzuEjx5fPDRvyYwXhXSX/xGg5O2u8sxfAnAzEiyP
+	IEr3DJEaQgt/PsNbaZsq9mW+u9MAtASbYPY2hRhqWXOFP9+dS5yMzysRsbvw3HJj/pjEIzD70Hk
+	vvDv604Ch8wndd+LHD6MSzl2PRNXF9xA06gIVTYIdCJmQik/LZ085s8zCs4kA0mxUssyJ1hWBTA
+	MlLJHUhXeunnsG6i8QJUr8/U5GnPKJWs7kyJEZQF6XSvEVUL4gAOFwWcrShBeQNtd/F7BYfhVMG
+	1/LICxNgMQ7g=
+X-Received: by 2002:a05:620a:27cd:b0:93e:c12c:fbbf with SMTP id af79cd13be357-940ef96ee50mr1550617285a.76.1793108943030;
+        Tue, 27 Oct 2026 06:49:03 -0700 (PDT)
+X-Received: by 2002:a05:620a:27cd:b0:93e:c12c:fbbf with SMTP id af79cd13be357-940ef96ee50mr1550612685a.76.1793108942481;
+        Tue, 27 Oct 2026 06:49:02 -0700 (PDT)
 Received: from localhost ([93.144.6.81])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c46bd4e995dsm455982266b.25.2026.10.27.06.48.58
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c46bd4e89cesm464714066b.13.2026.10.27.06.49.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Oct 2026 06:48:58 -0700 (PDT)
+        Tue, 27 Oct 2026 06:49:01 -0700 (PDT)
 From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Date: Tue, 27 Oct 2026 14:48:37 +0100
-Subject: [PATCH net v2 2/6] net: stmmac: drop split frames on AF_XDP
+Date: Tue, 27 Oct 2026 14:48:39 +0100
+Subject: [PATCH net v2 4/6] net: stmmac: copy XDP metadata in AF_XDP
  zero-copy RX
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261027-stmmac-xdp-fixes-v2-2-10eae8a093a8@oss.qualcomm.com>
+Message-Id: <20261027-stmmac-xdp-fixes-v2-4-10eae8a093a8@oss.qualcomm.com>
 References: <20261027-stmmac-xdp-fixes-v2-0-10eae8a093a8@oss.qualcomm.com>
 In-Reply-To: <20261027-stmmac-xdp-fixes-v2-0-10eae8a093a8@oss.qualcomm.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -120,39 +120,39 @@ To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
         Oleksij Rempel <o.rempel@pengutronix.de>,
         Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        bpf@vger.kernel.org, Nicolai Buchwitz <nb@tipi-net.de>
+        bpf@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Authority-Analysis: v=2.4 cv=RYwFmFtv c=1 sm=1 tr=0 ts=6ae0abcc cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI3MDA1NCBTYWx0ZWRfXwVtTjPPmd/0N
+ hMNLOLdyrA2BvK4ojJKJkuMCUCHAJK0AlvTtqsESXyDoyFxBxkN0CUB41+jUxk21641rfTkpglr
+ XFZcttERxqvuU7n1pm5/GmzsIFwYQpk=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI3MDA1NCBTYWx0ZWRfX7JYypumaOIz6
+ H9Es4alcybCcWWE2wOfgJifjTnt4kxsfQlb/MMITou/2hH6V4Yiqwr6NCD4Vppc+tQ3gN4k1N9M
+ 97dGhj1nRRnshvkdBbtdn5OWDtOtL6hxFzi5CSGPm9lGbgC8idRrvh+pvqCHvQhr8OWB5mtzeKP
+ Ul2LBWlRJvx2zo3fJlGPCLRh83+/HpSIx1yXDwRGlKRe9CiXKT6kEJjvs5VRvvmXYAZ0kBgoybM
+ CRnJsmRdO71OO5ydjC8J5vgw3b6SJ094QKRjmkYjLC3I4c16IadI1CUVr5ysCT31x+GzoYLHYO0
+ LBwv4viJZOseJV6J0iDV7aJu0sDcL1sBbgLyqinZmmIx2ZsFFNqd0S9gTzFU/01d33+CwiHkZ+d
+ bwRtbEJLn+az1pgXVJepPD3vaTpasGDfvCldwqrjcv8qj+ZkKAD3mTxR28ReTW2OzrX4wcjVJjq
+ 80OXVQuyKNP4atdy61A==
+X-Proofpoint-ORIG-GUID: PTaVt3BROrdFHgOgxixUfk0CDhOxc-9l
+X-Proofpoint-GUID: PTaVt3BROrdFHgOgxixUfk0CDhOxc-9l
+X-Authority-Analysis: v=2.4 cv=XaIcX455 c=1 sm=1 tr=0 ts=6ae0abcf cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=6POjKhNZmwZEydtLWKIA:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-GUID: Km20vRP8DiUYDudeqyPTsBdCCjDxmD9a
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI3MDA1NCBTYWx0ZWRfX5dzO2sSx2ESM
- 6NVw+9p/XoQZY8TfCrlQDZyC6b4e05wAVj7UnwFxY5GZUYfaAVp4XVWsyZskWwMY6ykAslcyjii
- m6hN4k+/L52n/dd7EYDYySbQh5gR0fY=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI3MDA1NCBTYWx0ZWRfXw/cnIGuP/Qdn
- 8NaWOkvSy82SpK8Xn30vfM/ipE+9nbJD+38/DSzrupTauZLD46m/EBX65acgR1RbpTpa4+tNosV
- a+QdINsUOEo3uv+n/SC9qXQy2psfBADCTHGRr4KXbyUj2BCmSiOywqOsYJkRfLn5wffIbT8s7bD
- MvrhK7cGQXgp4JVDm951DJkx8ikc5zv1fgsnzPZf6XkswDtTLOvY2rW5iSee4LlaDK4HCydpQHA
- b6fDD1RRUir+yV9FzBGTsrrapfsCvE5dMVZxRg/RNY4iZmsrECQ+bXjDuwrs1Bthumpe0uW9lOG
- yG3st2GLkmyCm2BeEVzITWYNsEGNJsOf0eH8uwMcAr5zlw4z7jCBxkiokVhytSYt2B14Zooq7Ob
- BiagiRqKtzoo+g+4hNFaTpru2KHlYG0pfW9hetjTvzJTnuLJaj6snQB6zq9hQklNjvkkTqXXAqQ
- gDlL1boDq4XexhI8NQw==
-X-Proofpoint-ORIG-GUID: Km20vRP8DiUYDudeqyPTsBdCCjDxmD9a
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=9RzD3mWewD2guqUcLtsA:9 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-27_02,2026-10-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 spamscore=0 phishscore=0 bulkscore=0
- adultscore=0 priorityscore=1501 lowpriorityscore=0 malwarescore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ adultscore=0 phishscore=0 spamscore=0 bulkscore=0 priorityscore=1501
+ clxscore=1015 lowpriorityscore=0 suspectscore=0 impostorscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
  definitions=main-2610270054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_064903_009598_EEE9927E 
-X-CRM114-Status: GOOD (  26.62  )
+X-CRM114-CacheID: sfid-20261027_064905_215243_248989D5 
+X-CRM114-Status: GOOD (  16.71  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -172,147 +172,40 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-stmmac_rx_zc() assumes a 1:1 mapping between a received frame and an
-XSK pool buffer and drops any frame that spans more than one RX
-descriptor:
+stmmac_construct_skb_zc() reserves headroom for the XDP metadata and
+records the length reported by the XDP program, but only copies the
+packet data starting at xdp->data. The bytes in
+[xdp->data_meta, xdp->data) are never copied into the new skb, so the
+skb advertises metadata that is not there: after eth_type_trans()
+anchors mac_header, data_meta points at uninitialized headroom instead
+of what the program wrote.
 
-        /* XSK pool expects RX frame 1:1 mapped to XSK buffer */
-        if (likely(status & rx_not_ls)) {
-                xsk_buff_free(buf->xdp);
-                buf->xdp = NULL;
-                dirty++;
-                count++;
-                goto read_again;
-        }
-
-The non-last descriptors are freed and dropped, but the frame is not
-marked as errored. When the poll reaches the last descriptor of the
-same frame, error is still 0, so the fragment is handled as a complete
-frame: it is passed to the XDP program, copied into an skb on XDP_PASS,
-or converted for XDP_TX. The tail starts in the middle of the original
-payload at a predictable offset and, parsed as a fresh frame (len == 0),
-stmmac_rx_buf1_len() reports the full dma_buf_sz length for it even
-though the DMA engine only wrote the tail remainder into that buffer, so
-the reads extend past the received bytes and can reach beyond the end of
-the XSK pool buffer. GMAC4 always enables jumbo frames (GMAC_CONFIG_JE
-in GMAC_CORE_INIT), so an on-link peer can trigger such a split even
-when the interface MTU is left at 1500.
-
-Set error when the 1:1 mapping check drops a descriptor, so the
-remaining descriptors of the frame - including the last one - are
-drained and released with xsk_buff_free() instead of being processed as
-a new frame. Account every freed buffer with dirty and count the
-dropped frame once in the poll budget / rx_pkt_n. The direct 1:1
-mapping drop also increments rx_dropped.
-
-Use a bit test instead of an equality test for discard_frame.
-Commit 644b8437ccef9e ("net: stmmac: dwmac4: report Rx checksum errors
-in status") made dwmac4_wrback_get_rx_status() set discard_frame on
-RDES3_ERROR_SUMMARY and OR in csum_none on RDES1_IP_HDR_ERROR or
-RDES1_IP_PAYLOAD_ERROR, so it can return discard_frame | csum_none.
-The old "status == discard_frame" test missed that value and delivered
-frames with CRC, overflow, watchdog or giant errors to the stack in
-stmmac_rx() - or to XDP/XSK in stmmac_rx_zc() - when they also failed
-the IP checksum. The change therefore affects the regular RX path, not
-only zero-copy. The bit test is also required for the
-discard_frame | rx_not_ls value returned for non-last legacy
-descriptors below.
-
-Normalize the legacy normal and enhanced descriptor callbacks to report
-rx_not_ls together with discard_frame for non-last descriptors. This
-allows both stmmac_rx_zc() and stmmac_rx() to drain split frames on
-dwmac100 and dwmac1000 instead of reparsing the final fragment as a new
-packet.
+Copy the metadata together with the packet data starting at
+xdp->data_meta, leaving skb->data at the start of the frame and the
+metadata immediately before it, and record its length. This keeps
+data_meta valid for the stack and TC BPF after eth_type_trans() anchors
+mac_header.
 
 Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
-Fixes: 644b8437ccef9e ("net: stmmac: dwmac4: report Rx checksum errors in status")
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
 Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/enh_desc.c    |  2 +-
- drivers/net/ethernet/stmicro/stmmac/norm_desc.c   |  2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 21 +++++++++++++--------
- 3 files changed, 15 insertions(+), 10 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-index 023b54b72478..7ece8d4157a8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-@@ -205,7 +205,7 @@ static int enh_desc_get_rx_status(struct stmmac_extra_stats *x,
- 
- 	if (unlikely(!(rdes0 & RDES0_LAST_DESCRIPTOR))) {
- 		x->rx_length++;
--		return discard_frame;
-+		return discard_frame | rx_not_ls;
- 	}
- 
- 	if (unlikely(rdes0 & RDES0_ERROR_SUMMARY)) {
-diff --git a/drivers/net/ethernet/stmicro/stmmac/norm_desc.c b/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
-index c4b613564f87..d19bf7ca4db3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
-@@ -70,7 +70,7 @@ static int ndesc_get_rx_status(struct stmmac_extra_stats *x,
- 
- 	if (unlikely(!(rdes0 & RDES0_LAST_DESCRIPTOR))) {
- 		x->rx_length++;
--		return discard_frame;
-+		return discard_frame | rx_not_ls;
- 	}
- 
- 	if (unlikely(rdes0 & RDES0_ERROR_SUMMARY)) {
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index fa7108919e90..33814672c842 100644
+index 71858af6fd66..d9fc2464a160 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5714,18 +5714,21 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 							   &rx_q->dma_erx[entry],
- 							   status);
- 		}
--		if (unlikely(status == discard_frame)) {
--			xsk_buff_free(buf->xdp);
--			buf->xdp = NULL;
--			dirty++;
-+
-+		if (unlikely(!error && (status & discard_frame))) {
- 			error = 1;
- 			if (!priv->hwts_rx_en)
- 				rx_errors++;
- 		}
+@@ -5519,7 +5519,8 @@ static struct sk_buff *stmmac_construct_skb_zc(struct stmmac_channel *ch,
+ 		return NULL;
  
--		if (unlikely(error && (status & rx_not_ls)))
--			goto read_again;
- 		if (unlikely(error)) {
-+			xsk_buff_free(buf->xdp);
-+			buf->xdp = NULL;
-+			dirty++;
-+
-+			if (status & rx_not_ls)
-+				goto read_again;
-+
- 			count++;
- 			continue;
- 		}
-@@ -5734,8 +5737,9 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 		if (likely(status & rx_not_ls)) {
- 			xsk_buff_free(buf->xdp);
- 			buf->xdp = NULL;
-+			rx_dropped++;
-+			error = 1;
- 			dirty++;
--			count++;
- 			goto read_again;
- 		}
+ 	skb_reserve(skb, xdp->data - xdp->data_hard_start);
+-	memcpy(__skb_put(skb, datasize), xdp->data, datasize);
++	__skb_put(skb, datasize);
++	memcpy(skb->data - metasize, xdp->data_meta, datasize + metasize);
+ 	if (metasize)
+ 		skb_metadata_set(skb, metasize);
  
-@@ -5907,7 +5911,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 							   &rx_q->dma_erx[entry],
- 							   status);
- 		}
--		if (unlikely(status == discard_frame)) {
-+
-+		if (unlikely(status & discard_frame)) {
- 			page_pool_put_page(rx_q->page_pool, buf->page, 0, true);
- 			buf->page = NULL;
- 			error = 1;
 
 -- 
 2.56.0
