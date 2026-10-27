@@ -2,106 +2,101 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEB8C606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 02:29:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B34BF606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 02:29:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MCiv+WGr;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=lIVzvVf7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=snyc3frJ;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=bGrZrfVp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=/WcSLowB0b2pojOqzb24H45+MS/MsdePMGuj0DzePaw=; b=MCiv+WGrxSFsph
-	hk1l5XfjnxD9m3IuhrjnUQbj6lJZwqfnKgjETLFpxEHZemp0p47K6fAJ/DdyHmK6UQ3KlxnQYd2Zx
-	CU0LCaA+LrFfCbnEec+pERCKCFg7fDs5+PkL2SJstnSNk8KPOazOwoP6G98nSUjBAbZbfod8pHs6D
-	EB9cBuVdWRxKcMPvSFoGqOraW1vPehGadJJiM+0LBRUEArZkLGQjrUiE2UPSW5LhNCEGEzfw1tbSW
-	ZXBMEQomHgMyfUV0oAimEukjPsfWE91tS49qWWC+EqFVKuauFNoG+Y0TQTnItnC4iWMphLV2miZ3j
-	Amiy0rF11PTXbi/TRqQw==;
+	List-Owner; bh=AuJpX+R1ikkgXuJg24CUYJMUBGehOWyuliZWHlt8VIY=; b=snyc3frJsANzEV
+	gdayFMzHkhKD5hmeKJyuXuMmfGHZyS1XDC+g0FWTOtR0yiLcHYOMT7v9hn3IplR1suZaDk/pRUigH
+	t+T6Om0Xk+VMBGlG6CacDiXsDsg6cslOgiCS80VSvEIh+mv25ONU49+GGyE5ANCZa65C/ChoXcj27
+	2PhMnIq4t0PheIvX1XkTnlZdduh1HaRXqvtik1NlNtg+9k/GgCBZ5jUJKidEX/qOuZsnjvQg1tFKz
+	2typiNs7urmYRPEfCQM1X30ozfuurDAtbynE9kZ5M5EWtnuf8XSc/4jiekVY8r3hqbzl7APupumXf
+	mnWWKBnb4qP8JzmMGl0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLWv8-00000003dl4-3hRF;
-	Tue, 27 Oct 2026 02:28:14 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1xLWwQ-00000003e4D-0eU0;
+	Tue, 27 Oct 2026 02:29:34 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLWv5-00000003dk7-1Vye
+	id 1xLWwN-00000003e3L-2KWy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 02:28:13 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-3ab3f899c8aso637620a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 19:28:11 -0700 (PDT)
+	Tue, 27 Oct 2026 02:29:32 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a2000d5fb1so24563395e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 19:29:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793068090; x=1793672890; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/WcSLowB0b2pojOqzb24H45+MS/MsdePMGuj0DzePaw=;
-        b=lIVzvVf7SRtMsKuL9rwlpOTUD5gBPdpmb58UkvyoPjVzx9wcEFDQIY/4MjS+k/NY0J
-         SEyu5lp2JYg3D3ar41D8Ev8LOIA/ZhT0BGI9HWxOt5WfD3MzCvoH2eDscWN80y9Y6RwF
-         5MV3H1s1VcAQqYZfhyUOI1dPSGgQEckj3Z0FLP7i4m+dY5HMVddjUiNeaAwcyOIHQHe/
-         WqN4kTzNfTBh805G805V03ifZ+PUYuvuca57PC7/XrosoI6wTwRRa18xkydx9rYP8yXa
-         bL5Ty/QG5VPsp7n8HzI2gzpV+KELWjJ5euX2oNfq9tnws/5AyCIVfacwbzK40ABvqxh0
-         hpsg==
+        d=gmail.com; s=20251104; t=1793068169; x=1793672969; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=AuJpX+R1ikkgXuJg24CUYJMUBGehOWyuliZWHlt8VIY=;
+        b=bGrZrfVpX/yOZP9tytLmf/Kjhv9gfx61n7JWxEDop/XmlDebB/ZD6YALsnD1fe4Z1A
+         PXt2lVpFdlTMTpJrS3hZT3h7w3JijrxwLa1VLhkmCIcx5hBrI8lZqXu2MOuIyNbEVUBF
+         u0oNm/VFG9aNFbEX9y5AZlzTCARS8oTkH/SCgRDUkwHIBByimKg0oW6WXZWVsV4iVdze
+         nqdesD6DZWx3qKJBnkCb8OO3pOcP+mTHwjMjOML7Qikzikf07FjjB6ubAf/BjmXNxFhq
+         pHZqjaWN8bWPHjFXEhlFWHn53qRoRQUsdq2GM3zcwmRrLkQZbgmE/v81651yOoGJgzdB
+         EjiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793068090; x=1793672890;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/WcSLowB0b2pojOqzb24H45+MS/MsdePMGuj0DzePaw=;
-        b=ES4XRjuwQiqgDpgtln2uvH+6MmqVG81BiSljliKvDQqPwI8QNEKYgUr5HIaaomHFHc
-         fAz1QfoTbRvyje39TwQbd6qWkcO1lpjHnrA4rYibWHtzeacdkgFPTEzb7IciloM//Xmm
-         vSmG7pX/Ka3psvRbyNCiB4FPGvE3WGaddBNP7LbEPZBr3Um6yPTgAefRZTzvmLZD0oCN
-         JEWcGO49ni/j8YujkveuEQJpQ1yXH46xgxStWNikBlV/U9OKtGRHmWW+Qy8gkKWogKQF
-         mHYKa9rajQTdrwyNBoww6uHBJQ6njk4nob/CFY7/4igjKuLUslpRQ4ScSdgBwQjVjz0d
-         P4dQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzZJgos/P7i5W3rUARLdm4rov5XFbvL886Yj2/WIYzLvNfSr9nsu9egAmjw4bOypMYN9HWrBMsKoO3rXAbs9gNW@lists.infradead.org
-X-Gm-Message-State: AFq9FYIwHGlnkmCwfgvTd68ZXwsJa6Zd8NkoQqEwnq/SDjUdth3sY2QH
-	TvogTl2NWIBR2D6/t++PS7PV9y3EhWYxe6E0wrLOHVmbtnsDpbG25h85
-X-Gm-Gg: AYBFou2XI/wXZBFX8XzgiEp0b36jNaXfQnZqYo0TL1BFCOwGvBowHEjNQ1oQ4T2mhNY
-	WeifLFhK54A/VT4bzwgIzQmYPJF6AB2UAP4U1IQ7YrTa3yobqmB/ZuzYNMPvtxBN294+Dm4HPhJ
-	8cZ1/J7YkuJDlPW0/74RbGJjgJPjudKU2X5nX0XVj+5UJlYX70FCdJ1EUkVDzF7mQaLIwHGbewd
-	pmFL3h8asDRn1va00N85IH0xnGl04uWe51Nq1qY/HjPXpxduImC44YO78SEmkN/Ekfa845jMcsQ
-	uKFehexxAkCkppmzoP62RDilE7LDQQQt4zmbKc2U4n5oFj3Hnq3XKwAVPHkH4uKel36ZiW/SsMi
-	WHJtKTmeVndb60Ew2WLs+cd8X4dd/9vcKNSp1JJgDNd22UZwIFbjlY5zs3Ttug+d+/gwL0XC+Ry
-	PReo2DFKkHxLt2ibpuVroLrs13nGs0keOLWg7twiACs1qUSWKr3KTqTGX7QGEaulF66i9sBN9qV
-	/Hq93dX8b2vRofluTpofEYIwCHUpbbRNzTjznyWmMXVI83hmCZEKVL7czLNsjnnth532iORdtTo
-	tkqEwcLihHxzqw3cqt6jXyG9Wgr/zbn9
-X-Received: by 2002:a17:90b:3dd0:b0:3ad:a84b:df1e with SMTP id 98e67ed59e1d1-3adea1af8bfmr12128791a91.1.1793068090331;
-        Mon, 26 Oct 2026 19:28:10 -0700 (PDT)
-Received: from localhost.localdomain ([240e:36d:b08:2bc0::a60])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3adeba38910sm6823109a91.1.2026.10.26.19.28.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 19:28:09 -0700 (PDT)
-From: Jianfeng Liu <liujianfeng1994@gmail.com>
-To: heiko@sntech.de
-Cc: HystericalDragons@proton.me,
-	amadeus@jmu.edu.cn,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	hrushirajg23@gmail.com,
-	krzk+dt@kernel.org,
-	krzk@kernel.org,
+        d=1e100.net; s=20260707; t=1793068169; x=1793672969;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AuJpX+R1ikkgXuJg24CUYJMUBGehOWyuliZWHlt8VIY=;
+        b=trW+TC5s4KtFUZZLTRGyC4KKd3z3+4JFRrRZZ5DC+beLu4aY1zVEw6uxnFmnyl3RG/
+         5nI/vGSoG/Cz3CHKbkuTa2kLwd9137JcLLapnMFuSs+4WdkvtQjie6180J5SRJxrKP+L
+         hsytbdOfO97rc5RIZErSC2PhDAqMDO6GTwBxQJR6XtOHp7D7Hd2egUxL1KUfm14qxnO0
+         Kz4Prs5WPDjuRCm97j6p2vkwdsbJ0fvUlO/gVJCCWM4oxnzY4SNZRNb1qfcQBjKiVpcs
+         XKp/6NXJkF1l9lpAfOLa2eCesJYH1WCxY+PbFsDQsD4JIRGpkrtpt3519opYLh5KA/fS
+         DQiQ==
+X-Forwarded-Encrypted: i=1; AKwUvBy+ln9Agy1T2hxWIenw4UmczZG7sBa17fWwqc3Dspv9NtSbm1E800qEHl0mC65SfYI97mqYV8FZPsxaF95OvGJK@lists.infradead.org
+X-Gm-Message-State: AFq9FYLOV0aKxItHQFw6K3wexTCw21oX9k30XA5wZX7+kJFUHd5xHV32
+	wNcYDyxqHW4ULB7Yfz328eoR3FRcjtj8q5WCrLT6yo4/4iarXJbLyalgwtNQcGiqJl8=
+X-Gm-Gg: AYBFou21UXOja3+BioxnSHZfxQKWdqd0cLjX1TCaTzd59eOVLFkcuE6/PqdRNwt05xA
+	5zsdPlc9Rb74CUiYNYcxBqDaiP92McIUKcndvnpRfdv6jkj2d7ZWffVP/7tFLRiXe8X6aYxtRvS
+	nKzu2nh/p7lyBRnr+78JfwdbsFh0CsjWVw6C1kGYxhXqYhD04qaUhRZi+E7JsnxhMbUgwOwbskr
+	JwAiyyyvIIbu5aFGmbqSq0A4hqMIs8BBv8gDySQZlZfVfOdvVHlAxKJHSQVUUJu282TxfH8bKLh
+	fwRoROuR5d7ecN4QK/7KzFScaLrcvrMF0I/uV8Y3qK2B5uAdfmeUg8L06MAbLpe/9HxXnPynxIz
+	7jEwIsOpN/kjpQjZF1QoZ1CwdxdjeTjyBoUYOc4Aaws7I/khyQoeHSDJGJ34emM9f5S6CLwpBOI
+	R7dDXHMYTRDVOtX67NHn7gOJoqsQUvo1n95tCqnc5aLy6T9LY8IxKD8KaBTzRfvvTfmCWfC/EXX
+	vw1zsyw7p9Dis7A1CuEvQh1kE3aqvhGjl2jMcTBVIXBh/jdOXBqgR0RK9Q3A/8FU+HGSMPN0hFW
+	vZnTSDPzNBaKhPgC65rOOL1PE0QNXDuskSOUotK4nuUPGexUZWI8/JEy1uO3ZhER+R1IuhJjBQe
+	KX7bbgSo4GPcXQa1xslmv2ocP/XZcLzxKKQb6mLa2
+X-Received: by 2002:a05:600c:3b8a:b0:4a2:d:5ccc with SMTP id 5b1f17b1804b1-4a35ac99e81mr157824335e9.10.1793068169174;
+        Mon, 26 Oct 2026 19:29:29 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-095-117-118-122.95.117.pool.telefonica.de. [95.117.118.122])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3eb8f305sm18341906f8f.3.2026.10.26.19.29.26
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 26 Oct 2026 19:29:27 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	linux-pwm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	liujianfeng1994@gmail.com,
-	macromorgan@hotmail.com,
-	michael.opdenacker@rootcommit.com,
-	naoki@radxa.com,
-	robh@kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: arm: rockchip: Add ArmSoM Sige7s
-Date: Tue, 27 Oct 2026 10:28:01 +0800
-Message-ID: <20261027022801.377819-1-liujianfeng1994@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <5520293.6fTUFtlzNn@phil>
-References: <5520293.6fTUFtlzNn@phil>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] pwm: atmel: Fix arithmetic overflows for long periods
+Date: Tue, 27 Oct 2026 03:27:55 +0100
+Message-Id: <20261027022755.52912-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20261016161221.16553-1-kmehltretter@gmail.com>
+References: <20261016161221.16553-1-kmehltretter@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_192811_406393_D291E2DA 
-X-CRM114-Status: GOOD (  15.12  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261026_192931_625401_DACE757E 
+X-CRM114-Status: GOOD (  21.40  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,56 +107,184 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Heiko,
+atmel_pwm_calculate_cprd_and_pres() first multiplies the requested
+period by the clock rate in a u64 and only then divides by
+NSEC_PER_SEC. The product can overflow even when the quotient and the
+resulting hardware configuration are representable.
 
-On 2026-10-26 11:43 UTC, Heiko Stuebner wrote:
->> I confirmed this with ArmSoM. They purchased the original CoolPi 4B
->> hardware design from CoolPi and confirmed that no hardware design
->> modifications were made for the Sige7s.
->> 
->> So the Sige7s uses the same hardware design as the CoolPi 4B, rather
->> than being independently designed.
->
->if it's the completely same board, just with a different print on
->the board, why does it need an empty devicetree. When it's completely
->unchanged, what's speaking against just re-using the original one?
+For example, at 12 MHz a 1600 s period has 19.2 billion clock cycles
+and fits with prescaler 3, but the intermediate product exceeds U64_MAX.
+It wraps and the driver programs a period of about 62.8 s instead. This
+remains broken after changing fls() to fls64(). The duty-cycle
+calculation has the same overflow.
 
-The existing CoolPi 4B DTB does work on the Sige7s, and I agree that there
-is no hardware difference requiring a separate device tree.
+Use mul_u64_u64_div_u64() for both conversions and use fls64() when
+deriving the prescaler. The multiply/divide result cannot overflow if
+the clock rate is at most NSEC_PER_SEC, so hold the clock rate exclusive
+and validate it at probe time.
 
-My main reason for adding a separate DTS is to preserve the Sige7s board
-identity for long-term upstream support.
+The reverse conversion in atmel_pwm_get_state() can overflow too: it
+multiplies CPRD or CDTY by NSEC_PER_SEC and then shifts the u64 by the
+prescaler. Convert the scaled clock ticks with the overflow-safe,
+round-up helper instead. Explicitly saturate values that cannot be
+represented by the u64 nanosecond API, rather than relying on the
+architecture-specific helper's quotient-overflow behaviour.
 
-The CoolPi 4B appears to be discontinued and is no longer readily available
-through the purchase channels listed on its official website
-(https://www.cool-pi.com/buy/). In contrast, ArmSoM is actively selling the
-Sige7s and has committed to producing it until at least January 2034.
+Fixes: a9d887dc1c60 ("pwm: Convert period and duty cycle to u64")
+Cc: stable@vger.kernel.org
+Reported-by: Uwe Kleine-König <ukleinek@kernel.org>
+Link: https://lore.kernel.org/r/atnHHaOwTkI78_tc@monoceros
+Suggested-by: Uwe Kleine-König <ukleinek@kernel.org>
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+Changes in v3:
+- Use mul_u64_u64_div_u64() for the period conversion as suggested by
+  Uwe, and for the analogous duty-cycle conversion.
+- Fix the corresponding overflow in the get_state() conversion and
+  explicitly saturate results that cannot be represented in nanoseconds.
+- Hold the clock rate exclusive and validate the rate bound required by
+  the arithmetic.
+- Rebase onto v7.3-rc7.
 
-I'm also planning to add mainline U-Boot support for the Sige7s and
-integrate it with Stubble-based UEFI booting.
+Testing:
+- Built an ARM zImage with clang 22.1.8 and W=1.
+- Passed 14 host boundary tests, 53 oracle-checked SAM9X75 QEMU boots,
+  and all 20 PWM device-model qtests.
+- Passed 89/89 checks on a physical SAM9X75, including overflow cases.
+  A 69.175-second period measured 69.210 seconds between interrupts; no
+  kernel errors were found.
 
-While U-Boot could update the model and compatible properties before
-booting Linux, Stubble may replace the firmware-provided DTB with one
-bundled with the kernel. Having a Sige7s-specific DTB would preserve the
-correct board identity throughout this process without requiring additional
-distribution-specific modifications.
+ drivers/pwm/pwm-atmel.c | 46 +++++++++++++++++++++++++++++------------
+ 1 file changed, 33 insertions(+), 13 deletions(-)
 
-This would also avoid confusing users who purchase a Sige7s but find their
-system identified as a CoolPi 4B.
+diff --git a/drivers/pwm/pwm-atmel.c b/drivers/pwm/pwm-atmel.c
+index 86918523d8..db7a14c66a 100644
+--- a/drivers/pwm/pwm-atmel.c
++++ b/drivers/pwm/pwm-atmel.c
+@@ -23,6 +23,7 @@
+ #include <linux/delay.h>
+ #include <linux/err.h>
+ #include <linux/io.h>
++#include <linux/math64.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+@@ -183,19 +184,18 @@ static int atmel_pwm_calculate_cprd_and_pres(struct pwm_chip *chip,
+ 					     unsigned long *cprd, u32 *pres)
+ {
+ 	struct atmel_pwm_chip *atmel_pwm = to_atmel_pwm_chip(chip);
+-	unsigned long long cycles = state->period;
++	unsigned long long cycles;
+ 	int shift;
+ 
+ 	/* Calculate the period cycles and prescale value */
+-	cycles *= clkrate;
+-	do_div(cycles, NSEC_PER_SEC);
++	cycles = mul_u64_u64_div_u64(state->period, clkrate, NSEC_PER_SEC);
+ 
+ 	/*
+ 	 * The register for the period length is cfg.period_bits bits wide.
+ 	 * So for each bit the number of clock cycles is wider divide the input
+ 	 * clock frequency by two using pres and shift cprd accordingly.
+ 	 */
+-	shift = fls(cycles) - atmel_pwm->data->cfg.period_bits;
++	shift = fls64(cycles) - atmel_pwm->data->cfg.period_bits;
+ 
+ 	if (shift > PWM_MAX_PRES) {
+ 		dev_err(pwmchip_parent(chip), "pres exceeds the maximum value\n");
+@@ -218,12 +218,23 @@ static void atmel_pwm_calculate_cdty(const struct pwm_state *state,
+ {
+ 	unsigned long long cycles = state->duty_cycle;
+ 
+-	cycles *= clkrate;
+-	do_div(cycles, NSEC_PER_SEC);
++	cycles = mul_u64_u64_div_u64(cycles, clkrate, NSEC_PER_SEC);
+ 	cycles >>= pres;
++
+ 	*cdty = cprd - cycles;
+ }
+ 
++static u64 atmel_pwm_ticks_to_ns(u64 ticks, unsigned long rate)
++{
++	u64 max_ticks;
++
++	max_ticks = mul_u64_u64_div_u64(U64_MAX, rate, NSEC_PER_SEC);
++	if (ticks > max_ticks)
++		return U64_MAX;
++
++	return mul_u64_u64_div_u64_roundup(ticks, NSEC_PER_SEC, rate);
++}
++
+ static void atmel_pwm_update_cdty(struct pwm_chip *chip, struct pwm_device *pwm,
+ 				  unsigned long cdty)
+ {
+@@ -352,24 +363,22 @@ static int atmel_pwm_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	if (sr & (1 << pwm->hwpwm)) {
+ 		unsigned long rate = clk_get_rate(atmel_pwm->clk);
+ 		u32 cdty, cprd, pres;
+-		u64 tmp;
++		u64 ticks;
+ 
+ 		pres = cmr & PWM_CMR_CPRE_MSK;
+ 
+ 		cprd = atmel_pwm_ch_readl(atmel_pwm, pwm->hwpwm,
+ 					  atmel_pwm->data->regs.period);
+-		tmp = (u64)cprd * NSEC_PER_SEC;
+-		tmp <<= pres;
+-		state->period = DIV64_U64_ROUND_UP(tmp, rate);
++		ticks = (u64)cprd << pres;
++		state->period = atmel_pwm_ticks_to_ns(ticks, rate);
+ 
+ 		/* Wait for an updated duty_cycle queued in hardware */
+ 		atmel_pwm_wait_nonpending(atmel_pwm, pwm->hwpwm);
+ 
+ 		cdty = atmel_pwm_ch_readl(atmel_pwm, pwm->hwpwm,
+ 					  atmel_pwm->data->regs.duty);
+-		tmp = (u64)(cprd - cdty) * NSEC_PER_SEC;
+-		tmp <<= pres;
+-		state->duty_cycle = DIV64_U64_ROUND_UP(tmp, rate);
++		ticks = (u64)(cprd - cdty) << pres;
++		state->duty_cycle = atmel_pwm_ticks_to_ns(ticks, rate);
+ 
+ 		state->enabled = true;
+ 	} else {
+@@ -487,6 +496,7 @@ static int atmel_pwm_probe(struct platform_device *pdev)
+ {
+ 	struct atmel_pwm_chip *atmel_pwm;
+ 	struct pwm_chip *chip;
++	unsigned long rate;
+ 	int ret;
+ 
+ 	chip = devm_pwmchip_alloc(&pdev->dev, 4, sizeof(*atmel_pwm));
+@@ -507,6 +517,16 @@ static int atmel_pwm_probe(struct platform_device *pdev)
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(atmel_pwm->clk),
+ 				     "failed to get prepared PWM clock\n");
+ 
++	ret = devm_clk_rate_exclusive_get(&pdev->dev, atmel_pwm->clk);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "failed to get exclusive PWM clock rate\n");
++
++	rate = clk_get_rate(atmel_pwm->clk);
++	if (!rate || rate > NSEC_PER_SEC)
++		return dev_err_probe(&pdev->dev, -EINVAL,
++				     "invalid PWM clock rate %lu Hz\n", rate);
++
+ 	chip->ops = &atmel_pwm_ops;
+ 
+ 	ret = atmel_pwm_enable_clk_if_on(chip, true);
 
-The shared dtsi ensures that we do not duplicate the hardware description,
-with the two board DTS files differing only in model and compatible.
+base-commit: 24a19b953e2a3d0ea5a8c4951a0ab8f32720c907
+-- 
+2.39.5 (Apple Git-154)
 
-Would this be a reasonable justification for keeping a separate board DTS?
-
-Best regards,
-Jianfeng
 
