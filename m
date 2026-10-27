@@ -2,89 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 443E0606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 18:01:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0D6F606A322
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 18:06:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WuH3uWQI;
-	dkim=pass (1024-bit key, unprotected) header.d=foxmail.com header.i=@foxmail.com header.a=rsa-sha256 header.s=s201512 header.b=qW5JV1G0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fuPygdEU;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=XXFaBzin
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=spM3KcIMCTj+Sev7DLll6n6wD3ZIu3g46O7rzTg5psQ=; b=WuH3uWQIL+FEfJchgHpP1NP4h+
-	u0FhLT6GTIR/UfHgJphxqyZW6cy0O4uxd9KBGeiKQFVUucoQKU3JG3u7YpOe90trdF6pzKweCFwYR
-	gGtRSxMZg7xqPCLh8KbHa/UeAj5c5TZduu7WZhV5SmqwUIClYwDAGp/IgXV+xQEmEoHGkOiB2vwXc
-	jZSngZFImrKVu0utU4GFIW+SL2ds94yBXRAb54Mwx3aXMmNuN+Hp9lygbD4GmFyovrQVOYbM4/5YJ
-	C/mfBy0x0FhANVJmDxoIUaZKtw9+9PAFOPXHpsY282NhP19sZRlWnGA9L/9zJxFn5cCXafDtLeMQv
-	UbvWNIvA==;
+	bh=TxYi1TQ/n9gm4Dyl6a+4Ba89b3B/1LYi/mstI8Zdh48=; b=fuPygdEUoEUffiFPY3S0YLfxbd
+	OJoZqIoqptW2RYieM0w6EYUIoAWF74YAFrIL460KZfL+VFjvtKGkYy3XaZeBOokadZJMARCIwKKDm
+	P4zKvyLiLoCihsHSwrTz3C+x299G2uzsJ7Ykn6IWZI4bv8pK4JWlBios4ks1qAMowvmn0KXrFMiOh
+	C5j5z4MeZ/ctsk0rFuHzTmiWMRjupEUApGs70eZCaJP3lB8JX+eEJz398JkfRBGxxKWVG3eJ8Blj5
+	OVVAArelZ6DT+fVuMjaXlVLb8qDRe6j73sEhZo2X2XobAvYmp5LIPSNcz/3hMtiMu4AtcZxDSBB+d
+	WjxaL3Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLlTt-00000005WaF-39WN;
-	Tue, 27 Oct 2026 18:01:05 +0000
-Received: from out162-62-57-49.mail.qq.com ([162.62.57.49])
+	id 1xLlYu-00000005WvU-3C9N;
+	Tue, 27 Oct 2026 18:06:16 +0000
+Received: from mail-oa1-x46.google.com ([2001:4860:4864:20::46])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLlTp-00000005WY9-3wvB
+	id 1xLlYr-00000005Wv4-0iAQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 18:01:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1793124051;
-	bh=spM3KcIMCTj+Sev7DLll6n6wD3ZIu3g46O7rzTg5psQ=;
-	h=From:To:Cc:Subject:Date;
-	b=qW5JV1G0NwjaH8K2vvXH9SaH2apLWuFgqoN72y4/ij8hebgmpAyiCUnPgyl9CS2Oe
-	 EulW/NBiap5CVhNdzfogKXbjhg0LUzjt9xs7mjuZuxmGFR6r5T9r3h0Kp9JBNjCm/Q
-	 DN/5uju3KPgE8O7UPBLWFVZxLNZQcOEYc7Md4C1c=
-Received: from LAPTOP-TKBJAGN4.localdomain ([27.38.201.62])
-	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
-	id 3013632; Wed, 28 Oct 2026 02:00:48 +0800
-X-QQ-mid: xmsmtpt1793124048t1hi43pfb
-Message-ID: <tencent_877C99956190215D644EB959DF1663542A0A@qq.com>
-X-QQ-XMAILINFO: N6IfSeM/PG+tdCz5Cj1vhLmiuKazt8ArHwWiFVGNcpvZ35kcBBkkbT142hdYXb
-	 EwNVr9Toq0fjfi5FlkZBig7el4RHfpoBiUf8ha4CMdmo763I5EUJs2h2k6LkoK8URenxUj++4Ne0
-	 C83Snqx65b/nQdrLw7/snnIRj/2H3xIXAYseTejahOVm+o8fMNLhu8FaAxXOiJxr8pb8iJrycmWM
-	 f0cNcynccpVQEw5XNYH0PskUTwGiPxpJfMbcwWJttKumYlXtyx6uoRWbTE/e4OkV2BtR1rlRJ954
-	 dCLWXiTZ3y0bwHq4X4IejGyFALnc2+mF8dZizgzf4rON7QhaKQ5nT9OqLrb8Y3uYtSpIrxAu5nVw
-	 RpDji+FXBM2PeDY7dJY6JtpCxEz8XCWCacOnw9/AgMOeggSDVjkiO8eFSBpEFq0OGkgFfQr+3cqd
-	 XaAExW1nNfDisb61TngEmxk0v3j2m00VdvE574xY8Q5MdtJocsQDUI5LOabK6DnLcPWfg9exMbsI
-	 tO6/9NDQD+Gr1O54jRXnP3MX2ZhNLyg5JiGVWkl0ey7qBy53gB7Sk7Z4mKopr/UwbpfMKH0obLZQ
-	 2iKbY0x/oGpk0upeIxsL0P4rw4qXNDP7rvKdznRgPYnCFO16W171WT2kjbMSvevuquaFMUfZ2RT+
-	 eSgnmC8UcwxBagdfJG+r+TXvyCn+rgV+EwSQSJRTuoFMn118ycZDCXzHEavug5uLUtjDXjVNNv/X
-	 sYmrNr2+qznl18QQzow3faBjRIVBXTv6tvZIPoBiy9SbwvBa8L248VP/Wsu6zIfVfhgaYUGMSVtZ
-	 W/hl0K1AfY/fDdBwywZQCG/X710Ee3T11fA2lyMEJS+cee3R+yvFKfPBBB9jEF0Z1s8iWbx8X19N
-	 Gm3sstgB+ZJPpoPYv1O3LxbbbXsLiRoZQmwTHHv3f9i0NW6/xGic1wNcSlJHCxFlx+2GkvOpVUfO
-	 o7zn/UaJwGQIaYpb330ke20sroOgG00WiJ/vhHVycFx1kUDfp73AZ/NDVo1C3G7IIW9NNtA2RzLY
-	 au3nOddP9JVoNZFxky6yqWyRSXmtbp/W3Cy/sfd3+9/upNqv4mcPzJqGIoSMw/RAqvK/DG02AWQc
-	 NRbgX9S11aqJpHhAu727n3A754nd3m+CzHmxAHRMmjux3+moLX40wjaOBWFrkcmKM7Hb5em6+Lo/
-	 8hTEnPo+E0Ox9VqDebhzfsKOXrdaj/S2dDaxm7CSn+kJW3LQ==
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-From: Haobin Jiang <lemonoutput@foxmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	linux-i2c@vger.kernel.org
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Carlos Song <carlos.song@oss.nxp.com>,
-	Vincent Jardin <vjardin@free.fr>,
-	dillon.minfei@gmail.com,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Haobin Jiang <lemonoutput@foxmail.com>
-Subject: [PATCH v4] i2c: imx: honour I2C_M_IGNORE_NAK
-Date: Wed, 28 Oct 2026 02:00:44 +0800
-X-OQ-MSGID: <20261027180044.21532-1-lemonoutput@foxmail.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 27 Oct 2026 18:06:14 +0000
+Received: by mail-oa1-x46.google.com with SMTP id 586e51a60fabf-46617932071so170441fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 11:06:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1793124371; x=1793729171; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TxYi1TQ/n9gm4Dyl6a+4Ba89b3B/1LYi/mstI8Zdh48=;
+        b=XXFaBzin8McGxG3t7/oEuEtF2SkAPufQ8+0tRzog/EnHQMry0pVxBn2W7cTHTvKT0+
+         F9O9N2Aq0Nja68PBmi8UoTC15mfaD5GidWt87AnjeE8GEXBePTzJBYiG9S4AxCSoWsvs
+         bICu9PbVbR5x8dlzNhZzg6FAQ8ukvSDnyncqGexYN8xX7NrpzQwoYI0fZr4dWkonoh8g
+         SwJx950J3TTdddARNVVHmCUVwMcfln/P6puuDKbivyNzKrLcjfQSegcyLkE7DTsisT4f
+         sSazBUWBjYv0jJgY9LpKybtosFtDDrD/dW0PNNr5VLztaIWZXrPmw91OiJl7YG9eysjm
+         SB4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793124371; x=1793729171;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TxYi1TQ/n9gm4Dyl6a+4Ba89b3B/1LYi/mstI8Zdh48=;
+        b=rKUaHbRendLwHw4EFMYy/5Aryho3m28VKfLGjQgGE+q/+x9vRfS0ZSC4zFTuNsMYw0
+         iIDPw3CXwxYBPMZ9uzLZUw3XdGbsQAGIPtDq821NcuX8QCXKWkWp+W2lMYsInkX198u3
+         zekGPK0p1cT8D+HD2hGeyixMxe8+oMdGHtKqJ6vB9nx+vqeCLK9H8G/EAVhWtxNdDIUt
+         6dVoNN4zH/2dy7Bwo3PQhYF3wRaSob0/KPzCZfcYm0kmxr327MZyA8y2lobiSY5Gqw/Z
+         VVDfMwptHSBVDSkD9XzcseFkxNGSJ7QsjUzNo1km4/Dj6OqQ115kiT0VIBtB0RYWxSpP
+         hVfA==
+X-Forwarded-Encrypted: i=1; AKwUvByIzqmev9unq2KGQGvAlMzfLQz+TkOwOB0aaZuECcpnNrJe0A6/rLXu2g6JNqGR15MXZrqXDaPbmok8demf9UP6@lists.infradead.org
+X-Gm-Message-State: AFq9FYLNQs2EFDAvMCb4TWUQqmcs5D3WjUPgD018kIkQjz1QZaZUk1gp
+	JxqyLVuQZfSAM3KVNqWJps7JzBJiJ9Gj2qecAwINZpdeLVUOP0tWH6mG/jbd/qZEOBjwnOXGZID
+	wLo0e8h3/KZ4ke2wcH4B92LNHBw==
+X-Received: from ilei7-n2.prod.google.com ([2002:a05:6e02:61c7:20b0:516:a6c6:8fa3])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6808:1694:b0:53a:8c5:d7d7 with SMTP id 5614622812f47-55c003426cbmr6749991b6e.58.1793124370805;
+ Tue, 27 Oct 2026 11:06:10 -0700 (PDT)
+Date: Tue, 27 Oct 2026 18:06:09 +0000
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.307.g5fe7bd680c-goog
+Message-ID: <20261027180610.2840837-1-coltonlewis@google.com>
+Subject: [PATCH v2] irqchip/gic-v4: Use a separate lockdep class for vPE
+ doorbell IRQs
+From: Colton Lewis <coltonlewis@google.com>
+To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Cc: Radu Rendec <radu@rendec.net>, Oliver Upton <oupton@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Raghavendra Rao Ananta <rananta@google.com>, 
+	Colton Lewis <coltonlewis@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_110102_546524_D4871DAD 
-X-CRM114-Status: GOOD (  15.10  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261027_110613_236332_4E8E6150 
+X-CRM114-Status: GOOD (  12.13  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,167 +90,111 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-20.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-26.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,
+	USER_IN_DEF_DKIM_WL autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-I2C_M_IGNORE_NAK is removed from the flags rejected by
-i2c_imx_check_msgs(), so the flag is honoured as documented.
-I2C_M_STOP stays unhandled: the controller emits a STOP after the
-final message and repeated STARTs between messages, so rejecting it
-would only break the existing ov2659/SCCB use case. I2C_M_NO_RD_ACK
-stays rejected: the controller always clocks the ninth acknowledge
-bit, so it cannot be implemented.
+By default, init_desc() assigns the shared irq_desc_lock_class lockdep
+key to desc->lock for every struct irq_desc. Device drivers that
+register an IRQ affinity notifier establish a lock dependency chain of
+&irq_desc_lock_class --> &pool->lock --> &p->pi_lock --> &rq->__lock
+when irq_set_affinity_locked() calls schedule_work() while holding
+desc->lock.
 
-This applies on top of Vincent Jardin's I2C_M_REV_DIR_ADDR and
-I2C_M_NOSTART support [1], merged as c2867bb0fa1d ("i2c: imx: add
-I2C_M_REV_DIR_ADDR and I2C_M_NOSTART").
+On GICv4 systems, scheduling out a KVM vCPU calls kvm_sched_out() ->
+kvm_arch_vcpu_put() -> vgic_v3_put() -> vgic_v4_put() ->
+its_make_vpe_non_resident() -> irq_set_vcpu_affinity() while holding the
+scheduler runqueue lock (&rq->__lock). Acquiring the vPE doorbell IRQ's
+desc->lock establishes &rq->__lock --> &irq_desc_lock_class, triggering
+a lockdep circular locking splat:
 
-Tested on an ALIENTEK i.MX6ULL mini board (v6.6.44, equivalent
-backport) with a logic analyzer: with the flag, a 3-byte write to an
-unpopulated address clocks out every byte (each NAK'd) and returns 0;
-without the flag it aborts with -ENXIO after the address byte. A
-4-byte read with the flag completes and returns 0 as well. Waveforms
-and test logs: https://github.com/JHB11Hinson/i2c-imx-ignore-nak-test
+  WARNING: possible circular locking dependency detected
+  ------------------------------------------------------
+  VCPU-0/109705 is trying to acquire lock:
+  ffff0001e41e4cc8 (&irq_desc_lock_class){-.-.}-{2:2}, at: __irq_get_desc_lock+0x5c/0xb0
 
-Note: part of the code was generated with the assistance
-of a generative AI tool (GLM 5.3) from the author's description of
-the problem, then reviewed and verified by the author.
+  but task is already holding lock:
+  ffff00dad15fd260 (&rq->__lock){-.-.}-{2:2}, at: __schedule+0x23c/0x1850
 
-Link: https://patch.msgid.link/20261023-for-upstream-i2c-imx-lx2160-reverse-v3-1-a07b249df381@free.fr # [1]
-Link: https://lore.kernel.org/linux-i2c/tencent_342A87BFCECA70C9982E68A79AAD878B6909@qq.com/ # [2]
+  which lock already depends on the new lock.
 
-Signed-off-by: Haobin Jiang <lemonoutput@foxmail.com>
+  Chain exists of:
+    &irq_desc_lock_class --> &p->pi_lock --> &rq->__lock
 
+   Possible unsafe locking scenario:
+
+         CPU0                    CPU1
+         ----                    ----
+    lock(&rq->__lock);
+                                 lock(&p->pi_lock);
+                                 lock(&rq->__lock);
+    lock(&irq_desc_lock_class);
+
+GICv4 vPE doorbell IRQs are internal to KVM and GICv4, set
+IRQ_NO_BALANCING, and never register an affinity notifier or queue work
+under desc->lock. However, under forced IRQ threading (threadirqs or
+CONFIG_PREEMPT_RT), request_irq() creates an IRQ thread for the doorbell
+handler, causing irq_set_affinity() -> irq_set_thread_affinity() in
+vgic_v4_load() to call wake_up_process() under desc->lock and establish
+a real desc->lock --> &p->pi_lock --> &rq->__lock dependency on the vPE
+doorbell IRQ itself.
+
+Mark vPE doorbell IRQs with irq_set_nothread() so they are never
+force-threaded, and assign them a dedicated lockdep class in
+its_alloc_vcpu_irqs() via irq_set_lockdep_class().
+
+Fixes: 8e01d9a396e6 ("KVM: arm64: vgic-v4: Move the GICv4 residency flow to be driven by vcpu_load/put")
+Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
-v3 -> v4:
-	- Rebase onto i2c/i2c after Vincent Jardin's I2C_M_REV_DIR_ADDR
-	  and I2C_M_NOSTART series was merged as c2867bb0fa1d [1].
-	- Previous version: [2].
-	- No functional change from v3.
----
- drivers/i2c/busses/i2c-imx.c | 31 ++++++++++++++++++++++---------
- 1 file changed, 22 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index ccf08cd63..8e422b45d 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -612,9 +612,12 @@ static int i2c_imx_trx_complete(struct imx_i2c_struct *i2c_imx, bool atomic)
- 	return 0;
- }
- 
--static int i2c_imx_acked(struct imx_i2c_struct *i2c_imx)
-+static int i2c_imx_acked(struct imx_i2c_struct *i2c_imx, bool ignore_nak)
- {
- 	if (imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR) & I2SR_RXAK) {
-+		if (ignore_nak)
-+			return 0;
-+
- 		dev_dbg(&i2c_imx->adapter.dev, "<%s> No ACK\n", __func__);
- 		return -ENXIO;  /* No ACK */
- 	}
-@@ -971,11 +974,15 @@ static int i2c_imx_unreg_slave(struct i2c_client *client)
- 	return ret;
- }
- 
--static inline int i2c_imx_isr_acked(struct imx_i2c_struct *i2c_imx)
-+static inline int i2c_imx_isr_acked(struct imx_i2c_struct *i2c_imx,
-+				    bool ignore_nak)
- {
- 	i2c_imx->isr_result = 0;
- 
- 	if (imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR) & I2SR_RXAK) {
-+		if (ignore_nak)
-+			return 0;
-+
- 		i2c_imx->state = IMX_I2C_STATE_FAILED;
- 		i2c_imx->isr_result = -ENXIO;
- 		wake_up(&i2c_imx->queue);
-@@ -988,7 +995,7 @@ static inline int i2c_imx_isr_write(struct imx_i2c_struct *i2c_imx)
- {
- 	int result;
- 
--	result = i2c_imx_isr_acked(i2c_imx);
-+	result = i2c_imx_isr_acked(i2c_imx, i2c_imx->msg->flags & I2C_M_IGNORE_NAK);
- 	if (result)
- 		return result;
- 
-@@ -1017,7 +1024,7 @@ static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
- {
- 	int result;
- 
--	result = i2c_imx_isr_acked(i2c_imx);
-+	result = i2c_imx_isr_acked(i2c_imx, i2c_imx->msg->flags & I2C_M_IGNORE_NAK);
- 	if (result)
- 		return result;
- 
-@@ -1249,7 +1256,8 @@ static int i2c_imx_dma_write(struct imx_i2c_struct *i2c_imx,
- 	if (result)
- 		return result;
- 
--	return i2c_imx_acked(i2c_imx);
-+	/* I2C_M_IGNORE_NAK messages never take the DMA path. */
-+	return i2c_imx_acked(i2c_imx, false);
- }
- 
- static int i2c_imx_prepare_read(struct imx_i2c_struct *i2c_imx,
-@@ -1268,7 +1276,7 @@ static int i2c_imx_prepare_read(struct imx_i2c_struct *i2c_imx,
- 		result = i2c_imx_trx_complete(i2c_imx, !use_dma);
- 		if (result)
- 			return result;
--		result = i2c_imx_acked(i2c_imx);
-+		result = i2c_imx_acked(i2c_imx, msgs->flags & I2C_M_IGNORE_NAK);
- 		if (result)
- 			return result;
- 	}
-@@ -1401,7 +1409,7 @@ static int i2c_imx_atomic_write(struct imx_i2c_struct *i2c_imx,
- 		result = i2c_imx_trx_complete(i2c_imx, true);
- 		if (result)
- 			return result;
--		result = i2c_imx_acked(i2c_imx);
-+		result = i2c_imx_acked(i2c_imx, msgs->flags & I2C_M_IGNORE_NAK);
- 		if (result)
- 			return result;
- 	}
-@@ -1416,7 +1424,7 @@ static int i2c_imx_atomic_write(struct imx_i2c_struct *i2c_imx,
- 		result = i2c_imx_trx_complete(i2c_imx, true);
- 		if (result)
- 			return result;
--		result = i2c_imx_acked(i2c_imx);
-+		result = i2c_imx_acked(i2c_imx, msgs->flags & I2C_M_IGNORE_NAK);
- 		if (result)
- 			return result;
- 	}
-@@ -1613,8 +1621,9 @@ static int i2c_imx_read(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs,
- 	return ret;
- }
- 
-+/* I2C_M_STOP is the controller's native behaviour; don't reject it. */
- #define I2C_IMX_UNSUPPORTED_PROTOCOL_MANGLING_FLAGS \
--	(I2C_M_IGNORE_NAK | I2C_M_NO_RD_ACK | I2C_M_STOP)
-+	I2C_M_NO_RD_ACK
- 
- static int i2c_imx_check_msgs(struct i2c_msg *msgs, int num)
- {
-@@ -1712,6 +1721,10 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- 		use_dma = i2c_imx->dma && msgs[i].len >= DMA_THRESHOLD &&
- 			msgs[i].flags & I2C_M_DMA_SAFE &&
- 			!(msgs[i].flags & I2C_M_NOSTART);
-+
-+		/* A NAK'd byte may not generate a further DMA request. */
-+		if (msgs[i].flags & I2C_M_IGNORE_NAK)
-+			use_dma = false;
- 		if (msgs[i].flags & I2C_M_RD) {
- 			int block_data = msgs->flags & I2C_M_RECV_LEN;
- 
+Notes:
+    Changes in v2:
+    - Call irq_set_nothread() on vPE doorbell IRQs in
+      its_alloc_vcpu_irqs() so forced IRQ threading cannot create a
+      desc->lock -> rq->__lock inversion via irq_set_thread_affinity()
+      (Sashiko, Marc Zyngier).
+    - Link to v1: https://lore.kernel.org/r/20261023215207.1465369-1-coltonlewis@google.com
+    
+    An LLM-based coding assistant was used to help analyze the lockdep
+    report and draft this patch. I reviewed the analysis and the change.
+    
+    Tested v2 with threadirqs and CONFIG_PROVE_LOCKING=y on a GICv4.1 host
+    with an idpf NIC: confirmed vPE doorbell IRQs remain non-threaded while
+    normal IRQs are threaded, and co-pinned vgic_lpi_stress runs after
+    bouncing an idpf interface pass with no lockdep warnings. Also
+    compile-tested for arm64 against v7.3.
 
-base-commit: 123cffeca4a33d770c29ff8d3f22453a5fd59c32
+ drivers/irqchip/irq-gic-v4.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/irqchip/irq-gic-v4.c b/drivers/irqchip/irq-gic-v4.c
+index 8455b4a5fbb0d..e1e20aeb8fe2a 100644
+--- a/drivers/irqchip/irq-gic-v4.c
++++ b/drivers/irqchip/irq-gic-v4.c
+@@ -157,6 +157,8 @@ static int its_alloc_vcpu_sgis(struct its_vpe *vpe, int idx)
+ 
+ int its_alloc_vcpu_irqs(struct its_vm *vm)
+ {
++	static struct lock_class_key vpe_irq_lock_class;
++	static struct lock_class_key vpe_irq_request_class;
+ 	int vpe_base_irq, i;
+ 
+ 	vm->fwnode = irq_domain_alloc_named_id_fwnode("GICv4-vpe",
+@@ -183,6 +185,9 @@ int its_alloc_vcpu_irqs(struct its_vm *vm)
+ 	for (i = 0; i < vm->nr_vpes; i++) {
+ 		int ret;
+ 		vm->vpes[i]->irq = vpe_base_irq + i;
++		irq_set_lockdep_class(vm->vpes[i]->irq, &vpe_irq_lock_class,
++				      &vpe_irq_request_class);
++		irq_set_nothread(vm->vpes[i]->irq);
+ 		ret = its_alloc_vcpu_sgis(vm->vpes[i], i);
+ 		if (ret)
+ 			goto err;
 -- 
-2.34.1
+2.56.0.307.g5fe7bd680c-goog
 
 
