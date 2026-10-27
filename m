@@ -2,157 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D71560A2610
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 14:51:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C693606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 14:53:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=r71HZsRd;
-	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=iWv9x1NB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LkJkFHzC;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UC8+Z8WN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:Subject:Cc:To:From:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=W0tAYPaDOA4f756PfZHjoOunZ++lQmvM3dsZP3bK4pQ=; b=r71HZsRdHy09W6Yf1yxN9RF0F4
-	wv+sxeZYrsDzxOeVF5BS+DJ77ugP0FI6ml0bYk+LjSB/ZAYzhwEUxaoSSBvQCaKt28Oxfrf2coDvy
-	E6qrmoa6sfJsYtV8/h09nnuotDI9gKCNPiNstONgbAx0aYL3hqRAQ9WJ9mOckNamVcpXyqrJB6RAE
-	dJZ8YmN0JrzQwg/JqUu2TWaDxJHg2gaM1tSNOMbzocJfZOk4uN7kcJLYZGDm11RaNnVjYNfRxiAqL
-	b4Nhzln+E6RIO62MEuO2naVLm4nK8p7crmit6dF+EtRuX/6x7d+ACUGmennDsxKUFo05LwFDiIpl7
-	cFingB+Q==;
+	bh=MpIBWf7/b2ks94p+dnClhdfP917IQaGrC6d3ELQJeOU=; b=LkJkFHzCyzJ9dew8/JnORn2e8A
+	4yF5Z/WbmS6DYqU6GqHJtt5wIUDZq3hQfuZXGaDpJHeAcTJCAGYc4wCvdLtrditCLGP9xnT/Am4Iq
+	Vr7okTNGaKQ1dSuGteuFZk95ZmRFIM/coRC2A/2RLG5oPkyp7BzrL6IpP8NoCgp2V2zxSZB6ipTr/
+	jy3gBq2o6rHRyBRvd7I9mSt+njHjbhRqj4P0PfSWaUgg/36WC3//E8B79IAK1aoSyVr2IzZTr+IkT
+	ZfVCsfLEIn3lBs/BVQfoHTao0LyZf9/fRaA89rBaRnxPm1MrqI4f3m9WD14/zZAlGwuoRy91WDulQ
+	24iAYzvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLiWh-000000054xk-13MM;
-	Tue, 27 Oct 2026 14:51:47 +0000
-Received: from mail-ukwestazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c206::3] helo=CWXP265CU009.outbound.protection.outlook.com)
+	id 1xLiYK-000000055DI-2UO3;
+	Tue, 27 Oct 2026 14:53:28 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLiWe-000000054ww-143e;
-	Tue, 27 Oct 2026 14:51:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lKDhRteJa7sXN1uXZ/fwYB3wxLEOznMWnvLKavl6ugWisX7nBD5jTj6M+sR7sMaUF+kZ215jLM23WGCNKvX4XyQXIRLwYXa3+Q89Uq9jKinWXyEb/6Xf4lOlCxWOJhDLchPQ/hoin9sRm0mUKZOMcVk+VgtcCfB43ymgqPbnj0DUrnWo5vQvCBH/ryQtHOViwE8WwY5/7ZQehVmkCWCS5qZxbRDInro21T1pxoCyCXqz19ARyiG4DGhxTk+0Z70qBcCuk/qp1JbVnYrxYbBaWHVk+/jEKLNKLGd5c0hz/RdRO4F7mQjQA0PBXJyWByZpRHTh+C3eEdk+NboKGbWzvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W0tAYPaDOA4f756PfZHjoOunZ++lQmvM3dsZP3bK4pQ=;
- b=KLUA+rGJjZZ9yHPrSZy8pT+lsarOotfbQAF/Rfj5gdcrVMssEBDtmMTiOD6q2u+tfkCsD9XeRq+Xgg6JgIwDB7ihpgGOy3zEZWy+lrxifuCWZdKB8WLocBFYXd7kzOV8CplMvhnF9U5HwG3MDAkDDwQU/Yp8sC07c1dv9A8+97zo+2hqrRi2sjh1pr7MPuL1XOzWd1e3Y9wFLXtHGT66F2LkohCBJg3182hXOedr0Gzw+/Iq56MUOvCmI/RT+mBKjdrONiZH4Dhm63yHM1aTUOyiRTljyT54+oC8OudDhkK8mjhIuk5ICaDoqtcFXYytYgvzOjOd4/yw1zwcG+LNNA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W0tAYPaDOA4f756PfZHjoOunZ++lQmvM3dsZP3bK4pQ=;
- b=iWv9x1NB2cqjb7vKnPd2exvfbKN1Xdu33WhnvQwDcXEYXpjskwXTi1+rj5z75yzNMrhOh8plX25hhyQ27cNUIqerpOJjssdbIaQN2U8LTiBrd3xtjKdCpa5DWFtXhSWEWdg7A5CScMGqCigXcrA8yu2dOco7Pc77m0/tgvQ2bzU=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
- by LO3P265MB1961.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:bc::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
- 2026 14:51:35 +0000
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
- 14:51:35 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 27 Oct 2026 22:51:15 +0800
-Message-Id: <DMFPE71J8205.3FZKD5BKW3U7C@garyguo.net>
-From: "Gary Guo" <gary@garyguo.net>
-To: "Guenter Roeck" <linux@roeck-us.net>, "Andrea della Porta"
- <andrea.porta@suse.com>
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Florian
- Fainelli" <florian.fainelli@broadcom.com>, "Broadcom internal kernel review
- list" <bcm-kernel-feedback-list@broadcom.com>, "Jonathan Corbet"
- <corbet@lwn.net>, "Shuah Khan" <skhan@linuxfoundation.org>, "Randy Dunlap"
- <rdunlap@infradead.org>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
- <ukleinek@kernel.org>, "Ray Jui" <rjui@broadcom.com>, "Scott Branden"
- <sbranden@broadcom.com>, "Laurent Pinchart"
- <laurent.pinchart@ideasonboard.com>, "Gregor Herburger"
- <gregor.herburger@linutronix.de>, "Stanimir Varbanov" <svarbanov@suse.de>,
- <linux-hwmon@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-rpi-kernel@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <linux-doc@vger.kernel.org>, <linux-pwm@vger.kernel.org>, "Gary Guo"
- <gary@garyguo.net>, "Christophe JAILLET" <christophe.jaillet@wanadoo.fr>
-Subject: Re: [PATCH RFC 0/4] hwmon: Add fan tachometer support for Raspberry
- Pi RP1
-X-Mailer: aerc 0.22.0
-References: <cover.1792748690.git.andrea.porta@suse.com>
- <7df58d42-517c-4936-88b0-9d044d30882c@roeck-us.net>
- <auBzvB8TsvIK8Hik@apocalypse>
- <53a4b4bb-271c-4d2d-a9e4-cec4e0ce214b@roeck-us.net>
-In-Reply-To: <53a4b4bb-271c-4d2d-a9e4-cec4e0ce214b@roeck-us.net>
-X-ClientProxiedBy: TY6P301CA0007.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:405:3be::17) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:400:1cb::9)
+	id 1xLiYI-000000055Ck-04tK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Oct 2026 14:53:27 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-cc4aa18f9afso4008a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 07:53:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793112804; x=1793717604; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MpIBWf7/b2ks94p+dnClhdfP917IQaGrC6d3ELQJeOU=;
+        b=UC8+Z8WN4WBbUj4X9cPMWcY8XYYaT/iRvS4/ugzpdP2rbqLeYED80u1YZ6zxZDs1Wk
+         2MUTTIQaiOL+R081LQ+AqcMf6VcYVnzM5S+lykorogB5tCuOGNEfiyc3ig6aPCKj/QAs
+         wNH+/GqUG/eXfx0+0B71oa/MGbCX5qD5eKj+0yL2T56Vs/ZBUtNs1GAS3V49VfMdybfm
+         W8Z1/xedhHxdGAJvXQ6AijmDV38B3OPJD1tkxzmYPQvtEbUKADhith1VYKk6J6CU5LPw
+         U0hsQGHmaHgZy86w2hudXGdD3A5OMIqZSeTmsvNLb+i/YyjQ4a1D5uAB0ccwbpGdSQZR
+         eTCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793112804; x=1793717604;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MpIBWf7/b2ks94p+dnClhdfP917IQaGrC6d3ELQJeOU=;
+        b=iXjO3zuk8tbsfvPL3kmlG5TcJ1XC7/p9j46hKpIbv3BdeKeTqGg2SzrpE/iatuDfln
+         bUP7juU8zX3ijAHu35mRn2laH2vB/BRadagIKE5mPPE2fjmk8VTPD8be8WjEBRdyTsR4
+         ho/20XVuo0STqi1uaCaAFKeZZhi9skl4Z+pUqkcqQWOnwut6Fgt2y8pWYCTThgqj24Vz
+         ghpP/EMSalGwFFh88GX6N9sU7MYx2quVtUF0BnQzTlFAje4ZgJtxrFsuRAduN6MbjNUX
+         sD+Yl0TE7y8N6It/b7bj3vOhdsbDY5Pe9SQxAAT6lC6+s/UySqpzNqQO1mL3EigtvydK
+         2X5Q==
+X-Forwarded-Encrypted: i=1; AKwUvByY/+TEG+e6V8313sqjI9igiaTDApMLurvEPS+iM642mc1tyBAdnYmIGgheltuhmCKqQ1PnHmJef5AA3Z7vrz13@lists.infradead.org
+X-Gm-Message-State: AFq9FYKfWogrjKGqENgdddULh6h834TooNXeYjiLf72QK3MQppsJJELL
+	u9zfQssuqHM+1IAwWpulNAOjWx/fPLr81zl/a+x4DGTjspHX0ib6fB7g
+X-Gm-Gg: AYBFou3gVkeBj3WZdvZaMvcIyvIX/xw/EwuEjKD2jXdJLYaNdLZuZ3H0EwzRtzTGl82
+	PG5gBjR5sk7oa/a/2wuN3KANd/y5GBBXGHDdkpFxykOuHYQt9ZKZdTR7S51xApGjIFD/BwYvBdW
+	q096SP7T0i+eKm/s1rY7KUfoSIdSVtGa9GIeHaZgoBFj27oYHbC5CqxojSe4Z1iyLRlhQn+1v7N
+	4hl2rfm/vVwz89yFOxzAI/CxvkwVCApL4T4UN7EtEZa+hTrXINPlnFEo7xrPYYil+2aN4oExaKr
+	ZlUpRBUMuBhvRGzBv7n1P4kAKKucBRjdK9DGXHSbouFs6vIC7BDHvlp7FWXGvwWLgWQ2xhcxdgZ
+	gjgTGqqRsNQ4WK2C82y8gHCMfEdp5CS6LE4jIj3bqz2ZY1+aw5V8K0e/e3RkESu7iLP3Y4+Cfeu
+	0rCS1Idb2omv/3Eq9HSVCdDMIzrZ6HqSd+me5zSv6aI8Wa67WFiDGBBnoKqhhcQ/jmNjq0aN1lD
+	S4wptJy9swQ/pM+dTCCak/aUDdMto8VFhZ0zCqdyP808HGzItQlww==
+X-Received: by 2002:a17:90a:b896:b0:3ab:b39f:41c8 with SMTP id 98e67ed59e1d1-3adead4dce8mr5470253a91.46.1793112804486;
+        Tue, 27 Oct 2026 07:53:24 -0700 (PDT)
+Received: from lgs.. ([101.76.249.61])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae40614d7dsm4093349a91.3.2026.10.27.07.53.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Oct 2026 07:53:23 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Guangshuo Li <lgs201920130244@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] media: exynos4-is: fix DMA memory double free
+Date: Tue, 27 Oct 2026 22:53:13 +0800
+Message-ID: <20261027145313.136305-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|LO3P265MB1961:EE_
-X-MS-Office365-Filtering-Correlation-Id: 54fb2695-c3d5-4e74-dcf7-08df3439cbfc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|23010399003|10070799003|376014|1800799024|18002099003|22082099003|261026140227099003|261021121427099003|56012099006|4143699003|10067099003|261021123027099003|261009223027099003|261022105027099003|261026121527099003|260925021911599003|260925022911599003|260925021311599003;
-X-Microsoft-Antispam-Message-Info: maYIBDOfQfFGMxIM5Irf4+rEPPxj7BXTbLUoyn+css2gqcvevKbYZPhbd/RzPbno567Y/Rl3Mu1WQG/6h1bhb+Jn8el2mhgigBUQXpXcRBw5YLZ4aBR5XFSMF8/oZL4W38ovSOgMGyGwtgBy5usNgesZeBzJJPODUZjBGfpM3xIf6czXfz861a8udpzjouMLy/q9wQYYIJ7CpJ0Ldf6K1QV7CWnoJmEV/3rIeFQFaXpdGCsiTICLNQuoPn+i2vpO8gqiOgWh21YVIljCDPdDLv+nPzJP8omqjN5fGrN9QpmHYsjkhNaqEED3smvTj+kQ8KugCANu612EQxokPSF9Fm41q8kwjOTpTJyub1XBWG9HxAXZjbb32SJmCCGiUbxx1aGvV7gk6ATuNe3SgO6J/tBORaA8jqHjOGKs1fe9AYHdDq7yeDK3rBQk3IpNrG0mkHbD2Yy57FPQuYQx1mEwvb10HhP0c9LIMwYG25/8AAzIStdh75BkAYsSM01dekrScm61rj/7mkWjEmVsrBdz2YCPbx9X5wENK7YxeYKkSRAWINwpCvZUlT6Lj7CVx55qrt4LfEp4FxARpdlc8t5/jP2FrJdyD/XfxWUlGBQ11mNrDICj8Ot6D0DTY8QiA63A
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(23010399003)(10070799003)(376014)(1800799024)(18002099003)(22082099003)(261026140227099003)(261021121427099003)(56012099006)(4143699003)(10067099003)(261021123027099003)(261009223027099003)(261022105027099003)(261026121527099003)(260925021911599003)(260925022911599003)(260925021311599003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T0JVWUx2RlJGY251djdNckY2b1M1ZUk0SjlSSWVyVzBRRUlwdDJaYzBIZFJU?=
- =?utf-8?B?RllDZ3d0a3Y3ZE9rUnJROTFKUGVJczFoRHk2N1F3L1ltZ0w3OWQ1d00vbk12?=
- =?utf-8?B?T0RmVUU3aHJBRFhpWlBVU1dtMTdBbElJVHpkWHMvd0I0L3RmVXp6eUV1L2V0?=
- =?utf-8?B?M0RBZTlRcTlkb1dTVkhuajFuUloveWZublNxZGs5K09MbVBGTVhPZTdkTVhk?=
- =?utf-8?B?dGxwK0lTek50cFZqZVA1dHA5VzFTNG85TmswSjl5bEdsM3pRT3puR3UxRDZz?=
- =?utf-8?B?NnFKaDNJN0RYQW4wSEVwdDVWQy9NY1I2Qk1ZUHI1QUdJWU5nMi8yRXVBNE54?=
- =?utf-8?B?ZzdLd3I3ZTI0dm94dWRuUTJVdGtZWWN1QTBaZjZJSWxMZ0hEbGdoSkhnQVZI?=
- =?utf-8?B?RTJFRzFtdCtaSHVVeFdPS0dwbzFFM0YyZHoybTVwV3ZLQWxNb3RWSElqY2lZ?=
- =?utf-8?B?ZjJ5Vy9QWFNvejBCbnZia1FhZkgzZEttVnphSnhZekFmVkQvRGt3YzhrZUIz?=
- =?utf-8?B?NVEzbEpJcG0zcTIyYUdjSjFyUGNpTzlBeTlXZnRuaE0zK2RObEI1bnFVN2da?=
- =?utf-8?B?Z3UySEtpQjlCZW5xU0tpNE04bDdvSmkyTXdod25TUGlwSFpEUTZ5aU1IQTRR?=
- =?utf-8?B?RjRxcFJyWjJiSUtVdEEzYSsyalliMGllRGYrUVVmUXNNVWN6OWpnUlNyQmVy?=
- =?utf-8?B?MkVXaDRUemVtN2MrTUhxRDZrNXgvc0pqamREQk1YQVh0RlVlemVGbllJaVZL?=
- =?utf-8?B?blA0KzNZNzliNTFyZUxpd3J2RnMzTFV0bXQxZHEvYzVrekhPV1JOM0NxS3Fy?=
- =?utf-8?B?T0lhcFZydUFrOHA3Yk5neExlak5zdzd4NG5KSU9sS0N2WWttcEpLeUwzN05F?=
- =?utf-8?B?RS85N0lDclZkRDBaMWJRZTR1QVE2NzNpWDR0ZEYvT3FFaC9lYjRPekw4S1Va?=
- =?utf-8?B?UjlzZUtPaFArZVVqZnlvSEF1UTg3M1JXUnFVM3YwRTM2VlBjRWZVTnM0QThm?=
- =?utf-8?B?R1VDTWd6YnptQmNWQzJjWXZTYnN5NmpqMCsyampBYXRCZ3RzZzMwa0EyYnpT?=
- =?utf-8?B?aUVrV01ZdEcxbE05aWVzSlZDd21GRVpCc3A3d000TERneHByVlJJdllGcnBL?=
- =?utf-8?B?Ry8xTStZTTQrWEp2MUhjU1Z2MUtsaGJwcWlRUlFBRG92Qy9mY0NLeEVXeVlK?=
- =?utf-8?B?K0dJTU82TWttcyt0ZTdEaElkOGxhV1RreVI3NGtHRG9RNHZ3MUJRYTdUU0dB?=
- =?utf-8?B?Sjh4cWZNT0I1Q2FmRjlUa3dTZ0ZEQmlZRTQwZVJ3ZmFBTzI0dGVXODZSbTlE?=
- =?utf-8?B?RmxUZVR5WmxGaFozYmRNUEJZejluZjFKNFZvbzM5MWdFdkY3TEkwRThuR1VC?=
- =?utf-8?B?bjJKc3JiZmxiQ1NVSlVnTzdKZmR2ZVNrclNuOVpvTUF3V2pJQ1Nyelc1Z0NB?=
- =?utf-8?B?RklLSnVmYXhtTks1WlNaUUl0T3JKT3FDVmd4a1ZoZ29ibFZ4Qm44bkF3cmdQ?=
- =?utf-8?B?OHorbXl6Nm9NaDV5ZDJUbUhsMlE3eitnVldHQzUzejNwU29YUXBlTENzeUcw?=
- =?utf-8?B?endVeVlsRStyN2MwSU1PTTkvUzBueXgyaWFwTk9BdU5YUUNLSmFpNXV0Qy9h?=
- =?utf-8?B?bXBBeW9SN05ZOFZaWHJMR2RXRkhJcXpxYjFoT0JlRXlXM2xnbFJBWmhyMlFG?=
- =?utf-8?B?bUoyRmNMRlFLNFZuUzE5c1B6SGNOWUxMbTVkVGljelJ5THgvK0JLRHpsblZC?=
- =?utf-8?B?TDdFTFRTRFVNU1R2Y3FtWlc0RFZmcmdaS3NTYjcyOTRNbTJWL1RKci9VbTJO?=
- =?utf-8?B?bUZXS010QXlOYi8wd3F1UVhOcE1TVVZWMUZYajhZOVVlckhDcXB6L2djTmhX?=
- =?utf-8?B?bHR3K2JLWWV1L2Q0VW1TekNlZk14MUFNaUhNMnd0cHU3d0FuUndLQ3BlN3U3?=
- =?utf-8?B?UGhpVHc4TVpkaTBVRlNlbkcxNjN2d3VFMmwwSkhXcXFEdFNFN3UzNHhNY2xE?=
- =?utf-8?B?and3blZvSEUrc0pqejlKcWJldG05L0NQRE1QTTRzQ2Z3MTRvNnNJWklDdXlh?=
- =?utf-8?B?TW80LzZQdXNlZ09OMTllS0xtNEpyRVNMOU9wN2JpWnZRS1dmektSbk9UQjE2?=
- =?utf-8?B?QklIalo3c0tkczNPWHFzK2VDZU90Q1RSQ0JmUlpRNTV2T0NPTFBTbkxxbnV2?=
- =?utf-8?B?VVJVYlhWVjNtSDhqeGhWVExrOG9pdFlRUUpQalc2MFFLRkExd1NhdjJienJN?=
- =?utf-8?B?aG1ISDNlTDZ2OVg1UXk5RkkzMUM2eGNIS3RZZXFMMFNuQzNRVld5dTg1aUR2?=
- =?utf-8?B?UGZkQkpLS3g4eTlkWWl0Nzg2ZXBKaDVjb3ZUYVVnRzlRdjhMS0pIa3k5SzB3?=
- =?utf-8?Q?+qpSlrfEfBnvQH2gRWSaMMWkXoR6VoBoRFcqv?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 54fb2695-c3d5-4e74-dcf7-08df3439cbfc
-X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 14:51:35.3511
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6yc9wjNsAOubu3nRK7HzqJLoNdm2s3mjDDJ43sxPofnXPx6rHZXb0zWLBCxgh53wz8ecN4DD4JI7iuBXXFfxtQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO3P265MB1961
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_075144_311261_14159FC1 
-X-CRM114-Status: GOOD (  21.67  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261027_075326_059424_ECC98F83 
+X-CRM114-Status: GOOD (  11.48  )
+X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,95 +106,49 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,FROM_LOCAL_DIGITS,FROM_LOCAL_HEX,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue Oct 27, 2026 at 9:48 PM CST, Guenter Roeck wrote:
-> On Tue, Oct 27, 2026 at 10:49:48AM +0100, Andrea della Porta wrote:
->> Hi Guenter,
->>=20
->> Yes, I also proposed that in the cover letter because auxbus seems also =
-a viable
->> solution.
->>=20
->> The current implementation is a consequence to the discussion about the =
-companion
->> PWM driver, from here (and the revisions that followed):
->>=20
->> https://lore.kernel.org/all/cover.1775223441.git.andrea.porta@suse.com/
->>=20
->> To give a short and hopefully coherent view of the decisions, here's a b=
-reakdown:
->>=20
->> - first proposal: PWM driver + fan hwmon (to read the RPM), all in the s=
-ame driver
->>=20
->> - V2: Uwe preferred to split the PWM driver from the hwmon one, so the h=
-wmon was
->>   dropped from teh PWM driver in favor of a future (fan) driver. To acco=
-mplish this,
->>   I moved from readl/writel to regmap + syscon.
->>=20
->> - V8: Gary proposed to export a function to read the fan RPM as a viable
->>   solution. As a result, the regmap/syscon was dropped as it was no long=
-er needed
->>   and the function has been exported from the PWM driver
->>=20
->> - new patchset for fan driver: the now independent hwmon moodle just cal=
-l the
->>   exported function from thw PWM driver.
->>=20
->> If the auxiliary bus is indeed the preferred approach, I'd like to ensur=
-e we are
->> all aligned, as this would also require refactoring the PWM driver.
->>=20
->
-> Let's say it that way: If you don't want to implement the auxiliary drive=
-r,
-> and you insist using the exported function, I would prefer for you to go =
-back
-> to the first solution. The one thing I really dislike is conceptually bro=
-ken
-> code, and I consider the current approach broken. Your call, but the one =
-thing
-> I won't accept is the code with the exported function.
+fimc_is_alloc_cpu_memory() frees the coherent DMA buffer when its
+DMA address does not satisfy the firmware alignment requirement,
+but leaves is->memory.vaddr non-NULL.
 
-I agree on the auxiliary driver part. However, I don't think EXPORT_SYMBOL_=
-NS is
-an issue, and regmap is not the right fit here:
+Because firmware loading is asynchronous, this error path may run
+after probe has returned successfully. A later remove can then
+attempt to free the same DMA allocation again.
 
-- Previous version of the PWM1 patch series publish regmap using
-  of_syscon_register_regmap, but this cannot be undone -- which needs to ha=
-ppen
-  on PWM device unbind (the RP1 PWM device is itself platform device, but R=
-P1
-  chip itself is PCIe device which must be removable).
+Set is->memory.vaddr to NULL after freeing the buffer so the
+existing NULL check in fimc_is_free_cpu_memory() skips the
+already-freed allocation.
 
-- The tachometer register is not its own separate register, but rather (re)=
-using
-  the phase control register. The phase control is not implemented in the R=
-P1
-  PWM driver on the list yet, so this is currently a simple register read -=
-- I
-  can see that RP1 PWM driver need to take special care to about the tachom=
-eter
-  reading if the phase control is implemented.
+This issue was found by our static analysis tool under development.
 
-  For the two reasons above, I think the way that tachometer is read should
-  really be an implementation detail of the PWM driver and not for the hwmo=
-n
-  driver to worry about, so I suggested using EXPORT_SYMBOL_NS.
+Fixes: db47622c13ae ("media: platform: exynos4-is: remove all references to physical addresses")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+---
+ drivers/media/platform/samsung/exynos4-is/fimc-is.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-- EXPORT_SYMBOL_NS is the documented way for exposing functionality from pa=
-rent
-  device to auxiliary drivers: https://docs.kernel.org/driver-api/auxiliary=
-_bus.html
-
-Best,
-Gary
+diff --git a/drivers/media/platform/samsung/exynos4-is/fimc-is.c b/drivers/media/platform/samsung/exynos4-is/fimc-is.c
+index b7d9bfedd590..9fdc352abfe4 100644
+--- a/drivers/media/platform/samsung/exynos4-is/fimc-is.c
++++ b/drivers/media/platform/samsung/exynos4-is/fimc-is.c
+@@ -346,6 +346,7 @@ static int fimc_is_alloc_cpu_memory(struct fimc_is *is)
+ 			(u32)is->memory.addr);
+ 		dma_free_coherent(dev, is->memory.size, is->memory.vaddr,
+ 				  is->memory.addr);
++		is->memory.vaddr = NULL;
+ 		return -EIO;
+ 	}
+ 
+-- 
+2.43.0
 
 
