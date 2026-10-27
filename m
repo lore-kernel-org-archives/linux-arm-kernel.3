@@ -2,76 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D348606A323
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 03:49:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4395606A32A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 03:49:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zFUS6Ve3;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=GtjvBV6C
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=40rsTBHH;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=REqLEcWu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=QYcOxOwG5nt64SzUuyibNRblxh48usRslX5qPY98KUI=; b=zFUS6Ve3eD9FlsvCbPblDHR0Yh
-	1LqrWxwgRf1Wx0N0T0P5evszsf+hp+oUSMnyiiwIKtSrmFMftc1B/+K/N4+pLHRMw6BL0K/4PDEH/
-	1Zn5J1szmQOEN8No12F08s8MNBqmvPxJlpe0RM+tikAd4pd6LXe2cU15sZomTv6n/BYlPv890Odf4
-	xXV2rd8mL94JK/BhIML2qAzfNCDTWSO86pUgCcnQSCtRUZoDRtm+I7HzfIAX8VXYpRH5/2gwHsrXl
-	2W6rhWtnVPewY0Uv/YkkQjbpEWa6YPQXnJxuxv5Ef8M903iV2mGBbrpGvfc0cUWuQqDNYuUYlGcXx
-	GkvKyvMg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=bVKdd+rg0dOMU+J41LGwwuebdjS7SkBQhNfNvVlqcdA=; b=40rsTBHHcQ2XE/
+	dZhvdJM6ZlK2VqlsSrT6FGNFhYWyvC6BAAZXEoIKVVHY73fQk+FBaOJPCDOrBLtLIDVlBAvgOP8Xg
+	EA/xEqsJjIyfg9UsJL5f/7i/YT7SP3m3aCqivh0EkHb7fHcSEwHrbfJcvwY4VqZ19eBeWfIW2HWus
+	QtRi7XWLPbs5pGK+L6gj7+VTQ8jNI4B8KaE/rnd397XuUBoz0e+5Hv5qDDjx1NjtV+MEE3WjeCXoR
+	fADguYSVqbNeHDv8CwCowdM9NHjOEJ6AckTEUmskKgT24TwSMtsCPwJyv7IT0u9uohXudnGcFm4K0
+	m47+A2wrAc1FNVO8u+qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLYBi-00000003iHI-2yhF;
-	Tue, 27 Oct 2026 03:49:26 +0000
-Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
+	id 1xLYBp-00000003iJC-3yMS;
+	Tue, 27 Oct 2026 03:49:33 +0000
+Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLYBf-00000003iGr-3JvI
+	id 1xLYBm-00000003iIT-42k5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 03:49:25 +0000
-Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-36661f953e4so6843681eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 20:49:23 -0700 (PDT)
+	Tue, 27 Oct 2026 03:49:32 +0000
+Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-181516de561so374546c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 20:49:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793072963; x=1793677763; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QYcOxOwG5nt64SzUuyibNRblxh48usRslX5qPY98KUI=;
-        b=GtjvBV6Cd0BkEkXsiGc92nwHGXs67HvI+Ofw6lnzxoKcD89tmJ5no4RLwMRJbkfKJR
-         C/6v1r2fAaZ3FqhCk60hObJdkHexN1qFDrVxmm0p0n5UNMA7pvbIwu7nBQhNx5VMQQv8
-         gKf4391ZnXHrkrHqejgvkhUzqHbbbNNLVth7lHXGrdiqGlgCisUYHsMpJoDWeWuimAIc
-         dn/C7LZ8/0t4eqr//pdD+cOtszcN8l7hqsTf3InCBHA0bp7HgfIvsvinQWWEl+eTMR9g
-         xKeM/0V0JdrrxFE4UkzFLrNaFGwG3JwoLev6M79RV/YXWEZPt7RAkHoW8pmsaMzQez/G
-         hrzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793072963; x=1793677763;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1793072970; x=1793677770; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=QYcOxOwG5nt64SzUuyibNRblxh48usRslX5qPY98KUI=;
-        b=KL4O9abebwpsZldvPm+Q06LOqgu5UBtVbaDlbAOW4kgxm6fb5yRkptz0+OebydO/Jg
-         iDTCmnwoV4CMecjThRTY+gPIUy+UdWEhK0qXCHqgvqdaYFITSzdeUzDgeQW/jODVddof
-         qeaQKQ028V2V8b57qL1hGPUh5rctxdkepHfBleQxI35OnTsdMzcfex7DybFXgiHehdkz
-         ldbLXKg7YiS7jNZkfzKzvPrnzKLOP5mcXQM0R49Kv1ZY0Ko0zUFWWuiV+H67uSBbja44
-         /uq4Q41kbVJGaLjKtC/GfFkYkjZ4FO4WJkKr0oPVLG8FVFpvmsodAiob/zUM7ikr1K4b
-         6S2A==
-X-Forwarded-Encrypted: i=1; AKwUvBw4iUpVFN8v/v1BYafnZN4L21vlfQli0WA2fZ2z9ZdVt8J0nEcq0tqq4TbsGgtUN1lh92fU3Pzmlv5N7p+1apKA@lists.infradead.org
-X-Gm-Message-State: AFq9FYKciRXnemi4fqBdY5dCOeODQHgrbkFSrt3hmbs/CnvJE9bwG6DP
-	x+D/fqZZR6WZX6sL6CDRpqF8lU+LeBf/bBEuZRurzQGtMSA4Cvuc4qvY
-X-Gm-Gg: AYBFou0iYDPHH7Dskz7ez0FyD5JKHI3aMEZp0WdYRlPaQDhl+c7jv0KZbb4XHz5aofa
-	TXE+ir3VUbiIqgPmHyzthB6rPBXtpmfuACBD2EHPoathgKNragXn2bOaJnWmsGtROuNP5KNNBuJ
-	EJwuQPUQdqUgmnU2gkukL65T/ydDy5t7U5RiH8onLX2rZ7Txt21xBFq03TCXHGhL0IiuHjoEVKy
-	35n5N+9bnqVfzm0gTfsueK4vLWTJBp0m3b23bZrrR6fU+WLXC2uZ6BF19S64tmnD16Qb1Pd6s58
-	v0/iL2o0belFZjW0B08hiL3Qel7gUxNIggBi0JlgYr3kBfV0w1+1ZXZU5fcY3mPIkaVy2YAgqCb
-	gbIItHsCbMYZXe0HNvrlliGHJMol4m6Fj/DApuWd0cd4Cv4Ahtk13pJu7167zfdcxqAPbGBkl7J
-	KBpkbOqVCMVrm3RT5osYddJ2FIEDEHaNGVi6xQXF4Poq358btVLVa9CqzE/YAxvtwLk38+yuCmd
-	Ns8KT7E1Ons3jrz4NeIg9oXmlg/LjtdzTmDexftyqhatMtBOX3XZN8pJmkbKopdcwyLgY177xh3
-	bEmVeE/ljTmu3HIv6xYkU/GefGlBDaXp4dxlWrpxQxzh
-X-Received: by 2002:a05:7022:f511:b0:1a0:5c85:d1b3 with SMTP id a92af1059eb24-1a05c85e6damr7103884c88.43.1793072962440;
-        Mon, 26 Oct 2026 20:49:22 -0700 (PDT)
+        bh=bVKdd+rg0dOMU+J41LGwwuebdjS7SkBQhNfNvVlqcdA=;
+        b=REqLEcWund0xYhj+0wzaMBYxumWf8c8zfRCFkHwvXnzAx00GbHsuAD/ikPTnbRMr0Q
+         HkBumtLY+FbVIofLPd4cGOEX1xGN0reuTtrCut/A06mA2MMAFd67bMNM9FWAMBgPiUPe
+         xRi5uojtBmaLf0VzosMurBorylGpp2AqrO0QbY+nAZRT9j56ZMVN8uKpSgh9AMkCvBqc
+         KzjmOkX9TfrvtyjwttXmN6ERfgL38fsl9ZtpPW48aO6p5HDJVscmffdloFPJq2LwbRfs
+         Xo+47ZAELFK/y2zr+DLqwWzv6vr8OGk0J1FLq+elspca3c/4U3Qb2mJNJ7upHOGOHUE1
+         G3BQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793072970; x=1793677770;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bVKdd+rg0dOMU+J41LGwwuebdjS7SkBQhNfNvVlqcdA=;
+        b=K7u4X8tCq5vOkf31Rc99wmL29zKMTryBd7ks4vfcZKbZu3ej4OfGJnVjf1IEVLoLra
+         wfw4hy44tBPwLViq3GQGjsz5Qh/KB0NsAdzeKOWe88WJqJUSDJQ0r0ZSV8sNJkSVLZ1i
+         vSDqs4hFxM4GYNfYQcBMa+hOIwn6BHX0tVQgH7QbBUROOBrqSpzdqq7PphNPb7c7VjzB
+         pKC1aF7f7WMpaf+4oI/xAROL+bhgSgYw437FlT79KsLlh0baXIBThrrB1AXqcMU4yMru
+         qJfacietsorsnL/gKyW+KIReBqcsfE11AaAMhLaC+1gsk4C+dzHSX4qebFrcfpwapqIF
+         260Q==
+X-Forwarded-Encrypted: i=1; AKwUvByvMFLpPMyczX0ra+kv0ySFb9zTwEh7Kk1Jlx3wgQ97nNRAdSFJxuCctC/QV1mU0jpiiVqAgmFSNfeJBChZJLzi@lists.infradead.org
+X-Gm-Message-State: AFq9FYIGuwHobzsco0gy5SSp/eLD4dMWcLs+caxHUeWe5Zu2V5HSie7U
+	F14iUEuTSNL5HLw52WO6LrWUKrFd/Eeqea7iPXhppwOXOb9F6lJj4lxH
+X-Gm-Gg: AYBFou1hs4di2oh9G/8bmD+V0WF166L9Wpkg8hZ9Pn9KsRp6ZGJE0/a8T2097SiVCnV
+	rAWpMC02rlw+mBHiSTZPzR42A+7gsWYaFwebvfPY9GbGQLeaDV77vTIzGJ6o61KalZFIXh8Jlk6
+	yw0ql7Qe+H9+kNcH18/9hK6rh7yfboBlyekgHZtlW8Lijn2MGLMr/js6r4lJMPnd6EBx6pmnapz
+	R7IBPcYpQ/FenNmly+qhnsZtitL1zGsg1d3/ncKbd6zSkhFjEfc42/EA0FrfuO+/AXXJqNPRA7Z
+	6OiypKm4fOKnhaWUpqv1jdmP9+vkx4ICIMK9mZFdWWQd9M4x+ESCiSjr6o1yWZwt6bkAeumaX4E
+	LDsLDAG2Rlrk6wwhKE13uwfntJne4DxUk0ZTnuslbD1UNZ3M4W7XrpA6jjhdWkIpU/pGobLGFDr
+	NIx8JLYuFY1bEE1nw7e56uJ7PNbHh5R91zaItXZzc8eWvsLUKdnzfx73Ee1SSghfuc56e40BqEI
+	I63R2cZGD1ndh96iSFY/A07RPXCGUI1N4BSl1bzU4FF4fGoGa65ljG/TXzVHr94f7B4ZJI=
+X-Received: by 2002:a05:7022:47:b0:14e:5e6b:e6e2 with SMTP id a92af1059eb24-1a3c904cc2fmr2284657c88.18.1793072970015;
+        Mon, 26 Oct 2026 20:49:30 -0700 (PDT)
 Received: from debian.prasanth ([103.177.82.12])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-198a2a5a515sm26430012c88.19.2026.10.26.20.49.17
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-198a2a5a515sm26430012c88.19.2026.10.26.20.49.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 20:49:22 -0700 (PDT)
+        Mon, 26 Oct 2026 20:49:29 -0700 (PDT)
 From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
 To: joel@jms.id.au,
 	andrew@codeconstruct.com.au
@@ -87,16 +86,19 @@ Cc: robh@kernel.org,
 	openbmc@lists.ozlabs.org,
 	andrew@lunn.ch,
 	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-Subject: [PATCH v9 0/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
-Date: Tue, 27 Oct 2026 09:19:09 +0530
-Message-ID: <20261027034911.99482-1-prasanth.padarthi10@gmail.com>
+Subject: [PATCH v9 1/2] dt-bindings: arm: aspeed: Add ASRock Rack B650D4U
+Date: Tue, 27 Oct 2026 09:19:10 +0530
+Message-ID: <20261027034911.99482-2-prasanth.padarthi10@gmail.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261027034911.99482-1-prasanth.padarthi10@gmail.com>
+References: <20261027034911.99482-1-prasanth.padarthi10@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_204923_833951_02951D19 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20261026_204931_008902_0158BFCA 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,71 +112,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add support for the ASRock Rack B650D4U BMC, based on the ASPEED
-AST2600. The series adds the board compatible and describes memory,
-SPI NOR partitions, UART5, GPIO line names, GFX memory, the I2C7
-EEPROM, and MAC0 with its RTL8211F PHY.
+Document the ASRock Rack B650D4U BMC, which uses an ASPEED AST2600.
 
-Enable both ADC engines with 2.5 V internal references and expose
-all sixteen channels through an IIO-to-hwmon bridge. The channel
-order is ADC0 channels 0-7 followed by ADC1 channels 0-7.
+Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes since v8:
-- Enable ADC0 and ADC1 with their reference settings and pin groups.
-- Add the sixteen-channel IIO-to-hwmon bridge.
-
-The other board descriptions from v8 are retained. Andrew Lunn's
-Reviewed-by tag remains scoped to the MAC0 and MDIO nodes only.
-Fan/PWM support and BMC-ready GPIO policy are outside this series.
-
-Base: aspeed/arm/dt in the BMC maintainer tree
-https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git
-Base commit: 8db593481c8669eddb8b4e21ea44f3fa11d9f030
-
-Validation:
-- Compiled the board DTB with aspeed_g5_defconfig using
-  arm-linux-gnueabi-gcc.
-- Ran dt_binding_check for arm/aspeed/aspeed.yaml using dtschema
-  2026.9, with no diagnostics reported.
-- Ran CHECK_DTBS=y for the board DTB. No board-specific errors were
-  reported. Two unmatched-schema diagnostics remain for inherited
-  aspeed,ast2600-lhc and aspeed,ast2600-i3c-global nodes.
-
-Hardware testing used the same ADC node configuration in a locally
-patched OpenBMC image based on Linux 6.18.24. Both engines and the
-IIO bridge were available; twelve configured voltage rails returned
-readings, including standby rails with the host off. Voltage readings
-also recovered after a BMC restart with the host reported on.
-
-The complete DTS on this upstream base has not been boot-tested.
-The tested OpenBMC image uses a different flash layout and separate
-local power-control and sensor-discovery changes. Consequently, that
-image is not a directly reproducible build of this upstream series.
-Voltage scaling and sensor publication are userspace configuration
-and are not included in these kernel patches.
-
-The patches can be applied with git am on the base above. Anyone
-boot-testing them should first adapt their image and bootloader to
-the described flash layout; the DTB alone is not a flashable image.
-
-Prasanth Kumar Padarthi (2):
-  dt-bindings: arm: aspeed: Add ASRock Rack B650D4U
-  ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
-
- .../bindings/arm/aspeed/aspeed.yaml           |   1 +
- arch/arm/boot/dts/aspeed/Makefile             |   1 +
- .../dts/aspeed/aspeed-bmc-asrock-b650d4u.dts  | 173 ++++++++++++++++++
- 3 files changed, 175 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
-
-
-base-commit: 8db593481c8669eddb8b4e21ea44f3fa11d9f030
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index b7e70868e..3e6133e2b 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -79,6 +79,7 @@ properties:
+           - enum:
+               - ampere,mtjefferson-bmc
+               - ampere,mtmitchell-bmc
++              - asrock,b650d4u-bmc
+               - aspeed,ast2600-evb
+               - aspeed,ast2600-evb-a1
+               - asus,ast2600-kommando-ipmi-card
 -- 
 2.47.3
 
