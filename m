@@ -2,93 +2,171 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 979D8606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 08:35:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 621BD606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 08:37:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ryGu6KVY;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=fYV2TPO8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xVu3BCJ9;
+	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=C+tCUyu6;
+	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=knPuEXq2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=7YA8P+muIJDBbbr/1PLa8S19fZTHN+SvrUEgHhvUB0Q=; b=ryGu6KVYKUmD/g29R6GE8HwK+7
-	Z9Vq8idnJDaMg68klffGqOFf0g8mM35hoXxzMjygr559baZB46e1LWplEAKCEVpl31TNKSC3bcFBj
-	nU4dsMB+gzM9FrwzqFLz13FfF9HBD5C1JU0muh31awkifNCfLZOfSzBaIqaC3Ok3Q88zZKgg2P2MK
-	DRDLCSb18nagiNjGlUc7N+H4oThHyl52udIdH1eafoY1mPAYz/OisFG3Q0lmjXD2oo7qXlkXCnQyw
-	lklJj9J89byZYCTlDqUKvt8FtrFZVsUcVyCOuqajmO8L6KmheElOBxFljMKARasr0g6IIT6Y0C9mD
-	kNJ14pgw==;
+	bh=mtg9/1n7fUZC52Btb04TGsA//iuYfYzk0ZmmBo4ssYs=; b=xVu3BCJ9dRmfdWMhWLmeLDz1D9
+	N3e/0KbVcdVW23mT/wirL+t5WH0B5ptaX2ZKUum7W+HCv22aQJ6z/UAzHbStOTaOiQRxYvZ6irS7R
+	NIWGsiDZg5FdTJiKKvS0xe9YORLf3FMt9CCEF7MT36MZ7/8S46Cb0oc9NRkKlWJ8MXPOsRW62fv7Y
+	WPkr9OxKoVsvhNOc+jJJqrYmDUH6Zf787CQZM00TqoO48QxinPLq//WQ5XS9iBBI3hqoHWiQ4iG87
+	YY+vScE7XAaiYYDQXFtltmKCsoPRXNPfE7q5WDAvMoWxZ5cqWfP3eVWPgGIDOG9bDzae7b2e8UJ35
+	8hMjBQWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLceM-000000042Jy-3Xfa;
-	Tue, 27 Oct 2026 08:35:18 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1xLcgn-000000043Ri-3YzX;
+	Tue, 27 Oct 2026 08:37:49 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLceJ-000000042Ie-26rR
+	id 1xLcgk-000000043Pr-2ObI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 08:35:16 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-cd5cd8d89a7so1190086a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 01:35:15 -0700 (PDT)
+	Tue, 27 Oct 2026 08:37:49 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 69R5XRi2265842;
+	Tue, 27 Oct 2026 03:37:31 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=mtg9/1n7fUZC52Btb04TGsA//iuYfYzk0ZmmBo4ss
+	Ys=; b=C+tCUyu6XGXDS2CZwywyqe/jzFAhr2Jxmmnbil2y47877gtkjmFVAcR1+
+	ZRMMDQgS4eWoAF/h4VG5cwJbdVOgVZo9x9IfZcevWttrxuBHw4B1Mn9xtZnz0QaO
+	+g0+z81SQo5f3ysXiUkmrzO47RW7eNccBY2QEksCQ9EgnL2NwvMBZSU0LHd34YTo
+	L2x2/GXHPTXurRCAG1qQUZxZLXpB8BROJ81ViRzwLJPvfA2/tprx8CSnr800B3Rm
+	Yt2tDS6rUu/dL/CGPxxQTFiVPz0QMoJxNRJ5+9N9OmhbN3dCCGJXxxXYyinYWvZv
+	mBfAGOKUdhN0CM9utt4SnqRZMwOsQ==
+Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012049.outbound.protection.outlook.com [52.101.43.49])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4hjh77jpdf-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 27 Oct 2026 03:37:31 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GFxFJ+TVbU0sUQnUUklAtcdjKKXVUD3MLXkSw35tZSIYtwZlJGYvVD1WyxQ0qZKl0Kk1WAMQZnrhV+DpFmSTBl5r2dcfT4mEjKIgV7l1/l2e/mnIDt/CIf4RF2ZigSiuEBTivUgL+QuX7E/pqpbkHjQDRklVVCb0Mo0FElYZ956IcjlrzNrB3gaUVZJ2hoLN3J1y+RY9ILnuaByQ28oAe+2CODcSWiObh+8fMSqvqmtSToP6jeNo2PQ0xAjU864TmVIB82ZSFFywJhwQPIsEs9n6mbYTcaQtR784aW96Ve2lFkOUz8KG05MLICuuSznAqfc5JbK2IVa7IAkEAGtKZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mtg9/1n7fUZC52Btb04TGsA//iuYfYzk0ZmmBo4ssYs=;
+ b=maGmi46WXtaQXK6eTnr7O9LsW7n551n94XcrmfWGu1VJXrH/ke+kBK0e6OjeGu28kYsGY8BKVGkKkOXZaiwvtPfLYBhjdc6A1OWbxv/msqJpTm6jDFAt3xXOfmY3dKRddWqokjieeRA84Py0xurh8E05OF2qUT+K+bKHew6GkgfRsaZW/NX8DAHFMlVVDbuWiVU3uUC6wo4MmWYlU5SSSOQ6hyid0eBOYEHnFWMBcPF1I79k0rdFoRIgCGyAVO7FGzbLz/stANSeN4rzdvSrkUe8Ct5b9kcRMlq6ILZuQ6EtXPrpzMb4VYB7H5aalqcMHPEcQoqiEZbiCmqJiVxtYw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793090114; x=1793694914; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7YA8P+muIJDBbbr/1PLa8S19fZTHN+SvrUEgHhvUB0Q=;
-        b=fYV2TPO8jJF+GXzcPdq9LzB2rySF51EKVeXvMWpzJCDNLEkZ79hjLn5Tx1Uz9N89zL
-         c4eTzRlPJksxMWSi6g8oVgG8LIX2QevlhCJC9K3cpEOj5NPMwqEIiuhBpOrxzJguVUjn
-         nVdaIy8DVffMYhpN4c386zII1vqEMrQA8VdYyC/N2pKKo2Y+pE4QIWkl/VWN+BJ9h+n3
-         ix3d1kuQWeMUbCS/WtC8NK+HA4c72BUAGrkOKkfq/hnrRFfdSnk3KY/E8BOd2Z/B2Np0
-         cW8+TASHCKDuBDy80CSpiTvxGLI2PHPzgkvvA5L2loOkFvu778H3X04dH2FQpd1q0Owp
-         M94Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793090114; x=1793694914;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7YA8P+muIJDBbbr/1PLa8S19fZTHN+SvrUEgHhvUB0Q=;
-        b=1WSCdING3Og+9WcLCFdvr1BMtDi8L8GI+A+hohR1dCsATMJWHY/Z77CDW6+Xhl05bH
-         lnYlAbBo0ySGI38rbtCmIrTJFPiOLjW/qi/yUq71pxwV9iwWEVf+lmehUaVO1Uwno5hU
-         rwpvLd22XVqzzYoksfHA+5zyOdNSvPSvaQUYzO4cg5qEY4kafFktn8UVWCf+eSiTwF7O
-         uUFd2FcawEgP+w5yaB6NkeUVuNOTUQcw8D6N9Oe76+lnEEbXJfl8ZNX67BBxxvpqvTJd
-         J9//28Q9D3KOAVE2MjGOH3BFtcIDaYRzwGvSCGzj/fpW9ijlhb9xfE2CLtV3avT5iylc
-         Ai2g==
-X-Forwarded-Encrypted: i=1; AKwUvBxRq95k7Yf4SUFYL677rf7CEfirx2ymMgFydqMSWMe4snpPDu3JD1zxjteQERaQHiKGwfiTCt3eFY8l+1s9agk9@lists.infradead.org
-X-Gm-Message-State: AFq9FYJdTbPtNyo9Tp1To7/zq+J+W6WUd4w2GpTwO3Yk+scAlRkFkdd6
-	h8wFzmcfkKUnzoMCVeXjxI/4HfqwAz+QLKZyd4mtLfiaSoWdePKH7ZRn
-X-Gm-Gg: AYBFou3OrI3BBQbeS+l9r2hXIDse6Ar/YKRSs8l+fNZbyRXEJujvB0InF2ur0x3QziS
-	0qaglKtEyehewYxNKhJSqzIeFOPaCVSzXbVTABVB0HCa0MdfTDxQy6RunAgFkglSuQJrKMMcqp7
-	yOULFOAGKkUxxnpKep8nV+k/3Md2UeshRZWAUQJ1FCTXT9db6g08/Ikufu10D6y9INO7IVJq3pN
-	F0gsFUHHzJYhDybuGwGgHACyvYXfmGROrP3CC8F2vtgFtwFrUEsdSv8h2a581bY0dKFtwt7NXhi
-	e8Pp9kIJRM6JAyertzHLMQzGUakisZL0HX8qhKaSgeJ+c7s1zWqnXlw4+XqHckRxY3K8//M6NPA
-	GhmsKgWgGJ0zP5z9Xiu/LhxVc4RhqgMl0MqH9d1jx0aRS8KIlB/wr3SJhYYNOKq2juPnqR6twxW
-	suMGZD1M/v3xHzMTfkbwlzpnd0WmcJ7YeyFQVdSPJ2ouQDA8e+HAIPPwWVZkzr9bzu7tiAxcKOE
-	x/zm2XqosFR19KC/+rNVCuw9R9T3eOc3l4WaOpkMr6kasNX+CG38146UA1Y
-X-Received: by 2002:a17:90b:1c12:b0:3ac:6e91:3f22 with SMTP id 98e67ed59e1d1-3adeafca234mr6397843a91.52.1793090114408;
-        Tue, 27 Oct 2026 01:35:14 -0700 (PDT)
-Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae404274b2sm2750182a91.5.2026.10.27.01.35.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Oct 2026 01:35:13 -0700 (PDT)
-From: Ping Li <leeonion.muyu@gmail.com>
-To: james.morse@arm.com,
-	ben.horgan@arm.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	reinette.chatre@intel.com,
-	fenghuay@nvidia.com,
-	Ping Li <leeonion.muyu@gmail.com>
-Subject: [PATCH] arm_mpam: Warn when firmware leaves PARTIDs disabled
-Date: Tue, 27 Oct 2026 16:35:07 +0800
-Message-Id: <20261027083507.48226-1-leeonion.muyu@gmail.com>
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mtg9/1n7fUZC52Btb04TGsA//iuYfYzk0ZmmBo4ssYs=;
+ b=knPuEXq2iwRFvVwcsJ+dfuBfTvUJ/F1YNIizqyU3iVVTTmBvv2y+GNJAFybTkxU3PqAYy+Ik7X1SHuIeusAmWbhy+QJkkbI3ozNC+duCK4d5OOh9ZsZ1b8qc6d94pGGPLVbFxNdgU2r0HJuVcFL8LkeEnObcjPYr6l7WKC3QjF0=
+Received: from BN9PR03CA0452.namprd03.prod.outlook.com (2603:10b6:408:139::7)
+ by CH4PR10MB8027.namprd10.prod.outlook.com (2603:10b6:610:239::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
+ 2026 08:37:27 +0000
+Received: from IA0PEPF0000003A.namprd03.prod.outlook.com
+ (2603:10b6:408:139:cafe::20) by BN9PR03CA0452.outlook.office365.com
+ (2603:10b6:408:139::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Tue,
+ 27 Oct 2026 08:37:27 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ IA0PEPF0000003A.mail.protection.outlook.com (10.167.249.71) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.569.4 via Frontend Transport; Tue, 27 Oct 2026 08:37:27 +0000
+Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 27 Oct
+ 2026 03:37:17 -0500
+Received: from DLEE208.ent.ti.com (157.170.170.97) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 27 Oct
+ 2026 03:37:17 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE208.ent.ti.com
+ (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Tue, 27 Oct 2026 03:37:17 -0500
+Received: from moteen-ubuntu-desk.dhcp.ti.com (moteen-ubuntu-desk.dhcp.ti.com [10.24.50.20])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69R8b1hF1558035;
+	Tue, 27 Oct 2026 03:37:12 -0500
+From: Moteen Shah <m-shah@ti.com>
+To: <conor+dt@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <nm@ti.com>, <ssantosh@kernel.org>
+CC: <u-kumar1@ti.com>, <gehariprasath@ti.com>, <m-shah@ti.com>,
+        <vigneshr@ti.com>, <afd@ti.com>, <a-limaye@ti.com>,
+        <y-abhilashchandra@ti.com>, <johan@kernel.org>, <kees@kernel.org>,
+        <jm@ti.com>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v2 2/3] soc: ti: k3-socinfo: Export SoC registration helper
+Date: Tue, 27 Oct 2026 14:06:59 +0530
+Message-ID: <20261027083700.1964371-3-m-shah@ti.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261027083700.1964371-1-m-shah@ti.com>
+References: <20261027083700.1964371-1-m-shah@ti.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PEPF0000003A:EE_|CH4PR10MB8027:EE_
+X-MS-Office365-Filtering-Correlation-Id: 264b1032-1bf4-4b32-e61f-08df34058815
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|23010399003|1800799024|376014|56012099006|261026121527099003|22082099003|18002099003|10067099003|261022105027099003|261021121427099003|261021123027099003|261009221227099003|261009223027099003|3023799007|261022075727099003|261022113327099003|261026140227099003|13003099007;
+X-Microsoft-Antispam-Message-Info: k296nVGdazoBoXmBRW+4utCkhrou69+dgiPVhMcxHnPBOgFMMddYHlabEPF3IzDavYVAowC81rM27K37sD09/6Il+8KshvH1K7LMTfqZcEypWW6lnYGo/CeuuC8UDHW6kmLcXqBMKumWTUH0jDSkFFCNCVfs3U0ek8MmmlhxbLk7ydRD7PO0ygdlRVQ7lLwZE+9RapnbKxJz2fAOIzIZ/TO2TsifRsHGkfBjgu4CWRV9UrIWyMV9aStVjY8+9CWL2jNkc7E8/LGprhlbaJXA4HscR1njK8dQ/cZcMpk1mIpatyc+Il10ntvdRBv1TT+ZUU7j6JWqSyBu4YyiXBF7jZmt+Bk2CLO2ZH53KDJ0y+dsEV1Ci039wtfVsZO99h7RQGrbCOMUhYwpTEcHk/f6g8lJuWL/yDt5QXXeWNGou7MGKN7ufHr/h3U4kziZYmM2xkp9VG6JNLqNW7OOQGjY+tTnWy586I6rGuzVttCo6IJb8L/kSA0ZI8U5YuA9whixziztxVZciD6qfh982bIUUyHMUIK2Xu3pn/kXho6ZObeS24NMjwjkg48ZD45n6sGfMHqq4+KxS/cOCAK75umcocHcl28JtqAr/fZEpWkUhSXg9WGpHFI46ETg9n82rEKF76WgFzTeCyEtaSraqvuxWQ==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(23010399003)(1800799024)(376014)(56012099006)(261026121527099003)(22082099003)(18002099003)(10067099003)(261022105027099003)(261021121427099003)(261021123027099003)(261009221227099003)(261009223027099003)(3023799007)(261022075727099003)(261022113327099003)(261026140227099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: /75FF4jxeXhSe7SvrPZrgDO+xJ71yxylbKhyrfV5patahVeBR4uD3PFS3OZvFffvJ2TblFpcwtSvbAK9zhfTYf9RvwdjOXdIR046D0rH3ZvEhb5zmF23aggCVdcmoH7JASPj9NYFU1TGpwcc0jT9AZgib0XDJt/oAZRljoJvRxyQfmme6G03T9wsSSdAj4Txf4J+qh6Qi26qFxNvWDaHMXJygy9lKY+MVkrlFrAvB7YNXry3SRfXlm/oJhE1K6or63fv0woYLp+XxwpD9JAIEWtPqVmEiwELQdJ65xX9YIVtncdXxId2qbR0LEHY+E0pdw1bZSulkeMHRLmtgbjRty1ys1l6nAyiJJlU9qK94Q0YMC4Vsp5JrYxeA6oMi0hyYsBlqC0Z7insV89/hZav0Jjv66r/SwY4KYTQnmN6rBXRL0EwjB8XT6ANQExIMTL+
+X-Exchange-RoutingPolicyChecked: Egtk4gC3C2kPpDC84kwD3c9MlLSN/z4XgwG82GwfGxBPsYs92eF/0s76RxUtS60ELFUYmocwteqJ5DBTfX9ql8Q7rdQCFXCLObaly0Ei+nZl52+M9IpsmtR6FrSE8IUIgiQxxLXcsvZqxRKPQUyqe03kJ6zG7wLDxlD+5ngc6csYTGaXTK/VcGDbHkVQH/qP8GiSGLl5usEfYygs57uDuZmucwozyj5pNQQdGXpM5fV2F315Hu5UxBWHdVh08kM+U8xg50H7MoW8mp7+TJ8dBJ2PQqks8+DvrnMOQ52F/+/xYStTQ84dJOpZZE/f5ppfo6r0XRjDAAP0LEiBzWm/dA==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 08:37:27.1270
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 264b1032-1bf4-4b32-e61f-08df34058815
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: IA0PEPF0000003A.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR10MB8027
+X-Proofpoint-ORIG-GUID: _7cgZLWpD3gFzO7VTy4rA-kll2mDllqe
+X-Authority-Analysis: v=2.4 cv=FMeOVOos c=1 sm=1 tr=0 ts=6ae062cb cx=c_pps
+ a=cGw96uMdUXN41aDBKcSctA==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=660iZSQnnn4A:10 a=s63m1ICgrNkA:10
+ a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8 a=9o2SDgNTmoWgWv0daWUA:9
+X-Proofpoint-GUID: _7cgZLWpD3gFzO7VTy4rA-kll2mDllqe
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI3MDAzNCBTYWx0ZWRfX4HRbJUu20rwu
+ mfJ11yEQU4gegoervLCPpCZk28umgkUP8x9n3aiHQOblGHS7SazPgI9PD9zcN3ddvvOM/ZHClwo
+ kt4+Mm7ba1BVFmgFgZYhtYHi+xowU98=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI3MDAzNCBTYWx0ZWRfX0M7Tz+vp695y
+ elcjpwL4vz9euOEtuTbTX8HmYKr53A5kQ9RS0+/8cs3XjLACgoMbD5Ot95rx+XOHwyFdvs5GjI1
+ S9g8pSv5UWhlW4qD95kIDqsXjIEwv7JANR39C3WoWpXnLfU3AsaUaK148KOclwP3v7reFnbb5YM
+ T6etSenbbIYudLWVEwC6F0X0DBC7W6MfkhAKqECftxbb0qqMQyYrGesAnQQT43gWxOUM0Cuwjq6
+ s8nnQK1jTJFRq9OdBizeokvl4NjvH3jsWbAgyY8jt6YUMLbe2GKpFVv6UNOBj6nGk1/kEwhm+1e
+ nr4ecWDe3j7T7gwq6A3O1DVP2FfUx+zXEV9R/z3BUHbBoZqG8u7PUQSD2fLhNRv2xZ+S/cmiLwa
+ y68d6XUYBadMyHHXwvweX1ZpWsKh++Ls4QE5ZVdhmi/BGEu7lvZYPdM0K9QD/j9t+jxXuxpdATB
+ 1u8vIQVHmhjFjz7bdNg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-27_02,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 clxscore=1011 impostorscore=0 suspectscore=0 spamscore=0
+ bulkscore=0 priorityscore=1501 adultscore=0 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610270034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_013515_550972_551CF0A8 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20261027_013746_706059_A2840FCC 
+X-CRM114-Status: GOOD (  19.55  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,85 +178,262 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-MPAMF_IDR.HAS_ENDIS indicates the MSC supports the MPAMCFG_EN_FLAGS
-PARTID enable/disable feature. Firmware is required to enable all
-PARTIDs at boot before handing over to software that is unaware of
-these registers. A PARTID left disabled silently ignores all resctrl
-schemata changes, as its traffic is treated as having no resources.
+The k3-socinfo driver reads the JTAG ID through a dedicated MMIO region and
+then decodes it and registers the SoC device.
 
-Debugging an IP that implements HAS_ENDIS but had no visible effect
-from resctrl took a while to root cause. The fix belongs in firmware,
-but warn during probe so this misconfiguration is reported loudly
-instead of silently.
+Newer TI SoCs like TDA54 use a different path for accessing the JTAG ID
+register, but the decoding of the JTAG ID into the SoC information remains
+the same.
 
-Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+Split the decode and registration part out of k3_chipinfo_probe() into
+k3_socinfo_register() and export it, so that other drivers can register the
+SoC device once they have read the JTAG ID through their own access path.
+
+Since the helper can now be called from modular drivers, it must not leak
+the SoC device when the caller goes away. Tie the registration to the
+calling device with a devm action, which unregisters the SoC device on
+unbind. The SoC attributes and revision string are allocated with devm too,
+so they are freed on unbind as well. Callers need no unregister counterpart
+and the helper keeps returning an int.
+
+Signed-off-by: Moteen Shah <m-shah@ti.com>
 ---
- drivers/resctrl/mpam_devices.c  | 16 ++++++++++++++++
- drivers/resctrl/mpam_internal.h |  2 ++
- 2 files changed, 18 insertions(+)
+ drivers/soc/ti/k3-socinfo.c       | 119 +++++++++++++++++++-----------
+ include/linux/soc/ti/k3-socinfo.h |  11 +++
+ 2 files changed, 88 insertions(+), 42 deletions(-)
+ create mode 100644 include/linux/soc/ti/k3-socinfo.h
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 48adc49b833c..f03aa40faa0a 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -1159,6 +1159,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- {
- 	int ret;
- 	u64 idr;
-+	u32 en_flags;
- 	u16 partid_max;
- 	u8 ris_idx, pmg_max;
- 	struct mpam_msc_ris *ris;
-@@ -1199,6 +1200,21 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 			ret = mpam_msc_read_idr(msc, &idr);
- 			if (ret)
- 				return ret;
-+
-+			/*
-+			 * Firmware must enable all PARTIDs before handing the
-+			 * system to software that is unaware of EN_FLAGS, so
-+			 * a disabled PARTID here means resctrl schemata
-+			 * changes silently have no effect.
-+			 */
-+			if (FIELD_GET(MPAMF_IDR_HAS_ENDIS, idr)) {
-+				u32 en_mask = GENMASK(FIELD_GET(MPAMF_IDR_PARTID_MAX, idr) % 32, 0);
-+
-+				ret = __mpam_read_reg(msc, MPAMCFG_EN_FLAGS, &en_flags);
-+				if (!ret && (en_flags & en_mask) != en_mask)
-+					dev_err_once(dev,
-+						     "firmware left PARTIDs disabled, schemata changes will not take effect\n");
-+			}
+diff --git a/drivers/soc/ti/k3-socinfo.c b/drivers/soc/ti/k3-socinfo.c
+index 48dbef3acceb4..e81d27e03c9d9 100644
+--- a/drivers/soc/ti/k3-socinfo.c
++++ b/drivers/soc/ti/k3-socinfo.c
+@@ -5,6 +5,8 @@
+  * Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com
+  */
+ 
++#include <linux/device.h>
++#include <linux/export.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/nvmem-consumer.h>
+ #include <linux/of.h>
+@@ -12,6 +14,7 @@
+ #include <linux/regmap.h>
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
++#include <linux/soc/ti/k3-socinfo.h>
+ #include <linux/string.h>
+ #include <linux/sys_soc.h>
+ 
+@@ -115,14 +118,14 @@ k3_chipinfo_variant_to_sr(struct device *dev, unsigned int partno,
+ 	case JTAG_ID_PARTNO_J721E:
+ 		if (variant >= ARRAY_SIZE(j721e_rev_string_map))
+ 			goto err_unknown_variant;
+-		soc_dev_attr->revision = kasprintf(GFP_KERNEL, "SR%s",
+-						   j721e_rev_string_map[variant]);
++		soc_dev_attr->revision = devm_kasprintf(dev, GFP_KERNEL, "SR%s",
++							j721e_rev_string_map[variant]);
+ 		break;
+ 	case JTAG_ID_PARTNO_AM62LX:
+ 		if (variant >= ARRAY_SIZE(am62lx_rev_string_map))
+ 			goto err_unknown_variant;
+-		soc_dev_attr->revision = kasprintf(GFP_KERNEL, "SR%s",
+-						   am62lx_rev_string_map[variant]);
++		soc_dev_attr->revision = devm_kasprintf(dev, GFP_KERNEL, "SR%s",
++							am62lx_rev_string_map[variant]);
+ 		break;
+ 	case JTAG_ID_PARTNO_AM62PX:
+ 		/* Check GP_SW1 for silicon revision */
+@@ -134,13 +137,13 @@ k3_chipinfo_variant_to_sr(struct device *dev, unsigned int partno,
+ 				 gpsw_variant);
+ 			gpsw_variant = 0;
  		}
+-		soc_dev_attr->revision = kasprintf(GFP_KERNEL, "SR%s",
+-						   am62p_gpsw_rev_string_map[gpsw_variant]);
++		soc_dev_attr->revision = devm_kasprintf(dev, GFP_KERNEL, "SR%s",
++							am62p_gpsw_rev_string_map[gpsw_variant]);
+ 		break;
+ 	default:
+ 		variant++;
+-		soc_dev_attr->revision = kasprintf(GFP_KERNEL, "SR%x.0",
+-						   variant);
++		soc_dev_attr->revision = devm_kasprintf(dev, GFP_KERNEL, "SR%x.0",
++							variant);
+ 	}
  
- 		partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 1f86cc158100..008dc4e10f38 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -574,6 +574,7 @@ int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
- #define MPAMCFG_MBW_MIN		0x0200  /* min mem-bw config */
- #define MPAMCFG_MBW_MAX		0x0208  /* max mem-bw config */
- #define MPAMCFG_MBW_WINWD	0x0220  /* mem-bw accounting window config */
-+#define MPAMCFG_EN_FLAGS	0x0320  /* partid enable flags config */
- #define MPAMCFG_MBW_PBM		0x2000  /* mem-bw portion bitmap config */
- #define MPAMCFG_PRI		0x0400  /* priority partitioning config */
- #define MPAMCFG_MBW_PROP	0x0500  /* mem-bw stride config */
-@@ -608,6 +609,7 @@ int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
- #define MPAMF_IDR_HAS_RIS		BIT(32)
- #define MPAMF_IDR_HAS_EXTD_ESR		BIT(38)
- #define MPAMF_IDR_HAS_ESR		BIT(39)
-+#define MPAMF_IDR_HAS_ENDIS		BIT(42)
- #define MPAMF_IDR_RIS_MAX		GENMASK(59, 56)
+ 	if (!soc_dev_attr->revision)
+@@ -152,38 +155,39 @@ k3_chipinfo_variant_to_sr(struct device *dev, unsigned int partno,
+ 	return -ENODEV;
+ }
  
- /* MPAMF_MSMON_IDR - MPAM performance monitoring ID register */
+-static const struct regmap_config k3_chipinfo_regmap_cfg = {
+-	.reg_bits = 32,
+-	.val_bits = 32,
+-	.reg_stride = 4,
++struct k3_socinfo {
++	struct soc_device *soc_dev;
+ };
+ 
+-static int k3_chipinfo_probe(struct platform_device *pdev)
++static void k3_socinfo_unregister(void *data)
++{
++	struct k3_socinfo *info = data;
++
++	soc_device_unregister(info->soc_dev);
++}
++
++/**
++ * k3_socinfo_register() - Decode a JTAG ID and register the SoC device
++ * @dev: device on whose behalf the SoC device is registered
++ * @jtag_id: raw JTAG ID register value read by the caller
++ *
++ * The registration is managed by @dev: the SoC device is unregistered and its
++ * attributes are released automatically when @dev is unbound, so callers need
++ * no matching unregister call.
++ *
++ * Return: 0 on success, negative errno on failure.
++ */
++int k3_socinfo_register(struct device *dev, u32 jtag_id)
+ {
+-	struct device_node *node = pdev->dev.of_node;
++	struct device_node *node;
++	struct k3_socinfo *info;
+ 	struct soc_device_attribute *soc_dev_attr;
+-	struct device *dev = &pdev->dev;
+ 	struct soc_device *soc_dev;
+-	struct regmap *regmap;
+-	void __iomem *base;
+ 	u32 partno_id;
+ 	u32 variant;
+-	u32 jtag_id;
+ 	u32 mfg;
+ 	int ret;
+ 
+-	base = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(base))
+-		return PTR_ERR(base);
+-
+-	regmap = devm_regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
+-	if (IS_ERR(regmap))
+-		return PTR_ERR(regmap);
+-
+-	ret = regmap_read(regmap, CTRLMMR_WKUP_JTAGID_REG, &jtag_id);
+-	if (ret < 0)
+-		return ret;
+-
+ 	mfg = (jtag_id & CTRLMMR_WKUP_JTAGID_MFG_MASK) >>
+ 	       CTRLMMR_WKUP_JTAGID_MFG_SHIFT;
+ 
+@@ -198,20 +202,24 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
+ 	partno_id = (jtag_id & CTRLMMR_WKUP_JTAGID_PARTNO_MASK) >>
+ 		 CTRLMMR_WKUP_JTAGID_PARTNO_SHIFT;
+ 
+-	soc_dev_attr = kzalloc_obj(*soc_dev_attr);
++	info = devm_kzalloc(dev, sizeof(*info), GFP_KERNEL);
++	if (!info)
++		return -ENOMEM;
++
++	soc_dev_attr = devm_kzalloc(dev, sizeof(*soc_dev_attr), GFP_KERNEL);
+ 	if (!soc_dev_attr)
+ 		return -ENOMEM;
+ 
+ 	ret = k3_chipinfo_partno_to_names(partno_id, soc_dev_attr);
+ 	if (ret) {
+ 		dev_err(dev, "Unknown SoC JTAGID[0x%08X]: %d\n", jtag_id, ret);
+-		goto err;
++		return ret;
+ 	}
+ 
+ 	ret = k3_chipinfo_variant_to_sr(dev, partno_id, variant, soc_dev_attr);
+ 	if (ret) {
+ 		dev_err(dev, "Unknown SoC SR[0x%08X]: %d\n", jtag_id, ret);
+-		goto err;
++		return ret;
+ 	}
+ 
+ 	node = of_find_node_by_path("/");
+@@ -219,22 +227,49 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
+ 	of_node_put(node);
+ 
+ 	soc_dev = soc_device_register(soc_dev_attr);
+-	if (IS_ERR(soc_dev)) {
+-		ret = PTR_ERR(soc_dev);
+-		goto err_free_rev;
+-	}
++	if (IS_ERR(soc_dev))
++		return PTR_ERR(soc_dev);
++
++	info->soc_dev = soc_dev;
++	ret = devm_add_action_or_reset(dev, k3_socinfo_unregister, info);
++	if (ret)
++		return ret;
+ 
+ 	dev_info(dev, "Family:%s rev:%s JTAGID[0x%08x] Detected\n",
+ 		 soc_dev_attr->family,
+ 		 soc_dev_attr->revision, jtag_id);
+ 
+ 	return 0;
++}
++EXPORT_SYMBOL_GPL(k3_socinfo_register);
++
++static const struct regmap_config k3_chipinfo_regmap_cfg = {
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++};
++
++static int k3_chipinfo_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct regmap *regmap;
++	void __iomem *base;
++	u32 jtag_id;
++	int ret;
++
++	base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
++
++	regmap = devm_regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
++	if (IS_ERR(regmap))
++		return PTR_ERR(regmap);
++
++	ret = regmap_read(regmap, CTRLMMR_WKUP_JTAGID_REG, &jtag_id);
++	if (ret < 0)
++		return ret;
+ 
+-err_free_rev:
+-	kfree(soc_dev_attr->revision);
+-err:
+-	kfree(soc_dev_attr);
+-	return ret;
++	return k3_socinfo_register(dev, jtag_id);
+ }
+ 
+ static const struct of_device_id k3_chipinfo_of_match[] = {
+diff --git a/include/linux/soc/ti/k3-socinfo.h b/include/linux/soc/ti/k3-socinfo.h
+new file mode 100644
+index 0000000000000..487e69d0069d1
+--- /dev/null
++++ b/include/linux/soc/ti/k3-socinfo.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __LINUX_SOC_TI_K3_SOCINFO_H__
++#define __LINUX_SOC_TI_K3_SOCINFO_H__
++
++#include <linux/types.h>
++
++struct device;
++
++int k3_socinfo_register(struct device *dev, u32 jtag_id);
++
++#endif /* __LINUX_SOC_TI_K3_SOCINFO_H__ */
 -- 
 2.34.1
 
