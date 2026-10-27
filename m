@@ -2,120 +2,149 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F075E606A332
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 15:39:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7CC7606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 15:41:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EhcPVWiX;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h8IO6Onz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EdfJDpnY;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=LLeSWfiO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=QShVkM2LJ8JPti4P3lg9N2gtK9rDsPbvy7dUhJpdWr4=; b=EhcPVWiXPNQc+8
-	lSZWXMTzs8/XN9aDj3E78FJJnvn9e+GYf5xmJgWA3BFI7DuS7Zi1gMkjqsuxE1T9Z8vuS9L41ggug
-	SM4CHvj7B7hP1qmtrprV5EZgXNrOIydCLjCTNe8QHGJV0WJwKKoBdEUdP5WmrIHRsgK9vMBlqzUGR
-	2xZbHQR56XJrpvXxIux4I+ZnSu84yJz1Hvz49v5vVz0oK1hFzLVCLMO5HD5AxJSUuA3ljcZgykAyx
-	5WiCg83tEce+HDOQkriZox98AOySfIfJzZWafPeh+Ce107/B6jj+MXB4acCZgiXBMwyfVMtRX2rWt
-	2c55suYfM6PmGjPkAvnw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=+p6nG3kPSl+4+8AQOLFlHL/hfyMc7R+DO34PRO5plDw=; b=EdfJDpnYjpZSDWPOsNbogTyvvQ
+	PwkzDb07P/f3I5QpIGuRmjVi23xn5AuT2yuKgV3k4NYxlY9I8kd0kw9Hr4Bu//TN8XonlHHkXbutO
+	AlhjKdZdX7Pc/VEU2PRZGzx9MgBp0IEODnZaAyb0Du7LeZ8FXWPVol+6bkgVnX6K1udFmomi6P3ZK
+	+c9zQcSjraKjnn8AhDwP5PiKD4hN9+B7+U8DPDJSlGBS2c3OduHX22/e3ix9F8ZAnKIOZufRehSbv
+	If2mrKpI/RKPkACxJE53TjfQzoOkQaaxPs9Vb7edlIXyrmyw44bIb9dhPhXj3Qu+BORTXpJRnOGH1
+	n0Knp/7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjGI-00000005ENz-24gS;
-	Tue, 27 Oct 2026 15:38:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xLjIX-00000005FXk-3crn;
+	Tue, 27 Oct 2026 15:41:13 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjEY-00000005BmV-25qF;
-	Tue, 27 Oct 2026 15:37:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D35043D5A;
-	Tue, 27 Oct 2026 15:37:06 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793115426;
-	b=gGAz2b/ClVxpgQWPMd9PIgRPDw81mQcAUiRgSOIP0RbdgEonvbjJLjiEmlakpLNW7DlL
-	 W2wO99R/gB8i5IqGSQ3XlYMM0cPrmownof0LpRbXvrCy0Y/zcl5cVfwi9iAM/FMXodjPk
-	 DzJAR0Q8zOlrrBw7VHisJOl9YileN9QGe3uRh9DQNEYQ5ReTidvZEe07pqn/Hh6ZinsMq
-	 Xp6wGFhRquchDX4Ba9m9PFjIUZ38f59DGBQmOQD8mUD6/TkRU/MIInDZxbFmOR4ctZVO1
-	 clQiVxRwLi+Hhqrcyos/wo10zSKMTCn+PvxCTzAs9fAhEkSfT6lrOMPa12lcLWbAhkg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793115426;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=QShVkM2LJ8JPti4P3lg9N2gtK9rDsPbvy7dUhJpdWr4=;
-	b=iBTZy573CmuOZw4k+Y89Nru7N0Rm41VKbyLyZY/xfNwYpvP7BTeaNg9T51pT/aEP0825
-	 XS0HF8OnKNae7sL7OM3t2Rc/ZNpscE0otfQW8e6Ug1BBmkWcdh13q2zkHtPEmAnQ/SUN7
-	 Qd3B0Edxq64mqNmj8kiSyB2WFhGO7PU8LJX3h41o3lXiS3VkV9zobbnDVO6/7pmNuINt/
-	 iYXMXYg0VCUVpeRV3wDjiAixALL+qPF6/+LVl+VLWQiiXo9kDDslF/nNEz423+MQUgEqD
-	 o8xozq787cL0U6nh7lK3ri7NdFrQdPK5dB/KdM/Sr0KpvcYOoINJM9ZAryizkZZwtMA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id C65431F031F3;
-	Tue, 27 Oct 2026 15:37:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793115426;
-	bh=QShVkM2LJ8JPti4P3lg9N2gtK9rDsPbvy7dUhJpdWr4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=h8IO6Onz8MkhKPU1CNdCpKvpe1gwIeLZln9hTTOr8nOUB5oQcYyfoe53aaKNT4CV6
-	 QA76zIbh/UjqMbprsn5TzxWzbhJf3B4n3chIbaKatgkFfRgXyl1HJezr+10nNf+xdN
-	 TU+TWH3vvfrNTcLbhLAlgHLP35C+tY1sOkWLyKehXvU7bSxnCGfeiiS7G9XEomYqCS
-	 Ic7bGBQFBh45Dd2u98jeeLuAUH0d6oAV0PgPRrckAM05yqtq4TBrzDnlf/AtdG3W7j
-	 dZcEHGm6faeLuqAxLIABBVQy7Qp7WgQXwooDDRBa0mmjQbhzjgH9SNUVfmXxFn8X4I
-	 1CuKufpAiqg2A==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7E8BB4515B;
-	Tue, 27 Oct 2026 15:37:01 +0000 (UTC)
-From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 27 Oct 2026 23:37:00 +0800
-Subject: [PATCH RFC 09/18] dt-bindings: riscv: add Melon Pi V1 and V2
+	id 1xLjIU-00000005FXD-3S9U;
+	Tue, 27 Oct 2026 15:41:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KIOqyPRFCkjBAXqzSjoNa+17XK/+sVx6w7pC3+7g8mN6qf8xGfSxkUJSjP4nlV3xASG9hfTdF8fHpdve1uVNg1oPbPoZ4qMSEy+1+DuhJO8fMPsBvwE1bZrpwX5n/7xtSJlzNVAHRixRzCbT0/7VtSmYKQc+wTDGXnXSWXGpZT/X4psWsPkAL0emFEsdbhInpYCIhzb9QIHYPJkU3cwAh48YVkMOw3aKYEbyaUXV4SPq0ZR7Uvnl1VS+DZEfWpSvGROAKbPdJgEoKmLP2/m6L306Hl6qvKZ3HV9SH6VL29w4HGHe5dt9iLOEiT2NA59DHXStHD/NoIySdjqtGyVY7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+p6nG3kPSl+4+8AQOLFlHL/hfyMc7R+DO34PRO5plDw=;
+ b=eoZYhd437ANreRdHZg5D+C4tcRcWo1pFGCUzUj3cTEOksxyYxRAgPp2LykKPv8vmcXIZt1QSNLfE99nMDvkxaQugrDn2xFuKMfYiAqbYTHXa+OF+KJ0YlkoYgyKOu9x0rS483YDCaWaNX9Zo59otUKsHm0MWab7eHo6j1rfC/Napu8eYUZ/g3RaiWYNd/kR7QQuzZBxz2qAhNduC28lLeMyLhzQMgQP0BHwKXBwkWq4ok0mKuf2gPf+0dlqaKdQmn1s4cdxr0+iqiCXR+furq6sc7rYPf6SRrRxpdyAf89cLW7oFcpXdn3hspJEqvZC7Wd0OlLYZGdU6A6wN6Gd1Fg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+p6nG3kPSl+4+8AQOLFlHL/hfyMc7R+DO34PRO5plDw=;
+ b=LLeSWfiOz2LBiJdTEhJNpvpnhFunZNVbsoixbyFiJdRHtBPKhmbZY1iqi55qESXvABrBoq974rlCkd3F07a+wfkNR8W8mpm2A+1TwvAdLYS7IUzd7O3Y2UZiaGEWXIYpNXclDKbvHFZt3pHdS38kggOpTBQ4o6bDuw+Mdz4x02q0uU+CB4RX52TozwkZhzRyp54k2+2vtcCsgAx9jTXmJGoOaI8YnzKxGw3qNI2CW62q6/udaDlzFOeJ0MgyXVpni7GwB/xnA5M2/xw4uO5gjDj02X+CcUp+BAmaoj54z34dPAo0Ow59sVZqKuB+pboYdf6znHW9O8OEQhjawVTd0w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by CH3PR12MB8993.namprd12.prod.outlook.com
+ (2603:10b6:610:17b::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
+ 2026 15:40:59 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
+ 15:40:59 +0000
+Date: Tue, 27 Oct 2026 12:40:58 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Simon Glass <sjg@chromium.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-integrity@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
+	Piotr =?utf-8?B?S3LDs2w=?= <piotr.krol@3mdeb.com>,
+	Ross Philipson <ross.philipson@gmail.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Song Shuai <songshuaishuai@tinylab.org>
+Subject: Re: [PATCH v2 14/15] arm64: drtm: Call UNPROTECT_MEMORY
+Message-ID: <20261027154058.GC2418472@nvidia.com>
+References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+ <14-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+ <20261021104726.00002640@oss.qualcomm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261021104726.00002640@oss.qualcomm.com>
+X-ClientProxiedBy: DM6PR02CA0137.namprd02.prod.outlook.com
+ (2603:10b6:5:1b4::39) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261027-a210-scmi-v1-9-74d58ce85bd8@iscas.ac.cn>
-References: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
-In-Reply-To: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
-To: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, 
- Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <fustini@kernel.org>, 
- Icenowy Zheng <uwu@icenowy.me>, Inochi Amaoto <inochiama@gmail.com>, 
- Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, 
- Jiaxun Yang <jiaxun.yang@flygoat.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
- linux-serial@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793115418; l=1321;
- i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=h9FV4C+Ue58b+AWtFVeYgWLXZsICp/RdVjsM7aslrBo=;
- b=CXMz2z2iXxjnfF4FICVgZ85JK65I0vMGVNWQqfbZmKmsQaO1DIkvh/uwxjNNP/AuYvBX24AVt
- yUGdlNRrycCBPvwSK75BIYWUSxqlnEQbIurdbFbtLdojF82lIY8jxF1
-X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
- pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
-X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
- auth_id=1262
-X-Original-From: Han Gao <gaohan@iscas.ac.cn>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|CH3PR12MB8993:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4dc8a41d-9990-4fa0-11aa-08df3440b2e1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|7416014|261009223027099003|261021121427099003|10067099003|56012099006|261026121527099003|6133799003|22082099003|18002099003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: WYfQwgWB6bwQkl9kW9H+qaXPaHSW5TBrI7lXo3o74dC6JiK8y+2qGMHQum3a7DJH/3GUy4jRpWBsrKOEGQTmATEkrowUIDhI6I/U4QvgqhG6R1qfTlbVUbjp+9ktFnOIr+i89dkrNTpojCshn41dJySpSOgyddn5Nk3bPQUMZhVXEaoXGQJE5Y5hNdk9pt0TK9B8WyD2426SPA4OD9mR+CMYXDXswzxWsuEEbmKCrWKNPDYJ5N1Hdgt9HpuPCHHrpCj2xfGTpVuipEQe7u5rfOro6UelZ0o6EAF2WyyWEpMyMheO6rcBkuAH7RN019hgo7bZzEjbfDiD29Ksp5jUJd5Deh79G+Lcrgkz+d83PvVVW9S8DVywt317hpqWEFryNlxhOu2Rqdbu6g1+22sZExzZNWdtdUr+XLbJXvdMtZdEcls1kMr3ULUMwuORtFJGSSlZDNKFoTYz665LI233f9/Nt3PWy5ITcz5X1zNDcBvGFfd6ERiiYVCjdKOifm1T602RhNVKYUKyS4DPX9ciGr1fBpOz9tZTdbXoFuS4zZHZEyc4WnsOu3A3tB2yflGhNKylxRZ3j7snrgB6IgvnRHrmS0USZIqp1Rp39+DC0N9NYMlWYEsd6U3GwpqKrBxUcVrEXurDI92723VI2F+K90AAqSr4WLCn4tam6iPlFzs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(7416014)(261009223027099003)(261021121427099003)(10067099003)(56012099006)(261026121527099003)(6133799003)(22082099003)(18002099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ieIOZouIj29AK3ETQ9CRvYw4WbvTSS76ExTfs5WsJV40phZZKdOhAvPZGIGm?=
+ =?us-ascii?Q?tsIKx0voDqmKcmtHwPPC4yDaOPEwKmP15mzzqWz7X0j00NomrUKxuiTvvVJd?=
+ =?us-ascii?Q?uckGZCPP8OrKSX1EVF2qFznk5BGm3GjHhhgTkBgt8bILto2rl3Ad7FU570Xy?=
+ =?us-ascii?Q?jiw2HGSqsyxQ1/Ks2SO8pcG0+i6oSx0WlNigtnRt03YOM8snb6YNGOmYfqaG?=
+ =?us-ascii?Q?0QYpw4nZLisGpZmjRLQ9XCfPMgs9S98+sIY4Ldzw/tmUVTrS0TvB8U4jbHv0?=
+ =?us-ascii?Q?I2f+BPM7Oit4ZCvqxmDFIrh+I/bIyaEU0uLu8nnOBhWPioc6LiEtvfDnl7Md?=
+ =?us-ascii?Q?5NmtgYcGsnDHSsqU+NiEYDPZUXHT6rnfYzxfTQesCwdaLXBJdCY6fn4L3fYe?=
+ =?us-ascii?Q?tScZSgh8UYBbhTfpYneKaH080/fxssn6y9qOaCPyZNDllxjz+Oo0AWfSRWy9?=
+ =?us-ascii?Q?yclgzUBsHRUAkiq6PZGzsfvJhkyhN1bcBZS5bb7Yr3WgpTM9r4fxdTy4pZqT?=
+ =?us-ascii?Q?OuOzlRwUl+j4l0iO2F2/06eJq2XXDeeLEF5NbYpopdjWQZPjSm7OrBXxWt2h?=
+ =?us-ascii?Q?t4qd68rLBfZ05M6N0kJNUy5yVLj+Mo2OhNMkUFzJ69xzaMzjbZZEncA/zlXM?=
+ =?us-ascii?Q?2CA58wOP+sTuPH9zh9iGXutCaTUtqlQZdwT2aANpjM/lkMWVIVfshUynGaH/?=
+ =?us-ascii?Q?KeN6N/f0Bl4b0cOv3A+3QBTVp/ITevzfaoZeiUKslSIdhTugafQVs4O5EkLn?=
+ =?us-ascii?Q?mkYHJ7DoS2FPpQ1jdDJrm3Dy+/nrdefWqEioXj4AS8wDfDwwZceaILFbHA7a?=
+ =?us-ascii?Q?E/iD9E6vtAQyoFQEZLLjqeIHB81mmySJn8C0H5XfTVi3wftIJ1SsMYeX43C3?=
+ =?us-ascii?Q?i5NX02PQWBhUuSlww+/a7vLb1DaTyfl9Umo37zKtyizJqUK8104Xsey/6pA6?=
+ =?us-ascii?Q?JriwUvDdbUZN1bKU8QQXCkPDsO8Xja7uGug8ZKYiio8tbrDJw+NcTysVZbwI?=
+ =?us-ascii?Q?nYX1AqmQuJ3OWIc28lNBHmyeY6nZ/c0VjxVEDg6Y+xEgzkjQIQNihsHpkfM3?=
+ =?us-ascii?Q?uAX9DN6yb1I7EmWKmoq2XPWzLdffpBuVg/tIoX0cbRuYudu+pBEUvMZzsCgY?=
+ =?us-ascii?Q?vy7nsppkmQP4WyouFO3vM4oSklkoR7jkrID2KJShlz+fqCffa2o0LdOoVRIK?=
+ =?us-ascii?Q?+PSSGdFFkyR3p3YV94SvwBam3AMDI4o5Rd3qFYa3UEsybDffSgyBQ/XETcra?=
+ =?us-ascii?Q?FeVd8Meehdh1d5LwBoh1Wk9EV751zPSGrUhtDIIDc2+AZJBChMYj2bxsxfBF?=
+ =?us-ascii?Q?7nxCwwt1taDCgtjFIPnz+z+CiuDa7lwOw2HN5vxm+apVs4edK2aRNYim+/GX?=
+ =?us-ascii?Q?4BlAtn6EGEm4RysFzmrQFpJZYkeSvWaX2UCyNaD0cIxSK3XEoiUlNvraxmfV?=
+ =?us-ascii?Q?0qmfvK5VTdkEV+ZIsyqnhlH/iSozDSbKXaSoUX89FCGJo7naWJauGjrpPs17?=
+ =?us-ascii?Q?Hz6Awi8dJwMzAsT1Rzxqtxrnr0qb3OmMdv+J8E09jISkgdmoOIkf7uo2Wzxe?=
+ =?us-ascii?Q?IrAhFsKrCEslZ2ZK3VxjPyz/x6C0EMsmZCvHLBd5yktrqZt7hw8ioOlbTGB8?=
+ =?us-ascii?Q?fSsHm4ii3ELSp2XX0JIEWYV92QP28rnFwp6iH37QBpb44yoS+HlJzEuVJMoP?=
+ =?us-ascii?Q?MxN6ceYei+HmNtqBpElgrhrOWpQl3tTo7XDuWQnxyEKiM0OF?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4dc8a41d-9990-4fa0-11aa-08df3440b2e1
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 15:40:59.4300
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: P8uXy90GJwgZWWkj/9pI//nAJntZ4ud4twNrzvhtNFMT7UllTuVPRWEU+HNylLyf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8993
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261027_084110_889025_10AB8DEF 
+X-CRM114-Status: GOOD (  15.24  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,64 +154,49 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: gaohan@iscas.ac.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
+On Wed, Oct 21, 2026 at 10:47:26AM -0700, Jonathan Cameron wrote:
+> > diff --git a/arch/arm64/kernel/drtm.c b/arch/arm64/kernel/drtm.c
+> > index 14493948a27f0d..6062980a5d9e53 100644
+> > --- a/arch/arm64/kernel/drtm.c
+> > +++ b/arch/arm64/kernel/drtm.c
+> > @@ -3,8 +3,47 @@
+> >   *
+> >   * Support functions for ARM DEN 0113 "DRTM Architecture for Arm"
+> >   */
+> > +#include <linux/bug.h>
+> >  #include <linux/efi.h>
+> > +#include <linux/init.h>
+> > +#include <linux/printk.h>
+> >  
+> >  #include <asm/drtm.h>
+> >  
+> >  struct arm64_drtm_handoff arm64_drtm_handoff __efi_data_handoff;
+> > +
+> > +static int __init arm64_drtm_unprotect_memory(void)
+> > +{
+> > +	s64 status;
+> > +
+> > +	if (!arm64_drtm_handoff.drtm_enabled)
+> > +		return 0;
+> > +
+> > +	/*
+> > +	 * Currently Linux can only fully support a DRTM implementation that
+> > +	 * relies only the SMMU.
+> 
+> That sentence doesn't parse.  relies on maybe?
 
-Add bindings for Melon Pi V1 and V2 with the A210 module. V3 uses the
-same board compatible as V2.
+Yep
 
-Signed-off-by: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
-Co-developed-by: Han Gao <gaohan@iscas.ac.cn>
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
----
- Documentation/devicetree/bindings/riscv/zhihe.yaml | 27 ++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+I'm also going to move this file to drivers/firmware/drtm/arm64.c
 
-diff --git a/Documentation/devicetree/bindings/riscv/zhihe.yaml b/Documentation/devicetree/bindings/riscv/zhihe.yaml
-new file mode 100644
-index 000000000000..92ac0a99a687
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/zhihe.yaml
-@@ -0,0 +1,27 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/zhihe.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ZhiHe SoC-based boards
-+
-+maintainers:
-+  - Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - description: Melon Pi V1 and V2 with the A210 SODIMM module
-+        items:
-+          - enum:
-+              - zhihe,a210-melonpi-v1
-+              - zhihe,a210-melonpi-v2
-+          - const: zhihe,a210-som
-+          - const: zhihe,a210
-+
-+additionalProperties: true
-+
-+...
-
--- 
-2.55.0
-
-
+Thanks,
+Jason
 
