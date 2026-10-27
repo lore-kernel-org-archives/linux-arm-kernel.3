@@ -2,84 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0D6F606A322
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 18:06:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1924E606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 18:08:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fuPygdEU;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=XXFaBzin
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DEktrxrO;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FGvN39ax
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=TxYi1TQ/n9gm4Dyl6a+4Ba89b3B/1LYi/mstI8Zdh48=; b=fuPygdEUoEUffiFPY3S0YLfxbd
-	OJoZqIoqptW2RYieM0w6EYUIoAWF74YAFrIL460KZfL+VFjvtKGkYy3XaZeBOokadZJMARCIwKKDm
-	P4zKvyLiLoCihsHSwrTz3C+x299G2uzsJ7Ykn6IWZI4bv8pK4JWlBios4ks1qAMowvmn0KXrFMiOh
-	C5j5z4MeZ/ctsk0rFuHzTmiWMRjupEUApGs70eZCaJP3lB8JX+eEJz398JkfRBGxxKWVG3eJ8Blj5
-	OVVAArelZ6DT+fVuMjaXlVLb8qDRe6j73sEhZo2X2XobAvYmp5LIPSNcz/3hMtiMu4AtcZxDSBB+d
-	WjxaL3Iw==;
+	bh=q7KSD3oBLIFGweiTvRRsuAF2uWEJ6lExKiLu/Jc2HGc=; b=DEktrxrOsBQwtALm66cdUrbLjr
+	bMFTHWxQ2Yx5TEGKxTvUsxelhLj5KcOfE+RxS//0DGHI8ZI3Bcrq3sttVD7l0iK+TXUVpVxHllcyS
+	y5XniVyXB71DpQUe0krtO0O2byGd+R2kdi6q6G336ufS/IpbHeMlwU8Uc6UP+YCbiEWcp8/rNL7X6
+	GAPFdQoN0A9QYNWB3+DUygClUv+fyxn5SSXwHlVBq9JHOcmzi8RGRVN1zeZ2rJwVT1S6sEbBdeuJg
+	65FvQFHfGuFn1YcvDiK1ykNSI1sLKkWO6qQXivnlRuCh6Lo5WPMz4cO9fupWf6pWHgSA7Azu1Sg3r
+	/4mgBWxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLlYu-00000005WvU-3C9N;
-	Tue, 27 Oct 2026 18:06:16 +0000
-Received: from mail-oa1-x46.google.com ([2001:4860:4864:20::46])
+	id 1xLlb0-00000005X6i-0VLU;
+	Tue, 27 Oct 2026 18:08:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLlYr-00000005Wv4-0iAQ
+	id 1xLlay-00000005X6b-1VGW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 18:06:14 +0000
-Received: by mail-oa1-x46.google.com with SMTP id 586e51a60fabf-46617932071so170441fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 11:06:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793124371; x=1793729171; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TxYi1TQ/n9gm4Dyl6a+4Ba89b3B/1LYi/mstI8Zdh48=;
-        b=XXFaBzin8McGxG3t7/oEuEtF2SkAPufQ8+0tRzog/EnHQMry0pVxBn2W7cTHTvKT0+
-         F9O9N2Aq0Nja68PBmi8UoTC15mfaD5GidWt87AnjeE8GEXBePTzJBYiG9S4AxCSoWsvs
-         bICu9PbVbR5x8dlzNhZzg6FAQ8ukvSDnyncqGexYN8xX7NrpzQwoYI0fZr4dWkonoh8g
-         SwJx950J3TTdddARNVVHmCUVwMcfln/P6puuDKbivyNzKrLcjfQSegcyLkE7DTsisT4f
-         sSazBUWBjYv0jJgY9LpKybtosFtDDrD/dW0PNNr5VLztaIWZXrPmw91OiJl7YG9eysjm
-         SB4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793124371; x=1793729171;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TxYi1TQ/n9gm4Dyl6a+4Ba89b3B/1LYi/mstI8Zdh48=;
-        b=rKUaHbRendLwHw4EFMYy/5Aryho3m28VKfLGjQgGE+q/+x9vRfS0ZSC4zFTuNsMYw0
-         iIDPw3CXwxYBPMZ9uzLZUw3XdGbsQAGIPtDq821NcuX8QCXKWkWp+W2lMYsInkX198u3
-         zekGPK0p1cT8D+HD2hGeyixMxe8+oMdGHtKqJ6vB9nx+vqeCLK9H8G/EAVhWtxNdDIUt
-         6dVoNN4zH/2dy7Bwo3PQhYF3wRaSob0/KPzCZfcYm0kmxr327MZyA8y2lobiSY5Gqw/Z
-         VVDfMwptHSBVDSkD9XzcseFkxNGSJ7QsjUzNo1km4/Dj6OqQ115kiT0VIBtB0RYWxSpP
-         hVfA==
-X-Forwarded-Encrypted: i=1; AKwUvByIzqmev9unq2KGQGvAlMzfLQz+TkOwOB0aaZuECcpnNrJe0A6/rLXu2g6JNqGR15MXZrqXDaPbmok8demf9UP6@lists.infradead.org
-X-Gm-Message-State: AFq9FYLNQs2EFDAvMCb4TWUQqmcs5D3WjUPgD018kIkQjz1QZaZUk1gp
-	JxqyLVuQZfSAM3KVNqWJps7JzBJiJ9Gj2qecAwINZpdeLVUOP0tWH6mG/jbd/qZEOBjwnOXGZID
-	wLo0e8h3/KZ4ke2wcH4B92LNHBw==
-X-Received: from ilei7-n2.prod.google.com ([2002:a05:6e02:61c7:20b0:516:a6c6:8fa3])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:1694:b0:53a:8c5:d7d7 with SMTP id 5614622812f47-55c003426cbmr6749991b6e.58.1793124370805;
- Tue, 27 Oct 2026 11:06:10 -0700 (PDT)
-Date: Tue, 27 Oct 2026 18:06:09 +0000
+	Tue, 27 Oct 2026 18:08:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3D62B435FF;
+	Tue, 27 Oct 2026 18:08:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2986E1F031E2;
+	Tue, 27 Oct 2026 18:08:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793124503;
+	bh=q7KSD3oBLIFGweiTvRRsuAF2uWEJ6lExKiLu/Jc2HGc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FGvN39axOybXEpIGlxH/5AyIn5e7gzP7hxk7QD45q9tU84xQtgs+ktwNirMh6Fl7O
+	 c0hSIOasDAUjz0dhR8iA46UDOHOYhtM2pujtP6nPrN2GyQJXQQRT/59lUqxzBygGnA
+	 UYXNLxnw1opBhCfuHbPNtfjjdJmEk61Y9rHmIa/SmLUUXzSExjCsSxNU9WA2inAFwh
+	 4V6ndCiIdOnrKtTCLYUkmJVgp9W7JxMrk4yPDpj0xe6wDtlwOQgEn76SgbxDChJofl
+	 lm4waYFCPQWCdE1GhGCDYXvB/ngSontCTXjFSI4RmFpR27z8U4Y390Lk+wIU9ct4HF
+	 oF5MP+HkiLSOg==
+Date: Tue, 27 Oct 2026 18:08:17 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+Cc: Linus Walleij <linusw@kernel.org>, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, nm@ti.com, vigneshr@ti.com, kristo@kernel.org,
+	brgl@kernel.org, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, afd@ti.com, u-kumar1@ti.com
+Subject: Re: [PATCH 1/3] dt-bindings: pinctrl: Add TI TDA54 pin controller
+Message-ID: <20261027-backshift-speech-3791d024931c@spud>
+References: <20260930092020.1047221-1-y-abhilashchandra@ti.com>
+ <20260930092020.1047221-2-y-abhilashchandra@ti.com>
+ <CAD++jLnok0bz9kXiW=O8+4fPBYvm9nG-AA-8CopDpc-DBvBiJA@mail.gmail.com>
+ <20261001-repost-reselect-2b597c627c11@spud>
+ <9d505e63-9d99-42fd-9638-05043ad36e90@ti.com>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.0.307.g5fe7bd680c-goog
-Message-ID: <20261027180610.2840837-1-coltonlewis@google.com>
-Subject: [PATCH v2] irqchip/gic-v4: Use a separate lockdep class for vPE
- doorbell IRQs
-From: Colton Lewis <coltonlewis@google.com>
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-Cc: Radu Rendec <radu@rendec.net>, Oliver Upton <oupton@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Raghavendra Rao Ananta <rananta@google.com>, 
-	Colton Lewis <coltonlewis@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_110613_236332_4E8E6150 
-X-CRM114-Status: GOOD (  12.13  )
-X-Spam-Score: -9.5 (---------)
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="oH48FBSJxLSXOFtH"
+Content-Disposition: inline
+In-Reply-To: <9d505e63-9d99-42fd-9638-05043ad36e90@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,111 +75,121 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-26.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,
-	USER_IN_DEF_DKIM_WL autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-By default, init_desc() assigns the shared irq_desc_lock_class lockdep
-key to desc->lock for every struct irq_desc. Device drivers that
-register an IRQ affinity notifier establish a lock dependency chain of
-&irq_desc_lock_class --> &pool->lock --> &p->pi_lock --> &rq->__lock
-when irq_set_affinity_locked() calls schedule_work() while holding
-desc->lock.
+--oH48FBSJxLSXOFtH
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On GICv4 systems, scheduling out a KVM vCPU calls kvm_sched_out() ->
-kvm_arch_vcpu_put() -> vgic_v3_put() -> vgic_v4_put() ->
-its_make_vpe_non_resident() -> irq_set_vcpu_affinity() while holding the
-scheduler runqueue lock (&rq->__lock). Acquiring the vPE doorbell IRQ's
-desc->lock establishes &rq->__lock --> &irq_desc_lock_class, triggering
-a lockdep circular locking splat:
+On Tue, Oct 27, 2026 at 02:39:32PM +0530, Yemike Abhilash Chandra wrote:
+> On 02/10/26 02:56, Conor Dooley wrote:
+> > On Thu, Oct 01, 2026 at 11:10:34PM +0200, Linus Walleij wrote:
+> > > > +      ti,isolation-bypass:
+> > > > +        $ref: /schemas/types.yaml#/definitions/uint32
+> > > > +        enum: [0, 1]
+> > > > +        description: |
+> > > > +          I/O isolation for this pad.
+> > > > +          0 - isolation preserved
+> > > > +          1 - isolation bypassed
+> > >=20
+> > > What does this even mean electronically speaking? Explain in a descri=
+ption:
+> > > statement.
+> > >=20
+> > > ti,isolation-preserve;
+> > > ti.isolation-bypass-enable;
+> >=20
+> > Is this not just an either or, so there should only be one property
+> > here.
+> >=20
+>=20
+> It is an either/or, but with a single bool, leaving it out wouldn't
+> clear a bypass set by an earlier boot stage. So I'd prefer the two
+> bool properties Linus suggested, does that work for you?
 
-  WARNING: possible circular locking dependency detected
-  ------------------------------------------------------
-  VCPU-0/109705 is trying to acquire lock:
-  ffff0001e41e4cc8 (&irq_desc_lock_class){-.-.}-{2:2}, at: __irq_get_desc_lock+0x5c/0xb0
+Maybe this is a misguided belief, but I don't think that any node for
+which pin configuration is being provided should be incomplete to the
+point that it relies on earlier stages - or are you thinking about nodes
+that provide only pinmuxing and having no way to differentiate between a
+node that has only muxing (and should not modify configuration and a node
+that is meant to do pinmuxing plus set the default isolation bypass
+state?
 
-  but task is already holding lock:
-  ffff00dad15fd260 (&rq->__lock){-.-.}-{2:2}, at: __schedule+0x23c/0x1850
+> > > perhaps?
+> > >=20
+> > > Some of the retention settings seem *very* generic, c.f. this
+> > > from include/dt-bindings/pinctrl/nomadik.h that has been
+> > > around forever:
+> > >=20
+> > > #define SLPM_DISABLED           0
+> > > #define SLPM_ENABLED            1
+> > > #define SLPM_INPUT_NOPULL       0
+> > > #define SLPM_INPUT_PULLUP       1
+> > > #define SLPM_INPUT_PULLDOWN     2
+> > > #define SLPM_DIR_INPUT          3
+> > > #define SLPM_OUTPUT_LOW         0
+> > > #define SLPM_OUTPUT_HIGH        1
+> > > #define SLPM_DIR_OUTPUT         2
+> > > #define SLPM_WAKEUP_DISABLE     0
+> > > #define SLPM_WAKEUP_ENABLE      1
+> > >=20
+> > > SLPM means "sleep mode", yeah pretty much retention...
+> > >=20
+> > > I think the corresponding retention settings for things that are real=
+ly
+> > > quite generic should just be added to the generic pin config bindings.
+> >=20
+> > Additionally, if any of the custom properties are gonna be kept as
+> > numerical values, they're all missing defaults. In the case where you're
+> > advocating for multiple boolean properties, one of them is gonna have to
+> > be required as otherwise we're looking at indeterminate states based on
+> > reset values or what a prior stage may or may not have done? The reset
+> > values should probably be considered default, but the cleanest way to
+> > make this work with separate booleans is have a
+> > oneOf:
+> >   - required:
+> >      - a
+> >   - required:
+> >      - b
+> >   - required:
+> >      - c
+> >=20
+> > and you've also got to deal with people potentially making mistakes and
+> > adding multiple properties for the same feature or trying to overwrite a
+> > $som.dtsi/$soc-common.dtsi config and not realising that they've got to
+> > do a /delete-property/ on the other property for the feature.
+>=20
+> In v2, I will switch most of them to boolean properties, with every
+> state available as its own flag, so a DT can always set a known value
+> and override whatever an earlier stage left. For each group I'd follow
+> the same pattern as the generic bias-* properties: at most one flag from
+> a group, which also catches the dtsi override case in dtbs_check. If
+> none is given, the driver leaves those bits untouched, same as for
+> bias-*.
+>=20
+> Would that work for you, or would you still prefer one of them to be
+> required?
+>=20
+> For the numerical properties that remain, I'll add a default.
 
-  which lock already depends on the new lock.
+Sure.
 
-  Chain exists of:
-    &irq_desc_lock_class --> &p->pi_lock --> &rq->__lock
+--oH48FBSJxLSXOFtH
+Content-Type: application/pgp-signature; name=signature.asc
 
-   Possible unsafe locking scenario:
+-----BEGIN PGP SIGNATURE-----
 
-         CPU0                    CPU1
-         ----                    ----
-    lock(&rq->__lock);
-                                 lock(&p->pi_lock);
-                                 lock(&rq->__lock);
-    lock(&irq_desc_lock_class);
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauDokQAKCRB4tDGHoIJi
+0stOAQDi4h8L2SbImSRTGspezgU0I7QSDF1YVBweYOKmZFKxwAD/YBZ0Rl48Kiyg
+yBRHC8djSfcao3uvJBeGu5+1OAqcSwI=
+=JL/f
+-----END PGP SIGNATURE-----
 
-GICv4 vPE doorbell IRQs are internal to KVM and GICv4, set
-IRQ_NO_BALANCING, and never register an affinity notifier or queue work
-under desc->lock. However, under forced IRQ threading (threadirqs or
-CONFIG_PREEMPT_RT), request_irq() creates an IRQ thread for the doorbell
-handler, causing irq_set_affinity() -> irq_set_thread_affinity() in
-vgic_v4_load() to call wake_up_process() under desc->lock and establish
-a real desc->lock --> &p->pi_lock --> &rq->__lock dependency on the vPE
-doorbell IRQ itself.
-
-Mark vPE doorbell IRQs with irq_set_nothread() so they are never
-force-threaded, and assign them a dedicated lockdep class in
-its_alloc_vcpu_irqs() via irq_set_lockdep_class().
-
-Fixes: 8e01d9a396e6 ("KVM: arm64: vgic-v4: Move the GICv4 residency flow to be driven by vcpu_load/put")
-Signed-off-by: Colton Lewis <coltonlewis@google.com>
----
-
-Notes:
-    Changes in v2:
-    - Call irq_set_nothread() on vPE doorbell IRQs in
-      its_alloc_vcpu_irqs() so forced IRQ threading cannot create a
-      desc->lock -> rq->__lock inversion via irq_set_thread_affinity()
-      (Sashiko, Marc Zyngier).
-    - Link to v1: https://lore.kernel.org/r/20261023215207.1465369-1-coltonlewis@google.com
-    
-    An LLM-based coding assistant was used to help analyze the lockdep
-    report and draft this patch. I reviewed the analysis and the change.
-    
-    Tested v2 with threadirqs and CONFIG_PROVE_LOCKING=y on a GICv4.1 host
-    with an idpf NIC: confirmed vPE doorbell IRQs remain non-threaded while
-    normal IRQs are threaded, and co-pinned vgic_lpi_stress runs after
-    bouncing an idpf interface pass with no lockdep warnings. Also
-    compile-tested for arm64 against v7.3.
-
- drivers/irqchip/irq-gic-v4.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/irqchip/irq-gic-v4.c b/drivers/irqchip/irq-gic-v4.c
-index 8455b4a5fbb0d..e1e20aeb8fe2a 100644
---- a/drivers/irqchip/irq-gic-v4.c
-+++ b/drivers/irqchip/irq-gic-v4.c
-@@ -157,6 +157,8 @@ static int its_alloc_vcpu_sgis(struct its_vpe *vpe, int idx)
- 
- int its_alloc_vcpu_irqs(struct its_vm *vm)
- {
-+	static struct lock_class_key vpe_irq_lock_class;
-+	static struct lock_class_key vpe_irq_request_class;
- 	int vpe_base_irq, i;
- 
- 	vm->fwnode = irq_domain_alloc_named_id_fwnode("GICv4-vpe",
-@@ -183,6 +185,9 @@ int its_alloc_vcpu_irqs(struct its_vm *vm)
- 	for (i = 0; i < vm->nr_vpes; i++) {
- 		int ret;
- 		vm->vpes[i]->irq = vpe_base_irq + i;
-+		irq_set_lockdep_class(vm->vpes[i]->irq, &vpe_irq_lock_class,
-+				      &vpe_irq_request_class);
-+		irq_set_nothread(vm->vpes[i]->irq);
- 		ret = its_alloc_vcpu_sgis(vm->vpes[i], i);
- 		if (ret)
- 			goto err;
--- 
-2.56.0.307.g5fe7bd680c-goog
-
+--oH48FBSJxLSXOFtH--
 
