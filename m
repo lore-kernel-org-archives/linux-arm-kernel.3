@@ -2,138 +2,114 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA07D606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 19:23:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D16B606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 19:39:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yjRdLPDc;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=h4RLcRoQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YD1d2w5w;
+	dkim=pass (2048-bit key, unprotected) header.d=phytec.com header.i=@phytec.com header.a=rsa-sha256 header.s=selector1 header.b=goiulHET
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=LJc8ShQtLDcNjiyBXKSylO4t6fnh6xyu/Xjl6pXphK8=; b=yjRdLPDcibgkeegZMN9SvwfGgJ
-	UrWkDOhPQI2rW+xGyqAM7wWspStC0tsg7IPmi0l5tQl90Ff8Ki8CHvI2/ZxWpm1rEiMkKFhGD/hcO
-	7s2Z0nK3KdMbvHX33f07jWQl44vX2RidRu+Mh/Jtgc6C886hsrKJyGlMezIui0lm4Uj2egiUZncOa
-	l8iu4o3RAMpC8GNbJwZgDHUTAkumaK2nbsFm9DIaR3+2OofUMsFYwEJsm4rYgP9xy22lEseFvCOLS
-	XswQIWZeYivfN1Jjx828LS0wDXQeApo3pwvlAaVhHF/vhhENFc05gH02D65NvTvV94/tMoHis/LZO
-	2ZWZKhfA==;
+	bh=83yhGSCAnUM4FMQUE05O4wIaIhluxLP/LEePPIzw/08=; b=YD1d2w5w5tfiEjlIlLvvnZf3+m
+	XHsuldbXWGkTvswxn7enib/YsFs+BF2M8HCuipi3dY5Yu8f1beP2DKDm+EJLM0mU3q4ktGLVCBODT
+	OU/aLh6yZ90IRZShqpdOAQsyTp4bHWgHiLM3IVutw6owu5/lcOAFdvbuasOEOL+X7EcfP8msbC+/r
+	OP6Al1I9dXu4AOaz7A7xf2bTLTlVNfzF0Kg+irh55BxJHdf7DorCeWI6IQ7yPJZq9ogwc+K7PjVah
+	kyXGrHrI09gDo1MQdUAKqbX/83qTmcBhogCMUETFHCBf1dV4pVjHmWXf0nx8o3U6ntUsO6uj1xMEG
+	d+HQ/hvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLml3-00000005djm-1O4O;
-	Tue, 27 Oct 2026 19:22:53 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xLn17-00000005fBj-2c7C;
+	Tue, 27 Oct 2026 19:39:29 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLml1-00000005djP-1pjE
+	id 1xLn15-00000005fBH-0Hng
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 19:22:52 +0000
+	Tue, 27 Oct 2026 19:39:28 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=djsUHY0j1hvrmP7DBzQgrRhBZiY2+O3JnDSgMgRkS4BQeha+7VD7gde1KkIWMKQI6AVr8w74eTnsX/8Yi/jrU85T8N+TnR+EQWNJn9XJQycsYqkBlGr9bZ1O02a2cR6eZTo4XI0KFdOIM+HoE+Uhm2X++Jjd83K5405YadO21wVlXSFP/fRB/LPJ1I2TPlG31OZZSI12vMdJGiLFN9H2s0Elq0I62BbSOz1wx65ZJFq5Iv8OroJpBPm6IYo+emPpdjKT1NY3yGrs5cV4W+rPZ2FeZ8WX78jI6EKLBsclWudUH7p3pZ+6TvqRu49cEWqSKQ41NjzWlzE6yd9NM7Jqsg==
+ b=O4jN8mOHlMQ+F+OO/hHi1PtA52pm4RE4Gq+bRj8kciM2kRNeVFmgWuOr+o0/Nuht1pOA+wwJs//nst9bQsLGNmlHm/TPcs02vAtR4WfG4vdy6AIEVsdJ+ltMtgjs+anRPkPusV237YZ2MNzq0++IhdznE3aYdmREbMoYENZNEVDNfhp71s5SaQbOHtmVm2C/qoJnDFg227jw9c6r+fudQpMPJGOp5OL5evfXVtzoWTKe0Nk2MSotE49WnK3WXn0WI3qFgfJz1XrPx5XEtp+5HKymcikXzAWvG0UhAVqdtLgTbh0kHTzgCSGvc8JHItA+yhNAlO0zbdszFOiFfW6qHA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LJc8ShQtLDcNjiyBXKSylO4t6fnh6xyu/Xjl6pXphK8=;
- b=ZLtGatvKWV75xJmjSBROZpehuhxFFA1jdlVU7tznULK45Qe11Ypjnv6kE2OKEwrw5Amr1wT/P+9+28ii1ROyZfEOUUTG+UGCpE4ML4Qy1+o+Inl1wguCbhPWOgF8LXeEIl4FFCEyiIpT//uGcvGjHHKJrwZQwZs1f8mBi36v0j77v4LwUeQrXRYO8qneAkVU5RLTfkjLPu4acrCNRgO2zPtXxxvmbaI+IAFEbdTHCfC1vuvLfzlg5mly6aWCZ6T37FLhnP9WtuTO4RM96peuNegWE06/NxFP46IV3KRPw3VA81/qGw+KESOe8D0rkqEomunbuDLD3pdKwhgjt/odVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=83yhGSCAnUM4FMQUE05O4wIaIhluxLP/LEePPIzw/08=;
+ b=w7W9bAibz8zHuF6FqF8c9j65CsDEioSmzGcasb3mcZH1NmYh2G/zo5vWP3bQCw+CvSdOXF5nbpMXgPAxXJuVeVcg4YlhHZV/siIbc7924GtAK3EfSh2aR/zrDlZ52ClxPlHktvriWlQnIalo6fHKwPZJMMEcK9A1taZtUdM3WMfzkzBOmCcl3ZDgvnLPZD0sfXo20yvZtmR6QAAEZOCapVHSb7wI9I/Uo/tcR7y5ccoWru6qY4Uu70v20YliVgarYdrxOShQ/hZWoezIiL1dM3+gWXY+8qKh/rmLv2fRb3EUosdVR5ZzGOwGYapOIjlec++jajapw4nVSmgjwd3qsQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.com;
+ dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
+ header.from=phytec.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LJc8ShQtLDcNjiyBXKSylO4t6fnh6xyu/Xjl6pXphK8=;
- b=h4RLcRoQvaSSaKW1/eUpdU7DSD2K/DoXBnCAZGzY28wmqf3OVabm1ZoMSi1KHINobET5aHAUgkrXOOnfH+wLVkZJ7T0rqkpHXSk2uxJus5CJRy/DQ/rrwdRRJ+Tgwvx0TWoxNKfatYj0yaNdQfaA0MTURocX3cb/5wksB0n5aHycpAqm1c4jIztGTf8bI8Yrxzv7+TgXBbDAOGOfgVpPx8pWwD2e0gIJQRazPwOvaZnsddRQ8bXwJmyhZpGqoY3voWgH0fDvULEBmACzozC3G6ljNJEsPblsElPY7BO0sF83RzqXeI5dk+26iZAu4ALyA7JX4huZd4H6G8AoCQxRrQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by VI0PR04MB11545.eurprd04.prod.outlook.com (2603:10a6:800:2fd::11) with
+ bh=83yhGSCAnUM4FMQUE05O4wIaIhluxLP/LEePPIzw/08=;
+ b=goiulHETCvNU0bDxHbmv2o4ts4W82nOEiT/1jCX11GXVN7XHNaQsJvAPTeaHPkuUgzcfTQJQ2cKL9TwJ2jtPGh/cS/K0HJFKebk/FbABTHiDKCDB6N9fKsktIqpJJb29+ookZK4qvPhmyieRF0vNc1u/LFEjGLwdJfOdZZPK2Ra8i/G13/c5XWyXx5NlDpVABL0H8WczVF4QIwrwFPKuEdYqTIdrUqVU2yUeUs3Hbcxy9HV+UbiTvAJfvODY00KHWIuAlqRBqO4vQeM6sKJ/47ay09jGugvQnf0KHmzCT8AYnuE2al3w7zuoarH6hJaVFeZnSoR8yDlPR9O+8twh7Q==
+Received: from AS8P251CA0011.EURP251.PROD.OUTLOOK.COM (2603:10a6:20b:2f2::31)
+ by PAWP195MB2630.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:46e::5) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
- 2026 19:22:46 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
- 19:22:46 +0000
-Date: Tue, 27 Oct 2026 15:22:37 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Jeff C. Jensen" <kernel@nullptr.com>
-Cc: Vinod Koul <vkoul@kernel.org>, dmaengine@vger.kernel.org,
-	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
-	Suraj Gupta <suraj.gupta2@amd.com>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Alex Bereza <alex@bereza.email>,
-	Folker Schwesinger <dev@folker-schwesinger.de>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/5] dmaengine: xilinx_dma: Withhold an AXI DMA engine
- whose reset did not complete
-Message-ID: <auD5_fHykXpkQ8ns@lizhi-Precision-Tower-5810>
-References: <20261022-xilinx-dma-work-v1-0-20faea2e7a80@nullptr.com>
- <20261022-xilinx-dma-work-v1-4-20faea2e7a80@nullptr.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261022-xilinx-dma-work-v1-4-20faea2e7a80@nullptr.com>
-X-ClientProxiedBy: PH7P221CA0012.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:32a::29) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+ 2026 19:39:18 +0000
+Received: from AM7PEPF00000056.EURPRD83.prod.outlook.com
+ (2603:10a6:20b:2f2:cafe::43) by AS8P251CA0011.outlook.office365.com
+ (2603:10a6:20b:2f2::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.22 via Frontend Transport; Tue,
+ 27 Oct 2026 19:39:18 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
+ IP is 91.26.50.189) smtp.mailfrom=phytec.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=phytec.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ phytec.com discourages use of 91.26.50.189 as permitted sender)
+Received: from Postix.phytec.de (91.26.50.189) by
+ AM7PEPF00000056.mail.protection.outlook.com (10.167.242.42) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.0 via Frontend Transport; Tue, 27 Oct 2026 19:39:17 +0000
+Received: from wl-jma.com (172.25.39.17) by Postix.phytec.de (172.25.0.11)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 27 Oct
+ 2026 20:39:13 +0100
+From: John Ma <jma@phytec.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <w.egorov@phytec.de>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>, John Ma
+	<jma@phytec.com>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v4 1/2] dt-bindings: arm: ti: Add bindings for PHYTEC AM62Px based hardware
+Date: Tue, 27 Oct 2026 12:39:00 -0700
+Message-ID: <20261027193901.3538135-1-jma@phytec.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
+ (172.25.0.11)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|VI0PR04MB11545:EE_
-X-MS-Office365-Filtering-Correlation-Id: aaf5ad14-ed95-4e17-0127-08df345fae41
+X-MS-TrafficTypeDiagnostic: AM7PEPF00000056:EE_|PAWP195MB2630:EE_
+X-MS-Office365-Filtering-Correlation-Id: fccbc05d-5df5-4b8d-4c7e-08df3461fd01
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|19092799006|366016|376014|1800799024|23010399003|261026121527099003|11063799006|4143699003|56012099006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: fUw38npTVsLKEnCDBWV3t0i5Pktw9YvlqGO0kmF2Pibvlzmhe98wvpllZhIqwrEkEOTRw0LKTxoWpo8LDzo6r7DgoktR4wlkWgSZRjHu3XpuiW5gyE3XWTXHkoObAcwAJ3lJbUwFqBqXogfyKhex1cwNpav2rEdruIGRWaZO9T+TPlDE79SyV8T75scIQ4CDXgDWelmRiPii/94DTDRzicfB60a9D5vxvOhFKAvC1MgVVaB1QAk1bRjBWUOPJxuTx7iVDrwHEcFc4G06ZdxPKnPQjCS7rj5jyejS/kllaqBRrmFOWeUNkrXoCxNzuzMpd8z3d9KwGUoIzzQDKKfy077vxMasq9lNMR9TbP3k8lpJVdESXrprumb1A6rpPKGnfGLzyknZrUU+AVeaBQgmRbkdq9RqIXlMFBC7zI9Jgk7huIZzc1OG5tePgkNUQ7+kpiy55mbBWxClQrFlwEpMdQDT1bHPSrXLRADWiJoLnn9vtbK4kx88vIhcpMkhCC4iINc7Nu9LQ4a5I12wngIKme0M9ii/RwWTarjqyxRFgqZd853DKe+7s8zfyFqj2TFCuGzD8iH0WYMNQjypTH6kO82Fhr1FBC7twH10e4+UZHNxSj1j9k6cliyqYqBoqAOB9lXmJULLCF/4diZXItjxULdhRZKtGNKfkwIeHUJmv1Q=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(366016)(376014)(1800799024)(23010399003)(261026121527099003)(11063799006)(4143699003)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700016|23010399003|7416014|261026121527099003|11063799006|56012099006|261021121427099003|261009223027099003|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: ZeuVh6PN8Xjz18HchdfBBqVb+JrSwdgioSF1wfxjW9oPYnpbThU10wT4Y1voxx+aZJ9gyIY/dl645iRDYiS62V/EMsEH/w2P7o4rfO6n+TGIJVwn8iYBuzc7W7ANuwaquw7e2Lnk+kuDTRnCxE/XGd2MNoKsiPuhXF8kLcPjAaSOnzxGoofo4AAvebPHYq7004HAH7FxGZseoV+ae0V/njGjdb6Da96/iogwpIm1KBXcswSIQwrIZawHKi86rE6rkxfDcZFX11BzqjyoYiY80Oj7a5nT5rUMyzOKzE04844UMzZf05YyE3z2M1f4zQpgJLokCkwRTBZKx7viFRjG7CDvMny5Ab6uDbtudhhp8SZQPt2CRC8LykmFub2OzTfAs8bik5SLJ2kSOAcsLD7TbHYYCku/7CGmurwQOtp9lR7M+HTrhDS/U+xQTSfSvUTjzdOZEGRC+fYcSR1d/bo/jDPruoMv1TUCCAXqH7UMqJkqbH9Nac4V+u4Pt/A0I0ej/aTD7ajdj1isNkq8PgRv6gPjwe6W/Padm24jAG6MhUE6CmpBZtxSDEM6/05vCZjxKsz7K4iUA0Wyl49I9kqDjb4JStsiDo8112DGNJHKjDMX92tcxw6uyVfra3nsC1QiimXX+wZwVLOiGsPixJzY2HPhhNyQciy9YG7a6feYAlg4bmSQAMggSnr6VNaGz0Xf9ajA0su5RaTsdH+KGVBaGg==
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700016)(23010399003)(7416014)(261026121527099003)(11063799006)(56012099006)(261021121427099003)(261009223027099003)(10067099003)(18002099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+VHxKIKJoNBmCXDsAzkyjX2bkvqPOHyiNzIvpbPvL0TBUDuFoDCE82ANBRpg?=
- =?us-ascii?Q?bsCsmMU9+h/pdTGHQDumX9GX6P+pmzLIO+koYDlbKa1EOSDAHdFxB0aPyb78?=
- =?us-ascii?Q?caplaUOiKJLXPTIuE+0qKkesWQnsQxkUU+bl/utC/SSrUyxczkTF4atQ1Gx8?=
- =?us-ascii?Q?MKi1qLhT+VcoyUqYq8FC4Dw79z1O4OGQ8/KdtBGZvn9z8DwgX2TLJ67a9Hzy?=
- =?us-ascii?Q?HbxgZMU7LAUTlzhvflQ7kTgzti4W8blBqgAN0+27UGcuRRoGjuwS7Z7xdkWz?=
- =?us-ascii?Q?RV2G+Q6qdk1JquYVfiN5UrvnVfkcvoAPI9cId9U06ULRstJp9L34Cvz3hAuM?=
- =?us-ascii?Q?j/NAtPc5zZUvyOsXuAPSkxgGdqttf0r70/3N6S2HRbcki7LSTRlGJStFpQpw?=
- =?us-ascii?Q?Iy5n6orYlVnQ+SCKV/pZaZ10a2xDmPwlFOa+nl84Wc9VJJ+5TT8Vn+d7ajgB?=
- =?us-ascii?Q?XY+uZxR3KIo9paDK5/0wgS/iKhzfPcfu7V7/mqI+pks7lFQNScWrdAj3rLPT?=
- =?us-ascii?Q?OlSinrYdbwjJyl31ecYPAoySoxWc0Z1felM55IqtyWoj1wxXx7lAUAPLpOgc?=
- =?us-ascii?Q?I7qqPsB7eqVaChNp3Pj3YEJb+DTvUnlAf3+0CvlNsXmfiGXWSchvW4lumcb3?=
- =?us-ascii?Q?60BvvyPFQUA5rfrPdOSMdiaLUlUZitADxa2nvSsU6H7ndd3y+eqm0HO8N9vV?=
- =?us-ascii?Q?dm2fXcY9n8iTKTnOcFkUpXAghCdbT/HPg8xKPTHG/zZ0SPYZtvkG3Ln5Nlm9?=
- =?us-ascii?Q?KazNa3g4ryCn62BysgH229/K6qiVONcFKW46D0OQOM3WG1SCWiTpysbYtLbe?=
- =?us-ascii?Q?jIbuQRUvCFoaDUItWJuRSMtQDEDmMkyzZ8dCoLGnxOZC7mRdfa3l+BCs70iE?=
- =?us-ascii?Q?WAslUcR3NB3w6OaMEVppnZtDZNKvT5TMU7i7Viu5rEgGpYD1+njDMOMtx5x3?=
- =?us-ascii?Q?dM5DDVa/XXu5L1L1zY2CHNIMfFbwD6y2pDjMam4otZH/SoUtQyY9SlWk1pmm?=
- =?us-ascii?Q?T3XBFp1aEQJiJ30oPiZ9ZCQruLxZzGX6VelRjiDP3qm9jX/hXBdsNRS/olRy?=
- =?us-ascii?Q?u6yqPRhyaLKl4u5hB7cDv1t9cHgIx3+prOuto877UHgi4XZ3lkFiNo6+BLGf?=
- =?us-ascii?Q?q/iNI2c9RJwOkMrawU+0YPKD+yGrUoZb6RSiJJMSI3zrtumiDKE/UZHBriDS?=
- =?us-ascii?Q?9xvYK91PGjxrsDZdsgh4SIo9e+2RBLcdLoLoYTM4YbeQcYBsrsl/va7RjuAq?=
- =?us-ascii?Q?8owrC2Co7lUpvyExDmvG1sF1j7wBMFQBsPDYMEzqzGKWcgc6TjpIAJArKfxH?=
- =?us-ascii?Q?04yEs1A+jmjBqoLm4bEtczkidFAgRJx1d4XS6rGrNrPjkohjNSFHvjUvdWqs?=
- =?us-ascii?Q?L/nkV0Nwf/LJtPgb5dwvYXBK6KnS6VkG32oSV1H7v7u9626v03QEaab59kXu?=
- =?us-ascii?Q?ZB3IQkZkyikf0tf8w3SMPA1RGE5Rx9Q4iAu3I6qxKlpK20Grqdesuv3bWiCc?=
- =?us-ascii?Q?cQdHYigi4HqpG0qbwhaP4jwrYM8IILKE5+IJTWHO5PVs7590GhvisR3ky7Hp?=
- =?us-ascii?Q?ddbevp1emDZ1XeGie1M81ugg4GeVhzOd2/8cxzdh+IV8h5pOAwtlUPe/jpSj?=
- =?us-ascii?Q?8gwUQZN7IcqkBDig49pfO9mAfPdx3RKqKiGV4Ew77AizjKcRUMzGIB3NzBTd?=
- =?us-ascii?Q?91KS3SnJ+YHeBN03gJY+McABHI5YAOf9Kb1tmmdkMShMSSmMFwqxKp5E9CxV?=
- =?us-ascii?Q?4suUGuiiKyUScCPneA0QywCsiGgVmNBBJEyMrxjP4QnNaBzUVfYV?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aaf5ad14-ed95-4e17-0127-08df345fae41
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 19:22:46.0903
+X-MS-Exchange-AntiSpam-MessageData-0: B3aNG6o8qL5QLwWSMgLBGcDGertxlbWNpz33na+bAotDb67Y96uf7E4WA4UKxCazmIPwXfkEBfSzzug1vL2DPtqTA3XATkSxgz343fYYSozCkrqTbiVUmI+niBhUnJy3t+bFkm2JoMAgyYTQ4zTgA1hmrJnuKAqVI4iaDNAdPkRkkik79L4jBM33XhMjn3uCinJYk4TzkbhzC7J+cnSOS7S77bTtQruOH0ugLi3nRuHRz2CNbxfsG4lUDsjUEG/aW+mT8kX1ugrhjWmFc4PNOQObhRyPR6CCc24dYv+UuNg/YvIXnp57sZwmXTFklURwDtNeuD1doPkDBupTMktN24xI99IGv7MYhUWPbrlL6yfpMUGxIP8w0nuQar/JnzdbjlWnHgKtqARfEmlsJLfgk1nKno+8D8UXsGlmk6zcb8HzLKUwj7cN/jghr6gVrF9w
+X-OriginatorOrg: phytec.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 19:39:17.0634
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FjTmalMYZB41aDtjBz4hyLg5aK3+iP2equGaeCqBgD7sRViK7Ph5HWHXwa83JfIhmtiZ3HCyNsaTLvn2mTIjaBDRw0+orpdqIxCquQaxil7ttQUmUSzMekG3afAe6pjd
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11545
+X-MS-Exchange-CrossTenant-Network-Message-Id: fccbc05d-5df5-4b8d-4c7e-08df3461fd01
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
+X-MS-Exchange-CrossTenant-AuthSource: AM7PEPF00000056.EURPRD83.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWP195MB2630
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_122251_489960_65DD6ADC 
-X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-CacheID: sfid-20261027_123927_219350_163DC605 
+X-CRM114-Status: UNSURE (   8.22  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.0 (/)
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,18 +120,49 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 22, 2026 at 03:11:33PM -0700, Jeff C. Jensen wrote:
-> When xilinx_dma_chan_reset() times out, all the driver knows is that it
+Add device tree bindings for the AM62Px based phyCORE-AM62Px SoM and
+phyBOARD-Lynx.
 
-Does this real happen? or just in theory
+Signed-off-by: John Ma <jma@phytec.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+v4:
+  - No change
+v3:
+  - No change
+v2:
+  - Add Acked-by tag
 
-Frank
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index 9a0d62234058..7c1241053ad4 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -50,6 +50,13 @@ properties:
+               - ti,am62p5-sk
+           - const: ti,am62p5
+ 
++      - description: K3 AM62P5 SoC PHYTEC phyBOARD-Lynx
++        items:
++          - enum:
++              - phytec,am62p5-phyboard-lynx
++          - const: phytec,am62p-phycore-som
++          - const: ti,am62p5
++
+       - description: K3 AM625 SoC PHYTEC phyBOARD-Lyra
+         items:
+           - const: phytec,am625-phyboard-lyra-rdk
+-- 
+2.43.0
 
 
