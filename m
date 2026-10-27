@@ -2,49 +2,47 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A508B606A7FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 11:46:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1437F606A335
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 11:48:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ad803QeW;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=l2ojKu3I
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OUKDFy8V;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=kVgmw+6F
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6fRga4PLyhDvRmvdApHZbO2HfBP0tzzKD/rmKO+880Q=; b=Ad803QeWz/EmyB
-	X/1gA4aUG1amUKNwsbRCto5PCMo0lcsdxgB50o5cDw/2RN4LQk3vcdU1XLSVntsnd0kDmRnfVBavL
-	GGENeIN7rOO13vKg9Ef162Z1BwF0Ukp4nTZrLu2JV0GvwLXo5xiaQXG90zRPkLv8uUeprc5qP5zwA
-	J4QITLoRHWralT2MctSwqqj1N/M9wlHl0BxEdMOVwl5IWJJCMsCCGoWH1pfnLzZmj0Oz2YhREQzIU
-	McqzjO/g2OK9QEj5IWmJLcfo+h/sOLdgxxciVTUCK/QUksAotlVsTpH27SEf+ZzF7PZGWgYwVjYuW
-	v+vYIiGmTXw7hd7xq9xg==;
+	List-Owner; bh=O7vhfK9LUwcbCXy6Lz5w2AgaOehiRMtoFkoe6sMjwzU=; b=OUKDFy8V31G4pA
+	+3P985Rq/gMWQ8ioF1b68OJSPxbyQ2khmbwcDAIlZkFR8jk2Qqmifr9DabzfixtI1KNS0lH0Yyuac
+	zRiM9GQQD2PMC2XxV8dQlToCGQ7RxYLBG2Za05TO8Cl6OgBa8vXIsjsVwJXx7maV1J+JnIR8I6UI8
+	FnyiPiXSQuYBpfrt47byqNlUzHp4kDkWmFvszVG2m/WO5oIrxVsHM40faz0PMv3z4EIh8wEmJcwww
+	jgAltMFpZhpwXvr4JnpP9T9QWS8HJn2KcS/evYR27KnZxZSnKlRKfetsVImjWLUK+FYaeXWtWPIII
+	CfBH3kPNVXo7eWpFRT1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLfdR-00000004W0r-1G1T;
-	Tue, 27 Oct 2026 11:46:33 +0000
+	id 1xLffd-00000004WW4-3XZG;
+	Tue, 27 Oct 2026 11:48:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLfdP-00000004W0R-0wwj
+	id 1xLffb-00000004WVc-0xsx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 11:46:32 +0000
+	Tue, 27 Oct 2026 11:48:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5AF815A1;
-	Tue, 27 Oct 2026 04:46:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6CA0A2C1E;
+	Tue, 27 Oct 2026 04:48:43 -0700 (PDT)
 Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EA94F3F59E;
-	Tue, 27 Oct 2026 04:46:27 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 324883F59E;
+	Tue, 27 Oct 2026 04:48:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793101590; bh=aQvS8xrI1rrJ9Ub2g0brfCcZrqaYMf0KkHjzaD4o2l4=;
+	t=1793101726; bh=4i03Lff+oqO8PKJE3CBuMVnwfvifHeKsuOaAebMHbYM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=l2ojKu3IKqobyHKB3LWMy3WiBjkW12rVYJUpa1k/psGeIhNTfHyav5r2NPSl/+/gl
-	 A+NfM4qPgmjBtML5qis6lFJRMSoN/YfDBbY1m4Nh3/mQVFrxTZLhmTO9IaCpYyABAn
-	 n6+ccYnLMvahZSsY8PmmJIE+l8vaJnRCogV8Gn4s=
+	b=kVgmw+6Fqmnn0FVvLxNLgUv3QdifXiyMmx7F/nnk1SuZwg+ZsRZaXVxBrH8+ZzjhM
+	 LGl8H+mmx9XFZf1mLf9ZyJce8nQudSfO1zhncune6e/lbKr65mEVNy2jNt01tDb2hF
+	 e9Kkwk1FnLMDDMoiow4zCil36BIDElArpf50BJF8=
 From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
+To: Oliver Upton <oupton@kernel.org>
 Cc: Leonardo Bras <leo.bras@arm.com>,
-	liuyonglong <liuyonglong@huawei.com>,
-	Oliver Upton <oupton@kernel.org>,
 	Marc Zyngier <maz@kernel.org>,
 	Fuad Tabba <fuad.tabba@linux.dev>,
 	Joey Gouly <joey.gouly@arm.com>,
@@ -55,23 +53,24 @@ Cc: Leonardo Bras <leo.bras@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Raghavendra Rao Ananta <rananta@google.com>,
+	Tian Zheng <zhengtian10@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 5/5] KVM: arm64: Enable HAFDBS for guests not on migration
-Date: Tue, 27 Oct 2026 11:46:25 +0000
-Message-ID: <auCPEQmnFwWldTaM@LeoBrasDK>
+Subject: Re: [RFC PATCH v2 0/3] Set DBM bit on writable pages
+Date: Tue, 27 Oct 2026 11:48:41 +0000
+Message-ID: <auCPmYvvkwILa4j-@LeoBrasDK>
 X-Mailer: git-send-email 2.56.0
-In-Reply-To: <8eaaba87-7881-49c4-a76a-51dec2f29ffc@huawei.com>
-References: <20260901171558.2674031-1-leo.bras@arm.com> <20260901171558.2674031-6-leo.bras@arm.com> <aqneWnlsdpocLIl6@kernel.org> <aqqhDs3NyjtkZzXK@LeoBrasDK> <aqsl1_IqnV2r8kUL@kernel.org> <aqvt2gnlBZeNsaf4@LeoBrasDK> <as-mH36YSMxAosND@LeoBrasDK> <3e464bef-8dfe-44a3-afea-3c276ae87cd8@huawei.com> <attMtUqxNsuPooix@LeoBrasDK> <8eaaba87-7881-49c4-a76a-51dec2f29ffc@huawei.com>
+In-Reply-To: <auCOj9dgk42AE1WX@LeoBrasDK>
+References: <20261026144413.441566-1-leo.bras@arm.com> <at-lSy7H-K60LhCB@kernel.org> <auCOj9dgk42AE1WX@LeoBrasDK>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_044631_380571_D94D4C27 
-X-CRM114-Status: GOOD (  49.97  )
+X-CRM114-CacheID: sfid-20261027_044847_360003_38504A59 
+X-CRM114-Status: GOOD (  44.79  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,126 +89,101 @@ X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 27, 2026 at 10:02:55AM +0800, Tian Zheng wrote:
+On Tue, Oct 27, 2026 at 11:44:15AM +0000, Leonardo Bras wrote:
+> On Mon, Oct 26, 2026 at 12:08:59PM -0700, Oliver Upton wrote:
+> > On Mon, Oct 26, 2026 at 02:44:06PM +0000, Leonardo Bras wrote:
+> > > When HAFDBS is enabled (VTCR_EL2.{HA,HD}={1,1}), having a DBM bit allows 
+> > > hardware to promote a non-writable page to writable by setting (S2AP[1]=1),
+> > > without having to take a fault.
+> > > 
+> > > The reason for this patchset is to add the DBM bit when setting-up writable 
+> > > pages, so the code is prepared for future patches that make use of 
+> > > HDBSS/HACDBS to accelerate dirty-tracking. Write-bit detection still 
+> > > happens based only in S2AP[1], so no change in that aspect.
+> > > 
+> > > Having DBM set on block entries is undesired, as we benefit from the first 
+> > > fault for splitting it in PAGE_SIZE entries, which is the granularity used 
+> > > to track the dirty pages in KVM. So introduce a new walker that, on top of 
+> > > clearing S2AP[1] for every entry, also clear DBM for block entries.
+> > > 
+> > > Also introduce a new VCPU request to reload Stage2, as it will be needed on 
+> > > future HDBSS/HAFDBS patchsets. 
+> > > 
+> > > Please let me know of what do you think!
+> > 
+> > I'm pretty sure I shared this feedback before, but patches that enable
+> > DBM do not make sense in isolation. We need a single series that
+> > contains the DBM enablement as well as the corresponding HDBSS support.
+> >
 > 
+> Right, 
+> My reasoning is that we can discuss this new version, and make the needed 
+> changes, so Tian could pick this for his own patch series for the next 
+> version. I do not intend to get this merged by itself.
 > 
-> On 10/23/2026 8:01 PM, Leonardo Bras wrote:
-> > On Fri, Oct 23, 2026 at 03:23:04PM +0800, Tian Zheng wrote:
-> > > 
-> > > 
-> > > On 10/14/2026 11:56 PM, Leonardo Bras wrote:
-> > > > On Thu, Sep 17, 2026 at 02:40:42PM +0100, Leonardo Bras wrote:
-> > > > > On Wed, Sep 16, 2026 at 04:27:19PM -0700, Oliver Upton wrote:
-> > > > > > On Wed, Sep 16, 2026 at 03:00:46PM +0100, Leonardo Bras wrote:
-> > > > > > > On Tue, Sep 15, 2026 at 05:10:02PM -0700, Oliver Upton wrote:
-> > > > > > > > Hi,
-> > > > > > > > 
-> > > > > > > > On Tue, Sep 01, 2026 at 06:15:56PM +0100, Leonardo Bras wrote:
-> > > > > > > > > When dirty-logging is disabled, even non-write faults make a page dirty,
-> > > > > > > > > which avoids a second fault when the page is actually written to.
-> > > > > > > > > 
-> > > > > > > > > On dirty-logging enable, this approach causes all (writable) pages on the
-> > > > > > > > > memslot to be marked clean, even if they were not written to, which can
-> > > > > > > > > take a lot of time, while holding the MMU lock, doing atomic writes to
-> > > > > > > > > PTEs.
-> > > > > > > > 
-> > > > > > > > Do you have any performance numbers for this? Enabling HAFDBS seems a
-> > > > > > > > bit involved to avoid some stores on the first pass.
-> > > > > > > 
-> > > > > > > Not yet, but if the idea does not look too crazy I can find hardware and
-> > > > > > > collect some data :)
-> > > > > > 
-> > > > > > TBH this looks like a micro-optimization so I'm not expecting the
-> > > > > > performance gains to justify the behavior change.
-> > > > > > 
-> > > > > 
-> > > > > Okay then, I will get a machine to figure the performance gains :)
-> > > > 
-> > > > Got the performance numbers here.
-> > > > I tested both the case where all PTEs are dirty, and the case that 50% of
-> > > > the PTEs are dirty.
-> > > > 
-> > > > For that test, actually patch #5 could make kvm_pgtable_stage2_wrprotect()
-> > > > slower, which is counter-intuitive, in all platforms tested:
-> > > > 
-> > > > When we walk the S2 pagetable to wrprotect, using the new walker, the
-> > > > write to the PTE itself is so cheap* that the cost of the branch
-> > > > misprediction (write PTE or not) for the 50/50 case is significantly higher
-> > > > than the cost of the 50% extra writes, which makes the 50/50 up to 60%
-> > > > slower than the 100% dirty case. It is still slower in the '25% dirty' as
-> > > > well, and starts to get even at '10% dirty'.
-> > > > 
-> > > > * (non-atomic, everything is in order, walker is small, cpu will probably
-> > > > bundle it all in a single cacheline write)
-> > > > 
-> > > > Since the idea of patch #5 was to reduce PTE writes in the first wrprotect
-> > > > walk, it becomes faster only if only a small portion (<10%) of the VM was
-> > > > write-faulted while the remaining was read-faulted, which seems to be a
-> > > > really reduced audience.
-> > > > 
-> > > > Since this comes with increased complexity, and also carry costs of
-> > > > having HAFDBS itself enabled outside dirty-tracking, I don't think it's a
-> > > > good idea to further pursue patch #5. It's only value is that it served as
-> > > > a base for HDBSS implementation.
-> > > > 
-> > > > Thanks for reading!
-> > > > Leo
-> > > > 
-> > > Hi Leo,
-> > > 
-> > > Thanks for running this, the numbers are really useful.
-> > > 
-> > > It means the hardware dirty mode (HD=1) should only be enabled while
-> > > dirty logging is active with HDBSS support, and stays off otherwise.
+> Next time I will make sure to state this in the cover letter so it's clear.
+>  
+> > > Changes since RFCv1:
+> > > - Dropped patch #5 on enabling HAFDBS on non-dirty-tracking guests, as it 
+> > >   proved to be counter-productive on wrprotect, contrary to expectations
+> > > - No more moving writable-bit to DBM. That does not seem to be the intended 
+> > >   use. It makes sense and it's easier to convert code to new DBM approach.
 > > 
-> > Hi Tian,
+> > Sorry, where was this concluded?
 > > 
-> > Correct, it's actually counter-productive for it to stay on without HDBSS
-> > before dirty-logging.
-> > 
-> > > 
-> > > With HD only enabled during dirty logging, we also keep the DBM-based
-> > > encoding for the HD=0 case. On systems that support FEAT_HAFDBS, DBM
-> > > remains the write bit and S2AP[1] the dirty bit even with HD=0. This
-> > > works because kvm_s2_fault_compute_prot() maps any writable page of a
-> > > non-tracked memslot writable-dirty (WD), including on read faults:
-> > > 
-> > > ```c
-> > > if (s2vi->map_writable) {
-> > >          *prot |= KVM_PGTABLE_PROT_W;
-> > > 
-> > >          if (s2vi->device ||
-> > >              !memslot_is_logging(s2fd->memslot) ||
-> > >              kvm_is_write_fault(s2fd->vcpu))
-> > >                  *prot |= KVM_PGTABLE_PROT_DIRTY;
-> > > }
-> > > ```
-> > > 
-> > > So there is no WC entry for hardware to promote, and HD is simply not
-> > > needed outside dirty logging.
-> > > 
-> > > In the next HDBSS version, we'll only turn on HD=1 when dirty logging
-> > > is active.
-> > > 
-> > 
-> > Right!
-> > I will also send a new version of the pre-patch (4 patches) for us to
-> > discuss. The first 2 patches will change meaning a bit, but should still
-> > work as they do today.
-> > 
-> > Thanks!
-> > Leo
-> > 
-> Hi Leo,
 > 
-> OK, I've seen the new DBM RFC patchset. HDBSS v6 will be based on it.
+> Sorry, this is my viewpoint after re-reading the documentation and 
+> being really pedantic while trying to get a proper answer from the people 
+> responsible for keeping/improving it. 
+> 
+> > The abstract permission flags need to have a WRITE an DIRTY state, which
+> > we then map to hardware based on the capabilities of the system.
+> > 
+> > !FEAT_HAFDBS:
+> > 
+> > 	DIRTY	=> S2AP[1]
+> > 	WRITE	=> S2AP[1]
+> > 
+> > FEAT_HAFDBS:
+> > 
+> > 	DIRTY	=> S2AP[1]
+> > 	WRITE	=> DBM
+> > 
+> 
+> I agree that it could work, and my first version was based on that.
+> 
+> But looks weird to me that we have to decide the writable bit based on 
+> having a feature enabled.
+> 
+> Take in account that we can only have DBM being the writable bit while 
+> HAFDBS is enabled (not only present), and that it is just enabled during 
+> dirty-tracking. 
+> 
 
 
-Hi Tian, thanks for reading it, and for accepting it in your series!
+> It means we would need to convert the whole pagetable between DIRTY=S2AP[1] 
+> and DIRTY=DBM every time we enable or disable dirty-tracking.
 
-Before rebasing, please wait for the ongoing discussion on it's 
-correctness. Maybe I will have to send new versions before it can be used.
+s/DIRTY/WRITE/
 
-Thanks!
-Leo
+
+> 
+> My suggestion with this series is to have WRITE=DIRTY=S2AP[1] at all 
+> times, and have DBM to act as a "can be promoted to writable on write" bit.
+> This way we don't actually need to convert between encodings, and it still 
+> works and complies with the architecture.
+> 
+> > Beyond making the whole HAFDBS easy to reason about, I want this for
+> > FEAT_S2PIE which reimagines bit 7 as a literal dirty bit that can be
+> > managed by software or hardware.
+> 
+> Humm, and would not that work with the above suggested approach?
+> I mean, bit 7 (Dirty, S2AP[1]) will both mean WRITE/DIRTY, but it will be 
+> able to get promoted (nonW->W, or clean->dirty) based on the indirect 
+> permissions.
+> 
+> What do you think?
+> 
+> Thanks for reviewing,
+> Leo
 
