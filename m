@@ -2,114 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 708EE606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:40:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7B17606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 16:44:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KN2ZGqbN;
-	dkim=pass (2048-bit key, unprotected) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=cnzisrvb
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=io8j/OuO;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d/gf83wv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=gbXuStreYRF1M4k9Su5zd2++RJBOLVmoBCN1Uwl3TZ0=; b=KN2ZGqbNPkajamUpnXB+ZOiv8s
-	K71BTCIjNRUR5w1YP945cie7vI14hWhaIphPHd8OqXFa5aRILGRiXiEtSjyHsp5PfbrNPVxz+eZgU
-	FOT9oFqwvNHJmjVMZE8Vay4jfypefmkvKnypYmUPCNAfMrcZm8aWQUI7jxkUGENewL5Quv4BUx/Z0
-	vjsBhNLQpujWt6EZH9p6mvmWKz/OnpTsxTFBY4soQpVwKUsrQZwLZhIrZes45eqJ+IkIcJ6o01TyC
-	cv8c9ekyTGuQKBJXkDoWv/Y88iHrJjnfufX/7V5gMfR7r0RcjwTWSeEzX573dfoXrhfn+M6mtD7fb
-	hXk4eS2g==;
+	bh=nx17FIAQCfOlFkP17EZEoi5gViilW8Y7/HSO+vAKVsw=; b=io8j/OuOXDfya2N+eR9iJGaRMf
+	ayhWi7osBmGTBgLpNQBSiLtSByeoVDv8Htbg50QC9yeW8DZAyrjpO5OooCSV4esjUWFm6tV0sNXOD
+	8b9eQ4HUS1xWqXtGR4Ogk/wm2Cm/WZdRDGeehiFoo6ZksslFvMVzqirNGAf8hfUxzZcPAeWNASD7D
+	z8obeFAsmGDVuNLxy6jgNDzbcurVBc5Yx8CRgK+aRXWTOi7MRuqJ4Sgu2GQOde6Lp34zXx/YUes8V
+	C86pnUmgD9UpwEA+AEGZL/TBen1b6zTCwXzF25sRkwFgB9XZ9wd+9K7jS6VXSqHuspOBTTzPsx6U9
+	5TQMayKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLkDa-00000005OOT-2tjY;
-	Tue, 27 Oct 2026 16:40:10 +0000
-Received: from mail-ua1-x935.google.com ([2607:f8b0:4864:20::935])
+	id 1xLkHY-00000005Oxm-0UTp;
+	Tue, 27 Oct 2026 16:44:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLkDX-00000005OMn-1NI9
+	id 1xLkHW-00000005OxG-2qwp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 16:40:09 +0000
-Received: by mail-ua1-x935.google.com with SMTP id a1e0cc1a2514c-988c7371716so55157241.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 09:40:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen.com; s=google; t=1793119206; x=1793724006; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=gbXuStreYRF1M4k9Su5zd2++RJBOLVmoBCN1Uwl3TZ0=;
-        b=cnzisrvbKbW0pFuDaz+kHMmxXiIezPBvVCc91p55CF1D2bHf1Db3F09sdK7bWgGt34
-         5ov5IgJ5BMQZmj0DqZm6oDX+jWwCxnY0VQbp3qHWAn0/pRNIv9/28eULp4D1s4NutGZt
-         OsVzZzrpGosEwuZLRteiWiauEvebDx9oHrVSDtzSsjctdYHwt/8WvThKOR+b0BT9Vz8d
-         m2fpqgylo1WVDHW3cIg13ONLoqd3d5rXc896ZGhiC5bFg5Op+AQ2oILumVD3ztFrGO1a
-         0mG4xZPzG3KzmSdEwVxPHmlmOZdGK/2ZIhdruWhXgbkZr4f32pDMCuOFI2n+ExibQKyL
-         BcQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793119206; x=1793724006;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gbXuStreYRF1M4k9Su5zd2++RJBOLVmoBCN1Uwl3TZ0=;
-        b=Cecz+EAnGHsZLO1YEAj2TvivNpPqDCtkHpYDM+E+4b+dfoMmDnlEGpUUguc/F17DDr
-         mgmRevHESUob+/hnNRt9FGrA1qEqEis4At/RrZ1qHAHZgyfSqmq7wKOHLCFSrsD1nZRN
-         Zry/W4fXELthrmoy6Qq5NiQWp6R+NmNjXtnso+YTH3j+1i0s1vAPCMwILKYTrCOxeu4l
-         /nG9MizP4nBuJf+sPfH/P3wyC6MTI0Ng63tmQ4lUkelEkTTJKCtfCA9Po4QpJXpiCZee
-         J9eHwmKiIwcCqjIaOrPzfajE0n8ylcAgaVRd0ma5bNn77zcQMG/6EFhKjoUAJjtt2F+D
-         4+Kg==
-X-Forwarded-Encrypted: i=1; AKwUvBxvFK0uUmYq3QUouYxEm7oXP0xNikzFJprt0lHr8riCyFD8LX4mXJsgLCEpQHCYiPfngY8VLIQzJ+im8yreqJxa@lists.infradead.org
-X-Gm-Message-State: AFq9FYJDLLBzodSe26aCcf/Wk6TxBRd3/K9wT7ibZbQ2Lt+h3LC4XOPX
-	0xGQuyihhoyRYaKFA6c3IYJHrnxQIp8aziaiUyuHEvdoAl9M+6wXy5X4FIIQ9c/Nbaw=
-X-Gm-Gg: AYBFou29AfZrsyPN6b4VHzp3g6mUBkxppYNc5k/PNUa86h9vcgoD+r4L3k6BKE+5iOT
-	PozfIk8E04rtiNOIy5Yz0pdw2zPJMiAYCVxL+tjhWOaZwAKiht1+cGzcfLkU8kvwU5WnSF4+PUQ
-	lga2lXFmFRygmYxtS1zRkgcN3+MKL6A3FBLhvqw3thZzYBavcQy+bm79SNYl63s+W4CCTf0fo5e
-	9XEhHSEXcViIQaiCwq8u/nKWPjXOIm70XlOUROfywmlQV8MPjlAQo39rpT+IFf/gW4K76RCwZCs
-	UOr6pbhY0LLFBSknhFC6U3mzlh1na9kvz2dowetHQ2YodsKks9JDXUj2GwVPcILLiPs+SlA2xTG
-	nBDclnzjE6NYqp+y3J7KVNefGVPo8a3mS2LbUZAZ+SVdTs3+8Qfw07TSqyaacl6i69NJs/eFV+l
-	wUGgQa2FWZ5zytYvMC4fXBW7D/WvRJhZo0k9x+2L+UX4JqX+L9eqYR7vtGeyf0EcHX/Rq2xpC58
-	F6az13rfbNZOGihXCdEKqfh/ZtK1x5DrmRN3fI4yoYk148bPDZIWGo/wk1640GTln6tByVdZS4M
-	TfJ4dtsEtebGhKqj6R3aGXudm4Y/CZJWYulz0VolF2rF0Nrp303kvAAj0ExJGBFMmQPqs2F+9aI
-	jOEj9ioSldXgJDZxfHjZCO/qYdH0QWqwKMKNdADFPlOgMBzxWSWA=
-X-Received: by 2002:a05:6102:5048:b0:7bf:74c1:b606 with SMTP id ada2fe7eead31-7ce5ce4227dmr3243460137.34.1793119205875;
-        Tue, 27 Oct 2026 09:40:05 -0700 (PDT)
-Received: from google.com (16.49.199.35.bc.googleusercontent.com. [35.199.49.16])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-9912da2d9d1sm442866241.7.2026.10.27.09.40.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Oct 2026 09:40:05 -0700 (PDT)
-Date: Tue, 27 Oct 2026 12:40:04 -0400
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-To: David Matlack <dmatlack@google.com>
-Cc: tarunsahu@google.com, Andrew Morton <akpm@linux-foundation.org>,
-	joro@8bytes.org, Mike Rapoport <rppt@kernel.org>,
-	Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de,
-	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com,
-	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org,
-	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com,
-	will@kernel.org, Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Alexander Graf <graf@amazon.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev,
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
-	kexec@lists.infradead.org, skhawaja@google.com, kvm@vger.kernel.org,
+	Tue, 27 Oct 2026 16:44:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5803460219;
+	Tue, 27 Oct 2026 16:44:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08FB71F01825;
+	Tue, 27 Oct 2026 16:44:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793119453;
+	bh=nx17FIAQCfOlFkP17EZEoi5gViilW8Y7/HSO+vAKVsw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=d/gf83wvfXAhjxM5t1yPfeZXqDU0qDuWGm2q+pJ72nQhojJ7vCMmngQcQix56nhYC
+	 6Xezdj3m6GEpl35gmKf4SG3W8X6BYFzOmoSKWGlZNMdkSWW4vOokAvdeEeENXKDU4X
+	 3CfCOkNJohOJxcl4gWf+/m9kYb+BS7LmckkyVLWy7PTi3ZbEWFCzEwpc5u1lNSrwRp
+	 X0FE8aFBk2PWFTJxd3Zzpxia+2d30yB0Gq8QEx1qWlYeDe82ebBD90W4NSa5Unlcx5
+	 FfzyJhFf0G+loppwSMVkbb6sC8v3de2UwiY1a+RJZM+UgIQLYQfgWhaMiqcRmf4lDy
+	 zDKUuf55D2WrA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xLkHS-00000007oLP-2Vpc;
+	Tue, 27 Oct 2026 16:44:10 +0000
+Date: Tue, 27 Oct 2026 16:44:10 +0000
+Message-ID: <86se1rxfdx.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Amir Noohi <amirmnoohi@gmail.com>
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Igor Velkov <iav@iav.lv>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christoffer Dall <cdall@linaro.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
- a 2-bit pair feature header
-Message-ID: <auDT5MjXYq3lcQjE@google.com>
-References: <20261021152527.375070-1-tarunsahu@google.com>
- <20261021152527.375070-4-tarunsahu@google.com>
- <atlQ_Er0Ig7CCSxv@google.com>
- <CALzav=f00C4yOAseNunW8GgQTDUGWT927Qy=TLm-3-J0TEDH8Q@mail.gmail.com>
- <9huzzew0el59.fsf@tarunix.c.googlers.com>
- <at_CncIPYCxOVkLo@google.com>
+Subject: Re: [PATCH 1/2] genirq/manage: Provide irq_set_percpu_irqchip_state()
+In-Reply-To: <20261024212844.3405617-1-amirmnoohi@gmail.com>
+References: <20261024022450.629980-1-amirmnoohi@gmail.com>
+	<20261024022450.629980-2-amirmnoohi@gmail.com>
+	<87se1v8f2r.wl-maz@kernel.org>
+	<20261024212844.3405617-1-amirmnoohi@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <at_CncIPYCxOVkLo@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_094007_382560_240486E8 
-X-CRM114-Status: GOOD (  30.64  )
-X-Spam-Score: -2.1 (--)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: amirmnoohi@gmail.com, tglx@kernel.org, oupton@kernel.org, radu@rendec.net, iav@iav.lv, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, cdall@linaro.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,81 +103,76 @@ X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10-26 21:14, David Matlack wrote:
-> On 2026-10-26 11:50 AM, tarunsahu@google.com wrote:
-> > Right, Required bit should be source kernel payload property to tell
-> > target kernel that the payload must be handled to correctly deserialize
-> > the data. It should be source kernel (userspace) responsiblity to make
-> > sure it understand the target kernel before doing liveupdate.
-> > 
-> > Saying this, During deserialization, target kernel's required bit is not
-> > necessary. So I propose the following truth table.
-> > 
-> > Source hdr  Target supported[i]  Action
-> > ----------  -------------------  ----------------------------------
-> > 00          0 or 1               Accept: feature absent in payload
-> > 01          0                    Accept: ignore the feature data
-> > 01          1                    Accept: use the feature data
-> > 11          0                    Reject: -EOPNOTSUPP
-> > 11          1                    Accept: use the feature data
-> > 10          0 or 1               Reject: -EINVAL (invalid encoding)
+On Sat, 24 Oct 2026 22:28:44 +0100,
+Amir Noohi <amirmnoohi@gmail.com> wrote:
 > 
-> Yes, this matches what I had in mind for the semantics.
+> Hi Marc,
 > 
-> To be explicit: the source kernel should set the bits for each Live
-> Update based on what is actually preserved, rather than generating the
-> header from a static per-kernel array. E.g. memfd would only mark a
-> feature present for memfds that actually use it. That's what allows
-> rollback to an older kernel as long as nothing being preserved depends
-> on the new feature.
+> On Sat, 24 Oct 2026 13:21:00 +0100, Marc Zyngier <maz@kernel.org> wrote:
+> > It really feels like a leap of faith.
+> >
+> > There is nothing that says that it is safe to call this without
+> > holding the global lock. For all we know, drivers have been relying on
+> > it for a good decade, and I don't feel confident letting things rip
+> > just because it (mostly) works with the GIC.
+> >
+> > At the very least, something exposed by the irqchip (a per-IRQ flag?)
+> > should tell you whether it is safe to elide the lock.
 > 
-> But looking at this again, I think the required bit is redundant. Whether
-> a feature can be safely ignored is a property of the feature itself, not
-> of any particular file. Every file that has a feature present will have
-> the same required bit for it. The only thing that actually varies per
-> file is whether the feature is present.
-> 
-> The required bit still has to be conveyed to the target somehow, since
-> the kernel that needs it is the one that doesn't know about the feature.
-> But it can be conveyed by the feature's number rather than an extra bit:
-> split the flag space into required features and optional features, and
-> assign each feature to one of them when it is defined. This is similar
-> to the required_flags and optional_flags approach in struct pci_ser [1].
-> 
-> Keeping the same header shape as discussed with Pasha:
-> 
-> struct kho_ser_hdr {
->     __u32 size;           /* Size of header + payload in bytes */
->     __u16 nr_required;    /* Number of required feature bits */
->     __u16 nr_optional;    /* Number of optional feature bits */
->     __u64 flags[];        /* Required bits, followed by optional bits */
-> };
-> 
-> Required feature N is bit N of flags[], and optional feature N is bit
-> nr_required + N (using nr_required from the incoming header). The length
-> of flags[] is DIV_ROUND_UP(nr_required + nr_optional, 64). Both spaces
-> are numbered contiguously, so there are no gaps, and up to 64 features
-> still fit in a 16-byte header.
-> 
-> Each bit just means the feature is present, so the truth table becomes:
-> 
-> Source bit       Target supports  Action
-> ---------------  ---------------  ------------------------------
-> Not set          -                Accept: feature absent
-> Optional set     No               Accept: ignore the feature data
-> Optional set     Yes              Accept: use the feature data
-> Required set     No               Reject: -EOPNOTSUPP
-> Required set     Yes              Accept: use the feature data
-> 
+> Agreed, and v2 does that. There's a new IRQCHIP_PERCPU_STATE_LOCKLESS
+> flag, and irq_set_percpu_irqchip_state() only skips the descriptor lock
+> if the chip implementing irq_set_irqchip_state() has it set. Otherwise,
+> or if there's a bus lock, it just calls irq_set_irqchip_state(), so
+> drivers that don't opt in see no change.
 
-I like this proposal. I bet most features are going to be either 
-optional or required, and even if we ever have a magical 
-sometimes-optional feature, it can have its own required flag. So, no 
-need to pay double the cost on every flag.
+I'm not sure this is the correct option. Making it per irqchip is
+again assuming that the irqchip has a uniform handling of the state
+across all interrupts. I'm afraid that's not universally true, which
+is why I hinted at a per-IRQ flag.
 
-Just need to make sure that optional features always start from 0, in 
-their own enum, so the offset can be computed correctly in the incoming 
-kernel.
+Alternatively, you can audit all the providers of this API and work
+out if is it safe to do so, and split the corresponding callbacks.
+Good luck with that. :-/
 
-Pasha
+> 
+> Only GICv3 sets it, in a separate patch. For SGIs/PPIs/EPPIs its
+> callback only touches the local redistributor (gic_data_rdist_sgi_base()
+> and the RWP poll), nothing shared.
+
+Read the code again. There is *one* callback for all distributor-owned
+interrupts, which also involves SPIs/ESPIs.
+
+> FWIW, irq-gic.c, irq-gic-v3.c and
+> irq-gic-v5.c are the only drivers with both per-CPU devid interrupts and
+> an irq_set_irqchip_state() callback. KVM's own timer chip (GICv5, no HW
+> deactivation) doesn't set it either, so those keep the lock.
+
+The KVM chip inherits whatever it is pushed upon, and it is still a
+per-CPU interrupt. To be clear, this is an all or nothing approach as
+far as KVM is concerned, so anything that KVM uses should be converted
+to the lockless approach.
+
+Even in the GICv5 case, the ICC_PPI_ENABLER0 register cannot be
+modified concurrently, so it should be safe to advertise these as
+lockless.
+
+> 
+> On GICv2 in QEMU it still takes the lock like mainline does (333k vs
+> 321k acquisitions in lock_stat, within 4%), and on GICv3 it doesn't
+> take it at all. arch_timer, arch_timer_edge_cases, vgic_irq and
+> vgic_init pass on the Altra. Under QEMU with lockdep, DEBUG_PREEMPT and
+> DEBUG_ATOMIC_SLEEP, the selftests pass on GICv3 (VHE and nVHE) and
+> GICv2 (the vGICv3 ones skip there). No splats.
+> 
+> I made it a chip flag since it's about the callback, but I can make it
+> per-IRQ if you prefer.
+
+I reckon this is a requirement.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
