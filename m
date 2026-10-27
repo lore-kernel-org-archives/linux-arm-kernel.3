@@ -2,87 +2,105 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1422606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 09:32:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4886606A33A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 09:35:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kHz84UKw;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AoUlGtx+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1FmlVAsI;
+	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Zq85cipr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=v8kRiQmXlExTl6nzzD7dQ3TcCyE/USPMyj+a4wHCWzg=; b=kHz84UKwBkAtKU6UNIEgcp3mv6
-	oPo30H0qG9vmJvxSY+gtFsIJne3pOQJHr6Inb7NaNgIobTHvRvuB1AfzPrnXAS8DSrdKrRsWIyAJ3
-	TaHuH+odiUhckpODb8T9ocMuNcyIdO/N7UoCqX64nd15AiUcEKFEJsLbdFBtrif8bGdxBh5La8jhO
-	E5XCLk0kdikTVd5xKEXwaXjLArHHJDtRnWcsGb0IpiU2VK6TDDTlrehEZAgT6Qia1/MoDExbk0fp/
-	b2s2wfbBx+cd7U01hJFsam0IdoRltqQzR8ZR95QN0Q27aVwefdD5ijQ3J11zNzn0tNmqlOFkGgS/Y
-	VvBqPh7w==;
+	bh=99Quot76Ew1Xga+Y6JjFMpEKhii0fTwKrTpcfefLdIc=; b=1FmlVAsIDrXV7RHtd8xPWdFj2E
+	FCENaBFSLCwZeT5P9a9zIIMDArdb6gHurHOfUlDFJPi0NfgjnTNmeOGQVvqt7GgCiQmi6C69tfLf1
+	NpVQxndJBa9s3lMw4o9b999Yyyj4KcYR1eKTAG+/D5FQryxAJ7nwLHAO8mNnwnk0FEaUUI45fnXBl
+	durx7ZbR3Fo42gAJ6ReaUsscbCQ+xVaS6zAO7A3J53IBJsjymWJ4f+CiygC03O7c6FzyKMZu6NpTV
+	VPR3hvLSIB7rl733vkxWoC3VxcyLpoEQUNFcpbnQUJ26BwMQoNeYDfjOaGCpa3/tLjiLPc66r5SCb
+	bmG2pizw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLdXo-00000004ASf-4BPx;
-	Tue, 27 Oct 2026 09:32:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xLdaN-00000004AlQ-24E3;
+	Tue, 27 Oct 2026 09:35:15 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLdXo-00000004ASR-07xr
+	id 1xLdaJ-00000004AkY-1fUS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 09:32:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7CFFB415DD;
-	Tue, 27 Oct 2026 09:32:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D1E41F01828;
-	Tue, 27 Oct 2026 09:32:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793093555;
-	bh=v8kRiQmXlExTl6nzzD7dQ3TcCyE/USPMyj+a4wHCWzg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=AoUlGtx+436lsWzCJkKEElbkUxqyrXz3URLfAQlUCAt1e8rVctNX+G3ZGr1Ai5JuL
-	 aoHVtIUKxAttvjydnhGIGFCcRmN2ozbKEPJi5W7By5TussH7TgQ1nTBFzvu250fLQ4
-	 rW7Vebvgegixr7+D14kXWn/2/q/xnR2w2DMSFZMoGJOtNKl4tZ3Jeq0fJiqLyFcxd9
-	 3QM/enVtC9OiIFGLSl2E5k6946WFamOiYgHs9m3I4YP0fNb/jewpozC7gWgGtFc4p5
-	 g7Mz20GRwOPpRMqVSveCv3ZPm3eZf8G7ug0MA/Dlw7wFJoMB3dQ9QyPhF690TVMkJe
-	 Dww6KduBsxwaA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xLdXk-00000007cVr-3TKm;
-	Tue, 27 Oct 2026 09:32:32 +0000
-Date: Tue, 27 Oct 2026 09:32:32 +0000
-Message-ID: <86wlr3xzdb.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	kernel-team@android.com,
-	linux-kernel@vger.kernel.org,
-	Oculytic <oculytic@gmail.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH 3/3] KVM: arm64: Disable host PMU counters for protected guests
-In-Reply-To: <20261027081147.498183-4-fuad.tabba@linux.dev>
-References: <20261027081147.498183-1-fuad.tabba@linux.dev>
-	<20261027081147.498183-4-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	Tue, 27 Oct 2026 09:35:13 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id CA39F2022D8;
+	Tue, 27 Oct 2026 10:35:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793093706;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=99Quot76Ew1Xga+Y6JjFMpEKhii0fTwKrTpcfefLdIc=;
+	b=Zq85ciprUiBzG8awWpiriexHzGFwlu3KviMpkLQndFmDiByT8P0n07dEuQeRH3+H0V3N6G
+	JaIQ50YBT3zjoRNhgOsxg3Z/M7Kw0P4I8bCkviAF51ZqsQ7HEoY+ddXQv78XNTjGYHFiG8
+	a8uxXpCQTZ4UCaC+TLahNPTmVlWU6BuVz/7yKXfjyt/GTy1mE8wv+W3vxjGfq8/FFU/zHI
+	07xNEsiWFx4aLW+p8xcqs1vHOvRGg7it1g5bfgCbSdfCoorEcReQxljOGVZnDQuAzVMJNP
+	S/GA4y9aHsqLQXMa/uAp/l6EjHmljFkgeNDJKxaLIT80HTPnlFNol7AJMDNM/A==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793093706; a=rsa-sha256;
+	cv=none;
+	b=JtIaUZ0IwpCGq8Q7PIpl2oVGHj5zeqIC9ItIaqKjcPfHuZ/h/uaK4oaVWv2fWIwD2Y3Q3u
+	3Zkw+epEPWg8DxmxVST4Ox1P3WPIlBV1yA09IIsdhLwbjXJoCy7AhOXOnVI6kI+Amsyj77
+	hNzQgAoktS659GGWtnrt/j86wZuDDafQgsVQu+4rC8L+RG2ON5tY16uPHffSoMiG/L6LbJ
+	rbvCsiJSQRckmwU15Y+hlMmM5tLWppOpAR34go+rGAuxXnke6eDTT14KHBCgvvuUw668NB
+	j9BLhKzQ6CjKfM66Jh5qEMWZisxWBbleu9vFgufzdUff6zhx/JFfZLOF8ntmdw==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793093706;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=99Quot76Ew1Xga+Y6JjFMpEKhii0fTwKrTpcfefLdIc=;
+	b=MJg8GDPiTLlhRPniUvOMasJ8bqJUm8m/Pa64GL2YPLlEtO6f+Jl4TTbCMe3VzTGhHqgb1P
+	G8lmE11AAwmUx7Cc2tXgsaybOJpB3XbF4GJ5t5drb0+N0vQ31XC2Es6v01UcH0s6Vjc8/T
+	/ksKtWgNqMPGEuB/tMw5vAYa9r3hvcyQGGTk6B30dvsaWXGHLRwmisaD2BNzEJRuA931vt
+	Xx3X42nL1UOjpXYX8j96VdddzzHiMMnEvgHm0Ac9CbOfUDx09qR2jFe5hJcayBjQLKutxS
+	MWfFdxfwjIxIVK26D2yz8kmeox5+xec4TPHTdCbaPk5YpUpjJ6DnGOIxNht2aw==
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1xLdaE-001PRs-2M;
+	Tue, 27 Oct 2026 10:35:06 +0100
+Received: from pengutronix.de (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 386F35D7AF0;
+	Tue, 27 Oct 2026 09:35:06 +0000 (UTC)
+Date: Tue, 27 Oct 2026 10:35:05 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Vincent Mailhol <mailhol@kernel.org>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Kurt Van Dijck <dev.kurt@vandijck-laurijssen.be>, 
+	linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, NXP S32 Linux Team <s32@nxp.com>
+Subject: Re: [PATCH v5 3/3] can: gs_usb: check can_rx_offload_add_manual()
+ return value
+Message-ID: <20261027-arboreal-screeching-flamingo-0bb914-mkl@pengutronix.de>
+References: <20260907104942.17089-1-ciprianmarian.costea@oss.nxp.com>
+ <20260907104942.17089-4-ciprianmarian.costea@oss.nxp.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, vdonnefort@google.com, kernel-team@android.com, linux-kernel@vger.kernel.org, oculytic@gmail.com, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="idthn2kgmfdskzon"
+Content-Disposition: inline
+In-Reply-To: <20260907104942.17089-4-ciprianmarian.costea@oss.nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261027_023511_619905_23215ED9 
+X-CRM114-Status: GOOD (  14.04  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,71 +111,59 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 27 Oct 2026 08:11:47 +0000,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> A protected guest has no PMU, and EL2 clears MDCR_EL2.HPME for it.
-> However, HPME has no effect, since __pkvm_vcpu_load() sets HPMN to cover
-> every event counter, and HPME never covers the cycle or instruction
-> counter. The counters the host has enabled therefore keep counting the
-> guest.
-> 
-> Stop them in the world switch while a protected guest runs, reading
-> PMCNTENSET_EL0 rather than trusting the host-controlled events mask.
-> Gate this on a new per-CPU HAS_PMUV3 flag, since system_supports_pmuv3()
-> is false when the CPUs implement different PMU versions.
-> 
-> Side channels are outside pKVM's threat model, so this is hardening
-> rather than a fix.
-> 
-> Reported-by: Oculytic <oculytic@gmail.com>
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
->  arch/arm64/include/asm/kvm_host.h |  1 +
->  arch/arm64/kvm/debug.c            |  4 +++-
->  arch/arm64/kvm/hyp/nvhe/switch.c  | 24 ++++++++++++++++++++++++
->  3 files changed, 28 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 1c6632216e327..7ecb55e5018eb 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -834,6 +834,7 @@ struct kvm_host_data {
->  #define KVM_HOST_DATA_FLAG_VCPU_IN_HYP_CONTEXT		4
->  #define KVM_HOST_DATA_FLAG_L1_VNCR_MAPPED		5
->  #define KVM_HOST_DATA_FLAG_HAS_BRBE			6
-> +#define KVM_HOST_DATA_FLAG_HAS_PMUV3			7
->  	unsigned long flags;
->  
->  	struct kvm_cpu_context host_ctxt;
-> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
-> index f4d7b12045e8f..3c74b076b5278 100644
-> --- a/arch/arm64/kvm/debug.c
-> +++ b/arch/arm64/kvm/debug.c
-> @@ -79,9 +79,11 @@ void kvm_init_host_debug_data(void)
->  	unsigned int pmuver = cpuid_feature_extract_unsigned_field(dfr0,
->  								   ID_AA64DFR0_EL1_PMUVer_SHIFT);
->  
-> -	if (pmuv3_implemented(pmuver))
-> +	if (pmuv3_implemented(pmuver)) {
->  		*host_data_ptr(nr_event_counters) = FIELD_GET(ARMV8_PMU_PMCR_N,
->  							      read_sysreg(pmcr_el0));
-> +		host_data_set_flag(HAS_PMUV3);
 
-Honestly, I don't think we need to work out which CPUs have PMUv3 and
-which don't. I'd be perfectly happy to disable KVM on asymmetric
-systems, simply because they don't exist.
+--idthn2kgmfdskzon
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v5 3/3] can: gs_usb: check can_rx_offload_add_manual()
+ return value
+MIME-Version: 1.0
 
-	M.
+On 07.09.2026 12:49:42, Ciprian Costea wrote:
+> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>
+> gs_make_candev() ignores the return value of can_rx_offload_add_manual().
+> Once can_rx_offload's skb_irq_queue is made per-CPU, that call allocates a
+> per-CPU queue and can fail with -ENOMEM, leaving offload->skb_irq_queue =
+=3D=3D
+> NULL.
+>
+> Check the return value and exit via the existing free_candev() on error
+> path.
+>
+> Fixes: 24bc41b45583 ("can: gs_usb: convert to NAPI/rx-offload to avoid Oo=
+O reception")
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
--- 
-Without deviation from the norm, progress is not possible.
+Added this patch to gs_usb fixes series.
+
+Thanks,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--idthn2kgmfdskzon
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCauBwRwAKCRDMOmT6rpmt
+0gFAAQC0c7UT/+oEEwTK/YSBqia18aUuFU+AP3rZEWHn9gCMlgEAlDTFrIn7dn3a
+RrcB2+klkNhtjso7OM1K6eEGANr/nw8=
+=YQo3
+-----END PGP SIGNATURE-----
+
+--idthn2kgmfdskzon--
 
