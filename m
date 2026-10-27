@@ -2,86 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEC1A606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 12:55:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12AD7606A323
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 13:11:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EaKmM8Q7;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=hc52RRWZ;
-	dkim=pass (2048-bit key, unprotected) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=LuaWo06y
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OIybR1j3;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NhFfP2Am
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Df7/tfGdKfRHftGQ/gC+HL2nvok6xw8ztV6Hfi9otaU=; b=EaKmM8Q7GuvmNr
-	T+AjrtdM4imssmwv13GU79Aibc1Pgc7wpJP9YDNJNzWXqLtt691juOkWltVD+a8qp1DmeKMMDD1RY
-	4iuWzoJGDniYSxyoGWTRZ+GXK4ltyK2DOOrPsNVwo+/rqWsyyR4XEShI8An+mPgyjYbH8scNmmGGb
-	UER5A+sLpiEHYTenyZfEaQ0o4oQIsJFqgKs5lKS/urUPfUjuTRCUggA8j6vBdoHZmb6bi4/3Z324E
-	FPDUBHkb9R7Kt3vcB4B++VR9Ksz+BV1Ffi3beSwZmmOTyCd5AnkQl/GF6nwv7bDQ6OBbkldNNH6aA
-	42AKLIfXEELSYhI94nnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=6T5qHszoT5KAnaMFtpj3HuHEDlbDw72PARLkg2WqNwI=; b=OIybR1j3LHihiq3Pj0wR7N0Brh
+	IkxENnfl5ALm7bACNHv8DoeLL2WpQ1ghP8qogRGrBjhPSkJDKmyETft91BlJgTtBbXyu/hwMLhjv2
+	R27PBnkLR+qgGOeIb6+tc9b8jRgFfjpz8jMfOqcSWOC3idT/pKa03ul9JgvDsPszq+fYRy1NSOY/3
+	EiRNh1RuzetT0/jl7xLgZ5h+mKkkBYijDa7dvd0dZIhwl9F1yPnE5nY+0wKNcDuVHWtQ6Jw4Jrv51
+	qcMbYE0D2+OAo/0ZL+aprWikiY7xbqDe9oNFQqwUQOD9FSE0Xf/bfEU78HHd/C3srMlo9dTDPRF4k
+	JsuY+VMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLgi3-00000004j8d-0rIn;
-	Tue, 27 Oct 2026 12:55:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xLgxq-00000004kh4-2VMF;
+	Tue, 27 Oct 2026 13:11:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLghy-00000004j6p-2GtY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 27 Oct 2026 12:55:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Df7/tfGdKfRHftGQ/gC+HL2nvok6xw8ztV6Hfi9otaU=; b=hc52RRWZQitdiiqvoml913D4Yw
-	kQWZ1mtHXTUjl7YwSfgUkYPY9m3CPGMVyBMZ/zwGvuSvO/pjuCfozTPbX8o559KGkI5mIQchFAlfF
-	irv7671H1qGF3ab1J/AGVxuyuqJA9p3RvQMn3FKNCaFJhGWkV/7mqiNcaidzj9IrX7BqIftHa3F2T
-	YfyTcFwuMmrHC2kvlM35sisxczJZY8Eq25Zh++TG1ap8sCELBOI7fEX8uTqiAtCrbQSQXTMcXaqAH
-	nG12xpjjFoTl6sC+t+aoAKiLRJlJ7CJTif6id7ZwOt1DJW+c3E1wzrNAcEUWWah8z9F7yqigmgblU
-	5HY1/NiA==;
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLghv-0000000EyWN-3o2Y
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 12:55:17 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 167B81086BE;
-	Tue, 27 Oct 2026 13:55:09 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1793105709;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Df7/tfGdKfRHftGQ/gC+HL2nvok6xw8ztV6Hfi9otaU=;
-	b=LuaWo06yHgeJcci5b0mvXB7saV6QxpGuSXp1fv7vvtphCljN5G+9EPMdCACYrDNJcI8bWy
-	JduBWnM9lvfWoIc81KsOWvnULaFhfVtIr+AdrhshBGFMkQ/o53BboeAO7pQpvaIdBkUA4g
-	meTWPoO59hOWpZJ29BYmqAfdR16sxJGvlQRVhNk1DpmsHio4kaZ1u1b331Bd/ntLhjEmgJ
-	/JyiD2reabKzP0sXHSaVuHax7Yu0lM6gmT51z0bfhJj6KgeYVMgUYkXKR35odSqGjEfz5n
-	eoLMz/tdybhpsa+Ub+OfhEL/2MdIcSdNPKhyug3TQPdlIoojAMJrMpJMG6whGQ==
-Message-ID: <4b2a721d-f333-4146-8e47-f5b38b378ff5@nabladev.com>
-Date: Tue, 27 Oct 2026 13:31:13 +0100
+	id 1xLgxp-00000004kgs-0M3g;
+	Tue, 27 Oct 2026 13:11:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D1FC743382;
+	Tue, 27 Oct 2026 13:11:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF4FB1F01825;
+	Tue, 27 Oct 2026 13:11:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793106700;
+	bh=6T5qHszoT5KAnaMFtpj3HuHEDlbDw72PARLkg2WqNwI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NhFfP2AmkN8X7XELirt7qT1omsb7npj/zadplmlZ/ndbM/9QYLp2ZJCOJx+dWlUMH
+	 WLIl9HcnEfz9gd3aqK4ZL7dj/jUrwFJl61kMEnfVFuO2eXjlv12kfExtfW8c22DCO1
+	 XS6kqIuoyvE7I5lyuEi75AOr6i07VYF2vgUNRu3r4vV1u1gvqwDF2ZJeXWx3BzDdbk
+	 wVX9EWBmnqqrIj3caxXblXv1sxbO8+kSSUkWMzV17NaqkEQBkQ8d4uTWltzWPvgaIL
+	 D6FLOCVRYM4oXdPXNHM3BFSD/u5X3pnF+GwgfpzP9KZI3CWVnt3gWDgtHSzYZ0nv/y
+	 brBln+2rf30pA==
+Date: Tue, 27 Oct 2026 14:11:32 +0100
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Cc: Ryder Lee <ryder.lee@mediatek.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?B?V2lsY3p5w4XigJ5za2k=?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4] PCI: mediatek: Fix integer truncation and handle
+ oversized resources
+Message-ID: <kfnxuro5xf4mhokabg773zcyp7otcjxwpzcn3dlo6y3kpv4uv4@bne4qf3vcif5>
+References: <20260930120539.4967-1-sreekuttan2156239@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 1/2] ARM: dts: imx6ull-dhcor-maveo-box: Remove unused
- SPI device
-To: Christoph Niedermaier <cniedermaier@dh-electronics.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, kernel@dh-electronics.com, linux-kernel@vger.kernel.org
-References: <20261027111201.20936-1-cniedermaier@dh-electronics.com>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <20261027111201.20936-1-cniedermaier@dh-electronics.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_125516_052197_0541CA94 
-X-CRM114-Status: GOOD (  11.49  )
-X-Spam-Score: -0.2 (/)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260930120539.4967-1-sreekuttan2156239@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,23 +72,88 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/27/26 12:12 PM, Christoph Niedermaier wrote:
-> On the maveo box, the SPI pins are connected to connector X10,
-> but no device is connected. The device "dhcom-board" was used
-> only to test the hardware, but was not removed afterward. So
-> remove this device to accurately represent the current hardware
-> configuration here. Also remove the okay status, since there
-> are no longer any devices defined in the interface.
+On Wed, Sep 30, 2026 at 12:05:39PM +0000, Sreeraj S Kurup wrote:
+> resource_size() returns a resource_size_t, which is 64-bit on 64-bit
+> architectures or 32-bit systems with LPAE/PAE enabled. Passing this
+> directly to fls(), which accepts an unsigned int, implicitly
+> truncates the upper 32 bits.
 > 
-> Fixes: 145e2732a5e9 ("ARM: dts: imx6ull-dhcor: Add Marantec maveo box")
-> Signed-off-by: Christoph Niedermaier <cniedermaier@dh-electronics.com>
-Reviewed-by: Marek Vasut <marex@nabladev.com>
+> Furthermore, AHB2PCIE_SIZE() uses a 5-bit mask GENMASK(4, 0). If a
+> resource size exceeds 2 GiB (order > 31), the log2 size order
+> overflows the 5-bit mask. Clamping the value silently truncates the
+> hardware window while leaving the OS resource intact, causing bus
+> errors when accessing BARs in the unmapped upper region.
+> 
+> Fix this by using fls64(size - 1) to accurately calculate log2 size
+> orders without off-by-one errors and returning -EINVAL if the resource
+> size exceeds the maximum supported 31-bit window order.
+> 
+> Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+> ---
+>  drivers/pci/controller/pcie-mediatek.c | 29 ++++++++++++++++++++++++--
+>  1 file changed, 27 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
+> index a60d1ae076f8..639884b22ad7 100644
+> --- a/drivers/pci/controller/pcie-mediatek.c
+> +++ b/drivers/pci/controller/pcie-mediatek.c
+> @@ -8,6 +8,7 @@
+>   */
+>  
+>  #include <linux/bitfield.h>
+> +#include <linux/bitops.h>
+>  #include <linux/clk.h>
+>  #include <linux/delay.h>
+>  #include <linux/errno.h>
+> @@ -686,6 +687,8 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
+>  	const struct mtk_pcie_soc *soc = port->pcie->soc;
+>  	u32 val;
+>  	int err;
+> +	resource_size_t size;
+> +	int size_order;
+>  
+>  	entry = resource_list_first_type(&host->windows, IORESOURCE_MEM);
+>  	if (entry)
+> @@ -753,8 +756,18 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
+>  		mtk_pcie_enable_msi(port);
+>  
+>  	/* Set AHB to PCIe translation windows */
+> +	size = resource_size(mem);
+> +	if (!size)
+> +		return -EINVAL;
+
+PCI core already rejects the zero sized MEM regions. So this check is a dead
+code.
+
+> +
+> +	size_order = fls64(size - 1);
+
+This is wrong. AHB2PCIE_SIZE() register needs the full size value to enable the
+whole window. Check:
+
+c61df57343bf ("PCI: mediatek: Fix memory mapped IO range size computation")
+
+> +	if (size_order > 31) {
+> +		dev_err(pcie->dev, "Memory resource size too large: %pa\n", &size);
+> +		return -EINVAL;
+> +	}
+> +
+>  	val = lower_32_bits(mem->start) |
+> -	      AHB2PCIE_SIZE(fls(resource_size(mem)));
+> +	      AHB2PCIE_SIZE(size_order);
+
+Why can't you just do, fls64(resource_size(mem))?
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
