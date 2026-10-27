@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B221606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 21:47:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51F42606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 21:48:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VtOLYjj3;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MqE7GTbX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=imAbYQWk;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=frurcEEY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,54 +14,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=GoE0iVIoi+uRyPZc/06lle3SKlY2JN8H5v3aA9c3gcw=; b=VtOLYjj3/a63yCaWOwgTU2Z5S+
-	eogPO7WEafZly295SevBtsR7YLSmwbh4XN5vGw+RaIwPiGZrExUl+FxVm4zND5AMyOJSnG+/F8g4B
-	2Wp1b3PUlJGwlArcyLXYUXhM+FUJyzi4TGM+pIjZ8aXFCFP0zXtg2Ho8LzWPLHywNR0iKqP0q6toS
-	SQql2a3tDfRmlm8w7q2fUG5S3A22aApwl2XbRuIxTf5LxJViOnsO5R++MhK2aqsPksVKCLtLLTIyx
-	l/QgykOzdB+QuixeJmYUeD8YVTH0EtHgrqYy8elNZ0KVjpG8HycwQm5NlaA9ya1AnWsnKUb1OsqsJ
-	tm6x1qoA==;
+	bh=iZPro0Zetz+CfLgJB9N6QxpD/1Z6TlyduqwjCEpWEDA=; b=imAbYQWkib6G8N9sHXwM/ldN3T
+	hkHNis5QwHAapvGWF7cSFuzNkWQq8MPdrTsDNO72dFpa+6Tjf2oCH2ip9FORpq4o038+Xs9spbBsr
+	hztpQI6FRVmRTekL0fFWWJmN34gXPa/PndkXlhj67oNZiCUJ5K28DULxDqYIqIw53LsHODSG9+Z3Y
+	AYZWmd9eshoHy9UTb2Yi4in2FJie/Aw1zAqkJ6NYkk+YktgZdA19mThHaeHjqoI0Nge8xmVlgd1yB
+	6w76AP/FJjsdZYtIOy4m58LkDj0Z5IxmclG49reboXyDPH46kSHjLRzLJPdkoqc8tMQ9q8KAalQ58
+	q/TlbDyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLol6-00000005nOo-0Xf2;
-	Tue, 27 Oct 2026 21:31:04 +0000
+	id 1xLp22-00000005oo7-3yIj;
+	Tue, 27 Oct 2026 21:48:34 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLol4-00000005nOU-2YJA
+	id 1xLp22-00000005oo1-250n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 21:31:02 +0000
+	Tue, 27 Oct 2026 21:48:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 16ABA40283;
-	Tue, 27 Oct 2026 21:31:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC6521F01828;
-	Tue, 27 Oct 2026 21:31:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E5A7243F2F;
+	Tue, 27 Oct 2026 21:48:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F37F1F01825;
+	Tue, 27 Oct 2026 21:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793136662;
-	bh=GoE0iVIoi+uRyPZc/06lle3SKlY2JN8H5v3aA9c3gcw=;
+	s=k20260515; t=1793137713;
+	bh=iZPro0Zetz+CfLgJB9N6QxpD/1Z6TlyduqwjCEpWEDA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MqE7GTbXTfq1LEe+yj/456Sc7hcIiIgzwXwcYeHpFmza9CbweMQvP5HhA4ao+zNo8
-	 EupsUJhlWj026bItJRT+DAsl1pyghx5c3ZZyjsRlhXLrZpZO27cXKJF1Rl5H/0PKcp
-	 vvbGvRPpGGKtiw/0grucIeWMpWH7+9OL21//3VoBssLLI2YqfD8kZYkYjm5wj79Xp+
-	 j+e1LZD0E5c+/fzmrwO/hZ4wGSJF6N28Ka6Xk7jJccHlVtA5n54MbpeF+Q7tkaszZt
-	 pLWKbKdYy9EOaQ+ErS9jMFhYm2anQyhuIxBX+D1PJErKYpDN5Mub+roqL3+enJJs40
-	 R4JkrJItM0C2Q==
-Date: Tue, 27 Oct 2026 16:30:58 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
+	b=frurcEEYXOjzDEHQAq29BDBpzxuur7lknBF06mjH2ouf6yf1jbsOG87mTDnHD9Iq9
+	 FBvEbozbz7L6dTDak0dBzX4S333EiTHlQHphpv2Y/nqS0P+m6j6tidyznWz8feoifE
+	 V6TCaEO/yhxN58AM8FtIfCVGwChnhXjJltgNlFDmyjtICbDgdGVs0Ik3U4fjlsdNRZ
+	 PqwlsEjMIcYoJIZciLGWZM+nIV8w+uKqMUHouanS/pTrSQNjFE4JFN5AEJ9RRj0tHM
+	 FGsHndDLwJXRZt67DVrhZLY4USBQs2T/dHJEZnkXlbLi4bGzDnAnt/6lkm+4EDlvM4
+	 zVp+21+x0Natw==
+Date: Tue, 27 Oct 2026 16:48:30 -0500
+From: Rob Herring <robh@kernel.org>
 To: Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, stefandoesinger@gmail.com,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, arnd@arndb.de,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	krzk@kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v2 02/24] dt-bindings: arm: Add ZTE ZX279128S platform
- descriptions
-Message-ID: <179313665810.1186359.4184404774737293772.robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, arnd@arndb.de,
+	stefandoesinger@gmail.com, krzk@kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 17/24] dt-bindings: net: Add ZTE ZX279128S Ethernet
+ switch
+Message-ID: <20261027214830.GA1267186-robh@kernel.org>
 References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
- <20261014072109.1759502-3-ghahramani.navid@gmail.com>
+ <20261014072109.1759502-18-ghahramani.navid@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261014072109.1759502-3-ghahramani.navid@gmail.com>
+In-Reply-To: <20261014072109.1759502-18-ghahramani.navid@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,19 +84,68 @@ X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-On Wed, 14 Oct 2026 08:20:42 +0100, Navid Ghahremani wrote:
-> Describe the SoC board compatibility, SRAM used by the parked second CPU
-> and the SMP enable method.
+On Wed, Oct 14, 2026 at 08:20:57AM +0100, Navid Ghahremani wrote:
+> Describe the switch, receive interrupt and per-port PHY modes and MAC
+> addresses.
 > 
 > Signed-off-by: Navid Ghahremani <ghahramani.navid@gmail.com>
 > ---
->  Documentation/devicetree/bindings/arm/cpus.yaml  | 1 +
->  Documentation/devicetree/bindings/arm/zte.yaml   | 8 +++++++-
->  Documentation/devicetree/bindings/sram/sram.yaml | 1 +
->  3 files changed, 9 insertions(+), 1 deletion(-)
+>  .../bindings/net/zte,zx279128s-gmac.yaml      | 125 ++++++++++++++++++
+>  1 file changed, 125 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/zte,zx279128s-gmac.yaml
 > 
+> diff --git a/Documentation/devicetree/bindings/net/zte,zx279128s-gmac.yaml b/Documentation/devicetree/bindings/net/zte,zx279128s-gmac.yaml
+> new file mode 100644
+> index 0000000000..fcbdbafa76
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/zte,zx279128s-gmac.yaml
+> @@ -0,0 +1,125 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/zte,zx279128s-gmac.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ZTE zx279128s Ethernet switch
+> +
+> +maintainers:
+> +  - Navid Ghahremani <ghahramani.navid@gmail.com>
+> +
+> +description:
+> +  The ZTE zx279128s has a five-port gigabit Ethernet switch with a traffic
+> +  manager, a buffer manager and a DMA engine that connects it to the CPU.
+> +  Each port is described by a child node of ethernet-ports and becomes its
+> +  own network interface, with the MAC address given in that node.
+> +
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Use the ethernet-switch.yaml schema here.
 
+> +properties:
+> +  compatible:
+> +    const: zte,zx279128s-gmac
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +    description: The traffic manager's interrupt, which signals frames
+> +      received for the CPU.
+> +
+> +  ethernet-ports:
+> +    type: object
+> +    additionalProperties: false
+> +
+> +    properties:
+> +      '#address-cells':
+> +        const: 1
+> +      '#size-cells':
+> +        const: 0
+> +
+> +    patternProperties:
+> +      "^port@[0-4]$":
+
+ethernet-port is preferred for new bindings.
+
+Rob
 
