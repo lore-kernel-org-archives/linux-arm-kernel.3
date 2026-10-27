@@ -2,148 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7CC7606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 15:41:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2394606E6F7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 15:51:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EdfJDpnY;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=LLeSWfiO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UJoeKqjt;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=SBS8Xs3Z
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=+p6nG3kPSl+4+8AQOLFlHL/hfyMc7R+DO34PRO5plDw=; b=EdfJDpnYjpZSDWPOsNbogTyvvQ
-	PwkzDb07P/f3I5QpIGuRmjVi23xn5AuT2yuKgV3k4NYxlY9I8kd0kw9Hr4Bu//TN8XonlHHkXbutO
-	AlhjKdZdX7Pc/VEU2PRZGzx9MgBp0IEODnZaAyb0Du7LeZ8FXWPVol+6bkgVnX6K1udFmomi6P3ZK
-	+c9zQcSjraKjnn8AhDwP5PiKD4hN9+B7+U8DPDJSlGBS2c3OduHX22/e3ix9F8ZAnKIOZufRehSbv
-	If2mrKpI/RKPkACxJE53TjfQzoOkQaaxPs9Vb7edlIXyrmyw44bIb9dhPhXj3Qu+BORTXpJRnOGH1
-	n0Knp/7w==;
+	bh=3EmMXFW21R4wDDI6QCAxEHbuFnBmRN+vpQa5TJPrlWU=; b=UJoeKqjtlHEvJ03VBO0cU/tFW/
+	PVJkxuBnQ8dntN7Td+l3t3ee1WCI/33gNqtVXTlIrzo2bcJJd/q4HmAHGt1K/7vaZPxfp55h6+nNH
+	Qy4LSG0u0BILTX2L6HeVdg299JfFa5dVOEaVPwPtcI8V9ZpvM8Podlg4fWh7z/90ASRWpg9toouEf
+	rdbYD+07K2wpCIIOp2IklU7ayCL/upS9EZUEyW03EpFKgDaRVKNcmvnn7ZEl8coXwNzF4bLfX4gdB
+	hNhrXV3xyMlmbb1tVQPMvM0tMCFZqxlHKZCTM9JiPJ1zLLEp+sXe3Gp1+RcmkDv5h4k52Z7crCIe9
+	pyK5N6OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjIX-00000005FXk-3crn;
-	Tue, 27 Oct 2026 15:41:13 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1xLjRo-00000005H1z-2hI3;
+	Tue, 27 Oct 2026 15:50:48 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLjIU-00000005FXD-3S9U;
-	Tue, 27 Oct 2026 15:41:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KIOqyPRFCkjBAXqzSjoNa+17XK/+sVx6w7pC3+7g8mN6qf8xGfSxkUJSjP4nlV3xASG9hfTdF8fHpdve1uVNg1oPbPoZ4qMSEy+1+DuhJO8fMPsBvwE1bZrpwX5n/7xtSJlzNVAHRixRzCbT0/7VtSmYKQc+wTDGXnXSWXGpZT/X4psWsPkAL0emFEsdbhInpYCIhzb9QIHYPJkU3cwAh48YVkMOw3aKYEbyaUXV4SPq0ZR7Uvnl1VS+DZEfWpSvGROAKbPdJgEoKmLP2/m6L306Hl6qvKZ3HV9SH6VL29w4HGHe5dt9iLOEiT2NA59DHXStHD/NoIySdjqtGyVY7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+p6nG3kPSl+4+8AQOLFlHL/hfyMc7R+DO34PRO5plDw=;
- b=eoZYhd437ANreRdHZg5D+C4tcRcWo1pFGCUzUj3cTEOksxyYxRAgPp2LykKPv8vmcXIZt1QSNLfE99nMDvkxaQugrDn2xFuKMfYiAqbYTHXa+OF+KJ0YlkoYgyKOu9x0rS483YDCaWaNX9Zo59otUKsHm0MWab7eHo6j1rfC/Napu8eYUZ/g3RaiWYNd/kR7QQuzZBxz2qAhNduC28lLeMyLhzQMgQP0BHwKXBwkWq4ok0mKuf2gPf+0dlqaKdQmn1s4cdxr0+iqiCXR+furq6sc7rYPf6SRrRxpdyAf89cLW7oFcpXdn3hspJEqvZC7Wd0OlLYZGdU6A6wN6Gd1Fg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+p6nG3kPSl+4+8AQOLFlHL/hfyMc7R+DO34PRO5plDw=;
- b=LLeSWfiOz2LBiJdTEhJNpvpnhFunZNVbsoixbyFiJdRHtBPKhmbZY1iqi55qESXvABrBoq974rlCkd3F07a+wfkNR8W8mpm2A+1TwvAdLYS7IUzd7O3Y2UZiaGEWXIYpNXclDKbvHFZt3pHdS38kggOpTBQ4o6bDuw+Mdz4x02q0uU+CB4RX52TozwkZhzRyp54k2+2vtcCsgAx9jTXmJGoOaI8YnzKxGw3qNI2CW62q6/udaDlzFOeJ0MgyXVpni7GwB/xnA5M2/xw4uO5gjDj02X+CcUp+BAmaoj54z34dPAo0Ow59sVZqKuB+pboYdf6znHW9O8OEQhjawVTd0w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by CH3PR12MB8993.namprd12.prod.outlook.com
- (2603:10b6:610:17b::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Tue, 27 Oct
- 2026 15:40:59 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0546.021; Tue, 27 Oct 2026
- 15:40:59 +0000
-Date: Tue, 27 Oct 2026 12:40:58 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Simon Glass <sjg@chromium.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-integrity@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
-	Piotr =?utf-8?B?S3LDs2w=?= <piotr.krol@3mdeb.com>,
-	Ross Philipson <ross.philipson@gmail.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Song Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH v2 14/15] arm64: drtm: Call UNPROTECT_MEMORY
-Message-ID: <20261027154058.GC2418472@nvidia.com>
-References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <14-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
- <20261021104726.00002640@oss.qualcomm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261021104726.00002640@oss.qualcomm.com>
-X-ClientProxiedBy: DM6PR02CA0137.namprd02.prod.outlook.com
- (2603:10b6:5:1b4::39) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	id 1xLjRm-00000005H1K-1z6h
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Oct 2026 15:50:48 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-cd6a7b62ce8so58929a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 08:50:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1793116244; x=1793721044; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=3EmMXFW21R4wDDI6QCAxEHbuFnBmRN+vpQa5TJPrlWU=;
+        b=SBS8Xs3Z8LVQhixr5k+zGH5kU7eP6L627KSyUzwiLNoAFwFdM31O1tJr+aYsYAdQgw
+         NTRjfRo0zgjylHzB+5GaEW9WK7YCE9Z8BSVvJ2n2ZMWMpTflrwrLViL9xU0bWu7R2XWB
+         VcC0IzuUuTHml2/8cSAiN6uOfm9JaTnFjLpvqf2Nr+mNCLnU07B8BTi+6mbGVYN3G4V0
+         PNUkpjxPijdWm2845gkY+tbJqS3QH/zXT95W4ir8vH/XX+l2qY9Ara0L9tm1UZDpsRXF
+         bXz4D0GuddTJzeOZvS7FCAgcxFtv0Zpil3qoF0X3fu543L+QKpANvJ4u7LJKoSLsm24K
+         kMgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793116244; x=1793721044;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3EmMXFW21R4wDDI6QCAxEHbuFnBmRN+vpQa5TJPrlWU=;
+        b=PhAMM9Y8XhhoqGAODxbQ1jgfgEZCmA+8rFIVC8ixMlHhxav/XP+O5yqjoJduLKKfnq
+         sICFjN4scQsHDACDvUuZWYdQk9GQoScScMbVmjji1rpYz4KCwsu81PuU7ruuowFXMop4
+         kfe4/H4yOWWBo30kSq5MGXnhQ9xKHE7eGXndbfp4qvxsG20/ediYmbklwU04BH6wHbMr
+         al8JS50+vC8rHSvgbecb3yH7xMUZZhn3Awk1kaqtcduynKk/7ajIvy9rTUM8ivGaIOO1
+         2Ev5V4zvHgfGAc9WvmzyXq1qrXZcyjstg8fdyfi/dI5+Timm+X2XEFHLFhZ8aFlKc99T
+         Y6PA==
+X-Forwarded-Encrypted: i=1; AKwUvBxU6M3cQIpf4RCCGkRnVJCo1yyWdoU3X3nchfaXLBUfTikhNFX4XAu2dEHOB2z18f0tmtMuzSFEM1Lx4Okwz98P@lists.infradead.org
+X-Gm-Message-State: AFq9FYIClnIwrk9N8HJOvBOYNMVULqZAHFGx5EfFQdHv2iTuSnE0iFb1
+	MKEpkuabf8C/n4bdjGhLrcCkCSq0KJED8eNqehzG50RqzmL3Qm5/OkXek3CpGg5VY/g=
+X-Gm-Gg: AYBFou3Kl4wflb7kTFJFIB/posjQ0g3vlguB91kR0Yr+vrMEH26k4SzSumeqHCYVDGl
+	xdlvU68TfQA3/qyPlMAR4zMkoomfgXZAUws6EZwX1tXsjebAS9BrDZmYeHknCyKcx0le5tg6O2H
+	X1rrl3VrLg2fHNlTugqwrrCRB81i1dVoEjxuA3fr1Xx9NyTbUKFmIGMY2YJqe/uRKCCUBAlJv6T
+	CkjrBp4N2g4WYCQG1E2OlTXSCGk9M/5b4Bcfx1dvVJt+q0A2H3RzwXRBfgmHrgrg+PscKYvaIZG
+	6RTmVWAW01HIZIO025s9qKY+TZF3Wn0e9/N+0mUGML+U+Zr7oP6H5wY52e0bw0tCYfqmDHtExdz
+	74G+dpCkf22jxG5WJ7K8GO5gNCiQwC9HfN/0x2+8ttVANdLIgnw6hBaV9MEsbgeDp1qzN1GjmOo
+	bZqD+AdyPHB+DVj7moO7LEjBckd3fPZEvXoIaVroS+pGsovHABydtb4hlVc//2hIEbn8EHZfuR4
+	3l0Fkm+QRIsV/j23cB+mCQgJLJm92u0vyY9rzGjTkei5cAXCeKiQCR3cuo=
+X-Received: by 2002:a05:6300:6bc9:b0:3e1:bd77:2c92 with SMTP id adf61e73a8af0-3e7cd4cbe1bmr6742323637.68.1793116244485;
+        Tue, 27 Oct 2026 08:50:44 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:c0a5:5d28:58c5:eac9])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd8ccc666d1sm2943517a12.16.2026.10.27.08.50.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Oct 2026 08:50:43 -0700 (PDT)
+Date: Tue, 27 Oct 2026 09:50:41 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Frank.Li@oss.nxp.com
+Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>, Francesco Valla <francesco@valla.it>
+Subject: Re: [PATCH v9 0/2] remoteproc: imx_rpoc: use memory-region-names to
+ avoid implicit ABI.
+Message-ID: <auDIUf6Vx3VdeXcz@p14s>
+References: <20261023-memory-region-name-v9-0-ad597887dfe9@nxp.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|CH3PR12MB8993:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4dc8a41d-9990-4fa0-11aa-08df3440b2e1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|7416014|261009223027099003|261021121427099003|10067099003|56012099006|261026121527099003|6133799003|22082099003|18002099003|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: WYfQwgWB6bwQkl9kW9H+qaXPaHSW5TBrI7lXo3o74dC6JiK8y+2qGMHQum3a7DJH/3GUy4jRpWBsrKOEGQTmATEkrowUIDhI6I/U4QvgqhG6R1qfTlbVUbjp+9ktFnOIr+i89dkrNTpojCshn41dJySpSOgyddn5Nk3bPQUMZhVXEaoXGQJE5Y5hNdk9pt0TK9B8WyD2426SPA4OD9mR+CMYXDXswzxWsuEEbmKCrWKNPDYJ5N1Hdgt9HpuPCHHrpCj2xfGTpVuipEQe7u5rfOro6UelZ0o6EAF2WyyWEpMyMheO6rcBkuAH7RN019hgo7bZzEjbfDiD29Ksp5jUJd5Deh79G+Lcrgkz+d83PvVVW9S8DVywt317hpqWEFryNlxhOu2Rqdbu6g1+22sZExzZNWdtdUr+XLbJXvdMtZdEcls1kMr3ULUMwuORtFJGSSlZDNKFoTYz665LI233f9/Nt3PWy5ITcz5X1zNDcBvGFfd6ERiiYVCjdKOifm1T602RhNVKYUKyS4DPX9ciGr1fBpOz9tZTdbXoFuS4zZHZEyc4WnsOu3A3tB2yflGhNKylxRZ3j7snrgB6IgvnRHrmS0USZIqp1Rp39+DC0N9NYMlWYEsd6U3GwpqKrBxUcVrEXurDI92723VI2F+K90AAqSr4WLCn4tam6iPlFzs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(7416014)(261009223027099003)(261021121427099003)(10067099003)(56012099006)(261026121527099003)(6133799003)(22082099003)(18002099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ieIOZouIj29AK3ETQ9CRvYw4WbvTSS76ExTfs5WsJV40phZZKdOhAvPZGIGm?=
- =?us-ascii?Q?tsIKx0voDqmKcmtHwPPC4yDaOPEwKmP15mzzqWz7X0j00NomrUKxuiTvvVJd?=
- =?us-ascii?Q?uckGZCPP8OrKSX1EVF2qFznk5BGm3GjHhhgTkBgt8bILto2rl3Ad7FU570Xy?=
- =?us-ascii?Q?jiw2HGSqsyxQ1/Ks2SO8pcG0+i6oSx0WlNigtnRt03YOM8snb6YNGOmYfqaG?=
- =?us-ascii?Q?0QYpw4nZLisGpZmjRLQ9XCfPMgs9S98+sIY4Ldzw/tmUVTrS0TvB8U4jbHv0?=
- =?us-ascii?Q?I2f+BPM7Oit4ZCvqxmDFIrh+I/bIyaEU0uLu8nnOBhWPioc6LiEtvfDnl7Md?=
- =?us-ascii?Q?5NmtgYcGsnDHSsqU+NiEYDPZUXHT6rnfYzxfTQesCwdaLXBJdCY6fn4L3fYe?=
- =?us-ascii?Q?tScZSgh8UYBbhTfpYneKaH080/fxssn6y9qOaCPyZNDllxjz+Oo0AWfSRWy9?=
- =?us-ascii?Q?yclgzUBsHRUAkiq6PZGzsfvJhkyhN1bcBZS5bb7Yr3WgpTM9r4fxdTy4pZqT?=
- =?us-ascii?Q?OuOzlRwUl+j4l0iO2F2/06eJq2XXDeeLEF5NbYpopdjWQZPjSm7OrBXxWt2h?=
- =?us-ascii?Q?t4qd68rLBfZ05M6N0kJNUy5yVLj+Mo2OhNMkUFzJ69xzaMzjbZZEncA/zlXM?=
- =?us-ascii?Q?2CA58wOP+sTuPH9zh9iGXutCaTUtqlQZdwT2aANpjM/lkMWVIVfshUynGaH/?=
- =?us-ascii?Q?KeN6N/f0Bl4b0cOv3A+3QBTVp/ITevzfaoZeiUKslSIdhTugafQVs4O5EkLn?=
- =?us-ascii?Q?mkYHJ7DoS2FPpQ1jdDJrm3Dy+/nrdefWqEioXj4AS8wDfDwwZceaILFbHA7a?=
- =?us-ascii?Q?E/iD9E6vtAQyoFQEZLLjqeIHB81mmySJn8C0H5XfTVi3wftIJ1SsMYeX43C3?=
- =?us-ascii?Q?i5NX02PQWBhUuSlww+/a7vLb1DaTyfl9Umo37zKtyizJqUK8104Xsey/6pA6?=
- =?us-ascii?Q?JriwUvDdbUZN1bKU8QQXCkPDsO8Xja7uGug8ZKYiio8tbrDJw+NcTysVZbwI?=
- =?us-ascii?Q?nYX1AqmQuJ3OWIc28lNBHmyeY6nZ/c0VjxVEDg6Y+xEgzkjQIQNihsHpkfM3?=
- =?us-ascii?Q?uAX9DN6yb1I7EmWKmoq2XPWzLdffpBuVg/tIoX0cbRuYudu+pBEUvMZzsCgY?=
- =?us-ascii?Q?vy7nsppkmQP4WyouFO3vM4oSklkoR7jkrID2KJShlz+fqCffa2o0LdOoVRIK?=
- =?us-ascii?Q?+PSSGdFFkyR3p3YV94SvwBam3AMDI4o5Rd3qFYa3UEsybDffSgyBQ/XETcra?=
- =?us-ascii?Q?FeVd8Meehdh1d5LwBoh1Wk9EV751zPSGrUhtDIIDc2+AZJBChMYj2bxsxfBF?=
- =?us-ascii?Q?7nxCwwt1taDCgtjFIPnz+z+CiuDa7lwOw2HN5vxm+apVs4edK2aRNYim+/GX?=
- =?us-ascii?Q?4BlAtn6EGEm4RysFzmrQFpJZYkeSvWaX2UCyNaD0cIxSK3XEoiUlNvraxmfV?=
- =?us-ascii?Q?0qmfvK5VTdkEV+ZIsyqnhlH/iSozDSbKXaSoUX89FCGJo7naWJauGjrpPs17?=
- =?us-ascii?Q?Hz6Awi8dJwMzAsT1Rzxqtxrnr0qb3OmMdv+J8E09jISkgdmoOIkf7uo2Wzxe?=
- =?us-ascii?Q?IrAhFsKrCEslZ2ZK3VxjPyz/x6C0EMsmZCvHLBd5yktrqZt7hw8ioOlbTGB8?=
- =?us-ascii?Q?fSsHm4ii3ELSp2XX0JIEWYV92QP28rnFwp6iH37QBpb44yoS+HlJzEuVJMoP?=
- =?us-ascii?Q?MxN6ceYei+HmNtqBpElgrhrOWpQl3tTo7XDuWQnxyEKiM0OF?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4dc8a41d-9990-4fa0-11aa-08df3440b2e1
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Oct 2026 15:40:59.4300
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: P8uXy90GJwgZWWkj/9pI//nAJntZ4ud4twNrzvhtNFMT7UllTuVPRWEU+HNylLyf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8993
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261023-memory-region-name-v9-0-ad597887dfe9@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_084110_889025_10AB8DEF 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20261027_085046_548063_F0FB1369 
+X-CRM114-Status: GOOD (  21.81  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -155,48 +110,112 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 10:47:26AM -0700, Jonathan Cameron wrote:
-> > diff --git a/arch/arm64/kernel/drtm.c b/arch/arm64/kernel/drtm.c
-> > index 14493948a27f0d..6062980a5d9e53 100644
-> > --- a/arch/arm64/kernel/drtm.c
-> > +++ b/arch/arm64/kernel/drtm.c
-> > @@ -3,8 +3,47 @@
-> >   *
-> >   * Support functions for ARM DEN 0113 "DRTM Architecture for Arm"
-> >   */
-> > +#include <linux/bug.h>
-> >  #include <linux/efi.h>
-> > +#include <linux/init.h>
-> > +#include <linux/printk.h>
-> >  
-> >  #include <asm/drtm.h>
-> >  
-> >  struct arm64_drtm_handoff arm64_drtm_handoff __efi_data_handoff;
-> > +
-> > +static int __init arm64_drtm_unprotect_memory(void)
-> > +{
-> > +	s64 status;
-> > +
-> > +	if (!arm64_drtm_handoff.drtm_enabled)
-> > +		return 0;
-> > +
-> > +	/*
-> > +	 * Currently Linux can only fully support a DRTM implementation that
-> > +	 * relies only the SMMU.
-> 
-> That sentence doesn't parse.  relies on maybe?
-
-Yep
-
-I'm also going to move this file to drivers/firmware/drtm/arm64.c
+I will apply this patchset when 7.4-rc1 comes out.
 
 Thanks,
-Jason
+Mathieu
+
+On Fri, Oct 23, 2026 at 03:52:48PM -0400, Frank.Li@oss.nxp.com wrote:
+> The driver currently derives the memory region type from the referenced
+> memory node name, creating a implicit DT ABI.
+> 
+> rsc_table: rsc-table@90000000
+>            ^^^^^^^^
+> {	ret  = <0x90000000>;
+> 	no-map;
+> }
+> 
+> m4 {
+> 	...
+> 	memory-region = <&rsc_table>;
+> }
+> 
+> Current require node name have to be rsc-table, but no any binding doc
+> to restrict it.
+> 
+> Since memory node names are not constrained by the binding, incorrect names
+> can silently pass DT validation, as seen in examples using "vdevbuffer"
+> instead of "vdev0buffer" ([1] and [2]).
+> 
+> Add optional memory-region-names property to define such ABI. To keep
+> back compactiblity, use "optional".
+> 
+> Link: https://lore.kernel.org/imx/a3602ef8-2b77-4cc3-adef-2c4cba08a5d9@nabladev.com/ [1]
+> Link: https://lore.kernel.org/imx/alexXTYQHUs76J7v@SMW015318/T/#mb9dc709ff3adc24d9db6d30c973f37b580f6f1f9 [2]
+> 
+> Prevous version
+> https://lore.kernel.org/imx/ail0sH1UhnQBPRkr@SMW015318/
+> 
+> ---
+> Changes in v9:
+> - s/hidden/implicit/g, sorry, missed at v8
+> - Link to v8: https://patch.msgid.link/20261022-memory-region-name-v8-0-ce5ce514a550@nxp.com
+> 
+> Changes in v8:
+> - remove dev_warning
+> - remove dts patches
+> - Link to v7: https://patch.msgid.link/20261020-memory-region-name-v7-0-1413d5928340@nxp.com
+> 
+> Changes in v7:
+> - move imx_rproc_rmem_to_resource() close to caller
+> - collect Francesco and peng fan's review tag
+> - Link to v6: https://patch.msgid.link/20261019-memory-region-name-v6-0-2e46b2e7d667@nxp.com
+> 
+> Changes in v6:
+> - collect rob's review-by tags for binding
+> - move imx_rproc_rmem_to_resource to c file
+> - dts move related memory region node into overlay file
+> - Link to v5: https://patch.msgid.link/20261015-memory-region-name-v5-0-abc358b39a96@nxp.com
+> 
+> Changes in v5:
+> - fix binding region-memory-names's pattern
+> - add vdev1vring0 and vdev1vring1 at dts
+> - collect pan peng's review by tags
+> - Link to v4: https://patch.msgid.link/20260917-memory-region-name-v4-0-260755920ebf@nxp.com
+> 
+> Change in v3
+> - rephrase commit message and cover letter to correct descritpion and
+> reasons.
+> 
+> To: Bjorn Andersson <andersson@kernel.org>
+> To: Mathieu Poirier <mathieu.poirier@linaro.org>
+> To: Rob Herring <robh@kernel.org>
+> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> To: Conor Dooley <conor+dt@kernel.org>
+> To: Sascha Hauer <s.hauer@pengutronix.de>
+> To: Pengutronix Kernel Team <kernel@pengutronix.de>
+> To: Fabio Estevam <festevam@gmail.com>
+> To: Peng Fan <peng.fan@nxp.com>
+> Cc: linux-remoteproc@vger.kernel.org
+> Cc: devicetree@vger.kernel.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> 
+> ---
+> Laurentiu Mihalcea (2):
+>       dt-bindings: remoteproc: imx_rproc: document memory-region-names to avoid implicit ABI
+>       remoteproc: imx_rpoc: use memory-region-names to avoid implicit ABI
+> 
+>  .../bindings/remoteproc/fsl,imx-rproc.yaml         | 11 ++++++++
+>  drivers/remoteproc/imx_rproc.c                     | 29 ++++++++++++++++++++--
+>  2 files changed, 38 insertions(+), 2 deletions(-)
+> ---
+> base-commit: d419d682257d813f6cb7a28e42b35d0edf4ad038
+> change-id: 20260915-memory-region-name-f950eea2b78d
+> 
+> Best regards,
+> --  
+> Frank Li <Frank.Li@nxp.com>
+> 
 
