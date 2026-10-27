@@ -2,83 +2,63 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29BF2606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 11:17:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1558606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 11:17:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dEINF+Pt;
-	dkim=pass (2048-bit key, unprotected) header.d=dh-electronics.com header.i=@dh-electronics.com header.a=rsa-sha256 header.s=dhelectronicscom header.b=V5dpu8An
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gG4GdMgN;
+	dkim=pass (2048-bit key, unprotected) header.d=dh-electronics.com header.i=@dh-electronics.com header.a=rsa-sha256 header.s=dhelectronicscom header.b=wziq8Nkk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ZjK1vgESlI4vCfs31jSZGTJa+4SaOMucEG4B3RP35Z0=; b=dEINF+PtZJstaK7zDEQwy6tFgT
-	Sgsnss9Lv6GumfPyLNddvRwWAdTVFfd0DNwUMWl0EwV1z5obB6m6c3M7s26ASdOlswSB10uR84yRp
-	cDnEQBUFwpAtXDXhby1RFgz+aEUM5W/JwqvOOY8gY8fKMa/X8qzHjtDiqRU8qntjq0Y0P+CBL4BSA
-	Cy870bL8mTQvGkzKKp5JoRDWGDo7htqqnhh/NFBIjUDk0H4poFoUaq/XXPni/zkZgSCiwwwe9iCd9
-	4lRPnn3kP3ROEvSwl+kxLTLgDt8PruteNe5LkK5ggBESb1BaANe6oomci5Z1HSx4c1fBCpMqzvQyo
-	EUdrVkCg==;
+	bh=Cz+uk2hR6yCGHtN1VfGttHBuW/qw2YpAIGGSpByVGN8=; b=gG4GdMgNVjw/644XhL+dbo+VjE
+	oO3a6Ne/9EDn3GRWxrRQbsppHXFS9b1k4dslKMhiAiYZHGPDzIEkoWQ4UPKBrQ+gcRMgYO91OvU+l
+	LIObmyzM3/e2PCo0w9mzq42uydSoHIuBnQUZ2tOcLPxD7ZQzBXQHl2kVi2SsSp4a/zAgY30UStuOk
+	5/VZkZQkPnoObCQwYujg0okCfNEuviNwy7a3B/0k1vxgIY1ivMZCGAAPFBdUylJPLVU6HwomFolvD
+	ugWf4ZJ7xpPQ8j0JmIcsmOZWy5E3UqL1Ds/9+8KpXd9uZqINj7ZNrY40qGNEFuNsgCNd35cnxJuUk
+	kwM5ZE+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLfAu-00000004Sob-2D4E;
-	Tue, 27 Oct 2026 11:17:04 +0000
+	id 1xLfBa-00000004SvU-3MmY;
+	Tue, 27 Oct 2026 11:17:46 +0000
 Received: from mx2.securetransport.de ([2a03:4000:13:6c7::1])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLfAr-00000004Snw-2Rhu
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xLfBY-00000004Sup-0JtO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 11:17:03 +0000
+	Tue, 27 Oct 2026 11:17:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dh-electronics.com;
-	s=dhelectronicscom; t=1793099796;
-	bh=ZjK1vgESlI4vCfs31jSZGTJa+4SaOMucEG4B3RP35Z0=;
-	h=From:To:CC:Subject:Date:References:In-Reply-To:From;
-	b=V5dpu8AnUorH811a5/mQlFL2sNkquv2ahWWbkvYMLoiZPwYpKN6R2qJSUsoIaZ99g
-	 C2hmuDjkfTgZ2alVLwGokB2HhWBveKSqB58N/Pe0OH2FYr2FV8LQO9GxBlacUgEYdn
-	 A+yzQiW3PVvZniIxBNVsbHZ01wYjUO9uHTj3BasKMfQ3VGD4UVgYwO3vv90zy5n2Ig
-	 NX/b55q3o4hVUgJ6e1enxtTDNv2PoIAbK7tAjZJz9gvChlAUAbFMa3E4MzYg/2GzDG
-	 BllIdjer4xJ8K7iphitrWZk4UcPFYK4/91WGkMg3Mn6Uf3FTTrYki5dSvYirBI5dwV
-	 yNBa4t8K4Fozg==
-X-secureTransport-forwarded: yes
+	s=dhelectronicscom; t=1793099857;
+	bh=Cz+uk2hR6yCGHtN1VfGttHBuW/qw2YpAIGGSpByVGN8=;
+	h=From:To:CC:Subject:Date:From;
+	b=wziq8NkkQGHKOkhhVT8bsvyWzJSKCswS0POnp+rBUtwdm421caCVLCK8r3O8NBCSd
+	 pP3lkvT4ODs+q/dtQ+KMAnRgXWdo9FWtHDP1mZrZIV/v+v6jh2AA92G4Dw5XbNuqoI
+	 CPXeXfuQTjlmWoSykEyNE7v54ae6H7abUB4QR5VU7Y1F0CN72eomRzZmv573L25nOg
+	 f3Szja+QJs/Ucx7hpBLpzDBD2d18XSzxo9uYbjwPA68LuOnhfUEDid+eJg+VOPrbhP
+	 NF2Mh8LWTIyTrJ45tLQmEb9ulEZdL5zW1arm493tiFqvwqfirlRUUMrm/QSblxJRRb
+	 ynRYusSiqUeIg==
 From: Christoph Niedermaier <cniedermaier@dh-electronics.com>
-Complaints-To: abuse@cubewerk.de
-To: Marek Vasut <marex@nabladev.com>, Francesco Dolcini <francesco@dolcini.it>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	kernel <kernel@dh-electronics.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH 1/2] ARM: dts: imx6ull-dhcor-maveo-box: Remove unused SPI
- device
-Thread-Topic: [PATCH 1/2] ARM: dts: imx6ull-dhcor-maveo-box: Remove unused SPI
- device
-Thread-Index: AQHdYWJZTE2xKAx+vUqMiv2pzw4VvLcIHF4AgAAVrACAAAUxgIABDqQA///kbACAADcugP//7M4AgAf3puA=
-Date: Tue, 27 Oct 2026 11:16:33 +0000
-Message-ID: <ba292bb3688545aab7cb46cca5d58fe6@dh-electronics.com>
-References: <20261021134435.17350-1-cniedermaier@dh-electronics.com>
- <1073daf0-3676-4123-9ca4-c182ea5883a3@nabladev.com>
- <20261021183704.GA1116319@francesco-nb>
- <d4b9c444-a848-4b4f-9273-1c832db45fc8@nabladev.com>
- <71d725ee47804205826bdda322fdfdb6@dh-electronics.com>
- <20261022092536.GA232648@francesco-nb>
- <794745ff1c484257bef4f17917f3cf0e@dh-electronics.com>
- <948d901e-ee1c-45f3-9946-30cea28a6128@nabladev.com>
-In-Reply-To: <948d901e-ee1c-45f3-9946-30cea28a6128@nabladev.com>
-Accept-Language: de-DE, en-US
-Content-Language: de-DE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+To: <linux-arm-kernel@lists.infradead.org>
+CC: Christoph Niedermaier <cniedermaier@dh-electronics.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@nabladev.com>,
+	<devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+	<kernel@dh-electronics.com>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH V2 1/2] ARM: dts: imx6ull-dhcor-maveo-box: Remove unused SPI device
+Date: Tue, 27 Oct 2026 12:12:00 +0100
+Message-ID: <20261027111201.20936-1-cniedermaier@dh-electronics.com>
+X-klartext: yes
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_041701_853758_A8F3932F 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20261027_041744_267723_4A6AA557 
+X-CRM114-Status: GOOD (  10.49  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,40 +70,63 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-RnJvbTogTWFyZWsgVmFzdXQgPG1hcmV4QG5hYmxhZGV2LmNvbT4NClNlbnQ6IFRodXJzZGF5LCBP
-Y3RvYmVyIDIyLCAyMDI2IDE6MzQgUE0NCj4gT24gMTAvMjIvMjYgMTI6NTggUE0sIENocmlzdG9w
-aCBOaWVkZXJtYWllciB3cm90ZToNCj4gDQo+IEhlbGxvIENocmlzdG9waCwNCj4gDQo+Pj4+Pj4+
-PiAtLS0gYS9hcmNoL2FybS9ib290L2R0cy9ueHAvaW14L2lteDZ1bGwtZGhjb3ItbWF2ZW8tYm94
-LmR0cw0KPj4+Pj4+Pj4gKysrIGIvYXJjaC9hcm0vYm9vdC9kdHMvbnhwL2lteC9pbXg2dWxsLWRo
-Y29yLW1hdmVvLWJveC5kdHMNCj4+Pj4+Pj4+IEBAIC02MCwxNCArNjAsNiBAQCAmZWNzcGk0IHsN
-Cj4+Pj4+Pj4+ICAgICAgcGluY3RybC0wID0gPCZwaW5jdHJsX2Vjc3BpND47DQo+Pj4+Pj4+PiAg
-ICAgIHBpbmN0cmwtbmFtZXMgPSAiZGVmYXVsdCI7DQo+Pj4+Pj4+PiAgICAgIHN0YXR1cyA9ICJv
-a2F5IjsNCj4+Pj4+Pj4NCj4+Pj4+Pj4gRHJvcCAic3RhdHVzID0gIm9rYXkiIiB0b28gLCBzaW5j
-ZSB0aGlzIGNvbnRyb2xsZXIgd2lsbCBiZSB1bnVzZWQgPw0KPj4+Pj4+DQo+Pj4+Pj4geW91IGNh
-biBpbnN0YW50aWF0ZSBhIG5ldyBkZXZpY2Ugb24gdGhlIFNQSSBidXMgZnJvbSB1c2Vyc3BhY2Uu
-IHVwIHRvDQo+Pj4+Pj4geW91LCBidXQgaWYgSSB3YXMgYSB1c2VyIEkgd291bGQgYXBwcmVjaWF0
-ZSB0byBoYXZlIGl0IGVuYWJsZWQuDQo+Pj4+PiBHb29kIHBvaW50IC0tIENocmlzdG9waCwgaXMg
-dGhpcyB0aGUgKHVzZSljYXNlIGhlcmUgLCBjYW4gdGhlIHVzZXIgZG8gdGhhdD8NCj4+Pj4NCj4+
-Pj4gSSBkb24ndCB0aGluayB0aGF0J3MgdGhlIGNhc2UsIHNpbmNlIHRoZXJlIGlzbid0IGN1cnJl
-bnRseSBhbiBTUEkgZGV2aWNlDQo+Pj4+IGNvbm5lY3RlZCB0byB0aGlzIGludGVyZmFjZS4gTmV2
-ZXJ0aGVsZXNzLCBJJ2QgYmUgaW50ZXJlc3RlZCB0byBrbm93IGhvdw0KPj4+PiB0byBpbnN0YW50
-aWF0ZSBhIG5ldyBkZXZpY2UgZnJvbSB1c2VyIHNwYWNlLg0KPj4+DQo+Pj4gRG9jdW1lbnRhdGlv
-bi9zcGkvaW5zdGFudGlhdGluZy1kZXZpY2VzLnJzdA0KPj4NCj4+IFRoaXMgaXMgYSByZWxhdGl2
-ZWx5IG5ldyBkb2N1bWVudCwgSSBoYXZlbid0IHNlZW4gaXQgeWV0LiBUaGFuayB5b3UgdmVyeSBt
-dWNoLg0KPj4NCj4+IEknbSBub3cgbGVhbmluZyB0b3dhcmQgbGVhdmluZyB0aGUgaW50ZXJmYWNl
-IHNldCB0byDigJxva2F54oCdIHNvIHRoYXQgdGhlIGV4aXN0aW5nDQo+PiBTUEkgcGlucyBvbiBY
-MTAgY29ubmVjdG9yIGNhbiBlYXNpbHkgYWNjZXNzZWQgaW4gdGhlIGZ1dHVyZS4NCj4gDQo+IElm
-IHlvdSBjb25uZWN0IGFueXRoaW5nIG1vcmUgY29tcGxleCB0aGFuIGEgc2ltcGxlIGRldmljZSwg
-eW91IHdvdWxkDQo+IGFueXdheSBuZWVkIGEgRFQgb3ZlcmxheSBmb3IgdGhpcy4NCj4gDQo+PiBA
-TWFyZWs6IElmIHlvdSBpbnNpc3QsIEkgY2FuIGFsc28gcmVtb3ZlIHRoZSBzdGF0dXMgbGluZS4N
-Cj4gRWl0aGVyIHdheSBpcyBmaW5lIGJ5IG1lLCBidXQgY29uc2lkZXIgdGhlIGFib3ZlLg0KDQpJ
-IHdpbGwgcmVtb3ZlIHRoZSBva2F5IHN0YXR1cyBpbiB2ZXJzaW9uIDIuDQoNClJlZ2FyZHMNCkNo
-cmlzdG9waA0K
+On the maveo box, the SPI pins are connected to connector X10,
+but no device is connected. The device "dhcom-board" was used
+only to test the hardware, but was not removed afterward. So
+remove this device to accurately represent the current hardware
+configuration here. Also remove the okay status, since there
+are no longer any devices defined in the interface.
+
+Fixes: 145e2732a5e9 ("ARM: dts: imx6ull-dhcor: Add Marantec maveo box")
+Signed-off-by: Christoph Niedermaier <cniedermaier@dh-electronics.com>
+---
+Cc: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Marek Vasut <marex@nabladev.com>
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: kernel@dh-electronics.com
+Cc: linux-kernel@vger.kernel.org
+---
+V2: - Remove also okay status
+---
+ arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-maveo-box.dts | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-maveo-box.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-maveo-box.dts
+index 047f7b2d8526..0b48de79c595 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-maveo-box.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-maveo-box.dts
+@@ -59,15 +59,6 @@ &ecspi4 {
+ 	cs-gpios = <&gpio2 15 GPIO_ACTIVE_LOW>;
+ 	pinctrl-0 = <&pinctrl_ecspi4>;
+ 	pinctrl-names = "default";
+-	status = "okay";
+-
+-	spidev@0 {
+-		compatible = "dh,dhcom-board";
+-		reg = <0>;
+-		spi-cpha;
+-		spi-cpol;
+-		spi-max-frequency = <54000000>;
+-	};
+ };
+ 
+ &gpio1 {
+-- 
+2.30.2
+
 
