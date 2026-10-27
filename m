@@ -2,81 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24345606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 11:56:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5AB1606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 12:00:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=af6mnc1E;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j7YVK4C1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=W0sv9jGI;
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=hZ/Ow0ro
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DHb2CsPrUIo3vqtFvfQJplBTLRjXA1S1CzZYjYK/+VA=; b=af6mnc1EWk7gWaxqcIaJy909nW
-	odr4oLBvU27APM9r2Cl0lu2CKF8ocGKo8MqB2mqwV1YBKbh7Wcemr0fumBgtno0y0Oe6Qn5tE2w4P
-	Ef+IQGIzXyQdxon0MtpYO7fZGOPSch4Btu/SOAjwD0OB3yw3/lAyPgpl2oa7RNgUMSa62m3z2rueK
-	bGUSDxMa3lEIiyYz3gcdD4kc2MYplV3KmbtcUrjvoUGSdikGJt2UynnMJnGtTljq4JfjlrljmaanO
-	NqQbQTB18ZML1DD4KDPEU6KXfu7cT8Fpz41wy8QgBdPYBq0iVUeM8Rey+81t5yn+1I9snFu11bakh
-	r4ugpPAQ==;
+	bh=22OilN3OWHAsf4ZnKYCUCqyoE4jo68G/Rnat5EPiPAs=; b=W0sv9jGIu4inYY+TpMg1TGNGD2
+	kUTsXszIV79QpJApiqLzfyKOatj9Sv01uK/eTa0Hm4qnlYvooxKE2FYZUSuem61dPmdmZBNl5lnXq
+	uIzw7leokmR/T2Anw0vCKDUsZNOpeUQDYH0kzISyvAirIMnh5xdKG7LmDGLVE284iMRMn9h/53gB2
+	gDeon18WvOU+ptzqFtSoJNmj2K+teDPe40olpLQ9I8BQGqWIwLt0D2PgSt8xB0L2Nb0H5d+EdRqtg
+	d43EUWsPZKRpCyzJetZdck09Lgg/G6A4vLIJK3s2ba5Lw2ohoyPjDHo/mw26QvN0TRUPBOeC1E9Ub
+	ZE4govpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLfnI-00000004XQ2-3xqG;
-	Tue, 27 Oct 2026 11:56:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xLfqd-00000004Xvt-3rKn;
+	Tue, 27 Oct 2026 12:00:11 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLfnI-00000004XPn-1Irg
+	id 1xLfqa-00000004Xv8-1h84
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 11:56:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C179C4164A;
-	Tue, 27 Oct 2026 11:56:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A280E1F01825;
-	Tue, 27 Oct 2026 11:56:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793102203;
-	bh=DHb2CsPrUIo3vqtFvfQJplBTLRjXA1S1CzZYjYK/+VA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=j7YVK4C1WPUzr4Dag8iJbUBfAkKIel5QJTaamp0T7nPkgv923yXlUiaxQ4BN5BJKU
-	 OLIfi2Aq+fdmqVUj1aCbjicDrU7+hk4H6s8nLU5FceV3DkDhHAeJSdGDNRbLPNt4q+
-	 qrNpu87YvaGT7uPXR6SrUkS2bTDmc6jERmpLipW+zl0podvUIGeZG+BdLdD+5cJC6V
-	 DLmEEnESffxFpK+2lMvhnfHt2nWhb0FG0rOtOUwtL927Qp3csTogB6F3E3mzN89qAP
-	 q1CCsRsHelzgLDQIrbm1sMGgqcXyhIkIvRM07y+sq4HuXTjKsgQY2pE/tm/C0fizeb
-	 O4zGfZw8bPNig==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xLfnF-00000007gAA-3RX6;
-	Tue, 27 Oct 2026 11:56:41 +0000
-Date: Tue, 27 Oct 2026 11:56:41 +0000
-Message-ID: <86tsm7xsp2.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ashok Raj <ashok.raj@oss.qualcomm.com>
-Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	lpieralisi@kernel.org,
-	ruanjinjie@huawei.com,
-	liaochang1@huawei.com,
-	Ashok Raj <ashoraj@qti.qualcomm.com>
-Subject: Re: [PATCH 00/38] arm64: Add support for FEAT_NMI
-In-Reply-To: <atwyAKSnttnBpked@hu-ashoraj-lv.qualcomm.com>
-References: <20260914102102.68597-1-vladimir.murzin@arm.com>
-	<atwyAKSnttnBpked@hu-ashoraj-lv.qualcomm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	Tue, 27 Oct 2026 12:00:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=22OilN3OWHAsf4ZnKYCUCqyoE4jo68G/Rnat5EPiPAs=; b=hZ/Ow0roMzSE6yS/Enuvr71b/R
+	dPnK8+fdUYq9MNWyNw3mFA9CBhIs0m1St9Yk2Ddl1mOzI0ghUTkS5l0LOyAgA489QRwVzkXufKIF/
+	tRzXxd419Nq5fXvU35Yr6bMft+1/iuV3bYQ0gH7kOQZTa17H/fO2V7fckLIlE8ZfqQgYLxI/6Gw1Z
+	wv8/3NpmC2nyEaPvJRvmLMCXtMFPkjBH2xJrZgLNn1K68bkfU0CidLRudY0jFLqozzH19UywHckQp
+	4YqXz43UaUzygXk5AXuyPMku/yNa8IvggNT+rHYiZH10lYxKZqb+smsAoShzC9bYA4lngzg/WN35f
+	BG04PZrw==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1xLfqP-001RTE-0X;
+	Tue, 27 Oct 2026 11:59:57 +0000
+Date: Tue, 27 Oct 2026 04:59:52 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kas@kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH] arm64: Kconfig: Don't select CPUMASK_OFFSTACK with 64K
+ pages
+Message-ID: <auCSG2OmNMQKp3dq@gmail.com>
+References: <20261007-arm_stack-v1-1-b48dad5fa8b2@debian.org>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ashok.raj@oss.qualcomm.com, vladimir.murzin@arm.com, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, lpieralisi@kernel.org, ruanjinjie@huawei.com, liaochang1@huawei.com, ashoraj@qti.qualcomm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261007-arm_stack-v1-1-b48dad5fa8b2@debian.org>
+X-Debian-User: leitao
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261027_050008_454101_1151E62B 
+X-CRM114-Status: GOOD (  17.67  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,93 +75,42 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, 24 Oct 2026 05:20:16 +0100,
-Ashok Raj <ashok.raj@oss.qualcomm.com> wrote:
+On Wed, Oct 07, 2026 at 12:58:16AM -0700, Breno Leitao wrote:
+> arm64 selects CPUMASK_OFFSTACK when NR_CPUS is above 256, which keeps
+> cpumask_var_t off the kernel stack. With 64K pages the kernel stack is
+> 64K as well, we have enough room to keep cpumask on the stack, avoiding
+> extra alocation and possible performance penalties.
 > 
-> On Mon, Sep 14, 2026 at 11:20:24AM +0100, Vladimir Murzin wrote:
+> Skip the select when ARM64_64K_PAGES is set. A 64K kernel can then raise
+> NR_CPUS above 256 and keep cpumask_var_t as an inline array. 4K and 16K
+> page kernels are unchanged.
 > 
-> > FEAT_NMI provides an architected mechanism for supporting non-maskable
-> > interrupts (NMIs) and less-masked interrupts (LMIs).
-> > 
-> > Since we already support pseudo-NMIs via priority masking, introducing
-> > another flavour of NMI on top of the existing infrastructure could
-> > easily become messy, making the code harder to follow and reason
-> > about.
-> > 
-> > To avoid that, this series first makes room for the new NMI "tenant"
-> > by restructuring the existing exception masking logic (patches 01/38 -
-> > 15/38)
+> Signed-off-by: Breno Leitao <leitao@debian.org>
+> ---
+> Based on Will presentation at LPC, I've decided to have a look at Meta's
+> stack usage, and I found that this might be an small optimization!?
+> ---
+>  arch/arm64/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> 
-> Hi all,
-> 
-> I am working on arm64 HEST/GHES Type-4 (NMI) support using FEAT_NMI
-> and GIC NMI support.
-> 
-> On arm64, the proposed ACPI semantics are that the Type-4 Vector names
-> one GSI corresponding to an NMI-capable GIC SPI.
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 5f2db2cecf9772..b73371327d2a47 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -111,7 +111,7 @@ config ARM64
+>  	select CLONE_BACKWARDS
+>  	select COMMON_CLK
+>  	select CPU_PM if (SUSPEND || CPU_IDLE)
+> -	select CPUMASK_OFFSTACK if NR_CPUS > 256
+> +	select CPUMASK_OFFSTACK if NR_CPUS > 256 && !ARM64_64K_PAGES
 
-I've already said all I had to say about encoding the notion of
-priority in FW tables.
-
-> The NMI property belongs
-> to that SPI, while its target PE is normal mutable GIC routing state
-> (GICD_IROUTER<n>). This also permits a platform to describe multiple
-> GHESv2 Type-4 sources, each with a distinct NMI SPI.
-> 
-> The current Linux GHES implementation registers the interrupt with:
-> 
->     request_nmi(irq, handler,
->                 IRQF_PERCPU | IRQF_NOBALANCING |
->                 IRQF_NO_THREAD | IRQF_NO_AUTOEN,
->                 ...);
->
-> request_nmi() requires IRQF_PERCPU, which marks the descriptor IRQD_PER_CPU.
-> Generic CPU-offline IRQ migration then skips it. This makes sense for a
-> true PPI, but this GHES interrupt is an SPI: if its target CPU is offlined,
-> GICD_IROUTER<n> may remain pointed at the outgoing PE and notification can
-> be lost, or possibly it might fail the cpu offline since an interrupt
-> can't be retargetted. 
-
-Obviously, the PERCPU flag says exactly that. So if anything needs
-fixing, it is the GHES driver.
-
-> 
-> The GICv3 affinity callback can retarget an NMI-configured SPI: it masks
-> the SPI, updates GICD_IROUTER<n>, unmasks it, and updates effective
-> affinity.
-> 
-> Would maintainers prefer that GHES explicitly retarget these NMI SPIs in a
-> CPU-hotplug callback while retaining the current request_nmi() contract,
-> or should genirq gain an explicit routable-NMI SPI registration model that
-> is not marked IRQD_PER_CPU, but remains excluded from automatic balancing?
-
-The question really is: why does the GHES interrupt need to be
-strictly affine to one given CPU?
-
-> In either model, the intended policy is that irqbalance must not move the
-> interrupt,
-
-NOBALANCING achieves this, by preventing userspace from changing the
-affinity.
-
-> but OSPM must be able to retarget the SPI before its target CPU is
-> removed.
-
-Whatever OSPM is...
-
-The real question is *WHY* do you need this. What breaks if you let
-these interrupts be migrated at will?
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Does this one sound sane?
 
