@@ -2,114 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14685606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 00:01:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10867606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 00:20:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NkcnNyU2;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=Vx1y36EB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AAtr7Xcz;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EJ8H00hp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
+	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ixKouDoUlCLHB71PytJx4w1v0AUAxSqI48/quFxSDg4=; b=NkcnNyU29MAKx6d+PBX/aN+hP/
-	VJ2993FAMr9LoX2/35E9XUWm0cRiWix+dEZdboEx+7dfdfXoPTYLrYRMDgHpl3F5Yp+j5EACln23O
-	KXqqI77IhLm09m6qPmFfVMgvkRD9euMbNa5L4IWbeRzvlUQseQFhenArCoza7GIEYEVaEO6p7BCCV
-	Bip2zVsTW+hep7Rh8tKrIbLW9682M1qidUwPhZ4Rs3QS43g/Ifd68I7FoZX5ngiD3Vw5kIKC52+Bt
-	7IQhF2hXsR7nAwEZ3imDNUxCKFKwYJdxBc9qjQjJLnuqMrZYrY62wIjP2zleye2Ufinlgvn6rC5Di
-	wF9GkDSQ==;
+	bh=IuMC/ItzG/Q2x0sIFmWFkQOqzTArFu2+LT0DtoyhLhs=; b=AAtr7XczlklO1oofRZy9bwjGJe
+	6LW0EDwA5OCGZ+/54V3Y5rBP7TLtm8h6PQDUVaN6t9AuGc6fThvi8PU6HOVVIFZe9LsVm1ot+hulB
+	gOp+V5SaBrxF3rw31kYZyarubu/38rxNotVdQ4Zyd+3C+tFtNkicdcw/kYqcd9vKYjdyulrZOfDVT
+	im37oyebRE3/beaYUuFZslOik17dvHDXa0uuSwvnrf0Y3tmFeM7TKX0Y6tNeDzLDMUUU63s8j/S+f
+	AwayKOv76MrygNSUqEuQaHOiTMNoVJjtpxLRr7ej6E23BogM72r6u1Ay+5bhjiDemU8vyxBYbqTey
+	94cm9RDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLUcy-00000003UAa-0UXs;
-	Tue, 27 Oct 2026 00:01:20 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1xLUvl-00000003Wzi-2N2g;
+	Tue, 27 Oct 2026 00:20:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLUcu-00000003U9e-1lDS
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 00:01:18 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-3ab98332238so1969586a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 17:01:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1793059275; x=1793664075; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ixKouDoUlCLHB71PytJx4w1v0AUAxSqI48/quFxSDg4=;
-        b=Vx1y36EBrRfJr97k1SjUSWptWpv9yeOCyYtiE4N65xQB0Y4jQFS1xE5Y/yOoRLP4TA
-         c2Yf0jzq06yv5y2XO5TTUxgJ/S/Pnn0mvk9f3AmvW4afwtR6Z3ukhvAciLM0ARWhCtRA
-         eyQ/RwXmyqwC23KyqI1TbvIMnDZOTMIhNjVTBbBhaVi8i75PMV9X0iXlXq42bII0LN3x
-         AxdVJZ/CkNCTp7Hf5BXtEJl6nbD7FT7ooL6hh12Ot4HSJWUL7fZg6s9ALPguCV2V5tLl
-         ijEYcKoYaLZ3XQP6M7DL4rSLVWvDdJX+Sn4iV1XeUemFx7pQq0sySV0FlKmMJ53zVjsb
-         jJzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793059275; x=1793664075;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ixKouDoUlCLHB71PytJx4w1v0AUAxSqI48/quFxSDg4=;
-        b=k0cK7zNaSH90v2/VkIAG9owoFgRCZt09n7X2asCbYPWqgxLIM7KGf429Z9dCbswHq6
-         up00ZlMzqbU069u0wiV/MWdGeoqVPK8Y7yHr9tTbEPCUrBjzPDzrts5QTXfpNTJPM0dj
-         M7B4vwPEh/u/Cb9ueHJR+fXUes30B3u+rU8twtOp7FL7d1VIdULabGLbD5ivIZfgpVCQ
-         kERixrSfwYe/PWdXSmkgXOuusc4LYRyLoJZLf76TM8NuuB010FT2uUAade4yb3SJE9sr
-         qxdD5CrxkSS9WKO4z0SLTlMr+iSoX9LatUqCbF5z13FBOjF9/yDnOWk3D7FObCOWp1Tm
-         fp4A==
-X-Forwarded-Encrypted: i=1; AKwUvBzyJcaCCz5hE6JAlXt79+9/6dAkpXAP3XH9stE5omyqTTG+HuJ59SWGxy26EFMtLpVJCGZHUhjtFPOb9gS0PI3F@lists.infradead.org
-X-Gm-Message-State: AFq9FYLBYMninVAs8fJO4E1T5X1nR3NDvU+oQ9yZdoPN5zoS5xNK8YZj
-	s1sWMuI+fqd711YludIp1d9BGLGY4yTO1aVKMKm/7Rwu4vEAiXptZY8DSCpGx60gKQ==
-X-Gm-Gg: AYBFou2pWg5AGpcJcXfkljxVWN7WMDS85tnanVbxV8//ufrtS9R01GAdXaevoJ8DbTe
-	lJUW/rTMfFEIDC0OpBu641lUZDKUaHDz0qSlySuIEH+qqyhtTZrIuswdxh+CeDR4ifiaoyD3/80
-	L0ZMgGjE/jxxFrHp1vUgcsWmRFF6VGAZZWYy56C2f2aDI1l8BD+rLn5h/FHumAEaxvqHUGKFL4a
-	Qtf53t27H+XMYvOUe/pwUMACmefZMgw/9c3ZdT4dC0yDHiP9jsEBZUr1YBYGX9sbAMTs/R2tOfv
-	Ch3nBsLHaZxqK+30+WRHX1XFSq2J0NOuxI8XjWkLyDkTL/S/2EwScG7EdhPVUAiQ+ZMx4Om45vw
-	a9zlLp/SR+Oyyd14n/skjMqy9COHAKcBbowkKihHhkxhTQDkVT0exBpbTpNGQq95J3YIkLqA6xs
-	Hdbdi2aCz5tFROx54CHHMlrcaNjoZp+s0Gik0Z6ZAEhnzT2QKiND29xOIw6qJA4+8tvSm5xU25Q
-	e795Ufw0AfI+tqpXj4Z1O8WTSXT1ky8uhdErGJgbk/YC0s9cEKx3rEBMq0ivAUjsTzAoWKaeKmQ
-	UjXzYpSTHCRqATFI3ZT32yI4+ei+sM0D+bFUYOFTHTd0Hpv0aAOrYYYyqOmMs2B9t8NqeTU=
-X-Received: by 2002:a17:90b:528c:b0:3a0:e4ce:31fd with SMTP id 98e67ed59e1d1-3adead444ecmr7102022a91.10.1793059274755;
-        Mon, 26 Oct 2026 17:01:14 -0700 (PDT)
-Received: from google.com (192.150.203.35.bc.googleusercontent.com. [35.203.150.192])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae4066cf2dsm1119900a91.16.2026.10.26.17.01.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Oct 2026 17:01:14 -0700 (PDT)
-Date: Tue, 27 Oct 2026 00:01:10 +0000
-From: David Matlack <dmatlack@google.com>
-To: tarunsahu@google.com
-Cc: Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org,
-	Mike Rapoport <rppt@kernel.org>,
-	Pratyush Yadav <pratyush@kernel.org>, maz@kernel.org, arnd@arndb.de,
-	jgg@nvidia.com, robin.murphy@arm.com, loganodell@google.com,
-	oupton@kernel.org, kevin.tian@intel.com, alex@shazbot.org,
-	dwmw2@infradead.org, pbonzini@redhat.com, seanjc@google.com,
-	will@kernel.org, Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Alexander Graf <graf@amazon.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev,
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
-	kexec@lists.infradead.org, skhawaja@google.com, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
- a 2-bit pair feature header
-Message-ID: <at_pxoULR1Tp5anN@google.com>
-References: <20261021152527.375070-1-tarunsahu@google.com>
- <20261021152527.375070-4-tarunsahu@google.com>
- <atlQ_Er0Ig7CCSxv@google.com>
- <CALzav=f00C4yOAseNunW8GgQTDUGWT927Qy=TLm-3-J0TEDH8Q@mail.gmail.com>
- <9huzzew0el59.fsf@tarunix.c.googlers.com>
- <at_CncIPYCxOVkLo@google.com>
- <9huzecdcghxu.fsf@tarunix.c.googlers.com>
+	id 1xLUvk-00000003WzX-1IoA;
+	Tue, 27 Oct 2026 00:20:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 745DC601FE;
+	Tue, 27 Oct 2026 00:20:43 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793060443;
+	b=RUElg6849JaUip0HaRuKn57fk4c8jLZ3H4mITajTe2nOXeguFiikSfYzDopB20bi+3kC
+	 4+aUoiWiJzaHXjAfo4rIMc2NkDZCy0hHzUAhNPIgwMgTJP+1QviGJA8pWL2hd8xnOFXGi
+	 FQkHv9iCBS0cmOXjaANeTI6YpiFM/h3QipPX0jL9aqTcCmbD6msSynaaytpjtoG3rFypG
+	 2nls33m7bLECiTTj3pVm8Xd6LFm81Y/UhiTWlZA6dpEfiUhmgQnyLJKAyqYO11uuXNSGL
+	 +jKqUk4EatYBmvyMEqhvIIsl2CiIyhmZAQGu234p0a2KPVV9xhhzcaZTQU7vmEGEmSg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793060443;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=IuMC/ItzG/Q2x0sIFmWFkQOqzTArFu2+LT0DtoyhLhs=;
+	b=itMPSyvxErzTUcXWGSB52bYunuOdH27PZVicC99i/01TjuXFLOTHqZOKujobKJ2tAzDo
+	 oY8UMULViarsFjFLKNUDqOOR8o94IVjpV36y1pebOTR5jyoZj4pP62F1OvDOii5UHuQON
+	 HyCnXpeigOmHKpIuF7yKK/XSA8aCjDRGYgZVEuIlF8GxM2KtY9/E2Fh+piOUFg/rZcap9
+	 ggr0t9LM8cyFspoTT5Bej2CF8k6aX40qNFnlH+gf/AXndbEvv/9p57udpkhfnCdkoHmsd
+	 Ul91CeUtT7yBaWUEqJHaYaCTsqKbYUDWRVuZw89RKrAWH9UyJbMvlTSO+k3FAWHHi+w==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id AF7841F01825;
+	Tue, 27 Oct 2026 00:20:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793060443;
+	bh=IuMC/ItzG/Q2x0sIFmWFkQOqzTArFu2+LT0DtoyhLhs=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=EJ8H00hp5gx+7BMOKxFE3wfzhE+6IVGPv80Xc5H+f9ub637LBxOr9HmrFHnrfvST9
+	 eMkMEEB51CLZ0+MZHJfK8NQtEa0/Kt45GLNoZUVqJUH95+dR96uo+hZYxMnS45LqhN
+	 hBHhjJBbBd1/89rp0e2gGC6ImgcE3PRgxxOj76XARttZJum2OKem0sLZlT0f00lM1u
+	 plic+WHebZRsVK0x6zv3q3Ip0hb5JVoXV7hye2Q20fzj8d+VIjzs25mpKhhWQVzaQC
+	 j/nW+nuVhbBrS0IZnhLLLwskXD0ZaB6DXk3IgsB9qN4QsdkmgfshTbve+p7Ucf6voD
+	 tWZmK3hL0yxzA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 3EEC144F11;
+	Tue, 27 Oct 2026 00:20:42 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Tue, 27 Oct 2026 02:20:40 +0200
+Subject: [PATCH] arm64: dts: rockchip: Add the watchdog reset to RK3399
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9huzecdcghxu.fsf@tarunix.c.googlers.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_170116_458695_C7F58003 
-X-CRM114-Status: GOOD (  40.56  )
-X-Spam-Score: -17.6 (-----------------)
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261027-rk3399-wdt-reset-v1-1-de9615abb0ec@iav.lv>
+X-B4-Tracking: v=1; b=H4sIAFfu32oC/x3MSwqAMAwA0atI1gaaFj/1KuJCbNQgqKSignh3i
+ 8u3mHkgsgpHaLIHlE+Jsq0JlGcwzP06MUpIBmtsScZWqItz3uMVDlSOfOBQ1MESUWl8gJTtyqP
+ c/7Lt3vcDe+b2R2IAAAA=
+To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Artem Shimko <a.shimko.dev@gmail.com>, 
+ Guenter Roeck <linux@roeck-us.net>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1530; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=YfZXV/pwUDuzE4RfqVS8zgmubems4bbmhrrE9YcpAwk=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFn330We1c2qfCG7W7WJIXnL8s+XeMrZffpP7bbrWNY0u
+ 6tuYqhfRykLgxgXg6yYIsuEQxq3MpZc/evvYf4AZg4rE8gQBi5OAZhI9kyGv8K3etbdMbWcum1V
+ 8P8zlvO3iarF3nyiIG22Q626KPLUd2eG/6UXO0sXHZkaOKPcrEHV3oWv98XP52uvr7+wyvlWyyr
+ ZTwwA
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,136 +111,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-10-26 11:28 PM, tarunsahu@google.com wrote:
-> David Matlack <dmatlack@google.com> writes:
+From: Igor Velkov <iav@iav.lv>
 
-> > But looking at this again, I think the required bit is redundant. Whether
-> > a feature can be safely ignored is a property of the feature itself, not
-> > of any particular file. Every file that has a feature present will have
-> > the same required bit for it. The only thing that actually varies per
-> > file is whether the feature is present.
-> 
-> The required bit is subsystem property not the per-file. e.g. memfd_luo,
-> it is set at compile time for a kernel. So every file will get that required
-> bit set. It is not per file property.
-> 
-> struct u8 memfd_luo_feature_state {
->        [MEMFD_LUO_CORE_FEATURE] = LUO_FEATURE_REQUIRED
-> }
+The RK3399 watchdog at 0xff848000 is reset by SRST_P_WDT0 (bit 5 of
+CRU_SOFTRST_CON20), but its node has no resets property. Its clock is
+gated from SECURE_GRF_SOC_CON3[8], out of reach for Linux, so without
+the reset dw_wdt_stop() can only set WDOG_HW_RUNNING and the watchdog
+keeps counting through s2idle: on a Kobol Helios64 and a ROCK Pi 4A,
+s2idle longer than the watchdog timeout ends in a watchdog reset.
 
-Right, whether a feature is required is a static property of the
-feature.  That's exactly why it's redundant to send it in every header.
+With the reset line dw_wdt_stop() can stop the watchdog, and with
+"watchdog: dw_wdt: manage reset line during system suspend/resume" the
+driver holds it in reset while the system sleeps.
 
-> > The required bit still has to be conveyed to the target somehow, since
-> > the kernel that needs it is the one that doesn't know about the feature.
-> > But it can be conveyed by the feature's number rather than an extra bit:
-> > split the flag space into required features and optional features, and
-> > assign each feature to one of them when it is defined. This is similar
-> > to the required_flags and optional_flags approach in struct pci_ser [1].
-> >
-> > Keeping the same header shape as discussed with Pasha:
-> >
-> > struct kho_ser_hdr {
-> >     __u32 size;           /* Size of header + payload in bytes */
-> >     __u16 nr_required;    /* Number of required feature bits */
-> >     __u16 nr_optional;    /* Number of optional feature bits */
-> >     __u64 flags[];        /* Required bits, followed by optional bits */
-> > };
-> >
-> > Required feature N is bit N of flags[], and optional feature N is bit
-> > nr_required + N (using nr_required from the incoming header). The length
-> > of flags[] is DIV_ROUND_UP(nr_required + nr_optional, 64). Both spaces
-> > are numbered contiguously, so there are no gaps, and up to 64 features
-> > still fit in a 16-byte header.
-> >
-> > Each bit just means the feature is present, so the truth table becomes:
-> >
-> > Source bit       Target supports  Action
-> > ---------------  ---------------  ------------------------------
-> > Not set          -                Accept: feature absent
-> > Optional set     No               Accept: ignore the feature data
-> > Optional set     Yes              Accept: use the feature data
-> > Required set     No               Reject: -EOPNOTSUPP
-> > Required set     Yes              Accept: use the feature data
-> >
-> > There is no invalid encoding left to check.
-> 
-> 
-> IIUC, I believe this will not work.
-> 
-> To Communicate between source and target, We are defining a protocol, A
-> protocol which will be standard for all the kernel. And each bit location in
-> flags must have the same meaning in both the source and target kernel.
-> 
-> Now in you approach, If Source kernel send feature N to target kernel,
-> target kernel must understand Nth bit as the same feature. Even though
-> the bit position in your approach is not fixed but they are fixed
-> relative to their starting point.
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+The dw_wdt side is applied in the watchdog tree:
+https://lore.kernel.org/r/20261024140854.25664-3-a.shimko.dev@gmail.com
+---
+ arch/arm64/boot/dts/rockchip/rk3399-base.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-I think you misunderstood the proposal. I'm not proposing to pack only
-the set bits, and I'm not proposing that each feature have a bit in both
-ranges.
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
+index c46e58d4af0d..7b71b24c1f51 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
+@@ -1748,6 +1748,7 @@ watchdog@ff848000 {
+ 		reg = <0x0 0xff848000 0x0 0x100>;
+ 		clocks = <&cru PCLK_WDT>;
+ 		interrupts = <GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH 0>;
++		resets = <&cru SRST_P_WDT0>;
+ 	};
+ 
+ 	rktimer: rktimer@ff850000 {
 
-In my proposal, there is no such thing as "feature N", there is
-"required feature N" and "optional feature N".  Required feature N can
-be found at bit position flags[N]. Optional feature N can be found at
-flags[nr_required + N].
+---
+base-commit: d2abcbb905b0e4b2e06b257fa1e5bcf4faa6dbda
+change-id: 20261027-rk3399-wdt-reset-c58d2111609d
 
-In more detail:
+Best regards,
+-- 
+Igor Velkov <iav@iav.lv>
 
- - Each feature is defined as either required or optional, once, when
-   the feature is added. That choice is permanent.
 
- - Each feature gets exactly one bit, in its range, and that bit is
-   always at the same position whether or not it is set. Required
-   feature N is bit N. Optional feature N is bit nr_required + N.
-
- - nr_required and nr_optional are the number of features of each kind
-   the source kernel knows about, not the number of bits set. They tell
-   the target where the optional range starts and how long flags[] is.
-
- - A set bit means the feature is present in this file's payload. A clear
-   bit means it is absent.
-
- - There is no invalid or reserved encoding to define. Each bit just
-   means "present".
-
- - The target doesn't need a supported table. Required features are only
-   ever appended, so it rejects any required bit at or beyond its own
-   MEMFD_LUO_NR_REQUIRED. Optional bits need no validation; the target
-   just checks the ones it knows about.
-
-> For the current appraoch and V3 [2]. Think the below one as msb is
-> required bit and lsb is feature present in payload bit.
-> 
-> 00  FEATURE_ABSENT / DEPRECATED
-> 01  FEATURE_OPTIONAL
-> 11  FEATURE_REQUIRED
-> 10  IS INVALID (analogy: required set but feature is not present) which can
-> have different meaning in future if in future, a need arises to reuse this
-> field.
-
-In v3, 0b10 is reserved and not checked by the target. That means an
-older kernel will silently accept it, so the only meaning it could ever
-safely take on is "safe to ignore", which is what 0b01 already means.
-A reserved encoding is only useful if older kernels reject it, and at
-that point it's no different from adding a new required feature.
-
-> Deserialization can happen per feature from right to left. without
-> jumping back and forth.
-> 
-> Because of all these reasons, I believe current approach presented in
-> V3 [2] is the better. It is close to your PCI series with two flags
-> field for required and optional except I combined both field into one
-> flags. In your above approach you do have two counts but not having gaps
-> (which is wrong) and the way you proposed to parse with an offset is different.
 
