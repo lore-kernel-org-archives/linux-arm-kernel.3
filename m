@@ -2,96 +2,111 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A191606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 10:02:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C05D3606A333
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 10:04:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VhJ8aGdp;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=denzTsfU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=C7I8l7yI;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NNlsdO/H
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=kx3une51RST/V2RY3+/klMLxji5UgJfr3Zk+LcFLoTs=; b=VhJ8aGdpY/iUQhwdDg9T2wIKlc
-	FwDptgTo731Xo91Z1JUqpiQkA8DwegvwFyuK/KxgfCWfLiNK3vghPKDnC2QIaMS+nRU1rOczpP71Q
-	Ncsa7AFj3WZWFj33suRCEeSeuKKPd9f9//xLoC6H2k/+1AK8+hzTuvxQHThlekqHSLRxSssBDniTo
-	gwz4G8LC9F64BOgrjYvxAqIbXKaX3ghauaOjabDh0GKpq/7abJDCvadHS3W+QdCjQJsY2sy0moEPo
-	raYK+16fk+Jo4vWRIx61x339xqumSHQYMXR618Pmp6nP6FlHFu0oXukWqBu9aDkDsLMCJIkDS6x86
-	+0dlY1uA==;
+	bh=/D8Jw2oxEt/BBDcZtcM/C7+sByqqhB8HaR7nW4XlFv8=; b=C7I8l7yI3qGYZSc1Uwm2w+C150
+	GCQLXlaRYpaWAeOSz9xUrxUTvxnwK9UgFCLfynUTJeuYy0O31HOBtddgV5ReccO7I/jnPfZZ+tS14
+	SPhCQFMDo+ymyGIm9Dacrewe798WhyeWs/+xmjjA/Aua1iFHra4nj0Bo91e+ZG8TZnBm6YLX2T0hQ
+	JatOi1M8NWHKObzfAQ0sGdcGmz24Cin9nbOngdGwKqNYmBuEn+/ryDB7CaD+qyN8ltNj+GkaY2J3O
+	korNYqXzsjlPS6X0Xb+hWWxx1Dyghqh8dNqdrJQgirbymo0/nmdYghFCrfyCJ6gbeOwtFZiYbDS7Z
+	4bO1pRUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLe10-00000004F5l-1bKG;
-	Tue, 27 Oct 2026 10:02:46 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1xLe2o-00000004FNT-2qnM;
+	Tue, 27 Oct 2026 10:04:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLe0x-00000004F4T-3V8V
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 10:02:45 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2e942864693so20658095ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 03:02:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1793095362; x=1793700162; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kx3une51RST/V2RY3+/klMLxji5UgJfr3Zk+LcFLoTs=;
-        b=denzTsfU6uygF1AgYUWl8sbXjGr1xbPDPsXLOd8GsrNVA7cgB8WtcjnGBU5E5ajB7u
-         CfcrOVJsOjIAQ20QfUj3noH0LKWj5hNvvLSC15VolMu5nLCRpi6WCE7H0bKkreW0o5aT
-         qKsdPPr83Wj35e6HdkvpFWWPft4E77YajxE3D5W4QOnPkdflivizytVSCcy/m3ZUs4Ig
-         Oqd2Ri+Zdb1z5hLss54mM8lW69HfcLm+63NX5hmuW7HkkEtZrTzaN8foXh6edlYU9jEn
-         0GNa/KGQvE86gZs/cjuPP85515WJr94fs1xAnKaGNkzECBjgifeK1UqmMLC0xkDcMKh7
-         H3fA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793095362; x=1793700162;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kx3une51RST/V2RY3+/klMLxji5UgJfr3Zk+LcFLoTs=;
-        b=uhwQypYqXTwQklH2p28VI4sXn0Ry25adQ/ZMDyrFaXSzUcHsy4AKvUF4DxwY/owg4k
-         jdh1L0gkGXRiZFkby6k8pP16BE4/S/n0Fda4/kmYCYbLSNJt2G42aCpD3LgmTSLS2O4Z
-         Ao4SOVUal5RBGgvFfaV/1wpGei0ERGJer3QhDSLIyB8XEP6AgEhHtxtZ3aGoG9Hozl6s
-         K+D/0HTCjwG7EZVHTwBBJJiOzy9VDtF03s3DlbCiCC4Wcgr5XGP68lAcx8n5db26oz4d
-         sPo1GmGXEjNDUWqYQQP2G24O9pWVtXk5nAK+Yzu0FwRYeyGOFbNgjUskVIE0dv3QkmDy
-         vShA==
-X-Forwarded-Encrypted: i=1; AKwUvBzHfc/FXGN4x6iTRS5j9HKNx1xMwVRZ0LJc73VXzYIhIUSTwXPBxwBlT87T5o/m8bz13YMSzqwQ/8InEer2C81m@lists.infradead.org
-X-Gm-Message-State: AFq9FYLdwOKnjCk6F72RlvogFuSNVjpvNe2Yzyxk64RWTmT62Q743g1v
-	tDP9RgHW8Bzno6k+YLFU7CT5JwQPHId41tl+BQlelfHGLglljO7htMfe
-X-Gm-Gg: AYBFou2nAqzY4v/UmeVjs5lmz5eMEhuFl4yxvyjQrWQtj9LWPb/aIusK87TxneB0plR
-	eBZgmMFBps+aTzMRNsVHo5O9NB39VY3tNhUido+B+qSes6ZP3WrIm/aQXtBQzwiUviXnmmj/4O5
-	eKwsOpFn1/hQ4fGA7/6Hy90XtExX2GaFupdGFnyyfU3Zzi6C/MZD0FSdXg7XYSMvnaCkOXj6dAU
-	5dLWVI9GsmAsRvwOeIFvIo7PzmqW2fp2SQJavIO8wzUIFdFvDXk31nXpr7B/iz5kJxKnPNxNKg/
-	CE5c0MtB/vFzKzIhgWGn3fPhRQ7czYkaE1ooyHa9BYbiOdO6+UaJ+W455D1vcjo5skGbDwFYVIH
-	wfrpD1EIhSaaJ9Yte+XRTeQYZYKbDrHjKigpl94Bz4l0ggGdEWWv+ig/GOHJrrrVZT4ClxGUSsi
-	FhzafNaoI40+AQHHUD2z3yfkKl+gbm36ERmRc96UU/j8rmCJhEwNSJSrRmC2zjpoNbE3BdRhFSZ
-	NwkN9Rdx7JvWTevQ4TC95DxmeRp9NwiQw6FOc1I4fPSh8qKJcZlw2oXLyrZHM9TwS286ccJ1csK
-	kBreibrtNvjaKQuFd3ECaJyNqYVeDtg=
-X-Received: by 2002:a17:902:e5c3:b0:2e5:d33a:88da with SMTP id d9443c01a7336-2ea9c68c6fdmr88394985ad.16.1793095362449;
-        Tue, 27 Oct 2026 03:02:42 -0700 (PDT)
-Received: from localhost ([47.88.78.126])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eae64564b5sm7074135ad.5.2026.10.27.03.02.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Oct 2026 03:02:41 -0700 (PDT)
-From: Lai Jiangshan <jiangshanlai@gmail.com>
-To: linux-kernel@vger.kernel.org
-Cc: Lai Jiangshan <jiangshan.ljs@antgroup.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Thomas Huth <thuth@redhat.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] arm64: mm: Stop using the previous ASID for init_mm
-Date: Tue, 27 Oct 2026 18:02:27 +0800
-Message-Id: <20261027100231.31184-1-jiangshanlai@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	id 1xLe2n-00000004FN4-1O7d;
+	Tue, 27 Oct 2026 10:04:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B2CB8409E9;
+	Tue, 27 Oct 2026 10:04:36 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793095476;
+	b=VZcE5k9qFY1ypybZMV2CS7OpsHZYiswHvH2S9oeNrdLRj72HgORbVuPD+4BruUC8LoGF
+	 EF0tyjToRYc85Jtwv/6MGPGYIaAYzY4rFtYkteVFGte7kMvpmXWbhbRwUMCITC+9bJ03j
+	 V4iiu4J8yQWzZcBDQC6hFg/4BhCtTZTMeGmAkPrDbmNHz9UzXmI1SOCzjtCrTplDpz5YR
+	 zA/HOnt2xLwYKEOR0ephxM8jr1YN8Jo/aZULYXMG2Ytwo3CT2/uDtvLzcbfAt2IJGCtky
+	 SCeshJZhbr2m9HZrGq5VZCXz+APnacpTwI+f8Z+qTaTgIRxit0k0RwIHELOmT243Qkw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793095476;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=/D8Jw2oxEt/BBDcZtcM/C7+sByqqhB8HaR7nW4XlFv8=;
+	b=mAEYOm1I4wYLsirw8I5gRj3IlggM4KJrN7Rdu0ZJINRTqRuuaiNHmU7Pp2i6eGv+dqfv
+	 OFAY/dA917wNkWkpRNoNvB7jDGT8fzFp1RXoiTGMi83utxknwOTNT72izxvQAbHm3WSMQ
+	 ESEK+fIa2H8FI1GpTr9uXhMvCTOrhk316iWasuvZ7lXADcjr+da3+Eo3MOXRAzVrLhURk
+	 Rcp/PVoOeZaGeZhMvK0nF8Vv4eKVVz87ct0Kq/ItDyUxLZ8C3Dd95q2aZ8hceg7KHpE0B
+	 1ksBM3nZ3mPBHgHcucmFeeFVjHZ/sHyifK95aQN64lmn7RCxWk1/C1+y3ZacU5kmc8Q==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id E0AA11F01825;
+	Tue, 27 Oct 2026 10:04:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793095476;
+	bh=/D8Jw2oxEt/BBDcZtcM/C7+sByqqhB8HaR7nW4XlFv8=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=NNlsdO/HtM0gTl70C8VCD4RbZTwzphuXKd93AhUOVDsn20JU6beyqPmqm72l8g1is
+	 3bWC2pMObyPAuyObrnFgdkTaynsffKtga4IJxdXgOiG4/JounRy0sWD1Zv8TEye483
+	 OwCJR2RBLgu/dcEwqdHPN1gt0lV/Aokao/bBstjAEhxN5GfZi64k7X1gxWTW8Gce3x
+	 wXI6Qb0GsRlCjmQvszSKgsyOECL4Xp1BGuBpSOKcOGgzofp9JLJxGr5l7nPZX7VAcf
+	 VrXjf+EJ3JkdIGfpcoCrzUa7wbTjG/WBgHAekWnmWq/Flb+FkXTw4MvC87JehJt4U9
+	 Y9Y+V1bcBUzvQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 6455D45074;
+	Tue, 27 Oct 2026 10:04:35 +0000 (UTC)
+From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
+Subject: [PATCH v4 0/4] clk: rockchip: Add RK3572 clock and reset support
+Date: Tue, 27 Oct 2026 18:04:27 +0800
+Message-Id: <20261027-add-board-ok3572-c-clk-v4-0-d4152b4fedaa@qq.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_030243_890058_D674D991 
-X-CRM114-Status: GOOD (  14.17  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACt34GoC/3XO3W4CIRAF4FcxXDsNO3Tp4pXvYbwAZqjUHxSU2
+ Jh997I2bWxSL09y5jtzE4Vz5CIWs5vIXGOJ6dDC63wm/MYe3hkitSxQou4kKrBE4JLNBGmr+jc
+ ED363BWkkBep7DGREOz5mDvF6h1fr71wu7oP9edKmxiaWc8qf9+XaTb2fEfxvpHYgQToZaOit6
+ piXp9OLT3sx6RUf758+WbEZRjozDEo71n8N9Wjop4ZqBjnrglWGtMFfYxzHL6m/bGhPAQAA
+X-Change-ID: 20261023-add-board-ok3572-c-clk-090dfd552fd9
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Elaine Zhang <zhangqing@rock-chips.com>, 
+ Richard Cochran <richardcochran@gmail.com>
+Cc: Cunhao Lu <1579567540@qq.com>, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ netdev@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793095473; l=5839;
+ i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
+ bh=8trn1FKXRc/Z8uopivV1JhZgRiQfUeprY/VzfStCnT4=;
+ b=+QB4V7LLaKfSh37JANKQhdHd2LUTlUTJk92+cz3V6GY4Tg4+bQlxht7MKWefnfuYJuJ/eD65E
+ WJAkauDncbvAGclC6HzjaTfLQ2OUzVLeebJv9qZ4B8O2GXEJhYv2YHc
+X-Developer-Key: i=1579567540@qq.com; a=ed25519;
+ pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
+X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
+ auth_id=1177
+X-Original-From: Cunhao Lu <1579567540@qq.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,82 +116,160 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: 1579567540@qq.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	FREEMAIL_REPLYTO_END_DIGIT,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Lai Jiangshan <jiangshan.ljs@antgroup.com>
+This is one of the subsystem submissions for RK3572 support.
 
-Switching to init_mm should prevent further accesses through the
-previous address space's translations.
+This series adds the CRU binding, clock and reset IDs, an internal
+Rockchip 24-bit fractional divider helper, a composite clock macro with
+mux-table support, and the RK3572 clock and reset driver. The shared
+helpers precede the driver that uses them.
 
-Commit e53f21bce4d3 ("arm64: Use the reserved TTBR0 if context switching
-to the init_mm") avoided installing init_mm.pgd as a user page table.
-At the time, the ASID was held in TTBR0, so installing the reserved
-TTBR0 also switched to ASID 0.
+The RK3572 SoC has eight CPU cores: two Cortex-A73 cores and six
+Cortex-A53 cores. It also integrates an Arm Mali-G310V2 MC1 GPU.
+The OK3572-C board provides two Gigabit Ethernet ports, three USB3 Type-A
+ports, a Type-C dual-role port, eMMC, microSD, and UART.
 
-Since commit 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1"),
-installing the reserved TTBR0 no longer changes the active ASID.
-Consequently, switching to init_mm leaves the CPU using the previous
-address space's ASID. An empty page table does not prevent TLB hits
-for that ASID.
+The driver provides the peripheral clock and reset trees, including the
+three audio fractional clocks. It obtains the PMU0 GRF for the AUPLL
+reference mux. CPU frequency scaling is controlled through SCMI; BPLL
+and LPLL remain enabled for firmware use.
 
-This can retain access beyond the lifetime of the backing pages.
-During fullmm teardown, user data pages can be freed before their
-cached translations are invalidated. If those pages are subsequently
-reused for kernel data, an erroneous uaccess that hits a surviving
-translation can read or corrupt that data instead of faulting.
+Testing was performed with Debian 13 minimal and Linux 7.3 on the
+OK3572-C with the FET3572-C module. Shared peripheral tests were run with
+the system booted from SD, while eMMC validation covered the complete
+boot chain.
 
-Fixes: 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1")
-Signed-off-by: Lai Jiangshan <jiangshan.ljs@antgroup.com>
+Passed functionality:
 
-diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-index 803b68758152..7e56099c5fbb 100644
---- a/arch/arm64/include/asm/mmu_context.h
-+++ b/arch/arm64/include/asm/mmu_context.h
-@@ -235,15 +235,6 @@ enter_lazy_tlb(struct mm_struct *mm, struct task_struct *tsk)
- 
- static inline void __switch_mm(struct mm_struct *next)
- {
--	/*
--	 * init_mm.pgd does not contain any user mappings and it is always
--	 * active for kernel addresses in TTBR1. Just set the reserved TTBR0.
--	 */
--	if (next == &init_mm) {
--		cpu_set_reserved_ttbr0();
--		return;
--	}
--
- 	check_and_switch_context(next);
- }
- 
-diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-index 0f4a28b87469..a96ebe904dd7 100644
---- a/arch/arm64/mm/context.c
-+++ b/arch/arm64/mm/context.c
-@@ -218,6 +218,16 @@ void check_and_switch_context(struct mm_struct *mm)
- 	unsigned int cpu;
- 	u64 asid, old_active_asid;
- 
-+	/*
-+	 * init_mm.pgd contains kernel mappings, so use the reserved page
-+	 * tables for TTBR0 and switch TTBR1 to ASID 0. Leave active_asids
-+	 * unchanged to preserve the ASID rollover bookkeeping.
-+	 */
-+	if (mm == &init_mm) {
-+		cpu_do_switch_mm(__pa_symbol(reserved_pg_dir), mm);
-+		return;
-+	}
-+
- 	if (system_supports_cnp())
- 		cpu_set_reserved_ttbr0();
- 
--- 
-2.39.5 (Apple Git-154)
+- SD and eMMC complete the firmware, kernel, and root filesystem
+  boot chain.
+- UART console works at 1500000 baud.
+- SD read/write and data persistence checks pass.
+- All eight CPUs start; CPU frequency scaling and hotplug checks pass.
+- Both Ethernet ports obtain IPv4 addresses and pass bidirectional file
+  transfers.
+- All three Type-A ports pass USB2 and USB3 enumeration, data transfers,
+  and reconnect persistence checks.
+- Type-C host and device modes pass in both plug orientations. Physical
+  reconnects correctly select the expected device, host, and device roles
+  in sequence.
+
+Stability:
+
+- Repeated cold and software reboots complete on SD and eMMC without data
+  integrity failures.
+- A combined CPU, memory, network, SD, and USB3 stress test completes
+  without a crash, lockup, CPU offline event, or thermal shutdown.
+- Ethernet error and drop counters do not increase during bidirectional
+  network tests.
+
+Build and checks:
+
+- The kernel, modules, and board DTB build successfully.
+- Strict checkpatch reports no errors, with warnings about new
+  MAINTAINERS entries and the RK3572 Kconfig help text.
+
+Untested hardware and paths:
+
+- NPU
+- PCIe
+- GPU, video output, and audio
+- CPU rates above 1.2 GHz and voltage scaling
+- Other low-speed external interfaces
+
+Some files in this series are derived from the Forlinx OK3572-C BSP
+Alpha1. Thanks to Forlinx for their support.
+
+AI assistance:
+
+- Codex / DeepSeek V4.1 Flash were used for:
+  - Reviewing and adjusting code style to follow community conventions
+  - Automating tests
+  - Collecting data
+
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+---
+Changes in v4:
+- Move COMPOSITE_MUXTBL into clk.h as a separate preparatory patch and
+  use it in the RK3572 driver.
+- Link to v3:
+  https://patch.msgid.link/20261026-add-board-ok3572-c-clk-v3-0-dbabfa39d692@qq.com
+
+Changes in v3:
+- Close the reset ID gap while preserving the register mapping of each
+  named reset.
+- Check fractional-divider scaling against the actual field widths and
+  reject unrepresentable compensated ratios during rate determination.
+- Use signed negative PLL coefficients in the RK3572 rate table.
+- Drop CLK_NR_CLKS from the binding and derive the provider size from
+  registered clocks, keeping the existing clock IDs.
+- Fix the indentation of the CRU binding example.
+- Link to v2:
+  https://patch.msgid.link/20261023-add-board-ok3572-c-clk-v2-0-90b98836be6e@qq.com
+
+Changes in v2:
+- Split the original RK3572 support series by subsystem.
+- Port the vendor 24-bit fractional divider to the internal Rockchip
+  clock helpers and adapt it to the determine_rate API.
+- Register audio frac0-2. Keep internal SPLL factors outside the DT
+  lookup so PPLL retains clock ID 0, and remove the unused xin12m factor.
+- Link to v1:
+  https://patch.msgid.link/20261022-add-board-ok3572-c-v1-0-0b0fd85a31ee@qq.com
+
+---
+Raw dmesg: see v2 cover letter.
+
+To: Stephen Boyd <sboyd@kernel.org>
+To: Brian Masney <bmasney+clk@redhat.com>
+To: Jerome Brunet <jbrunet+clk@baylibre.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+To: Elaine Zhang <zhangqing@rock-chips.com>
+To: Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: netdev@vger.kernel.org
+
+---
+Elaine Zhang (4):
+      dt-bindings: clock: rockchip: Add RK3572 CRU
+      clk: rockchip: Add internal support for 24-bit fractional dividers
+      clk: rockchip: Add composite clock macro with mux table
+      clk: rockchip: Add RK3572 clock and reset support
+
+ .../bindings/clock/rockchip,rk3572-cru.yaml        |   57 +
+ drivers/clk/rockchip/Kconfig                       |    7 +
+ drivers/clk/rockchip/Makefile                      |    2 +
+ drivers/clk/rockchip/clk-fractional-divider-v2.c   |  354 ++++
+ drivers/clk/rockchip/clk-rk3572.c                  | 1981 ++++++++++++++++++++
+ drivers/clk/rockchip/clk.c                         |   10 +
+ drivers/clk/rockchip/clk.h                         |   83 +
+ drivers/clk/rockchip/rst-rk3572.c                  |  739 ++++++++
+ include/dt-bindings/clock/rockchip,rk3572-cru.h    |  559 ++++++
+ include/dt-bindings/reset/rockchip,rk3572-cru.h    |  713 +++++++
+ 10 files changed, 4505 insertions(+)
+---
+base-commit: a804c5742bff224d4cb4d25dd383554d598be32b
+change-id: 20261023-add-board-ok3572-c-clk-090dfd552fd9
+
+Best regards,
+--  
+Cunhao Lu <1579567540@qq.com>
+
 
 
