@@ -2,80 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D852606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 02:03:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEB8C606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Oct 2026 02:29:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GHKBrW2A;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=KmUU8854
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MCiv+WGr;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=lIVzvVf7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=KipWeilMX52B1gYtHkbQRemjgyfXjWvytc5K4t2sbXE=; b=GHKBrW2AUaM5Ft
-	8abkpNjtMxxwKDQceAy+5QAJi69yKNR3c2McNmJ4QfkwFWwjg040tMzW3Cc1lkrtKoix2N0H5OTfO
-	RD9PPA2gRjMKBALCAcPL9qlk90Al6nM64EUR4OJSbK5/2uV3rqZCnjRtKrOMCtY23qPmQ7a+NI2np
-	6zUufnJiEN6qKoW5MrADGPqExTpo/fDzblkSHuDe1SZv1cWP/7A0CiPCu1aU9mQ6vf92HHL8cuJbZ
-	cPc6EXTKpXyk6jBDas2798L9EHZQDJebheSbwdrF3C67YzsY0cUAvEel9ODNaFojq7mtiwvZ39pae
-	WiCoJbs8T7/UzdOSipKQ==;
+	List-Owner; bh=/WcSLowB0b2pojOqzb24H45+MS/MsdePMGuj0DzePaw=; b=MCiv+WGrxSFsph
+	hk1l5XfjnxD9m3IuhrjnUQbj6lJZwqfnKgjETLFpxEHZemp0p47K6fAJ/DdyHmK6UQ3KlxnQYd2Zx
+	CU0LCaA+LrFfCbnEec+pERCKCFg7fDs5+PkL2SJstnSNk8KPOazOwoP6G98nSUjBAbZbfod8pHs6D
+	EB9cBuVdWRxKcMPvSFoGqOraW1vPehGadJJiM+0LBRUEArZkLGQjrUiE2UPSW5LhNCEGEzfw1tbSW
+	ZXBMEQomHgMyfUV0oAimEukjPsfWE91tS49qWWC+EqFVKuauFNoG+Y0TQTnItnC4iWMphLV2miZ3j
+	Amiy0rF11PTXbi/TRqQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLWWx-00000003cq7-1S2X;
-	Tue, 27 Oct 2026 02:03:15 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1xLWv8-00000003dl4-3hRF;
+	Tue, 27 Oct 2026 02:28:14 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLWWt-00000003cpK-3z1u
+	id 1xLWv5-00000003dk7-1Vye
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Oct 2026 02:03:14 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=KipWeilMX52B1gYtHkbQRemjgyfXjWvytc5K4t2sbXE=;
-	b=KmUU8854S8wCXqnOpSChscuWRYL8hKtL/Gkh2RXgXfyPG8lTp1Ju54qjFIyChnvqPJAQOZiKv
-	3tXpg7XK/AOjCI1EWCjrMHiRmCLEjXbsnbOKQ1T9nTc5ltosKXc2dZ34Zmd998oz0KNyOUG1I9R
-	dhpLuEPjtziuFLWiN8b7XXI=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4jDDKN2h4FzKmXW;
-	Tue, 27 Oct 2026 10:02:48 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9762E4055B;
-	Tue, 27 Oct 2026 10:02:56 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Tue, 27 Oct 2026 10:02:55 +0800
-Message-ID: <8eaaba87-7881-49c4-a76a-51dec2f29ffc@huawei.com>
-Date: Tue, 27 Oct 2026 10:02:55 +0800
+	Tue, 27 Oct 2026 02:28:13 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-3ab3f899c8aso637620a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Oct 2026 19:28:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1793068090; x=1793672890; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/WcSLowB0b2pojOqzb24H45+MS/MsdePMGuj0DzePaw=;
+        b=lIVzvVf7SRtMsKuL9rwlpOTUD5gBPdpmb58UkvyoPjVzx9wcEFDQIY/4MjS+k/NY0J
+         SEyu5lp2JYg3D3ar41D8Ev8LOIA/ZhT0BGI9HWxOt5WfD3MzCvoH2eDscWN80y9Y6RwF
+         5MV3H1s1VcAQqYZfhyUOI1dPSGgQEckj3Z0FLP7i4m+dY5HMVddjUiNeaAwcyOIHQHe/
+         WqN4kTzNfTBh805G805V03ifZ+PUYuvuca57PC7/XrosoI6wTwRRa18xkydx9rYP8yXa
+         bL5Ty/QG5VPsp7n8HzI2gzpV+KELWjJ5euX2oNfq9tnws/5AyCIVfacwbzK40ABvqxh0
+         hpsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793068090; x=1793672890;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/WcSLowB0b2pojOqzb24H45+MS/MsdePMGuj0DzePaw=;
+        b=ES4XRjuwQiqgDpgtln2uvH+6MmqVG81BiSljliKvDQqPwI8QNEKYgUr5HIaaomHFHc
+         fAz1QfoTbRvyje39TwQbd6qWkcO1lpjHnrA4rYibWHtzeacdkgFPTEzb7IciloM//Xmm
+         vSmG7pX/Ka3psvRbyNCiB4FPGvE3WGaddBNP7LbEPZBr3Um6yPTgAefRZTzvmLZD0oCN
+         JEWcGO49ni/j8YujkveuEQJpQ1yXH46xgxStWNikBlV/U9OKtGRHmWW+Qy8gkKWogKQF
+         mHYKa9rajQTdrwyNBoww6uHBJQ6njk4nob/CFY7/4igjKuLUslpRQ4ScSdgBwQjVjz0d
+         P4dQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzZJgos/P7i5W3rUARLdm4rov5XFbvL886Yj2/WIYzLvNfSr9nsu9egAmjw4bOypMYN9HWrBMsKoO3rXAbs9gNW@lists.infradead.org
+X-Gm-Message-State: AFq9FYIwHGlnkmCwfgvTd68ZXwsJa6Zd8NkoQqEwnq/SDjUdth3sY2QH
+	TvogTl2NWIBR2D6/t++PS7PV9y3EhWYxe6E0wrLOHVmbtnsDpbG25h85
+X-Gm-Gg: AYBFou2XI/wXZBFX8XzgiEp0b36jNaXfQnZqYo0TL1BFCOwGvBowHEjNQ1oQ4T2mhNY
+	WeifLFhK54A/VT4bzwgIzQmYPJF6AB2UAP4U1IQ7YrTa3yobqmB/ZuzYNMPvtxBN294+Dm4HPhJ
+	8cZ1/J7YkuJDlPW0/74RbGJjgJPjudKU2X5nX0XVj+5UJlYX70FCdJ1EUkVDzF7mQaLIwHGbewd
+	pmFL3h8asDRn1va00N85IH0xnGl04uWe51Nq1qY/HjPXpxduImC44YO78SEmkN/Ekfa845jMcsQ
+	uKFehexxAkCkppmzoP62RDilE7LDQQQt4zmbKc2U4n5oFj3Hnq3XKwAVPHkH4uKel36ZiW/SsMi
+	WHJtKTmeVndb60Ew2WLs+cd8X4dd/9vcKNSp1JJgDNd22UZwIFbjlY5zs3Ttug+d+/gwL0XC+Ry
+	PReo2DFKkHxLt2ibpuVroLrs13nGs0keOLWg7twiACs1qUSWKr3KTqTGX7QGEaulF66i9sBN9qV
+	/Hq93dX8b2vRofluTpofEYIwCHUpbbRNzTjznyWmMXVI83hmCZEKVL7czLNsjnnth532iORdtTo
+	tkqEwcLihHxzqw3cqt6jXyG9Wgr/zbn9
+X-Received: by 2002:a17:90b:3dd0:b0:3ad:a84b:df1e with SMTP id 98e67ed59e1d1-3adea1af8bfmr12128791a91.1.1793068090331;
+        Mon, 26 Oct 2026 19:28:10 -0700 (PDT)
+Received: from localhost.localdomain ([240e:36d:b08:2bc0::a60])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3adeba38910sm6823109a91.1.2026.10.26.19.28.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Oct 2026 19:28:09 -0700 (PDT)
+From: Jianfeng Liu <liujianfeng1994@gmail.com>
+To: heiko@sntech.de
+Cc: HystericalDragons@proton.me,
+	amadeus@jmu.edu.cn,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	hrushirajg23@gmail.com,
+	krzk+dt@kernel.org,
+	krzk@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	liujianfeng1994@gmail.com,
+	macromorgan@hotmail.com,
+	michael.opdenacker@rootcommit.com,
+	naoki@radxa.com,
+	robh@kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: arm: rockchip: Add ArmSoM Sige7s
+Date: Tue, 27 Oct 2026 10:28:01 +0800
+Message-ID: <20261027022801.377819-1-liujianfeng1994@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <5520293.6fTUFtlzNn@phil>
+References: <5520293.6fTUFtlzNn@phil>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 5/5] KVM: arm64: Enable HAFDBS for guests not on
- migration
-To: Leonardo Bras <leo.bras@arm.com>, liuyonglong <liuyonglong@huawei.com>
-CC: Oliver Upton <oupton@kernel.org>, Marc Zyngier <maz@kernel.org>, Fuad
- Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Steffen Eiden
-	<seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
-	<yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Raghavendra
- Rao Ananta <rananta@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-References: <20260901171558.2674031-1-leo.bras@arm.com>
- <20260901171558.2674031-6-leo.bras@arm.com> <aqneWnlsdpocLIl6@kernel.org>
- <aqqhDs3NyjtkZzXK@LeoBrasDK> <aqsl1_IqnV2r8kUL@kernel.org>
- <aqvt2gnlBZeNsaf4@LeoBrasDK> <as-mH36YSMxAosND@LeoBrasDK>
- <3e464bef-8dfe-44a3-afea-3c276ae87cd8@huawei.com>
- <attMtUqxNsuPooix@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <attMtUqxNsuPooix@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261026_190312_634335_6EF51310 
-X-CRM114-Status: GOOD (  30.89  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261026_192811_406393_D291E2DA 
+X-CRM114-Status: GOOD (  15.12  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,127 +112,56 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Hi Heiko,
 
+On 2026-10-26 11:43 UTC, Heiko Stuebner wrote:
+>> I confirmed this with ArmSoM. They purchased the original CoolPi 4B
+>> hardware design from CoolPi and confirmed that no hardware design
+>> modifications were made for the Sige7s.
+>> 
+>> So the Sige7s uses the same hardware design as the CoolPi 4B, rather
+>> than being independently designed.
+>
+>if it's the completely same board, just with a different print on
+>the board, why does it need an empty devicetree. When it's completely
+>unchanged, what's speaking against just re-using the original one?
 
-On 10/23/2026 8:01 PM, Leonardo Bras wrote:
-> On Fri, Oct 23, 2026 at 03:23:04PM +0800, Tian Zheng wrote:
->>
->>
->> On 10/14/2026 11:56 PM, Leonardo Bras wrote:
->>> On Thu, Sep 17, 2026 at 02:40:42PM +0100, Leonardo Bras wrote:
->>>> On Wed, Sep 16, 2026 at 04:27:19PM -0700, Oliver Upton wrote:
->>>>> On Wed, Sep 16, 2026 at 03:00:46PM +0100, Leonardo Bras wrote:
->>>>>> On Tue, Sep 15, 2026 at 05:10:02PM -0700, Oliver Upton wrote:
->>>>>>> Hi,
->>>>>>>
->>>>>>> On Tue, Sep 01, 2026 at 06:15:56PM +0100, Leonardo Bras wrote:
->>>>>>>> When dirty-logging is disabled, even non-write faults make a page dirty,
->>>>>>>> which avoids a second fault when the page is actually written to.
->>>>>>>>
->>>>>>>> On dirty-logging enable, this approach causes all (writable) pages on the
->>>>>>>> memslot to be marked clean, even if they were not written to, which can
->>>>>>>> take a lot of time, while holding the MMU lock, doing atomic writes to
->>>>>>>> PTEs.
->>>>>>>
->>>>>>> Do you have any performance numbers for this? Enabling HAFDBS seems a
->>>>>>> bit involved to avoid some stores on the first pass.
->>>>>>
->>>>>> Not yet, but if the idea does not look too crazy I can find hardware and
->>>>>> collect some data :)
->>>>>
->>>>> TBH this looks like a micro-optimization so I'm not expecting the
->>>>> performance gains to justify the behavior change.
->>>>>
->>>>
->>>> Okay then, I will get a machine to figure the performance gains :)
->>>
->>> Got the performance numbers here.
->>> I tested both the case where all PTEs are dirty, and the case that 50% of
->>> the PTEs are dirty.
->>>
->>> For that test, actually patch #5 could make kvm_pgtable_stage2_wrprotect()
->>> slower, which is counter-intuitive, in all platforms tested:
->>>
->>> When we walk the S2 pagetable to wrprotect, using the new walker, the
->>> write to the PTE itself is so cheap* that the cost of the branch
->>> misprediction (write PTE or not) for the 50/50 case is significantly higher
->>> than the cost of the 50% extra writes, which makes the 50/50 up to 60%
->>> slower than the 100% dirty case. It is still slower in the '25% dirty' as
->>> well, and starts to get even at '10% dirty'.
->>>
->>> * (non-atomic, everything is in order, walker is small, cpu will probably
->>> bundle it all in a single cacheline write)
->>>
->>> Since the idea of patch #5 was to reduce PTE writes in the first wrprotect
->>> walk, it becomes faster only if only a small portion (<10%) of the VM was
->>> write-faulted while the remaining was read-faulted, which seems to be a
->>> really reduced audience.
->>>
->>> Since this comes with increased complexity, and also carry costs of
->>> having HAFDBS itself enabled outside dirty-tracking, I don't think it's a
->>> good idea to further pursue patch #5. It's only value is that it served as
->>> a base for HDBSS implementation.
->>>
->>> Thanks for reading!
->>> Leo
->>>
->> Hi Leo,
->>
->> Thanks for running this, the numbers are really useful.
->>
->> It means the hardware dirty mode (HD=1) should only be enabled while
->> dirty logging is active with HDBSS support, and stays off otherwise.
-> 
-> Hi Tian,
-> 
-> Correct, it's actually counter-productive for it to stay on without HDBSS
-> before dirty-logging.
-> 
->>
->> With HD only enabled during dirty logging, we also keep the DBM-based
->> encoding for the HD=0 case. On systems that support FEAT_HAFDBS, DBM
->> remains the write bit and S2AP[1] the dirty bit even with HD=0. This
->> works because kvm_s2_fault_compute_prot() maps any writable page of a
->> non-tracked memslot writable-dirty (WD), including on read faults:
->>
->> ```c
->> if (s2vi->map_writable) {
->>          *prot |= KVM_PGTABLE_PROT_W;
->>
->>          if (s2vi->device ||
->>              !memslot_is_logging(s2fd->memslot) ||
->>              kvm_is_write_fault(s2fd->vcpu))
->>                  *prot |= KVM_PGTABLE_PROT_DIRTY;
->> }
->> ```
->>
->> So there is no WC entry for hardware to promote, and HD is simply not
->> needed outside dirty logging.
->>
->> In the next HDBSS version, we'll only turn on HD=1 when dirty logging
->> is active.
->>
-> 
-> Right!
-> I will also send a new version of the pre-patch (4 patches) for us to
-> discuss. The first 2 patches will change meaning a bit, but should still
-> work as they do today.
-> 
-> Thanks!
-> Leo
-> 
-Hi Leo,
+The existing CoolPi 4B DTB does work on the Sige7s, and I agree that there
+is no hardware difference requiring a separate device tree.
 
-OK, I've seen the new DBM RFC patchset. HDBSS v6 will be based on it.
+My main reason for adding a separate DTS is to preserve the Sige7s board
+identity for long-term upstream support.
 
-Thanks,
-Tian
+The CoolPi 4B appears to be discontinued and is no longer readily available
+through the purchase channels listed on its official website
+(https://www.cool-pi.com/buy/). In contrast, ArmSoM is actively selling the
+Sige7s and has committed to producing it until at least January 2034.
+
+I'm also planning to add mainline U-Boot support for the Sige7s and
+integrate it with Stubble-based UEFI booting.
+
+While U-Boot could update the model and compatible properties before
+booting Linux, Stubble may replace the firmware-provided DTB with one
+bundled with the kernel. Having a Sige7s-specific DTB would preserve the
+correct board identity throughout this process without requiring additional
+distribution-specific modifications.
+
+This would also avoid confusing users who purchase a Sige7s but find their
+system identified as a CoolPi 4B.
+
+The shared dtsi ensures that we do not duplicate the hardware description,
+with the two board DTS files differing only in model and compatible.
+
+Would this be a reasonable justification for keeping a separate board DTS?
+
+Best regards,
+Jianfeng
 
