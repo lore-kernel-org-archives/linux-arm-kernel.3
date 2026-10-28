@@ -2,134 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9129E606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:51:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2E0C60A3835
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:51:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=R0i742DK;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=WYbSgRuM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VJDDuZL7;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AOpHduCW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=EhdZBskiMQqtAOUFAXQS1FErrPe/2m1W3TufqTeYn9Y=; b=R0i742DKmAB+ohSEXRB1JNxN3l
-	PbkDB+PU3py5J6zwXBzhhtQxCWyIUPdlJzKWSHMr8DIDU8p4PgBUpnWFO4499BRpBvYibBdz19p12
-	gDe4ebikylUgLftyR5iE6Y4WDxvJQWydh/YXlVwFPE0OKOlF2enXzT++f75DT1ulCAH0j84FF6nD7
-	BSllifb7U6jvKVgfiPD/nijEK/T6n2brghGb4s1hs3rTDHGRUBKFgqkmVvUJXHC6uYZNKIrVrLF8G
-	ZoJd16Rx656HiUvyzRk3pjKFXWhTAyUSmDlhdxAYBlT7vTgzwQzKTtJwOGuJhQNOLP91aGyannKN8
-	VsxF58RQ==;
+	bh=PF9hqOY7SlmHr6Mu13sbIIqaN/HmWKK+iSj3xcxtqik=; b=VJDDuZL7FKx9F1biOZEDntol4m
+	e/T4PNa4szEaATzFVm9XityidStAe5uf1akqYSWzrCb1mNm7DTIy7RKhCOxK3E5I8dXqeCc6+hVDB
+	T64lT9cruT5Mty+RPj4MGQv1L9c6c2Z3LfvshEP3jCAOlDeBWmOggaETNC05oXryZLmcFprJoVvjZ
+	mtGhm2vPxMHzllkVypCuy13/eMr3ozdUzu8wfxAqFNppSAwIUWzUGw1/hCC8fugm9XaVfXvtIak+c
+	G899MVQyW/Od/nvlyuYdLlGsGocBz8fo5u3g/gkfU2vNJzN6A97AiiSy0aW3W1I3cRnunvJBm+3PM
+	5CUyOvmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM37c-00000006ywx-1GKC;
-	Wed, 28 Oct 2026 12:51:16 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1xM37l-00000006yzt-1pJk;
+	Wed, 28 Oct 2026 12:51:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM37a-00000006yw4-00vM
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 12:51:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qob3/EeAKRvcjPlgVB7WbTq9giYenqrZq0EizDBRUp6+ksp7ECE3ZtsFBWoB8bWvin2wHuLrC2ZvKLoIfiMY5pFEgfqlConnevOf9oEY0Ku76plXhU4lgMNWg7HPvyeciRu+gveQrz8G6DK8GA0LRw9x34mAnqQCfAJXarP43MNH/DRdbv+I/WcjmRJXSdWa/jEiV086SwBA5cCyOgupRtTfwScpr/28qZNbl0kdcnJnVOcTBKMpzPtEoh1PA0jfIbRgT6CYTMtpIV07rrrHjuFYO8DyZvZHhUW6AvZPNkumiQikVxNf6XkqZSCaWeXwAwFGAiFF8ImJKA9lir6DKg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EhdZBskiMQqtAOUFAXQS1FErrPe/2m1W3TufqTeYn9Y=;
- b=eXRrRetemqRsDcG4idbcDd4Jm3WSJMcBYmnIqbnZZlOQvcS5O5wldr0VJjEmxoHw+i4HtlPmquvk7RJOpV9CK6E0ETKr1O+2NNi9sf5xEwywKkBXfP03MpZVBDD19vMlAe8NkVERPeU/hC206Dou+UTQvdXXs0tc144hplqEP7mH295iSdm222cVZ28+GPpz1I8WvTERLSwPGnoiS8rSewQuE3jDvUpxT7X4/1MPeVCpJwzGCUxYHTUZNr5jBNI9Fu92IOAsIMO6gaUp2YmaQrswr5wog8StQdMqE6VxocbkAxrnqVe+cj+mCiiJE1XAJ+cV9uspZwHfVvgTtCEnKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EhdZBskiMQqtAOUFAXQS1FErrPe/2m1W3TufqTeYn9Y=;
- b=WYbSgRuMYNHmioeIE47nC/CPOjTe2V2m1qRm0Olr5F+geeE9gjelmJqc36ZgO/80IFDid0bQ9tULLYFWLdyScCnhY3wgdTw9yyPxjMvnBbQCRFu8Uny8wMko9I6KmyB0TNAWRXrRCkyVHtVso0skoINJ4jq3hrVNiIRpy8DMS3HNbWdO+8rkdMltFGS+c4htvv05+MNTGbuSNSiDlD5Z/8aPEn8MH3k3/SqjTxf8UBHruJAZKyVlxy9u8spP1rud4RXMuZTPAkhkfVPWItoeG7PUQeGvr6BWJGRYCxjcdrKwsmX/+1bKYiEQWD/eel3aRPFsgf6ny7qmOiuiNnnPkQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by MW3PR12MB4492.namprd12.prod.outlook.com
- (2603:10b6:303:57::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Wed, 28 Oct
- 2026 12:51:06 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0569.007; Wed, 28 Oct 2026
- 12:51:06 +0000
-Date: Wed, 28 Oct 2026 09:51:05 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Samarth Narang <samarth.colleges@gmail.com>
-Cc: Kevin Tian <kevin.tian@intel.com>, Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Shuah Khan <shuah@kernel.org>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] iommu: Propagate iova_bitmap_set() errors through
- read_and_clear_dirty
-Message-ID: <20261028125105.GA3040767@nvidia.com>
-References: <20261022131015.3281745-1-samarth.colleges@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261022131015.3281745-1-samarth.colleges@gmail.com>
-X-ClientProxiedBy: DS7PR06CA0050.namprd06.prod.outlook.com
- (2603:10b6:8:54::32) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	id 1xM37h-00000006yym-350e;
+	Wed, 28 Oct 2026 12:51:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E59741B38;
+	Wed, 28 Oct 2026 12:51:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 000A51F01825;
+	Wed, 28 Oct 2026 12:51:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793191881;
+	bh=PF9hqOY7SlmHr6Mu13sbIIqaN/HmWKK+iSj3xcxtqik=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AOpHduCWZ0pL+wQdwiF5zWiQ38s36anq3OoP27DBHDx50y1QhIMeNOezKqpwqi+ur
+	 IXsIwrFPDu0Ejmq42RHm2jpkX1yW1I6OZ+exlAFmKx6tPRrSJy57ymtNZgWJPVfqlh
+	 Bu1kghbNdHXOuk8bz85smbLnZU8bFaY3QH7ey4Je1ID2+YOmMYybNInq29/+j1uwc8
+	 bsp0YbWCAbCaWSHu6UJUQ6j0ZvMj+24Y6cIIji+h8lq9X9RgIvsBHydUrAprq26Kr1
+	 +rPLMJHaiwinKOyAxG/+6PHtL7UN8OcwiCbEnerqaloZic8ly09FrQe0HvdDQDvsA8
+	 HL/goimzwSY8A==
+Date: Wed, 28 Oct 2026 13:51:16 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Chaotian Jing <chaotian.jing@mediatek.com>, 
+	Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Wenbin Mei <wenbin.mei@mediatek.com>, linux-mmc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: mmc: mtk-sd: Document support for
+ Airoha AN7581 SoC
+Message-ID: <20261028-academic-blue-earwig-72d3d1@quoll>
+References: <20261027144002.10606-1-ansuelsmth@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|MW3PR12MB4492:EE_
-X-MS-Office365-Filtering-Correlation-Id: d9acaf83-c2f0-4b32-6ef8-08df34f221cf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|366016|18002099003|22082099003|11063799006|56012099006|261026140227099003|10067099003|261022105027099003;
-X-Microsoft-Antispam-Message-Info: at+TSXgCptRqH9v/V9Au3slMSTV0wH/7d7A7axBzaEdbChsfdS8Pp+gCdqbcfyCulyEYwaK+EeL/w9tYX1kIszRP949HtI24idrKiir4jyYun0pold5DgK9Go50moA/mQ2svk4XZJbmJSds11luhHqmnSMLzvI0ZeE/Rm40wcSqB9L5NyU5xtPsP++VJH56jWjEjxlNiaFaHSr9VBA0dPzoWvjE1U9dvawXaV79gmtYlkLTrOpUMvBN0/SqoVCgG9xCM0DibNf9QDhfeiYFk4wG+IKme9Doqn7y3qNe4yDhIN5yFCCtoguXRNbdJQ53jqugOA/gx0v6bYDWHKXKs6+ZWDzNrxoFj0OXRzBYFOqddE1/BpZcqeT292ubGeM5UUyXGgrUOOk9a6Sdhk/mmKVK/xV3G+VoptMemP4bFY9lSmj0XjjH+NVn0/nRVFd6VfysQJspTdy2K1IQmdj2mE/JPBySQPDxRaxbB16PZg+FJVrWcvIyeQISYi/rD8vFhApgT3PFWCsqtYUpeIDKPf1zaCXpJiQhvoM8Nq4vYEqi5zojSudJr0d7pQlQGihEKZz0Bz2GUyNyplKhRQTQ0KmaNz36aRrFf3ucZMVFUMQRnrIj5wK1jhL7Gj0q5sxl95s5r45PZCOkNmwP4jsQrVvTf+wgYYGoi5Zi3CUGJylM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(366016)(18002099003)(22082099003)(11063799006)(56012099006)(261026140227099003)(10067099003)(261022105027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1+7SZb0LAyghZQSUsZZ3YTzRF8SlL/oUVCpgCYVbIRct8/zwKHr8CfyYyR9M?=
- =?us-ascii?Q?Hb22I2pNJD5zSPaZVGtKlFBGZ4xOCZo+JgN5/PhziveAzSzYWhJOFvRr7Z18?=
- =?us-ascii?Q?OnZrLla1E7sADpkaIw68+y8Hh3KgQSkHUAYBQb+0JmWBy6fx+78SevR4vg9t?=
- =?us-ascii?Q?IwzG5czNXogkUQgdGFDJ3A+qT7hdnTYEEB4SU4PzobCwndLQZxK/z8DJ1UOT?=
- =?us-ascii?Q?C+BElAQvfI5s3nbukaxNB68aFQ8Yr3OkdEIsmWFa7WYrAQ67XQux+wt2GSPV?=
- =?us-ascii?Q?kuzAIkAKcJxlz3IGok2Bqcy7XJ+FT/EhdC5tYEmrqq0WF/ydUXP1zREFvyvF?=
- =?us-ascii?Q?uq9H4Wn3hOj9rLtMIs3ziNBGb9uTTSbs6OeEJzr8kD+IY3RY0uCdoAaGELkr?=
- =?us-ascii?Q?AhiCHO0z5eyB2LzQDDYein18k1ozGL8i6cjMY9RCB+Vnfs5QuQdttGZQ0LNE?=
- =?us-ascii?Q?Ji4zwOuphutSDNdTmxTquf5J89irTlfKxDRHkbmQ2LFeZK4LXGcFkGs+rZwf?=
- =?us-ascii?Q?vmD6usAMQZs9K1gec8PGREzYsWXKhkmrdNHwUc3V6+5YlT6YO8OjTCu4pE6a?=
- =?us-ascii?Q?oUFM2Ykl53ifT3WEiIpqez6CmqyegvmODIYI/uhA+cf8svahtStrtC+SVF26?=
- =?us-ascii?Q?zV2OcOpVpcxPqNj6guVUIjfZquRj4WiZPHcYDT1aVR+7cPVk/pezJLiwE0G9?=
- =?us-ascii?Q?oKrzonQ0kopxRRzBmbJiyawCJp4KBgztt4QFTqjXCMTh3oDP0QJ3EPedAl5c?=
- =?us-ascii?Q?LtBCnl0nCmnF4nAK4xc2e6/6ZZ5NHIiyF5CRbgvfAhJmVf/ls9NHuiTwZWXj?=
- =?us-ascii?Q?9TjbeAfXfLRcF9fv0n0OoubCasknqWeSX2M/s8OU8zOMGDBLzt43XBF+lilf?=
- =?us-ascii?Q?9LtZOJ9iCpuHRyMwvdwN/yzC7Mbc224c9atQvyQ3KJQwqk+/GmD95lP/2Cz3?=
- =?us-ascii?Q?tgFfxpqKE02sgSybmXUcHqnNdX+0ueqrYy2lRDA2FsQ7ZoKjPtzFHnSEKxvE?=
- =?us-ascii?Q?UMc8s6N8Ym0FavvOl1+80XjaQEe7hUklBtNZ13BrX2x/13A+5/T0g8peJDzS?=
- =?us-ascii?Q?BB53lxxeTYmfBvg4/bBXEfJ1DAh800w0a/6C+YUh0tGF2QMEQCYnKVtutUNi?=
- =?us-ascii?Q?+cFx/twG0U2m84Icu0rCigty0SItkii+xmR0EY4zM1QEgObyl8spYQV9nb78?=
- =?us-ascii?Q?vK9fklF+9HDnmegdhU3S/rio5tPZe076OmclSCCZUVH0zSi2DgZhhWsuJYl6?=
- =?us-ascii?Q?4W4FiAOYtf1R8pfQDy3KTQrW2KW2oIsFhorafs99umNzyKjlD7vv1C3f+36S?=
- =?us-ascii?Q?V2mKU/Ss+7tEUbNg4XnWpRHhJvxjcr3quSv7T8lw8n10Ud0ll6ky6CuFjbvx?=
- =?us-ascii?Q?/f+ASwD0w/NeVaiB2f+iThv+A7vyyKH7IDpQoW4VPGG9sWk7gG7nbppC8CiD?=
- =?us-ascii?Q?GpJdsdeiyBzv40bT9Djf4/1WcazNsnek5meq6ML03DJDICoZfDRt0JdJ6iSx?=
- =?us-ascii?Q?j/LmyY3jYzvPwkqlQ8rMopmCjWr7fLHoF26fYqAfaDopPK99cK4bduoh2X8a?=
- =?us-ascii?Q?0yqwqE/4NGmKJRu380ZQ8/y1dFjCgnXxZS/EHEV97wQlNoqUIFpGvRl0ZsxH?=
- =?us-ascii?Q?uCFSWg4FP4ZiQxF/3T+kqso1CdPhTosjGfG5EIhDNQ8h39RG7EFe/eUgXMwh?=
- =?us-ascii?Q?W8IivB8AAEEKo+ML2oAL+13+Ywgt8AtuP1weMrzvCN1m8zlr?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d9acaf83-c2f0-4b32-6ef8-08df34f221cf
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2026 12:51:06.4905
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: A84Xae+3XL2o4yppB7Asw3Swr1ayE4ZCEya4oUQSrbitsVg7a2T12FLIWNEfiWpH
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4492
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_055114_067577_98BD90BB 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261027144002.10606-1-ansuelsmth@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,21 +72,34 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 22, 2026 at 06:10:13AM -0700, Samarth Narang wrote:
-> This is a follow-up series on a6ec38d74c08 ("iommufd/iova_bitmap: Fail
-> GET_DIRTY_BITMAP when a bitmap page cannot be pinned"), which keeps the
-> first iova_bitmap_set() error in the iova_bitmap so the ioctl fails. As
-> Jason suggested, this series propagates the error up the call chain
-> instead.
+On Tue, Oct 27, 2026 at 03:40:00PM +0100, Christian Marangi wrote:
+> Add dedicated compatible for Airoha AN7581 SoC integrated MMC controller.
+> The MMC controller is based on the MT7988 with the difference that it does
+> have a single clock controlling it.
+> 
+> Add the dedicated compatible to describe the 2 register requirement and
+> permit to define only 2 clock (the main one and a fixed clock for HS)
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+> Changes v2:
+> - Also add compatible to restrict clock-names for source and hclk
+>  Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
 
-The patches didn't make it through
+Your driver part suggests it's fully compatible with other variant. Why
+not expressing it with fallback?
 
-Jason
+Best regards,
+Krzysztof
+
 
