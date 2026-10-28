@@ -2,117 +2,113 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97E53606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 16:04:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A411F60A3836
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 16:06:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=I+ZKlU+l;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ul7n4MfS
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CDI+9Eko;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=PRBVP6qO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=wW+/Xd8Krv/fKYtWcQLYyD+KltWSe3OXoRZLQJCTD0I=; b=I+ZKlU+l2lDC7l
-	5FlL3LEeiT1Ary2Fvp4B5q64SodrL7dHUfvIAbs9oMw4WGOIpZZY6SvbC3RFI2vUy3G72aoZXi016
-	l5y1V9Ai+TFlFNGvycAiFSkA7QijxjosdVXr3oSinH3uFtl1hScp/MKPo9iHrvLiTxjxtrgHjgAoy
-	qM1pOqpPOAoddD7GAEBxcrieSFCUuh4EsjHpz+MHsJiNxkGDjH5z6N9qD+EN2VCkoPgAnOclo4yL+
-	fr5Zx+pgwvK4C104EOVV1tAwNl7PY0AoI1CKDg4AibpDuqQ7xhoBWhKTtLHkSfR36y65wdVRRlwsw
-	WIQoQRg8uu+fdvqP0Vug==;
+	List-Owner; bh=3uI0MFbTtASjLF9hlBwhObgSemLAwBt6XCum0+3gyyM=; b=CDI+9EkoRJpnS6
+	yaUHaG+TmZLlN6qoHEDujfn9dUfMGQXepaN2uu+vHl+1rWUzJtmfKWpZfnA3Dg6a78FcL9V8PrtZs
+	KnIxN6luPXr9h9/2ijMxOWSA2MimG/xsN48YevRV3N2Cyxxx9MJRvPgfgEvyzwxnHLQKETRhd+6fj
+	EooaHY+cfmf++M1oipnc1jdr9XKDGi9Ov0CbqiVNDnvMxpeWF/MheXSGDcanuUdviOc4ZHxQRIKUP
+	BJQo0Epfp81w6gFBveJ9LIZBbmV+f0WvrJV4Z9ZRmtiHUM4eCL9Hh+fL13ZjqgRQcRFZrIZyx/iyy
+	aVd59oBmSyJ7zqsyRV6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM68M-00000007U9G-3WFS;
-	Wed, 28 Oct 2026 16:04:14 +0000
-Received: from mail-vk1-xa36.google.com ([2607:f8b0:4864:20::a36])
+	id 1xM6AX-00000007UNG-2OFd;
+	Wed, 28 Oct 2026 16:06:29 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM68J-00000007U8N-3Sqs
+	id 1xM6AV-00000007UM7-2UlV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 16:04:13 +0000
-Received: by mail-vk1-xa36.google.com with SMTP id 71dfb90a1353d-5ead9f60e26so2150213e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 09:04:08 -0700 (PDT)
+	Wed, 28 Oct 2026 16:06:28 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so11187275e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 09:06:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793203448; x=1793808248; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1793203585; x=1793808385; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=wW+/Xd8Krv/fKYtWcQLYyD+KltWSe3OXoRZLQJCTD0I=;
-        b=ul7n4MfSkZiUAJ04RjJbxDk9hrO1k2HLO2UnhD5pcSnIPG/9D+jXYjufZPqXxMxz/+
-         Tgj3M1KJ0q1no8L/b87V+o8cSEAyRtahwb49ffdtinjDJoUGkdDQKyBvc1DklVWbF14e
-         9111JQFeI/pCUGrU2x8N0INO/QhLRUuB1BeM1XC/9TiLIcS5NomZ7URTYIu3RskMf5bS
-         DNno00BxEcWC4RYJa/A05M+rzqDc2nSnNY97muecfhRAoacSBOdUzI8fgo2NSwubo547
-         L72TUE4oEryFtJOLhH5cfGdqKxbgM4Ge51YTTKtrYwPPbosYgtBLuW0mlQKyWlY8+hWA
-         h4oA==
+        bh=3uI0MFbTtASjLF9hlBwhObgSemLAwBt6XCum0+3gyyM=;
+        b=PRBVP6qOUiWKyQyvs1yvWhB9ZAzJRy/kgwpaBEYGzebhvquEP8nXjhOb0KZ0x2NTy3
+         qTKzb+JIa18IWELrMdJgBKZsttv6YLZpcmv+PFPEbPYVtUqj6M4X6J0HXv37uaMctSN7
+         mtwbfuKVuJui+wvNMo5Ym3Kn1pIJjrhMQtKZw/873FavpU/FadoNSJ06ns26uMx2R3/J
+         tjfx+i80Gai2pPUIpmaC5fSeZqmQFD1CV0oBXqNZw2xlhdfjGUNczizRY1TzWPwAwDzE
+         b7BIAmFw9X1kVdGYH/CjXEcgcJM8s66EnMYVlzaIGh2RRkyoFPtYoR2tWwi9aIeZTA+X
+         GSSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793203448; x=1793808248;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wW+/Xd8Krv/fKYtWcQLYyD+KltWSe3OXoRZLQJCTD0I=;
-        b=cFSphqNCe/4ioGAnRcLrCJqJSEsJmJuQcqieDAt+jBq6TyUacWVB3LPJqFRhpE0yIj
-         3TlsVA84JJVm3nlshtgtB/44pTUJFr6HUPU3m4Z4P8jkdaxqBvAhsrR1Tf7KpaQpS7qA
-         uIT4ZC5ffVHDTvfI1Q6d6jsWa/Iqp9XvgpdQ9GRLrNf7hr4b/AFkst6yZI4UfyS936Oy
-         g7Sdt3FNMwUR/Gkz3C7xhPkLj8/lXE7OPuXkkCLUjXyA0jt75UEc0vAZS8ZhFJ900wog
-         JGZLEwGp2u75dKtvkQBnRdbPuN16Qpt1pt0HfIbtmIuH2ipApUSvk8CfLOugW4V69J8y
-         3laQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwKTCPiVyq0iawBEQAazDbRUqWGurY03KLgfaRUxnFtqeubrYhwkX/kMnlgp1aSNbXbCOyf6tbbBbB741QkdF6X@lists.infradead.org
-X-Gm-Message-State: AFq9FYK5b/AwbIUUVbNOTCmls/jbOu7Zn5U0FEsmpFlOR0QdOO0j8UXy
-	4UB22N6e0YlmX0ihgAcb0vzOJ2ILY+KTmEedR0xZm2NAJ4HtlXRxUw0u
-X-Gm-Gg: AYBFou2EU05HIB8l36PPF58UTh15pdiqIcBAbWt8TF3bS8PedGmjlZfCb7SxEqTEk4w
-	pxU4iidB65ciUnUQ3T4jnqT25qvUx3y6e2JEiUncAORhZfn3Tz2gjEdB3QsfYo+oaaOE1vXAH2E
-	R6JwrEufbdW+B3fPi2BGhO+uYAhyGEIwAwEJyV2pajjq4CObCgW9/ZyFgPXthEA0+5tbaNFXwdz
-	yLs09vlawb19Zdr//3er1DZAJVjFy1hykyhWr4MjJeuEuXrleY5Fvyp6x4YkytkMLolTV+OaPaI
-	rcjMBR859+hgnhYVw5nxUGiqfVr+KmHzfSMxXYBBRnGRTD73t74o0UjOTevDlX+j4/MzfJZH4Pq
-	NNPV7SPlGrGkTb7QFBmICqKWnifhD8wi2PJvLRCIUP9CgIu2oOQFX3fS5B+q3xBRkzRq1hl0B4l
-	hqXDR4+idhZhyRjvHVyVzfcDxEhqUNuthX8DdKQzB5kjD0hTUdzrJ9Hj2mbTzNGD1o1l3IAFh1I
-	yjXb3DkaSCMZkGv+5XkLNOnSBTtmC9uAVk3EkPuZWMHLVcR8nFsonFVLVUrYyBQtd5bV2nhyjgT
-	+m7YVpk12XtT8W+GnHcKkjDBRq9CZMGEuwMSHd0xEL9Mr/3kS7vLZ3RziuDrBJ3AKtB6rwn5Zp3
-	+3Q==
-X-Received: by 2002:ac5:cd4f:0:b0:5cd:4fdc:4c30 with SMTP id 71dfb90a1353d-5ec3ea67966mr1617819e0c.8.1793203447486;
-        Wed, 28 Oct 2026 09:04:07 -0700 (PDT)
-Received: from localhost.localdomain ([190.177.146.128])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-991259db2d3sm6354565241.6.2026.10.28.09.04.00
+        d=1e100.net; s=20260707; t=1793203585; x=1793808385;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3uI0MFbTtASjLF9hlBwhObgSemLAwBt6XCum0+3gyyM=;
+        b=BnwvRP/TuPx+nahGJxN8w7TyWVDG2aROm/qed6NubbWs0XdHGsQ9klW2cTjyijbUeV
+         cjIvcV1aBXd+DPCCN/hMuXJ4f6C8wglO5KntLlWi3kNLPJ27sLKhF1P/vJ/U8tZyprUt
+         hZ3JOoqhp6gLQM5l38Zu+8N5WsRZd4Tr0y2+kt8KMb0XFOo1lAYn5wGW92XNj6g3Yubm
+         T1Q2qUkoBmBraJKatWA3j8be1Mpol5iJNSEPIWrr4DQVFLV98jZb4v0DVd+fw3oSFdXN
+         lOOPyyKj0zEhj+dDGeJuojHtRGfkAC7ryc7jTKqaYI1LlNmfu3gC2/B+cRi8OQQ/yBo0
+         YCPQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxZv3B58ef3CMlaAfTqicMSTBshcjwOO0uwvjSoqfD43pdJVO/k9fq/cWeHaKmfHys5puhqqvdf0zx6MntdEwnR@lists.infradead.org
+X-Gm-Message-State: AFq9FYKjHpNB7tZtmalbse6u+dr0Qj4Wl2PMtlH2TLxXeD8TBEPjs5zU
+	/+CSFIWPr/HM0YSSpcfkOu86UsspVo6dNB8ZMY5WFHyiJ3yJZ1GTPfn+2NEtmQjZe2k=
+X-Gm-Gg: AYBFou3ZGkC2pLK4nvE6SrAIMTiLIwdXzz90g9Rhfr55vf7FC88qv7hqArK+VsA+VZi
+	7J1Ex8u5/Y2iuhM10ExxGmSL6PgPhEjqOe2kJgtXWg4+3hTPAbBLCfTnmczKJ8fDtOAqhOL2PeV
+	ggKi4sASaWVH7NqWYmp+CzINmtHmHfDn/h6kSpRTIALqeWBIbajwVhLdw4agzBU839SCN76emCF
+	9HZ+3J874lya+RVQ0APlBUFVenILjp/aTB8ZOpohf52a9j9JImlrSKl+pGEMtrWxhcmzbn+DgbB
+	mMSvDq9jpjP5v0tEVkj6DAU8xnFRZPwovGxhX7s+FxU4j+xCBiWoP6aMTXqd1OqcIWh+e1KkWQp
+	nKw1v4/fhAD7jgFxOsaIDKLFHAq/Rf1bPRY3z4MwiFlKRggAhRTqZnYCmE5ZaJTXfak6OWfgnQS
+	OA7UIq63OqbrCtmKNhQ27ANBgPje6ZcD/PuIQPVO31Gj0wOFOK4tfS32B7TuskW26DWiWOlZvh0
+	dqibwjw/4Ey+L4EuxULW2Px3209iJxv3u3j0yDO5CyzqUwnvxoMILYR6O4IPqFgTBcITxbE1VS4
+	QNMekDmRsqtBDuQI4KlKJ2aUdhmDwHCYC22FfQDytaiLhS+X6ogajGzjQ9fpJQ545dxrROg1jPZ
+	JyJA20e80e8Jpf8YRnS+FsoHaQ8x7WogNEsO7nqV031SLvE7Z
+X-Received: by 2002:a05:600c:4e42:b0:4a0:27eb:49b with SMTP id 5b1f17b1804b1-4a9678c276dmr60643465e9.30.1793203585194;
+        Wed, 28 Oct 2026 09:06:25 -0700 (PDT)
+Received: from z13-ek5.local ([151.40.161.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa81a896ecsm1625875e9.9.2026.10.28.09.06.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 09:04:06 -0700 (PDT)
-From: Cristian Papa <pcristian292@gmail.com>
-To: cjd@cjdns.fr
-Cc: netdev@vger.kernel.org,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chester.a.unal@arinc9.com,
-	daniel@makrotopia.org,
-	linux@armlinux.org.uk,
-	arinc.unal@arinc9.com,
-	Landen.Chao@mediatek.com,
-	dqfext@gmail.com,
-	sean.wang@mediatek.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	naseefkm@gmail.com,
-	b.larsson@gmx.com
-Subject: Re: [PATCH v3 0/7] net: dsa: mt7530: support EcoNet EN751221
-Date: Wed, 28 Oct 2026 13:03:53 -0300
-Message-ID: <20261028160353.4239-1-pcristian292@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261028011317.1557238-1-cjd@cjdns.fr>
-References: <20261028011317.1557238-1-cjd@cjdns.fr>
+        Wed, 28 Oct 2026 09:06:24 -0700 (PDT)
+From: Ettore Chimenti <ettore.chimenti@linaro.org>
+Date: Wed, 28 Oct 2026 17:06:02 +0100
+Subject: [PATCH v2 1/9] ARM: dts: omap: dm816x: Add specific pinctrl config
+ defines
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261028-patch-ektor5-dm8168-dts-v2-1-4544429251e2@linaro.org>
+References: <20261028-patch-ektor5-dm8168-dts-v2-0-4544429251e2@linaro.org>
+In-Reply-To: <20261028-patch-ektor5-dm8168-dts-v2-0-4544429251e2@linaro.org>
+To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Christopher Obbard <chris.obbard@oss.qualcomm.com>, 
+ Andrew Goodbody <andrew.goodbody@linaro.org>, 
+ Paul Walmsley <paul@pwsan.com>, Russell King <linux@armlinux.org.uk>, 
+ Rouven Czerwinski <rouven.czerwinski@linaro.org>
+Cc: linux-omap@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Ettore Chimenti <ettore.chimenti@linaro.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793203582; l=1034;
+ i=ettore.chimenti@linaro.org; s=20261014; h=from:subject:message-id;
+ bh=hmVSe81lrJ4EvLkYlczyhL6zv7IwzxLZV9wv/8nR9Ag=;
+ b=LTKHuS4ke5N8E/7u8UBcMaws7grXO2Ccr8ynEVKSNxQOMV5oIM2lSk9PHFNQu6TahHNKaLFkw
+ 0Gq9UnU3vJnA2IHmEV5Itg5FF1w42ztMv/0Oa5jHnoCCzbkIUYNsqWA
+X-Developer-Key: i=ettore.chimenti@linaro.org; a=ed25519;
+ pk=wCaUblFVaqhuBTQt/hAtysafsAaEsqj/yOD9SPlz6NM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_090411_874035_336E2286 
-X-CRM114-Status: GOOD (  10.76  )
-X-Spam-Score: -0.8 (/)
+X-CRM114-CacheID: sfid-20261028_090627_654622_EA5FE2B7 
+X-CRM114-Status: GOOD (  12.30  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,55 +119,51 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Caleb,
+Add pinctrl config defines for TI DM816x SoC pinctrl configuration.
+Using same definition as OMAP2/3 except pullup/down enable macros, which
+are inverted for this SoC.
 
-I tested v3 on a TP-Link Archer XR500v v1 (EN7526G: on-die switch plus the
-MCM gigabit switch).
+Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
+---
+ arch/arm/boot/dts/ti/omap/dm816x-pinctrl.h | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-Setup: OpenWrt with kernel 6.18.44. I took the four mt7530 files from
-econet_eth at 3a8bcd2e6398 (they contain every line added by 1/7, 3/7,
-4/7, 5/7 and 7/7 of v3) and booted from RAM over TFTP, nothing written to
-flash.
+diff --git a/arch/arm/boot/dts/ti/omap/dm816x-pinctrl.h b/arch/arm/boot/dts/ti/omap/dm816x-pinctrl.h
+new file mode 100644
+index 000000000000..b93f971cbe95
+--- /dev/null
++++ b/arch/arm/boot/dts/ti/omap/dm816x-pinctrl.h
+@@ -0,0 +1,20 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * This header provides constants specific to DM816X pinctrl defines.
++ */
++
++#ifndef _PINCTRL_DM816X_H
++#define _PINCTRL_DM816X_H
++
++#include <dt-bindings/pinctrl/omap.h>
++
++#undef PULL_UP
++#undef PULL_ENA
++
++/* DM816x mux bit defines */
++#define PULL_ENA		(0 << 3)
++#define PULL_DIS		(1 << 3)
++#define PULL_DN			(0 << 4)
++#define PULL_UP			(1 << 4)
++
++#endif
 
-With the DT from en751221g.dtsi in openwrt#25330 (MCM "econet,en751221",
-no "mediatek,mcm", dsa,member <0 1> on the on-die switch and <0 0> on the
-MCM):
+-- 
+2.56.0
 
-- 18/18 boots: all 10 TRGMII lanes found a window, no "calibration
-  failed", "TRGMII inter-switch link initialized", DSA tree set up, ping
-  over lan4.
-- The chosen taps were stable across boots (+/-1): SoC->MCM 15-22,
-  MCM->SoC 27-29. In the SoC->MCM direction the window always starts at
-  tap 0.
-- 6 of those boots ran iperf3 for 6 s each way through lan4: 0 RX CRC
-  errors on on-die port 5 (~1.05M frames) and on MCM port 6 (~1.29M
-  frames). In 4 of 10 boots MCM port 6 already had 1 CRC error before any
-  traffic, probably from the calibration; it did not grow.
-
-Following the binding in 6/7, the MCM does not come up on this board:
-
-- "econet,en751221-gswitch": mt7530-mdio.c in 7/7 still matches
-  "econet,en751221", so nothing probes the MCM and there are no LAN
-  ports.
-- "mediatek,mcm", which the binding requires for -gswitch: the probe
-  fails with "Couldn't get our reset line", since nothing provides an
-  "mcm" reset yet (the TODO in en751221g.dtsi).
-
-So I think 7/7 should match the new compatible, and the binding should not
-require "mediatek,mcm" while there is no "mcm" reset for the EN751221.
-
-Not covered yet: cold boots, and the other LAN ports beyond link-up on
-lan3/lan4. I'm happy to give a Tested-by once the compatible strings line
-up, and to rerun anything you'd like; the full boot logs are available.
-
-Thanks,
-Cristian
 
