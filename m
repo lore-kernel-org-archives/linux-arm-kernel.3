@@ -2,133 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69506606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 13:45:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC0CF606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 13:46:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Srp7Wy8m;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=dLaONNId
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wVCLiOrZ;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fHhxxYPk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=lNe9VIz1JB0ALvrfs6JfodtIkYHiLpzytttO48Majpc=; b=Srp7Wy8mrGoYnmtZQhNXgh4XUB
-	pdri8HhTJIOk1pz8ojkouQYQwTzT2Gm887ZHCGZn+oLLJOx3De5TEXzxX8Uq00CFUYg/BnvemtJD5
-	rKh8KB8LxNxQFWrS7pgis/rC9wIFh9X1wVvVFqGDzOth/TrvdC1FMxbhF+Zxexj7mxK4a3R7O34Ox
-	jnwSaK0IGxTiQp7FEs9t3zg7qtsLiZ1gUCThJIgXUjMNDo2CJ5LWaEL8xrjzNCiW5Fre5UNplb2QG
-	BFuf8S6Hr+hyGP3E6uhq73wfmDAU40cOW7VWOY8tAvQ0qDUxYG+nvWQgR8oeY8G0Ni5+cZB7T9GFg
-	YoQRoz0w==;
+	bh=PB3bcTSjIDz4nO+XHXTgRZYRg2UXUqYLAr6X7az+r2o=; b=wVCLiOrZe2qGPZvGIxF18uzdPa
+	P7/Gh4dlwemSgbH0wUmHF+7LNAN/DGDyFHsMUdfLk8xXWDKF5IJfL+G810IkEQ6nhQuN2yXXiEmGG
+	Ne4S+vBFNTdYf1kWZECMdGS1NnEnNTXQI5tBc8dxgQR+4ZIbRuw/lhAOELC7atQph4iyq/tDnVmyr
+	S42tzP/3r5lbbFXVpTkGw8e//fFYBmttvPzGP3DLN683jjS62+PrPkDpPtj8xTceLO/d6/Fo1dCe6
+	/6mhKOxggMs1HkgS278Mv1BTx2oS7aCoQ5czWIS7TbvHLfTMFWGTxOVOlBquvbemqOtygXM+82ahH
+	TgVczS3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM3xw-000000076JP-2STm;
-	Wed, 28 Oct 2026 13:45:20 +0000
-Received: from mail-northeuropeazon11012030.outbound.protection.outlook.com ([52.101.66.30] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xM3z0-000000076aH-3Jah;
+	Wed, 28 Oct 2026 13:46:26 +0000
+Received: from mail-dl1-x1235.google.com ([2607:f8b0:4864:20::1235])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM3xu-000000076IM-0B76
+	id 1xM3yy-000000076Z3-0rGH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 13:45:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hw96dXQapwsOOf2sQcbtq5iKmQMhGUglAuL6S4Tg/lTitmQN/lcubZzqjBWhl6tDnvc7V/kL/Jt8+OhWnpBqdqg2UEyKo1OpMQbjJ1F7dW/WEBAdBTOE8btzRBC7/I2YyvTK4nX3huR3W8cMTkuEHpp3PSNF33MhS/XGafsSCQEgP81D3A6Biwlo/s01IKz1X+42Yy61nC0/mRD1w7aaJB0H1ZHcOcmp0iC1HyQXyO8f4SaPqIDKiJDRenpgex2jRq6v1jRToLwq3F5H8p9ndvAuDnbjbAdtuJK8pRty3kpq0dk0tYAsCuzIkfArsmV9sgMGfMPWnoYBzQK1eQ3j8Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lNe9VIz1JB0ALvrfs6JfodtIkYHiLpzytttO48Majpc=;
- b=tUB00+fQVe9tO3Qllb+V7GstzoE5GXmIuBvKpqidBVTfW+A2OOc81dIwH1gJ0CZiFVw5wzVzBpD+DzcCExZ8Xp5Rrj8PQPkNpNWGE/X1IwMulADqZTcScj+w7lX724G/6I3a0EP5JofvQ1RTuNuCn0d4/p/Fa6bRlfNfoLqXWwZRNjPCBpEdTSMYQWOuY3DRZ6Ss1ES4dLnVd5QHsA4Rdp+qRq+kEIoF9wQfCcXf6WB08gHlDd6kIoey3hqWXyVErYodl7iw3z3gt1chJc1qZjSL1dB3wo6Imdg/mVz64hjtoz4J8wgVqamYWNqfZh12DFyh09ITcVjpxhmQxJ6jpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lNe9VIz1JB0ALvrfs6JfodtIkYHiLpzytttO48Majpc=;
- b=dLaONNIdiQ25add9HaGu0pB8XIx9DvjeHYRfEo4D9afDo8UPE/kzsDBPyqfb19rnmkRFNTP/T360jbUlugXC3P8dKLPhF1ycHyKrHfQmjiYzEH9iiMz7xtPT2UGzJirZLyqs5LCu+3pHAquAN3b3eY1vGo3GHJE3+esyqWhhjnc6vET6F3TzgbvojREkUnWKi6L60VhJzbSazmSd36JgQioNcyfjn14WDPZw/Nv9YL5pkpCMWeveUBQP30ED/Am2XOHq6FUQPGV/fmkJsqdZBtEd5yOebCqj2Rm7dd9gFE6dl4UPdhUsv/Hh4ZLf/FfSQbxQkgD7SEElwMpfT4y5CQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by GVXPR04MB9759.eurprd04.prod.outlook.com (2603:10a6:150:111::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.27; Wed, 28 Oct
- 2026 13:45:14 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0546.021; Wed, 28 Oct 2026
- 13:45:13 +0000
-Date: Wed, 28 Oct 2026 21:49:58 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Peng Fan <peng.fan@nxp.com>, Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH 2/3] firmware: arm_scmi: imx: Validate MISC control
- response size
-Message-ID: <auH9hoZhsBqeTHym@shlinux89>
-References: <20261028130502.2999676-1-sudeep.holla@kernel.org>
- <20261028130502.2999676-2-sudeep.holla@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261028130502.2999676-2-sudeep.holla@kernel.org>
-X-ClientProxiedBy: SI2PR02CA0047.apcprd02.prod.outlook.com
- (2603:1096:4:196::14) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Wed, 28 Oct 2026 13:46:25 +0000
+Received: by mail-dl1-x1235.google.com with SMTP id a92af1059eb24-14fc585291cso829311c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 06:46:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793195183; x=1793799983; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PB3bcTSjIDz4nO+XHXTgRZYRg2UXUqYLAr6X7az+r2o=;
+        b=fHhxxYPkkgnvx/p8ikMLsQx6mw46QEIUkuQYWPBguUN8nPzU7jE0u0SV6r0vqjNE4t
+         wIy2/5HmPGTv4h25ryVy19D9yUBubUnBqAY7HLbBG8jSGU/8WQByn9Xp1wakt5q5Vb/R
+         awiiKE4wsBdukARhRFvLrLuVIl5S9zpEo9wbXn89gK9sK6dXYHB1sffhODpom1GGtR7u
+         0yY9JHHd69JRX7FARYoSigALDh0R/nzlLGXYSCMu2/aNkzOf1iweHvM5k0Ol04N8Tf6m
+         hkTfJt5wO9pvJuDIPooUk4eT24CdOcIFRQs1YYzn2YE9+ieeypvaCI3S4HaLzBBGBgUP
+         vIGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793195183; x=1793799983;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PB3bcTSjIDz4nO+XHXTgRZYRg2UXUqYLAr6X7az+r2o=;
+        b=QhHSLRON0FzGL61bYMgRixmLU7IBp8E5sBW42LLnqCxR2/sSHzLVDk+x8cOe4CEL9B
+         E8M8w+vW3nWyBohBAi494im6zLKdC+J3kwBGH7KrCb04v6X2RiehRGBp+04Ngc2X00cT
+         bNLSv3Y+Dul9WskTEZTMQVHRjVMAGRJ451BkBvYhYE6aZFPJ9mb8rEnKE6X6J5FH+ATo
+         pIeBhE9KmCL6wQA9vkaD4IYOSx1uF6ndzImGm4lffZ/wNC0FN6toQSCcm5/9EtC183N3
+         3WKE9T9Bm16xaootyjyiQYcjWgGRPavXFxe7ns603x9GDlawFsqUE66Fg52QhGGaqbqf
+         a6xg==
+X-Forwarded-Encrypted: i=1; AKwUvBx12s1y7/02cTZJGojlLT0f6+zOPS+wuaT+g+QM7GFKMly4maPtZc1ysqZrFG/LM8XK3EcClE3hQw6+kIbmwOwa@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ6w0Zt/peIfyrT3l673cXfpNFA9P3gmRtSFzRVG475yUzmQ4Jp
+	QHhaX79Qv/9dCCvq1loVkv05MvMAW19yFwrGer8MfWYJmeix3Y62JctjXLnP3hXdpsQ8AQ==
+X-Gm-Gg: AYBFou0hOMbPQ8atddFgX5Bu8x817ngPqMI8eYoqQMlrDC906bN6ak2qys5f7FpBcXG
+	Okev+OMc6vIkIEqcO8Ay5Gd0igS3qABZC+dCgmUGfTa2BO+Wp5eHY40L4KtXIoVhZODIBZUiJc7
+	qT1cQ/tTXQ8a5AKw3KHHQxhgRz/tJPHyDaPDpJmZzDOTtadFvz2wvGebdlkXvJbIixL/nSkOjKQ
+	tDQN/ZZxh0YcYPwaBV3RO4k134FlOqQYpaO8HxB/ViS+VtUYfL7sM0ftkQkhUyIQDvlxAHZ494x
+	MlwZt2QI0pujKugOKL1Hnhfyqzw+2rmCMejlNkYZzEJ3+qy6cs18muZHXShGfkExH3jTBEUiVpR
+	2pAwOuOJpuEktBhr5AhzUVWBkFSC96d/opqhviewrjXuPBeY/cStsd3peAfVBj5S4BVKPV8BXgF
+	epKIf/yD2meECoS3+XYTGtwo+EP7TsyTju/tYeQZ58xmrVD0KZLJJT8J5aZvxNN63Q5iCBdKly8
+	48Bk4inG2zFwSQJxzn1rcJ1ryJgA5/uRArIJMsQNMlhN2gZRQl9vHWxJ279HvEiLniLVgJS5mhg
+	NDufIhxfoFBhprWI9Q==
+X-Received: by 2002:a05:701b:2044:10b0:1a0:b650:5c93 with SMTP id a92af1059eb24-1a6cfde23a7mr3093747c88.41.1793195182199;
+        Wed, 28 Oct 2026 06:46:22 -0700 (PDT)
+Received: from jklsarch ([38.244.63.126])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1a76056a001sm8583561c88.22.2026.10.28.06.46.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Oct 2026 06:46:21 -0700 (PDT)
+From: airjinkela@gmail.com
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Sjoerd Simons <sjoerd@collabora.com>,
+	StarField Xu <airjinkela@gmail.com>
+Subject: [PATCH] arm64: dts: mediatek: Fix malformed SRAM ranges property
+Date: Wed, 28 Oct 2026 21:45:44 +0800
+Message-ID: <20261028134544.594888-1-airjinkela@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|GVXPR04MB9759:EE_
-X-MS-Office365-Filtering-Correlation-Id: 738d4f68-14e8-4fd1-d604-08df34f9b158
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|19092799006|11063799006|261026140227099003|56012099006|4143699003|3023799007|22082099003|261026121527099003|261009223027099003|10067099003|18002099003|261022105027099003;
-X-Microsoft-Antispam-Message-Info: coXjut4tlFPfRJlcjg3fRhjL/vhlaa2SsBmUnBeTewcF2knBe/fRQuzivlvsXchJNlZqUguhsO37D3iom1WovFUI/s+agRGlj2Gn3zjCq/TBrM2L8W6RiZijKz3m3ucPz2k1y9bg4bhLj1YH1WmdWd7InAFHjzsSzAPabFppzpu33ABsTuCmo65eCv6eBp6E1+SquQYhS7y5PfeOVqudqgkCB6SV3yzn2U6ET3dzbCVddd+lxW6zCtz+Izl/DHLYFEgm31T1FPG4SkAeP8ouvEUXs4fjyKmUaqzZ267ikBsFkCV22IKZq47RtzwjJiVCP5jQ+obwyprYGJVot8ih/griuRWqiYxUrwcmERtN+amQ2lurM5nwAAgRxAxGvl1dnHNzQndFSIxF1TXbtbvbahiv7Xv9nkM7g16V0qMj5cjciR41KQOJuB5/Tdhrd7ZNpJ4cEZhcPa7OMIbtOJiailEgDwmJYTSAH11RB6w3WmT+d6qSFw/tcuP1F4gUbj8m9ZtDyTBNokZJri8xRTPwJ/GosiyDEkehK9irRvQ7oHpvT8IzQnelDIv9vOIoSfD8bALSHCxsPMwstTJXta2brKbeAposGk6tOQWwgP+TGJo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(19092799006)(11063799006)(261026140227099003)(56012099006)(4143699003)(3023799007)(22082099003)(261026121527099003)(261009223027099003)(10067099003)(18002099003)(261022105027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pR5s2X7xT5MhcKADUiS4y0NP73ORtHeLmk4QMN4rYjkDjyc6KtrO/seVMOS4?=
- =?us-ascii?Q?7zbvrf++6YYIx3WpdmD1E53ug9YLWJk4xR3rLdMV9ZWShTxbMTw9yjLHqXBa?=
- =?us-ascii?Q?QzDSm+Dzd5/Zk9pjZNcKL7D1YqF8F8CvRPXkNR9yT1cHLypiFm8TciVjHtbR?=
- =?us-ascii?Q?kX/j6/s8WgrQKUWjT9Pn9r2YONvGhOEXRlxWGdosM2rDZXIdr9Zb3moILUfq?=
- =?us-ascii?Q?+DnG+0CF7PztMsk/DFeR3Fmh2sU2zuIkHfsPyOcOFJETqtQDD9mRv2dmjEUi?=
- =?us-ascii?Q?gLIJX93M1wPg8KPSxS0XDm3DWhthvIAl92ZxqJItcfJQWcvnM2bSeAg0WCXF?=
- =?us-ascii?Q?RgJrjtssXMFtDfw1LN124EEpPk2W0igeRTnhtZSmf03S+Azv3LlsMFm6Dvap?=
- =?us-ascii?Q?n7JUiJSDVfNs8fssAAbuM0fwa6akhLTr6Ym3i0pm+nypaKIWX0yuteggmAai?=
- =?us-ascii?Q?kP/ENSwYK1p4sWgF4oVrp2IRkaHjp03ZlnGT0HonHuhJt4s/asLIM6cDioui?=
- =?us-ascii?Q?1T+wt5+fEMOfBxnefymMNI3i3yDrIwNH861ZWK0gr5p45cpHQHDrw4fGx654?=
- =?us-ascii?Q?+mby/JGR4sn6x+Yq+nC7LqUCCDZ4oWxl3NRXuYsI4t/I5O1oLKGFwuYVnFrS?=
- =?us-ascii?Q?5OHvY4E2fy7pAZ+gV/WYIcKdKwHmP7AMBp7tvfeEB9/QoxOqr81DfqJFHuUv?=
- =?us-ascii?Q?D4BJDlXfKmYd+rI6JzRYloWqWyHcfIOkpJ9b6h7/HQ1SqPXYZ2JiQIk/EIr4?=
- =?us-ascii?Q?XaJATNVqTvu3zLv+tQVsEkwlBs7yaJQSGhAF66T1JhMdJEz6DrDIum0KoVBn?=
- =?us-ascii?Q?1MtKKPk4CO+4PuYdhY+blGjU0D4bazJMsIzgitmg0brXWrHtuXKRhY2kA+x7?=
- =?us-ascii?Q?AcbZqegxwZd/roFz7T2xMCynGBz0UpvlLjm42LhaCe7uiqtoQpLL87fM6AnE?=
- =?us-ascii?Q?+eD1qXeaOPTNC+KiRUmpS9dWD5S2DzlUVGJdzR+TtrECOhLQfYrl+m3RRh43?=
- =?us-ascii?Q?SOrG84lRkjx2CYsLPbw0tZQ/VhraKWBmA+fOJ681IVgqN0tYLeM7PTZ5IGD5?=
- =?us-ascii?Q?pCVUbdV8040WmKbXVEJtc9ytvtPUdFFKRjQaikrn2oVklBsP23rVWq/FJ4OU?=
- =?us-ascii?Q?X0Mwh3TDcqlH/I7A30WQCYp7iWvuotVbwE4xYE/VO7E3XJ+Zxo+ScVNvzlMj?=
- =?us-ascii?Q?qGdGaXM8mD+Q0hsYdy8e5miKrEL6IbC/8sZuA5q9UgvdGwej/1eLcqR0P6VY?=
- =?us-ascii?Q?4fpZvwJQPC+6wSvQtciioLsGbLz4y6POH4O7kyZOqlO65VlpjrnT+9wo5K2J?=
- =?us-ascii?Q?D6fKz5/TL0JD89/Chg7mbjmWxHTRvhyU/Bb8Vc3ONCcXFulUZii9i6JTav0b?=
- =?us-ascii?Q?ttfmHGdjIsxx8VWeL5DTJO1BwOd4Bv38DxXVTv5Le0I3W8ojW0sQ0GTDdHpg?=
- =?us-ascii?Q?2bajJYNAgkW1elktyOQC3mdY3+iJS102KjoeYFYVhy+or0+mLct+ccGr9QMN?=
- =?us-ascii?Q?DOnolLIFBc/eam7w9FdAFDvN3cHSCRur3a+rlJoUvcuCiEyUEzWymx+u07Hf?=
- =?us-ascii?Q?wfdV3To0uteVRyq+J41BUYmaMcxN4QL9QaH0kVConWlTWoknDtjs2OACRjEZ?=
- =?us-ascii?Q?G5M6jI5rFXdy5OGp7j5ArBCkXgoxJzEThNNuYLEMT9eyt2KcAz/LafHKtwxg?=
- =?us-ascii?Q?Lyd9HsIDQeTw264OmprSAIu/incxW5g6XPyKFksXEllz4t6HkqQsxUliPzdB?=
- =?us-ascii?Q?PHLPfbVgnFkPiiEO6thE+rMmrPFoVw7U+oOV85kvWx5vee6KgKL3?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 738d4f68-14e8-4fd1-d604-08df34f9b158
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2026 13:45:13.9144
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cDIjQnFyk+Y31elXSq3Ta2kLFGTTqybG8Ks1SHGdhDSnUPsCunhMsGPYYJ5h9yo6eFx7LlMKGUmRgIxrL+dwtvOtMK53sMziB8mY2vy2mj3IXfi5xI1hZHMBvhM3XJSA
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9759
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_064518_087745_84D53CA0 
-X-CRM114-Status: UNSURE (   7.69  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261028_064624_243489_A4A34B4E 
+X-CRM114-Status: GOOD (  14.73  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,29 +103,93 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 01:05:01PM +0000, Sudeep Holla wrote:
->scmi_imx_misc_ctrl_get() uses @num to report the number of
->values returned by firmware, but it did not retain the caller's value
->as the capacity of @val.
->
->A response with more values than the caller allocated was copied into
->@val unchecked. For example, the MQS regmap callback supplies storage
->for one value. Retain the input capacity and reject responses exceeding
->it before copying, then update @num only after a successful copy.
->
->Document the in/out @num contract of the exported helper.
->
->Reported-by: Sashiko <sashiko-bot@kernel.org>
->Closes: https://sashiko.dev/#/bug/linux-6897b44a-57fb-4964-95f8-447d0ce526e4
->Fixes: 61c9f03e22fc ("firmware: arm_scmi: Add initial support for i.MX MISC protocol")
->Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+From: StarField Xu <airjinkela@gmail.com>
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+The eth_sram nodes on MT7981, MT7986 and MT7988 sit under the soc
+simple-bus, which provides #address-cells = <2> and #size-cells = <2>,
+while the SRAM nodes themselves declare single-cell addressing:
+
+    #address-cells = <1>;
+    #size-cells = <1>;
+
+A ranges entry is therefore sliced by the OF core as 1 + 2 + 1 cells:
+
+    child-bus-address  (1 cell,  from the SRAM node #address-cells)
+    parent-bus-address (2 cells, from the parent bus #address-cells)
+    length             (1 cell,  from the SRAM node #size-cells)
+
+The existing values place the parent address in the wrong position, so
+the 64-bit parent base is decoded as 0x1540000000000000 instead of
+0x15400000. dtc and dtbs_check stay silent because the total cell count
+still matches na + pna + ns, and the sram driver only translates child
+addresses, which currently do not exist on any of these nodes.
+
+This is a latent bug: adding a pool or export sub-partition, or any
+other child with a reg property, makes sram_reserve_regions() fail with
+
+    reserved block ... outside the sram area
+
+and the driver probe aborts. Fix the ranges tuple for all three SoCs so
+that the mapping actually resolves to the SRAM window.
+
+Fixes: 65f0e3970143 ("arm64: dts: mediatek: mt7988: add basic ethernet-nodes")
+Fixes: d0c970091abf ("arm64: dts: mediatek: mt7986: add sram node")
+Fixes: 9846a8c60318 ("arm64: dts: mediatek: mt7981b: Add Ethernet and WiFi offload support")
+Signed-off-by: StarField Xu <airjinkela@gmail.com>
+---
+ arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 2 +-
+ arch/arm64/boot/dts/mediatek/mt7986a.dtsi | 2 +-
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+index e63ba3ae395e9..2718c7dd7eb60 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+@@ -492,7 +492,7 @@ int_gbe_phy: ethernet-phy@0 {
+ 		eth_sram: sram@15140000 {
+ 			compatible = "mmio-sram";
+ 			reg = <0 0x15140000 0 0x40000>;
+-			ranges = <0 0x15140000 0 0x40000>;
++			ranges = <0 0x0 0x15140000 0x40000>;
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
+ 		};
+diff --git a/arch/arm64/boot/dts/mediatek/mt7986a.dtsi b/arch/arm64/boot/dts/mediatek/mt7986a.dtsi
+index 318639a7c64e9..98fd74824653d 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7986a.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7986a.dtsi
+@@ -579,7 +579,7 @@ eth_sram: sram@15140000 {
+ 			reg = <0 0x15140000 0 0x40000>;
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
+-			ranges = <0 0x15140000 0 0x40000>;
++			ranges = <0 0x0 0x15140000 0x40000>;
+ 		};
+ 
+ 		wo_ccif0: syscon@151a5000 {
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+index 8c9a5aba25791..d497ac826d669 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+@@ -1009,7 +1009,7 @@ eth_sram: sram@15400000 {
+ 			reg = <0 0x15400000 0 0x200000>;
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
+-			ranges = <0 0x15400000 0 0x200000>;
++			ranges = <0 0x0 0x15400000 0x200000>;
+ 		};
+ 	};
+ 
+-- 
+2.56.0
+
 
