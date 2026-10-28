@@ -2,43 +2,43 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3A4D60A5BCE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 08:20:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14B0D60A5BD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 08:20:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=D1saTv5J;
-	dkim=pass (1024-bit key, unprotected) header.d=ilvokhin.com header.i=@ilvokhin.com header.a=rsa-sha256 header.s=mail header.b=VVlo1g2c
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AHkCbZPH;
+	dkim=pass (1024-bit key, unprotected) header.d=ilvokhin.com header.i=@ilvokhin.com header.a=rsa-sha256 header.s=mail header.b=gY3XUXUz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=FiKV5NXJkUgnsMcI+sXb0n0HNmp3jB2cH055fflH0Yk=; b=D1saTv5Jrsef+z
-	A2devurh6IzfyqAIf3BZ2jRmDHb/MK+YUtiYnrvec2cuArveiJHWy/SoBQH59bHnfq1UMrCsJdvXk
-	wZmZ236xw+2U03bWtY4yXYUBH71GDpAwi4p1SoddTKqZ89B0nbOlpq1vBdq2em/NB1tNDOZA+bmXN
-	uWG+5eZBmKkIPXCHRnuICIhtriD+OdhRxCOAKZoojzsQ7EFhMqtQP7i/EPi3Wt8EXt6EtAPZpIZrL
-	avJdlR78AJQ1+gMzXBO1TW9zc2eo4VzQGMScbBxFeYZQBtkCBrt9wcp+oQc7sOh/nhD7pKxZEQgl4
-	vFhnXveSVGPnt/5JcF8g==;
+	List-Owner; bh=f3wDiNCwMmjyXbWSfqLqTJmF38wOioqFlsZp1JBWY8g=; b=AHkCbZPHfWZ7iG
+	CK+wik8n6+oP5YS7/5ULjD43jeeRwuv/x9MP2lH3hV6982kf3iB0tdKdv7Eq04BYEONoQJcGnWMf6
+	g+2k9Xh90H5f6XCNyvnyS/B7eDj/8QGuyuk6hOjvshl17p+fHS2RUJv19Jd8KaWYlgDIdITKip3VW
+	5ZWa2Y+ZLWunCr/ZYgOUVpKWsVHfIM18DlDOC35COipUfkqMDWaUrAixYoJaT2yCYPh1rlYtxIfMw
+	vs+nrJ8tNjHg1BA9SGXTOWTMgv3gaVgSu8wTLZCgfyzJWVs8GYLzSNkihvDJBvJa+j9oanxgAdYkA
+	8DBJUc/qwLzY23bYmX0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLyts-00000006Wtr-3t67;
-	Wed, 28 Oct 2026 08:20:48 +0000
+	id 1xLytt-00000006Wud-1KzZ;
+	Wed, 28 Oct 2026 08:20:49 +0000
 Received: from mail.ilvokhin.com ([178.62.254.231])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLytl-00000006Wlj-0KRt
+	id 1xLytm-00000006Wm0-0ZZ3
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 28 Oct 2026 08:20:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ilvokhin.com;
-	s=mail; t=1793175636;
-	bh=FiKV5NXJkUgnsMcI+sXb0n0HNmp3jB2cH055fflH0Yk=;
+	s=mail; t=1793175637;
+	bh=f3wDiNCwMmjyXbWSfqLqTJmF38wOioqFlsZp1JBWY8g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=VVlo1g2cdt+56K8mWNs+kTnpuMnj6v1NqMXFWNclXmipKK5Opz7hXWMThpTbOSgyj
-	 eOL9BeLA9artebTwUe3aomW3AQpvt1PlkLxI2lRkk5FAhY0kJkXeOLwyoZBdm+iTWu
-	 I8Pef11LheXSvHn1Q8Fn9g/yAIYYO1mDlqVjQ0aw=
+	b=gY3XUXUzE59WwCVC4Qxuo4c1OjSPVasCM7D1wASmJouVr1JmoDvCR1fpvkN/NRule
+	 x920S0FQBtza5BGKQpbvfVCzTkgENiiK4WcKdNZUluCqTy6kzWj7Aq537yU0sAAPsA
+	 q2wy/d0fqfUd08AA2eVS24Chvy9WL59hmC+ynavA=
 Received: from localhost.localdomain (shell.ilvokhin.com [138.68.190.75])
 	(Authenticated sender: d@ilvokhin.com)
-	by mail.ilvokhin.com (Postfix) with ESMTPSA id E3709FBCFD;
-	Wed, 28 Oct 2026 08:20:35 +0000 (UTC)
+	by mail.ilvokhin.com (Postfix) with ESMTPSA id 0D880FBD0B;
+	Wed, 28 Oct 2026 08:20:37 +0000 (UTC)
 From: Dmitry Ilvokhin <d@ilvokhin.com>
 To: Alex Deucher <alexander.deucher@amd.com>,
 	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
@@ -79,9 +79,9 @@ Cc: amd-gfx@lists.freedesktop.org,
 	linux-doc@vger.kernel.org,
 	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
 	Dmitry Ilvokhin <d@ilvokhin.com>
-Subject: [PATCH 06/10] drm/amdgpu: switch to __nonnull_args() macro
-Date: Wed, 28 Oct 2026 08:19:45 +0000
-Message-ID: <d57489b8bec240794a7a8aaac6e1e3e0d78ea331.1793027261.git.d@ilvokhin.com>
+Subject: [PATCH 08/10] leds: pwm: Switch to __nonnull_args() macro
+Date: Wed, 28 Oct 2026 08:19:47 +0000
+Message-ID: <ed2b0b67c306bb458ba389f16dc92904203a104b.1793027261.git.d@ilvokhin.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <cover.1793027261.git.d@ilvokhin.com>
 References: <cover.1793027261.git.d@ilvokhin.com>
@@ -89,8 +89,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_012041_255020_6A92E83C 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20261028_012042_545132_5E31C3FE 
+X-CRM114-Status: GOOD (  12.94  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,22 +121,22 @@ in one place rather than open-coded at every call site.
 Suggested-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
 Signed-off-by: Dmitry Ilvokhin <d@ilvokhin.com>
 ---
- drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c | 2 +-
+ drivers/leds/leds-pwm.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
-index 8f0720a77520..c238564b4a31 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
-@@ -307,7 +307,7 @@ static int amdgpu_ttm_map_buffer(struct amdgpu_ttm_buffer_entity *entity,
-  * move and different for a BO to BO copy.
-  *
-  */
+diff --git a/drivers/leds/leds-pwm.c b/drivers/leds/leds-pwm.c
+index 6c1f2f50ff85..0363d370828b 100644
+--- a/drivers/leds/leds-pwm.c
++++ b/drivers/leds/leds-pwm.c
+@@ -80,7 +80,7 @@ static int led_pwm_default_brightness_get(struct fwnode_handle *fwnode,
+ 	return default_brightness;
+ }
+ 
 -__attribute__((nonnull))
 +__nonnull_args()
- static int amdgpu_ttm_copy_mem_to_mem(struct amdgpu_device *adev,
- 				      struct amdgpu_ttm_buffer_entity *entity,
- 				      const struct amdgpu_copy_mem *src,
+ static int led_pwm_add(struct device *dev, struct led_pwm_priv *priv,
+ 		       struct led_pwm *led, struct fwnode_handle *fwnode)
+ {
 -- 
 2.53.0-Meta
 
