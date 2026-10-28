@@ -2,69 +2,115 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAFF9606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 14:47:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86157606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 14:48:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mzhRXULk;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=j1P+R26b
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FaJnmCyN;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ChD6wBWt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=bkdqYhvgTV3TxfzYF2JwGYAKi+AJ0WqJz3A5EIXwgoA=; b=mzhRXULkXFEv94
-	ZGicPAEAYzcIiN7Ny3gKKNcPkQd9gxpmS/zBxCovGFr1Yz34+bv0abiniYg8ICgbFbDUTM/wVFSu2
-	UwKjAEG9rXjDM34q41C0NUtq5mqp/PQaSGWdvTB7fzLVxpmsAOhFdAjXPuHBA59ZQ8kkyDnbhDzQD
-	CeyC8Fj/x1uIPeTKH8FDyrSbYaEkEBmqha5DJ328e/1ZU7Q3WZ1gz4UzSxeR92l4BDXXtUJc+FTkL
-	7Lg7RaZbJ9m2SXKd2e5/Xmv8JGupffszaeunYUyMWW7Qkn1cSSWcYXMORKzc8zFGbNO82CfAT66Gt
-	UxFKVuzMrbX59klYWzgQ==;
+	List-Owner; bh=Hu2lc1xrDhsepJzrjR+Eqmyrz+ZoLFs4zVcEMvO6scQ=; b=FaJnmCyN/2ZiAf
+	GdcjVblyEq32DMWnZvtNp7uvv7Df4DjlojS//AC/PLv73awehQ0HSQjTBAJ2AKggxV5HvFgc2JaN6
+	nUAoLabAvi6k1l6Yrde9g67jYt9oBxJzafXsO1Bd+vYgZbQtJpiPv469p864x7xmL/DWIzhrrT8Zu
+	xWhV+zuCC1Q2LtXuPV23gf+UmE/wnoYxXVm1Zp2RDdUIw+siY98Tm07sl0NvRn3hetUnw7PhR67Tn
+	ZESteB0+hrI12YAJpKbB9Byt1kquHJe225e8V/R55wqui8PITjAsFUvNpTtRcO/uyKHKhNphDMBeK
+	eJkP1HuVMuGsB8IkG6jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM4w5-00000007FHZ-2iDU;
-	Wed, 28 Oct 2026 14:47:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM4w2-00000007FGs-3hdN
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 14:47:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B39DB16A3;
-	Wed, 28 Oct 2026 07:47:19 -0700 (PDT)
-Received: from [10.2.198.93] (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 07F623F59E;
-	Wed, 28 Oct 2026 07:47:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793198842; bh=2tVTu6ii/9taQ5GtfJNHTPR+6ACyTcaIodAIeyi7TGs=;
-	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
-	b=j1P+R26bOcMrWaELyp34i/98r/7w5fTQNChzqPiga/JISr1nqJbQ4We0hNbuuGjeg
-	 H7q9ehNQUB9jRxE/zRbk8EwMca6V4wgsOh8Vc07XAcrDrwfztI1Xy5prVAm2QnY6hp
-	 MU+LeurmQsJGVowuIdkIJnizoG00o5i3osTC7nBE=
-Message-ID: <b6f0d10a-d098-43cc-b923-0245af5f51f0@arm.com>
-Date: Wed, 28 Oct 2026 14:47:19 +0000
+	id 1xM4x4-00000007FPi-1Syu;
+	Wed, 28 Oct 2026 14:48:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xM4x3-00000007FP1-04Oo;
+	Wed, 28 Oct 2026 14:48:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 422064347C;
+	Wed, 28 Oct 2026 14:48:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 071E61F01828;
+	Wed, 28 Oct 2026 14:48:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793198908;
+	bh=Hu2lc1xrDhsepJzrjR+Eqmyrz+ZoLFs4zVcEMvO6scQ=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=ChD6wBWttidm+jPx0pyX2DE8tW4uX/nsdLwokzuWoyIQtJOLIj9tbkVaPYHby0ByM
+	 SIl09JE3EGQ3ZyXXweqLNP1c6aSAbX7GNImA8TpgyZSzlwlKC9rlu4M8Te7a5+2kq9
+	 fPJl7cA5ApYCUXFbpkQzB9NROnVJxcIn+qZcmZoa6ze0lVDYOGjWG0PszKLEsyg9uw
+	 vI4PMBOVTJsHDvZvQPLr+y48h3B/ftEoDrGJCv50zlCGbJhUZ37EVxuTjXtvsNsBKi
+	 pgT4QEneDq+RqFp/qQTIl+Hofk7BmgRmbxr1g9Y6CIaCky+QzIgqddeae0pHFbc8S9
+	 3/AelvqNbm4Hg==
+Message-ID: <26e48951-f323-4835-b38a-eb3c9d244f4c@kernel.org>
+Date: Wed, 28 Oct 2026 15:48:18 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: usama.anjum@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: tlbflush: Don't broadcast if mm was only active
- on local cpu
-To: Linu Cherian <linu.cherian@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>, Mark Rutland <mark.rutland@arm.com>,
- Huang Ying <ying.huang@linux.alibaba.com>
-References: <20260523134710.3827956-1-linu.cherian@arm.com>
-From: Usama Anjum <usama.anjum@arm.com>
+Subject: Re: [PATCH v7 1/7] dt-bindings: clock: meson: Add audio power domain
+ for S4 soc
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: christian.koever-draxl@student.uibk.ac.at
+Cc: neil.armstrong@linaro.org, jbrunet@baylibre.com, sboyd@kernel.org,
+ bmasney+clk@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, lgirdwood@gmail.com, broonie@kernel.org,
+ khilman@baylibre.com, martin.blumenstingl@googlemail.com, perex@perex.cz,
+ tiwai@suse.com, linux-amlogic@lists.infradead.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Jiebing Chen
+ <jiebing.chen@amlogic.com>, =?UTF-8?Q?Christian_Stefan_K=C3=B6v=C3=A9r-Drax?=
+ =?UTF-8?Q?l?= <ckoever@outlook.de>
+References: <20261025192404.209695-1-christian.koever-draxl@student.uibk.ac.at>
+ <20261025192404.209695-2-christian.koever-draxl@student.uibk.ac.at>
+ <20261027-aloof-lush-hog-c7beeb@quoll>
 Content-Language: en-US
-In-Reply-To: <20260523134710.3827956-1-linu.cherian@arm.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261027-aloof-lush-hog-c7beeb@quoll>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_074727_095856_55DAEEA4 
-X-CRM114-Status: GOOD (  46.66  )
-X-Spam-Score: -4.4 (----)
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,389 +121,27 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 23/05/2026 2:47 pm, Linu Cherian wrote:
-> From: Ryan Roberts <ryan.roberts@arm.com>
-> 
-> There are 3 variants of tlb flush that invalidate user mappings:
-> flush_tlb_mm(), flush_tlb_page() and __flush_tlb_range(). All of these
-> would previously unconditionally broadcast their tlbis to all cpus in
-> the inner shareable domain.
-> 
-> But this is a waste of effort if we can prove that the mm for which we
-> are flushing the mappings has only ever been active on the local cpu. In
-> that case, it is safe to avoid the broadcast and simply invalidate the
-> current cpu.
-> 
-> So let's track in mm_context_t::active_cpu either the mm has never been
-> active on any cpu, has been active on more than 1 cpu, or has been
-> active on precisely 1 cpu - and in that case, which one. We update this
-> when switching context, being careful to ensure that it gets updated
-> *before* installing the mm's pgtables. On the reader side, we ensure we
-> read *after* the previous write(s) to the pgtable(s) that necessitated
-> the tlb flush have completed. This guarrantees that if a cpu that is
-> doing a tlb flush sees it's own id in active_cpu, then the old pgtable
-> entry cannot have been seen by any other cpu and we can flush only the
-> local cpu.
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> Tested-by: Huang Ying <ying.huang@linux.alibaba.com>
-> [linu.cherian@arm.com: Adapted for v7.1 flush tlb API changes]
-> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
-> ---
-> Changelog from RFC v1:
-> - Adapted for v7.1 flush tlb API changes
->   No changes in core logic
-> - Collected Rb and Tb tags
-> - lat_mmap benchmark showed dsb(ishst) performs better than dsb(ish),
->   hence retained dsb(ishst) in flush_tlb_user_pre	
-> 
-> 
-> Testing with 7.1-rc4 :
-> +-----------------------+---------------------------------------------------+-------------+
-> | Benchmark             | Result Class                                      |  Improvement|  
-> +=======================+===================================================+=============+
-> | perf/syscall          | fork (ops/sec)                                    |   (I) 3.25% |
-> +-----------------------+---------------------------------------------------+-------------+
-> | pts/memtier-benchmark | Protocol: Redis Clients: 100 Ratio: 1:5 (Ops/sec) |   (I) 2.70% |
-> | 			| Protocol: Redis Clients: 100 Ratio: 5:1 (Ops/sec) |   (I) 2.13% |
-> +-----------------------+---------------------------------------------------+-------------+
+On 27/10/2026 10:40, Krzysztof Kozlowski wrote:
+> On Sun, Oct 25, 2026 at 08:23:58PM +0100, christian.koever-draxl@student.uibk.ac.at wrote:
+>> From: Jiebing Chen <jiebing.chen@amlogic.com>
+>>
+>> The audio power domain has been found on S4 device.
+>> It must be enabled prior to audio operations.
+>>
+>> Signed-off-by: Jiebing Chen <jiebing.chen@amlogic.com>
+>> Signed-off-by: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
 
-I tested this patch using a synthetic Firecracker benchmark on a 192-CPU
-arm64 host, with Linux v7.3 on both the host and guests. Each worker
-repeatedly creates a fresh 1-vCPU microVM, boots Ubuntu, verifies an echo
-response over the serial console, and shuts the guest down, waiting for
-Firecracker to exit before starting the next VM. Each guest has 256 MiB of
-RAM, with two VM slots per workload CPU.
 
-With 4 KiB guests, the unpatched workload stops scaling between 64 and 96
-CPUs: throughput falls from approximately 68 to 65 completed lifecycles/s
-despite the additional CPUs.
+... and why after 4 days you sent the same v7?
 
-Applying the patch to the guest substantially improves throughput at higher
-concurrency. At 128 workload CPUs, I measured:
-
-  Guest pages  Unpatched  Guest patched only  Host patched only
-  -----------  ---------  ------------------  -----------------
-  4 KiB        73.83/s    108.55/s (+47.0%)    74.09/s (+0.4%)
-  64 KiB       86.46/s    105.04/s (+21.5%)    90.15/s (+4.3%)
-
-The host uses 4 KiB pages throughout. The host-only difference with 4 KiB
-guests is small enough that I would regard it as essentially unchanged.
-
-I have not observed any functional regressions during these tests.
-
-Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
-
-> 
->  arch/arm64/include/asm/mmu.h         |  12 +++
->  arch/arm64/include/asm/mmu_context.h |   2 +
->  arch/arm64/include/asm/tlbflush.h    | 127 +++++++++++++++++++++------
->  arch/arm64/mm/context.c              |  30 ++++++-
->  4 files changed, 141 insertions(+), 30 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-> index 5e1211c540ab..0002101c1f21 100644
-> --- a/arch/arm64/include/asm/mmu.h
-> +++ b/arch/arm64/include/asm/mmu.h
-> @@ -16,6 +16,17 @@
->  #include <linux/refcount.h>
->  #include <asm/cpufeature.h>
->  
-> +/*
-> + * Sentinal values for mm_context_t::active_cpu. ACTIVE_CPU_NONE indicates the
-> + * mm has never been active on any CPU. ACTIVE_CPU_MULTIPLE indicates the mm
-> + * has been active on multiple CPUs. Any other value is the ID of the single
-> + * CPU that the mm has been active on.
-> + */
-> +enum active_cpu {
-> +	ACTIVE_CPU_NONE = UINT_MAX,
-> +	ACTIVE_CPU_MULTIPLE = UINT_MAX - 1,
-> +};
-> +
->  typedef struct {
->  	atomic64_t	id;
->  #ifdef CONFIG_COMPAT
-> @@ -25,6 +36,7 @@ typedef struct {
->  	void		*vdso;
->  	unsigned long	flags;
->  	u8		pkey_allocation_map;
-> +	unsigned int	active_cpu;
->  } mm_context_t;
->  
->  /*
-> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-> index 803b68758152..101cae0c7262 100644
-> --- a/arch/arm64/include/asm/mmu_context.h
-> +++ b/arch/arm64/include/asm/mmu_context.h
-> @@ -172,6 +172,8 @@ init_new_context(struct task_struct *tsk, struct mm_struct *mm)
->  	/* pkey 0 is the default, so always reserve it. */
->  	mm->context.pkey_allocation_map = BIT(0);
->  
-> +	WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE);
-> +
->  	return 0;
->  }
->  
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index c0bf5b398041..1f75bce4fa0d 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -164,6 +164,12 @@ static inline void sme_dvmsync_batch(struct arch_tlbflush_unmap_batch *batch)
->  
->  typedef void (*tlbi_op)(u64 arg);
->  
-> +static __always_inline void vae1(u64 arg)
-> +{
-> +	__tlbi(vae1, arg);
-> +	__tlbi_user(vae1, arg);
-> +}
-> +
->  static __always_inline void vae1is(u64 arg)
->  {
->  	__tlbi(vae1is, arg);
-> @@ -308,6 +314,74 @@ static inline void __tlbi_sync_s1ish_hyp(void)
->  	__repeat_tlbi_sync(vale2is, 0);
->  }
->  
-> +typedef unsigned __bitwise tlbf_t;
-> +
-> +/* No special behaviour. */
-> +#define TLBF_NONE		((__force tlbf_t)0)
-> +
-> +/* Invalidate tlb entries only, leaving the page table walk cache intact. */
-> +#define TLBF_NOWALKCACHE	((__force tlbf_t)BIT(0))
-> +
-> +/* Skip the trailing dsb after issuing tlbi. */
-> +#define TLBF_NOSYNC		((__force tlbf_t)BIT(1))
-> +
-> +/* Suppress tlb notifier callbacks for this flush operation. */
-> +#define TLBF_NONOTIFY		((__force tlbf_t)BIT(2))
-> +
-> +/* Perform the tlbi locally without broadcasting to other CPUs. */
-> +#define TLBF_NOBROADCAST	((__force tlbf_t)BIT(3))
-> +
-> +/*
-> + * Determines whether the user tlbi invalidation can be performed only on the
-> + * local CPU or whether it needs to be broadcast. (Returns true for local).
-> + * Additionally issues appropriate barrier to ensure prior pgtable updates are
-> + * visible to the table walker. Must be paired with flush_tlb_user_post().
-> + */
-> +static inline bool flush_tlb_user_pre(struct mm_struct *mm, tlbf_t flags)
-> +{
-> +	unsigned int self, active;
-> +	bool local;
-> +
-> +	migrate_disable();
-> +
-> +	if (flags & TLBF_NOBROADCAST) {
-> +		dsb(nshst);
-> +		return true;
-> +	}
-> +
-> +	self = smp_processor_id();
-> +
-> +	/*
-> +	 * The load of mm->context.active_cpu must not be reordered before the
-> +	 * store to the pgtable that necessitated this flush. This ensures that
-> +	 * if the value read is our cpu id, then no other cpu can have seen the
-> +	 * old pgtable value and therefore does not need this old value to be
-> +	 * flushed from its tlb. But we don't want to upgrade the dsb(ishst),
-> +	 * needed to make the pgtable updates visible to the walker, to a
-> +	 * dsb(ish) by default. So speculatively load without a barrier and if
-> +	 * it indicates our cpu id, then upgrade the barrier and re-load.
-> +	 */
-> +	active = READ_ONCE(mm->context.active_cpu);
-> +	if (active == self) {
-> +		dsb(ish);
-> +		active = READ_ONCE(mm->context.active_cpu);
-> +	} else {
-> +		dsb(ishst);
-> +	}
-> +
-> +	local = active == self;
-> +	if (!local)
-> +		migrate_enable();
-> +
-> +	return local;
-> +}
-> +
-> +static inline void flush_tlb_user_post(bool local)
-> +{
-> +	if (local)
-> +		migrate_enable();
-> +}
-> +
->  /*
->   *	TLB Invalidation
->   *	================
-> @@ -408,12 +482,20 @@ static inline void flush_tlb_all(void)
->  static inline void flush_tlb_mm(struct mm_struct *mm)
->  {
->  	unsigned long asid;
-> +	bool local;
->  
-> -	dsb(ishst);
-> +	local = flush_tlb_user_pre(mm, TLBF_NONE);
->  	asid = __TLBI_VADDR(0, ASID(mm));
-> -	__tlbi(aside1is, asid);
-> -	__tlbi_user(aside1is, asid);
-> -	__tlbi_sync_s1ish(mm);
-> +	if (local) {
-> +		__tlbi(aside1, asid);
-> +		__tlbi_user(aside1, asid);
-> +		dsb(nsh);
-> +	} else {
-> +		__tlbi(aside1is, asid);
-> +		__tlbi_user(aside1is, asid);
-> +		__tlbi_sync_s1ish(mm);
-> +	}
-> +	flush_tlb_user_post(local);
->  	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
->  }
->  
-> @@ -475,6 +557,12 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
->   *    operations can only span an even number of pages. We save this for last to
->   *    ensure 64KB start alignment is maintained for the LPA2 case.
->   */
-> +static __always_inline void rvae1(u64 arg)
-> +{
-> +	__tlbi(rvae1, arg);
-> +	__tlbi_user(rvae1, arg);
-> +}
-> +
->  static __always_inline void rvae1is(u64 arg)
->  {
->  	__tlbi(rvae1is, arg);
-> @@ -573,23 +661,6 @@ static inline bool __flush_tlb_range_limit_excess(unsigned long pages,
->  	return pages >= (MAX_DVM_OPS * stride) >> PAGE_SHIFT;
->  }
->  
-> -typedef unsigned __bitwise tlbf_t;
-> -
-> -/* No special behaviour. */
-> -#define TLBF_NONE		((__force tlbf_t)0)
-> -
-> -/* Invalidate tlb entries only, leaving the page table walk cache intact. */
-> -#define TLBF_NOWALKCACHE	((__force tlbf_t)BIT(0))
-> -
-> -/* Skip the trailing dsb after issuing tlbi. */
-> -#define TLBF_NOSYNC		((__force tlbf_t)BIT(1))
-> -
-> -/* Suppress tlb notifier callbacks for this flush operation. */
-> -#define TLBF_NONOTIFY		((__force tlbf_t)BIT(2))
-> -
-> -/* Perform the tlbi locally without broadcasting to other CPUs. */
-> -#define TLBF_NOBROADCAST	((__force tlbf_t)BIT(3))
-> -
->  static __always_inline void __do_flush_tlb_range(struct vm_area_struct *vma,
->  					unsigned long start, unsigned long end,
->  					unsigned long stride, int tlb_level,
-> @@ -597,6 +668,7 @@ static __always_inline void __do_flush_tlb_range(struct vm_area_struct *vma,
->  {
->  	struct mm_struct *mm = vma->vm_mm;
->  	unsigned long asid, pages;
-> +	bool local;
->  
->  	pages = (end - start) >> PAGE_SHIFT;
->  
-> @@ -605,10 +677,9 @@ static __always_inline void __do_flush_tlb_range(struct vm_area_struct *vma,
->  		return;
->  	}
->  
-> -	if (!(flags & TLBF_NOBROADCAST))
-> -		dsb(ishst);
-> -	else
-> -		dsb(nshst);
-> +	local = flush_tlb_user_pre(mm, flags);
-> +	if (local && !(flags & TLBF_NOBROADCAST))
-> +		flags |= TLBF_NOBROADCAST;
->  
->  	asid = ASID(mm);
->  
-> @@ -622,8 +693,8 @@ static __always_inline void __do_flush_tlb_range(struct vm_area_struct *vma,
->  					asid, tlb_level);
->  		break;
->  	case TLBF_NOBROADCAST:
-> -		/* Combination unused */
-> -		BUG();
-> +		__flush_s1_tlb_range_op(vae1, start, pages, stride,
-> +					asid, tlb_level);
->  		break;
->  	case TLBF_NOWALKCACHE | TLBF_NOBROADCAST:
->  		__flush_s1_tlb_range_op(vale1, start, pages, stride,
-> @@ -640,6 +711,8 @@ static __always_inline void __do_flush_tlb_range(struct vm_area_struct *vma,
->  		else
->  			dsb(nsh);
->  	}
-> +
-> +	flush_tlb_user_post(local);
->  }
->  
->  static inline void __flush_tlb_range(struct vm_area_struct *vma,
-> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-> index 0f4a28b87469..f34ed78393e0 100644
-> --- a/arch/arm64/mm/context.c
-> +++ b/arch/arm64/mm/context.c
-> @@ -214,9 +214,10 @@ static u64 new_context(struct mm_struct *mm)
->  
->  void check_and_switch_context(struct mm_struct *mm)
->  {
-> -	unsigned long flags;
-> -	unsigned int cpu;
-> +	unsigned int cpu = smp_processor_id();
->  	u64 asid, old_active_asid;
-> +	unsigned int active;
-> +	unsigned long flags;
->  
->  	if (system_supports_cnp())
->  		cpu_set_reserved_ttbr0();
-> @@ -251,7 +252,6 @@ void check_and_switch_context(struct mm_struct *mm)
->  		atomic64_set(&mm->context.id, asid);
->  	}
->  
-> -	cpu = smp_processor_id();
->  	if (cpumask_test_and_clear_cpu(cpu, &tlb_flush_pending))
->  		local_flush_tlb_all();
->  
-> @@ -262,6 +262,30 @@ void check_and_switch_context(struct mm_struct *mm)
->  
->  	arm64_apply_bp_hardening();
->  
-> +	/*
-> +	 * Update mm->context.active_cpu in such a manner that we avoid cmpxchg
-> +	 * and dsb unless we definitely need it. If initially ACTIVE_CPU_NONE
-> +	 * then we are the first cpu to run so set it to our id. If initially
-> +	 * any id other than ours, we are the second cpu to run so set it to
-> +	 * ACTIVE_CPU_MULTIPLE. If we update the value then we must issue
-> +	 * dsb(ishst) to ensure stores to mm->context.active_cpu are ordered
-> +	 * against the TTBR0 write in cpu_switch_mm()/uaccess_enable(); the
-> +	 * store must be visible to another cpu before this cpu could have
-> +	 * populated any TLB entries based on the pgtables that will be
-> +	 * installed.
-> +	 */
-> +	active = READ_ONCE(mm->context.active_cpu);
-> +	if (active != cpu && active != ACTIVE_CPU_MULTIPLE) {
-> +		if (active == ACTIVE_CPU_NONE)
-> +			active = cmpxchg_relaxed(&mm->context.active_cpu,
-> +						 ACTIVE_CPU_NONE, cpu);
-> +
-> +		if (active != ACTIVE_CPU_NONE)
-> +			WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_MULTIPLE);
-> +
-> +		dsb(ishst);
-> +	}
-> +
->  	/*
->  	 * Defer TTBR0_EL1 setting for user threads to uaccess_enable() when
->  	 * emulating PAN.
-
+Best regards,
+Krzysztof
 
