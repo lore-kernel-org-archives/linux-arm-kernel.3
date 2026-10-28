@@ -2,75 +2,143 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24FEC606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 15:32:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27520606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 15:41:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dKhmn2ED;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hgjsdeKR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Myqx6DLZ;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=OgvPAAv2;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=C8el8aPf
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Jf9o5ALa0aH8v3eseKK4dcnBI+6AQV7EtQWnwTYCkd8=; b=dKhmn2EDFswEvc
-	ESoVPJsgAElUdtmxnPEisunb0AeKYde35CJ2Naj2v8ntysMkL6FTTJ/ZfSzg08b+hagY5roxdfQQA
-	y5ZolYK/cKotQInQWQtuo3/Si0Z/89mO9H8yLRGd9iepAXhOM5w6C/bPhrYMC7X+nS7Vx0D2y0TII
-	gAZs7OvdkQvL1gkzVlvYJJ7EqDd+RKhME3ixuE+tGoqT3qQbOB6OYw0WKwOV5cny0C4ikATUXO8La
-	zrVnfkK1xj1st2tgQXhEn7f/LUUBHSkOzOrAIDbJOm3ybpoTwF4vDno2+BRTi/Z/qCelOAso/U6Ch
-	GPhswGSj72szihhS7mbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=xAGpz9TD6oCxgoJfz5D+tXdaBBTRPGgALN6kzjVk6w0=; b=Myqx6DLZcnzyIDhi8g3vYthhvk
+	Q2UwHUcsM9k2RDUxZHkI9LpulB/JIgyUB0Ck/6/ClxiBJuVkwqOjpNcwJhd5MU9bp/K4q49n2ryth
+	g80KWeCxCVRB3raDoiQMWwP8YDXJPL5AOW8KDmgwRVwlN5SIxpf3sdqQmd0Dh9JRY/LtAKNJbbG4g
+	Ehf/dJS7eDd1qv+bGFEUG9pdFafARaZNol8S/eAN3dYNGO6PFiPUMOlU+8FFVjtQzuuc39IXdaOx8
+	S+ZhtDXOcnM6mpwY+lRucyXvcocfI3Re72u8itLyDMMgLFnBD9X7+xyn+7+CAkuJxR8VY7DuLJpXJ
+	FcRJagBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM5da-00000007OpM-04XZ;
-	Wed, 28 Oct 2026 15:32:26 +0000
-Received: from out-201.mta1.migadu.com ([95.215.58.201] helo=mta1.migadu.com)
+	id 1xM5mZ-00000007QdC-3svP;
+	Wed, 28 Oct 2026 15:41:43 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM5dO-00000007Ohj-1APn
+	id 1xM5mW-00000007QcF-1SsD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 15:32:15 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=l0zERwZtSXMxkg1YrAMkeKkP4CDuD4jEFbJgtN9PQgU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793201532; v=1; x=1793806332;
- b=hgjsdeKRJasxK1Yb/h4RnU78qSDeyngAsRT7t3PDTpZE8ok2J/+bQOguHY0MQ5B0tKjuu+Jt
- Jahis9l1HoDqBtaokq9wb8c5jE3FiOju4Weby/J+dlRazsm4T+m0pSCWkF0qr4Sd3meaw2O+IsT
- gbhngaNIsph/YqsL+wuT/zjw=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id c1b98ceec568d8e8;
-	Wed, 28 Oct 2026 15:32:11 +0000
-X-Mizu-Trace-ID: c1b98ceec568d8e8
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	kernel-team@android.com,
-	linux-kernel@vger.kernel.org,
-	Oculytic <oculytic@gmail.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v3 3/3] KVM: arm64: Disable host PMU counters for protected guests
-Date: Wed, 28 Oct 2026 15:31:52 +0000
-Message-ID: <20261028153152.1740044-4-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261028153152.1740044-1-fuad.tabba@linux.dev>
-References: <20261028153152.1740044-1-fuad.tabba@linux.dev>
+	Wed, 28 Oct 2026 15:41:42 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69SFAbX01459100
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 15:41:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=xAGpz9TD6oCxgoJfz5D+tXda
+	BBTRPGgALN6kzjVk6w0=; b=OgvPAAv26Z+jY/F3lMnjG4J8bK2QeZ+lW6MBAcFa
+	9ldLQr72iZ3IOG8JMXXK68mRP8AW3N2Ndvco1y8nUQeHp0Euxm9Buo5Qa6YXkUS9
+	2Eu/O85eHzBqAzgzFL/na3MgIz2nFnim45LBQRvbu5Nvd2s6hN3O8YMsf9EftPke
+	9AkgK9OwzOnzJX+qCuvxGgvRD5GvSCSWD4TqEx5nV/JZiKYrW8KBBTVUimZOljsg
+	GVdeOAT6CchVYA2Uq7HtfUnhRgFmNdmZMoyodDJ8ji09AcISYE//UdD54a5Fqf1X
+	DeFeURvl86BxECwPBb5mfs0bfHMSycRCYZuXDCbmPyZQ/g==
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hk82ttvnk-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 15:41:38 +0000 (GMT)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-91c7c7e8becso1086156d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 08:41:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1793202098; x=1793806898; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=xAGpz9TD6oCxgoJfz5D+tXdaBBTRPGgALN6kzjVk6w0=;
+        b=C8el8aPfJ1ZRxDIpgaNn/3fkRZ0to1WUih0/sJ4KVdzX9R5EAaWaMVJzXvA7QT8cxM
+         V12tt/QvasQuPfHtQBEYo7Y2tHNVAJiUBRyglJoBcGgNm1wRGq9XQDwsY3gyYQotnvX2
+         orA7u5KhP77KB5CS5NWowh1u6BtpF7Iid0CJHoSLdK/2xQv49rbEMcjeTBDAGS+/hWbu
+         wCJvCUzh6I4Sy+kasGnpNcrFzFblr4eLWgYMYT1bLTCBMgSbUkbHtMVptgo3W1Kb1sFj
+         5EwA2suSO7Pq2XBxJ7gk7q8cLqAbQQAnQlbfmMejRUUw2m3e6aY/2paqbxpZoDgTz4Zh
+         DjPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793202098; x=1793806898;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xAGpz9TD6oCxgoJfz5D+tXdaBBTRPGgALN6kzjVk6w0=;
+        b=vPGo+LK7ZBaGklDsgo7yXmNaR2o6NWjbl5WUSDVT9TFhJZVgYviqXCHRf6SPJjRe6k
+         vNEL7zEPIFo74VXcRjm2p1b3nKmuc1MV1wb8w4zQ+ORfLv0kJMHucH6sUruL/2qJm1u+
+         4WPw7zFgOtQvO/H8FRCBGLL4q/sNvK1yn2ug8RjSPR7egbZpUOZiBLbGMYXdsDOhI91a
+         wpAF0NuAbljb135wro7iSn5kfkOi+lycLJqLE4pjm4ociGBNtlkTKO+j0bga1vfK8jrw
+         1GHRIO6kAyTbrFzAucR0CjemLiE2volglpc9VxLZrOfIfGTn/5QK0k6yhxhvFv7T2xU6
+         rx/A==
+X-Forwarded-Encrypted: i=1; AKwUvBypslAaj0H6uJhJnoBKlw9eBY083ZprdCAMKz7WcImEdUtijpWHFLLSDQyDWTohS4KmPe3uZQeegJ/rNANR/N67@lists.infradead.org
+X-Gm-Message-State: AFq9FYLju+OGS1wPNvF8Ixi2BAPKYPV1qRu3aihwP0k752LfR5HM+37h
+	5/41XTB8Ki6d6wU2LTOQC/OxRzJXIlruHqhBtlY/ZOgvH96TO8cxDLlHHBbGy75CpML6fQWOZHG
+	FSjVlQS8edQVXEvx4479TCN23qOImM4q5Eofu6a9iHkQffLYNTueLIuy3tXSwNMk1fnrdYuQ2Oh
+	4q5Q==
+X-Gm-Gg: AYBFou1HAaPhWWX9tvh/SWApf9T2f97NaefCbhTLSwq2XDxQ0qzqesUoC36XISiOBAo
+	Ao1ZVkXrP0B5BLI3Y6mReNNXg1OSySOS2ixLspd7aatfTYqTxD3TfsWvfPfkiobMh3LldQLXI2Z
+	A51c0YrFFhILaGoFSPhB7IRRFkiwVBur9GkWq+Ph6swc94R1O0w7fYsQHfNNrfxqQ/af+572sO7
+	Wq5gn3ENxC6HJgZfX2qGphYdeY66r3WIZLEcL+0h5ePO0I4m/TVvlI2Fz3H32JKdPIHIF+0GSeE
+	OG+CVgdA8S8iTUFR5Gu3LO3o66h83YP0Mh1WrtOhNn4f0MTn44HxX+RCCmiODXd9bRhFG2I18IG
+	OVbuC8Sd0uloMFbJ1MbCwO1A74b4LlfKqKd4w4HrIyuCCXtJqnWt2LunNAw74xcERwg==
+X-Received: by 2002:a05:620a:2b4e:b0:93e:53fd:413b with SMTP id af79cd13be357-94408dc203emr391842285a.59.1793202097771;
+        Wed, 28 Oct 2026 08:41:37 -0700 (PDT)
+X-Received: by 2002:a05:620a:2b4e:b0:93e:53fd:413b with SMTP id af79cd13be357-94408dc203emr391838285a.59.1793202097156;
+        Wed, 28 Oct 2026 08:41:37 -0700 (PDT)
+Received: from oss.qualcomm.com ([188.27.161.187])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ecd37f4sm34722381f8f.44.2026.10.28.08.41.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Oct 2026 08:41:36 -0700 (PDT)
+Date: Wed, 28 Oct 2026 17:41:35 +0200
+From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+To: Avi Weiss <thnkslprpt@gmail.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] spmi: mtk-pmif: retain controllers for removal
+Message-ID: <e433xawx2fa3x33rslqiijtbk4vf4ius4h4w3k6jgrwhsqtpww@zyyd6mxxvvni>
+References: <20261028094847.764747-2-thnkslprpt@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261028094847.764747-2-thnkslprpt@gmail.com>
+X-Proofpoint-GUID: zmuTVr_l4ruHLF1bdyI2H2Ekfuqs0b2P
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI4MDA2MiBTYWx0ZWRfXyXUS7AVpq77V
+ EQGlisLfHZks0+Y60XRZ95abHeNDH1VAA9dXyJb25hh+5ggeORzgmbt+Xruv3MCRbQ8T9j5pv6s
+ ch1mpRA8kkef1xsdS1eCo/f/3qLHgtI=
+X-Authority-Analysis: v=2.4 cv=Tr1zFzXh c=1 sm=1 tr=0 ts=6ae217b2 cx=c_pps
+ a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=Qvngrl3H0rQgGg+94q4QgA==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=vSNd-Fa7lg0QEwYS95cA:9 a=CjuIK1q_8ugA:10
+ a=pJ04lnu7RYOZP9TFuWaZ:22
+X-Proofpoint-ORIG-GUID: zmuTVr_l4ruHLF1bdyI2H2Ekfuqs0b2P
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI4MDA2MiBTYWx0ZWRfX9EJ+PCPrGDmT
+ YffZBK1xTgdr5wlFmfts1l8w1ZSr4RkQqNy+riw0vZTBzI3udoM6U1mCfCrHXt39gkXYjM4Sya4
+ Wm17QQbRf8HWV9KyROt7XXigwDL8Zq1kRRqjLeVex8Z1e05GeO8uHZhPZo1AdSYtqq79KE4AYkU
+ QOfIySPEbn/eKk77Zehqmva1pUuYonQ5C2S7obZ+fUu182/SsQorB4ypPAhaT6p5F95RQaTKCeB
+ WwL+XEDhhLD/PyYOmLN7W9JM7hh5RrvX6DKpSepGTxlc+xq0oj1bM6ejFy4Kx7MQLT9XJAKRgNX
+ SDLts5HVhhZ+TRa/FR6IWoU3F5mXxdQ/A3eFy/pRl1HZZlBUJCqgbSLdf0gFwoZo9LnGQV2TfAS
+ JJfOHZmVVBbsVJ7Zv0bq1n9X+xCz68yRjR0N0PujZMmgQml1C4f+bLh78tWAKPh+vLsZKr6hGXj
+ vJUsC8eGMdmwjXtaTdA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-28_05,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 bulkscore=0 spamscore=0 clxscore=1015 phishscore=0
+ impostorscore=0 malwarescore=0 adultscore=0 suspectscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610280062
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_083214_835647_34142681 
-X-CRM114-Status: GOOD (  11.80  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261028_084140_526170_273E5227 
+X-CRM114-Status: GOOD (  12.84  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,89 +149,25 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A protected guest has no PMU, and EL2 clears MDCR_EL2.HPME for it.
-However, __pkvm_vcpu_load() sets HPMN to cover every event counter, so
-HPME has no effect and the counters the host has enabled keep counting
-the guest.
+On 26-10-28 11:48:48, Avi Weiss wrote:
+> mtk_spmi_bus_probe() stores each controller in its private pmif_bus
+> rather than the parent arb->bus[] entry passed by the caller.
+> mtk_spmi_remove() checks the parent entries, so it skips registered
+> controllers and their IRQ and clock cleanup.
+> 
+> Record successfully initialized controllers in the parent array and
+> recover their private bus data when removing them.
+> 
+> Fixes: 078117963b2c ("spmi: mtk-pmif: Add multi-bus support for SPMI 2.0")
+> Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
 
-Clear PMCR_EL0.E in the world switch while a protected guest runs, which
-stops them all. Gate this on system_supports_pmuv3(), as
-__activate_traps_common() does for PMUSERENR_EL0.
-
-Side channels are outside pKVM's threat model, so this is hardening
-rather than a fix.
-
-Reported-by: Oculytic <oculytic@gmail.com>
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/kvm/hyp/nvhe/switch.c | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
-
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index 91e1edf40bcd2..003469e85ed46 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -175,6 +175,26 @@ static void __pmu_switch_to_host(struct kvm_vcpu *vcpu)
- #define __pmu_switch_to_host(v)		do {} while (0)
- #endif
- 
-+static u64 __pmu_stop_host_counters(struct kvm_vcpu *vcpu)
-+{
-+	u64 pmcr;
-+
-+	if (!vcpu_is_protected(vcpu) || !system_supports_pmuv3())
-+		return 0;
-+
-+	pmcr = read_sysreg(pmcr_el0);
-+	if (pmcr & ARMV8_PMU_PMCR_E)
-+		write_sysreg(pmcr & ~ARMV8_PMU_PMCR_E, pmcr_el0);
-+
-+	return pmcr;
-+}
-+
-+static void __pmu_restore_host_counters(u64 pmcr)
-+{
-+	if (pmcr & ARMV8_PMU_PMCR_E)
-+		write_sysreg(pmcr, pmcr_el0);
-+}
-+
- /*
-  * Handler for protected VM MSR, MRS or System instruction execution in AArch64.
-  *
-@@ -283,6 +303,7 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
- 	struct kvm_s2_mmu *mmu;
- 	bool pmu_switch_needed;
- 	u64 exit_code;
-+	u64 host_pmcr;
- 
- 	/*
- 	 * Having IRQs masked via PMR when entering the guest means the GIC
-@@ -300,6 +321,7 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
- 	guest_ctxt = &vcpu->arch.ctxt;
- 
- 	pmu_switch_needed = __pmu_switch_to_guest(vcpu);
-+	host_pmcr = __pmu_stop_host_counters(vcpu);
- 
- 	__sysreg_save_state_nvhe(host_ctxt);
- 	/*
-@@ -384,6 +406,8 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
- 	if (pmu_switch_needed)
- 		__pmu_switch_to_host(vcpu);
- 
-+	__pmu_restore_host_counters(host_pmcr);
-+
- 	/* Returning to host will clear PSR.I, remask PMR if needed */
- 	if (system_uses_irq_prio_masking())
- 		gic_write_pmr(GIC_PRIO_IRQOFF);
--- 
-2.47.3
-
+Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
 
