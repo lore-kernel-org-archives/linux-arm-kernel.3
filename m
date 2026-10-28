@@ -2,66 +2,135 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58A12606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 16:41:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B076D606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 16:48:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MFDfZb6g;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BfMzPkHq
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=c6qStz52;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=KmBFEIoz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=y73LTGnrOWdw/D1CDygVpQQVU2M42cqC8bH2Z3m1YAg=; b=MFDfZb6gXlUI6O0EazdKzm/U3A
-	r3HAMy4+ATcNR56iWxPApsDN4SUXUDVr7trKK+WBVjMlycLyGZYb8DlUKuzOfZV5NQOtieRMYyYZ3
-	2A0ORx3Jq3GitB5YQUkX2Yl1NOWA4QHVd5QYEWSin0PWA11MrHqBT0SFWIl4PVrX0hMmOeDE40MB0
-	egfj6AeMoDIjBJNehTUxZ69QRizgZgKk+q1wtEHNuEF6hGN52/AXALyAetReDRCjOS/kPymmJPiZL
-	ugyVCZqSEJUBnHMkAl5vU0WW67rFXWbT0g0KM5mR+7uRS1vrQ2wMWW+cjKwb11CNTLe7BNKMyrjZS
-	X4nCYSNw==;
+	bh=fr8gMIb/a/d2GRcfk0ea/VADIXIgtUMNzi8EVY0R5pg=; b=c6qStz52Odto3PwvcK+8zEJfhK
+	9QgmDuAnrKWV+S3dui0Lst9K++6ehP1saqwlaIHXKvaRmwfu3eMHvbFhoeWSZiZL7dhv+uGPCQQEx
+	w/drGbzkUuDJKDOvkjRN1EoL3rBtJw+xH7WhDO5S6gdZbqxygyaVPBDaaDQx7vzGHxQsEg9UrC4UU
+	MHZVTLiJjdIfIMRB4yXVXgTPEraqNEb9xvOkuQl80qDEYnrzTeQkuiUq2MPZx3ePYnnCBWDtF650+
+	K44wLcOkYiBayZUVbwtEUOoyKezZOKT3VQU9KJfq2gtoaPBrgyO6JEu3jhKoV9GpsVJD4TdWhL6LO
+	boyU4GGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM6iQ-00000007ZDD-1GOD;
-	Wed, 28 Oct 2026 16:41:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xM6od-00000007a9P-0s2c;
+	Wed, 28 Oct 2026 16:47:55 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM6iP-00000007ZCw-1twk
+	id 1xM6oa-00000007a87-2GEi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 16:41:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 371E24051D;
-	Wed, 28 Oct 2026 16:41:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 816F91F01825;
-	Wed, 28 Oct 2026 16:41:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793205689;
-	bh=y73LTGnrOWdw/D1CDygVpQQVU2M42cqC8bH2Z3m1YAg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BfMzPkHq8S1m2Nn+h6GT7XDV0G5gtZzWLdryebdlXVvELfpopCDtQUEGoHUqgebeC
-	 4HuAN8gnfAJq4iKXAcA5DMVbb83sohRc0f/517z/z9jYlyhXnjrIH/PYF+n1lI4eAB
-	 NF4+7Uh2vFeryG5o7rANC0DbnYNrXbDuRh+kQEaSDZhTCDpOhWKvvtJE95Nj879Wpc
-	 r4YSbwU/orh3Go2tnQf42bysxDuwO1ZCtFdtcdaC/g/k/3HQGrIEIBDjGnGGAjJqlq
-	 7MGsZwkCf76K3ryxiaNO/lXKNNhdLFRM1vfsN6oLmMLpsZofhQ5QZ5VNGHBAFac/Y5
-	 W2xXGl+mXRDgQ==
-Date: Wed, 28 Oct 2026 16:41:23 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, 
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
-	catalin.marinas@arm.com, james.clark@linaro.org
-Subject: Re: [RFC PATCH v7 15/28] KVM: arm64: Use PMSVer from the assigned
- SPE instance
-Message-ID: <auH8fQ28BnlZUrpE@gremlin>
-References: <20260903160623.315525-1-alexandru.elisei@arm.com>
- <20260903160623.315525-16-alexandru.elisei@arm.com>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+	Wed, 28 Oct 2026 16:47:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pSysch9ivDe9ibnDAQuBCjcnayd54IKwBgl7FG959O22dsrh1Q/PnlFd6wS2k3QqkgJ9KLpL+xvIg8z6XZaquEiMYb5svWDXSynbOLEX16XvIYSt36qKqTzvyDqHYa+nOZrUPOgQbChjHmo65J2a6VJaohqkJLIBTqIOTQYcKVI+JXm/KOVz9iHsLwC86m+HgwzqORcnmxgxebWfAgFAGiVjZlRzcI+bZXlhjqohQpwV0XOT/+uIoejaofa1EbkEwNqYejmE042yofuuZBw9D++fG3bQ1KyPr3zLSZw2Lpo7qXjDj64Mw8Ng3TMyNU60UBsnGikK9SfkkPlKszGegw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fr8gMIb/a/d2GRcfk0ea/VADIXIgtUMNzi8EVY0R5pg=;
+ b=cR/dT1z5qlWx0zcRieCmLt0MqnAH+GP+wyfw3RLJkBdjLMHtDYYZk+nOGQ5Y8ygJV/xe4QtybzS6IRi5OdRO+BXYakdXT0KOlK6wB0jkwGRv3a9OVF6SoMcL3/4x3u5Byc4LgOjQHeHP+t8fBkgt4gDxtgK+G9/KtkxWB/mEvBkEabFoBbo4ke/CeIhpCpk/GYX+0qEGFC/7Z+fz41fLeJ/soXcq3UeaAwkQgs9UhQKo74CntFD1S7YrkeRmSfmUmZcBVZwCONNwZZZ6HIgk+7PFkdLBneIehZO1iFNUebkLwSF3hdhDfBwA/8KP4yBh+lmLXnDBB/VzOt5gAXY++A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fr8gMIb/a/d2GRcfk0ea/VADIXIgtUMNzi8EVY0R5pg=;
+ b=KmBFEIozYbwDL5Vwsq8yTsX8rmUIqnOtnRwh+Lj+KBhU8xrlhUwZirw5dAE4fvoKSLHJJwnltydE0/qVpvhKI9nayfx1J+3VwsXL+Ujqz28ROQguVxEqckhkMIgV3pkkrkPgvUAIWwvl4w9CQjcV9roqu0ncM2bWTxlJm8C9lCmQoKK/QvHsozyhEofGM2GK7c9BzH0ZqgnWXqDah+R5/L21Tu2Mo3+cYWIZYm5wfv2N7tv5gBqs1i0knJPYSmdz2jRmMIU7xYoNVUOysxzQngwI1zVq2ndxpM+UBP9luY6vT1eTD3syKqH4KAbAdC3YrxDz78LWrQazlPdmq1QeGw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by ZR6PR04MB424962.eurprd04.prod.outlook.com (2603:10a6:910:dc::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Wed, 28 Oct
+ 2026 16:47:46 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0546.021; Wed, 28 Oct 2026
+ 16:47:46 +0000
+Date: Wed, 28 Oct 2026 12:47:38 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Jelly Jia <Jelly.Jia@cixtech.com>
+Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, robin.murphy@arm.com, sboyd@kernel.org,
+	bmasney+clk@redhat.com, jbrunet+clk@baylibre.com,
+	devicetree@vger.kernel.org, Frank.Li@kernel.org,
+	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, joakim.zhang@cixtech.com
+Subject: Re: [PATCH v1 4/5] dmaengine: arm-dma350: Honour dma-channel-mask
+Message-ID: <auInKn0Z7TUP8yl7@lizhi-Precision-Tower-5810>
+References: <20261023093045.3248630-1-Jelly.Jia@cixtech.com>
+ <20261023093045.3248630-5-Jelly.Jia@cixtech.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260903160623.315525-16-alexandru.elisei@arm.com>
+In-Reply-To: <20261023093045.3248630-5-Jelly.Jia@cixtech.com>
+X-ClientProxiedBy: DM6PR03CA0077.namprd03.prod.outlook.com
+ (2603:10b6:5:333::10) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|ZR6PR04MB424962:EE_
+X-MS-Office365-Filtering-Correlation-Id: 739f9f4f-2052-4c9c-ab52-08df351331cb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|366016|19092799006|7416014|261009223027099003|261021123027099003|261022105027099003|261021121427099003|10067099003|56012099006|6133799003|22082099003|18002099003|11063799006|4143699003|261026140227099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info: 5+N3uQdrLTFENG4QrpmjcNqXGGZIgQzZnmzgsImj8MTGSpqnBUfDNBIWR5DCC+3rU/pwToNwEmnoO6fJA1PXit1xIBJuUBy59sOHdoaqMKZAORiz1hDUWZxi/XKuGS6amfBkM59qcl2IqYy8bHH1Pryl3AcpfTOvAF/c61TgT8SKF1wilWrJTmnH/j6TgasaSGzluJN8Ybee6V/4S+Z35WYtO3VeqoL94RfRmRD9Sh93CgnhDJVPNCm9VF+WjmexmE9eB5M8Lyr25wxDGDNaxpib/7TRA4UGnjqSyD/8pT8OpuCOsvnNGg1Dhhiv+X9f2d9dgCzL/dpM1cKKhAk6L78MGy3szWufA1xlyU6uw+BYmcgHhIe7sd0GnsqnKBBr4O5LoVrcwWQXo9g9kpSnTpWtj6qnH55TODKJNnSlnYsc3HB8eiU9cvSpHAY5k7Au4UYHXD3ro3aUKp65zrkJ7dT2j6SbjJSrjYRm0bqxv2sxik9WcUcozk+n/vO0vpunhKqweIQYXvEV1HwVVbvk1efwYXzPlqe29m0HPopmstmZKFH/+8/x/vWjrhF34mbLZ15Dv/4lvvOd9ZHJzHC5MnRpdTJqstp8MfX3jHfT4XDqbw1mhmM1HwEGdNheC8CGpEj+vNWQ714DNw3jUKw4cklcRaQQnuOGlzxGqdKmti0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(366016)(19092799006)(7416014)(261009223027099003)(261021123027099003)(261022105027099003)(261021121427099003)(10067099003)(56012099006)(6133799003)(22082099003)(18002099003)(11063799006)(4143699003)(261026140227099003)(261028144727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gfjzoHlCTHE+WS16GPd1Vbfn4TvzHOKfLkh3PHuDFpocyvqfJHmkmXluKrHy?=
+ =?us-ascii?Q?WQNoszyKRz4S5for0zWa0RSoiz2Uq2ogQXuAQ86ji5MZcZc/Sh1ZHFUoDtqC?=
+ =?us-ascii?Q?345G9ZLi163H7rY1CRP209sJ3nyx3mt656F1zsL0GldEgQccMOEGb8N8U3ks?=
+ =?us-ascii?Q?v5jKHZzbBVZD8kvtsND1HqvwhRHkVyLKg4A+SZXYsgP3zJM8wFH/yTzailih?=
+ =?us-ascii?Q?3WOJ9nK8d7F7b7C1+9/e5Qqc+MFcff7tpFPHmHq+d/l/VkQfS1C7ZS5IIbEb?=
+ =?us-ascii?Q?QSvA/3PR0EvrXNFtXuO0vQ7zvjMgm7zMjnnC6+8xCLIa3r/mNX6Xjbj9niek?=
+ =?us-ascii?Q?MhJjAifauWWzzQidTycEoh1yTWEfOaPEwOs9R4rDfNlPEJH6Si9ZR+wN6RnH?=
+ =?us-ascii?Q?qz3Mg0PiuQ1QbtAEnUi2Va0mlXY0zXgawG34B7p6PWFCQmPiHzHhru3Ir7py?=
+ =?us-ascii?Q?PlhMXgUOp/BvgfnrquOUOCNOmiYzv+hLphnvmVwlF2xc494APn7svhJpXvy9?=
+ =?us-ascii?Q?vioTsLXAc64mCmMMSZiHGBR4KMbcpYIxki4yG8AJHUV1rVVL+p5TUsiySfry?=
+ =?us-ascii?Q?ADK7Bvj+OTfWtOq8BZyOpID0gOJvWk0i+lrkwrB8MX/yevw1mnV8up6tbVgC?=
+ =?us-ascii?Q?p28LlgFPE2gDZowmeWECTuBwvLFBp/IDtBQDkW4zy1nag+uBPFFGZL47Xlq+?=
+ =?us-ascii?Q?R7agyj76XPjLT+0jT/6gMRED0TbMn9itZka3QdILm9/fnCSwM0ZUJ4J4IW53?=
+ =?us-ascii?Q?mlb58ApP9I526gBEOTkzOq3DbSS7AEyXhiHxhpaf8FPA4lPud3y5utVkPfDl?=
+ =?us-ascii?Q?/+eSd18L/ZFvsg/yIYffYNDNDx16ngDts0lFy8lRI9h0BSfLZr4WG2jK134S?=
+ =?us-ascii?Q?6ZZPb7ZLMVE+G9IhDGjvroCyGKDTAzmunzfxYcwf9oQpm3m4gE3/uVItowge?=
+ =?us-ascii?Q?MRC34jacia36Lcc6F1iJhPTobW2x4cYxFf3l8AdzdGpJD422KLyzidJQy8rv?=
+ =?us-ascii?Q?niLBbQinlPCiMBrMXZ26D/qAsP2LS13C2M1lIs/S57yqUCrQkxuGMP7rZPxg?=
+ =?us-ascii?Q?Tp7cAzHahMYbqDQ3hI8Tl/Qy13I++UDD3emYVQa+kKUUcAjp9qectAi2pOL6?=
+ =?us-ascii?Q?zTPAkjO6QYK7wYKjgvFOGhlP29STWzofwmRtPc+/qWejwcONiEjyNWEQu4BE?=
+ =?us-ascii?Q?/BjlFWLZhfVg2W77uckirXtMZ8mmud0m5akoB+yO2BLFohojMOU+AFz9gea/?=
+ =?us-ascii?Q?BRRwv8muN6t2C78ZNAd/cGWMtrsv9/lkBT3T8rUj8eiPLgHccAl9n4DBAD00?=
+ =?us-ascii?Q?pthvlgLTeJ234wSZahJZG1WOcKxZf1i4mixzX8iGG44hucsaliVsm2eBO6XN?=
+ =?us-ascii?Q?QFIAqCHbNh3PPcARsRT2eCvT01r4Dx4m0wtdjcUniAbAAQIyHRCLga/uCfd/?=
+ =?us-ascii?Q?xcZLXn2TjIL/GHUf+79GvkHMPcw82hXgYHUTDhTJF0S03+U56ihVGHt/Cmvy?=
+ =?us-ascii?Q?zL0zhGCR59xdYF1t6J0SOHBOACO48vdQimYxf6zdS5T6aQFa3PDiKc1B0FIn?=
+ =?us-ascii?Q?S8CLUtMm5uMqjxCVUhf8TPPBvUvYcEVSowO6T2ZmJKCiMBGyrq2xLKbvrxgg?=
+ =?us-ascii?Q?EgY6bR+NkbEDwSWr55fU/Pc78op7Gc+EtVB4Eb14c5y9wGDqjyTg6/E/h2az?=
+ =?us-ascii?Q?/4zUdi1hS2wr1U+9Xn62IBir7ZYqqpNiiK5liTpwsFhhyRv2ZzJrIB6IO11m?=
+ =?us-ascii?Q?MVruEcZKyvXa9d8XIEKV+Wx5qAUBQD1YeNep1OIqY8SlJpVslbeM?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 739f9f4f-2052-4c9c-ab52-08df351331cb
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2026 16:47:46.6808
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HHmPZWorDekGesqQPwh0+Iih9X8FzvN2904ZF2EBjxwu0ePA98Il0Qv7MAKkS1utkTssmpyX1Z7rvo5umKK9b2dutlFbJc+FqSMA1HxgpTg4asHJOIIV3U1eAnFOhqIA
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR6PR04MB424962
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261028_094752_585143_1956126D 
+X-CRM114-Status: GOOD (  21.46  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,220 +141,82 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Sep 03, 2026 at 05:06:10PM +0100, Alexandru Elisei wrote:
-> KVM allows SPE to be virtualized on heterogeneous system, where hardware
-> can implement multiple SPE instances for different CPUs, or where SPE
-> might even be missing on some of the physical CPUs.
+On Fri, Oct 23, 2026 at 05:30:44PM +0800, Jelly Jia wrote:
+> DMA-350 channels may be reserved for firmware or another processor.
+> Read the optional dma-channel-mask property and register only the channels
+> whose bits are set. If the property is absent, preserve the existing
+> behaviour and expose every hardware channel.
 >
-> KVM resets the VCPU ID registers following a KVM_ARM_VCPU_INIT ioctl.
-> Using the value for ID_AA64DFR0_EL1.PMSVer on the physical CPU where the
-> ioctl is executing is unreliable, since userspace might want to later
-> assign a different SPE instance, with a different PMSVer value. Worse yet,
-> it is be possible that the VCPU reset is being performed on a physical CPU
-
-'it is be' -> 'it is'.
-
-> without SPE. Be consistent and use PMSVer for the SPE instance assigned to
-> the VM to initialize ID_AA64DFR0_EL1.PMSVer.
+> Skip masked channels before accessing their channel registers or
+> initializing their interrupts and virt-dma state. This avoids clearing
+> or configuring channels reserved for firmware or another processor.
 >
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-
-Note that this has to be rebased as 2ce80f624032 changed how all this works :)
-
+> Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
 > ---
->  arch/arm64/include/asm/kvm_spe.h | 10 ++++++++++
->  arch/arm64/kvm/spe.c             | 24 ++++++++++++++++++++++++
->  arch/arm64/kvm/sys_regs.c        |  8 +++++++-
->  3 files changed, 41 insertions(+), 1 deletion(-)
+>  drivers/dma/arm-dma350.c | 20 +++++++++++++++++++-
+>  1 file changed, 19 insertions(+), 1 deletion(-)
 >
-> diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
-> index a6999709b298..4bae3e6b05c8 100644
-> --- a/arch/arm64/include/asm/kvm_spe.h
-> +++ b/arch/arm64/include/asm/kvm_spe.h
-> @@ -29,11 +29,14 @@ bool kvm_supports_spe(void);
->  int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu);
->  void kvm_spe_destroy_vm(struct kvm *kvm);
+> diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
+> index 9cb5b2f03113..32ec6f061ee9 100644
+> --- a/drivers/dma/arm-dma350.c
+> +++ b/drivers/dma/arm-dma350.c
+> @@ -1205,9 +1205,10 @@ static int d350_probe(struct platform_device *pdev)
+>  	struct clk *clk;
+>  	struct d350 *dmac;
+>  	void __iomem *base;
+> +	u32 chan_mask = U32_MAX;
+>  	u32 reg;
+>  	int ret, nchan, dw, aw, r, p;
+> -	bool coherent, memset;
+> +	bool coherent, has_chan_mask, memset;
 >
-> +void kvm_spe_finalize_idregs(struct kvm *kvm);
-> +
->  int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->  int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->  int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+>  	clk = devm_clk_get_optional_enabled(dev, NULL);
+>  	if (IS_ERR(clk))
+> @@ -1285,6 +1286,19 @@ static int d350_probe(struct platform_device *pdev)
+>  	dmac->dma.device_config = d350_config;
+>  	INIT_LIST_HEAD(&dmac->dma.channels);
 >
->  bool kvm_spe_pmu_set(struct kvm *kvm);
-> +u8 kvm_spe_get_pmsver(struct kvm *kvm);
-
-Hmm, the field it returns is u16?
-
-	u16					pmsver;
-
->  #else
->  struct kvm_spe {
->  };
-> @@ -55,6 +58,9 @@ static inline int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
->  static inline void kvm_spe_destroy_vm(struct kvm *kvm)
->  {
->  }
-> +static inline void kvm_spe_finalize_idregs(struct kvm *kvm)
-> +{
-> +}
->  static inline int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->  {
->  	return -ENXIO;
-> @@ -71,6 +77,10 @@ static inline bool kvm_spe_pmu_set(struct kvm *kvm)
->  {
->  	return false;
->  }
-> +static inline u8 kvm_spe_get_pmsver(struct kvm *kvm)
-> +{
-> +	return 0;
-> +}
->  #endif /* CONFIG_KVM_ARM_SPE */
+> +	/*
+> +	 * dma-channel-mask is optional. Firmware-reserved channels stay
+> +	 * clear; if the property is absent, Linux may use every channel.
+> +	 */
+> +	has_chan_mask = device_property_present(dev, "dma-channel-mask");
+> +	if (has_chan_mask) {
+> +		ret = device_property_read_u32(dev, "dma-channel-mask",
+> +					       &chan_mask);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "failed to read dma-channel-mask\n");
+> +	}
+> +
+>  	reg = readl_relaxed(base + DMANSECCTRL + NSEC_CTRL);
+>  	writel_relaxed(reg | INTREN_ANYCHINTR_EN,
+>  		       base + DMANSECCTRL + NSEC_CTRL);
+> @@ -1294,6 +1308,10 @@ static int d350_probe(struct platform_device *pdev)
+>  	for (int i = 0; i < nchan; i++) {
+>  		struct d350_chan *dch = &dmac->channels[i];
 >
->  #endif /* __ARM64_KVM_SPE_H__ */
-> diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
-> index fa87d224c8af..4426d614a9e0 100644
-> --- a/arch/arm64/kvm/spe.c
-> +++ b/arch/arm64/kvm/spe.c
-> @@ -87,6 +87,30 @@ bool kvm_spe_pmu_set(struct kvm *kvm)
->  	return !!kvm->arch.kvm_spe.spe_pmu;
->  }
->
-> +void kvm_spe_finalize_idregs(struct kvm *kvm)
-> +{
-> +	struct arm_spe_pmu *spe_pmu = kvm->arch.kvm_spe.spe_pmu;
-> +	u64 reg;
+> +		if (has_chan_mask &&
+> +		    (i >= 32 || !(chan_mask & BIT(i))))
+> +			continue;
 > +
-> +	if (!spe_pmu)
-> +		return;
-> +
-> +	reg = kvm_read_vm_id_reg(kvm, SYS_ID_AA64DFR0_EL1);
-> +	reg &= ~ID_AA64DFR0_EL1_PMSVer_MASK;
-> +	reg |= SYS_FIELD_PREP(ID_AA64DFR0_EL1, PMSVer, spe_pmu->pmsver);
-> +	kvm_set_vm_id_reg(kvm, SYS_ID_AA64DFR0_EL1, reg);
-> +}
 
-I know sashiko raised something about this, and mostly you're right to dismiss
-those, but I think one issue remains here.
+dma-channel-mask is u32 array. If nchan >= 32, you should check
+dma-channel-mask[1].
 
-Consider:
+Frank
 
-1. KVM_ARCH_VCPU_INIT
-
-__kvm_vcpu_set_target()
-  -> kvm_reset_vcpu()
-    -> ...
-      -> __kvm_read_sanitised_id_reg()
-        -> sanitise_id_aa64dfr0_el1()
-          -> kvm_spe_get_pmsver()
-	    No instance assigned yet
-
-	    SET: PMSVer = 0
-
-2. KVM_SET_DEVICE_ATTR(KVM_ARM_VCPU_SPE_ID)
-
-kvm_arm_vcpu_arch_set_attr()
-  -> kvm_spe_set_attr()
-    -> kvm_spe_set_spe_id()
-       Nothing updates the register.
-
-       SET: kvm_spe->spe_pmu = spe_pmu
-
-3. KVM_GET_ONE_REG(ID_AA64DFR0_EL1)
-
-get_id_reg()
-  -> read_id_reg()
-    -> kvm_read_vm_id_reg()
-
-       RETURNS: PMSVer == 0
-
-4. KVM_SET_ONE_REG(ID_AA64DFR0_EL1) with val from 3 (=0)
-
-set_id_aa64dfr0_el1()
-  -> set_id_reg()
-    -> arm64_check_features()
-       u64 limit = rd->reset(vcpu, rd);
-         -> ...
-           -> [ same sanitise hook as 1 ]
-              kvm_spe->spe_pmu now assigned.
-
-       limit = N (!!)
-
-       Fails, because:
-
-            if ((val & ~mask) != (limit & ~mask))
-                return -E2BIG;
-
-       PMSVer isn't in the writable mask, val from step 3 is 0, limit
-       is N.
-
-So I think the right solution is to call kvm_spe_finalize_idregs() in
-kvm_spe_set_spe_id(), after setting kvm_spe->spe_pmu = spe_pmu.
-
-That way steps 3 and 4 above work, and step 2, which sets the SPE ID,
-also sets PMSVer.
-
-> +
-> +u8 kvm_spe_get_pmsver(struct kvm *kvm)
-> +{
-> +	struct arm_spe_pmu *spe_pmu = kvm->arch.kvm_spe.spe_pmu;
-
-NIT: could be const?
-
-> +
-> +	if (!spe_pmu)
-> +		return 0;
-> +
-> +	return spe_pmu->pmsver;
-> +}
-> +
->  static int kvm_spe_update_supported_cpus(struct kvm *kvm, cpumask_t *spe_cpus)
->  {
->  	return kvm_update_supported_cpus(kvm, NULL, spe_cpus);
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 44aae52c473d..a6bb6884b965 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -2220,8 +2220,11 @@ static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
->  		val |= SYS_FIELD_PREP(ID_AA64DFR0_EL1, PMUVer,
->  				      kvm_arm_pmu_get_pmuver_limit());
->
-> -	/* Hide SPE from guests */
-> +	/* Only initialize the SPE version if the vCPU has the feature. */
->  	val &= ~ID_AA64DFR0_EL1_PMSVer_MASK;
-> +	if (vcpu_has_spe(vcpu))
-> +		val |= SYS_FIELD_PREP(ID_AA64DFR0_EL1, PMSVer,
-> +				      kvm_spe_get_pmsver(vcpu->kvm));
->
->  	/* Hide BRBE from guests */
->  	val &= ~ID_AA64DFR0_EL1_BRBE_MASK;
-> @@ -5928,6 +5931,9 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu)
->  		kvm_vgic_finalize_idregs(kvm);
->  	}
->
-> +	if (vcpu_has_spe(vcpu))
-> +		kvm_spe_finalize_idregs(kvm);
-
-kvm_spe_finalize_idregs() already exits if !spe_pmu, so this could be
-invoked unconditionally?
-
-> +
->  	return 0;
->  }
+>  		dch->base = base + DMACH(i);
+>  		writel_relaxed(CH_CMD_CLEAR, dch->base + CH_CMD);
 >
 > --
-> 2.43.0
+> 2.54.0
 >
->
-
---
-Cheers, Lorenzo
 
