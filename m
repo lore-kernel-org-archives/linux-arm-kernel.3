@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62F14606A322
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 13:06:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83D2D606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 13:07:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PxgxZp4D;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RdnBz1db
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ulrGyf/C;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l161vgEo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=qDzV/BSCBAxOgkyeUgwhABAV8Xciygx/josgC+QLyV0=; b=PxgxZp4DUlXsxUeRxxstn7P705
-	xBFq7V3zx29FDW+/1NGAWfGCa5fV+z2qetgtV8BMum0GddsOIX4mKFdX5r/GgX0+WSBPnrXWjSHMk
-	Gb09tlbLVirMdfHSTmzb8K+QGmCuniNMxv5zURVjVgLlx0ZhygqxFdTrt58hrDIWSHIcUgOpvSm4c
-	zq3AICFhechCC3zGl7+OCTLQVGSXV8Jg+OvNp5cS8MDNv1b7Gb4hftlxdbofRPG3Ni3xI/xwqeQB0
-	gOT67pUjw2lOBgIL/BPbYFN2ch3f4tfTikPUAqrIer6A92xULEHWwt57NfRLw6mWc/EeV0YSVCtgq
-	7KjRsTQQ==;
+	bh=GHlCkJUwCOHNDfNGV+Pk0+JrrHxYMGL+qd1XE/qEa4o=; b=ulrGyf/Cu+6M//w0KBk4mMLDGs
+	irzuy4znjx8KMFKFyv6zK9Acx8F5NTOS1O3toA1vlTorTWQflciegXbblqJ9NCUjyZJ1KzScqOS1K
+	fnQYynrwdtsANvVUDoKHwIS+d+165sZIyZih1iqOyWcIVJNe0rVuOB89XwBC6/YAcEDg/IDamAErC
+	UMxWf7D9hTuA5AkK3IrtvUKI+LsUyErC1dRpo7mqQIiAR0O23VlB9y6QFT4VpWp9ASYd6GfpCYg7g
+	PG9LLIz3BN+KMx/hbayl1ZIussFX1MDgbO2tcao0cBaegjZIAjUpYjKWWngXhxEmf74PQmCv/o9Lz
+	6Al6Mbkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM3Me-00000007135-1mS5;
-	Wed, 28 Oct 2026 13:06:48 +0000
+	id 1xM3N1-0000000716E-2FGx;
+	Wed, 28 Oct 2026 13:07:11 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM3Mc-0000000712w-3rvy
+	id 1xM3N0-00000007161-14lN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 13:06:46 +0000
+	Wed, 28 Oct 2026 13:07:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5CFA560136;
-	Wed, 28 Oct 2026 13:06:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48F191F01828;
-	Wed, 28 Oct 2026 13:06:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B00F5600C8;
+	Wed, 28 Oct 2026 13:07:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 665211F01825;
+	Wed, 28 Oct 2026 13:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793192806;
-	bh=qDzV/BSCBAxOgkyeUgwhABAV8Xciygx/josgC+QLyV0=;
+	s=k20260515; t=1793192829;
+	bh=GHlCkJUwCOHNDfNGV+Pk0+JrrHxYMGL+qd1XE/qEa4o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RdnBz1dbtXIeb3HyA7QqqOJ302Jd+NkhIn8zrh+yGXspbul4+HP4qUcZg7SvMRyeN
-	 ksTnfg3zMNnB6WNBV73M/sAaYcpWVYuM7RoTGnS2DJVKmxQO/jTzecXmsXW48Ymdjq
-	 6VKWbhzz3pLQQHIUDgcnRmzeDYGdFA7lJpHW7BwCqGBMisL7y50McuyciglcrV5km7
-	 IIclv+4fgj3p6ecCStDcv5+gqxZmEBMMUZuJ60UT2mqy5Zy4V02t9vPwKJc/CcUF8p
-	 Fku9mH/mWu5cICCnYkIkWFOWL8dNDDPGQ4UJkzuRb5wFUtHSN/xCrNrmUfPWgb6gAq
-	 Y0olpsYneKHmw==
-Date: Wed, 28 Oct 2026 14:06:42 +0100
+	b=l161vgEo62t7JuyBQhX5FlU50DZRNFFOo45oMz7hoo96Eu/I71d72qkHFoOvOH3+n
+	 DkjskkfFszV8HuOG08UT1lcV2U0FnHcG7G7ZRjiMCrJjZlNwbkecbC7ubA/no937n9
+	 3h5TdF22S+rterzEJGM2Pte1NDVnV7rBzGNyFeLtY4DcnHK9qZhwks7aR940K1xdK1
+	 i0dah1QgQCuMqKy5m29zlY/UfZ/LAMwwGo+ajZE46fnGivknLBVh54UdarPV3s2QDc
+	 qciaobqdpJGR//rfc8V2w0VNh8QAw0ZyuVmQeq4ASllzoK9ZFH8crRtcp9/5tOz3FX
+	 6LrxtZjJ7XiHA==
+Date: Wed, 28 Oct 2026 14:07:06 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Geert Uytterhoeven <geert+renesas@glider.be>
 Cc: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
@@ -55,16 +55,16 @@ Cc: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Ulf Hansson <ulfh@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, linux-pwm@vger.kernel.org, 
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH 02/11] dt-bindings: pwm: renesas,pwm-rcar: Add support
- for R-Car X5H
-Message-ID: <20261028-snobbish-deft-saiga-1cb2aa@quoll>
+Subject: Re: [PATCH 07/11] dt-bindings: clock: renesas,r8a78000-cpg: Add PWM
+ clocks
+Message-ID: <20261028-holistic-ultraviolet-kelpie-ead6bc@quoll>
 References: <cover.1793026273.git.geert+renesas@glider.be>
- <388ee68e120ba73e675ad78fe0b1cbd89b061831.1793026273.git.geert+renesas@glider.be>
+ <e723696e02cfb34fb808e2ae3ccb6faf68528c00.1793026273.git.geert+renesas@glider.be>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <388ee68e120ba73e675ad78fe0b1cbd89b061831.1793026273.git.geert+renesas@glider.be>
+In-Reply-To: <e723696e02cfb34fb808e2ae3ccb6faf68528c00.1793026273.git.geert+renesas@glider.be>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,22 +83,22 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 26, 2026 at 03:55:18PM +0100, Geert Uytterhoeven wrote:
-> Document support for the Pulse Width Modulation (PWM) module in the
-> Renesas R-Car X5H (R8A78000) SoC.
-> 
-> R-Car Gen5 enlarged the PWM output cycle and high-level period fields
-> from 10 to 24 bits.  While the added register bits have initial states
-> of all-zeroes, and thus look compatible with previous generations, the
-> register bits may have been modified before Linux boots.  Hence no
-> fallback to renesas,pwm-rcar is included.
+On Mon, Oct 26, 2026 at 03:55:23PM +0100, Geert Uytterhoeven wrote:
+> Add definitions for the clocks used by the PWM modules on R-Car X5H:
+>  - R8A78000_CPG_SGASYNCD16_PERW_MAIN,
+>  - R8A78000_CPG_S0ASYNCD8_PERW_MAIN.
+> Include R8A78000_CPG_SGASYNCD8_PERW_MAIN for ordering consistency.
 > 
 > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 > ---
->  .../bindings/pwm/renesas,pwm-rcar.yaml        | 61 ++++++++++---------
->  1 file changed, 33 insertions(+), 28 deletions(-)
+> This depends on "[PATCH 2/7] dt-bindings: clock: renesas,r8a78000-cpg:
+> Add GPIO clocks"
+> https://lore.kernel.org/624a9fb09e4ec74b1995797e5121b86e7206f5f2.1792776697.git.geert+renesas@glider.be
+> ---
+>  include/dt-bindings/clock/renesas,r8a78000-cpg.h | 3 +++
+>  1 file changed, 3 insertions(+)
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
