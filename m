@@ -2,85 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15623606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 13:50:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7134E606A32D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 13:53:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AKVRO4a5;
-	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=BxUepWxa
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xLy6t7eN;
+	dkim=pass (2048-bit key, unprotected) header.d=cjdns.fr header.i=@cjdns.fr header.a=rsa-sha256 header.s=dkim header.b=SAvQBHOm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=EKOJSvQCyvmegciiDSA3qkq54znl6sRsTPqc7BTTnKg=; b=AKVRO4a5ZOAdb5vy8j5mK0ZKtY
-	MsK2AIEcSV7uX2L2FTrUS+nxnkwhspzVDIcmnt59ezfpSQY8t0UBaYJZ5+DDeyz1NZyT9kRyCyBlM
-	fSOsYgvVC2FOnI/MwXoO/Z0dC+ICaieqmmwLxnnbE7lGIhmXfVEIgZGUSM21bpakI8oY8eXcZvoN+
-	dltyO06wn9g3nQZAyef5mbLAEkcAU6CK4GCW7Uqo8vr4B9gv47D34I6Txj0ltks7CkNW8R5Eqt5th
-	9vmA6XpiUOVRH9SMKTKUwMGtnhb0w0sbKWmIBe56D7awy1RYhRaF/VGd3YmZkdufNdesM0MbZkLRm
-	qyvAib7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=sXikcPN/2u2jcqxK0ic3WXRLLLyeXrwW2xb+LwiQxXY=; b=xLy6t7eN7oI3Rd
+	B+AHnM1SzSpLENcSBA3ze/gDxJ+c+bcgaOXhJ+AAlSdQMEUQqp0EWWs7USPXlQjNFw/t/CvEfiCRW
+	Emh9mm3oS/Xk2vBPWplZxWd2ClHSagbYW+V2bBAJGO7DeL9C8ROYepCStncHPJPOHQtApdfh9WzQT
+	Ftv/ACVxE6SEcql3JwQFZXMZ/hpT99/zgV6t7CzCqRBaF17ZLBfPQ7F0v0Ao9Q0EHp6RCjzS9azF+
+	dOcyeGsbjH1qBbod6UvolGOriDzJNXUn0fSZZ9unM2Bw1/uvUtDrpEdATWOX7rCkPpl/St2ff5Kub
+	gYYtuQaT5EII53X5mW2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM42b-000000077Gc-00qH;
-	Wed, 28 Oct 2026 13:50:09 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1xM45O-000000077fh-008x;
+	Wed, 28 Oct 2026 13:53:02 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM42Z-000000077Fp-12gV;
-	Wed, 28 Oct 2026 13:50:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=EKOJSvQCyvmegciiDSA3qkq54znl6sRsTPqc7BTTnKg=; b=BxUepWxaQM94nl47RKcbqrBwZ7
-	kKjKjVjHXt+ZcHaBoC9nDp4oSN9ak/TO/XSgZcZWwNyUes07CsiuLocLH66v0bHNVj9IKB35ZiIBf
-	fXcJPdkUhdzi3eVA3yYx2Wb11fbpqdcML3ik3qmNvo9oHUT+1pIV40JNfxDMJ/wmX9eR2jxICexSE
-	ad3Hc1No0hfI+y0IgWiVtZAg0BshCR6qLOZqqp16nouHynXTJ9IQB4qiaP3+hFCWqYSQ+ZvQao6uQ
-	gtgCbH3J+tJpJRCI+onTodJWcxHXBKOxtmizI01tTt3GIKNO4zPmrK05hh4otiSxEU/f4XlZ4mWb4
-	KFvceyFg==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1xM41u-002Ho4-0T;
-	Wed, 28 Oct 2026 13:49:26 +0000
-Date: Wed, 28 Oct 2026 06:49:18 -0700
-From: Breno Leitao <leitao@debian.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	Miaohe Lin <linmiaohe@huawei.com>, Naoya Horiguchi <nao.horiguchi@gmail.com>, 
-	Oscar Salvador <osalvador@suse.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, kas@kernel.org, kexec@lists.infradead.org, 
-	Brendan Jackman <brendan.jackman@linux.dev>, Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>, 
-	shakeel.butt@linux.dev, linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-cxl@vger.kernel.org, driver-core@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, rmikey@meta.com, riel@surriel.com, harry@kernel.org, 
-	kernel-team@meta.com
-Subject: Re: [PATCH v6 4/7] mm/memblock: add a reserved-region flag for
- poisoned frames
-Message-ID: <auH6WT5zR1RM1lpA@gmail.com>
-References: <20261016-hwpoison-kho-v6-0-f304255147da@debian.org>
- <20261016-hwpoison-kho-v6-4-f304255147da@debian.org>
- <ato62palTbNjLwN7@kernel.org>
- <524ee7d9-790d-48b6-8613-841da042c32a@kernel.org>
+	id 1xM45K-000000077aF-2BpQ;
+	Wed, 28 Oct 2026 13:53:00 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D80E215FD22;
+	Wed, 28 Oct 2026 14:52:45 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1793195573; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=sXikcPN/2u2jcqxK0ic3WXRLLLyeXrwW2xb+LwiQxXY=;
+	b=SAvQBHOmhiuyKvlXtM1AIKAj6CRqI92p5TarTfEUggze30z+GnbG565ZljxAgt9yHEC2dM
+	uD5iBoqtnOoZOkDKm2IGdLODqoyp/e0jfOhfmpnSaikTs7D6Lenc1O1BbWgh87s/ma/Nyv
+	vXgTMgY1W84l8PsDxj4I+9z1ztQDiCRxWVVACm3kSa6NgsrRAOPZ/Vhus041nsaRWalF1C
+	DoCc3UPTBDy+cs4xKDWnbbmOkb4G/zZCOhvIYOmx+6EyMWoAV+2XadysA9Wdy/uPflREyO
+	0119GI7xKpC5Bf/FgQbIOizvjAHIjyaiWdtPRb7F8nPbA73yEHVZi50bJKd6Xg==
+Message-ID: <c6154519-98f4-46a7-ac30-076ebf588bab@cjdns.fr>
+Date: Wed, 28 Oct 2026 14:52:44 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <524ee7d9-790d-48b6-8613-841da042c32a@kernel.org>
-X-Debian-User: leitao
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v3 2/7] dt-bindings: net: dsa: mediatek,mt7530: add
+ passthrough mode
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: netdev@vger.kernel.org, olteanv@gmail.com, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, chester.a.unal@arinc9.com,
+ daniel@makrotopia.org, linux@armlinux.org.uk, arinc.unal@arinc9.com,
+ Landen.Chao@mediatek.com, dqfext@gmail.com, sean.wang@mediatek.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ naseefkm@gmail.com, b.larsson@gmx.com
+References: <20261028011317.1557238-1-cjd@cjdns.fr>
+ <20261028011317.1557238-3-cjd@cjdns.fr>
+ <a031f089-0b96-4fc0-b878-6af13414524f@lunn.ch>
+ <521b930f-0bf9-4373-bfbf-3e2570661ec9@cjdns.fr>
+ <a566aad7-754c-4960-b018-4471a0068344@lunn.ch>
+Content-Language: en-US
+From: Caleb James DeLisle <cjd@cjdns.fr>
+In-Reply-To: <a566aad7-754c-4960-b018-4471a0068344@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_065007_293820_1B28BE9A 
-X-CRM114-Status: GOOD (  19.70  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261028_065259_071964_B5327E04 
+X-CRM114-Status: GOOD (  32.14  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,49 +80,123 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 09:39:42AM +0100, David Hildenbrand (Arm) wrote:
-> On 10/22/26 18:33, Mike Rapoport wrote:
-> > Hi Breno,
-> > 
-> > On Fri, Oct 16, 2026 at 05:15:44AM -0700, Breno Leitao wrote:
-> >> memblock allocates from and frees to buddy whatever is not reserved, and
-> >> knows nothing about frames an earlier kernel found hardware-poisoned.
-> >> Such a frame can back the memmap, a page table or a percpu area before
-> >> any hwpoison code runs, and otherwise reaches the buddy allocator like
-> >> any other free frame.
-> >>
-> >> Add MEMBLOCK_RSRV_HWPOISON for a reserved range holding those frames.
-> > 
-> > How much this would fragment memblock.reserved?
-> > 
-> > memblock is not very scalable, to say the least, and each new flag
-> > increases the size of memblock arrays which obviously hurts performance.
-> 
-> I assume that if you have too many regions there, you have different problems
-> than scalability problems.
-> 
-> We should cut out larger chunks, and if they are all over your address space you
-> should scrap that machine.
 
-Ack, that is what the 2M unit does. A DRAM row fault shows up as many 4K
-pages but lands in one or two units, and adjacent units share one
-memblock.reserved region.
+On 28/10/2026 13:28, Andrew Lunn wrote:
+> On Wed, Oct 28, 2026 at 12:27:18PM +0100, Caleb James DeLisle wrote:
+>> On 28/10/2026 03:04, Andrew Lunn wrote:
+>>> On Wed, Oct 28, 2026 at 01:13:12AM +0000, Caleb James DeLisle wrote:
+>>>> MT7530 switches can be configured to blindly pass packets between their
+>>>> CPU/upstream port and a downstream DSA port, in particular, without
+>>>> altering the MediaTek DSA Tag on the packets. This mode is used in some
+>>>> integrations where an SoC integrated switch exists, but a more capable
+>>>> MCM switch is added to effectively replace it.
+>>>>
+>>>> Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
+>>>> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+>>>> ---
+>>>>    .../devicetree/bindings/net/dsa/mediatek,mt7530.yaml       | 7 +++++++
+>>>>    1 file changed, 7 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+>>>> index 90b3582b7619..e29fb8693498 100644
+>>>> --- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+>>>> +++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+>>>> @@ -73,6 +73,13 @@ description: |
+>>>>          Check out example 7.
+>>>> +  The MT7530 and MT7531 switches are capable of being operated in "passthrough"
+>>>> +  mode. In this mode, traffic is unconditionally passed between the CPU port
+>>>> +  and the DSA port which links to a second switch. To use passthrough mode, the
+>>>> +  upstream switch is configured with a DSA link to the downstream switch. In
+>>>> +  passthrough mode the upstream switch is restricted, with no other ports or
+>>>> +  switch configuration allowed.
+>>>> +
+>>>>    properties:
+>>>>      compatible:
+>>>>        oneOf:
+>>> Looking at just what is here, all i see is a comment. There is no new
+>>> property? Yet the subject is "add passthrough mode"?
+>>
+>> Indeed, I used "add" to mean "add documentation of". Per my reply on patch
+>> 3, I think we really prefer to avoid special properties and let this
+>> constitute (very) limited support for a switch hierarchy.
+>>
+>> If there's another verb you think makes a better commit line, I'd be happy
+>> to adjust.
+> [Goes and looks at mediatek,mt7530.yaml]
+>
+> So pass through is not an existing property. You are also not adding a
+> new property 'passthrough'.
+>
+> What you appear to be saying is that the MT7530 and MT7531 are hard
+> coded by the driver into pass through mode? So it is in effect a
+> property of the compatible? So maybe put this comment next to the
+> compatible? And make the subject/commit message talk about the
+> compatible being hard coded for pass through?
 
-Mike, on the statistics you asked for: across the Meta hosts that logged
-a hard memory failure in the last 28 days, these are the
-memblock.reserved regions each host would need:
 
-             p50   p90   p99
-     x86      1     4    41
-     arm64    1     5    27
+Perhaps I should rephrase as follows:
+
+
+"""
+
+The MT7530 and MT7531 switches do not support switch hierarchies except in
+the case that a switch is configured with only one CPU port and one DSA port
+that links to a downstream switch. In this configuration, the upstream switch
+acts as a blind pass-through to the downstream switch.
+"""
+
+
+> Looking forward, what happens when somebody wants to use the switch as
+> a switch? Or you figure out how to do proper D in DSA? It becomes
+> messy because you need to add a property indicating the compatible
+> should actually be a switch?
+
+
+Full hierarchy (using DSA tag) is impossible because of what seems to be 
+a hardware bug where switches don't distinguish themselves in the tag. 
+However it is possible (albeit ugly) to enable ports on both switches 
+providing the same numbered port isn't enabled on both switches.
+
+
+If somebody ever implements that, even if they remove this passthrough 
+support, users of the current passthrough capability will not notice a 
+difference because that will do the same as this.
+
+
+>
+> So maybe you really do need a property?
+>
+> But DT describes hardware, and pass through is configuration. So maybe
+> it should not be in DT at all, Maybe the driver needs to look at the
+> DT tree, figure out a port is used as a DSA port, and put the switch
+> into pass through all on its own? Once D in DSA is supported, the
+> addition ports become available, but no other changes are needed in
+> the DT blob?
+
+
+Previously there was no documentation regarding hierarchies, and any 
+hierarchy would fail at runtime. I think a brief note that this one case 
+of hierarchy is allowed is nice for the users, though it does bend the 
+definition of "describing the hardware" so it could also be excluded. I 
+may be persuaded either way.
+
 
 Thanks,
---breno
+
+Caleb
+
+
+>
+> Sorry, going around in circles, but hopefully it helps you think about
+> the big picture.
+>
+> 	   Andrew
 
