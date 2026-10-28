@@ -2,74 +2,168 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1992606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:35:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA80F606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:38:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qq8iu/Qs;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Udr6XEpf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nSXbs9O9;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=rsn6BR4O
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=mIpHk6iOWjpGN9O5FHmkorJ2iYcIvsqGrTEb77wuOHQ=; b=qq8iu/QsIe0r6B3Xhs1wB/ZJ/a
-	cy9G0lWnyqKj1Q/7K6HpvnikMvtXE+2zA+BvHjlHssr6I6IzSITTbaGloQ1K4DFCeeUQA8yv4UXv+
-	xnsJzdoOqsadsGMjL4K69/2yLNPRvAaWtngmPvLrzLaGY/v7oWkY9vSqVFCa7hAaqhRtmAECQl1d9
-	WNYES3JDakOpy2oMxFbsrp8OC0Onv7EOsM5m8bIIXI8DDwYUpdTUvMpe9w5ZtklAGuZjqVaF0cWR6
-	brMFdpRIy0z7BEGwew5q6oKXVVqDATK+5QtSqqyQt7oLd8VVCeNcwK1+lRR/sas2GdUAbP7u6tMDP
-	EH+w1GYQ==;
+	bh=ehhlelUPDHGtOdSr3XJcikPbPNF0v5/FL0VaBPadzf0=; b=nSXbs9O9ecATm3GBdZj38VWOjj
+	NRbWNjqSFYeIdUkIWfh0n5MOGA1GJFIlTdBpxY1jWhREys7oXFfvtYr8IM/u/Z1qMPqQLUnuqVyiF
+	ynLL+pBXjaUhXVrGK1lJoKfJO0+WaasSaItdm2/wsxb7GoZaBRcfN76FLdEp5W5OPnvitsjD+yai2
+	eaJSnE2JMc7lvYSFtsuQ1+RddKRVZsk8xkkgcrjyTgWofCEE8S8brUPmSI8IrzhBGGvAhiHbjSfGM
+	EkxYMEl0MxskP9W6toQBifRUmoqqYuxyudTAkkWQKHCOkbD5QmF5YI+oVX1IDi/wpgC3btH4j0veL
+	9qGwZzvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM2sN-00000006xvk-3Xi5;
-	Wed, 28 Oct 2026 12:35:31 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xM2vB-00000006y9i-18a1;
+	Wed, 28 Oct 2026 12:38:25 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM2sG-00000006xtm-2mlS;
-	Wed, 28 Oct 2026 12:35:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=mIpHk6iOWjpGN9O5FHmkorJ2iYcIvsqGrTEb77wuOHQ=; b=Ud
-	r6XEpfROX2s6rx/8r4fyxYUiLEnQP3mvrte9VsMJOGTUrS5vNKvMBluJWZ7nI3dTkepfI9xi4JyPE
-	SjplqAo1pGuJgEeUiU806lu0j4JBl6o+7YAQ3LJL8HO32XgW0L4weh+kItNH4nPxUukinfStE1LRP
-	yo7W+eseJeaWFYY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xM2ru-00D6jH-Dl; Wed, 28 Oct 2026 13:35:02 +0100
-Date: Wed, 28 Oct 2026 13:35:02 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Caleb James DeLisle <cjd@cjdns.fr>
-Cc: netdev@vger.kernel.org, olteanv@gmail.com, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	chester.a.unal@arinc9.com, daniel@makrotopia.org,
-	linux@armlinux.org.uk, arinc.unal@arinc9.com,
-	Landen.Chao@mediatek.com, dqfext@gmail.com, sean.wang@mediatek.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, naseefkm@gmail.com,
-	b.larsson@gmx.com
-Subject: Re: [PATCH v3 3/7] net: dsa: mediatek: add support for passthrough
- mode
-Message-ID: <2b406479-8c3d-40e6-93e2-e7ad01d5f432@lunn.ch>
-References: <20261028011317.1557238-1-cjd@cjdns.fr>
- <20261028011317.1557238-4-cjd@cjdns.fr>
- <734d4f06-26af-4bea-9c83-eb92c1b3b894@lunn.ch>
- <18472c61-efe2-4529-971b-82d877df6b15@cjdns.fr>
+	id 1xM2v8-00000006y9L-2JI2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Oct 2026 12:38:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O4pagCpG+a+CIPiKgCP/E5MNXFQgcSq/W+LSPFfWYCce74OV5FBJxXT9doi7oqfqbMqA0YYCJcakmXNC4ItQGfK1aCGgIaGhYVakeG1CV9VMZ9O/4HBbrhbV0+HDpVLBW5pcBTq5afrXAFDkfYm8Q+ql+5aAHJfqX3lK0C9AsCoyifglNo1K/EXGG6VAedNektxJJ79CG4FH7IKisw1FA7ey6XJHHHh+nPWFzlGqLk9usWwRhzxu4zmiIHn2cTH6Xid+n2XJm/IFlVe2UJrXcvV8DJRLT+lMeepDNwnauK4N+YzUP3vSGO7dVBgBVBK2VQevpzJ/GTEG8dUBEDZGrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ehhlelUPDHGtOdSr3XJcikPbPNF0v5/FL0VaBPadzf0=;
+ b=xRcC9Fmf5roxGVDZpLdrpH1jW3a209wbKf1QddeEgZWxX8cgM8JW/VNI4rXJq2OvdFm9DqEeO3emVzuCElSdIROrV68nXBRm/XnAgfrkeawAaoyGLJk1qyDpLJ7t8FeiTJNztFlsWu308D+dMMHkoRs1UxvoTL29PgzVr75YeiSuHABn0z5kuX/MKGa26aFh2ecsqLdT9AcxGt8HNQaKsY5lFSXiHC1d7IKOxKDZ/Iq/PB54cEErCp8srTWLpgH5K02+epEzTjqqRBmdvjwGBJj1IPZ+CfdvA+uEju7ov9/HxDhJHVurSHCL06/Cw18+JUrAQW+392RzAKKvXBbrsg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ehhlelUPDHGtOdSr3XJcikPbPNF0v5/FL0VaBPadzf0=;
+ b=rsn6BR4O8fg6OQwkZzX2+vrWpdrdv5CsLdHQeGIvDdPACtbtvhzgAwgF0a9UKTQL3mTQq7E7MkBHrPr4NAk/aXcD+DZWQbw1kebQJwbb5LoLGFRACF2NNyOELMZBSyzDcfvpw8OPJKnpAglAuov/Df3p9KZrjqx6FOGPxdl30muQcUlNJ/rAoGVvxjrFu78Wy4GZBO2SEw1WUHmX9f1spxfi2PTIIz50IGpRad+xYscPH5oEy8RJuuZ8CRvFnVud7R4NL6ZywQS0FjQ6GNbq4YgaFMpyCDkh7I95n8T4vL/OGLncpE5ooamfWzgosorf3azFVT6ZopjIYfbLOL1EXQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by SA1PR12MB7296.namprd12.prod.outlook.com
+ (2603:10b6:806:2ba::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.8; Wed, 28 Oct
+ 2026 12:38:13 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0569.007; Wed, 28 Oct 2026
+ 12:38:13 +0000
+Date: Wed, 28 Oct 2026 09:38:12 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Shameer Kolothum Thodi <skolothumtho@nvidia.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, "joro@8bytes.org" <joro@8bytes.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	"rafael@kernel.org" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	"aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Gavin Shan <gshan@redhat.com>, Vikram Sethi <vsethi@nvidia.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	"rppt@kernel.org" <rppt@kernel.org>, Thomas Huth <thuth@redhat.com>,
+	Marc Zyngier <maz@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+	"kas@kernel.org" <kas@kernel.org>,
+	Kohei Enju <enju.kohei@fujitsu.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Ard Biesheuvel <ardb@kernel.org>, James Morse <james.morse@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Omar Sandoval <osandov@fb.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Sam Edwards <cfsworks@gmail.com>,
+	Douglas Anderson <dianders@chromium.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Pranjal Shrivastava <praan@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"driver-core@lists.linux.dev" <driver-core@lists.linux.dev>,
+	Sonang Patel <sonangp@nvidia.com>,
+	Ankit Agrawal <ankita@nvidia.com>
+Subject: Re: [PATCH v1 4/8] dma-mapping: Keep DMA memory private for capable
+ devices
+Message-ID: <20261028123812.GB2541714@nvidia.com>
+References: <cover.1789010941.git.nicolinc@nvidia.com>
+ <abddd433493324a6bfdf8ba9710e96d90f0d1ccc.1789010941.git.nicolinc@nvidia.com>
+ <SJ0PR12MB86145DBCF2ADDF3B85719531AB6F2@SJ0PR12MB8614.namprd12.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SJ0PR12MB86145DBCF2ADDF3B85719531AB6F2@SJ0PR12MB8614.namprd12.prod.outlook.com>
+X-ClientProxiedBy: BN0PR10CA0009.namprd10.prod.outlook.com
+ (2603:10b6:408:143::6) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <18472c61-efe2-4529-971b-82d877df6b15@cjdns.fr>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|SA1PR12MB7296:EE_
+X-MS-Office365-Filtering-Correlation-Id: e4adbab3-36ee-4066-d341-08df34f05502
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|11063799006|4143699003|56012099006|261009223027099003|261022105027099003|261026121527099003|261026140227099003|261021121427099003|10067099003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info: ClENGOo2WVb5zzsMT4FEA+7sReqVNp6PHfAHAZwvoxEFTu3bXo0VsWZl7JTvUY0C3BJpsjulkFPlK95BHoM+/sOOTb347ySXdzmYNpgkS8rQh7Q/pcU8vAyxnVGdvglJqRpxwmeOy6pC1iQ0+wIbWO0KhWIhUFOOhQCNTQpUq3qNoF3T56OrzDyEc4LsIL0cDQiace9mE3AUANqsXZ9ce9mjL/M5TWXjCqRqEN00+SGajpE7NrDepEfwWnLJMHiNolNzczQdba4I577b9W5s9lTmM/sQykQaqr2PbPXhKCHr2ZEPn33oTp0qf8zbPLMVeQBnyHWjfgMU7Fo7vRUv2OL/P+JsKC3arAVT6h6Zm6FUdFq89m5QK+Zs2hx9iP324V5qtamHTUGgxdCcMGuIfyW4YegeZPxKJzaeM0S1/tWZIlv5V5q+MgoSTgBpU5DuRfhPW/llIQeTE0J5F1Z8fiIOj9xAViEzIL15GZjMDKnoWeUUjZJBQJCJ4SIE8hiVWxqbmlsfpLZNQDMn6qUbo3qTmLfsDaf2Wg2ljlVK8pUFdlPcoqREdu3KjIz7+KHO3R4c7De66SwtL8evcIMoAIM9GGmYHnRoioItTRA6RZL0AMhYWjKmZl8zwmBg2K3Dzgl4GyMbe09o8sQeFQGKrSqWIAmG5qwHjczi6xjRkt8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(11063799006)(4143699003)(56012099006)(261009223027099003)(261022105027099003)(261026121527099003)(261026140227099003)(261021121427099003)(10067099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cuRB7G+iSDw5ppLLew/fqbkH904ZL2hTC2V4Dl2YBEfgfoTzOP9cjVP/lT8Y?=
+ =?us-ascii?Q?1R8bvtF0N1QwejBBastdTVckPezURx04pxjR04W24+pFq14h4SH1cbF2cxde?=
+ =?us-ascii?Q?0F1hrDSiaH76zliBx7H9jNeIc/RsHRZSGCgdJUTfTXfiFQiBDQHqUlWLqbJs?=
+ =?us-ascii?Q?GPI36bJOzP3ZHP751ONqDtMfvpzRcan+g0M1eGmUl5GHBYH50AtOVl0xXdrh?=
+ =?us-ascii?Q?egWK9xcrL+1zPcLTo0jyh+BiCUH3cNPy8RONkxsTdrtxnCJ3z1XNa007O2QQ?=
+ =?us-ascii?Q?5+t9YsarhhsNF3qj0tQk4tHdw2i5kKOJAXfZRdC1aA8gJ7o0f5eYFDudbQqj?=
+ =?us-ascii?Q?Tp6Z2eONaQTR9FwyzfYCVaGQ1VpBjVICM4UDuUdQriuQ4pmvbpu5sLYZPlm2?=
+ =?us-ascii?Q?7ZnwhhXCPiLQLB/ZfsmwKXmHCsh1vaPB4b1pQ7YGuG0Mi4LSLBJo0WR5lnE0?=
+ =?us-ascii?Q?jaXtbIJ0SptxbTFNZezCY3xE8w8yudF8VW7Hm9fPU2NTobz52d+b1gmD9+QY?=
+ =?us-ascii?Q?QaFEP7bNLUFH49sI4pwzXnKeqT3IEK9KGMteEv3Y8keks3+wjaroZOoBp7Lf?=
+ =?us-ascii?Q?5QyNNFp5fBZBUjMHC3+CPJu79rPoABk94gNSUKIGlT/DOvUBK+wGf4W76LsS?=
+ =?us-ascii?Q?C0P++XzarhXcHVEMqJNqt4+Qx5T4XHJ4vSgaE1/HyTaE0cIbWR/T88VyY94p?=
+ =?us-ascii?Q?rCE8lTZu7Z6BHg8W7fppDZPgM632RMTR3Y92wDwwm3dY3/VBnEsd2+tSexES?=
+ =?us-ascii?Q?i796L3RpuWHeVDFjyWuadsEDQ3BU5r0i5S0XDLxDQLxSb+QihOphgoCjdVm9?=
+ =?us-ascii?Q?ifdWcvnGE94wee1UQf35Fi06GCrVVWjffWwC1p1quRzQc2yHnPcyIWDSn3Wg?=
+ =?us-ascii?Q?zre/Ilo08PDXoaQlP3Yk/j/1GD8Z+J/S3iODMErnZwGCp+vMBPIfLbhWVudt?=
+ =?us-ascii?Q?RRXpnuZZyIYJLv7XcYMN0I5fYrlNaWkpm9zrXsMnSf99KfVvhUfuwbE8afID?=
+ =?us-ascii?Q?We1fpi/xnUaO7Tfkxif6IcLhzsxTuCu1CLTLato7ppIv7yopnjZBMybN7Y/N?=
+ =?us-ascii?Q?duANkthyWErdvO8nxjc8bolsfrDSO8mS/VWgN8hsZtmWi/qqrQvW+2ygGdR+?=
+ =?us-ascii?Q?VR7P9GwShTU+7jK1hFen2qJS3sS+hQaKWzd4N0dZIGEkKsgmX4/8aj+swAFN?=
+ =?us-ascii?Q?9Oh55BMIrE5WPWBRn/71rGecyxIvm1yltcG5AAkz5p7OEa3X0NAghWmqIkLZ?=
+ =?us-ascii?Q?ergTbW4rud0crpAI5kZVbSpHl/Chi+rM9NiKxdYl35t2zzuFUN2Ny/LmFGkB?=
+ =?us-ascii?Q?TG1X+0mVr9FqO0S/OYiHhGpaNH2EQ6/ohxefc/nyqIybOfwLEQfuoiHas521?=
+ =?us-ascii?Q?P6m2RN956WVL6M7SIUsf+haMfwTaMC05UGTIonqih7HQZjY2RlburWAEY+T4?=
+ =?us-ascii?Q?MoqJax00n/XFqFzT5UQWvbsEfKANPGR5+zyD7GVyRTg/ifNLrCEWxsxZLlAI?=
+ =?us-ascii?Q?lk7J/juYWTfjvH9q+JV1LJq2k1R+PIP6tWfxbFWOaqBnCr+v3TjosJ80gqEL?=
+ =?us-ascii?Q?yjV/Yg0bnGErtCWijcD81CpSBLQ9N4G9Y9GVr1ZdlnLXIMcRGnL3KhwMdEPZ?=
+ =?us-ascii?Q?dSLPeW5pXf6zDI6QNsjqg9pmxMQOC48NNo8YT2ATrDwqbZNAq7GStnn0Wt+K?=
+ =?us-ascii?Q?oDIxLCgZAqJsy45JSYuF+9eqTs+Qh7JccRWdBiywDOAmeb3S?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e4adbab3-36ee-4066-d341-08df34f05502
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2026 12:38:13.3956
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GBsgkPoulxa5UCAYA0qnOBS/UMnCS0SOw99hrUAUOYj6C3JheKA3ZIy6Pty4h4zb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7296
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_053524_819218_DA0A40E9 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20261028_053822_614917_9CD13BE9 
+X-CRM114-Status: GOOD (  14.77  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,49 +175,40 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> > What is actually left?
+On Wed, Oct 28, 2026 at 10:42:15AM +0000, Shameer Kolothum Thodi wrote:
+
+> > @@ -1552,7 +1552,7 @@ phys_addr_t swiotlb_tbl_map_single(struct device
+> > *dev, phys_addr_t orig_addr,
+> >  	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
+> > 
+> >  		/* swiotlb pool is incorrect for this device */
+> > -		if (unlikely(mem->cc_shared !=
+> > force_dma_unencrypted(dev)))
+> > +		if (unlikely(mem->cc_shared != dma_require_decrypted(dev)))
 > 
-> 
-> In v2 I was using special switch ops, and it looked like this:
+> Just wondering, what if a device with CC_PRIVATE set has addressing
+> limitations and needs a private bounce buffer?  Or is that not a use case
+> at all? 
 
-Sorry, i did not look at v2.
+Then it will correctly fail here because it is not implemented. This
+protects accidently copying what should have been private data into
+shared memory.
 
-> /* No manipulation of forwarding rules allowed in passthrough mode */
-> static const struct dsa_switch_ops mt7530_passthrough_switch_ops = {
->        .get_tag_protocol       = mtk_get_tag_protocol,
->        .setup                  = mt753x_setup,
->        .teardown               = mt753x_teardown,
->        .preferred_default_local_cpu_port =
-> mt753x_preferred_default_local_cpu_port,
->        .get_strings            = mt7530_get_strings,
->        .get_ethtool_stats      = mt7530_get_ethtool_stats,
->        .get_sset_count         = mt7530_get_sset_count,
->        .get_eth_mac_stats      = mt7530_get_eth_mac_stats,
->        .get_rmon_stats         = mt7530_get_rmon_stats,
->        .get_eth_ctrl_stats     = mt7530_get_eth_ctrl_stats,
->        .get_stats64            = mt7530_get_stats64,
->        .port_enable            = mt7530_port_enable,
->        .port_disable           = mt7530_port_disable,
->        .phylink_get_caps       = mt753x_phylink_get_caps,
->        .support_eee            = dsa_supports_eee,
->        .set_mac_eee            = mt753x_set_mac_eee,
->        .conduit_state_change   = mt753x_conduit_state_change,
-> };
+If someone ever needs this they will have to implement a swiotlb pool
+for private memory along side the shared pool.
 
-I think you should be doing something like this. Either two
-dsa_switch_ops, or you add generic implementations for all the ops,
-which then call device specific implementations dependent on the
-compatible. This is how many DSA drivers handle different families of
-devices in one driver.
+But a device that can't reach all of private wont' be able to reach
+shared either, so it is basically fully broken, don't do that. The VMM
+Should be setting the address layout of the VM so that the devices it
+installs 'fit' within their addressing constraints. ie do not create a
+VM with a 52 bit address space when your device only supports 48.
 
-I would avoid putting "if (priv->passthrough)" everywhere.
-
-	Andrew
+Jason
 
