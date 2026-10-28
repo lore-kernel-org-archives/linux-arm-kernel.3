@@ -2,70 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C245B606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 02:21:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ECEA606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 02:21:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dEl4XW9H;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Q4dEGGKV
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=laY+rT6j;
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=ChbgGRda
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=fR07HzCYiHUWXoygEK4KE/KCkYYrHs4rlMJZsk/rRdk=; b=dEl4XW9HsB/McaUOpR7nIEdh8A
-	VaiktBBJ5xNQ4fueodlRc+RcWa45SyVkVcIsPUOhAJdUfwQ9bIsoDZ59ArvsiLthAou9PfUi8FDzk
-	lESMEuLMv1MZBXvYmy470d7wNPRaxAcb78FZqjv7ZhuTy7YU8LzK/XJZ7dYjY3o8UYEusCbxkTkZf
-	YzaPpAH27b3OvTnI99XVcnfTH+sixjvwG80fb1UsoCyKfx+gFrzUi+tqC9AVSV1ZEqHxIZwDsLZiT
-	/1Jaso3dzIVhXJeMFtZSXzIl2KPuwk4rVS/p8es7bQfCRomxynRnkVBHnVu7RakEPQcU+08hPL8Ob
-	6SxOOwRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=yNHKjhci1gy/pCPG8FfXM4uD8fUDi3UIHMZ1Loq+UU8=; b=laY+rT6jKvKPgx
+	xqtIKOGSky103K0TZxldAmE0RB4+mWu4vwxhfdzt0/+Novsfq9O3PDtN+YXyWA0HVNR1XvOHrEVPp
+	jSIjv/eNudJB86rC3+V3VhENs2zwUJkkxqWhBHQdH2JvOo/VyfvcniR92Kf6Y8yG4/de9NmCGTuOK
+	RGORr89ZQ/3ILSJRj/oa3hwUkuMZG/dESOJv3GChsNDWVpQdlBuqvAWDlSIY639Sj5doiVi1wvYsu
+	vM4l+071lSpDI0pQyyd/OMMxG2bJ6sQ0CWsqRT6npFeoI1q15LRWe3ouxWv5BShd/yfJxKYMQGLHr
+	8/F8EoZKmE/HHZ6MdOtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLtHe-000000065eW-00RP;
-	Wed, 28 Oct 2026 02:20:58 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xLtI4-000000065j0-1K05;
+	Wed, 28 Oct 2026 02:21:24 +0000
+Received: from mail-m83251.xmail.ntesmail.com ([156.224.83.251])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLtHb-000000065e1-1zTD;
-	Wed, 28 Oct 2026 02:20:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=fR07HzCYiHUWXoygEK4KE/KCkYYrHs4rlMJZsk/rRdk=; b=Q4dEGGKVey53CbOf9pJ4D+Qgeu
-	+LuZKwfaRnJ/Mnxr3h9OLDa1i9BLVJvt1ZYkxMn4nXsO66nFT0/3fxs9bITdm4hIg2Dj2haphPyBx
-	0PvrEXVIKaXT1C0Up8iWyweRQ9dbZ5v9QVACNXM05HfQreaS5mLiWv4esqheyvYDgqqQ=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xLtHG-00D2pX-Ip; Wed, 28 Oct 2026 03:20:34 +0100
-Date: Wed, 28 Oct 2026 03:20:34 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Caleb James DeLisle <cjd@cjdns.fr>
-Cc: netdev@vger.kernel.org, olteanv@gmail.com, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	chester.a.unal@arinc9.com, daniel@makrotopia.org,
-	linux@armlinux.org.uk, arinc.unal@arinc9.com,
-	Landen.Chao@mediatek.com, dqfext@gmail.com, sean.wang@mediatek.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, naseefkm@gmail.com,
-	b.larsson@gmx.com
-Subject: Re: [PATCH v3 5/7] net: dsa: mediatek: support MDIO switch
- downstream of MMIO switch
-Message-ID: <f6fe9c7a-5617-475b-babe-da24cda815cc@lunn.ch>
-References: <20261028011317.1557238-1-cjd@cjdns.fr>
- <20261028011317.1557238-6-cjd@cjdns.fr>
+	id 1xLtHz-000000065hs-3S7g;
+	Wed, 28 Oct 2026 02:21:22 +0000
+Received: from [172.16.12.48] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 529689659;
+	Wed, 28 Oct 2026 10:21:14 +0800 (GMT+08:00)
+Message-ID: <95aeecc0-2794-4cc6-a635-5c042afc1405@rock-chips.com>
+Date: Wed, 28 Oct 2026 10:21:14 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261028011317.1557238-6-cjd@cjdns.fr>
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+ mani@kernel.org, manivannan.sadhasivam@oss.qualcomm.com,
+ bhelgaas@google.com, robh@kernel.org, heiko@sntech.de, dlemoal@kernel.org,
+ linux-pci@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, iav@iav.lv
+Subject: Re: [PATCH v3] PCI: rockchip: Don't lengthen PERST# when power is
+ already valid
+To: =?UTF-8?Q?Enrique_Hern=C3=A1ndez_Bello?= <ehbello@gmail.com>
+References: <20261028005603.2399220-1-ehbello@gmail.com>
+ <cf541723-eb4c-4ba6-92c5-33baafc20e7c@rock-chips.com>
+ <20261028015923.2436122-1-ehbello@gmail.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20261028015923.2436122-1-ehbello@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa1804fc91103a4kunma6c4c0125b2f1
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaHx5DVh1IHh9CHUhJSB4aSFYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=ChbgGRdaxijZR8KSKUvfal1CoRHVY7Efis8YUv4CvZkGOOQ9ep4+V5XBRTk/O3wdft+rGE5oYntRLWujhiU2sBAr2Xq6/IqEK3kaRRClrPQc267MmCJQWAa90mhSb+ath4NiHQnQrpC8uKCcDQkzY2QZNBi3i1FuPkyPoNTC9O0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=yNHKjhci1gy/pCPG8FfXM4uD8fUDi3UIHMZ1Loq+UU8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_192055_516358_D56BC448 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20261027_192120_435695_3FD32E9E 
+X-CRM114-Status: GOOD (  14.06  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,32 +75,43 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 01:13:15AM +0000, Caleb James DeLisle wrote:
-> The MT7530 / MT7531 can connect via either MDIO or MMIO. In MMIO mode
-> the switch provides its own MDIO bus which connects to its integrated
-> PHYs, but also can be connected to other things, such as another
-> switch.
+在 2026/10/28 星期三 9:59, Enrique Hernández Bello 写道:
+> On Wed, 28 Oct 2026 09:34:04 +0800, Shawn Lin wrote:
 > 
-> If the MDIO bus contains another switch, then the upstream switch
-> will register but it will not setup the DSA tree because the
-> downstream switch is missing. Without the complete DSA tree,
-> mt753x_setup() will not be called on the switch and therefore
-> mt7530_setup_mdio() is never called so the downstream switch never
-> registers.
+
+...
+
 > 
-> Update mt7530_setup_mdio() so that it can be called multiple times,
-> export the symbol, and call it again after dsa_register_switch()
-> from mt7988_probe().
+>> Furthermore, even with the same power supply design, different endpoints
+>> may behave differently. What if a particular device requires a longer
+>> reset pulse to work reliably? How would we handle that?
+> 
+> The only floor the spec gives is T_PERST, 100 us of active PERST#, and v4
+> started guaranteeing that explicitly with an fsleep() rather than relying on
+> the 100 ms. Beyond that there is no required minimum to preserve.
+> 
+> And the short pulse is not new behaviour: from the driver's introduction
+> until c47f90be4c89 in v6.11-rc1 there was no wait before the de-assert at
+> all, so the pulse was only as long as the register writes in between took.
+> That is what every endpoint on this driver saw for years. The 100 ms pulse
+> is the recent change, and it is what broke this one. If some device turns
+> out to need longer, that seems like a quirk for that device rather than a
+> reason to keep a default that regressed another.
+> 
 
-I would suggest just moving it to probe. Don't also have it in setup.
-KISS.
+Was it possible to add a DT property for configurable delay? I came
+across several EPs need quite a longer wait time, so add it in the
+vendor tree for dwc-based IP[1]. That could be applied here to slove
+your cases and others', and might avoid regression.
 
-	Andrew
+[1] 
+https://github.com/rockchip-linux/kernel/blob/develop-6.12/drivers/pci/controller/dwc/pcie-dw-rockchip.c#L865
 
