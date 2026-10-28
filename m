@@ -2,127 +2,105 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F633606A33B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 17:24:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA4D3606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 17:31:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mCOCzrWV;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pwJ+gsfp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BofvqsIi;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KOh7GSBw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=xyXQkDiJLA3YYqZszI0OfYQ8KLsTyrFUAC1H8iKGZm8=; b=mCOCzrWVC/+QV9
-	SA8jsmIo2W3y00HtDlGHZoF6tKVVyGkmIcc3PKkeyhjEWd60BRnf2duw4IC+Ibdc6UbWnj9gV8UoA
-	cp4Z/UT9RCiHfrE+sppas4ChccFcD8lZd+/jMm06uggJdSR/2j3N4tMyi5Tgs55npbOIPukkKMkHI
-	7svBYoLnIERqX4Xdfymy/83JbQVH37GoIEFGMHgI+jH6bZ3hyh876wrSe/pFRi0Jd0jPPn5TWhoK4
-	8MAchcM4LjNtas9u/cn6N3JcoLhLfq6zeTcBMBf5BjmXsO0FrGYxYXsXNtPjUn85noNOKgYqRTccj
-	g4FyOZ47/lnS4pgw0gtw==;
+	List-Owner; bh=A+RGXs8/Ail6qHnGbLflY644jEJYQOYM38RZLvyetKE=; b=BofvqsIiZB9Van
+	y2ICeDyaCbmCbUuoBKECLrjitmzgI/v2XVjj9uVUgEhkyIzgtJFjUasNTKVWyn8DkoY2wRIBI1r1z
+	KqligtcgzEGUMpb03mcV3SdTYXsDArmHPd30P6Y7ev49qGg0YrWgRgTy+q93c1uh6ttlgxschlfz1
+	Z0EuzrBPmoAdsU0bM9Ut2pk9yFZ4CM0wFQSf1UKFP4sicBXBkaHkPbp7VlZIHPR5c7sv3ocS4PkSz
+	Fmx2rT0jJTMNXWZDvyClzFCo3eQMbxoWlk7i+5TdETu906NQor/CcBeyGKs1aG/oKS0vn7VABt5Gw
+	QYMXSg7vBcIQmibH9/6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM7OI-00000007f0f-2grR;
-	Wed, 28 Oct 2026 17:24:46 +0000
-Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
+	id 1xM7Ub-00000007fHa-2Ur5;
+	Wed, 28 Oct 2026 17:31:17 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM7OG-00000007ezo-0pqy
+	id 1xM7UY-00000007fGi-0S0U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 17:24:45 +0000
-Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-14fc585291cso1102404c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 10:24:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793208282; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TOV91RU/DIU9sSv+zWdEUiiJEeOLa3JyIH/3f3sbYCmWWkrgcuuDZaV/IzZp/GAWbh
-         IaZ2gvPJtCk29C45bVTc+WjPJOEzbutYwp1hSeRCrQtQvvgZadbnOn2Yl5dfg3zYVGK4
-         /QAZ9BbNNnDxQsoSZmumH0JU2zuzbJGQ0r/PvyxjF2a4dZn9LQmhkK9hCSs1KdKLn6Px
-         UrnrhObrpsLY3cchUo5qUIA4UlC2Z89xSTyT6xQjdNfZyLcr2Py9PDv75qWJw8XKgug8
-         1BOFEurQHYwzsbNd1n57NzDJ4kpvBNL+E9bJNGGE7153i2Gy2BNtDU4P2C+AjYFWAxGJ
-         U8YA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=xyXQkDiJLA3YYqZszI0OfYQ8KLsTyrFUAC1H8iKGZm8=;
-        fh=j4cM5jHi4sPjUzXnT4UCzuX6DqiVMjyFncNu2rPbb4I=;
-        b=B4y5pn87/2ufjv3uMmqnz14Pri8URMrp1zwyYjBmj4VSQk0csoI5ZMtWf7bTQlzFxz
-         6Ru97jcqCI9jaoU/t6/fK/M+k5/br5/4udvLsczuNaepQ32hqySpJSXe6eiWBYnlfcXT
-         eLZuanRBdqpJmej+Piw75Ag2ZTe2OR8WVaOMNp4rXb9wevpaDOH7yaI8tI1TCm48iNjE
-         gnvhHAPmYojsRhBKHVs78rK3JDzlt2DCPjpW/WiqvpA7/DajNZ6/9+r1CkJIqVWKKily
-         nJDevVteIdZNO/8Yj84GqRxoKBwBSMf3w1FaJFe8WY814Llt1Ui3fxEsfpufIuRpCuKt
-         smoQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 28 Oct 2026 17:31:15 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-48dfb76b304so240928f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 10:31:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793208282; x=1793813082; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xyXQkDiJLA3YYqZszI0OfYQ8KLsTyrFUAC1H8iKGZm8=;
-        b=pwJ+gsfpb2qIquiUkB/lsj7bI4+r7IBaZJEoRPVDkVaEN4TBOukW0sXWyzgwZIEPhc
-         W/KPUVtBbizz+eX652H07EvO1icahVAsETXnsE/oFmFF6jGGgnxVQLtov7xpPCDrRUTc
-         syHQRHaF8XkQRFEfMtSEWj3xavl+h/FmYoHAtZ5gM0nR7wuXNwgUd9AfTrnbIeHmD7xb
-         CBA+WDRtmEHzGvRfG9rDNA+gHtBAq8eqPK/i75ZrWv/8JYj7R5b7BhNM89LGvwJY/bFH
-         UmsGBejNM9pmcMEwlDZ7n8xHxsdy7G0ixYiUKjnGzUQ12zg7cITZRtG9wZNujWvbRkg6
-         9lNg==
+        d=gmail.com; s=20260707; t=1793208671; x=1793813471; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=A+RGXs8/Ail6qHnGbLflY644jEJYQOYM38RZLvyetKE=;
+        b=KOh7GSBwdNjjLaazuJbpFu55b7f8bfvo+9+DKHXmluL22WQ+2GXDNio4DRVTWfGozJ
+         OrL+zR6PxMxXtpMyFHM12Ng2jp8zpK7G7TllCLjbyzXfRM5lkLkn/Pw0vgNtPZbjKr32
+         QMto+WD63h83ZhJs2wOYpgwR3fJQ2CjzAFnEEKhln/NbmOQ7b4uwNA7C8+iutrkMOI1F
+         WozU8eL5qtntZyfnHE/AM0ZI+Dq4N8DWl+paBJUBkICNPvwvTfP1A68c9UZPqncPj2qQ
+         S9geeg2OISxSPc8g5TgQuRZdtcP2dy+BHia2tzvD67mWV7rUE8Lh+EJ12I68Pn6eCfCl
+         NLtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793208282; x=1793813082;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xyXQkDiJLA3YYqZszI0OfYQ8KLsTyrFUAC1H8iKGZm8=;
-        b=o5jX8v5NQE9KQotDWc4XrmGhu9Dt1Qve4R8ZkfIISCNl8XAzX18kGCfm+EKdkMZDnJ
-         U3k7tjxaCgafHzWmq5sjZK1bYgimdNFZpAODRQPUPTGx7Z9eyyAhEqQjfoDRTLVL2GXm
-         M9Q+6HiO31JZyBZwGEyXal8sE+xB6PGFbW6IsSR0XMi6DnuzL++udznD/qZ44j7Lcvqa
-         yRzSvOVKkZNIDFFH1P6kvNArhirGiEaeRawaovVBvB6vbqnIa63Ep9CDoQiTiT57Lqve
-         sEq+ban6V75jJHlwr4dyLnlV46EiVtwElUJUFu4c3MBpYhUd2K6eUEejFXFAQIPRez+z
-         /LzA==
-X-Forwarded-Encrypted: i=1; AKwUvBwyJHA1LPUSuKrJNMGU/GYh+mGAItMmhXP+LcioUyu6yMsC/YKoeyh5u2+Jm+Si+Zqiwcgb6Orltq5sVn0D6h8K@lists.infradead.org
-X-Gm-Message-State: AFq9FYK7SFa6ipzJJivPTA04Pfl1oQPs5LV6u49+ctpFI1h82UgiN+Si
-	cfhHde8SoAr9x23SVMsa7sjW8jRfkPA4aTFjM+iCz6MPHbI38eNEYWTf7t89M0XvL4yP4jPDDez
-	KmwL02xXiZ+rQaYq48x4mZ/fHJnLMZTL9xTJa+x0J
-X-Gm-Gg: AYBFou2SqdXtUGF13DcgbOwgYTwNK7iXxhBgB8DukIQoIolfIYTaH9Xzrm9WO0o3Wpw
-	q8I+TQZLUbN9bj30h67fPwISRxnrYnESRWSE0EGv+EYpXKpMty59pNQJnhRmTt04h6wlLiO/1Uu
-	I7IGuID6VFvb7MYIsRJPHYkIetc4szAj42pPBnnWCYH9NjkY2docxdeyt3TfHk8MHSaMqz79Qdq
-	+J3I5oKwpXNQVMB3zSwTJfq9oOjGq0U14owaQ4ZNJQWjKEzZZ9SW/2VT8QMC1YpA/fR8hZ2DLl+
-	PX6/7AiM3oN6pPk7fWf9zka5gQ6Ub7FAla9yzj+vLm8lVAwTZHGqYNDkTBZDIMrCMQGVeEhw3HT
-	v4V6mKsGhJEV6oNi93GFndpY87K4P0QA9i83JxQ==
-X-Received: by 2002:a05:701b:2813:b0:143:6525:f9f6 with SMTP id
- a92af1059eb24-1a6cd3a1575mr3454907c88.13.1793208280541; Wed, 28 Oct 2026
- 10:24:40 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1793208671; x=1793813471;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=A+RGXs8/Ail6qHnGbLflY644jEJYQOYM38RZLvyetKE=;
+        b=dcz/5adjR4Uk3BMf8vXM+h0qaTr2xTGZyCorAn7oMq6ymadt4su9Fboo6X9g4+BKMI
+         81pc5KvogXzCFK/SKKUNYuYfYV065lMFX1S64SB7lNSdIfNb2qmPqyCrCCNN85aszhqg
+         RLBbMSw+0/7xfoxBiMVH+N2Mn+jQjxBkDm6IBxR2IfgI5NrGq80Yc+OB5JydcAJQu/wA
+         e/D4kqx/7cFctVYjao9Qn9Sm0QRyIAjV2aGZYddhtoyrTzQ8jR0A4bnBkFzDfB+kA2cq
+         WKCfMIZlLXEG3AaEESMejrGg7Z36+Tf262PcL+HqR5xYNY5oZHX+Ndhz+DcXAExIaRvn
+         5P6Q==
+X-Forwarded-Encrypted: i=1; AKwUvBywz0uS5njYSmtbBu13ezCBB/Ys10T3RjdC69MEtm8dmzkGOfCRh2YKDmCjdezet0YmPSjn7oeiy624EtCb+BWr@lists.infradead.org
+X-Gm-Message-State: AFq9FYLxpuUSMVlJJX5UrprUsHv4njc+DOphpYNIghB5ynGBvsYi6GF6
+	OjbhuoyQM9vg/XAKKVzFn8pXruxgOrpNeTymhTfm1YLbRU124KMsFh1i
+X-Gm-Gg: AYBFou1f4rAbk8gaPWUeI/uX8iBDDcB4NbaYVg0SxVWnxGV//zSLSnBSX/J0hKBQOqc
+	Sl2OEAmMXets5QfeAnu6S41Zjn+JVy16LUcMyYvJyKvYhbswJZdiZ0iu2vTTGGiZThbNbS3Z3XX
+	o8TyUlWGi3CUBz3ErfoJ/hmyf40b7XFoTWBOiJWSre2MJAq3a3nDt1cfSsLo3ZJiBsDniNaz2d9
+	ALhgd2+3F+Fsc/xOhGkeGGowWDtqe6GafTu9ptblpQ60KpSmitwAbk/2GueCFYeMYilXikYWMaK
+	sHFNAwp6xNrPYRYxxgZKbKhfDtok9qmevuK6nykFJnyIvvW2lWPnpruDPmFbDxnTspQHK+vJr4A
+	5MU1Rg3nl2SFreapMu5Lb1DUDGd40jfG0k6MfE9o6tocgMiBqp4HNNZLYjidhGOOEuebM15K2XL
+	IjLYjpJ6nZdYtmAkJwxBAkVWIp5lQ09wJDmm9555cxPHvQMyUeXwtI3lj2QnaZo6MUm4XJ2cicQ
+	jDE3xPVQA01XB+umNxnL/duh9bsYJXKYalgRQYGUsfD2ZljnyANUgFzWK5hzMCPL/jpFtg7j6wy
+	YIntQGrjWjB4Y9lHQi9YP6hPXd+kHJ8jWpT8uNZxudIPWO0zCNKh9BSJsveviq9IufvbZCdTMlB
+	QAfFQOAf0JjMeAHNnSS33BL8h/6UZJhJC9dAD4zGTB+PDcyDM8FHPxzYYW4Lh3xrn3QI=
+X-Received: by 2002:a5d:588a:0:b0:48e:25e1:5eb8 with SMTP id ffacd0b85a97d-48e5d58d590mr7802427f8f.3.1793208671431;
+        Wed, 28 Oct 2026 10:31:11 -0700 (PDT)
+Received: from tachyon.internal (2.155.41.158.dyn.user.ono.com. [2.155.41.158])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebc39a8sm30601206f8f.11.2026.10.28.10.31.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Oct 2026 10:31:10 -0700 (PDT)
+From: =?UTF-8?q?Enrique=20Hern=C3=A1ndez=20Bello?= <ehbello@gmail.com>
+To: iav@iav.lv
+Cc: shawn.lin@rock-chips.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	manivannan.sadhasivam@oss.qualcomm.com,
+	bhelgaas@google.com,
+	robh@kernel.org,
+	heiko@sntech.de,
+	dlemoal@kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: rockchip: Skip the Tpvperl wait when power is already valid
+Date: Wed, 28 Oct 2026 17:31:08 +0000
+Message-ID: <20261028173108.3457165-1-ehbello@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261028-h64-tpvperl-ab-skip@iav.lv>
+References: <20260911211559.207990-1-ehbello@gmail.com> <179196286749.38040.5597453767131590054.b4-reply@b4> <20261016-h64-pcie-resume-tpvperl@iav.lv> <20261028005548.2399155-1-ehbello@gmail.com> <20261028-h64-tpvperl-ab-skip@iav.lv>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <atlKsD-aJB3mJr2j@google.com> <CA+CK2bABt4OZO31TenVF2+uBUWVwViWbvfE00=0xbAw=f7K9SA@mail.gmail.com>
- <atl7peoVHdP5hz7z@google.com> <CA+CK2bBFXnJA1kddbLKGq0DAHDgjYhsTSQQay-xeX7jJC1V_UQ@mail.gmail.com>
- <CALzav=e=ho2gVrn+7KpZ3ZyasvH2u15-pC-RSRSS7KcMfKqUJQ@mail.gmail.com>
- <CA+CK2bAJo8dnTOyKMgnnMnk-SCXbTsv+JCLEOWkjyj-wqtEkHg@mail.gmail.com>
- <atpNFEFIlqAoYIwH@google.com> <CA+CK2bB2C3Am5ssRuzYpfiU7_vB81vxMGc19HQLq7N=_7YrbTg@mail.gmail.com>
- <attmFVIFU_mS0Y7p@google.com> <CA+CK2bDXDWbww_d3sD6OZqpo37V1a3t76_ubbrXLQS=9DB3dWA@mail.gmail.com>
- <at-8vkVpN2SF3XgB@google.com> <2vxz8q3hoicx.fsf@kernel.org>
-In-Reply-To: <2vxz8q3hoicx.fsf@kernel.org>
-From: David Matlack <dmatlack@google.com>
-Date: Wed, 28 Oct 2026 10:24:10 -0700
-X-Gm-Features: AclHuK8mtDBrFSk6j3m-QjfmBC0Hg3WdAbJ_jeR4OTytlWOkEsZuDbAniPHpdm0
-Message-ID: <CALzav=eG5j2n5omO2Mxqw8xA4sZLduxdbBYFcnHpPn0PDpt9Hg@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
- a 2-bit pair feature header
-To: Pratyush Yadav <pratyush@kernel.org>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>, tarunsahu@google.com, 
-	Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org, 
-	Mike Rapoport <rppt@kernel.org>, maz@kernel.org, arnd@arndb.de, jgg@nvidia.com, 
-	robin.murphy@arm.com, loganodell@google.com, oupton@kernel.org, 
-	kevin.tian@intel.com, alex@shazbot.org, dwmw2@infradead.org, 
-	pbonzini@redhat.com, seanjc@google.com, will@kernel.org, 
-	Alexander Graf <graf@amazon.com>, Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com, 
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev, 
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org, kexec@lists.infradead.org, 
-	skhawaja@google.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_102444_265721_AE5B070D 
-X-CRM114-Status: GOOD (  25.47  )
-X-Spam-Score: -17.6 (-----------------)
+X-CRM114-CacheID: sfid-20261028_103114_183572_FD5DC1F9 
+X-CRM114-Status: GOOD (  12.70  )
+X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,56 +111,29 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-4.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 10:17=E2=80=AFAM Pratyush Yadav <pratyush@kernel.or=
-g> wrote:
->
-> On Mon, Oct 26 2026, David Matlack wrote:
->
-> > On 2026-10-25 04:38 PM, Pasha Tatashin wrote:
-> >> On Fri, Oct 23, 2026 at 9:50=E2=80=AFAM David Matlack <dmatlack@google=
-.com> wrote:
-> >
-> [...]
-> >> The reason I care about keeping the header compact is that we are
-> >> defining a foundational kernel ABI and want to use this header across
-> >> almost every serialized data structure so we can evolve them later
-> >> without breaking compatibility. While some top-level structs are on
-> >> sparse folios today, other serialized structs are tightly packed, and
-> >> we are looking to add KHO slab support in the future where tightly
-> >> packed allocations will be common.
-> >
-> > My intuition is we will have a small number of headers per preserved
-> > file and per preserved FLB. One for the top-level struct and then
-> > optionally a few more for sub-structs like arch-specific data. That is
-> > why I am less worried 8 bytes per header, even if we fix the folio
-> > problem.
-> >
-> > Maybe where our visions differ is when there are collections of
-> > serialized structs, like KHO blocks. For collections I don't think the
-> > elements will each have their own headers. Otherwise the elements could
-> > be different sizes.
->
-> kho_block today doesn't store entry_size in the serialized payload. It
-> relies on its caller to do so. With extensible structures, this can get
-> messy. Sure, the owner of the kho_block_set can track the size somewhere
-> in its payload, but perhaps we should store the size in
-> kho_block_header_ser to begin with?
+On Wed, 28 Oct 2026 05:10:00 +0000, Igor Velkov wrote:
 
-+1000
+> Since the next version keeps the full wait on resume, it no longer
+> changes the resume path, so I'll skip the A/B and test that version
+> on Helios64 instead: boots plus s2idle cycles, results in reply to it.
 
-KHO block should track the entry size automatically and not rely on
-the caller. Otherwise every caller is going to have to store the entry
-size in the struct that owns the KHO block, like I had to do in the
-PCI v10 series :(
+Thank you -- that coverage is worth a lot, but hold off a little, because the
+shape is changing again.
 
-> Anyway, not a problem this series needs to solve, but something we
-> should eventually do.
+Shawn Lin has asked for a DT property for the PERST# pulse rather than a
+decision taken in the driver, matching rockchip,perst-inactive-ms and
+rockchip,s2r-perst-inactive-ms in the vendor dwc driver, and I have agreed. So
+the version to test is that one, not the probe-only patch I was about to send.
+
+Whether the default changes or stays at PCIE_T_PVPERL_MS is still open, so I
+will put the DT snippet to set on a Helios64 in the cover letter instead of
+leaving it to guesswork.
 
