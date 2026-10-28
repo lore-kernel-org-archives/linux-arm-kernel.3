@@ -2,116 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD6E1606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 20:49:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46E79606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 21:04:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=g+x95Rh0;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=SqfMAHgA
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=W1vyx9rC;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T5jGn2Uy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=KlFs5O5F58aRmAuOBc20ZN5pSWMjbwV9elx9B8mpSCE=; b=g+x95Rh0taMg1u
-	nREIiCiA9S1r2Hlev2ckTZEYJyL8WS8ld0Z88B8xyZtFtRyTPGjAiCv7y4t173+i5szxEgPJwctL2
-	nV8QQ8k+FCtl6RsYh0NOQakxdrSbhyUyM3X5jhnMAhgt9EuUfPoA3LapDKkOqMnnQzKfhkXDD4VEG
-	inksmit2wdTULVW88Pz+HTBIRqo2YTutGFbNx6UPKRJAZnurtR78rC698xfx2NEuqCVK45ncb5A20
-	5l+2+w2rcyShgdZW/pF4vPam4Xf26iAP8gnkm5KGWN6pORNc3EhgZAtySKn64CpeNyxaUEpMcVCLH
-	W8Yhq8ia1iukxz9rRsFw==;
+	List-Owner; bh=EMYPMS5FO1bwNUoeczH2HUUreu/6T5PLlD+DKwBPIWo=; b=W1vyx9rCu8o6cD
+	2/2gCAhoW8c6Ed1ySAZ1GCpj+dk+fXXVK0/b8TKLi+Y+EOYb9o5ky51mukrEBA47GUzwegorXjmEx
+	IKc+S2qaeUpyp+NMwfoRujbFc1cDK+fY3sZGnu+FXFVunKaSfbv1/GYWWJtzhSpiEJJm9iK0Ktvo1
+	wHvfknTeOzlvI2WGkXfE54sVmSGREfecsN/9OZdaJQRF055gg3YFeTdXsqs80OigyXWWniRYBAKK0
+	vFSF5NhCX03FvFjcgLqobjRfoHQS2CABO11Gdbb44y9M0NUrc3FptHnn2ICsSpGl0a8pTunup4LjH
+	bA68/Cw9pa3Df4jRSCVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMAZy-00000007wv3-22H3;
-	Wed, 28 Oct 2026 20:49:02 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
+	id 1xMAp2-00000007y2n-2DBc;
+	Wed, 28 Oct 2026 21:04:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMAZq-00000007wrY-1J9S
+	id 1xMAp1-00000007y2g-1Rtl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 20:48:55 +0000
-Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-8446af403b5so905367a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 13:48:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793220533; x=1793825333; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KlFs5O5F58aRmAuOBc20ZN5pSWMjbwV9elx9B8mpSCE=;
-        b=SqfMAHgAJrKvXy1lJPLSLR6FS7o1KZKHAkBJFiJvgShx0o06E83E4bKM+nM1ydkgJa
-         GeNthBleytBF72DGHZYymbzx8Kl5JL4Xf+uK9L5tVPM0q9O0m2DEZTHI6HV5qFzfBUES
-         l2uC/Sp0OXe6BhpN3nZTgGTU96GZJsMSo6HX4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793220533; x=1793825333;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KlFs5O5F58aRmAuOBc20ZN5pSWMjbwV9elx9B8mpSCE=;
-        b=aFEmYK0eApDZtkQc0OntqKDpLRKsHdQFzVCrS0+oKMFfsRWvg6s+ytXGlS/f8mKpgU
-         tIRi9dOwpLdp/Pl746Tu8sYClx22ohI/pQJHo1kMnAmRfwT8p0V+cs6d3knG42bLMQ4p
-         Cdhbe06VXlemnv7PmRyJ2NI1lYOxO3NhQvGOS+YIo4/0pfw9V9h5fmppfQ4t7fYT61Cv
-         0mtCcli3JwEGIJ3uTXSuokt7taU64C3LBub4VZu2sHU2xd0avhWih4Sdtn3Vllf5KCa/
-         2S8iYnk97Kmy0Yfr+zpisJuAa5QaYsPi7DXt/fP3u+YzQF7XCrYyHJLH/aD3ihi8UCUX
-         22qA==
-X-Forwarded-Encrypted: i=1; AKwUvBwCNlgzefusXXGctDflpfsQboc04QwHRvwED8xpt2Izzknaug3/TCv18RNXE1jjZ+uHvrhyTwugZUay10rK8bF4@lists.infradead.org
-X-Gm-Message-State: AFq9FYJHPwUn4eEWENQm9xbBzSgW++oKgzH6900v1TsQuAZT9+LNCO4S
-	U7324jmdRmQ0/nZ49+t9dXig4ojTKUfChXiHDJojL1hIIA57jJKyU0oFFBU4ycuAcw==
-X-Gm-Gg: AYBFou1pJ0SvjhlB6FLihloLLeKQlO+blcW9cakb3U/wpRzgYG9EHqjinJ4ZxMhTyWo
-	Edud2ztjb5MpZMvf4jf0yDc3tM2Pp/Q/84suMalVALQXfIdLt9VlFEGMqmsKpcvpOs+/sVCZro1
-	4M9AWFM79Mny1QHDEdfEz90BYGjKcIEkfcTMDmV3Ycr20Gb5KFsi2jlEse1Nb/HHCKvvVuVysOb
-	ptITnjY+/S8c18p/NiyghZeYr5/KwhDpHqc/OawZUk2ZkQunMxWcCvyXgWzyOPsdPcYgWmUeplc
-	yL7ou020fn19MTeQpOGJvo8/LDJWk7G2FSKMRLprj+odYBvikPcRjTZzRLO0PwRQNyz/e1LbUqq
-	UbLBDO77M2mG/pm/W00Cj91yUa6qIwQlso/JgHNtPOWV9GaZo863LUjsbBeomtWxgHHfkizS879
-	3/BT6PB4UwJHUM6tF1Oofb4GPPJNiNwV+eBAWF96Cl+uhcmzEXe6lvgtfGOfwx8P7R0UpcsT1zS
-	bkypbmrADHZunFZ9lFDIxPlbaDoVgkXZvLiPzALmo5E0RjPwzIMdV5pDtYuOwR83Rh5mMG1fQA7
-	az6IdRg/Rp6T9d2epNrk/cvQUo75Wlo91mNLzukjc9NGbG9AOliakd7Qeo6DFS8putu2Imo0xbb
-	tOS8EJLr/XQVs8GbCxA==
-X-Received: by 2002:a05:6808:4fe6:b0:4d6:90d3:e18b with SMTP id 5614622812f47-56383e93e14mr3396274b6e.52.1793220532771;
-        Wed, 28 Oct 2026 13:48:52 -0700 (PDT)
-Received: from rrangel.c.googlers.com.com (202.168.136.34.bc.googleusercontent.com. [34.136.168.202])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-563c363902esm2281137b6e.2.2026.10.28.13.48.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 13:48:52 -0700 (PDT)
-From: Raul E Rangel <rrangel@chromium.org>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"Maciej W. Rozycki" <macro@orcam.me.uk>,
-	Timur Tabi <timur@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
+	Wed, 28 Oct 2026 21:04:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 653FE43E08;
+	Wed, 28 Oct 2026 21:04:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CEF51F01825;
+	Wed, 28 Oct 2026 21:04:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793221474;
+	bh=EMYPMS5FO1bwNUoeczH2HUUreu/6T5PLlD+DKwBPIWo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=T5jGn2UyEkA8BDqyiSluS0fW9XUoYBNbIWU+LwRgRzxntOVRER+isjJrvyeJ5dOiK
+	 SV9tSi2musBQcoaACMjgljbKfviy+euPxbf9Y3Env5gf+/NqRQRLdSLbPT5+LYN945
+	 MvQVyuyb/FlomK4m4CKdnOe0fxy+U0wTcYFoCF4KGwRJBtCse14MGp/t1ATD4KX1ap
+	 gBTY9yFUdakNV9SUs8xW5lZ65Esg0gEBv7GxSTCB0StvHR0Sax5YXthBsHp1MqSfdK
+	 lWoKZgPlkrJFf6GCG3nmGpq1RjPhOCvqga5UDm7tln+CGgwbr1dLMZk031giQTndjm
+	 LrQvK6jOQcToA==
+From: Sasha Levin <sashal@kernel.org>
+To: Aviv Bakal <avivb@amazon.com>
+Cc: patches@lists.linux.dev,
+	stable@vger.kernel.org,
+	robin.murphy@arm.com,
+	ilkka@os.amperecomputing.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v7 4/5] serial: 8250: drain canceled TX DMA before reusing its buffer
-Date: Wed, 28 Oct 2026 14:48:46 -0600
-Message-ID: <20261028204847.3471382-2-rrangel@chromium.org>
-X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
-In-Reply-To: <20261027-submit-serial-8250-dma-cancel-v1-v7-4-985a023ba4b4@gmail.com>
-References: <20261027-submit-serial-8250-dma-cancel-v1-v7-0-985a023ba4b4@gmail.com> <20261027-submit-serial-8250-dma-cancel-v1-v7-4-985a023ba4b4@gmail.com>
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH AUTOSEL 6.18] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
+Date: Wed, 28 Oct 2026 17:04:32 -0400
+Message-ID: <20261028210432.2386109-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <179250706537.3484860.18363532452101434862@amazon.com>
+References: <20261019135441.1420968-1-sashal@kernel.org> <20261019135441.1420968-145-sashal@kernel.org> <179250706537.3484860.18363532452101434862@amazon.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_134854_376712_C8F8FDEA 
-X-CRM114-Status: GOOD (  13.96  )
-X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,70 +73,21 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi James,
+On Tue, Oct 20, 2026 at 05:37:45PM +0300, Aviv Bakal wrote:
+>Please drop this from AUTOSEL -- it's new-silicon enablement, and its
+>parent commit 56603c28d916 isn't in 6.18.y, so the static_assert in
+>arm-cmn.c would fail.
 
-> @@ -37,26 +40,35 @@ static void __dma_tx_complete(void *param)
->  	struct uart_8250_port *p = param;
->  	struct uart_8250_dma *dma = p->dma;
->  
->  	guard(uart_port_lock_irqsave)(&p->port);
->  
-> -	if (dma->shutting_down)
-> +	if (serial8250_tx_dma_blocked(dma))
->  		return;
-> -
-> -	if (!dma->tx_running)
-> -		return;
-> -
->  	serial8250_tx_dma_complete(p);
->  }
+Dropped, thanks.
 
-Removing `if (!dma->tx_running) return;` and relying solely on
-dmaengine_synchronize(dma->txchan) to drain completion callbacks breaks on
-DMAengine drivers used with 8250 UARTs that do not implement
-.device_synchronize (where dmaengine_synchronize() is a no-op), including:
-- drivers/dma/sun6i-dma.c (Allwinner H616, cited in the commit message)
-- drivers/dma/dw/core.c (dw_dmac)
-- drivers/dma/pl330.c
-- drivers/dma/mediatek/mtk-uart-apdma.c
-
-On those controllers, if Transfer #1's completion tasklet (vchan_complete,
-dw_dma_tasklet, or pl330_tasklet) has already dequeued the completed descriptor
-on another CPU, dropped the channel lock, and is waiting on port->lock at the
-start of __dma_tx_complete() when uart_flush_buffer() ->
-serial8250_tx_dma_flush() runs:
-1. serial8250_tx_dma_flush_work() calls dmaengine_synchronize() (which returns
-   immediately because .device_synchronize is NULL), acquires port->lock,
-   clears dma->tx_terminating = false, and calls serial8250_tx_dma_complete(p)
-   -> uart_xmit_unblock(&p->port).
-2. If no new transfer has started yet (dma->tx_running == 0), Transfer #1's
-   in-flight callback acquires port->lock, sees !serial8250_tx_dma_blocked(dma),
-   and runs serial8250_tx_dma_complete(p) a second time even though
-   dma->tx_running is 0.
-3. If a writer has already started Transfer #2 (dma->tx_running == 1,
-   dma->tx_flushed == false), Transfer #1's stale callback runs
-   serial8250_tx_dma_complete(p) while Transfer #2 is still active in hardware,
-   syncing tx_addr for CPU, advancing xmit_fifo by Transfer #2's tx_size, and
-   submitting Transfer #3 concurrently with Transfer #2.
-
-In addition to implementing .device_synchronize in the affected DMAengine
-drivers, __dma_tx_complete() (and omap_8250_dma_tx_complete() for symmetry)
-should keep `if (!dma->tx_running) return;` and check
-`dmaengine_tx_status(dma->txchan, dma->tx_cookie, NULL) == DMA_COMPLETE`
-(matching dma_rx_complete()).
-
-We modeled the v7 TX and RX DMA cancellation state machines in TLA+ to verify
-both the counterexample traces above and the fix:
-https://github.com/ismell/linux-8250-dma-tla
-
+-- 
 Thanks,
-Raul
+Sasha
 
