@@ -2,47 +2,47 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F290E606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 13:05:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5217D606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 13:05:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=c36IJ1pp;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mv0Sh4VD
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=o50D/qBL;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T5KDMnv6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=PA/fmPJB+1WcJ0F4ZZpw0PCjAYENlo82bBuzNSOQBGg=; b=c36IJ1ppgdxKVS
-	g2YF2rYS+PgD8GFBGsPuv+PDwYJ+p1HSl1JS+ZTvfwNm4tScQgtcFg0xCzqEWO5g1aMfjsLKz4ADl
-	oqq6EudHP+Ix3Hk6uEnNa7qNKbCJDtXV5gpZOJTtAVpkFy8as3w8RX/lysomWczNZBcY91ucjoDAt
-	p0vCflMTYxQ3HKxq0Yc8o67i0OYAseMoETtSyTzgYn82wpguQ3A+ZsssNq1wG9ILXsu3DJlCgKcP4
-	/oxjAzLM9qNJMwfi+yYXjTMnVils7M1aFf8M+8yz06CUWg3vUf739lFtxf2nAWNz8ywUdHAb46oQ3
-	W/TbWZuZ7PW4Bw6cXa5g==;
+	List-Owner; bh=Lupen3Bz7z6fzGugIVqcT5Cw4W+hgoB1rBA+DEWqbiw=; b=o50D/qBLkh5II3
+	3RE336TfkSOoXtq7IJfvkw8F+z3sE2dkfvIzhPdSq7ESPopDX0wLaRIciDL5azeixBshVxASu3ob6
+	6cyIfeT8NjQZH2vEocHb2cFI56Hcd3rd5fLnzbo+GpsBwS4DB21FmMWbIUyYVv7fcxqW9xbig2k+3
+	PsXVDwMWEDpDX57TuUUe4/djWUoNqaDAE7/Wlv5CAPF/z6FQ36zZbgchMK+nHJr4P7FN1moO4u3Ah
+	6vn0qzf4vTa5jOvJ6F7a4gCrF1ofs9/e5B3LiucjgIfD8mzOwuBNWYv7dweOfv292Ho/wlpmeCYHt
+	8NCodZftphc274Mdcsgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM3L9-000000070iB-3e6O;
-	Wed, 28 Oct 2026 13:05:15 +0000
+	id 1xM3LA-000000070iW-0d3Y;
+	Wed, 28 Oct 2026 13:05:16 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM3L3-000000070fU-3tdp
+	id 1xM3L5-000000070gK-1G5Z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 13:05:09 +0000
+	Wed, 28 Oct 2026 13:05:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8EED243D6C;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1518843D75;
+	Wed, 28 Oct 2026 13:05:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D157C1F031E0;
 	Wed, 28 Oct 2026 13:05:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 590981F01828;
-	Wed, 28 Oct 2026 13:05:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793192709;
-	bh=PA/fmPJB+1WcJ0F4ZZpw0PCjAYENlo82bBuzNSOQBGg=;
+	s=k20260515; t=1793192711;
+	bh=Lupen3Bz7z6fzGugIVqcT5Cw4W+hgoB1rBA+DEWqbiw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Mv0Sh4VD19aKmjXJVfg+X71t0b4ob8egYaLzKcQI+nnfdMyUP6fN4/C4YEUL2YPGs
-	 ps1+0JljDCJUuycdT3RuPdD7HcEBfQINA9civk/rNSlMFvdHGXZcCUSSYXzdhhWNRW
-	 ya6woYfThDavbBh4deMAl++/040XyE3hGHFBNUBQJIi3kCxXwbE9kbPLq/CR7q7OQa
-	 xX2XonzLcSXp5CHtFFvFlCDLr8UPHHZyEWy+FCx7Qm6WoWrqQ9mrJG4d44b34jSb2v
-	 rAdZkAuBg5Cxypax8/42OTTInIzXl5lzP1XxjGh4EjRUoNqCPd9FuQWKACCdufKt2i
-	 hiclUdQNaTUwg==
+	b=T5KDMnv6A1NFN4vPEdpRUQJ718pEuJGhdnw85GpT4/p4nvfAuyHSXPMP8bhzsuhmL
+	 zEgoBoaPEtS79y+fBobpSArdWJXco0sWNWQiOBuEj8W4LMPzMbARmYGjQc7hyPQFZv
+	 M7xC6d8RJ9QLAsgYbYIEBTKpI9y4JfMwzSrS6c/Oih6YsR/9sYwfecDi/dXAEB3S6e
+	 rW18zVk3HY4jnQuomP+Z26hA1DNhGTAd7ubevGWA09QwWKz0NDjpZcnzZzdmGLFibl
+	 X14HOB36UaqCVEo+X1A8l80RZvd50DGGrwBd0zPo/KLSb3yiiHogeNLGNVLUq25EC7
+	 7LPB5ZVWplvmA==
 From: Sudeep Holla <sudeep.holla@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	arm-scmi@vger.kernel.org
@@ -50,12 +50,13 @@ Cc: Sudeep Holla <sudeep.holla@kernel.org>,
 	Cristian Marussi <cristian.marussi@arm.com>,
 	Peng Fan <peng.fan@nxp.com>,
 	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH 2/3] firmware: arm_scmi: imx: Validate MISC control response size
-Date: Wed, 28 Oct 2026 13:05:01 +0000
-Message-ID: <20261028130502.2999676-2-sudeep.holla@kernel.org>
+Subject: [PATCH 3/3] firmware: arm_scmi: Unregister notifier on enable failure
+Date: Wed, 28 Oct 2026 13:05:02 +0000
+Message-ID: <20261028130502.2999676-3-sudeep.holla@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261028130502.2999676-1-sudeep.holla@kernel.org>
+In-Reply-To: <20261028130502.2999676-2-sudeep.holla@kernel.org>
 References: <20261028130502.2999676-1-sudeep.holla@kernel.org>
+ <20261028130502.2999676-2-sudeep.holla@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -77,87 +78,41 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-scmi_imx_misc_ctrl_get() uses @num to report the number of
-values returned by firmware, but it did not retain the caller's value
-as the capacity of @val.
+scmi_notifier_register() adds the caller's notifier block before
+enabling the corresponding event at the platform.
 
-A response with more values than the caller allocated was copied into
-@val unchecked. For example, the MQS regmap callback supplies storage
-for one value. Retain the input capacity and reject responses exceeding
-it before copying, then update @num only after a successful copy.
+If enablement fails, the caller receives an error and can free its
+notifier block. A concurrent registration can retain and later enable
+the handler, leaving the failed caller's block in its notification
+chain. Event delivery can then dereference the freed block.
 
-Document the in/out @num contract of the exported helper.
+Remove the notifier block before dropping the handler reference when
+event enablement fails.
 
 Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/bug/linux-6897b44a-57fb-4964-95f8-447d0ce526e4
-Fixes: 61c9f03e22fc ("firmware: arm_scmi: Add initial support for i.MX MISC protocol")
+Closes: https://sashiko.dev/#/bug/linux-c3c9437c-ba1a-4db6-837f-cb0950d89018
+Fixes: e7c215f358a3 ("firmware: arm_scmi: Add notification callbacks-registration")
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c  | 16 ++++++++++++----
- include/linux/firmware/imx/sm.h                  |  6 ++++++
- 2 files changed, 18 insertions(+), 4 deletions(-)
+ drivers/firmware/arm_scmi/notify.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-index 0c708b2dd496..f00f7acba845 100644
---- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-+++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-@@ -273,10 +273,16 @@ static int scmi_imx_misc_ctrl_get(const struct scmi_protocol_handle *ph,
- {
- 	struct scmi_imx_misc_ctrl_get_out *out;
- 	struct scmi_xfer *t;
-+	u32 num_values, max_values;
- 	int ret, i;
- 	int max_msg_size = ph->hops->get_max_msg_size(ph);
- 	int max_num = (max_msg_size - sizeof(*out)) / sizeof(__le32);
- 
-+	if (!num || !val || !*num)
-+		return -EINVAL;
-+
-+	max_values = *num;
-+
- 	ret = scmi_imx_misc_ctrl_validate_id(ph, ctrl_id);
- 	if (ret)
- 		return ret;
-@@ -290,16 +296,18 @@ static int scmi_imx_misc_ctrl_get(const struct scmi_protocol_handle *ph,
- 	ret = ph->xops->do_xfer(ph, t);
- 	if (!ret) {
- 		out = t->rx.buf;
--		*num = le32_to_cpu(out->num);
-+		num_values = le32_to_cpu(out->num);
- 
--		if (*num >= max_num ||
--		    *num * sizeof(__le32) > t->rx.len - sizeof(__le32)) {
-+		if (num_values > max_values || num_values >= max_num ||
-+		    num_values * sizeof(__le32) > t->rx.len - sizeof(__le32)) {
- 			ph->xops->xfer_put(ph, t);
- 			return -EINVAL;
- 		}
- 
--		for (i = 0; i < *num; i++)
-+		for (i = 0; i < num_values; i++)
- 			val[i] = le32_to_cpu(out->val[i]);
-+
-+		*num = num_values;
+diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
+index fb60fb07c0ed..e5de0d29c346 100644
+--- a/drivers/firmware/arm_scmi/notify.c
++++ b/drivers/firmware/arm_scmi/notify.c
+@@ -1395,8 +1395,10 @@ static int scmi_notifier_register(const struct scmi_handle *handle,
+ 	/* Enable events for not pending handlers */
+ 	if (!IS_HNDL_PENDING(hndl)) {
+ 		ret = scmi_event_handler_enable_events(hndl);
+-		if (ret)
++		if (ret) {
++			blocking_notifier_chain_unregister(&hndl->chain, nb);
+ 			scmi_put_handler(ni, hndl);
++		}
  	}
  
- 	ph->xops->xfer_put(ph, t);
-diff --git a/include/linux/firmware/imx/sm.h b/include/linux/firmware/imx/sm.h
-index ba5d93bd6158..0aec7da0ae78 100644
---- a/include/linux/firmware/imx/sm.h
-+++ b/include/linux/firmware/imx/sm.h
-@@ -29,6 +29,12 @@
- #define SCMI_IMX952_CTRL_BYPASS_AUDMIX	8U      /* WAKE AUDMIX */
- 
- #if IS_ENABLED(CONFIG_IMX_SCMI_MISC_DRV)
-+/**
-+ * scmi_imx_misc_ctrl_get() - Read an i.MX MISC control
-+ * @id: Control identifier
-+ * @num: On entry, capacity of @val in words; on return, words read
-+ * @val: Buffer for the control value
-+ */
- int scmi_imx_misc_ctrl_get(u32 id, u32 *num, u32 *val);
- int scmi_imx_misc_ctrl_set(u32 id, u32 val);
- #else
+ 	return ret;
 -- 
 2.43.0
 
