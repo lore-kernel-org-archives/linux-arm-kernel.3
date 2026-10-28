@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01B1B606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:08:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0416D606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:08:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kY8XeTpv;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rz79ZAkk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nHwohfVh;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nzrgAFB1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=tNuGjVpCCpWRRwNm7lQ2uEnHwZpiJtdBe9DMgOWbUgg=; b=kY8XeTpv44wnX4
-	vWVeIZACYVpgUx1WVr1Pphvz6X3NRGc19KSuv34gBtDCDW4bKR7q3ZLfqN78PxhbeEHqxsJazWu8o
-	NtHkUQWefkYdFB0rJGTBQ/RbgDhCST6I/fON1FKPoNdwpQf0+nKP4AhoXl4yJbiNl5y27vzFFUDQl
-	jA9qGzVgyZkiAwXRDqqSISLmj5RsTL3tsuNvIsat26P4scUq+75ExkAbdVMSHP2VP3DpBQjt2LRZP
-	9kWKHLOwvellnXjHxDhhjpxIl1yuL3t4jw90p1qOY/VTR+pOpMoxgnfTZDVnTmX86DPHLQ4aW4PEL
-	czG8mE5HfTr9S1WO5b1w==;
+	List-Owner; bh=I57WmYqdoF9/N0mkvjFnMDYVaQwsVE67uocH/WyHf5o=; b=nHwohfVhG3bYjz
+	YFyv0tZeZd9kUqwKrH+d+72q5iOuI6EGxOHxX0j9s0L/94eijgUaZOAN+MHhwojTyJluDrJ+67oJU
+	lJB49x6DgQXc/VwgkcsITtMcwI7xYYKllyNGo/CNlxLJgzL1dpz8B4swN97QwB/MKyxkJlSgwdKTh
+	Xz1tO0j+ksOU4Q81eu/OLe6M1KKGhLpHgZgetywuVPAgIgavi0WGWdIhtX6eV6+GqnCUn3ixs4lhZ
+	nDYjUIG+s3bF4n4CuSPJzlTlZ4sUKc77MDM5lkqfb/ES7THnzCIi4Izk3jM46koeI2AJw046PEIKI
+	V/mlYAGyu/Th0IAGAMLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1Vh-00000006pR0-3gwD;
-	Wed, 28 Oct 2026 11:08:01 +0000
-Received: from out-206.mta0.migadu.com ([2001:41d0:1004:224b::ce] helo=mta0.migadu.com)
+	id 1xM1Vo-00000006pUN-0Rg2;
+	Wed, 28 Oct 2026 11:08:08 +0000
+Received: from out-16.mta1.migadu.com ([95.215.58.16] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1Vc-00000006pOO-0fa8
+	id 1xM1Vg-00000006pPV-03fu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 11:07:57 +0000
+	Wed, 28 Oct 2026 11:08:01 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=jRMgEeT/ywsGUFgWQfUZIBCXSXNOChhJpeoxPBa3hhY=;
+DKIM-Signature: a=rsa-sha256; bh=WkQDgAer1PteLDsIHCBdKyWZtLPPEdiBNxjMb3MjjdE=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793185673; v=1; x=1793790473;
- b=rz79ZAkkMbgk9B/hhr/yUdNzCFX4ogETGJH4cJw6do7vaQxu2wtJnBEuOFPrqlRxc2VRAQsr
- or7kdl4DISmotSL4+CilDOfFUYMoc50dm/i9GiEt73pg8STuvGGrWje4B2+crrpvN0RypLnoCTU
- mPi4QfbYcoI0BSQVS/2slAPA=
+ t=1793185678; v=1; x=1793790478;
+ b=nzrgAFB1EzDbWVSgkRYBmdoluq84+swjbuvmY7eTxvFF39WGdlhu4ZjhfNPXtUiM1EfCwzue
+ CiEl4vuFLL8feB+SSAu4JW4A1Am2HseHKZTryAbYCHYYE+8A/7hGKDgl+FZc70XgMEBTBG8+5Iq
+ 2rDVjiFRwi0+rvnR6tIVO9OM=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 1e1179175c352474;
-	Wed, 28 Oct 2026 11:07:53 +0000
-X-Mizu-Trace-ID: 1e1179175c352474
+Received: by smtp.migadu.com with ESMTPS id 57efae3c060c30d1;
+	Wed, 28 Oct 2026 11:07:58 +0000
+X-Mizu-Trace-ID: 57efae3c060c30d1
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	linux-kernel@vger.kernel.org,
 	Oculytic <oculytic@gmail.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 2/3] KVM: arm64: Pass the PMU events to the hyp vCPU of non-protected guests
-Date: Wed, 28 Oct 2026 11:07:38 +0000
-Message-ID: <20261028110739.2366566-3-fuad.tabba@linux.dev>
+Subject: [PATCH v2 3/3] KVM: arm64: Disable host PMU counters for protected guests
+Date: Wed, 28 Oct 2026 11:07:39 +0000
+Message-ID: <20261028110739.2366566-4-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261028110739.2366566-1-fuad.tabba@linux.dev>
 References: <20261028110739.2366566-1-fuad.tabba@linux.dev>
@@ -68,9 +68,9 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_040756_358584_5962952E 
-X-CRM114-Status: GOOD (  10.71  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261028_040800_392041_C8092CF2 
+X-CRM114-Status: GOOD (  11.03  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,65 +89,82 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Oliver Upton <oliver.upton@linux.dev>
+A protected guest has no PMU, and EL2 clears MDCR_EL2.HPME for it.
+However, HPME has no effect, since __pkvm_vcpu_load() sets HPMN to cover
+every event counter, and HPME never covers the cycle or instruction
+counter. The counters the host has enabled therefore keep counting the
+guest.
 
-Before every run, the host records in vcpu->arch.pmu.events which perf
-counters to disable and enable around guest entry, and
-__pmu_switch_to_guest() applies them at EL2. Since commit be66e67f1750
-("KVM: arm64: Use the pKVM hyp vCPU structure in handle___kvm_vcpu_run()"),
-protected mode runs the hyp vCPU instead, and flush_hyp_vcpu() never
-copies the events into it. So the counters backing a non-protected
-guest's PMU are never enabled, and every counter the guest reads stays
-at 0, the cycle counter included. The host's counters that exclude
-guests keep counting the guest as well.
+Stop them in the world switch while a protected guest runs, reading
+PMCNTENSET_EL0 rather than trusting the host-controlled events mask.
+Gate this on system_supports_pmuv3(), as __activate_traps_common() does
+for PMUSERENR_EL0.
 
-Copy the events into the hyp vCPU of a non-protected guest on every run.
-The events only exist with CONFIG_HW_PERF_EVENTS, so the copy is built
-under it. Like mdcr_el2, they're host-controlled and never reach a
-protected guest.
+Side channels are outside pKVM's threat model, so this is hardening
+rather than a fix.
 
-Fixes: be66e67f1750 ("KVM: arm64: Use the pKVM hyp vCPU structure in handle___kvm_vcpu_run()")
-Link: https://lore.kernel.org/all/20240305184840.636212-2-oliver.upton@linux.dev/
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
-[Fuad: non-protected copy only, tested on the hyp vCPU, under
- CONFIG_HW_PERF_EVENTS, new message]
-Tested-by: Vincent Donnefort <vdonnefort@google.com>
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Reported-by: Oculytic <oculytic@gmail.com>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/switch.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index d715aa942577e..28a292deecb64 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -690,6 +690,16 @@ static void sync_debug_state(struct pkvm_hyp_vcpu *hyp_vcpu)
- 		host_vcpu->arch.external_debug_state = hyp_vcpu->vcpu.arch.external_debug_state;
- }
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index 91e1edf40bcd2..f602154ab49b5 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -175,6 +175,26 @@ static void __pmu_switch_to_host(struct kvm_vcpu *vcpu)
+ #define __pmu_switch_to_host(v)		do {} while (0)
+ #endif
  
-+#ifdef CONFIG_HW_PERF_EVENTS
-+static void flush_pmu_state(struct pkvm_hyp_vcpu *hyp_vcpu)
++static u64 __pmu_stop_host_counters(struct kvm_vcpu *vcpu)
 +{
-+	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-+		hyp_vcpu->vcpu.arch.pmu.events = hyp_vcpu->host_vcpu->arch.pmu.events;
-+}
-+#else
-+static void flush_pmu_state(struct pkvm_hyp_vcpu *hyp_vcpu) {}
-+#endif
++	u64 pmcnten;
 +
- static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- {
- 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-@@ -698,6 +708,7 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 
- 	fpsimd_sve_flush();
- 	flush_debug_state(hyp_vcpu);
-+	flush_pmu_state(hyp_vcpu);
++	if (!vcpu_is_protected(vcpu) || !system_supports_pmuv3())
++		return 0;
++
++	pmcnten = read_sysreg(pmcntenset_el0);
++	if (pmcnten)
++		write_sysreg(pmcnten, pmcntenclr_el0);
++
++	return pmcnten;
++}
++
++static void __pmu_restore_host_counters(u64 pmcnten)
++{
++	if (pmcnten)
++		write_sysreg(pmcnten, pmcntenset_el0);
++}
++
+ /*
+  * Handler for protected VM MSR, MRS or System instruction execution in AArch64.
+  *
+@@ -282,6 +302,7 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+ 	struct kvm_cpu_context *guest_ctxt;
+ 	struct kvm_s2_mmu *mmu;
+ 	bool pmu_switch_needed;
++	u64 host_pmcnten;
+ 	u64 exit_code;
  
  	/*
- 	 * If we deal with a non-protected guest and the state is potentially
+@@ -300,6 +321,7 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+ 	guest_ctxt = &vcpu->arch.ctxt;
+ 
+ 	pmu_switch_needed = __pmu_switch_to_guest(vcpu);
++	host_pmcnten = __pmu_stop_host_counters(vcpu);
+ 
+ 	__sysreg_save_state_nvhe(host_ctxt);
+ 	/*
+@@ -384,6 +406,8 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+ 	if (pmu_switch_needed)
+ 		__pmu_switch_to_host(vcpu);
+ 
++	__pmu_restore_host_counters(host_pmcnten);
++
+ 	/* Returning to host will clear PSR.I, remask PMR if needed */
+ 	if (system_uses_irq_prio_masking())
+ 		gic_write_pmr(GIC_PRIO_IRQOFF);
 -- 
 2.47.3
 
