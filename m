@@ -2,74 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91497606A337
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 13:59:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9778606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 13:59:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=e54oV08V;
-	dkim=pass (1024-bit key, unprotected) header.d=amarulasolutions.com header.i=@amarulasolutions.com header.a=rsa-sha256 header.s=google header.b=bDDHmXH6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tl8Ut1aE;
+	dkim=pass (1024-bit key, unprotected) header.d=amarulasolutions.com header.i=@amarulasolutions.com header.a=rsa-sha256 header.s=google header.b=W9v+i5U+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=RBz08268AVURbWerFfGZQvoJEMhx0Fe3EfTMgya6HMo=; b=e54oV08VOGHtpL
-	fyFk9LWfustqxdIKWFwoRoS5a3KDwhfInSYe5MGOErKL8iOZM2FnFKQi5UkoCofpkSr/Hb/aZNBWW
-	maOtcF7WcF3jvQHWuXDy/R2fnrhfA9GpSQxw6aIJQmlJut+rqruoDFboKgxYt9ushovSnT2i0ie5U
-	RK1H5ezx1Sp6VWzW40o6/0ouwAUB4NgG80rJgfhSSLg9vg014Z7K0q0NwEVYnn4vVyiuV0BmOyaLD
-	EnF3POdw9FEOz3UzUd/f+TA3hb+fLJphRQ+g92+Vw+oC836g6xjMk7GNVeOIumva5v213fmKOS2wS
-	JDjQcdnrVa6DTgbN7K5g==;
+	List-Owner; bh=Qzov9cMie3JOWsLr9fHYVP0N8sIiaMOwtNhxNRILXQI=; b=tl8Ut1aEnV6Rz9
+	DrvP+p+qM41p0E7smXuJABF9x3HWWUn3wkedc60X7s1aXsIKkSg5/KmWPMTkMUR3XFpI4knouDXmr
+	aQpDXVPWLHE646qk/s/FW6spaM1tMY5OsbbROLj1rAm7RDBqppspONs94QT1t8F5XPGJGHsQ+LBsL
+	riek2moUn/WcHlQ6LhEUeMUpMgtVDE/kSjBsl0UacouW6u1ch7ZPjPjd0C9v4PdsTXbxlI9/qK3/Q
+	BJi0Z+J/Dl99N1G0pvezVbqjfY3w4E4s4s66Ul6AXt4QVvKMLgp39tDj+rep+zj4sIeE1l6+03Ddi
+	7lPZV/GJkuXrIt986aWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM4Bg-0000000795I-0jwq;
+	id 1xM4Bg-0000000796E-2X2g;
 	Wed, 28 Oct 2026 13:59:32 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM4BY-0000000790X-485n
+	id 1xM4Ba-0000000791O-49QL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 13:59:26 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4a218c463d1so6694165e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 06:59:24 -0700 (PDT)
+	Wed, 28 Oct 2026 13:59:28 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso6849885e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 06:59:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1793195963; x=1793800763; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1793195965; x=1793800765; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RBz08268AVURbWerFfGZQvoJEMhx0Fe3EfTMgya6HMo=;
-        b=bDDHmXH6OQJm0VhiC85/kHryZ/sz+AnlilsrTDhzUP9oW3pAOpRYEByzOXTOQtIbKn
-         nycXTbrdB5moln6p4YsnXeFQvwsnt3TBQSuzQ/qtSs+mZV/h3/tkcdJW7jxt+tz4yn/k
-         HsaxLDg+mAokYGSR3jJgC/zihyU2IW8wluX7Y=
+        bh=Qzov9cMie3JOWsLr9fHYVP0N8sIiaMOwtNhxNRILXQI=;
+        b=W9v+i5U+Py9Qbl4cEPoenKNbkEKJFGb0Lqv9Zf3CrpBEnL1dqFtQJlA2wT9U6+2eYx
+         Zy8Irg2+u9f83ATk1AM2j5PBeLzighKqQitZPx4s8aJv46O1GpMM5a2pJ329OXzOHZJy
+         5f6svf3KPt3fORuVib9KIFm3MbFniNKbMHdSs=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793195963; x=1793800763;
+        d=1e100.net; s=20260707; t=1793195965; x=1793800765;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RBz08268AVURbWerFfGZQvoJEMhx0Fe3EfTMgya6HMo=;
-        b=eShdP6SZ2CSnl0/y+24rVTJDCbIWaSac68b1lrjRoSRTgdASksiTxiwLeP8loIiH1H
-         sQHNociaI8NzhNUfXWX+POK5RKUGZv+hJN/RFZFQskFraFlEdLKzqmF1WgLIpRKGJuYA
-         G3kn2eNIDvATXA0NFK/tMxYfCz21iwIw7pwtXVcl+MzuLlaB0+r7oUTYatkbJjbhw2oj
-         GTKCyFwHFk3Y2y/84XmtK2Swz5fxL0qhrfv/SIrmD/wzAPx5m6Ub+wWeLsEDoPDf0x9Q
-         2q2IGoDXbNPFknhjM1bVrgAS4l6TJhUMqr/uNEhq9amQp+r/X5Mrb7757uK7i3ZUPQy8
-         OwHw==
-X-Forwarded-Encrypted: i=1; AKwUvByi8r0GNmJIu7wnKS29G2vowaiFeHZT2fJDhvmdbssfdTiuxVwoR2QD7Ss3HM+K1Z0vb+SJ6RVADr3w2cRiqR4R@lists.infradead.org
-X-Gm-Message-State: AFq9FYI8uUgm8aYfMaJNG1tKp8ixsdfxn6O6TzwSQOnjTAfoXufvSCyq
-	7L8swnLNHbJqhctDx2ezSHa96W0eS+HDJGrvLID/e3lbtYtaGDFtkiD1zHk4rivktZA=
-X-Gm-Gg: AYBFou3tIhYLBVsAags71Hvh54SHM/JGFnBhrFmCiCtS3aWB+6aSBz6VGF6VHrIZhGa
-	xQ/lPsUQLBEnw+rEqMfmhyfyzukM46dILWk0MeRYaPMadLt51ukmNDztkI1cYw28P8Pv4gpKInd
-	m/TEIaJ0hss5HIyPLxW9H1xnlI0B133FMZ/cx4g2+mm5eYWj6uctcdW5oBG54FO86Q35CCWE8F5
-	NbPcPtRaFzT+MISZX7Qf/D34KUYHVdHN021EwIeoj86zDio8fNLyCF5phXbiGZT3VSekZsTNYN/
-	SUd4whx8h7AtTPLTqzHox/3xkwmkDwITcBz02/BDRD2B539J96JrMptGs0LwdhVYDPbg5Q2PZlV
-	NS1XaYZSN2GURB1AV6mO5J4zB83IJexjDE/K6sD1Hgh0LCqCB16m1IHNlD2bbei9MnlagBanh/d
-	PE+J874jzCHrO4dtv4DVX71vKXDcfG0HQSfNTi4w8dQOEAF/hOn3f0yjWlEMHJYHktdZ2xvzsL8
-	/vO/ZEWR0mcwcRwUh5w777iHtt0MXETSecsiE2Kh19nHvtb3yEVLkzxKgAsw2MZIvp51/U61ZU6
-	unuhfersApGMt7/FuRUCqv9QxO6G+NMi9L2ia8Hk2wBM+Rg5dsSJ2jDEpgedHk01UA6eAfWEsj0
-	SLghKgZQ/Z3i/elYAyhkB/LjodHMtA2OMmN6JDYCIEme9fjWu
-X-Received: by 2002:a05:600c:19c8:b0:4a1:d459:db4b with SMTP id 5b1f17b1804b1-4a966e2a979mr54893215e9.24.1793195963058;
-        Wed, 28 Oct 2026 06:59:23 -0700 (PDT)
+        bh=Qzov9cMie3JOWsLr9fHYVP0N8sIiaMOwtNhxNRILXQI=;
+        b=oRhNClJ/4/boKarggHD8MVhiFi+BVwQzlwmYwArllL72S/CnR3ntZd6xQcwr99Al4K
+         /5CpI+Ulq+qr+dwRgnkatZqLQjQTVta8n8LzinUlZjLODnajhXxh6n5Iz3i8+sr4G4xw
+         GwW7lJxrj3jY7LVuS2KsHs4qoUDIfUUX8vFTAnpd4n43g39rQHR2qNByoY7XSyyfVJAp
+         Vv2gOfu0wUbN7SD9j+gf7a+mc9DQpPtXg9pKhcBURB8F0T78wb38XxtRJZOU6+UgdftQ
+         vxRtwkeibhhBwzcUuOUb1wLx4BP0qddOL83CRl3Et/SM9Jk316P6fyUdtAWFckbGj/Pj
+         JxtQ==
+X-Forwarded-Encrypted: i=1; AKwUvByZczHWG7p+ZQV2OUZ/Zk7PIoqLAwNVJ/pz7agj74J/i7fjj2wtAnE1sfKPsh6o0mDL2HDpOvGfMGkHIO1oR2aG@lists.infradead.org
+X-Gm-Message-State: AFq9FYIS4tBpM7ajmEqNhLWzkO1dsiIC5WGzWar443d0ufavR2JF1toK
+	Mh+JeajaKUm3jxcoOrnGuGkJJfAgNCDnxrolRK4+SYHTLi3nHkmm1lgQ+FPpL+hWjQA=
+X-Gm-Gg: AYBFou3JKvS8ZZylRzNu5WrDv79fT9BcZI5hX2MST96sTpF1xtkW3gG2p0nclluAudC
+	IziKUkkLqqgab1Y/wfkJ6GPjqn5wmVGWuOvFGOlwhIQDpcuHpwsK7eKZSQjPn75rsVp+YVwQFdz
+	z9TWpXgxUvSh3rvPENxPJJDtr6dJKBYYUCCVRZwi+kZSOx6ZKp+/zUpIp8ViLX7PifEWv7L5Uej
+	HR6r7/TT5daKCC3cs+Q+rAgKTYxqpNKqDyDCLCbmM4cCHtUj5p+BqvMhV0/HrXIR07t0mf87Ign
+	45vbRP/KiBWlSzHYMpDv2LG5cXdMJHEhfigYuSGxNMD1J+ft1NkKrB0foNaqkObld6GKMV2i0cm
+	7bvUNp/o3xCNmQP74kdxeNEbR1WXsxHO2vJhL+QOupFIQZoVZm0TWhVUDi+gA5xAdTo+2J4cRL3
+	rHow1eEPmaaNRTxZoRlyJNKiK35CZsqvUE54Jy2v9RG552Hv9wZKDUey5AxqjI0SK6klw+LS6Cq
+	qS42G/sUzdeRt8D3YahWdJNt1eWy43Red6R+hwwcKs+G1CjlA8DQtUXlwm/rYUrlwmofb4ZRpAD
+	wJ3KHoyNJ1boqvchZFZYy9KGg6mhZ4aGxGGxnpsFDs1+3DI8evZRYQEdpPXKL0At98wLlYimc4L
+	0l04BUnh5rgM6DrRo+K82N7QHygcjPRYLpurYVAEF2joEG0j4
+X-Received: by 2002:a05:600c:8b28:b0:4a5:75d2:c104 with SMTP id 5b1f17b1804b1-4a96720304cmr53194255e9.22.1793195964806;
+        Wed, 28 Oct 2026 06:59:24 -0700 (PDT)
 Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com ([2.196.42.39])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a94f05f168sm37077165e9.4.2026.10.28.06.59.21
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a94f05f168sm37077165e9.4.2026.10.28.06.59.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 06:59:22 -0700 (PDT)
+        Wed, 28 Oct 2026 06:59:24 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Stephen Boyd <sboyd@kernel.org>
@@ -80,16 +80,14 @@ Cc: Marek Vasut <marex@nabladev.com>,
 	Yannick Fertre <yannick.fertre@foss.st.com>,
 	Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [RFC PATCH 2/4] clk: stm32: add STM32MP25 SYSCFG clock driver
-Date: Wed, 28 Oct 2026 14:59:06 +0100
-Message-ID: <20261028135915.2665857-3-dario.binacchi@amarulasolutions.com>
+Subject: [RFC PATCH 3/4] soc: st: stm32mp2-syscfg: register the STM32MP25 clock device
+Date: Wed, 28 Oct 2026 14:59:07 +0100
+Message-ID: <20261028135915.2665857-4-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261028135915.2665857-1-dario.binacchi@amarulasolutions.com>
 References: <20261028135915.2665857-1-dario.binacchi@amarulasolutions.com>
@@ -97,8 +95,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_065925_071149_2981B941 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20261028_065927_060750_801D5130 
+X-CRM114-Status: GOOD (  18.37  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,178 +116,79 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On STM32MP25 the LTDC pixel clock is selected in the SYSCFG
-DISPLAYCLKCR register among the DSI byte lane clock, the LVDS PHY pixel
-clock (reset value) and the LTDC kernel clock, the latter being the one
-needed by the RGB (DPI) output.
+The STM32MP25 SYSCFG provides the LTDC pixel clock mux, whose driver is
+an auxiliary driver since the SYSCFG node is bound to this driver.
 
-The SYSCFG node already provides this clock ("#clock-cells = <0>"),
-referenced by the LTDC as "ref" clock, but no driver registers it, so
-the selection is stuck at the reset value and a display connected to
-the LTDC RGB output can't work.
-
-Add a driver registering this clock as a mux. The SYSCFG node is
-already bound to the STM32MP2 SYSCFG driver, so the clock driver is
-bound to an auxiliary device created by the latter, which shares the
-SYSCFG node and regmap.
+Create the auxiliary device for the clock driver on STM32MP25.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 ---
 
- drivers/clk/stm32/Kconfig                |  12 +++
- drivers/clk/stm32/Makefile               |   1 +
- drivers/clk/stm32/clk-stm32mp25-syscfg.c | 111 +++++++++++++++++++++++
- 3 files changed, 124 insertions(+)
- create mode 100644 drivers/clk/stm32/clk-stm32mp25-syscfg.c
+ drivers/soc/st/Kconfig           |  1 +
+ drivers/soc/st/stm32mp2-syscfg.c | 28 ++++++++++++++++++++++++++--
+ 2 files changed, 27 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/clk/stm32/Kconfig b/drivers/clk/stm32/Kconfig
-index 5dbd75cde657..906044aacaa1 100644
---- a/drivers/clk/stm32/Kconfig
-+++ b/drivers/clk/stm32/Kconfig
-@@ -39,5 +39,17 @@ config COMMON_CLK_STM32MP257
- 	help
- 	  Support for stm32mp25x SoC family clocks.
- 
-+config COMMON_CLK_STM32MP25_SYSCFG
-+	tristate "Clock driver for stm32mp25x SYSCFG clocks"
-+	depends on COMMON_CLK_STM32MP257
+diff --git a/drivers/soc/st/Kconfig b/drivers/soc/st/Kconfig
+index 2a9d6a77be45..62bbe8c63238 100644
+--- a/drivers/soc/st/Kconfig
++++ b/drivers/soc/st/Kconfig
+@@ -5,6 +5,7 @@ config SOC_STM32MP2
+ 	tristate "STM32MP2 SoC family support"
+ 	depends on ARCH_STM32 || COMPILE_TEST
+ 	default ARCH_STM32 && ARM64
 +	select AUXILIARY_BUS
-+	select MFD_SYSCON
-+	default COMMON_CLK_STM32MP257
-+	help
-+	  Support for the clocks provided by the stm32mp25x SYSCFG, i.e.
-+	  the LTDC pixel clock source selection between the LTDC kernel
-+	  clock (RGB output), the LVDS PHY pixel clock and the DSI byte
-+	  lane clock.
-+
- endif
+ 	select SOC_BUS
+ 	help
+ 	  If you say yes here, you get support for the ST STM32MP2 family
+diff --git a/drivers/soc/st/stm32mp2-syscfg.c b/drivers/soc/st/stm32mp2-syscfg.c
+index 770321a4a6f7..300a949744c5 100644
+--- a/drivers/soc/st/stm32mp2-syscfg.c
++++ b/drivers/soc/st/stm32mp2-syscfg.c
+@@ -3,18 +3,42 @@
+  * Copyright 2026 Marek Vasut
+  */
  
-diff --git a/drivers/clk/stm32/Makefile b/drivers/clk/stm32/Makefile
-index e04727b59449..8088d172651f 100644
---- a/drivers/clk/stm32/Makefile
-+++ b/drivers/clk/stm32/Makefile
-@@ -2,3 +2,4 @@ obj-$(CONFIG_COMMON_CLK_STM32MP135)	+= clk-stm32mp13.o clk-stm32-core.o reset-st
- obj-$(CONFIG_COMMON_CLK_STM32MP157)	+= clk-stm32mp1.o reset-stm32.o
- obj-$(CONFIG_COMMON_CLK_STM32MP215)	+= clk-stm32mp21.o clk-stm32-core.o reset-stm32.o
- obj-$(CONFIG_COMMON_CLK_STM32MP257)	+= clk-stm32mp25.o clk-stm32-core.o reset-stm32.o
-+obj-$(CONFIG_COMMON_CLK_STM32MP25_SYSCFG)	+= clk-stm32mp25-syscfg.o
-diff --git a/drivers/clk/stm32/clk-stm32mp25-syscfg.c b/drivers/clk/stm32/clk-stm32mp25-syscfg.c
-new file mode 100644
-index 000000000000..1cb2459f0370
---- /dev/null
-+++ b/drivers/clk/stm32/clk-stm32mp25-syscfg.c
-@@ -0,0 +1,111 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * STM32MP25 SYSCFG clocks
-+ *
-+ * Copyright (C) 2026 Amarula Solutions, Dario Binacchi <dario.binacchi@amarulasolutions.com>
-+ */
-+
 +#include <linux/auxiliary_bus.h>
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/clk-provider.h>
-+#include <linux/err.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/regmap.h>
+ #include <linux/module.h>
+ #include <linux/of_platform.h>
+ #include <linux/platform_device.h>
++#include <linux/property.h>
 +
-+#define SYSCFG_DISPLAYCLKCR		0x5000
-+#define DISPLAYCLKCR_DPIVSLVDS		GENMASK(1, 0)
-+
-+/*
-+ * The LTDC pixel clock source is selected in SYSCFG_DISPLAYCLKCR among
-+ * the DSI byte lane clock, the LVDS PHY pixel clock (reset value) and
-+ * the LTDC kernel clock, which is used with the RGB (DPI) output.
-+ */
-+static const char * const clk_pix_ltdc_parents[] = {
-+	"txbyteclk", "clk_pix_lvds", "ck_ker_ltdc",
++struct stm32mp2_syscfg_data {
++	bool has_clk;
 +};
-+
-+struct stm32mp25_syscfg_mux {
-+	struct clk_hw hw;
-+	struct regmap *regmap;
-+};
-+
-+static inline struct stm32mp25_syscfg_mux *to_syscfg_mux(struct clk_hw *hw)
-+{
-+	return container_of(hw, struct stm32mp25_syscfg_mux, hw);
-+}
-+
-+static u8 stm32mp25_syscfg_mux_get_parent(struct clk_hw *hw)
-+{
-+	struct stm32mp25_syscfg_mux *mux = to_syscfg_mux(hw);
-+	unsigned int val;
-+
-+	regmap_read(mux->regmap, SYSCFG_DISPLAYCLKCR, &val);
-+
-+	return FIELD_GET(DISPLAYCLKCR_DPIVSLVDS, val);
-+}
-+
-+static int stm32mp25_syscfg_mux_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct stm32mp25_syscfg_mux *mux = to_syscfg_mux(hw);
-+
-+	return regmap_update_bits(mux->regmap, SYSCFG_DISPLAYCLKCR,
-+				  DISPLAYCLKCR_DPIVSLVDS,
-+				  FIELD_PREP(DISPLAYCLKCR_DPIVSLVDS, index));
-+}
-+
-+static const struct clk_ops stm32mp25_syscfg_mux_ops = {
-+	.get_parent = stm32mp25_syscfg_mux_get_parent,
-+	.set_parent = stm32mp25_syscfg_mux_set_parent,
-+	.determine_rate = clk_hw_determine_rate_no_reparent,
-+};
-+
-+static int stm32mp25_syscfg_clk_probe(struct auxiliary_device *adev,
-+				      const struct auxiliary_device_id *id)
-+{
-+	struct device *dev = &adev->dev;
-+	struct clk_init_data init = { };
-+	struct stm32mp25_syscfg_mux *mux;
+ 
+ static int stm32mp2_syscfg_probe(struct platform_device *pdev)
+ {
+-	return devm_of_platform_populate(&pdev->dev);
++	const struct stm32mp2_syscfg_data *data;
++	struct device *dev = &pdev->dev;
 +	int ret;
 +
-+	mux = devm_kzalloc(dev, sizeof(*mux), GFP_KERNEL);
-+	if (!mux)
-+		return -ENOMEM;
-+
-+	mux->regmap = syscon_node_to_regmap(dev->of_node);
-+	if (IS_ERR(mux->regmap))
-+		return dev_err_probe(dev, PTR_ERR(mux->regmap),
-+				     "failed to get the SYSCFG regmap\n");
-+
-+	init.name = "clk_pix_ltdc";
-+	init.ops = &stm32mp25_syscfg_mux_ops;
-+	init.parent_names = clk_pix_ltdc_parents;
-+	init.num_parents = ARRAY_SIZE(clk_pix_ltdc_parents);
-+	init.flags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT;
-+	mux->hw.init = &init;
-+
-+	ret = devm_clk_hw_register(dev, &mux->hw);
++	ret = devm_of_platform_populate(dev);
 +	if (ret)
-+		return dev_err_probe(dev, ret, "failed to register %s\n",
-+				     init.name);
++		return ret;
 +
-+	return devm_of_clk_add_hw_provider(dev, of_clk_hw_simple_get, &mux->hw);
-+}
++	data = device_get_match_data(dev);
++	if (data && data->has_clk &&
++	    !devm_auxiliary_device_create(dev, "clk", NULL))
++		return dev_err_probe(dev, -ENODEV,
++				     "failed to register the clock device\n");
 +
-+static const struct auxiliary_device_id stm32mp25_syscfg_clk_ids[] = {
-+	{ .name = "stm32mp2_syscfg.clk" },
-+	{ }
++	return 0;
+ }
+ 
++static const struct stm32mp2_syscfg_data stm32mp25_syscfg_data = {
++	.has_clk = true,
 +};
-+MODULE_DEVICE_TABLE(auxiliary, stm32mp25_syscfg_clk_ids);
 +
-+static struct auxiliary_driver stm32mp25_syscfg_clk_driver = {
-+	.probe = stm32mp25_syscfg_clk_probe,
-+	.id_table = stm32mp25_syscfg_clk_ids,
-+};
-+module_auxiliary_driver(stm32mp25_syscfg_clk_driver);
-+
-+MODULE_AUTHOR("Dario Binacchi <dario.binacchi@amarulasolutions.com>");
-+MODULE_DESCRIPTION("STM32MP25 SYSCFG clock driver");
-+MODULE_LICENSE("GPL");
+ static const struct of_device_id stm32mp2_syscfg_ids[] = {
+ 	{ .compatible = "st,stm32mp23-syscfg" },
+-	{ .compatible = "st,stm32mp25-syscfg" },
++	{ .compatible = "st,stm32mp25-syscfg", .data = &stm32mp25_syscfg_data },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, stm32mp2_syscfg_ids);
 -- 
 2.43.0
 
