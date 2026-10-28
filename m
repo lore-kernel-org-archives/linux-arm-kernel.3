@@ -2,151 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 711E0606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:21:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09916606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:24:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tbJRmt46;
-	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=yJNugPLC
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GNz/Qrw2;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R7QsyzZX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=HNfJLTfEegqv+3oFxcJm59fWMWPhakplaKdKJT5G1eQ=; b=tbJRmt465FbMhY2lCaqH6anCjk
-	gW6DUDHlTGLUlTcmBzDqHQ1DS2tvxX5Bn+ENp+jYQxLMrn0x7CiU+WZLCVwYU6XvGPBYxIESAizjQ
-	cd4Qipv3uL2XdDFUwDj724GhEeuXCGULuWLmSxWeDlwhFJNWHl0Oi8JrrLy9iKiWverSFcfwAFDDT
-	qu3xiAS6oSLbIkGx0+WTTBbHkjhn8OQnHokoiN3sRng5iYxCyj1MUmosYm+9qI+HQ2rTQFHzAK4Uq
-	yZQRQZzgKX8I642FPb9JhvK7xraacZ+xM/N/0T33XxGVXcU0muA7Za4RE0arKOO/OtFlifw4LGy5w
-	J5YRll1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=cVPfinBcqbOTfVLlNcyfK95ZPjIWvy4g7kt54rOT7UQ=; b=GNz/Qrw2f3WBVE
+	IwP4/ATT+70F8Cg+XexQ1TX1h3MrmkFRcUJcKhC6tZCMelkfAakCVWo5dWpIZSjoM5DayOOlUWV0r
+	SFPYU2ItABQHf8ls9PAaugQue35aDM+WDLNv2Ghu25r96cbU9/Rm6QpTQD9O0sFuQuaCudTfkdYgC
+	EfkiDRmtLnHoba6L57MVG3XD+ofwglmcdDh+3nKg7XAX+hga9h+kmo+MzgUZv8sliPpkoshfd82Uq
+	mLWQ8ff/1hZuNGypYYWHMpWMnWEId2kOMpKXqfU39TnvtW+WfvoHXmMw8uaqmwXTfPpSTRpibE7ES
+	B77NSM/keTTHCViWQKUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM2eT-00000006wk8-0DhL;
-	Wed, 28 Oct 2026 12:21:09 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1xM2hF-00000006wv5-2pOI;
+	Wed, 28 Oct 2026 12:24:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM2eQ-00000006wji-3h74;
-	Wed, 28 Oct 2026 12:21:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AfnVPchdC2VuBBMfXLE7uCCEZ9T3R3o5vizeKHNFTU7vWF7w2HK+tTeJwJW7GDySv/1xWpLuJuONvryDX+6bwvF1bZhJZJQBAcKSuX9Uzx3AVYU/mTxz/N5gPGhTsGhJQQODQ6G/ZuwaFyp3HokMwLi++a5XzJ+i4gODAc0jFlSxA15S6+v+IItwPRvlViIX1uxwb6gZVDZ+h5esVZu/fSdU6UTZQkqOhN5JxHTtv+kuBj9VNGq7XosjQZvhqx5urn3YDoeZHGmTEJN/FQFQYJCg9OKlPlRaB/yUwl/o7XlfH0XNqjsikn5ywFnmj/eewdIg8+xjpH1551LhDNKFqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HNfJLTfEegqv+3oFxcJm59fWMWPhakplaKdKJT5G1eQ=;
- b=O+nI3RPtOxmjEomk6NIk1bSQsowW/oMxyhQSh2z6bFhS0D1t1DmGSKLSQdbbMEfv6w3EHolkyoxHFuM0gh/BvOju4n8O9wjoMXP5IzPJ1Nc1gKmXnllNuEbzQUsH7E+dJgxqcdpfDE/l2QsxkiK0VZvMaNrfTxY4TTF/qjZH5VwjHP8UYuUCAgp5hq3oLU1UafiXjRRAhQIT1MIIV7qYKuRt/wFnctzGz+z5i2OA2R+Ja22EuZtcAp8518uno/briVgWvih7Kk8B/KJNSmZT7srX3vPZBHhok3VPXjywF+gq6PNmJJg5WHGX2vyHfvU33eZlrF5mISvxiqwKZmi0gA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HNfJLTfEegqv+3oFxcJm59fWMWPhakplaKdKJT5G1eQ=;
- b=yJNugPLCWN7SNNDBOioaexAbHV1CKaoz1E0RC2LUxFOyc9ktHEndckbTzHLNnHriClZwfI/KGwSA02FhvJtNxOWY/Ie7uvmHFBri8elLRULpNrNVHic1aJqUeR8YL0o87rw/haXKrM6OVQAr/tX2Y6X+JqMZCaRUMl8zh1qRvp+XtHCg8HOWRqXmhXIjMz8teGi3lbPKXKHQylvUlkki5xTED3kaioTsaYZggK2q07l2TKYvi3GMMNdAeJByHaze37lBm+ntiPDjnFD8vRD8K7vGNpv5EaBqhe6xdkN58ODYXlQjCb2Ojct52ZsbLSL2yZ2+mpxXcV1LhhGvedS2Hg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYNPR03MB10226.apcprd03.prod.outlook.com
- (2603:1096:405:3c1::21) by TYZPR03MB8295.apcprd03.prod.outlook.com
- (2603:1096:405:1c::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Wed, 28 Oct
- 2026 12:20:58 +0000
-Received: from TYNPR03MB10226.apcprd03.prod.outlook.com
- ([fe80::ff5:e524:cf10:5d7]) by TYNPR03MB10226.apcprd03.prod.outlook.com
- ([fe80::ff5:e524:cf10:5d7%6]) with mapi id 15.21.0546.021; Wed, 28 Oct 2026
- 12:20:58 +0000
-Message-ID: <2f33d959-32cf-4b3d-a3eb-a12a032298a8@amlogic.com>
-Date: Wed, 28 Oct 2026 20:20:54 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 3/5] ASoC: meson: g12a-toacodec: Add S4 tocodec driver
-To: Mark Brown <broonie@kernel.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com
-References: <20261021-audio_drvier-v7-0-2b9aeae9cb8a@amlogic.com>
- <20261021-audio_drvier-v7-3-2b9aeae9cb8a@amlogic.com>
- <179304854619.199157.2693374514232344592.b4-review@b4>
-From: Jiebing Chen <jiebing.chen@amlogic.com>
-In-Reply-To: <179304854619.199157.2693374514232344592.b4-review@b4>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TY4P301CA0049.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:405:36b::7) To TYNPR03MB10226.apcprd03.prod.outlook.com
- (2603:1096:405:3c1::21)
+	id 1xM2hE-00000006wuk-1zz3;
+	Wed, 28 Oct 2026 12:24:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C990601FE;
+	Wed, 28 Oct 2026 12:23:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8C2F1F01825;
+	Wed, 28 Oct 2026 12:23:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793190239;
+	bh=cVPfinBcqbOTfVLlNcyfK95ZPjIWvy4g7kt54rOT7UQ=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=R7QsyzZXVOBspXAzif+Uty1yaR7OocO1eksw27ZhIaRbw/zacVji13CDlOTud6Swz
+	 U2Pr9SoeMIodt6hlwTKc23qnEot+1Xf+3Fpmqs2sc0x+gAy06cQPwl6HX50O//Vwg0
+	 JfeUTjqUb6rRdtqKeiyFtt6jrxr2rPqr+7BpvOubiYfbBNjj4q1AQgL3IVswavsSPa
+	 uVG9pyHRrxOYa6AUoIOQF7N8VrJo7GhhRsf5VfthPgerxVv7Az9UBhLHjeT4p7vif6
+	 G1sW7qs05H+nVGh2G8fnJ5PUmtl5GjcNwmlcRVNtpupitI1FhE4sJq0eEI4OVZNEUH
+	 QK71F8+3qDytA==
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYNPR03MB10226:EE_|TYZPR03MB8295:EE_
-X-MS-Office365-Filtering-Correlation-Id: b681c25f-4050-4b5d-59c9-08df34edec0e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|261026140227099003|4143699003|56012099006|261022105027099003|11063799006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 3MkqxVVGbzlDlVTqOmJW3iGkaFkH00KRG8uyozR1PyZLZA87CXFDKvpcKysTGPa+i9ulBOQdxCM6vLnckxHr+SI5MUOfcuvYaPzi+XgRp8/ki/2tJ+cBF1dtS0wolfDVn7ibyjOhmtzMVGebcZe4zrLHBM+7HtGrPwXMi3wbp7baVHrkHeHetiqnZgWplgnkZQApR8gzQrxNtoahAvNAncTwGN5Z5C5W9qIJ/55Srv8keA2rsl80HLuLWucBF4lccu4pqfNuBsyN4mxdYDbzrIyWNwxY1uv4kL6frQhtsjs3fZuD7rFynVd1BfzGB9LfWGPT4egioqYXH7m4PTB+YXdXZz9hVT6mxq6Wgk8HZlbX0e+n3Kt/14dzTIk6Lvu8U/+put/TAcMxQbs314iYsFFPjfV4rcptEbXurLse0htODbSGiT8zWxd62pQvw0IWIb+i8oASJRTWpa2nUdcl/pa+vqaKnGULZmRreXrRuxgcqrxQkgkz4v4oO7MxcEW4jheYfwSu9hOAYRifauJtPM63lqesqw2sqzxuXxFCnPh2GlgGVTLP8xlN6jU9m2n+YE61Cvb4g+DXQAtMYjeDeqh6Q33FWs1z/J6s0Tdci71301beXk57fpVgXF02fuD4lSLwTcVDFAtAt+daIvHDbLpbH2CwUdmpw7igcmWxnj8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYNPR03MB10226.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(261026140227099003)(4143699003)(56012099006)(261022105027099003)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aFczbmVYOXh3b2Q0VkxVVXJibUJkVkRmMFcrWjFwLzBEbmdBNldoRmpvMFR0?=
- =?utf-8?B?dFNSOHF4ckV1aVNhaG1iSWtSRkhEenM2SmJobDBqN0RGbkQySHhFeHI0VVlv?=
- =?utf-8?B?KzBrZ2NaZWMwbktyMnBXVWtWWXFpZm5RU1ZvV1NDdVVhK0VYV3lRc2ZMYk5w?=
- =?utf-8?B?RnFyVDM5U014SE5IUVJJNHcyVUptNkpDcEEzMDdaZU5ZMEwvWlRhaEd2bHp1?=
- =?utf-8?B?bG0rcWNxNEpwd2ZPSHp0SGwzYk5LZGtkb1ppdmpabTNGeEwvUzRGMkJNekM4?=
- =?utf-8?B?RTBlc1VxcUpIVkRWdE5LVDBaL3VRRmtTUTNPOU9DSUNzUUUzT1FuVGpJWTVS?=
- =?utf-8?B?bG9uSGFNbFc5ZnRNbEgwTmFoVTNBbWJFVVhmOHpUL1hKRnQzSHQrSU1hNUd3?=
- =?utf-8?B?dGszR3d4WDRsOWc4ODMyTlhFdHZTaWZ6MUkxeE04QXVBVFpCdkxqR3VrUXhy?=
- =?utf-8?B?ZnVFYlZ4M2FXN2N3OEdXYWFGdStONHhPYUV5Zm4zNDY0Si9wVmUreElSeC83?=
- =?utf-8?B?MWJZVTFsRDF4a2IwdVQ1R0pRd3hrQmtqeXZMaTJnV3kvdVJDWHBoajB3OU4w?=
- =?utf-8?B?N2JlYkVnNW1XTkROMkdhZmxTNXJIUWJtR1FaQ0c3d21oWWR5cEFWd05JUkVS?=
- =?utf-8?B?RW43RzZSYkp0aHpMVWNha0ViSHJqeXpuZUdYSm1ybldBaTZNdFZtbUZTeGcv?=
- =?utf-8?B?UDI3SEkwaG1HMnIyS3pabHVEOTF3aE9nM0Y0R3dsZ0VqTS81Y2pnVTlWaE9q?=
- =?utf-8?B?TVkvUWxIOUJ5QU80RWFCb1orN3J2QTZ4VGlMT2liOHZua092Q1hSemVpT0to?=
- =?utf-8?B?SThLTFhCQlRJV1NDbmIzWFBKM09Ga3F0bm1BUzZxK1pQWXZlL3V5UHJsMHN6?=
- =?utf-8?B?K25lZ2ZsVUJueWJ2bWpYSFVDcFkzbzlaaWNDTEVIQmV5SWpiL0wzU2hIbVVH?=
- =?utf-8?B?MzNLZ1ZDNkpWd200YWV4VlRPa2k2blBlenNBQ1dRNTZlOG1JWEdQaDUxalRY?=
- =?utf-8?B?UGtqYXJkUUN4ZFR1ZnZ0ejNTaXVFd1htbnNJNjVBa2hlRzVLWFRENkwvT3R4?=
- =?utf-8?B?VUpLeEpTbUpWVnRLTEp1SUZYWk53M1dFOWpFKy94cThFM3g2NXhWR253VTFD?=
- =?utf-8?B?amhKYm9adTBLSEVRU25TV0tFVTVNUVh3MmxRc0padVJ2Z1ppajVJWVFwRTBu?=
- =?utf-8?B?cWhQNE53VTFUTTJURGdRU01QL08zOFUydXlTVnY4V3M3bk95S1BSbUh3L2hN?=
- =?utf-8?B?MUNVNTlsTXAzemxWT0ZhNWU2eHA1bkZnR1ZSSkFidEFqOUZWQ2VNaUlIODda?=
- =?utf-8?B?bFIyZUk3YkxoLzNTRU5ndXVDUmQxV2Z0c2xpUlVjVUxVMEZGRWwxS3BwVC9V?=
- =?utf-8?B?ZDFHTy9TQ0tpQ1Q3N05UZER4NTJscDAxMGhWTlFaVnVwNElvK011SVRhV1Ba?=
- =?utf-8?B?alJxNUFscFpoeEhsU25HeUY2ZlpNNjBUWnUvTS92UmlVVGR3bk05akg1Z1Jr?=
- =?utf-8?B?ejRuekwxNDhXVHZ2NkNWRXl5WUh3Y21BQkhPaCtJazVrQ3EvcnNQQlV6Y3V5?=
- =?utf-8?B?Q1JYcUJiSVl1N09sTVAvYnpUVlZheWVUMk00L05EZmZsZ2hhWHJtcEpKTndI?=
- =?utf-8?B?cGFuMXBrNDFjdFZDbFQ4U0NrVVRMeWhEVmc2TkxxRU9aQzBFQkJQemE1TjFr?=
- =?utf-8?B?QVc2NUx6L0xGWnBOL3dXWExaK1BvMENGMFhaVnJTcGNNWU5DeHk2dFh6QVBK?=
- =?utf-8?B?SjBXcjQ1c2txdHFrbzc0MG1OaTE5RkZLbFRxd05kd2lsblV6dnQ2Q0NPditT?=
- =?utf-8?B?dHp0S0lzMzN1MW5FbHVXQjFLOHU0L0VWQUV4M0h4dXNjWmYvN0JBRlI5NVNE?=
- =?utf-8?B?NHpYN1BTdWZTTUFEajZ3OUU3K1pURzlCdTBTc055dXB0MnBkSDdnVmdBc0t4?=
- =?utf-8?B?SkZVNGlZdlRlV3lmM0FsUlZXaHlGbWNTckozQVcrQS9kUDVRWmtLSFJib3hT?=
- =?utf-8?B?cTh3M1g3ZGdBT2pFOXpuTHpQV3dFN3NidzNDYnphM3Blc1pIRGUxa0lrWFFI?=
- =?utf-8?B?cWl0TTk5dC9zNzg2MmM1N21QR1phdE0zTS93SndXeU4rU3gvUFRsY0VvSnVG?=
- =?utf-8?B?RDlNUzJFWk1SMzFrRGVNTndGL21DZTZFWGY0NjFvYmhSSmpIUGN3STRYVHd0?=
- =?utf-8?B?OE5qRldYRVNHZlBwSzJYeXA5NXdsT2pVWEFTV3h0NzlpOUEyTWpMZkg1NitR?=
- =?utf-8?B?OXBzNU1xcHMyVFVTNGdlejBvbXJIZ3hkbXFLOGc2N0lEaFJXUnJMKzdNWng1?=
- =?utf-8?B?TlNiYTg2Ukx0dklzVG9oV0IreU14NVc2QmRMb0YwQnBIZkU2d2I1QT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b681c25f-4050-4b5d-59c9-08df34edec0e
-X-MS-Exchange-CrossTenant-AuthSource: TYNPR03MB10226.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2026 12:20:58.3079
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NisFzRB5lyu0IQ1Dq50yh/W0LlXN7waGUgrr4fzO3cRhVyyHpfXPM00DQi5En8oKYcdHSwwR+yVHvyWnKGYrRnOtPZvaD5HuYQ5A2yse4AI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB8295
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_052106_923435_F19115FB 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v14 2/3] phy: move and rename Airoha PCIe PHY driver to
+ dedicated directory
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261006102937.10972-3-ansuelsmth@gmail.com>
+References: <20261006102937.10972-1-ansuelsmth@gmail.com>
+ <20261006102937.10972-3-ansuelsmth@gmail.com>
+Date: Wed, 28 Oct 2026 17:53:46 +0530
+Message-Id: <179319022610.10280.5883386163307156406.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=906; i=mani@kernel.org;
+ h=from:subject:message-id; bh=Mff5QIqkdgNj/liBi+gaY4m1v9rfasm070afTA3Ry+Q=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq4elVXqDJm3di9PWM5V1+d6+9zjcjgs05/y0rW
+ f5QcVFPU3mJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCauHpVQAKCRBVnxHm/pHO
+ 9dN9B/wNOCkrjfY+pJYF9ctJ4uUInfPKV3MX7T2VRidZvY7axyDCyG/TuaH5jj+U+zn17S+ed2D
+ xMfyNmPCL/+qG0lSSQgF3Tlh5p9D+nbMjFxaLX1UEFfLs9gJ+pib/zWf3vi+J6utQoiP3+91duI
+ d0PPqg+eSkmmiwT/JT4QJgTyHNmK1+LqZkqMEna3M2eQMBp3iP2k2EAZpI8z6hFtxZIlfuQNxit
+ YOSAkV1FLgYyo1L11INZq6/x1Fef/8SCrnZwSNxIJoVHB8Be2Lo525o2WkWPWbBxh5rnQZ57/cZ
+ 99+0vgb7oSfJaqckRYvXnJzNDZmg4c9sBY169YOmxSzpiONy
+X-Developer-Key: i=mani@kernel.org; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,30 +84,34 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On 2026-10-06 12:29 +0200, Christian Marangi wrote:
+> To keep the generic PHY directory tidy, move the PCIe PHY driver for
+> Airoha AN7581 SoC to a dedicated directory.
+> 
+> Also rename the driver and add the relevant SoC name to the .c and .h
+> file in preparation for support of PCIe and USB PHY driver for Airoha
+> AN7583 SoC that use a completely different implementation and
+> calibration for PHYs and will have their own dedicated drivers.
+> 
+> The rename permits to better identify the specific usage of the driver
+> in the future once the airoha PHY directory will have multiple driver
+> for multiple SoC.
+> 
+> The config is changed from PHY_AIROHA_PCIE to PHY_AIROHA_AN7581_PCIE.
+> 
+> Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
-在 2026/10/27 5:02, Mark Brown 写道:
-> [ EXTERNAL EMAIL ]
->
->> The S4 requires additional clock control bits to be turn on while enabled.
->> The S4 has 8 TDM lanes, instead of 4 on previous SoC.
->> Update the widget accordingly.
->> +#define CTRL0_BCLK_ENABLE_SHIFT              30
->> +#define CTRL0_MCLK_ENABLE_SHIFT              29
-> Should these have a _S4 suffix?
-Got it.
->
->> +static const struct snd_soc_dapm_widget s4_toacodec_widgets[] = {
->> +     SND_SOC_DAPM_MUX("SRC", SND_SOC_NOPM, 0, 0,
->> +                      &sm1_toacodec_mux),
-> Should this have a custom mux for S4, it looks like the register bits
-> are different, a shift of 19 for S4.
-Thanks. We'll add a dedicated S4 mux for this mapping.
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+
+- Mani
+
 
