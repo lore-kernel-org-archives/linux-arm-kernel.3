@@ -2,109 +2,119 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21716606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 23:02:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E858F606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 23:38:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=N/dzQHj0;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=es5pmGVO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S1am5s+l;
+	dkim=pass (2048-bit key, unprotected) header.d=nullptr.com header.i=@nullptr.com header.a=rsa-sha256 header.s=google header.b=Wzb7NF8J
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=x9PhEZroZ7s6qQbU4UDDHXsyI0SUTC2fQaTTCcL595k=; b=N/dzQHj0Q3rloQFxI0d2pb22wa
-	C+f7Et60Tu2NWfrakb92F+1gG+13eGNmYkcjgZIuiuDi2XsplcD8oj1kwoTVGC692bjdeG/a/scrw
-	3aEDnQ3Mynlx+L9ub2oMCV47XguZGwKK0qoS+55VxZaldPA6qALmnNlON4klLncX++0uRzVS9VtS6
-	fpQd7YqOo73bu8rZlyT9hdiiNRZQZSztw65+egHJpEhpbbL1JlIIm2in69P/9SWflxsDydNJJxllB
-	eRgBP11CyGaE+I/xPsAu4dNPF2pHzVStURCum0w9Uqgp41z9uxZCEI2+ACdGOJlu5WdOKHPuKxEhs
-	DWGg9Amg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=BwnJftUwj+AATA9qklYrAxD78ahkF2IuNib+vGAuNWk=; b=S1am5s+llfitUE
+	YjqpzgHakbvdsWEdPvW/n/8mcBef1S13OzY3KigTIgv/ZaAgHaWevVNxY28Bi9o8nkiftgiP/QCoC
+	LzhV/HTbSo3Gl1r22eX5IugPIzRSjy8qJBmFT/5jaYL9EX1WuJCWZKKxqNy17G9nWBTwJyPlQAoja
+	w6lb4O6RJl7LmjsNtSEKltxYKz6BrWBjxF8VDdiBNsBim0OTia29vaZFywnFZ/GfyZUaoelyvWrf6
+	OWGAWB2qIa9LjlHHgx41a1qvf5hQTg3kRRw0gKrcaE/rOkvDqwmtVJ0dGXDPI7uTAd2aY7VMOUqDh
+	fFAtvi6eAdWLLYvmIPKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMCet-0000000836I-2uWD;
-	Wed, 28 Oct 2026 23:02:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xMDDl-000000083xU-0Bdn;
+	Wed, 28 Oct 2026 23:38:17 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMCer-0000000836B-2spN
+	id 1xMDDi-000000083x8-04Tg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 23:02:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6AD99600DA;
-	Wed, 28 Oct 2026 23:02:12 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793228532;
-	b=zK1yFaOEcGOG+TVK2haXDS8YcMRvOoJx5yo1ua6/Aio1f19k07grIJfnciPE3PXZPfte
-	 GEU/TIYo9H7/WqCY+PBZFErugA3Cvow/m1MQ8ozfxlLa76ZrkMH8wsS/puzkrSB81eaVP
-	 mIA9lkrN7nV5HwsehuDZ0lO0HJhHhz1Tutql77p6l8QD3q+3s8tFDXCYzWKBfC60CYBLC
-	 jRuDfJkzcvkuwV8Pe0bz1oFRojf5LLKcPWjjRwLo/matbtXkzfv7E/gTSOnQfgopqRx3k
-	 WoNV29wH4XDpQXXNNTQFghMfO4mzLWkkBApYcfK+4bB3lgip5Ym/WSlEvW7r5556DLw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793228532;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=x9PhEZroZ7s6qQbU4UDDHXsyI0SUTC2fQaTTCcL595k=;
-	b=hPXSRThHkVxc4S4bEhl+ByRLDvazCyHyJqKQKC7H7CmfEcYpDPkxz4/3T1iC/W7V93ac
-	 OrJWCslyHWk2+rb2E4/6QXyMfFzN/k/GvCiNBiczIXdq9wgrnN+/Ie1Kdt/tknTOtGfp5
-	 +UHTD62m0uSnyhp23COqlXRuYd/tikQOIEKtVGZytbeMErPnD5235ec5x5JrSHGo+uNW4
-	 SGAZTe7s7hJVE+6y1eU6QjD/prTnLCUV6CRdxK1M+lASjWsGvke2pzaQIilYqeeDPok/h
-	 0Jb/GA6zMGnnInniwGFEDoEVoAy1ZUeJNTw9J8w9K/2gGrN6aT8MihyJlBq/J+9deSw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 921DA1F01825;
-	Wed, 28 Oct 2026 23:02:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793228532;
-	bh=x9PhEZroZ7s6qQbU4UDDHXsyI0SUTC2fQaTTCcL595k=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=es5pmGVO9hlHoqYn5bFIApN86T0Bva+Y7j2gwnn0UWcgX83OvLNkkzFfmgctWW+UC
-	 EiI0TazmpyLHaU7M5T7IONhoEekLNIiq5WYwIt4nb+35jAYiik6VcQWFgpHAwRfTyt
-	 Fp2AegJIupTduKFBLbrFg2qQHQfwkKzAm7q9lUMioGikrnipE36M0Bj6xk8F2B5c1c
-	 GsAGo0ei5z7azfTT2wOyE41PeH6ApcMzbHibXT/81MRDohleDF2Jr2X/gA2pUg3PO7
-	 dsJZFFQX76x3QvpBoBFc7mnnkKL/OLj90vp3c8F9j/wWPodT0jWVyLEU2tehfle82G
-	 wz3gEbxW2vrxw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id E4866455F9;
-	Wed, 28 Oct 2026 23:02:10 +0000 (UTC)
-From: Xuheng Li via B4 Relay <devnull+xuheng.cs.columbia.edu@kernel.org>
-Date: Wed, 28 Oct 2026 23:02:10 +0000
-Subject: [PATCH] KVM: arm64: Add an ISB after mapping a hyp fixmap slot
+	Wed, 28 Oct 2026 23:38:15 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-8b10d24345dso15191157b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 16:38:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793230691; cv=none;
+        d=google.com; s=arc-20260327;
+        b=lAuLa+xFlG2wTcaG5knhtAyvejS2xtGaJiBF02n7o32aYnoeJwJePBE7Jo13GwG8QL
+         8d4hXUgur2wYjSuxblj6YGe8hJUKsk5GNW/WHxNI81j1St2/o/1jDqNKdMNxr6XmJcmz
+         Q/AsMF4YKyJORV6vdKZ0eZ7ihBGIm5t968tLzKtj/dxRwHtehpWTPqemM9otZh/OLyr1
+         i328UUdqnQww8MEUZGLVOj1oHjcmOgJZe9B55w9c0QdclpbmQ7Vtz1g5YeqWoph7TPmG
+         WZ6t3THUgN2ORyUMdnKk6LU/oFnP0TBIu9VanbW+X04k8vec8sGEXdalQmiOmJfn8KcB
+         oYCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=BwnJftUwj+AATA9qklYrAxD78ahkF2IuNib+vGAuNWk=;
+        fh=n+9LACs28Dw2RL/JOPZ/MKziq5hM9FpYVsnMfqb5EZY=;
+        b=dVxK2lHSrSU3Fka3hXj7jrHaFASdp9IME5MSFcHCHzgz5xk2BNupbYdvi3McMgfuw7
+         ixp7zGJICQCC4BXHJ5dyKj/TxVuQtqo13cm6dTuDjoH3ZkrabEBPksAIJWe08cNeDZmi
+         Rd1NbUGWa8V2seSU/OSwNoXtWG0CBxys5ifBX/Vj410aHfB6ZDlBaNKViDyV1DSsrVYR
+         586FHd9Ay5KpBgb9z8ygebYFUJL2s4z30Ljjhgg5anTcsH8eEv+waVerLgO2vK6j0Vwb
+         PIOwrHa2Fda3b9i9Dm5g0ul6N2Wumg0pih28LsHm1zipLNfcmkonBVcCzRqz/eW3sVt6
+         fu5w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nullptr.com; s=google; t=1793230691; x=1793835491; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BwnJftUwj+AATA9qklYrAxD78ahkF2IuNib+vGAuNWk=;
+        b=Wzb7NF8J59Rb6WU/87NTcDR+TjSTnmtga11EWPr6fJnOfA78lSID3LWZNdyI6L++Bu
+         KV4Svuc0lVBDeNKbxXnF41YbGzvuaNGCPJ6AuaOtt0UyLlOu2i9WMMMr49NLy2FG4heJ
+         bPDDAshZCqcvh9o0KW1aTH3UcPYLEeydtfIjwO3dPKr7sVREh2jvpT/CIdvAc2q9b/zI
+         ibpZUgzSZteTqtHSXkKAgS9FMefr1l/Mn8TKHb4snoWJwcmbFhfDohd2dwqEEJlY6+jL
+         UwzBf6Z9bUGJ7KZ8iH4Y4s6d64NN1qsG0wEcVqGAiJEtsF1ZUCnrlk6LT2uQp2l7MmqX
+         ywtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793230691; x=1793835491;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BwnJftUwj+AATA9qklYrAxD78ahkF2IuNib+vGAuNWk=;
+        b=VXbG28cWlIGXX2vrbxGZ76u7HwVXhtv5EW3VwoPucSKdUjLPAgFFdhnaULgAR/CHFR
+         clN5o6kXrt3Xq6k3JlMqAoKDiuCZvl+Wg2oqOSFdUkN1em/rHWNdSK4pnq7xgE8e4XLN
+         9JsY47Fd6OUQCgwOH+WLOhrXv++Am6V7SD90CRcxXgat/GgmOVbZYzz41TNvyh7c0x4k
+         97HkPa38dNiwJEUKBF4MfwGYssJI23l+5+lBupcw0L5ORM9afUqjHJ1/mA2x4jnaPqhU
+         wjEihm2kzhOf/1li+gGrsuH/FD10QyMTqj3fUKEWhtNgp0k6+3FSi21+kCTKaQUJfg05
+         JW4A==
+X-Forwarded-Encrypted: i=1; AKwUvBzndmfySXjW6IF0gMTDt+7fI6GfnPP79L4HPZtpu8iwT8aaQi1iBOb5SFj6Ij1+hV2a9pTQoSbaF79i9Yxg6tks@lists.infradead.org
+X-Gm-Message-State: AFq9FYL/9+xQFY6s0P+7Ou3Acj7xL8Ro/zNDzv+pCdl4OKjCfxXzxmwM
+	7gi6PyPrhOXdHIcKsw1jfkEvoeh1NavHxXqQ6BPuLc6Z0UXXxvv+5/qIm/zDgiPhdYsOpHzFoA5
+	7KZI132KcbxubBLt663RvnXMLgfiuJTDa5Z4Ew/OM6RKXHorS+Nn5Q90Nnw==
+X-Gm-Gg: AYBFou2N6mmQdkNIvBMkdhqI2vnKslQRUys8tTBSEFelACYI6pyX1fj9pGRWoZKsPwG
+	uSY884/t3zTpDZYhSrAIFySiEmZfIDa+YDmWSxcGOrtb2gnzbJYFboXK7WFmlIPoC7DQ+x+Eg+R
+	urkgccupZTyckBw8UWXB2MsRu7Jh8rBEPoqO3yIhRIHLVmWZO7hEOVVSiDrQkrQgOX1wlLPQ78c
+	cRQh1LJ2+3CaIIkwFd3V5zE5+iYoIPuBjZ+aljAhQx8GHJ3q3ARF9vpC5cjSDuhZwZHPRF/f6Si
+	TkDjh1tubj/KEY/eenSawlwN0yN5bpD7NRHbhid8jCkzOwWrnnuX2HrMzMF5gdFzcFQM6NvAh03
+	PkIAn7YBi2sz+iJrrXj1Ud14/d5CBMBGz4snsiJfr/9dGYF6v0F4Jun0/RFMrjUthCUReq9FOFH
+	vlHX1V5Gl3wgrhvsBQKnKJPVJMgI/qAS5i46lSZ7ONoTZjt80uRsTXHEQ=
+X-Received: by 2002:a05:690c:38b:b0:8ab:37e5:6678 with SMTP id
+ 00721157ae682-8b1b5d394a6mr28742787b3.44.1793230691387; Wed, 28 Oct 2026
+ 16:38:11 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261028-fixmap-isb-v1-1-6c9f0f9cb810@cs.columbia.edu>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDAyML3bTMitzEAt3M4iTd5GTLFHMz01Rj86RkJaCGgqJUoCzYsOjY2lo
- AeJvqclwAAAA=
-X-Change-ID: 20261028-fixmap-isb-cc9d765e37bc
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
-Cc: Quentin Perret <qperret@google.com>, Will Deacon <will@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Xuheng Li <xuheng@cs.columbia.edu>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793228530; l=1807;
- i=xuheng@cs.columbia.edu; s=20261028; h=from:subject:message-id;
- bh=MRI3I7XYX2g8m/5nRZspzMo8wXyH7lpxeGQhbbi2qGg=;
- b=QsMY43bA+fBdaVPVPnbfW9T26X1m6bDnOE7uREQ34isPF0d5YMF7mQSstVSg6VOotubIGaW9A
- r5yGUIqIiLpB2fu5VZSh8xzoazibgmP2GJdt7mXdoCFHaXbfoEdnjGO
-X-Developer-Key: i=xuheng@cs.columbia.edu; a=ed25519;
- pk=L1HVV+goqxYmEMO/OXakL6uf9isSpgk2QrLlFqyZ2Qs=
-X-Endpoint-Received: by B4 Relay for xuheng@cs.columbia.edu/20261028 with
- auth_id=1349
-X-Original-From: Xuheng Li <xuheng@cs.columbia.edu>
-Content-Transfer-Encoding: 7bit
+References: <20261022-xilinx-dma-work-v1-0-20faea2e7a80@nullptr.com>
+ <20261022-xilinx-dma-work-v1-4-20faea2e7a80@nullptr.com> <auD5_fHykXpkQ8ns@lizhi-Precision-Tower-5810>
+ <CAHnw2UkB_KTh3c816SUUgaH=SenFKOpYwvaMvowzi-O5oFmCyg@mail.gmail.com> <auIR2GFWZHUP5vzs@SMW015318>
+In-Reply-To: <auIR2GFWZHUP5vzs@SMW015318>
+From: "Jeff C. Jensen" <kernel@nullptr.com>
+Date: Wed, 28 Oct 2026 16:38:00 -0700
+X-Gm-Features: AclHuK-LKjsKCaobPjRchQyPcT15lMhGBWVE2x98cOvF9GEVC10J-zU2k9Et8_w
+Message-ID: <CAHnw2UkoFcTHs7nXBBFVEZpyf8BCTs9tpkSmj5RXCsSoaQmK4w@mail.gmail.com>
+Subject: Re: [PATCH 4/5] dmaengine: xilinx_dma: Withhold an AXI DMA engine
+ whose reset did not complete
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, dmaengine@vger.kernel.org, 
+	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>, 
+	Suraj Gupta <suraj.gupta2@amd.com>, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, 
+	Alex Bereza <alex@bereza.email>, Folker Schwesinger <dev@folker-schwesinger.de>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261028_163814_238157_D63D6260 
+X-CRM114-Status: GOOD (  21.02  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,65 +124,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xuheng@cs.columbia.edu
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Xuheng Li <xuheng@cs.columbia.edu>
+That makes sense. Given the cause is likely a hardware fault, and
+that a timeout is generally a sufficient and common recovery, I'll
+drop patch 4 from the series in v2.
 
-fixmap_map_slot() installs a valid PTE for the CPU's fixmap slot (or
-the fixblock slot) and issues a DSB ISHST before returning the slot's
-VA, which the caller then accesses.  It does not issue an ISB.
-
-The DSB guarantees that the PTE write has completed, but without a
-context synchronization event the architecture does not guarantee that
-a later access on the same CPU uses the new entry: its translation may
-have been performed speculatively while the slot was still invalid, in
-which case the access takes a translation fault.  At EL2 that fault
-ends in hyp_panic().  The clear side, fixmap_clear_slot(), already ends
-with an ISB.
-
-A litmus test of the same shape (map the slot, DSB ISHST, load through
-it) faulted on a Cortex-A72 in 2 out of 100M runs.  Arm's herd7 model
-with -variant vmsa also allows the fault, and forbids it once the ISB
-is added.
-
-Add the missing ISB.  This covers both hyp_fixmap_map() and
-hyp_fixblock_map(), which share fixmap_map_slot().
-
-Fixes: aa6948f82f0b ("KVM: arm64: Add per-cpu fixmap infrastructure at EL2")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xuheng Li <xuheng@cs.columbia.edu>
----
- arch/arm64/kvm/hyp/nvhe/mm.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
-index b95d98cfe..83b74c522 100644
---- a/arch/arm64/kvm/hyp/nvhe/mm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mm.c
-@@ -316,6 +316,7 @@ static void *fixmap_map_slot(struct hyp_fixmap_slot *slot, phys_addr_t phys)
- 	pte |= kvm_phys_to_pte(phys) | KVM_PTE_VALID;
- 	WRITE_ONCE(*ptep, pte);
- 	dsb(ishst);
-+	isb();
- 
- 	return (void *)slot->addr;
- }
-
----
-base-commit: c339f4010dea8b0d754f84ace70cd1b089878ef8
-change-id: 20261028-fixmap-isb-cc9d765e37bc
-
-Best regards,
--- 
-Xuheng Li <xuheng@cs.columbia.edu>
-
-
+On Wed, Oct 28, 2026 at 8:16=E2=80=AFAM Frank Li <Frank.li@oss.nxp.com> wro=
+te:
+>
+> On Tue, Oct 27, 2026 at 01:36:27PM -0700, Jeff C. Jensen wrote:
+> > In theory. I haven't seen a reset time out on our hardware. Every faile=
+d
+> > reset in my testing was injected with fail_function, as the cover lette=
+r
+> > notes.
+> >
+> > PG021 describes the soft reset as graceful: "Pending commands/transfers
+> > are flushed or completed", and the Reset bit reads 1 while the reset is
+> > in progress. My reading is that a transfer that must complete needs the
+> > memory side to respond, so a stalled interconnect or memory port would
+> > keep the reset in progress. The driver already allows for that, since
+> > xilinx_dma_reset() polls the Reset bit with a timeout and returns an
+> > error. It just doesn't act on the error: xilinx_dma_terminate_all()
+> > frees the descriptors and returns 0 regardless, so if the engine is
+> > still fetching, the next transaction reuses segments the engine owns.
+> >
+> > Patch 4 may be more than this series should carry as a fix. One option
+> > is to drop it from the series and post it with patch 5 as a two-patch
+> > RFC, scoping failed resets out of this series.
+>
+> Yes, reset timeout is most likely Triple fault. If timeout happen, most
+> likely hardware fault and can't recover at all.
+>
+> We generally choose timeout value is much bigger than enough.
+>
+> Frank
+>
+> >
+> > -Jeff
+> >
+> > On Tue, Oct 27, 2026 at 12:22=E2=80=AFPM Frank Li <Frank.li@oss.nxp.com=
+> wrote:
+> > >
+> > > On Thu, Oct 22, 2026 at 03:11:33PM -0700, Jeff C. Jensen wrote:
+> > > > When xilinx_dma_chan_reset() times out, all the driver knows is tha=
+t it
+> > >
+> > > Does this real happen? or just in theory
+> > >
+> > > Frank
+> > >
 
