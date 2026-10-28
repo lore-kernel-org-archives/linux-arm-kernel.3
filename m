@@ -2,99 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DAB8606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:33:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D314F606A33C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:35:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4uC+6B+9;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JGKF85hm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yvlHQgv1;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i2Un4Mws
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=jLuXcsrhYze/uot6RAritgtezmvs46B7suAi1iRl0v0=; b=4uC+6B+98cyzsQbudn01Up1Nrw
-	7dueo/QlOydANkM6K5bCRzMElIBjHUyDAv3LSAb274usMLMg3M2YMuqIFYDsrrBt2u2EmsaKGxvSC
-	xUmHkAxyrVh+AQ30v0c4TbcNxETNv9Wd6Xn7qrqXTvCDq3F10afSpeaGXqnO3amE3OW4CDQ5QTjAS
-	rECWjGX58pCL0Io9gs7zpQBGXHu6fJl+7UewoUp4kobD8mEaU3f/1QI0iR8tUtWcWqVx9xKNGPUmk
-	fGqRumhdaNTxsuC8EQWPFMHSpuTgV20CBM6Fj1iRLhI5uYtW7S2kISAT4d91qiuf6X/FYFdYR2fpy
-	7PD6Z3Pw==;
+	bh=kzgvlmTIhVHGThdIV5sswGrWTSAc2jljnSQn/BZ1riE=; b=yvlHQgv1TUXNnzwqhYzj3AZyqu
+	3YJyfw+tYdh6KPaDCiCPJJcQEdNpPYV0nS8rvulc7oWVDalaOYd+Cp/AtMPele63/lET22byvzeoc
+	t/hIBy76lHoBJkyGZ6g7LhQbEZOXc5rbE5faiXQZVbixURzuNm/QSb2R98R0KxiHlpBrkWUq3jWCG
+	S1UUZsf78J9WEavlYFkKppPPpsoy6+YqHarWoCan0oRn7EaCssOTqp0hHdUjA82VP3vVV0dkFFvSQ
+	mcP2CaJLLnNPpOhpu12gaJmse7v/e44HqA2DzacdEFw+wF3K+RP2xFPZ6ddc7wJ5tt7vve1emt/Mp
+	ZEyiHzGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1ui-00000006rls-1dKH;
-	Wed, 28 Oct 2026 11:33:52 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1xM1w8-00000006ruc-2dBM;
+	Wed, 28 Oct 2026 11:35:20 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1uf-00000006rlH-1L0e
+	id 1xM1w6-00000006ru2-1Nqb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 11:33:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793187229; x=1824723229;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=z8y8XV24bROqh0zonAMNAjIZyMJbY12xpb+/fK8m0AI=;
-  b=JGKF85hmCVQ9pf9eXbOsC8wgPHWDavTdyCGWPRpxPC23gPTB9HurHR1u
-   WQIzCd0zwuTx3xDYu7R6x7Tug0u3cG2len/6bLyuT1Ba9nt2Ksz9lFv16
-   uWsDoRlbFOlyD/wV5bIxwsw3kIwHlbx+7870/Q08076xKsblgMcUIm7Xw
-   nkUIXIu5vX0mQFDdirfJv+J+GkeTU7aMk2olzE59xTR4u4jE9NpgRt9lo
-   j3gf2C66LaqLw0qU6mJ+rQfIH8X+Zwj6uep7ZyHB2nWJbxPDyFDqeTPXW
-   uH7NK1RnZY34FW9rSVNOCVg9/KCrbR1XNYeByeZKByf52EvDlzja4Tmz3
-   g==;
-X-CSE-ConnectionGUID: 0zzUdf/rStONUD8FaZc3cg==
-X-CSE-MsgGUID: HUOclJjhRIK2cVvzz/6uXg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11948"; a="1813637"
-X-IronPort-AV: E=Sophos;i="6.27,182,1787036400"; 
-   d="scan'208";a="1813637"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2026 04:33:48 -0700
-X-CSE-ConnectionGUID: F9mrBK1+QXS8jOjCv8P8bQ==
-X-CSE-MsgGUID: KJ1QgI6jS6ey2L/RLS17LQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,182,1787036400"; 
-   d="scan'208";a="6633584"
-Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost) ([10.245.244.146])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2026 04:33:40 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Dmitry Ilvokhin <d@ilvokhin.com>, Alex Deucher
- <alexander.deucher@amd.com>, Christian =?utf-8?Q?K=C3=B6nig?=
- <christian.koenig@amd.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Joonas
- Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi
- <rodrigo.vivi@intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, Lee Jones
- <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, Joel Stanley
- <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Ryan Chen
- <ryan_chen@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Kees Cook
- <kees@kernel.org>, Andy Shevchenko <andy@kernel.org>, Matthew Wilcox
- <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, Andy
- Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>, Jonathan
- Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy
- Dunlap <rdunlap@infradead.org>
-Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-hardening@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-doc@vger.kernel.org, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
- Dmitry Ilvokhin <d@ilvokhin.com>
-Subject: Re: [PATCH 05/10] drm/i915: switch to __nonnull_args() macro
-In-Reply-To: <33ec8080594f9f4ef1d50e36497339c9a6897393.1793027261.git.d@ilvokhin.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <cover.1793027261.git.d@ilvokhin.com>
- <33ec8080594f9f4ef1d50e36497339c9a6897393.1793027261.git.d@ilvokhin.com>
-Date: Wed, 28 Oct 2026 13:33:37 +0200
-Message-ID: <3b839373c03f6b8aeafa8e4801a486ece68b0815@intel.com>
+	Wed, 28 Oct 2026 11:35:19 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-48afbd2c386so499917f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 04:35:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793187316; x=1793792116; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=kzgvlmTIhVHGThdIV5sswGrWTSAc2jljnSQn/BZ1riE=;
+        b=i2Un4MwsIh4oI8fCZPElNM/YSECxIdUK4nVcD5NPA4KKiJ6T9RdMVsgn27mw30prUG
+         /EhFTTRhnbok0H2fTQW6Wx/twgzVtDtC8If50aAHzl4e95SmW33RShszggYDw0ZIJCxV
+         3q8R4C7a3Nav0aScYGuyXHqMxMc56qpu8PhfIoAVG+LwTgxkP398YybEITMehyUDmalx
+         PYUwmGaHuEhPkfTQQMSscFY8UDkvpJhKcS1xLkMuICISjogthEvJVTOBrrJro5M8LIrX
+         k5RajbjFMIxHVAZooT55WVIZahLNRymGcWSdgdDexD3pKPKbfO1YK32e6SZO9L3jz6cY
+         2xww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793187316; x=1793792116;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=kzgvlmTIhVHGThdIV5sswGrWTSAc2jljnSQn/BZ1riE=;
+        b=Ez1jVz/16BkgB9YQWUo1VPxdLokCys/d8Wl1NuU9xzrvhNKves9PEACOoJiOn6KUf2
+         fHIuQiJS4/1obQy50kTbg1MB0izjf8DOB8mtL9C02hkPyi8JXuEoO6x4L6hmdxgWN4Mf
+         FnaQKxxUh0/8mt/AS86ES/Xe9rM5BoAW1XUMMvvB90FRpedF/cr3uwWdubg+4qDdk1Za
+         VH555HZ499TIghyHPN3PGLRX+8/NafoZtq77ymCbA9RUs1QjTjHYP/6E9tGWiYREez0r
+         zWjZbRdFUf+T1uCvYPzTVxCHD3mnoHQnJud/9AvpupcQNa86tTwlKDff4sgGYrtp7hOy
+         jTlQ==
+X-Forwarded-Encrypted: i=1; AKwUvByJ7F1SVhBL6cNcQ7bOqfA4YFv7IOZ8sr9g63qxE13cGIHxm5nuWI2ACXXn+MNkZ29i52LkPapwgjcQQ8zyRkjA@lists.infradead.org
+X-Gm-Message-State: AFq9FYIUCGYAjQ1bZDoTwhLT8BrL+GyE1sKGlL+q6GkBQeHbN4MX55K8
+	6S1g4dkBcmMG5NzpS8r2Qr6jqxA0uJj5x+8e8Fa28VhsOR3bVv+ERw/Z
+X-Gm-Gg: AYBFou0K5MQULQpgRS9izEaMEWT2O2U3UfyY/1ty6WXVx4vkxNH0wCEr3Z1ZWmrdcIj
+	98xzUHmYY3eEGqqWM+bwpIzjeH0Z/vVBo2qmOymp7gykTAJH3L+eRwdwPI4fur8E7ZzKnqVc6il
+	OL24y8AiZStTdOfNtWWxa5hYm466B1V+7rfRhfhnUsSUMvi/+6/LOaFv3hKRL9cjCu77f3ZyrTL
+	hif5T9jXecPh4pUwK1cW8741NEjmZktT6dARZRrqyeeZJmKNvfmnXxHKgjhFxdsfyiq64C/nypQ
+	t57qtCX7V79VKSD+UiodNjQUxd/OkzdJLC6/yw9AfJMcFfp7X/rYhbwk8Ml4uB1TK7LAxjoLOS1
+	/oWckE2m6rZvgZkFKId/f5yd1AbBPGqIrIwlgY21+cAydtnblgo7q9EbdE29Deg0j67VuVPXW09
+	IiK+0nDWdf2YyrJUyBq794cLGzBBftb7miJqQ3QPMa9h3UFocJ9U2VQXrAP8XavKajn7/dU8ROk
+	PTJXKB4kLurOwX7mkmA94fvlpwjc4QPXuU4tmj+odZwWcav4ySA+bDSrA+jIzBS/8zswJNsKt8l
+	NCmfrKFtmp9UY303P6VRWXzQy33h9arKxlSK3StiOZHS8qs1/d2qmFNEP5sOuUnX9LXNmuk4oW7
+	E+ASVvuz0AuPt8819pNra46mBzyQLfg==
+X-Received: by 2002:a05:6000:2207:b0:48e:5df2:fd24 with SMTP id ffacd0b85a97d-48e5df2feb5mr4476377f8f.32.1793187315926;
+        Wed, 28 Oct 2026 04:35:15 -0700 (PDT)
+Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3eb8f36asm28144706f8f.1.2026.10.28.04.35.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Oct 2026 04:35:15 -0700 (PDT)
+From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+Date: Wed, 28 Oct 2026 12:35:09 +0100
+Subject: [PATCH v4] arm64: dts: freescale: imx8mp-verdin: Add Cortex-M7
+ remoteproc
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261028-verdin-imx8mp-m7-v4-1-d4e23e62ebea@toradex.com>
+X-B4-Tracking: v=1; b=H4sIAOzd4WoC/4XPMW7DMAwF0KsEmstApBRb6tR7FB1Uia41yA7kQ
+ nAQ+O5lPBRtMmT4wyfAR/CqFq6ZF/V6uKrKLS95nqTYl4OKY5i+GHKSrkhTh5o0NK4pT5DL6so
+ ZSg+h80yd61xvUcnaufKQ1518/5A+5uV7rpf9QsPbdMe0x3tslMRQuAaoHNIFGoIGE72xnmP69
+ MObSCHxeoxzUTe80S+IWuNTkATsExprBJQ8guYPSPT4bjOAEAZylsmdDKb/xLZtP0UfMshUAQA
+ A
+X-Change-ID: 20261020-verdin-imx8mp-m7-a69e26868741
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_043349_419838_5C3AB218 
-X-CRM114-Status: GOOD (  16.64  )
-X-Spam-Score: -4.3 (----)
+X-CRM114-CacheID: sfid-20261028_043518_393995_D2EFBA05 
+X-CRM114-Status: GOOD (  13.03  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,74 +112,102 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 28 Oct 2026, Dmitry Ilvokhin <d@ilvokhin.com> wrote:
-> Commit 22302af28d3f ("cleanup: Annotate guard constructors with
-> nonnull") added the macro __nonnull_args() to wrap raw compiler
-> attribute.
->
-> Replace __attribute__((nonnull)) with __nonnull_args() to standardize
-> nonnull attribute usage across the tree and keep the attribute's quirks
-> in one place rather than open-coded at every call site.
->
-> Suggested-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-> Signed-off-by: Dmitry Ilvokhin <d@ilvokhin.com>
+From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 
-Acked-by: Jani Nikula <jani.nikula@intel.com>
+Describe the Cortex-M7 remote processor available on the Verdin iMX8M
+Plus SoM.
 
-> ---
->  drivers/gpu/drm/i915/gem/i915_gem_object.h | 4 ++--
->  drivers/gpu/drm/i915/i915_request.h        | 4 ++--
->  2 files changed, 4 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/gpu/drm/i915/gem/i915_gem_object.h b/drivers/gpu/drm/i915/gem/i915_gem_object.h
-> index a2f4b6758a65..648d0b4139cf 100644
-> --- a/drivers/gpu/drm/i915/gem/i915_gem_object.h
-> +++ b/drivers/gpu/drm/i915/gem/i915_gem_object.h
-> @@ -127,7 +127,7 @@ __deprecated
->  struct drm_gem_object *
->  drm_gem_object_lookup(struct drm_file *file, u32 handle);
->  
-> -__attribute__((nonnull))
-> +__nonnull_args()
->  static inline struct drm_i915_gem_object *
->  i915_gem_object_get(struct drm_i915_gem_object *obj)
->  {
-> @@ -135,7 +135,7 @@ i915_gem_object_get(struct drm_i915_gem_object *obj)
->  	return obj;
->  }
->  
-> -__attribute__((nonnull))
-> +__nonnull_args()
->  static inline void
->  i915_gem_object_put(struct drm_i915_gem_object *obj)
->  {
-> diff --git a/drivers/gpu/drm/i915/i915_request.h b/drivers/gpu/drm/i915/i915_request.h
-> index b09135301f39..f559203c332d 100644
-> --- a/drivers/gpu/drm/i915/i915_request.h
-> +++ b/drivers/gpu/drm/i915/i915_request.h
-> @@ -437,12 +437,12 @@ void i915_request_cancel(struct i915_request *rq, int error);
->  long i915_request_wait_timeout(struct i915_request *rq,
->  			       unsigned int flags,
->  			       long timeout)
-> -	__attribute__((nonnull(1)));
-> +	__nonnull_args(1);
->  
->  long i915_request_wait(struct i915_request *rq,
->  		       unsigned int flags,
->  		       long timeout)
-> -	__attribute__((nonnull(1)));
-> +	__nonnull_args(1);
->  #define I915_WAIT_INTERRUPTIBLE	BIT(0)
->  #define I915_WAIT_PRIORITY	BIT(1) /* small priority bump for the request */
->  #define I915_WAIT_ALL		BIT(2) /* used by i915_gem_object_wait() */
+Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+---
+This patch was previously part of the Verdin iMX8M OV5640 series and is
+now sent separately, as requested on v2.
 
--- 
-Jani Nikula, Intel
+I am away in November, replies may be delayed until December.
+---
+Changes in v4:
+- Use IMX8MP_CLK_M7_CORE: IMX8MP_CLK_M7_DIV is not registered by the
+  i.MX8MP clock driver, so the remote processor got no clock (Sashiko, Frank)
+- Link to v3: https://lore.kernel.org/r/20261022-verdin-imx8mp-m7-v3-1-af284e28531d@toradex.com
+
+Changes in v3:
+- Split out of the Verdin iMX8M OV5640 series (Frank)
+- Move the UART_4 overlay to the shared Toradex Cortex-M UART series:
+  https://lore.kernel.org/r/20261022-v1-imx95-overlays-v2-0-c769d6eb54fd@toradex.com
+- Link to v2: https://lore.kernel.org/r/20261001-verdin-imx8mp-hmp-camera-ready-v2-0-7d1343ecd3ec@toradex.com
+
+Changes in v2:
+- Rebase
+- Link to v1: https://lore.kernel.org/r/20260910-verdin-imx8mp-hmp-camera-ready-v1-0-3c9349ecdb9f@toradex.com
+---
+ arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi | 33 ++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
+index 9fee2cf9ef54..8bffa4a27776 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
+@@ -77,6 +77,18 @@ key-wakeup {
+ 		};
+ 	};
+ 
++	imx8mp-cm7 {
++		compatible = "fsl,imx8mp-cm7";
++		clocks = <&clk IMX8MP_CLK_M7_CORE>;
++		mbox-names = "tx", "rx", "rxdb";
++		mboxes = <&mu 0 1
++			  &mu 1 1
++			  &mu 3 1>;
++		memory-region = <&vdev0buffer>, <&vdev0vring0>, <&vdev0vring1>,
++				<&rsc_table>;
++		syscon = <&src>;
++	};
++
+ 	sound_hdmi: sound-hdmi {
+ 		compatible = "fsl,imx-audio-hdmi";
+ 		model = "audio-hdmi";
+@@ -185,6 +197,27 @@ reserved-memory {
+ 
+ 		/* Use the kernel configuration settings instead */
+ 		/delete-node/ linux,cma;
++
++		vdev0vring0: vdev0vring0@55000000 {
++			reg = <0 0x55000000 0 0x8000>;
++			no-map;
++		};
++
++		vdev0vring1: vdev0vring1@55008000 {
++			reg = <0 0x55008000 0 0x8000>;
++			no-map;
++		};
++
++		rsc_table: rsc-table@550ff000 {
++			reg = <0 0x550ff000 0 0x1000>;
++			no-map;
++		};
++
++		vdev0buffer: vdev0buffer@55400000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x55400000 0 0x100000>;
++			no-map;
++		};
+ 	};
+ };
+ 
+
+---
+base-commit: 7f47e8eafbf55a2ad0697e5d28f5e6cff2fa42f9
+change-id: 20261020-verdin-imx8mp-m7-a69e26868741
+
+Best regards,
+--  
+Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+
 
