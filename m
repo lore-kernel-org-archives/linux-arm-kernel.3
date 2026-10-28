@@ -2,104 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9866E606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 10:34:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 194CE606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 10:39:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TAAh9PwO;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u1lLMUf1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GeaqOd3F;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fDrpwpoI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=fJvqHOk07FUa6s5/fD4Hq7cD2mBklo9gU81ggaCJZwE=; b=TAAh9PwOLnWXG3
-	qJE5kzHjo6jSQaAQbDBnVoVvYWIfnTV7NwdGRkaoGHXTYX50w8ueBKq9GhexVxVJeOjj/P6hOwSBl
-	Q6URvyFScaXlqtIw69FWfOFHzcFkwbMdf+gD9FRLVLb+K8jM8uemyCoe5lm2X3x2hwZg0jZ2XM0fL
-	f+JDCljSBHh/Wh6kMG2YP617Ya487a3lipZOYt8Bj71HwqDuLjvQNLmGXfelkCX+WlqGVlwp3ENwc
-	RWHvgNc5YfCbWh0WLvJRn1v7Ng3iNTwusbpSGURz5UdAoxncI4XHdB3RUhzENPXVloz+muUYpXyks
-	phiOyP+rC1lxbtMwB61A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
+	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=dd3LTey7FOWHFlhpV5HFbjoYqofICdOmzExQr7sFatU=; b=GeaqOd3Ff2tvEIWGe7gmN6/qD2
+	q6iBCmB6UPDpnKpwQa5wANxJAYzkARepPT41EuzffERoEaJH0AKtj0yxbcwvYrs03SGbcM7vWmUXc
+	Y9i7yL/5CmbwQ20TfOZPQKqt0nHBtGFsXZAaB14agWPxAkrL90xTGLxflGFSZZ+3up/+N8d9u0hyf
+	W9WSxbp+FdZLCLu1zKGBwY9+yT+A/jsSJ9TrdxhDZCocCPRKosQbojVsMs5DrX6AQ7wcUQlqdI24x
+	bHMSK3GHNZ9+1XkcvZxRas4/wU1/HDfNxeZEzXyvE8eZcZw5IhdCkxNo2ZdoBct2IZARr+zDDeCw1
+	80ZeVuAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM0zO-00000006lc8-3l4u;
-	Wed, 28 Oct 2026 10:34:38 +0000
-Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
+	id 1xM13c-00000006m0A-0Lug;
+	Wed, 28 Oct 2026 10:39:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM0zN-00000006lbX-1TTU
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 10:34:38 +0000
-Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-3550c917fd3so1152271eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 03:34:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793183676; x=1793788476; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fJvqHOk07FUa6s5/fD4Hq7cD2mBklo9gU81ggaCJZwE=;
-        b=u1lLMUf15URu6373vjeKsLbdD6E+qcB1b2SA/y1r/ExpGtXff+0zDHGCR5JV2/am60
-         wCrQUSJxC7SSoXimFNbEPRvtAtz5qhaDE7xstTMcx2YfF3XiWtq9tsKX4xOwIDPbG1X+
-         uUnQURRRq7V1K+AjegnE5GG2e0xwwF/cRwUlN2pBGyrSWuk4KwL6w6nA5VYgQWprCIL2
-         AG93WH4fUio6Emim2TeUKIkC+jHeuX29IT8xx4faI4bvTvtwzKi2bImrjrHqKGreFusU
-         8tQRUi23gdAmYm/rO+mR4roV8lsA9jSQlrZ70VvySEEVOwwZQCpYWG5mAxMWRK/bskKo
-         iIvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793183676; x=1793788476;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fJvqHOk07FUa6s5/fD4Hq7cD2mBklo9gU81ggaCJZwE=;
-        b=bt7wCN8D2RIXfJJuQcoX8YuwGfYRNtBdm0u3jBmIofMaN6EIn+URpWjkR1P+YMYRKa
-         zhhC0rfiTvFWV6ZlcZVotEKFGee17UnuEoX4lq8RBEVR95lxHwVx3ljDprpCLmNvgOUi
-         zcstN2nPCE3ehuGDc2TXr9lYQ+xZv8xeLKs9rHU9VyIbS3nabb2e4ZHGNI646E62SqFP
-         iuFtXeCnaqkNMwebvp2lprUHQTgc3iEceLn1+qZrzlmWXUWSx1mPGj4APl2z77ML3gFA
-         p5hapR5zeUvDpWQkHrVKw/bkbnNssPJ+11Bw117j9rYDJZK4Tt59xZO9c45t/wGauBgb
-         rKug==
-X-Forwarded-Encrypted: i=1; AKwUvBzbvN9RMfypWWwSBWPBOMAOIFebitPz32KgfFDr/cWXWePcHw+tDN5puGFIOJBHT2+N2DxituCGKrpKbZu9CeC8@lists.infradead.org
-X-Gm-Message-State: AFq9FYJjpJow/qfPYhWkK1TXfDMY4JBcKfuRphRReTOIvXphhCIjD3KQ
-	ZASA5+OpOLAjWTNu5hKXPp6xzQowXRYL4X24/eFpRt4cGhFZmLSNud//
-X-Gm-Gg: AYBFou22JLvS4KH/I/P5u+6ClJiGoLn+R7XDGkGBEfg4J2frrzyoHZd6jtJt9x5MYKt
-	bKbE0Y+g4uXOQQD6LRDIhv3oqRWd49UkP9GJhGt4d2yNcZz5qbEdXyxil1XvO+19TfeQKCWgdzu
-	7VF6C/wYVqpzvS+Lh7GG+v+vJmrRRzXhJefg2HO3AOiPx75Y07+MyyScH4iTUiKYZJsmGljb6bC
-	gVZDnm+KRZZr2q8GBDTsIaACIYDQDBWKz+/Xsf3abvSYbGyl2hjmxdFipMQ3anqA/VgFmqM70v+
-	5D6bb25d5UIRE7EbbcaezXPKLuDNnDIYB6b9xDv9BswAtaBQmO7D8nNXMnaj+elliLPMPG5mWs3
-	37X9Ev3s+Xyxx0OV9Or1bEW0i0Jf+W4Hdkv4LPOU3m4YI4xfcZ0ibYZ6u+kK+d63S92pxil57KZ
-	bSceZi39JlATe1SwP/h2eZgVNkn+uMbg8eT+4egSyH2L8mjL1H7cq68ufF3Vd1IRKL/bpmUrHJ6
-	FX8+q5LQ/J9pNrI7mMJO3rlLLo+2b4L9Pb3j3jt0BWkUwCTO0iTigoi5wABeCevrtyhOmXl4gru
-	ea9CUxKiuKLm3SzY5x/e9gEuJk2Ei2SQtI6+f1WdeSxqV7wMXcY=
-X-Received: by 2002:a05:7300:2406:b0:35c:8b96:94d9 with SMTP id 5a478bee46e88-36a203bd31bmr2926356eec.19.1793183675982;
-        Wed, 28 Oct 2026 03:34:35 -0700 (PDT)
-Received: from localhost.localdomain ([103.177.252.84])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36a2399b05dsm5723047eec.25.2026.10.28.03.34.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 03:34:35 -0700 (PDT)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: mani@kernel.org
-Cc: angelogioacchino.delregno@collabora.com,
-	bhelgaas@google.com,
-	kwilczynski@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	lpieralisi@kernel.org,
-	matthias.bgg@gmail.com,
-	robh@kernel.org,
-	ryder.lee@mediatek.com,
-	sreekuttan2156239@gmail.com
-Subject: Re: [PATCH v4] PCI: mediatek: Fix integer truncation and handle oversized resources
-Date: Wed, 28 Oct 2026 10:34:00 +0000
-Message-ID: <20261028103400.2532-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <kfnxuro5xf4mhokabg773zcyp7otcjxwpzcn3dlo6y3kpv4uv4@bne4qf3vcif5>
-References: <kfnxuro5xf4mhokabg773zcyp7otcjxwpzcn3dlo6y3kpv4uv4@bne4qf3vcif5>
+	id 1xM13V-00000006lws-1PqI;
+	Wed, 28 Oct 2026 10:38:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 58AD460211;
+	Wed, 28 Oct 2026 10:38:52 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793183932;
+	b=ukHRQKYm3bgX53TrzlM5t/U0bg5QQCJIFdngwgk+VCw9fERhSp5Xi7gl3jQ1udh1mjYC
+	 ZWSukk9rW1uDIcuXkl6F5G4WJlgfVCyU2ZlBek3D0e0Ee2FM2g9ISE1ew9eS9slrfZq0L
+	 yqhxmdnA5SfO0OgBSP+KIKY7ge/z3vIAiuyBNu/AgyhE/yMhva/eZQROiYCTjXFplQWdC
+	 hVTDRTYBYqPgMa4w4Zl+o32iL7AFuU2gW/tsg++PQ0v3xPdrb/B6sK4uPHEH6YWemgMUh
+	 sjLlz8PXG7sZ4O9zEHtKiuCCpbxhwdj7lQGbO3vd1Zioe2YVx2FrVEZ6LgGZ7Aupx5A==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793183932;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=dd3LTey7FOWHFlhpV5HFbjoYqofICdOmzExQr7sFatU=;
+	b=Xq0gefE3mDzrX55KVGLFptU7O4apAnY0lSBt80cPLTrKmWIomzYFYvVzhkCJL0XNpQno
+	 efC4oKzckhXmYvIZR6/FFDPXIVJNXF8JZTeb8D8GHkKMNfEU+vJ/67Cx2/QebBv2XfplA
+	 cJ2FzqS8MXFUUqwMuCgC8KT6qgtyakvjQUEpbNWQkxxeEBlxG/UK7K4JL0UgSgDjkNN6s
+	 pAcdUsr7v4FgomPcjxqmlV+OjEt6SEBPBGeT7X+2mYHn3WcVdANmpNEbSdYq507yoK9Y4
+	 Pdi5Nt3yZrVhWLX+jg15Foold2nbdhcWyvjtEHA5NiJK+WK5wDDRgsaQbu27TectFcw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 0D32A1F031EC;
+	Wed, 28 Oct 2026 10:38:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793183932;
+	bh=dd3LTey7FOWHFlhpV5HFbjoYqofICdOmzExQr7sFatU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=fDrpwpoIgHWdgW7RLHyyy5Ej3o33gWWETjBey3khGzhrvZNI9MKN/pKSsxW0ruFvF
+	 UUG1/7yEorQtbcPubzaLWm7H7VPcG3fI34dqU3AdgR9vEB1eYc0to+ag+46rGDtoPI
+	 UTqeemHI8Aj2gzog9iAorrNJRjhKUrsL/dZWlkYLdccDMEG0ZRQXN1MrwnPXhdqVpl
+	 GguKEqxVDnEukP2nx9T2hqVEHLJ1D429b1huJDHhwvZI4qUxLSTz5EE4D2/hHIiY4s
+	 gCPFz/hCO5AlViBSST9fgLkRvUvebtgPFPaVDicgj65fevfFOLZ1YfquxVgkNc+ysy
+	 RX8MSJKnPkUNQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 8BD33453FB;
+	Wed, 28 Oct 2026 10:38:50 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Wed, 28 Oct 2026 12:37:52 +0200
+Subject: [PATCH v4 3/3] soc: mediatek: pwrap: add mt6572 support
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_033437_390685_6A781D19 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.9 (-)
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261028-6572-pwrap-v4-3-1780c58d2097@protonmail.com>
+References: <20261028-6572-pwrap-v4-0-1780c58d2097@protonmail.com>
+In-Reply-To: <20261028-6572-pwrap-v4-0-1780c58d2097@protonmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Flora Fu <flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>, 
+ soc@kernel.org
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793183929; l=3136;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=X7RUCAUzHEeezmdptLocTfbDePTBSCcJViWNqtvBVa8=;
+ b=xbzrk1QUfsZq+oeVv0PQSkjw+Sf8DQY2IBuHNdfHAJHJRZ34ufne2EKTSW9cAUezj/4BXBI4v
+ Teg/mDz2D/XCBzE6WRB8I621nSAmmDvPLzX7OPqfVF3NFTh/NJ0+XGT
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,28 +111,102 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	FREEMAIL_REPLYTO_END_DIGIT,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Mani,
- 
-Thanks for the review.
- 
-I've addressed your comments in v5:
- 
-- Removed the redundant zero-size check.
-- Changed `fls64(size - 1)` to `fls64(size)`.
-- Kept the full resource size calculation and added validation to reject oversized windows rather than silently clamping the size order.
+From: Roman Vivchar <rva333@protonmail.com>
 
+Add mt6572 registers and platform data for the pmic wrapper.
+
+While vendor kernel source code suggests that mt6572 can be paired with
+the mt6320 PMIC, no such devices have been found yet. Hence, registers
+that not included in the mt2701 array are omitted.
+
+The mt2701 SoC-specific initialization function is used because they
+share the same GPS_INTF settings.
+
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+---
+ drivers/soc/mediatek/mtk-pmic-wrap.c | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+
+diff --git a/drivers/soc/mediatek/mtk-pmic-wrap.c b/drivers/soc/mediatek/mtk-pmic-wrap.c
+index a4b10b0a97cb..3f05fc724e15 100644
+--- a/drivers/soc/mediatek/mtk-pmic-wrap.c
++++ b/drivers/soc/mediatek/mtk-pmic-wrap.c
+@@ -1314,6 +1314,7 @@ enum pmic_type {
  
-I'll send the updated patch shortly.
+ enum pwrap_type {
+ 	PWRAP_MT2701,
++	PWRAP_MT6572,
+ 	PWRAP_MT6765,
+ 	PWRAP_MT6779,
+ 	PWRAP_MT6795,
+@@ -1733,6 +1734,11 @@ static void pwrap_init_chip_select_ext(struct pmic_wrapper *wrp, u8 hext_write,
+ static int pwrap_common_init_reg_clock(struct pmic_wrapper *wrp)
+ {
+ 	switch (wrp->master->type) {
++	case PWRAP_MT6572:
++		pwrap_writel(wrp, 0x8, PWRAP_RDDMY);
++		pwrap_write(wrp, wrp->slave->dew_regs[PWRAP_DEW_RDDMY_NO], 0x8);
++		pwrap_init_chip_select_ext(wrp, 5, 0, 0, 0);
++		break;
+ 	case PWRAP_MT6795:
+ 		if (wrp->slave->type == PMIC_MT6331) {
+ 			const u32 *dew_regs = wrp->slave->dew_regs;
+@@ -1839,6 +1845,7 @@ static int pwrap_init_cipher(struct pmic_wrapper *wrp)
+ 		pwrap_writel(wrp, 1, PWRAP_CIPHER_START);
+ 		break;
+ 	case PWRAP_MT2701:
++	case PWRAP_MT6572:
+ 	case PWRAP_MT6765:
+ 	case PWRAP_MT6779:
+ 	case PWRAP_MT6795:
+@@ -2277,6 +2284,24 @@ static const struct pmic_wrapper_type pwrap_mt2701 = {
+ 	.init_soc_specific = pwrap_mt2701_init_soc_specific,
+ };
  
-Best regards,
-Sreeraj
++/*
++ * MT6572 register map is a superset of the MT2701. It has additional registers
++ * OP_TYPE (0x10), MSB_FIRST (0x14), GPS_STA (0x40) and SW_RST (0x180),
++ * which were omitted because the driver doesn't use them.
++ */
++static const struct pmic_wrapper_type pwrap_mt6572 = {
++	.regs = mt2701_regs,
++	.type = PWRAP_MT6572,
++	.arb_en_all = 0x1ff,
++	.int_en_all = 0x7ffffffd,
++	.int1_en_all = 0,
++	.spi_w = PWRAP_MAN_CMD_SPI_WRITE,
++	.wdt_src = PWRAP_WDT_SRC_MASK_ALL,
++	.caps = PWRAP_CAP_RESET | PWRAP_CAP_DCM,
++	.init_reg_clock = pwrap_common_init_reg_clock,
++	.init_soc_specific = pwrap_mt2701_init_soc_specific,
++};
++
+ static const struct pmic_wrapper_type pwrap_mt6765 = {
+ 	.regs = mt6765_regs,
+ 	.type = PWRAP_MT6765,
+@@ -2446,6 +2471,7 @@ static const struct pmic_wrapper_type pwrap_mt8186 = {
+ 
+ static const struct of_device_id of_pwrap_match_tbl[] = {
+ 	{ .compatible = "mediatek,mt2701-pwrap", .data = &pwrap_mt2701 },
++	{ .compatible = "mediatek,mt6572-pwrap", .data = &pwrap_mt6572 },
+ 	{ .compatible = "mediatek,mt6765-pwrap", .data = &pwrap_mt6765 },
+ 	{ .compatible = "mediatek,mt6779-pwrap", .data = &pwrap_mt6779 },
+ 	{ .compatible = "mediatek,mt6795-pwrap", .data = &pwrap_mt6795 },
+
+-- 
+2.56.0
+
+
 
