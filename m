@@ -2,116 +2,98 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85F81606A753
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 15:45:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58B10606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 15:47:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BeDUoccd;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n6HrigJI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3VYPJtns;
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=Ht3r8ZbP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=mY4KZSmblzicF17NIegUjErpV+VQHRUnKGe9o1onwtc=; b=BeDUoccdxkNFSN
-	IM8n1Z8OQrI6k99xYxCS2Od9FV08DaU6MDCrYEShtg677qtUi4KWCzkq61v2zW9adyRXT1EEFcrcL
-	gml8/LcYTpKLCMudKK9cq7iRD/oPrV1cWaeS+8bIiZe6zASK//NdngChMDUfUQi1svPoQiTLQAfHQ
-	CKZOGwkXTWZFOQy1HKcE3fSAhc3RMYa+csFLFhokyGftOmrE4jhj9sCoaLn0Oz/BZk6oRfNxzegi4
-	e03t6mJOHRZqNK2+QTgoUmZOnIHydyPyAI7JBCg0NLZKmsn83PQLFzxL+Ie2w5muE8N+d87iJhmrK
-	v9VBfkuDatbQ/iJ7FSAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
+	To:Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Unsubscribe-Post:
+	List-Owner; bh=eBVG4o5Q+efGxzA1i/yK8O3OZQl+XBXEI5EUCcqeJDk=; b=3VYPJtnsIjqeH/
+	r3IiBDiqefy1ehHyOX6HPjZQtaEy7a0yyf5MpngltV62XG9IBh5e4Ka8jQ2xTNDlEGeTG3s2Vdiyd
+	MrW2COYWYrPlBYUA5IM8shuwQIIG9Giyj8v5rOA6ECijAwXDFj5aE4jQ4LTUALSzol7RTIZVZ0uyJ
+	gYszisjdN+vqwe6/d3yKMmu9Nb8pX479tMG1uO2oqZjiozkcCwdmxy8GrcbA/N/fNDhOQ8NOYZCMQ
+	J78vzxh+/ZAeHG+/5GOL2lNSrNpHx7RHTYoEUpvqR14ax+ZNKBftrmcOTsu1weDJOH0BUrJDVG1Yb
+	lw9pFwIuSXJk75zL1LWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM5pq-00000007Ruw-0Twa;
-	Wed, 28 Oct 2026 15:45:06 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1xM5U6-00000007LKT-3zfC;
+	Wed, 28 Oct 2026 15:22:38 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM5pk-00000007Rok-2jRK
+	id 1xM5Tx-00000007L7z-23D0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 15:45:03 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48afcd7ba9bso852759f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 08:44:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793202298; x=1793807098; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mY4KZSmblzicF17NIegUjErpV+VQHRUnKGe9o1onwtc=;
-        b=n6HrigJIQS6UQByAUFw9eqz2S9l+cbPdOst+beHsVEeKCbNH5uSWSNpRsKGfWWL0od
-         KvOzw4uQk5Kzzv7Pkj9bG/0tRh/0feq/yBe9QPTgJf6OPK8ymJ16TKugReeVoWDRm6/0
-         bAF+7K9Z1FFB+d/VBszVl7o3rDEAsCyuuwMfJ+DnAX9yuDJYntZi++dY/kREdcFtlhLq
-         JBX+/NxrfJ8oy7sndfRJ7YFNJsubDfLyw2VZz2iwfUbWqZ3UU4ubiCIC/eumV3HrYSuL
-         IhQjjnR1B7jd2rYxUjpZwUfaGSzA38m/WJ8hGeEanF4UywuRFZYemnjWxGy6vGpm20Vl
-         ktCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793202298; x=1793807098;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mY4KZSmblzicF17NIegUjErpV+VQHRUnKGe9o1onwtc=;
-        b=rtgXKL/OZA0BMCYdJfplmlFTkDMhBaz9pge2Td8atld9VnxTFkpYQ40dEYcRNlfnBs
-         FuQilj4A1mZ38LcVBVnpt90c7d5fq5BphnDROKZ3B0a2PG/IBGqEQNtnQdcPC9Nt0Urg
-         A8Aegm0aX/eejAKheKws3zY03sjkeuY8CgNtzha3BnbMITo4ngB6R1URrDJY7cJ83cA2
-         nrv4H9VJHCBobJdWswZhHCEDd4fzng55BwhoNHeXR8Mz4d0H0TlNHBW88xjskHzv+xt8
-         jk5g+p0UfuInZjlVGyHQmo2Sc3nJQbmFvv22jtMuv9B3M21Z8MWMkbz7m/SktEdEafan
-         +wOA==
-X-Forwarded-Encrypted: i=1; AKwUvBzWgPTrQOl3rc+v09oVfP57TaqVP0lpCrys+JSjRIq/FrfWH/iCBiaGxOzp5wheFeSmSSp6Ql4PhE7yYaI6LDEJ@lists.infradead.org
-X-Gm-Message-State: AFq9FYJbGJIipwztMTw3PNk7pCZl1oHh8Z0OFsTIN5p6W4RUB9RkD4j9
-	r9AtD47UoaKNle2nT80P6htWv9Hc0juorr30FolxTDYmh+B0iR91iW5o
-X-Gm-Gg: AYBFou01HJDLJfPIq1OZErb9sSX3HqBl7g0RiJdBybE74uoZN73K+IytPchGOIIQRWT
-	l7BKtRH2Y/ZpJUA+aPrI541YOBHmJyCtLDBxLkem+ME+jjghCyhCQjtdMTMB/gfnXAVtyWIbZiD
-	IRoqDIGbSP/ii21EJMtIx6jpuNU6byRKIq3KovN21aDvZT7Bu07TDaTOtKuvyoeLSOV7oG7/SIR
-	EhPkp4uiHGEOjkSiMMe3RtH2FAeCp5EzT+OQHZY0+wZGRWxezB/+IrKBX6bvuWvWVVWSTIH8V1u
-	4nA6jk03BWi1UXCG72BHw2JmCgzHOK9M11kAMoIkCTM1Yp+WAu4aeTvy5qNyxJCfBlDubtkQY2i
-	7nZrfQsyzW//IQ4YQBb9bMmApm7N+LkwdIWmta3uDrFftHJrnM2joA1vCSTEZXBEkOeA5Il9jJS
-	eYSYaZx0vmnRymby//N4guNXI1uTp7JycS5xW8C4CKgqWDUElAFiaEYPC+8dE72pLsDaqAUMAdk
-	Bzx435jy5n9yJYDEm561390EbpsIBmnNt5WAtYxJwNyAKWoScAlYJkhgYnFWWlI1peCHq1XB68g
-	NZpanDdz7IFV2nlPw+9gI4r40zKUHdN2SLT3ApMmraMfs02VKS2NBQp5OkrGc9Emkg==
-X-Received: by 2002:a05:6000:1446:b0:487:91e:d8ed with SMTP id ffacd0b85a97d-48e5d58d47emr7093332f8f.2.1793202297940;
-        Wed, 28 Oct 2026 08:44:57 -0700 (PDT)
-Received: from unix.. (244.red-81-44-253.staticip.rima-tde.net. [81.44.253.244])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ecd8c05sm37044493f8f.49.2026.10.28.08.44.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 08:44:55 -0700 (PDT)
-From: =?UTF-8?q?Iv=C3=A1n=20Ezequiel=20Rodriguez?= <ivanrwcm25@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Shuah Khan <shuah@kernel.org>,
-	Christian Brauner <brauner@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Zong Li <zong.li@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Zishun Yi <vulab@iscas.ac.cn>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>
-Subject: [PATCH v3 4/4] selftests/riscv: shadow stack must not leak on a failed clone3
-Date: Wed, 28 Oct 2026 12:43:15 -0300
-Message-ID: <20261028154315.1272705-5-ivanrwcm25@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261028154315.1272705-1-ivanrwcm25@gmail.com>
-References: <20261028154315.1272705-1-ivanrwcm25@gmail.com>
+	Wed, 28 Oct 2026 15:22:35 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261028152226euoutp027dc5c5a8f7f86f79e56e33fd732a9192~iusJ7bllo1489814898euoutp02F
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 15:22:26 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261028152226euoutp027dc5c5a8f7f86f79e56e33fd732a9192~iusJ7bllo1489814898euoutp02F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1793200946;
+	bh=eBVG4o5Q+efGxzA1i/yK8O3OZQl+XBXEI5EUCcqeJDk=;
+	h=From:Subject:Date:To:Cc:References:From;
+	b=Ht3r8ZbPzNEEKcx+1KxOvYF+okaPL4voM/rlfSDkgIHFrGiJTrm4xVAzuPadR+sGQ
+	 S2qRspU0ZOteNKzZXxVI3rpIXg7b7s3YErZNqRsozWyNPwDlEk0YWfQn7PKAtrBjAo
+	 PVOSvY6o4vKJquq3KMzELmpp1fYIxd4NI3GKc0LI=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261028152225eucas1p133ea1b7981dfa2afe085b83e1bd6de3b~iusJjPOhi0628506285eucas1p1y;
+	Wed, 28 Oct 2026 15:22:25 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261028152224eusmtip14ff4edada07d0beea9c9bddae2f23311~iusIrBPBq1826418264eusmtip1i;
+	Wed, 28 Oct 2026 15:22:24 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Subject: [PATCH v6 0/5] phy: Add the StarFive JH7110 Innosilicon HDMI PHY
+Date: Wed, 28 Oct 2026 16:21:40 +0100
+Message-Id: <20261028-jh7110-inno-hdmi-phy-v6-0-f3379684d97e@samsung.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAQT4moC/zWNwQ6CMBAFf4X07JrSQime/A/DobYLXSOFtEokh
+	H+3knicSd68jSWMhIldio1FXCjRFDKoU8GsN2FAIJeZCS5UyYWGh2/KkgOFMIF3I8HsV9ASa9s
+	bVUmULE/niD19juyty+wpvaa4Hi9L/bNHkLei/QftE02AhMHBUgMHLe6V0yitss01mTG9w3C20
+	8i6fd+/FvQ0wLcAAAA=
+X-Change-ID: 20261028-jh7110-inno-hdmi-phy-83e5cfa643e3
+To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
+	<neil.armstrong@linaro.org>,  Manivannan Sadhasivam <mani@kernel.org>, Rob
+	Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
+	Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,  Emil Renner
+	Berthing <kernel@esmil.dk>,  Hal Feng <hal.feng@starfivetech.com>, Dominique
+	Belhachemi <db@domibel.de>,  Michal Wilczynski <m.wilczynski@samsung.com>,
+	Andy Yan <andyshrk@163.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,  Marek
+	Szyprowski <m.szyprowski@samsung.com>,  Icenowy Zheng
+	<zhengxingda@iscas.ac.cn>,  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Joshua Peisach <jpeisach@ubuntu.com>, Byron Stanoszek <gandalf@winds.org>, 
+	OOHehir <oo.hehir@gmail.com>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3586;
+	i=m.wilczynski@samsung.com; h=from:subject:message-id;
+	bh=DYIe08HIrEITFvW4Wmq05N5Ik9goDCsoGozIIBA8kp4=;
+	b=owGbwMvMwCGWumv6zndzRCIZT6slMWQ9EjaQWs9msu2tYfjK3+2JRnETs2bv+KK+Zb3Zkr9/q
+	vz4ksQqOkpZGMQ4GGTFFFnObow2kvzH8LT8+ONfMHNYmUCGMHBxCsBE1FsYGXZvWjUz/V789JgH
+	fed3/Tv3anvpc5GFxa28H9JPnv35pWkKI8P+O9JKzm2851jOK3QWvPAzWr/o9OLyjVu4QoPrdaU
+	XGDMDAA==
+X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
+	fpr=CDB15B3219FE00E577C7E3FA65BA97B9EE9C1459
+X-CMS-MailID: 20261028152225eucas1p133ea1b7981dfa2afe085b83e1bd6de3b
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261028152225eucas1p133ea1b7981dfa2afe085b83e1bd6de3b
+X-EPHeader: CA
+X-CMS-RootMailID: 20261028152225eucas1p133ea1b7981dfa2afe085b83e1bd6de3b
+References: <CGME20261028152225eucas1p133ea1b7981dfa2afe085b83e1bd6de3b@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_084500_751645_02EBD553 
-X-CRM114-Status: GOOD (  21.80  )
-X-Spam-Score: 0.1 (/)
+X-CRM114-CacheID: sfid-20261028_082229_850781_8D1A685E 
+X-CRM114-Status: GOOD (  18.83  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,223 +104,90 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,HK_RANDOM_FROM,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Same clone3 bad-pidfd check as the arm64 GCS selftest.
+This series adds the HDMI PHY driver for the StarFive JH7110 and shares
+the pre-PLL code it has in common with the Rockchip RK3328 Innosilicon
+HDMI PHY.
 
-Assisted-by: LLM
-Signed-off-by: Iván Ezequiel Rodriguez <ivanrwcm25@gmail.com>
+Up to v5 it was part of the JH7110 display series [1]. It is split out
+as Vinod suggested, so it can go through linux-phy on its own; the rest
+continues as v6 of "drm: starfive: jh7110: Enable display subsystem".
+Nothing here depends on the display series. The display series depends
+on this one: its HDMI subsystem binding references the PHY binding from
+patch 1, and it needs the PHY driver at runtime.
+
+[1] https://lore.kernel.org/all/20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com/
+
+The JH7110 has the same Innosilicon PHY as the RK3328, offset by 0x100
+because it sits behind the HDMI controller in a shared register block.
+Patch 2 factors out the pre-PLL config format, table lookup,
+determine_rate, recalc_rate and the pre-PLL programming; patch 3 moves
+Rockchip onto it; patch 4 adds the JH7110 driver. Pixel clock tables,
+post-PLL and analog config stay SoC specific.
+
+Patch 3 should be a no-op for Rockchip - same writes, same order, same
+values - and RK3228, whose pre-PLL is at different addresses, keeps its
+own register code and shares only the lookup. I have no Rockchip
+hardware, so it is build tested only (arm and riscv). A Tested-by would
+help.
+
+Patch 5 adds a MAINTAINERS entry for the binding and the driver, as the
+other JH7110 PHY drivers have.
+
+Testing
+=======
+
+Tested on a VisionFive 2 v1.3B together with the display series, using
+modetest: all 42 modes the sink advertises work, with pixel clocks from
+25.175 MHz up to 297 MHz.
+
+Every commit builds for riscv and arm.
+
+Changes in v6:
+- Split out of the JH7110 display series (Vinod)
+- inno_read() returns the regmap_read() error and recalc_rate checks it,
+  instead of a failed read turning into a zero divisor (Vinod)
+- Bound the pre-PLL and post-PLL table walks with the table size instead
+  of relying on a sentinel (Vinod)
+- Lowercase hex in the JH7110 pixel clock table (Vinod)
+- New patch 5: a MAINTAINERS entry for the JH7110 HDMI PHY, moved out of
+  the display series' entry
+- Rebased onto v7.3, collected tags
+- Link to v5: https://lore.kernel.org/all/20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com/
+
 ---
- tools/testing/selftests/riscv/cfi/Makefile    |   5 +-
- .../selftests/riscv/cfi/shstk-clone-pidfd.c   | 173 ++++++++++++++++++
- 2 files changed, 177 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/riscv/cfi/shstk-clone-pidfd.c
+Michal Wilczynski (5):
+      dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
+      phy: Add common Innosilicon HDMI PHY helpers
+      phy: rockchip: inno-hdmi: Use the common Innosilicon PHY helpers
+      phy: starfive: Add jh7110-inno-hdmi-phy driver
+      MAINTAINERS: Add StarFive JH7110 HDMI PHY entry
 
-diff --git a/tools/testing/selftests/riscv/cfi/Makefile b/tools/testing/selftests/riscv/cfi/Makefile
-index 418b4b5325a5..dbecb1fd3b82 100644
---- a/tools/testing/selftests/riscv/cfi/Makefile
-+++ b/tools/testing/selftests/riscv/cfi/Makefile
-@@ -13,10 +13,13 @@ endif
- 
- 
- ifeq ($(shell $(CC) $(CFLAGS) -nostdlib -xc /dev/null -o /dev/null > /dev/null 2>&1; echo $$?),0)
--TEST_GEN_PROGS := cfitests
-+TEST_GEN_PROGS := cfitests shstk-clone-pidfd
- 
- $(OUTPUT)/cfitests: cfitests.c shadowstack.c
- 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $^
-+
-+$(OUTPUT)/shstk-clone-pidfd: shstk-clone-pidfd.c
-+	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $^
- else
- 
- $(shell echo "Toolchain doesn't support CFI, skipping CFI kselftest." >&2)
-diff --git a/tools/testing/selftests/riscv/cfi/shstk-clone-pidfd.c b/tools/testing/selftests/riscv/cfi/shstk-clone-pidfd.c
-new file mode 100644
-index 000000000000..1f16d9c513e6
---- /dev/null
-+++ b/tools/testing/selftests/riscv/cfi/shstk-clone-pidfd.c
-@@ -0,0 +1,173 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * clone3(CLONE_VM|CLONE_PIDFD) with an unwritable pidfd pointer must
-+ * not leak a shadow-stack VMA. copy_thread() maps one, then put_user()
-+ * fails and copy_process() calls exit_thread(). Without HAVE_EXIT_THREAD
-+ * that free is a no-op and the VMA stays in the parent's mm.
-+ *
-+ * After enabling the shadow stack, do not return from main(): libc
-+ * frames above that point have no shadow-stack entries.
-+ */
-+#define _GNU_SOURCE
-+
-+#include <errno.h>
-+#include <linux/prctl.h>
-+#include <linux/sched.h>
-+#include <sched.h>
-+#include <signal.h>
-+#include <stdint.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <sys/mman.h>
-+#include <sys/syscall.h>
-+#include <sys/wait.h>
-+#include <unistd.h>
-+
-+#include "../../kselftest.h"
-+#include "cfi_rv_test.h"
-+
-+#ifndef __NR_clone3
-+#define __NR_clone3 435
-+#endif
-+
-+#ifndef PR_GET_SHADOW_STACK_STATUS
-+#define PR_GET_SHADOW_STACK_STATUS	74
-+#endif
-+#ifndef PR_SET_SHADOW_STACK_STATUS
-+#define PR_SET_SHADOW_STACK_STATUS	75
-+#endif
-+#ifndef PR_SHADOW_STACK_ENABLE
-+#define PR_SHADOW_STACK_ENABLE		(1UL << 0)
-+#endif
-+
-+#define NCLONE			16
-+#define STACK_SIZE		(64 * 1024)
-+
-+static int count_ss_vmas(void)
-+{
-+	FILE *f;
-+	char line[256];
-+	int vmas = 0;
-+
-+	f = fopen("/proc/self/smaps", "r");
-+	if (!f)
-+		ksft_exit_fail_msg("fopen /proc/self/smaps: %s\n",
-+				   strerror(errno));
-+
-+	while (fgets(line, sizeof(line), f)) {
-+		if (!strncmp(line, "VmFlags:", 8) && strstr(line, " ss"))
-+			vmas++;
-+	}
-+	fclose(f);
-+	return vmas;
-+}
-+
-+/*
-+ * Raw ecall: the child resumes on an empty shadow stack, so a libc
-+ * return after clone3 would fault.
-+ */
-+static long clone_pidfd(void *stack, size_t stack_size, int *pidfd_ptr)
-+{
-+	struct clone_args args = {
-+		.flags = CLONE_VM | CLONE_PIDFD,
-+		.pidfd = (uint64_t)(uintptr_t)pidfd_ptr,
-+		.exit_signal = SIGCHLD,
-+		.stack = (uint64_t)(uintptr_t)stack,
-+		.stack_size = stack_size,
-+	};
-+	register long num __asm__("a7") = __NR_clone3;
-+	register long ret __asm__("a0") = (long)&args;
-+	register long sz __asm__("a1") = sizeof(args);
-+	int st;
-+
-+	asm volatile("ecall"
-+		     : "+r"(ret)
-+		     : "r"(num), "r"(sz)
-+		     : "memory", "cc");
-+	if (ret == 0) {
-+		register long n __asm__("a7") = __NR_exit;
-+		register long e __asm__("a0") = 0;
-+
-+		asm volatile("ecall" : : "r"(n), "r"(e) : "memory");
-+		__builtin_unreachable();
-+	}
-+	if (ret < 0)
-+		return ret;
-+	if (waitpid((pid_t)ret, &st, 0) < 0)
-+		return -errno;
-+	if (!WIFEXITED(st) || WEXITSTATUS(st) != 0)
-+		return 1;
-+	return 0;
-+}
-+
-+int main(void)
-+{
-+	void *stack;
-+	void *bad_pidfd;
-+	unsigned long ss_mode = 0;
-+	long rc;
-+	int pidfd = -1;
-+	int vmas0, vmas1;
-+	int i, n_efault = 0;
-+
-+	ksft_print_header();
-+
-+	stack = mmap(NULL, STACK_SIZE, PROT_READ | PROT_WRITE,
-+		     MAP_PRIVATE | MAP_ANONYMOUS | MAP_STACK, -1, 0);
-+	if (stack == MAP_FAILED)
-+		ksft_exit_fail_msg("mmap stack: %s\n", strerror(errno));
-+
-+	bad_pidfd = mmap(NULL, 4096, PROT_NONE,
-+			 MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-+	if (bad_pidfd == MAP_FAILED)
-+		ksft_exit_fail_msg("mmap pidfd page: %s\n", strerror(errno));
-+
-+	rc = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &ss_mode,
-+			 0, 0, 0);
-+	if (rc == -ENOSYS || rc == -EINVAL || rc == -EOPNOTSUPP)
-+		ksft_exit_skip("shadow stack not available: %ld\n", rc);
-+	if (rc)
-+		ksft_exit_fail_msg("PR_GET_SHADOW_STACK_STATUS: %ld\n", rc);
-+
-+	if (!(ss_mode & PR_SHADOW_STACK_ENABLE)) {
-+		rc = my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
-+				 PR_SHADOW_STACK_ENABLE, 0, 0, 0);
-+		if (rc == -EOPNOTSUPP || rc == -EINVAL || rc == -EBUSY)
-+			ksft_exit_skip("cannot enable shadow stack: %ld\n",
-+				       rc);
-+		if (rc)
-+			ksft_exit_fail_msg("PR_SET_SHADOW_STACK_STATUS: %ld\n",
-+					   rc);
-+	}
-+
-+	rc = clone_pidfd(stack, STACK_SIZE, &pidfd);
-+	if (rc == -ENOSYS || rc == -EINVAL || rc == -EPERM)
-+		ksft_exit_skip("clone3 valid pidfd unavailable: %s\n",
-+			       strerror(-rc));
-+
-+	ksft_set_plan(3);
-+
-+	ksft_test_result(rc == 0 && pidfd >= 0,
-+			 "clone3 valid pidfd (rc=%ld pidfd=%d)\n",
-+			 rc, pidfd);
-+	if (pidfd >= 0)
-+		close(pidfd);
-+
-+	vmas0 = count_ss_vmas();
-+
-+	for (i = 0; i < NCLONE; i++) {
-+		rc = clone_pidfd(stack, STACK_SIZE, bad_pidfd);
-+		if (rc == -EFAULT)
-+			n_efault++;
-+	}
-+	ksft_test_result(n_efault == NCLONE,
-+			 "clone3 bad pidfd returns -EFAULT x%d\n", NCLONE);
-+
-+	vmas1 = count_ss_vmas();
-+	ksft_test_result(vmas1 == vmas0,
-+			 "no shadow-stack VMA leak (%d -> %d)\n",
-+			 vmas0, vmas1);
-+
-+	ksft_finished();
-+}
+ .../phy/starfive,jh7110-inno-hdmi-phy.yaml         |  49 ++
+ MAINTAINERS                                        |   6 +
+ drivers/phy/Kconfig                                |   8 +
+ drivers/phy/Makefile                               |   1 +
+ drivers/phy/phy-inno-hdmi.c                        | 358 +++++++++++++
+ drivers/phy/rockchip/Kconfig                       |   1 +
+ drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      | 169 +-----
+ drivers/phy/starfive/Kconfig                       |  20 +
+ drivers/phy/starfive/Makefile                      |   1 +
+ drivers/phy/starfive/phy-jh7110-inno-hdmi.c        | 587 +++++++++++++++++++++
+ include/linux/phy/inno-hdmi-phy.h                  |  88 +++
+ 11 files changed, 1144 insertions(+), 144 deletions(-)
+---
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+change-id: 20261028-jh7110-inno-hdmi-phy-83e5cfa643e3
+
+Best regards,
 -- 
-2.43.0
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 
