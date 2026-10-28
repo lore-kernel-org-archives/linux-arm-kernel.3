@@ -2,73 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC48A606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 05:06:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CAEB606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 05:07:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wVOti50J;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=nOzYcQ4q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gjXmCpYC;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=D0zYKSbl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bUXd6wCGkdy3sUL1jP3fBL2bNrVaPeuZ1kav6MQ03xQ=; b=wVOti50JKK5udsZUTpEBmTGd0n
-	wpZ3aVveVXzzg0O0DQBM6EWuagTv5uSgXnogK4FXhML9C2tjTr4f+AZf8RbSq4VXpyfUwAD8e+EE6
-	aUuTfe9WT8vTgdjmggNZC9nEmz+DLeqh80tjdI0M4bIXw/ELYVwbATsCw87eYB6vNJGW9qtihjDjH
-	sDqa9GCWqOwI+LUdZnAnQGDN/Dfj522IDSo1ZuD6eM+2c6K8+wvoPET0NP5SHTcAtR+pRZh6Dfe4v
-	8JYtifaDkJDiEt7xylvwZ8SxEuAiV+IgWx4u/eVCaStyAS73IIeFaXiWWien7e+vBi03IEfOdTkGN
-	iEKW9OMQ==;
+	bh=MEd5yoolpftLGplkK7bcv5qF6vsCs9gM+M90KSk629c=; b=gjXmCpYCroqVirX1MnsOtMsaGI
+	/8Ynilg/DqojBjq/++lM6B3HiKZidjN3xDo08I8D58PQzVvT5GueAz89roTDxDl8dltH/pReHcHIU
+	cBM0h1PxGIXy2nYML8arovNJmoUi3F210WEcR0Qmc2o55Q9mh5cowFdE6k4yjSDyhlo+ZDTtdm8ID
+	n+cHr4yzQX7C05b9nNu2DSmDepbnkzRaEwak9mGV0vM+WRVDX0aHNlVNiibKzemp4t0v6m6Mri4yh
+	DwkzvhbZO+9u5Bu+aEpI/60gKHVDmtj7N45ssnvMUbYFAxS6MUaeNJmm6UruhIJsA77h5RziaJn7I
+	n9GtE94Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLvs1-00000006L8X-1MFp;
-	Wed, 28 Oct 2026 05:06:41 +0000
+	id 1xLvsy-00000006LEb-2H9s;
+	Wed, 28 Oct 2026 05:07:40 +0000
 Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLvry-00000006L87-0UNN
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 05:06:40 +0000
+	id 1xLvsv-00000006LDu-0czB;
+	Wed, 28 Oct 2026 05:07:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=bU
-	Xd6wCGkdy3sUL1jP3fBL2bNrVaPeuZ1kav6MQ03xQ=; b=nOzYcQ4qMVtVeZi2Pt
-	cReMe+ncj9l3Cnb8pfwXcxRBscn3+ASfglv3RjT9Y4wDGCp80brrZn44/1DTuEdn
-	VPxlee0+VnZ0DFi1S3L3RLUaX8mVRav2mfcgDWGdsP8OozxxHdVtMh2PfuP4UZKN
-	Sc05LEkm2MJ9x/MoM5J9xCdq8=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=ME
+	d5yoolpftLGplkK7bcv5qF6vsCs9gM+M90KSk629c=; b=D0zYKSbl6lJIdDjoPi
+	WX2V+iILXVyAhyf2nw2o54mhE2BbIC0pW5ZJ3j88y45R4S0TEH3Y+F0vTiC+j1UI
+	qMlo6/gbCvF9W3qPoQ5rQ6+QX/9ISVcCxwJOnMfKWBVYp27WnPAZscbhnP21/iZI
+	UlJcJZkE2aO0cRcxvolz9fqZs=
 Received: from pc.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDnt9XTguFq0hNpDQ--.19760S2;
-	Wed, 28 Oct 2026 13:06:28 +0800 (CST)
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wDn31cMg+FqswGRDQ--.35366S2;
+	Wed, 28 Oct 2026 13:07:25 +0800 (CST)
 From: Jiale Yao <yaojiale02@163.com>
-To: Ban Tao <fengzheng923@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Joao Schim <joao@schimsalabim.eu>,
-	linux-sound@vger.kernel.org,
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Deren Wu <deren.wu@mediatek.com>,
+	Nelson Yu <nelson.yu@mediatek.com>,
+	Mingyen Hsieh <mingyen.hsieh@mediatek.com>,
+	Rong Yan <rong.yan@mediatek.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH] ASoC: sunxi: sun50i-dmic: resume device for control access
-Date: Wed, 28 Oct 2026 13:06:26 +0800
-Message-Id: <20261028050626.133421-1-yaojiale02@163.com>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH 0/3] wifi: mt76: validate mt792x firmware TLV payloads
+Date: Wed, 28 Oct 2026 13:07:19 +0800
+Message-Id: <20261028050722.135598-1-yaojiale02@163.com>
 X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDnt9XTguFq0hNpDQ--.19760S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxZF43ur13Kr1DWF4DGF18AFb_yoWrGF45pF
-	1fJF43tFs5Jw4F93ZFyr48Xr13CrZ3KF4kA3yIy3y7Cr1xGw1IgF9Fv34rCFZ0krZ0kFsr
-	Ar1jv34Sg3Zaka7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j8AwsUUUUU=
-X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC7xToI2rhgtTr5QAA3j
+X-CM-TRANSID: _____wDn31cMg+FqswGRDQ--.35366S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrtr43Ary5Wr17Zw1rGryDWrg_yoWfAwc_Zr
+	yvyryqqw48GFyUtay2kr12krW8t3y8ZF1kZFyrtry5AryUAr1UuFn7Xrs8CFn2kF4Iyry5
+	KrnrWrW8JwnagjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUbIPfJUUUUU==
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzg32MWrhgw33qQAA3f
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_220638_551521_53CDDD5E 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20261027_220737_997476_68132785 
+X-CRM114-Status: UNSURE (   5.86  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,103 +81,33 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The capture volume controls use regmap directly while runtime PM may
-have suspended the DMIC and disabled its clocks. Since the regmap has no
-cache, reading or writing a control while suspended accesses unpowered
-hardware.
+The mt7921 and mt7925 firmware event parsers validate some outer skb
+lengths, but several paths still trust type-specific lengths before
+reading fixed fields. Malformed responses can make the drivers read past
+a TLV payload, and a zero-length mt7925 capability TLV can stop progress
+through the response.
 
-Use control callbacks which resume the device around the regmap access
-and release the runtime PM reference afterwards.
+Validate the fixed and type-specific payload extents before consuming
+NIC capability and debug message data. Each patch covers one independent
+parser and can be applied separately.
 
-Fixes: 9a8cadddd930 ("ASoC: sunxi: DMIC: Add controls for adjusting the mic gains")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jiale Yao <yaojiale02@163.com>
----
- sound/soc/sunxi/sun50i-dmic.c | 59 +++++++++++++++++++++++++++--------
- 1 file changed, 46 insertions(+), 13 deletions(-)
+Jiale Yao (3):
+  wifi: mt76: mt7921: validate NIC capability payload lengths
+  wifi: mt76: mt7925: validate debug message lengths
+  wifi: mt76: mt7925: validate NIC capability payload lengths
 
-diff --git a/sound/soc/sunxi/sun50i-dmic.c b/sound/soc/sunxi/sun50i-dmic.c
-index 5c784b1f6846..a5f70db856b9 100644
---- a/sound/soc/sunxi/sun50i-dmic.c
-+++ b/sound/soc/sunxi/sun50i-dmic.c
-@@ -286,22 +286,55 @@ MODULE_DEVICE_TABLE(of, sun50i_dmic_of_match);
- 
- static const SNDRV_CTL_TLVD_DECLARE_DB_SCALE(sun50i_dmic_vol_scale, -12000, 75, 1);
- 
--static const struct snd_kcontrol_new sun50i_dmic_controls[] = {
-+static int sun50i_dmic_get_volsw(struct snd_kcontrol *kcontrol,
-+				 struct snd_ctl_elem_value *ucontrol)
-+{
-+	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
-+	int ret;
- 
--        SOC_DOUBLE_TLV("DMIC Channel 0 Capture Volume", SUN50I_DMIC_D0D1_VOL_CTR,
--                       SUN50I_DMIC_D0D1_VOL_CTR_0L, SUN50I_DMIC_D0D1_VOL_CTR_0R,
--                       0xFF, 0, sun50i_dmic_vol_scale),
--        SOC_DOUBLE_TLV("DMIC Channel 1 Capture Volume", SUN50I_DMIC_D0D1_VOL_CTR,
--                       SUN50I_DMIC_D0D1_VOL_CTR_1L, SUN50I_DMIC_D0D1_VOL_CTR_1R,
--                       0xFF, 0, sun50i_dmic_vol_scale),
--        SOC_DOUBLE_TLV("DMIC Channel 2 Capture Volume", SUN50I_DMIC_D2D3_VOL_CTR,
--                       SUN50I_DMIC_D2D3_VOL_CTR_2L, SUN50I_DMIC_D2D3_VOL_CTR_2R,
--                       0xFF, 0, sun50i_dmic_vol_scale),
--        SOC_DOUBLE_TLV("DMIC Channel 3 Capture Volume", SUN50I_DMIC_D2D3_VOL_CTR,
--                       SUN50I_DMIC_D2D3_VOL_CTR_3L, SUN50I_DMIC_D2D3_VOL_CTR_3R,
--                       0xFF, 0, sun50i_dmic_vol_scale),
-+	ret = pm_runtime_resume_and_get(component->dev);
-+	if (ret < 0)
-+		return ret;
- 
-+	ret = snd_soc_get_volsw(kcontrol, ucontrol);
-+	pm_runtime_put(component->dev);
- 
-+	return ret;
-+}
-+
-+static int sun50i_dmic_put_volsw(struct snd_kcontrol *kcontrol,
-+				 struct snd_ctl_elem_value *ucontrol)
-+{
-+	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
-+	int ret;
-+
-+	ret = pm_runtime_resume_and_get(component->dev);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = snd_soc_put_volsw(kcontrol, ucontrol);
-+	pm_runtime_put(component->dev);
-+
-+	return ret;
-+}
-+
-+static const struct snd_kcontrol_new sun50i_dmic_controls[] = {
-+	SOC_DOUBLE_EXT_TLV("DMIC Channel 0 Capture Volume", SUN50I_DMIC_D0D1_VOL_CTR,
-+			   SUN50I_DMIC_D0D1_VOL_CTR_0L, SUN50I_DMIC_D0D1_VOL_CTR_0R,
-+			   0xFF, 0, sun50i_dmic_get_volsw, sun50i_dmic_put_volsw,
-+			   sun50i_dmic_vol_scale),
-+	SOC_DOUBLE_EXT_TLV("DMIC Channel 1 Capture Volume", SUN50I_DMIC_D0D1_VOL_CTR,
-+			   SUN50I_DMIC_D0D1_VOL_CTR_1L, SUN50I_DMIC_D0D1_VOL_CTR_1R,
-+			   0xFF, 0, sun50i_dmic_get_volsw, sun50i_dmic_put_volsw,
-+			   sun50i_dmic_vol_scale),
-+	SOC_DOUBLE_EXT_TLV("DMIC Channel 2 Capture Volume", SUN50I_DMIC_D2D3_VOL_CTR,
-+			   SUN50I_DMIC_D2D3_VOL_CTR_2L, SUN50I_DMIC_D2D3_VOL_CTR_2R,
-+			   0xFF, 0, sun50i_dmic_get_volsw, sun50i_dmic_put_volsw,
-+			   sun50i_dmic_vol_scale),
-+	SOC_DOUBLE_EXT_TLV("DMIC Channel 3 Capture Volume", SUN50I_DMIC_D2D3_VOL_CTR,
-+			   SUN50I_DMIC_D2D3_VOL_CTR_3L, SUN50I_DMIC_D2D3_VOL_CTR_3R,
-+			   0xFF, 0, sun50i_dmic_get_volsw, sun50i_dmic_put_volsw,
-+			   sun50i_dmic_vol_scale),
- };
- 
- static const struct snd_soc_component_driver sun50i_dmic_component = {
+ .../net/wireless/mediatek/mt76/mt7921/mcu.c   | 41 +++++++++---
+ .../net/wireless/mediatek/mt76/mt7925/mcu.c   | 67 ++++++++++++++++---
+ 2 files changed, 90 insertions(+), 18 deletions(-)
+
 -- 
 2.34.1
 
