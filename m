@@ -2,85 +2,98 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 658B2606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 10:54:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70130606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 10:58:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cvaDFC9R;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QwBg/l4G
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qc9l9/m5;
+	dkim=pass (1024-bit key, unprotected) header.d=amarulasolutions.com header.i=@amarulasolutions.com header.a=rsa-sha256 header.s=google header.b=CZuPkQSb
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=uoyhanJreUhzLPDA+ljmTZwIPetuIE1Ivz/9P3UXD3E=; b=cvaDFC9RS6Xp9MUo+HeTX6bPHo
-	hF3KQj0yBTcTnvBzGQiwjBTftCElDM5P2qnL09tQmZu/Y+Kd3saBDPPsRtK53vQNErUB6PR6cNxV9
-	m6ZeunKTBttJtz2B2zy/yOe6YMhQO2cCONRUZQh0m0xF8w0TixRPLHF2Kv8cw2YtJzk0EkpphHGCb
-	iiY+sZm+yRy7l88dXjZMnVfM0FZXMDYHvLTwLgFSQn5c+dAUOwEFLmfG3wZNrp0t6ROiSNZ5JlbjS
-	QTm3cVPg2idYXL7VicV4kz34HfSd6JPa++sZznaQw1hAKNSSk3yVx1oBcqF0b3IFxS1RjmPu/jG0K
-	CqSco0eQ==;
+	bh=Q1RsoPgnfkWmfzIcQOevxAgUv9RWbdrqvZKCjq9hQeg=; b=qc9l9/m5W4mlTGBHgTLWjZ2YRs
+	6OC9FbJ8zbgsLb9IIK/2bxTb6O8urHJfwC54GyyWqy1OiMzjUF3Jf1FjqcFz6rXIXPmp3rUcBoJE7
+	Pyh0M1ISi0t5AkML/wWnQl+PPT8CaFIDp8tB1oQSXvD83X3CbS4tpBpf7LVmxq+xTpe9Pkqo+cTBw
+	uRDZpIAcZP2nu23ZtmFBgtL1X+1PX/jxIs/aZm/hO6KE+vR9EqUhHbXavtE6v6oZIk5WQmVwJfvR9
+	I2OKfXeHWAp8XZIjiczAXIjyCpB+42iCjb7R9ra1+9ZbhJQ3+WGgEMSeXwU4qt6Gz4UrRfzD70jyR
+	WgwAwn+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1Iq-00000006oJq-3S0Y;
-	Wed, 28 Oct 2026 10:54:44 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1xM1ML-00000006obh-0JG7;
+	Wed, 28 Oct 2026 10:58:21 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1Io-00000006oJP-1d4w;
-	Wed, 28 Oct 2026 10:54:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793184883; x=1824720883;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Z3aNUzcd8LQRCPT46+lVga/502IGAQyJemLKQGD1rOQ=;
-  b=QwBg/l4Gnew8SYmVHuWxhEpZzdd6xcD7ityWbTv/0a9ipuUAsmVzFS/k
-   qOe5bLHKXdAbwMq7lW12p9ma/kehFyqrKhTyBqF7yvqwXdi2e0So4vCIZ
-   eGRLSQ/G+pjw+v5mm0oK9EQ2/5UmU4zNOePT0m906qNpIqDAUdIJ8BSKd
-   sL9n/3Zl+vWLpQIBJxEQU2zIQLOy5LWO0OcJd0d0WP7xm4xzu9mc8qmsX
-   Z04zxzjFyMFUsbAcp/xKyFaj/glUtPUvQdQbbTQGRHMOAePSg7N7+gHWy
-   R9QPNPTcUVx+AfKYpsytyTpi33pWMBRpc1D8eThBG1R0Ax8QFVZqcSrb2
-   Q==;
-X-CSE-ConnectionGUID: iICkMFOHRGmoWCOjCq7GWA==
-X-CSE-MsgGUID: yHsO9ZiaTa6GVusCNbr7/g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11948"; a="1891177"
-X-IronPort-AV: E=Sophos;i="6.27,182,1787036400"; 
-   d="scan'208";a="1891177"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2026 03:54:41 -0700
-X-CSE-ConnectionGUID: gSq73B0+TAqXDZb1qQLHYg==
-X-CSE-MsgGUID: h2GJqdhjSLmk9ONPpyHirA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,182,1787036400"; 
-   d="scan'208";a="5153537"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa009.fm.intel.com with ESMTP; 28 Oct 2026 03:54:38 -0700
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xM1Ig-00000000Ybs-3trJ;
-	Wed, 28 Oct 2026 10:54:34 +0000
-Date: Wed, 28 Oct 2026 18:53:45 +0800
-From: kernel test robot <lkp@intel.com>
-To: christian.koever-draxl@student.uibk.ac.at, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, neil.armstrong@linaro.org,
-	khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com
-Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
+	id 1xM1MF-00000006obK-3Ud7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Oct 2026 10:58:18 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a218c463d1so5364995e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 03:58:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1793185092; x=1793789892; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Q1RsoPgnfkWmfzIcQOevxAgUv9RWbdrqvZKCjq9hQeg=;
+        b=CZuPkQSb9OMbxSUGYM+g024r45Hn6klhIjQ8V8/z98soWKVENucqHmKuiSaRxT+eF9
+         4AbotjlSNTZTezAKQgdvIz/RcgBkjsfJavJl5Mpk0iFUJ54ekdm4t267m5/xxfQq0U1h
+         x0Vwab50mBk0T/Jwv8blE2a956N64GkPVd1v4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793185092; x=1793789892;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Q1RsoPgnfkWmfzIcQOevxAgUv9RWbdrqvZKCjq9hQeg=;
+        b=KfnxhC13m+PUUa4Za4AxNIzT+kbCf5Srnao5qkqjB/GFQHL7FRKmPkCqugdVK/uU6t
+         awuW6PWwVx7h1H8kHPDcV7gz28DcHhY6WguY/LrcEHU0j1osTDIqewuA+41xDh+F7GFm
+         W8wbFIAne3KNrtVDgV4Vhn+s21KNmYk0dsKnO5jkHNDtU7D7oQUpdjeAsaAkTT1RzJJy
+         vmEE5D86A7QtcfqLbtoj+86y+m5mMFcivt4VN4Ek749PEdqT4wA4TcFjvRR5L9sUsEVm
+         c3mjzbgP0h6M9ITKTXr6EUEhRYPnOW3OzbMlSjqkw49YOpLHdxguy1GiV7/zbsXsHSYA
+         DFew==
+X-Forwarded-Encrypted: i=1; AKwUvBwEwOl52sWZWzY+fZJvEzguYFZg6BQdNFhyIu+6kb7Fok2P11N2LPb9cBL14pSvCtOz6ctjuXeXhmIwwW27TICV@lists.infradead.org
+X-Gm-Message-State: AFq9FYItP/Jh+trfVXmAg/n5a+5lQ/upESPFugxwRmTIIkq8uP1MOCYz
+	MY3vMKh8p6lK5hg/Rhlzizgq75P9ZNtHxjT2cer5tPLIyfvwX35AfNFKar82VWo0nh8=
+X-Gm-Gg: AYBFou3a22nz+Or5I7xeM8uRcT09/jkPcGPd2TO+LsX/XCz45CzZP74TErVDglE1ZEU
+	EWLOKKGAFv7rr09+X2Ttrg1gY2Apex5cLFhu1N9He/qGtZ7HtGXPc/1ZBD4hVyWqcdP0OiK7477
+	5VHTxZTKpv29GZnnOrEFXshYNbAY9JjwgdNfi79bDz6HpRTyCkZmn799Uo4FH6pjOtHdh1udVA7
+	f97BYRzFvyjZNKiT6bm2atMMqMs2OCyynknu78kAjgWmOiAs+tEeyUccWpcCpGOEhttpnl17Uyd
+	+fnylKte8O6MhZrMRNhJ4hmQ82j8fl86w1Su41Y31R4esieuhYpBpQ7Xs5kudOMz4uxlJyD9Ck0
+	eHfGGl2sMSB06ht32g8tfov9BRM5FLl48aOx1McOCo70LjuqKKeBtKbWmDRNZ2Wbfi82taHd3CS
+	bQ8PzMmbVLaG8wbhQzC8v/A8iEoOBsW6eQsUlRF8+o+Sc8/BOICkOPnvY8S4XVooWWdPhsL0eBg
+	yTvX4RwU8jfw9/AXu74T+1A1yLzw2iMPy3b20WuDKQf24hoja7NUB5lNXS4Dvbssr7j8jHYsfdQ
+	CASAcOaINlgy5ZEsrEliw/nQYBp2TQTX8tDCOTkzrmimGVqBx3FQUxVJ5xF5qYpqo4s6JRur9Sz
+	p2xhndnjj2F0d0IBgzfhCNhGgLmMponl1i/o4ix5gafLI1iD2pVira8A/GVIOn1E4rHxMtWY=
+X-Received: by 2002:a05:600c:4e03:b0:4a1:e7ce:107b with SMTP id 5b1f17b1804b1-4a9640f217amr38505965e9.2.1793185092065;
+        Wed, 28 Oct 2026 03:58:12 -0700 (PDT)
+Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com ([2.196.42.39])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a97c42ca77sm35782785e9.8.2026.10.28.03.58.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Oct 2026 03:58:11 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-amarula@amarulasolutions.com,
+	michael@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Christian Stefan =?iso-8859-1?Q?K=F6v=E9r-Draxl?= <ckoever@outlook.de>
-Subject: Re: [PATCH 2/2] firmware: meson: sm: make power-off work on S4
-Message-ID: <202610281810.Or8lhrj7-lkp@intel.com>
-References: <20261025192144.208954-3-christian.koever-draxl@student.uibk.ac.at>
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH] arm64: dts: st: add firmware reserved memory to Engicam MicroGEA-STM32MP257
+Date: Wed, 28 Oct 2026 11:57:40 +0100
+Message-ID: <20261028105807.2567225-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261025192144.208954-3-christian.koever-draxl@student.uibk.ac.at>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_035442_463776_3BA05EDB 
-X-CRM114-Status: GOOD (  10.58  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261028_035816_667222_48DC5168 
+X-CRM114-Status: GOOD (  10.42  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,62 +104,61 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+The first 64 MiB of the DDR are used by the secure firmware (TF-M,
+Cortex-M33 firmware, BL31 and OP-TEE) and are protected by the RISAF
+firewall. Without a reserved-memory node Linux allocates pages there,
+and the first access triggers an IAC exception and an OP-TEE panic:
 
-kernel test robot noticed the following build errors:
+  E/TC:0   stm32_iac_itr:197 IAC exception ID: 137
+  Faulty address (IADDR0): 0x80000060
+  E/TC:0   Panic at core/drivers/firewall/stm32_iac.c:212 <stm32_iac_itr>
 
-[auto build test ERROR on 7be4bc52fd9e0e55dc9a2e0232b89427d2c4b614]
+Reserve the region, as done for the stm32mp257f-ev1 board.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/christian-koever-draxl-student-uibk-ac-at/dt-bindings-firmware-amlogic-meson-gxbb-sm-add-amlogic-meson-s4-sm/20261025-202143
-base:   7be4bc52fd9e0e55dc9a2e0232b89427d2c4b614
-patch link:    https://lore.kernel.org/r/20261025192144.208954-3-christian.koever-draxl%40student.uibk.ac.at
-patch subject: [PATCH 2/2] firmware: meson: sm: make power-off work on S4
-config: arm64-randconfig-1000-20261028 (https://download.01.org/0day-ci/archive/20261028/202610281810.Or8lhrj7-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261028/202610281810.Or8lhrj7-lkp@intel.com/reproduce)
+Fixes: c5ce8d7bcc78 ("arm64: dts: st: support Engicam MicroGEA-STM32MP257 SoM")
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202610281810.Or8lhrj7-lkp@intel.com/
+---
 
-All errors (new ones prefixed by >>):
+ .../boot/dts/st/stm32mp257-engicam-microgea.dtsi     | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-   drivers/firmware/meson/meson_sm.c: In function 'meson_sm_power_off_prepare':
->> drivers/firmware/meson/meson_sm.c:318:6: error: implicit declaration of function 'freeze_secondary_cpus'; did you mean 'thaw_secondary_cpus'? [-Werror=implicit-function-declaration]
-     if (freeze_secondary_cpus(0))
-         ^~~~~~~~~~~~~~~~~~~~~
-         thaw_secondary_cpus
-   cc1: some warnings being treated as errors
+diff --git a/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi b/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+index 5b4287e86def..6cd64587ecdc 100644
+--- a/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+@@ -19,6 +19,18 @@ memory@80000000 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x80000000 0x0 0x80000000>;
+ 	};
++
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		fw@80000000 {
++			compatible = "shared-dma-pool";
++			reg = <0x0 0x80000000 0x0 0x4000000>;
++			no-map;
++		};
++	};
+ };
+ 
+ &scmi_regu {
+---
+base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
+branch: stm32mp257-engicam-microgea-fw-reserved-memory
 
+-- 
+2.43.0
 
-vim +318 drivers/firmware/meson/meson_sm.c
-
-   308	
-   309	/*
-   310	 * The S4 firmware implements PSCI SYSTEM_OFF as DDR self-refresh: on the
-   311	 * power key it jumps back to the kernel instead of booting, which hangs the
-   312	 * board. Setting the shutdown flag first makes it cold-boot instead, and the
-   313	 * secondary CPUs must have been taken down through PSCI CPU_OFF beforehand,
-   314	 * otherwise the wake-up path hangs as well.
-   315	 */
-   316	static int meson_sm_power_off_prepare(struct sys_off_data *data)
-   317	{
- > 318		if (freeze_secondary_cpus(0))
-   319			pr_warn("meson-sm: failed to stop secondary CPUs\n");
-   320	
-   321		return NOTIFY_DONE;
-   322	}
-   323	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
