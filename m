@@ -2,130 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B523B606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 09:50:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D18C606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 09:53:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ofpaRj8T;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gWEZ9y1P
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4VkzCNy7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=OncitmhmKPxQRhu8FlY/GIP5U4Gt08ht3PeyL8T2LDg=; b=ofpaRj8TNTk+xQ
-	1tioIrvyHuQy/uLMHbk/W2EtFtA5UencVFgjiWUP3lr09qOayFZHF/aRJPlFHO07y0h04zpqvOcG7
-	OBitX6uNBnLxd0c7BTRG7TQVE+kWv2PCJJ5Y55wf57aPkxOyFjWG80hqCasfNCJyYIKbuTkNC6bu8
-	Em8h+8/BLdbEINhtBPA4zGfXnyizsG2mUUFzlRYj1BXoChMYbQZaldS9HeBaNfV0+pZlQYJ3IfQoG
-	PTQksqx0xlcSPVEmu56sRsd3oJRBbgQxPsLjPYZPwxL4m3arubmMtChMuZPG7kidEKf/j6p2SFeyg
-	vIS6TqwsQPhLGC/iRKow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=LaKKgg7JsBllMMsQkIPVI3Ax0Bcgu+KbcncA6nhcHSA=; b=4VkzCNy7Jfh2wIJojN02PMSb0e
+	zq9t6Aj7FoY/GZyu2GR/hqKA3lC8iJ7UpCOWKgogCkWxRFKiyC2Nc5ZkUVF3ZfIjAfnIHN692cUTY
+	Jw/KbVYHywhLDCuHhPEQl3/ldBWm0tNxq7lWjo+rd1d8jJla8r1i2yE1a/eZAjm0BbJlRwBQ2+Q7e
+	S4AHRdO5lcltlMuhpVmRj/MsPEg0RiuyUezcRXnKMoxK9BPr7gfQPv12fRn65zzBBHZMgkBlvePR4
+	8bM1+T3hd6jkQi1c/0H2+AfEt0Dy+YhjbliOUABLPCtnlzFbjFTqYgsEZwXUQELx6FdoH7U08Nc7/
+	2GFmD3dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM0Ic-00000006i6I-2Pc0;
-	Wed, 28 Oct 2026 09:50:26 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1xM0Lh-00000006iJ7-0i2r;
+	Wed, 28 Oct 2026 09:53:37 +0000
+Received: from mail-ua1-f49.google.com ([209.85.222.49])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM0IX-00000006i31-0hyx
+	id 1xM0Le-00000006iIi-0ajZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 09:50:25 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c169ae1cb26so286992766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 02:50:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793181019; cv=none;
-        d=google.com; s=arc-20260327;
-        b=O5VNChSrRAcZyeyvaEmMM6AQIV/6eciNJ5ZqncysgXTu3yAfccZd9DKcgeeF68LUDb
-         wXo3ETncyyf6Y/hf/9UaOID0qQPcvWPAMYB2J2A6s7T5XA1xUFkiy7iPELkmwYU2nMiZ
-         zURwS2laYJldcGnG2tGtMoqgOWdUNmVHNuQuRST6IwtIM2zJE0QjmprStZBTY+lKUgzK
-         lFTXf/x9B5hMFWrDV0zKlloC8geNzxjUw6q4wtT0tspZV3AYjTgwjm8Lv9cYA7p/BENF
-         PzHnJ4HOfQxMj8oz6H9uRSbndVbnfnzmUv5ei6xxzvk4793n+gYinFDFtDF7jCnueoTf
-         imvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=OncitmhmKPxQRhu8FlY/GIP5U4Gt08ht3PeyL8T2LDg=;
-        fh=G65q6FlBMaZLUf/jvhkUtcipOCDt+U0IQyu7NGL1aKE=;
-        b=O0nCVugawd0d+KEuax8BIvsoze3tEjNLw5FB5ZEiVT8xhrLyThcKoNc8hKFqWm/ptq
-         rP3fYT/pkMF0H11iP76sADR5Z7flwQ94U64Cl5APOpfA4UAdIDkHMpiwrY8aekQoSxrD
-         7Tx0eZgzyaO0ZMJPW8uHUaEj5j4DSGo7HHi9uF8Eca2PuUbJqF7MteF3HNy4mDRKDXLH
-         f8srEaoZt8WhLjSZea1jRDLr0DbtCLKjrrBqdFb7sHQSA1+rxtbDKk6e1R3GZPk1d9nA
-         rCMFnp2lWuH4K/FC5x/t6w0jJmD2CEtZ2aPCSSD7YytNaXUeWuhxG9ro/2TrQkNHz8UG
-         at6A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793181019; x=1793785819; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OncitmhmKPxQRhu8FlY/GIP5U4Gt08ht3PeyL8T2LDg=;
-        b=gWEZ9y1P2zVzCCDzTR21FUzz1owIAcxCN4dW2Y3TKbpaO2jbIZ9+0CqEppcBByU43d
-         WeIIhUsr65+42aY0G7F8UH0H16WAlwsJaL3ro1wLAWgUsDi/IGUKvPaGi0hqh+W2SOky
-         xRdupUbVGxKS3CdNqQuo1tDqqKHCePvJy24QeamhyN48XKz0h5lV1XzBWJJby9TJvBfo
-         4QwIjSPjLGyMSgXQgl9A7zfCsrxgtUW2RnlkZwnbs+QUQJ5nwlwRJcpoM3O3vCEhc2Be
-         dIKi3JLeflXItoSd5pdgiqOcsilLDxj4XgW8l0I9SnjDFiky75iRM9V46G16y+QYXjpy
-         MDyA==
+	Wed, 28 Oct 2026 09:53:35 +0000
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-98c6e050c5dso458312241.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 02:53:33 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793181019; x=1793785819;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OncitmhmKPxQRhu8FlY/GIP5U4Gt08ht3PeyL8T2LDg=;
-        b=Jc/mYJFblDO16Tkc9glFlv6mndFhHOHHTAJ9T6Ex/iL8ib4O1Uet3wdVIrvfbXV4QN
-         artnUqTDdeQMLntGsxxymN5fDNukLkR9y3kF6LrASLB43fNAiX0m0aSFpsW7A7k4sqEt
-         VvWqDSujk5zf9+Tblnrlj+D2d+0JUUWsNxn8axxbHChbmy56YRKXuwcPihRNkV2yGM5P
-         nzNqfz06qeqeK+JrWQkx9PlR4Wbx7B/jkttEqVRKRjwEyJD5OBRGGCQPBIGj0qVV63z3
-         MDGvET1ELT3Zcs7NyO6FjCbla0tkbfMoatU45tSNl/tNUlEuDTDNueaPWZrFkzN181JK
-         yu+g==
-X-Forwarded-Encrypted: i=1; AKwUvBwh6IbNRmUFYOz1RdN54GkHDNEA9fmMzfKZNqtVbSZxlYZb6TqG37N+MWqL2U0aFyLM5ouMBrU3ADRpilmHZhtU@lists.infradead.org
-X-Gm-Message-State: AFq9FYJRdyth88/6mvwkBo+ozPy56mrnjG0+IOCaH5C4DLMCCmW+hzGN
-	YYLlGukfHza2ZWO43ZrJu4G4/b11quMmVskCGpV4DHwruN0g05WGsVyUF4BfNqIbrZ2Cm+ZGZMM
-	fTkBnZTpm+yMLNy0fe0/oDBY5Ajvnof4=
-X-Gm-Gg: AYBFou1J6pzwk/coGkBfAvrxFjTZ1MIHHcIwcXooaS9pxrtPhS03K48Cyg3hWo0Ahd2
-	PYtFwHDOoOSlv7+ty9xO9txyDyDKprs+XbJ2J3y0OOvd3FMNzbIIIqlO+0uyazbK6oOAPU/ArpJ
-	8UhF4KOqEDlj909i+whrkmtoK/L2ZQazbdwGhvM3LqFS0QGXwn+Ctd6yG0Rijn/kTP3yp0BUV38
-	oRHO7KyXleylV67vTHq5wxyNxHJMO1Q/5et22LPNgLSKHVlaIDAZD1QhwYbRDuaHhOLIa5AJLhX
-	w7aRQg4GgjpyPzjgjBqng+PM1SY1wbjMZ+fUmq4cAhGOr6bzjMKoijAxHHjw1a1LZO25b99+C8B
-	7OwZ1pY4LPAmAemVMpg67ZQjeCZSE1uAd74Sqtpq2vCxihfbzy0+eTk6v6rnoAxZeo7hdw0L71B
-	gqUlWiHHUTTsK1HMdV37YjEAkqJGWt2esswGfi4o/GYJyYXRA14WhKbLA/4Qo+O3yrMKLY6vjaV
-	nTF39eQu6cs9m99cbaRYoI9CAWXdV40o+zka3nkNFYtklY=
-X-Received: by 2002:a17:907:86a9:b0:c48:a838:c17e with SMTP id
- a640c23a62f3a-c49a739f8dfmr484567766b.14.1793181019107; Wed, 28 Oct 2026
- 02:50:19 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1793181212; x=1793786012;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=LaKKgg7JsBllMMsQkIPVI3Ax0Bcgu+KbcncA6nhcHSA=;
+        b=yWMpxRzF1G79WJSG/VMGGBUor5pYu5oZF1FzXiotOBU3euULmG/pu1qHeB2kxsJa6w
+         R0rmEYUBmQcZcb1Y8lMpCPJPiQQ9IjBbmsY4nLlvohZ5uNLw5N0i33StJAUg4ZqQPc5G
+         OAHvjACDsfQItQ/lqIwaqvx0wJNSLe+Oy1zkD8wsYjFgUQCjZ06k7mXfNjlmO/b5GSXh
+         wovtiJkicZNMXMWL06Dym9McXfOv7siTTVh7/wjTDU3ZzynCI2KgW6GT2Ngkaf9QdjQL
+         VyIkuBl5SptPQAPzj5cvlS6sSWteFS0xk3ksMNVQ6Skdfjd8UVPc4kprqucjh4VbSmnj
+         F1kQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzP79iqKJfGMPemVIdL1+k62nxSOWyJbecY6YMs26MyL5BW93ZfvjhhxIZnJPE+V36s2YMbXoDD19oK5zLDyR+w@lists.infradead.org
+X-Gm-Message-State: AFq9FYKqG4U4hxzORQn2lD9kMm5RLYno+oDUKrDYUEOhecVsAgNqq2Jv
+	NpKsqMmatn2PlhU06tA0NjJx4+Y0RrZ+YYwxS/WHD3LP7GbHsiVKnVXDl1pWuhGt
+X-Gm-Gg: AYBFou2hOlvx9rDtfniXX71ADUQqeC2uYmMIPQx2ZcXlrY7vCeTE4JysaTmJdzI6PWH
+	MY4lpu8oLzylEDAsaBb25UuRKiqX9cj2kyJ7OnY4FExCT3l6Y4g3npiddt4rBhHLbv0wiTb0Ft4
+	/+4XwHqplc5S2fn3E5xk+7MeDjqF1CHyOU5xSbU8HTW8Zr5ayuFGAhDcjI6An2eSJ4VnJhugC3c
+	AzznALNtndg94TEgWbPkRc82UAyLz8TRCtIWtloapBsMVw+nk0Bt4ieaxjfpQRYXR9eZu5tmZe1
+	U/wDdeHBwvJYGn/oedXsLQ/SiF6iCLds6EQD0l0WWV4TVTj5ZVbPfbbqzhh5tFpycfzqumRfRq9
+	sGaShuCIi92jLWEdGPfJip7ZaBORmBwrTRDHzwJKpQIXrw6kItWlN9TdgCJi9Uj3GpAIljl8Jr3
+	OnrJaWpkwWo0S7KdQA0YsjC7Rt6TXGmHrWcRJONF+GXH59RVdtRgiJ7hATEjdoglyruQ14lff2T
+	R2+1gqp6KyIOALlQ4AGM8dcyE0L8i51ATQbBQway3ZvbcSTFA/xKDC4Kks19wa2GnEz4YQVjac6
+	MVHjCo0TE1kFzHP73t104UgqGsCQJQQrmUYlvzxmUOVP3kVDKSplY2iFnVDuC50USwnY9cO1eqR
+	ykeyYUFnQGCOD
+X-Received: by 2002:a05:6102:5106:b0:7cc:115:ddf4 with SMTP id ada2fe7eead31-7d03a4e928cmr820593137.25.1793181212420;
+        Wed, 28 Oct 2026 02:53:32 -0700 (PDT)
+Received: from mail-ua1-f54.google.com (mail-ua1-f54.google.com. [209.85.222.54])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-9912da2d9d1sm2741891241.7.2026.10.28.02.53.30
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 28 Oct 2026 02:53:31 -0700 (PDT)
+Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-99075306daaso423830241.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 02:53:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxvfcuvcOLz675fwrdrmc7eoPh5QhnIy7fCcVmr0on5l8dKL4RCfLOLqvqWfG4DwZ5QRyZmxPPtVLHeCaNzVfHQ@lists.infradead.org
+X-Received: by 2002:a05:6102:5244:b0:7cc:2fd1:7122 with SMTP id
+ ada2fe7eead31-7d03a47e768mr803872137.18.1793181210633; Wed, 28 Oct 2026
+ 02:53:30 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <cover.1793027261.git.d@ilvokhin.com> <33ec8080594f9f4ef1d50e36497339c9a6897393.1793027261.git.d@ilvokhin.com>
-In-Reply-To: <33ec8080594f9f4ef1d50e36497339c9a6897393.1793027261.git.d@ilvokhin.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 28 Oct 2026 11:49:43 +0200
-X-Gm-Features: AclHuK92we6zl1A1tCfKfYVeuXltUG4Bsfa-fRzr4orRkDVhJuYkTUAxt0MOtcM
-Message-ID: <CAHp75VfR2i_PPZwSG2UPaxShU5L=FsSdEAT+0iUMDKAfugbRsQ@mail.gmail.com>
-Subject: Re: [PATCH 05/10] drm/i915: switch to __nonnull_args() macro
-To: Dmitry Ilvokhin <d@ilvokhin.com>
-Cc: Alex Deucher <alexander.deucher@amd.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Kees Cook <kees@kernel.org>, Andy Shevchenko <andy@kernel.org>, 
-	Matthew Wilcox <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org, 
-	linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-hardening@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, linux-doc@vger.kernel.org, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+References: <cover.1792776697.git.geert+renesas@glider.be> <528b079a19bd4043754bfb56db8e5950bdda62f6.1792776697.git.geert+renesas@glider.be>
+ <CAMRc=MdH37DhKMtagN3Ua1doY7ZgD3f+ok3V+h86kb4J8-dtQQ@mail.gmail.com>
+In-Reply-To: <CAMRc=MdH37DhKMtagN3Ua1doY7ZgD3f+ok3V+h86kb4J8-dtQQ@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 28 Oct 2026 10:53:18 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdU=ZkOsjG_FF-raMJWEUtj0VkD=9Gs0SsWKWLwyhG5H_A@mail.gmail.com>
+X-Gm-Features: AclHuK9BGkRKGrsUq56mu96OMIK1DMZBGsGDXPyfwPmkMrcZVroZETBYHJfP3k4
+Message-ID: <CAMuHMdU=ZkOsjG_FF-raMJWEUtj0VkD=9Gs0SsWKWLwyhG5H_A@mail.gmail.com>
+Subject: Re: [PATCH 1/7] gpio: rcar: Convert to gpiochip_generic_{request,free}()
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
+	Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Magnus Damm <magnus.damm@gmail.com>, 
+	Ulf Hansson <ulfh@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_025021_216663_972E0EA4 
-X-CRM114-Status: GOOD (  11.41  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261028_025334_191181_25599FCC 
+X-CRM114-Status: GOOD (  22.84  )
+X-Spam-Score: -1.6 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,28 +103,47 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 10:20=E2=80=AFAM Dmitry Ilvokhin <d@ilvokhin.com> w=
-rote:
->
-> Commit 22302af28d3f ("cleanup: Annotate guard constructors with
-> nonnull") added the macro __nonnull_args() to wrap raw compiler
-> attribute.
->
-> Replace __attribute__((nonnull)) with __nonnull_args() to standardize
-> nonnull attribute usage across the tree and keep the attribute's quirks
-> in one place rather than open-coded at every call site.
+Hi Bartosz,
 
-Reviewed-by: Andy Shevchenko <andy@kernel.org>
+On Wed, 28 Oct 2026 at 10:47, Bartosz Golaszewski <brgl@kernel.org> wrote:
+> On Fri, 23 Oct 2026 19:50:39 +0200, Geert Uytterhoeven
+> <geert+renesas@glider.be> said:
+> > When a gpio device node has no gpio-ranges property,
+> > pinctrl_gpio_request() returns -EPROBE_DEFER and its GPIOs are unusable.
+> >
+> > Restore the ability to use GPIOs before pin control support is added by
+> > using the gpiolib helpers instead, which cater for this use case.
+> >
+> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+>
+> This sound like a fix? Can you add the Fixes tag? Is this patch independent
 
---=20
-With Best Regards,
-Andy Shevchenko
+Sort of, but no upstream system needs it, so I don't think it is worth
+adding a Fixes tag.
+ISTR we used to have GPIO nodes without gpio-ranges on other R-Car
+platforms before, when pin control was not yet available, but DTS
+history doesn't provide any evidence of that...
+
+> from the rest?
+
+Yes, it can be applied independently.
+Thanks!
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
