@@ -2,112 +2,91 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E18A606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 05:02:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6D00606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 05:02:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IhGlU4U2;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cCLrvZPy
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pdOQqjTu;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=cvOsB5qB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=OLhUG1hLaXa/kF9EnkdPlvaJj5GdsFAdoHncTvXoPzg=; b=IhGlU4U2FBsC3/
-	lpzkEJXoNeHbGKAXEFi2W7Vt0vBVQ+U5ClNmeF+cSNLQ78wCMpqTSCGJ5WgTXw5egAjmwivJrVN48
-	q4KZ9mh8BWAj+Pzv+OjsSWXA5riH2aBj7f0MqQD8B/N7xbtXS4Xc0yYD3C0oXh5cSkIOJyv79J3Jy
-	jvunT6HKevFvPGAG99lMQZSGrFUX5NaHMsw76EmgDAP49mdiGOHJV38j1Xg+BnoSvfoooMrIlLHtM
-	q9gbl8fF8Eemh6MZIVuMMi8t74ztYbl6Z3mA3GneGsG+svUa2yBWTS4Yo2XIsarYcKyciZWayiqWw
-	6hShUUHWSSAO44nogfWQ==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=zLz0pazdOfTsdwtCAGyvlkZm5M8fg99B0g197ylxLwk=; b=pdOQqjTu52MJ0lqdI1tZ4uQ3Ct
+	hDPOmDwnDyNgAvLZXLPFUbO1MnHHh0FTDjUTgwn/PtHnNpr51EFDoYd3UJcPukU7bOXaPTRP9K9kp
+	iiCAgSeeViAcS6JNJc1QlW/2i0hWLDopP6/cZAjrscSo3uYnBmDIlDBV/ra3vmgIyKoi/HdwbEfbH
+	2V6NCokgiNT1AwoJP0F99anHy9jYwwJLT7hLKJ88XQqgkAVFeWecDdhbZEgm2X9Rx/Ro1XrgNljWD
+	mngLTLlQqcI8OL29vVETxzJfBCNU53WdNcOh21abOnnMtHMstaBj7O+h51XhWrLYDQUgVCmHZ6LAP
+	RZIWyq8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLvnM-00000006Jf4-2qGE;
-	Wed, 28 Oct 2026 05:01:53 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1xLvnW-00000006JnG-37hK;
+	Wed, 28 Oct 2026 05:02:02 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLvnC-00000006JWI-1b3M
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 05:01:44 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so1441235e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 22:01:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793163692; x=1793768492; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=OLhUG1hLaXa/kF9EnkdPlvaJj5GdsFAdoHncTvXoPzg=;
-        b=cCLrvZPyVfbXP2xHckHfASYgGD7/iVSoujNHsDR/EokGBp7uN/rmr62ngQV5fx9pwU
-         SYEY/22nNdZMzEFMArRVldHgj9JFKnoDiHL4RQcAaVCfyRpQ34jBkXv4vSMRkE31VdFj
-         p7IkfRHEu5m7m39313fb/qXxMWCC5wTIZ/imbZYgx2UBYQF9aVpO0VgqNLNcRAxRaZCc
-         ytLquKRAqxADZJ+Df/3OYq4Cra/gNhJNnt/7IkdPLC46DiCn/3FUgSO2AeO8gv0/+sya
-         htwqTqGM7H8eeM1j1PyPf0YttvjTU/0bVzx8IgxGzMBuSzPZh5X/DrzB2xotn9ZOIQqI
-         yeOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793163692; x=1793768492;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OLhUG1hLaXa/kF9EnkdPlvaJj5GdsFAdoHncTvXoPzg=;
-        b=EBhqmLJ2hrKlDZ3FEu+sD9aT9zQQAsmbV7B8x0y2F5l1VlSu6OvPd9ntrxq3kJmHfd
-         a7bSw+TbISWFajPUgkU0J+HRQXWmzlpw8yKAYFHcxAE1bVKBI/iGw4Q/3LkklY21bCUQ
-         v4NLvCx/kj8GSLxUITX3JpaUDJs4qxjwgv5CWQjf2f+BPomnvf63u/IcbysEPPxPtaq1
-         XK8qO4yJhIq3xN5EjjgHqZ0Rl5PVV2rTtCIpsFKrsk0y7I2HPyHMAJcPGERRQD/x5lWu
-         nHA+3xwOSJa8MJLyfvz+e6gV5ectqfZpyS9lpJZ6c7R6OLv7TFqCeX1jWCEf9urM5UAd
-         a8CA==
-X-Forwarded-Encrypted: i=1; AKwUvBw0A/9E5JJAoNobXHHs50Qi8LhBlONA9kzjorEHNE0QFtv1OVMGU8gOwsfSpgPTVqDeJAB184x0L/RnwCXxGxOK@lists.infradead.org
-X-Gm-Message-State: AFq9FYJXqnqARbuXSYlIiIyLbqKaNyV8O+K+P6lEjfLfH2w047lZ2lp7
-	n6ROEAoXumu3gC0JcFrFzVjud0nl+K9cvNOODAvE0TBzaBAa6LrzRLac
-X-Gm-Gg: AYBFou1n+P5T3r8mwE/gJuw0Ac8yXb0uvq+lE7ujeZzQL4KXAJvjAox9QTcM9c00pbL
-	vUGqqqAsIPzaCUOVqt8gFV+saz4mFXpe+kNehSQimSNApvbu2iDoJS46KgeUBsTS0TKr1PSw3Dd
-	tIzrTVkdtKWiHys8QL2mqSzBxua/Wou6FM1tmlRgLj+PJIgvoK9cHdwEoPYrA5njdp8A8KcQrhW
-	mWN0QEMhSpdnLWb/rZ17GseoHSAxdPUdO679i77E+6Wm9fzp9xXSPM4WbcHZdft9PdvZR+cEidm
-	0UB/QQRf8cOMzMUH15LCU5BdINXGV+5P20GYHoDO3vZCxovA1UpcJUZAJ3/8ktfabVo1hKOOtX5
-	v2eeO5GMxU2WWbRjeV+eNSPRljh3OOOHLB84mxixZ2lMmNHO2b1gXst9DxPPcFd3O4QL9C6XgJ0
-	qe4q2aZ3p/L7ZuPXbpyf48Hhp+jT1wH1gQyBlFba2rCYsqvQh0pl1F01T2o0ELwH3TSXBVAgQqB
-	Khm/I3o31hHXtu023gZTIsAGBjfWsbPgbuFRsiKVnvtabxA6unPY5s9sktmOYQYq9yL4NJkESJ3
-	vp3Z5kTQmA1LDTPb5y5ZpafB13ntMDMC2cNjm1WpfG8dxPySGe5ogjAjAP348xXkLECyodO7MkV
-	TX6TVN01GCC82bFMkLuKKZESAvmB1cHMlBudHr3n4KkmF4aPN2An+Ou+Mt1iVH9pZG2XnJT9E4r
-	iBAGiUfVtG1Zsl7GxayIuCufX3P78zAGwKqcprdg==
-X-Received: by 2002:a05:600c:3e15:b0:4a2:18c4:61a5 with SMTP id 5b1f17b1804b1-4a9961f3d36mr12218315e9.6.1793163692052;
-        Tue, 27 Oct 2026 22:01:32 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-a45b-7d01-5035-b393-698f-53f0.310.pool.telefonica.de. [2a02:3100:a45b:7d01:5035:b393:698f:53f0])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a94eb8a60fsm13523365e9.3.2026.10.27.22.01.30
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 27 Oct 2026 22:01:31 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+	id 1xLvnS-00000006JhB-48Do;
+	Wed, 28 Oct 2026 05:02:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=zL
+	z0pazdOfTsdwtCAGyvlkZm5M8fg99B0g197ylxLwk=; b=cvOsB5qB2Wj0hI7UKh
+	cXipRRM+LqlaGC7zY6lk5NhWTd/Fk4JoYV1WoHQFW2yGikSPLyrb+nbEMzsuHn3x
+	KEKyXypvLKwXWCHdhELadpwFBJe8I8jQp97Pz56Nn87m11JYg8+A2XoxD6VfZaUy
+	d1OwkiDViz6VKQ2r33g0xjJvM=
+Received: from pc.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD31_V5geFquXTKDA--.16748S2;
+	Wed, 28 Oct 2026 13:00:43 +0800 (CST)
+From: Jiale Yao <yaojiale02@163.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Marc Zyngier <maz@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Anup Patel <anup@brainfault.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Sunil V L <sunilvl@ventanamicro.com>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Tomasz Nowicki <tomasz.nowicki@linaro.org>,
+	Grant Likely <grant.likely@linaro.org>,
+	Jason Cooper <jason@lakedaemon.net>,
+	Robert Richter <rrichter@cavium.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Shuah Khan <shuah@kernel.org>,
+	Liupu Wang <wangliupu@loongson.cn>,
+	Tianyang Zhang <zhangtianyang@loongson.cn>,
+	Jianmin Lv <lvjianmin@loongson.cn>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/3] KVM: selftests: arm64: Test pending writes to active level IRQs
-Date: Wed, 28 Oct 2026 06:01:13 +0100
-Message-Id: <20261028050113.10046-4-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20261028050113.10046-1-kmehltretter@gmail.com>
-References: <20261028050113.10046-1-kmehltretter@gmail.com>
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org
+Subject: [PATCH 00/12] irqchip: validate remaining MADT records before use
+Date: Wed, 28 Oct 2026 13:00:27 +0800
+Message-Id: <20261028050039.121080-1-yaojiale02@163.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD31_V5geFquXTKDA--.16748S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Cr45CF4DXr17tryDKF1Utrb_yoW8Cr4kpF
+	W5ua4Fyry5CFW7CwnxAw1UZFy5Jr1rKrW2qa93tw13ZrZ7K3WDXay7AFWrXF4xJw1xW3Wj
+	9F4FgFW7CF98uaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07URCJQUUUUU=
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC7xuRy2rhgXvKVwAA3C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_220143_372003_60F84AF7 
-X-CRM114-Status: GOOD (  20.34  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261027_220159_470109_219B6C12 
+X-CRM114-Status: UNSURE (   7.28  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,192 +97,54 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add a two-vCPU GICv3 test for a level SPI set pending through
-GICD_ISPENDR. Re-pend the interrupt while it is active, first from the
-handling vCPU and then from the other vCPU. Require a second delivery
-after deactivation in both cases.
+Several ACPI interrupt-controller callbacks cast generic MADT subtable
+headers to controller-specific records and access typed fields without
+first checking that the firmware supplied the complete structure. A
+truncated entry can therefore cause an out-of-bounds read during early
+interrupt-controller and CPU discovery.
 
-Also check that the other vCPU observes the initial pending state
-before the interrupt is acknowledged, and that a remote GICD_ISPENDR
-write before the ack merges with the initial pending state without
-causing a second delivery.
+Add the missing minimum-size checks at the callback boundaries. Records
+which are passed from a probe validator to an initialization callback are
+validated once in the validator, before either callback accesses them.
 
-Without the VGIC fix, the pending state written while active is cleared
-on deactivation and the test fails before the second delivery.
+The issues were found by code inspection and have not been tested on real
+hardware.
 
-Assisted-by: LLM
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
- tools/testing/selftests/kvm/arm64/vgic_irq.c | 140 +++++++++++++++++++
- 1 file changed, 140 insertions(+)
+Jiale Yao (12):
+  riscv: acpi: validate RINTC entries before use
+  irqchip/gic-v5-irs: validate MADT GICC entries
+  irqchip/gic-v5-irs: validate MADT IRS entries
+  irqchip/gic-v5: validate MADT IRS records
+  irqchip/gic: validate MADT distributor records
+  irqchip/loongarch-avec: validate MADT MSI-PIC entries
+  irqchip/loongarch-ir: validate MADT MSI-PIC entries
+  irqchip/loongson-htvec: validate MADT BIO-PIC entries
+  irqchip/loongson-htvec: validate MADT MSI-PIC entries
+  irqchip/loongson-liointc: validate MADT HT-PIC entries
+  irqchip/loongson-pch-pic: validate MADT LPC-PIC entries
+  irqchip/riscv-intc: validate MADT RINTC entries
 
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-index 3cb85932ee85c..83091e0384c22 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-@@ -959,6 +959,145 @@ static void guest_code_timer_spi(struct test_args *args, int cpuid)
- 	GUEST_DONE();
- }
- 
-+#define REPEND_READ		1
-+#define REPEND_READ_DONE	2
-+#define REPEND_WRITE		3
-+#define REPEND_PRE_ACK		4
-+#define REPEND_PRE_ACK_DONE	5
-+
-+/*
-+ * A level-sensitive SPI that is set pending through GICD_ISPENDR stays
-+ * pending for every vCPU until it is acked. If it is set pending again while
-+ * it is active, it becomes active and pending and must be taken a second time
-+ * once it has been deactivated. The second pending state comes from the vCPU
-+ * that handles the interrupt in the first round, and from the other vCPU in
-+ * the second. A remote GICD_ISPENDR write before the interrupt is acked merges
-+ * with the initial pending state without causing a second delivery.
-+ */
-+static void guest_code_level_repend(struct test_args *args, int cpuid)
-+{
-+	int i;
-+
-+	gic_init(GIC_V3, 2);
-+
-+	gic_set_eoi_split(1);
-+	gic_set_priority_mask(CPU_PRIO_MASK);
-+
-+	if (cpuid == 0) {
-+		u32 intid;
-+
-+		local_irq_disable();
-+
-+		gic_irq_set_config(MIN_SPI, false);
-+		gic_set_priority(MIN_SPI, IRQ_DEFAULT_PRIO);
-+		gic_irq_enable(MIN_SPI);
-+
-+		for (i = 0; i < 2; i++) {
-+			gic_irq_set_pending(MIN_SPI);
-+
-+			if (i == 1) {
-+				/* Not acked yet: the other vCPU sees it pending */
-+				WRITE_ONCE(args->shared_data, REPEND_READ);
-+				dsb(ishst);
-+
-+				do {
-+					dsb(ishld);
-+				} while (READ_ONCE(args->shared_data) != REPEND_READ_DONE);
-+			}
-+
-+			GUEST_ASSERT(gic_irq_get_pending(MIN_SPI));
-+			intid = wait_for_and_activate_irq();
-+			GUEST_ASSERT_EQ(intid, MIN_SPI);
-+
-+			if (i == 0) {
-+				gic_irq_set_pending(MIN_SPI);
-+			} else {
-+				WRITE_ONCE(args->shared_data, REPEND_WRITE);
-+				dsb(ishst);
-+
-+				do {
-+					dsb(ishld);
-+				} while (READ_ONCE(args->shared_data) == REPEND_WRITE);
-+			}
-+
-+			GUEST_ASSERT(gic_irq_get_active(MIN_SPI));
-+			gic_set_eoi(intid);
-+			gic_set_dir(intid);
-+			isb();
-+
-+			/* The second pending state must not have been lost */
-+			GUEST_ASSERT(gic_irq_get_pending(MIN_SPI));
-+			intid = wait_for_and_activate_irq();
-+			GUEST_ASSERT_EQ(intid, MIN_SPI);
-+
-+			gic_set_eoi(intid);
-+			gic_set_dir(intid);
-+			isb();
-+
-+			GUEST_ASSERT(!gic_irq_get_active(MIN_SPI));
-+			GUEST_ASSERT(!gic_irq_get_pending(MIN_SPI));
-+			GUEST_ASSERT_EQ(gic_get_and_ack_irq(), IAR_SPURIOUS);
-+		}
-+
-+		/*
-+		 * A remote ISPENDR write before the interrupt is acked merges
-+		 * with the initial pending state and must not cause a second
-+		 * delivery after deactivation.
-+		 */
-+		gic_irq_set_pending(MIN_SPI);
-+
-+		WRITE_ONCE(args->shared_data, REPEND_PRE_ACK);
-+		dsb(ishst);
-+
-+		do {
-+			dsb(ishld);
-+		} while (READ_ONCE(args->shared_data) != REPEND_PRE_ACK_DONE);
-+
-+		GUEST_ASSERT(gic_irq_get_pending(MIN_SPI));
-+		intid = wait_for_and_activate_irq();
-+		GUEST_ASSERT_EQ(intid, MIN_SPI);
-+
-+		gic_set_eoi(intid);
-+		gic_set_dir(intid);
-+		isb();
-+
-+		GUEST_ASSERT(!gic_irq_get_active(MIN_SPI));
-+		GUEST_ASSERT(!gic_irq_get_pending(MIN_SPI));
-+		GUEST_ASSERT_EQ(gic_get_and_ack_irq(), IAR_SPURIOUS);
-+	} else {
-+		do {
-+			dsb(ishld);
-+		} while (READ_ONCE(args->shared_data) != REPEND_READ);
-+
-+		for (i = 0; i < 64; i++)
-+			GUEST_ASSERT(gic_irq_get_pending(MIN_SPI));
-+
-+		WRITE_ONCE(args->shared_data, REPEND_READ_DONE);
-+		dsb(ishst);
-+
-+		do {
-+			dsb(ishld);
-+		} while (READ_ONCE(args->shared_data) != REPEND_WRITE);
-+
-+		gic_irq_set_pending(MIN_SPI);
-+
-+		WRITE_ONCE(args->shared_data, 0);
-+		dsb(ishst);
-+
-+		do {
-+			dsb(ishld);
-+		} while (READ_ONCE(args->shared_data) != REPEND_PRE_ACK);
-+
-+		GUEST_ASSERT(gic_irq_get_pending(MIN_SPI));
-+		gic_irq_set_pending(MIN_SPI);
-+
-+		WRITE_ONCE(args->shared_data, REPEND_PRE_ACK_DONE);
-+		dsb(ishst);
-+	}
-+
-+	GUEST_DONE();
-+}
-+
- static void *test_vcpu_run(void *arg)
- {
- 	struct kvm_vcpu *vcpu = arg;
-@@ -1073,6 +1212,7 @@ int main(int argc, char **argv)
- 		test_vgic_two_cpus(guest_code_asym_dir);
- 		test_vgic_two_cpus(guest_code_group_en);
- 		test_vgic_two_cpus(guest_code_timer_spi);
-+		test_vgic_two_cpus(guest_code_level_repend);
- 	} else {
- 		test_vgic(nr_irqs, level_sensitive, eoi_split);
- 	}
+ arch/riscv/kernel/acpi.c               | 3 +++
+ drivers/irqchip/irq-gic-v5-irs.c       | 6 ++++++
+ drivers/irqchip/irq-gic-v5.c           | 3 +++
+ drivers/irqchip/irq-gic.c              | 3 +++
+ drivers/irqchip/irq-loongarch-avec.c   | 3 +++
+ drivers/irqchip/irq-loongarch-ir.c     | 3 +++
+ drivers/irqchip/irq-loongson-htvec.c   | 6 ++++++
+ drivers/irqchip/irq-loongson-liointc.c | 3 +++
+ drivers/irqchip/irq-loongson-pch-pic.c | 3 +++
+ drivers/irqchip/irq-riscv-intc.c       | 5 ++++-
+ 10 files changed, 37 insertions(+), 1 deletion(-)
+
 -- 
-2.39.5 (Apple Git-154)
+2.34.1
 
 
