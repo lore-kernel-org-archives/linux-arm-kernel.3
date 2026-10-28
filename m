@@ -2,71 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2B00606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 02:27:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD7A9606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 02:43:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vZN8fSwK;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=VEDWLivC
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UgC/Qx3V;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yc2qHepA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=nPtXLhmYKu2MN1HqVNGXKzPAg4qEhpU7r/v/4I5Gcsw=; b=vZN8fSwK1OTEFo6Z48VlXdMjbu
-	qT+CmCOGxFEUmH/68LUV5oTE6HOmqGuLatYorl8NXo+Hj/KPzr1BYrvZKWygxLZyW7HjMONtwheGr
-	swIoIAi+mt+6xfFeccmjTA2DXRhpWB8srrra3sJ5kE+4fgAxpvPJcdSXcdAJ2HBrRUgBgVDLPandD
-	DaUEuR4Wgfmg3qAmcB3Xh+ZyGDsM/PerNSqH0g6MevtMt4evcduZt9/tYCWoG4MQrmQ/x1SJOvXIA
-	mKqoQTwZdeD4CDTXCvGYYpwIZFmx8c887SEnqT6ZUE4jq0ld/i3ay+klu3+L+bR68mC1r6Vx/5u1p
-	RkgN626Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=Ra/5W4A7wCVcqM3u/vPzniDQAL4TxR3LVwCVXnp5ER4=; b=UgC/Qx3Vdycn86
+	vdhCsOzEciHxwEWsnTEo8ytIsd/pAnhsQqVzqZNs7hRoHLkUH4aGvOK9qBsqTEYQz7ki6y+V25x+s
+	DqqGDx6aJ8ugVOoU1gF405bKCb0U1Iw6n6GLmLOYWizqbtqwkMdNBPJepTMCTP21Zzy1ohFJkI31o
+	xYnUlV9MaK2dXAoPp9I3TlT/zepVtGjBuTrAdke7nG5Kj/dUrfmaNpodErs3ysxgNO8E7eR7/c9xv
+	CfooPhCNLQ91kvAU5vYLeKCkAJdwS8GxT28Sh5FjXcmzfhRXhLgfTjNAsuXkdYZiT4Tct1ZVOlNtT
+	JvzTzGMVRGdfEk8oha+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLtNM-000000066AQ-06nB;
-	Wed, 28 Oct 2026 02:26:52 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xLtcr-000000066iY-2nVf;
+	Wed, 28 Oct 2026 02:42:53 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLtNJ-0000000669p-3QMK;
-	Wed, 28 Oct 2026 02:26:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=nPtXLhmYKu2MN1HqVNGXKzPAg4qEhpU7r/v/4I5Gcsw=; b=VEDWLivCoqhxBjJLnnm14TEPWp
-	COR2QNe350SBN7ngS9ca47m5qquhREyv6mzRKL+WbB4zC67Pm96/qcSlpdnIfWZ4se8X7lrJLdAIp
-	JLyOynqzySu/jv5BmF15h8rEn14Yxs2ASxRzT1T0t8F7demXZgLsXVhnrMbQbLpVCinM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xLtMz-00D2sQ-Fk; Wed, 28 Oct 2026 03:26:29 +0100
-Date: Wed, 28 Oct 2026 03:26:29 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Caleb James DeLisle <cjd@cjdns.fr>
-Cc: netdev@vger.kernel.org, olteanv@gmail.com, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	chester.a.unal@arinc9.com, daniel@makrotopia.org,
-	linux@armlinux.org.uk, arinc.unal@arinc9.com,
-	Landen.Chao@mediatek.com, dqfext@gmail.com, sean.wang@mediatek.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	id 1xLtcp-000000066hk-11xy
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Oct 2026 02:42:52 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2e9ae391a05so3136965ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 19:42:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793155370; x=1793760170; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ra/5W4A7wCVcqM3u/vPzniDQAL4TxR3LVwCVXnp5ER4=;
+        b=yc2qHepAAYMu0HiypWKLjBRlkrpbnUUNSZ30ynhkf1NNrj7q+5LekTjATl99YsK2sL
+         cazkCR4N8VE5Ax+kq9gpcwqMKiPOXjHAoE7dsGY6LhAfZVfr8Xr305oy8MQsU1yLDhpu
+         IUj7ZOS6mc2gcg1hPDKRP0n4X+ScQN8y2+bsAw9xaZ1OsMc+VIiBeQ1EDG7sETmA8iQ9
+         cuOtKiistvrayquppLFfiQZLi2cUAkAxO1WmcL5qaOnRaigSBskHqrxE6AV3itW1oWlU
+         Rzr8Zpk459X4JHxsyafvBLDe8PCkRzppc1IMQ4dF2CiNSOSen52HJQov9r3vNlCk+Nvq
+         XHqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793155370; x=1793760170;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Ra/5W4A7wCVcqM3u/vPzniDQAL4TxR3LVwCVXnp5ER4=;
+        b=ZWkwIHgVicUfrSYWHEgin/dvuWKDh5ZgmjrduoGpPiMX2pUnHB6MB+R9mQlyIFWUlA
+         vHYmkcWHh0dbYoqxGcOkzbB28KTPFA4uxSZ5FEtKs3APGwpQBsWD7CqbOKMQGhUb76sN
+         qpaUuVPLF8UrWlzXu1g/SbbB/+q2k4Mz4qK7PxRgWpfToOhYbtLgYRPB6QgwmjBw4uFI
+         4IAcfx/uwVCWYOiv/sUvzBN3C4KbomIffvCyVmp0EbpQ8r8SdkdqO0TjIt7SzkC3C0qq
+         h4BHE4W8FVRJgSHCSP5ntgl+xIRU7KcZfaLcUOHYEo37x+YmhXjnYigxfsAtcMi095iV
+         oCxQ==
+X-Forwarded-Encrypted: i=1; AKwUvByD/V3tBVe0m3WSJdtAONPQZltWUqXBzxPPtmjOZ09HKYUdbl9RWEuCUMYvpfEcPfw+LH6U3KB2AyGdqiIYhWfB@lists.infradead.org
+X-Gm-Message-State: AFq9FYLixNC5ZSlTdQxUU165vXcC9z30fFf1AeNeUrKkOOayWEBp74UA
+	4HR4mnx2vZGxPH8gi4IFQiW1gupvXyFErhOF38n2aMGfDzESiu0FlhVG
+X-Gm-Gg: AYBFou2yuTYthc4xj3dQSFicvMkiutB/3V5gf6BLNf7cNxWm2oEovE4cPsS9CJljNjz
+	8mmbV79vRtVHg+NV+R4QG7QlDAiwkEB7QTu/rhSF4SiiTaBHGBRiIp5yDop+jlxzo3cd6UbFVL6
+	Dcq5XIhDy66Ciy3rkicPPP6ATwyKPC2Xp4ZFhj7O4GFOeK8UaNZIzkCE3l5vZkNfuMhrTaFUlm2
+	g/cSHeXvjagBJ+rdaOI8MHMYIc90mik3JjzqyJxi/WmUSzr2GFdxK1Yfu3YPJhWAAzoc7GfyR8q
+	ReXgeHWl9FDgrJwIh7v0Net1i+JiSSgAmQ7UFG679jX7qGDmVIjGA0cSfFE3hmUGQamY/j5ji6A
+	1+A3uhYH2tAgcy5x+P7b1MiDgbag7ONAK3Q/nSYmuPmu+ksZS8QYkT2QT6IModgR9eN9vvtUl1w
+	b9gK42cj1yh5ihsI+ASDpkeIGP5FqMUAdn991u47TiwEdQ+N7/qHXmRROzP9MOJkR+ERFclM/CW
+	X8PrAbRkreYrL8Qx2lhVBlkaiFhlKEyNpEiF2HIx+fMw0WpucZDit3WnOBRprF0CXU6py3yyqtw
+	F0DRDzyyc9s7fAaLcy9RNM4vst8/0kc3VjBRU523bty6sfA=
+X-Received: by 2002:a17:902:e751:b0:2e9:6645:e9a9 with SMTP id d9443c01a7336-2eb074e7947mr280415ad.32.1793155369680;
+        Tue, 27 Oct 2026 19:42:49 -0700 (PDT)
+Received: from zhangbo56-PC.mioffice.cn ([43.224.245.235])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eae6b7a69csm15520515ad.13.2026.10.27.19.42.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Oct 2026 19:42:49 -0700 (PDT)
+From: Bo Zhang <zhangbo0325@gmail.com>
+X-Google-Original-From: Bo Zhang <zhangbo56@xiaomi.com>
+To: baohua@kernel.org,
+	akpm@linux-foundation.org,
+	linux-mm@kvack.org
+Cc: x86@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, naseefkm@gmail.com,
-	b.larsson@gmx.com
-Subject: Re: [PATCH v3 6/7] dt-bindings: net: dsa: mediatek,mt7530: add
- econet,en751221
-Message-ID: <f9249c6d-ef72-4723-a3b5-8d5375e53744@lunn.ch>
-References: <20261028011317.1557238-1-cjd@cjdns.fr>
- <20261028011317.1557238-7-cjd@cjdns.fr>
+	surenb@google.com,
+	liam@infradead.org,
+	ljs@kernel.org,
+	vbabka@kernel.org,
+	shakeel.butt@linux.dev,
+	david@kernel.org,
+	linux-kernel@vger.kernel.org,
+	zhanghongru@xiaomi.com,
+	willy@infradead.org,
+	zhangbo56@xiaomi.com
+Subject: Re: [RFC PATCH v1 1/2] x86/mm: use VMA lock for kernel faults on user addresses
+Date: Wed, 28 Oct 2026 10:42:42 +0800
+Message-Id: <20261028024242.3394761-1-zhangbo56@xiaomi.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260802074018.73887-2-baohua@kernel.org>
+References: <20260802074018.73887-2-baohua@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261028011317.1557238-7-cjd@cjdns.fr>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_192649_860818_72C3F9CB 
-X-CRM114-Status: GOOD (  13.61  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261027_194251_293245_54A174B6 
+X-CRM114-Status: GOOD (  13.55  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +112,57 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 01:13:16AM +0000, Caleb James DeLisle wrote:
-> The EcoNet EN751221 MIPS SoC integrates an MT7530 switch memory-mapped
-> in the SoC register space. It is similar to the econet,en7528-switch
-> except that ports 0..3 are 10/100 only, port 4 has a gigabit PHY, and
-> port 5 has no PHY, but is in some implementations connected to a
-> downstream MT7530 multi-chip module via a TRGMII link.
-> 
-> The downstream MT7530 is similar to the MT7621 multi-chip module and
-> has all gigabit ports.
-> 
-> Add the econet,en751221-switch compatible with the same constraints as
-> the other built-in switches and also add the econet,en751221-gswitch
-> multi-chip-module switch whose port 6 is configured as a DSA link port.
+On Sun, 2 Aug 2026 15:40:17 +0800 "Barry Song (Xiaomi)" <baohua@kernel.org> wrote:
+> Use the VMA lock for kernel faults on user addresses. This also
+> makes the existing code below meaningful:
+>
+>   /* Quick path to respond to signals */
+>   if (fault_signal_pending(fault, regs)) {
+>           if (!user_mode(regs))
+>                   kernelmode_fixup_or_oops(regs, error_code, address,
+>                                            SIGBUS, BUS_ADRERR,
+>                                            ARCH_DEFAULT_PKEY);
+>           return;
+>   }
+>
+> Right now, the code above is dead because !user_mode always
+> takes the mmap_lock path.
+> ---
+> -       if (!(flags & FAULT_FLAG_USER))
+> -               goto lock_mmap;
+> -
+>         vma = lock_vma_under_rcu(mm, address);
+>         if (!vma)
+>                 goto lock_mmap;
 
-Is there a use case of the econet,en751221-switch not in pass through
-mode? This is where you could have a different dsa_switch_ops
-structure, which probably makes the changes less invasive.
+I ran some numbers on x86 to quantify this. Using perf I counted how
+often kernel faults on user addresses still fall back to the mmap_lock
+slow path (lock_mm_and_find_vma), and the total time spent there,
+before and after this patch.
 
-Even if there is a use case for not pass through, you can still look
-for the property in probe, and decide which of two different
-dsa_switch_ops to pass to dsa_register_switch.
+Test setup: x86 host, booted with mem=4G.
 
-	   Andrew
+Workload: vm-scalability case-mmap-pread-rand-mt, a multithreaded
+random mmap+pread workload.
+
+Fallback to the mmap_lock slow path (lock_mm_and_find_vma):
+
+  metric        before_cnt  before_ms   after_cnt  after_ms   d_cnt%   d_ms%
+  fault path           416   3510.000           5    256.780   -98.8%  -92.7%
+
+The number of kernel faults on user addresses that fall back to the
+mmap_lock path drops by ~98%, and the time spent on that path drops
+accordingly. So these faults are now handled under the per-VMA lock
+as intended, and the corresponding mmap_lock contention goes away.
+
+Thanks,
+Bo
 
