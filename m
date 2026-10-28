@@ -2,130 +2,101 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E294606A321
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 09:05:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90100606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 09:13:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZaUoW0FG;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=HbAcGTgr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zYy7SxAZ;
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=YD3seNv1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=VdfUE1zeNps++gPXOwSlr65lQOrURCAUIxELndnADvQ=; b=ZaUoW0FGyo/t09
-	xVXUrrcYhUdmYEXt/mwtUzeGLBBeAKW/+wHvFoTPAPnTyLcFREaPzMG96v+b5uE9m13DDI9RaM1d2
-	CHi8l2qC8+dkY5caxEejIsR/369ux0mEiHhs77jeCbf3KR/IMtzG60z63B8OqOImntNXZw70e/ktq
-	FIQWYMCEDqZqVAmWGXJHA/BN6VuXwjw7QxEUASoC4YtktS6yjpPYjR3ko1nRCn8GDJsLAJOGFWi+6
-	Gkm4zwBvorJnOMBxJYSGZ5TyqqxpcqoUSjxYUVgyG96qExHasOSJU3dkrJ3suI6tqJ9BLtL2Fcada
-	TlMBxKKFyIYQlKe+d75A==;
+	List-Owner; bh=3W2zW/ASI3Ufo+rdp+J+HzrLBLxCU9YgEhL1tFo9JN8=; b=zYy7SxAZCNLKeL
+	IBOoLpiO4yi+B5gOyT5RT/TLP7/AezTda+ENves6oAoCkz+xJej1gHZwEHuLgnwYBVV9Ci9BkeR2d
+	ZMttfuTbpVCMbmkAe24Yue9TDsWQti93I8VqMwp7GrRRF4/oZoFQoS6iYtdK5OKZ6wywWnnUwlcI3
+	SOgLpiUrccYv3ppJzqvAARbySkuylIPgp1w7xytr4A+5YZkW/68/eByaZfGtUGma/cCD3ogK2BLXv
+	EOUO0U9mVESo6tfyoJbXV/XZEngNXu5dFS5ylgdREdxc66fjxfX7jYNczU0HVTsw91f463YEwY6Dp
+	gY2Y9pVbOjM7s1gQxxew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLzbU-00000006cSl-0MLP;
-	Wed, 28 Oct 2026 09:05:52 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1xLzii-00000006dFH-3f9a;
+	Wed, 28 Oct 2026 09:13:21 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLzbO-00000006cRC-3xqP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 09:05:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=go/G/2XEorrPGPM56nScft9+d7KJddkqRqA+lRaIUltbp5Jytw+xx4oYQIE6PNGa1dLeO0GAhhSwR8t54BEDHKW84irB1pXRsHk+mO12I2/+ERb5qP5eDqXTZH5ZNxrvHC/rQa2DOZ9Ao+BbWfj6HsJ6h6SKRcoIkEsDt7FLcQdbmsBSng6LHhFMCXYkNWA69QxWa0jfbziGGBJXC/8jb0oGNQkgsBOSk3BqXt4Cj4HEGGlFX06xV+51h/Xm/GAppvYvmgbzmdu44Gdlzf2xFOr6z+iz+J169U8GgFkVpjOf/VGFY1DYZmWCAuNB5PovI+PThmTv1rRN0R7KxHz2WQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VdfUE1zeNps++gPXOwSlr65lQOrURCAUIxELndnADvQ=;
- b=fbfRhaYbF6eSzyZEh1/1FNVQJd4uqbFAb3JnbRZQHN9aEiZn6fAGVZ/Cp0V0dEVhjAdJxi0oeDaFjTdXRTuNyGw48oxWxa/7WkdH64YQky7EVFZyUqNNxzpj9cGUdE37AXbePqFGbw7Nz7ksuxWb//ZK74m8sfIX2qxW+MWVmUHHI0MiPJq0pV/QH8VldRX+2AKodbKOQ/T6iKX6DWAWN2X5C3aVAY57BS95Ex80cS1ajvYNcGn49T2qPfop3+gS6sZhERzrQmd/+T6/ZCrDC2OWvCdtmU2lFU/3AME9tazyLIE3717Df75UKJqez/vFFsK/bNRnzHhWd6FWWp2EDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=bootlin.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VdfUE1zeNps++gPXOwSlr65lQOrURCAUIxELndnADvQ=;
- b=HbAcGTgrxCWtehpKHY99bxOPf3lTD+J8LyTk25wemKyEAVNKbx+dVCR8r8FuGzTAFr9CrgY+UG3fcnd4nS856M6w45kT2uCodw9PQjo9EKPqEdZqpN/bZX5fPWn7m3P0iMSucnWK1hH5lZEdtGOaXZlSsWvad7GHTS+pYIg9TbimuZkjqnwTljf+FlSaFCiIFIBtVSjSkeiBw4LahqGv4B5KfAl3Ewhm42ZsIfjHrxoye2hfJTjWWipJ8lSaEINs/6dWJNQ7/f8/U6DlfkL1U7cbwNZ8f98DKdRFaEFdX85sBzFBI6pDJDxroqXQMBxlSr6wcug3FwYiINDzaSxlOA==
-Received: from PA7P264CA0318.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:395::8)
- by DB9PR10MB8143.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:4ec::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.8; Wed, 28 Oct
- 2026 09:05:36 +0000
-Received: from ZR1PEPF0000E45D.eurprd04.prod.outlook.com
- (2603:10a6:102:395:cafe::2) by PA7P264CA0318.outlook.office365.com
- (2603:10a6:102:395::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.22 via Frontend Transport; Wed,
- 28 Oct 2026 09:05:36 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- ZR1PEPF0000E45D.mail.protection.outlook.com (10.167.241.53) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.569.4 via Frontend Transport; Wed, 28 Oct 2026 09:05:36 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 28 Oct
- 2026 10:05:57 +0100
-Received: from [10.48.86.230] (10.48.86.230) by STKDAG1NODE1.st.com
- (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 28 Oct
- 2026 10:05:31 +0100
-Message-ID: <30f98ff0-decb-4d08-ac80-5c225aea1418@foss.st.com>
-Date: Wed, 28 Oct 2026 10:05:30 +0100
+	id 1xLzic-00000006dEZ-3oXp;
+	Wed, 28 Oct 2026 09:13:17 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261028091311euoutp024819ef823fab2c20689b5890d7ddf5ae~ippwwUXVb2349923499euoutp02J;
+	Wed, 28 Oct 2026 09:13:11 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261028091311euoutp024819ef823fab2c20689b5890d7ddf5ae~ippwwUXVb2349923499euoutp02J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1793178791;
+	bh=3W2zW/ASI3Ufo+rdp+J+HzrLBLxCU9YgEhL1tFo9JN8=;
+	h=Date:Subject:From:To:Cc:In-Reply-To:References:From;
+	b=YD3seNv1lTl6lfYw3bfwIkC48J0uPe3B+5wKAZPK+XeWBwINFgBm5MPb9sVHecN7v
+	 XByNXwrD0JsSH1+jN75BcFsO8ELTz7OD2T7aTRqKuYUS05jwwSQTiJ5lwYNNLhOdCb
+	 QW+IPyyDcEgIBTrDIHHnlhBaaSr8YKqqFO/n8FO4=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261028091310eucas1p1df77aa99909e0c12fcd259596f1f2163~ippv92h803159131591eucas1p1d;
+	Wed, 28 Oct 2026 09:13:10 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261028091308eusmtip25984a31eb02ec800271e9985aaee42c8~ippuC0ldb0063200632eusmtip2x;
+	Wed, 28 Oct 2026 09:13:08 +0000 (GMT)
+Message-ID: <f6474690-adba-43ff-90f8-cdddf857286b@samsung.com>
+Date: Wed, 28 Oct 2026 10:13:07 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Thomas BOURGOIN <thomas.bourgoin@foss.st.com>
-Subject: Re: [PATCH 0/1] net: stmmac: descriptor management issue during PM
- sequence
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Alexandre
- Torgue" <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
-	<hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, "Stanislav
- Fomichev" <sdf@fomichev.me>, Lorenzo Bianconi
-	<lorenzo.bianconi@oss.qualcomm.com>, Christophe Roullier
-	<christophe.roullier@foss.st.com>, Ding Hui <dinghui1111@163.com>
-CC: <netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<bpf@vger.kernel.org>
-References: <20261027150556.51209-1-thomas.bourgoin@foss.st.com>
- <8a1547bb-cc42-465b-8a8a-d4790cd0867f@bootlin.com>
+Subject: Re: [PATCH v4 16/20] phy: Add common Innosilicon HDMI PHY helpers
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss
+	<rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
+	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
+	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>
 Content-Language: en-US
-In-Reply-To: <8a1547bb-cc42-465b-8a8a-d4790cd0867f@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+In-Reply-To: <943aa2e7-3945-48f9-9a87-9c963f97099d@samsung.com>
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E45D:EE_|DB9PR10MB8143:EE_
-X-MS-Office365-Filtering-Correlation-Id: c1990eab-59bd-4500-ef69-08df34d2a142
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|36860700016|82310400026|921020|4143699003|5023799004|11063799006|56012099006|261009223027099003|261022105027099003|261022075727099003|261026121527099003|261026140227099003|261021121427099003|10067099003|22082099003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: ZADUkWtd7lS67exZMtr0OqVWeVNMvBZgFu4+kjjCFUD+qPdZnUmLp1/GHLtH0q+ms+rxcZSBH/okxreT4GhbD/KEFdjXiwEg5+vymg5189U9Mu/WsCUyEF9btI5SnDgXOEnG/57k5igffWakVGle6i1tQNe1UV6tI+QfFmYCVjJq5u6IH1me3NJlBpfPlACF8czHxWWoX8HHfc2A1Ks5SG+ym0Rsaxbz9rK6sfQdX5f1V6KbfLVn3tlSdoXkDZ078RZ50Di+Q7oGISOBN/OjSPyqiClJyF1UnzGP6oAiTAdwP5dOxLPK2HY/n/wGW6+60TrU04Sd3GwwHLX1W7ppSnZeHC/Oqr9CHOipndG2rOruIRAQf58xv4b6xGiuHbxnwKvHKXfQwRS/YKGpPJ0ozUtJPm6NwWx0W0WHLhK81hqo6RL9SvLsA6jrkjrrwIIvjNDOdQUS9ow7UHnlw7vktG0TqVXiGEVnSOWphjVDa14YvZ7qeupZZu1K8n9KuYrHXwAjPaFQTm2A1zug03wfZG+09RuGOkjkEOPiwNwJiGvWphm/a+1B7LiTfPf2hbcvnMrHQZBJidwjEW+2eHWOWsya4GZXd1HIMevL1qyodT8OtDzbEJYdCKwpgydO5sIugbyzNGX4iIxCbYJWDiau3k2Uk6j12uUHah1beQrBRqWKGmVc49PRdOKv/vyh++MkxyVBGf947JGiLyMObx8HLw==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(36860700016)(82310400026)(921020)(4143699003)(5023799004)(11063799006)(56012099006)(261009223027099003)(261022105027099003)(261022075727099003)(261026121527099003)(261026140227099003)(261021121427099003)(10067099003)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 4OG3EicmgpXmIRTtcnk+/Dgxyq4kyp34y2n35XFCzGwfrGvhAvDRndYMrAItMedgoUrIvU/p7vut8eT3fCjmHTFLVgSNKdqD+MA1LwvDoIkBTq15H3GYzikS6jhdsySiT/b8B/nqC9pK+6zRbcfg5lIDNnpSPuwUSMYjYSh6FYyWFs0fbv8zrstVj4BSzKoH96s/G/PWXlbT44Fh5ULMaiFNu9e7zNlF+ge7plCkanrQktndw/0ME1f6aaRUKCfRNk8HKYaTSzbTcEbZc6hEDjLbVIwSiStRe+MIZwxPJlN38FHZ4zFaF+sgiPPYreKDUaZhGIjAF7BqoZPTCCsMZjXFU9sU0YdEzI6st/42Iz6qqEWKNLf2lDj4497tTzuetUZu0+ThSZBQDUpui7r+893qIZCJJ7L4dBgGTxetuWpMN8Go4H6lhCiVgJb1hmQo
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2026 09:05:36.2930
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1990eab-59bd-4500-ef69-08df34d2a142
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: ZR1PEPF0000E45D.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR10MB8143
+X-CMS-MailID: 20261028091310eucas1p1df77aa99909e0c12fcd259596f1f2163
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260915153242eucas1p1394a6a5e272f106b9cab2a0f709ddeb8
+X-EPHeader: CA
+X-CMS-RootMailID: 20260915153242eucas1p1394a6a5e272f106b9cab2a0f709ddeb8
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+	<CGME20260915153242eucas1p1394a6a5e272f106b9cab2a0f709ddeb8@eucas1p1.samsung.com>
+	<20260915-jh7110-clean-send-v4-16-f0e4fd6f2cc8@samsung.com>
+	<asEPmpQTwXYADwTk@parshuram>
+	<943aa2e7-3945-48f9-9a87-9c963f97099d@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_020547_221249_901EAB10 
-X-CRM114-Status: GOOD (  21.57  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261028_021315_535589_83DFA5DA 
+X-CRM114-Status: GOOD (  12.68  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,66 +115,36 @@ X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> Hi Thomas,
+
+
+On 10/26/26 10:13, Michal Wilczynski wrote:
+> Hi Vinod,
 > 
-> On 10/27/26 16:05, Thomas Bourgoin wrote:
->> Hello,
+> On 10/3/26 16:22, Vinod Koul wrote:
+>> On 15-09-26, 17:32, Michal Wilczynski wrote:
+>>> The Innosilicon HDMI PHY IP is used by several SoCs. They differ in
+>>> where the PHY register block sits in the register space and in which
+>>> pixel clocks they support, but the pre-PLL programming sequence and the
+>>> layout of its registers are the same.
+>>>
+>>> Add a small library holding that shared part: the pre-PLL configuration
+>>> table format, a lookup, clk_ops determine_rate and recalc_rate helpers,
+>>> and the pre-PLL register programming. Callers pass a regmap, a register
+>>> offset for the PHY block, and their own pixel clock table.
+>>>
+>>> No driver uses it yet; the users are converted separately.
 >>
->> During low power sequence on STM32MP21 we sometimes observe out of range access
->> to the DDR by the GMAC ethernet. I managed to narrow down the issue to the
->> resume sequence of the RX descriptors with the function
->> stmmac_clear_descriptors().
->>
->> On resume, stmmac_clear_descriptors() returns RX descriptors to the DMA
->> without restoring their buffer addresses. On DWMAC4, the DMA will
->> therefore consider a descriptor for the application as one for the DMA.
->> This can lead to illegal access from the DMA anywhere.
->> On STM32MP21 the DMA address bus is 40 bits, thus the extended status from the
->> write-back descriptor is read as an high address by the DMA. DMA will then try
->> to write in the DDR at 0x100000000 whereas on STM32MP215f-dk DDR is only 2Gb
->> from 0x8000 0000 to 0xffff ffff and nothing is mapped at 0x100000000.
->> All the other SoCs of the STM32MP1x or STM32MP2x are using a GMAC with a 32bits
->> DMA address, so I do not have illegal attemps.
->>
->> To fix this, I propose to reconstruct the RX descriptors that have been used by
->> the DMA but not forwarded to the NAPI function stmmac_rx() before suspend.
->>
->> I'm not used to this driver especially the xsk management and zero copy part.
->> Since this driver is used by a lot of plateforms I'm open to all suggestions.
->>
->> This V1 propose to reuse stmmac_init_rx_buffers() but maybe using
->> stmmac_refill() would better fit the issue. From what I read, I could not call
->> stmmac_refill() as rx_q->cur_rx is only updated in stmmac_rx(), so
->> stmmac_rx_dirty() returns 0.
-> 
-> 
+>> Is there anything in phy patches here that has dependency with rest? If
+>> not consider splitting it up...
 > 
 
-Hi Maxime
+On second thought, I agree it will be easier for maintainers to merge,
+so I'll split it in v6. The PHY patches (the binding, the helpers, the
+Rockchip conversion and the JH7110 PHY driver) will go as a separate
+mini series.
 
-> Thanks for the series :) However it looks like this is already being 
- > addressed by
-> Ding Hui's series (currently in V5) :
->
-> https://lore.kernel.org/r/20261025100636.613670-1-dinghui1111@163.com
->
-> Can you take a look and maybe provide some reviews/tested-by tags ?
-
-Thanks, for the sharing. I guess I'm not the first to have the issue :)
-
-At first glance, the v5 seems really close to the solution I proposed 
-(update init descriptor function to factorize some code so it can be 
-used during resume to reconstruct the descriptors that have been used by 
-the GMAC DMA).
-
-I'll take a closer look at the series, I'll try to test on 
-STM32MP215F-DK but I'm not sure of what I can do.
-
-Do you think, this patch is a candidate for LTS ?
-
-Regards,
-
-Thomas
-
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 
