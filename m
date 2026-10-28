@@ -2,112 +2,115 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1807460A6F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 16:06:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18268606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 16:09:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=o+V4Sisx;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=bwUcESra
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PtmnL6pN;
+	dkim=pass (2048-bit key, unprotected) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=New0SUjJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=K5cbxD/lRSp2Q3hLi6PLLzoHUCTKepxDQp4Kq4HqxLM=; b=o+V4SisxhR5C8g
-	o/dv1TDWlRWZYnwczzQCicBz/KJskDGm4L/MoBDjqb4Kqy3znFmOL14Qpd1anisJY9SMgfTSz40zA
-	hM7N/IrMORih61+wtiZsYE1J+Qjo8spVPGODLNDI+sID6MSjUNmtplghPflEW1qnBayz/dsxAHPpC
-	F5cH8/03EbTpDxLUn2kaze3i0KcP57XcVSKaw4Ky7bbJxV8WJVhy0zwrNsYW+VExCkziL8V4deDto
-	Y3eHwasnbL6m4kGq0F2D1dLvhOEKe9XLrIvdFRyy3Y4fuGQ/UUibKInU0qWMFTm58GkeTednx1V+Q
-	zOXWjKgxZh70sGeVyL4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=YZcts4qcYFLKUzeEZmCB29OAtaKV7wlY2duix3l+9sA=; b=PtmnL6pNuyuzYae+HMGg7LUWD8
+	6Fh+SL92yFSjBDK0aF2LNSLyA+EjXZMqEim+YzppkK+YUQ3/Hokx+8aFU/4FqksxVyEUEg+Q0ystY
+	b2scjbSkCJCP+pjJY5Ig/V30sTbiXr9q3xvqqsJLYBuQ4d1+wXmIpY7pBwiXKBuIWmlwjPawB3zW+
+	a2/mP5M0QU/cZjtR79AqsB+coz+uY3a0AjqUZ+d0IGUABEtX9sZx1ToFuqA4kmDnjpS+uMMwTyrvW
+	0TtuGJRpW+kIUnHAJciNDiRHbNgjE8MH4COaOogYYJtoHqhCQpbugq7Ddvt9YDcw/pKmaTU9Lu2oG
+	l9Ggb8YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM6Aj-00000007UXM-3oeh;
-	Wed, 28 Oct 2026 16:06:41 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1xM6Dj-00000007Vbm-2AaB;
+	Wed, 28 Oct 2026 16:09:47 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM6Ad-00000007UQf-0q3k
+	id 1xM6Dh-00000007Vae-0IO5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 16:06:36 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a214c5c4c0so10335315e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 09:06:34 -0700 (PDT)
+	Wed, 28 Oct 2026 16:09:46 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a208d93758so12252325e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 09:09:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793203593; x=1793808393; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=K5cbxD/lRSp2Q3hLi6PLLzoHUCTKepxDQp4Kq4HqxLM=;
-        b=bwUcESraQlIHqLgAI946KLaPlaG5mOaYEujZz39Lhp+JK4j6bXl0b6pjN8+WnxNjfA
-         4HnRTMXLaVRELRcr2W1Od5Y8rhkY/4YekNc/C/u8D8dk5epbBUirJUnBJvMRbab1Y6W3
-         CAECG9cHURmuzEfSNxW8WVzwnNcvdtgtbzcgJQ/fVxUzL1WCBbiBMW2GVKFqbvlw2BZi
-         RdVoGhnDLEeRNFWKQY8QL8W1mNG7gTTSGPBByiyyvUYil+2GGIeIfreh4OvCiH2VPRbR
-         hp7JWt9DCFdgFLGbTdX80b1thAVS/QhQkoOaByImVwsG9HZ8PXG+UwqC0kIo3lS7xjAo
-         J4PQ==
+        d=suse.com; s=google; t=1793203782; x=1793808582; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:date
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YZcts4qcYFLKUzeEZmCB29OAtaKV7wlY2duix3l+9sA=;
+        b=New0SUjJuXNGyaD+4ph8+jLdBxu7of8lMM6gGyS1XU2uDnp0h3QsH97I0vwjiJNx7I
+         HdkMrGCrEoxWTjxXD4fMv4PNJD+Cn1KgpBtiFireoBgUW/+uwE48z5UlfwjbRCTCJb89
+         nLL0Bk7HwvJGvhXUjRha+pxANxjBY02v/tGH74pEG9i3l3YTM0TIMERHDvyNWrG+ehch
+         OZ2UxeLEM0AfMaK83qyAtoiEV7pxY7uMWHM/0Q/KmbCwZwuvqcFZxIM5UMJ4Kw2AJ7mO
+         ynO09ok+8uUMkk9ozR5y7q14PVGGbLvhP/9qRj8y3N/jkExZwnG7vmAYOo2S+qPzQIo9
+         rmBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793203593; x=1793808393;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=K5cbxD/lRSp2Q3hLi6PLLzoHUCTKepxDQp4Kq4HqxLM=;
-        b=peF3tCtqS8QonHHPOcvBrRfGstefwRcnljXBeQHz7ptpAWM7ZFU4a42GpY1O2BBWcb
-         +uixGBGerN7hGNbXF6K1UO3iU8pYYcZm7CKlwYBThetKBgng6XsEYao3pC3uWTm3Xbeh
-         qzyrgtdPK5zls4vXLoKGnwDH2YAjhUckIaUWyHoGWnjkcVos9Qb8JL8zN2bwwD1o4MmP
-         s0h5ADQ6kVNIvzXsKb+ibmud/iYe/gf4ba80zdYHFMnerMMXVnZY8mco/VmY/PWmGKLM
-         kAFnygkzaiER8hzfHN9OFUxbfvSbkSLdKsFkIaR722V1ajDFLdi0jIe0hAyFxFEXpXsW
-         PDdA==
-X-Forwarded-Encrypted: i=1; AKwUvBwcNZJH+7uYCwMU7VL3M+zm8VezITt7D9t63Z7MdVFMm3YpTyQYzk2zCin/JIezn+e30ZrfCdi+G1zEiReVG3DW@lists.infradead.org
-X-Gm-Message-State: AFq9FYL1ggr0klh9RWthjzltMtMtgINSTc3iK83bTJvKaD4D0pzcxv69
-	Q6hmUmxMnPxzpSB2zX+Xb35hA32VloKJzw9gIWUkCjGNHqffgCruZsBXD4fPhl41L6g=
-X-Gm-Gg: AYBFou2EkoAz9UxT4S+LoHbF0IDAK35fmmmHEmiQ6JILgvlxgqtEPh6PCPunvJvb3Ut
-	mdqr8gobYa9kY9jiq8GJPABmfRQiqb7KmbGTeFJ20QNZBUnv4b4qAF6jS3o4OTgXItlhvA2qiHM
-	UJ9o1GqT55Ga+HOiO1sgPOFZV0CyT5SOSDN88RgU2FlGJBQVH7cQdfNz4m0lsZEJ154X/RAt4cP
-	GS2+j9NqUxD0MrXG01E26fjAFdVACCetA1M/4uK5EFDRL9I1fIfa+CGT5Fdzofy2sVdFiX+CUSa
-	9lZy0pKnC+at2HUb7ARQWwD7kkumUMecLTg1nZCEYRnS61PStTiwaGJt4/EwCdlSc6YBjxqZG1S
-	6Z3pHEE5xZLrD4PAGry5jkHg1p+83lcDDWADZxxOiQFff1HNqLwNEdKW9wixDOLrzGnAVerWg2Q
-	71G4ctd8WreOSnRt/KTdN02fwKcxFw8B1w4h+EA0GSc1SOy5JDW+fcjJwGBgLep6uBN8vVJuQhR
-	7+6Dg2CKzmx3nxmRYgsUwwgTCAboFA0HWmlLLU54jWrf118luoZkN3P8TNfubtFJGC/KM5AaIC0
-	yUA31PRGIHs6grzyoiVO6nnFZSAV4vcl0PABkolzSwqg4FliPi3tXjnzCjv3pE9q/NWFwxN/+kK
-	StJRMAuNgG3flnS6dyfpN0gZzCN0O6AYopoRlSoOqFAcA/cg=
-X-Received: by 2002:a05:600c:34cf:b0:4a2:397:73fd with SMTP id 5b1f17b1804b1-4a9667755f3mr61530825e9.12.1793203592754;
-        Wed, 28 Oct 2026 09:06:32 -0700 (PDT)
-Received: from z13-ek5.local ([151.40.161.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa81a896ecsm1625875e9.9.2026.10.28.09.06.31
+        d=1e100.net; s=20260707; t=1793203782; x=1793808582;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:date
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=YZcts4qcYFLKUzeEZmCB29OAtaKV7wlY2duix3l+9sA=;
+        b=chN2kwTOwtTYrCjO7kuxNnx0fAhgmP5AKVYtf/x5TgCk978kigfljJ8egi5KRtV7g3
+         5qqL34bgFJPFxvSu9zswcIkPJwzPguLdrzIrF9+DwsHJXt810V/bjakmYivsdH9XIDx3
+         SB96iJTQwgeGdNSiFYCpTwzHYw+/Yr6MWQkiEehFiqJwxlenZbv/r306yVnLq3/Zuxfs
+         Mos0uNHm6mkNr8ViDRGNkDvmdize+RPhF9Bc/q0QGS5/X5WPZO8+tVbk7nC9AmZZRpR3
+         cwyASQZLbmTX2lK/K5YS7xGP1gJpbeBV7IXTz03xXpF6KZxhUl3CDsgJNtxerZEvYpYu
+         jZdQ==
+X-Forwarded-Encrypted: i=1; AKwUvByVifaxv8+5BZR2flr3JLlNxEhnz9dcofPSt0RfbXbZMo1460gH1exjTH/WVg48034xlKsB1Ra/Gw42/xQaZAsx@lists.infradead.org
+X-Gm-Message-State: AFq9FYJvL47MhD55UeL/01tB3hZkJumtsF4WnbBo4K8Ahs/9p3eTYrQh
+	FcFL6CGb0QirnzZn1OwtWVoDq9NaKhg1RFm2a/0l0VNyxj/ysEZThh/WSb1DJE5t2NI=
+X-Gm-Gg: AYBFou3AKHW8woVlWYL/js4BuQntjrGuQMZPhJBLvFivb+WRa+ev7DYrGng4wY7spVL
+	oXry2IWqu1Zm2jcrVQWWwohHWZrYwX1+zHY2ffzP3dTmbaUTV9efxhWVtIWj7eunS335KLn9GtO
+	UclTsUlwwKUVQihkjsnkYapHca6u9AZbnSCuj/MIn9Wsi+6yjmynEGQN9PbdIWeCg55z2VIZxrj
+	5mXaOlQWWQYILISz3F4FgOz4ec6VXAIshOSyLThqC87MocOr7mGoWTGSQ5BYdbPTQBAR/grcnPV
+	W9YaX0waoFQ2y372sC0tZ0qY7xCPUXr6ZAuab2VvXwnMbiZINamFm8vc9nab+vmgQDPQ2y9gUdq
+	J2s0N4SSt5GiS7eDxDn3AUwydOJskfFtK4hh5oCInZG+KJSVUtPNINxg2dH5/WZxKvs1Yozq7g/
+	SZCZM9jwFPhdGIGDqAIcyxse2rCNNLuAnJih0G8OgVXOthykkDJcyBU3XCXtbasir3jQQgEcMEA
+	3pYuWxVFrhMbjf1wy6kFMVpkA0fob6N1FpBehEApDQ0a8AE5zxQ5vKCfvuVNW0jSIGfwFFPpByj
+	Mb1JbpXKs4DDYYVEOiY04RWcv1Timg==
+X-Received: by 2002:a05:600c:4f89:b0:4a1:c6fd:4db0 with SMTP id 5b1f17b1804b1-4a966c41836mr68052215e9.19.1793203782221;
+        Wed, 28 Oct 2026 09:09:42 -0700 (PDT)
+Received: from localhost ([82.192.120.214])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa8213ead6sm1572025e9.14.2026.10.28.09.09.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 09:06:32 -0700 (PDT)
-From: Ettore Chimenti <ettore.chimenti@linaro.org>
-Date: Wed, 28 Oct 2026 17:06:09 +0100
-Subject: [PATCH v2 8/9] ARM: dts: omap: dm8168-evm: Correct SD card pinmux
+        Wed, 28 Oct 2026 09:09:41 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Wed, 28 Oct 2026 17:13:35 +0100
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Gregor Herburger <gregor.herburger@linutronix.de>,
+	Stanimir Varbanov <svarbanov@suse.de>, linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-pwm@vger.kernel.org,
+	Gary Guo <gary@garyguo.net>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Subject: Re: [PATCH RFC 3/4] hwmon: Add driver for Raspberry Pi RP1 fan
+ tachometer
+Message-ID: <auIfL4ZGdfNDUZxO@apocalypse>
+References: <cover.1792748690.git.andrea.porta@suse.com>
+ <0d2249a66732bfce38a2260bee08cd1ba4097e51.1792748690.git.andrea.porta@suse.com>
+ <auGdsv0OVG4iLjZV@monoceros>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261028-patch-ektor5-dm8168-dts-v2-8-4544429251e2@linaro.org>
-References: <20261028-patch-ektor5-dm8168-dts-v2-0-4544429251e2@linaro.org>
-In-Reply-To: <20261028-patch-ektor5-dm8168-dts-v2-0-4544429251e2@linaro.org>
-To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
- Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Christopher Obbard <chris.obbard@oss.qualcomm.com>, 
- Andrew Goodbody <andrew.goodbody@linaro.org>, 
- Paul Walmsley <paul@pwsan.com>, Russell King <linux@armlinux.org.uk>, 
- Rouven Czerwinski <rouven.czerwinski@linaro.org>
-Cc: linux-omap@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Ettore Chimenti <ettore.chimenti@linaro.org>, 
- Christopher Obbard <chris.obbard@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793203582; l=2102;
- i=ettore.chimenti@linaro.org; s=20261014; h=from:subject:message-id;
- bh=eWhzeB8jAMTZPI1KrE3IIq1D7Ssewn5fvDeiaH0we+4=;
- b=CUTdkEkF+dq1LidthdxZMOHWhYkh3VNaqmkMHQcbzmIMwWqhtlFSpowlgfjJ9B+E6nNFDhmgJ
- 4l964OezPWqCU8RpaNDL7ofSCLEmk1/wscSP2drx4dcm0qqWHWQZ+ME
-X-Developer-Key: i=ettore.chimenti@linaro.org; a=ed25519;
- pk=wCaUblFVaqhuBTQt/hAtysafsAaEsqj/yOD9SPlz6NM=
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <auGdsv0OVG4iLjZV@monoceros>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_090635_272328_331D9828 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20261028_090945_130697_D134E6B1 
+X-CRM114-Status: GOOD (  11.22  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,60 +122,28 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Andrew Goodbody <andrew.goodbody@linaro.org>
+On 08:02 Wed 28 Oct     , Uwe Kleine-König wrote:
+> On Fri, Oct 23, 2026 at 12:15:56PM +0200, Andrea della Porta wrote:
+> > +#include <linux/platform_device.h>
+> > +#include <linux/mod_devicetable.h>
+> 
+> Irrespective of how this patch set evolves: Please don't add new
+> includes for <linux/mod_devicetable.h>. <linux/platform_device.h>
+> already provides of_device_id without introducing a batch of unneeded
+> dependencies.
 
-The SD card lines use external pullups and so the internal pullups need
-to be disabled so that they do not cause contention on the lines.
-This bug was revealed by correcting the effective bit mask of
-the pinctrl device. Use the correct macro for DM8168.
+Ack.
 
-Also fix typo in comment SD_DAT2->SD_DAT3.
+> 
+> Best regards
+> Uwe
 
-Fixes: 86800ffe84055 ("ARM: dts: omap: dm816x: Correct pinctrl register")
-Signed-off-by: Andrew Goodbody <andrew.goodbody@linaro.org>
-Reviewed-by: Christopher Obbard <christopher.obbard@linaro.org>
-Tested-by: Christopher Obbard <christopher.obbard@linaro.org>
-[ettore.chimenti@linaro.org: squashed after fixing DM816x macros ]
-Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
----
- arch/arm/boot/dts/ti/omap/dm8168-evm.dts | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm/boot/dts/ti/omap/dm8168-evm.dts b/arch/arm/boot/dts/ti/omap/dm8168-evm.dts
-index 81450e15b889..a6d42766a496 100644
---- a/arch/arm/boot/dts/ti/omap/dm8168-evm.dts
-+++ b/arch/arm/boot/dts/ti/omap/dm8168-evm.dts
-@@ -45,13 +45,13 @@ DM816X_IOPAD(0x0aac, MUX_MODE0)			/* SPI_D1 */
- 
- 	mmc_pins: mmc-pins {
- 		pinctrl-single,pins = <
--			DM816X_IOPAD(0x0a70, MUX_MODE0)			/* SD_POW */
--			DM816X_IOPAD(0x0a74, MUX_MODE0)			/* SD_CLK */
--			DM816X_IOPAD(0x0a78, MUX_MODE0)			/* SD_CMD */
--			DM816X_IOPAD(0x0a7C, MUX_MODE0)			/* SD_DAT0 */
--			DM816X_IOPAD(0x0a80, MUX_MODE0)			/* SD_DAT1 */
--			DM816X_IOPAD(0x0a84, MUX_MODE0)			/* SD_DAT2 */
--			DM816X_IOPAD(0x0a88, MUX_MODE0)			/* SD_DAT2 */
-+			DM816X_IOPAD(0x0a70, PULL_DIS | MUX_MODE0)	/* SD_POW */
-+			DM816X_IOPAD(0x0a74, PULL_DIS | MUX_MODE0)	/* SD_CLK */
-+			DM816X_IOPAD(0x0a78, PULL_DIS | MUX_MODE0)	/* SD_CMD */
-+			DM816X_IOPAD(0x0a7C, PULL_DIS | MUX_MODE0)	/* SD_DAT0 */
-+			DM816X_IOPAD(0x0a80, PULL_DIS | MUX_MODE0)	/* SD_DAT1 */
-+			DM816X_IOPAD(0x0a84, PULL_DIS | MUX_MODE0)	/* SD_DAT2 */
-+			DM816X_IOPAD(0x0a88, PULL_DIS | MUX_MODE0)	/* SD_DAT3 */
- 			DM816X_IOPAD(0x0a8c, MUX_MODE2)			/* GP1[7] */
- 			DM816X_IOPAD(0x0a90, MUX_MODE2)			/* GP1[8] */
- 		>;
-
--- 
-2.56.0
 
 
