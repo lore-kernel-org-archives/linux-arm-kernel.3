@@ -2,66 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2E0C60A3835
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:51:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F19E606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:52:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VJDDuZL7;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AOpHduCW
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LFfFhR1S;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i+OWXR4l
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=PF9hqOY7SlmHr6Mu13sbIIqaN/HmWKK+iSj3xcxtqik=; b=VJDDuZL7FKx9F1biOZEDntol4m
-	e/T4PNa4szEaATzFVm9XityidStAe5uf1akqYSWzrCb1mNm7DTIy7RKhCOxK3E5I8dXqeCc6+hVDB
-	T64lT9cruT5Mty+RPj4MGQv1L9c6c2Z3LfvshEP3jCAOlDeBWmOggaETNC05oXryZLmcFprJoVvjZ
-	mtGhm2vPxMHzllkVypCuy13/eMr3ozdUzu8wfxAqFNppSAwIUWzUGw1/hCC8fugm9XaVfXvtIak+c
-	G899MVQyW/Od/nvlyuYdLlGsGocBz8fo5u3g/gkfU2vNJzN6A97AiiSy0aW3W1I3cRnunvJBm+3PM
-	5CUyOvmg==;
+	bh=UxofiOisVb0N9dpx3KqX3cKPnOOU4k70NQb6001fjTA=; b=LFfFhR1S344ItZVUZ6sxVjOgvp
+	r9fKnBv4E6/IkiRg8qeOvAVbXcvQa58sRz280ow/uUO0pR+VMVQpCiofVNW5N0bhSZ9J+93uaSBSp
+	xvMWvVZDsTh1QX4Zw2p5TXlYU8NWlJS5N2vxUOFJFfjrGnIFByTjlI1DDwYlfkq5Zaild2zQE9d2/
+	Zp5GfiM3N2XOSEZvceGLuDoKJBp2UzV5X1QEG8f3eFyT4XmrMCSOkN3I95oLEhyWzx/fVht6RurRu
+	sdXjSNpWhQrw9nL3NRcIbq+loL4nAJzAtLXssebwDYqEDzGe1CfePTR90MV5jFWl9Mw9tvUM0pmws
+	aWTxhdgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM37l-00000006yzt-1pJk;
-	Wed, 28 Oct 2026 12:51:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xM38z-00000006zFg-2syr;
+	Wed, 28 Oct 2026 12:52:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM37h-00000006yym-350e;
-	Wed, 28 Oct 2026 12:51:21 +0000
+	id 1xM38y-00000006zFD-2FFp
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Oct 2026 12:52:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E59741B38;
-	Wed, 28 Oct 2026 12:51:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 000A51F01825;
-	Wed, 28 Oct 2026 12:51:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 90ED2601FE;
+	Wed, 28 Oct 2026 12:52:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 442AF1F031E0;
+	Wed, 28 Oct 2026 12:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793191881;
-	bh=PF9hqOY7SlmHr6Mu13sbIIqaN/HmWKK+iSj3xcxtqik=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AOpHduCWZ0pL+wQdwiF5zWiQ38s36anq3OoP27DBHDx50y1QhIMeNOezKqpwqi+ur
-	 IXsIwrFPDu0Ejmq42RHm2jpkX1yW1I6OZ+exlAFmKx6tPRrSJy57ymtNZgWJPVfqlh
-	 Bu1kghbNdHXOuk8bz85smbLnZU8bFaY3QH7ey4Je1ID2+YOmMYybNInq29/+j1uwc8
-	 bsp0YbWCAbCaWSHu6UJUQ6j0ZvMj+24Y6cIIji+h8lq9X9RgIvsBHydUrAprq26Kr1
-	 +rPLMJHaiwinKOyAxG/+6PHtL7UN8OcwiCbEnerqaloZic8ly09FrQe0HvdDQDvsA8
-	 HL/goimzwSY8A==
-Date: Wed, 28 Oct 2026 13:51:16 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Chaotian Jing <chaotian.jing@mediatek.com>, 
-	Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Wenbin Mei <wenbin.mei@mediatek.com>, linux-mmc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: mmc: mtk-sd: Document support for
- Airoha AN7581 SoC
-Message-ID: <20261028-academic-blue-earwig-72d3d1@quoll>
-References: <20261027144002.10606-1-ansuelsmth@gmail.com>
+	s=k20260515; t=1793191959;
+	bh=UxofiOisVb0N9dpx3KqX3cKPnOOU4k70NQb6001fjTA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=i+OWXR4lxfk4bHfMZ5sEYDr5qwuwhsEkYDq5GYE8eLtBQ751L7g+UJ+9oKt3gtt7w
+	 7/Z/9Hzmp/e7bFxSVBfNMUK9zUdCphxlmmFTq3d6GHmj1FnERjGCldQ78VBi6B6h/h
+	 wlXWanmG8aBQ1plWgZTM+lJni4pNz+PLpD24AByvlg9TBlZp9QYrwfRsBUqZO5Qyiy
+	 raWFVN8CAMdCDoNVVIBPiCBB7xm6gsUl5Cs7WR80QRzUk6JXdjMyQ/9hLKV9AnjYMD
+	 Br4am5wJuQ8fb6own0X8Kp99w8H7/lTTCxMxzovCFxDjGMc3tN5IFjVm5tQ1/ooFOF
+	 EB0Mxwb2uOO6w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xM38v-000000087PU-0G2H;
+	Wed, 28 Oct 2026 12:52:37 +0000
+Date: Wed, 28 Oct 2026 12:52:36 +0000
+Message-ID: <86mrryxa0b.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	kernel-team@android.com,
+	linux-kernel@vger.kernel.org,
+	Oculytic <oculytic@gmail.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v2 3/3] KVM: arm64: Disable host PMU counters for protected guests
+In-Reply-To: <20261028110739.2366566-4-fuad.tabba@linux.dev>
+References: <20261028110739.2366566-1-fuad.tabba@linux.dev>
+	<20261028110739.2366566-4-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261027144002.10606-1-ansuelsmth@gmail.com>
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, vdonnefort@google.com, kernel-team@android.com, linux-kernel@vger.kernel.org, oculytic@gmail.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +96,63 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 27, 2026 at 03:40:00PM +0100, Christian Marangi wrote:
-> Add dedicated compatible for Airoha AN7581 SoC integrated MMC controller.
-> The MMC controller is based on the MT7988 with the difference that it does
-> have a single clock controlling it.
+On Wed, 28 Oct 2026 11:07:39 +0000,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
 > 
-> Add the dedicated compatible to describe the 2 register requirement and
-> permit to define only 2 clock (the main one and a fixed clock for HS)
+> A protected guest has no PMU, and EL2 clears MDCR_EL2.HPME for it.
+> However, HPME has no effect, since __pkvm_vcpu_load() sets HPMN to cover
+> every event counter, and HPME never covers the cycle or instruction
+> counter. The counters the host has enabled therefore keep counting the
+> guest.
 > 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> Stop them in the world switch while a protected guest runs, reading
+> PMCNTENSET_EL0 rather than trusting the host-controlled events mask.
+> Gate this on system_supports_pmuv3(), as __activate_traps_common() does
+> for PMUSERENR_EL0.
+> 
+> Side channels are outside pKVM's threat model, so this is hardening
+> rather than a fix.
+> 
+> Reported-by: Oculytic <oculytic@gmail.com>
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 > ---
-> Changes v2:
-> - Also add compatible to restrict clock-names for source and hclk
->  Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 3 +++
->  1 file changed, 3 insertions(+)
+>  arch/arm64/kvm/hyp/nvhe/switch.c | 24 ++++++++++++++++++++++++
+>  1 file changed, 24 insertions(+)
 > 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+> index 91e1edf40bcd2..f602154ab49b5 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+> @@ -175,6 +175,26 @@ static void __pmu_switch_to_host(struct kvm_vcpu *vcpu)
+>  #define __pmu_switch_to_host(v)		do {} while (0)
+>  #endif
+>  
+> +static u64 __pmu_stop_host_counters(struct kvm_vcpu *vcpu)
+> +{
+> +	u64 pmcnten;
+> +
+> +	if (!vcpu_is_protected(vcpu) || !system_supports_pmuv3())
+> +		return 0;
+> +
+> +	pmcnten = read_sysreg(pmcntenset_el0);
+> +	if (pmcnten)
+> +		write_sysreg(pmcnten, pmcntenclr_el0);
 
-Your driver part suggests it's fully compatible with other variant. Why
-not expressing it with fallback?
+It feels a bit odd to change the individual counter enables, rather
+than just use PMCR_EL0.E, which is designed for this purpose.
 
-Best regards,
-Krzysztof
+It probably doesn't change much, but it'd certainly make the intent a
+bit more obvious. Or am I missing something?
 
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
