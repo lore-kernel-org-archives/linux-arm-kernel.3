@@ -2,103 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1942606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:36:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF017606A337
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:43:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=U9wL1GCk;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NxwNyqSE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t7Uyze4Q;
+	dkim=pass (2048-bit key, unprotected) header.d=manyhobbies.com header.i=@manyhobbies.com header.a=rsa-sha256 header.s=sig1 header.b=hwNbtXvn
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=BqcLJCt/Zv6v/NHtTbSxJ0dXgZEQb3K5NLkXSY+SP5Q=; b=U9wL1GCknEv0CG
-	tbZJtBzdhwCd2yebCLqUkLLdDp7gjb5nV7OeyWQS95Oa5m4mExHI2GGNxH5AGQeqwNrBT69ZzW8By
-	r35qheN097Lanhdec3A/p/uzXDagK86nFyub3sgKzp9C5F60LPxdZ8bu7+trz3NSVir4iqkwvF/AY
-	K0jM31Ki7tAeSrbztoK/EcA2D2meHeB4+p7BAM5AiaFv6d7f2UY4S06aX8DAW0uOvWwl/LK7oPn85
-	fW00ssA/lxvKRVfrQAoHS1VkOd6qXtnC37RdezueDK4bKkdqZtDWW2voS/0GzK5zzrlO+ZnFJcahA
-	yGwBR//Ijh0V9d4H4GSg==;
+	Content-Type:MIME-Version:Message-ID:Date:Cc:To:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=OsuVkeafblGpTsXYut7m1aN/nlY5ZzIRjoB1MM1Rhx8=; b=t7Uyze4QI7W9MZY+/tDeRtBa5j
+	94tG2AvnJVMWXiq5y3YacLzxSMbXihYA3vfhJlMxkbEuhOX493teDVngOeuyeUhm9C6sNz+ydHzko
+	ETeaLBlP3aim7GZkR7a562WkS52/+AD6nDmZyz4oFSK2NxJxcDie/SZq0qybICXeeelPMssC3lHTo
+	ggb9RQ4nZW3zLim8iuxzw+Z2n+u4eecKYfT5Tc4upxvq1ppQmuzKaj2C/FGKGEDgoNobmwjdR4MlZ
+	vdFW/fi5CbNujOp29YqyJgIw/9IC/CYriSnwbyVaKjXkxFjRKI+GDEdjtvjyS662pOkQJuMt60tV2
+	qwC/Wf2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1x7-00000006s1d-3w41;
-	Wed, 28 Oct 2026 11:36:21 +0000
-Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
+	id 1xM23w-00000006sWb-3dJN;
+	Wed, 28 Oct 2026 11:43:24 +0000
+Received: from ci-2003a-snip6-6.eps.apple.com ([2a01:b747:3005:200::9] helo=outbound.ci.icloud.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1x5-00000006s0x-3iiq
+	id 1xM23u-00000006sVs-2AHW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 11:36:21 +0000
-Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-35b2c599f43so1854488eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 04:36:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793187379; x=1793792179; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BqcLJCt/Zv6v/NHtTbSxJ0dXgZEQb3K5NLkXSY+SP5Q=;
-        b=NxwNyqSEl7ZvPg708FnK6m6qWkzl4a0ACZyjbFHCwXd9zLoqq4GvWVwN9Vg9Xs2JUT
-         SfWw8HMEAcEhDwHQRmKOEhY3kYicKhkgd1a7Ur+w1pkOMY9JuWerrGs9sN5npvezaD86
-         LfvZJcTepfkaX2W+8/eId69Xm3pvcfjdjt9WSN3DpushzqEWc/qGgoHzs3IFy9oNL0AB
-         5dp0XZAglGGQguA5RoEeNOqF2sYMVtktBQ6BfoRR3nNh4kucb25fB7VWdipvw8mImz2y
-         7C75jOVafLzk/r3QkNBDASFt/SjywqNW4s3QA9IUEruRcYPxeJ4J1c9T+Vese4fQFVaP
-         5/cQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793187379; x=1793792179;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BqcLJCt/Zv6v/NHtTbSxJ0dXgZEQb3K5NLkXSY+SP5Q=;
-        b=u/aUfA6bXSxybkttXNDikidDww1XzBvEovqFDsgzX74RXjuAJd2wykd+x14eB3uwth
-         5kElo5SdCYBKnvz7OE5ZKVC6/Bfpp3nSqM7XY+ypKJn+bDBoCE3W9vsABpR9sqpnxouY
-         P7det8gj/T81VscMUg+ckQStzS3ZD5MtUCSORXcaJySI/yLKQtx/V1PAuW/pcHuHP4ZP
-         RH/53zTulbbEQAIABvhdpo/Q3V5Vs4uJzwhh4Mbp9AtAFFy0OLkkJXfxLjwbFhqsfdeM
-         RwmaXU72naa1PcFjt+7TR+EX5O54WUeAD7y0KRzU+UzjBcFb7+4qRkTvoFdsHV406QWH
-         t2Iw==
-X-Forwarded-Encrypted: i=1; AKwUvBwcU+PLQW0VL/TR2QRNqyn8ue2IUMAt9vM7VII5JlnvfKAd6h4bn0SC/ECOmhVyzhHFQudN76+1kyWHtG4awQDd@lists.infradead.org
-X-Gm-Message-State: AFq9FYK8dZmBO9HaqV3a6eAPRJtH4PYvBl5Hr4spbwSzRro5LoEYtIdj
-	smEoAih+qIkiXbgC0Q1G9tvuaCZel8utv0sgyk4DOXCabpwtI+JF45Ii
-X-Gm-Gg: AYBFou18PAPo3earB9V6b4Ot/XWs9wXa8NBe3qR+/JQHF1UTRxv4A+ABjQL3cSLWZ3I
-	Wu/iDgkuA31NvXO9RvXhdm1nqV4H5eb64cExm5Cj1Z9VOww783PeY/pyqNtZlNZa7zgcxvBq+2N
-	pWF5K1KK632TwA1/jVAcMCx1z07eDmlzk1ITbf7d9Kq51D5HSRV93YzkPDavx21stYp8+mzi5xn
-	ms82LE2IbSPH9yFMbcCN79e2O1lq5YG5dIrSPcMzuJt8cuH1i3gD3I8PzKN2CPxUzdbLNZMDl1j
-	YYtoWMONQVgvD6+kebaKp8KpYXhV5upts0phobUmwW/7RcMJxj/o5sz/6izJAaOweFlGyh9QsqW
-	AFUJKeqr8pAcicTPN/mEqE4qHjVqTyzWK3P95GqZqHaocnqv//GzgUROgy3/xSB/dMiCJmh8Gs4
-	uH+jxDEBIabtwxsc5TTvmIeEYq0OKMxRyZobYidpwmxS6xMzarNvhcLW85AIxe+jPbWrZaL0xsC
-	k8DDNVv21QU0QN7FsGwjLTf1Q9Rtihl9bCAfumFeRKKjKHZJircUvIMxpnBt0tpQrGz3frTeh5f
-	JBC+V8x54VLKkIgTtMY/mKe4IhtZtOkCXU+duXCKoiS2ZrF24cs=
-X-Received: by 2002:a05:693c:401a:b0:369:f05d:6c5c with SMTP id 5a478bee46e88-36a20477909mr3084505eec.28.1793187378627;
-        Wed, 28 Oct 2026 04:36:18 -0700 (PDT)
-Received: from localhost.localdomain ([103.177.252.84])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36a238d9a21sm6623522eec.4.2026.10.28.04.36.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 04:36:17 -0700 (PDT)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: mani@kernel.org
-Cc: angelogioacchino.delregno@collabora.com,
-	bhelgaas@google.com,
-	kwilczynski@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	lpieralisi@kernel.org,
-	matthias.bgg@gmail.com,
-	robh@kernel.org,
-	ryder.lee@mediatek.com,
-	sreekuttan2156239@gmail.com
-Subject: [PATCH v6] PCI: mediatek: Fix integer truncation and handle oversized resources
-Date: Wed, 28 Oct 2026 11:34:53 +0000
-Message-ID: <20261028113453.2599-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <kfnxuro5xf4mhokabg773zcyp7otcjxwpzcn3dlo6y3kpv4uv4@bne4qf3vcif5>
-References: <kfnxuro5xf4mhokabg773zcyp7otcjxwpzcn3dlo6y3kpv4uv4@bne4qf3vcif5>
+	Wed, 28 Oct 2026 11:43:23 +0000
+Received: from outbound.ci.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-central-1k-100-percent-10 (Postfix) with ESMTPS id 6C1051800820;
+	Wed, 28 Oct 2026 11:43:18 +0000 (UTC)
+X-ICL-RepId: 01a18252-5d6d-7bd6-91d2-692952ce09ab
+X-ICL-Out-Info: HUtFAUMEWwJACUgBTUQeDx5WFlZNRAJCTQhPAUMGWQZeD04dXwVcEhVdRUcMWkVWH3kVUgNOA10SWxFWHhkIXR0ZHldQWgpcCVEXUQ9eDkFeWhdeTUUID0kZEFYBWFZdBU0aXBhZDxwTUFZaDlsERxQXG1wAFxtGAgQjAl8ARQJeCVYBMBcPVk1UGV0UXwRQElAdQENUBF9QVBFXUAtaBUkKSQtaAFMERglWC1wEXAdeCEkBWwRZB0gLQANZDl0DRQxLB1l3BlMeQBBcD1UCVwMXG1wACUtGCUkdDg5CGEYfVCdXAloKWx4=
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manyhobbies.com; s=sig1; t=1793187799; x=1824723799; bh=OsuVkeafblGpTsXYut7m1aN/nlY5ZzIRjoB1MM1Rhx8=; h=From:Subject:To:Date:Message-ID:MIME-Version:Content-Type:x-icloud-hme; b=hwNbtXvnnR59r7qgS5h1p3fS16aD5jzIeyH6FfM/P0jckDlcg/ea2roFPOaOUG3J/sb081LehV5wvctDZ/JiMRzjuh8SU/TYry5D2bxTyoPyNIiVFQNdgFJDsGrAy5E0jl6a3Ka7FE4sxX8B0I2kBApvKwhZzSkSlqogs/WjPtNceikWDst1iRwoB3qmZw4xPH1EzPUwPoPnJoTCjz0XIpvAam6R2m/B8cJZr1W5fmag0lxrjvkDJDxJIDfBOLgUQDYUPYfQpK0na1nRpHwaj5tJ4QU3NTx4UyOPY6VSvkOIKY2b9BuD0skdqxmIXQB+5RYx+6gfh73l9TCDfnDoOg==
+mail-alias-created-date: 1780273699991
+Received: from claude-agent.manyhobbies.internal (unknown [17.57.156.36])
+	by p00-icloudmta-asmtp-us-central-1k-100-percent-10 (Postfix) with ESMTPSA id 9048C1800839;
+	Wed, 28 Oct 2026 11:43:17 +0000 (UTC)
+From: Tam Do <tam.do@manyhobbies.com>
+Subject: [PATCH v3] mmc: sunxi: reset the controller after an update-clock
+ timeout
+To: Ulf Hansson <ulfh@kernel.org>
+Cc: Chen-Yu Tsai <wens@kernel.org>,
+    Jernej Skrabec <jernej.skrabec@gmail.com>,
+    Samuel Holland <samuel@sholland.org>,
+    linux-mmc@vger.kernel.org,
+    linux-sunxi@lists.linux.dev,
+    linux-arm-kernel@lists.infradead.org,
+    linux-kernel@vger.kernel.org
+Date: Wed, 28 Oct 2026 11:43:06 +0000
+Message-ID: <179318778660.81375.11263258280496155344@manyhobbies.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI4MDA0NiBTYWx0ZWRfX9v7vwJCZUAQh
+ cJY9YliLJf5Sj7s8z0lAbLqgy4FCJ+wmLCJ1GwC5QAur6kNEf4/BFfS6/FFWLkZxtGHz9NTkVeD
+ vBCi1Iwab93fOTroBByohOYlMa98l/5Lu9VqV4CjwBEyizskLbu9OaCmeohQoNAlf+KTJRCrBpS
+ C6zZRoQ8wGLqR7sCw6RI/3aPA2hMx6dq32DuMb36aKZe0uJiB3CHuNwS7zx2wuCc0b9Nb0oJgyt
+ DxqZQ95bkDKbBrgjyFQag6cf2O6JytdZKdd+ksQoMHocnZw2HWcROlehudyeOiPCJgyhu1Rh7LB
+ luZ+La2Hc5IEZRt92uJjS8ig8/Fvh/f2BdEVv1eMwoeo96eaIeGc1YBiF8r4+0=
+X-Authority-Info-Out: v=2.4 cv=L74QguT8 c=1 sm=1 tr=0 ts=6ae1dfd7
+ cx=c_apl:c_pps:t_out a=2G65uMN5HjSv0sBfM2Yj2w==:117
+ a=2G65uMN5HjSv0sBfM2Yj2w==:17 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=w2OPf45SAAAA:8
+ a=1tvfc1y3xX-o4uWKYHEA:9 a=QEXdDO2ut3YA:10 a=-iXIJKm6ftRzmWoHelNS:22
+X-Proofpoint-ORIG-GUID: VSrRne3TfcgmffBp2ODlyHQ9fNAP35cV
+X-Proofpoint-GUID: VSrRne3TfcgmffBp2ODlyHQ9fNAP35cV
+X-JNJ: AAAAAAABnZTtDZq/p55h04EW18ZZXuIli9DAQsyjrV651gPUhYbhFPONnpN4Q2l1D7zh4h
+ jrNXs/YFjDA6Bc66K1KHPplaC618Obo/QKJfRxNwzx/llyrxopXKzk1QMlJXTmC6A3JH9k
+ KOx0wC755kgtChPDKOkD9zfVh+aDbg/8iZRUD+HUldRc8IeOy+5ggKT8k8h25lj7JoAmtH
+ 5H4qEAbxEbogSP4abWSsRcR8/WqdHkjdpZqnu0QqctC9bGgWbopMNVbWXujObrwRBrGStb
+ h+uaGM7Nmre1ZIFromtNOwQkx3WddvxeN4berUVREtE0sz2y6nez4cGg5QLIpT6mnBGD6u
+ xS8LQcpp79ORU7urxKHgmCvgE7bw+0EhEFUeGipD1TFkyWEev345KJNNPKdJBiehBK1n9C
+ /n92+exJYEQDOIkxBay5BNga3YfW+uvtnYwWRsyXYEazHgyWLBHMvgZaGydwF9HtKg0bAF
+ uT2Ik9ZvHmkzzc1ce87Jf1QhSB1UUDFXrDwem6m3YPHaAbRJD8D3SaGt1JI+PRj5ydU3uT
+ ZcwLfbKQhMAVCIwYba4d07PJammAtKU+L/8wcdXtkI8XHWEtrykhPPY6JSI8bBG43vy8dG
+ kgjGdm182S0/9AhzDp0EpZ+xz0JQ1zDIVUwzfgu45ct6ZTMZoN76K928XsckRATN/C7P4H
+ eQ6nGpkmiWsppNeCnkTVH8vAYzxH770OPo9qF8UY+rA9hNt3oWLnD0J4XRQgnLc8uryHcQ
+ eGrAv6ruAjklRXg5/oms1LvE0Wih++CTw5ICWVI+aXA/n5UdJ5OHty52H0WVISDW+4tvIR
+ 8UXEmk+0s8R9TbBZwivGJHkJM7sL/CMUw/3PyopCouOgQJGHUHtX7rF6BOkrehGdJeHF7i
+ Pw/hyjOUML+QMhsnl/CEY3+q5fBreUcdfZcC9BdHNGNYkXCtQp2SI5gbHnJaN4RmfuvbOY
+ QHeDN6QPjXJymQGLcYGpMal4OZdbWCFn5tq4ptVr56UlSvCkdtadjJMTiCUjuSCVQMtHX8
+ uGAIIQBbAfuLBBxm8Ush/yw8SWT0Sn/gCtp5gf3Vzq+d+lP6WdMQ54FNDt2ZQvOPSUrHGs
+ ueoY29CwlXH1ikSbY+qDWtqlVtMFTJXXrLPxH95vdJJM5w6JKXNF3PVImepC/+D4g65U8D
+ qJhfo8VQlnloXhUlt5dfAGAsaYgJL4EOEDWxqFFYbUZJRC0aTLVbKOx3c1Vgfe4MnTv/75
+ G9owgtAxXrjrA60wSpoul5PyOywNJy4nUrGbARfutKqiBVB+kokHxYBilZDL9ZdGseisPB
+ V4Hyvm1XM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_043620_210052_162D118F 
-X-CRM114-Status: GOOD (  17.07  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261028_044322_623744_6F208E21 
+X-CRM114-Status: GOOD (  11.45  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,136 +103,72 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-resource_size() returns a resource_size_t, which can be 64-bit on
-64-bit architectures or 32-bit systems with LPAE/PAE enabled.
-Passing this directly to fls(), which accepts an unsigned int,
-implicitly truncates the upper bits.
+If the clock-update command times out it stays pending in the
+controller, and every later clock update times out as well, so the
+card cannot be initialised until the next probe.
 
-Furthermore, AHB2PCIE_SIZE() uses a 5-bit mask GENMASK(4, 0). If
-the size order exceeds the range representable by this field,
-higher bits are discarded by the mask. This can leave the hardware
-translation window smaller than the OS resource, causing bus
-errors when accessing BARs in the unmapped upper region.
+This happens on an R16 board whose SDIO Wi-Fi holds DAT0 busy while
+its supply comes up during the first clock update.
 
-Fix this by using fls64(size) to calculate the size order without
-truncating the resource size, and return -EINVAL if the size order
-exceeds the supported range.
+Reset the controller on timeout so the next attempt can succeed. This
+runs sunxi_mmc_init_host() with the interrupt enabled for the first
+time, so write REG_IMASK from sdio_imask under host->lock, as
+sunxi_mmc_enable_sdio_irq() updates both under that lock.
 
-Changelog:
-
-- v6: Move oversized resource validation before hardware
-  initialization to avoid leaving interrupts unmasked on
-  the error path.
-- v5: Use fls64(size) instead of fls64(size - 1) and remove the
-  redundant zero-size check.
-- v4: Fix struct device pointer access (pcie->dev) for dev_err().
-  Verified build and passed Sashiko review checks.
-  [Subject: PCI: mediatek: Fix integer truncation and handle
-  oversized resources]
-- v3: Replace clamping logic with strict size validation
-  (size_order > 31 returns -EINVAL), add a zero-size check,
-  and update size calculation to fls64(size - 1).
-  [Subject: PCI: mediatek: Fix integer truncation and handle
-  oversized resources]
-- v2: Add size clamping for size_order > 31 to prevent overflowing
-  the 5-bit AHB2PCIE_SIZE() macro mask.
-  [Subject: PCI: mediatek: Fix integer truncation in fls()
-  and clamp size]
-- v1: Initial submission using fls64() to handle 64-bit resource
-  sizes and prevent integer truncation.
-  [Subject: PCI: mediatek: Fix integer truncation in fls()
-  for resource size]
-
-Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Fixes: 3cbcb16095f9 ("mmc: sunxi: Add driver for SD/MMC hosts found on Allwinner sunxi SoCs")
+Cc: stable@vger.kernel.org
+Signed-off-by: Tam Do <tam.do@manyhobbies.com>
 ---
- drivers/pci/controller/pcie-mediatek.c | 23 +++++++++++++++++++++--
- 1 file changed, 21 insertions(+), 2 deletions(-)
+v3: take host->lock only around the REG_IMASK write in
+    sunxi_mmc_init_host(), not across the reset; v2 polled the reset on
+    jiffies with interrupts off. The return value stays unchecked, as in
+    sunxi_mmc_runtime_resume(): if the reset itself times out the
+    controller is wedged either way.
+v2: held host->lock across the reset (not posted)
+v1: https://lore.kernel.org/all/179307312104.39863.12372814163472848752@manyhobbies.com/
 
-diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
-index 3a3e91cd0c21..cc04a7b862f0 100644
---- a/drivers/pci/controller/pcie-mediatek.c
-+++ b/drivers/pci/controller/pcie-mediatek.c
-@@ -8,6 +8,7 @@
-  */
+ drivers/mmc/host/sunxi-mmc.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/mmc/host/sunxi-mmc.c b/drivers/mmc/host/sunxi-mmc.c
+index fe4c0f6d73f3..55313780d06d 100644
+--- a/drivers/mmc/host/sunxi-mmc.c
++++ b/drivers/mmc/host/sunxi-mmc.c
+@@ -322,6 +322,7 @@ static int sunxi_mmc_reset_host(struct sunxi_mmc_host *host)
  
- #include <linux/bitfield.h>
-+#include <linux/bitops.h>
- #include <linux/clk.h>
- #include <linux/delay.h>
- #include <linux/errno.h>
-@@ -686,6 +687,8 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
- 	const struct mtk_pcie_soc *soc = port->pcie->soc;
- 	u32 val;
- 	int err;
-+	resource_size_t size;
-+	int size_order;
+ static int sunxi_mmc_init_host(struct sunxi_mmc_host *host)
+ {
++	unsigned long flags;
+ 	u32 rval;
  
- 	entry = resource_list_first_type(&host->windows, IORESOURCE_MEM);
- 	if (entry)
-@@ -693,6 +696,13 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
- 	if (!mem)
- 		return -EINVAL;
+ 	if (sunxi_mmc_reset_host(host))
+@@ -336,7 +337,9 @@ static int sunxi_mmc_init_host(struct sunxi_mmc_host *host)
+ 	/* Maximum timeout value */
+ 	mmc_writel(host, REG_TMOUT, 0xffffffff);
+ 	/* Unmask SDIO interrupt if needed */
++	spin_lock_irqsave(&host->lock, flags);
+ 	mmc_writel(host, REG_IMASK, host->sdio_imask);
++	spin_unlock_irqrestore(&host->lock, flags);
+ 	/* Clear all pending interrupts */
+ 	mmc_writel(host, REG_RINTR, 0xffffffff);
+ 	/* Debug register? undocumented */
+@@ -688,6 +691,7 @@ static int sunxi_mmc_oclk_onoff(struct sunxi_mmc_host *host, u32 oclk_en)
  
-+	size = resource_size(mem);
-+	size_order = fls64(size);
-+	if (size_order > 31) {
-+		dev_err(pcie->dev, "Memory resource size too large: %pa\n", &size);
-+		return -EINVAL;
-+	}
-+
- 	/* MT7622 platforms need to enable LTSSM and ASPM from PCIe subsys */
- 	if (pcie->base) {
- 		val = readl(pcie->base + PCIE_SYS_CFG_V2);
-@@ -754,7 +764,7 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
+ 	if (rval & SDXC_START) {
+ 		dev_err(mmc_dev(host->mmc), "fatal err update clk timeout\n");
++		sunxi_mmc_init_host(host);
+ 		return -EIO;
+ 	}
  
- 	/* Set AHB to PCIe translation windows */
- 	val = lower_32_bits(mem->start) |
--	      AHB2PCIE_SIZE(fls(resource_size(mem)));
-+	      AHB2PCIE_SIZE(size_order);
- 	writel(val, port->base + PCIE_AHB_TRANS_BASE0_L);
- 
- 	val = upper_32_bits(mem->start);
-@@ -775,6 +785,8 @@ static int mtk_pcie_startup_port_en7528(struct mtk_pcie_port *port)
- 	struct resource_entry *entry;
- 	u32 val, link_mask;
- 	int err;
-+	resource_size_t size;
-+	int size_order;
- 
- 	entry = resource_list_first_type(&host->windows, IORESOURCE_MEM);
- 	if (entry)
-@@ -782,6 +794,13 @@ static int mtk_pcie_startup_port_en7528(struct mtk_pcie_port *port)
- 	if (!mem)
- 		return -EINVAL;
- 
-+	size = resource_size(mem);
-+	size_order = fls64(size);
-+	if (size_order > 31) {
-+		dev_err(pcie->dev, "Memory resource size too large: %pa\n", &size);
-+		return -EINVAL;
-+	}
-+
- 	if (!pcie->cfg) {
- 		dev_err(pcie->dev, "EN7528: pciecfg syscon not available\n");
- 		return -EINVAL;
-@@ -830,7 +849,7 @@ static int mtk_pcie_startup_port_en7528(struct mtk_pcie_port *port)
- 
- 	/* Set AHB to PCIe translation windows */
- 	val = lower_32_bits(mem->start) |
--	      AHB2PCIE_SIZE(fls(resource_size(mem)));
-+	      AHB2PCIE_SIZE(size_order);
- 	writel(val, port->base + PCIE_AHB_TRANS_BASE0_L);
- 
- 	val = upper_32_bits(mem->start);
 -- 
-2.55.0
+2.39.5
 
 
