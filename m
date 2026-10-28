@@ -2,76 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62C8F606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 20:49:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADF5A606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 20:49:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sxfRRTWf;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=f8Tt73tR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=G2lw5pje;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=b8T/AkoO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=BH2WnjXWwsl9S26zTcVnDiXysm6ntQCEcJClsDwXCEM=; b=sxfRRTWfueWQib
-	y3pbgpcUsNoE1JqLm/NktuLSVa6IOkefpW5GnjSESmhfTQPVGNldD1h0RBWva4kRO0eIgUMVq97eJ
-	sG4sb2z7gctM3gD5gWDX7kaULw2l9jYST5sXaUfF0Q7tHYDW/RkCBLpaWeVNyf8Xij7hW2rxWDYls
-	q3+laL5ozSffAoNdVDd2seEiKNzm52kLjJXG09EPnBK0c4dQnvI48Wp3dvHyMGzbYsJRjgGJE5rbV
-	/RWSLeRFrcN/mDUtWuy2+W0guJY7bPKPT9Ro6Y+7VDHjIs+O6/MX2mko+F5TRiaMF+0fkdy2HUWfg
-	MY097sRDTqqSTRHlVcYA==;
+	List-Owner; bh=vc9uFw9UVF1A8RYaaUz33Ia3H+vJB3EZ/DUe+0FMK90=; b=G2lw5pjeP/Efba
+	nWEV8Qfuntky9oIboKbOO7hffx0dX1r+hoqkNIZCFaMtXpNk25xm1Yv4C7wRCi0MeiXncoLck2+zT
+	yCE17Buo4738jaNuoxTUBOZ1wro3tjyxMvB+TDszSFjIbglBmRHR576hJbxVCX3ALPtnSdizLmgzE
+	YKZsorGwFzyBHjm4XKi5SX+dz4eaWhjhU7H8X+NnTqDTVaRcFS2Mdf6TzSzl8X1Ap2kx4mju+jiuv
+	UDg3M1dqiFX3HaX7ljX/OYbmW3nlZHGTCs5nmTu7KrWBTRle4Pzk4uKSz0ZidydGRlGg0mlwL80Xz
+	Ka5QhGQUfqdH3bqUGKjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMAZs-00000007wtE-19Qd;
-	Wed, 28 Oct 2026 20:48:56 +0000
-Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
+	id 1xMAZy-00000007wvW-2d6R;
+	Wed, 28 Oct 2026 20:49:02 +0000
+Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMAZp-00000007wrU-2uWH
+	id 1xMAZs-00000007wsn-1070
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 20:48:55 +0000
-Received: by mail-oi1-x235.google.com with SMTP id 5614622812f47-4e4a4d77e5bso63875b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 13:48:51 -0700 (PDT)
+	Wed, 28 Oct 2026 20:48:57 +0000
+Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-504ae5941faso787485b6e.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 13:48:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793220531; x=1793825331; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1793220535; x=1793825335; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=BH2WnjXWwsl9S26zTcVnDiXysm6ntQCEcJClsDwXCEM=;
-        b=f8Tt73tRhXwJZ+vV4kNYFBQtl+mvbmFjHuDy18wrpKLt3lsLrKitim/yXaT3nj68Jm
-         df7eF5EWVt9h6dpYQwSDNdtV5FXfO6GtyGnjWHroV+cCpEnKiGh2kpMvAMlTgFhbkJ/q
-         O7zc/WH49kcz63+mrpimb8Mdg/J3VQkUOH9Sc=
+        bh=vc9uFw9UVF1A8RYaaUz33Ia3H+vJB3EZ/DUe+0FMK90=;
+        b=b8T/AkoOkHqX3rpXStQO+b5KJfbqP6svPeUOx9eTd8f743vedUFmyhKiUKf3zf5e7p
+         GtISEqWCuWLMBh3rT0WBRQGNn0WotOu3EU0/ut7Y7fqzIwKc2Co2S/QP9jVuT+N2OE+X
+         /MGzS2xn+PHN5HzCNuwBBXYxz1K+sE7pzUjyk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793220531; x=1793825331;
+        d=1e100.net; s=20260707; t=1793220535; x=1793825335;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=BH2WnjXWwsl9S26zTcVnDiXysm6ntQCEcJClsDwXCEM=;
-        b=FrolJIfCpco0fbRmERME4veU8+gLpo7TZSMMLdIAR5gOcoMFQsKLUuL3dWfUporgVl
-         bsgraBaXzYectfy4IflMQC7KhVSpn4BJVGd+eU2AMxYLY+0lfdlhnogk0e/M4YvaJ4yC
-         15niM4eIoRZxfDK/rP1chGeWgGmFEP+BSuuo6Mexf0+8gyuIsnAht0LHU8XsrmUuDTDQ
-         jCqyTqYUytC+VQjG+ZWyrAllYd5+EQ4/Cvlxgi5GleU+wOr9I0QFl4Zi4Wh0upQPq7LF
-         +OzI0Gpx/PMjQc75bWExOkmiyi0Ze/AcjPSUbEXjEQyUKBHrzJv52Gdzxm9Xaq6aVzlE
-         vg/A==
-X-Forwarded-Encrypted: i=1; AKwUvBxQGnY2LvNlGgV/LwPxkCJYL32c96Li+Sv7z5XvuXik4J/HCWvJdOAGowPE0HTNmVwaQj1AGG2cL8hKZRCXw4Gp@lists.infradead.org
-X-Gm-Message-State: AFq9FYKh9dNomXfB5fhe7eRhpKPG1V6BPi35XJDpm/06epOeCywix40s
-	jkkAEixXhYQ9hf11GrBxWsrgr3e+8H8tf/IKoSbqDks/8Z6J3halF1vPluZKkgJcW1LO5XnIF63
-	VEhg=
-X-Gm-Gg: AYBFou2nTyA5O/HjHBwSxeJcIhDfX1mZF51NMMBQtCxgkudpTXmyCuQUJyLcZ2gMG8S
-	zl9JY/QTFm6ykofbafO67bdAicfA/mgXxkJ3NKfEy9b9ljcLqxVZCqnfEXZw0BD1YXO/nibS50m
-	M4ZocxNIFCTXJYQwF//JjtBQp24X7kUdvkEeCKKlNlugaz7mXd42u8kTkHdDBUdvthxwYoEpHFD
-	+GhPSjyy5aV82R48210guwMZH7Y44i6bp0jyECnNaQtX+EJgVIUhGoqx5UVicBdAyctcS4BYV/P
-	f1h3+sSViipAMRkkUydzWVzNV2a3KnkwKN5t+O+zHjjcnCU8IUyMnhpa0r5gA8y/RRsdVMuoBse
-	qbz8PEsh/F+n1SttA9sE3NCOlq1Ke5MEXptN1dX1ATpzGq0RDDxS8qYUxec/FtXNb9hsN6P4x+n
-	vElsyP/xzgenm9dplvBCN02BvbQqRP/Cuh0bL8rFjFwqynoIKklkYqukG+Tn5DcA0SAayihpAnl
-	0tCXgcrExMmtHu1EogufIL+VNoLWtNaCjdT71oduOLexJn0dlCbgZ7oCF5EAfNWSh4H3KigUga0
-	2pSXRnqz1nH++Rd3FYmE/MdJap8C0co0/aMIU9z9TuXeWjWuXHRToFX6zXSn/SPYxnCJDrZ+rC+
-	BNJKveEJctjjcrVGjtKoYkeKFOtYYH+3bcNA0amQ=
-X-Received: by 2002:a05:6808:bca:b0:4b8:4703:db97 with SMTP id 5614622812f47-563efb4d666mr411105b6e.32.1793220530793;
-        Wed, 28 Oct 2026 13:48:50 -0700 (PDT)
+        bh=vc9uFw9UVF1A8RYaaUz33Ia3H+vJB3EZ/DUe+0FMK90=;
+        b=gK9b+muUcp2rUiUilBFvWpQjhofGa+eKFBCJ2Pxd4pa480nnW55DY+ITp8cG4WfQcC
+         GiEuTC0nqWOJlkiUpE/LP1GSC0cXqCFeIW8ZfybI52+FrhJ2+eIq3HNA/xiBS5pCteJL
+         hYYxMprQiA9XM4Ibrs50G1WFzKVh/Hs/4B3uyzhTnWnerzFRbSeTuMpAoyQWW8VuNxS5
+         1w21vR6bFiPRDFWLSVZ0GwSfSRNAo2mfOFaS6756Jo7b8YCQFCmwOPCT+xtUyeOCLLMU
+         oJI6LbQwgsXcsjONSlRP8VTf8QvRZyV5i4vsMjYwq3V5djWQi+RuVzYPKi8EQZ5sBY+q
+         PiEw==
+X-Forwarded-Encrypted: i=1; AKwUvBzBj/iw8JkSetrSt6CyIBmTw9XVh/tKe47kf6ajEAbzaktjyBgQvyJzr4Grl37ZWTz0eyI2gxgJfRteL6CH8+CN@lists.infradead.org
+X-Gm-Message-State: AFq9FYIBtswPh66jg0TsV4sqWM+GZOPoL8SdoUVZY16tFAiCGvl+b/VM
+	fkhmABIukXbxF6QbyLDYt2pPZuB4b9ACWo4wsVfRZaDnrum2DwUVJzq6cw8Mbu19Vg==
+X-Gm-Gg: AYBFou3AWYogOxjUPMvM/68NQhk5FXGFFG03q11jUYBZ6nfKN8puyz7jYq2j1DB0TyO
+	OnEmnKo7xSqZZRbGreGEuAUXYx7xE0Q4ob74iEegZupsnlzEO1rUdzqxhbCYe6EBEMcETjDObLh
+	gvDj+ClosAv0r7XCjqRxa5dRW1Wcu+OuTUhRF+CUeNYoX4j8qiv7zkxxo7rJILiScU7yWjdfSY3
+	48CkLy2ZdHC/1t3aLf9u9mTt3GSvTzHrU1MaFDSHWV/HPe8u8N63vykg91iUIPF77sir3kDAUbM
+	mtmfWgf0qUK1rLSHiQr+0gVlNU+62VjwN3HTKasdPxEsORa9vAqO24NKE1t4mmofeLVd2SLD2FV
+	q3AV4o0I8JzruBe1kekg5OqiAJd6UDcjDk7y3rZN/2pmWtDDPOyOKDymdJ16+Gwrt7Zv7XMW1qo
+	C9vnky4Xkl0a9b485x8+MQthF3gjRKzxorSM6UKpPxNqXq//dfXJvNWuZoJdXsxYOHu7o4dsaEF
+	nzPluN2+7/UE7JhYW7Ix3X3gEI7KLQkHcSIKMMyq1xFicjnNjAgIti7tPEphboccCKP5DXNxQ9o
+	9Uq8jd44im+6JlybX6EMGn1hbdQ3Kt1i0liXe7e/QXvMGymnHP2COp11XjGiQaW10s+Sk+LqfOv
+	SpwA5/H5LAXVjAX8uhQ==
+X-Received: by 2002:a05:6808:5090:b0:4c3:9892:96c3 with SMTP id 5614622812f47-56385c45dbbmr2597003b6e.22.1793220534711;
+        Wed, 28 Oct 2026 13:48:54 -0700 (PDT)
 Received: from rrangel.c.googlers.com.com (202.168.136.34.bc.googleusercontent.com. [34.136.168.202])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-563c363902esm2281137b6e.2.2026.10.28.13.48.49
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-563c363902esm2281137b6e.2.2026.10.28.13.48.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 13:48:50 -0700 (PDT)
+        Wed, 28 Oct 2026 13:48:54 -0700 (PDT)
 From: Raul E Rangel <rrangel@chromium.org>
 To: James Hilliard <james.hilliard1@gmail.com>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -99,19 +98,19 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev,
 	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v7 2/5] serial: serialize asynchronous write wakeups with the port lock
-Date: Wed, 28 Oct 2026 14:48:45 -0600
-Message-ID: <20261028204847.3471382-1-rrangel@chromium.org>
+Subject: Re: [PATCH v7 5/5] serial: 8250: retire canceled RX DMA before reusing the receive buffer
+Date: Wed, 28 Oct 2026 14:48:47 -0600
+Message-ID: <20261028204847.3471382-3-rrangel@chromium.org>
 X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
-In-Reply-To: <20261027-submit-serial-8250-dma-cancel-v1-v7-2-985a023ba4b4@gmail.com>
-References: <20261027-submit-serial-8250-dma-cancel-v1-v7-0-985a023ba4b4@gmail.com> <20261027-submit-serial-8250-dma-cancel-v1-v7-2-985a023ba4b4@gmail.com>
+In-Reply-To: <20261027-submit-serial-8250-dma-cancel-v1-v7-5-985a023ba4b4@gmail.com>
+References: <20261027-submit-serial-8250-dma-cancel-v1-v7-0-985a023ba4b4@gmail.com> <20261027-submit-serial-8250-dma-cancel-v1-v7-5-985a023ba4b4@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_134854_020621_3AEC8AAF 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20261028_134856_293253_E13F6BBD 
+X-CRM114-Status: GOOD (  11.31  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,7 +124,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
 	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
@@ -133,61 +132,52 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hi James,
 
-A few issues in this patch across the serial drivers:
+In serial8250_rx_dma_flush():
 
-1. Recursive self-deadlock on ltq_port->lock in drivers/tty/serial/lantiq.c:
+> +	ret = dmaengine_pause(dma->rxchan);
+> +	status = dmaengine_tx_status(dma->rxchan, dma->rx_cookie, &state);
+> +	/* A completed transfer may reject pause before its callback gets the lock. */
+> +	if (ret && status != DMA_COMPLETE)
+> +		goto recover;
 
-> @@ -239,7 +239,8 @@ lqasc_tx_int(int irq, void *_port)
->  	spin_lock_irqsave(&ltq_port->lock, flags);
->  	__raw_writel(ASC_IRNCR_TIR, port->membase + LTQ_ASC_IRNCR);
->  	spin_unlock_irqrestore(&ltq_port->lock, flags);
-> -	lqasc_start_tx(port);
-> +	scoped_guard(uart_port_lock_irqsave, port)
-> +		lqasc_start_tx(port);
->  	return IRQ_HANDLED;
->  }
+Checking `status != DMA_COMPLETE` assumes that whenever the hardware DMA channel
+has finished transferring the buffer (causing dmaengine_pause() to fail because
+the channel is no longer active), dmaengine_tx_status() will already return
+DMA_COMPLETE.
 
-Inside lqasc_start_tx():
+However, dma_cookie_status() only returns DMA_COMPLETE after the DMA driver's
+interrupt handler has called dma_cookie_complete() / vchan_cookie_complete().
+Because serial8250_rx_dma_flush() runs under uart_port_lock_irqsave() in the
+UART ISR, if the RX DMA transfer finishes in hardware just before
+dmaengine_pause() is called (or while local IRQs are masked on the same CPU
+before the DMAC hardirq is serviced):
+- On dw-axi-dmac (drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c, used with
+  8250_dw), hardware clears CH_EN in DMAC_CHEN when the transfer completes, so
+  dma_chan_pause() times out polling DWAXIDMAC_IRQ_SUSPENDED and returns
+  -EAGAIN, while dma_chan_tx_status() still returns DMA_IN_PROGRESS because
+  dw_axi_dma_interrupt() has not called vchan_cookie_complete() yet (and
+  dma_chan_tx_status() also reports state.residue = length for non-cyclic
+  transfers until dw_axi_dma_interrupt() runs).
+- Similarly, tegra_adma_pause() (drivers/dma/tegra210-adma.c:696) returns
+  -EBUSY and omap_dma_pause() (drivers/dma/ti/omap-dma.c:513) returns -EINVAL
+  if the hardware channel cleared CCR_ENABLE before the DMA ISR ran, while
+  dma_cookie_status() still returns DMA_IN_PROGRESS.
 
-	spin_lock_irqsave(&ltq_port->lock, flags);
-	uart_port_tx(port, ch,
-		lqasc_tx_ready(port),
-		writeb(ch, port->membase + LTQ_ASC_TBUF));
-	spin_unlock_irqrestore(&ltq_port->lock, flags);
+In that window, `if (ret && status != DMA_COMPLETE)` jumps to `recover:`,
+dropping up to 4 KB of received data and permanently disabling RX DMA
+(dma->rx_err = true) on a normal transfer completion.
 
-uart_port_tx() invokes uart_write_wakeup(port) while ltq_port->lock is still
-held (nested inside port->lock). If anything in the wakeup path or printk()
-invokes lqasc_console_write() (which takes spin_lock_irqsave(&ltq_port->lock,
-flags) at line 612), the CPU will immediately self-deadlock on ltq_port->lock.
-ltq_port->lock should not be held across uart_write_wakeup(port).
+Also, on a related shutdown note in drivers/tty/serial/8250/8250_omap.c:
+omap_8250_shutdown() (line 775) still calls omap_8250_rx_dma_flush(up) before
+taking port->lock to set up->dma->shutting_down = true and clear UART_IER = 0
+(lines 783-786). Because __dma_rx_do_complete() clears
+UART_OMAP_IER2_RHR_IT_DIS and dma->rx_running = 0, an RX interrupt or callback
+in that window can see shutting_down == false and restart RX DMA right before
+serial8250_release_dma(up).
 
-2. Missed unlocked callers in drivers/tty/serial/dz.c, drivers/tty/serial/zs.c,
-and drivers/tty/serial/jsm/jsm_cls.c:
-
-The commit description states:
-"Ensure every driver caller of uart_write_wakeup(), directly or through
-uart_port_tx*() and uart_handle_cts_change(), holds the port lock first."
-
-However:
-- In drivers/tty/serial/dz.c: dz_transmit_chars() (lines 266-288) only locks
-  &dport->port around dz_stop_tx(), calling uart_fifo_get(&dport->port, &tmp)
-  at line 267 and uart_write_wakeup(&dport->port) at line 281 without holding
-  dport->port.lock.
-- In drivers/tty/serial/zs.c: zs_transmit_chars() (line 641) only acquires
-  &scc->zlock, so zs_raw_transmit_chars() calls uart_fifo_get(&zport->port, &ch)
-  (line 621) and uart_write_wakeup(&zport->port) (line 630) without holding
-  zport->port.lock. In addition, zs_status_handle() (lines 673-680) drops
-  &scc->zlock and calls uart_handle_cts_change(uport, ...) and
-  uart_handle_dcd_change(uport, ...) with no lock held at all, which triggers
-  lockdep_assert_held_once(&uport->lock) in serial_core.c.
-- In drivers/tty/serial/jsm/jsm_cls.c: while jsm_neo.c wrapped
-  neo_parse_modem() in scoped_guard(uart_port_lock_irqsave, &ch->uart_port),
-  cls_parse_isr() in jsm_cls.c (line 585) still calls cls_parse_modem() ->
-  uart_handle_dcd_change(&ch->uart_port, ...) without holding ch->uart_port.lock.
-
-Also, in Patch 3/5, adding lockdep_assert_held_once(&port->lock); to
-uart_write_wakeup() alongside uart_xmit_block() / uart_xmit_unblock() would
-help catch any unlocked callers automatically.
+We also published the TLA+ model and TLC counterexample trace
+(Serial8250RxDmaV7_HwDoneBeforeIrq.cfg) here:
+https://github.com/ismell/linux-8250-dma-tla
 
 Thanks,
 Raul
