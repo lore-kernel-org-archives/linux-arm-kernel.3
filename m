@@ -2,66 +2,158 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FD00606BF8F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 19:08:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B7E5606A337
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 19:08:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eUTJ9ARE;
-	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=sIkU7h+z
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=byBeTCR+;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YxihyygS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date
+	:References:In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=457d66qNmdVAInAs2FNohzR01zs1dKtl5+My1G7Y60o=; b=eUTJ9AREUYgB2B
-	h9pOu8n5wuXLskOe+rCbBziGQ+0UlLD0UlYxodHTMrxwNzjQNSrRt7vPMO0rwGTorepe+CwAMm5Ek
-	LO7L9ZtvwV/BSQRsvSqJJTXzIt+dLELY8miKwW5rrswHal3uZOj6cCkvELIVX6HwunqP9LgXOv2N+
-	JdT5h9PvXiyNkD2s/WkfLmu7wj99V3cG+xTvhfCoUj3TIrQWJEBu1QNAUmBQHiNKCkxhDFo95xZZz
-	sN+Qo4llIHUiZnsMAvgP/wpvg1V7Ln824qJNUqTF3F+TbabEaLdzmtY28cMemV1HXPTo8K/htr4Ow
-	U/M73vGAjQpay09wBGlQ==;
+	List-Owner; bh=uhv/uc4FiqR0e+2R1RaHtXtCQLvXfhTGwci2T9drOTs=; b=byBeTCR+Pm1xgd
+	j5hgiSyfamULe8kbxF6vX0QPbtY/GkIvR1PCWYiCctKeV+mnEQGoZcpzjGqOrZfuLa07dVTS8hbpL
+	Mexq2i5Bqi7lbGpufg7z0+vgpQOYgFeMOuaP0YzP43g3kZVhNrXuK3ByD1tHAXzj95R2NdGEirjO/
+	LWR4t8tK8stS8S/XsLrZaUvvowirANW23CL0la1bb9o3fx3iXF2JDukH70dns6dClftOvJrr4bQga
+	wBiVjjwOZs/sAN0QAqRH9H459ygQbGIpqEAdTt8+aHKRyTcPIAZ7SjekBEddfz3Ai6ugIjridtSq9
+	qrd1Gm3Zt8y5i+yT/aAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM90h-00000007pbO-0r4s;
-	Wed, 28 Oct 2026 19:08:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xM90g-00000007paD-3P5Q;
+	Wed, 28 Oct 2026 19:08:30 +0000
+Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM90H-00000007pWS-1SCI
+	id 1xM8zs-00000007pMO-27KJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 19:08:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9789B41816;
-	Wed, 28 Oct 2026 19:08:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 013161F01828;
-	Wed, 28 Oct 2026 19:08:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1793214484;
-	bh=457d66qNmdVAInAs2FNohzR01zs1dKtl5+My1G7Y60o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=sIkU7h+zWgPFrMmSuFo+MH0OcTd/AB470WsKFomHF+ykrlK4nf+a8QNA8axF2N+uy
-	 vown03cPuAS3wnEXfm5p7hSVRiRnRpz6uLEXQWzMzgrll/iIQqRhd1xN1aDYZNOf62
-	 zg1BIsmFViAEFJUhS184Q9gfbLXsWtAhxfBKg9Kw=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Randy Dunlap <rdunlap@infradead.org>,
-	kernel test robot <lkp@intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Michal Simek <michal.simek@amd.com>,
-	Jassi Brar <jaswinder.singh@linaro.org>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.1 0875/1887] mailbox: zynqmp-ipi: fix an Excess struct member kernel-doc warning
-Date: Wed, 28 Oct 2026 17:49:31 +0100
-Message-ID: <20261028170519.330161861@linuxfoundation.org>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261028170459.200466217@linuxfoundation.org>
-References: <20261028170459.200466217@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	Wed, 28 Oct 2026 19:07:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OVHM5uF/E8vj4Jf30oi9IcDm0jFBbapJpFmmEJCagy5OGp7TqT+qhc+lrnw4nkzpplsnrmOPQEL/kETqeqQMhrSnRDA5tvcJncfdZQu7+cSSUg9xl5oNk6fRo8vmnVqHoon8fP01NEBuyJUZDDYvjB8kOSfprPtInTyeSpjvpjGpeWevLHtylCZC1COwR1IxFN77WSnNP0+UqgmjhUoInxpD+tfbsFO5Yj97fSpv6UPZSU59za30IvVRmwO2waIbQk6dHqEVE/FF/57rnNUBNw7KmZGZFZxI27+gbY7KdAD4OQCKmmNdUKbdAl0sMdack0KlMJX5qC/M35+sB7XX1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uhv/uc4FiqR0e+2R1RaHtXtCQLvXfhTGwci2T9drOTs=;
+ b=u23eNJYh/mkupFTpMcVDiNxJ7wGzQe9maMODSeT5TiIAN7EtgfIO/WyGaStqg1iAnTsZM2YzQfsSvBnfpFvyWfIBZA9K4XfAzqy2/nd3xFN8EbnJB/r98YOlVClScZA1yno5fRHkcooBWNkxlLHxAev4BGXd6pxwCTjnQyYUxGtXY8ehToYK0dCvUI5yAQqKf+X3sxbr80Jk/WxnmF8PkIqHQS7ahnrLlm5QmIJdk/IGh6Dkf7Kt41u+SFO1s7WVHDzKeEUL5Pq66pUI5ZEFAIQ7gi+jvYuS9iO+k+Nm1FDMpQJJlxKNdhOqTAQ211LG+/JnZv4+yzB0AzXD//yKig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uhv/uc4FiqR0e+2R1RaHtXtCQLvXfhTGwci2T9drOTs=;
+ b=YxihyygS7/k4v4UHdXJmvGyO1zSVYznxrFk7isEPGqcJfjB6K9KSdE1MVVxA1KBbmq0aDGFNvvqakzWOAAW7qd8GIy/1zoBIlzZZZbnP5tSucL+CGAa4cdL2bzq+BHkAe+3xubx/7C1So7LWnX7bi54V8jDpO1Zs0SBa/ThfJ5gMiPdWdKrhtXYZ4gNnOtE1rPjUAZZZ95UQlbzuckw47sOXWQj9s+Vfgo57MPzBSRkifMeDHQzmBUOm/sKuiu2KGu+yzngHCQEUmjiZNhEZS47KRNgXoh4u7gkrTOodTsxW1HmSyu53EnxZy3zfr8w0pfNmx86EtViNlAhu64KW9Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by CY8PR12MB7539.namprd12.prod.outlook.com
+ (2603:10b6:930:96::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.8; Wed, 28 Oct
+ 2026 19:07:32 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0569.007; Wed, 28 Oct 2026
+ 19:07:32 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v7 11/16] PCI/TSM: Remove the legacy guest request
+ interface
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, Alex Williamson <alex@shazbot.org>, 
+ Alexey Kardashevskiy <aik@amd.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Jacob Pan <jacob.pan@linux.microsoft.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+ Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, Kevin Tian <kevin.tian@intel.com>, 
+ Krishna Reddy <vdumpa@nvidia.com>, Lukas Wunner <lukas@wunner.de>, 
+ Nicolin Chen <nicolinc@nvidia.com>, Robin Murphy <robin.murphy@arm.com>, 
+ Samuel Ortiz <sameo@rivosinc.com>, 
+ Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>, 
+ Steven Price <steven.price@arm.com>, 
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>, 
+ Xu Yilun <yilun.xu@linux.intel.com>, kvm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+ linux-tegra@vger.kernel.org
+In-Reply-To: <20261008055955.4014342-12-aneesh.kumar@kernel.org>
+References: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
+ <20261008055955.4014342-12-aneesh.kumar@kernel.org>
+Date: Wed, 28 Oct 2026 16:07:21 -0300
+Message-Id: <179321444124.2412245.1053567517287648928.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-ClientProxiedBy: YT3PR01CA0146.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:83::15) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|CY8PR12MB7539:EE_
+X-MS-Office365-Filtering-Correlation-Id: 60003ad6-91ae-442f-dea8-08df3526b37e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|23010399003|18002099003|22082099003|56012099006|11063799006|4143699003|10067099003;
+X-Microsoft-Antispam-Message-Info: EUhOgzHTQq/8c5te+2ZjA1hcoKLEhRjH75uxVRpha9RXPWbKG4q7L/8pKmXgIuekcX83o5ittyStUnp4YuH+d4kCbnbPz4ird5XZUzUPsAh6LrW1mTzOiyZN6Tf8qxChjs2RKAilkG44PBCvBPK98CKWQu1xHCFfsS92jxVb8RSXwDrDxQBtg9UpwJ+fhQx6ycpTmaaisBCHdxjXsHUshAO/XZ1nsgMwS/3sdNrsFkGAE7CYHXVJTRyQloYo/COHTysGFauKuTwJFXFNJHw9eXm0suF968xl7+u7vf3NQqnXHFWihpXngIeAPfhtpHv6/Fuor5hQ6WNf6+HFLgYPVn6/zwv/pOgxk9vkNHPVFQy6X11GY6NwbfpSYEY4+tmbpIbOOK7P4YTLYOk6NsG0VYR+IRfZPV1ael/Q/VmbyXyCOcLuW/G3LEfGbiVPhsqMi6146BBl8sRoVKdUA1YlA6EbK0B0aJsAYxH48EemNl0pEvbFCd7C4A59YJkAzKRshidSiCi9BW9tBtmkULgD8ffjNY+Ygo6rdydB/hzXeRvGBurxVPUpxRKaoR5uLWoyIs+eGDG1RuNF0pbKb0oOrZEY13a90s0oTAsHH5AlNNOAlX7bLYvr4+ScgnQRi3ExruYS7/RSfVAkeM6fx/3fyky0jryeXQcUB35OEg2etWQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(23010399003)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MklPWHBXK0lxRzJBOUpkREwydVJjS1NhNjkyd3Jmd3JrbTNJRTlvLzhrYjc4?=
+ =?utf-8?B?Y21hdFlDOEQrYzI0aG53OGVoK3l3K3g1VlhybnpSNXI4alhuQUFxdG1qbCtC?=
+ =?utf-8?B?MjlNTkdBbUQwK0FDKzlicnNmWUttdTBmL1FJSVhRZzZzWlBnUDgyN0NoSC93?=
+ =?utf-8?B?UGhINFl4d0dwa0lFSUNtbUtHWG9tczczRENOQzIxWW1QTkI3Q3NtcUFTcTJR?=
+ =?utf-8?B?cGRHY3R1eWNEdFVCT2VMa0gxWTBmenF3UGtNeCtvUi9ydVAyZk1uRXJIclp6?=
+ =?utf-8?B?UjMzZE83YXZ4SVhvMzFZaEJsQlg5MGRRYzVrbjJuOGtqMFE2MC9IZDVkaEFJ?=
+ =?utf-8?B?V296bm02SnllcGFYczZTRHlURVk0VDhLRUNKckZQLzJDQzJGZ2JYU1gwdkdq?=
+ =?utf-8?B?TWplYjM1TkdxMjdCU1JJTkw1R3MzQnJZOGhpZ0FxQUNwaFYzcHlOYi9FMmtm?=
+ =?utf-8?B?eEtwckNoVlBiMUY4TmlXNks2OWgzSXF0QXV6bWYvcmNibVJjNStSMFcrQmtq?=
+ =?utf-8?B?ejZpTThtWktacjNiWURQeG1WQ1ozcC9HYWlaL2hUaVgyTDY1ci85bXp2ZU5t?=
+ =?utf-8?B?a3lFaXhPRUs5VitzUUtxeEQ4NVZxNmw5bURkZGtZNjl1Zm5wVlBZVjJndmEr?=
+ =?utf-8?B?UXFvMzF2MzBsQzdFck92TjlNanBkQ3owVlFCMHFNL0pMYlRqU0pKeWQ1dWRT?=
+ =?utf-8?B?NTg4N3p6RUNtSlRmWDlBY080aVQxcVdLMGVraGhjSkdiK1EzOWY0aHFUbWZa?=
+ =?utf-8?B?Zy9EYXR1cjAxRXFYcDVkK3h2SndJc3FDTVdVbE9NckRFS2NYTnpDNFEwbHdH?=
+ =?utf-8?B?L3lxOVZRZHJkc0NSenAzeGdyWUp0TGRtNHMxTzFuVFZPWUl1S1ZlYnp0cm1B?=
+ =?utf-8?B?MWh0THNiUHdJdUJrZmRsVHFSN2EvU0Y3ZTBCM1h6NHhMWHZncHlJWjJuNTBT?=
+ =?utf-8?B?N1ladXp3MkM2ZHBmWmpqdDhUeFJIbVhLS0RkbW9yM0FQVjJrUHRXbllDcVVF?=
+ =?utf-8?B?V3FQZzIvTE1maC9vRWRldVdaWWlPVnRXWEpySTF6dDBqaThsdHlWY1R4a3cw?=
+ =?utf-8?B?R0hnYXRESUErRjNwYTNFYWhqTUFhR2NxYVM0MFQwQmlGZlcxbjYzL3lCMlp1?=
+ =?utf-8?B?bGpHNjVwM3pUcVFqWkZBeVdNbkJQQmVLSkVYOFlxN29YMG9CUXdCYmdRMEZM?=
+ =?utf-8?B?aHpROVZMNTl1TlBCTHR6ZWJrSm5oeTYveC9LV29qRTVEK2RhZjZuUnlybFl0?=
+ =?utf-8?B?N1VQeW5EZjRNQ3BzVjRwVVUyZGQwcEt5aDNhQUIzQ2lpdlAwOE05U09ibFhr?=
+ =?utf-8?B?SzF1R05ZM21LWGFvbkQ1dzh2MEE4WnB6UjN0VzNiNHJxMHpkakF1SFpjYTI0?=
+ =?utf-8?B?cmlwU2lBSzhrS1BzU1pZOUUrZTRiSTFzZ0pObm93M1NQby94anlYakxQSDky?=
+ =?utf-8?B?WHVJb2FVSmE3TXd4RlhBS0x3dmRCdmRDUkRrcTAxMlpLcm9aNGpmYUFlTFJF?=
+ =?utf-8?B?TGUvNFlGT1hUMUxGTkRDTWtZaUZ4K2M2YTFqaDNocXhlazNlUEk0WTB2YWFF?=
+ =?utf-8?B?M2JURzJNK29SbjFzYmNuWHNzb2tjSUFLc2pYaFhxdEtRc09reDRkWWRmQi9Q?=
+ =?utf-8?B?SXVNVzN3RUNEYWc5YVY1d0d2U0NkTjg3c2FxaG9GQW1GU2dQWS9tMHdZRjRU?=
+ =?utf-8?B?OTJYUUNBbDZXcC84MG43Y2o0MVRFOUlPQnY2MUQ5YVAvMFBEZTVNYVZLSmY3?=
+ =?utf-8?B?UlhmclkzdnRJOEozbjRYM2JGMnRnMUt6WGszUERKaTRJK2VISWI0YkxRN1RK?=
+ =?utf-8?B?R3RpRnpVS1hBNlFla3lnUU9Jck9yMk14Y0lDV3hrT3M5WUhNRExWdThsTEhE?=
+ =?utf-8?B?dzQyL2l6MlJuYnp2TzFpVGFENHhMUUpiTndNakhYQnlCMU9sYlFmamNFYUZW?=
+ =?utf-8?B?blQ2N1JFVHVWRk1YeHhqWVFRRjZXblFURVpRb1pLRnNHcTFHWDFFVS9BZEg1?=
+ =?utf-8?B?am1IUHlDYzJ4ek1pd1hlcW13MG8vNTEweDJpQUk2UTZjdFE2aERjOW5UYnpp?=
+ =?utf-8?B?MW1NRXMwdksvMmtScjlycmozQks4NnBmS21Kd0JRNkpMZStkaTFnTGhIOUFz?=
+ =?utf-8?B?Nms0Vk9QYUQ5QW9LVm94bUZsTGFGWFlNTzN0TDV5RnBENTltVzVYeW80MktR?=
+ =?utf-8?B?bmg1Ykx6a3NlVElnUVQzWWdHYlM4OWZMMytCb0VzczRNTlI4MDE4Y0RVcjYw?=
+ =?utf-8?B?czNWOWdRenRoVFhIb2xlQzQxTkUwdTRMenF0Tlhobzl4bG5POG11ZWRCUmNC?=
+ =?utf-8?Q?rbVLsKcYUyaAHCembD?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 60003ad6-91ae-442f-dea8-08df3526b37e
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2026 19:07:24.7159
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OD+n0SSfDdVHraNQPs9/YHmlubh9R/UUewZ3HQTgwA3l5ph8H/YHYlxTO35Xjfya
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7539
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261028_120740_571361_31ADF575 
+X-CRM114-Status: UNSURE (   5.25  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,58 +164,21 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-6.1-stable review patch.  If anyone has any objections, please let me know.
+On Thu, 08 Oct 2026 11:29:50 +0530, Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org> wrote:
+> Guest TSM requests can now be dispatched through the IOMMUFD vdevice
+> operation. Remove the PCI-device-based guest request entry point, its
+> scope enum and the corresponding PCI/TSM driver callback.
 
-------------------
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-From: Randy Dunlap <rdunlap@infradead.org>
-
-[ Upstream commit b3734a8291ad7fd61e5a51cc540e414bcfbdc0cf ]
-
-kernel test robot reports 2 Excess struct member warnings:
-
-zynqmp-ipi-mailbox.c:92: warning: Excess struct member 'irq' description in 'zynqmp_ipi_mbox'
-zynqmp-ipi-mailbox.c:112: warning: Excess struct member 'ipi_mboxes' description in 'zynqmp_ipi_pdata'
-
-The second one is a false positive that is caused by the
-__counted_by() attribute. Kees has posted a patch for that, so just
-fix the first one.
-
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202312150705.glrQ4ypv-lkp@intel.com/
-Cc: linux-arm-kernel@lists.infradead.org
-Reviewed-by: Michal Simek <michal.simek@amd.com>
-Signed-off-by: Jassi Brar <jaswinder.singh@linaro.org>
-Stable-dep-of: 0aead8197fc1 ("mailbox: zynqmp-ipi: Fix out-of-bounds access in mailbox cleanup loop")
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/mailbox/zynqmp-ipi-mailbox.c | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/drivers/mailbox/zynqmp-ipi-mailbox.c b/drivers/mailbox/zynqmp-ipi-mailbox.c
-index 90f248ef2a1fc..c3953abe74b8e 100644
---- a/drivers/mailbox/zynqmp-ipi-mailbox.c
-+++ b/drivers/mailbox/zynqmp-ipi-mailbox.c
-@@ -81,7 +81,6 @@ struct zynqmp_ipi_mchan {
-  * @remote_id:            remote IPI agent ID
-  * @mbox:                 mailbox Controller
-  * @mchans:               array for channels, tx channel and rx channel.
-- * @irq:                  IPI agent interrupt ID
-  */
- struct zynqmp_ipi_mbox {
- 	struct zynqmp_ipi_pdata *pdata;
 -- 
-2.53.0
-
-
-
+Jason
 
