@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AA49606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 07:17:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02A35606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 08:04:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YZJmas3v;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=gQ6jHYFe
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eD8R8WD8;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PSBniF0w
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,102 +14,100 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=X3qKYmW+KpgKThN2slX/odFU810T68LPK+2Pye7ps2w=; b=YZJmas3vC8ngjt+lKmLMKM9cAd
-	tFY2TrDOMMOwMikkjCe7n0z7me3bWgpdSBe5jn4YoEr1k3swiZpx9Ec1BkHXq4N2sfTZDy824tEdm
-	AaeoJ916WoIbTezM+S4PjKoTeWNPCscWlDlI/IFIipDZDjaDX9I4VqO2u4iJ4LDZb4iq+tzUdEBez
-	9TjHsDL2Sqqxme88mBGQdrlvy7HPBuAKP54etT/tfz7C6wq5MOKSO906NC9NWVIuoG8NHBhBA5fQh
-	P14FVt8YYZqlKoUriuzPWh/5eIRwW8JXRqcPIqRj3CSnlkn9WsJbij4atKD6UQskDzKdj6IfqRLAJ
-	YIy10nLA==;
+	bh=QYUY+SzuyzidMIs5wvcWQ+wJedzQHVpapr2RX4nAS3g=; b=eD8R8WD8/MgJ479jZd4VMTN/tA
+	OlngqnQSklg0bqwZlVNpKNP7mkJafeDGihFESOJCpCYUiw+a2ehpczC5fbtbNmJOcjYS6JPZWZ1M0
+	z+PQDXwznDZKUiv5rDrlFOahkDTCNw2q5LOtv1dh2/VrZaxc0etTTrQKe8e5klxkTj/S/DTmsRMev
+	BnWn7zPN9usm8S01qb5qfZ6NiLMinpbXv2sfkevN0xMY6o+3PJs5owsmwshiOVA2CepPwkhUxWULM
+	ruhIWQqr8jS73XcRAQt2hO1BwBSdizHKPttTOqi1gF3V5i0J3f5xnfwupA2xD/iMQUo5TvxZh+dLR
+	giq3Xf0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLxuq-00000006SS2-3XRS;
-	Wed, 28 Oct 2026 07:17:44 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1xLydy-00000006VWO-1PHm;
+	Wed, 28 Oct 2026 08:04:22 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLxun-00000006SRM-0pbk
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 07:17:43 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso4539175e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 00:17:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793171859; x=1793776659; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=X3qKYmW+KpgKThN2slX/odFU810T68LPK+2Pye7ps2w=;
-        b=gQ6jHYFelp6MH/kyUIPE8IqJRhYd4U9+CAJvM0N7klinVapSnt9NPEfeMIlAeCWBIm
-         8wGyZMeKESLN/smGCU8WQwp/EMQxLSvNA3RHdYNE/esYPV/eqYfgQEHDQswQ7V97qL6J
-         pMqNycUgWH0Ai7as9sDczo8vt1+5hcGM2E1uaxtD1g8DNgFBumbULAsraZfxnOQtclvs
-         zD/CrvIjVcoieWWQOz/9elyjOYW0/U3zlBIEjGlohEp1sh4hnY8wW5w3FlKrmywjF9Cy
-         Hv2DWC8VVL3T+MtdmZ+XVWRTwsGmTGZVfl+/Vxe19B+qqvrPbDonaXyca8MR3rL5X+j6
-         Y7mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793171859; x=1793776659;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=X3qKYmW+KpgKThN2slX/odFU810T68LPK+2Pye7ps2w=;
-        b=179NlmyrN2v4xVAiJ5os+AD5O87Pv1QXWIbFQZCWXR3UYlf5gyAqhzKjAIaBPv8XRs
-         ijXvhqosDh4kqzSWMURlGrL06IJS//zLjHvwhMu969Lyv+uWxXyuwC5Aw8GCMvatAMXP
-         uQFLkOJh2Z3dxD6bvqilVx1ZdbBL7lZpKvxYGdXnnSDUstxtGJVLqkyshmdJpwjLSFEE
-         TL9FBcYeIzi8Uv4oUHVj/EEOaN/0B+8O55yazi7yDVmgHPD4kvi91X+/ybdApMWa1kWV
-         ldtBo3a3UUVEzUQX4kRtsuTipdgj6jJxfNVdYSTBmZo6CoG/qTKU/yZhuBL61hUADTLx
-         gfdA==
-X-Forwarded-Encrypted: i=1; AKwUvBy+8FJWPmj7Q1xfemr7YQiZJ88a4usOF1+KYOww5M/B+xlnL5XhlpfyBIShUunVqNds9hVqLth8KuJOdb4v0stu@lists.infradead.org
-X-Gm-Message-State: AFq9FYLdpXu4nM6KRrYixfyLcI81saLGA7JxCVvxrlxUHCnOnRX4p8gZ
-	2repFMnddWIpdQsM7lUkpd+1NBtPc7Qw2GaeUTGzMrQbs4j3aU3bcE6j0gfiCmqSox8=
-X-Gm-Gg: AYBFou0Ts1ZMfLMkbjTIf4b+jHYDrpss+6cbhSSlEfwui5XQKiBvQ5uUQYmiknMrhV7
-	1+uocFVoCW5FVCS5G5z1VjHA3BQQqJH3efeQkM+gw+IqS6VIDx9IU+/RcRmq2h3bJxp/lu8uNEd
-	xboztwbu+lW48ThldqYepvohmId3LVYHrRHrV2/j93ZKy/itnsoPd5jOoKmhy4LDbrz30Zovjng
-	yTnCy/oeIWdNuVfN6nBMLtr0ogHpA5VjjRG8yHYC6XCVBXnhnXk/5UqGfHa5Ck0F9/53a7DvRhY
-	wIP1TxoClKv/UhhM4IFCNy2uPG6u3pQTYQGA0XC7b/H98O6YFiOPS9HDO9lRCE7sujhXvATaLQr
-	ip9DlffmWQk2Ii4OtZjO/x1+niQMtT6A0Lztydlxf+sA7E2kK2U3UVY1g87hrVqCtBBL/RBz/hc
-	PoyLDQS0kOv3g1BmduVOIPCINcgSJxsK9sgumicWr010YjhORj2yhzsmG2wKd+zpESKspuM6oXg
-	RdVR9I0B/H1DIvCWmKvXuFPbUil7RggRJfRS9r33Rz0/axG63974pg9Zs8kV6+JIe/Uqt24mznr
-	EM2XDSQrWvScH2I5VfDRFDMtk9ZbuYyc8kmmiJDfC6zWBdYYkHBj+oObwCOWyWZ0e9mVciPVtS9
-	S/58p2wj6gDquiaE=
-X-Received: by 2002:a05:600c:198e:b0:4a0:4a8:d444 with SMTP id 5b1f17b1804b1-4a967ba8856mr25106675e9.33.1793171859280;
-        Wed, 28 Oct 2026 00:17:39 -0700 (PDT)
-Received: from localhost (p200300f65f19a904c16506b94501b867.dip0.t-ipconnect.de. [2003:f6:5f19:a904:c165:6b9:4501:b867])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4a97bf5d7cdsm20719315e9.3.2026.10.28.00.17.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 00:17:38 -0700 (PDT)
-Date: Wed, 28 Oct 2026 08:17:37 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: gaohan@iscas.ac.cn
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, 
-	Cristian Marussi <cristian.marussi@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, Jassi Brar <jassisinghbrar@gmail.com>, 
-	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
-	Samuel Holland <samuel.holland@sifive.com>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Drew Fustini <fustini@kernel.org>, Icenowy Zheng <uwu@icenowy.me>, 
-	Inochi Amaoto <inochiama@gmail.com>, Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, 
-	Jiaxun Yang <jiaxun.yang@flygoat.com>, arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	linux-clk@vger.kernel.org, linux-serial@vger.kernel.org
-Subject: Re: [PATCH RFC 07/18] pinctrl: zhihe: add A210 support
-Message-ID: <auGhPHjanNTkkzG-@monoceros>
-References: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
- <20261027-a210-scmi-v1-7-74d58ce85bd8@iscas.ac.cn>
+	id 1xLydw-00000006VVy-2kbe;
+	Wed, 28 Oct 2026 08:04:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793174661; x=1824710661;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=GlCrv/Z8ykZTWKLkjrgizpbqqqsL18IOZ9JsGj4pQww=;
+  b=PSBniF0wd7ppMixld2UUoEB73b1yiGoF8vRXQw+G1YSVuOdfGa10kRy1
+   PP038b2/20WyHj8Za8s3lOK6A5CKledqp9kljtVsDUOiHC+eGA3zA2vlM
+   MT+/FAI3eBlmS2C57vmTMY/nyWjYUaQySkZWV1rFyvAhDua/Nh3xd3GdY
+   sWwjrfJ8DDi7yQFTihVA+9UVxHpxbl2/Ir0XbFIFvaF+ALvnRLsnNW4NV
+   s/AYwI6IkDwqYskbzcKE+gmmy5RrHX+JztLgLKfgdsnx3gKVSDAKY0OQJ
+   fttgekcrMV59ncuafHN6jde7skpkm3TP+u/EPoo8Z96VcipDy/1yMDhB8
+   Q==;
+X-CSE-ConnectionGUID: sLTNwIDxTmaAlDuyi7swfg==
+X-CSE-MsgGUID: s3VSi+43SgW3p+AG5zAHOw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11948"; a="1780743"
+X-IronPort-AV: E=Sophos;i="6.27,182,1787036400"; 
+   d="scan'208";a="1780743"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2026 01:04:20 -0700
+X-CSE-ConnectionGUID: 3U2XXT5qQFSCkgAuKxEChg==
+X-CSE-MsgGUID: XN/qcR2yR4S9jibXAKAjrg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,182,1787036400"; 
+   d="scan'208";a="4852263"
+Received: from abityuts-desk1.ger.corp.intel.com (HELO localhost) ([10.245.244.117])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2026 01:04:11 -0700
+Date: Wed, 28 Oct 2026 10:04:08 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Sean Wang <sean.wang@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Basavaraj Natikar <Basavaraj.Natikar@amd.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Zhou Wang <wangzhou1@hisilicon.com>,
+	Longfang Liu <liulongfang@huawei.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Binbin Zhou <zhoubinbin@loongson.cn>,
+	Taichi Sugaya <sugaya.taichi@socionext.com>,
+	Takao Orito <orito.takao@socionext.com>,
+	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Laxman Dewangan <ldewangan@nvidia.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-mips@vger.kernel.org, linux-tegra@vger.kernel.org,
+	Frank Li <Frank.li@oss.nxp.com>
+Subject: Re: [PATCH v3 1/2] dmaengine: virt-dma: share the DMAengine
+ synchronization callback
+Message-ID: <auGseGw39K115Zfi@ashevche-desk.local>
+References: <20261027-submit-mtk-uart-dma-synchronize-v1-v3-0-aad7a6b3c62e@gmail.com>
+ <20261027-submit-mtk-uart-dma-synchronize-v1-v3-1-aad7a6b3c62e@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bf4vux6swhzzilrx"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261027-a210-scmi-v1-7-74d58ce85bd8@iscas.ac.cn>
+In-Reply-To: <20261027-submit-mtk-uart-dma-synchronize-v1-v3-1-aad7a6b3c62e@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_001741_255019_A12F92A3 
-X-CRM114-Status: GOOD (  10.59  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261028_010420_746338_F6FC4D51 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,48 +118,36 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On Tue, Oct 27, 2026 at 12:22:26PM -0600, James Hilliard wrote:
+> Several virt-dma drivers implement device_synchronize with a wrapper that
+> only converts the DMA channel and calls vchan_synchronize(). Provide
+> vchan_dma_synchronize() with the DMAengine callback signature so these
+> drivers can assign it directly.
+> 
+> Document the requirement to stop the channel and prevent new callbacks
+> before synchronization, and the context in which the callback wait may
+> run. Replace the equivalent wrappers in the existing drivers with the
+> shared helper, preserving their callback-wait and descriptor-cleanup
+> behavior.
 
---bf4vux6swhzzilrx
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH RFC 07/18] pinctrl: zhihe: add A210 support
-MIME-Version: 1.0
+...
 
-Hello,
+>  drivers/dma/hsu/hsu.c                          |  9 +--------
+>  drivers/dma/idma64.c                           |  9 +--------
 
-On Tue, Oct 27, 2026 at 11:36:58PM +0800, Han Gao via B4 Relay wrote:
-> +#include <linux/mod_devicetable.h>
-> [...]
-> +#include <linux/platform_device.h>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com> # hsu, idma64, virt-dma
 
-Please don't use <linux/mod_devicetable.h>. <linux/platform_device.h>
-already provides of_device_id without introducing a lot of unneeded
-build dependencies.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Best regards
-Uwe
 
---bf4vux6swhzzilrx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmrhoY0ACgkQj4D7WH0S
-/k4lEQf/aQompiZrE8lzHamk+WXWr2kv9iqPDmKByLu358ny9EKvV3eNOG0y3m2B
-hMQ9inmxBjyfz0TMb3NkQtmXVKnu41A8A6mcl3B97akrhcvKxPDgsn8FWhhNJiBs
-s0jrcYuMILEssk5h7k5Ah8fEdVAXbDTp88j/afUmb9QfOZxjaW+SXfLYigacUFT0
-U8Hy6rX3B+GESX5uvdxOY69bn4dHt7Qwr56FksGQtIi7Y9DbyRhhMRnwCy4pCLnw
-ZD9t3GwAHwOm1fdsdqP0zLsJPukoZPNmbT58FjRf45TfYHmOSulG5O3oszd4ElAw
-wrbitVSdlgy1G4VvYAZKJRQLV5gF2Q==
-=JnXH
------END PGP SIGNATURE-----
-
---bf4vux6swhzzilrx--
 
