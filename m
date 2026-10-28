@@ -2,106 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D314F606A33C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:35:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1942606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:36:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yvlHQgv1;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i2Un4Mws
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=U9wL1GCk;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NxwNyqSE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=kzgvlmTIhVHGThdIV5sswGrWTSAc2jljnSQn/BZ1riE=; b=yvlHQgv1TUXNnzwqhYzj3AZyqu
-	3YJyfw+tYdh6KPaDCiCPJJcQEdNpPYV0nS8rvulc7oWVDalaOYd+Cp/AtMPele63/lET22byvzeoc
-	t/hIBy76lHoBJkyGZ6g7LhQbEZOXc5rbE5faiXQZVbixURzuNm/QSb2R98R0KxiHlpBrkWUq3jWCG
-	S1UUZsf78J9WEavlYFkKppPPpsoy6+YqHarWoCan0oRn7EaCssOTqp0hHdUjA82VP3vVV0dkFFvSQ
-	mcP2CaJLLnNPpOhpu12gaJmse7v/e44HqA2DzacdEFw+wF3K+RP2xFPZ6ddc7wJ5tt7vve1emt/Mp
-	ZEyiHzGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=BqcLJCt/Zv6v/NHtTbSxJ0dXgZEQb3K5NLkXSY+SP5Q=; b=U9wL1GCknEv0CG
+	tbZJtBzdhwCd2yebCLqUkLLdDp7gjb5nV7OeyWQS95Oa5m4mExHI2GGNxH5AGQeqwNrBT69ZzW8By
+	r35qheN097Lanhdec3A/p/uzXDagK86nFyub3sgKzp9C5F60LPxdZ8bu7+trz3NSVir4iqkwvF/AY
+	K0jM31Ki7tAeSrbztoK/EcA2D2meHeB4+p7BAM5AiaFv6d7f2UY4S06aX8DAW0uOvWwl/LK7oPn85
+	fW00ssA/lxvKRVfrQAoHS1VkOd6qXtnC37RdezueDK4bKkdqZtDWW2voS/0GzK5zzrlO+ZnFJcahA
+	yGwBR//Ijh0V9d4H4GSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1w8-00000006ruc-2dBM;
-	Wed, 28 Oct 2026 11:35:20 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1xM1x7-00000006s1d-3w41;
+	Wed, 28 Oct 2026 11:36:21 +0000
+Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1w6-00000006ru2-1Nqb
+	id 1xM1x5-00000006s0x-3iiq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 11:35:19 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-48afbd2c386so499917f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 04:35:17 -0700 (PDT)
+	Wed, 28 Oct 2026 11:36:21 +0000
+Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-35b2c599f43so1854488eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 04:36:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793187316; x=1793792116; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=kzgvlmTIhVHGThdIV5sswGrWTSAc2jljnSQn/BZ1riE=;
-        b=i2Un4MwsIh4oI8fCZPElNM/YSECxIdUK4nVcD5NPA4KKiJ6T9RdMVsgn27mw30prUG
-         /EhFTTRhnbok0H2fTQW6Wx/twgzVtDtC8If50aAHzl4e95SmW33RShszggYDw0ZIJCxV
-         3q8R4C7a3Nav0aScYGuyXHqMxMc56qpu8PhfIoAVG+LwTgxkP398YybEITMehyUDmalx
-         PYUwmGaHuEhPkfTQQMSscFY8UDkvpJhKcS1xLkMuICISjogthEvJVTOBrrJro5M8LIrX
-         k5RajbjFMIxHVAZooT55WVIZahLNRymGcWSdgdDexD3pKPKbfO1YK32e6SZO9L3jz6cY
-         2xww==
+        d=gmail.com; s=20260707; t=1793187379; x=1793792179; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BqcLJCt/Zv6v/NHtTbSxJ0dXgZEQb3K5NLkXSY+SP5Q=;
+        b=NxwNyqSEl7ZvPg708FnK6m6qWkzl4a0ACZyjbFHCwXd9zLoqq4GvWVwN9Vg9Xs2JUT
+         SfWw8HMEAcEhDwHQRmKOEhY3kYicKhkgd1a7Ur+w1pkOMY9JuWerrGs9sN5npvezaD86
+         LfvZJcTepfkaX2W+8/eId69Xm3pvcfjdjt9WSN3DpushzqEWc/qGgoHzs3IFy9oNL0AB
+         5dp0XZAglGGQguA5RoEeNOqF2sYMVtktBQ6BfoRR3nNh4kucb25fB7VWdipvw8mImz2y
+         7C75jOVafLzk/r3QkNBDASFt/SjywqNW4s3QA9IUEruRcYPxeJ4J1c9T+Vese4fQFVaP
+         5/cQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793187316; x=1793792116;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=kzgvlmTIhVHGThdIV5sswGrWTSAc2jljnSQn/BZ1riE=;
-        b=Ez1jVz/16BkgB9YQWUo1VPxdLokCys/d8Wl1NuU9xzrvhNKves9PEACOoJiOn6KUf2
-         fHIuQiJS4/1obQy50kTbg1MB0izjf8DOB8mtL9C02hkPyi8JXuEoO6x4L6hmdxgWN4Mf
-         FnaQKxxUh0/8mt/AS86ES/Xe9rM5BoAW1XUMMvvB90FRpedF/cr3uwWdubg+4qDdk1Za
-         VH555HZ499TIghyHPN3PGLRX+8/NafoZtq77ymCbA9RUs1QjTjHYP/6E9tGWiYREez0r
-         zWjZbRdFUf+T1uCvYPzTVxCHD3mnoHQnJud/9AvpupcQNa86tTwlKDff4sgGYrtp7hOy
-         jTlQ==
-X-Forwarded-Encrypted: i=1; AKwUvByJ7F1SVhBL6cNcQ7bOqfA4YFv7IOZ8sr9g63qxE13cGIHxm5nuWI2ACXXn+MNkZ29i52LkPapwgjcQQ8zyRkjA@lists.infradead.org
-X-Gm-Message-State: AFq9FYIUCGYAjQ1bZDoTwhLT8BrL+GyE1sKGlL+q6GkBQeHbN4MX55K8
-	6S1g4dkBcmMG5NzpS8r2Qr6jqxA0uJj5x+8e8Fa28VhsOR3bVv+ERw/Z
-X-Gm-Gg: AYBFou0K5MQULQpgRS9izEaMEWT2O2U3UfyY/1ty6WXVx4vkxNH0wCEr3Z1ZWmrdcIj
-	98xzUHmYY3eEGqqWM+bwpIzjeH0Z/vVBo2qmOymp7gykTAJH3L+eRwdwPI4fur8E7ZzKnqVc6il
-	OL24y8AiZStTdOfNtWWxa5hYm466B1V+7rfRhfhnUsSUMvi/+6/LOaFv3hKRL9cjCu77f3ZyrTL
-	hif5T9jXecPh4pUwK1cW8741NEjmZktT6dARZRrqyeeZJmKNvfmnXxHKgjhFxdsfyiq64C/nypQ
-	t57qtCX7V79VKSD+UiodNjQUxd/OkzdJLC6/yw9AfJMcFfp7X/rYhbwk8Ml4uB1TK7LAxjoLOS1
-	/oWckE2m6rZvgZkFKId/f5yd1AbBPGqIrIwlgY21+cAydtnblgo7q9EbdE29Deg0j67VuVPXW09
-	IiK+0nDWdf2YyrJUyBq794cLGzBBftb7miJqQ3QPMa9h3UFocJ9U2VQXrAP8XavKajn7/dU8ROk
-	PTJXKB4kLurOwX7mkmA94fvlpwjc4QPXuU4tmj+odZwWcav4ySA+bDSrA+jIzBS/8zswJNsKt8l
-	NCmfrKFtmp9UY303P6VRWXzQy33h9arKxlSK3StiOZHS8qs1/d2qmFNEP5sOuUnX9LXNmuk4oW7
-	E+ASVvuz0AuPt8819pNra46mBzyQLfg==
-X-Received: by 2002:a05:6000:2207:b0:48e:5df2:fd24 with SMTP id ffacd0b85a97d-48e5df2feb5mr4476377f8f.32.1793187315926;
-        Wed, 28 Oct 2026 04:35:15 -0700 (PDT)
-Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3eb8f36asm28144706f8f.1.2026.10.28.04.35.14
+        d=1e100.net; s=20260707; t=1793187379; x=1793792179;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BqcLJCt/Zv6v/NHtTbSxJ0dXgZEQb3K5NLkXSY+SP5Q=;
+        b=u/aUfA6bXSxybkttXNDikidDww1XzBvEovqFDsgzX74RXjuAJd2wykd+x14eB3uwth
+         5kElo5SdCYBKnvz7OE5ZKVC6/Bfpp3nSqM7XY+ypKJn+bDBoCE3W9vsABpR9sqpnxouY
+         P7det8gj/T81VscMUg+ckQStzS3ZD5MtUCSORXcaJySI/yLKQtx/V1PAuW/pcHuHP4ZP
+         RH/53zTulbbEQAIABvhdpo/Q3V5Vs4uJzwhh4Mbp9AtAFFy0OLkkJXfxLjwbFhqsfdeM
+         RwmaXU72naa1PcFjt+7TR+EX5O54WUeAD7y0KRzU+UzjBcFb7+4qRkTvoFdsHV406QWH
+         t2Iw==
+X-Forwarded-Encrypted: i=1; AKwUvBwcU+PLQW0VL/TR2QRNqyn8ue2IUMAt9vM7VII5JlnvfKAd6h4bn0SC/ECOmhVyzhHFQudN76+1kyWHtG4awQDd@lists.infradead.org
+X-Gm-Message-State: AFq9FYK8dZmBO9HaqV3a6eAPRJtH4PYvBl5Hr4spbwSzRro5LoEYtIdj
+	smEoAih+qIkiXbgC0Q1G9tvuaCZel8utv0sgyk4DOXCabpwtI+JF45Ii
+X-Gm-Gg: AYBFou18PAPo3earB9V6b4Ot/XWs9wXa8NBe3qR+/JQHF1UTRxv4A+ABjQL3cSLWZ3I
+	Wu/iDgkuA31NvXO9RvXhdm1nqV4H5eb64cExm5Cj1Z9VOww783PeY/pyqNtZlNZa7zgcxvBq+2N
+	pWF5K1KK632TwA1/jVAcMCx1z07eDmlzk1ITbf7d9Kq51D5HSRV93YzkPDavx21stYp8+mzi5xn
+	ms82LE2IbSPH9yFMbcCN79e2O1lq5YG5dIrSPcMzuJt8cuH1i3gD3I8PzKN2CPxUzdbLNZMDl1j
+	YYtoWMONQVgvD6+kebaKp8KpYXhV5upts0phobUmwW/7RcMJxj/o5sz/6izJAaOweFlGyh9QsqW
+	AFUJKeqr8pAcicTPN/mEqE4qHjVqTyzWK3P95GqZqHaocnqv//GzgUROgy3/xSB/dMiCJmh8Gs4
+	uH+jxDEBIabtwxsc5TTvmIeEYq0OKMxRyZobYidpwmxS6xMzarNvhcLW85AIxe+jPbWrZaL0xsC
+	k8DDNVv21QU0QN7FsGwjLTf1Q9Rtihl9bCAfumFeRKKjKHZJircUvIMxpnBt0tpQrGz3frTeh5f
+	JBC+V8x54VLKkIgTtMY/mKe4IhtZtOkCXU+duXCKoiS2ZrF24cs=
+X-Received: by 2002:a05:693c:401a:b0:369:f05d:6c5c with SMTP id 5a478bee46e88-36a20477909mr3084505eec.28.1793187378627;
+        Wed, 28 Oct 2026 04:36:18 -0700 (PDT)
+Received: from localhost.localdomain ([103.177.252.84])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36a238d9a21sm6623522eec.4.2026.10.28.04.36.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 04:35:15 -0700 (PDT)
-From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Date: Wed, 28 Oct 2026 12:35:09 +0100
-Subject: [PATCH v4] arm64: dts: freescale: imx8mp-verdin: Add Cortex-M7
- remoteproc
+        Wed, 28 Oct 2026 04:36:17 -0700 (PDT)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: mani@kernel.org
+Cc: angelogioacchino.delregno@collabora.com,
+	bhelgaas@google.com,
+	kwilczynski@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	lpieralisi@kernel.org,
+	matthias.bgg@gmail.com,
+	robh@kernel.org,
+	ryder.lee@mediatek.com,
+	sreekuttan2156239@gmail.com
+Subject: [PATCH v6] PCI: mediatek: Fix integer truncation and handle oversized resources
+Date: Wed, 28 Oct 2026 11:34:53 +0000
+Message-ID: <20261028113453.2599-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <kfnxuro5xf4mhokabg773zcyp7otcjxwpzcn3dlo6y3kpv4uv4@bne4qf3vcif5>
+References: <kfnxuro5xf4mhokabg773zcyp7otcjxwpzcn3dlo6y3kpv4uv4@bne4qf3vcif5>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261028-verdin-imx8mp-m7-v4-1-d4e23e62ebea@toradex.com>
-X-B4-Tracking: v=1; b=H4sIAOzd4WoC/4XPMW7DMAwF0KsEmstApBRb6tR7FB1Uia41yA7kQ
- nAQ+O5lPBRtMmT4wyfAR/CqFq6ZF/V6uKrKLS95nqTYl4OKY5i+GHKSrkhTh5o0NK4pT5DL6so
- ZSg+h80yd61xvUcnaufKQ1518/5A+5uV7rpf9QsPbdMe0x3tslMRQuAaoHNIFGoIGE72xnmP69
- MObSCHxeoxzUTe80S+IWuNTkATsExprBJQ8guYPSPT4bjOAEAZylsmdDKb/xLZtP0UfMshUAQA
- A
-X-Change-ID: 20261020-verdin-imx8mp-m7-a69e26868741
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-X-Mailer: b4 0.16.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_043518_393995_D2EFBA05 
-X-CRM114-Status: GOOD (  13.03  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261028_043620_210052_162D118F 
+X-CRM114-Status: GOOD (  17.07  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,98 +113,132 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
 	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+resource_size() returns a resource_size_t, which can be 64-bit on
+64-bit architectures or 32-bit systems with LPAE/PAE enabled.
+Passing this directly to fls(), which accepts an unsigned int,
+implicitly truncates the upper bits.
 
-Describe the Cortex-M7 remote processor available on the Verdin iMX8M
-Plus SoM.
+Furthermore, AHB2PCIE_SIZE() uses a 5-bit mask GENMASK(4, 0). If
+the size order exceeds the range representable by this field,
+higher bits are discarded by the mask. This can leave the hardware
+translation window smaller than the OS resource, causing bus
+errors when accessing BARs in the unmapped upper region.
 
-Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Fix this by using fls64(size) to calculate the size order without
+truncating the resource size, and return -EINVAL if the size order
+exceeds the supported range.
+
+Changelog:
+
+- v6: Move oversized resource validation before hardware
+  initialization to avoid leaving interrupts unmasked on
+  the error path.
+- v5: Use fls64(size) instead of fls64(size - 1) and remove the
+  redundant zero-size check.
+- v4: Fix struct device pointer access (pcie->dev) for dev_err().
+  Verified build and passed Sashiko review checks.
+  [Subject: PCI: mediatek: Fix integer truncation and handle
+  oversized resources]
+- v3: Replace clamping logic with strict size validation
+  (size_order > 31 returns -EINVAL), add a zero-size check,
+  and update size calculation to fls64(size - 1).
+  [Subject: PCI: mediatek: Fix integer truncation and handle
+  oversized resources]
+- v2: Add size clamping for size_order > 31 to prevent overflowing
+  the 5-bit AHB2PCIE_SIZE() macro mask.
+  [Subject: PCI: mediatek: Fix integer truncation in fls()
+  and clamp size]
+- v1: Initial submission using fls64() to handle 64-bit resource
+  sizes and prevent integer truncation.
+  [Subject: PCI: mediatek: Fix integer truncation in fls()
+  for resource size]
+
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
 ---
-This patch was previously part of the Verdin iMX8M OV5640 series and is
-now sent separately, as requested on v2.
+ drivers/pci/controller/pcie-mediatek.c | 23 +++++++++++++++++++++--
+ 1 file changed, 21 insertions(+), 2 deletions(-)
 
-I am away in November, replies may be delayed until December.
----
-Changes in v4:
-- Use IMX8MP_CLK_M7_CORE: IMX8MP_CLK_M7_DIV is not registered by the
-  i.MX8MP clock driver, so the remote processor got no clock (Sashiko, Frank)
-- Link to v3: https://lore.kernel.org/r/20261022-verdin-imx8mp-m7-v3-1-af284e28531d@toradex.com
-
-Changes in v3:
-- Split out of the Verdin iMX8M OV5640 series (Frank)
-- Move the UART_4 overlay to the shared Toradex Cortex-M UART series:
-  https://lore.kernel.org/r/20261022-v1-imx95-overlays-v2-0-c769d6eb54fd@toradex.com
-- Link to v2: https://lore.kernel.org/r/20261001-verdin-imx8mp-hmp-camera-ready-v2-0-7d1343ecd3ec@toradex.com
-
-Changes in v2:
-- Rebase
-- Link to v1: https://lore.kernel.org/r/20260910-verdin-imx8mp-hmp-camera-ready-v1-0-3c9349ecdb9f@toradex.com
----
- arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi | 33 ++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
-index 9fee2cf9ef54..8bffa4a27776 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
-@@ -77,6 +77,18 @@ key-wakeup {
- 		};
- 	};
+diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
+index 3a3e91cd0c21..cc04a7b862f0 100644
+--- a/drivers/pci/controller/pcie-mediatek.c
++++ b/drivers/pci/controller/pcie-mediatek.c
+@@ -8,6 +8,7 @@
+  */
  
-+	imx8mp-cm7 {
-+		compatible = "fsl,imx8mp-cm7";
-+		clocks = <&clk IMX8MP_CLK_M7_CORE>;
-+		mbox-names = "tx", "rx", "rxdb";
-+		mboxes = <&mu 0 1
-+			  &mu 1 1
-+			  &mu 3 1>;
-+		memory-region = <&vdev0buffer>, <&vdev0vring0>, <&vdev0vring1>,
-+				<&rsc_table>;
-+		syscon = <&src>;
-+	};
-+
- 	sound_hdmi: sound-hdmi {
- 		compatible = "fsl,imx-audio-hdmi";
- 		model = "audio-hdmi";
-@@ -185,6 +197,27 @@ reserved-memory {
+ #include <linux/bitfield.h>
++#include <linux/bitops.h>
+ #include <linux/clk.h>
+ #include <linux/delay.h>
+ #include <linux/errno.h>
+@@ -686,6 +687,8 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
+ 	const struct mtk_pcie_soc *soc = port->pcie->soc;
+ 	u32 val;
+ 	int err;
++	resource_size_t size;
++	int size_order;
  
- 		/* Use the kernel configuration settings instead */
- 		/delete-node/ linux,cma;
-+
-+		vdev0vring0: vdev0vring0@55000000 {
-+			reg = <0 0x55000000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev0vring1: vdev0vring1@55008000 {
-+			reg = <0 0x55008000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		rsc_table: rsc-table@550ff000 {
-+			reg = <0 0x550ff000 0 0x1000>;
-+			no-map;
-+		};
-+
-+		vdev0buffer: vdev0buffer@55400000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x55400000 0 0x100000>;
-+			no-map;
-+		};
- 	};
- };
+ 	entry = resource_list_first_type(&host->windows, IORESOURCE_MEM);
+ 	if (entry)
+@@ -693,6 +696,13 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
+ 	if (!mem)
+ 		return -EINVAL;
  
-
----
-base-commit: 7f47e8eafbf55a2ad0697e5d28f5e6cff2fa42f9
-change-id: 20261020-verdin-imx8mp-m7-a69e26868741
-
-Best regards,
---  
-Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
++	size = resource_size(mem);
++	size_order = fls64(size);
++	if (size_order > 31) {
++		dev_err(pcie->dev, "Memory resource size too large: %pa\n", &size);
++		return -EINVAL;
++	}
++
+ 	/* MT7622 platforms need to enable LTSSM and ASPM from PCIe subsys */
+ 	if (pcie->base) {
+ 		val = readl(pcie->base + PCIE_SYS_CFG_V2);
+@@ -754,7 +764,7 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
+ 
+ 	/* Set AHB to PCIe translation windows */
+ 	val = lower_32_bits(mem->start) |
+-	      AHB2PCIE_SIZE(fls(resource_size(mem)));
++	      AHB2PCIE_SIZE(size_order);
+ 	writel(val, port->base + PCIE_AHB_TRANS_BASE0_L);
+ 
+ 	val = upper_32_bits(mem->start);
+@@ -775,6 +785,8 @@ static int mtk_pcie_startup_port_en7528(struct mtk_pcie_port *port)
+ 	struct resource_entry *entry;
+ 	u32 val, link_mask;
+ 	int err;
++	resource_size_t size;
++	int size_order;
+ 
+ 	entry = resource_list_first_type(&host->windows, IORESOURCE_MEM);
+ 	if (entry)
+@@ -782,6 +794,13 @@ static int mtk_pcie_startup_port_en7528(struct mtk_pcie_port *port)
+ 	if (!mem)
+ 		return -EINVAL;
+ 
++	size = resource_size(mem);
++	size_order = fls64(size);
++	if (size_order > 31) {
++		dev_err(pcie->dev, "Memory resource size too large: %pa\n", &size);
++		return -EINVAL;
++	}
++
+ 	if (!pcie->cfg) {
+ 		dev_err(pcie->dev, "EN7528: pciecfg syscon not available\n");
+ 		return -EINVAL;
+@@ -830,7 +849,7 @@ static int mtk_pcie_startup_port_en7528(struct mtk_pcie_port *port)
+ 
+ 	/* Set AHB to PCIe translation windows */
+ 	val = lower_32_bits(mem->start) |
+-	      AHB2PCIE_SIZE(fls(resource_size(mem)));
++	      AHB2PCIE_SIZE(size_order);
+ 	writel(val, port->base + PCIE_AHB_TRANS_BASE0_L);
+ 
+ 	val = upper_32_bits(mem->start);
+-- 
+2.55.0
 
 
