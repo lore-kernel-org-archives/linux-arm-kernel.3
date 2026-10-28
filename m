@@ -2,111 +2,157 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E63D1606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 14:50:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03A9D606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 15:02:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QuTD9QLH;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ULtlPxXu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uCKnkq2w;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=QzAcC31k;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Wu3cUv7G
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=HF1altOhSOliHgMv/AZ/rbBGnqwe/0k0dVHlSjsTcys=; b=QuTD9QLH/hzMcgnTIpgQM8Ln4p
-	mQG6BQWucZAb4BnuI/VOeaAJlo2A/CHH5EW8u3wCarGAXCNc0Q9wmN+/2E07xw9dggqREPoMZY7fE
-	s4vVPNsfW4zVm9wLOGfZrKMAVTLHcTQZkd9rWBl0u2/Ut/KeeLPa+7hCvaSmwS9HmWtM5utZa1jXg
-	Y7A7sQ26B3C50p/7hsuZKYxUmCzryhrM4IJ+knqZ2knTr9e0wZ5gHAF4xk4Ju03xYdRXKLmkn8d25
-	DkOTV86tkdtEcD6sbg3MtjbWj9Vi6hnbrjS4kiY2GnH+x9Pl9PomkhyBkO4U0v5TXmp3xEH/NcmSa
-	4WhfGsxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=mVhCdDkhAXJ5S102mixnITdimIHOTHoGKH57O2P0pYk=; b=uCKnkq2wlDcmLj
+	Sizzov4ekrUXtscMKmq2WCUMV+tmOURlI0l6nE8Gyx9mLkLQSA4hspxhRLil7IjVwMmPidIrj+TVP
+	r1E2hTcCg5XPLwjCebh6uvGJi/pQs+11ja0XRoNoG/64zpm3BPED4SUp4Sq9622sGGFJd+K10tKdy
+	0G//HmthSf5P0XAO3UCy7kojR7EaxLV5HEHTLXG4w+uCKndexyXL/ZzYvfl93/rcCwlYy1wmkZsFZ
+	YQkbuCzKu/Cv1WWVcXjmcieq6DPNgWTVr+RgGfs7rcHrCzIqVNhdCWKJ8X6PlC+iDoneog4Xh3yoW
+	H/Fh+kZAnlJ5ISiDTSyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM4zI-00000007G32-1Qkb;
-	Wed, 28 Oct 2026 14:50:48 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1xM5A0-00000007Hun-13gn;
+	Wed, 28 Oct 2026 15:01:52 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM4zF-00000007G1K-1Akd
+	id 1xM59w-00000007Hra-1E8u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 14:50:47 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-c169ae1cb26so339823166b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 07:50:43 -0700 (PDT)
+	Wed, 28 Oct 2026 15:01:50 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69SBe3HY4154763
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 15:01:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	mVhCdDkhAXJ5S102mixnITdimIHOTHoGKH57O2P0pYk=; b=QzAcC31ktlmC2cCS
+	LDO9UhLMk1H9E+JsuvEJv90SGUuvR0kWdzBFd1N55Vb24qADIf7fO2YSfkhikI/n
+	nxYoIzBAJ8kk/mBrOS7zHyz3FZQdaReG04rLsVn1rjqhuZtgP+5gnOgEmD+yqkHg
+	oxq/5E6o7WSEf2GgW/vqS/Aiw2Hl6I9UKBOEgS7BawkO+4qzhtuu6ZauV8oXHuQJ
+	2ImL7ZP/cVrLBQwYGAwanwzJOnRbK8qOFEFKpsABU5J+EbsrkUf27tNh+uY2XNPt
+	h/seLmU0kxBFcJ/VbJmDkJVJkTsnDPrCW5Fynxag64BjuXE12UaCuQ97zXxXfJyj
+	qbvvAA==
+Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hkdsp1e7g-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 15:01:46 +0000 (GMT)
+Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-824cc5f7fcdso1447940a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 08:01:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793199042; x=1793803842; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HF1altOhSOliHgMv/AZ/rbBGnqwe/0k0dVHlSjsTcys=;
-        b=ULtlPxXuIdqXP5jZLZpDd0vHTFGeeod2vRHQdkBXCEqf3UI50Hs/Aapcvs9R40UFi/
-         ZO55CQxor1r4kmdPfItt6wMIBIcKNaO4xoGNzEd2+BxPPzLgHCWBUmAfGzzthWCihzrB
-         rt0SY3iPL8qrAowzDLsCaK1MCVuITg3M5cv78pjYglx3YF3cUlW74mTK2UKVS1BeGK8m
-         1+eUbS5PMEr6ZUc7yu8n8il1ZLnpIqZKg95Hg69POR+ThdYEoHiImaOYQ7mg96ftwJqH
-         kdNkya/EDeVo79w5Y5bARDW5yQXTMila7DH3WF5Jqq2H8zLrDEgZzNcdet3BZDJyMTdj
-         TtgA==
+        d=oss.qualcomm.com; s=google; t=1793199705; x=1793804505; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mVhCdDkhAXJ5S102mixnITdimIHOTHoGKH57O2P0pYk=;
+        b=Wu3cUv7G0FJdv5780BozVa6JdYqC17+679qXVBjJimHjxx+G4jrKumuk1cMrufzy9o
+         KvkBKi4lMrYwya6TGW7GG1OeQsl+6xXGbT5Fgpb2Cb1bGdcuDecTaW3hseIaNw55HTrx
+         7IJfuo4rLqmK2WZISaO+z1ldlqro/nCleLpGypyrNDLNHuNT1vlK6zt7sC6qoX5bGaJ3
+         JCr2QflnqsLMHNJzyJCk9m32lBp8DbK0W234gO1oc5GuWdaqhhXxfk328rkN5WVir7Jk
+         CBXioXkooOOpiSDVsfNWMrUB7ycthKZIm6dbOq87wVfD+s/r/gyCj7TC7HaXnHloF8ae
+         WSCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793199042; x=1793803842;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HF1altOhSOliHgMv/AZ/rbBGnqwe/0k0dVHlSjsTcys=;
-        b=RBLiRWvYG3uHpCjjb8BydDvhnNhsoLKNaoTLLeZisUFK1m7KPdB8cZ55wjSLtKKaj3
-         n5OPRNvbisbbM0SbbTI9EQytRnmUJyCyf8qFi3coAEBpdBKlz/ipsU1en7wZhcZlusiz
-         oU+yarfo/HXjp4/3D4gSRrYw8YGoiUeRPEljNmSUbRyBWn4Qp+1xZ5bVBgttP1MCOGq6
-         zBjJ7FmH7WXlFkjpMrIoxpt0MVj4eJiLUppajVod3N9+rqDzE7UpmVSC0p9AihmfNgsW
-         3u849khhtGE+ZNKiDoUOP4fvgnYw2UNPza51NbyFB2cKwdqwo5QxFibS+hFd0bdOuwyk
-         1gew==
-X-Forwarded-Encrypted: i=1; AKwUvByltpN1gDPoj8BSNcHTwZOjdwNpthNsZ23SNi/2ay2ltOMBX0d2yQDIOkw21XmliImAkVKLB6Hxjxk/sB5BhPfJ@lists.infradead.org
-X-Gm-Message-State: AFq9FYLOyYIC5d6D9exoON9BULqNTEs8HMpZ19mNTLPWYuces0AaxhnQ
-	3fG1i1eeQD3dz8K5xbaFUO3cYsHLsi9ADfQVfYCn2a/92P6YcopLyKwwvajcv8AGpg==
-X-Gm-Gg: AYBFou1ahLA4d7mhy8bVdKdBt0KATAf0hDX23dd0WuQVUtJ3LVCZb9KY4TzSW6ez/AX
-	V7mFSaGWFOvhEPqUXU3YXjLw7NFMiDW37x+mHrKg8COO+dtRtp4DfUIGpYbXi4WbDbArrEscLpG
-	CYK/CvDmZ0FEeOdYfZgCeplvAOJWJ4iHl5TuKEKG7L0QzbLdBFYz57LV+lYKuV1z3UPqvU4dwWZ
-	7I9vHYuzIZhdGBTTw81NYthlRIJVYJSw0apvdlxqeBPTjCFf8SgD5WuoyWP1GUgfRIoidbDge6C
-	hCoSdd/OcxbhSLZO+UxBIFzHUj1fw9qypB7f6ZZBGdH0Js/8XRBpmqBA/UVrbtJeqz7t1WnxhMR
-	3CoFTPpGaboU54YLVzNRGh5JG7kmeS++fDWzl2QxK7TBm11cHqLN2dkjp6ALE1N5eXSBsHeuxNh
-	b12sk5dj9O1jIUfFnCKEpiBhvmLmfty0DPzAIXeiDulG74DQ1Ioru7ROrYF9UQ1CcWGjDEnBEiP
-	JTDBIjh+wvTk+Ys2ghpOzm4pUcJDDveIjBNjyMYxtYXostkOg8txSl66jVNJ8AvqBs4sXuDmFdo
-	9VvNQ7twqyUGtggN8E1mDV95ruG+CZylzsed5PvhxJWh5OUQZu4erw3Eg01syseBkk2wNWQAIGF
-	7BorBM0BfCJE=
-X-Received: by 2002:a17:906:99c9:b0:c29:4b57:503e with SMTP id a640c23a62f3a-c49c620c08emr153260566b.1.1793199040959;
-        Wed, 28 Oct 2026 07:50:40 -0700 (PDT)
-Received: from google.com (0.182.34.34.bc.googleusercontent.com. [34.34.182.0])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c46bd35004asm607338466b.4.2026.10.28.07.50.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 07:50:40 -0700 (PDT)
-Date: Wed, 28 Oct 2026 14:50:36 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Sumit Garg <sumit.garg@kernel.org>
-Cc: Will Deacon <will@kernel.org>, brendan.jackman@linux.dev,
-	catalin.marinas@arm.com, rppt@kernel.org, akpm@linux-foundation.org,
-	sudeep.holla@kernel.org, jenswi@kernel.org, robh@kernel.org,
-	mark.rutland@arm.com, ardb@kernel.org, thierry.reding@kernel.org,
-	david@kernel.org, danielmentz@google.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
-Message-ID: <auILvMVSXk9pZh6M@google.com>
-References: <arIYtjmSKCs14SqO@sumit-xelite>
- <arKW_91EeKA-w96m@willie-the-truck>
- <are21BjeS1O3RYE3@sumit-xelite>
- <aruh86rd5FMv2i9G@willie-the-truck>
- <ar5TPvANFUoosxGW@sumit-xelite>
- <asOAYODGZa-7EIV1@google.com>
- <asOD31rTX6dNfD1o@google.com>
- <aszdnInyJxLhSQRp@sumit-xelite>
- <as3798SFCfKFirag@google.com>
- <as4ATqhp0bPI03PA@sumit-xelite>
+        d=1e100.net; s=20260707; t=1793199705; x=1793804505;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=mVhCdDkhAXJ5S102mixnITdimIHOTHoGKH57O2P0pYk=;
+        b=UQ/yOTDS51Q5zp0PDhHowxTNbd0LPak4W5K+0MlKtXm/u0CuZ4nKWljaO/Pjly7X4v
+         txdOYlFroiH/s7VlrCm0ovENcqjzU7AiHFUHJDadDZlE20lA8wRWP8Xr1x6BCBiIZkNw
+         5XAXtosdCbBNP8HZ+2h7j7sVSKnN88oyBDuP1V3L/7I8EPnq1kVwcLOUE6G+Wb49pjzD
+         5fdP2cmCo9Syh1V8spFOAe1h1kqY0zCraT8x0I/q9rKjgYu5Jq86YOKaRXSUuae+10T2
+         4zSfk8GtbC09xDjV2dBCX2bAjKRK7jQjKOn52aOxw+A1NuAtW7PcPuGSUu+/KVwKF/88
+         t8Ig==
+X-Forwarded-Encrypted: i=1; AKwUvBzbKvhakN+RuiU2Cuf607FErEqn+TH/acGVu2decvAWt5ol35LV9baD/mja5aVfofEhuEWL288xzZFaeLEhMLqS@lists.infradead.org
+X-Gm-Message-State: AFq9FYIqM5mZrBKYUYOlbWfxdIwC2PqetqJMTlaEj90J29QIpnpbublm
+	3IIl9E22SDE0HQGYX6BCaby+TrJ9/w4UHKVoRU1Qb5XNPIZ+UgL+yzRREzW7/b1z7ezzr6iecIJ
+	uwXUD9LWCzXJThe11ebwhiS4LrurwPlfP64j/JFJV9qnkcem1haxtiGdatOFsXYw0fK7MnoOCs/
+	S/bQ==
+X-Gm-Gg: AYBFou0DW2WfUPCbkPp7b0E8IlSdEaJioF7AU+mhsoPna+AcYrpWfS5DOlbuc27Vjyv
+	bzK6N11cz8DbXazS2xf4DOtd6Fyxc6BtELoJqkBV/knUmmlLQg4eReI71uUIHMklKudA3MFtUJw
+	FkUsE0ZZ+MtK6DkrtxLmKIDZ64qIWmH4eGM6KSbHLkF0rTxa3w665tM2ECpgz74qxl08c96ffQu
+	mITNzmXiNC7KaDb9MB3h59k6uK7vVymNOsx7cwJrGEh0wkq2oeYtpLCOhWdaD//YqOM6ToNVhGF
+	xuy+7UGbYDcDsCtSxj3gWjh7YR5ZBdljXdaXbOwZvH3/wSM/CuhDqIW7hsI9H0wrEy1E9ybAdJS
+	sqt/dMr60JnWarwJV5fytQq4HK6aMhLL3YZaKaUa3dTWyOD0N9AIFj4KOXoCPxtNuX1SweJLY0g
+	1zG8yXmlnyS36qEph8H/2sksyCclWW/T1Zag==
+X-Received: by 2002:a05:6820:a65e:20b0:6fd:4277:16e8 with SMTP id 006d021491bc7-713f01edbd4mr1002286eaf.80.1793199705256;
+        Wed, 28 Oct 2026 08:01:45 -0700 (PDT)
+X-Received: by 2002:a05:6820:a65e:20b0:6fd:4277:16e8 with SMTP id 006d021491bc7-713f01edbd4mr1002259eaf.80.1793199704670;
+        Wed, 28 Oct 2026 08:01:44 -0700 (PDT)
+Received: from [10.227.105.111] (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-7142d317adasm1606578eaf.14.2026.10.28.08.01.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 28 Oct 2026 08:01:44 -0700 (PDT)
+Message-ID: <d094dc46-760d-4ee5-9404-9fa73a16a6bf@oss.qualcomm.com>
+Date: Wed, 28 Oct 2026 08:01:40 -0700
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <as4ATqhp0bPI03PA@sumit-xelite>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] wifi: unwind failed interface setup and recovery
+To: Jiale Yao <yaojiale02@163.com>, Jeff Johnson <jjohnson@kernel.org>,
+        Miri Korenblit <miriam.rachel.korenblit@intel.com>,
+        Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+        Ryder Lee <ryder.lee@mediatek.com>,
+        Shayne Chen <shayne.chen@mediatek.com>,
+        Sean Wang <sean.wang@mediatek.com>,
+        Matthias Brugger
+ <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Ilan Peer <ilan.peer@intel.com>,
+        Gregory Greenman <gregory.greenman@intel.com>,
+        Deren Wu <deren.wu@mediatek.com>,
+        Ming Yen Hsieh
+ <mingyen.hsieh@mediatek.com>,
+        linux-wireless@vger.kernel.org, ath10k@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org
+References: <20261028050337.127464-1-yaojiale02@163.com>
+From: Jeff Johnson <jeff.johnson@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <20261028050337.127464-1-yaojiale02@163.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 6f35ctSbizo7Z9lXv7thlSF7YWBIqQGY
+X-Proofpoint-ORIG-GUID: 6f35ctSbizo7Z9lXv7thlSF7YWBIqQGY
+X-Authority-Analysis: v=2.4 cv=Cssq4X4D c=1 sm=1 tr=0 ts=6ae20e5a cx=c_pps
+ a=z9lCQkyTxNhZyzAvolXo/A==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=JmONO2TMLgSK87zk2EoA:9 a=QEXdDO2ut3YA:10 a=EyFUmsFV_t8cxB2kMr4A:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI4MDA1OSBTYWx0ZWRfX+/Zg3PBbid9u
+ wZEHypzbR1Xv0LZToLGEvpmB/0r3rbE/bjVo/9ymwjox4RhWyZMkRlurg7RkdjZqOYC/N7cABWv
+ jZR6r8R8DJt3cCkuZSBhugOiVop6AsCdDAoIL7WOn4eRjWopFNjkg3bAvyeQm2e3KctuoLRlN/l
+ Tg0HAtcBqG4hStUVFNgI1uwshe3hlE6zeL9Mmc4hrUPd2cPJHC37d7taSbPlKJ5p52KvluO5nJj
+ OB02u/44YijyertKQIi0NHsU9nrkcJmFB6dYtrSlCZ+mVZ+ymkb0eOV23pxdpQnSR7ufs8l5jm0
+ DnUhQtXRoVUEHlO73uZ9jlULxGPWXLKnwlCjdZQZDpOpEdMeyilhpo3fNvEGS7DKN9QcPci3jlS
+ ubGLcB2yJW4s0awBNo0koFJ3NBLTj8dNx5aRSFQt+z7cmkS8pzl4ofc1YSe+WQn5o/jDOB4LZrJ
+ 36aIy7/ztE4u1N2tcBw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI4MDA1OSBTYWx0ZWRfX2DkFeTNtn4lM
+ BoVwON4dVi456/rfegbSjkF6C/LQKM1GE25yJz74/P9CYc303ZNnsfoAJmC5UBPDXUVWidfPKLD
+ NApJQiw0snSYQ6JxYtQJLIYkmqFnyFk=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-28_04,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 lowpriorityscore=0 priorityscore=1501 adultscore=0
+ impostorscore=0 malwarescore=0 bulkscore=0 phishscore=0 clxscore=1011
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
+ definitions=main-2610280059
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_075045_376627_042DA4DA 
-X-CRM114-Status: GOOD (  71.05  )
-X-Spam-Score: -17.6 (-----------------)
+X-CRM114-CacheID: sfid-20261028_080148_524043_C7C68226 
+X-CRM114-Status: GOOD (  13.57  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,193 +163,41 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 13, 2026 at 03:26:30PM +0530, Sumit Garg wrote:
-> On Tue, 13 Oct 2026 at 10:37:59 +0100, Vincent Donnefort wrote:
-> > On Mon, Oct 12, 2026 at 06:46:12PM +0530, Sumit Garg wrote:
-> > > On Mon, 05 Oct 2026 at 12:02:55 +0100, Vincent Donnefort wrote:
-> > > > Sorry, not sure why Sumit's email was dropped...
-> > > 
-> > > The problem was with my mutt config, it should be fixed now.
-> > > 
-> > > >
-> > > > On Mon, Oct 05, 2026 at 11:48:00AM +0100, Vincent Donnefort wrote:
-> > > > > On Thu, Oct 01, 2026 at 06:04:06PM +0530, Sumit Garg wrote:
-> > > > > > On Tue, 29 Sep 2026 at 12:33:07 +0100, Will Deacon wrote:
-> > > > > > > On Sat, Sep 26, 2026 at 05:43:08PM +0530, Sumit Garg wrote:
-> > > > > > > > Looks like you dropped me from your reply.
-> > > > > > >
-> > > > > > > Huh, that's weird. If I hit reply-all ('g') in mutt, it moves the entire
-> > > > > > > CC list to To: and drops you. I suspect the same thing happened to Thierry
-> > > > > > > when he replied here:
-> > > > > > >
-> > > > > > > https://lore.kernel.org/all/arJcN60nagFKXj2Q@orome/
-> > > > > > >
-> > > > > > > I can't figure out why that's happening :/
-> > > > > > > I manually tried to fix the To: and Cc: lines in this message.
-> > > > > >
-> > > > > > Thanks.
-> > > > > >
-> > > > > > >
-> > > > > > > > On Tue, 22 Sep 2026 at 15:55:59 +0100, Will Deacon wrote:
-> > > > > > > > > I spoke to Brendan at LPC (?) last year but this doesn't really work
-> > > > > > > > > for arm64 because it relies on being able to unmap arbitrary parts of
-> > > > > > > > > the linear map, which isn't generally possible unless you force pte-level
-> > > > > > > > > mappings for everything, which is prohibitive for perf/power.
-> > > > > > > >
-> > > > > > > > As per the cover letter it's about allocating pages that are not present
-> > > > > > > > in the direct map. This essentially fits the protected DMABufs use-case
-> > > > > > > > where we don't want any kernel mapping to exist at any time. Bufers
-> > > > > > > > allocated from protected DMABufs are only meant to be accessed by the
-> > > > > > > > TEE implementation or HW accelerators like in the secure media pipeline.
-> > > > > > >
-> > > > > > > That sounds like it should probably build on top of this series, then.
-> > > > > >
-> > > > > > The main problem I see with this series is it tries to move from the generic
-> > > > > > CMA allocator to a reserved FF-A CMA pool which again comes from the
-> > > > > > DT. We already support reserved pool allocations via "no-map" which are
-> > > > > > discovered dynamically from OP-TEE.
-> > > > >
-> > > > > I can't think of a way around a DT declaration. We need to know what region is
-> > > > > PTE-level before the direct map is installed and of_reserved_mem is very handy
-> > > > > for that purpose. And as this PTE-level mapping is costly we certainly only want
-> > > > > to enable it for platforms that absolutely need it.
-> > > > >
-> > > 
-> > > I am rather thinking of a way to turn the default CMA allocator to be
-> > > PTE-level mapped. Since the overall idea for this dynamic protected
-> > > buffers was to reuse memory efficiently, otherwise the reserved buffer
-> > > approach is already there to use as "no-map" via DT.
-> > 
-> > When the default CMA allocator is setup, it is already too late
-> > (dma_contiguous_reserve() is called after map_mem()). I am not sure this can be
-> > reordered easily due to the dependency on dma_limits_init().
+On 10/27/2026 10:03 PM, Jiale Yao wrote:
+> Several wireless interface setup and reset recovery paths publish host
+> pointers or create firmware state before later operations which can fail.
+> Their error paths either retain pointers to vifs that mac80211 will free
+> or continue after firmware interface restoration has failed.
 > 
-> Yeah I saw that constraint too, let's leave it for future extension
-> then although having this reordering dependency fixed will be ideal.
+> Clear the published ath10k and iwlwifi pointers on add failure. Check the
+> mt7921 and mt7925 firmware restore results, remove partial state and stop
+> configuring the affected interface. Each patch fixes an independent
+> driver path and can be applied separately.
 > 
-> > 
-> > So the only case it would work would be when a reserved memory has set
-> > "linux,cma-default".
-> > 
+> Jiale Yao (4):
+>   wifi: ath10k: clear monitor interface after add failure
+>   wifi: iwlwifi: mvm: clear P2P device pointer on add failure
+>   wifi: mt76: mt7921: unwind interface restore failures
+>   wifi: mt76: mt7925: unwind link restore failures
 > 
-> Let's rather just turn DT based default CMA pool to support PTE-level
-> mapping and keep it configurable via Kconfig or cmdline or DT.
-
-If we need a DT declaration anyway, a Kconfig and a cmdline option aren't really
-necessary.
-
-Also, Rob wasn't very keen on having a DT option for the reserved memory and
-suggested to have a compatible string instead [1]. So perhaps we could have a
-a separate driver that handles the unmapping.
-
-	linux,cma {
-		compatible = "shared-dma-pool", "unmap-on-alloc";
-		reusable;
-		linux,cma-default;
-		...
- 	}
-
-That "unmap-on-alloc" driver sets the memblock flags and register some cma hooks
-(to be defined) for cma_alloc/cma_free where it unmaps/re-maps into the linear
-map.
-
-The nice property is optee won't need to be modified anymore. The downside is
-the entire pool is now mapped at PTE-level.
-
-[1] http://lore.kernel.org/all/20260902172436.GB1440252-robh@kernel.org/
-
--- 
-Vincent
-
+>  drivers/net/wireless/ath/ath10k/mac.c         |  1 +
+>  .../wireless/intel/iwlwifi/mvm/mld-mac80211.c |  5 +++-
+>  .../net/wireless/mediatek/mt76/mt7921/mac.c   | 16 +++++++++---
+>  .../net/wireless/mediatek/mt76/mt7925/mac.c   | 26 ++++++++++++++++---
+>  4 files changed, 41 insertions(+), 7 deletions(-)
 > 
-> -Sumit
-> 
-> > > 
-> > > If we can have "cma_unmap" cmdline option alongside "cma" then it can
-> > > turn the existing default CMA allocator to support unmapping buffers.
-> > > Not requiring a DT change at all, although we can have the DT property
-> > > for the default pool too if platforms want to opt for.
-> > > 
-> > > > > >
-> > > > > > If we can rather support a generic CMA like allocator for arm64 which
-> > > > > > can support unmapped allocations then I am all for it. These platform
-> > > > > > specific reserved pools isn't a scalable solution.
-> > > > >
-> > > > > What do you mean by generic CMA allocator here? An extension to
-> > > > > shared-dma-pool? Or having the CMA automatically doing the unmap/map on
-> > > > > cma_alloc() cma_release()?
-> > > > >
-> > > > > Right now I have created an API for the unmapping/remapping part. It adds a
-> > > > > burden on the caller, but the alternative solution is introducing post-alloc
-> > > > > pre-dealloc callbacks in the CMA, which looked a bit overkilled to me when
-> > > > > the users of that "ffa-pool" are only optee and the nvidia video dma-buf heap.
-> > > > >
-> > > 
-> > > I am not too worried about where the actual implementation lives but
-> > > looks like CMA driver to be the better place. I think use-cases like
-> > > guest_memfd proposed as a user for __GFP_UNMAPPED on arm64 will also be
-> > > looking for this feature.
-> > > 
-> > > -Sumit
-> > > 
-> > > > >
-> > > > > >
-> > > > > > > You could allocate the DMABufs from a CMA region that has no linear alias.
-> > > > > >
-> > > > > > Allocation from generic CMA pool is already the case here:
-> > > > > >
-> > > > > > tee_shm_alloc_dma_mem() ->
-> > > > > >   dma_alloc_pages()
-> > > > > >
-> > > > > > Do you mean it's just fine to unmap buffers allocated from generic CMA
-> > > > > > region since it doesn't have any linear alias?
-> > > > > >
-> > > > > > >
-> > > > > > > > > Vincent's series tackles that by using a pool so that only that part of
-> > > > > > > > > memory requires the pte-level mappings in the linear map. That's the
-> > > > > > > > > whole point of it, so I don't think it makes sense to drop it in favour
-> > > > > > > > > of Brendan's approach (which doesn't work).
-> > > > > > > > >
-> > > > > > > >
-> > > > > > > > For protected DMABufs, we even don't require any pte-level mappings in
-> > > > > > > > linear map. The whole idea of mapping and unmapping is just a bottleneck
-> > > > > > > > for performance sensitive secure media pipeline use-cases. That's why if
-> > > > > > > > we can support __GFP_UNMAPPED with the memory allocator on arm64 would
-> > > > > > > > be the best fit for this use-case.
-> > > > > > >
-> > > > > > > The point is that you will require pte-level mappings for the linear map
-> > > > > > > if you want to unmap from it at runtime on arm64. If you don't, then you
-> > > > > > > can end up needing to split a block mapping (e.g. pmd-level) when you
-> > > > > > > decide to unmap only part of it and there isn't a safe way to do that on
-> > > > > > > arm64 without transiently unmapping the entire block, which can lead to
-> > > > > > > fatal translation faults during that window.
-> > > > > >
-> > > > > > I agree with you here, what I am rather trying to find if on arm64 there
-> > > > > > is any possibilty to have a generic allocator for unmapped pages. That's
-> > > > > > the use-case here as well as what Brendan't patch-set was trying to address.
-> > > > > >
-> > > > > > >
-> > > > > > > > Now the question is why arm64 can't support __GFP_UNMAPPED similar to
-> > > > > > > > how Brendan is doing it for x86?
-> > > > > > >
-> > > > > > > Because arm64 != x86? Presumably x86 doesn't have the strict
-> > > > > > > break-before-make requirements we have on arm64.
-> > > > > > >
-> > > > > >
-> > > > > > Sure, sounds like you are eluding to that the generic MM flag
-> > > > > > __GFP_UNMAPPED being proposed can't be supported on arm64, right?
-> > > > > >
-> > > > > > -Sumit
-> > > >
-> > > > --
-> > > > Vincent
-> > 
+
+You are sending patches that fall into 3 different maintainer trees in one series.
+
+It is much easier for us maintainers if you split your patches by maintainer.
+
+/jeff
 
