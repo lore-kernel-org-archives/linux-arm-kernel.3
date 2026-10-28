@@ -2,61 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC4AD606A338
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 15:32:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0D5D606A32A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 15:32:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Bu3M3ke8;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ekheVcs7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=10XhLY3P;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ie83ix/d
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=zPK9LILFjexdlBU3mSIOr4yYqwU8LVdHM+h1yrkhU1c=; b=Bu3M3ke8/XovrFk0qGK2S7LBFt
-	sM5uYy3eagdpcflJNiDkHwl07bxC2X8sWZBYKF/2A1x93VyqNRy8xSQgYheIBTzeICnJ/xmbyKUll
-	5HC2BepGqtU5MKjfT+vAncjGSAqAnAtvKwbKQBDktN7oYBOlIIvjSyPTBteJGGXkX27TYKfPhwEGd
-	aPrrd6AOchVMOnefXxppjKmQtm4TqUAF/vXlvBpErJ4NEhkcvbKSscDzjucLsXkNMeC7vrDL5iK8w
-	hULeyUcpl6SOrFpKGy3AWnMwzbKdrigmInjwhlEU4UG8EZxgJVnlyWm+IIx10yPCRLqFi+728wBAm
-	OTv4lU1g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=tNuGjVpCCpWRRwNm7lQ2uEnHwZpiJtdBe9DMgOWbUgg=; b=10XhLY3PZGLE0q
+	wN1beNncCLHsgwge604T66I1g3CBS4fSlm/2it7vxiqBLKxJQ96rh4wwROhXRAorFwxzlBNHMOLgB
+	2uFR4zSaS6HJn8NbFy9DEFHfa9J5CtLlKZcH0zMXQv5VKgYbFZ018cDzh1PFHtqfUszehXKlzdVjF
+	aJmTRBiPDWGlh/eSxq6M5qbTIoXSVXwsH0ogg8VzKiGOod2rXO74bS+UynHY+zbDNwsGEQL7Zytgj
+	LNe+GalqL1tt3L57QoI4b2q2Mw5l8GozyDBJm8++zUcZjVV0VzB9q0O5zZpThNIcl/G4GMz5exTV1
+	3g0fyky1TVsQ8SUuPaVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM5dJ-00000007Oew-3YIM;
+	id 1xM5dJ-00000007OeS-2q6i;
 	Wed, 28 Oct 2026 15:32:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from out-20.mta0.migadu.com ([2001:41d0:1004:224b::14] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM5dH-00000007Odk-4C7p
+	id 1xM5dG-00000007Ocv-1TM1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 15:32:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F26C43A2C;
-	Wed, 28 Oct 2026 15:32:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 528F81F031E0;
-	Wed, 28 Oct 2026 15:32:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793201527;
-	bh=zPK9LILFjexdlBU3mSIOr4yYqwU8LVdHM+h1yrkhU1c=;
-	h=From:To:Cc:Subject:Date;
-	b=ekheVcs7bw78LgWdCQwxnl1nbpH7CZ5C7bAOCNHoIPezAN9z60XZ1U7IjtEGMYmn/
-	 hHm5rnXk8GGrtwgqWZ8YpSgVKYwdjRpqY4nnzQ6As/GqiV1+vGANs5jlbMMf5z7kPt
-	 jcJNeMYtOm6LlQCbu4fMBSA1Hemj8qe66Iw1Wm9z27xkJkLFTTeE9Npe1X0UvYaytn
-	 fUDvQRqWAxSMZgjwcfHWCCnCxdVyTI3qIFrQpaBLN3OJ9MEUc3CwsIqoHClZFDdokF
-	 7l5RdXIRdGodPvkACkqCRd2XSIjiWGHM9BtTsArBwf+A4OdxDyT/XHy982JjTNvtHx
-	 gG28OkqBj6ZQg==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: arm-scmi@vger.kernel.org,
+	Wed, 28 Oct 2026 15:32:07 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=jRMgEeT/ywsGUFgWQfUZIBCXSXNOChhJpeoxPBa3hhY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1793201523; v=1; x=1793806323;
+ b=ie83ix/dHSqljXkwuZVu1bU3xefrb1t5SmJiaZR8otsTzWZLEc1ZRO0i8VGP68TR2hAVwmOf
+ yyLkNiIAdYQRCewmF62BQALvLZu5Uwge5aXA0MKunv/M10xSwTgncWPhTHkvGO73OU2DMdz0H0r
+ aXOJSdvO1O5M+70ag2TdrjSQ=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 4642add3ff1b0393;
+	Wed, 28 Oct 2026 15:32:03 +0000
+X-Mizu-Trace-ID: 4642add3ff1b0393
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH] firmware: arm_scmi: Free mailbox state on mapping failure
-Date: Wed, 28 Oct 2026 15:32:03 +0000
-Message-ID: <20261028153203.3305067-1-sudeep.holla@kernel.org>
-X-Mailer: git-send-email 2.43.0
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	kernel-team@android.com,
+	linux-kernel@vger.kernel.org,
+	Oculytic <oculytic@gmail.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH v3 2/3] KVM: arm64: Pass the PMU events to the hyp vCPU of non-protected guests
+Date: Wed, 28 Oct 2026 15:31:51 +0000
+Message-ID: <20261028153152.1740044-3-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261028153152.1740044-1-fuad.tabba@linux.dev>
+References: <20261028153152.1740044-1-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261028_083206_526148_6718C264 
+X-CRM114-Status: GOOD (  10.71  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,40 +89,66 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-mailbox_chan_setup() allocates its private state from the SCMI base
-device before mapping the shared-memory area. If mapping fails while
-setting up an optional RX channel, the core ignores the RX failure and
-keeps the base device bound, retaining that devres allocation.
+From: Oliver Upton <oliver.upton@linux.dev>
 
-Release the private mailbox state before returning the mapping error.
+Before every run, the host records in vcpu->arch.pmu.events which perf
+counters to disable and enable around guest entry, and
+__pmu_switch_to_guest() applies them at EL2. Since commit be66e67f1750
+("KVM: arm64: Use the pKVM hyp vCPU structure in handle___kvm_vcpu_run()"),
+protected mode runs the hyp vCPU instead, and flush_hyp_vcpu() never
+copies the events into it. So the counters backing a non-protected
+guest's PMU are never enabled, and every counter the guest reads stays
+at 0, the cycle counter included. The host's counters that exclude
+guests keep counting the guest as well.
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/bug/linux-fda9bcb5-8255-4157-bbf7-d720bbd86605
-Fixes: 1ebc28e9357c ("firmware: arm_scmi: Introduce setup_shmem_iomap")
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+Copy the events into the hyp vCPU of a non-protected guest on every run.
+The events only exist with CONFIG_HW_PERF_EVENTS, so the copy is built
+under it. Like mdcr_el2, they're host-controlled and never reach a
+protected guest.
+
+Fixes: be66e67f1750 ("KVM: arm64: Use the pKVM hyp vCPU structure in handle___kvm_vcpu_run()")
+Link: https://lore.kernel.org/all/20240305184840.636212-2-oliver.upton@linux.dev/
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+[Fuad: non-protected copy only, tested on the hyp vCPU, under
+ CONFIG_HW_PERF_EVENTS, new message]
+Tested-by: Vincent Donnefort <vdonnefort@google.com>
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- drivers/firmware/arm_scmi/transports/mailbox.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
-index 56af2cb0f424..49c472e2ba27 100644
---- a/drivers/firmware/arm_scmi/transports/mailbox.c
-+++ b/drivers/firmware/arm_scmi/transports/mailbox.c
-@@ -206,8 +206,11 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index d715aa942577e..28a292deecb64 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -690,6 +690,16 @@ static void sync_debug_state(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 		host_vcpu->arch.external_debug_state = hyp_vcpu->vcpu.arch.external_debug_state;
+ }
  
- 	smbox->shmem = core->shmem->setup_iomap(cinfo, dev, tx, NULL,
- 						&smbox->io_ops);
--	if (IS_ERR(smbox->shmem))
--		return PTR_ERR(smbox->shmem);
-+	if (IS_ERR(smbox->shmem)) {
-+		ret = PTR_ERR(smbox->shmem);
-+		devm_kfree(dev, smbox);
-+		return ret;
-+	}
++#ifdef CONFIG_HW_PERF_EVENTS
++static void flush_pmu_state(struct pkvm_hyp_vcpu *hyp_vcpu)
++{
++	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu))
++		hyp_vcpu->vcpu.arch.pmu.events = hyp_vcpu->host_vcpu->arch.pmu.events;
++}
++#else
++static void flush_pmu_state(struct pkvm_hyp_vcpu *hyp_vcpu) {}
++#endif
++
+ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ {
+ 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+@@ -698,6 +708,7 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
  
- 	cl = &smbox->cl;
- 	cl->dev = cdev;
+ 	fpsimd_sve_flush();
+ 	flush_debug_state(hyp_vcpu);
++	flush_pmu_state(hyp_vcpu);
+ 
+ 	/*
+ 	 * If we deal with a non-protected guest and the state is potentially
 -- 
-2.43.0
+2.47.3
 
 
