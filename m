@@ -2,45 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C67A606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:07:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00DB6606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:08:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=w2jsWemR;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JbcWMaMv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Iyu90UcH;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Nfb4mP5r
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=miIuE2N/e+SG7Kz34MMJd25ETZ3yxYFkA9Zemr87Wgo=; b=w2jsWemRPfGicZy4yyunAHEQ9q
-	wTa6DnHWPkXCkVyAkW3vfu5wLNFLEVYezJt4rjLfF5Rvomo1SA+ZBPIfMbB6be8IjJPEuqSIs4q2t
-	Igg2L4bcRVuY+/GOsO20AD3pw4JgVJZ9p/Wy084kgOWwF7xLZfELpmYsNre9gFX1Riq6ZqRKreq7X
-	eo2vLUAhx//OCTLVzeU5iIItMwtwQVLorpWuzVDW67Bw5Y6xpKj0YnHClQobGnmY1f2EEIHA/mGmr
-	jY/ScGJKE8csjVuJxaINl5IYCy8JLuVczi5c5bgraXQJSdUl7WVigz8yCGTWnCGdRuVxEyeEgYb2X
-	L8DAsB0w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=/dqcNV2rxcj+H+N6V1Q7pF0i14uOvWt3XmYVtpF0Vwo=; b=Iyu90UcHvCpBEM
+	Z/pPQHPatpXDD7uXExzwlF9TeLUuXfrHCHlsw2w0P63omhTkNir0rfoa0sOnj6xn2LxrNhWgjPRZv
+	MTs6VbJLb1mKcQ/N3GOURmLP4xA0L7j0cU8T3L1JND1ZZD35MoZPjoiR6TyOk7FoXr4/DEL53M/e9
+	as448IuaKcWL+I13pu0iVwFZ5Byr8Q0TLvU31pMtZYsAmSfEYRWF+eLoH70bWXPDO6KohyPhC7kum
+	G0u9mrG+3d/HbyzVSo/xTDPYoip5Wi5CC59dnKvyN7TY/Tu8RaPNsmXrLdcsKufmGGzyx6asXLWbH
+	vpmAc6BEb008KJ3muJrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1VU-00000006pMn-2o7C;
-	Wed, 28 Oct 2026 11:07:48 +0000
-Received: from out-235.mta1.migadu.com ([95.215.58.235] helo=mta1.migadu.com)
+	id 1xM1Vc-00000006pOh-3Ca7;
+	Wed, 28 Oct 2026 11:07:56 +0000
+Received: from out-198.mta0.migadu.com ([2001:41d0:1004:224b::c6] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1VS-00000006pMS-24WZ
+	id 1xM1VX-00000006pN8-0wbM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 11:07:48 +0000
+	Wed, 28 Oct 2026 11:07:53 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=Pg95Y+xFHx1ZIocuSPAyjynJpdUBiCDULSiHROnP0Os=;
+DKIM-Signature: a=rsa-sha256; bh=hOfLyCvPxdoMK3iGT2snLIRtrBmcqixK3sf0MGFjqIg=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793185664; v=1; x=1793790464;
- b=JbcWMaMviRNJd8kBhaAtmLnWIDfterzdjIYllNK0xeavjxLbiYJigDFfLD4lnLenqGBmg2Lu
- 6yi6fwWuojUcQRLIJIfxP2O7WheAQYb7kHPt+Ckh2WrDB0scnRejCZqMW7mzMP7kVjq4rr2fNRI
- j9CMEK6tunROWqpFNsf898ik=
+ t=1793185669; v=1; x=1793790469;
+ b=Nfb4mP5rNvDLVs3iRamDv+Bd3CpvSbnBla1lH2DOvGcphBkQjyMQrHkkuf9vdc04DZdmEeC6
+ 4Ltay/ywTUrscnybiD4kGWmRV6cspeiSaljn/EFvupl9GC/tbuC7U2aQ7epm/wteLNyHbOjLznm
+ gB2e+bp3U/hbgnYUTjCJSrGA=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id e69cc8713850fd5b;
-	Wed, 28 Oct 2026 11:07:44 +0000
-X-Mizu-Trace-ID: e69cc8713850fd5b
+Received: by smtp.migadu.com with ESMTPS id e2dc3a04ca25871d;
+	Wed, 28 Oct 2026 11:07:49 +0000
+X-Mizu-Trace-ID: e2dc3a04ca25871d
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -59,17 +58,18 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	linux-kernel@vger.kernel.org,
 	Oculytic <oculytic@gmail.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 0/3] KVM: arm64: Fix PMU handling in pKVM
-Date: Wed, 28 Oct 2026 11:07:36 +0000
-Message-ID: <20261028110739.2366566-1-fuad.tabba@linux.dev>
+Subject: [PATCH v2 1/3] KVM: arm64: Synchronise kvm_host_data before host deprivileging
+Date: Wed, 28 Oct 2026 11:07:37 +0000
+Message-ID: <20261028110739.2366566-2-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261028110739.2366566-1-fuad.tabba@linux.dev>
+References: <20261028110739.2366566-1-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_040746_679509_561249B4 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261028_040751_971518_264AEF81 
+X-CRM114-Status: GOOD (  12.37  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,67 +81,50 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi folks,
+From: Vincent Donnefort <vdonnefort@google.com>
 
-Changes since v1 [1]:
-  - Gate __pmu_stop_host_counters() on system_supports_pmuv3() rather
-    than v1's per-CPU HAS_PMUV3 flag. (Marc)
-  - Collected Vincent's Reviewed-by and Tested-by on patch 2. (thanks!)
+When protected mode is enabled, the host is populating and reading the
+hypervisor copy of kvm_host_data until it is deprivileged. This is an
+issue for nr_event_counters which is only used by the host to populate
+mdcr_el2. After deprivileging, it is reading an uninitialised value and
+sets HPMN to 0, preventing programmable event counters from counting a
+non-protected guest.
 
-Two fixes and a hardening patch for PMU handling in pKVM, as one series
-[2].
+Before the host is entirely deprivileged, copy the entire kvm_host_data
+content from the hypervisor copy to the host-accessible one.
 
-The first is Vincent's rework of his HPMN fix. It supersedes his earlier
-posting [3]. Rather than read nr_event_counters through a different
-accessor, the host copies the hypervisor's kvm_host_data before it's
-deprivileged, so host_data_ptr() returns what was set up at init.
-Otherwise, HPMN is 0 and a non-protected guest's event counters don't
-count.
+Fixes: 2417218f2f23 ("KVM: arm64: Get rid of __kvm_get_mdcr_el2() and related warts")
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/kvm/pkvm.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-The second is the non-protected half of Oliver's patch from 2024 [4]. It
-passes the host's PMU events to the hyp vCPU of a non-protected guest,
-whose counters otherwise all read 0.
-
-The third covers the protected half. It stops the host's counters while
-a protected guest runs, so the host can't count the guest's cycles and
-events. Side channels are outside pKVM's threat model, so it carries no
-Fixes: tag.
-
-Based on kvmarm/next (dd0bc00e3e920).
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/20261027081147.498183-1-fuad.tabba@linux.dev/
-[2] https://lore.kernel.org/all/86bj8kzix4.wl-maz@kernel.org/
-[3] https://lore.kernel.org/all/20261023092007.3918848-1-vdonnefort@google.com/
-[4] https://lore.kernel.org/all/20240305184840.636212-2-oliver.upton@linux.dev/
-
-Fuad Tabba (1):
-  KVM: arm64: Disable host PMU counters for protected guests
-
-Oliver Upton (1):
-  KVM: arm64: Pass the PMU events to the hyp vCPU of non-protected
-    guests
-
-Vincent Donnefort (1):
-  KVM: arm64: Synchronise kvm_host_data before host deprivileging
-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 11 +++++++++++
- arch/arm64/kvm/hyp/nvhe/switch.c   | 24 ++++++++++++++++++++++++
- arch/arm64/kvm/pkvm.c              |  6 ++++++
- 3 files changed, 41 insertions(+)
-
-
-base-commit: dd0bc00e3e9201fd49b62ff9cc07890c89003afe
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 380dfb1db0be4..58190ff6723d6 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -316,6 +316,12 @@ static void __init _kvm_host_prot_finalize(void *arg)
+ {
+ 	int *err = arg;
+ 
++	/*
++	 * After __pkvm_prot_finalize, access to the hypervisor copy of
++	 * kvm_host_data is lost. Save it into the host-accessible version.
++	 */
++	*this_cpu_ptr(&kvm_host_data) = *this_cpu_ptr_nvhe_sym(kvm_host_data);
++
+ 	if (WARN_ON(kvm_call_hyp_nvhe(__pkvm_prot_finalize)))
+ 		WRITE_ONCE(*err, -EINVAL);
+ }
 -- 
 2.47.3
 
