@@ -2,71 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91DF4606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:12:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57D2C606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:14:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RSxUyO5j;
-	dkim=pass (2048-bit key, unprotected) header.d=cjdns.fr header.i=@cjdns.fr header.a=rsa-sha256 header.s=dkim header.b=JVGkergG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OPs9QZPg;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=YUmINJPV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Yzm5KfrMMhSQL0Yf78me4QaQ2CKP9r2dKDG+lFJrjjw=; b=RSxUyO5jYdVit4
-	7WbKDDEjXd+EuW0M2kuOml9dvgHnzZm3wSNUR3CFIHmRSGgdSyXZqrExqtibINIc9RafbqMDNGk3k
-	cYRQ8/X+XJD5vbOcvf9VIjBry7PRlYrQjj/y5S9z1ll9/2O4e0mX7vDNMd4PO0wKcYKlIM3gliU8h
-	3BUBrjTDpXhsJ9qFx4k51Hr4Ezb/4VDyKCQOR1nFmp7THVQje6iHK7LWLSd55p5XZbKrrdyWiSsWk
-	jAvgVl1yj9B82lSRa97LP3BBwC2EUx9UGQGeuNXeb6p5z5u2hLzCTZiNZyLYmluRHVrf+NGlAk4M3
-	aRl4MRfWm1h0hcYn9k7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=kWtcaKJ6IQ4bNn/v2x4kVI23f6xFQA7cEBIWxn7bv2E=; b=OPs9QZPgd8RFQfOwjbBKHx/M4n
+	vomrqKFUIuldBRbvEeYLG0bxnI8VAcTi/Sl81qcL+qw0pFGP4X+Txz1AYfhxpfgXdSv10VhnzTNvN
+	ouAS+nflIVufBuQriUSHR1xb/1c1qjPyXZ4lXFHKws8jV9cJEcAE6oGl0Lol6PryvhGEVFC2rk2OU
+	N5uk3T0sqn3T1MNY5EDO01MqtVzP/ENCfN3B9tacn9a75/IoLA8Z8F5j7u7SeAuPmBSpUEVgsvm1+
+	Gw9u6O0BRJkSIZQR5PuNTYbuo10x7BBxJyl+Kf9KccVIMQCHK4c0LrRdgr6v0mhp/7V7mmnoZT5x2
+	q0Ai5oKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM2Vd-00000006vwV-1HBV;
-	Wed, 28 Oct 2026 12:12:01 +0000
-Received: from mail.cjdns.fr ([5.135.140.105])
+	id 1xM2Xs-00000006wFl-2qD7;
+	Wed, 28 Oct 2026 12:14:20 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM2Vb-00000006vu3-0LuL;
-	Wed, 28 Oct 2026 12:12:00 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EB6FF15B5FF;
-	Wed, 28 Oct 2026 13:11:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1793189515; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Yzm5KfrMMhSQL0Yf78me4QaQ2CKP9r2dKDG+lFJrjjw=;
-	b=JVGkergGGn/tJs4X7LkEAPKkZk34QvlpZPHWX5xQEsoouO7CwrWUR9a4q93k4ERlhvZPve
-	GcV5paJAhqfBt/coxtS486lXuJEkhbUOfMXmGgegDtgi5QbIPgyXAdFEuUkTcbW1dANozs
-	IETk7PUFxBsNvIodov/HwD9NfX4JiBWnrCJnh4xpnSi7pXEwafabe62NRFC3rxsXDWSxzh
-	WPOWj7H2YfFPfz01suNcwdD6YuvmY91NDlKLGdTWWjVmL3GddiHH0mKAnnM9ny6Y0BCvaV
-	zoDpfObWYO7RqJE3woFv7a6tIOD0mvnIDpuS2JiQ1f104r6yWQthKEyLsNgKLw==
-Message-ID: <64c2291a-f9c8-49cd-965f-5bc735f1b4fc@cjdns.fr>
-Date: Wed, 28 Oct 2026 13:11:48 +0100
+	id 1xM2Xp-00000006wEe-1MTt
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Oct 2026 12:14:19 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=kWtcaKJ6IQ4bNn/v2x4kVI23f6xFQA7cEBIWxn7bv2E=;
+	b=YUmINJPV+Q3oJwe5jmGuMlVsZ/ZuNKiMnC9t0XtvD097CkYW79EqI75EBOltG/oPpfkRUKLcR
+	Ba184Ivdw+AhlrZ5LP230OzitIs6YI7PkgK0pVvu3qnuwje5Nuu+fC2Y5qXazNbNA1z+xJYFKDX
+	B4aL0SVTQvFJVxMvNbpeFno=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4jF5r55Wpfz1K9CK;
+	Wed, 28 Oct 2026 20:13:57 +0800 (CST)
+Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
+	by mail.maildlp.com (Postfix) with ESMTPS id 34D9F4058A;
+	Wed, 28 Oct 2026 20:14:06 +0800 (CST)
+Received: from huawei.com (10.50.85.135) by kwepemr500001.china.huawei.com
+ (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 28 Oct
+ 2026 20:14:04 +0800
+From: Jinjiang Tu <tujinjiang@huawei.com>
+To: <akpm@linux-foundation.org>, <david@kernel.org>, <ljs@kernel.org>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<ryan.roberts@arm.com>, <peterx@redhat.com>, <dave.jiang@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>
+CC: <wangkefeng.wang@huawei.com>, <sunnanyong@huawei.com>,
+	<tujinjiang@huawei.com>
+Subject: [PATCH RESEND 0/3] arm64: Add PUD THP support for DAX and pfnmap
+Date: Wed, 28 Oct 2026 20:14:01 +0800
+Message-ID: <20261028121404.853944-1-tujinjiang@huawei.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH v3 3/7] net: dsa: mediatek: add support for passthrough
- mode
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: netdev@vger.kernel.org, olteanv@gmail.com, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, chester.a.unal@arinc9.com,
- daniel@makrotopia.org, linux@armlinux.org.uk, arinc.unal@arinc9.com,
- Landen.Chao@mediatek.com, dqfext@gmail.com, sean.wang@mediatek.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- naseefkm@gmail.com, b.larsson@gmx.com
-References: <20261028011317.1557238-1-cjd@cjdns.fr>
- <20261028011317.1557238-4-cjd@cjdns.fr>
- <d4564675-fa56-42df-8c5c-cff14f7884f9@lunn.ch>
-Content-Language: en-US
-From: Caleb James DeLisle <cjd@cjdns.fr>
-In-Reply-To: <d4564675-fa56-42df-8c5c-cff14f7884f9@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_051159_308179_E0A8A876 
-X-CRM114-Status: UNSURE (   4.95  )
+X-CRM114-CacheID: sfid-20261028_051417_860433_F79B55A6 
+X-CRM114-Status: UNSURE (   7.99  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -79,29 +78,42 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+This series adds PUD THP support for arm64, enabling PUD THP for DAX
+and pfnmap.
 
-On 28/10/2026 03:07, Andrew Lunn wrote:
->> +static int
->> +mt7530_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu);
-> Please don't add forward declaration, move the code around.
+Patch 1 moves the identical pudp_invalidate() implementations from x86
+and riscv to a generic location so arm64 can reuse it.
 
+Patch 2 is a minor cleanup that simplifies pmd_special/pmd_mkspecial.
 
-Sure thing.
+Patch 3 adds the necessary PUD page table helpers and selects
+HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD.
 
+Jinjiang Tu (3):
+  mm: define generic pudp_invalidate() implementation
+  arm64: simplify pmd_special and pmd_mkspecial
+  arm64: Add PUD THP support for DAX and pfnmap
 
-Thanks,
+ arch/arm64/Kconfig                           |  1 +
+ arch/arm64/include/asm/pgtable.h             | 71 +++++++++++++++-----
+ arch/powerpc/include/asm/book3s/64/pgtable.h |  1 +
+ arch/riscv/include/asm/pgtable.h             |  3 -
+ arch/riscv/mm/pgtable.c                      |  9 ---
+ arch/x86/include/asm/pgtable.h               |  3 -
+ arch/x86/mm/pgtable.c                        | 12 ----
+ include/linux/pgtable.h                      |  7 ++
+ mm/pgtable-generic.c                         | 14 ++++
+ 9 files changed, 77 insertions(+), 44 deletions(-)
 
-Caleb
+-- 
+2.43.0
 
-
->
->         Andrew
 
