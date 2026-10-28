@@ -2,150 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9367E606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 18:52:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 088D5606A33B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 19:03:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HeB9jpks;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=MOAkwM2D
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PA1PDeFE;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HFA2Yfl0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=WGO7o++LfqsQkCzqBHAwq0/EZtsPQvC/+YnZtCY/7iM=; b=HeB9jpksVaS9//cXuaUSz5B06N
-	tkH6IMRFd44sGBv9kkoXbJL66Imv8Lq54YqNGuFbU4ouJ1WquE24YwVkcTnxNhaLgR76yiT0shQov
-	Suw6LtJmcZNKVQIewBDjh52bBoUI2b+t75qdWhoZsLwCxXJJ2p0otoGRgUbj2btmtRdnUIfMPw9dR
-	Mr96CXDgn9cB+ubrsJ2hsxFzRuI7CSHkR/muJL5p6VLU/fHMLPJVXN4NdiFUmAQHwR9Ab31BDirSK
-	Prcm0z4+amg22IYZ9parnMPsb+9CgZWw/pscXEmZLK16CZ7D/cqjj0iut4Oevp6CxYaMm9ic3vN2t
-	tBpsDFPA==;
+	bh=HbuVr5an123e2WdNsh7qTkraPx2QUzUAuDpOvbvX5g4=; b=PA1PDeFEn6m1xQVIt5f6noVYA2
+	1rW39Q08INGGCNTapivQbLKyeBWF70m8ABs0qp3rAnHYGh71VmCyJSWN25MnzkweMWMpN3aR3vTtS
+	riNMBC0gWXI8rVOPJHF/mXDstZ7/3TuTYzpkC9jbtypx6Qfhd8iKLSYDAwsjXfhjE725kLYrZZ1je
+	ObjT8EzxUlEYYp8rxFwHuUK12jBAolA8E+JlicBwFr8euM1zR7boKyv0cXShNMSqKnbkrxKqcePbZ
+	VfCfDoZgfOtJSKI7srb2oGDkVfShccICiEwHDZ6aUgFYULgFFfdxdUpwUdRgHF+s6vX2qvxXP+SbX
+	drJO7MEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM8ky-00000007mWR-254C;
-	Wed, 28 Oct 2026 18:52:16 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1xM8vS-00000007nS7-0paG;
+	Wed, 28 Oct 2026 19:03:06 +0000
+Received: from mail-pf1-x446.google.com ([2607:f8b0:4864:20::446])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM8kx-00000007mVz-03mh
+	id 1xM8vP-00000007nQ6-3Pds
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 18:52:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=prr+Ls+W4n36y3SsipAbOq5RKjBgLE1eFoZgpixsKTfroNgHjfmbRsfqkDaZLBwyd2SS52xr9TlEtphoCqEI551uFvyneQI2u0rQ3gtY/CD+OGpx//Klb4SLzVvcbzj221a1pSCUGsEAozucNhgHb8hdJsjVjHbgtBaFNsFryskezrKkD8RtAMA+/POetKdpDL3WkgQrMFm/opgK9+0ZEEg0P1DBftvGCz9mdhRPZD0sxSoXwvJ69ZLplkuT12WSGEC5zLF8D4LcigchFmRTeRe/yfonQPvbHOBKQ+MZM1lh1n3jypW/swDSoWGCE42SIMG3HMBdhxTmAS9DBNpLiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WGO7o++LfqsQkCzqBHAwq0/EZtsPQvC/+YnZtCY/7iM=;
- b=PaF327EItbKKwnDJ5KHY7F2UQLh9pYhT4chB0x0R9IwbbEOHuaY8LiAFfSSUtuDA2W0VD6iKdem6NbqFEtQeWcFtyHF4xpCSKbBGenGbYveZinFXYDdUZzaQL49y23MrLBwslNgVHWNH4aK7GLRaB7r4q9d2zHtblb8skY63IC9WJ54bRvM3iI4vCFia+HobBQCHwjQKR+Vp5kizbfITVu/YXkQN6QFCjVXsPickM/oopojRLAOlSEBcu+smpwONnqOjSmDdtabP2/Nn84c5vJFvKFKpM5ltEmnkAzUDfoWcj5vXs2aYk0N9KTYjTu+NL9lvUzqmQ+d4xgmixpBk3Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WGO7o++LfqsQkCzqBHAwq0/EZtsPQvC/+YnZtCY/7iM=;
- b=MOAkwM2DpDgi9KCYxkS9VjA4Zhb4no92MlF3B2hg1mu2DDr3TG6zOK/ZQjHsjJ6mybyXjK4EXZdlndFm9SOgHnlcJXsTlEguQtkEvRL2LLA0ejAdWf0U9I1jyIj+1N1HbyrNNdHlqu+cyIamQ3ZPam2ZpFujVxvktA9vHNmem+vaVhUZ1YtnZw06ZeqU+pXEkZpHPzfn8I+2REwmmWXXFNyihk3GHmc11+kpUL4X7sN1AcYSF39uUTwJVNKqg5mIU8J91Mf5arliV7g6mwzVuLnAYEWr6yu5r9S1wkeX0xhx02dKWE4fiZaBBDjiabyaJY8o/AiHEVEGHl43hNeTHg==
-Received: from PH7P220CA0164.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:33b::7)
- by BL4PR12MB9533.namprd12.prod.outlook.com (2603:10b6:208:58f::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.8; Wed, 28 Oct
- 2026 18:52:04 +0000
-Received: from CY7PEPF000000EB.namprd04.prod.outlook.com
- (2603:10b6:510:33b:cafe::93) by PH7P220CA0164.outlook.office365.com
- (2603:10b6:510:33b::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.22 via Frontend Transport; Wed,
- 28 Oct 2026 18:52:03 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CY7PEPF000000EB.mail.protection.outlook.com (10.167.247.167) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.569.4 via Frontend Transport; Wed, 28 Oct 2026 18:52:03 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 28 Oct
- 2026 11:51:44 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 28 Oct 2026 11:51:44 -0700
-Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56 via Frontend
- Transport; Wed, 28 Oct 2026 11:51:40 -0700
-Date: Wed, 28 Oct 2026 11:51:38 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Shameer Kolothum Thodi <skolothumtho@nvidia.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "joro@8bytes.org"
-	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, "rafael@kernel.org"
-	<rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Marek Szyprowski
-	<m.szyprowski@samsung.com>, "aneesh.kumar@kernel.org"
-	<aneesh.kumar@kernel.org>, Mark Rutland <mark.rutland@arm.com>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>, Gavin Shan <gshan@redhat.com>, Vikram Sethi
-	<vsethi@nvidia.com>, Anshuman Khandual <anshuman.khandual@arm.com>, "Shanker
- Donthineni" <sdonthineni@nvidia.com>, Mostafa Saleh <smostafa@google.com>,
-	"rppt@kernel.org" <rppt@kernel.org>, Thomas Huth <thuth@redhat.com>, "Marc
- Zyngier" <maz@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	"kas@kernel.org" <kas@kernel.org>, Kohei Enju <enju.kohei@fujitsu.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Ard Biesheuvel <ardb@kernel.org>,
-	James Morse <james.morse@arm.com>, Steven Price <steven.price@arm.com>,
-	Sang-Heon Jeon <ekffu200098@gmail.com>, Omar Sandoval <osandov@fb.com>,
-	Andrew Morton <akpm@linux-foundation.org>, Jinjie Ruan
-	<ruanjinjie@huawei.com>, Sam Edwards <cfsworks@gmail.com>, Douglas Anderson
-	<dianders@chromium.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
-	Chen-Yu Tsai <wenst@chromium.org>, Huacai Chen <chenhuacai@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Pranjal Shrivastava
-	<praan@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "driver-core@lists.linux.dev"
-	<driver-core@lists.linux.dev>, Sonang Patel <sonangp@nvidia.com>, "Ankit
- Agrawal" <ankita@nvidia.com>
-Subject: Re: [PATCH v1 7/8] iommu: Park TDISP T=0 devices in the blocking
- domain
-Message-ID: <auJEOpTq6EbMZUuv@nvidia.com>
-References: <cover.1789010941.git.nicolinc@nvidia.com>
- <0d57c59aa3cae891e9d3e07e939e13918a4e99a0.1789010941.git.nicolinc@nvidia.com>
- <SJ0PR12MB8614232EFC74C584CB44AD28AB6F2@SJ0PR12MB8614.namprd12.prod.outlook.com>
- <20261028150909.GC3040767@nvidia.com>
+	Wed, 28 Oct 2026 19:03:05 +0000
+Received: by mail-pf1-x446.google.com with SMTP id d2e1a72fcca58-8a064f294cbso916192b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 12:03:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1793214182; x=1793818982; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :reply-to:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HbuVr5an123e2WdNsh7qTkraPx2QUzUAuDpOvbvX5g4=;
+        b=HFA2Yfl0qTJoOMyX1RF+lgP0cNFt0v3VklrJBm/bwhrhtGoif54eXqiLCyZbqdYjUJ
+         wDbRXgK4m/EPZ+bVpVihufgVinKMNCJkP7prjsRFuWB33BJhASxOPPy7hePY+dAgTQk7
+         igoULsaOSHbmXeJN+hB2Vx23++Igt9cxhK+2unp9yj+YuO6uU6xef38YIE+stZd6Sms6
+         RBin0/vCt2kh3IEwv97vOB4FqjW7FJXqlJ94H/55tI8zQBTVHnUtu/SpWoX8EIo4kuI0
+         lLAz8uMDJkwCCZe4oI/lIYnsKpgY1a3NQ9NcGHHlsaIROSaxvFwDylfnEvFBavdcTKSj
+         8E4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793214182; x=1793818982;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=HbuVr5an123e2WdNsh7qTkraPx2QUzUAuDpOvbvX5g4=;
+        b=WUEiuUMs6J1eLGRmL9zVwWu8C6Dwf9j4XjcSJ3W9pDDyf0aKnp5MpQAPa07R8afISC
+         CQdaQi46Eo2TnZCVekILdqGsftxZVi2CUa4iwRfdjfYnh5NJDFF2FCCCOn8m5HKwnSx4
+         TAsN/DnBpqIfaP2o4ki1OPBsX/UAt4nVJzVgdvl9aAKh/KUASt0w+i1IW7p6+USrIFne
+         dUS1SFORpi8UFOqapWfKb2DVLrBYLVwjaZUUs183g0G/czA7QuMPM6EBiRVQ0dc3IfaZ
+         kRRrs6aebuiu+zHTbknInXyZ3uMBv8vaAUdKj38bUhOd39tZBg+p+O+oCOA/II/Q8+W4
+         2SHA==
+X-Forwarded-Encrypted: i=1; AKwUvBwvGLFlhrg5isuxgU9405QfH1UMVibsL3INaJ1y8dOULJeoh9A/5WN/al80Kpz3kpcL38L2jkeva2++EHJoCLyc@lists.infradead.org
+X-Gm-Message-State: AFq9FYJDy7l9+nXuRrmV0l7ozQLPjTjLNu7XYNFslqLSMHW5qkEEcV9F
+	SL9AVXxPZVdB4hMfW35QpuFdyqUVw6Up6Ceh+5t+4v/rPG+KEGV7ezUz6MD8Swnc70muqjHpY7/
+	QCH4v7g==
+X-Received: from pfog22.prod.google.com ([2002:aa7:8756:0:b0:8a0:7e84:9992])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:18a8:b0:899:55e9:880b
+ with SMTP id d2e1a72fcca58-8a6e72dc7admr2727923b3a.14.1793214181492; Wed, 28
+ Oct 2026 12:03:01 -0700 (PDT)
+Date: Wed, 28 Oct 2026 12:02:52 -0700
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261028150909.GC3040767@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY7PEPF000000EB:EE_|BL4PR12MB9533:EE_
-X-MS-Office365-Filtering-Correlation-Id: c110140f-03b3-46fd-8a6b-08df35248e6b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|82310400026|1800799024|23010399003|18002099003|22082099003|11063799006|5023799004|56012099006|4143699003|261022075727099003|261026140227099003|261021121427099003|261022105027099003|261021135927099003|10067099003|261026121527099003|261009223027099003|261028144727099003;
-X-Microsoft-Antispam-Message-Info: 1cRTLVt6dCANHKgvV7i8w+LdMWcD0WyMRnPcAUU8MKSZ4gBAQ00I8jTVlI8POA7S0JgG7qxDmMNKnI0iorcgaHZQKmF4olFjGYHu8Ur5YLZpOrdgi7bWHzepkT/tWNn2RN2qJu7OfC4RGQfR/lBeIitKWeP+iylxnSbzqLeAukGZImkF2o915t71+W11cwsY6//R6Qi250tARj0TV1V/VvoETbtX8q8C8dvbsi8CQq5TOXQnH2+sFuV52SLpZyLvvqM14UyKIk+p23BX3WCIo3/YELZch5OonOrCwbXRktfhv2WYZ7rQsSFWh72mtAhOZ7ZV0FNLqoZUZp/vXXhVMljOXwQJKEq0uOVA1oCh7Ykmvhwi0Rn4binvyFhzvAX5z38bBePtMDq6uUMHbsKujD2cGwxlTALMIoEgAuRqkJHOEZ6G42/mqnu9i3k4Nq602eI9w1EOwsnmIZ7M4JSTHRJ3lh/wvXGwmMh3oYy8dl6Od5E4eWm4iACHV45kIT/m66uvD9dXr3b/aYUZFzMcbupIvUG/ymvKLp2brKtpCyLoVHmpW7l8oWP+q8w2mgE+dQa3GP3/2EKq0vMeAPCV7U5+JD1aVwqAojLGyUOBmTG3mftkj4GTz6r9hgf/mpMbgpzXF7k6Y6Ap9zg49p6KaX4Q+urTAcnM2P6Z1Aat1hvALqKDZe7m05hkudGI6GEfGdnM/Lr2vFXyEEUT++IQ2w==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(82310400026)(1800799024)(23010399003)(18002099003)(22082099003)(11063799006)(5023799004)(56012099006)(4143699003)(261022075727099003)(261026140227099003)(261021121427099003)(261022105027099003)(261021135927099003)(10067099003)(261026121527099003)(261009223027099003)(261028144727099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: +sGuwxy+2QHT/AuT6K4mAFXJDJoRLWBohshkps7/FWCHIlypRaXPwWMZ6SBlo77Yv1NGeW9AjIFwKg3jH4b9TIDW67KW2ZZ7ugJK4ayu6s5OZL150nANpUxz+oaa3oswizJtkD4/mfKPtX4vzfJChoUsPJaXe9Tlt3oonU6Hb5Nz5+YHFXhqNRxiaEC1nAaaCg8Hh3T888VzZKaYAf1S69kXrQcfbSyzDUw8NQjvbaFjwZ0qpIlK/xZMd+ynehjjMiEXkMwUREssbmaiCzYP6NIlqE0sTh7zwc0d59JKhe8Bt/s+N+BhXrKjQRnYkurDxL6W840XaS4mfxF6Tpv8tebVAdKJmGT3SROZehbxd9zvLf1zhFJMQqZJ6MlbCgA4PSOKoHnWpB01MxMTJMCudiNnB/QI0GPXRJZCDmQCUgEPnx63qGaNJC+Enf+tw46o
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2026 18:52:03.3440
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c110140f-03b3-46fd-8a6b-08df35248e6b
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY7PEPF000000EB.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL4PR12MB9533
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.313.g2479322e68-goog
+Message-ID: <20261028190259.1819571-1-seanjc@google.com>
+Subject: [PATCH 0/7] KVM: Ensure WAIT requests actually wait
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Nicholas Piggin <npiggin@gmail.com>, 
+	Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Stefan Teodorescu <fane@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_115215_054542_577EA247 
-X-CRM114-Status: GOOD (  18.47  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261028_120303_854120_F32043B5 
+X-CRM114-Status: GOOD (  10.71  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,56 +98,73 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+X-Spam-Status: No, score=-21.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,USER_IN_DEF_DKIM_WL
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 12:09:09PM -0300, Jason Gunthorpe wrote:
-> On Wed, Oct 28, 2026 at 02:19:17PM +0000, Shameer Kolothum Thodi wrote:
-> > > +	/*
-> > > +	 * When in T=0 mode the T=1 vIOMMU must always be set to
-> > > BLOCKED to
-> > > +	 * release control of ATS.
-> > > +	 */
-> > > +	if (iommu_using_t0_stream(first)) {
-> > > +		if (!ops->blocked_domain)
-> > > +			return ERR_PTR(-EINVAL);
-> > > +		return ops->blocked_domain;
-> > 
-> > How is MSI allocation handled for T=0 devices? The ITS calls
-> > iommu_dma_prepare_msi(), which appears to return -EOPNOTSUPP
-> > for the blocked domain. Is that intentional?
-> 
-> For a TDISP capable devince MSI is always issued using T=0, meaning it
-> does not go through the SMMU. It should be wired to defeat
-> iommu_dma_prepare_msi() and use an identity IOVA as though there is no
-> iommu present..
+Fix a bug in where kvm_make_request_and_kick() won't actually wait if the
+kick races without another non-waiting kick.  The issue is that all of the
+conditional kvm_arch_vcpu_should_kick() implementations are missing this code:
 
-I'll fold this in:
+	if (req & KVM_REQUEST_WAIT)
+		return mode != OUTSIDE_GUEST_MODE;
 
-------------------------------------------------------------
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index d6b00e0373f5c..1474224c2565f 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -4324,8 +4324,9 @@ int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
- 		return 0;
- 
- 	mutex_lock(&group->mutex);
--	/* An IDENTITY domain must pass through */
--	if (group->domain && group->domain->type != IOMMU_DOMAIN_IDENTITY) {
-+	/* An IDENTITY domain or a T=0 device must pass through */
-+	if (group->domain && group->domain->type != IOMMU_DOMAIN_IDENTITY &&
-+	    !iommu_using_t0_stream(dev)) {
- 		switch (group->domain->cookie_type) {
- 		case IOMMU_COOKIE_DMA_MSI:
- 		case IOMMU_COOKIE_DMA_IOVA:
-------------------------------------------------------------
+Thankfully, kvm_request_needs_ipi() does the right thing, so this doesn't
+affect kvm_make_all_cpus_request() or kvm_make_vcpus_request_mask(), i.e. it's
+limited to x86 SNP's used of kvm_make_request_and_kick().
 
-Thanks
-Nicolin
+To fix, address this TODO:
+
+  /* TODO: merge with kvm_arch_vcpu_should_kick */
+
+and purge kvm_arch_vcpu_should_kick().  As usual, PPC makes that difficult
+because it has wonky code that is poorly documented.  For reasons unknown,
+kvm_vcpu_kick() unconditionally returns true on (most flavors of) PPC.  To
+preserve that behavior, add a compatibility wrapper in PPC, along with a
+@force param to __kvm_vcpu_kick().
+
+This series would ideally go into 7.4, even though it's obviously not small,
+as guest_memfd in-place conversion massively widens the window where a missed
+kick+wait can lead to the host trying to reclaim an in-use VMSA page, which
+is generally fatal to the host.
+
+Sean Christopherson (7):
+  KVM: s390: Drop unused and unreachable kvm_arch_vcpu_should_kick()
+  KVM: Add a @force param to __kvm_vcpu_kick() for PPC backwards
+    compatibility
+  KVM: PPC: Explicitly force IPIs when directly kicking vCPUs
+  KVM: MIPS: Rework kvm_arch_vcpu_should_kick() to use standard
+    implementation
+  KVM: Move kvm_arch_vcpu_should_kick() to common code as
+    kvm_vcpu_should_kick()
+  KVM: Plumb the full request into __kvm_vcpu_kick()
+  KVM: Drop kvm_vcpu_should_kick() and use kvm_request_needs_ipi()
+
+ arch/arm64/kvm/arm.c               |  5 -----
+ arch/loongarch/kvm/vcpu.c          |  5 -----
+ arch/mips/kvm/mips.c               |  5 -----
+ arch/powerpc/include/asm/kvm_ppc.h | 13 ++++++++++++-
+ arch/powerpc/kvm/book3s.c          |  4 ++--
+ arch/powerpc/kvm/book3s_pr.c       |  2 +-
+ arch/powerpc/kvm/booke.c           |  6 +++---
+ arch/powerpc/kvm/e500_emulate.c    |  2 +-
+ arch/powerpc/kvm/powerpc.c         |  7 +------
+ arch/riscv/kvm/vcpu.c              |  5 -----
+ arch/s390/kvm/s390/s390.c          |  7 -------
+ arch/x86/kvm/x86.c                 |  5 -----
+ include/linux/kvm_host.h           |  7 +++----
+ virt/kvm/kvm_main.c                | 28 ++++++++++++++++------------
+ 14 files changed, 39 insertions(+), 62 deletions(-)
+
+
+base-commit: 7e60162b16f9da0d2fa83da5c1723b6853a0ac1d
+-- 
+2.56.0.313.g2479322e68-goog
+
 
