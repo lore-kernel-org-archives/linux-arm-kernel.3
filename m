@@ -2,141 +2,95 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12BF1606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 08:17:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3C5860A5BC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 08:20:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uvkqBXN2;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EYxP0awh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Sg38DT3L;
+	dkim=pass (1024-bit key, unprotected) header.d=ilvokhin.com header.i=@ilvokhin.com header.a=rsa-sha256 header.s=mail header.b=DeIiv9WX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=RRuxTSHqwbMEC1Vyc99sUTotqRotw0K4rkvyEEzXBAY=; b=uvkqBXN2r2bJ9h
-	We7unUXZSzEs7HfSnD3/ZtLy92AngnrCJPgjt1xtDUup6qeVKnAhYVNLK7dEj0EyHbCB6sTkPH4GI
-	ycgB4js07Ab4wRvrdMWjwHvBhUXBUQyE2p94XzP564jzynEIS0n4j/S9Bt2Jrwq2ku8/GhTyIQLkW
-	oTRLBEmy04JvB7+CnJDrMyjLtWE6z6iHFbDsZKiO+fmvQCSx3MplWvsy/QMmupTU7syYw9tFsWJKv
-	6HH4WqwgetGLBvlWmwW27BKfo/aMSs/AFgDmi+MGalR9bgF68THA5bOtM1h7u5x7R9j4SRSyH+f2T
-	ehn6QdytKJQvBOAt1j3g==;
+	List-Owner; bh=dWJJn/15+ghgzzIGKgM3IMULkpSh/eugDFHemmlBRb4=; b=Sg38DT3L5obUZ6
+	X9ymf6OfWPd9sfRr0XcDb1rGcd1aJncrLgAJc73S7Sq3FOht3TdzVRqDcYzm5jGff3Pm5Ribuz9/3
+	NSrea5VdpzEM9uw7NFct7A3fo9L5xd+3l1MoB3UlKgUEqzp5xli14A97khCNaeiXAjbE3GJUwbO96
+	9C+LYSjEf8UCbRugsaet0P4aZp3kFyMBT1yJJUfQ9UUsFK7lOrXpvMNWnFjjx2XoEgg0DZJeHDHHV
+	L4AtT10d7pBzTBNLtCzvpH5eRHvZ8rgW7UctsgzaA+PZp55iXRIQbgN9fzrt6v/f0JxpZRTLuXNdA
+	JG57XeFmlE9Xm5IqhuZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLyqy-00000006WWJ-0LU4;
-	Wed, 28 Oct 2026 08:17:48 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1xLytr-00000006Wqh-2oRO;
+	Wed, 28 Oct 2026 08:20:47 +0000
+Received: from mail.ilvokhin.com ([178.62.254.231])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLyqv-00000006WVz-2wp9
+	id 1xLyti-00000006WjZ-1cwQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 08:17:46 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a2167bd087so5705585e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 01:17:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793175463; x=1793780263; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RRuxTSHqwbMEC1Vyc99sUTotqRotw0K4rkvyEEzXBAY=;
-        b=EYxP0awhPr9gOjBoOmJXvfPwXxRTpP17Tf4aQeTZjo+GXuJURbW2HBqbhw3n2axq9A
-         EWUfc0dl8BJpIjTcWTBb+HXiM3bOhsrEDBNfyQCEsEk/5VFraVOT8L2+lO01zXlzTG4C
-         CEEiYVbud29QLb83OZuPk3cjo6ojelHBr47XzhD3QudIYmRP0CE5+H2XYx7mPteEGRKP
-         Ebm1lRojhHkXE6t4J1pQfiiCH8p/Iz4zAQUt1oYv16Mq7rLzuT4u4UPl/TCjXJkFPZk5
-         DckmFmABZ9sONKOJkdhm6WmTIemdqcJyrkcg56Ykq2srLoQREXWEsA/skoZY8LdlWsGV
-         l5RQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793175463; x=1793780263;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RRuxTSHqwbMEC1Vyc99sUTotqRotw0K4rkvyEEzXBAY=;
-        b=mFOPPyzHVJvIrAGvEwT3gQ8VnGYRqs7LZEMa6f1kP0e7SSCgbdy1It9CRrXoFsbyLv
-         g42u0xlJAitkQTvpaPWNkiXQ8Xg3TpKXA6ZIhACgfJB2t+F+s/vBsgpYgotNsyInY6UJ
-         hM97M6r9AXSqzC++bFSR3QQnqpJRR8fMc7oaj7vgihwUIpR2JIb9vh2NdIzGRQfh5NVb
-         z59I7d3iW79XmtizVmOCiSUXs+HpLHQPCpz86HQfye7M4caFIqbw/vb56bY/slat5aaJ
-         aAdYZ+hGd7jCXUuFucCURat0DLM1nK6De1dKBixcl2Jqto06xdSW0V3jykCg03X+fmgi
-         P/Ng==
-X-Forwarded-Encrypted: i=1; AKwUvBydrnmeQdEh1LlZdloCei9d/Myvu0rOtydcAeV1Ico+wDGXxbO7NyhpHhbKkxDQqk81sRM6tIuiOhdqPnlhLxr7@lists.infradead.org
-X-Gm-Message-State: AFq9FYLttrltGVidDHo0rR2Op/gv1NdCt5r7CGKonljbbtF48sARGL8Y
-	pJ2ugfk0MvNxOWva5trqdfZMG3m8xOPZ4msEP69OuLzbJsuWiWcyQ2NQ
-X-Gm-Gg: AYBFou3bidtKft3V/uDjThTJXaHae4b5AOaXxnJ8gFZXDrglkkcPIlz9OlrJ8kyNbkQ
-	j/2JbxOIkEIBpTmDpysUPKW3vpoZHKHgifLs9yS37TNg6OarzSx3bH8ft16IJpIGem3wSDts5gB
-	7z2M6TybhsRYDdl/RZy2tp1etk61y+Y22opDvAXRPHFq3SUcApymWgZH15WlVvQkLI70MNrQCq0
-	lm2E/UwMo0WPGiFSrxGajgrwGXHmTkGf+iAQO3ptXy/pgM56V8hKHjQLFfDrbqE2kuElRFGN2Wg
-	Xv/m9itIC+D/mG3EQf7kAyRoaN6sLqwtRi6QRCdZ8tMUa6Y0/GtwwlnUOL18PFzjIvcpxb+VSQM
-	4dxYtNZ/kNaGrPynOQy3DVFKVIwWf/PVcxz075ZcGXuZuH+cJcRtW8MQx90FX6TsIWrOJ2kDXOD
-	Y630VFgNqMQgfqoNjIe5rOX60ORXPCBS3TnrG9dbVJtHo3T3Q0zGsXTPiJZEB46VFiDKk1cKIn0
-	ET2bl4iuK9EuYIW/DsBNgAoMniBp2owPhAHW0hWUxSmfK3mu6KgNhFyLJVZEKYWecGOs1Svo5WH
-	7X6bnkrmaOS322gz9qMvryKv95DMqRu2JmR6HZS6hqB6ZpA/dDMpCc973QlmwAD+0ongpIEe07L
-	URIGdUiNHaNvxDac2H9UsugnV/d1VTonerEWndeQ+CcRQjSaRS7Jp6Xk5bOsWgzhsOXdJ7TP0a+
-	WLsF1+8CWi6XHiTkbJlw==
-X-Received: by 2002:a05:6000:24c8:b0:48b:ec8:b0d8 with SMTP id ffacd0b85a97d-48e5d5c3dd3mr4027197f8f.32.1793175463262;
-        Wed, 28 Oct 2026 01:17:43 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-63a8-e900-0915-3df6-8525-b963.310.pool.telefonica.de. [2a02:3100:63a8:e900:915:3df6:8525:b963])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebcb9cesm28393931f8f.27.2026.10.28.01.17.41
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 28 Oct 2026 01:17:42 -0700 (PDT)
-From: Tim Pambor <timpambor@gmail.com>
-To: maz@kernel.org
-Cc: Frank.Li@nxp.com,
-	afaerber@suse.de,
-	alim.akhtar@samsung.com,
-	andersson@kernel.org,
-	angelogioacchino.delregno@collabora.com,
-	baolin.wang@linux.alibaba.com,
-	bst-upstream@bstai.top,
-	catalin.marinas@arm.com,
-	conor+dt@kernel.org,
-	daniel.lezcano@kernel.org,
-	devicetree@vger.kernel.org,
-	dinguyen@kernel.org,
-	eleanor.lin@realtek.com,
-	festevam@gmail.com,
-	gordon.ge@bst.ai,
-	guohanjun@huawei.com,
-	heiko@sntech.de,
-	ivo.ivanov.ivanov1@gmail.com,
-	jbrunet@baylibre.com,
-	jernej.skrabec@gmail.com,
-	jesper.nilsson@axis.com,
-	jonathanh@nvidia.com,
-	kernel@pengutronix.de,
-	khilman@baylibre.com,
-	konradybcio@kernel.org,
-	krzk+dt@kernel.org,
-	lars.persson@axis.com,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	Wed, 28 Oct 2026 08:20:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ilvokhin.com;
+	s=mail; t=1793175634;
+	bh=dWJJn/15+ghgzzIGKgM3IMULkpSh/eugDFHemmlBRb4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=DeIiv9WXQV3gD55AucY67CXV5GytqfXEJkOIlH/p1vvpmEBa02wb0CiZ7FetKO8kp
+	 vKMP3WYwznobDJIR52jidVzMPZfhGDf6UWW8grvqXfGJ9aPtokciLL67F0nlp74wpP
+	 VCbSuHZCHz4d69J6NRvoiFKB6uqBPcC0poA2OXFs=
+Received: from localhost.localdomain (shell.ilvokhin.com [138.68.190.75])
+	(Authenticated sender: d@ilvokhin.com)
+	by mail.ilvokhin.com (Postfix) with ESMTPSA id DF86BFBCE8;
+	Wed, 28 Oct 2026 08:20:33 +0000 (UTC)
+From: Dmitry Ilvokhin <d@ilvokhin.com>
+To: Alex Deucher <alexander.deucher@amd.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Lee Jones <lee@kernel.org>,
+	Pavel Machek <pavel@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Kees Cook <kees@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Whitcroft <apw@canonical.com>,
+	Joe Perches <joe@perches.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>
+Cc: amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
-	lpieralisi@kernel.org,
-	mark.rutland@arm.com,
-	martin.blumenstingl@googlemail.com,
-	matthias.bgg@gmail.com,
-	michal.simek@amd.com,
-	neil.armstrong@linaro.org,
-	orsonzhai@gmail.com,
-	rafael@kernel.org,
-	robh@kernel.org,
-	s.hauer@pengutronix.de,
-	samuel@sholland.org,
-	shawn.lin@rock-chips.com,
-	sudeep.holla@kernel.org,
-	tglx@kernel.org,
-	thierry.reding@kernel.org,
-	wens@kernel.org,
-	will@kernel.org,
-	timpambor@gmail.com
-Subject: Re: [PATCH v3 11/17] arm64: dts: mediatek: Add EL2 virtual timer interrupt
-Date: Wed, 28 Oct 2026 09:17:16 +0100
-Message-ID: <20261028081716.75598-1-timpambor@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260523140242.586031-12-maz@kernel.org>
-References: <20260523140242.586031-12-maz@kernel.org>
+	intel-gfx@lists.freedesktop.org,
+	linux-leds@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-hardening@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-doc@vger.kernel.org,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	Dmitry Ilvokhin <d@ilvokhin.com>
+Subject: [PATCH 02/10] string: Switch to __nonnull_args() macro
+Date: Wed, 28 Oct 2026 08:19:41 +0000
+Message-ID: <f0d7b2f0dce916f4cde3dd466a5b51a4b88fbdd8.1793027261.git.d@ilvokhin.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <cover.1793027261.git.d@ilvokhin.com>
+References: <cover.1793027261.git.d@ilvokhin.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_011745_755281_3856DD1A 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261028_012038_589871_C4954E6A 
+X-CRM114-Status: GOOD (  13.05  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -148,28 +102,43 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, 23 May 2026 15:02:36 +0100, Marc Zyngier wrote:
-> The ARMv8.1+ based CPUs used in a number of Mediatek SoCs are missing
-> the EL2 virtual timer interrupt. Add it.
+Commit 22302af28d3f ("cleanup: Annotate guard constructors with
+nonnull") added the macro __nonnull_args() to wrap raw compiler
+attribute.
 
-This patch doesn't seem to have been applied along with the rest of
-the series. After updating to v7.2.11 on an MT8195 board I see:
+Replace __attribute__((nonnull)) with __nonnull_args() to
+standardize nonnull attribute usage across the tree and keep the
+attribute's quirks in one place rather than open-coded at every call
+site.
 
-  arch_timer: [Firmware Bug]: VHE-capable CPU without EL2 virtual timer interrupt
+Suggested-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Signed-off-by: Dmitry Ilvokhin <d@ilvokhin.com>
+---
+ include/linux/string.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-With this patch applied, the warning is gone and the EL2 virtual timer
-is used as expected:
+diff --git a/include/linux/string.h b/include/linux/string.h
+index 6cb5cdd01158..1f1cb73514e1 100644
+--- a/include/linux/string.h
++++ b/include/linux/string.h
+@@ -587,7 +587,7 @@ static inline bool strstarts(const char *str, const char *prefix)
+  * Returns:
+  * True if @str ends with @suffix. False in all other cases.
+  */
+-static inline bool __attribute__((nonnull(1, 2)))
++static inline bool __nonnull_args(1, 2)
+ strends(const char *str, const char *suffix)
+ {
+ 	unsigned int str_len = strlen(str), suffix_len = strlen(suffix);
+-- 
+2.53.0-Meta
 
-  arch_timer: cp15 timer running at 13.00MHz (hyp-virt).
-
-Reviewed-by: Tim Pambor <timpambor@gmail.com>
-Tested-by: Tim Pambor <timpambor@gmail.com>
 
