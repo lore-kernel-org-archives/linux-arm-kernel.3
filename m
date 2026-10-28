@@ -2,89 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6D00606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 05:02:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25B28606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 05:04:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pdOQqjTu;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=cvOsB5qB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lTzf8vfr;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Oad0yl4O
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=zLz0pazdOfTsdwtCAGyvlkZm5M8fg99B0g197ylxLwk=; b=pdOQqjTu52MJ0lqdI1tZ4uQ3Ct
-	hDPOmDwnDyNgAvLZXLPFUbO1MnHHh0FTDjUTgwn/PtHnNpr51EFDoYd3UJcPukU7bOXaPTRP9K9kp
-	iiCAgSeeViAcS6JNJc1QlW/2i0hWLDopP6/cZAjrscSo3uYnBmDIlDBV/ra3vmgIyKoi/HdwbEfbH
-	2V6NCokgiNT1AwoJP0F99anHy9jYwwJLT7hLKJ88XQqgkAVFeWecDdhbZEgm2X9Rx/Ro1XrgNljWD
-	mngLTLlQqcI8OL29vVETxzJfBCNU53WdNcOh21abOnnMtHMstaBj7O+h51XhWrLYDQUgVCmHZ6LAP
-	RZIWyq8w==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=dhv+8FlBddRkoW7HUJioYxqmcNV+Dawhev5ggsbsEWE=; b=lTzf8vfr4G3EPa
+	K5JLP+ziZgjAMTyzbqkvXMyskWB30q91dPZhCbyGlb9OI++M+oCe0tvQ4iJBh4rF6LDBXkC6HMCso
+	ZiZEgRV+ThQlTkIEmtY7OHhlkIYBIF6+AFfzjqI7MvtT6FAiVmXpadcIW/o2EBSQsWcR6ALZzTq2A
+	TMh8vlHR6Js5KSP+V2BqRdaZbcvaqYunED2d/LV65NhqXv46px7Hc6QknTjw55ndoZWzxOhuVn7fN
+	nl4En/FS4e4UVlxr+AD1dlx2O2IUV+UsyPQhVXD8AxrQLLlxe6Fj/c5A6QD5RS2dj8DAQdwJbANSP
+	BR7snrDSuDnkM9NdB2kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLvnW-00000006JnG-37hK;
-	Wed, 28 Oct 2026 05:02:02 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1xLvpO-00000006KW7-2MFo;
+	Wed, 28 Oct 2026 05:03:58 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLvnS-00000006JhB-48Do;
-	Wed, 28 Oct 2026 05:02:00 +0000
+	id 1xLvpJ-00000006KUY-3veq;
+	Wed, 28 Oct 2026 05:03:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=zL
-	z0pazdOfTsdwtCAGyvlkZm5M8fg99B0g197ylxLwk=; b=cvOsB5qB2Wj0hI7UKh
-	cXipRRM+LqlaGC7zY6lk5NhWTd/Fk4JoYV1WoHQFW2yGikSPLyrb+nbEMzsuHn3x
-	KEKyXypvLKwXWCHdhELadpwFBJe8I8jQp97Pz56Nn87m11JYg8+A2XoxD6VfZaUy
-	d1OwkiDViz6VKQ2r33g0xjJvM=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=dh
+	v+8FlBddRkoW7HUJioYxqmcNV+Dawhev5ggsbsEWE=; b=Oad0yl4OirsQ5GShYM
+	hygXEMibdlSmJwexZovzN75xOJNVE5doZxC38Z8aTjxrNz6sTeGdiv7uTsFFSmAU
+	/RXoZBCRWbhE5V+UQn750371DT0scAjGJXQ0GaicYMaOyEn6z3wOtkW/+t+8EaDY
+	fAXE2XKBEN8MxS7uWHUen29BY=
 Received: from pc.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD31_V5geFquXTKDA--.16748S2;
-	Wed, 28 Oct 2026 13:00:43 +0800 (CST)
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wD3X28rguFqvXzDCw--.30877S5;
+	Wed, 28 Oct 2026 13:03:43 +0800 (CST)
 From: Jiale Yao <yaojiale02@163.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Marc Zyngier <maz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Anup Patel <anup@brainfault.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Sunil V L <sunilvl@ventanamicro.com>,
-	Andrew Jones <andrew.jones@linux.dev>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Tomasz Nowicki <tomasz.nowicki@linaro.org>,
-	Grant Likely <grant.likely@linaro.org>,
-	Jason Cooper <jason@lakedaemon.net>,
-	Robert Richter <rrichter@cavium.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Liupu Wang <wangliupu@loongson.cn>,
-	Tianyang Zhang <zhangtianyang@loongson.cn>,
-	Jianmin Lv <lvjianmin@loongson.cn>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org,
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org
-Subject: [PATCH 00/12] irqchip: validate remaining MADT records before use
-Date: Wed, 28 Oct 2026 13:00:27 +0800
-Message-Id: <20261028050039.121080-1-yaojiale02@163.com>
+	linux-mediatek@lists.infradead.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH 3/4] wifi: mt76: mt7921: unwind interface restore failures
+Date: Wed, 28 Oct 2026 13:03:36 +0800
+Message-Id: <20261028050337.127464-4-yaojiale02@163.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261028050337.127464-1-yaojiale02@163.com>
+References: <20261028050337.127464-1-yaojiale02@163.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD31_V5geFquXTKDA--.16748S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Cr45CF4DXr17tryDKF1Utrb_yoW8Cr4kpF
-	W5ua4Fyry5CFW7CwnxAw1UZFy5Jr1rKrW2qa93tw13ZrZ7K3WDXay7AFWrXF4xJw1xW3Wj
-	9F4FgFW7CF98uaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07URCJQUUUUU=
-X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC7xuRy2rhgXvKVwAA3C
+X-CM-TRANSID: _____wD3X28rguFqvXzDCw--.30877S5
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Kr13tryDtFW7CrykWr1rJFb_yoW8CFW3pF
+	47KayYkry8Jw45Ja1xGFW8uF95t3Z5GF1Uury3Aw18Zrn5AryrJF4j9Fy3tFyjyFs7t34f
+	trWvqFn8uwsY9a7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jva0PUUUUU=
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzQ+++Grhgi+qLAAA3k
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_220159_470109_219B6C12 
-X-CRM114-Status: UNSURE (   7.28  )
+X-CRM114-CacheID: sfid-20261027_220354_774736_B1A6901F 
+X-CRM114-Status: UNSURE (   9.97  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -97,53 +79,61 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Several ACPI interrupt-controller callbacks cast generic MADT subtable
-headers to controller-specific records and access typed fields without
-first checking that the firmware supplied the complete structure. A
-truncated entry can therefore cause an out-of-bounds read during early
-interrupt-controller and CPU discovery.
+The reset recovery callback ignores failures while restoring an interface
+in firmware and continues issuing per-vif configuration commands. A failed
+two-command device addition can leave partial firmware state, while the
+following commands operate on an interface that was not restored.
 
-Add the missing minimum-size checks at the callback boundaries. Records
-which are passed from a probe validator to an initialization callback are
-validated once in the validator, before either callback accesses them.
+Check the restore result, remove any partially created firmware state and
+stop configuring that interface on failure.
 
-The issues were found by code inspection and have not been tested on real
-hardware.
+Fixes: 0c1ce9884607 ("mt76: mt7921: add wifi reset support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Jiale Yao <yaojiale02@163.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7921/mac.c | 16 +++++++++++++---
+ 1 file changed, 13 insertions(+), 3 deletions(-)
 
-Jiale Yao (12):
-  riscv: acpi: validate RINTC entries before use
-  irqchip/gic-v5-irs: validate MADT GICC entries
-  irqchip/gic-v5-irs: validate MADT IRS entries
-  irqchip/gic-v5: validate MADT IRS records
-  irqchip/gic: validate MADT distributor records
-  irqchip/loongarch-avec: validate MADT MSI-PIC entries
-  irqchip/loongarch-ir: validate MADT MSI-PIC entries
-  irqchip/loongson-htvec: validate MADT BIO-PIC entries
-  irqchip/loongson-htvec: validate MADT MSI-PIC entries
-  irqchip/loongson-liointc: validate MADT HT-PIC entries
-  irqchip/loongson-pch-pic: validate MADT LPC-PIC entries
-  irqchip/riscv-intc: validate MADT RINTC entries
-
- arch/riscv/kernel/acpi.c               | 3 +++
- drivers/irqchip/irq-gic-v5-irs.c       | 6 ++++++
- drivers/irqchip/irq-gic-v5.c           | 3 +++
- drivers/irqchip/irq-gic.c              | 3 +++
- drivers/irqchip/irq-loongarch-avec.c   | 3 +++
- drivers/irqchip/irq-loongarch-ir.c     | 3 +++
- drivers/irqchip/irq-loongson-htvec.c   | 6 ++++++
- drivers/irqchip/irq-loongson-liointc.c | 3 +++
- drivers/irqchip/irq-loongson-pch-pic.c | 3 +++
- drivers/irqchip/irq-riscv-intc.c       | 5 ++++-
- 10 files changed, 37 insertions(+), 1 deletion(-)
-
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/mac.c b/drivers/net/wireless/mediatek/mt76/mt7921/mac.c
+index 6f5e31489e2d..0d19f2d7dd5e 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7921/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7921/mac.c
+@@ -628,13 +628,23 @@ mt7921_vif_connect_iter(void *priv, u8 *mac,
+ 	struct mt792x_vif *mvif = (struct mt792x_vif *)vif->drv_priv;
+ 	struct mt792x_dev *dev = mvif->phy->dev;
+ 	struct ieee80211_hw *hw = mt76_hw(dev);
++	int ret;
+ 
+ 	if (vif->type == NL80211_IFTYPE_STATION)
+ 		ieee80211_disconnect(vif, true);
+ 
+-	mt76_connac_mcu_uni_add_dev(&dev->mphy, &vif->bss_conf,
+-				    &mvif->bss_conf.mt76,
+-				    &mvif->sta.deflink.wcid, true);
++	ret = mt76_connac_mcu_uni_add_dev(&dev->mphy, &vif->bss_conf,
++					  &mvif->bss_conf.mt76,
++					   &mvif->sta.deflink.wcid, true);
++	if (ret) {
++		mt76_connac_mcu_uni_add_dev(&dev->mphy, &vif->bss_conf,
++					    &mvif->bss_conf.mt76,
++					    &mvif->sta.deflink.wcid, false);
++		dev_err(dev->mt76.dev,
++			"failed to restore interface after reset: %d\n", ret);
++		return;
++	}
++
+ 	mt7921_mcu_set_tx(dev, vif);
+ 
+ 	if (vif->type == NL80211_IFTYPE_AP) {
 -- 
 2.34.1
 
