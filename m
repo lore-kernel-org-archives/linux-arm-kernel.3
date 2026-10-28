@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C873606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:44:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54D10606A335
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:45:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Emz/o49M;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jRmzhIrh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hz0KfMfF;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JW4NmbXM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DfqZSZZirg02/y7+Hu6+biXxEuviwtSJMX1/tfCGZ1E=; b=Emz/o49MyBI/Dmzsf/GObeR7VP
-	m+8I15EB0Fk8R/6FYhjPcgAqwxEi8VaRe3uuYddAp80r7yvuC+uMlR8RnNPWJG2hdmyoq5gMk2pCc
-	Ht3i4JwevJDQk26y9wwBqltCjtgx70WhPALXBt3jwk5qOVQuI6Nb0qNpdXMcvFdaCX6y+3AbefL4C
-	XhSP9ssQYHoFCQXT6/xqcJi6PjegbL38r4+qccfKO1OBbbDK6oRazlvnfeErX+AgKDqssjrxqmPrO
-	JWumxXQ/2WOkJVpqSqB96HOFx5Xs3EHn5zcH/rLvVPfkYASbg7zNvyq5LnIZ2DC38LjPkE6swVqQi
-	QHKwHdHA==;
+	bh=AzxsreGIazEGHNZ+Tlba7bzQuuS0/SXodByMLbgqMaI=; b=hz0KfMfFUhlcYdqsExWIObOuX2
+	Z2il7P+8vAVrTeeygQ2N28p32LvanOvX/ByXhMzxsT+bFG9evdwdSp/JLOYy3Mf1eM046kNzNg0ky
+	4oRiNT3YCKoo6foMCXnHluFYSXFm3YlKEarpqj6FxmUg7fBOaOHFRATPrZiq9UnKQxN5Gxoo0UEFh
+	y/+iDHlRXwftWYzQTm+EXaPXUcHb19MqFurTOgw/C4u/l6lBiD7u5AH+1AvUIcIvUl8fbMDh+bUPV
+	RHxfTnrOrboZS4vFwqiUK/iAYbaiLOssM7MJxb5I8ol1Gkmmwk0u5AGoY9v7EyMiiyzJqw3o9kvSv
+	po3llJcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM24v-00000006seO-072w;
-	Wed, 28 Oct 2026 11:44:25 +0000
+	id 1xM25P-00000006skR-0h49;
+	Wed, 28 Oct 2026 11:44:55 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM24u-00000006seH-0BaI
+	id 1xM25N-00000006sjx-3M8R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 11:44:24 +0000
+	Wed, 28 Oct 2026 11:44:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0AA51601F8;
-	Wed, 28 Oct 2026 11:44:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8767F1F01825;
-	Wed, 28 Oct 2026 11:44:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E10660120;
+	Wed, 28 Oct 2026 11:44:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7167F1F01825;
+	Wed, 28 Oct 2026 11:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793187862;
-	bh=DfqZSZZirg02/y7+Hu6+biXxEuviwtSJMX1/tfCGZ1E=;
+	s=k20260515; t=1793187892;
+	bh=AzxsreGIazEGHNZ+Tlba7bzQuuS0/SXodByMLbgqMaI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jRmzhIrhvjBYvVLWvF2JxCm33XYPEY+B4MrjzqXXXvADrFnSkcbsTJSj1MGwIIrNw
-	 kWnTLeNPwAIyLJtJ9+tdjv+78v1kDot8qmeI/jSFN574FYwb0mRlc5drmbrKuPcITI
-	 6FEhIHn8LraufNE/4d0Z/2AXNjo9H839co+kG/5xv740bKnWioo+cV4BJVLb2j3VTR
-	 QyAxwrfZ8T8k1/xE4OmhivZaTmo2IG6MCOaltdGwsIaTczyLlCF7xdElyanabRWrN9
-	 fzrY4h44LuGfWoyKWEoK4nCqnl3RBFNXiOdi+7T9W3f9T3De3jThVozlgpURldPRMR
-	 pvVdbwZCrX23Q==
-Date: Wed, 28 Oct 2026 12:44:18 +0100
+	b=JW4NmbXMV9NgnBU1HlqkVlN+rre+4AqJtfnOYsCrZ1r+jx0JuneNnyHXtAgbJhcCm
+	 oGoH7Sf0QLhsPHYJ4VS3tj9kTxIwtUgUtfQrlW3PBdn2exn76z9iW9PGXPGM7wzI9x
+	 At4s0hoSb59+TSET152LixjqCST6NybH81zHXNXle6qHlbYtt+3P9F/grboN9LPDNx
+	 xzflTm1Ec4mh4z9eI8VLirREUz5LLnYViE+P42WUDgoR0QejsFy2B/B+DLWbjrllQj
+	 91G7GnwWDaZoA9reF7WmdaYzo1PUQd8JuF3UHtJOxu/4CYIjVpedfBJtBtUN0pf7S9
+	 lIU5MaIshhDuA==
+Date: Wed, 28 Oct 2026 12:44:48 +0100
 From: Andi Shyti <andi.shyti@kernel.org>
 To: Dmitry Ilvokhin <d@ilvokhin.com>
 Cc: Alex Deucher <alexander.deucher@amd.com>, 
@@ -64,15 +64,15 @@ Cc: Alex Deucher <alexander.deucher@amd.com>,
 	linux-aspeed@lists.ozlabs.org, linux-hardening@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
 	linux-mm@kvack.org, linux-doc@vger.kernel.org, 
 	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Subject: Re: [PATCH 05/10] drm/i915: switch to __nonnull_args() macro
-Message-ID: <auHf-pdvGkPibgTp@zenone.zhora.eu>
+Subject: Re: [PATCH 07/10] drm/gem: Switch to __nonnull_args() macro
+Message-ID: <auHgHcU4fYauP_eD@zenone.zhora.eu>
 References: <cover.1793027261.git.d@ilvokhin.com>
- <33ec8080594f9f4ef1d50e36497339c9a6897393.1793027261.git.d@ilvokhin.com>
+ <5bfdc1491d297b5e98cf42322c790f06481c28c7.1793027261.git.d@ilvokhin.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <33ec8080594f9f4ef1d50e36497339c9a6897393.1793027261.git.d@ilvokhin.com>
+In-Reply-To: <5bfdc1491d297b5e98cf42322c790f06481c28c7.1793027261.git.d@ilvokhin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,7 +93,7 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hi Dmitry,
 
-On Wed, Oct 28, 2026 at 08:19:44AM +0000, Dmitry Ilvokhin wrote:
+On Wed, Oct 28, 2026 at 08:19:46AM +0000, Dmitry Ilvokhin wrote:
 > Commit 22302af28d3f ("cleanup: Annotate guard constructors with
 > nonnull") added the macro __nonnull_args() to wrap raw compiler
 > attribute.
