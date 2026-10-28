@@ -2,90 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EFA0606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 09:40:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8F7A60A2607
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 09:43:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LpK3hLJd;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fLLRjBZ+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=I/Loko77;
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=a7d59F50
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=Yr7vo+fVBon7I3trLOUfnB9wqi3Kp5C3SbSgaKixCUs=; b=LpK3hLJdqphXGq44QOLwRI7kRd
-	xVy+x/gMNsVKkzOBvK4i41RAaJS+Zppg+tZCRA6N5zU9aDLvRIZ0QW4rHNJ3iKgz+skaOvNASTh44
-	WD0bwHfN1GSxjqtGQolwPi9Te/EUERQ1qo9QGNhvAO8l/8n0Dw7TgJSzJOMTdOaKHM38kpRM2gtPZ
-	y3gqr0GKHXp9A4WeeV+XajqMw1chxzY33KqlA+EKWZrQ/lx44qjn45+/gYjKbVrRqLoSmwIV9le/v
-	PKp1Cwvl+1zFMkWRuOGQjEW6/UKVdnp2FICaJn4hZQDJtnEB+8JFoqzAbXhzI/kPB9MF0Jrunnjqx
-	AIisrZWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=535aXf9H9rC26a6zJhJ1r2DGySEkl3W8qtDu8csDPOg=; b=I/Loko77TkNBfw
+	2M6EwFvpWQ/Acb4SgBB5ElKDqlNkqkMqw2eQBrbe7+j0KQmXqME5sWlA3MFGH4+rxuwUnXyH/ZvJX
+	O8oPEGqfUMWvfEqXFv5ISboIJ3InKLCflo7GPI4Cts7nEiNPFV8j23EygxfDQqgIl2q8kU/BTIPf9
+	jFZT8qHMccUIrr54K8HfgWCy1CSS/+gttsDVksWBG+U+PoD9VGC1+yb2Nr5ptaleuEI9EKhNj5t7l
+	LeNF9vw0MsxJHZFchOqqySilR2P4GiXgTK/APh3Cd5BhSUSvMBLhi+ANU5vkQA9Mliep1PwVLbiLc
+	BP0DeN+QtRmcqQvZ1XvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM08n-00000006gfI-17kt;
-	Wed, 28 Oct 2026 09:40:17 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1xM0Bu-00000006gxK-3Xd8;
+	Wed, 28 Oct 2026 09:43:30 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM08k-00000006ger-40qr
+	id 1xM0Br-00000006gwQ-3kT5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 09:40:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793180415; x=1824716415;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=EmTJDFG1OVFNRYcrPeKwvBgsRAc5MJM+e8SIzVNVGsA=;
-  b=fLLRjBZ+p0MHtXpXliHf40fJ0R0RThQmoXTWywRa+U8/kfjXVnoBi26f
-   LvOFXco6Dhetfj+lCy5MEs0QIdRHdplfppple/O+ppUFp346u1e/HoneJ
-   zDS3GB4GtTLj1Cx84hSGRjnDicJy3x4td4J4pi+N9LsAjhNjDtqwyygDh
-   cr2Xz2tlmugb2/N2AZgKYxcnL71d8ii7cgmlwVgEnwGZJuMKGbPu/pDAH
-   5Flf+ARICNQb0KTPSSfsRsQe9uxvUoJgUw2eEs64Yj8Vp+f57yl85A/F2
-   wT7AibM8LXEnYjkgCCgHgLj4aQcmrEtgM1k/782l1GAYCeqMnnjDkASTe
-   w==;
-X-CSE-ConnectionGUID: DVo5E4+QQkasagV8YEXbzQ==
-X-CSE-MsgGUID: Jwaa4vaTTzK5NVGeB6cJHw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11948"; a="1788425"
-X-IronPort-AV: E=Sophos;i="6.27,182,1787036400"; 
-   d="scan'208";a="1788425"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2026 02:40:14 -0700
-X-CSE-ConnectionGUID: PKQU2Xj1T3m4vmaxgjChxw==
-X-CSE-MsgGUID: hrIrWirVSpeNIiBVTI7E7g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,182,1787036400"; 
-   d="scan'208";a="4805839"
-Received: from abityuts-desk1.ger.corp.intel.com (HELO localhost) ([10.245.244.117])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2026 02:40:10 -0700
-Date: Wed, 28 Oct 2026 11:40:07 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v4 1/5] serial: 8250_dw: select port setup through
- platform data
-Message-ID: <auHC9-louZoF5Nlk@ashevche-desk.local>
-References: <20261027-submit-h616-uart-fifo-v1-v4-0-d37e018fd0a6@gmail.com>
- <20261027-submit-h616-uart-fifo-v1-v4-1-d37e018fd0a6@gmail.com>
- <auG4rIHPQZXKOd6j@ashevche-desk.local>
+	Wed, 28 Oct 2026 09:43:30 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261028094322euoutp01cf1fbeda63b0f1310ef7ffd4a0d1316a~iqEHc3G2t1401214012euoutp01k
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 09:43:22 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261028094322euoutp01cf1fbeda63b0f1310ef7ffd4a0d1316a~iqEHc3G2t1401214012euoutp01k
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1793180602;
+	bh=535aXf9H9rC26a6zJhJ1r2DGySEkl3W8qtDu8csDPOg=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=a7d59F50iU2RybF1FZVJqqGsE3wBZnUx83olzWf9UshxkFtBkMZrd0pWcCFJO28T1
+	 y21F90VMdNgopBhMFS6MCvjzrzjfAW/IjeWOlktb3ToXTWBDwdco3WzX9hyNYuYEB9
+	 KLBtztKS/jn9c4RuVm5YYsSPQ1xaeQi55awmhSMA=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261028094322eucas1p290e530066640b90b39ad9d5066c4e273~iqEHDwUBM1968019680eucas1p2Y;
+	Wed, 28 Oct 2026 09:43:22 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261028094321eusmtip243f9cf93d775eb983c0129e973fe4e33~iqEGJK6bi1976119761eusmtip2D;
+	Wed, 28 Oct 2026 09:43:21 +0000 (GMT)
+Message-ID: <6b89446c-c1a7-42c2-a557-53059cef03a8@samsung.com>
+Date: Wed, 28 Oct 2026 10:43:20 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <auG4rIHPQZXKOd6j@ashevche-desk.local>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH] media: exynos4-is: fix DMA memory double free
+To: Guangshuo Li <lgs201920130244@gmail.com>, Sylwester Nawrocki
+	<s.nawrocki@samsung.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>, Peter Griffin
+	<peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, Hans
+	Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20261027145313.136305-1-lgs201920130244@gmail.com>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20261028094322eucas1p290e530066640b90b39ad9d5066c4e273
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261027145330eucas1p1b07eaac7858482b12d90a342fae36f2f
+X-EPHeader: CA
+X-CMS-RootMailID: 20261027145330eucas1p1b07eaac7858482b12d90a342fae36f2f
+References: <CGME20261027145330eucas1p1b07eaac7858482b12d90a342fae36f2f@eucas1p1.samsung.com>
+	<20261027145313.136305-1-lgs201920130244@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_024015_040777_584D827F 
-X-CRM114-Status: GOOD (  12.10  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261028_024328_494601_C687C0F2 
+X-CRM114-Status: GOOD (  20.52  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +87,60 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 10:56:20AM +0200, Andy Shevchenko wrote:
-> On Tue, Oct 27, 2026 at 05:05:29PM -0600, James Hilliard wrote:
+On 27.10.2026 15:53, Guangshuo Li wrote:
+> fimc_is_alloc_cpu_memory() frees the coherent DMA buffer when its
+> DMA address does not satisfy the firmware alignment requirement,
+> but leaves is->memory.vaddr non-NULL.
+>
+> Because firmware loading is asynchronous, this error path may run
+> after probe has returned successfully. A later remove can then
+> attempt to free the same DMA allocation again.
+>
+> Set is->memory.vaddr to NULL after freeing the buffer so the
+> existing NULL check in fimc_is_free_cpu_memory() skips the
+> already-freed allocation.
+>
+> This issue was found by our static analysis tool under development.
+>
+> Fixes: db47622c13ae ("media: platform: exynos4-is: remove all references to physical addresses")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 
-...
+Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
 
-> > +	if (!IS_ENABLED(CONFIG_64BIT))
-> > +		dw8250_setup_port(p);
-> 
-> I believe the Cavium OCTEON  is 64-bit only platform, so you can just drop this
-> conditional altogether.
+but I would relax a bit the severity of this issue. I'm not sure if it
+makes sense to bother stable team with it and I would add 'potential'
+word to the subject. In practice this case would not happen.
 
-Yes, confirmed. The only single ifdef is required when we use __raw_readq().
-The second can be dropped. I will send a patch for that.
 
+> ---
+>  drivers/media/platform/samsung/exynos4-is/fimc-is.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/media/platform/samsung/exynos4-is/fimc-is.c b/drivers/media/platform/samsung/exynos4-is/fimc-is.c
+> index b7d9bfedd590..9fdc352abfe4 100644
+> --- a/drivers/media/platform/samsung/exynos4-is/fimc-is.c
+> +++ b/drivers/media/platform/samsung/exynos4-is/fimc-is.c
+> @@ -346,6 +346,7 @@ static int fimc_is_alloc_cpu_memory(struct fimc_is *is)
+>  			(u32)is->memory.addr);
+>  		dma_free_coherent(dev, is->memory.size, is->memory.vaddr,
+>  				  is->memory.addr);
+> +		is->memory.vaddr = NULL;
+>  		return -EIO;
+>  	}
+>  
+
+Best regards
 -- 
-With Best Regards,
-Andy Shevchenko
-
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
