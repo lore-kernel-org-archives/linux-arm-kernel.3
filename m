@@ -2,72 +2,150 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 383F8606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:14:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 711E0606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:21:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XiM7h1Yp;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=zEm7f38S
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tbJRmt46;
+	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=yJNugPLC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Jo2z/UtDKgMvST3DW15Q9RIzieX2NG2vU174MOmTVlQ=; b=XiM7h1YpmOpUgQVChnKL4rA3MA
-	yiM/RiF/6vS7iVoo0BcFQyGsRpwrcozXeZ6EqxNJjaY8ZfXBSXLs/f6FpNKu5iV7DHQPNT3ivmekg
-	HlPNkEL1FtU02EWWRVGu5upRcvXsqroRDCxOn2bv7a7j81ur9e349DGvrTREk52RWUJhixvDQX8sK
-	gKpBHQ40fU/IJYPaEBMgJA6P+PeGidPuTD/KLbXWuSmGtsFts8DgMAS+4Kx5bMvKbunNKWFLAJ2GP
-	DuXPEoaBOzuASgyHv10pfLA86dgFQKKmvig2tzhOmBFJ4SSRQ2OVAre0RswwtBdkbH7ZPkxWVIxaq
-	gKVU4L7g==;
+	bh=HNfJLTfEegqv+3oFxcJm59fWMWPhakplaKdKJT5G1eQ=; b=tbJRmt465FbMhY2lCaqH6anCjk
+	gW6DUDHlTGLUlTcmBzDqHQ1DS2tvxX5Bn+ENp+jYQxLMrn0x7CiU+WZLCVwYU6XvGPBYxIESAizjQ
+	cd4Qipv3uL2XdDFUwDj724GhEeuXCGULuWLmSxWeDlwhFJNWHl0Oi8JrrLy9iKiWverSFcfwAFDDT
+	qu3xiAS6oSLbIkGx0+WTTBbHkjhn8OQnHokoiN3sRng5iYxCyj1MUmosYm+9qI+HQ2rTQFHzAK4Uq
+	yZQRQZzgKX8I642FPb9JhvK7xraacZ+xM/N/0T33XxGVXcU0muA7Za4RE0arKOO/OtFlifw4LGy5w
+	J5YRll1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM2Y4-00000006wJA-0EWV;
-	Wed, 28 Oct 2026 12:14:32 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1xM2eT-00000006wk8-0DhL;
+	Wed, 28 Oct 2026 12:21:09 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM2Xq-00000006wEc-3H4j
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 12:14:20 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Jo2z/UtDKgMvST3DW15Q9RIzieX2NG2vU174MOmTVlQ=;
-	b=zEm7f38S0dAlomRO4C7xROtjYXMUcBAq11UKX/4MzLOmoAXVj34hrQwPMbz3tU5ZsdvUhoSFX
-	ZUI9gurpVH9UL9SekDSSgldOWiaxitGgf1gtuIyO5GaUMqayHBnPkP1fUT8pFeh5oC+I2ps5DSH
-	6qtqDMQyR6BHshVAKtHHgx4=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4jF5r233T2zpStP;
-	Wed, 28 Oct 2026 20:13:54 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3023240590;
-	Wed, 28 Oct 2026 20:14:07 +0800 (CST)
-Received: from huawei.com (10.50.85.135) by kwepemr500001.china.huawei.com
- (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 28 Oct
- 2026 20:14:06 +0800
-From: Jinjiang Tu <tujinjiang@huawei.com>
-To: <akpm@linux-foundation.org>, <david@kernel.org>, <ljs@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<ryan.roberts@arm.com>, <peterx@redhat.com>, <dave.jiang@intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>
-CC: <wangkefeng.wang@huawei.com>, <sunnanyong@huawei.com>,
-	<tujinjiang@huawei.com>
-Subject: [PATCH RESEND 3/3] arm64: Add PUD THP support for DAX and pfnmap
-Date: Wed, 28 Oct 2026 20:14:04 +0800
-Message-ID: <20261028121404.853944-4-tujinjiang@huawei.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261028121404.853944-1-tujinjiang@huawei.com>
-References: <20261028121404.853944-1-tujinjiang@huawei.com>
+	id 1xM2eQ-00000006wji-3h74;
+	Wed, 28 Oct 2026 12:21:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AfnVPchdC2VuBBMfXLE7uCCEZ9T3R3o5vizeKHNFTU7vWF7w2HK+tTeJwJW7GDySv/1xWpLuJuONvryDX+6bwvF1bZhJZJQBAcKSuX9Uzx3AVYU/mTxz/N5gPGhTsGhJQQODQ6G/ZuwaFyp3HokMwLi++a5XzJ+i4gODAc0jFlSxA15S6+v+IItwPRvlViIX1uxwb6gZVDZ+h5esVZu/fSdU6UTZQkqOhN5JxHTtv+kuBj9VNGq7XosjQZvhqx5urn3YDoeZHGmTEJN/FQFQYJCg9OKlPlRaB/yUwl/o7XlfH0XNqjsikn5ywFnmj/eewdIg8+xjpH1551LhDNKFqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HNfJLTfEegqv+3oFxcJm59fWMWPhakplaKdKJT5G1eQ=;
+ b=O+nI3RPtOxmjEomk6NIk1bSQsowW/oMxyhQSh2z6bFhS0D1t1DmGSKLSQdbbMEfv6w3EHolkyoxHFuM0gh/BvOju4n8O9wjoMXP5IzPJ1Nc1gKmXnllNuEbzQUsH7E+dJgxqcdpfDE/l2QsxkiK0VZvMaNrfTxY4TTF/qjZH5VwjHP8UYuUCAgp5hq3oLU1UafiXjRRAhQIT1MIIV7qYKuRt/wFnctzGz+z5i2OA2R+Ja22EuZtcAp8518uno/briVgWvih7Kk8B/KJNSmZT7srX3vPZBHhok3VPXjywF+gq6PNmJJg5WHGX2vyHfvU33eZlrF5mISvxiqwKZmi0gA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HNfJLTfEegqv+3oFxcJm59fWMWPhakplaKdKJT5G1eQ=;
+ b=yJNugPLCWN7SNNDBOioaexAbHV1CKaoz1E0RC2LUxFOyc9ktHEndckbTzHLNnHriClZwfI/KGwSA02FhvJtNxOWY/Ie7uvmHFBri8elLRULpNrNVHic1aJqUeR8YL0o87rw/haXKrM6OVQAr/tX2Y6X+JqMZCaRUMl8zh1qRvp+XtHCg8HOWRqXmhXIjMz8teGi3lbPKXKHQylvUlkki5xTED3kaioTsaYZggK2q07l2TKYvi3GMMNdAeJByHaze37lBm+ntiPDjnFD8vRD8K7vGNpv5EaBqhe6xdkN58ODYXlQjCb2Ojct52ZsbLSL2yZ2+mpxXcV1LhhGvedS2Hg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYNPR03MB10226.apcprd03.prod.outlook.com
+ (2603:1096:405:3c1::21) by TYZPR03MB8295.apcprd03.prod.outlook.com
+ (2603:1096:405:1c::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Wed, 28 Oct
+ 2026 12:20:58 +0000
+Received: from TYNPR03MB10226.apcprd03.prod.outlook.com
+ ([fe80::ff5:e524:cf10:5d7]) by TYNPR03MB10226.apcprd03.prod.outlook.com
+ ([fe80::ff5:e524:cf10:5d7%6]) with mapi id 15.21.0546.021; Wed, 28 Oct 2026
+ 12:20:58 +0000
+Message-ID: <2f33d959-32cf-4b3d-a3eb-a12a032298a8@amlogic.com>
+Date: Wed, 28 Oct 2026 20:20:54 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 3/5] ASoC: meson: g12a-toacodec: Add S4 tocodec driver
+To: Mark Brown <broonie@kernel.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood
+ <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com
+References: <20261021-audio_drvier-v7-0-2b9aeae9cb8a@amlogic.com>
+ <20261021-audio_drvier-v7-3-2b9aeae9cb8a@amlogic.com>
+ <179304854619.199157.2693374514232344592.b4-review@b4>
+From: Jiebing Chen <jiebing.chen@amlogic.com>
+In-Reply-To: <179304854619.199157.2693374514232344592.b4-review@b4>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: TY4P301CA0049.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:405:36b::7) To TYNPR03MB10226.apcprd03.prod.outlook.com
+ (2603:1096:405:3c1::21)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYNPR03MB10226:EE_|TYZPR03MB8295:EE_
+X-MS-Office365-Filtering-Correlation-Id: b681c25f-4050-4b5d-59c9-08df34edec0e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|261026140227099003|4143699003|56012099006|261022105027099003|11063799006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 3MkqxVVGbzlDlVTqOmJW3iGkaFkH00KRG8uyozR1PyZLZA87CXFDKvpcKysTGPa+i9ulBOQdxCM6vLnckxHr+SI5MUOfcuvYaPzi+XgRp8/ki/2tJ+cBF1dtS0wolfDVn7ibyjOhmtzMVGebcZe4zrLHBM+7HtGrPwXMi3wbp7baVHrkHeHetiqnZgWplgnkZQApR8gzQrxNtoahAvNAncTwGN5Z5C5W9qIJ/55Srv8keA2rsl80HLuLWucBF4lccu4pqfNuBsyN4mxdYDbzrIyWNwxY1uv4kL6frQhtsjs3fZuD7rFynVd1BfzGB9LfWGPT4egioqYXH7m4PTB+YXdXZz9hVT6mxq6Wgk8HZlbX0e+n3Kt/14dzTIk6Lvu8U/+put/TAcMxQbs314iYsFFPjfV4rcptEbXurLse0htODbSGiT8zWxd62pQvw0IWIb+i8oASJRTWpa2nUdcl/pa+vqaKnGULZmRreXrRuxgcqrxQkgkz4v4oO7MxcEW4jheYfwSu9hOAYRifauJtPM63lqesqw2sqzxuXxFCnPh2GlgGVTLP8xlN6jU9m2n+YE61Cvb4g+DXQAtMYjeDeqh6Q33FWs1z/J6s0Tdci71301beXk57fpVgXF02fuD4lSLwTcVDFAtAt+daIvHDbLpbH2CwUdmpw7igcmWxnj8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYNPR03MB10226.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(261026140227099003)(4143699003)(56012099006)(261022105027099003)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aFczbmVYOXh3b2Q0VkxVVXJibUJkVkRmMFcrWjFwLzBEbmdBNldoRmpvMFR0?=
+ =?utf-8?B?dFNSOHF4ckV1aVNhaG1iSWtSRkhEenM2SmJobDBqN0RGbkQySHhFeHI0VVlv?=
+ =?utf-8?B?KzBrZ2NaZWMwbktyMnBXVWtWWXFpZm5RU1ZvV1NDdVVhK0VYV3lRc2ZMYk5w?=
+ =?utf-8?B?RnFyVDM5U014SE5IUVJJNHcyVUptNkpDcEEzMDdaZU5ZMEwvWlRhaEd2bHp1?=
+ =?utf-8?B?bG0rcWNxNEpwd2ZPSHp0SGwzYk5LZGtkb1ppdmpabTNGeEwvUzRGMkJNekM4?=
+ =?utf-8?B?RTBlc1VxcUpIVkRWdE5LVDBaL3VRRmtTUTNPOU9DSUNzUUUzT1FuVGpJWTVS?=
+ =?utf-8?B?bG9uSGFNbFc5ZnRNbEgwTmFoVTNBbWJFVVhmOHpUL1hKRnQzSHQrSU1hNUd3?=
+ =?utf-8?B?dGszR3d4WDRsOWc4ODMyTlhFdHZTaWZ6MUkxeE04QXVBVFpCdkxqR3VrUXhy?=
+ =?utf-8?B?ZnVFYlZ4M2FXN2N3OEdXYWFGdStONHhPYUV5Zm4zNDY0Si9wVmUreElSeC83?=
+ =?utf-8?B?MWJZVTFsRDF4a2IwdVQ1R0pRd3hrQmtqeXZMaTJnV3kvdVJDWHBoajB3OU4w?=
+ =?utf-8?B?N2JlYkVnNW1XTkROMkdhZmxTNXJIUWJtR1FaQ0c3d21oWWR5cEFWd05JUkVS?=
+ =?utf-8?B?RW43RzZSYkp0aHpMVWNha0ViSHJqeXpuZUdYSm1ybldBaTZNdFZtbUZTeGcv?=
+ =?utf-8?B?UDI3SEkwaG1HMnIyS3pabHVEOTF3aE9nM0Y0R3dsZ0VqTS81Y2pnVTlWaE9q?=
+ =?utf-8?B?TVkvUWxIOUJ5QU80RWFCb1orN3J2QTZ4VGlMT2liOHZua092Q1hSemVpT0to?=
+ =?utf-8?B?SThLTFhCQlRJV1NDbmIzWFBKM09Ga3F0bm1BUzZxK1pQWXZlL3V5UHJsMHN6?=
+ =?utf-8?B?K25lZ2ZsVUJueWJ2bWpYSFVDcFkzbzlaaWNDTEVIQmV5SWpiL0wzU2hIbVVH?=
+ =?utf-8?B?MzNLZ1ZDNkpWd200YWV4VlRPa2k2blBlenNBQ1dRNTZlOG1JWEdQaDUxalRY?=
+ =?utf-8?B?UGtqYXJkUUN4ZFR1ZnZ0ejNTaXVFd1htbnNJNjVBa2hlRzVLWFRENkwvT3R4?=
+ =?utf-8?B?VUpLeEpTbUpWVnRLTEp1SUZYWk53M1dFOWpFKy94cThFM3g2NXhWR253VTFD?=
+ =?utf-8?B?amhKYm9adTBLSEVRU25TV0tFVTVNUVh3MmxRc0padVJ2Z1ppajVJWVFwRTBu?=
+ =?utf-8?B?cWhQNE53VTFUTTJURGdRU01QL08zOFUydXlTVnY4V3M3bk95S1BSbUh3L2hN?=
+ =?utf-8?B?MUNVNTlsTXAzemxWT0ZhNWU2eHA1bkZnR1ZSSkFidEFqOUZWQ2VNaUlIODda?=
+ =?utf-8?B?bFIyZUk3YkxoLzNTRU5ndXVDUmQxV2Z0c2xpUlVjVUxVMEZGRWwxS3BwVC9V?=
+ =?utf-8?B?ZDFHTy9TQ0tpQ1Q3N05UZER4NTJscDAxMGhWTlFaVnVwNElvK011SVRhV1Ba?=
+ =?utf-8?B?alJxNUFscFpoeEhsU25HeUY2ZlpNNjBUWnUvTS92UmlVVGR3bk05akg1Z1Jr?=
+ =?utf-8?B?ejRuekwxNDhXVHZ2NkNWRXl5WUh3Y21BQkhPaCtJazVrQ3EvcnNQQlV6Y3V5?=
+ =?utf-8?B?Q1JYcUJiSVl1N09sTVAvYnpUVlZheWVUMk00L05EZmZsZ2hhWHJtcEpKTndI?=
+ =?utf-8?B?cGFuMXBrNDFjdFZDbFQ4U0NrVVRMeWhEVmc2TkxxRU9aQzBFQkJQemE1TjFr?=
+ =?utf-8?B?QVc2NUx6L0xGWnBOL3dXWExaK1BvMENGMFhaVnJTcGNNWU5DeHk2dFh6QVBK?=
+ =?utf-8?B?SjBXcjQ1c2txdHFrbzc0MG1OaTE5RkZLbFRxd05kd2lsblV6dnQ2Q0NPditT?=
+ =?utf-8?B?dHp0S0lzMzN1MW5FbHVXQjFLOHU0L0VWQUV4M0h4dXNjWmYvN0JBRlI5NVNE?=
+ =?utf-8?B?NHpYN1BTdWZTTUFEajZ3OUU3K1pURzlCdTBTc055dXB0MnBkSDdnVmdBc0t4?=
+ =?utf-8?B?SkZVNGlZdlRlV3lmM0FsUlZXaHlGbWNTckozQVcrQS9kUDVRWmtLSFJib3hT?=
+ =?utf-8?B?cTh3M1g3ZGdBT2pFOXpuTHpQV3dFN3NidzNDYnphM3Blc1pIRGUxa0lrWFFI?=
+ =?utf-8?B?cWl0TTk5dC9zNzg2MmM1N21QR1phdE0zTS93SndXeU4rU3gvUFRsY0VvSnVG?=
+ =?utf-8?B?RDlNUzJFWk1SMzFrRGVNTndGL21DZTZFWGY0NjFvYmhSSmpIUGN3STRYVHd0?=
+ =?utf-8?B?OE5qRldYRVNHZlBwSzJYeXA5NXdsT2pVWEFTV3h0NzlpOUEyTWpMZkg1NitR?=
+ =?utf-8?B?OXBzNU1xcHMyVFVTNGdlejBvbXJIZ3hkbXFLOGc2N0lEaFJXUnJMKzdNWng1?=
+ =?utf-8?B?TlNiYTg2Ukx0dklzVG9oV0IreU14NVc2QmRMb0YwQnBIZkU2d2I1QT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b681c25f-4050-4b5d-59c9-08df34edec0e
+X-MS-Exchange-CrossTenant-AuthSource: TYNPR03MB10226.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2026 12:20:58.3079
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NisFzRB5lyu0IQ1Dq50yh/W0LlXN7waGUgrr4fzO3cRhVyyHpfXPM00DQi5En8oKYcdHSwwR+yVHvyWnKGYrRnOtPZvaD5HuYQ5A2yse4AI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB8295
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_051419_123151_58551E78 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20261028_052106_923435_F19115FB 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,155 +157,30 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add the necessary page table functions to deal with PUD THP, this enables
-PUD THP for DAX and pfnmap.
 
-I tested with CONFIG_DEBUG_VM_PGTABLE and CONFIG_PAGE_TABLE_CHECK enabled.
-I wrote a test driver that invokes vmf_insert_pfn_pud() in the huge_fault
-callback.  Page table setup works as expected with no errors, and userspace
-read/write access to the PUD-sized mapping is verified correct.
-
-Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
----
- arch/arm64/Kconfig               |  1 +
- arch/arm64/include/asm/pgtable.h | 52 ++++++++++++++++++++++++++++++++
- 2 files changed, 53 insertions(+)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index cfef22aee709..4f988f23acfb 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -173,6 +173,7 @@ config ARM64
- 	select HAVE_ARCH_THREAD_STRUCT_WHITELIST
- 	select HAVE_ARCH_TRACEHOOK
- 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE
-+	select HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD if PAGE_SIZE_4KB
- 	select HAVE_ARCH_VMAP_STACK
- 	select HAVE_ARM_SMCCC
- 	select HAVE_ASM_MODVERSIONS
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 7de2487e4d35..feca481b2079 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -569,6 +569,11 @@ static inline pmd_t pmd_mkhuge(pmd_t pmd)
- #define pmd_mkspecial(pmd)	pte_pmd(pte_mkspecial(pmd_pte(pmd)))
- #endif
- 
-+#ifdef CONFIG_ARCH_SUPPORTS_PUD_PFNMAP
-+#define pud_special(pud)	pte_special(pud_pte(pud))
-+#define pud_mkspecial(pud)	pte_pud(pte_mkspecial(pud_pte(pud)))
-+#endif
-+
- #define __pmd_to_phys(pmd)	__pte_to_phys(pmd_pte(pmd))
- #define __phys_to_pmd_val(phys)	__phys_to_pte_val(phys)
- #define pmd_pfn(pmd)		((__pmd_to_phys(pmd) & PMD_MASK) >> PAGE_SHIFT)
-@@ -577,8 +582,15 @@ static inline pmd_t pmd_mkhuge(pmd_t pmd)
- #define pud_young(pud)		pte_young(pud_pte(pud))
- #define pud_mkyoung(pud)	pte_pud(pte_mkyoung(pud_pte(pud)))
- #define pud_mkwrite_novma(pud)	pte_pud(pte_mkwrite_novma(pud_pte(pud)))
-+#define pud_mkwrite(pud)	pud_mkwrite_novma(pud)
- #define pud_mkvalid_k(pud)	pte_pud(pte_mkvalid_k(pud_pte(pud)))
- #define pud_write(pud)		pte_write(pud_pte(pud))
-+#define pud_dirty(pud)		pte_dirty(pud_pte(pud))
-+#define pud_wrprotect(pud)	pte_pud(pte_wrprotect(pud_pte(pud)))
-+#define pud_mkdirty(pud)	pte_pud(pte_mkdirty(pud_pte(pud)))
-+#define pud_mkold(pud)		pte_pud(pte_mkold(pud_pte(pud)))
-+#define pud_mkinvalid(pud)	pte_pud(pte_mkinvalid(pud_pte(pud)))
-+#define pud_mkclean(pud)	pte_pud(pte_mkclean(pud_pte(pud)))
- 
- static inline pud_t pud_mkhuge(pud_t pud)
- {
-@@ -826,6 +838,13 @@ static inline bool pud_leaf(pud_t pud)
- #define pud_user(pud)		pte_user(pud_pte(pud))
- #define pud_user_exec(pud)	pte_user_exec(pud_pte(pud))
- 
-+#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
-+static inline int pud_trans_huge(pud_t pud)
-+{
-+	return pud_present(pud) && !pud_table(__pud(pud_val(pud) | PTE_VALID));
-+}
-+#endif
-+
- static inline bool pgtable_l4_enabled(void);
- 
- static inline void set_pud(pud_t *pudp, pud_t pud)
-@@ -1183,6 +1202,11 @@ static inline pmd_t pmd_modify(pmd_t pmd, pgprot_t newprot)
- 	return pte_pmd(pte_modify(pmd_pte(pmd), newprot));
- }
- 
-+static inline pud_t pud_modify(pud_t pud, pgprot_t newprot)
-+{
-+	return pte_pud(pte_modify(pud_pte(pud), newprot));
-+}
-+
- extern int __ptep_set_access_flags_anysz(struct vm_area_struct *vma,
- 					 unsigned long address, pte_t *ptep,
- 					 pte_t entry, int dirty,
-@@ -1207,6 +1231,16 @@ static inline int pmdp_set_access_flags(struct vm_area_struct *vma,
- }
- #endif
- 
-+#ifdef CONFIG_ARCH_SUPPORTS_PUD_PFNMAP
-+static inline int pudp_set_access_flags(struct vm_area_struct *vma,
-+					unsigned long address, pud_t *pudp,
-+					pud_t entry, int dirty)
-+{
-+	return __ptep_set_access_flags_anysz(vma, address, (pte_t *)pudp,
-+					     pud_pte(entry), dirty, PUD_SIZE);
-+}
-+#endif
-+
- #ifdef CONFIG_PAGE_TABLE_CHECK
- static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
- {
-@@ -1281,6 +1315,14 @@ static inline bool pmdp_test_and_clear_young(struct vm_area_struct *vma,
- }
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
- 
-+#ifdef CONFIG_ARCH_SUPPORTS_PUD_PFNMAP
-+static inline bool pudp_test_and_clear_young(struct vm_area_struct *vma,
-+		unsigned long address, pud_t *pudp)
-+{
-+	return __ptep_test_and_clear_young(vma, address, (pte_t *)pudp);
-+}
-+#endif
-+
- static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
- 					       unsigned long address,
- 					       pte_t *ptep,
-@@ -1443,6 +1485,15 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
- }
- #endif
- 
-+#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
-+static inline pud_t pudp_establish(struct vm_area_struct *vma,
-+		unsigned long address, pud_t *pudp, pud_t pud)
-+{
-+	page_table_check_pud_set(vma->vm_mm, address, pudp, pud);
-+	return __pud(xchg_relaxed(&pud_val(*pudp), pud_val(pud)));
-+}
-+#endif
-+
- /*
-  * Encode and decode a swap entry:
-  *	bits 0-1:	present (must be zero)
-@@ -1517,6 +1568,7 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
- #define update_mmu_cache(vma, addr, ptep) \
- 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
- #define update_mmu_cache_pmd(vma, address, pmd) do { } while (0)
-+#define update_mmu_cache_pud(vma, address, pud) do { } while (0)
- 
- #ifdef CONFIG_ARM64_PA_BITS_52
- #define phys_to_ttbr(addr)	(((addr) | ((addr) >> 46)) & TTBR_BADDR_MASK_52)
--- 
-2.43.0
-
+在 2026/10/27 5:02, Mark Brown 写道:
+> [ EXTERNAL EMAIL ]
+>
+>> The S4 requires additional clock control bits to be turn on while enabled.
+>> The S4 has 8 TDM lanes, instead of 4 on previous SoC.
+>> Update the widget accordingly.
+>> +#define CTRL0_BCLK_ENABLE_SHIFT              30
+>> +#define CTRL0_MCLK_ENABLE_SHIFT              29
+> Should these have a _S4 suffix?
+Got it.
+>
+>> +static const struct snd_soc_dapm_widget s4_toacodec_widgets[] = {
+>> +     SND_SOC_DAPM_MUX("SRC", SND_SOC_NOPM, 0, 0,
+>> +                      &sm1_toacodec_mux),
+> Should this have a custom mux for S4, it looks like the register bits
+> are different, a shift of 19 for S4.
+Thanks. We'll add a dedicated S4 mux for this mapping.
 
