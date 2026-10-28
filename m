@@ -2,66 +2,133 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D890606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 13:45:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69506606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 13:45:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iOwNKP65;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NcM0ThU6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Srp7Wy8m;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=dLaONNId
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=yURS2hXuvzV92pMc05dUU/QQG9YV7RclfziXU/y0sU8=; b=iOwNKP65XtRCpGUmB+9BoAfaQ7
-	uKpR/uVBtYRxRwgZw1zjrjl/lbnaBRBVD6Pyo36M7reQLzP+dRmkMksxHTrnUgUrkpvjmsNLXJru1
-	XPlBGmmFJLMMwu7k/O/GISlenIarlGtecNig/jKC+os21YP3a0l6sieUZ9A0V1oSRmL/rejjCWJCx
-	1usrCaIg8iixumZ9F0GcAB+IAgOED/8UpRzIqdY9msD/QN+eDsug9+McTaxGvMJ4oYu5WsOiI1S/P
-	CJb8fdwHIbzyE0xUVPUTxDXFrqnh6Hk4Z0jqR5QYbXJmfxHLSWATMZPihPgSCLqb3uHIJmLKYbJCV
-	lh16Fxww==;
+	bh=lNe9VIz1JB0ALvrfs6JfodtIkYHiLpzytttO48Majpc=; b=Srp7Wy8mrGoYnmtZQhNXgh4XUB
+	pdri8HhTJIOk1pz8ojkouQYQwTzT2Gm887ZHCGZn+oLLJOx3De5TEXzxX8Uq00CFUYg/BnvemtJD5
+	rKh8KB8LxNxQFWrS7pgis/rC9wIFh9X1wVvVFqGDzOth/TrvdC1FMxbhF+Zxexj7mxK4a3R7O34Ox
+	jnwSaK0IGxTiQp7FEs9t3zg7qtsLiZ1gUCThJIgXUjMNDo2CJ5LWaEL8xrjzNCiW5Fre5UNplb2QG
+	BFuf8S6Hr+hyGP3E6uhq73wfmDAU40cOW7VWOY8tAvQ0qDUxYG+nvWQgR8oeY8G0Ni5+cZB7T9GFg
+	YoQRoz0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM3xp-000000076H2-23gg;
-	Wed, 28 Oct 2026 13:45:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xM3xw-000000076JP-2STm;
+	Wed, 28 Oct 2026 13:45:20 +0000
+Received: from mail-northeuropeazon11012030.outbound.protection.outlook.com ([52.101.66.30] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM3xo-000000076Gk-26p1
+	id 1xM3xu-000000076IM-0B76
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 13:45:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0E36A43C05;
-	Wed, 28 Oct 2026 13:45:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2B2B1F01825;
-	Wed, 28 Oct 2026 13:45:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793195111;
-	bh=yURS2hXuvzV92pMc05dUU/QQG9YV7RclfziXU/y0sU8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NcM0ThU63PoKJPDTxUWSqpakP0z87uWj9w/igy4q3OJBPPYedRf72ofmtVj4w1NIO
-	 bt7xxrI7T3En4XLPFoKOuC4U8VYH2JyVhBTNqOIneRcv5KhVUmKoDkLhnMWuYL03pD
-	 xMCFeYgs2t5WPEQrD3AHxteJA5+Sp88nP2Zlxgg4aaZcoaQj+MOORI8+lAGNzexLoJ
-	 jcumZWTCzlmhhuar3cJpwPRglgqdVEyUNL6QcWyayIM9BamWQfu+v7MKX9t11YV/KR
-	 WUCJFWYMSZk2WGmIBE2Qiak17nKgsWKe2rbXorUYUWJMG9PMJ2Zd+u8J+adfuPLMVp
-	 LDJmVB7ZOCmUw==
-Date: Wed, 28 Oct 2026 13:45:05 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, 
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
-	catalin.marinas@arm.com, james.clark@linaro.org, Sudeep Holla <sudeep.holla@arm.com>
-Subject: Re: [RFC PATCH v7 14/28] KVM: arm64: Add SPE VCPU device attribute
- to initialize SPE
-Message-ID: <auH00DS9sS-eKZoR@gremlin>
-References: <20260903160623.315525-1-alexandru.elisei@arm.com>
- <20260903160623.315525-15-alexandru.elisei@arm.com>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+	Wed, 28 Oct 2026 13:45:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hw96dXQapwsOOf2sQcbtq5iKmQMhGUglAuL6S4Tg/lTitmQN/lcubZzqjBWhl6tDnvc7V/kL/Jt8+OhWnpBqdqg2UEyKo1OpMQbjJ1F7dW/WEBAdBTOE8btzRBC7/I2YyvTK4nX3huR3W8cMTkuEHpp3PSNF33MhS/XGafsSCQEgP81D3A6Biwlo/s01IKz1X+42Yy61nC0/mRD1w7aaJB0H1ZHcOcmp0iC1HyQXyO8f4SaPqIDKiJDRenpgex2jRq6v1jRToLwq3F5H8p9ndvAuDnbjbAdtuJK8pRty3kpq0dk0tYAsCuzIkfArsmV9sgMGfMPWnoYBzQK1eQ3j8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lNe9VIz1JB0ALvrfs6JfodtIkYHiLpzytttO48Majpc=;
+ b=tUB00+fQVe9tO3Qllb+V7GstzoE5GXmIuBvKpqidBVTfW+A2OOc81dIwH1gJ0CZiFVw5wzVzBpD+DzcCExZ8Xp5Rrj8PQPkNpNWGE/X1IwMulADqZTcScj+w7lX724G/6I3a0EP5JofvQ1RTuNuCn0d4/p/Fa6bRlfNfoLqXWwZRNjPCBpEdTSMYQWOuY3DRZ6Ss1ES4dLnVd5QHsA4Rdp+qRq+kEIoF9wQfCcXf6WB08gHlDd6kIoey3hqWXyVErYodl7iw3z3gt1chJc1qZjSL1dB3wo6Imdg/mVz64hjtoz4J8wgVqamYWNqfZh12DFyh09ITcVjpxhmQxJ6jpw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lNe9VIz1JB0ALvrfs6JfodtIkYHiLpzytttO48Majpc=;
+ b=dLaONNIdiQ25add9HaGu0pB8XIx9DvjeHYRfEo4D9afDo8UPE/kzsDBPyqfb19rnmkRFNTP/T360jbUlugXC3P8dKLPhF1ycHyKrHfQmjiYzEH9iiMz7xtPT2UGzJirZLyqs5LCu+3pHAquAN3b3eY1vGo3GHJE3+esyqWhhjnc6vET6F3TzgbvojREkUnWKi6L60VhJzbSazmSd36JgQioNcyfjn14WDPZw/Nv9YL5pkpCMWeveUBQP30ED/Am2XOHq6FUQPGV/fmkJsqdZBtEd5yOebCqj2Rm7dd9gFE6dl4UPdhUsv/Hh4ZLf/FfSQbxQkgD7SEElwMpfT4y5CQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by GVXPR04MB9759.eurprd04.prod.outlook.com (2603:10a6:150:111::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.27; Wed, 28 Oct
+ 2026 13:45:14 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0546.021; Wed, 28 Oct 2026
+ 13:45:13 +0000
+Date: Wed, 28 Oct 2026 21:49:58 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Peng Fan <peng.fan@nxp.com>, Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH 2/3] firmware: arm_scmi: imx: Validate MISC control
+ response size
+Message-ID: <auH9hoZhsBqeTHym@shlinux89>
+References: <20261028130502.2999676-1-sudeep.holla@kernel.org>
+ <20261028130502.2999676-2-sudeep.holla@kernel.org>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260903160623.315525-15-alexandru.elisei@arm.com>
+In-Reply-To: <20261028130502.2999676-2-sudeep.holla@kernel.org>
+X-ClientProxiedBy: SI2PR02CA0047.apcprd02.prod.outlook.com
+ (2603:1096:4:196::14) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|GVXPR04MB9759:EE_
+X-MS-Office365-Filtering-Correlation-Id: 738d4f68-14e8-4fd1-d604-08df34f9b158
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|19092799006|11063799006|261026140227099003|56012099006|4143699003|3023799007|22082099003|261026121527099003|261009223027099003|10067099003|18002099003|261022105027099003;
+X-Microsoft-Antispam-Message-Info: coXjut4tlFPfRJlcjg3fRhjL/vhlaa2SsBmUnBeTewcF2knBe/fRQuzivlvsXchJNlZqUguhsO37D3iom1WovFUI/s+agRGlj2Gn3zjCq/TBrM2L8W6RiZijKz3m3ucPz2k1y9bg4bhLj1YH1WmdWd7InAFHjzsSzAPabFppzpu33ABsTuCmo65eCv6eBp6E1+SquQYhS7y5PfeOVqudqgkCB6SV3yzn2U6ET3dzbCVddd+lxW6zCtz+Izl/DHLYFEgm31T1FPG4SkAeP8ouvEUXs4fjyKmUaqzZ267ikBsFkCV22IKZq47RtzwjJiVCP5jQ+obwyprYGJVot8ih/griuRWqiYxUrwcmERtN+amQ2lurM5nwAAgRxAxGvl1dnHNzQndFSIxF1TXbtbvbahiv7Xv9nkM7g16V0qMj5cjciR41KQOJuB5/Tdhrd7ZNpJ4cEZhcPa7OMIbtOJiailEgDwmJYTSAH11RB6w3WmT+d6qSFw/tcuP1F4gUbj8m9ZtDyTBNokZJri8xRTPwJ/GosiyDEkehK9irRvQ7oHpvT8IzQnelDIv9vOIoSfD8bALSHCxsPMwstTJXta2brKbeAposGk6tOQWwgP+TGJo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(19092799006)(11063799006)(261026140227099003)(56012099006)(4143699003)(3023799007)(22082099003)(261026121527099003)(261009223027099003)(10067099003)(18002099003)(261022105027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pR5s2X7xT5MhcKADUiS4y0NP73ORtHeLmk4QMN4rYjkDjyc6KtrO/seVMOS4?=
+ =?us-ascii?Q?7zbvrf++6YYIx3WpdmD1E53ug9YLWJk4xR3rLdMV9ZWShTxbMTw9yjLHqXBa?=
+ =?us-ascii?Q?QzDSm+Dzd5/Zk9pjZNcKL7D1YqF8F8CvRPXkNR9yT1cHLypiFm8TciVjHtbR?=
+ =?us-ascii?Q?kX/j6/s8WgrQKUWjT9Pn9r2YONvGhOEXRlxWGdosM2rDZXIdr9Zb3moILUfq?=
+ =?us-ascii?Q?+DnG+0CF7PztMsk/DFeR3Fmh2sU2zuIkHfsPyOcOFJETqtQDD9mRv2dmjEUi?=
+ =?us-ascii?Q?gLIJX93M1wPg8KPSxS0XDm3DWhthvIAl92ZxqJItcfJQWcvnM2bSeAg0WCXF?=
+ =?us-ascii?Q?RgJrjtssXMFtDfw1LN124EEpPk2W0igeRTnhtZSmf03S+Azv3LlsMFm6Dvap?=
+ =?us-ascii?Q?n7JUiJSDVfNs8fssAAbuM0fwa6akhLTr6Ym3i0pm+nypaKIWX0yuteggmAai?=
+ =?us-ascii?Q?kP/ENSwYK1p4sWgF4oVrp2IRkaHjp03ZlnGT0HonHuhJt4s/asLIM6cDioui?=
+ =?us-ascii?Q?1T+wt5+fEMOfBxnefymMNI3i3yDrIwNH861ZWK0gr5p45cpHQHDrw4fGx654?=
+ =?us-ascii?Q?+mby/JGR4sn6x+Yq+nC7LqUCCDZ4oWxl3NRXuYsI4t/I5O1oLKGFwuYVnFrS?=
+ =?us-ascii?Q?5OHvY4E2fy7pAZ+gV/WYIcKdKwHmP7AMBp7tvfeEB9/QoxOqr81DfqJFHuUv?=
+ =?us-ascii?Q?D4BJDlXfKmYd+rI6JzRYloWqWyHcfIOkpJ9b6h7/HQ1SqPXYZ2JiQIk/EIr4?=
+ =?us-ascii?Q?XaJATNVqTvu3zLv+tQVsEkwlBs7yaJQSGhAF66T1JhMdJEz6DrDIum0KoVBn?=
+ =?us-ascii?Q?1MtKKPk4CO+4PuYdhY+blGjU0D4bazJMsIzgitmg0brXWrHtuXKRhY2kA+x7?=
+ =?us-ascii?Q?AcbZqegxwZd/roFz7T2xMCynGBz0UpvlLjm42LhaCe7uiqtoQpLL87fM6AnE?=
+ =?us-ascii?Q?+eD1qXeaOPTNC+KiRUmpS9dWD5S2DzlUVGJdzR+TtrECOhLQfYrl+m3RRh43?=
+ =?us-ascii?Q?SOrG84lRkjx2CYsLPbw0tZQ/VhraKWBmA+fOJ681IVgqN0tYLeM7PTZ5IGD5?=
+ =?us-ascii?Q?pCVUbdV8040WmKbXVEJtc9ytvtPUdFFKRjQaikrn2oVklBsP23rVWq/FJ4OU?=
+ =?us-ascii?Q?X0Mwh3TDcqlH/I7A30WQCYp7iWvuotVbwE4xYE/VO7E3XJ+Zxo+ScVNvzlMj?=
+ =?us-ascii?Q?qGdGaXM8mD+Q0hsYdy8e5miKrEL6IbC/8sZuA5q9UgvdGwej/1eLcqR0P6VY?=
+ =?us-ascii?Q?4fpZvwJQPC+6wSvQtciioLsGbLz4y6POH4O7kyZOqlO65VlpjrnT+9wo5K2J?=
+ =?us-ascii?Q?D6fKz5/TL0JD89/Chg7mbjmWxHTRvhyU/Bb8Vc3ONCcXFulUZii9i6JTav0b?=
+ =?us-ascii?Q?ttfmHGdjIsxx8VWeL5DTJO1BwOd4Bv38DxXVTv5Le0I3W8ojW0sQ0GTDdHpg?=
+ =?us-ascii?Q?2bajJYNAgkW1elktyOQC3mdY3+iJS102KjoeYFYVhy+or0+mLct+ccGr9QMN?=
+ =?us-ascii?Q?DOnolLIFBc/eam7w9FdAFDvN3cHSCRur3a+rlJoUvcuCiEyUEzWymx+u07Hf?=
+ =?us-ascii?Q?wfdV3To0uteVRyq+J41BUYmaMcxN4QL9QaH0kVConWlTWoknDtjs2OACRjEZ?=
+ =?us-ascii?Q?G5M6jI5rFXdy5OGp7j5ArBCkXgoxJzEThNNuYLEMT9eyt2KcAz/LafHKtwxg?=
+ =?us-ascii?Q?Lyd9HsIDQeTw264OmprSAIu/incxW5g6XPyKFksXEllz4t6HkqQsxUliPzdB?=
+ =?us-ascii?Q?PHLPfbVgnFkPiiEO6thE+rMmrPFoVw7U+oOV85kvWx5vee6KgKL3?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 738d4f68-14e8-4fd1-d604-08df34f9b158
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2026 13:45:13.9144
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cDIjQnFyk+Y31elXSq3Ta2kLFGTTqybG8Ks1SHGdhDSnUPsCunhMsGPYYJ5h9yo6eFx7LlMKGUmRgIxrL+dwtvOtMK53sMziB8mY2vy2mj3IXfi5xI1hZHMBvhM3XJSA
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9759
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261028_064518_087745_84D53CA0 
+X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,254 +139,29 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Sep 03, 2026 at 05:06:09PM +0100, Alexandru Elisei wrote:
-> Add KVM_ARM_VCPU_SPE_CTRL(KVM_ARM_VCPU_SPE_INIT) VCPU ioctl to initialize
-> SPE. Initialization must be done exactly once for each VCPU.
+On Wed, Oct 28, 2026 at 01:05:01PM +0000, Sudeep Holla wrote:
+>scmi_imx_misc_ctrl_get() uses @num to report the number of
+>values returned by firmware, but it did not retain the caller's value
+>as the capacity of @val.
+>
+>A response with more values than the caller allocated was copied into
+>@val unchecked. For example, the MQS regmap callback supplies storage
+>for one value. Retain the input capacity and reject responses exceeding
+>it before copying, then update @num only after a successful copy.
+>
+>Document the in/out @num contract of the exported helper.
+>
+>Reported-by: Sashiko <sashiko-bot@kernel.org>
+>Closes: https://sashiko.dev/#/bug/linux-6897b44a-57fb-4964-95f8-447d0ce526e4
+>Fixes: 61c9f03e22fc ("firmware: arm_scmi: Add initial support for i.MX MISC protocol")
+>Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 
-Again be good to have a little more in the commit message.
-
->
-> [ Alexandru E: Split from "KVM: arm64: Add a new VCPU device control group
-> 	   for SPE" ]
->
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> ---
->  Documentation/virt/kvm/devices/vcpu.rst | 28 ++++++++++++++++++++---
->  arch/arm64/include/asm/kvm_spe.h        |  6 +++++
->  arch/arm64/include/uapi/asm/kvm.h       |  1 +
->  arch/arm64/kvm/arm.c                    |  6 +++++
->  arch/arm64/kvm/spe.c                    | 30 +++++++++++++++++++++++++
->  5 files changed, 68 insertions(+), 3 deletions(-)
->
-> diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
-> index d60dd1daa67f..e2eac48b9d28 100644
-> --- a/Documentation/virt/kvm/devices/vcpu.rst
-> +++ b/Documentation/virt/kvm/devices/vcpu.rst
-> @@ -317,6 +317,7 @@ From the destination VMM process:
->  Returns:
->
->  	 =======  ==========================================================
-> +	 -EBUSY   SPE already initialized
->  	 -EFAULT  Error accessing the buffer management interrupt number
->  	 -EINVAL  Invalid interrupt number or not using an in-kernel irqchip
->  	 -ENODEV  KVM_ARM_VCPU_HAS_SPE VCPU feature not set
-> @@ -338,15 +339,15 @@ vGIC implementation.
->
->  :Returns:
-
-Just highlighting again the very nitty point about consistency between
-'Returns:' and ':Returns:' :P.
-
->
-> -	 =======  =========================================================
-> -	 -EBUSY   Virtual machine has already run
-> +	 =======  ===========================================================
-> +	 -EBUSY   Virtual machine has already run, or SPE already initialized
->  	 -EFAULT  Error accessing the SPE identifier
->  	 -EINVAL  A different SPE instance already assigned, or no physical
->                    CPUs found
->  	 -ENXIO   SPE not supported or not properly configured, or the SPE
->                    module not loaded
->  	 -ENODEV  KVM_ARM_VCPU_HAS_SPE VCPU feature not set
-> -	 =======  =========================================================
-> +	 =======  ===========================================================
->
->  Required.
->
-> @@ -361,3 +362,24 @@ responsible for making sure that the VCPU is run only on physical CPUs which
->  share the specified SPE instance. If the VCPU has a PMU assigned, and there are
->  no physical CPUs which share the same SPE and PMU instance, an error is
->  returned.
-> +
-> +5.3 ATTRIBUTE: KVM_ARM_VCPU_SPE_INIT
-> +-----------------------------------
-
-This underline looks short?
-
-> +
-> +:Parameters: no additional parameter in kvm_device_attr.addr
-> +
-> +Returns:
-> +
-> +	 =======  ============================================
-> +	 -EBUSY   SPE already initialized for this VCPU
-> +	 -ENXIO   SPE not supported or not properly configured
-> +	 =======  ============================================
-> +
-> +Required.
-> +
-> +Request initialization of the Statistical Profiling Extension for this VCPU.
-> +Must be done last, after SPE has been fully configured for the VCPU, and after
-> +the in-kernel irqchip has been initialized.
-> +
-> +KVM will refuse to run the VCPU and KVM_RUN will return an error if the SPE
-> +feature has been set for the VCPU, but SPE hasn't been initialized.
-> diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
-> index b8afb419c851..a6999709b298 100644
-> --- a/arch/arm64/include/asm/kvm_spe.h
-> +++ b/arch/arm64/include/asm/kvm_spe.h
-> @@ -18,6 +18,7 @@ struct kvm_spe {
->
->  struct kvm_vcpu_spe {
->  	int irq_num;		/* Buffer management interrupt number */
-> +	bool initialized;	/* SPE initialized for the VCPU */
->  };
->
->  bool kvm_supports_spe(void);
-> @@ -25,6 +26,7 @@ bool kvm_supports_spe(void);
->  #define vcpu_has_spe(vcpu)					\
->  	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_SPE))
->
-> +int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu);
->  void kvm_spe_destroy_vm(struct kvm *kvm);
->
->  int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
-> @@ -46,6 +48,10 @@ static __always_inline bool kvm_supports_spe(void)
->
->  #define vcpu_has_spe(vcpu)	false
->
-> +static inline int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
-> +{
-> +	return 0;
-> +}
->  static inline void kvm_spe_destroy_vm(struct kvm *kvm)
->  {
->  }
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index 8ffa3e89d38c..c695aae484d3 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -449,6 +449,7 @@ enum {
->  #define KVM_ARM_VCPU_SPE_CTRL		3
->  #define   KVM_ARM_VCPU_SPE_IRQ		0
->  #define   KVM_ARM_VCPU_SPE_ID		1
-> +#define   KVM_ARM_VCPU_SPE_INIT		2
->
->  /* KVM_IRQ_LINE irq field index values */
->  #define KVM_ARM_IRQ_VCPU2_SHIFT		28
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 132df44c3088..c9a026c61ce7 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1026,6 +1026,12 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
->  			return ret;
->  	}
->
-> +	if (vcpu_has_spe(vcpu)) {
-> +		ret = kvm_spe_vcpu_first_run_init(vcpu);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
->  	ret = vgic_v5_finalize_ppi_state(kvm);
->  	if (ret)
->  		return ret;
-> diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
-> index 87fcdbbcbd67..fa87d224c8af 100644
-> --- a/arch/arm64/kvm/spe.c
-> +++ b/arch/arm64/kvm/spe.c
-> @@ -59,6 +59,16 @@ bool kvm_supports_spe(void)
->  	return !list_empty(&spe_pmus);
->  }
->
-> +int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
-
-This isn't initialising anything, I guess you plan to build it up over patches
-but maybe worth mentioning that in the commit msg?
-
-
-> +{
-> +	struct kvm_vcpu_spe *vcpu_spe = &vcpu->arch.vcpu_spe;
-> +
-> +	if (!vcpu_spe->initialized)
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +
->  void kvm_spe_destroy_vm(struct kvm *kvm)
->  {
->  	struct arm_spe_pmu *spe_pmu;
-> @@ -147,12 +157,16 @@ int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->  {
->  	struct kvm_vcpu_spe *vcpu_spe = &vcpu->arch.vcpu_spe;
->  	struct kvm *kvm = vcpu->kvm;
-> +	struct kvm_spe *kvm_spe = &kvm->arch.kvm_spe;
->
->  	lockdep_assert_held(&kvm->arch.config_lock);
->
->  	if (!vcpu_has_spe(vcpu))
->  		return -ENODEV;
->
-> +	if (vcpu_spe->initialized)
-> +		return -EBUSY;
-> +
->  	switch (attr->attr) {
->  	case KVM_ARM_VCPU_SPE_IRQ: {
->  		int __user *uaddr = (int __user *)(long)attr->addr;
-> @@ -182,6 +196,21 @@ int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->
->  		return kvm_spe_set_spe_id(vcpu, spe_id);
->  	}
-> +	case KVM_ARM_VCPU_SPE_INIT:
-> +		if (!vcpu_spe->irq_num)
-> +			return -ENXIO;
-> +
-> +		if (!kvm_spe->spe_pmu)
-> +			return -ENXIO;
-> +
-> +		if (!vgic_initialized(kvm))
-> +			return -ENXIO;
-
-PMU returns -ENODEV in this case (+ documents it), worth keeping consistent with
-that?
-
-E.g.:
-
-	1.2 ATTRIBUTE: KVM_ARM_VCPU_PMU_V3_INIT
-	...
-	 -ENODEV  PMUv3 not supported or GIC not initialized
-
-> +
-> +		if (kvm_vgic_set_owner(vcpu, vcpu_spe->irq_num, vcpu_spe))
-
-This is getting an error then replacing it with -ENXIO, so probably better as:
-
-	int err;
-	...
-	err = kvm_vgic_set_owner(vcpu, vcpu_spe->irq_num, vcpu_spe);
-	if (err)
-		return err;
-
-> +			return -ENXIO;
-> +
-> +		vcpu_spe->initialized = true;
-> +		return 0;
->  	}
->
->  	return -ENXIO;
-> @@ -240,6 +269,7 @@ int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->  	switch(attr->attr) {
->  	case KVM_ARM_VCPU_SPE_IRQ:
->  	case KVM_ARM_VCPU_SPE_ID:
-> +	case KVM_ARM_VCPU_SPE_INIT:
->  		return 0;
->  	}
->
-> --
-> 2.43.0
->
->
-
---
-Cheers, Lorenzo
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
