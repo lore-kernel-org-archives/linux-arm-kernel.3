@@ -2,72 +2,150 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58560606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 18:50:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9367E606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 18:52:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=i3G5Lp19;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K/bQi/XI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HeB9jpks;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=MOAkwM2D
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=NqxvWhfImuiV0m424YLs/XKP3wb9e3Zs3lV/mSqHkTs=; b=i3G5Lp19A37HflzJ03QU+nDSRF
-	/VoPk58JId7oWnqGt4uM0/Sm+/GBMP3sKXulhfegPn0clNq7jUgYO00gQYAjTQvJs0coKtlt4ezVx
-	xoBpyw+P1pN1K8n2pRm3jJgPZOs9/9XPGb3ZSvVl3xO1AGxOoZ8id5LlzmJNAM02Kb+jyE99xdSPe
-	Xdqy4Zw3uUq9QXddrVFrtAtwwUM21AR8hWiBDlo9EBNfW8GrhfrthOPMTpzdL+toXWlgbqQ0WrKip
-	DWo4nqD/TWtOg4o44TKy9eCPlR+nr2Bl2+setjrIg9OrCJEnd/p4LLLS8fp5Z5rkWCOkb2GSPrQ0a
-	4gVEOk8Q==;
+	bh=WGO7o++LfqsQkCzqBHAwq0/EZtsPQvC/+YnZtCY/7iM=; b=HeB9jpksVaS9//cXuaUSz5B06N
+	tkH6IMRFd44sGBv9kkoXbJL66Imv8Lq54YqNGuFbU4ouJ1WquE24YwVkcTnxNhaLgR76yiT0shQov
+	Suw6LtJmcZNKVQIewBDjh52bBoUI2b+t75qdWhoZsLwCxXJJ2p0otoGRgUbj2btmtRdnUIfMPw9dR
+	Mr96CXDgn9cB+ubrsJ2hsxFzRuI7CSHkR/muJL5p6VLU/fHMLPJVXN4NdiFUmAQHwR9Ab31BDirSK
+	Prcm0z4+amg22IYZ9parnMPsb+9CgZWw/pscXEmZLK16CZ7D/cqjj0iut4Oevp6CxYaMm9ic3vN2t
+	tBpsDFPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM8ja-00000007mBi-1IAL;
-	Wed, 28 Oct 2026 18:50:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xM8ky-00000007mWR-254C;
+	Wed, 28 Oct 2026 18:52:16 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM8jL-00000007m8F-4AuL
+	id 1xM8kx-00000007mVz-03mh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 18:50:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 571FA4036B;
-	Wed, 28 Oct 2026 18:50:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C0B01F01825;
-	Wed, 28 Oct 2026 18:50:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793213434;
-	bh=NqxvWhfImuiV0m424YLs/XKP3wb9e3Zs3lV/mSqHkTs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=K/bQi/XI3eblxnjs6nbzqM2s2DMe1OWO6Xybo9MvFqj/d43NQ6t9aFln0GyJoinSy
-	 PiCaduFh7soohxZvnpGbEtWxfa8XXVkDH7EutgCnlV+axJ9/+hhWoA0ZN9qA9gMdw/
-	 RhtPKQvNKtEVlilgJe6hUQMTTLOpI7Le2w+E8r5XzHgGUV4VUqv9IAmvp0LYYA6t2v
-	 QfEjSIdXPG6wAKHmqqdQAkQ5dLiSEn1RfMkEMCy2JG/G6iPMPT6xNlHlJUkMB50pzU
-	 dxM8lqKjm2O/xlBZln8cm/aNqc5UufyLWaxdn4DHD4tyVHH1vYDKqfvhZePsk0oyOt
-	 siXt/xKaOGRAQ==
-Date: Wed, 28 Oct 2026 18:50:28 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	Tejun Heo <tj@kernel.org>, Andre Przywara <andre.przywara@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Lucas Wei <lucaswei@google.com>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Barry Song <baohua@kernel.org>, Oliver Upton <oupton@kernel.org>
-Subject: Re: [PATCH 1/4] arm64: sysreg: generate TPIDR, SP and DAIF encodings
-Message-ID: <df407060-cc8b-4a8a-88b5-1dc29f67fde7@sirena.org.uk>
-References: <20261016164648.251258-1-ada.coupriediaz@arm.com>
- <20261016164648.251258-2-ada.coupriediaz@arm.com>
+	Wed, 28 Oct 2026 18:52:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=prr+Ls+W4n36y3SsipAbOq5RKjBgLE1eFoZgpixsKTfroNgHjfmbRsfqkDaZLBwyd2SS52xr9TlEtphoCqEI551uFvyneQI2u0rQ3gtY/CD+OGpx//Klb4SLzVvcbzj221a1pSCUGsEAozucNhgHb8hdJsjVjHbgtBaFNsFryskezrKkD8RtAMA+/POetKdpDL3WkgQrMFm/opgK9+0ZEEg0P1DBftvGCz9mdhRPZD0sxSoXwvJ69ZLplkuT12WSGEC5zLF8D4LcigchFmRTeRe/yfonQPvbHOBKQ+MZM1lh1n3jypW/swDSoWGCE42SIMG3HMBdhxTmAS9DBNpLiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WGO7o++LfqsQkCzqBHAwq0/EZtsPQvC/+YnZtCY/7iM=;
+ b=PaF327EItbKKwnDJ5KHY7F2UQLh9pYhT4chB0x0R9IwbbEOHuaY8LiAFfSSUtuDA2W0VD6iKdem6NbqFEtQeWcFtyHF4xpCSKbBGenGbYveZinFXYDdUZzaQL49y23MrLBwslNgVHWNH4aK7GLRaB7r4q9d2zHtblb8skY63IC9WJ54bRvM3iI4vCFia+HobBQCHwjQKR+Vp5kizbfITVu/YXkQN6QFCjVXsPickM/oopojRLAOlSEBcu+smpwONnqOjSmDdtabP2/Nn84c5vJFvKFKpM5ltEmnkAzUDfoWcj5vXs2aYk0N9KTYjTu+NL9lvUzqmQ+d4xgmixpBk3Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WGO7o++LfqsQkCzqBHAwq0/EZtsPQvC/+YnZtCY/7iM=;
+ b=MOAkwM2DpDgi9KCYxkS9VjA4Zhb4no92MlF3B2hg1mu2DDr3TG6zOK/ZQjHsjJ6mybyXjK4EXZdlndFm9SOgHnlcJXsTlEguQtkEvRL2LLA0ejAdWf0U9I1jyIj+1N1HbyrNNdHlqu+cyIamQ3ZPam2ZpFujVxvktA9vHNmem+vaVhUZ1YtnZw06ZeqU+pXEkZpHPzfn8I+2REwmmWXXFNyihk3GHmc11+kpUL4X7sN1AcYSF39uUTwJVNKqg5mIU8J91Mf5arliV7g6mwzVuLnAYEWr6yu5r9S1wkeX0xhx02dKWE4fiZaBBDjiabyaJY8o/AiHEVEGHl43hNeTHg==
+Received: from PH7P220CA0164.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:33b::7)
+ by BL4PR12MB9533.namprd12.prod.outlook.com (2603:10b6:208:58f::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.8; Wed, 28 Oct
+ 2026 18:52:04 +0000
+Received: from CY7PEPF000000EB.namprd04.prod.outlook.com
+ (2603:10b6:510:33b:cafe::93) by PH7P220CA0164.outlook.office365.com
+ (2603:10b6:510:33b::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.22 via Frontend Transport; Wed,
+ 28 Oct 2026 18:52:03 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ CY7PEPF000000EB.mail.protection.outlook.com (10.167.247.167) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.569.4 via Frontend Transport; Wed, 28 Oct 2026 18:52:03 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 28 Oct
+ 2026 11:51:44 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Wed, 28 Oct 2026 11:51:44 -0700
+Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.126.190.180)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56 via Frontend
+ Transport; Wed, 28 Oct 2026 11:51:40 -0700
+Date: Wed, 28 Oct 2026 11:51:38 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Shameer Kolothum Thodi <skolothumtho@nvidia.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "joro@8bytes.org"
+	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, "rafael@kernel.org"
+	<rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Marek Szyprowski
+	<m.szyprowski@samsung.com>, "aneesh.kumar@kernel.org"
+	<aneesh.kumar@kernel.org>, Mark Rutland <mark.rutland@arm.com>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Gavin Shan <gshan@redhat.com>, Vikram Sethi
+	<vsethi@nvidia.com>, Anshuman Khandual <anshuman.khandual@arm.com>, "Shanker
+ Donthineni" <sdonthineni@nvidia.com>, Mostafa Saleh <smostafa@google.com>,
+	"rppt@kernel.org" <rppt@kernel.org>, Thomas Huth <thuth@redhat.com>, "Marc
+ Zyngier" <maz@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+	"kas@kernel.org" <kas@kernel.org>, Kohei Enju <enju.kohei@fujitsu.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Ard Biesheuvel <ardb@kernel.org>,
+	James Morse <james.morse@arm.com>, Steven Price <steven.price@arm.com>,
+	Sang-Heon Jeon <ekffu200098@gmail.com>, Omar Sandoval <osandov@fb.com>,
+	Andrew Morton <akpm@linux-foundation.org>, Jinjie Ruan
+	<ruanjinjie@huawei.com>, Sam Edwards <cfsworks@gmail.com>, Douglas Anderson
+	<dianders@chromium.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+	Chen-Yu Tsai <wenst@chromium.org>, Huacai Chen <chenhuacai@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Pranjal Shrivastava
+	<praan@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "driver-core@lists.linux.dev"
+	<driver-core@lists.linux.dev>, Sonang Patel <sonangp@nvidia.com>, "Ankit
+ Agrawal" <ankita@nvidia.com>
+Subject: Re: [PATCH v1 7/8] iommu: Park TDISP T=0 devices in the blocking
+ domain
+Message-ID: <auJEOpTq6EbMZUuv@nvidia.com>
+References: <cover.1789010941.git.nicolinc@nvidia.com>
+ <0d57c59aa3cae891e9d3e07e939e13918a4e99a0.1789010941.git.nicolinc@nvidia.com>
+ <SJ0PR12MB8614232EFC74C584CB44AD28AB6F2@SJ0PR12MB8614.namprd12.prod.outlook.com>
+ <20261028150909.GC3040767@nvidia.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="DCffCqKutlnyDvjt"
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20261016164648.251258-2-ada.coupriediaz@arm.com>
-X-Cookie: Pushing 30 is exercise enough.
+In-Reply-To: <20261028150909.GC3040767@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY7PEPF000000EB:EE_|BL4PR12MB9533:EE_
+X-MS-Office365-Filtering-Correlation-Id: c110140f-03b3-46fd-8a6b-08df35248e6b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|82310400026|1800799024|23010399003|18002099003|22082099003|11063799006|5023799004|56012099006|4143699003|261022075727099003|261026140227099003|261021121427099003|261022105027099003|261021135927099003|10067099003|261026121527099003|261009223027099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info: 1cRTLVt6dCANHKgvV7i8w+LdMWcD0WyMRnPcAUU8MKSZ4gBAQ00I8jTVlI8POA7S0JgG7qxDmMNKnI0iorcgaHZQKmF4olFjGYHu8Ur5YLZpOrdgi7bWHzepkT/tWNn2RN2qJu7OfC4RGQfR/lBeIitKWeP+iylxnSbzqLeAukGZImkF2o915t71+W11cwsY6//R6Qi250tARj0TV1V/VvoETbtX8q8C8dvbsi8CQq5TOXQnH2+sFuV52SLpZyLvvqM14UyKIk+p23BX3WCIo3/YELZch5OonOrCwbXRktfhv2WYZ7rQsSFWh72mtAhOZ7ZV0FNLqoZUZp/vXXhVMljOXwQJKEq0uOVA1oCh7Ykmvhwi0Rn4binvyFhzvAX5z38bBePtMDq6uUMHbsKujD2cGwxlTALMIoEgAuRqkJHOEZ6G42/mqnu9i3k4Nq602eI9w1EOwsnmIZ7M4JSTHRJ3lh/wvXGwmMh3oYy8dl6Od5E4eWm4iACHV45kIT/m66uvD9dXr3b/aYUZFzMcbupIvUG/ymvKLp2brKtpCyLoVHmpW7l8oWP+q8w2mgE+dQa3GP3/2EKq0vMeAPCV7U5+JD1aVwqAojLGyUOBmTG3mftkj4GTz6r9hgf/mpMbgpzXF7k6Y6Ap9zg49p6KaX4Q+urTAcnM2P6Z1Aat1hvALqKDZe7m05hkudGI6GEfGdnM/Lr2vFXyEEUT++IQ2w==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(82310400026)(1800799024)(23010399003)(18002099003)(22082099003)(11063799006)(5023799004)(56012099006)(4143699003)(261022075727099003)(261026140227099003)(261021121427099003)(261022105027099003)(261021135927099003)(10067099003)(261026121527099003)(261009223027099003)(261028144727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: +sGuwxy+2QHT/AuT6K4mAFXJDJoRLWBohshkps7/FWCHIlypRaXPwWMZ6SBlo77Yv1NGeW9AjIFwKg3jH4b9TIDW67KW2ZZ7ugJK4ayu6s5OZL150nANpUxz+oaa3oswizJtkD4/mfKPtX4vzfJChoUsPJaXe9Tlt3oonU6Hb5Nz5+YHFXhqNRxiaEC1nAaaCg8Hh3T888VzZKaYAf1S69kXrQcfbSyzDUw8NQjvbaFjwZ0qpIlK/xZMd+ynehjjMiEXkMwUREssbmaiCzYP6NIlqE0sTh7zwc0d59JKhe8Bt/s+N+BhXrKjQRnYkurDxL6W840XaS4mfxF6Tpv8tebVAdKJmGT3SROZehbxd9zvLf1zhFJMQqZJ6MlbCgA4PSOKoHnWpB01MxMTJMCudiNnB/QI0GPXRJZCDmQCUgEPnx63qGaNJC+Enf+tw46o
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Oct 2026 18:52:03.3440
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c110140f-03b3-46fd-8a6b-08df35248e6b
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY7PEPF000000EB.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL4PR12MB9533
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261028_115215_054542_577EA247 
+X-CRM114-Status: GOOD (  18.47  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +158,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On Wed, Oct 28, 2026 at 12:09:09PM -0300, Jason Gunthorpe wrote:
+> On Wed, Oct 28, 2026 at 02:19:17PM +0000, Shameer Kolothum Thodi wrote:
+> > > +	/*
+> > > +	 * When in T=0 mode the T=1 vIOMMU must always be set to
+> > > BLOCKED to
+> > > +	 * release control of ATS.
+> > > +	 */
+> > > +	if (iommu_using_t0_stream(first)) {
+> > > +		if (!ops->blocked_domain)
+> > > +			return ERR_PTR(-EINVAL);
+> > > +		return ops->blocked_domain;
+> > 
+> > How is MSI allocation handled for T=0 devices? The ITS calls
+> > iommu_dma_prepare_msi(), which appears to return -EOPNOTSUPP
+> > for the blocked domain. Is that intentional?
+> 
+> For a TDISP capable devince MSI is always issued using T=0, meaning it
+> does not go through the SMMU. It should be wired to defeat
+> iommu_dma_prepare_msi() and use an identity IOVA as though there is no
+> iommu present..
 
---DCffCqKutlnyDvjt
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I'll fold this in:
 
-On Fri, Oct 16, 2026 at 05:46:45PM +0100, Ada Couprie Diaz wrote:
-> Introduce missing SYS_DAIF and SYS_SP_EL0 encodings in preparation
-> for a future commit.
-> While we are here, replace SYS_SP_EL{1,2} manual encodings with
-> automatically generated ones.
+------------------------------------------------------------
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index d6b00e0373f5c..1474224c2565f 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -4324,8 +4324,9 @@ int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
+ 		return 0;
+ 
+ 	mutex_lock(&group->mutex);
+-	/* An IDENTITY domain must pass through */
+-	if (group->domain && group->domain->type != IOMMU_DOMAIN_IDENTITY) {
++	/* An IDENTITY domain or a T=0 device must pass through */
++	if (group->domain && group->domain->type != IOMMU_DOMAIN_IDENTITY &&
++	    !iommu_using_t0_stream(dev)) {
+ 		switch (group->domain->cookie_type) {
+ 		case IOMMU_COOKIE_DMA_MSI:
+ 		case IOMMU_COOKIE_DMA_IOVA:
+------------------------------------------------------------
 
-Cross checked with DDI0601 2026-06:
-
-Reviewed-by: Mark Brown <broonie@kernel.org>
-
---DCffCqKutlnyDvjt
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmriQ/QACgkQJNaLcl1U
-h9ATaAf/QLNM9Of/Ao3BK55WlSpsKabaRpGk4f0v1JIFP17eq6liEuhzRXB3KDpB
-sifmifyEvu1OXKl9QdFuv5SSN7drGBJJzC7nTeRp0kvn1DaS4QJlMg+QzZs/Kkp2
-Ldb6PYi+7ihq+h1k5iZDA0NZyRIhWKfqJxmZL3NKO/9jKfrJcaiiP9l20UZK57Cz
-BKF4T06Pj7Oak6wlP7ZAEqSyy22RU5uJLqhfh/28GCY49JfX2VJF6G+aUjSLXPNd
-CaXf92ozz/wP8HjH4ztIhGWjD3sXtvv7YmHC19t8uEwOcxP4W+6RQqFy9VhlBJYJ
-JHg4ProE7v5SH+s1qRZPkeeMRKNCSg==
-=cHK3
------END PGP SIGNATURE-----
-
---DCffCqKutlnyDvjt--
+Thanks
+Nicolin
 
