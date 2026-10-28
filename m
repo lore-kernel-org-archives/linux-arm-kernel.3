@@ -2,112 +2,95 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EBE8606A321
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 04:15:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07CFE606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 04:17:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=plHoiAEH;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=JFajXMZH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fRd34CUr;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=m4vYM6NG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6dpWoYlTlEAfWqEEan0QByNtEFOBLeZmhb3FVQn0nhI=; b=plHoiAEHYvcPrX
-	kZPhf0iOI+RHTNCjIaqJ5FMOdmgw69rscX3EqxDRPO3hUSzcmKBe/Zk6GNuUWt38oVQ/BYk8CHhR2
-	O2AG5RZyCq9wnpnjV1rwOSp1SqzuDFCmbudRkyHUMZRdTCmqtY7aKdF630mT5+SA5Rjz4YckKpf2Z
-	nw5nDaknB2xd7YYMur/SkkoQ3i8W3Ojst/iDzpkUfgHh7mqtAgS8maXMLKqb1X0Q6bCUKiMX8hKmu
-	/26smVXqssI8yyeG9zpqVLTgZPtvPfysbdksb4zu6PxsFGK689CZ3UrsGuLPzwDuMeF+ZFAh6r4SF
-	XgLhKJaQCZXZ85UmQdhQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=vsYzKlYUxjQ8b2ns7gpXlBY/1SUDj1EiftmKZurRAuk=; b=fRd34CUrIxkZtXOSERHoEPgW1P
+	QXBIl89KcmNQvt+rceRzepE+Ezg7p1sFCi2ASYhYPrKxXmaPFguRQFUWBx2JbRyvjagu3Sw2jusVN
+	nIvDhQCkErsdQhmWg4fpvVJ2KXlDNKsURZNDpDPvD1ksgG8h8D9Uf+9Ww9deVHlRi5lRZWUZMLtYH
+	x8f5ZqKORvO8Xi1gGC+RLjqyE05H0CQuG4W8WuDIVVZTSeSMY6+4UOCL5gOeRBDzYo/FLupQCtfkV
+	1bxwaR8He9keNXrx5KF0ZXhXAEKvGu3ftECtICC4fNhf9VqW6m80xYoer1l/X8P0HBkJYLTkL94hD
+	WTIzcTyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLv4V-00000006GMy-3vy5;
-	Wed, 28 Oct 2026 04:15:31 +0000
-Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
+	id 1xLv6Q-00000006Gbz-1APn;
+	Wed, 28 Oct 2026 04:17:30 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLv4S-00000006GM0-1O5D
+	id 1xLv6N-00000006Gau-2Ito
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 04:15:30 +0000
-Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-676804a3a22so539986d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 21:15:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793160926; cv=none;
-        d=google.com; s=arc-20260327;
-        b=enw84KJ0DOaVEkOG8zGudU7Jmv93bZI/iq0fNS1D3KXDJ3G8gKOouv1h2fN4Aeplig
-         xAY7bO/1qFEPNn11skJLde+hkTUIm6kE2BC1eHCcX+VOCtDMPxKbpGXNapbBeF0ED8OF
-         +MeJssPoBwEiaZGLImEY+akZ4Dorx3mv03ALLMUmugFRXh/pKaz75m1wV++GpuOvjAIf
-         MsfHLbPWfx9AD6XSONEd+d/zKYoP7I+01iDjEoCkVTY2/fNUs+GiODv898WrVzUkq+ra
-         mbqCZcLLRfFNefvGWNeFtB8J54BX5KYwOxWtCSzPljvU6hZkOmynqM+K6FNrA+nmSngF
-         MeLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=6dpWoYlTlEAfWqEEan0QByNtEFOBLeZmhb3FVQn0nhI=;
-        fh=fnkt7N20p3lAA1YcrqL/fEceiVEfQYUdTKB/TxxoXJU=;
-        b=gCbRL4n0uAcZIHFHipCid8O+GqeL0V2+F+2eLhcpN9dLSWmbdNpjJ2NPkTMaWXdfO/
-         AS0u/WnaZ1nSDbh2C1vl/zDbw6hUrhBWoPPBAsMbhkXbQEFlJogV0N2yQqhDC7x9OhQv
-         52O5X78oNKll8RimzjR6BENQ38f/vZUwGdJRv0NarsKIB9XxuuTUFO8fmp0yEoajEQZv
-         oxAZUjwccdWR8ldG4aMKS1MsDgi7Nk+fOdefX/VMTB0QFr/rHevY0eTMRh47lySivEsM
-         YFuOSS8iqVlBXtze/TNFsKL1QK0gpEKeksAM3NaYwQrdN2qlvta+A0fU7lFR/ZYdSjbT
-         ohqw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 28 Oct 2026 04:17:28 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-3acdcfa2bd3so448683a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Oct 2026 21:17:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793160926; x=1793765726; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6dpWoYlTlEAfWqEEan0QByNtEFOBLeZmhb3FVQn0nhI=;
-        b=JFajXMZHtvf1VofMxvZD/uc6sJ7YzAQuOkxmomTmI5j87ek+EROLtRIVIJclWL600p
-         dX0NTm9/RXKYh3hiE6+wZaIbVXidcUfcU/JsNS+RnBygI8ve6uB6z4JdCtGq2l3/s1rd
-         xjj6U/2G7t3A0h8CDd9sJ0KlCmwxOnqUtAKt4=
+        d=chromium.org; s=google; t=1793161046; x=1793765846; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vsYzKlYUxjQ8b2ns7gpXlBY/1SUDj1EiftmKZurRAuk=;
+        b=m4vYM6NGzrOeYYtod5TKMZnbjp+tmGsAHLLd7eWvtgji6+Nq0Dqc7Qb8ATROfwKUDS
+         h89lRnhFEq5XY2i81Yvetgur+CPzZECRgczbs0HIHmQzC4KHaYw32JcjVxtaggLc61Q3
+         ebLSzcPSWkeMOcMzH2aD2RFguA+GNilvM3cDw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793160926; x=1793765726;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6dpWoYlTlEAfWqEEan0QByNtEFOBLeZmhb3FVQn0nhI=;
-        b=mMaox01hZXk9L6rvM+OTLA5PsWN82xq+nIQnfA1dea2M1ad4toiz3wf1v8zkAiahQ/
-         gd/tdvdv9au3sSiZfwq1FcpaCYer+1vDiCCzAnmY/BgpgEdCQGLA73F7I6770B83hSxi
-         G5qHQU5oN2jjl2CVLn0FMr8FoNSy/MUjdzIrih1t+/or5DACi8zI29XbBCn5q3zHwf3G
-         isAEHYXjl6PwqTYmzf+3c9TX5oYcnIJZ9iC39Sh+61BR1YXJZGuG4Xge1GMrVibIUC+z
-         WRxUlXE40nqncTfQwJECQD4MH9U1nTaBXXHE6+2pYP88WOiUtd9y4LIaryPys13PR3qU
-         DrMA==
-X-Forwarded-Encrypted: i=1; AKwUvByzRt93T+NvNvRi9SHvPVaQ47TUr/hcziiefiNoi+vwTPDVnuYoT52BoPxEdmlrnbLKy9b/xmCPyM43PdzfORzJ@lists.infradead.org
-X-Gm-Message-State: AFq9FYJL1Vz5T5/eVKmhxwX3YBRxQOOruRUwXMy+hQHYlrXaCqQYSgfb
-	rj51thXIsdlrTQWRQdISO/sevElU6TlgfX7OF2GMwEEF6CUkrdF0OrNHUUDjMiK6wFhUVPJYrSb
-	h3tb5IwbvKC9CffRSO8koSYBI/MZKF/Z/5RkAWVhF
-X-Gm-Gg: AYBFou2Cz/GDCRo/zFgnm14M80EJY1UW54IQosEaf6829VsG8IWrlTfspLhjnhCXtVl
-	FLogWrecBfytblUNGA78DSBSUA7BT7eZ9oM9sjGwb5Mof6y+TCpBTLs4ujQVQ/t+hGJeq0sNw1l
-	FGkD7QA8x2wvCVHMr6V95hGr6d2SIS1U9gZaQo0yOhXdtnou3RDECNJEk7N6hch/9Qm39v8m8UZ
-	f2Jr3yxV3Fjd7db05bIO++8+Fz9c6OWzN3gZPCWIxHrQITsf8xZMJsRYfj70dazg8M6pQuGLz8l
-	gUP/BYi8XMGBk0Xsxn8A/XilrZfS8Ng33utFr9qV/XWQ5njpUZmZ9PTuq6HXoY+B8V8d0p6DW+P
-	tpgyPvZBt84+3296MTti2Wqbutp6PpyA2uYcNReUbIQLoXf0mKRWqMqlfYiL+GbIGPk5nwzU4kL
-	jHR7Cn7PVF5Z+/
-X-Received: by 2002:a05:690e:2047:b0:679:5ae6:b290 with SMTP id
- 956f58d0204a3-67a7b9a67d5mr1033094d50.3.1793160926582; Tue, 27 Oct 2026
- 21:15:26 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1793161046; x=1793765846;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vsYzKlYUxjQ8b2ns7gpXlBY/1SUDj1EiftmKZurRAuk=;
+        b=VrZKrahV7UCKE4Z1LD2zvlLosVxfKPO7JqCfJr4kAXU42Nt4dTFIINKfQ+pJ1F8aW3
+         174AXCxrLmuetd933FgGaJ30a8854nfAW4NWj4Ei7osHK7TfJ1Kd9VKpn+ubscHmhRY6
+         lV83Gp6yL8ZRM/JCZYJxbfDJPtdBpANeNHnVL78u0hXcmn+Sm9muJwifsAI7zvvZIElm
+         Y9gprODG+5HauP2WdhpkoFndcMTCXVlHg17NMJ3mbrtLc/+Jc8Km7X7oKKWCn4jlWX9S
+         yoayD1VzPzFh/1isYDGEQkkemhm+vaYg1afiZyk1d7I+X2tUCX5w5cVSu79aRowqwzmW
+         S+9g==
+X-Forwarded-Encrypted: i=1; AKwUvBxyCzU1IEuLI1g2BhI1FxE12wZamerXZ0EqrUXOFUV6wrs8niNwG2jQx/aeHDSKQ++GNOyGhizCiLiQzGaBdM5/@lists.infradead.org
+X-Gm-Message-State: AFq9FYKDqzLRpDgszCbYx6LGopjmLWUnJl+RoQxsfZBlj/JPWnmYBMcH
+	reET7xLB/dMWyhyQhm+G+zkC/rCXFbcWry1wgs7dYpsMa6ALEPxGoJYFMCYlen6Faw==
+X-Gm-Gg: AYBFou2oW2azzTmwDXH707lsAvTf8I7hbBOHdoJWNrcPqm0QoLXJn3XqOX0oJv6fwVj
+	xeNi/yJc2BMv18wHiD46kb1ulYls8CyaAqll8jnHsSjwglh5bcjpJVuA2yrG0Wx4RFxOlm+rAXr
+	MA1uOS6aT60nsLxE8ZPxtwyZ5O6XpqppYIYvL1oiVnt6GhX84AhRPq7ZGlPyQI9GrXc6u0tj4Q6
+	r9RlNC0/HH9e2lWhemVbizyDMY3gKXKHeyUD6lkCzPf8/LhCiKJGrq8uKPzIRSrIVhI8znRwTXt
+	qSCLiE7obop7w6iD2lRR6lE4NoHOcUPRdIJsr8+glyxLw7F++c0QzsHVPqPONCTMKsU29Pa3LBW
+	ccw5CeLckdHbgKI82/y5p5K4/Ez4C8I/qOuPTmjzpAjaOnMdgs27K09lqlvj6Uta5G8m0T8fOfe
+	lzCTlpbefB+DQWinViLNxqtQLPj669tF3mMsgl5BdRsNSeHJ2rFlm8zDprbNe65VU7e1FhtYgxm
+	3iUCVzNYfhJzb2MKjeZrHJGjHPM2lG7/MxglIINdPoSWvKCoIs2L5gMJ1fPKNz10R8KJSTvlPWC
+	GoLHftvpOV/L2RuBtRnToijPUnSyTSO1zFEMgPV4J0SYzpFw31a5APY1FQGr2BA140QpE/kmk2a
+	C9iSE4Tiflzf+
+X-Received: by 2002:a17:90b:3b8c:b0:3ac:d79f:8229 with SMTP id 98e67ed59e1d1-3ae58145332mr944428a91.61.1793161046607;
+        Tue, 27 Oct 2026 21:17:26 -0700 (PDT)
+Received: from wenst-7875.tpe.corp.google.com ([2a00:79e0:203d:7:56ed:2655:ea09:addc])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae5a586662sm969836a91.14.2026.10.27.21.17.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Oct 2026 21:17:25 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Yong Wu <yong.wu@mediatek.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	iommu@lists.linux.dev,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] iommu/mediatek: Track first resume with a dedicated boolean flag
+Date: Wed, 28 Oct 2026 12:16:50 +0800
+Message-ID: <20261028041651.3201911-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.56.0.307.g5fe7bd680c-goog
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261027093306.2812695-1-lee@kernel.org> <20261027093306.2812695-26-lee@kernel.org>
-In-Reply-To: <20261027093306.2812695-26-lee@kernel.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 28 Oct 2026 12:15:15 +0800
-X-Gm-Features: AclHuK-igjxt6NXixiazz6taDDNXzzugHQY9dV8o_clIASacctwSUFB4CoYNooQ
-Message-ID: <CAGXv+5F1WthGsE0zFqThBge=quNQ+8_LTtH4Shsh1dpdvGHV2A@mail.gmail.com>
-Subject: Re: [PATCH v2 25/27] mfd: mt6397: Unregister PM notifier on probe
- failure and unbind
-To: Lee Jones <lee@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>, mfd@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_211528_400794_63860032 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20261027_211727_594570_90A4749C 
+X-CRM114-Status: GOOD (  16.33  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,33 +102,59 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 27, 2026 at 6:38=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
->
-> mt6397_irq_init() registers a power management notifier block embedded
-> in the devres-managed struct mt6397_chip via register_pm_notifier(),
-> but never unregisters it if mt6397_probe() later fails or when the
-> driver is unbound.  Once devres frees struct mt6397_chip, the dangling
-> notifier block corrupts the global PM notifier chain and causes a
-> use-after-free on subsequent suspend or resume transitions.
->
-> Check the return value of register_pm_notifier() and register a devres
-> action to unregister the PM notifier on probe failure or device unbind.
->
-> Fixes: 4e2e7cfec13a ("mfd: mt6397: Modify suspend/resume behavior")
-> Closes: https://sashiko.dev/#/bug/linux-edb62fbc-213a-49a2-be55-c002e234e=
-554
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lee Jones <lee@kernel.org>
+In mtk_iommu_runtime_resume(), the driver checks `!reg->wr_len_ctrl` to
+detect the initial runtime resume before mtk_iommu_runtime_suspend() has
+saved the hardware registers.
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+As described in commit 35c1b48d27da ("iommu/mediatek: Add
+REG_MMU_WR_LEN_CTRL register definition"), `REG_MMU_WR_LEN_CTRL` has a
+non-zero hardware reset default (containing the default write command
+threshold and throttle-disable bits) and mtk_iommu_hw_init() only clears
+`F_MMU_WR_THROT_DIS_MASK`. While checking `!reg->wr_len_ctrl` therefore
+works in practice, relying on an implicit hardware register default to
+track runtime PM state is obscure and easy to misread.
 
-Though in practice, if one hits this then they have bigger problems.
+Add a dedicated `has_resumed` flag to `struct mtk_iommu_data` to track
+whether the first runtime resume has completed directly.
+
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ drivers/iommu/mtk_iommu.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
+index b52e16b06760..3be1edd30861 100644
+--- a/drivers/iommu/mtk_iommu.c
++++ b/drivers/iommu/mtk_iommu.c
+@@ -260,6 +260,7 @@ struct mtk_iommu_data {
+ 	struct mtk_iommu_suspend_reg	reg;
+ 	struct iommu_group		*m4u_group[MTK_IOMMU_GROUP_MAX];
+ 	bool                            enable_4GB;
++	bool				has_resumed;
+ 
+ 	struct iommu_device		iommu;
+ 	const struct mtk_iommu_plat_data *plat_data;
+@@ -1529,8 +1530,10 @@ static int __maybe_unused mtk_iommu_runtime_resume(struct device *dev)
+ 	 * Uppon first resume, only enable the clk and return, since the values of the
+ 	 * registers are not yet set.
+ 	 */
+-	if (!reg->wr_len_ctrl)
++	if (!data->has_resumed) {
++		data->has_resumed = true;
+ 		return 0;
++	}
+ 
+ 	base = data->bank[i].base;
+ 	writel_relaxed(reg->wr_len_ctrl, base + REG_MMU_WR_LEN_CTRL);
+-- 
+2.56.0.307.g5fe7bd680c-goog
+
 
