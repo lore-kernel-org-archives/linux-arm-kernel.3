@@ -2,76 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7156C606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:27:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82E0A606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 12:29:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NWygjzOR;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PMvkuXyN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QOLrRieK;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=OIeTSxkE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=adm3/MIJo3E7WXMIbe6tHjeBdjkUPTriM2gda+HcP44=; b=NWygjzOR4ZWtM7
-	SqfwiNqzGrSCwiZrBJjcRYsfvm/BCx6TcVFzb+nc6ZXhDzzTBXRX09Nh9KeaJ81szZocaoYKOvJpL
-	IDCOYqNgq4LYqHr+tZ+hV90o7tGLCe1/LR2XXSTasb7Y1GH2vCdaGExZPCPKfPqXu9Ctx39245Qn4
-	YKDg3zhJnlyrhQ0ZtE8we0QU3TmsNUB6qLr9xTmwdYSh9t7QU/eqWelZsHvebvVKPUPg3yXXCbD2w
-	FZ0ON5ai4C8FXCz8UBmKBGL/yBQDN88v53Z1dW6QbmPJV85tbRHkZGRwHfYx+8CSr3+xvV+bjw+3Z
-	0wbVzFrMoBSK5LKIYvZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=sum+6SOo6fPr4wojZMJ/HsdG/QxP8iiWGofKkRuMS1M=; b=QOLrRieKEX36sEY7oGKlzXS2GT
+	PiDPzlS+J2C0txFfP9WuRL1rSvwXgb8i4IvHYUpbCBiL8tw9v1LdSI63N0NEVJsivYOJYK95ygxnx
+	fqQFSrsonBhAF8+giDMiFLj/VzKn3ByK91LRv4mC5lgFJ39ianY8KglIR1IQTtEhfvboOnrjD7hnS
+	/mbQdDNyF6oZBqy8n1xjtLbAyRxm2YrFu1tmogk4isGsOTerqKi6R1IoZmeFDnxTvw71Bghm9NVXn
+	oEZs8+K2zwIQt6+KKtgKDUnTlN/wNp0nGus9pbeMkjM7UD25/kz0zSRe7vOPk8NMRxxS/Lp5xI5K+
+	vu2kTFLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM2km-00000006xKN-0pC3;
-	Wed, 28 Oct 2026 12:27:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xM2mR-00000006xU5-2sXi;
+	Wed, 28 Oct 2026 12:29:23 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM2kk-00000006xKA-33ib;
-	Wed, 28 Oct 2026 12:27:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CBD8060234;
-	Wed, 28 Oct 2026 12:27:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D3541F01828;
-	Wed, 28 Oct 2026 12:27:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793190457;
-	bh=adm3/MIJo3E7WXMIbe6tHjeBdjkUPTriM2gda+HcP44=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=PMvkuXyN2zRu1HA8JBneaxhXnjx0oT8RzIoiYhv9sdNE4/hTDnTUlFU0UKyQKTJ15
-	 Dyyn1pNk5bjeW9vTvr+iC114w+3FpqT9xPePDPjlZuQblqqGaE0zMWrmSbHFWJMto9
-	 ChlntmpfAc3ZQXUq+Eb1ObX79UxoDV4uIT7aUr8KsJbh6oxa7jqVWGyvQeyLT46LMd
-	 +efaKFiHbyMcxHsVNJaO/6EroPR58qKDIBkUF/Lu13ZXUSflavDEu7HVJyhf9XhA5A
-	 ApVQx+0OJKd3AYHugxzi+zQ621dhFzihEvjxgD+WTOnF/A5g33bSebysuQ+hAAPaGB
-	 SWHXiFLcZKe5A==
+	id 1xM2mP-00000006xTI-07EJ;
+	Wed, 28 Oct 2026 12:29:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=sum+6SOo6fPr4wojZMJ/HsdG/QxP8iiWGofKkRuMS1M=; b=OIeTSxkEVEyNnKkle53WGtuvkZ
+	4QPsQXrPuG3ysSTXNKb1A9KeiGyBKadA1zp93MsEorhYJ12wPx7/9ZK7/WAHrYWRF+gV/pYRWsCC5
+	YGvVChI+oL7M5/9vB/XnbuhBGquvyooySQ/6nwz/2UKrj9OU6DG9a/TRn2xVJ3KAVzl0=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xM2lx-00D6fN-W5; Wed, 28 Oct 2026 13:28:53 +0100
+Date: Wed, 28 Oct 2026 13:28:53 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Caleb James DeLisle <cjd@cjdns.fr>
+Cc: netdev@vger.kernel.org, olteanv@gmail.com, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	chester.a.unal@arinc9.com, daniel@makrotopia.org,
+	linux@armlinux.org.uk, arinc.unal@arinc9.com,
+	Landen.Chao@mediatek.com, dqfext@gmail.com, sean.wang@mediatek.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, naseefkm@gmail.com,
+	b.larsson@gmx.com
+Subject: Re: [PATCH v3 2/7] dt-bindings: net: dsa: mediatek,mt7530: add
+ passthrough mode
+Message-ID: <a566aad7-754c-4960-b018-4471a0068344@lunn.ch>
+References: <20261028011317.1557238-1-cjd@cjdns.fr>
+ <20261028011317.1557238-3-cjd@cjdns.fr>
+ <a031f089-0b96-4fc0-b878-6af13414524f@lunn.ch>
+ <521b930f-0bf9-4373-bfbf-3e2570661ec9@cjdns.fr>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v14 0/3] airoha: an7581: USB support
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261006102937.10972-1-ansuelsmth@gmail.com>
-References: <20261006102937.10972-1-ansuelsmth@gmail.com>
-Date: Wed, 28 Oct 2026 17:57:29 +0530
-Message-Id: <179319044944.10280.12083829801747357670.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=973; i=mani@kernel.org;
- h=from:subject:message-id; bh=OwSPiTEyrIyRUc9GwTlmqHlcVXTglC/I/83i2IzbsUU=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq4eo0hk2YgvBuZ7r5ewC9IOk/KJFTqel46Jp9j
- Y00DFtI0EeJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCauHqNAAKCRBVnxHm/pHO
- 9ThPB/9IjRUjU9za8K+ZBZR+lsZVoZ8zp7laAPEbp5mr16oITGXuX6aps2NOkgAs3TngET/JqLi
- pY7JCeCyJ7NL8LJp9CgKpoUN3JoLoqieEfAjvMSbykamjXqEcSzsNplI4XEO5FO+UguLlEWl/P7
- puslg1vGSCnJUwnvQooSeH8wNewfckkn/+0++bnegV5EPw1Ms76RKOVD+8HpkEIy+dI69UgrN++
- xNAx4KZfP2gYmNHz21rtsE9Y+s8odddJgBt80yDJdoFHTs8J4DTZ2aE7tMBQiTpkWKQkTSPqIj5
- b4q5+r1/Jbe3z4z5KUsIdElHz+AXVU+Z8aKKffHop8B51qIb
-X-Developer-Key: i=mani@kernel.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <521b930f-0bf9-4373-bfbf-3e2570661ec9@cjdns.fr>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261028_052921_065213_B0C11614 
+X-CRM114-Status: GOOD (  30.60  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +79,83 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-10-06 12:29 +0200, Christian Marangi wrote:
-> This is a major rework of the old v2 series.
+On Wed, Oct 28, 2026 at 12:27:18PM +0100, Caleb James DeLisle wrote:
 > 
-> The SoC always support USB 2.0 but for USB 3.0 it needs additional
-> configuration for the Serdes port. Such port can be either configured
-> for USB usage or for PCIe lines or HSGMII and these are configured
-> in the SCU space.
+> On 28/10/2026 03:04, Andrew Lunn wrote:
+> > On Wed, Oct 28, 2026 at 01:13:12AM +0000, Caleb James DeLisle wrote:
+> > > MT7530 switches can be configured to blindly pass packets between their
+> > > CPU/upstream port and a downstream DSA port, in particular, without
+> > > altering the MediaTek DSA Tag on the packets. This mode is used in some
+> > > integrations where an SoC integrated switch exists, but a more capable
+> > > MCM switch is added to effectively replace it.
+> > > 
+> > > Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
+> > > Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> > > ---
+> > >   .../devicetree/bindings/net/dsa/mediatek,mt7530.yaml       | 7 +++++++
+> > >   1 file changed, 7 insertions(+)
+> > > 
+> > > diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+> > > index 90b3582b7619..e29fb8693498 100644
+> > > --- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+> > > +++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+> > > @@ -73,6 +73,13 @@ description: |
+> > >         Check out example 7.
+> > > +  The MT7530 and MT7531 switches are capable of being operated in "passthrough"
+> > > +  mode. In this mode, traffic is unconditionally passed between the CPU port
+> > > +  and the DSA port which links to a second switch. To use passthrough mode, the
+> > > +  upstream switch is configured with a DSA link to the downstream switch. In
+> > > +  passthrough mode the upstream switch is restricted, with no other ports or
+> > > +  switch configuration allowed.
+> > > +
+> > >   properties:
+> > >     compatible:
+> > >       oneOf:
+> > Looking at just what is here, all i see is a comment. There is no new
+> > property? Yet the subject is "add passthrough mode"?
 > 
-> The previous implementation of a dedicated SSR driver was too
-> complex and fragile for the simple task of configuring a register
-> hence it was dropped and the handling is entirely in the PHY driver.
 > 
-> Everything was reducted to the dt-bindings to describe the Serdes line.
+> Indeed, I used "add" to mean "add documentation of". Per my reply on patch
+> 3, I think we really prefer to avoid special properties and let this
+> constitute (very) limited support for a switch hierarchy.
 > 
-> Also the property for the PHY are renamed to a more suitable name and
-> everything is now mandatory to simplify the implementation.
-> (the PHY are always present and active on the SoC)
-> 
-> Also other unrelated patch are dropped from this series.
-> 
+> If there's another verb you think makes a better commit line, I'd be happy
+> to adjust.
 
-Please rebase this series on top of 7.4-rc1 once released and resend.
+[Goes and looks at mediatek,mt7530.yaml]
 
-- Mani
+So pass through is not an existing property. You are also not adding a
+new property 'passthrough'.
 
+What you appear to be saying is that the MT7530 and MT7531 are hard
+coded by the driver into pass through mode? So it is in effect a
+property of the compatible? So maybe put this comment next to the
+compatible? And make the subject/commit message talk about the
+compatible being hard coded for pass through?
 
+Looking forward, what happens when somebody wants to use the switch as
+a switch? Or you figure out how to do proper D in DSA? It becomes
+messy because you need to add a property indicating the compatible
+should actually be a switch?
+
+So maybe you really do need a property?
+
+But DT describes hardware, and pass through is configuration. So maybe
+it should not be in DT at all, Maybe the driver needs to look at the
+DT tree, figure out a port is used as a DSA port, and put the switch
+into pass through all on its own? Once D in DSA is supported, the
+addition ports become available, but no other changes are needed in
+the DT blob?
+
+Sorry, going around in circles, but hopefully it helps you think about
+the big picture.
+
+	   Andrew
 
