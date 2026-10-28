@@ -2,80 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E53B606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:02:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C0D9606A322
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 11:05:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MQ09J3PB;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GT9Zlh9b
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AzEJaQFa;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kNfg2tbk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=qcokdDgL4mvoHte5dbQtGJJPejEfezJaBPHvPpNg2A8=; b=MQ09J3PBM2C47QUSsJWibjdh+s
-	z5Ruad83GVeDHl7Ylqt1ZwowQzYPZswGpCjDAKQUqwHYsudfhEw0+hukLvAz1+v0E1u/8PFQzw0Ux
-	Lx7x5R9KKezrBzscgqMGWbjmyJJUmXw2ZHhfzyoe3lm01P8o9+8HNgZ6ip9GUt40+/PYxMIxl1zay
-	+vxnTXCEL2Y34vJgWi3hJZ3GqVuaCCTTz7T8G208iTzQCQfbFN7L6aMehr0HxwL9ShpUBaqw6euMs
-	Z6mPPri7RK+cUSdKl6QP7JXoh5v9gcYfsrjLCAyi4hLInVA35GWiSfCRKq3SEL+DLjX97xCERWtqA
-	ncbMbX0A==;
+	bh=SIbHIkb59pVcJng8sKHppF6ubVcQlFLsBLXS2eUuU34=; b=AzEJaQFa0BmT3sP/JWZ/9wr/Pq
+	9O3sM/7mTrEjWaDq6sL/TZMn5ufNYn1o0DxxMW/qstoWVnUeIT3ry58VlmL0A9vQBZJQ22Qx44twP
+	clxSluz/bKfyk7ks6RPvsVn7+3W731v9D2PxjB8Zg3subAWA9mFuD4uHnIWOjPnTIuKFWZMVIdm6n
+	t23iwQrf/qmov4VOytJkXSNnaGmQqGco6iCzhgSKbDfl4ZXjCZ7yg96EUt2LblFiCkvX51HyZulMG
+	lUP2dv3neyZTg87DDr/ZLR7ZGCIVD3ufl526r8ZIv3GGcTzU/7X7/+ff2XeCfcqvUQaIS2Nnt9Zxb
+	g8qFE7cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1Pv-00000006oyw-2wBP;
-	Wed, 28 Oct 2026 11:02:03 +0000
-Received: from out-27.mta0.migadu.com ([2001:41d0:1004:224b::1b] helo=mta0.migadu.com)
+	id 1xM1TN-00000006pFM-1amY;
+	Wed, 28 Oct 2026 11:05:37 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xM1Ps-00000006oyU-422x
+	id 1xM1TL-00000006pF0-0NNU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Oct 2026 11:02:02 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=rh4zM0t9OB8EXFXZvzLi8a+hQvyHbDJz8WyuNEI5q98=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793185318; v=1; x=1793790118;
- b=GT9Zlh9bSUChRFRkHkl3nWeUPuJhSh4nj7YSkZtz0NglVTJpBDiOi27Em8Gs0KZeESLBKptW
- m1fuxWUQPiKg0cGmV6g8BF718+m6Imgn4HyLJQFY1HwTioWU7uK2Wus2OpKYzuBvIn4GJCjn1Wn
- wnQooQFsMNpRa6gX4IAHX3KU=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id fce9bb1bd75e2616;
-	Wed, 28 Oct 2026 11:01:58 +0000
-X-Mizu-Trace-ID: fce9bb1bd75e2616
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5bcbb378fc9so7475e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Oct 2026 04:01:53 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxwmqlyi4mnv5aSRSRUQgLQq8r1Q479XL4yJkFXwVioFLsO6zq/tsj8bpoSz1nP+8b7ZB/HNVOJfwJj4pX2d5E+@lists.infradead.org
-X-Gm-Message-State: AFq9FYLhJ2JuekJ5Hx06weGMmarZ8FndNhZyxiM1R3jypHWusWf115wk
-	Fm3RYnXtQFomAqkwg59n87I5Y2XhhlYqX9xd0aTQv8DLtadI99KsSIaZOxSDfOWZTeq1hia+BOn
-	GwKYjZrx6xvelo7yhaLC6GGplAD1sbbyUdEtz+koB
-X-Received: by 2002:a05:6512:3a86:b0:5bb:27df:415f with SMTP id
- 2adb3069b0e04-5bfcd0262a4mr142862e87.15.1793185311685; Wed, 28 Oct 2026
- 04:01:51 -0700 (PDT)
+	Wed, 28 Oct 2026 11:05:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793185535; x=1824721535;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WX9L8EGH4Oa0aoSnq/yMQj4iV1Wl9LjJdHrn7K6+r08=;
+  b=kNfg2tbkeBmEZ3FkWPr8LYjfGqlgWSdB8abutFhf+gdGwx7dS4Im1DV3
+   qVsDKEWDIfb+X6A7GcmHtCpVgYM6TlEe6ehpMtuFyi4uzS7RLtyuS0k0b
+   2fuC5QlmFig5uJCACucoiqwTtefHOm+XqavGzyiURI/YRA2cZwNAo89WY
+   LqJO0r0RT6+culU0YC49iIAwsm0oOcWMo7FM8C6njR3YXjFAqnWuwTXd5
+   LSSo8SiXoMA/vg2ZycTjsAGeuNNrLv49v4yL4Fnw8qzwW18qdLYfNPT2d
+   vcSiu/K5fUo4WJW/gQbkGNUaYqVqc9GiNzgPSosMjHDTkyFpDw+wtZPpG
+   g==;
+X-CSE-ConnectionGUID: yrz4LgSoRGanXeaoTEotQg==
+X-CSE-MsgGUID: FraDB11/SemCifl/GuZS3w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11948"; a="1994123"
+X-IronPort-AV: E=Sophos;i="6.27,182,1787036400"; 
+   d="scan'208";a="1994123"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2026 04:05:34 -0700
+X-CSE-ConnectionGUID: 5CMJ/braQgCTYNPfY2aNKw==
+X-CSE-MsgGUID: lH3Shlv+T+2rHVEDZRl8rw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,182,1787036400"; 
+   d="scan'208";a="5184240"
+Received: from abityuts-desk1.ger.corp.intel.com (HELO localhost) ([10.245.244.117])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2026 04:05:30 -0700
+Date: Wed, 28 Oct 2026 13:05:26 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v4 4/5] serial: 8250_dw: configure the Allwinner H616 UART
+Message-ID: <auHW9nkDqZUXeHNZ@ashevche-desk.local>
+References: <20261027-submit-h616-uart-fifo-v1-v4-0-d37e018fd0a6@gmail.com>
+ <20261027-submit-h616-uart-fifo-v1-v4-4-d37e018fd0a6@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261027081147.498183-1-fuad.tabba@linux.dev> <20261027081147.498183-3-fuad.tabba@linux.dev>
- <auCFa2VPEmxx2ZcC@google.com>
-In-Reply-To: <auCFa2VPEmxx2ZcC@google.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 28 Oct 2026 11:01:15 +0000
-X-Gmail-Original-Message-ID: <CA+EHjTzS_rqHYR+bxvMkJt6KAagrDE9VJecAaS4qimqTQa3LjQ@mail.gmail.com>
-X-Gm-Features: AclHuK-N-iC_NAvcm9TdrzyXjqM3xFcWr7x8zL-7NgW85hvGrrNZ88luGxX9CiU
-Message-ID: <CA+EHjTzS_rqHYR+bxvMkJt6KAagrDE9VJecAaS4qimqTQa3LjQ@mail.gmail.com>
-Subject: Re: [PATCH 2/3] KVM: arm64: Pass the PMU events to the hyp vCPU of
- non-protected guests
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, Oculytic <oculytic@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261027-submit-h616-uart-fifo-v1-v4-4-d37e018fd0a6@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_040201_363592_A12E1822 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261028_040535_188383_435E649D 
+X-CRM114-Status: GOOD (  19.89  )
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +94,82 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 27 Oct 2026 at 11:05, Vincent Donnefort <vdonnefort@google.com> wrote:
-[...]
-> > +#ifdef CONFIG_HW_PERF_EVENTS
-> > +static void flush_pmu_state(struct pkvm_hyp_vcpu *hyp_vcpu)
-> > +{
-> > +     if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-> > +             hyp_vcpu->vcpu.arch.pmu.events = hyp_vcpu->host_vcpu->arch.pmu.events;
-> > +}
-> > +#else
-> > +static void flush_pmu_state(struct pkvm_hyp_vcpu *hyp_vcpu) {}
-> > +#endif
->
-> nit: Could save a couple of lines by just doing?
+On Tue, Oct 27, 2026 at 05:05:32PM -0600, James Hilliard wrote:
+> H616 has 256-byte transmit and receive FIFOs, but its optional DesignWare
+> component parameter register reads as zero. Generic 16550 probing leaves
+> the port using the 16-byte FIFO configuration and its trigger-level table.
+> 
+> Keep PORT_16550A and describe H616's fixed 256-byte FIFO depth in platform
+> data. Use common Allwinner setup helpers to configure the transmit load
+> and receive trigger table from that depth.
+> 
+> Derive the receive thresholds from the documented 1-byte, quarter-full,
+> half-full and FIFO-depth-minus-two mapping. On H616 these are 1, 64, 128
+> and 254 bytes; the normal 16550A half-full FCR setting selects 128 bytes.
+> 
+> Build the threshold table during setup and use the shared 8250 conversion
+> helper to select the nearest lower threshold for sysfs writes.
+> 
+> Serialize trigger changes with termios and hold a runtime PM reference
+> while programming FCR, preserving the FIFO contents. Propagate runtime
+> resume errors before changing either the FCR shadow or the hardware.
+> 
+> Advertise automatic flow control so CRTSCTS enables MCR.AFCE. The
+> DesignWare termios path selects hardware CTS handling, so the capability
+> must be present for the corresponding hardware control to be enabled.
+> 
+> Select the fixed configuration through the platform setup callback.
+> H616 has debug-divisor and RS485 control registers at the offsets used to
+> detect DesignWare hardware RS485 and fractional-divisor support. Avoid
+> those probes and retain the BUSY-safe integer divisor hook and software
+> RS485 handling.
+> 
+> Use the existing SKIP_SET_RATE quirk to keep the UART clock enabled during
+> termios changes. Its clock is a gate on the shared APB2 source, rather than
+> an independent baud-rate generator.
 
-The coding style says to "Prefer to compile out entire functions,
-rather than portions of functions", as do similar functions here.
+...
 
-[...]
-> Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-> Tested-by: Vincent Donnefort <vdonnefort@google.com>
+> +	unsigned int fifo_size;
 
-Thanks!
-/fuad
+This is should come from DT (based on the property or compatible),
+
+...
+
+>  	u8			no_int_count;
+> +	u8			rxtrig_bytes[UART_FCR_R_TRIG_MAX_STATE];
+
+Why do you need it here? Can it be provided via driver_data?
+
+...
+
+> +/* The trigger is the masked, unshifted FCR receive trigger field. */
+> +static unsigned int dw8250_sunxi_rxtrig_bytes(struct uart_port *p, unsigned int trigger)
+> +{
+> +	switch (trigger) {
+> +	case UART_FCR_TRIGGER_1:
+> +		return 1;
+> +	case UART_FCR_TRIGGER_4:
+> +		return p->fifosize / 4;
+> +	case UART_FCR_TRIGGER_8:
+> +		return p->fifosize / 2;
+> +	default:
+> +		return p->fifosize - 2;
+> +	}
+> +}
+
+You don't need this, just provide a set of numbers directly.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
