@@ -2,79 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D93FD606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 05:04:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC48A606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Oct 2026 05:06:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gOHEBTs3;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=DepkwG9y
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wVOti50J;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=nOzYcQ4q
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=5+/zEcisdUo3RoFY7nVtqHud5/KjEXoewWCOd/h8vI4=; b=gOHEBTs3t3NIXy3DnoAGvJS/Jy
-	EVeZ/L5dDBFnbcHAF107HLuOR3Tied+RhNyDwhjr3RiqC+r74bBBzHBF8KbS/o2Yd4Epzy8JmGQyC
-	Nbioeer0M56rn2iUEQqzivlwYzZ/7lpJo6M2krQ4q3a6jS9Sw5dchBkqvhdCClEdrEHpvinNhl3R4
-	jfb5DAmgEzgiiwZXfKRAV0M1oQANlhhjYcuhPpJpXMHKwOqENv1PySxxdjJkOZ6/PY1OqxMv98NZ1
-	Gz4hgvpPJS8XzaT1Hnhx7B8gAmYfdsevDIpBEddthVI76hHlJrwgZou9t1e1mbyzYaLDcZYUgIfX5
-	327ltwHQ==;
+	bh=bUXd6wCGkdy3sUL1jP3fBL2bNrVaPeuZ1kav6MQ03xQ=; b=wVOti50JKK5udsZUTpEBmTGd0n
+	wpZ3aVveVXzzg0O0DQBM6EWuagTv5uSgXnogK4FXhML9C2tjTr4f+AZf8RbSq4VXpyfUwAD8e+EE6
+	aUuTfe9WT8vTgdjmggNZC9nEmz+DLeqh80tjdI0M4bIXw/ELYVwbATsCw87eYB6vNJGW9qtihjDjH
+	sDqa9GCWqOwI+LUdZnAnQGDN/Dfj522IDSo1ZuD6eM+2c6K8+wvoPET0NP5SHTcAtR+pRZh6Dfe4v
+	8JYtifaDkJDiEt7xylvwZ8SxEuAiV+IgWx4u/eVCaStyAS73IIeFaXiWWien7e+vBi03IEfOdTkGN
+	iEKW9OMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLvpc-00000006Kep-32Oj;
-	Wed, 28 Oct 2026 05:04:12 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+	id 1xLvs1-00000006L8X-1MFp;
+	Wed, 28 Oct 2026 05:06:41 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xLvpQ-00000006KVm-0iNd;
-	Wed, 28 Oct 2026 05:04:02 +0000
+	id 1xLvry-00000006L87-0UNN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Oct 2026 05:06:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=5+
-	/zEcisdUo3RoFY7nVtqHud5/KjEXoewWCOd/h8vI4=; b=DepkwG9yHcqIxstD/W
-	OMmGII+v6yaLEhGllylLD+7QHVrzaIwQhwt7hABwPWVGGyp59QckqAaTV9fm0PqJ
-	VYC1WSFgBPr2ETgenpUclIlC0zI+tbHXtMi9b9PuVykdpXvn5pvraJiMYZhxdQ3t
-	2BVpKGFxfyWNVxWl6uvJRDj9c=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=bU
+	Xd6wCGkdy3sUL1jP3fBL2bNrVaPeuZ1kav6MQ03xQ=; b=nOzYcQ4qMVtVeZi2Pt
+	cReMe+ncj9l3Cnb8pfwXcxRBscn3+ASfglv3RjT9Y4wDGCp80brrZn44/1DTuEdn
+	VPxlee0+VnZ0DFi1S3L3RLUaX8mVRav2mfcgDWGdsP8OozxxHdVtMh2PfuP4UZKN
+	Sc05LEkm2MJ9x/MoM5J9xCdq8=
 Received: from pc.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wD3X28rguFqvXzDCw--.30877S2;
-	Wed, 28 Oct 2026 13:03:40 +0800 (CST)
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDnt9XTguFq0hNpDQ--.19760S2;
+	Wed, 28 Oct 2026 13:06:28 +0800 (CST)
 From: Jiale Yao <yaojiale02@163.com>
-To: Jeff Johnson <jjohnson@kernel.org>,
-	Miri Korenblit <miriam.rachel.korenblit@intel.com>,
-	Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Kalle Valo <kvalo@qca.qualcomm.com>,
-	Michal Kazior <michal.kazior@tieto.com>,
-	Ilan Peer <ilan.peer@intel.com>,
-	Gregory Greenman <gregory.greenman@intel.com>,
-	Deren Wu <deren.wu@mediatek.com>,
-	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>,
-	linux-wireless@vger.kernel.org,
-	ath10k@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+To: Ban Tao <fengzheng923@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Joao Schim <joao@schimsalabim.eu>,
+	linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH 0/4] wifi: unwind failed interface setup and recovery
-Date: Wed, 28 Oct 2026 13:03:33 +0800
-Message-Id: <20261028050337.127464-1-yaojiale02@163.com>
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH] ASoC: sunxi: sun50i-dmic: resume device for control access
+Date: Wed, 28 Oct 2026 13:06:26 +0800
+Message-Id: <20261028050626.133421-1-yaojiale02@163.com>
 X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3X28rguFqvXzDCw--.30877S2
-X-Coremail-Antispam: 1Uf129KBjvdXoW7GrWxWw4DWw48GFyrtF45trb_yoWkXrg_u3
-	4kXr95Jw10yFykKFZrCF47C3yqyFWIkFyxZFWaqrW3Ar1xXFW3Wrnavr43ur4I9a1jyr9x
-	CrnrXryrXws3WjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU0Gjg7UUUUU==
-X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzg2++Grhgi3irQAA3u
+X-CM-TRANSID: _____wDnt9XTguFq0hNpDQ--.19760S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxZF43ur13Kr1DWF4DGF18AFb_yoWrGF45pF
+	1fJF43tFs5Jw4F93ZFyr48Xr13CrZ3KF4kA3yIy3y7Cr1xGw1IgF9Fv34rCFZ0krZ0kFsr
+	Ar1jv34Sg3Zaka7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j8AwsUUUUU=
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC7xToI2rhgtTr5QAA3j
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261027_220401_014652_BC61826C 
-X-CRM114-Status: UNSURE (   6.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261027_220638_551521_53CDDD5E 
+X-CRM114-Status: GOOD (  10.81  )
 X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,36 +80,103 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Several wireless interface setup and reset recovery paths publish host
-pointers or create firmware state before later operations which can fail.
-Their error paths either retain pointers to vifs that mac80211 will free
-or continue after firmware interface restoration has failed.
+The capture volume controls use regmap directly while runtime PM may
+have suspended the DMIC and disabled its clocks. Since the regmap has no
+cache, reading or writing a control while suspended accesses unpowered
+hardware.
 
-Clear the published ath10k and iwlwifi pointers on add failure. Check the
-mt7921 and mt7925 firmware restore results, remove partial state and stop
-configuring the affected interface. Each patch fixes an independent
-driver path and can be applied separately.
+Use control callbacks which resume the device around the regmap access
+and release the runtime PM reference afterwards.
 
-Jiale Yao (4):
-  wifi: ath10k: clear monitor interface after add failure
-  wifi: iwlwifi: mvm: clear P2P device pointer on add failure
-  wifi: mt76: mt7921: unwind interface restore failures
-  wifi: mt76: mt7925: unwind link restore failures
+Fixes: 9a8cadddd930 ("ASoC: sunxi: DMIC: Add controls for adjusting the mic gains")
+Cc: stable@vger.kernel.org
+Signed-off-by: Jiale Yao <yaojiale02@163.com>
+---
+ sound/soc/sunxi/sun50i-dmic.c | 59 +++++++++++++++++++++++++++--------
+ 1 file changed, 46 insertions(+), 13 deletions(-)
 
- drivers/net/wireless/ath/ath10k/mac.c         |  1 +
- .../wireless/intel/iwlwifi/mvm/mld-mac80211.c |  5 +++-
- .../net/wireless/mediatek/mt76/mt7921/mac.c   | 16 +++++++++---
- .../net/wireless/mediatek/mt76/mt7925/mac.c   | 26 ++++++++++++++++---
- 4 files changed, 41 insertions(+), 7 deletions(-)
-
+diff --git a/sound/soc/sunxi/sun50i-dmic.c b/sound/soc/sunxi/sun50i-dmic.c
+index 5c784b1f6846..a5f70db856b9 100644
+--- a/sound/soc/sunxi/sun50i-dmic.c
++++ b/sound/soc/sunxi/sun50i-dmic.c
+@@ -286,22 +286,55 @@ MODULE_DEVICE_TABLE(of, sun50i_dmic_of_match);
+ 
+ static const SNDRV_CTL_TLVD_DECLARE_DB_SCALE(sun50i_dmic_vol_scale, -12000, 75, 1);
+ 
+-static const struct snd_kcontrol_new sun50i_dmic_controls[] = {
++static int sun50i_dmic_get_volsw(struct snd_kcontrol *kcontrol,
++				 struct snd_ctl_elem_value *ucontrol)
++{
++	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
++	int ret;
+ 
+-        SOC_DOUBLE_TLV("DMIC Channel 0 Capture Volume", SUN50I_DMIC_D0D1_VOL_CTR,
+-                       SUN50I_DMIC_D0D1_VOL_CTR_0L, SUN50I_DMIC_D0D1_VOL_CTR_0R,
+-                       0xFF, 0, sun50i_dmic_vol_scale),
+-        SOC_DOUBLE_TLV("DMIC Channel 1 Capture Volume", SUN50I_DMIC_D0D1_VOL_CTR,
+-                       SUN50I_DMIC_D0D1_VOL_CTR_1L, SUN50I_DMIC_D0D1_VOL_CTR_1R,
+-                       0xFF, 0, sun50i_dmic_vol_scale),
+-        SOC_DOUBLE_TLV("DMIC Channel 2 Capture Volume", SUN50I_DMIC_D2D3_VOL_CTR,
+-                       SUN50I_DMIC_D2D3_VOL_CTR_2L, SUN50I_DMIC_D2D3_VOL_CTR_2R,
+-                       0xFF, 0, sun50i_dmic_vol_scale),
+-        SOC_DOUBLE_TLV("DMIC Channel 3 Capture Volume", SUN50I_DMIC_D2D3_VOL_CTR,
+-                       SUN50I_DMIC_D2D3_VOL_CTR_3L, SUN50I_DMIC_D2D3_VOL_CTR_3R,
+-                       0xFF, 0, sun50i_dmic_vol_scale),
++	ret = pm_runtime_resume_and_get(component->dev);
++	if (ret < 0)
++		return ret;
+ 
++	ret = snd_soc_get_volsw(kcontrol, ucontrol);
++	pm_runtime_put(component->dev);
+ 
++	return ret;
++}
++
++static int sun50i_dmic_put_volsw(struct snd_kcontrol *kcontrol,
++				 struct snd_ctl_elem_value *ucontrol)
++{
++	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
++	int ret;
++
++	ret = pm_runtime_resume_and_get(component->dev);
++	if (ret < 0)
++		return ret;
++
++	ret = snd_soc_put_volsw(kcontrol, ucontrol);
++	pm_runtime_put(component->dev);
++
++	return ret;
++}
++
++static const struct snd_kcontrol_new sun50i_dmic_controls[] = {
++	SOC_DOUBLE_EXT_TLV("DMIC Channel 0 Capture Volume", SUN50I_DMIC_D0D1_VOL_CTR,
++			   SUN50I_DMIC_D0D1_VOL_CTR_0L, SUN50I_DMIC_D0D1_VOL_CTR_0R,
++			   0xFF, 0, sun50i_dmic_get_volsw, sun50i_dmic_put_volsw,
++			   sun50i_dmic_vol_scale),
++	SOC_DOUBLE_EXT_TLV("DMIC Channel 1 Capture Volume", SUN50I_DMIC_D0D1_VOL_CTR,
++			   SUN50I_DMIC_D0D1_VOL_CTR_1L, SUN50I_DMIC_D0D1_VOL_CTR_1R,
++			   0xFF, 0, sun50i_dmic_get_volsw, sun50i_dmic_put_volsw,
++			   sun50i_dmic_vol_scale),
++	SOC_DOUBLE_EXT_TLV("DMIC Channel 2 Capture Volume", SUN50I_DMIC_D2D3_VOL_CTR,
++			   SUN50I_DMIC_D2D3_VOL_CTR_2L, SUN50I_DMIC_D2D3_VOL_CTR_2R,
++			   0xFF, 0, sun50i_dmic_get_volsw, sun50i_dmic_put_volsw,
++			   sun50i_dmic_vol_scale),
++	SOC_DOUBLE_EXT_TLV("DMIC Channel 3 Capture Volume", SUN50I_DMIC_D2D3_VOL_CTR,
++			   SUN50I_DMIC_D2D3_VOL_CTR_3L, SUN50I_DMIC_D2D3_VOL_CTR_3R,
++			   0xFF, 0, sun50i_dmic_get_volsw, sun50i_dmic_put_volsw,
++			   sun50i_dmic_vol_scale),
+ };
+ 
+ static const struct snd_soc_component_driver sun50i_dmic_component = {
 -- 
 2.34.1
 
