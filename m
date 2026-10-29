@@ -2,72 +2,108 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6343606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 07:52:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A23360A6F53
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 07:54:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HY1ibGnI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VabF8zRz;
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=PCQqxEaI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=sqagyVcKqIAinu4JxuHIZSAS6rRzPNadzZhNbuXuo+w=; b=HY1ibGnIPKK/rM5EfaL25PPGwI
-	usCMsjj46RIE0ZRyXqR9BdoC1C7Fqkkoeg/0o9Zt4as3vIlnAiCaI/Az5URJkY2b/88dZgQsBRizZ
-	Hzqt8ocOh9S0bIFvRLORxDaBn0yCf/v8pfVm6DX2yJizI0VkcrqqOY4PRt0l/OZAxRc5a+7g4l1Rr
-	B5UVvI1KnFMWyZJEIFaIwOPLbpESH06O88LtFuv17Fs9PMPc7WNjO+DGEZpaZnd2hchCkAq7lM7T5
-	LkATa2e92IsIRzuXdxamWcUY51zuEsQvyp7AfOmTiYmD6/hJrwIcJlLVomsTFMIHLLtXzJF+RDKmQ
-	XfpUs8Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
+	To:In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=qHUbD4JwvtLBIh0Dfae3HGt+ItV9NxcyL+s6XXNXkSw=; b=VabF8zRzxAf78L
+	WAS9gUT0saZ7SUvZ9N9os4P9VK46aQxHCiGqFt8RxZQZEGVJI1vu13bz3s89DEJ3lnamoqEHr4ujB
+	TyNXJdwb7fhAvG/bbNLdLyRrmNaRutOATj1Oyfl3XwkqhoC9B5G4pCK5w2wzmlvICbL8uvHlR6yre
+	RTwRcdq+MEe72hGRZE8Dz4lq6NdC+ltmA9+Fyt262WmEuhvMgxad7mHfsGOBUTdF/k8JLCvn4k/Qu
+	HXzQN7+NfkxiGP7LODS8sD8dj6PvQthn9LqtKFEyte1SWHGxVYey6417pIVygQJW+pqbRkA8plAuc
+	/Poa9O6/mULkUB8kXY/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMKvt-00000008auv-0vO2;
-	Thu, 29 Oct 2026 07:52:21 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
+	id 1xMKxc-00000008bA5-42z4;
+	Thu, 29 Oct 2026 07:54:09 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMKvg-00000008api-3ljZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 07:52:19 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 29 Oct
- 2026 15:52:03 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 29 Oct 2026 15:52:03 +0800
-From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Thu, 29 Oct 2026 15:51:54 +0800
-Subject: [PATCH] arm64: dts: aspeed: ast2700-evb: Reserve coprocessor, IPC
- and VBIOS memory
+	id 1xMKxW-00000008b6Z-0LD2;
+	Thu, 29 Oct 2026 07:54:07 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261029075357euoutp01c10e6f7086b81ea35e9f60aa2a3bcbff~i8N3lqQDb1137711377euoutp017;
+	Thu, 29 Oct 2026 07:53:57 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261029075357euoutp01c10e6f7086b81ea35e9f60aa2a3bcbff~i8N3lqQDb1137711377euoutp017
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1793260437;
+	bh=qHUbD4JwvtLBIh0Dfae3HGt+ItV9NxcyL+s6XXNXkSw=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=PCQqxEaIQuNCqci4UEhR+hET/1NXJ2EqE4U+UNOP/VpXz+xxx72Oo4wzD77aNA7FQ
+	 rrBSH31GSYdwpTe4fxcEZorNg14kG6KjC56tMx+1Fvnr4uNl1WO9LxG/A1BpA/rqUM
+	 UieebXTT/TOawoyBUfqofMqNIZaJkiwcI8bQux9Y=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261029075357eucas1p298e52a601217a8def1c049665c963f13~i8N3NFCZ92714427144eucas1p2J;
+	Thu, 29 Oct 2026 07:53:57 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261029075355eusmtip14f7aac55aa84d406303145a160e47e0c~i8N1mnhJZ1408514085eusmtip1m;
+	Thu, 29 Oct 2026 07:53:55 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Thu, 29 Oct 2026 08:53:37 +0100
+Subject: [PATCH v6 03/18] dt-bindings: display: bridge: Add
+ starfive,jh7110-inno-hdmi-controller
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261029-ast2700-evb-reserved-memory-v1-1-ca1360d585d9@aspeedtech.com>
-X-B4-Tracking: v=1; b=H4sIABr74moC/x3MQQqDMBBG4avIrB1IImjaqxQX0fzaWahlUoIi3
- t3g8lu8d1KCChK9q5MUWZJsa4GtKxq/YZ3BEovJGdda4zyH9HedMYw8sKLUGZEXLJsejMYPU4i
- +ta9A5fBTTLI/909/XTeUBCUAbQAAAA==
-X-Change-ID: 20261028-ast2700-evb-reserved-memory-e38bfad8619a
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>, Ryan Chen <ryan_chen@aspeedtech.com>,
-	Arnd Bergmann <arnd@arndb.de>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Billy Tsai
-	<billy_tsai@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793260323; l=2191;
- i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=XeDRHsPi2k+CJeY1+La1RVHwRDnYoS77GIz9W0YvdBE=;
- b=A0sObIioWr33st/x7XXxLcltHvLkUZzDkbvHk3dGjV8HJbQuNdyuI1n81g6fNqzcC8W15IXAZ
- GpOGCylX8nDCD/IE+z2YAh4Dl5Wy2FoUN1ZNH6GP4CPCIwjwocgp9wv
-X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
- pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
+Message-Id: <20261029-jh7110-clean-send-v6-3-759594e43acf@samsung.com>
+In-Reply-To: <20261029-jh7110-clean-send-v6-0-759594e43acf@samsung.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>,  Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Andrzej Hajda
+	<andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,  Laurent Pinchart
+	<Laurent.pinchart@ideasonboard.com>,  Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,  Luca Ceresoli
+	<luca.ceresoli@bootlin.com>,  Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,  Philipp Zabel
+	<p.zabel@pengutronix.de>,  Emil Renner Berthing <kernel@esmil.dk>,  Hal Feng
+	<hal.feng@starfivetech.com>, Heiko Stuebner <heiko@sntech.de>,  Paul
+	Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
+	Belhachemi <db@domibel.de>, Andy Yan <andyshrk@163.com>,  David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,  Yakir Yang
+	<kuankuan.y@gmail.com>,  Dmitry Baryshkov
+	<dmitry.baryshkov@oss.qualcomm.com>,  Michal Wilczynski
+	<m.wilczynski@samsung.com>,  Conor Dooley <conor@kernel.org>, William Qiu
+	<william.qiu@starfivetech.com>,  Xingyu Wu <xingyu.wu@starfivetech.com>,
+	Sandy Huang <hjc@rock-chips.com>,  Manivannan Sadhasivam <mani@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,  Marek
+	Szyprowski <m.szyprowski@samsung.com>,  Maud Spierings
+	<maud_spierings@murena.io>,  Graham Markall <hello@big-grey.co.uk>,  Icenowy
+	Zheng <zhengxingda@iscas.ac.cn>,  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Joshua Peisach <jpeisach@ubuntu.com>,  =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4306;
+	i=m.wilczynski@samsung.com; h=from:subject:message-id;
+	bh=3kOtgPc25N5yrb4S3TV+oRrGlP1Bqg1bxt/HdJnapjI=;
+	b=owGbwMvMwCGWumv6zndzRCIZT6slMWQ9+t1jYjzne2D51VpH1T9rmfa23rle7WG3Jzv+guLv/
+	o2PIiQvd5SyMIhxMMiKKbKc3RhtJPmP4Wn58ce/YOawMoEMYeDiFICJTNnN8N9v4er58YlHziR5
+	Sm7v+zDlyTrpl0Zpau55B00V5oj8M7nGyHB9slpWdPSnXw0TuhNOl7O3+P5Mf3uq6OBM9vlOqVo
+	cPewA
+X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
+	fpr=CDB15B3219FE00E577C7E3FA65BA97B9EE9C1459
+X-CMS-MailID: 20261029075357eucas1p298e52a601217a8def1c049665c963f13
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261029075357eucas1p298e52a601217a8def1c049665c963f13
+X-EPHeader: CA
+X-CMS-RootMailID: 20261029075357eucas1p298e52a601217a8def1c049665c963f13
+References: <20261029-jh7110-clean-send-v6-0-759594e43acf@samsung.com>
+	<CGME20261029075357eucas1p298e52a601217a8def1c049665c963f13@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_005209_005469_CE82955A 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261029_005402_741670_3AEDBD1A 
+X-CRM114-Status: GOOD (  15.78  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,87 +114,157 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On the AST2700 EVB, the boot firmware places the SSP and TSP
-coprocessor firmware in 0x42c000000-0x42fffffff, the IPC shared memory
-in 0x431080000-0x431b2ffff and two VBIOS regions in
-0x431bb0000-0x431bcffff, and locks these ranges so that accesses from
-the Cortex-A35 are blocked. U-Boot does not add reserved-memory nodes
-for these ranges to the DT it passes to Linux, and they are inside the
-memory node, so the kernel uses them as ordinary RAM and the EVB fails
-to boot once it touches them.
+Add the dt-binding for the StarFive JH7110 Innosilicon HDMI controller
+(DRM bridge).
 
-Reserve the regions with no-map so the kernel neither allocates them
-nor keeps them in the linear map.
+This device is the second child of the starfive,jh7110-hdmi-subsystem node.
+It consumes its register access, audio master and audio bit clocks
+(pclk, mclk, bclk) from voutcrg, and both the pixel clock (pixel) and
+the PHY from its hdmi_phy sibling.
 
-Fixes: e77bb5dc5759 ("arm64: dts: aspeed: Add initial AST27xx SoC device tree")
-Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-Assisted-by: LLM
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- arch/arm64/boot/dts/aspeed/ast2700-evb.dts | 36 ++++++++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+ .../starfive,jh7110-inno-hdmi-controller.yaml      | 121 +++++++++++++++++++++
+ 1 file changed, 121 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/aspeed/ast2700-evb.dts b/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-index fe8f0b80fb2c..795284253ea5 100644
---- a/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-+++ b/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-@@ -24,6 +24,42 @@ memory@400000000 {
- 		device_type = "memory";
- 		reg = <0x4 0x00000000 0x0 0x40000000>;
- 	};
+diff --git a/Documentation/devicetree/bindings/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml b/Documentation/devicetree/bindings/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..68e4e817d8fab55fac9af230239aa2b8aaf3e463
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml
+@@ -0,0 +1,121 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
++title: StarFive JH7110 Innosilicon HDMI Controller
 +
-+		ssp_memory: ssp-memory@42c000000 {
-+			reg = <0x4 0x2c000000 0x0 0x2000000>;
-+			no-map;
-+		};
++maintainers:
++  - Michal Wilczynski <m.wilczynski@samsung.com>
 +
-+		tsp_memory: tsp-memory@42e000000 {
-+			reg = <0x4 0x2e000000 0x0 0x2000000>;
-+			no-map;
-+		};
++description:
++  The controller portion of the StarFive JH7110 INNO HDMI IP.
 +
-+		ipc_ssp_share: ipc-ssp-share@431080000 {
-+			reg = <0x4 0x31080000 0x0 0x800000>;
-+			no-map;
-+		};
++properties:
++  compatible:
++    const: starfive,jh7110-inno-hdmi-controller
 +
-+		ipc_bootmcu_share: ipc-bootmcu-share@431880000 {
-+			reg = <0x4 0x31880000 0x0 0x2b0000>;
-+			no-map;
-+		};
++  interrupts:
++    maxItems: 1
 +
-+		vbios_base0: vbios-base0@431bb0000 {
-+			reg = <0x4 0x31bb0000 0x0 0x10000>;
-+			no-map;
-+		};
++  clocks:
++    items:
++      - description: The HDMI controller main clock
++      - description: Audio master clock
++      - description: Audio bit clock, from the I2S transmitter
++      - description: The pixel clock, generated by the PHY
 +
-+		vbios_base1: vbios-base1@431bc0000 {
-+			reg = <0x4 0x31bc0000 0x0 0x10000>;
-+			no-map;
-+		};
-+	};
- };
- 
- &fmc {
++  clock-names:
++    items:
++      - const: pclk
++      - const: mclk
++      - const: bclk
++      - const: pixel
++
++  resets:
++    maxItems: 1
++
++  phys:
++    maxItems: 1
++
++  starfive,vout-syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to the dom_vout_syscon system controller, which holds the mux
++      selecting the DC8200 output that drives the HDMI transmitter.
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description:
++          Input from the DC8200. The remote port number selects the DC8200
++          panel and the remote endpoint number the interface on that panel,
++          0 for DPI and 1 for DP.
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Output to the HDMI connector.
++
++    required:
++      - port@0
++      - port@1
++
++required:
++  - compatible
++  - interrupts
++  - clocks
++  - clock-names
++  - resets
++  - phys
++  - starfive,vout-syscon
++  - ports
++
++additionalProperties: false
++
++examples:
++  # Shown as a child of the HDMI subsystem node; see
++  # Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-hdmi-subsystem.yaml
++  # for the full node.
++  - |
++    #include <dt-bindings/clock/starfive,jh7110-crg.h>
++    #include <dt-bindings/reset/starfive,jh7110-crg.h>
++
++    controller {
++        compatible = "starfive,jh7110-inno-hdmi-controller";
++        clocks = <&voutcrg JH7110_VOUTCLK_HDMI_TX_SYS>,
++                 <&voutcrg JH7110_VOUTCLK_HDMI_TX_MCLK>,
++                 <&voutcrg JH7110_VOUTCLK_HDMI_TX_BCLK>,
++                 <&hdmi_phy>;
++        clock-names = "pclk", "mclk", "bclk", "pixel";
++        interrupts = <99>;
++        phys = <&hdmi_phy>;
++        resets = <&voutcrg JH7110_VOUTRST_HDMI_TX_HDMI>;
++        starfive,vout-syscon = <&vout_syscon>;
++
++        ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            port@0 {
++                reg = <0>;
++
++                endpoint {
++                    remote-endpoint = <&dpu_out_dpi0>;
++                };
++            };
++
++            port@1 {
++                reg = <1>;
++
++                endpoint {
++                    remote-endpoint = <&hdmi_con_in>;
++                };
++            };
++        };
++    };
++
++...
 
----
-base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
-change-id: 20261028-ast2700-evb-reserved-memory-e38bfad8619a
-
-Best regards,
 -- 
-Billy Tsai <billy_tsai@aspeedtech.com>
+2.34.1
 
 
