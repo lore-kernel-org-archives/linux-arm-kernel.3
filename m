@@ -2,72 +2,123 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8F07606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 08:09:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B93B606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 08:10:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sSvuf+33;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cQQUUwqu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=02IAWfdB;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ug/zHwSj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=XcnOgGjQGzD2jt2+DxGN1X1zcvzYzq6x9cioPsXKF5A=; b=sSvuf+33oPeKrOyv6HV0fQtrVk
-	hcIn383eBS+L+lBT0aU0bWKnEgsVQVrbTYp1hxSFwDL8BXAAMNamKEukIZP8vRD6XKiywN4Z2ISS2
-	re0ikCCkCoS81KSRZd568TAuNI36Y7LRVDqC+8VRq6Qc9N5QSmjKmKmu0HkGyr7BR5cCRoiRMl1YR
-	iLNjHqLbiTUw3lC6ue0Kx1ybMO53VLx0fOSoQxSKg3sBbPtivqa/A343eSIWaHA7sh95yYDbDw9po
-	6E2mCNnzwXAzNdQ+IGqlZCr8JdZb6BaS25k/VSyZ+IfKod+4bcpxsplMzDSMTyy4KParOcY1KAX+D
-	V/FG1Mcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=cG+NQjfM2IF6Zo6R/t8JwyLCj5UEVRyrUEsLlcs8JBo=; b=02IAWfdBK7hfAn
+	DLDEWtCsW4KrB9deHj22kn9gjE9tVQP7dqjJ7zrsBgdOJlK1HLp1YuhY7sXpP4+zJD3v4BCDyKedp
+	nuiiEQklOYlSqHBGOvVTf4bPs0ZtCAh+jrf2btXM/RUq5QLZYaKPiPwdAifc41Fj1PXy49WJIBwVj
+	pDknmaU84Jz96yPDmvo5ymZjxf4BPbvMNC5G8xjKiQOiyw/RLEU0rseRSBnuibu1Ul2cQDFDikOma
+	h6zekgfy0uTOrtEV/FDfnJIvZtKwiMdgrPxBJ5db3dqeo5lyc8hsNp6qHyOdp3d7ODmlUNqwd4g8E
+	6SXTm3tj5bIM3o+z1Wtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMLCf-00000008gJC-0gbH;
-	Thu, 29 Oct 2026 08:09:41 +0000
+	id 1xMLDQ-00000008gVo-1p90;
+	Thu, 29 Oct 2026 08:10:28 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMLCc-00000008gId-1VLt;
-	Thu, 29 Oct 2026 08:09:38 +0000
+	id 1xMLDO-00000008gVN-1bY5;
+	Thu, 29 Oct 2026 08:10:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4A460600D1;
-	Thu, 29 Oct 2026 08:09:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 049331F01825;
-	Thu, 29 Oct 2026 08:09:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D0917600DA;
+	Thu, 29 Oct 2026 08:10:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B40231F01825;
+	Thu, 29 Oct 2026 08:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793261377;
-	bh=XcnOgGjQGzD2jt2+DxGN1X1zcvzYzq6x9cioPsXKF5A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cQQUUwquaWBlsXDYoTLxTQ94mlF1ENpJUtdHRep3gjTCqt4CcYJmg0orM8Av1MiJn
-	 lijwkBKZ7LYj7PTQlTnAP3Dv0g8kJMnSbSEZVygjKv9nKRvOVDZ/GEjQbuRl+Wyzt1
-	 ZRoA+HU+wX9/MRRSER2kjftPWPbhc0iYqKcjG6ycMATi/mrmHId+n3uVqMJU04qMYB
-	 Sb1rwbVtZUIn8OWeclPDIQd8Mi9whmlxnmfgYFwp3ic1VJHqb84SW2ip8N0JyV4jnW
-	 g1JHXWYGRyDGGJk0i/RzvjG33Yx/2+N1YVFmQmXsQD/ScyocJ0lTlnZzHZ0On9PTmJ
-	 vGmNnfGnH8yYQ==
-Date: Thu, 29 Oct 2026 09:09:33 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-kernel@vger.kernel.org, Damien Le Moal <dlemoal@kernel.org>, 
-	Niklas Cassel <cassel@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Tejun Heo <tj@kernel.org>, 
-	Yendapally Reddy Dhananjaya Reddy <yendapally.reddy@broadcom.com>, 
-	"open list:LIBATA SUBSYSTEM (Serial and Parallel ATA drivers)" <linux-ide@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"moderated list:BROADCOM IPROC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:GENERIC PHY FRAMEWORK" <linux-phy@lists.infradead.org>
-Subject: Re: [PATCH v3 2/6] dt-bindings: ata: sata-brcm: Describe the NSP IDM
- registers
-Message-ID: <20261029-versed-automatic-orangutan-43cfde@quoll>
-References: <20261026191618.3178830-1-florian.fainelli@broadcom.com>
- <20261026191618.3178830-3-florian.fainelli@broadcom.com>
+	s=k20260515; t=1793261425;
+	bh=cG+NQjfM2IF6Zo6R/t8JwyLCj5UEVRyrUEsLlcs8JBo=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=Ug/zHwSj8zgf5eLt+u9TU5XagXQ0D4kx++maAqUZiKVszbvz6AooFjUKcAnwujb+9
+	 rC2nUv/acY3gurdvklwm9oQ7L7Gi3NWHdLIEbk6I0R8z9hWf4bmAJ4d1jxInlgNW0+
+	 EQXUJKxJQzLPLcwKZbF/U3IOirSyPwfkbMhVinUmT9T/GtAnDL117b9LExycnsMrHf
+	 m+VYS9/qV5Ws7yLxVCuRv/GNhTMn+Uh2ccr0NvstWiMzqA+PQpQawE+0UuI313hMnw
+	 Xu6mkRjiwv3/eq6ygeTJfMEvoD3LMCaDuVbXKhCuy623T7j/kJnSnx/3sbbux053jY
+	 dVqfRXh0MVUeg==
+Message-ID: <e5c4ac0a-f5de-42e7-910a-cf2c9c4cabbc@kernel.org>
+Date: Thu, 29 Oct 2026 09:10:17 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261026191618.3178830-3-florian.fainelli@broadcom.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/6] dt-bindings: ata: sata-brcm: Describe the NSP IDM
+ registers
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-kernel@vger.kernel.org, Damien Le Moal <dlemoal@kernel.org>,
+ Niklas Cassel <cassel@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Tejun Heo <tj@kernel.org>,
+ Yendapally Reddy Dhananjaya Reddy <yendapally.reddy@broadcom.com>,
+ "open list:LIBATA SUBSYSTEM (Serial and Parallel ATA drivers)"
+ <linux-ide@vger.kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "moderated list:BROADCOM IPROC ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:GENERIC PHY FRAMEWORK" <linux-phy@lists.infradead.org>
+References: <20261026191618.3178830-1-florian.fainelli@broadcom.com>
+ <20261026191618.3178830-3-florian.fainelli@broadcom.com>
+ <20261029-versed-automatic-orangutan-43cfde@quoll>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261029-versed-automatic-orangutan-43cfde@quoll>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,61 +129,36 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 26, 2026 at 12:16:14PM -0700, Florian Fainelli wrote:
-> Northstar Plus uses the SATA IDM block to enable the interface clock and
-> deassert the core reset before accessing the controller registers.
-
-And which compatible in the binding is "Northstar Plus"? I tried to map
-them to arm/bcm/brcm,nsp.yaml but nothing is there, so it looks like you
-are making changes without having actual compatible documented. In that
-case this is not needed. Make changes WITH documenting new compatible.
-
+On 29/10/2026 09:09, Krzysztof Kozlowski wrote:
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: brcm,bcm-nsp-ahci
+>> +    then:
+>> +      properties:
+>> +        reg:
+>> +          description: AHCI, top control and optional IDM register regions
+>> +    else:
+>> +      properties:
+>> +        reg:
+>> +          maxItems: 2
+>> +        reg-names:
+>> +          maxItems: 2
 > 
-> Allow an optional third register region named "idm" for the NSP
-> controller. Keep other compatibles limited to their existing two
-> register regions and allow older NSP descriptions without the IDM.
-> 
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> ---
->  .../bindings/ata/brcm,sata-brcm.yaml          | 20 ++++++++++++++++++-
->  1 file changed, 19 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/ata/brcm,sata-brcm.yaml b/Documentation/devicetree/bindings/ata/brcm,sata-brcm.yaml
-> index fe7f091e744f..98529784b1fa 100644
-> --- a/Documentation/devicetree/bindings/ata/brcm,sata-brcm.yaml
-> +++ b/Documentation/devicetree/bindings/ata/brcm,sata-brcm.yaml
-> @@ -15,6 +15,21 @@ maintainers:
->  
->  allOf:
->    - $ref: ahci-common.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: brcm,bcm-nsp-ahci
-> +    then:
-> +      properties:
-> +        reg:
-> +          description: AHCI, top control and optional IDM register regions
-> +    else:
-> +      properties:
-> +        reg:
-> +          maxItems: 2
-> +        reg-names:
-> +          maxItems: 2
+> Please move entire allOf to the bottom, before "unevaluatedProperties"
+> line.
 
-Please move entire allOf to the bottom, before "unevaluatedProperties"
-line.
+And you already have an if:then: block, so this should be together.
 
 Best regards,
 Krzysztof
-
 
