@@ -2,74 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A12C606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 21:44:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 034E4606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 21:52:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=L4yijBu8;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ZvaTBnXw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hkc08PAD;
+	dkim=pass (2048-bit key, unprotected) header.d=a-marquet.fr header.i=@a-marquet.fr header.a=rsa-sha256 header.s=gm1 header.b=fHNPpS6/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Xrs5nmJVJab8tRZxFKVKeWjGi/2IO56BZp571uVAax4=; b=L4yijBu80L+f7fR5IVr+Uh0Z/q
-	O4p1ekFAGchrhNhBb5n+37J2K62VTLnJiK2NAItZNYwyIUHt/1PVoX8LpsPH63C+bg2yccA+8WUFz
-	lVx4pLIczxRuf0uYRiVEzAlwRQD1k3aozTQcxarG+YpL63UyfdfsR1lsTdTJ386PNDGYxRbkMWvzb
-	xBxsFNosEKBLGMEcgnqkI8driUr1pL+w21EtWvtLD2UqWKCw/ypWIjDaXFgxNkDdQxUleRXiFhe3G
-	W8VkyKrLsDEwxlBSrJtwzGXwVWkbN6MDVPo48G1Yt1LEXsvH9KAEYETDQzVbeIw55C5Bv0CTyDXcZ
-	TiKOxIFw==;
+	bh=BCeY9APsxfmvH+XIUoqxjY0kS3crPoTx7BAYNg4i0WY=; b=hkc08PADIF91+ygfjy0psmZj1X
+	Vnv/GtBss12fVZ2PYlYQaXMh/wFtPZ/yKhRFmbLrTZVQVleshJ9/89ay8Y/x/d0nfovgNvAW857DO
+	kqo/D2InbCcxBaQenJjIUHnr1ifz7e6EB+5hO2fMhEC9Ln5gwDgiy6TowM4hw7QhhWSyoK00bMcvk
+	qQl9tFg6smhU+ra0XyscCCd9Sx3XmDDOEwJ5kRkEcHDcu8e/VLyZk4OYh5Pv9aJ8aR1AEDnrDbMYX
+	JLSfys19hhKP4k6B8SDCICLHvQVzjdjoiTSrg1oTqUZQblaR+SA80eWt7KTlWgJZJnSNT38anC/d8
+	g0bplh8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMXvQ-0000000AR0k-3rz2;
-	Thu, 29 Oct 2026 21:44:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMXvN-0000000AR0J-1q56
+	id 1xMXA2-0000000ANh9-3Bxc;
+	Thu, 29 Oct 2026 20:55:46 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMX9z-0000000ANgW-23TP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 21:44:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7CBD11682;
-	Thu, 29 Oct 2026 14:44:36 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 807CA3F59E;
-	Thu, 29 Oct 2026 14:44:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793310279; bh=1Jc6BQnB39kf9zB+DQFACw/SOjdeZK68FOMqJEkdGZw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZvaTBnXwk4vEh9RGdEieYrP+lcbbLQFeswH4ozshE0llEbLfdUJT22PqsrlbpTnwp
-	 RPeiQtuyX1sWs06Kh6O1kM+aQZudBXMLuPvlUaKRZ5/1cxj3tLJSYILv7GVESBB/H/
-	 MsCtUL3cBXEqH4nzkhbDr5bv3ZjwFLSEy4lCwIq8=
-Date: Thu, 29 Oct 2026 21:44:31 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Fuad Tabba <tabba@google.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] KVM: arm64: Clear the whole hugetlb folio when
- sanitising MTE tags
-Message-ID: <auO-Pzqy-bp8fT4m@arm.com>
-References: <20261021110700.493315-1-fuad.tabba@linux.dev>
- <20261021110700.493315-2-fuad.tabba@linux.dev>
+	Thu, 29 Oct 2026 20:55:45 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7616D3E80D;
+	Thu, 29 Oct 2026 20:55:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=a-marquet.fr;
+	s=gm1; t=1793307337;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BCeY9APsxfmvH+XIUoqxjY0kS3crPoTx7BAYNg4i0WY=;
+	b=fHNPpS6/zRSIqBqW0irfQrba/Am6sjIe0bCyOZ9wSRemRCscDo88TA3tfrFBbE3GiwLt7Y
+	3N2SPdppcp308rVqUai92uPlqYhZ2+K7xx2g3fU2BJBc0gu678ikHavLC1XVPHyuhgefGe
+	bO4hpOZI0hRgDI8/Y3PMkNZbc9EJre/iDTusQ4JjL5D0Qp5MoX8xAEGKoN57kHc73WreZF
+	yOKACCtkSVpBV93+2aE7HCiA9B8Z6xFbDEDmKBkyUDlByz+4RlGKVCu3ew6Lw0l3QWDkAb
+	vsPhIrkW4Z/XKdY0nYZfv4nqknWlG9Uj0F0HoWNoRRQb7/3emhfS8AzB7w5VMg==
+Date: Thu, 29 Oct 2026 21:55:32 +0100
+From: Alexandre Marquet <tb@a-marquet.fr>
+To: Doug Anderson <dianders@chromium.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Jingoo Han <jingoohan1@gmail.com>, Inki Dae <inki.dae@samsung.com>,
+	Seung-Woo Kim <sw0312.kim@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	Lukas Timmermann <linux@timmermann.space>,
+	Henrik Grimler <henrik@grimler.se>,
+	Hendrik Noack <hendrik-noack@gmx.de>
+Subject: Re: [PATCH 3/3] drm/panel_edp: Add SEC LTL101DL02-002 panel
+Message-ID: <auOyxKTuSNysAA3X@laptop-218>
+References: <20261027-drm-misc-next-manta-auxbus-v1-0-3a45c3cf531d@a-marquet.fr>
+ <20261027-drm-misc-next-manta-auxbus-v1-3-3a45c3cf531d@a-marquet.fr>
+ <CAD=FV=XmfYM8diBOh3UidN7xEuB3n+n9oAm_zhopfFLERC2QpQ@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261021110700.493315-2-fuad.tabba@linux.dev>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD=FV=XmfYM8diBOh3UidN7xEuB3n+n9oAm_zhopfFLERC2QpQ@mail.gmail.com>
+X-GND-Sasl: tb@a-marquet.fr
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: dmFkZTGxku9aeGpo+7YMc4F4PvFpGsua428LZyVCxiu3ZWgW8HsKPegYmks3ajh0iP00ZRx4hi8T0K5ZaS2j9uikJ2QuMOT4yOHAarDYQ/vvPPSXaxQ9YiezR0t+7oZ4eh+B2zE3r6eUVUGyZ4uHSUMJMLGkL5aA4rnWYnOn1rXAzjdxtLJYHY2/1ABQODzEWZ8Hsc7aJohKnNtreJrq+OmZqVnNI8IRujZJfkJEWTPHT+wHz4/6JwmKHothvuxNPxfv+OzFjhdGR/x3mRLNO8Us1THXppONAs77llR98XJUNrwxrIX1oHy352yibAosFmCGLOfypPxGom41RVBtm+fdli5ujOvJQavDP2e89f6vc94LNpZV9nkW3fVkbnwbgEuHhI/I/HU2RCRXG9Tv398eMl8ZjQFZwyZjflbVReLRZktwQMzPf5y7ZVduqvKlncYQl+nTgz8yq3LfzYyl9/mwIXjhlTSJaK/7j3/iF1GiEFXV5di1y4SOk54XmIQS5AQQnYu1pDadCFAw820n9VCVyOsPIKS8p+rEdIJKtBNAd0twExBKmSKGj2sR9yv/YyvIllvM4E3dZcEP6Gavj7CtndjrBC2LM5kvfWOYkw5l09gJrhEnRg0K1g73dxTDZpW/An+kRuYkG3K/LN9NJDjxtOIjVmlmLbaQsmwOPwGeEBb35w
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_144441_605320_5959D0C6 
-X-CRM114-Status: GOOD (  10.59  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261029_135543_859761_54BA4F48 
+X-CRM114-Status: GOOD (  26.36  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +99,90 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 21, 2026 at 12:06:57PM +0100, Fuad Tabba wrote:
-> sanitise_mte_tags() clears the tags of the pages about to be mapped at
-> stage-2 before marking them tagged. For a hugetlb folio the flag covers
-> every page in the folio, but the loop only covers the mapping being
-> installed. Stage-2 maps a folio in pieces for the contiguous hugetlb
-> sizes, and for any size under dirty logging. The first fault then marks
-> the whole folio after clearing only its own piece, and the rest keeps
-> its previous owner's tags for the guest to read.
-> 
-> Clear the whole folio, as mte_sync_tags() does.
-> 
-> Fixes: 25c17c4b55def ("hugetlb: arm64: add mte support")
-> Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+Hi,
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Thank you for your feedback.
+
+Le Wed, Oct 28, 2026 at 09:34:15AM -0700, Doug Anderson a écrit :
+> Hi,
+> 
+> On Tue, Oct 27, 2026 at 5:01 AM Alexandre Marquet via B4 Relay
+> <devnull+tb.a-marquet.fr@kernel.org> wrote:
+> >
+> > From: Alexandre Marquet <tb@a-marquet.fr>
+> >
+> > Add an entry for the eDP SEC LTL101DL02-002 panel used in
+> > google-manta.
+> >
+> > Raw EDID dump:
+> >
+> > 00 ff ff ff ff ff ff 00 4c a3 0f 9c 00 00 00 00
+> > 05 0e 01 03 80 21 19 78 0a 87 fe 98 57 51 8c 27
+> > 21 50 54 00 00 00 01 01 01 01 01 01 01 01 01 01
+> > 01 01 01 01 01 01 14 69 00 a0 a0 40 2e 60 30 20
+> > 36 00 1e d6 10 00 00 19 00 00 00 00 00 00 00 00
+> > 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+> > 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+> > 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 9e
+> >
+> > Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
+> > ---
+> >  drivers/gpu/drm/panel/panel-edp.c | 2 ++
+> >  1 file changed, 2 insertions(+)
+> 
+> nit: subject doesn't quite fit the pattern of recent commits (_ vs -).
+
+Apologies for not noticing. I will fix that in v2.
+
+> 
+> 
+> > diff --git a/drivers/gpu/drm/panel/panel-edp.c b/drivers/gpu/drm/panel/panel-edp.c
+> > index 94bc54c3833a..c92985363093 100644
+> > --- a/drivers/gpu/drm/panel/panel-edp.c
+> > +++ b/drivers/gpu/drm/panel/panel-edp.c
+> > @@ -2198,6 +2198,8 @@ static const struct edp_panel_entry edp_panels[] = {
+> >         EDP_PANEL_ENTRY('L', 'G', 'D', 0x0778, &delay_200_500_e200_d200, "134WT1"),
+> >         EDP_PANEL_ENTRY('L', 'G', 'D', 0x07fe, &delay_200_500_e200_d200, "LP116WHA-SPB1"),
+> >
+> > +       EDP_PANEL_ENTRY('S', 'E', 'C', 0x9c0f, &delay_200_500_e50, "LTL101DL02-002"),
+> > +
+> 
+> It would also be good to note in the commit message where you got the
+> timings from. Datasheet? Downstream code? Guessing?
+
+Both downstream code and guessing, as I could not get my hand on a
+datasheet. I will add an explanation to the commit description.
+
+Basically, the downstream code waits: at least 500ms before toggling the LCD_EN
+GPIO for power on; and 200ms after. I matched the 200ms to the hpd_absent
+delay, since in panel-edp.c, hpd_absent is also the delay that happens
+right after enabling the LCD regulator (or toggling the enable GPIO, as
+appropriate). Similarly, the unprepare delay is called just before
+enabling the LCD regulator, through panel_edp_wait(), which matches the
+way the 500ms delay is used in the downstream code.
+
+For the enable delay, I went with the smallest value that would still
+work, but I admit that I did not try anything below 50ms.
+
+> 
+> I had my AI agent take a look for itself. It found evidence suggesting
+> the enable delay should be 97ms, not 50ms. The other ones seem to be
+> OK.
+
+In the downstream code, 97ms is the delay used before setting the
+backlight on. My understanding is that this should be used elsewhere
+(e.g.: in the backlight node of the device's DTS).
+
+> 
+> -Doug
+Best regards,
+Alex.
 
