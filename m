@@ -2,71 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BA52606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 00:48:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7461606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 01:00:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XwB08eqk;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=mv7SX9h2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HNZ7sZ9D;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WVuy9JUJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=8/qTbI62mjIsuFversGAlrB/yJw9VmdLUTb4PF/KWfU=; b=XwB08eqkCw9nHy
-	fq2msmURP7HWi6mBPfL/Q7Mwl4+E/90CA3qXG13qsjRxOfNHlezn4r0oOdjtNDTD9u7rTqmzbT/5B
-	d8A+AKIrvSOgCb1AzSXIMVW9Zwi8UVH9S4ejWYsdi9DhI26bisEsffzUiyvXZ8kJvaNtErHQFNLku
-	axuU4mf4akQQVl11v4wzhvIClqJs881pe0RJRlj+OGpba341qogc0qb2AUG+t0lbOvRbnoHHICEt/
-	WLi0j0+cDkU9t79azL93k+h19FlKphNHX/F5kGQSrZVM1e+QWmR2k0Zkvtk1hXDiRuTZ+085F3ini
-	qyaUTLoEG9dAQkDBv5eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=oS0FmMc7AlJVVVUeRFYj25Bo+BdWrMabkFQ8UmhHdq4=; b=HNZ7sZ9DR95xaMPRMj8uY929r7
+	dqE5uXYiymv5l91V5Bq6bJwkF20wAwW2C/pZ7GCh60gSwSPiQYnctChlCLtP088l/8DrrkVfukh7M
+	aepxLQy2kvKYqMYFMV2gku2etmgl4wB5tojTtj+gJUF7X5WwEgimzXV4vqRqmlX0H8gFIswRS8zWZ
+	nD6TKz57Ymm7oXTBl8f9eFmLKVEwIID6OPVLXFWblKudNCzpydfSftVdpIRtdBZ/j4KMPo4W6/FZP
+	z0xyPGhBVHCwta11zx5IcJtCuWN3LGHvWiezrMr9SSB8IGPsJMMKBMAbgzuwCOJK0nIMkmcux2EEa
+	P5hgISUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMEJn-00000008763-1vuT;
-	Thu, 29 Oct 2026 00:48:35 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMEJj-0000000875D-2HrK
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 00:48:32 +0000
-Received: from [192.168.0.15] (unknown [52.172.102.253])
-	by linux.microsoft.com (Postfix) with ESMTPSA id DCA8C20B7167;
-	Wed, 28 Oct 2026 17:48:14 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DCA8C20B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1793234897;
-	bh=8/qTbI62mjIsuFversGAlrB/yJw9VmdLUTb4PF/KWfU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mv7SX9h2iXoe0BNxs9zhVTBplDrTb9yhTnaUHzak2ekbF6K5Rw5fV0RPI98Pac0uF
-	 nwQNyyReUqBj9pZhnqwNE1pPy6qvtpR+yH9TPflgQqjej45De3SXK67xEEcFwFyXe8
-	 p86EWPHYun9frPQyZfA5vztB4ETPkbcdAhU0QQRQ=
-Message-ID: <c363c01d-b99b-4b87-adc1-0f706b417330@linux.microsoft.com>
-Date: Wed, 28 Oct 2026 17:48:23 -0700
+	id 1xMEUp-000000087iQ-3Ju8;
+	Thu, 29 Oct 2026 00:59:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMEUo-000000087i5-1Xwl;
+	Thu, 29 Oct 2026 00:59:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 71E7A600D1;
+	Thu, 29 Oct 2026 00:59:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D8D31F01825;
+	Thu, 29 Oct 2026 00:59:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793235597;
+	bh=oS0FmMc7AlJVVVUeRFYj25Bo+BdWrMabkFQ8UmhHdq4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WVuy9JUJvVpnxgRolTlrO1MIZj20fkCl0H3mXHHgjQXpD2liErU9VCyFiPf8gewhV
+	 llC0VAnh+/2o13ZitUeepntk7dWSQmy6SHXnGnZ+Mx2N3a+MAhP+TidwG9FZS2CVsi
+	 8zNOIViOZL1WKKL7Mytanwerah70JXEq1PmuVYwgj5czZGj3EBYTFCGQOppEv1QN8p
+	 hAnUtMkfbOvQ5auIukcnf7AfJpGa6dCcUN8jWWfGYIFPgwpo/hx0UPCScJxnsgM24P
+	 E/8y72dp8s85s7iphCPWgVhP1Yw7HK/HiIpU96nhcQynvyTGBShEIzljYkA+HZKIMe
+	 /yky4ATwXN6Ow==
+Subject: Re: [PATCH net v6 3/4] net: ethernet: mtk_wed: free up rings during detach
+From: netdev-bot+sashiko@kernel.org
+To: hujy652@gmail.com
+Cc: nbd@nbd.name, lorenzo@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ sujuan.chen@mediatek.com, rex.lu@mediatek.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, sashiko-bot@kernel.org
+Date: Thu, 29 Oct 2026 00:59:55 +0000
+Message-ID: <179323559576.3134.3581964797425462358@kernel.org>
+In-Reply-To: <20261026-wedfix-v6-3-a52f6b15d2fc@gmail.com>
+References: <20261026-wedfix-v6-3-a52f6b15d2fc@gmail.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/6] arm64: rsi: Add RSI host call structure and helper
- function
-To: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com
-Cc: linux-arm-kernel@lists.infradead.org
-References: <20261002215725.2015959-1-kameroncarr@linux.microsoft.com>
- <20261002215725.2015959-2-kameroncarr@linux.microsoft.com>
- <20261022074138.GA1512710@liuwe-devbox-debian-v2.local>
-Content-Language: en-US
-From: Kameron Carr <kameroncarr@linux.microsoft.com>
-In-Reply-To: <20261022074138.GA1512710@liuwe-devbox-debian-v2.local>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
-X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
-	aws-us-west-2-korg-listserv-alma10-1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_174831_618718_963EB354 
-X-CRM114-Status: GOOD (  11.64  )
-X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,35 +71,107 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=4.0.1
+X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
+	aws-us-west-2-korg-listserv-alma10-1
 
-Hello ARM maintainers,
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-On 10/22/2026 12:41 AM, Wei Liu wrote:
-> On Fri, Oct 02, 2026 at 02:57:20PM -0700, Kameron Carr wrote:
->> Add struct rsi_host_call to arm-smccc-rsi.h, which represents the host
->> call data structure used by the Realm Management Monitor (RMM) for the
->> RSI_HOST_CALL interface. The structure contains a 16-bit immediate field
->> and 31 general-purpose register values, aligned to 256 bytes as required
->> by the CCA RMM specification.
->>
->> Add rsi_host_call() static inline wrapper in arm-rsi-cmds.h that invokes
->> SMC_RSI_HOST_CALL with the physical address of the host call structure.
->> This will be used by Hyper-V guest code to route hypercalls through the
->> RSI interface when running inside an Arm CCA Realm.
->>
->> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
->> Signed-off-by: Kameron Carr <kameroncarr@linux.microsoft.com>
->> ---
->>  include/linux/arm-rsi-cmds.h  | 22 ++++++++++++++++++++++
->>  include/linux/arm-smccc-rsi.h |  7 +++++++
-> 
-> ARM maintainers, I think this needs an ack from you?
-> 
-> Wei
+Low priority / nit picks for your consideration:
 
-Do you have any issues with this patch?
+- [Low] After this patch, mtk_wed_free_rx_rings()
+  (drivers/net/ethernet/mediatek/mtk_wed.c:954-958) calls…
+
+--
+
+net: ethernet: mtk_wed: free up rings during detach
+
+This commit makes mtk_wed_free_rx_rings() also free the rx_ring[] and
+tx_wdma[] descriptor rings. Before this, __mtk_wed_detach() leaked them.
+The change comes from mtk-openwrt-feeds and was modified to check
+ring->desc instead of an extra flag.
+
+Link: https://github.com/mediatek/mtk-openwrt-feeds/blob/main/25.12/files/target/linux/mediatek/patches-6.12/999-wed-04-Fix-reinsert-wifi-module-cause-memory-leak-issue.patch
+Link: https://sashiko.dev/#/message/179000700034.2160803.10594281691384015089%40kernel.org
+
+> diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+> index 3f0be70c3f145..3044a7a8ea03e 100644
+> --- a/drivers/net/ethernet/mediatek/mtk_wed.c
+> +++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+> @@ -949,6 +949,14 @@ mtk_wed_free_ring(struct mtk_wed_device *dev, struct mtk_wed_ring *ring)
+>  static void
+>  mtk_wed_free_rx_rings(struct mtk_wed_device *dev)
+>  {
+> +	int i;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(dev->rx_ring); i++)
+> +		mtk_wed_free_ring(dev, &dev->rx_ring[i]);
+> +
+> +	for (i = 0; i < ARRAY_SIZE(dev->tx_wdma); i++)
+> +		mtk_wed_free_ring(dev, &dev->tx_wdma[i]);
+
+[Severity: Low]
+Could the WDMA engine still be writing to the tx_wdma[] descriptors when
+they are freed here?
+
+In __mtk_wed_detach(), these rings are freed right after
+mtk_wed_wo_reset(), which returns void:
+
+__mtk_wed_detach()
+    mtk_wed_wo_reset(dev);
+        mtk_wdma_tx_reset(dev);
+    mtk_wed_free_rx_rings(dev);
+        dma_free_coherent(..., tx_wdma[i].desc, ...)
+
+If the TX_DMA_BUSY poll in mtk_wdma_tx_reset() times out, the timeout is
+only logged:
+
+mtk_wdma_tx_reset() {
+    ...
+	wdma_clr(dev, MTK_WDMA_GLO_CFG, MTK_WDMA_GLO_CFG_TX_DMA_EN);
+	if (readx_poll_timeout(mtk_wdma_read_reset, dev, status,
+			       !(status & mask), 0, 10000))
+		dev_err(dev->hw->dev, "tx reset failed\n");
+    ...
+	for (i = 0; i < ARRAY_SIZE(dev->tx_wdma); i++)
+		wdma_w32(dev,
+			 MTK_WDMA_RING_TX(i) + MTK_WED_RING_OFS_CPU_IDX, 0);
+}
+
+mtk_wdma_v3_tx_reset() handles timeouts in its prefetch and writeback
+BUSY polls the same way.
+
+Only the CPU_IDX registers are cleared. The MTK_WDMA_RING_TX(i) BASE
+registers and the WED WDMA_RING_TX BASE registers still point at
+desc_phys.
+
+If the engine has not gone idle, can a late descriptor fetch or
+writeback land in coherent memory that has already gone back to the
+allocator? Before this patch the rings were leaked, so such a write
+could only reach memory that nothing else was using.
+
+This depends on a hardware timeout, and I could not confirm from the
+code that a late writeback really happens. TX_DMA_EN has already been
+cleared in mtk_wed_dma_disable(), and MTK_WED_RESET_WED has been
+asserted.
+
+The same function already frees rx_wdma[] in mtk_wed_free_tx_rings()
+right after mtk_wdma_rx_reset(), whose -ETIMEDOUT return is ignored, so
+this follows an existing pattern in the driver. Would it be worth either
+skipping the free on a reset timeout or clearing the ring BASE registers
+before freeing?
+
+> +
+>  	mtk_wed_free_rx_buffer(dev);
+>  	mtk_wed_free_ring(dev, &dev->rro.ring);
+>  }
 
 -- 
-Regards,
-Kameron
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261026-wedfix-v6-0-a52f6b15d2fc%40gmail.com
 
