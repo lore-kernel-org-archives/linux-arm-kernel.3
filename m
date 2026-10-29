@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3421606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 19:51:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8175A606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 19:53:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=l5x74tkH;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CKCgzPgE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2rWLqLrp;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VuzKxIaK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,36 +14,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=KtHmkWpVa9EDMKk9zLknJHt+iL+tMZYjl7Y0pmLSU+c=; b=l5x74tkH5SG9MG5t60SLTeBHrW
-	trmjJWSaCNhiU2Oq5m+m7X9oNa+cNTQ8xbyTDSgU0vxuziSo9kPmEThF3yTUzKqJJRrFk8xyPf/FA
-	fc1N1VJ5PP0RMDZehcmTbn1zfLZBhuwhVygeopjiAldVv0r2IvPrQ2y8GW2VHoeUiPiEwhJzNd4dl
-	aX4Dv5ezbSvDY/o7RObynWRjORAEbSLqAjzsXDzfP1PRY30LEun51doi/asb6PaTj1C8lgkiu2qS9
-	gPAroW8vya7XLNMGkx0N9wIn0pKlswaI1P8aUICG7hYHlFAD5n67SZBCf9bs8HMUVBT8EPX2OzWJR
-	OVHeOiOA==;
+	bh=sxufEbmJccbPCMBIVWCkzuEvgvSqJww+j7Cv/utg30c=; b=2rWLqLrpNvks8Z+kKUFThHs9lH
+	ZmMlIR4OxCWv+WZMRTVXi69dGXqo5gmpTApUpNT3qSlnj9kfRdYI5LuMx6xxNnZhel1fcwWQyLa/A
+	uSLjMNu4+/gOVE5YGjNzQMbYdaaQg2Q3HxlQ38D8IiXzpx5532oifLlL/z7yjgbEWmq6C1mkViqAO
+	nOPQZBiyCa+kMzOMGrngaJ1dhjyPswf11UFcEyaLIcEukNI79PD8Zsd/v/OglbI5GlyevNz/pLJZd
+	bTmWSajkLJVjNvs5U6puidcMHgtPCzgwCwQaIjoO+vkwVBka2h/Y+TwClArW6rzfPtbQ02Rqysxt4
+	IuI13gVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMW9f-0000000AHWP-2qom;
-	Thu, 29 Oct 2026 19:51:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xMWBk-0000000AHws-2LIH;
+	Thu, 29 Oct 2026 19:53:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMW9d-0000000AHVI-3HaW;
-	Thu, 29 Oct 2026 19:51:17 +0000
+	id 1xMWBj-0000000AHwT-1d37;
+	Thu, 29 Oct 2026 19:53:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C4FF543744;
-	Thu, 29 Oct 2026 19:51:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB3331F01816;
-	Thu, 29 Oct 2026 19:51:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 69519600C8;
+	Thu, 29 Oct 2026 19:53:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D6E11F01816;
+	Thu, 29 Oct 2026 19:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793303476;
-	bh=KtHmkWpVa9EDMKk9zLknJHt+iL+tMZYjl7Y0pmLSU+c=;
+	s=k20260515; t=1793303606;
+	bh=sxufEbmJccbPCMBIVWCkzuEvgvSqJww+j7Cv/utg30c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CKCgzPgENPrfcm5i3vjXyQg0c+ZufGV7+m+uwxUpTjSEbPbjc8qJiilkNvFQYE5et
-	 VgMOOhqhbTSSjUeYp/6lt2PnmK/aR9b6LTMldxDANq6V3Y2nz+9EAMay6+0vOt9vDA
-	 LM5nw/aQriOfcORoVIhPtOdOJ4qVM7UvejYvHOztoQzzmeSEua6PrqOAQhT+7nORsL
-	 zWY5bLanEqPNrKgTUTcPerKK6LM5+zOEmlrbHrzKSZq6zRSNj+HqkO0oqE/lGdzio+
-	 z8aNz1Js71e+L+ltR1Bu/wjtFfv9Y9LSBo7UY98hGDqeQfeNn8skonOU4+bQ8cLadM
-	 nTuFlXU0rrQ1A==
-Date: Thu, 29 Oct 2026 19:51:07 +0000
+	b=VuzKxIaK1tOS0QvcCfnoS3lX532BUYdgQ2HPsgUhMZ57Uaj2IxhzN4UsDX4okAdIV
+	 4opVn1/ygbhMc3z3Z2yppkD7zhFyP37vkwDSlDx2iEf9G7+wdVk6sfHh8+Un6xEr5x
+	 0fB1tbaKdt/TyEQFA95vSPN8K9e2ffoUIk+N71AeIkY1emvKO+t+Wfv/M8mdo9cSyp
+	 ab3W9pWHEO/+P0R7Rhthj0dtNhUigysikpMynCiEKBkBzqkpxUtUkQpCSxS/hsU5dD
+	 5tXjrkzTznS4xWo7lvxqskebO5FC52ObdsIa1JFXqSnNtfc6b9ihbEGbJokZRlQcVg
+	 3HBIIifVij5zQ==
+Date: Thu, 29 Oct 2026 19:53:17 +0000
 From: Conor Dooley <conor@kernel.org>
 To: gaohan@iscas.ac.cn
 Cc: Sudeep Holla <sudeep.holla@kernel.org>,
@@ -75,16 +75,17 @@ Cc: Sudeep Holla <sudeep.holla@kernel.org>,
 	linux-gpio@vger.kernel.org,
 	Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org,
 	linux-serial@vger.kernel.org
-Subject: Re: [PATCH RFC 02/18] dt-bindings: vendor-prefixes: add Zhihe
-Message-ID: <20261029-battered-wistful-2bded2acb9a0@spud>
+Subject: Re: [PATCH RFC 12/18] dt-bindings: serial: snps-dw-apb-uart: add
+ Zhihe A210 UART
+Message-ID: <20261029-imagines-suggest-46436f99114a@spud>
 References: <20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn>
- <20261027-a210-scmi-v1-2-74d58ce85bd8@iscas.ac.cn>
+ <20261027-a210-scmi-v1-12-74d58ce85bd8@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="LnnD6s57K7/oxCyC"
+	protocol="application/pgp-signature"; boundary="NHW4k1IZxtJrQ5WH"
 Content-Disposition: inline
-In-Reply-To: <20261027-a210-scmi-v1-2-74d58ce85bd8@iscas.ac.cn>
+In-Reply-To: <20261027-a210-scmi-v1-12-74d58ce85bd8@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,22 +103,23 @@ X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---LnnD6s57K7/oxCyC
+--NHW4k1IZxtJrQ5WH
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
---LnnD6s57K7/oxCyC
+--NHW4k1IZxtJrQ5WH
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauOjqwAKCRB4tDGHoIJi
-0m4zAP9hOWNcLGo/D9ValB0XwlKB6J17J6HXMj0W9RIVM1WKDAD/RnMCJ3/9mjw7
-f5eVmKa348OJDviBDEXzpcZx8aR8xAY=
-=M8+G
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauOkLAAKCRB4tDGHoIJi
+0uS0AP9yvaqaeXIgZ6Q8UiuXm3rCSxIas74cfCcrHRrYUjPouAD+I1PZv3LKS1gm
+ahygoYVVdGzKpaSEjzWcHGQkXEqtnQc=
+=IozQ
 -----END PGP SIGNATURE-----
 
---LnnD6s57K7/oxCyC--
+--NHW4k1IZxtJrQ5WH--
 
