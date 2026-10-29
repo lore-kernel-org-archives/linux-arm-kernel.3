@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4A1A606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 02:02:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A4DC606A331
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 02:03:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tKw6NiTW;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fq8Ce5SY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fPhn7YLH;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mFrXGEDq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
@@ -14,37 +14,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=4cOh5ydFl01OU2B+rC207B1abgz09QduO3g9/V7orkQ=; b=tKw6NiTWp47hsktkAxDgDz0X9W
-	0jXOADdT34362B4/e1K5n8F+7p6S/OSerFRbAnaV8jtlXA3G1masw4UB8EUPmtJRI4rPgp71+jX0b
-	JYiXvye1/iyYB0tZIcEIJ+AxzDZja9ZViZq1Mx3kuQFnIe/9Jw7Rl/lOEKcMKgI6lBLHZ/nuXmr43
-	dKcVYExvPWlVreibvMYeBshPVHG6+y9qIf/2UTi6ajQkAN6LoltqVZvJoxBVuHKU00Fr7K/lBgj5g
-	v/1os59kmCk1a3NgnpYoaQX11p6inCpRu49w54yWJuD6cGSbuiEJDWl2m7nmCgaCsfm0EdTPDEvSA
-	6b3KFxIQ==;
+	bh=sCMSQ9Lepa3mXHoZTqA3z+QNJhLXDNrrQbFhzlyKoj0=; b=fPhn7YLH46umqYA+gShJLN+Np6
+	rQW8N173z72gIn685WtLgluBtA5zKjYchFoaFtVxAwL8sEPIjmeb/jY8rzVZ1tJnIvk1mB0BiH9Cf
+	QDKhj7e41HsAHWxb61yxMywo2mvm3NMesKx+xzE2fRBuD6z1oFYS7K04GE0VlAMo1g2FFR5LYLt+P
+	3Q0ZQ7DH3WDefAWspa37JNY7I6SBSOWwWvJ61I+3PM94SCUxWVYWP9lBSHlrSkmAhJapbNZ+4M/10
+	+FkcaGJpUVU/a/Qxt+nDgl4/J+8pGnFkHPr5uTIxVunyjKS2vJd03q58biMqNkbiqtO/Gp00mBPd1
+	ugTcPXkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMFTa-00000008AaK-1Lps;
-	Thu, 29 Oct 2026 02:02:46 +0000
+	id 1xMFTi-00000008AfC-2nM5;
+	Thu, 29 Oct 2026 02:02:54 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMFTT-00000008AXf-2V5O;
-	Thu, 29 Oct 2026 02:02:39 +0000
+	id 1xMFTX-00000008AZc-3Fa8;
+	Thu, 29 Oct 2026 02:02:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A35843CB2;
-	Thu, 29 Oct 2026 02:02:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1F3C1F031E1;
-	Thu, 29 Oct 2026 02:02:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 86ED344021;
+	Thu, 29 Oct 2026 02:02:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 135161F01828;
+	Thu, 29 Oct 2026 02:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793239359;
-	bh=4cOh5ydFl01OU2B+rC207B1abgz09QduO3g9/V7orkQ=;
+	s=k20260515; t=1793239363;
+	bh=sCMSQ9Lepa3mXHoZTqA3z+QNJhLXDNrrQbFhzlyKoj0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Fq8Ce5SYBJjzwaICyFdWDMIxo7tyMKs3IiuFfF/drrqy2f36QwHpfb5LGFc5M3SLq
-	 WGP4VeuFau7DtIAtOiwYXbT+f/g4LwD5lMmTzVTkNqWgQ1o4rhb0bS1PtD3XZqad1O
-	 2/UjlkZh9jj8XH1zj7OGpEePE4Yonu9pvHfy0uzT0f4ntL33eFFk/sFYloOF+48DHq
-	 Zttzg/Yxo9Scph3mYQzvHCdzgkbxId9TRft+RgqqlnytlZ3zoQ+F6g56F6n03ToSTf
-	 oa0zEuY6qQcciCIzHepDlH0FPxAKuEkrkZSJDSMjKLnbBg7x1CgbWQ0elJL0J8NuTO
-	 XQKwlnTD2o2JA==
-Subject: Re: [PATCH v3 2/7] dt-bindings: net: dsa: mediatek,mt7530: add
- passthrough mode
+	b=mFrXGEDqrxCMdlKMMIPUBS3+KhR5D94LDguotWnA9Xq2I+zccddxl3p++pwtl8SFe
+	 zNicYoNC19FhCJd+k2Ap99sWTQ9wiqVA4fNPJ3TFLz2Sv78MKJomMexLItSKZjM5+M
+	 e20BsbkfvYlf/2exTlzcKcfOcKrk1UAuB2IAv+PKhk4lmnjYVae4DjL0AdXsPYN8Lk
+	 510HQRn6o4495YvWX04cYR8gyvpj81DzvWC2qcqVpHoxQOC1Gf8IqHsBIDQSapLgPk
+	 Ujs2q8bXOxMnnkk5Xo6yp34SabFkhwLg57iUp871Nzb0vXugN7XD4LVH+4RZ3jhm6j
+	 iLIuSUHkwX28g==
+Subject: Re: [PATCH v3 4/7] net: dsa: mediatek: support PLL setup on MMIO MT7530
 From: netdev-bot+sashiko@kernel.org
 To: cjd@cjdns.fr
 Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
@@ -56,10 +55,10 @@ Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
  sean.wang@mediatek.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, naseefkm@gmail.com, b.larsson@gmx.com
-Date: Thu, 29 Oct 2026 02:02:37 +0000
-Message-ID: <179323935725.3134.9897775788252590471@kernel.org>
-In-Reply-To: <20261028011317.1557238-3-cjd@cjdns.fr>
-References: <20261028011317.1557238-3-cjd@cjdns.fr>
+Date: Thu, 29 Oct 2026 02:02:41 +0000
+Message-ID: <179323936162.3134.6314802280650738010@kernel.org>
+In-Reply-To: <20261028011317.1557238-5-cjd@cjdns.fr>
+References: <20261028011317.1557238-5-cjd@cjdns.fr>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,18 +74,18 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,T_SPF_TEMPERROR autolearn=unavailable autolearn_force=no
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 4 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 3
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -94,113 +93,184 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The binding tells DT authors to model passthrough as a two-
-  switch DSA cascade ('the upstream switch is configured with a DSA link…
-- [Low] The passthrough paragraph added to the description of
-  Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml (lines…
+- [Medium] core_write()/core_rmw() in drivers/net/dsa/mt7530.c now fall
+  back to priv->child_bus when priv->bus is NULL.
+- [Low] The new @child_bus kernel-doc in struct mt7530_priv
+  (drivers/net/dsa/mt7530.h) reads: 'The bus created by the device, on…
+- [Low] Claim: mt753x_setup() calls priv->info->sw_setup() (mt7530_setup
+  -> mt7530_pll_setup -> core_clear/core_write/core_set) before…
+- [Low] Claim: on MMIO, core_write()/core_rmw() call
+  mt753x_ctrl_phy_addr() while priv->mdiodev is NULL, so they WARN and…
 
 --
 
-dt-bindings: net: dsa: mediatek,mt7530: add passthrough mode
+net: dsa: mediatek: support PLL setup on MMIO MT7530
 
-This commit documents a "passthrough" mode for MT7530/MT7531 switches in
-the mediatek,mt7530 binding description. In this mode the upstream switch
-forwards traffic between its CPU port and a DSA link to a downstream
-switch, and it does not alter the MediaTek tag.
+This commit adds a child_bus pointer to struct mt7530_priv. It is set to
+the MDIO bus registered in mt7530_setup_mdio(). When priv->bus is NULL,
+which is the MMIO case, core_write() and core_rmw() now use child_bus
+instead, so core PLL registers can be reached on MMIO switches.
 
-> diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
-> index 90b3582b76190..e29fb86934981 100644
-> --- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
-> +++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
-> @@ -73,6 +73,13 @@ description: |
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index 3eb2e11d69856..d09ff207e2dfc 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
+> @@ -77,6 +77,12 @@ core_write(struct mt7530_priv *priv, u32 reg, u32 val)
+>  	struct mii_bus *bus = priv->bus;
+>  	int ret;
 >  
->        Check out example 7.
->  
-> +  The MT7530 and MT7531 switches are capable of being operated in "passthrough"
-> +  mode. In this mode, traffic is unconditionally passed between the CPU port
-> +  and the DSA port which links to a second switch. To use passthrough mode, the
-> +  upstream switch is configured with a DSA link to the downstream switch. In
+> +	if (!bus)
+> +		bus = priv->child_bus;
+> +
+> +	if (WARN_ON_ONCE(!bus))
+> +		return;
+> +
+>  	mt7530_mutex_lock(priv);
 
 [Severity: Medium]
-Should this also say which DSA switch index each switch has to use?
+Is anything serializing the MMD indirect sequence when the code falls
+back to child_bus here?
 
-The MediaTek tag carries only a 3-bit source port and no switch ID.
-mtk_tag_rcv() always looks the port up on switch index 0:
+mt7530_mutex_lock() only takes a lock when priv->bus is set:
 
-net/dsa/tag_mtk.c:mtk_tag_rcv() {
-    ...
-	port = (hdr & MTK_HDR_RECV_SOURCE_PORT_MASK);
-
-	skb->dev = dsa_conduit_find_user(dev, 0, port);
-	if (!skb->dev) {
-		kfree_skb(skb);
-		return NULL;
-	}
-    ...
+static void
+mt7530_mutex_lock(struct mt7530_priv *priv)
+{
+	if (priv->bus)
+		mutex_lock_nested(&priv->bus->mdio_lock, MDIO_MUTEX_NESTED);
 }
 
-dsa_conduit_find_user() only matches DSA_PORT_TYPE_USER ports on the
-given switch index. In passthrough mode the upstream switch forwards the
-downstream switch's tag unchanged, so port is a downstream port number.
+On MMIO, mt7988_probe() sets priv->bus = NULL, so this lock does nothing.
+The steps then call bus->write() and bus->read() directly, so
+child_bus->mdio_lock is never taken either.
 
-The two switches can't share an index, because
-dsa_switch_parse_member_of() returns -EEXIST for a duplicate.
+Each step ends up in mt7531_ind_c22_phy_write(), which holds
+priv->reg_mutex for a single IAC transfer and releases it between steps.
+The sequence is MII_MMD_CTRL, then MII_MMD_DATA=reg, then
+MII_MMD_CTRL|NOINCR, then MII_MMD_DATA=val, with a read in core_rmw().
 
-Take a DT that uses the natural ordering: the CPU-facing upstream switch
-at dsa,member switch index 0 and the downstream switch at index 1. Would
-every received frame then be looked up on the upstream switch?
+Other users of the same PHY address on child_bus hold
+child_bus->mdio_lock. That includes phylib's phy_read_mmd() and
+phy_write_mmd(), e.g. genphy_c45_read_eee_abilities() from phy_probe() or
+genphy_c45_eee_is_active() from the state machine, and SIOCSMIIREG via
+phy_mii_ioctl().
 
-That switch has no user ports in passthrough mode. The lookup would
-return NULL and the frame would be freed, so all RX traffic on the
-downstream user ports would be lost.
+Can one of them re-target the MMD address latch partway through
+core_write() or core_rmw()? If so, the PLL value would land in the wrong
+MMD register, or core_rmw() would read one register and write the merged
+value back to it.
 
-No later patch in the series seems to change this. tag_mtk.c is
-unchanged, the driver doesn't touch ds->index, and the final binding has
-no passthrough example or dsa,member guidance.
+In the MDIO variant, priv->bus->mdio_lock is held for the whole sequence,
+and child bus accesses take that same lock, so this cannot happen there.
 
-Could the text say that the downstream switch must be switch index 0 in
-dsa,member and the upstream switch must use a non-zero index? An example
-showing this would also work.
+Later in the series, "net: dsa: mediatek: support EN751221 switch" makes
+the on-die EN751221 (MMIO) reach this path:
 
-> +  passthrough mode the upstream switch is restricted, with no other ports or
-> +  switch configuration allowed.
+mt7530_mac_config()->mt7530_setup_port6()->core_write()/core_rmw()
+
+mt7530_mutex_lock() is still unchanged at the end of the series. Should
+core_write() and core_rmw() lock child_bus->mdio_lock when they fall back
+to child_bus?
+
+>  
+>  	/* Write the desired MMD Devad */
+> @@ -112,6 +118,12 @@ core_rmw(struct mt7530_priv *priv, u32 reg, u32 mask, u32 set)
+>  	u32 val;
+>  	int ret;
+>  
+> +	if (!bus)
+> +		bus = priv->child_bus;
+> +
+> +	if (WARN_ON_ONCE(!bus))
+> +		return;
+> +
 
 [Severity: Low]
-These topology rules are stated only in prose. Could they be encoded in
-the schema as well?
+On the MMIO path priv->mdiodev is NULL as well. At this commit,
+core_write() and core_rmw() get ctl_phy from:
 
-Ports match ^(ethernet-)?port@[0-6]$ with additionalProperties: true.
-The per-port reg and phy-mode rules apply only to ports that have an
-ethernet property. Those rules are the top-level if: required:
-[ ethernet ] block and the builtin-dsa-port, mt7530-dsa-port and
-mt7531-dsa-port $defs.
+static int
+mt753x_ctrl_phy_addr(struct mt7530_priv *priv)
+{
+	if (WARN_ON_ONCE(!priv->mdiodev))
+		return 0;
+	...
+}
 
-As a result, a port with a link phandle on the upstream switch gets no
-reg or phy-mode check. A node with extra user ports next to the CPU and
-link ports also passes dt_binding_check.
+Wouldn't a core_* call through child_bus therefore WARN and target PHY
+address 0?
 
-mt753x_check_passthrough() in the driver does reject that case at probe
-with "Only two ports allowed in passthrough mode". The schema does not.
+No MMIO variant reaches core_* at this commit. The later commit "net: dsa:
+mediatek: support EN751221 switch" adds an ID_EN751221 case that returns
+12 before the WARN. So this looks resolved by the end of the series. Is
+it worth noting that dependency in this commit message?
 
-The port reg description still reads:
+>  	mt7530_mutex_lock(priv);
+>  
+>  	/* Write the desired MMD Devad */
 
-    Port address described must be 5 or 6 for CPU port and from 0 to 5
-    for user ports.
+[ ... ]
 
-Should it mention DSA link ports too?
+> @@ -2472,8 +2484,11 @@ mt7530_setup_mdio(struct mt7530_priv *priv)
+>  	if (priv->irq_domain && !mnp)
+>  		mt7530_setup_mdio_irq(priv);
+>  
+> +	priv->child_bus = bus;
+> +
 
-Later in the series, "dt-bindings: net: dsa: mediatek,mt7530: add
-econet,en751221" adds mt7530-passthrough-dsa-port, which requires the
-link port to be reg 6 and trgmii. That $def applies only to the
-downstream econet,en751221-gswitch. The upstream econet,en751221-switch
-uses builtin-dsa-port, so its link port is still unconstrained.
+[Severity: Low]
+This is the only place child_bus is assigned. mt753x_setup() calls
+priv->info->sw_setup() before mt7530_setup_mdio(). Could a core_* call
+from sw_setup run before child_bus is set?
 
-There is also a small wording mismatch. The commit message says:
+That ordering would only matter if an MMIO variant used mt7530_setup(),
+which calls mt7530_pll_setup(). None does: the MMIO entries all use
+mt7988_setup, and ID_EN751221_EXT is probed through mt7530-mdio.c. So the
+ordering on its own does not look like a problem.
 
-    MT7530 switches can be configured to blindly pass packets between their
+There is still a corner case. If the DT has an mdio node that is present
+but disabled, mt7530_setup_mdio() returns early:
 
-but the binding text says "The MT7530 and MT7531 switches". Could these
-be made to match?
+	if (mnp && !of_device_is_available(mnp))
+		goto out;
+
+That path returns success and leaves child_bus NULL. For EN751221 later
+in the series, mt7530_setup_port6() would then hit WARN_ON_ONCE(!bus) and
+skip the TRGMII PLL writes. Is that the intended behaviour for that
+configuration?
+
+>  	ret = devm_of_mdiobus_register(dev, bus, mnp);
+>  	if (ret) {
+> +		priv->child_bus = NULL;
+>  		dev_err(dev, "failed to register MDIO bus: %d\n", ret);
+>  		if (priv->irq_domain && !mnp)
+>  			mt7530_free_mdio_irq(priv);
+> diff --git a/drivers/net/dsa/mt7530.h b/drivers/net/dsa/mt7530.h
+> index 108c831dd0120..5b7394f6383c7 100644
+> --- a/drivers/net/dsa/mt7530.h
+> +++ b/drivers/net/dsa/mt7530.h
+> @@ -886,6 +886,9 @@ struct mt753x_info {
+>   * @dev:		The device pointer
+>   * @ds:			The pointer to the dsa core structure
+>   * @bus:		The bus used for the device and built-in PHY
+> + * @child_bus:		The bus created by the device, on MDIO implementations
+> + *			this is bus indirectly accesses `bus`, on MMIO
+> + *			implementations this bus is part of the switch.
+
+[Severity: Low]
+This isn't a bug, but "this is bus indirectly accesses" reads garbled.
+
+The comment also suggests child_bus is always valid on MMIO. It is NULL
+until mt7530_setup_mdio() runs, when the mdio node is disabled, and after
+devm_of_mdiobus_register() fails. Could the comment mention those cases,
+and that core_write() and core_rmw() only use child_bus as a fallback
+when bus is NULL?
+
+>   * @regmap:		The regmap instance representing all switch registers
+>   * @rstc:		The pointer to reset control used by MCM
+>   * @core_pwr:		The power supplied into the core
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261028011317.1557238-1-cjd%40cjdns.fr
