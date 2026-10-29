@@ -2,141 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D795606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 14:47:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D97D2606A334
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 14:48:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=O/9TRTD9;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=C24RJi3Q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gt8MLovW;
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=JAsBHlyg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=+kYNaT71jzZr5ZSjBxXnHzDnZDBDgBGTxuWKibuzugg=; b=O/9TRTD9IUvgAyI1FddL3tGqCv
-	6FGmTiG2pctHULzpQnSERoNy9JlhKbYcqBsQmyPr7YsuVN7PC0AzpnhmSXc8NvvxxC/8dBn4J2A/G
-	m70H/xNiiH4GWvJwNto0puHZ6+gQxtW8ORQcO6ZUf+LZJvgI2pStnCtkDri9RT4Qek5SPDEJ8uLcz
-	IlRSAfwNyU9xUKCLc8ita1RrzkoLBn7yK2H0+l/hqsnGp998/5RsHyHJ8EsCDpoPOm/tUSB0t8zVP
-	UFVMHkkrKVxenN5vnR1uqtHJr+9eUktdf3fB8UrqQ9kS1J8YbwelrVp4cJPCRXqFmOi/KoDamjFc0
-	N9fGSpjg==;
+	bh=rYx2o3gijQmZuTC0ciGcs4WWs3e4lACvz9sf1x+Hvdg=; b=gt8MLovWbuGzACpMYYwNt8RUkk
+	Vev72bM7bUtFcHortuMs+bSLOOb1uaO98mSITCDsUFSAJyZHN7MHoyrJ8ELa0LMs2CVS2myfQLoyA
+	0BNvFQVtNBuRuDTN1jypW00/kd4oTdR9huOMYO7zLxKzJIeUfQZIfuACtUJLb37NCmMan11VGepcF
+	5W2FlXQFoTcffUoQhmVIa8UstwSSwVOvd/ejQLaf+QTJR3jKdQd7VjT9dEt6BR1J0n5+6xBbfUQst
+	JpvmDtp61Z3N65vxFvU/rRHyl1G1V7EEpdDInM+K3Y80BM4lSlARjHSKSN+BHjtdWl9GDQUKUlgvM
+	XMFGdQfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMRPN-00000009Yr9-1KvM;
-	Thu, 29 Oct 2026 14:47:13 +0000
-Received: from mail-francesouthazon11011049.outbound.protection.outlook.com ([40.107.130.49] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xMRQu-00000009ZBv-2Cxd;
+	Thu, 29 Oct 2026 14:48:48 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMRPK-00000009YpY-3EV9
+	id 1xMRQq-00000009ZAO-2hbA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 14:47:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MW4qEf5DhgP0LYc9n1eQyYwt9dWKEuy3cvRjIN/rs2g3hv7Xur2WZ1aXAoZgXrwXcnp5B2aXHL4nIkJTOeikSVk4bGfDksY0YXqszZvaNTFeTOc7sZdlS0BGLXkB7DND/Zt6xz4VJlpyplLaWVFb4/O32yLMSwbHbb7dMYyZAldSQdEAg4zUQ8n3bu34di8d9H4Ced+e1RtnE9D2WXGdRcOnCOcFhP7K55/va3JbAU0+k242hfs0GosIXU5ncjHdebqlygoIm7BEueZ+OibvBECJXuBw0ABceksT6oPgf6Gl2f3Vv5DZsx668pE8KwW2jQCLJRloAg7LWd6N6JaYfQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+kYNaT71jzZr5ZSjBxXnHzDnZDBDgBGTxuWKibuzugg=;
- b=k7FODVbY3TuKvez5KmNclwNEa9+ru0uviOzzI8I2Md33gqHpk7xdQyPnPBeC0fqhZxa/yOlc0KHBOlOujKeONlXp6NWGiFwYUJ/tSAlzcNm26b9RD49ba//NhMDxs9nj1BK2inn5eQN7H/+Yo7Rjhz5dpSLi/UaP+8+a7yt90LNJVDYUV4guiP4yYeF7p8UCDY4bRbhCXSmLKIA3UubePbvzjQv/yWAbVcqWdLIIRZ33iZXlJKZsqzRYucsVjYvPM1wSqkNkXORI63SWf8LLJZw7po4vqAZLUqOUhsyTZKIr9ZNTX01ktzEbZ5YEEzPn0xFQaxHg2L2ukZd0wrJ1qg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+kYNaT71jzZr5ZSjBxXnHzDnZDBDgBGTxuWKibuzugg=;
- b=C24RJi3QEaTkQ5n4W4Q0a8QD669xg0S6kp/OPNnDHWdCtiCFSKtXWth+hRWHSpiFpGiwKcnriwaVL6yCiiKssJcZC3FjEcdsIrkLvHnIsf6/VjM0bSJOv47GaiBax/HcqJqQ0Dy4NfBcxH8ZC79DyiXegn4hgmU10Qj+JFNhh9qi8CIsmXzPNzSEPpJuvRjuvAIKm6uIJW++zef4u1opXSJ4vmk91SgrGgdtN/jAS3MYIep1AbZVxfuTCwMMCI1n26De1efkc/bHp6kv/eGRjP+RrR7F/ykeCd5t03/iFSPdPKGpZ0HZSYIQV7NxSuLQFUDGgzXNXu0aJgSl4eagCg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by MI9PR04MB882039.eurprd04.prod.outlook.com (2603:10a6:290:85::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.8; Thu, 29 Oct
- 2026 14:47:04 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0569.007; Thu, 29 Oct 2026
- 14:47:04 +0000
-Date: Thu, 29 Oct 2026 09:46:52 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stefan Agner <stefan@agner.ch>,
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 03/11] gpio: vf610: simplify with irq_set_irq_wake
-Message-ID: <auNcXJ0uLC4cLDum@SMW015318>
-References: <20261029-gpio-vf610-fixes-v1-0-45b484b4c434@nxp.com>
- <20261029-gpio-vf610-fixes-v1-3-45b484b4c434@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261029-gpio-vf610-fixes-v1-3-45b484b4c434@nxp.com>
-X-ClientProxiedBy: PH7P220CA0029.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:326::21) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	Thu, 29 Oct 2026 14:48:47 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id AA64F4E4138F;
+	Thu, 29 Oct 2026 14:48:39 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5AF8460360;
+	Thu, 29 Oct 2026 14:48:39 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0C1F4103290B1;
+	Thu, 29 Oct 2026 15:48:30 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1793285317; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=rYx2o3gijQmZuTC0ciGcs4WWs3e4lACvz9sf1x+Hvdg=;
+	b=JAsBHlygVcCjjl+a8i2eFqIt6iqwX6JK6zXmKxNFx7DdRxpTi4QBn/cE0S1bhLPA4lf9w1
+	1TymzazKULfzVjWVr9bK/f3tokRlHShH+Lq42IDzdYzJmb1dtHubTfCp4k4hWCB7e0pNHt
+	hawoUxsFyvwhQIxrNAXDWi7SG6qdbaNxRM1JDG2FqdaMI78RqtZ34fqlOzOj36ap6PpRvd
+	mp9DCeuGKNJt8wG3UKD2LcA3fEh+8qsqlry36ihJuc6W6D6ujkK25EVoAjC+3XX9bvJJxB
+	UexCAKuTsYoUFj5TZVhx/l4UOykqRmb0L4tNpU3wncrjndFu2l0Oy/brYw5NCQ==
+From: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+Subject: [PATCH v9 0/4] Add support for AAEON SRG-IMX8P MCU
+Date: Thu, 29 Oct 2026 15:48:20 +0100
+Message-Id: <20261029-dev-b4-aaeon-mcu-driver-v9-0-f9b6d0cc180d@bootlin.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|MI9PR04MB882039:EE_
-X-MS-Office365-Filtering-Correlation-Id: c390a5f1-6289-4b5a-e0c6-08df35cb7f92
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|19092799006|1800799024|11063799006|4143699003|56012099006|261009223027099003|261021123027099003|261021121427099003|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: YqP7JU5G5+rpHuOlO/2XpchuGUbt788HySjtmXVa7fvlCCQl7IC4jRuG1nYzrrYNBlHn4q3G+czCX5S3cgdUwh+74nKzzFpV0R/SZUDRl0eJ4Fd6NsSB0UGa9aAz1QMrdkX12+orYA1DXIn6yWfrBDdxAhsVns+UqYyhhgNdFi0IqBb184fqp1a8qtNiIVZA5Clx93DVVN4nC1GagH1O1Wtl7wqNgC3bNclKa+bAWXH14FGa5cw3F3jICkTreDUYuL59qs2FTePjkSkmlmsA2KeBecxOf/ZTJNTpZdmMTxE0twWryXEjJzoIJhO3FMNKDQOzA5yyWRIhP9CT+i8jpfhz52oMv23dU/H7p9MMi4gqebAXVjZUyVsnf35rUkhKJAr1anVH+H15DYjRqQVwExe7ibgUgoLJd0k6AVDqlAP591DaaeJvLr5eD+eJvDLIJhRvmcb+mtF2aGoogqLuHw4S2KiDTXgA7NolD0P/5djMEV4VORTBAyYwNluZ25UO4RnSB4jeJCMFIyrgrEE5OwwtF9v18QXllmfeWYW7LOlMcYrqL7t6+mRqOx47XxcxH3IJfKV4H+cKwyIS3l8qVKtxMy4aiJ1AT5TeN/iwBg4BsBnhVQI4sCUSdDqYYDmZFkhEKLdc2dKvrScs43S1/TB8sxpTpwl1NjV8+9AB/OQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(19092799006)(1800799024)(11063799006)(4143699003)(56012099006)(261009223027099003)(261021123027099003)(261021121427099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FKgiQOI+jA0F4kFWtVy7fX3WRF10537mCgXK0fShZbigIsGsBv69BuFP1eIb?=
- =?us-ascii?Q?9O8hKkTNqnzmy5KFfep2ckgMoc5fejs/g9bE1szhjPHvEorfLdHaGjKZ4We0?=
- =?us-ascii?Q?TuOENgPmbM3pyGj7+r+w8Y/q+jXOWLTR9YMdq3WTPxj+G4OW8HxeiQD0yuDU?=
- =?us-ascii?Q?b9/lydUz9xh+ePKrvacmD3Yjt4ysxQjOdZ9j7fYsxKPU2bQWAVz4+w1BXeIr?=
- =?us-ascii?Q?DZOUwP4Gs/QLsJ05oYLI+XPb/ERwCyyfS6mr6mf9MwoNfOmsDpHSUp9Y9d0+?=
- =?us-ascii?Q?Ldrt3okZq1Awve6+kuuifgnm3VRwdjqKYfeMVtiKgp8zareXuAbKE/wiffIi?=
- =?us-ascii?Q?r52okDaDMuz8PC9tjLEa5nIH9vp7CB157IciGs0rx67VlrwBlC7UPnrsJW4r?=
- =?us-ascii?Q?0RMXwo4jMAFpPcxOeVAQWiC+AYry/HZJqzTyXNcD5WEMXcv9dH9qXkENu74O?=
- =?us-ascii?Q?4yoiR5RE0svlvss+gXcJJ1bqY5Js+i+u7Q4Ib/BxQGS/WezFlVLCMNfvSWZL?=
- =?us-ascii?Q?sbNtfG69GqpGSE2hZrsw+jrFxTWQ1KH6hOFxntSENkI0nofEMw1Yda1yueq1?=
- =?us-ascii?Q?/jYokmFPKr2xJG8wssQl0m1GBYFfmAkcdLBSo3tV6GNHgm4aRFoaGT41mLq1?=
- =?us-ascii?Q?v1PZLmcyRo5oD+OjdwKgr9ras1jtpXGpKfrr+heZ8NvDZDvTkHAZ0DDULUoy?=
- =?us-ascii?Q?BlIJ3o/IsQeluPSBRRupVB8geFWQNHB+7ADfrhnRT055ojmeILPHN4gCqvLm?=
- =?us-ascii?Q?jfVGPWTPYEgVxst1f8lM7MniDJUPxl28dfKNqKW0Aado/H60LGWT9r6TqigN?=
- =?us-ascii?Q?RFosqjidSmMbt6MV+MvwXEpdVbydGIxhHtSQK1XwTu09wXsWIVLFuxNJeB7U?=
- =?us-ascii?Q?nOaFRSxTzvhq6mANeN+1q4JPCEYvT2M77mK6Q4vgFW5pJuWoSCeCTTUA9r6I?=
- =?us-ascii?Q?2ERFWN6TGNVbANJ9EkgJ32yY3dy6fIwyu9+fEhI2JkwLujrSwa/GST39WjTy?=
- =?us-ascii?Q?xjV0teDIzrA/Lac4QLYKp88LFIea/L9xiZKWetG31UVjECxN/V3NTn3/fI5r?=
- =?us-ascii?Q?094Xec006nzloC/C27zfyplMs6OWRICkGK6qGzZGCcdawh40LOQopzNTJB/Q?=
- =?us-ascii?Q?kYkKcEEgq4pFZ25xS2r81DKVtpEFLS2Ny6+sV+qPD9oo/yfcddzKDHwdbTLG?=
- =?us-ascii?Q?OAxgbaWtC2vnYEeo05uk3jspBOj0pbqCVqwM1EJWSp4RUWzEcPsS3tfUPys1?=
- =?us-ascii?Q?bYdJEuLR34HYAb0by0/mP31wj2GuNKiDxZpQz4nK1i0rTaNrC9/uvfVQ+mNc?=
- =?us-ascii?Q?/YIc3879dEANmrVyE4fT+PS4AaEdM46m4aO4eq6ksz3Qo38qY72cD2oWzy6i?=
- =?us-ascii?Q?oN3vXzLsUSRpdQXuWy9FTQrAIabZO8RdXqXa6cyjdpCRAfItMCn9zvIvrjIU?=
- =?us-ascii?Q?I67A5HyJwMciuiBRZoRf6VSnRgETkF++wzxTT0mYMvZzgp+NsAKSpChXu4MK?=
- =?us-ascii?Q?Fo99DHzF6AM2CSo0te1GuZy+3EdbxTwz5eoXAwaFR2XULix/3mmcRwsZWbO5?=
- =?us-ascii?Q?FZtTF51jrxaBS08zzG/Q1pJIE/UJJ8T1imVFKjygxfQCL7/6LLuXKrEK/vpu?=
- =?us-ascii?Q?bltsHaSdmAW3OXUSy2c+7CcnJ99znAre2bsu04u3QB+t+kGdUdY2UlR+kcJO?=
- =?us-ascii?Q?76zon7781/3OmfggkwoqFyiyVZCkgiBHUAV7Kppyx9wCFw80mly+/ywkexnf?=
- =?us-ascii?Q?bf9O2BsxcusDOq1HmqWA9u3tvVE7FgHSjUL4DEyp4PYI4zQM41r9?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c390a5f1-6289-4b5a-e0c6-08df35cb7f92
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2026 14:47:04.7431
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GCuYC/rofdHXOU65b3oITvCYA9+o2g0XguW5T70x91Lc2JjEpiuuBxybx4FjDT9jw/tesnn3vxm32rm544Dy7QykSxlw0nObUR2I8lT0/J357JqkhTh1+amXZwSLZyy4
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI9PR04MB882039
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XSS07EMAwG4KuMuibIcd6suAdiEefBRGJa1A4Va
+ NS7k45AZVRalr+lfLZiX5oh9SUNzcPh0vRpLEPp2hrc3aEJR9++JFZizQ0CKo6cs5hGRpJ5n7q
+ WncI7i30ZU88SJOsSZekzNfX1W59y+bjKT881H8tw7vrPa6ORz9X/zZEzYMpR9px8EFk8UtedX
+ 0t7H7rT3ORbwH1BU9SKgk2Z440wzzXizywaOIptCavksgwAlEkFWktikRB2JFEl8NxJgWC0D2t
+ JLpJAuS3JKtX/Bs5jlsbJtaQWSYLdltQsRWcpSsu1tmtJL5IWsC3pKkWtSeVAETOsJbNIBsy2Z
+ KoUvA7K+bpB88fu7C9J7NyRnXfnCeqNQszob6Vpmr4ATGGjmQgDAAA=
+X-Change-ID: 20251211-dev-b4-aaeon-mcu-driver-e0e89ebf4afb
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ =?utf-8?q?J=C3=A9r=C3=A9mie_Dautheribes?= <jeremie.dautheribes@bootlin.com>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>, 
+ Frank Li <Frank.Li@nxp.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, mfd@lists.linux.dev, 
+ "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_074710_813900_0BB0C173 
-X-CRM114-Status: GOOD (  16.75  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261029_074844_975601_FBBADF76 
+X-CRM114-Status: GOOD (  26.56  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,52 +94,169 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 29, 2026 at 09:42:27PM +0800, Peng Fan (OSS) wrote:
+This patch series introduces support for the AAEON SRG-IMX8P embedded
+controller (MCU). The MCU is connected via I2C and provides GPIO and
+watchdog functionality for the SRG-IMX8P board.
 
-subject: need () after irq_set_irq_wake
+The series includes:
+- Device tree binding for the MFD driver
+- MFD driver that serves as the core driver for the MCU
+- GPIO driver implementing the GPIO functionality
+- Watchdog driver for system monitoring
+- MAINTAINERS entry for the new drivers
 
-Frank
+The drivers follow the standard Linux kernel subsystem patterns, with
+the MFD driver registering the sub-devices (GPIO and watchdog) which
+are then handled by their respective subsystem drivers.
 
-> From: Peng Fan <peng.fan@nxp.com>
->
-> Replace the manual enable/disable irq wake logic with a single call to
-> irq_set_irq_wake() to simplify code.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/gpio/gpio-vf610.c | 8 +-------
->  1 file changed, 1 insertion(+), 7 deletions(-)
->
-> diff --git a/drivers/gpio/gpio-vf610.c b/drivers/gpio/gpio-vf610.c
-> index 44b846ff1b93..eccc79a4d96b 100644
-> --- a/drivers/gpio/gpio-vf610.c
-> +++ b/drivers/gpio/gpio-vf610.c
-> @@ -188,14 +188,8 @@ static int vf610_gpio_irq_set_wake(struct irq_data *d, u32 enable)
->  {
->  	struct vf610_gpio_port *port =
->  		gpiochip_get_data(irq_data_get_irq_chip_data(d));
-> -	int ret;
-> -
-> -	if (enable)
-> -		ret = enable_irq_wake(port->irq);
-> -	else
-> -		ret = disable_irq_wake(port->irq);
->
-> -	return ret;
-> +	return irq_set_irq_wake(port->irq, enable);
->  }
->
->  static const struct irq_chip vf610_irqchip = {
->
-> --
-> 2.51.0
->
->
+Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
+---
+Changes in v9:
+- mfd: hold the I2C segment lock across the MCU command write and the
+  response read, so no other transfer on the same I2C segment can land
+  in between; the STOP between the two is kept
+- mfd: read the response through the driver's DMA-safe buffer instead of
+  flagging the regmap caller's buffer as I2C_M_DMA_SAFE; reject writes
+  that are not a single 3-byte command
+- mfd: add .readable_reg so only the GPIO input and watchdog status
+  registers can be read; any other address is a command that a read
+  (e.g. through the regmap debugfs registers file) would execute
+- mfd: drop "Multi-Function Device (MFD)" from the commit message and
+  document the bus locking and the readable registers
+- dt-bindings: document the timeout-sec property read by the watchdog
+  driver and reword the watchdog description accordingly
+- gpio: move GPIO_AAEON_MCU to the "MFD GPIO expanders" Kconfig menu
+- watchdog: set min_timeout to the 25 second hardware heartbeat, as
+  shorter timeouts cannot be honoured
+- watchdog: honour CONFIG_WATCHDOG_NOWAYOUT with watchdog_set_nowayout()
+- watchdog: fix the timeout comment and commit message (timeout module
+  parameter, not a "watchdog_timeout" boot parameter); align the defines
+  with tabs
+- MAINTAINERS: keep the F: entries sorted
+- Link to v8: https://lore.kernel.org/r/20260731-dev-b4-aaeon-mcu-driver-v8-0-9ab00e80df2a@bootlin.com
+
+Changes in v8:
+- mfd: add .use_single_read = true to regmap config; the MCU produces exactly
+  one response byte per command and a bulk read passing val_size > 1 to the
+  bus callback would be incorrect
+- watchdog: call watchdog_stop_ping_on_suspend() in probe so the kthread ping
+  worker is cancelled before platform devices are suspended, preventing I2C
+  transfers on a suspended bus
+- watchdog: check watchdog_hw_running() alongside watchdog_active() in the
+  suspend/resume callbacks so watchdog is stopped before sleep and restarted
+  on wake, preventing a spurious MCU reset if suspend exceeds the 25-second
+  hardware timeout
+- Link to v7: https://lore.kernel.org/r/20260707-dev-b4-aaeon-mcu-driver-v7-0-ca6c59abd672@bootlin.com
+
+Changes in v7:
+- mfd: fix select REGMAP Kconfig entry indented with spaces instead of a tab
+- mfd: use devm_kcalloc() instead of devm_kzalloc() for the cmd buffer allocation
+- mfd: add .use_single_write = true to the regmap config to prevent regcache sync
+or debugfs from issuing multi-register writes that would overflow the fixed 3-byte
+cmd buffer
+- watchdog: remove max_timeout; it is documented as irrelevant when
+max_hw_heartbeat_ms is set and is silently ignored by the watchdog core
+- watchdog: pass dev->parent to watchdog_init_timeout() so that the timeout-sec
+DT property is correctly read from the MCU I2C node; the MFD child platform device
+has no of_node of its own
+- watchdog: add suspend/resume PM hooks to stop the watchdog before entering sleep
+and restart it on resume, preventing spurious resets if suspend lasts longer than
+the 25-second hardware heartbeat
+- Link to v6: https://lore.kernel.org/r/20260630-dev-b4-aaeon-mcu-driver-v6-0-d66b5fcbd2f0@bootlin.com
+
+Changes in v6:
+- mfd: rename local variable to ddata in probe
+- mfd: fix driver name from "aaeon_mcu" to "aaeon-mcu"
+- mfd: set I2C_M_DMA_SAFE on all i2c_msg flags so the host driver
+  skips bounce-buffering the heap-allocated DMA-safe buffers
+- mfd: drop COMPILE_TEST
+- gpio: replace __set/__clear/__assign_bit with atomic set_bit/
+  clear_bit/assign_bit to fix potential races on shared bitmaps
+- gpio: write output value before switching pin to output mode to
+  avoid a potential glitch on direction_output
+- gpio: add MODULE_ALIAS("platform:aaeon-mcu-gpio")
+- watchdog: add WDIOF_SETTIMEOUT and watchdog_init_timeout() so the
+  software timeout is configurable via ioctl, DT timeout-sec or
+  the watchdog_timeout boot parameter
+- watchdog: add watchdog_stop_on_reboot() to prevent a spurious
+  reset from the external MCU during system shutdown
+- watchdog: add MODULE_ALIAS("platform:aaeon-mcu-wdt")
+- Link to v5: https://lore.kernel.org/r/20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com
+
+Changes in v5:
+- mfd: use heap-allocated DMA-safe buffers for I2C transfers, replacing
+  stack-allocated buffers in the regmap bus callbacks
+- mfd: switch from REGCACHE_NONE to REGCACHE_MAPLE; add volatile_reg
+  callback marking GPIO input read registers (opcode 0x72) as volatile;
+  add max_register
+- mfd: use PLATFORM_DEVID_AUTO instead of PLATFORM_DEVID_NONE
+- mfd: use MFD_CELL_BASIC() macro for cell definitions
+- mfd: use dev_err_probe() for regmap initialization error
+- Link to v4: https://lore.kernel.org/r/20260324-dev-b4-aaeon-mcu-driver-v4-0-afb011df4794@bootlin.com
+
+Changes in v4:
+- mfd: switch to a custom regmap bus; remove aaeon_mcu_i2c_xfer() and the aaeon_mcu_dev struct
+- mfd: locking delegated to regmap's built-in mutex; drop explicit mutex
+- mfd: remove firmware version reading at probe time
+- gpio, watchdog: use regmap_read()/regmap_write() via dev_get_regmap()
+- include: replace aaeon_mcu_i2c_xfer() declaration with AAEON_MCU_REG() macro
+- dt-bindings: remove unused label from example node
+- Link to v3: https://lore.kernel.org/r/20260203-dev-b4-aaeon-mcu-driver-v3-0-0a19432076ac@bootlin.com
+
+Changes in v3:
+- Renamed SRG-IMX8PL to SRG-IMX8P
+- dt-bindings: add gpio-controller properties as required
+- mfd: move struct aaeon_mcu_dev from header to .c file (private)
+- mfd: use guard(mutex) and devm_mutex_init() for cleanup
+- mfd: firmware version log changed to dev_dbg()
+- mfd: add select MFD_CORE to Kconfig
+- Kconfig: add || COMPILE_TEST to all three drivers
+- watchdog: add comments explaining hardware timeout and WDOG_HW_RUNNING
+- watchdog: remove unused platform_set_drvdata()
+- watchdog: add a function to query the status
+- Link to v2: https://lore.kernel.org/r/20260123-dev-b4-aaeon-mcu-driver-v2-0-9f4c00bfb5cb@bootlin.com
+
+Changes in v2:
+- Fold GPIO and watchdog bindings into MFD binding
+- Drop OF_GPIO dependency in GPIO Kconfig
+- Use __set_bit/__clear_bit/__assign_bit instead of atomic variants
+- Various driver cleanups and improvements
+- Link to v1: https://lore.kernel.org/r/20251212-dev-b4-aaeon-mcu-driver-v1-0-6bd65bc8ef12@bootlin.com
+
+---
+Thomas Perrot (Schneider Electric) (4):
+      dt-bindings: mfd: Add AAEON embedded controller
+      mfd: aaeon: Add SRG-IMX8P MCU driver
+      gpio: aaeon: Add GPIO driver for SRG-IMX8P MCU
+      watchdog: aaeon: Add watchdog driver for SRG-IMX8P MCU
+
+ .../bindings/mfd/aaeon,srg-imx8p-mcu.yaml          |  69 +++++++
+ MAINTAINERS                                        |  10 +
+ drivers/gpio/Kconfig                               |   9 +
+ drivers/gpio/Makefile                              |   1 +
+ drivers/gpio/gpio-aaeon-mcu.c                      | 230 +++++++++++++++++++++
+ drivers/mfd/Kconfig                                |  11 +
+ drivers/mfd/Makefile                               |   1 +
+ drivers/mfd/aaeon-mcu.c                            | 221 ++++++++++++++++++++
+ drivers/watchdog/Kconfig                           |  10 +
+ drivers/watchdog/Makefile                          |   1 +
+ drivers/watchdog/aaeon_mcu_wdt.c                   | 171 +++++++++++++++
+ include/linux/mfd/aaeon-mcu.h                      |  40 ++++
+ 12 files changed, 774 insertions(+)
+---
+base-commit: 35bf755b02a03649e2cb63827649fa67e0edbd30
+change-id: 20251211-dev-b4-aaeon-mcu-driver-e0e89ebf4afb
+
+Best regards,
+-- 
+Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
+
 
