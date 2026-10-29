@@ -2,87 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E65F7606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 12:54:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25E56606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 12:54:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SOlSjdZ2;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=QTq45ZbM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wi7kk1fD;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=MzVw2Drp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=MlnO/XQNGCl3Ib1nyxoNZ+8myRyO4vnZro6S1iLdVc4=; b=SOlSjdZ2uxfojt
-	jHxf/fM1N09iBIumwKBHgfXAZOE6dUTHz/WritWSL8sJWQfLrPuckcJrsDvE3n0i+isrDlPLVP8k0
-	/gdSVualbP9qZ9r7Humcw1wAqy6WRaspxLIu0YwgAFwNwDgItemaQ6SNICtNJoncSZSQ1lCUZ5Mt2
-	MC9kcVwdjNdQ2JPmdOrMcqaxaWAnJwNXUtwY8e5o9dC2CsNE75IByPoMvU604Hm3QQCcZ7LdN/8kr
-	bNbrl3V5iQYa5+xJ57bWP0gHcuz2lU4+fIZdef2/GdHxz54kq3kz6pkWOgEjkDS6Qv9LvnmGkjfvZ
-	IRE2GkDy3JIbL705RJgw==;
+	List-Owner; bh=mDWvJ/spQ38SUWYEopGVk8Tl0kmsuPeTE8Bb7tZRtgU=; b=wi7kk1fDMLfE1n
+	6NQpUNvAFYTSJknA2c7S0byCv8fixUYGR0HLotl22t8JwGFsI+SfRMzFCw4t4AYjvPeRWUxd+HZN8
+	4wyxm8nMJkxifXnvJQeep/X3XnMA0dwx074BRgFlCdmIljIv8cc/Fk4t8lYSHVxXtTBYK8SYg7MxF
+	Q6qkZwYzyyRn5ys9DL6fGs8Ok/46sr/LsUyfNjKJLV654/do7FNHDW/GI8BjDPN3jXrjridj+U4lu
+	RRrJ367E8cgf0kHDjr0DzS5Z+QNRNuWcDjXO5STjA2wEVIlfvoW/arTYLJqWwnW+pdNTzcAYIZx5j
+	BqsnPy+5PX5Fmiwblb4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMPeU-00000009FXM-32ft;
+	id 1xMPeU-00000009FXn-3mXR;
 	Thu, 29 Oct 2026 12:54:42 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMPeK-00000009FRI-3c80
+	id 1xMPeI-00000009FQ1-40Nz
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 29 Oct 2026 12:54:34 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a2167bd087so21508055e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 05:54:31 -0700 (PDT)
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-48b042c0759so1082117f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 05:54:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793278470; x=1793883270; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1793278468; x=1793883268; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=MlnO/XQNGCl3Ib1nyxoNZ+8myRyO4vnZro6S1iLdVc4=;
-        b=QTq45ZbMcDmJruseNY9ooZB8tAozWhG1Nr3fLrdev/hnEh9b7QyGw8pPVFLmhtuYkW
-         NCF+5FaIT25I+WaD02BuqU1e6L3AK9ZhFQVzXK6MG1YD18/Zyp3iWHDGfnIXQApu8wce
-         mpU8YfdBigc4mlk8KK6Wc1lYQUIiLszeQSxBFzfqgo2/Zrf9e7oQwUenmVv9t0jFTH0T
-         2/EAjBV1YPNGVojMfcgm22ZHqC/+mJPzLEhVXnpnfHfZoAxPqEo6Xy6Q4t/IsnFBqylK
-         Q2ePkrmr0VnxG6kVDoe9XPIqYQU1Quwtc/LD/pwBrLbODZ+tG/+9+XmL2xg+z/52Nxo0
-         MQZA==
+        bh=mDWvJ/spQ38SUWYEopGVk8Tl0kmsuPeTE8Bb7tZRtgU=;
+        b=MzVw2DrphdmFHBGtGIug0rFNC+JVBul7Q0F0eXYNar0151jgltdyy+3RXx55ASovhO
+         RlSjHlpEH166v412ubKvLJ1q9U66mwy/0Fsg99gDP278+jDNNGaN7qkg9pSJNYO2SKrp
+         DdlSmv/UKbs2a27h6CX6tdhDWxrarJKArbo5AKMwINnWUmgTiaaWQCnnAgkdLAZ389rh
+         jc2KNUs32f2Hr3h8SflGZq23JdJehB3F34lPMDjd32tRo7aLQ6q03+mbO/nqu7yl1LDM
+         V9AtEFmzLPK87QrcQk/HRfbkV5htsNSo9IxsQbx2MmGpfo0XEanHrp9fGOTjRf/EN4RX
+         IJDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793278470; x=1793883270;
+        d=1e100.net; s=20260707; t=1793278468; x=1793883268;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=MlnO/XQNGCl3Ib1nyxoNZ+8myRyO4vnZro6S1iLdVc4=;
-        b=RnDGrI2NagHMqtXdVhTA+d2ERStyyR+dzOE98i52tlreUYu+DBrJ5QhE2FA8CXxGft
-         wu4Ie0KzIcT7EMCvxwgggxNEmbBcww247rWBCuNgOS8Pk1IcSMguSm9gPqrHlFBKoG7v
-         p21owcD7pMX/nZU05OH+ml0FiSpx2T0+T52xgzcS9wQ6nrKjHEfkgf3Q2sAQotlFLKSE
-         Tv+obOHZkcvBsEbdVkqx0j5jyzVC6xDdjwzQKB66PzE26PirswweUm1a8lzfkuftg//s
-         dGigqRXsD93YfKg3M2zJoYdF2l3hLmpsuAJByrwLXLy1pNkOjWrWEfYEPMrC3RfQA353
-         2+Tw==
-X-Forwarded-Encrypted: i=1; AKwUvBxOXp7d3e65CerYYGAgdqUIKXkK1uWMnLigVT6ziopC1ZBZrhEHRKRtx8UQrfbyCz7CAlKaSdgYwjJ6t0kO5pXG@lists.infradead.org
-X-Gm-Message-State: AFq9FYI1StMKDKeROODSPbsiLhPgBmRZZFiQTFwM/LHmtY6tUIUmq8RK
-	ei0NBa9WO9Rp9u17no0zp4xWZKDe2zbQwjLOX8r4iZtpndLBmeVYryf3g7TeadqyBR0=
-X-Gm-Gg: AYBFou1OqPC1YRlMyHkRlKIwY/33NvM3+dgel5/fQVpgnZEEypuMylb0f2Eu+R49Z0i
-	086is0oNJbl7JZfQSdiL7EeMVWFiugn3pt/Uj8MdfP9XVUvZff3XUIjVFB1ofdP9mpG3RESXkhA
-	Y025Ps7X92Iwzis96Qvfux/MyW8W9gT8nCA3MnIORA5NbnohyBtyCDjFdG9xj+alWoXRGFViljm
-	djLqD+Auq7VgcoHfxgfZXlg1a637LAPnjU6Ir8NqyYTMvmw/sa3n/Vf2Y/FTCKkx9MKi8qCKzDu
-	4Sabm5uhy0Ukll9QVwbJqdG0kempj/t7B5YLIXctRB39QRnp5bp/wogKw2hlczjuQCpqukIF+3L
-	qAkdI8n8vUipCTSJmi3PoGV1DI35dzp1j9k27qJqtRMqr2nedlHrv5+N6CLWSnxdXOkdB4sH69f
-	Gv16Y/hupqXFYSb73zeNoJ5ZHkBbqAs2/vO7p61B5oEtJ73uI+hQUPvAoolyOeDSY60+xDRYlZT
-	3/i4UMWgqY7ksfkes7OyCrk/86WljXwenvZNsVnvUQuNca97NLHHHEQIXK0qb5QFOuExPLz17QN
-	Ur8HPtXHdDY+Do5sK8NaMvpj9LLPHsv0N4qHZFbjezbpHMBcEYp4ctn5LJRROnfTW5ibIAkikhK
-	5vIUEulIqw33vvIeo4NRJLsbrmvXNhj9q1oJLvYh82g+NqA==
-X-Received: by 2002:a05:600c:6095:b0:4a7:d9b1:b684 with SMTP id 5b1f17b1804b1-4a9643d51aamr113545565e9.2.1793278470416;
-        Thu, 29 Oct 2026 05:54:30 -0700 (PDT)
+        bh=mDWvJ/spQ38SUWYEopGVk8Tl0kmsuPeTE8Bb7tZRtgU=;
+        b=dBeZKEKvIqNgGE4FeIE6Tnd79pZ+X+wrGP7FQf4/EJxJ5Z1nMRbftjKHAtEunc0JR3
+         xBZe2bqJITT9S+YE1MsYqev09+hIiFxE3LOY+i/5cXlZSxV4FpD2v68jgo2qow+eZR3J
+         B9/cDAeWT3J7Of98B5cDPYJRDKItTwoU2H7m4o3bD6q1c+SltaO2CMTfb2gf83g6ycwD
+         yo3SmJakZKcWiL7N1RbyYzVvaxdOTNfA9S02bBzkKFqYDZEYfCESKyM3BMktbivwyUXW
+         X3iHlqb3fZibQ0NHXFku+yJpk5WeHgPNxLc+CTPVP/gu1L/nm3P1xyfv/6o258OecIwc
+         Fr0w==
+X-Forwarded-Encrypted: i=1; AKwUvBxW7MRqr+dTNfJEdE6+/NZO+qAFP5kFgrZzsco7k02lkcVoWSGsBq1cDtRCuvRuw1Q8/gawKJcOpuzmPebQ1MX4@lists.infradead.org
+X-Gm-Message-State: AFq9FYKRWHtiMH75JeYpLW/Avgm6sTVSqzgjgFcrMQ7pgdTaY/WiXI38
+	ILty3HH9M929qhp29Xl/QWFQ1vCnX48SFmsyY4KPFrPgEp+y/zqIzZaNKN8FwuqoA/k=
+X-Gm-Gg: AYBFou0mkdU4UmPNCGyLuDq44r12NAle3ZxsAKMf6fXxTIPDDTfdca5hOjhfaOhFlVT
+	sgHeZXQ/6e40OItOofqpK4dK6vGzXKnSu3sEnadBB4AWaaUeUygNfcaiZVhtcCtv5i9xpiCkDWV
+	5MuSYPPI0Ve1/drVxlH2BjEJBawOaGMViEZAyljzWMQ1fBmPkO1m1/K4i0rFDpWQkdQtNSVXit6
+	ty9jaXa8P8J6ATb1zJ0lw9Iaz9O+JSJTroBhsxGO1UObiX5cVUpvCBLoKkFwfJtVuFNp2gwt9OQ
+	rCECj07t3cOohMs1MHQbGZokATI8Vu3tC5c88DmdzuE5u/bd+w94rpqTqvmLbJSKky9Hz6YQ/Vp
+	wLCB8+4MWOVAFEJnhvSX8JAXsuJL/Nc6b7TYCpoJbu+XDarts7fkvG5OG/1GJsIez8q6JZmAPqn
+	6DJ6k/Hrv2J7GohsU7Nb+tGIGWP4BvWUSBp/KYRMy4afn0FArZJVtPsDjp3V7yr2auZknHCzG6p
+	7PVzSpH8blWfYfWGSkIF0sudzId1npOdMTavveqqx/Zvgr0HKdc+B5K0CdKbG1nyWlk9bp0khkH
+	q90Ec5WBW0R4Y8+kHO5a7pWJNQEhT3kls0FQMVRlej9RnwnlApdnNskEy3MH7WN6O3oa3wmaEUv
+	QK5XmUCxTmqAc5vyLlj3C+Xm5eb/MFtecBeUSl6hrtOChCC1NkI9YfxFohuwCV0iDbK90
+X-Received: by 2002:a05:6000:29cf:b0:48e:2a04:4ea3 with SMTP id ffacd0b85a97d-48e5d284e09mr8938581f8f.8.1793278467853;
+        Thu, 29 Oct 2026 05:54:27 -0700 (PDT)
 Received: from macbook.homenet.telecomitalia.it (host-95-246-144-141.retail.telecomitalia.it. [95.246.144.141])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebc39a8sm35034622f8f.11.2026.10.29.05.54.28
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebc39a8sm35034622f8f.11.2026.10.29.05.54.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 05:54:29 -0700 (PDT)
+        Thu, 29 Oct 2026 05:54:27 -0700 (PDT)
 From: Carlo Caione <ccaione@baylibre.com>
-Date: Thu, 29 Oct 2026 13:54:21 +0100
-Subject: [PATCH v2 3/3] clk: meson: regmap: use the current divisor for
- read-only clocks
+Date: Thu, 29 Oct 2026 13:54:19 +0100
+Subject: [PATCH v2 1/3] clk: meson: gxbb: add the missing HDMI divider /4
+ alias
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-upstream-clk-regmap-ro-divider-v2-3-7a375fd8f88e@baylibre.com>
+Message-Id: <20261029-upstream-clk-regmap-ro-divider-v2-1-7a375fd8f88e@baylibre.com>
 References: <20261029-upstream-clk-regmap-ro-divider-v2-0-7a375fd8f88e@baylibre.com>
 In-Reply-To: <20261029-upstream-clk-regmap-ro-divider-v2-0-7a375fd8f88e@baylibre.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -94,8 +94,8 @@ Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
  Carlo Caione <ccaione@baylibre.com>
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_055432_927666_CFAA553A 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20261029_055431_000805_A461D5DF 
+X-CRM114-Status: GOOD (  13.97  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,80 +115,38 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-None of the Meson clocks using clk_regmap_divider_ro_ops set
-CLK_DIVIDER_READ_ONLY. Without that flag, the shared rounding callback
-can choose a new divisor even though these ops cannot program it. The
-clock core may then adjust child clocks using the wrong parent rate.
+On GXL, HDMI PLL divider values 2 and 3 both select /4, but only value 2
+is listed in the table. Reading value 3 therefore gives an unknown
+divisor and an incorrect clock rate.
 
-Make the read-only ops always round using the current hardware divisor.
-Parent rate changes remain allowed with CLK_SET_RATE_PARENT.
+Add value 3 to the table. This also avoids a division by zero when the
+read-only rate-rounding helper uses the value read from hardware.
 
-Fixes: ea11dda9e091 ("clk: meson: add regmap clocks")
+Fixes: 5b1a43950fd3 ("clk: meson: gxbb: Limit the HDMI PLL OD to /4 on GXL/GXM SoCs")
 Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
 Signed-off-by: Carlo Caione <ccaione@baylibre.com>
 ---
- drivers/clk/meson/clk-regmap.c | 34 +++++++++++++++++++++-------------
- 1 file changed, 21 insertions(+), 13 deletions(-)
+ drivers/clk/meson/gxbb.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/clk/meson/clk-regmap.c b/drivers/clk/meson/clk-regmap.c
-index 1ed56fe63cae..002e16865109 100644
---- a/drivers/clk/meson/clk-regmap.c
-+++ b/drivers/clk/meson/clk-regmap.c
-@@ -120,26 +120,34 @@ static unsigned long clk_regmap_div_recalc_rate(struct clk_hw *hw,
- 				   div->width);
- }
+diff --git a/drivers/clk/meson/gxbb.c b/drivers/clk/meson/gxbb.c
+index 7a7b104182ff..8cb6404c0efd 100644
+--- a/drivers/clk/meson/gxbb.c
++++ b/drivers/clk/meson/gxbb.c
+@@ -350,12 +350,13 @@ static struct clk_regmap gxbb_hdmi_pll = {
  
--static int clk_regmap_div_determine_rate(struct clk_hw *hw,
--					 struct clk_rate_request *req)
-+static int clk_regmap_div_ro_determine_rate(struct clk_hw *hw,
-+					    struct clk_rate_request *req)
- {
- 	struct clk_regmap *clk = to_clk_regmap(hw);
- 	struct clk_regmap_div_data *div = clk_get_regmap_div_data(clk);
- 	unsigned int val;
- 	int ret;
- 
--	/* if read only, just return current value */
--	if (div->flags & CLK_DIVIDER_READ_ONLY) {
--		ret = regmap_read(clk->map, div->offset, &val);
--		if (ret)
--			return ret;
-+	ret = regmap_read(clk->map, div->offset, &val);
-+	if (ret)
-+		return ret;
- 
--		val >>= div->shift;
--		val &= clk_div_mask(div->width);
-+	val >>= div->shift;
-+	val &= clk_div_mask(div->width);
- 
--		return divider_ro_determine_rate(hw, req, div->table,
--						 div->width, div->flags, val);
--	}
-+	return divider_ro_determine_rate(hw, req, div->table, div->width,
-+					 div->flags, val);
-+}
-+
-+static int clk_regmap_div_determine_rate(struct clk_hw *hw,
-+					 struct clk_rate_request *req)
-+{
-+	struct clk_regmap *clk = to_clk_regmap(hw);
-+	struct clk_regmap_div_data *div = clk_get_regmap_div_data(clk);
-+
-+	/* if read only, just return current value */
-+	if (div->flags & CLK_DIVIDER_READ_ONLY)
-+		return clk_regmap_div_ro_determine_rate(hw, req);
- 
- 	return divider_determine_rate(hw, req, div->table, div->width,
- 				      div->flags);
-@@ -176,7 +184,7 @@ EXPORT_SYMBOL_NS_GPL(clk_regmap_divider_ops, "CLK_MESON");
- const struct clk_ops clk_regmap_divider_ro_ops = {
- 	.init = clk_regmap_init,
- 	.recalc_rate = clk_regmap_div_recalc_rate,
--	.determine_rate = clk_regmap_div_determine_rate,
-+	.determine_rate = clk_regmap_div_ro_determine_rate,
+ /*
+  * GXL hdmi OD dividers are POWER_OF_TWO dividers but limited to /4.
+- * A divider value of 3 should map to /8 but instead map /4 so ignore it.
++ * Divider values 2 and 3 both select /4.
+  */
+ static const struct clk_div_table gxl_hdmi_pll_od_div_table[] = {
+ 	{ .val = 0, .div = 1 },
+ 	{ .val = 1, .div = 2 },
+ 	{ .val = 2, .div = 4 },
++	{ .val = 3, .div = 4 },
+ 	{ /* sentinel */ }
  };
- EXPORT_SYMBOL_NS_GPL(clk_regmap_divider_ro_ops, "CLK_MESON");
  
 
 -- 
