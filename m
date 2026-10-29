@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1F5E606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 02:03:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 529E5606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 02:03:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KlBYFt2T;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cejqZiFg
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Bdp0tGqb;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CWWRF/bW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
@@ -14,36 +14,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=tmgA/zzSqwAj+KhU/5eMn9wiP0QhHj5jnCg6dxwSyVA=; b=KlBYFt2TrffvLqlxJZ2L0paNAb
-	grVFohMO1sw+AllYxW8+cJQj+DQb+hQnnCmRXGFmOI5SaRIjcAnQKXet4hIO5XYQR7kz9EnCnbJOw
-	jKKSGJQmfrbVCpQA8RqUgQPrh2mB6Td7RVfDbI0NBizBfF1SDVzWLYtM+ctBJXr92Pwazc9oF8eaz
-	o5FP/v7bnOyl0H8F9FoksMiYAgq/meKTcs3bWPqd/Ho7fXHzD1d0H9YwCCC2Ru9q9jGy1Hak6nduy
-	XCFUYfmQpylloVvyP49x/1EDh9KbZ9rMGvHiqO5teVXbOCihfn841C2E9/GGdV7niGdburuDBrlZM
-	8gin8VZQ==;
+	bh=VBJf2p2b3EPIn54vogBNL6ir9d6wSC1UuwMhnG8hxv0=; b=Bdp0tGqbMAk/ZJdcz3+SVHPLk6
+	as+TX3pHJ9cqbhiKqgI7yidCWd+FG16j59OdpuW/qCk8ZaurHA9I/03adn5PTzNA+CWKgkIKhceKI
+	R6ek3rTw8wUkPV2TjC1P6UDzV1A7Z16zzRrfbKV/WHvC8XYFyLf/1NKpCPwoIRfzJdPo1tU2+bvS5
+	nhDWRXuvZvtuN1FCCVX+v0r/3zvFIW6c6TkeXYZLYMsviy/gGRYES4TpA5Gfrb6bclcBIMMnUHq0O
+	UdTnvAgSV0EQoi138QsRl9g5zw/o7vKaDUnBGlDgY7MQV3nZYXzGZRJtGLB+JuxoYen9EE/uAV+ZP
+	4yJN0u8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMFTj-00000008Aio-3qJg;
-	Thu, 29 Oct 2026 02:02:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xMFTi-00000008Aem-257Z;
+	Thu, 29 Oct 2026 02:02:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMFTd-00000008AcO-44pj;
-	Thu, 29 Oct 2026 02:02:50 +0000
+	id 1xMFTW-00000008AYn-45vB;
+	Thu, 29 Oct 2026 02:02:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B678944085;
-	Thu, 29 Oct 2026 02:02:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C1D91F031E3;
-	Thu, 29 Oct 2026 02:02:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B77AC600D1;
+	Thu, 29 Oct 2026 02:02:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D676E1F031E2;
+	Thu, 29 Oct 2026 02:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793239369;
-	bh=tmgA/zzSqwAj+KhU/5eMn9wiP0QhHj5jnCg6dxwSyVA=;
+	s=k20260515; t=1793239361;
+	bh=VBJf2p2b3EPIn54vogBNL6ir9d6wSC1UuwMhnG8hxv0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=cejqZiFgygriIirPsdJjVvLSyLwEDdw4EYWqjzH/AYjTi32L1hUXPR9gIV1mBjNZD
-	 GNITtlR3Il1IAzpkXlRnA1acrLwPXhHHbPdghrrYapFmC1WtKCSoh2f7vWol7zWzL+
-	 Uu4e9roWHy6B/Lbuzbo5PRHzMHzGWP/c87Qy4mpPEgJdgc98sOLEd/68Ph5W3cQ36/
-	 0buUA3OExNfGkGiMeMre7pI/PZBjOGkuOfxSd45UqViYym9iDvoSHVMxNUGCZsyjLM
-	 E4cQYJ1bKzPqiVz/naeHvCnD7pMkcw7lgCE6SS3k1hacjYGLafGosglz47LQ/3XDwa
-	 C2E40XQRuC16g==
-Subject: Re: [PATCH v3 7/7] net: dsa: mediatek: support EN751221 switch
+	b=CWWRF/bWQ1GTFpZPcUOIFvxE1YL2K3fl6FOoLPONHv+HCXNRlg2890Acwi48yuMKK
+	 YWPuBdI1meiMF0AMva6xN/iVYqNlegq2Sbp8F7wSuqYhqxCF00LxAYEEZxwj1goRTF
+	 FSAdVxdH8w1RdtEu4WKdjIb9IccxgNGALV/Xe6V54j0WMm4MW9DbdtKR7Q0ets77wJ
+	 6nvEpAxr6epNZ6UhldCsvcwnKfdNU/oS2saCuZ9GiS1RAIq0CykGCW4tFaDCYKV1Y9
+	 YXu/rbwZTkpHpCyeEg6iFIhGJHBCM0opJnGMT5oRCNFT2J/I/Ytqc04DeH9xNy/LV1
+	 oFShLhjBmxRQw==
+Subject: Re: [PATCH v3 3/7] net: dsa: mediatek: add support for passthrough mode
 From: netdev-bot+sashiko@kernel.org
 To: cjd@cjdns.fr
 Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
@@ -55,10 +55,10 @@ Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
  sean.wang@mediatek.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, naseefkm@gmail.com, b.larsson@gmx.com
-Date: Thu, 29 Oct 2026 02:02:47 +0000
-Message-ID: <179323936770.3134.5820916344803363362@kernel.org>
-In-Reply-To: <20261028011317.1557238-8-cjd@cjdns.fr>
-References: <20261028011317.1557238-8-cjd@cjdns.fr>
+Date: Thu, 29 Oct 2026 02:02:39 +0000
+Message-ID: <179323935937.3134.5815660700328148917@kernel.org>
+In-Reply-To: <20261028011317.1557238-4-cjd@cjdns.fr>
+References: <20261028011317.1557238-4-cjd@cjdns.fr>
 X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -82,10 +82,10 @@ X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 13 potential
+Thank you for your contribution! Sashiko AI review found 10 potential
 issue(s) to consider.
 
-Critical: 0 · High: 2 · Medium: 5 · Low: 6
+Critical: 0 · High: 2 · Medium: 6 · Low: 2
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -93,454 +93,433 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The MCM (external) MT7530 is matched in mt7530-mdio.c with
-  compatible "econet,en751221" (ID_EN751221_EXT).
-- [High] net: dsa: mt7530: missing MT7530_CHG_TRAP when modifying
-  MT753X_MTRAP on ID_EN751221
-- [Medium] mt7530_setup_irq() still sets TOP_SIG_CTRL_NORMAL only for
-  ID_MT7530/ID_MT7621.
-- [Medium] en751221_trgmii_pair_setup() passes each switch's saved RX
-  taps to the calibration of the other switch's receiver.
-- [Medium] mt753x_phylink_mac_link_up() sets the resolved bits (including
-  PMCR_FORCE_TX_FC_EN / PMCR_FORCE_RX_FC_EN when tx_pause/rx_pause are…
-- [Medium] This commit makes core_write()/core_rmw() reachable on the
-  MMIO on-die EN751221 switch.
-- [Medium] This patch enables the topology described in commit "net: dsa:
-  mediatek: support MDIO switch downstream of MMIO switch": an MDIO…
-- [Low] The patch adds `TOP_SIG_CTRL_B0` (commented 'Undocumented') to
-  mt7530.h, but nothing in drivers/net/dsa/ uses it.
-- [Low] Concern: on the on-die EN751221 the TRGMII cascade is port 5, but
-  the TRGMII PLL/clock is programmed only from port 6's mac_config…
-- [Low] The binding description (from commit "dt-bindings: net: dsa:
-  mediatek,mt7530: add econet,en751221" in this series) says "EcoNet…
-- [Low] en751221_trgmii_pair_setup() runs from the MCM's port-6 phylink
-  resolve work.
-- [Low] en751221_trgmii_cal_ok() reads the RD register, writes
-  val|EDGE_CHK, immediately writes val&~EDGE_CHK, and only then reads…
-- [Low] Concern: in en751221_trgmii_pair_setup(), RX_RST has no explicit
-  hold time (unlike TX_RST's usleep_range(5000, 6000)), so the pulse…
+- [High] mt753x_check_passthrough() uses one counter for every available
+  port that has an `ethernet` (CPU) phandle or a `link` (DSA) phandle.
+- [High] net: dsa: mt7530: NULL pointer dereference in
+  mt7531_mac_config() on DSA port
+- [Medium] In passthrough mode, mt753x_cpu_port_enable() calls
+  mt7530_port_change_mtu(ds, port, MT7530_MAX_MTU) to raise the global…
+- [Medium] The patch adds support for this switch being the downstream
+  switch, with a DSA port as its upstream link.
+- [Medium] Passthrough receive works only if the downstream switch is DSA
+  switch index 0.
+- [Medium] In the user-port branch, mt7530_port_enable() replaces the
+  per-port `dp->cpu_dp->index` with the switch-wide…
+- [Medium] In passthrough mode, mt753x_cpu_port_enable() writes
+  MT7530_PVC_P(port) = VLAN_ATTR(MT7530_VLAN_TRANSPARENT) |…
+- [Medium] In passthrough mode the upstream switch's CPU port no longer
+  has PORT_SPEC_TAG; mt753x_cpu_port_enable() writes…
+- [Low] In passthrough mode, mt753x_cpu_port_enable() unconditionally
+  sets MT7530_LOOP_DET_DISABLE (BIT(14)) in MT753X_MTRAP (0x7804) with a…
+- [Low] When the downstream DSA link port is enabled,
+  mt7530_port_enable() does a full `regmap_write(priv->regmap,…
 
 --
 
-net: dsa: mediatek: support EN751221 switch
+net: dsa: mediatek: add support for passthrough mode
 
-This adds support for two switches. The first is the EcoNet EN751221
-on-die MT7530 (MMIO). The second is the optional MCM MT7530 (MDIO), which
-sits on the on-die switch's child MDIO bus. It also adds a calibration
-routine for the TRGMII link between port 5 of the on-die switch and port 6
-of the MCM switch, which mt753x_phylink_mac_link_up() triggers.
-
-> diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
-> index 0be107dc6759a..03ef6a9f2084e 100644
-> --- a/drivers/net/dsa/mt7530-mdio.c
-> +++ b/drivers/net/dsa/mt7530-mdio.c
-> @@ -139,6 +139,7 @@ mt7531_create_sgmii(struct mt7530_priv *priv)
->  }
->  
->  static const struct of_device_id mt7530_of_match[] = {
-> +	{ .compatible = "econet,en751221", .data = &mt753x_table[ID_EN751221_EXT], },
-
-[Severity: High]
-Should this compatible be "econet,en751221-gswitch"?
-
-The binding patch earlier in this series ("dt-bindings: net: dsa:
-mediatek,mt7530: add econet,en751221") documents the MCM switch as:
-
-    const: econet,en751221-gswitch
-
-It also attaches mt7530-passthrough-dsa-port and the required
-mediatek,mcm property to that string. "econet,en751221" is already the SoC
-root compatible in arch/mips/boot/dts/econet/en751221.dtsi and in
-Documentation/devicetree/bindings/mips/econet.yaml.
-
-With a DT that follows the binding, the MCM switch never binds. The
-on-die switch's port 5 has a link to the MCM, so the DSA tree never
-completes. Neither switch is set up, and mt7530_cal_interswitch_trgmii()
-never runs.
-
-A DT that uses the driver's string instead puts the SoC top-level
-compatible on a switch node, which fails dtbs_check.
-
-The on-die side uses "econet,en751221-switch" in both mt7530-mmio.c and
-the peer check in mt7530_cal_interswitch_trgmii().
-
-[Severity: Medium]
-With an MDIO MT7530 on the child MDIO bus of the MMIO on-die switch, can
-lockdep report recursive locking on reg_mutex?
-
-On the MCM, register accesses made under reg_mutex also take the on-die
-switch's reg_mutex:
-
-mt7530_port_enable()                        /* MCM */
-    mutex_lock(&priv->reg_mutex);
-    regmap_update_bits()
-        mt7530_mdio_regmap_lock()           /* child_bus->mdio_lock */
-        mt7530_regmap_write()
-            bus->write() == mt753x_phy_write_c22()
-                mt7531_ind_c22_phy_write()  /* on-die */
-                    mutex_lock(&priv->reg_mutex);
-
-Both reg_mutex instances come from the single mutex_init() in
-mt7530_probe_common(), so they share one lockdep class. The downstream
-switch has no mutex_lock_nested() or separate lock_class_key.
-
-These are distinct instances, so this is not a real deadlock. With
-CONFIG_PROVE_LOCKING, though, would the first such access during tree
-setup trigger a "possible recursive locking detected" splat and turn
-lockdep off for the rest of the boot?
-
-[ ... ]
+This adds a passthrough mode to the mt7530 driver. In this mode a switch
+forwards all traffic between its CPU port and a link to a second,
+downstream MT7530 without changing the MediaTek tag, and most switchdev
+ops become no-ops. Passthrough is detected at probe time from the device
+tree, and the switch can also act as the downstream switch, with a DSA
+link as its upstream port.
 
 > diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-> index dbe3887097dbc..c44f2084b1730 100644
+> index d10194488bdee..3eb2e11d69856 100644
 > --- a/drivers/net/dsa/mt7530.c
 > +++ b/drivers/net/dsa/mt7530.c
-> @@ -49,6 +49,9 @@ static const struct mt7530_mib_desc mt7530_mib[] = {
->  static int
->  mt753x_ctrl_phy_addr(struct mt7530_priv *priv)
->  {
-> +	if (priv->id == ID_EN751221)
-> +		return 12;
+
+[ ... ]
+
+> @@ -1286,13 +1292,41 @@ mt753x_trap_frames(struct mt7530_priv *priv)
+>  				   TO_CPU_FW_CPU_ONLY);
+>  }
+>  
+> +static int
+> +mt7530_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu);
 > +
+> +/* If this switch is downstream of another switch that is in passthrough mode,
+> + * the "CPU" port is actually a DSA port.
+> + */
+>  static void
+>  mt753x_cpu_port_enable(struct dsa_switch *ds, int port)
+>  {
+>  	struct mt7530_priv *priv = ds->priv;
+>  
+> -	/* Enable Mediatek header mode on the cpu port */
+> -	regmap_write(priv->regmap, MT7530_PVC_P(port), PORT_SPEC_TAG);
+> +	if (priv->is_passthrough) {
+> +		/* Disable parsing of the DSA tag, it will be forwarded blindly
+> +		 * to the downstream switch.
+> +		 */
+> +		regmap_write(priv->regmap, MT7530_PVC_P(port),
+> +			     VLAN_ATTR(MT7530_VLAN_TRANSPARENT) |
+> +			     PVC_EG_TAG(MT7530_VLAN_EG_DISABLED));
 
 [Severity: Medium]
-This makes core_write() and core_rmw() reachable on the MMIO on-die
-switch. ID_EN751221 sets .mac_port_config = mt7530_mac_config, so port 6
-goes through mt7530_mac_config()->mt7530_setup_port6()->core_clear(),
-core_write() and core_set().
+Does this EG_DISABLED setting survive setup? As soon as
+mt753x_cpu_port_enable() returns, the same loop iteration in mt7530_setup()
+runs this:
 
-On this switch priv->bus is NULL, so core_rmw() falls back to child_bus.
-The lock helper only does something when priv->bus is set:
+	if (dsa_is_upstream_port(ds, i)) {
+		mt753x_cpu_port_enable(ds, i);
+	} else {
+		...
+	}
+	/* Enable consistent egress tag */
+	regmap_update_bits(priv->regmap, MT7530_PVC_P(i),
+			   PVC_EG_TAG_MASK,
+			   PVC_EG_TAG(MT7530_VLAN_EG_CONSISTENT));
 
-static void
-mt7530_mutex_lock(struct mt7530_priv *priv)
-{
-	if (priv->bus)
-		mutex_lock_nested(&priv->bus->mdio_lock, MDIO_MUTEX_NESTED);
+mt7531_setup_common() does the same update. So the upstream port ends up
+with EG_TAG set to consistent. The downstream DSA port is programmed later
+from mt7530_port_enable() and keeps EG_DISABLED.
+
+That doesn't match the commit message, which says both ports are
+"configured as MT7530_VLAN_EG_DISABLED and MT7530_VLAN_TRANSPARENT".
+
+Should the egress tag update be skipped for the upstream port in
+passthrough mode?
+
+[Severity: Medium]
+Without PORT_SPEC_TAG on the CPU port, frames from the host go through the
+normal ARL and trap logic. mt753x_trap_frames() still installs the BPC,
+RGAC1 and RGAC2 rules unconditionally. Those rules use TO_CPU_FW_CPU_ONLY
+for PAE, BPDU and 01:80:C2:00:00:01/02/03/0E.
+
+Say the host sends an STP BPDU, LACPDU, EAPOL or LLDP frame on a downstream
+user port. The real DA is still at the front of the frame, because the MTK
+tag sits after the SA.
+
+Would that frame match the trap rules and be sent to the CPU port? That is
+its own ingress port, so the frame would never reach the downstream switch.
+
+Control frames from the downstream switch to the host would still work, so
+the failure would be one-way. This depends on the switch applying trap
+rules to untagged frames that enter the CPU port, which I could not confirm
+without the datasheet.
+
+> +
+> +		/* The port is not configured to parse DSA tags, so they are
+> +		 * liable to be confused for length fields, so length check is
+> +		 * disabled.
+> +		 */
+> +		regmap_clear_bits(priv->regmap, MT753X_AGC, AGC_L2LEN_CHK);
+> +
+> +		/* In passthrough mode, MTU is only enforced downstream */
+> +		mt7530_port_change_mtu(ds, port, MT7530_MAX_MTU);
+
+[Severity: Medium]
+Does this call do anything? This branch runs only when priv->is_passthrough
+is true. This patch also adds the following as the first check in
+mt7530_port_change_mtu():
+
+	if (priv->is_passthrough)
+		return 0;
+
+So MT7530_GMACCR is never written, and MAX_RX_PKT_LEN on the passthrough
+switch keeps its reset default. Later DSA .port_change_mtu calls for this
+switch return early in the same way.
+
+The upstream switch no longer parses the MTK tag, so it counts those 4
+bytes as payload. Meanwhile .port_max_mtu still reports MT7530_MAX_MTU and
+.port_change_mtu reports success.
+
+Can the downstream switch and the DSA core then accept MTUs whose frames
+the upstream switch drops? Clearing AGC_L2LEN_CHK turns off the length field
+check, but it does not change the MAC's maximum frame length.
+
+> +
+> +		/* Loop detection has no value in passthrough mode */
+> +		regmap_set_bits(priv->regmap, MT753X_MTRAP,
+> +				MT7530_LOOP_DET_DISABLE);
+
+[Severity: Low]
+Is BIT(14) of MT753X_MTRAP valid on every chip that can reach this code?
+mt753x_cpu_port_enable() is also called from mt7531_setup_common(), which
+covers MT7531, MT7988, EN7581 and AN7583.
+
+The MTRAP layout differs between chip families. For example, BIT(8) is
+MT7530_P6_DIS on MT7530 but MT7531_CHG_STRAP on MT7531. Every other MTRAP
+access in the driver is limited to MT7530-family code paths.
+
+On those other chips, could this set an undocumented strap bit instead of
+disabling loop detection? Should the write depend on priv->id?
+
+> +	} else {
+> +		/* Not passthrough, enable DSA tag handling on CPU port. */
+> +		regmap_write(priv->regmap, MT7530_PVC_P(port), PORT_SPEC_TAG);
+> +	}
+
+[ ... ]
+
+> @@ -1322,6 +1356,7 @@ static int
+>  mt7530_port_enable(struct dsa_switch *ds, int port,
+>  		   struct phy_device *phy)
+>  {
+> +	int upstream_pt = dsa_switch_upstream_port(ds);
+>  	struct dsa_port *dp = dsa_to_port(ds, port);
+>  	struct mt7530_priv *priv = ds->priv;
+>  
+> @@ -1332,13 +1367,38 @@ mt7530_port_enable(struct dsa_switch *ds, int port,
+>  	 * bridge.
+>  	 */
+>  	if (dsa_port_is_user(dp)) {
+> -		struct dsa_port *cpu_dp = dp->cpu_dp;
+> +		priv->ports[port].pm |= PCR_MATRIX(BIT(upstream_pt));
+>  
+> -		priv->ports[port].pm |= PCR_MATRIX(BIT(cpu_dp->index));
+
+[Severity: Medium]
+Does this change behaviour on switches with more than one CPU port?
+dsa_switch_upstream_port() returns the upstream port of the first available
+port on the switch, not of the port being enabled:
+
+include/net/dsa.h:dsa_switch_upstream_port() {
+	dsa_switch_for_each_available_port(dp, ds) {
+		return dsa_upstream_port(ds, dp->index);
+	}
+	...
 }
 
-As a result, the MMD sequence on child_bus address 12 (MII_MMD_CTRL,
-MII_MMD_DATA, MII_MMD_CTRL | NOINCR, MII_MMD_DATA) runs through direct
-bus->write() and bus->read() calls without child_bus->mdio_lock. Each op
-takes the on-die reg_mutex, but the transaction as a whole is not atomic.
+mt753x_port_change_conduit() and mt7530_update_port_member() still base
+priv->ports[port].pm on the port's own dp->cpu_dp.
 
-Could a concurrent phylib or PHY driver access to address 12 change the
-MMD devad or address between steps, so the PLL write lands in the wrong
-register? The MDIO-attached variant holds bus->mdio_lock for the whole
-sequence.
+Take an MT7531 with CPU ports 5 and 6. lan0, the first available port, is
+moved to CPU port 6 with .port_change_conduit, and lan1 stays on CPU
+port 5. If lan1 is then taken down and up, this code ORs BIT(6) into lan1's
+pm, which already has BIT(5). mt753x_port_change_conduit() clears only the
+old cpu_dp bit, so the extra bit is never removed.
 
-The child_bus fallback came from "net: dsa: mediatek: support PLL setup
-on MMIO MT7530" earlier in this series. This patch is the first to make
-it reachable.
+Would lan1 then forward to both CPU ports?
 
-> @@ -347,12 +350,19 @@ mt7530_setup_port6(struct dsa_switch *ds, phy_interface_t interface)
->  	regmap_read(priv->regmap, MT753X_MTRAP, &xtal);
->  	xtal &= MT7530_XTAL_MASK;
->  
-> +	/* EN751221 on-die does not report clock speed in MTRAP */
-> +	if (priv->id == ID_EN751221)
-> +		xtal = MT7530_XTAL_25MHZ;
+Right now this is hidden, because the new probe check rejects dual-CPU
+device trees that have user ports (see below). It becomes reachable once
+that check is fixed.
+
+> +	} else if (dsa_port_is_dsa(dp) && dp->index != upstream_pt) {
+> +		priv->ports[port].pm |= PCR_MATRIX(BIT(upstream_pt));
 > +
->  	if (xtal == MT7530_XTAL_25MHZ)
->  		ssc_delta = 0x57;
->  	else
->  		ssc_delta = 0x87;
->  
-> -	if (priv->id == ID_MT7621) {
-> +	if (priv->id == ID_EN751221_EXT || priv->id == ID_EN751221) {
-> +		/* PLL frequency: 362.5Mhz */
-> +		ncpo1 = 0x1d00;
-
-[Severity: Low]
-This isn't a bug, but on the on-die EN751221 the TRGMII cascade is port
-5, while the TRGMII PLL is programmed only from port 6's mac_config. Port
-6 is PHY_INTERFACE_MODE_INTERNAL, and it also gets P6_INTF_MODE(1) here.
-
-This works today for two reasons. dsa_tree_setup_ports() sets up the
-on-die ports before the MCM, and phylink never does a major reconfig of
-this fixed-link CPU port.
-
-If port 6 were reconfigured later, would the TRGMII clock be gated and
-reprogrammed without recalibrating the port 5 link? Would it be clearer
-to tie the PLL setup to port 5?
-
-[ ... ]
-
-> @@ -469,6 +479,251 @@ mt7531_pll_setup(struct mt7530_priv *priv)
->  	usleep_range(25, 35);
->  }
->  
-> +static bool
-> +en751221_trgmii_cal_ok(struct mt7530_priv *rx, u32 reg)
-> +{
-> +	u32 val = 0;
+> +		/* Should not happen */
+> +		WARN_ON_ONCE(!priv->is_passthrough);
 > +
-> +	regmap_read(rx->regmap, reg, &val);
-> +	regmap_write(rx->regmap, reg, val | EDGE_CHK);
-> +	regmap_write(rx->regmap, reg, val & ~EDGE_CHK);
-> +	regmap_read(rx->regmap, reg, &val);
-
-[Severity: Low]
-Does the hardware keep RD_VALUE and RD_ERR latched after EDGE_CHK is
-cleared?
-
-EDGE_CHK is set and cleared back to back, and the result is read only
-after it is deasserted. en751221_trgmii_calibrate_direction() also calls
-this right after changing RD_TAP, with no settle time. When the receiver
-is the MMIO on-die switch, EDGE_CHK stays asserted for only a few bus
-cycles.
-
-If the results are not latched, the pass/fail map would show bus timing
-rather than the data eye, and the chosen taps could be wrong.
-
-> +
-> +	return FIELD_GET(RD_VALUE_MASK, val) == TGMII_TD_PAT &&
-> +	       !FIELD_GET(RD_ERR_MASK, val);
-> +}
-
-[ ... ]
-
-> +static void
-> +en751221_trgmii_pair_setup(struct mt7530_priv *ext, int ext_port,
-> +			   struct mt7530_priv *ondie, int ondie_port)
-> +{
-> +	u8 default_taps_ondie[NUM_TRGMII_CTRL];
-> +	u8 default_taps_ext[NUM_TRGMII_CTRL];
-> +	u32 mcr_down, mcr_up;
-> +	int channel;
-> +	int reg_val;
-> +
-> +	/* BOTH: Put interfaces in a downed state */
-> +	mcr_down = PMCR_IFG_XMIT(PMCR_IFG_XMIT_64) | PMCR_MAC_MODE |
-> +		   MT7530_FORCE_MODE | PMCR_MAC_RX_EN | PMCR_BACKOFF_EN |
-> +		   PMCR_BACKPR_EN | PMCR_FORCE_SPEED_1000 | PMCR_FORCE_FDX;
-> +	regmap_write(ondie->regmap,  MT753X_PMCR_P(ondie_port), mcr_down);
-> +	regmap_write(ext->regmap, MT753X_PMCR_P(ext_port), mcr_down);
-
-[Severity: Low]
-Is anything serializing this against the on-die switch's own phylink
-instance for port 5?
-
-This runs from the MCM's port 6 phylink resolve work. It reprograms the
-on-die MT753X_PMCR_P(ondie_port) and TRGMII block in several steps: down,
-reset (with 5ms sleeps), up, then train.
-
-The on-die port 5 mt753x_phylink_mac_link_up() writes the same PMCR
-register from a separate resolve work item, under a different
-pl->state_mutex. That work is queued earlier, but nothing guarantees it
-has run before this sequence starts.
-
-If it is delayed, its regmap_set_bits() of PMCR_MAC_TX_EN |
-PMCR_FORCE_LNK could land inside the TX/RX reset window. On-die teardown
-through mt753x_phylink_mac_link_down() is also not serialized against a
-calibration in progress.
-
-> +	usleep_range(5000, 6000);
-> +
-> +	/* BOTH: Reset TX */
-> +	regmap_set_bits(ext->regmap, MT7530_TRGMII_TXCTRL, TX_RST);
-> +	regmap_set_bits(ondie->regmap, MT7530_TRGMII_TXCTRL, TX_RST);
-> +	usleep_range(5000, 6000);
-> +	regmap_clear_bits(ext->regmap, MT7530_TRGMII_TXCTRL, TX_RST);
-> +	regmap_clear_bits(ondie->regmap, MT7530_TRGMII_TXCTRL, TX_RST);
-> +
-> +	/* BOTH: Reset RX controllers down */
-> +	regmap_set_bits(ext->regmap, MT7530_TRGMII_RCK_CTRL, RX_RST);
-> +	regmap_set_bits(ondie->regmap, MT7530_TRGMII_RCK_CTRL, RX_RST);
-> +
-> +	/* BOTH: Set TX drive strength, MCM uses more */
-> +	en751221_set_tx_drive(ondie, 8, 8, 7, 7);
-> +	en751221_set_tx_drive(ext, 11, 11, 15, 15);
-> +
-> +	/* BOTH: Reset RX controllers up */
-> +	regmap_clear_bits(ext->regmap, MT7530_TRGMII_RCK_CTRL, RX_RST);
-> +	regmap_clear_bits(ondie->regmap, MT7530_TRGMII_RCK_CTRL, RX_RST);
-
-[Severity: Low]
-This isn't a bug, but RX_RST has no explicit hold time here, unlike
-TX_RST. The pulse width depends on how long the en751221_set_tx_drive()
-writes in between take.
-
-The MCM writes go over MDIO through the on-die indirect accessor, so the
-pulse is long in practice. Would an explicit delay be more robust in case
-this ordering changes?
-
-> +
-> +	/* BOTH: Ports up */
-> +	mcr_up = mcr_down | PMCR_MAC_TX_EN | PMCR_FORCE_LNK;
-> +	regmap_write(ondie->regmap, MT753X_PMCR_P(ondie_port), mcr_up);
-> +	regmap_write(ext->regmap, MT753X_PMCR_P(ext_port), mcr_up);
-
-[Severity: Medium]
-Does this drop the flow control settings that phylink just programmed?
-
-When tx_pause or rx_pause is set, mt753x_phylink_mac_link_up() sets
-PMCR_FORCE_TX_FC_EN and PMCR_FORCE_RX_FC_EN with regmap_set_bits(). It
-then calls mt7530_cal_interswitch_trgmii().
-
-The full regmap_write() calls of mcr_down and mcr_up here replace PMCR on
-both the MCM port and the on-die port, and mcr_up never includes the FC
-bits.
-
-Any pause configuration phylink resolved, such as a fixed-link with
-pause, would be cleared on both ends. The on-die port's PMCR, which its
-own phylink programmed, is overwritten too, so the hardware state no
-longer matches what phylink reported.
-
-[ ... ]
-
-> +	/* BOTH: Collect and then zero every RX TAP */
-> +	for (channel = 0; channel < NUM_TRGMII_CTRL; channel++) {
-> +		reg_val = 0;
-> +		regmap_read(ext->regmap, MT7530_TRGMII_RD(channel), &reg_val);
-> +		default_taps_ext[channel] = FIELD_GET(RD_TAP_MASK, reg_val);
-> +		regmap_clear_bits(ext->regmap, MT7530_TRGMII_RD(channel),
-> +				  RD_TAP_MASK);
-> +
-> +		reg_val = 0;
-> +		regmap_read(ondie->regmap, MT7530_TRGMII_RD(channel), &reg_val);
-> +		default_taps_ondie[channel] = FIELD_GET(RD_TAP_MASK, reg_val);
-> +		regmap_clear_bits(ondie->regmap, MT7530_TRGMII_RD(channel),
-> +				  RD_TAP_MASK);
-> +	}
-> +
-> +	en751221_trgmii_calibrate_direction(ondie, ext, default_taps_ondie);
-> +	en751221_trgmii_calibrate_direction(ext, ondie, default_taps_ext);
-
-[Severity: Medium]
-Are the default tap arrays swapped here?
-
-default_taps_ext[] is read from ext->regmap and default_taps_ondie[] from
-ondie->regmap. But the first call passes ext as rx with
-default_taps_ondie, and the second passes ondie as rx with
-default_taps_ext.
-
-The fallback in en751221_trgmii_calibrate_direction() writes default_taps
-into the rx switch:
-
-		} else {
-			regmap_update_bits(rx->regmap, rx_reg, RD_TAP_MASK,
-					   RD_TAP(default_taps[channel]));
-
-When a lane fails calibration, the MCM receiver would get the on-die
-switch's original tap, and the reverse, instead of keeping its own.
-
-The two sets can differ: mt7530_setup() programs RD_TAP(16) on the MCM,
-but mt7988_setup() does not set RD_TAP on the on-die switch. The "old %d"
-value in the success message would also come from the wrong switch.
-
-Should these be:
-
-	en751221_trgmii_calibrate_direction(ondie, ext, default_taps_ext);
-	en751221_trgmii_calibrate_direction(ext, ondie, default_taps_ondie);
-
-[ ... ]
-
-> @@ -3023,6 +3286,44 @@ static void en7528_mac_port_get_caps(struct dsa_switch *ds, int port,
->  	}
->  }
->  
-> +static void en751221_mac_port_get_caps(struct dsa_switch *ds, int port,
-> +				       struct phylink_config *config)
-> +{
-> +	switch (port) {
-> +	/* EN751221 ports 0..3 are connected to the integrated FE PHYs. */
-> +	case 0 ... 3:
-
-[Severity: Low]
-This isn't a bug, but the binding description added in "dt-bindings: net:
-dsa: mediatek,mt7530: add econet,en751221" says:
-
-  EcoNet EN751221 SoCs have a memory mapped MT7530 with 3x 10/100 PHYs and 1x
-  gigabit PHY.
-
-This function, this commit message ("4 FE ports and 1 GE port") and the
-binding commit message ("ports 0..3 are 10/100 only") all describe four FE
-ports. Should the binding text say 4x 10/100 PHYs?
-
-[ ... ]
-
-> @@ -3428,7 +3732,8 @@ mt753x_conduit_state_change(struct dsa_switch *ds,
->  	 * interface is up. NOTE: "CPU port" can also mean an upstream DSA link.
->  	 */
->  	if (priv->id != ID_MT7530 && priv->id != ID_MT7621 &&
-> -	    priv->id != ID_EN7528)
-> +	    priv->id != ID_EN7528 && priv->id != ID_EN751221 &&
-> +	    priv->id != ID_EN751221_EXT)
->  		return;
 
 [Severity: High]
-Does the on-die switch ever get MT7530_CHG_TRAP set?
+Can a DSA link port now reach mt7531_mac_config() and oops there?
 
-On MT7530, values written to MT753X_MTRAP only override the hardware
-straps in MT753X_TRAP while MT7530_CHG_TRAP is set. The driver relies
-on mt7530_setup() setting it once during setup. After that,
-mt7530_port_enable(), mt7530_port_disable() and mt7530_setup_port5()
-update MTRAP without setting it again.
+This patch makes DSA links a supported setup on MT7531 as well. That
+happens through this branch, where the passthrough switch programs its
+downstream link, and through the dsa_is_upstream_port() change in
+mt7531_setup_common(), where a downstream switch has a DSA link as its
+upstream port.
 
-ID_EN751221 uses mt7988_setup() as its sw_setup. That resets the switch
-through priv->rstc and then calls mt7531_setup_common(). Neither of them
-touches MT753X_MTRAP.
+However, mt7531_mac_config() still assumes that every RGMII port has a
+user netdev:
 
-This patch still sends ID_EN751221 down the MTRAP paths:
+	if (phy_interface_mode_is_rgmii(interface)) {
+		dp = dsa_to_port(ds, port);
+		phydev = dp->user->phydev;
+		mt7531_rgmii_setup(priv, interface, phydev);
+	}
 
-  - It adds ID_EN751221 to the MT7530_P5_DIS and MT7530_P6_DIS handling
-    in mt7530_port_enable() and mt7530_port_disable().
-  - Through .mac_port_config = mt7530_mac_config, port 5 reaches
-    mt7530_setup_port5(), which writes MT7530_P5_MAC_SEL into MTRAP.
+In struct dsa_port, user and conduit share a union. CPU ports set
+conduit and user ports set user. DSA ports set neither, so dp->user is
+NULL for them.
 
-Without MT7530_CHG_TRAP, would those updates be silently ignored? Ports
-5 and 6 would then stay at whatever the straps select. Port 5 is the
-TRGMII cascade to the MCM, so if the straps disagree, the inter-switch
-link would not come up. The same would apply to any other MTRAP bits the
-series programs on the on-die switch, such as MT7530_LOOP_DET_DISABLE
-for passthrough mode.
+Take an MT7531BE without SGMII on port 5 (!priv->p5_sgmii), where port
+5 is a DSA link with an RGMII phy-mode. This can be the downstream link
+of a passthrough MT7531BE or the uplink of a downstream one. The call
+chain is dsa_port_setup() -> dsa_port_enable_rt() -> phylink_start() ->
+phylink_major_config() -> mt753x_phylink_mac_config() ->
+mt7531_mac_config(). Would that dereference NULL during switch setup?
 
-This may work on the tested boards because the EN751221 straps already
-match, or because the on-die block does not gate MTRAP writes on
-CHG_TRAP. If so, could that be stated in a comment? Otherwise, should
-the EN751221 setup path set MT7530_CHG_TRAP the way mt7530_setup() does?
-
-[Severity: Medium]
-The MT7530-family ID lists here and in mt7530_port_enable() and
-mt7530_port_disable() were extended. mt7530_setup_irq() still has only
-the old IDs:
-
-	/* This register must be set for MT7530 to properly fire interrupts */
-	if (priv->id == ID_MT7530 || priv->id == ID_MT7621)
-		regmap_set_bits(priv->regmap, MT7530_TOP_SIG_CTRL,
-				TOP_SIG_CTRL_NORMAL);
-
-ID_EN751221_EXT is an MCM MT7530 that uses mt7530_setup(), like the
-MT7621 MCM. If the MCM DT node has interrupt-controller, the IRQ chip is
-registered without TOP_SIG_CTRL being set.
-
-Would switch and PHY interrupts then never fire, leaving phylib waiting
-for link changes on the MCM user ports?
-
-The unused TOP_SIG_CTRL_B0 define added for this register suggests some
-TOP_SIG_CTRL handling may have been dropped.
+Should mt7531_mac_config() look up the phydev only for user ports and
+pass NULL otherwise? mt7531_rgmii_setup() already handles !phydev by
+applying the delays implied by the phy-mode, which seems to be what a
+DSA link needs.
 
 [ ... ]
 
-> diff --git a/drivers/net/dsa/mt7530.h b/drivers/net/dsa/mt7530.h
-> index c86bc4bca29b9..1a4329749c0f1 100644
-> --- a/drivers/net/dsa/mt7530.h
-> +++ b/drivers/net/dsa/mt7530.h
-
-[ ... ]
-
-> @@ -601,6 +607,8 @@ enum mt7531_xtal_fsel {
->  /* Register for TOP signal control */
->  #define MT7530_TOP_SIG_CTRL		0x7808
->  #define  TOP_SIG_CTRL_NORMAL		(BIT(17) | BIT(16))
-> +/* Undocumented */
-> +#define  TOP_SIG_CTRL_B0		BIT(0)
+> +		/* Make the upstream port able to connect to the DSA port.
+> +		 * This must be explicit because PORT_SPEC_TAG is unset.
+> +		 */
+> +		regmap_write(priv->regmap, MT7530_PCR_P(upstream_pt),
+> +			     PCR_MATRIX(BIT(port)));
 
 [Severity: Low]
-This isn't a bug, but nothing in drivers/net/dsa/ uses TOP_SIG_CTRL_B0.
-Is it a leftover, or is some MT7530_TOP_SIG_CTRL programming for
-EN751221 missing?
+Is a full register write intended here? It clears every other field in the
+upstream port's PCR. That includes the fallback mode that
+mt753x_cpu_port_enable() set just before:
+
+	regmap_update_bits(priv->regmap, MT7530_PCR_P(port),
+			   PCR_PORT_VLAN_MASK, MT7530_PORT_FALLBACK_MODE);
+
+It also clears PORT_PRI, the PCR EG_TAG field and the mirror bits.
+
+The write also bypasses priv->ports[upstream_pt].pm, which stays 0. Every
+other PCR writer uses regmap_update_bits(..., PCR_MATRIX_MASK, pm). As a
+result, the forwarding bit is protected only by the is_passthrough early
+returns and the check below.
+
+mt7530_port_disable() also has nothing to undo this PCR write or the MFC
+flood bits set for the DSA port.
+
+Would regmap_update_bits() with PCR_MATRIX_MASK, plus an update of the pm
+cache, be safer?
+
+>  	}
+>  	priv->ports[port].enable = true;
+> -	regmap_update_bits(priv->regmap, MT7530_PCR_P(port), PCR_MATRIX_MASK,
+> -			   priv->ports[port].pm);
+> +
+> +	/* In passthrough mode, CPU port mask is set above. */
+> +	if (!(priv->is_passthrough && dp->index == upstream_pt))
+> +		regmap_update_bits(priv->regmap, MT7530_PCR_P(port),
+> +				   PCR_MATRIX_MASK, priv->ports[port].pm);
+
+[ ... ]
+
+> @@ -1862,6 +1949,10 @@ mt7530_port_vlan_filtering(struct dsa_switch *ds, int port, bool vlan_filtering,
+>  {
+>  	struct dsa_port *dp = dsa_to_port(ds, port);
+>  	struct dsa_port *cpu_dp = dp->cpu_dp;
+> +	struct mt7530_priv *priv = ds->priv;
+> +
+> +	if (priv->is_passthrough)
+> +		return 0;
+
+[Severity: Medium]
+When this switch is the downstream one, is cpu_dp->index still a local port
+number? dsa_tree_setup_default_cpu() sets dp->cpu_dp for the downstream
+switch's ports to the CPU port on the upstream switch, so the index belongs
+to another switch. is_passthrough is false on the downstream switch, so the
+new early returns don't apply.
+
+The patch moves mt7530_port_enable(), the setup loops and
+mt7530_port_change_mtu() to the local upstream port. Three places still
+treat cpu_dp->index as a local port:
+
+mt7530_port_vlan_filtering():
+		mt7530_port_set_vlan_aware(ds, port);
+		mt7530_port_set_vlan_aware(ds, cpu_dp->index);
+
+mt7530_update_port_member():
+	struct dsa_port *cpu_dp = dp->cpu_dp;
+	u32 port_bitmap = BIT(cpu_dp->index);
+
+mt753x_conduit_state_change():
+	mask = BIT(cpu_dp->index);
+
+Suppose the downstream uplink port number differs from the upstream CPU
+port number. Would a bridge join, a bridge leave or a BR_ISOLATED change
+then overwrite p->pm and drop the uplink bit that mt7530_port_enable() set?
+If that index happens to be a local user port, frames could also be
+forwarded to it without the isolation check.
+
+In the same setup, would VLAN filtering make an unrelated local port
+VLAN-aware instead of the uplink? Would trapped frames go to the wrong
+local CPU_PORT in MT753X_MFC? The patch only updates the comment in
+mt753x_conduit_state_change().
+
+The EN751221 hardware in this series seems to work only because both
+indices are 6.
+
+[ ... ]
+
+> @@ -3399,6 +3505,55 @@ static int mt7988_setup(struct dsa_switch *ds)
+>  	return mt7531_setup_common(ds);
+>  }
+>  
+> +/* 1 if passthrough, negative if error. */
+> +static int mt753x_check_passthrough(struct device *dev)
+> +{
+
+[ ... ]
+
+> +	for_each_available_child_of_node(ports, port) {
+> +		struct device_node *link;
+> +
+> +		enabled_ports++;
+> +
+> +		link = of_parse_phandle(port, "ethernet", 0);
+> +		if (!link)
+> +			link = of_parse_phandle(port, "link", 0);
+> +
+> +		if (!link)
+> +			continue;
+> +
+> +		of_node_put(link);
+> +
+> +		passthrough_ports++;
+> +	}
+> +
+> +	of_node_put(ports);
+> +
+> +	/*
+> +	 * A switch is considered passthrough if exactly two available
+> +	 * ports have an "ethernet" or "link" phandle.
+> +	 */
+> +	if (passthrough_ports > 2 ||
+> +	    (passthrough_ports == 2 && enabled_ports != 2)
+> +	) {
+> +		dev_err(dev, "Only two ports allowed in passthrough mode\n");
+> +		return -EINVAL;
+> +	}
+
+[Severity: High]
+Will this break probe on existing boards that have two CPU ports? CPU ports
+(ethernet) and DSA links (link) share one counter. Two of them plus any
+user port returns -EINVAL, and mt7530_probe_common() then fails the whole
+probe.
+
+Several in-tree device trees have user ports plus port@5 with
+ethernet = <&gmac1> and port@6 with ethernet = <&gmac0>. Examples are
+mt7622-bananapi-bpi-r64.dts, mt7623n-bananapi-bpi-r2.dts, mt7986a/b-rfb.dts
+and the MT7621 boards based on mt7621.dtsi.
+
+On BPI-R64 this gives passthrough_ports == 2 and enabled_ports == 7, since
+of_parse_phandle() returns the gmac node whatever its status. Would all of
+these boards lose switch networking with "Only two ports allowed in
+passthrough mode"?
+
+The check is also wrong in the other direction. mt7621.dtsi with swp0-4
+disabled has two CPU ports and nothing else, so it would be treated as
+passthrough without any DSA link. A normal cascade with a CPU port, a DSA
+link and user ports would also be rejected.
+
+Later patches in the series don't seem to change this function.
+
+Should the check require exactly one ethernet port and one link port, and
+leave other layouts to the existing code paths?
+
+[Severity: Medium]
+Does passthrough receive work only if the downstream switch has DSA switch
+index 0? The MTK tag has no switch ID, and mtk_tag_rcv() hardcodes
+index 0:
+
+net/dsa/tag_mtk.c:mtk_tag_rcv() {
+	...
+	skb->dev = dsa_conduit_find_user(dev, 0, port);
+	if (!skb->dev) {
+		kfree_skb(skb);
+		return NULL;
+	}
+	...
+}
+
+dsa_conduit_find_user() requires an exact match on dp->ds->index. The
+natural numbering gives the CPU-attached upstream switch
+dsa,member = <0 0>. With that numbering, every frame from the downstream
+switch is looked up on the upstream switch, finds no user port, and is
+freed without any message.
+
+Could this requirement be checked here, or at least documented in the
+binding?
+
+> +
+> +	return passthrough_ports == 2;
+> +}
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261028011317.1557238-1-cjd%40cjdns.fr
