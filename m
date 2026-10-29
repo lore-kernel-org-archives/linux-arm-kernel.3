@@ -2,106 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6831D606A321
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 17:18:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B8B0606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 17:20:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=k6j+kxnm;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bZjBl+by
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PnIU0PLr;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gzf12mUc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=aVYR1R4XUuM03rk5Iesd5QgqyShDDveAkvO74xuMO/4=; b=k6j+kxnmQuKTR9
-	3JuwhadUDiSes/lHITuFzXdGHYCEwnYX2oHhC/mAf+ebw9nVotuqo0/ReCJslaG6Ye/qUSn5J1pEF
-	Wl2yb/qaih4bo1iafPEFwMMn5Luem9k9VhTRUsnM9KDtsgEXrOdIVk7iKy1QTQoU9EhXqFdQ2Ppr7
-	mIN/L0bojjbeADO2zu4QFMYNwbRkudTHvS8DjO1e1XJ+jFEXGcRilh0s4Dmg8qRlO1+f/bIkAKFOC
-	ZB39tCzZJfpHKg7/nOaBGprWwx+vv9ud5BJMwRFb6XxqtDcYbU5xRuBUvvHR89hUK3f9Qx7iTKTFZ
-	DfDo8fCPmTF6wKLap4Iw==;
+	List-Owner; bh=DcHId9d7ZivTlUPflcKuYmygXozfLhAN5Qcceh+SBys=; b=PnIU0PLrUXN7tu
+	CUhh2I9u86/TcpmsOdOCBJWhrwdjsBvsHXWBdQ4UCE3NbyE3OBlDW9NwoIjcwuczXyYH1iV9Nft0m
+	BRzMIa+VyNo/cbNVTKXYeh6Hvs3eyj7Fh7X9e7xSiEw8Eqf9QvWrhCjGmWsdGHn9ZxBPwQwMBDG2J
+	auvG5jq+5U88clF6U+LOrUfKKu3l7WkcfFM5d91fL6HDmGy0zdh7p9AdeHpvIlkBJEPUCM/lqN2HO
+	63rlvwUQqFxl7Xv08ahmVHWCdK9pU0S8UdXVXSkZE7WPgt8jBADhTZeocDKK056ed1HxVkGtArVt9
+	ncPAtvYY8CM7Ulz2kIcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMTlI-00000009wx9-1DcN;
-	Thu, 29 Oct 2026 17:18:00 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1xMTnX-00000009xEG-01Oc;
+	Thu, 29 Oct 2026 17:20:19 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMTlF-00000009wwC-34g6
+	id 1xMTnT-00000009xDF-20fU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 17:17:59 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6b47c1a3c74so3236817a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:17:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793294275; cv=none;
+	Thu, 29 Oct 2026 17:20:17 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-6b4883643ccso2973854a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:20:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793294413; cv=none;
         d=google.com; s=arc-20260327;
-        b=QsbR+FeDGbT88g0K6J5C0MxhUv7rt+KdkEvDTZ0HpJht1kJKZmrWrUda+zZb3PBlIr
-         Cu/j86QiTpcnlFHU/70WJdsUQzCPlaTTu9J0NeZRxwzvt9lVYvWSxttanA7AsVa2oL5s
-         8pkeH8APei87XRAlDhX8R4VkW4SSdjhTnXfnlx3F62R+WRfN8aHsIwUVNCaBSlsUbbTN
-         alBRbWDx8E8ESDaRyV6ang2D1THDtKBeUvOb36mo/Fm0B4jPEKuOmgsZ2tF1+naY+oK4
-         iTA17OsBLHnEXArQUs/UlU6LB1O0aVsFrM4yutDrzKKXP2T6MAlE1JfYXL4XFakPxeYm
-         5YXg==
+        b=sT3bkRkMvKWJ9dZbtCwNvNkV7cYIGdtLD+8c6zZ3XKtJ7mx1yiuCVqjsNfUaEMH4wh
+         Y74pPQVNid0Kz2dBA+VAa32kfg8Trit78tVGHfypfSsGMoEa3JPhLHe6EmniM+RPgL4Q
+         6CUsoYeYtD3xg889NNPRQ1SsY8HXgva4/myeSVB9HZLuNQxo+UDtybMEsAsf6hHFj3wa
+         +QpUHgPFxCltrwOlVTnC9JToY7ttFcMO1vIHkd21N9PsX91FU2peuOfgm5QRHZaVzZE0
+         4/j23r+x6zIrNidFOSH25W1U5DiUAaChVL6a9HPMjxtbJuoETjyiLft2blMAwJKnIXdu
+         QXcA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=aVYR1R4XUuM03rk5Iesd5QgqyShDDveAkvO74xuMO/4=;
-        fh=r5PWOqzrA4T5Dr10YNLi7aZdw0hZ7oaI81l5hjafWAE=;
-        b=Psh6MUVNTSyEKjTT/vazXxqIs+cGv4PvfKA1jvtKcX1PCVJX+QHf6OQsB27bxz9Eu9
-         Fy5/Xor47GCzYIREuEDhmDiZbw9PSYKKjGcGNjCHdByxG6Z8FbywCdwd9tWsD+lJZUI0
-         cKy7DfMzcXQAfLx/U6BQ1j9jc1dImDXGBcnDDMVFfDZtubNvpU1cXIFt4T1Y0334/DwY
-         vsYNdJE6YGgqBP5ucht227OLxaTdw3SkU1vFi3O74eSiguOUUaDQTwHlWc4TaeJWLbXt
-         EjP+ixXmo0pLNz6tATAC+DiTX+2M++4Py/rJFTmshHRYAL3A6G1zka26lwX224wxVF3T
-         8Npw==;
+        bh=DcHId9d7ZivTlUPflcKuYmygXozfLhAN5Qcceh+SBys=;
+        fh=3oGEHYXwDjiPzxMzNfi5PdS39ZQFXA3BZ2HU7xiH2ok=;
+        b=IgidJv0aBLPXdMMMPCXpSnteF0s7Gz9UWYUQxNuuZI0EjEZIC85utGqBtflrhGNFf+
+         GQ3hTSd/b6e0haCbYgX4bzgm3Gj1Hoy9xFov7PMijUAHwZD5uglJh3ANq70PLPplnQts
+         3W8ynxv24zhySUl4TuewGlcMpy4J1opNYZiS4kJs/UMspx+wZ71PrYRzXxfcDzA0WJ7/
+         41n2oMs8Z2ED5GvPorZhk+Ni8U++a8EiGf2vjJwbCEfCuFdyJ7t9tDdc0lnW9w9rAisn
+         fFegzmtLCTCgnOLQjpynThSOHlvVqrE7qEwIwRG7DmN9uyuCD5nVKa24atXZ7GPYx3wQ
+         o5hQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793294275; x=1793899075; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793294413; x=1793899213; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=aVYR1R4XUuM03rk5Iesd5QgqyShDDveAkvO74xuMO/4=;
-        b=bZjBl+byznZEGN5wkjhjZP3mL4FEbkwTAI49FSi/6BBn/xw4ZIn4SUSpB3l3DkW42A
-         u6VktzbF2wMSZWcle1ZekLJv4XWjMSsWEdcAHgFv96QPBVoUbZjuZ7r8L0yHDEtJR2jF
-         QrLqPkisRD8FebLa+7yTU5gzxD1pWpBBzEkI3yuo+vDq+5stQTEFjafqZuHaSkiO8fqy
-         Z/tznJhjONtEtZ9hGRjP1RpKjtONaz/Rhtme35fE7ocki1Qq+PkiJbEKgshV7gLQuPC4
-         4aKrptVZXW1iU/pqlFsGGCQYcsRbeyS3o0Q2axpGYlnHJ9CH9KozbCGGVWuuIc2FEhKh
-         SJSQ==
+        bh=DcHId9d7ZivTlUPflcKuYmygXozfLhAN5Qcceh+SBys=;
+        b=gzf12mUcL41ewXzBbblYLaS/VSRMomfiEuT+tE+3Hd+hNZZUKmk7tEFDn99QjtN4Zt
+         Jz7KnA0FXOlaCgioAkZO2kJ8LtysocT2NWpj8PXtV4wjhywQW91PT6/m+SQO+DaTSYBJ
+         /SRV5KNXFLWxVVtWNUbA64RsNhXh9H/L6WeHLsrRFtSb2AvBbzx7UUhWypmPbOhn8lhw
+         rM5qvF6bIASjAbtYAa/y3//8Q4zLs1fK1ayd8Gp2eXRELwyrBr458v95Ameoj0lFbC9L
+         +ZAn9pkcTNlQBD8dLty8SQRlLuTjaGuH2VSF3c3ti7Zm2s76SYZ//pG6u6DWg/XvBAMx
+         GVYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793294275; x=1793899075;
+        d=1e100.net; s=20260707; t=1793294413; x=1793899213;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=aVYR1R4XUuM03rk5Iesd5QgqyShDDveAkvO74xuMO/4=;
-        b=epsp9tDteW5Cv7GOXe/E1LwyqRO8mMMAA+h51x7Bz1yQjMy7HyKit4iRhlrCkHrewH
-         J0QOaq8oRCOCIh66xA1wo8xKtVHJx55Y3fYYFm/hIYYOH8au2X91qgbwdkL0HThgWHSY
-         EcK/TsW0b2bAuNDPCv7j2Ol/00l7ZDa4RMFPCRMsnnj2A4C+dZ9N7/ZLKBt0UxSy9Fgr
-         Duyfwf+9Gw3fnhBNlXezKOUKjWHiPGPkpqfCHcDSJnwG10x1hvx7Xcwv6QBM+Aejhegd
-         LlGsc6CXWDaMttCje3FBuWIvKrwccqhDRRTm+hXICZmxlnsNYt01xiIgVt6ylLXhkuEp
-         r5IQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzgL04nEMep85HP4hJ5CF44aZOwj4RwQLkhplzg3V7VfGyNzSHYHYqM6shlyZWzZlmWg/D1o1fhKZg0vqFXmR5E@lists.infradead.org
-X-Gm-Message-State: AFq9FYIzG75cmFHpJoTaR2DUQcvoxnht3nNZscbipBAc3uv208OMiMx6
-	IdUOSxYBKDPord/7n4nG2dZWxBr3C1+rtU1jArlKZ3qdC12r9lRNF3Dsk1w087I5WhgI2Dj+qOo
-	Ty9sAd9b3ERsjG1eVpKAZQLpNY0vPZxk=
-X-Gm-Gg: AYBFou1dxV4QCBrIXRHXNbE32dhV65iWLGCuPLI4hWqtj0CKss4UElaBAql5qwlXVQw
-	XRPlZl10JOrZW26G6g2Ji6kmhozJyNU2TwLM7/7cDnlaIRiyl3FbPRb5oXUrSlXqZ2iFvn7Uc5o
-	Wur1IjSLflod+1JiK+DuX/cp8gSPL+8ATGPVb+RlUPdxqrUUX/JPi1VsYAlxFvGKjT4pjwT9kpl
-	54e1MSN7rY7ajrVW0hy4xUsK4kNesWIRrfDRSckQTqetm8UbzbEqlUqb7Aq98C3SvAKVjeAhEzN
-	ALX32D6eYyAsRZnYdokcWKIZf+AaL5FB0gUQnZtIi4DLEvjq76zccwvlrYN15B7k8d/60CBwsAm
-	0VnK/+8tWArtNLWjbhuoEn3OGaNGc3jxy+y5Gp7viV6xj0o9jWQbXOVChQ6cYt6uTvYyljIzRGB
-	KfFVmTp/k+C9nLXQc6IlxZcsQpLubHzvT4ua4Nmws+ULdh1AQUGq46Fe8lsITfFCLQmxlwrZVOs
-	vrjXOyxe3d8GJGnFIQnQhddeaUjjQ==
-X-Received: by 2002:a05:6402:158f:b0:6b1:ba86:5f48 with SMTP id
- 4fb4d7f45d1cf-6b49cb8e221mr4598429a12.36.1793294275082; Thu, 29 Oct 2026
- 10:17:55 -0700 (PDT)
+        bh=DcHId9d7ZivTlUPflcKuYmygXozfLhAN5Qcceh+SBys=;
+        b=ON9S+uPtM0S7Lpfh70x8hKVZ7B3+faQ5kDyB6bo09dkRla5RPflYYQe6+LC/f9cL3u
+         Xw7VxtE7xBq0LCpVY95V3snVlEfy+18nAjeGLGHRqXThdNMqLmxymT5bIRD/5koLuNtd
+         plCeRPu1bXdN70VxSsiI0L3gTy1PWsPKOWl12lGUsIPZbOBMQxylrrLqcozzpoK/9u/X
+         /4OeAi+mho+tPVoEI4ZC3o2chKqvel/GcGGqHwuVSDVBGvDxlGz0otinPcpMzRIulZBO
+         9apQXcQVo4JwKn406Zwlg6Ri6aomWn2eArUrm+iHF0F93te2pr0KaKziSTBC2OC1VjzA
+         yFyw==
+X-Forwarded-Encrypted: i=1; AKwUvBwNHaX1k2Lg95TX6L94mZkCCnUjuccHCCukU7VUwEVlAdEjC4mTqcEVAvOk8X2SFkbsTwYAWCUsaMtKZrz288Tj@lists.infradead.org
+X-Gm-Message-State: AFq9FYKRo8NhWZ+AeC9DxDSRmtEzIv28mEt3LWYNecdpbGdCGBeM+Jul
+	ueLmonl/YPMazCJqdJKq0JLPIUT9Z0cziLSPgy95TN+v1Bm5snrkOww3tmGX6cAjhsKTpcHcHyw
+	Ry9KFlsTIB4+vsrB6iWV6CU6dKQQ3qlE=
+X-Gm-Gg: AYBFou0lo57ScVx/MDRT9eV8QfyKsj1/A6JB+8ySY8ri5UyqnV1pAkU0eHfmok7WUB/
+	YsE4nIOMqUdqz/RJgyii1sHNu4r6/lopg5kRLI3g771jvd3HOsGGl33dtVHDS9nTG6yzURk7629
+	kV2A+knAZy4YE8WHoFWWzfNhT+16vZLkwzCuCMsJZU0A4OU+qjHCjf3yfgDAmRKlsEJtTrQUXIS
+	8KMvQyw1mdp28nF74HRiqsioXVaDPztVA+iCG2xpdZy5Kvnj1t8t/d1qB/KIO5Rf6DuHXUqe0yo
+	06x36rnoiFo8fk6OiLGUFb9G1xAk6s6HAPW5/QRt+WHwah6hQvxJRdtTeS92fPrhwFCClhUrggl
+	85B208UQy+UAyS+rPEWXenxrr0l3b0RhHIWSbPsQC7QNA0TtDmN8lVyNkSIwJGV5+uFIw+CgxIx
+	KUfRE0e7LsfxUHx+RkvpYhVw2DfGgC5ixf6QcXful8H/m627NxClDuNEik0XRr69WDP6hxZgVVd
+	Pdcjeh04cdk9ZdsO3gOniGIf6yJ0g==
+X-Received: by 2002:aa7:c1d1:0:b0:6b4:201f:17db with SMTP id
+ 4fb4d7f45d1cf-6b49cbdfd84mr3081067a12.18.1793294412721; Thu, 29 Oct 2026
+ 10:20:12 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 References: <20261029-submit-serial-8250-dma-cancel-v1-v8-0-3fd56ba352ed@gmail.com>
- <20261029-submit-serial-8250-dma-cancel-v1-v8-5-3fd56ba352ed@gmail.com> <auNWl_thBnE8JqBE@ashevche-desk.local>
-In-Reply-To: <auNWl_thBnE8JqBE@ashevche-desk.local>
+ <20261029-submit-serial-8250-dma-cancel-v1-v8-6-3fd56ba352ed@gmail.com> <auNW_Oc-Ao5Iw-Gw@ashevche-desk.local>
+In-Reply-To: <auNW_Oc-Ao5Iw-Gw@ashevche-desk.local>
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 29 Oct 2026 11:17:42 -0600
-X-Gm-Features: AclHuK9p5HgzHs6EyjP74wtBvDwmav_JmQ_V3uuDUu-UaTGXVkbTzXu0Rboi3LQ
-Message-ID: <CADvTj4qR0j7f-79wTUb9LmwWdGKYz32vB3Bgfr9AnEfXMnMBdw@mail.gmail.com>
-Subject: Re: [PATCH v8 5/6] serial: 8250: retire canceled RX DMA before
- reusing the receive buffer
+Date: Thu, 29 Oct 2026 11:19:59 -0600
+X-Gm-Features: AclHuK-0pW6JI4DxQzs96I_p0R94o9xpuy7K0elsSNWPWKpDy78P7tTWYrgR_Gg
+Message-ID: <CADvTj4pOg4w5LpFW_E3qzP7FZDnDgpB8LyR9xxhT_mZre21vFw@mail.gmail.com>
+Subject: Re: [PATCH v8 6/6] serial: 8250: retain DMA resources when
+ termination fails
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
 	Raul E Rangel <rrangel@chromium.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
@@ -119,9 +119,9 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kerne
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_101757_813490_51B921B5 
-X-CRM114-Status: GOOD (  28.80  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261029_102016_236396_E43745E1 
+X-CRM114-Status: GOOD (  21.57  )
+X-Spam-Score: -0.8 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,128 +132,85 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-1.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 29, 2026 at 8:22=E2=80=AFAM Andy Shevchenko
+On Thu, Oct 29, 2026 at 8:24=E2=80=AFAM Andy Shevchenko
 <andriy.shevchenko@linux.intel.com> wrote:
 >
-> On Thu, Oct 29, 2026 at 01:37:01AM -0600, James Hilliard wrote:
-> > The generic RX timeout path pauses a transfer, copies its data and
-> > terminates it asynchronously. Clearing rx_running at that point lets a
-> > new receive reuse the buffer and cookie while the old callback has not
-> > yet run. Inspecting the new cookie cannot distinguish that callback fro=
-m
-> > the completion of a new transfer.
-> >
-> > Reserve the receive buffer until a worker has drained the canceled
-> > callbacks. Keep FIFO access separate from callback retirement: after a
-> > successful pause and termination, clear rx_running while rx_terminating
-> > prevents another descriptor from reusing the buffer. Deliver the paused
-> > data before allowing the interrupt handler to drain the FIFO through PI=
-O.
-> > Normal retirement only releases ownership and leaves subsequent receive
-> > handling to the UART interrupt.
-> >
-> > Preserve the normal completion-path LSR read and gate DMA resubmission =
-on
-> > the receive interrupt enable, so stop_rx() prevents another transfer wh=
-ile
-> > the status read retains its existing side effects.
-> >
-> > Reject new flush work and PIO receive handling during shutdown, includi=
-ng
-> > late Intel MID DMA timeouts. Stop and drain retirement work before free=
+> On Thu, Oct 29, 2026 at 01:37:02AM -0600, James Hilliard wrote:
+> > serial8250_release_dma() ignores the return from dmaengine_terminate_sy=
+nc()
+> > before freeing the coherent RX buffer, unmapping the TX FIFO and releas=
 ing
-> > the channels and buffer. Once RX has stopped, allow the idle flush used=
- by
-> > DesignWare LCR recovery during shutdown. Clear the shutdown guard befor=
+> > the channels. If the provider fails to stop a channel, the DMAengine
+> > wrapper returns the error without synchronizing its callbacks. Hardware
+> > or a detached callback can then access the released storage and state.
+> >
+> > Checking the error and returning early would not preserve their lifetim=
+e:
+> > serial core frees the TX FIFO after the driver's shutdown callback retu=
+rns,
+> > and port removal can then release the callback context as well.
+> >
+> > Require successful synchronous termination of both channels before
+> > releasing any DMA resources. Retry failed channels after a sleep outsid=
 e
-> > startup configures the UART and tests its interrupts.
+> > the port lock, leaving channels that have already stopped and drained
+> > alone. Keep the shutdown gate and storage reservation in place througho=
+ut
+> > the retries.
 > >
-> > Check pause failures before accessing the buffer. A successful pause is
-> > the quiescence guarantee, even when a provider still reports IN_PROGRES=
-S.
-> > Also accept DMA_COMPLETE after a failed pause: completion can stop the
-> > channel before its callback acquires the port lock, leaving nothing for
-> > the provider to pause. Retire that completed transfer normally.
-> >
-> > A failed pause with an incomplete cookie is ambiguous: hardware may hav=
-e
-> > finished while its completion interrupt is still pending. Canceling tha=
-t
-> > descriptor can discard the entire completed receive buffer and switch
-> > permanently to PIO. Retain the transfer and retry pause and status in t=
-he
-> > worker, with receive interrupts masked to prevent a timeout interrupt
-> > storm. The worker copies only after a successful pause or reported
-> > completion, then terminates and drains the old callback before reuse.
-> > The pending-pause guard keeps callbacks from copying or resubmitting th=
-e
-> > transfer concurrently. Retries sleep outside the port lock and stop whe=
-n
-> > shutdown takes over. A provider which never pauses or completes retains
-> > RX ownership until an error or shutdown; a timeout alone cannot establi=
-sh
-> > that discarding the buffer is safe.
-> >
-> > On DMA_ERROR or termination failure, let the worker stop DMA before
-> > handing the FIFO to PIO. Keep the requested enables in the existing IER
-> > shadow and filter hardware writes during pause retries and recovery,
-> > including termios, RS485 and overrun-backoff changes. Apply the current
-> > enables after retirement so stop_rx() and shutdown remain effective.
-> > Hold a runtime PM reference around worker register accesses and keep RX
-> > on PIO until reopen after a confirmed error.
-> >
-> > Abort the DesignWare idle sequence when RX cannot be stopped. Allow
-> > the empty-FIFO timeout workaround once DMA has released the FIFO, inclu=
-ding
-> > while callbacks retire. Exclude FIFO resets during RX DMA recovery. If =
-the
-> > provider still cannot terminate the channel in process context, retain
-> > its buffer and leave receive interrupts masked.
-> >
-> > For OMAP, publish the shutdown gate under the port lock before the fina=
-l
-> > RX flush and interrupt masking. Take the RX DMA lock inside the port lo=
-ck
-> > in the completion callback, and serialize the runtime-suspend flush wit=
-h
-> > the same order. Drain the UART IRQ before releasing DMA state so an
-> > in-flight handler cannot retain up->dma across its release.
->
-> Can this patch be split to smaller logically isolated (to some extent) pi=
-eces?
-
-The OMAP shutdown and locking changes look like they can be split
-out.
-
-The generic RX changes are more tightly coupled: the retirement
-state, worker, IER filtering and FIFO-access guards must agree about
-whether DMA still owns the receive path. Splitting those mechanically
-could leave intermediate commits allowing PIO or another descriptor
-to access a buffer that has not been retired.
-
+> > A permanently failed DMA engine blocks close or removal. This deliberat=
+ely
+> > retains the buffers, mappings, channels and callback context until the
+> > provider can establish that they are no longer in use.
 >
 > ...
 >
-> > +++ b/drivers/tty/serial/8250/8250_dma.c
+> > +     while (rx_ret || tx_ret) {
+> > +             dev_err_ratelimited(p->port.dev,
+> > +                                 "DMA termination failed: RX %d, TX %d=
+; retrying\n",
+> > +                                 rx_ret, tx_ret);
 >
-> >  #include <linux/tty_flip.h>
-> >  #include <linux/serial_reg.h>
-> >  #include <linux/dma-mapping.h>
-> > +#include <linux/delay.h>
+> > +             msleep(100);
 >
-> When adding a new header to an unsorted block, try to squeeze it the way =
-that
-> you get the longest ordered chain (yes, interleaved with some unsorted
-> elements, but still).
+> Huh?!
 >
-> >  #include "8250.h"
+> > +             if (rx_ret)
+> > +                     rx_ret =3D dmaengine_terminate_sync(dma->rxchan);
+> > +             if (tx_ret)
+> > +                     tx_ret =3D dmaengine_terminate_sync(dma->txchan);
+> > +     }
+>
+> This is unacceptable. Sleeping is okay, but value should really match the
+> baudspeed and other parameters of the transfer.
+
+This sleep is backoff after dmaengine_terminate_sync() has returned
+an error, rather than an estimate of UART transmission time. Each
+retry asks the provider to stop the channel again; elapsed time is
+never treated as evidence that the resources are safe to free.
+
+The particular 100 ms interval has no hardware-derived justification.
+However, I don't yet see a sound way to derive the retry cadence from
+baud rate either. RX can be waiting for input, TX can be held by flow
+control, and callback retirement is a separate requirement from
+moving bytes through the UART.
+
+Do you have a particular provider failure mode in mind where retrying
+termination should follow the serial transfer timing? I'd like to
+base the interval on the condition that can make termination succeed,
+rather than substitute a wire-time estimate for an arbitrary delay.
+
+Regardless of the retry interval, shutdown cannot release the buffers
+until the provider establishes that DMA and its callbacks have stopped.
+
 >
 > --
 > With Best Regards,
