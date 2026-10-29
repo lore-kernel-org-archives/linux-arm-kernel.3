@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B26260A5BE6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 12:37:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDC1D606B7C8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 12:37:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AiAFA0bQ;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Vrayu7Wn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FvGaF1v/;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=nKJc9w+Z
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Y0PXaueWWNNW1qjVnxtFx1G452Tq6z9iP9QC2QUcooI=; b=AiAFA0bQpe8aLWv7/u5tG1qZ+d
-	+yuoE+OQra+bjDgvAgl7H4prC0qlSOJdQS5+zrTBX0K6YTfAOL+03QVOxag0rKR3Be8U1ElrC0xNF
-	fgCh/bIhMcKBHGZ9z9TWjhELG/XYNE3BdXfAFOVmmL0SdsknuQ7r45SqeUsepZpd1u4vISjNWQ/WP
-	9UIlA0yYqPc0X63PCRWBEcBFJW4oiqMKVzgYWJJCxXcQPkPm6HH9SqHyyacmW1jSLDmGAldSINUrh
-	Q8SKOVZLyel1IWlPd9vB+5m0Tjat6YJ8Pb1f9SMkLlen0e9zTxauQMXpZrtmLR3Z4ReFngRLIktM5
-	W+4c7mQA==;
+	bh=XmJpCilJ0NrhUf/tBqHBeO1E7rwkKvK5lUeDCabogN4=; b=FvGaF1v/WPFWTvvgqQLv/6xvcp
+	4pqblPqHwdju/py8nGg/gMjFLqbA1Mfza+pMEBk2/UdlrwqNWxM9zE9ushOcEHUQ67P6Cyx3/lznz
+	eE7qo/qDxuLs0+rPs6LyIC3bxdzWHPVctBN1nbpn9WiV6jAeDIvaGvVITgZXmdZ3ha1B4MQ3uKvkG
+	/GnaFavr8IAJtTnvS1YEFBkM+rqGxBMA7zwvIJNjeSiY+hazXnQe5iZaMUn0exrGTQAX/gQ+ICbiX
+	eUUodjPQb88YsI/FIT50wo1zUcXheW8Qw03bRr1imLT/q7spUOUwPc7Xv4QPMWloWA0Tf/O0Qv3kU
+	nMwR070Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMPN9-00000009ASb-0PHK;
-	Thu, 29 Oct 2026 12:36:47 +0000
+	id 1xMPNL-00000009Add-2vsl;
+	Thu, 29 Oct 2026 12:36:59 +0000
 Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMPN5-00000009APy-1Zi2;
-	Thu, 29 Oct 2026 12:36:45 +0000
+	id 1xMPN6-00000009AQH-3b4C;
+	Thu, 29 Oct 2026 12:36:47 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=Y0PXaueWWNNW1qjVnxtFx1G452Tq6z9iP9QC2QUcooI=;
-	b=Vrayu7Wnq2HmWqaeKIVCOWCydHGgxHIgnINeb+kRNkJniQuQl2+kpA07H0ngltYB2qGyK4Rbh
-	M4a3g3fhd5t7a+qON3VsKY/ccavzVsJGoEKYL/KzFTnGem79zVU6Fk+nGjmvVdwlhY1ls12mkVN
-	OM+b/jgNzOUYV8I/FJXgJoo=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jFkHV6fzxzcb3p;
-	Thu, 29 Oct 2026 20:36:22 +0800 (CST)
+	bh=XmJpCilJ0NrhUf/tBqHBeO1E7rwkKvK5lUeDCabogN4=;
+	b=nKJc9w+ZL78VOOjkz6CwWvxh4dcm6an9Y6V1AmIHDvM0kCdquSFORkclnDUOrrN9v+lY8Egyn
+	2JCujhqw2SIlL9Rik4LpDNNnS/qBR63xkpazH+Vzg+mUisfeMOE717EWSWWHqgutG+EaTGjAlxn
+	Mqoiu/pPap2YWZiQdjWmwwc=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jFkHZ0QJ2zcb3s;
+	Thu, 29 Oct 2026 20:36:26 +0800 (CST)
 Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id CC5DC40577;
-	Thu, 29 Oct 2026 20:36:38 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id F2D38202E6;
+	Thu, 29 Oct 2026 20:36:41 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
  (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 29 Oct
- 2026 20:36:37 +0800
+ 2026 20:36:40 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <reinette.chatre@intel.com>, <james.morse@arm.com>, <ben.horgan@arm.com>,
 	<fenghuay@nvidia.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
@@ -57,9 +57,9 @@ To: <reinette.chatre@intel.com>, <james.morse@arm.com>, <ben.horgan@arm.com>,
 	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [RFC PATCH v2 01/19] arm_mpam: resctrl: Leave CDP off when there are too few PARTIDs
-Date: Thu, 29 Oct 2026 20:35:53 +0800
-Message-ID: <20261029123611.1108424-2-ruanjinjie@huawei.com>
+Subject: [RFC PATCH v2 05/19] arm_mpam: resctrl: Use the resource-agnostic monitor event names
+Date: Thu, 29 Oct 2026 20:35:57 +0800
+Message-ID: <20261029123611.1108424-6-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261029123611.1108424-1-ruanjinjie@huawei.com>
 References: <20261029123611.1108424-1-ruanjinjie@huawei.com>
@@ -70,8 +70,8 @@ Content-Type: text/plain
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_053644_167375_8214778C 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20261029_053645_247146_BC83185B 
+X-CRM114-Status: GOOD (  14.01  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,60 +91,134 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Enabling CDP needs a second PARTID for the reserved closid. If firmware
-reports too few PARTIDs, resctrl_arch_set_cdp_enabled() returns -EINVAL,
-but only after it has recorded CDP as enabled, halved the monitor count
-and turned off the mbw_max MBA control. resctrl then reports an error
-and believes CDP is off, which leaves the two sides out of step and the
-halved monitor count and the missing MBA control are not undone.
+The monitor event IDs no longer carry L3 in their names. Switch the MPAM
+driver over to the new names.
 
-Check the PARTID limit, and work out the CDP PARTIDs, before anything is
-changed so a failed enable has no effect.
+No functional change.
 
-Fixes: 6789fb99282c ("arm_mpam: resctrl: Add CDP emulation")
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- drivers/resctrl/mpam_resctrl.c | 20 ++++++++++++--------
- 1 file changed, 12 insertions(+), 8 deletions(-)
+ drivers/resctrl/mpam_resctrl.c | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 5468367776e2..886f0595d364 100644
+index 886f0595d364..e436c3e6d4fc 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -210,6 +210,18 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
- 	if (enable)
- 		pr_warn("CDP is an expert feature and may cause MPAM to malfunction.\n");
+@@ -45,7 +45,7 @@ static struct mpam_resctrl_res mpam_resctrl_controls[RDT_NUM_RESOURCES];
+  * to those supported by MPAM.
+  * Class pointer may be NULL.
+  */
+-#define MPAM_MAX_EVENT QOS_L3_MBM_TOTAL_EVENT_ID
++#define MPAM_MAX_EVENT QOS_MBM_TOTAL_EVENT_ID
+ static struct mpam_resctrl_mon mpam_resctrl_counters[MPAM_MAX_EVENT + 1];
  
-+	/*
-+	 * Check this before changing any state: if CDP can't be enabled the
-+	 * caller must see CDP left off.
-+	 */
-+	if (enable) {
-+		if (mpam_partid_max < 1)
-+			return -EINVAL;
-+
-+		partid_d = resctrl_get_config_index(RESCTRL_RESERVED_CLOSID, CDP_DATA);
-+		partid_i = resctrl_get_config_index(RESCTRL_RESERVED_CLOSID, CDP_CODE);
-+	}
-+
- 	/*
- 	 * resctrl_arch_set_cdp_enabled() is only called with enable set to
- 	 * false on error and unmount.
-@@ -238,14 +250,6 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
- 	if (!cdp_enabled && mpam_resctrl_controls[RDT_RESOURCE_MBA].class)
- 		mpam_resctrl_controls[RDT_RESOURCE_MBA].resctrl_res.alloc_capable = true;
+ #define for_each_mpam_resctrl_mon(mon, eventid)					\
+@@ -173,7 +173,7 @@ static void resctrl_reset_task_closids(void)
  
--	if (enable) {
--		if (mpam_partid_max < 1)
--			return -EINVAL;
--
--		partid_d = resctrl_get_config_index(RESCTRL_RESERVED_CLOSID, CDP_DATA);
--		partid_i = resctrl_get_config_index(RESCTRL_RESERVED_CLOSID, CDP_CODE);
--	}
--
- 	mpam_set_task_partid_pmg(current, partid_d, partid_i, 0, 0);
- 	WRITE_ONCE(arm64_mpam_global_default, mpam_get_regval(current));
+ static void mpam_resctrl_monitor_sync_abmc_vals(struct rdt_resource *l3)
+ {
+-	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[QOS_L3_MBM_TOTAL_EVENT_ID];
++	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[QOS_MBM_TOTAL_EVENT_ID];
  
+ 	if (!mon->class)
+ 		return;
+@@ -392,11 +392,11 @@ static int resctrl_arch_mon_ctx_alloc_no_wait(enum resctrl_event_id evtid)
+ 		return -EINVAL;
+ 
+ 	switch (evtid) {
+-	case QOS_L3_OCCUP_EVENT_ID:
++	case QOS_OCCUP_EVENT_ID:
+ 		/* With CDP, one monitor gets used for both code/data reads */
+ 		return mpam_alloc_csu_mon(mon->class);
+-	case QOS_L3_MBM_LOCAL_EVENT_ID:
+-	case QOS_L3_MBM_TOTAL_EVENT_ID:
++	case QOS_MBM_LOCAL_EVENT_ID:
++	case QOS_MBM_TOTAL_EVENT_ID:
+ 		return USE_PRE_ALLOCATED;
+ 	default:
+ 		return -EOPNOTSUPP;
+@@ -436,7 +436,7 @@ static void resctrl_arch_mon_ctx_free_no_wait(enum resctrl_event_id evtid,
+ 	if (!mon->class)
+ 		return;
+ 
+-	if (evtid == QOS_L3_OCCUP_EVENT_ID)
++	if (evtid == QOS_OCCUP_EVENT_ID)
+ 		mpam_free_csu_mon(mon->class, mon_idx);
+ 
+ 	wake_up(&resctrl_mon_ctx_waiters);
+@@ -536,7 +536,7 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
+ 	l3_dom = container_of(hdr, struct mpam_resctrl_dom, resctrl_mon_dom.hdr);
+ 	mon_comp = l3_dom->mon_comp[eventid];
+ 
+-	if (eventid != QOS_L3_OCCUP_EVENT_ID)
++	if (eventid != QOS_OCCUP_EVENT_ID)
+ 		return -EINVAL;
+ 
+ 	mon_type = mpam_feat_msmon_csu;
+@@ -557,7 +557,7 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+ 	if (!mpam_is_enabled())
+ 		return -EINVAL;
+ 
+-	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
++	if (eventid == QOS_OCCUP_EVENT_ID || !mon->class)
+ 		return -EINVAL;
+ 
+ 	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
+@@ -614,7 +614,7 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d
+ 	if (!mpam_is_enabled())
+ 		return;
+ 
+-	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
++	if (eventid == QOS_OCCUP_EVENT_ID || !mon->class)
+ 		return;
+ 
+ 	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
+@@ -1131,7 +1131,7 @@ static void mpam_resctrl_pick_counters(void)
+ 				if (update_rmid_limits(class))
+ 					break;
+ 
+-				counter_update_class(QOS_L3_OCCUP_EVENT_ID, class);
++				counter_update_class(QOS_OCCUP_EVENT_ID, class);
+ 				break;
+ 			default:
+ 				break;
+@@ -1153,7 +1153,7 @@ static void mpam_resctrl_pick_counters(void)
+ 			 * and it's equivalent to mbm_total and so always use
+ 			 * mbm_total.
+ 			 */
+-			counter_update_class(QOS_L3_MBM_TOTAL_EVENT_ID, class);
++			counter_update_class(QOS_MBM_TOTAL_EVENT_ID, class);
+ 		}
+ 	}
+ }
+@@ -1180,7 +1180,7 @@ void resctrl_arch_config_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *
+ {
+ 	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evtid];
+ 
+-	if (evtid != QOS_L3_MBM_TOTAL_EVENT_ID) {
++	if (evtid != QOS_MBM_TOTAL_EVENT_ID) {
+ 		pr_debug("unexpected event id\n");
+ 		return;
+ 	}
+@@ -1197,7 +1197,7 @@ void resctrl_arch_config_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *
+ 		__config_cntr(mon, cntr_id, CDP_NONE, closid, rmid, assign);
+ 	}
+ 
+-	resctrl_arch_reset_cntr(r, d, closid, rmid, cntr_id, QOS_L3_MBM_TOTAL_EVENT_ID);
++	resctrl_arch_reset_cntr(r, d, closid, rmid, cntr_id, QOS_MBM_TOTAL_EVENT_ID);
+ }
+ 
+ static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
+@@ -1358,7 +1358,7 @@ static int mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
+ 	 */
+ 	l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx();
+ 
+-	if (type == QOS_L3_MBM_TOTAL_EVENT_ID) {
++	if (type == QOS_MBM_TOTAL_EVENT_ID) {
+ 		int err;
+ 
+ 		err = mpam_resctrl_monitor_init_abmc(mon);
 -- 
 2.34.1
 
