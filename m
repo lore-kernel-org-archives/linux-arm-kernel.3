@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8F0A606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 09:51:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE64E606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 09:54:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lOUyUnFs;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RzkRbN1A
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BWKOe1TN;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Huh6i3il
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ZrDU5unb+/T4yF2u2+zJeMQA2Fa/YM0sDkOzIuNIOD8=; b=lOUyUnFsOy+bGQonBiTeL/zYKI
-	pkZ2kId6OGurHzwYzThqd1J9DcuvhEjfyMrpxIIyVwiMb5QXLRp6Sd2zHhoQcTOWkUDBGaSz0cSIC
-	16z6oqrzBot8WL0uiBoykoQzfQxUI9yVCHnsXP0ExmhP6Mf9HnBbeBNcDfSBo9sTQEvlprG86Yfis
-	O6hMLjJQRlhHpQLW+JgtBRbq2nDwUssNE9EbMgqRKJjcsetY9iPTx8lvUdokZ++ifIqr7/ddIhDR6
-	sI0Lw17arDqzwkliLbGRvV2cBOxmoJZBNU/1mxttEk7k5xlbO2IXlSJLTPFvjgipldTwygGq8HQ0q
-	95VjLCRg==;
+	bh=V6Z3lx8HB/65IktpMvGzORYJmEAvTuwDLE0nRJTp3hM=; b=BWKOe1TNMkJGVKgny3QCiwETD0
+	kZxvVtzZQtf9D8xK01rES4I1zDTvrdvb+j27gok+SmRh32SnY9Xmfb96MUbooOE9QUPQXWYQtI9G3
+	k/Ltz8q/MzI8t9MIC8kQiHPu+gJe0y+b5vGiiYIrQPTV53pxVw6MAYgNXrB6EiTlalQtQCAW20hf2
+	Uy3QIEPxYnvmbJ4G50CzALOspdWRM8QhHFyhx5Bi28t7j0q03w+ILKuz9xA6qPjtWloXLSO4h6HYP
+	EgIerGvk5NAfr6YFKqNhTT+1jPXMjBROV35kOJi1xMI4AITRUCrIEevL4VuMdZxyIiua9eEgRRxtI
+	b0sl1oUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMMnJ-00000008tVL-34Uy;
-	Thu, 29 Oct 2026 09:51:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xMMpb-00000008tlV-1Vxb;
+	Thu, 29 Oct 2026 09:53:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMMnI-00000008tVA-2bob
+	id 1xMMpZ-00000008tlC-1LLY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 09:51:36 +0000
+	Thu, 29 Oct 2026 09:53:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 81115600D1;
-	Thu, 29 Oct 2026 09:51:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40E2F1F01825;
-	Thu, 29 Oct 2026 09:51:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A8B3F43EE8;
+	Thu, 29 Oct 2026 09:53:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 746B41F01828;
+	Thu, 29 Oct 2026 09:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793267495;
-	bh=ZrDU5unb+/T4yF2u2+zJeMQA2Fa/YM0sDkOzIuNIOD8=;
+	s=k20260515; t=1793267636;
+	bh=V6Z3lx8HB/65IktpMvGzORYJmEAvTuwDLE0nRJTp3hM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RzkRbN1AQOWsju/INxyeR8LepG3KPjEBLYl3lBkWKEx2Bj68VKmlGk9BCrLscuSw/
-	 IXQyyN/JH/ysxLkEeJKrjl2b3M6Z5jbKI/4tRexgXL4sdjiydl4sy6G7Pf/TB24IEs
-	 P+rCGFvW1hhELvxhX8T+eNzmW8EJmtzzp7HBzq8ZfQ4XEfsXxoV+UgDQnEci+qIb7q
-	 mCRlBaUGKyCHIFIDk60BuuYk5kL9IMO8VFmsR1AdBoOHAeYBY+810O0KsCg6mo6zAO
-	 gt/9T2+K9UEoUKfiqPaipA7YVCqNR+ct37oXxxpnaDAwPv14cnuIKkzKzlI5unzeT6
-	 e7sWNVgI0Hbjg==
-Date: Thu, 29 Oct 2026 10:51:31 +0100
+	b=Huh6i3ilGxlUQtbUPcQDEACaSC8dodvTAcDQ770a1bA7dtYFzJThClWwToRi++ZcX
+	 KtkrkWvDmOnZzC0u6SlsKhXDqNDQqXYnd1M9sD93SHFaWE1dX0FgWhUpzzxZlvgK+p
+	 MAyJsDAj0RE0wrqixzclF1d2n4gSm33fKp6WZTCAN5cZKRBpUz8JsqtVjTmLy4bARb
+	 CybTuhe4dijZoxnpCQRaAfR3hFwwapnXga6wLeXvmvaeOExekqVhckzlPFqC3e1TzR
+	 xAXRoop5zsm3ryCjDYklCHKD4HDvbsdQVDL6Fv+32yDrYtm4+2nyZencxYzHbcMra4
+	 k0tMVJQTV3iUg==
+Date: Thu, 29 Oct 2026 10:53:52 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Jacky Huang <jackyhuang@nvidia.com>
 Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, 
@@ -53,15 +53,15 @@ Cc: Andrew Jeffery <andrew@codeconstruct.com.au>,
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Conor Dooley <conor+dt@kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>, 
 	Billy Tsai <billy_tsai@aspeedtech.com>
-Subject: Re: [PATCH 1/2] dt-bindings: arm: aspeed: Add NVIDIA MGX Vera C2 BMC
-Message-ID: <20261029-camouflaged-enchanted-mushroom-d447ef@quoll>
+Subject: Re: [PATCH 2/2] ARM: dts: aspeed: Add NVIDIA MGX Vera C2 BMC
+Message-ID: <20261029-gentle-devious-trogon-de665e@quoll>
 References: <cover.1793243187.git.jackyhuang@nvidia.com>
- <ed348a94c9432eeea53f50448a61d93f99de7821.1793243187.git.jackyhuang@nvidia.com>
+ <0d221cbd11c8b582d43b21e4156dfb7c83b121b3.1793243187.git.jackyhuang@nvidia.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <ed348a94c9432eeea53f50448a61d93f99de7821.1793243187.git.jackyhuang@nvidia.com>
+In-Reply-To: <0d221cbd11c8b582d43b21e4156dfb7c83b121b3.1793243187.git.jackyhuang@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,24 +72,105 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 29, 2026 at 01:58:07PM +0900, Jacky Huang wrote:
-> Add the board compatible for the NVIDIA MGX Vera C2 BMC, which is
-> based on the ASPEED AST2600 SoC.
-> 
-> Signed-off-by: Jacky Huang <jackyhuang@nvidia.com>
-> ---
->  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
->  1 file changed, 1 insertion(+)
+On Thu, Oct 29, 2026 at 01:58:08PM +0900, Jacky Huang wrote:
+> +	chosen {
+> +		bootargs = "console=tty0 console=ttyS4,115200n8 earlycon";
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Drop bootargs. Console (and baudrate) goes to stdout-path. earlycon is
+for debugging, not mainline wide-usage.
+
+> +		stdout-path = &uart5;
+> +	};
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +
+> +		fault-led {
+> +			gpios = <&exp7 12 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		power-led {
+> +			gpios = <&exp7 8 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		uid-led {
+> +			gpios = <&exp7 10 GPIO_ACTIVE_LOW>;
+> +		};
+> +	};
+
+...
+
+> +				device@1 {
+> +					compatible = "usb955,cf11";
+> +					reg = <1>;
+> +					#address-cells = <2>;
+> +					#size-cells = <0>;
+> +
+> +					cp2112: interface@1 {
+> +						compatible = "usbif955,cf11.config1.1";
+> +						reg = <1 1>;
+> +						#gpio-cells = <2>;
+> +						gpio-controller;
+> +						#interrupt-cells = <2>;
+> +						interrupt-controller;
+> +
+> +						i2c {
+> +							#address-cells = <1>;
+> +							#size-cells = <0>;
+> +
+> +							/* CPU0 IROT/thermal/SOCAMM/JTAG */
+> +							pca9555@50 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+If you cannot find a name matching your device, please check in kernel
+sources for similar cases or you can grow the spec (via pull request to
+DT spec repo).
+
+> +								compatible = "nxp,pca9555";
+> +								reg = <0x50>;
+
+...
+
+> +
+> +/* Board 0 management bus 1: GPIO expanders + HPM MCU MCTP */
+> +&i2c1 {
+> +	mctp-controller;
+> +	multi-master;
+> +
+> +	status = "okay";
+> +
+> +	/* MCTP for HPM MCU */
+> +	mctp@18 {
+> +		compatible = "mctp-i2c-controller";
+> +		reg = <(0x18 | I2C_OWN_SLAVE_ADDRESS)>;
+> +	};
+> +
+> +	/* Board 0 management bus 1 GPIO expander 0 */
+> +	pca9555@20 {
+> +		compatible = "nxp,pca9555";
+> +		reg = <0x20>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +		interrupt-parent = <&gpio1>;
+> +		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
+> +		vcc-supply = <&standby_power_regulator>;
+> +		gpio-line-names =
+> +		"B0_M1_MCU_RESET_L-O",
+
+Messed indentation.
+
+Are you sure you run dt-check-style here?
 
 Best regards,
 Krzysztof
