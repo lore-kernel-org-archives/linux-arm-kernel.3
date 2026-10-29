@@ -2,82 +2,150 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81347606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 02:54:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92904606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 02:56:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xOJs5ATq;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=2IklUx2L
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NpIovtrR;
+	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=YfL6swxf
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=kG2dXNb8wO3/BgLfC0cpJvPGIyuZmV9XeLRw5RqugE4=; b=xOJs5ATqrI2vMX
-	zzWfAW73V7U00qYtuX4odM25HPGz18i5vka8d7cg3U3T5mcAjn8bWm9CAGSdPUTJLb32RIgKgcgpR
-	rS3GRi7LDnyGVYfkrgRikCy5p5PklxT2jwDdPklvIl0eYmOJ7a7m5udnbhQBW7g04W0jcXfuDbksz
-	lLbffzS+0+Dq2CR0AsoKlg+mJmDzlWPd2ROHIg/a9DNX2SMd3jddq/LrebxlhSU84SqQ5mxYHFues
-	kEAyRAQ/bp1mmUB+Wh+iHYPJhKCuBkMpQEPrlk4rF0T9jR9+mHEeumU+WZ+ZaE2fmd4r7N+isEAVd
-	hTJKExb0iqoL5ng6/Irw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=hnrs2FdnwHWCgKg0SmW1qSsndTGKhMKWtE98bO4UpLg=; b=NpIovtrRuB56aVe5BBfu2Tfgog
+	t9YVVFhRF578Yk706k4RnooICvFVomWEVnmG0EMBL2xWhDV670H0AS+t/yK9iEJOsOzZunlywAW+M
+	Orob0dZhG+UtSBBA4VZMEf6s8kDWfXmhFe7R179Qk5GqOmmW/cSZWLwTml8e2xF82f7/kbg3rUHQk
+	Zg4rbcEM9xSfVLGF/I35nXsXWhQdczSdo8V0quSgXiOgF1ox/FfcmMm91OjNt+h0fZ5TbVWBdfC9R
+	6gma/rWuRKMLrOTQ25clra+Xs4pUbeIi/WZHsjov1/Ie0QsEI6XPJOMtTfxtktui8+b68hAVhPDlN
+	auYhQWvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMGHn-00000008Deu-2iSP;
-	Thu, 29 Oct 2026 02:54:39 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1xMGJa-00000008DqP-3hoP;
+	Thu, 29 Oct 2026 02:56:30 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMGHk-00000008Dcx-0YB5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 02:54:38 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=kG2dXNb8wO3/BgLfC0cpJvPGIyuZmV9XeLRw5RqugE4=;
-	b=2IklUx2LMEZLmggJ3mhG3a18Gubq8nvBArxV8GANZCGw0Mh/SwWlaUoh71DSi3Koh0Zc58dgz
-	ZnC7qz+ZGFcd1CCNqLyIRrdjgaN4noxkUUA3e15+fAR0pKK+46xWakBys78xRqfERtzl5a83qrW
-	mF8GnxsvytzPaFBLsPilyhc=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jFTMr6fy3z1prMP;
-	Thu, 29 Oct 2026 10:54:16 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7A2844056E;
-	Thu, 29 Oct 2026 10:54:25 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 29 Oct 2026 10:54:24 +0800
-Message-ID: <52945586-8c5c-4991-bd92-fe02aaf79fbe@huawei.com>
-Date: Thu, 29 Oct 2026 10:54:24 +0800
+	id 1xMGJY-00000008Dpt-0mzr;
+	Thu, 29 Oct 2026 02:56:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qf0gv2qQslJAk7lQWjBteK7H2SC5wuPrrJvzt1blBs1Gu6GKeCfA86jCtxHmvhBzd0yQ1GELsoZhu0hMf5ol6KZN2Zu3x0wCIepn6WGApB6UEqqNoGJ9Gj2X1vOberNK6gwNjUcl/32JtVC1SBKn74iVBRib4wDJcZVr9G26ih/zT3Z0a1Nb64Jdf0a6ZO5sY6oZ9lv8E3+66FilnBmEU8V5mOaCtSVdcZ1NQLP3t8m2OjWG9zDRUWLz2Y3vwWgJQ4BoAMB5iCXIFzdFLHYtq1c4b5cVtfI1LJjLq1qvhv4i9HpeO1YC9vF3lQfCz0E8yo4akUDTd5ASLH+9N7+K7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hnrs2FdnwHWCgKg0SmW1qSsndTGKhMKWtE98bO4UpLg=;
+ b=bVS/IKjSK30obqA3O0OREyy9kpX4FNjFmn3Q8Je2VLF59xJS6PXjOLgdBDb1fC8EFLh0u9etAmzKEmEV9uN1aQu4AQklHnQ+28ihfakty6zZ+Lej+hayJEQoX/Zw9XoCeJ/xA4BXVoffmX3qiCmo5kyhpMgtFOHZh2K7wMSj8Pl2oHrrxYTpyLbk04Eeceq5lW2jlgmCzl7QTsfHk7E1j71CyuaTLJOqI4cJq8RGbCyORx7Z/lwae/0JUkFVL+DbMe/h7ZjF7UlZGzGUhP3m28xQ5srtyPk7rw83LO0TMrw49GkqWj1OiEC2m6QpLt/iU77XCAjsgVAFwg/lGZct2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hnrs2FdnwHWCgKg0SmW1qSsndTGKhMKWtE98bO4UpLg=;
+ b=YfL6swxfD17sRy2P8FLRzlfzyDz9rM+U7NUK3RUl/La+sOpNmLIj6c3KdYUYmqgdQ+sYZiy54RF7E8VsSm6Hmt2Pa7Vp4s72U0rNlDPV+lgupubUZ14BkAPnTj5lXapTNTeuoAX5cpjRpmvRniW/Zn4v9iVu1xDQavplxyjlZmff/6iAXrOAYZLXmvg0g525Fjmf6WVT60/cfZHryK+2piUtwTC3hPg6yujVMe/hjH2z7oz7xdftSCcc7vH/Zb0HDYF4T+pdBJkJJ9zNNTQBPYqRmhluI+b3WTKkc8kaiQN89Hy6npDmTBKYCHpv3W0qnxEJfFB1wkNv6Kkw4/kddQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYNPR03MB10226.apcprd03.prod.outlook.com
+ (2603:1096:405:3c1::21) by OSNPR03MB10495.apcprd03.prod.outlook.com
+ (2603:1096:604:47d::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.8; Thu, 29 Oct
+ 2026 02:56:19 +0000
+Received: from TYNPR03MB10226.apcprd03.prod.outlook.com
+ ([fe80::ff5:e524:cf10:5d7]) by TYNPR03MB10226.apcprd03.prod.outlook.com
+ ([fe80::ff5:e524:cf10:5d7%6]) with mapi id 15.21.0546.021; Thu, 29 Oct 2026
+ 02:56:19 +0000
+Message-ID: <6009f35b-b1e0-458c-85d4-08e4bfb1db86@amlogic.com>
+Date: Thu, 29 Oct 2026 10:56:16 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/5] dt-bindings: clock: meson: Add audio power domain
+ for S4 soc
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com
+References: <20261021-audio_drvier-v7-0-2b9aeae9cb8a@amlogic.com>
+ <20261021-audio_drvier-v7-1-2b9aeae9cb8a@amlogic.com>
+ <20261028-sparkling-objective-cricket-a428bd@quoll>
+From: Jiebing Chen <jiebing.chen@amlogic.com>
+In-Reply-To: <20261028-sparkling-objective-cricket-a428bd@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: TY4P286CA0047.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:36e::16) To TYNPR03MB10226.apcprd03.prod.outlook.com
+ (2603:1096:405:3c1::21)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 5/5] KVM: arm64: Enable HAFDBS for guests not on
- migration
-To: Leonardo Bras <leo.bras@arm.com>
-CC: liuyonglong <liuyonglong@huawei.com>, Oliver Upton <oupton@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly
-	<joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>, Raghavendra Rao Ananta <rananta@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-References: <20260901171558.2674031-1-leo.bras@arm.com>
- <20260901171558.2674031-6-leo.bras@arm.com> <aqneWnlsdpocLIl6@kernel.org>
- <aqqhDs3NyjtkZzXK@LeoBrasDK> <aqsl1_IqnV2r8kUL@kernel.org>
- <aqvt2gnlBZeNsaf4@LeoBrasDK> <as-mH36YSMxAosND@LeoBrasDK>
- <3e464bef-8dfe-44a3-afea-3c276ae87cd8@huawei.com>
- <attMtUqxNsuPooix@LeoBrasDK>
- <8eaaba87-7881-49c4-a76a-51dec2f29ffc@huawei.com>
- <auCPEQmnFwWldTaM@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <auCPEQmnFwWldTaM@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYNPR03MB10226:EE_|OSNPR03MB10495:EE_
+X-MS-Office365-Filtering-Correlation-Id: c1b7f319-7190-4a34-2118-08df3568353c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|7416014|18002099003|22082099003|56012099006|11063799006|10067099003|4143699003|261028144727099003|261021123027099003|261021121427099003|261022105027099003|261009223027099003|261026121527099003|261026140227099003;
+X-Microsoft-Antispam-Message-Info: qHvFRTiC5JOur0ghM9aekSI9hudhyLMr4Iy7Li46BFhxxKPzzovpy46TTjLMhaIHvJJign2brdLwsjglvE/20pl8E3h33CMB+eu57smHlhD4wnxdsjiuwEA1p0hMucj+tJEEYzPoY3dLmI9H21tPchvVhIetxvkIqzK073c994JgSgjAxxK2J5rsyux5B0F244JMgzQHKGMmIT9kH1irJnUVSN/rjrPwSmmAkYtb3GqnVr+s1M6Skn80LD1PadMLwoRY4U8Ueo72JYOVdq4v52kLG/Ecmr85OIf14DeUPVKFJvJCT+pQA5A3ukxUju7Z6GbSGiNen1+r/p9fgLv2M9hE8t6hsyzFw/XImYfQsD/h/pldZL3pywjuS2iBaMC+IK1oXItjBKDRooB0zsy0lr/4Ml520SVfgLQipidVjT99RJSmLBfmHjJ3h/JKE5DJFqDo337YXMHrspw4EVWJHkyGBTlU+gmswH/TO5/oLkVQFtmncJiQk04OskgmGduW5znOne2YfHPsUPJhXqBHYyAWuF7IzRZdEIkiXh+dwFL4sYx6nDJxRnzDCifNrPLe/mvBLWhgIW/ljzzeIsLTPBPQSO6Yx0gKwfbJCxjGjOMsygDnPAN2ufyibFHLwrFHloy/RSq6PsZAK9/OsiILGJwuKnuhvz1QE15ZsipCzxE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYNPR03MB10226.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(7416014)(18002099003)(22082099003)(56012099006)(11063799006)(10067099003)(4143699003)(261028144727099003)(261021123027099003)(261021121427099003)(261022105027099003)(261009223027099003)(261026121527099003)(261026140227099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0ZvUFpxMWk0NUdheE9HMmw2MTZYT3ZlSlorUnQzaUdaRFhha2RnR2t0Slg0?=
+ =?utf-8?B?eERmWUtXbnV5dlZ3cVoyRDNjcDNsL0tuVEtxZDM2NHBoSDQ5dnJraDJjU3pO?=
+ =?utf-8?B?RVRrdWtBd1ZESVdzUjhJNmVaKzNaUzhYYzRyYnhKR2lJSVZMUnl6bmx0WS9z?=
+ =?utf-8?B?K0puTGdBTnduNkVqVFJsZ2ZPOU1obHNNcjU2ZzQzeXFvT0lNK24wSUY1STlq?=
+ =?utf-8?B?SGhwN3cxanBHMlZqMUdTaGRCQVpKcEM2WWt2b2ZGY2lITjN0c1BNVkZ4dXlP?=
+ =?utf-8?B?c0dUT290UHZsMExBd1BmcTdMOXJyTHJ1N3M1TFFlTXZvdkd3NktDbWN4Z3lM?=
+ =?utf-8?B?Q2NDaWdXSkNrd1RvdmNIRGRiVG9pamdpTVFTajV1dzJ1Um5QcEp2VEFDTzBB?=
+ =?utf-8?B?c0FHeEhFMXZ0amhjQ0dPam1TRTdZUTl6bkdTQXliYnFkMnd5dVZ5RWQzcHBk?=
+ =?utf-8?B?bXdSOVJQNnZobXVlb3BmS3pKSXVydW5DWHZ5NVFLaEF2L1o0SzRqaUJzRmpM?=
+ =?utf-8?B?THRjZHhUQWYrcWcvbE5BUU1mQXFLZUlrWXRoekNvYU8wZ1p3YlRNdHFWZTZO?=
+ =?utf-8?B?QUJjblJOaEhpREJhTDNvNTl5dmRzNm5UalRQenc5MHlnc3E3RUdDZmtXc1kz?=
+ =?utf-8?B?V3ZwVmcvclRYM3RiWjEwNkM0WVRVN1VFT2ZtNXhoVFczVmRxUTdpZ2o5MjZZ?=
+ =?utf-8?B?dE5maHFWSXNsSjE3YmY2dVJqZys1K3dkS2szOTRZdGN0UHBQREplaGRmMmNN?=
+ =?utf-8?B?Vm9YKzIxK1VvdWpJWEFYRnMxbFUrQ3F0dHhDMGxNWTdPalg1NUViYksxSk94?=
+ =?utf-8?B?Z2tBYnRmQ1RHL1hqWlZiU2pQZDZnTlYxSCtUZmhiZVB1NE9KMExrakdjK2c3?=
+ =?utf-8?B?RzJzL2VpK0dqNzdoeWtrWmtNc2xGMkpsSlZmQXFOYTRaUllyelROWjBHZ050?=
+ =?utf-8?B?MTVncjcrdS8xNklzcDVpWjdiZEd0SDNxQm9NbElnUEpXVC84S2dqRWpveEVv?=
+ =?utf-8?B?NDZLSzA3Z21ET0tUblducFNza2hBVGIrZjByK3F3dldvNWlDb1ZIRzdxaGFU?=
+ =?utf-8?B?dlVBZ1VVUS9kT01Da2xqVlF0SWcwdk1tUHQrbEhHSlZPV3ZPSXJBMjFrdmNT?=
+ =?utf-8?B?ZjM2ZVRHbmora1JBRktwSGtWOS9JTEhlbnpVUEROdHYxNUQrSytpekJmVTd5?=
+ =?utf-8?B?ZW9Zc20yRXlVbk5jOCtHWFdCZUpRbDJtb09CM1lqYnVoM2U3WlMrSElxOVRk?=
+ =?utf-8?B?UC9qbExwM1lwWHN2S0dLOTRCQ2hRbDd4NFVERTJMclViL0RYZTJPcVVWR3NJ?=
+ =?utf-8?B?SDZtd0J3cjZHbmtlY1d5aHVSTDZrN3VnSFdwMlJwNnljajhUL0pKNkF4cE5p?=
+ =?utf-8?B?QUsvRTg5bGxIa1owUnpBcGFxU0hOTm5vV0lFRlNmc1paTlpMK2lpOXpiUVlL?=
+ =?utf-8?B?VDk0SG5WWW4rRzg3Rlk0dGZBNkd0bXA2N0IwSU9ad1BvdE80TElkZWxYUlY3?=
+ =?utf-8?B?VUZJVlNrNThvanUvK0R3U0xGVElDR3ovZVhic2Nsc1Z6M2hXQXl0S2d6Zkh6?=
+ =?utf-8?B?Y1FZbWlJdFpWUlMwbzdaT2NNaVdkZnBQV0RkRnZvNmFFNG94TzRTUnZWNjRO?=
+ =?utf-8?B?cTZQbzVCcExaZ3gwYmN0U2NpN1Y4Y1hheW9KQ1U1MlBHK25WdU8rVUQ2ejRq?=
+ =?utf-8?B?SlVOM2E1NDFHNi9EaUxQOWRnYmYvOU5Cb2pYc1JFeS9JNVZMNk5WSWszNURr?=
+ =?utf-8?B?RThnUzFGUnlHNjlPQUNUOGd3bFdQTlZjWjMrZ1JzVFIybE9vTmJMejVwVnhI?=
+ =?utf-8?B?d2dwaEF0Z3pLWExvOGpEaGVSTlUySW1UOFhEWDhwOU5hcGxSUDF1NGZEVHdx?=
+ =?utf-8?B?RkJrTFUvSkNBR053WVFwL2lySzV2SzlzeWNQck5lQjdzUnp5VXlScVNJVVJU?=
+ =?utf-8?B?UzI1ZFc4Y0haOE5XbGxWdy96dU9BcVZOR3cxMldzelVnSTZ5VUFlNHVsaUtk?=
+ =?utf-8?B?dFlXdjl4YVJONjYwRjR6THcvdXFGbWtoNjY5Um1HR2c4M1RqVnpNVllwNU9a?=
+ =?utf-8?B?RGxKV0gyaXZicS9TOWZ5S0JSbDYzM0ZaZGhCcTVsaE9XT0FEdFhEWmZ4ZDdF?=
+ =?utf-8?B?TTFhTEJoREZkL3ZBQlRRd29YK3VwajladmV3QTNDcDIzcFY3M3BIbkZ3Q1RM?=
+ =?utf-8?B?TVRVaUNQaUF6QUdvRlJIdEs4Skx0dngzaytRZHJlR3NYMFVaVTVCbE1BRm5o?=
+ =?utf-8?B?dTBZS1hvK1Vtd3BGKzN6a25sbXpxTzQvcEhnY3RyZk1vYmdSQ2ZYbDRMSnJW?=
+ =?utf-8?B?aktjem9xMlBncnpBTXY0NEFVZitqRzJVWkNvOUdtamFRUlZUTGtwQT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c1b7f319-7190-4a34-2118-08df3568353c
+X-MS-Exchange-CrossTenant-AuthSource: TYNPR03MB10226.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2026 02:56:19.7471
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KeIDULntJPEm8AxruLSJTXtTpGOmVh15ph24RGqvqzqUQh4PrwzWfMQGC1SBa4gvopYUkUFQ84CVYMtlT8OK1vs6WuUAmW/uRg63DpaoBgI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSNPR03MB10495
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_195436_830466_82ED9FFE 
-X-CRM114-Status: GOOD (  30.65  )
+X-CRM114-CacheID: sfid-20261028_195628_633765_1AB9B2D5 
+X-CRM114-Status: GOOD (  12.80  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,147 +157,79 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
-
-On 10/27/2026 7:46 PM, Leonardo Bras wrote:
-> On Tue, Oct 27, 2026 at 10:02:55AM +0800, Tian Zheng wrote:
+在 2026/10/28 22:48, Krzysztof Kozlowski 写道:
+> [ EXTERNAL EMAIL ]
+>
+> On Wed, Oct 21, 2026 at 03:08:28PM +0800, Jiebing Chen wrote:
+>> The audio power domain has been found on S4 device.
+>> It must be enabled prior to audio operations.
 >>
+>> Signed-off-by: Jiebing Chen <jiebing.chen@amlogic.com>
+>> ---
+>>   .../bindings/clock/amlogic,axg-audio-clkc.yaml          | 17 ++++++++++++++++-
+>>   1 file changed, 16 insertions(+), 1 deletion(-)
 >>
->> On 10/23/2026 8:01 PM, Leonardo Bras wrote:
->>> On Fri, Oct 23, 2026 at 03:23:04PM +0800, Tian Zheng wrote:
->>>>
->>>>
->>>> On 10/14/2026 11:56 PM, Leonardo Bras wrote:
->>>>> On Thu, Sep 17, 2026 at 02:40:42PM +0100, Leonardo Bras wrote:
->>>>>> On Wed, Sep 16, 2026 at 04:27:19PM -0700, Oliver Upton wrote:
->>>>>>> On Wed, Sep 16, 2026 at 03:00:46PM +0100, Leonardo Bras wrote:
->>>>>>>> On Tue, Sep 15, 2026 at 05:10:02PM -0700, Oliver Upton wrote:
->>>>>>>>> Hi,
->>>>>>>>>
->>>>>>>>> On Tue, Sep 01, 2026 at 06:15:56PM +0100, Leonardo Bras wrote:
->>>>>>>>>> When dirty-logging is disabled, even non-write faults make a page dirty,
->>>>>>>>>> which avoids a second fault when the page is actually written to.
->>>>>>>>>>
->>>>>>>>>> On dirty-logging enable, this approach causes all (writable) pages on the
->>>>>>>>>> memslot to be marked clean, even if they were not written to, which can
->>>>>>>>>> take a lot of time, while holding the MMU lock, doing atomic writes to
->>>>>>>>>> PTEs.
->>>>>>>>>
->>>>>>>>> Do you have any performance numbers for this? Enabling HAFDBS seems a
->>>>>>>>> bit involved to avoid some stores on the first pass.
->>>>>>>>
->>>>>>>> Not yet, but if the idea does not look too crazy I can find hardware and
->>>>>>>> collect some data :)
->>>>>>>
->>>>>>> TBH this looks like a micro-optimization so I'm not expecting the
->>>>>>> performance gains to justify the behavior change.
->>>>>>>
->>>>>>
->>>>>> Okay then, I will get a machine to figure the performance gains :)
->>>>>
->>>>> Got the performance numbers here.
->>>>> I tested both the case where all PTEs are dirty, and the case that 50% of
->>>>> the PTEs are dirty.
->>>>>
->>>>> For that test, actually patch #5 could make kvm_pgtable_stage2_wrprotect()
->>>>> slower, which is counter-intuitive, in all platforms tested:
->>>>>
->>>>> When we walk the S2 pagetable to wrprotect, using the new walker, the
->>>>> write to the PTE itself is so cheap* that the cost of the branch
->>>>> misprediction (write PTE or not) for the 50/50 case is significantly higher
->>>>> than the cost of the 50% extra writes, which makes the 50/50 up to 60%
->>>>> slower than the 100% dirty case. It is still slower in the '25% dirty' as
->>>>> well, and starts to get even at '10% dirty'.
->>>>>
->>>>> * (non-atomic, everything is in order, walker is small, cpu will probably
->>>>> bundle it all in a single cacheline write)
->>>>>
->>>>> Since the idea of patch #5 was to reduce PTE writes in the first wrprotect
->>>>> walk, it becomes faster only if only a small portion (<10%) of the VM was
->>>>> write-faulted while the remaining was read-faulted, which seems to be a
->>>>> really reduced audience.
->>>>>
->>>>> Since this comes with increased complexity, and also carry costs of
->>>>> having HAFDBS itself enabled outside dirty-tracking, I don't think it's a
->>>>> good idea to further pursue patch #5. It's only value is that it served as
->>>>> a base for HDBSS implementation.
->>>>>
->>>>> Thanks for reading!
->>>>> Leo
->>>>>
->>>> Hi Leo,
->>>>
->>>> Thanks for running this, the numbers are really useful.
->>>>
->>>> It means the hardware dirty mode (HD=1) should only be enabled while
->>>> dirty logging is active with HDBSS support, and stays off otherwise.
->>>
->>> Hi Tian,
->>>
->>> Correct, it's actually counter-productive for it to stay on without HDBSS
->>> before dirty-logging.
->>>
->>>>
->>>> With HD only enabled during dirty logging, we also keep the DBM-based
->>>> encoding for the HD=0 case. On systems that support FEAT_HAFDBS, DBM
->>>> remains the write bit and S2AP[1] the dirty bit even with HD=0. This
->>>> works because kvm_s2_fault_compute_prot() maps any writable page of a
->>>> non-tracked memslot writable-dirty (WD), including on read faults:
->>>>
->>>> ```c
->>>> if (s2vi->map_writable) {
->>>>           *prot |= KVM_PGTABLE_PROT_W;
->>>>
->>>>           if (s2vi->device ||
->>>>               !memslot_is_logging(s2fd->memslot) ||
->>>>               kvm_is_write_fault(s2fd->vcpu))
->>>>                   *prot |= KVM_PGTABLE_PROT_DIRTY;
->>>> }
->>>> ```
->>>>
->>>> So there is no WC entry for hardware to promote, and HD is simply not
->>>> needed outside dirty logging.
->>>>
->>>> In the next HDBSS version, we'll only turn on HD=1 when dirty logging
->>>> is active.
->>>>
->>>
->>> Right!
->>> I will also send a new version of the pre-patch (4 patches) for us to
->>> discuss. The first 2 patches will change meaning a bit, but should still
->>> work as they do today.
->>>
->>> Thanks!
->>> Leo
->>>
->> Hi Leo,
+>> diff --git a/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
+>> index fd7982dd4cea..69f5fef5f14a 100644
+>> --- a/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
+>> +++ b/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
+>> @@ -20,6 +20,7 @@ properties:
+>>       enum:
+>>         - amlogic,axg-audio-clkc
+>>         - amlogic,g12a-audio-clkc
+>> +      - amlogic,s4-audio-clkc
+>>         - amlogic,sm1-audio-clkc
 >>
->> OK, I've seen the new DBM RFC patchset. HDBSS v6 will be based on it.
-> 
-> 
-> Hi Tian, thanks for reading it, and for accepting it in your series!
-> 
-> Before rebasing, please wait for the ongoing discussion on it's
-> correctness. Maybe I will have to send new versions before it can be used.
-> 
-> Thanks!
-> Leo
-
-Hi Leo,
-
-I've read your discussion with Oliver on DBM RFC v2. As a suggestion,
-maybe we should go with Oliver's approach, i.e. revert to the v1 scheme
-and continue fixing from there.
-
-Thanks,
-Tian
-
+>>     '#clock-cells':
+>> @@ -100,6 +101,8 @@ properties:
+>>     resets:
+>>       description: internal reset line
+>>
+>> +  power-domains:
+>> +    maxItems: 1
+> Missing blank line.
+got it, thanks
+>
+>>   required:
+>>     - compatible
+>>     - '#clock-cells'
+>> @@ -115,6 +118,7 @@ allOf:
+>>             contains:
+>>               enum:
+>>                 - amlogic,g12a-audio-clkc
+>> +              - amlogic,s4-audio-clkc
+>>                 - amlogic,sm1-audio-clkc
+>>       then:
+>>         required:
+>> @@ -122,7 +126,18 @@ allOf:
+>>       else:
+>>         properties:
+>>           '#reset-cells': false
+>> -
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            enum:
+>> +              - amlogic,s4-audio-clkc
+>> +    then:
+>> +      required:
+>> +        - power-domains
+>> +    else:
+>> +      properties:
+>> +        power-domains: false
+> And here as well.
+>
+> Best regards,
+> Krzysztof
+>
 
