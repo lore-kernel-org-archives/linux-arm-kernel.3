@@ -2,89 +2,89 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A447A606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 21:26:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D211A606A32A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 21:26:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MrmAYESo;
-	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=JPsQuEou
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WO3jC8rz;
+	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=C9uuRTcv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=LpNaT8q0SGvIEMd/N1soAJa02WC3uqlIifzAi5jpoGQ=; b=MrmAYESoTWqsqh
-	NwdIKedsXN0TfNX+HZOwqRfAIHriJP6i6NFXQiO/xq9L6xzo+F3b4cJIh4lgyKx2Oyc546yaL8IT1
-	bKLGu7MGaBPOG7WA/MhF63MW2CGcZ/j6zX7uz5GjdQrSq4QdIrDKskIh+AHhdQSfl9lQ4BFKG/uZ7
-	a7VXNnmSI6Y0aG9moK0Zfi5e94MPrJhODzEjeEX4CWz5lttY/CYnGy8FJwV8ZfRxqz00MD87aa6U1
-	517eg7sHWTbpUu0nwAzkMCuDgfQ0/xh5cXtBfdZjz3egM52kdGRBRjejxr2SCk4rIIGYK+ytfsxF7
-	i4mQHszRArv0NCLVwgqg==;
+	List-Owner; bh=p/JejeyXs+a2BV9S3GP+DdWRq7anNloDPZ8ebf8LoQg=; b=WO3jC8rzwsRMaM
+	aXdbR6EHutiUq1QgqTXPN38bgg/DDK4wL5u90Y0aQhnLO43OAwHPMlZvH7WHBe0Z/3+cD3UrXSrvk
+	kYt3FjTBFgIK5AD+WHwW6rUgMp/4rac6b9XFUGs+bls5XKJMIxmus0Nfs0ZdpZKnOG5UXlj8YkJ0Y
+	uIyc8TxI2Qnis3oXzA8EV/n56AwanE1385hmQI5UWmD+NdhoVK+Wx+Q0V5MA2G0Ljkx1WOljQswbi
+	JGDQ8eNSD5gV6IGpZdoBHR46nCCMIqrKVMvNo3MoDmC/vIRtm8+Atzc/3J9Vf2tduSr5MxpXASmW7
+	A/pf7++MRXRCgTMbv7tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMXdO-0000000APqg-0aK0;
-	Thu, 29 Oct 2026 21:26:06 +0000
-Received: from mail-pl1-x664.google.com ([2607:f8b0:4864:20::664])
+	id 1xMXdX-0000000APxG-0780;
+	Thu, 29 Oct 2026 21:26:15 +0000
+Received: from mail-ua1-x964.google.com ([2607:f8b0:4864:20::964])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMXd0-0000000APZN-21of
+	id 1xMXd3-0000000APb0-3My6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 21:25:43 +0000
-Received: by mail-pl1-x664.google.com with SMTP id d9443c01a7336-2e96502e447so639195ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 14:25:41 -0700 (PDT)
+	Thu, 29 Oct 2026 21:25:47 +0000
+Received: by mail-ua1-x964.google.com with SMTP id a1e0cc1a2514c-9906c3fc88cso18507241.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 14:25:44 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793309141; x=1793913941;
+        d=1e100.net; s=20260707; t=1793309144; x=1793913944;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=LpNaT8q0SGvIEMd/N1soAJa02WC3uqlIifzAi5jpoGQ=;
-        b=VH1Bbkfyuc6MVSYeEIW47w62VvvK+THYvRvAkZywPx0cFd49t0TKScASsbTGDZzjYX
-         lrdDYsjmAn5dI1siAs5/k8RvlKFoGyXX10Dc4Wc4w9VHUqHPrhQosDxwbPAsdVvwgO1v
-         35oRaOXIjfEoxyDMxduC6XpLIEJAvpAvlicg5RkeDnheZW/tpqhFx9QfvpPz0NWU6IOj
-         vrHhnlb6avD61tYdCYwDfuDyUsnVsJy07zLW8c9JZ/PqnioYWrqsEupaCHLSaTjf0gI3
-         ZsE0eUsbDWAqOSEjzgC9qwcBCMAT8q+cQk0kpl47i+Wzv2zSW1CkU1JNtUtEq1PzOvsW
-         0izw==
-X-Forwarded-Encrypted: i=1; AKwUvBwA79vEL852BUPvgKpZivWan2jRjNky0AF7s2q71UYARhzMU21gu+ibhUwvd/gcHzTmLlUSoc2xB0mGiY2GW4We@lists.infradead.org
-X-Gm-Message-State: AFq9FYIzz5RaaFhq8BO1NKdAdfTzydQKW7kbBGYbNN/uDTex9/aIK91v
-	4A+A55PqUfPGtCBnZoBm8UXr5N8BtyEbuq8HHhESs5icVkr5vfKM8m4UZEspE+U8j09pGRbnb28
-	FJmptwJu+6RXkGKpbOA5rYkrz7/c2cFDpeUb8qCgXK6zrOJf/CHDcG9FprE+eqAzZI+eJ04GOUl
-	oK/HrdHZPh87l9cAKYjmRfv8JbirQYx7ceUPWA59u2eFFeMUSLzeE0zVk4L/djv4B3C1m3wQXvL
-	a34DKbzShySzr9iYOP6NGpIzgjO+oMUw+riDg==
-X-Gm-Gg: AYBFou3KzmClWrDtsro/VPYaME3wBO+bcuvJj2JQRKXPVxlhw8oAsXXU+stKMo4Tn4w
-	4N2dC2UxkT3+6yejahNEargKlGy6hWFQ8T0mMdlV3kHysHFKPmByRPu/XDEChaVOM7cc3nwr7cc
-	mpG/vYBm+LwyUUL5oNQysDohFIs1Zp324aRFQ88w9aHoVvFWMGB12eV+EWboKUTZdVM91RB4VCR
-	sQtjSfxw7P0XKvUll0YS4KrcRKbslIysVHscFsepKGQMVDYNZ2OewIqipgY9EVn/5orJ0kefOvh
-	mbrjHL2LXw5ECwpgmTysMHjCLxJHmQgg4VsQqce9eO8/v2jCTxjEXQSVkoZnko1xwaRzV1JU0NA
-	Xp2/oR+hTWfKrhPKlEYpspN1YOQn1uobBJb+XYiiO9Udyo2ezirnzASaw7KShAlIQwAIVu+fOCG
-	OJMrWudcU86z22xYXJdKWyoqoXzuJY4cV9bfj8H3kn
-X-Received: by 2002:a17:903:384d:b0:2dd:c100:a5df with SMTP id d9443c01a7336-2eb3651a2f8mr5833705ad.51.1793309141018;
-        Thu, 29 Oct 2026 14:25:41 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-13.dlp.protect.broadcom.com. [144.49.247.13])
-        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2eb36949e46sm121165ad.35.2026.10.29.14.25.39
+        bh=p/JejeyXs+a2BV9S3GP+DdWRq7anNloDPZ8ebf8LoQg=;
+        b=dxj5BFe0iOvAC9Vese+8XVqwvEA5XZZdonQK5k42bAF1Hp4FAtnHK05/voNdxVFD4Q
+         D/ctPaASJV9qFR0asdjduqeL1krlwc/dRJn9hzLfjIY1hNB52mfZ1mg4qWrR17ytfZoh
+         JDNaI5mnhL3FalgfT1bIN6vKmn3hRL/nmUHnoZB9D37o7QQb94aP2+IQLU9rGHQoY+3U
+         YVfWvIrYyR/On7i0kkew3Mq4uqMOCH9mMbkAVZhUP+QHHsmuVxpt+SHfLK3G2Cwu0rFo
+         o6yTxM1U66KR+eqbOBPJzHG71kxNMMRW7ZaGk86P/jPBd+VSEZZh76FCzpxLM/CwpJxn
+         S3eA==
+X-Forwarded-Encrypted: i=1; AKwUvBw2JkdAh7es/0nzEIxTh3U3eDO6dkqFP1oOkqX9eRduKo5vSTqTMi3BF5A3X9z55zJpw1NLpt2ciKCN3LnNc4fB@lists.infradead.org
+X-Gm-Message-State: AFq9FYL1EH7wH8kgFLKfx448rJ+SAh0LsI8LC/QfPOkGsR+59vNFwjDm
+	H1o6LBBXOOsD04FIFuneWg8cHqq4H8iJNF7lcn87PFPZ+eLQg+YTIiYCFUk78ZY/D0OjBnswtli
+	VJk7HYJLUsFLRvXJ2zIhes/atskemnYf4c1yAEl+oxh5dwRXkoj4jqNqQPb9XEdCnDSfUaynB67
+	fa8SBtT9FoHMc03feFys6L2+N1zIcgp4A8QZ/Jb7LgQdui+WVsLAYxiCLid7iNFBQmd3/ZF1dBo
+	p8ybKbT9+Oe5SFecywUaGRUzIL4zyANhEGigw==
+X-Gm-Gg: AYBFou0bzw5U5qOOm3o9jX6lTFh0BgGreQQ3lGOgrIzk4l3o/UYgfp2X5Xs6fKr7/DU
+	CstmiCIAiD40yIRps/tfPu3aCyGW/3hXpKI+a48XFacNf6FbFxTMSw+hIzAewfgXXdt/nzk5+bF
+	ASPK58Pv+8d29Lj+4GFfoV2DTMjQ+pAAIHOTVK2/D5aARpANzD/DVnZjXOGiSkJfqNpxOzWrFER
+	OOmXiWScKwSHv4mMHVJWnCTekFDJqJTTwJifITkoXtzUu8lN9VTotFJoAq+qWd2uLoTNtluy2G3
+	hEJe5ltAmLzF61LuXiC3TTdldUPZnB9YIDsgpswxsgSR0ZG+yFcF+12xEKLOtje7fc8Wt9FBDmV
+	lpp6Q/32LrJfKxxixDVLOjenfZXBnygKonZau/GcRe7h7ys+zxYCVOnn29MBcfnU/B5DPccZWUH
+	mI3h9Lwf2It+focaSSMJc/WuLrKxoz8RshHarnm7E5
+X-Received: by 2002:a05:6102:370c:b0:7cc:7801:b317 with SMTP id ada2fe7eead31-7d072615418mr289265137.9.1793309142279;
+        Thu, 29 Oct 2026 14:25:42 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id a1e0cc1a2514c-992ee48e728sm5241.16.2026.10.29.14.25.42
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 29 Oct 2026 14:25:41 -0700 (PDT)
+        Thu, 29 Oct 2026 14:25:42 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-91c75523074so1868706d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 14:25:39 -0700 (PDT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-53664602c7fso58317171cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 14:25:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1793309139; x=1793913939; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1793309141; x=1793913941; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=LpNaT8q0SGvIEMd/N1soAJa02WC3uqlIifzAi5jpoGQ=;
-        b=JPsQuEoucqBFG0fYMUKActWjXcnVOFRS63t7lzQlY4FlYdV54g6Tlcyk3xlhx4EkNL
-         +HTyi5bF6haHFxjC2c5weRZn2Tn+CQFUY44ICOKqCA35qnl1cQL2CmDCwGnrGziL1D14
-         wokMmlBYMl+muzeKdhev9VD6NMhvhvtVZzmkY=
-X-Forwarded-Encrypted: i=1; AKwUvBx2Cf8ACN0XyaY6YHpwkz6MAwiud8yR2usq2yJm1T490+wL39P9AGgYfpC8/vijYh2Hj6Ry2GF2UVApGKyazH/L@lists.infradead.org
-X-Received: by 2002:a05:6214:5f10:b0:91b:8296:3b88 with SMTP id 6a1803df08f44-91ca4ae90b0mr3372256d6.15.1793309138749;
-        Thu, 29 Oct 2026 14:25:38 -0700 (PDT)
-X-Received: by 2002:a05:6214:5f10:b0:91b:8296:3b88 with SMTP id 6a1803df08f44-91ca4ae90b0mr3371906d6.15.1793309138161;
-        Thu, 29 Oct 2026 14:25:38 -0700 (PDT)
+        bh=p/JejeyXs+a2BV9S3GP+DdWRq7anNloDPZ8ebf8LoQg=;
+        b=C9uuRTcv3PQQmOv/G2dcZ1QgWMEHak6/f/dIx47I6YoHbt1TMFq3dQ9orEEWf7rJQE
+         7akyGwgkQEQxnw8/iSEnlWbfW9NkZkGeivVr4a876EWArSkga8McYhmD0GdtytAbE6vP
+         tBX4RYze7IVQccpLfArXoO2NEn9MTlbTBhBps=
+X-Forwarded-Encrypted: i=1; AKwUvBwKg3xlWF9EQJFSKhTMuJ2tYsVWLcQdwBcDyKsUS3/4s3WuNlkKDEnauQUk9psKtfspMlIqwzT2QIQJMflVgoth@lists.infradead.org
+X-Received: by 2002:ac8:5dd1:0:b0:536:7cc1:4b6b with SMTP id d75a77b69052e-542b6d60c04mr5567301cf.27.1793309141411;
+        Thu, 29 Oct 2026 14:25:41 -0700 (PDT)
+X-Received: by 2002:ac8:5dd1:0:b0:536:7cc1:4b6b with SMTP id d75a77b69052e-542b6d60c04mr5566901cf.27.1793309140847;
+        Thu, 29 Oct 2026 14:25:40 -0700 (PDT)
 Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91ca314fb6csm6384936d6.34.2026.10.29.14.25.35
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91ca314fb6csm6384936d6.34.2026.10.29.14.25.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 14:25:37 -0700 (PDT)
+        Thu, 29 Oct 2026 14:25:40 -0700 (PDT)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: linux-kernel@vger.kernel.org
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -106,9 +106,9 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
 	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM IPROC ARM ARCHITECTURE),
 	linux-phy@lists.infradead.org (open list:GENERIC PHY FRAMEWORK)
-Subject: [PATCH v4 5/6] ARM: dts: broadcom: Use noncoherent SATA DMA on BCM958625HR
-Date: Thu, 29 Oct 2026 14:25:12 -0700
-Message-ID: <20261029212513.4126083-6-florian.fainelli@broadcom.com>
+Subject: [PATCH v4 6/6] ARM: dts: broadcom: Enable SATA on BCM958625HR
+Date: Thu, 29 Oct 2026 14:25:13 -0700
+Message-ID: <20261029212513.4126083-7-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261029212513.4126083-1-florian.fainelli@broadcom.com>
 References: <20261029212513.4126083-1-florian.fainelli@broadcom.com>
@@ -117,8 +117,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_142542_610521_D0FB7949 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20261029_142545_843704_EE7099EC 
+X-CRM114-Status: GOOD (  10.75  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -138,39 +138,31 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The AHCI controller on BCM958625HR fails with the dma-coherent property
-inherited from bcm-nsp.dtsi. Soft reset times out waiting for the first
-FIS command, subsequent engine resets fail, and the disk is not detected.
+Commit 77416ab35f57 ("ARM: dts: NSP: Disable AHCI controller for HR NSP
+boards") disabled AHCI after reports of boot hangs. Both SATA PHYs
+remain enabled, but the disabled controller leaves the eSATA ports
+unavailable.
 
-AHCI allocates its command tables and received-FIS buffers with the DMA
-API. Declaring the controller coherent bypasses the cache handling that
-these buffers require on this board. Removing the property restores
-hard disk detection and operation, as confirmed with a diagnostic DTB
-that changed only this property.
+With explicit IDM clock/reset setup and the corrected shared PHY
+register aperture in place, enable the controller on BCM958625HR.
 
-Use noncoherent DMA for SATA on BCM958625HR, matching the downstream SDK.
-
-Fixes: 56e2ff0346a3 ("ARM: dts: NSP: Add dma-coherent to relevant DT entries")
 Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
 ---
- arch/arm/boot/dts/broadcom/bcm958625hr.dts | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm/boot/dts/broadcom/bcm958625hr.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/arch/arm/boot/dts/broadcom/bcm958625hr.dts b/arch/arm/boot/dts/broadcom/bcm958625hr.dts
-index a9b6aa04d573..53acae385822 100644
+index 53acae385822..f6717ca76aef 100644
 --- a/arch/arm/boot/dts/broadcom/bcm958625hr.dts
 +++ b/arch/arm/boot/dts/broadcom/bcm958625hr.dts
-@@ -182,6 +182,10 @@ partition@700000 {
- 	};
+@@ -184,6 +184,7 @@ partition@700000 {
+ 
+ &sata {
+ 	/delete-property/ dma-coherent;
++	status = "okay";
  };
  
-+&sata {
-+	/delete-property/ dma-coherent;
-+};
-+
  &sata_phy0 {
- 	status = "okay";
- };
 -- 
 2.53.0
 
