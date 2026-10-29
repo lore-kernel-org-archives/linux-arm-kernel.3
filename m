@@ -2,169 +2,156 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01EE0606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:24:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31BB0606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:34:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hawxdLMF;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=OhntgV04;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=U7T4zwyM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mwtMHtX6;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=C7pDxVqD;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=VpzgAXcP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=GcPKgaoCuNaXXKfK7YHbVbvTQ8K5JkvfLVdxqmyckTc=; b=hawxdLMF1wAov9+I0K6ILPRFDe
-	USEqHY73srb94VZnU/bD/qmEEL0bZFVYGPpqj0a7KtI/K7la3T9jSRx3z/Z9PEFNZw8jkKK2ErCtY
-	U7siBeLJltdkrsLWLlLISOACJC1ptrgzp0Mxe+QwLF+wDW946L4IbKshQy5sZ3W/vdvZiPnTmb8HI
-	sJVaESxnRrwYsXdNph+2J6clHLtXZWOJaaBknnbooQL4cd0ZKvru2gCIF9qd2w7SJtMBNJ+VDExj7
-	xAruJY2wOBbbgzl5EGizCi+X3Dja/KDOKr2ga32lR325hitwhTVcucOO+4W9F7opKcFEfmJyhPwli
-	6t5B+3+A==;
+	bh=4Cm5Hj6AX2bOx9FeJjSt60AwCDFLiBSACiP27rlh8gU=; b=mwtMHtX6LmNeeS+i3ptR3zoz2U
+	G4uZgIaqwrTN0asocoTMLw6xRpsS25axuThDUBb0RVy6JvtsPDuyHr2c6mpxCeBaNhkB0nVryOvHZ
+	QWmQhGc0pO5aXThLcm+zR8te3sziyNBdggfi4D4HPJlermWO4GOwiyXfrlbGS71upci91qbJ3Tkiu
+	sCSH8S3Kdl69FdROEwC4G/FjnX5D2i32fikFanAkdlQZfha3/6c2DLEF0ddE9F+x2q9fHxAxCs/AJ
+	zw/baPL8Shb/6PzSdbhcgwSEkHW3pi7y2aCzwGpUZwlJM+8RF0sH3urIalrmVtoI4BrFhAy4Qqv2C
+	EbDvtUKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNJF-00000008yfG-1met;
-	Thu, 29 Oct 2026 10:24:37 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xMNSd-00000008zHM-0xbs;
+	Thu, 29 Oct 2026 10:34:19 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNJ8-00000008ycn-3InN
+	id 1xMNSZ-00000008zGk-3HLH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 10:24:32 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69T8vFbq3765983
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:24:30 GMT
+	Thu, 29 Oct 2026 10:34:17 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69TAJukj875569
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:34:14 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=GcPKgaoCuNaXXKfK7YHbVbvT
-	Q8K5JkvfLVdxqmyckTc=; b=OhntgV04JxTQ40rWyj5d2xZa7/6KHd5OJ6xHoU6H
-	q3j5Z9X+YprB6mNk4SZ67s0eBct7rQJBF1geRSaXc/73dkP9z+SzEy6t8KOAhuH1
-	r79VMzerhOJ/uJw4sI9xav+XuYdzAZi5NiwPch5lm8aDee8ghX90uYGxrgR8Ozy5
-	1hjOMjEgP5deK2FIFH8OQjNOxvl5LlvrvKoO7z4IllkQ6bgQ/VIMKMdUrd11hPbo
-	orkQuQs/1phdJYmIuW5GC19SUfQYaWZTb3jjfsUtXQyEwync+LIXT69OORa6UYX9
-	mbn4kDS39NMOY//FSnO/4359DWFRkBnk2E9RmInl7JgSNQ==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hkpgpu4gn-1
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=4Cm5Hj6AX2bOx9FeJjSt60
+	AwCDFLiBSACiP27rlh8gU=; b=C7pDxVqDghSsiAGhH18CBuMUsJyLL5u85Q2NLM
+	YTvcT2ppmA83duhNwjGakLyIfjFHfcM9D4QYNl+bfsxLQDzlY/GHdJpa8gYQ0IQ3
+	OcTDb6NtFGQngG+LB5TocJsW9ieCiqMNAn39+QGrJ1qP5X5odHlrBxToUd960RTs
+	D/+7XT10OJVaDxqwqvsdTU9jcNQ7oE06J7zUJBoPWTDuJLxgXtWmioZNDeAJ4XEo
+	SGmWzdYAJY9v0Hv5GKQGN4Bif0Jg3MRIEHRn7Be8ppwjgwyrUoWd5Nwv+P7nqnrA
+	/BKfSYTCXT7+SNrDPPT3CH9JRzh4vG64Lrf580vf1dev+kIA==
+Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hm4a201kp-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:24:29 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-934963b2bc0so347097885a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 03:24:29 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:34:14 +0000 (GMT)
+Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5eac42e83e0so516730e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 03:34:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793269469; x=1793874269; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GcPKgaoCuNaXXKfK7YHbVbvTQ8K5JkvfLVdxqmyckTc=;
-        b=U7T4zwyMX5wQ8w7x9R9HyLn/CzrhzSvYeGJkLIdEXHp37P1JNoFvXz1o8iAPq7Wc5a
-         jSd5pFglAzVxfUVO2yuMsadnHlRmGGtO46/zM+LpOeiaEH0t5+KcU523W9CzQ6zvQqGR
-         oBW9iiIa6+TSpt0zU9+hLy7biEHji0i7aM8ishC/tpKTuy5IoLXfeCTl4fDIaB5UUTRE
-         XFLwznz5YUwN6Jne4NKvLNuFAEUQbNVt9nS5hPR3CrVqDA3MhLlrd2jqsbSIg30MnY5g
-         bIPJW/0A+h+401VX+a669qXnDUol8h/bToFse//OvlZQBPHOxYIkHw7Wwv7rghGQwmAV
-         yoOw==
+        d=oss.qualcomm.com; s=google; t=1793270053; x=1793874853; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=4Cm5Hj6AX2bOx9FeJjSt60AwCDFLiBSACiP27rlh8gU=;
+        b=VpzgAXcPaGkdbfGXXlaK/6VJdbvYDV8xCd0e6DdRq7JBS5I7DYyVpK7tYD4MMvKNk4
+         69+pAGt5aoQHOrWfH7a6ZtY1LINa5C77R1CbUnpZqHQTL8jKjdz7TE02vpQBESiYuqHe
+         hFU9VvVoOJrBR0Ewp9tCBfuWDaXXHrffEhD6a/uN3vU4DEtL9fJKs5lclAaSgyO39N/6
+         0Nfu3h5jAjzAKCbff0kU1vkSKK9Yrws6Pq5vTNTEuUQqSspu7fffRInI8tkYjWZ9y7tV
+         v9YaYkmpEdSJ/EzK8ymdMmhsAkKOkEEmwJgT6ZfRmhbojVW46mUOQDfNa9Hyh49DcsPY
+         eDiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793269469; x=1793874269;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GcPKgaoCuNaXXKfK7YHbVbvTQ8K5JkvfLVdxqmyckTc=;
-        b=t7Oj9IToCq2CqJTDco8P4+1o4HM99dINjHPAyyofW/tKpPaOFi5Ub/E5u6QuUpGU0Q
-         /q550RCy9m1q3w9urJWdmYuGGU+uKjwG22omrC+RB7bqve2TNCwG1sAlLgZi8yXwKUSr
-         Cq9fSX10/Q+HsU4mJJ+28ju5qbqPtpRTkQ555IchAzXwFL7wRR/pgp5/yAhjrBYds1Zu
-         ZFOXn5KCydl7NnXrOnd99FCq21rSyDTaoSr1RwZrP7RUr39ksPBasHIL59Sa3laHPts2
-         0cg3CWjgBVhF91MI0japRydJ/HyJzjUl9K78eltQbteRcvJPebCQlxAEBFNi/GQfSbyI
-         WGkA==
-X-Forwarded-Encrypted: i=1; AKwUvBzkZQfPG+0y7LecdUoCoaEKNSnRz1XcwY33wI7DoaCV5Ywu4vXNOrKQSsM256HX39noWNwcQzHkHpLBViyMU+qM@lists.infradead.org
-X-Gm-Message-State: AFq9FYJlQndt+MPpiKH7Ig+DX00f4Z7RZP7yaYmjen9pA/qDGspGXK6X
-	Dk/tDB+oFCKbGaRWCtIVQZLxZsMCjoQIGmlIwm9N+NwqWCJVsmxR+VwY1aSmMJp4ICARp3lVtJp
-	Kl9OMds0hbD2O5+qZJxHMGVLy1xPMnRnQq70NeUx11D3hbcLRiWWoVxgZTbf+TF6wBGTKYqdO4y
-	Bj+g==
-X-Gm-Gg: AYBFou1G/46nDOo7G7ECLkYkg5m6Ckj8pqqX1ecWIGsaoT/im0AkxE7jVFCkH/RzXFc
-	qSZXaggOzYfql1vhxxNIEnXyPSSvknHa7RS1scjK28V5jGkB6AtU9tHxX+F9P9sefFQOroaWgLs
-	usQn7bpUIhR0AuyvZHL7O71X2Hf+/gfEO2YuaD35DWWlalnSOwIBvGpvke5YYXeXqCFGu086E6e
-	8gatUV/xH9AOMNP7MnW8YCtzkKwkCJtVgqjy135EcRnQhP49MB2Ea7kdDsnr0IE8OHc7pftNSFA
-	Em68jRSwCEbSEtoFuRjX/DKzd6LviOyFzZ40q4DmHtxH3r8EW2r+Xu+MvQvtTFUz5aW1aoYTpHw
-	ZbYYopSwFr2wFM3ZQYZbGVoBLoAlBkoFqPiZdlLIoniDvsE/xtL71l60JC4cOdX28
-X-Received: by 2002:a05:620a:400e:b0:942:a42a:78a2 with SMTP id af79cd13be357-94408a8cae4mr713122085a.31.1793269468983;
-        Thu, 29 Oct 2026 03:24:28 -0700 (PDT)
-X-Received: by 2002:a05:620a:400e:b0:942:a42a:78a2 with SMTP id af79cd13be357-94408a8cae4mr713118085a.31.1793269468363;
-        Thu, 29 Oct 2026 03:24:28 -0700 (PDT)
-Received: from oss.qualcomm.com ([188.27.161.77])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebd48e0sm33998692f8f.38.2026.10.29.03.24.25
+        d=1e100.net; s=20260707; t=1793270053; x=1793874853;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=4Cm5Hj6AX2bOx9FeJjSt60AwCDFLiBSACiP27rlh8gU=;
+        b=vsKLWY96VHptfKhK1X7I8b9WjZlrqfS4TJBqCQh2serJTncabPbS2Iofj740BLDpB0
+         DiW+5daQ/msoORKMChTjHx4dbq9EQHhbUL+79ZZldtkDpjMciJJibM8QBq3FzCf6vWVk
+         nnhOBbXmjCpIAbO2xvq/0CR6APtruDp4BT8LBDxHCYjqiJHqY6fUix7qGZN/gv2DevdU
+         cZBgy4jfyMKt4WVlnn2ps7/2fGDqJX9YgwzkjAdR5IBPT/b5tw6jAwIvUTr6i4Jn8EcL
+         6hrt8clxzGaYovew8Wn7hy9f5/nD3MZdzhYdsPgY610SD6VbVaILokaNjgJBHQavLhJB
+         9nyw==
+X-Forwarded-Encrypted: i=1; AKwUvByVZimTeZ4zwS7KMq0w83WJuxZXUmmigcEfRy5ySLh7mJgYtYrKgcIn6d/MKxvq/2kVu2/goSp6iIVx43wIV3Yr@lists.infradead.org
+X-Gm-Message-State: AFq9FYLzNPEcJ9owfCyeOEBYlKfNG6xxPlNrGV17TXU3/GymMW0vsqY3
+	Rqjkoi4X+d2JInj2Ax1LBLIgOo7LssFwZyuIBiydBh7taFOpKYqeT0dWYPLxpLIelhcDDN7WIO8
+	RLvNyV/OvXvVq8mDBE8VphbpxvCFulUMbhbjrPPQ63QYKDLvNzqV7Mp3fXIWEBwLdy0c5vmmSmn
+	zJMg==
+X-Gm-Gg: AYBFou18CUoqaAFKqmXYle3EunwqsT825+l9Jp4040D4QKjk6MrmeXTmdUEpZcspoAe
+	pQDFmRLfXs/OpxBf3vfVikmH8n1gxrdCnljHu/hCkAXRRQioxLQF9AAMz2zuT9NlzK5D8Cfhwpj
+	D4q2gn39aTKtCw8nZT5OazX/ODPUbz0dsHxXbA/6tOAE0wXZOLrK0d0t+Tdwoe6HoJprvaWDaeh
+	fOHySWmunQU4PiSpX0IB+69ZqpouiM/Ykemb2R4cN717HM8v3MZRT5wtG7oqbk9OXBmZDAld+Cr
+	Oj+xTsN9tkQ7QfLTlqDImqdU6k8mDCuomEbGpGqYRPC73qSZSwz3iPdzTwo7wHvBLLigjyUL59o
+	Qp3qgbAipeGy0aZ39aoe53H6GSr5LWQD2n9/MZg0wMX5yZGumRk72PmuEjKeoTcObXP9edsO/aX
+	Ibh1OBpUdUoI9anUk23ydwTw==
+X-Received: by 2002:a05:6102:3e8e:b0:7cc:9d46:ac88 with SMTP id ada2fe7eead31-7d03a56c4d8mr2223871137.18.1793270053133;
+        Thu, 29 Oct 2026 03:34:13 -0700 (PDT)
+X-Received: by 2002:a05:6102:3e8e:b0:7cc:9d46:ac88 with SMTP id ada2fe7eead31-7d03a56c4d8mr2223860137.18.1793270052618;
+        Thu, 29 Oct 2026 03:34:12 -0700 (PDT)
+Received: from localhost (net-93-144-6-81.cust.dsl.teletu.it. [93.144.6.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ece13aasm31225069f8f.58.2026.10.29.03.34.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 03:24:27 -0700 (PDT)
-Date: Thu, 29 Oct 2026 12:24:25 +0200
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-        Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-        Abel Vesa <abelvesa@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>, Andy Yan <andyshrk@163.com>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, Srinivas Kandagatla <srini@kernel.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Song Xue <quic_songxue@quicinc.com>
-Subject: Re: [PATCH v27 10/10] arm64: dts: qcom: Add psci reboot-modes for
- talos boards
-Message-ID: <25q4hk2nu5nd4udoof4tsslyktdned4bygrgyzuknhvvvh2stt@a67p3qh6ddch>
-References: <20261029-arm-psci-system_reset2-vendor-reboots-v27-0-fa4b3ff1359b@oss.qualcomm.com>
- <20261029-arm-psci-system_reset2-vendor-reboots-v27-10-fa4b3ff1359b@oss.qualcomm.com>
+        Thu, 29 Oct 2026 03:34:10 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Subject: [PATCH net v5 0/3] net: stmmac: re-apply taprio offload in
+ __stmmac_open() and stmmac_resume()
+Date: Thu, 29 Oct 2026 11:33:54 +0100
+Message-Id: <20261029-stmmac-est-fixes-v5-0-85b830a795a9@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261029-arm-psci-system_reset2-vendor-reboots-v27-10-fa4b3ff1359b@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDA0MCBTYWx0ZWRfX49g/vNKiQyR8
- yA79/Rc4OOJwzVskQfO/Kp5Y8PNF7BF6gka+L4mi8nbdmdK68Fg7aGsNQeM2fmzoR/Albib9cir
- V7s4RHN0Mtnz0gtIEqy2FVMf+fpJwX3wTlReaSme13Pb7rO3T3/5LvUuM2HJ5aR+NW5phZlrrp1
- /sBLvmH8aAbNWd1XGfN8kMqwIRp/L82QL2udQu2Kv1IBWFKMCJJ4g5bf2ge587YLrkPy0Ew3pcm
- K+V8niY/SkVogh2bp3+3TCQll3pM5Y2hGMJnMqz7LsAKIR6qPaJwdI/h9/jNsdv5cCZ/5idrS8B
- FnSNNP7KTWDWWbg6fPFSJWz4akfZ54UeY1EYGAuOC3J2xzQcD+29kVY1sPTbdBU39Lm5Qq0iogZ
- YKGNpCu/0Ltrw5LrVwncBKNJaL3j4PwwsZ8dTPnzyHgWjOp5ohHTa1pLL8FWMGjbdonE8vVfsUI
- VF4Cj+EuUGn5bvg8WPQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDA0MCBTYWx0ZWRfXywQuF6jZbE5l
- nBZZUsUYeXzAH4LjlwEjN5hCqcLVAjtmcwVP5V3Ke0GlCTJynro3W1Svu+2X7YqUvZSispKpbzC
- L5HzgRg4+ZbtmknlZV41N4y2dYK5H4k=
-X-Proofpoint-ORIG-GUID: r86z_1V209oQ26evPTQNnAgadXcX3he6
-X-Proofpoint-GUID: r86z_1V209oQ26evPTQNnAgadXcX3he6
-X-Authority-Analysis: v=2.4 cv=T4oZ3PKQ c=1 sm=1 tr=0 ts=6ae31edd cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=asF+/XNaGoxFafzDDLC1GQ==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8 a=1QY0aOnFgCSDOgRkrtMA:9 a=CjuIK1q_8ugA:10
- a=NFOGd7dJGGMPyQGDc5-O:22 a=TjNXssC_j7lpFel5tvFf:22
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3VNMQ7CMBD7SnUzV7UlAcrEP1CHkFxpJNJALlSgK
+ n/n1J3BlmzL9gpMyRPDuVoh0eLZx1mE3lVgJzPfCb0TDV3THVoBcg7BWCTOOPoPMbZ7rY/kTub
+ WNSC1Z6ItkNYVZsowiDl5zjF9t5tFbdH/xUVhg33fO2OVI6XGS2SuX2/zsDGEWgiGUsoPOiR7w
+ bwAAAA=
+X-Change-ID: 20261026-stmmac-est-fixes-13557ed8ab20
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Jose Abreu <Jose.Abreu@synopsys.com>,
+        James Hilliard <james.hilliard1@gmail.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+        Rayagond Kokatanur <rayagond@vayavyalabs.com>
+X-Mailer: b4 0.14.3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDA0MCBTYWx0ZWRfX9/A9Cka47+dN
+ XWC0dE0EToxnuZSLu/kFAgyzEwQUN4vkeeb0vK6KmfvQ0cl4oPQEfO+eHLbrVw7mzhY8RUvf4mZ
+ swHeYGSNH5dO5C5v99S8UdVePipaHC1/BMF+VNvetk2OKfB7+sbwQPJ+33KCndyI+/OZl/4wNLZ
+ DPm/w9E7Nne7jIICu0p+X3tln/mOkteQrAs7kjDuhYLThTSLW9LKPrHetPwGfZj26k+6tjMMxyF
+ dvApaj3d/ARugGoiFTz9BwtJNOLb4+RfD0+E9OeWWzHizWBwRtwi1zX8SCfEL3gPmavydWBqgIO
+ sARNGHvFLog5an0ITP4A8CawqC8s97rMi1+dNVhjsil/zC1yHsqSJl6NoCbjL1uMou+sA9+BqOe
+ tijBIDGOHMZQ3fGGI43UkVMFYfzoO1YNmu1nu7xO3b43aLGTErTbZ31uW890vibHXvdfs1vQv8r
+ o3py9jCY8XaWhkJE49Q==
+X-Authority-Analysis: v=2.4 cv=E8tYNqdl c=1 sm=1 tr=0 ts=6ae32126 cx=c_pps
+ a=+D9SDfe9YZWTjADjLiQY5g==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=ZioezP_FgeoBEakR8UIA:9 a=QEXdDO2ut3YA:10
+ a=vmgOmaN-Xu0dpDh8OwbV:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDA0MCBTYWx0ZWRfX+sR5MoDtyukv
+ FOHs+O+SO/QiitrSGl+pHH+OG2JrpWNoIH2bYS/AgA1aS4r6hCIE9ErhAbyDbqksKTM4i7dXEm/
+ K4GQo+QElnHmQzt2VjUov32T7EKlPn4=
+X-Proofpoint-ORIG-GUID: Qi2WplXjo4YhS46b2cJNTb-0pF36Y4SJ
+X-Proofpoint-GUID: Qi2WplXjo4YhS46b2cJNTb-0pF36Y4SJ
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-29_03,2026-10-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 bulkscore=0 priorityscore=1501 spamscore=0
- clxscore=1015 lowpriorityscore=0 malwarescore=0 impostorscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610290040
+ lowpriorityscore=0 bulkscore=0 clxscore=1015 impostorscore=0
+ priorityscore=1501 adultscore=0 malwarescore=0 spamscore=0 phishscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
+ definitions=main-2610290040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_032430_941295_25CC892E 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20261029_033415_873017_1F8DC5D9 
+X-CRM114-Status: GOOD (  12.45  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -176,27 +163,60 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 26-10-29 14:31:04, Shivendra Pratap wrote:
-> Add PSCI SYSTEM_RESET2 reboot-modes for qcs615-ride, for use by the
-> psci-reboot-mode driver.
-> 
-> The following modes are defined:
-> - bootloader: reboot into fastboot mode for fastboot flashing.
-> - edl: reboot into emergency download mode for image loading via the
->   Firehose protocol.
-> 
->   Support for these modes is firmware dependent.
-> 
-> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> Signed-off-by: Song Xue <quic_songxue@quicinc.com>
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Reconfigure MTL_EST registers after sw reset in __stmmac_open().
+Remove priv->est->enable dependency in est_configure().
+Initialize est_lock at probe time.
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+Changes in v5:
+- Reconfigure preemption_class in stmmac_setup_est().
+- Bail out in stmmac_setup_est() if ptp is not enabled.
+- Link to v4: https://lore.kernel.org/r/20261026-stmmac-est-fixes-v4-0-999dac4de44f@oss.qualcomm.com
+
+Changes in v4:
+- Rebase on top of net main branch
+
+Changes in v3:
+- Guard priv->est.enable update using est_lock mutex.
+- Embed stmmac_est in stmmac_priv struct.
+- Rework locking in tc_taprio_configure().
+- Fix possible divided by zero crash in tc_taprio_configure().
+- Add missing reconfiguration during stmmac_resume().
+- Honor ptp error code in __stmmac_open() and stmmac_resume().
+- Link to v2: https://lore.kernel.org/r/20260829-stmmac-est-reapply-after-open-v2-1-5e5ccb185e92@oss.qualcomm.com
+
+Changes in v2:
+- Rename stmmac_est_reconfigure() in stmmac_setup_est().
+- Rely on stmmac_setup_est() in tc_taprio_configure().
+- Link to v1: https://lore.kernel.org/r/20260825-stmmac-est-reapply-after-open-v1-1-dfa80735e0a1@oss.qualcomm.com
+
+---
+Lorenzo Bianconi (3):
+      net: stmmac: initialize est_lock at probe time
+      net: stmmac: pass the desired EST enable state to est_configure()
+      net: stmmac: re-apply taprio offload in __stmmac_open() and stmmac_resume()
+
+ drivers/net/ethernet/stmicro/stmmac/hwif.h        |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |  1 +
+ drivers/net/ethernet/stmicro/stmmac/stmmac_est.c  | 61 ++++++++++++++-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_est.h  |  8 ++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 13 +++-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 46 +++--------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 94 ++++++++++++++---------
+ 7 files changed, 148 insertions(+), 77 deletions(-)
+---
+base-commit: d2bfe74a8fe219a86b86c1f126e1d722a5001790
+change-id: 20261026-stmmac-est-fixes-13557ed8ab20
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+
 
