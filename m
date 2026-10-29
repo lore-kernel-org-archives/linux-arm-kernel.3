@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A729606AA92
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 12:37:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4520E606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 12:37:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=moYJ1iv5;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=fhkLwn8C
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=puSByUyp;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=XUxUJbCF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=iX/J80IPxttEGcgsZtNtc5Pybe2s9hAalnCzi4noQaA=; b=moYJ1iv5BRch/ekBSveH/gQ2Pq
-	7MIrXOI6GhSihwPOu9bL+6WXV/zlUN+MpM2BhW9z5jeFLnnogxIRJg4hCdLVWpufN6RjOTA4EPE3j
-	XL7b6by+Jiw+O/WlyEPqZrkFoghW/kjNUka/POC+QYcl9I8o7dc6bbo1zx5faRzNi2x+O8l8rLWrC
-	kshJ4G/5ODEYRTCaR4WR4K6WnTJztjQ5v88WfeNDDJRiyUMAqxuNdmMQdfpRtj7E+1JmUpgC4fbhp
-	spvuMgwRNOVjLTjwTVqi6V1yuoqTO3SCFSD3rPtmgenMrFJ6vvyDaw+uXKdL3+6OGmdq+lSmS0SqA
-	Jpk9hL4g==;
+	bh=3y18Q2V1U5+ZPmVEJaM4l5RHLOCkGUNZeAr2g2T0CKE=; b=puSByUypIHNdv0a4qIJKVU9emo
+	TWiYt8S0jSQf/aq8OccRCDDrFQ/AFl9YYcvx3m835SjEePZZqo3UwS1UEWu1jWBvepNWWjLN7+gnb
+	3LklEI5yObWkhpnpiief8Xrimyncao0Ub9wbJ7UMHxwE9sEfieIO2/G5U2lPC7avGYt+ZHzGopcD5
+	yBnF8c1u9qyGVdqvRaNn8I9MBR/P3fW5b47CWIvZ4zKMmbtr5yh6ZIwS6UlNesGBTPVGtN8+B2f7j
+	4H3IB0x3FBBoX6DiQUr1qF0uWknSnl10M1oDSQljtISMh51leazqNji9V0iapLdp5SkqxgULOrI0t
+	ziSwgXYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMPNi-00000009B32-1nJl;
-	Thu, 29 Oct 2026 12:37:22 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1xMPNr-00000009BNx-16Uv;
+	Thu, 29 Oct 2026 12:37:31 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMPNB-00000009ASv-2I0U;
-	Thu, 29 Oct 2026 12:36:51 +0000
+	id 1xMPNC-00000009AUX-1mzl;
+	Thu, 29 Oct 2026 12:36:52 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=iX/J80IPxttEGcgsZtNtc5Pybe2s9hAalnCzi4noQaA=;
-	b=fhkLwn8C5hfORpucbzLVUVTLqWRNLp89ITujl+EyKpIOjqT7E8a9m/1AZ8aTeGX2WnazlWnWi
-	g3iYoWwh2JXV/jxQFShK+XBEBdv2cqXIDSLxmuADPX/lXB9Bos+XW28zg/oWFzqbm7zcugJ6VqG
-	OMdkAi111W8EudfVScPrXjM=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jFkHl2qwWz1T4hD;
-	Thu, 29 Oct 2026 20:36:35 +0800 (CST)
+	bh=3y18Q2V1U5+ZPmVEJaM4l5RHLOCkGUNZeAr2g2T0CKE=;
+	b=XUxUJbCFBYcpXwC1W7Lo5nTW3OswkfI1Iq5aRv5k+e2NQjxTiucb1meVTAtNNg60NUyJ/3gA3
+	lhV6DIC/rfsVZSnQoOix2JAHKWYtkrB5b/qOiduhi2FNMiEKDIjUT/A0+c6pt5wGthnzn14WB0x
+	Heuo8UC8L5jN9Y6VP7p++Sw=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4jFkHs0TW3zLlWr;
+	Thu, 29 Oct 2026 20:36:41 +0800 (CST)
 Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id A9DD940537;
-	Thu, 29 Oct 2026 20:36:46 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 3913D40572;
+	Thu, 29 Oct 2026 20:36:48 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
  (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 29 Oct
- 2026 20:36:45 +0800
+ 2026 20:36:47 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <reinette.chatre@intel.com>, <james.morse@arm.com>, <ben.horgan@arm.com>,
 	<fenghuay@nvidia.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
@@ -57,9 +57,9 @@ To: <reinette.chatre@intel.com>, <james.morse@arm.com>, <ben.horgan@arm.com>,
 	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [RFC PATCH v2 11/19] fs/resctrl: Add the L2 monitor events
-Date: Thu, 29 Oct 2026 20:36:03 +0800
-Message-ID: <20261029123611.1108424-12-ruanjinjie@huawei.com>
+Subject: [RFC PATCH v2 13/19] fs/resctrl: Check RMID limbo on every resource with occupancy
+Date: Thu, 29 Oct 2026 20:36:05 +0800
+Message-ID: <20261029123611.1108424-14-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261029123611.1108424-1-ruanjinjie@huawei.com>
 References: <20261029123611.1108424-1-ruanjinjie@huawei.com>
@@ -70,8 +70,8 @@ Content-Type: text/plain
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_053649_948649_763C9EF3 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20261029_053650_816409_1E0F8EF9 
+X-CRM114-Status: GOOD (  16.02  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,66 +91,84 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-MPAM monitors belong to a cache, and firmware says which level that
-cache is. Add the L2 entries to the event table: l2c_occupancy for
-occupancy and mbm_core_bytes for bandwidth. They have their own names
-because an L2 counts the traffic the cache sees, not memory bandwidth.
+An RMID is only reused once the L3 occupancy counter shows the cache has
+gone cold. When occupancy is monitored on more than one resource, the
+RMID has to wait for all of them.
 
-Read the L2 events through the same per-domain path as the L3. The L2
-has no domains to sum, so a read without a domain fails. The events only
-show up once an architecture enables them; x86 never does.
+Mark the RMID busy in the domains of every resource that has the
+occupancy event, and have the limbo worker read the occupancy of the
+resource its domain belongs to. The threshold is one byte value for all
+of them; MPAM already sets the limit from the smallest monitored cache.
 
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- fs/resctrl/monitor.c    | 9 ++++++++-
- include/linux/resctrl.h | 2 +-
- 2 files changed, 9 insertions(+), 2 deletions(-)
+ fs/resctrl/monitor.c | 33 ++++++++++++++++++++-------------
+ 1 file changed, 20 insertions(+), 13 deletions(-)
 
 diff --git a/fs/resctrl/monitor.c b/fs/resctrl/monitor.c
-index 9b747b88fd6b..3544dd2a983a 100644
+index 4d90f784a4cf..739134e2ff77 100644
 --- a/fs/resctrl/monitor.c
 +++ b/fs/resctrl/monitor.c
-@@ -537,12 +537,15 @@ static int __l3_mon_event_count_sum(struct rdtgroup *rdtgrp, struct rmid_read *r
- static int __mon_event_count(struct rdtgroup *rdtgrp, struct rmid_read *rr)
+@@ -126,13 +126,13 @@ static void limbo_release_entry(struct rmid_entry *entry)
+ 
+ /*
+  * Check the RMIDs that are marked as busy for this domain. If the
+- * reported LLC occupancy is below the threshold clear the busy bit and
++ * reported occupancy is below the threshold clear the busy bit and
+  * decrement the count. If the busy count gets to zero on an RMID, we
+  * free the RMID
+  */
+ void __check_limbo(struct rdt_l3_mon_domain *d, bool force_free)
  {
- 	switch (rr->r->rid) {
-+	case RDT_RESOURCE_L2:
- 	case RDT_RESOURCE_L3:
- 		WARN_ON_ONCE(rr->evt->any_cpu);
- 		if (rr->hdr)
- 			return __mon_event_count_one_domain(rdtgrp, rr);
--		else
-+		if (rr->r->rid == RDT_RESOURCE_L3)
- 			return __l3_mon_event_count_sum(rdtgrp, rr);
-+		rr->err = -EINVAL;
-+		return -EINVAL;
- 	case RDT_RESOURCE_PERF_PKG: {
- 		u64 tval = 0;
+-	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
++	struct rdt_resource *r = resctrl_arch_get_resource(d->hdr.rid);
+ 	u32 idx_limit = resctrl_arch_system_num_rmid_idx();
+ 	struct rmid_entry *entry;
+ 	bool rmid_dirty = true;
+@@ -297,8 +297,8 @@ int alloc_rmid(u32 closid)
  
-@@ -1035,6 +1038,10 @@ struct mon_evt mon_event_all[RDT_NUM_RESOURCES][QOS_NUM_EVENTS] = {
- 		MON_EVENT(QOS_MBM_TOTAL_EVENT_ID,	"mbm_total_bytes",	false),
- 		MON_EVENT(QOS_MBM_LOCAL_EVENT_ID,	"mbm_local_bytes",	false),
- 	},
-+	[RDT_RESOURCE_L2] = {
-+		MON_EVENT(QOS_OCCUP_EVENT_ID,		"l2c_occupancy",	false),
-+		MON_EVENT(QOS_MBM_TOTAL_EVENT_ID,	"mbm_core_bytes",	false),
-+	},
- 	[RDT_RESOURCE_PERF_PKG] = {
- 		MON_EVENT(PMT_EVENT_ENERGY,		"core_energy",	true),
- 		MON_EVENT(PMT_EVENT_ACTIVITY,		"activity",	true),
-diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
-index 0a60372299c5..95ffff4c7925 100644
---- a/include/linux/resctrl.h
-+++ b/include/linux/resctrl.h
-@@ -180,7 +180,7 @@ struct mbm_cntr_cfg {
- };
+ static void add_rmid_to_limbo(struct rmid_entry *entry)
+ {
+-	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
+ 	struct rdt_l3_mon_domain *d;
++	struct rdt_resource *r;
+ 	u32 idx;
  
- /**
-- * struct rdt_l3_mon_domain - group of CPUs sharing RDT_RESOURCE_L3 monitoring
-+ * struct rdt_l3_mon_domain - group of CPUs sharing L2 or L3 cache monitoring
-  * @hdr:		common header for different domain types
-  * @ci_id:		cache info id for this domain
-  * @rmid_busy_llc:	bitmap of which limbo RMIDs are above threshold
+ 	lockdep_assert_held(&rdtgroup_mutex);
+@@ -309,16 +309,23 @@ static void add_rmid_to_limbo(struct rmid_entry *entry)
+ 	idx = resctrl_arch_rmid_idx_encode(entry->closid, entry->rmid);
+ 
+ 	entry->busy = 0;
+-	list_for_each_entry_rcu(d, &r->mon_domains, hdr.list, lockdep_is_cpus_held()) {
+-		/*
+-		 * For the first limbo RMID in the domain,
+-		 * setup up the limbo worker.
+-		 */
+-		if (!has_busy_rmid(d))
+-			cqm_setup_limbo_handler(d, CQM_LIMBOCHECK_INTERVAL,
+-						RESCTRL_PICK_ANY_CPU);
+-		set_bit(idx, d->rmid_busy_llc);
+-		entry->busy++;
++	for_each_mon_capable_rdt_resource(r) {
++		/* Only resources with the occupancy event have a busy bitmap */
++		if (!resctrl_is_mon_event_enabled(r, QOS_OCCUP_EVENT_ID))
++			continue;
++
++		list_for_each_entry_rcu(d, &r->mon_domains, hdr.list,
++					lockdep_is_cpus_held()) {
++			/*
++			 * For the first limbo RMID in the domain,
++			 * setup up the limbo worker.
++			 */
++			if (!has_busy_rmid(d))
++				cqm_setup_limbo_handler(d, CQM_LIMBOCHECK_INTERVAL,
++							RESCTRL_PICK_ANY_CPU);
++			set_bit(idx, d->rmid_busy_llc);
++			entry->busy++;
++		}
+ 	}
+ 
+ 	rmid_limbo_count++;
 -- 
 2.34.1
 
