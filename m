@@ -2,109 +2,125 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EAB5606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 13:23:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD124606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 13:41:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=q/RGlQIx;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MBinKNbI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YRox2+6W;
+	dkim=pass (2048-bit key, unprotected) header.d=amdcloud.onmicrosoft.com header.i=@amdcloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-amdcloud-onmicrosoft-com header.b=ubAesf++
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=p+3Crhy2vTaTH2VP8Hqb2z/w7m3gLKgpAXgDIf/pTwE=; b=q/RGlQIxUFFmuQXFXAFBejKf67
-	EozrNoOmKLe3zAnHYLkEVWg8Xzsqf7QQIXJRKDCpvv6VvIhOxYKd4dJgcYMfEJZu9VCCjFL2pnUKB
-	JRP1z6cPmkCjh3wwUpnaMqddMu05thfEAxTJv+bEYfMuBac2K/ZBaOHGHRbI/gnrQj4BV621PaMnS
-	8Lxy0HeaoWjJkHpnDzIUNb+DRH0QkAK2kK6L05CdHK0DTnzWUg5rlDMMjI5D7o+UgF5y2o1lcA6SA
-	PzMh5bV2Q5yhAZ25Q9qJBkxwhbK4T5u2DvqVCk3CHOK+upPDhqVs1jW9kyzwPPdpyl4g/jicwWw4I
-	d8+v149w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=eVazMF8Xy/35jI1/xVBN45nsZ6yUKZkMIwWRaoAJcww=; b=YRox2+6WPD/+SQ
+	PYP1QzvzrHKBRTa8neb0y4iDziXVkR0fqaCI5MuBh6AJLme6SmULsMKtYGxTPxt04UVf7iE9+bUFz
+	WrDJh8L1t7AGnHPWuJncsbOdlQH37jsMNPUjxTsHw52LrJKwEPqdB2AP7nFJxSAqZRLlU9norQ4N/
+	hqV2aAImC2nlklziwdgS+6me7Ho+V+P+pL8HJsZSzdbQLvXO5tUdsJ+FAg+7eiKOnVf1qdNoPNf0w
+	EglYajFLxOAHObGBLJqrULEKH/bEubkzyRHMgK6wWgESeimp2BEpPuZnzdmauXN0bfnGimiGt4vQl
+	NoRQ3ulMzkNnmoTiD0/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMQ6I-00000009KsR-0AS7;
-	Thu, 29 Oct 2026 13:23:26 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1xMQNt-00000009MzC-2p5p;
+	Thu, 29 Oct 2026 13:41:37 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMQ6E-00000009Krc-3iUc
+	id 1xMQNr-00000009Mxx-0Jhq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 13:23:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793280203; x=1824816203;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=9Cz3qGxvThs0rl/GR84Oy3PnSJHjpp3B9x+qw2O+AJs=;
-  b=MBinKNbInWo1azOpxCckzEmKPOm1qJhWDP0SKyHrQktYkzYTDDOnvgy+
-   Mp5XirOOcE0iqD0MI2yhoMUOt9eY0V9b1ASxPjrG72u76eaEpalhH7XUZ
-   fusx/thYdJ/v6Zw/PS48jRttvL7mMk9e87pFXCCAwzaOoFDS0Ot2ZYgN4
-   LSbbMDAK+X6K+v2OhSgj8owP7KMBB+WMl1tJX9rYqXaM/WkymuQqD4nPC
-   0qDuChHGA4No3BYe9PhN5w3ih7l08YUWLE5zU6ikD2D0Oh+D2FUX98twb
-   nej4RnUiyULLFN24BYdAV4lAeAjE7Xujxx+oqI3J+HFJSZ2kS02oA87fg
-   g==;
-X-CSE-ConnectionGUID: rIMDEwZyR0Kh3xBe73880w==
-X-CSE-MsgGUID: xjVzInwwSHCiQiQTSX/znw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11949"; a="1905310"
-X-IronPort-AV: E=Sophos;i="6.27,184,1787036400"; 
-   d="scan'208";a="1905310"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2026 06:23:22 -0700
-X-CSE-ConnectionGUID: sK2vSRAjTAqdx5FXxpCvqg==
-X-CSE-MsgGUID: o1lYrOQHRt+E7suodbHRNQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,184,1787036400"; 
-   d="scan'208";a="5156292"
-Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.129])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2026 06:23:14 -0700
-Date: Thu, 29 Oct 2026 15:23:11 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Dmitry Ilvokhin <d@ilvokhin.com>
-Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>, Lee Jones <lee@kernel.org>,
-	Pavel Machek <pavel@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Ryan Chen <ryan_chen@aspeedtech.com>,
-	Billy Tsai <billy_tsai@aspeedtech.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>, Kees Cook <kees@kernel.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	intel-gfx@lists.freedesktop.org, linux-leds@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-hardening@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH 07/10] drm/gem: Switch to __nonnull_args() macro
-Message-ID: <auNIv830Zu_1zWE5@ashevche-desk.local>
-References: <cover.1793027261.git.d@ilvokhin.com>
- <5bfdc1491d297b5e98cf42322c790f06481c28c7.1793027261.git.d@ilvokhin.com>
- <fb3b6a24-74ca-4da8-8593-352afd515313@suse.de>
- <CANiq72mMm75svCqevd8fHtVoczDpvpo4NwL0SC8=bWy030vQuQ@mail.gmail.com>
- <auNGJhSe3tVi7rDy@shell.ilvokhin.com>
+	Thu, 29 Oct 2026 13:41:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BITU3rArqSblS0P+YiUkMD/NMDi1ODHZu9C+ejQ5sbJCW4zm02f9NT4T2PR8PwR9S5dUu/v6BYps86SdlmTENDSsrQqMD2IsBJ0dLQDS2QVr7LtTBIxBycZ+CZCyF6oACJE1BA5M2MoPUIVqWZFdHKTpiWNDaWScIQpMe0dEMQ/OUilajO9p/mY/3NgARuIi4Zf/ma+1gt/TwwybNFISpp6XbJwFZfC6aiK+qL5Xd439tMwIXByckSlwGlI9+hh8d8jrPCQvqxt2vsXnJB6wScaOfjPyS1xp/C4lwrrU6DgH3FscfGOK/CAlMqX6LCe9iXyLSFYJmEYAcXvRIUZbTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eVazMF8Xy/35jI1/xVBN45nsZ6yUKZkMIwWRaoAJcww=;
+ b=KGTLmYInlqntJALse4cfAWxHK6o6L+tXojVRobgKk28iXQVm4/Ezig1xbhpFO4oL8ft2nhgmbfusn4ZgqF5ai+3qBvWPAa7mEIwcFf8+5r/Oeg/qC0h1l943yEf/WVwZ4KGaB79jmIGA+x9L26NWw6+8tGw04q1UAxMmme39CYINuNQM8VIz3/IfVJ079SHPNuNGAGz1jxk6w7aCBN5o8S1PIC937ytdSnDUOou1dYx6Beq5747vXtym0Fw+fJUCQyuu3AX0QmN+Z4Q+RmiBSdn9qINJLf8XFzI1Whlz+tRCY9GhHSNjydgA6/vis0cxUVQEWxHzGZw8LkFohywN7Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 165.204.84.17) smtp.rcpttodomain=aspeedtech.com smtp.mailfrom=gmail.com;
+ dmarc=fail (p=none sp=quarantine pct=100) action=none header.from=gmail.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=amdcloud.onmicrosoft.com; s=selector1-amdcloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eVazMF8Xy/35jI1/xVBN45nsZ6yUKZkMIwWRaoAJcww=;
+ b=ubAesf++Ig8KigNpnS85e8wQ8klEDKmdg0IP8kr7fPOcIMzSzkffataRx4qSdD2pxnQ//7WkJ86snHE4xUb7HO1SshjYAonkKvU7q9/NJ+PhYI8znudoQWt4bXPXoHAGOFyHyC9XBwzovvDjE4wC/H3g0j7hoxwKKRzuTN45BLJS0H3GBQrqM15l8gFn+0Hkheb3MAPFWdC20y3tKRNCEz1vRDlccagpUGLEm+S4oY+G4Zi8Maj6LDJrBI6aMg1N7kK4AD0XUFjX1XXl6JSZ3Oi2DFCAsSUhotXUNxUJehbXpqdXuJLtrReBOgWNrzVBBXeTItEUoWFsm9LhZcM/Ag==
+Received: from DS7PR05CA0021.namprd05.prod.outlook.com (2603:10b6:5:3b9::26)
+ by CH3PR12MB9250.namprd12.prod.outlook.com (2603:10b6:610:1ae::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.8; Thu, 29 Oct
+ 2026 13:41:25 +0000
+Received: from DS2PEPF00006E1F.namprd05.prod.outlook.com
+ (2603:10b6:5:3b9:cafe::21) by DS7PR05CA0021.outlook.office365.com
+ (2603:10b6:5:3b9::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.4 via Frontend Transport; Thu, 29
+ Oct 2026 13:41:25 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
+ IP is 165.204.84.17) smtp.mailfrom=gmail.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=gmail.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 165.204.84.17 as permitted sender)
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ DS2PEPF00006E1F.mail.protection.outlook.com (10.167.23.212) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.569.4 via Frontend Transport; Thu, 29 Oct 2026 13:41:25 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Thu, 29 Oct
+ 2026 08:41:24 -0500
+Received: from [127.0.1.1] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
+ Transport; Thu, 29 Oct 2026 08:41:22 -0500
+From: Colin Huang <u8813345@gmail.com>
+Date: Thu, 29 Oct 2026 21:38:31 +0800
+Subject: [PATCH v10 02/16] ARM: dts: aspeed: anacapa: Add EVT2 devicetree
+ inheriting EVT1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <auNGJhSe3tVi7rDy@shell.ilvokhin.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261029-anacapa-devlop-phase-devicetree-v10-2-26ee3cf9d9d0@gmail.com>
+References: <20261029-anacapa-devlop-phase-devicetree-v10-0-26ee3cf9d9d0@gmail.com>
+In-Reply-To: <20261029-anacapa-devlop-phase-devicetree-v10-0-26ee3cf9d9d0@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
+ Jeffery" <andrew@codeconstruct.com.au>, Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<colin.huang2@amd.com>, Colin Huang <u8813345@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793281119; l=5680;
+ i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
+ bh=bE1xb1OaXR8eZ6VfDKZkB+HVFJAwxHzocx20tKXED/U=;
+ b=tpxS6vndY7ph/fsV5ym3avuh3GkDSZ19JEZwLQQrYWDKgsYQI26DY7QhYxz0nJ8PtfZz9s5x4
+ 4ndvPNAKYwQC3bABWN26ipQu9QhtWcfX3rJW72GSpNilSEu+LWPsu8A
+X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
+ pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF00006E1F:EE_|CH3PR12MB9250:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b017fc7-d712-488b-ba21-08df35c253b4
+X-MS-Exchange-SenderADCheck: 2
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|61400799027|35950700016|7416014|376014|48200799018|7093399015|82310400026|261028144727099003|56012099006|11063799006|261009223027099003|261022105027099003|261021123027099003|261021121427099003|261026140227099003|261021135927099003|10067099003|18002099003|22082099003|16102099003|4128699003|6133799003;
+X-Microsoft-Antispam-Message-Info: 9DccP0aomPWuoYaS6EtFLRWRpUdAx6mzWqKCoD3qr4nHYgIIILi7lbKZu6QnSJA2dypZUb5uCMSlFG2b+CpyLGStE+cIJ9yFcJJGQElB2WDzFbQbpIaRQwHpzzlrOco3jBmqm4CgpXUK6Q0wAijNB6eWmEqfocQ8uRX+D+As3ow3TSEM4jE+Qna6hCDa+/3XflA2RLrTBf0YVGyl/vcWMWYuHO7Atz7c75KTIwNJ/dAmIuUiRR/hu0nROTHSFncq00DNQ1UmvaCzmLYmrdHwr8Lhbca9g4NrdXZF7QOIiYl0bk2W7oDdUGINIHiCwnxPCvnXljGbOuEr0Y8AB30cXKNdRZs5uUx0tTaa5HDt7Le8bnPTOXCZ/7QnGBGDce79oD798kHSuI1q5OYT4ldQucqmXpXujuSdBrN/SWLd/2x7+udHF+MRlcmRt8Dwhb6ZA2fs7r2ogn8HBPtDDaVWQ8dm2jFXayqQ1Sofk2IYgJrDHbpZRVjyH47MsrSUjoee6pzUvol1DNfOIyeW8YxFmPIMtSt/jaIxUC28re6QWf96pBe+SS2BECZsTwEftgc5S1nTVDy5uKJ0ccNgaKECmkYRs7zoiQqaQ43i+PockSjKQCS441ebBR9UhDMy+DqX/5joLzg/uK6JbjwiiGNz1JXs6MWxNDLbcmSEK3Oi8pEMWfCG46GlG2xZfdGaGmtW
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(61400799027)(35950700016)(7416014)(376014)(48200799018)(7093399015)(82310400026)(261028144727099003)(56012099006)(11063799006)(261009223027099003)(261022105027099003)(261021123027099003)(261021121427099003)(261026140227099003)(261021135927099003)(10067099003)(18002099003)(22082099003)(16102099003)(4128699003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: MWkPvIJE4R3x+sku7AN4Hfkwbcxe2ZCsJs2BjDptXFn5i3oEipK7Gi9xwpviSvcy3lfYWC+MEohDjxSGGPFRplFRQgYFsyY2uZaFyXtgamOv6ZZ7DPcQ6njx/q94SyaWmTlqA04ILiyw64nHPu3vlzL7kBJIcU2AU4XswQw08LIcdsWzoZV4M1+Sn/ClK+z3Ut4V1e+SwlD6xKvd8Mhav/7TNzDZcB11Q7UhNxbrHLS9o1qMfjZX5+5JjVZ02zPGJuEwuqM+M4fJCG0tv0bDTuSTkzEgFJV9XXdiutb8xlriHGptJ9MrA15UzDLRdL2wMyeeCdhX5wTkoVRJQI4xEi1OQHdOkX7wThmqew7YBUpP2q41islQK5NHep9zzQoBAcyELJ7RrY0dze9zoAK7PC/fbSKe4YQTsjD6P7g51/QLad4+Pu8ebYjZFZuAV8gS
+X-OriginatorOrg: amdcloud.onmicrosoft.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2026 13:41:25.3329
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b017fc7-d712-488b-ba21-08df35c253b4
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF00006E1F.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9250
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_062322_970240_D3E15731 
-X-CRM114-Status: GOOD (  18.49  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261029_064135_145336_3E5EB207 
+X-CRM114-Status: GOOD (  13.63  )
+X-Spam-Score: 1.1 (+)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,41 +131,210 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FORGED_GMAIL_RCVD,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UPPERCASE_50_75,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 29, 2026 at 01:12:06PM +0000, Dmitry Ilvokhin wrote:
-> On Thu, Oct 29, 2026 at 02:00:28PM +0100, Miguel Ojeda wrote:
-> > On Thu, Oct 29, 2026 at 8:32 AM Thomas Zimmermann <tzimmermann@suse.de> wrote:
-> > >
-> > > Should gem.h now include <linux/compiler_attributes.h> ?
-> > 
-> > No, it should be included for you (unless you are doing something
-> > custom with the compiler flags etc.).
-> 
-> Just to add a bit more colour to Miguel's reply.
-> 
-> I believe idea behind include/linux/compiler_attributes.h is to make
-> attribute wrappers as simple and transparent to use as native compiler
-> attributes. In particular, this means they should be available in every
-> kernel compilation unit without any additional effort.
-> 
-> For this reason, all the nessesary plumbing is handled at the build
-> machinery level (see scripts/Makefile.lib:171), where '-include'
-> compiler flag is used to pull in include/linux/compiler_types.h, which
-> in turn pulls include/linux/compiler_attributes.h.
+Add a development-phase devicetree for the Facebook Anacapa BMC EVT2
+hardware revision and update the Anacapa wrapper DTS to reference
+it.
 
-Ah, TIL! Please, discard my comment then. Perhaps we need to clean up all
-headers that pull compiler_types/compile_attributes directly (the same way
-we do for kconfig.h).
+Signed-off-by: Colin Huang <u8813345@gmail.com>
+---
+ .../aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi   | 167 +++++++++++++++++++++
+ .../dts/aspeed/aspeed-bmc-facebook-anacapa.dts     |   2 +-
+ 2 files changed, 168 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
+new file mode 100644
+index 000000000000..c43090618c4a
+--- /dev/null
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
+@@ -0,0 +1,167 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++
++#include "aspeed-bmc-facebook-anacapa-evt1.dtsi"
++
++&sgpiom0 {
++	gpio-line-names =
++	/*in - out */
++	/* A0-A7 line 0-15 */
++	"L_FNIC_FLT", "FM_CPU0_SYS_RESET_N",
++	"L_BNIC0_FLT", "CPU0_KBRST_N",
++	"L_BNIC1_FLT", "FM_CPU0_PROCHOT_trigger_N",
++	"L_BNIC2_FLT", "FM_CLR_CMOS_R_P0",
++	"L_BNIC3_FLT", "Force_I3C_SEL",
++	"L_RTM_SW_FLT", "SYSTEM_Force_Run_AC_Cycle",
++	"", "",
++	"", "",
++
++	/* B0-B7 line 16-31 */
++	"Channel0_leakage_EAM3", "FM_CPU_FPGA_JTAG_MUX_SEL",
++	"Channel1_leakage_EAM0", "FM_SCM_JTAG_MUX_SEL",
++	"Channel2_leakage_Manifold1", "FM_BRIDGE_JTAG_MUX_SEL",
++	"Channel5_leakage_present_EAM1", "FM_CPU0_NMI_SYNC_FLOOD_N",
++	"Channel4_leakage_Manifold2", "BMC_AINIC0_WP_R2_L",
++	"Channel5_leakage_EAM1", "BMC_AINIC1_WP_R2_L",
++	"Channel6_leakage_CPU_DIMM", "CPLD_BUF_R_AGPIO330",
++	"Channel7_leakage_EAM2", "CPLD_BUF_R_AGPIO331",
++
++	/* C0-C7 line 32-47 */
++	"RSVD_RMC_GPIO3", "RTM_MUX_L",
++	"LEAK_DETECT_RMC_N", "RTM_MUX_R",
++	"HDR_P0_NMI_BTN_BUF_R_N", "FPGA_JTAG_SCM_DBREQ_N",
++	"Channel6_leakage_present_CPU_DIMM", "whdt_sel",
++	"", "JTAG_CPLD_TRST_R_N",
++	"", "",
++	"", "",
++	"", "",
++
++	/* D0-D7 line 48-63 */
++	"Channel0_leakage_present_EAM3", "",
++	"Channel1_leakage_present_EAM0", "",
++	"Channel2_leakage_present_Manifold1", "",
++	"Channel4_leakage_present_Manifold2", "",
++	"AMC_BRD_PRSNT_CPLD_L", "",
++	"Channel7_leakage_present_EAM2", "",
++	"", "",
++	"", "",
++
++	/* E0-E7 line 64-79 */
++	"L_PRSNT_B_FENIC_R2_N", "",
++	"L_PRSNT_B_BENIC0_R2_N", "",
++	"L_PRSNT_B_BENIC1_R2_N", "",
++	"L_PRSNT_B_BENIC2_R2_N", "",
++	"L_PRSNT_B_BENIC3_R2_N", "",
++	"", "",
++	"", "",
++	"", "",
++
++	/* F0-F7 line 80-95 */
++	"R_PRSNT_B_FENIC_R2_N", "SGPIO_READY",
++	"R_PRSNT_B_BENIC0_R2_N", "",
++	"R_PRSNT_B_BENIC1_R2_N", "",
++	"R_PRSNT_B_BENIC2_R2_N", "",
++	"R_PRSNT_B_BENIC3_R2_N", "",
++	"", "",
++	"", "",
++	"", "",
++
++	/* G0-G7 line 96-111 */
++	"L_PRSNT_EDSFF0_N", "",
++	"L_PRSNT_EDSFF1_N", "",
++	"R_PRSNT_EDSFF2_N", "",
++	"R_PRSNT_EDSFF3_N", "",
++	"HPM_EDSFF_PG", "",
++	"", "",
++	"", "FM_BMC_READY_PLD",
++	"PRSNT_NFC_BOARD_R", "",
++
++	/* H0-H7 line 112-127 */
++	"R_FNIC_FLT", "",
++	"R_BNIC0_FLT", "",
++	"R_BNIC1_FLT", "",
++	"R_BNIC2_FLT", "",
++	"R_BNIC3_FLT", "",
++	"R_RTM_SW_FLT", "",
++	"", "",
++	"", "",
++
++	/* I0-I7 line 128-143 */
++	"EAM0_BRD_PRSNT_R_L", "",
++	"EAM1_BRD_PRSNT_R_L", "",
++	"EAM2_BRD_PRSNT_R_L", "",
++	"EAM3_BRD_PRSNT_R_L", "",
++	"FM_TPM_PRSNT_R_N", "",
++	"PDB_L_PRSNT_R_N", "",
++	"PRSNT_EDSFF_BOOT_N", "",
++	"PRSNT_CPU0_N", "",
++
++	/* J0-J7 line 144-159 */
++	"PRSNT_L_BRIDGE_R", "",
++	"PRSNT_R_BRIDGE_R", "",
++	"BRIDGE_L_MAIN_PG_R", "",
++	"BRIDGE_R_MAIN_PG_R", "",
++	"BRIDGE_L_STBY_PG_R", "",
++	"BRIDGE_R_STBY_PG_R", "",
++	"IRQ_NFC_BOARD_R", "",
++	"RSMRST_N", "",
++
++	/* K0-K7 line 160-175 */
++	"ADC_I2C_ALERT_N", "",
++	"TEMP_I2C_ALERT_R_L", "",
++	"CPU0_VR_SMB_ALERT_CPLD_N", "",
++	"COVER_INTRUDER_R_N", "",
++	"HANDLE_INTRUDER_CPLD_N", "",
++	"IRQ_MCIO_CPLD_WAKE_R_N", "",
++	"APML_CPU0_ALERT_R_N", "",
++	"PDB_ALERT_R_N", "",
++
++	/* L0-L7 line 176-191 */
++	"L_EDSFF0_PG", "",
++	"L_EDSFF1_PG", "",
++	"R_EDSFF2_PG", "",
++	"R_EDSFF3_PG", "",
++	"HPM_CPLD_HEART_BIT", "",
++	"RBB_CPLD_HEART_BIT", "",
++	"LBB_CPLD_HEART_BIT", "",
++	"FM_BIOS_POST_CMPLT_R_N", "",
++
++	/* M0-M7 line 192-207 */
++	"EAM0_SMERR_CPLD_R_L", "",
++	"EAM1_SMERR_CPLD_R_L", "",
++	"EAM2_SMERR_CPLD_R_L", "",
++	"EAM3_SMERR_CPLD_R_L", "",
++	"CPU0_SMERR_N_R", "",
++	"CPU0_NV_SAVE_N_R", "",
++	"PDB_PWR_LOSS_CPLD_N", "",
++	"IRQ_BMC_SMI_ACTIVE_R_N", "",
++
++	/* N0-N7 line 208-223 */
++	"AMCROT_BMC_S5_RDY_R", "",
++	"AMC_RDY_R", "",
++	"AMC_STBY_PGOOD_R", "",
++	"CPU_AMC_SLP_S5_R_L", "",
++	"AMC_CPU_EAMPG_R", "",
++	"DIMM_PMIC_PG_TIMEOUT", "",
++	"EAM_MOD_PWR_GD_TIMEOUT", "",
++	"CPLD_AMC_STBY_PWR_EN", "",
++
++	/* O0-O7 line 224-239 */
++	"HPM_PWR_FAIL", "Port80_b0",
++	"FM_DIMM_IP_FAIL", "Port80_b1",
++	"FM_DIMM_AH_FAIL", "Port80_b2",
++	"AMC_THERMTRIP_ASSERT", "Port80_b3",
++	"CPU_THERMTRIP_ASSERT", "Port80_b4",
++	"PVDDCR_SOC_P0_OCP_L", "Port80_b5",
++	"CPLD_SGPIO_RDY", "Port80_b6",
++	"FM_MAIN_PWREN_RMC_EN_ISO", "Port80_b7",
++
++	/* P0-P7 line 240-255 */
++	"CPU0_SLP_S5_N_R", "NFC_VEN",
++	"CPU0_SLP_S3_N_R", "",
++	"FM_CPU0_PWRGD", "",
++	"PWRGD_RMC", "",
++	"FM_RST_CPU0_RESET_N", "RBB_CPLD_RISCV_RST",
++	"FM_PWRGD_CPU0_PWROK", "LBB_CPLD_RISCV_RST",
++	"AMC_FAIL", "HPM_CPLD_RISCV_RST",
++	"S0_ON", "";
++};
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+index 5e76076bdcd4..606dacb605c5 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+@@ -1,4 +1,4 @@
+ // SPDX-License-Identifier: GPL-2.0-or-later
+ 
+ /dts-v1/;
+-#include "aspeed-bmc-facebook-anacapa-evt1.dtsi"
++#include "aspeed-bmc-facebook-anacapa-evt2.dtsi"
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.34.1
 
 
