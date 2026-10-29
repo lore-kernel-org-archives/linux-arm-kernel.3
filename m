@@ -2,85 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5880D606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE90C606A31A
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 13:53:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vWcfkMdP;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zewEYWpn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nRduz1Vg;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ABq1jG8c
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=IhFC/E+vn7Ne1GmfoUxjx/snlj06M4a6yUZTElbwzmM=; b=vWcfkMdP1M1Y+o
-	sWAAB8ulwtp9ef04iYxX5EyspeBYtTN93l1waYx/Px7N9lMwBDITRnUnmTp0SqQqf15kcFHI+hhHf
-	HW1iKEJf3fJg+5TCFC0noUrsMDiKI2PBQu3L+E1iND0oTot4HXrSCVPwkuBuUWqRgpeHVxLTc8HrY
-	EAXH8zMILAb8AY1R33KjI1ePhfNgpdSBlhsayEqYtwWtbI0oNI0bPnASvejhEWigXxeb24uhLL57B
-	pOTgGsfjFpgS57Pp95ZRB029JroF/Fi8vvJV23/RvpYqWeFvXmtvrrz4eTqDpiKdzX2XJTYcNcdVd
-	7CWAEiXNfAW8ZRlBEb4Q==;
+	List-Owner; bh=oLv91LE6Hr8ep188oveO3sPSclyk8z8F6MAQFei+jPI=; b=nRduz1VgaYYNbM
+	6mFtUhuft+ZMIr5mjz6twsUII862oCsoI/AQO/P+MpPD2oRM7M14wBhsP3rxVzvkwmjG3XwUgdops
+	UWtsokVwPB8oD9WtujNgNMX6eoNKkvYchRrF4+tg485UGQijmphr40It2XR/JiIXLgpNjdh70ufhk
+	+k3omR81HWKUQbEnSLQGlfo5KxJl4bEi9gREYpg7d0Y9C/JZKUzoufR2cwk6P1NLCsN5OTrcmFXlo
+	B1ZFNe0e506GGA/7fi7wEFjEdl92R7pMpzPJoMgGR7YtJqugKFRt4m5+AYztpLrPwM75sPIq+zgXJ
+	sAEmi2DC48f8tc9xNeQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMQZg-00000009SQs-3Wgu;
-	Thu, 29 Oct 2026 13:53:48 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1xMQZe-00000009SNN-2hgH;
+	Thu, 29 Oct 2026 13:53:47 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMQZU-00000009SAz-2vY1
+	id 1xMQZQ-00000009S6Q-0OiS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 13:53:39 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-48c5358fc28so1767990f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 06:53:35 -0700 (PDT)
+	Thu, 29 Oct 2026 13:53:33 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48c4649b35bso1935859f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 06:53:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793282014; x=1793886814; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793282010; x=1793886810; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=IhFC/E+vn7Ne1GmfoUxjx/snlj06M4a6yUZTElbwzmM=;
-        b=zewEYWpniypnKSTrqUBvT92B49VKToycpJrjStPBw+l3CNJt2gGkuoFtkK1qY5Lo3N
-         /5e1xthz6jX5cwOGPcCm+YF+q5hMHH6WTnGu8xAbD8cy6tJiWntXYLOJGey0ynmb/2xT
-         p0JbjlbdyHtubke01WHHJPmEIiml78ohJd2/JJzpxP29TrYFAR+FV6+eOOepKT/3DqJ+
-         JRC8O28+ZNSTiY8wV2hvW2gBxJ73NUNS7fGVbp5tbltouCMZ0gLd5J8co3eX8LKHp18h
-         Ge+ZFroPEl+++MpOqebswBAT6sBHJkapWdcQ/8K/G7t3gd2ZDDYVdnWX0Py1WXu9hg3b
-         o7/g==
+        bh=oLv91LE6Hr8ep188oveO3sPSclyk8z8F6MAQFei+jPI=;
+        b=ABq1jG8ca/kDEnEBd7pt5vEmE3wKeg8Q0qoguKntgtIsc4muJFoeX/bOy7cOAkqIB9
+         xwN+zqaZX8FHSO75yVWUnNN8xy21J7ieObAHiowSh5j8Xtb9ZofoeDwblnZ1T7irOg1g
+         OIzZNyiNeLvaPxvgFJln4genJBP5FfAzKmAKtQqDZCQp8CFjw8zF7ME7dL1wDfs67H0V
+         3ZPD5wp9sksYW5Gk1l0Ji0eiIrbmvAFjiSHBdMRWES8uRA53HeWpsOzX5UEFNsk1l2Za
+         gSbl0xmcERYvqikWGfygYmqh+JE9yWsmc0JZvX4kX2hMHrALvX8JGtmFMl9hF4YDUUXb
+         kYNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793282014; x=1793886814;
+        d=1e100.net; s=20260707; t=1793282010; x=1793886810;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=IhFC/E+vn7Ne1GmfoUxjx/snlj06M4a6yUZTElbwzmM=;
-        b=QHBaokilIEH3vK4O3h9GXnxKa0BRdjp7qqjb1EIRZMabN0Ld/BPzv+mA2h9YpzIxPz
-         2xGQgLInodx2X58lMMuaNfD3k37mG7Vj2zvOH0J/nqQRjWGktsTitiPiDwnybZS1vUuQ
-         9BVqO8Uh7deEYCUL3vRz0LhB9yG0ms1sX06XyybYN+a8sIOEGVh8BWZ+Rh4R9fwlL5cX
-         XPbQFxKBvvRIdVLTnkt8f6xUKBfnaQTRsiepBpY6VqbOWQRiHlw61ZI5DxH+5WlYXY+7
-         g/GYAuXr+k47+T0MhMcqTBH1RaCW5SHtx8g88kBL9A4yp8LPFLpB5V3LPBDKr+PEo5a4
-         qWcA==
-X-Forwarded-Encrypted: i=1; AKwUvBxcS+DfjGr549a8gG7gEQu9MMBDD7aywzRBrrXHuFayw1MYH3jfqr/nPv8fK86bK/rs7s4pSnRorGdYzstPB/Bg@lists.infradead.org
-X-Gm-Message-State: AFq9FYKFch9dx1zIaujdNOULE2OFAq6ekvxadZBvqt9w4LQMwh6l+GlE
-	xTxPExUDR8tFAQ/lIoxDr2NHdeOb6R0Gxfs9/yt9tsxWKHkMelpp6KTubQjo
-X-Gm-Gg: AYBFou1vDy7F749YzU2MjfDuhTaATAY8YfebQqE8lj+Jq2zXoFF8Mu8K6w45VOKSLXZ
-	tgmvOB82mk3knlL8fMelqjhqWLvvF6yMHkUYXKoQ5Jqp54aSAr0BPvHnX7vZ3u6Uq4TUrkyVNnX
-	UGZ4bFlNmPQkiwUk1EuxeVikHTE+PrJb05POlbwKZFUWgG0Pz7qthWc6UPDHT0K7/kB4BRLMDL8
-	UBYHWrXNY2SmF8NFapzfEBve7NASqQ+JqX1FXUZ58uZ7QL0OA1PjKtVisYu+TviyPZyJBEh1hWE
-	54kiCJUdPjSz1bVW87IRK3aF6sFP2mOUwW9lAi8wiH5OCyNp3M6D0EXW/e8mKoZV0qorGUdF8Xr
-	xJkLSMwSmtJD9rYNUPnlk0B7+x6YsuwTL0vi4YAo9mvyTMPH63jYOO/0CQDfkoLf2W7AFHF0oUO
-	C/q6TV7ASTBdy1HU4PcFHZ+uv5ZmZyulWRl5NnZn9IVepn7nMZdih1Cc2kqbyeftHVMZSgDlKSs
-	ET7e+yXOcF0sG3COb/MeeLg1h2fKmI4B7wkIdlJVzWehIEleIhGnydhUEgRMP2UDpbL+gCaqcI7
-	7RM1c1CcDH1erPJ6nzcxPWXUtVGsAW+4TSRf6R30MZefRw==
-X-Received: by 2002:adf:f491:0:b0:48e:1421:ed49 with SMTP id ffacd0b85a97d-48e5d5909aamr9182569f8f.18.1793282014126;
-        Thu, 29 Oct 2026 06:53:34 -0700 (PDT)
+        bh=oLv91LE6Hr8ep188oveO3sPSclyk8z8F6MAQFei+jPI=;
+        b=tiFy6+Znc9UQfPS3RVQYRm83xgcfEE8L8UjWACMESNRyytI/otqzSatTpmZDM6z8vB
+         oFV84YYuP8GrrW8RmuHmeXVh5NuBl+NQFKyMARohiFnfEPBLgXpONaAUk5To0ZOu8QAt
+         0sRmImUy/NAA+3EgJlZMAdJeZXWQwoyu7SzRpOoJMusNS7tyKMVs/FQ2E1T7A5hygca0
+         d7AQs+wGqadevpoOPcww1obGP4mXjgybCF/Msk8uOQCc7mgrCZJxauvl+b2pMSWl/W6Y
+         0IXmSdm/FZKtdIJ9Pv4Wyn/larWW2Rix12IBhcfQTNzKXu5RxCEBynMZu2xCyv7TRn1L
+         iU/Q==
+X-Forwarded-Encrypted: i=1; AKwUvBzNeC2o2fSwFA8cyrnp6axmPqu6MazmNzmRA8vxLuU/xaO4xh3F7FzUN/7muB3a5crf0Wx4em2i4qWXcp6dfFai@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ49lpDHzyuWspjfI+99fLuUIvwZOPQuu+M3ROoU3GWSePj70nX
+	mpjGmo8FKGwxvfiVbmy7rDgGXXmt3bjxVOebqS2LxRzQPpa+ZAAVRME=
+X-Gm-Gg: AYBFou0p07qoMKea+jRHmWsN6XXgo1QbPqWboiBsLNQ5wRnnS/YFGu6O0lTHPjgSDHK
+	foiNwPI3duyviUJ1HDPOCu4hkQHFcR5f3RSeGn0NvCVYwAgdyCEwx8K2jrRKhx3F9FP+d9dnIIA
+	YNntNALn397jPln54v9R6kv/bQQP5k1U8FsYydG0dyY5ED9mkp6MCu54KzDbV0JQibIwZ1PSXAR
+	4qszy/4KBDsS0LL2agOTeoGG7Hh5EurICYrnDVzD8dwrF/00Yz5rKImqA1pTPWxKb2VgiVxzMgw
+	hIsptTtdwSb2Vs3Rqp+0bLwwPBOoMCzton+8gtXXzoVlAGr7h9H6EbVZoA0smDahGvgb+RbOuyZ
+	mHabNlPOETxXoVXjXAzlp+Gffdc4nE1fbMgqJ85NZItDmntRhSthzQEsLDsaHWLacaRI0irYvgc
+	Q+GB1Rg5/nD+psEMZQTEf1jOBBHUvsQ/PsH7jQkvHsF1OGhLQNbR31NCjvxGoyA5lJ4qGWIhPMQ
+	/UuoTQFtioeV6vSMPMYIdmydc2J5GzLISVGEKE8gJtvY32Nj6uOca9GV9rfH2i7trJGZjD0cbjl
+	CFaSN5oSrWjysD3ANMyIrsyrGLduXN4Ul0zXr8ivMlMeYg==
+X-Received: by 2002:a5d:5e03:0:b0:48a:f354:aefe with SMTP id ffacd0b85a97d-48e5d468159mr13722390f8f.39.1793282010340;
+        Thu, 29 Oct 2026 06:53:30 -0700 (PDT)
 Received: from [192.168.1.67] ([2001:b07:2ec:601d:4b26:1672:75c7:805a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebc3dcbsm33456468f8f.14.2026.10.29.06.53.32
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebc3dcbsm33456468f8f.14.2026.10.29.06.53.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 06:53:33 -0700 (PDT)
+        Thu, 29 Oct 2026 06:53:29 -0700 (PDT)
 From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
-Date: Thu, 29 Oct 2026 14:52:50 +0100
-Subject: [PATCH RFC v2 13/14] drm/msm: gate lpac behind modparam
+Date: Thu, 29 Oct 2026 14:52:48 +0100
+Subject: [PATCH RFC v2 11/14] drm/msm: set ctxbank and asid based on ring
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-descriptive-name-lpac-upstream-v2-13-a21a5c850961@gmail.com>
+Message-Id: <20261029-descriptive-name-lpac-upstream-v2-11-a21a5c850961@gmail.com>
 References: <20261029-descriptive-name-lpac-upstream-v2-0-a21a5c850961@gmail.com>
 In-Reply-To: <20261029-descriptive-name-lpac-upstream-v2-0-a21a5c850961@gmail.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
@@ -102,16 +102,16 @@ Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
  dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
  devicetree@vger.kernel.org, Anna Maniscalco <anna.maniscalco2000@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793281977; l=1928;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793281977; l=1658;
  i=anna.maniscalco2000@gmail.com; s=20240815; h=from:subject:message-id;
- bh=ZEwODnTsRSIiQzAvYlWfm8pmWhNZkrTmOspw3E7UZvA=;
- b=Z9dhvvnQgx4S38zM+b46UTdfg9SThPOIVSdAoOz7EGATYLcY7dL9exHHWjN9XuX2BOku7wLrT
- FTPWSEv0DrrDpKLv4feGQ8Wj41R/cQfHXOM+Z/TSHsGDJf0un1xYOaN
+ bh=JeZ/oDOWBrzzXnhSTsaX5dWsSADptm5HwF/DPV1Xv4k=;
+ b=4M7VMbDwjOepIjZPrdycOsvEBkNuot2Ltb1yMKAeV6IZ8onsZj759zJ8VBrGw6EwZ2ETpsOXr
+ 1DglU23L6d5AIGkk239c64rud6FZXnrAbBlSSiEjCojZ/rkF2k76XQ0
 X-Developer-Key: i=anna.maniscalco2000@gmail.com; a=ed25519;
  pk=0zicFb38tVla+iHRo4kWpOMsmtUrpGBEa7LkFF81lyY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_065336_767043_6A699673 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20261029_065332_216621_B37AA621 
+X-CRM114-Status: GOOD (  11.94  )
 X-Spam-Score: -0.8 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,50 +131,45 @@ X-Spam-Status: No, score=-14.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add a mod param to allow initializing and exposing the LPAC ring.
+qcom-arm-smmu always maps asid and ctxbank 1:1 and lpac is always 1
 
 Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
 ---
- drivers/gpu/drm/msm/adreno/adreno_device.c | 4 ++++
- drivers/gpu/drm/msm/msm_gpu.c              | 3 ++-
- 2 files changed, 6 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/msm/adreno/a6xx_gpu.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/msm/adreno/adreno_device.c b/drivers/gpu/drm/msm/adreno/adreno_device.c
-index 6e2333466d7f..51781a2e8a00 100644
---- a/drivers/gpu/drm/msm/adreno/adreno_device.c
-+++ b/drivers/gpu/drm/msm/adreno/adreno_device.c
-@@ -30,6 +30,10 @@ static bool skip_gpu;
- MODULE_PARM_DESC(no_gpu, "Disable GPU driver register (0=enable GPU driver register (default), 1=skip GPU driver register");
- module_param(skip_gpu, bool, 0400);
+diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+index e82d0c0bc10f..57fc4035a753 100644
+--- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
++++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+@@ -247,7 +247,7 @@ static void a6xx_set_pagetable(struct a6xx_gpu *a6xx_gpu,
+ 	struct adreno_gpu *adreno_gpu = &a6xx_gpu->base;
+ 	phys_addr_t ttbr;
+ 	bool is_lpac = ring == a6xx_gpu->base.base.lpac_rb;
+-	u32 asid;
++	u32 asid, ctxbank;
+ 	u64 memptr = rbmemptr(ring, ttbr0);
  
-+int enable_lpac = 0;
-+MODULE_PARM_DESC(enable_lpac, "Enable LPAC (A7xx+ only) (1=on , 0=disable, -1=auto (default))");
-+module_param(enable_lpac, int, 0600);
+ 	if (ctx->seqno == ring->cur_ctx_seqno)
+@@ -256,6 +256,9 @@ static void a6xx_set_pagetable(struct a6xx_gpu *a6xx_gpu,
+ 	if (msm_iommu_pagetable_params(to_msm_vm(vm)->mmu, &ttbr, &asid))
+ 		return;
+ 
++	/* qcom-arm-smmu always maps asid and ctxbank 1:1 */
++	ctxbank = asid = is_lpac;
 +
- extern const struct adreno_gpulist a2xx_gpulist;
- extern const struct adreno_gpulist a3xx_gpulist;
- extern const struct adreno_gpulist a4xx_gpulist;
-diff --git a/drivers/gpu/drm/msm/msm_gpu.c b/drivers/gpu/drm/msm/msm_gpu.c
-index 4244d9324cda..f6927c797fa5 100644
---- a/drivers/gpu/drm/msm/msm_gpu.c
-+++ b/drivers/gpu/drm/msm/msm_gpu.c
-@@ -889,6 +889,7 @@ int msm_gpu_init(struct drm_device *drm, struct platform_device *pdev,
- 		const char *name, struct msm_gpu_config *config)
- {
- 	struct msm_drm_private *priv = drm->dev_private;
-+	extern int enable_lpac;
- 	int i, ret, nr_rings = config->nr_rings;
- 	void *memptrs;
- 	uint64_t memptrs_iova;
-@@ -1012,7 +1013,7 @@ int msm_gpu_init(struct drm_device *drm, struct platform_device *pdev,
- 		memptrs_iova += sizeof(struct msm_rbmemptrs);
- 	}
+ 	if (adreno_gpu->info->family >= ADRENO_7XX_GEN1) {
+ 		/* Wait for previous submit to complete before continuing: */
+ 		OUT_PKT7(ring, CP_WAIT_TIMESTAMP, 4);
+@@ -313,7 +316,7 @@ static void a6xx_set_pagetable(struct a6xx_gpu *a6xx_gpu,
+ 		CP_SMMU_TABLE_UPDATE_1_TTBR0_HI(upper_32_bits(ttbr)) |
+ 		CP_SMMU_TABLE_UPDATE_1_ASID(asid));
+ 	OUT_RING(ring, CP_SMMU_TABLE_UPDATE_2_CONTEXTIDR(0));
+-	OUT_RING(ring, CP_SMMU_TABLE_UPDATE_3_CONTEXTBANK(0));
++	OUT_RING(ring, CP_SMMU_TABLE_UPDATE_3_CONTEXTBANK(ctxbank));
  
--	if (config->has_lpac) {
-+	if (config->has_lpac && enable_lpac != 0) {
- 		gpu->lpac_rb = msm_ringbuffer_new(gpu, nr_rings, memptrs, memptrs_iova);
- 
- 		if (IS_ERR(gpu->lpac_rb)) {
+ 	/*
+ 	 * Write the new TTBR0 to the memstore. This is good for debugging.
 
 -- 
 2.56.0
