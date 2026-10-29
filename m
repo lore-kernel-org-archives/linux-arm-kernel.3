@@ -2,126 +2,164 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65E74606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 17:15:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAA2B606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 17:16:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wP6ZhxbZ;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aVWVyPBI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MOxGAfky;
+	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=YgiZ0/A5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=bfkoGr6eHduUtBaHwkrM0dSWX67wyi9EvMSHv231Bb8=; b=wP6ZhxbZUp0weu
-	Fa6Z3GLvjO3zG0pSYUROCbHH4syrxhdsgbM/i9WFIXno1b5l+pQ8UJGZJ0jfQJOenCfrjyg8mwY1O
-	Wq4lVlFMyvXrwLd89KyNHdaeq7OlpFGO/kjUCO1UokEywFOaJ5flayj6jBIRj7VegVIRo99FJgmwJ
-	Q8gEZoPyiwk9vVb+4C4MUzeA0bGxk7Y5rbUUYHlwvHAwWHpxOnZoDb0l+VSmsrkgefc65fL1O9sWo
-	R7WNCBgRdKMxqe7tNGZjmcKF5XNaw9I2pjLuzupv9kJg9zfyFru7fwat8GKJWawsJsPfbWV/GRMLW
-	tGs4YeDiZi3NmI6rJ/nw==;
+	List-Owner; bh=lE2uSXffLzacbrPa786MlXxJ3B9g3YGKriI1oE9ksSc=; b=MOxGAfkyqEkcKt
+	wcCTJyxTs1ja81RvxSvFap8aXHXunI6aimE7p69IT2GtkUFab4s0IhFyABZZK0a6rxU8HIy/2Dhb5
+	i41vNf2DtGCaJJ+tBXbuNy4ExL+Dlyr8Gtm5y6/EM5pxXpfTQczCR59l01ty6ILDVOXYgHqsWS4TT
+	LXkGfGcC9NBzLX9j/iBv61xudj7cZFGNPwO+vBaoubUnTgAnWPGAhM/hHlBAxSC3IaEQ1sdfY/OLb
+	cI8OeXO1oDC5QsneZUuZ5hgW659cgZXVIkd1Z7A2XUQh0wTruynrQa+u1PYG7wBMXsbqdBxYin3tJ
+	KnoAZWkBC3a+I+Vvqbew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMTj4-00000009wWi-41NQ;
-	Thu, 29 Oct 2026 17:15:43 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1xMTjj-00000009wgX-2z2w;
+	Thu, 29 Oct 2026 17:16:23 +0000
+Received: from mail-pf1-x464.google.com ([2607:f8b0:4864:20::464])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMTj1-00000009wW8-1p49
+	id 1xMTjg-00000009wfi-3CcW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 17:15:41 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6b408f2d936so3585049a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:15:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793294137; cv=none;
-        d=google.com; s=arc-20260327;
-        b=lkkPU3MzqVGT7Goosq/b9CaXKzeVrZMiNV/PbBnyUeZMFW9b59rSYT9xQpicQos2hl
-         Ldne0Ptcr9p3QPywLOMHJFv0l9aYpg9E5mrC5oMp2FN2/ngGW5RGdCERZqXEubfX4omu
-         3WcRPMiiqZXPcOhB6F9OjDNjgxBgl5wjEW/J5RJbqRTBbt6fEFUAPPOS1XFyGrNMXpyC
-         dguNdFy9gF3zTL4Ku5s3AZlb9KDUkRT9RUIlfamq9w8FH1HdP5ODbsUurJ+mhypteSHV
-         xONtlSmlxIYEg9GKYb9tgto27iYlMMK69xD7TcVejrbNMbtr3vmQruodL9k2R8yZUPLa
-         j8QQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bfkoGr6eHduUtBaHwkrM0dSWX67wyi9EvMSHv231Bb8=;
-        fh=i5/3ZuwR0b0onwYLQKd/TIfJJJVCJTc7iINDQiby3dI=;
-        b=nKNf3YG3941mQFPSAjX9+wvajmIsDT2zkunHl30GA/Cil+EZvYVvar9A4Vqi9d4hkA
-         SADgyTk+EuqPVnsT6KnccZcMEK86T/XiCbLngMgt230RpiHkOgRYRL3bms3tcbV1NfZJ
-         IiFKx+ntrLfG9lGaoOr8b74h59mweLC8k59qSMtnsl57eogwCycinQelUzkx9PHh7fnE
-         yr22r9u1SOBgyk1Q3lbYvHyV8AMFWmk6B9x6tLrpVDMPqx7ogq8TxEXG3HwACEoxw6It
-         XEeCMBSRnOS3TctT4gT+FAmiOYL8mohexjEadat8JaEztcNU+G/YMFfXBBZjIE0iEGH+
-         APPQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793294137; x=1793898937; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bfkoGr6eHduUtBaHwkrM0dSWX67wyi9EvMSHv231Bb8=;
-        b=aVWVyPBI2TZ2V+ffgnspxmYIjfhSADbg7pASXIxxDYv9o/8hvHLCMuvsjfnhtDDfGf
-         mumHEYvXQGq6QrwTUKRaZKEtH70GTZNDUMSea9N7wYqUJJmpDi4hSYbbGncxEDVFfrDf
-         /Gh7Rsw+tIG5zkYuifJ1fTrZIkAi6KUSBDI0IHPezisx5a/p/fXO+UBnE7/pYYI05fvY
-         BMI6ThH4J/1+pLb0dp24WRTqnpPaAu79UzNB1/NuHdAiVdu0J8y0XO4ErGp4nbb9zw6J
-         XoT65p4JIuCBMonj5YBjRoHKU0wfjdkhF8tc5LZIP7eD2qaPEzWrLfwbPLrBPd4DMZhD
-         jznw==
+	Thu, 29 Oct 2026 17:16:22 +0000
+Received: by mail-pf1-x464.google.com with SMTP id d2e1a72fcca58-8a07078200fso1308171b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:16:19 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793294137; x=1793898937;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=1e100.net; s=20260707; t=1793294179; x=1793898979;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=lE2uSXffLzacbrPa786MlXxJ3B9g3YGKriI1oE9ksSc=;
+        b=ut+JoeEQb0goS+h7Mu9Z3BQbp9OJ8pPGYOOZ3F3qRz0J4b82d5zdxoiL5Fs1OKB/kF
+         7UOTLCx0AXARBCKaKFn6MpHvG8NrwwsYk5xf4sRavvPi7+0LbKhw3Wf6AUsjHO0vSqqV
+         b1V4E6rYYMRrWjgIiW4rUYl8IuWIyjwS9q1U7xcfFFCzf4wVt2fZke+5qat2tPb3lH5y
+         g9zji/dQsTLWhMvsuEFAn/C6RsCek1YU9eK/pTviHl/PZqx6UdcgiRxkjgSICKEAK+M6
+         6+h9GKAW7odDQv+GZkDTIy3I9nfMhhSyuIOy06f6Aj8y48Guc8rn7lFYm/f4hkrfdBlB
+         XNHg==
+X-Forwarded-Encrypted: i=1; AKwUvBwOz0n1Qvk5QRb0bRovBL+FEjWJptOY25TMyRF8Ar4WvZT+d5gGe1YXHCf5ykD67hYJpzyCREHT8eQdaWyDOLyz@lists.infradead.org
+X-Gm-Message-State: AFq9FYIuCAVJ7l6ANb+fMmB5275dCmqcDFvNZYCr1Qqqxy6WpNPreH9H
+	1hNzJYyA7rbC6uwGS8xvCvCXEsn9rJsWFAkIXoV7PyYjdR5GO28Z81zVQjXZ/KDQAyAybFR81bW
+	0UhZxiyFCw7vDxewpjPRqNEGR9t7FVgRqbo8NiWh6rIPX0sK3u47R2/7fPgpJ8Kl89OjMnFtXqH
+	g+BWy9Bv6Cd01VYNat/q6Sg5WWNmy/14TfQZV7laKIJ+yfgNQ2YydHVaXCBDv+XRgdCYuS6E8LQ
+	rMLrvCHEWbTAXKOOBRjplm/+t9uwJubVUg1Rg==
+X-Gm-Gg: AYBFou2w/PV24zzABjneJ8zqTGNgWYlbA0fyisgwDt00qJxDNQ+MMDWJ+KzqaviUiph
+	5AfF9QbdT6iTfE3kfdkO+nxfBX4Z9hTl4TVLwlyeFRgx77c8fDWRVm4wYWcc7YVEHv4NNavY/x9
+	VzemzW8kU2mur443smGlmKzySSvsstWl0QPWmZbkMx+1tvMIke1BNvn1VkLSxDMwrLGwNPaGw2B
+	kNC1qahoBpP3DylW7/jxXMecG4RXXJhxz52Lj6MyjvRAWAJeMNKwX7f30GKqJfd3MxUlsB0Uv5B
+	fO590oXiICvqE1Eq3Nn31v7v5H2gTw05hshJSfFWMXGMqYFwM97j73jSc/XaZ5SKxi6MBKFr1rb
+	O9483PBf2WI2CCLIFGjPDgLkWopk1tltrr6zyFVkE5D4AqgohBJMYK/zjg7fm0IHMIMYo7HhQ1X
+	cAsqWh9hb59wxYv6Kaw3k1VW0qruq7aE/bhgWPgShA
+X-Received: by 2002:a05:6a00:428d:b0:886:77eb:38fb with SMTP id d2e1a72fcca58-8a6e78cfdd5mr4723348b3a.25.1793294179165;
+        Thu, 29 Oct 2026 10:16:19 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id d2e1a72fcca58-8a989dceb11sm8567b3a.0.2026.10.29.10.16.18
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 29 Oct 2026 10:16:19 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3ab2395f104so2121551a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:16:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1793294177; x=1793898977; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bfkoGr6eHduUtBaHwkrM0dSWX67wyi9EvMSHv231Bb8=;
-        b=W8MbkV1ocsWSEWxjU7qYK5gICKz/dvpTtm4E5Ozx9McJK/vtwUzRjGQ3wHfYXropyS
-         4q2kg2x4Cmjpbo/Onatk+yQQGlE5cH5rAaOuKmHUHYOw79QDt+Scalzvvflh6Vg+xnV6
-         s5r+lIvc0zr0ylc0D5rD4BlVl0J+iFGdFEYI7oR7HjXRpkMUUeZwSxvT0UK05HDEUUvd
-         UvCwFn8BF+e0waYivdg0oJM0OuJmgmWSk3xwfVt9XIYlOMHY705GRNH/eAsslJdzjvkt
-         ZoXpnGPAVAl147H6CUfmA9LD2wZBXBsG7/qP1bP2Pv1X/He6c8Xxu2pIpc1SU4aoq3lh
-         DzYA==
-X-Forwarded-Encrypted: i=1; AKwUvBwunjjOquAy+spWyuUEIeqGoZ9hmPJbg1LKDh27AtiyDW2atgLyiDBeyj1YolzHkw14s4G8ZqUlHjWeCkW5ga/Z@lists.infradead.org
-X-Gm-Message-State: AFq9FYKIa37orq3IWapUPhvJQad2I9XHud6kyQOeqGXjOmGokVjLR4KJ
-	6m6c5PxjMayCKoTHrespEjYaUlDPAZD6qXBFbZ9JqYW4/otWLt9wLlJG6IkjICInR1n242QuKx4
-	Lb7KWoHasVIxZS4alle+CCD/QVNRsPdk=
-X-Gm-Gg: AYBFou3Zb8EW1eWkXyV/yePUS7WONCxW5KM1eJLdIc2xbR+iTAI1M5xFvu/Z1iX+0Ab
-	SO1QhOXdZ5N5AOgduptBcxcR9HDSL8nuiea3ODlCBhWIImiiSEj9d7pLFMEq3K46r745/AuhYlI
-	+yl0r0KXP1DqS+UPLwRo2mfmQb52hha3F3cPu4VmTgMWiXYfmvWPNPD4hvyCPCsbjxgB+9iaxvk
-	KQuv0EZ1WaGjznaGdI2qlX/6BkXPUYT8tTO227SDJXGVn41lIfch0aRf7us91y5nfvFhokiOV4K
-	CJh3BI6rnqTMM819x5/mHAfZxYsSs7Q4l8t6bNjN9pzzfMwt0NEg5Hk1K53FoquLYbbfY+4u/xX
-	DPBkp6Tf9F4rjClqfmbA+mbWTA7PNSTFTTZNaYBRQ9IqeXXfLWLLz4iAchCEg1lWTUK1tUZJBsi
-	dnTi8PPVPDbWj6iAaLOFVG/CxI9L8ERzbZVBqT26qDuleHoMIJeQR7DCOBqPM60PfAsLFd2l7lw
-	cgqwk4QRzo5Oil7R9IGZjAu/pUhQA==
-X-Received: by 2002:aa7:c687:0:b0:6b3:f840:59b5 with SMTP id
- 4fb4d7f45d1cf-6b49cc019b3mr3067325a12.27.1793294136580; Thu, 29 Oct 2026
- 10:15:36 -0700 (PDT)
+        bh=lE2uSXffLzacbrPa786MlXxJ3B9g3YGKriI1oE9ksSc=;
+        b=YgiZ0/A55kz1tOLUdsEI/i3qlFUw6IkDw5RNE33/4lJ239w0kk0Bl8oToCJGoOk2Q8
+         cmB72sxMfRTNDPTzwlGbAN+3K247G/cjrIiptDa0SgfddcD5/Ft/y2yoLpghfSpwHVUq
+         B5rAQVDzK3z/z+X1xMQLVRYFEEIWILKuwxaUU=
+X-Forwarded-Encrypted: i=1; AKwUvBzIj2QZ2OU5+bKyQAQhAxII3+FQ6s5MHdyFS2+7d/0Zm20gbfQUsgFI4liJDoafQZU5lzwYcy51KQFNSlo8bkNA@lists.infradead.org
+X-Received: by 2002:a17:90b:5903:b0:3ab:2d17:51c5 with SMTP id 98e67ed59e1d1-3ae57e2b52amr4762316a91.6.1793294177297;
+        Thu, 29 Oct 2026 10:16:17 -0700 (PDT)
+X-Received: by 2002:a17:90b:5903:b0:3ab:2d17:51c5 with SMTP id 98e67ed59e1d1-3ae57e2b52amr4762297a91.6.1793294176832;
+        Thu, 29 Oct 2026 10:16:16 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae845df666sm444813a91.14.2026.10.29.10.16.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 29 Oct 2026 10:16:16 -0700 (PDT)
+Message-ID: <fe8b7acf-b495-4202-a5f1-51950c55c037@broadcom.com>
+Date: Thu, 29 Oct 2026 10:16:11 -0700
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261029-submit-serial-8250-dma-cancel-v1-v8-0-3fd56ba352ed@gmail.com>
- <20261029-submit-serial-8250-dma-cancel-v1-v8-4-3fd56ba352ed@gmail.com> <auNV7Vco5O3vVwRH@ashevche-desk.local>
-In-Reply-To: <auNV7Vco5O3vVwRH@ashevche-desk.local>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 29 Oct 2026 11:15:23 -0600
-X-Gm-Features: AclHuK8a3pNXQ_IsYXCQfDMZzFxdEUJPDH5qKP3q2TLb8CO-tQBpFEH7zYCUMxU
-Message-ID: <CADvTj4oi6dFzWkjFXie1U49A70Y7Mb=4exga-=2SmG7fN2pLrA@mail.gmail.com>
-Subject: Re: [PATCH v8 4/6] serial: 8250: drain canceled TX DMA before reusing
- its buffer
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Raul E Rangel <rrangel@chromium.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Tony Lindgren <tony@atomide.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Richard Genoud <richard.genoud@bootlin.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
-	=?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, "Maciej W. Rozycki" <macro@orcam.me.uk>, Timur Tabi <timur@kernel.org>, 
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/6] dt-bindings: ata: sata-brcm: Describe the NSP IDM
+ registers
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-kernel@vger.kernel.org, Damien Le Moal <dlemoal@kernel.org>,
+ Niklas Cassel <cassel@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Tejun Heo <tj@kernel.org>,
+ Yendapally Reddy Dhananjaya Reddy <yendapally.reddy@broadcom.com>,
+ "open list:LIBATA SUBSYSTEM (Serial and Parallel ATA drivers)"
+ <linux-ide@vger.kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "moderated list:BROADCOM IPROC ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:GENERIC PHY FRAMEWORK" <linux-phy@lists.infradead.org>
+References: <20261026191618.3178830-1-florian.fainelli@broadcom.com>
+ <20261026191618.3178830-3-florian.fainelli@broadcom.com>
+ <20261029-versed-automatic-orangutan-43cfde@quoll>
+ <e5c4ac0a-f5de-42e7-910a-cf2c9c4cabbc@kernel.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <e5c4ac0a-f5de-42e7-910a-cf2c9c4cabbc@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_101539_945094_7C465398 
-X-CRM114-Status: GOOD (  19.91  )
-X-Spam-Score: -0.8 (/)
+X-CRM114-CacheID: sfid-20261029_101620_809731_CDA9FBA5 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,96 +170,39 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-1.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 29, 2026 at 8:19=E2=80=AFAM Andy Shevchenko
-<andriy.shevchenko@linux.intel.com> wrote:
->
-> On Thu, Oct 29, 2026 at 01:37:00AM -0600, James Hilliard wrote:
-> > uart_flush_buffer() resets the transmit kfifo before calling the driver=
-.
-> > serial8250_tx_dma_flush() terminates DMA asynchronously and clears
-> > tx_running, allowing a new write to replace tx_size while a detached
-> > callback has not yet run. That callback can then consume bytes
-> > from the new transmission. Reusing the reset kfifo can also overwrite t=
-he
-> > source of a transfer that has not stopped yet.
-> >
-> > Reserve the flushed FIFO storage through serial core before returning
-> > from the flush callback. Keep tx_running set until a worker synchronize=
-s
-> > the terminated channel, suppressing old callbacks and new submissions
-> > during that interval. Return the mapping to CPU ownership before releas=
-ing
-> > the reservation and waking writers. Normal transfers continue to use th=
-e
-> > FIFO directly.
-> >
-> > Reuse the locked completion processing after retirement, including OMAP
-> > delayed register restoration and transmitter-empty handling. Take a run=
-time
-> > PM reference around worker UART accesses and drain the worker before
-> > releasing the channels. Shutdown releases the FIFO reservation after
-> > stopping DMA and unmapping its source. Serial core keeps writes and wak=
-eups
-> > gated until startup or resume makes the port ready again.
-> >
-> > Track a flushed FIFO separately from the transfer length. If terminatio=
-n
-> > fails, retain the reservation until normal completion and account the
-> > completed bytes without advancing the reset FIFO. After successful
-> > cancellation, process a zero-length completion once callbacks have drai=
-ned.
-> >
-> > The race was found by inspecting cancellation and restart while prepari=
-ng
-> > H616 UART DMA support.
-> >
-> > Retain the tx_running check in both completion callbacks. Releasing the
-> > reservation relies on the DMA provider draining detached callbacks when
-> > dmaengine_synchronize() returns; provider callback-lifetime fixes suppl=
-y
-> > that guarantee for controllers which previously lacked it.
->
-> ...
->
-> > -     bool                    shutting_down;
-> > +     bool                    shutting_down:1;
-> > +     bool                    tx_terminating:1;
-> > +     bool                    tx_flushed:1;
->
-> What is the meaning of bool XXX:1? Have you checked with `pahole` the res=
-ult?
+On 10/29/26 01:10, Krzysztof Kozlowski wrote:
+> On 29/10/2026 09:09, Krzysztof Kozlowski wrote:
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            const: brcm,bcm-nsp-ahci
+>>> +    then:
+>>> +      properties:
+>>> +        reg:
+>>> +          description: AHCI, top control and optional IDM register regions
+>>> +    else:
+>>> +      properties:
+>>> +        reg:
+>>> +          maxItems: 2
+>>> +        reg-names:
+>>> +          maxItems: 2
+>>
+>> Please move entire allOf to the bottom, before "unevaluatedProperties"
+>> line.
+> 
+> And you already have an if:then: block, so this should be together.
 
-These are one-bit boolean fields, intended to pack the state flags
-into one byte.
+Will do, thanks!
+-- 
+Florian
 
-I've now compared layout probes using the kernel type definitions and
-saved build flags, changing only those bitfields to ordinary bools.
-For the complete v8 structure, including the RX flags, pahole reports:
-
-                            Bitfields   Plain bool
-    ARM32 / Clang               212         220
-    ARM64 / GCC                 368         376
-    ARM64 / GCC / PREEMPT_RT     368         376
-
-The sizes are in bytes. All six flags share one byte in the packed
-version. This saves eight bytes in each checked configuration.
-
-The packing is a layout choice, not an atomicity mechanism; updates
-still require the UART port lock. Given the measured saving, I'd keep
-it unless there is another concern with using bool bitfields here.
-
->
-> --
-> With Best Regards,
-> Andy Shevchenko
->
->
 
