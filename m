@@ -2,42 +2,42 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EA66606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3E06606A33A
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 18:42:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Dzfrc/9f;
-	dkim=pass (2048-bit key, unprotected) header.d=cjdns.fr header.i=@cjdns.fr header.a=rsa-sha256 header.s=dkim header.b=JZZoRQTl
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rjj3+jA5;
+	dkim=pass (2048-bit key, unprotected) header.d=cjdns.fr header.i=@cjdns.fr header.a=rsa-sha256 header.s=dkim header.b=hKxwh3vX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=U5unU0X1n9bid1C2890zmY/BApufD/eYc5dn8BANoSU=; b=Dzfrc/9fsUoI8M
-	F0pWaJjltCnAMO1XVZYB+Fo7H8GPsvAgrBtbkKfHqtJljJK3VvD8/x+5mFwjbsUONYqO5CbsH6I//
-	x3KRdtwxbmFXtLVKvYfq0iQxR86tOTN0ucfmEO4HVcEAXC09bjXThA6bJSabXXxuR0pEWOXGn+pgT
-	YQaLBprOPU+XxL4YtifGuWZsbJlWW6FGTtN2RId4jypQwncUAcqXusj1tbmumtCbtyKrC85Tksa+i
-	7UmguDyIIMjiPY4o+bFWHDiO4YOcK7kdcnMMnn1LB3br3eGRFtFPjPvUFT5qRTQT+MlkaFAGeqV6e
-	zf+mXNAQ0mitXghNnrKA==;
+	List-Owner; bh=y1QUnLMzQA9qZBFqnAYy720sjw2bb3qb84XY0QmjRBw=; b=rjj3+jA5EQDeHj
+	VMHObtLleL4r2rBPl9BUhTKwdvz8F8MSlYV1Yz+b8+8TI79fZTgWr8b5Jkw+cvHpkq2gDdnTGkJKB
+	2w3P9YUrUTUI/Iy3RLUq5r3OmOXTxgjzbr+0I/XTe8pbjVkWv6DGnFsXIJSa9UqR3Djj3jDXlaVKh
+	p0JXGPBvbieBj5WIOZ7GEuWzCuQeK9bPPtZWNtMYXebfkmKmztPeFZ1+4+6p8AAphR+YEp3umnkT+
+	0Z84SF7TM3kbvj3grkl/z8QbKwRufDBw0jJY7snS0XpLizEWMzCjIMSezQI01c1JoeEwd6Ogh0/99
+	rkWE8t+3IDUIi0wVSGhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMV5O-0000000A8iT-1YsB;
+	id 1xMV5O-0000000A8jE-2TZQ;
 	Thu, 29 Oct 2026 18:42:50 +0000
 Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMV5B-0000000A8Wt-3s0b;
-	Thu, 29 Oct 2026 18:42:39 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 52E171A4F51;
-	Thu, 29 Oct 2026 19:42:32 +0100 (CET)
+	id 1xMV5F-0000000A8Zv-3htx;
+	Thu, 29 Oct 2026 18:42:43 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9D6931A60F1;
+	Thu, 29 Oct 2026 19:42:35 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1793299355; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1793299358; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=U5unU0X1n9bid1C2890zmY/BApufD/eYc5dn8BANoSU=;
-	b=JZZoRQTlpz3mt8cUbqU62HUR2jC1wICUnQpryubXgZqTUZK5p0Qwi3u6ZwUN77v/7Minjl
-	AwmyeVuJ631qkxpk9RTG1qjW/C/Tc+qItKtqdoYLAYeBrYYGpcu/FSGCs4UEiAlDGX6MKJ
-	bviggmfQEHE74MZq+8aHv0X0uLRAD8PubApsDclJyV9hUSnTtIuDxM/QJDltALC8i//93U
-	s9CO+qB5uIGXNH0cevmB27fLLd1/y97p/A1KBm+lwfg0mJE86OgkQTnKHlKW8l0gK/RSJP
-	OoOx+ED36lBMsQRGieLX2/ks6M6rZMwX+nxkQ0ovXVRGmXwCr06KFBpk/v22LA==
+	bh=y1QUnLMzQA9qZBFqnAYy720sjw2bb3qb84XY0QmjRBw=;
+	b=hKxwh3vXnopJLRNNpY+11Nshcb51DHgjhVEA4h09oYoYrRENuf8zOq0NfngLI/KDjQn/mM
+	xsxAYlLMF6GrKDhJQGLa4+WTzkT9OloxTC6yl34FxwJMuw8jTOMD6L+82qKhvQCQiXCy6+
+	T2dJspxl6ROWzWlnIC6y2Hf+STY22+V2Vh6hBx5rzD6M9rwY7R8YvfXgFLbRQP8LRD6j6t
+	miQjK2ThWcRQOD43TqsOZCJowalNWSEDAOviG5xqz/ogZNn6/027jj/yLbykAOJw/0LHhv
+	9mbovcFzntO9uLl6DDu17sGYBajq6/DuZkKieXUMHxRF+FkJW0gE2SeQ+3J4cA==
 From: Caleb James DeLisle <cjd@cjdns.fr>
 To: netdev@vger.kernel.org
 Cc: andrew@lunn.ch,
@@ -65,9 +65,9 @@ Cc: andrew@lunn.ch,
 	naseefkm@gmail.com,
 	b.larsson@gmx.com,
 	Caleb James DeLisle <cjd@cjdns.fr>
-Subject: [PATCH v4 5/7] net: dsa: mediatek: support MDIO switch downstream of MMIO switch
-Date: Thu, 29 Oct 2026 18:42:00 +0000
-Message-Id: <20261029184202.1859843-6-cjd@cjdns.fr>
+Subject: [PATCH v4 6/7] dt-bindings: net: dsa: mediatek,mt7530: add EcoNet EN751221 switches
+Date: Thu, 29 Oct 2026 18:42:01 +0000
+Message-Id: <20261029184202.1859843-7-cjd@cjdns.fr>
 In-Reply-To: <20261029184202.1859843-1-cjd@cjdns.fr>
 References: <20261029184202.1859843-1-cjd@cjdns.fr>
 X-Archived-By: <archiver.kernel.org>
@@ -75,8 +75,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_114238_335468_D1EDD9D7 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20261029_114242_291682_850A8CB3 
+X-CRM114-Status: GOOD (  12.89  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,141 +96,113 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The MT7530 / MT7531 can connect via either MDIO or MMIO. In MMIO mode
-the switch provides its own MDIO bus which connects to its integrated
-PHYs, but also can be connected to other things, such as another
-switch.
+The EcoNet EN751221 MIPS SoC integrates an MT7530 switch memory-mapped
+in the SoC register space. It is similar to the econet,en7528-switch
+except that ports 0..3 are 10/100 only, port 4 has a gigabit PHY, and
+port 5 has no PHY, but is in some implementations connected to a
+downstream MT7530 multi-chip module via a TRGMII link.
 
-If the MDIO bus contains another switch, then the upstream switch
-will register but it will not setup the DSA tree because the
-downstream switch is missing. Without the complete DSA tree,
-mt753x_setup() will not be called on the switch and therefore
-mt7530_setup_mdio() is never called so the downstream switch never
-registers.
+The downstream MT7530 is similar to the MT7621 multi-chip module and
+has all gigabit ports.
 
-However, the call to mt7530_setup_mdio() from mt753x_setup() must
-also be kept because all PHYs are expected to be operational after
-mt753x_setup() returns.
-
-Update mt7530_setup_mdio() so that it can be called multiple times,
-export the symbol, and call it again after dsa_register_switch()
-from mt7988_probe().
+Add the econet,en751221-switch compatible with the same constraints as
+the other built-in switches and also add the econet,en751221-gswitch
+multi-chip-module switch whose port 6 is configured as a DSA link port.
 
 Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
 ---
- drivers/net/dsa/mt7530-mmio.c | 16 +++++++++++++++-
- drivers/net/dsa/mt7530.c      | 17 +++++++++++++----
- drivers/net/dsa/mt7530.h      | 10 ++++++++++
- 3 files changed, 38 insertions(+), 5 deletions(-)
+ .../bindings/net/dsa/mediatek,mt7530.yaml     | 43 ++++++++++++++++++-
+ 1 file changed, 41 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/dsa/mt7530-mmio.c b/drivers/net/dsa/mt7530-mmio.c
-index cf3bdb23a2d5..746a0a462249 100644
---- a/drivers/net/dsa/mt7530-mmio.c
-+++ b/drivers/net/dsa/mt7530-mmio.c
-@@ -61,7 +61,21 @@ mt7988_probe(struct platform_device *pdev)
- 	if (IS_ERR(priv->regmap))
- 		return PTR_ERR(priv->regmap);
+diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+index f98b9113ad12..011c94ef9554 100644
+--- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+@@ -29,6 +29,12 @@ description: |
+   and the switch registers are directly mapped into SoC's memory map rather than
+   using MDIO. The DSA driver currently doesn't support MT7620 variants.
  
--	return dsa_register_switch(priv->ds);
-+	ret = dsa_register_switch(priv->ds);
++  EcoNet EN751221 SoCs have a memory mapped MT7530 with 3x 10/100 PHYs and 1x
++  gigabit PHY. Some EN751221 chips such as EN7513G and EN7526G have a multi-chip
++  module implementation of the MT7530 as well as the on-die switch. In these
++  packages, the multi-chip module is connected to port 5 of the on-die switch
++  via a TRGMII link and allows for 5 gigabit ports.
 +
-+	if (ret)
-+		return ret;
+   There is only the standalone version of MT7531.
+ 
+   Port 5 on MT7530 supports various configurations:
+@@ -109,6 +115,14 @@ properties:
+           Built-in switch of the EcoNet EN7528 SoC
+         const: econet,en7528-switch
+ 
++      - description:
++          Built-in switch of EcoNet EN751221 SoC
++        const: econet,en751221-switch
 +
-+	/*
-+	 * If not all switches in the hierarchy have been probed,
-+	 * dsa_register_switch() returns 0 without calling mt753x_setup().
-+	 * Call mt7530_setup_mdio() because there's a chance that the missing
-+	 * switch is on the MDIO bus. Do not call this before
-+	 * dsa_register_switch() as it  may exit with an error.
-+	 */
-+	mt7530_setup_mdio(priv);
++      - description:
++          Multi-chip module gigabit MT7530 in EN751221 SoC
++        const: econet,en751221-gswitch
 +
-+	return 0;
- }
+   reg:
+     maxItems: 1
  
- static void mt7988_remove(struct platform_device *pdev)
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index d45388e2efc8..24e4485624d3 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -2509,7 +2509,7 @@ mt7530_free_mdio_irq(struct mt7530_priv *priv)
- 	}
- }
+@@ -158,8 +172,8 @@ properties:
+   mediatek,mcm:
+     type: boolean
+     description:
+-      Used for MT7621AT, MT7621DAT, MT7621ST and MT7623AI SoCs which the MT7530
+-      switch is a part of the multi-chip module.
++      Used for MT7621AT, MT7621DAT, MT7621ST, MT7623AI and EN751221 SoCs which
++      the MT7530 switch is a part of the multi-chip module.
  
--static int
-+int
- mt7530_setup_mdio(struct mt7530_priv *priv)
- {
- 	struct device_node *mnp, *np = priv->dev->of_node;
-@@ -2519,6 +2519,10 @@ mt7530_setup_mdio(struct mt7530_priv *priv)
- 	static int idx;
- 	int ret = 0;
+   reset-gpios:
+     description: |
+@@ -221,6 +235,20 @@ $defs:
+                 phy-mode:
+                   const: internal
  
-+	/* Already done */
-+	if (priv->child_bus)
-+		return 0;
++  mt7530-passthrough-dsa-port:
++    patternProperties:
++      "^(ethernet-)?ports$":
++        patternProperties:
++          "^(ethernet-)?port@[0-6]$":
++            if:
++              required: [ link ]
++            then:
++              properties:
++                reg:
++                  const: 6
++                phy-mode:
++                  const: trgmii
 +
- 	mnp = of_get_child_by_name(np, "mdio");
+   mt7530-dsa-port:
+     patternProperties:
+       "^(ethernet-)?ports$":
+@@ -328,6 +356,7 @@ allOf:
+             - airoha,en7581-switch
+             - airoha,an7583-switch
+             - econet,en7528-switch
++            - econet,en751221-switch
+     then:
+       $ref: "#/$defs/builtin-dsa-port"
+       properties:
+@@ -335,6 +364,16 @@ allOf:
+         mediatek,mcm: false
+         reset-names: false
  
- 	if (mnp && !of_device_is_available(mnp))
-@@ -2543,9 +2547,6 @@ mt7530_setup_mdio(struct mt7530_priv *priv)
- 	bus->parent = dev;
- 	bus->phy_mask = ~ds->phys_mii_mask;
- 
--	if (priv->irq_domain && !mnp)
--		mt7530_setup_mdio_irq(priv);
--
- 	priv->child_bus = bus;
- 
- 	ret = devm_of_mdiobus_register(dev, bus, mnp);
-@@ -2560,6 +2561,7 @@ mt7530_setup_mdio(struct mt7530_priv *priv)
- 	of_node_put(mnp);
- 	return ret;
- }
-+EXPORT_SYMBOL_GPL(mt7530_setup_mdio);
- 
- static int
- mt7530_setup(struct dsa_switch *ds)
-@@ -3386,10 +3388,17 @@ mt753x_setup(struct dsa_switch *ds)
- 	if (ret)
- 		return ret;
- 
-+	/*
-+	 * This must be called before mt753x_setup() returns because the DSA
-+	 * core synchronously sets up ports and expects PHYs to be operational.
-+	 */
- 	ret = mt7530_setup_mdio(priv);
- 	if (ret)
- 		return ret;
- 
-+	if (priv->irq_domain && ds->user_mii_bus)
-+		mt7530_setup_mdio_irq(priv);
++  - if:
++      properties:
++        compatible:
++          enum:
++            - econet,en751221-gswitch
++    then:
++      $ref: "#/$defs/mt7530-passthrough-dsa-port"
++      required:
++        - mediatek,mcm
 +
- 	/* Initialise the PCS devices */
- 	for (i = 0; i < priv->ds->num_ports; i++) {
- 		priv->pcs[i].pcs.ops = priv->info->pcs_ops;
-diff --git a/drivers/net/dsa/mt7530.h b/drivers/net/dsa/mt7530.h
-index 5b7394f6383c..c86bc4bca29b 100644
---- a/drivers/net/dsa/mt7530.h
-+++ b/drivers/net/dsa/mt7530.h
-@@ -969,6 +969,16 @@ struct mt7530_hw_stats {
- int mt7530_probe_common(struct mt7530_priv *priv);
- void mt7530_remove_common(struct mt7530_priv *priv);
+ unevaluatedProperties: false
  
-+/*
-+ * When an MMIO based switch has an MDIO bus which contains a downstream MDIO
-+ * switch, the MDIO bus is not normally setup until mt753x_setup() has been
-+ * called. But mt753x_setup() is not called until DSA sees that every switch in
-+ * the tree has been probed. Calling mt7530_setup_mdio() after at the end of
-+ * the MMIO probe function allows the downstream switch to register, completing
-+ * the tree.
-+ */
-+int mt7530_setup_mdio(struct mt7530_priv *priv);
-+
- extern const struct mt753x_info mt753x_table[];
- 
- #endif /* __MT7530_H */
+ examples:
 -- 
 2.39.5
 
