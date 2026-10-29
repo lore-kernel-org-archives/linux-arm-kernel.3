@@ -2,110 +2,164 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3D84606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 11:08:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79E8A606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 11:32:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OXVW5gVY;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=bLwQbsqk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fqDXa207;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=N2ulyUq2;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ZXzQ0I3V
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=O73xnnUqQvELra/ffGr+ZGulR7alxp36K/afX4bZ+3s=; b=OXVW5gVY20A1bj
-	doRKXYFa6kzdAT6kbrUK17ap01Gd8riiT17GqHnD1bPN615mS5DvYNS2ka4j+l4g7VCfPZ2l7x+fb
-	YBOPhwUJyKCwzIC2jYRJmkM1t3XuLEeTk/7knRJr8n44A/OQ/NMjmJqad7Tq/FzzJbEj2xg25Hau+
-	5PPdtn293EiXBN2g3hl2uKohkKE4vME6v5gdRDAdZGk63kQqB43RqkNzjZmRxRcMSyRDspPhgNKiL
-	wjPDbW5U3c//d0BMO+NsUtamFolwYtu/rdM3NnDvN44Q0gfC0ZuK94Cl3amqJJpxJSYr8n6Bb4MQM
-	8sPpA78eARMTjB9mpkuQ==;
+	List-Owner; bh=SmeG8eDrUww7PbplsIcYx6wyVdH7rGxQXJYVetL1ZLk=; b=fqDXa207rFEiE9
+	mI0oKxBFi/edG5d5AAvUT5UVcuMVYB1vmfy+s4/tHDUVKSs9wgqOgpPJmmovZDmKMZbC5ulpwa3eQ
+	TjPqrJ8qYFu3Zwwfc0DXuXKMVHkWbtZTTZ6HGa60YvqLk4/3yKMJGG2iNTFNSuChjn0uHxnm9lCB6
+	izEpHXEC9PE0jnEEc7zaOSd6B/hcMyO52fRafskLSjyaWgoc2i2zn4Z136n3jOsJRllrLxM89rUu2
+	WEkjIEwKDtykDRnMpJJ84tiXRFBHEcDV/mB4JKTYA33RqrCUQioMmgxDHTZFWpBaDlGrxSAmGxWDh
+	66ZKPNsR/iMhvkpaYfUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNzM-000000092rz-2XdN;
-	Thu, 29 Oct 2026 11:08:08 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1xMOMZ-0000000949q-0guF;
+	Thu, 29 Oct 2026 11:32:07 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNzB-000000092la-1ykY
+	id 1xMOMW-0000000949U-0KMH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 11:07:59 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so19639765e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 04:07:56 -0700 (PDT)
+	Thu, 29 Oct 2026 11:32:06 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69TA8VTH821269
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 11:32:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	SmeG8eDrUww7PbplsIcYx6wyVdH7rGxQXJYVetL1ZLk=; b=N2ulyUq2zQlxC4vG
+	5LBSt97dCkUvPpTIWLM9QzF/oTONOlYpjFHqdGTYm/5FjOqreU8Gj34ek14PzYb3
+	Lj5hkgh+a5XBCPXxUFpDwKi/Buwkja1XEMgaBUkL1PLDXzrjBpzGpSFXTLYcI9SL
+	FLAlPCIIebAXBDGkAamNdvf/gzgnSGXkxCLP7c9hrypgtAZ8mhpWlQHZLibDjNTX
+	JltAweSlnEZVoEdeXkk8y5rsNAO9r6uq3XvLNJetGafOJymdV093csowGjjv0qkw
+	cTn/3wHGsmafNGn96owgFSRCsQCsIT2cm5aCoCS7Gre5eibWb3xznWMQh1oX3JPb
+	xtXJ8w==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hm44q8946-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 11:32:02 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cd67466211bso1152085a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 04:32:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793273522; cv=none;
+        d=google.com; s=arc-20260327;
+        b=soq9HrHyA6Y3pxoOvT5/i+C4RwvfvTTHcpXvdDlmvQ3Iqjg2zopfUQZayR/QrtiydF
+         l39QI88JoRmgAHnzan6BkZJGCIzExmbobh+2sVDVljk9OPQy7Q08EDYXAL3bfORLe45h
+         IBOt5T/BNO88/SGxeQZxO712+Jr4GV6z5BXthdnCn1oEMI3nhGnrysCJkj9ZYulifaaP
+         BLUYqh7CPZnbBJJBzFE/G9yIpEH6EYD95yqe8gbMhk2hpxd/rBwcnHFwJl3L+EamJJFc
+         dsW5VI0RUWK6DeyI38bw88SomULFBMr5Mawwj73ki+cN6DXc4MASS33gva305IvjGfe5
+         3coQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=SmeG8eDrUww7PbplsIcYx6wyVdH7rGxQXJYVetL1ZLk=;
+        fh=K9dNBPA/UAvp0/FheC3BKq1DoydxMyk+/yuD15hX/ZQ=;
+        b=I0uYI53jhfbgtEDa+jLtSURPe9RuJpqUHId0ozm0DNtyYLOACr3T9yV7FrSurhmWHB
+         whw9d2BCAl7jhP3FqiQ1UyduasL8c23dfECckKJJQNKXSi8sY39PnWm4yHcLHxCRZT/L
+         zwJmFPFeAhQrIn4DeOw6LASXCQaXnan7vOzlnNTMWpnFaXbNFdxTDgaKZTuSQGw9vzUj
+         0/t0Depc2zIrBp9+eXAUUzwVQeWQ6HAkbHO5JeG2KK1n789HAmG/nTa4iI4GKKsmramh
+         PxK99Udm74ZYZih/NJ0ilkpow/w1jg4JF4jobDFUSgccwlYtuPOMTFTRshDXsGNAoTPn
+         3r2g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793272075; x=1793876875; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=O73xnnUqQvELra/ffGr+ZGulR7alxp36K/afX4bZ+3s=;
-        b=bLwQbsqkuvNYTTIZQPjCm5rVYYNRJH5Y2uuKygDM8nq2H3e4fd5RBEyIFINGe/HozP
-         HXXXtfRTJnfwzNJIFVL6Z8eKJVrNaNPkviCGpPR1Xqc2G+SlQm4s8nGFk4qSnznoYYS/
-         QTDamye/hA5PY4EUnmnf72uKkSVZszQ1ZK55CWXqxt8awXkHdccrM7/8lLS9gW9LPw69
-         qaUH5Rq8N1gVZXKft2U6ME0whIHMGBhcSRZuwB5kfdcP78xtrR+w/ss52P+RkXaV4zYR
-         lLEVoVzU0qivS/Yf4PwlJbzJt8bUDHCyg1SvOTDBl/2yWz2DL6qaFRXjCbITPS0tiTlY
-         6/ug==
+        d=oss.qualcomm.com; s=google; t=1793273522; x=1793878322; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=SmeG8eDrUww7PbplsIcYx6wyVdH7rGxQXJYVetL1ZLk=;
+        b=ZXzQ0I3VHPMusx6JKfsbP/NphGYe9667KBvuJd3bZSSISvBgy10UOYHM9/K4ePzW7L
+         cE3a42zac2mj9eOC+Gir0/UDpaNFNbVGqttnlIoZN9s7f/E4YbXY5b3kUxQdJ0QOnNiz
+         VtDzG2UUHNfP+hte8pOwipJXYG8s7YVJULGftWyi4KYfni/P0qHclJbC4ukKets+tqaz
+         j1LavuPdNddB39kQ0e+itN7DksoLHFt+/9mCzz1aLHqw2XjhsqkOPEFAnquokOkCZ1X2
+         FWydZwXNeym1JmW/GbULIxxLM0JKz36Btw0iFqAE7S3KfNPwoKX2386ncxnWtX5VX5uG
+         LNaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793272075; x=1793876875;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1793273522; x=1793878322;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=O73xnnUqQvELra/ffGr+ZGulR7alxp36K/afX4bZ+3s=;
-        b=U1VFiAxcCULsljWN1j7cZ7/qXe+D/vaJCgWEoLXRgRssHE8aEtAvVPL3/Dnw3wyGAH
-         LEI/MvIKYEt035p1ngm7eou484VjRs+8fEu8HVEwmMznnvakunMUx9Zq9oN4GkyOKTKD
-         j9unt6JmIFnvZ2Za6SRRUEThEoIFjmggQ5q4CVQW5Vhxx+K1o8P/W1WwFXpbIBlYyulb
-         /VF8yL0dfKk7Ksae/Eu+CDGywp0nhxz9kEo/KV8e3aAuZv3rOVoJe8SVuXCKvVLQFHat
-         U/ozzZx01PuXsHhDp/0mVlFzrkkt/cVMJw3jZp/L9eUzh8v5gblW2sYFRDLIFo9u62dl
-         3Amg==
-X-Forwarded-Encrypted: i=1; AKwUvBwfg+qJXAAxgl6dRFe7bojIwMVv4GjODA+opjKfEPxiOa6O5+lo03rDzOEccNw2IePGbWErVCeIeVQBAuKeTaXV@lists.infradead.org
-X-Gm-Message-State: AFq9FYLIIv3UNCvp/UgSHxPkNu4Ir92GIvb86HDVKTNUYFBOTpoMIq3v
-	w/rvA2NGzyCJb08+rpfwNKntjS0uf51yrrFrEQ/0EIqrziXGD6qEzlya5j6kCvbNXSE=
-X-Gm-Gg: AYBFou07ZsSKrNvC2DTw/JHlxqCcBCCnDQ35G1NlIx5fuURjy4rJ+xcYolC1FFGur0j
-	iEwaVAM9zpKNBC9Cg3E4/zK9GsKcvvNJ/Fv7P6Mc+k0C3TUUGO0KWbyvzg7imymzIhkPl5Wiup/
-	h2C7J1Aw4DyyumGbfNdbntccUReGk1Fw/L/mKfHOHUlxydmS1A5b/mIAQOmeB9J4LTbIbwYBt1L
-	8Wh3RS0ANil2h2FkYWmg1M7vCs2/+3wXbwaJkx01+W9jtalsb+3mQj2PWcNSsHHIDDRhVgKUjL5
-	sJFwRLacQtpIGtkTNxkvEqRY64RCd2gzlM0TCQipHjBoquN0zBfIBAwgIVvHZN1gSIb4vScgXPs
-	yQ6oHH52wJMtHM3X9Y7hEVKNfr/VGF6+uoW4IgFdiOQDSVS4hrfKjIttZyjDGXgd0hIFrIFRiNu
-	/qVwx7TEffsMQ90KfkxcU2QRAMqz1U6s+2UJmcKLIOuQHhR7a4Cz/53HGRMa4kp7ukdBM1KZyRZ
-	YkURjvjlcUPWot9JPchayk0HZAUem1VlUVUx0bSSw1HM6yOqCKUBNwQzFVDn8693YNxShPh2KcX
-	Pcm0CU0Sz4h5ZawguS2yDbavKM6KFCLXKy0Tvm5R1uYdZGGUGHy0weJ8oyL9x9VGCZ9NOQ==
-X-Received: by 2002:a05:600c:840e:b0:4a1:813f:2a60 with SMTP id 5b1f17b1804b1-4a965dd3274mr123729855e9.11.1793272075153;
-        Thu, 29 Oct 2026 04:07:55 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa7f41895fsm51035565e9.5.2026.10.29.04.07.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 04:07:54 -0700 (PDT)
+        bh=SmeG8eDrUww7PbplsIcYx6wyVdH7rGxQXJYVetL1ZLk=;
+        b=P4jPYPdM64ZxDUib5KuYbBP+hqs9TzG7lruEuW9OsX4iGbCBLx8kaqDnbK1Uzax5EP
+         7XQuejvo7x3ZBikwS8D1S0PSK+WgtsGftGLJZj/i6bbe6ivXpnhWD4BZNfLJ4kz46lHo
+         yPhslk9xY6lx9c4Ezt5LPDfcdRPSzxoOEDd6DTJ2VxNz4N4juN78CsQYKlnbLXXITso/
+         Ck862H2Td4sRuNwvzqojBnYNP125F4ej94IASP/KQcyzhS8WluxVQ/v1ydrrG32QmtGv
+         EPO6aO02bhL2T21WlK8eX0ncY3deiPC9WgTDlnZ3azU9P+b9zfW9jBoC1/HAbsGutpao
+         Zyhw==
+X-Forwarded-Encrypted: i=1; AKwUvBxDU7YZ+F3VhSK6DNX0ZBSLIuCVydjKc+MuoNpGKRWCIrOOjkWr332Fy1nJA0/qvO7Nn4Ghd5yvgGrVOjpMwq81@lists.infradead.org
+X-Gm-Message-State: AFq9FYIu183zooXyN96P9eHQTeIi4Sete4oHLNcnAEiqFr5kxRqNVMxo
+	SO0sNHryrJ0ls34HScEhsB3Lfm8iMY5xHwNR2BLPpJmamjH4RhGERZuvub2hGS1S/wB3eYD8YrL
+	icdQ/T9coN0JM/qn7lXg/cnxoLYovFxqmfH+PVU3VO2BQUm+4jUpeFrjLmqZJjQVrjDodlSmNA1
+	1fTx7Iet/Glt5XN4TqR4umyvyKQL9hyPqMHCypgOGdbYb+0s+Xu1pq
+X-Gm-Gg: AYBFou0YqUv6+o30PvTlEZkoztj6XGq7p5Xc95WpxjeZUcwN8j4VjxsMVIfJ6mlLWZM
+	Ff+8IdlTTezbt0S2T/SlnLUOqngtQMCwyOdzsE56CBzoi/OBIlJmHf7RCLV6xrG3W3O3ZizZmq0
+	9sRrxnyhZODk8mbE+A3vSaYLux7q6cGgwVzfTXeUSXMfEILPCSmq+uFdINsQ==
+X-Received: by 2002:a17:902:ec8b:b0:2e9:69ef:ff38 with SMTP id d9443c01a7336-2eb0046897cmr53687845ad.55.1793273521894;
+        Thu, 29 Oct 2026 04:32:01 -0700 (PDT)
+X-Received: by 2002:a17:902:ec8b:b0:2e9:69ef:ff38 with SMTP id
+ d9443c01a7336-2eb0046897cmr53687425ad.55.1793273521275; Thu, 29 Oct 2026
+ 04:32:01 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 2/2] clk: meson: regmap: use the current divisor for
- read-only clocks
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Carlo Caione <ccaione@baylibre.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
- Jerome Brunet <jbrunet@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261026-upstream-clk-regmap-ro-divider-v1-2-c8216b0fb93a@baylibre.com>
-References: <20261026-upstream-clk-regmap-ro-divider-v1-0-c8216b0fb93a@baylibre.com>
- <20261026-upstream-clk-regmap-ro-divider-v1-2-c8216b0fb93a@baylibre.com>
-Date: Thu, 29 Oct 2026 12:07:46 +0100
-Message-Id: <179327206664.1865333.6840169064466594528.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=586; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=nrVNC7hHxSqNoUqQLRJq4FIPYelw+3Hubgb0s4fcz7E=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFmPNTmumOoztc4onjjRI3Jmxovpf2OeJ7SY5/xuKV3pv
- 8fffgV3RykLgxgXg6yYIksNd7X4O0mtL7Om69yGmcPKBDKEgYtTACbSJczwP03juURXa+0zXYU/
- u56nXgy9r/GN5TiH6OJfAmbdG2vuezIyXLtkpNMdHKzwRN1b7ofSgcQb547eWz7d+AjrkuO970/
- xsgIA
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+References: <20261014202619.715573-1-aubin.constans@microchip.com>
+In-Reply-To: <20261014202619.715573-1-aubin.constans@microchip.com>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Thu, 29 Oct 2026 12:31:49 +0100
+X-Gm-Features: AclHuK8ocQ4ZyIc2NMN2E2foJvz0KUaZfpo5I8Tv2CJSYssB2wGKDJkhP3QujAQ
+Message-ID: <CAPx+jO-fyYy9ZX_O9UQ-tSnOG7LCd0rZ8SNn307hFWLbUAqBRw@mail.gmail.com>
+Subject: Re: [PATCH v2] mmc: sdhci-of-at91: disable selectively clocks on pm runtime
+To: Aubin Constans <aubin.constans@microchip.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+        Eugen Hristev <ehristev@kernel.org>,
+        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+        Romain Sioen <romain.sioen@microchip.com>,
+        Nicolas Ferre <nicolas.ferre@microchip.com>,
+        Ludovic Desroches <ludovic.desroches@microchip.com>,
+        Robert Marko <robert.marko@sartura.hr>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Ryan Wanner <ryan.wanner@microchip.com>, linux-mmc@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDA0NCBTYWx0ZWRfX75VIBnL0CJym
+ nLk6GAnA3amWQkonTuJZhCJTdn1of16CrIrr5PN8heJqcaOCvp1GfbYKafcjYhaRE4GVeHBc0uj
+ r5fhBTgdxsKIReTF9jNv2Pt0xykyU5U=
+X-Proofpoint-ORIG-GUID: TULadT3PneoVA8gd_uDbVvaN8WYUUXL2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDA0NCBTYWx0ZWRfX4eQxQwqUcsYJ
+ iKBEdgqnQeEQKs65mjifb+stVIVZ8BXheOxR8oC/EiciWS/tj8v/36tWmmYj5gXqqNaKPwArkri
+ q5TmfjP8eopZ2VKDN2rtW+x5JYWDIb2GQok180m1c1VZvpDG16N0nudwenR/S5qdE4nqWmgLhQQ
+ Fix0tdtbf/Yi7B7qltWT9qlwK7xDfhJF4Rcxs8gXPS+lytMQ8LK40XdTQ8N5FJ939VsdjQtDzYY
+ Elw4/jjikOepSGJZMomYnbFbOW3Tt9w0jAeHOcPI1Ld4xR47d2g3SoDvCmc1kMDNc7z0evPUdRF
+ A7OdFUmbCrEd+VITVGAJbO1Dz57nwo4r4LP69DY8ZERgZ26kx+51BcXP1+x7ib0WOZke8BcZnAs
+ AuyPt01zNEtDv6CO5bsHrHMP6BHHfXm/86w0ULJ4+t9jySacy5OhFMDugg1lZRGGPzUdkPerjA/
+ 14FJAE7+YJEKFOfu4bw==
+X-Authority-Analysis: v=2.4 cv=CYmdd7rl c=1 sm=1 tr=0 ts=6ae32eb2 cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=eoimf2acIAo5FJnRuUoq:22 a=VwQbUJbxAAAA:8 a=XYAwZIGsAAAA:8
+ a=Newhmvhl9Q1cYdYltlgA:9 a=QEXdDO2ut3YA:10 a=x9snwWr2DeNwDh03kgHS:22
+ a=E8ToXWR_bxluHZ7gmE-Z:22
+X-Proofpoint-GUID: TULadT3PneoVA8gd_uDbVvaN8WYUUXL2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-29_03,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 clxscore=1015 phishscore=0 impostorscore=0 adultscore=0
+ suspectscore=0 priorityscore=1501 spamscore=0 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610290044
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_040757_539845_0200699C 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261029_043204_125955_EBC4FA16 
+X-CRM114-Status: GOOD (  31.29  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,31 +170,180 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> None of the Meson clocks using clk_regmap_divider_ro_ops set
-> CLK_DIVIDER_READ_ONLY. Without that flag, the shared rounding callback
-> can choose a new divisor even though these ops cannot program it. The
-> clock core may then adjust child clocks using the wrong parent rate.
-> 
-> Make the read-only ops always round using the current hardware divisor.
-> Parent rate changes remain allowed with CLK_SET_RATE_PARENT.
-> 
-> Signed-off-by: Carlo Caione <ccaione@baylibre.com>
+On Wed, Oct 14, 2026 at 10:28=E2=80=AFPM Aubin Constans
+<aubin.constans@microchip.com> wrote:
+>
+> From: Claudiu Beznea <claudiu.beznea@microchip.com>
+>
+> SDMMC run-time clock disabling is not supported in newer SoCs, including
+> SAMA7G54, SAMA7D65 and LAN969x.
 
-Fixes tag maybe ?
+That sounds a bit vague to me. Exactly why can't the clocks be
+disabled? It seems like the clocks are still being used on these newer
+SoCs.
 
-With this
+>
+> Make the clock disabling scenario conditional:
+> - still enabled for the sama5d2 and sam9x60 compatibles (which are all
+>   those implemented at present),
+> - otherwise avoided by default, for subsequent SoC families.
+>
+> Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
+> [Romain: Fix unbalanced clock activation/deactivation]
+> Co-developed-by: Romain Sioen <romain.sioen@microchip.com>
+> Signed-off-by: Romain Sioen <romain.sioen@microchip.com>
+> [Aubin: Rebase before sama7g5 support and edit the commit msg]
+> Signed-off-by: Aubin Constans <aubin.constans@microchip.com>
+> Tested-by: Robert Marko <robert.marko@sartura.hr>
 
-Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
+Kind regards
+Uffe
 
--- 
-Jerome
-
+> ---
+> Changes in v2:
+> - Edit the commit msg to say the patch prepares SAMA7G54/SAMA7D65/LAN969x
+>   SoC support w/o immediate change.
+>   Also, move and summarize Romain's own commit msg close to its sign-off.
+> - Restore Claudiu's author and sign-off email to the microchip.com addres=
+s
+>   he had upon writing the patch.
+> - Link to v1: https://lore.kernel.org/r/20260918153414.909333-1-aubin.con=
+stans@microchip.com
+>
+>  drivers/mmc/host/sdhci-of-at91.c | 36 ++++++++++++++++++++++++--------
+>  1 file changed, 27 insertions(+), 9 deletions(-)
+>
+> diff --git a/drivers/mmc/host/sdhci-of-at91.c b/drivers/mmc/host/sdhci-of=
+-at91.c
+> index 7c4ac65f247d..399856643e57 100644
+> --- a/drivers/mmc/host/sdhci-of-at91.c
+> +++ b/drivers/mmc/host/sdhci-of-at91.c
+> @@ -39,6 +39,7 @@ struct sdhci_at91_soc_data {
+>         const struct sdhci_pltfm_data *pdata;
+>         bool baseclk_is_generated_internally;
+>         unsigned int divider_for_baseclk;
+> +       bool pm_runtime_disable_clks;
+>  };
+>
+>  struct sdhci_at91_priv {
+> @@ -149,12 +150,14 @@ static const struct sdhci_pltfm_data sdhci_sama5d2_=
+pdata =3D {
+>  static const struct sdhci_at91_soc_data soc_data_sama5d2 =3D {
+>         .pdata =3D &sdhci_sama5d2_pdata,
+>         .baseclk_is_generated_internally =3D false,
+> +       .pm_runtime_disable_clks =3D true,
+>  };
+>
+>  static const struct sdhci_at91_soc_data soc_data_sam9x60 =3D {
+>         .pdata =3D &sdhci_sama5d2_pdata,
+>         .baseclk_is_generated_internally =3D true,
+>         .divider_for_baseclk =3D 2,
+> +       .pm_runtime_disable_clks =3D true,
+>  };
+>
+>  static const struct of_device_id sdhci_at91_dt_match[] =3D {
+> @@ -164,7 +167,7 @@ static const struct of_device_id sdhci_at91_dt_match[=
+] =3D {
+>  };
+>  MODULE_DEVICE_TABLE(of, sdhci_at91_dt_match);
+>
+> -static int sdhci_at91_set_clks_presets(struct device *dev)
+> +static int sdhci_at91_set_clks_presets(struct device *dev, bool start_cl=
+ks)
+>  {
+>         struct sdhci_host *host =3D dev_get_drvdata(dev);
+>         struct sdhci_pltfm_host *pltfm_host =3D sdhci_priv(host);
+> @@ -174,7 +177,14 @@ static int sdhci_at91_set_clks_presets(struct device=
+ *dev)
+>         unsigned int                    gck_rate, clk_base_rate;
+>         unsigned int                    preset_div;
+>
+> -       clk_prepare_enable(priv->hclock);
+> +       /*
+> +        * Manage clock prepare/enable procedure depending on if the boar=
+d
+> +        * support runtime clock disabling and if we come from the probin=
+g
+> +        * or restoring procedure (for backup+self refresh).
+> +        */
+> +       if (start_clks)
+> +               clk_prepare_enable(priv->hclock);
+> +
+>         caps0 =3D readl(host->ioaddr + SDHCI_CAPABILITIES);
+>         caps1 =3D readl(host->ioaddr + SDHCI_CAPABILITIES_1);
+>
+> @@ -223,8 +233,11 @@ static int sdhci_at91_set_clks_presets(struct device=
+ *dev)
+>         writew(SDHCI_AT91_PRESET_COMMON_CONF | preset_div,
+>                host->ioaddr + SDHCI_PRESET_FOR_DDR50);
+>
+> -       clk_prepare_enable(priv->mainck);
+> -       clk_prepare_enable(priv->gck);
+> +       /* Same clock management as for hclock */
+> +       if (start_clks) {
+> +               clk_prepare_enable(priv->mainck);
+> +               clk_prepare_enable(priv->gck);
+> +       }
+>
+>         return 0;
+>  }
+> @@ -254,9 +267,11 @@ static int sdhci_at91_runtime_suspend(struct device =
+*dev)
+>         if (host->tuning_mode !=3D SDHCI_TUNING_MODE_3)
+>                 mmc_retune_needed(host->mmc);
+>
+> -       clk_disable_unprepare(priv->gck);
+> -       clk_disable_unprepare(priv->hclock);
+> -       clk_disable_unprepare(priv->mainck);
+> +       if (priv->soc_data->pm_runtime_disable_clks) {
+> +               clk_disable_unprepare(priv->gck);
+> +               clk_disable_unprepare(priv->hclock);
+> +               clk_disable_unprepare(priv->mainck);
+> +       }
+>
+>         return 0;
+>  }
+> @@ -269,7 +284,7 @@ static int sdhci_at91_runtime_resume(struct device *d=
+ev)
+>         int ret;
+>
+>         if (priv->restore_needed) {
+> -               ret =3D sdhci_at91_set_clks_presets(dev);
+> +               ret =3D sdhci_at91_set_clks_presets(dev, priv->soc_data->=
+pm_runtime_disable_clks);
+>                 if (ret)
+>                         return ret;
+>
+> @@ -277,6 +292,9 @@ static int sdhci_at91_runtime_resume(struct device *d=
+ev)
+>                 goto out;
+>         }
+>
+> +       if (!priv->soc_data->pm_runtime_disable_clks)
+> +               goto out;
+> +
+>         ret =3D clk_prepare_enable(priv->mainck);
+>         if (ret) {
+>                 dev_err(dev, "can't enable mainck\n");
+> @@ -344,7 +362,7 @@ static int sdhci_at91_probe(struct platform_device *p=
+dev)
+>                 return dev_err_probe(&pdev->dev, PTR_ERR(priv->gck),
+>                                      "failed to get multclk\n");
+>
+> -       ret =3D sdhci_at91_set_clks_presets(&pdev->dev);
+> +       ret =3D sdhci_at91_set_clks_presets(&pdev->dev, true);
+>         if (ret)
+>                 return ret;
+>
+> --
+> 2.43.0
+>
 
