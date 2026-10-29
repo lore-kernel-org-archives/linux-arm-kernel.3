@@ -2,85 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64920606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:07:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 154B0606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:07:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lFDc+I4M;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MgbrLven
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gMdEueC8;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eMITbRTG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=2m6sqEdIShmvg7ASfXjbhI99Pw56OM60znpq44ByAfs=; b=lFDc+I4MqMVERc
-	CyJQqAXAEVej3MnimXDpSnvv5zUJNHNr9UEYohEkSPaDwl/n+8lM1RNxln9IY4mQo7FVNA+bjWgyJ
-	i+4Yj42Yn4I66tXF/AQz7vB83R6tN+K8kFeW/W2tNcVAhmaqoTOaRwGaEdNcdhdmxhn5JpygDV0I7
-	yzGoYcTKeAMPZZWlL3UHNoY6VOIg+igIOYzuNWguX03cNJDYTXsA5mkjuWBIWGSiKyRJ/pk5Emt1B
-	cxijBW8nXH3Wn59zxP3WkJy9jozJkUxvYfXkJYy5Ew4KZxHdxrKRnBNG76P5uo4wt0lahvsM95Yy3
-	FjJ2yJlypstJEicAp+Tw==;
+	List-Owner; bh=0SbZPVThhtjU5v2CJr4ClagjjvnIt2bp8J9XxZctWA4=; b=gMdEueC8mMabOL
+	XmaSJtzK77lgjzm54lBqbzjqC1Intn82PoRPRPEf/Hsj83czRJJ3hvYxp9izpKJ2sE6enugkGUikR
+	SFMqgJ93POFSE8QVRiJ2XZYQgaL1TViFZFLpuJWR+KF7wVhTWmcHAxjpcKgNn/eExYcfosIJz4Qzn
+	EaxBsQdgt0oPg5ihdMkPfOqloRWYIGC9PykwTjhj4uSVkbN1L33dLWoh7CiIitQlM12tTnRimD84t
+	t8IbJgNJNK25V5oNUy++zuq5q5d5IN3zzrCb97/2c58NKHsiaqh5Yo/lvyMa6xdAS4WqznGvXkUDJ
+	N7lg80pIIzRSeJr3GGXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMN2F-00000008vN6-3Bfb;
-	Thu, 29 Oct 2026 10:07:03 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1xMN2G-00000008vOl-1wb3;
+	Thu, 29 Oct 2026 10:07:04 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMN25-00000008vEW-2bRV
+	id 1xMN26-00000008vFd-0Dux
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 10:06:55 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a2167bd087so19505375e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 03:06:52 -0700 (PDT)
+	Thu, 29 Oct 2026 10:06:56 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4a210470b49so15545405e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 03:06:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793268411; x=1793873211; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793268412; x=1793873212; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2m6sqEdIShmvg7ASfXjbhI99Pw56OM60znpq44ByAfs=;
-        b=MgbrLvenUYKVKnhfE43rff3H2eAzlM4LPwtHL99fA6l41coBZ8fFkkkQke99DxahBm
-         1uavbW2ndnU+99RRjVlAPRuuz1h3FTuCRh8Etx6NO0WqO9q1yGSphP4DNS7vbb8RlPU1
-         NCdJiF8byiueMCii1v3pGGHLJVsnE/sT39BDg0qoIATUIxitqusOuZqIsoSkdhMu+x6K
-         LOAt0PaQwz2At49Vyw6pUjZdCv12Em1CZXwEhv+YpTDFxdv46GMs45Imws7uk6wz+VP/
-         H/K5Mc2INBL1kD7VWSc3u+FojQWOPuNf5HirzKgWEmEx75AbqHyvCtHZDoRotVxCezFh
-         A/Qg==
+        bh=0SbZPVThhtjU5v2CJr4ClagjjvnIt2bp8J9XxZctWA4=;
+        b=eMITbRTG0WX/xdxkYfSsH8XiNXkvyDms2jI4WUWoCxEZxLIuTbWtX8g22oB9+fETuS
+         9PE15TQvDCK3efIUTtyMf67KuB4UkkqpgZdypddNAEQ1aV1UJOASRALibWz31dpn3mK1
+         1zXoSKrHyU/s52j8c0CJUr9bO3kpM/0bJ3g/w4kcrqhBnvz8/z6jksJ1oYpB4vx1AnUF
+         1rXbkRyamjz4Tw+daILdCTJ+NdM9gyn0UR0FFoxU/74ysBqOnfipu3SoTRIgDR5Xh+1X
+         QZzvYDAocUUq2fn18HQcVtvPIBWw2ZF3z2eeKQUdaEcllX5b4LZbksotiEGjc+0YPLTD
+         pFSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793268411; x=1793873211;
+        d=1e100.net; s=20260707; t=1793268412; x=1793873212;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2m6sqEdIShmvg7ASfXjbhI99Pw56OM60znpq44ByAfs=;
-        b=MMtsX7H+07m+eRI8FWMz6LHNJY7DgGVneJxDc8uj20tADJHfI+buIzLxQ3Vf7Ms/kT
-         vwmU/UPATzcrL23x1PpTN0ZmN+LuIKoix7lDIscB7f7z10iQm1VaCP+uwbShSKOk0oPP
-         5BiKt1Zd+Tk7cS4+8bSi/zmb7Mvw80M7xL5XGADnFkJApvGmK8OJ0MNH1IgQs4PruI8u
-         bvbCg75DYtyemZ2B8s4YZEvjvujlYgtZPrzRQwxvJ/+rDhDkLxWyVoxXucCJF74P7fIO
-         fIoAklp9VbxU4FLGQrZt3FRt3YU4UQNSNCKcSvG+ME+eltAhwXuvo8CWPQW85LFeZJJn
-         J6QQ==
-X-Gm-Message-State: AFq9FYIngk1H+gD7141HbV59+Mfwqi7QO2z1sWJDl3DzOBJxCY5eKQNi
-	T3PGEYd06fPymv/x8zoX1NGzjOQp2QzjhtLpbiBbT002Twwx7cjY5Auu
-X-Gm-Gg: AYBFou2b04+vB7p2P5ZwW7zDgp89d+C5tJGcOmYJZQG0gXwD9PJ9OGodmGJQ7x5b0Dp
-	Y2ttjs7kc9cdgDDVo0Fu3G6wxRlHBZctZmT4I6IKOTlEsCxhroAvnsxdd5K6PDCblH39u8GzckE
-	/NdIMtRSyeaSItwc7fwYA6NkG5LGv1ZSk7Cnz3AesEXRmzHKBlhkN91NjB6RAmg+f9UNcLb9Apb
-	4xUzDH0ZTFiK5BlVEL10aG0nvOjgquqCTJdROhLjGDXI2pMRdDnomX7yO53sc6NAGhS+uUz2Oqy
-	s9/Xlb0uwc34jqoEZ33bd+g09m1PA7SdWH1nSXxBB0+f62MUW2v5AeQ6XuKkMRUgTWdpzsankq5
-	tchMAjO8zi8gX2M/m0p339G2Gc00B4Fkfj4TVJe8MddeyunJKleX8irhEaanPiSXC8QiOKmyhb1
-	h5+A2UnNxlLG4dL/jzhUE1TSgs2apGi9r5ap61J2b6clvPr9tKQLetc3+RjmJnZr1BkLpsVykhz
-	3x6fR8S0gh86stVdCFm6osn59q1Kff14NUi2mK2fZoDgiUMSEtbWAwFmfl3Sjjoc80RFu59KSBZ
-	tNqr2aKLv5yY3ccyORre920PAarihbSZHX+2olO25srngztXvKFKJ7aFZlI5csURWF/3b9F5dKE
-	LpMF9+SjA2A==
-X-Received: by 2002:a05:600c:848c:b0:4a2:397:73f6 with SMTP id 5b1f17b1804b1-4a966490754mr125374865e9.8.1793268411167;
-        Thu, 29 Oct 2026 03:06:51 -0700 (PDT)
+        bh=0SbZPVThhtjU5v2CJr4ClagjjvnIt2bp8J9XxZctWA4=;
+        b=yAJO17NMXo+u+WP4d8E/g9LcUw6sjmiMhV1lIKS1YJsAgIp5SdjTyrFX//mKWeD20b
+         uZcxxQ/Fitpfm47JO/hMn912FvwfPK355TZyMtjvnAYLi0VrNnibOvFEDxY1nmqaJxJ2
+         NZRIxLrEyr9xxviFdQgW0jFSruXTcYY3WxnhIRBcHLPdphX82PEkk0Gy9TsUEJIaXG+G
+         fWmoemDBe0vA5Vh+M+SCH3Txz4FLEYpZYk6sUiFdEhnEJjFkqBIz9b+W4/BJQHscFtws
+         EvtyHev8zctT/56Xa+TovnR7TZtO6hMP3/gq7SwBDs0Det9cVbWKAupEW/SQFdU2MZVT
+         9BIg==
+X-Gm-Message-State: AFq9FYK86ab336p7LmLCtu3AxLqDUQW8r2TVQe39klDPGTprlT8b5ZEC
+	TIzhQOFbIeAtDQupPn37/pfTmWrMecyGyaVicHWY4zot37jlwo+jjzId
+X-Gm-Gg: AYBFou02I40NHKdX7FBcqvnUCRdXXO9h1lY9bMuN1nPPFgyfyArVPcUpCIdC8eCWxVv
+	bA4S/5d6FUf94zYPBk8y4Vj8wCDEodV51R7UlMi/03tXSsQ+XQ7MccW6nNUIEnS906dPS4l7Fvf
+	k7+XqcSVWlDFPJ3gngwJmwkTAazC7S+YATVhnlHj8dUfjDTk8QBcUQ7euHCDpQUx4HpASAKN8lb
+	OHawsH0jAotWBN8ONnaOBVFnzRJWogI9AmRCbAZizuq0XDOgoHFEpN+teWkv92wEBpM0nx2DfhR
+	MzmDpRkuaXetjxemM68ASAENsBiNmRTaY5oJ8R5iV5rnBpbSoN/OCq0+oFYnmYwVW9DQfjaZMqm
+	vfFbgt5M6bxdJDCvisJNCcr9EBkushJ6ZT5aMRbrmAxPJO8fi9yk00yl2UqV4sVphWkV+eq+ndx
+	SaqSqP1DuVzOXDLU/5tzMOxw9SNz30XbTXysxrgoqSG/jbh3XISMZ3EzUgbYSPFmcLbs7/ar53w
+	2qPhVBeEFz0nyqQlxZhFJQYAX/JySM9j9SDLnU8j8r3LJSL7RoqpVaxa3uAIcmbxu1r03NhFU0q
+	IGnuN+l09FjgV8j+CqgQ4UZxCHQ8P13zNISWmqZDe0jH00NBOvJISNbmEdGkzlRteKloTb//7e3
+	PCmawKxz9
+X-Received: by 2002:a05:600c:4ec7:b0:4a2:a9:ed5a with SMTP id 5b1f17b1804b1-4a9660b5041mr117976975e9.8.1793268412452;
+        Thu, 29 Oct 2026 03:06:52 -0700 (PDT)
 Received: from [127.0.1.1] (ip092042140082.rev.nessus.at. [92.42.140.82])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa7fdb7691sm53082825e9.11.2026.10.29.03.06.50
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa7fdb7691sm53082825e9.11.2026.10.29.03.06.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 03:06:50 -0700 (PDT)
+        Thu, 29 Oct 2026 03:06:51 -0700 (PDT)
 From: Jakob Unterwurzacher <jakobunt@gmail.com>
-Date: Thu, 29 Oct 2026 11:06:25 +0100
-Subject: [PATCH 3/4] mfd: rk8xx-spi: add system sleep PM ops
+Date: Thu, 29 Oct 2026 11:06:26 +0100
+Subject: [PATCH 4/4] arm64: dts: rockchip: put the PMIC into sleep mode in
+ suspend on RK3588 Tiger
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-dev-tiger-v7-4-pre-20261028-tiger-suspend-b4-v1-3-cb12621c1fb4@cherry.de>
+Message-Id: <20261029-dev-tiger-v7-4-pre-20261028-tiger-suspend-b4-v1-4-cb12621c1fb4@cherry.de>
 References: <20261029-dev-tiger-v7-4-pre-20261028-tiger-suspend-b4-v1-0-cb12621c1fb4@cherry.de>
 In-Reply-To: <20261029-dev-tiger-v7-4-pre-20261028-tiger-suspend-b4-v1-0-cb12621c1fb4@cherry.de>
 To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
@@ -94,16 +95,16 @@ Cc: linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, 
  Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793268406; l=1163;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793268406; l=1641;
  i=jakob.unterwurzacher@cherry.de; s=20261029; h=from:subject:message-id;
- bh=1zvikwnDADGbJGUr+2C96ExmTpaaJdX4ozWbby5F6T0=;
- b=TCcmm2uv0Oq0jbsQFif9J3wiQ6uFZZOT6azcU9/u4jfR7utKpgVScfiFRlrkXexfBrw4RHf/7
- 9Bb1HPxhFwfA2EYYzIpbfsEiuGXaDUD7LUMrp23QF3huhIpCcXvZ3KQ
+ bh=SDfGdhdTbDViPNWR7gWVkSFVjA2d78IFMYAVeDi6pgc=;
+ b=+lV6mFqZezu/+F0xruZF+cG3BHg9hNr6TFfbzH6ls2C4+aEQv2qB9TmeiX4sbnF59e3EHmvUT
+ spRbBmKPD3LBiX00XMbFZ9MHPNkvGrR2KGQSbwdMr2iUT+IH87yeXEr
 X-Developer-Key: i=jakob.unterwurzacher@cherry.de; a=ed25519;
  pk=0v1L7pjG4d7PcaYPMOmzP4SjaRtnB+8bMzZLZCRzB8I=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_030653_875302_17734888 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20261029_030654_221759_7D68ECA0 
+X-CRM114-Status: GOOD (  13.65  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,38 +126,49 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
 
-Unlike rk8xx-i2c, the SPI driver does not hook up rk8xx_suspend() and
-rk8xx_resume(), so the RK806 never gets its system sleep handling, e.g.
-keeping its interrupt disabled while the SPI controller is suspended.
+The RK806's PWRCTRL1 pin is connected to the SoC's pmic_sleep1 output,
+which the firmware (TF-A) asserts when the SoC enters suspend-to-ram.
+It is configured for no function, though, so the PMIC ignores it: all
+regulators stay on in suspend and the regulator-state-mem settings have
+no effect.
 
-Add the same PM ops as rk8xx-i2c.
+Configure the pin for the sleep function instead, like other RK806
+boards do.
 
-Fixes: 210f418f8ace ("mfd: rk8xx: Add rk806 support")
+Measured on RK3588 Tiger on Haikou, suspend-to-ram with the logic
+domain powered off by the firmware, module supply current (5 V):
+
+  PMIC pin with no function: 0.218 A (1.09 W)
+  PMIC pin with sleep function: 0.086 A (0.43 W)
 ---
- drivers/mfd/rk8xx-spi.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/mfd/rk8xx-spi.c b/drivers/mfd/rk8xx-spi.c
-index bb85fe60518f6..a0b7d7a058108 100644
---- a/drivers/mfd/rk8xx-spi.c
-+++ b/drivers/mfd/rk8xx-spi.c
-@@ -97,6 +97,8 @@ static int rk8xx_spi_probe(struct spi_device *spi)
- 	return rk8xx_probe(&spi->dev, RK806_ID, spi->irq, regmap);
- }
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
+index 161c89c62bcda..592a2d11b36b9 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
+@@ -471,7 +471,7 @@ pmic@0 {
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 		pinctrl-names = "default";
+-		pinctrl-0 = <&pmic_pins>, <&rk806_dvs1_null>,
++		pinctrl-0 = <&pmic_pins>, <&rk806_dvs1_slp>,
+ 			    <&rk806_dvs2_null>, <&rk806_dvs3_null>;
+ 		spi-max-frequency = <1000000>;
+ 		system-power-controller;
+@@ -492,9 +492,9 @@ pmic@0 {
+ 		vcca-supply = <&vcc5v0_sys>;
+ 		rockchip,reset-mode = <RK806_RESTART>;
  
-+static DEFINE_SIMPLE_DEV_PM_OPS(rk8xx_spi_pm_ops, rk8xx_suspend, rk8xx_resume);
-+
- static const struct of_device_id rk8xx_spi_of_match[] = {
- 	{ .compatible = "rockchip,rk806", },
- 	{ }
-@@ -113,6 +115,7 @@ static struct spi_driver rk8xx_spi_driver = {
- 	.driver		= {
- 		.name	= "rk8xx-spi",
- 		.of_match_table = rk8xx_spi_of_match,
-+		.pm = pm_sleep_ptr(&rk8xx_spi_pm_ops),
- 	},
- 	.probe		= rk8xx_spi_probe,
- 	.id_table	= rk8xx_spi_id_table,
+-		rk806_dvs1_null: dvs1-null-pins {
++		rk806_dvs1_slp: dvs1-slp-pins {
+ 			pins = "gpio_pwrctrl1";
+-			function = "pin_fun0";
++			function = "pin_fun1";
+ 		};
+ 
+ 		rk806_dvs2_null: dvs2-null-pins {
 
 -- 
 2.47.3
