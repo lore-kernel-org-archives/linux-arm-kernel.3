@@ -2,51 +2,50 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9D71606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:19:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62083606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:19:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rLtnbWxp;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=DByi6SS2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FspZ16lE;
+	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=v3d8Qd4O
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=lSbEe/hxOl3urUElpnQexFH6IOXeZR+6mzO2EMaFHPU=; b=rLtnbWxpUXTR+F
-	jugqYRuTbcyTaE2CCkcsrwzIhS9K7IBaBBy2Y5I9/yoBcBGrKrLjDVq5tiUSDq4LrjCkrO+NM/zQk
-	Sps0xeGurDY2rQmbmIa1baNaf9lOydmzdMocZm/5zzA/p0i0z77AAdYf5rPz9vZjQxqxI4WI1phaB
-	oo7+eIY5lEOOerli7Xhm38gtbdTko+XSKzhbBqVd5MHExLeUyIEP4gBbHyLVk6JAq5mWQSxNy79QI
-	XP74rYURkDA1cJpxTJjxQ0RS9PWfWF135T2xHPv2IoIn+8Jdd31rugq2U5xN8II1N2hpvw2K9v3yl
-	0RCh2bMKiZoVGdoCJXgA==;
+	List-Owner; bh=FRRtaetwojHsn/CDXpL7GcNodSBye7RzFJ4WewBJvCo=; b=FspZ16lEGVv64a
+	qVOIx9vCcqmCqY0AYJVzjJ0LNpCFMU0n3rbKhm6vokNBrOCD1HQXwyKJYk/FsjfGypKSOeOaFf6Gn
+	BIWp8hbTZ1T+EZ0blkx4B95GeEY+aOVfc8Ab8/0Scf+Yhsrt96kW84p/ddXW3ltifLlwfTvAyTA+H
+	Kmps68M+iyDKGNHm6IgtxccWvz/uPrAPbIKGlMpX5yFrqTneIPnujEahHbgtySlGD8NMczHmPCeA5
+	9zz2Xwzjd9fpxDRSw8rHu684PlwQJ0Npz5d5H5pyGg3W3fEJYdz2ZKT+pWguQEruN7jr+6e0XbOiV
+	X20bMkNyG2SLI4P8h25w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNEF-00000008wvg-3wfb;
-	Thu, 29 Oct 2026 10:19:27 +0000
+	id 1xMNEE-00000008wrj-1VXC;
+	Thu, 29 Oct 2026 10:19:26 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNE9-00000008wkF-41jn
+	id 1xMNE8-00000008wje-1rFT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 10:19:23 +0000
+	Thu, 29 Oct 2026 10:19:21 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 00528177A;
-	Thu, 29 Oct 2026 11:17:05 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id ADF706DC;
+	Thu, 29 Oct 2026 11:17:04 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793269027;
-	bh=1ZJIk3MMYPkxcIUxoo1Dwfx/x1T1CMx2EcXxeO5F6nY=;
+	s=mail; t=1793269025;
+	bh=/GoFfTl/Kixz7EDIo1Uq3VIIhFdLVvKZohyPCmYYDv8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=DByi6SS28GMiBG6Np9slP84tQ4ND8PUcCgNdkTGTPyX0eSAdaULSRszbeHvRgkUFL
-	 BSdc5jyafBqSjEFJjFVHugSm2ci9MGDSOiSRhU3NQCofpA7pQog7in7ekE+W8P4XPV
-	 n1M9a14yL44eb/aTeOBhpZ5k9p5UWn3rBVrEWuuc=
+	b=v3d8Qd4O96kpm2a+g2SeggLnDaQSrm/8Rp3rMtzZutwLaaQXdZPOMtIFKzzk0lam2
+	 3xKv3nLaqZqWKsvIdhtgSbCgk7vlXjzBLLrFjKc3ZRT7KTlqXJ95w5YpgQxKzuhkzs
+	 tacb5c5bBhGH1GaOW2gwZA4WBeKh1ddMnr8/WVd4=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Thu, 29 Oct 2026 12:18:56 +0200
-Subject: [PATCH v4 10/14] drm/tidss: oldi: Move the setup of one OLDI TX to
- its own function
+Date: Thu, 29 Oct 2026 12:18:55 +0200
+Subject: [PATCH v4 09/14] drm/tidss: oldi: Fix cleanup on a failed init
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-beagley-ai-display-v4-10-dc7f2b532478@ideasonboard.com>
+Message-Id: <20261029-beagley-ai-display-v4-9-dc7f2b532478@ideasonboard.com>
 References: <20261029-beagley-ai-display-v4-0-dc7f2b532478@ideasonboard.com>
 In-Reply-To: <20261029-beagley-ai-display-v4-0-dc7f2b532478@ideasonboard.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -62,26 +61,27 @@ Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10887;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=836;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=1ZJIk3MMYPkxcIUxoo1Dwfx/x1T1CMx2EcXxeO5F6nY=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBq4x2Y9U97DKAwivHLGBgoebK0ng7aV10CuUWvM
- PyhXMlEwcqJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCauMdmAAKCRD6PaqMvJYe
- 9XLkEACcu4vR2Ura39GZ96u44s4ZYq9JZ8PDFS1bM/YDJ0I2FRkjIvmA05mvxf7AOvVUDI3Y8X9
- 7z7Wk3upqVrdBAsyS2HD6lpiLBaT+lGbHfmud2aKhGk1dLfY7NSMkXkTschQ6DmRCCrUHHUmKML
- NpHDoWHWYWeEEoCNRYwM5AOWKDPWTsfEkKs0bUEjVAsuf5iP5gpNAJE46Qpa+R7rBYwjOdJ1KQs
- giWCl3JV/E1zl+WPl74nRqm+ErrywD4/4/gt+IQu9QGGbBpLuMgnoAB1ScaiGAHbk001PeVXQRc
- QvcgjSNdWLpL3O/37GlnDIVwErjzHG0Hz3KnvCCPue+k0YaYaEAx+NxT+aN7OrYb72JHeJ8ka48
- Zv++AagLxs2Il1oO3gGYXTyRl9geC/mIEO4W1dsBRSRP5J5Z8jI6v7zeFqhmxh5BKMcp0PxsCAi
- msM8kZ1Pjh+7Rei+RBK7HkQ1OMPQDAfm0MYdgPO5mev+yukIomSjYZLiaCoLcGzAMRyJCKN/Aun
- NBd5dcv90zYZJw+2fUiUZ9b0Rko6g4OrsfsVpL/62cfPFZreOlBS+M5dD+Jp/9HHTv0pFIG4TI+
- V6lBvDMI1EDeLEQg6v0tCDBfaLlY8xaCZWjvw2/UCCPjmCeoHyU1jQ34xtBgw++sQesqBzb+sVd
- uiTPX72JwIUw2dQ==
+ bh=/GoFfTl/Kixz7EDIo1Uq3VIIhFdLVvKZohyPCmYYDv8=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBq4x2YCPZR5VxH/A71tEGFXbblUHJJy2Oazo+qE
+ 8XAEUIBt4SJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCauMdmAAKCRD6PaqMvJYe
+ 9RJZD/9UVeyhtTJsTMxIRzfp8aCl83yU/jVMWxR5xDZuJvEg00jydB1IcemMAPUquKtrLIFR0xw
+ KD2G7/Z4CvIV9bRjn6O77GKv4gWEXQMDsU947Z0hQV/M99JRE+BvQ89Jbm0notGSS1XeBv20cpm
+ DZi3dOehrdH4ueu+3wvaq0NWuY19RYeVu3VyGy/A9Eo0APXUIMyTRdpqG9rqmwLWZ/y+ctsxmtX
+ FOqzbCg2xISnPOEXRUqvHwXFIq2DmCOtPK/am/DBZEQcOBzK/BuFT9YkTMoxUAJeZ7UA12yT+t/
+ BTw1p8CqktI07ze1nyPipNv7O4O+DmHsCHLNhVT+OksioTC8nX8ar1LzfzSpVbHFpYVMpXsXRcu
+ InYfkP1xpndBAl1ESawpuZV1RbtZkiqVo6F5FpZXQjPWipoF8ZPqZtCEyCaXKhQatklaVUwCDTp
+ AqESpVUzuu7Iv/5fr4ZusGS8TV+h32MTsj7K3MkqJmTG/X4oXlpjyz7oxx+xoZ3RsBO9z5VVRHN
+ W9eiD9zCretVxt9ippLvWehg2VQYm8hT4QHXHhEbZ7z2IXbxCc47w3LybNaQk07gcwfDE+7vDiZ
+ cdkku90T61Jzd22znXteUgOQ3I0vAss6clbI+aP0bt9Rpstms5oMEMvOOGYJNr8PcZkOAaJ1k71
+ fWMUWkGECleqD1A==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_031922_168101_A6E3A424 
-X-CRM114-Status: GOOD (  30.19  )
+X-CRM114-CacheID: sfid-20261029_031920_660193_7279FCE9 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,314 +101,29 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-tidss_oldi_init() sets up each OLDI TX inside its loop over the OLDI TX
-nodes, which is not a few lines of code and indents quite deeply. Clean
-up the code by separating the setup of a single OLDI TX into its own
-function.
+tidss_oldi_init() registers a bridge for each OLDI TX in turn. If a later
+OLDI TX fails, the bridges registered for the earlier ones are not
+removed.
 
+Fix this by calling tidss_oldi_deinit() in the error path.
+
+Fixes: 7246e0929945 ("drm/tidss: Add OLDI bridge support")
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/gpu/drm/tidss/tidss_oldi.c | 264 +++++++++++++++++++------------------
- 1 file changed, 138 insertions(+), 126 deletions(-)
+ drivers/gpu/drm/tidss/tidss_oldi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/gpu/drm/tidss/tidss_oldi.c b/drivers/gpu/drm/tidss/tidss_oldi.c
-index 7344d86e1f13..5552c1c51074 100644
+index 506507e83112..7344d86e1f13 100644
 --- a/drivers/gpu/drm/tidss/tidss_oldi.c
 +++ b/drivers/gpu/drm/tidss/tidss_oldi.c
-@@ -479,155 +479,167 @@ void tidss_oldi_deinit(struct tidss_device *tidss)
- 	}
- }
- 
--int tidss_oldi_init(struct tidss_device *tidss)
-+static int tidss_oldi_init_one(struct tidss_device *tidss,
-+			       struct device_node *oldi_tx)
- {
- 	struct tidss_oldi *oldi;
--	struct device_node *child;
- 	struct drm_bridge *bridge;
- 	u32 parent_vp, oldi_instance;
- 	int companion_instance = -1;
- 	enum tidss_oldi_link_type link_type = OLDI_MODE_UNSUPPORTED;
--	struct device_node *oldi_parent;
--	int ret = 0;
--
--	tidss->num_oldis = 0;
--
--	oldi_parent = of_get_child_by_name(tidss->dev->of_node, "oldi-transmitters");
--	if (!oldi_parent)
--		/* Return gracefully */
--		return 0;
-+	int ret;
- 
--	for_each_available_child_of_node(oldi_parent, child) {
--		ret = get_parent_dss_vp(child, &parent_vp);
--		if (ret) {
--			if (ret == -ENODEV) {
--				/*
--				 * ENODEV means that this particular OLDI node
--				 * is not connected with the DSS, which is not
--				 * a harmful case. There could be another OLDI
--				 * which may still be connected.
--				 * Continue to search for that.
--				 */
--				continue;
--			}
--			goto err_put_node;
-+	ret = get_parent_dss_vp(oldi_tx, &parent_vp);
-+	if (ret) {
-+		if (ret == -ENODEV) {
-+			/*
-+			 * ENODEV means that this particular OLDI node
-+			 * is not connected with the DSS, which is not
-+			 * a harmful case. There could be another OLDI
-+			 * which may still be connected.
-+			 * Continue to search for that.
-+			 */
-+			return 0;
- 		}
-+		return ret;
-+	}
- 
--		ret = of_property_read_u32(child, "reg", &oldi_instance);
--		if (ret)
--			goto err_put_node;
-+	ret = of_property_read_u32(oldi_tx, "reg", &oldi_instance);
-+	if (ret)
-+		return ret;
- 
-+	/*
-+	 * Now that it's confirmed that OLDI is connected with DSS,
-+	 * let's continue getting the OLDI sinks ahead and other OLDI
-+	 * properties.
-+	 */
-+	bridge = devm_drm_of_get_bridge(tidss->dev, oldi_tx,
-+					OLDI_OUTPUT_PORT, 0);
-+	if (IS_ERR(bridge)) {
- 		/*
--		 * Now that it's confirmed that OLDI is connected with DSS,
--		 * let's continue getting the OLDI sinks ahead and other OLDI
--		 * properties.
-+		 * Either there was no OLDI sink in the devicetree, or
-+		 * the OLDI sink has not been added yet. In any case,
-+		 * return.
-+		 * We don't want to have an OLDI node connected to DSS
-+		 * but not to any sink.
- 		 */
--		bridge = devm_drm_of_get_bridge(tidss->dev, child,
--						OLDI_OUTPUT_PORT, 0);
--		if (IS_ERR(bridge)) {
--			/*
--			 * Either there was no OLDI sink in the devicetree, or
--			 * the OLDI sink has not been added yet. In any case,
--			 * return.
--			 * We don't want to have an OLDI node connected to DSS
--			 * but not to any sink.
--			 */
--			ret = dev_err_probe(tidss->dev, PTR_ERR(bridge),
--					    "no panel/bridge for OLDI%u.\n",
-+		ret = dev_err_probe(tidss->dev, PTR_ERR(bridge),
-+				    "no panel/bridge for OLDI%u.\n",
-+				    oldi_instance);
-+		return ret;
-+	}
-+
-+	link_type = get_oldi_mode(oldi_tx, &companion_instance);
-+	if (link_type == OLDI_MODE_UNSUPPORTED) {
-+		ret = dev_err_probe(tidss->dev, -EINVAL,
-+				    "OLDI%u: Unsupported OLDI connection.\n",
-+				    oldi_instance);
-+		return ret;
-+	} else if ((link_type == OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK) ||
-+		   (link_type == OLDI_MODE_CLONE_SINGLE_LINK)) {
-+		/*
-+		 * The OLDI driver cannot support OLDI clone mode
-+		 * properly at present.
-+		 * The clone mode requires 2 working encoder-bridge
-+		 * pipelines, generating from the same crtc. The DRM
-+		 * framework does not support this at present. If
-+		 * there were to be, say, 2 OLDI sink bridges each
-+		 * connected to an OLDI TXes, they couldn't both be
-+		 * supported simultaneously.
-+		 * This driver still has some code pertaining to OLDI
-+		 * clone mode configuration in DSS hardware for future,
-+		 * when there is a better infrastructure in the DRM
-+		 * framework to support 2 encoder-bridge pipelines
-+		 * simultaneously.
-+		 * Till that time, this driver shall error out if it
-+		 * detects a clone mode configuration.
-+		 */
-+		ret = dev_err_probe(tidss->dev, -EOPNOTSUPP,
-+				    "The OLDI driver does not support Clone Mode at present.\n");
-+		return ret;
-+	} else if (link_type == OLDI_MODE_SECONDARY_DUAL_LINK) {
-+		/*
-+		 * This is the secondary OLDI node, which serves as a
-+		 * companion to the primary OLDI, when it is configured
-+		 * for the dual-link mode. Since the primary OLDI will
-+		 * be a part of bridge chain, no need to put this one
-+		 * too. Continue onto the next OLDI node.
-+		 */
-+		return 0;
-+	}
-+
-+	oldi = devm_drm_bridge_alloc(tidss->dev, struct tidss_oldi, bridge,
-+				     &tidss_oldi_bridge_funcs);
-+	if (IS_ERR(oldi)) {
-+		ret = PTR_ERR(oldi);
-+		return ret;
-+	}
-+
-+	oldi->parent_vp = parent_vp;
-+	oldi->oldi_instance = oldi_instance;
-+	oldi->companion_instance = companion_instance;
-+	oldi->link_type = link_type;
-+	oldi->dev = tidss->dev;
-+	oldi->next_bridge = bridge;
-+
-+	/*
-+	 * Only the primary OLDI needs to reference the io-ctrl system
-+	 * registers, and the serial clock.
-+	 * We don't require a check for secondary OLDI in dual-link mode
-+	 * because the driver will not create a drm_bridge instance.
-+	 * But the driver will need to create a drm_bridge instance,
-+	 * for secondary OLDI in clone mode (once it is supported).
-+	 */
-+	if (link_type != OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK) {
-+		oldi->io_ctrl = syscon_regmap_lookup_by_phandle(oldi_tx,
-+								"ti,oldi-io-ctrl");
-+		if (IS_ERR(oldi->io_ctrl)) {
-+			ret = dev_err_probe(oldi->dev, PTR_ERR(oldi->io_ctrl),
-+					    "OLDI%u: syscon_regmap_lookup_by_phandle failed.\n",
- 					    oldi_instance);
--			goto err_put_node;
-+			return ret;
- 		}
- 
--		link_type = get_oldi_mode(child, &companion_instance);
--		if (link_type == OLDI_MODE_UNSUPPORTED) {
--			ret = dev_err_probe(tidss->dev, -EINVAL,
--					    "OLDI%u: Unsupported OLDI connection.\n",
-+		oldi->serial = devm_get_clk_from_child(tidss->dev, oldi_tx,
-+						       "serial");
-+		if (IS_ERR(oldi->serial)) {
-+			ret = dev_err_probe(oldi->dev, PTR_ERR(oldi->serial),
-+					    "OLDI%u: Failed to get serial clock.\n",
- 					    oldi_instance);
--			goto err_put_node;
--		} else if ((link_type == OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK) ||
--			   (link_type == OLDI_MODE_CLONE_SINGLE_LINK)) {
--			/*
--			 * The OLDI driver cannot support OLDI clone mode
--			 * properly at present.
--			 * The clone mode requires 2 working encoder-bridge
--			 * pipelines, generating from the same crtc. The DRM
--			 * framework does not support this at present. If
--			 * there were to be, say, 2 OLDI sink bridges each
--			 * connected to an OLDI TXes, they couldn't both be
--			 * supported simultaneously.
--			 * This driver still has some code pertaining to OLDI
--			 * clone mode configuration in DSS hardware for future,
--			 * when there is a better infrastructure in the DRM
--			 * framework to support 2 encoder-bridge pipelines
--			 * simultaneously.
--			 * Till that time, this driver shall error out if it
--			 * detects a clone mode configuration.
--			 */
--			ret = dev_err_probe(tidss->dev, -EOPNOTSUPP,
--					    "The OLDI driver does not support Clone Mode at present.\n");
--			goto err_put_node;
--		} else if (link_type == OLDI_MODE_SECONDARY_DUAL_LINK) {
--			/*
--			 * This is the secondary OLDI node, which serves as a
--			 * companion to the primary OLDI, when it is configured
--			 * for the dual-link mode. Since the primary OLDI will
--			 * be a part of bridge chain, no need to put this one
--			 * too. Continue onto the next OLDI node.
--			 */
--			continue;
-+			return ret;
- 		}
-+	}
- 
--		oldi = devm_drm_bridge_alloc(tidss->dev, struct tidss_oldi, bridge,
--					     &tidss_oldi_bridge_funcs);
--		if (IS_ERR(oldi)) {
--			ret = PTR_ERR(oldi);
--			goto err_put_node;
--		}
-+	/* Register the bridge. */
-+	oldi->bridge.of_node = oldi_tx;
-+	oldi->bridge.driver_private = oldi;
- 
--		oldi->parent_vp = parent_vp;
--		oldi->oldi_instance = oldi_instance;
--		oldi->companion_instance = companion_instance;
--		oldi->link_type = link_type;
--		oldi->dev = tidss->dev;
--		oldi->next_bridge = bridge;
-+	tidss->oldis[tidss->num_oldis++] = oldi;
-+	tidss->is_ext_vp_clk[oldi->parent_vp] = true;
-+	oldi->tidss = tidss;
- 
--		/*
--		 * Only the primary OLDI needs to reference the io-ctrl system
--		 * registers, and the serial clock.
--		 * We don't require a check for secondary OLDI in dual-link mode
--		 * because the driver will not create a drm_bridge instance.
--		 * But the driver will need to create a drm_bridge instance,
--		 * for secondary OLDI in clone mode (once it is supported).
--		 */
--		if (link_type != OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK) {
--			oldi->io_ctrl = syscon_regmap_lookup_by_phandle(child,
--									"ti,oldi-io-ctrl");
--			if (IS_ERR(oldi->io_ctrl)) {
--				ret = dev_err_probe(oldi->dev, PTR_ERR(oldi->io_ctrl),
--						    "OLDI%u: syscon_regmap_lookup_by_phandle failed.\n",
--						    oldi_instance);
--				goto err_put_node;
--			}
--
--			oldi->serial = devm_get_clk_from_child(tidss->dev, child,
--							       "serial");
--			if (IS_ERR(oldi->serial)) {
--				ret = dev_err_probe(oldi->dev, PTR_ERR(oldi->serial),
--						    "OLDI%u: Failed to get serial clock.\n",
--						    oldi_instance);
--				goto err_put_node;
--			}
--		}
-+	drm_bridge_add(&oldi->bridge);
-+
-+	return 0;
-+}
-+
-+int tidss_oldi_init(struct tidss_device *tidss)
-+{
-+	struct device_node *child;
-+	struct device_node *oldi_parent;
-+	int ret = 0;
- 
--		/* Register the bridge. */
--		oldi->bridge.of_node = child;
--		oldi->bridge.driver_private = oldi;
-+	tidss->num_oldis = 0;
- 
--		tidss->oldis[tidss->num_oldis++] = oldi;
--		tidss->is_ext_vp_clk[oldi->parent_vp] = true;
--		oldi->tidss = tidss;
-+	oldi_parent = of_get_child_by_name(tidss->dev->of_node, "oldi-transmitters");
-+	if (!oldi_parent)
-+		/* Return gracefully */
-+		return 0;
- 
--		drm_bridge_add(&oldi->bridge);
-+	for_each_available_child_of_node(oldi_parent, child) {
-+		ret = tidss_oldi_init_one(tidss, child);
-+		if (ret)
-+			goto err_put_node;
- 	}
- 
+@@ -638,5 +638,6 @@ int tidss_oldi_init(struct tidss_device *tidss)
+ err_put_node:
  	of_node_put(child);
+ 	of_node_put(oldi_parent);
++	tidss_oldi_deinit(tidss);
+ 	return ret;
+ }
 
 -- 
 2.43.0
