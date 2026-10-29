@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9326E606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 21:05:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BD9D606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 21:14:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mNelobDH;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=LSb42G/4
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mIyuApE2;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=p9DS9Eak
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,53 +14,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=pvnY73Q0V05Um+rlosdIP96Yb0fzFhR9UVvX1gsB0Yo=; b=mNelobDHdYlBHegPfxnXrzNGFp
-	KGtk+CxaECg1S0QC9NWMPRtrP5LyH5zE4X4iJDrOiejRmuH+Cb5QeuBW9Vodzj0j76RJsatbxGFSs
-	6YxD4aoIn44RoVLKkXqdzNsoHqdwIL7Tdcdw2i7TRSlaZ28Ea6Hai2VlnV+sJhsqncspLaX/fFunc
-	WdO4rD91ptsEtnu2llrr8J261pnBMJ2AXHUCbyeuQtf6ltsxVr/rbOJV0Y6eyWF8/9HqOfCZYj6x8
-	6M/wYpO3Z3UPd9EQxQ1QlKj5Ty3KHUm8NTDTgKMnY1iTxnnFgK2lJ5Di9XNSWwgK5l+9P9Ccp83Uo
-	n8N6865Q==;
+	bh=7pzjhtn6j5+N8CZXLk0hQRmO9CNlQSOA3omzcm5VGk0=; b=mIyuApE2x3fk6w20q+iNUAXVv7
+	n+YZg7JfxdR3NuFAFdR4e1ArQ3xojmDzryu4TMxjOKauPVb9BtSdlzfIPRmPre/okIGO1uXoQHhvO
+	NIRFvVcodFOGsQN+aTTMi2rFQBAKqyCsY6/Yz5XF6gY+CffnE50DKWbfKus2PvmsHcJU20VoEmu58
+	2zcK0/gXOoaonbHuxSWNhoR6jHs9z3b+YXr0pBsJ9BGau7snJ3UcFcrID1gqv3YUqCB0jdVBnQ5ui
+	VlRb+ApfqgBqnA4jnhpNITa8A45xue2Aws7Idvhiu2RG+Ym0FnZdrSKx6hpXYi5qxoafUBUhXyPGa
+	Vznpr4eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMXJ0-0000000AOSH-2pk0;
-	Thu, 29 Oct 2026 21:05:02 +0000
+	id 1xMXS6-0000000AOm2-3tVC;
+	Thu, 29 Oct 2026 21:14:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMXIw-0000000AORd-48n2
+	id 1xMXS4-0000000AOlU-2Yds
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 21:05:00 +0000
+	Thu, 29 Oct 2026 21:14:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D96A81682;
-	Thu, 29 Oct 2026 14:04:53 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D38FC1682;
+	Thu, 29 Oct 2026 14:14:19 -0700 (PDT)
 Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2AEB3F59E;
-	Thu, 29 Oct 2026 14:04:55 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D06203F59E;
+	Thu, 29 Oct 2026 14:14:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793307896; bh=AnM4OnNBjAGRdciRyyuMhYkvFvjMOCFE7WXWqQyeFXY=;
+	t=1793308462; bh=38wAcV6+Pv6BUffZcJjTOzperonmticUwGom7ntWZAI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LSb42G/4AzMi28jRIjLxA2hy9xVDdhvjBX3T0x5KL21W4mh6bcAeON7PSzOy7v7gH
-	 pJq/0Ntr/E1A0YLcik771E8X28SlnQY77AbmdbXcZPi5W1ncvnF9+zN9YP0mdbgCbo
-	 xnVgMB6oAYh0DMA6ub7ED1hPi1ks4rRphmD/zsDw=
-Date: Thu, 29 Oct 2026 21:04:53 +0000
+	b=p9DS9EakVP9HFrT+Dq5D5QflP8AsibvK4b16nw+3P+LFEwVRxQqTVKObaNvyb75GT
+	 Ek0Tw96E1T0R93ckTjFwoUcsTGJGeiERUvjdZYnZsTL3mmN9rXtnrZImSR4jRyjMft
+	 vJQ26MLNCQ6XqAljjKT5k0Edby4PnzN4T+fDm2Fg=
+Date: Thu, 29 Oct 2026 21:14:18 +0000
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: Lai Jiangshan <jiangshanlai@gmail.com>
-Cc: linux-kernel@vger.kernel.org,
-	Lai Jiangshan <jiangshan.ljs@antgroup.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Thomas Huth <thuth@redhat.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] arm64: mm: Stop using the previous ASID for init_mm
-Message-ID: <auO09UUOqkhXXuoI@arm.com>
-References: <20261027100231.31184-1-jiangshanlai@gmail.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Zhou Wang <wangzhou1@hisilicon.com>, Arnd Bergmann <arnd@arndb.de>,
+	Fuad Tabba <tabba@google.com>, kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/5] arm64: Add override for ID_AA64ISAR1_EL1.LS64
+Message-ID: <auO3Kiykovvs279e@arm.com>
+References: <20261025075138.2919734-1-fuad.tabba@linux.dev>
+ <20261025075138.2919734-2-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261027100231.31184-1-jiangshanlai@gmail.com>
+In-Reply-To: <20261025075138.2919734-2-fuad.tabba@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_140459_562813_4B8B050F 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20261029_141424_701205_45C5E747 
+X-CRM114-Status: GOOD (  11.76  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,38 +85,25 @@ X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 27, 2026 at 06:02:27PM +0800, Lai Jiangshan wrote:
-> From: Lai Jiangshan <jiangshan.ljs@antgroup.com>
+On Sun, Oct 25, 2026 at 07:51:34AM +0000, Fuad Tabba wrote:
+> Accesses to ACCDATA_EL1, which FEAT_LS64_ACCDATA adds, trap to EL3
+> unless firmware sets SCR_EL3.ADEn. Once KVM context-switches the
+> register for its guests, a host whose firmware leaves the bit clear
+> can't run them.
 > 
-> Switching to init_mm should prevent further accesses through the
-> previous address space's translations.
+> Add an override for ID_AA64ISAR1_EL1.LS64, with an arm64.nols64 alias,
+> so that the feature can be disabled on such a host and for its guests.
+> id_aa64isar1.ls64=2 disables only FEAT_LS64_ACCDATA and above.
 > 
-> Commit e53f21bce4d3 ("arm64: Use the reserved TTBR0 if context switching
-> to the init_mm") avoided installing init_mm.pgd as a user page table.
-> At the time, the ASID was held in TTBR0, so installing the reserved
-> TTBR0 also switched to ASID 0.
-> 
-> Since commit 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1"),
-> installing the reserved TTBR0 no longer changes the active ASID.
-> Consequently, switching to init_mm leaves the CPU using the previous
-> address space's ASID. An empty page table does not prevent TLB hits
-> for that ASID.
-> 
-> This can retain access beyond the lifetime of the backing pages.
-> During fullmm teardown, user data pages can be freed before their
-> cached translations are invalidated. If those pages are subsequently
-> reused for kernel data, an erroneous uaccess that hits a surviving
-> translation can read or corrupt that data instead of faulting.
-> 
-> Fixes: 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1")
-> Signed-off-by: Lai Jiangshan <jiangshan.ljs@antgroup.com>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Thanks for the report. I think the problem identified is real. My TLA+
-model (apart from having a bug in how it modelled speculative TLB
-loads), did not exercise this init_mm case. I updated it and it now
-shows the problem.
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
-We'll check your fix in the next few days.
+However, does this need a plain cc stable? I assume you want it to go in
+with patch 3 but that one only goes as far as 7.0. Same cc stable in
+patch 2 which you may want to limit (or add both as dependencies to the
+cc stable in patch 3 when committing).
 
 -- 
 Catalin
