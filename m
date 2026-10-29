@@ -2,126 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B8B0606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 17:20:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E0AF606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 17:23:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PnIU0PLr;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gzf12mUc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rvrJ0Eo4;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wb2T9Xal
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=DcHId9d7ZivTlUPflcKuYmygXozfLhAN5Qcceh+SBys=; b=PnIU0PLrUXN7tu
-	CUhh2I9u86/TcpmsOdOCBJWhrwdjsBvsHXWBdQ4UCE3NbyE3OBlDW9NwoIjcwuczXyYH1iV9Nft0m
-	BRzMIa+VyNo/cbNVTKXYeh6Hvs3eyj7Fh7X9e7xSiEw8Eqf9QvWrhCjGmWsdGHn9ZxBPwQwMBDG2J
-	auvG5jq+5U88clF6U+LOrUfKKu3l7WkcfFM5d91fL6HDmGy0zdh7p9AdeHpvIlkBJEPUCM/lqN2HO
-	63rlvwUQqFxl7Xv08ahmVHWCdK9pU0S8UdXVXSkZE7WPgt8jBADhTZeocDKK056ed1HxVkGtArVt9
-	ncPAtvYY8CM7Ulz2kIcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=r30TIeUAui4tnRc46h6W8Ks73suv2dC7aDdGQZCwDmc=; b=rvrJ0Eo4Eio39MMUYmBPziedWh
+	2O18DQGmwkPO/qfX8j8kaPxTJXZ/ZNvblCCu3p63BJGySOzfJ3We5MFPgy/tsY/7SJVDD5OhJZ/AP
+	pneNOfU4webWSTGhfGPIV1kOZ9Uoqr8YmGsgToyIIii7qe31k9ZYZNJQFe2Fn58pMgMrHU08zHwn0
+	al+uVAZlujdA4WDWZYGxbYTO09J0yiTezaMm1Jq3yRUfEEh32wgAEViY5kHW414+8KinGwzvEWb4z
+	JbnUDZNNMyYi40fMh0dWMnmNJraqld96lMAEPiaj+65cAyt5pQmuhl2kP1ube9pnu+W56Q34faihQ
+	y6OAJV+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMTnX-00000009xEG-01Oc;
-	Thu, 29 Oct 2026 17:20:19 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1xMTqS-00000009xXw-2xCC;
+	Thu, 29 Oct 2026 17:23:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMTnT-00000009xDF-20fU
+	id 1xMTqR-00000009xXX-0vV9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 17:20:17 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-6b4883643ccso2973854a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:20:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793294413; cv=none;
-        d=google.com; s=arc-20260327;
-        b=sT3bkRkMvKWJ9dZbtCwNvNkV7cYIGdtLD+8c6zZ3XKtJ7mx1yiuCVqjsNfUaEMH4wh
-         Y74pPQVNid0Kz2dBA+VAa32kfg8Trit78tVGHfypfSsGMoEa3JPhLHe6EmniM+RPgL4Q
-         6CUsoYeYtD3xg889NNPRQ1SsY8HXgva4/myeSVB9HZLuNQxo+UDtybMEsAsf6hHFj3wa
-         +QpUHgPFxCltrwOlVTnC9JToY7ttFcMO1vIHkd21N9PsX91FU2peuOfgm5QRHZaVzZE0
-         4/j23r+x6zIrNidFOSH25W1U5DiUAaChVL6a9HPMjxtbJuoETjyiLft2blMAwJKnIXdu
-         QXcA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=DcHId9d7ZivTlUPflcKuYmygXozfLhAN5Qcceh+SBys=;
-        fh=3oGEHYXwDjiPzxMzNfi5PdS39ZQFXA3BZ2HU7xiH2ok=;
-        b=IgidJv0aBLPXdMMMPCXpSnteF0s7Gz9UWYUQxNuuZI0EjEZIC85utGqBtflrhGNFf+
-         GQ3hTSd/b6e0haCbYgX4bzgm3Gj1Hoy9xFov7PMijUAHwZD5uglJh3ANq70PLPplnQts
-         3W8ynxv24zhySUl4TuewGlcMpy4J1opNYZiS4kJs/UMspx+wZ71PrYRzXxfcDzA0WJ7/
-         41n2oMs8Z2ED5GvPorZhk+Ni8U++a8EiGf2vjJwbCEfCuFdyJ7t9tDdc0lnW9w9rAisn
-         fFegzmtLCTCgnOLQjpynThSOHlvVqrE7qEwIwRG7DmN9uyuCD5nVKa24atXZ7GPYx3wQ
-         o5hQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793294413; x=1793899213; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DcHId9d7ZivTlUPflcKuYmygXozfLhAN5Qcceh+SBys=;
-        b=gzf12mUcL41ewXzBbblYLaS/VSRMomfiEuT+tE+3Hd+hNZZUKmk7tEFDn99QjtN4Zt
-         Jz7KnA0FXOlaCgioAkZO2kJ8LtysocT2NWpj8PXtV4wjhywQW91PT6/m+SQO+DaTSYBJ
-         /SRV5KNXFLWxVVtWNUbA64RsNhXh9H/L6WeHLsrRFtSb2AvBbzx7UUhWypmPbOhn8lhw
-         rM5qvF6bIASjAbtYAa/y3//8Q4zLs1fK1ayd8Gp2eXRELwyrBr458v95Ameoj0lFbC9L
-         +ZAn9pkcTNlQBD8dLty8SQRlLuTjaGuH2VSF3c3ti7Zm2s76SYZ//pG6u6DWg/XvBAMx
-         GVYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793294413; x=1793899213;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DcHId9d7ZivTlUPflcKuYmygXozfLhAN5Qcceh+SBys=;
-        b=ON9S+uPtM0S7Lpfh70x8hKVZ7B3+faQ5kDyB6bo09dkRla5RPflYYQe6+LC/f9cL3u
-         Xw7VxtE7xBq0LCpVY95V3snVlEfy+18nAjeGLGHRqXThdNMqLmxymT5bIRD/5koLuNtd
-         plCeRPu1bXdN70VxSsiI0L3gTy1PWsPKOWl12lGUsIPZbOBMQxylrrLqcozzpoK/9u/X
-         /4OeAi+mho+tPVoEI4ZC3o2chKqvel/GcGGqHwuVSDVBGvDxlGz0otinPcpMzRIulZBO
-         9apQXcQVo4JwKn406Zwlg6Ri6aomWn2eArUrm+iHF0F93te2pr0KaKziSTBC2OC1VjzA
-         yFyw==
-X-Forwarded-Encrypted: i=1; AKwUvBwNHaX1k2Lg95TX6L94mZkCCnUjuccHCCukU7VUwEVlAdEjC4mTqcEVAvOk8X2SFkbsTwYAWCUsaMtKZrz288Tj@lists.infradead.org
-X-Gm-Message-State: AFq9FYKRo8NhWZ+AeC9DxDSRmtEzIv28mEt3LWYNecdpbGdCGBeM+Jul
-	ueLmonl/YPMazCJqdJKq0JLPIUT9Z0cziLSPgy95TN+v1Bm5snrkOww3tmGX6cAjhsKTpcHcHyw
-	Ry9KFlsTIB4+vsrB6iWV6CU6dKQQ3qlE=
-X-Gm-Gg: AYBFou0lo57ScVx/MDRT9eV8QfyKsj1/A6JB+8ySY8ri5UyqnV1pAkU0eHfmok7WUB/
-	YsE4nIOMqUdqz/RJgyii1sHNu4r6/lopg5kRLI3g771jvd3HOsGGl33dtVHDS9nTG6yzURk7629
-	kV2A+knAZy4YE8WHoFWWzfNhT+16vZLkwzCuCMsJZU0A4OU+qjHCjf3yfgDAmRKlsEJtTrQUXIS
-	8KMvQyw1mdp28nF74HRiqsioXVaDPztVA+iCG2xpdZy5Kvnj1t8t/d1qB/KIO5Rf6DuHXUqe0yo
-	06x36rnoiFo8fk6OiLGUFb9G1xAk6s6HAPW5/QRt+WHwah6hQvxJRdtTeS92fPrhwFCClhUrggl
-	85B208UQy+UAyS+rPEWXenxrr0l3b0RhHIWSbPsQC7QNA0TtDmN8lVyNkSIwJGV5+uFIw+CgxIx
-	KUfRE0e7LsfxUHx+RkvpYhVw2DfGgC5ixf6QcXful8H/m627NxClDuNEik0XRr69WDP6hxZgVVd
-	Pdcjeh04cdk9ZdsO3gOniGIf6yJ0g==
-X-Received: by 2002:aa7:c1d1:0:b0:6b4:201f:17db with SMTP id
- 4fb4d7f45d1cf-6b49cbdfd84mr3081067a12.18.1793294412721; Thu, 29 Oct 2026
- 10:20:12 -0700 (PDT)
+	Thu, 29 Oct 2026 17:23:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 15138600C8;
+	Thu, 29 Oct 2026 17:23:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AB371F01825;
+	Thu, 29 Oct 2026 17:23:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793294597;
+	bh=r30TIeUAui4tnRc46h6W8Ks73suv2dC7aDdGQZCwDmc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Wb2T9XalRuJqgvn79Fri18OfjNmi047MvRSD+Z5HF8lsc2CNsRfwCqb3EA6sYcR9n
+	 xW1588bhbT73aQEKdSZ5D5+PovfGORB5RnBPi6KUH5dVSW3XrkpaUwoZePtDSM9gX6
+	 KzJyrdYAR3h/77KGGWjYhJIOhakhM/warxezB4227wvu4v/i6gWfs4iU1j0QO1pqzn
+	 33HEBDIEJdbXkC4afs62Z1ip7DDHkzkCqRHF+QSF2eR4g0kilwF0Rmvb3N1sDy3A9y
+	 sIUJsKXp13VutcT1Qd9ChuFbhCK5NRmP9sGKmYBeh5Z/D6a+UXnwGBKd3n1B5nNFEx
+	 EIu2/mLSmXjtA==
+Date: Thu, 29 Oct 2026 17:23:11 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, 
+	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
+	catalin.marinas@arm.com, james.clark@linaro.org
+Subject: Re: [RFC PATCH v7 17/28] KVM: arm64: Apply a RES0 mask to
+ PMBLIMITR_EL1 writes
+Message-ID: <auNpx6vxFmREVbrE@gremlin>
+References: <20260903160623.315525-1-alexandru.elisei@arm.com>
+ <20260903160623.315525-18-alexandru.elisei@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261029-submit-serial-8250-dma-cancel-v1-v8-0-3fd56ba352ed@gmail.com>
- <20261029-submit-serial-8250-dma-cancel-v1-v8-6-3fd56ba352ed@gmail.com> <auNW_Oc-Ao5Iw-Gw@ashevche-desk.local>
-In-Reply-To: <auNW_Oc-Ao5Iw-Gw@ashevche-desk.local>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 29 Oct 2026 11:19:59 -0600
-X-Gm-Features: AclHuK-0pW6JI4DxQzs96I_p0R94o9xpuy7K0elsSNWPWKpDy78P7tTWYrgR_Gg
-Message-ID: <CADvTj4pOg4w5LpFW_E3qzP7FZDnDgpB8LyR9xxhT_mZre21vFw@mail.gmail.com>
-Subject: Re: [PATCH v8 6/6] serial: 8250: retain DMA resources when
- termination fails
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Raul E Rangel <rrangel@chromium.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Tony Lindgren <tony@atomide.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Richard Genoud <richard.genoud@bootlin.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
-	=?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, "Maciej W. Rozycki" <macro@orcam.me.uk>, Timur Tabi <timur@kernel.org>, 
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_102016_236396_E43745E1 
-X-CRM114-Status: GOOD (  21.57  )
-X-Spam-Score: -0.8 (/)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260903160623.315525-18-alexandru.elisei@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,89 +72,354 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-1.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 29, 2026 at 8:24=E2=80=AFAM Andy Shevchenko
-<andriy.shevchenko@linux.intel.com> wrote:
->
-> On Thu, Oct 29, 2026 at 01:37:02AM -0600, James Hilliard wrote:
-> > serial8250_release_dma() ignores the return from dmaengine_terminate_sy=
-nc()
-> > before freeing the coherent RX buffer, unmapping the TX FIFO and releas=
-ing
-> > the channels. If the provider fails to stop a channel, the DMAengine
-> > wrapper returns the error without synchronizing its callbacks. Hardware
-> > or a detached callback can then access the released storage and state.
-> >
-> > Checking the error and returning early would not preserve their lifetim=
-e:
-> > serial core frees the TX FIFO after the driver's shutdown callback retu=
-rns,
-> > and port removal can then release the callback context as well.
-> >
-> > Require successful synchronous termination of both channels before
-> > releasing any DMA resources. Retry failed channels after a sleep outsid=
-e
-> > the port lock, leaving channels that have already stopped and drained
-> > alone. Keep the shutdown gate and storage reservation in place througho=
-ut
-> > the retries.
-> >
-> > A permanently failed DMA engine blocks close or removal. This deliberat=
-ely
-> > retains the buffers, mappings, channels and callback context until the
-> > provider can establish that they are no longer in use.
->
-> ...
->
-> > +     while (rx_ret || tx_ret) {
-> > +             dev_err_ratelimited(p->port.dev,
-> > +                                 "DMA termination failed: RX %d, TX %d=
-; retrying\n",
-> > +                                 rx_ret, tx_ret);
->
-> > +             msleep(100);
->
-> Huh?!
->
-> > +             if (rx_ret)
-> > +                     rx_ret =3D dmaengine_terminate_sync(dma->rxchan);
-> > +             if (tx_ret)
-> > +                     tx_ret =3D dmaengine_terminate_sync(dma->txchan);
-> > +     }
->
-> This is unacceptable. Sleeping is okay, but value should really match the
-> baudspeed and other parameters of the transfer.
+On Thu, Sep 03, 2026 at 05:06:12PM +0100, Alexandru Elisei wrote:
+> PMBLIMITR_EL1 is special, because it has feature enable fields. If those
 
-This sleep is backoff after dmaengine_terminate_sync() has returned
-an error, rather than an estimate of UART transmission time. Each
-retry asks the provider to stop the channel again; elapsed time is
-never treated as evidence that the resources are safe to free.
+OK, so this is one of the buffer regs that traps in KVM right?
 
-The particular 100 ms interval has no hardware-derived justification.
-However, I don't yet see a sound way to derive the retry cadence from
-baud rate either. RX can be waiting for input, TX can be held by flow
-control, and callback retirement is a separate requirement from
-moving bytes through the UART.
+Maybe worth explicitly calling that out, just so it's clear.
 
-Do you have a particular provider failure mode in mind where retrying
-termination should follow the serial transfer timing? I'd like to
-base the interval on the condition that can make termination succeed,
-rather than substitute a wire-time estimate for an arbitrary delay.
+> features are hidden from a guest, ignore them when the guest or the VMM
+> attempt to set them.
+>
+> The least significant bits of the buffer limit address are RES0 based on
+> the smallest granule implemented. Make sure they are treated as zero even
+> if the smallest granule exposed to the VM is larger than what the hardware
+> implements.
+>
+> Note that it is up to the user to write to the SPE buffer registers only
+> after the VM features have been configured in the VM id registers.
+>
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 
-Regardless of the retry interval, shutdown cannot release the buffers
-until the provider establishes that DMA and its callbacks have stopped.
+Obviously sashiko had some feedback on this also, but a few things to
+address here as below! :)
+
+> ---
+>  Documentation/virt/kvm/devices/vcpu.rst |  3 ++
+>  arch/arm64/include/asm/kvm_spe.h        |  7 +++++
+>  arch/arm64/kvm/spe.c                    | 40 +++++++++++++++++++++++--
+>  arch/arm64/kvm/sys_regs.c               | 38 +++++++++++++++++++++--
+>  4 files changed, 83 insertions(+), 5 deletions(-)
+>
+> diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
+> index e2eac48b9d28..eb352760869c 100644
+> --- a/Documentation/virt/kvm/devices/vcpu.rst
+> +++ b/Documentation/virt/kvm/devices/vcpu.rst
+> @@ -383,3 +383,6 @@ the in-kernel irqchip has been initialized.
+>
+>  KVM will refuse to run the VCPU and KVM_RUN will return an error if the SPE
+>  feature has been set for the VCPU, but SPE hasn't been initialized.
+> +
+> +Attempting to access any of the SPE registers until SPE has been initialized on
+> +the VCPU will fail with -EBUSY.
+> diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
+> index 56dc9e660bef..3d8e9720daca 100644
+> --- a/arch/arm64/include/asm/kvm_spe.h
+> +++ b/arch/arm64/include/asm/kvm_spe.h
+> @@ -14,6 +14,7 @@ struct kvm_device_attr;
+>  struct arm_spe_pmu;
+>  struct kvm_spe {
+>  	struct arm_spe_pmu *spe_pmu;
+> +	u64 pmblimitr_el1_res0_mask;
+>  };
+>
+>  struct kvm_vcpu_spe {
+> @@ -26,6 +27,8 @@ bool kvm_supports_spe(void);
+>  #define vcpu_has_spe(vcpu)					\
+>  	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_SPE))
+>
+> +bool kvm_vcpu_spe_initialized(struct kvm_vcpu *vcpu);
+> +
+>  int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu);
+>  void kvm_spe_destroy_vm(struct kvm *kvm);
+>
+> @@ -54,6 +57,10 @@ static __always_inline bool kvm_supports_spe(void)
+>
+>  #define vcpu_has_spe(vcpu)	false
+>
+> +static inline bool kvm_vcpu_spe_initialized(struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+>  static inline int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
+>  {
+>  	return 0;
+> diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
+> index 6a00a44c73ed..8c173a1f48bd 100644
+> --- a/arch/arm64/kvm/spe.c
+> +++ b/arch/arm64/kvm/spe.c
+> @@ -60,13 +60,43 @@ bool kvm_supports_spe(void)
+>  	return !list_empty(&spe_pmus);
+>  }
+>
+> -int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
+> +bool kvm_vcpu_spe_initialized(struct kvm_vcpu *vcpu)
+>  {
+>  	struct kvm_vcpu_spe *vcpu_spe = &vcpu->arch.vcpu_spe;
+>
+> -	if (!vcpu_spe->initialized)
+> +	return vcpu_spe->initialized;
+> +}
+> +
+> +static void kvm_spe_compute_pmblimitr_el1_res0_mask(struct kvm *kvm)
+> +{
+> +	u64 res0_mask = GENMASK_ULL(11, 8) | BIT(6) | GENMASK_ULL(4, 3);
+
+Maybe worth a comment saying what you're res0-ing here by default?
+
+> +
+> +	if (!kvm_has_feat(kvm, ID_AA64DFR2_EL1, SPE_nVM, IMP))
+> +		res0_mask |= PMBLIMITR_EL1_nVM_MASK;
+
+Getting the LLM to dig in a bit on this says:
+
+#define SYS_ID_AA64DFR2_EL1                             sys_reg(3, 0, 0, 5, 2)
+
+Matches:
+
+	ID_FILTERED(ID_AA64DFR0_EL1, id_aa64dfr0_el1, ...)
+	ID_SANITISED(ID_AA64DFR1_EL1),
+	ID_UNALLOCATED(5,2), <--- here
+
+In sys_regs.c, i.e. not wired up and:
+
+	if (!kvm_has_feat(kvm, ID_AA64DFR2_EL1, SPE_nVM, IMP))
+
+Is always true.
+
+So can this just be something like:
+
+	/*
+	 * ID_AA64DFR2_EL1 is not exposed to guests, so FEAT_SPE_nVM is never
+	 * enabled.
+	 */
+	res0_mask |= PMBLIMITR_EL1_nVM_MASK;
+
+Perhaps?
+
+> +
+> +	if (!kvm_has_feat_enum(kvm, ID_AA64MMFR0_EL1, TGRAN4, NI))
+
+I was very confused by this btw, but it turns out that TGRAN4 = NOT
+supports TGRAN4. But then the 'NI' == not implemented... :)) So ! here
+means not not, i.e. does, so nothing to do.
+
+Why the _enum() btw?
+
+Could this just be:
+
+	kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, IMP)
+
+?
+
+> +		goto set_mask;
+
+While it involves more nesting, I think it'd be clearer to just do
+something like:
+
+	/* If 4 KB unsupported, extend res0 to 16 KiB or 64 KiB granule size. */
+	if (!kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, IMP)) {
+		if (kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, IMP))
+			res0_mask |= GENMASK_ULL(13, 12);
+		else
+			res0_mask |= GENMASK_ULL(15, 12);
+	}
+
+Are these magic numbers really necessary in general btw? Can you not use
+defined values? That would eliminate the need for too many comments too
+actually.
+
+If I go off pattern matching I see (the very long line :P):
+
+#define PMBLIMITR_EL1_RES0                              (UL(0) | GENMASK_ULL(11, 8) | GENMASK_ULL(6, 6) | GENMASK_ULL(4, 3))
+
+So:
+
+	u64 res0_mask = GENMASK_ULL(11, 8) | BIT(6) | GENMASK_ULL(4, 3);
+
+Could be:
+
+	u64 res0_mask = PMBLIMITR_EL1_RES0;
+
+And you could do similar things for the rest I think?
+
+Like:
+
+	/* If 4 KB unsupported, extend res0 to 16 KiB or 64 KiB granule size. */
+	if (!kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, IMP)) {
+		if (kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, IMP))
+			res0_mask |= PMBLIMITR_EL1_LIMIT & (SZ_16K - 1);
+		else
+			res0_mask |= PMBLIMITR_EL1_LIMIT & (SZ_64K - 1);
+	}
+
+> +
+> +	if (kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, IMP))
+> +		res0_mask |= GENMASK_ULL(13, 12);
+> +	else
+> +		res0_mask |= GENMASK_ULL(15, 12);
+> +
+> +set_mask:
+> +	WRITE_ONCE(kvm->arch.kvm_spe.pmblimitr_el1_res0_mask, res0_mask);
+
+RE: The sashiko thing about WRITE_ONCE()/READ_ONCE() pairing (valid I
+think), could you just compute this in kvm_vm_finalize_sys_regs() on first
+run, rather than in kvm_spe_vcpu_first_run_init() below?
+
+Then that, under the config lock, will be a single writer with no vCPUs
+racing?
+
+> +}
+> +
+> +int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
+> +{
+> +	struct kvm *kvm = vcpu->kvm;
+> +	struct kvm_spe *kvm_spe = &kvm->arch.kvm_spe;
+> +
+> +	if (!kvm_vcpu_spe_initialized(vcpu))
+>  		return -EINVAL;
+>
+> +	if (!kvm_spe->pmblimitr_el1_res0_mask)
+> +		kvm_spe_compute_pmblimitr_el1_res0_mask(kvm);
+> +
+>  	return 0;
+>  }
+>
+> @@ -85,8 +115,12 @@ void kvm_spe_destroy_vm(struct kvm *kvm)
+>
+>  bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
+>  {
+> +	struct kvm_spe *kvm_spe = &vcpu->kvm->arch.kvm_spe;
+> +
+>  	switch (reg) {
+>  	case PMBLIMITR_EL1:
+> +		val &= ~kvm_spe->pmblimitr_el1_res0_mask;
+
+The bot raised this potentially allowing raw writes I think, as the mask is
+only actually set up on first run, so it does seem sensible then I think to
+recalculate the value of PMBLIMITR_EL1 at first run time.
+
+(Also obviously sashiko noted the need for a READ_ONCE() of the mask here
+also!)
+
+> +		fallthrough;
+>  	case PMBSR_EL1:
+>  	case PMBPTR_EL1:
+>  		__vcpu_assign_sys_reg(vcpu, reg, val);
+> @@ -217,7 +251,7 @@ int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+>  	if (!vcpu_has_spe(vcpu))
+>  		return -ENODEV;
+>
+> -	if (vcpu_spe->initialized)
+> +	if (kvm_vcpu_spe_initialized(vcpu))
+>  		return -EBUSY;
+>
+>  	switch (attr->attr) {
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 89b01b6ac783..4c4bf88c9aa5 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1563,6 +1563,38 @@ static unsigned int spe_visibility(const struct kvm_vcpu *vcpu,
+>  	return REG_HIDDEN;
+>  }
+>
+> +static int set_user_spe_sysreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+> +			       u64 val)
+> +{
+> +	int reg = r->reg;
+> +
+> +	if (!kvm_vcpu_spe_initialized(vcpu))
+> +		return -EBUSY;
+
+I know the bot raised this -EBUSY return. Digging into it, it seems it's 4.84
+from Documentation/virt/kvm/api.rst, i.e. the KVM_GET_REG_LIST docs:
+
+	This ioctl returns the guest registers that are supported for the
+	KVM_GET_ONE_REG/KVM_SET_ONE_REG calls.
+
+You said to sashiko that you update the interrupt level here via a
+PMBSR_EL1 write in a later patch, but I think that's questionable in
+general.
+
+The semantics seem clear that this should be a plain write, and if it's
+sometimes not correct to take a further action (i.e. initialisation has not
+completed yet), that implies it should live somewhere else.
+
+So I'd update things to keep this as a plain read/write, and do whatever
+else you need to do at the right time, e.g. at first run?
+
+Given that I think the right thing to do here is to remove the checks, I
+_think_ everything should still work fine right?
+
+> +
+> +	if (reg == PMBLIMITR_EL1 || reg == PMBPTR_EL1 || reg == PMBSR_EL1)
+> +		kvm_spe_write_sysreg(vcpu, reg, val);
+> +	else
+> +		__vcpu_assign_sys_reg(vcpu, reg, val);
+> +
+> +	return 0;
+> +}
+> +
+> +static int get_user_spe_sysreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+> +			       u64 *val)
+> +{
+> +	int reg = r->reg;
+> +
+> +	if (!kvm_vcpu_spe_initialized(vcpu))
+> +		return -EBUSY;
+
+Similar comments here to the above obviously.
+
+> +
+> +	if (reg == PMBLIMITR_EL1 || reg == PMBPTR_EL1 || reg == PMBSR_EL1)
+
+Hmm some duplication here, and you do also elsewhere adjust behaviour based
+on buffer registers or not, so could this be separated out into a
+predicate?
+
+> +		*val = kvm_spe_read_sysreg(vcpu, reg);
+> +	else
+> +		*val = __vcpu_sys_reg(vcpu, reg);
+> +
+> +	return 0;
+> +}
+> +
+>  static bool access_spe_reg(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+>  			   const struct sys_reg_desc *r)
+>  {
+> @@ -1610,11 +1642,13 @@ static bool access_spe_reg(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+>
+>  #define SPE_SYS_REG(name)						\
+>  	SYS_DESC(SYS_##name), .reg = name, .access = access_spe_reg,	\
+> -	.reset = reset_val, .val = 0, .visibility = spe_visibility
+> +	.reset = reset_val, .val = 0, .visibility = spe_visibility,	\
+> +	.set_user = set_user_spe_sysreg, .get_user = get_user_spe_sysreg
+>
+>  #define SPE_UNTRAPPED_REG(name)						\
+>  	SYS_DESC(SYS_##name), .reg = name, .access = undef_access,	\
+> -	.reset = reset_val, .val = 0, .visibility = spe_visibility
+> +	.reset = reset_val, .val = 0, .visibility = spe_visibility,	\
+> +	.set_user = set_user_spe_sysreg, .get_user = get_user_spe_sysreg
+
+Similar comment about the duplication of these as per previous patch review :)
 
 >
+>  /* Macro to expand the AMU counter and type registers*/
+>  #define AMU_AMEVCNTR0_EL0(n) { SYS_DESC(SYS_AMEVCNTR0_EL0(n)), undef_access }
 > --
-> With Best Regards,
-> Andy Shevchenko
+> 2.43.0
 >
 >
+
+--
+Cheers, Lorenzo
 
