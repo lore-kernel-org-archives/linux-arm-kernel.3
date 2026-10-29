@@ -2,73 +2,126 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C66CD606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 16:58:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29804606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 17:14:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=5GUZzzZm;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DJJ6of28
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HqI3qR1g;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UxJx7AUQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=qS+HEkR0vDGWLdjeSo4joCKjj6Y1JdTXkJiDIbjQdvo=; b=5GUZzzZm85CNjAo4mFTk7b+0gd
-	gn6YLv1/ayv/2f0wcYJgirZdAbZ/Rtntenj08JSem63qrDEjuwsH0Sg3uSltozY6KO8U3D9glz8mQ
-	wxw5URcfULhYhzbbx5ON+/cyV4YW/N5ZxI/LGHfudm8+3EIAbrWxmCFBRaMhizxtXtEBCNc4RSZYJ
-	T9EJspp1d3s1ImKS1uT0lnLZnDopvBTwi8Q/t5I0qbpe0bAbSCfkPktCvjutBBfRUChK3II0fhQI5
-	6ixRFcp2Sd0OE5AIesG0UHsly7GMO0R0zFqoXYM9M1mwRikts/m/nS8R7f+1K7EPQBw56KRAZwtUE
-	v0YGJq+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=FTbT3tgSxeUnwmRhmxtw1LLZfXKECJjTK/sp07zcT8c=; b=HqI3qR1gPTPqQr
+	aHa5xX0dFg9wsTYrJfEudt+C48Q95TX1elgsI1xM7kFb7YRUtkr5LfzjZI1hf3ToO5CdtV2fliTmJ
+	iYhBuA7GBPCzBy8l7EH6tAEIsCsYq98pIX2IshGxihumCQECgZuquY6+GU31GymogIXDIBLRaBmSV
+	GxU92yW1VgS5FbiVI2urzDJmVMu0Pau6qunJzfT8RfeqaUAtM1iLSpBcGm1SUDNMoGkfBopJNWsSZ
+	6iWg1O9OVjF2ZqVrwyWyJewL5S5wPsqgg9FMG2n28SWplzhVyc1g1yZA8qvzXbCJDR0+Kf/ZgK7xo
+	yqF8iU/1VsA9+FomrZ/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMTS9-00000009tzo-2rIS;
-	Thu, 29 Oct 2026 16:58:13 +0000
-Received: from out-73.mta0.migadu.com ([2001:41d0:1004:224b::49] helo=mta0.migadu.com)
+	id 1xMThe-00000009wJk-38kq;
+	Thu, 29 Oct 2026 17:14:14 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMTRo-00000009tYk-0vSl
+	id 1xMThb-00000009wJ7-0uxB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 16:57:55 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=CAYOtMfAj2CKhNyLkHjEGE+Ku1FgcGL4RmYNUgnppcs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793293069; v=1; x=1793897869;
- b=DJJ6of28Sv53LKrKVpHYxU8UvNo/3F/LAeH/M2sEW9rTsJBNEGzpOMrVf+DGC8Jpnn1d1qIY
- pURL1Sanj3w5ARUiBNlp5LIY8SPvHaXCvGproA52siS7rf7jNznJbk7JMCDIdmOjn7E385Z+Kds
- cLAewYbrHlWZPtgNnjh4mX3A=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id b8a209880955641a;
-	Thu, 29 Oct 2026 16:57:49 +0000
-X-Mizu-Trace-ID: b8a209880955641a
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 29 Oct 2026 16:57:38 +0000
-From: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Sami Tolvanen <samitolvanen@google.com>, Kees Cook <kees@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Puranjay Mohan <puranjay@kernel.org>, 
-	Ard Biesheuvel <ardb@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>
-Cc: Ben Cressey <ben@cressey.dev>, 
-	Florent Revest <florent.revest@linux.dev>, Bill Wendling <morbo@google.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-Subject: [PATCH v3 7/7] arm64: ftrace: Allow CALL_OPS on kCFI kernels built
- with Rust
-Message-ID: <20261029-b4-arm64-callops-kcfi-v3-7-1b011ad5ddec@linux.dev>
-X-Mailer: b4 0.15.2
-References: <20261029-b4-arm64-callops-kcfi-v3-0-1b011ad5ddec@linux.dev>
+	Thu, 29 Oct 2026 17:14:12 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6ae305e3bd9so4366072a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:14:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793294049; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Az1zGYqWQrP9YvlZ0CRKnm05or9X/xRSJLiLxUomgFw5RWO5ZV9qD6GUV3c/4pseje
+         MjR0/GBQPPi+iBYKOpkiMhrQx4nMQEGjoOjs7O4Hpa81ZS5JhT9n9VWsYl8q3ciuTQn2
+         9PUUWH54hbuguU6JtNZY2l1RkS0MSg3Q2pQ52QQMp7yiezWQTWJ5RYY3ebSwYaUHbyDg
+         DH2TADI2WWrMg8nMjkmiR4GYTtN6vfwbpK/SJ+Prx31PyE0BIQ/OoHveF5jWIgSBNRYn
+         harpuQKFLZMQu8t6SH/SUqJmHWy2fIaJXcDGJXT5271Eu5kY89serea3aWVNwv6Qoe1V
+         ej/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=FTbT3tgSxeUnwmRhmxtw1LLZfXKECJjTK/sp07zcT8c=;
+        fh=8Xrf0xu58uKXrlFgRuA00qe51c5Mitpa3SYN6yy26Gg=;
+        b=E1s8JzB0MQ14S8gjc3J375n6o6wxyUWy+JfaHSP1UNaHMUKedgS+TGKp4Qjp7rSB0z
+         6+bVEn/xHZzKB0pKurLQo6GdXqSr2+buCcffwf6LsE36R/cjc+k7Gb1MCbHMbE7ncIAl
+         weRRoeMVTyOLbIwET0N/nN1M9zB59PFe8N0rXjBbS7vlqz3ipifmtaTHUkcpO8Rp0bvo
+         P/FT43bbLAe99yMeSuqFRZzPxXzdO8d7DGXiZUwQRXbnsr4tPpBzplZt472OEZlc8FeW
+         w7K0bkc4NrMV5ngf/F/KxD7Ec7ypnNJIzcFbeuunCX8NwZ2/C0gsiD6WvdNzqPwmRwVI
+         5Bvw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793294049; x=1793898849; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=FTbT3tgSxeUnwmRhmxtw1LLZfXKECJjTK/sp07zcT8c=;
+        b=UxJx7AUQ89d6Mv/pJI2MJm87oftUtM8z1zRYmJzcVntvAoj52lg4O67/WjC5R9i+gv
+         WoRlbo+Y7b5faE95a3Sx/LvlfPl6SgS+eOD7ZNHdt8hZTei5sB9FuUDa2KB3prgHoLRQ
+         iaz/h6c9qp30Wy+AJH2xvbA0l+VtmkdFPHKQpdAgV2aVfyTJ0sg2bcEId35h/9giyHKl
+         qUAxGN+fjt9VwiWf4c3lyEHVdw9bF23emFELDNC0pWYIVlmsbJaXEX4sDuS/LoKQPsx+
+         S5dvVDUpjl3t7TBFcT/6QFtuvCxI9kk6iCSJoUZ0VeUD1JJ69QpXaUnOanqcu5p+8cOe
+         Hq7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793294049; x=1793898849;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FTbT3tgSxeUnwmRhmxtw1LLZfXKECJjTK/sp07zcT8c=;
+        b=g/yPBi8AXf0neTORuKz1gaMMVJDo1OHi4upUZpjH0jdM4UpPfUMtQYFZfBfB/c+xVO
+         YjdJSDoLOW15lssLaoM5B1xdmKD+ZwRnQET4CFXP8dk4E4hwgAOD++viGQPjl1gwaoDv
+         ulUUJwlyTRpaMEAzuqCxNLBC599mtPL86qkopap5OOE/mbqeHN3qDMgDzM9XE9hAAYpX
+         huQRgGmivtEmEDTRMw9iYNUds9qDqAZ5LtINKmUgljYXyz0MuCjpuSITzjWJziFGfTGQ
+         Zdl6h66bOvCYsFy82ZzH6BGKB6ojbOvaypHaKB2VMdNzEZWufyTVMvqEhzCVM9CF3OqI
+         IW6A==
+X-Forwarded-Encrypted: i=1; AKwUvByEka0e5xW/fCCEtywzVm3QlRuGHeDuuLnIER9KVvrEVGaiba0dPuugs1/VNID3CeZOOHfFG7CPAqG8k8wKTXeY@lists.infradead.org
+X-Gm-Message-State: AFq9FYKO+ZV5sb4gSoyBHd4w5oEPcmN+LjvvAz+DzHOuXtJ7FJ3hI66M
+	MQAiMu09D8vwW0v7WYbFoD4qH0nSV9MAY3d2BApIH23lr3xfZJCddx8tOn54Gtfyr2/pbqEDC2W
+	bKLGIHi3FdYIxPjGkLYubhp8XxchhKSw=
+X-Gm-Gg: AYBFou09gz69gh4YU7vAafp1QVAXzKIOdbClAwtUKYUXEAaErEgJDW1Z/cQ2CtBoJMk
+	Z/Bg+Vdw1g86uc0i4Gpp3w8+lxQUZCJsJh6ZURuqJSR1v4L7KIVzdN03Ww+SR/erlfU1LwVSPEY
+	T3IkteY89VQ4yqToTwbk5Xi5ZpthGDyn3ybZ3vjte8w0NCnYJvMlZCpQPT+tZRovArSIaO8OfjM
+	U1bLjDV2HuwQrXAFha3Yw4R2i73lLBYwK9t75hfeuugwB7L3ZRmuUz7rPPqQNhN3nTEL52hvO3a
+	X6N5eldzXpwoC0TvgP8ZuOj3U692V7GpjEDqoKQvQD0K7AX0kBgxPz5WVfu6OWWUl0gB9ztDjbq
+	K3zzJPTskvfYueZoDq9jF2PY7a4rjqWPkesLuRXEuBBVxHWCNDVsguo5NhwOiEYyeBqfQZUxmTY
+	BBQ/yc3G1DCBBOlxopSJeRRz1mwH7vRyczhAAyuh2Ox2h0PlLbiicw5ikh9ReIKZm2KkOG+CuZI
+	RAwxek0HRRho5GA9ahO99uGMhNyKA==
+X-Received: by 2002:a05:6402:1cc4:b0:6aa:9830:aa21 with SMTP id
+ 4fb4d7f45d1cf-6b49cb8eabemr4436038a12.39.1793294048534; Thu, 29 Oct 2026
+ 10:14:08 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261029-b4-arm64-callops-kcfi-v3-0-1b011ad5ddec@linux.dev>
+References: <20261029-submit-serial-8250-dma-cancel-v1-v8-0-3fd56ba352ed@gmail.com>
+ <20261029-submit-serial-8250-dma-cancel-v1-v8-2-3fd56ba352ed@gmail.com> <auNVk_Y8iiAXyFa3@ashevche-desk.local>
+In-Reply-To: <auNVk_Y8iiAXyFa3@ashevche-desk.local>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Thu, 29 Oct 2026 11:13:56 -0600
+X-Gm-Features: AclHuK8vSM1CWTDsGeWZ16QtCofwiUc2xcHxHUC_tVZ5DI3qrKZF21jWZD2zp04
+Message-ID: <CADvTj4pwVF7u-6z3RUiHWGyG3MZGFU2WkytMRh0G16pdFwaotQ@mail.gmail.com>
+Subject: Re: [PATCH v8 2/6] serial: serialize asynchronous write wakeups with
+ the port lock
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Raul E Rangel <rrangel@chromium.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Tony Lindgren <tony@atomide.com>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Richard Genoud <richard.genoud@bootlin.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+	=?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, "Maciej W. Rozycki" <macro@orcam.me.uk>, Timur Tabi <timur@kernel.org>, 
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_095753_982613_BA91CF53 
-X-CRM114-Status: GOOD (  13.47  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261029_101411_296152_B1847CFF 
+X-CRM114-Status: GOOD (  25.99  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,94 +132,117 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-23.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Pass -Zpatchable-function-entry=M,M,.discard.patchable_function_entries
-to rustc when CFI and CALL_OPS are both enabled, so Rust functions get
-the same prefix NOPs as C functions. The section argument needs
-Rust 1.98 [1]. Probe for it, and let ARM64_CFI_PERMITS_CALL_OPS
-accept RUST=y when the probe passes.
+On Thu, Oct 29, 2026 at 8:18=E2=80=AFAM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
+>
+> On Thu, Oct 29, 2026 at 01:36:58AM -0600, James Hilliard wrote:
+> > uart_write_wakeup() expects the UART port lock to be held. Several work=
+er,
+> > DMA completion and interrupt paths call it without that lock, including
+> > indirect calls from uart_handle_cts_change() and the transmit helpers.
+> >
+> > Take the port lock around these notifications or their transmit helper.
+> > Keep sleeping SPI and regmap accesses outside the locked region, and ke=
+ep
+> > the FSL LPUART completion lock held through its wakeup. Acquire the por=
+t
+> > lock after releasing private channel locks to preserve the ordering use=
+d
+> > by UART callbacks. In the MUX timer, publish available FIFO space under
+> > the port lock and keep the hardware FIFO-drain wait outside it.
+> >
+> > Use IRQ-safe locking in the Atmel RX and TX tasklets and SB1250 termios
+> > path, since their interrupt handlers now acquire the same port lock.
+> > Preserve the caller's interrupt state when releasing those locks.
+> >
+> > On SB1250, lock modem-state updates after reading and filtering the cha=
+nge
+> > status, and wake modem-status waiters after unlocking. Take the TX lock
+> > inside its service routine so RX-only interrupts need no acquisition.
+> > Keep that lock across x_char handling, FIFO consumption and the decisio=
+n
+> > to mask TX interrupts: a writer must not enqueue data and enable TX bet=
+ween
+> > the empty-FIFO check and the interrupt-mask write. Each TX invocation s=
+ends
+> > at most one character.
+> >
+> > Serialize CLPS711x TX servicing and its interrupt-enable state with the
+> > port lock. Disable TX interrupts without waiting in stop_tx(), since a
+> > threaded handler may need that same lock. Have an already queued handle=
+r
+> > leave stopped output untouched, and drain it outside the lock during
+> > shutdown before the transmit FIFO can be released.
+> >
+> > SCCNXP handles interrupts under a controller lock which its UART callba=
+cks
+> > acquire with the port lock already held. Collect the ports needing wake=
+ups
+> > in an unsigned long bitmap while servicing the controller, then release
+> > that lock before visiting the set bits, taking each port lock and
+> > rechecking the wakeup threshold. Removal drains the IRQ or timer before
+> > unregistering the ports.
+> >
+> > This serializes write notifications with port-locked serial-core state
+> > changes, allowing readiness and transmit-storage reservations to gate t=
+he
+> > notification without a check-versus-shutdown race.
+> >
+> > Cover DZ TX servicing and JSM Classic modem notifications as well. On
+> > DECstation ZS, acquire the port lock before the SCC lock and notify wri=
+ters
+> > after releasing the SCC lock. Defer normal TX restart after console out=
+put
+> > to a worker, since console output can already run under the port lock.
+> > Check transmitter readiness before consuming another character and drai=
+n
+> > the restart worker during shutdown and removal. Release Lantiq's hardwa=
+re
+> > lock through the transmit helper's completion hook before notifying the
+> > line discipline.
+>
+> ...
+>
+> > static irqreturn_t serial21285_tx_chars(int irq, void *dev_id)
+>
+> >       struct uart_port *port =3D dev_id;
+> >       u8 ch;
+> >
+> > +     guard(uart_port_lock_irqsave)(port);
+>
+> Why _irqsave?
 
-Filter -fpatchable-function-entry out of bindgen's C flags on every
-architecture, not only on arm64 with CFI, since removing the flag does
-not change the ABI.
+For serial21285_tx_chars(), a plain uart_port_lock guard is sufficient.
+It is only registered as an IRQ handler; saving and restoring the IRQ
+state adds no protection on the hard-IRQ path. The necessary change
+here is acquiring the port lock.
 
-[1] https://github.com/rust-lang/rust/pull/157445
+>
+> >       uart_port_tx_limited(port, ch, 256,
+> >               !(*CSR_UARTFLG & 0x20),
+> >               *CSR_UARTDR =3D ch,
+>
+> ...
+>
+> Same Q everywhere (it might be legit in some cases,
+> it might be too strong in others).
 
-Suggested-by: Ben Cressey <ben@cressey.dev>
-Reviewed-by: Ben Cressey <ben@cressey.dev>
-Reviewed-by: Florent Revest (Anthropic) <florent.revest@linux.dev>
-Acked-by: Alexei Starovoitov <ast@kernel.org>
-Assisted-by: LLM
-Signed-off-by: Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
----
- arch/arm64/Kconfig  | 7 ++++++-
- arch/arm64/Makefile | 3 +++
- rust/Makefile       | 7 ++++++-
- 3 files changed, 15 insertions(+), 2 deletions(-)
+The other sites have different calling contexts. Workers and tasklets
+can share the lock with a hard IRQ, and some helpers have callers with
+different incoming IRQ states. Those need different treatment from
+hard-IRQ-only handlers.
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index e8cb44d881d0..e64d053e1854 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -277,11 +277,16 @@ config CC_HAS_PATCHABLE_FUNCTION_ENTRY_SECTION
- 	# https://github.com/llvm/llvm-project/pull/131230
- 	def_bool $(cc-option,-fpatchable-function-entry=1$(comma)1$(comma).discard.patchable_function_entries)
- 
-+config RUSTC_HAS_PATCHABLE_FUNCTION_ENTRY_SECTION
-+	# The section argument needs Rust 1.98.0 or later:
-+	# https://github.com/rust-lang/rust/pull/157445
-+	def_bool $(rustc-option,-Zpatchable-function-entry=1$(comma)1$(comma).discard.patchable_function_entries)
-+
- config ARM64_CFI_PERMITS_CALL_OPS
- 	def_bool y
- 	depends on CFI
- 	depends on CC_HAS_PATCHABLE_FUNCTION_ENTRY_SECTION
--	depends on !RUST
-+	depends on !RUST || RUSTC_HAS_PATCHABLE_FUNCTION_ENTRY_SECTION
- 
- config ARM64_FUNCTION_PREFIX_NOPS
- 	int
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 9fbfe5ab3724..b47733b585b5 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -147,6 +147,9 @@ ifeq ($(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS),y)
- 			 -DCC_USING_PATCHABLE_FUNCTION_PREFIX=$(prefix_nops)
-     KBUILD_CFLAGS += $(CFI_PREFIX_CFLAGS)
-     export CFI_PREFIX_CFLAGS
-+    # Rust functions are not patched by ftrace, but they are called indirectly
-+    # from C and make indirect calls themselves, so they need the same prefix.
-+    KBUILD_RUSTFLAGS += -Zpatchable-function-entry=$(prefix_nops),$(prefix_nops),.discard.patchable_function_entries
-   endif
- else ifeq ($(CONFIG_DYNAMIC_FTRACE_WITH_ARGS),y)
-   KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
-diff --git a/rust/Makefile b/rust/Makefile
-index 0ac9ab28cc2b..686964c826f7 100644
---- a/rust/Makefile
-+++ b/rust/Makefile
-@@ -511,7 +511,12 @@ endif
- # prototypes for functions like `memcpy` -- if this flag is not passed,
- # `bindgen`-generated prototypes use `c_ulong` or `c_uint` depending on
- # architecture instead of generating `usize`.
--bindgen_c_flags_final = $(bindgen_c_flags_lto) -fno-builtin -D__BINDGEN__
-+#
-+# Do not pass -fpatchable-function-entry to bindgen: its libclang may not
-+# support the section argument (Clang >= 21), and removing the flag does not
-+# change the ABI.
-+bindgen_c_flags_final = $(filter-out -fpatchable-function-entry=%, \
-+	$(bindgen_c_flags_lto)) -fno-builtin -D__BINDGEN__
- 
- # `--rust-target` points to our minimum supported Rust version.
- quiet_cmd_bindgen = BINDGEN $@
-
--- 
-2.54.0
-
+>
+> --
+> With Best Regards,
+> Andy Shevchenko
+>
+>
 
