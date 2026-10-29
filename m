@@ -2,88 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24CFD606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D1A9606A329
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 18:47:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=j+hL4C4D;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qS9sB+9t
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lXOszPbN;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q6vpx6bc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=DRBWX4J/Ak94TbpMM7HoAnpLEmSCyB3p+1+fdXZAg3w=; b=j+hL4C4D1mlEMs
-	ut0H9Hmdf5HLV1J2BF5lCTN844PFMbcQTS7xNDAOr4mbr6+nhIqTbAIG0GsRrBcNKJAQ/yfnd8lfo
-	NZSrkmFUbdaBY+AOJuNpv7veY1CZ5g37fjPobaMRNL62aZaWdbMz5R7an76Qui7vI9DFu4gLf+zA6
-	0A0vtCpgcGJ2wUULNbaJDMy3PS35awQSjj8FveKmH6u0ydu+kuv8fVS0ZWYlqVz1uy3uT/V3Tla4W
-	5IDoP4ta1L5GgYr7tDVwFyi7DfBXuLS+qFnPAUMCksdaPk7CzX1QYMx2sVR57ZgCoLBkbUG2f3RV8
-	YRVSsvtFubdG2iAOmaEw==;
+	List-Owner; bh=NCqbgiCveDVRhli2P2PmmtvKmmMz/nrumey9OJpxfP4=; b=lXOszPbNM7spHx
+	O2/wXcreD8q+JVnbQORfG3aFuNGF7Dq42GbwA91IqeO/W6eIQ599Q1u9iKor9GRvmDmtCRt/yiL6T
+	iCUrzJ07J2Y3fGF58+uVF6tWGU0K0eC6XwT1TGme/NZs7ZVV6AcLBh++HNXLGJNNUPuexQ4U9niR2
+	aeJVNrMptBt/eqtFPMdaFlvrHiE0X+2CUOXv9idBJ1PNoIhZJyRfvhcHQQDLMNlLXqaHvqJN4T+QT
+	kdn11y6TXg1f5m6F80zcw8dtYxTP4S1ROkpqb5tGeQtURYYOTyM/rP3XubwoBHLoFau4WZc0akEYi
+	m3wGUr1CMrPHjfpN570w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMVAD-0000000AAAW-2Ixz;
+	id 1xMVAD-0000000AABK-3aa6;
 	Thu, 29 Oct 2026 18:47:49 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMVA3-0000000AA4z-45P4
+	id 1xMVA6-0000000AA6U-0LPS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 18:47:41 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-6b1afdf5196so1052486eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 11:47:39 -0700 (PDT)
+	Thu, 29 Oct 2026 18:47:43 +0000
+Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-823b938464fso1709758a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 11:47:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793299658; x=1793904458; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793299661; x=1793904461; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=DRBWX4J/Ak94TbpMM7HoAnpLEmSCyB3p+1+fdXZAg3w=;
-        b=qS9sB+9tbzLSDMfYSVh3439npGA/Qb8fw/yKkdTqI14LD2k5ZBUMVI8Zk8D5zoI5VE
-         HUrLX6D1EJjjKGj8vCVJGDt7lQSJFKm7XUa/0tPlLKZDfv5EAcbHpjLdDuTkinZUF4UR
-         31k4KnwUC3QMJYA9gx6jNCkrBCa9ix/b8U4mXPXSsTRx6Kr1tQqmoj9SWMoOqHg9uzwh
-         5WbsB70hmqCjd+qP4N9H5DjZ6T4t7+/bje2utERBvScxFuZYfJPKUhxPdNW7Bq88mINX
-         6nBHY3PNnIH13yK4k7ZbjIu5XLMv/91d2UF9siyjrvp8Cv10ifFJpe7CZzkkfg5fYfIB
-         b39Q==
+        bh=NCqbgiCveDVRhli2P2PmmtvKmmMz/nrumey9OJpxfP4=;
+        b=Q6vpx6bcpXlC8eGZQFfne/Qb3nSXSZq7bX50F7XWlF/fPPYbBOVGHeIDS6wG7yqv2Y
+         mgWuQcoDQxHNkrbRnBI34AGf34CpNe4fL25CptvpV6I6nWc/+uU4qPJv/5GtU3Y5esbj
+         e1WhEit0EQVBk+pe11zIvJOjP6zaaacIPU0g9yJta/jLV6F8PpitQHbigVDIcbDTCAKx
+         vVLoH34onB4aILlBFGyckNRPgRGueJagS3WN5Gf/az8POPNuEKqpvDdRlOkWo4nE3AB2
+         S1+SaqaaWw4SOuCSDDtLLkVpPE2h53owPq4qwCCJKdGQcMWEdozwVF19xq6imjCBBnm0
+         hmkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793299658; x=1793904458;
+        d=1e100.net; s=20260707; t=1793299661; x=1793904461;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=DRBWX4J/Ak94TbpMM7HoAnpLEmSCyB3p+1+fdXZAg3w=;
-        b=aMDuug7nP0Gsg0ESEyx1Up97cEvvVUJ2z3+qYz0n6ylY97yUyMwBVt2IvbfjNMO7M3
-         bg0UHcA3gZp/5UAveKKQSIc2zae7NP9wxfQrxrWfi17EupWUKd0jHGJk8LzEvf0ZJsJf
-         4nrGGJexW8elnN1eHBioIeVXL1FGZ/iyDxyfEFlWt6aY0zSBQI3YOkQKan2T/ThHfWQo
-         ChVWEcR9CcPdzKqBqkepahaHCQtlYpcIcvQ61UtWJHrRmp0n6B0YHeOkc81PQcS6M2q6
-         YTX6u8S/mtYLDJZDjDolRuDUU01xs1RYn3FGJab89wbJraIh+WHXQQjvs3XoGRE7B4R7
-         3rhQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxIgDQKSHB6hFD/VeIJDoxbAc3LyRIXb1Uk/3F5UenuDSzlboraTXXSjB9vbFLnyfFWL5+8q2jepbkvtmSpqwMp@lists.infradead.org
-X-Gm-Message-State: AFq9FYI9RqE6rQFhrPjvSXDVos06rPlJcpfAqVNc+FIJKdO1eT19nlA6
-	f1ydvFRwiLwAfBqQTDcrHFmGEkTGUTxlmE2QZl4AQpwqoIIKyLnRsUq/
-X-Gm-Gg: AYBFou17Omh5O7WdxG3SRwCD/RMTHoNvJ+Lqow5OR+IcFM+EPYZsMbt10V76rGMeHIB
-	K0+iw3cmOLU1i/7U7SCMgchOM6CPv6PteJVZlDRqNjZnXJSOjjyz/cN6+c14PlpLd/GYzfWDYEH
-	8G8M0u9J7SN+TnGiuQw/WGc+wGBwPG8QTZ+NA9dO7wS7/j646QibV8PTM8WjDnSVS3R6USLgelB
-	uDUivIE6oQ1OkmJW5rot8AdcfzxoI1ry+U/bSC0UyOT7FvNu1OoTLF2nFWQunhX4YEDxe+69u1E
-	1SualQWCS2pku66fo4IKPYAjP07Tzqq9pXCQmrYwz035hBJym7a7cRJouLhk/efKmqtYMtDBsBq
-	tGdmZB/IsX9Kkn30RgqPUwbH5WCPYay24Z1qrSAv5xSeQ0rzOqHDgIgBgO37/zbS1CGTlxhzmz3
-	5lznkx627QuvcFGqq0HK9VMx9pB3ZZcXXOOzudaTnHOxGDqUo4OYkfYu/P3HNJY++KfI1tid2VO
-	SYt7j3ZQ4xHB8eSyqbUPwsnpJZ5wz34c1tWOu0+6sFA1HslHv2hbo/eUQYW9/qNSgDudpTcAOKZ
-	Y43wExlIsv0DToCjC+RO3LxOK64gLEd7C+NvjG3S1JnRSmYMLbqrzt2BoMVFDM6VrElYMJ1wEkZ
-	RIs6+wIuRvW6DBKZ6IpaHL4BKnIQudJ++nNb27jy1uGob2HYsN+6wpfTmwRfPiKbTzZ9qhpDWuv
-	F6sh+m1qOU2RNXBLgrhht7pubEarcBNtD05tILTRoYoAsJxXWop5GOmKk3dkaCh993C0Fz2tA7
-X-Received: by 2002:a05:6820:c44b:10b0:70e:1dd8:6712 with SMTP id 006d021491bc7-714f29f3ee8mr66212eaf.72.1793299658351;
-        Thu, 29 Oct 2026 11:47:38 -0700 (PDT)
+        bh=NCqbgiCveDVRhli2P2PmmtvKmmMz/nrumey9OJpxfP4=;
+        b=vjOnAb8Yq5N7wqLFs3jmwRJDhdvMXMgCJrlrd9xlXNKbnYlA60l243B2bdOGA+Znyh
+         MLU6w33SVgIx7JlkUyUl6uItIhLGQSGWlxPPC9JS9u001+5Aq74F6eTS9T/PHIR/GP5y
+         kWvt8eEViX1M0x9aBIG5tIPcKdmJd6rzBM3J5KLXiK26j/s4WNxeHW/ujAKC76rAgjQi
+         +yBlP/2rSsdZnJx9k7eC1rceZrPCWxjYMWkfaNeIbCoTdWbibjqchXJBjUcgBKbG+zFX
+         g0h9JVvl6qBaIJEVGHAm8drvGv2LkiQu1rXgWE5Ko+Ka/RIA47UPATsvZsVDOfFIOURp
+         KNQQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxmr6YCzchGB34a5usiIuHasbWGXkdsOZ4DF423mBa4aYMywMq7lJaTHrgB1l+SRQil0mBJKyjcmLplmLW04mXJ@lists.infradead.org
+X-Gm-Message-State: AFq9FYJwrlxc/mWYf+KwxHMCAhqGIr8c5YQ3ne8ue8kVww6C7KYUFixF
+	eDfZcj8VfNCvpsVICxBtS4e9QZiT5+kCYaQCsRZBfZ5j11LzhGW5fwr3
+X-Gm-Gg: AYBFou0C5T4Qqll0xOMIoPkLdGenc1czfUVXaljVBi7bV0RwdTd6N9PYoF5+ErKchF5
+	vXKZpgze2zWFa24cv70+/+MV9RGQ4Chv808iyESk9Fxa71PEuhijQpoAwYQTgzgTqt5mIFf3pgE
+	UNJIcXBWrrYkQgPFF7uXwHLfMSoTTH40LOUuQQw6pXq1BPtKGkERSQyRqUyDBcW6Swk/c0HbBPg
+	NzeenBBAfi7O+3zOOI7d9spEJJe5opF393rbSVH9kE3f9k4MuBOQ4950+WObOUKqBl/0BUl5eNT
+	uP2tSXUz1f1QDYebfbEk0B9+vJGqdnODhx+4qtyKYP9/PJxvNpa0z/A9avWWwesgXbvoKYsfafu
+	LYmmdG6B3eBcX2tCsYVTryfwoTxeKkhsRcc7vVwHfQP1Lz6szXNR452N7sd+acvb6nRO8J4FqQC
+	TGRf5O9Dxg9JDTh0qG9AivPdfCChFan3NKyoSbbCQvL/0q+sONlyl/jpmXqbeoc3huovPiC+Gey
+	uLkbPOkrzx6VONHUbaVszlDZUVxBM/wOcD772HKo5ynwMQgLBCjZSiWQBlA6OdxkPDXEq637Ydu
+	/gOsScRffrW+G4Wuga5ymhufAM7bFy7qMYCaXAqR7G0MUJ+XR6LgYw2J6hDtuQrNsdAnJzLXmfW
+	ANJeVcxBOdM2smQjRJUuoAT25f+VjOIy3oG0AJqBS1vOVE5ZV8KzpoywElaB/Aa4aI5Lxm2sIMa
+	zOKqqNu0B2nKebWw+G0DH/Kh3McrqGtigMRalAgBdKNIgUfYFtPUk=
+X-Received: by 2002:a05:6830:438b:b0:822:a76e:95c9 with SMTP id 46e09a7af769-85d364642f9mr40665a34.14.1793299661366;
+        Thu, 29 Oct 2026 11:47:41 -0700 (PDT)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-85d354cfb83sm221871a34.14.2026.10.29.11.47.37
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-85d354cfb83sm221871a34.14.2026.10.29.11.47.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 11:47:37 -0700 (PDT)
+        Thu, 29 Oct 2026 11:47:41 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 29 Oct 2026 12:47:26 -0600
-Subject: [PATCH v5 5/8] arm64: dts: allwinner: h616: describe the UART
+Date: Thu, 29 Oct 2026 12:47:29 -0600
+Subject: [PATCH v5 8/8] arm64: dts: allwinner: a523: describe the UART
  integration
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-submit-h616-uart-fifo-v1-v5-5-53b433aebbf8@gmail.com>
+Message-Id: <20261029-submit-h616-uart-fifo-v1-v5-8-53b433aebbf8@gmail.com>
 References: <20261029-submit-h616-uart-fifo-v1-v5-0-53b433aebbf8@gmail.com>
 In-Reply-To: <20261029-submit-h616-uart-fifo-v1-v5-0-53b433aebbf8@gmail.com>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
@@ -99,8 +99,9 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  linux-sunxi@lists.linux.dev, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_114740_028763_F1CD2A81 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20261029_114742_226313_C28C6B04 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,75 +121,94 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Identify the H616 UART integration on each of the six controllers. The
-specific compatible describes the fixed FIFO capacity, register layout
-and receive-trigger mapping.
+Identify the Allwinner UART integration on all eight CPUX controllers.
+The specific compatible selects FIFO-depth discovery through FCC and the
+Allwinner receive-trigger mapping. Each controller supplies its own depth,
+so the same compatible covers the different FIFO capacities.
 
-Retain snps,dw-apb-uart as the generic fallback. H618 includes this DTSI
-and uses the same UART integration.
+Retain snps,dw-apb-uart as a fallback. The common SoC description supplies
+these UART nodes to the A527 and T527 boards as well.
 
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-index c6b3a3f8359a..b4b2f85726e0 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-@@ -550,7 +550,7 @@ mmc2: mmc@4022000 {
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index 85ef492ffeae..23340b9f58cb 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -390,7 +390,7 @@ wdt: watchdog@2050000 {
  		};
  
- 		uart0: serial@5000000 {
+ 		uart0: serial@2500000 {
 -			compatible = "snps,dw-apb-uart";
-+			compatible = "allwinner,sun50i-h616-uart", "snps,dw-apb-uart";
- 			reg = <0x05000000 0x400>;
- 			interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-shift = <2>;
-@@ -563,7 +563,7 @@ uart0: serial@5000000 {
- 		};
- 
- 		uart1: serial@5000400 {
--			compatible = "snps,dw-apb-uart";
-+			compatible = "allwinner,sun50i-h616-uart", "snps,dw-apb-uart";
- 			reg = <0x05000400 0x400>;
- 			interrupts = <GIC_SPI 1 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-shift = <2>;
-@@ -576,7 +576,7 @@ uart1: serial@5000400 {
- 		};
- 
- 		uart2: serial@5000800 {
--			compatible = "snps,dw-apb-uart";
-+			compatible = "allwinner,sun50i-h616-uart", "snps,dw-apb-uart";
- 			reg = <0x05000800 0x400>;
++			compatible = "allwinner,sun55i-a523-uart", "snps,dw-apb-uart";
+ 			reg = <0x02500000 0x400>;
  			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
  			reg-shift = <2>;
-@@ -589,7 +589,7 @@ uart2: serial@5000800 {
+@@ -403,7 +403,7 @@ uart0: serial@2500000 {
  		};
  
- 		uart3: serial@5000c00 {
+ 		uart1: serial@2500400 {
 -			compatible = "snps,dw-apb-uart";
-+			compatible = "allwinner,sun50i-h616-uart", "snps,dw-apb-uart";
- 			reg = <0x05000c00 0x400>;
++			compatible = "allwinner,sun55i-a523-uart", "snps,dw-apb-uart";
+ 			reg = <0x02500400 0x400>;
  			interrupts = <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
  			reg-shift = <2>;
-@@ -602,7 +602,7 @@ uart3: serial@5000c00 {
+@@ -416,7 +416,7 @@ uart1: serial@2500400 {
  		};
  
- 		uart4: serial@5001000 {
+ 		uart2: serial@2500800 {
 -			compatible = "snps,dw-apb-uart";
-+			compatible = "allwinner,sun50i-h616-uart", "snps,dw-apb-uart";
- 			reg = <0x05001000 0x400>;
++			compatible = "allwinner,sun55i-a523-uart", "snps,dw-apb-uart";
+ 			reg = <0x02500800 0x400>;
  			interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
  			reg-shift = <2>;
-@@ -615,7 +615,7 @@ uart4: serial@5001000 {
+@@ -429,7 +429,7 @@ uart2: serial@2500800 {
  		};
  
- 		uart5: serial@5001400 {
+ 		uart3: serial@2500c00 {
 -			compatible = "snps,dw-apb-uart";
-+			compatible = "allwinner,sun50i-h616-uart", "snps,dw-apb-uart";
- 			reg = <0x05001400 0x400>;
++			compatible = "allwinner,sun55i-a523-uart", "snps,dw-apb-uart";
+ 			reg = <0x02500c00 0x400>;
  			interrupts = <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH>;
+ 			reg-shift = <2>;
+@@ -442,7 +442,7 @@ uart3: serial@2500c00 {
+ 		};
+ 
+ 		uart4: serial@2501000 {
+-			compatible = "snps,dw-apb-uart";
++			compatible = "allwinner,sun55i-a523-uart", "snps,dw-apb-uart";
+ 			reg = <0x02501000 0x400>;
+ 			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
+ 			reg-shift = <2>;
+@@ -455,7 +455,7 @@ uart4: serial@2501000 {
+ 		};
+ 
+ 		uart5: serial@2501400 {
+-			compatible = "snps,dw-apb-uart";
++			compatible = "allwinner,sun55i-a523-uart", "snps,dw-apb-uart";
+ 			reg = <0x02501400 0x400>;
+ 			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 			reg-shift = <2>;
+@@ -468,7 +468,7 @@ uart5: serial@2501400 {
+ 		};
+ 
+ 		uart6: serial@2501800 {
+-			compatible = "snps,dw-apb-uart";
++			compatible = "allwinner,sun55i-a523-uart", "snps,dw-apb-uart";
+ 			reg = <0x02501800 0x400>;
+ 			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
+ 			reg-shift = <2>;
+@@ -481,7 +481,7 @@ uart6: serial@2501800 {
+ 		};
+ 
+ 		uart7: serial@2501c00 {
+-			compatible = "snps,dw-apb-uart";
++			compatible = "allwinner,sun55i-a523-uart", "snps,dw-apb-uart";
+ 			reg = <0x02501c00 0x400>;
+ 			interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
  			reg-shift = <2>;
 
 -- 
