@@ -2,67 +2,162 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52847606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 07:58:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D99A8606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 08:01:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=no40cl5p;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hi+mzQl3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sjixhviy;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=hv8BcknV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=289kZZ1/nkDhGKXIhpS5F5P0X4MaBgwQ5nuxC8dw4d0=; b=no40cl5pw2m4wqKW40NiP9bf5E
-	/wCLrsxD2b3uW2NsU31D0f7Xas7v5TK5IyR6sQuHUZIvGtRfXR74LJFCVBTAbozyzshhEGEsDrV10
-	jCrMh9HzD1IRcOAwdEop6SylOhnsI+CJC9g7ylC2tzQnqv1RRNsVL/rWgz1NxYL3d8SXXyi/K9sK/
-	E7d2z+v0MJZ0O6pL04jn/xMaGWImsm0Lq/Sg+dSdr+AVFet5J1b/TIM64nuitnnHTR2ZQZJpTykoL
-	tk9Pxnqsb+BR/NKh/LBkaL3+I4USENhO6K9XFnvEVGb9ZIzESnJRFgWYl0LzQN3CJ7ghwVZ1VverH
-	9kLTgNeA==;
+	bh=h4SPeF3XTiM31B1zYroX9U/rQmkVAUVORfo85C3IF98=; b=sjixhviy5SHY9aLR5QQI7tMf2x
+	Vj1GqalLyeBKkTljDYgKL3Qi5Jy83tIiE7xCMrcGAOnoioZrkQT7Ldy+ftdpZKUp9SvZJ1iUymlo5
+	LlMPHmeAIGDzCI1GvTD/EyCg1BNXspSAnq87uM3xdPC3Ia3GCKqEkvjOAnsUxRZfsCifzJLNlXOsZ
+	6+Si5nDGZW0yeIlzwVeKlnlwKl26op+jSHYxOvgIWKHMWEaNeQLbzPWt2ujiGXLjZNsmzeR0/+ZL8
+	60r3fGdA/tOqIwjmaNsBXcC2lwVhlhpqrLE2GZ4QQxGD8opuoTI8zFPdqU/z2tTVDjoIHV/Vvu32b
+	Uj5iWBqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xML1Q-00000008enJ-1vjf;
-	Thu, 29 Oct 2026 07:58:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xML4I-00000008fWP-0At6;
+	Thu, 29 Oct 2026 08:01:02 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xML1F-00000008eaX-1peL
+	id 1xML4D-00000008fVR-45hY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 07:57:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5F10943461;
-	Thu, 29 Oct 2026 07:57:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D4491F01828;
-	Thu, 29 Oct 2026 07:57:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793260672;
-	bh=289kZZ1/nkDhGKXIhpS5F5P0X4MaBgwQ5nuxC8dw4d0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Hi+mzQl38D9qlo9q7fBAIiD5OmatwQ0Q3AFJ+Sp7akN37lYfcsJ7NeIMLZYwmzl50
-	 3eM/u2d9W98hlqDkS68N0RcHIULqdg86yqtBvPmszVfTDj0avflGSUZhb38D6aN3ds
-	 8poizS666U844EJ/xunsambKRqFeO80qhGg6iJDdKIVZnkbDxKlgb3V0UG96eCLO4n
-	 V7WruGu4bUtM15fLcDNfasdWHaEZcbl+uDd8CEb/GvPrsjcl0eC2BTx0F7wXLVQ7zJ
-	 4UdRWTW3tMF9//pxNOZSdoHHBw/D/yDXXP3cUNB/0uJ121LasSh/fcdt02tuPQkRnn
-	 h5w3wMtIFa5NA==
-Subject: Re: [PATCH net v4 3/3] net: stmmac: re-apply taprio offload in
- __stmmac_open() and stmmac_resume()
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- richardcochran@gmail.com, linux@armlinux.org.uk, Jose.Abreu@synopsys.com,
- james.hilliard1@gmail.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, rayagond@vayavyalabs.com
-Date: Thu, 29 Oct 2026 07:57:50 +0000
-Message-ID: <179326067100.3134.15863707026342807337@kernel.org>
-In-Reply-To: <20261026-stmmac-est-fixes-v4-3-999dac4de44f@oss.qualcomm.com>
-References: <20261026-stmmac-est-fixes-v4-3-999dac4de44f@oss.qualcomm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 29 Oct 2026 08:01:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XQ8JeLJ3wAIFH+z7htOsdczlBIZbVEtBlbD3Odcle028FU5ricscjO02iTglvvPnR64sNbhA3m8oEIYJMKEKr3Efl7WoNu6q2yd0gkTu5VQXbxXViaJRD5A/WEX83cL8DnpqnFN2nXWlCLwWv774oU6EjcTJHD3e/MVHFLedDnXqn6odgPJ996p28ubLC87L4ZORgooediANuhQ8ug+fK30/eAkKnpDw3dKtcLpek0bnFjyvp9zWyJT5Qv7hlqWB1NtawvJDnH0NpuzO+nVvGeUMQ0OWe+QPzXnk+rtT9IyrC9cygTUiSvPT1VvMfOfyS1qh/R/VRmsF3bwOJoQo/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=h4SPeF3XTiM31B1zYroX9U/rQmkVAUVORfo85C3IF98=;
+ b=FmN4k9C9x94yBwOFwvIzVsmo8cxIGp9wXDof45Aiu631Zz3CNdnyIY/DZfx+oRSBW6avlytFd5PfFIV+9VAWSODqMhA7DKjW0eWdA7J5yxVMVPJpRorrg9TCucauVcewDmlMFZZcfmVLufXIfoFBKG6YDYYzrFvPoaSltK7AdITo6zOMzZnqY7ZqGKF+BsIL64GX95Lcc9MTtkVn7YCbfiqaRLnYRg5nYRhFMIuwTtuFNvL9XzO3sa8gnhvo76SWoaoKawUuEiGg3XPAI4jlutXCF+T1GSpHOvFCkFPyWxqPl6mnq9lR9LYbqJlGabJfACCbyKnBlzc1YFikxjIhaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=h4SPeF3XTiM31B1zYroX9U/rQmkVAUVORfo85C3IF98=;
+ b=hv8BcknV20sWdNImNZoXj4ple1UtPx8zzBwKVV8xOw8tifvoQa7cdLO+Jc3yIZBKvcFP+W4YHSmGpfkoQemMwIOFDZTW08C1soR7KrVXqKJlzaFLKB/5xAUWk5VRWU6SBFaqavDSsEgnM+x0SCADCLEnNUc4+xLtgkxpvJfDft7NpTZBc9IH+7frxFSojxVB6ejVVboFLquwwImvgM72kwktaph1t9/eYT0UVVnAyAAGnE32z1Ke73fvJaol5WcwI0f0q+GB9uV55o/Su3VYqUUpO3/2gVjFJyvHE8hd1ai37rXK8/KV8fzEpd56TDUsJuCpfA100UNn5sze/2Hwfg==
+Received: from SJ0PR12MB8614.namprd12.prod.outlook.com (2603:10b6:a03:47d::17)
+ by DM4PR12MB6232.namprd12.prod.outlook.com (2603:10b6:8:a5::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.546.20; Thu, 29 Oct 2026 07:58:56 +0000
+Received: from SJ0PR12MB8614.namprd12.prod.outlook.com
+ ([fe80::fe0a:6e6a:fe60:a43b]) by SJ0PR12MB8614.namprd12.prod.outlook.com
+ ([fe80::fe0a:6e6a:fe60:a43b%5]) with mapi id 15.21.0569.007; Thu, 29 Oct 2026
+ 07:58:56 +0000
+From: Shameer Kolothum Thodi <skolothumtho@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+CC: Jason Gunthorpe <jgg@nvidia.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "joro@8bytes.org"
+	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, "rafael@kernel.org"
+	<rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Marek Szyprowski
+	<m.szyprowski@samsung.com>, "aneesh.kumar@kernel.org"
+	<aneesh.kumar@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Gavin Shan <gshan@redhat.com>, Vikram Sethi
+	<vsethi@nvidia.com>, Anshuman Khandual <anshuman.khandual@arm.com>, Shanker
+ Donthineni <sdonthineni@nvidia.com>, Mostafa Saleh <smostafa@google.com>,
+	"rppt@kernel.org" <rppt@kernel.org>, Thomas Huth <thuth@redhat.com>, Marc
+ Zyngier <maz@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+	"kas@kernel.org" <kas@kernel.org>, Kohei Enju <enju.kohei@fujitsu.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Ard Biesheuvel <ardb@kernel.org>,
+	James Morse <james.morse@arm.com>, Steven Price <steven.price@arm.com>,
+	Sang-Heon Jeon <ekffu200098@gmail.com>, Omar Sandoval <osandov@fb.com>,
+	Andrew Morton <akpm@linux-foundation.org>, Jinjie Ruan
+	<ruanjinjie@huawei.com>, Sam Edwards <cfsworks@gmail.com>, Douglas Anderson
+	<dianders@chromium.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+	Chen-Yu Tsai <wenst@chromium.org>, Huacai Chen <chenhuacai@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Pranjal Shrivastava
+	<praan@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "driver-core@lists.linux.dev"
+	<driver-core@lists.linux.dev>, Sonang Patel <sonangp@nvidia.com>, Ankit
+ Agrawal <ankita@nvidia.com>
+Subject: RE: [PATCH v1 8/8] iommu/arm-smmu-v3: Probe a guest-level Realm VSMMU
+ via RSI commands
+Thread-Topic: [PATCH v1 8/8] iommu/arm-smmu-v3: Probe a guest-level Realm
+ VSMMU via RSI commands
+Thread-Index: AQHdQNVOuiO7B+HXKkGq3lGx7D+HHLcTYs/QgAAqUQCAAOQrkA==
+Date: Thu, 29 Oct 2026 07:58:56 +0000
+Message-ID: <SJ0PR12MB8614BAF8E35987533269CAD9AB6E2@SJ0PR12MB8614.namprd12.prod.outlook.com>
+References: <cover.1789010941.git.nicolinc@nvidia.com>
+ <df25452641dc126eb334a1bfbe5eee16cc8a8953.1789010941.git.nicolinc@nvidia.com>
+ <SJ0PR12MB861403B542B8D63B2AACE18EAB6F2@SJ0PR12MB8614.namprd12.prod.outlook.com>
+ <auI6OGDh723S+6Dh@nvidia.com>
+In-Reply-To: <auI6OGDh723S+6Dh@nvidia.com>
+Accept-Language: en-US, en-GB
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SJ0PR12MB8614:EE_|DM4PR12MB6232:EE_
+x-ms-office365-filtering-correlation-id: b43e837b-e7f0-485f-b26c-08df35927b61
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|22082099003|18002099003|261028144727099003|261026140227099003|3023799007|10067099003|38070700021|11063799006|261022075727099003|56012099006|261026121527099003|261022105027099003|261021135927099003|261021121427099003|261009223027099003|4143699003;
+x-microsoft-antispam-message-info: 25qy3dXPqc/GrolmKIUa0MDLk/hoTH/3WbNW8ITVSrnRusNSlOqntjdRA1miI1oBfaLJIDT9eG7u74l0DiUdbXbyjQb2qAJvmID1I44WQU62rWmpCR2ZnoWcXBgCD5USVyItH4y6Q06Np+WzTX+6HQM+jxsRrLrprPvULu909DXh+ZIoaZ0iznBpEYGrjuPup0BYnppFqclHdJ5b+kt7y7Vy54jdURg5e7HwSTi0XSTvVbTqg3M3ZoJF5in0Fjr/z0GJxfLmXo/0yuoPF+EUbPbXjdcmU00fBeKVJFIyNya8/HAD1nLeZo63aS3wjNDe5Um8on4LNh23viIURsM9iH0/4gFp4N0cDPYv/OY7o4Yzb+WO1jQ+BUj324BNthV1o+X7C4sWqaHPeNPBwHCTAeFR4rAhItLeI63xa/4YQBOWHd7P0iim1CiCWiOkhQUBgC6qBCwgPpx79EkcfhLIsxYZZ8R/nuKj3agqN/allRjXvGPILY5xDy7uMdOmpzd9tam/hzQhs8IxzTBRw2iLyFb1e1xIB0tFUmtMFHUHg0V7zmbrP6/mEAgXQKXD0PnbxFf1Z8kHx8hPWONnJVxwlrE3331DlWLpt77suZZNNIdI+h2qTdfXmCD4pQaecOEt/T7IvfSS7IKlhvuF1iBFZN/TE8XfucJFvAuYxjAsQfPaAScCKpzTmeFRGbxGF0SoTultssxTFZFqBmwXxO74ix1Sbz1gHA4sTy9+ENMUgqs=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR12MB8614.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(22082099003)(18002099003)(261028144727099003)(261026140227099003)(3023799007)(10067099003)(38070700021)(11063799006)(261022075727099003)(56012099006)(261026121527099003)(261022105027099003)(261021135927099003)(261021121427099003)(261009223027099003)(4143699003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?4FnAMSpNII5rpZ+cRzti5RqAhYqSqjNjzL7OniXJ68AvhSlWvRAzg/wpQwGh?=
+ =?us-ascii?Q?J66CtJ8Aj361F5TA9U6EJJidlxHz8haypAut0Ghrj7BAJ0RjgX2CxVqPvitD?=
+ =?us-ascii?Q?yUDJHhPXNpa3cDHNfbxKvNrdML15Znmk3UdWrUh39Qttp+Ed+bKNOTGC/NYn?=
+ =?us-ascii?Q?Cr45w/8MDX6AFWM2wttKBygzrvOMQZWKoYieBHOqzoyleQeWtNcRq/6E0QDv?=
+ =?us-ascii?Q?N86Wc/A+oUwVBt3v4JnTUjpXxaxIT/2bD812Y+Hkzet+JIrqTXY6DZR//mHl?=
+ =?us-ascii?Q?X6fRpV4gSmGnqIq4dYRVetlxQlcrXCFGrvXNsujsrIUmkCl/uwfOn2WvOAKh?=
+ =?us-ascii?Q?3vGAJ86N3yf4tqcPNi+i80Vio+WSGKS+8UF9QXhFEdkFGFJJaEzUJ31CjrCY?=
+ =?us-ascii?Q?6rTnVKeFWBeuMtHdygP6UxP6ID/rHs/AH+Bb5CjaxC9qW5CwUyxl1gOiLRUT?=
+ =?us-ascii?Q?WWRRcyzfBrr6g2mj2y/KMiZSzzwqRfAm/9ZDZWhepQOLaATHp3lSqFwiKZex?=
+ =?us-ascii?Q?Sc2F1WQk3IYVOdt8aWuRJ22GYHv0ZTi5Swe3D/IXD07MxwDDLA5eOImFlrZs?=
+ =?us-ascii?Q?kqh4yUYbXxzyx5x5xf1F+Rhgv29kXzWKRjIVKGFc2vq7hAFLYVGi6gNCvz7j?=
+ =?us-ascii?Q?QaOj/QJcorD9yWPUFKCl8WScMKmAh7glhWHw3QqNoJ+LkqaaLgssq8mKhkn0?=
+ =?us-ascii?Q?29PGaODTsbWmipJbSE1mEHu2BLL1oeoIXOAc4J7rp57zF80H1qFFMoiyJHOW?=
+ =?us-ascii?Q?1cfa6b7ML3ZwzrqGrVT6MVIWwBTGymDTaShNf6m3boqat5w+7yCerQHzu4Re?=
+ =?us-ascii?Q?8nxgfDNlzfLxskoGTSHO/bCgeghvYSLMjCRqb4b4eOWb5Ney1gBm4ajPajAm?=
+ =?us-ascii?Q?HzqP8NBGXMcBGubrTTgoVk6DhCZT8V/uM1a//J8o8BoLoCDurmcKLfrjvv0g?=
+ =?us-ascii?Q?c3WLOv02im7l+ChhJpAT5bNs6yVbzlZlGIqfV1tW5Bdlpco7V6gdCg+qiZHy?=
+ =?us-ascii?Q?qjWezbgF7Co+tIwWj2MgBHRWGgoBXyAYDHUd9hCbw2J0L6eVs6itLUW+YkIf?=
+ =?us-ascii?Q?rAHTbdiZPDdqL2AGnoeQA2SNiAaTqrzvVDnQ+zv7TwCMF7C0kRmA/nALIhRf?=
+ =?us-ascii?Q?cwRvdNH5T7ulTo5594+cALq+ILWqbvUOjT40gxHL46o7FuDAKjZzIPbjkbLx?=
+ =?us-ascii?Q?DAqO9TbCAVvO7N1Ulpot8NLCpUEkguN2ncDJh9JHQE4L24zVyxBVM48UDMUZ?=
+ =?us-ascii?Q?kkG9xe0NMoJPd75Ulh//V45IwE5puaL11unFz1QjyhNw5AFBBFLSM3BllGt+?=
+ =?us-ascii?Q?Fk95gSmKWBroaZEuOYSBEo90s1mUP3RLI60F4L6hOKfVy0pR+B+A8Uv9E0g2?=
+ =?us-ascii?Q?gOUFIOvA3BGyUpDNVVl1oZ2XUBCFBF0JMIDAvq7jMhFoBgpDXc3Th32XAGis?=
+ =?us-ascii?Q?F8Un60J1heLFmahvZlvP27CrHkXxVeyHwf1JAcONJ8yFh/UL8qYD1KzfGbq+?=
+ =?us-ascii?Q?htMoQNrbr6DZKqLVAahIUQVvfSWK7H8fVslzYC1WuDhiZuv9Jm/kEquw3aP3?=
+ =?us-ascii?Q?lmn7+bPaDzfhwfoJ2MJCiOfK7WOc1Ct9G6OEQJPBC1ecLtXSOSBCa9rw9wcx?=
+ =?us-ascii?Q?34vcarBOkBXA5hepVls3N2K0V9J5qSDxPP8maqK7Wg62Rk4jXYerxu4iVEBN?=
+ =?us-ascii?Q?DIYer75y6e/xf0kCZD0yDAp2MRgwd4RBgCz2dzZYyiB0Igy1Hi2wM+nN3NsU?=
+ =?us-ascii?Q?umLO1avYPA=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR12MB8614.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b43e837b-e7f0-485f-b26c-08df35927b61
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Oct 2026 07:58:56.1053
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: nhu8uiTdv+8JH26pGSHGFIBq1jn3AhSCus6NEirc2LoHPp1wRsDzEmgHNWE6RGQDPhaANCdvCu5xCByWXOxjlA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6232
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261029_010058_050133_06AB3929 
+X-CRM114-Status: GOOD (  18.55  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,391 +175,74 @@ X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 4 · Low: 0 (1)
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The patch says it re-applies "the taprio offload" after the
-  core soft reset, but it only replays the EST block.
-- [Medium] The patch handles a failed EST re-apply inconsistently between
-  open and resume.
-- [Medium] A taprio REPLACE that is rejected only by the software checks
-  in dwmac5_fpe_map_preemption_class() still tears down the installed…
-- [Medium] stmmac_adjust_time() checks and clears priv->est->enable in
-  one est_lock section (stmmac_ptp.c:72-79), drops the lock while it…
-
-Pre-existing issues:
-- [Low] The TX hot paths (stmmac_xmit around stmmac_main.c:4861,
-  stmmac_tso_xmit, the XSK zero-copy path around 2753, and…
-
---
-
-net: stmmac: re-apply taprio offload in __stmmac_open() and stmmac_resume()
-
-The core soft reset in stmmac_hw_setup() clears the MTL_EST registers. This
-patch re-programs EST from __stmmac_open() and stmmac_resume(), recomputing
-the base time from the reserved base time and the current PTP time, and
-reuses the same helper in stmmac_adjust_time(). It also reworks
-tc_taprio_configure() to hold est_lock across validation and programming,
-and to set priv->est->enable only after hardware programming succeeds.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-> index f70221c9c84af..0f0f162794c84 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-
-[ ... ]
-
-> @@ -65,3 +68,18 @@
->  #define EST_GCL_DATA			0x00000034
->  
->  extern const struct stmmac_est_ops dwmac510_est_ops;
-> +
-> +int __stmmac_setup_est(struct stmmac_priv *priv);
-> +static inline int stmmac_setup_est(struct stmmac_priv *priv)
-> +{
-> +	int ret = 0;
-> +
-> +	mutex_lock(&priv->est_lock);
-> +	if (priv->est && priv->est->enable)
-> +		ret = __stmmac_setup_est(priv);
-
-[Severity: Medium]
-
-The commit message says this re-applies "the taprio offload" after the core
-soft reset. Does stmmac_setup_est() restore everything that taprio
-programmed, or only the EST block?
-
-On a successful TAPRIO_CMD_REPLACE, tc_taprio_configure() also calls:
-
-	ret = stmmac_fpe_map_preemption_class(priv, priv->dev, extack,
-					      qopt->mqprio.preemptible_tcs);
-
-On GMAC5, dwmac5_fpe_map_preemption_class() writes FPE_MTL_PREEMPTION_CLASS
-in GMAC5_MTL_FPE_CTRL_STS. On XGMAC, dwxgmac3_fpe_map_preemption_class()
-also writes the per-queue XGMAC_Q2TCMAP field and XGMAC_MTL_FPE_CTRL_STS,
-even when pclass is 0. During stmmac_hw_setup(), dwxgmac2_dma_tx_mode() then
-rewrites Q2TCMAP back to the channel index:
-
-	value |= FIELD_PREP(XGMAC_Q2TCMAP, channel);
-
-preemptible_tcs is not saved in priv, and stmmac_fpe_map_preemption_class()
-is only called from stmmac_tc.c. That means neither __stmmac_open() nor
-stmmac_resume() can replay it.
-
-So what happens after ifdown/ifup, an MTU or ring size change, or
-suspend/resume? On GMAC5, would the preemptible TCs silently turn into
-express TCs? On XGMAC, would the queues go back to the default queue == TC
-mapping, so the EST gate masks no longer cover the intended queues?
-
-Meanwhile __stmmac_setup_est() sets priv->est->enable = true, so taprio
-would keep reporting the full offload as installed.
-
-> +	mutex_unlock(&priv->est_lock);
-> +
-> +	return ret;
-> +}
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 9e09e11cc35e5..a13a3790207d5 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-
-[ ... ]
-
-> @@ -4201,6 +4202,10 @@ static int __stmmac_open(struct net_device *dev,
->  	if (ret)
->  		goto ptp_error;
->  
-> +	ret = stmmac_setup_est(priv);
-> +	if (ret)
-> +		goto est_error;
-> +
->  	stmmac_init_coalesce(priv);
->  
->  	phylink_start(priv->phylink);
-
-[ ... ]
-
-> @@ -8518,6 +8523,10 @@ int stmmac_resume(struct device *dev)
->  		ret = stmmac_init_timestamping(priv);
->  		if (ret)
->  			goto error_stop_dma;
-> +
-> +		ret = stmmac_setup_est(priv);
-> +		if (ret)
-> +			goto error_stop_dma;
->  	}
->  
->  init_coalesce:
-
-[Severity: Medium]
-
-The callers seem to handle a failed EST re-apply in different ways. There
-are a few cases.
-
-In __stmmac_open(), stmmac_setup_ptp() can return 0 without enabling PTP:
-
-stmmac_setup_ptp() {
-    ...
-	if (stmmac_init_ptp_clk_freq(priv)) {
-		clk_disable_unprepare(priv->plat->clk_ptp_ref);
-		return 0;
-	}
-    ...
-}
-
-This can happen when clk_ptp_rate is 0. For example, qcom-ethqos re-reads
-clk_get_rate() in ethqos_ptp_clk_freq_config() on every open, so the rate
-can become 0 after an earlier successful taprio REPLACE.
-
-stmmac_setup_est() still runs in that case. __stmmac_setup_est() reads the
-time through gettimex64 with the timestamp counter never initialised, and
-est_configure() returns -EINVAL for a zero ptp_rate. Wouldn't ndo_open then
-fail, where it succeeded before this patch?
-
-In stmmac_resume(), any EST programming error (for example -ETIMEDOUT from
-est_write()) now goes to error_stop_dma. That path stops DMA, disables the
-MAC, powers down the serdes and returns without calling
-netif_device_attach(), while netif_running() is still true. Is it intended
-that losing EST now leaves the interface dead after resume?
-
-Also in stmmac_resume(), when stmmac_init_ptp_clk_freq() fails, the code
-jumps to init_coalesce and skips stmmac_setup_est(). Resume then returns
-success with priv->est->enable still true, even though the soft reset has
-cleared MTL_EST. Isn't that the stale state the commit message says it
-removes?
-
-When __stmmac_setup_est() fails, it returns without clearing
-priv->est->enable:
-
-	if (err) {
-		netdev_err(priv->dev, "failed to re-configure EST\n");
-		return err;
-	}
-
-For the open and resume callers the flag was already true on entry. It
-stays true while EEST is off or only partly programmed. The commit message
-says the helper "only marks the offload enabled once the hardware
-programming succeeds". Does that hold for these callers?
-
-Finally, stmmac_adjust_time() ignores the return value of the same helper.
-Should the three callers share one failure policy?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-> index 9a32af00d7d2d..81ee896698653 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-
-[ ... ]
-
-> @@ -69,14 +69,14 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
->  	nsec = reminder;
->  
->  	/* If EST is enabled, disabled it before adjust ptp time. */
-> +	mutex_lock(&priv->est_lock);
->  	if (priv->est && priv->est->enable) {
->  		est_rst = true;
-> -		mutex_lock(&priv->est_lock);
->  		priv->est->enable = false;
->  		stmmac_est_configure(priv, priv, priv->est,
->  				     priv->plat->clk_ptp_rate, false);
-> -		mutex_unlock(&priv->est_lock);
->  	}
-> +	mutex_unlock(&priv->est_lock);
->  
->  	write_lock_irqsave(&priv->ptp_lock, flags);
->  	stmmac_adjust_systime(priv, priv->ptpaddr, sec, nsec, neg_adj, xmac);
-> @@ -84,31 +84,9 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
->  
->  	/* Calculate new basetime and re-configured EST after PTP time adjust. */
->  	if (est_rst) {
-> -		struct timespec64 current_time, time;
-> -		ktime_t current_time_ns, basetime;
-> -		u64 cycle_time;
-> -
->  		mutex_lock(&priv->est_lock);
-
-[ ... ]
-
-> -		ret = stmmac_est_configure(priv, priv, priv->est,
-> -					   priv->plat->clk_ptp_rate, true);
-> +		__stmmac_setup_est(priv);
->  		mutex_unlock(&priv->est_lock);
-> -		if (ret)
-> -			netdev_err(priv->dev, "failed to configure EST\n");
->  	}
-
-[Severity: Medium]
-
-est_lock is dropped between clearing priv->est->enable and calling
-__stmmac_setup_est() here. est_rst is not re-checked once the lock is taken
-again. Can a taprio operation that runs inside that window get overridden?
-
-ptp_clock_adjtime() does not take RTNL, so this ordering looks possible:
-
-CPU1 (stmmac_adjust_time)
-  mutex_lock(&priv->est_lock);
-  est_rst = true;
-  priv->est->enable = false;
-  mutex_unlock(&priv->est_lock);
-  stmmac_adjust_systime();
-
-CPU2 (tc_taprio_configure, TAPRIO_CMD_DESTROY)
-  mutex_lock(&priv->est_lock);
-  priv->est->enable = false;
-  stmmac_est_configure(..., false);
-  stmmac_fpe_map_preemption_class(..., 0);
-  mutex_unlock(&priv->est_lock);
-
-CPU1
-  mutex_lock(&priv->est_lock);
-  __stmmac_setup_est(priv);
-    stmmac_est_configure(..., true);
-    priv->est->enable = true;
-
-A REPLACE that fails and goes to disable: would race the same way.
-
-The disable: path leaves gcl, ctr, btr_reserve and max_sdu[] in priv->est.
-Would the old schedule, or the rejected one, then be programmed back into
-hardware with enable set to true after the qdisc offload is gone? If so, the
-TX/XDP paths would keep dropping frames larger than the stale max_sdu[].
-
-__stmmac_open() and stmmac_resume() now trust that flag, so the schedule
-would also be re-armed on every ifup and resume. taprio would not send
-another DESTROY because q->offloaded is already false.
-
-Should the decision to re-enable be re-validated under est_lock before
-__stmmac_setup_est() is called?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> index ac926c60f9f9a..95c5f6100c66a 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-
-[ ... ]
-
-> @@ -1060,13 +1065,26 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
-
-[ ... ]
-
-> -		priv->est->gcl[i] = delta_ns | (gates << wid);
-> +		gcl[i] = delta_ns | (gates << wid);
->  	}
->  
-> -	mutex_lock(&priv->est_lock);
-> +	if (!priv->est) {
-> +		priv->est = devm_kzalloc(priv->device, sizeof(*priv->est),
-> +					 GFP_KERNEL);
-> +		if (!priv->est) {
-> +			ret = -ENOMEM;
-> +			goto error_unlock;
-> +		}
-> +	} else {
-> +		memset(priv->est, 0, sizeof(*priv->est));
-> +	}
-
-[Severity: Low]
-
-This is a pre-existing issue and was not introduced by this patch. The TX
-hot paths read priv->est, priv->est->enable and priv->est->max_sdu[] with
-plain loads and without est_lock. For example, in stmmac_xmit():
-
-	if (priv->est && priv->est->enable &&
-	    priv->est->max_sdu[queue]) {
-
-stmmac_tso_xmit(), stmmac_xdp_xmit_zc() and stmmac_xdp_xmit_xdpf() do the
-same.
-
-The writers hold only est_lock. They use plain stores, a memset() of the
-live struct, and a devm_kzalloc() pointer publish with no release ordering.
-
-Could a REPLACE that runs concurrently with transmit briefly let oversize
-frames through, or drop them? Two ways this could happen: the memset
-temporarily zeroes max_sdu[], or a weakly ordered CPU sees the new pointer
-before its zeroing is visible.
-
-This patch does improve the ordering somewhat, since enable is now set only
-after max_sdu[] is populated. The effect is limited to transient per-packet
-filtering decisions.
-
-> +	memcpy(priv->est->gcl, gcl, sizeof(*gcl) * qopt->num_entries);
-> +	priv->est->gcl_size = qopt->num_entries;
-> +
->  	/* Adjust for real system time */
->  	priv->ptp_clock_ops.gettimex64(&priv->ptp_clock_ops, &current_time,
->  				       NULL);
-
-[ ... ]
-
-> @@ -1102,11 +1119,15 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
->  	if (ret)
->  		goto disable;
-
-[Severity: Medium]
-
-The commit message says "A rejected REPLACE then leaves the currently
-installed schedule intact in both software and hardware". However,
-stmmac_fpe_map_preemption_class() can still reject the request after
-priv->est has been memset, overwritten with the new schedule and programmed
-into hardware.
-
-dwmac5_fpe_map_preemption_class() returns -EINVAL with an extack message
-based only on configuration checks, before it writes any register:
-
-		if (priv->xmit_qdisc.algo == MTL_TX_ALGORITHM_SP) {
-			NL_SET_ERR_MSG_MOD(extack, ALG_ERR_MSG);
-			return -EINVAL;
-		}
-
-It does the same for unequal queue weights within a TC. That error goes to
-disable:, which clears priv->est->enable, disables EST in hardware and
-resets the preemption class to 0.
-
-On the taprio side, taprio_enable_offload() returns the error before it
-touches q->offloaded, which stays true from the previous schedule.
-taprio_change() then goes to free_sched without installing the new admin
-schedule. Doesn't this leave the qdisc reporting the old schedule as
-offloaded while hardware EST is off?
-
-enable is now false, so stmmac_setup_est() will not restore the schedule on
-a later open or resume either.
-
-One way to hit this:
-
-1. Install an express-only schedule with a TC mapped to two queues. This is
-   accepted, because pclass == 0 skips the checks.
-2. Run tc qdisc change to mark that TC preemptible.
-
-Should the FPE mapping checks run before the installed configuration is
-replaced?
-
-> +
-> +	priv->est->enable = true;
-> +
-> +	mutex_unlock(&priv->est_lock);
-> +	kfree(gcl);
-> +
->  	return 0;
->  
->  disable:
->  	if (priv->est) {
-> -		mutex_lock(&priv->est_lock);
->  		priv->est->enable = false;
->  		stmmac_est_configure(priv, priv, priv->est,
->  				     priv->plat->clk_ptp_rate, false);
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261026-stmmac-est-fixes-v4-0-999dac4de44f%40oss.qualcomm.com
+> -----Original Message-----
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: 28 October 2026 18:09
+> To: Shameer Kolothum Thodi <skolothumtho@nvidia.com>
+> Cc: Jason Gunthorpe <jgg@nvidia.com>; Catalin Marinas
+> <catalin.marinas@arm.com>; Will Deacon <will@kernel.org>;
+> joro@8bytes.org; Robin Murphy <robin.murphy@arm.com>;
+> rafael@kernel.org; Danilo Krummrich <dakr@kernel.org>; Marek Szyprowski
+> <m.szyprowski@samsung.com>; aneesh.kumar@kernel.org; Mark Rutland
+> <mark.rutland@arm.com>; Greg Kroah-Hartman
+> <gregkh@linuxfoundation.org>; Suzuki K Poulose
+> <suzuki.poulose@arm.com>; Gavin Shan <gshan@redhat.com>; Vikram Sethi
+> <vsethi@nvidia.com>; Anshuman Khandual
+> <anshuman.khandual@arm.com>; Shanker Donthineni
+> <sdonthineni@nvidia.com>; Mostafa Saleh <smostafa@google.com>;
+> rppt@kernel.org; Thomas Huth <thuth@redhat.com>; Marc Zyngier
+> <maz@kernel.org>; Ryan Roberts <ryan.roberts@arm.com>; kas@kernel.org;
+> Kohei Enju <enju.kohei@fujitsu.com>; Shaopeng Tan
+> <tan.shaopeng@jp.fujitsu.com>; Ard Biesheuvel <ardb@kernel.org>; James
+> Morse <james.morse@arm.com>; Steven Price <steven.price@arm.com>;
+> Sang-Heon Jeon <ekffu200098@gmail.com>; Omar Sandoval
+> <osandov@fb.com>; Andrew Morton <akpm@linux-foundation.org>; Jinjie
+> Ruan <ruanjinjie@huawei.com>; Sam Edwards <cfsworks@gmail.com>;
+> Douglas Anderson <dianders@chromium.org>; Florian Fainelli
+> <florian.fainelli@broadcom.com>; Chen-Yu Tsai <wenst@chromium.org>;
+> Huacai Chen <chenhuacai@kernel.org>; Thomas Zimmermann
+> <tzimmermann@suse.de>; Pranjal Shrivastava <praan@google.com>; Ashish
+> Mhetre <amhetre@nvidia.com>; linux-arm-kernel@lists.infradead.org; linux-
+> kernel@vger.kernel.org; iommu@lists.linux.dev; driver-core@lists.linux.de=
+v;
+> Sonang Patel <sonangp@nvidia.com>; Ankit Agrawal <ankita@nvidia.com>
+> Subject: Re: [PATCH v1 8/8] iommu/arm-smmu-v3: Probe a guest-level Realm
+> VSMMU via RSI commands
+>=20
+> On Wed, Oct 28, 2026 at 08:41:13AM -0700, Shameer Kolothum Thodi
+> wrote:
+> > > @@ -5542,6 +5591,12 @@ static int arm_smmu_device_probe(struct
+> > > platform_device *pdev)
+> > >  	}
+> > >  	ioaddr =3D res->start;
+> > >
+> > > +	if (is_realm_world()) {
+> > > +		ret =3D arm_smmu_probe_realm_vsmmu(smmu, res);
+> > > +		if (ret)
+> > > +			return ret;
+> > > +	}
+> >
+> > If probe fails after activation succeeds above, wouldn't a module
+> > reload hit RSI_ERROR_DEVICE since the VSMMU is still ACTIVE?
+> >
+> > B5.4.1.2:
+> >
+> >  pre:  vsmmu.state =3D=3D VSMMU_ACTIVE
+> >  post: result =3D=3D RSI_ERROR_DEVICE
+> >
+> > How is recovery handled?
+>=20
+> There is no way to undo an activation. But what's the practical
+> use case for the SMMU driver to do a module reload?
+
+I was thinking of an allocation failure, then onlining more memory
+and retrying probe. Not sure how realistic that is in practice.
+
+Any idea why guest side deactivation isn't allowed? I couldn't find
+the rationale in the spec. Perhaps it needs additional synchronization.
+
+Thanks,
+Shameer
 
