@@ -2,70 +2,112 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62278606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 15:40:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC179606A332
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 15:42:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hY8pbp6I;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OE0zYjef
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NMRHCJ2F;
+	dkim=pass (1024-bit key, unprotected) header.d=chaosmail.tech header.i=@chaosmail.tech header.a=rsa-sha256 header.s=mail header.b=Nsrn3EDa
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=JZ3b6uOYaWmanMHrxXUHX0LYxPXGkpVXbBJ4GITzGzI=; b=hY8pbp6IThKfNI
-	E4PCraCxAoNj3r6uJEGnx+biVaI9rvmvBFVDzp0BkYreHutqBgyxAImzJUCQMwEhWn2A5F/Msadhk
-	EtH+y6qBK+m2724znBa+49YsfR33sXC3DbedMCM7ydJcWDQW8vGKM7EjqaNln3sLCEyOFjk7id6q7
-	Nli7TZ45nxOoNfZdzJQ+ljWv5Pda9u029e0Ra/gCQ8E7i8G+02BVLDYTW+CLCt7x8qhFRwNIldi6I
-	ooaHnBa3s8DNiX/YFogW9f+AvOMjpc08eZ9o8hx5bSTYJBbewveRx+TDskECOTDInQ5abVXpp3Sig
-	hfs1Qu3dpl6bgu57fbgA==;
+	List-Owner; bh=Hi1ZL/P6xTwIFqhtVwLPu3VRn9H34CRK9uafD+p4DyE=; b=NMRHCJ2F4EbO+a
+	ol4+W2ptLuAmOg6Q257xTzpVzEje7Ozj+mV3cLJaFnA/X1ol/+ziR0u6ES1E6vxac9/ZijU4lF3cC
+	DkU+1xPJo1qIcbaHA5Gfn/AIS3m0c0tPO1oeBCUYElejNOerIV9OW5WS5B5epUaWJGqRGHB89Mq7R
+	u+QVa+Di8bJ3qDiotWBMsvdbN2PRxYVhBv7yEQmDKBJx478B7uyX4m0ZPAQoO4dmOlANWGaxB2/Am
+	P+R2l6pZ+jSOtATbCoQSngH4zhjWwD9IwKyEVt0q2n36rRl+bCrHhAtMH8laV2cZToLXxbmXXi3NX
+	CCeop+yYSBTCnhSQ/e9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMSFA-00000009ePe-1hFI;
-	Thu, 29 Oct 2026 15:40:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xMSGu-00000009eeu-2l3H;
+	Thu, 29 Oct 2026 15:42:32 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMSF9-00000009ePQ-1l4n
+	id 1xMSGr-00000009edz-3BtC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 15:40:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2E218600DA;
-	Thu, 29 Oct 2026 15:40:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 664C11F01816;
-	Thu, 29 Oct 2026 15:40:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793288441;
-	bh=JZ3b6uOYaWmanMHrxXUHX0LYxPXGkpVXbBJ4GITzGzI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=OE0zYjef0FwGlZV1Zy9CQPEj+Gyc4C43cEj+ZgdnxHR1Jdgr9nLhV0js/V4mwS6LF
-	 bcQkGSjgZse346B1sNIeXb0Xk2T60V9KBU9Yde3s62j2Ubqweguf+76kehcqIfMyiZ
-	 OVwHVGgCq6woJSWw0k/nE0QmgCN0temQ8CgyvyVjadB7bzYR7aH7Zez3/J+emgNZJ4
-	 7IFbl6uze4xtg4MTbZDTtzrKLvjP8UHOq1Ew4Ue1rcXFS7DOJ9KYNdVmbYzAiWxFv6
-	 hnQ2zApi5nIOPVFHV399NuKf8oeSt5MOPeQroy7TUnRPTFdJZfV30cTfrUusPCmsuM
-	 6edLvC9SIncGA==
-Date: Thu, 29 Oct 2026 08:40:40 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Ding Hui <dinghui1111@163.com>, Maxime Chevallier
- <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, "open list:STMMAC ETHERNET
- DRIVER" <netdev@vger.kernel.org>, "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-stm32@st-md-mailman.stormreply.com>, "moderated list:ARM/STM32
- ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list
- <linux-kernel@vger.kernel.org>, dinghui@lixiang.com, xiasanbo@lixiang.com,
- yangchen11@lixiang.com, liuxuanjun@lixiang.com
-Subject: Re: [PATCH net-next v6 0/4] net: stmmac: fix DMA descriptor ring
- cleanup issues
-Message-ID: <20261029084040.24c85866@kernel.org>
-In-Reply-To: <3fdea60e-abe8-4ecc-bce2-672f4e3d6b47@redhat.com>
-References: <20261024071319.875921-1-dinghui1111@163.com>
-	<3fdea60e-abe8-4ecc-bce2-672f4e3d6b47@redhat.com>
+	Thu, 29 Oct 2026 15:42:31 +0000
+Received: by chaosmail.tech (Postfix) id A043B1C8AAF;
+	Thu, 29 Oct 2026 15:42:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1793288546;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Hi1ZL/P6xTwIFqhtVwLPu3VRn9H34CRK9uafD+p4DyE=;
+	b=Nsrn3EDaUl1axthWNFon0U2+dA13f1L+vVnts30Oh3yVZBVUUR+B5XnWSpOkjv/V9GcWRI
+	ewb8OQpnhWxOmbTnboc3e7UVtSWF/fmXK/HbIvxXDnKKUex+Xe99DbwEOEK26ZeZ2xDlWT
+	Us7sOzT/XDhsHTcNPUT+Oeu2qg7dUjU=
+Content-Type: text/plain;
+	charset=us-ascii
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Subject: Re: [RFC PATCH 14/14] mfd/macsmc: add ioctl to access smc keys
+From: Sasha Finkelstein <k@chaosmail.tech>
+In-Reply-To: <12988c8e-95ad-4989-a6de-e02af3c9ef1b@linux.dev>
+Date: Thu, 29 Oct 2026 16:42:12 +0100
+Cc: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>,
+ alexandre.belloni@bootlin.com,
+ andy@kernel.org,
+ asahi@lists.linux.dev,
+ bhelgaas@google.com,
+ bp@alien8.de,
+ brgl@kernel.org,
+ dave.hansen@linux.intel.com,
+ dlechner@baylibre.com,
+ dmitry.kasatkin@gmail.com,
+ eric.snowberg@oracle.com,
+ griffin@kroah.com,
+ hansg@kernel.org,
+ hpa@zytor.com,
+ ilpo.jarvinen@linux.intel.com,
+ j@jannau.net,
+ jarkko@kernel.org,
+ jic23@kernel.org,
+ jmorris@namei.org,
+ lee@kernel.org,
+ lenb@kernel.org,
+ linusw@kernel.org,
+ linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org,
+ linux-hwmon@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org,
+ linux-pm@vger.kernel.org,
+ linux-rtc@vger.kernel.org,
+ linux-watchdog@vger.kernel.org,
+ linux@roeck-us.net,
+ mfd@lists.linux.dev,
+ mingo@redhat.com,
+ neal@gompa.dev,
+ nuno.sa@analog.com,
+ paul@paul-moore.com,
+ pavel@kernel.org,
+ platform-driver-x86@vger.kernel.org,
+ rafael@kernel.org,
+ roberto.sassu@huawei.com,
+ serge@hallyn.com,
+ sre@kernel.org,
+ sven@kernel.org,
+ tglx@kernel.org,
+ wim@linux-watchdog.org,
+ x86@kernel.org,
+ zohar@linux.ibm.com
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <DA128414-1BB3-4D04-9361-C870E0E3B57C@chaosmail.tech>
+References: <525E5B4D-A947-4567-9FCD-5FFF2CA8B161@chaosmail.tech>
+ <20261029143926.1246-1-atharvatiwarilinuxdev@gmail.com>
+ <0683C803-C578-4C55-B893-BC03EBF9A9F1@chaosmail.tech>
+ <12988c8e-95ad-4989-a6de-e02af3c9ef1b@linux.dev>
+To: Aditya Garg <aditya.garg@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261029_084229_953585_8BE46BCE 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,12 +125,22 @@ X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, 29 Oct 2026 11:24:17 +0100 Paolo Abeni wrote:
-> The merge window for Linux v7.4 has begun, and the net-next
-> tree is now closed for new drivers, features, code refactoring
-> and optimizations. We are currently accepting bug fixes only.
+On Oct 29, 2026, at 16:25, Aditya Garg <aditya.garg@linux.dev> wrote:
+> Whitelisting will create an endless cycle of upstreaming new keys. But =
+considering T2 no longer is receiving updates, Asahi would be happy to =
+send their keys they wish to be whitelisted right ;)>
 
-But these are sort-of-fixes right? Aren't these okay to merge during
-the merge window? AI bots will keep reporting the pre-existing issues
-on net patches if we merge this to net-next. Dunno.
+Yes. We are willing to add additional entries to this list should we
+need to expose them to userspace. In addition, the current approach also
+needs more keys to be added to the list, as despite the claim in the
+commit description, it only rejects a fraction of the driver-managed
+keys (I do not see the GPIO or certain battery keys, for example). In
+addition, the read side would also need to have a list, as certain keys
+are read-sensitive.=20
+
+> Fair enough. We can restrict it to T2 Macs, and Asahi can later adopt =
+if useful?>
+
+This outcome is acceptable.
+
 
