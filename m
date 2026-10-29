@@ -2,106 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86BCC606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:34:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C074606A322
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:34:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UdaK5o3s;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Cgfg+4WL;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=kjHtQijG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VtoFcnSo;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=YTQhhSjY;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NoEJZalo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=zuYvl9RTPGfpKJSHddHmzLZeYj09elzQOBQVTivLk3E=; b=UdaK5o3sC9Y/AK
-	puo77dR0t9CWwwzrZpTJfKgkxoU1BLWjSggVaPinIxLdWiNzYRRmhCFftCr2phB1zLtPPEYB14/fj
-	YEtupmJcdsJKZIDBh0tpKnpR2HeEXdWlXt42In7QfFXViWQdfE/IraLHnV2T+NfAwXgIpn+ViPWA8
-	PWMtAsHd/UcmVNzFDVVBgTQG5hO2HsD4E5iE6FE8IBa4aIswPpbla5OBKapv0NtvzJtCB7fsISFUw
-	j4onXiw08pqpp7LD2xL4z5dWjIx9ZPhDGySwGWyoL4Dwx7y+hlU9xZunITbUs8JkKl5AqqqhKmcvw
-	Vy5hgZxCYAvNd6vVp43w==;
+	List-Owner; bh=tllG4ebgjCEqHUrmWCTRE3lwjXE2wGxH2RyAazL8TUg=; b=VtoFcnSod4xpjC
+	wtWBzhpxwDS4Y4eLl+stWdljpjMB0Fp6fpcTpHeOydCqlIJ/hCuW+NoFf+yOZr+9XMcURug6bqIlA
+	GbfDsNCQC8d/NWi+2yuNRbGLNbIx9+wiLtYDH/U/yMPtQ5MZiJApi2+qKzJUqsfG3kakmYE7dytb8
+	7c/rwrFsmeBJCWB0yZVtoVCjIYOTxQ9is66Vzbz9W9yu9lLooITA0YmUgZnNvWGeNN1zk40gjWS/M
+	glMOPwtN2NVkKJVar8d9WVW9Ak4+vEnWXs5wt4EEnhvHV49qgndEbJ9Rd+c4daDRz1m1P2+xxkmQq
+	MpC8VwdjpdqF18nYvVLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNSj-00000008zJ8-1shL;
-	Thu, 29 Oct 2026 10:34:25 +0000
+	id 1xMNSw-00000008zOX-2jBX;
+	Thu, 29 Oct 2026 10:34:38 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNSh-00000008zIU-2wvE
+	id 1xMNSn-00000008zKS-1jJ6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 10:34:24 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69T8vDSl3824980
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:34:23 GMT
+	Thu, 29 Oct 2026 10:34:30 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69T8v9hi2273143
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:34:28 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zuYvl9RTPGfpKJSHddHmzLZeYj09elzQOBQVTivLk3E=; b=Cgfg+4WL7srhGpoK
-	mGLled2a+KpGn0JBvWA4rJyoWfeLWheEO3PxAvIvcP3xD+r6Zgc6DdT7jtW5IOIS
-	r9/10S5NpnUvJf/jfwB4iJr1cH+YCOukWt+GOZ3XtIGlesg34Et5byYr/5VHxSvO
-	NLdn444O9WJbGnL3xF09/KTppNYl3oYHeCfImS2CmBSv8G0s93CI9BQDer0fAZHD
-	2FiwzNkBHqM2Io5KQFcQpDnqbu2IdM84mYU8ZO7KeRCtmwnBIqZig+s+bzC5clHG
-	BBgJKy4oJTe9i3VWb3w3BvH6tp/7UGSZjFzC9n85Q3iTxtDbelRmOzNa0ZPWQMH7
-	+nJB/Q==
-Received: from mail-vk1-f200.google.com (mail-vk1-f200.google.com [209.85.221.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hkut3hy28-1
+	tllG4ebgjCEqHUrmWCTRE3lwjXE2wGxH2RyAazL8TUg=; b=YTQhhSjYgYYSoAkQ
+	cNL9yZs+GTyGDgIj/iQ2UDNdUhPHCaYSO6JlEaWNHo7brenAKRM1sCXNdU2lO62A
+	mo3MU0IKa0UbSt2rXzFU46V/bbG2cBAgl4F5+KIegAlFopqkorERwQgJadpntZpQ
+	/Tpeqz9SBihOwQeEA15elNH+67cWIGK1mnx2ibH2arX6Uh3AQ5Jb6eCHshyyyacV
+	1Azolaq1jJDs79Q9zX2Q6CsIqepXIA+yO6FeDCWeILg+53RlQ250nzh+jt8ViXhC
+	a2aaJ4aT1UVoL5gXF98EbGI1o7ETCrSUvRlRprrmteE+1dw3IKwxyhHyLVLn+vLo
+	AJiOsA==
+Received: from mail-vs1-f72.google.com (mail-vs1-f72.google.com [209.85.217.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hm31b0d41-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:34:23 +0000 (GMT)
-Received: by mail-vk1-f200.google.com with SMTP id 71dfb90a1353d-5ec3e192929so525648e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 03:34:23 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:34:28 +0000 (GMT)
+Received: by mail-vs1-f72.google.com with SMTP id ada2fe7eead31-7c0bad5ec1cso503851137.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 03:34:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793270062; x=1793874862; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1793270067; x=1793874867; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zuYvl9RTPGfpKJSHddHmzLZeYj09elzQOBQVTivLk3E=;
-        b=kjHtQijGUUaVNFa0/TOfQ2m5ZH0zpsmdsc2vRO0sdPLaOmpG5khKnA/W7hOmMu2Hg8
-         3DKqbyH1Dfw+8pvuOAm442EvIg4hMUprDyCXWbIiHIGVcbIXAMgil8bt4NWN8VijyxKz
-         QBuV9MwnIeFSJCR/x0Hw/xI4BHkLD5FJC7BF4uSayUvNrPJZHATyCZiXDjk8KW0GpPbA
-         DKH1FX/RcergIBLr0wgJMLLUL9QOAzQ/fgU303SQgQqCX7Pt7hOQ1Q6VPe0TjDQ1xgH1
-         7QVujpOh9HSKdBtWybvrdRGzn6lZdiGRO3iQErZtdhmS35td/8PPQjX8L6suuDNv7hGx
-         o3+Q==
+        bh=tllG4ebgjCEqHUrmWCTRE3lwjXE2wGxH2RyAazL8TUg=;
+        b=NoEJZaloV7tPZwf4AYXKjBlo2srtR14jkR6868osZbTIgKD5ICf/PBaYtXcsTSD14s
+         7JQfjPA50HTeY5SWPs4heEc6ZxoAV54mW6+otrYyFprdEvygTJogrfJCVHIpr4B+xrh4
+         d3v/FnONhbKQ99w3VPxvq81heeN9h4l3/B8JRMTelLkPECMsg8IPWSp6hjt7J6THTWnF
+         rklYVD7p5R8l8AjJDqaRjhlACj/0ltPIwyG2LaGbKatpSHSFIAqPIbHS+icgaAI1fPWU
+         8v5rVD6HmS8sO7w7829ej2tACdVXoD7Ushhi5qTFGzWy4P17x7qRL+5X3Cf1uY9eUexN
+         D2YA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793270062; x=1793874862;
+        d=1e100.net; s=20260707; t=1793270067; x=1793874867;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zuYvl9RTPGfpKJSHddHmzLZeYj09elzQOBQVTivLk3E=;
-        b=caZ9LYuK6uB3F6yQZPP+imGJ0aDxrRvAkwa0MuD3nZMWmLR9+LWOg+e/G0ddKVN5cR
-         jUzCDkBCYk4aHxqhqQ+qqs4ATA0tMYH8Twm8vHyVJf2N9JHXtOPiA6Gvchc0eFBv/9x8
-         MBJQjtiisWsmJHUpkgTb6Mvia6lFMQqPNybMD6DaZSyvJEaoyuy+2XVC71sL76BriMxM
-         wAnTnQhS5RtoAvAp8yiXItFPz7NUUHTTyUghM5M/76rk58zs8gTBb493wMcohsjT5uxI
-         TEQqo7G4yVRPgjqLpywbrbUVFoLCj0k5LIhlHc88h0IrdAB499y5umpMSGigVXyE0xQA
-         Kt+w==
-X-Forwarded-Encrypted: i=1; AKwUvBzQADIkgi2lI/WMyYJPVi1bpLcnrOKX+eSD1Bikqx9arsRNU4wOZapJi0VPy7WXjfbsS4l72xms92l4o0SSw9/7@lists.infradead.org
-X-Gm-Message-State: AFq9FYIMycfnboHKluEfL/iT+OI4EAgbTZrDyk1Lldo3L+yDXh/DAmiw
-	/EWe4NKdC+N+tXxu2wTnusitzgY8j8/K76vomJibJR1YV2K1WA8NMkmOqGaqmeYqX1M9jQeTJ55
-	2+5+d000yVUzPUEJAmBvzJJUhk88PaMUYXI1vEYv6ORKoFW4CRcBH1kjMRB9seHwJcP1RgfaNkX
-	8M7w==
-X-Gm-Gg: AYBFou0krTfYkNnUfTVJrfp7zfkOkAt6ZA/SfYejG/RT67doOad9Jy4z4iCXpepdBHe
-	GuDm7xGfIGnRx6+IYu8AAwzZE/3JASQUtLRpR3V0AEXsQ40QghcYs6pjH/n/R3uTSfmK+LlLyaz
-	4JIVoLQK8YKHEWKmvFCt74FD9/TCmq1yDlaGcuA4mWrIWOZaajOtNiMq60s2OU8vwobAjX2mzyw
-	6krGXOne1Elsd/59Ho8YriB8I9pYB8Zjgdqs4RQWRfrVrGGgtJIFT1auCDBUjs5uE0r0782mX5V
-	JOdGYEytT4yIRi+cb/PGgaVMYVY6HJy+urgAFDTrCQgjI7oQgcApHjefZ3zU30KNBUEmy7kRHv5
-	WW694FNu9/8EPwuGHVz8ph86ttY8p8uk3hzIvWXhvmgY2e9dLrshsxnWLkRzo+2zKC9dlzDAnLm
-	IP83dbUiAU4QTMaTEfUE5Iyw==
-X-Received: by 2002:a05:6102:c4b:b0:7b3:8f0a:f76c with SMTP id ada2fe7eead31-7d03a50d0c9mr2037790137.13.1793270062096;
-        Thu, 29 Oct 2026 03:34:22 -0700 (PDT)
-X-Received: by 2002:a05:6102:c4b:b0:7b3:8f0a:f76c with SMTP id ada2fe7eead31-7d03a50d0c9mr2037769137.13.1793270061508;
-        Thu, 29 Oct 2026 03:34:21 -0700 (PDT)
+        bh=tllG4ebgjCEqHUrmWCTRE3lwjXE2wGxH2RyAazL8TUg=;
+        b=rfTPaLvlPixJTCP199WbZXN9Qb09IaDpM6SVc6uAA1TMpfBWTBIbXl0h8bLuOfooyq
+         YeVaNRXpd4ZVthS9+vsI5cxr8p7poDhj9OEoR4UAdrzi9Xvcmkex0vIM/T0rj93ByJRN
+         K6MP7CRIV7uqERHRjCTMnCDJEF3GFujD6r5VBGbr7u8hxaoal1alb/kUAY1M1VDiIqmO
+         47vvwzwow3+YeFQPiBDjP6ZRb1pRA7d0rBFVuqv85qRBZykdrLecLMa6IWeBRrhTMuF8
+         j+XKU/LlqJiHDRQXV16RBY1Ojem0sL25ASg02NQayeFhdInZlJFgIjdJnor13nsw3pwI
+         ik9w==
+X-Forwarded-Encrypted: i=1; AKwUvBwEP259vIaKA0A6ybDsWXK9e+0OCdiz+AAu5s/VHYWLBJMs++7x96deW28bEI4ZcLnN05SnYqdYMNa58wbJcCSd@lists.infradead.org
+X-Gm-Message-State: AFq9FYLWPD5M4aCfOdifiTiUL61AYMPxz9P9HBgRTOGVweJsoDjGqN/U
+	TDtYURf2uvIH6VcJ1AZZHx5GwOrGwRnV8cl0xeQAoKYuHsT0S2HVaIB1KDDkmoyl6gfLecGCs1E
+	51Qu2IKOj9KDgiJlcOz6vlkRWMCqatKSrFW+Gn5bftmEDuk+/bYTM7Bfq5L1US31m0RgHtKaPw2
+	ITIQ==
+X-Gm-Gg: AYBFou3k21P788dk1vJLsgMHKEkb84PPh0yU/h4CDz+e37eOwknZkC4s2KxqA+/GZpI
+	yVKYfKYE61yrU/EB7YGzlaY2Gr0IFrD9BH2UFpql8AqRBKXplIYzT+mNvkzFSOZbvqm/ktMRl24
+	hVYmgcI8C2h1AfZg+WW+zASaqpo4kP5EhSP45hjA6X6BZIVKk1PlBlpuMYbTcf9Si2LrBKWa6Wk
+	pR/FG9kaY2/WGWpjBndgta0//ZeozYoRBKTeX/d6DbX3tDHgeQujxigTQl4Q2mns+7ClEE2bq2l
+	z3rsy+DxCxynPyTl39iXCZc1h7ODJ4y9adENZX531p6//8LYE0Qfs+hTjC1bPrvGHlabjAYvm0U
+	H50G8dBuXUV+DtUkBbn779Ifv3Oh0UfxSm5OWnFMyxtBVEiR3TPClLicOkwnpXfa1JtUROQGBRv
+	h3+0EjedI9F03VtaBn/Ax4Tw==
+X-Received: by 2002:a05:6102:f9b:b0:7cc:2cd0:e73c with SMTP id ada2fe7eead31-7d03a5b3b8fmr2177513137.25.1793270067039;
+        Thu, 29 Oct 2026 03:34:27 -0700 (PDT)
+X-Received: by 2002:a05:6102:f9b:b0:7cc:2cd0:e73c with SMTP id ada2fe7eead31-7d03a5b3b8fmr2177495137.25.1793270065971;
+        Thu, 29 Oct 2026 03:34:25 -0700 (PDT)
 Received: from localhost (net-93-144-6-81.cust.dsl.teletu.it. [93.144.6.81])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ecdf9bdsm32219567f8f.55.2026.10.29.03.34.17
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e412cc164sm31805426f8f.7.2026.10.29.03.34.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 03:34:17 -0700 (PDT)
+        Thu, 29 Oct 2026 03:34:22 -0700 (PDT)
 From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Date: Thu, 29 Oct 2026 11:33:56 +0100
-Subject: [PATCH net v5 2/3] net: stmmac: pass the desired EST enable state
- to est_configure()
+Date: Thu, 29 Oct 2026 11:33:57 +0100
+Subject: [PATCH net v5 3/3] net: stmmac: re-apply taprio offload in
+ __stmmac_open() and stmmac_resume()
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-stmmac-est-fixes-v5-2-85b830a795a9@oss.qualcomm.com>
+Message-Id: <20261029-stmmac-est-fixes-v5-3-85b830a795a9@oss.qualcomm.com>
 References: <20261029-stmmac-est-fixes-v5-0-85b830a795a9@oss.qualcomm.com>
 In-Reply-To: <20261029-stmmac-est-fixes-v5-0-85b830a795a9@oss.qualcomm.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -116,38 +116,39 @@ To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
         Jose Abreu <Jose.Abreu@synopsys.com>,
         James Hilliard <james.hilliard1@gmail.com>
 Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+        Rayagond Kokatanur <rayagond@vayavyalabs.com>
 X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDA0MCBTYWx0ZWRfXwSpFrnlxrjOb
- Ff18JlwuPZAgSvHKP9XHPK4nwBOv3T/zAwyavAIGvrtzKpbyRlWMXgOsmsPnJLC06fS76qWdX4f
- Y6eFALzhXQGjwVqZFVzq5FknKC0YbGE=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDA0MCBTYWx0ZWRfX416aCbGvI0S9
- lV4Ky36f406r4d9AxPZ2lQ+lxvfSjNBv0+o9b0lN/es2UnAFlt6pCaYEXeg96v5WH2WGm+SuLOm
- Cc+XVoaXej5wsLdWvIC13jvlMfjA6rvmjVIm7JsZLxGaOiXOihuAv1RCUlqeskO4I5EGgqGhJuM
- xAooGbzaKr2aITDooyjfNeiMtTd8zC+r55jM1XwtHdT0NLja3IjrbccJGOed/eO4XmwTlBDFTYp
- scsfEdcgtIJU/46KwQFInnI5K+VrK7hbPnURVsEZhczYrYhK4vnYOWFiAFBuJd2CteWSBatLclf
- 5OMg0LX77n+23ZpjI/UEqLqFXAdmNVNJug/9MQ980Ws7VXXSe6u6aV6SeKuaqasZWqitHLUrIGX
- tcx5mM5g8eWkvMXcuRkGoNPRxbBBUqGvXO7i1bOsmdJ+hGt+W+SMprbW0p+de1mljZM1sRbM/Pc
- +IkqpyV2hBXSQYxG4Lg==
-X-Proofpoint-ORIG-GUID: BhxbnsI8nY7IaDQ_EGeWG9vuLL1rJRWE
-X-Proofpoint-GUID: BhxbnsI8nY7IaDQ_EGeWG9vuLL1rJRWE
-X-Authority-Analysis: v=2.4 cv=HYSB3SE8 c=1 sm=1 tr=0 ts=6ae3212f cx=c_pps
- a=wuOIiItHwq1biOnFUQQHKA==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDA0MCBTYWx0ZWRfXzIexntnTZV4F
+ K2+Zb05nntIHP4svVSiLC1iddmcSWVEKcakepgzCPuXhm6TgU58lBzn7bkTNi4SWciWa7iTWGD+
+ FL7Te8twh9Gt0e26Khd4JwB1bQqBy5A=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDA0MCBTYWx0ZWRfXwKwYZnMFP7/L
+ VQMkYo8Auq8W2hJC3MkJXG+WLHGiJm1zKc6kx6kHbxYtezK8VaWlBVeC0azU1GkEv+ypBtSE2Ui
+ C31HXSE45qLDLNBc7rijw6eoRZdVn78mAvXeR8jrkZbo01hVYe8u7DiJUQ2wThPsOGpEJ31bf5n
+ qSvrLRKRrcQuNylUL5xb9aY+GhpmGyTBXGsTyKuMCSwItKCiZTrtw/zMRAEh+sTFaPI7PIQiFUo
+ 5lA3v7Wf014bNjCqGCLCmwG/hOHRj11TWrs+7sLd9pjRw9q3skGSXU5sz4oI1zCx2ygkZcP54/8
+ QmN/oXVmDztSnWSz0ehpbK4Cyrzb4DAmrobkNi8ZoMotg9vbzyrk1LHAZht5L+E4Cl7lyMzTx0B
+ yiBg+f9eLuAD/5UPRxeb5oqPouAcDTFGr/Q3MrB0A85JcwmSJPNkpUtuCGvsMvkBEAJagB6f1I1
+ Gf1GFz2DKy/xwUrNPYA==
+X-Authority-Analysis: v=2.4 cv=A8T5rKWG c=1 sm=1 tr=0 ts=6ae32134 cx=c_pps
+ a=DUEm7b3gzWu7BqY5nP7+9g==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=P-IC7800AAAA:8 a=EUspDBNiAAAA:8 a=Lt0KCD4LekEKBd4wozwA:9 a=QEXdDO2ut3YA:10
- a=XD7yVLdPMpWraOa8Un9W:22 a=d3PnA9EDa4IxuAV0gXij:22
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=JpBpa1p7AAAA:8 a=lwEgaQNyhJe4a321_6MA:9 a=QEXdDO2ut3YA:10
+ a=-aSRE8QhW-JAV6biHavz:22 a=YCh05so4W2E6r1tszMC6:22
+X-Proofpoint-GUID: Bq25Ac0aA7B_lmWZ4Xl90VN8dCDlvUBu
+X-Proofpoint-ORIG-GUID: Bq25Ac0aA7B_lmWZ4Xl90VN8dCDlvUBu
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-29_03,2026-10-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 adultscore=0 suspectscore=0 clxscore=1015
- spamscore=0 lowpriorityscore=0 impostorscore=0 malwarescore=0 bulkscore=0
+ adultscore=0 spamscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
+ malwarescore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610290040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_033423_775702_929FE5B0 
-X-CRM114-Status: GOOD (  19.67  )
+X-CRM114-CacheID: sfid-20261029_033429_479062_81DED984 
+X-CRM114-Status: GOOD (  28.27  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -167,111 +168,449 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Pass the desired EST enable state explicitly to est_configure() instead
-of having it derive from cfg->enable. This decouples the hardware
-programming state from the priv->est->enable flag, which records whether
-the taprio offload is attached.
+The core soft reset issued by stmmac_init_dma_engine(), called from
+stmmac_hw_setup(), clears the MTL_EST registers. Nothing re-applies the
+taprio offload afterwards, so priv->est->enable stays true while the
+hardware EST block is left disabled: taprio keeps being reported as
+offloaded, the TX/XDP paths keep dropping frames larger than
+priv->est->max_sdu[], and the programmed base time is stale.
 
-No functional change intended: the callers keep toggling
-priv->est->enable around the EST programming, as before.
+Re-apply the offload from __stmmac_open() and stmmac_resume() after PTP
+has been brought up. The base time is recomputed from the reserved base
+time and the current PTP time, because the timestamp counter has been
+re-initialised and the previously programmed base time cannot be reused.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Factor the recompute-and-program sequence into __stmmac_setup_est(),
+which must be called with est_lock held, and into stmmac_setup_est(),
+which takes the lock and re-applies the offload only when it is
+currently enabled and PTP has been brought up. Use the same helper in
+stmmac_adjust_time() so the PTP adjust path shares the base time
+computation.
+
+Only tc_taprio_configure() updates priv->est->enable: it is set when a
+REPLACE succeeds and cleared on DESTROY or a programming failure. The
+re-apply helpers leave it untouched, so the flag records that an offload
+is installed rather than the current hardware programming state.
+__stmmac_setup_est() only reprograms the EST block, and
+stmmac_setup_est() replays the FPE mapping afterwards. On a failed
+re-apply the open and resume callers abort, while stmmac_adjust_time()
+keeps the offload configured.
+
+The same reset also discards the FPE preemption programming, and on XGMAC
+stmmac_dma_tx_mode() overwrites the queue-to-traffic-class map. Save the
+preemptible traffic class mask in priv->est->pclass when a REPLACE
+succeeds and replay the FPE mapping from stmmac_setup_est() as well.
+
+Re-applying the offload is best-effort with respect to PTP:
+stmmac_setup_est() does nothing when PTP was not enabled (for example
+when clk_ptp_rate is 0), so a missing PTP reference clock does not by
+itself fail ndo_open(). If re-applying the EST or FPE programming fails
+while restoring the interface, the failure is fatal to the caller:
+__stmmac_open() aborts the open, and stmmac_resume() takes the same error
+path already used for a failed timestamp counter restore.
+
+Since __stmmac_open() and stmmac_resume() now trust priv->est->enable,
+also make tc_taprio_configure() consistent: hold est_lock across the
+whole validate-and-program sequence, build the gate list in a temporary
+buffer, and only commit it and enable EST after validation and hardware
+programming succeed. A REPLACE rejected during validation then leaves the
+currently installed schedule intact in both software and hardware, while
+a hardware or FPE mapping failure disables EST instead of leaving a stale
+enable flag behind. Reject cycle times whose seconds field would not fit
+in priv->est->ctr[1].
+
+Fixes: b60189e0392f ("net: stmmac: Integrate EST with TAPRIO scheduler API")
 Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/hwif.h       | 2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_est.c | 6 +++---
- drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 4 ++--
- drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c  | 4 ++--
- 4 files changed, 8 insertions(+), 8 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |  1 +
+ drivers/net/ethernet/stmicro/stmmac/stmmac_est.c  | 55 ++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_est.h  |  8 +++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 11 ++-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 44 +++---------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 88 ++++++++++++++---------
+ 6 files changed, 139 insertions(+), 68 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-index b2e557788803..8ae95e91a36a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-@@ -620,7 +620,7 @@ struct stmmac_mmc_ops {
- 
- struct stmmac_est_ops {
- 	int (*configure)(struct stmmac_priv *priv, struct stmmac_est *cfg,
--			 unsigned int ptp_rate);
-+			 unsigned int ptp_rate, bool enable);
- 	void (*irq_status)(struct stmmac_priv *priv, struct net_device *dev,
- 			   struct stmmac_extra_stats *x, u32 txqcnt);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 93292014c393..b76acfe0d958 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -239,6 +239,7 @@ struct stmmac_est {
+ 	u32 gcl[EST_GCL];
+ 	u32 gcl_size;
+ 	u32 max_sdu[MTL_MAX_TX_QUEUES];
++	u32 pclass;
  };
+ 
+ struct stmmac_msi {
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-index afc516059b89..f15d4d046aa7 100644
+index f15d4d046aa7..59e9a54e864d 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-@@ -26,7 +26,7 @@ static int est_write(void __iomem *est_addr, u32 reg, u32 val, bool gcl)
+@@ -80,6 +80,61 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
+ 	return 0;
  }
  
- static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
--			 unsigned int ptp_rate)
-+			 unsigned int ptp_rate, bool enable)
++int __stmmac_setup_est(struct stmmac_priv *priv)
++{
++	struct timespec64 current_time, time;
++	ktime_t current_time_ns, basetime;
++	u64 cycle_time;
++	int err;
++
++	lockdep_assert_held(&priv->est_lock);
++
++	priv->ptp_clock_ops.gettimex64(&priv->ptp_clock_ops, &current_time,
++				       NULL);
++	current_time_ns = timespec64_to_ktime(current_time);
++
++	time.tv_nsec = priv->est->btr_reserve[0];
++	time.tv_sec = priv->est->btr_reserve[1];
++	basetime = timespec64_to_ktime(time);
++
++	cycle_time = (u64)priv->est->ctr[1] * NSEC_PER_SEC + priv->est->ctr[0];
++
++	time = stmmac_calc_tas_basetime(basetime, current_time_ns, cycle_time);
++	priv->est->btr[0] = (u32)time.tv_nsec;
++	priv->est->btr[1] = (u32)time.tv_sec;
++
++	err = stmmac_est_configure(priv, priv, priv->est,
++				   priv->plat->clk_ptp_rate, true);
++	if (err) {
++		netdev_err(priv->dev, "failed to re-configure EST\n");
++		return err;
++	}
++
++	return 0;
++}
++
++int stmmac_setup_est(struct stmmac_priv *priv)
++{
++	int ret = 0;
++
++	if (!priv->ptp_enabled)
++		return 0;
++
++	mutex_lock(&priv->est_lock);
++	if (priv->est && priv->est->enable) {
++		ret = __stmmac_setup_est(priv);
++		if (ret)
++			goto unlock;
++
++		ret = stmmac_fpe_map_preemption_class(priv, priv->dev, NULL,
++						      priv->est->pclass);
++	}
++unlock:
++	mutex_unlock(&priv->est_lock);
++
++	return ret;
++}
++
+ static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
+ 			   struct stmmac_extra_stats *x, u32 txqcnt)
  {
- 	void __iomem *est_addr = priv->estaddr;
- 	int i, ret = 0;
-@@ -62,7 +62,7 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
- 		ctrl |= ((NSEC_PER_SEC / ptp_rate) * EST_GMAC5_PTOV_MUL) <<
- 			 EST_GMAC5_PTOV_SHIFT;
- 	}
--	if (cfg->enable)
-+	if (enable)
- 		ctrl |= EST_EEST | EST_SSWL | EST_DFBS;
- 	else
- 		ctrl &= ~EST_EEST;
-@@ -70,7 +70,7 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
- 	writel(ctrl, est_addr + EST_CONTROL);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
+index f70221c9c84a..5e07b84957f3 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
+@@ -4,6 +4,9 @@
+  * stmmac EST(802.3 Qbv) handling
+  */
  
- 	/* Configure EST interrupt */
--	if (cfg->enable)
-+	if (enable)
- 		ctrl = EST_IECGCE | EST_IEHS | EST_IEHF | EST_IEBE | EST_IECC;
- 	else
- 		ctrl = 0;
++#ifndef __STMMAC_EST_H__
++#define __STMMAC_EST_H__
++
+ #define EST_GMAC4_OFFSET		0x00000c50
+ #define EST_XGMAC_OFFSET		0x00001050
+ 
+@@ -65,3 +68,8 @@
+ #define EST_GCL_DATA			0x00000034
+ 
+ extern const struct stmmac_est_ops dwmac510_est_ops;
++
++int __stmmac_setup_est(struct stmmac_priv *priv);
++int stmmac_setup_est(struct stmmac_priv *priv);
++
++#endif /* __STMMAC_EST_H__ */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 2163e79fea9a..d1e3d2cc7767 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -48,6 +48,7 @@
+ #include "stmmac_ptp.h"
+ #include "stmmac_fpe.h"
+ #include "stmmac.h"
++#include "stmmac_est.h"
+ #include "stmmac_pcs.h"
+ #include "stmmac_xdp.h"
+ #include <linux/reset.h>
+@@ -4201,6 +4202,10 @@ static int __stmmac_open(struct net_device *dev,
+ 	if (ret)
+ 		goto ptp_error;
+ 
++	ret = stmmac_setup_est(priv);
++	if (ret)
++		goto est_error;
++
+ 	stmmac_init_coalesce(priv);
+ 
+ 	phylink_start(priv->phylink);
+@@ -4224,7 +4229,7 @@ static int __stmmac_open(struct net_device *dev,
+ 
+ 	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
+ 		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
+-
++est_error:
+ 	stmmac_release_ptp(priv);
+ ptp_error:
+ 	stmmac_stop_all_dma(priv);
+@@ -8527,6 +8532,10 @@ int stmmac_resume(struct device *dev)
+ 		ret = stmmac_init_timestamping(priv);
+ 		if (ret)
+ 			goto error_stop_dma;
++
++		ret = stmmac_setup_est(priv);
++		if (ret)
++			goto error_stop_dma;
+ 	}
+ 
+ init_coalesce:
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-index e54a3c887826..9a32af00d7d2 100644
+index 9a32af00d7d2..a37405534beb 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-@@ -74,7 +74,7 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
- 		mutex_lock(&priv->est_lock);
- 		priv->est->enable = false;
- 		stmmac_est_configure(priv, priv, priv->est,
--				     priv->plat->clk_ptp_rate);
-+				     priv->plat->clk_ptp_rate, false);
- 		mutex_unlock(&priv->est_lock);
- 	}
+@@ -8,6 +8,7 @@
+   Author: Rayagond Kokatanur <rayagond@vayavyalabs.com>
+ *******************************************************************************/
+ #include "stmmac.h"
++#include "stmmac_est.h"
+ #include "stmmac_ptp.h"
  
-@@ -105,7 +105,7 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
- 		priv->est->btr[1] = (u32)time.tv_sec;
- 		priv->est->enable = true;
- 		ret = stmmac_est_configure(priv, priv, priv->est,
--					   priv->plat->clk_ptp_rate);
-+					   priv->plat->clk_ptp_rate, true);
- 		mutex_unlock(&priv->est_lock);
- 		if (ret)
- 			netdev_err(priv->dev, "failed to configure EST\n");
+ #define PTP_SAFE_TIME_OFFSET_NS	500000
+@@ -54,8 +55,7 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
+ 	u32 sec, nsec;
+ 	u32 quotient, reminder;
+ 	int neg_adj = 0;
+-	bool xmac, est_rst = false;
+-	int ret;
++	bool xmac;
+ 
+ 	xmac = dwmac_is_xmac(priv->plat->core_type);
+ 
+@@ -69,47 +69,21 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
+ 	nsec = reminder;
+ 
+ 	/* If EST is enabled, disabled it before adjust ptp time. */
+-	if (priv->est && priv->est->enable) {
+-		est_rst = true;
+-		mutex_lock(&priv->est_lock);
+-		priv->est->enable = false;
++	mutex_lock(&priv->est_lock);
++	if (priv->est && priv->est->enable)
+ 		stmmac_est_configure(priv, priv, priv->est,
+ 				     priv->plat->clk_ptp_rate, false);
+-		mutex_unlock(&priv->est_lock);
+-	}
++	mutex_unlock(&priv->est_lock);
+ 
+ 	write_lock_irqsave(&priv->ptp_lock, flags);
+ 	stmmac_adjust_systime(priv, priv->ptpaddr, sec, nsec, neg_adj, xmac);
+ 	write_unlock_irqrestore(&priv->ptp_lock, flags);
+ 
+ 	/* Calculate new basetime and re-configured EST after PTP time adjust. */
+-	if (est_rst) {
+-		struct timespec64 current_time, time;
+-		ktime_t current_time_ns, basetime;
+-		u64 cycle_time;
+-
+-		mutex_lock(&priv->est_lock);
+-		priv->ptp_clock_ops.gettimex64(&priv->ptp_clock_ops,
+-					       &current_time, NULL);
+-		current_time_ns = timespec64_to_ktime(current_time);
+-		time.tv_nsec = priv->est->btr_reserve[0];
+-		time.tv_sec = priv->est->btr_reserve[1];
+-		basetime = timespec64_to_ktime(time);
+-		cycle_time = (u64)priv->est->ctr[1] * NSEC_PER_SEC +
+-			     priv->est->ctr[0];
+-		time = stmmac_calc_tas_basetime(basetime,
+-						current_time_ns,
+-						cycle_time);
+-
+-		priv->est->btr[0] = (u32)time.tv_nsec;
+-		priv->est->btr[1] = (u32)time.tv_sec;
+-		priv->est->enable = true;
+-		ret = stmmac_est_configure(priv, priv, priv->est,
+-					   priv->plat->clk_ptp_rate, true);
+-		mutex_unlock(&priv->est_lock);
+-		if (ret)
+-			netdev_err(priv->dev, "failed to configure EST\n");
+-	}
++	mutex_lock(&priv->est_lock);
++	if (priv->est && priv->est->enable)
++		__stmmac_setup_est(priv);
++	mutex_unlock(&priv->est_lock);
+ 
+ 	return 0;
+ }
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-index aea235a69105..ac926c60f9f9 100644
+index ac926c60f9f9..10b61fa2c27c 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-@@ -1090,7 +1090,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
- 	tc_taprio_map_maxsdu_txq(priv, qopt);
+@@ -966,11 +966,12 @@ static void tc_taprio_map_maxsdu_txq(struct stmmac_priv *priv,
+ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 			       struct tc_taprio_qopt_offload *qopt)
+ {
+-	u32 size, wid = priv->dma_cap.estwid, dep = priv->dma_cap.estdep;
++	u32 wid = priv->dma_cap.estwid, dep = priv->dma_cap.estdep;
+ 	struct netlink_ext_ack *extack = qopt->mqprio.extack;
+ 	struct timespec64 time, current_time, qopt_time;
+ 	ktime_t current_time_ns;
+ 	int err, i, ret = 0;
++	u32 *gcl = NULL;
+ 	u64 ctr;
+ 
+ 	if (qopt->base_time < 0)
+@@ -1013,42 +1014,46 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 		return -EOPNOTSUPP;
+ 	}
+ 
++	mutex_lock(&priv->est_lock);
++
+ 	if (qopt->cmd == TAPRIO_CMD_DESTROY)
+ 		goto disable;
+ 
+-	if (qopt->num_entries > dep)
+-		return -EINVAL;
+-	if (!qopt->cycle_time)
+-		return -ERANGE;
+-	if (qopt->cycle_time_extension >= BIT(wid + 7))
+-		return -ERANGE;
++	if (qopt->num_entries > dep) {
++		ret = -EINVAL;
++		goto error_unlock;
++	}
+ 
+-	if (!priv->est) {
+-		priv->est = devm_kzalloc(priv->device, sizeof(*priv->est),
+-					 GFP_KERNEL);
+-		if (!priv->est)
+-			return -ENOMEM;
+-	} else {
+-		mutex_lock(&priv->est_lock);
+-		memset(priv->est, 0, sizeof(*priv->est));
+-		mutex_unlock(&priv->est_lock);
++	if (!qopt->cycle_time ||
++	    qopt->cycle_time > (u64)U32_MAX * NSEC_PER_SEC) {
++		ret = -ERANGE;
++		goto error_unlock;
+ 	}
+ 
+-	size = qopt->num_entries;
++	if (qopt->cycle_time_extension >= BIT(wid + 7)) {
++		ret = -ERANGE;
++		goto error_unlock;
++	}
+ 
+-	mutex_lock(&priv->est_lock);
+-	priv->est->gcl_size = size;
+-	priv->est->enable = qopt->cmd == TAPRIO_CMD_REPLACE;
+-	mutex_unlock(&priv->est_lock);
++	gcl = kcalloc(qopt->num_entries, sizeof(*gcl), GFP_KERNEL);
++	if (!gcl) {
++		ret = -ENOMEM;
++		goto error_unlock;
++	}
+ 
+-	for (i = 0; i < size; i++) {
++	for (i = 0; i < qopt->num_entries; i++) {
+ 		s64 delta_ns = qopt->entries[i].interval;
+ 		u32 gates = qopt->entries[i].gate_mask;
+ 
+-		if (delta_ns > GENMASK(wid - 1, 0))
+-			return -ERANGE;
+-		if (gates > GENMASK(31 - wid, 0))
+-			return -ERANGE;
++		if (delta_ns > GENMASK(wid - 1, 0)) {
++			ret = -ERANGE;
++			goto error_unlock;
++		}
++
++		if (gates > GENMASK(31 - wid, 0)) {
++			ret = -ERANGE;
++			goto error_unlock;
++		}
+ 
+ 		switch (qopt->entries[i].command) {
+ 		case TC_TAPRIO_CMD_SET_GATES:
+@@ -1060,13 +1065,26 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 			gates &= ~BIT(0);
+ 			break;
+ 		default:
+-			return -EOPNOTSUPP;
++			ret = -EOPNOTSUPP;
++			goto error_unlock;
+ 		}
+ 
+-		priv->est->gcl[i] = delta_ns | (gates << wid);
++		gcl[i] = delta_ns | (gates << wid);
+ 	}
+ 
+-	mutex_lock(&priv->est_lock);
++	if (!priv->est) {
++		priv->est = devm_kzalloc(priv->device, sizeof(*priv->est),
++					 GFP_KERNEL);
++		if (!priv->est) {
++			ret = -ENOMEM;
++			goto error_unlock;
++		}
++	} else {
++		memset(priv->est, 0, sizeof(*priv->est));
++	}
++	memcpy(priv->est->gcl, gcl, sizeof(*gcl) * qopt->num_entries);
++	priv->est->gcl_size = qopt->num_entries;
++
+ 	/* Adjust for real system time */
+ 	priv->ptp_clock_ops.gettimex64(&priv->ptp_clock_ops, &current_time,
+ 				       NULL);
+@@ -1091,7 +1109,6 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
  
  	ret = stmmac_est_configure(priv, priv, priv->est,
--				   priv->plat->clk_ptp_rate);
-+				   priv->plat->clk_ptp_rate, true);
- 	mutex_unlock(&priv->est_lock);
+ 				   priv->plat->clk_ptp_rate, true);
+-	mutex_unlock(&priv->est_lock);
  	if (ret) {
  		netdev_err(priv->dev, "failed to configure EST\n");
-@@ -1109,7 +1109,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
- 		mutex_lock(&priv->est_lock);
+ 		goto disable;
+@@ -1102,11 +1119,16 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 	if (ret)
+ 		goto disable;
+ 
++	priv->est->pclass = qopt->mqprio.preemptible_tcs;
++	priv->est->enable = true;
++
++	mutex_unlock(&priv->est_lock);
++	kfree(gcl);
++
+ 	return 0;
+ 
+ disable:
+ 	if (priv->est) {
+-		mutex_lock(&priv->est_lock);
  		priv->est->enable = false;
  		stmmac_est_configure(priv, priv, priv->est,
--				     priv->plat->clk_ptp_rate);
-+				     priv->plat->clk_ptp_rate, false);
- 		/* Reset taprio status */
- 		for (i = 0; i < priv->plat->tx_queues_to_use; i++) {
- 			priv->xstats.max_sdu_txq_drop[i] = 0;
+ 				     priv->plat->clk_ptp_rate, false);
+@@ -1116,10 +1138,12 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 			priv->xstats.mtl_est_txq_hlbf[i] = 0;
+ 			priv->xstats.mtl_est_txq_hlbs[i] = 0;
+ 		}
+-		mutex_unlock(&priv->est_lock);
+ 	}
+ 
+ 	err = stmmac_fpe_map_preemption_class(priv, priv->dev, extack, 0);
++error_unlock:
++	mutex_unlock(&priv->est_lock);
++	kfree(gcl);
+ 
+ 	return qopt->cmd == TAPRIO_CMD_DESTROY ? err : ret;
+ }
 
 -- 
 2.56.0
