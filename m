@@ -2,105 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81B44606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 23:14:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BA6B606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 23:22:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eavvrq+1;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zYbMjxPp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SXAX849X;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OeDHMRkV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=LYtNSjgV58xGbyTo5mnS9fU4iYF6Ei0AnGKD6L+FOdI=; b=eavvrq+1MuKtK5
-	OQZbZjHyxkNIdhGc68dNtCaS2Hjvw1NUO7PoB3vAm8lkW6PIBgFEM1NVrvJc/aXYoc++Pbc9wqet5
-	PmwjENEgW9RvEXo6Y8TUTMXxY4pJfySyGDYBjc6bFpAd4TmAf9V/7sTYSDwMbiUi+ZHZ3ZC47KQ5f
-	mE6PggeYdcbPJW7iGBfim2W5ZjkDnM9vn3MI2IJYt9CVCs9PdI6kZ116yuDcMLKocauYfH13LxXua
-	kCfEPlyMB02HIHC0sUkNpxJ41P9u0fMMpw6IGQAQTBCLcuOb3+0i6bMKZp8hqwim65OtWhKUFHLn4
-	YQzlQcPVF5Oa42aKA8rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=N3gRoLc7yvRB1yDkBERo6UVcw5vuu8Tzkngj57Vi0dE=; b=SXAX849Xjp5DpkGqz/7bmCg8LS
+	cZkqISlT9bA3aDn6VqTi6FqF/BVKd6cNptYpPVjKIRcuPy8Z6/oR3xQkkj7zzpLRVyZVULGAMXVLv
+	eAgbVdIctDcd73CgpLsRx7St3RHx2sKNDQ6FncaApCFr+TqCI0q02EOhmGbAuvYK9ZDF0oUDasS6v
+	1gQj1M84YVAFjVE6oBKhyxuHJbNamH+OcfYqwHi8IedeetDcZg5/DK6Vb/VZluRXHhrw4AV5XAWbR
+	P3d4MCeUWyhRHOVeu5emHyoHy3/s+K45lKsBy6na/6bSn77VlRsX4Lu6pz2uCVv/FBbiLjJwIMbb3
+	sZJbvUjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMZK3-0000000AWri-3Y6L;
-	Thu, 29 Oct 2026 23:14:15 +0000
-Received: from mail-dy1-x132c.google.com ([2607:f8b0:4864:20::132c])
+	id 1xMZRW-0000000AXHB-44Ak;
+	Thu, 29 Oct 2026 23:21:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMZK0-0000000AWq8-0w6t
+	id 1xMZRU-0000000AXH5-3fOG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 23:14:14 +0000
-Received: by mail-dy1-x132c.google.com with SMTP id 5a478bee46e88-36661f953e4so268699eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 16:14:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793315651; x=1793920451; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LYtNSjgV58xGbyTo5mnS9fU4iYF6Ei0AnGKD6L+FOdI=;
-        b=zYbMjxPp7K0iPtwyci7c0W03G2tZJ1Atf3fGJbA9XanqBWqVUXMa/lY6gJuPZWppBc
-         NQuSQRBE+tpFPyCKzxrNt3+Ml0fb0TXbNOp8B87NJzLNCugepNHfxU8CfG1R1vRha+r4
-         k7VFVN86ES7TbpFOIQMQ2visYf8bwtrB1wHunUJcXccybs+l1jTgW/Smmv4LnnENHXEj
-         k34bu3aRkBiMM/9XKqVBt1ReZG2ApC0IRnVOTyPM+ri7yIa2XGGf7JMeUVWV8qZatXGq
-         dGZCnhOiOO5/2kGPiPKtN5QHW3UPg/G734siqPIxNea1oDiZva2yD4CC3IkRzhjEMEbP
-         8o2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793315651; x=1793920451;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LYtNSjgV58xGbyTo5mnS9fU4iYF6Ei0AnGKD6L+FOdI=;
-        b=BK8Y2X5b3/wOYn9WNnQET7cq+72kQFPgqeXqO/4F+K+8JmY9XBM01PQX/JCCDj9288
-         mPWEeslkutEpMZJ0g6l/UElcLB8hyg+0/Zvy4a63pJ0bqcyFHJdzxKSUOavtEDUIYVEB
-         KwdwvfFWWm5dwqzrmyWa/PJZYbcXoY+1AJYK+iVMOuAjeZqmMuAw/JqwAVfQCC4sTA0h
-         fVJv+POXUF7+Po+liJaH5N3tYXCB+eJwKrm8lFc8J0kwt5jO5TOgzsxHJfof0THW/X3W
-         rO1CcXzSjlcumteCbv15kgfHat5wHfgYJ/Wsvdeop8O/PEx1e3ihKDKx/vdeLImLieZR
-         UE4A==
-X-Forwarded-Encrypted: i=1; AKwUvByWoaRO/R5O9Smz5Vl1GnDdpjpDzt4MHehCMlJ5JMugN6MrN71vsRuzwINJ0x8QRpghCk5VfaAoW2iKefwcesOW@lists.infradead.org
-X-Gm-Message-State: AFq9FYLoubRgJNxS7oKXGRSCn8fpl+VuWGW+sCQYTW9G4SLvlAs+57AR
-	pDSXkJBc0LbTMApcUZcW/2Dg4HyWfEKm9H+AiiGb0K1fab+YtIttSC6o
-X-Gm-Gg: AYBFou1kBwE7J6OX9HQa9UCED6WO92anDdbgbZXRjNawu2HgsfIYMkiM98MZSocNU48
-	gzcJJIaKGU/fjRruCkcWEsaGa4sazGEN9cLos644sxdYdmFbxBP1p4vTJVT8/iB74fKJkx9w4CA
-	LRfgi0q0fSX7ncbP25Z20X+UNrBciCXjw01kRI3DOdsSP23EKZsdy/D5cALDmBUsOXBnegFsriS
-	W6F6mPybSEpZ+huyDwvmIUtSTfLT3awiAQI4hsPBeEB273HQekLEidcIGyim5FW0jrBEoD0h0Jv
-	raS9ZQ3BT6nmugUJdE6Q7rptrAAPMZ4+POYWBRk7/szJ4wcBFQ9gdC8+KJS+V/J6WbSAFLhVmGA
-	QJaq4wMIeGCM417VM+0PYkQNR9Z7Jmb0XAoKh4s7LZiwJQPadwiwQnFt5ZqETzLUKIsKbQhEZVb
-	H9TrVLVHwvtLL1EfVlvb15hmrrs0ZoKv1q9sJOnh7KX25Ap7xfjWEyK4pnyHgm1uyXgXtXTiOJq
-	/gvn8TfQyXHwbHdKevjYPKpuXN67NiC52AoSjNMmI5UYZfy7aDjqZAohFyMSli+2mREBEldZ2R5
-	lU+kd0pksjBxFFOhPe6/at/q8OF3EZO6ouRqUymYVsYKEg==
-X-Received: by 2002:a05:693c:41c8:10b0:367:185e:867a with SMTP id 5a478bee46e88-36a4242366fmr1174193eec.38.1793315650617;
-        Thu, 29 Oct 2026 16:14:10 -0700 (PDT)
-Received: from debian.prasanth ([103.177.82.12])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36a428af1dfsm1662742eec.7.2026.10.29.16.14.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 16:14:10 -0700 (PDT)
-From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-To: joel@jms.id.au,
-	andrew@codeconstruct.com.au
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ryan_chen@aspeedtech.com,
-	billy_tsai@aspeedtech.com,
-	tan.siewert@9elements.com,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	openbmc@lists.ozlabs.org,
-	andrew@lunn.ch,
-	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-Subject: [PATCH v10 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
-Date: Fri, 30 Oct 2026 04:43:39 +0530
-Message-ID: <20261029231339.9497-3-prasanth.padarthi10@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261029231339.9497-1-prasanth.padarthi10@gmail.com>
-References: <20261029231339.9497-1-prasanth.padarthi10@gmail.com>
+	Thu, 29 Oct 2026 23:21:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1684D41AC8;
+	Thu, 29 Oct 2026 23:21:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3E901F01816;
+	Thu, 29 Oct 2026 23:21:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793316116;
+	bh=N3gRoLc7yvRB1yDkBERo6UVcw5vuu8Tzkngj57Vi0dE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OeDHMRkVizcxRN9N3vVP2Rr6664f8SXA17luor+yEvb3CmNZbugi9FU7GDecXQiRf
+	 9qaUXqbPJ3rA7Dmadxspz7WfJCXoz4/60BO7EXgYSDQxIBhHhXYQ5VUi95AOqYEMgc
+	 yqdS2lhGSX1wbAXHl+O0WkoUVXbCQv4bMGvm+kxdVqANphliT50iJweStI0d/CRJrZ
+	 QN25FBK5i87iVpvu6c4F5z09Ci3tnzlpttoRzjueyUii4cjW6YL9AM8ohmw3rtq7Vw
+	 AlUGm2eibkPKCAJIpLafywkPbuqkAYFDXz6C/q5YyQv6hxTFx9knt12QlVYMU6YrS+
+	 PHxJebv/xBnuQ==
+Date: Thu, 29 Oct 2026 23:21:50 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Srirangan Madhavan <smadhavan@nvidia.com>
+Cc: mark.rutland@arm.com, lpieralisi@kernel.org, sudeep.holla@kernel.org,
+	jic23@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+	andre.przywara@arm.com, aneesh.kumar@kernel.org,
+	Souvik.Chakravarty@arm.com, treding@nvidia.com,
+	jonathanh@nvidia.com, bence.csokas@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Subject: Re: [PATCH v5 2/2] cache: add SMCCC-backed cache invalidate provider
+Message-ID: <20261029-feline-monastery-07bf67308136@spud>
+References: <20261021224557.1827361-1-smadhavan@nvidia.com>
+ <20261021224557.1827361-3-smadhavan@nvidia.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_161412_269734_A78AA26B 
-X-CRM114-Status: GOOD (  16.40  )
-X-Spam-Score: -1.9 (-)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fabG0ZF/qX/zSjOV"
+Content-Disposition: inline
+In-Reply-To: <20261021224557.1827361-3-smadhavan@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,234 +75,283 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add the device tree for the ASRock Rack B650D4U BMC, based on the
-ASPEED AST2600 SoC.
+--fabG0ZF/qX/zSjOV
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Describe the BMC memory, SPI NOR flash layout, UART5 console, GPIO
-line names, graphics memory, and the EEPROM on I2C7. Use the EEPROM
-as the NVMEM provider for the MAC0 address and configure MAC0 with
-an RTL8211F PHY in RGMII-ID mode.
+On Wed, Oct 21, 2026 at 10:45:57PM +0000, Srirangan Madhavan wrote:
+> Add a cache maintenance provider for the cache clean+invalidate interface
+> defined by Arm DEN0028 v1.7.
+>=20
+> Register the interface attributes function as an SMCCC device and bind the
+> provider through the SMCCC bus. The provider reads the firmware attributes
+> during probe and serializes cache maintenance calls. It handles transient
+> BUSY and RATE_LIMITED responses with bounded retries. It also registers
+> with the generic cache coherency framework used by memregion callers.
+>=20
+> Signed-off-by: Srirangan Madhavan <smadhavan@nvidia.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 
-Enable both ADC engines with 2.5 V internal references and expose
-the sixteen channels through an IIO-to-hwmon bridge for board
-voltage monitoring.
+I acked this on v3, but I don't see it here or a reason for why it
+isn't. Ultimately, you're only harming yourself but still.
 
-Retain the SoC's serial4 alias for UART5 and select it as stdout,
-without adding a second serial alias for the same UART.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch> # MAC0 and MDIO nodes only
-Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
----
-Changes in v10:
-- Use the inherited serial4/UART5 alias instead of duplicating it as serial0.
-- Consolidate root nodes and fix peripheral/ADC property ordering.
-- Keep ADC settings and MAC0/MDIO semantics unchanged.
-Changes in v9: enable ADC0/ADC1 and add the ordered IIO-to-hwmon bridge.
-Earlier history and testing limitations: see the cover letter.
-Previous series:
-https://lore.kernel.org/all/20261027034911.99482-1-prasanth.padarthi10@gmail.com/
+Unless the arm64 guys pipe up and expect me to take this,
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+because it's so tied to arm architectural stuff.
 
- arch/arm/boot/dts/aspeed/Makefile             |   1 +
- .../dts/aspeed/aspeed-bmc-asrock-b650d4u.dts  | 169 ++++++++++++++++++
- 2 files changed, 170 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+Cheers,
+Conor.
 
-diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-index 6874b621d..fcb94e62c 100644
---- a/arch/arm/boot/dts/aspeed/Makefile
-+++ b/arch/arm/boot/dts/aspeed/Makefile
-@@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
- 	aspeed-bmc-ampere-mtmitchell.dtb \
- 	aspeed-bmc-arm-stardragon4800-rep2.dtb \
- 	aspeed-bmc-asrock-altrad8.dtb \
-+	aspeed-bmc-asrock-b650d4u.dtb \
- 	aspeed-bmc-asrock-e3c246d4i.dtb \
- 	aspeed-bmc-asrock-e3c256d4i.dtb \
- 	aspeed-bmc-asrock-paul-ipmi-card.dtb \
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
-new file mode 100644
-index 000000000..522c4d53e
---- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
-@@ -0,0 +1,169 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/dts-v1/;
-+
-+#include "aspeed-g6.dtsi"
-+
-+/ {
-+	compatible = "asrock,b650d4u-bmc", "aspeed,ast2600";
-+	model = "ASRock Rack B650D4U BMC";
-+
-+	chosen {
-+		stdout-path = "serial4:115200n8";
-+	};
-+
-+	iio-hwmon {
-+		compatible = "iio-hwmon";
-+		io-channels = <&adc0 0>, <&adc0 1>, <&adc0 2>, <&adc0 3>,
-+			      <&adc0 4>, <&adc0 5>, <&adc0 6>, <&adc0 7>,
-+			      <&adc1 0>, <&adc1 1>, <&adc1 2>, <&adc1 3>,
-+			      <&adc1 4>, <&adc1 5>, <&adc1 6>, <&adc1 7>;
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x20000000>;
-+	};
-+
-+	reserved-memory {
-+		ranges;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		gfx_memory: framebuffer {
-+			compatible = "shared-dma-pool";
-+			alignment = <0x01000000>;
-+			reusable;
-+			size = <0x01000000>;
-+		};
-+	};
-+};
-+
-+&adc0 {
-+	pinctrl-0 = <&pinctrl_adc0_default>,
-+		    <&pinctrl_adc1_default>,
-+		    <&pinctrl_adc2_default>,
-+		    <&pinctrl_adc3_default>,
-+		    <&pinctrl_adc4_default>,
-+		    <&pinctrl_adc5_default>,
-+		    <&pinctrl_adc6_default>,
-+		    <&pinctrl_adc7_default>;
-+	pinctrl-names = "default";
-+	aspeed,int-vref-microvolt = <2500000>;
-+
-+	status = "okay";
-+};
-+
-+&adc1 {
-+	pinctrl-0 = <&pinctrl_adc8_default>,
-+		    <&pinctrl_adc9_default>,
-+		    <&pinctrl_adc10_default>,
-+		    <&pinctrl_adc11_default>,
-+		    <&pinctrl_adc12_default>,
-+		    <&pinctrl_adc13_default>,
-+		    <&pinctrl_adc14_default>,
-+		    <&pinctrl_adc15_default>;
-+	pinctrl-names = "default";
-+	aspeed,int-vref-microvolt = <2500000>;
-+
-+	status = "okay";
-+};
-+
-+&fmc {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		label = "bmc";
-+		spi-max-frequency = <50000000>;
-+		spi-rx-bus-width = <4>;
-+		m25p,fast-read;
-+
-+		status = "okay";
-+
-+#include "openbmc-flash-layout-64.dtsi"
-+	};
-+};
-+
-+&gfx {
-+	memory-region = <&gfx_memory>;
-+
-+	status = "okay";
-+};
-+
-+&gpio0 {
-+	gpio-line-names =
-+		/* A0-A7 */     "", "", "", "", "", "", "", "",
-+		/* B0-B7 */     "", "", "", "", "", "", "", "",
-+		/* C0-C7 */     "", "", "", "", "", "", "", "",
-+		/* D0-D7 */     "", "", "", "", "", "", "", "",
-+		/* E0-E7 */     "", "", "", "", "", "", "", "",
-+		/* F0-F7 */     "", "", "", "", "", "", "", "",
-+		/* G0-G7 */     "", "", "", "", "", "", "", "",
-+		/* H0-H7 */     "", "", "", "", "", "", "", "",
-+		/* I0-I7 */     "", "", "", "", "", "", "", "",
-+		/* J0-J7 */     "", "", "", "", "", "", "", "",
-+		/* K0-K7 */     "", "", "", "", "", "", "", "",
-+		/* L0-L7 */     "", "", "", "", "", "", "", "",
-+		/* M0-M7 */     "", "", "", "", "", "", "", "",
-+		/* N0-N7 */     "", "", "", "", "", "", "", "",
-+		/* O0-O7 */     "", "", "", "", "", "", "", "",
-+		/* P0-P7 */     "button-reset-n", "control-reset-n",
-+				"button-power-n", "control-power-n",
-+				"button-nmi-n", "control-nmi-n",
-+				"", "",
-+		/* Q0-Q7 */     "", "", "", "", "", "", "", "",
-+		/* R0-R7 */     "", "", "", "", "", "", "", "",
-+		/* S0-S7 */     "", "", "", "", "", "", "", "",
-+		/* T0-T7 */     "", "", "", "", "", "", "", "",
-+		/* U0-U7 */     "", "", "", "", "", "", "", "",
-+		/* V0-V7 */     "", "", "", "", "", "", "", "",
-+		/* W0-W7 */     "", "", "", "", "", "", "", "",
-+		/* X0-X7 */     "", "", "", "", "", "", "", "",
-+		/* Y0-Y7 */     "", "", "", "", "", "", "", "",
-+		/* Z0-Z7 */     "", "", "", "", "", "", "", "";
-+};
-+
-+&i2c7 {
-+	status = "okay";
-+
-+	eeprom@57 {
-+		compatible = "atmel,24c128";
-+		reg = <0x57>;
-+		pagesize = <16>;
-+
-+		nvmem-layout {
-+			compatible = "fixed-layout";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			eth0_macaddress: macaddress@3f80 {
-+				reg = <0x3f80 6>;
-+			};
-+		};
-+	};
-+};
-+
-+&mac0 {
-+	nvmem-cells = <&eth0_macaddress>;
-+	nvmem-cell-names = "mac-address";
-+	phy-handle = <&ethphy0>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-0 = <&pinctrl_rgmii1_default>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&mdio0 {
-+	status = "okay";
-+
-+	ethphy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0>;
-+	};
-+};
-+
-+&uart5 {
-+	status = "okay";
-+};
--- 
-2.47.3
 
+> ---
+>  drivers/cache/Kconfig           |  11 +++
+>  drivers/cache/Makefile          |   2 +
+>  drivers/cache/arm_smccc_cache.c | 156 ++++++++++++++++++++++++++++++++
+>  drivers/firmware/smccc/smccc.c  |   5 +
+>  4 files changed, 174 insertions(+)
+>  create mode 100644 drivers/cache/arm_smccc_cache.c
+>=20
+> diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
+> index 1518449d47b5..57fd1823dec5 100644
+> --- a/drivers/cache/Kconfig
+> +++ b/drivers/cache/Kconfig
+> @@ -42,6 +42,17 @@ menuconfig CACHEMAINT_FOR_HOTPLUG
+> =20
+>  if CACHEMAINT_FOR_HOTPLUG
+> =20
+> +config ARM_SMCCC_CACHE
+> +	bool "Arm SMCCC cache maintenance provider"
+> +	depends on ARM64 && HAVE_ARM_SMCCC_DISCOVERY
+> +	help
+> +	  Enable support for the Arm SMCCC cache clean+invalidate
+> +	  interface as a provider for memory hotplug-like cache
+> +	  maintenance operations.
+> +	  The provider registers only when firmware advertises the
+> +	  SMCCC calls and attributes, so systems without firmware support
+> +	  continue without this registered provider.
+> +
+>  config HISI_SOC_HHA
+>  	tristate "HiSilicon Hydra Home Agent (HHA) device driver"
+>  	depends on (ARM64 && ACPI) || COMPILE_TEST
+> diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
+> index b3362b15d6c1..55736a032d6f 100644
+> --- a/drivers/cache/Makefile
+> +++ b/drivers/cache/Makefile
+> @@ -4,4 +4,6 @@ obj-$(CONFIG_AX45MP_L2_CACHE)		+=3D ax45mp_cache.o
+>  obj-$(CONFIG_SIFIVE_CCACHE)		+=3D sifive_ccache.o
+>  obj-$(CONFIG_STARFIVE_STARLINK_CACHE)	+=3D starfive_starlink_cache.o
+> =20
+> +# Providers below depend on CACHEMAINT_FOR_HOTPLUG.
+> +obj-$(CONFIG_ARM_SMCCC_CACHE)		+=3D arm_smccc_cache.o
+>  obj-$(CONFIG_HISI_SOC_HHA)		+=3D hisi_soc_hha.o
+> diff --git a/drivers/cache/arm_smccc_cache.c b/drivers/cache/arm_smccc_ca=
+che.c
+> new file mode 100644
+> index 000000000000..abe6881f3de3
+> --- /dev/null
+> +++ b/drivers/cache/arm_smccc_cache.c
+> @@ -0,0 +1,156 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2026 NVIDIA Corporation
+> + *
+> + * Arm SMCCC cache maintenance provider using the cache clean+invalidate
+> + * interface defined by Arm DEN0028 v1.7.
+> + */
+> +
+> +#include <linux/arm-smccc.h>
+> +#include <linux/arm-smccc-bus.h>
+> +#include <linux/cache_coherency.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/container_of.h>
+> +#include <linux/delay.h>
+> +#include <linux/errno.h>
+> +#include <linux/math.h>
+> +#include <linux/minmax.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/nmi.h>
+> +#include <linux/time64.h>
+> +#include <linux/types.h>
+> +
+> +#define SMCCC_CACHE_MAX_RETRIES		5
+> +#define SMCCC_CACHE_DEFAULT_DELAY_US	1000UL
+> +#define SMCCC_CACHE_MAX_DELAY_US	20000UL
+> +
+> +struct smccc_cache {
+> +	/* Must be first member */
+> +	struct cache_coherency_ops_inst cci;
+> +	struct mutex lock; /* Serializes SMCCC cache maintenance calls. */
+> +	u64 rate_limit;
+> +};
+> +
+> +static int smccc_cache_status_to_errno(s32 status)
+> +{
+> +	switch (status) {
+> +	case SMCCC_RET_SUCCESS:
+> +		return 0;
+> +	case SMCCC_RET_NOT_SUPPORTED:
+> +		return -EOPNOTSUPP;
+> +	case SMCCC_RET_INVALID_PARAMETER:
+> +		return -EINVAL;
+> +	case SMCCC_RET_RATE_LIMITED:
+> +		return -EAGAIN;
+> +	case SMCCC_RET_BUSY:
+> +		return -EBUSY;
+> +	default:
+> +		return -EIO;
+> +	}
+> +}
+> +
+> +static unsigned long smccc_cache_delay_us(const struct smccc_cache *cach=
+e)
+> +{
+> +	unsigned long delay_us =3D 0;
+> +
+> +	if (cache->rate_limit)
+> +		delay_us =3D DIV_ROUND_UP_ULL(USEC_PER_SEC, cache->rate_limit);
+> +
+> +	/*
+> +	 * Firmware may not advertise a rate limit; use a small bounded backoff
+> +	 * instead of retrying in a tight loop.
+> +	 */
+> +	if (!delay_us)
+> +		delay_us =3D SMCCC_CACHE_DEFAULT_DELAY_US;
+> +
+> +	return min(delay_us, SMCCC_CACHE_MAX_DELAY_US);
+> +}
+> +
+> +static int smccc_cache_wbinv(struct cache_coherency_ops_inst *cci,
+> +			     struct cc_inval_params *invp)
+> +{
+> +	struct smccc_cache *cache =3D container_of(cci, struct smccc_cache, cci=
+);
+> +	unsigned long delay_us =3D smccc_cache_delay_us(cache);
+> +	struct arm_smccc_res res =3D {};
+> +	int ret;
+> +
+> +	if (!invp->size)
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * Serialize the full retry sequence. With the default bounds, a caller
+> +	 * may hold the mutex across up to five 20ms backoff sleeps.
+> +	 */
+> +	guard(mutex)(&cache->lock);
+> +
+> +	for (unsigned int i =3D 0; i < SMCCC_CACHE_MAX_RETRIES; i++) {
+> +		/* Long firmware operations can trigger watchdog checks. */
+> +		touch_nmi_watchdog();
+> +
+> +		arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION,
+> +				     invp->addr, invp->size, 0UL, &res);
+> +
+> +		ret =3D smccc_cache_status_to_errno((s32)res.a0);
+> +		if (!ret)
+> +			return 0;
+> +
+> +		if (ret !=3D -EBUSY && ret !=3D -EAGAIN)
+> +			return ret;
+> +
+> +		fsleep(delay_us);
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static const struct cache_coherency_ops smccc_cache_ops =3D {
+> +	.wbinv =3D smccc_cache_wbinv,
+> +};
+> +
+> +static int smccc_cache_probe(struct arm_smccc_device *sdev)
+> +{
+> +	struct arm_smccc_res res =3D {};
+> +	struct smccc_cache *cache;
+> +	int ret;
+> +
+> +	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES,
+> +			     &res);
+> +	if ((s32)res.a0)
+> +		return -ENODEV;
+> +
+> +	cache =3D cache_coherency_ops_instance_alloc(&smccc_cache_ops,
+> +						   struct smccc_cache, cci);
+> +	if (!cache)
+> +		return -ENOMEM;
+> +
+> +	mutex_init(&cache->lock);
+> +	cache->rate_limit =3D res.a3;
+> +
+> +	ret =3D cache_coherency_ops_instance_register(&cache->cci);
+> +	if (ret) {
+> +		mutex_destroy(&cache->lock);
+> +		cache_coherency_ops_instance_put(&cache->cci);
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct arm_smccc_device_id smccc_cache_id_table[] =3D {
+> +	{ .func_id =3D ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(arm_smccc, smccc_cache_id_table);
+> +
+> +static struct arm_smccc_driver smccc_cache_driver =3D {
+> +	.name =3D KBUILD_MODNAME,
+> +	.probe =3D smccc_cache_probe,
+> +	.id_table =3D smccc_cache_id_table,
+> +};
+> +module_arm_smccc_driver(smccc_cache_driver);
+> +
+> +MODULE_IMPORT_NS("CACHE_COHERENCY");
+> +MODULE_AUTHOR("Srirangan Madhavan");
+> +MODULE_DESCRIPTION("Arm SMCCC cache maintenance provider");
+> +MODULE_LICENSE("GPL");
+> diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smcc=
+c.c
+> index 5dc768ac4143..5a5d50d17410 100644
+> --- a/drivers/firmware/smccc/smccc.c
+> +++ b/drivers/firmware/smccc/smccc.c
+> @@ -100,6 +100,11 @@ static const struct smccc_device_info smccc_devices[=
+] __initconst =3D {
+>  		.requires_smc   =3D true,
+>  		.device_name    =3D "arm-rsi",
+>  	},
+> +	{
+> +		.func_id        =3D ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES,
+> +		.requires_smc   =3D false,
+> +		.device_name    =3D "arm-smccc-cache",
+> +	},
+>  };
+> =20
+>  static bool __init smccc_probe_smccc_device(const struct smccc_device_in=
+fo *smccc_dev)
+> --=20
+> 2.43.0
+>=20
+
+--fabG0ZF/qX/zSjOV
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauPVDgAKCRB4tDGHoIJi
+0mfRAQCmWplBj+uJLhevvjcZpPZZVUEo3u8T6l+XEmAL47JPcgD/XT0XcZ3HQlZt
+DKZLu6y2ey7JrDaZXiFf98GZrWyYggk=
+=Sesk
+-----END PGP SIGNATURE-----
+
+--fabG0ZF/qX/zSjOV--
 
