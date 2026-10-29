@@ -2,76 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0CF7606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 18:40:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D0B5606A33F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 18:42:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bTJVtu3a;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=t6a9PSBl
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0WTkg1Xz;
+	dkim=pass (2048-bit key, unprotected) header.d=cjdns.fr header.i=@cjdns.fr header.a=rsa-sha256 header.s=dkim header.b=iTQWdFyG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=P8sAw5ur2lstKWkCV1NN3TteySnzETKS77xqYaYoeEY=; b=bTJVtu3aJzCkIjKOK+m3s9wQT7
-	1194vTr+5Mrs4orHghN5ybYUeQc/LgZWc+BFm2yos2TXk053moSJrrzG89YB1svVtOZh9JX7L38xf
-	Mqd7wriw+1z6EVuAuuuboAfwz3MV+AKp4z94GJOXalO64xQhhSyxjH6La+06SKzZ7Sdyp4Mn7qCSr
-	GGvL7xE9OFjFAxOMX7tqnhmNW5t35FubRuKwgFwA1xbEnNRNjw0YlBuX/g0Zz6rrkIPNm0UJTL4pb
-	VXZJ69n44T5eLv0cPWKD9AgJt2YXP2EtiEYlarlNrrlsFjWhyXQ0EQplgbp+oU8ajMNrkz2nrWpGb
-	X3HziwNw==;
+	bh=og4tBGqFvRDzJbCD/irW7S0M6xxL79ugE1pS6Vzr5B8=; b=0WTkg1XzFwN+kgzV2zJ253KI9f
+	AstZj0+PsArA0CcuL5OilQl5G8Xm6G7wJU51vbiDSPODKTYRKBeCFwSBd++RUmRIEsXlguqzN2GnU
+	1ZeXSAz+fAtNzWYVrEYMsYjW6jl/h2r3aS68JCBjx9UdesoySI6+GKlqr06XQe/XGcxaYaKebDIK7
+	nTSQkOOSNC/JKK5aFnAmyJlxpPb9yk7Uyt3FXBtaQZ2k1Ii0NqLHdkziZ2jw3ScD6yW2RP9NRaNA4
+	eJFEuGJN4NsPogGFaBTAAKThNIvrUdJPI9xxLxJwcRq5+XjQzwFmsNqs4c87+Amp04daqYQuw/3Un
+	VW3eGueg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMV2l-0000000A8Ge-1ELo;
-	Thu, 29 Oct 2026 18:40:07 +0000
-Received: from out-228.mta0.migadu.com ([2001:41d0:1004:224b::e4] helo=mta0.migadu.com)
+	id 1xMV53-0000000A8Sq-3bHC;
+	Thu, 29 Oct 2026 18:42:29 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMV2i-0000000A8Fg-1RIk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 18:40:06 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=P8sAw5ur2lstKWkCV1NN3TteySnzETKS77xqYaYoeEY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793299198; v=1; x=1793903998;
- b=t6a9PSBl4enjIZvZUgCJyobtTBoRxozb1frOF1fvvA3HOVr+ROd1zIHfrqDefJSytPK/eWLk
- SrA3Zdg8C5RslKMSIB5HB4ShQzDM8xUAb/oCww0H25kpof9+yH3zJu09fpycc7ja6E2QevKEjDw
- nRqYC7lPf0BsBMHwYnyMbu1E=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id fe1b0555b7c16156;
-	Thu, 29 Oct 2026 18:39:58 +0000
-X-Mizu-Trace-ID: fe1b0555b7c16156
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5be3b2f17c1so1354e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 11:39:53 -0700 (PDT)
-X-Gm-Message-State: AFq9FYJ5hzcj2e8aOdXBO7eE9y7Zfezlyiacnf0Bi7HVbud9VGcCz/GU
-	t2JlnLMSVItBhhg4dlnB7laxLTquf0diA2WRGF0Av15LVidGj6fpohDLvkxVCJCRNGqvmUWqvb6
-	ajjPSmnBnbdCJlut4OLcKDwicddTW2kNA5DXRXlTn
-X-Received: by 2002:a05:6512:1383:b0:5bf:cea4:4150 with SMTP id
- 2adb3069b0e04-5bfd140feebmr228838e87.5.1793299192378; Thu, 29 Oct 2026
- 11:39:52 -0700 (PDT)
+	id 1xMV50-0000000A8Qg-2TZJ;
+	Thu, 29 Oct 2026 18:42:28 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9C31E1AA48F;
+	Thu, 29 Oct 2026 19:42:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1793299336; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=og4tBGqFvRDzJbCD/irW7S0M6xxL79ugE1pS6Vzr5B8=;
+	b=iTQWdFyGso2A5Zj5jV1SBQjLPhnldAOYaYW7VCXyDd9PRckEcLZIBfCiF4TrrOySewpE8T
+	B0lkTzKfOnEi2BJHc7atPq3z3ouszD9sxPF/BqTFkBALdqzfKBuHprR7yEhZ2ZNX/l4nCc
+	6RTh9xldedGxxIzfSCRFrI7vxWHTc7mRKz/sb4IkpU7mttlnLnUr36BQ5I3HqY1RetUd10
+	qPyQh7tjHQLDIiheY3vkjSaDLN259+AlihRAD07D+26g+Pmtfs92pIuYOZG76x6JKrqJE2
+	ruCH2UgviulIPx6PTtNf71OY1qRl91jaW6MIGKzd6hiwIdN8WJ50EepT1YOfpg==
+From: Caleb James DeLisle <cjd@cjdns.fr>
+To: netdev@vger.kernel.org
+Cc: andrew@lunn.ch,
+	olteanv@gmail.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	chester.a.unal@arinc9.com,
+	daniel@makrotopia.org,
+	linux@armlinux.org.uk,
+	arinc.unal@arinc9.com,
+	Landen.Chao@mediatek.com,
+	dqfext@gmail.com,
+	sean.wang@mediatek.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	naseefkm@gmail.com,
+	b.larsson@gmx.com,
+	Caleb James DeLisle <cjd@cjdns.fr>
+Subject: [PATCH v4 0/7] net: dsa: mt7530: support EcoNet EN751221
+Date: Thu, 29 Oct 2026 18:41:55 +0000
+Message-Id: <20261029184202.1859843-1-cjd@cjdns.fr>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261029175238.3214788-1-weilin.chang@arm.com> <20261029175238.3214788-3-weilin.chang@arm.com>
-In-Reply-To: <20261029175238.3214788-3-weilin.chang@arm.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 29 Oct 2026 18:39:15 +0000
-X-Gmail-Original-Message-ID: <CA+EHjTzBB05GZdz6be0uqHFs7sK1879yBVDJrEqKrTtM8=_Lyw@mail.gmail.com>
-X-Gm-Features: AclHuK_Wm_aye4dCeSRhGryTZlCEP8KkPO9b0e0oBdSMGn1JW0SmL7sHjZoHOTw
-Message-ID: <CA+EHjTzBB05GZdz6be0uqHFs7sK1879yBVDJrEqKrTtM8=_Lyw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] KVM: arm64: Remove stale remark on canonical IPA alignment
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Gavin Shan <gshan@redhat.com>, 
-	Leonardo Bras <leo.bras@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_114004_874239_8A30BA04 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20261029_114227_005653_436B3793 
+X-CRM114-Status: GOOD (  16.03  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,25 +88,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, 29 Oct 2026 at 17:53, Wei-Lin Chang <weilin.chang@arm.com> wrote:
->
-> Commit 3b8ce2b5132ae ("KVM: arm64: Use a variable for the canonical IPA
-> in kvm_s2_fault_map()") created a variable to store the canonical IPA,
-> instead of calculating it when needed. It moved the aligning just before
-> mark_page_dirty_in_slot() to an earlier place but did not update the
-> comment.
->
-> Remove the stale part of the comment.
->
-> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+The EcoNet EN751221 has a unique switch configuration. Every chip made
+with an EN751221 die has at least one on-die MT7530 that is MMIO based.
+This switch has 3x 10/100 ports and 1x gigabit port.
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Some popular chip packages such as the EN7513G and EN7526G have another
+MT7530 implemented as a multi-chip-module that connects to port 5 of
+the on-die switch and is controlled via the MDIO controller integrated
+in the on-die MT7530.
 
-Cheers,
-/fuad
+In this configurations, the upstream switch is put into a "passthrough"
+mode in which all traffic is forwarded between port 5 and port 6
+without altering its DSA tags.
+
+Furthermore, since the DSA core does not call mt753x_setup until all
+switches are present, and the downstream switch only becomes available
+when the upstream switch has configured its MDIO controller, the MDIO
+controller setup on MMIO implementations must be done before
+mt753x_setup, or else it will never complete.
+
+Finally, the on-die switch and the MCM switch connect via a TRGMII link
+which requires calibration. In order to calibrate this, PLL adjustment
+must be possible on the on-die switch, necessitating changes to the
+core_(set|clear|write|rmw) functions to support MMIO implementations.
+
+Solve all of these issues, add the TRGMII calibration, and add support
+for both switches.
+
+Since this patchset will probably be subject to some discussion, please
+consider accepting any patches that are non-controversial since it will
+make future re-submissions easier.
+
+Thanks!
+
+Changes since v3:
+* Fix "econet,en751221-gswitch" not correctly used in driver
+* "support MDIO switch downstream of MMIO switch" - clearer comments
+* mt7530_port_change_mtu prefer moved function to forward declaration
+* dt binding "passthrough mode" documentation, clarify it is a
+restricted case of switch hierarchy
+* Use different dsa_switch_ops for passthrough rather than short
+circuiting in each function.
+v3: https://lore.kernel.org/netdev/20261028011317.1557238-1-cjd@cjdns.fr/
+
+Changes since v2:
+* The MCM switch previously identified as econet,en751221, similarly to
+mediatek,mt7621, however since econet,en751221 is already used for the
+SoC compatible, is it changed to econet,en751221-gswitch. The name
+"gswitch" is chosen as there's apparently no standard and for EN751221
+this is intuitive because it is the gigabit switch used in
+implementations with a "G" in the chip name.
+
+* Do not use a special mt7530_switch_ops for passthrough mode, instead
+detect passthrough mode in each function and exit early so as to avoid
+errors when trying to make a configuration switch-tree wide.
+
+v2: https://lore.kernel.org/netdev/20260915174643.253660-1-cjd@cjdns.fr/
+
+Changes since v1:
+* Move mt7530_setup_mdio_irq out of mt7530_setup_mdio because
+mt7530_setup_mdio may be called before mt753x_setup
+
+* Do not return error in mt7988_probe if mt7530_setup_mdio fails because
+doing so leaks the DSA switch registration, and in any case
+mt7530_setup_mdio will be called again.
+
+* default_taps_ondie not being used en751221_trgmii_cal_ok unused args
+
+* Use clk_drvp / clk_drvp instead of drvp / drvn (typo)
+
+* en751221_set_tx_drive ext values too large for fields - values taken
+from reference implementation, reduced from 16 to 15.
+
+v1: https://lore.kernel.org/netdev/20260909140346.2861572-1-cjd@cjdns.fr/
+
+Caleb James DeLisle (7):
+  net: dsa: mt7530: get ctrl phy addr using a function
+  dt-bindings: net: dsa: mediatek,mt7530: describe 'passthrough'
+    hierarchy
+  net: dsa: mediatek: add support for passthrough mode
+  net: dsa: mediatek: support PLL setup on MMIO MT7530
+  net: dsa: mediatek: support MDIO switch downstream of MMIO switch
+  dt-bindings: net: dsa: mediatek,mt7530: add EcoNet EN751221 switches
+  net: dsa: mediatek: support EN751221 switch
+
+ .../bindings/net/dsa/mediatek,mt7530.yaml     |  48 +-
+ drivers/net/dsa/mt7530-mdio.c                 |   1 +
+ drivers/net/dsa/mt7530-mmio.c                 |  17 +-
+ drivers/net/dsa/mt7530.c                      | 800 ++++++++++++++++--
+ drivers/net/dsa/mt7530.h                      |  46 +-
+ 5 files changed, 824 insertions(+), 88 deletions(-)
+
+
+base-commit: 734bef548a96e8774d6eef5dfa2026c6edc4e80b
+-- 
+2.39.5
+
 
