@@ -2,68 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 529E5606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 02:03:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81347606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 02:54:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Bdp0tGqb;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CWWRF/bW
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xOJs5ATq;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=2IklUx2L
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=VBJf2p2b3EPIn54vogBNL6ir9d6wSC1UuwMhnG8hxv0=; b=Bdp0tGqbMAk/ZJdcz3+SVHPLk6
-	as+TX3pHJ9cqbhiKqgI7yidCWd+FG16j59OdpuW/qCk8ZaurHA9I/03adn5PTzNA+CWKgkIKhceKI
-	R6ek3rTw8wUkPV2TjC1P6UDzV1A7Z16zzRrfbKV/WHvC8XYFyLf/1NKpCPwoIRfzJdPo1tU2+bvS5
-	nhDWRXuvZvtuN1FCCVX+v0r/3zvFIW6c6TkeXYZLYMsviy/gGRYES4TpA5Gfrb6bclcBIMMnUHq0O
-	UdTnvAgSV0EQoi138QsRl9g5zw/o7vKaDUnBGlDgY7MQV3nZYXzGZRJtGLB+JuxoYen9EE/uAV+ZP
-	4yJN0u8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=kG2dXNb8wO3/BgLfC0cpJvPGIyuZmV9XeLRw5RqugE4=; b=xOJs5ATqrI2vMX
+	zzWfAW73V7U00qYtuX4odM25HPGz18i5vka8d7cg3U3T5mcAjn8bWm9CAGSdPUTJLb32RIgKgcgpR
+	rS3GRi7LDnyGVYfkrgRikCy5p5PklxT2jwDdPklvIl0eYmOJ7a7m5udnbhQBW7g04W0jcXfuDbksz
+	lLbffzS+0+Dq2CR0AsoKlg+mJmDzlWPd2ROHIg/a9DNX2SMd3jddq/LrebxlhSU84SqQ5mxYHFues
+	kEAyRAQ/bp1mmUB+Wh+iHYPJhKCuBkMpQEPrlk4rF0T9jR9+mHEeumU+WZ+ZaE2fmd4r7N+isEAVd
+	hTJKExb0iqoL5ng6/Irw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMFTi-00000008Aem-257Z;
-	Thu, 29 Oct 2026 02:02:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xMGHn-00000008Deu-2iSP;
+	Thu, 29 Oct 2026 02:54:39 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMFTW-00000008AYn-45vB;
-	Thu, 29 Oct 2026 02:02:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B77AC600D1;
-	Thu, 29 Oct 2026 02:02:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D676E1F031E2;
-	Thu, 29 Oct 2026 02:02:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793239361;
-	bh=VBJf2p2b3EPIn54vogBNL6ir9d6wSC1UuwMhnG8hxv0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=CWWRF/bWQ1GTFpZPcUOIFvxE1YL2K3fl6FOoLPONHv+HCXNRlg2890Acwi48yuMKK
-	 YWPuBdI1meiMF0AMva6xN/iVYqNlegq2Sbp8F7wSuqYhqxCF00LxAYEEZxwj1goRTF
-	 FSAdVxdH8w1RdtEu4WKdjIb9IccxgNGALV/Xe6V54j0WMm4MW9DbdtKR7Q0ets77wJ
-	 6nvEpAxr6epNZ6UhldCsvcwnKfdNU/oS2saCuZ9GiS1RAIq0CykGCW4tFaDCYKV1Y9
-	 YXu/rbwZTkpHpCyeEg6iFIhGJHBCM0opJnGMT5oRCNFT2J/I/Ytqc04DeH9xNy/LV1
-	 oFShLhjBmxRQw==
-Subject: Re: [PATCH v3 3/7] net: dsa: mediatek: add support for passthrough mode
-From: netdev-bot+sashiko@kernel.org
-To: cjd@cjdns.fr
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- chester.a.unal@arinc9.com, daniel@makrotopia.org, linux@armlinux.org.uk,
- arinc.unal@arinc9.com, Landen.Chao@mediatek.com, dqfext@gmail.com,
- sean.wang@mediatek.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, naseefkm@gmail.com, b.larsson@gmx.com
-Date: Thu, 29 Oct 2026 02:02:39 +0000
-Message-ID: <179323935937.3134.5815660700328148917@kernel.org>
-In-Reply-To: <20261028011317.1557238-4-cjd@cjdns.fr>
-References: <20261028011317.1557238-4-cjd@cjdns.fr>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xMGHk-00000008Dcx-0YB5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 Oct 2026 02:54:38 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=kG2dXNb8wO3/BgLfC0cpJvPGIyuZmV9XeLRw5RqugE4=;
+	b=2IklUx2LMEZLmggJ3mhG3a18Gubq8nvBArxV8GANZCGw0Mh/SwWlaUoh71DSi3Koh0Zc58dgz
+	ZnC7qz+ZGFcd1CCNqLyIRrdjgaN4noxkUUA3e15+fAR0pKK+46xWakBys78xRqfERtzl5a83qrW
+	mF8GnxsvytzPaFBLsPilyhc=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jFTMr6fy3z1prMP;
+	Thu, 29 Oct 2026 10:54:16 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7A2844056E;
+	Thu, 29 Oct 2026 10:54:25 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 29 Oct 2026 10:54:24 +0800
+Message-ID: <52945586-8c5c-4991-bd92-fe02aaf79fbe@huawei.com>
+Date: Thu, 29 Oct 2026 10:54:24 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 5/5] KVM: arm64: Enable HAFDBS for guests not on
+ migration
+To: Leonardo Bras <leo.bras@arm.com>
+CC: liuyonglong <liuyonglong@huawei.com>, Oliver Upton <oupton@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly
+	<joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Rutland
+	<mark.rutland@arm.com>, Raghavendra Rao Ananta <rananta@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+References: <20260901171558.2674031-1-leo.bras@arm.com>
+ <20260901171558.2674031-6-leo.bras@arm.com> <aqneWnlsdpocLIl6@kernel.org>
+ <aqqhDs3NyjtkZzXK@LeoBrasDK> <aqsl1_IqnV2r8kUL@kernel.org>
+ <aqvt2gnlBZeNsaf4@LeoBrasDK> <as-mH36YSMxAosND@LeoBrasDK>
+ <3e464bef-8dfe-44a3-afea-3c276ae87cd8@huawei.com>
+ <attMtUqxNsuPooix@LeoBrasDK>
+ <8eaaba87-7881-49c4-a76a-51dec2f29ffc@huawei.com>
+ <auCPEQmnFwWldTaM@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <auCPEQmnFwWldTaM@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261028_195436_830466_82ED9FFE 
+X-CRM114-Status: GOOD (  30.65  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,453 +89,147 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 10 potential
-issue(s) to consider.
 
-Critical: 0 · High: 2 · Medium: 6 · Low: 2
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On 10/27/2026 7:46 PM, Leonardo Bras wrote:
+> On Tue, Oct 27, 2026 at 10:02:55AM +0800, Tian Zheng wrote:
+>>
+>>
+>> On 10/23/2026 8:01 PM, Leonardo Bras wrote:
+>>> On Fri, Oct 23, 2026 at 03:23:04PM +0800, Tian Zheng wrote:
+>>>>
+>>>>
+>>>> On 10/14/2026 11:56 PM, Leonardo Bras wrote:
+>>>>> On Thu, Sep 17, 2026 at 02:40:42PM +0100, Leonardo Bras wrote:
+>>>>>> On Wed, Sep 16, 2026 at 04:27:19PM -0700, Oliver Upton wrote:
+>>>>>>> On Wed, Sep 16, 2026 at 03:00:46PM +0100, Leonardo Bras wrote:
+>>>>>>>> On Tue, Sep 15, 2026 at 05:10:02PM -0700, Oliver Upton wrote:
+>>>>>>>>> Hi,
+>>>>>>>>>
+>>>>>>>>> On Tue, Sep 01, 2026 at 06:15:56PM +0100, Leonardo Bras wrote:
+>>>>>>>>>> When dirty-logging is disabled, even non-write faults make a page dirty,
+>>>>>>>>>> which avoids a second fault when the page is actually written to.
+>>>>>>>>>>
+>>>>>>>>>> On dirty-logging enable, this approach causes all (writable) pages on the
+>>>>>>>>>> memslot to be marked clean, even if they were not written to, which can
+>>>>>>>>>> take a lot of time, while holding the MMU lock, doing atomic writes to
+>>>>>>>>>> PTEs.
+>>>>>>>>>
+>>>>>>>>> Do you have any performance numbers for this? Enabling HAFDBS seems a
+>>>>>>>>> bit involved to avoid some stores on the first pass.
+>>>>>>>>
+>>>>>>>> Not yet, but if the idea does not look too crazy I can find hardware and
+>>>>>>>> collect some data :)
+>>>>>>>
+>>>>>>> TBH this looks like a micro-optimization so I'm not expecting the
+>>>>>>> performance gains to justify the behavior change.
+>>>>>>>
+>>>>>>
+>>>>>> Okay then, I will get a machine to figure the performance gains :)
+>>>>>
+>>>>> Got the performance numbers here.
+>>>>> I tested both the case where all PTEs are dirty, and the case that 50% of
+>>>>> the PTEs are dirty.
+>>>>>
+>>>>> For that test, actually patch #5 could make kvm_pgtable_stage2_wrprotect()
+>>>>> slower, which is counter-intuitive, in all platforms tested:
+>>>>>
+>>>>> When we walk the S2 pagetable to wrprotect, using the new walker, the
+>>>>> write to the PTE itself is so cheap* that the cost of the branch
+>>>>> misprediction (write PTE or not) for the 50/50 case is significantly higher
+>>>>> than the cost of the 50% extra writes, which makes the 50/50 up to 60%
+>>>>> slower than the 100% dirty case. It is still slower in the '25% dirty' as
+>>>>> well, and starts to get even at '10% dirty'.
+>>>>>
+>>>>> * (non-atomic, everything is in order, walker is small, cpu will probably
+>>>>> bundle it all in a single cacheline write)
+>>>>>
+>>>>> Since the idea of patch #5 was to reduce PTE writes in the first wrprotect
+>>>>> walk, it becomes faster only if only a small portion (<10%) of the VM was
+>>>>> write-faulted while the remaining was read-faulted, which seems to be a
+>>>>> really reduced audience.
+>>>>>
+>>>>> Since this comes with increased complexity, and also carry costs of
+>>>>> having HAFDBS itself enabled outside dirty-tracking, I don't think it's a
+>>>>> good idea to further pursue patch #5. It's only value is that it served as
+>>>>> a base for HDBSS implementation.
+>>>>>
+>>>>> Thanks for reading!
+>>>>> Leo
+>>>>>
+>>>> Hi Leo,
+>>>>
+>>>> Thanks for running this, the numbers are really useful.
+>>>>
+>>>> It means the hardware dirty mode (HD=1) should only be enabled while
+>>>> dirty logging is active with HDBSS support, and stays off otherwise.
+>>>
+>>> Hi Tian,
+>>>
+>>> Correct, it's actually counter-productive for it to stay on without HDBSS
+>>> before dirty-logging.
+>>>
+>>>>
+>>>> With HD only enabled during dirty logging, we also keep the DBM-based
+>>>> encoding for the HD=0 case. On systems that support FEAT_HAFDBS, DBM
+>>>> remains the write bit and S2AP[1] the dirty bit even with HD=0. This
+>>>> works because kvm_s2_fault_compute_prot() maps any writable page of a
+>>>> non-tracked memslot writable-dirty (WD), including on read faults:
+>>>>
+>>>> ```c
+>>>> if (s2vi->map_writable) {
+>>>>           *prot |= KVM_PGTABLE_PROT_W;
+>>>>
+>>>>           if (s2vi->device ||
+>>>>               !memslot_is_logging(s2fd->memslot) ||
+>>>>               kvm_is_write_fault(s2fd->vcpu))
+>>>>                   *prot |= KVM_PGTABLE_PROT_DIRTY;
+>>>> }
+>>>> ```
+>>>>
+>>>> So there is no WC entry for hardware to promote, and HD is simply not
+>>>> needed outside dirty logging.
+>>>>
+>>>> In the next HDBSS version, we'll only turn on HD=1 when dirty logging
+>>>> is active.
+>>>>
+>>>
+>>> Right!
+>>> I will also send a new version of the pre-patch (4 patches) for us to
+>>> discuss. The first 2 patches will change meaning a bit, but should still
+>>> work as they do today.
+>>>
+>>> Thanks!
+>>> Leo
+>>>
+>> Hi Leo,
+>>
+>> OK, I've seen the new DBM RFC patchset. HDBSS v6 will be based on it.
+> 
+> 
+> Hi Tian, thanks for reading it, and for accepting it in your series!
+> 
+> Before rebasing, please wait for the ongoing discussion on it's
+> correctness. Maybe I will have to send new versions before it can be used.
+> 
+> Thanks!
+> Leo
+
+Hi Leo,
+
+I've read your discussion with Oliver on DBM RFC v2. As a suggestion,
+maybe we should go with Oliver's approach, i.e. revert to the v1 scheme
+and continue fixing from there.
+
+Thanks,
+Tian
 
-- [High] mt753x_check_passthrough() uses one counter for every available
-  port that has an `ethernet` (CPU) phandle or a `link` (DSA) phandle.
-- [High] net: dsa: mt7530: NULL pointer dereference in
-  mt7531_mac_config() on DSA port
-- [Medium] In passthrough mode, mt753x_cpu_port_enable() calls
-  mt7530_port_change_mtu(ds, port, MT7530_MAX_MTU) to raise the global…
-- [Medium] The patch adds support for this switch being the downstream
-  switch, with a DSA port as its upstream link.
-- [Medium] Passthrough receive works only if the downstream switch is DSA
-  switch index 0.
-- [Medium] In the user-port branch, mt7530_port_enable() replaces the
-  per-port `dp->cpu_dp->index` with the switch-wide…
-- [Medium] In passthrough mode, mt753x_cpu_port_enable() writes
-  MT7530_PVC_P(port) = VLAN_ATTR(MT7530_VLAN_TRANSPARENT) |…
-- [Medium] In passthrough mode the upstream switch's CPU port no longer
-  has PORT_SPEC_TAG; mt753x_cpu_port_enable() writes…
-- [Low] In passthrough mode, mt753x_cpu_port_enable() unconditionally
-  sets MT7530_LOOP_DET_DISABLE (BIT(14)) in MT753X_MTRAP (0x7804) with a…
-- [Low] When the downstream DSA link port is enabled,
-  mt7530_port_enable() does a full `regmap_write(priv->regmap,…
-
---
-
-net: dsa: mediatek: add support for passthrough mode
-
-This adds a passthrough mode to the mt7530 driver. In this mode a switch
-forwards all traffic between its CPU port and a link to a second,
-downstream MT7530 without changing the MediaTek tag, and most switchdev
-ops become no-ops. Passthrough is detected at probe time from the device
-tree, and the switch can also act as the downstream switch, with a DSA
-link as its upstream port.
-
-> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-> index d10194488bdee..3eb2e11d69856 100644
-> --- a/drivers/net/dsa/mt7530.c
-> +++ b/drivers/net/dsa/mt7530.c
-
-[ ... ]
-
-> @@ -1286,13 +1292,41 @@ mt753x_trap_frames(struct mt7530_priv *priv)
->  				   TO_CPU_FW_CPU_ONLY);
->  }
->  
-> +static int
-> +mt7530_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu);
-> +
-> +/* If this switch is downstream of another switch that is in passthrough mode,
-> + * the "CPU" port is actually a DSA port.
-> + */
->  static void
->  mt753x_cpu_port_enable(struct dsa_switch *ds, int port)
->  {
->  	struct mt7530_priv *priv = ds->priv;
->  
-> -	/* Enable Mediatek header mode on the cpu port */
-> -	regmap_write(priv->regmap, MT7530_PVC_P(port), PORT_SPEC_TAG);
-> +	if (priv->is_passthrough) {
-> +		/* Disable parsing of the DSA tag, it will be forwarded blindly
-> +		 * to the downstream switch.
-> +		 */
-> +		regmap_write(priv->regmap, MT7530_PVC_P(port),
-> +			     VLAN_ATTR(MT7530_VLAN_TRANSPARENT) |
-> +			     PVC_EG_TAG(MT7530_VLAN_EG_DISABLED));
-
-[Severity: Medium]
-Does this EG_DISABLED setting survive setup? As soon as
-mt753x_cpu_port_enable() returns, the same loop iteration in mt7530_setup()
-runs this:
-
-	if (dsa_is_upstream_port(ds, i)) {
-		mt753x_cpu_port_enable(ds, i);
-	} else {
-		...
-	}
-	/* Enable consistent egress tag */
-	regmap_update_bits(priv->regmap, MT7530_PVC_P(i),
-			   PVC_EG_TAG_MASK,
-			   PVC_EG_TAG(MT7530_VLAN_EG_CONSISTENT));
-
-mt7531_setup_common() does the same update. So the upstream port ends up
-with EG_TAG set to consistent. The downstream DSA port is programmed later
-from mt7530_port_enable() and keeps EG_DISABLED.
-
-That doesn't match the commit message, which says both ports are
-"configured as MT7530_VLAN_EG_DISABLED and MT7530_VLAN_TRANSPARENT".
-
-Should the egress tag update be skipped for the upstream port in
-passthrough mode?
-
-[Severity: Medium]
-Without PORT_SPEC_TAG on the CPU port, frames from the host go through the
-normal ARL and trap logic. mt753x_trap_frames() still installs the BPC,
-RGAC1 and RGAC2 rules unconditionally. Those rules use TO_CPU_FW_CPU_ONLY
-for PAE, BPDU and 01:80:C2:00:00:01/02/03/0E.
-
-Say the host sends an STP BPDU, LACPDU, EAPOL or LLDP frame on a downstream
-user port. The real DA is still at the front of the frame, because the MTK
-tag sits after the SA.
-
-Would that frame match the trap rules and be sent to the CPU port? That is
-its own ingress port, so the frame would never reach the downstream switch.
-
-Control frames from the downstream switch to the host would still work, so
-the failure would be one-way. This depends on the switch applying trap
-rules to untagged frames that enter the CPU port, which I could not confirm
-without the datasheet.
-
-> +
-> +		/* The port is not configured to parse DSA tags, so they are
-> +		 * liable to be confused for length fields, so length check is
-> +		 * disabled.
-> +		 */
-> +		regmap_clear_bits(priv->regmap, MT753X_AGC, AGC_L2LEN_CHK);
-> +
-> +		/* In passthrough mode, MTU is only enforced downstream */
-> +		mt7530_port_change_mtu(ds, port, MT7530_MAX_MTU);
-
-[Severity: Medium]
-Does this call do anything? This branch runs only when priv->is_passthrough
-is true. This patch also adds the following as the first check in
-mt7530_port_change_mtu():
-
-	if (priv->is_passthrough)
-		return 0;
-
-So MT7530_GMACCR is never written, and MAX_RX_PKT_LEN on the passthrough
-switch keeps its reset default. Later DSA .port_change_mtu calls for this
-switch return early in the same way.
-
-The upstream switch no longer parses the MTK tag, so it counts those 4
-bytes as payload. Meanwhile .port_max_mtu still reports MT7530_MAX_MTU and
-.port_change_mtu reports success.
-
-Can the downstream switch and the DSA core then accept MTUs whose frames
-the upstream switch drops? Clearing AGC_L2LEN_CHK turns off the length field
-check, but it does not change the MAC's maximum frame length.
-
-> +
-> +		/* Loop detection has no value in passthrough mode */
-> +		regmap_set_bits(priv->regmap, MT753X_MTRAP,
-> +				MT7530_LOOP_DET_DISABLE);
-
-[Severity: Low]
-Is BIT(14) of MT753X_MTRAP valid on every chip that can reach this code?
-mt753x_cpu_port_enable() is also called from mt7531_setup_common(), which
-covers MT7531, MT7988, EN7581 and AN7583.
-
-The MTRAP layout differs between chip families. For example, BIT(8) is
-MT7530_P6_DIS on MT7530 but MT7531_CHG_STRAP on MT7531. Every other MTRAP
-access in the driver is limited to MT7530-family code paths.
-
-On those other chips, could this set an undocumented strap bit instead of
-disabling loop detection? Should the write depend on priv->id?
-
-> +	} else {
-> +		/* Not passthrough, enable DSA tag handling on CPU port. */
-> +		regmap_write(priv->regmap, MT7530_PVC_P(port), PORT_SPEC_TAG);
-> +	}
-
-[ ... ]
-
-> @@ -1322,6 +1356,7 @@ static int
->  mt7530_port_enable(struct dsa_switch *ds, int port,
->  		   struct phy_device *phy)
->  {
-> +	int upstream_pt = dsa_switch_upstream_port(ds);
->  	struct dsa_port *dp = dsa_to_port(ds, port);
->  	struct mt7530_priv *priv = ds->priv;
->  
-> @@ -1332,13 +1367,38 @@ mt7530_port_enable(struct dsa_switch *ds, int port,
->  	 * bridge.
->  	 */
->  	if (dsa_port_is_user(dp)) {
-> -		struct dsa_port *cpu_dp = dp->cpu_dp;
-> +		priv->ports[port].pm |= PCR_MATRIX(BIT(upstream_pt));
->  
-> -		priv->ports[port].pm |= PCR_MATRIX(BIT(cpu_dp->index));
-
-[Severity: Medium]
-Does this change behaviour on switches with more than one CPU port?
-dsa_switch_upstream_port() returns the upstream port of the first available
-port on the switch, not of the port being enabled:
-
-include/net/dsa.h:dsa_switch_upstream_port() {
-	dsa_switch_for_each_available_port(dp, ds) {
-		return dsa_upstream_port(ds, dp->index);
-	}
-	...
-}
-
-mt753x_port_change_conduit() and mt7530_update_port_member() still base
-priv->ports[port].pm on the port's own dp->cpu_dp.
-
-Take an MT7531 with CPU ports 5 and 6. lan0, the first available port, is
-moved to CPU port 6 with .port_change_conduit, and lan1 stays on CPU
-port 5. If lan1 is then taken down and up, this code ORs BIT(6) into lan1's
-pm, which already has BIT(5). mt753x_port_change_conduit() clears only the
-old cpu_dp bit, so the extra bit is never removed.
-
-Would lan1 then forward to both CPU ports?
-
-Right now this is hidden, because the new probe check rejects dual-CPU
-device trees that have user ports (see below). It becomes reachable once
-that check is fixed.
-
-> +	} else if (dsa_port_is_dsa(dp) && dp->index != upstream_pt) {
-> +		priv->ports[port].pm |= PCR_MATRIX(BIT(upstream_pt));
-> +
-> +		/* Should not happen */
-> +		WARN_ON_ONCE(!priv->is_passthrough);
-> +
-
-[Severity: High]
-Can a DSA link port now reach mt7531_mac_config() and oops there?
-
-This patch makes DSA links a supported setup on MT7531 as well. That
-happens through this branch, where the passthrough switch programs its
-downstream link, and through the dsa_is_upstream_port() change in
-mt7531_setup_common(), where a downstream switch has a DSA link as its
-upstream port.
-
-However, mt7531_mac_config() still assumes that every RGMII port has a
-user netdev:
-
-	if (phy_interface_mode_is_rgmii(interface)) {
-		dp = dsa_to_port(ds, port);
-		phydev = dp->user->phydev;
-		mt7531_rgmii_setup(priv, interface, phydev);
-	}
-
-In struct dsa_port, user and conduit share a union. CPU ports set
-conduit and user ports set user. DSA ports set neither, so dp->user is
-NULL for them.
-
-Take an MT7531BE without SGMII on port 5 (!priv->p5_sgmii), where port
-5 is a DSA link with an RGMII phy-mode. This can be the downstream link
-of a passthrough MT7531BE or the uplink of a downstream one. The call
-chain is dsa_port_setup() -> dsa_port_enable_rt() -> phylink_start() ->
-phylink_major_config() -> mt753x_phylink_mac_config() ->
-mt7531_mac_config(). Would that dereference NULL during switch setup?
-
-Should mt7531_mac_config() look up the phydev only for user ports and
-pass NULL otherwise? mt7531_rgmii_setup() already handles !phydev by
-applying the delays implied by the phy-mode, which seems to be what a
-DSA link needs.
-
-[ ... ]
-
-> +		/* Make the upstream port able to connect to the DSA port.
-> +		 * This must be explicit because PORT_SPEC_TAG is unset.
-> +		 */
-> +		regmap_write(priv->regmap, MT7530_PCR_P(upstream_pt),
-> +			     PCR_MATRIX(BIT(port)));
-
-[Severity: Low]
-Is a full register write intended here? It clears every other field in the
-upstream port's PCR. That includes the fallback mode that
-mt753x_cpu_port_enable() set just before:
-
-	regmap_update_bits(priv->regmap, MT7530_PCR_P(port),
-			   PCR_PORT_VLAN_MASK, MT7530_PORT_FALLBACK_MODE);
-
-It also clears PORT_PRI, the PCR EG_TAG field and the mirror bits.
-
-The write also bypasses priv->ports[upstream_pt].pm, which stays 0. Every
-other PCR writer uses regmap_update_bits(..., PCR_MATRIX_MASK, pm). As a
-result, the forwarding bit is protected only by the is_passthrough early
-returns and the check below.
-
-mt7530_port_disable() also has nothing to undo this PCR write or the MFC
-flood bits set for the DSA port.
-
-Would regmap_update_bits() with PCR_MATRIX_MASK, plus an update of the pm
-cache, be safer?
-
->  	}
->  	priv->ports[port].enable = true;
-> -	regmap_update_bits(priv->regmap, MT7530_PCR_P(port), PCR_MATRIX_MASK,
-> -			   priv->ports[port].pm);
-> +
-> +	/* In passthrough mode, CPU port mask is set above. */
-> +	if (!(priv->is_passthrough && dp->index == upstream_pt))
-> +		regmap_update_bits(priv->regmap, MT7530_PCR_P(port),
-> +				   PCR_MATRIX_MASK, priv->ports[port].pm);
-
-[ ... ]
-
-> @@ -1862,6 +1949,10 @@ mt7530_port_vlan_filtering(struct dsa_switch *ds, int port, bool vlan_filtering,
->  {
->  	struct dsa_port *dp = dsa_to_port(ds, port);
->  	struct dsa_port *cpu_dp = dp->cpu_dp;
-> +	struct mt7530_priv *priv = ds->priv;
-> +
-> +	if (priv->is_passthrough)
-> +		return 0;
-
-[Severity: Medium]
-When this switch is the downstream one, is cpu_dp->index still a local port
-number? dsa_tree_setup_default_cpu() sets dp->cpu_dp for the downstream
-switch's ports to the CPU port on the upstream switch, so the index belongs
-to another switch. is_passthrough is false on the downstream switch, so the
-new early returns don't apply.
-
-The patch moves mt7530_port_enable(), the setup loops and
-mt7530_port_change_mtu() to the local upstream port. Three places still
-treat cpu_dp->index as a local port:
-
-mt7530_port_vlan_filtering():
-		mt7530_port_set_vlan_aware(ds, port);
-		mt7530_port_set_vlan_aware(ds, cpu_dp->index);
-
-mt7530_update_port_member():
-	struct dsa_port *cpu_dp = dp->cpu_dp;
-	u32 port_bitmap = BIT(cpu_dp->index);
-
-mt753x_conduit_state_change():
-	mask = BIT(cpu_dp->index);
-
-Suppose the downstream uplink port number differs from the upstream CPU
-port number. Would a bridge join, a bridge leave or a BR_ISOLATED change
-then overwrite p->pm and drop the uplink bit that mt7530_port_enable() set?
-If that index happens to be a local user port, frames could also be
-forwarded to it without the isolation check.
-
-In the same setup, would VLAN filtering make an unrelated local port
-VLAN-aware instead of the uplink? Would trapped frames go to the wrong
-local CPU_PORT in MT753X_MFC? The patch only updates the comment in
-mt753x_conduit_state_change().
-
-The EN751221 hardware in this series seems to work only because both
-indices are 6.
-
-[ ... ]
-
-> @@ -3399,6 +3505,55 @@ static int mt7988_setup(struct dsa_switch *ds)
->  	return mt7531_setup_common(ds);
->  }
->  
-> +/* 1 if passthrough, negative if error. */
-> +static int mt753x_check_passthrough(struct device *dev)
-> +{
-
-[ ... ]
-
-> +	for_each_available_child_of_node(ports, port) {
-> +		struct device_node *link;
-> +
-> +		enabled_ports++;
-> +
-> +		link = of_parse_phandle(port, "ethernet", 0);
-> +		if (!link)
-> +			link = of_parse_phandle(port, "link", 0);
-> +
-> +		if (!link)
-> +			continue;
-> +
-> +		of_node_put(link);
-> +
-> +		passthrough_ports++;
-> +	}
-> +
-> +	of_node_put(ports);
-> +
-> +	/*
-> +	 * A switch is considered passthrough if exactly two available
-> +	 * ports have an "ethernet" or "link" phandle.
-> +	 */
-> +	if (passthrough_ports > 2 ||
-> +	    (passthrough_ports == 2 && enabled_ports != 2)
-> +	) {
-> +		dev_err(dev, "Only two ports allowed in passthrough mode\n");
-> +		return -EINVAL;
-> +	}
-
-[Severity: High]
-Will this break probe on existing boards that have two CPU ports? CPU ports
-(ethernet) and DSA links (link) share one counter. Two of them plus any
-user port returns -EINVAL, and mt7530_probe_common() then fails the whole
-probe.
-
-Several in-tree device trees have user ports plus port@5 with
-ethernet = <&gmac1> and port@6 with ethernet = <&gmac0>. Examples are
-mt7622-bananapi-bpi-r64.dts, mt7623n-bananapi-bpi-r2.dts, mt7986a/b-rfb.dts
-and the MT7621 boards based on mt7621.dtsi.
-
-On BPI-R64 this gives passthrough_ports == 2 and enabled_ports == 7, since
-of_parse_phandle() returns the gmac node whatever its status. Would all of
-these boards lose switch networking with "Only two ports allowed in
-passthrough mode"?
-
-The check is also wrong in the other direction. mt7621.dtsi with swp0-4
-disabled has two CPU ports and nothing else, so it would be treated as
-passthrough without any DSA link. A normal cascade with a CPU port, a DSA
-link and user ports would also be rejected.
-
-Later patches in the series don't seem to change this function.
-
-Should the check require exactly one ethernet port and one link port, and
-leave other layouts to the existing code paths?
-
-[Severity: Medium]
-Does passthrough receive work only if the downstream switch has DSA switch
-index 0? The MTK tag has no switch ID, and mtk_tag_rcv() hardcodes
-index 0:
-
-net/dsa/tag_mtk.c:mtk_tag_rcv() {
-	...
-	skb->dev = dsa_conduit_find_user(dev, 0, port);
-	if (!skb->dev) {
-		kfree_skb(skb);
-		return NULL;
-	}
-	...
-}
-
-dsa_conduit_find_user() requires an exact match on dp->ds->index. The
-natural numbering gives the CPU-attached upstream switch
-dsa,member = <0 0>. With that numbering, every frame from the downstream
-switch is looked up on the upstream switch, finds no user port, and is
-freed without any message.
-
-Could this requirement be checked here, or at least documented in the
-binding?
-
-> +
-> +	return passthrough_ports == 2;
-> +}
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261028011317.1557238-1-cjd%40cjdns.fr
 
