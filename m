@@ -2,180 +2,98 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3A54606A330
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 09:03:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16E00606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 09:08:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=c7/eXqUV;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UGzuI/fB;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QDShlvGy
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UbkZBPEA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=W0iJhYwYFHxApioBxjUjHv9EZd+NjU0umTau3U6H/X4=; b=c7/eXqUVDzVFyj
-	QnvXwanXrXKlJEatCsnUtD8CHDzu562DOiwp53EBjMv5yK5qC7ZYVVv2FEEmvFGeNjYSWpFHtICv/
-	MoSTcxxvVbd7bSXo0z8Dy3oY2RToPlp8ObfWhRwe1O5oKEeGx4R3pbYHKJnNpKZdh9TB058YewnFv
-	7Hr3WId8ucM3CnGXov7dEI/o5qyl9GUGgQKT1go0Aq6b5IbC40CEU10LkdlAb5OhOUk8yyblWuDRU
-	FO351mh74E/ER72C5GYSZsA0edq4B0f9hVcKz5RolmMJqXNlj+7/IswTad0BigOVdtznUqq92WdqL
-	OQ5HJbSHZ/BzOvMO/Ccg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=ZlsJgsuUxLshKsbZ0JGTcZhiSxa4IqXzGzYrO+oYcmo=; b=UbkZBPEACCRs66wAyMU8CavWS7
+	B/mqdXpgp+wKGEvi+ZnT7owC5B2kM/QXot+yRIGA8vqgmaVdG3I0FM58+dg+6vmla5Ilkn+GuUfYA
+	vzucYM5aBHgLCfwo8Cx9xllXPjtp1W9CHpzTwrhkSK8T/NovQv7j4KA4InUSZmouz7mTtcmCvXYFB
+	ekv5a88zOxOWGoGYTUbMWTLj/CKXpxAyeMeOgmKSei+7X2v9jeZPcJaD+rcSLMd8BWH/kOy1gKVky
+	PftJ5HW5nkpUo2kcRoa01YKHsLUOB7csSSyQJ0PGozclNyXQLBlC3BA+wrAsLgVz1263eYYhGGdPR
+	LoRdI+uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMM2L-00000008ndS-2JhY;
-	Thu, 29 Oct 2026 09:03:06 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xMM7r-00000008oNy-44Z3;
+	Thu, 29 Oct 2026 09:08:47 +0000
+Received: from mail-vk1-f181.google.com ([209.85.221.181])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMM2F-00000008nYz-1chy
+	id 1xMM7o-00000008oNC-2oj4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 09:03:03 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69T8v8af2273140
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 09:02:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	W0iJhYwYFHxApioBxjUjHv9EZd+NjU0umTau3U6H/X4=; b=UGzuI/fBbzLudgIS
-	gXr14iwDFjdzVTsZFGYigdgyuhuNl4dIWN4tkZxbHkqFlOdGYV5FD/wfbGCsLe8m
-	5LbnXlm+FB9lTB4HzzK+MWPVUnvRybey86pXLOvGcM0Nu1RY5Rz11JBe7zUaGgOH
-	FdX36c48cKPgTzqhwC3NR+TlESLZ/CNMZxHKc39P3KzUF9LE4wLBq7o5l4/NE2sU
-	qF1luJhDxxIIZzKWk8s/DKfK6sbDO0PhVT6l0fy72a5J30ErkNG3/vlguxL7Axse
-	m7PifjR8kQ2+P73kPBopA+kO5+x7eYyJG5dz0YrGkL6PpfVSBsNu5RD5wFRKLlAw
-	fgWg/A==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hm31b01fy-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 09:02:58 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cdaf2073b0cso343015a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 02:02:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793264578; x=1793869378; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=W0iJhYwYFHxApioBxjUjHv9EZd+NjU0umTau3U6H/X4=;
-        b=QDShlvGy2Dh3z0CWG9hXGjkuDP/rdV2MKTAnSvvzoOpArtmozPnAsiMTdx0ZKJ5ww3
-         1UKsH/pTqH+nsSVPg2rF2LHjv+GwtDXNTZPBYMqN+zcNimG8sbnDWuw+Nev623AJrPVC
-         iMwFOZziey2M7wdegNZBWl7l3y8s41xOpO27n3Dwa784njHmV3oMybfYAbkvkyRnqQDr
-         F9UYodtCqsgrr4JYO5sbCA+Shc6YS+rNIlfM+6qsxkl1HYJ0JJ4oGlLUgCVtoZ1L1VPi
-         68Ag7PK+EiIoUriwrwwaYhNlIUgn1BBmqJjgxRSSkV7YzlH6gb4kYeMPp8pWTTNm5KeB
-         J8/g==
+	Thu, 29 Oct 2026 09:08:46 +0000
+Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-5eac7220e9cso783910e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 02:08:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793264578; x=1793869378;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=W0iJhYwYFHxApioBxjUjHv9EZd+NjU0umTau3U6H/X4=;
-        b=Ry6lviAjzehKExS5Jy+ayEymTen0E81ZmZX0b1wY0EJBMGiG3EIZWMk8oKYOQVE23Y
-         SoerNmKc5YNV14NgMyZrD1+7LduUzhFgwecSZUO2pWHPRVm8ndApCVsXUX1SVuJj6gcA
-         ZGd+OnhbX0RJFKjbH1ualvHmQNcOL4q1xF1I3vGdW/zEY+HElb3E/ELXtZVR8wzvLSla
-         Yge/nM4GrkeEGWztpPWzMyX0RvYLl+pplIO/5Pn6fD0RKgrKldCk2ZImVJKvqGWpyJAN
-         pD8RwpapP9AsNBW1EYLygbpbzUU9r8VvnrBigxmMSrW6mZmSK4xVNe3L5AlEYAT/c+XR
-         fYTw==
-X-Forwarded-Encrypted: i=1; AKwUvBy2p+tsdbejg3gLQpOXK5pugR0y1k0/KSQHXTkRo4QbQdo4B4dljzER4IvNlGGlILci5bewIlUuVLfPQCbi5xLZ@lists.infradead.org
-X-Gm-Message-State: AFq9FYKrSkGpRnFoPQKJ0a/ykqrQfzluHvGMJIo0iocwvmZJwgRFrhVF
-	CGgheCtZI/p64Z4MwNfuVwtakTMAM1/7Ki++5stVvIFb3qhIzZ3R1i0DBF6Y8AS+2SMnc+vvZUH
-	2PZRapu1wBkaQiJSSpFVfRYkxDLW1B/Bjvfv2B6qW3ogGkx8+Kpo/S4qPsPOCMFRVxfl5Q0x/hR
-	5lpA==
-X-Gm-Gg: AYBFou0FJE+jexjC4RYfiSioZppm4G296R4jws9eK1St3ExDpkFPmUPQCr847S5/jHM
-	LWEnPD/pTiVJE31YHjkVBuI2gSro/GPRkCiJ4sgwM1BBKSY+dZUTRnMGj6+IXOxNrE523U0SGYn
-	V6ZRpMrWkMjQ86cPnea2yjzZcdHMv7XOVed2llCYcFfPH/d2sGFl9cVn5qkC3eqRkrDHoOKImTx
-	rQmQKCXPADXB2PbHjX9JieuLf/ETFPjPNOp8shr0SCoZye/B8ryysCT8DjNSICH0Z4LSL0y81DX
-	zSGAY5PDb+tjtrqykKrHf4m4/feVOqumLbf4NgWed5aYV6BE3xqQaLCPon+OtH7zrYRXxruMKu/
-	s/kTTJ8d1Sj62mRvOWJChSnxNmB0KvYWPY0STf4nqXAQe8lnCU404YdgSWjdBX/w06MxrL5wrex
-	F90mQjRJnD
-X-Received: by 2002:a17:90b:46:b0:3aa:548f:eb77 with SMTP id 98e67ed59e1d1-3ae5823c672mr3892927a91.56.1793264578084;
-        Thu, 29 Oct 2026 02:02:58 -0700 (PDT)
-X-Received: by 2002:a17:90b:46:b0:3aa:548f:eb77 with SMTP id 98e67ed59e1d1-3ae5823c672mr3892899a91.56.1793264577591;
-        Thu, 29 Oct 2026 02:02:57 -0700 (PDT)
-Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae6e7ad710sm3197385a91.3.2026.10.29.02.02.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 02:02:57 -0700 (PDT)
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Date: Thu, 29 Oct 2026 14:31:04 +0530
-Subject: [PATCH v27 10/10] arm64: dts: qcom: Add psci reboot-modes for
- talos boards
+        d=1e100.net; s=20260707; t=1793264922; x=1793869722;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=ZlsJgsuUxLshKsbZ0JGTcZhiSxa4IqXzGzYrO+oYcmo=;
+        b=CX4TKo0FUs+8J0x+sRvx9G1VwlbCpmuzdx7VX1idW4IykdI6SfRbK8ZPwbw2bFvAfG
+         SPsLwKBgh5iYfmottHCBwx3XQQCklUtuMVUVcvJvS85cMLT72geWYlIzIFXa1iaZSnvV
+         k4B9+mIuDt0D/ol+PToOk1LnBYiyCw6WhEbLPGSxNrY2sbZzHuED9rLjedWQvNWbguO2
+         FrX4IIefNURdkE1DvI9/XKeSLZrXFEvUW4/S3XlcL/9eShzqbBonqb4fGnfIJ813CDc5
+         VFA+teJvPUQ4UkJ7oQNXEdXfJrqY+XFmpFLnJfwmeVS3F/e0t1H8vbS3MR5PT8cCzoet
+         4Hlw==
+X-Forwarded-Encrypted: i=1; AKwUvByh+PYBU0bdRG4+H08eYjqWT8Q81T/d7ur6NMXRsr42D0LkvRuaPbltQow+w1M6tf5LsU3B71RMaJAWZaODwqIc@lists.infradead.org
+X-Gm-Message-State: AFq9FYKzrblej+JHn1MNi6F0cuhILrLSI7gRc6GD0KJpNkzybRMcW6Uc
+	SI4sKBbDXGwXTYw8nwVHuygNc41DavH8cTDioe+lKxjZxiWgvsKZVdVj8dSdEebu
+X-Gm-Gg: AYBFou2tvi2Ni/hb1woYpz3nhexvyFRiZc5i1PbT9WHSHTwFLkmXSQBmLps36861HM1
+	iI8XZYhEqwxpz5zsfyafRg5vDfASWbiLH7EeNmYIyJB47gjZBiRvINmLlsxg+WE59qMIa3bFYaK
+	rRJlc2qtSrMaJQikYV9sM1kauoEUtSv/cWpkxFcC+jR/sGKqdEpAOrrOsLwVToeNhJ6jOgTl6H1
+	r2x6F3LtY9zEZWUnszV/yN4URPcgbaYWuFrkxzkRqm4Y+zRp2s9JjpU+3YvZRZk9Vim5pfvCfDo
+	yanX13KzBWKf7wm9rAi8JdAtBB+cIHzT3fsyh0ylBx8LnLGUndM6IHDZpITWzWhNCVTpbgM9wtH
+	LYBZ/pS/oeZT5Zv/7vSSCTJbHU5wi16D75egKClvtPoq+HKiFbXLEw6ALcQd7S02pwkyN0E2f7F
+	mf38phSeqdAtfb8QRf7I+2cEaQzI++s2iGJZwi68WJC/ZZCxXiK7R9xEqGz/ehQRc9MCd7yv4CZ
+	db143n/UHzfrk5neEEA6uN4XaAcfrdJzOW2r8JlpaR31RpsU/hcZm4yGffCBcTWAlEHFoFHvcGz
+	/gV1rqWtX6CHpLEx0/ZP7P2FHBQ+EYq2xwIECmPzrkeB5f8ATJmvrE76TcJl29kBQCU=
+X-Received: by 2002:a05:6122:328a:b0:5ea:dbae:3cbc with SMTP id 71dfb90a1353d-5ec4ccd4191mr2587763e0c.19.1793264921916;
+        Thu, 29 Oct 2026 02:08:41 -0700 (PDT)
+Received: from mail-ua1-f41.google.com (mail-ua1-f41.google.com. [209.85.222.41])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ec4f931911sm4705771e0c.10.2026.10.29.02.08.40
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 29 Oct 2026 02:08:41 -0700 (PDT)
+Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-980c4f5c921so573401241.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 02:08:40 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzp86El9Njri3B7HtYrPJRUYESfxPlj+Y7dyclmSbPEdYjgHEIIAIanXbulytro34CwEPcH06dX7moPdGKJHayB@lists.infradead.org
+X-Received: by 2002:a05:6102:8357:10b0:7cd:3218:362e with SMTP id
+ ada2fe7eead31-7d03a5d6043mr1694600137.29.1793264920555; Thu, 29 Oct 2026
+ 02:08:40 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-arm-psci-system_reset2-vendor-reboots-v27-10-fa4b3ff1359b@oss.qualcomm.com>
-References: <20261029-arm-psci-system_reset2-vendor-reboots-v27-0-fa4b3ff1359b@oss.qualcomm.com>
-In-Reply-To: <20261029-arm-psci-system_reset2-vendor-reboots-v27-0-fa4b3ff1359b@oss.qualcomm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-        Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-        Abel Vesa <abelvesa@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>, Andy Yan <andyshrk@163.com>,
-        Ulf Hansson <ulfh@kernel.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org,
-        Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Song Xue <quic_songxue@quicinc.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793264459; l=1558;
- i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
- bh=WI51nMUK6qgMXe/JMYvx21HtG2tpC5q/6iKj1pJYETw=;
- b=gGvS3BpXvoO4+rAnmMB8gWe5F/jUrTtj0OtL+qKpMHz1TeSAYRy3TL5xGqfr7v91arFxZBUnY
- IUqkMdrzwNlAtyHZYqier3l3JTqGKtZc+5XnqRKZZeif4m/l9NQFXFW
-X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
- pk=ssWsJFX3OM9pkdoe4+guOfGPaulHOFt0GVnVlB6on+s=
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDAzNCBTYWx0ZWRfXwDNRx7Pt0efh
- qWlf+I2Ws2sdGgtg0rupXmQiqY5JQ5I6ODY2JWmyh5VKzG7WnfgT5P/WegRjzToX8yAq33+a324
- dYhk8KcrdWFyKeq9BFKjvMizQfO+pTI=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDAzNCBTYWx0ZWRfXxlO7zFx7v6Eq
- KbjOYys089IesogRMRf+GHexW892nAxrjCV6/HXw1gDSWZ2KlZgV0L0DSQOvlvq9JpYPEHi2wQg
- Pt/JT88LnQNxZ0rfa1cDk39aYgR/V2FecnLed3Kh744Buur9YbRfQrQl0VL5kx1GKmVoK+48Tih
- +3NK7C0ACeF5Fzlh9liav2+AME2WLeCLj99lzsUxQglQN75IY3uAbzYd0fOftj0ssBaYl7A9GOG
- fD/vHhSIpbq/+eGvfmTZhjJvg6M8W2T7ts2UOUhfQYI6ZAzXCIQt5yAS4ZYu3vlcCSR53eYI5ED
- nQ3210fkd82dzWrr234Ad6MUMI30Vj4Mj5SfvvjYICVygU9OasFA8GNFcczJJDT6IOmkZObQHMT
- QZAmWF4KEmeBac1j37NwrawMeAOfV97OFM/GnN77om0pw5Tb4ds6h9pnwx0QQvKpBq5QzXLunuR
- QaQgO/p2k0ywUkPZsdw==
-X-Authority-Analysis: v=2.4 cv=A8T5rKWG c=1 sm=1 tr=0 ts=6ae30bc2 cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8 a=bjH5yOvFM8yfI_BY5k4A:9 a=QEXdDO2ut3YA:10
- a=bFCP_H2QrGi7Okbo017w:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: U-ZWRRhkXzjjJs165KNUYYamp7cojFXZ
-X-Proofpoint-ORIG-GUID: U-ZWRRhkXzjjJs165KNUYYamp7cojFXZ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-29_03,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 spamscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
- malwarescore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610290034
+References: <cover.1793026273.git.geert+renesas@glider.be> <e723696e02cfb34fb808e2ae3ccb6faf68528c00.1793026273.git.geert+renesas@glider.be>
+ <20261028132937.GL15441@killaraus.ideasonboard.com> <CAMuHMdXycpJ6COtiAA-2oRRfHSfLK40n2cacStW15QJRN3EfLQ@mail.gmail.com>
+ <20261028163940.GA2673734@killaraus.ideasonboard.com>
+In-Reply-To: <20261028163940.GA2673734@killaraus.ideasonboard.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 29 Oct 2026 10:08:28 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVOT+DTZum525kmYfP+jzzPrxMnEeRAkapxOMGz4XMHBA@mail.gmail.com>
+X-Gm-Features: AclHuK9-UV4UizkhZLPxSnm2gBMXfy5lUX6jKfLRdtUVdpASkFCmlMNEyTp9nPg
+Message-ID: <CAMuHMdVOT+DTZum525kmYfP+jzzPrxMnEeRAkapxOMGz4XMHBA@mail.gmail.com>
+Subject: Re: [PATCH 07/11] dt-bindings: clock: renesas,r8a78000-cpg: Add PWM clocks
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Ulf Hansson <ulfh@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-pm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_020259_663144_2546CF32 
-X-CRM114-Status: GOOD (  17.05  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261029_020844_744225_378A7E67 
+X-CRM114-Status: GOOD (  44.31  )
+X-Spam-Score: -1.6 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,65 +104,114 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add PSCI SYSTEM_RESET2 reboot-modes for qcs615-ride, for use by the
-psci-reboot-mode driver.
+Hi Laurent,
 
-The following modes are defined:
-- bootloader: reboot into fastboot mode for fastboot flashing.
-- edl: reboot into emergency download mode for image loading via the
-  Firehose protocol.
+On Wed, 28 Oct 2026 at 17:39, Laurent Pinchart
+<laurent.pinchart@ideasonboard.com> wrote:
+> On Wed, Oct 28, 2026 at 03:43:42PM +0100, Geert Uytterhoeven wrote:
+> > On Wed, 28 Oct 2026 at 14:29, Laurent Pinchart wrote:
+> > > On Mon, Oct 26, 2026 at 03:55:23PM +0100, Geert Uytterhoeven wrote:
+> > > > Add definitions for the clocks used by the PWM modules on R-Car X5H:
+> > > >  - R8A78000_CPG_SGASYNCD16_PERW_MAIN,
+> > > >  - R8A78000_CPG_S0ASYNCD8_PERW_MAIN.
+> > > > Include R8A78000_CPG_SGASYNCD8_PERW_MAIN for ordering consistency.
+> > > >
+> > > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> >
+> > > > --- a/include/dt-bindings/clock/renesas,r8a78000-cpg.h
+> > > > +++ b/include/dt-bindings/clock/renesas,r8a78000-cpg.h
+> > > > @@ -28,5 +28,8 @@
+> > > >  #define R8A78000_CPG_SGD8_PERW_BUS           18
+> > > >  #define R8A78000_CPG_SGD32_PERW_BUS          19
+> > > >  #define R8A78000_CPG_S0D24_HSCN_OTHER                20
+> > > > +#define R8A78000_CPG_SGASYNCD8_PERW_MAIN     21
+> > > > +#define R8A78000_CPG_SGASYNCD16_PERW_MAIN    22
+> > >
+> > > Could you also add R8A78000_CPG_SGASYNCD4_PERW_MAIN and
+> > > R8A78000_CPG_SGASYNCD32_PERW_MAIN for ordering consistency ? The
+> > > dependency patch should then also include R8A78000_CPG_SGD4_PERW_BUS and
+> > > R8A78000_CPG_SGD16_PERW_BUS, as well as
+> > > R8A78000_CPG_S0D{1,2,4,8,12,16}_HSCN_OTHER.
+> >
+> > I could add them, but do you have any need to refer to them from DT?
+> > So far I only added clocks that are listed as clock supplies of on-SoC
+> > modules, e.g. R8A78000_CPG_SGASYNCD8_PERW_MAIN is supplied to the
+> > Timer Unit (TMU)).
+>
+> So we have two conflicting goals here. One of them is to only add clocks
+> that we have validated to exist (and ideally work as documented). The
+> other is to keep renesas,r8a78000-cpg.h readable. We won't be able to
+> satisfy them both fully.
+>
+> I think we previously discussed adding whole groups of dividers in one
+> go, as some sort of middle-ground approach. Those are clocks that are
 
-  Support for these modes is firmware dependent.
+That is what did in this and the previous patch: we need
+  - R8A78000_CPG_SGASYNCDn_PERW_MAIN for n=16, and added the one for
+    n=8, too.
+  - R8A78000_CPG_SCPBUSDn_SCP_MAIN for n=16, and added the ones for
+    n=1,2,4,6,8,32, too.
+  - R8A78000_CPG_S0Dn_PERE_MAIN for n=24, and added the ones for
+    n=1,2,3,4,8, too.
+  - R8A78000_CPG_SGDn_PERW_BUS for n=32, and added the ones for n=8,
+    too.
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Signed-off-by: Song Xue <quic_songxue@quicinc.com>
-Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/qcs615-ride.dts | 7 +++++++
- arch/arm64/boot/dts/qcom/talos.dtsi      | 2 +-
- 2 files changed, 8 insertions(+), 1 deletion(-)
+I did not includes clocks with values for n that exist according to
+the documentation, but are not used as suppliers for modules.
+Of course the documentation may be incorrect or incomplete, and we may
+need to add them later. As IDs are ABI and the list is append-only,
+they must be added at the end, which could indeed lead to not all
+clocks of the same group being located together.  From an ABI point
+of view that is OK, but from a human-readability point of view it is
+indeed suboptimal.
 
-diff --git a/arch/arm64/boot/dts/qcom/qcs615-ride.dts b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
-index 142dafb04324..30e4cb642473 100644
---- a/arch/arm64/boot/dts/qcom/qcs615-ride.dts
-+++ b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
-@@ -497,6 +497,13 @@ &pon_resin {
- 	status = "okay";
- };
- 
-+&psci {
-+	reboot-mode {
-+		mode-bootloader = <0x80010001 0x2>;
-+		mode-edl = <0x80000000 0x1>;
-+	};
-+};
-+
- &qspi {
- 	status = "okay";
- 
-diff --git a/arch/arm64/boot/dts/qcom/talos.dtsi b/arch/arm64/boot/dts/qcom/talos.dtsi
-index 8ed6f2755705..03da6400c5f2 100644
---- a/arch/arm64/boot/dts/qcom/talos.dtsi
-+++ b/arch/arm64/boot/dts/qcom/talos.dtsi
-@@ -581,7 +581,7 @@ pmu-a76 {
- 		interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_HIGH &ppi_cluster1>;
- 	};
- 
--	psci {
-+	psci: psci {
- 		compatible = "arm,psci-1.0";
- 		method = "smc";
- 
+Before, we tended to add all clocks from the clock tables listed the
+documentation upfront, ignoring clocks that are clearly internal-only.
+Some of them turned out not to exist later.
+Some new clocks had to be added when the documentation was updated.
+Nothing new here, except that the list of clocks on R-Car X5H is an
+order of magnitude longer.
+
+Note that we don't use a linear array of clocks indexed by clock ID
+in the R-Car X5H CPG driver (yet), so large holes of unused clocks do
+not hurt (they do hurt in the SCMI driver ;-)
+
+> not directly controllable. There's a risk of adding clocks that don't
+
+FTR, the xDn clocks are not directly controllable; clocks like
+R8A78000_CPG_MSO_SCP_MAIN are.  We know the latter exist, as they
+are used.
+
+> exist, or clocks that we won't need to reference from DT (because
+> they're only used as parents of the MDLC-controlled module clock). Do
+
+The direct parent of an MDLC-controlled module clock should be in DT.
+Higher-up parents should not be needed iff the SCMI firmware exposed
+and/or implements the proper clock hierarchy (which it does not at
+the moment).  Still, they can be internal enum, starting after the last
+DT clock, like we did in other R-Car clock drivers.
+
+> you think that's an issue, could it cause ABI problems in the future ?
+
+An ABI problem appears only when you refer in DT to a clock that does
+not exist in hardware.  This should be caught by testing before the
+DT user is added.
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-2.34.1
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
