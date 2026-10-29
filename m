@@ -2,80 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B420606A322
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 14:02:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A25BE606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 14:18:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jYLAr+a/;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Xxcr1uEv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y0a9YwZP;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WnwBYyqL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=46BTS2L17vKUMaAXzO89PlCn4e9X2ecYyyZ5hRRDLBc=; b=jYLAr+a/gczRpG
-	wMGv0XFCTzN83JOxmY+B3XAfalJ8010UTicjV6g3DUnnz4U5KFxfmGCeUlaC/DQwSsqUWbe/X3p7l
-	evn0umUu6mQzOPmqltb9yf2+wFU4VBsf7NZd0nd8RZiR3B2S+j/MQObyN0FWSwTGCSroO9XBHxoyP
-	FuOwFhxsT0+hM9qvsO8KxLszi+Ol8B0xncfvy9DGl0NuZPCxAW+oGseg9n8HT4B71n49JCj9IdHtv
-	jcMrmPItlMx8y95g6707Rez4clUYWbt2e/cVVPlG12tauK12aCMqxWeSCAxdr707gFbWB+0jdUEoi
-	OBA3RquiYdg6+ErCKa2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=sIAQApOwnlBHdqOEDUSf5m4YrfU7jMgmgx2VS57GmCE=; b=y0a9YwZPdwwlvbfSz+bZpy7T9q
+	rPppu3T2Wxpmoe5LQNe3xjFfjGRisY/pEbcd8xu1eylvb5CY6/oxyCY7LTnRj5WXlsGhinVxMd4s2
+	XoxEhIBeNpRY6e/iiSJmllSZmxA7i93rzMtoMJeIHnlzDdaP4ORzKoR2rNxruVflHwN60zwNrjtb4
+	cvEqusCi/JCMiJzdsSUvi+E4d/FaH7GZfr0XJ6oSNgrGpt/SvfGMSKzml+Q/jQFDrBN3cZlzbq+DN
+	RJbl9dZNANtVxS5KjIevGchlstZcGszdaq1ii5nVeXoeASI+joPW4p4FqW7ErjJIxd9GNCpKGTpHh
+	xn2w8+mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMQhy-00000009U09-45k5;
-	Thu, 29 Oct 2026 14:02:23 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1xMQxD-00000009VBQ-3yuF;
+	Thu, 29 Oct 2026 14:18:07 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMQhu-00000009Tzi-3OCX
+	id 1xMQxA-00000009VB3-4BCI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 14:02:21 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=46BTS2L17vKUMaAXzO89PlCn4e9X2ecYyyZ5hRRDLBc=;
-	b=Xxcr1uEvjyUncblEyLuJ13eru1beYW/GY5GFrPE5ZiK43B4KlA7E+sfVr4qhA3hrvIBxIwDSM
-	8bbmRWDAsZAUJOf4aPz+Fkbsf8dlBiYZwCbJ4LCU36/fQiGVBZ8WrYc5WWyoqZLYFc7PE1SX2xp
-	egChEha82ieFCMIiUlrLwNo=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4jFmBT2KpwzRhQX;
-	Thu, 29 Oct 2026 22:02:09 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 162B340561;
-	Thu, 29 Oct 2026 22:02:12 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 29 Oct 2026 22:02:10 +0800
-Message-ID: <009b13c6-f618-43fe-8a56-8519d31b239b@huawei.com>
-Date: Thu, 29 Oct 2026 22:02:10 +0800
+	Thu, 29 Oct 2026 14:18:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793283485; x=1824819485;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=iUgkTmbEVGLMzWydqtXX3ASQZZhoDtXfz4hj/j8HhZA=;
+  b=WnwBYyqLX6348L1TkZwaBhMJ+UFGQhAE7O7ry2Pugr4jcd/yMOLGj+W0
+   G8O1dlS7vJOq/0Kk8Z/WCuh5RhXarcD8ywzCvwSVmeMs+9qwsE/YV5faD
+   y5yqGYGDWkfXnX2XoNJzezMOIlgAAK28jMl2bgTIbnkCv6vwJQ3TSf58/
+   cJa0L//kYrk9QER5UcmAmKsHEG9yxIpUZ/PX/bohtFHO49gB10rmrwlwR
+   XngYIwQsm+ioU74E3rnLtHu+G70Rlkuyyd5ocpylI+Ij/J+z6e/ff64E0
+   EnXHUkE7a/MD71qXn4ZA1Midnh6NJN8RHrO8NU+vk/Dpt8fCoSHVqUmfs
+   Q==;
+X-CSE-ConnectionGUID: PQANz6GESgmbJASOmJ9s5Q==
+X-CSE-MsgGUID: Cf1ONBwcRnu0CkD0UFCkRw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11949"; a="1920058"
+X-IronPort-AV: E=Sophos;i="6.27,184,1787036400"; 
+   d="scan'208";a="1920058"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2026 07:18:04 -0700
+X-CSE-ConnectionGUID: T8QAYLthTXiOO95NU/4lBA==
+X-CSE-MsgGUID: hFAuv5gvS4KywM5Cg6kQPw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,184,1787036400"; 
+   d="scan'208";a="5148330"
+Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.129])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2026 07:17:57 -0700
+Date: Thu, 29 Oct 2026 16:17:55 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Raul E Rangel <rrangel@chromium.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Richard Genoud <richard.genoud@bootlin.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"Maciej W. Rozycki" <macro@orcam.me.uk>,
+	Timur Tabi <timur@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH v8 2/6] serial: serialize asynchronous write wakeups with
+ the port lock
+Message-ID: <auNVk_Y8iiAXyFa3@ashevche-desk.local>
+References: <20261029-submit-serial-8250-dma-cancel-v1-v8-0-3fd56ba352ed@gmail.com>
+ <20261029-submit-serial-8250-dma-cancel-v1-v8-2-3fd56ba352ed@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 05/15] KVM: arm64: Harvest stage-2 dirty state into the
- host folio account
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
-	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
-	<caijian11@h-partners.com>, <liuyonglong@huawei.com>,
-	<tangchengchang@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
-	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>, <mark.rutland@arm.com>,
-	<seanjc@google.com>, <rdunlap@infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <skhan@linuxfoundation.org>
-References: <20260929103655.85107-1-zhengtian10@huawei.com>
- <20260929103655.85107-6-zhengtian10@huawei.com> <at-WceRKAVM2kEnI@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <at-WceRKAVM2kEnI@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261029-submit-serial-8250-dma-cancel-v1-v8-2-3fd56ba352ed@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_070219_566528_D34AB41F 
-X-CRM114-Status: GOOD (  26.70  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261029_071805_050866_D1FB641E 
+X-CRM114-Status: GOOD (  20.78  )
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,128 +106,86 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-
-On 10/27/2026 2:05 AM, Leonardo Bras wrote:
-> Hi Tian,
-> Sorry for the delay in reviewing...
+On Thu, Oct 29, 2026 at 01:36:58AM -0600, James Hilliard wrote:
+> uart_write_wakeup() expects the UART port lock to be held. Several worker,
+> DMA completion and interrupt paths call it without that lock, including
+> indirect calls from uart_handle_cts_change() and the transmit helpers.
 > 
-> On Tue, Sep 29, 2026 at 06:36:45PM +0800, Tian Zheng wrote:
->> With VTCR_EL2.HD set, hardware promotes writable-clean descriptors to
->> writable-dirty without any VM exit, and the only record of the write
->> is the S2AP[1] bit in the stage-2 PTE. The write never passed through
->> the host stage-1, and no unmap path reads the bit, so the record dies
->> with the PTE and reclaim may discard written guest data (silent
->> corruption).
+> Take the port lock around these notifications or their transmit helper.
+> Keep sleeping SPI and regmap accesses outside the locked region, and keep
+> the FSL LPUART completion lock held through its wakeup. Acquire the port
+> lock after releasing private channel locks to preserve the ordering used
+> by UART callbacks. In the MUX timer, publish available FIFO space under
+> the port lock and keep the hardware FIFO-drain wait outside it.
 > 
-> Sorry, I didn't get what you are trying to achieve here.
+> Use IRQ-safe locking in the Atmel RX and TX tasklets and SB1250 termios
+> path, since their interrupt handlers now acquire the same port lock.
+> Preserve the caller's interrupt state when releasing those locks.
 > 
-> On your patch, I see you marking backing pages dirty at wrprotect and unmap
-> walkers, and it's very confusing to me on why you are doing this.
+> On SB1250, lock modem-state updates after reading and filtering the change
+> status, and wake modem-status waiters after unlocking. Take the TX lock
+> inside its service routine so RX-only interrupts need no acquisition.
+> Keep that lock across x_char handling, FIFO consumption and the decision
+> to mask TX interrupts: a writer must not enqueue data and enable TX between
+> the empty-FIFO check and the interrupt-mask write. Each TX invocation sends
+> at most one character.
 > 
-> IIUC, what you are trying to do is make sure a page does not lose it's
-> contents in case it is reclaimed by the OS.
+> Serialize CLPS711x TX servicing and its interrupt-enable state with the
+> port lock. Disable TX interrupts without waiting in stop_tx(), since a
+> threaded handler may need that same lock. Have an already queued handler
+> leave stopped output untouched, and drain it outside the lock during
+> shutdown before the transmit FIFO can be released.
 > 
-> IIUC, when a page is reclaimed, it will unmap the S2 PTE, and save it's
-> contents to swap, so when the guest read or write to that page will cause
-> it to fault.
+> SCCNXP handles interrupts under a controller lock which its UART callbacks
+> acquire with the port lock already held. Collect the ports needing wakeups
+> in an unsigned long bitmap while servicing the controller, then release
+> that lock before visiting the set bits, taking each port lock and
+> rechecking the wakeup threshold. Removal drains the IRQ or timer before
+> unregistering the ports.
 > 
-> The page can never be just unmaped, as if there was a single write to it,
-> the backing pages should be writable, and the contents need to be saved
-> somewhere.
+> This serializes write notifications with port-locked serial-core state
+> changes, allowing readiness and transmit-storage reservations to gate the
+> notification without a check-versus-shutdown race.
 > 
-> So, if I was able to understand your suggestion, we don't need to worry
-> about this, and this patch wouldn't be necessary.
-> 
-> Did you hit this issue?
-> Can you please expand on your issue, if I could not describe it above?
-> 
-> Thanks!
-> Leo
+> Cover DZ TX servicing and JSM Classic modem notifications as well. On
+> DECstation ZS, acquire the port lock before the SCC lock and notify writers
+> after releasing the SCC lock. Defer normal TX restart after console output
+> to a worker, since console output can already run under the port lock.
+> Check transmitter readiness before consuming another character and drain
+> the restart worker during shutdown and removal. Release Lantiq's hardware
+> lock through the transmit helper's completion hook before notifying the
+> line discipline.
 
-Hi Leo,
+...
 
-Thanks for the review. I haven't hit this in practice, and based on your
-analysis the patch doesn't look necessary.
+> static irqreturn_t serial21285_tx_chars(int irq, void *dev_id)
 
-Reclaim only writes back folios whose PG_dirty flag is set; a clean
-folio is simply freed. A stage-2 write never touches the host
-stage-1, so the folio depends entirely on kvm_release_faultin_page()
-at fault-in to be marked as dirty; without it, the page stays clean from
-the host's perspective and reclaim drops the data.
+>  	struct uart_port *port = dev_id;
+>  	u8 ch;
+>  
+> +	guard(uart_port_lock_irqsave)(port);
 
-Your **RFC v1** patch 2 changed that marking from writable to dirty:
+Why _irqsave?
 
-```
-- kvm_release_faultin_page(kvm, s2vi->page, !!ret, writable);
-+ kvm_release_faultin_page(kvm, s2vi->page, !!ret, dirty);
-```
+>  	uart_port_tx_limited(port, ch, 256,
+>  		!(*CSR_UARTFLG & 0x20),
+>  		*CSR_UARTDR = ch,
 
-During logging, a read fault maps the page as WC: the folio is not
-marked PG_dirty in kvm_s2_fault_map() and hardware promotes the PTE to
-WD on write without any fault, so reclaim frees the page without saving
-it (the folio was treated as clean).
+...
 
-Therefore, **HDBSS v5** patch 2 reverted to marking the folio for any
-write-permitting mapping:
+Same Q everywhere (it might be legit in some cases,
+it might be too strong in others).
 
-```
-kvm_release_faultin_page(kvm, s2vi->page, !!ret, writable);
-```
-
-Together with the v5 scheme, this makes patch 5 unnecessary:
-
-- kvm_s2_fault_compute_prot: always set PROT_W when map_writable
-- stage2_set_prot_attr: PROT_W -> DBM unconditionally
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
----------
-
-On a related note, I'd like to discuss the next version of the DBM
-scheme, following Oliver's suggestion [1].
-
-Oliver asked for the write bit to be selected by the system capability:
-
-	FEAT_HAFDBS: PROT_W => DBM, PROT_DIRTY => S2AP[1]
-	!FEAT_HAFDBS: both => S2AP[1]
-
-However, our v5 kvm_s2_fault_compute_prot() granted PROT_W
-unconditionally. With PROT_W => S2AP[1] on !FEAT_HAFDBS, a read fault on
-a dirty-tracked memslot would install a writable page. Since dirty-
-logging relies on the write fault to observe the page, we would fail to
-track it.
-
-So we also need to fix kvm_s2_fault_compute_prot():
-
-```
-if (s2vi->map_writable) {
-         if (s2vi->device ||
-             !memslot_is_logging(s2fd->memslot) ||
-             kvm_is_write_fault(s2fd->vcpu)) {
-                 *prot |= KVM_PGTABLE_PROT_W |
-                          KVM_PGTABLE_PROT_DIRTY;
-         } else if (kvm_supports_hafdbs()) {
-                 *prot |= KVM_PGTABLE_PROT_W;
-         }
-}
-```
-
-For normal RAM on a system without FEAT_HAFDBS:
-
-	logging + read fault  -> PTE read-only
-	logging + write fault -> PTE S2AP[1]=1
-
-[1] 
-https://lore.kernel.org/all/ff218960-c412-4283-aa41-b7af2a7048b8@huawei.com/
-
-Thanks,
-Tian
 
