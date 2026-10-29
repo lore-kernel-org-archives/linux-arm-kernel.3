@@ -2,169 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7EE2606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 18:14:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47A75606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 18:15:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ROqBOjg8;
-	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=JeUYLQXE;
-	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=bUbiTEOX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sGZMWNws;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G0ykgAeC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=MDBIZxECe+CVX7B54RZ/ll0WbapqA0tRfoigVNBgWN8=; b=ROqBOjg8N2JpoDQ+QXS45BJfDP
-	8rQZ0iYkl1bes+M1/gm/qOEM5bXU2UWmXvGp/r6jGFb9eEiAFx3udb9BpBMVgtuseI/WpaGFUd1n7
-	7iYuvXQNw2bnPpjwn9bNLvHLgYZr9IMKWbSHVwqodFq0V9TQRGsTiYzvRe0T/TPtvEC7Tq/TF/hKu
-	Bwjhnse0O3eOAm6+aSrrB17I9VoEvSo5PMjjvPhkUeNqE5of3IuL0hL0r7ew72qK9HhM4ODusrCF8
-	yJ4TDZ4sMrz70Ia6JVfiCrCU9lSKFxw51GsH6vGguRYDqXtt49cQEdI4kHHI83qxV07Dmcye0byce
-	W7js9+2A==;
+	bh=LVRxZ24pqtgoa//AHQI5Xv+cMRAGXk2uxfsL1IU6GrI=; b=sGZMWNwsSBTtzS0ECjZNhRT3Hr
+	ed+YROu+ucdXEpknOuYWk7IuJjBVuOsu5ySsE3qGOnxzeCSBiDdQXagiswCTmJ43Q7FHahrNE6oVj
+	rhF0gIVuQDj00C7QBRSDxEkJ3zfGCNftpTXUVQ7KZYZaXYpZykjUuf6IfElcOK68bx9ZPb56fGT60
+	8fPRxK8H/ZeL36EHzFp21mP+SsQru7Ggq1y1oV+2TFaXc4Y++9o5XprwFed4vg1dLn2o9Bc/y7cN0
+	QrNtNXx1qo9M5tWAuZuefGClgVugWFh/tkGcAIMXLP4dzRFsS5ocR0eVN1zxfhi2MuC8wNrNvWsqf
+	Zv7HJFVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMUde-0000000A5H4-40pP;
-	Thu, 29 Oct 2026 18:14:10 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1xMTYv-00000009vS6-2eaF;
+	Thu, 29 Oct 2026 17:05:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMUcu-0000000A4YQ-01S1
+	id 1xMTYu-00000009vRz-1yyq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 18:13:29 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69TGDivO2604281;
-	Thu, 29 Oct 2026 13:13:19 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=MDBIZxECe+CVX7B54RZ/ll0WbapqA0tRfoigVNBgW
-	N8=; b=JeUYLQXEDDSn9HStlbLYIvuvWJ2t3mrW/mNuqdnbJLVVvy33pd24uYNPy
-	niFuFjrd1ZIpgaB2uzqtiu2tq3fOEXfZONGz2iwzye9uttvhkWVwg+8st5/9u44V
-	UVRElQgcmSP1Vbf5lzXutBeYmyF0m6vN+SLP36ClR+DNM37cykY4Sj6ICl1/Nagh
-	QAkQ8UBKVOvYoUIUfZbdDPHghwxDT1nSwVdIrcxX9kKYzjHfpuDTOt+v9YAUX0/J
-	/Eig3AvHf9AIllXFU02YWOVvOFdUONoPfahh1rByCpmJihbLAafU70M0od5THmaA
-	NSYxnP+3czftCTsz/QxgHsHmQVt/w==
-Received: from sa9pr02cu001.outbound.protection.outlook.com (mail-southcentralusazon11013044.outbound.protection.outlook.com [40.93.196.44])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4hm55ak3rn-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 29 Oct 2026 13:13:19 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s6PQbQt1pUncnAfvPTtOR2Xusm9Ea1TH4duTr5I/W0DdzLrOGVBZbLdu3zZpk7QwfuQ+LfF+wK37MAs9kg+TIDA5L/zH8LEEtMyk8KNHrKD/lXZ5jOw0bthn4WkMjEzkZXvsiwIeiwbZN3RHQ+cbfdRYs6iHpp4rYXzon1UmNWzcmCmL+pcQsZGXoVBzPATly2cfIOPhmGReuJDqCnHYHsqfSItT5ZWkE3XOJdYdOCqZ1muWNafBC4DkTh9Y3panVXbQgwgim2IRKM3ZSK2htlVNIkf/H1wkwbY+gzaM+X818aCMdp7TMWF7e44G0CAXFw0bg6GSi7M1Uzd/69jwsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MDBIZxECe+CVX7B54RZ/ll0WbapqA0tRfoigVNBgWN8=;
- b=lHG6bZ+fJN9ifVMfTeaK++fHrACdcXvZJ87tNxdOu/ZCM850N4NS1BqbZyAYS6R+QEtcCZhb4tVM5iL1wdSXniLwcr23wzND8/QERkxQfiYfVI/rzO1joI18F0jJzLU+0tAKN6RD5jmXiGy+3KNRLl5S9iV62ukXHIdDyQSY5JTAOh8QlysiYtMR2QiI3vxaIhb4vqElTHFEm7f8CNfavB8a3JphK8y1RQMxO0LozbeLFHDny806qUVttP4+5HwzuBJLaylVxGtos5IFiGpOQMDmtS3fLzWhkw4I6/xb0RsTiof85qI7sDbPc71tngDsm9eoHFe2n4Pmn7yRC7mPhQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MDBIZxECe+CVX7B54RZ/ll0WbapqA0tRfoigVNBgWN8=;
- b=bUbiTEOXSbitid+2xFTRMt87TtcaYdhH+hnqoAtx5oj5mCp0oLL1dC3jqyigc+aWCtuTEeAdqlMqeSI3kcWr0/KEl5rQmvIwNVZKn4Tw1PmA7mkPJuBgd2eIW+8JsA2PQAtDOo1XxbotG3XvDDxmQ9sEN7MuZmLhW88G/BG57WA=
-Received: from SJ0PR03CA0241.namprd03.prod.outlook.com (2603:10b6:a03:3a0::6)
- by LV0PR10MB528721.namprd10.prod.outlook.com (2603:10b6:408:3fa::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.9; Thu, 29 Oct
- 2026 18:13:13 +0000
-Received: from BY1PEPF0001AE1D.namprd04.prod.outlook.com
- (2603:10b6:a03:3a0:cafe::1f) by SJ0PR03CA0241.outlook.office365.com
- (2603:10b6:a03:3a0::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.8 via Frontend Transport; Thu, 29
- Oct 2026 18:13:12 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BY1PEPF0001AE1D.mail.protection.outlook.com (10.167.242.106) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.569.4 via Frontend Transport; Thu, 29 Oct 2026 18:13:11 +0000
-Received: from DLEE213.ent.ti.com (157.170.170.116) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 29 Oct
- 2026 13:12:50 -0500
-Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE213.ent.ti.com
- (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 29 Oct
- 2026 13:12:50 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Thu, 29 Oct 2026 13:12:50 -0500
-Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69TIBmMJ3408718;
-	Thu, 29 Oct 2026 13:12:47 -0500
-From: Beleswar Padhi <b-padhi@ti.com>
-To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
-        <vigneshr@ti.com>, <u-kumar1@ti.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <b-padhi@ti.com>
-Subject: [PATCH v3 19/22] firmware: ti: ti_sci_clock: Move clock ops into its own file
-Date: Thu, 29 Oct 2026 23:41:44 +0530
-Message-ID: <20261029181147.266771-20-b-padhi@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261029181147.266771-1-b-padhi@ti.com>
-References: <20261029181147.266771-1-b-padhi@ti.com>
+	Thu, 29 Oct 2026 17:05:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B74AA400C2;
+	Thu, 29 Oct 2026 17:05:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 984731F01816;
+	Thu, 29 Oct 2026 17:05:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793293511;
+	bh=LVRxZ24pqtgoa//AHQI5Xv+cMRAGXk2uxfsL1IU6GrI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=G0ykgAeC8Jlr/lcfDgv58kfm/oA5Cqf1X+4jYhIrQD3Kou6DYng9U8chgQ0LB3y5M
+	 Yt7cvZBcvOTLO86KBx8YRxUQErNyGF0JFHkOhjzzg5M8+mpey1kQIt0dS07g+9d6HZ
+	 9RepnMfzjxY29/6VHS+wjqy16gp0NNHNg5GeYApljtXKHzbPP+0kpCxrhJhLYjpV/2
+	 uWNecWqCg1+1CE1RslIgmixd81EXgnXQfnR0mLvdEbU8+Q747HGhFQyEVytR/uxWLR
+	 lvjRAxnZlIM5nhArfjEsGxc1XdqRH1n4nA9aQjFBGYgPl08Sky82QepCv814D8njvW
+	 wI4JfCiXXKpCQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xMTYr-00000008dbp-06u5;
+	Thu, 29 Oct 2026 17:05:09 +0000
+Date: Thu, 29 Oct 2026 17:05:08 +0000
+Message-ID: <86ik2kxwsb.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: francesco.boccola@unina.it
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC v2] KVM: arm64: nVHE: Flush all TLBs when freeing a VM's stage-2
+In-Reply-To: <20261029-nvhe-stage2-flush-v2-1-096723b28bef@unina.it>
+References: <20261029-nvhe-stage2-flush-v2-1-096723b28bef@unina.it>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE1D:EE_|LV0PR10MB528721:EE_
-X-MS-Office365-Filtering-Correlation-Id: c4474b20-71f8-46bd-3ce0-08df35e84abb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|36860700016|82310400026|56012099006|261009221727099003|261009221227099003|261009223027099003|261009223327099003|261026140227099003|261026121527099003|261028144727099003|10067099003|261022113327099003|261022105027099003|261021123027099003|261009220027099003|261021121427099003|18002099003|22082099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: 2pVG2EvIdgG8muEqah1b7Esh3vVv7Xki8efaJAWcuhDd3/jlVuMwNXnKke4tgn8Z/RxlO8MqfsgjlOS6SiSIejSPVoxyP1IdpmX2imdt1FbolXNLskbiluXfseoGvYAMreL5eCm9DSIwmlTCiSN6+Ht2M0gO0KMYq9dTAYQJgg7wU+VSVliMxBA8l6F4q3qNgcCy6cuTAtzgjHEWLSamfMLw6i8FvW7ghA9PnPsu3NZcinnP8snCqvb0aDJzF0oWgDDi4UafOZKkMvSOoQjkGBQCch88yWhCFl70q/8tqPAzjku920OMNrvtilBibOjaxYYnPKB+L1FxIfDczFTtzaspEwoPrz2Q8B1Yx3KUaLXS4TRPPhZ5vpkqfmFQ6s2gU9WsxwxVVuE2BEfWgOi3cWovDQ5+8dItzGX06BB2GI2W98lc1qQ4I5ETjQ6kzk5D3TGB8QTvN4pGtMjZNULpp8bSUgr5T/PX/JKodMq3KzOC4n7/WhyOXRWXGmPwuryLQU7rrGUTbuixzUVtOTURCps1keRFaSo7NYX1cabxipbLfic0xSrr2H/h2zvdqL0Qai0aGn/uNdupppQpQoXJjxpbz1+ywOJ88euitzpnGrE265v3G/ATikcSjiHu6lG7DNBqzZzBiYGAC6OJL11Y1Q==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(36860700016)(82310400026)(56012099006)(261009221727099003)(261009221227099003)(261009223027099003)(261009223327099003)(261026140227099003)(261026121527099003)(261028144727099003)(10067099003)(261022113327099003)(261022105027099003)(261021123027099003)(261009220027099003)(261021121427099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: iRKfiQ8CTKz7t2ikUT7wmIBNEm4yXAf9Qwo2SUgUBR0MfRYXrajtKqIg6CHvRGfmy8la1vAUKler/iw5QmScPhUYjpB2u093B88LNyy4Uyae3wv5NdU9Zbfqk/p21xMAhDFS9oFlwYXqe6SNa7OrSHl8IPZI7Uirlu9D21B5VGcA51nVYU+ALEeRexeI9cM07xnKXtsNR1oFAcE6NaSGmZN7pcyxn0LEBhGid6/oLzN4jxSwMYa76b3wWwOaZMepO7MA0NzBjLBmCOgUFY2WT8lwECpeE3A8ikRcU2HTepHQPuwWz1DXthcm9/97O+OxhHOktbyeTQdomueMy53rFUbAtnVaxHzZCPgldzQ1wYpmhUv8tcCV3cRU7DZtORShWDZzeNHSRUICVaDhqGih4+NcNO0UuESijBi53cSArqMpVphD+oXLeK8tyoyRhuaV
-X-Exchange-RoutingPolicyChecked: xKsOtxa/ukP0lCR4w47B7aXdJYF3KAnaQc0kjydw5XotQBOy8wrzxd5qmxZDOY/Chwvy9ne877kY4BqAi6iZ0xc4CihNZwyL/cG2FZcdvV/hMuNumNBaqxt1jOwXgjaG7LFFPQZ0QOri6lHxHgZZwQtIFn6VMhws22DEJlo0KEO1SC5xovqZFqvGDkdhkexlJ0GNPo4ANJSu2KedlJXYjZlxptvcjXdr4f5m3T6ujX8m2t7qzgWtLWD3aHNijOdKWmNcy/S7YKw0ymAy0gN4ai9tAuU5nvLjcaVSiubPTagR2Xr+jII2GYEJfFe4efuYSomn1rNSuiceH4lYuPC28Q==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2026 18:13:11.1100
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c4474b20-71f8-46bd-3ce0-08df35e84abb
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE1D.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR10MB528721
-X-Proofpoint-ORIG-GUID: Ct7yS5iEMCOTIY6x0rmipJqTPfbS8wjk
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDA3MSBTYWx0ZWRfXxcom2ae3HBSv
- KNbM7VPaokWZrlnMsbNfvM7MrykP2dJLANcnuLIvKeh4amivHFg3mt0wX79+J5a/lNkK0fltYfp
- Z8IKVxSTpT92+ZNocjviDciKo6NhgCcL2fXT5p49hFY8a1gaBSBoC18YWR1Vjwj3tgh5KD68E8E
- vvMxmKImC/2dh5auD0ZzefYPGVHrOjZt2TaaBurXuJ8vI/zQRKNo/nOhDqNGrJor2DZrWjU2dui
- CAXwXAgiCIYcN0FVPSQGepHdgga/nZiODeL7QM1N4ZJdylp0lOGEI96aNoRyAY53VbuA6gNRwLt
- yGJq83N9EiWn3vewhJ9LU1mYT8jhEpEs+ma+MpQ66ikKlliBuvOQpGQp3VNo7S03JxzucfTgUfv
- RM0KceF8JBazvFUfGIjTRTWOqMrarA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDA3MSBTYWx0ZWRfXw5OZpZMbTP9y
- JO7e8tT5aATJV6fLhej7vyxFN/XbNDhUfJVYe5xOF22HfSotdSUE0/rtkwmiBHibltEt05/e+je
- EAwTgjsbMRGFUMUbFCo1kfp7AUtlqig=
-X-Proofpoint-GUID: Ct7yS5iEMCOTIY6x0rmipJqTPfbS8wjk
-X-Authority-Analysis: v=2.4 cv=eM2GH3p1 c=1 sm=1 tr=0 ts=6ae38cbf cx=c_pps
- a=Ji2ygefkweamrNJ/4LFw0Q==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=660iZSQnnn4A:10 a=s63m1ICgrNkA:10
- a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=jwouBfj2j3NM8CExmVVE:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
- a=myWusNq7Z1Ndx3JLH8AA:9 a=6EDSWHHbUuOq48cG:21
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-29_05,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 bulkscore=0 phishscore=0 suspectscore=0 spamscore=0
- malwarescore=0 adultscore=0 classifier=typeunknown authscore=0 authtc=
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.22.0-2610190000 definitions=main-2610290071
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_111324_383416_744A5A71 
-X-CRM114-Status: GOOD (  19.53  )
-X-Spam-Score: -2.1 (--)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: francesco.boccola@unina.it, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,1176 +89,73 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Andrew Davis <afd@ti.com>
+On Thu, 29 Oct 2026 15:34:48 +0000,
+Francesco Boccola via B4 Relay <devnull+francesco.boccola.unina.it@kernel.org> wrote:
+> 
+> From: Francesco Boccola <francesco.boccola@unina.it>
+> 
+> kvm_free_stage2_pgd() frees a VM's stage-2 page tables without invalidating
+> the TLBs. That is correct: the VM's VMID is not reused before the next VMID
+> rollover, and flush_context() then invalidates the entries of all VMIDs on
+> all CPUs (TLBI ALLE1IS).
+> 
+> In nVHE mode, however, a CPU that ran a guest makes the host's broadcast
+> TLB invalidations more expensive for the whole system until then, which
+> with 16-bit VMIDs usually means until the host reboots.
 
-Extract the clock operations related functions and services from
-ti_sci_core.c into its own file. This breaks down the single large
-file into smaller logical files for better readability and maintenance.
+Does it? Why? What permanent state is kept in the CPU TLBs that makes
+invalidation slower?
 
-Signed-off-by: Andrew Davis <afd@ti.com>
-Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
----
-v3: Changelog:
-1. None to this patch.
+> With stress-ng
+> --tlb-shootdown on three CPUs of a cluster, the cyclictest maximum on a
+> fourth, isolated CPU goes, before and after one guest:
+> - Cortex-A53 (Zynq UltraScale+ KV260, no VHE, 6.1.70-rt): 53-72 us ->
+>   83-164 us;
+> - Cortex-A55 (RK3588, kvm-arm.mode=nvhe, kvmarm/next): 18-23 -> 78-97 us;
+> - Cortex-A76 (RK3588, kvm-arm.mode=nvhe, kvmarm/next): 16-30 -> 74-80 us.
+> It crosses clusters: after a guest on an A55, an isolated A76 goes from
+> 14-18 us to 129-154 us. The same happens on kernel 6.12.113 (20-24 -> 44-49
+> us on the A55) and on 7.1.9 with and without PREEMPT_RT.
+> 
+> One guest that turns its stage-1 MMU on, even for a few microseconds, is
+> enough; a guest that keeps its MMU off is not. With VHE nothing changes.
+> 
+> The state is in the CPU that ran the guest: a local TLBI ALLE1 on that CPU
+> at teardown removes the effect on every CPU, the same on all the other CPUs
 
-Link to v2:
-https://lore.kernel.org/all/20260930160607.2674980-20-b-padhi@ti.com/
+I note that the hack you are adding in this patch is a broadcast TLBI,
+not a local one.
 
-v2: Changelog:
-1. None to this patch.
+> does not. Invalidating the dead VM's VMID (TLBI VMALLS12E1IS, as pKVM does
+> at teardown) does not remove it either, whether stage 2 is disabled while
+> it is issued (as __kvm_tlb_flush_vmid() does from the host's context) or
+> enabled; nor does invalidating VMID 0 or the host's stage 1 (A53).
 
-Link to v1:
-https://lore.kernel.org/all/20260929201746.4078803-20-b-padhi@ti.com/
+VMID 0 is not special. This is just a convention, and you could use
+VMID $(RANDOM) as long as you use it consistently everywhere.
 
- drivers/firmware/ti/Makefile       |   1 +
- drivers/firmware/ti/ti_sci.h       |   1 +
- drivers/firmware/ti/ti_sci_clock.c | 553 +++++++++++++++++++++++++++++
- drivers/firmware/ti/ti_sci_core.c  | 535 +---------------------------
- 4 files changed, 556 insertions(+), 534 deletions(-)
- create mode 100644 drivers/firmware/ti/ti_sci_clock.c
+> 
+> So do the rollover's invalidation when the stage 2 of a VM that has run is
+> freed, in nVHE mode. That costs one TLB refill on every CPU per VM
+> teardown; 500 VMs created, run and torn down one after the other take 32.1
+> ms each with it and 33.4 ms without, and an isolated CPU meanwhile sees no
+> change in latency (15 us against 13 us).
 
-diff --git a/drivers/firmware/ti/Makefile b/drivers/firmware/ti/Makefile
-index a3a056eedd9a5..c4233542ad57d 100644
---- a/drivers/firmware/ti/Makefile
-+++ b/drivers/firmware/ti/Makefile
-@@ -1,5 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
- ti_sci-y			:= ti_sci_core.o
-+ti_sci-y			+= ti_sci_clock.o
- ti_sci-y			+= ti_sci_device.o
- obj-$(CONFIG_TI_SCI_PROTOCOL)	+= ti_sci.o
-diff --git a/drivers/firmware/ti/ti_sci.h b/drivers/firmware/ti/ti_sci.h
-index 79f56699faf29..cce59cac35ed6 100644
---- a/drivers/firmware/ti/ti_sci.h
-+++ b/drivers/firmware/ti/ti_sci.h
-@@ -1566,5 +1566,6 @@ int ti_sci_do_xfer(const struct ti_sci_handle *handle,
- 		   void *rx_message, size_t rx_message_size);
- 
- void ti_sci_setup_device_ops(struct ti_sci_dev_ops *dops);
-+void ti_sci_setup_clock_ops(struct ti_sci_clk_ops *cops);
- 
- #endif /* __TI_SCI_H */
-diff --git a/drivers/firmware/ti/ti_sci_clock.c b/drivers/firmware/ti/ti_sci_clock.c
-new file mode 100644
-index 0000000000000..f266522fb7d08
---- /dev/null
-+++ b/drivers/firmware/ti/ti_sci_clock.c
-@@ -0,0 +1,553 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Texas Instruments System Control Interface Protocol Driver
-+ *
-+ * Copyright (C) 2015-2026 Texas Instruments Incorporated - https://www.ti.com/
-+ *	Nishanth Menon
-+ */
-+
-+#include <linux/errno.h>
-+#include <linux/soc/ti/ti_sci_protocol.h>
-+
-+#include "ti_sci.h"
-+
-+/**
-+ * ti_sci_set_clock_state() - Set clock state helper
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ * @flags:	Header flags as needed
-+ * @state:	State to request for the clock.
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_set_clock_state(const struct ti_sci_handle *handle,
-+				  u32 dev_id, u32 clk_id,
-+				  u32 flags, u8 state)
-+{
-+	struct ti_sci_msg_req_set_clock_state req;
-+	struct ti_sci_msg_hdr resp;
-+	int ret = 0;
-+
-+	req.dev_id = dev_id;
-+	if (clk_id < 255) {
-+		req.clk_id = clk_id;
-+	} else {
-+		req.clk_id = 255;
-+		req.clk_id_32 = clk_id;
-+	}
-+	req.request_state = state;
-+
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CLOCK_STATE,
-+			     flags | TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_get_clock_state() - Get clock state helper
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ * @programmed_state:	State requested for clock to move to
-+ * @current_state:	State that the clock is currently in
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_get_clock_state(const struct ti_sci_handle *handle,
-+				      u32 dev_id, u32 clk_id,
-+				      u8 *programmed_state, u8 *current_state)
-+{
-+	struct ti_sci_msg_req_get_clock_state req;
-+	struct ti_sci_msg_resp_get_clock_state resp;
-+	int ret = 0;
-+
-+	if (!programmed_state && !current_state)
-+		return -EINVAL;
-+
-+	req.dev_id = dev_id;
-+	if (clk_id < 255) {
-+		req.clk_id = clk_id;
-+	} else {
-+		req.clk_id = 255;
-+		req.clk_id_32 = clk_id;
-+	}
-+
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_CLOCK_STATE,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	if (programmed_state)
-+		*programmed_state = resp.programmed_state;
-+	if (current_state)
-+		*current_state = resp.current_state;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_get_clock() - Get control of a clock from TI SCI
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ * @needs_ssc: 'true' if Spread Spectrum clock is desired, else 'false'
-+ * @can_change_freq: 'true' if frequency change is desired, else 'false'
-+ * @enable_input_term: 'true' if input termination is desired, else 'false'
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_get_clock(const struct ti_sci_handle *handle, u32 dev_id,
-+				u32 clk_id, bool needs_ssc,
-+				bool can_change_freq, bool enable_input_term)
-+{
-+	u32 flags = 0;
-+
-+	flags |= needs_ssc ? MSG_FLAG_CLOCK_ALLOW_SSC : 0;
-+	flags |= can_change_freq ? MSG_FLAG_CLOCK_ALLOW_FREQ_CHANGE : 0;
-+	flags |= enable_input_term ? MSG_FLAG_CLOCK_INPUT_TERM : 0;
-+
-+	return ti_sci_set_clock_state(handle, dev_id, clk_id, flags,
-+				      MSG_CLOCK_SW_STATE_REQ);
-+}
-+
-+/**
-+ * ti_sci_cmd_idle_clock() - Idle a clock which is in our control
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ *
-+ * NOTE: This clock must have been requested by get_clock previously.
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_idle_clock(const struct ti_sci_handle *handle,
-+				 u32 dev_id, u32 clk_id)
-+{
-+	return ti_sci_set_clock_state(handle, dev_id, clk_id,
-+				      MSG_FLAG_CLOCK_ALLOW_FREQ_CHANGE,
-+				      MSG_CLOCK_SW_STATE_UNREQ);
-+}
-+
-+/**
-+ * ti_sci_cmd_put_clock() - Release a clock from our control back to TISCI
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ *
-+ * NOTE: This clock must have been requested by get_clock previously.
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_put_clock(const struct ti_sci_handle *handle,
-+				u32 dev_id, u32 clk_id)
-+{
-+	return ti_sci_set_clock_state(handle, dev_id, clk_id,
-+				      MSG_FLAG_CLOCK_ALLOW_FREQ_CHANGE,
-+				      MSG_CLOCK_SW_STATE_AUTO);
-+}
-+
-+/**
-+ * ti_sci_cmd_clk_is_auto() - Is the clock being auto managed
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ * @req_state: state indicating if the clock is auto managed
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_clk_is_auto(const struct ti_sci_handle *handle,
-+				  u32 dev_id, u32 clk_id, bool *req_state)
-+{
-+	u8 state = 0;
-+	int ret;
-+
-+	if (!req_state)
-+		return -EINVAL;
-+
-+	ret = ti_sci_cmd_get_clock_state(handle, dev_id, clk_id, &state, NULL);
-+	if (ret)
-+		return ret;
-+
-+	*req_state = (state == MSG_CLOCK_SW_STATE_AUTO);
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_clk_is_on() - Is the clock ON
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ * @req_state: state indicating if the clock is managed by us and enabled
-+ * @curr_state: state indicating if the clock is ready for operation
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_clk_is_on(const struct ti_sci_handle *handle, u32 dev_id,
-+				u32 clk_id, bool *req_state, bool *curr_state)
-+{
-+	u8 c_state = 0, r_state = 0;
-+	int ret;
-+
-+	if (!req_state && !curr_state)
-+		return -EINVAL;
-+
-+	ret = ti_sci_cmd_get_clock_state(handle, dev_id, clk_id,
-+					 &r_state, &c_state);
-+	if (ret)
-+		return ret;
-+
-+	if (req_state)
-+		*req_state = (r_state == MSG_CLOCK_SW_STATE_REQ);
-+	if (curr_state)
-+		*curr_state = (c_state == MSG_CLOCK_HW_STATE_READY);
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_clk_is_off() - Is the clock OFF
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ * @req_state: state indicating if the clock is managed by us and disabled
-+ * @curr_state: state indicating if the clock is NOT ready for operation
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_clk_is_off(const struct ti_sci_handle *handle, u32 dev_id,
-+				 u32 clk_id, bool *req_state, bool *curr_state)
-+{
-+	u8 c_state = 0, r_state = 0;
-+	int ret;
-+
-+	if (!req_state && !curr_state)
-+		return -EINVAL;
-+
-+	ret = ti_sci_cmd_get_clock_state(handle, dev_id, clk_id,
-+					 &r_state, &c_state);
-+	if (ret)
-+		return ret;
-+
-+	if (req_state)
-+		*req_state = (r_state == MSG_CLOCK_SW_STATE_UNREQ);
-+	if (curr_state)
-+		*curr_state = (c_state == MSG_CLOCK_HW_STATE_NOT_READY);
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_clk_set_parent() - Set the clock source of a specific device clock
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ * @parent_id:	Parent clock identifier to set
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_clk_set_parent(const struct ti_sci_handle *handle,
-+				     u32 dev_id, u32 clk_id, u32 parent_id)
-+{
-+	struct ti_sci_msg_req_set_clock_parent req;
-+	struct ti_sci_msg_hdr resp;
-+	int ret = 0;
-+
-+	req.dev_id = dev_id;
-+	if (clk_id < 255) {
-+		req.clk_id = clk_id;
-+	} else {
-+		req.clk_id = 255;
-+		req.clk_id_32 = clk_id;
-+	}
-+	if (parent_id < 255) {
-+		req.parent_id = parent_id;
-+	} else {
-+		req.parent_id = 255;
-+		req.parent_id_32 = parent_id;
-+	}
-+
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CLOCK_PARENT,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_clk_get_parent() - Get current parent clock source
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ * @parent_id:	Current clock parent
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_clk_get_parent(const struct ti_sci_handle *handle,
-+				     u32 dev_id, u32 clk_id, u32 *parent_id)
-+{
-+	struct ti_sci_msg_req_get_clock_parent req;
-+	struct ti_sci_msg_resp_get_clock_parent resp;
-+	int ret = 0;
-+
-+	if (!parent_id)
-+		return -EINVAL;
-+
-+	req.dev_id = dev_id;
-+	if (clk_id < 255) {
-+		req.clk_id = clk_id;
-+	} else {
-+		req.clk_id = 255;
-+		req.clk_id_32 = clk_id;
-+	}
-+
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_CLOCK_PARENT,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	if (resp.parent_id < 255)
-+		*parent_id = resp.parent_id;
-+	else
-+		*parent_id = resp.parent_id_32;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_clk_get_num_parents() - Get num parents of the current clk source
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ * @num_parents: Returns he number of parents to the current clock.
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_clk_get_num_parents(const struct ti_sci_handle *handle,
-+					  u32 dev_id, u32 clk_id,
-+					  u32 *num_parents)
-+{
-+	struct ti_sci_msg_req_get_clock_num_parents req;
-+	struct ti_sci_msg_resp_get_clock_num_parents resp;
-+	int ret = 0;
-+
-+	if (!num_parents)
-+		return -EINVAL;
-+
-+	req.dev_id = dev_id;
-+	if (clk_id < 255) {
-+		req.clk_id = clk_id;
-+	} else {
-+		req.clk_id = 255;
-+		req.clk_id_32 = clk_id;
-+	}
-+
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_NUM_CLOCK_PARENTS,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	if (resp.num_parents < 255)
-+		*num_parents = resp.num_parents;
-+	else
-+		*num_parents = resp.num_parents_32;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_clk_get_match_freq() - Find a good match for frequency
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ * @min_freq:	The minimum allowable frequency in Hz. This is the minimum
-+ *		allowable programmed frequency and does not account for clock
-+ *		tolerances and jitter.
-+ * @target_freq: The target clock frequency in Hz. A frequency will be
-+ *		processed as close to this target frequency as possible.
-+ * @max_freq:	The maximum allowable frequency in Hz. This is the maximum
-+ *		allowable programmed frequency and does not account for clock
-+ *		tolerances and jitter.
-+ * @match_freq:	Frequency match in Hz response.
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_clk_get_match_freq(const struct ti_sci_handle *handle,
-+					 u32 dev_id, u32 clk_id, u64 min_freq,
-+					 u64 target_freq, u64 max_freq,
-+					 u64 *match_freq)
-+{
-+	struct ti_sci_msg_req_query_clock_freq req;
-+	struct ti_sci_msg_resp_query_clock_freq resp;
-+	int ret = 0;
-+
-+	if (!match_freq)
-+		return -EINVAL;
-+
-+	req.dev_id = dev_id;
-+	if (clk_id < 255) {
-+		req.clk_id = clk_id;
-+	} else {
-+		req.clk_id = 255;
-+		req.clk_id_32 = clk_id;
-+	}
-+	req.min_freq_hz = min_freq;
-+	req.target_freq_hz = target_freq;
-+	req.max_freq_hz = max_freq;
-+
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_QUERY_CLOCK_FREQ,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	*match_freq = resp.freq_hz;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_clk_set_freq() - Set a frequency for clock
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ * @min_freq:	The minimum allowable frequency in Hz. This is the minimum
-+ *		allowable programmed frequency and does not account for clock
-+ *		tolerances and jitter.
-+ * @target_freq: The target clock frequency in Hz. A frequency will be
-+ *		processed as close to this target frequency as possible.
-+ * @max_freq:	The maximum allowable frequency in Hz. This is the maximum
-+ *		allowable programmed frequency and does not account for clock
-+ *		tolerances and jitter.
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_clk_set_freq(const struct ti_sci_handle *handle,
-+				   u32 dev_id, u32 clk_id, u64 min_freq,
-+				   u64 target_freq, u64 max_freq)
-+{
-+	struct ti_sci_msg_req_set_clock_freq req;
-+	struct ti_sci_msg_hdr resp;
-+	int ret = 0;
-+
-+	req.dev_id = dev_id;
-+	if (clk_id < 255) {
-+		req.clk_id = clk_id;
-+	} else {
-+		req.clk_id = 255;
-+		req.clk_id_32 = clk_id;
-+	}
-+	req.min_freq_hz = min_freq;
-+	req.target_freq_hz = target_freq;
-+	req.max_freq_hz = max_freq;
-+
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CLOCK_FREQ,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_clk_get_freq() - Get current frequency
-+ * @handle:	pointer to TI SCI handle
-+ * @dev_id:	Device identifier this request is for
-+ * @clk_id:	Clock identifier for the device for this request.
-+ *		Each device has it's own set of clock inputs. This indexes
-+ *		which clock input to modify.
-+ * @freq:	Currently frequency in Hz
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
-+				   u32 dev_id, u32 clk_id, u64 *freq)
-+{
-+	struct ti_sci_msg_req_get_clock_freq req;
-+	struct ti_sci_msg_resp_get_clock_freq resp;
-+	int ret = 0;
-+
-+	if (!freq)
-+		return -EINVAL;
-+
-+	req.dev_id = dev_id;
-+	if (clk_id < 255) {
-+		req.clk_id = clk_id;
-+	} else {
-+		req.clk_id = 255;
-+		req.clk_id_32 = clk_id;
-+	}
-+
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_CLOCK_FREQ,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	*freq = resp.freq_hz;
-+
-+	return 0;
-+}
-+
-+/*
-+ * ti_sci_setup_clock_ops() - Setup the clock operations structures
-+ * @cops:	pointer to TISCI clock operations structure
-+ */
-+void ti_sci_setup_clock_ops(struct ti_sci_clk_ops *cops)
-+{
-+	cops->get_clock = ti_sci_cmd_get_clock;
-+	cops->idle_clock = ti_sci_cmd_idle_clock;
-+	cops->put_clock = ti_sci_cmd_put_clock;
-+	cops->is_auto = ti_sci_cmd_clk_is_auto;
-+	cops->is_on = ti_sci_cmd_clk_is_on;
-+	cops->is_off = ti_sci_cmd_clk_is_off;
-+
-+	cops->set_parent = ti_sci_cmd_clk_set_parent;
-+	cops->get_parent = ti_sci_cmd_clk_get_parent;
-+	cops->get_num_parents = ti_sci_cmd_clk_get_num_parents;
-+
-+	cops->get_best_match_freq = ti_sci_cmd_clk_get_match_freq;
-+	cops->set_freq = ti_sci_cmd_clk_set_freq;
-+	cops->get_freq = ti_sci_cmd_clk_get_freq;
-+}
-diff --git a/drivers/firmware/ti/ti_sci_core.c b/drivers/firmware/ti/ti_sci_core.c
-index e98bf3c5f9dc1..848c040f598e0 100644
---- a/drivers/firmware/ti/ti_sci_core.c
-+++ b/drivers/firmware/ti/ti_sci_core.c
-@@ -565,525 +565,6 @@ static int ti_sci_cmd_get_revision(struct ti_sci_info *info)
- 	return 0;
- }
- 
--/**
-- * ti_sci_set_clock_state() - Set clock state helper
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- * @flags:	Header flags as needed
-- * @state:	State to request for the clock.
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_set_clock_state(const struct ti_sci_handle *handle,
--				  u32 dev_id, u32 clk_id,
--				  u32 flags, u8 state)
--{
--	struct ti_sci_msg_req_set_clock_state req;
--	struct ti_sci_msg_hdr resp;
--	int ret = 0;
--
--	req.dev_id = dev_id;
--	if (clk_id < 255) {
--		req.clk_id = clk_id;
--	} else {
--		req.clk_id = 255;
--		req.clk_id_32 = clk_id;
--	}
--	req.request_state = state;
--
--	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CLOCK_STATE,
--			     flags | TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_get_clock_state() - Get clock state helper
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- * @programmed_state:	State requested for clock to move to
-- * @current_state:	State that the clock is currently in
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_get_clock_state(const struct ti_sci_handle *handle,
--				      u32 dev_id, u32 clk_id,
--				      u8 *programmed_state, u8 *current_state)
--{
--	struct ti_sci_msg_req_get_clock_state req;
--	struct ti_sci_msg_resp_get_clock_state resp;
--	int ret = 0;
--
--	if (!programmed_state && !current_state)
--		return -EINVAL;
--
--	req.dev_id = dev_id;
--	if (clk_id < 255) {
--		req.clk_id = clk_id;
--	} else {
--		req.clk_id = 255;
--		req.clk_id_32 = clk_id;
--	}
--
--	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_CLOCK_STATE,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	if (programmed_state)
--		*programmed_state = resp.programmed_state;
--	if (current_state)
--		*current_state = resp.current_state;
--
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_get_clock() - Get control of a clock from TI SCI
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- * @needs_ssc: 'true' if Spread Spectrum clock is desired, else 'false'
-- * @can_change_freq: 'true' if frequency change is desired, else 'false'
-- * @enable_input_term: 'true' if input termination is desired, else 'false'
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_get_clock(const struct ti_sci_handle *handle, u32 dev_id,
--				u32 clk_id, bool needs_ssc,
--				bool can_change_freq, bool enable_input_term)
--{
--	u32 flags = 0;
--
--	flags |= needs_ssc ? MSG_FLAG_CLOCK_ALLOW_SSC : 0;
--	flags |= can_change_freq ? MSG_FLAG_CLOCK_ALLOW_FREQ_CHANGE : 0;
--	flags |= enable_input_term ? MSG_FLAG_CLOCK_INPUT_TERM : 0;
--
--	return ti_sci_set_clock_state(handle, dev_id, clk_id, flags,
--				      MSG_CLOCK_SW_STATE_REQ);
--}
--
--/**
-- * ti_sci_cmd_idle_clock() - Idle a clock which is in our control
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- *
-- * NOTE: This clock must have been requested by get_clock previously.
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_idle_clock(const struct ti_sci_handle *handle,
--				 u32 dev_id, u32 clk_id)
--{
--	return ti_sci_set_clock_state(handle, dev_id, clk_id,
--				      MSG_FLAG_CLOCK_ALLOW_FREQ_CHANGE,
--				      MSG_CLOCK_SW_STATE_UNREQ);
--}
--
--/**
-- * ti_sci_cmd_put_clock() - Release a clock from our control back to TISCI
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- *
-- * NOTE: This clock must have been requested by get_clock previously.
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_put_clock(const struct ti_sci_handle *handle,
--				u32 dev_id, u32 clk_id)
--{
--	return ti_sci_set_clock_state(handle, dev_id, clk_id,
--				      MSG_FLAG_CLOCK_ALLOW_FREQ_CHANGE,
--				      MSG_CLOCK_SW_STATE_AUTO);
--}
--
--/**
-- * ti_sci_cmd_clk_is_auto() - Is the clock being auto managed
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- * @req_state: state indicating if the clock is auto managed
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_clk_is_auto(const struct ti_sci_handle *handle,
--				  u32 dev_id, u32 clk_id, bool *req_state)
--{
--	u8 state = 0;
--	int ret;
--
--	if (!req_state)
--		return -EINVAL;
--
--	ret = ti_sci_cmd_get_clock_state(handle, dev_id, clk_id, &state, NULL);
--	if (ret)
--		return ret;
--
--	*req_state = (state == MSG_CLOCK_SW_STATE_AUTO);
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_clk_is_on() - Is the clock ON
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- * @req_state: state indicating if the clock is managed by us and enabled
-- * @curr_state: state indicating if the clock is ready for operation
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_clk_is_on(const struct ti_sci_handle *handle, u32 dev_id,
--				u32 clk_id, bool *req_state, bool *curr_state)
--{
--	u8 c_state = 0, r_state = 0;
--	int ret;
--
--	if (!req_state && !curr_state)
--		return -EINVAL;
--
--	ret = ti_sci_cmd_get_clock_state(handle, dev_id, clk_id,
--					 &r_state, &c_state);
--	if (ret)
--		return ret;
--
--	if (req_state)
--		*req_state = (r_state == MSG_CLOCK_SW_STATE_REQ);
--	if (curr_state)
--		*curr_state = (c_state == MSG_CLOCK_HW_STATE_READY);
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_clk_is_off() - Is the clock OFF
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- * @req_state: state indicating if the clock is managed by us and disabled
-- * @curr_state: state indicating if the clock is NOT ready for operation
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_clk_is_off(const struct ti_sci_handle *handle, u32 dev_id,
--				 u32 clk_id, bool *req_state, bool *curr_state)
--{
--	u8 c_state = 0, r_state = 0;
--	int ret;
--
--	if (!req_state && !curr_state)
--		return -EINVAL;
--
--	ret = ti_sci_cmd_get_clock_state(handle, dev_id, clk_id,
--					 &r_state, &c_state);
--	if (ret)
--		return ret;
--
--	if (req_state)
--		*req_state = (r_state == MSG_CLOCK_SW_STATE_UNREQ);
--	if (curr_state)
--		*curr_state = (c_state == MSG_CLOCK_HW_STATE_NOT_READY);
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_clk_set_parent() - Set the clock source of a specific device clock
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- * @parent_id:	Parent clock identifier to set
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_clk_set_parent(const struct ti_sci_handle *handle,
--				     u32 dev_id, u32 clk_id, u32 parent_id)
--{
--	struct ti_sci_msg_req_set_clock_parent req;
--	struct ti_sci_msg_hdr resp;
--	int ret = 0;
--
--	req.dev_id = dev_id;
--	if (clk_id < 255) {
--		req.clk_id = clk_id;
--	} else {
--		req.clk_id = 255;
--		req.clk_id_32 = clk_id;
--	}
--	if (parent_id < 255) {
--		req.parent_id = parent_id;
--	} else {
--		req.parent_id = 255;
--		req.parent_id_32 = parent_id;
--	}
--
--	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CLOCK_PARENT,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_clk_get_parent() - Get current parent clock source
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- * @parent_id:	Current clock parent
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_clk_get_parent(const struct ti_sci_handle *handle,
--				     u32 dev_id, u32 clk_id, u32 *parent_id)
--{
--	struct ti_sci_msg_req_get_clock_parent req;
--	struct ti_sci_msg_resp_get_clock_parent resp;
--	int ret = 0;
--
--	if (!parent_id)
--		return -EINVAL;
--
--	req.dev_id = dev_id;
--	if (clk_id < 255) {
--		req.clk_id = clk_id;
--	} else {
--		req.clk_id = 255;
--		req.clk_id_32 = clk_id;
--	}
--
--	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_CLOCK_PARENT,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	if (resp.parent_id < 255)
--		*parent_id = resp.parent_id;
--	else
--		*parent_id = resp.parent_id_32;
--
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_clk_get_num_parents() - Get num parents of the current clk source
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- * @num_parents: Returns he number of parents to the current clock.
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_clk_get_num_parents(const struct ti_sci_handle *handle,
--					  u32 dev_id, u32 clk_id,
--					  u32 *num_parents)
--{
--	struct ti_sci_msg_req_get_clock_num_parents req;
--	struct ti_sci_msg_resp_get_clock_num_parents resp;
--	int ret = 0;
--
--	if (!num_parents)
--		return -EINVAL;
--
--	req.dev_id = dev_id;
--	if (clk_id < 255) {
--		req.clk_id = clk_id;
--	} else {
--		req.clk_id = 255;
--		req.clk_id_32 = clk_id;
--	}
--
--	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_NUM_CLOCK_PARENTS,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	if (resp.num_parents < 255)
--		*num_parents = resp.num_parents;
--	else
--		*num_parents = resp.num_parents_32;
--
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_clk_get_match_freq() - Find a good match for frequency
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- * @min_freq:	The minimum allowable frequency in Hz. This is the minimum
-- *		allowable programmed frequency and does not account for clock
-- *		tolerances and jitter.
-- * @target_freq: The target clock frequency in Hz. A frequency will be
-- *		processed as close to this target frequency as possible.
-- * @max_freq:	The maximum allowable frequency in Hz. This is the maximum
-- *		allowable programmed frequency and does not account for clock
-- *		tolerances and jitter.
-- * @match_freq:	Frequency match in Hz response.
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_clk_get_match_freq(const struct ti_sci_handle *handle,
--					 u32 dev_id, u32 clk_id, u64 min_freq,
--					 u64 target_freq, u64 max_freq,
--					 u64 *match_freq)
--{
--	struct ti_sci_msg_req_query_clock_freq req;
--	struct ti_sci_msg_resp_query_clock_freq resp;
--	int ret = 0;
--
--	if (!match_freq)
--		return -EINVAL;
--
--	req.dev_id = dev_id;
--	if (clk_id < 255) {
--		req.clk_id = clk_id;
--	} else {
--		req.clk_id = 255;
--		req.clk_id_32 = clk_id;
--	}
--	req.min_freq_hz = min_freq;
--	req.target_freq_hz = target_freq;
--	req.max_freq_hz = max_freq;
--
--	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_QUERY_CLOCK_FREQ,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	*match_freq = resp.freq_hz;
--
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_clk_set_freq() - Set a frequency for clock
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- * @min_freq:	The minimum allowable frequency in Hz. This is the minimum
-- *		allowable programmed frequency and does not account for clock
-- *		tolerances and jitter.
-- * @target_freq: The target clock frequency in Hz. A frequency will be
-- *		processed as close to this target frequency as possible.
-- * @max_freq:	The maximum allowable frequency in Hz. This is the maximum
-- *		allowable programmed frequency and does not account for clock
-- *		tolerances and jitter.
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_clk_set_freq(const struct ti_sci_handle *handle,
--				   u32 dev_id, u32 clk_id, u64 min_freq,
--				   u64 target_freq, u64 max_freq)
--{
--	struct ti_sci_msg_req_set_clock_freq req;
--	struct ti_sci_msg_hdr resp;
--	int ret = 0;
--
--	req.dev_id = dev_id;
--	if (clk_id < 255) {
--		req.clk_id = clk_id;
--	} else {
--		req.clk_id = 255;
--		req.clk_id_32 = clk_id;
--	}
--	req.min_freq_hz = min_freq;
--	req.target_freq_hz = target_freq;
--	req.max_freq_hz = max_freq;
--
--	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CLOCK_FREQ,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_clk_get_freq() - Get current frequency
-- * @handle:	pointer to TI SCI handle
-- * @dev_id:	Device identifier this request is for
-- * @clk_id:	Clock identifier for the device for this request.
-- *		Each device has it's own set of clock inputs. This indexes
-- *		which clock input to modify.
-- * @freq:	Currently frequency in Hz
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
--				   u32 dev_id, u32 clk_id, u64 *freq)
--{
--	struct ti_sci_msg_req_get_clock_freq req;
--	struct ti_sci_msg_resp_get_clock_freq resp;
--	int ret = 0;
--
--	if (!freq)
--		return -EINVAL;
--
--	req.dev_id = dev_id;
--	if (clk_id < 255) {
--		req.clk_id = clk_id;
--	} else {
--		req.clk_id = 255;
--		req.clk_id_32 = clk_id;
--	}
--
--	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_CLOCK_FREQ,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	*freq = resp.freq_hz;
--
--	return 0;
--}
--
- /**
-  * ti_sci_cmd_prepare_sleep() - Prepare system for system suspend
-  * @handle:		pointer to TI SCI handle
-@@ -2223,21 +1704,7 @@ static void ti_sci_setup_ops(struct ti_sci_info *info)
- 	struct ti_sci_proc_ops *pops = &ops->proc_ops;
- 
- 	ti_sci_setup_device_ops(dops);
--
--	cops->get_clock = ti_sci_cmd_get_clock;
--	cops->idle_clock = ti_sci_cmd_idle_clock;
--	cops->put_clock = ti_sci_cmd_put_clock;
--	cops->is_auto = ti_sci_cmd_clk_is_auto;
--	cops->is_on = ti_sci_cmd_clk_is_on;
--	cops->is_off = ti_sci_cmd_clk_is_off;
--
--	cops->set_parent = ti_sci_cmd_clk_set_parent;
--	cops->get_parent = ti_sci_cmd_clk_get_parent;
--	cops->get_num_parents = ti_sci_cmd_clk_get_num_parents;
--
--	cops->get_best_match_freq = ti_sci_cmd_clk_get_match_freq;
--	cops->set_freq = ti_sci_cmd_clk_set_freq;
--	cops->get_freq = ti_sci_cmd_clk_get_freq;
-+	ti_sci_setup_clock_ops(cops);
- 
- 	if (info->fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED) {
- 		pr_debug("detected DM managed LPM in fw_caps\n");
+Not a lot in this report makes sense, I'm afraid. I'm not pretending
+that what you are seeing isn't real (I haven't tried it), but without
+a actual description of what the root cause of the problem is, we're
+not going to randomly sprinkle TLB invalidations that are not
+architecturally required.
+
+	M.
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
