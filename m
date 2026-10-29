@@ -2,99 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7CCF606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 08:44:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BEFD606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 08:54:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cjGkATcK;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CeoMdVtq
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DPUCDeBE;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eff/UEkS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=YDl9p7g5quENVJzD97vvD5OqlYe1ysXU7bQyzl1X/uw=; b=cjGkATcKt8687QgdQCloI03W22
-	8SadfhjV3yQGAgQQ9yDhjwgDyzzSNXwDc4UORF1Ez5Rp0cGZiN7GWrksTH/Vx0HwwYCYl9NfvnJ+N
-	jd29WL1fYk+7xhJraXxweyLii47ScWuXJM6nHPJOhqLVxPjlNNi/g5cTmKsXeVVR14zLuclUPDyYe
-	edYrs/ND/w47VKvppXeQ9/aPgY+LXx9b8BAFphXZV8NX/DvgcuCkK/lddwt2yz1bQbmnibBc5kQyN
-	N6Sku4rsCrAy6VskOirEZV5G4udSOhEuhd3987/IWYJUxZ0Hn3eXkQQPCHspMhh/lBZ+yu12orHRh
-	4GlcOOWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=kpm89XioXXnsTWzJsIlmeTzj5KiGn1VrgU9z1qz9vOk=; b=DPUCDeBEbDQvqo
+	7THdMiS0p82/tklap64tbnXRD5LkCPtgqWbfYtAXRrWAw+G/kOiAAJv6NFsF7IzlyErlF/AXZvAjc
+	MErhDCm001/3cXjG9NVRsDydeIENzJiU0fGRErNXzQ5yW89x7BSnqOrYfzkXj/HAhLJhAZcsBdkee
+	PXOczte2v9YzNMcCybnKncRjrrNNv6TC/VGB59CBeSwVV5CCnhVVwaaTaH6pebG6OP32mvldKdX5v
+	Be4gJWNaTFb1j9kJEoh+tqWlgGxr5hLZQLws/hM07ThPiRG6l3UYfgyBZucjBphR6dbfxP1IMJ9iZ
+	bO5xS9sjOMVvtbqg66ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMLk2-00000008ku5-0uBp;
-	Thu, 29 Oct 2026 08:44:10 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1xMLtz-00000008ltO-0V6e;
+	Thu, 29 Oct 2026 08:54:27 +0000
+Received: from out-143.mta1.migadu.com ([95.215.58.143] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMLjz-00000008ktD-1tbk
+	id 1xMLtv-00000008lso-0CRg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 08:44:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793263447; x=1824799447;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=WP/QAZ7Uc8hCjUk9W10FsuMb7rLn58PCckd869LjBFA=;
-  b=CeoMdVtqvfGLCEmCLLUrcv7IL0jmaaTBN/6LyqkbQei7u2/Q8HKmMWSY
-   Fxi2WrPo/2pO0dTiN84kuXqEOuo46kNgBbJrjReVn4dMrh+CEwClfoFF6
-   /edOEUVZY06Uve9TdCv6IqLWy2UhRC1Ho5mw12byVeaZoPZTSYUPs00M7
-   /Rn2/zeaoC+H8nO9+pyBXPTA9U3INi84IeLntgSgqdywBcPhKP6HrGZOB
-   YBnkiIJMSMe4C84/tz22R4NRhW28Qtzf3HRFU8e3e3He1x9o5El2fAejZ
-   Y6dJIdfTMOd442G6LMLf5hyYjr8J3xY42rZMtHAdxAqzmuuXtezQaEUYy
-   w==;
-X-CSE-ConnectionGUID: Ezcedop9T5a9GsCFLbeCzw==
-X-CSE-MsgGUID: HiRn/6B4TCq58HkKYbkcVA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11949"; a="2011315"
-X-IronPort-AV: E=Sophos;i="6.27,184,1787036400"; 
-   d="scan'208";a="2011315"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2026 01:44:06 -0700
-X-CSE-ConnectionGUID: oDqzyd5cQ0OZV3ZmvaMS7A==
-X-CSE-MsgGUID: gVbT5JW4Somf8pxelwKQ+w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,184,1787036400"; 
-   d="scan'208";a="5411378"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.74])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2026 01:43:59 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Andi Shyti <andi.shyti@kernel.org>, Dmitry Ilvokhin <d@ilvokhin.com>
-Cc: Alex Deucher <alexander.deucher@amd.com>, Christian =?utf-8?Q?K=C3=B6n?=
- =?utf-8?Q?ig?=
- <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, Simona
- Vetter <simona@ffwll.ch>, Joonas Lahtinen
- <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Lee Jones <lee@kernel.org>, Pavel
- Machek <pavel@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
- <andrew@codeconstruct.com.au>, Ryan Chen <ryan_chen@aspeedtech.com>, Billy
- Tsai <billy_tsai@aspeedtech.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, Kees Cook <kees@kernel.org>, Andy
- Shevchenko <andy@kernel.org>, Matthew Wilcox <willy@infradead.org>, Andrew
- Morton <akpm@linux-foundation.org>, Andy Whitcroft <apw@canonical.com>,
- Joe Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>, Shuah
- Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
- amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-hardening@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-doc@vger.kernel.org, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Subject: Re: [PATCH 05/10] drm/i915: switch to __nonnull_args() macro
-In-Reply-To: <auHf-pdvGkPibgTp@zenone.zhora.eu>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <cover.1793027261.git.d@ilvokhin.com>
- <33ec8080594f9f4ef1d50e36497339c9a6897393.1793027261.git.d@ilvokhin.com>
- <auHf-pdvGkPibgTp@zenone.zhora.eu>
-Date: Thu, 29 Oct 2026 10:43:56 +0200
-Message-ID: <b3045bc3ae77ef78a1f479448a5dc780d89bf38d@intel.com>
+	Thu, 29 Oct 2026 08:54:26 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=ctrBwXQvS1M9yecPf1fWtqcUruy7KRm5Qjr3D6oimXs=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1793264060; v=1; x=1793868860;
+ b=eff/UEkSgCt3RsVBav8UPUofePVEzgdIjPSZ3BT9y+e48I6KvqNEyKUd1hiRAJT9mpQenVeU
+ PPzbLB0BBip6x06BBdkis5xmRzqwIEjQ2w3jX3wMHvYwyDsFC075ceyRjTcehEO0KI9Mayd74e5
+ CclxNeni8WI0VW9Kh3vjYKEk=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 615dd020fd29c127;
+	Thu, 29 Oct 2026 08:54:20 +0000
+X-Mizu-Trace-ID: 615dd020fd29c127
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: xuheng@cs.columbia.edu
+Cc: maz@kernel.org,
+	oupton@kernel.org,
+	qperret@google.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	tabba@google.com
+Subject: Re: [PATCH] KVM: arm64: Add an ISB after mapping a hyp fixmap slot
+Date: Thu, 29 Oct 2026 08:54:14 +0000
+Message-ID: <20261029085414.2279900-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261028-fixmap-isb-v1-1-6c9f0f9cb810@cs.columbia.edu>
+References: <20261028-fixmap-isb-v1-1-6c9f0f9cb810@cs.columbia.edu>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_014407_556540_337A5B71 
-X-CRM114-Status: GOOD (  11.56  )
-X-Spam-Score: -4.3 (----)
+X-CRM114-CacheID: sfid-20261029_015423_545158_C8B2D01E 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,36 +81,55 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 28 Oct 2026, Andi Shyti <andi.shyti@kernel.org> wrote:
-> Hi Dmitry,
->
-> On Wed, Oct 28, 2026 at 08:19:44AM +0000, Dmitry Ilvokhin wrote:
->> Commit 22302af28d3f ("cleanup: Annotate guard constructors with
->> nonnull") added the macro __nonnull_args() to wrap raw compiler
->> attribute.
->> 
->> Replace __attribute__((nonnull)) with __nonnull_args() to standardize
->> nonnull attribute usage across the tree and keep the attribute's quirks
->> in one place rather than open-coded at every call site.
->> 
->> Suggested-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
->> Signed-off-by: Dmitry Ilvokhin <d@ilvokhin.com>
->
-> Reviewed-by: Andi Shyti <andi.shyti@linux.intel.com>
+Hi Xuheng,
 
-Pushed this patch to drm-intel-next, thanks for the patch and review.
+On Wed, 28 Oct 2026 23:02:10 +0000, Xuheng Li <xuheng@cs.columbia.edu> wrote:
+[...]
+> A litmus test of the same shape (map the slot, DSB ISHST, load through
+> it) faulted on a Cortex-A72 in 2 out of 100M runs.  Arm's herd7 model
+> with -variant vmsa also allows the fault, and forbids it once the ISB
+> is added.
 
-BR,
-Jani.
+nit: it would help to have the litmus test itself in the commit message,
+or as a commit note, so the herd7 claim can be checked. Here's the one I
+ran (herd7 7.58, -variant vmsa): "Sometimes" as below, "Never" with an
+ISB after the DSB, and "Never" without the ISB under -variant vmsa,ETS2.
 
+	AArch64 fixmap-noisb
+	{
+	 [PTE(x)]=(oa:PA(x), valid:0);
+	 0:X1=PTE(x); 0:X2=(oa:PA(x)); 0:X3=x;
+	}
+	 P0           ;
+	 STR X2,[X1]  ;
+	 DSB ISHST    ;
+	 LDR W4,[X3]  ;
+	exists (fault(P0,x))
 
--- 
-Jani Nikula, Intel
+FWIW, the result matches the ARM ARM (B2.3: without FEAT_ETS2, a DSB ST
+doesn't order an earlier store before a later translation table walk),
+and emit_pte_barriers() in arch/arm64/include/asm/pgtable.h has the same
+dsb(ishst) plus isb() after making a kernel pte valid, for the same
+reason.
+
+[...]
+
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+
+Tested in protected mode on QEMU, booting a protected and a
+non-protected guest, and on an Apple M4 (nested virtualization),
+booting a protected guest. No regressions.
+
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+
+Cheers,
+/fuad
 
