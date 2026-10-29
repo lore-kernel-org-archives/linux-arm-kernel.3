@@ -2,117 +2,133 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A867A606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 13:54:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB9CF606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 13:57:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LgiBxDc0;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vur9MX3N
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BMrQ1Ws+;
+	dkim=pass (2048-bit key, unprotected) header.d=amdcloud.onmicrosoft.com header.i=@amdcloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-amdcloud-onmicrosoft-com header.b=BxWIF24C
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=hjD6VzzjtnD3e9erzE1FqqRgAbYyuZXKrgqZLwMhAKA=; b=LgiBxDc0YjHu7s
-	mnyzhyWAX1wixMEIr3nl5r/zYJBcSydiASZK/l5ngQJt8TNrix16N1Jgeu+vrIavwK2YnkrVU/O7j
-	s/Rh0EGgY6hkU/f8YRpI7TnKjwrbpMd5emn/e3R0CnP1OU+qWyU0LtzqewbQVB9XV7EePZjZU6g+V
-	UKM7cQii9NeYxv5ji5qSEzL+jy8IhdORp5AWY0WcUFVxnJbFmgX4bT+l2cKpmHx1XSMEmILjMhlXl
-	nDP6xvKC5pVsQPzmAT6D9qdRMZOvkoMDtIiG2h7/+ft5Z5I/Ypf9zymRx6miMSI2JQSAkNL6mCEl4
-	19H7zgVyPAtIAzAhRY3w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=HkAtG0OpnxEciylAUBUN/PGpjy9nCiPea5G2Swh+DrA=; b=BMrQ1Ws+zyTPSEoQV45/Hg6iGa
+	S4uxkkQ6s7DRuMFRF7pOCDMDG40eQ+eyd6j4V+mDWXoH/+efJlVyPacaSQhkkWLb016F/l/xaXfd5
+	MGyr0msWWA3rtDqK6xOdad8R0c8XbSg+QyQ2SH7DYCIwG5TWwYSi/Hvrm+n0dxk6M4CIjlCuGGssQ
+	JtzBKKNUxQtXHQ38mqUjGzFtFjCB0BZYd8pAepIfGp3PZWKHk/x9K0PWpZT0u7ddtnjztkFXC/h3d
+	gkPUY3YgMGez9ZUnGx0l7p82sCR+74LSt9qLSjzcPDYJx9qt6rzqvhIhaCl25TDzYvJSSIu47d5sb
+	+ukxoy2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMQZh-00000009SS9-1YHb;
-	Thu, 29 Oct 2026 13:53:49 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1xMQct-00000009TY8-0cAq;
+	Thu, 29 Oct 2026 13:57:07 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMQZV-00000009SCH-3UXp
+	id 1xMQcq-00000009TXl-2cVw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 13:53:41 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-48afcd7ba9bso1626257f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 06:53:37 -0700 (PDT)
+	Thu, 29 Oct 2026 13:57:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k2htNd4Dj7MpGtzYA5iwDEPqFBu/eQ3OfylCmWYIwUJil/ikjZxOZSOxSBw1roEPQ5fFROAxrECCbg3fCF69TEr1zxwwBH6MMq0Wpsr+UYFZIFlvIIkgbaGOGJ+7SPtL8nkGQAnDxpPvZcWAenRT/bwhOU9Pe3IhdQZlDDPdy7k9NCf35wOdedaxe6ZC1VwHptGSlBANs/kGmjyQkPynZslKPONskeDr4kI7tjh65WgIHmOoNuApiljn+jXz/lR8SMycd1PYtfLiAEEK0anlwECwzIUW1FQQVFDo5yjFyf4up4nPPT8LhcfJ94336kNx0Xu4VzHzGoaxbeAzE0vIOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HkAtG0OpnxEciylAUBUN/PGpjy9nCiPea5G2Swh+DrA=;
+ b=eBAyWbGnx1hbSExH80HytGFH+RoWGFKX8PTQz8HemwNqBkWCuBZgBTehlT1wibniylVMC10g3s4y8bWzSD/eDEuwKW5t9kFlIIk1yMpidt5Bc1Hut7buKslkHUtZ53DR0l5vsKaYRHddPsyVYh25WnlQXjAaMu2ydO1Z/pBxARVyArCmqXyhCrkJfEWxLVkdlUAazvZwY62w3BhW+j4B51m97UPF1kf+mKbvMFmXW8jSH2d41oicw7NDr99mProOqf+QoI4aWMboGbva0w7H4ux2O9MHWY63f5rFNJTOG2rBqVj7Oz3SbCQVRf6jZsEqWz8SXUsHOBR1QHZOUbwzZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 165.204.84.17) smtp.rcpttodomain=aspeedtech.com smtp.mailfrom=gmail.com;
+ dmarc=fail (p=none sp=quarantine pct=100) action=none header.from=gmail.com;
+ dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793282016; x=1793886816; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hjD6VzzjtnD3e9erzE1FqqRgAbYyuZXKrgqZLwMhAKA=;
-        b=Vur9MX3NuhCm43KKTu1/BzDwTyZjtwdex6DdzQVCjK/ELrCDkpRmdgNa5rwQdDTBzW
-         gGeFB4c1kNdVR2ICIOqwxbVkz2Fj9SKVtk3clCWBmoz8beLa2JDHR6IoN5fGTdcXMV8N
-         M5H64QqoAC255vQM/moRUuKm0SchjukHRPFs6kSGwAobeRBo+kJY8HEsEIBJuVn7chW+
-         4rRAjoNszCAQsksuswrJ3Y7NYZOZeq2iwck5FbiE5z2EDQIzcQBrfGN+tHBUwN/vcoDQ
-         xQdSm0KfhQVLwNRsMX/5EchZVQACmL78v9oj5QwZPgNI0yXPTRbKYslG8Av7B/jslyau
-         zRDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793282016; x=1793886816;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hjD6VzzjtnD3e9erzE1FqqRgAbYyuZXKrgqZLwMhAKA=;
-        b=QW//fiZGZ+q7XxOYXXQMNnj6+f1sNLWwRxsbDSky6DzxxFF4533bu1cwzdZSigyU2E
-         hvQIcnxpSHzEXQeXMBWxHSaUDitsDlN9gwdaqNIpk3XEYvqripN9S88ov4m0zbJosgyt
-         Rz/ANQQwBBisiUKGVSVS77jvGb2zqMXXYFEdHBxyYm8m46sMKxkhXsXWOewpHaCqgs7X
-         1fB9lbNgmCypxsCdGlyx8lMmJEg0cEhcvMbqWJOAoAla238SCLLp6i3KIzR85djBGggH
-         3IK5O0hyJp3xOYBd4TEwtG3En32Wd1eB8nExelKiSuQyDjemsuSe7ei8j1OuOcG/3Cmb
-         N54A==
-X-Forwarded-Encrypted: i=1; AKwUvBxnZie0gPnblViSUyYle9Zzt49OoPFptC6eEqEW0B5IckdcyErH3TM8Fzxc0iQc5H/6L8mUt2bWQNfXt9Fu/oJv@lists.infradead.org
-X-Gm-Message-State: AFq9FYIvsTq7guQSuUIJSjuOCmCjxmumtWoREQuo/CWEB2t18XY3Isex
-	RCajV/XOhAQD1ILG8T3hglFDkiJMQwbyQN6oCnEKH2/TG1yad3/itEE=
-X-Gm-Gg: AYBFou0OQ7vib+LGI43uO92GIKDh3Em97nDfye+BuSObsSUWm4D35fE5wJPWHqn+6Xk
-	Y7xPtSoMdZWqVTzz9vWTlaNTjsT0SJlKMTxd6hr2ZywPsRcZzDCD7DY5qXpVIvvBcMXoJwWgM42
-	g20HzQ1nuBkXTGIDenvmoWWVMMuOEuuSdvhPs9esMKgY998XKWvj0EGHZzWVxIPE6NmXxPFq5hW
-	e6SG+q8kFYZIJ8e5Y+ctvXxNESHi2nAsc+GTMW68oityJI3jckQxxZBJEMvf8X+LDXpglzd4PHk
-	u9NAVqA06mTfJZj4m/X5I5ljjC11QT+l5fZjXfwTeuk4UPZMxFZPr1zcJcwGOeZZ5PfRArUU9cH
-	NSvSh0SpJNbYzP4FkwimeSXUW8aZCcMCnqzDAqQQ57Q6RrbaGKCW5i2XpWRk11u095zMsoJBlvQ
-	fMBykBp8l7n779SOCjqck5TngIJ3ZDjb1AJNWWFIc7NmQ5gDPmv6mmEugSZj1a9qvvS0NuWsyt0
-	eCPuhw6bfO8Yjce76vZURNzdibxxtSvxN9SC9j+ZhbmAtRrEJZCjdl3k6HF5Zn9XRa8S7aQb8Em
-	wtUADAOvbP6GZhOXA4tgagQuLLm931Owylg3ITx9GH7LP7d1GTZnBrCGcrtWCC0LtFM=
-X-Received: by 2002:a05:6000:178a:b0:48e:56fa:9645 with SMTP id ffacd0b85a97d-48e5d5cf38fmr12439039f8f.29.1793282015845;
-        Thu, 29 Oct 2026 06:53:35 -0700 (PDT)
-Received: from [192.168.1.67] ([2001:b07:2ec:601d:4b26:1672:75c7:805a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebc3dcbsm33456468f8f.14.2026.10.29.06.53.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 06:53:35 -0700 (PDT)
-From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
-Date: Thu, 29 Oct 2026 14:52:51 +0100
-Subject: [PATCH RFC v2 14/14] drm/msm: enable LPAC on gen70900
+ d=amdcloud.onmicrosoft.com; s=selector1-amdcloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HkAtG0OpnxEciylAUBUN/PGpjy9nCiPea5G2Swh+DrA=;
+ b=BxWIF24Ci02ae4nNmaQP+Bt9MUZF1m39F7pPGFBhjnwxPNZufPYiuEypYMsx4H0RK7gXV30tbCw3wFdqbZpqMaqNUWQkLHCjUIWTHyMFi0bO+RzTkYyme4aHGIFP8nxPf2YUvu/ErZsuVDhIiRkk0gMrxM3Z4460TCRyJDD/G1atv4Z8BYhNe8G+EQFez5pQBMWoR9FvWStWPqOgdc7unv4JXJv/+Ybz2ZjbX4+RC3jk9D/r08/oGNZd5inOUu0vJL/FT9pbNgJmFwlM/6NLSSJBhuRH8mTyocoFXpO/bjnGg0QcudnPdOLFlEsvmW3U09EstF8EZIHNVeX+UycH8Q==
+Received: from DS1PR05CA0008.namprd05.prod.outlook.com (2603:10b6:8:457::19)
+ by DM4PR12MB8569.namprd12.prod.outlook.com (2603:10b6:8:18a::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.8; Thu, 29 Oct
+ 2026 13:41:19 +0000
+Received: from DS2PEPF00006E20.namprd05.prod.outlook.com
+ (2603:10b6:8:457:cafe::77) by DS1PR05CA0008.outlook.office365.com
+ (2603:10b6:8:457::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.4 via Frontend Transport; Thu, 29
+ Oct 2026 13:41:19 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
+ IP is 165.204.84.17) smtp.mailfrom=gmail.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=gmail.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 165.204.84.17 as permitted sender)
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ DS2PEPF00006E20.mail.protection.outlook.com (10.167.23.213) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.569.4 via Frontend Transport; Thu, 29 Oct 2026 13:41:19 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Thu, 29 Oct
+ 2026 08:41:18 -0500
+Received: from [127.0.1.1] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
+ Transport; Thu, 29 Oct 2026 08:41:15 -0500
+From: Colin Huang <u8813345@gmail.com>
+Subject: [PATCH v10 00/16] ARM: dts: aspeed: anacapa: restructure
+ devicetree for development-phase
+Date: Thu, 29 Oct 2026 21:38:29 +0800
+Message-ID: <20261029-anacapa-devlop-phase-devicetree-v10-0-26ee3cf9d9d0@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-descriptive-name-lpac-upstream-v2-14-a21a5c850961@gmail.com>
-References: <20261029-descriptive-name-lpac-upstream-v2-0-a21a5c850961@gmail.com>
-In-Reply-To: <20261029-descriptive-name-lpac-upstream-v2-0-a21a5c850961@gmail.com>
-To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
- Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>, 
- Akhil P Oommen <akhilpo@oss.qualcomm.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, 
- Abhinav Kumar <abhinav.kumar@linux.dev>, 
- Jessica Zhang <jesszhan0024@gmail.com>, 
- Marijn Suijten <marijn.suijten@somainline.org>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
- devicetree@vger.kernel.org, Anna Maniscalco <anna.maniscalco2000@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793281977; l=982;
- i=anna.maniscalco2000@gmail.com; s=20240815; h=from:subject:message-id;
- bh=zftBrxFOdArPW4SDW/zPbLM/dW8N0ZZjr0f9slsMd44=;
- b=drJK44c9MU6MO0yKK3/YNJmZlff0GX8bkfJNHj78s+gEdYZMo0J9ar0ZFCpDUnU9s9p/mTv9U
- QEVDlUzSQ7wDLCQ28Hd4GN503IJPB36U2UQmXnTQDK6NcMLz/o9Mfkc
-X-Developer-Key: i=anna.maniscalco2000@gmail.com; a=ed25519;
- pk=0zicFb38tVla+iHRo4kWpOMsmtUrpGBEa7LkFF81lyY=
+X-B4-Tracking: v=1; b=H4sIAFVM42oC/43RPW7DMAwF4KsEmquCkqy/TL1H0YGmqERAEht2Y
+ LQIcvfKWWI4gzM+Dh9JvJsYeSg8iv3uJgaeyli6Sw0KPnaCjng5sCypDoQG7aABL/GChD3KxNO
+ p62V/xJHnUIivA7NsFKhkslGaQFSlHziX38eK75+aj2W8dsPfY+Ok5un79qQkyOjb6IzzhGS+D
+ mcsp0/qzmK2J7304ranq+dCNjo4r5x98czTc6C3PVM9T9GQTTmk2K695ukFsNteUz2bnGfgjI7
+ s2rMLT5ltz1aPPNiQnUnk/NpzC0+/cZ+b+wAbUaP2kXjt+acXQW17vnrQJq+SZlDw8m9Yem/0E
+ eZ+IwVuNXpKuPbiwjOw7cXqZQiIUG8MOi29+/3+D4u86rZPAwAA
+X-Change-ID: 20260407-anacapa-devlop-phase-devicetree-4101d3f312c0
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
+ Jeffery" <andrew@codeconstruct.com.au>, Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<colin.huang2@amd.com>, Colin Huang <u8813345@gmail.com>, Carl Lee
+	<carl.lee@amd.com>, Rex Fu <rex.fu.amd@gmail.com>, Andy Chung
+	<Andy.Chung@amd.com>, Peter Shen <peter.shen@amd.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793281119; l=6167;
+ i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
+ bh=5Wq+6Opm3rEoxIul7nvEb7EvhDPHb6MzIE5Sg7vghKE=;
+ b=YgL6wUDiegK5/SDVV4U8nYZ0stjVKOLi/t8tIGFt9+8e/x1rVMBz2ZxlAaChw6D6EdtBFpB64
+ qLwKA/hakdIC8NKctit7cV1M4SeERlEscL24imnUv9Rz+US6p+wspjg
+X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
+ pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF00006E20:EE_|DM4PR12MB8569:EE_
+X-MS-Office365-Filtering-Correlation-Id: c06895a7-f833-4e14-9290-08df35c24ff0
+X-MS-Exchange-SenderADCheck: 2
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|61400799027|35950700016|7416014|376014|48200799018|7093399015|82310400026|261022113327099003|11063799006|56012099006|261009221227099003|261009223027099003|261022075727099003|261028144727099003|10067099003|261026121527099003|261021121427099003|261022105027099003|261026140227099003|261021123027099003|261021135927099003|3023799007|18002099003|16102099003|13003099007;
+X-Microsoft-Antispam-Message-Info: s2jhFMRxa/e47c5qXsMyr7TCtSpLx/MysbDyjJGDv0QzyXOiVhcY5RFRUNtNGP0gEJmxsGnmpRNcHpgpiOdIpxjFV5ScHxa28wHE20GZClDeQXCYX+ktoQRIgdi0AmzNGAxKrYKcJ9TT29oWVv+hEj82kca/DOjul49HUwIuNbLHyzekIVxMbOku933RcT9NRMOeqRl9N9EWadrKFtlFEi2Le1s2DXbtK6lLieNyN3ByyuVNxFL1mjzE0FO72QR7AIpdaedekTR0AnarpjVswKcIVHwbvc33e3B2go2ntB88zJl6j5TDJqenjOViVxz+2JLPJXVtphiB8gZlM268VOh9XjIA+E4U6URBgvkBbjIvifRZJrK44scfZxbvxUI9/Y+pURdVsdzvrZ6uXHpOdHav+z3VXG8/TKu14QwnEZMrUJ83U2aMBR3dLbs3+yGAhT7tDQAox+LnmOFvAtrdTmHIft4UfGveDKKMir3DUdZsQFkqe20IWTyFv06tyt75sFSIyU66MI8f8oa5g0q9LaN87qGCndMP9EpQ7OKx93cXHlEm03r9YEP6/QMnrQ9ugf6q/GkFesHCzCfTaEpn6iISbrbfztsH0NtS8lgcXjOyv4TG5P381d+U3SuI88XtJnxtqkRhi9EdcQpOQqjwtw==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(61400799027)(35950700016)(7416014)(376014)(48200799018)(7093399015)(82310400026)(261022113327099003)(11063799006)(56012099006)(261009221227099003)(261009223027099003)(261022075727099003)(261028144727099003)(10067099003)(261026121527099003)(261021121427099003)(261022105027099003)(261026140227099003)(261021123027099003)(261021135927099003)(3023799007)(18002099003)(16102099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Wk7MbTTK2RlnqNemoU04YD2XIB1WH7eGQpIjS/LI1QlOeWzL+nk7LBRBWzHcgA5xD3jHYxBP043TGxrfvOeHfJmjybIhf26UVNAFiy4JM4wWmcsyoTZNEjp8vhipMO9n8GTZ6MEBnhtqOfjlrFtp2yOernzAujyB6voZAIrYrF2oI7z7/t4Ei6AeK4E/ORnliaWk603lJgv+9rnCBJGDO/JpP1KbtEsVf4CdR4sev2D8aLPBNVzDrBP5ucpud01cmnTh6D/6mXC4ZFd3S9YkmCgjV/QFbqERvwkMl5pqQ+uZpMKJd5ZkiE5K4V9NA7SMqBymNPBnFJGvEAm3I11RN50t7aHNAIq6iz33XAO/E1K+Vt0/qbufmuTB8PXfzURAQsaCDHR3BEf7Uuzgu+BtuZFA2S+9SOP2yerCw5H/uXZZQ3LuTku3y6yy5YPaYurM
+X-OriginatorOrg: amdcloud.onmicrosoft.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2026 13:41:19.0131
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c06895a7-f833-4e14-9290-08df35c24ff0
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF00006E20.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB8569
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_065337_915831_AE091924 
-X-CRM114-Status: GOOD (  12.12  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261029_065704_728883_262EE18E 
+X-CRM114-Status: GOOD (  12.90  )
+X-Spam-Score: 1.0 (+)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,40 +139,136 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FORGED_GMAIL_RCVD,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When the enable_lpac mod param is left on auto (-1) LPAC will be enabled
-for targets that are known to support it and are known to work.
+This series refactors the Anacapa BMC devicetree layout to better support
+development-phase hardware revisions (EVT1/EVT2/DVT) while keeping a platform
+entrypoint.
 
-gen70900 (Adreno 750) is one such target.
-
-Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+Signed-off-by: Colin Huang <u8813345@gmail.com>
 ---
- drivers/gpu/drm/msm/adreno/a6xx_catalog.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Changes in v10:
+- Fix [Medium] dts: aspeed: anacapa: missing SGPIO line rename for EVT1
+- Rename FM_CPU0_PWRGD to host0-ready
+- Link to v9: https://lore.kernel.org/r/20260930-anacapa-devlop-phase-devicetree-v9-0-f08aa0d7182d@gmail.com
 
-diff --git a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
-index 5ee00eead14c..cd1bdb54429d 100644
---- a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
-+++ b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
-@@ -1591,7 +1591,8 @@ static const struct adreno_info a7xx_gpus[] = {
- 		.quirks = ADRENO_QUIRK_HAS_CACHED_COHERENT |
- 			  ADRENO_QUIRK_HAS_HW_APRIV |
- 			  ADRENO_QUIRK_PREEMPTION |
--			  ADRENO_QUIRK_IFPC,
-+			  ADRENO_QUIRK_IFPC |
-+			  ADRENO_QUIRK_LPAC,
- 		.funcs = &a7xx_gpu_funcs,
- 		.zapfw = "gen70900_zap.mbn",
- 		.a6xx = &(const struct a6xx_info) {
+Changes in v9:
+- Add four new DTS updates for Anacapa platform:
+  * Add E1.S FRU EEPROM definitions.
+  * Add NCT7363 fan controller nodes.
+  * Remove conflicting LTC4287 power monitor nodes.
+  * Update EDSFF power status signal names from PG to FLT.
+- Link to v8: https://lore.kernel.org/r/20260902-anacapa-devlop-phase-devicetree-v8-0-69c8eb2a7cda@gmail.com
 
+Changes in v8:
+- Fix [Critical] The board compatible string was silently changed from "facebook,anacapa-bmc" to "facebook,anacapa"
+  , breaking dt-bindings and backward compatibility.
+- Fix [Low] The /dts-v1/ directive is improperly placed inside a .dtsi include file instead of the top-level .dts file.
+  Move "/dts-v1/" into aspeed-bmc-facebook-anacapa.dts
+- Link to v7: https://lore.kernel.org/r/20260901-anacapa-devlop-phase-devicetree-v7-0-0bd71d2e0105@gmail.com
+
+Changes in v7:
+- Fix [Critical] Devicetree ABI breakage due to removal of generic compatible string
+  keep to use compatible string "facebook,anacapa-bmc".
+- Fix [Low] Redundant redefinition of inherited properties in the `evt2.dts` file.
+- Fix [Low] Included devicetrees use `.dts` extension instead of `.dtsi`
+  aspeed-bmc-facebook-anacapa-evt1.dts -> aspeed-bmc-facebook-anacapa-evt1.dtsi
+  aspeed-bmc-facebook-anacapa-evt2.dts -> aspeed-bmc-facebook-anacapa-evt2.dtsi
+  aspeed-bmc-facebook-anacapa-dvt.dts -> aspeed-bmc-facebook-anacapa-dvt.dtsi
+- Link to v6: https://lore.kernel.org/r/20260825-anacapa-devlop-phase-devicetree-v6-0-9059a2a279ce@gmail.com
+
+Changes in v6:
+- Fold the following fixes into this series: 
+   - Remove redundant vhub pinctrl-names
+   - Use default SPI2 memory mapping
+   - Fix dt-check-style strict violations
+- Move p3v3_bmc_aux node from evt1.dts to evt2.dts for dt-check-style
+- Fix the patch author information
+- Link to v5: https://lore.kernel.org/r/20260813-anacapa-devlop-phase-devicetree-v5-0-c7058f63dc67@gmail.com
+
+Changes in v5:
+- Remove redundant vhub pinctrl-names
+- Use default SPI2 memory mapping
+- Fix dt-check-style strict violations
+- Add Acked-by from Conor Dooley
+- Sort compatible strings in alphabetical order
+- More commit message for ARM: dts: aspeed: anacapa: Add EVT1 devicetree and point wrapper to it.
+- Update commit message to describe both LPDB and RPDB GPIO expanders  
+- Link to v4: https://lore.kernel.org/r/20260805-anacapa-devlop-phase-devicetree-v4-0-5d67e0efa6c5@gmail.com
+
+Changes in v4:
+- Capitalize the first word of the short description.
+- Rework the Anacapa development-phase devicetree hierarchy.
+- Ensure that anacapa-evt1 generates an identical devicetree to the existing aspeed-bmc-facebook-anacapa.dts.
+- Add SPI flash VCC supply.
+- Simplify leakage GPIO line names.
+- Add LPDB fuse monitor GPIO expander.
+- Link to v3: https://lore.kernel.org/r/20260602-anacapa-devlop-phase-devicetree-v3-0-7c93c5df8d9b@gmail.com
+
+Changes in v3:
+- Restructure the EVT2 devicetree to inherit from the EVT1 devicetree, making it incremental rather than standalone.
+- Add the DVT devicetree, inheriting from the EVT2 devicetree.
+- Enable MCTP and FRU support for the NIC.
+- Align PDB fan GPIO numbering.
+- Add an EEPROM device node for the NFC adaptor board.
+- Add an additional EEPROM device node for the SCM.
+- Add shunt resistor values for HSC monitors
+- Link to v2: https://lore.kernel.org/r/20260409-anacapa-devlop-phase-devicetree-v2-0-68f328671653@gmail.com
+
+Changes in v2:
+- Fix dtbs_check fail.
+  Validated by following command:
+    make dt_binding_check DT_SCHEMA_FILES=arm/aspeed/aspeed.yaml
+    make CHECK_DTBS=y DT_SCHEMA_FILES=arm/aspeed/aspeed.yaml aspeed/aspeed-bmc-facebook-anacapa.dtb
+    make CHECK_DTBS=y DT_SCHEMA_FILES=arm/aspeed/aspeed.yaml aspeed/aspeed-bmc-facebook-anacapa-evt1.dtb
+    make CHECK_DTBS=y DT_SCHEMA_FILES=arm/aspeed/aspeed.yaml aspeed/aspeed-bmc-facebook-anacapa-evt2.dtb
+- Link to v1: https://lore.kernel.org/r/20260407-anacapa-devlop-phase-devicetree-v1-0-97b96367cac3@gmail.com
+
+---
+Andy Chung (1):
+      ARM: dts: aspeed: anacapa: Enable MCTP and FRU for NIC
+
+Carl Lee (3):
+      ARM: dts: aspeed: anacapa: Add eeprom device node for NFC adaptor board
+      ARM: dts: aspeed: anacapa: Add NCT7363 fan controllers
+      ARM: dts: aspeed: anacapa: Remove LTC4287 power monitors
+
+Colin Huang (6):
+      ARM: dts: aspeed: anacapa: Add EVT1 devicetree and point wrapper to it
+      ARM: dts: aspeed: anacapa: Add EVT2 devicetree inheriting EVT1
+      ARM: dts: aspeed: anacapa: Add DVT devicetree inheriting EVT2
+      ARM: dts: aspeed: anacapa: Add additional EEPROM node for SCM
+      ARM: dts: aspeed: anacapa: Add E1.S FRU EEPROMs
+      ARM: dts: aspeed: anacapa: Rename FM_CPU0_PWRGD to host0-ready
+
+Peter Shen (1):
+      ARM: dts: aspeed: anacapa: evt2: Add shunt resistor values for HSC monitors
+
+Rex Fu (5):
+      ARM: dts: aspeed: anacapa: Align PDB fan GPIO numbering
+      ARM: dts: aspeed: anacapa: Add LPDB fuse monitor GPIO expander
+      ARM: dts: aspeed: anacapa: Simplify leakage GPIO line names
+      ARM: dts: aspeed: anacapa: Add SPI flash VCC supply
+      ARM: dts: aspeed: anacapa: Update EDSFF power status signals
+
+ .../aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi    |  259 +++++
+ .../aspeed/aspeed-bmc-facebook-anacapa-evt1.dtsi   | 1165 ++++++++++++++++++++
+ .../aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi   |  467 ++++++++
+ .../dts/aspeed/aspeed-bmc-facebook-anacapa.dts     | 1077 +-----------------
+ 4 files changed, 1892 insertions(+), 1076 deletions(-)
+---
+base-commit: ba3f2c447203166c640e40dc8e9b4b91fc613aa5
+change-id: 20260407-anacapa-devlop-phase-devicetree-4101d3f312c0
+
+Best regards,
 -- 
-2.56.0
+Colin Huang <u8813345@gmail.com>
 
 
