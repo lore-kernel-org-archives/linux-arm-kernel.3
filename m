@@ -2,114 +2,123 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 367AF606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 04:58:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D08E606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 04:59:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=efVOWmZu;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GM76O1Po
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1xXxExth;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=IpvrMtRm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
-	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=hGj9xNbM2GFslo+ZFYRgCXDmsxZkpM82Vucp42K6W14=; b=efVOWmZu2pM4KDyvMg0DvfRwZZ
-	uIQjxtTBJg3mcjRrhOSdQwwF5dOGcsoEFnzeV7StOXkF0EJr5GWgMTBymsa6JVNFphSw4AA4d8ITN
-	MLtG5LpeV4zk9pHSUdlCUWYruoNtPlBsZbdGYGhdROBx/8EohlPLs3vO0z71rxCll5snmLWD+6DRy
-	TUBI0QWtx4h8yFfzdkYGWmOwXojnAndw9+3XAxzgRi9mgzCLAAOis4ZRMErKTBHUG0i+Q8b6G2ZMz
-	J1KniTqL3xRSWyroySKfIsvf2IpqEHtY1UDxWrXmwvCntMBRGxt2PqBgin6hJaK3WcgpS5GID9Tr1
-	v+cwVTlA==;
+	bh=9+DRNTb+Iccr7cg3IFlbMKMsq0jQF/LIYCAo0v5lp2M=; b=1xXxExthZBD2aII4W7imm4m7mE
+	2RJQ4zGyaTSjTHRxA7n2K+7obeuY95vHI/wIl5YC8N8Ln6L3ZABv7yUFbo/PHdoOJYaTq2Nvf6jHk
+	iCCGeEwRamqbRJHgEH37n88+jye1FS2s8hqUEGMdEH4jxPJGcZ0vYUHOSpV7Ek6Nr5yY5NwrpJiWJ
+	V/kibNBikawrvGF83/4uParLMHMCFKmAvMfigmpQSzCbkHEHOFttJzrVP05G+5AfdKaJkGMgUpEE/
+	wLTHACmuGEv1+lMJ4jIKZcYOdVebJf1u+oIFYM82xKYfQRUPKAF3mWZNCo9iwEaNIDz2yf1v4qR5k
+	ZqqixFjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMIDm-00000008Lpw-38Uq;
-	Thu, 29 Oct 2026 04:58:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xMIEB-00000008M26-3hDK;
+	Thu, 29 Oct 2026 04:59:04 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMIDa-00000008LjD-2of4;
-	Thu, 29 Oct 2026 04:58:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4596343F11;
-	Thu, 29 Oct 2026 04:58:26 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793249906;
-	b=hnEPWLyK1skOTMfJeDIF30O1Kgr2riEbwpsg7zkEUipJ3ei35jYI1wULvAvBeSKLkPJR
-	 viU1CbkyQQAZvXACUPExKOL2BU5y1IYm4Qy3c+Ro6vafVTORVk7j9tTUo0YDZCArqYFRZ
-	 FkiBrUGUFfV32Q2d+C2XEH1xVRtWjPXeC1247EzjlxeyMz7NxXCD1yNPKjjXDDG4sEeiP
-	 PBxhIQ4fX92y3dQ1yXwtepPOvPVLBJvA6MtVYrXHzY7kVfhhd1RoLZQtQSPc7xzV7CRI1
-	 HSixv/KAKgVvbhwVCsLh/LFDLA5bOesZrghCSrOOFAPJJxEz1iiXwVk5/p1cspOUJZA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793249906;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=hGj9xNbM2GFslo+ZFYRgCXDmsxZkpM82Vucp42K6W14=;
-	b=RzetP4edLDSvLZ4eXijqolG8jGzrmqDejPhCQ0H2+cgDrPDIxY+8YJbc3/F7LP+ONmWW
-	 fp/+TAPOLI4Op3Kwkenly51R5MhUWAtREtFhiXmCmW+1aRDLg4jwRL8/I66e6S1fEPus1
-	 tGm0v7sMJEk0fovahVjutl9X8UsGwUOLHYioVwIY41L9tFzeVEerF/7AWOur45VH0j48h
-	 HzfKI9XqW/snnR7aDBauPYvotAwF6dANlBhVuggEjpdOdaWQoJYgaTgDcgduHYNAbu94V
-	 UjZhYzyKwhLwb1OCdRfduMzAF35KkfTzL7PdsTde24TJsb7RIh9ObuzAAXJNOzqNW4g==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2E5471F01829;
-	Thu, 29 Oct 2026 04:58:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793249906;
-	bh=hGj9xNbM2GFslo+ZFYRgCXDmsxZkpM82Vucp42K6W14=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=GM76O1PosO3kScH9dR4qIS+DSwPUQ7f8E19L677yQ9NAzxzXx2MNd2Uec9AmpLdR9
-	 uJ0x/lT8kX64pZnLQ93i6txV+KOURiFPio9FN7kzZGQqTT/XjnBlD3aVOzGA6D0OBx
-	 qbSg2cjUf5Ddj1LutQfdj/OXXEMCHfdoNrOH1+PAkb6mIeQEMEmQ7PUSJffWqI+/ib
-	 VZxK5patpz2Uxm1ivJ82QFiMAFlbQZyo7Amp2dTfssTnNsdNIcBMUM7D1ypR86eExm
-	 rm/jric32JZ+00yB4LY/rwIm5QfpxR0rT/lfl5umZmtsmhoRIfhxm/KmYaiEson0jU
-	 zjaB7KBBq2woA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B644C45712;
-	Thu, 29 Oct 2026 04:58:24 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Thu, 29 Oct 2026 04:58:22 +0000
-Subject: [PATCH net v3 2/2] net: phy: postpone PHY interrupts during sleep
- with MAC-managed PM
+	id 1xMIE7-00000008Lzr-1H8I
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 Oct 2026 04:59:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CQeYs+NpXDlI0V7Q/wh2KHShlw+JsNceIQlc7Nfmx5zwPCGOs/RpKFr3/PRfyrtEWWFFg0ZpE0EOKqdYNyjgR9OKy1WdPTsLuQJFC4vr+hzFkeE8IGwQRLLZsDa/P2DwsrLQlijRc9lu0RqOQr4aTVJ69o1APu0WH6FZFNe+bcJlQ5TcZPqSST4pnxwuwb0i2q18eJPCSwhcrd2QhLXmjlqgd/2PgiAXZx1xGfozG0TdAA1FhA6c/Zok47/Zw2pvs78dSfUcE7jj58Sb8kBuTGFnveIyzZeZ5CZOB5cfNaZgZEzK4KaBGzDAzJ/kmtCv9bLjnJTsooKBpBG4LXeF6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9+DRNTb+Iccr7cg3IFlbMKMsq0jQF/LIYCAo0v5lp2M=;
+ b=QWpo+PyfcryS42nLC0Dd8HieUO7wtbASu2zs5sak5V/dqHeasdu28MQirct5cdAkDxzcCn8IM2o21oRBA59yy/CNMJhTaVQurjWO7rcKzpkCgsvWbbuwiaJQx3RkkWaVviQr1ICNUKZQ1KbZbgKV//BTW2LC0ZZHETqhO5Ia4Bbf2YXxA5ycUMU3WkpTTvJC/RAg569IXMNMGrwAYrCnElesckZV20RhYow25o/FGuqDee2T/uZZhOwApEzF6Mv5Nk6ol2X5UHvjEexcLG0fgel3cyix+RfWTlBUhpL/NlnCcUJQJ1VOZzl6XnPOFmm3Ay/mANIbgWK3wuKnxs6mOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=codeconstruct.com.au
+ smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=nvidia.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9+DRNTb+Iccr7cg3IFlbMKMsq0jQF/LIYCAo0v5lp2M=;
+ b=IpvrMtRmqHmVFaGTQE4vXZDBWEwcbpOP5lXCzC/9dtX8pEmjXDWMWR75g0qu/WtwNHGpmZjlWMACrb5ITwjl+2Ggv7CYx5BK13RFgnhZVWvBv2ONCU5dWl6AvrP8ysZMn6T1I2bY6MfocRI9sVQQ3pfNugnlbBqACdGwAjTDg4dbKxxyf4DYoJwoP6I9ka6PxrOZfXCIIZAFRyG9SDghLQvPKl/er4ncmu72j7BaxLKKZVs/yoGTCyNR1+WZcSndiIQVw9kjGvIakCO5ZdrN5RR+JO/rDoNBaEGTObNOz21f5Mr+gsCOJ5Vw4q0Y+K48uGu68n+q0Y+6MbE50M1uSw==
+Received: from BL1PR13CA0202.namprd13.prod.outlook.com (2603:10b6:208:2be::27)
+ by SA3PR12MB7923.namprd12.prod.outlook.com (2603:10b6:806:317::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Thu, 29 Oct
+ 2026 04:58:52 +0000
+Received: from BN7PEPF0000009D.namprd04.prod.outlook.com
+ (2603:10b6:208:2be:cafe::71) by BL1PR13CA0202.outlook.office365.com
+ (2603:10b6:208:2be::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Thu, 29
+ Oct 2026 04:58:51 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN7PEPF0000009D.mail.protection.outlook.com (10.167.248.149) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.569.4 via Frontend Transport; Thu, 29 Oct 2026 04:58:51 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 28 Oct
+ 2026 21:58:34 -0700
+Received: from nvidia.com (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 28 Oct
+ 2026 21:58:31 -0700
+From: Jacky Huang <jackyhuang@nvidia.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley
+	<joel@jms.id.au>
+CC: <devicetree@vger.kernel.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<openbmc@lists.ozlabs.org>, Jacky Huang <jackyhuang@nvidia.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
+	<billy_tsai@aspeedtech.com>
+Subject: [PATCH 0/2] ARM: dts: aspeed: Add NVIDIA MGX Vera C2 BMC support
+Date: Thu, 29 Oct 2026 13:58:06 +0900
+Message-ID: <cover.1793243187.git.jackyhuang@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261029-b4-phylib-mac-pm-irq-v3-v3-2-5907045f3210@iav.lv>
-References: <20261029-b4-phylib-mac-pm-irq-v3-v3-0-5907045f3210@iav.lv>
-In-Reply-To: <20261029-b4-phylib-mac-pm-irq-v3-v3-0-5907045f3210@iav.lv>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Lukas Wunner <lukas@wunner.de>, 
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
- Wei Fang <wei.fang@nxp.com>, 
- =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
- Paul Barker <paul@pbarker.dev>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Doug Berger <opendmb@gmail.com>, 
- Thangaraj Samynathan <Thangaraj.S@microchip.com>, netdev@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7353; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=0jzCIm6lJ2Yfq40Vke+VWeHqxr3HXaFj0zXIYFJcMKg=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFmPLuW7t64JS/wouEtVRsxlgreRyNKEN4Ephcl5wn4+i
- 1mqRV06SlkYxLgYZMUUWSYc0riVseTqX38P8wcwc1iZQIYwcHEKwETaehgZ9jknf1te5tCpZLJ6
- 6/6eV8o8fuazu6Zn+n/QesbXLbZ8MsN//y9/tsetfy2x5ts25waGq0nFbwt0+mLy0x5x6R6+WFr
- DCAA=
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: rnnvmail202.nvidia.com (10.129.68.7) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7PEPF0000009D:EE_|SA3PR12MB7923:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15c1ae17-5950-40ce-196a-08df3579533b
+X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|1800799024|376014|7416014|23010399003|18002099003|13003099007|56012099006|11063799006|261009223027099003|261021121427099003|260925021911599003|10067099003|260925022911599003|260925021311599003;
+X-Microsoft-Antispam-Message-Info: aXzzfh71ooPWCyXn8KO/0mjMrTRNuLvu9ItAiauyNG1TS2gkJH2OEp4EWc52k3HHnL1g5bOWWr7HhuJvXFUz3PAdQ3cGzLyYQSBDHIO3lNWI5C4Qy6qTy+lXJSxUPjmdHPSf906QUb0yEoRkx3AM8eedwTETKLBRvBk48kfQJjnus8bD8gGStySkdAHgClbxKuu/jMKF3U4qcWqjX5OOQ4CXuAusqn0j4d0UfGmoxZGbPfrEfoVEiI86ibkJXjzKJant+IN7xVNwlbmH3Tm6YUrxJXKREAaEXoINMOUHDhmO6ZWcVPtxFaZ8lMDiY5JklK8TFMvDhgiL0/FLZ9O/xL5Hh5euVx2eHkJXHLQd3iGbBPry+ZIdAwIe6jFuXlY9X1NMXWTF7YhfuTU2L0IsBLsF4i77/L7OdtmyvL5i4HjgydZJ28Fe2TXj5sOqG8F+GNaEKAHrdHik+uR8Uykgmd5inydJt3roQhYpLTHFvkVR1ktyV/1r7P2wijoBxx++aSl5dlA4CzkSz5cKGO6/oZIPEZoLX+rvNcxtqTSmIQ1v4W3Slm9CviEM8PN6s+JItEKKyvr158ZzP7fqtYJf7RmSIYf8X44RTpIvQRYsU/U7iucFVps22Q6y1haqPVnI9obB2fs3K0Df1pCcAw3rO2djdaGFlu27HGAVLqmyT5PHW4H+yRGrAQupEkfD8EplyJ2NnFx3TRAoXStYPxaZkw==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(376014)(7416014)(23010399003)(18002099003)(13003099007)(56012099006)(11063799006)(261009223027099003)(261021121427099003)(260925021911599003)(10067099003)(260925022911599003)(260925021311599003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ksumgdySMnsHEMPobE2N9dOuASVKtlY814anmJefI0x/uJYBPlMfeDk81ihvMC8yiy5U1uH0TPd3ceg3GuhXKUqCor9wW7Qcrqe5TkQ4Zy6rXWJcuSNateXOsv0bIjnTCUTmd64Ppt5TxRJ/ZBdb6vfXJzGT+TVg4c8jhQmnTLXaJCnBMHQv/khHPY6H7g3ZBjh/Knhz770LQ3H2y3w5M30PAHvVryWi/Ji8ZgZ47rugkGMkHYUtzrmHHCbldDRXOh3Uo3gtxect9nxp/kReK5Y9F7Kkhh54D2V0gvOpmRwLan5cZJ2csUlyB1SrJzk33wXgmX5y2nRe+e5O1ENqb4yp1hOG2nWhI0xkB9iRDQ0p/VgPyk7mnXy2e9z01xbzmp2BsCDzSVOVOD+oq6bMq35LbKzKIAUJ4Bs13/BokSvmsuk5j/7vH6tEAlP2gD0l
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2026 04:58:51.1759
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15c1ae17-5950-40ce-196a-08df3579533b
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF0000009D.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7923
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261028_215859_359659_DBBF5008 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,206 +128,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Igor Velkov <iav@iav.lv>
+This series adds support for the NVIDIA MGX Vera C2 BMC,
+which is based on the ASPEED AST2600.
 
-mdio_bus_phy_suspend() and mdio_bus_phy_resume() return early when the
-MAC driver manages PHY PM, so the PHY never gets irq_suspended and
-phy_interrupt() runs the PHY driver's handler at any point of the sleep
-transition. If the MAC driver powers the MDIO bus down, the MDIO access
-in that handler can stall the CPU. This happens on both sides:
+The board declares its boot-flash properties explicitly, allowing the
+same DTS to work with aspeed-g6.dtsi both before and after the pending
+flash-node cleanup [1].
 
-- suspend: the MAC's suspend callback stops the PHY, the link goes
-  down, and the handler runs while the MAC powers down;
-- resume: resume_device_irqs() re-enables a pending interrupt before
-  the MAC resumes.
+The board DTS passes scripts/dtc/dt-check-style --mode=strict.
 
-On Helios64 (dwmac-rk, RTL8211F with its interrupt line described in
-DT) both hang the board: the handler reads INSR while the GMAC clocks
-are off, after rk_gmac_suspend() or before rk_gmac_resume().
+[1] https://lore.kernel.org/all/cover.1793179064.git.jackyhuang@nvidia.com/
 
-Set irq_suspended for these PHYs too. The PHY device is a child of its
-MDIO bus, so mdio_bus_phy_resume() runs after the bus is back (with
-stmmac, after the MAC) and replays the postponed interrupt then.
-phy_suspend(), phy_resume() and the state machine stay with the MAC
-driver. An interrupt in that window signals a wakeup event only if
-Wake-on-LAN is enabled: the MAC powers the PHY down itself, and the
-link interrupt that follows must not abort suspend just because the MAC
-device may wake the system.
+Jacky Huang (2):
+  dt-bindings: arm: aspeed: Add NVIDIA MGX Vera C2 BMC
+  ARM: dts: aspeed: Add NVIDIA MGX Vera C2 BMC
 
-MAC drivers that close the interface in suspend free the interrupt
-before the PHY resumes. The PHY is still reachable there, so
-phy_free_interrupt() stops postponing and re-enables a line left
-disabled by a postponed interrupt before it frees its handler.
+ .../bindings/arm/aspeed/aspeed.yaml           |    1 +
+ arch/arm/boot/dts/aspeed/Makefile             |    1 +
+ .../aspeed/aspeed-bmc-nvidia-vr-c2-bmc.dts    | 1321 +++++++++++++++++
+ 3 files changed, 1323 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-vr-c2-bmc.dts
 
-Tested on Helios64 with 7.3, s2idle with the link up:
-- no Wake-on-LAN, GMAC clocks off in suspend: 10 of 10 cycles suspended
-  and resumed; without this series the same test hung or reset the
-  board after the link went down 10 of 10 times;
-- MAC power/wakeup enabled, no Wake-on-LAN: 3 of 3 slept;
-- Wake-on-LAN in the PHY: a magic packet woke the board 3 of 3 times.
 
-Fixes: 1758bde2e4aa ("net: phy: Don't trigger state machine while in suspend")
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
- drivers/net/phy/phy.c        | 19 +++++++++++++++++--
- drivers/net/phy/phy_device.c | 44 +++++++++++++++++++++++++++-----------------
- include/linux/phy.h          |  5 +++--
- 3 files changed, 47 insertions(+), 21 deletions(-)
-
-diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
-index 9af303d60bd6..c3863a72a5da 100644
---- a/drivers/net/phy/phy.c
-+++ b/drivers/net/phy/phy.c
-@@ -1421,12 +1421,16 @@ static irqreturn_t phy_interrupt(int irq, void *phy_dat)
- 
- 		if (netdev) {
- 			struct device *parent = netdev->dev.parent;
-+			/* Without WoL, a MAC that manages PHY PM takes the
-+			 * link down itself: that interrupt is not a wakeup.
-+			 */
-+			bool may_wake = !phydev->mac_managed_pm;
- 
- 			if (netdev->ethtool->wol_enabled)
- 				pm_system_wakeup();
--			else if (device_may_wakeup(&netdev->dev))
-+			else if (may_wake && device_may_wakeup(&netdev->dev))
- 				pm_wakeup_dev_event(&netdev->dev, 0, true);
--			else if (parent && device_may_wakeup(parent))
-+			else if (may_wake && parent && device_may_wakeup(parent))
- 				pm_wakeup_dev_event(parent, 0, true);
- 		}
- 
-@@ -1507,6 +1511,17 @@ EXPORT_SYMBOL(phy_request_interrupt);
- void phy_free_interrupt(struct phy_device *phydev)
- {
- 	phy_disable_interrupts(phydev);
-+
-+	/* The PHY is reachable: stop postponing, and while our handler is still
-+	 * registered re-enable a line that a postponed interrupt left disabled.
-+	 */
-+	phydev->irq_suspended = false;
-+	synchronize_irq(phydev->irq);
-+	if (phydev->irq_rerun) {
-+		phydev->irq_rerun = false;
-+		enable_irq(phydev->irq);
-+	}
-+
- 	free_irq(phydev->irq, phydev);
- }
- EXPORT_SYMBOL(phy_free_interrupt);
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index 79dba43d703a..7d1486185070 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -336,18 +336,20 @@ static __maybe_unused int mdio_bus_phy_suspend(struct device *dev)
- {
- 	struct phy_device *phydev = to_phy_device(dev);
- 
--	if (phydev->mac_managed_pm)
--		return 0;
--
- 	/* Wakeup interrupts may occur during the system sleep transition when
- 	 * the PHY is inaccessible. Set flag to postpone handling until the PHY
- 	 * has resumed. Wait for concurrent interrupt handler to complete.
-+	 * This holds when the MAC manages PHY PM too: an interrupt can still
-+	 * fire while the MAC has the MDIO bus powered down.
- 	 */
- 	if (phy_interrupt_is_valid(phydev)) {
- 		phydev->irq_suspended = true;
- 		synchronize_irq(phydev->irq);
- 	}
- 
-+	if (phydev->mac_managed_pm)
-+		return 0;
-+
- 	/* We must stop the state machine manually, otherwise it stops out of
- 	 * control, possibly with the phydev->lock held. Upon resume, netdev
- 	 * may call phy routines that try to grab the same lock, and that may
-@@ -364,13 +366,33 @@ static __maybe_unused int mdio_bus_phy_suspend(struct device *dev)
- 	return phy_suspend(phydev);
- }
- 
-+static __maybe_unused void mdio_bus_phy_resume_irq(struct phy_device *phydev)
-+{
-+	if (!phy_interrupt_is_valid(phydev))
-+		return;
-+
-+	phydev->irq_suspended = false;
-+	synchronize_irq(phydev->irq);
-+
-+	/* Rerun interrupts which were postponed by phy_interrupt()
-+	 * because they occurred during the system sleep transition.
-+	 */
-+	if (phydev->irq_rerun) {
-+		phydev->irq_rerun = false;
-+		enable_irq(phydev->irq);
-+		irq_wake_thread(phydev->irq, phydev);
-+	}
-+}
-+
- static __maybe_unused int mdio_bus_phy_resume(struct device *dev)
- {
- 	struct phy_device *phydev = to_phy_device(dev);
- 	int ret;
- 
--	if (phydev->mac_managed_pm)
-+	if (phydev->mac_managed_pm) {
-+		mdio_bus_phy_resume_irq(phydev);
- 		return 0;
-+	}
- 
- 	if (!phydev->suspended_by_mdio_bus)
- 		goto no_resume;
-@@ -393,19 +415,7 @@ static __maybe_unused int mdio_bus_phy_resume(struct device *dev)
- 	if (ret < 0)
- 		return ret;
- no_resume:
--	if (phy_interrupt_is_valid(phydev)) {
--		phydev->irq_suspended = false;
--		synchronize_irq(phydev->irq);
--
--		/* Rerun interrupts which were postponed by phy_interrupt()
--		 * because they occurred during the system sleep transition.
--		 */
--		if (phydev->irq_rerun) {
--			phydev->irq_rerun = false;
--			enable_irq(phydev->irq);
--			irq_wake_thread(phydev->irq, phydev);
--		}
--	}
-+	mdio_bus_phy_resume_irq(phydev);
- 
- 	if (phy_uses_state_machine(phydev))
- 		phy_start_machine(phydev);
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index 0e0066186ba2..bb62a80d6a30 100644
---- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -649,8 +649,9 @@ struct phy_oatc14_sqi_capability {
-  * @mdix_ctrl: User setting of crossover
-  * @pma_extable: Cached value of PMA/PMD Extended Abilities Register
-  * @interrupts: Flag interrupts have been enabled
-- * @irq_suspended: Flag indicating PHY is suspended and therefore interrupt
-- *                 handling shall be postponed until PHY has resumed
-+ * @irq_suspended: Flag indicating a system sleep transition in progress, so
-+ *                 interrupt handling shall be postponed until
-+ *                 mdio_bus_phy_resume()
-  * @irq_rerun: Flag indicating interrupts occurred while PHY was suspended,
-  *             requiring a rerun of the interrupt handler after resume
-  * @default_timestamp: Flag indicating whether we are using the phy
-
+base-commit: ba3f2c447203166c640e40dc8e9b4b91fc613aa5
 -- 
 2.43.0
-
 
 
