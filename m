@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4556360A2610
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 02:02:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4A1A606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 02:02:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xop1Ulsx;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZnxXNoL4
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tKw6NiTW;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fq8Ce5SY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
@@ -14,36 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ig9ryT9lQ5WH61asJrWLJKKAff4oOz6FkZcoxGtITzU=; b=xop1UlsxPjUzJqzN4rfFTU6b8I
-	aTRkgweSBUWsRl3gM8lOUB2ZGdpL691RP9gTHqHU+D+kOmVkrSgXe4nQCr8ktfCNmJ10KlfbfhN26
-	y9ASv52rgfwNaSdRxYBQwvRfl5CtDRQ5Em6Zn3eOXJlZfl5D1EYcBByqnBLL6LHxVef9xVqEB537a
-	HIF+CsAmMi4cC0en0V3c4PGgAeHs2kgvZKbqMcp3ziZX8kFvaw4dYBdYQhfKr5d3iIvQqDdKC02Rj
-	NflHkPeiaskalap3Gn6tnMs7WPitCT7ZVerKERftF7noPpcWtqNSZeV4rktyoNlxERL+9rAC3ctd6
-	yUYuknRA==;
+	bh=4cOh5ydFl01OU2B+rC207B1abgz09QduO3g9/V7orkQ=; b=tKw6NiTWp47hsktkAxDgDz0X9W
+	0jXOADdT34362B4/e1K5n8F+7p6S/OSerFRbAnaV8jtlXA3G1masw4UB8EUPmtJRI4rPgp71+jX0b
+	JYiXvye1/iyYB0tZIcEIJ+AxzDZja9ZViZq1Mx3kuQFnIe/9Jw7Rl/lOEKcMKgI6lBLHZ/nuXmr43
+	dKcVYExvPWlVreibvMYeBshPVHG6+y9qIf/2UTi6ajQkAN6LoltqVZvJoxBVuHKU00Fr7K/lBgj5g
+	v/1os59kmCk1a3NgnpYoaQX11p6inCpRu49w54yWJuD6cGSbuiEJDWl2m7nmCgaCsfm0EdTPDEvSA
+	6b3KFxIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMFTU-00000008AXj-0LuE;
-	Thu, 29 Oct 2026 02:02:40 +0000
+	id 1xMFTa-00000008AaK-1Lps;
+	Thu, 29 Oct 2026 02:02:46 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMFTS-00000008AXV-0rJ7;
-	Thu, 29 Oct 2026 02:02:38 +0000
+	id 1xMFTT-00000008AXf-2V5O;
+	Thu, 29 Oct 2026 02:02:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 30F9541311;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4A35843CB2;
+	Thu, 29 Oct 2026 02:02:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1F3C1F031E1;
 	Thu, 29 Oct 2026 02:02:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5ACB1F031E2;
-	Thu, 29 Oct 2026 02:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793239357;
-	bh=ig9ryT9lQ5WH61asJrWLJKKAff4oOz6FkZcoxGtITzU=;
+	s=k20260515; t=1793239359;
+	bh=4cOh5ydFl01OU2B+rC207B1abgz09QduO3g9/V7orkQ=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ZnxXNoL4Q40oWbzyvpUY0pLFjvFN9FK/DXVtODmCrRREcQk6rgGKqY0vLZVrupTcn
-	 kqh7lvT35zYATayZeC0ejUHkuQdv2ZSgJmuIaRab3Pc0l/KSN8qSk23jsWXdJeaOaQ
-	 sGQZhBXkf8KdYVHpLtlQaIC2gSBtuY4oaMD44xeXNOnVgiVvQh7nsSjOq89cDQACEI
-	 ALKTSCmEwHySp6di+9UQlBJOMzGZBCokVke1li215uVNRoTfBPqScGn5CfdUDUQmZf
-	 VUbR2NhuIUm3I1FRtMaKPz50O45m8TzLhZe15/JveDUGw818MUP2rTq6fxHkmLOM7L
-	 fjDEok5axoDNA==
-Subject: Re: [PATCH v3 1/7] net: dsa: mt7530: get ctrl phy addr using a function
+	b=Fq8Ce5SYBJjzwaICyFdWDMIxo7tyMKs3IiuFfF/drrqy2f36QwHpfb5LGFc5M3SLq
+	 WGP4VeuFau7DtIAtOiwYXbT+f/g4LwD5lMmTzVTkNqWgQ1o4rhb0bS1PtD3XZqad1O
+	 2/UjlkZh9jj8XH1zj7OGpEePE4Yonu9pvHfy0uzT0f4ntL33eFFk/sFYloOF+48DHq
+	 Zttzg/Yxo9Scph3mYQzvHCdzgkbxId9TRft+RgqqlnytlZ3zoQ+F6g56F6n03ToSTf
+	 oa0zEuY6qQcciCIzHepDlH0FPxAKuEkrkZSJDSMjKLnbBg7x1CgbWQ0elJL0J8NuTO
+	 XQKwlnTD2o2JA==
+Subject: Re: [PATCH v3 2/7] dt-bindings: net: dsa: mediatek,mt7530: add
+ passthrough mode
 From: netdev-bot+sashiko@kernel.org
 To: cjd@cjdns.fr
 Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
@@ -55,11 +56,11 @@ Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
  sean.wang@mediatek.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, naseefkm@gmail.com, b.larsson@gmx.com
-Date: Thu, 29 Oct 2026 02:02:35 +0000
-Message-ID: <179323935516.3134.4150149245635529305@kernel.org>
-In-Reply-To: <20261028011317.1557238-2-cjd@cjdns.fr>
-References: <20261028011317.1557238-2-cjd@cjdns.fr>
-X-sashiko-severity: Low
+Date: Thu, 29 Oct 2026 02:02:37 +0000
+Message-ID: <179323935725.3134.9897775788252590471@kernel.org>
+In-Reply-To: <20261028011317.1557238-3-cjd@cjdns.fr>
+References: <20261028011317.1557238-3-cjd@cjdns.fr>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
@@ -74,105 +75,132 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
+	SPF_HELO_NONE,T_SPF_TEMPERROR autolearn=unavailable autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-- [Low] The new helper mt753x_ctrl_phy_addr()
-  (drivers/net/dsa/mt7530.c:49-57) handles a NULL priv->mdiodev by…
-- [Low] The commit message says the control PHY is found by taking the
-  switch's MDIO address, adding 1, and taking it "modulo 31".
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The binding tells DT authors to model passthrough as a two-
+  switch DSA cascade ('the upstream switch is configured with a DSA link…
+- [Low] The passthrough paragraph added to the description of
+  Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml (lines…
 
 --
 
-net: dsa: mt7530: get ctrl phy addr using a function
+dt-bindings: net: dsa: mediatek,mt7530: add passthrough mode
 
-This commit replaces the MT753X_CTRL_PHY_ADDR() macro with a
-mt753x_ctrl_phy_addr() helper. The helper warns and returns 0 when
-priv->mdiodev is NULL. It is also meant to give MMIO implementations a
-place to supply their own control PHY address.
+This commit documents a "passthrough" mode for MT7530/MT7531 switches in
+the mediatek,mt7530 binding description. In this mode the upstream switch
+forwards traffic between its CPU port and a DSA link to a downstream
+switch, and it does not alter the MediaTek tag.
 
-> The switch is typically on
-> MDIO address 31 and the PHYs are 0, 1, 2, 3, and 4 with 0 being the
-> special one. So taking the address of mdiodev (the switch) add 1 and
-> modulo 31 finds the first PHY.
-
-[Severity: Low]
-Is "modulo 31" right here? The code computes:
-
-    (priv->mdiodev->addr + 1) & (PHY_MAX_ADDR - 1)
-
-PHY_MAX_ADDR is 32, so this masks with 31, which is modulo 32. For a
-switch at address 31, (31 + 1) % 31 would give 1. The code gives 0,
-which is the PHY the message calls the special one.
-
-Should this say modulo 32, or say that it wraps around the 32-address
-MDIO space?
-
-> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-> index 7781a63b4e6fd..d10194488bdee 100644
-> --- a/drivers/net/dsa/mt7530.c
-> +++ b/drivers/net/dsa/mt7530.c
-> @@ -46,6 +46,16 @@ static const struct mt7530_mib_desc mt7530_mib[] = {
->  	MIB_DESC(1, MT7530_PORT_MIB_RX_ARL_DROP, "RxArlDrop"),
->  };
+> diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+> index 90b3582b76190..e29fb86934981 100644
+> --- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+> +++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+> @@ -73,6 +73,13 @@ description: |
 >  
-> +static int
-> +mt753x_ctrl_phy_addr(struct mt7530_priv *priv)
-> +{
-> +	if (WARN_ON_ONCE(!priv->mdiodev))
-> +		return 0;
+>        Check out example 7.
+>  
+> +  The MT7530 and MT7531 switches are capable of being operated in "passthrough"
+> +  mode. In this mode, traffic is unconditionally passed between the CPU port
+> +  and the DSA port which links to a second switch. To use passthrough mode, the
+> +  upstream switch is configured with a DSA link to the downstream switch. In
+
+[Severity: Medium]
+Should this also say which DSA switch index each switch has to use?
+
+The MediaTek tag carries only a 3-bit source port and no switch ID.
+mtk_tag_rcv() always looks the port up on switch index 0:
+
+net/dsa/tag_mtk.c:mtk_tag_rcv() {
+    ...
+	port = (hdr & MTK_HDR_RECV_SOURCE_PORT_MASK);
+
+	skb->dev = dsa_conduit_find_user(dev, 0, port);
+	if (!skb->dev) {
+		kfree_skb(skb);
+		return NULL;
+	}
+    ...
+}
+
+dsa_conduit_find_user() only matches DSA_PORT_TYPE_USER ports on the
+given switch index. In passthrough mode the upstream switch forwards the
+downstream switch's tag unchanged, so port is a downstream port number.
+
+The two switches can't share an index, because
+dsa_switch_parse_member_of() returns -EEXIST for a duplicate.
+
+Take a DT that uses the natural ordering: the CPU-facing upstream switch
+at dsa,member switch index 0 and the downstream switch at index 1. Would
+every received frame then be looked up on the upstream switch?
+
+That switch has no user ports in passthrough mode. The lookup would
+return NULL and the frame would be freed, so all RX traffic on the
+downstream user ports would be lost.
+
+No later patch in the series seems to change this. tag_mtk.c is
+unchanged, the driver doesn't touch ds->index, and the final binding has
+no passthrough example or dsa,member guidance.
+
+Could the text say that the downstream switch must be switch index 0 in
+dsa,member and the upstream switch must use a non-zero index? An example
+showing this would also work.
+
+> +  passthrough mode the upstream switch is restricted, with no other ports or
+> +  switch configuration allowed.
 
 [Severity: Low]
-When priv->mdiodev is NULL, this returns 0. That is also a valid PHY
-address, so callers can't tell the fallback from a real result.
+These topology rules are stated only in prose. Could they be encoded in
+the schema as well?
 
-At this commit, core_write() and core_rmw() then use priv->bus without
-checking it:
+Ports match ^(ethernet-)?port@[0-6]$ with additionalProperties: true.
+The per-port reg and phy-mode rules apply only to ports that have an
+ethernet property. Those rules are the top-level if: required:
+[ ethernet ] block and the builtin-dsa-port, mt7530-dsa-port and
+mt7531-dsa-port $defs.
 
-    struct mii_bus *bus = priv->bus;
-    ...
-    ret = bus->write(bus, ctl_phy, MII_MMD_CTRL, MDIO_MMD_VEND2);
+As a result, a port with a link phandle on the upstream switch gets no
+reg or phy-mode check. A node with extra user ports next to the CPU and
+link ports also passes dt_binding_check.
 
-On MMIO devices, mt7988_probe() sets priv->bus = NULL and never sets
-mdiodev. If the fallback were hit there, could the WARN be followed by a
-NULL bus dereference in core_write() or core_rmw()?
+mt753x_check_passthrough() in the driver does reject that case at probe
+with "Only two ports allowed in passthrough mode". The schema does not.
 
-In mt7531_setup(), the same fallback would send the CORE_PLL_GROUP4
-write and the EEE advertisement writes to PHYs 0 to 4.
+The port reg description still reads:
 
-This doesn't look reachable at this commit. Every caller runs only for
-MT7530/MT7621/MT7531, which are probed through mt7530-mdio.c and always
-have both priv->bus and priv->mdiodev set.
+    Port address described must be 5 or 6 for CPU port and from 0 to 5
+    for user ports.
 
-Two later patches in the series also cover this:
+Should it mention DSA link ports too?
 
-  - "net: dsa: mediatek: support PLL setup on MMIO MT7530" adds a
-    child_bus fallback and a WARN_ON_ONCE(!bus) check to core_write()
-    and core_rmw().
-  - "net: dsa: mediatek: support EN751221 switch" adds the EN751221
-    special case to this helper.
+Later in the series, "dt-bindings: net: dsa: mediatek,mt7530: add
+econet,en751221" adds mt7530-passthrough-dsa-port, which requires the
+link port to be reg 6 and trgmii. That $def applies only to the
+downstream econet,en751221-gswitch. The upstream econet,en751221-switch
+uses builtin-dsa-port, so its link port is still unconstrained.
 
-That leaves a design question. Should the helper return an error for a
-missing mdiodev, so callers can bail out instead of using address 0?
+There is also a small wording mismatch. The commit message says:
 
-> +
-> +	/* Default is 1st PHY */
-> +	return (priv->mdiodev->addr + 1) & (PHY_MAX_ADDR - 1);
-> +}
-> +
+    MT7530 switches can be configured to blindly pass packets between their
 
-[ ... ]
+but the binding text says "The MT7530 and MT7531 switches". Could these
+be made to match?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261028011317.1557238-1-cjd%40cjdns.fr
