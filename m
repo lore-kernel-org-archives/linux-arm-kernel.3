@@ -2,142 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F9D2606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 21:24:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA865606A337
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 21:25:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=w97N7909;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=juhMW/ei;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=RR/1+IXm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oigf7xkH;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Jg3ya3oC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=Kvbi14Ro2Jet/rtwBr/WGcCUE+sLT8/ztxkoluFqXzQ=; b=w97N7909oIY+qSd+GumZBLs62H
-	yEnHg2gjFjGcxx/4WbsSq65V7JXXgDsTkHM1f+p0FxSTb+OBKeDVyGtFymm4P0Nz1hQ/1dxE0ICTP
-	9lUl8yf3vWcf7EjZpNxIYcCoXIZ8duEnFisHy0sry5JiULSXc5F3J0BTC9agikcCThoHo1569ea7m
-	K7fA6Axep4dMBnrmtxUAVsxP+WxzpE8kziP0fhLoMyFJO3sw9rWNo6BA6emSyvEez0l8vwa4J8ag7
-	XaGRWs73FcOABZbPaytUnl/YBbJa34/aEnAY8U8rwjkkx1bKvniei1U/LN/VKvN5ln2D+MqYA9V1b
-	WMARhSjw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=dIfxXtJJhYl1IbYSRp7uBxydnNbuRGgEr9ZG2LuSx/c=; b=oigf7xkH4LwZK8
+	oVLF2MZMI/sh52ZvlzGyZl6lKfg8MuW1OXx2ZQAoTaXb3Wx5NK5vjFU4MpWacY8zhli8JrpSTQwp6
+	vZ6PLpbqxQsi5ZA2ybZqIMMZaJh754aFHzwnj1f3yV61/hm1eT7tpA5ggiS9o7zs13e2xeIa+5lFm
+	Wb/tdHSLJ7P15BTk7Ag+52puifS5aO1JbHZ+rrsBwphbUZKoy/SU3OJYvruqHEudwLAQ0yMmCXfIP
+	bTTGV26VNxgl96lBxOUT84+WauFIktLEv4vJksRX9UFSmgmuZFpytpvJZI+iCInMJpZf8e0mip0OM
+	1hoFGw76MYohdY14doSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMXbG-0000000APGH-1DFI;
-	Thu, 29 Oct 2026 21:23:54 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMXbD-0000000APFA-3NT5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 21:23:53 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69TJjx6x1708213
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 21:23:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=Kvbi14Ro2Jet/rtwBr/WGcCUE+sLT8/ztxk
-	oluFqXzQ=; b=juhMW/ei599lYu0rJJYdPUNl7t3bA3+SKsV6j+954pbIu9Kj8eo
-	Ciq6ohXOGQyAPNBqf8lCxt/sacTHwRTKTNXkZNYYxoLNqGU2wXydcw5IfxE5okHQ
-	i0TPywtx/1Xb68BcgkEK5yA2AI8qMzmx3aumAVh3Z4wkXXMP+rGEg/KRsidyTFft
-	Fcf6UooKpooD7wFPR0cEkiJSd6y+Tpgk+1c4eIaCGIjQvtiHKrBTDCo90B6F+YqG
-	UoolplzT5fO0tfB6L7v4GIwI+yMuu6X54xZvT22B6coCxhlq7x0INmtrxg9y9NB/
-	gIQ54PYY1jalU8w/LKiZtcQlO0pu+2snuTA==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hm76ckd5c-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 21:23:49 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3acc98e3b3cso26148a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 14:23:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793309029; x=1793913829; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Kvbi14Ro2Jet/rtwBr/WGcCUE+sLT8/ztxkoluFqXzQ=;
-        b=RR/1+IXmcVYLIMYWrKXUe2CWHXHprISgKxwGpreX61ffudBN2R8RNzEEpp8V5Wenx7
-         xYQl/7fcJgSuG4SSuKUulLQdMsTJcOcQd5snmvaAkhXPZ/um6LFAJAUSsmbvecJ7gtav
-         T3G+fmbpj+qWkcXqJwW7zUM3ZtJxtJ2g4PDND/nVJp2UBI9vfWtguas+bgR2dqnV8SAw
-         yEs20xvH3vap5IRDguU3yWi23fsMlOiGpiS1oUIDViJ8BrsrI2Ptkzl+ZUMhixLQCCkc
-         FFbf/TgwTCArm1dNsSBmBUppU7Tsym3FBczv6NEIc7uR0yXDYFrpp0Kj9bMzMX8RIcpf
-         TTjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793309029; x=1793913829;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Kvbi14Ro2Jet/rtwBr/WGcCUE+sLT8/ztxkoluFqXzQ=;
-        b=UVN4CGNDXfzL0+3IupO0+Il3LcsrzGER9cuW6cIhTpZko5kl7mkJVSen/pK8FEIcj1
-         bsBvKRhp4Jhk2TZFR2LpfWJ/y9Rey0IYAuUGDflLSiVi5HTIPkA6H9oTvcnugTqpdXi/
-         Cz7bSmar0Xgijc82x2TmaOslcUuhke8fZ2RkDV62S4xXRWdfaig184SefhXRTGENFqa2
-         mvsFWx0emuU3Zd6EePMmTClLnzQqBeIPsFsa6IVFqSFovOe2J8AhWjOZsqykkvf1L84h
-         p6e2uHMMErCp2ouOMwlGDNQOKZzZ6oQAIIOA2NC9Q5fV83wy0tc09h2tOJafxjEL1aJG
-         0YRw==
-X-Forwarded-Encrypted: i=1; AKwUvBwpr3zgo0vImOs7Z1RKFtUOAeh4Ml6Duxz3NtJLeekzPhYW30Lf8sqYNKkj3dkkhR3zQN2bgBRsp+HcPp5Y6RD8@lists.infradead.org
-X-Gm-Message-State: AFq9FYLdMEGEWHLlGVx04VBhhUiWM+1EyikGou7t3X4xLUHQCAxsy7YX
-	s2PNNZtQUskNLUE5GQ3zH0HITpwVoMi3Kf/ypOYd9WrWAeXJRUx34QDcWXrRlU4tQCpwrq6hOhD
-	7Hm3KFRy/jSWu7oz4yrpXMp+p5nzFcmriyKB7uhBMLvyG6eSptSUX/FNgOr6DfjxG9vl5wTd9ny
-	jLVw==
-X-Gm-Gg: AYBFou2WS5cjjHnN1mSbD5bjfS2Dlfz0LDmVZPog8Lw0xCSEzOXa819ryvw6Xo//ALj
-	IY3npBtTBDWLEOQsQNeR8HB0GJ7nEwcU7mAWw8vYK5kq7hRJZ2ej8WBtsvFOWmvsncix8f0Qo1b
-	0N8TRZohKF+0PwuE0rhtAA68npnR0vgCJSLigijWhuLMJFnF3H5L7iPBSs1UE6U+fclifbcNTxC
-	Xe5p04cq1Nfl/dRO+GZbxHyLBEnBScgN6xfF00yY6hT6wF44li9g+ELk3789KL8iM75F4SK3oYD
-	cp3n7C0wDbqPEWT9G9x+nDcWUdNw/06QdkoSodzIwUr0nFyJ2PIJBkbkxH5y/jIFXhVBSMmXB8U
-	C+MyodbAOOFqL9Vr6Q4W3GEa+/N05CMKneKFnGl74GHSGLYYI2K0z2j56LJPul6Ex/eR554E+OX
-	7xJ2Vwrya68GEwEZqcQAszHQ==
-X-Received: by 2002:a17:90b:3d4e:b0:3ad:1841:6f8b with SMTP id 98e67ed59e1d1-3ae8981e41fmr175456a91.37.1793309028748;
-        Thu, 29 Oct 2026 14:23:48 -0700 (PDT)
-X-Received: by 2002:a17:90b:3d4e:b0:3ad:1841:6f8b with SMTP id 98e67ed59e1d1-3ae8981e41fmr175434a91.37.1793309028255;
-        Thu, 29 Oct 2026 14:23:48 -0700 (PDT)
-Received: from localhost (c-67-168-198-145.hsd1.or.comcast.net. [67.168.198.145])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae6e99b267sm5559785a91.14.2026.10.29.14.23.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 14:23:47 -0700 (PDT)
-From: Rob Clark <robin.clark@oss.qualcomm.com>
-To: iommu@lists.linux.dev
-Cc: dri-devel@lists.freedesktop.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>,
-        linux-arm-kernel@lists.infradead.org (moderated list:ARM SMMU DRIVERS),
-        linux-kernel@vger.kernel.org (open list),
-        Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>
-Subject: [PATCH 0/2] iommu/qcom+msm: Use identity domain for display/GPU
-Date: Thu, 29 Oct 2026 14:23:41 -0700
-Message-ID: <20261029212344.346069-1-robin.clark@oss.qualcomm.com>
-X-Mailer: git-send-email 2.56.0
+	id 1xMXCq-0000000ANyW-1P8t;
+	Thu, 29 Oct 2026 20:58:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMXCn-0000000ANxx-3Zn6;
+	Thu, 29 Oct 2026 20:58:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2CAE01682;
+	Thu, 29 Oct 2026 13:58:32 -0700 (PDT)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0EDC3F673;
+	Thu, 29 Oct 2026 13:58:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793307515; bh=eGINbpk+u5dvPrarZzSg3shFUdSyR5pE2iLotRLHSCk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Jg3ya3oCDlJtfPw43F1dYsM67Or+gCyrsue5QCdurwpKyWWtwvnp3RvmiZ9Ynid6f
+	 iXK50kRZhgRaNStldTmZwtCpo9XV7zcXJIQFkujqsnRBs7R0sgV/HmWc4ZXcZO8oWA
+	 kvVh9562O4fhFDKMW7e1cT/sxwAvKVPukiz1ppBs=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	=?UTF-8?q?Iv=C3=A1n=20Ezequiel=20Rodriguez?= <ivanrwcm25@gmail.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Shuah Khan <shuah@kernel.org>,
+	Christian Brauner <brauner@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Yury Khrustalev <yury.khrustalev@arm.com>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Zong Li <zong.li@sifive.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Zishun Yi <vulab@iscas.ac.cn>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>
+Subject: Re: (subset) [PATCH v3 0/4] arm64, riscv: release shadow stacks on failed fork
+Date: Thu, 29 Oct 2026 20:57:00 +0000
+Message-ID: <179330742036.2531571.12603232226357262067.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261028154315.1272705-1-ivanrwcm25@gmail.com>
+References: <20261028154315.1272705-1-ivanrwcm25@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: 3uAwUPVAH-Imvuxe9xf_67bFkc3NaqeX
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDA4NCBTYWx0ZWRfXyf/A2F9nE9uQ
- +KJB8bSbW4AwAVmRZt3r43YFOI1TsWbI5nWHwPyNJGttG83ohQN23U2opVskKdf47z86AkdIgLO
- Wh2rpxVRj7QLNXVdAm77tZlnRca5aVDc37eka1mkjpuEtXpeCSH16SFtuFsop9UjrtfHoRdaeSi
- GWgQHbMaqYEoxIsSBnJdRja9ojHhfOaSdMId0MEfBGd8UXWROSb2qyRwaldW0387gsByhmVSW8a
- TDQZRtX4Y5Z6s/xnhetYB+8R8JSKOJinwIJdB43f1Af+TTucyLmHBKoWykR6Lg7yJ2+4lce9zK+
- ncCOFsBNJc8ka/Xe5u/C6dnDm5AdPBgVc2eEmdNipzR3BmegxF/9Z5t/PU8pRGCprkRugZ5oshj
- Pk9hqtpYoow5oWHfYXCARxDKUCRv6z68TF/68fpPKbhvrPsRCxc3tt+BhB+l9OhaTQIwjnMxpnJ
- cNb/w1rqXCUBdKIKqPA==
-X-Proofpoint-GUID: 3uAwUPVAH-Imvuxe9xf_67bFkc3NaqeX
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDA4NCBTYWx0ZWRfX0Y9WV4RUgEVM
- A+MZuuGZzWg2hn1pSoPDLf8IBKxzDn3gDJ5b4Ig9Wx9XkOFwJFqdB3ySrU4ubXbK4g/UVhXTTmY
- 7Th1//f7Axnrcy8lRBxLugfwmFJBWoY=
-X-Authority-Analysis: v=2.4 cv=NPtAaE6g c=1 sm=1 tr=0 ts=6ae3b965 cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=6Rn/7xRx7Ub4NEhlm8k1cw==:17
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=e5mUnYsNAAAA:8
- a=wtkIETcKxqgH55doulAA:9 a=rl5im9kqc5Lf4LNbBjHf:22 a=Vxmtnl_E_bksehYqCbjh:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-29_06,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 lowpriorityscore=0 adultscore=0 bulkscore=0
- priorityscore=1501 impostorscore=0 spamscore=0 suspectscore=0 clxscore=1011
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610290084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_142351_990479_E92FC08C 
-X-CRM114-Status: GOOD (  12.74  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261029_135837_939713_E3296C21 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,41 +91,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
 	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Similar to what is already done in arm-smmu-qcom, match display and GPU
-compatible strings to pick identity domain type for them.
+On Wed, 28 Oct 2026 12:43:11 -0300, Iván Ezequiel Rodriguez wrote:
+> clone3(CLONE_VM|CLONE_PIDFD) can fail in put_user() after copy_thread()
+> has mapped a shadow stack into the shared mm. copy_process() then calls
+> exit_thread(). arm64 and riscv did not implement it, so the VMA leaked.
+> 
+> x86 already frees via exit_thread() -> shstk_free(). Its separate TLS
+> leak is when copy_thread() fails after the alloc and skips exit_thread().
+> 
+> [...]
 
-So far, we have an "evil twin" domain kicking around after drm/msm
-attaches it's own domain.  Until now, that has been relatively harmless.
-But it becomes a problem with [1] when we start using sg_dma_len()/
-sg_dma_address() for setting up mappings.  Which is required to avoid
-problems with CONFIG_DMABUF_DEBUG (dma_buf_wrap_sg_table()).
+Applied to arm64 (for-next/core), thanks!
 
-The first patch is at least compile tested.. msm_iommu seems to be
-armv7-only.
+Only the arm64 changes, riscv can go through the riscv tree. I changed
+the commit log a bit on the first patch and addressed some nits Mark
+raised. As a separate patch, it might be good to add a kselftest for the
+io_uring worker thread and GCS.
 
-If there are devices with bootloader splash, we may also need some
-work on qcom_iommu_identity_attach() and/or msm_iommu_identity_attach()
-to put the context bank into bypass instead of disabling it?  Not sure,
-but that is probably going to require someone with such hardware at
-hand.
-
-[1] https://patchwork.freedesktop.org/series/175619/
-
-Rob Clark (2):
-  iommu/qcom: Use identity domain for GPU and display
-  iommu/msm: Use identity domain for GPU and display
-
- drivers/iommu/arm/arm-smmu/qcom_iommu.c | 18 ++++++++++++++++++
- drivers/iommu/msm_iommu.c               | 16 ++++++++++++++++
- 2 files changed, 34 insertions(+)
-
--- 
-2.56.0
-
+[1/4] arm64/gcs: release GCS on failed fork
+      https://git.kernel.org/arm64/c/078e122f3bf0
+[3/4] selftests/arm64: GCS must not leak on a failed clone3
+      https://git.kernel.org/arm64/c/f46be4da2cbb
 
