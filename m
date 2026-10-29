@@ -2,159 +2,111 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C756A606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:05:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01D4B606A335
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:07:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IuA5OoJz;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=g/sXfpDV
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z8nZeMBU;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nIiaLXMU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=w3X7l2x0wE8sUhK97eSrVISFacNHJWzooslkvugKGt4=; b=IuA5OoJzm4TeUZiWSUyrCjUoAM
-	d9lqjbLMv8gxPeIq29OM+VrSiUgI+v46d+ibmiylCdIRENNy12Z7JMVbZH8HSngne8AwO4BQaUP50
-	jppohOa8FEPwmNKJqXaR6+o4olGCjFhhRJwnsu58ccVMvatQCOTn47n5SIhU+yHTeceBc20E9JFdR
-	KYQ58X+8I33uBVWcVJFLY+2+cMBoTJiMiZF7iqHJZ0l2ciNEsRNeU3FBW8xLk9GwJcYAji32rJ+IN
-	TiLGgluxHczKRBQFyg3a5ntzwUK+tuTkoZws6gHlDMIEl+oWBJSfRDk8lM3qqdohqTAGQPltK4SxO
-	Ju8oSPsw==;
+	bh=qOF7wYrSiLyxDI9TfUlCsobhSuSMPq8w6f3swfnWMZk=; b=Z8nZeMBUY85yCH/ECl0RLxDEic
+	HOZYbSuTcRsKw0o9sB+RhFWajFabU5tLJhkG7XQ968S+seUHClYdS6vgxNhFCQ8x0djVvnjqQb9H+
+	jiu9t2BngMrmIf7o9NwiCTe8gZKj1XA7pm0Fk2smRxurK5p1aHYPcCmLHwoOuHYiXLadU2X7gmDUL
+	LDEptoQZMdDlQba/1ooMytCqL862K2PxHBDphIbZo/X9G4AmJpa5Ed2UOzV5FVkgQmF1yHMTa1P3y
+	EFRb4tMsnPD3GiXn5SdtvqdppjZjNpKRe5VbAx83YrfUKSobKAOPQzXgSksEhJcjDd0VZxBwL9H2f
+	k6CVbOIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMN0Z-00000008v4L-1EBW;
-	Thu, 29 Oct 2026 10:05:19 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1xMN25-00000008vFi-31xx;
+	Thu, 29 Oct 2026 10:06:53 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMN0V-00000008v3y-3I1l
+	id 1xMN22-00000008vDW-1uod
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 10:05:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Rx7q8oytfNuOujyrgUprIqqsqSXUmUdSqGcVJRyoMQNAAeiquLrF4kFQkJyFFTERaANAYW+sKWxPVOXBOafLAiczcH/wtSGKBoQgRzcXIibs2bmPS7UdEOx9Wdt/B134PmnZnIjY/EH3CN3Iv1uxmqlfCx9Lv3CLVmO2Va77LW689MMtg36Jdfe8VRj54VpXXb0/TR60TegRhn/eUHDqofLgtgG11zyAGxuTXNj7Zk7yGOsFEQbW6kcqgEkqUenmVHtL/gRLkWTT0Vn5QibAQLL/318lMGjm/1ZbI3uLkeNSiXV1S8gVhyW8daOEZmSjSexD4iTKY4djBcKEmWuykg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w3X7l2x0wE8sUhK97eSrVISFacNHJWzooslkvugKGt4=;
- b=BOjrWG+DWIBUIiFHR5BDtbH3us6LTCKK5hcZkFAMAHcrpZHQ+13vMkaUTA2C5vOjf5iFcP9OJB+3dAOwdVVDeb5RB5CjXbruRjYhHGxYtuW0LuGw8APigeyRL5M0Kmp44+CxfqEkuA+Qx8zoPat0MVb/9veAzEHfXhtJPwNGPC4ZAq6vCl4dvDYk2lWHexzliNllpG59EDWI8M0Oz4Ew+ijrm4nQ/kIG5Yn0PqKiiuM96o7Eywv3R8n9nx/IkW33QwgPIbnVW0Yvw3s1Ff5JX/pG6l1hOxC/0sRPK8N771UmUwrUHeW/Kp+UqsDDJt9D8ftxttP289fatvZoYo/LvA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=w3X7l2x0wE8sUhK97eSrVISFacNHJWzooslkvugKGt4=;
- b=g/sXfpDVCFf7AmfFuu8hPSga2CXDFs+qiQ6eaym9SVzlpa32FI0L7biCAno436Xa0jvZglxATIpLLNhOIRTbK7QZjMxqFsSybaUftwO0jLtcS/jN8bMLGqeIlNc58sEbmh+18EOweweSlq09oNgUHBFB0wG8lUJL1uAPk6hbJa0M7K9fATY0TC3vYzgVJSOOcEzSKINmgbKWRAKX4+aRxxjhPWRNhxFbHO89oXuU8gak4aYs+kUwut7Wxx2kDyrf81LHiliIELi02fTVUc7VWybEPUmLowdAH/ANl54/BO1Na/Ro9Q55o44C9M4n7B9QlwwGV+ZrxPdExEINVMWxpA==
-Received: from SJ0PR12MB8614.namprd12.prod.outlook.com (2603:10b6:a03:47d::17)
- by SA1PR12MB6774.namprd12.prod.outlook.com (2603:10b6:806:259::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.8; Thu, 29 Oct
- 2026 10:05:05 +0000
-Received: from SJ0PR12MB8614.namprd12.prod.outlook.com
- ([fe80::fe0a:6e6a:fe60:a43b]) by SJ0PR12MB8614.namprd12.prod.outlook.com
- ([fe80::fe0a:6e6a:fe60:a43b%5]) with mapi id 15.21.0569.007; Thu, 29 Oct 2026
- 10:05:05 +0000
-From: Shameer Kolothum Thodi <skolothumtho@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>
-CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	"joro@8bytes.org" <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
-	"rafael@kernel.org" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>, "aneesh.kumar@kernel.org"
-	<aneesh.kumar@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>, Gavin Shan <gshan@redhat.com>, Vikram Sethi
-	<vsethi@nvidia.com>, Anshuman Khandual <anshuman.khandual@arm.com>, Shanker
- Donthineni <sdonthineni@nvidia.com>, Mostafa Saleh <smostafa@google.com>,
-	"rppt@kernel.org" <rppt@kernel.org>, Thomas Huth <thuth@redhat.com>, Marc
- Zyngier <maz@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	"kas@kernel.org" <kas@kernel.org>, Kohei Enju <enju.kohei@fujitsu.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Ard Biesheuvel <ardb@kernel.org>,
-	James Morse <james.morse@arm.com>, Steven Price <steven.price@arm.com>,
-	Sang-Heon Jeon <ekffu200098@gmail.com>, Omar Sandoval <osandov@fb.com>,
-	Andrew Morton <akpm@linux-foundation.org>, Jinjie Ruan
-	<ruanjinjie@huawei.com>, Sam Edwards <cfsworks@gmail.com>, Douglas Anderson
-	<dianders@chromium.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
-	Chen-Yu Tsai <wenst@chromium.org>, Huacai Chen <chenhuacai@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Pranjal Shrivastava
-	<praan@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "driver-core@lists.linux.dev"
-	<driver-core@lists.linux.dev>, Sonang Patel <sonangp@nvidia.com>, Ankit
- Agrawal <ankita@nvidia.com>
-Subject: RE: [PATCH v1 2/8] firmware: arm_rmm: Add VSMMU commands and fields
-Thread-Topic: [PATCH v1 2/8] firmware: arm_rmm: Add VSMMU commands and fields
-Thread-Index: AQHdQNVBJHsoy5DyiEqk6ybDR0p9tLcTADyQgAAvooCAAGVzgIABAqMA
-Date: Thu, 29 Oct 2026 10:05:05 +0000
-Message-ID: <SJ0PR12MB8614E6DE095441E52698D7F9AB6E2@SJ0PR12MB8614.namprd12.prod.outlook.com>
-References: <cover.1789010941.git.nicolinc@nvidia.com>
- <0623345baaf550da1339e040b59f1fda902e3390.1789010941.git.nicolinc@nvidia.com>
- <SJ0PR12MB861491CC7A4C567D01F9B951AB6F2@SJ0PR12MB8614.namprd12.prod.outlook.com>
- <20261028123509.GA2541714@nvidia.com> <auJBF+hDkx+uKixe@nvidia.com>
-In-Reply-To: <auJBF+hDkx+uKixe@nvidia.com>
-Accept-Language: en-US, en-GB
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SJ0PR12MB8614:EE_|SA1PR12MB6774:EE_
-x-ms-office365-filtering-correlation-id: 1fa0b0e8-ed62-40bc-2a71-08df35a41ad0
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|38070700021|11063799006|5023799004|4143699003|56012099006|261009223027099003|261026121527099003|261026140227099003|261028144727099003|261022105027099003|261021121427099003|261022075727099003|261022113327099003|261021135927099003|10067099003|22082099003|18002099003|6133799003|3023799007;
-x-microsoft-antispam-message-info: 3NUSHqbU/6uEb+EBhoLbAo4/Y8go/BDEhkCF7/YQZSTxqDuCGzM5HopZn+aa5J7ilaQhCvNxEDG4vz/oXmz+9sCG3czAzV+OOUAZ+W8jnHeg/W5nngJzbMD8y6+aI+I/XpreK02cwj4hsYnDOfg5R6mbCGrf/eZ3m1nMwO6JGABzD1waKPFulEs7xyK/ilahYhWIXIZ1ElygPoHJk6MnN7JLz1k6cHZ0chM1We1okOo9fI7OdU4uHFl8IsavgceZN5nNHHUMI0CwR/yVK+RdwwIyOQdHwQJko4lYv6SZDLstIF2MNi2mLf3EazZuAfIiZOFdEltRMF2aQf8FPaarqXS66LfFPLG6pd62LBfHFt92s/Rkv2JFZnPiB8LF5ONUOJDgW+KW4lsUV+9p3tAC9POR2bbbkGiCcws2Mf4GvuDdFIbh4xGKPE5ln27No0H2FvnFn/ztzM7DNQieJhK8+aeq3VLh3Sog1A4FM405K9VYRXQkqa7+Asr6iFuFZ4sTTqB4AP5IjMVbGcYteNMKXE1sK1WpvsD+zIs3g563Kdj+qwznLsTgWHj5MWIpmU4xUWxcRzR63DQNfQbbqwjelzTucUzjCp+E6vQOzGd0rvLREXash83a/lwXcik0+tM6AH1OwzFKOcx6FTQ1bo9NOquFX6JEdqkpuWJB2JLgG30/dnUgV4DlyZ2V5xQvsyEjZ05LM8gN6jUpjw26OGJzFQ==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR12MB8614.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(38070700021)(11063799006)(5023799004)(4143699003)(56012099006)(261009223027099003)(261026121527099003)(261026140227099003)(261028144727099003)(261022105027099003)(261021121427099003)(261022075727099003)(261022113327099003)(261021135927099003)(10067099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?QvxSrsYbqLtBv764i/7ktSnWnlh27LdPeKzLP9q3tYZUpX7WHYSkhIBV5CAA?=
- =?us-ascii?Q?QP2livMVLWcF8gYl2VmP2kHOttZFyzkX8jArvK/EMbABPNlr+3sVvf9Q/gPr?=
- =?us-ascii?Q?673eyyW43jea3lUEyEeo0N4Y7d3+P0aHg1ioKvJk+MCpdZyYyPC9yXUMVjL5?=
- =?us-ascii?Q?g1PLvUKBCT9uFnNKZO2KgT0dxP87fhzx6GSpMfTPn8a4YCBjZSbuAg0UKKKk?=
- =?us-ascii?Q?ECL0DU23o/xIZ01GwmTPIusy7td24Z0dTdBUO81xAR5uyqhuFoxbF1nRURV4?=
- =?us-ascii?Q?QCEGSNBCC/end93O9NaCCyD1jrtXUDTlKRkOnBwURlNoCIKFtqO4l36sdnKd?=
- =?us-ascii?Q?tqxPvNTxPL/X5zD8dKuaQpmPsDjh6tb1MrJZkVt8uW0NpTB1mN4AH59JQRJx?=
- =?us-ascii?Q?tLsB0IsyfNbQmLaKA/yifqehYB32z3sW8Z3vuZ7X3TDvv/O5sODvY439QC17?=
- =?us-ascii?Q?xRnja0/Cib9YJHyptpqNoEkOWwlDCNUpHndMijZUfEaGJuTlHfCiH/hUqdUY?=
- =?us-ascii?Q?BLwpmjjJNSWt3jbuJZWoEKX9z27mDeH2Rw2wWhi/eJjdyToTenOEEgyf1nsP?=
- =?us-ascii?Q?KbD9Qy/3PFnSBdi71hiuleumQWKR4Rl8CmO2xX67m4MzYWCUfNi/Owd6K3GL?=
- =?us-ascii?Q?aE1FxFjxuONecmBgGLdp3JVQi3QQmMOKd4eZYlF1pj5s71ZuMWdN+Sa5SSiS?=
- =?us-ascii?Q?pEMzzWtTGJ9kTxrXP5xMsVKpeNcxdohewJ407dHVmU19B5EoGVBOzA+VHJo5?=
- =?us-ascii?Q?HCo87EsGLuSS3x2/4yVD5zdAMe3VuCkaVa0W8gWE3/NUj2Q1b/3MpbAidE24?=
- =?us-ascii?Q?Q9ebagH4hDpziszg35mdnuQLw9Up4IBP7rhI04160cIBLIfRSScew5ni/DFu?=
- =?us-ascii?Q?oTvGUVa24/o+RFF1xmqh9R69LYxAeX2s6cHmtwozqY87ei/XuLHJR1Z8F+21?=
- =?us-ascii?Q?gp6CybtlLWEHHzp4zDiWnLn/x/AUlRTcbqS/5o1s05+/4WfRTS97rKCLHC6j?=
- =?us-ascii?Q?6qJSIqxpr/cdmVZeT89UcNJkmAOt8YQqxtVDUTNpxHG3UQUpKKAr1ZqDDqM7?=
- =?us-ascii?Q?dwOpDDiqhOKz5c/FAhPhQ/uT1WJE5Nq7HEGRyIYGX5HRnNbDNuNtiEKBOQmo?=
- =?us-ascii?Q?VRYwV+Ti4KhvmjYQKg+eVnx0Xn0HIOQyjAOnFMA+8ilzLLK5IZnASJJqgqsi?=
- =?us-ascii?Q?oC6UWk0y8TMfkgsoV1VyHj3jznq9rdtNauKVRjmsWSFm4z5jKesHmUGEcOhH?=
- =?us-ascii?Q?l+UNVRwqPtQc6GNr9fj+8GM0DobB+f3+1QBm8EOxfqLqV+1WTe6osyJr7e9w?=
- =?us-ascii?Q?wG88BBNcmXLySMTYebDY6awZvkPLDe9hG8AJkRQsazE1bZOGXPcevz/XHkqg?=
- =?us-ascii?Q?YO5uQaGj+dJNjs25XHbz1LWM0inPrpieMwTuD09E/Po7/TPhU2tconMkXxkl?=
- =?us-ascii?Q?dVCGSnFcGNA3dLrTZ9ScT/HCCI9KyR725DZQzceo1oFm6cio7+fQb+b/rJK0?=
- =?us-ascii?Q?YYq+YP0yFmzanQtfsn8LD0EthfAI4utKREiYf408hEZg2eSsvdmvK0Ax/WZB?=
- =?us-ascii?Q?LIPCPkCJhTJ+xnSCNiceH2wltFA6BLTrpZ6an88jf4R48g2R9x8xR3RlvYcP?=
- =?us-ascii?Q?/3Bwp51eXFQS5Iwbt4aQ7K1c+WoB2tqDdXaI15x04vryqSlyHE0XXxuGKjAQ?=
- =?us-ascii?Q?AXMm5p1cFR3L4EkxPKvKaS0vcdRYtaj4pnUCMKmB6Lg+Z2937jutpITF66vL?=
- =?us-ascii?Q?5lTMediLSg=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 29 Oct 2026 10:06:52 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a7992e2f7dso16952475e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 03:06:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793268408; x=1793873208; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=qOF7wYrSiLyxDI9TfUlCsobhSuSMPq8w6f3swfnWMZk=;
+        b=nIiaLXMUl9kkwJua/WRZYe01bn5OIhNa+TDvdHnruRgscPA72h1i2dDve4cgFT0aQ2
+         IQzUY/cw/Y6VMYobtryQMKfg3LOrQIUdEjc3FRRweXgTOdesayeq1/w6ObbPK17y+Fkd
+         3MTl41YmNCxqtzpIZtHJoexauGT0VwADZSRWkfGA5P6B+g3jxsNU4orPMoyy96JpiDC6
+         VC8FD1i3lxsKSQKlyk//mzC6S7KGOb8qDoUiT3Dh4ZQ6DY9WMifdUSv1A+BiN3HXDqPL
+         K3xcgI+k8VlBRxMD+h26rLTZZ1fRtPlmL8pgRxRPGVhdeqNfofJmMRA+deC9NVnFfV1g
+         64Jg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793268408; x=1793873208;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=qOF7wYrSiLyxDI9TfUlCsobhSuSMPq8w6f3swfnWMZk=;
+        b=J1RNSHKSw+Vq2fFqfPLT5RXzKtMZJLe+8+1ieQvgibQHmyokUgPt/GzSeII/jeBvdW
+         +3DluVAYjs5mdvKfQuewaKvdt2s8NDoomL+YwKkdg90ivPtXk/Y5Ok5S2+hhzzm3WtBZ
+         iuAyVZ2ZwB9lvMP2ncbhJA6TSSCz0PPHblR1Vm2VZPU8F8WWMj9HjMCtkAevwJyJGXi+
+         QRrMTCl82iiftKMJGN4QFfhWjSqLV3+w89SMuWDNlciLEng4Qi2rUKlskq+ByN7v76sT
+         MLEzDbd1I1PNnp0x8wxggJ2Bu5UD6MdWb3SCMMf1USjfMPdfLvEFFCK/dDS+e4nF1X3Y
+         /fbQ==
+X-Gm-Message-State: AFq9FYIxvMergbpPKYDRrh01z0nnKB8VGhNmqifHAk0ERSdVOh/vainC
+	OniThMX7ly0nSR5WptRAE7owuf+KXxfMHIda+KPLwIH0M4RehcFC93J0
+X-Gm-Gg: AYBFou1DzIMNrcqWQxfH17TZKPEgN2S0zG231tjS1vPFYBNJ6MTu7RH7Dg4JsLu+rCw
+	PAnbJtjkbIHPfCdt1449e7d7pYOQpOgIGKh1OGq9j9KK1HNC6G/GPG3U5+yVuibpxwBr+V/bENe
+	FbTjPNjckC+YquQ22vqF6MAyYNQ0uoMegBIblVrhgrOrVpRdCHsUhsSz6Xv0JV53oA+ic6FPBYL
+	ic1QF7GW6tBTwVvJY3IdE3FiXVXrPu/j0frEHahvKKzVMO/R06UfQUjghmTf85IBPWzn4OmZPMY
+	QJj7vj0b33Fx/67aXWscTHjPb5N8tchagEcZoYN5FWrLMFDQ2eRoWOUJcz/30W5KHWd73nEVgKx
+	yYAozp7vqDV7gNJv2m/F/CQjjYYCu75f/31wpihwcW+Wy+62T19ipEDNIVr8D9LQMEykIdDxQOF
+	5n07MCIeshlc3jWaLHOVM/bY1yPC2tuhPp0oqzdimXKMYrT85/wJ4ibIIsFyRcX7zc0cK1BPC+4
+	nmWWEJ+lrKErIcQ5rOm02dW9JExRdb1qzfFfMAJjIyZ6wsmNO+TfuqVQJ9nSKRFeNf5MUDuwMWJ
+	XDTW1sRIPZZW7tPsyIYYj+eg+FQ2W25t9AfB9KTEsWrT8hQA16eEuWYWM8m/DYSMEsUPGYSy/qv
+	UU81t0+t5
+X-Received: by 2002:a05:600c:354f:b0:4a3:2f35:38b4 with SMTP id 5b1f17b1804b1-4a965ec95f6mr117257515e9.10.1793268407430;
+        Thu, 29 Oct 2026 03:06:47 -0700 (PDT)
+Received: from [127.0.1.1] (ip092042140082.rev.nessus.at. [92.42.140.82])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa7fdb7691sm53082825e9.11.2026.10.29.03.06.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Oct 2026 03:06:46 -0700 (PDT)
+From: Jakob Unterwurzacher <jakobunt@gmail.com>
+Subject: [PATCH 0/4] Suspend-to-RAM fixes for RK3588 + SPI-connected RK806
+ PMIC, enable PMIC sleep on RK3588 Tiger
+Date: Thu, 29 Oct 2026 11:06:22 +0100
+Message-Id: <20261029-dev-tiger-v7-4-pre-20261028-tiger-suspend-b4-v1-0-cb12621c1fb4@cherry.de>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR12MB8614.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1fa0b0e8-ed62-40bc-2a71-08df35a41ad0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Oct 2026 10:05:05.0555
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 9MSnh0MCJBqnkC4+tki6ht3sapeaDv+ob+zHeNGW/TCPWEIHEEsp9RM4RrY/guhvuZU3tSTbFHocC0Vm799l2Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6774
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKAa42oC/z2NQQrCMBREr1L+2oEk1lq8iriwyVj/JpZ8DULp3
+ Q0KLt/MY2YVY1GanLpVCquaPnIDv+sk3q95JjQ1luDC4F0YkVjx1JkF9YgeSyH+3S+3ly3MCVM
+ Pv58GRjemEA/SJpt90/f37nzZtg9J1T2zfgAAAA==
+X-Change-ID: 20261028-dev-tiger-v7-4-pre-20261028-tiger-suspend-b4-13b6ec08d2c5
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Joseph Chen <chenjh@rock-chips.com>, Lee Jones <lee@kernel.org>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-input@vger.kernel.org, mfd@lists.linux.dev, 
+ devicetree@vger.kernel.org, 
+ Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793268406; l=4078;
+ i=jakob.unterwurzacher@cherry.de; s=20261029; h=from:subject:message-id;
+ bh=whpYEratljGVTl7QjkhsaCvIr2bv7FesbGf4wTNyJws=;
+ b=Yjo1Vrkco613l9dyLnzMqeGxox5caUTel5ElHqC2L6eZEKaikGN7q43RGAGZwNloLUj1zWdDJ
+ d8fDrN+nWEGBzxgvmtwK4wP6dL1VSzL/h4dTP33hHfLhLImeky8gg6B
+X-Developer-Key: i=jakob.unterwurzacher@cherry.de; a=ed25519;
+ pk=0v1L7pjG4d7PcaYPMOmzP4SjaRtnB+8bMzZLZCRzB8I=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_030515_855494_0CE102F9 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20261029_030650_535672_72AF93BE 
+X-CRM114-Status: GOOD (  20.97  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -166,89 +118,106 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+This series, together with a few out-of-tree patches (see below), makes
+suspend-to-RAM on RK3588-Tiger work, down to a power consumption of
+about 0.4 W. Patches 1-3 apply to all boards with an RK806 PMIC
+connected via SPI, which includes most RK3588 boards.
 
+Patch 1 ("Input: rk805-pwrkey - enable the wakeup interrupt during system suspend")
+arms the power key interrupt as a wakeup source, so that the
+power key can wake up the system. This is done in the regular suspend
+phase, because the SPI bus to the PMIC can no longer be used in the
+noirq phase.
 
-> -----Original Message-----
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> Sent: 28 October 2026 18:38
-> To: Jason Gunthorpe <jgg@nvidia.com>
-> Cc: Shameer Kolothum Thodi <skolothumtho@nvidia.com>; Catalin Marinas
-> <catalin.marinas@arm.com>; Will Deacon <will@kernel.org>;
-> joro@8bytes.org; Robin Murphy <robin.murphy@arm.com>;
-> rafael@kernel.org; Danilo Krummrich <dakr@kernel.org>; Marek Szyprowski
-> <m.szyprowski@samsung.com>; aneesh.kumar@kernel.org; Mark Rutland
-> <mark.rutland@arm.com>; Greg Kroah-Hartman
-> <gregkh@linuxfoundation.org>; Suzuki K Poulose
-> <suzuki.poulose@arm.com>; Gavin Shan <gshan@redhat.com>; Vikram Sethi
-> <vsethi@nvidia.com>; Anshuman Khandual
-> <anshuman.khandual@arm.com>; Shanker Donthineni
-> <sdonthineni@nvidia.com>; Mostafa Saleh <smostafa@google.com>;
-> rppt@kernel.org; Thomas Huth <thuth@redhat.com>; Marc Zyngier
-> <maz@kernel.org>; Ryan Roberts <ryan.roberts@arm.com>; kas@kernel.org;
-> Kohei Enju <enju.kohei@fujitsu.com>; Shaopeng Tan
-> <tan.shaopeng@jp.fujitsu.com>; Ard Biesheuvel <ardb@kernel.org>; James
-> Morse <james.morse@arm.com>; Steven Price <steven.price@arm.com>;
-> Sang-Heon Jeon <ekffu200098@gmail.com>; Omar Sandoval
-> <osandov@fb.com>; Andrew Morton <akpm@linux-foundation.org>; Jinjie
-> Ruan <ruanjinjie@huawei.com>; Sam Edwards <cfsworks@gmail.com>;
-> Douglas Anderson <dianders@chromium.org>; Florian Fainelli
-> <florian.fainelli@broadcom.com>; Chen-Yu Tsai <wenst@chromium.org>;
-> Huacai Chen <chenhuacai@kernel.org>; Thomas Zimmermann
-> <tzimmermann@suse.de>; Pranjal Shrivastava <praan@google.com>; Ashish
-> Mhetre <amhetre@nvidia.com>; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org; iommu@lists.linux.dev; driver-core@lists.linux.de=
-v;
-> Sonang Patel <sonangp@nvidia.com>; Ankit Agrawal <ankita@nvidia.com>
-> Subject: Re: [PATCH v1 2/8] firmware: arm_rmm: Add VSMMU commands and
-> fields
->=20
-> On Wed, Oct 28, 2026 at 09:35:09AM -0300, Jason Gunthorpe wrote:
-> > On Wed, Oct 28, 2026 at 09:49:53AM +0000, Shameer Kolothum Thodi
-> wrote:
-> > > > +static inline unsigned long rsi_arch_dev_activate(phys_addr_t base=
-,
-> > > > +						  unsigned long dev_type)
-> > > > +{
-> > > > +	struct arm_smccc_res res;
-> > > > +
-> > > > +	arm_smccc_1_1_invoke(SMC_RSI_ARCH_DEV_ACTIVATE, base,
-> > > > dev_type, &res);
-> > >
-> > > These calls leave unused input registers unspecified, whereas
-> > > DEN0137 bet3 B1.2 marks them SBZ. Could we explicitly zero them?
-> > >
-> > > "On calling an RMI or RSI command, any of X1- X16 which are not
-> > >  specified as input values in the command definition SBZ"
-> >
-> > That seems too broad, Linux doesn't even support the x8-x16 inputs in
-> > the macros. I think the spec has errd here.
-> >
-> > Requiring zeroing of x0-x7 is sort of reasonable. Any future use of
-> > x8-x16 (including outputs) should require a direct opt in of the OS to
-> > indicate it supports this bank of registers.
-> >
-> > Otherwise you probably need a new macro helper for this protocol..
->=20
-> We could probably replace it with:
-> 	arm_smccc_smc(SMC_RSI_ARCH_DEV_ACTIVATE, base, dev_type, 0,
-> 0, 0, 0, 0,
-> 		      &res);
->=20
-> This should specify those unused inputs.
+Patch 2 ("mfd: rk8xx-core: keep the PMIC interrupt disabled during system suspend")
+keeps the PMIC interrupt disabled across system suspend, so that its
+handler does not run before the bus to the PMIC has resumed.
 
-Or we could use arm_smccc_1_2_smc() with zero initialized registers, as
-rsi_attestation_token_init() does. I think that would cover X8-X16 too.
+Patch 3 ("mfd: rk8xx-spi: add system sleep PM ops")
+hooks up the existing rk8xx suspend/resume callbacks for the SPI
+variant, which so far lacked them.
 
-But other RSI wrappers don't do that consistently, so it's fine either
-way, I guess.
+Patch 4 ("arm64: dts: rockchip: put the PMIC into sleep mode in suspend on RK3588 Tiger")
+configures the RK806 PWRCTRL1 pin on RK3588 Tiger for its sleep
+function, so that the regulator suspend states take effect. This lowers
+the module's power consumption in suspend-to-RAM from 1.09 W to 0.43 W.
 
-Thanks,
-Shameer
+The patches do not depend on each other and can be applied through
+their respective trees.
+
+Testing
+-------
+
+Tested on RK3588-Tiger on the Haikou baseboard, on top of the v7.4 merge
+window (a8530b69fc4dd): 30 consecutive suspend-to-RAM cycles, each woken
+up by the PMIC power key, all resumed without errors in the kernel log.
+USB devices (a SuperSpeed hub with an Ethernet adapter, and its
+High-Speed part) stayed connected across suspend.
+
+Out-of-tree patches
+-------------------
+
+To test this series, out-of-tree patches were needed and used:
+
+1) Upstream TF-A does not complete suspend-to-RAM on this board yet, so the
+tests used Rockchip's BL31 (rkbin v1.47), configured through a small
+out-of-tree driver. The plan is to get suspend working in TF-A instead.
+
+2) The inno-usb2 PHY has to be resumed when its 480 MHz clock is enabled,
+otherwise EHCI/OHCI resume hangs. This is addressed by Sebastian
+Reichel's inno-usb2 series [1].
+
+3) The GPU and NPU domain supplies were kept always-on. genpd powers
+these domains on in the noirq resume phase, when their regulators (on
+I2C/SPI) cannot be reached yet. I'm not sure what to do here, yet.
+
+[1] https://lore.kernel.org/linux-phy/20261001-phy-rockchip-inno-usb2-clock-fix-v2-4-e01bf509359e@collabora.com/
+
+Known issues
+------------
+
+PCIe devices do not survive resume; this depends on system PM
+support in pcie-dw-rockchip [2].
+
+[2] https://lore.kernel.org/r/20260316-rockchip-pcie-system-suspend-v5-0-5bb5ad37d643@collabora.com
+
+Tool use
+--------
+
+These patches were developed with an LLM-based coding assistant (Claude
+Code). It ran the suspend/resume tests on the hardware, analysed the
+kernel logs to find the causes of the failures, and drafted the code
+changes and commit messages. I reviewed all changes and tested them as
+described above.
+
+Signed-off-by: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
+---
+Jakob Unterwurzacher (4):
+      Input: rk805-pwrkey - enable the wakeup interrupt during system suspend
+      mfd: rk8xx-core: keep the PMIC interrupt disabled during system suspend
+      mfd: rk8xx-spi: add system sleep PM ops
+      arm64: dts: rockchip: put the PMIC into sleep mode in suspend on RK3588 Tiger
+
+ arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi |  6 ++--
+ drivers/input/misc/rk805-pwrkey.c              | 42 +++++++++++++++++++++++++-
+ drivers/mfd/rk8xx-core.c                       | 19 +++++++++++-
+ drivers/mfd/rk8xx-spi.c                        |  3 ++
+ include/linux/mfd/rk808.h                      |  1 +
+ 5 files changed, 66 insertions(+), 5 deletions(-)
+---
+base-commit: 8f6620b65ae2458c36cbc9569a26fc2d777593a3
+change-id: 20261028-dev-tiger-v7-4-pre-20261028-tiger-suspend-b4-13b6ec08d2c5
+
+Best regards,
+--  
+Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
+
 
