@@ -2,105 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F08F606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86BCC606A32C
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:34:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Cv2xlMde;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=O9R9JZ2z;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=eLDmVaKH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UdaK5o3s;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Cgfg+4WL;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=kjHtQijG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6ZgcBYpVxbMnsK6nHBTY3WX9f6ciMQ447QxCKtwKiOo=; b=Cv2xlMdekiP0dP
-	lGQsOZwy6DAP6AwzpZPl0In9h9XzsjCnQT9LAqDJc5vLBNZruOL9OAw241/v+i4jtuC/FeUnIfw06
-	V1jAWrYTdWYvRziLmNAjW4e8tu1f5bsxkWjTNzmwxBzIcSYKpLtbyrZXCM73VLdnxd3/fed/LzKuB
-	FXM4b6uSKY0n9dDEl/y8CY16WtsfaSsC+tfV04IDZkLf+cg/TXmDkWTDEBZgSTa7z33qgVqo1t51R
-	/fbeBNTEYCpJkIR8GbKTKewGwfyyXcF8Lp39n8cr8UTMxRNo7pECqB6uPblDK+SGqscoE47JhQ/1P
-	54DV/0YBw4HaYT5gpwvA==;
+	List-Owner; bh=zuYvl9RTPGfpKJSHddHmzLZeYj09elzQOBQVTivLk3E=; b=UdaK5o3sC9Y/AK
+	puo77dR0t9CWwwzrZpTJfKgkxoU1BLWjSggVaPinIxLdWiNzYRRmhCFftCr2phB1zLtPPEYB14/fj
+	YEtupmJcdsJKZIDBh0tpKnpR2HeEXdWlXt42In7QfFXViWQdfE/IraLHnV2T+NfAwXgIpn+ViPWA8
+	PWMtAsHd/UcmVNzFDVVBgTQG5hO2HsD4E5iE6FE8IBa4aIswPpbla5OBKapv0NtvzJtCB7fsISFUw
+	j4onXiw08pqpp7LD2xL4z5dWjIx9ZPhDGySwGWyoL4Dwx7y+hlU9xZunITbUs8JkKl5AqqqhKmcvw
+	Vy5hgZxCYAvNd6vVp43w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNSj-00000008zIo-1NXl;
+	id 1xMNSj-00000008zJ8-1shL;
 	Thu, 29 Oct 2026 10:34:25 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNSd-00000008zHN-0Als
+	id 1xMNSh-00000008zIU-2wvE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 10:34:20 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69T8vSES2273523
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:34:18 GMT
+	Thu, 29 Oct 2026 10:34:24 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69T8vDSl3824980
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:34:23 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	6ZgcBYpVxbMnsK6nHBTY3WX9f6ciMQ447QxCKtwKiOo=; b=O9R9JZ2z8+NfTTo3
-	u6o0ybGnyy3CXUIWcZ7CCm9tvr5hGfB6qsjURK0qObJWJzlngf5KJe4F/AFmWBZ5
-	Ec6DAhL+2TpQXq6y+4uJbr4Wm8OxRce3sk3kbgIO5gZVCWlXbFmq9bh7KssPnWsr
-	DBQq6ZZTiIXByumDSGddIZ8VtT6a6mMtQEMjNGis3nMrEIvM+iTXX3LGiF8vb6bp
-	E+83kg/WB+o9lTPSiEgDJqRQp+S+S8IimXkDesE+TjzAJsuwGdad296VyK33lMDI
-	kDfP2rVoHJQMtRCNXqeN2rpzGhQ5kGuzzM5BXzNI+kf5h4Nj1Q3OIkNlRFjOo8xL
-	6XdXrA==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hm31b0d35-1
+	zuYvl9RTPGfpKJSHddHmzLZeYj09elzQOBQVTivLk3E=; b=Cgfg+4WL7srhGpoK
+	mGLled2a+KpGn0JBvWA4rJyoWfeLWheEO3PxAvIvcP3xD+r6Zgc6DdT7jtW5IOIS
+	r9/10S5NpnUvJf/jfwB4iJr1cH+YCOukWt+GOZ3XtIGlesg34Et5byYr/5VHxSvO
+	NLdn444O9WJbGnL3xF09/KTppNYl3oYHeCfImS2CmBSv8G0s93CI9BQDer0fAZHD
+	2FiwzNkBHqM2Io5KQFcQpDnqbu2IdM84mYU8ZO7KeRCtmwnBIqZig+s+bzC5clHG
+	BBgJKy4oJTe9i3VWb3w3BvH6tp/7UGSZjFzC9n85Q3iTxtDbelRmOzNa0ZPWQMH7
+	+nJB/Q==
+Received: from mail-vk1-f200.google.com (mail-vk1-f200.google.com [209.85.221.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hkut3hy28-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:34:18 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93cb7f9bb86so401895385a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 03:34:18 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:34:23 +0000 (GMT)
+Received: by mail-vk1-f200.google.com with SMTP id 71dfb90a1353d-5ec3e192929so525648e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 03:34:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793270057; x=1793874857; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1793270062; x=1793874862; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6ZgcBYpVxbMnsK6nHBTY3WX9f6ciMQ447QxCKtwKiOo=;
-        b=eLDmVaKHpM/iCA4GqUZXIwceie8fn0/0ZCb4f1LCAFKT3JLY13xLA7Wh9szVoyiWkQ
-         wtiDGhod9DAzaW/hcJYxEmLEinZyZAoOx6UFvFlaszFKbD/Jk94LSbZ8PhEZUyubVsKC
-         buvDfb5Irpjxw+t/Et+JqZWY/QBoycluC6CzbOpApp+uo6ufofc+AQ8IjQS4eHXNBgK1
-         iZ7HXRcH0P1rB5bAz8koTTrw3EmJlXJcvdwHEkQdji3/BqVOorBWxMScBpG7bPyWTxpG
-         t2A+vPFkMFyXBNRyjbXpC0fl3qPxo6uE6RMXYewyAvIfTXA9mP7IVPhjUJeTjS6z+udl
-         e8eQ==
+        bh=zuYvl9RTPGfpKJSHddHmzLZeYj09elzQOBQVTivLk3E=;
+        b=kjHtQijGUUaVNFa0/TOfQ2m5ZH0zpsmdsc2vRO0sdPLaOmpG5khKnA/W7hOmMu2Hg8
+         3DKqbyH1Dfw+8pvuOAm442EvIg4hMUprDyCXWbIiHIGVcbIXAMgil8bt4NWN8VijyxKz
+         QBuV9MwnIeFSJCR/x0Hw/xI4BHkLD5FJC7BF4uSayUvNrPJZHATyCZiXDjk8KW0GpPbA
+         DKH1FX/RcergIBLr0wgJMLLUL9QOAzQ/fgU303SQgQqCX7Pt7hOQ1Q6VPe0TjDQ1xgH1
+         7QVujpOh9HSKdBtWybvrdRGzn6lZdiGRO3iQErZtdhmS35td/8PPQjX8L6suuDNv7hGx
+         o3+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793270057; x=1793874857;
+        d=1e100.net; s=20260707; t=1793270062; x=1793874862;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=6ZgcBYpVxbMnsK6nHBTY3WX9f6ciMQ447QxCKtwKiOo=;
-        b=OL1qpcQitWYvXNiqqW4z+O6psCcbtqDeVmgJ8yTl5PiANFZdlliXHWKGDKP8RfGiny
-         YpyUwiLZEb6vfs4QGow9sNgZW+tQIOrkm3sQBFzCgMpRonzpJVu6I+EPRSJUJpG3FvRr
-         8v5qwco04bxPAAw+ub08wnDspL7FVj1h+a9EUjmZ67bRJo8O8+0Efk8MmnTGr9kECut7
-         xwf/XoRMWZjjjQN0ITbbkaVFLNRgwvDj7+P/+ab6xKIL8QZyLSUEHjCEfZQ0ZA0upOmL
-         7sCdvWQ0hBfh8K5+HRR7KOkrX3vrUTa81anWE5P4Sshp9c9q8J2TuJNQkrQ/5q1gQGQV
-         5RWQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzguCK+Q3RDU73Ux7/DOMyWSq6WRJx1geg4KJciodpdfKmKNT5l0+K3OnNmwNIxhfzwdbCQjHJQRrOVBsTh10xK@lists.infradead.org
-X-Gm-Message-State: AFq9FYJk83vz8tS3RkkHK40GGK7gRIsGIo1yvBlzstnj0bhhfZuRIklm
-	TN+wttLxMxc1BH4Y1QT5r4Y4RnHm3fuQLE2S7JvI+Uy9eIpiU1POAP5XT7Tx5PQvf+7g+TbvakO
-	bP/aJBzKTBUB/ixDLxMRRBm8EBEwZNMOWfvAHwnpflaU3z4K+feVqMqgue5oKY/0i1wyqzazfC8
-	/0lQ==
-X-Gm-Gg: AYBFou0Dqfir+HosMD5g3Q2kQ0TDHpwRtjE7Qegq/+/GBWw4F7085PIO0sYb8S3tr4Y
-	z7hKu68D5PQQ17yqDMGJzvWJwm7DBVuMH9b37nH8a6oPNvIFdns34pxBJ6kiXEdhNfYwH2jVyD6
-	XEwX7DRn0JVXvt2GXGhk2f7mKI7ZKvY/50kAi7VVrAahofP980vlknOS7BcsZVUav8KNLh9eoeB
-	I3ZVGvkuTsscBKOgs5UZj190zZnYsqHO58R5QApReHNVImHGanXdgU3frJjk+mo1039EXl161oF
-	BwSPyNlfA782ihVreXMQrS/y0+CqpxlI0BkGS8NA+0gpdHSbOSq1wXCXZt08VcVGq0uWCFuwNly
-	Abdq9P7Ey23kwOifnuPiTBV7smN1+ke3vHkaqvvYNPVTLKt9RfqCHwpvIDjZTKwMRpblA6ARgC8
-	ibHkxis4HOt82+40xQjIR2WA==
-X-Received: by 2002:a05:620a:a40c:20b0:944:941:c060 with SMTP id af79cd13be357-9440941c610mr516893385a.15.1793270057175;
-        Thu, 29 Oct 2026 03:34:17 -0700 (PDT)
-X-Received: by 2002:a05:620a:a40c:20b0:944:941:c060 with SMTP id af79cd13be357-9440941c610mr516889085a.15.1793270056548;
-        Thu, 29 Oct 2026 03:34:16 -0700 (PDT)
+        bh=zuYvl9RTPGfpKJSHddHmzLZeYj09elzQOBQVTivLk3E=;
+        b=caZ9LYuK6uB3F6yQZPP+imGJ0aDxrRvAkwa0MuD3nZMWmLR9+LWOg+e/G0ddKVN5cR
+         jUzCDkBCYk4aHxqhqQ+qqs4ATA0tMYH8Twm8vHyVJf2N9JHXtOPiA6Gvchc0eFBv/9x8
+         MBJQjtiisWsmJHUpkgTb6Mvia6lFMQqPNybMD6DaZSyvJEaoyuy+2XVC71sL76BriMxM
+         wAnTnQhS5RtoAvAp8yiXItFPz7NUUHTTyUghM5M/76rk58zs8gTBb493wMcohsjT5uxI
+         TEQqo7G4yVRPgjqLpywbrbUVFoLCj0k5LIhlHc88h0IrdAB499y5umpMSGigVXyE0xQA
+         Kt+w==
+X-Forwarded-Encrypted: i=1; AKwUvBzQADIkgi2lI/WMyYJPVi1bpLcnrOKX+eSD1Bikqx9arsRNU4wOZapJi0VPy7WXjfbsS4l72xms92l4o0SSw9/7@lists.infradead.org
+X-Gm-Message-State: AFq9FYIMycfnboHKluEfL/iT+OI4EAgbTZrDyk1Lldo3L+yDXh/DAmiw
+	/EWe4NKdC+N+tXxu2wTnusitzgY8j8/K76vomJibJR1YV2K1WA8NMkmOqGaqmeYqX1M9jQeTJ55
+	2+5+d000yVUzPUEJAmBvzJJUhk88PaMUYXI1vEYv6ORKoFW4CRcBH1kjMRB9seHwJcP1RgfaNkX
+	8M7w==
+X-Gm-Gg: AYBFou0krTfYkNnUfTVJrfp7zfkOkAt6ZA/SfYejG/RT67doOad9Jy4z4iCXpepdBHe
+	GuDm7xGfIGnRx6+IYu8AAwzZE/3JASQUtLRpR3V0AEXsQ40QghcYs6pjH/n/R3uTSfmK+LlLyaz
+	4JIVoLQK8YKHEWKmvFCt74FD9/TCmq1yDlaGcuA4mWrIWOZaajOtNiMq60s2OU8vwobAjX2mzyw
+	6krGXOne1Elsd/59Ho8YriB8I9pYB8Zjgdqs4RQWRfrVrGGgtJIFT1auCDBUjs5uE0r0782mX5V
+	JOdGYEytT4yIRi+cb/PGgaVMYVY6HJy+urgAFDTrCQgjI7oQgcApHjefZ3zU30KNBUEmy7kRHv5
+	WW694FNu9/8EPwuGHVz8ph86ttY8p8uk3hzIvWXhvmgY2e9dLrshsxnWLkRzo+2zKC9dlzDAnLm
+	IP83dbUiAU4QTMaTEfUE5Iyw==
+X-Received: by 2002:a05:6102:c4b:b0:7b3:8f0a:f76c with SMTP id ada2fe7eead31-7d03a50d0c9mr2037790137.13.1793270062096;
+        Thu, 29 Oct 2026 03:34:22 -0700 (PDT)
+X-Received: by 2002:a05:6102:c4b:b0:7b3:8f0a:f76c with SMTP id ada2fe7eead31-7d03a50d0c9mr2037769137.13.1793270061508;
+        Thu, 29 Oct 2026 03:34:21 -0700 (PDT)
 Received: from localhost (net-93-144-6-81.cust.dsl.teletu.it. [93.144.6.81])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4ab69b54742sm19352255e9.15.2026.10.29.03.34.13
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ecdf9bdsm32219567f8f.55.2026.10.29.03.34.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 03:34:14 -0700 (PDT)
+        Thu, 29 Oct 2026 03:34:17 -0700 (PDT)
 From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Date: Thu, 29 Oct 2026 11:33:55 +0100
-Subject: [PATCH net v5 1/3] net: stmmac: initialize est_lock at probe time
+Date: Thu, 29 Oct 2026 11:33:56 +0100
+Subject: [PATCH net v5 2/3] net: stmmac: pass the desired EST enable state
+ to est_configure()
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-stmmac-est-fixes-v5-1-85b830a795a9@oss.qualcomm.com>
+Message-Id: <20261029-stmmac-est-fixes-v5-2-85b830a795a9@oss.qualcomm.com>
 References: <20261029-stmmac-est-fixes-v5-0-85b830a795a9@oss.qualcomm.com>
 In-Reply-To: <20261029-stmmac-est-fixes-v5-0-85b830a795a9@oss.qualcomm.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -117,36 +118,36 @@ To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDA0MCBTYWx0ZWRfX49kqh2SqcjCY
- 8/C8pFciYbjfAvZb53aA2Z2xJNZrvGOPi4Xp5O5oRHXbEWwrygcQ/mBPoA1qE8p/elsC/GvJhc2
- ipRrpE4w9GYrxoXe95zu1wcc9j0f/to=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDA0MCBTYWx0ZWRfX7ngz18QyZMa+
- NDNMfZHk7I0z/iC2zwXDDCLDtIFL3iasO7WuxxddQzwez1kn3BnhDlCrMhrYofoqEgK1I+mfJvq
- gYmlQTVBMkXype5cPetGLAlgxhMItZN23H5lCVu64HzLGHs16UTMfb1JkDIyq7HVq2KB3mjo16Z
- 0fdojpJxeuqB+DWgtlAy/Jqw+rEhdYOhM8hwsTDpRuUdtcyOMiZ+uvgADWMFrF/idT23OuOLAo2
- 7n5df4BBMqPrweFcXA7zxO/nwoE3ZkSXDI32h/BsQ+Pd5LB8AOQYAldayMWDSeVCn3k37FKu3r7
- 4JShy+D/wmqq1NXfcln0sde4MGJkYTHAXx+vHwTrppfwjjRDdIkEJN9joVB65AG4JK3DTi5/t/u
- YrT4cWEWyIuQu4TFtnonFvgt7hZ1EDXJEue/Iva6Esu87rzob8s0yeM2EGXqB5jKDj+a1+5xC3i
- Xql3Jx2Eu2xrGMYgnjA==
-X-Authority-Analysis: v=2.4 cv=A8T5rKWG c=1 sm=1 tr=0 ts=6ae3212a cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDA0MCBTYWx0ZWRfXwSpFrnlxrjOb
+ Ff18JlwuPZAgSvHKP9XHPK4nwBOv3T/zAwyavAIGvrtzKpbyRlWMXgOsmsPnJLC06fS76qWdX4f
+ Y6eFALzhXQGjwVqZFVzq5FknKC0YbGE=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDA0MCBTYWx0ZWRfX416aCbGvI0S9
+ lV4Ky36f406r4d9AxPZ2lQ+lxvfSjNBv0+o9b0lN/es2UnAFlt6pCaYEXeg96v5WH2WGm+SuLOm
+ Cc+XVoaXej5wsLdWvIC13jvlMfjA6rvmjVIm7JsZLxGaOiXOihuAv1RCUlqeskO4I5EGgqGhJuM
+ xAooGbzaKr2aITDooyjfNeiMtTd8zC+r55jM1XwtHdT0NLja3IjrbccJGOed/eO4XmwTlBDFTYp
+ scsfEdcgtIJU/46KwQFInnI5K+VrK7hbPnURVsEZhczYrYhK4vnYOWFiAFBuJd2CteWSBatLclf
+ 5OMg0LX77n+23ZpjI/UEqLqFXAdmNVNJug/9MQ980Ws7VXXSe6u6aV6SeKuaqasZWqitHLUrIGX
+ tcx5mM5g8eWkvMXcuRkGoNPRxbBBUqGvXO7i1bOsmdJ+hGt+W+SMprbW0p+de1mljZM1sRbM/Pc
+ +IkqpyV2hBXSQYxG4Lg==
+X-Proofpoint-ORIG-GUID: BhxbnsI8nY7IaDQ_EGeWG9vuLL1rJRWE
+X-Proofpoint-GUID: BhxbnsI8nY7IaDQ_EGeWG9vuLL1rJRWE
+X-Authority-Analysis: v=2.4 cv=HYSB3SE8 c=1 sm=1 tr=0 ts=6ae3212f cx=c_pps
+ a=wuOIiItHwq1biOnFUQQHKA==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=P-IC7800AAAA:8 a=EUspDBNiAAAA:8 a=122XcF769uAcj9t3WpgA:9 a=QEXdDO2ut3YA:10
- a=PEH46H7Ffwr30OY-TuGO:22 a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-GUID: 0GyFsl33tP5WYmU4T0-OsIOpQyIttRkV
-X-Proofpoint-ORIG-GUID: 0GyFsl33tP5WYmU4T0-OsIOpQyIttRkV
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=P-IC7800AAAA:8 a=EUspDBNiAAAA:8 a=Lt0KCD4LekEKBd4wozwA:9 a=QEXdDO2ut3YA:10
+ a=XD7yVLdPMpWraOa8Un9W:22 a=d3PnA9EDa4IxuAV0gXij:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-29_03,2026-10-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 spamscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
- malwarescore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0 phishscore=0
+ phishscore=0 priorityscore=1501 adultscore=0 suspectscore=0 clxscore=1015
+ spamscore=0 lowpriorityscore=0 impostorscore=0 malwarescore=0 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610290040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_033419_089436_7AF632C3 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20261029_033423_775702_929FE5B0 
+X-CRM114-Status: GOOD (  19.67  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -166,59 +167,111 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-priv->est is allocated with devm_kzalloc() on the first TAPRIO REPLACE
-and priv->est_lock is initialized in the same place, which ties the
-validity of the lock to whether TAPRIO has ever been configured. The
-lock is also never destroyed.
+Pass the desired EST enable state explicitly to est_configure() instead
+of having it derive from cfg->enable. This decouples the hardware
+programming state from the priv->est->enable flag, which records whether
+the taprio offload is attached.
 
-Initialize priv->est_lock in __stmmac_dvr_probe() next to priv->lock
-and destroy it in stmmac_dvr_remove(). This keeps the lock valid for
-the entire lifetime of the device, independent of the TAPRIO state,
-and removes the lazy initialization from the TAPRIO configuration
-path.
-
-No functional change intended.
+No functional change intended: the callers keep toggling
+priv->est->enable around the EST programming, as before.
 
 Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 ++
- drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 2 --
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/hwif.h       | 2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_est.c | 6 +++---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 4 ++--
+ drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c  | 4 ++--
+ 4 files changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 9ded31150fbe..2163e79fea9a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -8213,6 +8213,7 @@ static int __stmmac_dvr_probe(struct device *device,
- 	stmmac_napi_add(ndev);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index b2e557788803..8ae95e91a36a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -620,7 +620,7 @@ struct stmmac_mmc_ops {
  
- 	mutex_init(&priv->lock);
-+	mutex_init(&priv->est_lock);
- 	rwlock_init(&priv->ptp_lock);
+ struct stmmac_est_ops {
+ 	int (*configure)(struct stmmac_priv *priv, struct stmmac_est *cfg,
+-			 unsigned int ptp_rate);
++			 unsigned int ptp_rate, bool enable);
+ 	void (*irq_status)(struct stmmac_priv *priv, struct net_device *dev,
+ 			   struct stmmac_extra_stats *x, u32 txqcnt);
+ };
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+index afc516059b89..f15d4d046aa7 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+@@ -26,7 +26,7 @@ static int est_write(void __iomem *est_addr, u32 reg, u32 val, bool gcl)
+ }
  
- 	stmmac_fpe_init(priv);
-@@ -8346,6 +8347,7 @@ void stmmac_dvr_remove(struct device *dev)
+ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
+-			 unsigned int ptp_rate)
++			 unsigned int ptp_rate, bool enable)
+ {
+ 	void __iomem *est_addr = priv->estaddr;
+ 	int i, ret = 0;
+@@ -62,7 +62,7 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
+ 		ctrl |= ((NSEC_PER_SEC / ptp_rate) * EST_GMAC5_PTOV_MUL) <<
+ 			 EST_GMAC5_PTOV_SHIFT;
+ 	}
+-	if (cfg->enable)
++	if (enable)
+ 		ctrl |= EST_EEST | EST_SSWL | EST_DFBS;
+ 	else
+ 		ctrl &= ~EST_EEST;
+@@ -70,7 +70,7 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
+ 	writel(ctrl, est_addr + EST_CONTROL);
  
- 	destroy_workqueue(priv->wq);
- 	mutex_destroy(&priv->lock);
-+	mutex_destroy(&priv->est_lock);
- 	bitmap_free(priv->af_xdp_zc_qps);
+ 	/* Configure EST interrupt */
+-	if (cfg->enable)
++	if (enable)
+ 		ctrl = EST_IECGCE | EST_IEHS | EST_IEHF | EST_IEBE | EST_IECC;
+ 	else
+ 		ctrl = 0;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+index e54a3c887826..9a32af00d7d2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+@@ -74,7 +74,7 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
+ 		mutex_lock(&priv->est_lock);
+ 		priv->est->enable = false;
+ 		stmmac_est_configure(priv, priv, priv->est,
+-				     priv->plat->clk_ptp_rate);
++				     priv->plat->clk_ptp_rate, false);
+ 		mutex_unlock(&priv->est_lock);
+ 	}
  
- 	pm_runtime_disable(dev);
+@@ -105,7 +105,7 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
+ 		priv->est->btr[1] = (u32)time.tv_sec;
+ 		priv->est->enable = true;
+ 		ret = stmmac_est_configure(priv, priv, priv->est,
+-					   priv->plat->clk_ptp_rate);
++					   priv->plat->clk_ptp_rate, true);
+ 		mutex_unlock(&priv->est_lock);
+ 		if (ret)
+ 			netdev_err(priv->dev, "failed to configure EST\n");
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-index e137fb9012d4..aea235a69105 100644
+index aea235a69105..ac926c60f9f9 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-@@ -1028,8 +1028,6 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
- 					 GFP_KERNEL);
- 		if (!priv->est)
- 			return -ENOMEM;
--
--		mutex_init(&priv->est_lock);
- 	} else {
+@@ -1090,7 +1090,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 	tc_taprio_map_maxsdu_txq(priv, qopt);
+ 
+ 	ret = stmmac_est_configure(priv, priv, priv->est,
+-				   priv->plat->clk_ptp_rate);
++				   priv->plat->clk_ptp_rate, true);
+ 	mutex_unlock(&priv->est_lock);
+ 	if (ret) {
+ 		netdev_err(priv->dev, "failed to configure EST\n");
+@@ -1109,7 +1109,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
  		mutex_lock(&priv->est_lock);
- 		memset(priv->est, 0, sizeof(*priv->est));
+ 		priv->est->enable = false;
+ 		stmmac_est_configure(priv, priv, priv->est,
+-				     priv->plat->clk_ptp_rate);
++				     priv->plat->clk_ptp_rate, false);
+ 		/* Reset taprio status */
+ 		for (i = 0; i < priv->plat->tx_queues_to_use; i++) {
+ 			priv->xstats.max_sdu_txq_drop[i] = 0;
 
 -- 
 2.56.0
