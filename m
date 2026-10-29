@@ -2,72 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9408606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 20:17:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2E2F606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 20:32:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RVivxYtM;
-	dkim=pass (2048-bit key, unprotected) header.d=cjdns.fr header.i=@cjdns.fr header.a=rsa-sha256 header.s=dkim header.b=fk5tu8/J
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BJzlneM+;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Li7rfahO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=l8TItYDD+miEgtskkO10ocU0yDgT44XQU9FLBrYEa6Y=; b=RVivxYtM2Jv7Xf
-	6EeqIXhdRqHKZDqlS4a4+K3TV92RgGeZ70ZVd53YRZJHfvIdosAVSzN3VrIcvX3m3tQEswHLb2nbo
-	FdcTTuTybmretOHsdIkg+2n9lPendFwhxjf2mFfr0lFq+bZ5WhDjNv/NMyKbHmP+BrnlsXOJmrJuU
-	49M73YvXwFygaD3VfkHZzl3RTr+6zxgkFY18XvkKvAgacr7oM2DmhmUuR6kNCr1QF3m3GGGoWXr/H
-	pIT2OOCnVmjjgAvTu9r5uzfvS0lorjeASUxvyWcyppfA24OpNAbDlBe1Za5lBpRiwaQK5vKeEmRTc
-	is+gj8IQjTUfF4CvFlGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=+0OsAHylFzDUlbd5p5ZlaNpNPdERBBYFM+tKrSywm2M=; b=BJzlneM+PCStuCiR6dIH77fWDx
+	d41t860+xcLDntQw/KZWeY1RPHr/eEXmqXYb2dlnTNYQTopX4MIc22RUdWJ8w6XATCYxvK4jsPk+u
+	+JQWhiqEMW7Qv0JysL9J0XjYqqZeiWpQ+NVfa/FkgEN2EJGnSBhI+EMMJ7yYXbXbydO5auhDpn4Gu
+	1qbmeP6YnQXdkFesPNABC1xfFn5umkUVXAmoLcwWsXuD50lzCFrcqvwW0hNOIm2nVKIEf4tUOE4+X
+	1EgtPX5BnHPMk0DWWuibix3p17x2irQN1X+QqIHuB8QzQkWqua9LXQ+DyBYPaDTYpbnTAq7p8pPl4
+	xh0cJS7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMWYz-0000000AJUv-3MIm;
-	Thu, 29 Oct 2026 20:17:29 +0000
-Received: from mail.cjdns.fr ([5.135.140.105])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMWYw-0000000AJUW-1QUp;
-	Thu, 29 Oct 2026 20:17:27 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B267C1A9B41;
-	Thu, 29 Oct 2026 21:17:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1793305042; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=l8TItYDD+miEgtskkO10ocU0yDgT44XQU9FLBrYEa6Y=;
-	b=fk5tu8/J+ze8f8Z2MqtHHSJj5AubXhd0YV9uZYiWPGuvNbRH2md8K3+2fY+yfwYSPTgjtg
-	yXQ9rGVDhVfjf+5jzJ644ksOPixdarUGNGFa0lBUF90aReEPPpfStMs33OhRdhXOhIQNRg
-	utCCEylP1XLEeATFBfrO1REgnDrrBSHTbP/wv84bWwFjEiXq5kheRnyswqlEOEgEakk/4C
-	eXhQJKr4UDSaWkHKJzRHBXha+QoMIr5G37Lb7fFYxVVfby/45XcLalYO50aniJSdbrJk8k
-	/sA8mc5yDLzaXzgJ8MXQtcwDg7j13Y7q1Qs4WGpCN4T/UKbyrJjZrLaO1wFnCA==
-Message-ID: <2928da24-a379-4d1e-baae-a5ae68acdf46@cjdns.fr>
-Date: Thu, 29 Oct 2026 21:17:12 +0100
+	id 1xMWnh-0000000AJvd-1MXQ;
+	Thu, 29 Oct 2026 20:32:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMWnd-0000000AJvD-4AxO;
+	Thu, 29 Oct 2026 20:32:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 88DDC15A1;
+	Thu, 29 Oct 2026 13:32:32 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BE2213F673;
+	Thu, 29 Oct 2026 13:32:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793305955; bh=2WuktTPKKDQ3u4/hHWpfo2hpVmbUd7vtqE9LCZohGME=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Li7rfahOEUIhxJmzoArHCiIA1dylePw/t0GV2JJyyUzIad+MbSCPSWUdetPKIJBPc
+	 qlTbPHjL1rAg02sPWWBZ636MuKumFSBDG4q6ghmrDGFmpUtg6deKyAnazMxC1Rhow6
+	 ActmiJn2WiK3ZZlsN5n5RLb1Ho/RsilrbfagWnSM=
+Date: Thu, 29 Oct 2026 20:32:30 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: =?iso-8859-1?Q?Iv=E1n?= Ezequiel Rodriguez <ivanrwcm25@gmail.com>
+Cc: Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>, Deepak Gupta <debug@rivosinc.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	Shuah Khan <shuah@kernel.org>,
+	Christian Brauner <brauner@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Yury Khrustalev <yury.khrustalev@arm.com>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Zong Li <zong.li@sifive.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Zishun Yi <vulab@iscas.ac.cn>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3 1/4] arm64/gcs: release GCS on failed fork
+Message-ID: <auOtXvGD1RHsU-dy@arm.com>
+References: <20261028154315.1272705-1-ivanrwcm25@gmail.com>
+ <20261028154315.1272705-2-ivanrwcm25@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH v3 2/7] dt-bindings: net: dsa: mediatek,mt7530: add
- passthrough mode
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- chester.a.unal@arinc9.com, daniel@makrotopia.org, linux@armlinux.org.uk,
- arinc.unal@arinc9.com, Landen.Chao@mediatek.com, dqfext@gmail.com,
- sean.wang@mediatek.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, naseefkm@gmail.com, b.larsson@gmx.com
-References: <20261028011317.1557238-3-cjd@cjdns.fr>
- <179323935725.3134.9897775788252590471@kernel.org>
-Content-Language: en-US
-From: Caleb James DeLisle <cjd@cjdns.fr>
-In-Reply-To: <179323935725.3134.9897775788252590471@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <20261028154315.1272705-2-ivanrwcm25@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_131726_588474_250EE19C 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261029_133238_287260_786E0DB0 
+X-CRM114-Status: GOOD (  12.00  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,43 +87,44 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On Wed, Oct 28, 2026 at 12:43:12PM -0300, Iv�n Ezequiel Rodriguez wrote:
+> copy_thread() can map a CLONE_VM GCS and still return 0. A later
+> copy_process() failure calls exit_thread(), but arm64 did not
+> implement it, so the VMA stayed in the parent's mm. Wire
+> HAVE_EXIT_THREAD to gcs_free().
+> 
+> x86 already does this via exit_thread() -> shstk_free(). The separate
+> x86 TLS leak is different: copy_thread() itself fails after the
+> alloc, so copy_process() skips exit_thread().
 
-On 29/10/2026 03:02, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
->
+Is the x86 TLS leak relevant to arm64?
+
 [...]
->   
-> +  The MT7530 and MT7531 switches are capable of being operated in "passthrough"
-> +  mode. In this mode, traffic is unconditionally passed between the CPU port
-> +  and the DSA port which links to a second switch. To use passthrough mode, the
-> +  upstream switch is configured with a DSA link to the downstream switch. In
-> [Severity: Medium]
-> Should this also say which DSA switch index each switch has to use?
 
+> @@ -503,6 +517,8 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+>  
+>  		p->thread.cpu_context.x19 = (unsigned long)args->fn;
+>  		p->thread.cpu_context.x20 = (unsigned long)args->fn_arg;
+> +		/* No user GCS alloc here; drop inherited tracking for CLONE_VM. */
+> +		gcs_reset_thread(p);
 
-This is correct, the active (non-passthrough) switch needs to be at 
-index zero and I forgot to mention that. This was not fixed in v4 and 
-I'll fix it whenever I send v5.
+My LLM run noticed that this fixes another problem, unrelated to the
+failed fork: io_uring and vhost workers are created with args->fn and
+CLONE_VM and they inherit gcs_base/gcs_size from the creating task
+through arch_dup_task_struct(). Without this reset, a worker exiting
+normally unmaps the parent task's GCS.
 
+I was wondering whether to have a separate one-line commit for the
+worker thread case but I think I'll just add a comment in the commit
+log, keep things simple.
 
-Thanks,
-
-Caleb
-
-
-pw-bot: cr
-
-
-
+-- 
+Catalin
 
