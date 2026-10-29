@@ -2,95 +2,95 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7506606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 16:57:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5490606A323
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 16:57:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aho2ptLL;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=mmlqFbrV;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DTShVfET
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BfHPiPDt;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=K5B4EY4m;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HJ5rqiJt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+xV1RGjg5KU41r+LCzwCOMC6Im+qEpwWkzwUNymeeJg=; b=aho2ptLLVBlq6E
-	UrnD0gt8K5vQ/NHpZmmvapngs6W49ZhnUcEC9ePdGmEIsQV2TlMnjGf9Q89Hnd3HgYFMEQ5VXW1yq
-	Wm76L6bgLpLgVXkSHXHynxodo471b6RgLFe+8YR7MdfgXT+Ersvrbncz+cNVBbppNIKHRYZdxKegs
-	ei9c8Fah7Z7EXqfkoHfp/lXKwIfT3RTl0KrHNWh8LrokZhlVY4Lpkhbsye4m4u+RB3JASOtzYKc76
-	UYR/wEGjTMMp9lkUoOFxarsXFNFmfn0NYiKVXX0qka8LSYLwz8mrgwDi7BrqpSlfempRbRbvWhrlF
-	JR4rmJxkB/vrXJZbIPlg==;
+	List-Owner; bh=ytOjkYgyk5LlmjFcxh3gPQQdewa7HVP6wQzba4/f+go=; b=BfHPiPDtImuJOA
+	UidyHlfY7Skae6lJl5sRgyUIsGpNzZGFJjAlSv22oahO0hInU+ik+U139t5nTVDBWQoQR05qo5Pmr
+	y0nJiEW7twQrEXY3j/fPBklK+BvN9irBr4+rOyHf+OjC5y08f3/2IA4p1c15krDMACZ8CdDIAWXrV
+	DG/9F0p5ak8ZzZhoqzBOAQRAfxnYlxh6+VuW8cfTyyKk/vY3yjPIINDOblnvlSNPCsI6k9pHzqPWH
+	YHB8AhSSCQTG5aD2tuhzJLSxUax6uGyCiLYRUZnYIlJ9JAK4MjXx0+G6f0LP0IGMRIZI/lSIzsaV1
+	wyVjRnEHFNypogvmgH+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMTRj-00000009tSh-19Q8;
-	Thu, 29 Oct 2026 16:57:47 +0000
+	id 1xMTRl-00000009tX6-14xd;
+	Thu, 29 Oct 2026 16:57:49 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMTRa-00000009tJI-3kY6
+	id 1xMTRf-00000009tOW-1lTr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 16:57:42 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69TGF4mY053042
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 16:57:38 GMT
+	Thu, 29 Oct 2026 16:57:44 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69TGCx3o1619568
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 16:57:43 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=+xV1RGjg5KU
-	41r+LCzwCOMC6Im+qEpwWkzwUNymeeJg=; b=mmlqFbrVGnojNptRIp2Y0FfR73/
-	wVV/o5gTl0sCSMYCHjuF3Dx6l0i5+dOf8jR6p65QP1QMFMPWqGx0EMXVgd6dbauH
-	gdakoBqo/m9dYUGh5xACXlDUC4wCrqj39o2uJq7laJlMZUyh7kOcGa0InIpCK165
-	6WlNbRcScA8H2Sjc/YpxU4HfKK8QEXNqvo77ljPo43uBpqhXz5cAhR9QkF4qQxMX
-	5svf28nfmCH6fqPn7+p8M49RKPZmG7OQ7HilRO3lwccPNt/JQ28mwIbGboEUWZDF
-	xEd7ajB1dSy8HHKOBP6FSUd4j8X9GrXE2IGybfIwRnCbmvDY8UBT9I6lL5g==
-Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hks3nc62d-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=ytOjkYgyk5L
+	lmjFcxh3gPQQdewa7HVP6wQzba4/f+go=; b=K5B4EY4m88mryxZuLbPk7QKXc2F
+	+bohx0GPOVwzeoz05M1vtTbY1G/RlSkU0t0d7BmUFdl2FGHmh2zw94EKW3kqyiDU
+	M5Q2hQmVUQNKONVnE/q/FqJlsBAdZV2c41/yn58cj0e8XrAwdRE9xBEiJGQmlAcC
+	tPP9kVwj2n9rHIP8EuVxpXWvwoe3+PQRhvUWLXI5dL2r8AvwXfC6DI3QV701Kbyf
+	Ua7vj1nxum6/ahaYKeBgVjsOzDzlUuecvKAE7aZveMgc0xLOPOhAbFFCJnXLSGsQ
+	W9ZG36XnnqtUdzHoyPbA/nPz9LykFPBypu0zpOFzWWKkf03ZSTXkO6WbGtg==
+Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hm44q9nuk-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 16:57:38 +0000 (GMT)
-Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-99063f4065eso564365241.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 09:57:37 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 16:57:42 +0000 (GMT)
+Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-99089f9591aso409803241.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 09:57:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793293057; x=1793897857; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1793293062; x=1793897862; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+xV1RGjg5KU41r+LCzwCOMC6Im+qEpwWkzwUNymeeJg=;
-        b=DTShVfETqXyGoeqV9ZWZ7pqE0GUdmmAWSY6OxQUdYCoNJ3rsxHZcMer+42UdgPTuxQ
-         kyT1ce88dPY0WPXYMgC0xdqdc8/G4lMWYATtlkOd0ydPTkSz3MpaPJhqleT39HobHl9l
-         rm3Eo2DdTNgW+tafgzPIYI/V4q9aDAor6XC4yK4LjaixElh6CM99dDEkhg1Z51i5ecVE
-         wQ3B+sgOQMfQ8Msh27OhLCkAEN3T+MS+zl3q9zB3gMNMSHnmqFZSzwx1MrMkrjo+EjcA
-         /sVH8i1VgN/YiPBrTiW189XlqrJd70F7kYbJbGTk0GdiKCZm6TepRQcqGXOhLjfyj5NX
-         csGA==
+        bh=ytOjkYgyk5LlmjFcxh3gPQQdewa7HVP6wQzba4/f+go=;
+        b=HJ5rqiJtJPZc+nFSwdka6mgKU8MjQe8e8fsC1HRZmdj0vhjfqtQmd3UfDBeqv4RC33
+         e3zD0OeFgNpXhemHwKNcNYEruR4zNftk+lNHGhUmUjdjW3km9aJXQo14roC2QYrH81jG
+         +YwG4DFmHSfOI0dtCu6v8j0zdvRe2bpa7WQc/hoGdeT+6tEh3EnS+LV0UjgY68TBcjH7
+         676XN7vPf2w5RQLXeCH1zVudBn4pIp+ZGwaNqI8aUT+CGmaHbeuxZE6w+GcXcL98T0Ma
+         dexUdwyxZqLlOsMMVjKGpcw3aS5gEM5DaxTJiuDCvUyPpsNPSybTzbbAIa4h5qnYBDGs
+         SW/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793293057; x=1793897857;
+        d=1e100.net; s=20260707; t=1793293062; x=1793897862;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+xV1RGjg5KU41r+LCzwCOMC6Im+qEpwWkzwUNymeeJg=;
-        b=rbpctD1C1YjVSNfBH/tIHM8lk2CnJ1ZMENH0ywAEe7OjU7qrjRDY1ZJx8rmFxRpPNJ
-         sxGNt6QJ5QETWPuCFme12qiYd67CtGnhGI+T4IXbz0OsgXepiga59DnYMsTtpOiuQwlM
-         7eDtq8e2iaHfxpVaNG64RWUdqqCb9A8vUub2xKJedYZOP54y9AKp1jYfPEEvNcV2h/Na
-         FBA+d8zokoOC1Mruxj2GJ9vt5Q00i+nNfADeGYNPF4PGjoMoB+Q8haoCEJbStpzlkjz9
-         LDihX2dd8kfPlgTRJdl/P+wGDod1pcwiaGDs+QyyhwYbasEMNvk99ntxRX+Y1+ghQE1W
-         C9jQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwhK1i8enymMN0nLdpCHsZNqyVuQxq35PcPKDSWM3WX0d/RTPArwLnIarbj9V7GiFev4YTIeU+3og1edk4ENQv2@lists.infradead.org
-X-Gm-Message-State: AFq9FYJKQZbsEN5sLVTq962UFIxhdDRX9nozX/JtEaDbhfFOYwAK1hQ8
-	+J7j1Yu+GZHW1GX73xsr5ITafJid0w76VGyQkSj+uRbOLJIeSV1yqu+B1UfyVyJrPKIjCraiwt8
-	tLVAlzevg+v/rmIh5zn+01zxEhKFxlXkCv6EqJ7UMzUGp9+ulKF5Vb/sfhFayeBRJapZn3H5ftm
-	4R0A==
-X-Gm-Gg: AYBFou3RqQ/R2iU83g7Ql+rVccRTGubmS1tW6L94WDCta463oSHe/HZnaSJDvr7MbGB
-	ARsEfB5dI0e9eOvgKNG++1a5gw4Yi7lbpCPxkG1VmgSQ7VHoVbNz1J27z84+dCQODfVi9bGHkVz
-	ddDJS7bJvKp3uyBlfXIltV1YQ0kat93vB1kwJUTAP6gWIL1RIkOVv87S1Xy3mrB5vKA/jA+ikXT
-	tLWKOWrvTV7XygnhM7fAzz+bWoQeUR6Wf5jMW7vZvif6mUIPagkWxcqMReH6DUKzCcz4eOW8Fke
-	5kNkIv041EIgj590T2MYSnJ0uy5cFZ6RTrFndwuhbBt9/K6j9b/gmrVS0HZB9fSi6EF6tgmILAs
-	guRpwK0sqwqcbJ0IPmxU0FWHMWwX4wBqyhcPubHllR2+VmAba+3ZintQVaelLpF1fb17+/0xSV2
-	Mt
-X-Received: by 2002:a05:6102:1483:b0:7cc:9d82:61e2 with SMTP id ada2fe7eead31-7d03a4bec64mr3117848137.13.1793293057012;
-        Thu, 29 Oct 2026 09:57:37 -0700 (PDT)
-X-Received: by 2002:a05:6102:1483:b0:7cc:9d82:61e2 with SMTP id ada2fe7eead31-7d03a4bec64mr3117824137.13.1793293056511;
-        Thu, 29 Oct 2026 09:57:36 -0700 (PDT)
+        bh=ytOjkYgyk5LlmjFcxh3gPQQdewa7HVP6wQzba4/f+go=;
+        b=K34mIauBhwSou/7O+T8n+lCUSgw6l/5wKpTASS8tBVtYD6BPAVFSQOpUosENBZD6gM
+         TXIaCBTV9euy0iEDhA/ngjOh+77J2oADgP+sF6aL7KgANCcb5dyGX8A8sCotma+ToqSn
+         NHiiBZjQv0mecuWpMish1I0XKIj9lJjE+ppbRu1fK1GCqUQHw0HmbzduqDyBTAqh0sXf
+         VfJCFXkOZ9/JQ/SdzwuBIazT0Fm0S6Ue+T4s8N+IslgGaRLqiya/P7TaW1SQpsWrDrlw
+         bgvcPsh55cwKEta1cCsd9ZtGoUlbj3EXbOwt49GJZGp1kpkn7CFO/g/Rb/tCmRi9dx1l
+         h/fg==
+X-Forwarded-Encrypted: i=1; AKwUvBxNNAJrdnF9GkQuy9Cac4ttIIXuwaa0g1ferIbOsJvR2wvsW7+ZbeOPIoiZ0LoWpbPvgociqC5+u5iPCma8UJNm@lists.infradead.org
+X-Gm-Message-State: AFq9FYKIly4TD0vR9fVeFe2MejCbVse06Aun9Sj4DTKmNFXdl/Xt1N5n
+	p/20iSkknfSPda2B0iwM0G5TzpLKCpG5YgHXfZP92kj9El4el4qdUgOPoCoJYENODVawT9nmdU1
+	B9YfTrm4Xp9NFi0+UL66qmZstAn2fU4fMYKeZIbJZMGfwkH44z6HkS2WeUShG2U5oUTVABZEnIs
+	csjQ==
+X-Gm-Gg: AYBFou1IxfCE+i5SKiy1kDLs/xlPr78mfw3its2tgdHWRaZ84GJ7KW2JV9kerzxcdj4
+	BljDr8nfRbnAqsbbmxx2dALEZ6WIWSnMRHiqADVrzrnBlk6YOyiCdVd9wlSyIlWnn6JU8zGUtHj
+	B3YQ6KDEi3VOENIKDLcyVGWjET3+fRpHFxUHG0QzRoP7aWu4+X3eY+faLRN3k1E9KDGFDPGEgzn
+	9/ECdSM+K48+Rpl5AnKEb8QsGzhqOHTN5qT+AUpHsD3JazH8jzt/4yJ8Wke7yg3E606QZf7t7pi
+	RTiUNIiMU9R3V33FfqVz17ybWXHOOJ8F7VBQNgYzcNy53aS3yo5UHVQDOsUO0umwRZ77ItsQsWs
+	rrGC4VB7KPaUUlHkAZa0+4zPGVOTuUn2M4/3Bj1fjJ/TiFkzPEwx6hDsy6Xw3m4/whcaqU65Prf
+	8D
+X-Received: by 2002:a05:6102:6a8c:b0:7cc:2c29:54ef with SMTP id ada2fe7eead31-7d03a5abb96mr2605296137.19.1793293061909;
+        Thu, 29 Oct 2026 09:57:41 -0700 (PDT)
+X-Received: by 2002:a05:6102:6a8c:b0:7cc:2c29:54ef with SMTP id ada2fe7eead31-7d03a5abb96mr2605280137.19.1793293061411;
+        Thu, 29 Oct 2026 09:57:41 -0700 (PDT)
 Received: from mai.box.freepro.com ([2a05:6e02:1041:c10:7fbe:151a:486d:a2cc])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e6df961dasm325669f8f.23.2026.10.29.09.57.35
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e6df961dasm325669f8f.23.2026.10.29.09.57.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 09:57:35 -0700 (PDT)
+        Thu, 29 Oct 2026 09:57:39 -0700 (PDT)
 From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
 To: rafael@kernel.org
 Cc: Daniel Lezcano <daniel.lezcano@kernel.org>,
@@ -99,44 +99,44 @@ Cc: Daniel Lezcano <daniel.lezcano@kernel.org>,
         linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org,
         linux-rockchip@lists.infradead.org, linux-kselftest@vger.kernel.org
-Subject: [PATCH v4 3/6] powercap: dtpm: Remove duplicate RK3399 CPU hierarchy nodes
-Date: Thu, 29 Oct 2026 17:56:47 +0100
-Message-ID: <141ad25a137cb50516bd92f9a13dda7ec940f6da.1793288783.git.daniel.lezcano@oss.qualcomm.com>
+Subject: [PATCH v4 5/6] powercap: dtpm: Rename Rockchip virtual node descriptor
+Date: Thu, 29 Oct 2026 17:56:49 +0100
+Message-ID: <063f0587a6c951ca57e941ebab39617a0d0a305c.1793288783.git.daniel.lezcano@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1793288783.git.daniel.lezcano@oss.qualcomm.com>
 References: <cover.1793288783.git.daniel.lezcano@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: -7Mhyh6-mOHdFnE2g3P6JmFn-iLHnyuK
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDA2NiBTYWx0ZWRfXwSK4+NpQ7QVh
- M5pSQSptW36pujQEHEYvwXgZjpGUIMffGas6q8cxaP2ldR+61hxfBSFbjaG1jKg/uPg4BeXCEOm
- 9YvR3t9LG8Bq248XMib+lGdODsllQ3FwADiKqYR2Q5m7v50tZrRTzZ2Q11GkKFAGPMVXD7QJiup
- 7c60HCH9VWiGgec5XmnqL6u/pEMFQt2elHf9PKGp0OM2PVYDE7c2vX3KbdhmhqOLMiEguibiLlv
- Blqen/OPJ8xsp14AOKaB/3F49QCrBnImscNEU3HAdJLTy6zpF0byMJBo6m9UlXTliJ1VDYCYXcN
- cRDLxpA5anCut/Jv25MR9sdipURzP21tQ/8zvYUaDR24cDd1ZNt/LALhW8GJUmQy7jF0ciVAlZA
- 2RO0ff3OMMyHKbQg3X11Dg+ozDWxEK6qsf1AAwQWnjuS6ndHDi0xwQy3sdo7hhJPC+TzuaJIl9R
- DjImBPNdtr6hh8NucIg==
-X-Proofpoint-GUID: -7Mhyh6-mOHdFnE2g3P6JmFn-iLHnyuK
-X-Authority-Analysis: v=2.4 cv=XZEcX455 c=1 sm=1 tr=0 ts=6ae37b02 cx=c_pps
- a=KB4UBwrhAZV1kjiGHFQexw==:117 a=xqWC_Br6kY4A:10 a=660iZSQnnn4A:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDA2NiBTYWx0ZWRfX4cL06kc4VG8j
+ 56T8mvHXG2TxAzj4n4OqA6w4WdQfhbQlH5Rlje1qeb+lVGQ+qexjCiYj8s4zYj8jr13Rly01OhU
+ QSIO8Maj6L5IALTBaTz2qG51gXBpPhA=
+X-Proofpoint-ORIG-GUID: 9o77tkTdN64I2JnKvpb-jpH4wihiQtxc
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDA2NiBTYWx0ZWRfX1XnuUkAm+qGO
+ r8TKzCMCbPBfbuueT49TZap5UwzzLAFSM8jAkUoE14fUQiEEFwosRqduK8DNVY619BJS3g03VoS
+ 3n2ZAQAmIoPJ8gxB4vC40XnDpPmFZuqcFS8yw5MRU9BI3a7qYkKXXu8xvyyjnmXGkCxAnTKOR4V
+ 8WLNoRWOuirNXdVC9+6rV7tLtl/fDiXBPyxTJBO1b5EvbdlW8Akh4r+EWPCWc80Dr5eI6ysIRQD
+ qqKX2xYZWWiKrP4pB4kpLBB0EkBKRGJlrotwrC2/Ml5eGdjWuM7Pk2UR2L3Wl6D1S0N9zZwZrXT
+ A+8kv0hkVk9iGrQXAwXPbRyYSP/NW4A8Rtd6Dhln4JV6GQ+JEn8q1OkYMS18DTvVkH8ht+VcmO4
+ laAqMWv+DLBZkL3udBOgg9sQNQrNyxmUve64vnUhZKwUg84/fWODUz3hKsCqTZl94jQIXUPLs2Z
+ 8VVyz8UE0hAumtyYX/A==
+X-Authority-Analysis: v=2.4 cv=CYmdd7rl c=1 sm=1 tr=0 ts=6ae37b07 cx=c_pps
+ a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=xqWC_Br6kY4A:10 a=660iZSQnnn4A:10
  a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8 a=EpzjDTW3ywHV2UopgxgA:9
- a=o1xkdb1NAhiiM49bd1HK:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDA2NiBTYWx0ZWRfXwqhTUFJjSwOU
- AeN03Hxxr8Nne45ntJImP1ecuVRs5Y3daUlAII4PiEh87t5ybvmvWYpymoSMDVyGhC95KGdvVgy
- M0BlmWsQMPphqoODO9jzuu1ZyFRubEI=
+ a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8 a=_NZqlvP9bvTAGtRSC3sA:9
+ a=TD8TdBvy0hsOASGTdmB-:22
+X-Proofpoint-GUID: 9o77tkTdN64I2JnKvpb-jpH4wihiQtxc
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-29_05,2026-10-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 malwarescore=0 clxscore=1015 lowpriorityscore=0
- suspectscore=0 bulkscore=0 phishscore=0 impostorscore=0 priorityscore=1501
+ malwarescore=0 clxscore=1015 phishscore=0 impostorscore=0 adultscore=0
+ suspectscore=0 priorityscore=1501 spamscore=0 bulkscore=0 lowpriorityscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610290066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_095738_974688_5512CD4C 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20261029_095743_485863_FB2A83FF 
+X-CRM114-Status: GOOD (  18.22  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -156,18 +156,13 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The DTPM CPU backend registers one powercap zone per cpufreq policy,
-not per CPU. On RK3399, CPUs sharing the same cpufreq policy therefore
-map to the same DTPM zone.
+The virtual DTPM node descriptor is named after the RK3399 even though
+it does not contain any SoC-specific information.
 
-Remove the redundant CPU nodes from the RK3399 hierarchy and keep only
-one CPU node per cpufreq policy. The backend already suppresses duplicate
-registration through its per-CPU state, so the removed entries are
-redundant descriptions of the same zones. Keep both CPU policy domains
-and the GPU in the hierarchy, preparing for one created zone per generic
-hierarchy node.
+Rename it to rockchip_virtual so it can be reused by other Rockchip SoC
+hierarchies.
 
-Also fix indentation in the Rockchip device match table.
+No functional change intended.
 
 Signed-off-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
 ---
@@ -175,53 +170,40 @@ Changes in v4 (since v3):
 - Rebase on v7.3; no code or commit-description changes.
 
 Changes in v3 (since v2):
-- Rebase on v7.3-rc7.
-- Fix Rockchip match-table indentation here rather than in patch 1.
-- Clarify that the existing backend suppresses duplicate registration.
+- Rebase on v7.3-rc7 and refresh context after patch 4 style cleanup.
+- No functional changes.
 
- drivers/soc/rockchip/dtpm.c | 22 +++++-----------------
- 1 file changed, 5 insertions(+), 17 deletions(-)
+ drivers/soc/rockchip/dtpm.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/soc/rockchip/dtpm.c b/drivers/soc/rockchip/dtpm.c
-index b36d4f752c30..e71f315fbb6b 100644
+index 222d9098cc98..5ae00680602f 100644
 --- a/drivers/soc/rockchip/dtpm.c
 +++ b/drivers/soc/rockchip/dtpm.c
-@@ -20,30 +20,18 @@ static struct dtpm_node __initdata rk3399_hierarchy[] = {
- 	[2] = { .name = "/cpus/cpu@0",
- 		.type = DTPM_NODE_DT,
- 		.parent = &rk3399_hierarchy[1] },
--	[3] = { .name = "/cpus/cpu@1",
-+	[3] = { .name = "/cpus/cpu@100",
- 		.type = DTPM_NODE_DT,
- 		.parent = &rk3399_hierarchy[1] },
--	[4] = { .name = "/cpus/cpu@2",
-+	[4] = { .name = "/gpu@ff9a0000",
- 		.type = DTPM_NODE_DT,
- 		.parent = &rk3399_hierarchy[1] },
--	[5] = { .name = "/cpus/cpu@3",
--		.type = DTPM_NODE_DT,
--		.parent = &rk3399_hierarchy[1] },
--	[6] = { .name = "/cpus/cpu@100",
--		.type = DTPM_NODE_DT,
--		.parent = &rk3399_hierarchy[1] },
--	[7] = { .name = "/cpus/cpu@101",
--		.type = DTPM_NODE_DT,
--		.parent = &rk3399_hierarchy[1] },
--	[8] = { .name = "/gpu@ff9a0000",
--		.type = DTPM_NODE_DT,
--		.parent = &rk3399_hierarchy[1] },
--	[9] = { /* sentinel */ }
-+	[5] = { /* sentinel */ }
+@@ -11,7 +11,7 @@
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+ 
+-static struct dtpm_node rk3399_virtual = {
++static struct dtpm_node rockchip_virtual = {
+ 	.type = DTPM_NODE_VIRTUAL,
  };
  
- static struct of_device_id __initdata rockchip_dtpm_match_table[] = {
--        { .compatible = "rockchip,rk3399", .data = rk3399_hierarchy },
--        {},
-+	{ .compatible = "rockchip,rk3399", .data = rk3399_hierarchy },
-+	{},
- };
- 
- static int __init rockchip_dtpm_init(void)
+@@ -33,12 +33,12 @@ static struct dtpm_node rk3399_gpu = {
+ static struct powercap_node rk3399_nodes[] __initdata = {
+ 	[0] = {
+ 		.name = "rk3399",
+-		.data = &rk3399_virtual,
++		.data = &rockchip_virtual,
+ 	},
+ 	[1] = {
+ 		.name = "package",
+ 		.parent = &rk3399_nodes[0],
+-		.data = &rk3399_virtual,
++		.data = &rockchip_virtual,
+ 	},
+ 	[2] = {
+ 		.name = "cpu0-cpufreq",
 -- 
 2.43.0
 
