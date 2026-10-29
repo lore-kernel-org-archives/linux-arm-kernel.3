@@ -2,50 +2,51 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2B0B606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:19:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89F53606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:19:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KXrH3Q3s;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=N9w76DW4
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y179QQDN;
+	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=opiy9NOu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6clb7zDaAH9r9M6v0Cs2SweYtJsu88uC1qfGVnb/DF4=; b=KXrH3Q3sN1mQBg
-	V5/bhHltPEWb03fndeZGtE1q2mbTVoR86Sw6KpOLkAAwS6J/shn6U91DA8UTCaRFh0ZQ6H41K28Eh
-	J4nziFrim9bOLqXEwiXaBmSp/ZN22flSOxUOVvrT5S4Gqej+NzY3g1IauL4CLV33qEcYtOxJY3p8M
-	B3r0i3YsiPGSKurdTl+a3yaO2QYRaNO2e6yKGXSI4dGllp4Ax48Ymeg0/jHgxNEBCw71NFmYigZ1J
-	XndLUOODKFqCbX+zos6qG8b6PnKCJ67bH3sip9Dy451KFfAO34EhyWO41jMFnNHh77ovsyeuP+yCV
-	DI37FDkhVuXOEa+vEFSg==;
+	List-Owner; bh=BI3BBuYvqWljxFPiZ4+3fyRPpUoaHmwjVDdjufGjghg=; b=Y179QQDNpLMhFB
+	5ekmf+7RQdGSS+MQgkgAbGjVKSWEPMkpKLTod0T3Lh9QAGPuy5T1bUjRdOhQOji/my7Kx0Y8ofP8f
+	ZlRPiGCxlumpUZhWSZqY760olnlL/h8SL3U7vCGdED7th/7cBS6zSuS8/E1HNthiRId5A/+yJicec
+	FtSi1L3gyfZrB2+WLIdNPG/NzJif+uxuvXiXzypvoI8gRuW1TBmy1IyN7VaIOihQlp198X6dTlFtk
+	GO1fFHsoxGplt5adj8fAXUDIlGrEHICgvh3eLM2M3xPehB2btwHA3e2Zdvb/EQx5CwdSZZLRs9B/0
+	Y4PpBtH6lvhIPQAOwL4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNEE-00000008wrC-077u;
-	Thu, 29 Oct 2026 10:19:26 +0000
+	id 1xMNED-00000008wqI-2uSl;
+	Thu, 29 Oct 2026 10:19:25 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNE7-00000008wik-0gGO
+	id 1xMNE5-00000008who-48IQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 10:19:20 +0000
+	Thu, 29 Oct 2026 10:19:19 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 845A6BE;
-	Thu, 29 Oct 2026 11:17:03 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 5E28E1552;
+	Thu, 29 Oct 2026 11:17:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793269024;
-	bh=k4C0AwrvL/79LdIbFEMvqhcsEJvl7Y8Jl/ivUjUaUNY=;
+	s=mail; t=1793269023;
+	bh=OZYSeepAIWcZMJ2STpTUzemap4QopjkzN7WS/XD4SPw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=N9w76DW42RbToB7YW8OAdd+pMcMbpgSA/Sk7hxWN9zf9ymn9em9sVyhV+Fsa0ntr7
-	 EJUV/U2O5yiC4A3hM6NTzbtSp0uAuo6mxK7YC/w2b7ocFcsFBluto710AHr9yNoOQO
-	 aofubdRJ5KfnN364+d7Kuuk3Q/gIe+5fHQvy00dI=
+	b=opiy9NOuoZHew/XXBz1ELgeCbiS1UAH0uRykgjLDE4agJbvaPanounH54j4glXZDy
+	 X6b0EHVHFGXG6j4UPMN8BUxL3r7qVlJgy9jom3RDSN24ZeAHk4iVOIkfxbA+5s+wLu
+	 TVAZgxM2TeMcCPNhLYABYvgVZO5gz57wO48CDLPs=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Thu, 29 Oct 2026 12:18:54 +0200
-Subject: [PATCH v4 08/14] drm/tidss: oldi: Fix serial clock reference leak
+Date: Thu, 29 Oct 2026 12:18:53 +0200
+Subject: [PATCH v4 07/14] drm/tidss: oldi: Fix wrong return value from
+ tidss_oldi_mode_valid()
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-beagley-ai-display-v4-8-dc7f2b532478@ideasonboard.com>
+Message-Id: <20261029-beagley-ai-display-v4-7-dc7f2b532478@ideasonboard.com>
 References: <20261029-beagley-ai-display-v4-0-dc7f2b532478@ideasonboard.com>
 In-Reply-To: <20261029-beagley-ai-display-v4-0-dc7f2b532478@ideasonboard.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -61,27 +62,26 @@ Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1112;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=967;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=k4C0AwrvL/79LdIbFEMvqhcsEJvl7Y8Jl/ivUjUaUNY=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBq4x2Y4TaFah9O+f4ICQNwMOb0ENbZMRRnPmSIZ
- wUyG2wRS0uJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCauMdmAAKCRD6PaqMvJYe
- 9d+eEACdlhVd8vF+KuMFop/dcrXzR9DmSwJhfEwLJWzEqRnpuCzq/XGEaAP1VC7qBbQY42AV2IV
- XR9fi4uqa7fadaDatsmrmCDSUO4ub1l7ieNV4I6xE3lH8CTl4/AF9xQy2mw7cattqfgY4GuxJIO
- 7z6bCKXekQUQRTqOFCQBUcXQ3mwBszUAPGLnwxG/V28s0MZzu+DSK5YUWBgu97Qiq3QJ5EEDguR
- jsEg0bEf9Aq0q8Mwz1/FNgxSFsnZIALyFzqNJiczbm5PuuZ8pv+voot2dqZ3doyje1HljBJ30io
- Aj4L4UEvTICMGIxJWg3XTC2MxAUZq2ECgX7c21WnbzvsWWuIvPuXCrfTH3i3CeJfunULOeTeDey
- arQPv3opd+EnLjENTjwaL32h7l7ycv5pWMd/19X7QFm8EtWbw8X6iCEGFFoRLDJ1iZaZA3JIJW2
- tDqfMmmat/h7ebc0VAvFczcDW2hJ/i4YM0sX+15JsHRFtfAr0rv7dxUGuUH9HCVv6zFFPbQwXEj
- vr1984cB8Hocfdqhlf6vxe/fAkZLFWBn8xajqHD+F6KDFzJAhaCO+UqI8k/qiCQYIG0JOD2ptKO
- /i5plTw9sBP+HsHnC57bB0Mpxw6tOQbyu2mk2ch5ILOdsyeY1B1xJQL9O7VH/qu6T8TX6qXzjPP
- gv9vzL3sqGO3cnA==
+ bh=OZYSeepAIWcZMJ2STpTUzemap4QopjkzN7WS/XD4SPw=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBq4x2Xbba05PnhzU/ShK3qQxyASekJkrlxJLK02
+ yhEX19haSKJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCauMdlwAKCRD6PaqMvJYe
+ 9Q+wEACQV41JZWtVhPslC96ShYfqZwRvnST6EO5qvaLlHsm8wjMkgFj4vV9cKC+vnV+wdOxeMSO
+ e1N9yIiepp+Y47mkzv4sz4DpUo/s/jom1HNlXFdO6MBngGr5yCosV9L291pt+0lP8yUYR9DCCwe
+ d4YWS+AEy49Zs5FZgLjhm3w9HnBF8tdo9i8D8ByVYT6ad7rL5k+OITh+b6ZcKV4llTho2i2QU8I
+ oE2ae203lvVmIisRT6ZkbRlkxZcl5ShjrIGRpbupENDB72lGt+BckOPbIGrFdhFquXuujy81dEp
+ I5mSnhG1NNMztfsITjUBHEw/uzW30WH6RAO4W6zvlNIVXFIy4351GZ8dTnlogxjFYpU5WjB6zq7
+ 5QOYuNUEnAItSwPVsz4Op8bCN4UfHHau3m5LSAnJnLdpjGrKqU///WPsu20S1DVDpGVTwVZPHEp
+ 33qztLmL8TR4kqcd5zUtNi2fnOL0831t3nqs1WDTAVJruiO20pgXBdLi6deWNIy2p7krgEkbK8k
+ ktPNzrc1qgsNdejoRGpg2QvmrxpGXI4xYfN3SO2wSju6PbsKM3r8LCIe1XZXcRmEVE3VkeykCVJ
+ XErp7yRvIteUfU59yqFvgjHNj6jp0vGeACOXULeDSdFWmqrqI4rKPS2p8/yHpugfXYu+RVUQYJ3
+ K359ty7O/ExjOnA==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_031919_422538_AFB71D87 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261029_031918_197353_BEE4D54E 
+X-CRM114-Status: GOOD (  11.94  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,32 +101,33 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-tidss_oldi_init() gets the OLDI serial clock with of_clk_get_by_name()
-and never puts it. A clock reference leaks each time tidss unbinds, and
-each time its probe fails or defers after the OLDI setup.
+tidss_oldi_mode_valid() returns 'enum drm_mode_status', but the current
+code returns -EINVAL or 0.
 
-Get the clock with devm_get_clk_from_child() instead.
+Fix it to return proper enum values.
 
-Fixes: 7246e0929945 ("drm/tidss: Add OLDI bridge support")
+Fixes: 86db652fc22f ("drm/tidss: Move OLDI mode validation to OLDI bridge mode_valid hook")
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/gpu/drm/tidss/tidss_oldi.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/tidss/tidss_oldi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/tidss/tidss_oldi.c b/drivers/gpu/drm/tidss/tidss_oldi.c
-index ae27ebc7306e..506507e83112 100644
+index 82b059f85244..ae27ebc7306e 100644
 --- a/drivers/gpu/drm/tidss/tidss_oldi.c
 +++ b/drivers/gpu/drm/tidss/tidss_oldi.c
-@@ -609,7 +609,8 @@ int tidss_oldi_init(struct tidss_device *tidss)
- 				goto err_put_node;
- 			}
+@@ -346,9 +346,9 @@ tidss_oldi_mode_valid(struct drm_bridge *bridge,
+ 	 * we use the same 5% check here.
+ 	 */
+ 	if (dispc_pclk_diff(mode->clock * 7 * 1000, round_clock) > 5)
+-		return -EINVAL;
++		return MODE_CLOCK_RANGE;
  
--			oldi->serial = of_clk_get_by_name(child, "serial");
-+			oldi->serial = devm_get_clk_from_child(tidss->dev, child,
-+							       "serial");
- 			if (IS_ERR(oldi->serial)) {
- 				ret = dev_err_probe(oldi->dev, PTR_ERR(oldi->serial),
- 						    "OLDI%u: Failed to get serial clock.\n",
+-	return 0;
++	return MODE_OK;
+ }
+ 
+ static const struct drm_bridge_funcs tidss_oldi_bridge_funcs = {
 
 -- 
 2.43.0
