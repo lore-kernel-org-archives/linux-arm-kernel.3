@@ -2,80 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2E2F606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 20:32:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9326E606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 21:05:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BJzlneM+;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Li7rfahO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mNelobDH;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=LSb42G/4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=+0OsAHylFzDUlbd5p5ZlaNpNPdERBBYFM+tKrSywm2M=; b=BJzlneM+PCStuCiR6dIH77fWDx
-	d41t860+xcLDntQw/KZWeY1RPHr/eEXmqXYb2dlnTNYQTopX4MIc22RUdWJ8w6XATCYxvK4jsPk+u
-	+JQWhiqEMW7Qv0JysL9J0XjYqqZeiWpQ+NVfa/FkgEN2EJGnSBhI+EMMJ7yYXbXbydO5auhDpn4Gu
-	1qbmeP6YnQXdkFesPNABC1xfFn5umkUVXAmoLcwWsXuD50lzCFrcqvwW0hNOIm2nVKIEf4tUOE4+X
-	1EgtPX5BnHPMk0DWWuibix3p17x2irQN1X+QqIHuB8QzQkWqua9LXQ+DyBYPaDTYpbnTAq7p8pPl4
-	xh0cJS7Q==;
+	bh=pvnY73Q0V05Um+rlosdIP96Yb0fzFhR9UVvX1gsB0Yo=; b=mNelobDHdYlBHegPfxnXrzNGFp
+	KGtk+CxaECg1S0QC9NWMPRtrP5LyH5zE4X4iJDrOiejRmuH+Cb5QeuBW9Vodzj0j76RJsatbxGFSs
+	6YxD4aoIn44RoVLKkXqdzNsoHqdwIL7Tdcdw2i7TRSlaZ28Ea6Hai2VlnV+sJhsqncspLaX/fFunc
+	WdO4rD91ptsEtnu2llrr8J261pnBMJ2AXHUCbyeuQtf6ltsxVr/rbOJV0Y6eyWF8/9HqOfCZYj6x8
+	6M/wYpO3Z3UPd9EQxQ1QlKj5Ty3KHUm8NTDTgKMnY1iTxnnFgK2lJ5Di9XNSWwgK5l+9P9Ccp83Uo
+	n8N6865Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMWnh-0000000AJvd-1MXQ;
-	Thu, 29 Oct 2026 20:32:41 +0000
+	id 1xMXJ0-0000000AOSH-2pk0;
+	Thu, 29 Oct 2026 21:05:02 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMWnd-0000000AJvD-4AxO;
-	Thu, 29 Oct 2026 20:32:40 +0000
+	id 1xMXIw-0000000AORd-48n2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 Oct 2026 21:05:00 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 88DDC15A1;
-	Thu, 29 Oct 2026 13:32:32 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D96A81682;
+	Thu, 29 Oct 2026 14:04:53 -0700 (PDT)
 Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BE2213F673;
-	Thu, 29 Oct 2026 13:32:32 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2AEB3F59E;
+	Thu, 29 Oct 2026 14:04:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793305955; bh=2WuktTPKKDQ3u4/hHWpfo2hpVmbUd7vtqE9LCZohGME=;
+	t=1793307896; bh=AnM4OnNBjAGRdciRyyuMhYkvFvjMOCFE7WXWqQyeFXY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Li7rfahOEUIhxJmzoArHCiIA1dylePw/t0GV2JJyyUzIad+MbSCPSWUdetPKIJBPc
-	 qlTbPHjL1rAg02sPWWBZ636MuKumFSBDG4q6ghmrDGFmpUtg6deKyAnazMxC1Rhow6
-	 ActmiJn2WiK3ZZlsN5n5RLb1Ho/RsilrbfagWnSM=
-Date: Thu, 29 Oct 2026 20:32:30 +0000
+	b=LSb42G/4AzMi28jRIjLxA2hy9xVDdhvjBX3T0x5KL21W4mh6bcAeON7PSzOy7v7gH
+	 pJq/0Ntr/E1A0YLcik771E8X28SlnQY77AbmdbXcZPi5W1ncvnF9+zN9YP0mdbgCbo
+	 xnVgMB6oAYh0DMA6ub7ED1hPi1ks4rRphmD/zsDw=
+Date: Thu, 29 Oct 2026 21:04:53 +0000
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: =?iso-8859-1?Q?Iv=E1n?= Ezequiel Rodriguez <ivanrwcm25@gmail.com>
-Cc: Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>, Deepak Gupta <debug@rivosinc.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-	Shuah Khan <shuah@kernel.org>,
-	Christian Brauner <brauner@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Zong Li <zong.li@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Zishun Yi <vulab@iscas.ac.cn>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v3 1/4] arm64/gcs: release GCS on failed fork
-Message-ID: <auOtXvGD1RHsU-dy@arm.com>
-References: <20261028154315.1272705-1-ivanrwcm25@gmail.com>
- <20261028154315.1272705-2-ivanrwcm25@gmail.com>
+To: Lai Jiangshan <jiangshanlai@gmail.com>
+Cc: linux-kernel@vger.kernel.org,
+	Lai Jiangshan <jiangshan.ljs@antgroup.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Thomas Huth <thuth@redhat.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: mm: Stop using the previous ASID for init_mm
+Message-ID: <auO09UUOqkhXXuoI@arm.com>
+References: <20261027100231.31184-1-jiangshanlai@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261028154315.1272705-2-ivanrwcm25@gmail.com>
+In-Reply-To: <20261027100231.31184-1-jiangshanlai@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_133238_287260_786E0DB0 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20261029_140459_562813_4B8B050F 
+X-CRM114-Status: GOOD (  17.10  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,41 +74,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
 	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 12:43:12PM -0300, Iván Ezequiel Rodriguez wrote:
-> copy_thread() can map a CLONE_VM GCS and still return 0. A later
-> copy_process() failure calls exit_thread(), but arm64 did not
-> implement it, so the VMA stayed in the parent's mm. Wire
-> HAVE_EXIT_THREAD to gcs_free().
+On Tue, Oct 27, 2026 at 06:02:27PM +0800, Lai Jiangshan wrote:
+> From: Lai Jiangshan <jiangshan.ljs@antgroup.com>
 > 
-> x86 already does this via exit_thread() -> shstk_free(). The separate
-> x86 TLS leak is different: copy_thread() itself fails after the
-> alloc, so copy_process() skips exit_thread().
+> Switching to init_mm should prevent further accesses through the
+> previous address space's translations.
+> 
+> Commit e53f21bce4d3 ("arm64: Use the reserved TTBR0 if context switching
+> to the init_mm") avoided installing init_mm.pgd as a user page table.
+> At the time, the ASID was held in TTBR0, so installing the reserved
+> TTBR0 also switched to ASID 0.
+> 
+> Since commit 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1"),
+> installing the reserved TTBR0 no longer changes the active ASID.
+> Consequently, switching to init_mm leaves the CPU using the previous
+> address space's ASID. An empty page table does not prevent TLB hits
+> for that ASID.
+> 
+> This can retain access beyond the lifetime of the backing pages.
+> During fullmm teardown, user data pages can be freed before their
+> cached translations are invalidated. If those pages are subsequently
+> reused for kernel data, an erroneous uaccess that hits a surviving
+> translation can read or corrupt that data instead of faulting.
+> 
+> Fixes: 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1")
+> Signed-off-by: Lai Jiangshan <jiangshan.ljs@antgroup.com>
 
-Is the x86 TLS leak relevant to arm64?
+Thanks for the report. I think the problem identified is real. My TLA+
+model (apart from having a bug in how it modelled speculative TLB
+loads), did not exercise this init_mm case. I updated it and it now
+shows the problem.
 
-[...]
-
-> @@ -503,6 +517,8 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
->  
->  		p->thread.cpu_context.x19 = (unsigned long)args->fn;
->  		p->thread.cpu_context.x20 = (unsigned long)args->fn_arg;
-> +		/* No user GCS alloc here; drop inherited tracking for CLONE_VM. */
-> +		gcs_reset_thread(p);
-
-My LLM run noticed that this fixes another problem, unrelated to the
-failed fork: io_uring and vhost workers are created with args->fn and
-CLONE_VM and they inherit gcs_base/gcs_size from the creating task
-through arch_dup_task_struct(). Without this reset, a worker exiting
-normally unmaps the parent task's GCS.
-
-I was wondering whether to have a separate one-line commit for the
-worker thread case but I think I'll just add a comment in the commit
-log, keep things simple.
+We'll check your fix in the next few days.
 
 -- 
 Catalin
