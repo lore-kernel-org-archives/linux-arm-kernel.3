@@ -2,151 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92904606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 02:56:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B728606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 03:40:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NpIovtrR;
-	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=YfL6swxf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FJzUyWzy;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZlkUj1KF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=hnrs2FdnwHWCgKg0SmW1qSsndTGKhMKWtE98bO4UpLg=; b=NpIovtrRuB56aVe5BBfu2Tfgog
-	t9YVVFhRF578Yk706k4RnooICvFVomWEVnmG0EMBL2xWhDV670H0AS+t/yK9iEJOsOzZunlywAW+M
-	Orob0dZhG+UtSBBA4VZMEf6s8kDWfXmhFe7R179Qk5GqOmmW/cSZWLwTml8e2xF82f7/kbg3rUHQk
-	Zg4rbcEM9xSfVLGF/I35nXsXWhQdczSdo8V0quSgXiOgF1ox/FfcmMm91OjNt+h0fZ5TbVWBdfC9R
-	6gma/rWuRKMLrOTQ25clra+Xs4pUbeIi/WZHsjov1/Ie0QsEI6XPJOMtTfxtktui8+b68hAVhPDlN
-	auYhQWvw==;
+	bh=T2wJHvvfHh5stRmUDRprT6CqvsTMqTsUp6BRdeqqGCI=; b=FJzUyWzyj1GGi3uRXVOZUNpD0Y
+	SMAIPLHRVM93AMELyaqYQ/szFrgEhKb44YjPYycQojuxtc/MjSNMD3kco7EcjN2jv/Kw24xk0F5U3
+	A3INDY+lNU9ZTqsPLaXCwaYV1jzO8dBG+ZnBu5FeBXP8RpAOGz8Brz3k/s6WOEqRz60fwWa3AWEUc
+	wyJszvHsyG4Qxc9mOLuRI3yr6dA756Gz/MWQdppungcQtvWRRYZyhjzkqhMXJHt0i75noID35EjFd
+	3aikDqOMeFo8w8cLSezfgVJc2wJJac/NYJaEml2d3xzZhFgnk0ZEt5P8DVCzQLBx5/gYHDlZrAhUu
+	kGoHQ66A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMGJa-00000008DqP-3hoP;
-	Thu, 29 Oct 2026 02:56:30 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1xMH02-00000008FoG-2yxv;
+	Thu, 29 Oct 2026 03:40:22 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMGJY-00000008Dpt-0mzr;
-	Thu, 29 Oct 2026 02:56:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qf0gv2qQslJAk7lQWjBteK7H2SC5wuPrrJvzt1blBs1Gu6GKeCfA86jCtxHmvhBzd0yQ1GELsoZhu0hMf5ol6KZN2Zu3x0wCIepn6WGApB6UEqqNoGJ9Gj2X1vOberNK6gwNjUcl/32JtVC1SBKn74iVBRib4wDJcZVr9G26ih/zT3Z0a1Nb64Jdf0a6ZO5sY6oZ9lv8E3+66FilnBmEU8V5mOaCtSVdcZ1NQLP3t8m2OjWG9zDRUWLz2Y3vwWgJQ4BoAMB5iCXIFzdFLHYtq1c4b5cVtfI1LJjLq1qvhv4i9HpeO1YC9vF3lQfCz0E8yo4akUDTd5ASLH+9N7+K7A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hnrs2FdnwHWCgKg0SmW1qSsndTGKhMKWtE98bO4UpLg=;
- b=bVS/IKjSK30obqA3O0OREyy9kpX4FNjFmn3Q8Je2VLF59xJS6PXjOLgdBDb1fC8EFLh0u9etAmzKEmEV9uN1aQu4AQklHnQ+28ihfakty6zZ+Lej+hayJEQoX/Zw9XoCeJ/xA4BXVoffmX3qiCmo5kyhpMgtFOHZh2K7wMSj8Pl2oHrrxYTpyLbk04Eeceq5lW2jlgmCzl7QTsfHk7E1j71CyuaTLJOqI4cJq8RGbCyORx7Z/lwae/0JUkFVL+DbMe/h7ZjF7UlZGzGUhP3m28xQ5srtyPk7rw83LO0TMrw49GkqWj1OiEC2m6QpLt/iU77XCAjsgVAFwg/lGZct2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hnrs2FdnwHWCgKg0SmW1qSsndTGKhMKWtE98bO4UpLg=;
- b=YfL6swxfD17sRy2P8FLRzlfzyDz9rM+U7NUK3RUl/La+sOpNmLIj6c3KdYUYmqgdQ+sYZiy54RF7E8VsSm6Hmt2Pa7Vp4s72U0rNlDPV+lgupubUZ14BkAPnTj5lXapTNTeuoAX5cpjRpmvRniW/Zn4v9iVu1xDQavplxyjlZmff/6iAXrOAYZLXmvg0g525Fjmf6WVT60/cfZHryK+2piUtwTC3hPg6yujVMe/hjH2z7oz7xdftSCcc7vH/Zb0HDYF4T+pdBJkJJ9zNNTQBPYqRmhluI+b3WTKkc8kaiQN89Hy6npDmTBKYCHpv3W0qnxEJfFB1wkNv6Kkw4/kddQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYNPR03MB10226.apcprd03.prod.outlook.com
- (2603:1096:405:3c1::21) by OSNPR03MB10495.apcprd03.prod.outlook.com
- (2603:1096:604:47d::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.8; Thu, 29 Oct
- 2026 02:56:19 +0000
-Received: from TYNPR03MB10226.apcprd03.prod.outlook.com
- ([fe80::ff5:e524:cf10:5d7]) by TYNPR03MB10226.apcprd03.prod.outlook.com
- ([fe80::ff5:e524:cf10:5d7%6]) with mapi id 15.21.0546.021; Thu, 29 Oct 2026
- 02:56:19 +0000
-Message-ID: <6009f35b-b1e0-458c-85d4-08e4bfb1db86@amlogic.com>
-Date: Thu, 29 Oct 2026 10:56:16 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/5] dt-bindings: clock: meson: Add audio power domain
- for S4 soc
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com
-References: <20261021-audio_drvier-v7-0-2b9aeae9cb8a@amlogic.com>
- <20261021-audio_drvier-v7-1-2b9aeae9cb8a@amlogic.com>
- <20261028-sparkling-objective-cricket-a428bd@quoll>
-From: Jiebing Chen <jiebing.chen@amlogic.com>
-In-Reply-To: <20261028-sparkling-objective-cricket-a428bd@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TY4P286CA0047.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:36e::16) To TYNPR03MB10226.apcprd03.prod.outlook.com
- (2603:1096:405:3c1::21)
+	id 1xMH00-00000008Fnt-0mar
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 Oct 2026 03:40:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793245220; x=1824781220;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=6He+g3AusxeH/gTF4BqtGi6Idfhj/4/mur9we+ezF4w=;
+  b=ZlkUj1KFGQ0CHAoMAKsPK0CsiEEJJu+7ttpobi5UK2lPdaAT+O1PMlTM
+   K2BqOfjvEShSFtntSauhZ7eBboCwEaA6/ympxV5bLlNG+NDfkztyiAPeM
+   +kcJQPKow9IIIDe2zbCTW5xcIpAPPC4T5jUkhJ3S5W6oVtbC+RBIN0jiX
+   B432Qqn8QM2qxd4DghKIHiA4X/AFyY7SpZvKhUuTE8u9sTje84V6znlLw
+   ZN6YYFdWJImZN5Qs50Jk2OoImkOZpv07Lk3f3ZRdDSimLiQWBuYSL53Em
+   JwnCJFG9sLGwamlIKjpuru3ZEWb3opFqJFlyVdvz3/1+/vSLARbMflo7r
+   Q==;
+X-CSE-ConnectionGUID: tbFDEkVqSzeMycuPpwHDSA==
+X-CSE-MsgGUID: 6IY4RFlARf2SrNG+Sj4krg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11949"; a="2012088"
+X-IronPort-AV: E=Sophos;i="6.27,183,1787036400"; 
+   d="scan'208";a="2012088"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Oct 2026 20:40:19 -0700
+X-CSE-ConnectionGUID: ksy7pyXKTUmlIOtfUgQwJw==
+X-CSE-MsgGUID: Xn2yZ/ccSASehaLbTgTq5Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,183,1787036400"; 
+   d="scan'208";a="5143393"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 28 Oct 2026 20:40:15 -0700
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xMGzs-00000000ZYe-0jbr;
+	Thu, 29 Oct 2026 03:40:12 +0000
+Date: Thu, 29 Oct 2026 11:39:39 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jinjiang Tu <tujinjiang@huawei.com>, akpm@linux-foundation.org,
+	david@kernel.org, ljs@kernel.org, catalin.marinas@arm.com,
+	will@kernel.org, mark.rutland@arm.com, ryan.roberts@arm.com,
+	peterx@redhat.com, dave.jiang@intel.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Cc: oe-kbuild-all@lists.linux.dev, wangkefeng.wang@huawei.com,
+	sunnanyong@huawei.com, tujinjiang@huawei.com
+Subject: Re: [PATCH RESEND 3/3] arm64: Add PUD THP support for DAX and pfnmap
+Message-ID: <202610291125.dNGHD2Vr-lkp@intel.com>
+References: <20261028121404.853944-4-tujinjiang@huawei.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYNPR03MB10226:EE_|OSNPR03MB10495:EE_
-X-MS-Office365-Filtering-Correlation-Id: c1b7f319-7190-4a34-2118-08df3568353c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|7416014|18002099003|22082099003|56012099006|11063799006|10067099003|4143699003|261028144727099003|261021123027099003|261021121427099003|261022105027099003|261009223027099003|261026121527099003|261026140227099003;
-X-Microsoft-Antispam-Message-Info: qHvFRTiC5JOur0ghM9aekSI9hudhyLMr4Iy7Li46BFhxxKPzzovpy46TTjLMhaIHvJJign2brdLwsjglvE/20pl8E3h33CMB+eu57smHlhD4wnxdsjiuwEA1p0hMucj+tJEEYzPoY3dLmI9H21tPchvVhIetxvkIqzK073c994JgSgjAxxK2J5rsyux5B0F244JMgzQHKGMmIT9kH1irJnUVSN/rjrPwSmmAkYtb3GqnVr+s1M6Skn80LD1PadMLwoRY4U8Ueo72JYOVdq4v52kLG/Ecmr85OIf14DeUPVKFJvJCT+pQA5A3ukxUju7Z6GbSGiNen1+r/p9fgLv2M9hE8t6hsyzFw/XImYfQsD/h/pldZL3pywjuS2iBaMC+IK1oXItjBKDRooB0zsy0lr/4Ml520SVfgLQipidVjT99RJSmLBfmHjJ3h/JKE5DJFqDo337YXMHrspw4EVWJHkyGBTlU+gmswH/TO5/oLkVQFtmncJiQk04OskgmGduW5znOne2YfHPsUPJhXqBHYyAWuF7IzRZdEIkiXh+dwFL4sYx6nDJxRnzDCifNrPLe/mvBLWhgIW/ljzzeIsLTPBPQSO6Yx0gKwfbJCxjGjOMsygDnPAN2ufyibFHLwrFHloy/RSq6PsZAK9/OsiILGJwuKnuhvz1QE15ZsipCzxE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYNPR03MB10226.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(7416014)(18002099003)(22082099003)(56012099006)(11063799006)(10067099003)(4143699003)(261028144727099003)(261021123027099003)(261021121427099003)(261022105027099003)(261009223027099003)(261026121527099003)(261026140227099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0ZvUFpxMWk0NUdheE9HMmw2MTZYT3ZlSlorUnQzaUdaRFhha2RnR2t0Slg0?=
- =?utf-8?B?eERmWUtXbnV5dlZ3cVoyRDNjcDNsL0tuVEtxZDM2NHBoSDQ5dnJraDJjU3pO?=
- =?utf-8?B?RVRrdWtBd1ZESVdzUjhJNmVaKzNaUzhYYzRyYnhKR2lJSVZMUnl6bmx0WS9z?=
- =?utf-8?B?K0puTGdBTnduNkVqVFJsZ2ZPOU1obHNNcjU2ZzQzeXFvT0lNK24wSUY1STlq?=
- =?utf-8?B?SGhwN3cxanBHMlZqMUdTaGRCQVpKcEM2WWt2b2ZGY2lITjN0c1BNVkZ4dXlP?=
- =?utf-8?B?c0dUT290UHZsMExBd1BmcTdMOXJyTHJ1N3M1TFFlTXZvdkd3NktDbWN4Z3lM?=
- =?utf-8?B?Q2NDaWdXSkNrd1RvdmNIRGRiVG9pamdpTVFTajV1dzJ1Um5QcEp2VEFDTzBB?=
- =?utf-8?B?c0FHeEhFMXZ0amhjQ0dPam1TRTdZUTl6bkdTQXliYnFkMnd5dVZ5RWQzcHBk?=
- =?utf-8?B?bXdSOVJQNnZobXVlb3BmS3pKSXVydW5DWHZ5NVFLaEF2L1o0SzRqaUJzRmpM?=
- =?utf-8?B?THRjZHhUQWYrcWcvbE5BUU1mQXFLZUlrWXRoekNvYU8wZ1p3YlRNdHFWZTZO?=
- =?utf-8?B?QUJjblJOaEhpREJhTDNvNTl5dmRzNm5UalRQenc5MHlnc3E3RUdDZmtXc1kz?=
- =?utf-8?B?V3ZwVmcvclRYM3RiWjEwNkM0WVRVN1VFT2ZtNXhoVFczVmRxUTdpZ2o5MjZZ?=
- =?utf-8?B?dE5maHFWSXNsSjE3YmY2dVJqZys1K3dkS2szOTRZdGN0UHBQREplaGRmMmNN?=
- =?utf-8?B?Vm9YKzIxK1VvdWpJWEFYRnMxbFUrQ3F0dHhDMGxNWTdPalg1NUViYksxSk94?=
- =?utf-8?B?Z2tBYnRmQ1RHL1hqWlZiU2pQZDZnTlYxSCtUZmhiZVB1NE9KMExrakdjK2c3?=
- =?utf-8?B?RzJzL2VpK0dqNzdoeWtrWmtNc2xGMkpsSlZmQXFOYTRaUllyelROWjBHZ050?=
- =?utf-8?B?MTVncjcrdS8xNklzcDVpWjdiZEd0SDNxQm9NbElnUEpXVC84S2dqRWpveEVv?=
- =?utf-8?B?NDZLSzA3Z21ET0tUblducFNza2hBVGIrZjByK3F3dldvNWlDb1ZIRzdxaGFU?=
- =?utf-8?B?dlVBZ1VVUS9kT01Da2xqVlF0SWcwdk1tUHQrbEhHSlZPV3ZPSXJBMjFrdmNT?=
- =?utf-8?B?ZjM2ZVRHbmora1JBRktwSGtWOS9JTEhlbnpVUEROdHYxNUQrSytpekJmVTd5?=
- =?utf-8?B?ZW9Zc20yRXlVbk5jOCtHWFdCZUpRbDJtb09CM1lqYnVoM2U3WlMrSElxOVRk?=
- =?utf-8?B?UC9qbExwM1lwWHN2S0dLOTRCQ2hRbDd4NFVERTJMclViL0RYZTJPcVVWR3NJ?=
- =?utf-8?B?SDZtd0J3cjZHbmtlY1d5aHVSTDZrN3VnSFdwMlJwNnljajhUL0pKNkF4cE5p?=
- =?utf-8?B?QUsvRTg5bGxIa1owUnpBcGFxU0hOTm5vV0lFRlNmc1paTlpMK2lpOXpiUVlL?=
- =?utf-8?B?VDk0SG5WWW4rRzg3Rlk0dGZBNkd0bXA2N0IwSU9ad1BvdE80TElkZWxYUlY3?=
- =?utf-8?B?VUZJVlNrNThvanUvK0R3U0xGVElDR3ovZVhic2Nsc1Z6M2hXQXl0S2d6Zkh6?=
- =?utf-8?B?Y1FZbWlJdFpWUlMwbzdaT2NNaVdkZnBQV0RkRnZvNmFFNG94TzRTUnZWNjRO?=
- =?utf-8?B?cTZQbzVCcExaZ3gwYmN0U2NpN1Y4Y1hheW9KQ1U1MlBHK25WdU8rVUQ2ejRq?=
- =?utf-8?B?SlVOM2E1NDFHNi9EaUxQOWRnYmYvOU5Cb2pYc1JFeS9JNVZMNk5WSWszNURr?=
- =?utf-8?B?RThnUzFGUnlHNjlPQUNUOGd3bFdQTlZjWjMrZ1JzVFIybE9vTmJMejVwVnhI?=
- =?utf-8?B?d2dwaEF0Z3pLWExvOGpEaGVSTlUySW1UOFhEWDhwOU5hcGxSUDF1NGZEVHdx?=
- =?utf-8?B?RkJrTFUvSkNBR053WVFwL2lySzV2SzlzeWNQck5lQjdzUnp5VXlScVNJVVJU?=
- =?utf-8?B?UzI1ZFc4Y0haOE5XbGxWdy96dU9BcVZOR3cxMldzelVnSTZ5VUFlNHVsaUtk?=
- =?utf-8?B?dFlXdjl4YVJONjYwRjR6THcvdXFGbWtoNjY5Um1HR2c4M1RqVnpNVllwNU9a?=
- =?utf-8?B?RGxKV0gyaXZicS9TOWZ5S0JSbDYzM0ZaZGhCcTVsaE9XT0FEdFhEWmZ4ZDdF?=
- =?utf-8?B?TTFhTEJoREZkL3ZBQlRRd29YK3VwajladmV3QTNDcDIzcFY3M3BIbkZ3Q1RM?=
- =?utf-8?B?TVRVaUNQaUF6QUdvRlJIdEs4Skx0dngzaytRZHJlR3NYMFVaVTVCbE1BRm5o?=
- =?utf-8?B?dTBZS1hvK1Vtd3BGKzN6a25sbXpxTzQvcEhnY3RyZk1vYmdSQ2ZYbDRMSnJW?=
- =?utf-8?B?aktjem9xMlBncnpBTXY0NEFVZitqRzJVWkNvOUdtamFRUlZUTGtwQT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1b7f319-7190-4a34-2118-08df3568353c
-X-MS-Exchange-CrossTenant-AuthSource: TYNPR03MB10226.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2026 02:56:19.7471
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KeIDULntJPEm8AxruLSJTXtTpGOmVh15ph24RGqvqzqUQh4PrwzWfMQGC1SBa4gvopYUkUFQ84CVYMtlT8OK1vs6WuUAmW/uRg63DpaoBgI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSNPR03MB10495
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261028121404.853944-4-tujinjiang@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_195628_633765_1AB9B2D5 
-X-CRM114-Status: GOOD (  12.80  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261028_204020_240296_0DC5A84E 
+X-CRM114-Status: GOOD (  12.33  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,79 +91,79 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Hi Jinjiang,
 
-在 2026/10/28 22:48, Krzysztof Kozlowski 写道:
-> [ EXTERNAL EMAIL ]
->
-> On Wed, Oct 21, 2026 at 03:08:28PM +0800, Jiebing Chen wrote:
->> The audio power domain has been found on S4 device.
->> It must be enabled prior to audio operations.
->>
->> Signed-off-by: Jiebing Chen <jiebing.chen@amlogic.com>
->> ---
->>   .../bindings/clock/amlogic,axg-audio-clkc.yaml          | 17 ++++++++++++++++-
->>   1 file changed, 16 insertions(+), 1 deletion(-)
->>
->> diff --git a/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
->> index fd7982dd4cea..69f5fef5f14a 100644
->> --- a/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
->> +++ b/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
->> @@ -20,6 +20,7 @@ properties:
->>       enum:
->>         - amlogic,axg-audio-clkc
->>         - amlogic,g12a-audio-clkc
->> +      - amlogic,s4-audio-clkc
->>         - amlogic,sm1-audio-clkc
->>
->>     '#clock-cells':
->> @@ -100,6 +101,8 @@ properties:
->>     resets:
->>       description: internal reset line
->>
->> +  power-domains:
->> +    maxItems: 1
-> Missing blank line.
-got it, thanks
->
->>   required:
->>     - compatible
->>     - '#clock-cells'
->> @@ -115,6 +118,7 @@ allOf:
->>             contains:
->>               enum:
->>                 - amlogic,g12a-audio-clkc
->> +              - amlogic,s4-audio-clkc
->>                 - amlogic,sm1-audio-clkc
->>       then:
->>         required:
->> @@ -122,7 +126,18 @@ allOf:
->>       else:
->>         properties:
->>           '#reset-cells': false
->> -
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            enum:
->> +              - amlogic,s4-audio-clkc
->> +    then:
->> +      required:
->> +        - power-domains
->> +    else:
->> +      properties:
->> +        power-domains: false
-> And here as well.
->
-> Best regards,
-> Krzysztof
->
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on akpm-mm/mm-everything]
+[also build test ERROR on arm64/for-next/core powerpc/next powerpc/fixes tip/x86/core tip/x86/mm linus/master v7.3 next-20261027]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Jinjiang-Tu/mm-define-generic-pudp_invalidate-implementation/20261028-201402
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
+patch link:    https://lore.kernel.org/r/20261028121404.853944-4-tujinjiang%40huawei.com
+patch subject: [PATCH RESEND 3/3] arm64: Add PUD THP support for DAX and pfnmap
+config: arm64-allnoconfig (https://download.01.org/0day-ci/archive/20261029/202610291125.dNGHD2Vr-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 16.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261029/202610291125.dNGHD2Vr-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202610291125.dNGHD2Vr-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from arch/arm64/include/asm/io.h:13,
+                    from include/linux/io.h:12,
+                    from include/linux/irq.h:20,
+                    from include/asm-generic/hardirq.h:17,
+                    from arch/arm64/include/asm/hardirq.h:17,
+                    from include/linux/hardirq.h:11,
+                    from include/linux/interrupt.h:11,
+                    from include/linux/trace_recursion.h:5,
+                    from include/linux/ftrace.h:10,
+                    from arch/arm64/kernel/asm-offsets.c:13:
+>> include/linux/pgtable.h:2098:19: error: redefinition of 'pud_trans_huge'
+    2098 | static inline int pud_trans_huge(pud_t pud)
+         |                   ^~~~~~~~~~~~~~
+   In file included from include/linux/pgtable.h:6:
+   arch/arm64/include/asm/pgtable.h:842:19: note: previous definition of 'pud_trans_huge' with type 'int(pud_t)'
+     842 | static inline int pud_trans_huge(pud_t pud)
+         |                   ^~~~~~~~~~~~~~
+   make[3]: *** [scripts/Makefile.build:185: arch/arm64/kernel/asm-offsets.s] Error 1
+   make[3]: Target 'prepare' not remade because of errors.
+   make[2]: *** [Makefile:1416: prepare0] Error 2
+   make[2]: Target 'prepare' not remade because of errors.
+   make[1]: *** [Makefile:248: __sub-make] Error 2
+   make[1]: Target 'prepare' not remade because of errors.
+   make: *** [Makefile:248: __sub-make] Error 2
+   make: Target 'prepare' not remade because of errors.
+
+
+vim +/pud_trans_huge +2098 include/linux/pgtable.h
+
+1501899a898dfb5 include/asm-generic/pgtable.h Dan Williams   2017-11-29  2095  
+a00cc7d9dd93d66 include/asm-generic/pgtable.h Matthew Wilcox 2017-02-24  2096  #if !defined(CONFIG_TRANSPARENT_HUGEPAGE) || \
+bcd0dea5f4fb3d0 include/linux/pgtable.h       Liu Shixin     2022-08-29  2097  	!defined(CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD)
+a00cc7d9dd93d66 include/asm-generic/pgtable.h Matthew Wilcox 2017-02-24 @2098  static inline int pud_trans_huge(pud_t pud)
+a00cc7d9dd93d66 include/asm-generic/pgtable.h Matthew Wilcox 2017-02-24  2099  {
+a00cc7d9dd93d66 include/asm-generic/pgtable.h Matthew Wilcox 2017-02-24  2100  	return 0;
+a00cc7d9dd93d66 include/asm-generic/pgtable.h Matthew Wilcox 2017-02-24  2101  }
+a00cc7d9dd93d66 include/asm-generic/pgtable.h Matthew Wilcox 2017-02-24  2102  #endif
+a00cc7d9dd93d66 include/asm-generic/pgtable.h Matthew Wilcox 2017-02-24  2103  
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
