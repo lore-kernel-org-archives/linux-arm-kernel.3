@@ -2,110 +2,115 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 154B0606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:07:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDD9D606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:14:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gMdEueC8;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eMITbRTG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dY324c3s;
+	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XPn6YHW9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=0SbZPVThhtjU5v2CJr4ClagjjvnIt2bp8J9XxZctWA4=; b=gMdEueC8mMabOL
-	XmaSJtzK77lgjzm54lBqbzjqC1Intn82PoRPRPEf/Hsj83czRJJ3hvYxp9izpKJ2sE6enugkGUikR
-	SFMqgJ93POFSE8QVRiJ2XZYQgaL1TViFZFLpuJWR+KF7wVhTWmcHAxjpcKgNn/eExYcfosIJz4Qzn
-	EaxBsQdgt0oPg5ihdMkPfOqloRWYIGC9PykwTjhj4uSVkbN1L33dLWoh7CiIitQlM12tTnRimD84t
-	t8IbJgNJNK25V5oNUy++zuq5q5d5IN3zzrCb97/2c58NKHsiaqh5Yo/lvyMa6xdAS4WqznGvXkUDJ
-	N7lg80pIIzRSeJr3GGXw==;
+	List-Owner; bh=g6ZvoJA1lnqkwFVkrQz/iNNGer9RaAvDbUj4LHUnhUI=; b=dY324c3sRiaidY
+	ajZC8Noq+bPhmFe2Iyhnpu27gfYsL2/UDYMxnphr2HWw2C4nBy0ZPnfaO/D6WrL22AIbqQzFfdq5b
+	Dg+AKEBtDsUBoNqUwT5xf3Mvn0Egf0z0JNGeq+xwd8AX14ToyyGk2kxsRJpqZb2/JHOP8iDYhZDmf
+	c7bw2zSzAtm7cyiNF0oVS2Mz9jzxde80tuUH074Ye8abl/7NS5K5ufMNU8857qKyYQNdKl/31cxHj
+	bKOdQZ9hjPjknA1K90TPr8ZumU4Z28vY7BNiYy7UNdVP9UHOeGh/wEIP/J8yiw6zth2hf4dOyOEJd
+	vQmWrjni4bpz7pzvWJKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMN2G-00000008vOl-1wb3;
-	Thu, 29 Oct 2026 10:07:04 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1xMN9C-00000008wCn-1DCx;
+	Thu, 29 Oct 2026 10:14:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMN26-00000008vFd-0Dux
+	id 1xMN98-00000008wCS-3FbL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 10:06:56 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4a210470b49so15545405e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 03:06:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793268412; x=1793873212; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0SbZPVThhtjU5v2CJr4ClagjjvnIt2bp8J9XxZctWA4=;
-        b=eMITbRTG0WX/xdxkYfSsH8XiNXkvyDms2jI4WUWoCxEZxLIuTbWtX8g22oB9+fETuS
-         9PE15TQvDCK3efIUTtyMf67KuB4UkkqpgZdypddNAEQ1aV1UJOASRALibWz31dpn3mK1
-         1zXoSKrHyU/s52j8c0CJUr9bO3kpM/0bJ3g/w4kcrqhBnvz8/z6jksJ1oYpB4vx1AnUF
-         1rXbkRyamjz4Tw+daILdCTJ+NdM9gyn0UR0FFoxU/74ysBqOnfipu3SoTRIgDR5Xh+1X
-         QZzvYDAocUUq2fn18HQcVtvPIBWw2ZF3z2eeKQUdaEcllX5b4LZbksotiEGjc+0YPLTD
-         pFSA==
+	Thu, 29 Oct 2026 10:14:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1793268847;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=g6ZvoJA1lnqkwFVkrQz/iNNGer9RaAvDbUj4LHUnhUI=;
+	b=XPn6YHW9DhQDS2o01aDR7o0dCOnq6CquwPB4VX55o1hUbxdWsfheCQhMdnVytLhkeNBxIk
+	qxRTdx0ETjekO7E/HdDs++jhLVLjz8XT7ZMHX3qZt3uC28+tjlBU03IFenZ2OHNlxssXhQ
+	yTfS7NJGpImf7kTMHt/t+5gDhnQpfCo=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-614-KrjhFq83PcegyVqa1FnZbA-1; Thu, 29 Oct 2026 06:14:05 -0400
+X-MC-Unique: KrjhFq83PcegyVqa1FnZbA-1
+X-Mimecast-MFC-AGG-ID: KrjhFq83PcegyVqa1FnZbA_1793268844
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4870142f030so1095519f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 03:14:05 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793268412; x=1793873212;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0SbZPVThhtjU5v2CJr4ClagjjvnIt2bp8J9XxZctWA4=;
-        b=yAJO17NMXo+u+WP4d8E/g9LcUw6sjmiMhV1lIKS1YJsAgIp5SdjTyrFX//mKWeD20b
-         uZcxxQ/Fitpfm47JO/hMn912FvwfPK355TZyMtjvnAYLi0VrNnibOvFEDxY1nmqaJxJ2
-         NZRIxLrEyr9xxviFdQgW0jFSruXTcYY3WxnhIRBcHLPdphX82PEkk0Gy9TsUEJIaXG+G
-         fWmoemDBe0vA5Vh+M+SCH3Txz4FLEYpZYk6sUiFdEhnEJjFkqBIz9b+W4/BJQHscFtws
-         EvtyHev8zctT/56Xa+TovnR7TZtO6hMP3/gq7SwBDs0Det9cVbWKAupEW/SQFdU2MZVT
-         9BIg==
-X-Gm-Message-State: AFq9FYK86ab336p7LmLCtu3AxLqDUQW8r2TVQe39klDPGTprlT8b5ZEC
-	TIzhQOFbIeAtDQupPn37/pfTmWrMecyGyaVicHWY4zot37jlwo+jjzId
-X-Gm-Gg: AYBFou02I40NHKdX7FBcqvnUCRdXXO9h1lY9bMuN1nPPFgyfyArVPcUpCIdC8eCWxVv
-	bA4S/5d6FUf94zYPBk8y4Vj8wCDEodV51R7UlMi/03tXSsQ+XQ7MccW6nNUIEnS906dPS4l7Fvf
-	k7+XqcSVWlDFPJ3gngwJmwkTAazC7S+YATVhnlHj8dUfjDTk8QBcUQ7euHCDpQUx4HpASAKN8lb
-	OHawsH0jAotWBN8ONnaOBVFnzRJWogI9AmRCbAZizuq0XDOgoHFEpN+teWkv92wEBpM0nx2DfhR
-	MzmDpRkuaXetjxemM68ASAENsBiNmRTaY5oJ8R5iV5rnBpbSoN/OCq0+oFYnmYwVW9DQfjaZMqm
-	vfFbgt5M6bxdJDCvisJNCcr9EBkushJ6ZT5aMRbrmAxPJO8fi9yk00yl2UqV4sVphWkV+eq+ndx
-	SaqSqP1DuVzOXDLU/5tzMOxw9SNz30XbTXysxrgoqSG/jbh3XISMZ3EzUgbYSPFmcLbs7/ar53w
-	2qPhVBeEFz0nyqQlxZhFJQYAX/JySM9j9SDLnU8j8r3LJSL7RoqpVaxa3uAIcmbxu1r03NhFU0q
-	IGnuN+l09FjgV8j+CqgQ4UZxCHQ8P13zNISWmqZDe0jH00NBOvJISNbmEdGkzlRteKloTb//7e3
-	PCmawKxz9
-X-Received: by 2002:a05:600c:4ec7:b0:4a2:a9:ed5a with SMTP id 5b1f17b1804b1-4a9660b5041mr117976975e9.8.1793268412452;
-        Thu, 29 Oct 2026 03:06:52 -0700 (PDT)
-Received: from [127.0.1.1] (ip092042140082.rev.nessus.at. [92.42.140.82])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa7fdb7691sm53082825e9.11.2026.10.29.03.06.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 03:06:51 -0700 (PDT)
-From: Jakob Unterwurzacher <jakobunt@gmail.com>
-Date: Thu, 29 Oct 2026 11:06:26 +0100
-Subject: [PATCH 4/4] arm64: dts: rockchip: put the PMIC into sleep mode in
- suspend on RK3588 Tiger
+        d=1e100.net; s=20260707; t=1793268844; x=1793873644;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=g6ZvoJA1lnqkwFVkrQz/iNNGer9RaAvDbUj4LHUnhUI=;
+        b=iuMsff+kMc6Dmoipf2326SNEtPbUwqhi7GjPwnBL2FpV19m+6WJnDx8OnmvRbXF1/u
+         VaGSXGw2bCeyyX93Xdhff0tuxJgLIrpMTvWwxVYMMgFkbUd7YolJsGdH9dpD7VbTx56b
+         Qt6UDtWfeVfL8I3tm0Q4LgAS3TZKN+jKMgrFR3vvDFSFAUNIIU394fiVteSpovxose2E
+         oJea33Ue9DYf1mjw+pQ6iDPZfi+LmAnXjyav4i49XixQ8xd+SxfFwmfAVQh77qADbLQq
+         T5VQdSsuPP+BZrs5FA9jciwxUf0LgcH4z0jqH5ekonX/3LWQx9vpjUG7FhXHVYgN0uCn
+         PUFQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx6GNR2f2Th77cWDlwuEL1H66TOr9diVL1eHhFxRzP6WXfHpa8Nr6kLsHZgnt61MiSR/8DAoypKlFK/0E1y2CNs@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ07biZG7ourOcwfJ4aDSjvM8mP/gVmOAcSO8vDSwvYWF0PaLJt
+	FZ8ARGF9fxT+S67iEU0+PbJ5yr8BaA3zg7JPNPlceeGzsgy2AV8Z4TiVf3/4NVHIe9kyVKbqcRE
+	OBzhgzhW3Wp7yz7+kFu2+LfH8H/5fNTBln/IxamomrQsE0tr52YvbUFDJD06GKifOII5iMAIEWi
+	ZV
+X-Gm-Gg: AYBFou3bSrv6j9wsPvNNnHUCah83hjmWoWZz3VF8FXRSFKMwqh9Gln7TYgndu7Ar7Th
+	ICkEfOpaVaFNEJ/IIKvki6HAI7zPNogukUvn2W32Ys645esMJyGUWTHONmQWkbbny5FkyhQWU6W
+	z1uhdhTZCbVmYPY1z6vuzZPwOpbbNeBb2Ddd+C0u+G7H8+cK/SYaOfuDbK6VJMb2TIqD6AFanRd
+	hbgrmt9FjNrcOG+vE/raqzQelrdvNJcWC+XGA5e3ihcEdMZ6hWaK2CgLRYe9Mk4FjSrxaEV+fjy
+	5NosGvNxkHwVdV8NbyDlLxtZ8vszEPBtJ+4WiR+e9BUwwIC0zHOKqcwSYNYb6l5lFYTOumsziLu
+	+2ZH2VLqlPY+stwfXGcxefmLuKAZUy22pdv2aS6VcjPgroCu825eBTvjpuni/Tz+E+fdL8S831d
+	zFz8wIUVzyrQV5/F4eDBGWuBtkft34GjIZl1V7ddLNTLN/vJ0=
+X-Received: by 2002:a05:600c:870f:b0:4a1:fcfa:2a07 with SMTP id 5b1f17b1804b1-4a967f84822mr125620465e9.30.1793268844531;
+        Thu, 29 Oct 2026 03:14:04 -0700 (PDT)
+X-Received: by 2002:a05:600c:870f:b0:4a1:fcfa:2a07 with SMTP id 5b1f17b1804b1-4a967f84822mr125619965e9.30.1793268844145;
+        Thu, 29 Oct 2026 03:14:04 -0700 (PDT)
+Received: from [192.168.188.234] (ip174-129-192-82.pool-bba.aruba.it. [82.192.129.174])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ecdd5b3sm33496102f8f.53.2026.10.29.03.14.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 29 Oct 2026 03:14:03 -0700 (PDT)
+Message-ID: <bdc71cf3-5b16-4dbf-ac33-8f35b1a97d9f@redhat.com>
+Date: Thu, 29 Oct 2026 11:14:01 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-dev-tiger-v7-4-pre-20261028-tiger-suspend-b4-v1-4-cb12621c1fb4@cherry.de>
-References: <20261029-dev-tiger-v7-4-pre-20261028-tiger-suspend-b4-v1-0-cb12621c1fb4@cherry.de>
-In-Reply-To: <20261029-dev-tiger-v7-4-pre-20261028-tiger-suspend-b4-v1-0-cb12621c1fb4@cherry.de>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Joseph Chen <chenjh@rock-chips.com>, Lee Jones <lee@kernel.org>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-input@vger.kernel.org, mfd@lists.linux.dev, 
- devicetree@vger.kernel.org, 
- Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793268406; l=1641;
- i=jakob.unterwurzacher@cherry.de; s=20261029; h=from:subject:message-id;
- bh=SDfGdhdTbDViPNWR7gWVkSFVjA2d78IFMYAVeDi6pgc=;
- b=+lV6mFqZezu/+F0xruZF+cG3BHg9hNr6TFfbzH6ls2C4+aEQv2qB9TmeiX4sbnF59e3EHmvUT
- spRbBmKPD3LBiX00XMbFZ9MHPNkvGrR2KGQSbwdMr2iUT+IH87yeXEr
-X-Developer-Key: i=jakob.unterwurzacher@cherry.de; a=ed25519;
- pk=0v1L7pjG4d7PcaYPMOmzP4SjaRtnB+8bMzZLZCRzB8I=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v4 2/2] net: stmmac: Stop Tx queue when
+ (en|dis)abling XSK pools
+To: netdev-bot+sashiko@kernel.org, kurt@linutronix.de
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, kuba@kernel.org, edumazet@kernel.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, yoong.siang.song@intel.com, faizal.abdul.rahim@intel.com,
+ boon.leong.ong@intel.com, bigeasy@linutronix.de,
+ maciej.fijalkowski@intel.com, nb@tipi-net.de, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+References: <20261022-stmmac_xsk_crashes-v4-2-15c0c750bb96@linutronix.de>
+ <179299947058.3134.16617492920924670801@kernel.org>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <179299947058.3134.16617492920924670801@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: SisM6tPtF_nZZ9vlPinJ6Xg6cT_7zNA7SWcRcfBQkD4_1793268844
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_030654_221759_7D68ECA0 
-X-CRM114-Status: GOOD (  13.65  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261029_031410_914622_E104A3BF 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,61 +121,29 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
+On 10/26/26 08:24, netdev-bot+sashiko@kernel.org wrote:
+> - [High] stmmac_xdp_enable_pool() (stmmac_xdp.c:59) and
+>    stmmac_xdp_disable_pool() (stmmac_xdp.c:102) now call…
+> - [Medium] The patch only works if __QUEUE_STATE_DRV_XOFF stays set from
+>    stmmac_xdp_stop_tx_queue() until the ring is rebuilt.
+> - [Medium] In stmmac_xdp_xmit_xdpf(), first_entry and entry are read from
+>    tx_q->cur_tx when the locals are declared (stmmac_main.c:5263-5264).
+I understand that the comments raised on patch 1/2 are sort of pre-existing,
+as the reported races can be reached by __stmmac_release(), but the above
+ones look legit and unaddressed/unanswered.
 
-The RK806's PWRCTRL1 pin is connected to the SoC's pmic_sleep1 output,
-which the firmware (TF-A) asserts when the SoC enters suspend-to-ram.
-It is configured for no function, though, so the PMIC ignores it: all
-regulators stay on in suspend and the regulator-state-mem settings have
-no effect.
+You can target `net` with the next revision, and please reply also to
+already discussed comments, even with just a pointer to the previous
+discussion.
 
-Configure the pin for the sleep function instead, like other RK806
-boards do.
-
-Measured on RK3588 Tiger on Haikou, suspend-to-ram with the logic
-domain powered off by the firmware, module supply current (5 V):
-
-  PMIC pin with no function: 0.218 A (1.09 W)
-  PMIC pin with sleep function: 0.086 A (0.43 W)
----
- arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-index 161c89c62bcda..592a2d11b36b9 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-@@ -471,7 +471,7 @@ pmic@0 {
- 		gpio-controller;
- 		#gpio-cells = <2>;
- 		pinctrl-names = "default";
--		pinctrl-0 = <&pmic_pins>, <&rk806_dvs1_null>,
-+		pinctrl-0 = <&pmic_pins>, <&rk806_dvs1_slp>,
- 			    <&rk806_dvs2_null>, <&rk806_dvs3_null>;
- 		spi-max-frequency = <1000000>;
- 		system-power-controller;
-@@ -492,9 +492,9 @@ pmic@0 {
- 		vcca-supply = <&vcc5v0_sys>;
- 		rockchip,reset-mode = <RK806_RESTART>;
- 
--		rk806_dvs1_null: dvs1-null-pins {
-+		rk806_dvs1_slp: dvs1-slp-pins {
- 			pins = "gpio_pwrctrl1";
--			function = "pin_fun0";
-+			function = "pin_fun1";
- 		};
- 
- 		rk806_dvs2_null: dvs2-null-pins {
-
--- 
-2.47.3
+/P
 
 
