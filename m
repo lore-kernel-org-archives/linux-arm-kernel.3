@@ -2,87 +2,155 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD46D606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:46:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 999D9606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:47:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LuxN/Fcd;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=ujm4a+vS
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DS0H3RPY;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=RTdwGNg0;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QHvQuWSq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=DBvMxZ6LslwRYIA/ymXxr6ThNgTHCwGvp5ermnf1upA=; b=LuxN/Fcd0nb9Fn
-	BW48e0NqgbxhqXx+IK+zehIL9nFMm7AkOmRjf+FCqAeZ/xILH5jCfBQ3sXi+s12GWvhXrGhSAe/Un
-	olXzBLG3r5Edo+rdDtgj4MlOUUnWlJ/ERcOUfPMEYvrTLM3flzReTf6xNfnQHV9WZP2v4vTIXXwQ/
-	vsQ+io8uvXffw7t5//ehYa1QVtJdagLXM2jRl8DGFV1axuHVqQ0mjUEnOwc+xTKNtFHhJlH7IHfCg
-	ru/+DDT39HSNGjoKxCLyEg7kdorTeqamMeXln5WzdZk6NJTwNaPnOu5CbfuEztkvL4LTwWs66ciQu
-	xjrh3wPUaS3mEjK/1S0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=LgiwcLWFEkc9BGjIqmFkTfgmhNMEizrxCC66mDcMfXs=; b=DS0H3RPY917xKI+sQZK1Zc6m3D
+	wHS7JrLGD9x52sKbAe7kFNB0rDZ88X3bAuLXYgciM84GWHoINrhIXIbV3AFckV0xzmdpi9raqJvv3
+	4uqgXu2vlYx91HAgHCqAQBmxYBtwYCZvzRa9DE3FDuHJlWIss0JEk9pS9SOpZ3rN9afpWJ9webVH+
+	P8sFo9K4pdrTCxJ9sWbjyqoS3f69NllbXweA52ZY+hWdosOyxS81N91Zr1SlHsAKyuwi9inS3KIwF
+	87QMS2/RpnbUOZLJJQbIZwtWSaoz3ci946qSdTUCGDD2OBHHUu7N3EH8fg+4rcXY7X/s9rFQrD1Q9
+	nQk57Dyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNEB-00000008wmT-3OlH;
-	Thu, 29 Oct 2026 10:19:23 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xMNfV-000000090n6-20F1;
+	Thu, 29 Oct 2026 10:47:37 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNE2-00000008wfv-1FQF
+	id 1xMNfS-000000090mR-1N6y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 10:19:16 +0000
-Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7A6B9802;
-	Thu, 29 Oct 2026 11:16:56 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793269017;
-	bh=TEC0Tn18n1HeiWmbxdsliGWYWPY+kfyznyDz8yGCKEY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ujm4a+vSrr7c8O/XChUC+V8GfxvXO71koRNk1MSqf6zyXeWFZQpHwTS4fR4B4on+R
-	 +XnuXXSEone8MNfomMQdbQucTTPRyvF4iM1mQYJiRWVZ0/jMktXbuoE2SNhaXsPML0
-	 /vDjtX91fIBY0VeDLuc2u3kO8l6rEd/QpknWCe2U=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Thu, 29 Oct 2026 12:18:48 +0200
-Subject: [PATCH v4 02/14] drm/tidss: Add helper to identify the AM65x OLDI
- video port
+	Thu, 29 Oct 2026 10:47:35 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69T8vUDn179453
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:47:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=LgiwcLWFEkc9BGjIqmFkTfgm
+	hNMEizrxCC66mDcMfXs=; b=RTdwGNg0g2mzmaFT1ybL0jzmDUqvqndr6k1OHGKF
+	v7d/jrc4SwHopSpyBjyy1SpKs4t3vQT7n8DSfTNSsaxN0QeMEQUyHogHaG1UB8jC
+	i8b5YnS3+8QbX7nMLJIBCoPYt3qwG/VV7MsZiRbE1OlCRSr/sPsSM77V/Ml4iOMW
+	jKbENMJUIvZHOtG9+LlSlexWlJIEeJEO1eAZOvXHJiuLRosQpdHY2po+e3ZM62qV
+	p9oT5H3vVGO/QmmekZZAYfx8XpIjug9r4oyh4pxBz4VMUO+wCHZy7z99n4GBvdW8
+	WD8wJDcI0DVCVkNS7EPwx+2OSRIke4nGbtAI94O4n7Nvcw==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hkpmc35ty-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 10:47:32 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-532f343a55bso38791561cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 03:47:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1793270852; x=1793875652; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=LgiwcLWFEkc9BGjIqmFkTfgmhNMEizrxCC66mDcMfXs=;
+        b=QHvQuWSqXZgQVe6G200gClAUcWeuOPqUqgQx7PNCO5aKoepqZzT/vGGWEoXDqmLRuk
+         4vPPy+fvWRjpsX72pj4m+jnLIL3G3yBG8iQ62OM2OHZHlrsg0CI9wwLW/qnw3R4e31+h
+         qcO3uNz7Bmksodddztq3sUuEmSkpla6IKi8ZyIXakBoKNNWKqWFVgCtjivcyRyOcpf0p
+         P/sFhAJB/NyoSmmP9GRgnkRcw+asbNJW5pPUWv2YAjq0OtSY48vLtcDTuels0L9Ej4gP
+         7bTtHjhuvTIJu2ZwQ3TvGHbI/BeEB2skgFoVB9LpYBHwqFHZpJAt+LD80UO6Ywkp8Qyi
+         k1hg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793270852; x=1793875652;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LgiwcLWFEkc9BGjIqmFkTfgmhNMEizrxCC66mDcMfXs=;
+        b=HLneI2yhxzqtuVzyBLga2N5p+TNOFdYwC89RR+tflkOEa26XxC1Nox+Ng4oLxgYHWm
+         6MV/JRtLo/vyW2amlGiGzOmSGUskFs5JdGuncaW5pHic2dSwBcHYQDX6bLnYiSVSItw4
+         MlxCST2SZ1ebRDPV0HtRRHZ9TrEVa12Jl8DNhjgAVyyCxUymJWNr9Qy0YXfkua1dKMvx
+         BAesH0Bs1TbES4rVXsc2BaToKgbaklKfmsg2ILfS2HcVGZ5SYBPpYRHUfN64DbL8+Jl6
+         4CEh74ZOyESfq/mhVaZqcYTt80msxk4176Ync/39jKFrILsNVEzbwutdIV1TSNI14nwJ
+         39qQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwyPIY/inPB6U9FNbDFY0EXs1w6yi+vetls2h2q1OL2LNYDU8sO1BjolW08xNzJBn7SoaUM3kLSr9ch626yudCS@lists.infradead.org
+X-Gm-Message-State: AFq9FYLL4RthhvGjc2VyTd1EtJanV4sd+i/RDlu7ZXPZAxvOxWZ/Sqyw
+	NNT1P4yT/aufxMTT7FfC4AFZ4cHq0kQnrXOanXD2+KCu+a6C8vJPFwP0JGi+lIO+wgPwZOjPdBX
+	GvojgNj6kfHDTTsa0ydAGHbcM5b6QsSjy9Nr8zmd4bJXZ/EX6Dx2sHPO6ODTpH9Bgm4Mo1enzVn
+	RG/Q==
+X-Gm-Gg: AYBFou0E9BoLeH8ufcZojr2ilO0KIHc0Tvpdt8IFT6yMHbtTyV7/7ZqXNvHf3ZXhU1x
+	27HtrYXDtuLrPeuP5vbjAbOYWukL5g+aL1rqas6Z7agWALbtoi3+EYva/HZyxK3Ln0vr0itvYaI
+	Vt/7lNLFYa4STQLNqB5zSORfCg5rgH685IMOkoMZZFOvV0P+5dlXBBtzXkqry9senjTsrZmwEKr
+	E5BkMQAfOUzxDVV97B4OwQ0YBD+rgM40Ig9sDdBL0IAt6FtZ5apbMgi/iV7g1YkVKwuLUKQPA6C
+	Ky7/z6pDftwEnOUPJ3GN29jvx1oSLf9buRpYNBE9zLU8Vu0IjlZZEHVgzXZcaHItFqtdA7PWagq
+	doI8+GvbCut+vvdRFZdq9dX8VYI29V+deRjffN+52lG7wW4mqRPxWaMBLeLKVLmZpgaKysypkpt
+	R2pje1zG58YCfIu3CjAmIbaQ==
+X-Received: by 2002:a05:620a:29c5:b0:93e:561c:5bce with SMTP id af79cd13be357-94408cc4177mr732143285a.55.1793270852170;
+        Thu, 29 Oct 2026 03:47:32 -0700 (PDT)
+X-Received: by 2002:a05:620a:29c5:b0:93e:561c:5bce with SMTP id af79cd13be357-94408cc4177mr732138985a.55.1793270851575;
+        Thu, 29 Oct 2026 03:47:31 -0700 (PDT)
+Received: from localhost (net-93-144-6-81.cust.dsl.teletu.it. [93.144.6.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ecdfb8esm33612971f8f.54.2026.10.29.03.47.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Oct 2026 03:47:30 -0700 (PDT)
+Date: Thu, 29 Oct 2026 11:47:29 +0100
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: netdev-bot+sinfo@kernel.org
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Jose Abreu <Jose.Abreu@synopsys.com>,
+        James Hilliard <james.hilliard1@gmail.com>, netdev@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Rayagond Kokatanur <rayagond@vayavyalabs.com>
+Subject: Re: [PATCH net v5 0/3] net: stmmac: re-apply taprio offload in
+ __stmmac_open() and stmmac_resume()
+Message-ID: <auMkQUigOy-gkXmg@lore-desk>
+References: <20261029-stmmac-est-fixes-v5-0-85b830a795a9@oss.qualcomm.com>
+ <179327019639.3327.12142593314341295904@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-beagley-ai-display-v4-2-dc7f2b532478@ideasonboard.com>
-References: <20261029-beagley-ai-display-v4-0-dc7f2b532478@ideasonboard.com>
-In-Reply-To: <20261029-beagley-ai-display-v4-0-dc7f2b532478@ideasonboard.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
- Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
- Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, 
- Devarsh Thakkar <devarsht@ti.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3801;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=TEC0Tn18n1HeiWmbxdsliGWYWPY+kfyznyDz8yGCKEY=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBq4x2V/6l7VZLSSsmY02UwsTXwLCCdLd6CO0x9d
- oZDJN8j1XqJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCauMdlQAKCRD6PaqMvJYe
- 9WF9D/wJllN06e4ZQGxe4UcmfdlPI8/Timg3XLNgFCCS1VCU3zdpEQiYpCnFMHTf79p+UtQMR0y
- 2xoZ6+GwZmvkean5cQeVZDZTwU+tjmroukxQnegVKE46u+dptfS/2Gt7Pu5odnV8/QEFZaUKEsO
- cbXucskd/keBs1+1SP+dKoWi8mAXPlMoLRohngd8DVhPKZr7FI7l7lRcsvNQBlhmN4gBox7Gl4+
- 1OhHGYEMF6GEjL5ldcaSIfM1bBqBVuaDk4EYPE7pjXAXM2HOOnvdkxdcoqyjhpZYZNHWo8GKK1Q
- XlTbIA+IahUXCDnT19MPFy9rrhAVGS8y94g6RwB50AnQfqVLpE9aSLtz2CaauR2zR5Wvu5QLgJI
- ecxqAlPHlX+SEBIMuVlMTNFu2ezJ/y3KdcUm4ZeK+f89S+7bQ2N3Tl7ggEPco3W+gVYM/6PjK6z
- TWWpZZ+bVRvc2KSC9eYQYmCEdCVXWKrm8aAKpjfV+chq2O085jAQPpMGiz6iAK/S+Kq8KNmXVPl
- XPwFhHf1gttdDvNFJ6OLkL6vBKMf777lTTj9aelclF7xSldQKmukHXWXLoWwnot9BnAZLAnq/p4
- JJfOoYR43aael56tiQhCyA3L53emTXfbLnDb0bAsEV6VR3CD3e/lK/2NmChtdRGngLq1FDplme6
- +anfnc8WZtuFXYQ==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="S/8J51uVc0oNbge7"
+Content-Disposition: inline
+In-Reply-To: <179327019639.3327.12142593314341295904@kernel.org>
+X-Authority-Analysis: v=2.4 cv=X4nHu2Te c=1 sm=1 tr=0 ts=6ae32444 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=7fYLNvKHbgS61GKHX+yayQ==:17
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=VwQbUJbxAAAA:8
+ a=jeKYxtEjmYGD5WCmXysA:9 a=CjuIK1q_8ugA:10 a=GyJ7KGb24Wf4tUF3bmIA:9
+ a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-GUID: 8zYWhdN3DfCJsJJPRuXUvSLj9uzKOT31
+X-Proofpoint-ORIG-GUID: 8zYWhdN3DfCJsJJPRuXUvSLj9uzKOT31
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDI5MDA0MSBTYWx0ZWRfX8m0BeXbrRPv4
+ xRvYJbmvmzzvomkOf3VHF8Z+aHCBVgWRNvnnoJxX6bFVcW6VS6an9hFBE42HosInyIu0o7DD90L
+ Coz1yE6y8GbfJPtSEb4GgN/Yr2rUfaEn5zt2V3Jtbiz3OFHD29/dLmu+cmEefzMexT2c5eajmGY
+ BlfOht0OMU8iry2bK6+QapYZwNIHaG3T7z2NE18Y6sYgYL9OnEcXrm2ZYOQj9V3KTOQ73oEd1nc
+ P9rtCoqkYo/Z0/6JBvX55CGDxxmkZ6tGZWlAvHlPZWCI9WYkjHTlK8thIWxBit1fW3/5e+SYumv
+ GDzKurlnqWqEuCgkyzm5ZtIm+J6im9vA7Gl9EPb2/aVTiz1pGL0/a2xGOqciHwmqmlUEnPXP8Hk
+ nQTR4CAs03jYmLfFeS+Y63uRlC8iCr9Pcaj3aMAzH9ECAMr2PPOQKxrJZVQ36ZTh26FPZtfZSbB
+ 6vP3ewdAVKypi3RGRzQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDI5MDA0MSBTYWx0ZWRfX78l6tAywpQil
+ Gnm9bIcmRsLL8zTLYSWpJJ0VVY2dUk8avW0Zc9+4os9O+EhCzNx3mtamVZo47v6dibvgahtUBdd
+ vJNrTO8SiUqdolhpyKSG9lvD6v95K1o=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-29_03,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 bulkscore=0 spamscore=0 lowpriorityscore=0 clxscore=1015
+ adultscore=0 suspectscore=0 phishscore=0 malwarescore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610290041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_031914_493466_ADE7E190 
-X-CRM114-Status: GOOD (  15.60  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261029_034734_485418_5EA70BCB 
+X-CRM114-Status: GOOD (  24.30  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,105 +161,68 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On AM65x the OLDI TX is modeled as a part of the DSS, not as a separate
-bridge as the newer SoCs do, and is fed by the first video port. To
-handle the AM65x OLDI, we check for it in multiple places using the
-feat's vp_bus_type.
+--S/8J51uVc0oNbge7
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-However, vp_bus_type is problematic concept and should be removed, so
-this commit adds a helper function to check for the AM65x OLDI by
-looking at the DSS subrevision and videoport number.
+On Oct 29, netdev-bot+sinfo@kernel.org wrote:
+> Hi!
+>=20
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>=20
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
 
-No functional change.
+The issue has been reported by sashiko
 
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
----
- drivers/gpu/drm/tidss/tidss_dispc.c | 8 ++++----
- drivers/gpu/drm/tidss/tidss_dispc.h | 7 +++++++
- drivers/gpu/drm/tidss/tidss_kms.c   | 2 +-
- 3 files changed, 12 insertions(+), 5 deletions(-)
+>=20
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by code inspection). If it was triggered please include
+>    the symptoms, like the stack trace or error messages.
 
-diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
-index e516f493d6d9..efdabf046d64 100644
---- a/drivers/gpu/drm/tidss/tidss_dispc.c
-+++ b/drivers/gpu/drm/tidss/tidss_dispc.c
-@@ -1034,7 +1034,7 @@ int dispc_vp_bus_check(struct dispc_device *dispc, u32 hw_videoport,
- 		return -EINVAL;
- 	}
- 
--	if (dispc->feat->vp_bus_type[hw_videoport] != DISPC_VP_OLDI_AM65X &&
-+	if (!dispc_vp_is_am65x_oldi(dispc->feat, hw_videoport) &&
- 	    fmt->is_oldi_fmt) {
- 		drm_dbg(dev, "%s: %s is not OLDI-port\n",
- 			__func__, dispc->feat->vp_name[hw_videoport]);
-@@ -1143,7 +1143,7 @@ void dispc_vp_prepare(struct dispc_device *dispc, u32 hw_videoport,
- 	if (WARN_ON(!fmt))
- 		return;
- 
--	if (dispc->feat->vp_bus_type[hw_videoport] == DISPC_VP_OLDI_AM65X) {
-+	if (dispc_vp_is_am65x_oldi(dispc->feat, hw_videoport)) {
- 		dispc_am65x_oldi_tx_power(dispc, true);
- 
- 		dispc_enable_am65x_oldi(dispc, hw_videoport, fmt);
-@@ -1186,7 +1186,7 @@ void dispc_vp_prepare(struct dispc_device *dispc, u32 hw_videoport,
- 	align = true;
- 
- 	/* always use DE_HIGH for OLDI */
--	if (dispc->feat->vp_bus_type[hw_videoport] == DISPC_VP_OLDI_AM65X)
-+	if (dispc_vp_is_am65x_oldi(dispc->feat, hw_videoport))
- 		ieo = false;
- 
- 	dispc_vp_write(dispc, hw_videoport, DISPC_VP_POL_FREQ,
-@@ -1229,7 +1229,7 @@ void dispc_vp_unprepare(struct dispc_device *dispc, u32 hw_videoport)
- 		VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 0,
- 			       DISPC_VP_CONTROL_DPIENABLE_MASK);
- 
--	if (dispc->feat->vp_bus_type[hw_videoport] == DISPC_VP_OLDI_AM65X) {
-+	if (dispc_vp_is_am65x_oldi(dispc->feat, hw_videoport)) {
- 		dispc_vp_write(dispc, hw_videoport, DISPC_VP_DSS_OLDI_CFG, 0);
- 
- 		dispc_am65x_oldi_tx_power(dispc, false);
-diff --git a/drivers/gpu/drm/tidss/tidss_dispc.h b/drivers/gpu/drm/tidss/tidss_dispc.h
-index df3daccf3f31..3dff391d3fec 100644
---- a/drivers/gpu/drm/tidss/tidss_dispc.h
-+++ b/drivers/gpu/drm/tidss/tidss_dispc.h
-@@ -96,6 +96,13 @@ struct dispc_features {
- 	bool has_vp_control_dpienable;
- };
- 
-+/* On AM65x the OLDI TX is a part of the DSS, on the first video port */
-+static inline bool dispc_vp_is_am65x_oldi(const struct dispc_features *feat,
-+					  u32 hw_videoport)
-+{
-+	return feat->subrev == DISPC_AM65X && hw_videoport == 0;
-+}
-+
- extern const struct dispc_features dispc_k2g_feats;
- extern const struct dispc_features dispc_am625_feats;
- extern const struct dispc_features dispc_am62a7_feats;
-diff --git a/drivers/gpu/drm/tidss/tidss_kms.c b/drivers/gpu/drm/tidss/tidss_kms.c
-index eefe2221bdde..e55e7532e2f7 100644
---- a/drivers/gpu/drm/tidss/tidss_kms.c
-+++ b/drivers/gpu/drm/tidss/tidss_kms.c
-@@ -175,7 +175,7 @@ static bool tidss_is_dpi_output(struct tidss_device *tidss, u32 hw_videoport,
- 	 * for the OLDI TX on AM65x, we cannot detect this from the DT data, and
- 	 * have to special-case it here.
- 	 */
--	if (tidss->feat->subrev == DISPC_AM65X && hw_videoport == 0)
-+	if (dispc_vp_is_am65x_oldi(tidss->feat, hw_videoport))
- 		return false;
- 
- 	if (!bridge)
+This is a real issue reproduced on a Qualcomm rb3-gen2 baord. Flipping the
+interface down/up the EST MTL configuration is lost
 
--- 
-2.43.0
+>=20
+>  - What hardware the change was tested on. For driver fixes please
+>    mention the device (and if relevant firmware version) used for
+>    testing, or say that the change was not tested on real hardware.
 
+I tested the fix on a Qualcomm rb3-gen2 baord.
+
+Regards,
+Lorenzo
+
+>=20
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account. If the series needs another revision for
+> other reasons, please include the information in the commit messages
+> then.
+>=20
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
+
+--S/8J51uVc0oNbge7
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCauMkQQAKCRA6cBh0uS2t
+rEXIAQDUS/tjzpfvhs+2vPuoTrHqPDKx9gNvQP0LMjR1EeK9HgD/SdNaGfEDpwlx
+7815m6JJi4PS+5bjnGJC+iJ/VxseLQ8=
+=eqAR
+-----END PGP SIGNATURE-----
+
+--S/8J51uVc0oNbge7--
 
