@@ -2,71 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CD2D606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:36:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E899606A323
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 10:45:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EVMBYNnH;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PQ3yFViw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JWoC3hLz;
+	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=oqf0J9td
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=EVMBYNnH12pvwtYBSdFIULSgGk
-	zsJ7/IRVK49I+kml83o4kqovt5J9OG7yNRqAVAsGdzglFWSNG5dXpbfz0Pq3jSq6gb0KLrknU6kHX
-	HQDlPYQ6EFoPYevuwijcyKCD6IYzViyoKL8Y/ocYKoTZZA/KLBRWJHhVx+ysV/PZb6hcUypczsO6K
-	QPWxHVkL9o595aZo4Z1LFotK0dLkXZeDz/9zISTHwCjJhTdbOsHmfKeqvIYNraPHmqNtutm2zS2lB
-	DMr1d6l7CZkFnuD23F0EHy1wY0NII0zFtJo0xk8uV0/S3xf3Iw87FGFlDHiUne8b717c0WcQPYQYk
-	Q63it+sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=X1NIgwPPPady9vNgsqWp6u79hEpohZvkKV5SA0cXjbM=; b=JWoC3hLzvVJNKp
+	X9be+wFKfoLChHX/602TVE2+AvWy73xk93tdguyKI1LSf4ImySxPpV7oSKrOhb1tUP2nXPFCAKtUf
+	Ego03wJKlGCY0jS5HHbswf4LAaFYf0h5Ab1oGdP3YpoR7IlAdq5QIsAvVEY3LxL1iEIDYcpTi3VPB
+	+OIHu766f5+WkLIu06YasouNWrh6TE50wBscNVEB/b8oOJb0wDVRAQ/gRGErN+AwvDyL/brQzzLmW
+	XbgvZWzVY7/e+dPzur+Lai9+Mj9Q8gqoN8wEBjTYL9o7revxeOyXGJwKYz3ARey1BB8Qarx1Y2Fve
+	Te6EQOHrRKCdhECSO2mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNUu-00000008zlX-0rn5;
-	Thu, 29 Oct 2026 10:36:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xMNED-00000008woZ-0UXh;
+	Thu, 29 Oct 2026 10:19:25 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMNUt-00000008zlC-0lV3
+	id 1xMNE4-00000008whM-37RH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 10:36:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E290860207;
-	Thu, 29 Oct 2026 10:36:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D13F41F01828;
-	Thu, 29 Oct 2026 10:36:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793270197;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PQ3yFViwYPi3Zq5+ILxvqHXckmFlySr+JemIF1HMaqHQMNgGufL4GjH4eWHs7OjhY
-	 E2Zp+t9hM67MMIdz+kmVRHWopr+IT/7HOwb+/2IPh/J55Px9dveEL+8iCEIgjZaK7R
-	 8QpHNTnV/13whuBgw5JiijAozrwlTNZMfjZqk1ZA+3F6tYYtCfys2TyYgvNYZseUx5
-	 RFO8mAlFPg74F1K3g7l2ueBLUCLHss4YwCrjFh8Yj3FFp+ZA1jaTJ4ALDcRDXu2my4
-	 kqWb0zzD0SvCHuuWEXulmKZCxeihYR8l+73U077NsuvSvQWYDrZ3YR7dJqtUNZ9CO5
-	 ilTcAtgMfPtlg==
-From: netdev-bot+sinfo@kernel.org
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Jose Abreu <Jose.Abreu@synopsys.com>,
- James Hilliard <james.hilliard1@gmail.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Rayagond Kokatanur <rayagond@vayavyalabs.com>
-Subject: Re: [PATCH net v5 0/3] net: stmmac: re-apply taprio offload in
- __stmmac_open() and stmmac_resume()
-Date: Thu, 29 Oct 2026 10:36:36 +0000
-Message-ID: <179327019639.3327.12142593314341295904@kernel.org>
-In-Reply-To: <20261029-stmmac-est-fixes-v5-0-85b830a795a9@oss.qualcomm.com>
-References: <20261029-stmmac-est-fixes-v5-0-85b830a795a9@oss.qualcomm.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	Thu, 29 Oct 2026 10:19:18 +0000
+Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 01E57C4A;
+	Thu, 29 Oct 2026 11:16:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1793269021;
+	bh=KTIXB27nV2CogfdCuFPaogEUe+KRWZ9o8/7dUF1G94I=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=oqf0J9tdCm4ZUOdAESn4YX7LKcnXqNXV3CUipoDP333o/0Mr/PjDO0x327/wLNYSz
+	 DwUyL8eo7tmGUAo0wEK5sc/51FVy5AfQOBpPfoIW/G3B9jEw4Vo8kX9Lh9ZKpDJTXu
+	 rIEtOpZaZ0EP8JQDGZUGmNNjWL8Ijv0ElVPYU4As=
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Date: Thu, 29 Oct 2026 12:18:51 +0200
+Subject: [PATCH v4 05/14] drm/tidss: Remove the unused vp_bus_type feat
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261029-beagley-ai-display-v4-5-dc7f2b532478@ideasonboard.com>
+References: <20261029-beagley-ai-display-v4-0-dc7f2b532478@ideasonboard.com>
+In-Reply-To: <20261029-beagley-ai-display-v4-0-dc7f2b532478@ideasonboard.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, 
+ Devarsh Thakkar <devarsht@ti.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3432;
+ i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
+ bh=KTIXB27nV2CogfdCuFPaogEUe+KRWZ9o8/7dUF1G94I=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBq4x2XEf8ivNkuiJveCq0pdDBohqKlTqYGkJxv6
+ +G6AolREv2JAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCauMdlwAKCRD6PaqMvJYe
+ 9SY3D/oCmh0YA1xqzjDpIEzJxurRNfvRtc5r/cFKtelMdyULN6GDNmm0KUtreKMFBg6/HObLuyC
+ GY7pJ4Pw2RvWnrEq5bck+XVRPr0FOJ6j+xPssYoajyz1schpcAk0/xtGhfDhmIES/JEeApH4f5N
+ wM4Wuj9PScGrQ6A+8BwlJovY0GHW4bstGWyngvoSasoOptTTwVviGMEBbI6Wo5J+Cy08IGvYk7z
+ 4otFGUqsERwbUjSxV71POoENnDI2PUYQ8miBVspNIXjf+OcX/Xvqe7hx3w1GKcGr2lufmptfadp
+ w0lEULQNuQMsPkAPjxzJTZr5iF4PXz1yRElvVA3kPrNrdShi85uPeE+gOkn7QI1rcvQg2CWznii
+ SsPG5Er+DVr3HeTwPtZrVR88lADDuj8W+dnhNv6A/pC3Y/0tXQWM8RTfOrTGcMjs01Y04yLJs72
+ MVvyopn1OieZY3azoyJiy7y85fqZSD5kpOQfNMToNz8aWTkCONJgPD91v1+xPqDaALFykmMJIrs
+ yYxIOJxcDbumbwBM521pXNGDSKzpxX4xnSCkCxIff9SubczHeBgeeGWfswr51x4x4B/zs0F2v3I
+ cLK3ydm49d0c8hJ7B2Oe7iNUL6shvhx8KLWcHwch9ZHiSQUg2s+1aZyps1l7dl3tO6MX3x9oso/
+ FhlGauVdJpCIIBg==
+X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
+ fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261029_031916_957928_E83E4C69 
+X-CRM114-Status: GOOD (  11.05  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +92,106 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi!
+Nothing reads the 'vp_bus_type' feat any more, and can be removed.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+---
+ drivers/gpu/drm/tidss/tidss_dispc.c | 9 ---------
+ drivers/gpu/drm/tidss/tidss_dispc.h | 9 ---------
+ 2 files changed, 18 deletions(-)
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
+index 8c537280faf5..028cf78df3fe 100644
+--- a/drivers/gpu/drm/tidss/tidss_dispc.c
++++ b/drivers/gpu/drm/tidss/tidss_dispc.c
+@@ -90,7 +90,6 @@ const struct dispc_features dispc_k2g_feats = {
+ 	.vp_name = { "vp1" },
+ 	.ovr_name = { "ovr1" },
+ 	.vpclk_name =  { "vp1" },
+-	.vp_bus_type = { DISPC_VP_DPI },
+ 
+ 	.vp_feat = { .color = {
+ 			.has_ctm = true,
+@@ -167,7 +166,6 @@ const struct dispc_features dispc_am65x_feats = {
+ 	.vp_name = { "vp1", "vp2" },
+ 	.ovr_name = { "ovr1", "ovr2" },
+ 	.vpclk_name =  { "vp1", "vp2" },
+-	.vp_bus_type = { DISPC_VP_OLDI_AM65X, DISPC_VP_DPI },
+ 
+ 	.vp_feat = { .color = {
+ 			.has_ctm = true,
+@@ -262,9 +260,6 @@ const struct dispc_features dispc_j721e_feats = {
+ 	.vp_name = { "vp1", "vp2", "vp3", "vp4" },
+ 	.ovr_name = { "ovr1", "ovr2", "ovr3", "ovr4" },
+ 	.vpclk_name = { "vp1", "vp2", "vp3", "vp4" },
+-	/* Currently hard coded VP routing (see dispc_initial_config()) */
+-	.vp_bus_type =	{ DISPC_VP_INTERNAL, DISPC_VP_DPI,
+-			  DISPC_VP_INTERNAL, DISPC_VP_DPI, },
+ 	.vp_feat = { .color = {
+ 			.has_ctm = true,
+ 			.gamma_size = 1024,
+@@ -328,7 +323,6 @@ const struct dispc_features dispc_am625_feats = {
+ 	.vp_name = { "vp1", "vp2" },
+ 	.ovr_name = { "ovr1", "ovr2" },
+ 	.vpclk_name =  { "vp1", "vp2" },
+-	.vp_bus_type = { DISPC_VP_INTERNAL, DISPC_VP_DPI },
+ 
+ 	.vp_feat = { .color = {
+ 			.has_ctm = true,
+@@ -384,8 +378,6 @@ const struct dispc_features dispc_am62a7_feats = {
+ 	.vp_name = { "vp1", "vp2" },
+ 	.ovr_name = { "ovr1", "ovr2" },
+ 	.vpclk_name =  { "vp1", "vp2" },
+-	/* VP1 of the DSS in AM62A7 SoC is tied off internally */
+-	.vp_bus_type = { DISPC_VP_TIED_OFF, DISPC_VP_DPI },
+ 
+ 	.vp_feat = { .color = {
+ 			.has_ctm = true,
+@@ -422,7 +414,6 @@ const struct dispc_features dispc_am62l_feats = {
+ 	.vp_name = { "vp1" },
+ 	.ovr_name = { "ovr1" },
+ 	.vpclk_name =  { "vp1" },
+-	.vp_bus_type = { DISPC_VP_DPI },
+ 
+ 	.vp_feat = { .color = {
+ 			.has_ctm = true,
+diff --git a/drivers/gpu/drm/tidss/tidss_dispc.h b/drivers/gpu/drm/tidss/tidss_dispc.h
+index 3dff391d3fec..ebaf559d56e5 100644
+--- a/drivers/gpu/drm/tidss/tidss_dispc.h
++++ b/drivers/gpu/drm/tidss/tidss_dispc.h
+@@ -59,14 +59,6 @@ struct dispc_errata {
+ 	bool i2000; /* DSS Does Not Support YUV Pixel Data Formats */
+ };
+ 
+-enum dispc_vp_bus_type {
+-	DISPC_VP_DPI,		/* DPI output */
+-	DISPC_VP_OLDI_AM65X,	/* OLDI (LVDS) output for AM65x DSS */
+-	DISPC_VP_INTERNAL,	/* SoC internal routing */
+-	DISPC_VP_TIED_OFF,	/* Tied off / Unavailable */
+-	DISPC_VP_MAX_BUS_TYPE,
+-};
+-
+ enum dispc_dss_subrevision {
+ 	DISPC_K2G,
+ 	DISPC_AM625,
+@@ -87,7 +79,6 @@ struct dispc_features {
+ 	const char *vp_name[TIDSS_MAX_PORTS]; /* Should match dt reg names */
+ 	const char *ovr_name[TIDSS_MAX_PORTS]; /* Should match dt reg names */
+ 	const char *vpclk_name[TIDSS_MAX_PORTS]; /* Should match dt clk names */
+-	const enum dispc_vp_bus_type vp_bus_type[TIDSS_MAX_PORTS];
+ 	struct tidss_vp_feat vp_feat;
+ 	u32 num_vids;
+ 	struct dispc_vid_info vid_info[TIDSS_MAX_PLANES];
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by code inspection). If it was triggered please include
-   the symptoms, like the stack trace or error messages.
+-- 
+2.43.0
 
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account. If the series needs another revision for
-other reasons, please include the information in the commit messages
-then.
-
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
 
