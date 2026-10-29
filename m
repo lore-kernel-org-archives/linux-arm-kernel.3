@@ -2,39 +2,39 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 152AB606A33A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C042606A33C
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 13:41:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JVtW9KC4;
-	dkim=pass (2048-bit key, unprotected) header.d=amdcloud.onmicrosoft.com header.i=@amdcloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-amdcloud-onmicrosoft-com header.b=skCID6vD
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fj7ctxkc;
+	dkim=pass (2048-bit key, unprotected) header.d=amdcloud.onmicrosoft.com header.i=@amdcloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-amdcloud-onmicrosoft-com header.b=nZist6rj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=9RyDa0A6WzUoK+rmtbBYIhb4g+dMi6Svc2oTWEWtxj0=; b=JVtW9KC4gldP/F
-	7fVfidBJ78wKUBwpKtVq85/Y6cSptQxjKhBQMBYYSO1iQggMf2fSbMaWdAtvH2vNlMhUEsNtfsGjp
-	10ML5VqeB50UCMQkArjQsBhNi0nlgBF8ddPRbcn5AbKwsNC/80HdYn7EE1WJJigBQrq0X3nu9fwqT
-	QGA8U1BvmqyHyaIOuOU3lbeTmW2CIiWYQffleW3QO34HRfpewGD0dR9SWhiNSOq2VMq0eqciHmlBQ
-	CRDXqh4g0N0kRU0fAAT/5CFUQ1vJT5l7ylpGJdZpztKKvtIC4Y7hQKPnu86bjKiUF4Pgob0+roglj
-	UOSuHFzoBijOeX11UFWQ==;
+	List-Owner; bh=SIQCX5QCC7CQv5gW9cz1dkqgjxNIqgJOCcI0wL8s8VQ=; b=fj7ctxkcyt9CE3
+	zRpMWroIR2iq953KMQLKrn4Nk2UWpm0A28vI3AmR9rp25HaM5WzQpjgK53QR3MGjlOixpaFhTohyg
+	s4T4skI6WaD2KBkCQqKSiO0OBiSmlIuINp5aKCgJrhmeXUH97CZ6Mn0OQ0008KwZJ5OzwOJ6i/7EX
+	prxSBmT2w8UPQ/0bbr6DEc8mnFou2x3hi3QL/morylbEb6K1rz/Yi15Xa+IRDXidYOSCKPvma2l1B
+	ATH1Dlc6pEae96wp6J5Vve3CoqdeUcqKa3UtKw9cJBzYtccmPFMxFVDOLv0pTxT6Y0iPo8I7NelCi
+	VudMjVGrN1LWb3rECj3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMQNy-00000009N0r-3PbN;
-	Thu, 29 Oct 2026 13:41:42 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1xMQNz-00000009N1V-0JfF;
+	Thu, 29 Oct 2026 13:41:43 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMQNs-00000009MyR-3wAy
+	id 1xMQNv-00000009MzL-2BLd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 13:41:37 +0000
+	Thu, 29 Oct 2026 13:41:40 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TeOK+6M7dyMjPh7Gv+NmVTVSAwScQlCruq/ZB3+M9i3tvhoF5j9v2+37qZ08yyjsO/evwD5+dSVcZBBVc4ANw1fjPabVX0mTHPW7NkIJgy6YQLLa7VU48hfo+VcNLuwMG/K2qgfdAFuzQmbneK4AYJJc2K3bRZlGtIZeB70N4oFTTAFOoVfVTEwAhFUVLDOrlTN97XRBMz6gdPfJ3hvNrNao/9s5puOxG+5j2rDEIDQUMJGGquVpXvhjaxo6duIisbLWbYYHvEmMA0tTghvlGJrB/ISc46kr+Op5VuZWl56gBBmW+LcxDk5BCjs3zfT+g066F54HgCcz0z15EydyPQ==
+ b=xCjHr6W3hnP2TwP/ipXWXKVzDcOu5R+Bg4UMkKe9tAh6JDGSfvxmfLF2tOVqCQT/PlC1CXMW4R0A93FXmXvA5rT1/l87Lgmsi0gI0usjASoKkBwJXq5PlQ5ybi6gR1u1A+P+SHxtZ4G3PIPxpha3pxwhD60cjoH1x1TZzlphF8FxmbM+icc73Ex6mvaK3jGEwru0FxDAAwfdDtK6ZYvTzPaa19otu4llhcETlVmW342koesRLvbtiI1SMw7C9DPONx7ifZx4uTtFtkPV/qAdnclEL12o8FTvo+RAIugwh44JkTHnHcFL6mJTipq5x6nWNYnaZXXjpqNR6BiChitqrQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9RyDa0A6WzUoK+rmtbBYIhb4g+dMi6Svc2oTWEWtxj0=;
- b=dxNo6uFEBs6u1HrkccdvAgD4DOGZpfyxpG8J3LlOE5y/DdxXUbLtxMoUzStLwsRSHshbVtzhuYdfEukHrJ5KR0m/WezMVlRxMonr7avw3BtCfLwgWyABvFOaUtpjGaKMmu6GfxdIyV0JBrS5Qi5rSFk8U+CgRSGIMXLDHeZrUOOznusiXJtygD8i9Pue6+O6/KYFn/vEV11GJ4ZAcpyPoTZbZzk1YXNezE7zHqq6LygBxTWL+hvnVf+h/XqMwSyOJvOI8IAr7Q3Y0GsttUj5mS+OI4/fouv5qyf47zzLH+GmkDqiKUoFr7BagKNVplbOwldHdXj+RhpHEo2H3GOVyQ==
+ bh=SIQCX5QCC7CQv5gW9cz1dkqgjxNIqgJOCcI0wL8s8VQ=;
+ b=vacBpLGnOmFxvFVJBxuoSlmLlS5kCeaa49MLwaWvVxKh+bXeBC4rZDA808+JgmArWUgb/WurfXAqZwrqJZJqpLqejYGh7GRGKfzeDBc2JbLeuehQo+fTMksDBSMv1pAbtQ3A1tIAadgRj/8vVFfMHOwysYUiq5v6MY9UisSowp45FkexyOvy1U7xRRO/bx0IjzH0HwXPcWiIN8r23FHesOkf0KUMDJ37ApWViEFiM5UWG1C0OqArVEfoVYONfzEci3kFyihlbDon7dY3N0HXZdVxqw5e8IVte9AkOCuzHFlKpsRdGcuT2xgKHQbwOd4HC+uRSF2hY3glC+cc2cKtEg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
  is 165.204.84.17) smtp.rcpttodomain=aspeedtech.com smtp.mailfrom=gmail.com;
  dmarc=fail (p=none sp=quarantine pct=100) action=none header.from=gmail.com;
@@ -42,43 +42,46 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=amdcloud.onmicrosoft.com; s=selector1-amdcloud-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9RyDa0A6WzUoK+rmtbBYIhb4g+dMi6Svc2oTWEWtxj0=;
- b=skCID6vDKv8SMbqo3u9SBAMl5+t34jxCaJ/qsyEAjmaDgsufiLSMzRGFBss6VFd7KX3t5XCciL2xusa7xG52YCf3nUouJL5ibxryp0XlgjqIUnvEgwnqj2FZ+Ty4e/ZbVpllxb+iHcb1elyg8yVKNfL8TMLCkPMTaTPB5qZE0HCeycPgJdnAAjqVqGoTLmVLGvn3EhROlHILJglrAxG+hQuQKe5C4Nz2pwA3WRkX8LeDn09ZZL4AuOfead0LRoNHkK8ByOcXETyh89boI/CtujU3oL77GV1ZnfSTvUFnS4iNJB4FBk4FxFvPvRcw/GBs4OOMCXuwRPsumAGXxxkwzg==
-Received: from CH0PR04CA0022.namprd04.prod.outlook.com (2603:10b6:610:76::27)
- by MN2PR12MB4341.namprd12.prod.outlook.com (2603:10b6:208:262::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.9; Thu, 29 Oct
- 2026 13:41:29 +0000
-Received: from DS2PEPF00006E26.namprd05.prod.outlook.com
- (2603:10b6:610:76:cafe::5f) by CH0PR04CA0022.outlook.office365.com
- (2603:10b6:610:76::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.7 via Frontend Transport; Thu, 29
- Oct 2026 13:41:29 +0000
+ bh=SIQCX5QCC7CQv5gW9cz1dkqgjxNIqgJOCcI0wL8s8VQ=;
+ b=nZist6rjDfi1zhZUDjra/H4+ivEfEBtkmby5wwa+JYVBoi23ZWp/5EGqOnVEm29XwNcwW11V1DwYtLnfsI9It36g5ie1BXSEIZsJuyS8/x88m8+OYfChQBY5XIR7nwoERkX2MWcMDKprcJ+7Rnp41mrngF4aTUaCpARzkMsQ5JD7fTDCHuHMd1LnHtD2Np4B0zo34fjOH1OY5Zx4Lq7iNMbxzPYAzLIZDnq3O6koNg00GhvhoIdSFNv3SZ+7Ne671hYO+grmO67s3rlrtxDFjzZzGMOc55dIU1SDWf10OAj9gTd37SOnz6o8GzR+PgiKuTnMmLbR0EqOX1isivc4Ww==
+Received: from CY5P221CA0124.NAMP221.PROD.OUTLOOK.COM (2603:10b6:930:1f::7) by
+ PH7PR12MB5829.namprd12.prod.outlook.com (2603:10b6:510:1d4::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.569.9; Thu, 29 Oct 2026 13:41:32 +0000
+Received: from PH3PEPF0005961B.namprd05.prod.outlook.com
+ (2603:10b6:930:1f:cafe::32) by CY5P221CA0124.outlook.office365.com
+ (2603:10b6:930:1f::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.22 via Frontend Transport; Thu,
+ 29 Oct 2026 13:41:31 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
  IP is 165.204.84.17) smtp.mailfrom=gmail.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=gmail.com;
 Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
  gmail.com discourages use of 165.204.84.17 as permitted sender)
-Received: from satlexmb08.amd.com (165.204.84.17) by
- DS2PEPF00006E26.mail.protection.outlook.com (10.167.23.219) with Microsoft
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ PH3PEPF0005961B.mail.protection.outlook.com (10.167.243.25) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.569.4 via Frontend Transport; Thu, 29 Oct 2026 13:41:28 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.569.4 via Frontend Transport; Thu, 29 Oct 2026 13:41:31 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Thu, 29 Oct
- 2026 08:41:27 -0500
+ 2026 08:41:30 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Thu, 29 Oct
+ 2026 08:41:30 -0500
 Received: from [127.0.1.1] (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
- Transport; Thu, 29 Oct 2026 08:41:25 -0500
+ Transport; Thu, 29 Oct 2026 08:41:28 -0500
 From: Colin Huang <u8813345@gmail.com>
-Date: Thu, 29 Oct 2026 21:38:32 +0800
-Subject: [PATCH v10 03/16] ARM: dts: aspeed: anacapa: Add DVT devicetree
- inheriting EVT2
+Date: Thu, 29 Oct 2026 21:38:33 +0800
+Subject: [PATCH v10 04/16] ARM: dts: aspeed: anacapa: Add additional EEPROM
+ node for SCM
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261029-anacapa-devlop-phase-devicetree-v10-3-26ee3cf9d9d0@gmail.com>
+Message-ID: <20261029-anacapa-devlop-phase-devicetree-v10-4-26ee3cf9d9d0@gmail.com>
 References: <20261029-anacapa-devlop-phase-devicetree-v10-0-26ee3cf9d9d0@gmail.com>
 In-Reply-To: <20261029-anacapa-devlop-phase-devicetree-v10-0-26ee3cf9d9d0@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -89,38 +92,39 @@ CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
 	<colin.huang2@amd.com>, Colin Huang <u8813345@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793281119; l=5821;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793281119; l=1225;
  i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=AQ5iLkgP6NLAtcRqZ6tcsMzjF1xEYDqVB0kQ/nuplqc=;
- b=2ZZb5/Hxjkc0tlcgMqU0sf5A0vG2PA7ulmvGPPEztdPRlIP4TH7KJu4eodNjUzLaptYocC0hI
- 2rlGW4jpRa6D0uWXAEolCWhooJaMVj5/vJ78cU2xyEBTuX5K/XkGN3x
+ bh=dS+Ny01+XQ5n7Md3LPea05VV+V4r9WTNjxB4lZM1dm8=;
+ b=NHysd3IgLglnk7r+hzF0UXx+oAyAD54tL9V00NTlQeT7ZQxUIgsbaQYCBWIrLIzhZo9fQEGYK
+ eILFe0T2PP7AR5ZyWMD8KU+pZKErU+9t6Rt7xx/vZ840EzByb86nbNq
 X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
  pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF00006E26:EE_|MN2PR12MB4341:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7d857f60-fd76-4010-7ec5-08df35c25577
+X-MS-TrafficTypeDiagnostic: PH3PEPF0005961B:EE_|PH7PR12MB5829:EE_
+X-MS-Office365-Filtering-Correlation-Id: f882316b-96e7-40aa-1633-08df35c25777
 X-MS-Exchange-SenderADCheck: 2
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|48200799018|376014|7416014|61400799027|35950700016|82310400026|7093399015|11063799006|56012099006|261009223027099003|261026140227099003|261028144727099003|261022105027099003|261021121427099003|261021123027099003|261021135927099003|10067099003|22082099003|16102099003|18002099003|4128699003|6133799003;
-X-Microsoft-Antispam-Message-Info: l+o9Gdmr5UEC4l3+7n1j1NL88qlUjiNpjci8avuY9qQk4x3VftpHtASJ64gDXlNNeXtqvVRpWQAhGQc0XQ5g4ZzAdYQXzx0kxruj15mMvy8DauCtcStdCQPSYnQx5/8BSjJi0kcGBfy1R+EgD+Xmr92HzMlifv+XgwdaRCoEJFupuH/CG+4GNE3m+6ic0pPjqXbXn/pzYove9jH9SaNnl1ao1unUDR8BZsAYAdOW5yMTU/tuyblojxBwhwSMpusBhOKfY7RZexoygYULerQnzlzxhtHR6AkWJvrM5j/I8UgqNVu02kjTVS7fmq/BfjD28zgIW9NtZ/1kYrT4IMJ4WqVPpU/4lQKVdm5FdxmNoviahm/awywiZs4GFdoekRRege7gwDZS0kQkzPJ2yub6FS1HdbuQORu53IX95BtaKDBRns2e7UAq1dmddYZZ1ef/kMSGMVyy7V/srGwh2kp06ggJm3sCDmaLTNcpgwXPY6rRyOE6tYpv74DYGMNe/Wnck8EknT4eb3oriucXhgT06Lde1Yq7Um0j5SYlwMq3clqd/JL3mG5fPYhe1MlurfC8u+H4FX9cgeZ1GHiWdGg94EpY5sCJpGSq68xNef4Q+iC0o4PdqwdnZjvb69x9LeBa3D81Qq9Emt8VvxfwFc+/Uh/GSWcAlcPdbymAqtazke2Zdjx+E/f5ezstfHqFP8TR
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(48200799018)(376014)(7416014)(61400799027)(35950700016)(82310400026)(7093399015)(11063799006)(56012099006)(261009223027099003)(261026140227099003)(261028144727099003)(261022105027099003)(261021121427099003)(261021123027099003)(261021135927099003)(10067099003)(22082099003)(16102099003)(18002099003)(4128699003)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|48200799018|61400799027|35950700016|7093399015|82310400026|11063799006|56012099006|261009223027099003|261026140227099003|261028144727099003|261021121427099003|261022105027099003|10067099003|16102099003|22082099003|18002099003|4128699003;
+X-Microsoft-Antispam-Message-Info: MQXLxsoAIklFDZ+U/C7TKVnuyjYMivQOlwW63Xebp++93wk9CnLaC+fPjQUMJ9hpHWDPs25l1Wpn9iI4HuRiE0ccafccw1xQhv3bKwLZR9SIKE3HCeQ2In+PU0Y42IMaozZe1cOp3OqW8bc4VNmCbE256otCmradLYkr+n4cDpTE2NdpVLxrXpzwEh+EBsA1YExp2F5AAbMT8bmEuix/sALmWRIfUGfJ51LZGI3aci5SU23b9VYriaCgkc6XWtjCyM780H3MdhkCgqIXxp5cMHeJ4RKMJ3e5ftTpbJuaRKss33jALC2HhNjRzFFKDfsiFdKlYwoRPvMxqIt0sHcMpojyzh1Ej9ywb56DWAeJvAP5/dKnYaZNHBY/qYGxqkrn2YiH1kxWSHVs5EJQJa0/+Af7FTQzoq1/76Cv72fYpyxUWtWuc2/TVlb7Qu/nJZ2YZXn7NQ6tJ4o0xynV9mbva5rAAQ/2m6VWuUJP2oELRCCrVsFvUGa24F8gqHhfVx7L/g9J7S4jVQVj3j/a88AbNDp+RDRctVbAAZhSrXlzzkjoOLzET2RGau5KZYHGe76dhFuolmM5B+5LnS9W/MAt3WBAF04TYIF0/GXcniABKFAmtK13D9u4DY86QtHUB5VvJmm5YxCaLpyspLeHyo/zEDwkh7wRmvDXzP/hVJbg+ViLNYIGysC31b4LE/9ShZE378OE+x+i7PZOjwszfY2c7A==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(48200799018)(61400799027)(35950700016)(7093399015)(82310400026)(11063799006)(56012099006)(261009223027099003)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(10067099003)(16102099003)(22082099003)(18002099003)(4128699003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: E3wkH8uwEH7FceMTrF+kalNTCgN+tdIEO1NgvgHCW4Jvpy0jw03P/KC4tzTTlqIaFgVxiNN6Zd+ZIxU9sfjV08BUhjg4Hvn1YwmNe2GMbW2xzW3U7hOi/eVixzfjndqN0geE4I3l4cJwg+tEGmgaT0DkwTP7jN82f/RHN8MckSX+4/EGscCGY0GS4AP/K4Qw31ZquTUOUnFP3Mav0Hg6hdneJQBBFpTk5sWzuyM55U5ty9zkMzNwXncMyM3lUwFubjUxlDiBFwtKeBrYTTeXLpTCmha0rGuYwIrV3WEfe9EKVSUSe+WzVRBHUC4DKQTWd/jwF+DUoSsn7MZMXtqctrmzZCSgx8h8qPMfZQ3eVbbWMdwGl6msFvvqQld+6kxW/Ocb9JU7EuzNdGJryhKQ9M1ik8Galq4vdty1tUPyV6AaKLLEPdJstFBHqcJqjUWd
+X-MS-Exchange-AntiSpam-MessageData-0: 6vVTN3Kdqbq4XwxVtJhtJXSJ/TFIflBxQj159jfOGIJjzwJVO4+FQqyjFX9lHFcuwSD94bxO1veF2ylRv5+A7os+zvv3xG5eqtII9P1X5HVs4refQqRIIT7KZoHhD28Y07th2cmuHxzqR7Hd7FZ+zxeLt2yPqiCNgzgPgKG+jMCTF1NnOSB7COAj5hWMxTA/3/T8CmwJFRapFjwy6zMpVygG6lBtDWWyuwNqRer71wZbKbwrbH4VlKocvBl9wNvFRXEKxDGD3xCKJLaMqbLdanpcpWAqkaq8rehLUxVNTLUZzIV/cupzq1qQCpe32lgZ+7wwh3g37BoGlPPHhwpIxPXpFR54ju6VuSjaHDbBd1wQRdnM9DjFrBjYCzUMeeVUaCW1H1otx5ymTB0nn5abEly/ztZBncjDlMQQWew65vwUA6GmU5rsUOrU7pm4G6ds
 X-OriginatorOrg: amdcloud.onmicrosoft.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2026 13:41:28.2906
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Oct 2026 13:41:31.6104
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7d857f60-fd76-4010-7ec5-08df35c25577
+X-MS-Exchange-CrossTenant-Network-Message-Id: f882316b-96e7-40aa-1633-08df35c25777
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF00006E26.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: PH3PEPF0005961B.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4341
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5829
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_064136_985726_BB01A2E5 
-X-CRM114-Status: GOOD (  13.63  )
-X-Spam-Score: 1.1 (+)
+X-CRM114-CacheID: sfid-20261029_064139_582746_C3F2DE3C 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 1.0 (+)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,204 +139,48 @@ X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
 	FORGED_GMAIL_RCVD,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UPPERCASE_50_75,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add a development-phase devicetree for the Facebook Anacapa BMC DVT
-hardware revision and update the Anacapa wrapper DTS to reference
-it.
+The SCM FRU EEPROM I2C address differs between SCM revisions:
+- Rev B uses address 0x50
+- Rev C/D/E/F and later use address 0x51
+
+Add an additional AT24C128 EEPROM node at 0x51 on i2c9 so the same
+device tree can support multiple SCM revisions.
 
 Signed-off-by: Colin Huang <u8813345@gmail.com>
 ---
- .../aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi    | 167 +++++++++++++++++++++
- .../dts/aspeed/aspeed-bmc-facebook-anacapa.dts     |   2 +-
- 2 files changed, 168 insertions(+), 1 deletion(-)
+ .../boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi  | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
-new file mode 100644
-index 000000000000..0509bc8bb9cd
---- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
-@@ -0,0 +1,167 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+
-+#include "aspeed-bmc-facebook-anacapa-evt2.dtsi"
-+
-+&sgpiom0 {
-+	gpio-line-names =
-+	/*in - out */
-+	/* A0-A7 line 0-15 */
-+	"L_FNIC_FLT", "FM_CPU0_SYS_RESET_N",
-+	"L_BNIC0_FLT", "CPU0_KBRST_N",
-+	"L_BNIC1_FLT", "FM_CPU0_PROCHOT_trigger_N",
-+	"L_BNIC2_FLT", "FM_CLR_CMOS_R_P0",
-+	"L_BNIC3_FLT", "Force_I3C_SEL",
-+	"L_RTM_SW_FLT", "SYSTEM_Force_Run_AC_Cycle",
-+	"", "",
-+	"", "",
-+
-+	/* B0-B7 line 16-31 */
-+	"Channel0_leakage_EAM3", "FM_CPU_FPGA_JTAG_MUX_SEL",
-+	"Channel1_leakage_EAM0", "FM_SCM_JTAG_MUX_SEL",
-+	"Channel2_leakage_Manifold1", "FM_BRIDGE_JTAG_MUX_SEL",
-+	"Channel5_leakage_present_EAM1", "FM_CPU0_NMI_SYNC_FLOOD_N",
-+	"Channel4_leakage_Manifold2", "BMC_AINIC0_WP_R2_L",
-+	"Channel5_leakage_EAM1", "BMC_AINIC1_WP_R2_L",
-+	"Channel6_leakage_CPU_DIMM", "CPLD_BUF_R_AGPIO330",
-+	"Channel7_leakage_EAM2", "CPLD_BUF_R_AGPIO331",
-+
-+	/* C0-C7 line 32-47 */
-+	"RSVD_RMC_GPIO3", "RTM_MUX_L",
-+	"LEAK_DETECT_RMC_N", "RTM_MUX_R",
-+	"HDR_P0_NMI_BTN_BUF_R_N", "FPGA_JTAG_SCM_DBREQ_N",
-+	"Channel6_leakage_present_CPU_DIMM", "whdt_sel",
-+	"R_EAM0_NIC_CBL_PRSNT_L", "JTAG_CPLD_TRST_R_N",
-+	"R_EAM1_NIC_CBL_PRSNT_L", "",
-+	"L_EAM0_NIC_CBL_PRSNT_L", "",
-+	"L_EAM1_NIC_CBL_PRSNT_L", "",
-+
-+	/* D0-D7 line 48-63 */
-+	"Channel0_leakage_present_EAM3", "",
-+	"Channel1_leakage_present_EAM0", "",
-+	"Channel2_leakage_present_Manifold1", "",
-+	"Channel4_leakage_present_Manifold2", "",
-+	"AMC_BRD_PRSNT_CPLD_L", "",
-+	"Channel7_leakage_present_EAM2", "",
-+	"", "",
-+	"", "",
-+
-+	/* E0-E7 line 64-79 */
-+	"L_PRSNT_B_FENIC_R2_N", "",
-+	"L_PRSNT_B_BENIC0_R2_N", "",
-+	"L_PRSNT_B_BENIC1_R2_N", "",
-+	"L_PRSNT_B_BENIC2_R2_N", "",
-+	"L_PRSNT_B_BENIC3_R2_N", "",
-+	"", "",
-+	"", "",
-+	"", "",
-+
-+	/* F0-F7 line 80-95 */
-+	"R_PRSNT_B_FENIC_R2_N", "SGPIO_READY",
-+	"R_PRSNT_B_BENIC0_R2_N", "",
-+	"R_PRSNT_B_BENIC1_R2_N", "",
-+	"R_PRSNT_B_BENIC2_R2_N", "",
-+	"R_PRSNT_B_BENIC3_R2_N", "",
-+	"", "",
-+	"", "",
-+	"", "",
-+
-+	/* G0-G7 line 96-111 */
-+	"L_PRSNT_EDSFF0_N", "",
-+	"L_PRSNT_EDSFF1_N", "",
-+	"R_PRSNT_EDSFF2_N", "",
-+	"R_PRSNT_EDSFF3_N", "",
-+	"HPM_EDSFF_PG", "",
-+	"", "",
-+	"P12V_PWR_CABLE_PRSNT_L_R", "FM_BMC_READY_PLD",
-+	"PRSNT_NFC_BOARD_R", "",
-+
-+	/* H0-H7 line 112-127 */
-+	"R_FNIC_FLT", "",
-+	"R_BNIC0_FLT", "",
-+	"R_BNIC1_FLT", "",
-+	"R_BNIC2_FLT", "",
-+	"R_BNIC3_FLT", "",
-+	"R_RTM_SW_FLT", "",
-+	"RBB_Cable_Present", "",
-+	"LBB_Cable_Present", "",
-+
-+	/* I0-I7 line 128-143 */
-+	"EAM0_BRD_PRSNT_R_L", "",
-+	"EAM1_BRD_PRSNT_R_L", "",
-+	"EAM2_BRD_PRSNT_R_L", "",
-+	"EAM3_BRD_PRSNT_R_L", "",
-+	"FM_TPM_PRSNT_R_N", "",
-+	"PDB_L_PRSNT_R_N", "",
-+	"PRSNT_EDSFF_BOOT_N", "",
-+	"PRSNT_CPU0_N", "",
-+
-+	/* J0-J7 line 144-159 */
-+	"PRSNT_L_BRIDGE_R", "",
-+	"PRSNT_R_BRIDGE_R", "",
-+	"BRIDGE_L_MAIN_PG_R", "",
-+	"BRIDGE_R_MAIN_PG_R", "",
-+	"BRIDGE_L_STBY_PG_R", "",
-+	"BRIDGE_R_STBY_PG_R", "",
-+	"IRQ_NFC_BOARD_R", "",
-+	"RSMRST_N", "",
-+
-+	/* K0-K7 line 160-175 */
-+	"ADC_I2C_ALERT_N", "",
-+	"TEMP_I2C_ALERT_R_L", "",
-+	"CPU0_VR_SMB_ALERT_CPLD_N", "",
-+	"COVER_INTRUDER_R_N", "",
-+	"HANDLE_INTRUDER_CPLD_N", "",
-+	"IRQ_MCIO_CPLD_WAKE_R_N", "",
-+	"APML_CPU0_ALERT_R_N", "",
-+	"PDB_ALERT_R_N", "",
-+
-+	/* L0-L7 line 176-191 */
-+	"L_EDSFF0_PG", "",
-+	"L_EDSFF1_PG", "",
-+	"R_EDSFF2_PG", "",
-+	"R_EDSFF3_PG", "",
-+	"HPM_CPLD_HEART_BIT", "",
-+	"RBB_CPLD_HEART_BIT", "",
-+	"LBB_CPLD_HEART_BIT", "",
-+	"FM_BIOS_POST_CMPLT_R_N", "",
-+
-+	/* M0-M7 line 192-207 */
-+	"EAM0_SMERR_CPLD_R_L", "",
-+	"EAM1_SMERR_CPLD_R_L", "",
-+	"EAM2_SMERR_CPLD_R_L", "",
-+	"EAM3_SMERR_CPLD_R_L", "",
-+	"CPU0_SMERR_N_R", "",
-+	"CPU0_NV_SAVE_N_R", "",
-+	"PDB_PWR_LOSS_CPLD_N", "",
-+	"IRQ_BMC_SMI_ACTIVE_R_N", "",
-+
-+	/* N0-N7 line 208-223 */
-+	"AMCROT_BMC_S5_RDY_R", "",
-+	"AMC_RDY_R", "",
-+	"AMC_STBY_PGOOD_R", "",
-+	"CPU_AMC_SLP_S5_R_L", "",
-+	"AMC_CPU_EAMPG_R", "",
-+	"DIMM_PMIC_PG_TIMEOUT", "",
-+	"EAM_MOD_PWR_GD_TIMEOUT", "",
-+	"CPLD_AMC_STBY_PWR_EN", "",
-+
-+	/* O0-O7 line 224-239 */
-+	"HPM_PWR_FAIL", "Port80_b0",
-+	"FM_DIMM_IP_FAIL", "Port80_b1",
-+	"FM_DIMM_AH_FAIL", "Port80_b2",
-+	"AMC_THERMTRIP_ASSERT", "Port80_b3",
-+	"CPU_THERMTRIP_ASSERT", "Port80_b4",
-+	"PVDDCR_SOC_P0_OCP_L", "Port80_b5",
-+	"CPLD_SGPIO_RDY", "Port80_b6",
-+	"FM_MAIN_PWREN_RMC_EN_ISO", "Port80_b7",
-+
-+	/* P0-P7 line 240-255 */
-+	"CPU0_SLP_S5_N_R", "NFC_VEN",
-+	"CPU0_SLP_S3_N_R", "",
-+	"FM_CPU0_PWRGD", "",
-+	"PWRGD_RMC", "",
-+	"FM_RST_CPU0_RESET_N", "RBB_CPLD_RISCV_RST",
-+	"FM_PWRGD_CPU0_PWROK", "LBB_CPLD_RISCV_RST",
-+	"AMC_FAIL", "HPM_CPLD_RISCV_RST",
-+	"S0_ON", "";
-+};
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-index 606dacb605c5..1eee0d84c0a8 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-@@ -1,4 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
+index c43090618c4a..8c4a03a82d44 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
+@@ -2,6 +2,20 @@
  
- /dts-v1/;
--#include "aspeed-bmc-facebook-anacapa-evt2.dtsi"
-+#include "aspeed-bmc-facebook-anacapa-dvt.dtsi"
+ #include "aspeed-bmc-facebook-anacapa-evt1.dtsi"
+ 
++// SCM
++&i2c9 {
++	// SCM FRU
++	// | DC-SCM Rev        | Slave address of eeprom  |
++	// |-------------------|--------------------------|
++	// | Rev B             | 0x50                     |
++	// | Rev C/D/E/F/above | 0x51                     |
++
++	eeprom@51 {
++		compatible = "atmel,24c128";
++		reg = <0x51>;
++	};
++};
++
+ &sgpiom0 {
+ 	gpio-line-names =
+ 	/*in - out */
 
 -- 
 2.34.1
