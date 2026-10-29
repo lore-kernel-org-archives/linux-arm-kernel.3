@@ -2,85 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6101C606A33A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A867A606A31A
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 13:54:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=twOLoSRC;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SxdZ4R0j
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LgiBxDc0;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vur9MX3N
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=d4muoCURO4txmduRtzfsIk82oRRKuCzaLk324mt4aBA=; b=twOLoSRCjJuQd5
-	os1dPBChR2g+h7IrUKkLwN8rAC+D8pIcyh4mL9Xk3CBqA3N9PZ9kn2clCZRuRYnHO6Pec+tbEUxhd
-	DrYWOG9MoHlpHJ7xHCG4RAKNrP2cEoif/q+h5Bz+Htt7fTPlKTvXMOg2Wo+bUwDo8GkTOkj9lk8D1
-	7vAyZrmezFz113GJmZ5OWGxGhO1DY+FIecHOxkUVyhn+Bqwq3Yv1AP4ybMaIg5HFzv2hZsqzUqRnj
-	nMqb3E4BDpKC+bL6V0N7wQ9QpsN7RXZyWWIDW1yuJO6d0u5prE2iHoKa9hc+fiWcgN+gIghTWqe5D
-	6DybMvlL/VajtV1hh4pA==;
+	List-Owner; bh=hjD6VzzjtnD3e9erzE1FqqRgAbYyuZXKrgqZLwMhAKA=; b=LgiBxDc0YjHu7s
+	mnyzhyWAX1wixMEIr3nl5r/zYJBcSydiASZK/l5ngQJt8TNrix16N1Jgeu+vrIavwK2YnkrVU/O7j
+	s/Rh0EGgY6hkU/f8YRpI7TnKjwrbpMd5emn/e3R0CnP1OU+qWyU0LtzqewbQVB9XV7EePZjZU6g+V
+	UKM7cQii9NeYxv5ji5qSEzL+jy8IhdORp5AWY0WcUFVxnJbFmgX4bT+l2cKpmHx1XSMEmILjMhlXl
+	nDP6xvKC5pVsQPzmAT6D9qdRMZOvkoMDtIiG2h7/+ft5Z5I/Ypf9zymRx6miMSI2JQSAkNL6mCEl4
+	19H7zgVyPAtIAzAhRY3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMQZd-00000009SLq-39Zr;
-	Thu, 29 Oct 2026 13:53:45 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1xMQZh-00000009SS9-1YHb;
+	Thu, 29 Oct 2026 13:53:49 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMQZN-00000009S43-1EsG
+	id 1xMQZV-00000009SCH-3UXp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 13:53:30 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48e4831c028so1779465f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 06:53:28 -0700 (PDT)
+	Thu, 29 Oct 2026 13:53:41 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-48afcd7ba9bso1626257f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 06:53:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793282008; x=1793886808; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793282016; x=1793886816; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=d4muoCURO4txmduRtzfsIk82oRRKuCzaLk324mt4aBA=;
-        b=SxdZ4R0jfDVd6xsnsIFBxt0+xfRY6OGUymTDLFJ+iZdSUMYL6heXKw2hydejc3mC3C
-         MsQiMduw+tqeOsj/jbOuEp1XZy5pTCA6veEYYu/iXpXbjUCPw6BEgjMuLxhMDw/fULIM
-         qUL5gB1BJlyYWVb+tIPZwG7dj9bpfoxsieCL0QkXXn42RxIr79UvIKaENpPaqelLtXav
-         9YcAdDIOfXUV7r+Qu4ONRzzzOtf4gCv/AW5MPebIg+dMBHjD2twXk9SMVyjZHNWoIUVn
-         5YoOrIV3Fsztzz4o8bP1ao60IiYw1XPRAuZkkctVVhAbsU/nCp9Y44foKU1kejTJzs+r
-         dMdg==
+        bh=hjD6VzzjtnD3e9erzE1FqqRgAbYyuZXKrgqZLwMhAKA=;
+        b=Vur9MX3NuhCm43KKTu1/BzDwTyZjtwdex6DdzQVCjK/ELrCDkpRmdgNa5rwQdDTBzW
+         gGeFB4c1kNdVR2ICIOqwxbVkz2Fj9SKVtk3clCWBmoz8beLa2JDHR6IoN5fGTdcXMV8N
+         M5H64QqoAC255vQM/moRUuKm0SchjukHRPFs6kSGwAobeRBo+kJY8HEsEIBJuVn7chW+
+         4rRAjoNszCAQsksuswrJ3Y7NYZOZeq2iwck5FbiE5z2EDQIzcQBrfGN+tHBUwN/vcoDQ
+         xQdSm0KfhQVLwNRsMX/5EchZVQACmL78v9oj5QwZPgNI0yXPTRbKYslG8Av7B/jslyau
+         zRDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793282008; x=1793886808;
+        d=1e100.net; s=20260707; t=1793282016; x=1793886816;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=d4muoCURO4txmduRtzfsIk82oRRKuCzaLk324mt4aBA=;
-        b=L3pVpztKaU3mYzCWzQYtkmQOzrComD7KVWaIIPrmO99CYTU4/XVU1cOGY9JQm0QYZJ
-         U8EgYctuj09ZyeQARuHemGAYOqDqi9ckIpIpumkiSaeL6LG5fd3ipnNQAjpBvzj0k8lM
-         6Fy+M1nnQgol86FX0PrS5UAdf5U+cfhjHBsOkrsl290uljyXULJo5soo6JfomBbQR1fx
-         CzJB4WiHxGRwIRgPLhEpxcgLuSEXiUz8slhiAv1bEps9y34+DECaLZmUcBRKLhxKFmPr
-         0aAxq8HQOj07PfTeJGoG8sSX599VulagLJbKENifpI0pd2qK4R+q4cEOXdEIa1CcNJ0d
-         vW1g==
-X-Forwarded-Encrypted: i=1; AKwUvByYz3YS00au4fWbFqBzo+alBIcEvCp1VNKaTcqwZYvxXNeZQKgr+qowRQvT8rKa2hyLxThk4m0aZ9f3DYrGiw5K@lists.infradead.org
-X-Gm-Message-State: AFq9FYJVdhPJPcEhsG90qJq+lTz933bIHH4Ri57LnQHvWZXH1W3kSvzG
-	txrBNdTV821oKPGboMJ+5/wM4hiEMzTy9zIVljhtFy5Wc3xveT/2zW0=
-X-Gm-Gg: AYBFou1P5ElC0Hn+s1m6cZCMyzWkPWowR6lk+hm3mhwEibjf5c2kuQ9k5WpXqS7Qp5F
-	9N1nmvKq65LiH/u1k+2/Qh1aqriudOAy0vyIu+mCoPbb/4UI+HSpRmPU2aZfejGFBZeRzc+fxoj
-	sN87QgPR5Gx/xHyIkdNGt+OYZozfqSxER+FxT7vE7hM56Du+l9hYCRCBecW3/xdGGHZF+czGWoX
-	Ti6Wet9G9jh/41uKiAtKYtwu2lhJTh+XN6DWOPCby51LZ7EIPvk1KUJuRQqCbJtvldAKqYr6Hj2
-	/an7/Cpt+CMY6jNt4pgs44Np1+7E2rULq85fmJVmT2K4qKgR5UfxIEIwYwN6P7pSw+O/jKk+WkY
-	By9kTdkHfwtXrsxkq6Fn5yThMq9IHOJuErhS6kvzHgSG/K8GhP/P4u1WUgapMbJHylmtCwMICbq
-	Qe5SBC3NZRS543oy3FTOF457wTwD2o6il4//QjYK3VPSnQjzK4X6FqeyiGx/M46ZomBDiicG1d/
-	Tl9nyUb7uic+7jkvP0RFj8D9PiFOlMuZpub+I34M1gUYtHKS/RhCxoIVtEf1pkLLK3emBMlQQsd
-	FUN/T1xXy6c3U+8K80Yq4ubLh3FBJlkaCFEAwNULBdt0gg==
-X-Received: by 2002:a5d:6f0e:0:b0:48d:fbf2:555f with SMTP id ffacd0b85a97d-48e5d56d6d6mr12550769f8f.55.1793282007466;
-        Thu, 29 Oct 2026 06:53:27 -0700 (PDT)
+        bh=hjD6VzzjtnD3e9erzE1FqqRgAbYyuZXKrgqZLwMhAKA=;
+        b=QW//fiZGZ+q7XxOYXXQMNnj6+f1sNLWwRxsbDSky6DzxxFF4533bu1cwzdZSigyU2E
+         hvQIcnxpSHzEXQeXMBWxHSaUDitsDlN9gwdaqNIpk3XEYvqripN9S88ov4m0zbJosgyt
+         Rz/ANQQwBBisiUKGVSVS77jvGb2zqMXXYFEdHBxyYm8m46sMKxkhXsXWOewpHaCqgs7X
+         1fB9lbNgmCypxsCdGlyx8lMmJEg0cEhcvMbqWJOAoAla238SCLLp6i3KIzR85djBGggH
+         3IK5O0hyJp3xOYBd4TEwtG3En32Wd1eB8nExelKiSuQyDjemsuSe7ei8j1OuOcG/3Cmb
+         N54A==
+X-Forwarded-Encrypted: i=1; AKwUvBxnZie0gPnblViSUyYle9Zzt49OoPFptC6eEqEW0B5IckdcyErH3TM8Fzxc0iQc5H/6L8mUt2bWQNfXt9Fu/oJv@lists.infradead.org
+X-Gm-Message-State: AFq9FYIvsTq7guQSuUIJSjuOCmCjxmumtWoREQuo/CWEB2t18XY3Isex
+	RCajV/XOhAQD1ILG8T3hglFDkiJMQwbyQN6oCnEKH2/TG1yad3/itEE=
+X-Gm-Gg: AYBFou0OQ7vib+LGI43uO92GIKDh3Em97nDfye+BuSObsSUWm4D35fE5wJPWHqn+6Xk
+	Y7xPtSoMdZWqVTzz9vWTlaNTjsT0SJlKMTxd6hr2ZywPsRcZzDCD7DY5qXpVIvvBcMXoJwWgM42
+	g20HzQ1nuBkXTGIDenvmoWWVMMuOEuuSdvhPs9esMKgY998XKWvj0EGHZzWVxIPE6NmXxPFq5hW
+	e6SG+q8kFYZIJ8e5Y+ctvXxNESHi2nAsc+GTMW68oityJI3jckQxxZBJEMvf8X+LDXpglzd4PHk
+	u9NAVqA06mTfJZj4m/X5I5ljjC11QT+l5fZjXfwTeuk4UPZMxFZPr1zcJcwGOeZZ5PfRArUU9cH
+	NSvSh0SpJNbYzP4FkwimeSXUW8aZCcMCnqzDAqQQ57Q6RrbaGKCW5i2XpWRk11u095zMsoJBlvQ
+	fMBykBp8l7n779SOCjqck5TngIJ3ZDjb1AJNWWFIc7NmQ5gDPmv6mmEugSZj1a9qvvS0NuWsyt0
+	eCPuhw6bfO8Yjce76vZURNzdibxxtSvxN9SC9j+ZhbmAtRrEJZCjdl3k6HF5Zn9XRa8S7aQb8Em
+	wtUADAOvbP6GZhOXA4tgagQuLLm931Owylg3ITx9GH7LP7d1GTZnBrCGcrtWCC0LtFM=
+X-Received: by 2002:a05:6000:178a:b0:48e:56fa:9645 with SMTP id ffacd0b85a97d-48e5d5cf38fmr12439039f8f.29.1793282015845;
+        Thu, 29 Oct 2026 06:53:35 -0700 (PDT)
 Received: from [192.168.1.67] ([2001:b07:2ec:601d:4b26:1672:75c7:805a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebc3dcbsm33456468f8f.14.2026.10.29.06.53.25
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebc3dcbsm33456468f8f.14.2026.10.29.06.53.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 06:53:26 -0700 (PDT)
+        Thu, 29 Oct 2026 06:53:35 -0700 (PDT)
 From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
-Date: Thu, 29 Oct 2026 14:52:47 +0100
-Subject: [PATCH RFC v2 10/14] drm/msm: Add LPAC submitqueue
+Date: Thu, 29 Oct 2026 14:52:51 +0100
+Subject: [PATCH RFC v2 14/14] drm/msm: enable LPAC on gen70900
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261029-descriptive-name-lpac-upstream-v2-10-a21a5c850961@gmail.com>
+Message-Id: <20261029-descriptive-name-lpac-upstream-v2-14-a21a5c850961@gmail.com>
 References: <20261029-descriptive-name-lpac-upstream-v2-0-a21a5c850961@gmail.com>
 In-Reply-To: <20261029-descriptive-name-lpac-upstream-v2-0-a21a5c850961@gmail.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
@@ -102,17 +102,17 @@ Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
  dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
  devicetree@vger.kernel.org, Anna Maniscalco <anna.maniscalco2000@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793281977; l=12665;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793281977; l=982;
  i=anna.maniscalco2000@gmail.com; s=20240815; h=from:subject:message-id;
- bh=Vudb/cxCObLS3HWW52CK/cv5tchjqlb2SOL5lEFP4J8=;
- b=UUojngUfhed+XShhn5U0h0uHuRHT+5idiUzPWzFKx4s6uAsn9/vuYKwavuyXf2CKe5jkrYfRV
- nLWbVGTFJxsDIXeZTKgTCQR+ZK4PcXbxFQ5iIf74mMfVj/v5RI6y/ls
+ bh=zftBrxFOdArPW4SDW/zPbLM/dW8N0ZZjr0f9slsMd44=;
+ b=drJK44c9MU6MO0yKK3/YNJmZlff0GX8bkfJNHj78s+gEdYZMo0J9ar0ZFCpDUnU9s9p/mTv9U
+ QEVDlUzSQ7wDLCQ28Hd4GN503IJPB36U2UQmXnTQDK6NcMLz/o9Mfkc
 X-Developer-Key: i=anna.maniscalco2000@gmail.com; a=ed25519;
  pk=0zicFb38tVla+iHRo4kWpOMsmtUrpGBEa7LkFF81lyY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_065329_415543_E500DF52 
-X-CRM114-Status: GOOD (  25.05  )
-X-Spam-Score: -0.8 (/)
+X-CRM114-CacheID: sfid-20261029_065337_915831_AE091924 
+X-CRM114-Status: GOOD (  12.12  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,343 +123,38 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add UAPI and infostructure to support sending submission to the LPAC
-ring.
+When the enable_lpac mod param is left on auto (-1) LPAC will be enabled
+for targets that are known to support it and are known to work.
+
+gen70900 (Adreno 750) is one such target.
 
 Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
 ---
- drivers/gpu/drm/msm/adreno/a6xx_gpu.c | 86 ++++++++++++++++++++++-------------
- drivers/gpu/drm/msm/adreno/a6xx_gpu.h |  2 +-
- drivers/gpu/drm/msm/msm_gem_submit.c  |  6 ++-
- drivers/gpu/drm/msm/msm_gpu.c         |  8 ++--
- drivers/gpu/drm/msm/msm_gpu.h         |  4 +-
- drivers/gpu/drm/msm/msm_submitqueue.c | 14 +++++-
- include/uapi/drm/msm_drm.h            |  2 +
- 7 files changed, 81 insertions(+), 41 deletions(-)
+ drivers/gpu/drm/msm/adreno/a6xx_catalog.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-index e7bc12de650c..e82d0c0bc10f 100644
---- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-+++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-@@ -204,8 +204,10 @@ void a6xx_flush(struct msm_gpu *gpu, struct msm_ringbuffer *ring)
- void
- a6xx_flush_yield(struct msm_gpu *gpu, struct msm_ringbuffer *ring)
- {
-+	bool is_lpac = ring == gpu->lpac_rb;
-+
- 	/* If preemption is enabled */
--	if (gpu->nr_rings > 1) {
-+	if (gpu->nr_rings > 1 && !is_lpac) {
- 		/* Yield the floor on command completion */
- 		OUT_PKT7(ring, CP_CONTEXT_SWITCH_YIELD, 4);
- 
-@@ -244,6 +246,7 @@ static void a6xx_set_pagetable(struct a6xx_gpu *a6xx_gpu,
- 	struct drm_gpuvm *vm = msm_context_vm(submit->dev, ctx);
- 	struct adreno_gpu *adreno_gpu = &a6xx_gpu->base;
- 	phys_addr_t ttbr;
-+	bool is_lpac = ring == a6xx_gpu->base.base.lpac_rb;
- 	u32 asid;
- 	u64 memptr = rbmemptr(ring, ttbr0);
- 
-@@ -261,25 +264,27 @@ static void a6xx_set_pagetable(struct a6xx_gpu *a6xx_gpu,
- 		OUT_RING(ring, upper_32_bits(rbmemptr(ring, fence)));
- 		OUT_RING(ring, submit->seqno - 1);
- 
--		OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
--		OUT_RING(ring, CP_THREAD_CONTROL_0_SYNC_THREADS | CP_SET_THREAD_BOTH);
-+		if (!is_lpac) {
-+			OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
-+			OUT_RING(ring, CP_THREAD_CONTROL_0_SYNC_THREADS | CP_SET_THREAD_BOTH);
- 
--		/* Reset state used to synchronize BR and BV */
--		OUT_PKT7(ring, CP_RESET_CONTEXT_STATE, 1);
--		OUT_RING(ring,
--			 CP_RESET_CONTEXT_STATE_0_CLEAR_ON_CHIP_TS |
--			 CP_RESET_CONTEXT_STATE_0_CLEAR_RESOURCE_TABLE |
--			 CP_RESET_CONTEXT_STATE_0_CLEAR_BV_BR_COUNTER |
--			 CP_RESET_CONTEXT_STATE_0_RESET_GLOBAL_LOCAL_TS);
-+			/* Reset state used to synchronize BR and BV */
-+			OUT_PKT7(ring, CP_RESET_CONTEXT_STATE, 1);
-+			OUT_RING(ring,
-+				 CP_RESET_CONTEXT_STATE_0_CLEAR_ON_CHIP_TS |
-+				 CP_RESET_CONTEXT_STATE_0_CLEAR_RESOURCE_TABLE |
-+				 CP_RESET_CONTEXT_STATE_0_CLEAR_BV_BR_COUNTER |
-+				 CP_RESET_CONTEXT_STATE_0_RESET_GLOBAL_LOCAL_TS);
- 
--		OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
--		OUT_RING(ring, CP_THREAD_CONTROL_0_SYNC_THREADS | CP_SET_THREAD_BOTH);
-+			OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
-+			OUT_RING(ring, CP_THREAD_CONTROL_0_SYNC_THREADS | CP_SET_THREAD_BOTH);
- 
--		OUT_PKT7(ring, CP_EVENT_WRITE, 1);
--		OUT_RING(ring, LRZ_FLUSH_INVALIDATE);
-+			OUT_PKT7(ring, CP_EVENT_WRITE, 1);
-+			OUT_RING(ring, LRZ_FLUSH_INVALIDATE);
- 
--		OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
--		OUT_RING(ring, CP_THREAD_CONTROL_0_SYNC_THREADS | CP_SET_THREAD_BR);
-+			OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
-+			OUT_RING(ring, CP_THREAD_CONTROL_0_SYNC_THREADS | CP_SET_THREAD_BR);
-+		}
- 	}
- 
- 	if (!sysprof) {
-@@ -493,7 +498,10 @@ static void a7xx_submit(struct msm_gpu *gpu, struct msm_gem_submit *submit)
- 	struct adreno_gpu *adreno_gpu = to_adreno_gpu(gpu);
- 	struct a6xx_gpu *a6xx_gpu = to_a6xx_gpu(adreno_gpu);
- 	struct msm_ringbuffer *ring = submit->ring;
--	u32 rbbm_perfctr_cp0, cp_always_on_context;
-+	u32 rbbm_perfctr_cp0, cp_always_on_context,
-+	    cp_always_on_counter;
-+	bool is_lpac = ring == gpu->lpac_rb;
-+	u64 timestamp_iova;
- 	unsigned int i, ibs = 0;
- 
- 	adreno_check_and_reenable_stall(adreno_gpu);
-@@ -511,19 +519,24 @@ static void a7xx_submit(struct msm_gpu *gpu, struct msm_gem_submit *submit)
- 	 * If preemption is enabled, then set the pseudo register for the save
- 	 * sequence
- 	 */
--	if (gpu->nr_rings > 1)
-+	if (gpu->nr_rings > 1 && !is_lpac)
- 		a6xx_emit_set_pseudo_reg(ring, a6xx_gpu, submit->queue);
- 
- 	if (adreno_is_a8xx(adreno_gpu)) {
- 		rbbm_perfctr_cp0 = REG_A8XX_RBBM_PERFCTR_CP(0);
- 		cp_always_on_context = REG_A8XX_CP_ALWAYS_ON_CONTEXT;
-+		cp_always_on_counter = REG_A8XX_CP_ALWAYS_ON_COUNTER;
- 	} else {
- 		rbbm_perfctr_cp0 = REG_A7XX_RBBM_PERFCTR_CP(0);
- 		cp_always_on_context = REG_A6XX_CP_ALWAYS_ON_CONTEXT;
-+		cp_always_on_counter = REG_A6XX_CP_ALWAYS_ON_COUNTER;
- 	}
- 
- 	get_stats_counter(ring, rbbm_perfctr_cp0, rbmemptr_stats(ring, index, cpcycles_start));
--	get_stats_counter(ring, cp_always_on_context, rbmemptr_stats(ring, index, alwayson_start));
-+	if (is_lpac)
-+		get_stats_counter(ring, cp_always_on_counter, rbmemptr_stats(ring, index, alwayson_start));
-+	else
-+		get_stats_counter(ring, cp_always_on_context, rbmemptr_stats(ring, index, alwayson_start));
- 
- 	OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
- 	OUT_RING(ring, CP_SET_THREAD_BOTH);
-@@ -582,17 +595,19 @@ static void a7xx_submit(struct msm_gpu *gpu, struct msm_gem_submit *submit)
- 		OUT_RING(ring, submit->seqno);
- 	}
- 
--	OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
--	OUT_RING(ring, CP_SET_THREAD_BR);
-+	if (!is_lpac) {
-+		OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
-+		OUT_RING(ring, CP_SET_THREAD_BR);
- 
--	OUT_PKT7(ring, CP_EVENT_WRITE, 1);
--	OUT_RING(ring, CCU_INVALIDATE_DEPTH);
-+		OUT_PKT7(ring, CP_EVENT_WRITE, 1);
-+		OUT_RING(ring, CCU_INVALIDATE_DEPTH);
- 
--	OUT_PKT7(ring, CP_EVENT_WRITE, 1);
--	OUT_RING(ring, CCU_INVALIDATE_COLOR);
-+		OUT_PKT7(ring, CP_EVENT_WRITE, 1);
-+		OUT_RING(ring, CCU_INVALIDATE_COLOR);
- 
--	OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
--	OUT_RING(ring, CP_SET_THREAD_BV);
-+		OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
-+		OUT_RING(ring, CP_SET_THREAD_BV);
-+	}
- 
- 	/*
- 	 * Make sure the timestamp is committed once BV pipe is
-@@ -638,10 +653,12 @@ static void a7xx_submit(struct msm_gpu *gpu, struct msm_gem_submit *submit)
- 	a6xx_flush_yield(gpu, ring);
- 
- 	/* Check to see if we need to start preemption */
--	if (adreno_is_a8xx(adreno_gpu))
--		a8xx_preempt_trigger(gpu);
--	else
--		a6xx_preempt_trigger(gpu);
-+	if (!is_lpac) {
-+		if (adreno_is_a8xx(adreno_gpu))
-+			a8xx_preempt_trigger(gpu);
-+		else
-+			a6xx_preempt_trigger(gpu);
-+	}
- }
- 
- static void a6xx_set_hwcg(struct msm_gpu *gpu, bool state)
-@@ -1220,6 +1237,7 @@ int a6xx_zap_shader_init(struct msm_gpu *gpu)
- 		       A6XX_RBBM_INT_0_MASK_PM4CPINTERRUPT | \
- 		       A6XX_RBBM_INT_0_MASK_CP_RB_DONE_TS | \
- 		       A6XX_RBBM_INT_0_MASK_CP_CACHE_FLUSH_TS | \
-+		       A6XX_RBBM_INT_0_MASK_CP_CACHE_FLUSH_TS_LPAC | \
- 		       A6XX_RBBM_INT_0_MASK_RBBM_ATB_BUS_OVERFLOW | \
- 		       A6XX_RBBM_INT_0_MASK_RBBM_HANG_DETECT | \
- 		       A6XX_RBBM_INT_0_MASK_UCHE_OOB_ACCESS | \
-@@ -2039,6 +2057,9 @@ static irqreturn_t a6xx_irq(struct msm_gpu *gpu)
- 		a6xx_preempt_trigger(gpu);
- 	}
- 
-+	if (status & A6XX_RBBM_INT_0_MASK_CP_CACHE_FLUSH_TS_LPAC)
-+		msm_gpu_retire(gpu);
-+
- 	if (status & A6XX_RBBM_INT_0_MASK_CP_SW)
- 		a6xx_preempt_irq(gpu);
- 
-@@ -2509,6 +2530,9 @@ static bool a6xx_progress(struct msm_gpu *gpu, struct msm_ringbuffer *ring)
- 	if (to_adreno_gpu(gpu)->info->quirks & ADRENO_QUIRK_IFPC)
- 		return true;
- 
-+	if (ring == gpu->lpac_rb)
-+		return true;
-+
- 	cp_state = (struct msm_cp_state) {
- 		.ib1_base = gpu_read64(gpu, REG_A6XX_CP_IB1_BASE),
- 		.ib2_base = gpu_read64(gpu, REG_A6XX_CP_IB2_BASE),
-diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.h b/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
-index b50c57f427b4..d85f2536551c 100644
---- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
-+++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
-@@ -75,7 +75,7 @@ struct a6xx_gpu {
- 	struct drm_gem_object *preempt_smmu_bo[MSM_GPU_MAX_RINGS];
- 	void *preempt_smmu[MSM_GPU_MAX_RINGS];
- 	uint64_t preempt_smmu_iova[MSM_GPU_MAX_RINGS];
--	uint32_t last_seqno[MSM_GPU_MAX_RINGS];
-+	uint32_t last_seqno[MSM_GPU_MAX_RINGS + 1];
- 
- 	atomic_t preempt_state;
- 	spinlock_t eval_lock;
-diff --git a/drivers/gpu/drm/msm/msm_gem_submit.c b/drivers/gpu/drm/msm/msm_gem_submit.c
-index 26ea8a28be47..45e7f8b72dc9 100644
---- a/drivers/gpu/drm/msm/msm_gem_submit.c
-+++ b/drivers/gpu/drm/msm/msm_gem_submit.c
-@@ -71,7 +71,8 @@ static struct msm_gem_submit *submit_create(struct drm_device *dev,
- 	submit->cmd = (void *)&submit->bos[nr_bos];
- 	submit->queue = queue;
- 	submit->pid = get_pid(task_pid(current));
--	submit->ring = gpu->rb[queue->ring_nr];
-+	submit->ring = queue->ring_nr == gpu->nr_rings ?
-+		gpu->lpac_rb : gpu->rb[queue->ring_nr];
- 	submit->fault_dumped = false;
- 
- 	/* Get a unique identifier for the submission for logging purposes */
-@@ -599,7 +600,8 @@ int msm_ioctl_gem_submit(struct drm_device *dev, void *data,
- 		goto out_post_unlock;
- 	}
- 
--	ring = gpu->rb[queue->ring_nr];
-+	ring = queue->ring_nr == gpu->nr_rings ?
-+		gpu->lpac_rb : gpu->rb[queue->ring_nr];
- 
- 	if (args->flags & MSM_SUBMIT_FENCE_FD_OUT) {
- 		out_fence_fd = get_unused_fd_flags(O_CLOEXEC);
-diff --git a/drivers/gpu/drm/msm/msm_gpu.c b/drivers/gpu/drm/msm/msm_gpu.c
-index aa3d6ff456fd..4244d9324cda 100644
---- a/drivers/gpu/drm/msm/msm_gpu.c
-+++ b/drivers/gpu/drm/msm/msm_gpu.c
-@@ -537,8 +537,8 @@ static void recover_worker(struct kthread_work *work)
- 	 * needs to happen after msm_rd_dump_submit() to ensure that the
- 	 * bo's referenced by the offending submit are still around.
- 	 */
--	for (i = 0; i < gpu->nr_rings; i++) {
--		struct msm_ringbuffer *ring = gpu->rb[i];
-+	for (i = 0; i < gpu->nr_rings + !!gpu->lpac_rb; i++) {
-+		struct msm_ringbuffer *ring = i < gpu->nr_rings ? gpu->rb[i] : gpu->lpac_rb;
- 
- 		uint32_t fence = ring->memptrs->fence;
- 
-@@ -561,8 +561,8 @@ static void recover_worker(struct kthread_work *work)
- 	 * Replay all remaining submits starting with highest priority
- 	 * ring
- 	 */
--	for (i = 0; i < gpu->nr_rings; i++) {
--		struct msm_ringbuffer *ring = gpu->rb[i];
-+	for (i = 0; i < gpu->nr_rings + !!gpu->lpac_rb; i++) {
-+		struct msm_ringbuffer *ring = i < gpu->nr_rings ? gpu->rb[i] : gpu->lpac_rb;
- 		unsigned long flags;
- 
- 		spin_lock_irqsave(&ring->submit_lock, flags);
-diff --git a/drivers/gpu/drm/msm/msm_gpu.h b/drivers/gpu/drm/msm/msm_gpu.h
-index 2f6a96e560b9..877f88ef90d9 100644
---- a/drivers/gpu/drm/msm/msm_gpu.h
-+++ b/drivers/gpu/drm/msm/msm_gpu.h
-@@ -491,9 +491,11 @@ struct msm_context {
- 	 * create at most one &drm_sched_entity per-process per-priority-
- 	 * level.
- 	 */
--	struct drm_sched_entity *entities[NR_SCHED_PRIORITIES * MSM_GPU_MAX_RINGS];
-+	struct drm_sched_entity *entities[NR_SCHED_PRIORITIES * (MSM_GPU_MAX_RINGS + 1)];
-+
- 	/**
- 	 * @ctx_mem:
-+	 *
- 	 * Total amount of memory of GEM buffers with handles attached for
- 	 * this context.
- 	 */
-diff --git a/drivers/gpu/drm/msm/msm_submitqueue.c b/drivers/gpu/drm/msm/msm_submitqueue.c
-index 1a5a77b28016..a0249430bd00 100644
---- a/drivers/gpu/drm/msm/msm_submitqueue.c
-+++ b/drivers/gpu/drm/msm/msm_submitqueue.c
-@@ -175,6 +175,7 @@ int msm_submitqueue_create(struct drm_device *drm, struct msm_context *ctx,
- 	struct msm_drm_private *priv = drm->dev_private;
- 	struct msm_gpu_submitqueue *queue;
- 	enum drm_sched_priority sched_prio;
-+	struct msm_ringbuffer *ring;
- 	unsigned ring_nr;
- 	int ret;
- 
-@@ -209,6 +210,16 @@ int msm_submitqueue_create(struct drm_device *drm, struct msm_context *ctx,
- 			return ret;
- 
- 		queue = kzalloc_obj(*queue);
-+
-+		if (flags & MSM_SUBMITQUEUE_LPAC) {
-+			ring_nr = priv->gpu->nr_rings;
-+			ring = priv->gpu->lpac_rb;
-+		} else {
-+			ring = priv->gpu->rb[ring_nr];
-+		}
-+
-+		if (!ring)
-+			return -EINVAL;
- 	}
- 
- 	if (!queue)
-@@ -227,8 +238,7 @@ int msm_submitqueue_create(struct drm_device *drm, struct msm_context *ctx,
- 	} else {
- 		queue->ring_nr = ring_nr;
- 
--		queue->entity = get_sched_entity(ctx, priv->gpu->rb[ring_nr],
--						 ring_nr, sched_prio);
-+		queue->entity = get_sched_entity(ctx, ring, ring_nr, sched_prio);
- 	}
- 
- 	if (IS_ERR(queue->entity)) {
-diff --git a/include/uapi/drm/msm_drm.h b/include/uapi/drm/msm_drm.h
-index 7f2e594be4eb..058228a56213 100644
---- a/include/uapi/drm/msm_drm.h
-+++ b/include/uapi/drm/msm_drm.h
-@@ -465,10 +465,12 @@ struct drm_msm_gem_madvise {
- 
- #define MSM_SUBMITQUEUE_ALLOW_PREEMPT	0x00000001
- #define MSM_SUBMITQUEUE_VM_BIND	0x00000002  /* virtual queue for VM_BIND ops */
-+#define MSM_SUBMITQUEUE_LPAC	0x00000004
- 
- #define MSM_SUBMITQUEUE_FLAGS		    ( \
- 		MSM_SUBMITQUEUE_ALLOW_PREEMPT | \
- 		MSM_SUBMITQUEUE_VM_BIND | \
-+		MSM_SUBMITQUEUE_LPAC | \
- 		0)
- 
- /*
+diff --git a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
+index 5ee00eead14c..cd1bdb54429d 100644
+--- a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
++++ b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
+@@ -1591,7 +1591,8 @@ static const struct adreno_info a7xx_gpus[] = {
+ 		.quirks = ADRENO_QUIRK_HAS_CACHED_COHERENT |
+ 			  ADRENO_QUIRK_HAS_HW_APRIV |
+ 			  ADRENO_QUIRK_PREEMPTION |
+-			  ADRENO_QUIRK_IFPC,
++			  ADRENO_QUIRK_IFPC |
++			  ADRENO_QUIRK_LPAC,
+ 		.funcs = &a7xx_gpu_funcs,
+ 		.zapfw = "gen70900_zap.mbn",
+ 		.a6xx = &(const struct a6xx_info) {
 
 -- 
 2.56.0
