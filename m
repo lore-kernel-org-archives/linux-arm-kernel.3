@@ -2,83 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7D26606A322
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 07:08:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CE5C60A260F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 07:26:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=X7uizFgm;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=kfi7zL3/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aubVe+bh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=NcG7rziTtzBQo+YgRjjhG7OeEH2wIvONYfErWYNIqjI=; b=X7uizFgmicTTEc
-	wsVfu4vO0tBzq2kOxuZ5UMOIyJghUBrYtX8WKQ8NEkT6eQuyKQirIVVALKAUxNfPtt0wF4G5+VM8J
-	xdZ6cEi8nKGg2MzecWAbrpuBzB4o1JxAncbgio71rg1K51WNHbWl2pjtxx3vQhG3QUz+DfBNkYqTA
-	0EGZZ8K0ccra8+264oikf7TXJhVFGfnJ2jTVXdvtLgo9Tjt1kBi5CN0T//VNaImF+aDjrY2vcjSM9
-	cp9CG3QEeSXRwQXv5na1y1/1I17g7DWir17e2EFrQmCxXfO4qZDt+XUzqXCGcmhRPY+ZFQ7U+yAx7
-	erU+4iSK1vtHcnM+i1PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=NcAKdYZtTddQxjzrFXtQFy0f32SfgKRx0yegr2UvgLE=; b=aubVe+bhA1KwD+atYHIH7pVunh
+	a1/sjqu/aT9e+P2bFuJH6McjFwZqmk2HLwsGMAKodLk0iS5NyDf0yK+j2TMbtbxvRNLggKKQNRuzR
+	dOxhgGxHd0j5EyGWh552tjs5u0S/ddDuzUiwqHObr7/fjsH/amwCOwUvoObgatRCJokNFak1htFkN
+	8GYz77WJRoQ5RZk/0pg+7185w9Ivah4/f/5QGEH3OhlILe1aaDikmhYGammoMTRS2aRQoCLAwAyOF
+	mJr8kkwJxVnddYEYaTZZcXC108w2PHQcucBQ655ySnytsVoL4zj38jHTZVsI3UJL88uP5uHvFrRSS
+	Gf42OJUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMKFe-00000008Wcx-31eQ;
-	Thu, 29 Oct 2026 07:08:42 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1xMKWK-00000008XKJ-1kof;
+	Thu, 29 Oct 2026 07:25:56 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMKFa-00000008WcP-2Eno
+	id 1xMKWH-00000008XJk-1hHc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 07:08:41 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=NcG7rziTtzBQo+YgRjjhG7OeEH2wIvONYfErWYNIqjI=;
-	b=kfi7zL3/rr8sDCvbxJvwXX+rL/VVtaqKgNez2Wf2ByMEWMm1U6i6ncOOM167EOf6Q1cR13nys
-	dz/8xRElyMbITao2PzoSBB43OVCo1PnLXvv8pnBvLtstXdh/0h4EplLxYhFPkF3extdTNeZdKvk
-	EjWsN4t64y+XM32LpNJISoQ=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jFb0y2tZ4z1T4kk;
-	Thu, 29 Oct 2026 15:08:18 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5D83740537;
-	Thu, 29 Oct 2026 15:08:29 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 29 Oct 2026 15:08:28 +0800
-Message-ID: <6d2411a3-b37b-4cdb-80ca-10654cc88a17@huawei.com>
-Date: Thu, 29 Oct 2026 15:08:27 +0800
+	Thu, 29 Oct 2026 07:25:54 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 29 Oct
+ 2026 15:25:50 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 29 Oct 2026 15:25:50 +0800
+From: Cooper Huang <cooper_huang@aspeedtech.com>
+Date: Thu, 29 Oct 2026 15:25:48 +0800
+Subject: [PATCH] arm64: dts: aspeed: Enlarge AST2700 EVB kernel partition
+ to 12 MiB
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 01/15] KVM: arm64: pgtables: Change write bit from
- S2AP_W to DBM
-To: Leonardo Bras <leo.bras@arm.com>
-CC: Oliver Upton <oupton@kernel.org>, <maz@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <corbet@lwn.net>,
-	<pbonzini@redhat.com>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <tangchengchang@huawei.com>,
-	<yezhenyu2@huawei.com>, <yubihong@huawei.com>, <linuxarm@huawei.com>,
-	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>,
-	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<skhan@linuxfoundation.org>
-References: <20260929103655.85107-1-zhengtian10@huawei.com>
- <20260929103655.85107-2-zhengtian10@huawei.com> <arxW4PUY3qqRkogl@kernel.org>
- <8ca88576-651a-4b7f-91ff-2cb2359aa79e@huawei.com>
- <at9raEVrsbb7rj6n@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <at9raEVrsbb7rj6n@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Message-ID: <20261029-ast2700-evb-kernel-part-v1-1-e6f52742c575@aspeedtech.com>
+X-B4-Tracking: v=1; b=H4sIAPv04moC/x3MQQqDMBBG4avIrDsQI6TGq5Quov2rg5LKJIggu
+ buhy2/x3kUJKkg0NBcpDknyixXto6FpCXEGy6earLGuNdZzSNk+jWEcI6/QiI33oJldN3aT9z2
+ CA9V6V3zl/J9f71JuW81P7WkAAAA=
+X-Change-ID: 20261029-ast2700-evb-kernel-part-63b3c998ea6e
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
+ Jeffery" <andrew@codeconstruct.com.au>, Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, "Chin-Ting
+ Kuo" <chin-ting_kuo@aspeedtech.com>, Cooper Huang
+	<cooper_huang@aspeedtech.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_000839_187532_15DA20DF 
-X-CRM114-Status: GOOD (  22.02  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261029_002553_474283_9E4DFDCC 
+X-CRM114-Status: GOOD (  13.11  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,73 +71,75 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	T_SPF_TEMPERROR,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
 
+The 128 MiB flash layout of the AST2700 EVB reserves 9 MiB for the
+kernel FIT image. A FIT image containing an LZMA-compressed kernel,
+the DTB and an initramfs is already close to that size, leaving little
+room for the kernel to grow.
 
-On 10/26/2026 11:02 PM, Leonardo Bras wrote:
-> On Wed, Sep 30, 2026 at 10:44:26AM +0800, Tian Zheng wrote:
->> On 9/30/2026 8:25 AM, Oliver Upton wrote:
->>> Hmm... I'd actually like to see this structured where the "write" bit
->>> could either be S2AP_W or DBM depending on if the system supports
->>> FEAT_HAFDBS. Look at how HVHE is handled for selecting the right AP
->>> encoding for the hyp stage-1 page tables.
->>>
->>
->> Hi Oliver,
->>
->> Thanks for the suggestion. I missed the case where FEAT_HAFDBS is not
->> supported. Systems without the feature should keep the original
->> encoding, with S2AP[1] as the write permission bit. I'll follow the HVHE
->> pattern to select between the two encodings in the next version.
->>
->> Thanks!
->> Tian
->>
-> 
-> Hi Oliver, Tian,
-> 
-> After some digging, I think it would be better if we kept using S2AP[1] as
-> a writable bit, while DBM can be treated as "Can promote a non-writable
-> page to writable if HAFDBS=on".
-> 
-> I know it's not that intuitive, as the Arm ARM even introduced the concept
-> of Writable-clean an Writable-dirty, but I think it will be the best way of
-> referring to what was intended of the bit.
-> 
-> I wrote down what I mean by that:
-> https://lore.kernel.org/all/20261026144413.441566-1-leo.bras@arm.com/
-> 
-> tl;dr:
-> - DBM + S2AP[1] is set on writable entries (KVM_PGTABLE_PROT_W)
-> - Writable detection is made only on S2AP[1], so no changes
-> - Wrprotect sets S2AP[1]=0 from the PTE, and also DBM=0 if it's a block
-> 
-> On dirty-tracking:
-> - If HAFDBS=0 : no functional change, DBM bit there but unused
-> - If HDBSS=1
->    - Pages: writable-clean promoted to writable-dirty on write, HDBSS does
->      the tracking
->    - Blocks: faults on write, splits in pages, pages get DBM=1.
->    	(argh, I think we need a PROT_DBM for that)
-> 
-> Does that make sense?
-> 
-> Thanks!
-> Leo
+Grow the kernel partition to 12 MiB and take the 3 MiB from rofs,
+which now starts at 0x1020000 and shrinks from 82.875 MiB to
+79.875 MiB. rofs still ends at 0x6000000, so the u-boot, u-boot-env
+and rwfs partitions are unchanged.
 
-Hi Leo,
+This is the same layout used by the OpenBMC images ASPEED provides
+for the EVB [1], so the rofs partition described by the device tree
+also matches where those images place the filesystem.
 
-Got it. I'll wait for the conclusion of your discussion with Oliver
-before proceeding.
+Link: https://github.com/AspeedTech-BMC/openbmc/blob/438e761ed38644b77ba704c984cb607649bf2724/meta-aspeed-sdk/meta-ast2700-sdk/conf/machine/ast2700-default.conf [1]
+Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+Signed-off-by: Cooper Huang <cooper_huang@aspeedtech.com>
+---
+Notes:
+- "Already close to that size": with mainline at c339f4010dea
+  (v7.3-17997), ASPEED's aspeed_g7_defconfig [2] and GCC 13.2, a FIT
+  image with the LZMA-compressed kernel, ast2700-evb.dtb and the
+  OpenBMC phosphor initramfs is about 8.99 MiB, less than 20 KiB
+  below 9 MiB (the exact size varies by a few KiB between builds).
+- Upstream OpenBMC's AST2700 machines use the static-norootfs layout
+  (no rofs) and are unaffected; the rwfs offset does not change.
 
-Thanks,
-Tian
+[2] https://github.com/AspeedTech-BMC/linux/blob/76457d3afe2bd4022ca82dd9eb8fc48b84f0e9ab/arch/arm64/configs/aspeed_g7_defconfig
+---
+ arch/arm64/boot/dts/aspeed/aspeed-evb-flash-layout-128.dtsi | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/aspeed/aspeed-evb-flash-layout-128.dtsi b/arch/arm64/boot/dts/aspeed/aspeed-evb-flash-layout-128.dtsi
+index b54915f06efd..f54d53077538 100644
+--- a/arch/arm64/boot/dts/aspeed/aspeed-evb-flash-layout-128.dtsi
++++ b/arch/arm64/boot/dts/aspeed/aspeed-evb-flash-layout-128.dtsi
+@@ -16,12 +16,12 @@ u-boot-env@400000 {
+ 	};
+ 
+ 	kernel@420000 {
+-		reg = <0x420000 0x900000>; // 9MB
++		reg = <0x420000 0xc00000>; // 12MB
+ 		label = "kernel";
+ 	};
+ 
+-	rofs@d20000 {
+-		reg = <0xd20000 0x52E0000>; // 82.875MB
++	rofs@1020000 {
++		reg = <0x1020000 0x4fe0000>; // 79.875MB
+ 		label = "rofs";
+ 	};
+ 
+
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20261029-ast2700-evb-kernel-part-63b3c998ea6e
+
+Best regards,
+-- 
+Cooper Huang <cooper_huang@aspeedtech.com>
 
 
