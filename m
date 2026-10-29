@@ -2,94 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60763606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 03:54:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A8EF606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 04:11:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zEwPPvQE;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Kh5txQsg
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Nna/3A46;
+	dkim=pass header.d=bren.win header.i=@bren.win header.a=ed25519-sha256 header.s=v1-ed25519-20260901 header.b=Kjo8Smie;
+	dkim=pass (2048-bit key, unprotected) header.d=bren.win header.i=@bren.win header.a=rsa-sha256 header.s=v1-rsa-20260901 header.b=iLm4m1DP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=lIae9g6zUSH+1q+S1sfHr4ypk6wH2cztDIz5qjRcM/w=; b=zEwPPvQERZSwtFfbaUHeajiwCk
-	j4F92nH5c+7OuI7DTLK/b+5YMs3ZJ0ZLFTPeNitkOnDuOs0Vm3MuSUtPTrsKwXhtPpuVygLtbvbWY
-	3UkM/16gwosMRBl5PHiZ03efL4NSStAwX4/Uui//5dk2kasjET+1a8/ZJMhsYkFWPt/4YezyiQkk6
-	zR33unyWXn91/1PDof1zdGkAAFsXaBFZpdAkpGgK9cK5VOubzOQxuZRbyOLqUVjddk+wB+dV2TfDn
-	HIsJiIvsUDm5wdsWiiy1ypfbyV0fJ4aJjEmxoo3C+1EKwEKoVFCrJ1lp4yV9caNitaUOuPXexE6qt
-	XfLnHY6A==;
+	bh=DOqKVI6/U3QL5LYFpBxo025cnPh8REghaHnxKILgPgU=; b=Nna/3A46FanpaHOWc1svJOkFsh
+	bClG8ktdpEWmZNU2AFXKrXSgO3sZ1FnyzWu14nMf+abP4wA53FPx3gd0eKfg7YsDFnpSecFgfIX/6
+	J8TjZoa6+ifyr3gopYbU1POG63kiq58ngrQTlGvlBHKNifnpjfLaiZaUNGmSkcs9ly4rldzC83M4l
+	/odi6gRNLoYma93rrbZgbioHfdnrosb3YXC+bP2tPd1dJyGKmOEigS1ykFZ73WJHKP/9qvA49XCuZ
+	wzZ0Lk67mPY6NYeTYOSceQRbRmwffwK1XQpx0F7g6e3nTpSEGjI3zkEc3XvbqpBrqdPUm7sSQdBTq
+	9XlDUXAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMHDQ-00000008HUU-1EKC;
-	Thu, 29 Oct 2026 03:54:12 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+	id 1xMHUE-00000008ILo-36Wj;
+	Thu, 29 Oct 2026 04:11:34 +0000
+Received: from mx1.bren.win ([51.81.56.14])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMHDN-00000008HRu-1ZMW;
-	Thu, 29 Oct 2026 03:54:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=lI
-	ae9g6zUSH+1q+S1sfHr4ypk6wH2cztDIz5qjRcM/w=; b=Kh5txQsglmC1/36ksT
-	kf5+/X6xELqoJ/vbHx2IpP4oR9DvdGs6m/lGENOliaxI9b5C2bJ5dd0KIr9bC2Js
-	k+Jcx1nBXC4vi3m+zItTFr3Nh9V9v+iXXP1Qxv49A6uxheJh8WbbZ0lpnWLYgjCZ
-	ntbPOsWtZEuO/TuEQApTidz0k=
-Received: from pc.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgCnsSkVw+JqTWv_Cg--.16381S2;
-	Thu, 29 Oct 2026 11:52:55 +0800 (CST)
-From: Jiale Yao <yaojiale02@163.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Sunil V L <sunilvl@ventanamicro.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Anup Patel <anup@brainfault.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Tomasz Nowicki <tn@semihalf.com>,
-	Julien Grall <julien.grall@arm.com>,
-	Christoffer Dall <christoffer.dall@linaro.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Jianmin Lv <lvjianmin@loongson.cn>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <andrew.jones@linux.dev>,
-	Grant Likely <grant.likely@linaro.org>,
-	Jason Cooper <jason@lakedaemon.net>,
-	Robert Richter <rrichter@cavium.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Tianyang Zhang <zhangtianyang@loongson.cn>,
-	Liupu Wang <wangliupu@loongson.cn>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org
-Subject: [PATCH v2 00/20] ACPI/irqchip: validate MADT entries before use
-Date: Thu, 29 Oct 2026 11:52:31 +0800
-Message-Id: <20261029035253.2333852-1-yaojiale02@163.com>
-X-Mailer: git-send-email 2.34.1
+	id 1xMHUB-00000008ILN-0gNG;
+	Thu, 29 Oct 2026 04:11:33 +0000
+DKIM-Signature: v=1; a=ed25519-sha256; s=v1-ed25519-20260901; d=bren.win; c=relaxed/relaxed; r=y;
+	h=Message-ID:Date:Subject:To:From; t=1793247075; bh=DOqKVI6/U3QL5LYFpBxo025
+	cnPh8REghaHnxKILgPgU=; b=Kjo8Smiet/vmG/GU93JVZHHKS1Nghkqacjw6RU4aSLTOyvBbyE
+	0HBb41hbIk5zDsnPb9zqw3+wmZpm3iRm6eAg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=v1-rsa-20260901; d=bren.win; c=relaxed/relaxed; r=y;
+	h=Message-ID:Date:Subject:To:From; t=1793247075; bh=DOqKVI6/U3QL5LYFpBxo025
+	cnPh8REghaHnxKILgPgU=; b=iLm4m1DPX21ijS0LWg9yNs3/tfHMUJMqjF8IQFJqbGYWnGeUuK
+	xBF4tBoZb3EfWfFOx4591BKM+H9oqkyXiTrhx2mOu9COhyx4eB9fYKthfQn+MQwSS8xfb5vYrQL
+	QXHoHiyMCqEoSTWSsdvPhIpdobuRyJPSMBscVNrTd/tTsXeqkMxD0qjUAIsgkz/knwK2eDfVcZk
+	Dfju5GWQO1dfodlBX6YLo8vhGhT1PAdLnptIaClsYrVwEw5JYV8g9W3OKRUFyCzC4OErQHPOKp4
+	MnWMYzUI6s6rnG/tadThRZwG6y3rRVAE3zY0jgO1cTpDCvF8ws9B/zpvFy/+PzmTnWw==;
+From: "Brendon C." <bren@bren.win>
+To: linux-clk@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Shiji Yang <yangshiji66@outlook.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v3] clk: mediatek: mt7981: swap MSDC and MSDC_HCK gate parents
+Date: Wed, 28 Oct 2026 23:10:41 -0500
+Message-ID: <20261029041041.3367084-1-bren@bren.win>
+X-Mailer: git-send-email 2.47.3
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PigvCgCnsSkVw+JqTWv_Cg--.16381S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3AFyxCryUKrWkWr1fXrWUurg_yoWxJF18pF
-	WUua4rtr4xGr4xAwnxAw18ZFy3Jr93JrW7tFZ5ta4fZrWkKF1DXa1IvFyFqF13Jw1fW3Wj
-	9F4FgFyxCFyDAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UrrcfUUUUU=
-X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzhpKhGriwxpqzwAA3u
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261028_205409_837674_5A48EB1C 
-X-CRM114-Status: GOOD (  17.74  )
-X-Spam-Score: -1.8 (-)
+X-CRM114-CacheID: sfid-20261028_211131_735331_65900097 
+X-CRM114-Status: GOOD (  14.61  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,142 +73,79 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-ACPI interrupt-controller setup passes firmware-supplied MADT subtables
-to architecture and irqchip callbacks.  The common table walker only
-guarantees that a generic subtable header is readable.  A number of
-callbacks cast that header to a larger controller-specific structure and
-read typed fields before checking that the complete record is present.
-Truncated records can therefore cause out-of-bounds reads during early
-CPU and interrupt-controller discovery.
+The MT7981B datasheet specifies the storage interface as "eMMC v4.5 @52
+MHz 3.3V". MediaTek's SDK and U-Boot device trees give the MSDC
+controller CK_TOP_EMMC_208M as its "source" clock (max-frequency 52 MHz
+= 208/4) and CK_TOP_EMMC_400M as its "hclk", taken from topckgen
+directly, with the infracfg gate only as "source_cg". The mainline
+device tree takes both from the infracfg gates instead, and their
+parents are the other way round: CLK_INFRA_MSDC_CK from emmc_400m,
+CLK_INFRA_MSDC_HCK_CK from emmc_208m.
 
-This series combines the previously posted generic/irqchip series [1],
-the RISC-V series [2], and the remaining MADT callback checks into one
-set.  The common irqchip probe path first rejects entries whose declared
-range leaves the table.  Each parser then validates the minimum size of
-the concrete record before its first typed access.
+mtk-sd derives its divider, the reported actual_clock and its data
+timeouts from the source rate, so with a device tree asking for 26 MHz
+it programs CKDIV=4 and believes the bus runs at 25 MHz while the real
+bus clock is 13 MHz, and every clock-derived timeout is sized for a bus
+twice as fast as the real one.
 
-Testing
-=======
+On a GL.iNet GL-X3000 (Samsung 8GTF4R eMMC, 8-bit, 3.3 V, HS) this shows
+up as msdc_track_cmd_data write data errors (host->error=0x4) on
+roughly every 40 MB written, escalating under sustained multi-segment
+writes to exhausted retries, "I/O error, dev mmcblk0", lost page writes
+and a stopped f2fs overlay. Raw direct reads top out at 11 MB/s where
+the vendor kernel reaches 23 MB/s on the same card.
 
-The RISC-V cases were tested with qemu-system-riscv64, EDK2 pflash
-firmware, a KASAN-enabled kernel, CONFIG_ACPI_TABLE_UPGRADE=y, and an
-uncompressed initramfs containing an overriding MADT.  The malformed
-table is one page long and ends with a three-byte RINTC entry, while a
-complete struct acpi_madt_rintc is 36 bytes.
+Swap the two parents to match the vendor device trees. With the same
+device tree the bus then runs at a real 26 MHz, reads reach 23 MB/s,
+and four rounds of a 1.4 GB mixed direct/buffered write stress complete
+with zero retries and zero I/O errors, matching the vendor firmware.
+hclk's rate is only read for the CQE idle timer, which no MT7981 device
+tree enables.
 
-On an unpatched kernel the override was accepted and setup_smp() faulted
-in acpi_parse_rintc() while reading processor->flags four bytes from the
-start of the truncated record.  The record starts three bytes before the
-end of the mapped page, so that read entered the following unmapped page:
+Fixes: 813c3b53b55b ("clk: mediatek: add MT7981 clock support")
+Cc: stable@vger.kernel.org
+Suggested-by: Shiji Yang <yangshiji66@outlook.com>
+Signed-off-by: Brendon C. <bren@bren.win>
+---
+v3:
+- also move CLK_INFRA_MSDC_HCK_CK to emmc_400m, matching the vendor
+  device trees' hclk (suggested by Shiji Yang)
+- correct the claim that the SDK kernel parents the gate from emmc_208m:
+  its gate has mainline's parents, and its device tree takes the rates
+  from topckgen directly
+- v2: https://lore.kernel.org/all/20261017194308.1541507-1-bren@bren.win/
 
-  Unable to handle kernel paging request
-  epc : acpi_parse_rintc+0x46/0x206
-  cause: 000000000000000d
-  Kernel panic - not syncing: Attempted to kill the idle task!
+v2:
+- add Fixes: and Cc: stable so the fix reaches 6.12
+- v1: https://lore.kernel.org/all/20261017190729.1369302-1-bren@bren.win/
 
-Applying only the old arch/riscv/kernel/acpi.c and
-drivers/irqchip/irq-riscv-intc.c checks produced the same fault because
-the setup_smp() parser runs first.  With patch 7 moving the existing
-BAD_MADT_ENTRY() check before the flags read, plus patches 9 and 20, the
-out-of-bounds access disappeared.  The malformed table was rejected and
-the kernel later stopped at the existing acpi_init_rintc_map() BUG for a
-machine with no valid RINTC entries.  This is the current fail-closed
-behavior; it is not an out-of-bounds access.
+ drivers/clk/mediatek/clk-mt7981-infracfg.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-The LoongArch LPC-PIC case was exercised with an overriding MADT ending
-in a three-byte LPC-PIC entry.  Temporary diagnostic instrumentation in
-pch_lpc_parse_madt() reported:
+diff --git a/drivers/clk/mediatek/clk-mt7981-infracfg.c b/drivers/clk/mediatek/clk-mt7981-infracfg.c
+--- a/drivers/clk/mediatek/clk-mt7981-infracfg.c
++++ b/drivers/clk/mediatek/clk-mt7981-infracfg.c
+@@ -157,8 +157,8 @@ static const struct mtk_gate infra_clks[] = {
+ 	GATE_INFRA1(CLK_INFRA_SPI1_HCK_CK, "infra_spi1_hck", "infra_66m_mck",
+ 		    14),
+ 	GATE_INFRA1(CLK_INFRA_FRTC_CK, "infra_frtc", "cb_rtc_32k", 15),
+-	GATE_INFRA1(CLK_INFRA_MSDC_CK, "infra_msdc", "emmc_400m", 16),
+-	GATE_INFRA1(CLK_INFRA_MSDC_HCK_CK, "infra_msdc_hck", "emmc_208m", 17),
++	GATE_INFRA1(CLK_INFRA_MSDC_CK, "infra_msdc", "emmc_208m", 16),
++	GATE_INFRA1(CLK_INFRA_MSDC_HCK_CK, "infra_msdc_hck", "emmc_400m", 17),
+ 	GATE_INFRA1(CLK_INFRA_MSDC_133M_CK, "infra_msdc_133m", "sysaxi", 18),
+ 	GATE_INFRA1(CLK_INFRA_MSDC_66M_CK, "infra_msdc_66m", "sysaxi", 19),
+ 	GATE_INFRA1(CLK_INFRA_ADC_26M_CK, "infra_adc_26m", "infra_adc_frc", 20),
 
-  decl_len=3 sizeof=14 beyond_end=11
-
-This confirms the field accesses covered by patch 19 extend eleven bytes
-beyond the supplied record.  LoongArch maps this early table directly,
-so the read did not itself cause a page fault.
-
-Dynamic test coverage by patch is therefore:
-
-  7       RISC-V RINTC fault reproduced; the early check prevents it.
-  9       The malformed RINTC is rejected in acpi_init_rintc_map().
-  19      LoongArch LPC-PIC over-read observed with instrumentation.
-  20      Included in the complete RINTC fix; the boot stops at the
-          existing fail-closed BUG before irqchip probing reaches it.
-  1-6,
-  8,
-  10-18 No dynamic claim.  The required GICv5, AVEC, redirect-int,
-          HTVEC, and related controller models are not available in the
-          QEMU configurations used for this test.
-
-All twenty patches were checked with scripts/checkpatch.pl and were
-applied both individually where independent and as the complete series
-to the base commit below.
-
-Changes in v2:
-- Combine and supersede the six-patch irqchip series [1], the two-patch
-  RISC-V series [2], and the remaining MADT checks.
-- Add the RISC-V QEMU/EDK2 truncated-RINTC reproduction and fixed-kernel
-  result.
-- Retain the setup_smp() RINTC fix: testing showed that the later RISC-V
-  checks alone do not prevent the early boot fault.
-- Document the LoongArch LPC-PIC instrumentation result and the QEMU
-  hardware-model limitations for the other callbacks.
-- Rebase on the current tree and keep Fixes and stable trailers on every
-  patch.
-
-[1] https://lore.kernel.org/r/20261021144524.364143-1-yaojiale02@163.com
-[2] https://lore.kernel.org/r/20261016141249.2791819-1-yaojiale02@163.com
-
-Jiale Yao (20):
-  ACPI: irqchip: validate MADT entry bounds before probing
-  irqchip/gic-v3-its: validate MADT ITS entries
-  irqchip/gic-v3: validate MADT records before use
-  irqchip/gic-v5-its: validate MADT translate frames
-  irqchip/loongarch-cpu: validate MADT LIO-PIC entries
-  irqchip/loongson-eiointc: validate MADT BIO-PIC entries
-  riscv: validate RINTC entries before use
-  ACPI: riscv: validate interrupt controller MADT entries
-  riscv: acpi: validate RINTC entries before use
-  irqchip/gic-v5-irs: validate MADT GICC entries
-  irqchip/gic-v5-irs: validate MADT IRS entries
-  irqchip/gic-v5: validate MADT IRS records
-  irqchip/gic: validate MADT distributor records
-  irqchip/loongarch-avec: validate MADT MSI-PIC entries
-  irqchip/loongarch-ir: validate MADT MSI-PIC entries
-  irqchip/loongson-htvec: validate MADT BIO-PIC entries
-  irqchip/loongson-htvec: validate MADT MSI-PIC entries
-  irqchip/loongson-liointc: validate MADT HT-PIC entries
-  irqchip/loongson-pch-pic: validate MADT LPC-PIC entries
-  irqchip/riscv-intc: validate MADT RINTC entries
-
- arch/riscv/kernel/acpi.c               |  3 +++
- arch/riscv/kernel/smpboot.c            |  6 +++---
- drivers/acpi/riscv/irq.c               |  6 ++++++
- drivers/acpi/scan.c                    |  7 +++++++
- drivers/irqchip/irq-gic-v3-its.c       |  3 +++
- drivers/irqchip/irq-gic-v3.c           | 15 +++++++++++++++
- drivers/irqchip/irq-gic-v5-irs.c       |  6 ++++++
- drivers/irqchip/irq-gic-v5-its.c       |  3 +++
- drivers/irqchip/irq-gic-v5.c           |  3 +++
- drivers/irqchip/irq-gic.c              |  3 +++
- drivers/irqchip/irq-loongarch-avec.c   |  3 +++
- drivers/irqchip/irq-loongarch-cpu.c    |  3 +++
- drivers/irqchip/irq-loongarch-ir.c     |  3 +++
- drivers/irqchip/irq-loongson-eiointc.c | 10 ++++++++--
- drivers/irqchip/irq-loongson-htvec.c   |  6 ++++++
- drivers/irqchip/irq-loongson-liointc.c |  3 +++
- drivers/irqchip/irq-loongson-pch-pic.c |  3 +++
- drivers/irqchip/irq-riscv-intc.c       |  5 ++++-
- 18 files changed, 85 insertions(+), 6 deletions(-)
-
-base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
+base-commit: c339f4010dea8b0d754f84ace70cd1b089878ef8
 -- 
-2.34.1
-
+2.55.0
 
