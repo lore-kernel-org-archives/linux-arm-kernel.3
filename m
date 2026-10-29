@@ -2,69 +2,116 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BA6B606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 23:22:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E15760A261C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 23:33:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SXAX849X;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OeDHMRkV
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IRcJs8Cb;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=S1Y050qI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=N3gRoLc7yvRB1yDkBERo6UVcw5vuu8Tzkngj57Vi0dE=; b=SXAX849Xjp5DpkGqz/7bmCg8LS
-	cZkqISlT9bA3aDn6VqTi6FqF/BVKd6cNptYpPVjKIRcuPy8Z6/oR3xQkkj7zzpLRVyZVULGAMXVLv
-	eAgbVdIctDcd73CgpLsRx7St3RHx2sKNDQ6FncaApCFr+TqCI0q02EOhmGbAuvYK9ZDF0oUDasS6v
-	1gQj1M84YVAFjVE6oBKhyxuHJbNamH+OcfYqwHi8IedeetDcZg5/DK6Vb/VZluRXHhrw4AV5XAWbR
-	P3d4MCeUWyhRHOVeu5emHyoHy3/s+K45lKsBy6na/6bSn77VlRsX4Lu6pz2uCVv/FBbiLjJwIMbb3
-	sZJbvUjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=lnVNxxbt+qbN8QJ5DPYiLdQeqrQxagvjKYBjiz3eH8c=; b=IRcJs8CbNXgL+k
+	F+HOQkO3XycdZ0emE0rSJCwVA0qzRCfMT4Agm9LWElN/380SSuN3x1v/HR9sRz+RIdweE57XWWbAZ
+	yVNNpx8DNNrcDh4QdD2v6MVMKLapEJ/vjFgE3lhhPn7GMMtgJIIAcf+Zm3si2przznOH3inwVbTwu
+	aO4VtsJcKd1p11S+O/Oh4/FoVUi/zqDnaLu8KL54JjvhmlZSQBxSORdDWulNQzaG3NYZn0WGlNg1r
+	ADJKufGBROYSl3kRza8KC7K5RlnZP1uRPZ3Ppz+t752RX3ucc+PrJXt/Zqi1KoKIbGrYFWXCWuFXA
+	D0sIwGAm8QVPz1pf3AwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMZRW-0000000AXHB-44Ak;
-	Thu, 29 Oct 2026 23:21:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xMZcn-0000000AXku-3ugR;
+	Thu, 29 Oct 2026 23:33:37 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMZRU-0000000AXH5-3fOG
+	id 1xMZcj-0000000AXkX-3FKq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 23:21:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1684D41AC8;
-	Thu, 29 Oct 2026 23:21:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3E901F01816;
-	Thu, 29 Oct 2026 23:21:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793316116;
-	bh=N3gRoLc7yvRB1yDkBERo6UVcw5vuu8Tzkngj57Vi0dE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OeDHMRkVizcxRN9N3vVP2Rr6664f8SXA17luor+yEvb3CmNZbugi9FU7GDecXQiRf
-	 9qaUXqbPJ3rA7Dmadxspz7WfJCXoz4/60BO7EXgYSDQxIBhHhXYQ5VUi95AOqYEMgc
-	 yqdS2lhGSX1wbAXHl+O0WkoUVXbCQv4bMGvm+kxdVqANphliT50iJweStI0d/CRJrZ
-	 QN25FBK5i87iVpvu6c4F5z09Ci3tnzlpttoRzjueyUii4cjW6YL9AM8ohmw3rtq7Vw
-	 AlUGm2eibkPKCAJIpLafywkPbuqkAYFDXz6C/q5YyQv6hxTFx9knt12QlVYMU6YrS+
-	 PHxJebv/xBnuQ==
-Date: Thu, 29 Oct 2026 23:21:50 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Srirangan Madhavan <smadhavan@nvidia.com>
-Cc: mark.rutland@arm.com, lpieralisi@kernel.org, sudeep.holla@kernel.org,
-	jic23@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	andre.przywara@arm.com, aneesh.kumar@kernel.org,
-	Souvik.Chakravarty@arm.com, treding@nvidia.com,
-	jonathanh@nvidia.com, bence.csokas@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Subject: Re: [PATCH v5 2/2] cache: add SMCCC-backed cache invalidate provider
-Message-ID: <20261029-feline-monastery-07bf67308136@spud>
-References: <20261021224557.1827361-1-smadhavan@nvidia.com>
- <20261021224557.1827361-3-smadhavan@nvidia.com>
+	Thu, 29 Oct 2026 23:33:35 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-c4550d8ab15so8772366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 16:33:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1793316811; x=1793921611; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=lnVNxxbt+qbN8QJ5DPYiLdQeqrQxagvjKYBjiz3eH8c=;
+        b=S1Y050qIz3hnoVwehloUWifz/RG+ObMxutqsnAqWRlWCVh+tDZm/9gnS0+WyLDBiov
+         hZsY9yyog39N0z5RwBcHQn1EZDRKQTmnfidmH0Ac+5415KZ4FTgaWDV0ZJh4eUgcpwt2
+         VAh2HmCAfsfIfNpz9TsJ6kLv5keXDfuCu90U0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793316811; x=1793921611;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lnVNxxbt+qbN8QJ5DPYiLdQeqrQxagvjKYBjiz3eH8c=;
+        b=1c3SaLHSMSC3Jut8X6b9RhKnbBzpo2ZZ0/wA3ttGZIMj3Gvtoc+OkhlYjoBlBJBK8b
+         N5d+DephBHFMSKy5ByxbdUWWVEQ79v4/ddFTe+ncYHnZjnUzo/OqBV2wJcM1Ej9jrna7
+         GCuamS1HZnIuUmiedmJVEhwXKQ3q+IOrsUQmXSlFNKM5j22MIZ+ECeUt5qivDaJ2CfXP
+         aR0ZfPs7/0eQ2AGJNJZkPqyzNTuUotATd/iB8gErkSpfvCCs0IK/kG+5blvmd+InPfre
+         rVZAMHWSXPCdP/4SOKNnuoz70Br+qqf5CWt3VsFFd22wr29O7o9pMeaYmjZVspBySdwZ
+         6URw==
+X-Forwarded-Encrypted: i=1; AKwUvBw+R9Gsg5GFRUPpiw79Xvx/zBleuDrpty+qwTTWkRQ7s7+EMxuCOzMal7Qoh4RSVXOoRcrTgcmptWfkURBTq8SX@lists.infradead.org
+X-Gm-Message-State: AFq9FYIpA7BYXWT/EZzlayFO/lDK0QBXUzdux44Hcw5YCUuaPYW1Qo2m
+	iGMDNe116RpSKkCauj8in0ILxm3vgjqs/LfzYf9kCwxdTrHRBSm82dyxFFuNGGs5LjzUWp6y5e3
+	kmv5EsCye
+X-Gm-Gg: AYBFou0D31aXspd4F3jDXyYt/g4RyHZDhAugywdCTpXw+AYC5ZW+XPXHjNnQT4gpRgv
+	7gfKSzV4vaqbHhBzOiaF1G4WKTTHKtf3/+++Mnt8aC/beoTBygsxN9m3grso49t5gzozXulqoOT
+	L0NzymVd+6O3GUsUdbo4QiyD28RZkAlImoYdFOtAgr1cWeLgdI3zR8jOnZNBmAenifI/4VnD/iz
+	zvhanVGgeyEeM4+a8mzdlGlL0RabmfBJDAd54oDyTrkLQOAs4gV5dJ7dHw3GLgWMoxtFnXB3vhf
+	OSGieIO0OK5SBfgZtemRpc+kQ9i6OmoBp4mNJ4ahmLKRywG5nJ0ksMg4CBkoDh0jLpPHlKUuru3
+	bwiJoI3BeTZQFxtwX2t7HxLhS1/zyGbPQd4xMNFgBUIQlSPEt4DZtxkNqkc8POqoeUAKt55mJ+f
+	Lm+qE2Dh2S2uvErQXdH2/o1UoOTq1QVmU5VrTF2hRdiS4T0bK8z10dwaysvqJbp0eq5g2nJyiV4
+	FFZc4zqajlu6cPGbX8wbeMe90QVW3IbFs7uZNCA76suqwRZuxBZep/cydogNj4yQITxB79yPPtA
+	BRv4K+9FgMyW4IVyKMZUggvGukvxGWu51MDO9nnWmN8Ls3k8xR2woU0AB4NusH+6Xm8ye3Hfeai
+	WSkVRPYaSVpFGnck=
+X-Received: by 2002:a17:907:9341:b0:c49:cf38:3baf with SMTP id a640c23a62f3a-c4ca795d38emr47459266b.5.1793316810728;
+        Thu, 29 Oct 2026 16:33:30 -0700 (PDT)
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com. [209.85.208.42])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4caa441ee9sm10202666b.86.2026.10.29.16.33.30
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 29 Oct 2026 16:33:30 -0700 (PDT)
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b1ec41d8e9so105911a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 16:33:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwmSJ25HaDafAYcpcp0J2B1Z7dZkFdIFfCFHa3FVjaz56ObgT/nBvJprGUGDk4oK6b4vNNmwYJ3hCHjaKWFnup0@lists.infradead.org
+X-Received: by 2002:a05:600c:4715:b0:4a3:598e:e7a8 with SMTP id
+ 5b1f17b1804b1-4ac150b28bamr10449115e9.4.1793316462561; Thu, 29 Oct 2026
+ 16:27:42 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fabG0ZF/qX/zSjOV"
-Content-Disposition: inline
-In-Reply-To: <20261021224557.1827361-3-smadhavan@nvidia.com>
+References: <20261027-drm-misc-next-manta-auxbus-v1-0-3a45c3cf531d@a-marquet.fr>
+ <20261027-drm-misc-next-manta-auxbus-v1-3-3a45c3cf531d@a-marquet.fr>
+ <CAD=FV=XmfYM8diBOh3UidN7xEuB3n+n9oAm_zhopfFLERC2QpQ@mail.gmail.com> <auOyxKTuSNysAA3X@laptop-218>
+In-Reply-To: <auOyxKTuSNysAA3X@laptop-218>
+From: Doug Anderson <dianders@chromium.org>
+Date: Thu, 29 Oct 2026 16:27:30 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=VV82NG1CAL9DtLeDYQdjC9Su6nYfLYbjzmhzEY9a0JSg@mail.gmail.com>
+X-Gm-Features: AclHuK-RAnD-cE_PStAvE_4zQkeWnl1muDgR4l5_h3nIFbUe3wcXyeLuhes_lRY
+Message-ID: <CAD=FV=VV82NG1CAL9DtLeDYQdjC9Su6nYfLYbjzmhzEY9a0JSg@mail.gmail.com>
+Subject: Re: [PATCH 3/3] drm/panel_edp: Add SEC LTL101DL02-002 panel
+To: Alexandre Marquet <tb@a-marquet.fr>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Jingoo Han <jingoohan1@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Jessica Zhang <jesszhan0024@gmail.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	Lukas Timmermann <linux@timmermann.space>, Henrik Grimler <henrik@grimler.se>, 
+	Hendrik Noack <hendrik-noack@gmx.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261029_163334_106932_57DCEA4A 
+X-CRM114-Status: GOOD (  27.18  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,283 +122,77 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---fabG0ZF/qX/zSjOV
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi,
 
-On Wed, Oct 21, 2026 at 10:45:57PM +0000, Srirangan Madhavan wrote:
-> Add a cache maintenance provider for the cache clean+invalidate interface
-> defined by Arm DEN0028 v1.7.
->=20
-> Register the interface attributes function as an SMCCC device and bind the
-> provider through the SMCCC bus. The provider reads the firmware attributes
-> during probe and serializes cache maintenance calls. It handles transient
-> BUSY and RATE_LIMITED responses with bounded retries. It also registers
-> with the generic cache coherency framework used by memregion callers.
->=20
-> Signed-off-by: Srirangan Madhavan <smadhavan@nvidia.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+On Thu, Oct 29, 2026 at 1:55=E2=80=AFPM Alexandre Marquet <tb@a-marquet.fr>=
+ wrote:
+>
+> > > diff --git a/drivers/gpu/drm/panel/panel-edp.c b/drivers/gpu/drm/pane=
+l/panel-edp.c
+> > > index 94bc54c3833a..c92985363093 100644
+> > > --- a/drivers/gpu/drm/panel/panel-edp.c
+> > > +++ b/drivers/gpu/drm/panel/panel-edp.c
+> > > @@ -2198,6 +2198,8 @@ static const struct edp_panel_entry edp_panels[=
+] =3D {
+> > >         EDP_PANEL_ENTRY('L', 'G', 'D', 0x0778, &delay_200_500_e200_d2=
+00, "134WT1"),
+> > >         EDP_PANEL_ENTRY('L', 'G', 'D', 0x07fe, &delay_200_500_e200_d2=
+00, "LP116WHA-SPB1"),
+> > >
+> > > +       EDP_PANEL_ENTRY('S', 'E', 'C', 0x9c0f, &delay_200_500_e50, "L=
+TL101DL02-002"),
+> > > +
+> >
+> > It would also be good to note in the commit message where you got the
+> > timings from. Datasheet? Downstream code? Guessing?
+>
+> Both downstream code and guessing, as I could not get my hand on a
+> datasheet. I will add an explanation to the commit description.
+>
+> Basically, the downstream code waits: at least 500ms before toggling the =
+LCD_EN
+> GPIO for power on; and 200ms after. I matched the 200ms to the hpd_absent
+> delay, since in panel-edp.c, hpd_absent is also the delay that happens
+> right after enabling the LCD regulator (or toggling the enable GPIO, as
+> appropriate). Similarly, the unprepare delay is called just before
+> enabling the LCD regulator, through panel_edp_wait(), which matches the
+> way the 500ms delay is used in the downstream code.
+>
+> For the enable delay, I went with the smallest value that would still
+> work, but I admit that I did not try anything below 50ms.
+>
+> >
+> > I had my AI agent take a look for itself. It found evidence suggesting
+> > the enable delay should be 97ms, not 50ms. The other ones seem to be
+> > OK.
+>
+> In the downstream code, 97ms is the delay used before setting the
+> backlight on. My understanding is that this should be used elsewhere
+> (e.g.: in the backlight node of the device's DTS).
 
-I acked this on v3, but I don't see it here or a reason for why it
-isn't. Ultimately, you're only harming yourself but still.
+I don't believe I've ever seen a delay in the backlight node of the
+device's DTS, so that sounds wrong.
 
+The .enable delay here is described as:
 
-Unless the arm64 guys pipe up and expect me to take this,
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-because it's so tied to arm architectural stuff.
+/**
+ * @enable: Time for the panel to display a valid frame.
+ *
+ * The time (in milliseconds) that it takes for the panel to
+ * display the first valid frame after starting to receive
+ * video data.
+ *
+ * This is (T6-min + max(T7-max, T8-min)) on eDP timing diagrams or
+ * the delay after link training finishes until we can turn the
+ * backlight on and see valid data.
+ */
 
-Cheers,
-Conor.
-
-
-> ---
->  drivers/cache/Kconfig           |  11 +++
->  drivers/cache/Makefile          |   2 +
->  drivers/cache/arm_smccc_cache.c | 156 ++++++++++++++++++++++++++++++++
->  drivers/firmware/smccc/smccc.c  |   5 +
->  4 files changed, 174 insertions(+)
->  create mode 100644 drivers/cache/arm_smccc_cache.c
->=20
-> diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
-> index 1518449d47b5..57fd1823dec5 100644
-> --- a/drivers/cache/Kconfig
-> +++ b/drivers/cache/Kconfig
-> @@ -42,6 +42,17 @@ menuconfig CACHEMAINT_FOR_HOTPLUG
-> =20
->  if CACHEMAINT_FOR_HOTPLUG
-> =20
-> +config ARM_SMCCC_CACHE
-> +	bool "Arm SMCCC cache maintenance provider"
-> +	depends on ARM64 && HAVE_ARM_SMCCC_DISCOVERY
-> +	help
-> +	  Enable support for the Arm SMCCC cache clean+invalidate
-> +	  interface as a provider for memory hotplug-like cache
-> +	  maintenance operations.
-> +	  The provider registers only when firmware advertises the
-> +	  SMCCC calls and attributes, so systems without firmware support
-> +	  continue without this registered provider.
-> +
->  config HISI_SOC_HHA
->  	tristate "HiSilicon Hydra Home Agent (HHA) device driver"
->  	depends on (ARM64 && ACPI) || COMPILE_TEST
-> diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
-> index b3362b15d6c1..55736a032d6f 100644
-> --- a/drivers/cache/Makefile
-> +++ b/drivers/cache/Makefile
-> @@ -4,4 +4,6 @@ obj-$(CONFIG_AX45MP_L2_CACHE)		+=3D ax45mp_cache.o
->  obj-$(CONFIG_SIFIVE_CCACHE)		+=3D sifive_ccache.o
->  obj-$(CONFIG_STARFIVE_STARLINK_CACHE)	+=3D starfive_starlink_cache.o
-> =20
-> +# Providers below depend on CACHEMAINT_FOR_HOTPLUG.
-> +obj-$(CONFIG_ARM_SMCCC_CACHE)		+=3D arm_smccc_cache.o
->  obj-$(CONFIG_HISI_SOC_HHA)		+=3D hisi_soc_hha.o
-> diff --git a/drivers/cache/arm_smccc_cache.c b/drivers/cache/arm_smccc_ca=
-che.c
-> new file mode 100644
-> index 000000000000..abe6881f3de3
-> --- /dev/null
-> +++ b/drivers/cache/arm_smccc_cache.c
-> @@ -0,0 +1,156 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2026 NVIDIA Corporation
-> + *
-> + * Arm SMCCC cache maintenance provider using the cache clean+invalidate
-> + * interface defined by Arm DEN0028 v1.7.
-> + */
-> +
-> +#include <linux/arm-smccc.h>
-> +#include <linux/arm-smccc-bus.h>
-> +#include <linux/cache_coherency.h>
-> +#include <linux/cleanup.h>
-> +#include <linux/container_of.h>
-> +#include <linux/delay.h>
-> +#include <linux/errno.h>
-> +#include <linux/math.h>
-> +#include <linux/minmax.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/nmi.h>
-> +#include <linux/time64.h>
-> +#include <linux/types.h>
-> +
-> +#define SMCCC_CACHE_MAX_RETRIES		5
-> +#define SMCCC_CACHE_DEFAULT_DELAY_US	1000UL
-> +#define SMCCC_CACHE_MAX_DELAY_US	20000UL
-> +
-> +struct smccc_cache {
-> +	/* Must be first member */
-> +	struct cache_coherency_ops_inst cci;
-> +	struct mutex lock; /* Serializes SMCCC cache maintenance calls. */
-> +	u64 rate_limit;
-> +};
-> +
-> +static int smccc_cache_status_to_errno(s32 status)
-> +{
-> +	switch (status) {
-> +	case SMCCC_RET_SUCCESS:
-> +		return 0;
-> +	case SMCCC_RET_NOT_SUPPORTED:
-> +		return -EOPNOTSUPP;
-> +	case SMCCC_RET_INVALID_PARAMETER:
-> +		return -EINVAL;
-> +	case SMCCC_RET_RATE_LIMITED:
-> +		return -EAGAIN;
-> +	case SMCCC_RET_BUSY:
-> +		return -EBUSY;
-> +	default:
-> +		return -EIO;
-> +	}
-> +}
-> +
-> +static unsigned long smccc_cache_delay_us(const struct smccc_cache *cach=
-e)
-> +{
-> +	unsigned long delay_us =3D 0;
-> +
-> +	if (cache->rate_limit)
-> +		delay_us =3D DIV_ROUND_UP_ULL(USEC_PER_SEC, cache->rate_limit);
-> +
-> +	/*
-> +	 * Firmware may not advertise a rate limit; use a small bounded backoff
-> +	 * instead of retrying in a tight loop.
-> +	 */
-> +	if (!delay_us)
-> +		delay_us =3D SMCCC_CACHE_DEFAULT_DELAY_US;
-> +
-> +	return min(delay_us, SMCCC_CACHE_MAX_DELAY_US);
-> +}
-> +
-> +static int smccc_cache_wbinv(struct cache_coherency_ops_inst *cci,
-> +			     struct cc_inval_params *invp)
-> +{
-> +	struct smccc_cache *cache =3D container_of(cci, struct smccc_cache, cci=
-);
-> +	unsigned long delay_us =3D smccc_cache_delay_us(cache);
-> +	struct arm_smccc_res res =3D {};
-> +	int ret;
-> +
-> +	if (!invp->size)
-> +		return -EINVAL;
-> +
-> +	/*
-> +	 * Serialize the full retry sequence. With the default bounds, a caller
-> +	 * may hold the mutex across up to five 20ms backoff sleeps.
-> +	 */
-> +	guard(mutex)(&cache->lock);
-> +
-> +	for (unsigned int i =3D 0; i < SMCCC_CACHE_MAX_RETRIES; i++) {
-> +		/* Long firmware operations can trigger watchdog checks. */
-> +		touch_nmi_watchdog();
-> +
-> +		arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION,
-> +				     invp->addr, invp->size, 0UL, &res);
-> +
-> +		ret =3D smccc_cache_status_to_errno((s32)res.a0);
-> +		if (!ret)
-> +			return 0;
-> +
-> +		if (ret !=3D -EBUSY && ret !=3D -EAGAIN)
-> +			return ret;
-> +
-> +		fsleep(delay_us);
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static const struct cache_coherency_ops smccc_cache_ops =3D {
-> +	.wbinv =3D smccc_cache_wbinv,
-> +};
-> +
-> +static int smccc_cache_probe(struct arm_smccc_device *sdev)
-> +{
-> +	struct arm_smccc_res res =3D {};
-> +	struct smccc_cache *cache;
-> +	int ret;
-> +
-> +	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES,
-> +			     &res);
-> +	if ((s32)res.a0)
-> +		return -ENODEV;
-> +
-> +	cache =3D cache_coherency_ops_instance_alloc(&smccc_cache_ops,
-> +						   struct smccc_cache, cci);
-> +	if (!cache)
-> +		return -ENOMEM;
-> +
-> +	mutex_init(&cache->lock);
-> +	cache->rate_limit =3D res.a3;
-> +
-> +	ret =3D cache_coherency_ops_instance_register(&cache->cci);
-> +	if (ret) {
-> +		mutex_destroy(&cache->lock);
-> +		cache_coherency_ops_instance_put(&cache->cci);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct arm_smccc_device_id smccc_cache_id_table[] =3D {
-> +	{ .func_id =3D ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(arm_smccc, smccc_cache_id_table);
-> +
-> +static struct arm_smccc_driver smccc_cache_driver =3D {
-> +	.name =3D KBUILD_MODNAME,
-> +	.probe =3D smccc_cache_probe,
-> +	.id_table =3D smccc_cache_id_table,
-> +};
-> +module_arm_smccc_driver(smccc_cache_driver);
-> +
-> +MODULE_IMPORT_NS("CACHE_COHERENCY");
-> +MODULE_AUTHOR("Srirangan Madhavan");
-> +MODULE_DESCRIPTION("Arm SMCCC cache maintenance provider");
-> +MODULE_LICENSE("GPL");
-> diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smcc=
-c.c
-> index 5dc768ac4143..5a5d50d17410 100644
-> --- a/drivers/firmware/smccc/smccc.c
-> +++ b/drivers/firmware/smccc/smccc.c
-> @@ -100,6 +100,11 @@ static const struct smccc_device_info smccc_devices[=
-] __initconst =3D {
->  		.requires_smc   =3D true,
->  		.device_name    =3D "arm-rsi",
->  	},
-> +	{
-> +		.func_id        =3D ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES,
-> +		.requires_smc   =3D false,
-> +		.device_name    =3D "arm-smccc-cache",
-> +	},
->  };
-> =20
->  static bool __init smccc_probe_smccc_device(const struct smccc_device_in=
-fo *smccc_dev)
-> --=20
-> 2.43.0
->=20
-
---fabG0ZF/qX/zSjOV
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauPVDgAKCRB4tDGHoIJi
-0mfRAQCmWplBj+uJLhevvjcZpPZZVUEo3u8T6l+XEmAL47JPcgD/XT0XcZ3HQlZt
-DKZLu6y2ey7JrDaZXiFf98GZrWyYggk=
-=Sesk
------END PGP SIGNATURE-----
-
---fabG0ZF/qX/zSjOV--
+That sounds like exactly what you're looking for, no?
 
