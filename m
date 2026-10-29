@@ -2,36 +2,36 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7E86606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 13:11:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43CD9606A332
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Oct 2026 13:11:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=x3R43Vk9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S5FXYCOw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=TacSadf5vVdafv1GWEGVsOyle84bCFtG5lLBQAWeJf0=; b=x3R43Vk9BxJT2F
-	19wsa8Gb6H1rPgFD/LI0+gUPwCf9X2+ApSyrpuOwWPBH5iheiQj1QiwpFItotR6Ev6pkxCSY95VhC
-	Btsp7NVANJ8HkQdu57jC/tJ8FoITmiOwr6D3cf6trIamDFTRHLIqWuP4asi2QSv4ofXKmuP2Gj2A6
-	hvf4H5Twh+tMG6KLUY1mkA44MiFJowLAwMof8Xj2eL9VXli74IELBkQJD0k5l8wuome9a97xkNkRT
-	e/43Mi4ctLwptrxR2yw6AfE/P4aJjknCZ4FU7U8TdWF3kjCWfrUeNBMyHlUbPtBYv71J5iVM7a0pH
-	NBGDKFC+ul3Cyxu6+Qyw==;
+	List-Owner; bh=UUqeGT/89ZU6Y+fkarnYEZGHmF+apa7zJQAL+t56Yiw=; b=S5FXYCOwjaqfIP
+	gp3rMF2nCJurDHswN9LfUb1RjVZORKH6NAZLs9N+5Pe1LTAYadFBZQvLW8ZVwlHP5UgyZimV3iuYI
+	Teh5elcNBKIeqYVTVPdhLoxACXAGH6wcsyx3uJxIUWvMMuzWkZ7tyNB0NPM6NclPn+M76TAGImg7g
+	nwOev7LIpOQuZq5C+8QsNzyu6ww47GAHfMs/IK2Klisc09XtuKSfc3EXH8wUST2Ux/X0zhX0/Sirp
+	MWcWnF/lZ9g5ySmRmm3T+TmKi9YtHlCO3QrzDgFgEy5Hs0oCRk6cn431e/iNb/rM9xOi33JcMPN1m
+	axi8GXe7rzr7kpdMYG+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMPup-00000009IHM-2t5L;
-	Thu, 29 Oct 2026 13:11:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xMPv2-00000009IQF-0JLy;
+	Thu, 29 Oct 2026 13:11:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMPum-00000009IFP-3yk2
+	id 1xMPuq-00000009IIZ-2TNk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Oct 2026 13:11:33 +0000
+	Thu, 29 Oct 2026 13:11:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 65D926021A;
+	by sea.source.kernel.org (Postfix) with ESMTP id 58C6241322;
+	Thu, 29 Oct 2026 13:11:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 886D91F031E3;
 	Thu, 29 Oct 2026 13:11:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EAD51F031E2;
-	Thu, 29 Oct 2026 13:11:28 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Marc Kleine-Budde <mkl@pengutronix.de>,
@@ -53,9 +53,9 @@ Cc: linux-can@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 3/9] can: rcar_canfd: Make clkp local
-Date: Thu, 29 Oct 2026 14:11:04 +0100
-Message-ID: <415c8b26718e2e5d53f74e65daedf9986c76dcfe.1793278754.git.geert+renesas@glider.be>
+Subject: [PATCH 4/9] can: rcar_canfd: Add support for R-Car Gen5
+Date: Thu, 29 Oct 2026 14:11:05 +0100
+Message-ID: <2f986484ade3f3ab7785a088b476b4bc6f53c157.1793278754.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1793278754.git.geert+renesas@glider.be>
 References: <cover.1793278754.git.geert+renesas@glider.be>
@@ -79,47 +79,50 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The peripheral clock is only used in rcar_canfd_probe(), so convert clkp
-to a local variable.
+The CAN-FD block on R-Car Gen5 is similar to the variant on R-Car Gen4,
+but uses split global and per-channel interrupts, like on RZ/G2L.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- drivers/net/can/rcar/rcar_canfd.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/net/can/rcar/rcar_canfd.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
 diff --git a/drivers/net/can/rcar/rcar_canfd.c b/drivers/net/can/rcar/rcar_canfd.c
-index 74d9ffd2790587b9..9dbe44710dcced80 100644
+index 9dbe44710dcced80..702a3aa1949ab9da 100644
 --- a/drivers/net/can/rcar/rcar_canfd.c
 +++ b/drivers/net/can/rcar/rcar_canfd.c
-@@ -467,7 +467,6 @@ struct rcar_canfd_global {
- 	void __iomem *base;		/* Register base address */
- 	struct rcar_canfd_f_c __iomem *fcbase;
- 	struct platform_device *pdev;	/* Respective platform device */
--	struct clk *clkp;		/* Peripheral clock */
- 	struct clk *can_clk;		/* fCAN clock */
- 	struct clk *clk_ram;		/* Clock RAM */
- 	unsigned long channels_mask;	/* Enabled channels mask */
-@@ -2111,6 +2110,7 @@ static int rcar_canfd_probe(struct platform_device *pdev)
- 	bool fdmode = true;			/* CAN FD only mode - default */
- 	char name[9] = "channelX";
- 	u32 ch, fcan_freq;
-+	struct clk *clkp;
- 	int i;
+@@ -636,6 +636,23 @@ static const struct rcar_canfd_hw_info rcar_gen4_hw_info = {
+ 	.external_clk = 1,
+ };
  
- 	info = of_device_get_match_data(dev);
-@@ -2181,9 +2181,9 @@ static int rcar_canfd_probe(struct platform_device *pdev)
- 				     "failed to get rstc_n\n");
- 
- 	/* Peripheral clock */
--	gpriv->clkp = devm_clk_get(dev, "fck");
--	if (IS_ERR(gpriv->clkp))
--		return dev_err_probe(dev, PTR_ERR(gpriv->clkp),
-+	clkp = devm_clk_get(dev, "fck");
-+	if (IS_ERR(clkp))
-+		return dev_err_probe(dev, PTR_ERR(clkp),
- 				     "cannot get peripheral clock\n");
- 
- 	/* fCAN clock: Pick External clock. If not available fallback to
++static const struct rcar_canfd_hw_info rcar_gen5_hw_info = {
++	.nom_bittiming = &rcar_canfd_gen4_nom_bittiming_const,
++	.data_bittiming = &rcar_canfd_gen4_data_bittiming_const,
++	.tdc_const = &rcar_canfd_gen4_tdc_const,
++	.regs = &rcar_gen4_regs,
++	.sh = &rcar_gen4_shift_data,
++	.rnc_field_width = 16,
++	.max_aflpn = 127,
++	.max_cftml = 31,
++	.max_channels = 8,
++	.postdiv = 2,
++	.multi_channel_irqs = 1,
++	.ch_interface_mode = 1,
++	.shared_can_regs = 1,
++	.external_clk = 1,
++};
++
+ static const struct rcar_canfd_hw_info rzg2l_hw_info = {
+ 	.nom_bittiming = &rcar_canfd_gen3_nom_bittiming_const,
+ 	.data_bittiming = &rcar_canfd_gen3_data_bittiming_const,
+@@ -2370,6 +2387,7 @@ static const __maybe_unused struct of_device_id rcar_canfd_of_table[] = {
+ 	{ .compatible = "renesas,r9a09g077-canfd", .data = &r9a09g077_hw_info },
+ 	{ .compatible = "renesas,rcar-gen3-canfd", .data = &rcar_gen3_hw_info },
+ 	{ .compatible = "renesas,rcar-gen4-canfd", .data = &rcar_gen4_hw_info },
++	{ .compatible = "renesas,rcar-gen5-canfd", .data = &rcar_gen5_hw_info },
+ 	{ .compatible = "renesas,rzg2l-canfd", .data = &rzg2l_hw_info },
+ 	{ }
+ };
 -- 
 2.43.0
 
