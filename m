@@ -2,156 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08A47606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 02:38:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4890C606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 03:15:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MPgFQLUo;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=o6kb7Etk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qNNZHnZ5;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GFhPcH9T
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=wc1eNZc+fY71rAknGBOCWvV2tYF3Dw+MSjlv5iF/Gt8=; b=MPgFQLUockRP7a
-	2M8o6UJ6T4Ef7PWHCLw3/f/qAR0k7vuK0UtYmYhedgVoapPzyE4Jz1tYqb6kHEBy+yDMZ57HPDt93
-	N+vKN3dt1t/NAduFs1Q5RAhbIQ6i7Gz6UeTSenpDT0b3mz8Me0acjuW3Q8FL/nfvEfLu/RsQG17OV
-	tKuRzAu5Kwf85a+C7JxE7zucfYhagqFqFJ44RyE9pxWRBtG88YVwO3bcu/CbDKfddFjKOYBmdRpQ2
-	FEUuDKVuMTlSTm5Rjsims5hjyAFzEImp8qopK5Qpv72eocJNlXlYfJ3QT23m6v9q9YD/sRPWVRtxX
-	brbxu4fmKELVnR6QO06w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=AVQv90cVLZ+qJuF4mQ4kF8CxT7gJb59j0c9vMsRIsuI=; b=qNNZHnZ5qkYcHrUVec33ai4w3m
+	PXGZTsFY0rAXmYCZH4EQqTL/IcWIxTsA1v3WBQqLMCTfBQwtu3039Ib3h84GpEy93IlIcT5vQ7M/N
+	9THqUcRJJCXJVYHQvwu6PCdhHhJtknNd/6Wgp6TWQgFBwalkUnXNoc6KuFc3rs6wfbgF3j2aDcn0N
+	1bXhxWwG3WaKjYL03w0d3BH4GKYn0lESxiOUnv2R/598gk+nCL0T30jGk0Rnw6QOfzdSExunis0Ye
+	pPNNf8nHeZ6o681GS/+HKU2DYzoVdcZ0k29nurokwhyE81YeAmYICJKSjpUYwpwPoFfwWISlyTfvW
+	qbSnV/XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMcVN-0000000AflF-0FQ0;
-	Fri, 30 Oct 2026 02:38:09 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1xMd5N-0000000AiXs-1YVK;
+	Fri, 30 Oct 2026 03:15:21 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMcVJ-0000000AfkE-46Mu
+	id 1xMd5J-0000000AiXR-2YRH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 02:38:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xMFOdZPNgaq3s/ZTNQ07lC6kqfAFe+95f3H+yAyBUuhxQPKgGDq8mmOBuE1vpgih6ZyaUfEDCcgLQTuVs8bo2yNQ/FWUeozdko2OOGsYd6DAjo9TmYe78k01JwrEP1f171WdaGBt2UvVz6UvFcB1JwUetyRb6Vu0r8PbF8RN4q6OWm4Cayxge3folXp22pPgDiYgF8rfcSGnUNgAf5H5OV7c0C8f2MphWjb0vWx1NgDipEL1q7mKZxUDsAaOy9Wn5En4PX9ckLS+ioeOa7eIzlkvGv7rZh3KIxvcAzAUtcd48iNSmI4nb8LzkWFYss2DaBQBOuhfHiX9otnSbb8XRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wc1eNZc+fY71rAknGBOCWvV2tYF3Dw+MSjlv5iF/Gt8=;
- b=JLGrHKtuDNApjT7yEre0O7XUxSsh3syU5fv0r1W5j0AQmMUPzqICsrdfVXTyCOJkPhvaoEa2k0VKBUE24ZjNCScPJrdkfnmysQNeZbJwBSbZWbAt4jqsEwbFXYfSMhrn2eMxG1oMW9HcqMFNk7fuMJ2rTxrGeNr45UG6WfkD16MFtk4GtCC4hG7z9knXjLBrN+3VQ7wqDRPIdWaZr3czroj9/uk9RA926FFO5U3NrdRL18XoEQApYtGa9HDGvXlQuFQRWg52aNz0h8PkCyN30sRscS+MQsVSjhAky5x66zY1+ScuVz3+vK14gGE+aOBjZedvYYkKzha0og236c2l2w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wc1eNZc+fY71rAknGBOCWvV2tYF3Dw+MSjlv5iF/Gt8=;
- b=o6kb7EtkQ4tug7GcTePWNKbYExtTT5ypVe8qLqmbf+hIkaUUxv/Xd1J01dPpEcYwuizY+RTW8dmAgF6qd18N8TzRUEdmLM7C+Hvjf7JkUkSzsbk1FuRM9357OmUOkrdAMSNl2gQLdqqBtdWChZ7f8oBLLHNLu11hhPGPiCy9zPJderd6K/V2pyLk0ykQG+xPpZ9FJjhso27ffkaCRnJzlFgnXLARqFsGTXLY1SenFSD96ZsSuLwtVSmffOPva3ZCF31mhlOKg9cURiTTeEYoGGV1z0WLDe2qH3tlEh1EGgdd12lDMoaS/21qJSWoZxkS1B9kINJojYISB885X5MipQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by IA0PPFD4454CAA9.namprd12.prod.outlook.com (2603:10b6:20f:fc04::be5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.21; Fri, 30 Oct
- 2026 02:37:59 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0569.008; Fri, 30 Oct 2026
- 02:37:58 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: linux-tegra@vger.kernel.org
-Cc: Robin Murphy <robin.murphy@arm.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>,
- Thierry Reding <thierry.reding@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Jonathan Hunter <jonathanh@nvidia.com>,
- Krishna Reddy <vdumpa@nvidia.com>, Krzysztof Kozlowski <krzk@kernel.org>,
- Jason Gunthorpe <jgg@ziepe.ca>, Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Yong Wu <yong.wu@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Rob Clark <robin.clark@oss.qualcomm.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org,
- Christoph Hellwig <hch@infradead.org>
-Subject: Re: [PATCH v3 00/10] Make the 32-bit ARM DMA API work with normal IOMMU DMA
- default domains (+ Tegra PoC)
-Date: Fri, 30 Oct 2026 11:37:53 +0900
-Message-ID: <wbo9prdIQW6DX3kU4aWbuA@nvidia.com>
-In-Reply-To: <auM2FAYVK192RzHb@infradead.org>
-References: <20261026-b4-arm32-iommu-dma-cookie-v3-0-3901d74b1ff2@nvidia.com>
- <auM2FAYVK192RzHb@infradead.org>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: TYCPR01CA0143.jpnprd01.prod.outlook.com
- (2603:1096:400:2b7::15) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+	Fri, 30 Oct 2026 03:15:19 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-3ac9f49b984so142424a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 20:15:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793330116; x=1793934916; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AVQv90cVLZ+qJuF4mQ4kF8CxT7gJb59j0c9vMsRIsuI=;
+        b=GFhPcH9T4nR5pQnhodwjN4oNLoXBsKhUnUb3Xt0ohA77CE1Nq3gf7OXM6afuE1kN3D
+         1uXVPfurg6eekhlnkwCsm63oOaEiCUe9EV+VmdlPO9vo/43VY8KqGq+/lCcmeDd0xeMR
+         v6QMd6CHFHwrLy/IyfhSCaUNjDOryvtcLO1Oc5hHZJngx308TGOGl9sGRGB4J+6TBFlr
+         U5BonryIDqAc85ccl2FwDNVqt+Fh4mRVGaqZuC/jitiBMYbY8hX2okpxZU4DBLPCQXyG
+         agJgK0zdvrDfuc49V+3X3XoO3vV/jFCm7TtfBCsjzmeD3sbJlZ9loype5z48DXeX6Puh
+         QUxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793330116; x=1793934916;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=AVQv90cVLZ+qJuF4mQ4kF8CxT7gJb59j0c9vMsRIsuI=;
+        b=BISZGO3iR9P0W4UeAjZu620uv5I3brt9nURpo5WuIxlzFBi8m5RSNIF/o9RKzV9Fvy
+         f6L+vPeW8ahKcTe9wz4YglSrqTzLiUWw1d9lO+vaAyqB5eQET8BEBhOffO16I1OpLKSR
+         2IimaO6/tvdqTLR66r5FPy5xw2Dz0YTUYUBKvpVkI0SKtgXFtvNjjO3R3gQ01coD9FuC
+         lYVJ/haLduMAdrq9AtEjsg4Q8sN+E+5YfPggnnoNl4oJe5EP/vsUpLMe/OUvqDruleOR
+         U5+VkJAUcxr4ngRUJTaN5fcut4S0+rKQD2FQxhl053dJuRfVTryBGuu5d2IeTycRjtNM
+         V+ew==
+X-Forwarded-Encrypted: i=1; AKwUvBwst1ZMgMNC96ci05mfyqbZHLCXDXyZbuY21Ku7RU85w9iVsEwkV7dW/l9EC7OFwNltrqzRGvAJWS5AilRD69MR@lists.infradead.org
+X-Gm-Message-State: AFq9FYID1j+czSAblWWhrMbyD5otRtPr4IxJB3byEWEWlrUcdbgkVmKw
+	bUfFREwLFJc3BjG5vftSFA7d9bQXqVbvrIL4d6dqQ6JKgHpNApjtbqdK
+X-Gm-Gg: AYBFou15ggza08XxHwKwgkmRN9dpS9E6xm2100d2pU8s7vcIqyQTEfDwJrn0R4YdHAT
+	eJbmvreTDYJ0R9NjdT2IbRnGi0duaNoR6QWsZfScvJ0mO1w53dTD7GpQISBMKa1/29nL/17W+x4
+	A7IzW362gk7jloDN/WttcseYwriQc/NQ53godqIUNe3xM0H+PJTVClhXepBcU3iQb5oMiiKAs2a
+	euimN+sv7E3CBaEnqAMtjgxpL7STC/9BYBQGSONV580bd6rgrjetbgYwsbdM9770qXFgFSqNS+4
+	jyQhBg0cF1GdNFG7TXnGR23s7fzjJYkqkso/Oiu2rgWhyu9Niz3ieXRHDksBZuSD4ubwo3ENagk
+	cynwKpo8x38iqm57tibkOal5pA7Eiv04WdbVurvhqX45OjYUQSLKySuwb0ezsMYRTIEavByHhx4
+	oDCWqzJ3IfJNN+9BUzeF9idC6IBB2ydEHQ1Q9SSYjko1BFnH2GgEG/uGt1DCZ21vLxJI+jjOtxz
+	bO96XZDpr9L6cRMy3kBNT13PZtJ9JW8+EOCSMfC1/9K8IdYtCLuYI15BDP2G3hueOg4eRN9Ko2B
+	ZnVCI3AVjRD2r1k8IKB9VS4UGaNrCaUF3MBXsfJ8rS7PD/VBOPmpQazzerqmOIM8Ht/Nz6V1U4o
+	6DWkAdJo4XG/dlLk=
+X-Received: by 2002:a17:90b:1845:b0:3ab:8288:b8ce with SMTP id 98e67ed59e1d1-3ae8974d028mr473136a91.24.1793330115599;
+        Thu, 29 Oct 2026 20:15:15 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae6e2a703esm6590630a91.0.2026.10.29.20.15.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Oct 2026 20:15:15 -0700 (PDT)
+From: Chi-Wen Weng <cwweng.linux@gmail.com>
+To: jic23@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: dlechner@baylibre.com,
+	nuno.sa@analog.com,
+	andy@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cwweng@nuvoton.com,
+	cwweng.linux@gmail.com
+Subject: [PATCH v3 0/2] iio: adc: Add Nuvoton MA35D1 EADC support
+Date: Fri, 30 Oct 2026 11:14:59 +0800
+Message-Id: <20261030031501.130290-1-cwweng.linux@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|IA0PPFD4454CAA9:EE_
-X-MS-Office365-Filtering-Correlation-Id: 410846b4-3b56-4410-3688-08df362ecedb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|366016|23010399003|7416014|376014|1800799024|18002099003|6133799003|261026121527099003|22082099003|10067099003|11063799006|56012099006|5023799004|261021130227099003|261028144727099003|261022113327099003|261022105027099003|261021135927099003|261021121427099003|261022075727099003|261026140227099003|261022115727099003|4143699003|261021123027099003|261026130827099003;
-X-Microsoft-Antispam-Message-Info: XxBr/7LokCXcmaWmdjkw7yVudUcWYfo8DA50AlJCY7978V70nRqYsfCqwFS+H7kdoKxeGo7WQZ3lbv1J0kQ74pzJopDd1WyT3U/tc6JG4xDKiworoheok/QPT79vu0WJE/QB9kr45ian0Q5q6bdqXblTt2MGJsnXxc3fXVlirF2t1J6f0C9pd6sGdyX24DvucUwsXg+A3WF5MOEwDA7npkNW3vUiwSNUovLFnoswe9Bi/xi+eXpVPPMuw1mWRiK7pOu39k9gIiEvo1Bc5L0XjNHlCO8dRdAtr6Ea0ZHPq1fEc/S/YXMrXZx3YvMV7jE0JdYsFUDMSWcVnWKuIX/n/45cTJNhKMTQZigd8XKQLoqAyqO52LlFL0zCnU+NNWw6eQqQZGonYIEBShoA9/4XumgnMiu8uWlv1UH+p1eoCqf9HzTS7RRx7irFfPrHYI6s4z+yJdhWTWYqUCVxDKWjzcffBzGp3rhbSIY0UDE68jz4YF0CQxSMwtlPu7FrIKmnKAK2o97Jo+VCm0KZ6ZoC9XlG8pMHHL/YOTv7h+I5I+WSuoGq2p3vhzknrcMtcvCCeREOSgJuyYOB4LKE9WGqoUWRj3e0HpXM5gcIf8G2u3yO7D3bAY4z5B4UhX6hfwKJ9REJ9odDJ+IYswjdeL2WtMRQevogwqU8HYwqNPL9rGE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(23010399003)(7416014)(376014)(1800799024)(18002099003)(6133799003)(261026121527099003)(22082099003)(10067099003)(11063799006)(56012099006)(5023799004)(261021130227099003)(261028144727099003)(261022113327099003)(261022105027099003)(261021135927099003)(261021121427099003)(261022075727099003)(261026140227099003)(261022115727099003)(4143699003)(261021123027099003)(261026130827099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cWd6U1UzVXNEU1M0SWtwN3FjNXNNQWNzQ2d0TTRBRG80MENKWUVBZ0FHOFJQ?=
- =?utf-8?B?Wi9NRDlGT1Z1eGZ3QzFTeDU2clFQT29NUElVMjEwbjdXWHk2S21hVEF2VCt3?=
- =?utf-8?B?dDR5ODljVVhBMkhJWEFPTHVoZ2NlREZ6emM2VFFNMGFoNnd1ZHJxcVJ6SU5a?=
- =?utf-8?B?NHBYNTd3RVpHN0lJVHFBZ0tHTFU2QjUxL2xXbWIrTDJGRUVNTjhrOEZESzE2?=
- =?utf-8?B?RjJxa3RVRHFGVDU4VmdWRWl3U3dBY2lKZzVUZ1Z2OTgzWkVNdzlvVG9PK2dG?=
- =?utf-8?B?N0tlU1F6cGtYcDhFR25MZnFUVTFPRGdGYTBOTWM3eEdTVG5XeGdvYW1pcXlx?=
- =?utf-8?B?Um9RT0Yrei9rQy8vZDU1WUZEcEx3bzVIczJtRXRXRlNWNTREKzVBSUtsWXo5?=
- =?utf-8?B?N1pra1NOeC95VVZLQTZrQk1sTWFmdHRwVFlZZG9uYmlpV1ZJeHUrZFM5RjdI?=
- =?utf-8?B?NEJvdDc4TDl1aVhqTFd3OWZMRDYxRXFMUFJXVjFFc0ppOFVjdmlueWk2WHQ5?=
- =?utf-8?B?MVprMS9oUjJjaGY0cU9hYmszaEc2bXdyM3dpVDRpcWR5RDBOd2ExRUlzL05P?=
- =?utf-8?B?R21JbDg3UGpKU3psYTdqNU0zZ2Q5b2pnNzdMRmhIb0QyN3owckZuRjFEM05k?=
- =?utf-8?B?dnZpajAzbWUzTHBFOTJvL1JzNFM5cjdlbmU0c3NORVRzdmplL3M0emF1TGFH?=
- =?utf-8?B?SkYxS01XWklFVkpuT1dCc3lZb0txb0srWUcyOWN5TmJEV0FlczB3ZGxRYXNM?=
- =?utf-8?B?c2lKUUR3K3pXSHNlZWdEM2hkdWkzNk5ycnZadmw3VTlQRXNSYjFjclVMV0hO?=
- =?utf-8?B?RDJQVkVhd1d3QkNuOGgxQnY2d2YwQWhXanNjWWtFTVFXZ0ZPVVZVVlJlRmpY?=
- =?utf-8?B?SzNEWjN0QzFiZEhycjl6T3VuWkZ5akd1UWZ0OTRKV0pDQjczckxnMHBINTFo?=
- =?utf-8?B?MUNLKy9JSjNKM2JDVzRLVk1CbzRLazV6SzdtK2VXa0NZelVNNkNpQVVWVFBn?=
- =?utf-8?B?TW9WU09wOWIyaXRzU3g1WlpBRnFkRE16a2FyaGE4akRVc01RRW5Ka0lLOWRO?=
- =?utf-8?B?eE43dXZBQ3Zodlh4N2ZOTi92UjVPWmFYWW5RaEYzNzZPZGxqRjc0akIvMVhH?=
- =?utf-8?B?MjBiUzd4c1lQTWhRRzJKaHppYUFIc2xWTVAvQXdCelV2TEtFUERCZXZXM1dC?=
- =?utf-8?B?WnBuQmZLTVdmQXBuUEZTeFN1K2lCbk1oUzVoMU1vWWZ2Mk5hZTVheTRub2VM?=
- =?utf-8?B?NmJuQ0RtWFZmUXoxbXV3eGt3d2hFenlRYUQ0V2c3N1J1RHFuTE96dlFubUFr?=
- =?utf-8?B?RkI3dDZETU5ERXhrR3d0Ky9iRUhILzZoMmZHQm1ndnpsenFXK3luc1ZOK20r?=
- =?utf-8?B?dHlkUkNoUDBnYkxyQ3lIY3FBTXcrQjZSbjh4RTBSK2pLeHcwWVRheS91bEpY?=
- =?utf-8?B?QnlpWElxYXRjT3RCODVOcDd2RjNraitmbDdKTnk2NEwrbWJRbnVnOVUrRktB?=
- =?utf-8?B?ZnRiSDVFREFUUXczNzVweXJDVnAwMVJCQStITXV0b2dwazdkZmRUTWIxZUI2?=
- =?utf-8?B?eEp3SjNGMXNHcnBKUWsvVUU2WlBSREZ1aWNvUEJqUjBtQUxacWFmL3QzYi9z?=
- =?utf-8?B?YVVVMEdqSGsySGxCd05tUm9VT1c5eHUrTHRaaGNQT3FINHAzeUVIZ1luZHdL?=
- =?utf-8?B?ckpaUk5sLzl6ODFaMCtvSVNRMmRaK2FqVUF4QkFUVzlWYmo3VkhkSEJKQUNu?=
- =?utf-8?B?MGJUdEJGWVFHVnRNaXI0cS9IRCtIRGhPbC9YZkFFZmlqM2RjRXdFaVdQRS82?=
- =?utf-8?B?REM3dlVLRVVuQTF2eTRoYnE0T2lLU1AxYkxBK1EzVDhYZjdBTkdzR05Cd25t?=
- =?utf-8?B?YkpkTGRqTk5RWU5QRzlQcGtacEtKT0tTZ2RjcCtFSWVwQWpyMlFqUHZ2UW5u?=
- =?utf-8?B?VEV5UHg2SE1Kd2NGNjRZNWxibVZ3NTBQZ0VxMWk0b1JnTThrV0dYZzV4b3U5?=
- =?utf-8?B?b3ozK1dqZUFIM2VtVmVUd2VxWWQxT0MyRWxMcXdNWTd5bDFlUnNhYndWS3lp?=
- =?utf-8?B?WVZLQXlmc3VSekVPMFZHaVcyRDdpbSt5R0I2RldqbWM1elYrY3NYTVdpTVh2?=
- =?utf-8?B?QlhtWG8vdGF1L0pxWDRWNlNTM3o3RGV0ZVVva21KcnVqNkZSaEw0OVNaM0s4?=
- =?utf-8?B?cFRoWkNGWDJyOVlhSWt5dkc5Vlo2Yyt2OGIrOXJpOUsvY0wwR3dzSm9vTzJI?=
- =?utf-8?B?RzZ0THlDbmh4Y0JmWnJpQ1JxTmxUWDJCNXBCUTJ4SUplVGo5NndCa3lBbk01?=
- =?utf-8?B?Z3UrVFZmRm5nUDlRUU9DVlE0UHk3dzQrWUpsYkcxdjArZGZJMUVQcWdORGx5?=
- =?utf-8?Q?olnoEmRB6hcusETnPFohlcEEpPuNFG6QW/C2Heow7tuLL?=
-X-MS-Exchange-AntiSpam-MessageData-1: dhZ/qs2HuY1k6A==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 410846b4-3b56-4410-3688-08df362ecedb
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 02:37:57.9195
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1ubgFdf+iq7eKQ+Z1IYVvlJA0lM+UNiOn1EjaEiy18SxOA7PciZN7crfZopuRyXMc9agyzCz42nim7z0lcF0bg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFD4454CAA9
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_193806_017803_D69597CA 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20261029_201517_716595_95E80DFA 
+X-CRM114-Status: GOOD (  15.68  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -163,48 +110,104 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thursday, October 29, 2026 9:03=E2=80=AFPM Christoph Hellwig wrote:
-> On Mon, Oct 26, 2026 at 06:19:25PM +0900, Mikko Perttunen wrote:
-> > Robin suggested [1] that instead of teaching the legacy path about
-> > groups, we should explore modernizing the 32-bit ARM DMA code a bit by
-> > making it use domain cookies and have the core code own the domains, as
-> > is the case on other architectures. Still, ARM's own DMA code is kept t=
-o
-> > support existing drivers and APIs that expect it, and because dma-iommu
-> > is considered too big and unnecessary for 32-bit ARM.
->=20
-> Now that the different domain handling is gone, what speaks against
-> just using the generic dma-iommu code for arm32?
->=20
->=20
+From: Chi-Wen Weng <cwweng@nuvoton.com>
 
-Copying Robin's comment --
+Add devicetree binding and IIO driver support for the Enhanced
+Analog-to-Digital Converter (EADC) found on Nuvoton MA35D1 SoCs.
 
-> TBH I rather feel like the time for converting ARM to iommu-dma has=20
-> passed - there are drivers which rely on specific behaviours of the ARM=20
-> IOVA allocator which iommu-dma does not match, and meanwhile iommu-dma=20
-> continues to grow more server-specific features which would be nothing=20
-> but bloat on ARMv7 systems with <=3D2GB of RAM and no virtualisation. At=
-=20
-> this point I'm inclined to treat the existing DMA ops as legacy code=20
-> like with alpha/sparc/etc.
+The MA35D1 EADC is a 12-bit ADC controller with eight external analog
+inputs. It supports single-ended conversion and four fixed differential
+input pairs: 0-4, 1-5, 2-6 and 3-7.
 
-Aside the bloat, it's indeed not a switch we could do in the short term=20
-given all the platforms that rely on ARM32 specific APIs or behavior.=20
-This series already opts out four platforms from just the default=20
-domains and sashiko implies we need to add more to that list. There=20
-could be an incremental path of removing existing hacky behavior and if=20
-we manage that, eventually code sharing could be considered.
+The controller provides four interrupt outputs, ADINT0 through ADINT3.
+ADINT0 through ADINT2 are associated with the corresponding conversion
+interrupt flags. ADINT3 is shared by the ADIF3 conversion interrupt and
+the ADCMPF0 through ADCMPF3 result-compare interrupt sources.
 
-Mikko
+The initial driver uses sample module 0 and ADINT0 for conversion
+completion. It supports direct reads and externally triggered buffered
+capture. The driver supports an optional external reference supply and
+uses the internal 1.6 V reference when no external reference is
+provided.
+
+The binding describes the optional DMA request and all four hardware
+interrupt outputs, including the result-compare sources sharing ADINT3.
+The initial driver does not use DMA or result-compare functionality.
+
+Changes in v3:
+- Document all four ADINT0 through ADINT3 hardware interrupt outputs and
+  add interrupt-names.
+- Document ADINT3 as the shared conversion and result-compare interrupt
+  output.
+- Remove the redundant minItems/maxItems constraints from the fixed
+  interrupts items list.
+- Rework the channel binding for the fixed differential pairs and use
+  single-channel for single-ended inputs.
+- Add #io-channel-cells so the EADC can be referenced by DT IIO
+  consumers, and define the cell as the logical channel index.
+- Add firmware-node channel translation so sparse or reordered channel
+  child nodes are mapped by their logical channel index.
+- Restrict unsupported generic ADC channel properties including bipolar,
+  common-mode-channel, settling-time-us and oversampling-ratio.
+- Explicitly configure INTPOS for end-of-conversion interrupt
+  generation.
+- Explicitly configure the ADINT0 sample-module source and clear unused
+  sample-module routing.
+- Reset the EADC control circuits during hardware initialization and
+  clear inherited ADC interrupt enables, result-compare interrupt
+  enables and sample-module trigger sources.
+- Add timeout recovery using the EADC control-circuit reset, followed by
+  IRQ synchronization and stale status/completion cleanup.
+- Use iio_push_to_buffers_with_ts() for triggered buffered capture.
+- Avoid mixing cleanup guards with goto paths in the trigger handler.
+- Add ARCH_MA35 || COMPILE_TEST and HAS_IOMEM Kconfig dependencies.
+- Drop redundant linux/bitops.h and linux/mod_devicetable.h includes.
+- Use direct regmap helpers, explicit REGCACHE_NONE and
+  regmap_assign_bits() where appropriate.
+- Use fixed-width register offsets and kernel time/unit helpers.
+- Use size_add() for channel array allocation.
+- Request ADINT0 by interrupt name.
+- Improve system suspend and resume handling.
+- Address review comments from Jonathan Cameron, Rob Herring,
+  Andy Shevchenko, Uwe Kleine-König and automated review/testing.
+
+Changes in v2:
+- Reworked the driver to use regmap.
+- Added optional external reference supply support and IIO scale
+  reporting.
+- Added optional reset handling.
+- Added externally triggered buffered capture.
+- Added signed differential conversion handling.
+- Added fixed differential-pair validation.
+- Added system sleep support.
+- Added optional DMA properties to the binding.
+
+Patch 1 adds the devicetree binding.
+Patch 2 adds the IIO driver.
+
+Chi-Wen Weng (2):
+  dt-bindings: iio: adc: Add Nuvoton MA35D1 EADC
+  iio: adc: Add Nuvoton MA35D1 EADC driver
+
+ .../bindings/iio/adc/nuvoton,ma35d1-eadc.yaml | 175 ++++
+ drivers/iio/adc/Kconfig                       |  14 +
+ drivers/iio/adc/Makefile                      |   1 +
+ drivers/iio/adc/ma35d1_eadc.c                 | 849 ++++++++++++++++++
+ 4 files changed, 1039 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/iio/adc/nuvoton,ma35d1-eadc.yaml
+ create mode 100644 drivers/iio/adc/ma35d1_eadc.c
 
 
+base-commit: d89e1d186ec9271bf78e62771779e9fc03bf0fc3
+-- 
+2.25.1
 
 
