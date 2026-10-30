@@ -2,68 +2,146 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95279606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 12:07:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A873606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 12:08:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WoswPWPR;
-	dkim=pass (2048-bit key, unprotected) header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=GGswo4Q7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NCr7moHn;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=cqPThT8f
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=3oAdiQL1BBq/8Wx7+7+nnqKAavDIGqolwKSp3zNe53I=; b=WoswPWPRZ59B0l
-	wR/Zo/lrpTZ7X993aamHrmec2TPF7vVDiBkxjH4Sw8oT8ZMMJMpwQSLQFU9/hvmjVkhIQVCaw0Ppm
-	Tp+oXn6t93VWwd31sw4ax2/8TQ3tLj6exuH5jSmC54xb5uq3FJIRijCGoaFow5jnsLzM320M9Z8Ua
-	c4wz+huyE+jc+BqQrenSCrugHE9DiIqXwut3SFMPsNXUmsT9Mb35de/0ti3fRSRLJdXPYTa7xg0n+
-	qzDKjyTsWyC6Nu2lw5R4tNKT/+N3MifeKYRZJCEO7hE6JMa1kzbesqiPNWetDs9QnvRfUk1XqUGnZ
-	BGtOZZiUAcAL8nMwew9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=lW0wLcheEeoD6ntTT61Iywuyf5+FHGoJ+vP2SUi06bQ=; b=NCr7moHndn92LEW9ELt3frRuiR
+	Qyan3kpo96JX8Dj3CVierlsvuKqJSsrWxWr4ncQLz8N2esa6S6ZqRtzgg64pZVNAgSTvNOSvdfX3n
+	RV7Mx50Ymn+0S6d6ZGEx8plMGdvtony8EX6pkRthUpiFi+FzRVezgemiDeqcdpUZnwXJqZnsDyvDK
+	XfFjFt9I3p3IdgZpCTcN8nmK1KhxgWBGk73KCX1jl5nYwjHgH4ojtpATrf5rSGI+vSne7DmfneFH+
+	wEFzAysktOfGK5mPHcRlN3pm68SXL3nQpHueitmhmn13FGj6gnBzEa9gWQydjrAoLBVGphB1Di50D
+	UTR1Xb7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMlOI-0000000Be9J-1voy;
-	Fri, 30 Oct 2026 12:07:26 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1xMlP6-0000000BeIj-2dnZ;
+	Fri, 30 Oct 2026 12:08:16 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMlOF-0000000Be8g-31DT
+	id 1xMlP5-0000000BeII-1HjL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 12:07:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description;
-	bh=3oAdiQL1BBq/8Wx7+7+nnqKAavDIGqolwKSp3zNe53I=; t=1793362043; x=1794571643; 
-	b=GGswo4Q7HNBjO4TfOrDi533WVeLpu59cRClXWYh0gpDWgaqTjoYJnO8+pvf6UcH2rLHZKbThxQq
-	viNF6E6i5bqdgDSES5G929idm8vQjuxXFaqnVQhyT2TTBQJf6sBc7dVQ7vRtt408Jn6Nl9JEa3riK
-	U5YbTj4tUKJSv2xNTJd5ea/AGHKN53vsxRBdRfGfJW31LtKHmk5ZqQMUdEW8vUN6zuN+48ZSmbwa9
-	0We4Q4+JbchU/sTlIA6kNimHCLaIYpLaSZi7+nZNv7bDc8u73tomUSG+FEZPhpc1sU/AYoTR8CX/j
-	bQjBbtCZli+pQXsLyE70BKEN36sIlIKxEQEg==;
-Date: Fri, 30 Oct 2026 13:07:13 +0100
-From: Andreas Kemnade <andreas@kemnade.info>
-To: Ettore Chimenti <ettore.chimenti@linaro.org>
-Cc: Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin Hilman
- <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Tony Lindgren
- <tony@atomide.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Christopher
- Obbard <chris.obbard@oss.qualcomm.com>, Andrew Goodbody
- <andrew.goodbody@linaro.org>, Paul Walmsley <paul@pwsan.com>, Russell King
- <linux@armlinux.org.uk>, Rouven Czerwinski <rouven.czerwinski@linaro.org>,
- linux-omap@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 7/9] ARM: dts: omap: dm816x: Remove hwmod code for
- USB
-Message-ID: <20261030130713.3a404d50@kemnade.info>
-In-Reply-To: <20261028-patch-ektor5-dm8168-dts-v2-7-4544429251e2@linaro.org>
-References: <20261028-patch-ektor5-dm8168-dts-v2-0-4544429251e2@linaro.org>
-	<20261028-patch-ektor5-dm8168-dts-v2-7-4544429251e2@linaro.org>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
+	Fri, 30 Oct 2026 12:08:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TK4D6jW22ODYdYWyn3WZd6HTaODxSoVkQ/CefcQ1aiRPOb9V0HYg/860QdQM942KJ4M9iJuyZFFG7orOy0FPc58UJDrG2jaLjjvJQaYp1Gcy9OZmghf1RQSnGMayMa5vH/bA1DV3/nX2B308ndygAEKpiXJmfPwmVR9lPVr6CZIh10KoNFBmevqwf6AeK3JuP8pBNiKYT+2t8dBB6QSOxCekJ4zhvMxeEVbcSe14i+woAHcnQl0XtyxEnS7hf6yVQYlnBCE0VSwQ1j2lE0FKiIlgxmMtvogWeQ2uw4/UCVeIPR4Ad/itmVv6XM4S5opyM7iXBKi0JxHP4JJvLkAMFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lW0wLcheEeoD6ntTT61Iywuyf5+FHGoJ+vP2SUi06bQ=;
+ b=L7TZLTw7QSzTTTEULjC6jOBJ5Ku0Qh+AXWIWqlc6c4a5D/ALHyu0hsJCUOkCzFHpIpzwGidYnGQPtKhYamrNt2ej5tgQo0ETP1vifWPEqa+lKXXAv9G/ULsTWdAzctoL9X+VfVTo1y/A748/Sz3jjfvn8Fxm4zloTqrL7+8via6NkZOFVrZJf1cJwppynvoVEmywC7bjWuDYa9Ch5WhVGWpASGkoasSsGByQf8eaZsoGAkrSl24jO2/jNKxUjfZukk9N+LKU+EPDMcTp8vThtvxgTFo7iCwl3M3P655D4i6pkkSYMWF38IP6NxCsarFTgkYQHgAtzr2SOVDSEqryBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lW0wLcheEeoD6ntTT61Iywuyf5+FHGoJ+vP2SUi06bQ=;
+ b=cqPThT8fCdA3jNfy7OzTs5mnPzYQ249/d7eDwVNCOPmjB6RmsdJoaIpzXhvDZ1/9k/hdusT7Sv3TiCbUVr52WbXJt6HS0oIQC6b0pP37i/ep/u75pk+VOWHDOHgvO7oJivpa6paNGtbNtx/Qf704igl9DxeW6hgPVIzfKp75YTeIem5A4qfKZq89IuUyOHDDD9oLf9AkGQVXCn9WPPCw26L+QxFnB6uHoLC7SpUxi1HZoCRjOoBy1ct+RGjEJjm6v6977YAREaQFuqzKOz7GcffwUWAnARbMd4d5BvkBYOW9k/aAo1rFz4lp+Rwn5t3pQPSfvnuSEve675Bn0K7tKA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by PA3PPFBB9BDA27D.eurprd04.prod.outlook.com (2603:10a6:108:1::b0) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Fri, 30 Oct
+ 2026 12:08:09 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0569.009; Fri, 30 Oct 2026
+ 12:08:09 +0000
+Date: Fri, 30 Oct 2026 20:12:54 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Will Deacon <will@kernel.org>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH RFC v6 5/5] iommu/arm-smmu-v3: Wire up shared-SID STE
+ ordering and feature gating
+Message-ID: <auSJxoCvrdMg/rZN@shlinux89>
+References: <20261011-smmu-shared-sid-v6-0-cb76b89dc612@nxp.com>
+ <20261011-smmu-shared-sid-v6-5-cb76b89dc612@nxp.com>
+ <aszfVNP6DGzWYdK0@shlinux89>
+ <as1zR1wc7ERxvR1F@nvidia.com>
+ <e8c22eb2-ed1f-47c7-b2ac-c56ead1cba8b@arm.com>
+ <20261013124400.GI14213@ziepe.ca>
+ <4d2a05c3-f7f6-4348-a3b4-c8f3ffa79b6c@arm.com>
+ <as6HfzpcalIh6SMs@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <as6HfzpcalIh6SMs@nvidia.com>
+X-ClientProxiedBy: SI2PR02CA0016.apcprd02.prod.outlook.com
+ (2603:1096:4:194::9) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|PA3PPFBB9BDA27D:EE_
+X-MS-Office365-Filtering-Correlation-Id: c7f1e643-a0cf-4934-a0c8-08df367e7630
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|19092799006|1800799024|366016|261026121527099003|11063799006|4143699003|56012099006|261021135927099003|10067099003|261021121427099003|261022105027099003|18002099003|22082099003|261026140227099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info: RerJWSTW7qqmZ3JqtDhR40OqbsnD9uoidILJIHCPNoUi3tvDyP0TOHshYL6iDFkFCDLToSvLvCTtNRA6Jee8YNzm+g/R7PKjob9SES7y8Ob5tibTQK1d3VsglMUVLkJ34uV5jOCWYa4b2hEKOT42IP0MUnWsqQ7lgwyzV7SUZJldTn/YvoiCi8l9HKJXERt/bmjsXA0aQmaXjdDsi960z7My949WIVBkU1jPc694wcdjqvHSbUhf8Temwu9uooAZ+fSXWWGySnsU0llkhpU0KA8oMK5Vpxq1+vSpDgRlz0+H4F9t4Km/NETNLJHAWvXpDffDq4ax6la+uvoDe5leWj/S2jQKeW017vVhzQTJOdc9ECb+YnecSWCDTQJfCEQ7W8mUEL/sqaPJSxEVN07lrTSNxfkFv9Bxpcq2uGWNURiuJ+hqVw5GaPXOio8HfMWGrbc/M2o0xvjqfEphZI6S6hZv005PjYOHus80rQ5lge//VCn6dDvIufDqBPIP1BjguhC4JReZxJgaBOZIE82PnGWeNU6BPTZvNMB3vVDDvZvTUCSrGgl4h8w2dStTRJFtHDjKHnsrTFswnNNnzGrahbtRNl5KSuaB+5yb5SBdZWzcT0pTMbVCspgldNXWCcT/MiGkipLlT+SAZ3BDjkiRctKm2pU29akmm4lv7Zm0b88=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(19092799006)(1800799024)(366016)(261026121527099003)(11063799006)(4143699003)(56012099006)(261021135927099003)(10067099003)(261021121427099003)(261022105027099003)(18002099003)(22082099003)(261026140227099003)(261028144727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nvJCRGF5gpfADybxkaJu3fC5ldWsPcM7BcfIs/4JsUaewY4KXk3InsNAjN38?=
+ =?us-ascii?Q?Dcj7+xPgJk0CB42A1I8VYuxh4wPw8PmNfw9G8bU9Y7A+4FpX6oQOcjJS5Yq+?=
+ =?us-ascii?Q?39xVBMrxk4l5f8vkc6rpZSwbsEPyXSI/+XiLuvkQYPQsQUYJqB+y/fy4UF+K?=
+ =?us-ascii?Q?4DwBe6mbmE+POtsrwZfScY9g2Fo6aPcn83YqJLXHGsq58AW16Zvpp3H1hpF8?=
+ =?us-ascii?Q?FdCzJcRzdXR8fz7YXLOCXfjJEPmrIFLKK+Cq09A3/lCrPz++bDo8xaTpOxqf?=
+ =?us-ascii?Q?pSC28E2kyTYpW4MapZKtfIGkTpRtsFtpdau8R1tll6iGuoj1NsxA0xf5bpBE?=
+ =?us-ascii?Q?80D2vKlLvM4C2eJJHijlYliiugpuwNxFOk/q6PGgfJotPwcT+nIKBYE9As1H?=
+ =?us-ascii?Q?QTMaGb10sdl9+jfEDEVRbElJ+uRUvI5i1rRKXjc2LToFpaE33NCFw4fp5y6e?=
+ =?us-ascii?Q?NBBeCOmlGnDVnfAY/pqY+5n0QiiGKvIwx7/sEp9K9ks8tPDs80SZVDTWgVvO?=
+ =?us-ascii?Q?0h1S6y9k/KVSrqmxUHc2cDxJcMeh9YHMWxJeKi3bqI7GVjGi77z8H49p++O7?=
+ =?us-ascii?Q?gqXc6HSsc1ytv1HhtzjwXYz7CB0DoMqC8qmh7z6eODPUUmhpSsclRkquoQhB?=
+ =?us-ascii?Q?9tPgKJugi2vNZeorEo3nZKqo6f62MlDFPG64wSQJmT66yijRdSWBfZOEySBT?=
+ =?us-ascii?Q?9V4nj24xMA2K4wdxUhgbv4TsFcSQ5Ran+TdQ1ZVg+TAJWHagjmsTTp2mqHEo?=
+ =?us-ascii?Q?Y8AKW8SgJeWxnPDnwaCkPZ72gpOrRkN6g5hBv+L8N2hq5OlrJwaiIfxwZA2i?=
+ =?us-ascii?Q?nGCMEnfV43OvqWDR3gA4Hk7U/OVDdr7IwWyCESrWdVYwHxgwGamCuL05Adrj?=
+ =?us-ascii?Q?x5VPQQkz2g4KPtaDu2ZrSsFfL+CMQKHtNvT6uPutut4kvMkBJHQlLzdE8kpx?=
+ =?us-ascii?Q?j9sCXyX4GIxZgLgFIOifRtkhpZTuouQoO1rhKMQMPz9CPcBBJLHE+U4D195P?=
+ =?us-ascii?Q?/Tmz9mFfML5oDEB90bymZDXd8gx1LVy6LvU0rBFvJBsjmqN89fz0S0NJugCM?=
+ =?us-ascii?Q?48vJ62pzMqeyn0Cjhjqzexd2e0nbLzOmi3jA5h+ZnL7wQcaj0z684c9qkSb/?=
+ =?us-ascii?Q?k0VTE4yunkMQMgPJ1aD0zdHjIzxOaodjfcKtJOMRnGzKU5lVKcLYg96XdK5k?=
+ =?us-ascii?Q?BrAZBrRgcG/am5J7UdPNkS9tJlsNFvVgbvqFruBapR27ovXENxU0FYHx4/kf?=
+ =?us-ascii?Q?9znYpobP5LXssTuIeDl20qr02hpB59TrkCNYv0Nf17RkVnhCsd8vY23Um3Y6?=
+ =?us-ascii?Q?rGy+FyhgLKufXxYFpakGbC0CVzhJ4mTwdYCeCg6LYMrcTjJ5Wveck13WfBox?=
+ =?us-ascii?Q?O7I3PbIPpNNedLUwTewKWsoLcBwWN2/CrcBvXgIlihbUPcnOQ/zytQAYJejl?=
+ =?us-ascii?Q?wP77+l/KmdkQgk5JWNO3mDguskBG4qLvn6naPsnxI8bNnYCjtCAw8Bxq6IhY?=
+ =?us-ascii?Q?bMy7OPEKZdsKBjloSV3zgq6rDmq4wPDITjPOK6813f97q7r+szkzP1nXtkM6?=
+ =?us-ascii?Q?hbbJiYVLtJJ4iJeiWIiA7BKdipjuwUPadij0+FZ1Pego7nAIJRtp4whvU/GO?=
+ =?us-ascii?Q?knS4q5VwWrnbo6wH5sEGNJu34mAA+ZvZORcq4KMAphSB1e9WbF0oVWyVh2FX?=
+ =?us-ascii?Q?QxDKUWpFRnTxLFiFBoDz8NJhNzzVuPqhB7dhMAEdb+UEeudYJdauXIs2yCSW?=
+ =?us-ascii?Q?IgalWBrfLZU1n5QwHAc+WB5XLD8n0/MSD1gzS10SYMETnaSaIVve?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c7f1e643-a0cf-4934-a0c8-08df367e7630
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 12:08:09.0122
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OMlCPgSjtfw4VZzmMBjhkvr/FeFtC5aOuw0tARJnO8G1eLFnQHt9yc8y3KTNUmsZNSOYIuxGkp224o2n5eAXWaT1/Tk1t0A/0EAd9axWa9f3YE0q8ZLYF0Tik7i13AoQ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PPFBB9BDA27D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_050723_803476_5FF9FC0A 
-X-CRM114-Status: GOOD (  24.52  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_050815_348847_6660FA12 
+X-CRM114-Status: GOOD (  23.89  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,98 +152,61 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 28 Oct 2026 17:06:08 +0100
-Ettore Chimenti <ettore.chimenti@linaro.org> wrote:
+Hi Nicolin, Robin, Jason
 
-> From: Andrew Goodbody <andrew.goodbody@linaro.org>
-> 
-> Remove the hwmod property from the USB controller node and the matching
-> code from the hwmod data file as this is now deprecated.
-> 
-> Signed-off-by: Andrew Goodbody <andrew.goodbody@linaro.org>
-> Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
-> ---
->  arch/arm/boot/dts/ti/omap/dm816x.dtsi      |  1 -
->  arch/arm/mach-omap2/omap_hwmod_81xx_data.c | 21 ---------------------
->  2 files changed, 22 deletions(-)
-> 
-> diff --git a/arch/arm/boot/dts/ti/omap/dm816x.dtsi b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
-> index b839ee29e9eb..55f4b91fa1fc 100644
-> --- a/arch/arm/boot/dts/ti/omap/dm816x.dtsi
-> +++ b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
-> @@ -576,7 +576,6 @@ uart3: serial@48024000 {
->  		/* NOTE: USB needs a transceiver driver for phys to work */
->  		usb: target-module@47400000 {
->  			compatible = "ti,sysc-omap4", "ti,sysc";
-> -			ti,hwmods = "usb_otg_hs";
->  			reg = <0x47400000 0x4>,
->  			      <0x47400010 0x4>;
->  			reg-names = "rev", "sysc";
+On Tue, Oct 13, 2026 at 12:33:19PM -0700, Nicolin Chen wrote:
+>On Tue, Oct 13, 2026 at 05:23:21PM +0100, Robin Murphy wrote:
+>> On 13/10/2026 1:44 pm, Jason Gunthorpe wrote:
+>> > On Tue, Oct 13, 2026 at 12:22:06PM +0100, Robin Murphy wrote:
+>> > > If we're not going to support PASID for shared streams (which I suggest we
+>> > > don't...) than we shouldn't strictly need to worry about CD tables anyway.
+>> > > So rather than having to special-case CD table sharing for shared streams,
+>> > > perhaps it might make sense to generalise back to a "default" per-domain CD
+>> > > for non-PASID use, which can then get switched for the private per-stream
+>> > > cd_table if and when a device does enable PASID?
+>> > 
+>> > If we have stared STEs then the group becomes the per-STE data
+>> > structure not the master.. We don't have any way right now to do that,
+>> > but it would make some sense for the group to store the shared CD
+>> 
+>> That would be precisely the aforementioned special case that I'd hope to
+>> avoid. My point is that the CD represents the domain context, so we really
+>> shouldn't have to have multiple copies of that per-device _or_ per-group,
+>> _unless_ it is attached via a PASID, since in that case it does need to be
+>> copied into a per-device CD table (since the per-domain CD table was indeed
+>> the wrong move in hindsight).
+>> 
+>> So what I'm saying is that if we're going to make anything share CDs, then
+>> ideally we should just make all non-PASID devices always directly share the
+>> domain's own CD, then if we just enforce that any devices sharing StreamIDs
+>> must be non-PASID devices, it should all work out, we save some memory in
+>> the normal case, and never have to be concerned with rewriting any STE with
+>> a different S1ContextPtr for the _same_ domain except when enabling or
+>> disabling PASID for the (single) device owning that STE.
+>
+>FWIW, master->ats_always_on would be a special case here: it is
+>non-PASID but needs s1cdmax to be non zero.
+>
+>But yea, that sounds like a good approach, though requires a big
+>refactor.
 
-As I have also some hwmod -> ti-sysc conversions cooking, I think I have
-an idea why you put these two in one file. Doing this in lockstep should
-be justified in the commit message.
+I just post out RFC V7 version with sharing CD table. But I not
+have the hardware to test the advanced features (:
+only tested i.MX95, Qemu, KUNIT.
 
-I guess you have removed this and seem a fat WARN().
-Analyzing omap_hwmod.c I found that every module action is guarded by
-if (oh->_state != _HWMOD_STATE_INITIALIZED)
-So I think it is time to just denoise that WARN(), since the
-originial authors probably did not have ti-sysc conversion in mind.
-I will prepare a patch for that. But then you can add that snippet to patch 6.
+Thanks
+Peng
 
-While merging this patches we just have to ensure that the hwmod removal
-comes after adding ti,sysc stuff.
-
-Regards,
-Andreas
-
-> diff --git a/arch/arm/mach-omap2/omap_hwmod_81xx_data.c b/arch/arm/mach-omap2/omap_hwmod_81xx_data.c
-> index 9b5c728fb7da..b9735b507d6b 100644
-> --- a/arch/arm/mach-omap2/omap_hwmod_81xx_data.c
-> +++ b/arch/arm/mach-omap2/omap_hwmod_81xx_data.c
-> @@ -646,26 +646,6 @@ static struct omap_hwmod_ocp_if dm814x_default_l3_slow__usbss = {
->  	.user		= OCP_USER_MPU,
->  };
->  
-> -static struct omap_hwmod dm816x_usbss_hwmod = {
-> -	.name		= "usb_otg_hs",
-> -	.clkdm_name	= "default_l3_slow_clkdm",
-> -	.main_clk	= "sysclk6_ck",
-> -	.prcm		= {
-> -		.omap4 = {
-> -			.clkctrl_offs = DM81XX_CM_DEFAULT_USB_CLKCTRL,
-> -			.modulemode = MODULEMODE_SWCTRL,
-> -		},
-> -	},
-> -	.class		= &dm81xx_usbotg_class,
-> -};
-> -
-> -static struct omap_hwmod_ocp_if dm816x_default_l3_slow__usbss = {
-> -	.master		= &dm81xx_default_l3_slow_hwmod,
-> -	.slave		= &dm816x_usbss_hwmod,
-> -	.clk		= "sysclk6_ck",
-> -	.user		= OCP_USER_MPU,
-> -};
-> -
->  static struct omap_hwmod_class_sysconfig dm816x_timer_sysc = {
->  	.rev_offs	= 0x0000,
->  	.sysc_offs	= 0x0010,
-> @@ -1250,7 +1230,6 @@ static struct omap_hwmod_ocp_if *dm816x_hwmod_ocp_ifs[] __initdata = {
->  	&dm816x_l4_hs__emac1,
->  	&dm81xx_l4_hs__sata,
->  	&dm81xx_alwon_l3_slow__gpmc,
-> -	&dm816x_default_l3_slow__usbss,
->  	NULL,
->  };
->  
-> 
-
+>
+>Thanks
+>Nicolin
+>
+>
 
