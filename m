@@ -2,103 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC110606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 09:33:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFA8A606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 09:34:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=u/hBG56L;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AfEtjfps
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wbxz9slg;
+	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=PwjGgKbN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=PCRyiewkbGG036lTwBa+174OovhhVRwZfC2vW3ZeNTQ=; b=u/hBG56LFDtPlF7HA6DOMTr73z
-	2NMTgW+3RRR8DjyOFBmuDFB2sLrLa1rUOqliUHvueMgh1F6prsknkNMgdJ1MyK0u+zOIvMo9HlyE9
-	UReWUp1UCoCjUDDgSc2kXjAD1Yy/p+W7DhC4O7rxXO9K2+KxpXhCGqSArVGba18bxHqdDwf7Izp6o
-	72Ts83oAivEAOJvJMBX9Kola0yxOS1cEfq2wtztYTKKECpuNcjso2ziUo0uRzV7h2P9ak0rIRObgD
-	fthW61sNWdhyFM9EO1ESuTF3915bQlhhr5ajsMtd1jP/1qw+zZPu4GNAjQmxEuZ4RQAWFdvz3UWbQ
-	VfmvveMg==;
+	bh=zR4cq1CC/Zi/N7qHUu5+m00lSe1k8x2uAxJhMEWb2Ms=; b=wbxz9slgXIQgB8oR3HfUxtEs2p
+	OW68WnP7gpbAjrn3VOGKlFLOj7TMLpwg3BTGczIniA41sCqF2BYkB6fkgB3oPcq1qySc7DRcv8RB7
+	5LedUUaKNWzsfv1mGqimwQxQdOCFNBfKmkKVlZSVi0BQY7wauXnPOihD3DBPEWRTbAf7jHLWk9HYX
+	guTEPKHUd+1v4EWGHdO92zGhE6ON+GRZOxoY7MMp5YniopvTMoKXwM6GOGbpsdT4K2xCRsgj5vWps
+	fEkUVeqy95fjLRQkEmKhXmGMrMgVm9WUrS4/hEKlv7K5moRw7Rh63ssE3g9aN23W2fJfG7xN/7Coc
+	heuNFcAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMizO-0000000BFZR-2sIv;
-	Fri, 30 Oct 2026 09:33:34 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1xMj08-0000000BFdm-3XNx;
+	Fri, 30 Oct 2026 09:34:20 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMizM-0000000BFZ2-0Wnq
+	id 1xMj07-0000000BFdH-0Uww
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 09:33:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793352813; x=1824888813;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=qrpI44bWZaGg8MfD8DnU+yqorhMutYP7dQKRrMv1F3w=;
-  b=AfEtjfpsPFEeHj3+IH4nrkQjTw9A/y9sWIs1Hns4LtrXVFwycHGoMnan
-   osV1IfzN3M3Qrc9cNmBczpPpXrMV91PgzxSuqmL/wH1FFdoHWnN8dmPGX
-   kWcd6bGOWzo9Wt8/BbY8T7zILJOaNdVnTTJMwX1S6RPyM2TY7JAOfLysI
-   7NM4ksKry7W6VYY8JHFCtsaBxjAEumv4wwDUHRuEQnqfuj/ZUPo6V1m0U
-   96G3ltUu//uqA3o0LUXFWsW6FR2/fUpw83Bg9xx0iH/gkIKFp5+B3a/Gj
-   qtfbcqbsraM8o8hrq6BFu18UW/c+a1AK8qmyf5+c5lwgM86uwNLAh1z7u
-   A==;
-X-CSE-ConnectionGUID: At8uxaX1Qo+jmgtKbbILLg==
-X-CSE-MsgGUID: eNQw9U8gRAK4SzoJx9RrPw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11950"; a="1999325"
-X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
-   d="scan'208";a="1999325"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 02:33:31 -0700
-X-CSE-ConnectionGUID: qDHB30c7T6+C24I5cmm90w==
-X-CSE-MsgGUID: v4Xg4+SIQQa629rjFUEQMA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
-   d="scan'208";a="5926976"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.247])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 02:33:25 -0700
-Date: Fri, 30 Oct 2026 11:33:23 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Raul E Rangel <rrangel@chromium.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"Maciej W. Rozycki" <macro@orcam.me.uk>,
-	Timur Tabi <timur@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v8 4/6] serial: 8250: drain canceled TX DMA before
- reusing its buffer
-Message-ID: <auRkY2h-NJvFszQE@ashevche-desk.local>
-References: <20261029-submit-serial-8250-dma-cancel-v1-v8-0-3fd56ba352ed@gmail.com>
- <20261029-submit-serial-8250-dma-cancel-v1-v8-4-3fd56ba352ed@gmail.com>
- <auNV7Vco5O3vVwRH@ashevche-desk.local>
- <CADvTj4oi6dFzWkjFXie1U49A70Y7Mb=4exga-=2SmG7fN2pLrA@mail.gmail.com>
+	Fri, 30 Oct 2026 09:34:20 +0000
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 587F5202043;
+	Fri, 30 Oct 2026 10:34:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793352855;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zR4cq1CC/Zi/N7qHUu5+m00lSe1k8x2uAxJhMEWb2Ms=;
+	b=PwjGgKbNJllpARDZ2IJbT3+vuUrcwZbUPPf4QEn6LLmbuLz+vj/6RaOT8REhBFwt08RuN+
+	H5JLDjlEQ/GedyaMgiAKheVPgkCrgpD233H1PY5yj975YXBwY83uEYjC78mzP8y95sO/RT
+	3a/hA6TzCTjXjlwTAnhiNUogV4I3HfQDXCSut4oL0fT/xrsG41evNzwK/yZR/96eOkWTPH
+	w9QIHxy6OTDFRVIqX8VnnCjK3sSe7x8I+F4JEYO5Qr2nIm/fvt6BlaevNgyaD+a1NivaXa
+	E9GCPnE/DNsU6jEahLrKtjoCtmz5Ic1Q7Zp5OpXrXrSmBvCqBHAcZV9iikGugw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793352855;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zR4cq1CC/Zi/N7qHUu5+m00lSe1k8x2uAxJhMEWb2Ms=;
+	b=KoV7Vy9Aj7idkM6KLiaBaEJ9qzSzpgUR0Tk7u0Bmam5ubd9Vdm5kWjBaM8P88ZeQX9MCsd
+	+azqZ3o2/cI7ElOHqo8xw2XvAUfax3tBo8qrzxnPsm1sTQhYQIPa6siAoXckyLhIr6P0kV
+	1UXggfDQmZ9b0ERetYYtbdukfojr/wlp1/S5r96p2YaWrPyVo68UEiPOAjvZH/RKfBU3Yi
+	LqRmjIyuXbDJITKTD3+REcK0JEPhO9BSW6Zy2dqfB+QCl1XpS6PSUInQAZt6HBDB1Rv722
+	upeYHlBhricZUpWZmp5YZVKf21wAx9HTgYr7alA/nh1zDbYsj4jb5fB9aXO9OA==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793352855; a=rsa-sha256;
+	cv=none;
+	b=IbwBeD24Ii1O3aW0mCnsGP4cs2D/bG+F3J1+8KFAxd2/rrdd84DvBGn3HZsqT5j1/IMF+D
+	XSvnOPBcZQyDLEJq/tbVtgIhKfSkX7ahAcv4+XdFhNilhcbuLoJDmbKEBIjhwFoSd1+FoV
+	B11zcgUWTP0LmoflLQ0xJnOl/i1wQ6GMVW5dR/FV56oNW1LSNuUl5aWQHgspGxqy8S0UNC
+	cI9vO7R6jutcC5wJgH1sLjJWECR5kmZrrPMYHJYydp927AtMejHjdK1AbAEtglXcegw4SI
+	PuVAgOvxPuo1Bqkt2vCKpgF5IiiWB1TrG7bJudbZajDol8Ltmwbwuje0vnSZDg==
+Message-ID: <0d097a5f7cf0e71245f8e87d5a0ea377af048d0f.camel@pengutronix.de>
+Subject: Re: [PATCH v4 6/6] usb: gadget: udc: crg: Add core driver and build
+ integration
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Petar Stepanovic <pstepanovic@axiado.com>, Naveen Kumar Rajgiri Bassappa
+	 <rbnaveenkumar@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Tzu-Hao Wei	 <twei@axiado.com>, Karthikeyan Mitran
+ <kmitran@axiado.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	openbmc@lists.ozlabs.org, Krutik Shah <krutikshah@axiado.com>
+Date: Fri, 30 Oct 2026 10:34:15 +0100
+In-Reply-To: <20261030-axiado-ax3000-usb-device-controller-v4-6-c5267b36a777@axiado.com>
+References: <20261030-axiado-ax3000-usb-device-controller-v4-0-c5267b36a777@axiado.com>
+	 <20261030-axiado-ax3000-usb-device-controller-v4-6-c5267b36a777@axiado.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CADvTj4oi6dFzWkjFXie1U49A70Y7Mb=4exga-=2SmG7fN2pLrA@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_023332_215042_C2137835 
-X-CRM114-Status: GOOD (  15.81  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261030_023419_313410_78F4E441 
+X-CRM114-Status: GOOD (  17.21  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,55 +103,67 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 29, 2026 at 11:15:23AM -0600, James Hilliard wrote:
-> On Thu, Oct 29, 2026 at 8:19 AM Andy Shevchenko
-> <andriy.shevchenko@linux.intel.com> wrote:
-> > On Thu, Oct 29, 2026 at 01:37:00AM -0600, James Hilliard wrote:
+On Fr, 2026-10-30 at 01:10 -0700, Petar Stepanovic wrote:
+> This patch introduces the core probe/remove functions for the Axiado
+> AX3000/AX3005 UDC driver, and wires up the directory into the build
+> system via Kconfig and Makefile.
+>=20
+> Co-developed-by: Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
+> Signed-off-by: Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
+> Co-developed-by: Krutik Shah <krutikshah@axiado.com>
+> Signed-off-by: Krutik Shah <krutikshah@axiado.com>
+> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
+> ---
+>  drivers/usb/gadget/udc/Kconfig            |   2 +
+>  drivers/usb/gadget/udc/Makefile           |   1 +
+>  drivers/usb/gadget/udc/crg/Kconfig        |  16 +
+>  drivers/usb/gadget/udc/crg/Makefile       |   9 +
+>  drivers/usb/gadget/udc/crg/crg-udc-core.c | 723 ++++++++++++++++++++++++=
+++++++
+>  5 files changed, 751 insertions(+)
+>=20
+[...]
+> diff --git a/drivers/usb/gadget/udc/crg/crg-udc-core.c b/drivers/usb/gadg=
+et/udc/crg/crg-udc-core.c
+> new file mode 100644
+> index 000000000000..33be5c920ebe
+> --- /dev/null
+> +++ b/drivers/usb/gadget/udc/crg/crg-udc-core.c
+> @@ -0,0 +1,723 @@
+[...]
+> +static int crg_udc_init_hw(struct crg_gadget_dev *crg_udc)
+> +{
+> +	struct device *dev =3D crg_udc->dev;
+> +	struct reset_control *rst;
+> +	int ret;
+> +
+> +	crg_udc->clk =3D devm_clk_get_optional(dev, NULL);
+> +	if (IS_ERR(crg_udc->clk))
+> +		return dev_err_probe(dev, PTR_ERR(crg_udc->clk),
+> +				     "failed to get clock\n");
+> +
+> +	ret =3D clk_prepare_enable(crg_udc->clk);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to enable clock\n");
+> +
+> +	ret =3D devm_add_action_or_reset(dev, crg_udc_clk_disable, crg_udc->clk=
+);
+> +	if (ret)
+> +		return ret;
+> +
+> +	rst =3D
+> +		devm_reset_control_get_optional_exclusive_deasserted(dev, NULL);
 
-...
+This can be put on one line.
 
-> > > -     bool                    shutting_down;
-> > > +     bool                    shutting_down:1;
-> > > +     bool                    tx_terminating:1;
-> > > +     bool                    tx_flushed:1;
-> >
-> > What is the meaning of bool XXX:1? Have you checked with `pahole` the result?
-> 
-> These are one-bit boolean fields, intended to pack the state flags
-> into one byte.
-> 
-> I've now compared layout probes using the kernel type definitions and
-> saved build flags, changing only those bitfields to ordinary bools.
-> For the complete v8 structure, including the RX flags, pahole reports:
-> 
->                             Bitfields   Plain bool
->     ARM32 / Clang               212         220
->     ARM64 / GCC                 368         376
->     ARM64 / GCC / PREEMPT_RT     368         376
-> 
-> The sizes are in bytes. All six flags share one byte in the packed
-> version. This saves eight bytes in each checked configuration.
-
-Thanks for checking!
-
-> The packing is a layout choice, not an atomicity mechanism; updates
-> still require the UART port lock. Given the measured saving, I'd keep
-> it unless there is another concern with using bool bitfields here.
-
-I'm just worrying that bool bitfields are implementation defined and
-might have some side-effects. But I see elsewhere in the kernel similar
-approach, so I guess so far it didn't trigger any suspicious behaviour.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+regards
+Philipp
 
