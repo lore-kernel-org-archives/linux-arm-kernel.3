@@ -2,104 +2,188 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D74DC606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 07:39:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 993C5606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 07:42:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IJBZ6lry;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qOn0qjsn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jc+qF0kj;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=OQq4zZKA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=oTDHP5iTI4lQOhbLd0Zj1JOArDqyXgTJiorChKNggjQ=; b=IJBZ6lry7pTaxwzdBZoGM0UAi1
-	S4NGiSlzZUq1NM3pKMgpJY4WEWduY6L4qMHUTOkkqJxuyoW2PjfeBS/mwgNgHxsMRZDGt3gOJfFic
-	p+bev44lcSXLixkEbfm6OnV/GoFbadMQ2jubZpGPUn2JppEbK8GmClbe8VKJlTQzXmUQ6uQbvmMDl
-	swmtAfuWmnU3A8KyEllnAy/h4LZNYAu3vPeDxizXlmI5AmMReThhzIwTADz/iuj3vwGsWLl0VlsOt
-	tO/Y3S+7ff9j/wCEOz4XDLydhWP0WQ5RcJ0sHTGMZFjnoOICcgaC1mAzSuetMO6tOYEa+qFdFUY/t
-	3eIigr3Q==;
+	bh=fIe2fVLq47lhu7tJbuwi/qLYYo/NCjmCC2mb46YXLSk=; b=jc+qF0kjMe0iHgVLLWXeteJgEd
+	2kGqscnuEOW7FN4qXw6eWwIpF+Nclx5HzuZZI6vnbvhc8lnwmbXZTBDkuStMnNV+U6tp000qfdrH7
+	tWoT9OZ+v89F6LzrXKRGQ7aTesHb6pAHRfnhn8IEYlE/fvcE4mE3MgoMj6i51Gv4qQVE2wPFoyKun
+	2DL2Ou5JUarkht7c2IGhWdw2/UJdHj69r6Cw02XopROZVBREr0HKq7TVjt9JBi+Azr7hLeO+RKwPg
+	Tx/PEdrVYcdSnq5oKzn99v2R7LhXGycdBw2CbhEVDW1/lxqH0clXQQgs+lIA/a5F7zSpp69MhaPwh
+	r3hfS9MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMhCu-0000000B0v6-26jF;
-	Fri, 30 Oct 2026 07:39:24 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1xMhFQ-0000000B15f-1bBw;
+	Fri, 30 Oct 2026 07:42:00 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMhCr-0000000B0uk-3ANZ
+	id 1xMhFM-0000000B15F-0LsU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 07:39:23 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-c418e215671so41544566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 00:39:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793345959; x=1793950759; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oTDHP5iTI4lQOhbLd0Zj1JOArDqyXgTJiorChKNggjQ=;
-        b=qOn0qjsn1aEhoiAHl1waPCh3Mq6YM6l6z9Px8F3cCGPjwpntvyZYKsEoSb7ndL7V5M
-         8vvLmDT6s3Djc4Nj0aonxK+lsgowzR3n6ZPAM8VkyIxaJtylJMLbbIaVqgBoOqzFUHMG
-         yjFKTNZcAD3ZtfJ8E3VoUAI0gMguIrdXwrG71Jf5+YOMBbF+OZWtT7frLhMVbuch0bxt
-         JyuaBgwucwfRKBa1P4aVEAeC8z41rV75nWo7Kz2Zy/X/zMDY/0vR+K5GooZ8541M2OZg
-         e2x7tvaeU62R7bC5kTp4pTlKdKex2ZEO4eMHs1GUmqKs9W4RNMJU3aKOWHfIvlZs1lui
-         ienA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793345959; x=1793950759;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=oTDHP5iTI4lQOhbLd0Zj1JOArDqyXgTJiorChKNggjQ=;
-        b=Kwgcz+f0FsVs3wc4WKElKtnRRfbmUq3PRpCz4rk2t64mmu3oEoNNc0dJSitCXUfbJY
-         AZOZZupCtyizwMRbkyejqd6bRW226912kXnIjwFKu/t6qCz8IosBmY61t2ZVGjGB/3Zc
-         Jt4ZdPO5OESJ5uo7lA2DRa6tnJQIk5Q/FXbDDJarBd7aYnVVq9mN+KY7n808KIU3w9Jk
-         qbHwiMEFqL0tF9uAGVwGCJQ1GyYY46yj4y0Q59OGQ6ruEDjNB2X5X0IAE9DowUlguzyz
-         SiJuhYjYDW8S3VdvX65I/U9tPUcAwf2BR9OPKbGbqE+h664WgVDFLUEwgSJ5C2mJ9Xxe
-         Xapw==
-X-Forwarded-Encrypted: i=1; AKwUvBwn3C+pLbX+1FpfuFySEZqzKBG7cB9W8dwtjaGnBKucB1XFaofDsLLhEeV5O+imzUV6gZGP0kGHeWY+Pqps4B+N@lists.infradead.org
-X-Gm-Message-State: AFq9FYJnM8DjgT5nIKyqKk7Dr0A2+a8aulYf+Tw76Zb3UIus4NUQaKC1
-	0iHPOxRroytyAxjpuDhAL52S6aBICMKfVXyCxMbUWnCdxOEgMHIfbb8b
-X-Gm-Gg: AYBFou30S+LcBTEeCgJSZnsLfGDkFB1v8PBaMi8LwEn1ErcCU/wr4cZ/+TWaaATIm3z
-	fn/jpUMNcTO6cJu5daVQ78TC7EHlAsKaTX10hivnxv1Q+sa6+T5lAdGjXQYl1f/4OVvfZu9uX/T
-	X7U32myjo5LjzjmtYk4MTIjWAD2QgblJ8BPI43FRZOOCpns3g9ZFxnvu+R8mm7H2FLG0+AKzHH9
-	ZxmFBmUXVvHypA/IbbjyM1oLzRGuBb9Hp+vKfonrNFyFWdFzWdJEZxOKcBsw/+D+1WmIg7GFUP6
-	wgtia0l60Ap/u0lgyo3S+VNj1KvJj2JhGqaILwndxuFlG7BU/dL6F/J3/I6nC8/XDry2K+mdfzT
-	wT4mf2ZRfeTxAUvDRuj1mlcPPrb3LfB4c5sBmgrAgKr/PLPnytQfPojY9IhfFSU+dwgql5BbBSg
-	s6spZYptPKBI6D8Bk1f0WTv1XDUF9Xkcz6EyBOqO77KhOK/VQ53Gt6rWaRDNIObcJTwJ6qygDB0
-	vpD4ia9M4aE1mgmse/5ScxnWLJUnt+V6876GECw0CTQkMeKYo3Ww+ujLRDweDoL5vkMhznASuYj
-	kz41UZu4GTzHLCk5G1tERzZco9x8wTUSU6r+uvILhyxPVgbwS57YWUvX3ZbGn90xSCxsmd4RV6i
-	vkcicGvHX5psRUjbANP4ENWLLby2fqik0qN1RqcTR/BFtiw==
-X-Received: by 2002:a17:907:3d8f:b0:c3e:d18c:1d7d with SMTP id a640c23a62f3a-c4ca7a88815mr126486566b.22.1793345958962;
-        Fri, 30 Oct 2026 00:39:18 -0700 (PDT)
-Received: from nixos-macbook.taile68cd7.ts.net (20-144-89-188.ftth.glasoperator.nl. [188.89.144.20])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4cabe0f389sm34050966b.32.2026.10.30.00.39.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 00:39:18 -0700 (PDT)
-From: Jacob Procee <sn125164@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Frank Li <Frank.Li@kernel.org>,
-	Sasha Finkelstein <k@chaosmail.tech>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	=?UTF-8?q?Martin=20Povi=C5=A1er?= <povik+lin@cutebit.org>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Jacob Procee <sn125164@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v2] dmaengine: apple-admac: Fix position one period ahead at period boundary
-Date: Fri, 30 Oct 2026 08:39:09 +0100
-Message-ID: <20261030073909.21966-1-sn125164@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	Fri, 30 Oct 2026 07:41:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793346116; x=1824882116;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=JKuq+enupRH8FUVKxT7u/K6ba3meoMAfmz2a+OPEpEc=;
+  b=OQq4zZKA3hWdkmSfaKui5Y/nCPaBSNx1URbNv18hbXSvrXIDaagwejhI
+   7Z3ZoVaIhVFBxQQaz55VmlEbNItOPcBTnK/A7yzI8LElqohOa9YsVE9PC
+   VzkHG9lj+GuDHrVhcTM/YUu1Ws/gVDFuP6eyUDMHBwjm/p/l5VEbrKm7d
+   S/e6fvLsbyknWUhUiuDpDema0eb7PtEEjyqzkcg8NPUGWEWVL9RpzxQFH
+   jYmfjp1n6+jkjmiI29rhmQGLzXEgpR1XoQBgwoVNwMwaixZtX4ISkq5xJ
+   X4qYvz4DsV8jkD9zCqAHyia31QhkPfNAuaYxRC2JLWpg4EuL+boY3B/FQ
+   Q==;
+X-CSE-ConnectionGUID: CwhVpxpzTGG8aOm+FeZFLg==
+X-CSE-MsgGUID: lARA/3/AQpiED/bd+C/HXA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11950"; a="1989548"
+X-IronPort-AV: E=Sophos;i="6.27,185,1787036400"; 
+   d="scan'208";a="1989548"
+Received: from fmviesa012.fm.intel.com ([10.60.135.152])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 00:41:53 -0700
+X-CSE-ConnectionGUID: 2PLduTI8QomvMyhx61Gx/A==
+X-CSE-MsgGUID: gzGB7z25RKec2sknnjShxw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,185,1787036400"; 
+   d="scan'208";a="7152501"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by fmviesa012.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 00:41:53 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 30 Oct 2026 00:41:51 -0700
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56 via Frontend Transport; Fri, 30 Oct 2026 00:41:51 -0700
+Received: from CH4PR04CU002.outbound.protection.outlook.com (40.107.201.46) by
+ edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 30 Oct 2026 00:41:46 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rhgt1yE+bTw2ktzMCE6BK9O/EC1QJ8XX3EVxGb0C/90b76qBZj9imaIhU+TcNYGcsKvbK3JCk28iyEziCxnD7AJvFB236nRgDVfFlmeKzCL3Vq2LnflUDIEvhw/q5oNdjUERKxzmZ6/CHyHdxWPRqxGVfuzvwxmv8GubufeqgaVsqgjWqwo9JJD4aqc8rx5B2xIpzeCZ2Z7A2o2ZDcWNm1jVRaEijbzCKEfNYaZrJFFLBSmkKg5ctwUbVQQPgDoQ/SUGIBf5ydavEX1UUO18lPysHPEWmgt0ONK/78cbxKklA7e/EVj7YYkFRcg9WL4bNTIQJOFTS0Fbm+zkYmL4Rw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fIe2fVLq47lhu7tJbuwi/qLYYo/NCjmCC2mb46YXLSk=;
+ b=NakxpWkvT6FnLJpP9hTVPgJCMjf7GG3tDPcL30Oah2rx8qE9LN+kmWuNAwM7YyuUCEiF3UPuatRpsVgS5D0qfcJBSt4rYGmcs3mWBwPmBf25N0D0n6dxO8Gku6oD5gH6XDsCx4wQnB2tOman4+Lh4R8gT+d/QeP7dXMpB9hb3pmKhed3v7cdttbEAlRnhCJaHGphMUVcYgE3bRkxK0CD8dtunxW9IYF20UEiAPFLZFVQhuEm8IeIwFRZpft58P5tmY1bZVKpBu4tzfohbdei3uK6cPnj497tHGaQXfuZyMH8TnKnno/jiQmbbSM8xqLt0EQ+mpYVDxTwWOOEWZp1dA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from CO1PR11MB4835.namprd11.prod.outlook.com (2603:10b6:303:9e::22)
+ by MW4PR11MB5910.namprd11.prod.outlook.com (2603:10b6:303:189::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Fri, 30 Oct
+ 2026 07:41:37 +0000
+Received: from CO1PR11MB4835.namprd11.prod.outlook.com
+ ([fe80::d051:d948:c209:9225]) by CO1PR11MB4835.namprd11.prod.outlook.com
+ ([fe80::d051:d948:c209:9225%6]) with mapi id 15.21.0569.009; Fri, 30 Oct 2026
+ 07:41:36 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Jason Gunthorpe <jgg@nvidia.com>, Aneesh Kumar K.V
+	<aneesh.kumar@kernel.org>
+CC: "iommu@lists.linux.dev" <iommu@lists.linux.dev>, Alex Williamson
+	<alex@shazbot.org>, Alexey Kardashevskiy <aik@amd.com>, Bjorn Helgaas
+	<bhelgaas@google.com>, Catalin Marinas <catalin.marinas@arm.com>, Jacob Pan
+	<jacob.pan@linux.microsoft.com>, Joerg Roedel <joro@8bytes.org>, "Jonathan
+ Cameron" <jic23@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, "Krishna
+ Reddy" <vdumpa@nvidia.com>, Lukas Wunner <lukas@wunner.de>, Nicolin Chen
+	<nicolinc@nvidia.com>, Robin Murphy <robin.murphy@arm.com>, Samuel Ortiz
+	<sameo@rivosinc.com>, Shameer Kolothum
+	<shameerali.kolothum.thodi@huawei.com>, Steven Price <steven.price@arm.com>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Thierry Reding <thierry.reding@kernel.org>, "Vasant
+ Hegde" <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>, Xu Yilun
+	<yilun.xu@linux.intel.com>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-coco@lists.linux.dev"
+	<linux-coco@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>
+Subject: RE: [PATCH v7 10/16] iommufd: Add the vdevice TSM request ioctl
+Thread-Topic: [PATCH v7 10/16] iommufd: Add the vdevice TSM request ioctl
+Thread-Index: AQHdVuqLnkDudTU10ECPGJY5vEDWKLcTcUiAgADzIwCAADjrgIABMt5Q
+Date: Fri, 30 Oct 2026 07:41:36 +0000
+Message-ID: <CO1PR11MB48352ED3E4DEB3A8B4F089AB8C6D2@CO1PR11MB4835.namprd11.prod.outlook.com>
+References: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
+ <20261008055955.4014342-11-aneesh.kumar@kernel.org>
+ <179321444123.2412245.6955528563980811144.b4-review@b4>
+ <yq5a1p98c0f5.fsf@kernel.org> <20261029130117.GH3040767@nvidia.com>
+In-Reply-To: <20261029130117.GH3040767@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CO1PR11MB4835:EE_|MW4PR11MB5910:EE_
+x-ms-office365-filtering-correlation-id: 12747bfd-aa90-4270-cbbe-08df36593a07
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|23010399003|366016|376014|261026140227099003|4143699003|38070700021|261026130827099003|11063799006|261028144727099003|56012099006|3023799007|261021135927099003|261021121427099003|261021123027099003|261022115727099003|261022105027099003|261022113327099003|261009223027099003|261021130227099003|261026121527099003|261022075727099003|10067099003|22082099003|18002099003|6133799003;
+x-microsoft-antispam-message-info: ogTmrhSNkPSlZjFB35IcW14qQniKrbW7EJGtNOF7Jqhkx20umU7txUBiHe+iKwrqJ+wRreEqkGlB1/omCPdTSEILKy1YY6dRaIBaqxAx08QX7bTpztKEZCBM11XjA1pq2CTgEfidtdZA8GNx+jWWO61BhLxHmeDL1lvUTXuMQnlSUFRdDuWonj/WXGr/Y19c3KMh7Y5xY1uWGmIT6Cj4jzglu0D1dUqIQfO3iMS7WSsuFyomLr0McLYiVxVHzw2S4Yw2XkLFUoifLDtUnZoQN5/bHib+vRcQsDltBdXstz9AsiOvjb6QZhW6iXCp+G0hbzYqEv/ihRtgHS8PeDeUtrY/VPWbBlxkotgprnlXWYTDXF7WdW2P9opqnRWcvzAc1ufI1/AWtFNs+YpLmmcLwY+bhdMJBxd8NmjgMEKZb2kyHW9NejRBP24tHmEDve4XS9vEunRRxaFwXIM5cHqFQy9sGW201oj3S2dT6Eh+Ys+RDFd4IddsI2L+MFc7zC2hFq3Ny+FYGGNGktoWDFpiVJFDs+nR+JzeXxEjjA3rHg5JQx5qSYVJ6+ilJrbOgo+Uct7RdA40hfqaJMbk2Lf8rz4MNoUSOLdySn+I3LEYbEP0GLh7TdhdMy6mGYKDLtNf+GgpDZuXCokkr+qxdBYTi4BLsdMWCM3q+QbTwpIPIyw=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4835.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(23010399003)(366016)(376014)(261026140227099003)(4143699003)(38070700021)(261026130827099003)(11063799006)(261028144727099003)(56012099006)(3023799007)(261021135927099003)(261021121427099003)(261021123027099003)(261022115727099003)(261022105027099003)(261022113327099003)(261009223027099003)(261021130227099003)(261026121527099003)(261022075727099003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?KUO6kthG4mYxd3JTUJauyRaPjbaggDfcN8K9mBQhr6apIdvKYo72RyuJuMb/?=
+ =?us-ascii?Q?GqoIA5kigtJi84vm7KocC/7oKWRQEOffI5Zc0Hv4gPKSJorBTOELREcjBwYi?=
+ =?us-ascii?Q?a1gOZGNBUfUWonnlga5q5rWr80YYQKpsoiN7ooIJTg0gcQNcVfN7l+ujZiZh?=
+ =?us-ascii?Q?ELeomI2db7/LINblPZd88kJYDVylI/Wt1s9dVLGUv06AVgQY739uHPjn6TXB?=
+ =?us-ascii?Q?dI0qfIu8iB4/NnCRF3rXQhrc03t1zF8mdtlDZMKdWVqAEgabd4l5JbrWXAPO?=
+ =?us-ascii?Q?QRi+HB5A6GAOvaAKS1nv8Nn0aTrXjkMkKq2J3ILmi3HQFBZ2+Yq+NCoE8Usj?=
+ =?us-ascii?Q?nXKFtVlH5DYfVWutI75om2eJ89AeUttNLzYha7MEUFs5M2bXKHP444w3UTC/?=
+ =?us-ascii?Q?f/cNjgi4B4ijDylwL5IEDw+1OLjV33VpmPfdmhhohWa/BxvKxX62fLNUQOpB?=
+ =?us-ascii?Q?/an8Qd92KANIZHyrHTy/A/SbmoGnl+t4WCDusnCU6aYw0IvgrSPXlz1M2cK1?=
+ =?us-ascii?Q?fqlBdokxl4SlxchEqFJVV4jxdEbbCpHON8pkYJysznW99GmT8c4ANsma38Sz?=
+ =?us-ascii?Q?8hs1gJeoiVVZu+t8oHEQhuy8jaAvln20qElIWYdU7CxMuxBuNhurDWMK0tt0?=
+ =?us-ascii?Q?IvurPldC4E+aTsumY0qKPbKDMFIfO3z4ouw9k1CIULNQj/oxn2tNm3B8ZLXV?=
+ =?us-ascii?Q?3WhduALfTY7pGM4D22/lRoOeiJP7NZBij9p+ATLkS4+AxTjbHdWs6SjfsFBx?=
+ =?us-ascii?Q?Ot7VJ79npC750ISMXa7Oswnz/OHVo/zlEFGeJPA3z80K9SI2kJWcvctRzo+i?=
+ =?us-ascii?Q?Bhf6Un+OaRXEU41PSPbzRg7dwByZ8ygqCweNuyYvJyZM0FtSNc5rcSkjhdfW?=
+ =?us-ascii?Q?RXawaw1/v7SjTMfKVNin3xH5uctVtHeWd6/jiMMIC4+M2DyXmqa5z/KWKlJ5?=
+ =?us-ascii?Q?wT+WeVrQ6JOjtCyF0nQJWoBtbGN0NVBD4jC84sLOXhFT5jqar8Aot5c06ZeZ?=
+ =?us-ascii?Q?5OMHGqE/mh10ZdDy2WuxRKycemt6SFcMpFXg6EHQIzEUR6XeGcM9qdLEMxpS?=
+ =?us-ascii?Q?7Kzc99jGqJSbU8X1YW5H+n+vwrtBNelnpieFMZ8MtsNkr9qD88gLVHi1erK+?=
+ =?us-ascii?Q?8KFsHZjAAsc80jqq/1y8PDpHIJWHJtd5FFEEZ1C19UNOJMBIY8MlEbkES2xq?=
+ =?us-ascii?Q?ZuJnO4ugUnerpKEbVe+pUumJ/HLreyNntMTo4IluAxoiAN6tnWopYS0TonHd?=
+ =?us-ascii?Q?OSQYxiPSHHTLW0DywLmzogczBSG1+dGq0tHSvLSxhLs/MY73ICoeYCWPgxLw?=
+ =?us-ascii?Q?sv8sTg5EIPCgU/oKJauaULAitEWNxRAE1zzRHkrC/nvzNrGv4lBoEUK/02s0?=
+ =?us-ascii?Q?oewdSJCoGQiQ7NBGcMeJ2XiKzY2CZDNY5aWjAe7aAjavZyUrwvYYFXtpoj/i?=
+ =?us-ascii?Q?C4QwgdmsDGnEQz0tzDeXl3brdg2f2QTRoEMdmzzpHFplzs0lwVvRIGssv1GZ?=
+ =?us-ascii?Q?Y9SblOF6Ge+4FhQt3ihMS0AReby49cqGiDNmgGlCd5nh9RDwiVASsa7yEF1d?=
+ =?us-ascii?Q?uEjjV1V9BtIwnF/AboOL/1mOk7jyTj0wgcE0CDzOtOHm0i81+5okKtFY/E/R?=
+ =?us-ascii?Q?UXz57ACm7bxxk1tcHWRJiXCsOa6cVnfbZLNM8kNttb0bxW2sflAK7fOhn6DA?=
+ =?us-ascii?Q?5DRUw9NDoAEYkOhuM7C1VSN/rY3KBg0dwXhhB6cHlnDsgyAqZxz0v+c7Iogp?=
+ =?us-ascii?Q?ycW89BPi+A=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-Exchange-RoutingPolicyChecked: 0wzsDmfhTX7cShrk6qolmuPvgOd4L7vN4IBLhSD7/REJaxBie5Z6CTsX+HS0DtDLk+J49M0FLXo00Q+W9Snmv5ctZg8fDyj4WFmEL1DmxSsHRIqYK5Yw0zFCiv0mcaAu5Use7oguEhf0xqwJh0UVqPgszWBOHjwbH3gb27u4eTTIBd9g+JuOrATgV0P+CAjw8jYz7NmM/yGKVWCxxvuuSFHE+4Yc/vcWfWTd9ch6Xrz6HiXbTVe2mj6EdrhzoErDtUuyS7Ew5Ax0u/KHdDMFBabe1shxEXqNSxl+dLf3ZOjCUwomOL3HWxsVB1FEQo6IlB8U2pVbn2bz/wGuJ4H5kw==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4835.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 12747bfd-aa90-4270-cbbe-08df36593a07
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Oct 2026 07:41:36.2524
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: q8vpM9GeVXOfZKkUsJdJ89rycxnu7e96gT1q1sZrZIGSLBLviIlTmIn0SiL4lBuckcOpvT7d5IF/pUYTPec/xw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR11MB5910
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_003921_838800_0DE1D0AB 
-X-CRM114-Status: GOOD (  27.52  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261030_004156_345944_28627A16 
+X-CRM114-Status: GOOD (  33.84  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,144 +194,162 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Speaker playback on a MacBook Pro 14" (M1 Pro, J314s) underruns at
-irregular intervals, audible as a tick: 8 times in 3.7 hours of
-playback. Where an underrun was caught (4 of 8), the ALSA hw_ptr had
-jumped by one buffer size while about 70 ms of audio was still queued,
-and a kernel trace showed the DMA position stepping back by exactly one
-period at each of the 6 underruns it covered.
+> From: Jason Gunthorpe <jgg@nvidia.com>
+> Sent: Thursday, October 29, 2026 9:01 PM
+>=20
+> On Thu, Oct 29, 2026 at 03:07:34PM +0530, Aneesh Kumar K.V wrote:
+> > Jason Gunthorpe <jgg@nvidia.com> writes:
+> >
+> > >> [ ... 300 lines skipped ... ]
+> > >> +/**
+> > >> + * enum iommu_vdevice_tsm_guest_req_op - Guest TSM request
+> operations
+> > >> + * @TSM_REQ_VALIDATE_MMIO: Validate and map a guest MMIO range
+> for the trusted
+> > >> + *                         device.
+> > >> + * @TSM_REQ_SET_TDI_STATE: Transition the trusted device to the
+> unlocked,
+> > >> + *                         locked, or running state.
+> > >> + * @TSM_REQ_SEV_ENABLE_DMA: Enable DMA for an SEV device.
+> > >> + * @TSM_REQ_SEV_DISABLE_DMA: Disable DMA for an SEV device.
+> > >> + * @TSM_REQ_READ_OBJECT: Read bytes from a device object, such as a
+> certificate,
+> > >> + *                       measurement, or interface report.
+> > >> + * @TSM_REQ_REGEN_OBJECT: Regenerate a device object, such as a
+> measurement or
+> > >> + *                        interface report.
+> > >> + * @TSM_REQ_OBJECT_INFO: Query the size of a device object.
+> > >> + * @TSM_REQ_MAX: One past the last request operation; not a
+> command.
+> > >> + *
+> > >> + * The request payload and response format depend on the TVM
+> architecture.
+> > >> + */
+> > >> +enum iommu_vdevice_tsm_guest_req_op {
+> > >> +	TSM_REQ_VALIDATE_MMIO =3D 1,
+> > >> +	TSM_REQ_SET_TDI_STATE,
+> > >> +	TSM_REQ_SEV_ENABLE_DMA,
+> > >> +	TSM_REQ_SEV_DISABLE_DMA,
+> > >> +	TSM_REQ_READ_OBJECT,
+> > >> +	TSM_REQ_REGEN_OBJECT,
+> > >> +	TSM_REQ_OBJECT_INFO,
+> > >> +	TSM_REQ_MAX,
+> > >> +};
+> > >
+> > > This is still no where close to being well defined enough.
+> > >
+> > > Everything here must tie back to defined spec references, listed in
+> > > the comments.
+> > >
+> > > I cannot guess what data is passed over any of these APIs, how things
+> > > like "REGEN_OBJECT" select which object to regen, or what the format
+> > > of those objects even is. The formats of req/resp are never specified=
+.
+> > >
+> >
+> > The request and response payload formats are specific to each CoCo
+> > backend. Since iommufd treats the payloads as opaque and does not
+> > validate their contents, what would documenting those formats here
+> > achieve?
+>=20
+> Well if thats the case then no, this is entirely inappropriate.
+>=20
+> iommufd requires every single struct to be documented and
+> described. We do not do undocumented opaque structs into drivers.
+>=20
+> So figure out exactly what needs to flow here, give it driver specific
+> names for driver specific content and document everything.
+>=20
+> This should be done patch by patch as the drivers implement their
+> stuff.
 
-admac_cyclic_read_residue() derives the position from the report ring
-(periods finished but not yet reclaimed) and REG_RESIDUE (bytes left in
-the current descriptor). When a descriptor finishes, the residue first
-drops to zero, then the report is posted and the next descriptor is
-loaded. Usually the last two happen together, but occasionally the
-report comes first. A read in that window counts the finished period
-twice:
+some could still be generalized, e.g. setting the TDI state. There
+doesn't sound a good reason to have vendor specific format for
+that.
 
- - residue2 == 0 with the report already in ring2: the period is
-   counted in nreports and again as the fully consumed current
-   descriptor;
- - residue1 == 0 with the report already in ring1, and the next
-   descriptor loaded by the time residue2 is read: the
-   residue2 > residue1 branch adds one to a ring1 that already holds
-   the report.
+Then if your suggestion of using the attestation subsystem here
+can work, those OBJECT related operations are generalized too.
 
-Either way the position is one period ahead. The next read is behind
-it, snd_pcm_update_hw_ptr0() takes the backwards step for a wrap of the
-whole buffer, and the stream underruns.
+In the end the set of vendor specific definition here might be small.
 
-While the channel runs, a zero residue only occurs between descriptors,
-so read the registers again while either residue is zero. The retries
-are bounded, as the residue also stays zero on a stopped channel or one
-that ran out of descriptors; after the last retry the position is
-computed as before.
+> > > My guesses with no information
+> > > 1) VALIDATE_MMIO why would the hypervisor ever need this? Guest
+> > >    validates MMIO through secure communication to the secure world.
+> > >
+> >
+> > With VFIO PCI BARs backed by guest_memfd, the VMM can validate that the
+> > IPA and PA values provided by the guest belong to the VFIO device.
+>=20
+> Why? Who cares? It isn't a trusted validation, and there is a RSI that
+> duplicates this?
 
-With a debug build counting retries, one hour of playback needed a
-retry for 2210 of 3.39 million reads, at most three retries (3.5 us),
-also across pause and stream restart. Both states above showed up in
-the logged register values. There were no underruns in three hours of
-playback with the fix.
+TDX doesn't require this. It's a guest call directly to the secure world.
 
-Fixes: b127315d9a78 ("dmaengine: apple-admac: Add Apple ADMAC driver")
-Cc: stable@vger.kernel.org
-Assisted-by: LLM
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Acked-by: Martin Povišer <povik+lin@cutebit.org>
-Signed-off-by: Jacob Procee <sn125164@gmail.com>
----
-Thanks Frank, Sasha and Martin for the reviews.
+>=20
+> > We previously also used this operation to ask the CoCo TSM backend
+> > to map the device memory (the BAR regions). I have removed this
+> > operation from the latest series because that responsibility is now
+> > split between the VMM and guest_memfd. TDX and SNP still need to be
+> > updated accordingly.
+>=20
+> Right, it should happen automatically as part of lock.
+>=20
+> > > 2) TDI_STATE I thought at least RMM did this with an RSI?
+> >
+> > CCA uses RHI. The RHI reaches the VMM, which issues the ioctl to
+> > complete the request.
 
-Changes in v2:
-- Drop the code comment, the explanation is in the commit message
-  (Sasha Finkelstein).
-- Add Frank's Reviewed-by and Martin's Acked-by.
-- v1: https://lore.kernel.org/r/20261029105908.22809-1-sn125164@gmail.com
+same for TDX, using GHCI to reach the VMM.
 
-How this was found and tested:
-- The underruns were traced with bpftrace on snd_dmaengine_pcm_pointer():
-  a position read 19-37 us before the period interrupt was exactly one
-  period ahead of the interrupt's own read. The register states were then
-  confirmed with a debug build of this driver that logged the raw report
-  ring and residue values on every retry.
-- There is no hardware documentation for the ordering; all of this is
-  measured. In the 1906 logged retries the next read always showed both
-  the report and the new descriptor, or neither, never the new descriptor
-  with the old report count.
-- The reverse order (next descriptor loaded before the report is posted)
-  would put the position one period behind and is not handled here. The
-  bpftrace probe checked every position read for a backward step, so it
-  would have caught that too: none occurred in the three hours with the
-  fix, roughly 10 million reads.
-- RESIDUE_RETRIES is empirical as well: of the logged retries, 1189 needed
-  one, 621 two and 96 three, none more; the longest complete retry
-  sequence took 3.5 us. A round takes about 1 us, so the limit keeps the
-  additional polling time, with interrupts off, to roughly 10 us in the
-  observed environment. If the limit is reached, the position is computed
-  using the existing calculation, so the original error can still occur
-  in that case.
-- Tested on a MacBook Pro 14" (M1 Pro, J314s) as an out-of-tree module on
-  the Asahi 7.2.12 kernel, whose apple-admac.c matches this tree apart from
-  the unrelated admac_hw rework. The three hours above used a limit of 100
-  retries; the code as posted here (limit 10) ran for another 30 minutes.
-  On this tree the driver builds cleanly with W=1 and C=1 (arm64
-  defconfig), but I have not run it here, nor on other Apple SoCs.
+>=20
+> And then the seq numbers check that this went through OK?
 
-AI assistance: the tracing, analysis, the code change and a first draft of
-this changelog were done with an LLM (Claude) in a session with me. I have
-reviewed and tested the result and can answer for it.
+which seq numbers in your mind?
 
- drivers/dma/apple-admac.c | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
+>=20
+> > > 3) ENABLE/DISABLE DMA, see #1, must not be done by hypervisor
+> > >    See my reply to Alexey:
+> > >    https://lore.kernel.org/linux-
+> iommu/20261022123058.GC3008132@nvidia.com/
 
-diff --git a/drivers/dma/apple-admac.c b/drivers/dma/apple-admac.c
-index 9a1c79c12..a505975a5 100644
---- a/drivers/dma/apple-admac.c
-+++ b/drivers/dma/apple-admac.c
-@@ -28,6 +28,12 @@
-  */
- #define SRAM_BLOCK	2048
- 
-+/*
-+ * How often to re-read the residue while a descriptor boundary is in
-+ * progress, see admac_cyclic_read_residue().
-+ */
-+#define RESIDUE_RETRIES	10
-+
- #define RING_WRITE_SLOT		GENMASK(1, 0)
- #define RING_READ_SLOT		GENMASK(5, 4)
- #define RING_FULL		BIT(9)
-@@ -358,11 +364,14 @@ static u32 admac_cyclic_read_residue(struct admac_data *ad, int channo,
- 	u32 residue1, residue2;
- 	int nreports;
- 	size_t pos;
--
--	ring1 =    readl_relaxed(ad->base + REG_REPORT_RING(channo));
--	residue1 = readl_relaxed(ad->base + REG_RESIDUE(channo));
--	ring2 =    readl_relaxed(ad->base + REG_REPORT_RING(channo));
--	residue2 = readl_relaxed(ad->base + REG_RESIDUE(channo));
-+	int tries = 0;
-+
-+	do {
-+		ring1 =    readl_relaxed(ad->base + REG_REPORT_RING(channo));
-+		residue1 = readl_relaxed(ad->base + REG_RESIDUE(channo));
-+		ring2 =    readl_relaxed(ad->base + REG_REPORT_RING(channo));
-+		residue2 = readl_relaxed(ad->base + REG_RESIDUE(channo));
-+	} while ((!residue1 || !residue2) && ++tries < RESIDUE_RETRIES);
- 
- 	if (residue2 > residue1) {
- 		/*
+Not required by TDX.=20
 
-base-commit: aff5e6a77fc69a7c490246465940d18422d7c631
--- 
-2.56.0
+> > >
+> > > 4) READ/REGEN/INFO, what are the objects? What format are they in? Ho=
+w
+> > >    do you select them?
+> >
+> > These objects are cached by the hypervisor. For CCA, they include the
+> > certificate, measurement, interface report, and VCA. They are read in
+> > response to guest requests. The requests reach the VMM through an
+> > RHI, and the VMM issues the ioctl to read the requested object. REGEN
+> > refreshes the objects/evidence at the guest's request.
+>=20
+> > >    Does this overlap with attestation subsystem? Should attestation
+> > >    subsystem be used to access the SPDM related data?
+> > >
+> >
+> >
+> > I had hoped we could use it, but I could not find an easy way to
+> > integrate the two. We need a simple way to read these evidence objects
+> > into userspace. I am not yet sure whether evidence-get can be used for
+> > that, since it does more than simply read the objects; it also updates
+> > evidence.generation, among other things.
+>=20
+> It should not do that, the generation has to follow the locked state,
+> not the evidence collection.. See my remark to Dave
+>=20
+> I think the bigger issue was it had to use the VDEV flavour not the
+> PDEV flavor of RMM commands, and it isn't obvious how we switch from
+> PDEV to VDEV mode on the hypervisor..
 
+Can you elaborate this part in a general way? Want to better understand it
+in the TDX context...
 
