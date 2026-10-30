@@ -2,34 +2,34 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15305606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 06:50:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEAD2606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 06:50:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YH/F7pHv;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=X0BosyH7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2ZAtkFco;
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=jZjSossh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=F/XPgbmsTeE5iFBKrHX05+VdT/Xx9ShJ4HYEs4+/nlQ=; b=YH/F7pHv5r9klS
-	ZkI0cMt78HTglAn5s/0Zy5CLfdQmNnPPGH8W/mCLHqM9+sNcZpPPwc2ZnZt2tHRK5rRLRhqXgM2JA
-	/o4ehn1TeR6bUVT+ZNUfPYIAenyIVyBuJNy3ATQI0SYdIRj/wWIgI5iTvuXsPqwTp3SmT3cs6l+Ye
-	odUrh0Q5t6czK/emSvNT81YnotlRLrF6q9GUunXOcSVNIikfaUwxvWq5nNPp491Mxn+VnWDRiI5p5
-	G1X/0xDHCz8Sg05oYkIPLf9TGYLnkaNbdbTSTeot8108oDDbGNIT97m9q1+v1K/l100OzO/csCy1j
-	cHg7NYfunQmJ1mE11THA==;
+	List-Owner; bh=0S72/SMZtRFOkTdSm/RoanUWYTbTSnISVnmK+Y5WlB0=; b=2ZAtkFcogNlGtL
+	xoESPk4FUcLzMY3FutH+C6kcymgQQnZM/KXhLJkYAW2uJrrVQBwqkDaDWjZBBTGc14UYta/00eZrM
+	MKAuVC4Tm3qvsdxW1Z9+hAGpAjqr+lv7J9wLGNOxO2TUJADGjD3TWLrsKucLCjFHMBra3z70gsHDv
+	GqXa5zXkjmDdQQIof9zMGNu2cWfM1V0FCOcZdI6PuqvwGlFboxYEiEp0/aWL4wkcb8C1/8BwK2oyp
+	yoDq0EyOylvK+c7//Xrsqq0HRS0yVoXpbc1C+8mw/35W508ewYfVXYJcIm7arV3ClnFYYJRECp/Yx
+	6M2BIr0+LhTfaeIwl+4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMgRG-0000000Avlv-2B29;
-	Fri, 30 Oct 2026 06:50:10 +0000
-Received: from mail-m81143.xmail.ntesmail.com ([156.224.81.143])
+	id 1xMgRP-0000000Avtd-1lHH;
+	Fri, 30 Oct 2026 06:50:19 +0000
+Received: from mail-m6053.netease.com ([210.79.60.53])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMgQn-0000000AvEO-1PJW;
+	id 1xMgQm-0000000AvDr-1Y2c;
 	Fri, 30 Oct 2026 06:49:43 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 52e796950;
-	Fri, 30 Oct 2026 14:49:35 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 52e79693f;
+	Fri, 30 Oct 2026 14:49:33 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: Sandy Huang <hjc@rock-chips.com>,
 	Heiko Stuebner <heiko@sntech.de>,
@@ -60,28 +60,28 @@ Cc: Neil Armstrong <neil.armstrong@linaro.org>,
 	linux-kernel@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v4 5/6] drm/rockchip: analogix_dp: Add support for RK3568
-Date: Fri, 30 Oct 2026 14:49:04 +0800
-Message-Id: <20261030064905.2248999-6-damon.ding@rock-chips.com>
+Subject: [PATCH v4 4/6] phy: rockchip: Add support for Naneng eDP phy
+Date: Fri, 30 Oct 2026 14:49:03 +0800
+Message-Id: <20261030064905.2248999-5-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261030064905.2248999-1-damon.ding@rock-chips.com>
 References: <20261030064905.2248999-1-damon.ding@rock-chips.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa18b922d7e03a8kunme14bef9979434
+X-HM-Tid: 0aa18b92257803a8kunme14bef9979421
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZGU8ZQlZKQh4ZHh4YSh
-	9DQ0JWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
+	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQkNKTFZKH0pJGENPSR
+	4YHh5WFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
 	tIVUpLSEpKQk1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=X0BosyH7FRo3N8MGfWVfVYDuO8s/2WYA1ETw0yYv9VL3GSPuxagFOHhDJcU+wg4Amr2dbPteIBiAqpxl5WMhcU0+eDbC3Bl7rKhakYfclCTRmyImtcaJdyGmfvSfO6wM6BLApNBVWPzcfND+AHY+d+z/ZSi/X/oNFBmVzVZnnGU=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=F/XPgbmsTeE5iFBKrHX05+VdT/Xx9ShJ4HYEs4+/nlQ=;
+	b=jZjSossh1G7MYi7EYw30MsD/+ZO+aPzC/ogkQ2za9hvXsb0u5sz4TMWRNR48UksBAsFXIehT8AOllRdd2LdEEXkEWfmQBsCxlk6M2ofAcb4uOp5Pg8+bCyP4bfacikpbiHDcLNJiEES8Almi7YblnCgKHw48pKqXz7cP2AjkDH0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=0S72/SMZtRFOkTdSm/RoanUWYTbTSnISVnmK+Y5WlB0=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_234941_713457_BC9D9215 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20261029_234940_747697_CAB2970C 
+X-CRM114-Status: GOOD (  21.91  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,86 +101,547 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The RK3568 eDP controller does not require any GRF configurations,
-so make the "rockchip,grf" property optional.  Also enable the
-optional avdd-0v9 and avdd-1v8 supplies which power the eDP PHY.
+Add a driver for the Rockchip eDP transmitter PHY with NaNeng IP
+block, as found on the RK3568 SoC.
 
-Add the "rockchip,rk3568-edp" compatible along with its chip data;
-the register base in the chip data is used to match the platform
-device memory resource.
+The PHY has its own register window inside the eDP PHY GRF, so its
+node is modeled as a child of the eDP PHY GRF syscon with a reg
+property describing that window, and the driver maps that window
+directly.  The PHY supports 1/2/4 lanes at 1.62 Gbps and 2.7 Gbps,
+optional spread spectrum clocking, as well as per-lane voltage swing
+and pre-emphasis tuning, all exposed through the generic PHY
+DisplayPort configuration interface.
 
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
 ---
 
 Changes in v2:
-- Fail the probe when the chip data requires GRF configurations while
-  the "rockchip,grf" property is missing. (Sashiko)
----
- .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 24 ++++++++++++++++++-
- 1 file changed, 23 insertions(+), 1 deletion(-)
+- Apply the lane-dependent TX configurations in set_lanes() instead of
+  set_rate(), and store the lane count for set_voltages(), since the
+  Analogix DP core issues separate phy_configure() calls and the lane
+  count is only valid in the set_lanes/set_voltages calls. (Sashiko)
+- Initialize val to zero in rockchip_edp_phy_enabled() to avoid using
+  an uninitialized variable when regmap_read() fails. (Sashiko)
 
-diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-index ccdd4b9ecdb8..38c78360842f 100644
---- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-@@ -320,12 +320,17 @@ static int rockchip_dp_of_probe(struct rockchip_dp_device *dp)
- 	struct device *dev = dp->dev;
- 	struct device_node *np = dev->of_node;
- 	struct clk *clk;
-+	int ret;
+Changes in v3:
+- Add the changes which were missing in v2 for unexpected reasons.
+
+Changes in v4:
+- Map the PHY registers from its own reg property instead of
+  accessing them through the parent syscon regmap.
+---
+ drivers/phy/rockchip/Kconfig                  |  10 +
+ drivers/phy/rockchip/Makefile                 |   1 +
+ .../phy/rockchip/phy-rockchip-naneng-edp.c    | 466 ++++++++++++++++++
+ 3 files changed, 477 insertions(+)
+ create mode 100644 drivers/phy/rockchip/phy-rockchip-naneng-edp.c
+
+diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
+index 14698571b607..202a6973e20b 100644
+--- a/drivers/phy/rockchip/Kconfig
++++ b/drivers/phy/rockchip/Kconfig
+@@ -74,6 +74,16 @@ config PHY_ROCKCHIP_NANENG_COMBO_PHY
+ 	  Enable this to support the Rockchip PCIe/USB3.0/SATA/QSGMII
+ 	  combo PHY with NaNeng IP block.
  
--	dp->grf = syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
-+	dp->grf = syscon_regmap_lookup_by_phandle_optional(np, "rockchip,grf");
- 	if (IS_ERR(dp->grf))
- 		return dev_err_probe(dev, PTR_ERR(dp->grf),
- 				     "failed to get rockchip,grf property\n");
- 
-+	if (!dp->grf && (dp->data->lcdc_sel.valid || dp->data->edp_mode.valid))
-+		return dev_err_probe(dev, -EINVAL,
-+				     "missing the required rockchip,grf property\n");
++config PHY_ROCKCHIP_NANENG_EDP
++	tristate "Rockchip Naneng eDP Transmitter PHY driver"
++	depends on ARCH_ROCKCHIP && OF
++	select GENERIC_PHY
++	help
++	  Enable this to support the Rockchip eDP Transmitter PHY with
++	  NaNeng IP block. The PHY, which is controlled through the eDP
++	  PHY GRF, provides 1/2/4 lanes running at 1.62/2.7 Gbps per lane
++	  for the eDP controller found on the RK3568 SoC.
 +
- 	dp->grfclk = devm_clk_get_optional(dev, "grf");
- 	if (IS_ERR(dp->grfclk))
- 		return dev_err_probe(dev, PTR_ERR(dp->grfclk),
-@@ -351,6 +356,14 @@ static int rockchip_dp_of_probe(struct rockchip_dp_device *dp)
- 		return dev_err_probe(dev, PTR_ERR(dp->apbrst),
- 				     "failed to get apb reset control\n");
- 
-+	ret = devm_regulator_get_enable_optional(dev, "avdd-0v9");
-+	if (ret && ret != -ENODEV)
-+		return dev_err_probe(dev, ret, "failed to enable avdd-0v9\n");
+ config PHY_ROCKCHIP_PCIE
+ 	tristate "Rockchip PCIe PHY Driver"
+ 	depends on (ARCH_ROCKCHIP && OF) || COMPILE_TEST
+diff --git a/drivers/phy/rockchip/Makefile b/drivers/phy/rockchip/Makefile
+index 117aaffd037d..260a10157461 100644
+--- a/drivers/phy/rockchip/Makefile
++++ b/drivers/phy/rockchip/Makefile
+@@ -7,6 +7,7 @@ obj-$(CONFIG_PHY_ROCKCHIP_INNO_DSIDPHY)	+= phy-rockchip-inno-dsidphy.o
+ obj-$(CONFIG_PHY_ROCKCHIP_INNO_HDMI)	+= phy-rockchip-inno-hdmi.o
+ obj-$(CONFIG_PHY_ROCKCHIP_INNO_USB2)	+= phy-rockchip-inno-usb2.o
+ obj-$(CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY)	+= phy-rockchip-naneng-combphy.o
++obj-$(CONFIG_PHY_ROCKCHIP_NANENG_EDP)	+= phy-rockchip-naneng-edp.o
+ obj-$(CONFIG_PHY_ROCKCHIP_PCIE)		+= phy-rockchip-pcie.o
+ obj-$(CONFIG_PHY_ROCKCHIP_SAMSUNG_DCPHY)	+= phy-rockchip-samsung-dcphy.o
+ obj-$(CONFIG_PHY_ROCKCHIP_SAMSUNG_HDPTX)	+= phy-rockchip-samsung-hdptx.o
+diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-edp.c b/drivers/phy/rockchip/phy-rockchip-naneng-edp.c
+new file mode 100644
+index 000000000000..8c247eda1dcf
+--- /dev/null
++++ b/drivers/phy/rockchip/phy-rockchip-naneng-edp.c
+@@ -0,0 +1,466 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (c) 2026 Rockchip Electronics Co., Ltd.
++ *
++ * Author: Damon Ding <damon.ding@rock-chips.com>
++ */
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/hw_bitfield.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/phy/phy.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
 +
-+	ret = devm_regulator_get_enable_optional(dev, "avdd-1v8");
-+	if (ret && ret != -ENODEV)
-+		return dev_err_probe(dev, ret, "failed to enable avdd-1v8\n");
++#define EDP_PHY_GRF_CON0		0x0000
++#define EDP_PHY_TX_IDLE_MASK		GENMASK(11, 8)
++#define EDP_PHY_TX_PD_MASK		GENMASK(7, 4)
++#define EDP_PHY_IDDQ_EN_MASK		BIT(1)
++#define EDP_PHY_PD_PLL_MASK		BIT(0)
 +
- 	return 0;
- }
- 
-@@ -530,6 +543,14 @@ static const struct rockchip_dp_chip_data rk3288_dp[] = {
- 	{ /* sentinel */ }
- };
- 
-+static const struct rockchip_dp_chip_data rk3568_edp[] = {
-+	{
-+		.chip_type = RK3568_EDP,
-+		.reg = 0xfe0c0000,
-+	},
-+	{ /* sentinel */ }
++#define EDP_PHY_GRF_CON1		0x0004
++#define EDP_PHY_PLL_DIV_MASK		GENMASK(14, 0)
++
++#define EDP_PHY_GRF_CON2		0x0008
++#define EDP_PHY_TX_RTERM_MASK		GENMASK(10, 8)
++#define EDP_PHY_RATE_MASK		GENMASK(5, 4)
++#define EDP_PHY_REF_DIV_MASK		GENMASK(3, 0)
++
++#define EDP_PHY_GRF_CON3		0x000c
++#define EDP_PHY_TX3_EMP_MASK		GENMASK(15, 12)
++#define EDP_PHY_TX2_EMP_MASK		GENMASK(11, 8)
++#define EDP_PHY_TX1_EMP_MASK		GENMASK(7, 4)
++#define EDP_PHY_TX0_EMP_MASK		GENMASK(3, 0)
++
++#define EDP_PHY_GRF_CON4		0x0010
++#define EDP_PHY_TX3_AMP_MASK		GENMASK(14, 12)
++#define EDP_PHY_TX2_AMP_MASK		GENMASK(10, 8)
++#define EDP_PHY_TX1_AMP_MASK		GENMASK(6, 4)
++#define EDP_PHY_TX0_AMP_MASK		GENMASK(2, 0)
++
++#define EDP_PHY_GRF_CON5		0x0014
++#define EDP_PHY_TX_MODE_MASK		GENMASK(9, 8)
++#define EDP_PHY_TX3_AMP_SCALE_MASK	GENMASK(7, 6)
++#define EDP_PHY_TX2_AMP_SCALE_MASK	GENMASK(5, 4)
++#define EDP_PHY_TX1_AMP_SCALE_MASK	GENMASK(3, 2)
++#define EDP_PHY_TX0_AMP_SCALE_MASK	GENMASK(1, 0)
++
++#define EDP_PHY_GRF_CON6		0x0018
++#define EDP_PHY_SSC_DEPTH_MASK		GENMASK(15, 12)
++#define EDP_PHY_SSC_EN_MASK		BIT(11)
++#define EDP_PHY_SSC_CNT_MASK		GENMASK(9, 0)
++
++#define EDP_PHY_GRF_CON7		0x001c
++
++#define EDP_PHY_GRF_CON8		0x0020
++#define EDP_PHY_PLL_CTL_H_MASK		GENMASK(15, 0)
++
++#define EDP_PHY_GRF_CON9		0x0024
++#define EDP_PHY_TX_CTL_MASK		GENMASK(15, 0)
++
++#define EDP_PHY_GRF_CON10		0x0028
++#define EDP_PHY_AUX_RCV_PD_SEL_MASK	BIT(5)
++#define EDP_PHY_AUX_DRV_PD_SEL_MASK	BIT(4)
++#define EDP_PHY_AUX_IDLE_MASK		BIT(2)
++#define EDP_PHY_AUX_RCV_PD_MASK		BIT(1)
++#define EDP_PHY_AUX_DRV_PD_MASK		BIT(0)
++
++#define EDP_PHY_GRF_CON11		0x002c
++#define EDP_PHY_AUX_RCV_VCM_MASK	GENMASK(14, 12)
++#define EDP_PHY_AUX_MODE_MASK		GENMASK(11, 10)
++#define EDP_PHY_AUX_AMP_SCALE_MASK	GENMASK(9, 8)
++#define EDP_PHY_AUX_AMP_MASK		GENMASK(6, 4)
++#define EDP_PHY_AUX_RTERM_MASK		GENMASK(2, 0)
++
++#define EDP_PHY_GRF_STATUS0		0x0030
++#define PLL_RDY				BIT(0)
++
++#define EDP_PHY_GRF_STATUS1		0x0034
++
++struct rockchip_edp_phy {
++	struct regmap *regmap;
++	struct device *dev;
++	struct clk *refclk;
++	u8 lanes;
 +};
 +
- static const struct rockchip_dp_chip_data rk3576_edp[] = {
- 	{
- 		.chip_type = RK3576_EDP,
-@@ -555,6 +576,7 @@ static const struct rockchip_dp_chip_data rk3588_edp[] = {
- static const struct of_device_id rockchip_dp_dt_ids[] = {
- 	{.compatible = "rockchip,rk3288-dp", .data = &rk3288_dp },
- 	{.compatible = "rockchip,rk3399-edp", .data = &rk3399_edp },
-+	{.compatible = "rockchip,rk3568-edp", .data = &rk3568_edp },
- 	{.compatible = "rockchip,rk3576-edp", .data = &rk3576_edp },
- 	{.compatible = "rockchip,rk3588-edp", .data = &rk3588_edp },
- 	{}
++static struct {
++	int amp;
++	int amp_scale;
++	int emp;
++} swing_pre_emph_table[4][4] = {
++	{ {0x1, 0x1, 0x0}, {0x2, 0x1, 0x4}, {0x3, 0x1, 0x8}, {0x4, 0x1, 0xd} },
++	{ {0x3, 0x1, 0x0}, {0x5, 0x1, 0x7}, {0x6, 0x1, 0x6}, { -1,  -1,  -1} },
++	{ {0x5, 0x1, 0x0}, {0x7, 0x1, 0x4}, { -1,  -1,  -1}, { -1,  -1,  -1} },
++	{ {0x7, 0x1, 0x0}, { -1,  -1,  -1}, { -1,  -1,  -1}, { -1,  -1,  -1} },
++};
++
++static void rockchip_edp_phy_set_voltage(struct rockchip_edp_phy *edpphy,
++					 struct phy_configure_opts_dp *dp,
++					 u8 lane)
++{
++	u32 amp, amp_scale, emp;
++
++	amp = swing_pre_emph_table[dp->voltage[lane]][dp->pre[lane]].amp;
++	amp_scale = swing_pre_emph_table[dp->voltage[lane]][dp->pre[lane]].amp_scale;
++	emp = swing_pre_emph_table[dp->voltage[lane]][dp->pre[lane]].emp;
++
++	switch (lane) {
++	case 0:
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON3,
++			     FIELD_PREP_WM16(EDP_PHY_TX0_EMP_MASK, emp));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON4,
++			     FIELD_PREP_WM16(EDP_PHY_TX0_AMP_MASK, amp));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON5,
++			     FIELD_PREP_WM16(EDP_PHY_TX0_AMP_SCALE_MASK, amp_scale));
++		break;
++	case 1:
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON3,
++			     FIELD_PREP_WM16(EDP_PHY_TX1_EMP_MASK, emp));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON4,
++			     FIELD_PREP_WM16(EDP_PHY_TX1_AMP_MASK, amp));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON5,
++			     FIELD_PREP_WM16(EDP_PHY_TX1_AMP_SCALE_MASK, amp_scale));
++		break;
++	case 2:
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON3,
++			     FIELD_PREP_WM16(EDP_PHY_TX2_EMP_MASK, emp));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON4,
++			     FIELD_PREP_WM16(EDP_PHY_TX2_AMP_MASK, amp));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON5,
++			     FIELD_PREP_WM16(EDP_PHY_TX2_AMP_SCALE_MASK, amp_scale));
++		break;
++	case 3:
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON3,
++			     FIELD_PREP_WM16(EDP_PHY_TX3_EMP_MASK, emp));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON4,
++			     FIELD_PREP_WM16(EDP_PHY_TX3_AMP_MASK, amp));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON5,
++			     FIELD_PREP_WM16(EDP_PHY_TX3_AMP_SCALE_MASK, amp_scale));
++		break;
++	}
++}
++
++static int rockchip_edp_phy_set_voltages(struct rockchip_edp_phy *edpphy,
++					 struct phy_configure_opts_dp *dp)
++{
++	u8 lane;
++
++	for (lane = 0; lane < edpphy->lanes; lane++)
++		rockchip_edp_phy_set_voltage(edpphy, dp, lane);
++
++	return 0;
++}
++
++static int rockchip_edp_phy_set_rate(struct rockchip_edp_phy *edpphy,
++				     struct phy_configure_opts_dp *dp)
++{
++	u32 value;
++	int ret;
++
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON0,
++		     FIELD_PREP_WM16(EDP_PHY_TX_IDLE_MASK, 0xf) |
++		     FIELD_PREP_WM16(EDP_PHY_TX_PD_MASK, 0xf));
++	usleep_range(100, 101);
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON5, FIELD_PREP_WM16(EDP_PHY_TX_MODE_MASK, 0x3));
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON0, FIELD_PREP_WM16(EDP_PHY_PD_PLL_MASK, 0x1));
++
++	switch (dp->link_rate) {
++	case 1620:
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON1,
++			     FIELD_PREP_WM16(EDP_PHY_PLL_DIV_MASK, 0x4380));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON2,
++			     FIELD_PREP_WM16(EDP_PHY_TX_RTERM_MASK, 0x1) |
++			     FIELD_PREP_WM16(EDP_PHY_RATE_MASK, 0x1) |
++			     FIELD_PREP_WM16(EDP_PHY_REF_DIV_MASK, 0x0));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON8,
++			     FIELD_PREP_WM16(EDP_PHY_PLL_CTL_H_MASK, 0x0800));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON9,
++			     FIELD_PREP_WM16(EDP_PHY_TX_CTL_MASK, 0x0000));
++		break;
++	case 2700:
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON1,
++			     FIELD_PREP_WM16(EDP_PHY_PLL_DIV_MASK, 0x3840));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON2,
++			     FIELD_PREP_WM16(EDP_PHY_TX_RTERM_MASK, 0x1) |
++			     FIELD_PREP_WM16(EDP_PHY_RATE_MASK, 0x0) |
++			     FIELD_PREP_WM16(EDP_PHY_REF_DIV_MASK, 0x0));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON8,
++			     FIELD_PREP_WM16(EDP_PHY_PLL_CTL_H_MASK, 0x0800));
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON9,
++			     FIELD_PREP_WM16(EDP_PHY_TX_CTL_MASK, 0x0000));
++		break;
++	}
++
++	if (dp->ssc)
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON6,
++			     FIELD_PREP_WM16(EDP_PHY_SSC_DEPTH_MASK, 0x9) |
++			     FIELD_PREP_WM16(EDP_PHY_SSC_EN_MASK, 0x1) |
++			     FIELD_PREP_WM16(EDP_PHY_SSC_CNT_MASK, 0x17d));
++	else
++		regmap_write(edpphy->regmap, EDP_PHY_GRF_CON6,
++			     FIELD_PREP_WM16(EDP_PHY_SSC_EN_MASK, 0x0));
++
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON0, FIELD_PREP_WM16(EDP_PHY_PD_PLL_MASK, 0));
++	ret = regmap_read_poll_timeout(edpphy->regmap, EDP_PHY_GRF_STATUS0,
++				       value, value & PLL_RDY, 100, 1000);
++	if (ret) {
++		dev_err(edpphy->dev, "Failed to wait for PHY PLL ready: %d\n", ret);
++		return ret;
++	}
++
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON5, FIELD_PREP_WM16(EDP_PHY_TX_MODE_MASK, 0x0));
++
++	return 0;
++}
++
++static int rockchip_edp_phy_set_lanes(struct rockchip_edp_phy *edpphy,
++				      struct phy_configure_opts_dp *dp)
++{
++	edpphy->lanes = dp->lanes;
++
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON0,
++		     FIELD_PREP_WM16(EDP_PHY_TX_PD_MASK, ~GENMASK(dp->lanes - 1, 0)));
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON0,
++		     FIELD_PREP_WM16(EDP_PHY_TX_IDLE_MASK, ~GENMASK(dp->lanes - 1, 0)));
++
++	return 0;
++}
++
++static int rockchip_edp_phy_verify_config(struct rockchip_edp_phy *edpphy,
++					  struct phy_configure_opts_dp *dp)
++{
++	int i;
++
++	/* If changing link rate was required, verify it's supported. */
++	if (dp->set_rate) {
++		switch (dp->link_rate) {
++		case 1620:
++		case 2700:
++			/* valid bit rate */
++			break;
++		default:
++			return -EINVAL;
++		}
++	}
++
++	if (dp->set_lanes) {
++		/* Verify lane count. */
++		switch (dp->lanes) {
++		case 1:
++		case 2:
++		case 4:
++			/* valid lane count. */
++			break;
++		default:
++			return -EINVAL;
++		}
++	}
++
++	/*
++	 * If changing voltages is required, check swing and pre-emphasis
++	 * levels, per-lane.
++	 */
++	if (dp->set_voltages) {
++		/* Lane count verified previously. */
++		for (i = 0; i < edpphy->lanes; i++) {
++			if (dp->voltage[i] > 3 || dp->pre[i] > 3)
++				return -EINVAL;
++
++			/*
++			 * Sum of voltage swing and pre-emphasis levels cannot
++			 * exceed 3.
++			 */
++			if (dp->voltage[i] + dp->pre[i] > 3)
++				return -EINVAL;
++		}
++	}
++
++	return 0;
++}
++
++static int rockchip_edp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
++{
++	struct rockchip_edp_phy *edpphy = phy_get_drvdata(phy);
++	int ret;
++
++	ret = rockchip_edp_phy_verify_config(edpphy, &opts->dp);
++	if (ret) {
++		dev_err(edpphy->dev, "Invalid params for phy configure\n");
++		return ret;
++	}
++
++	if (opts->dp.set_rate) {
++		ret = rockchip_edp_phy_set_rate(edpphy, &opts->dp);
++		if (ret) {
++			dev_err(edpphy->dev, "Failed to set rate\n");
++			return ret;
++		}
++	}
++
++	if (opts->dp.set_lanes) {
++		ret = rockchip_edp_phy_set_lanes(edpphy, &opts->dp);
++		if (ret) {
++			dev_err(edpphy->dev, "Failed to set lanes\n");
++			return ret;
++		}
++	}
++
++	if (opts->dp.set_voltages) {
++		ret = rockchip_edp_phy_set_voltages(edpphy, &opts->dp);
++		if (ret) {
++			dev_err(edpphy->dev, "Failed to set voltages\n");
++			return ret;
++		}
++	}
++
++	return 0;
++}
++
++static bool rockchip_edp_phy_enabled(struct rockchip_edp_phy *edpphy)
++{
++	u32 val = 0;
++
++	regmap_read(edpphy->regmap, EDP_PHY_GRF_STATUS0, &val);
++
++	return FIELD_GET(PLL_RDY, val);
++}
++
++static int rockchip_edp_phy_power_on(struct phy *phy)
++{
++	struct rockchip_edp_phy *edpphy = phy_get_drvdata(phy);
++	int ret;
++
++	ret = clk_prepare_enable(edpphy->refclk);
++	if (ret < 0) {
++		dev_err(edpphy->dev, "Failed to prepare_enable refclk [%d]\n", ret);
++		return ret;
++	}
++
++	if (rockchip_edp_phy_enabled(edpphy))
++		return 0;
++
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON10,
++		     FIELD_PREP_WM16(EDP_PHY_AUX_RCV_PD_MASK, 0x1) |
++		     FIELD_PREP_WM16(EDP_PHY_AUX_DRV_PD_MASK, 0x1) |
++		     FIELD_PREP_WM16(EDP_PHY_AUX_IDLE_MASK, 0x1));
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON0,
++		     FIELD_PREP_WM16(EDP_PHY_TX_IDLE_MASK, 0xf) |
++		     FIELD_PREP_WM16(EDP_PHY_TX_PD_MASK, 0xf) |
++		     FIELD_PREP_WM16(EDP_PHY_PD_PLL_MASK, 0x1));
++	usleep_range(100, 101);
++
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON11,
++		     FIELD_PREP_WM16(EDP_PHY_AUX_RCV_VCM_MASK, 0x4) |
++		     FIELD_PREP_WM16(EDP_PHY_AUX_MODE_MASK, 0x1) |
++		     FIELD_PREP_WM16(EDP_PHY_AUX_AMP_SCALE_MASK, 0x1) |
++		     FIELD_PREP_WM16(EDP_PHY_AUX_AMP_MASK, 0x3) |
++		     FIELD_PREP_WM16(EDP_PHY_AUX_RTERM_MASK, 0x1));
++
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON10,
++		     FIELD_PREP_WM16(EDP_PHY_AUX_RCV_PD_MASK, 0x0) |
++		     FIELD_PREP_WM16(EDP_PHY_AUX_DRV_PD_MASK, 0x0));
++	usleep_range(100, 101);
++
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON10,
++		     FIELD_PREP_WM16(EDP_PHY_AUX_IDLE_MASK, 0x0));
++	usleep_range(10000, 11000);
++
++	return 0;
++}
++
++static int rockchip_edp_phy_power_off(struct phy *phy)
++{
++	struct rockchip_edp_phy *edpphy = phy_get_drvdata(phy);
++
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON0,
++		     FIELD_PREP_WM16(EDP_PHY_TX_IDLE_MASK, 0xf) |
++		     FIELD_PREP_WM16(EDP_PHY_TX_PD_MASK, 0xf));
++	usleep_range(100, 101);
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON5, FIELD_PREP_WM16(EDP_PHY_TX_MODE_MASK, 0x3));
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON0, FIELD_PREP_WM16(EDP_PHY_PD_PLL_MASK, 0x1));
++	regmap_write(edpphy->regmap, EDP_PHY_GRF_CON10,
++		     FIELD_PREP_WM16(EDP_PHY_AUX_RCV_PD_MASK, 0x1) |
++		     FIELD_PREP_WM16(EDP_PHY_AUX_DRV_PD_MASK, 0x1) |
++		     FIELD_PREP_WM16(EDP_PHY_AUX_IDLE_MASK, 0x1));
++
++	clk_disable_unprepare(edpphy->refclk);
++
++	return 0;
++}
++
++static const struct phy_ops rockchip_edp_phy_ops = {
++	.power_on = rockchip_edp_phy_power_on,
++	.power_off = rockchip_edp_phy_power_off,
++	.configure = rockchip_edp_phy_configure,
++	.owner = THIS_MODULE,
++};
++
++static const struct regmap_config rockchip_edp_phy_regmap_config = {
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++	.max_register = EDP_PHY_GRF_STATUS1,
++};
++
++static int rockchip_edp_phy_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct rockchip_edp_phy *edpphy;
++	void __iomem *regs;
++	struct phy *phy;
++	struct phy_provider *phy_provider;
++
++	edpphy = devm_kzalloc(dev, sizeof(*edpphy), GFP_KERNEL);
++	if (!edpphy)
++		return -ENOMEM;
++
++	edpphy->dev = dev;
++
++	regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(regs))
++		return PTR_ERR(regs);
++
++	edpphy->regmap = devm_regmap_init_mmio(dev, regs, &rockchip_edp_phy_regmap_config);
++	if (IS_ERR(edpphy->regmap))
++		return dev_err_probe(dev, PTR_ERR(edpphy->regmap),
++				     "Failed to init regmap\n");
++
++	edpphy->refclk = devm_clk_get(dev, "refclk");
++	if (IS_ERR(edpphy->refclk))
++		return dev_err_probe(dev, PTR_ERR(edpphy->refclk), "Failed to get refclk\n");
++
++	phy = devm_phy_create(dev, NULL, &rockchip_edp_phy_ops);
++	if (IS_ERR(phy))
++		return dev_err_probe(dev, PTR_ERR(phy), "Failed to create PHY\n");
++
++	phy_set_drvdata(phy, edpphy);
++
++	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
++	if (IS_ERR(phy_provider))
++		return dev_err_probe(dev, PTR_ERR(phy_provider),
++				     "Failed to register PHY provider\n");
++
++	return 0;
++}
++
++static const struct of_device_id rockchip_edp_phy_of_match[] = {
++	{ .compatible = "rockchip,rk3568-edp-phy", },
++	{}
++};
++MODULE_DEVICE_TABLE(of, rockchip_edp_phy_of_match);
++
++static struct platform_driver rockchip_edp_phy_driver = {
++	.driver = {
++		.name = "rockchip-edpphy-naneng",
++		.of_match_table	= of_match_ptr(rockchip_edp_phy_of_match),
++	},
++	.probe = rockchip_edp_phy_probe,
++};
++module_platform_driver(rockchip_edp_phy_driver);
++
++MODULE_AUTHOR("Damon Ding <damon.ding@rock-chips.com>");
++MODULE_DESCRIPTION("Rockchip Naneng eDP Transmitter PHY driver");
++MODULE_LICENSE("GPL");
 -- 
 2.34.1
 
