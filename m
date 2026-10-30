@@ -2,113 +2,125 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90336606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 13:56:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1A8B606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 13:58:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1daKpyzT;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eJOmvQHc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Mtk55ULm;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rctCRgnd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+4xayl0zhoKUGLUcIAZBgb+XDnknglYr9Ww1i+AOLlg=; b=1daKpyzToUn6Ex
-	W7Plmr3aO1nq8LjK0hkslzsN9O0uGr0SqxjZ8NQXZsfZXos6DoeXt8NKF7Lj4rsbcxjpw7NerSxVU
-	jGzV9B8MVVBN9Uaq7vBVtqJ8yn3SKyzxP0KVyOIuCMV4sqSfAS0qBYK9C0RcfmBqPaCfcTJByrpG5
-	mDNDJULzy/Zwu+4EmISr7vsg3/oYUZG3SFYyllD4c3OQKknBEla7et2nhqNoggmbVBNED1Fg1RJkp
-	ukZzJFQgnvLpsPmRHNeGwXtE3Mt+AS7nN51bp2h62ADnVOmiJYY7QeDBGFmSUIwRpUkEqebFb8C7k
-	AR2fOd+d+hgbV+hHZvWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=/hIuaSXC/8qKVAwXvaUJ1vLVQZIbwa7mDnRwYchKUok=; b=Mtk55ULmmJVOk8dFeahtPmnZnX
+	JfuCapY0XSoXbCj4fT7VQq+0ujbnJlFxvmahy+ErzlZEIWVIO+y+k7oM2qMODfwhV9K6il2mfhT8B
+	s0G3W3SWzuK1ktJ8FWjFsxzLVi/SMDD3g4PZ8WRn7P1UKP8+VtO7kKCJMWLt5UbAQt1OL4RKydc0U
+	evNiXIKPthGhYueuoC+ZdOHqW75Sai4miu0tMDj9IfQFsrUkj1aZcA7DbfQWwzTIdk5J3CROJClGh
+	OtK4BeB4a2eNvicAOoKjbTXmA583K79O9auV5CjJB7662zZm3dKGtZpjA3crf2cHbpHGyrHNa7DYk
+	0OzJ9lrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMn5w-0000000BnbK-0nx0;
-	Fri, 30 Oct 2026 13:56:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xMn3p-0000000BnGs-1yp1;
+	Fri, 30 Oct 2026 13:54:25 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMn5u-0000000Bnal-3rrX
+	id 1xMn3n-0000000BnFz-2OkQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 13:56:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2140643310;
-	Fri, 30 Oct 2026 13:56:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 597EF1F000C1;
-	Fri, 30 Oct 2026 13:56:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793368594;
-	bh=+4xayl0zhoKUGLUcIAZBgb+XDnknglYr9Ww1i+AOLlg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=eJOmvQHcjB7zpPhIJ3UzwdFfmrnbSMX4LaMrIDquHmWpAzYg7g+C8JwuWw7tK7WFf
-	 AMcY4k0u1iDL5VAjQGcRsJ1boK+k0Jr7R0tXyHpn7dTo0Eg6w/qLuEVtTYXNtuft4o
-	 Vvs1mCqYLz+Pr58xAOEHkjmZlQa10XeA2U4b1BbJzNVeM9NjV6T8/JTujz6QiEn/l7
-	 WK+BihgSYkr78cWarYVQ2ZY1l6q4esEYFZ03anhegX9c2qr2XPviJdpkF2mfTK1yNM
-	 xPNHMXqGbG1Ggvn+nrf8m/mcG8K9YL/qReXKVDLqxfrPoCkvj3BQVvMuF8Va4z35KT
-	 G31+NCrBjDIGw==
-Message-ID: <a0c9c290-4a5e-4d72-b030-cc49d0828e80@kernel.org>
-Date: Fri, 30 Oct 2026 14:56:26 +0100
+	Fri, 30 Oct 2026 13:54:24 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4a214c5c4c0so5961675e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 06:54:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793368461; x=1793973261; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/hIuaSXC/8qKVAwXvaUJ1vLVQZIbwa7mDnRwYchKUok=;
+        b=rctCRgndbXodY9w6nuKBz4PN1qFB/t2yKVfwgOG/Nm4t2pvuMtriRQ/MzZD2TOiPQn
+         PAsOk5p17gKtfwN79cv57inOBSDBfK3byyt6HE0IgC3Ze30WkhRgs6jsrXCkJ+tVhRAY
+         xxiF9X/PzDGZVuZKAUxL/mxawq7FC40q+Z9cVknIdSv1EtiKXu03am2YishUyM6X8+iz
+         +D6cVZEJ1rJ1gdRKYLq1yvafvl1d7NiQOuUkDwdN/O7fRxNgDtntTz4aztGVuWeKxQjw
+         6S5RVX54bTOQCDw5x6yxF3HKqbD/CUGufp4qpYbos/L0M94daTf56AdF8bmHe8/m+KWq
+         G+xg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793368461; x=1793973261;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/hIuaSXC/8qKVAwXvaUJ1vLVQZIbwa7mDnRwYchKUok=;
+        b=msYh9jWxX94IwpNesbjKDYrIX49EJwKbmKqHhYKDtfFa3yjvQwX66+xcEfyQXf2uNt
+         5ssKEjLsBlvF93bY/lQnJYeYqXc9ZiGHChfiwrUOgdhB70fKW7CP+JcwdSU5N/LZezRs
+         mO2sb0To+JaOrdbaB8wJuH0P48lTQpaj+C9m5lnquHjkNBk22tKUFCfMCM56LGwtha8k
+         zzh2mLqf/+aJSPoLTZ9I2ZUjBNbKSqD7ca8bpEpMjzv5JPtqwiVJp9w6jZwQ9wv3V0ya
+         AzZarkxYncrdd0t8H+vNtvmRrcxNZLGXh9hHdrQTQk/TwiwvlidYRfK96oRANWSAxNqk
+         t0Dw==
+X-Forwarded-Encrypted: i=1; AKwUvBwjdeS863eBaEyITunEeh/inku8KW8ZsJEnN+jCN3gCiz1HyxKbsmerlmb+Iq1IniSpfYJs8e+oF6zCP2LP+wgf@lists.infradead.org
+X-Gm-Message-State: AFq9FYKtkrSlpN15a6ucWZ/Fe8BAzLMXU8KaoHKIPCjqEhV7ZhGQki9r
+	FNmkEOo0/rtWKg5ETlplO1/Zzyrbo/u1Pkzyguesdb3s4Q3rC8ka1uv8
+X-Gm-Gg: AYBFou3zYnC9w2kcpB3iQJ9wcW1sPvc63KnO/nY+jCR4Ul8Atn3O/+anQYZuW+kx9Jb
+	UFGbcxWzpjm8yY8j2CMVfZsEkXSrSP8UIeQhkb8M+SE5n4hTR7ZXFw617afiKtKgjDw0feqOCCI
+	WedUnWBZiBcKCgAW8d3+AQNcow7R0J+tRvv72D6lDkY6LKiQYqInh8loPRG1JejqQwewADjC2ej
+	W8xcBz1ZmXPQ6LmsLumqVq8Q/2cqKOaPvzEvSUBhHVcwJCoNDTXlguXQZzdINNxrwuPISI1CDvs
+	3st8qN+Fz4KfRTGf7DRjqtiH/oQtj+0kMFaix15OhoMWJ2xkGJI3FBuBGKUYAIGM+b1CJCpnXwt
+	i5XnCVnhofe3I2DAMqwaej65vMLq+jhVNr8x4jRwS54v8jR86SoPy429OM8+bqQ99aXlu0IinvK
+	szbgqPhxksOnEVeNXT04UKlq0EGJDAc0XqZb96b9n187jKevCC99Z6zs5VXnpptcMxYjv6HpMTd
+	cfL4oablHzedrXAcIBRkhwBG1CtKRgE8u9R9zVnAAKZAtkGPAYTt9zqg5375/EdJBY2VmgcgBl5
+	OTyi2P6zoZ1MrHNnhVGRL4F7QMBRDB+MPAg89hciaAPGsxd6zccMnlYl+EGQluIh/f1jTxOBphk
+	G49Bh4C/J0OpOwPI50tzZROT3vFrUoacFNEyPpGIeTyRXYBrYeC6FDEhh08I8FjC+iV0=
+X-Received: by 2002:a05:600c:608c:b0:4a1:6c0c:ab93 with SMTP id 5b1f17b1804b1-4ac190497bamr46672575e9.28.1793368460933;
+        Fri, 30 Oct 2026 06:54:20 -0700 (PDT)
+Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4ac0950d533sm34613455e9.3.2026.10.30.06.54.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Oct 2026 06:54:20 -0700 (PDT)
+Date: Fri, 30 Oct 2026 16:54:16 +0300
+From: Dan Carpenter <error27@gmail.com>
+To: Alex Elder <elder@ieee.org>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, Frank.Li@oss.nxp.com,
+	Frank Li <Frank.Li@nxp.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>,
+	Karol Wachowski <karol.wachowski@linux.intel.com>,
+	Oded Gabbay <ogabbay@kernel.org>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Matthew Brost <matthew.brost@intel.com>,
+	Thomas Hellstrom <thomas.hellstrom@linux.intel.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Alex Elder <elder@kernel.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Guan-Yu Lin <guanyulin@google.com>,
+	Mathias Nyman <mathias.nyman@linux.intel.com>,
+	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, linux-hwmon@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev, netdev@vger.kernel.org,
+	imx@lists.linux.dev, Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH 1/1] PM: runtime: change stub pm_runtime_get_if_active()
+ return 1 when !CONFIG_PM
+Message-ID: <auShiOI6Hmla6XxR@stanley.mountain>
+References: <20261029163044.3062958-1-Frank.Li@oss.nxp.com>
+ <auRb_r8ZSSU-eHZA@kekkonen.localdomain>
+ <9207a52e-2d42-4e10-b777-2988e84d7dbe@ieee.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] dts: imx95-phyflex-libra-rdk: Add dts for
- phyFLEX-i.MX 95 Libra RDK
-To: Benjamin Hahn <B.Hahn@phytec.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Yannic Moog <y.moog@phytec.de>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- upstream@lists.phytec.de
-References: <20261030-wip-bhahn-imx95_upstreaming-v1-0-1c1cebb5be99@phytec.de>
- <20261030-wip-bhahn-imx95_upstreaming-v1-2-1c1cebb5be99@phytec.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261030-wip-bhahn-imx95_upstreaming-v1-2-1c1cebb5be99@phytec.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9207a52e-2d42-4e10-b777-2988e84d7dbe@ieee.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261030_065423_633847_D3EFC74B 
+X-CRM114-Status: GOOD (  24.09  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,30 +131,52 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 30/10/2026 14:32, Benjamin Hahn wrote:
-> The Libra RDK and i.MX95 FPSC SoM have been updated with new hardware
-> revisions 1618.2 and 1620.3. With these new hardware revisions they also
-> got renamed slightly, as they have been integrated in the phyFLEX
-> series. The baseboard is now named phyFLEX Libra RDK and the SoM is now
-> named phyFLEX-i.MX 95 FPSC Gamma.
+On Fri, Oct 30, 2026 at 08:46:07AM -0500, Alex Elder wrote:
+> On 10/30/26 3:57 AM, Sakari Ailus wrote:
+> > Hi Frank,
+> > 
+> > Thanks for the patch.
+> > 
+> > On Thu, Oct 29, 2026 at 12:30:37PM -0400, Frank.Li@oss.nxp.com wrote:
+> > > From: Frank Li <Frank.Li@nxp.com>
+> > > 
+> > > When CONFIG_PM is not enabled, all devices runtime PM state should be
+> > > treated as active.
+> > > 
+> > > __pm_runtime_resume() returns 1 (called by pm_runtime_get()).
+> > > pm_runtime_get_if_active() is the try-and-get version of pm_runtime_get().
+> > > stub pm_runtime_active() also returns true. So pm_runtime_get_if_active()
+> > > should return the same value as the stub pm_runtime_get(), which is 1.
+> > 
+> > Shouldn't the same change be done to pm_runtime_get_if_in_use()? It's
+> > otherwise the same, except that it requires also the use count to be
+> > non-zero.
+> I think "yes."
 > 
-> Signed-off-by: Benjamin Hahn <B.Hahn@phytec.de>
-> ---
+> I think the logic for !CONFIG_PM should basically pretend runtime
+> PM is enabled for all devices, and they're all ACTIVE and effectively
+> in use.
+> 
+> That implies:
+> - disable_depth == 0, so usage accounting would (if enabled) be done
+> - runtime_status == RPM_ACTIVE (power is on, no delay)
+> - usage_count > 0
+> - runtime_error == 0
+> - Maybe ignore_children is false?
+> 
+> This might not be complete (and could be wrong!).
+> 
 
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+We could add this kind of information as a comment somewhere?
 
-Best regards,
-Krzysztof
+regards,
+dan carpenter
+
 
