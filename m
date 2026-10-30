@@ -2,102 +2,145 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AD37606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 17:06:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57419606A323
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 17:10:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=h1fQfkwG;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=fI6SXdKS
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fwQDQu8l;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=QuFGVUW7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=LeFt7P1mVFRjUvJApqNjloRcS0qu8nw+PQFMs/A+hxo=; b=h1fQfkwGw2f63d
-	bMfhTL4ksLv22Q6BEgQGygrDWUXxN+odC5D/6bo1/Mji/xQ5W3ykhMUEbyOfpKcLn/iUUrdjjOuG9
-	bFzbkw8AdFKAnO4mL2Zq8+rvi/0boHEvHw2JeLabtZgAyF/YHVX9WHztGt7pisuiX9sCafk/8f422
-	ay7bqRytZVK8kngNu+YgFJ87W5DZo5/i95foj9NCYrGRY34S0w1raIVWM1hY7VDug5KMGr/hI9YOz
-	jLmgLXMGAEbQjTQkYylQpICOldv8iAN7g8W6UMqWU0OYJy/7lZKTxaLBw8i93fHzv2bdYC9MjGUtF
-	f8KrhozKEFgyRSa4gVCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=IA9sYotJmbL2Yr3kpwPmqSBX/u6xE75w+0WSu2aSScI=; b=fwQDQu8l6Eo3HC8vh5BETkSR74
+	ECsQLxfiNcNcxqYSXUjT8f2r++CrJpI3Og7Ov2CqjabhcTDgFCWiTeBrTLBFQDDNSbxeRRv7hMu2N
+	Zw/yluls45CfWD9WEm5n7Mf3E4cd6c83yhXw/Biugvy2W+BUwdIRpWhCXoZp1B/jv1Wb/t/++7Av+
+	zN5VDzgZ42jUFm3C+C3l6c11CYfsg9YcETnLMc9OKirYK8PoNVE2csAj+/AdlApIsgOQWCZSF3uO0
+	HnwAH8AR8CB0xoLd9nUCcXHaeRC/65jfJAACUCxVHY0Lm63aKYKxg7HC+NYga9zpONKJfNTMW/Hh5
+	ooeMZzng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMp0F-0000000C3Ud-0MLD;
-	Fri, 30 Oct 2026 15:58:51 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1xMq72-0000000CCFr-2ayQ;
+	Fri, 30 Oct 2026 17:09:56 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMp08-0000000C3Lz-360K
+	id 1xMq6z-0000000CCEp-0SiA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 15:58:47 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a59100fa83so7954555e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 08:58:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793375922; x=1793980722; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LeFt7P1mVFRjUvJApqNjloRcS0qu8nw+PQFMs/A+hxo=;
-        b=fI6SXdKSGq3fhd2lE0zjum86Lr+lG5+HdJB398/sWP65WNaGtEq+TTMUDlXoLnydJe
-         HpuSzWKJj8kVdAoq37DsCMrmKPEV+amMiw9lFUxxXwZx/jdebdKSQzehU8oCXurzcPO0
-         E71dKQRerqL0sKPd3+cs71Yxp7sVryG9ZeJS8tdZX/YxRZ5gzgCD3nfIy4eeBagAezsi
-         w8DjBUrSEYUkVqAOsCWERh6rJ9/r8sVpU7FSHD3qmHlb0F7jB3SiKVk0IPtg8vWoiEkV
-         818zjo5Fa5KUEKNXJ9MMVffyXUSBG7jphnRc2A++ytq9pGkDXUVAXw6UP1sRVeFI3Ivu
-         I+uQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793375922; x=1793980722;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LeFt7P1mVFRjUvJApqNjloRcS0qu8nw+PQFMs/A+hxo=;
-        b=UJeYd0bndKICfMBWpbDKQiX0kJZ+w6t3iSlG+52h4LKv3Zvs93z0YtJ/l/5D+cl3Qk
-         XcITdp3I0j3gOl8DSbL2pJeEIIK1dwbQMQtSI13AO/4yoFue2NOT0sB8o8BSDuyOPTFq
-         yWh17XriGS8cgBIEw9v0tnP0S8hymKZd87IuhXezt6wb2+1Rmw6Mx7N9WeHrA/Xyl3GY
-         CsQEEmYLHuSEOCzHf3EtOranb17vE9PrIXXMQ2x8PJPkO5Urylr5dtAfgujd5HLD89/G
-         7gzHKWRGkp/ZHYF9vx2ymOzC00BbzWkGM3YdW2eqW+HUGda8z7r7cQXShWCjKLP7fU0J
-         TQxA==
-X-Forwarded-Encrypted: i=1; AKwUvBwVj1pz9PgySbOW0pLB0WPabfJlUNyhpqxBrTtRjn8eO7zLtUGArq9WQWTFdbrb90x00KMWR567cLPpyecf6eXk@lists.infradead.org
-X-Gm-Message-State: AFq9FYLf5MuLrDhND00WBWZh4savOGRw9DEvQjz3qmgFGlsnbmD/8W96
-	K+rHtUq4okMQkwa+imhGU2OC6s1kv/kJZ64CWGMjFKu3XMxT0bkaiYBdZSMFQt6+vmiYplqR5hg
-	WsuZ3xxvgzA==
-X-Gm-Gg: AYBFou2FuVu66gyPBDHWhzviVmCWAme5e5OCIGXMvkhijBaqe7WrV4izAi5jmu0wFzC
-	afxPMLHx7vEays+sFhtYtN8cLInRiULyHTxHlB4NfJUO0y0ZqI8j4p5Syi8F6nvdKuI8CeIHXb+
-	TZVj9PcPPkP7GfFImVuzfGGlMPubf41MhUieBUclfdsCa5FdPylvVRsRTMZH+HoZMJcO1R9GfAA
-	KKW2ueuKK89n98vzp4JCTm+F1XJliIi0d8YILgfCnCwKXdsPQXF2WvCQpj+/hUd25yfVgusZHJ9
-	KAdRSAUQoJLYVmVY1ryHZspkM9u5zGT12Eof7tKjTGCFGM43Ho0gc/5kzSBBdc01XQ7e+v764mw
-	7mHzu4rV1oqVu1MoUSfOn919+QAGIwYbenBWEXQOvoSy91N8ji+nA2ijwZq6YV/lwVBnBOP+GPH
-	LIKmPXyEjd9WR/6i3OqjYTKqfCAuDBhrMhc3Hd5ygyNC9OfMb7clnLxZvVrDW80CntOkOyin4Ck
-	eYYUkK/Fqj0PltQEYPOqk539GpyBiuPO2eY3Ezr5W3tXHz0IGwedQTLv7U5nU/G9oqDqwYY2X4i
-	Ez9d3FClFa5d7ZyBOIwCbAUCnD4q3KkBJxyq+X+oLDxkGtO6NCk=
-X-Received: by 2002:a05:600c:8709:b0:4a1:9078:911 with SMTP id 5b1f17b1804b1-4ac181e75b7mr66361365e9.31.1793375921690;
-        Fri, 30 Oct 2026 08:58:41 -0700 (PDT)
-Received: from localhost (140.30.66.37.rev.sfr.net. [37.66.30.140])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71ba24f6sm3802033f8f.51.2026.10.30.08.58.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 08:58:41 -0700 (PDT)
-From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>
-Date: Fri, 30 Oct 2026 16:58:38 +0100
-Subject: [PATCH 07/11] pinctrl: scmi: give no groups to pin-only functions
+	Fri, 30 Oct 2026 17:09:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cWXUmu+pbQ2PLNfWa+1Nsjgw545M43LJ+N5pajXx2ghnR0AkccbT2E1e9hSy5dp+yIYbSdRlQWWlABBoQ9Z+VQf2lKPugmsxfU/BIVexwqhfSzKZUXssD7G/U45eKMt00uFkF5Dof0qvhnlHa5WOTDb42EF9RYfVuGtnlFXlaJDM87sNPF3WTIcoVHx737jPFenSjA7SiNg4/Jyda9+6wHzR4C3s99IqvAOFxcG2GayhEl60G+GiRw/HGQzyDc9yA7qxvPRa1fs6PyW+3bytKwjjXbeEqEExuQnHqsLyf9iCA7KQhqTr1S6IdzmlKrzq1iaNHTpgoilbU6+p+FSjGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IA9sYotJmbL2Yr3kpwPmqSBX/u6xE75w+0WSu2aSScI=;
+ b=JpXWf19thACUqy0niQ46E8Lv85cLNC0b+NANszWH1HSAdvd41BNdTc04F9e6MII4AVVAaxZPL05M/N/ZYlT+vI8s1xCq64GM+ad2bnyZxFlcdJOALWMb9f8Y816j+xVqa+VrGBj/Jyei5r929laxJlX/U9yUI62NcCsNBnCluKIUOAbi5qThF6MCNAC7odsse9XCj9vI2fueO3iJFhedL1nKUIgRDbWSrvGiib1bhVnFrCZUZkKYOLemP0c+K0vskJ74egQC5JhWov4JjvH4k3cB4nmmNNOj0l5innFyn+XX6+R5kX4/nWtvNqhqZbOMgCn70ZqwJ7Zyd+8q2RrLKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IA9sYotJmbL2Yr3kpwPmqSBX/u6xE75w+0WSu2aSScI=;
+ b=QuFGVUW70L4EKQJ+NZgpmxUVPqR5tYoCULSpJEn6RPYFzr183T5x25NttBDf7SnxNfxEyJakfr9r2PqO4P3tfk+nFmM47AhEcRgiyo+Q0RzDqeSMHlXaQwSGzwb4P4d89OOlm1Fo0Bhfd5k0OCtzmtMkITphGEbLsaSeCYfjsqbDiy0WXZjglitzJQwULCKoiS1LsTHsS4PysZ25Bga04KqmwhHay5B3y6wJFRhgZwNHcuvO+y/a2aKeD7zI2ENAoZny6pIuH10XZb60MCbt2ztFOjt++kuhpfAcNkqpdiunf8ZRE4DbxaltNuJaJ3IODyyeVXazb37ybWVD3B043g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AMBPR04MB12445.eurprd04.prod.outlook.com
+ (2603:10a6:20b:75e::21) by PAXPR04MB9491.eurprd04.prod.outlook.com
+ (2603:10a6:102:2c3::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Fri, 30 Oct
+ 2026 17:09:45 +0000
+Received: from AMBPR04MB12445.eurprd04.prod.outlook.com
+ ([fe80::ba23:1fa4:ce58:ff06]) by AMBPR04MB12445.eurprd04.prod.outlook.com
+ ([fe80::ba23:1fa4:ce58:ff06%3]) with mapi id 15.21.0569.008; Fri, 30 Oct 2026
+ 17:09:45 +0000
+Date: Fri, 30 Oct 2026 12:09:35 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Xu Yang <xu.yang_2@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	"regressions@lists.linux.dev" <regressions@lists.linux.dev>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>
+Subject: Re: [PATCH 1/2] arm64: dts: imx8qm-ss-conn: add usbotg3 iommu
+ information
+Message-ID: <auTPTxt5ioBJrr27@SMW015318>
+References: <20260720-qm_smmu-v1-0-3689fbd8b516@nxp.com>
+ <20260720-qm_smmu-v1-1-3689fbd8b516@nxp.com>
+ <b911ff91-ce7b-462e-a7fb-f8c6d682c85b@gmail.com>
+ <auJWI1bqt4kX70pZ@lizhi-Precision-Tower-5810>
+ <auJjlYWf2JCa22Ai@lizhi-Precision-Tower-5810>
+ <2a1eb85c-8a30-4594-bdad-8a1dec17b141@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2a1eb85c-8a30-4594-bdad-8a1dec17b141@gmail.com>
+X-ClientProxiedBy: PH0P220CA0013.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:d3::11) To AMBPR04MB12445.eurprd04.prod.outlook.com
+ (2603:10a6:20b:75e::21)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261030-clegoffic-pinctrl-scmi-gpio-v1-7-52d92843ad97@baylibre.com>
-References: <20261030-clegoffic-pinctrl-scmi-gpio-v1-0-52d92843ad97@baylibre.com>
-In-Reply-To: <20261030-clegoffic-pinctrl-scmi-gpio-v1-0-52d92843ad97@baylibre.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Linus Walleij <linusw@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Oleksii Moisieiev <oleksii_moisieiev@epam.com>, 
- Andy Shevchenko <andy@kernel.org>, Dhruva Gole <d-gole@ti.com>, 
- Bartosz Golaszewski <brgl@kernel.org>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>
-X-Mailer: b4 0.17-dev
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMBPR04MB12445:EE_|PAXPR04MB9491:EE_
+X-MS-Office365-Filtering-Correlation-Id: ec242082-ea46-436d-2223-08df36a8987e
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|23010399003|376014|19092799006|366016|22082099003|18002099003|261026121527099003|3023799007|56012099006|11063799006|4143699003|261028144727099003|261022105027099003|10067099003|261009223027099003|261026140227099003;
+X-Microsoft-Antispam-Message-Info: 3cE22Vu1otZSM8URd+5orlsm4r3E1JF8TtDSgeIarpp6dgrL97mGNcri6/z9WBermAL14lQjTm1/nGIVAXZtiwosQ0Pk/Et24XiJoDrUrvtx8UeBvJxTo/oA0lLXsOvGxQImEeUkCwBxg/oidII63pdSGiP9ZsjgVSFWIcpoZSL/ru1F4AqTugAZ5oXZKfFm3AScbe2PnCDulilhad5jbjFHGorawgX1n9/CCmqoLuht87RNEaxtoJ6wBzn6PvUyrMFIWyy2ZIJh2qOuo75qQxMHw48y4RsZtqplz69ke/umtVy3LOOQ2xyOgC5HlQazupB1y1vBerUp1eS7TzZa/z7fDt8tVWJbXgTZh0A9tyh/QmMXmE8mPxgGbaB3mlPGXOU6GHe/qUZrPUdTjO7aF7suo/I3KACxp/+42765v2moXuV2dAQizfExSCQbf+cgHQawyAiaqQQ7GFVet4WKU1RPIXYtIFc/Dg3J456cmEvsioKXmbWQ9TwWCk9HlZ54F1akT7r4mepUHC8xT4w7USufjkPbDv8Rk9uXZYzROSnAUi64fyFokUe01Mo3NBJInVp3YtbggJdudgXA2WwEr7YxlrDsFplsbAttcl338DBf3ue0yyKoLXs0VbCvEO2OXH2m/x+kcYHAELz4kAzXOooDP2DEiv7mVWCAV3zvxcY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB12445.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(23010399003)(376014)(19092799006)(366016)(22082099003)(18002099003)(261026121527099003)(3023799007)(56012099006)(11063799006)(4143699003)(261028144727099003)(261022105027099003)(10067099003)(261009223027099003)(261026140227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZQvZ9qfwuKOs+uE4bcFdzYdzfqoc/5QNhhc65sLedspX4Y6qA9MhflEcfDTU?=
+ =?us-ascii?Q?rJWwnilX10FS5fXeWrrDEc2rslAYUn5t6UbMWj6PI6Xqqr68ji6cB3ulylVm?=
+ =?us-ascii?Q?P+UbmJ8UHWL4CgaDstsgy9MWNpm/F5Ou/EVxBbicPoi56JHcuz09wHxZHwIz?=
+ =?us-ascii?Q?OSoB97wpnEmuDJjvObRZrj+yVFS/MtyrmEG7sHzD3NU947AvC+o43pOtlbP0?=
+ =?us-ascii?Q?ahvMMqCZCy5+5TByijak4oSTBF56oc5MvUx6QV8L13/SXVeFIXy751SByHTd?=
+ =?us-ascii?Q?rkZSgtHqOpVvN6qNEQ5EVE7L0G5w/4C0OPhFGfzFkw8JOLMzbdeh/RJhkope?=
+ =?us-ascii?Q?Lg26QXSP/1IAZ+gKECzzM5Wy1Q8wE7Lzj+EHDD15shW0vdL6CEd1LHtbKwgg?=
+ =?us-ascii?Q?FLdb55RLKBzEfBZpcQY0zepfyf4kTaAD1R9QU/NNWzFGhxAuyJ6o3SspPVtw?=
+ =?us-ascii?Q?ZkDmFR65cbepI/ip+2fECe5fXuE0GJqsT+76jLPdQFUPUWIfVXu9ZHQ+GuBb?=
+ =?us-ascii?Q?2UGQN3hx5DfulgShbJUG4Mti0H7H5q7d2UXm/PdgVXIF3iB2DpXZVMjt0xIC?=
+ =?us-ascii?Q?msWzv+Xzelk3hnFK4bgkMUKP6eydTcdZn015BR3oZIvwfhaXcYI5noasvEVk?=
+ =?us-ascii?Q?0wFhk10opYWdxOmLxah7KUYe4sgmzCW+Kz09HiFSlq98EYWvuDDtakfdvqTd?=
+ =?us-ascii?Q?WGD+zBqCaQmaAnCaq+BljaNVWavh2wuqi/9JJ2B9JFR0eZl/O339IezYCjJD?=
+ =?us-ascii?Q?l5j0DF5QMqB/C4nlZnwVE9417XnRajmXvGXYtmPML4wdQuZag45oyk+xiYNL?=
+ =?us-ascii?Q?tFVyaIfpHlLdE84dYZGrfnD45K4mMpgjPEQSiDlvXsEs8MB5MOy8l/Lo00f5?=
+ =?us-ascii?Q?qAQaGBfdLRV4d9cKA11JG7uUETSCsM+pkoXzQMVwSQNTMKmtWjSYx5K/CD6K?=
+ =?us-ascii?Q?kx7tG/NTg8uoHnZC2l+VO5nOHuBKOlNukGNUn4XGjPwvn8nr/Wo1VLmr7Zil?=
+ =?us-ascii?Q?AvJjOpt7PHGJMiDugORx2ASqlxWMHMWKGUWqLiD8uS44rIo/XA2oykMeGS1J?=
+ =?us-ascii?Q?F3DmUjpP7+qpnpBJIVz2wrMlJNsIfw+hT7t3f/DY8HbYRiWkWfbq7aWC2wTH?=
+ =?us-ascii?Q?6yFa8DqstTyxNRvVBt6nWlu29b9c++WCWuyQoCmVNKh6E24WrJOXp9TNO5y0?=
+ =?us-ascii?Q?8pG64LXy5FE06clAtpSIjtTD0RH7GOBtf9jVYxnUmoShoWhUlr9gVOOnjgAk?=
+ =?us-ascii?Q?HCckwcZohLdDMLnr/3AHT5Q50fUpuWEPsvpQTp6hL5VUKsR5fBv0hW8Mnn+3?=
+ =?us-ascii?Q?7xUrFSTv/UnWoVcbo4LwaAgdBlUEcOb88VwDLP2qyZ3aeJNO875HNaKFJUu+?=
+ =?us-ascii?Q?jA059sv9TYpoM7fhQiz9Uroaa6y4alyHFvrxeWn2XHKmYpzYsRyE8F4TLi9N?=
+ =?us-ascii?Q?LVlQc8Us6yFmBM20z4UZhomGoNfotwkBYlI18dFoev6gT/NfJke7q5n1Roxd?=
+ =?us-ascii?Q?xJAmwl9TE8m+vSRB36SaJ8KtowS6g3EFYh8wIwQvEMo1bq9IRrAj55ZFJC0k?=
+ =?us-ascii?Q?Hmf9fZxGie9sP+NwsfPkWEbvqZJpWcOWz7IMx9kEzihtfnwbWShBHJf97pGC?=
+ =?us-ascii?Q?57dwSeOGaYgzhG4cK2cRQjlUVkpBNXQ067Q27TGaDbONFqoXg4VlrpE8ddSj?=
+ =?us-ascii?Q?U5xZeSBnnOcbHb4BmVGU7gTQ9nLEYsyVRnHFX6+7RzlS6Jt8PYrDpYdjpi+c?=
+ =?us-ascii?Q?jyI586D/IPDDtU5cJ4QQwEMUUly0mbkNoO9Vow4lrfumJ69YAcX0?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ec242082-ea46-436d-2223-08df36a8987e
+X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB12445.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 17:09:45.2931
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jD22XNmN0ZeghO0KlB9arAv6x8eX0R0qoIMw6ApxCRtysd6hppauFb/APWBq4sv2t5fV+z1TDgvdUc6Llyfnd5bgsUdM1Hlch0IHWSf8tob3hfZe2+iY6WlCa0r32Mps
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9491
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_085844_819327_17BEFC9F 
-X-CRM114-Status: GOOD (  11.79  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_100953_569981_3DEC8105 
+X-CRM114-Status: GOOD (  16.16  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,60 +151,63 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-For a pin-only function PINCTRL_LIST_ASSOCIATIONS returns pins, but the
-driver registered them as groups. Register pin-only functions without
-groups.
+On Thu, Oct 29, 2026 at 07:55:41AM +0100, Emanuele Ghidoli wrote:
+>
+>
+> On 10/28/26 22:05, Frank Li wrote:
+> > Does it only impact superspeed? High speed work?
+>
+> No, it's not even enumerated, on the Dev board.
+>
+> >
+> > Thank you report this problem. Suppose below patch should fix this problem.
+> >
+> > I have not time to test it today.
+> >
+> >
+> > Frank
+>
+> Tested, it doesn't help.
+>
+> xhci-hcd.1.auto has no fwnode, so platform_dma_configure() never calls
+> of_dma_configure() and the new code in of_iommu_configure() is never
+> reached.
 
-Fixes: eb524cb651b7 ("pinctrl: Implementation of the generic scmi-pinctrl driver")
-Signed-off-by: Clément Le Goffic <clegoffic@baylibre.com>
----
- drivers/pinctrl/pinctrl-scmi.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+Finially, it is hack at uboot.
 
-diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
-index 355ad26cb215..1a14e254f011 100644
---- a/drivers/pinctrl/pinctrl-scmi.c
-+++ b/drivers/pinctrl/pinctrl-scmi.c
-@@ -443,6 +443,7 @@ static int pinctrl_scmi_get_functions(struct scmi_pinctrl *pmx)
- {
- 	unsigned int nr_funcs, nr_groups, i, j;
- 	const unsigned int *group_ids;
-+	bool pin_only, gpio;
- 	const char *fname;
- 	const char **gnames;
- 	int ret;
-@@ -455,13 +456,20 @@ static int pinctrl_scmi_get_functions(struct scmi_pinctrl *pmx)
- 		if (ret)
- 			return ret;
- 
-+		ret = pinctrl_ops->function_flags_get(pmx->ph, i, &pin_only,
-+						      &gpio);
-+		if (ret)
-+			return ret;
-+
- 		ret = pinctrl_ops->function_groups_get(pmx->ph, i,
- 						       &nr_groups,
- 						       &group_ids);
- 		if (ret)
- 			return ret;
- 
--		if (!nr_groups)
-+		if (pin_only)
-+			nr_groups = 0;
-+		else if (!nr_groups)
- 			dev_warn(pmx->dev,
- 				 "Function %s contains no groups\n",
- 				 fname);
+592: static int config_smmu_fdt_device_sid(void *blob, int device_offset, int sid)
+601:     prop = fdt_getprop(blob, device_offset, "fsl,sc_rsrc_id", &proplen);
+618:     ret = fdtdec_parse_phandle_with_args(blob, device_offset,
+620:                                          "power-domains", ...
+578:     err = sc_rm_set_master_sid(-1, rsrc, sid);
+681:     prop = fdt_getprop(blob, offset, "iommus", &proplen);
+848:     if (is_imx8qm()) { ret = config_smmu_fdt(blob);
 
--- 
-2.56.0
 
+Need combine power-domains with iommus.
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8-ss-conn.dtsi b/arch/arm64/boot/dts/freescale/imx8-ss-conn.dtsi
+index 176e2e332f87c..cc2b9a212780f 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-ss-conn.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-ss-conn.dtsi
+@@ -189,6 +189,7 @@ usbotg3_cdns3: usb@5b120000 {
+                        phys = <&usb3_phy>;
+                        phy-names = "cdns3,usb3-phy";
+                        cdns,on-chip-buff-size = /bits/ 16 <18>;
++                       power-domains = <&pd IMX_SC_R_USB_2>;
+                        status = "disabled";
+                };
+        };
+
+Frank
+
+>
+> Emanuele
 
