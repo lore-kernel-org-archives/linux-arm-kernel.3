@@ -2,67 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7799A606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 11:11:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70515606A330
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 11:11:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gD319oXV;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B6wz9Fxz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bYWSb4v2;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=owvbKBV8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=zxZ61noBemOEJ9Z/Swm3wSwkY7NkjJ1S3EShVMj989I=; b=gD319oXVDGJ14of9oe+e+ssFki
-	NkRXrMz0ckCdLiIjm9SXX2yaC5G47a2f7bMMf4yB37ev8xnOMrWypgHIA+ifcJxY7zUx/KHftD6lQ
-	0aGLtBnrGDw8kfilsb2wdjtYsOQlhZuPRIHiFuQJBKg8gYQagePNcascB/PIYUchdrU+p3mtfkvf1
-	aabWFtwnFlMQvBhKXR+APLjqmunKYHc70CrpVsE5nv3CFjhmKhkRw7fbLB5KuMLL2y1h5rPRfg4bf
-	U3JooyWYIvJmgqWSgA5AtIUx74PJcF14g+gAvzG9VeN8HIZD2wFn752MvSY7v2W6fCq3rpBW2R+IE
-	DncmDYQA==;
+	bh=jCYK5v4XQQfPSvL9dOgHNb6hBySDbFEoE4OZWzTPLKA=; b=bYWSb4v2gaCCyZ9q9FNaKw1czP
+	MX+zhthlTKTnh1HbgGFtk7nk0tUGhIqCxjJaiIl+GFRII7TXpRmEo7/Fa6Fd6xpSLTWRm/wrLti+X
+	ofPzANmcaoTmRxeEqiP0mY6UKcacpGW7zzwWllckW2QlmJ2qRIba8y0z3TQXX6Phq+0iPbFENGDCh
+	2r8K8M+u/4hI4iAYHpdELPIN0n1UCJC4vDVvi/+lpPFHqLOOEfiHH5QrjLdEyiKG9vdx2uj37xaJB
+	H90dIJEOE6IL49YGbaA8Isej010J8Z5kAUO8eYDqrgCwAxGLTfE8qG55emMwAUjd8U5TufPmKoM6B
+	mYrS3tjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMkVl-0000000BVWo-0dru;
-	Fri, 30 Oct 2026 11:11:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xMkWP-0000000BVil-1vMV;
+	Fri, 30 Oct 2026 11:11:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMkVj-0000000BVWV-258K;
-	Fri, 30 Oct 2026 11:11:03 +0000
+	id 1xMkWO-0000000BVie-2qlG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Oct 2026 11:11:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 57099602CA;
-	Fri, 30 Oct 2026 11:11:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AD301F00A02;
-	Fri, 30 Oct 2026 11:11:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 70E8740249;
+	Fri, 30 Oct 2026 11:11:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86C661F000C1;
+	Fri, 30 Oct 2026 11:11:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793358662;
-	bh=zxZ61noBemOEJ9Z/Swm3wSwkY7NkjJ1S3EShVMj989I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=B6wz9Fxz6TcjWK5RVkgW6OK/pRylEpQuIfP6QSdziPqzdCOAuAFyIBvq/pCr7qsw5
-	 RfgaO+FBxRrCG1LU3kErftUbiB6gvDTvFbV9W2hBdFTN6jk77WWFZaWZwIcYvxammu
-	 6jzm1CHzHKNkesPb1ERuda8+n5pEP3J06XSRzDXcmJgJmrk/r4jGn7QcrpLsEwqyG4
-	 Z5lzbOp3Y/ycXRLdiqX2+jnRxPjswUlwyzi/o1OKjnruDxpaDCMUROAmawG2BmSc43
-	 Kroj/hsVhjz4f89dQrGEs8kFHbFad30/9x8vNTJMEZAtZeHOS0xXIDEimf/9MEE6Hi
-	 /0MUq4weqCK+g==
-Date: Fri, 30 Oct 2026 12:10:58 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: christian.koever-draxl@student.uibk.ac.at
-Cc: neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, 
-	martin.blumenstingl@googlemail.com, vkoul@kernel.org, mani@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, 
-	Christian Stefan =?utf-8?B?S8O2dsOpci1EcmF4bA==?= <ckoever@outlook.de>
-Subject: Re: [PATCH 1/2] dt-bindings: phy: amlogic,g12a-usb2-phy: add S4
- compatible
-Message-ID: <20261030-chihuahua-of-perpetual-current-1d40e3@quoll>
-References: <20261025192202.209045-1-christian.koever-draxl@student.uibk.ac.at>
- <20261025192202.209045-2-christian.koever-draxl@student.uibk.ac.at>
+	s=k20260515; t=1793358704;
+	bh=jCYK5v4XQQfPSvL9dOgHNb6hBySDbFEoE4OZWzTPLKA=;
+	h=From:To:Cc:Subject:Date;
+	b=owvbKBV8NNXg7Lj9OtB7rK6tEk1LNVkciZy7BwCanHi5LSGeiA6x2gLKueQ8c2i23
+	 XhI48ioSIeiVvmL+11wmp2ExvH1DuoXGQ33RfoEH+ePUnSxc9eGIJmTiP8g0vfp2e7
+	 g0A2cHxY0dnFa90IRqxP5TtvJdPAt+FRiPvrXkas7yFCfDRSclAQsdj+iWPaCTljwZ
+	 7eE1xA58ufSFejivZ+AscUFazYJcy6BHY1bv8R6CXxeHtvzkibhZvfsMgmNezYhEy+
+	 pzuPqXw4pFAzVPk1oJeLqyjsFglnFd13MdV3wBpY/C3homtUiRykPmHIj6qHCWG7NA
+	 eM3p243lOyTqg==
+From: Thorsten Blum <blum@kernel.org>
+To: Juergen Gross <jgross@suse.com>,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Alexey Makhalov <alexey.makhalov@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>
+Cc: Thorsten Blum <blum@kernel.org>,
+	virtualization@lists.linux.dev,
+	x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: paravirt: Mark steal_acc as __initdata
+Date: Fri, 30 Oct 2026 12:10:55 +0100
+Message-ID: <20261030111053.114812-3-blum@kernel.org>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20261025192202.209045-2-christian.koever-draxl@student.uibk.ac.at>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=736; i=blum@kernel.org; h=from:subject; bh=kuEW+4WESnxfN5I5tznjdeP1HfZYuuQX1do2/C1S0eo=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFlPqm0VPQqnHZBard7GLrtw8+3q400zE7/MkMoVXCPFF 3bn8unPHaUsDGJcDLJiiiwPZv2Y4VtaU7nJJGInzBxWJpAhDFycAjCRlTcYGeamXv+0SXefoXNe cF7q355Up/1Kvgsv/5r6WXfZrT+757gy/C8WC7BiXPSuhiOat36OxHEfhfkKk6OvFJy7kea4pPW KFyMA
+X-Developer-Key: i=blum@kernel.org; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,29 +76,33 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, Oct 25, 2026 at 08:22:01PM +0100, christian.koever-draxl@student.ui=
-bk.ac.at wrote:
-> From: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de>
->=20
-> The S4 USB2 PHY is the G12A/A1 design with a few different analog
-> settings, so it needs its own compatible.
->=20
-> Signed-off-by: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de>
-> ---
->  Documentation/devicetree/bindings/phy/amlogic,g12a-usb2-phy.yaml | 1 +
->  1 file changed, 1 insertion(+)
+steal_acc is only written by parse_no_stealacc() and read by
+pv_time_init(), both of which are __init functions.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Thorsten Blum <blum@kernel.org>
+---
+ arch/arm64/kernel/paravirt.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Best regards,
-Krzysztof
-
+diff --git a/arch/arm64/kernel/paravirt.c b/arch/arm64/kernel/paravirt.c
+index 572efb96b23f..df2e90092f47 100644
+--- a/arch/arm64/kernel/paravirt.c
++++ b/arch/arm64/kernel/paravirt.c
+@@ -31,7 +31,7 @@ struct pv_time_stolen_time_region {
+ 
+ static DEFINE_PER_CPU(struct pv_time_stolen_time_region, stolen_time_region);
+ 
+-static bool steal_acc = true;
++static bool steal_acc __initdata = true;
+ static int __init parse_no_stealacc(char *arg)
+ {
+ 	steal_acc = false;
 
