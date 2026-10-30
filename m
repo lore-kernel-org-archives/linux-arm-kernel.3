@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F174C606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:28:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A45EA606B81F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:29:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fkEnJvCh;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h6k7JA0p
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mtr7CYg/;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c51QBABz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,53 +14,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=wPmH0exl60o0i/rkyexMG4I50dKwLyjpyUdCUkH8L4k=; b=fkEnJvChVhST+USgLyqOTNPk/g
-	wM9SGCGpAmsAYQo5Z+0GY6yeAOUQLeokoVwbcryrRU7503uvk/JMzozQ3EXBwM3oZz3+oK76nthXZ
-	7gQ3rSajkDA8+Q7DU1EhAGJ1fdBH6xzvk8bkW4b94LiQtSxS+gBm+qqBPdwSUk+4l8rMCrNb4A+ym
-	Nf4pfaurK/1rCTtJmKVUa47HGkvJJSVaNkR2ZSbG9z19mMwEqNlQa7Ct8gBILMtfNPtRYlgugPrLY
-	zHCrzm/OG59A3ORYC6Sk+eZG5156FgZNIU4DYTy2JJuXZtsX2xVHLfT+i4ZvLYK7WK8Uh5KiT03pb
-	yiBN6J9g==;
+	bh=mGS4GI/jAb9ZPIqUcHBrz7HIHg2WVEdgOBXskoS5LME=; b=mtr7CYg/8lMWq5qq0ai0WvSV2X
+	MHTxMcyhCz2fIJHI8cwH1iJWLd1EbJYC7fw4xMsTvKP8OtGR7xzzhpWUsM2aF15zroFdSD5a8EGhh
+	TdtaPlsV34mQcvWk6LmHETAfLkdJ8wWpBa2kTaXNVxUJuQBd13Khlx8KXDFTxBeqoiAztqZfKsYQv
+	/asCJGnOENowZyiRvVjxVvJ4sW63KeARjkpgboHLSeuDs7swPlBFyCVNxgnZbHY2t6dOLfZ2mehAk
+	G6c7FIaH7Lfa7aW96iPX4vilufO9ZK1zoMUcjAsx2pSA1ogUqimiJ6g9YTbYtOgMeXGzCul5Tj70+
+	/ysH8wGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjqH-0000000BOVX-0TLu;
-	Fri, 30 Oct 2026 10:28:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xMjqw-0000000BOc8-2oE5;
+	Fri, 30 Oct 2026 10:28:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjqF-0000000BOVK-2Hcu
+	id 1xMjqu-0000000BObg-1RAZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 10:28:11 +0000
+	Fri, 30 Oct 2026 10:28:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7B0D060626;
-	Fri, 30 Oct 2026 10:28:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2C7C1F00A1E;
-	Fri, 30 Oct 2026 10:28:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 84292412AE;
+	Fri, 30 Oct 2026 10:28:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 680811F00A16;
+	Fri, 30 Oct 2026 10:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793356090;
-	bh=wPmH0exl60o0i/rkyexMG4I50dKwLyjpyUdCUkH8L4k=;
+	s=k20260515; t=1793356131;
+	bh=mGS4GI/jAb9ZPIqUcHBrz7HIHg2WVEdgOBXskoS5LME=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=h6k7JA0pKS6CDdHgjoc3P3z386lmR8880hX/v7FV9uv4B9veUSkWvVTM3/TSWxgF+
-	 5hk3NN14Bn9VUvpbHgM22PW++wzmw6biqd5K+lPDB4ZGiXQFodN9a9KVBMc6aG7Jj8
-	 M/g5Epxtvzd1cYH9r6ni+Qi/WW7JXfu4sR5huhvQAjrHQO9D6z7tOpIoPzbQd3QMQO
-	 w5Zu6ueogKLQFadBsdAeb9QkeXqAGZ8fO8vaXqNug86NJLDtMdAeYPEhspSfHGafoo
-	 UHmqN/IJOW9YMXHcP8V9Ck0Tzl4Yta/5C8FJqmTmJd9aikf86txlHskizJteLlb1tN
-	 0LeB7F0xSbBrw==
-Date: Fri, 30 Oct 2026 10:28:04 +0000
-From: Will Deacon <will@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kas@kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH] arm64: Kconfig: Don't select CPUMASK_OFFSTACK with 64K
- pages
-Message-ID: <auRxNDAe_tv-mCvk@willie-the-truck>
-References: <20261007-arm_stack-v1-1-b48dad5fa8b2@debian.org>
- <auCSG2OmNMQKp3dq@gmail.com>
+	b=c51QBABzlB1Z0L7tkhHFjdXxIEvBUzlTIrGg5pqBlRLYGH3ZtTsTHI1pnjKlD8zVT
+	 bJqu78k8kaH4rA6Cz1BgopPQ79CxJbvHU+zpDEQJXASmYM+enIwCgWGR+JfXrqzjZh
+	 XUPlLgwMvM/Fm3FVPxcHeXZEHpczGVGJYSFSX9GTkKgsZ5m0sM6pbkj29sZhsYBIYZ
+	 EyTHGZs9IVXf7t1A81a5dp5BvLnG8B9yU7JNrYJJFguN5UVXsNWayOr0X6UKB5ouLk
+	 TmOOxU7AjBRkngMFvKt6YSgpIHodyu9DhDM0+ih6ys21rd8mC0Oq3H9Bi3emo+AAkY
+	 OBO4HUZzXLUww==
+Date: Fri, 30 Oct 2026 11:28:47 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v5 6/8] dt-bindings: serial: snps-dw-apb-uart: add
+ Allwinner A523
+Message-ID: <20261030-chital-of-pragmatic-enthusiasm-837a0e@quoll>
+References: <20261029-submit-h616-uart-fifo-v1-v5-0-53b433aebbf8@gmail.com>
+ <20261029-submit-h616-uart-fifo-v1-v5-6-53b433aebbf8@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <auCSG2OmNMQKp3dq@gmail.com>
+In-Reply-To: <20261029-submit-h616-uart-fifo-v1-v5-6-53b433aebbf8@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,41 +83,23 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 27, 2026 at 04:59:52AM -0700, Breno Leitao wrote:
-> On Wed, Oct 07, 2026 at 12:58:16AM -0700, Breno Leitao wrote:
-> > arm64 selects CPUMASK_OFFSTACK when NR_CPUS is above 256, which keeps
-> > cpumask_var_t off the kernel stack. With 64K pages the kernel stack is
-> > 64K as well, we have enough room to keep cpumask on the stack, avoiding
-> > extra alocation and possible performance penalties.
-> > 
-> > Skip the select when ARM64_64K_PAGES is set. A 64K kernel can then raise
-> > NR_CPUS above 256 and keep cpumask_var_t as an inline array. 4K and 16K
-> > page kernels are unchanged.
-> > 
-> > Signed-off-by: Breno Leitao <leitao@debian.org>
-> > ---
-> > Based on Will presentation at LPC, I've decided to have a look at Meta's
-> > stack usage, and I found that this might be an small optimization!?
-> > ---
-> >  arch/arm64/Kconfig | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index 5f2db2cecf9772..b73371327d2a47 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -111,7 +111,7 @@ config ARM64
-> >  	select CLONE_BACKWARDS
-> >  	select COMMON_CLK
-> >  	select CPU_PM if (SUSPEND || CPU_IDLE)
-> > -	select CPUMASK_OFFSTACK if NR_CPUS > 256
-> > +	select CPUMASK_OFFSTACK if NR_CPUS > 256 && !ARM64_64K_PAGES
+On Thu, Oct 29, 2026 at 12:47:27PM -0600, James Hilliard wrote:
+> The A523 UART integration has different FIFO depths across its controllers
+> and reports each controller's depth in the FIFO Clock Control register.
+> Its receive thresholds are fractions of that depth, and its optional
+> register layout differs from the generic DesignWare integration.
 > 
-> Does this one sound sane?
+> Add a compatible for this integration, also used by A527 and T527, with
+> snps,dw-apb-uart as a fallback.
+> 
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-It doesn't make an awful lot of sense to me, to be honest. The page size
-and the number of CPUs are two independent variables, so tying them
-together like this looks a little odd.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Will
+Best regards,
+Krzysztof
+
 
