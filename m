@@ -2,101 +2,143 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5051606A321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 07:02:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 331CA606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 07:09:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0+FFhVpl;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ijS/vwY/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=5B0Zz4Jo;
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=Pxv3UV0B
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Ogr3bCQsBHWeawLHi45mAgAy8w/Vyf5t319SCZZaenM=; b=0+FFhVplbUGJdb5J4s7ZtJx2YY
-	YkawkJB6ajiXY39E8Butt++C/x0Oxn2crhiHhSVpVpVjkIS1iLLA46z/UVFvq9oWhzbxb35PF1fbe
-	ayvRWAfxyJc97Bl7zZ6HePRowr49t2cu/z6JVBZn8rAXQ0xgTLFU/Y/yFUTDZV4ArilboPvvw5X4k
-	pscbZx+0fGuQQU40xjZ7fjqVnZ9b7kcBfDlZJgqNvE9jvg3RbcJrlNjUv97DIjBc/6yCRxlPaHDaJ
-	abjGeab9ReSgX1H1Bq7ugaGssJyudlyAJXGmdfGA4lkakzucQVHf60MYX7pMMZk4DHI0ZQZuLj5uF
-	HicTJKiA==;
+	bh=Ios6e/ssWvn5GGMdu+G4ErLF0ZMyTTEaz9Lj8Wf5tRU=; b=5B0Zz4Jo8YVllSspcd+Gs+sbND
+	x/jFP3ZIpMJYZxsIt+1ynOMgY2LKn5BBKgZazmu2Tm7FSHcFQ209wiuoBBU3o1vl72PxIADQvu3bm
+	6C0bdWn2Dybwvz1a599iG9uI/ES4HANkqs/vXPR+j0BeqG3mDZN7bUPM6tgFXkwG5m+FimEGMIkgK
+	rD/QLfq5tlF/iOic4x8/I/lhf2KcOLJ6B3acb1kn8hg8i/624171sJb70JaUIiXvCL56FB82thzgW
+	s4YuGueoiDKDtiiS0CpnEDGHg6eUZ7lYDm/XAXBKJ9Nr9bDaJq/ftyq2us2wQYjMb40/fNZWrv+yk
+	T8sreMzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMgd0-0000000Ay00-2YdK;
-	Fri, 30 Oct 2026 07:02:18 +0000
-Received: from mail-lr2-x08.google.com ([2a00:1450:4864:38::8])
+	id 1xMgjr-0000000AyHU-1wLc;
+	Fri, 30 Oct 2026 07:09:23 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMgcx-0000000AxzS-1Sy4
+	id 1xMgjp-0000000AyGV-1ZDy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 07:02:16 +0000
-Received: by mail-lr2-x08.google.com with SMTP id 38308e7fff4ca-3ac5c86570aso118501fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 00:02:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793343732; x=1793948532; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ogr3bCQsBHWeawLHi45mAgAy8w/Vyf5t319SCZZaenM=;
-        b=ijS/vwY/jKXMD264ZLTAQIZ7RerJtFyVK4g227P9WDAIGit2444GfOK/8zGDWhLdLt
-         EQ6ykZO1b8U8CTRyWWeJfVMqaSCp5LnOsOVaP4E+aLl9FR0mNte4YQk3z7Vs08/RfhSm
-         O2TQrN0ji5YCzMdLhSIVzYW7hYa5j716vATfwK36w/x2Hs0aTPBGuu9eN6aP2/ac+lvj
-         AEKo8CEbkG7Y3y7zMRLWRHJEoV0FviHo2NuxBNK/5no2VAlgPHVJ+MLO5TGLhu88BZ0h
-         EjM+PJgHWiVz2mma9Gx2r6jOMZhShb3Ccn3BY2PxfnwlsA/sfgzTgndBl5lcGIo7kH7c
-         JZlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793343732; x=1793948532;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Ogr3bCQsBHWeawLHi45mAgAy8w/Vyf5t319SCZZaenM=;
-        b=dzBQUn6tsQ2bQLGOxja+YKxiz1CnfuM4MMWZtRzGY5NyVUHG91gkwppf+309b4WK/X
-         +eGkQ1Bmig5eaRqcSQGesavPvQZSlOyIWSqW+rY5GZRHBClgZ5ub9kxaTUcM44TSVGpn
-         L9tagkQkNGUzXYkSRC68CFz/Am7Y/PDouKYW+Ko+XopMaiWD6YYwXCAb9wVr4C5MAplR
-         khnnOvPlz2+TeEy7Kt+OSqfxEUhQENEd+Rz7sni5PBBgmI4rZG9SJPfKBYvYWlPm2Hbp
-         jb8rB/ODQegv8MKI9RlLx+N1up4rM8OfmgQ7wu04RiTOAhYNBI0tVxz8n2Bt6N6x2tgt
-         iLpQ==
-X-Forwarded-Encrypted: i=1; AKwUvBweNPDX8yg81nrMq8QhUepSht3chGnf1YQq00ynhNRCIwldyPghdzW13zERb4lnYy+l/UG5Qw3G1j+96x6q8cfW@lists.infradead.org
-X-Gm-Message-State: AFq9FYJJnO3Hs50uXHu9shpscWWIvPML4GifMk2rsTE/UKb4sXD5UU3G
-	KBVsJdNPFiJekNlKcYggRCCqOnTia6bncCOCJ0kd1Q/vh6HmKProShH0
-X-Gm-Gg: AYBFou1nWnEDB9pBBHmy46tYTwKeRKuD3NS1ca6CZuVqIE2J9MlTDNYK+j3PKGUGxaF
-	8use1JW+7y5qTbP80R51TyBk+RTIEo/zCDgr6W+q+BlqyLGBdOBH6jGZjaptlWaYpVTRACmONnb
-	uEIQg/AhkBLk1KofrJfE/7Rt11ORfwCFTMeqI1dIcuj1JwtyJ5FKeP5TNEE66APPGbY/N3o5rj+
-	5cwUHJ88GT1Ff8fsuPIIEYEeRtFslFgzsd+FSFdYOBrj3V878Bn8jjb5nMZs+qfY6OdGiO1WkiA
-	gRDCpNJzQqj0CVC7oskkV9/1hAoBcPKfvGBzm1jLU1N7Lay1H+iLKwwdE2tlyLvE7olUfU9uVx5
-	abXvKOxQlwm+iclc9vvFpp/UrR4WRvL8LJLfn17fJvjbLS0q0SKY0KYjPE+ZezVfx74J0Ps/uQ5
-	QRQZgfaFS0BNSSh5OqVc2O+NOo+VFANf6njfztoM2RYZ5649w7aUJ9u8As7uq3fvyZs9cLWAQRC
-	5sYxBEq9fRIt5dlAFDD/A+hYCXaz+3DcvBzUKeQXWSRAVvIlO3CCAy2QU0ooiIspbEjaXblhAcb
-	3iTX7A0/V6FVoYUrMih/lxUCqL9X3qCv2EODVZnpQ6plh+GaFWkVN5ZuboePynzgrbI=
-X-Received: by 2002:a05:651c:a14e:b0:3ac:4b79:573b with SMTP id 38308e7fff4ca-3acb7aa83b1mr2253181fa.13.1793343731854;
-        Fri, 30 Oct 2026 00:02:11 -0700 (PDT)
-Received: from localhost.localdomain ([78.40.184.2])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3acbbf31c35sm1413961fa.36.2026.10.30.00.02.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 00:02:11 -0700 (PDT)
-From: Roman Demidov <roman.demidov.nn@gmail.com>
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Roman Demidov <roman.demidov.nn@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Mike Rapoport <rppt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	Mike Rapoport <rppt@linux.ibm.com>,
-	Yongqiang Liu <liuyongqiang13@huawei.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.15/6.1 v3] ARM: 9359/1: flush: check if the folio is reserved for no-mapping addresses
-Date: Fri, 30 Oct 2026 10:01:51 +0300
-Message-ID: <20261030070155.9857-1-roman.demidov.nn@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Fri, 30 Oct 2026 07:09:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SDKEvzvFdxGu2Qgh7xCdMjs8D4/+xUfqRSZqVsrqikyS9mSGLgt+0XaGQuoKPtYLmOAMx8A/CYxQjYXBO21v+5GCVcJV930S9pPusJSJfSRhJM0zRGec9MqPgWpr27JGWIgsxiv1H3kMpu/+IFh3AX/vkwJbR24ayvu1IMJlGqII5OnTQFbBWnz1I51WPyt6eH0AJ4QO44Pdi+2odCwIGdeePITVlGby5G+IoNtKeU4qOAxKTpmfmPuCx0HXXyrCb/24IyYeu+vyiSafXf9VcCuVjvMfP8DMLu5z37AtK4biJty9yQJUj8M659Q9h0oUtMCHbup45Hl5Z2fxWnaL0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ios6e/ssWvn5GGMdu+G4ErLF0ZMyTTEaz9Lj8Wf5tRU=;
+ b=DXf75C6VHe1SBeuC5Jwd9f9W9KWnPLZ5id7m2mnSjwEg9Vs9og1nncM6yhp84YtFKJ2XuFbThK8J2RK8KlIp3c9QM6iCgYx+FlbbQrW+aKhAJZFBfb89Zaxnc3cuyasr3v98J8/VT7vPk84q/AU+YL0whdTfcxGEwzIUaJM3k00pqBSBgEcwm7ad5OrjZX6HeleOH8i2ErMuUce2V+ozr9EyAzDWlqB0f9jZF4zGX9fjN10vRIRSZ5VpBbvFnSmDrVgJxAD4IjFO9i3gvCTvigmyyem5Vrf5PGqOSkfVQEFS5GE6gUZSfiNqM4N/G5zNRkyo9vazlyjFWwEhjPn/ew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ios6e/ssWvn5GGMdu+G4ErLF0ZMyTTEaz9Lj8Wf5tRU=;
+ b=Pxv3UV0BeI/tZOrMrdDc2HvXrjo7ktGaUxqGW7ZUQZBKTDFjS1zhfrUaud6LH8iC3HkXrtx1lL6s8cyDy5H8mE0U449Jfgg783sZKy3jHpkkDcrekefv20WZLO6hZfvpaJBPgnMQrTO0AFWZ7XEdNM/Sqt2tYn01TkQ/uIeVl+wL4oCtuzv7cFgPFvdIdLWl6ivvysnZ6UAVXq1k1bH4YAYKok808w7iEuuzch7XZfYHwWCilG0L+teKDWiRIGcZ6jXMSecZUxbhQhxw03jPa74zgic3ZF63XtD4fD98lhcRC0/SaktWjPUPy+awZhsMRWlhM7VIzJSAi4zr2Q4Mrg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
+ by DBBPR04MB7898.eurprd04.prod.outlook.com (2603:10a6:10:1ed::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.9; Fri, 30 Oct
+ 2026 07:09:14 +0000
+Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
+ ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
+ ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0569.009; Fri, 30 Oct 2026
+ 07:09:14 +0000
+Date: Fri, 30 Oct 2026 15:10:51 +0800
+From: Liu Ying <victor.liu@nxp.com>
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@mailbox.org>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v7 07/15] drm/imx: dc: Add PRG support
+Message-ID: <auRC-xz5IYaHf_AP@raspi>
+References: <20261026-imx8-dc-prefetch-v7-0-a0b50cc4fc65@nxp.com>
+ <20261026-imx8-dc-prefetch-v7-7-a0b50cc4fc65@nxp.com>
+ <auMIsiZ5ARIl-6N6@vm>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <auMIsiZ5ARIl-6N6@vm>
+X-ClientProxiedBy: SG2P153CA0005.APCP153.PROD.OUTLOOK.COM (2603:1096::15) To
+ MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|DBBPR04MB7898:EE_
+X-MS-Office365-Filtering-Correlation-Id: 72a35c19-7909-4b2c-7097-08df3654b497
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|19092799006|56012099006|4143699003|11063799006|5023799004|261009223027099003|261009221227099003|261009223327099003|261009220027099003|261009221727099003|261026121527099003|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261021123027099003|261022075727099003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 4A0spMOMoAFOLgp2t7ZKv65nBEgvbe4iLzDh7i9BEjbMfOwo8/EV5sfZTKe5fmSCBC55i3Oyac4qqIkQmSki8/63/L5gQ4mm6WjinbIq6AA/7KIiI/akh01hBJcguiJe6SlU8WqlU+C35JFOJRmMV9mgD+cUtMHc75wttA7+opejBlaxPFhe0qhrJ3gyKSVCKaDv26NjPLWV5zsM4m8Bb0onEkHeH+mG8BiJ6vDTF1srPMMIwU3yIAWWV8Ct8iuxoj+s5FN2AG7jRxX81zKGCqSCZKSp7lntmiaW94vG9bHfVSRbPWeYllSxkJbdclsqQ9KYQLlraLoiM6ukNykor5QhDSl51LQRB4fgUocWNsNrbtMqAF+qj9IQDFgbRa1MTnXIzgH7Mv+zzUgmGq/1B0wC/lpAezA7rreprLf1KWTbyPpWrm42pStr8DZ1zhpguIusD+KiXtxa6acByAdvtBnuWKusojP8poP1QPTB2Eiadvv1QEpBTi1JhMxuEJSP3E3VGh3mfie2NQKnZjqdGrEhzK7p3Ro/KII4FUBy5/u8nsKH5VtEBaCeKQ2j8z/CEC5cd9TP9ZEI6cvOo/6LLBX4xt95gWAFGeHIoXYLXrpV+eACtR0Q8mamqwB1LRmUecRyR3Gpuan/3Aie7f9s/A0SLcKzMECkAsB0AEisvL0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(19092799006)(56012099006)(4143699003)(11063799006)(5023799004)(261009223027099003)(261009221227099003)(261009223327099003)(261009220027099003)(261009221727099003)(261026121527099003)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261021123027099003)(261022075727099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?z8HPl5MlixkQoEyv4OC+LvVrbl/fr2DTl7ixmk+Ex0fCCqs4vIr68mC/YhML?=
+ =?us-ascii?Q?dUEWXdScuUToByWgQsgAOgM/a6lUq0te69mF90vp40YXQMDL4noODxRrT/QQ?=
+ =?us-ascii?Q?X4cvOsR8PYWUbmULJgaxsccYycOOu0f/ZD1b0bGokh8MkRB4CHWJ+aE82GPP?=
+ =?us-ascii?Q?v/I6pSTkXKRp6zympVo39sPNWiyoHM9YWAf6SVAVP2PQvv4Jb7FLg/a0j1Nk?=
+ =?us-ascii?Q?TJSiWj/8eeKRu7u9amCRJuuzdaq4aq97fLiUvcccb6rOz0Xzq6SqUqbkWRI5?=
+ =?us-ascii?Q?uQZZgiIz3jwF/QBjqpimHoPUB3EeT3BxhqAg4sPDcGC2pzaDAGoj3ZJPp3L0?=
+ =?us-ascii?Q?/ldHi9GHF4wa5ll/5/JyFRB8K05liWGaHY+yh6NtxvtHdU320DeYghtm9/gn?=
+ =?us-ascii?Q?MMZQqSMHXYV0I1Mm4SivKaKmbkJ/vFhcRkbb6bbqfnHOarHaWCR0Meh2ksw5?=
+ =?us-ascii?Q?FA9eF3NjA9i8I2PpLBKYwMpSD2QHajUEfB1Kgi1o181BGmmjGDyVQX5GC+z6?=
+ =?us-ascii?Q?6766xTwK/Sa5u8ZkceoKGhY2DsnnYguo3kDh24ge6iJ1lqnufzz78PuSkOkA?=
+ =?us-ascii?Q?aRYWQ2eblMDtl0p0t28jXK2yhTeolxX363o6ax5JHOVtHqqRAexs7tn0IiIf?=
+ =?us-ascii?Q?VOPGABmMKIuc+3f89rHZ2DJP2GnWYn9DOLjzTbimOm23KRQeFZzCXYyJ7iEV?=
+ =?us-ascii?Q?lSHi47kuc4S4nxm8e4a9SP9mH4FE7BdMQ1W+JolDnsRiztcF0rkGls8smp6Y?=
+ =?us-ascii?Q?4RWOfs+kUK96y9+TALuZaVaX2ZlbPsJyH/lzB022alvzj/EUM4n5OYPdK/Uf?=
+ =?us-ascii?Q?BxPwDIsCb/QzgresDUES5a7N7JeupQ/QwRnG6u/Mhr0XQyxsY+Z2l47gmkha?=
+ =?us-ascii?Q?5X8hATwuqtZpoN9qpoBKC+H9mBfq8S1xObnXwA5x7E7ijWiGuoeGq69lTmMx?=
+ =?us-ascii?Q?hg1MB8hiRSGhVV/LeZxOI51l3GnZL0ozrGmZHXDJz006opWT3lqw29BQAG9i?=
+ =?us-ascii?Q?nhD/iLsirORvqZGxO7W3I/OwWgdn9cHTHw9hiWyRh2g5MAg3wjiwuwERpueB?=
+ =?us-ascii?Q?gjkh+Tp0ga3D8EeEQyendo+rwJZ4XQS39JoQU3iInZxgPAenh2blvzDesDEM?=
+ =?us-ascii?Q?td4843yIwaNs0K6YItKOJjSWfHfHaTrqKaeQOCp8XKrikWOmDctui53jfHMm?=
+ =?us-ascii?Q?5K03Dyy2JP9w5yJ7E0MsuV525JgRh+2FDr6RiOvzABsD/aTHHmxABqJH6hxq?=
+ =?us-ascii?Q?2+uALvgqA7u1EUhvtnlBM6UMubY8QECAc8H2/tQG+scpaOphvTHok941NNCF?=
+ =?us-ascii?Q?DMjxHnh0af5TXyBEBA6CDPbj5fLPS8NxeiyJHUCG8qir8jGwZH5/sUePswyF?=
+ =?us-ascii?Q?S9f19DyI1MxgcP9E8ew1L/Vtjr3xs5g8EXbwBbLPf4mnXf6i6HGrReRYa9Sg?=
+ =?us-ascii?Q?DBWSU1Z46HBcFc7ad1MklkbQ0KlMCpVhaVGWFRqygwTiC4z6dERmN8HlTd4u?=
+ =?us-ascii?Q?4meNVB3wsCG9OzdDWuzJ6bjDVfSZCl7/BNf8PaOf895k1qDNHfswxH2t3Xdd?=
+ =?us-ascii?Q?6U/v3agYL7vUIEmqx3K0W6VY8ayeYUm2wXZT2Z+LFzji+GFO6lJtq5EZV/t+?=
+ =?us-ascii?Q?lT1F9+tSaKA90XG+KNH67hXm1yIUpL7PqIVPuqC8QD2y/R/wN4HZW7Vn8Ew4?=
+ =?us-ascii?Q?5RTR3HvQGN29PA/LPiFT8BZ52RLx0pJBRsW5/mxNSh53RicYX0pAhbpvuntJ?=
+ =?us-ascii?Q?DP1OjTNgkQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 72a35c19-7909-4b2c-7097-08df3654b497
+X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 07:09:14.7059
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dBNERc0X7mUt1BD+hbZvWNC+KeYP3WDrqDyO1WE39dWsE2siQArO+/nm8kL7nKg+H9DdJdj+HMm++EGwhcT4Bg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7898
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_000215_408718_4C9E8426 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20261030_000921_419257_8E5A0B6A 
+X-CRM114-Status: GOOD (  24.83  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,85 +150,84 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Yongqiang Liu <liuyongqiang13@huawei.com>
+On Thu, Oct 29, 2026 at 11:30:55AM +0200, Laurentiu Palcu wrote:
+> On Mon, Oct 26, 2026 at 06:05:12PM +0800, Liu Ying wrote:
 
-commit 0c66c6f4e21cb22220cbd8821c5c73fc157d20dc upstream.
+[...]
 
-Since commit a4d5613c4dc6 ("arm: extend pfn_valid to take into account
-freed memory map alignment") changes the semantics of pfn_valid() to check
-presence of the memory map for a PFN. A valid page for an address which
-is reserved but not mapped by the kernel[1], the system crashed during
-some uio test with the following memory layout:
+> > diff --git a/drivers/gpu/drm/imx/dc/dc-prg.c b/drivers/gpu/drm/imx/dc/dc-prg.c
+> > new file mode 100644
+> > index 000000000000..43df5683b24d
+> > --- /dev/null
+> > +++ b/drivers/gpu/drm/imx/dc/dc-prg.c
+> > @@ -0,0 +1,314 @@
+> > +// SPDX-License-Identifier: GPL-2.0+
+> > +/*
+> > + * Copyright 2025 NXP
+> > + */
+> > +
+> > +#include <linux/bitfield.h>
+> > +#include <linux/bitops.h>
+> 
+> This header can be removed.
 
- node   0: [mem 0x00000000c0a00000-0x00000000cc8fffff]
- node   0: [mem 0x00000000d0000000-0x00000000da1fffff]
- the uio layout is：0xc0900000, 0x100000
+Done.
 
-the crash backtrace like:
+> 
+> > +#include <linux/bits.h>
+> > +#include <linux/cleanup.h>
+> > +#include <linux/clk.h>
+> > +#include <linux/delay.h>
+> > +#include <linux/device.h>
+> > +#include <linux/list.h>
+> > +#include <linux/module.h>
+> 
+> This one too.
 
-  Unable to handle kernel paging request at virtual address bff00000
-  [...]
-  CPU: 1 PID: 465 Comm: startapp.bin Tainted: G           O      5.10.0 #1
-  Hardware name: Generic DT based system
-  PC is at b15_flush_kern_dcache_area+0x24/0x3c
-  LR is at __sync_icache_dcache+0x6c/0x98
-  [...]
-   (b15_flush_kern_dcache_area) from (__sync_icache_dcache+0x6c/0x98)
-   (__sync_icache_dcache) from (set_pte_at+0x28/0x54)
-   (set_pte_at) from (remap_pfn_range+0x1a0/0x274)
-   (remap_pfn_range) from (uio_mmap+0x184/0x1b8 [uio])
-   (uio_mmap [uio]) from (__mmap_region+0x264/0x5f4)
-   (__mmap_region) from (__do_mmap_mm+0x3ec/0x440)
-   (__do_mmap_mm) from (do_mmap+0x50/0x58)
-   (do_mmap) from (vm_mmap_pgoff+0xfc/0x188)
-   (vm_mmap_pgoff) from (ksys_mmap_pgoff+0xac/0xc4)
-   (ksys_mmap_pgoff) from (ret_fast_syscall+0x0/0x5c)
-  Code: e0801001 e2423001 e1c00003 f57ff04f (ee070f3e)
-  ---[ end trace 09cf0734c3805d52 ]---
-  Kernel panic - not syncing: Fatal exception
+Done.
 
-So check if PG_reserved was set to solve this issue.
+> 
+> [...]
+> 
+> > +
+> > +void dc_prg_disable(struct dc_prg *prg)
+> > +{
+> > +	regmap_write(prg->reg, PRG_CTRL, BYPASS);
+> > +
+> > +	pm_runtime_put(prg->dev);
+> 
+> I have a question about this. I see Sashiko also flagged an issue regarding the
+> unconditional put when the pm_runtime_resume_and_get() fails in
+> dc_prg_configure(). The resume is, probably, unlikely to fail.
 
-[1]: https://lore.kernel.org/lkml/Zbtdue57RO0QScJM@linux.ibm.com/
+Yes, dc_prg_configure() is only called at atomic commit stage which is supposed
+to run successfully without any error.  If pm_runtime_resume_and_get() fails
+there, something should be fixed, so I don't bother to handle the failing case.
 
-Fixes: a4d5613c4dc6 ("arm: extend pfn_valid to take into account freed memory map alignment")
-Suggested-by: Mike Rapoport <rppt@linux.ibm.com>
-Signed-off-by: Yongqiang Liu <liuyongqiang13@huawei.com>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
-[ Roman: folio_test_reserved() replaced by PageReserved() because
-commit 8b5989f33337 ("arm: implement the new page table range API") and
-folio infrastructure are not backported to this branch. ]
-Signed-off-by: Roman Demidov <roman.demidov.nn@gmail.com>
----
-Backport fix for CVE-2024-26947
+> But, I see a
+> situation where the dc_prg_configure() is never called: when the plane is
+> invisible. The dc_prg_disable() would still be called in flush() when the plane
+> is disabled, would it not?
 
- arch/arm/mm/flush.c | 3 +++
- 1 file changed, 3 insertions(+)
+Yes, patch 15 doesn't handle the invisible plane properly with the prefetch
+engine enabled.  I'll fix this in next version in patch 15.
 
-diff --git a/arch/arm/mm/flush.c b/arch/arm/mm/flush.c
-index 6d89db7895d1..ef848bf0df28 100644
---- a/arch/arm/mm/flush.c
-+++ b/arch/arm/mm/flush.c
-@@ -280,6 +280,9 @@ void __sync_icache_dcache(pte_t pteval)
- 		return;
- 
- 	page = pfn_to_page(pfn);
-+	if (PageReserved(page))
-+		return;
-+
- 	if (cache_is_vipt_aliasing())
- 		mapping = page_mapping_file(page);
- 	else
+[...]
+
+> > +bool dc_prg_stride_supported(struct dc_prg *prg,
+> 
+> It looks like you're not using prg. Can it be removed?
+
+dc_dprc_stride_supported() in patch 8 uses it, so it cannot be removed.
+
 -- 
-2.53.0
-
+Regards,
+Liu Ying
 
