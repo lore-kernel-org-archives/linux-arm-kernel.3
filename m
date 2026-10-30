@@ -2,162 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF3E1606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 12:36:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 558E4606A323
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 12:49:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FW51d14S;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=e3IE4qwQ;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NpNrTA6Z
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=p2UEs0LI;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=GoAtWKhI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=PsdJ/sQncKvFnzsfbs3L9HOmsbbc8CaNjBNOtLmdTXU=; b=FW51d14SA+ApYw/bjkHV6gO72e
-	f6Mfop+hzTr4Jd3xpFUwPR/MT7KLd0izlD2PnCqn7xTbEdmNslkPMRdmU6zkUWA/g4X+CfMYqTnmN
-	qiSRqegiKwYVtUkSKjl98/U856O9b9BjUVnlS2G/di6VOyEv3qx589oninLUlsTZH6cFIuAqxqIcU
-	YPeXd5yyReq2LrGItFMlfMQvPA92vKq3jt6MPYYFiUGE5fplC+dRkcXH2HmNbMQkihTtShTyLu0tm
-	KJctBUQNolcaqJ9NiRysa/vVPicPm86vRYRbvQdXdyOGxdu+1UrQy/RFoOkCp75ZZUwGbwBLWa6X1
-	QJdfBwow==;
+	bh=5NgGtSrDL6xzCswDYaRWwi+bXBJ29klM0xRwGKRqsL0=; b=p2UEs0LIlODgqOIvHyf2esVEpo
+	qh8IfagbxLiBMeijpYtCzAU9+i9jtYKh9sP+hIDKg4tCNKLUNYYnK9TBT5xrQMwh8Oc8uvMM2IbDD
+	r6+k2HhlSg1N58VNxzbpLtf+uTgiQtV6hls8LEheemrXS9AEaeQj4da3OtwnMw9XzmhkOkC2AZJHn
+	W40uLgXpRkSfygZL18XLUw7M5LXbwQrNegp5H3AxgftHV9FOBHcPXOmYP880i8vwnK/uh+p/b7nbE
+	29pc2by00YI6LOlBJxKJxoktzfqdmiKuwEPhhud4IhgZN8v4lslWcHFb4Sgw5S9BwyIflWFtQJ3kv
+	45RQSTXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMlq5-0000000BgoV-0qNC;
-	Fri, 30 Oct 2026 12:36:09 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xMm2l-0000000BhZc-06kf;
+	Fri, 30 Oct 2026 12:49:15 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMlq2-0000000Bgns-3SVP
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 12:36:08 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69UBG4O43142141
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 12:36:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:to; s=
-	qcppdkim1; bh=PsdJ/sQncKvFnzsfbs3L9HOmsbbc8CaNjBNOtLmdTXU=; b=e3
-	IE4qwQOFgqK0bbRwjOQxAeUpHNDVsU5XPnIuBzxao7roUq7aP0qACrqYYEVkp5zG
-	5oBydsI7dWtfmDdsNKVJ/XGKezJ11vkTTn39WTOWlRHhWm7XQ8U9O2seE4HDrPBc
-	DEv6nU5H26xRc2yeFh2BfA7Mcv8yOzRNBRQR5yYqnWo0kZHGUQ/+JkU7xqUL+5m4
-	Aj9VCtCaFuyFrHEZbPmTrPz5nJsZ/plqhFvb+pccGa5pJYSRrMwK3UMt7cH1a3ZK
-	zSnTShpr58u6PKFXAWaz8ZZf4tJUfxIYGD44MirKKJCFnHtvV2H8k5ZzNQZjtU04
-	YYA6jaOZIxkcMdNblQsQ==
-Received: from mail-oa1-f70.google.com (mail-oa1-f70.google.com [209.85.160.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hme6qk0qc-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 12:36:05 +0000 (GMT)
-Received: by mail-oa1-f70.google.com with SMTP id 586e51a60fabf-4574f1cac98so681374fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 05:36:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793363764; cv=none;
-        d=google.com; s=arc-20260327;
-        b=GFH5H8cWwiAMAEWIaFcrERUZKW4/JqN2wWTM9OGJdObkQQy0eJRpOMlEl6r+AtnDTJ
-         VNaNrqXPk+8uaNw50zkL+mk/I25RYTsnxpku2zvyiKYzcvyyVRq4jt11HueDw5MRWJyf
-         ThoDjBUwkAu0B/eo5LWKfkWoFtWXiHjaB5bYVG4fX12H6YvMWMII8p5/Hekzfo+lx665
-         TJtS3rGRwcXRmNhwCP2nsqwXpG481qo14DfE8TwC8zaXFSsctsoQzTBpbgH8XyPAdvNy
-         o21nGjTjqLdGEH9mvX/OYy2TIdI4Qt0Iqh1s3ylmSptEnxBwcgklnzWsPmIXL46HhvB4
-         dWVQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:dkim-signature;
-        bh=PsdJ/sQncKvFnzsfbs3L9HOmsbbc8CaNjBNOtLmdTXU=;
-        fh=yJjpDuchyaT5vHvqD9Ya1sYdIZ8B25ECnuBEAUtYyDM=;
-        b=JemOGuRmGN3yWApYgMkKvxkHTCyIaBKYPDcRhYndD25MFPSW8FKhLy4wpWVYMtBn0q
-         D5JervRtLOzo0xMp23j+xvzC0q1bky6Bgrx3cCXRwauW1leP8p+yJ2RkyfXD4WfxUNxR
-         4x3f1lCUNFLrN37VzIW2CZnS60iH8CvAJoIJHQg4I4xdyDgdD8YeVkY4sBU6tgVq1aig
-         h4LzeXq8xvdiNt96FSM9syRvcGlwxiugXzywVWTmyeWowpVwsGl++6CgLBt9dL4/AwXN
-         TIblMsEtTmRSAHhhrLITvmyoMMHuEhU4ygN306m1TZXEmekYc9ZoYsl2SJJX4rIwFnBi
-         vsxw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793363764; x=1793968564; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:reply-to:in-reply-to:references:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=PsdJ/sQncKvFnzsfbs3L9HOmsbbc8CaNjBNOtLmdTXU=;
-        b=NpNrTA6ZVJ5nMhZx4vT5ToWePXjwHWmClcMiUJ2/oAne+SMgJxXiL/ejEwJRko2613
-         pAlCOKBCtRxu8N9+5cu1A20RMEfJC9TE8w8pKHOSpR2c5ZSBDED2SObNeXQ3W+n/bhhO
-         bDx01gPGc7Dbplos45ijjCNtSJ9iU3/XQaN1LI2MS+LcSSDT544uF18opV6vjMSvgnGF
-         3piuRvzBS1ABmUXyi+60cw5brGYS4CVCT7z4mUCBXdJxk2ijtIZBeO8mdncjkytHDHiC
-         xOzWCb9iKBM1fXR2Xg8RDsa8g5Qp/NOAIqg63D4IJ3bmGCu9z0EM7ZneLH6+ZYXbYgMZ
-         XZbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793363764; x=1793968564;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PsdJ/sQncKvFnzsfbs3L9HOmsbbc8CaNjBNOtLmdTXU=;
-        b=Y0QOs+g2NF3oubOM09XG1O+x+SqKKmRHqt2xyTv05WujcKUmQHx0UKN44k+Pv7mINu
-         vSJ/hDAeCt3jPsnE6O7OOLOFqNJg8ZXo2q2FM/SG5HT/epngU7mXR7I4E267O8Glpg4n
-         QgRTw5c48M3plRhsPMRFXIQivYGfw2dn1BB85YYt3pu3j/05lmyM3i/jDYdvfUmIjd1F
-         0P/zDJ4r4jiEtoOzJMB8B5c0MQ4CdH37y7aD7x+C66nAk7PpwsyqTGLJBQZRU08T9LsM
-         JLfDI3PHwv2aJmaLppKEqe+BCnigbSSnraXqCCLghfZYFFKrG68IxL53PSFE2cp8fz+E
-         b0VA==
-X-Forwarded-Encrypted: i=1; AKwUvBxv7A2zVSYMghbOUz/NDTF/vi0ChmBFeL618/yjOVkZnKY4/WoQIQKdpEkj44OEC3mbZ/LBYmwcK+hmsBOw8swk@lists.infradead.org
-X-Gm-Message-State: AFq9FYK9iIfrJV5wjonzMT6JtVT9avKZGl8iUXly+A046f8/0CFontMj
-	3dD6OAQG0K+iondpw8ZepO93pOQ59i9seieupScJbOSgLE8cquo6Cp+Xn5/8Fqce1yf1jzvXqwl
-	gCSPWW/bELhB7UnVykVONkVmYbCTTb21YeKWkY0V+akFdOSwBR1fRad7lUgwMfEEHpcOnQ47H6F
-	2ZE62VJ/G9hB2fXJ07EvCBZvgzmWVM5A8rBTGt7e+VsajhrMFO+ZKT
-X-Gm-Gg: AYBFou15uhP+8Hpz3hDSqj9xCwhBtH4qgfxXLONm13HiY9yckPuon/rhpw1SmgnLy0W
-	E5NwgnDh50XjpdSf3maAHrgrnS7vsl+oxKZCylZDIAWcVLIdKiOxWlfG7sdaKgucUIe6yomUaHZ
-	0ZKks2qscnMI5NQX02V7tf6DL5US4O3SnP0V3YZMSVKBZSSEeH/ec9xF66hw==
-X-Received: by 2002:a05:6870:a104:b0:475:e066:7714 with SMTP id 586e51a60fabf-4a9076f5d71mr1257362fac.27.1793363764193;
-        Fri, 30 Oct 2026 05:36:04 -0700 (PDT)
-X-Received: by 2002:a05:6870:a104:b0:475:e066:7714 with SMTP id
- 586e51a60fabf-4a9076f5d71mr1257338fac.27.1793363763749; Fri, 30 Oct 2026
- 05:36:03 -0700 (PDT)
+	id 1xMm2h-0000000BhZ2-3CPA;
+	Fri, 30 Oct 2026 12:49:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1793364547;
+	bh=KlAsEMUoh8SqMK535dsRdRC/2BXgKedTejkSjok4NIg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=GoAtWKhIvjsma323nTKdjX9UTokJbCgbQ7d9/UT5FOB/SFdzkpNgXp2n2f/d2p4lk
+	 oGcgZ66mcU5aQJEhRGToUuHU16bJwxF53mH176R0q9mKFWRI2FRbyknQ3ZIlXFl/kP
+	 AIi8buKDKTPluHT5GMgrObmLB6lYfrGffyIu/KixOTt6IakJtqT7M5uHlk6XdlkMTr
+	 myL7SY6Cd6LTPIw1vDQqIREACm5cUGhhu1L3KEOzNtL3bh2gjasTEo6IfuR3AKiO5g
+	 3C3Oh8bahCDoQjDcZoG24Rigzu3QeTRzWpv5dkqTedmki6Iid9ObxkczGlFFYBfXlj
+	 t7Oj80WlqF5Pg==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 884DB17E0053;
+	Fri, 30 Oct 2026 13:49:05 +0100 (CET)
+Message-ID: <76e2e993fa5a8fd054bad97505907d3c4e88e11c.camel@collabora.com>
+Subject: Re: [PATCH] media: rkvdec: Do not keep the clocks enabled from probe
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: iav@iav.lv, Detlev Casanova <detlev.casanova@collabora.com>, Ezequiel
+ Garcia <ezequiel@vanguardiasur.com.ar>
+Cc: Hans Verkuil <hverkuil+cisco@kernel.org>, Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Diederik de Haas	
+ <diederik@cknow-tech.com>, Jonas Karlman <jonas@kwiboo.se>, Francesco
+ Saverio Pavone <pavone.lawyer@gmail.com>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, 	stable@vger.kernel.org
+Date: Fri, 30 Oct 2026 08:49:03 -0400
+In-Reply-To: <20261030-rkvdec-runtime-pm-clocks-v1-1-fb2c5b629e79@iav.lv>
+References: <20261030-rkvdec-runtime-pm-clocks-v1-1-fb2c5b629e79@iav.lv>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-ruCLDIpENIOKgPK2wLA7"
+User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261029212344.346069-1-robin.clark@oss.qualcomm.com>
- <20261029212344.346069-2-robin.clark@oss.qualcomm.com> <067b2a6f-9e16-4f8f-bec2-5ee2de10125e@oss.qualcomm.com>
-In-Reply-To: <067b2a6f-9e16-4f8f-bec2-5ee2de10125e@oss.qualcomm.com>
-From: Rob Clark <rob.clark@oss.qualcomm.com>
-Date: Fri, 30 Oct 2026 05:35:52 -0700
-X-Gm-Features: AclHuK_Kxv6J1o1Nk4jiUTeYgcQUlfsMkvo2Oyu2LlP58eHKHYlhfwHqpLn5bVY
-Message-ID: <CACSVV00wrjhBHtKE6iJ=yvdPVaZ0RreJm27JQ9KaKy50-FSA1A@mail.gmail.com>
-Subject: Re: [PATCH 1/2] iommu/qcom: Use identity domain for GPU and display
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: iommu@lists.linux.dev, dri-devel@lists.freedesktop.org,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>,
-        "moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
-        open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-GUID: wQCRpDz3kvGUM_b-03RJWYTvhMJfx3xG
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMwMDA1MCBTYWx0ZWRfX9oi2LTbchMw2
- tcHEl8b8qbj8GuAuj8X+prJVi0dCLSfVspuH5X6/B5YilEew5bbOT9S0pMMVCR3gev2eGNtSsXG
- U0MgSutwElJcs0NMCUZBQ3DapWgVGf0=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMwMDA1MCBTYWx0ZWRfX+Yc0E67cD60G
- zHuAwIZ86ma8mjvnVOQj9AJIYy+Rj+XdQV7ERASlX8ImTd9theak6t7NDXoIrL/EU8WcXPUkXAC
- zsIX+6uGFVbShKSii6KMikgvgyGbz2IiBQyvwfGscyY89g7mgjQa5FAmktPDmn1i3de1Qb03i2K
- phJkJlZp4ZhVKKgB0jWqkKMi0vDq4rScprh+AA6vGqBCbiLgFFn725FC1G6QyvVtrWNju8tjO2s
- BV48tKuKtKXRQTxPX2QhwqKwWNDDRPq4SkDdfhFR2CaMJam77F5+jFpw9aPA4RfUC78DpfS/fGz
- sZVCATM0dKegFl5LZV8u6fQyiXJbjdoHq8sjxblpimAW4Mj4W17CsqzUAKo1QTokDaKQ/aVa8TX
- l71ldc77bhHxSc92mYj+jz8mS01fugc/hiGRQkItN8wtJ1tra2RREy17ZAHLtA57BI20mgEsi+k
- AkdNuPfneR+Nb6WwTTg==
-X-Proofpoint-ORIG-GUID: wQCRpDz3kvGUM_b-03RJWYTvhMJfx3xG
-X-Authority-Analysis: v=2.4 cv=TpVzFzXh c=1 sm=1 tr=0 ts=6ae48f35 cx=c_pps
- a=nSjmGuzVYOmhOUYzIAhsAg==:117 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8 a=RaxNTMYahNmlKwi_CG8A:9
- a=QEXdDO2ut3YA:10 a=1zu1i0D7hVQfj8NKfPKu:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-30_04,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 bulkscore=0 phishscore=0 priorityscore=1501
- impostorscore=0 adultscore=0 suspectscore=0 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610300050
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_053606_977333_8BE4371C 
-X-CRM114-Status: GOOD (  15.67  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261030_054911_968292_F71B5413 
+X-CRM114-Status: GOOD (  28.66  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,36 +91,115 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rob.clark@oss.qualcomm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 30, 2026 at 1:35=E2=80=AFAM Konrad Dybcio
-<konrad.dybcio@oss.qualcomm.com> wrote:
->
-> On 10/29/26 10:23 PM, Rob Clark wrote:
-> > Similar to commit 0e764a01015d ("iommu/arm-smmu: Allow client devices t=
-o
-> > select direct mapping") for arm-smmu-qcom, match GPU and display compat
-> > strings to pick identity domain time.
-> >
-> > The drm/msm driver attaches it's own domain, which it manages directly,
-> > so we don't want an iommu managed domain interfering.
-> >
-> > Signed-off-by: Rob Clark <robin.clark@oss.qualcomm.com>
-> > ---
->
-> fwiw I'm not sure we have any devices with this driver and mdp4
-> but anyway
 
-probably true of arm-smmu-qcom as well ;-)
+--=-ruCLDIpENIOKgPK2wLA7
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
->
-> Konrad
+Le vendredi 30 octobre 2026 =C3=A0 03:33 +0200, Igor Velkov via B4 Relay a =
+=C3=A9crit=C2=A0:
+> From: Igor Velkov <iav@iav.lv>
+>=20
+> Since commit 6a846f7d72c7 ("media: rkvdec: Enable all clocks without
+> naming them") the clocks are fetched with devm_clk_bulk_get_all_enabled()=
+,
+> which keeps them enabled from probe until unbind. rkvdec_runtime_suspend(=
+)
+> disables them on top of that, so their enable count never drops to zero
+> and the clock gates stay open while the decoder is idle.
+>=20
+> On RK3399 this also breaks restore from hibernation when the boot kernel
+> has not enabled these clocks, for example with rkvdec built as a module:
+> the gates are closed when the restored kernel takes over, while it still
+> counts the clocks as enabled. Powering on the vdu power domain then finds
+> the count at 1 and leaves the gates closed, and the first QoS register
+> write of the domain never returns.
+>=20
+> Get the clocks without enabling them and let runtime PM enable them while
+> the decoder is in use, as before that commit.
+>=20
+> Fixes: 6a846f7d72c7 ("media: rkvdec: Enable all clocks without naming the=
+m")
+> Cc: stable@vger.kernel.org # v7.0+
+> Signed-off-by: Igor Velkov <iav@iav.lv>
+> ---
+> Tested on ROCK Pi 4A (RK3399) with v7.3, rkvdec and panfrost built as
+> modules, panfrost not loaded:
+> - idle decoder: the vdu clocks have enable_count 0 (1 without the patch);
+> - hibernate, power cycle, restore: 3 of 3 (0 of 3 without the patch, the
+>   restored kernel stops after bringing the secondary CPUs up);
+> - H.264 decode with GStreamer v4l2slh264dec, 300 frames of 720p High
+>   profile: output identical to avdec_h264 (md5 of all frames).
+> The QoS hang was traced with debug prints in rockchip_pd_power() on a
+> 7.3-based kernel.
+>=20
+> This is separate from the unbind leak in Jonas's patch that Francesco
+> posted [1]: here the extra enable comes from probe.
+>=20
+> [1] https://lore.kernel.org/all/20260717154505.83935-1-pavone.lawyer@gmai=
+l.com/
+> ---
+>  drivers/media/platform/rockchip/rkvdec/rkvdec.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/me=
+dia/platform/rockchip/rkvdec/rkvdec.c
+> index 061281f903f3..45c541ae3029 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -1788,7 +1788,7 @@ static int rkvdec_probe(struct platform_device *pde=
+v)
+>  	if (ret)
+>  		return ret;
+> =20
+> -	ret =3D devm_clk_bulk_get_all_enabled(&pdev->dev, &rkvdec->clocks);
+> +	ret =3D devm_clk_bulk_get_all(&pdev->dev, &rkvdec->clocks);
+
+With the explanation above, it seems pretty clear we have an issue. Now, th=
+e
+problem with this is that PM ops are set with:
+
+  #define pm_ptr(_ptr) PTR_IF(IS_ENABLED(CONFIG_PM), (_ptr))
+
+So if CONFIG_PM is not set, the initial resume will never occur, and first =
+mmio
+access will likely hang the CPU. We need a clean pattern to handle this, an=
+d
+perhaps review other similar drivers while at it.
+
+Nicolas
+
+>  	if (ret < 0)
+>  		return ret;
+> =20
+>=20
+> ---
+> base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+> change-id: 20261030-rkvdec-runtime-pm-clocks-41adcf141271
+>=20
+> Best regards,
+
+--=-ruCLDIpENIOKgPK2wLA7
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCauSSPwAKCRDZQZRRKWBy
+9LLJAP9JGmJUIntmEuLPCbktfBqHUFX1/7ZfGaC/KbjrAiMyawEAo53JgFggAOMr
+y8Uub/MI2Wlho7axDbJbc7ZVrOuyVw0=
+=+8na
+-----END PGP SIGNATURE-----
+
+--=-ruCLDIpENIOKgPK2wLA7--
 
