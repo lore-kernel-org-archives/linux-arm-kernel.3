@@ -2,111 +2,91 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADA22606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 14:10:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF440606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 14:16:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jT6gAxi0;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z3Yu72eG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qAOtqeUx;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=dutMwEYA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=nF6oG7qdYpsHcUJcCpTVAL6/z6SjIIvM80+qHFQC0Tc=; b=jT6gAxi0Y2nLVi
-	9c7KQytaqFBcMcqCGnDoiMnt+8HDh9mcCdkwEMY7Z96xoTKEUB/MsechQ6n95b6uhI13Y2PSg7Ph/
-	htT6tHwp++jAbl7NCmmX3IFlmeld/7zmcA5ESNsgnxPMYtsvuX3tzZu5mXxHhDDVwU5ceOGI9lY30
-	0TrEK1qKrwdLevSlZ+4aNY1ZXS/03KZS0T7LBRiZ5IQ3mBcVaZEEUpznKBJzpaKv+3hxjmoG4+ZiO
-	PxhldxwQxeWk+pSA5Lu1Eg/r2PGpjDGCA8MJmz5OQlz0dLkYTwzUzOPDG2qhVawgSJeeXqVwt3fbz
-	5YWsszl3MVfKjhQHER5w==;
+	List-Owner; bh=U3mh0uWcEKmF6rz6g3nv0SX0Dkn3wPP6PAyrpn5THiI=; b=qAOtqeUxVGtaUf
+	pWHKolpgwr8Ty8SpEYfWh/Kq3V2cSFzYCzLBcTuXqV3Wibt0I7O3Xq8lrWGSurKlJ2pl5ZY/FAv4j
+	TlIwUxxKqIA0h2YNfz5x/QOLLasLNB8uR+ivYCu7MllDd5wTAps3kWc1pIvHJG3fKQhaXQNwxLtYK
+	F/uQp7fVq8alI28A8UlnnyFyYxhqNZl7xaxDzuy0tUBemG1x8OYWHUEHLaxtPpLMWTtbsSzUtHdXv
+	VJ7HyaAAbETmNbrXbcj3qYopnrJPbzcDBTM83ZsIVGlv4Sf+CU4IsYYx67Yk+70xVb42X+1U6VVgB
+	UntjEDCq+0kt/SsuDkGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMnJO-0000000BqVx-0DV0;
-	Fri, 30 Oct 2026 14:10:30 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMnJK-0000000BqUw-2FsO
+	id 1xMnOo-0000000Br5M-0e85;
+	Fri, 30 Oct 2026 14:16:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMnOl-0000000Br4f-14Dy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 14:10:28 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-48c45111bebso335853f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 07:10:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793369422; x=1793974222; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nF6oG7qdYpsHcUJcCpTVAL6/z6SjIIvM80+qHFQC0Tc=;
-        b=z3Yu72eGIENjaDbPog/0IiFbZKp8RxfWrWwpd5aeUbPoMDnuO1hFsxnRwtfsN0xmEO
-         wrjzmgBLeJ6JISKBoyQCUGWrGsrxiavMykvg7MJZnhLSONP1Ki9jtBG4QHt7c8BQTDGr
-         wHGtW6oqNrTO9hm9EO5++emueAsWgPVCN7XuhoCjPhW9nYFDb57k8TDFBDKMjsdq3ug8
-         LY/i95BekL6K0QeEFBOXqT0z9R6EZ+xg36D6TRn5UaBi30fAOPrqRy1+1LjZV0b86F7H
-         3Q2stXqAGL4WpB/ti2NR9bptAYC4qiYQNDAcEwujm2/nJ6LbZFDozij1KRcYfkk+YNto
-         X9GQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793369422; x=1793974222;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nF6oG7qdYpsHcUJcCpTVAL6/z6SjIIvM80+qHFQC0Tc=;
-        b=NAemCbSLLkD0wJM2aYMszPMNc8UN2mfG97QYUmKlhAYDWBWeaGZNNHQksd+NSMpcOx
-         6xiIPkt2nrEHgh9qQaPOpOYu4DB+J4gS9T8qP7ApLjpvZvtO3vzfEqYv6p3PGMfXu6Fy
-         lPTnqv+TQIWQ4i51gw0mm0YZd6xJly50sapfVUH2lCoMvdL50rEA1KHwPcTFkpr6lzqA
-         4G7UwwscxGjmnb1q8OK+hsJ3L8osmzoh/u2NFKWFVXjhGKHqnKpXouVy9fY1lUyAN56e
-         fZRkXENheB3lGY6Ko9Ox2+DGLSozV2Z8olLHpjjbQH+7SAbKUl/pfuYihwPrNTJUAtkp
-         v7Bg==
-X-Forwarded-Encrypted: i=1; AKwUvBzuX2URS7LXU6CfjqZXGtVjFlsNEP+VssuPf1DEwUwKvhX8+96kP2txaXfcbwtCKrRWmgZZbk1XwUuROmNY++ph@lists.infradead.org
-X-Gm-Message-State: AFq9FYLOrCNWXUpvSVwjwsETfGSsjNQhsM2aXeSNCQoUmLw4WWuyo7dY
-	h4xsX1L8er3NcV4a0zQoq+cetxqXsgnMly+j1hCzbIQqFJvJBKlg7WVS
-X-Gm-Gg: AYBFou3G5EpVxG8eyssmhEPJ8PQkUnISbrVJ0ntVGuG1utGF2+R3yQTOuvD9zuLd13p
-	8tpJHxv1s4G/QEA04G3tS7wuswcSBfOFS8McdYRCfYZoyCqF9RBXLnM1WjtO/cHddbJf893e0eb
-	xpaz0eJ2TIelnWcZlEZZtwGLZtkj8ESWlTLSusNRZrbPPPrNY034lEyUsefSPVaAq3L8a233iRx
-	qdixERRrJnCw0MwnF9Tyn48YUvtFYgxmVnJInzHM3AhrxkMF82icTHagBbvPydwAadF6Hl2vuoA
-	a8oobIdyHerqvWbS+RsdnifW9u2U/aZXnvl5ylg6W53FEgZW2gWGzV15dIrRxf9bQ6ERlLMmg4I
-	J7K3bOlbg1GwAynqa4l8J1TcctDsMCKrJ1vnUphUffVXzVGDxfvX2JLznteET+ZJ6XqRBeUaJV4
-	AhD43dV7h5zcCCGKX/AEaEFfZhutjQQlH4R4GDfQ2us0CSlyZ9qks1eQyB7nBsFoPWNX/dBbns9
-	N8wPJ1AZwuVhf65EXhrlz3PL+hQ4u5KHLpcfaDnvy/VkH9W0+dG8Z92XW8GaYTpiCbU7PjzwRUp
-	e2vGfdJYal+MNNrMKs+UMxpV3rSItglHmwmp8sp1gOg+lSLUc7MSTlSVFEh1+z8h4MdlUO0Fdo7
-	YLnF9JYkG
-X-Received: by 2002:a5d:6f0e:0:b0:48d:ea67:79d4 with SMTP id ffacd0b85a97d-48e6e518c14mr5740707f8f.53.1793369421351;
-        Fri, 30 Oct 2026 07:10:21 -0700 (PDT)
-Received: from localhost.localdomain ([2001:861:39c2:e340:24ce:a263:4d8:38f1])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71ba53d7sm5181973f8f.53.2026.10.30.07.10.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 07:10:19 -0700 (PDT)
-From: Romain TISSERAND <romain.tisserand@gmail.com>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Romain TISSERAND <romain.tisserand@gmail.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Liu Ying <victor.liu@nxp.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
+	Fri, 30 Oct 2026 14:16:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D02F71F60;
+	Fri, 30 Oct 2026 07:15:57 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7681D3F673;
+	Fri, 30 Oct 2026 07:15:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793369761; bh=GgEd+PH/jbq28UuYqcwDbQX/UOZkQ32m5RYqOej8J8E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dutMwEYAFpbCr/3XewPMFmB38iOS8ovV+p3UxpXzOGWbjtVHG7Al4HMwOz+NFMXD6
+	 /aaaD3oKAX2aT2ycObpBXr5+dBEcYMgzJBnPS2YuS/IDD/LhqDW+hN3V+rSuTryn9i
+	 bi+6s+GHCIUINFW1E+zM80eCwXTT1rVCtofpGbmg=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	maz@kernel.org,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	pbonzini@redhat.com,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	yangjinqian1@huawei.com,
+	caijian11@h-partners.com,
+	liuyonglong@huawei.com,
+	tangchengchang@huawei.com,
+	yezhenyu2@huawei.com,
+	yubihong@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/bridge: dw-mipi-dsi: use the lane rate for lbcc when lanes run faster
-Date: Fri, 30 Oct 2026 15:10:18 +0100
-Message-ID: <20261030141018.3851266-1-romain.tisserand@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <9e3dc854-b2f5-459c-8267-55e88e87f5b5@rock-chips.com>
-References: <20261025142639.3454322-1-romain.tisserand@gmail.com> <9e3dc854-b2f5-459c-8267-55e88e87f5b5@rock-chips.com>
+	linux-kernel@vger.kernel.org,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	fuad.tabba@linux.dev,
+	mark.rutland@arm.com,
+	seanjc@google.com,
+	rdunlap@infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	skhan@linuxfoundation.org
+Subject: Re: [PATCH v5 06/15] KVM: arm64: Add support for FEAT_HDBSS
+Date: Fri, 30 Oct 2026 14:15:51 +0000
+Message-ID: <auSml6yTVYIQe7NZ@LeoBrasDK>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <a301e884-f6d1-4082-8551-8d8a17276dc3@huawei.com>
+References: <20260929103655.85107-1-zhengtian10@huawei.com> <20260929103655.85107-7-zhengtian10@huawei.com> <at-X_hFbsBU_Dsgr@LeoBrasDK> <a301e884-f6d1-4082-8551-8d8a17276dc3@huawei.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_071026_588978_106D6DC5 
-X-CRM114-Status: GOOD (  10.87  )
-X-Spam-Score: -1.1 (-)
+X-CRM114-CacheID: sfid-20261030_071603_453310_5C726259 
+X-CRM114-Status: GOOD (  29.68  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,29 +97,72 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Chaoyi,
+On Fri, Oct 30, 2026 at 10:53:57AM +0800, Tian Zheng wrote:
+> 
+> 
+> On 10/27/2026 2:12 AM, Leonardo Bras wrote:
+> > On Tue, Sep 29, 2026 at 06:36:46PM +0800, Tian Zheng wrote:
+> > > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > > index 32102c3912fa..12fa37328dd2 100644
+> > > --- a/arch/arm64/kernel/cpufeature.c
+> > > +++ b/arch/arm64/kernel/cpufeature.c
+> > > @@ -2158,6 +2158,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+> > >   	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+> > >   }
+> > > 
+> > > +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int scope)
+> > > +{
+> > > +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, scope);
+> > > +}
+> > > +
+> > 
+> 
+> Hi leo,
+> 
+> > IIUC you run this on every cpu in the system, to make sure it's matching
+> > the feature. Is there any chance the kernel is in EL2 only on some of the
+> > cpus here?
+> > 
+> 
+> It's impossible for the system to have only some CPUs in EL2 and others
+>  not.
+> 
+> > If not, maybe we can run it on system_supports_hdbss() instead, which would
+> > be easier for the user to understand it only runs in EL2, on top of not
+> > needing the above.
+> > 
+> 
+> However, The question is whether a cap should mean "this system can use
+> the feature" or "this hardware supports the feature". If the cap only
+> tracks hardware support, users may be confused when the hardware
+> supports HDBSS but the system runs in nVHE mode — they would mistakenly
+> believe they can use the feature.
+> 
+> So I think we should keep is_kernel_in_hyp_mode() in has_vhe_hdbss(),
+> and add a comment in system_supports_hdbss() explaining this.
+> 
+> Does that work for you? Looking forward to your reply.
 
-On 10/26/2026 3:17 AM, Chaoyi Chen wrote:
-> Adding different glue code for each implementation seems like a good
-> idea.
->
-> Maybe you should try to add a new callback in dw_mipi_dsi_plat_data ?
+Well, 
+That's just my personal view of this:
 
-Makes sense. For v2 I've dropped the threshold and added an optional
-get_hcomponent_lbcc() callback to dw_mipi_dsi_plat_data. The Rockchip
-glue implements it from its lane rate, and the other glues keep the
-current code since they don't set it.
+If we have a function called "has_hdbss" it should only report if the 
+system has the feature available.
 
-I've retested on the GPD XD and will send it on November 1st.
+On the "system_supports_*" we have to figure out if the system itself 
+supports the feature, which checks the feature bits itself and could mean 
+checking for other features being there, such as hyp_mode.  
 
-Thanks,
-Romain
+What do you think?
+
+Thx,
+Leo
 
