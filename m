@@ -2,112 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5ACF2606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 18:02:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2333606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 18:07:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Kviaed6V;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cdjlzgza
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RfcLgfda;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OKVAltTb
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=r3mesjXZpMq/QbEmw5EflPGX4n+VcT5zdLRzDbA874g=; b=Kviaed6V4dOZmmlzY9F9O43Ppz
-	z8TvJreFBeP/OFo2quClijrkrn8XBOBOdxCN8OramsKICmHUeKzPIYSrP23EWLxrpNSAiWxHVZ5fz
-	CqlxkpJH3Iywm3RHZ4pRLXeTE02jLh8L0ZuxaDbEhfuzfkdUw8uhbu61QrW60tHuPwdGAejICSb1/
-	mrExF2N5gf8fJpK+BmOY5nDECYZfDNrrh5XSH2JcRiZpIQ/gB6/w1qj1oVuD8sMOTJiVAF4CCzJvc
-	OzP5PfLcPzRO1d4zNaXTyjw9awqKOgLkRZdiGRZoMZJE9Aexu5n+UtEvSawTt0X3jdEqf3+2RdX4w
-	rSrW2z0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=Yee/M/vhaQksyDRzfPy2oYsyP6s0T7Yq+RK3mjeMx4U=; b=RfcLgfdakZChFv
+	Zy3+3MT9OyAtmZB9ytd+9566Nh8hSVQaakzU0wN+vP7REZPdziM8otkYJ7N8q4fOSsDZmKkZr7lhK
+	oguJqWYHvoRsAnb5HRX1ZlRGKhaQ2K9+OwSdr0yzKQ76GS2m61+ObciCsQbMNoGlRqag/FJcUA+wL
+	sS/A3eTCeC/u6R1kcbk9zStv/SCAj+sgC5N7sqH99K6SNeZfkAJBroZLUKMPvEVioX/N8SSNE0+kh
+	LUrgzjM24NqDBtI3HGLLjM5zBVbAdMBpMeKUvZzVhpFQW9PZnEGr2TIWDjcYAPtsUYutZyfdhTxQk
+	7vVq2q4pg/ozWt0DbvoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqve-0000000CLSR-0mas;
-	Fri, 30 Oct 2026 18:02:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xMr0f-0000000CM7t-2OTa;
+	Fri, 30 Oct 2026 18:07:25 +0000
+Received: from mail-dl1-x1235.google.com ([2607:f8b0:4864:20::1235])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqvY-0000000CLQe-2PI7;
-	Fri, 30 Oct 2026 18:02:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 86521605C6;
-	Fri, 30 Oct 2026 18:02:07 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793383327;
-	b=SyF3OcjX58kElkpQXoic3U6BdE+HTImqvZT6BTI0niEbUpi46Da2FvzKlYF77lgXUot3
-	 HXL3oWFQs2oVLfdS/0J5caac496Br/R/il32DUpT4AC2j7tQFGOnZew4cP9a0DbJZxNSY
-	 O1iwsjLhBxnzGb6djs4LyoNlbhI8tOsZWGygV2gTzSIViZowa/9t8r9NfoVWsGi1PExWc
-	 NGKqzn1uIPT8yL4fIWDwkxbnlEaXqf0ubpypEXTfrvpHRAAcfrD1F3Q5sWTvC763kuK/e
-	 BIUrAQuo1DnYMwRyoPp8/addvAigS3r1v7QthT4hQw/OH+T+pDmAHsMhEuuK+plVUFQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793383327;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=r3mesjXZpMq/QbEmw5EflPGX4n+VcT5zdLRzDbA874g=;
-	b=XljPRJxZs+BdfpKUujWfuwq8tSA/gza4WGlrOdotv6HDvwfFi5FEvG4KboNTeOotQOCR
-	 TXmq4jGQFqpnfLAckvamP2QjkJWhx5wW9yB8hA01YWCID4Z0Zq/S5TIQ7y5pt2eMPIcLo
-	 IaCB49L/bV6P/lXAfXw3n9fAJHPqiJ6U/DUfykX+d8D8T1fYTxcrpbmc20Sb+spqMZ4TW
-	 oLxoGLxmV7C0YbxTlsG8/tyyLumGvT+AAQIjmXmEWMgsG7WuZUsEC976uyTEHW1I8oOfH
-	 LI8VTCvpl1GTXhDEfTY8pRTJgSwR62kG5O7dBmbCBYVqb/dg17sXjsAgFULIfiXAARw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A7BE21F00A1A;
-	Fri, 30 Oct 2026 18:02:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793383327;
-	bh=r3mesjXZpMq/QbEmw5EflPGX4n+VcT5zdLRzDbA874g=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=cdjlzgzaKbrq+Ptz8+KPtXCMEA2reLNc0TFTY/eaUK78IhPMnbhuubDVCJs7b3n3G
-	 q42TUBvD4adGVTlrho7mKSeVKctaLBTGVEHwkSzluNwCOLhBX7ZWZBg+DWCrf3F3Wa
-	 xu5L3CUHzzyGvW8WJKlbPwWhBvA5+/2/fT32vgHmRcPDjyb9V2wLujl1AWA/lZo9ti
-	 KVgU7tVxQXHNOOLwsmXAaRRukuu/H1+q5O1CY/6axImqgZgStAuU+44Wecyiaryxri
-	 4hiL62vmpYa5ltEqimBWi54NMv/k2mN3e44vnmBoACTwXbx7B/8f+9AEBrrOSE4B4t
-	 NwFewo7TWLmBg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 3416443F1B;
-	Fri, 30 Oct 2026 18:02:06 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Fri, 30 Oct 2026 18:02:04 +0000
-Subject: [PATCH v2] media: rkvdec: Do not keep the clocks enabled from
- probe
+	id 1xMr0c-0000000CM7H-2IAj
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Oct 2026 18:07:24 +0000
+Received: by mail-dl1-x1235.google.com with SMTP id a92af1059eb24-1ae7fc5681dso526c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 11:07:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793383639; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TJmQslQyWwfw/1tX4tRv2K5vAfNJ7SdysdJOJJhOUuNb7qrc+oOEdk/6K2GQiqPd24
+         s9/8wy+hsETvNfzfZfbCyKQWEDwjSSHPewomHhtaR4rB13ghWjix3M0lKeGdcN91Yj2x
+         Q+k9z/+RFRmmFdaBd2BBQGWVEyuJxOq7BDbeNXUnSUqyRl1dJ57sEfuAWiaqpBBVV1br
+         p03CINNl4BSBhfNkVrCJYNCZqOxFl8Fm/IWk/bcoSO1v3QA8mtW+oGyTV3Krxu4JpWH5
+         43Xc3SMH1q4Z6SvSjk5oKNHwy0iMbInLnQYqDD853CVhgCRyIZCDBlKZi59Q2CI7W1uy
+         4k2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Yee/M/vhaQksyDRzfPy2oYsyP6s0T7Yq+RK3mjeMx4U=;
+        fh=7vw+T9bjSIuZTDLDxdUhf10rrviboIOUxrsyi78rdOg=;
+        b=X7Gu5/610/HEQL9rh2W4ZzxQH1EbJ8Fne5K0GF5j62yz2MccOf49EH4rt850eAyp5C
+         xE2H9fz5qMp8yP2SXSWt3Y6DHZfx9rW72PhrRRTj1kmuUIvP6WYku3zzfeopAOLMYzpt
+         pFI+kXRPzsmMYwtDqxOgk0I+jss8F98rUFzp9kWwL8xXaZ7X23N3BA0kk5RE52eLNktp
+         IM1vQN7xrmyNVSQcPZ5e7hT9q1oWbHUg1MiD7q/oSUc8/llvbW/yZ0FHneZQNs3klYPr
+         yOrbTBuOuKokSR/tpz4azaAWRqRB999MqTw3sB6InCdB+xis+O6BHxw7hjxrALLjn/hU
+         KIcg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1793383639; x=1793988439; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Yee/M/vhaQksyDRzfPy2oYsyP6s0T7Yq+RK3mjeMx4U=;
+        b=OKVAltTbIrHgDKr2PQG+S5CDkJQRMVGDP+xexwqHbD2kXGWtU70Obtooep7iPhZDL0
+         Qag52fPV7YPXN6D4D0vopJMzkPSs3F+qIEiRXGL+C5T08z05hnpDsA/CccisX9wI5EVl
+         am6TTFxOyj5gLxurkwrK5AAwCxwAo8GpNJRDRl4RKPayBfQ0dfmQOyaLfuD//QUYngKm
+         JWw92gFDRhn+nYyprdDgu2zdQs7WInagTYqLELEqkhOaMfZwRbQuFcUcPwl2NqLmb2WM
+         N1xbXfGciV81K3dVlb1/VdKufYN/lwwpeqp6Lvd6V7myeK08enGO1eB27pa5OVVAZJlV
+         GOXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793383639; x=1793988439;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Yee/M/vhaQksyDRzfPy2oYsyP6s0T7Yq+RK3mjeMx4U=;
+        b=Jd7Pg6MTnmg7IHxRLH2Gqusan/HxyFlzGw3CBUE9mqpo4ITaWa58GvI6aRU5KyL71W
+         5oNW75vxO9AwUdz9Bqt6R7UpfBfgo6ANI/3HjRhnnt+JS4jnZLLUldaAk8Z6XzUcFpGZ
+         Bnd5wdEMxGGV6KFIgZzjaoz2hE9obfSqT79EMn6vJks9JYIzndi1uOeke7XsvO+kRMEj
+         Fh9um1bEWiNPwx4AbBYxPOZbUnH8LqjPiArfFlVrgzsg6Jvz8mzS7u4d8R02UEdB8/Jl
+         oT2VUO+pFdKDKNoRrQJa+cwuaRRdK6KbjIl8qWygVIMtzxAdtXwSK4xDQJMZjN2Uesy8
+         3+Vg==
+X-Forwarded-Encrypted: i=1; AKwUvBwDr7AqZTYdRCLo9ky0GwpJtVdENi9rDj1zSvOnyhhVhcJP25whutW1qK0GQcSMfuzntmF017/u4dijGSj5C+yG@lists.infradead.org
+X-Gm-Message-State: AFq9FYKofyq1ssKGU1d5SUuF9I48EM071MspJge/qUnar2JuAuwCZ8Xz
+	GxV3a8UPyl4b2z3NZUg9RqZAUg6j68vv0AkfS2U7izYIhCdLMgFb/xYS7Y++aICjC6QFsUfwKVK
+	EkUhm76vlCXEHy1qCM/0n2ZUJITLnwisQLuqXmCqy
+X-Gm-Gg: AYBFou0kgS7a8lWyVuGlAr2l+1TieNnPfqpahOCYSrHTASMKv/11aiZKUTwvvI8Utpl
+	kCcgPzF5V8trLnYvA8KMj3CIS07XXVLg++P+4DpY6BO3HrSHC+NZbLFqpC3m45Ux4Maig20P0/K
+	+qF/44WvT2TN8VsWA3e2nYTae/KmOIFDoClGAn2KPgshjUdB4WAa2xr06Hm/u0MFWPY32Gr4vBv
+	CmgYYtWw7mksD+uR/v6vnDucOGRDJNONY0bY1oi38Bs0uIT9gFqkY/DVdTw6FI0B9RmGO8qZh9R
+	YcoMETv048kSIn1KSUZNxb9PAL3KruIwM0CYkRBgug/nt/iIoTuR9k7la15rK6FeCKUKPLMX8YG
+	H2HBnQA0/xwddtCi9pe1MeLptKFUMUFdqvRKq58s1SMObFjyjuNm2EBadMkuzjK9Fb4m97h0Jj+
+	Kt5NhwMRA0+YtTdQ==
+X-Received: by 2002:a05:701b:418f:10b0:162:1b69:fe06 with SMTP id
+ a92af1059eb24-1a99bfb8c44mr948799c88.14.1793383635496; Fri, 30 Oct 2026
+ 11:07:15 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261030-rkvdec-runtime-pm-clocks-v2-1-8ff510a231de@iav.lv>
-X-B4-Tracking: v=1; b=H4sIAJvb5GoC/42NTQ6CMBBGr0Jm7ZhORQiuvIdhAWUqE37TYqMhv
- buVE7h8L/net4NnJ+zhlu3gOIiXZU6gTxmYvpmfjNIlBq10Qeqi0A2hY4PuNW8yMa4TmnExg8e
- cms5YykmXBGm+OrbyPtKPOnEvflvc53gK9LN/RAMhoW21ubaFrris7tKE8xigjjF+AZc1RKO9A
- AAA
-To: Detlev Casanova <detlev.casanova@collabora.com>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Diederik de Haas <diederik@cknow-tech.com>, Jonas Karlman <jonas@kwiboo.se>, 
- Francesco Saverio Pavone <pavone.lawyer@gmail.com>, 
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3311; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=zsa4RX1c/nbvAozgmcN/IU1qGvXJqkjP4BnsN43BGmQ=;
- b=kA0DAAoWMpeVi+pfeQMByyZiAGrk252g3CU8c3IdDSZpGQ0cK1tTF0u77/pNmEQE36uaSbo3c
- 4h1BAAWCgAdFiEEkMIo2mik1f1PSDfgMpeVi+pfeQMFAmrk250ACgkQMpeVi+pfeQOANwEAoGgF
- h9OSXorU/sv8C1ifnWk32p5bhPxWTAmx/o+j6ZoA/3SCrX77lyVxa9AxhduIM5mMv6+txRaDQFe
- LTFYIq3EN
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
-Content-Transfer-Encoding: 7bit
+References: <20261030174816.1544471-1-bwicaksono@nvidia.com>
+In-Reply-To: <20261030174816.1544471-1-bwicaksono@nvidia.com>
+From: Ian Rogers <irogers@google.com>
+Date: Fri, 30 Oct 2026 11:07:03 -0700
+X-Gm-Features: AclHuK_KkDFZvz94Iv9OiENJydeV5pIlSlXsWtxJeGMUrrlYUp2oAVSujcV7xFQ
+Message-ID: <CAP-5=fUEmNrREh-ipxYMiStr5xCakGDBZW8OmAj1rhACs8qaZw@mail.gmail.com>
+Subject: Re: [PATCH v2 0/9] perf: Add NVIDIA Tegra410 uncore PMU events and metrics
+To: Besar Wicaksono <bwicaksono@nvidia.com>
+Cc: acme@kernel.org, namhyung@kernel.org, ctshao@google.com, 
+	linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	vsethi@nvidia.com, rwiley@nvidia.com, skelley@nvidia.com, mochs@nvidia.com, 
+	rajjoshi@nvidia.com, treding@nvidia.com, jonathanh@nvidia.com, 
+	john.garry@linux.dev, will@kernel.org, james.clark@linaro.org, 
+	mike.leach@arm.com, leo.yan@linux.dev, mark.rutland@arm.com, 
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org, adrian.hunter@intel.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261030_110722_593930_588F1252 
+X-CRM114-Status: GOOD (  25.87  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,90 +123,122 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-18.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Igor Velkov <iav@iav.lv>
+On Fri, Oct 30, 2026 at 10:49=E2=80=AFAM Besar Wicaksono <bwicaksono@nvidia=
+.com> wrote:
+>
+> Add event aliases and derived metrics for the NVIDIA Tegra410 uncore
+> PMUs, and fix perf's aggregation of PMU instances that are numbered in
+> more than one parts in their name.
+>
+> The series covers the UCF, PCIe, PCIe target, CPU memory latency, and
+> chip-to-chip interconnect PMUs. It provides symbolic names for the raw
+> event encodings and metrics for bandwidth, frequency, and average read
+> latency.
+>
+> The PCIe and PCIe target PMUs are named nvidia_pcie_pmu_<socket>_rc_<rc>
+> and nvidia_pcie_tgt_pmu_<socket>_rc_<rc>. Their json Unit uses the
+> existing comma-separated form ("nvidia_pcie_pmu_,rc_"), but perf only
+> merged instances that differ in the trailing number, so these events and
+> metrics gave one result per socket and were reported incorrectly (e.g.
+> with --metric-only), as discussed in v1. Patches 6-9 fix this:
+>
+> - Patch 6 adds a check of the cpumasks of all merged PMU instances to the
+>   zero-count skip in perf stat, so a socket that counts nothing shows 0
+>   instead of having its row hidden.
+> - Patch 7 merges PMU instances that match the same comma-separated json
+>   Unit. This also applies to the HiSilicon hisi_sccl PMUs, which use the
+>   same json form; not tested on HiSilicon hardware.
+> - Patch 8 labels a merged uncore counter after all of its PMUs, e.g.
+>   nvidia_pcie_pmu_*_rc_*/cycles/ or nvidia_ucf_pmu/cycles/, instead of
+>   after the first instance, such as nvidia_pcie_pmu_0_rc_0/cycles/.
+>   Output with --no-aggr is unchanged.
+> - Patch 9 describes these PMU names in the ABI document.
+>
+> Changes in v2:
+> - Move the uncore JSON out of the sys directory and remove the
+>   "Compat" fields. Thanks to Ian Rogers for the feedback.
+> - Drop "perf jevents: Process model files before sys subdirectories",
+>   which this series no longer needs.
+> - Add UCF SLC and memory bandwidth metrics from all sources to local
+>   CMEM (read, write and read+write) and from local sources to local
+>   CMEM and to remote memory, PCIe bandwidth metrics to local
+>   destinations, and read+write bandwidth metrics for UCF SLC, UCF
+>   memory and PCIe. Thanks to Chun-Tse Shao for the suggestion.
+> - Add patches 6-9 to fix the PCIe instance aggregation. Thanks to Ian
+>   Rogers and Chun-Tse Shao for the pointers.
+>
+> v1: https://lore.kernel.org/all/20261019164241.403644-1-bwicaksono@nvidia=
+.com/
 
-Since commit 6a846f7d72c7 ("media: rkvdec: Enable all clocks without
-naming them") the clocks are fetched with devm_clk_bulk_get_all_enabled(),
-which keeps them enabled from probe until unbind. rkvdec_runtime_suspend()
-disables them on top of that, so their enable count never drops to zero
-and the clock gates stay open while the decoder is idle.
+Why don't we look to fix code in drivers/perf? This series introduces
+PMU instances, overloads the meaning of aliases, and a bunch of other
+silly complexity due to poor reviews and maintenance of drivers/perf -
+specifically by not pointing out the ABI issues. Isn't this a
+straightforward, whoops we did a bad suffix and here's the patch to
+rename our PMU in the driver? Throwing more complexity at the problem
+doesn't feel like the right fix.
 
-On RK3399 this also breaks restore from hibernation when the boot kernel
-has not enabled these clocks, for example with rkvdec built as a module:
-the gates are closed when the restored kernel takes over, while it still
-counts the clocks as enabled. Powering on the vdu power domain then finds
-the count at 1 and leaves the gates closed, and the first QoS register
-write of the domain never returns.
+Thanks,
+Ian
 
-Get the clocks without enabling them and let runtime PM enable them while
-the decoder is in use, as before that commit. Without CONFIG_PM the
-runtime PM callbacks are not registered, so keep the clocks enabled from
-probe in that case, as etnaviv and v3d do.
-
-Fixes: 6a846f7d72c7 ("media: rkvdec: Enable all clocks without naming them")
-Cc: stable@vger.kernel.org # v7.0+
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
-Tested on ROCK Pi 4A (RK3399) with v7.3, rkvdec and panfrost built as
-modules, panfrost not loaded:
-- idle decoder: the vdu clocks have enable_count 0 (1 without the patch);
-- hibernate, power cycle, restore: 3 of 3 (0 of 3 without the patch, the
-  restored kernel stops after bringing the secondary CPUs up);
-- H.264 decode with GStreamer v4l2slh264dec, 300 frames of 720p High
-  profile: output identical to avdec_h264 (md5 of all frames).
-The QoS hang was traced with debug prints in rockchip_pd_power() on a
-7.3-based kernel.
-
-This is separate from the unbind leak in Jonas's patch that Francesco
-posted [1]: here the extra enable comes from probe.
-
-[1] https://lore.kernel.org/all/20260717154505.83935-1-pavone.lawyer@gmail.com/
----
-Changes in v2:
-- Keep the clocks enabled from probe when CONFIG_PM is disabled: the
-  runtime PM callbacks are not registered then (Nicolas).
-- Retested on the same setup: idle enable_count 0, hibernate 3 of 3,
-  H.264 output identical to avdec_h264. Builds without warnings with
-  CONFIG_PM=n (arm64 allnoconfig + COMPILE_TEST, W=1).
-- Link to v1: https://lore.kernel.org/r/20261030-rkvdec-runtime-pm-clocks-v1-1-fb2c5b629e79@iav.lv
----
- drivers/media/platform/rockchip/rkvdec/rkvdec.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 061281f903f3..81cf3c1ba7fb 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-@@ -1788,7 +1788,10 @@ static int rkvdec_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	ret = devm_clk_bulk_get_all_enabled(&pdev->dev, &rkvdec->clocks);
-+	if (IS_ENABLED(CONFIG_PM))
-+		ret = devm_clk_bulk_get_all(&pdev->dev, &rkvdec->clocks);
-+	else
-+		ret = devm_clk_bulk_get_all_enabled(&pdev->dev, &rkvdec->clocks);
- 	if (ret < 0)
- 		return ret;
- 
-
----
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
-change-id: 20261030-rkvdec-runtime-pm-clocks-41adcf141271
-
-Best regards,
--- 
-Igor Velkov <iav@iav.lv>
-
-
+> Besar Wicaksono (9):
+>   perf jevents: Add support for NVIDIA Tegra410 UCF PMU aliasing
+>   perf jevents: Add support for NVIDIA Tegra410 PCIE PMU aliasing
+>   perf jevents: Add support for NVIDIA Tegra410 PCIE-TGT PMU aliasing
+>   perf jevents: Add support for NVIDIA Tegra410 CPU Memory Latency PMU
+>     aliasing
+>   perf jevents: Add support for NVIDIA Tegra410 C2C PMU aliasing
+>   perf stat: Check merged PMU instance's cpumasks when skipping zero
+>     counts
+>   perf pmu: Merge PMU instances that match the same comma-separated json
+>     Unit
+>   perf evsel: Name a merged uncore counter after all of its PMUs
+>   perf Documentation: Describe PMU names numbered in more than one place
+>
+>  .../testing/sysfs-bus-event_source-devices    |  14 +
+>  .../arm64/nvidia/t410/uncore-cpu_mem.json     |  43 +
+>  .../arm64/nvidia/t410/uncore-nvclink.json     |  67 ++
+>  .../arm64/nvidia/t410/uncore-nvdlink.json     |  43 +
+>  .../arm64/nvidia/t410/uncore-nvlink_c2c.json  | 115 +++
+>  .../arch/arm64/nvidia/t410/uncore-pcie.json   | 249 ++++++
+>  .../arm64/nvidia/t410/uncore-pcie_tgt.json    |  83 ++
+>  .../arch/arm64/nvidia/t410/uncore-ucf.json    | 764 ++++++++++++++++++
+>  tools/perf/tests/pmu.c                        | 134 +++
+>  tools/perf/util/evlist.c                      |   2 +-
+>  tools/perf/util/evsel.c                       |  83 +-
+>  tools/perf/util/evsel.h                       |   2 +-
+>  tools/perf/util/parse-events.c                |   2 +-
+>  tools/perf/util/pmu.c                         |  65 ++
+>  tools/perf/util/pmu.h                         |   9 +
+>  tools/perf/util/pmus.c                        |  47 ++
+>  tools/perf/util/pmus.h                        |   1 +
+>  tools/perf/util/stat-display.c                |  20 +
+>  18 files changed, 1737 insertions(+), 6 deletions(-)
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-c=
+pu_mem.json
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-n=
+vclink.json
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-n=
+vdlink.json
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-n=
+vlink_c2c.json
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-p=
+cie.json
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-p=
+cie_tgt.json
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-u=
+cf.json
+>
+> --
+> 2.43.0
+>
 
