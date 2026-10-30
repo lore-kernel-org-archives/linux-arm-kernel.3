@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2CAE606A321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 20:34:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03DAB606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 20:34:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QP3EvZXi;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xmz1SEUL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yXEMuwqF;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EmIcvfgw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,73 +14,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Q5W519Vms+cuLU3D3kQ7KbxaNAU0DCKwcBmgsNRSPF4=; b=QP3EvZXiSUsIRIJ35rb9bZK5DY
-	6YxTyg9RAY7f+AIGuV+cIsjvtElzAJX8aBgXFB+BRZgvjaDrpksNWMJWVuGJHVe2ZAvxs1rZU0KTa
-	dOP2tPWjuDBVC5HWNbSh1+OOJx7Vgpre1KagkHvF53YulxDHOicUEVjJOnj/jHxKsz3VufAGZXZtE
-	7vq1dAbAi2itb0kHy1SQhf7barHZNIN/TtNUwjMDBoiOWzRrSXAbLJPPFuZUDQ/AlfJk81J+ki1ld
-	SKL+2IjlqnnuzUmCoeAlZ6CZC56whF3DrMRiFPBC4RHSwJHasa6q0ShgzCyBiHmysKzf4LAzZOmA+
-	eS/EpWYA==;
+	bh=soIhMh1dJ9HVRlujdDktbU1BG+4MBhLl+PUVrnyOGB0=; b=yXEMuwqFZIPWNBXq1/GPocSFOP
+	t96L3N/+GOvwRSKI53egdAtbqngsC3fuzwFTjh2YybQPk1VNvvLTAQ/HcIXIHLzWKhgve5TPRGCJz
+	pVUu+10LwnO4uXabBQ1G0hnOGASUbVz/05xCPplWGqHWw3Dk/duLKVkAGxkWQoHl1IFMcAqqJyOTI
+	jAOXObW19egm0ebwk8JiCRSzRdXm65HQIVYFfUicOtsaneFCKcIx/KGBL9WSfpoEGMJrH9pCO3UgU
+	4Zs4zwvccM6gzfLDzBF2Vn+B5mXmtxyU2Am/hULpYyXKl7bONEt7uZ8/76FgIU3aSbk9XTmOpBYk5
+	U9Y6PqWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMtIl-0000000CXhI-2Skb;
+	id 1xMtIl-0000000CXgw-0dy2;
 	Fri, 30 Oct 2026 20:34:15 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMtIk-0000000CXgj-2MHh
+	id 1xMtIk-0000000CXgG-0O4E
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 30 Oct 2026 20:34:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52F6D44042;
-	Fri, 30 Oct 2026 20:34:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E8D0741FD3;
+	Fri, 30 Oct 2026 20:34:12 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793392454;
-	b=0EfzcWNPA9I7mn4NKuY0XAtq0MI2OzxyCzHjHciKGGKiGdWvAFQ+y4394UB977Am0jxp
-	 rjpmEVXcmbLmyoD1qwfgP4YN2KiKYE+jxbbaRvi5iV+EP5vhXtwYLRStgURgLgECkXrlc
-	 ZTvkAlwe9iVcQkWYk9dZ8hHmSJxjd9aED3EPYVAEeGefx6ef/vw8bHDiKSfwPzgVlF3MB
-	 qtExJwyn9ZcRNmSLMNxfhCX8AUCEKfl7BbYaQamRIZldK0QyF2GkDeBulaZxky/vwv/q2
-	 RxS+y5FSIffHE9sahq6m0DGNERjVq7Z6Mt4mOhQ7hAT5BPrJw4vzGorjFXY4R/MIDWA==
+	t=1793392452;
+	b=NFzbHwRF//zl2Xyj1HSwPKvAuFp8RKnz6GgaRrghHcha0ISS3eTiQWl+5gowbVXz+YLv
+	 DPyTBZadBHOyFU59m+8u5KaDkuUk1DUPtqZ6O2v7Z3Uu4lvwFtZdxikH0wZf+a/8dWcj8
+	 HOT10ULRdLIPO+ttBt3XxD2oQDGRL8FfX4GxT+S4pECGwPqHaM99ZRSsEci52UHMkjDQL
+	 Lri4oHhGxcxnKB0R9radglTXySug4rxINeeLHPe6SNo3iCsXnGdcCShnyWAv5oDg1Hxfk
+	 8lpsj4iyXJW55m5Lz/ibbjMB4q370TFgUFd/RWfNM0l4uj8GCpy236EPL2kaX01RkIA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793392454;
+	c=relaxed/relaxed; t=1793392452;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Q5W519Vms+cuLU3D3kQ7KbxaNAU0DCKwcBmgsNRSPF4=;
-	b=WToorKZWRINJgQ3VvL6zo/LNr6HSuYdLqIGVtcfgtJIiJkRqjprWkdhfEHAkeKL63vzX
-	 2tFa84l+VeDk1+OtF3GdvjdyPbq3pjwIEo61ZcxFubG4B3kf664HA/jUBNPFNj2QPZiWN
-	 WcUmW3Dgx++3JXKAkrSDC7PRwG2RhfnGjOOd/DGzWjs5644MLwFEqLseEEWb7G+j+yCdf
-	 eabCPlvCjYT5In33mSsxBNV7klTtQ7txN2xEEi7GP4bzblTIazXF08b6lHZJkrsKDi2KN
-	 9HLsgtYqiQPVs5sSnZen4WdtoZTSV36IneyHY4yeU0X4e3ueHsggvoy6Cjo0pVQ1/mA==
+	bh=soIhMh1dJ9HVRlujdDktbU1BG+4MBhLl+PUVrnyOGB0=;
+	b=Omy9BHE1zrFC6arZhYGHOA+mP+AVMEePu/pPUtgNaXns/B6cVcikWyDeULt3KIxAnm6E
+	 TZVteDysp9O2FJdBV0v17lw2B/GIAMML/Oew/f5hC0gFF9ivAk+AbokwmWwjiEmL8igRj
+	 qH3XjAthMAbOWhNlhr19FhxDPnyB9NJCFvWuShsya3gmSEhmU0LO0C+rCGgsnHyT8Y2LQ
+	 Km07/9aJICQc2scrPE3oExyaq+W6qmpBQsanLAna0fe/pb3tHUhShNw8B1//+McGdl3NM
+	 k617gUSazI54wsCJwt4+Jo6q10LQUG0oRnZLNkKn/nsKqBjXo0KcShahNzTNatNB/dQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 667BF1F0093A;
-	Fri, 30 Oct 2026 20:34:13 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 4455E1F00A17;
+	Fri, 30 Oct 2026 20:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793392453;
-	bh=Q5W519Vms+cuLU3D3kQ7KbxaNAU0DCKwcBmgsNRSPF4=;
+	s=k20260515; t=1793392452;
+	bh=soIhMh1dJ9HVRlujdDktbU1BG+4MBhLl+PUVrnyOGB0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Xmz1SEUL0GLzkOxXEvsmE8F2Z+iWO5ah1qdPUMkWAmVN3Cwb9ALT1AhQygTNuBiy6
-	 4zyyby8NOA2yd1UW45vVtO7wf2j7WniutC9WoqJgGENrBmF01kW6Hsle/FqFJ0oy5T
-	 iq1VQxR0kVXJ5dQE+UsZ4/DEdWYVbdzfXoD2hafn6ngvZcLMp6WV9FQxiYy3czWOYn
-	 TqK8qFJNySSKTD++JvsrIbdms5KdaQRuy+CVamsXglZBl7NSWeQJiZ0we2o7dV9grx
-	 a5731JqNQI/FDBR9qUkbE1SWGstYtaYHYBkzbxbiOqbmHKqz8RvRC8u4pT0zHpGiNk
-	 vHx2Cp2+eIf2A==
+	b=EmIcvfgwXeHxHmykw8dAguK01MfyJSqWqDPAllGKxY6xTE7hTfmFcHPYpJ4Xel/fk
+	 VR9UHe4X+Ryp14f2LJYvJWOnPlgMffFICwocBeHlohvaLPj8o2GDAD+sDsGGiiL2Ln
+	 qo1u+8TCoi0o3abJm9lBNQx6KC8tAqeMtkfZ1c56Jc70q/dIctlr9OA6Ts5kbnxIps
+	 5nLHCx7wJvdUfRPxljGB0AGBpP+MBuBMnEHGgXDteLEX76X5cZWIuF7P5TZCNMSOXK
+	 ZZhGSJGTYV4qruC9fhMZrFhbnTL5WHUZzOQXrmeT0Lmi/E9iyLnfXGR2LDmrQpdZdc
+	 93QJw1PRqMrog==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D429E4428F;
+	by lkml.kernel.org (Postfix) with ESMTP id A59D04425E;
 	Fri, 30 Oct 2026 20:34:11 +0000 (UTC)
 From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
-Date: Fri, 30 Oct 2026 20:34:00 +0000
-Subject: [PATCH v3 5/5] arm64: dts: exynos: Add initial support for Samsung
- Galaxy Watch FE
+Date: Fri, 30 Oct 2026 20:33:56 +0000
+Subject: [PATCH v3 1/5] dt-bindings: soc: samsung: exynos-sysreg: Add
+ compatibles for Exynos5515
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261030-for-next-lucky7-v3-5-81e02272ce69@member.fsf.org>
+Message-Id: <20261030-for-next-lucky7-v3-1-81e02272ce69@member.fsf.org>
 References: <20261030-for-next-lucky7-v3-0-81e02272ce69@member.fsf.org>
 In-Reply-To: <20261030-for-next-lucky7-v3-0-81e02272ce69@member.fsf.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -91,21 +91,21 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Aiden Isik <aidenisik@member.fsf.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5339;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1491;
  i=aidenisik@member.fsf.org; h=from:subject:message-id;
- bh=RZpVw2mu/ob2NzUXW6J8a3tGsl4GrNevFe9W5otRNb4=;
- b=owEBiQJ2/ZANAwAIAUknAbLEetfrAcsmYgBq5P9ChsscrqApkPczjms2pUkwA83dp7hHAfLbk
- D65HjHjKySJAk8EAAEIADkWIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCauT/QhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQSScBssR61+shKBAAjrPzwYxy5y53+frhlEo1PDBYKpl0a4E
- oq13m9Qs/1h/YMtU9m+cnE6r0+DFYy2L8ejQJYFSBFnUgBAb7AmO/7GiOyAozHyL+M7na8yamCS
- v8QMQdtWeen+OTQ97ikl8Yhzo1TarWlL3v43yov2aOEudJQNUHmKb+IJxw4Tibzr9ay/+3FlLtF
- NYB49BCl07mc3rQFMaFkA6AjHqUltglHXbGNmeg8lGie8RbFKjSZzUOQSFVspuWnRsh3rqW/DxP
- NgQ4IhEm7kqtJs/QZMBHN+8czOmrMiiRnVt1bVClQw2KUsTT6qDsrJToWBZ1v9z6gts6DgzPYIn
- Q/409joSjD0g+IZfZUIJDHqJEwJYF0ZBEDXW/vmonEXJJJfh1xzBmQIaorNAlNTv58Mz18kxI0D
- 2E6j7ivf7/kPxKp5zkbFklfHodNgZZ1uzy65grhtDgzIpO2l7i1jQgH/Tw1dTUmTn1KT2smtiWF
- ygHvrs3WU3dkHIbGVq/dI3zOy2yWUGa5/EhfGqW9Gd5efXTFBSe3FOnGhtE4tvWg2DYaetALgNN
- QhVDYILuDeRPxw9G8zEnDuOi7ekDsagzeEemXWg7HMPCJYftXb9hRgqySgvyRQrC62thfuPfYWR
- RP8RGQaPPPIIpOzkQFWmy6v6WDfrGFECvP1nCDuS/PN7VEWScd7g=
+ bh=QtI7rR1JE5JZ0IsGeNkyOHtQG1QoQSmhMzQKfhBONkY=;
+ b=owEBiQJ2/ZANAwAIAUknAbLEetfrAcsmYgBq5P9BRwnhwKnh1lcLA8zegpISzuoxVtpp5hFSk
+ J2zaklXBzqJAk8EAAEIADkWIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCauT/QRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQSScBssR61+sUcw/+KAI+HUyt1z+19ZMIG5gRCEjE44sucKH
+ KNHTSOx64D+bNnnirR/IWS6DGiL4OCtHgBLgaaYoTu2rcjjPkARscI3n1BFNH3qknQNcNVLPagG
+ JEdMikMNvIjTYc0+RKLMTV4hOAKGxNdk5ycDH5P/d0aWZNi4LZzS9DeC/ID+KJg5TyYWBhZv1hM
+ mzi+Jq65JmDFFAcZ0hKi+hS7gJHMgzP9ewAwwRQor464RYTR66m/eGMbXCSKNJc+HgY+ErFpXH/
+ lTk3aD6t4CdFYYN+SxUKbtbJqZydCMmEZVWBAoFn7VfD7loooEx6BknS65WU0cT1HeeD8J/J//e
+ bRgPFtQm0bQgKesqdoccbIxtlW+Kl9w0tuR1tXn/BxCpL6dZ+QH9gGbK0eSMxx/1atIHAQAPL14
+ HheUfUJM5JsInrfZyVBtGqDXlF1IPkJv+Y6912ZctsOSkCejwHcJ72MSe+Wc7nO5kZivxgc02Et
+ 86RTXf9QUjRMUWwQQ3cb9QXpxVGsiOJ9nLE9cvXU0CgGaAhGhTdseWBH78WC9vVhk6MUbHTm2va
+ S289sjykEYRGVGW6Qxkcle8PBMO6/LulZ6ijDXmCpedKRWsfu7JPYBhDD4N/1EMvqpVAEN/WNEf
+ iD+X7Wg83J2zPnp5nq5rKGNiCrr4sTqk6Qo6OQaCioJNT+st9uk0=
 X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
  fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
 X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
@@ -133,253 +133,39 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Aiden Isik <aidenisik@member.fsf.org>
 
-The Samsung Galaxy Watch FE (SM-R861/SM-R866), codenamed lucky7, is a
-smartwatch developed by Samsung and released in 2024. It has 1.5GiB RAM,
-16GiB of eMMC storage, an Exynos5515 (W920) SoC, and a 396x396 display.
-
-Support for the following is added by this device tree:
-- Bootloader framebuffer
-- Memory
+Add Exynos5515 compatibles for the following sysreg controllers:
+- top
+- peri
+- fsys
 
 Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
 ---
- arch/arm64/boot/dts/exynos/Makefile              |   1 +
- arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts | 215 +++++++++++++++++++++++
- 2 files changed, 216 insertions(+)
+ .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml       | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-index 7534b773d28f..3ff3c643fc5c 100644
---- a/arch/arm64/boot/dts/exynos/Makefile
-+++ b/arch/arm64/boot/dts/exynos/Makefile
-@@ -6,6 +6,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
- 	exynos2200-g0s.dtb		\
- 	exynos5433-tm2.dtb		\
- 	exynos5433-tm2e.dtb		\
-+	exynos5515-lucky7.dtb		\
- 	exynos7-espresso.dtb		\
- 	exynos7870-a2corelte.dtb	\
- 	exynos7870-j5y17lte.dtb		\
-diff --git a/arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts b/arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts
-new file mode 100644
-index 000000000000..0193a5d99f5c
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts
-@@ -0,0 +1,215 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Samsung Galaxy Watch FE (lucky7/SM-R861/SM-R866) device tree source
-+ *
-+ * Copyright (c) 2026 Aiden Isik <aidenisik+git@member.fsf.org>
-+ */
-+
-+/dts-v1/;
-+#include "exynos5515.dtsi"
-+
-+/ {
-+	compatible = "samsung,lucky7", "samsung,exynos5515";
-+	chassis-type = "watch";
-+	model = "Samsung Galaxy Watch FE (SM-R861/SM-R866)";
-+
-+	chosen {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+
-+		framebuffer@9e0cf000 {
-+			compatible = "simple-framebuffer";
-+			reg = <0x0 0x9e0cf000 (396 * 396 * 4)>;
-+			format = "a8r8g8b8";
-+			height = <396>;
-+			stride = <(396 * 4)>;
-+			width = <396>;
-+		};
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x3ea00000>,
-+		      <0x0 0xc0000000 0x20000000>;
-+	};
-+
-+	reserved-memory {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+
-+		/*
-+		 * Some of these misc-rmem regions belong to memory-mapped
-+		 * devices, and will be assigned to drivers as support
-+		 * is added.
-+		 *
-+		 * Other regions belong to the TrustZone firmware and should
-+		 * never be touched.
-+		 */
-+		misc-rmem@87000000 {
-+			reg = <0x0 0x87000000 0x200000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@87fff000 {
-+			reg = <0x0 0x87fff000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@8a000000 {
-+			reg = <0x0 0x8a000000 0x31000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@8d800000 {
-+			reg = <0x0 0x8d800000 0x180000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@8ffff000 {
-+			reg = <0x0 0x8ffff000 0x33000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@90100000 {
-+			reg = <0x0 0x90100000 0x200000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@98a00000 {
-+			reg = <0x0 0x98a00000 0x600000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@9a000000 {
-+			reg = <0x0 0x9a000000 0xc00000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@9b000000 {
-+			reg = <0x0 0x9b000000 0x400000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@9bd00000 {
-+			reg = <0x0 0x9bd00000 0x208000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@9c000000 {
-+			reg = <0x0 0x9c000000 0x20000>;
-+			no-map;
-+		};
-+
-+		framebuffer@9e0cf000 {
-+			/*
-+			 * Reserve up to the end of the final page of the
-+			 * framebuffer region, to prevent memory aliasing.
-+			 *
-+			 * size: align((396 * 396 * 4), 0x1000)
-+			 */
-+			reg = <0x0 0x9e0cf000 0x9a000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@a0000000 {
-+			reg = <0x0 0xa0000000 0x10000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@a0010000 {
-+			reg = <0x0 0xa0010000 0x400000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@a0510000 {
-+			reg = <0x0 0xa0510000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@a0900000 {
-+			reg = <0x0 0xa0900000 0x2000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@a0902000 {
-+			reg = <0x0 0xa0902000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@a0910000 {
-+			reg = <0x0 0xa0910000 0x3c000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@b0000000 {
-+			reg = <0x0 0xb0000000 0x200000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@b1000000 {
-+			reg = <0x0 0xb1000000 0x200000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@bbfff000 {
-+			reg = <0x0 0xbbfff000 0x1000000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@bcfff000 {
-+			reg = <0x0 0xbcfff000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@bd430000 {
-+			reg = <0x0 0xbd430000 0x1250000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@d0000000 {
-+			reg = <0x0 0xd0000000 0x5d00000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@dc444000 {
-+			reg = <0x0 0xdc444000 0x2bbc000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@df005000 {
-+			reg = <0x0 0xdf005000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@df008000 {
-+			reg = <0x0 0xdf008000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@df009000 {
-+			reg = <0x0 0xdf009000 0x12000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@df01b000 {
-+			reg = <0x0 0xdf01b000 0x21000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@df03c000 {
-+			reg = <0x0 0xdf03c000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@df03d000 {
-+			reg = <0x0 0xdf03d000 0xfc3000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&oscclk {
-+	clock-frequency = <26000000>;
-+};
+diff --git a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+index fcdb9ffd2644..9e698d065820 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+@@ -29,6 +29,9 @@ properties:
+               - samsung,exynos3-sysreg
+               - samsung,exynos4-sysreg
+               - samsung,exynos5-sysreg
++              - samsung,exynos5515-fsys-sysreg
++              - samsung,exynos5515-peri-sysreg
++              - samsung,exynos5515-top-sysreg
+               - samsung,exynos7870-cam0-sysreg
+               - samsung,exynos7870-disp-sysreg
+               - samsung,exynos8895-fsys0-sysreg
+@@ -100,6 +103,8 @@ allOf:
+               - google,gs101-misc-sysreg
+               - google,gs101-peric0-sysreg
+               - google,gs101-peric1-sysreg
++              - samsung,exynos5515-fsys-sysreg
++              - samsung,exynos5515-peri-sysreg
+               - samsung,exynos850-cmgp-sysreg
+               - samsung,exynos850-peri-sysreg
+               - samsung,exynos850-sysreg
 
 -- 
 2.54.0
