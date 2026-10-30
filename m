@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56E7860A381B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 22:37:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72613606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 22:40:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QcKueAwf;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fHZT9LvL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=M/96qMn+;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C7jI9KwO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
@@ -14,49 +14,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=+sqLCTFb2rZvl++UOEeIoI/M0lZyfTBxYwkFXS/6vDs=; b=QcKueAwf3Q9qJOfTw42h4CDISi
-	0CO9moMfmvK68HYUr+9nnq88fid+UIo/j20Yy/uyxlgEFQkJApp/NgGacpcaJgcVwuW58gpPARpZj
-	zD13hT/o82gRDKnKIS90WzxsAFyawDLJoW3zQjQOBSDPIiyBYBMAEdXD4+WmFqHNuV+35XPqD8cY4
-	WLBtEOb/Z/bxGnnEPZcav05NVd7pMY5PzNonnzUNMN7IaRfHifeFimcrKjSJLhYmazAftY8dqM8/W
-	YjFXLJKGcgJ3GWbYbvO0ipK6V+imAZtIf78PDZ6J4JMrqI/FlYTjAvt1FYc79WCJBVqwklOcYICZT
-	2AOBNGUw==;
+	bh=+PnYMh6DNzPpqVbgvmgcrkPxRCl7vamjubwgznqMc0I=; b=M/96qMn+gest7wK5TB+Ov7TNW4
+	JfpZf8txMGLFJwX7KSEDbB1E2w5SMBvkHXWcsnocXAII3K1MWaNrF1P1h+10WNCZ4Wh6Sj7qFYgA/
+	++yxxXGAoPYfOQH/hIuPypyX5gDGVdbXoP9dG7IcfhHpxxrNPG/0p6pOZCNl+PBLUHpqxuChr2ZFs
+	NqwbNvIuV0Zj+3tpjeoojDJU5cwlNuXVy+UI3eDn3faCYK/7T1IauryCIDvSKsDEBgUXPXddHdOEM
+	0tn97t/GyqLSSa9nMarh0SRWyB70FXZ+4ncARBACCcGaEtfFGFBfV+UmDqXn+F8jEmg2bu+kDrV7M
+	+u+GxXig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMvDu-0000000CgFZ-12zi;
-	Fri, 30 Oct 2026 22:37:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xMvH0-0000000CgUr-03nE;
+	Fri, 30 Oct 2026 22:40:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMvDs-0000000CgFS-0xWK
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 22:37:20 +0000
+	id 1xMvGx-0000000CgUf-3ovs;
+	Fri, 30 Oct 2026 22:40:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C5D540812;
-	Fri, 30 Oct 2026 22:37:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98B0E1F00A22;
-	Fri, 30 Oct 2026 22:37:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EB88F43686;
+	Fri, 30 Oct 2026 22:40:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6FA31F00A16;
+	Fri, 30 Oct 2026 22:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793399839;
-	bh=+sqLCTFb2rZvl++UOEeIoI/M0lZyfTBxYwkFXS/6vDs=;
+	s=k20260515; t=1793400030;
+	bh=+PnYMh6DNzPpqVbgvmgcrkPxRCl7vamjubwgznqMc0I=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fHZT9LvL2Ae6st1P9jn81ucQEICDvtnmRt/2l4JXMuH0bySwmaU9k3OPvbHUhQ1DG
-	 5G3DNWwOZq2dZZwOjqQSFvqKFYzfGsJGCyn9xqXq7q6HPTYXz9MpQbkY1H7HwwdwJ6
-	 Z5UEFjwdAobIJxbFpeI5kwiiw5IIo8zcTjitGxcyTyyBxwGntnAIABmoRkhBiChqVZ
-	 suF8BLBEcoNUmHhZc7NQVOYrrKbc4af22CpqLmJh/i+OEDzgp0ScGN1l09NSK6ms+U
-	 hSbZzSVJtlU8rRxfeb7DHwFzle9GVC/03tu2okHm/BWgu73EaoJ6ni6xSJ8KgpIcJT
-	 QINRj+N5JCOuA==
-Subject: Re: [PATCH net] net: sparx5/lan969x: release the in-flight slot of a
- stale TX skb
+	b=C7jI9KwOzTSNbzqNWDGF6ldNnWvKy0zZjLWego4dtGWM2zamD2KnJgDJR7sLSE2fF
+	 DGVmdHtMD1vHfEtKOtW9WRv+wJI7IP0bx4dyf1C0iEivGuBOeXeiYBmVf8RA4wPy/N
+	 Lc1ZL0M7AvovGOTSahTEwK7cUp+kReCl3xPOaq0N1IjVdTUKW+BhZ5IGB5s0P4mDEi
+	 5zX0o6lEDn/7nSrox+bDgH0KAfp1qV/WOTWJr0bbtQXfinAdoLRSATPX4+tdO+DjUM
+	 E9M5lI9VjaEtbVe+2ovLekUZf8lUtIZRBjojk70WCbtBXkxDmhwUgQy6VVN6kgkGPh
+	 OOJhxYaT7smTQ==
+Subject: Re: [PATCH net v3 2/2] net: phy: postpone PHY interrupts during sleep
+ with MAC-managed PM
 From: netdev-bot+sashiko@kernel.org
-To: daniel.machon@microchip.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com,
- UNGLinuxDriver@microchip.com, richardcochran@gmail.com,
- horatiu.vultur@microchip.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 30 Oct 2026 22:37:18 +0000
-Message-ID: <179339983815.3131.4933059375204484548@kernel.org>
-In-Reply-To: <20261029-sparx5-ptp-stale-tx-slot-v1-1-ec15f391bbb7@microchip.com>
-References: <20261029-sparx5-ptp-stale-tx-slot-v1-1-ec15f391bbb7@microchip.com>
+To: iav@iav.lv
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ maxime.chevallier@bootlin.com, lukas@wunner.de, rafael.j.wysocki@intel.com,
+ wei.fang@nxp.com, niklas.soderlund@ragnatech.se, paul@pbarker.dev,
+ florian.fainelli@broadcom.com, opendmb@gmail.com, Thangaraj.S@microchip.com,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Fri, 30 Oct 2026 22:40:29 +0000
+Message-ID: <179340002921.3131.2310990267446945871@kernel.org>
+In-Reply-To: <20261029-b4-phylib-mac-pm-irq-v3-v3-2-5907045f3210@iav.lv>
+References: <20261029-b4-phylib-mac-pm-irq-v3-v3-2-5907045f3210@iav.lv>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -79,10 +80,10 @@ X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 (1) · High: 0 (2) · Medium: 1 (1) · Low: 0 (1)
+Critical: 0 · High: 0 · Medium: 2 (1) · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -90,255 +91,208 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] This patch adds a second ptp_skbs decrement path that is not
-  coordinated with sparx5_ptp_txtstamp_release().
+- [Medium] phy_interrupt() now decides whether a postponed interrupt on a
+  MAC-managed-PM PHY is a wakeup by checking only…
+- [Medium] The patch adds a second, unsynchronized consumer of irq_rerun
+  and writer of irq_suspended in phy_free_interrupt() (phy.c:1518-1523).
 
 Pre-existing issues:
-- [Critical] Double free and use-after-free of two-step PTP skbs that go
-  through the drop path of sparx5_port_xmit_impl().
-- [High] Use-after-free in lan969x_fdma_tx_clear_buf()
-  (lan969x/lan969x_fdma.c:70-77) for two-step PTP skbs.
-- [High] sparx5_ptp_txtstamp_request() adds the skb to port->tx_skbs with
-  skb_queue_tail() (sparx5_ptp.c:255), which takes and releases…
-- [Medium] Stale skbs, and their global ptp_skbs slots, are aged only
-  when the same port issues another two-step request.
-- [Low] The 10 ms SPARX5_PTP_TIMEOUT used by
-  sparx5_ptp_txtstamp_old_release() treats a frame held in an egress…
+- [Medium] This problem wasn't introduced by this patch.
 
 --
 
-net: sparx5/lan969x: release the in-flight slot of a stale TX skb
+net: phy: postpone PHY interrupts during sleep with MAC-managed PM
 
-This patch makes sparx5_ptp_txtstamp_old_release() return how many stale
-two step TX skbs it freed. sparx5_ptp_txtstamp_request() then subtracts
-that number from sparx5->ptp_skbs under ptp_ts_id_lock. Without this, an
-skb whose timestamp never arrived kept one of the SPARX5_MAX_PTP_ID
-in-flight slots forever.
+This commit makes mdio_bus_phy_suspend() set irq_suspended for PHYs whose
+PM is managed by the MAC. It also makes mdio_bus_phy_resume() replay
+postponed interrupts for those PHYs. For these PHYs, phy_interrupt() no
+longer reports non-WoL wakeup events, and phy_free_interrupt() now clears
+irq_suspended and re-enables a line left disabled by a postponed interrupt
+before freeing it.
 
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c b/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
-> index 2826e48af1033..9f61692b243b7 100644
-> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
+> diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
+> index 9af303d60bd6b..c3863a72a5dab 100644
+> --- a/drivers/net/phy/phy.c
+> +++ b/drivers/net/phy/phy.c
+> @@ -1421,12 +1421,16 @@ static irqreturn_t phy_interrupt(int irq, void *phy_dat)
+>  
+>  		if (netdev) {
+>  			struct device *parent = netdev->dev.parent;
+> +			/* Without WoL, a MAC that manages PHY PM takes the
+> +			 * link down itself: that interrupt is not a wakeup.
+> +			 */
+> +			bool may_wake = !phydev->mac_managed_pm;
+>  
+>  			if (netdev->ethtool->wol_enabled)
+>  				pm_system_wakeup();
+> -			else if (device_may_wakeup(&netdev->dev))
+> +			else if (may_wake && device_may_wakeup(&netdev->dev))
+>  				pm_wakeup_dev_event(&netdev->dev, 0, true);
+> -			else if (parent && device_may_wakeup(parent))
+> +			else if (may_wake && parent && device_may_wakeup(parent))
+>  				pm_wakeup_dev_event(parent, 0, true);
+>  		}
+
+[Severity: Medium]
+For mac_managed_pm PHYs, does this leave netdev->ethtool->wol_enabled as
+the only thing that can turn a postponed interrupt into a wakeup?
+
+Elsewhere, phylib also counts the PHY's own wakeup state as WoL.
+phy_suspend() does:
+
+	phydev->wol_enabled = phy_may_wakeup(phydev) ||
+			      (netdev && netdev->ethtool->wol_enabled);
+
+and phy_may_wakeup() checks the PHY device itself:
+
+	if (phy_can_wakeup(phydev))
+		return device_may_wakeup(&phydev->mdio.dev);
+
+	return phy_drv_wol_enabled(phydev);
+
+The @wol_enabled kernel-doc in include/linux/phy.h also says "the PHY or
+the attached MAC". mdio_bus_phy_may_suspend() notes that not all network
+drivers set the netdev wol_enabled flag.
+
+Before this patch, interrupts on these PHYs went straight to the PHY
+driver's handler. Some of those handlers report their own wake event. For
+example, rtl8211f_handle_interrupt() calls pm_wakeup_event() on PME, and
+the broadcom and air_an8801 drivers do something similar.
+
+Suppose phy_may_wakeup() is true but netdev->ethtool->wol_enabled is
+false, and a WoL interrupt arrives between mdio_bus_phy_suspend() and the
+noirq phase. The interrupt is postponed, the line is disabled, and no
+wakeup is reported. Could that wake event be lost?
+
+The ethtool set_wol paths always set the netdev flag, so this would need
+WoL configured some other way, for example by firmware or by a driver at
+probe time. Would also checking phy_may_wakeup(phydev) here match the rest
+of phylib?
+
+The new comment "Without WoL, a MAC that manages PHY PM takes the link
+down itself" also only covers the netdev flag.
 
 [ ... ]
 
-> @@ -217,8 +218,11 @@ static void sparx5_ptp_txtstamp_old_release(struct sparx5_port *port)
->  
->  		__skb_unlink(skb, &port->tx_skbs);
->  		dev_kfree_skb_any(skb);
-> +		purged++;
+> @@ -1507,6 +1511,17 @@ EXPORT_SYMBOL(phy_request_interrupt);
+>  void phy_free_interrupt(struct phy_device *phydev)
+>  {
+>  	phy_disable_interrupts(phydev);
+> +
+> +	/* The PHY is reachable: stop postponing, and while our handler is still
+> +	 * registered re-enable a line that a postponed interrupt left disabled.
+> +	 */
+> +	phydev->irq_suspended = false;
+> +	synchronize_irq(phydev->irq);
+> +	if (phydev->irq_rerun) {
+> +		phydev->irq_rerun = false;
+> +		enable_irq(phydev->irq);
+> +	}
+> +
+>  	free_irq(phydev->irq, phydev);
+>  }
+
+[Severity: Medium]
+Can this race with mdio_bus_phy_suspend() or mdio_bus_phy_resume_irq()?
+
+irq_suspended and irq_rerun are plain bools with no shared lock.
+synchronize_irq() only orders each writer against the IRQ thread.
+
+phy_free_interrupt() can be reached through phy_disconnect() from
+kernel-internal close/reopen paths. The PM core does not serialize those
+paths with the PHY's PM callbacks.
+
+One example is stmmac_reset_subtask(), which runs dev_close() and
+dev_open() under RTNL from priv->wq. That workqueue comes from
+create_singlethread_workqueue(), so it is not freezable. The PHY PM
+callbacks don't take RTNL.
+
+On resume, both sides could see irq_rerun set:
+
+CPU1 mdio_bus_phy_resume_irq()      CPU2 phy_free_interrupt()
+if (phydev->irq_rerun) {            if (phydev->irq_rerun) {
+    phydev->irq_rerun = false;          phydev->irq_rerun = false;
+    enable_irq(phydev->irq);            enable_irq(phydev->irq);
+    irq_wake_thread(...);               ...
+                                        free_irq(phydev->irq, phydev);
+
+Would the second enable_irq() trigger an "Unbalanced enable for IRQ"
+warning? Could irq_wake_thread() also run for a line that is being freed?
+
+On suspend, the order could be:
+
+CPU2 phy_free_interrupt()
+    phydev->irq_suspended = false;
+    synchronize_irq(phydev->irq);
+    /* irq_rerun is false here */
+                                    CPU1 mdio_bus_phy_suspend()
+                                        phydev->irq_suspended = true;
+    /* shared-line interrupt */
+    phy_interrupt() (IRQ thread)
+        phydev->irq_rerun = true;
+        disable_irq_nosync(irq);
+    free_irq(phydev->irq, phydev);
+
+Would that leave an IRQF_SHARED line disabled for its other users? The
+stale irq_rerun would also make a later mdio_bus_phy_resume_irq() call
+enable_irq() on a newly requested line.
+
+Before this patch, nothing on the PM side wrote these fields for
+mac_managed_pm PHYs, so this interleaving could not happen for them.
+
+> diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+> index 79dba43d703a2..7d14861850704 100644
+> --- a/drivers/net/phy/phy_device.c
+> +++ b/drivers/net/phy/phy_device.c
+> @@ -336,18 +336,20 @@ static __maybe_unused int mdio_bus_phy_suspend(struct device *dev)
+
+[ ... ]
+
+>  	if (phy_interrupt_is_valid(phydev)) {
+>  		phydev->irq_suspended = true;
+>  		synchronize_irq(phydev->irq);
 >  	}
-
-[Severity: Critical]
-This isn't a bug introduced by this patch, but can this walk free a two
-step skb a second time?
-
-In sparx5_port_xmit_impl(), sparx5_ptp_txtstamp_request() has already
-queued the skb on port->tx_skbs and incremented ptp_skbs. If the backend
-then fails with anything other than -EBUSY, the drop label only frees the
-skb:
-
-drivers/net/ethernet/microchip/sparx5/sparx5_packet.c:sparx5_port_xmit_impl() {
-    ...
-	if (ret == -EBUSY)
-		goto busy;
-	if (ret < 0)
-		goto drop;
-    ...
-drop:
-	stats->tx_dropped++;
-	sparx5->tx.dropped++;
-	dev_kfree_skb_any(skb);
-	return NETDEV_TX_OK;
-busy:
-	if (skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP &&
-	    SPARX5_SKB_CB(skb)->rew_op == IFH_REW_OP_TWO_STEP_PTP)
-		sparx5_ptp_txtstamp_release(port, skb);
-	return NETDEV_TX_BUSY;
-}
-
-Only the busy path calls sparx5_ptp_txtstamp_release(). On the drop path
-the freed skb stays linked on port->tx_skbs.
-
-On sparx5, sparx5_fdma_xmit() returns -EINVAL when the TX ring is full:
-
-	if (!fdma_db_is_done(fdma_db_get(fdma, fdma->dcb_index, 0)))
-		return -EINVAL;
-
-On lan969x, lan969x_fdma_xmit() can return -ENOMEM from
-pskb_expand_head(GFP_ATOMIC) or on dma_mapping_error().
-
-The next two step xmit on that port, at least SPARX5_PTP_TIMEOUT later,
-would reach sparx5_ptp_txtstamp_old_release(). It would read
-SPARX5_SKB_CB(skb)->jiffies and skb->next from freed memory, call
-__skb_unlink() on it, and call dev_kfree_skb_any() on it again. The PTP
-IRQ handlers also walk this list and read cb->ts_id of the freed skb.
-
-With this patch the double-freed entry is also counted in purged, so its
-slot gets reclaimed through the double free.
-
-Should the drop path call sparx5_ptp_txtstamp_release() for two step skbs,
-as the busy path does?
-
-[Severity: High]
-This is a pre-existing issue, but on lan969x, can the FDMA TX ring still
-reference the skb freed here?
-
-lan969x_fdma_xmit() stores the two step skb in the ring with
-db_buf->skb = skb and db_buf->ptp = true, and the PTP code is responsible
-for freeing it. This function and lan969x_ptp_irq_handler() both free the
-skb without clearing db->skb or checking whether the DCB has completed.
-
-lan969x_fdma_tx_clear_buf() then dereferences db->skb before it checks
-db->ptp:
-
-drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c:lan969x_fdma_tx_clear_buf() {
-    ...
-		db->dev->stats.tx_bytes += db->skb->len;
-		db->dev->stats.tx_packets++;
-		sparx5->tx.packets++;
-
-		dma_unmap_single(sparx5->dev,
-				 db->dma_addr,
-				 db->skb->len,
-				 DMA_TO_DEVICE);
-
-		if (!db->ptp)
-			napi_consume_skb(db->skb, weight);
-    ...
-}
-
-The PTP IRQ is a separate threaded IRQ with no ordering against NAPI. A
-delayed NAPI poll could therefore read skb->len from freed memory.
-
-If old_release frees an skb whose DCB has not completed yet, for example
-because the FDMA stalled for more than 10 ms, wouldn't the device still
-DMA-read the freed buffer?
-
-[Severity: Low]
-This is a pre-existing issue, but is a fixed 10 ms SPARX5_PTP_TIMEOUT long
-enough here?
-
-A frame held in an egress queue for more than 10 ms, for example behind a
-closed TAS gate or by pause frames, would be freed here as lost. When it
-later egresses, sparx5_ptp_irq_handler() and lan969x_ptp_irq_handler()
-find no matching skb and hit:
-
-		if (WARN_ON(!skb_match))
-			continue;
-
-The continue skips the ptp_skbs decrement, so the counter itself stays
-consistent with port->tx_skbs.
+>  
+> +	if (phydev->mac_managed_pm)
+> +		return 0;
+> +
 
 [ ... ]
 
-> @@ -236,9 +241,10 @@ int sparx5_ptp_txtstamp_request(struct sparx5_port *port,
->  	if (rew_op != IFH_REW_OP_TWO_STEP_PTP)
->  		return 0;
->  
-> -	sparx5_ptp_txtstamp_old_release(port);
-> +	purged = sparx5_ptp_txtstamp_old_release(port);
+> @@ -364,13 +366,33 @@ static __maybe_unused int mdio_bus_phy_suspend(struct device *dev)
+>  	return phy_suspend(phydev);
+>  }
 
 [Severity: Medium]
-This is a pre-existing issue, and the commit message already mentions it.
-Stale skbs, and their global ptp_skbs slots, are only aged when the same
-port sends another two step frame.
+This isn't a bug introduced by this patch, but what happens to
+irq_suspended when phy_suspend() fails here?
 
-sparx5_ptp_hwtstamp_set() with HWTSTAMP_TX_OFF does not purge
-port->tx_skbs, and neither does port stop. Only sparx5_ptp_deinit() does.
-A port that stops sending two step frames, because the link went down or
-TX timestamping was turned off, keeps any lost skbs that had not expired
-at its last request.
+For PHYs without mac_managed_pm, mdio_bus_phy_suspend() sets
+irq_suspended and stops the state machine. It then returns
+phy_suspend(phydev) without undoing either one on error.
 
-If these leftovers add up to SPARX5_MAX_PTP_ID across ports, two step
-xmit on every other port gets -EBUSY. sparx5_port_xmit_impl() turns that
-into NETDEV_TX_BUSY.
+phy_suspend() can return -EBUSY:
 
-Could port->tx_skbs also be purged from a path that does not depend on the
-port's own traffic, such as HWTSTAMP_TX_OFF or port stop?
+	if (phydev->wol_enabled && !(phydrv->flags & PHY_ALWAYS_CALL_SUSPEND))
+		return -EBUSY;
 
->  
->  	spin_lock_irqsave(&sparx5->ptp_ts_id_lock, flags);
-> +	sparx5->ptp_skbs -= purged;
+mdio_bus_phy_may_suspend() doesn't check phy_may_wakeup() when a netdev
+is attached, so that case reaches this call. MDIO errors from
+drv->suspend() are passed back as well.
 
-[Severity: Medium]
-Can this decrement race with sparx5_ptp_txtstamp_release() and count the
-same skb down twice?
+When the callback fails, device_suspend() in drivers/base/power/main.c
+never sets dev->power.is_suspended. device_resume() then skips the
+device:
 
-Each port netdev has SPX5_PRIOS TX queues and there is no
-ndo_select_queue, so two CPUs can run sparx5_port_xmit_impl() for the same
-port at the same time. sparx5_ptp_txtstamp_old_release() unlinks while
-holding only tx_skbs.lock. The busy path decrements without checking
-whether the skb is still on the list:
+	if (!dev->power.is_suspended)
+		goto Complete;
 
-drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c:sparx5_ptp_txtstamp_release() {
-    ...
-	spin_lock_irqsave(&sparx5->ptp_ts_id_lock, flags);
-	port->ts_id--;
-	sparx5->ptp_skbs--;
-	skb_unlink(skb, &port->tx_skbs);
-	spin_unlock_irqrestore(&sparx5->ptp_ts_id_lock, flags);
-}
+So mdio_bus_phy_resume() never runs for this PHY. Does irq_suspended stay
+true after that? If so, the first PHY interrupt afterwards would disable
+the line for good, and the state machine would stay stopped.
 
-A possible sequence:
-
-CPU0
-sparx5_ptp_txtstamp_request()
-    skb_queue_tail(&port->tx_skbs, X)
-    sparx5->ptp_skbs++
-spin_lock(&sparx5->tx_lock)   /* waits */
-
-CPU1
-sparx5_ptp_txtstamp_request()
-    sparx5_ptp_txtstamp_old_release()
-        /* X looks older than SPARX5_PTP_TIMEOUT */
-        __skb_unlink(X); dev_kfree_skb_any(X); purged++
-    sparx5->ptp_skbs -= purged
-
-CPU0
-ops->fdma_xmit() or sparx5_inject() returns -EBUSY
-sparx5_ptp_txtstamp_release(port, X)
-    sparx5->ptp_skbs--
-
-At HZ=100, SPARX5_PTP_TIMEOUT is one jiffy, so crossing a single tick is
-enough for X to look expired.
-
-Before this patch the purge path did not decrement, so X was counted down
-only once. ptp_skbs is a u16 and the limit check only tests for equality.
-
-If the counter wraps to 65535, does the SPARX5_MAX_PTP_ID limit stop
-working, so that ts_id values can be reused while they are still
-outstanding?
-
-The same window already lets CPU0 keep using X after CPU1 has freed it.
-That part predates this patch; the double decrement is new.
-
->  	if (sparx5->ptp_skbs == SPARX5_MAX_PTP_ID) {
->  		spin_unlock_irqrestore(&sparx5->ptp_ts_id_lock, flags);
->  		return -EBUSY;
-
-[Severity: High]
-This isn't a bug introduced by this patch, but a little further down in
-sparx5_ptp_txtstamp_request() the skb is added to port->tx_skbs before its
-cb fields are written:
-
-	skb_queue_tail(&port->tx_skbs, skb);
-	SPARX5_SKB_CB(skb)->ts_id = port->ts_id;
-	SPARX5_SKB_CB(skb)->jiffies = jiffies;
-
-skb_queue_tail() takes and releases tx_skbs.lock, and the cb writes happen
-under ptp_ts_id_lock only. sparx5_ptp_txtstamp_old_release() and both PTP
-IRQ handlers walk the list holding only tx_skbs.lock.
-
-With several TX queues per port, another CPU could run old_release on the
-same port and read X's cb->jiffies before it is set. That field still
-holds leftover bytes from earlier layers such as the qdisc. If the value
-looks expired, would old_release free X while CPU0 is still filling in the
-cb and passing X to the injector or FDMA? The IRQ handlers could also
-match a stale cb->ts_id the same way.
-
-Would writing ts_id and jiffies before skb_queue_tail() close this?
+[ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261029-sparx5-ptp-stale-tx-slot-v1-1-ec15f391bbb7%40microchip.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261029-b4-phylib-mac-pm-irq-v3-v3-0-5907045f3210%40iav.lv
 
