@@ -2,109 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2DC1606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 04:43:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2027C606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 04:57:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yjD/1tFE;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LC2pTnXh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tabDPevO;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=dlXIONyU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=E26z6EohDNNZFX2V92ZFn0EDYciqgngLpV4nScBKlDw=; b=yjD/1tFE5+4bvFuXbvo8674jBm
-	ed3JsIBn3/sCyPxJ++vUc3DvenpVKV0uZC8p8ah0yWqrQhg9DAI7I3SEpiUGIVdaFMvuH+GRsYWQa
-	3TtFwuM2nTtlZ7ulJR+vqy+nJklbwGAGFLofGz8wr7Etaserrv0Qyhy0zQILrKUlXlw95Z3gt3weO
-	7D6APakYLqVpGiJsBLLLATfRLWXyLQMhv1Awt63r0qm18a5Q+wfWdI9iGt14w0o5zJ1uTv9gaqLQg
-	Q8ny7axQPUbwd2zELm/SV5mBbYnHsgd9Yl8RG7rDlxd7ez0ILfE0NbLroXKtQVh5bXVJ9IlWkxXX7
-	JdNLzIaQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=LkSAHBtoPgrkAY7QvIyWogTu4sDPqd80TrYA0xZEnEk=; b=tabDPevOB2AVv8
+	9pRPFm/bWocYgCmLskmcB709rAOvYOG1axSIYAIrETqFgALWlPnqMX86nNc2EDFY99WzdlQv1OwU5
+	KRwKRPhYNeWQwezIOLo7Fe7PSKUJU7ga//BEv1dpIS5N54xsBY2nk8tiNyfDcJCLjoqhy0gDtJkl/
+	koJaFXjmIQ6QgBEKo+fk3jDE7bc6pfyIb/lwktzEbWtgz7+904YsdWjQq0uCSj7ztfFRpsp190Y6O
+	l4XU5lL2LWbNlDlmvLTikNnYFX6TvbpT++zHW2zasvqLN7kphJDf7faIIK0a+WhnUaBFU1NVG3XY2
+	WfL6nJ3KXIM+UxH4be6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMeSd-0000000Aot3-2W0z;
-	Fri, 30 Oct 2026 04:43:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xMeg4-0000000Apjm-0MPx;
+	Fri, 30 Oct 2026 04:57:20 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMeSc-0000000Aost-2W7Y;
-	Fri, 30 Oct 2026 04:43:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEB45412D5;
-	Fri, 30 Oct 2026 04:43:24 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793335404;
-	b=HAc8dEAFwNZwomgI1GhZDMAIhnKdUtnBWmn1xv98uFpH8NQwRH/jAA3lmpv26RFpxz4q
-	 DTHF0995VaP22MbD+zPevlDGCsELPJG0Yb3NlF9Ehq0qVFKTq4aYa3BcxfQhW2HH78bIY
-	 9Y+yBBJzd3tECH0+H4lyF0s5uw+ULLe1RSC1Z+IfPMv96V03l9xxZTDvBkSmpS2lRPJNF
-	 cw9S9Fp4nurHN0wkLiunQsg/yK1/IRvk1zrW2srv53RlnIrBqp5A5ZZCaliR3tu8XkB72
-	 Yw9p+8oqUDj9LXvu+aY2+E+nuVFa5X91Gj9OAkzuJYex1nRhoDwuD8Cs8/QFmtG1xdw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793335404;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=E26z6EohDNNZFX2V92ZFn0EDYciqgngLpV4nScBKlDw=;
-	b=ypBiYy7aDF2mdnVcflFXkrlc7gq7ys5oJd+YaTDBWBgtiXxxaUOFyZcyHQ8b8wUfoZrp
-	 4nko/hKhNt8dkNQJJtHi9U8UdeCjinG/PRR0+rFc4rari8W28a5ekpiBDeX3xkHyixmmA
-	 gmiTdVRhPNl1wGHBYR90WJramrD6D2jsmays+WwENPK9sgekhTmpC3IeNXhkOtLL5W7dQ
-	 CEzgN8BxNiBkgCyQ7eVcvIkAwWvhbwfIMlqtn6nsxaGJFDwYaOrvgarDxHb6iod6WRcQe
-	 TV1aITpwVRLAx+B9YAbPYqyNqLfqBT3GZ70+8O8mY/AAIQ37oYeFlMkoIyOWxWVQxig==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 266961F000C1;
-	Fri, 30 Oct 2026 04:43:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793335404;
-	bh=E26z6EohDNNZFX2V92ZFn0EDYciqgngLpV4nScBKlDw=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=LC2pTnXhaePv1dRwkEUaLsAswpQ0FHwasG4aH/j9/0mjuIYERX//yTJXPHe/v1k+5
-	 qHV65vVEfaHmzzzj6tYDlOFFY95SlsiignsdJpzGOsJMTSw8tN5UwhqJ1148FieE05
-	 N6/oOc70hZhsx5xZKztHbPoRHMMn/fsFM64MDQ+10KRzC3pkFQ7lMQe3vP/0kgyY5D
-	 MjxfCI8aFKS6Nx43R7JraMlEEiPPGW/Th5e0bSn5IYPk0DjuIRN4pOYhm73HN31xR0
-	 hcaQIU9jGzX9SMilF9HDdTtf6lSrzmwxejUxKcwSnwWAAPGBVQK0I3m99lYor/vMsO
-	 SE71fL0LYyenQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id AAB0B43659;
-	Fri, 30 Oct 2026 04:43:23 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Fri, 30 Oct 2026 06:43:21 +0200
-Subject: [PATCH] drm/panfrost: Gate the RK3399 GPU clock in runtime suspend
+	id 1xMefz-0000000Apj2-1Q8p
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Oct 2026 04:57:18 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=LkSAHBtoPgrkAY7QvIyWogTu4sDPqd80TrYA0xZEnEk=;
+	b=dlXIONyUPuQhZmuhCVJ9Kxz1cWOkRyM210Hdd3g7CpRzTkcjoW5dcIT/e1AqdzHD3yxjPUBGt
+	Kg8d91FT+/NcevLnn1rbWOV1WdTucGPMfWiKtOzXUsxtufmrvYHEX7AYgpa/mxbe4KxKSlvkh9H
+	+8bUTXdstDRfB7W/SMYTv44=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jG82p6qyjzcZyh;
+	Fri, 30 Oct 2026 12:56:50 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 24DA740579;
+	Fri, 30 Oct 2026 12:57:08 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 30 Oct 2026 12:57:06 +0800
+Message-ID: <5bbd0d3b-1026-43f3-bc45-245472603144@huawei.com>
+Date: Fri, 30 Oct 2026 12:57:06 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261030-panfrost-rk3399-pm-rt-v1-1-e94437159a9d@iav.lv>
-X-B4-Tracking: v=1; b=H4sIAGgg5GoC/x3MQQqAIBBA0avErBvQhMKuEi1ExxoikzEiiO6et
- HyL/x8oJEwFxuYBoYsLH6lCtw341aWFkEM1dKrrtTIKs0tRjnKibMZYi3lHOdGTM9HrwapgobZ
- ZKPL9f6f5fT9c1dbTZwAAAA==
-To: Boris Brezillon <boris.brezillon@collabora.com>, 
- Rob Herring <robh@kernel.org>, Steven Price <steven.price@arm.com>, 
- =?utf-8?q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1888; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=aee4514usbOrnKBJFpIWBVeVFNuEk+tVTdQcWikAb04=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFlPFLLOSB8ueTB1946dbsLytj3Moo8S1xtIW4sndIR+v
- 7bd2nJWRykLgxgXg6yYIsuEQxq3MpZc/evvYf4AZg4rE8gQBi5OAZjIhVkM//Q7npVszd0963Zd
- 2oV1yvyt9yTsRLr/X5zN+ntr6snTzcmMDF9lnhourWM5pFXj6FZrvLLt5sZfk0p7bSNiTbL/x2a
- YMwIA
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 08/15] KVM: arm64: Flush the HDBSS buffer on VM exit
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
+	<caijian11@h-partners.com>, <liuyonglong@huawei.com>,
+	<tangchengchang@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>, <mark.rutland@arm.com>,
+	<seanjc@google.com>, <rdunlap@infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <skhan@linuxfoundation.org>
+References: <20260929103655.85107-1-zhengtian10@huawei.com>
+ <20260929103655.85107-9-zhengtian10@huawei.com> <auDpyRNpeDNzIk3W@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <auDpyRNpeDNzIk3W@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261029_215716_800602_554DE005 
+X-CRM114-Status: GOOD (  31.35  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,60 +84,231 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Igor Velkov <iav@iav.lv>
 
-The RK3399 Mali-T860 matches arm,mali-t860 and gets default_data, so
-panfrost enables aclk_gpu at probe and keeps it enabled until unbind;
-runtime suspend powers the GPU off but leaves the clock on.
 
-On ROCK Pi 4A restore from hibernation hangs in genpd_restore_noirq()
-of the GPU while panfrost is bound. With the clock gated in runtime
-suspend, as on the Allwinner H616 and the Renesas parts, it restores.
+On 10/28/2026 2:13 AM, Leonardo Bras wrote:
+> On Tue, Sep 29, 2026 at 06:36:48PM +0800, Tian Zheng wrote:
+>> From: Eillon <yezhenyu2@huawei.com>
+>>
+>> HDBSS entries accumulate in the per-vCPU buffer while the guest runs,
+>> and must be drained into the dirty bitmap or dirty ring before
+>> userspace can observe them.
+>>
+>> Drain the buffer at a single point: kvm_arch_vcpu_ioctl_run() flushes
+>> it on every VM exit, before the exit reason is handled. Flushing
+>> inside the run loop keeps the dirty-ring feedback timely: when a flush
+>> pushes the ring past its soft limit, kvm_dirty_ring_push() raises
+>> KVM_REQ_DIRTY_RING_SOFT_FULL, which check_vcpu_requests() observes at
+>> the top of the next loop iteration, so the vCPU exits to userspace for
+>> the harvest before re-entering the guest.
+>>
+>> kvm_arch_sync_dirty_log() relies on the exit path to flush: it kicks
+>> vCPUs out of guest mode, and the GET/CLEAR protocol tolerates
+>> concurrent bitmap writes, so the snapshot is complete without extra
+>> synchronization.
+>>
+>> Signed-off-by: Eillon <yezhenyu2@huawei.com>
+>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+>> ---
+>>   arch/arm64/include/asm/kvm_dirty_bit.h | 15 +++++++++
+>>   arch/arm64/kvm/arm.c                   | 20 ++++++++++++
+>>   arch/arm64/kvm/dirty_bit.c             | 45 ++++++++++++++++++++++++++
+>>   3 files changed, 80 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+>> index fe703f02626b..d828e6b43fe9 100644
+>> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
+>> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+>> @@ -13,6 +13,9 @@
+>>   #include <asm/sysreg.h>
+>>   #include <linux/sizes.h>
+>>
+>> +#define HDBSS_ENTRY_VALID	BIT(0)
+>> +#define HDBSS_ENTRY_IPA	GENMASK_ULL(55, 12)
+>> +
+>>   #define KVM_ARM_HDBSS_DEFAULT_SIZE  PAGE_SIZE
+>>   #define KVM_ARM_HDBSS_MAX_SIZE      SZ_2M
+>>
+>> @@ -22,7 +25,19 @@ static inline u32 kvm_hdbss_buffer_size(struct kvm *kvm)
+>>   	return kvm->arch.hdbss_buffer_size ?: KVM_ARM_HDBSS_DEFAULT_SIZE;
+>>   }
+>>
+>> +static inline bool kvm_hdbss_enabled(struct kvm *kvm)
+>> +{
+>> +	return kvm->arch.mmu.vtcr & VTCR_EL2_HDBSS;
+>> +}
+>> +
+>> +static inline bool vcpu_hdbss_enabled(struct kvm_vcpu *vcpu)
+>> +{
+>> +	return vcpu->arch.hw_mmu &&
+>> +		(vcpu->arch.hw_mmu->vtcr & VTCR_EL2_HDBSS);
+>> +}
+>> +
+> 
+> IIUC, arch.mmu is always the canonical s2_mmu, while hw_mmu can be the
+> nested s2_mmu, if enabled.
+> 
+> Was that your intend here?
+> If not, we could use only kvm* version, which can be called with vcpu->kvm.
+> 
+> If it was, then I would like to understand the logic here, as IIUC the
+> buffer is accessible only for the non-nested guest, as it's
+> allocated in a per-vcpu structure. (vcpu->arch)
+> 
 
-Match rockchip,rk3399-mali to default_pm_rt_data.
+Hi leo,
 
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
-Tested on ROCK Pi 4A, drm-misc-next 33ed26235db9 with the rkvdec fix [1]
-applied: hibernation with HDMI active restores 6 of 6 with this patch
-(once right after glmark2-es2-drm), and hangs 2 of 2 without it.
-[1] fixes the same kind of hang in rkvdec, which otherwise hits first.
+Yes, that was the intent. The shadow MMU never carries VTCR_EL2.HDBSS,
+so the flush is naturally skipped when running nested.
 
-[1] https://lore.kernel.org/r/20261030-rkvdec-runtime-pm-clocks-v1-1-fb2c5b629e79@iav.lv
----
- drivers/gpu/drm/panfrost/panfrost_drv.c | 1 +
- 1 file changed, 1 insertion(+)
+>>   int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu);
+>>   void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
+>> +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
+>>
+>>   #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index 5ea4ac26995e..9d7bdece149a 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -1430,6 +1430,14 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>>
+>>   		trace_kvm_exit(ret, kvm_vcpu_trap_get_class(vcpu), *vcpu_pc(vcpu));
+>>
+>> +		/*
+>> +		 * Drain the HDBSS buffer before the exit is handled, so
+>> +		 * entries pushed to the dirty ring are accounted for by
+>> +		 * dirty_ring_check_request() on the next iteration.
+>> +		 */
+>> +		if (vcpu_hdbss_enabled(vcpu))
+>> +			kvm_flush_hdbss_buffer(vcpu);
+>> +
+>>   		/* Exit types that need handling before we can be preempted */
+>>   		handle_exit_early(vcpu, ret);
+>>
+> 
+> 
+> looks the correct place, haven't looked too much on that, though.
+> 
 
-diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
-index 7c348a0bf1ee..21a9a12abefc 100644
---- a/drivers/gpu/drm/panfrost/panfrost_drv.c
-+++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
-@@ -983,6 +983,7 @@ static const struct of_device_id dt_match[] = {
- 	  .data = &amlogic_data, },
- 	{ .compatible = "renesas,r9a08g046-mali", .data = &default_pm_rt_data },
- 	{ .compatible = "renesas,r9a09g047-mali", .data = &default_pm_rt_data },
-+	{ .compatible = "rockchip,rk3399-mali", .data = &default_pm_rt_data },
- 	{ .compatible = "arm,mali-t604", .data = &default_data, },
- 	{ .compatible = "arm,mali-t624", .data = &default_data, },
- 	{ .compatible = "arm,mali-t628", .data = &default_data, },
+Thanks!
 
----
-base-commit: 33ed26235db93162935d1719bc6f538c384a2fd8
-change-id: 20261030-panfrost-rk3399-pm-rt-cea3fc1790d9
+> 
+>> @@ -2017,7 +2025,19 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
+>>
+>>   void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+>>   {
+>> +	unsigned long i;
+>> +	struct kvm_vcpu *vcpu;
+>>
+>> +	if (!kvm_hdbss_enabled(kvm))
+>> +		return;
+>> +
+>> +	/*
+>> +	 * The buffer is drained on every VM exit, so kicking running
+>> +	 * vCPUs is enough to flush them; the dirty-log GET/CLEAR
+>> +	 * protocol tolerates bits set concurrently with the snapshot.
+>> +	 */
+>> +	kvm_for_each_vcpu(i, vcpu, kvm)
+>> +		kvm_vcpu_kick(vcpu);
+>>   }
+>>
+>>   static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
+>> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+>> index f9aeb9f34ad0..be0d12555c84 100644
+>> --- a/arch/arm64/kvm/dirty_bit.c
+>> +++ b/arch/arm64/kvm/dirty_bit.c
+>> @@ -13,6 +13,7 @@
+>>   #include <linux/kconfig.h>
+>>   #include <linux/log2.h>
+>>   #include <linux/mm.h>
+>> +#include <linux/srcu.h>
+>>
+> 
+> Out of curiosity, could you please explain you reasoning on selecting srcu
+> as locking here?
+> 
+> (Like, what are you protecting against, and why srcu is a good choice)
+> 
 
-Best regards,
--- 
-Igor Velkov <iav@iav.lv>
+kvm_vcpu_mark_page_dirty() resolves the memslot under SRCU
+(kvm_vcpu_gfn_to_memslot), and the flush loop calls it for each entry,
+so the whole loop needs the read lock held.
 
+>>   int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu)
+>>   {
+>> @@ -53,3 +54,47 @@ void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
+>>   	vcpu->arch.hdbss.hdbss_pg = NULL;
+>>   	vcpu->arch.hdbss.hdbssbr_el2 = 0;
+>>   }
+>> +
+>> +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
+>> +{
+>> +	int idx, curr_idx;
+>> +	u64 prod;
+>> +	u32 entries;
+>> +	u64 *hdbss_buf;
+>> +	struct kvm *kvm = vcpu->kvm;
+>> +	int srcu_idx;
+>> +
+>> +	if (!vcpu_hdbss_enabled(vcpu))
+>> +		return;
+> 
+> You test this before calling, is it really necessary to test it again, just
+> after calling?
+> 
+
+You're right, I've removed it.
+
+Thanks,
+Tian
+
+>> +
+>> +	prod = read_sysreg_s(SYS_HDBSSPROD_EL2);
+>> +	curr_idx = HDBSSPROD_IDX(prod);
+>> +
+>> +	if (curr_idx == 0 || !vcpu->arch.hdbss.hdbss_pg)
+>> +		return;
+>> +
+>> +	hdbss_buf = page_address(vcpu->arch.hdbss.hdbss_pg);
+>> +	if (!hdbss_buf)
+>> +		return;
+>> +
+>> +	entries = kvm_hdbss_buffer_size(kvm) / sizeof(u64);
+>> +
+>> +	/* kvm_vcpu_mark_page_dirty() resolves the memslot under SRCU. */
+>> +	srcu_idx = srcu_read_lock(&kvm->srcu);
+>> +	for (idx = 0; idx < min_t(u32, curr_idx, entries); idx++) {
+>> +		u64 gpa;
+>> +
+>> +		gpa = hdbss_buf[idx];
+>> +		if (!(gpa & HDBSS_ENTRY_VALID))
+>> +			continue;
+>> +
+>> +		gpa &= HDBSS_ENTRY_IPA;
+>> +		kvm_vcpu_mark_page_dirty(vcpu, gpa >> PAGE_SHIFT);
+>> +	}
+>> +	srcu_read_unlock(&kvm->srcu, srcu_idx);
+>> +
+>> +	prod &= ~HDBSSPROD_EL2_INDEX_MASK;
+>> +	write_sysreg_s(prod, SYS_HDBSSPROD_EL2);
+>> +	vcpu->arch.hdbss.hdbssprod_el2 = prod;
+>> +	isb();
+>> +}
+>> --
+>> 2.43.0
+>>
+> 
+> 
+> Thanks!
+> Leo
 
 
