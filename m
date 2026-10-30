@@ -2,104 +2,116 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A425F606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 17:25:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E348F606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 17:36:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HwQBwl8c;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Trt3grhr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wQZQ5d03;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=CRy4jI7x
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=hcKqjCTq0DJH38P6NIRF0JVakJV4MgJlFw7OcfaJQp0=; b=HwQBwl8cJnnqGQ
-	RKynU9HGR8T0N35svYjI3fAOJ+0WBE9dghSqNo5OSotxO/DgmAVqYJ0+pIOzsyKWkZJIshH+5xbi2
-	ZchzRwCPtBwST+F3qPVserWoi68hOTHgXMSqNQSLtsKc9suAaIolgvxErjlaOMRCdR9LyH3rbmCMK
-	3XgELbBNmX73wwgj0iMUSfAHdq874TUQSCUpKzWnEQsq0c/S/IzPJt6E/fk0AWBBTSVw3o2QDY5EN
-	eJVljAnRs2Agoxj6L5CyTg9JUbd206y72S5wHmEf9m77QX6lpYbM7U0ILwnCEffYuZL7LdFt9FWRJ
-	kJaITDqlmRg99diGBdQA==;
+	List-Owner; bh=r5fedtBZtI4w1DXYYWOd9TkcAOuj87FP9VlEYhTELuQ=; b=wQZQ5d03GjBucJ
+	p2JGqnSULVYwCZxZxMLR+BvEh9Hr6CYoI6c9W1iK9EQjK2BSIUSoU40dF5WVv3PJWPo5qdC4w+JZ3
+	jUjOaLyto/U5nEc7/NlFFLQTlYpdVjTJ8KeYhwqLIhDWmk3Gd6tc25nJPkbgwoco033Bz804bGFUE
+	zNUhB0lLuvYNnnKZbAGQ5WC23424vkegN3X/dER6jcRk+6hm7AU6wH1/vOCfSD6vNV8vQAVWImfWv
+	e0HcdpNxoUeTWAucu7QZtiDQK/5c73ttrdokKp8mS7UITNcr042qh8r2ZJMzL/iR5nd+Ofxwm0KAo
+	IUvLgn9QvBcapiOcsvVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqLW-0000000CEbp-2XeW;
-	Fri, 30 Oct 2026 17:24:54 +0000
-Received: from mail-dy1-x1334.google.com ([2607:f8b0:4864:20::1334])
+	id 1xMqWw-0000000CFnU-4Bdo;
+	Fri, 30 Oct 2026 17:36:43 +0000
+Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqLT-0000000CEb1-48kj
+	id 1xMqWu-0000000CFmL-1QQQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 17:24:53 +0000
-Received: by mail-dy1-x1334.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso346462eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 10:24:51 -0700 (PDT)
+	Fri, 30 Oct 2026 17:36:41 +0000
+Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-703be215729so461903eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 10:36:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793381090; x=1793985890; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hcKqjCTq0DJH38P6NIRF0JVakJV4MgJlFw7OcfaJQp0=;
-        b=Trt3grhrvVN5Zyw1S38N2GRYkQNl4eaem8l1D3c/8eivtOuutRkUCDnXtJcAjFeCjW
-         dX8dWm8C0SqQHBZhaUp+Rx9n6aG4GaGQ0gRyeGPqfjmU0z5yQiAIZxH+dIdKj9OThs8P
-         +qUJ64XpGkEXh+bhd9tRWJortpQ6WsMVE1phC6c/Fea+ch2f4BeSZNSeDaesnMRxqHqo
-         jk8+Dx0Q2Q0F/7Q3hLDAiSRCro4PPQyF4Kf1LoWnCG7Sgs+ObNTmbo91unNYlUb3WbxV
-         DpApjAmsHRq3XFQeSGvwE+BNyBChfhQEx5ArQTrLWwvlXVbnmStE7pNpxeFlBntsRP3f
-         QoFQ==
+        d=chromium.org; s=google; t=1793381799; x=1793986599; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=r5fedtBZtI4w1DXYYWOd9TkcAOuj87FP9VlEYhTELuQ=;
+        b=CRy4jI7xDB48hNdUX6yox7hZoUgUO5RjGBY/UAZ/ulzm4OKJ2fQGqP75I8npea34e0
+         6hy/en14EFr1zu5U5RJek46Q0XPzjhyFD+r7Ew6Jkhkz8pPTIKpST+Fk0obrZgDpxpy3
+         CDG/rZLh7q1KgBlFy9nE/doo6t8PW06Nwvdek=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793381090; x=1793985890;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hcKqjCTq0DJH38P6NIRF0JVakJV4MgJlFw7OcfaJQp0=;
-        b=jHQftZ1/1a9/yHqZZ63BeDl+XP6+QC4XJTkGlaD+ardfMIMVcE1rRnXOfHUJz9ONRO
-         k6I+wkGBXAHVFd68l279scoYOMyAXgo4xwBLHxlnPdGyPAMtNTPPhVQtmqLRuqZ6iIKw
-         tAInqMFQqSKwv0vPse+m+9XyjLOwjrGi3412jcTFvwIYx4UEl2ajQg8lbWlyDphn4xc4
-         9UD4B7T+ODeKkO8a78GFtdPrvfAyEDGrlu2AaGmaHcXixlaSZcaSetlHm803JvEzg/yX
-         p81+qiRRqTGNwC9EJhZgMN/h5DF8b/L4ocg7s2+NG585WKxMxZTOYJ2r1cvPM0Ib0Ak/
-         bONA==
-X-Forwarded-Encrypted: i=1; AKwUvBxQZ16fbrrTYlu3Iyf9qYuJvZKKTmBXD5z3Fwty3UZ2GfeIAK4TUK7CB+88Nxo0Q3Q5xrixRLPtWMXmzja8a7/z@lists.infradead.org
-X-Gm-Message-State: AFq9FYJL2RiIBpi9Z7x7Hm28cCvRESsFjzswhxIK61qTr3tcMNxMOmtz
-	aDEZ70VP4FDvPUgZNJDIUpuIZpDUj+e/s9kk0O+ZJM63kxyaEDxNAH8U
-X-Gm-Gg: AYBFou05XYXw9MDYUJx93G4+oJ2PbiJlOyp/9Du9cWgRQr1o8dSgM1hKUhxo9MGqPBZ
-	qmfJ0DbV7fWtB5KffllQbkXWBRkrFZZ9pRv+VIGc3N5WzcaLkOpMghC23Vepuc0hrc7oPLd9Tn9
-	+gdZrAjRqhdo67wYGNuU+ijDrT6qzqiTQIvScc4tAMvkR6HdhGzo2OjzakM8HkXvCtdhucok7AT
-	8nUE14zEMI1CNuGIMD8Y72KesvfP/0bfp4pjIwYJ5laTUy5bBUhkKlAE8xhlTd47ZWeAMdamf1t
-	Q1wgBKQCvz85XSVAOO1Sb2F5gxZ2Ei5dz4pvQ/JuJVJ3k8+afmNu0yL5qHRH5R636FJwwlYQHxt
-	TnVo9UBD5jCJrO7fKMXD7V704q+ArRNZVD2Gphp0npCzMQoDnGBxfzNcF9S8OXvlTQROWy2M2XI
-	oDwX7++NKdWPLr1Y3zU8vMVT53ZA4IR+tSMyAOeh7sTrjalJOza03cRHoP1D7QI+wGg9qf0rRez
-	E0LiaYEDLbIUB45nMnRu3NsOmuvZYargL3kj9DnjBEBbDfnUM7UZ4Os+htt30k6ET3O5Rrl4ohE
-	mKu7ZTgd8PQzwKAD18nJ2eraSYLNtbns2we41dshMB+okvcwKQ==
-X-Received: by 2002:a05:701b:4502:10b0:18d:96e8:b913 with SMTP id a92af1059eb24-1ac5f64afcbmr3801453c88.47.1793381090306;
-        Fri, 30 Oct 2026 10:24:50 -0700 (PDT)
-Received: from localhost.localdomain ([103.170.55.71])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36a428c17bdsm8709248eec.6.2026.10.30.10.24.45
+        d=1e100.net; s=20260707; t=1793381799; x=1793986599;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=r5fedtBZtI4w1DXYYWOd9TkcAOuj87FP9VlEYhTELuQ=;
+        b=rNdqNjHJ7nRHaNIJt7WNELWBdV1ISc9I9BFT3GVqta2L54jJxY4CexVRhfsGJvTk5t
+         5x/Zx5Ngt/OMu3EOFZMNe7+pgYk8UV43mDtW6jvx7o4L4pDcFyQB54tNlS8RfVtBoZT/
+         dldtZgwzZu+3u/3euFOR4yhro+xlC1yEDbBXvU+GDS/dv55nneda4dY8HYHY4/zgcnYQ
+         kvuVdCHXMjcaHL4x1B9na6zxcduF0DnmcVK8TLA6Xl8cUPYjRMxNx3J3gFeMEFJgw4ZW
+         V6r8tM4+OGdJ+0iSrqh/zJimCKR9ej5tZoZKxfrV+GMUFpWej78CeS6KbN8+FEwzBtww
+         K8Vg==
+X-Forwarded-Encrypted: i=1; AKwUvBxw5gmychtaO9DcOlPKJ9XRhiGgbJJTuBGZ3VEcDRHZy1ZE/ZLyjmq7Dy70kwu5aqFIb6R/8MayuPDEcuLRFahC@lists.infradead.org
+X-Gm-Message-State: AFq9FYJROEcC9inTSaYUOgrn2R95tLfRsZwmiBJ0mSf5r3fQTEyV71bh
+	chHo9DcfuRJ7J59VzoPDL4YWx7U/17tSD4Wloe59q9UuOEp1rhxiQdgG4L51fpZA/A==
+X-Gm-Gg: AYBFou1ulzVhIgleEDso9cnhrOEcoTOXH4Fwu8D9eDGo58ccUS3Jrte18Roo/obmunX
+	1I5++lMwV9TFFF0L3vHaVsHleiyc55w2c4J0hHtN8i7E+XvU6Z3oIDwqs386KTW2ZdLQ+Af0Jt0
+	6Xctg6K5/62/49SJGRdW1TYrJJegRf/LIfGxtYl9vVOPzrNjTOnrSUBzxCraYc8ab/S83u+GDVG
+	IW0wP37izXnTfZ940cwvFOnIR2B5LLfTAPcj9LFfnJslAuJy7Zw7w6jK7SmUf8DRa85zDjY5+g2
+	/L6gHgfcKt4bmRV1wLCAj8ucdGiQJClv7UHb0R11lqj3f+NHlzDqwEJ3Q8vm6D+5u9JoI/Bia27
+	wmLnKrjtbRwWj8EW7W3jMqCHKmgAYoGLxebJYASmcKqiPY1OrldBnwcez/QjZvdQgmPDNuqkHvo
+	/3v/fOtrqr9KgxnnER+0KpIAr7IcWhLhHo2IZ0zGbIalEyZzMupYn/5zR10n5lY2CX9WVzUK/kR
+	SiFBD4To7HtxmkuoOocPGWy+CNx77gCW7B5ycJlLxWkbKP5/nL/qA+yjlfhs0ApAtKCvK9TjHoR
+	w7Op0+qx9DYVBYgHlWk58586ukoUjn1QAGNgLGH6GaQfhFmnYCkx8N7OXBPaycbb5JfqAtoo88E
+	GZMZvugmFvfdHtp8=
+X-Received: by 2002:a05:6820:625:b0:709:529a:4775 with SMTP id 006d021491bc7-714f6e7ffc6mr1212713eaf.50.1793381798577;
+        Fri, 30 Oct 2026 10:36:38 -0700 (PDT)
+Received: from rrangel.c.googlers.com.com (194.246.27.34.bc.googleusercontent.com. [34.27.246.194])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-85d354efebesm2497044a34.19.2026.10.30.10.36.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 10:24:49 -0700 (PDT)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: sreekuttan2156239@gmail.com
-Cc: alim.akhtar@samsung.com,
-	bhelgaas@google.com,
-	jingoohan1@gmail.com,
-	krzk@kernel.org,
-	kwilczynski@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+        Fri, 30 Oct 2026 10:36:37 -0700 (PDT)
+From: Raul E Rangel <rrangel@chromium.org>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Ilpo =?UTF-8?Q?J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Richard Genoud <richard.genoud@bootlin.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Pali =?UTF-8?Q?Roh=C3=A1r?= <pali@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"Maciej W. Rozycki" <macro@orcam.me.uk>,
+	Timur Tabi <timur@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	lpieralisi@kernel.org,
-	mani@kernel.org,
-	peter.griffin@linaro.org,
-	robh@kernel.org
-Subject: [PATCH v5] PCI: exynos: Handle PCIe PHY initialization errors
-Date: Fri, 30 Oct 2026 17:23:50 +0000
-Message-ID: <20261030172350.2624-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261029131006.2744-1-sreekuttan2156239@gmail.com>
-References: <20261029131006.2744-1-sreekuttan2156239@gmail.com>
+	linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH v8 5/6] serial: 8250: retire canceled RX DMA before reusing the receive buffer
+Date: Fri, 30 Oct 2026 11:36:34 -0600
+Message-ID: <20261030173635.2186490-1-rrangel@chromium.org>
+X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
+In-Reply-To: <CADvTj4qK-1SX_+YZW1jdW-e5JOZ2iz3vAK_8UvkyZWb0rAeyiQ@mail.gmail.com>
+References: <20261029-submit-serial-8250-dma-cancel-v1-v8-0-3fd56ba352ed@gmail.com> <20261029-submit-serial-8250-dma-cancel-v1-v8-5-3fd56ba352ed@gmail.com> <20261029222734.3086943-1-rrangel@chromium.org> <CADvTj4qK-1SX_+YZW1jdW-e5JOZ2iz3vAK_8UvkyZWb0rAeyiQ@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_102452_029637_1BCBF48B 
-X-CRM114-Status: GOOD (  18.58  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261030_103640_419536_504837A0 
+X-CRM114-Status: GOOD (  16.37  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,232 +122,100 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Check the return values of "phy_init()" and "phy_power_on()" to
-avoid continuing PCIe host initialization when PHY setup fails.
+On Thu, Oct 29, 2026 at 6:32 PM James Hilliard <james.hilliard1@gmail.com> wrote:
+> With a persistent pause failure and an incomplete transfer, the
+> worker keeps retrying. RX remains masked and the runtime PM reference
+> is held until the condition resolves or shutdown takes over. There
+> is no receive-progress guarantee if the peer remains idle and pause
+> continues to fail.
+...
+> A failed pause with an incomplete cookie does not distinguish a
+> persistent hardware fault from completion that has not yet been
+> published. A fixed retry limit does not resolve that ambiguity.
+>
+> Terminating after the limit may discard received data, including a
+> completed buffer whose completion is still unpublished. Successful
+> termination would make subsequent buffer reuse safe, but would not
+> recover those bytes. This would therefore be a potentially lossy
+> error-recovery policy rather than a lossless timeout flush.
 
-Track the PHY initialization and power state to ensure cleanup is
-performed only when appropriate, avoiding double calls to
-"phy_exit()" on probe failure.
+Checking the in-tree dmaengine providers shows why bounding the retry loop
+and escalating to recovery is necessary in practice:
 
-Also check the return value of "exynos_pcie_host_init()" during
-resume and abort the resume sequence if PHY initialization fails.
+1. `serial8250_request_dma()` (`8250_dma.c:428`) checks `caps.cmd_pause`,
+   which `dma_get_slave_caps()` (`drivers/dma/dmaengine.c:614`) sets purely
+   from `!!device->device_pause`. However, `drivers/dma/tegra186-gpc-dma.c`
+   (lines 422-423, 1351, 1521) unconditionally assigns
+   `tdma->dma_dev.device_pause = tegra_dma_device_pause` (so
+   `caps.cmd_pause == true`), and then returns `-ENOSYS` at runtime on
+   Tegra186 where `tdc->tdma->chip_data->hw_support_pause` is false. And on
+   Tegra194/234/264 (`tegra186-gpc-dma.c:399-413`) and Tegra210
+   (`tegra210-adma.c:574-579`), `.device_pause()` polls a hardware busy bit
+   with an atomic timeout and returns `-ETIMEDOUT` or `-EBUSY` if an active
+   burst does not pause in time.
 
-Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
----
-v5:
- - Avoid PM core state desynchronization in exynos_pcie_suspend_noirq()
- by logging teardown errors and returning 0 instead of aborting suspend
- on teardown failure
-v4:
- - Fix invalid return in void exynos_pcie_remove() and ensure regulator cleanup
- - Add core reset deassertion on error in exynos_pcie_suspend_noirq()
- - Prevent regulator leaks in exynos_pcie_resume_noirq() error recovery path
-v3:
- - Address review feedback on PHY and regulator state tracking
- - Avoid powering down the controller when link detection fails
-v2:
- - Track PHY initialization and power state to prevent duplicate cleanup
- - Handle host initialization failures during resume
+2. In the in-tree providers where `.device_pause()` returns an error because
+   a transfer already completed—such as `drivers/dma/ti/edma.c:870, 1468-1469`
+   (returning `-EINVAL` when `!echan->edesc`) and
+   `drivers/dma/stm32/stm32-dma.c:751-753, 836, 1432` (returning `-EPERM`
+   when `chan->status != DMA_IN_PROGRESS`)—the DMA hardirq handler calls
+   `vchan_cookie_complete()` *before* clearing the active descriptor, so
+   `dmaengine_tx_status()` already reports `DMA_COMPLETE` on the very first
+   check in `serial8250_rx_dma_try_flush()`.
 
- drivers/pci/controller/dwc/pci-exynos.c | 111 +++++++++++++++++++++---
- 1 file changed, 100 insertions(+), 11 deletions(-)
+   Even on a controller where hardware rejects `pause` the instant the 4096th
+   byte finishes while its completion hardirq is still masked by `port->lock`,
+   the only thing delaying `completed_cookie` publication is local IRQ masking
+   under `port->lock`. Once `serial8250_rx_dma_flush_work()` drops `port->lock`
+   (enabling local IRQs) and sleeps `usleep_range(1000, 2000)` in process
+   context, any pending DMA completion hardirq runs in microseconds. Across
+   5 retries (5-10 ms with `port->lock` released on each sleep), a completed
+   4 KB transfer will have published `DMA_COMPLETE`.
 
-diff --git a/drivers/pci/controller/dwc/pci-exynos.c b/drivers/pci/controller/dwc/pci-exynos.c
-index e3c05ade381b..d82bdfea1f17 100644
---- a/drivers/pci/controller/dwc/pci-exynos.c
-+++ b/drivers/pci/controller/dwc/pci-exynos.c
-@@ -11,6 +11,7 @@
- 
- #include <linux/clk.h>
- #include <linux/delay.h>
-+#include <linux/device.h>
- #include <linux/interrupt.h>
- #include <linux/kernel.h>
- #include <linux/init.h>
-@@ -55,8 +56,34 @@ struct exynos_pcie {
- 	struct clk_bulk_data		*clks;
- 	struct phy			*phy;
- 	struct regulator_bulk_data	supplies[2];
-+	bool phy_initialized;
-+	bool phy_powered;
-+	bool supplies_enabled;
- };
- 
-+static int exynos_pcie_phy_exit(struct exynos_pcie *ep)
-+{
-+	int ret;
-+
-+	if (ep->phy_powered) {
-+		ret = phy_power_off(ep->phy);
-+		if (ret)
-+			return ret;
-+
-+		ep->phy_powered = false;
-+	}
-+
-+	if (ep->phy_initialized) {
-+		ret = phy_exit(ep->phy);
-+		if (ret)
-+			return ret;
-+
-+		ep->phy_initialized = false;
-+	}
-+
-+	return 0;
-+}
-+
- static void exynos_pcie_writel(void __iomem *base, u32 val, u32 reg)
- {
- 	writel(val, base + reg);
-@@ -225,13 +252,23 @@ static int exynos_pcie_host_init(struct dw_pcie_rp *pp)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
- 	struct exynos_pcie *ep = to_exynos_pcie(pci);
-+	int ret;
- 
- 	pp->bridge->ops = &exynos_pci_ops;
- 
- 	exynos_pcie_assert_core_reset(ep);
- 
--	phy_init(ep->phy);
--	phy_power_on(ep->phy);
-+	ret = phy_init(ep->phy);
-+	if (ret)
-+		return ret;
-+
-+	ep->phy_initialized = true;
-+
-+	ret = phy_power_on(ep->phy);
-+	if (ret)
-+		return ret;
-+
-+	ep->phy_powered = true;
- 
- 	exynos_pcie_deassert_core_reset(ep);
- 	exynos_pcie_enable_irq_pulse(ep);
-@@ -314,6 +351,7 @@ static int exynos_pcie_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	ep->supplies_enabled = true;
- 	platform_set_drvdata(pdev, ep);
- 
- 	ret = exynos_add_pcie_port(ep, pdev);
-@@ -323,8 +361,19 @@ static int exynos_pcie_probe(struct platform_device *pdev)
- 	return 0;
- 
- fail_probe:
--	phy_exit(ep->phy);
--	regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
-+	if (exynos_pcie_phy_exit(ep))
-+		dev_err(&pdev->dev, "failed to exit PCIe PHY\n");
-+
-+	if (ep->supplies_enabled) {
-+		int err;
-+
-+		err = regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
-+		if (err)
-+			dev_err(&pdev->dev, "failed to disable regulators: %d\n", err);
-+		else
-+			ep->supplies_enabled = false;
-+
-+	}
- 
- 	return ret;
- }
-@@ -332,22 +381,42 @@ static int exynos_pcie_probe(struct platform_device *pdev)
- static void exynos_pcie_remove(struct platform_device *pdev)
- {
- 	struct exynos_pcie *ep = platform_get_drvdata(pdev);
-+	int ret;
- 
- 	dw_pcie_host_deinit(&ep->pci.pp);
- 	exynos_pcie_assert_core_reset(ep);
--	phy_power_off(ep->phy);
--	phy_exit(ep->phy);
--	regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
-+
-+	ret = exynos_pcie_phy_exit(ep);
-+	if (ret)
-+		dev_err(&pdev->dev, "failed to exit PCIe PHY: %d\n", ret);
-+
-+	if (ep->supplies_enabled) {
-+		ret = regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
-+		if (ret)
-+			dev_err(&pdev->dev, "failed to disable regulators: %d\n", ret);
-+		else
-+			ep->supplies_enabled = false;
-+	}
- }
- 
- static int exynos_pcie_suspend_noirq(struct device *dev)
- {
- 	struct exynos_pcie *ep = dev_get_drvdata(dev);
-+	int ret;
- 
- 	exynos_pcie_assert_core_reset(ep);
--	phy_power_off(ep->phy);
--	phy_exit(ep->phy);
--	regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
-+
-+	ret = exynos_pcie_phy_exit(ep);
-+	if (ret)
-+		dev_err(dev, "failed to exit PCIe PHY during suspend: %d\n", ret);
-+
-+	if (ep->supplies_enabled) {
-+		ret = regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
-+		if (ret)
-+			dev_err(dev, "failed to disable regulators during suspend: %d\n", ret);
-+		else
-+			ep->supplies_enabled = false;
-+	}
- 
- 	return 0;
- }
-@@ -358,13 +427,33 @@ static int exynos_pcie_resume_noirq(struct device *dev)
- 	struct dw_pcie *pci = &ep->pci;
- 	struct dw_pcie_rp *pp = &pci->pp;
- 	int ret;
-+	int err;
- 
- 	ret = regulator_bulk_enable(ARRAY_SIZE(ep->supplies), ep->supplies);
- 	if (ret)
- 		return ret;
- 
-+	ep->supplies_enabled = true;
-+
- 	/* exynos_pcie_host_init controls ep->phy */
--	exynos_pcie_host_init(pp);
-+	ret = exynos_pcie_host_init(pp);
-+	if (ret) {
-+		err = exynos_pcie_phy_exit(ep);
-+		if (err)
-+			dev_err(dev, "failed to exit PCIe PHY during resume error: %d\n", err);
-+
-+		if (ep->supplies_enabled) {
-+			err = regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
-+			if (err)
-+				dev_err(dev, "failed to disable regulators: %d\n", err);
-+			else
-+				ep->supplies_enabled = false;
-+		}
-+
-+		return ret;
-+
-+	}
-+
- 	dw_pcie_setup_rc(pp);
- 	exynos_pcie_start_link(pci);
- 	return dw_pcie_wait_for_link(pci);
--- 
-2.55.0
+   By contrast, leaving the `for (;;)` loop unbounded turns any persistent
+   `dmaengine_pause()` error (`-ENOSYS`, `-EINVAL`, `-EBUSY`, `-ETIMEDOUT`) on
+   a partial transfer into a guaranteed 100% loss of all current and future RX
+   data until `close()`, a 500-1000 Hz `system_percpu_wq` spin, a permanent
+   runtime-PM leak, and silently aborted `dw8250_set_divisor()` /
+   `dw8250_check_lcr()` calls (`-EAGAIN`). Escalating to recovery after a
+   bounded retry budget is strictly better than wedging the receiver forever.
 
+> That requires termination to succeed and callbacks to be drained.
+> If termination fails, the channel may still access the FIFO, so PIO
+> must remain excluded.
+>
+> The recovery requirements depend on why the provider cannot pause.
+
+Agreed—and `serial8250_rx_dma_flush_work()` in Patch 5/6 already enforces
+that when `serial8250_rx_dma_recover(p)` is called (`8250_dma.c:210-216`):
+
+	if (recover) {
+		ret = dmaengine_terminate_sync(dma->rxchan);
+		if (ret) {
+			/* Retain ownership and keep RX masked if DMA cannot be stopped. */
+			dev_err(p->port.dev, "failed to stop RX DMA: %d\n", ret);
+			return;
+		}
+	}
+
+When `serial8250_rx_dma_recover(p)` sets `dma->rx_err = true` and
+`dma->rx_terminating = true`, the worker exits the retry loop and calls
+`dmaengine_terminate_sync(dma->rxchan)`. If `dmaengine_terminate_sync()`
+returns non-zero, the worker returns early at line 215 with
+`dma->rx_terminating == true` and `dma->rx_running == 1`, keeping RX
+interrupts masked in `IER` and keeping PIO excluded (`serial8250_rx_dma_flush()`
+continues returning `-EIO`). It only clears `dma->rx_running = 0` and unmasks
+`IER` for PIO fallback after `dmaengine_terminate_sync(dma->rxchan)` succeeds
+(`ret == 0`).
+
+Thanks,
+Raul
 
