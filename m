@@ -2,157 +2,171 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 607C6606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 17:11:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17A88606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 17:15:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kBWipKvL;
-	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=S8hDLFB/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=s+T7avgk;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=gOg5RBwV;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=SSeGceuf
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=7DbiMhjxBfgIRvFyWx+zMAj+b86N6ePaSG30TxtUrXg=; b=kBWipKvLX/Vbve
-	HqRos7PSe3sClTg1tSbv3yWAXnGuQ0neZVGqEfolIDGW4Fk/1vKHXz35FprJ8cF3MFDDcW5zBaAUH
-	f6JPYa1n03izzMzV2TR36izSZsNN6i1UtuNo9keWyeg7FIUk4WXtEzrRLY2Mc0/zTWxxss3LMYwod
-	FB4Fs6AdgH9vekO1/vP21qRA5znsetigYXHlz+5DkAlEIvuIk/gC0Ko2YpctJj4G0YNvDh/pgotYZ
-	rycm6wZbMyOf1iMg4hUCixojAtJxkeW7jPQApMxtwfFKpCfn/Jh8eKpcV/92RNhGq0WzZ3z+sm7dz
-	2zLKBsv7xhgqykvID7GQ==;
+	List-Owner; bh=r8DLQMv6bl/QdZfypAZ5tHl7iw2qL1i8GWHVP4CuKC0=; b=s+T7avgkl7BjWX
+	dR9xGh4iVtgO4e5ajhFZs2DMwdFcEoBQ9xU5wweImiOGm9L1yp4xudWiyUgOurpVvPk18aLjJ18ng
+	QdmGCPOuC5aKRVVHvzvpeH5jAsYXpxpAAisRTrpSTHyhKDxacF7RnN/M43Dze1nOf84c0pCjB+GQk
+	NAnIKEwJxX1ne7MlguRDeJv+g5UUU5SLpPJOnk+hxOVBhNTyqlMz6ZDPnWaeUSTUSmdZFIK1lB4TH
+	pLAxmwrtAfZoS/1eeidjc7ukaNmYo5ZCEIGsamp/DBUED8cbBAVUjBdvuNDsAPH+CXxjiMH2wLWyV
+	DWq1f1d24vv+efd/FdmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMq8M-0000000CCjJ-17yh;
-	Fri, 30 Oct 2026 17:11:18 +0000
-Received: from mail-pg1-x561.google.com ([2607:f8b0:4864:20::561])
+	id 1xMqCi-0000000CDJo-1enJ;
+	Fri, 30 Oct 2026 17:15:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMq8J-0000000CCiZ-0PuS
+	id 1xMqCf-0000000CDJU-3uFR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 17:11:16 +0000
-Received: by mail-pg1-x561.google.com with SMTP id 41be03b00d2f7-cdab9e9761cso598259a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 10:11:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793380272; x=1793985072;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=7DbiMhjxBfgIRvFyWx+zMAj+b86N6ePaSG30TxtUrXg=;
-        b=wuwu3p8egKQ6vncjs4IF0r5a5MyCo0ULl5MLUBUQg1izBJNuT6JaNCPQarmH1e3iIv
-         4H+mSdKvsMGwd1GCa6s00bpNpc9GqvcKIihEV/Li+uEvT3vwuHdrkeyqwBHnBaDVd3ZJ
-         hzrL1swXVf3RGw680bsbC1gnv9MzvJKzdrhtk+PUBHR7FbjqLAEkvVoaFunxNa6mtEVn
-         mB6Q/3AZCHWj8XlrI1j0nux4lX3ip4+KlTYwnkDLfmopxTlAQ0G+jukTO/aAqZFlmJ+m
-         1DWKjiQ70yrQVZgWKdPuGWumQBsILpDG6sJKHv53tagL7MM2oAYrIm97inbAWKFwW98m
-         pCoQ==
-X-Forwarded-Encrypted: i=1; AKwUvByGtswwpWFcEiRf9eQKeVp+0qV+jSA35z5AMIfTgXNgqrLiqToHtFFfgAjJd/DYXb0COEVkrNpPaCq5EPhpFv79@lists.infradead.org
-X-Gm-Message-State: AFq9FYLDX6XcpXML77QCTUGZWgAp9XynL6n0VkVrR+o89o3EHX+ccivv
-	9QLaZ0Rof1OR5Ti3sTR8Qv1aYCEH3tRNE+JdWVMnK9TKG0SXA4rnswoF3iMIhpKg5/Y8893Jvta
-	MRf/TOQoJQ4NuwtSz9XYbKwxNoHlhgmGGVrblTc6M4G7z/mSUVSewswpEJFtwIR/ua/wzW3RXf1
-	AQ0fJe8P00UVOiGBj87YRPjJooXO+PhRS4oDQZd7VU2iJDvD5hrIS60yXYNmSdkojnvPLgrYI6N
-	UZxNpjIlbsDkjZaxSt6GOmpVafFQaxKiMI0KA==
-X-Gm-Gg: AYBFou3Av+gCHm1fL0zhKkSGUR43mq1ZyU9dKnvAtVpU/7aJViQYL66qUpu5k6LI8f+
-	VVEdfJiZNeMX4X03d21UCUDUDoY07cw9M9+WFr0HBiQXjhl1UtVERmu6t7tWcgxwQj9UoJA/OR6
-	FWCK/ryF0va6R9u2LuLPF6K3OlOTApR6WK0VOOsJc6vx//ht8jttYFvMrp/dZi64HhKsoP+Ay1E
-	rwRJx9YunosFElBJDLIYOV7G4TAKX8bnkpSwAYlSCyhY/zUvPOVxNqH1MPqgsVhLkINmG8etXvs
-	UY1vAzNNUAHxARU4wfP0FYogR65aWzsshEZde2Zb++YXZXE1nVBdn8kmMhTCtnfcFig0nvFmx3k
-	PedRTm8jjpUkHGN2w5rjmZD4Moha2h4Bn3isrizlHathOgrZB273XB7zNvW1uwIsdNslUzJ0NQD
-	B0UlpMMhOIbcxrDEVAh/9Gy3gxd03Nf3CSCMBKbTVG
-X-Received: by 2002:a17:90b:5603:b0:3ac:9a03:20bf with SMTP id 98e67ed59e1d1-3ae8985b551mr2597085a91.55.1793380272128;
-        Fri, 30 Oct 2026 10:11:12 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3ae6e6efe86sm4429996a91.1.2026.10.30.10.11.11
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 30 Oct 2026 10:11:12 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3ad30487d55so1398990a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 10:11:11 -0700 (PDT)
+	Fri, 30 Oct 2026 17:15:47 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69UERCjF3564383
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 17:15:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	r8DLQMv6bl/QdZfypAZ5tHl7iw2qL1i8GWHVP4CuKC0=; b=gOg5RBwV3PekfPEO
+	+oPNR0MVxk61KNp0EZqXCjntTL7j4cVnSVzh7z3b9qxaJWwQ/YhTjpy4PWVFXxsk
+	8ofXm9Ev2QDaCKCRJ25ySsUt6Ld7Y0MZnUaM/dpFcTXfVq/ktbtB2SNXbFtEgZVL
+	G0phIgX+21A2uq2glFvBM/JAXw6P7FZLJtzmdHRCtGVpORuCcknmE4OgOw5JtLcr
+	FHYGSxMHu2ENa9koFK3nCZACjRCEwathVg+HlRelK3XOjRG5GqEGdT3+dya6XfnS
+	hWRi+3hpz9x/oRkNoA2lis9X0ApSlHymkCPdxOPcquezvNHjijLBzKBg/lRtPUGM
+	fygoGQ==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hme6qm4rn-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 17:15:44 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-30c0d568830so1780280eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 10:15:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1793380270; x=1793985070; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+        d=oss.qualcomm.com; s=google; t=1793380543; x=1793985343; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=7DbiMhjxBfgIRvFyWx+zMAj+b86N6ePaSG30TxtUrXg=;
-        b=S8hDLFB/lpiwXnVwPvS/AFoATEqTE9sAG6w/KnsKdoGCJqvgy7iDW9xgLrWxPwTHAS
-         n9VjkNqCe3Q3WNfhwEs75LR+vA6zL60T2/Ip4EPcZJehzgXGbp3T5XwqyMcwBB4zl9TG
-         Y6ZKWfmcJcTB8VQ5TDrgMYmBy+o5svUar8o0k=
-X-Forwarded-Encrypted: i=1; AKwUvBzd7fWr7ujV85kd/OEgEZDkObaGU+moRjvDCVg/k6cmrXSkuPauVbUMQszwHpvsrkPIjptC4iUuho797+lZqbPT@lists.infradead.org
-X-Received: by 2002:a17:90b:1c88:b0:3aa:6b5d:a00a with SMTP id 98e67ed59e1d1-3ae898510b3mr2474483a91.53.1793380270413;
-        Fri, 30 Oct 2026 10:11:10 -0700 (PDT)
-X-Received: by 2002:a17:90b:1c88:b0:3aa:6b5d:a00a with SMTP id 98e67ed59e1d1-3ae898510b3mr2474434a91.53.1793380269908;
-        Fri, 30 Oct 2026 10:11:09 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae845e71a7sm4640721a91.15.2026.10.30.10.11.07
+        bh=r8DLQMv6bl/QdZfypAZ5tHl7iw2qL1i8GWHVP4CuKC0=;
+        b=SSeGceufz4QK/8hf2t2XYdlJbeiXls64mlmOUlhRsjJfee+p3TDifqxh98if9CSdSn
+         /INC19WBlFGqeqe8+bMyExlcBcFhv6xB//U4nvg6BoOnNSeIMKCNb3Js526XaFdE58Ph
+         D7rGlLvQxLdrUrQHK3xEjRsotNs6cTurOeD9pWcSZjtuWhxg4PQ3muHGct2dKHNrF9i1
+         UffKvN766xSukLOgrPg95fLqS5qExBkQJAoQiizNwNAns8MpQ+M1uob1k/8ZBlJ5UtY5
+         4hFGBZMWuSM+abBVSKLztobkRYUqdpXJmwGJNimwud2MBhjyh/bvuNpl2uAQwvMPfzK0
+         Aj3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793380543; x=1793985343;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=r8DLQMv6bl/QdZfypAZ5tHl7iw2qL1i8GWHVP4CuKC0=;
+        b=iO9zXMah9QQRixlU77ZRUJU6iO/QRjkMLOY8+EhWVQokt+05qrfNLYXAxrY1fgLnqn
+         yzMnPqoaBGlt72KEFvGBjfzG0q03nNDMGMnTtBl/GGLO35svcsjaaJHpLm3XAL2EPZhw
+         kBaALHqZ5k+L6/+SwMhCSReF94tjQwFG0q7iD5nOb6zaYfQFXEah6Ta6hqT2DbsqcBli
+         WKn0VmDypPOxKXRvhCaLXVgTG5nyFkV+5Us8xixWXRY2Gj4Ib2z/hAVLUX5M0d2MonHe
+         PUnXEE4ZnuHnx7+mkY5HNQkAZ99XQ5g4dUDBs1DCpTwrZu0mwB7Ycp+/FxZ2PRNHPP5B
+         Ih3A==
+X-Forwarded-Encrypted: i=1; AKwUvBwEcFnXXFYe+MUA5yznEedhw2t2AWt4zDLniumHiipTROAxdEBzVaZcRqpC2TMxOSDn6gTLrpj/l4mkhTnjDS0l@lists.infradead.org
+X-Gm-Message-State: AFq9FYKfSv6v/SKBiCUYCDtW5KrL/Yfsgoey60BljZG7Rd3v9BzTrB76
+	Hz0pM0tSUl8bq04X9QN46IgfqP4QsiHLLfpIbDR8SM2c1MB53pw46/TqF4QEXQcrYPZFZSbD/pR
+	qv7kX+ACW839i2mPX9lyk/409hL/g0slb6YptahA34aj+EsVJoX/WTxtDpJQYezoGO+okShn3Wp
+	ualg==
+X-Gm-Gg: AYBFou134fWO3c3HZS4muowNhVRb4wQEWEAJH3akZU/MlM8netY2ZhSZFvuZG67gLez
+	fOf+sB/CjPurG318flSu5BKVtu5MqYiQzf/VcziIeaFwvy0PW+DrLZbdlWKe7L0GIUEe9/PMTxL
+	TQxgKAyODCzoi3n+1k28F+ObDUMXhIADO6IamIJzy8X6VpY1a1oBZzyy5rt2QG2bymI3JaPqCaE
+	x0I7eKiMQazxiA7vz8rOnAEg5uV5isit5meiSZw8QDDRoCKtQR+Tp522zD+QLCnPLRSGHX/PpAs
+	mFBP0mSnPE7qRN161pYDIJWU/qfozV83vx9V/bX+okGUeja4SmHdPmABbPlfo64kedP5cfcPu6w
+	n3qy51V85wYCHYyPZyqNML+CGDKdM5Pjz1F5XYPOCR8EOFLp3eyYJNBQ2LwkXUw/4EDe1+/eb6T
+	wxMLWSd2qEWBnGSkZ2S+1txSCgrd080HLejpUKFBG40CQm0BtBTKlv4Ah+HyJ97L+q
+X-Received: by 2002:a05:7300:a188:b0:35f:4780:518e with SMTP id 5a478bee46e88-36a4238996bmr6833694eec.16.1793380543182;
+        Fri, 30 Oct 2026 10:15:43 -0700 (PDT)
+X-Received: by 2002:a05:7300:a188:b0:35f:4780:518e with SMTP id 5a478bee46e88-36a4238996bmr6833632eec.16.1793380542666;
+        Fri, 30 Oct 2026 10:15:42 -0700 (PDT)
+Received: from [10.50.42.16] (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36a4294419dsm8607711eec.18.2026.10.30.10.15.33
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 Oct 2026 10:11:09 -0700 (PDT)
-Message-ID: <d1436c92-b7a9-4220-a69a-1ec72eb9f5bf@broadcom.com>
-Date: Fri, 30 Oct 2026 10:11:06 -0700
+        Fri, 30 Oct 2026 10:15:42 -0700 (PDT)
+Message-ID: <ba4afee7-5c3b-43fe-9703-9cd42e0fadca@oss.qualcomm.com>
+Date: Fri, 30 Oct 2026 22:45:31 +0530
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] Support for BCM5301X AXI trace PMUs
-To: Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Hauke Mehrtens <hauke@hauke-m.de>,
- =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Mark Rutland <mark.rutland@arm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Besar Wicaksono <bwicaksono@nvidia.com>,
- Ilkka Koskinen <ilkka@os.amperecomputing.com>,
- "moderated list:BROADCOM BCM5301X ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
- "open list:ARM PMU PROFILING AND DEBUGGING"
- <linux-perf-users@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>
-References: <20261027175124.3518239-1-florian.fainelli@broadcom.com>
- <auSHoj46Os6gSEUH@willie-the-truck>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <auSHoj46Os6gSEUH@willie-the-truck>
+Subject: Re: [PATCH v4 1/6] arm_mpam: Fix the RIS index range check in
+ mpam_ris_create_locked
+To: Yin Li <yin.li@oss.qualcomm.com>, James Morse <james.morse@arm.com>,
+        Rob Herring <robh@kernel.org>,
+        Shanker Donthineni <sdonthineni@nvidia.com>,
+        Ben Horgan <ben.horgan@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas
+ <catalin.marinas@arm.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Danilo Krummrich <dakr@kernel.org>,
+        Reinette Chatre <reinette.chatre@intel.com>,
+        Fenghua Yu
+ <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Gavin Shan <gshan@redhat.com>
+Cc: Andre Przywara <andre.przywara@arm.com>,
+        Drew Fustini
+ <fustini@kernel.org>,
+        =?UTF-8?Q?Ilpo_J=C3=A4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>,
+        Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+        trilok.soni@oss.qualcomm.com, aiqun.yu@oss.qualcomm.com,
+        ganapatrao.kulkarni@oss.qualcomm.com,
+        Huang Yiwei <huang.yiwei@oss.qualcomm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+        devicetree@vger.kernel.org
+References: <20261028-mpam-resctrl-dt-knp-support-v4-0-bdda1e445cba@oss.qualcomm.com>
+ <20261028-mpam-resctrl-dt-knp-support-v4-1-bdda1e445cba@oss.qualcomm.com>
+Content-Language: en-US
+From: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
+In-Reply-To: <20261028-mpam-resctrl-dt-knp-support-v4-1-bdda1e445cba@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+X-Proofpoint-GUID: DBAXAQxAdYtgJSE-PO81MK0FyA8YnxlC
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMwMDA2OCBTYWx0ZWRfX7sptcQ48HLfP
+ IewuooWhxfOjHZ9F+JnNN68pvWGZkaOwTRarasbtlXy314YnH0fz3RkPN5OWI2h3e0YdNHgKrOh
+ oMzM4Hb2ZCyOQ3kJmuvOq1qkRbs/g8Y=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMwMDA2OCBTYWx0ZWRfX4pjkiuEUp50M
+ Xxr9IAnP9qUAQr8UXSRS+PWw5OzIhItpLIPJq0/Yv6m2fUQNZIR2xSwe1vou1S+Ov68vDxQ7/0X
+ YBhPlFlvKS4XTn+HOwk2din1/x1lRxzvASlB9kJw6mycOYvPIUXBWfHZrCI5Ut72nOB9aOI8x7g
+ SBFRaYlbGuovwRZZYKlBVaKoq2AsQKppnr+tpWJaS7nszREObX4lL1HY134nFzdNYaU013nuo2n
+ GOmwRTxmMViypDDGsQjM+ZiNLXnirl3diCDXJR9+C+i2VmEnEbows0jIrYvYxicXQvpNQ40Bd5f
+ 743O8HzFINgjRSdspDzZ+1UrgPsx9Kbd2hvlE0NTQJ3r3bre6ucE9N+Q+lIQqUH4hKyyWZqebwg
+ o1ZCwBKTdcxovDdB/rcPRV0VtWczBYfrC8C/leJbOVCFwqV6Ncr/VnCmDm7jbfPOcWE9QiFlG3i
+ e1eRXl8DGWc4SrCLtGg==
+X-Proofpoint-ORIG-GUID: DBAXAQxAdYtgJSE-PO81MK0FyA8YnxlC
+X-Authority-Analysis: v=2.4 cv=TpVzFzXh c=1 sm=1 tr=0 ts=6ae4d0c0 cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=EUspDBNiAAAA:8 a=7CQSdrXTAAAA:8 a=-Elna7LzL5zmvItKdG0A:9 a=QEXdDO2ut3YA:10
+ a=PxkB5W3o20Ba91AHUih5:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-30_05,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 lowpriorityscore=0 bulkscore=0 phishscore=0 priorityscore=1501
+ impostorscore=0 adultscore=0 suspectscore=0 clxscore=1011 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610300068
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_101115_200793_06119C98 
-X-CRM114-Status: GOOD (  15.39  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_101546_111069_31BB50BA 
+X-CRM114-Status: GOOD (  19.97  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,32 +177,49 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Will,
+Hi Yin,
 
-On 10/30/26 05:03, Will Deacon wrote:
-> Hi Florian,
-> 
-> On Tue, Oct 27, 2026 at 10:51:21AM -0700, Florian Fainelli wrote:
->> This patch series adds support for the BCM5301x PMUs which are AXI trace
->> engines present in the chip.
-> 
-> Do these replace/interact/support the series from Ian at:
-> 
-> https://lore.kernel.org/r/20261002175738.3242646-1-irogers@google.com
-> 
-> ?
 
-This is a different piece of hardware, I was initially hoping we could 
-cover it using Ian's PMU driver for 2835/2711/2712 but it's really much 
-simpler and different on the BCM5301X SoCs. Thanks for checking though.
--- 
-Florian
+Reviewed by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
+
+
+On 10/28/2026 5:15 PM, Yin Li wrote:
+> The RIS selector field is defined as MPAMCFG_PART_SEL_RIS (bits 27:24),
+> which is 4 bits wide and gives valid indices 0..15. MPAM_MSC_MAX_NUM_RIS
+> is defined as 16, so the check should use >= to reject index 16 and
+> above. The previous > check incorrectly accepted index 16 as valid.
+> 
+> Fixes: 01fb4b822472 ("arm_mpam: Add the class and component structures for firmware described ris")
+> Signed-off-by: Yin Li <yin.li@oss.qualcomm.com>
+> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+>   drivers/resctrl/mpam_devices.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 48adc49b833c..347a5a6d6a1d 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -700,7 +700,7 @@ static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
+>   
+>   	lockdep_assert_held(&mpam_list_lock);
+>   
+> -	if (ris_idx > MPAM_MSC_MAX_NUM_RIS)
+> +	if (ris_idx >= MPAM_MSC_MAX_NUM_RIS)
+>   		return -EINVAL;
+>   
+>   	if (test_and_set_bit(ris_idx, &msc->ris_idxs))
+> 
+Best Regards,
+Srivathsa
+
 
