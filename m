@@ -2,105 +2,62 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 077DE606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 22:47:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BB6D606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 22:58:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Chqwdx4E;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=R34PI/7A
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lNWx8C2z;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=G7HgGOLV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=30fXaKKbd46d8fP4eF3UV28bEpjvYYXr5FYuZ+bJRHs=; b=Chqwdx4E6w6LwMKGMnSqekcXxr
-	SXZOD/MgDkDi1P0UMDR21k/gXKzO0nxMNJ3AgsMvrJdPDTxe2/wMX0ck2lBeAlFgWwnkZmzY2JuN6
-	gJxO+RwSK3mpatWtBGCwh/Zd2yMqVldBCLk/TTk6eLbInF66qL59MDLSqTTV7dr8pDENCpgv/s8OC
-	xDp+7y+qLD5XHuVExo2g2RRltO5S77RywZEsTU+PUQCD/7I9yXDUVdlwfbRVW0RFA6FSzBYS9bFnk
-	9+JyUoT2NrVsEzO+PBVU1iqDZLewyksyPlTuoDdGkkDskKW9H7pgUAEatpwa8N3A6sZTK/FNhMDh/
-	iAKzpYSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=Py9F/bSvxh5TuUFCn+3sfMZQkcYiuncW2pnLUz7b64o=; b=lNWx8C2zY4Qqbx
+	HMLh+Bb2tJFxp3Gkb7VpUm9suYujK4tUrlPSAi1vgFA8/x4seObZmb0xzsFNxi1kGKeVXIzhgxU46
+	kttnB8EpRN3ssKe5WSoMa/eOEYN698EEF+KW9GMoYGcxBLJJNG4P/qlJt3zpD4hPwyzmJ7foz/KAY
+	yob2o9wYoP8lEND/y2iX8iMremGrwm5m+/65oXzNVGvFcnlI2zZQSr2ykYmeMy0IGCBBavBfjQisM
+	vklMdCSnYYCjfL9R2/e01WdX0MOVLA1Dpf2nph441M4scJJbtPxjEEUb4k/WQg4m5ceOK6kiqXLVd
+	QobTNr6XMiCUnZbdPWKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMvNi-0000000ChfP-2RlM;
-	Fri, 30 Oct 2026 22:47:30 +0000
-Received: from omta036.useast.a.cloudfilter.net ([44.202.169.35])
+	id 1xMvYR-0000000CiHt-3HAB;
+	Fri, 30 Oct 2026 22:58:35 +0000
+Received: from sender-op-o17.zoho.eu ([136.143.169.17])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMvNg-0000000Chf2-05NY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 22:47:29 +0000
-Received: from eig-obgw-6005b.ext.cloudfilter.net ([10.0.30.162])
-	by cmsmtp with ESMTPS
-	id MlHAxMjJiLvgbMvNexT2Vm; Fri, 30 Oct 2026 22:47:26 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id MvNcx336F8LLeMvNcx2LNg; Fri, 30 Oct 2026 22:47:24 +0000
-X-Authority-Analysis: v=2.4 cv=BenY0qt2 c=1 sm=1 tr=0 ts=6ae51e7c
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
- a=eNXyHOXcY0__OJ8I6H8A:9 a=CjuIK1q_8ugA:10 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
-	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=30fXaKKbd46d8fP4eF3UV28bEpjvYYXr5FYuZ+bJRHs=; b=R34PI/7Atx76HYCV1ZaWWd775d
-	xBknMzcTAtvhoA4hqkHV21sbvXlb1TMqApg4ijC1Ib6w6AqLEM61/tmTS8TfL5g0Tj5W/s7QhtoWF
-	7aRSToLGG8afWvY+PgouG97FE8FjRAIYSc6Dx/aOPATSwz5iA0hrnP4Dt7SwAd+Ct3/DWnBSrBg80
-	o8p2uO5zlJGdtLE7L4V/UcS6K+2HJVxnS9l6eL3cxHJpT8nAjls2JA0WN6TAvtLRLlyAL7lZZON2a
-	buyKnCVFOc6q0fMnbIw9yV81Kzpa+fsmEbZLYWTwAApa0EoSfOWiZfNKLQUGD5etWBQVTD9skgYha
-	98sNnEgw==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:41222 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xMsdx-00000003vdq-2kxc;
-	Sat, 31 Oct 2026 01:22:05 +0530
-Date: Fri, 30 Oct 2026 12:52:04 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Igor Velkov <iav@iav.lv>
-Cc: Jean Delvare <jdelvare@suse.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: hwmon: pwm-fan: Reference the common
- fan schema
-Message-ID: <d1fc3c7b-323a-4ad6-b770-4f3df02f5615@roeck-us.net>
-References: <20261018-helios64-fan-label-v1-0-69a3f96d4efa@iav.lv>
- <20261018-helios64-fan-label-v1-1-69a3f96d4efa@iav.lv>
+	id 1xMvYO-0000000CiHT-30aW;
+	Fri, 30 Oct 2026 22:58:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1793401106; cv=none; 
+	d=zohomail.eu; s=zohoarc; 
+	b=dUPNvvNwdgq2FeEWanmyhO+0zn9XJxxP2cUHJ3QfuP9yfTWP7FluRceh6USw813tdlIUD8es98UDARdg+H28bBVAS0vGG/Q0d6L1bYd0g82FT8HzDVmOr+MTHwtCWv8Bzsqso2MWTBst9jGSugE027RV6isJKIA6CapDtTNd93g=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
+	t=1793401106; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Py9F/bSvxh5TuUFCn+3sfMZQkcYiuncW2pnLUz7b64o=; 
+	b=GTrazlqIZBeFDjL6iG4zpo+uGue1x327ia33cJl8UkAGsvKSEz7NENXsnGyqQtfAFlSoDp1KBi/AqLJ5UvSmeFRTTRk3u1H1Qy1ibhzXI7YQJxjj9Borr0koAGmnvOsggDdeExRqen6qJG5GA9ALfN2BTDl9KrPAlgV1S42Qvbo=
+ARC-Authentication-Results: i=1; mx.zohomail.eu;
+	dkim=pass  header.i=iav.lv;
+	spf=pass  smtp.mailfrom=iav@iav.lv;
+	dmarc=pass header.from=<iav@iav.lv>
+DKIM-Signature: a=rsa-sha256; b=G7HgGOLVshpH4RsL2+xxDTTGLb1KwycqmIpnrqUP86nQIKOGUKaUO524QX2B2S0Ylwf/E9CVbpAO+sV6cohYzRfMxjhDNKY7wPopVEYWn2kYEXI5Q4+H2N3z/OXVsplZSr1l9/nHTelD0bFVnWrNq7Re/LQZLjZ/NxQuYQEGIdQ=; c=relaxed/relaxed; s=zoho; d=iav.lv; v=1; bh=Py9F/bSvxh5TuUFCn+3sfMZQkcYiuncW2pnLUz7b64o=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zoho.eu with SMTPS id 1793401104198250.20342044816562;
+	Fri, 30 Oct 2026 23:58:24 +0100 (CET)
+From: Igor Velkov <iav@iav.lv>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add the GPU to Kobol Helios64
+Date: Sat, 31 Oct 2026 01:00:00 +0200
+Message-ID: <20261031-helios64-gpu-always-on-1@iav.lv>
+In-Reply-To: <1937939.QCnGb9OGeP@phil>
+References: <20261011-b4-helios64-gpu-v1-1-bd83c6ecd19e@iav.lv> <1937939.QCnGb9OGeP@phil>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261018-helios64-fan-label-v1-1-69a3f96d4efa@iav.lv>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xMsdx-00000003vdq-2kxc
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:41222
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 0
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfMpR9Xkj/uob2qeZb1uTwWr5LbM4khupr3V92lk2MHHyjR6DYyoxAnytBpmKH2idd01nNQ8Czoh8vmf6vCwoCKvWtANT2SULm2z1AUCG/yHmws5YUtEn
- 4WXTOzBvKUXcNSCsSTsl9MQAC2BMZTu6IwGjsfvlDINLfR6w2w8zgS2e4OmSO/jrYb6honIZIzRESg1nXIe0wHcGR7Zs15g1EHT0gtaeccHL44vyF/FY0hXp
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_154728_118585_F7DA7753 
-X-CRM114-Status: UNSURE (   6.55  )
+X-CRM114-CacheID: sfid-20261030_155833_050767_789B5DAF 
+X-CRM114-Status: UNSURE (   9.18  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.4 (-)
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,29 +68,27 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, Oct 18, 2026 at 07:54:59AM +0300, Igor Velkov wrote:
-> From: Igor Velkov <iav@iav.lv>
-> 
-> pwm-fan predates fan-common.yaml and repeats several of its properties.
-> Reference the common schema, drop the duplicated properties and keep
-> only the constraints specific to PWM fans.
-> 
-> This also allows label, which the hwmon core exposes as the label
-> attribute.
-> 
-> Link: https://lore.kernel.org/r/20250106173805.GA501301-robh@kernel.org
-> Signed-off-by: Igor Velkov <iav@iav.lv>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+On Fri, 30 Oct 2026 20:29:47 +0100, Heiko Stuebner wrote:
+> > +		regulator-always-on;
+> > +		regulator-boot-on;
+>
+> both of these should not be needed, as the GPU should control its
+> regulator. (always-on and boot-on)
 
-Applied.
-
-Thanks,
-Guenter
+Without them it breaks on this board (v7.3):
+- with panfrost not loaded, the regulator core turns vdd_gpu off 30 s
+  after boot and the next warm reboot hangs in the DDR init (TPL, DDR
+  blob v1.25, at "change freq to 856MHz"), 2 of 2; only removing power
+  recovers it. All 119 boots in my console log passed there with the
+  rail on.
+- panfrost loaded after that: "failed to get ack on domain 'gpu'", the
+  GPU stays deferred, since pd_gpu powers up before mali-supply is on.
+So I would keep always-on and boot-on, as the other RK3399 boards do.
 
