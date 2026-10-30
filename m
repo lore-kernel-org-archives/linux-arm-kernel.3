@@ -2,75 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BF75606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 15:14:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 562EF606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 15:18:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nwutUp+b;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=IeYpwhqn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HW/upr1A;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SNZ1BPHJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=1D2a9ueIcn/1KozkUgYJhguse0u76K/q+NIdrK85fIM=; b=nwutUp+b8oBUOp
-	01k4cPxGuB5qUwGcwxBN/zMPCvYR2Dz/N0w1zJB7PGZml5vUzmmw1vlJSvUGvAnJHNy/1ZMH2FOn5
-	LMg0zLHF1zThhxKs2hl77frnJ3fQEiYQnGQ71B6sk562IzVaQ76qnCYBheN8K6gQOOKB6ulGV3ZjW
-	byBBtDFGXqa4/m7TydzmwfXPVHgRJkYXMfQisIpVSDIXaFnJQ7N8Bmx7+3zlSTIWokbFE35XT4hsy
-	Wit9nhISDG6PT+OPH/NeFVegAxlsPyFg3r8tgajpdOQcGgkZSBFOo3mxNhBbJhuChvcjKkIu9UGFY
-	Z7mp8jhr8EWL2XqRBbVg==;
+	List-Owner; bh=inKyCOcvtNC3vT1cGkkdWGseNrtGnJ7Z96eWpiC61OA=; b=HW/upr1AJ3M38/
+	fBSLm8rXzdKdW6vJrSd+H9N0s+IB5p6csuiAYRjD8wEZPoulGTNDeT1TyHjV3kWZUMuP0iCTf5/sr
+	23IbkI9fWtWRhVPH5EDsLny/otQn8If+Nwt/8KjxaMWY8swK/AARH4cYEU1CvhX1v6ZpgA4cwC8AT
+	Qx39GEpuWd9YLo0mnoevxODn32lfW62cA/oXb1HVEdHtOwF82nsAOD+pdOVXZWSXRARsIh5POsQC3
+	N8f0g0HNxGbgyMteEQY4o4okl/dW9cRr9U6racV5tpH4hSed9+Tv8a9oGhXGSZrNW3c35m5lFQCg8
+	7J8EDhQBjtIAmvArdiiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMoJQ-0000000ByBY-1XmI;
-	Fri, 30 Oct 2026 15:14:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMoIo-0000000Bxhd-4AsO
+	id 1xMoN0-0000000Bz74-1hEx;
+	Fri, 30 Oct 2026 15:18:18 +0000
+Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMoMx-0000000Bz6a-25Uo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 15:14:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 30AC51BD0;
-	Fri, 30 Oct 2026 08:13:54 -0700 (PDT)
-Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 170273F59E;
-	Fri, 30 Oct 2026 08:13:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793373237; bh=QW3Emauw/3585Ti2E2DMVGVF9Y4J58sbh1ibON++zdc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=IeYpwhqnPR52ZjETXZpv/6kiC7ay70Z20ArPJ2s53IxX0/ko7iV86HMkHc3QETP8d
-	 FPH62VgSlX2U04hlzl621oNN5Z2OH1u8Q+QQw9ystwINcGllH85PVd1tSyQzFFFkDZ
-	 4y0CBWHJ6FHbx+2NdRVXnmhbTt6ahfzWoy7Bt5E0=
-From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 30 Oct 2026 15:13:20 +0000
-Subject: [PATCH v3 13/14] perf tests: Check CoreSight abort entry and exit
+	Fri, 30 Oct 2026 15:18:16 +0000
+Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-1ae18eb9ad0so331248c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 08:18:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793373493; x=1793978293; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=inKyCOcvtNC3vT1cGkkdWGseNrtGnJ7Z96eWpiC61OA=;
+        b=SNZ1BPHJlVArqQQF5AoZeXWl9F0kIztziUsHrcKtLUICp2JuRt+j9muCbPOonhCA/j
+         UyCSckdUsHINEA5f8JOoBPCQxh0YPMdf6OKgCNRMhD8CkDRVhPdE9LD1SXo8HhVf2hiz
+         fakVR9WmDUZ1ssHQ6qD1mI2pRB6YfaSqbbUP0ZVMAXEHYcP585MwWRqbSgcpk0QDKQaZ
+         NVatYOVMf6SwoqAQZyYZszheszKDrH9OtkoDPSpyI1iQIeVUd63ZTQ4NmWaOn4YAqNFB
+         vO78dPj4RUtN9hsaOT8VirHqJNg2XCfsCgaZTtSVo7G1Vv6Uig+sS1I74fuB3HsTsE/k
+         kjqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793373493; x=1793978293;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=inKyCOcvtNC3vT1cGkkdWGseNrtGnJ7Z96eWpiC61OA=;
+        b=kyjH1hdoY+CST3wjnIfoNVQDgVuxg5/UYDG7oHa6pIBGnVk3oQhWtHhEDJCMFJlkPQ
+         hUHwtkRf0KIb0YfQogpzVymx9josDVQnMEfSwFH681AWhaOOec2NezgwAWI5nXA+8Dcr
+         JDzDzCkhtTchecOOUPLRUcESiFHJ1UcfcxYdXkZPflfLk2D0WVFeC6GWo8ViYlBYqNfv
+         Io4ZJnDestdou+GbS2QSJPA9BCRtBbfDLyVwWw4TxgGD+UzFA2xcNRFPqvMNjMyOZlp4
+         zjqo20W9aGaEvH/UGUxs7QWSqlzy0mv7aebYtGnDK3Ry3X/zjLR6XRfWcgL+bsaAKJE6
+         5zwQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxLGRTr7+EiiZwU2iDnMLzJ78Op5bax7ag2mBPGkym37Pfv72nRn4fIaFas9cCE7CHH77ZCyN8U6mckL6r/pRvb@lists.infradead.org
+X-Gm-Message-State: AFq9FYIplbJSea1dqlSOUW31BA0WFd48GScHsl3RZUoCGpqR9TIpyi20
+	cyv9qNGhNUep6NcHQ0SLi8x+p2UcDR1KC3kjoe/gCeqSLPI8uamoP18Q
+X-Gm-Gg: AYBFou0YTYvyBKV96/X7Ago275l9NcaszfeKN4M/GNoDM76ydI0AQLG0Aej7g//VlNl
+	waDCBrSTefKwGjV6UctiNgLPzsij9N5EeK9364tZ8zJT37XHGjYljbAsU2dpOh74rdtN0s9eKWw
+	2RD33V/GK8KNbzHlhxJT+JsQAuBcnDiITbZZziWcRXp/L/ploeEnxZvQSLNXLCeaw+bGszkGL2G
+	jqqRdS1xM/zJsUohcvLaVPPMbwu7NBfuyVK5yOha5OWzW1wHLGqqq1HryMHQn0zdvgsrP5j7Wli
+	R7Tx9rgi/Jh1mxSAqgUv5sq0iVjbRb4xfaYX3+X4IJTUfjDckPX8X/6OWkGqdisPWpcutYaOqXS
+	3wiMT2N7pa3/DYdZGeM6GFIF3yt3qap6fBa1AR/fKPnnnrYhRi7cjVICUoREQoMbAaoxQoB++Dy
+	bE6nsW5jdot8KQK7ClSnhn31Pzi3oXV3sL+eDWMAu5TGMRhUDCe3oOR7svHAdN5Qg+2YSN3R/PE
+	huiCoG46NIswou7dN5kUozgtpg4LhEgi3xcT8mvM0zieXgC/+ih8PSFHmd1u64GRA5y4Gx/wbCF
+	tRinm51oQBvSU/38al/cPv8h6UFYTrMSzlOjWocnly3ATvGnlS9TDmYw7gfE0dRldgPkck4=
+X-Received: by 2002:a05:7022:ef07:b0:1a5:8f40:6cb4 with SMTP id a92af1059eb24-1ac5fb18dddmr4578115c88.34.1793373492682;
+        Fri, 30 Oct 2026 08:18:12 -0700 (PDT)
+Received: from localhost.localdomain ([103.170.55.71])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1ac19c6b969sm7581645c88.14.2026.10.30.08.18.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Oct 2026 08:18:12 -0700 (PDT)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: sreekuttan2156239@gmail.com
+Cc: alim.akhtar@samsung.com,
+	bhelgaas@google.com,
+	jingoohan1@gmail.com,
+	krzk@kernel.org,
+	kwilczynski@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	lpieralisi@kernel.org,
+	mani@kernel.org,
+	peter.griffin@linaro.org,
+	robh@kernel.org
+Subject: [PATCH v3] PCI: exynos: Handle PCIe PHY initialization errors
+Date: Fri, 30 Oct 2026 15:17:01 +0000
+Message-ID: <20261030151701.3100-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261029131006.2744-1-sreekuttan2156239@gmail.com>
+References: <20261029131006.2744-1-sreekuttan2156239@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261030-perf_cs_etm_fix_non_taken-v3-13-7629b52ab047@arm.com>
-References: <20261030-perf_cs_etm_fix_non_taken-v3-0-7629b52ab047@arm.com>
-In-Reply-To: <20261030-perf_cs_etm_fix_non_taken-v3-0-7629b52ab047@arm.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Suyash Mahar <smahar@meta.com>, 
- Amir Ayupov <aaupov@fb.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793373201; l=5442;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=QW3Emauw/3585Ti2E2DMVGVF9Y4J58sbh1ibON++zdc=;
- b=oMfv/q3JKC9v0UpCFOmc08kxcZCqBkm8fl2VNXLkIU9rtXAGedWzl9CGIcau9i8z61sqOpiS8
- 937k1sIzIGEBeggGiU2olYFOGctepINGoXVX6eGXY1BjzIvNkUxqxPH
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_081359_122269_8852F57C 
-X-CRM114-Status: GOOD (  18.08  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261030_081815_539425_C67B24D0 
+X-CRM114-Status: GOOD (  17.39  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,164 +110,225 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add page_fault_loop to repeatedly discard an anonymous page with
-MADV_DONTNEED and read it again. Each demand fault is resolved without
-signal delivery, so the load must be retried at the same PC.
+Check the return values of "phy_init()" and "phy_power_on()" to
+avoid continuing PCIe host initialization when PHY setup fails.
 
-For example, an expected int/iret pair is:
+Track the PHY initialization and power state to ensure cleanup is
+performed only when appropriate, avoiding double calls to
+"phy_exit()" on probe failure.
 
-  int            5ccadc => ffff800080010c00 insn: 00 00 40 39
-  ...
-  iret ffff800080012284 =>           5ccadc insn: e0 03 9f d6
+Also check the return value of "exynos_pcie_host_init()" during
+resume and abort the resume sequence if PHY initialization fails.
 
-The LDRB W0, [X0] at 0x5ccadc faults before completing. After resolving
-the page fault, the kernel returns via ERET to the same PC to retry it.
-
-Reviewed-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
 ---
- tools/perf/tests/builtin-test.c                    |  1 +
- .../perf/tests/shell/coresight/abort_entry_exit.sh | 32 +++++++++++++++++++
- tools/perf/tests/tests.h                           |  1 +
- tools/perf/tests/workloads/Build                   |  2 ++
- tools/perf/tests/workloads/page_fault_loop.c       | 37 ++++++++++++++++++++++
- 5 files changed, 73 insertions(+)
+v3:
+ - Address review feedback on PHY and regulator state tracking
+ - Avoid powering down the controller when link detection fails
 
-diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
-index 24e095d4d20cee6a6aae7cfda364fb237ef74b30..86698b86657f45b094755583800062c37e16ca8b 100644
---- a/tools/perf/tests/builtin-test.c
-+++ b/tools/perf/tests/builtin-test.c
-@@ -192,6 +192,7 @@ static struct test_workload *workloads[] = {
- 	&workload__landlock,
- 	&workload__traploop,
- 	&workload__branch_not_taken_loop,
-+	&workload__page_fault_loop,
- 	&workload__inlineloop,
- 	&workload__jitdump,
- 	&workload__context_switch_loop,
-diff --git a/tools/perf/tests/shell/coresight/abort_entry_exit.sh b/tools/perf/tests/shell/coresight/abort_entry_exit.sh
-new file mode 100755
-index 0000000000000000000000000000000000000000..98aeb2b1068e9847d87e3b25aeabf6da114c6ae2
---- /dev/null
-+++ b/tools/perf/tests/shell/coresight/abort_entry_exit.sh
-@@ -0,0 +1,32 @@
-+#!/bin/bash
-+# SPDX-License-Identifier: GPL-2.0
-+# CoreSight abort entry and exit (exclusive)
-+
-+. "$(dirname "$0")/../lib/coresight_exception.sh"
-+
-+test_abort_entry_exit()
+v2:
+ - Track PHY initialization and power state to prevent duplicate cleanup
+ - Handle host initialization failures during resume
+
+ drivers/pci/controller/dwc/pci-exynos.c | 111 +++++++++++++++++++++---
+ 1 file changed, 100 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/pci/controller/dwc/pci-exynos.c b/drivers/pci/controller/dwc/pci-exynos.c
+index e3c05ade381b..d7504b0e5d96 100644
+--- a/drivers/pci/controller/dwc/pci-exynos.c
++++ b/drivers/pci/controller/dwc/pci-exynos.c
+@@ -11,6 +11,7 @@
+ 
+ #include <linux/clk.h>
+ #include <linux/delay.h>
++#include <linux/device.h>
+ #include <linux/interrupt.h>
+ #include <linux/kernel.h>
+ #include <linux/init.h>
+@@ -55,8 +56,34 @@ struct exynos_pcie {
+ 	struct clk_bulk_data		*clks;
+ 	struct phy			*phy;
+ 	struct regulator_bulk_data	supplies[2];
++	bool phy_initialized;
++	bool phy_powered;
++	bool supplies_enabled;
+ };
+ 
++static int exynos_pcie_phy_exit(struct exynos_pcie *ep)
 +{
-+	local attempt result
++	int ret;
 +
-+	# A demand page fault retries the load at the same PC after resolution.
-+	for attempt in 1 2 3; do
-+		echo "Recording page faults (attempt $attempt/3)"
-+		if ! record_trace page_fault_loop; then
-+			cat "$tmpdir/record.log"
-+			echo "Failed to record the page fault workload"
-+			return 1
-+		fi
-+		decode_trace || return 1
-+		check_exception_pairs "int" "iret" 0
-+		result=$?
-+		if [ "$result" -ne 2 ]; then
-+			return "$result"
-+		fi
-+	done
++	if (ep->phy_powered) {
++		ret = phy_power_off(ep->phy);
++		if (ret)
++			return ret;
 +
-+	echo "FAIL: No complete abort pair after three recordings"
-+	return 1
-+}
-+
-+setup_exception_test || exit $?
-+test_abort_entry_exit
-diff --git a/tools/perf/tests/tests.h b/tools/perf/tests/tests.h
-index 989208fcd417a676d03e2372e8a71ecf2059b9c6..8c399840a735910d4344eba928075e3ec6b1f81c 100644
---- a/tools/perf/tests/tests.h
-+++ b/tools/perf/tests/tests.h
-@@ -265,6 +265,7 @@ DECLARE_WORKLOAD(datasym);
- DECLARE_WORKLOAD(landlock);
- DECLARE_WORKLOAD(traploop);
- DECLARE_WORKLOAD(branch_not_taken_loop);
-+DECLARE_WORKLOAD(page_fault_loop);
- DECLARE_WORKLOAD(inlineloop);
- DECLARE_WORKLOAD(jitdump);
- DECLARE_WORKLOAD(context_switch_loop);
-diff --git a/tools/perf/tests/workloads/Build b/tools/perf/tests/workloads/Build
-index d3030bd9c0752a5bc8743a4539a0ac365d215719..43cc4da6fb0786de8bb5c52717c2ad5fdbaa639c 100644
---- a/tools/perf/tests/workloads/Build
-+++ b/tools/perf/tests/workloads/Build
-@@ -10,6 +10,7 @@ perf-test-y += datasym.o
- perf-test-y += landlock.o
- perf-test-y += traploop.o
- perf-test-y += branch_not_taken_loop.o
-+perf-test-y += page_fault_loop.o
- perf-test-y += inlineloop.o
- perf-test-y += jitdump.o
- perf-test-y += context_switch_loop.o
-@@ -28,6 +29,7 @@ CFLAGS_brstack.o          = -g -O0 -fno-inline -U_FORTIFY_SOURCE
- CFLAGS_datasym.o          = -g -O0 -fno-inline -U_FORTIFY_SOURCE
- CFLAGS_traploop.o         = -g -O0 -fno-inline -U_FORTIFY_SOURCE
- CFLAGS_branch_not_taken_loop.o = -g -O0 -fno-inline -U_FORTIFY_SOURCE
-+CFLAGS_page_fault_loop.o  = -g -O0 -fno-inline -U_FORTIFY_SOURCE
- CFLAGS_inlineloop.o       = -g -O2
- CFLAGS_deterministic.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
- CFLAGS_named_threads.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
-diff --git a/tools/perf/tests/workloads/page_fault_loop.c b/tools/perf/tests/workloads/page_fault_loop.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..4afbc4ab0a55400360facdc3a99ea5a5a9d52596
---- /dev/null
-+++ b/tools/perf/tests/workloads/page_fault_loop.c
-@@ -0,0 +1,37 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/compiler.h>
-+#include <stdio.h>
-+#include <sys/mman.h>
-+#include <unistd.h>
-+#include "../tests.h"
-+
-+static int page_fault_loop(int argc __maybe_unused, const char **argv __maybe_unused)
-+{
-+	size_t size = getpagesize();
-+	char *page;
-+	int ret = 1;
-+
-+	page = mmap(NULL, size, PROT_READ, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-+	if (page == MAP_FAILED) {
-+		perror("mmap");
-+		return 1;
++		ep->phy_powered = false;
 +	}
 +
-+	for (int i = 0; i < 256; i++) {
-+		/* Drop the PTE so the kernel must resolve a fault on each read. */
-+		if (madvise(page, size, MADV_DONTNEED)) {
-+			perror("madvise");
-+			goto out;
-+		}
-+		if (READ_ONCE(*page)) {
-+			fprintf(stderr, "Anonymous page is not zero-filled\n");
-+			goto out;
-+		}
++	if (ep->phy_initialized) {
++		ret = phy_exit(ep->phy);
++		if (ret)
++			return ret;
++
++		ep->phy_initialized = false;
 +	}
-+	ret = 0;
-+out:
-+	munmap(page, size);
-+	return ret;
++
++	return 0;
 +}
 +
-+DEFINE_WORKLOAD(page_fault_loop);
-
+ static void exynos_pcie_writel(void __iomem *base, u32 val, u32 reg)
+ {
+ 	writel(val, base + reg);
+@@ -225,13 +252,23 @@ static int exynos_pcie_host_init(struct dw_pcie_rp *pp)
+ {
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+ 	struct exynos_pcie *ep = to_exynos_pcie(pci);
++	int ret;
+ 
+ 	pp->bridge->ops = &exynos_pci_ops;
+ 
+ 	exynos_pcie_assert_core_reset(ep);
+ 
+-	phy_init(ep->phy);
+-	phy_power_on(ep->phy);
++	ret = phy_init(ep->phy);
++	if (ret)
++		return ret;
++
++	ep->phy_initialized = true;
++
++	ret = phy_power_on(ep->phy);
++	if (ret)
++		return ret;
++
++	ep->phy_powered = true;
+ 
+ 	exynos_pcie_deassert_core_reset(ep);
+ 	exynos_pcie_enable_irq_pulse(ep);
+@@ -314,6 +351,7 @@ static int exynos_pcie_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
++	ep->supplies_enabled = true;
+ 	platform_set_drvdata(pdev, ep);
+ 
+ 	ret = exynos_add_pcie_port(ep, pdev);
+@@ -323,8 +361,19 @@ static int exynos_pcie_probe(struct platform_device *pdev)
+ 	return 0;
+ 
+ fail_probe:
+-	phy_exit(ep->phy);
+-	regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
++	if (exynos_pcie_phy_exit(ep))
++		dev_err(&pdev->dev, "failed to exit PCIe PHY\n");
++
++	if (ep->supplies_enabled) {
++		int err;
++
++		err = regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
++		if (err)
++			dev_err(&pdev->dev, "failed to disable regulators: %d\n", err);
++		else
++			ep->supplies_enabled = false;
++
++	}
+ 
+ 	return ret;
+ }
+@@ -332,22 +381,42 @@ static int exynos_pcie_probe(struct platform_device *pdev)
+ static void exynos_pcie_remove(struct platform_device *pdev)
+ {
+ 	struct exynos_pcie *ep = platform_get_drvdata(pdev);
++	int ret;
+ 
+ 	dw_pcie_host_deinit(&ep->pci.pp);
+ 	exynos_pcie_assert_core_reset(ep);
+-	phy_power_off(ep->phy);
+-	phy_exit(ep->phy);
+-	regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
++
++	ret = exynos_pcie_phy_exit(ep);
++	if (ret)
++		return ret;
++
++	if (ep->supplies_enabled) {
++		ret = regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
++		if (ret)
++			dev_err(&pdev->dev, "failed to disable regulators: %d\n", ret);
++		else
++			ep->supplies_enabled = false;
++	}
+ }
+ 
+ static int exynos_pcie_suspend_noirq(struct device *dev)
+ {
+ 	struct exynos_pcie *ep = dev_get_drvdata(dev);
++	int ret;
+ 
+ 	exynos_pcie_assert_core_reset(ep);
+-	phy_power_off(ep->phy);
+-	phy_exit(ep->phy);
+-	regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
++
++	ret = exynos_pcie_phy_exit(ep);
++	if (ret)
++		return ret;
++
++	if (ep->supplies_enabled) {
++		ret = regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
++		if (ret)
++			return ret;
++
++		ep->supplies_enabled = false;
++	}
+ 
+ 	return 0;
+ }
+@@ -358,13 +427,33 @@ static int exynos_pcie_resume_noirq(struct device *dev)
+ 	struct dw_pcie *pci = &ep->pci;
+ 	struct dw_pcie_rp *pp = &pci->pp;
+ 	int ret;
++	int err;
+ 
+ 	ret = regulator_bulk_enable(ARRAY_SIZE(ep->supplies), ep->supplies);
+ 	if (ret)
+ 		return ret;
+ 
++	ep->supplies_enabled = true;
++
+ 	/* exynos_pcie_host_init controls ep->phy */
+-	exynos_pcie_host_init(pp);
++	ret = exynos_pcie_host_init(pp);
++	if (ret) {
++		err = exynos_pcie_phy_exit(ep);
++		if (err)
++			return err;
++
++		if (ep->supplies_enabled) {
++			err = regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
++			if (err)
++				return err;
++
++			ep->supplies_enabled = false;
++		}
++
++		return ret;
++
++	}
++
+ 	dw_pcie_setup_rc(pp);
+ 	exynos_pcie_start_link(pci);
+ 	return dw_pcie_wait_for_link(pci);
 -- 
-2.34.1
+2.55.0
 
 
