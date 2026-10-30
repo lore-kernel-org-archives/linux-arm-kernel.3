@@ -2,105 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E26B0606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 17:54:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 733F3606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 18:02:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YHVlibe1;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jwxyrNsV
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EcEcuRRu;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=jCwZPf+Y
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=vFtK92loJ0xr1IzJVV1xwMCKKp55jpNQBYy00GgLoCA=; b=YHVlibe1VpE7JDGWsZ6/KmO1XF
-	IEqm+o7ax9zedt94HoImhamYiteRNF40uUQB/lf1S1N4dkKUdpKywd2L8Da8QT7al3y6CllFzgWCn
-	JnovJk5y4VuCUEVVgodFJadVrle70oDMc9aC8y83Ax9P1O5N+74jf71jcELhod/sR620oNy1oxReZ
-	mlVsqqH+hxYDBVcVC/nEQBU/U58t+w89N0meAHIeH1POgtCi0qSMzv37cEgbcnvXJlKRUWnW1pOd1
-	B1V0EJPDXpidDnnSXmUnAgKk6LkGY5PKGkm6AZ5jGfJHhiCfiakJTMwH71Lr6e7UvUWNjK08J1k+n
-	P5mduYdA==;
+	bh=9gfQkCnTfkug6p4HXHCVXaX3Q+suBlhnBegGYXjv1IY=; b=EcEcuRRugM+aY+1UOkMelrh/KE
+	ktVA8BbbrfOZVS84N2PGGU1idMLMLnjJWWxJ6Vgkt1TjiI3h0z43l67iM4Wrd20KaY4Q2huoqsBss
+	StoXs1xl39e5IKpeOUo94oBPEbuz1m+V4+k89m9vQhGIU7SfpnwgwKahQXNH16EgsEQmK6IpDXeB5
+	7awcpnNCAEBSvGIlUchksngpBMzlYcdo9kDDBFGa9jlptj9b8i+qKMam1f0n4+UwpTm9u2hipQ02u
+	OSBgmmajpkWG3OlVuaoU6pk1C3KnWQX1Snx7bLPGm5KmiR0agj2xhrDHpKIfK+0d/Ed4MptNdvrmU
+	/2GycvMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqnu-0000000CKBj-0tNr;
-	Fri, 30 Oct 2026 17:54:14 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1xMqvU-0000000CLOz-3YsO;
+	Fri, 30 Oct 2026 18:02:04 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqnr-0000000CKAq-3Izn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 17:54:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793382852; x=1824918852;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=IzqHLossDmxKbFc+aGxUKjOQbcSxP3c6buURWcuw2Tc=;
-  b=jwxyrNsVCRRHE5mQY9GhsfqnkBThSiBT//ZjKQKsy+4yT7W//DJdJXVd
-   LjswIJlqBKtCb76dFNB0wgdqc1WxrArKqF7od6TTjxRf2khyWai1TtCOC
-   qNISN5Zg7HddG66wYHZgUFTwwlr1wspsNdmcXUOAjCKMj/F0lDtixnEPr
-   yjBCAAy3FWhFY/nPYQ8o9dics1B0qf11vhl3QTmyvPQ9eNuGYmLYserVn
-   ZkH/FNSM2iB2DNO4atD2HzHdmdfpnb3MZgilaqm4wusZPIEqZK38asMNx
-   1S8ZOSas74XJUOvXw9llfiSxF6w74KYc/LXYg6D4xv9c8eVivZIGXyQet
-   A==;
-X-CSE-ConnectionGUID: VBlZJOfyQa+3CNm+nNQq/g==
-X-CSE-MsgGUID: HrpmTU2XQZO+pjofD2QTXw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11951"; a="2170304"
-X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
-   d="scan'208";a="2170304"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 10:54:07 -0700
-X-CSE-ConnectionGUID: 4l33Hy4iTb6mNx52iAPxHQ==
-X-CSE-MsgGUID: aoBFLn+ZRDe7lWiftDeSQg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
-   d="scan'208";a="5516478"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.247])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 10:54:01 -0700
-Date: Fri, 30 Oct 2026 19:53:58 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Raul E Rangel <rrangel@chromium.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"Maciej W. Rozycki" <macro@orcam.me.uk>,
-	Timur Tabi <timur@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v8 6/6] serial: 8250: retain DMA resources when
- termination fails
-Message-ID: <auTZtteCFnuoMD3p@ashevche-desk.local>
-References: <20261029-submit-serial-8250-dma-cancel-v1-v8-0-3fd56ba352ed@gmail.com>
- <20261029-submit-serial-8250-dma-cancel-v1-v8-6-3fd56ba352ed@gmail.com>
- <auNW_Oc-Ao5Iw-Gw@ashevche-desk.local>
- <CADvTj4pOg4w5LpFW_E3qzP7FZDnDgpB8LyR9xxhT_mZre21vFw@mail.gmail.com>
- <auRl9ztbav4nHi7U@ashevche-desk.local>
- <CADvTj4p8tjwdftg+H11ob0iaBZKxXrTdkSmhfZHjOYunm5tr9w@mail.gmail.com>
+	id 1xMqvR-0000000CLOB-0llM;
+	Fri, 30 Oct 2026 18:02:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=9gfQkCnTfkug6p4HXHCVXaX3Q+suBlhnBegGYXjv1IY=; b=jCwZPf+YIAUctffkKF7pw1WOTQ
+	CqyoI3bprXm02g6eVWMZAP2o9CQVig+ZDJuoNwBP1DxIkVbxMu2P/p4tXuxMKYc4Ct92k59PUjQcu
+	p9M0fxe+NKOPyBTiu4qZ2BMXCD5QeYqAOL4k5RyLDO01SzgGowPpWRasZrVz0wa/3JwDJ69OQ5HjO
+	4UM6+54lKVKYP6PTNYFyIhj0lDGZ7WeJFcJ+JWU2yRWfB/ufDvxDvH0vcmrgyj7hjhi7+KK0AishG
+	9nt0DMnXu14dtZMGcnL5n4WhtagwmsKlCTgUsCSliSuChpiCIPJYQEQsCDmoc4yHiNsX+FkeeXrRO
+	6c6ajRIw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Emil Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Dominique Belhachemi <db@domibel.de>, Andy Yan <andyshrk@163.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Yakir Yang <kuankuan.y@gmail.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Michal Wilczynski <m.wilczynski@samsung.com>,
+ Conor Dooley <conor@kernel.org>, William Qiu <william.qiu@starfivetech.com>,
+ Xingyu Wu <xingyu.wu@starfivetech.com>, Sandy Huang <hjc@rock-chips.com>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Maud Spierings <maud_spierings@murena.io>,
+ Graham Markall <hello@big-grey.co.uk>,
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Joshua Peisach <jpeisach@ubuntu.com>,
+ Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
+ Byron Stanoszek <gandalf@winds.org>, OOHehir <oo.hehir@gmail.com>
+Subject: Re: [PATCH v6 09/18] drm/bridge: inno-hdmi: Allow the register map to come
+ from a parent
+Date: Fri, 30 Oct 2026 19:01:08 +0100
+Message-ID: <3194397.687JKscXgg@phil>
+In-Reply-To: <20261029-jh7110-clean-send-v6-9-759594e43acf@samsung.com>
+References: <20261029-jh7110-clean-send-v6-0-759594e43acf@samsung.com>
+ <CGME20261029075407eucas1p1c9b0d887cafa4c3c10bb34fa3ef3c4b7@eucas1p1.samsung.com>
+ <20261029-jh7110-clean-send-v6-9-759594e43acf@samsung.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CADvTj4p8tjwdftg+H11ob0iaBZKxXrTdkSmhfZHjOYunm5tr9w@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_105411_887208_B9F8ABD1 
-X-CRM114-Status: GOOD (  30.99  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261030_110201_230905_817BE213 
+X-CRM114-Status: GOOD (  23.76  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,95 +96,106 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 30, 2026 at 11:09:53AM -0600, James Hilliard wrote:
-> On Fri, Oct 30, 2026 at 3:40 AM Andy Shevchenko
-> <andriy.shevchenko@linux.intel.com> wrote:
-> > On Thu, Oct 29, 2026 at 11:19:59AM -0600, James Hilliard wrote:
-> > > On Thu, Oct 29, 2026 at 8:24 AM Andy Shevchenko
-> > > <andriy.shevchenko@linux.intel.com> wrote:
-> > > > On Thu, Oct 29, 2026 at 01:37:02AM -0600, James Hilliard wrote:
+Am Donnerstag, 29. Oktober 2026, 08:53:43 Mitteleurop=C3=A4ische Normalzeit=
+ schrieb Michal Wilczynski:
+> On some SoCs the HDMI controller does not own its register window. The
+> StarFive JH7110 documents one 64 KB block, u0_hdmitx, that holds both
+> the controller and the PHY, so the parent device maps it and owns the
+> regmap while the two children share it.
+>=20
+> Use a regmap supplied by the parent device when there is one, and keep
+> mapping our own resource when there is not, so platforms that own their
+> register window are unaffected.
+>=20
+> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+> Tested-by: Byron Stanoszek <gandalf@winds.org>
+> Tested-by: OOHehir <oo.hehir@gmail.com>
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  drivers/gpu/drm/bridge/inno-hdmi.c | 31 ++++++++++++++++++++++++++++---
+>  1 file changed, 28 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/=
+inno-hdmi.c
+> index 222f6522844ee60ae9a07ab2dcca748dbf7403e4..a8905bf627a224d7e39185141=
+95f1810164dc26f 100644
+> --- a/drivers/gpu/drm/bridge/inno-hdmi.c
+> +++ b/drivers/gpu/drm/bridge/inno-hdmi.c
+> @@ -397,6 +397,7 @@ struct inno_hdmi {
+>  	struct clk *pclk;
+>  	struct clk *refclk;
+>  	void __iomem *regs;
+> +	struct regmap *regmap;
+>  	struct regmap *grf;
+> =20
+>  	struct inno_hdmi_i2c *i2c;
+> @@ -470,11 +471,25 @@ static int inno_hdmi_find_phy_config(struct inno_hd=
+mi *hdmi,
+> =20
+>  static inline u8 hdmi_readb(struct inno_hdmi *hdmi, u16 offset)
+>  {
+> +	u32 val;
+> +
+> +	if (hdmi->regmap) {
+> +		if (regmap_read(hdmi->regmap, offset * 4, &val))
+> +			return 0;
+> +
+> +		return val;
+> +	}
+> +
+>  	return readl_relaxed(hdmi->regs + (offset) * 0x04);
+>  }
+> =20
+>  static inline void hdmi_writeb(struct inno_hdmi *hdmi, u16 offset, u32 v=
+al)
+>  {
+> +	if (hdmi->regmap) {
+> +		regmap_write(hdmi->regmap, offset * 4, val);
+> +		return;
+> +	}
+> +
+>  	writel_relaxed(val, hdmi->regs + (offset) * 0x04);
+>  }
+> =20
+> @@ -1101,9 +1116,19 @@ struct inno_hdmi *inno_hdmi_probe(struct platform_=
+device *pdev,
+>  	hdmi->dev =3D dev;
+>  	hdmi->plat_data =3D plat_data;
+> =20
+> -	hdmi->regs =3D devm_platform_ioremap_resource(pdev, 0);
+> -	if (IS_ERR(hdmi->regs))
+> -		return ERR_CAST(hdmi->regs);
+> +	/*
+> +	 * On platforms where the controller shares a register space with
+> +	 * other blocks, the parent owns the regmap. Fall back to mapping
+> +	 * our own resource where it does not.
+> +	 */
+> +	if (dev->parent)
+> +		hdmi->regmap =3D dev_get_regmap(dev->parent, NULL);
+> +
+> +	if (!hdmi->regmap) {
+> +		hdmi->regs =3D devm_platform_ioremap_resource(pdev, 0);
+> +		if (IS_ERR(hdmi->regs))
+> +			return ERR_CAST(hdmi->regs);
+> +	}
 
-...
+why can't you just also use a mmio regmap here? Because with this change
+the driver now has 2 competing register interfaces and you need those
+conditionals all the time.
 
-> > > > > +     while (rx_ret || tx_ret) {
-> > > > > +             dev_err_ratelimited(p->port.dev,
-> > > > > +                                 "DMA termination failed: RX %d, TX %d; retrying\n",
-> > > > > +                                 rx_ret, tx_ret);
-> > > >
-> > > > > +             msleep(100);
-> > > >
-> > > > Huh?!
-> > > >
-> > > > > +             if (rx_ret)
-> > > > > +                     rx_ret = dmaengine_terminate_sync(dma->rxchan);
-> > > > > +             if (tx_ret)
-> > > > > +                     tx_ret = dmaengine_terminate_sync(dma->txchan);
-> > > > > +     }
-> > > >
-> > > > This is unacceptable. Sleeping is okay, but value should really match the
-> > > > baudspeed and other parameters of the transfer.
-> > >
-> > > This sleep is backoff after dmaengine_terminate_sync() has returned
-> > > an error, rather than an estimate of UART transmission time. Each
-> > > retry asks the provider to stop the channel again; elapsed time is
-> > > never treated as evidence that the resources are safe to free.
-> > >
-> > > The particular 100 ms interval has no hardware-derived justification.
-> > > However, I don't yet see a sound way to derive the retry cadence from
-> > > baud rate either. RX can be waiting for input, TX can be held by flow
-> > > control, and callback retirement is a separate requirement from
-> > > moving bytes through the UART.
-> > >
-> > > Do you have a particular provider failure mode in mind where retrying
-> > > termination should follow the serial transfer timing? I'd like to
-> > > base the interval on the condition that can make termination succeed,
-> > > rather than substitute a wire-time estimate for an arbitrary delay.
-> >
-> > Termination of DMA sometimes require to clean up internal FIFOs and other state
-> > machines. That's what happens on HW side. In the software waiting for too much
-> > may lead to the very big undesired latencies. The value of 100ms sounds insane
-> > to me for the HSUART cases (megabaud range of speed). Also note, not every PCB
-> > design uses HW flow control, so this may be even worse for them.
-> 
-> The 100 ms interval can add unnecessary teardown latency if a failed
-> termination becomes retryable much sooner. There is no hardware-derived
-> justification for that particular value.
-> 
-> The FIFO/state-machine draining is part of the provider's stop sequence.
-> For example, DW performs its FIFO-empty polling inside
-> dwc_terminate_all(). If termination succeeds, this patch proceeds without
-> the retry sleep, regardless of baud rate. The sleep is only reached
-> after an error during DMA release, not during normal RX delivery.
-> 
-> Baud rate can influence how quickly a transmit FIFO drains, even without
-> flow control. However, the termination error does not tell 8250 whether
-> that drain is still progressing, how much remains, or whether the
-> controller needs a different recovery operation. That distinction matters
-> when choosing a retry interval: a shorter interval reduces the added
-> latency, but does not establish that retrying can recover the channel.
-> 
-> There is also a specific API detail here: dmaengine_terminate_sync()
-> returns immediately if device_terminate_all() fails, without reaching
-> dmaengine_synchronize(). Consequently, an error leaves callback draining
-> unconfirmed as well. The retry cadence can change, but resource release
-> still requires successful termination and synchronization.
+Just convert the existing user to also use a regmap please.
 
-Most likely this is AI slop. I can't see the justification for 100ms.
-Can you explain that?
 
-> > > Regardless of the retry interval, shutdown cannot release the buffers
-> > > until the provider establishes that DMA and its callbacks have stopped.
+Heiko
 
--- 
-With Best Regards,
-Andy Shevchenko
 
 
 
