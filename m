@@ -2,53 +2,52 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1134A606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 11:27:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3671606A323
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 11:31:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Quw/pug2;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G8/BfwIl
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JGn83Ha2;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dZE0HogX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=LXuTdtoR1s7qXrooLPLR8zUpLbuT+oqO4iQiQAmHEno=; b=Quw/pug2Ftlu5i
-	CdQqb3s6U6xa0V209hqZFHrWZlcFeI9FBYrJ3KDw1JfE9WNKvLGz3wXMinzOYIoLtJhYRdiGxpeKJ
-	WG+V1LbzY9ImsqDl/4soAOmdPBP0wHt6b5dOZ40QcwgAetgWNJo1IFggsRiPuuLN4m4tGYYScamMS
-	PCmg+A7+6iyiuxKc4U5U5hMyBLYw93neQ9aq5m8HZxAUxwNwQ6LCcXwaMvDgUK/UuMf+dCo4TT1pH
-	JYlzO6js0lFUqoBEX/XlcItS29o8zYJcFlPTir9ekuO3hLmSiKe32LyxlC3ZWIN0FzyTI+A3wvbc6
-	kxp+WQ1HLDhvkL2kzYKA==;
+	List-Owner; bh=fc3FdGgfqt2PjtuNm5DqcxaoUajXHOCam5lNu8rrOho=; b=JGn83Ha2IiYoLE
+	O3COKQlHWVPRnokLY3Df8KA6V6PVExVBPGoNwVQ8gMy4UbzPcrjZRoJuMFsSfnZP8UYgJHbfaT5Ul
+	/XmR9djgKh/yWG7UzbVojzxSBR0fV96o9BkscrmPVVKpL/b3cO5iTwOXlhV/VEEUoZlodRYS30cb3
+	QrtgiFsFzutaceEHyCZ5FMgXcm9LEMp86WC7Z6m6E9Mht5Y4VMwO+SeVFzrOBfe+jxxu8fGrdz0o2
+	dtNPJ7TqtHLj1hsQY+6u9SpVCQFk2ZuINmju619BRUCtCrHEEuXmbGj3kMVGjc3+hs024hxtsvhEI
+	pA+Qt5rO7pCdhChgnZNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMklm-0000000BYP8-1TDZ;
-	Fri, 30 Oct 2026 11:27:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xMkpA-0000000BYdg-3mVE;
+	Fri, 30 Oct 2026 11:31:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMklk-0000000BYOi-3lY4;
-	Fri, 30 Oct 2026 11:27:36 +0000
+	id 1xMkp8-0000000BYdQ-2pvX;
+	Fri, 30 Oct 2026 11:31:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1C77B40B1F;
-	Fri, 30 Oct 2026 11:27:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 307EC1F000C1;
-	Fri, 30 Oct 2026 11:27:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D523A439D3;
+	Fri, 30 Oct 2026 11:31:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AB001F000C1;
+	Fri, 30 Oct 2026 11:30:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793359656;
-	bh=LXuTdtoR1s7qXrooLPLR8zUpLbuT+oqO4iQiQAmHEno=;
+	s=k20260515; t=1793359864;
+	bh=fc3FdGgfqt2PjtuNm5DqcxaoUajXHOCam5lNu8rrOho=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=G8/BfwIlZYKfs7Q3IQvEcogpGWA1dKWuqw4kBJoJavJdyRPgJJeP0v3+POHGonkbg
-	 A3B7KxsjLGI9cwH4H5nUo25xCkis7wLa2Sp+RLfMShK+DwLjpkIUYF0DGdQIqFzojj
-	 UxnffWkpMB0Ba+0E10Wpx6hpzH2Y/3Zv1V2SBtXQCOlU3b+SELVE+Q1ZYu7JtDb6Mv
-	 8iPxgnYjnodr01AHxCOHWaYm60mdF3xvUupK39iaeh8f8oeDsSpRNIsZF6Gr61jI8w
-	 k83TwwktjE9OdhmTShRPpGse2X+ay1+LDcjRuYMJzEV505VQP23EclHADC5OZQhpGM
-	 XqIHOfWCD87WQ==
-Message-ID: <f22aafac-3ec0-4a78-8602-227f67c1bf4c@kernel.org>
-Date: Fri, 30 Oct 2026 12:27:28 +0100
+	b=dZE0HogXqio3NrjjVeQ2s+c9/99ERueNcy+A9dP20Z2R0WD9yQgJvSuXAuO56MRnl
+	 flwfksExGNPqpkzBLs6sbq6M+Kj5uE6jfI6oDzBflpwFTgDnIIEdqiGIFSCgnREdgW
+	 ppivAuKtovn3jhy2WhcnReO8CXKju0qxlSl4Trwbxuz1phbSwvRNu6KUBBw+s3/AI/
+	 GHUsQY4RJ/fHa/0hlFRaYX/a/lioSX255vGN9JRb8sr/RWchHDYjYkD3OFRkSzngVl
+	 2JrNAXkeVncchhMP01yagv0PYKZfkTh6QcbHK1w5/LFM9qU/EFLQbP7AIAC4LF0k/+
+	 iJEgwncAN058w==
+Message-ID: <e7b3c2b2-8d0e-46cc-b245-a22f6aa7e69f@kernel.org>
+Date: Fri, 30 Oct 2026 12:30:58 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 3/6] media: dt-bindings: Add Amlogic V4L2 video
- decoder
+Subject: Re: [PATCH v12 4/6] decoder: Add V4L2 stateless H.264 decoder driver
 To: zhentao.guo@amlogic.com, Nicolas Dufresne
  <nicolas.dufresne@collabora.com>, Neil Armstrong
  <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>,
@@ -58,10 +57,9 @@ To: zhentao.guo@amlogic.com, Nicolas Dufresne
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ devicetree@vger.kernel.org
 References: <20261022-b4-s4-vdec-upstream-v12-0-616240978792@amlogic.com>
- <20261022-b4-s4-vdec-upstream-v12-3-616240978792@amlogic.com>
+ <20261022-b4-s4-vdec-upstream-v12-4-616240978792@amlogic.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261022-b4-s4-vdec-upstream-v12-3-616240978792@amlogic.com>
+In-Reply-To: <20261022-b4-s4-vdec-upstream-v12-4-616240978792@amlogic.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -120,29 +118,32 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 On 22/10/2026 07:27, Zhentao Guo via B4 Relay wrote:
 > From: Zhentao Guo <zhentao.guo@amlogic.com>
 > 
-> Add bindings for Amlogic hardware decoder accelerator.
+> Add initial support for V4L2 stateless video decoder
+> driver on Amlogic S4(S805X2) platform. In phase 1,
+> it supports 8bit H.264 bitstreams decoding. Currently
+> only progressive streams are supported.
+
+Please wrap commit message according to Linux coding style / submission
+process (neither too early nor over the limit):
+https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
+
+You already received this comment, no?
+
 > 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 > Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
-> ---
->  .../devicetree/bindings/media/amlogic,s4-vdec.yaml | 114 +++++++++++++++++++++
->  1 file changed, 114 insertions(+)
 
-I do not understand why, but people have comments here which they do not
-express by reviewing/commenting, but sending some follow up patches.
-
-This needs fixes then.
+Anyway, several issues were reported here in separate threading.
 
 Best regards,
 Krzysztof
