@@ -2,79 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2027C606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 04:57:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2750B606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 05:00:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tabDPevO;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=dlXIONyU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=O/jvDl6A;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=kfqKBl33
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=LkSAHBtoPgrkAY7QvIyWogTu4sDPqd80TrYA0xZEnEk=; b=tabDPevOB2AVv8
-	9pRPFm/bWocYgCmLskmcB709rAOvYOG1axSIYAIrETqFgALWlPnqMX86nNc2EDFY99WzdlQv1OwU5
-	KRwKRPhYNeWQwezIOLo7Fe7PSKUJU7ga//BEv1dpIS5N54xsBY2nk8tiNyfDcJCLjoqhy0gDtJkl/
-	koJaFXjmIQ6QgBEKo+fk3jDE7bc6pfyIb/lwktzEbWtgz7+904YsdWjQq0uCSj7ztfFRpsp190Y6O
-	l4XU5lL2LWbNlDlmvLTikNnYFX6TvbpT++zHW2zasvqLN7kphJDf7faIIK0a+WhnUaBFU1NVG3XY2
-	WfL6nJ3KXIM+UxH4be6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=XHtOnNb/QT0KYcuG2D6k7Sc+gTZ6iTr4Jo8NFEFUk6c=; b=O/jvDl6ACJu0dmdhF7CLAbQSZl
+	+R9QR++KLUrBC8rEaGcQyP+cI0Mnyk3vrrwripurinCLJ2jqsdjYFsPNZXCKy4CA+Vv6qBOY/GU+x
+	8AIx1BsS0FGV3fEAFdrbaB2uRk4VHVsGIPAPfsk+QhfOB8Wsqh3oSjg64PxvKq7Mqjpw3RGK8kXje
+	D/VNQsFjkmb12r30JHBzeUpbnKabPZK1tbO2yJziMOF8tRNts8Na3CXJuiMKWlhhk5DowIDv0AoT9
+	V3JFDrJiREhqNG71V7qtunPoAJhWh6IBXyByjecE0kfjSu7iKx2oAp/TS5HK6/FA3dphdIRnwwhw8
+	FTmoLCRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMeg4-0000000Apjm-0MPx;
-	Fri, 30 Oct 2026 04:57:20 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMefz-0000000Apj2-1Q8p
+	id 1xMeib-0000000Apv3-3HVg;
+	Fri, 30 Oct 2026 04:59:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMeiY-0000000Apuh-2pVs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 04:57:18 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=LkSAHBtoPgrkAY7QvIyWogTu4sDPqd80TrYA0xZEnEk=;
-	b=dlXIONyUPuQhZmuhCVJ9Kxz1cWOkRyM210Hdd3g7CpRzTkcjoW5dcIT/e1AqdzHD3yxjPUBGt
-	Kg8d91FT+/NcevLnn1rbWOV1WdTucGPMfWiKtOzXUsxtufmrvYHEX7AYgpa/mxbe4KxKSlvkh9H
-	+8bUTXdstDRfB7W/SMYTv44=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jG82p6qyjzcZyh;
-	Fri, 30 Oct 2026 12:56:50 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 24DA740579;
-	Fri, 30 Oct 2026 12:57:08 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Fri, 30 Oct 2026 12:57:06 +0800
-Message-ID: <5bbd0d3b-1026-43f3-bc45-245472603144@huawei.com>
-Date: Fri, 30 Oct 2026 12:57:06 +0800
+	Fri, 30 Oct 2026 04:59:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 127671576;
+	Thu, 29 Oct 2026 21:59:49 -0700 (PDT)
+Received: from localhost (a079125.arm.com [10.164.21.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 746343F673;
+	Thu, 29 Oct 2026 21:59:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793336392; bh=qCqzGHRAYqmG7w1mdu0JzAwGvdKPeHbAcgCcr7TK1pE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kfqKBl33CLhrnzoGB+6Iy03S+L8vPpDEwz6ocMm//mxaOyrP9GhpqNf/hh1XVwBIG
+	 F/nI4qjS9fEJ/dofCdVjLv2KmQyoK7ov7wq48ZWfvIY+x2tj8NHXxrjFf9kSmUUcLz
+	 44+EAy3HrVUb6U1Vf8i+RtQk34iRvhMM403lVbK8=
+Date: Fri, 30 Oct 2026 10:29:48 +0530
+From: Linu Cherian <linu.cherian@arm.com>
+To: Kristina =?utf-8?Q?Mart=C5=A1enko?= <kristina.martsenko@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-efi@vger.kernel.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Subject: Re: [RFC 02/12] arm64: Detect FEAT_TLBID
+Message-ID: <tzt7fqgh6ksbuo5pe7qeh6gofjsumwrw7w6pw5iwdu3b5nd5dm@zkzrelsc2upt>
+References: <20261001110655.461473-1-kristina.martsenko@arm.com>
+ <20261001110655.461473-3-kristina.martsenko@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 08/15] KVM: arm64: Flush the HDBSS buffer on VM exit
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
-	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
-	<caijian11@h-partners.com>, <liuyonglong@huawei.com>,
-	<tangchengchang@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
-	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>, <mark.rutland@arm.com>,
-	<seanjc@google.com>, <rdunlap@infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <skhan@linuxfoundation.org>
-References: <20260929103655.85107-1-zhengtian10@huawei.com>
- <20260929103655.85107-9-zhengtian10@huawei.com> <auDpyRNpeDNzIk3W@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <auDpyRNpeDNzIk3W@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261001110655.461473-3-kristina.martsenko@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_215716_800602_554DE005 
-X-CRM114-Status: GOOD (  31.35  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261029_215954_892604_20ECEB27 
+X-CRM114-Status: GOOD (  18.62  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,230 +80,91 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Hi,
 
+On Thu, Oct 01, 2026 at 12:06:45PM +0100, Kristina Martšenko wrote:
+> Detect if FEAT_TLBID is supported by the system. Detect TLBID
+> configuration from TLBIDIDR_EL1. This information will be used in later
+> patches.
+> 
+> Set HFGRTR2_EL2.nTLBIDIDR_EL1 so that the kernel can access TLBIDIDR_EL1
+> at EL1 (in case of nVHE/hVHE).
+> 
+> Signed-off-by: Kristina Martšenko <kristina.martsenko@arm.com>
+> ---
+>  arch/arm64/include/asm/cpu.h        |  1 +
+>  arch/arm64/include/asm/cpufeature.h |  7 +++++++
+>  arch/arm64/include/asm/el2_setup.h  |  9 ++++++++-
+>  arch/arm64/kernel/cpufeature.c      | 25 +++++++++++++++++++++++++
+>  arch/arm64/kernel/cpuinfo.c         |  3 +++
+>  arch/arm64/tools/cpucaps            |  1 +
+>  6 files changed, 45 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/cpu.h b/arch/arm64/include/asm/cpu.h
+> index 3c008821219c..967ccdedf526 100644
+> --- a/arch/arm64/include/asm/cpu.h
+> +++ b/arch/arm64/include/asm/cpu.h
+> @@ -48,6 +48,7 @@ struct cpuinfo_arm64 {
+>  	u64		reg_gmid;
+>  	u64		reg_smidr;
+>  	u64		reg_mpamidr;
+> +	u64		reg_tlbididr;
+>  
+>  	u64		reg_id_aa64dfr0;
+>  	u64		reg_id_aa64dfr1;
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index 4f04ad82ea34..d4e7497143b2 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -627,6 +627,13 @@ static inline bool id_aa64pfr1_mpamfrac(u64 pfr1)
+>  	return val > 0;
+>  }
+>  
+> +static inline bool id_aa64mmfr4_tlbid(u64 mmfr4)
+> +{
+> +	u32 val = cpuid_feature_extract_unsigned_field(mmfr4, ID_AA64MMFR4_EL1_TLBID_SHIFT);
+> +
+> +	return val > 0;
+> +}
+> +
+>  void __init setup_boot_cpu_features(void);
+>  void __init setup_system_features(void);
+>  void __init setup_user_features(void);
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index aa8ec9df8024..bd70a470596c 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -438,9 +438,16 @@
+>  	orr	x0, x0, #HDFGRTR2_EL2_nPMSDSFR_EL1
+>  
+>  .Lskip_spefds_\@:
+> +	mov	x1, xzr
+> +	mrs_s	x2, SYS_ID_AA64MMFR4_EL1
+> +	ubfx	x2, x2, #ID_AA64MMFR4_EL1_TLBID_SHIFT, #ID_AA64MMFR4_EL1_TLBID_WIDTH
+> +	cbz	x2, .Lskip_tlbid_\@
+> +	orr	x1, x1, #HFGRTR2_EL2_nTLBIDIDR_EL1
+> +
+> +.Lskip_tlbid_\@:
+>  	msr_s   SYS_HDFGRTR2_EL2, x0
+>  	msr_s   SYS_HDFGWTR2_EL2, x0
+> -	msr_s   SYS_HFGRTR2_EL2, xzr
+> +	msr_s   SYS_HFGRTR2_EL2, x1
+>  	msr_s   SYS_HFGWTR2_EL2, xzr
+>  	msr_s   SYS_HFGITR2_EL2, xzr
+>  .Lskip_fgt2_\@:
 
-On 10/28/2026 2:13 AM, Leonardo Bras wrote:
-> On Tue, Sep 29, 2026 at 06:36:48PM +0800, Tian Zheng wrote:
->> From: Eillon <yezhenyu2@huawei.com>
->>
->> HDBSS entries accumulate in the per-vCPU buffer while the guest runs,
->> and must be drained into the dirty bitmap or dirty ring before
->> userspace can observe them.
->>
->> Drain the buffer at a single point: kvm_arch_vcpu_ioctl_run() flushes
->> it on every VM exit, before the exit reason is handled. Flushing
->> inside the run loop keeps the dirty-ring feedback timely: when a flush
->> pushes the ring past its soft limit, kvm_dirty_ring_push() raises
->> KVM_REQ_DIRTY_RING_SOFT_FULL, which check_vcpu_requests() observes at
->> the top of the next loop iteration, so the vCPU exits to userspace for
->> the harvest before re-entering the guest.
->>
->> kvm_arch_sync_dirty_log() relies on the exit path to flush: it kicks
->> vCPUs out of guest mode, and the GET/CLEAR protocol tolerates
->> concurrent bitmap writes, so the snapshot is complete without extra
->> synchronization.
->>
->> Signed-off-by: Eillon <yezhenyu2@huawei.com>
->> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
->> ---
->>   arch/arm64/include/asm/kvm_dirty_bit.h | 15 +++++++++
->>   arch/arm64/kvm/arm.c                   | 20 ++++++++++++
->>   arch/arm64/kvm/dirty_bit.c             | 45 ++++++++++++++++++++++++++
->>   3 files changed, 80 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
->> index fe703f02626b..d828e6b43fe9 100644
->> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
->> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
->> @@ -13,6 +13,9 @@
->>   #include <asm/sysreg.h>
->>   #include <linux/sizes.h>
->>
->> +#define HDBSS_ENTRY_VALID	BIT(0)
->> +#define HDBSS_ENTRY_IPA	GENMASK_ULL(55, 12)
->> +
->>   #define KVM_ARM_HDBSS_DEFAULT_SIZE  PAGE_SIZE
->>   #define KVM_ARM_HDBSS_MAX_SIZE      SZ_2M
->>
->> @@ -22,7 +25,19 @@ static inline u32 kvm_hdbss_buffer_size(struct kvm *kvm)
->>   	return kvm->arch.hdbss_buffer_size ?: KVM_ARM_HDBSS_DEFAULT_SIZE;
->>   }
->>
->> +static inline bool kvm_hdbss_enabled(struct kvm *kvm)
->> +{
->> +	return kvm->arch.mmu.vtcr & VTCR_EL2_HDBSS;
->> +}
->> +
->> +static inline bool vcpu_hdbss_enabled(struct kvm_vcpu *vcpu)
->> +{
->> +	return vcpu->arch.hw_mmu &&
->> +		(vcpu->arch.hw_mmu->vtcr & VTCR_EL2_HDBSS);
->> +}
->> +
-> 
-> IIUC, arch.mmu is always the canonical s2_mmu, while hw_mmu can be the
-> nested s2_mmu, if enabled.
-> 
-> Was that your intend here?
-> If not, we could use only kvm* version, which can be called with vcpu->kvm.
-> 
-> If it was, then I would like to understand the logic here, as IIUC the
-> buffer is accessible only for the non-nested guest, as it's
-> allocated in a per-vcpu structure. (vcpu->arch)
-> 
-
-Hi leo,
-
-Yes, that was the intent. The shadow MMU never carries VTCR_EL2.HDBSS,
-so the flush is naturally skipped when running nested.
-
->>   int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu);
->>   void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
->> +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
->>
->>   #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 5ea4ac26995e..9d7bdece149a 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -1430,6 +1430,14 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->>
->>   		trace_kvm_exit(ret, kvm_vcpu_trap_get_class(vcpu), *vcpu_pc(vcpu));
->>
->> +		/*
->> +		 * Drain the HDBSS buffer before the exit is handled, so
->> +		 * entries pushed to the dirty ring are accounted for by
->> +		 * dirty_ring_check_request() on the next iteration.
->> +		 */
->> +		if (vcpu_hdbss_enabled(vcpu))
->> +			kvm_flush_hdbss_buffer(vcpu);
->> +
->>   		/* Exit types that need handling before we can be preempted */
->>   		handle_exit_early(vcpu, ret);
->>
-> 
-> 
-> looks the correct place, haven't looked too much on that, though.
-> 
-
-Thanks!
-
-> 
->> @@ -2017,7 +2025,19 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
->>
->>   void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
->>   {
->> +	unsigned long i;
->> +	struct kvm_vcpu *vcpu;
->>
->> +	if (!kvm_hdbss_enabled(kvm))
->> +		return;
->> +
->> +	/*
->> +	 * The buffer is drained on every VM exit, so kicking running
->> +	 * vCPUs is enough to flush them; the dirty-log GET/CLEAR
->> +	 * protocol tolerates bits set concurrently with the snapshot.
->> +	 */
->> +	kvm_for_each_vcpu(i, vcpu, kvm)
->> +		kvm_vcpu_kick(vcpu);
->>   }
->>
->>   static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
->> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
->> index f9aeb9f34ad0..be0d12555c84 100644
->> --- a/arch/arm64/kvm/dirty_bit.c
->> +++ b/arch/arm64/kvm/dirty_bit.c
->> @@ -13,6 +13,7 @@
->>   #include <linux/kconfig.h>
->>   #include <linux/log2.h>
->>   #include <linux/mm.h>
->> +#include <linux/srcu.h>
->>
-> 
-> Out of curiosity, could you please explain you reasoning on selecting srcu
-> as locking here?
-> 
-> (Like, what are you protecting against, and why srcu is a good choice)
-> 
-
-kvm_vcpu_mark_page_dirty() resolves the memslot under SRCU
-(kvm_vcpu_gfn_to_memslot), and the flush loop calls it for each entry,
-so the whole loop needs the read lock held.
-
->>   int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu)
->>   {
->> @@ -53,3 +54,47 @@ void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
->>   	vcpu->arch.hdbss.hdbss_pg = NULL;
->>   	vcpu->arch.hdbss.hdbssbr_el2 = 0;
->>   }
->> +
->> +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
->> +{
->> +	int idx, curr_idx;
->> +	u64 prod;
->> +	u32 entries;
->> +	u64 *hdbss_buf;
->> +	struct kvm *kvm = vcpu->kvm;
->> +	int srcu_idx;
->> +
->> +	if (!vcpu_hdbss_enabled(vcpu))
->> +		return;
-> 
-> You test this before calling, is it really necessary to test it again, just
-> after calling?
-> 
-
-You're right, I've removed it.
+IMO, would be good to move the above changes into a separate patch.
 
 Thanks,
-Tian
+Linu Cherian.
 
->> +
->> +	prod = read_sysreg_s(SYS_HDBSSPROD_EL2);
->> +	curr_idx = HDBSSPROD_IDX(prod);
->> +
->> +	if (curr_idx == 0 || !vcpu->arch.hdbss.hdbss_pg)
->> +		return;
->> +
->> +	hdbss_buf = page_address(vcpu->arch.hdbss.hdbss_pg);
->> +	if (!hdbss_buf)
->> +		return;
->> +
->> +	entries = kvm_hdbss_buffer_size(kvm) / sizeof(u64);
->> +
->> +	/* kvm_vcpu_mark_page_dirty() resolves the memslot under SRCU. */
->> +	srcu_idx = srcu_read_lock(&kvm->srcu);
->> +	for (idx = 0; idx < min_t(u32, curr_idx, entries); idx++) {
->> +		u64 gpa;
->> +
->> +		gpa = hdbss_buf[idx];
->> +		if (!(gpa & HDBSS_ENTRY_VALID))
->> +			continue;
->> +
->> +		gpa &= HDBSS_ENTRY_IPA;
->> +		kvm_vcpu_mark_page_dirty(vcpu, gpa >> PAGE_SHIFT);
->> +	}
->> +	srcu_read_unlock(&kvm->srcu, srcu_idx);
->> +
->> +	prod &= ~HDBSSPROD_EL2_INDEX_MASK;
->> +	write_sysreg_s(prod, SYS_HDBSSPROD_EL2);
->> +	vcpu->arch.hdbss.hdbssprod_el2 = prod;
->> +	isb();
->> +}
->> --
->> 2.43.0
->>
-> 
-> 
-> Thanks!
-> Leo
-
+ 
 
