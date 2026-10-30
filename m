@@ -2,144 +2,137 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A7B2606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 08:23:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64604606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 08:24:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TbZtlcIJ;
-	dkim=pass (2048-bit key, unprotected) header.d=axiado.com header.i=@axiado.com header.a=rsa-sha256 header.s=selector1 header.b=h9hEDDAX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ULDjXR+K;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=uD2/yZtj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=fjp1wlnWwOw8wGx8lThl4QeJ7Y8SWXt6f5lFwTqOHrI=; b=TbZtlcIJGM4VIvjuNbsrPP3nhd
-	WaHxbAFaM8qUjh6bqab5zGhuL775jZErKoij6wnxDWd8f7DRiu+V1372C4hfZp48fDJEOzmmpGpdK
-	rrEZRbfBTOrpy9XbQ48PEJC82MVqi+yV/mL75trWKzMT8aeZPPrdvefS1fIaAbXkaqtwtVbEkDwAR
-	NVMXxafcwHxik+FDixrAXchLPugA+t1QGcke8XqdHb6IHhfjd5kAgczQhuj3Yd+ldNrBGU+Wzv4mb
-	kkzaQZs+T/asAz9uyKwo+p604ApktJMiWlCfht/8gkAuhBi/fYp/j4s+BmpnBhJN8AfPTCwP21SSC
-	VWKXPUsA==;
+	bh=txOwj9gERRyqHGddBb2ZLDDSkc7EA79Ps/QKkaKpHmw=; b=ULDjXR+KI9Z/+EmL0af1TVfTfI
+	3NGpG1oAn0I8oRKK0pmuegGawdpNYpCZzQe3U9V5TQBK7j+25fvB1Eb/wTlSTbH4CNdj5pXgcmvMR
+	27I/VyrOdqYdt/PDjdiehOwNe6FedaJVQaFy+ok7H9EVwSCHZG/LeyLBYJ0kxCkdXaxbSH/xxLV3Z
+	0jKvJ/Se6DiCd5ggvrA2BXrDQCuyOAopCSuZ1uLVvEiBnsxXMBz6B3/uvrVZ5Lc0uJVrt9Sl5y9j7
+	JANf6Y1bQBiLRShWd0NA1S0swikqf6ND/HkzVTrZAVImviUHoHPLn8hqTjt/CBmSapFhUGOMFRn6M
+	auEAeReQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMhtA-0000000B6NH-3ljV;
-	Fri, 30 Oct 2026 08:23:04 +0000
-Received: from mail-centralusazon11021085.outbound.protection.outlook.com ([52.101.62.85] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1xMhuG-0000000B6Xz-14nD;
+	Fri, 30 Oct 2026 08:24:12 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMht7-0000000B6Mf-0ULF
+	id 1xMhuD-0000000B6X5-3Ygc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 08:23:02 +0000
+	Fri, 30 Oct 2026 08:24:10 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RNEDKJfZVZ1nwiS+VmI4cPplPwaEnjQFCuLyaXa/nwP7ebDuqNRWjzi4rPZzDQdSvD1srzR93WEnI+apy7DTiRm7eX+Oh4eYxekCkZKh4V2AX41H4WSVgHNZGmPhUaA7/GunsNDOmM3MVUTICNFJRFfhPuPv9Oh1Ci5cm8xaU9dxTUx7I3jugMY6n7t7i0CKr2Ev8wifc26ab59DFM36aSkvwNvVZTOD2thoC3T3RnFKU6UQlkcZl/kvwL8nHJjsWf+8n6ad7BQW8NctE1ppq/0LR4s8nWkApoNT7uYgcBh5v5OuUrps0LtyLd6x1yUvvK4jFfHFvh5qmkjw67MfbA==
+ b=mnWnjOeKOEkSPHIkoCP9ZSGLnyYojJpG9jSV6iZiZETasTYpQjn8iXFhjEUZEvLXEnieFrev1FstveMvbxv9e5lp1VkmwxNI1mzyTWSg0HRCCZ6O3ZSlODLUenM6q3dUlC2Pv7l/hBNF3kSB56vL4fB405ml5LyAgfOENOyepRDEWG0PNCN0uRkM4teMveb8lFLVp/sa7+JPjPQQK4GOKn4ljlJQoGJqMmwazaW5WzHjIwqSYNtvLwtxoerNUWuNHnE+HBZvVvjhGEf3T67Z9NB8Kb3lN0eq+GOkZiYWCNCRe+hlfj7ZM1wFkOFUp3dSpOr7KrsQ0YOGN7o9bXVAVw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fjp1wlnWwOw8wGx8lThl4QeJ7Y8SWXt6f5lFwTqOHrI=;
- b=XCpgYR/wWtNeDm2DLOVBqgMo3Sm0ik4L5IeEA0mbvo49pb9BfUuj51NKjSFlnGJmOeAOttf1/T3E0yvjjkFc05UD12Z42wQOdwv+LgraJBAfSV02n0CPnS/bwYkRkAUU8L9dssqgHfgCQBnfN8wGAoJr4P6vCrCA1k9jZ3bC4655JrwbW3Ai7sOpvkwSlxGkTQZYLyVRRpXfie9K8Yv6mwRtxD/GdQHhUMDsgQHFXFejVpFFdemuKAX4/dhWCjuJ1oT4U2XomwLzM9D+DUYsuHtxR2AdgqkJQ5IaAM8d/i5OmIqCGCDpwFQFSx9p1956EBXKTlEWjocYfvS9Z4JsjQ==
+ bh=txOwj9gERRyqHGddBb2ZLDDSkc7EA79Ps/QKkaKpHmw=;
+ b=H+4TMFvNJStfzz0SzjElWuZ3sz6scG6m6F22NS3OP5BA1BbyUH/6jJyMbpnfX0+9UXiiDSoMOZESbXkFRgTeaezLmXjue2Nb3aN79hKO4oWPCnaJNuBRnPRHoTjJYnx1GUor1lS7inH1U4XmSbWZtIe7Ak6Sa/64ojW/v9LN5AawSkUgunvcv+zYI6phiv9i/CkazWulzOaLIfTcvMs9NsRJFZ/RPlKX/FDTV2+3BFi3ZWy8Aw8r6+71kUSHag9rXbKkGPyLowr0zpAMCqvTKJqL2qKuvqRN0ligh0wFMpTJz/gXnh4UecJKJoLO/XKQXr+MppGlxuihEnkOkn8h6A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fjp1wlnWwOw8wGx8lThl4QeJ7Y8SWXt6f5lFwTqOHrI=;
- b=h9hEDDAX1Mx7QcrV76jwUxKplVBRi+WSZHzcp5i6/ZnJ7xNMyhTHAvzlR4VO5QJiiyghwF40MCFWSa4qLWRysZ6ywFSQquPMRSsr1kZoR6ah5EM4b5oWrvePaxF/8MMsqkDRCno49eAsfMWipzXa2RUl/ZPzmOVI7uz1rko1/GCy4WZS2VsQfAh9wOhFFsbMNqQH7zTNFKzA66Z46KQmghp+k+wpEWZEkSk2kT1Ll5BHEjDYU6dG8lnuVguAdDCkRsJc9oLEhofCzcU99MDFJk78BlleQHjt9jY9YtvV1VjxXy8gZilu+W7JGW8nnUJpykxzM6tHzhxRTGMbi2cKSQ==
+ bh=txOwj9gERRyqHGddBb2ZLDDSkc7EA79Ps/QKkaKpHmw=;
+ b=uD2/yZtjUwrs+6DCYPKug27QB326CB1uhldXwN2ho3EiuJ3LbFtx8G+hS2iu+p2wIk1lRUVH+TrYMNU2iaUnYFR/Ufdu/2Lc6X8uEEV7E6evLwEzPiz/tXFElw7i960tM+hEkYt9FKT0n4FA7605vUCKwAAjr0Gul41ePOs81AP6Qi5recHY1bC5iSw4nB1mHBf1CsBNtifiQBHv4h5oiM7W2v0seZUid+zH7tQfqx0aGcSrUIo3RfFIDWbfCSkfz+tqRu/OpVB5nE9nG27G03aXwlw2mH2/fa1VOWKggXzKW72w66p6DI3nDOT1QXDbkgw6ebiyqx8IopekYMdLdg==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from DM4PR18MB4144.namprd18.prod.outlook.com (2603:10b6:5:38b::8) by
- IA0PPFF4890666F.namprd18.prod.outlook.com (2603:10b6:20f:fc04::c50) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.10; Fri, 30 Oct
- 2026 08:21:42 +0000
-Received: from DM4PR18MB4144.namprd18.prod.outlook.com
- ([fe80::cb97:ca8a:e55a:b11]) by DM4PR18MB4144.namprd18.prod.outlook.com
- ([fe80::cb97:ca8a:e55a:b11%6]) with mapi id 15.21.0569.009; Fri, 30 Oct 2026
- 08:21:42 +0000
-Message-ID: <0979887c-0924-4bc7-a9d0-cbd2b95bf459@axiado.com>
-Date: Fri, 30 Oct 2026 09:21:34 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/2] pwm: add Axiado AX3000 PWM support
-To: Akhila Kavi <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>
-Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org, Conor Dooley <conor.dooley@microchip.com>
-References: <20261005-axiado-ax3000-pwm-v6-0-7feecd0087e4@axiado.com>
-Content-Language: en-GB
-From: Petar Stepanovic <pstepanovic@axiado.com>
-In-Reply-To: <20261005-axiado-ax3000-pwm-v6-0-7feecd0087e4@axiado.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS9PR04CA0044.eurprd04.prod.outlook.com
- (2603:10a6:20b:46a::22) To DM4PR18MB4144.namprd18.prod.outlook.com
- (2603:10b6:5:38b::8)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19) by BR0PR04MB401625.eurprd04.prod.outlook.com
+ (2603:10a6:2c8:45::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.9; Fri, 30 Oct
+ 2026 08:24:02 +0000
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa%3]) with mapi id 15.21.0569.008; Fri, 30 Oct 2026
+ 08:23:59 +0000
+Date: Fri, 30 Oct 2026 10:23:56 +0200
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Marek Vasut <marex@nabladev.com>
+Cc: dri-devel@lists.freedesktop.org, David Airlie <airlied@gmail.com>, 
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Simona Vetter <simona@ffwll.ch>, Stefan Agner <stefan@agner.ch>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] drm/mxsfb: Update MAINTAINERS entry
+Message-ID: <auRT2ucePXPm_hfX@vm>
+References: <20261030081908.324212-1-marex@nabladev.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261030081908.324212-1-marex@nabladev.com>
+X-ClientProxiedBy: FR4P281CA0271.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e6::20) To GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR18MB4144:EE_|IA0PPFF4890666F:EE_
-X-MS-Office365-Filtering-Correlation-Id: 37c40f8d-9a0a-457e-474d-08df365ed3fc
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|BR0PR04MB401625:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4dba4cc9-d9ad-4735-4e9b-08df365f25c9
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|260925022911599003|260925021911599003|260925021311599003|56012099006|261009223027099003|261026140227099003|261026121527099003|261028144727099003|261021121427099003|261022105027099003|261022075727099003|10067099003|22082099003|18002099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: V3cOMRgUA0J/jjAcwDgC7Y6zQljnl98lmj0aJEe4YijrBecS1qXXmcxE3WTY3Nawnvn6J1dZMAROiuPwTi1ASzVluXNnIF0OSlEDDu+krYTpUo7BFKW4/3Q14ygIEZuaNEpwCcEIbyoFx/j/33dmHUXO0qPk39nvF7FDRucB8vWK0o8VInkAiIFWHio2Kr5/F8Jv0rrlyi3ulGTmUnXYv5TiPz7QAM4ThTe6UHPlPzy70UVOeIiPU8Nx7oMF82unPEOoT2KqVXR/xsTCfWClqMUVrPhMhMAeOOYP/zF15IYPsbwdbj1IuR4JhNbmNf59hFzpw8vwYLWR9fvtaGScLuPOHeTySZSjGBjnkp6c2qkVLRUhxdza2etouXqucBJtjRKEWEu4oD5N//Bg+m2+ij0duYa2aSjo+Vt2eyJ4mIFRwcRLEEBaRfFJyxFpV2t2xlW8fk/wN5+gBVrmijZV6biDsGTqvgST+V6AP8SQUziQobXqDwsXa4OtP5cIo57tLnfoB583PBZSVq/ZkrSAuTANxFBLEnnt19jJU751wEakj0+Xv6FhmfKk42GzJHxxFkI8Ekj8ea1+iWlwXZGXMXuHTzzK66BxELWU8tYtAAc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR18MB4144.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(260925022911599003)(260925021911599003)(260925021311599003)(56012099006)(261009223027099003)(261026140227099003)(261026121527099003)(261028144727099003)(261021121427099003)(261022105027099003)(261022075727099003)(10067099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|7416014|23010399003|10067099003|11063799006|261028144727099003|261022105027099003|56012099006|261026140227099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 1c+7bj4JacPUrI2r8EKpe6UiHYfFDjNlqo+l0n+4d2NfWj55FFn32H+6L4TzG7kvE+drbDw6+7aW0joK/ICPwIsjRYrYGhRpbUjRN+RpfLpijEXlIumixvksgsxWGRyqXO7j3RFbnEBp9lxr5E69bPbLabUL2T/SqZ/tA6r6+tk9b8wU1Uyq+35rxAIa4Sy7OyeVUX9hkhSiGFWjjKMaJvo9DzIav/8Xz4K9jvxObrEYLfCt1+rCk/cQBRnlT+WzRSdn6/ZyPspf8jSlzjmSFc0IBu4RJfh4jMRo/ea0ChAiHh/so6v/bPA9XQvL7+G0Tf+eCQxANJAAs4Imw3S3REO22Rh51WUaBYicbI+h+EuT8hlCFQiaeL382uwd1qpIdAaFU3SgV2bQr6OtMvJaGVYAbRpB8oOGFn7/mvDXeGIIaqmFYdXqVnzO5GVrBgIZSXUuhPAnz/TNEwQ27EvKxXsYr+Ay+lO0XUOO1oH6BAzskC36V3ck7iD2pgDvIFTDK820ccDel5+Zj+1mxytvxv0Of8BZin/D4EvDVW5napGEBIZihCa+ZmV2tR+TFM2+8eY+OOoVzhgYHiUQ3HjQJ5NC8AFiPjfJp6h7DSanvKmX/BULNw7TGGsWD95FabWOLJMzk/rtrJQfiSmzYtuHvpbUohjXfPssannyuvXa8Ac=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(7416014)(23010399003)(10067099003)(11063799006)(261028144727099003)(261022105027099003)(56012099006)(261026140227099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M2QyMFlEY2FrVUtlODcrcFFQMisvcmk0MzkzWFhqbHBnalE5eE9xbGFJVXYy?=
- =?utf-8?B?UEErQTk0UzV0Z2hvMHROSDdjTlArSFFrSFZ6YitnaFRQdUpTakFFbzZvbGNV?=
- =?utf-8?B?RjNkbi8zMDc1SkVoSEMyS2l1UThqMHJTbWtGVXgvYWRVNFpId281MzMzNEx3?=
- =?utf-8?B?ZDF5ZGtQZFhVZkpBalRrdEZVVTZxQlNmanZrMEtHM3A1UGw3ZHNrbzk0UzNq?=
- =?utf-8?B?QklXckdEcDZWYVR1cGdSQm8rbllralFzRUxoZzM0YktPaUpRSkh4VkU2SXJH?=
- =?utf-8?B?eCtWeVN4L2UvTiswZVZTRC9jV3Z6a0FjbHlQTDhOYVlPYWtSalJVdGNQaHhV?=
- =?utf-8?B?TmEwZWpFcFkwSVYxMnBDbUdGdndxb2ZiYyt0SGExb05vdmxYUnFGb1NOVlRx?=
- =?utf-8?B?NkhBSXh5QVQyK0xSbEJVUVFFYWxUbWRQdHY0MGRZMlNqdVFCcjI5SHVuRjl2?=
- =?utf-8?B?SXdGRkJMSnVaVUkrVCs1UlprRGt6c2gxM25XOUphQXlMUHg5Y2RKa3ZZbUpk?=
- =?utf-8?B?Rzc5a1BJa3d0WUpWT2owRWN1K292NzBiQVdkV2pNOHVlakx3QW1pOGszeDYv?=
- =?utf-8?B?V3A5V2FUUDNGei85aStBS2QyMnFNYzhROHpFREJ3elFYZ3RPUytZYzhVQVJ0?=
- =?utf-8?B?SDNwdHZNSU5HcWZidW1PWm0vZCtSU1VvKzFmZjc0R1lkUkgwc0ZLd20zUjBl?=
- =?utf-8?B?blJYTG0zMHNkY05GNWRYTC9IN0tFQmtibElSc2VpNVc4RWxRZW1IR1o4aDR4?=
- =?utf-8?B?T2wzNys2M0RtNFp5aEVlcmhPRWNZbXdVZHRWZXN2dW40Q0wvNkhhSU9kS3Jh?=
- =?utf-8?B?NlpydXNYQmlOQWIzVVFnREw1K0k0VC9vN1ZCMWZIVGV5ZURhRlUxRHlYM2Z5?=
- =?utf-8?B?cno4Mmo2bTZPdmt5Y0pPclk0ZHFBSVV0TytucGJxR3YxYjhDQmg1K0E1SXVt?=
- =?utf-8?B?NmVaZlVtelc1MGd0UkdibzA0Mk5NK0VwRFEvMEZNWFRmaWxwait0SHYwVXZu?=
- =?utf-8?B?UkZGK2J0dVdCOG5pSDc5L3YyaGkvOGk5cmI0eUxleHJpQkdlMmZQdWRJTWRn?=
- =?utf-8?B?WWIrc0x2d2FHdVlmWlB3S0dvQ0hxWFpkREovODJ2anlMWDQ1TE1qQXBUNW9m?=
- =?utf-8?B?OTA4dWFvZVlIVzdKTXFOVTBVd0U3WDZPazJoNWs3RDFhblJsenN2VjFpTUZ0?=
- =?utf-8?B?cWFSdmprK1YvSkFDa0ZiSjFtemE4K0EvM1FQYnFaVCtOenVGTGw0Y2hYY25r?=
- =?utf-8?B?MFZwVytFc2txM1BsNjNLU1hORVByRklxQ3V1Qi8wZjRFK2plUzcrOUZKQVJM?=
- =?utf-8?B?ZGlUcGYxckRVckoyZlNwVWQ2WUMyTytZbUphYkVHV2NlY2RTV3NKRHdHTVMw?=
- =?utf-8?B?cEFJVjJVeGdqNjlkTXFpelBVdm9ZZ0VtczJuN0x0WUFFNkZ2ZUN3WEpneXdD?=
- =?utf-8?B?dFFSb2RjQStPak5GYXNSZ0NNM3FocUxEbjVtYWNwMks0OWh0Sk55ckJkS3Iv?=
- =?utf-8?B?alIybm4vTys0QUJ1bWJ4UnFNTUsrUmJJaERULzRhcG15YkxwaTRoTytHN0tK?=
- =?utf-8?B?eVh0Yzl1Yi9XWVpoTUFiQkdwRTBVQXRVOTB0N0c4VFJvYmpaQ0h2OUJDaDRx?=
- =?utf-8?B?RFZPK05pd2N6bXpnL3dLdlJrYzBSRWFOVEFocnFwcnNUUzBoTURzc1hVZUtv?=
- =?utf-8?B?RGZTOXg3NTJ6bWtQaHhJYkhBSjM1TnhqMG9Da0NFL3Y5bEMrWG1aaFpiWk1t?=
- =?utf-8?B?V1QvWjYwdDZZZElXeHcwVmRuUW5qRkRyd3NjSVhsbG8xQ1JiWGFpM3RjZHFk?=
- =?utf-8?B?bS9RTjh0WWd6b29FWTErWnh2djczL0tRU3kyL1F0MXRPblhmMUwxaUE3ZWxE?=
- =?utf-8?B?WHJPb0tLd1ZWNmg1K1FkNTdoYTZUanRMTjJoL2wvVjJ5aWYyWWo2Mjg3TWF3?=
- =?utf-8?B?U1NoUE5oTDdySlVuVEF1MUZlWlJVTHBLNEVZRytJbnByRTdGTXpWZDJWSE9G?=
- =?utf-8?B?eFlVVmJ4YUREUmI3ZllYelgydHVtTFB6aHBXcC9xcVdoTmozN29KL2pock9y?=
- =?utf-8?B?dHR0elNWRVpKQW9HekluUSs5akVLTytHL0xGRmxNQ0FXMENLWGhydjZwZDky?=
- =?utf-8?B?TFo0Qlg2ay9oSk9HVjJoemdjTnVkTlZrOVZtNHo0bDdraHNkTjhZVmU5RkNn?=
- =?utf-8?B?eXowcEZGOUs5RE8zUUMzK2xZdlAxalFxbHkrU201TWFEaDlqNlhwdnl1QjFj?=
- =?utf-8?B?K2gwYmV0VDdlc2xTNWFCZmFPbGRxcU1UVXVYY25vMUJHNitLcTBPTG4wR1Nl?=
- =?utf-8?B?V0hEV1FoQmw2UHdaY1k1QUVDcExLeGV6N01TQ3JacGZJSUcySHFxdz09?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37c40f8d-9a0a-457e-474d-08df365ed3fc
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR18MB4144.namprd18.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?TY6Kge9KuzfdPJKXlBkd07XWGfi8TSYO6KRzF0jFxXTGsVOb4l1zEIAP3NKQ?=
+ =?us-ascii?Q?ZVeOJjYPAG4nxj+4uvEwXCZJl2+nz5LyEfdnFPyrDHR4VqCmp92nkRwA33Io?=
+ =?us-ascii?Q?GTme+aNNe+5H5YuanZVUW0dpXxXO7RDE0u+atvx3A5UeNEU8drOmqwts6kYj?=
+ =?us-ascii?Q?F0NB9jLJ2geHLw/UhVHr8Ycgg8xTifjTbjVjh1WL2ek2uaOHJfQ2fttfq37G?=
+ =?us-ascii?Q?0kVpz49BPAH83eiGTLiDwIQWSHUXn36ec8v1eY0NazfbTEIxmuzwrOmkV6tE?=
+ =?us-ascii?Q?SAFsB7TRqWHRxL6WzhnDwDJhx23Bn+NVvZKmKJgKUpqbWkL200k8VCoj147i?=
+ =?us-ascii?Q?sblfqC2qs9iVJ0HDpW3t5xcQ2TwU1/VCRLOI9VhfH2Rpv73x77TWyd3/7k3Y?=
+ =?us-ascii?Q?RcWWlo+HXduq0mZgRBxWtIZZCk/OToWA02T0p6bH7Nwrzv6vKBT4BOYjrXs3?=
+ =?us-ascii?Q?nBVNErmqEb+kJMenxK29JKE7I5XmN2xihdRhJPPxJHtnRL4gaaJO2lknG4z9?=
+ =?us-ascii?Q?o6yZmtUxwTCnNLukgvw5PBeIac8M5YQhbrbAodmbYnXpLBb9OHxzqsl+1v4A?=
+ =?us-ascii?Q?lCfs2Ph1T09wD0weGE5hBAk5UM6omniHnzvSIbLoWkrlnpPgeFkYYlF+jMlO?=
+ =?us-ascii?Q?rhcYxdOK9+6HHbQvK4NVU/adyxEeWRX3NCDMTA4RTxxYGMIpKdUrnJ6HWT4T?=
+ =?us-ascii?Q?0cdV0eW5QPsapuHQbMjYCkyNi6b7U3OODD6NBno/+9urDTd362gsSODjgpSv?=
+ =?us-ascii?Q?s/krGZZKhwzKn/bhQpyWNTNeCFltASf60h6/3RHXXt2mXCEL2HjzOZcFN/jM?=
+ =?us-ascii?Q?1t045X2fH/VuMPguzrXa4MQJ7fxVO4PHunOhHOs8qRnGNz+Gk0zjer9VTQm9?=
+ =?us-ascii?Q?2iUFRzrGdIEG7fLeCfJpTVLDPiqAxFIyjT+Blbbl9Y5AmvqakVkICLsQaE1m?=
+ =?us-ascii?Q?njY/peveBd+j15G8PzmUxxSay2WWf/7xj/ac7/kIaY4YUaIpXt6jK4MD6c5P?=
+ =?us-ascii?Q?7mzwBsoMhIARLVlvt1eoH2AoHooNlHbX3gqfF2uPIkKrMifKsyKbVYqRb4sG?=
+ =?us-ascii?Q?6hDYZ52oRWDyAgDE9XicghYvMFOSZykAuaTrrYottggfErfr6YwkvsLGgfU9?=
+ =?us-ascii?Q?O2RRJ8qIOd2YaCH4yENOlM/8gWewbgSo6oFWaD7MBtaV5i9QmpJwYktBjSpF?=
+ =?us-ascii?Q?EEIif8LR7sWlHS0CLQ+n198aWGrt+YQoZqbmv+6jgE8/nJoyU80Ue23zJzrT?=
+ =?us-ascii?Q?5+iYvOi9Dyyr23xdfyRUB3ulc70wAXdZm6O2RSMCrVNsJ1c6sqLlKHPZsY4H?=
+ =?us-ascii?Q?HI+5269/tfNIdzpg9ZbunUon7nm8mGbWIooWOJZvFY0y+L2lXox5kGvewmId?=
+ =?us-ascii?Q?hiuxGPDABleqOMjk+xmcvDsGDkkrOi7fFLW/VDUmYGrsxUk7zBOLbJBjjmPQ?=
+ =?us-ascii?Q?osh/vYyjA5F1pbI9ii2qKPIZIDwpL5QrLFAD1DdtjayYsBOVn3HqaWcr2rne?=
+ =?us-ascii?Q?qlWRriqeG3Vk3safqZgGmh6VusrgYaABxR3YL02f8UzlsMGUuzhnkyyloVLW?=
+ =?us-ascii?Q?V758DmupcrmhwcnNZ9p8+Q7u6Zhg/KDuySFsScjNluNpqF5jWXyXZPG04Psv?=
+ =?us-ascii?Q?uvYMqHmcHesJAzp+6VOO7VhCPGE70QFlGTouVl7H00QDZoKSkOnMWzuaKLJt?=
+ =?us-ascii?Q?MRD4gRbsMSIcQ1Bb6cUMvP+HWcn0+j6oha4A9M8DwRG10saWsdqEZ5zb06xx?=
+ =?us-ascii?Q?kLwnN+lyfw=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4dba4cc9-d9ad-4735-4e9b-08df365f25c9
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 08:21:42.3679
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 08:23:59.5146
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yX8zRBgr3FRUC+OkFaXKewEOtptZbuH2S46QsCZ/7GC7F7Tbsy99bT3KALyY2wDdbY6pah+o91e/lKug1vID0Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFF4890666F
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7Db8NZv5EpOKqk+djotlcrNiylQH/Pgmsyw+7PeT7IKGbaEyP5ZzS/v8Cwcek3zs6bGwzK2QXAwia9IAAJSyhA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB401625
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_012301_220405_BC0872D1 
-X-CRM114-Status: GOOD (  30.93  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_012409_904836_4BDC6373 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,142 +143,21 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On Fri, Oct 30, 2026 at 09:18:49AM +0100, Marek Vasut wrote:
+> Fill in updated email address and imx@ list, no functional change.
+> 
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
 
-On 10/5/2026 9:46 AM, Petar Stepanovic wrote:
-> This series adds support for the PWM controller found on Axiado
-> AX3000 and AX3005 SoCs.
->
-> A new driver is needed because this PWM controller is a SoC-specific
-> hardware block used on Axiado SoCs. It has its own register layout,
-> enable control, period configuration, duty-cycle configuration, and
-> does not match any existing upstream PWM driver.
->
-> The controller provides configurable PWM output signals. The driver
-> exposes the controller through the Linux PWM framework and supports
-> period and duty-cycle configuration.
->
-> The driver converts the requested period and duty cycle from nanoseconds
-> to hardware clock cycles based on the input clock rate.
->
-> The datasheet is not publicly available. Public high-level product
-> information is available at:
->
-> https://axiado.com/products/#AX3080
->
-> The register definitions and programming sequence used by this driver
-> are based on Axiado internal SoC documentation.
->
-> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
-> ---
-> Changes in v6:
-> - Use 3 PWM cells and add the flags cell to PWM consumers.
-> - Fix readback of the constant-high hardware state when the high-time
->   register is zero.
-> - Link to v5: https://patch.msgid.link/20260921-axiado-ax3000-pwm-v5-0-202aad28e129@axiado.com
->
-> Changes in v5:
-> - Use the hardware disable state directly instead of emulating a
->   disabled
->   PWM with the constant-low representation.
-> - Remove driver-side cached period and logically-disabled state.
-> - Handle 0% duty cycle using the hardware constant-low representation
->   during waveform rounding.
-> - Decode the constant-low representation as 0% duty with a
->   one-clock-cycle
->   period on readback.
-> - Simplify waveform read/write handling and remove redundant validation.
-> - Update the driver limitations documentation.
-> - Link to v4: https://patch.msgid.link/20260908-axiado-ax3000-pwm-v4-0-19a03671cd5b@axiado.com
->
-> Changes in v4:
-> - Corrected the AX3005 compatible ordering to list
->   axiado,ax3005-pwm before its axiado,ax3000-pwm fallback.
-> - Changed the disabled-state handling to program a constant-low
->   waveform,
->   because disabling the hardware controller drives the output high.
-> - Added software state tracking so readback reports this constant-low
->   hardware representation as a logically disabled PWM.
-> - Link to v3: https://patch.msgid.link/20260811-axiado-ax3000-pwm-v3-0-6ceaccd812cf@axiado.com
->
-> Changes in v3:
-> - Express AX3005 compatibility with AX3000 using a fallback compatible.
-> - Update the Devicetree binding example accordingly.
-> - Add 0% duty-cycle support using the hardware constant-low encoding.
-> - Cache the rounded period for 0% duty-cycle waveform readback.
-> - Allow sub-cycle duty requests to round down to 0% instead of rounding
->   up to one clock cycle.
-> - Normalize high-time values greater than the period to 100% duty.
-> - Drop the redundant AX3005 OF match entry and use the AX3000 fallback.
-> - Clarify comments and PWM hardware limitations.
-> - Link to v2: https://lore.kernel.org/r/20260723-axiado-ax3000-pwm-v2-0-22002f0b281d@axiado.com
->
-> Changes in v2:
-> - Migrated the driver from the legacy apply/get_state API to the new
->   waveform ops API (round_waveform_tohw/fromhw, read/write_waveform).
-> - Cache the clock rate at probe and lock it with
->   devm_clk_rate_exclusive_get() instead of reading it on every op.
-> - Improved rounding: clamp period/duty to hardware limits, reject
->   non-zero duty offset, preserve exact 100% duty, round sub-cycle duty
->   up to the minimum.
-> - Added a "Limitations" comment block documenting hardware constraints.
-> - Renamed macros from AX_PWM_* to AXIADO_PWM_* and dropped unused ones.
-> - DT binding: dropped clock-names, made #pwm-cells required, and
->   updated the description and compatible list to cover both the AX3000
->   and AX3005 SoCs.
-> - Added axiado,ax3005-pwm to the driver's OF device match table.
-> - Link to v1: https://lore.kernel.org/r/20260618-axiado-ax3000-pwm-v1-0-c9797a909414@axiado.com
->
-> To: Petar Stepanovic <pstepanovic@axiado.com>
-> To: Akhila Kavi <akavi@axiado.com>
-> To: Prasad Bolisetty <pbolisetty@axiado.com>
-> To: Uwe Kleine-König <ukleinek@kernel.org>
-> To: Rob Herring <robh@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Harshit Shah <hshah@axiado.com>
-> Cc: linux-pwm@vger.kernel.org
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
->
-> ---
-> Petar Stepanovic (2):
->       dt-bindings: pwm: add Axiado AX3000 PWM
->       pwm: add Axiado AX3000 PWM driver
->
->  .../devicetree/bindings/pwm/axiado,ax3000-pwm.yaml |  53 ++++
->  MAINTAINERS                                        |   9 +
->  drivers/pwm/Kconfig                                |  11 +
->  drivers/pwm/Makefile                               |   1 +
->  drivers/pwm/pwm-axiado.c                           | 282 +++++++++++++++++++++
->  5 files changed, 356 insertions(+)
-> ---
-> base-commit: 368d34807e6d04bb2089918383b58abf40e720a0
-> change-id: 20260518-axiado-ax3000-pwm-cd7c346849f1
->
-> Best regards,
-> --  
-> Petar Stepanovic <pstepanovic@axiado.com>
+Acked-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 
-Hi,
-
-Just following up on this patch series, as it has been over three weeks since v6 was submitted.
-
-The latest revision addresses the feedback received on previous versions, and the DT binding already has an Acked-by.
-
-Are there any remaining concerns or changes needed, or is the series ready to be picked up?
-
-Thanks for your time.
-
-Best regards,
-Petar
-
+-- 
+Thanks,
+Laurentiu
 
