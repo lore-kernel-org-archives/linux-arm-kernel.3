@@ -2,129 +2,105 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E5C6606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 00:35:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBD8F606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 01:05:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=G9Ymf1gy;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eK34X/5W
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=czQP+jDK;
+	dkim=pass (2048-bit key, unprotected) header.d=goodkind.io header.i=@goodkind.io header.a=rsa-sha256 header.s=google header.b=kyyPxqQM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=vCXebNkndm9LBXsG81Q2mOpTPDq3UCuJ8oTq7IQkTYU=; b=G9Ymf1gyjYWAQ8
-	mmR2V+3M37unKSuUO3mcQWKbRVtnIw2/jUxtGnpzjN5q+XUslioCJWRAF9m9PgdejJEhcGWjD4fwc
-	snrmQkMTGvrWjfNT+0+aS1kdUXGwROC9E06T92ncMhB0uQ9pQfxmGkrLBpQUnfO0dLd26W2acSV+E
-	deKgDk8bds+UZ7Skji3uKUGjBSyEasshYZOorw7xN2lsS/yzB/MW4+qC5hup83wrA5l3ctZq3Lr1X
-	vS9NaiP1j/WcN48psQE3i2+wJq+EQBEuujeBSg0LjIsbxc18ZXCwWGZ1p7fxWxUKzrj05nwxbLZkK
-	zDL2K824WLwHGl/M741A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=61qcPN07t2TUNYnm91oL81Sx86wLZQKTzOl/nzNJeWE=; b=czQP+jDK9FN9yyA+ca7SL7TUT+
+	kdz0SajhELTuRr/+bregjX7HIY1cBmuQiI/T+17Tp7m+yTCYTOItBCe4moYpZ/nMPd8lW8OAay8Z2
+	hIl9EKePHUp0r/W392BTjy7iJLbNfUcrFXzRb8SUK1XNQLSPXMBpvtTqJcIPPwqP2xxk7ZK5wcxpK
+	417OmlXwgNYZ4uYDYkM93n0cSdBtdOissm+99tL9tEXVDu9oDqvtZY1Z3BC4oRzv+pUjiVlApp5Mm
+	YAML6adX8Czzk9L9Uu9WkFajo50SdL2FJXaZqJjhkm8u6BZoCFCweO/ZFTyfOXIyF6F8bI2oOi3hZ
+	htGiGYMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMaar-0000000Aa3M-0ZIX;
-	Fri, 30 Oct 2026 00:35:41 +0000
-Received: from mail-ua1-x934.google.com ([2607:f8b0:4864:20::934])
+	id 1xMb3d-0000000Aaxy-1wen;
+	Fri, 30 Oct 2026 01:05:25 +0000
+Received: from mail-dy2-x0a.google.com ([2607:f8b0:4864:36::a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMaaj-0000000Aa2i-072m
+	id 1xMb3a-0000000AaxF-0M1H
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 00:35:38 +0000
-Received: by mail-ua1-x934.google.com with SMTP id a1e0cc1a2514c-9908346255fso731466241.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 17:35:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793320531; cv=none;
-        d=google.com; s=arc-20260327;
-        b=KIsUgZ3w/qLIC1uO3kvKD1TY5JuPQKf8VZoeyi0yHy04CuBTxm1EaS76lKShSM84yj
-         UBioQbUgh7GBMbBeavguNPn+CLcz0SPJqAcJDnCo7SgZg2Vq4al1aTwOfx9vK4hHfVc5
-         CkyuSKFN8frWA/wrOBxRfO+pcbN9Vlonf+3cwZ2tfIzrU499yDFH86ICXg0vaqXsVyie
-         QUXrD0vDxBBlvI7bI6JyuTo8O9z71ko7hmldQKzxiqHn5c/dxkW3fY0y8dWTku8FtNgd
-         Q1lb3z/HzQROJUAvoJBMnfzsNvlcaul1KQb3vKQ/GYd2/fybjwYBsT8JU+oIJAbmIClW
-         LNMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=vCXebNkndm9LBXsG81Q2mOpTPDq3UCuJ8oTq7IQkTYU=;
-        fh=6zUI6DX4eZ6IiTW9Z+A8l1zFruwRhuPuorN/aSGP398=;
-        b=TA6juZyYpduMf8tFzSb/rtXUAoReJRIGPyr71IXIn6oRUe4lfM34d37MkM4BTVEZbL
-         6qyLDKA9CzJycwuzb+LwYpMsc+6iGRGeDwipPcEPd2D6Iofx+IT0DTzbTeCY43LA4c43
-         QbtYyktzOqx6KORMsZ46GpYmg43rm2AE8qgKBEcExDVMhu/klctor8YfZCdmiZA1NHRD
-         E21IG+XJmtA0jK8kQ9OjCwYY6sm+phMaVIQP5ZkhEPWo0e5PZCSZit0NepaDITqjy187
-         q+sNECuAXrUjS/RDVPQTgbK2s9gCvHh5KVI7MazU09s+erOuWw4Tbq6S9zy+M2erVeK7
-         tveA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 30 Oct 2026 01:05:24 +0000
+Received: by mail-dy2-x0a.google.com with SMTP id 5a478bee46e88-33e5ae86ff2so85169eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 18:05:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793320531; x=1793925331; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vCXebNkndm9LBXsG81Q2mOpTPDq3UCuJ8oTq7IQkTYU=;
-        b=eK34X/5WwNBhqhWCojVd0QTvlauaIEcXRVSii/NtSYPedfOWjpnFns3Z+K41O9tUz/
-         uSDNgEX6J0uvSDjfmmJvqKgIMmPJ5vxElGiLJ9RPQrkqGwa+hCC1jZ0TZoKd/QGOfB8S
-         1CzTVOlq9cqy9AXEXOPl+NLCOEGjBzTwYVQVQMB+Ju8me21VCb4DeaFJTfJYTleq9iel
-         aENbqP/OCxQtdgOQzmIxIgA57hjfcCWuv5/VynG7HvMdFxaTfU4T4iSd1+GuDd7RMsbX
-         CDqJd9KS6ZBGM+tLc1BDiRr/g3gAIvkORucdzvtaqpKbViv7jzf4UWB01SEwP25j3v8m
-         X5PA==
+        d=goodkind.io; s=google; t=1793322319; x=1793927119; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=61qcPN07t2TUNYnm91oL81Sx86wLZQKTzOl/nzNJeWE=;
+        b=kyyPxqQMT38dFMIByVviY80jwq2uZhaeWp6S6NKiivkVXoG9lJzVu2CcOecZWXij7w
+         AegIYXOGMCQrIGMt61LsRIEIyBWvktmdeCtyKjixOpQaPshzo9FVyiuAZ5C21bP1aNov
+         HtdqOGBntOZ/FKuSZT4G5J8eCeJK8goaAc7xBv6ds7s4wxP8hGkFuC6zqQGvrsiQrqNl
+         J8kOhHUaOTTxS5lJ8L38R9r0a4VflhsKwtXWsqbMBcsTlu04Glu9bNWv7zYVupINNJ98
+         NNaSJ5zm/TUyWQ9wHNTw1134rR0LNraUUisQ4jfVY3oIpmPhCaj2mxQGHzaSAnnD8SWN
+         gDEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793320531; x=1793925331;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vCXebNkndm9LBXsG81Q2mOpTPDq3UCuJ8oTq7IQkTYU=;
-        b=cynztirsIYetU5RuAK8JmY3rugW++4vD++pBPZo8sDDmv22RYa1GIPNlihIxtakCNA
-         17FCVR0eKA/H55b5KKOa8nMJTkTuwwx0xOakgeLt7zV2PaK6dNUEIsaQKHIWur/eoqbB
-         MjRetBkpWGANqOhIUqiMdO6WwYXl4ANqcLXsKUi6VyFhjLL29gcmV+7K6Zva6o6vldLS
-         rqLIuwHrF4bnM/lENDP90+t6A/gIIfmMW067Rt3TWIfCgxF4bvjvU3spgBNZqppVIvj2
-         vlygy+/jvsWiRMWTKII6RBJZYBI2a34oU5ZJPo7d7zb/sDgMJMI3th49C5NyLoLXgdkp
-         wc7g==
-X-Forwarded-Encrypted: i=1; AKwUvBwd9burF1KRdbPRsxL9+GNyjhshgiR+TA1Qu47ljBpQUPnQJhytgS7Mfe1iPOKYDgivtWapUgx8x4M3NijW2v7e@lists.infradead.org
-X-Gm-Message-State: AFq9FYLr+AHdKyHNmJ0DNpm6l8vsfU5sMcdBmGS3qem8icd8LDqxP8x+
-	HA9H0REijhJrUl3n/hT5a/5NRf6Mtmg+m9FGhVbpUVxZ7AYdTHA8Juv817Vj6ABd2jkGeTRQnvf
-	pHgkFqzL5oDnfSysBpC/sGto8tTKbyiQ=
-X-Gm-Gg: AYBFou04SgNs8O8uyZeZ7FDxFv8QXSywLFaNBpOi7v5RapFsktoh4kq3XX0jkS0G4Na
-	AwQlk8ZTHAybVnxluhnZtUO0YuxoVvYu52VxCh87pdO/FExGF92yTBW4+nZDo7QshnhUb+EBi1N
-	vdf5u00hzbYtwVAG3WRTRmj40S9nr64o+9SrNYWyQuvRC1L7roMssS+7gtdOn1SlUDDFfI78hs+
-	c/2bSOeH0p2229l/SZrLHnI5fSfErYCToQbzXSPUrICFCahIgXT8H2aWiEqTYZV1TpqFJHt87Nc
-	ijV+Xq/6J8343YL9PkxjThMUns6xttC1aG+c+VxESpE4RVzTT93s1Q4cG6XSwYSaXvTlReL9knE
-	zyE7iKAWN769wbT0WI4OJmMdx1aBDRtzMkVuc3hS3NYxFAlvI/Tx2XQFogfpOPJ7TdJt2ky/KjN
-	9jAx7jDMHeMPdi3xug7dyIKn+SgtEEngfPYezSBaEDDWVrUlodrRKfMdIFbzu/i62YUwWi4ifnq
-	h8P/wvq60dowErrGDo37nvCq6GFaQ==
-X-Received: by 2002:a05:6102:50a5:b0:7bb:64cc:1362 with SMTP id
- ada2fe7eead31-7d072c2b96amr253188137.6.1793320531134; Thu, 29 Oct 2026
- 17:35:31 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1793322319; x=1793927119;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=61qcPN07t2TUNYnm91oL81Sx86wLZQKTzOl/nzNJeWE=;
+        b=jStgxMKeFlUpbeQ68q5S3s1wFCncgzQymevBA5ITS8ShZy4Xx6su3PSawvRnfbHqNj
+         8OmPpG+/pHZ88yMol6/MdmNP7V853gceUVCgOEiCl7QRzOLeCmJkCHFh7+o3Xcu7OfWE
+         QckQSoL1vT8r3OA/RMl+tOsDVjgdwhadP1cb5EqnIomxaFAkdRw/HjSZLjgSs67Kzw/R
+         krXMZKg8LkgLM8/xTB8L3A1I+x65E2qj+RtEzK7EiChIcjkyUvngP05lwiZ7z/IzNWYQ
+         96OD0DUbZx05o54H64LUyZIDwYc6rmSA0pQGeXp2XRsqPFE6imsfTyRtz73hhnvN2G5+
+         DD6A==
+X-Forwarded-Encrypted: i=1; AKwUvBzg9hd5BI+ZD0Eok6cNZDG/qiRpJPOOl1DkfU9vHR7obKeXn9OsY3HgRNitVBb0ddoR7BhUxZk2XNtMf+cMkJ73@lists.infradead.org
+X-Gm-Message-State: AFq9FYJM9W9SDGswQIjfkpaWtPArJ3jsn4TSgBHm9mS13Z9nMZk8PY9k
+	EgHXVNMY2JxTeDgTKooEuUOttukxa+p+SL6IbJJhI7PH/lJYil+jJ8a/97CjiplvzUJB0dAOWmN
+	37qmoFT4buvoSRNI=
+X-Gm-Gg: AYBFou0DLDZcqTkAK5NIbsjn6VT22STfIv9JgQ43Srjiec8RTu+5sJJu70aNrnRzcY0
+	uWDM0CLdYATidiEvxsXoCYKdavRdaYWVIsRilwKtcC3uZc1D0lAz0fQMfUX/QLhnmq2vE7UrNdH
+	Cp1HS2Cj8k1bGRruY3cQJV4e4NhM39vJAB617Rze61gMkq98wFpLl8apSCIexmAxIUp5V8Mof1O
+	PraMuG4qnD8e/FiIDD3buq9NK0Rs/87dPTNAfV1KQpt+KGnXmG7dznKiO1eIbYfU9ag2ql/pCXT
+	Ksmo761y+vEya+p/QbnjtjIggltT01HYQ/hV6ceE0+TPAkhtRccLCdCoZThzOWFGt8KJcWPSvfQ
+	M8lRvcSEIi7FXxwzmCgHxk3Yaic9s9Yt7pM56ewTCTU2k6rZm/WIgeqEXPLuh1A1Y3EzNKoQD+z
+	yNF4zIp7VpgggDk4HPl9/ykhQncffQXNw3YpaczplSALgfFRxcg1NnoG0xP6dd6yR2AiosTQ8k/
+	UxSvQcb0k7zo6M7Gb9lGnXTxIwewviXK8pTmGghnJpw9hRZ8tI2BlfqrLmURa5FX4Ad614bt7KK
+	6FP4/PiH9m4KSoc95Euy3lwnGZkXrHeB/eMyYM3/VFIKOcM=
+X-Received: by 2002:a05:7300:3b0c:b0:36a:238:1485 with SMTP id 5a478bee46e88-36a4244276cmr1870508eec.37.1793322319336;
+        Thu, 29 Oct 2026 18:05:19 -0700 (PDT)
+Received: from localhost ([2001:5a8:4296:4f00:50b8:8e86:d398:7911])
+        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-36a42a77c0dsm2458500eec.26.2026.10.29.18.05.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 29 Oct 2026 18:05:18 -0700 (PDT)
+From: Alexander Goodkind <alex@goodkind.io>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Simon Horman <horms@kernel.org>,
+	Alexander Goodkind <alex@goodkind.io>,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Tarick Bedeir <tarick@bedeir.com>
+Subject: [PATCH net v2] net: ethernet: mediatek: preserve sibling PPE bindings
+Date: Thu, 29 Oct 2026 18:05:17 -0700
+Message-ID: <20261030010517.45639-1-alex@goodkind.io>
+X-Mailer: git-send-email 2.54.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261029-submit-serial-8250-dma-cancel-v1-v8-0-3fd56ba352ed@gmail.com>
- <20261029-submit-serial-8250-dma-cancel-v1-v8-6-3fd56ba352ed@gmail.com>
- <auNW_Oc-Ao5Iw-Gw@ashevche-desk.local> <CADvTj4pOg4w5LpFW_E3qzP7FZDnDgpB8LyR9xxhT_mZre21vFw@mail.gmail.com>
- <20261029222734.3086943-2-rrangel@chromium.org>
-In-Reply-To: <20261029222734.3086943-2-rrangel@chromium.org>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 29 Oct 2026 18:35:19 -0600
-X-Gm-Features: AclHuK9fwQEf1FE2SE005DWVvtH9Aa6gi9TWL3-I0d1O0Zk2jQvC0qB4u35B3dg
-Message-ID: <CADvTj4rRtKyq_7yhpfwGQrbOA=k_jxQymTpZSvdVBB0A-xR-Rw@mail.gmail.com>
-Subject: Re: [PATCH v8 6/6] serial: 8250: retain DMA resources when
- termination fails
-To: Raul E Rangel <rrangel@chromium.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Tony Lindgren <tony@atomide.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Richard Genoud <richard.genoud@bootlin.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
-	=?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, "Maciej W. Rozycki" <macro@orcam.me.uk>, Timur Tabi <timur@kernel.org>, 
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_173534_324183_1C239951 
-X-CRM114-Status: GOOD (  25.32  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261029_180522_474885_17C155A1 
+X-CRM114-Status: GOOD (  14.19  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,132 +111,77 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-23.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 29, 2026 at 4:27=E2=80=AFPM Raul E Rangel <rrangel@chromium.org=
-> wrote:
->
-> On Thu, Oct 29, 2026 at 11:19 AM James Hilliard <james.hilliard1@gmail.co=
-m> wrote:
-> > On Thu, Oct 29, 2026 at 8:24 AM Andy Shevchenko
-> > <andriy.shevchenko@linux.intel.com> wrote:
-> > > > + while (rx_ret || tx_ret) {
-> > > > +         dev_err_ratelimited(p->port.dev,
-> > > > > +                                   "DMA termination failed: RX %=
-d, TX %d; retrying\n",
-> > > > > +                                   rx_ret, tx_ret);
-> > > > > +               msleep(100);
-> > > > > +               if (rx_ret)
-> > > > > +                       rx_ret =3D dmaengine_terminate_sync(dma->=
-rxchan);
-> > > > > +               if (tx_ret)
-> > > > > +                       tx_ret =3D dmaengine_terminate_sync(dma->=
-txchan);
-> > > > > +       }
-> > > >
-> > > > Huh?!
-> > > >
-> > > > This is unacceptable. Sleeping is okay, but value should really mat=
-ch the
-> > > > baudspeed and other parameters of the transfer.
-> > ...
-> > Regardless of the retry interval, shutdown cannot release the buffers
-> > until the provider establishes that DMA and its callbacks have stopped.
->
-> Agreed that if dmaengine_terminate_sync() fails, shutdown must not free
-> dma->rx_buf, unmap dma->tx_addr, or kfree(port->xmit_buf) while hardware
-> or a detached callback may still touch them.
->
-> However, because serial8250_release_dma() runs under port->mutex in
-> uart_shutdown(), uart_tty_port_shutdown(), and uart_suspend_port(), an
-> unbounded `while (rx_ret || tx_ret) { msleep(100); ... }` loop means that
-> if a DMA provider returns a persistent error from dmaengine_terminate_syn=
-c()
-> (-ENOSYS, -EINVAL, -ENODEV, -ENXIO, -ETIMEDOUT, or a wedged controller),
-> close(), hangup(), and system suspend will hang forever in
-> TASK_UNINTERRUPTIBLE while holding port->mutex (triggering hung_task_pani=
-c
-> after 120 seconds).
+__mtk_ppe_check_skb() clears entry->hash for flows bound to other
+hardware slots in the same software hash bucket. mtk_flow_offload_stats()
+then skips their hardware counter updates. L2 cleanup also frees sibling
+subflows without invalidating their hardware rules.
 
-That is the current behavior. Returning from shutdown allows serial
-core to free the TX buffer and removal to release the callback
-context. The retry loop prevents those releases, but a permanent
-termination failure blocks teardown indefinitely
+Restrict both cleanup paths to entries assigned to the inspected slot.
 
->
-> Would it make sense to satisfy both constraints (no UAF on buffers/callba=
-cks,
-> and no infinite sleep in close()/suspend()) by quarantining/leaking only =
-the
-> failed channel's resources instead of looping forever?
+Two UDP trials reproduced the counter failure on a GL-MT3000/MT7981
+running unmodified OpenWrt 25.12.5 with Linux 6.12.94:
 
-Retaining the buffers and channels does not preserve the complete
-callback context.
+1. Start a UDP connection.
+2. Add a control connection in a different hash bucket.
+3. Add a connection in the first connection's hash bucket.
 
-The callbacks carry a uart_8250_port pointer. For DW, the DMA state is
-embedded in devm-managed private data, which can be freed after
-unbind. The registered 8250 port slot can also be reused. Retaining
-the DMA channel does not prevent either operation.
+AI code review of the original patch identified the cleanup problem
+in L2 subflows.
 
-> Specifically:
-> 1. Bound the retry loop in serial8250_terminate_dma() (or do not loop on
->    non-transient errors, checking `if (dma->rxchan)` / `if (dma->txchan)`=
-).
-> 2. If rx_ret or tx_ret is still non-zero, warn once (`dev_err` / `WARN_ON=
-_ONCE`)
->    and intentionally quarantine/leak only the failed channel's resources:
->    - If rx_ret !=3D 0, leave dma->rxchan non-NULL, keep dma->shutting_dow=
-n =3D true,
->      and skip dma_free_coherent() / dma_release_channel(dma->rxchan).
->    - If tx_ret !=3D 0, leave dma->txchan non-NULL, keep dma->shutting_dow=
-n =3D true
->      and state->xmit_blocked =3D true, skip dma_unmap_single() /
->      uart_xmit_unblock() / dma_release_channel(dma->txchan), and in
->      serial_core.c:uart_free_xmit_buf(), skip `kfree(xmit_buf)` if
->      `state->xmit_blocked` is still set.
-> 3. For a subsequent port reopen after a quarantined failure:
->    - Remove the redundant `up->dma->shutting_down =3D false;` in
->      serial8250_do_startup() before serial8250_request_dma(up) (which alr=
-eady
->      clears shutting_down under port->lock), and have serial8250_request_=
-dma()
->      return -EBUSY if `dma->rxchan || dma->txchan` is still non-NULL so
->      reopen falls back cleanly to PIO (`up->dma =3D NULL`).
+Full ARM64 builds with allmodconfig and allyesconfig passed before
+and after the patch using GCC 14.2.0 and W=1, without new warnings.
+The builds used CONFIG_WERROR=n because the unmodified ARM64 kernel
+already emits warnings. Hardware testing has not run for this revision.
 
-Clearing up->dma does not stop hardware accesses. After unsuccessful
-termination, the channel may still access the UART FIFO, so reopening
-with PIO can introduce concurrent FIFO access.
+Fixes: c4f033d9e03e ("net: ethernet: mtk_eth_soc: rework hardware flow table management")
+Fixes: 33fc42de3327 ("net: ethernet: mtk_eth_soc: support creating mac address based offload entries")
+Link: https://github.com/openwrt/openwrt/pull/26107
+Assisted-by: LLM
+Signed-off-by: Alexander Goodkind <alex@goodkind.io>
+---
+Changes in v2:
+- Apply the slot check to L2 subflow cleanup as well.
+- Add the Fixes tag for L2 offload support.
 
-A hardware-specific stop/reset sequence could establish quiescence,
-but its implementation and effects on other channels depend on the
-controller. If the channel cannot be stopped, quarantine also needs
-to preserve callback-context lifetimes and prevent unsafe port reuse.
+V1: https://lore.kernel.org/netdev/20261023012529.5994-1-alex@goodkind.io/
 
->    - Guard the DMA completion callbacks (`__dma_tx_complete`, `dma_rx_com=
-plete`,
->      `omap_8250_dma_tx_complete`, `__dma_rx_complete`) with `if (!dma || =
-...)`
->      so a late callback after `up->dma =3D NULL` is ignored safely.
+Codex assisted with investigating the counters and preparing the patch.
 
-The current callbacks fetch p->dma before acquiring the port lock.
-A callback can therefore retain the old non-NULL pointer across the
-assignment of NULL. Checking that cached pointer does not protect
-its backing allocation from being freed.
+ drivers/net/ethernet/mediatek/mtk_ppe.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-When termination returns an error, dmaengine_terminate_sync() also
-returns without calling dmaengine_synchronize(), so callback draining
-has not been established.
+diff --git a/drivers/net/ethernet/mediatek/mtk_ppe.c b/drivers/net/ethernet/mediatek/mtk_ppe.c
+--- a/drivers/net/ethernet/mediatek/mtk_ppe.c
++++ b/drivers/net/ethernet/mediatek/mtk_ppe.c
+@@ -754,18 +754,17 @@ void __mtk_ppe_check_skb(struct mtk_ppe *ppe, struct sk_buff *skb, u16 hash)
+ 
+ 	hlist_for_each_entry_safe(entry, n, head, list) {
+ 		if (entry->type == MTK_FLOW_TYPE_L2_SUBFLOW) {
+-			if (unlikely(FIELD_GET(MTK_FOE_IB1_STATE, hwe->ib1) ==
+-				     MTK_FOE_STATE_BIND))
++			if (entry->hash != hash)
+ 				continue;
+ 
+ 			entry->hash = 0xffff;
+ 			__mtk_foe_entry_clear(ppe, entry);
+ 			continue;
+ 		}
+ 
+ 		if (found || !mtk_flow_entry_match(ppe->eth, entry, hwe)) {
+-			if (entry->hash != 0xffff)
++			if (entry->hash == hash)
+ 				entry->hash = 0xffff;
+ 			continue;
+ 		}
+ 
 
->
-> That way, neither hardware nor a detached callback can ever UAF rx_buf or
-> xmit_buf, while close(), system suspend, and subsequent PIO reopen all
-> complete cleanly without an unbounded msleep() loop.
->
-> Thanks,
-> Raul
+base-commit: ffdf678dd16610e3f006dac904bd37c09684673c
 
