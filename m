@@ -2,106 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5112C606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 14:28:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F5F4606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 14:34:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jVOa/IdX;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=bDk2IkNf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ekAyHXDr;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JJXR4YGe
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=jb0UUIPqHeTvqxXRmuce2uufcIVFotyqcoN9aAY32/w=; b=jVOa/IdXTv82si
-	mIcwXNxcyUdBp6F2Zt/ef/vhP15du8E8tyoASbTgOCIz0G3cBpkiCbxIp04xfxojCzlCHW7LXqOA0
-	eHMj+cIkCh2j1S59+PghO739XT+ofjITA2K+AI4AEQB10yXCJRu8OQtB9UjUGvlRwM4eexyzKaD3O
-	4nGglmUTdzeKwjaAgv5zeXhPNs0kPngxRrd8fwyYyN0EP2oE8HH8VVgivZ7a1pXxHkfEvzzFwEY7k
-	xH+BBxxSr6pS2RPLDU0jFki1mIOjzW5IbbDLanxFF9zZNS34QTmYY4rFHc6hqDyYS4RvbXwNyi5G3
-	GAdzg5zwlrkQmUF614xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=4JFYFF+XVqmPJXdW9AOcrcS6NT5ie/xJlSuvhelbXCs=; b=ekAyHXDrcb0pWXN6aR5JuNhE57
+	KSLP5WdzB6lT3gKIKXyLr+NHnnA9xrWQrNqc0XWNNB5iZPhor0Bn+BKClKX5+N193sa4NdqIhQufn
+	bx11v+vcRDLyf+tF14SCtB3dgSDsWMPE77FElnPJLgd02+IPm0NAk9zn0n5d2dqjJ/LWIJBMwSGCZ
+	qka/PzKLHvOLbK4Y4lIdkR3Knb50CQWHRPtu2duAQUKw0oaz3uMgBNNMLJHAO44q5Hdvg6cxuQVS9
+	xjXV8qO1x0diI7KGckcjP9JstdFOj7v3vF7rNP1HqrzqzkziH9M51vOAzUDnu7PWerPtENySP3WW+
+	Wd2XyUVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMnaZ-0000000Brg3-0hUm;
-	Fri, 30 Oct 2026 14:28:15 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1xMng5-0000000BrtP-0LVl;
+	Fri, 30 Oct 2026 14:33:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMnaV-0000000Brf9-17v5
+	id 1xMng3-0000000BrtH-0zP8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 14:28:13 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a2000d5fb1so4391915e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 07:28:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793370488; x=1793975288; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=jb0UUIPqHeTvqxXRmuce2uufcIVFotyqcoN9aAY32/w=;
-        b=bDk2IkNfjthJV87cyhG74IqMW64kJqFdICucWpvSu7HIvl5ETeVQn56ltvviPSIRgn
-         TZRmnYd8XPZ/7XgHVJ/I0OxE9yQlfI0uaPi8DMXUB5utAo0ixaaMI1V1IjSOnki1wdKb
-         qqeHM6hxv7HeKkdwzrO7lbnWz/qf1Micz9eUVVq1byql6uZC0aVuNNDziG05r84meyGh
-         yc/6D/v1CvZZqLPm+GNmEEDTDRFg04ODPK6R2TFrwsw6ap531j1Q1OHRz89HqIRZWXAn
-         Rl/96oiDvhK9WvAdHlZrgFEyEsVKAzEcnpP8vBaw5iCNS6gAOrfi3N0SdKeolWNiHS+4
-         NYMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793370488; x=1793975288;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jb0UUIPqHeTvqxXRmuce2uufcIVFotyqcoN9aAY32/w=;
-        b=BooDt1cs8btFpWJdO6WqXZksYgI1ulnbyYtqRM2IEaXQIvqvaYVibEAWucsuhBfQI3
-         3rOnHKq/LiltFvdaKVKGGEnxTISHa+hv224HV+beNQynHEVCXf/qKHKCoyDkgLA6w48J
-         8afzurN7Dwy/r0xK/t+1HUTTjCEKRQzJb1mpzG7uKFQrRUlkh+iqNZ3elF2WqmbcMioQ
-         sVAVimy5K5GgZ8TkcQq5Pm2TEeMGGogowCuGYxakrx+M8wMNWRTipxDgm3GsVKczIber
-         Q7/xmDYSElh8wNv01DEh5Zq1BtcQc3iqvijmrPfAD8xrmMAgmfp8B/iAy6BJvcFPZRn0
-         F45A==
-X-Forwarded-Encrypted: i=1; AKwUvBxLrAkVRTMi3KlU5gKHnm6KUsRHg2O8HS5eOnfijzl0kMUVLCsgQj7ToxtSXlVc8mIz9XW6YYd0ubR2t4JkZL9n@lists.infradead.org
-X-Gm-Message-State: AFq9FYI3XCTpOBZ/DI8IcsZTtohaUJkBvqHfGuJTNM2+mHpERKUcm3VL
-	3zcrEyAq/NfTw5tGQ/w8FV+AvzGCWn7Yl25T/75wb6fPq1rXJZ7PHkW/aWkAsbgK87U=
-X-Gm-Gg: AYBFou0umOlIhIV5NshR0swEhZ0HplFIfkOy5anTT3Bf64Ou8RDTNyWO5yT2B9YpaNs
-	uuUmWBIkjXy+mNCsPWrg9Kte45iQdBp70sei1G7B/HEVAToafLtBMLowb2kSGX1kEKeFsd55tS3
-	L0tx4zVdw02xKhCU2v5gvJQtXG2nJyDiwn5jxnZ7g0SYkobUmgESM7fxqeUlJnUhs8p/GtROh3f
-	Qe7awLC9QeYhC8I8AIjvLzdgCXJG/zjI6s8E+DHqU6Ksg2Q6DAi0YXGFRvA3OHAKqFAoqnQCX+O
-	+gmVRUYBb651YpcioIWbIJWs/YiUS1twYH2XTgmOL65+9eXlpwxJsgktS3mJI+QNKKhi5ytN/F2
-	ZpQcMJPD3f1reu3AM1MCzqC0iZjE3Y0iMHxD1TklyRAVgiAajWhNR0G24Oea2a+oOjNDd7sUQyc
-	AJc3C5hQiNn+ngvWQlWHlIyWdo1v5YhnfAjoH1vUR5eZYGtioLjHe94K9NBg4E0eaGoWCPKq+BM
-	5VFTN40Oq5XqQprZRAGQaKoaRS5pNHXi06RtDV9Y7EMvsw5Edu3bPCPraFr/apyuJZKhWLg1njy
-	FjDYe09K4RNHtg/Tzo/xeRBwak/PyHPhvBqMq8yVsajsNMXKiyYs0cps5CE9UsdXQpBm3wrUDPW
-	/JFVzHGSX124CxdjU0w3luKE8gKHEYA9+1MIgy/r5Gis+yohLHK4h+S/HQSDjEyTl5++Hteg=
-X-Received: by 2002:a05:600c:8b63:b0:4a1:f688:a5d5 with SMTP id 5b1f17b1804b1-4ac187a7655mr51642025e9.23.1793370488309;
-        Fri, 30 Oct 2026 07:28:08 -0700 (PDT)
-Received: from chomik.local (ory90.internetdsl.tpnet.pl. [46.170.50.90])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abf5b286a0sm53158235e9.4.2026.10.30.07.28.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 07:28:07 -0700 (PDT)
+	Fri, 30 Oct 2026 14:33:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 56C3940987;
+	Fri, 30 Oct 2026 14:33:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8E3E1F000C1;
+	Fri, 30 Oct 2026 14:33:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793370834;
+	bh=4JFYFF+XVqmPJXdW9AOcrcS6NT5ie/xJlSuvhelbXCs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JJXR4YGeMIsV8u/Etct0mCvf4yMo7V6OVh7Ci1ML8Bg3oxb2WuWNHhHpLkR4ZyoKp
+	 qS9ynCkTW2BAJGEBM4upnkFvoYiw3ZwkIwYXV2G9s57/vWCu7LAmnqdHPx0+5sy7LX
+	 4MsZbYhquDQfvSz74E6k24KF5pW/vZ10wa+3sPWyj8yiA3vKUHQ08NyUFBJUaI37sc
+	 ZBVz9A8zEc1C8I4Ff0wtJP0QFAHuOMXxMUcK4aJvb6A4sKevlDkrwe/92xNfLl1r54
+	 BY62xoFCo9MQ7YYizD/5FdtuBXKofnRVB7VjTzs7OU03Oi0adZI80mFS2B7tN0T14k
+	 PWOvrQL+AzBIQ==
+Date: Fri, 30 Oct 2026 14:33:48 +0000
+From: Will Deacon <will@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Dev Jain <dev.jain@arm.com>, Karl Mehltretter <kmehltretter@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	David Hildenbrand <david@kernel.org>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: hugetlb: fix BBM for mprotect() on contiguous PTEs
+Message-ID: <auSqzHVKRktkrtQC@willie-the-truck>
+References: <20260901131823.15799-1-kmehltretter@gmail.com>
+ <551663b9-d031-4755-af7f-dc6c22524b35@arm.com>
+ <aplP1oUjx96O_I69@willie-the-truck>
+ <78638e8a-4919-4c2b-b6d8-dadc7a981709@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v12 0/6] Add Amlogic stateless H.264 video decoder for
- S4
-From: =?utf-8?q?Wojciech_Biega=C5=84ski?= <wbieganski@baylibre.com>
-To: Zhentao Guo <zhentao.guo@amlogic.com>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20261022-b4-s4-vdec-upstream-v12-0-616240978792@amlogic.com>
-References: <20261022-b4-s4-vdec-upstream-v12-0-616240978792@amlogic.com>
-Date: Fri, 30 Oct 2026 15:24:06 +0100
-Message-Id: <179337024629.131241.9227206619077693683.b4-reply@b4>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_072811_326454_939220D8 
-X-CRM114-Status: UNSURE (   7.22  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <78638e8a-4919-4c2b-b6d8-dadc7a981709@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,33 +78,90 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
-I tested v12 series on AQ222 board with v7.2-rc1. Firmware version:
-'v0.4.ff.I0c83495.75444b3' build 'Thu Apr 16 18:18:55 2026'.
+Hi Ryan,
 
-RAW NV12 frames at the decoder output were visually OK across typical
-resolutions and H.264 profiles (main, high, baseline) with and without
-B-frames in the stream, also with I-frames only streams. I used Gstreamer's
-(ver. 1.26) 'v4l2slh264dec' element on Trixie with both mmap and DMA-bufs
-buffering (on the capture queue only). Input bitstreams where
-FFmpeg-generated (testsrc2 + libx264) or publicly available test videos.
+Sorry for the slow reply here.
 
-Decoder (and the output) remained stable with simulated (non key) frame
-drop at max resolution (1920x1088, noise generated by FFmpeg's bitstream
-filter).
+On Fri, Sep 04, 2026 at 11:56:25AM +0100, Ryan Roberts wrote:
+> On 03/09/2026 11:45, Will Deacon wrote:
+> > On Wed, Sep 02, 2026 at 08:16:36PM +0530, Dev Jain wrote:
+> >> The transition happening here is:
+> >>
+> >> old_prot+cont -> zero -> new_prot+cont ... (i)
+> >> and then TLB flush.
+> >>
+> >> Arm Arm rule R_JQQTC says:
+> >> "For a TLB lookup in a contiguous region mapped by translation table entries
+> >> that have consistent values for the Contiguous bit, but have the OA, attributes,
+> >> or permissions misprogrammed, that TLB lookup is permitted to produce an OA,
+> >> access permissions, and memory attributes that are consistent with any one
+> >> of the programmed translation table values."
+> >>
+> >> This implies that a live update like
+> >> old_prot+cont -> new_prot+cont then TLB flush ... (ii)
+> >>
+> >> is safe. Which should also imply that the transition (i) is safe,
+> >> since the configurations the PE can observe for (ii) is the same
+> >> for (i), except that in (ii) the PE can fault too, which is fine.
+> > 
+> > I'm not sure I agree. As written, the text above says that if the
+> > permissions are misprogrammed (which they are in this case) then the TLB
+> > can produce an OA consistent with any of the entries. Hopefully it just
+> > needs some further clarification.
+> 
+> I'm not sure I understand your concern here. Is your concern that the OA could
+> be pulled from one of the invalid entries? The intent is that any entry that
+> does not have the VALID bit set is not considered an "entry" within the
+> "contiguous range" for the purposes of this. (because it is invalid).
 
-The performance at max resolution, tested with 'filesrc ! parsebin !
-v4l2slh264dec ! fakevideosink' pipeline was ~85 fps (fixed number of
-outputted frames divided by the total execution time).
+Not invalid, no, but from the old_prot+cont. There hasn't been an
+invalidation, so that could still be reachable.
 
-Tested-by: Wojciech Biegański <wbieganski@baylibre.com>
+> That's implied (if you squint) from:
+> 
+> IPGVGZ: The Contiguous bit is present only in valid Block and Page translation
+> table descriptors, and therefore neither of the following configurations are
+> considered as misprogramming of the Contiguous bit:
+>   - A contiguous range of descriptors that are each either invalid, or valid
+>     with Contiguous set to 1.
+>   - A contiguous range of descriptors that are each either invalid, or valid
+>     with Contiguous set to 0.
+> 
+> In general I am of the opinion that the rules around contiguous mappings are not
+> as clear as they could be and the VMSA architect has indicated that he hopes to
+> clean them up over time. Bit I don't quite see your concern in this case.
 
+I'm happy to review any proposed cleanups to the wording, fwiw.
+
+> > There are probably also cases where we're changing the attributes and the
+> > permissions at the same time, so it's not clear to me that it's safe to
+> > allow those to be inconsistent (e.g. tagged/guarded vs read/write). If
+> > I was going from untagged read/write -> tagged read-only then I presumably
+> > wouldn't expect to see a tag check fault on a write?
+> 
+> Again, I'm not sure I follow, but I'll take a stab. I think you're implying that
+> a write permission fault should take precedence over a tag check fault? (I have
+> no idea off the top of my head). And you're further implying that with this
+> transition the HW might see an intermediate "tagged read/write" entry, and if it
+> does then it will raise a tag check fault, not a write fault for an attempted
+> write. But I don't see how R_JQQTC permits that because it says "consistent with
+> any one of the programmed translation table values" so the HW can't pick
+> attributes from one entry and permissions from another. It will either see the
+> old "untagged read/write" or the new "tagged read-only".
+
+ah, I think that's where we read it differently. You're interpreting "ANY
+any one of the programmed translation table values" as "EXACTLY one of the
+programmed translation table value"; i.e. OA, perms and attrs are read
+atomically from the same pte. Maybe (hopefully!) that's the intention,
+but it's not how I read it. Now that I see how you're reading it, I can
+convince myself either way!
+
+Will
 
