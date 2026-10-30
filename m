@@ -2,84 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10895606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:16:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2463E606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:16:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1lshpKdV;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JNJHQQiO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DTKAVZPD;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Jc7pqsm4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=kkuv7O8q4cZvOapU+GF7kcHYvW6qtmGdZ3sS6JlSXTM=; b=1lshpKdV5I5mUKlIicYWyAMVA1
-	sXIej4C+YMV6mQJlPvXLPNOZEBBnj4xQ/MUpNGynsXwOAHgM0WVWO1a5FU5HwPAsHBajnkSjVGT9b
-	c96trObWn0YJaP8ffoGv+9hvgaxzWa5ryhBdoO9QKu7yh3W7h68tu5yVuuvu8cKaj3nCSYQvmq0Pq
-	7FnLhiAFVqjW+KnNmpqQpJ5h2lqAglRafmRcaxxtJfpOU7oXsVcqdPlE7Xr56/fNaCni9zSVx3H6f
-	J1EzX3fEk1kw1CUpqnUsKOAJQj38teUm45OZkfuyZDClX/4XG/20FtAm0wi5cBZFYnQSRGnItB8tH
-	0pFFc0lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=yi8rwFMd9BghO9lmTtGQ2dC4Wi31UNr7sStszJWXA+U=; b=DTKAVZPDO7wxyB
+	X/N05rFx0wIBxbfZMLIZ8Puy/ZO/doMlASGnZYzP/CT6qiN4gcORFcj5UHHXA0YuSl2t/WA6TdLfs
+	Ihbp0qBIyj3Ziqq6H7ORqoYEs98qm5Vq0Rao5ubWzdP1Fo3vZudxyWZ2/4pKD7Q8dUiURZ2Pwwcv4
+	Tczl66On7qVOxQVFtnkLZojuQSQudFPwk1Yq+2TusM06o2uxUJskPTTOxS2kEEvrUji4rnPywGf4K
+	uRXm/EWOtaPQ5C9g+JUfePeSIGgtPm2qiWemeOM88CNBk1ZETsOZb06jLzAyMru/CvDzxFLneTooK
+	T3qKM0W3WJj81ZxGsQsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjeV-0000000BMuf-2cBx;
-	Fri, 30 Oct 2026 10:16:03 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjeS-0000000BMuG-1VBC
+	id 1xMjed-0000000BMwc-38id;
+	Fri, 30 Oct 2026 10:16:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMjea-0000000BMuz-17TO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 10:16:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793355360; x=1824891360;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=R+nXYiYx7BRcU9Txb0qgGufnwiu0QV9je3piyvExs5Y=;
-  b=JNJHQQiOJZKhBltWPxUDqpj9Qj1Mb0wkeZZG11/KVY9EhFgMP/fsgZHO
-   dqw22CiuFm+m/V5Gb4rgI5ZHfOcF4SSq8t2ZQ/VD8GctH2kheq9Z1tH+C
-   prOBdFlqcigAsLCZNd8Ub97LsQT3GjHz7DI47Aq/QlZqgIttWidHHYdEP
-   7Mnww578anwx31XzGj7p4CQILCBExdhxWBmNE2tTynxfX1hQjUgsmb4XK
-   SClUXvkMrU/yY7lYNB8w64g8xXAfvxTpy3xr6Labnh1Dc7HMyZ0/EW6uK
-   Ihmspk+xTzkUH/McNhEFyuC5RGERP+wT4XLIfNdb6shkN95jmCrPCmXX/
-   Q==;
-X-CSE-ConnectionGUID: mYVYos74TACBOnGY0w4rcA==
-X-CSE-MsgGUID: MczVPKnsQw+VwpUBxlHBdA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11950"; a="2116786"
-X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
-   d="scan'208";a="2116786"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 03:15:59 -0700
-X-CSE-ConnectionGUID: rt5aEbZaTLaQ3qY9NGwQOQ==
-X-CSE-MsgGUID: 9YaRD7l3S2mTmC0XfSnmRg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
-   d="scan'208";a="5305192"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.32])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 03:15:54 -0700
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Fri, 30 Oct 2026 12:15:51 +0200 (EET)
-To: James Hilliard <james.hilliard1@gmail.com>
-cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-    Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-    Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
-    Jernej Skrabec <jernej.skrabec@gmail.com>, 
-    Samuel Holland <samuel@sholland.org>, LKML <linux-kernel@vger.kernel.org>, 
-    linux-serial <linux-serial@vger.kernel.org>, devicetree@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v5 7/8] serial: 8250_dw: discover Allwinner A523 FIFO
- depths through FCC
-In-Reply-To: <20261029-submit-h616-uart-fifo-v1-v5-7-53b433aebbf8@gmail.com>
-Message-ID: <3d7af02e-4196-bb82-9579-467e88879021@linux.intel.com>
-References: <20261029-submit-h616-uart-fifo-v1-v5-0-53b433aebbf8@gmail.com> <20261029-submit-h616-uart-fifo-v1-v5-7-53b433aebbf8@gmail.com>
+	Fri, 30 Oct 2026 10:16:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9550B1E8D;
+	Fri, 30 Oct 2026 03:16:00 -0700 (PDT)
+Received: from [10.0.152.204] (e121487-lin.cambridge.arm.com [10.0.152.204])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D61D03F673;
+	Fri, 30 Oct 2026 03:16:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793355363; bh=FhDY5fSWPJ3mhD73WP57LfIGqwZxwSuLppmUfiz+pOg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Jc7pqsm4vTE7kxMElmrskn/EFX99V9Yb2EuLMypfOO2ZWfNtb0tubd3Tiu9Tny8KX
+	 zoDjgWDKpT2jRIBwBifLnk0S7QSprVBpDEwWlcXJXAOf1P40PgvLkc070ObMrnKT1x
+	 6iXOQ/2hUm2zteDsuYeY/4EVppLxMq2gzEySNSj8=
+Message-ID: <b2856d6e-dce6-4933-a43a-3ce7b5f9d2c2@arm.com>
+Date: Fri, 30 Oct 2026 10:15:59 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: mm: Stop using the previous ASID for init_mm
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Lai Jiangshan <jiangshanlai@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Lai Jiangshan <jiangshan.ljs@antgroup.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Thomas Huth <thuth@redhat.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <20261027100231.31184-1-jiangshanlai@gmail.com>
+ <r56ewhlz5fihgwd34zbiaxgmxdw4eq4t36jlsmwepu4nbhon6i@kjsqwoivmfhr>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <r56ewhlz5fihgwd34zbiaxgmxdw4eq4t36jlsmwepu4nbhon6i@kjsqwoivmfhr>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_031600_442576_7EAE8A0E 
-X-CRM114-Status: GOOD (  28.68  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261030_031608_504977_43F979EF 
+X-CRM114-Status: GOOD (  22.17  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,134 +73,118 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, 29 Oct 2026, James Hilliard wrote:
+On 10/30/26 06:30, Anshuman Khandual wrote:
+> On Tue, Oct 27, 2026 at 06:02:27PM +0800, Lai Jiangshan wrote:
+>> From: Lai Jiangshan <jiangshan.ljs@antgroup.com>
+>>
+>> Switching to init_mm should prevent further accesses through the
+>> previous address space's translations.
+>>
+>> Commit e53f21bce4d3 ("arm64: Use the reserved TTBR0 if context switching
+>> to the init_mm") avoided installing init_mm.pgd as a user page table.
+>> At the time, the ASID was held in TTBR0, so installing the reserved
+>> TTBR0 also switched to ASID 0.
+>>
+>> Since commit 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1"),
+>> installing the reserved TTBR0 no longer changes the active ASID.
+>> Consequently, switching to init_mm leaves the CPU using the previous
+>> address space's ASID. An empty page table does not prevent TLB hits
+>> for that ASID.
+>>
+>> This can retain access beyond the lifetime of the backing pages.
+>> During fullmm teardown, user data pages can be freed before their
+>> cached translations are invalidated. If those pages are subsequently
+>> reused for kernel data, an erroneous uaccess that hits a surviving
+>> translation can read or corrupt that data instead of faulting.
+>>
+>> Fixes: 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1")
+>> Signed-off-by: Lai Jiangshan <jiangshan.ljs@antgroup.com>
+>>
+>> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
+>> index 803b68758152..7e56099c5fbb 100644
+>> --- a/arch/arm64/include/asm/mmu_context.h
+>> +++ b/arch/arm64/include/asm/mmu_context.h
+>> @@ -235,15 +235,6 @@ enter_lazy_tlb(struct mm_struct *mm, struct task_struct *tsk)
+>>  
+>>  static inline void __switch_mm(struct mm_struct *next)
+>>  {
+>> -	/*
+>> -	 * init_mm.pgd does not contain any user mappings and it is always
+>> -	 * active for kernel addresses in TTBR1. Just set the reserved TTBR0.
+>> -	 */
+>> -	if (next == &init_mm) {
+>> -		cpu_set_reserved_ttbr0();
+>> -		return;
+>> -	}
+>> -
+>>  	check_and_switch_context(next);
+>>  }
+>>  
+>> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
+>> index 0f4a28b87469..a96ebe904dd7 100644
+>> --- a/arch/arm64/mm/context.c
+>> +++ b/arch/arm64/mm/context.c
+>> @@ -218,6 +218,16 @@ void check_and_switch_context(struct mm_struct *mm)
+>>  	unsigned int cpu;
+>>  	u64 asid, old_active_asid;
+>>  
+>> +	/*
+>> +	 * init_mm.pgd contains kernel mappings, so use the reserved page
+>> +	 * tables for TTBR0 and switch TTBR1 to ASID 0. Leave active_asids
+> Just curious - does TTBR1 switch to ASID 0 ? AFAICS TTBR1_EL1 gets
+> the ASID which is derived from the mm_struct via ASID(mm) earlier.
+>
 
-> The A523 UART integration, also used by A527 and T527, has 64-byte FIFOs
-> on UART0 and 128-byte FIFOs on UART1 through UART7. Each controller reports
-> its TX/RX FIFO depth in bits 31:8 of the FIFO Clock Control register at
-> offset 0xf0. The field holds a byte count, not a logarithmic encoding.
-> 
-> Read this field in the sunxi setup callback when platform data does not
-> provide a fixed FIFO size. A fixed size takes precedence, so H616 retains
-> its 256-byte configuration without accessing FCC. The probe has already
-> enabled the clocks and deasserted reset before invoking the callback.
-> Leave the FIFO clock-control bits untouched.
-> 
-> Validate the depth before generating the RX trigger table or setting the
-> transmit load. The quarter-full threshold must be positive and the
-> FIFO-depth-minus-two threshold must fit in the byte-sized table and RX
-> trigger API. Report an invalid depth and fail probe instead of generating
-> zero or truncated thresholds.
-> 
-> Select this setup for the A523 compatible. Derive the transmit load and
-> RX threshold table from the discovered depth using the common sunxi
-> helpers. This handles the different FIFO sizes with one compatible and
-> one receive-trigger mapping.
-> 
-> Like H616, this integration has Allwinner-specific debug-divisor and
-> RS485 registers overlapping the generic DesignWare feature probes. Use
-> the common sunxi PIO setup, BUSY-safe integer divisor programming and
-> software RS485 handling. Keep the APB clock gate enabled during termios
-> updates with SKIP_SET_RATE.
-> 
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
->  drivers/tty/serial/8250/8250_dw.c | 23 +++++++++++++++++++++++
->  1 file changed, 23 insertions(+)
-> 
-> diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
-> index 3bc6735fc253..2ab91f479fc6 100644
-> --- a/drivers/tty/serial/8250/8250_dw.c
-> +++ b/drivers/tty/serial/8250/8250_dw.c
-> @@ -17,6 +17,7 @@
->  #include <linux/device.h>
->  #include <linux/err.h>
->  #include <linux/io.h>
-> +#include <linux/limits.h>
->  #include <linux/lockdep.h>
->  #include <linux/module.h>
->  #include <linux/mutex.h>
-> @@ -45,6 +46,10 @@
->  #define RZN1_UART_xDMACR_8_WORD_BURST	(2 << 1)
->  #define RZN1_UART_xDMACR_BLK_SZ(x)	((x) << 3)
->  
-> +/* Allwinner FIFO Clock Control register */
-> +#define SUNXI_UART_FCC			0xf0
-> +#define SUNXI_UART_FCC_FIFO_DEPTH		GENMASK(31, 8)
-> +
->  /* Quirks */
->  #define DW_UART_QUIRK_OCTEON		BIT(0)
->  #define DW_UART_QUIRK_ARMADA_38X	BIT(1)
-> @@ -64,6 +69,7 @@
->  struct dw8250_platform_data {
->  	u8 usr_reg;
->  	u32 cpr_value;
-> +	/* Fixed sunxi FIFO depth; zero selects discovery through FCC */
->  	unsigned int fifo_size;
->  	unsigned int quirks;
->  	int (*setup)(struct uart_port *p);
-> @@ -729,6 +735,16 @@ static int dw8250_sunxi_setup(struct uart_port *p)
->  	p->type = PORT_16550A;
->  	p->flags |= UPF_FIXED_TYPE;
->  	p->fifosize = data->pdata->fifo_size;
-> +	if (!p->fifosize) {
-> +		u32 fcc = dw8250_readl_ext(p, SUNXI_UART_FCC);
-> +
-> +		p->fifosize = FIELD_GET(SUNXI_UART_FCC_FIFO_DEPTH, fcc);
-> +	}
-> +	/* The RX trigger table must contain positive, byte-sized thresholds */
-> +	if (p->fifosize < 4 || p->fifosize - 2 > U8_MAX)
+AFAICS, mm in this case is init_mm, and ASID for init_mm is 0.
 
-One additional comment.
-
-What is the reason for this "byte-sized" limit? Is it Allwinner specific 
-or perhaps the use of unsigned char in 8250 driver to store them?
-
-In the DW databook the CPR given fifosizes go all the way up to 2k. I'm 
-not sure how large actual UARTs make them but applying the FCR formulas 
-one could get > U8_MAX thresholds.
-
-If it's just 8250 drivers type limitation, I think the comment should 
-make that obvious the type could be changed as needed.
-
--- 
- i.
-
-> +		return dev_err_probe(p->dev, -EINVAL,
-> +				     "invalid FIFO size %u\n", p->fifosize);
-> +
->  	up->capabilities = UART_CAP_FIFO | UART_CAP_NOTEMT | UART_CAP_AFE;
->  
->  	dw8250_sunxi_setup_rxtrig(p);
-> @@ -972,6 +988,12 @@ static const struct dw8250_platform_data dw8250_h616_data = {
->  	.setup = dw8250_sunxi_setup,
->  };
->  
-> +static const struct dw8250_platform_data dw8250_a523_data = {
-> +	.usr_reg = DW_UART_USR,
-> +	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
-> +	.setup = dw8250_sunxi_setup,
-> +};
-> +
->  static const struct dw8250_platform_data dw8250_octeon_3860_data = {
->  	.usr_reg = OCTEON_UART_USR,
->  	.quirks = DW_UART_QUIRK_OCTEON,
-> @@ -1024,6 +1046,7 @@ static const struct dw8250_platform_data dw8250_tda54 = {
->  static const struct of_device_id dw8250_of_match[] = {
->  	{ .compatible = "snps,dw-apb-uart", .data = &dw8250_dw_apb },
->  	{ .compatible = "allwinner,sun50i-h616-uart", .data = &dw8250_h616_data },
-> +	{ .compatible = "allwinner,sun55i-a523-uart", .data = &dw8250_a523_data },
->  	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
->  	{ .compatible = "marvell,armada-38x-uart", .data = &dw8250_armada_38x_data },
->  	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
+Cheers
+Vladimir
+ 
+> void cpu_do_switch_mm(phys_addr_t pgd_phys, struct mm_struct *mm)
+> {
+> 	unsigned long ttbr1 = read_sysreg(ttbr1_el1);
+> 	unsigned long asid = ASID(mm);
+> 	unsigned long ttbr0 = phys_to_ttbr(pgd_phys);
 > 
+> 	/* Skip CNP for the reserved ASID */
+> 	if (system_supports_cnp() && asid)
+> 		ttbr0 |= TTBRx_EL1_CnP;
 > 
+> 	/* SW PAN needs a copy of the ASID in TTBR0 for entry */
+> 	if (IS_ENABLED(CONFIG_ARM64_SW_TTBR0_PAN))
+> 		ttbr0 |= FIELD_PREP(TTBRx_EL1_ASID_MASK, asid);
+> 
+> 	/* Set ASID in TTBR1 since TCR.A1 is set */
+> 	ttbr1 &= ~TTBRx_EL1_ASID_MASK;
+> 	ttbr1 |= FIELD_PREP(TTBRx_EL1_ASID_MASK, asid);
+> 
+> 	cpu_set_reserved_ttbr0_nosync();
+> 	write_sysreg(ttbr1, ttbr1_el1);
+> 	write_sysreg(ttbr0, ttbr0_el1);
+> 	isb();
+> 	post_ttbr_update_workaround();
+> }
+> 
+>> +	 * unchanged to preserve the ASID rollover bookkeeping.
+>> +	 */
+>> +	if (mm == &init_mm) {
+>> +		cpu_do_switch_mm(__pa_symbol(reserved_pg_dir), mm);
+>> +		return;
+>> +	}
+>> +
+>>  	if (system_supports_cnp())
+>>  		cpu_set_reserved_ttbr0();
+>>  
+>> -- 
+>> 2.39.5 (Apple Git-154)
+>>
 
 
