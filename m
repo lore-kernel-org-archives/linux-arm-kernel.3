@@ -2,112 +2,124 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3671606A323
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 11:31:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 583B8606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 11:34:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JGn83Ha2;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dZE0HogX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XTDfbQ84;
+	dkim=pass (2048-bit key, unprotected) header.d=fooishbar.org header.i=@fooishbar.org header.a=rsa-sha256 header.s=google header.b=X9YtF1t1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=fc3FdGgfqt2PjtuNm5DqcxaoUajXHOCam5lNu8rrOho=; b=JGn83Ha2IiYoLE
-	O3COKQlHWVPRnokLY3Df8KA6V6PVExVBPGoNwVQ8gMy4UbzPcrjZRoJuMFsSfnZP8UYgJHbfaT5Ul
-	/XmR9djgKh/yWG7UzbVojzxSBR0fV96o9BkscrmPVVKpL/b3cO5iTwOXlhV/VEEUoZlodRYS30cb3
-	QrtgiFsFzutaceEHyCZ5FMgXcm9LEMp86WC7Z6m6E9Mht5Y4VMwO+SeVFzrOBfe+jxxu8fGrdz0o2
-	dtNPJ7TqtHLj1hsQY+6u9SpVCQFk2ZuINmju619BRUCtCrHEEuXmbGj3kMVGjc3+hs024hxtsvhEI
-	pA+Qt5rO7pCdhChgnZNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=c97+eBSw0JgaFK2XxPHQ2OocTE5xGkKfdIwT0n7EkqY=; b=XTDfbQ848dSAslw/x03J5AN+J/
+	mphMfg5xRioLdkeCIs3EezqgS9oP9gSWyI/GTOECdWVzNLdXCUJOP3tkvMH6TDLO+jojj0Vb3zTvU
+	U9CTUZFsspkPx1TmXVlUMq7Abdq+F07gfn38UrpcL2lMFhYjQkgMNr83+5lo4KWkPMIt1qSlYB5FK
+	RxS+pM1Gn8/svmvoJpehqVvGekWdp0rm4zroNk+I9j3bjgpYEHkSvSzGOgzWRCf/zcvE3r9U+i/z2
+	FTh+kQmGfz/ZkSrWSY+3RFBB1tl4wnYHW2mcgUvEorQIr7xtpqkvPDHbENiEXmEYIZ7xGjJCrJecH
+	WFbkBkTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMkpA-0000000BYdg-3mVE;
-	Fri, 30 Oct 2026 11:31:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xMksi-0000000BYtZ-2rKb;
+	Fri, 30 Oct 2026 11:34:48 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMkp8-0000000BYdQ-2pvX;
-	Fri, 30 Oct 2026 11:31:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D523A439D3;
-	Fri, 30 Oct 2026 11:31:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AB001F000C1;
-	Fri, 30 Oct 2026 11:30:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793359864;
-	bh=fc3FdGgfqt2PjtuNm5DqcxaoUajXHOCam5lNu8rrOho=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=dZE0HogXqio3NrjjVeQ2s+c9/99ERueNcy+A9dP20Z2R0WD9yQgJvSuXAuO56MRnl
-	 flwfksExGNPqpkzBLs6sbq6M+Kj5uE6jfI6oDzBflpwFTgDnIIEdqiGIFSCgnREdgW
-	 ppivAuKtovn3jhy2WhcnReO8CXKju0qxlSl4Trwbxuz1phbSwvRNu6KUBBw+s3/AI/
-	 GHUsQY4RJ/fHa/0hlFRaYX/a/lioSX255vGN9JRb8sr/RWchHDYjYkD3OFRkSzngVl
-	 2JrNAXkeVncchhMP01yagv0PYKZfkTh6QcbHK1w5/LFM9qU/EFLQbP7AIAC4LF0k/+
-	 iJEgwncAN058w==
-Message-ID: <e7b3c2b2-8d0e-46cc-b245-a22f6aa7e69f@kernel.org>
-Date: Fri, 30 Oct 2026 12:30:58 +0100
+	id 1xMksf-0000000BYss-22jH
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Oct 2026 11:34:46 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2eb18f4da15so2051435ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 04:34:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793360084; cv=none;
+        d=google.com; s=arc-20260327;
+        b=PnvexhnDgiCJP3C8b7v36ieQb73rMk9S+M+zjvG1eZWRxgjJTYJCx8w+3rSgPAt/v6
+         qLmdQgNCAQxZbFjzz9iTr+EiVuf488XRHhQTLXjS2OgGD00mbM5HQFRl8/c8JCMIdr+U
+         TTe5/pcpMgXt9N7RT+UJmUiU1F541qEOyerIeD13VTwFblvLAsweKmg92SwgJexwNN+W
+         b5CixK4P+63ebYV2ZFOne21SYL/2ehgwS1g51ME8TKmDwaXCHdtjmxNSYC9T6DBhl8gX
+         Vi9rUC3G9OA43q9RMF1XDd+wiH4VMY1M+UWXGwlcBzUQfM10IHHuMtCNIaDKY5Kl/NkY
+         UVYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=c97+eBSw0JgaFK2XxPHQ2OocTE5xGkKfdIwT0n7EkqY=;
+        fh=8lWH3C2unpRvL13TLr9s1efoQotxqf/bRk1qW1ohOw8=;
+        b=PfQv+AQBKwtgDKGLadTDgd/05rkUHCFXIzrxAetjReJ9LvSx87jCtuQwcioF49NGx5
+         l+zANQmWTOpJ0wfklO8w/NdEKaxjeKEOopm4cLpDxySO+AselOOhIhOIUXvGcz7ZqEPi
+         M5ykIcSujHJ0Mg1bKTNnPcMFZi9qHehuNq4/PJaKLiqqFWn3DKmkoaprvzkCkkcARpRi
+         8tPfbDbJlq7ek5UNbARX16GyHQBII5DyxfYREeRs/V7vrzfBgHduM221OQLfA3KjIeuz
+         HMuBYVmbPZ6fgowTbVAsC8AF9Eqc1Cu0wv+gkG1nL98R0paiHpgBSuRSqlrcHTpFsbWb
+         jcmg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1793360084; x=1793964884; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=c97+eBSw0JgaFK2XxPHQ2OocTE5xGkKfdIwT0n7EkqY=;
+        b=X9YtF1t1NxJuxyn1q/iCYcz5bITsCAQ/7Vygleeghw8KOYLHwoElPTf4AC6OG+TRpY
+         d8k8FT2Y+wYtLtJ0XfXPLjsrv8aDdrXWmNS3tFowG+VbQgYp1oS/vLKOXzBKvd4rYHcB
+         QsIuLGW6g5aPL6e3lscf7MHWuDqmJZMlOu8zubOccvCI1CVrDVmhGZ6Y17YGRPHtCCWB
+         KAd+CrpPl+m0Jz0PtuhzgUH91tkqlXXCDTpiF42rrxEuUHp12PIW0bnE3t+oMkr6RtpW
+         lu/iY+7wxWh6X5qVKV7AShCKho92uZD11DZ/LtEc3ItxrUkEuzx5J+NmZL7owiD+H18t
+         7zIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793360084; x=1793964884;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=c97+eBSw0JgaFK2XxPHQ2OocTE5xGkKfdIwT0n7EkqY=;
+        b=wpZrChIPicRQ3VoKjcTYrpZM7UyzxHN2n5yVaToK29XBYdv9MUueWUbwXLsO0byvdM
+         Y3QpoQw3jjyqGSNNOmdTe2T/witi0Vj3eV6VZiXMMxKI6twQ0tmBG2Vp0+aMxIWYvr1j
+         eOKPGlvzNFxQqzlt3RD3hdIcLZNnH2oG19MOxfpzKi5Q9yXymCm1KMGJtre3MxG6IwJw
+         HXs2Ll310xQLnIQ8GF7kf6vTk2JMc9yNywjxr/MOTH6QMWOLNxAZDD2zt2vQlUJoIfBp
+         FgAuQLbUyNl/HRjCddHRCjCmlcKUS+T5s2yx17+tBmb0mYatJhDs1gWruLWXC+NvnZm4
+         olvQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw0d8dGSIs6P3zTZej7dNzEZzyQyt7ZbtyNUONSk/BrpyUmE7csaKR4Bh1PgqYxeGST61JVLA+ePOAHXXZah9rf@lists.infradead.org
+X-Gm-Message-State: AFq9FYIExOEmVEjVi0UwJQbNJPI9FOjul+8H07aszPSHtRBH41gonrPw
+	JnALge2JJ++OtBTFwnhxLPKWvXAhcn2Q7Ylony0q87GH4HVtj4xOhoxlfILy9PcqVcNfACS778s
+	spKdu9/T3Y2rOu41az8KOHHPI0ueNZiHdJGwYvGU7ZA==
+X-Gm-Gg: AYBFou3uwoCyJuPAw0bOtfMDdLUNTwUFbGBwd4fr6XMPbWVX8hXOyUAP4Fu/QX+27vH
+	fiyhg9YB5PcKbZA2MV9HTWhjLD9c+glBi2kogA55YoGVFT8Bav60AiL9TRonA0KAvNivd1wBxqk
+	sHrRzIa6O8G2hgEpYZ2M4aoono+EMiC0qeOoO6BE7ETZM7ta97STGQ1IYwPxbs0JAyonRwbBOvp
+	6LvEa6KYv2P8/N4kAS0nT/+yhGc1ujnFLffJRJNvjOK1y6Zwyx3lNaKGP7XD3+4k0TiTTqK5E2F
+	uPH159Cp/YPTYRJfewiigZXCOJTYXpZJn6ZoPoePOVokJ7ocly+36QwNEZgXcWiIeI1OYrKlaQb
+	h3jI7kmrgcd8/StBYfCvwq8d2ZK7fLdNkwXe0
+X-Received: by 2002:a17:903:384d:b0:2e9:9bac:2e90 with SMTP id
+ d9443c01a7336-2eb3650d23fmr19334835ad.65.1793360084151; Fri, 30 Oct 2026
+ 04:34:44 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 4/6] decoder: Add V4L2 stateless H.264 decoder driver
-To: zhentao.guo@amlogic.com, Nicolas Dufresne
- <nicolas.dufresne@collabora.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20261022-b4-s4-vdec-upstream-v12-0-616240978792@amlogic.com>
- <20261022-b4-s4-vdec-upstream-v12-4-616240978792@amlogic.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261022-b4-s4-vdec-upstream-v12-4-616240978792@amlogic.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20261014-dw-hdmi-qp-yuv-v5-0-6fab0fe43a9b@collabora.com> <20261014-dw-hdmi-qp-yuv-v5-2-6fab0fe43a9b@collabora.com>
+In-Reply-To: <20261014-dw-hdmi-qp-yuv-v5-2-6fab0fe43a9b@collabora.com>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Fri, 30 Oct 2026 11:34:33 +0000
+X-Gm-Features: AclHuK_tphtpQ4KgZ6QBDW1MCkhoNuUykWSbAiahdSvtWRJxD3fhHMWk1DFCw5Q
+Message-ID: <CAPj87rMYHa6NmiwC3DJ30fSLukpyNJdgRa-Ri-TyZTpDu2NkrA@mail.gmail.com>
+Subject: Re: [PATCH v5 02/15] drm/rockchip: vop2: Fix resource leak on
+ vop2_enable() error path
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Daniel Stone <daniels@collabora.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, kernel@collabora.com, 
+	Andy Yan <andyshrk@163.com>, dri-devel@lists.freedesktop.org, 
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Sashiko <sashiko-bot@kernel.org>, Igor Paunovic <royalnet026@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261030_043445_527591_9CA6613A 
+X-CRM114-Status: GOOD (  10.04  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,33 +130,25 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 22/10/2026 07:27, Zhentao Guo via B4 Relay wrote:
-> From: Zhentao Guo <zhentao.guo@amlogic.com>
-> 
-> Add initial support for V4L2 stateless video decoder
-> driver on Amlogic S4(S805X2) platform. In phase 1,
-> it supports 8bit H.264 bitstreams decoding. Currently
-> only progressive streams are supported.
+On Tue, 13 Oct 2026 at 23:51, Cristian Ciocaltea
+<cristian.ciocaltea@collabora.com> wrote:
+> vop2_enable() returns void, so callers cannot tell whether powering up
+> the VOP2 succeeded.
+>
+> Additionally, if rockchip_drm_dma_attach_device() fails, vop2_enable()
+> returns without disabling the core clocks or dropping the runtime PM
+> reference taken earlier, leaking both.
+>
+> Make vop2_enable() return int and unwind all resources on every failure
+> path.  As disabling the core clocks is also needed in vop2_disable(),
+> factor it out into a local helper used by both.
 
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
-
-You already received this comment, no?
-
-> 
-> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
-
-Anyway, several issues were reported here in separate threading.
-
-Best regards,
-Krzysztof
+Reviewed-by: Daniel Stone <daniels@collabora.com>
 
