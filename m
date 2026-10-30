@@ -2,106 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71713606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 08:57:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B20D606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 08:59:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=N+8gL/Tg;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GgvQBS5F
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=r+f7TX/F;
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=vESj5NoO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=eGH1sgh8fHcD1YzHQAXXHU+ICjz/GR3arUB8DIO7xaI=; b=N+8gL/Tg8iV0wVkohUSQo3MP1j
-	4cTh9DNmQ7Kw1ED+BUJ3Qu2HcRpWzgDgQHbL30EfzmNypzZeR3tIZaCSoTAXnCyMtzHBJTY+pxrQ+
-	K8uWOWvqvzD+CzfAapckmdQMD2EczsgOuULwaEuv9vlLGca9mgheiFaIQcAjLBwvsXfoFygGIZjGk
-	q4eFmOw2UyYEou8piOHdjLUJamEdiKrnm6SE8Px9w3LjHMYYnWeLsByVxttEFkaAfmjRoA5BQCULj
-	GL5Nsvll3WzdBj+y7r6qGCujrIxeSsfSFk4R7OPznVOP2KEUGTOt+/At6KgOlrwhs5DQWRKt4QGFD
-	w0X+gjLg==;
+	bh=FGYjc1WDwG+DBcG/E4vUnJWguzsaM5whGyM2s0RYAtc=; b=r+f7TX/F+ntaAklge8c5+RSgJU
+	O7pkXhA59YMfqTeNk/YBu6vLvtHjxFuwaETWvPIOXw28d/MJS2osxZqBdKStVF9pwtWXBbB0mwuBK
+	Yv7HexVHyV3tFkZhQS6xelS2cVceUQo3r7jJK17tUOY+RGl8rasVikjKaRm6SCFexwFEHYRi4naLD
+	q5CMNVVGrv5Db9uwwebP1Oz1hU0nSjLENe2RGbcVqeIpceTvJfafUgX5vBtaLTT3a5qPWoktCvYNw
+	4q00dmJqSdcTV7BNYtrOdxO/pJSJW3+3xCTg1VZ2MH7NsquAeToBykBZNBjWvqSyVfqc7n4h+eQri
+	j3BUu04Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMiQm-0000000BBIE-1qHT;
-	Fri, 30 Oct 2026 08:57:48 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMiQk-0000000BBHM-0Z0V
+	id 1xMiS1-0000000BBYL-31eI;
+	Fri, 30 Oct 2026 08:59:05 +0000
+Received: from cmccmta8.chinamobile.com ([111.22.67.151])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMiRy-0000000BBXO-1418
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 08:57:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793350666; x=1824886666;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=XC9L0N0lGS0WxoaPGxJtRF+Dcu7w/yLaO4BtytOzzuQ=;
-  b=GgvQBS5FMaxyGA7yUbOdJ5fiFg97eKNAFS2qeI+/vINYzU1mTvrB12Fc
-   vCM5fiLijQ79GxP6be3+seiMORITvGNctWj98rpT3Vk6fK5KbeOAnnhNU
-   v8Q2dVs9PmGaFN1ZdgGsqFqY21XfYmDidvkxGJpg2U8yacBi8Gw7GiIIW
-   V7dab1CwQZlvG2gKYQH7q6xa2gkkH3XQStuIu1iw8rgeOjJsgTg8KLjnu
-   VEs9t4TKVAHErlSNYUD6u/2JEKZJVydYGhDfy8TGGFmQpW7Ys6seqh7iw
-   0pPKB1C4WEi8UKx/Zwz4jq7I5NafFo0/J8CJc1QONQz9XYl1tMa3gsVi8
-   g==;
-X-CSE-ConnectionGUID: 0wYLUF9GTmaIpvpdWLdKPw==
-X-CSE-MsgGUID: 6OrKV+ygQsmZ32PBa8HPPw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11950"; a="1987146"
-X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
-   d="scan'208";a="1987146"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 01:57:43 -0700
-X-CSE-ConnectionGUID: 2ZQs9CufQJ2aI+tvMlBntg==
-X-CSE-MsgGUID: YTk54IPeRM2APeu2Ec1IKw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
-   d="scan'208";a="5265993"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.19])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 01:57:35 -0700
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 2CDB9121B77;
-	Fri, 30 Oct 2026 10:57:36 +0200 (EET)
-Date: Fri, 30 Oct 2026 10:57:34 +0200
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Frank.Li@oss.nxp.com
-Cc: Frank Li <Frank.Li@nxp.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>,
-	Karol Wachowski <karol.wachowski@linux.intel.com>,
-	Oded Gabbay <ogabbay@kernel.org>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	Matthew Brost <matthew.brost@intel.com>,
-	Thomas Hellstrom <thomas.hellstrom@linux.intel.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Alex Elder <elder@kernel.org>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Guan-Yu Lin <guanyulin@google.com>,
-	Mathias Nyman <mathias.nyman@linux.intel.com>,
-	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, linux-hwmon@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev, netdev@vger.kernel.org,
-	imx@lists.linux.dev, Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH 1/1] PM: runtime: change stub pm_runtime_get_if_active()
- return 1 when !CONFIG_PM
-Message-ID: <auRb_r8ZSSU-eHZA@kekkonen.localdomain>
-References: <20261029163044.3062958-1-Frank.Li@oss.nxp.com>
+	Fri, 30 Oct 2026 08:59:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=vESj5NoO9/PGNU5IPaSAr/gcfFf3Zo+H1wZENYuWd53kNzWAS2SWOrPoG3XSNdK1bdgWKAeTrUqBz
+	 adewOlM3Zbh+T8ozXp63XcPt/8lDnakq1sayQFm8ImhpM7bWRSbxsBs1dNvW4BrWKJUcDGZyzqe39z
+	 ZfGISGs61E2087Ho=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG: 00000000
+Received: from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66ae45c4d08a-40501;
+	Fri, 30 Oct 2026 16:58:54 +0800 (CST)
+X-RM-TRANSID: 2ee66ae45c4d08a-40501
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG: 00000000
+Received: from DESKTOP-3K8GUTQ (unknown[223.108.79.101])
+	by rmsmtp-syy-appsvr03-12003 (RichMail) with SMTP id 2ee36ae45c4ca2e-54c00;
+	Fri, 30 Oct 2026 16:58:54 +0800 (CST)
+X-RM-TRANSID: 2ee36ae45c4ca2e-54c00
+From: laixiangwu <laixiangwu@cmss.chinamobile.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: MD Danish Anwar <danishanwar@ti.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	laixiangwu <laixiangwu@cmss.chinamobile.com>
+Subject: [PATCH] net: ti: icssg-prueth-sr1: Fix device_node refcount leak in prueth_probe()
+Date: Fri, 30 Oct 2026 16:58:51 +0800
+Message-ID: <20261030085851.2019-1-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261029163044.3062958-1-Frank.Li@oss.nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_015746_238023_86FEF54C 
-X-CRM114-Status: GOOD (  14.02  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261030_015902_889508_534EA13A 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +82,51 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Frank,
+prueth_probe() takes references on the eth0_node/eth1_node device nodes
+with of_node_get() and stores them in prueth->eth_node[]. If either of
+the "ti,mii-g-rt" or "ti,mii-rt" syscon regmap lookups fails, probe()
+returns -ENODEV without dropping those references, leaking the device
+nodes.
 
-Thanks for the patch.
+Jump to the existing put_cores label so the error path releases the
+eth0_node/eth1_node references like all the other failure paths in the
+function do.
 
-On Thu, Oct 29, 2026 at 12:30:37PM -0400, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> When CONFIG_PM is not enabled, all devices runtime PM state should be
-> treated as active.
-> 
-> __pm_runtime_resume() returns 1 (called by pm_runtime_get()).
-> pm_runtime_get_if_active() is the try-and-get version of pm_runtime_get().
-> stub pm_runtime_active() also returns true. So pm_runtime_get_if_active()
-> should return the same value as the stub pm_runtime_get(), which is 1.
+Fixes: e654b85a693e ("net: ti: icssg-prueth: Add ICSSG Ethernet driver for AM65x SR1.0 platforms")
+Signed-off-by: laixiangwu <laixiangwu@cmss.chinamobile.com>
+---
+ drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Shouldn't the same change be done to pm_runtime_get_if_in_use()? It's
-otherwise the same, except that it requires also the use count to be
-non-zero.
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+index b8115ca47..ef1dc32ff 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+@@ -963,13 +963,15 @@ static int prueth_probe(struct platform_device *pdev)
+ 	prueth->miig_rt = syscon_regmap_lookup_by_phandle(np, "ti,mii-g-rt");
+ 	if (IS_ERR(prueth->miig_rt)) {
+ 		dev_err(dev, "couldn't get ti,mii-g-rt syscon regmap\n");
+-		return -ENODEV;
++		ret = -ENODEV;
++		goto put_cores;
+ 	}
+ 
+ 	prueth->mii_rt = syscon_regmap_lookup_by_phandle(np, "ti,mii-rt");
+ 	if (IS_ERR(prueth->mii_rt)) {
+ 		dev_err(dev, "couldn't get ti,mii-rt syscon regmap\n");
+-		return -ENODEV;
++		ret = -ENODEV;
++		goto put_cores;
+ 	}
+ 
+ 	if (eth0_node) {
 
--- 
-Regards,
 
-Sakari Ailus
 
