@@ -2,94 +2,94 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C19FB606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 07:12:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDB9F606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 07:12:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PA9KtKHo;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hGTIgvR7;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=j1Mgf8LI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wGnRHFB4;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XHrkCHjW;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cL9rSfp6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=GBXGIsf8Ff9iTgcTPMOoZ8nhfqdAMpikNU4DnUYt6g8=; b=PA9KtKHodC3ltsYBrSnqSRAQzf
-	++++iXbxp/1ALH6IHVeAMknqniSuifpecGWDbkOmhkKvUYcl+zPCoMtsLUMpUamyiUy1q6ywth63g
-	uHOGXL9IudztNoomW0bXjBrl58xwGpmI0SaOxPJbmnwnyAsMcSW4q+uMQnwJlx9R5HMglD5OEYEGg
-	DqhXYPCy4Fkx8tyjJIu7s5PG+KBn4enDuycm5eusCZ7xu2HZnC5Xi+A9Rk7i6SmgiC7fYBtqH2gAz
-	KhIpWwaYYDeqo9nCOpUn6Xnc9z6eTR3BWYDoCX3h4+1FlS2krxpks4K+S3weK3zV3C5zkGG+uRRnU
-	/zw+D3fg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=qFT+rqRNAHe9ZehLPWsieIK4G697OzZYWHTxlznKNbw=; b=wGnRHFB4dA1X7d
+	toX/wA/hjMmZ0yWlyw8fB8oGTtwRd6gNLYGl1yhjX8wZn+32trdbReUwdLrNA8bw6mrJCm7an//vy
+	DuWBNyc9hpn/B/SSnHZ0ZJsSx5kFxVbZKlrXo4YTQXFCNxoSv6CfVAigBAgpRIt9R1imhx/kIYmDO
+	hOFpqYW7UukUJnvgJ4NRjDgx3lCYzqBXJ0Nc8NUqgv6AQTO3DV8/KilBoZ6MMewC3OHhcvlSVwbSY
+	Oyxg0nf1aCebfvVtahn9gSt2OxdWpVSNNJA78nVEFCugYx2JAmrRd99UIKH4naA/N/c7R7ZkfuZD1
+	t4VqnMFuHKvnDJXQ2lMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMgmp-0000000AyTd-1Xyx;
-	Fri, 30 Oct 2026 07:12:27 +0000
+	id 1xMgmu-0000000AyUs-2gnP;
+	Fri, 30 Oct 2026 07:12:32 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMgmn-0000000AyTG-0Nbw
+	id 1xMgmo-0000000AyTW-3yGW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 07:12:26 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69U5F18j2325662
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 07:12:23 GMT
+	Fri, 30 Oct 2026 07:12:28 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69U5FFnK2871336
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 07:12:26 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=GBXGIsf8Ff9iTgcTPMOoZ8nhfqdAMpikNU4
-	DnUYt6g8=; b=hGTIgvR7bBCAQXvoNaBkX+H2e7HsCjJjl0yVS59OaA+/jrLX9uW
-	SmsFLzFodP6yqAfrbyHw6tsgyyIThvHGeTBJ5alaaSg4+nC/XqLI1QJACGSS+ocM
-	c6GfoXWFXLVbVse//7EY3+cQSzEhKyZCGzuZXnA8Tk1AKNDpf/EUYnJQF4KefnLf
-	CgvSZJ1lV8YtFuYsUo4p+SH4HAJyEPnLs6PqCAiLWqpF57ZXdx5YIk0GEAk4uX/V
-	Je9X2P3J01X4RCyoqiPHn7rt6Hb747qnt1MmL8BvPu8+mvVH348f8e8giuzpf/4g
-	i5BQXOGG82mOCIZxz1D8X2pRGqBdRxhCHnA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hme6qhq7f-1
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=qFT+rqRNAHe
+	9ZehLPWsieIK4G697OzZYWHTxlznKNbw=; b=XHrkCHjWjZFVZFOMZtyQhNQgXzM
+	rQ6vLczAloEGGCf0chqGtOnYmlU41RxeibazQMWodij7k0PT2YCqf85qqFkEGaCd
+	L9QJyr9u3ag/x/nJQ1Kz2pFPIrg04EaSrBv+MFY8Bw4bw0okp0Dk+ApSxAhYQu07
+	qoitc+yfmT4+1OoubgAgBd1Hjl/3UwaiFXNVRZdku7VzUBj9MqyZynS16ZFLXRyW
+	y31CslzNQ0w1HeRjWefI3C/pB0z4/C6Eark0CevfSSojyreQ5QZHt79QChtWG7L8
+	JIQb0C8oTYNyaSixwyTpzROOLQ+oJ/q/ivvwkr0nsy9uTokTkmDhoUg+zRQ==
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hme6qhqq8-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 07:12:23 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93f13c143c8so62688085a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 00:12:23 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 07:12:25 +0000 (GMT)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-91c0f73807eso6113706d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 00:12:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793344343; x=1793949143; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GBXGIsf8Ff9iTgcTPMOoZ8nhfqdAMpikNU4DnUYt6g8=;
-        b=j1Mgf8LIuVGSSX/2utV8NV29esC++vcWHJzi8xwFmjIYail3uecaztiiJSPagFuSu5
-         azD8T86zCz8B8Z6iuZtT+4j4/ZN/uQaCsUATzVBwGpafFEEHV4VINlhD3DPufpw9IRJx
-         TeGBFc2bm2I5rjBmsrCF0cHerrGKnEnD2GT0iHncBar1In69BUXaKcRE6YrlBXkYBY6a
-         7uHt5dd+n5VU3lfIZCCTAT3RgjRIZyCNugtIBmbuPmG0nlrL5isWG+HEx5hoNX3kG1ZG
-         bu/DYXk08JSYGlPDVgYgDESfAfNoTdhLQMWZG3jumztGcAute9SqleE0CKZ+akOCEvQB
-         UNvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793344343; x=1793949143;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=oss.qualcomm.com; s=google; t=1793344345; x=1793949145; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=GBXGIsf8Ff9iTgcTPMOoZ8nhfqdAMpikNU4DnUYt6g8=;
-        b=sUcD+AOx9xEg/E64VVgRTQtlWpgvkdsu9YTt0GrCZ0g0wc9E2IZeAIxjdujcQCiTv9
-         6riZrm1xdVU2q06NtFUBubWoUh1IgrS8jPDuw4ukjav78mIUDZl1Zw/qD//L5X3O1mYg
-         4u+zfYLSx6JziBHuj4o7HPvpYAWW7Puz2T9FNijL4gPoCpwIXOLgIKg5yXYU5pKhGGs7
-         LBpjZVc6TTR21b/MQRhcE9wdab8hG8RXx62LV5/Zsk1aOtYZ4TVk2hkOXlMGfN4ZLXaT
-         KWdGGpf8IQf+CImbbejiztf6qOK9Aax7TpE/6/C5lnbPuDjWk0UWywFt5415V5YjluXI
-         Adng==
-X-Forwarded-Encrypted: i=1; AKwUvBzy4v+cLrKieJBvbUfhIBAJ6As9U5J3aiR7haG2825zI09G0bTJdAuEWPEakhjpRI6H6vqN7+dkNy1RT3y8/X+2@lists.infradead.org
-X-Gm-Message-State: AFq9FYKtYaBToJG8Td16IoIinhgyAM+zzHTGQnxz2GenG9cFgjv1Z+ru
-	fcjZFDspHjbyUsgWQfCuiWJ5ulN8wU/fkPhAo4n2XXiBI3xHmA6G53lo+NkPQMoDS27M9+HYTVj
-	nEl87zWENR6pIWAjCmrmnNPkgcDKz/elwikQMO1CC1V7blTr85Gs7WHMIY08Sd7p4znLrLVXL4S
-	fSYQ==
-X-Gm-Gg: AYBFou0B1diGZjYNRyqP31YkwUreP8QuPCrg3jLtmyvpk5+oRqj+N61sfCVfmvu/v3r
-	k4jMjUfHS4XohDmFeMs8o6m1c7pMJ0nAh1Q+11x7VD4VwiGOt/t+Oowsjhr1H6d7UQXTFJopgA6
-	tNv6FDwfY4xJvFgrnjzCl5i1fpz3LbaA8UAxc6J3RKxojQw0yqo8Qv+pifUDKWXKh+iH1x4dmP6
-	7V/gA6lya0EQxxOcaWsvRQvHgXw41fweYTZ6VAZjRdhEN0tvpXex1h7M8VdXTcBn2xIHUXYz1sg
-	f/MPpsX4rjfQW/QralMm4GVq/p/XaYvwsa0KmnvulyTOC+IRESqLuJnDtg7PdsvfBw0SbU8Y4D6
-	B2I5TsGpXXE1ZwhypKF61m4BCiS/MN4gtD/oQH1Hfe0Ongd6D6//BqX+clGwb6w==
-X-Received: by 2002:a05:620a:8014:b0:939:733d:cbe0 with SMTP id af79cd13be357-9442158555emr246111185a.3.1793344342444;
-        Fri, 30 Oct 2026 00:12:22 -0700 (PDT)
-X-Received: by 2002:a05:620a:8014:b0:939:733d:cbe0 with SMTP id af79cd13be357-9442158555emr246107285a.3.1793344341953;
-        Fri, 30 Oct 2026 00:12:21 -0700 (PDT)
+        bh=qFT+rqRNAHe9ZehLPWsieIK4G697OzZYWHTxlznKNbw=;
+        b=cL9rSfp69HbfVZJHI+opFtT3eHSoJoEjZRCe/c4VYXF2ZSofCtRHFHkEBNi5EQOEY4
+         2oLmIkN73oIBYTUOis+0YTzEubZ+KpQj73IUxNQrqVIcnIFqxsnGjcqvPdfXe3tHqhdI
+         UwYsb+nWuyVWQucSWPFNnB6e70FyZHKegTJkuSq2AgcHRGqK6frs3M95uFS54tTQIvP4
+         We81fQk+rI0qrJkoGXZXgKgWfNRxUfzx819+av9aoVP6Gpa5b41RSBgPH37HmNy7HJx4
+         dy3qAKWuQ/WvfisVC4M270b9wjQJnmR3YIGlxMcSMyoq+nJ6awd+mskI0ru6WpElrE/t
+         4HyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793344345; x=1793949145;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qFT+rqRNAHe9ZehLPWsieIK4G697OzZYWHTxlznKNbw=;
+        b=j7xp/E9j5yj2CXXz3jKDxcL/0jHg5/eH67CVOqrkB5RTJgJ92HL+CNU7aj/uRg/+FM
+         jX+pFnuqmx9I5jic9dFxlm07WdfPLwWTy6bjKgSCsc5c3whxQVIUsAyG5WKQOVV/Ox/i
+         Tb/SzXSS75OtqLIXU7XKxZE8JDxy5y01pHaZCT0UfAbJMvd68njQgJvsMqYQD7kE7KWC
+         0qXrvpmBFKQUTX2nzP4kDXI4SrEEKiN0MztOFmoj0DXEnReLVuVbKpSa1SfabJG6znuK
+         gR3WyYjR7xBjOl2T1r6X6OiGGOwCD+P4dXYj+/V0L66LmSnSu60zf1F6ijGGW0dAqHDf
+         g8RQ==
+X-Forwarded-Encrypted: i=1; AKwUvBz93JreU5PZGjZRTWDw9Ig1GPiAXenLTpHGmX8TA4rKeS0TjPPCyZLqj68Zmd9Ib0b7mjGsBBuR9zjmBLlGSbrC@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ6CUWwl+r8u2+PaTvEzZzoJ7TTw0L2NGbJEVXxBWTtMld2gywt
+	jVVLjn4RQk/myc2r4Y8wco4/f5KaTym35Wuwewfz84o22ClAHPag39NDk6Q1t1zTp0qyTxV/jx+
+	aoilrX15zZhdS0c8U3QtOmoli3r/xrJBb8mlqkbA/R6W96wr98DEuUvocrx/zhC0vGdemr+M0mn
+	Uf3w==
+X-Gm-Gg: AYBFou0xunBC+DwYEXBW1zcOmHGcrT5OXKWn4cauU79rXzm32zW3xDfGfKX3MjPuqqu
+	Z7S19vHiCMWEoiLLwmfyB4bMMIba6gMI0JoAO8f9/3tdyjZdp5NhiLSWOQs26pudmawraYSysbl
+	CLgnZajLCOHxNqNDXFFL+4TWRfh915mTvCFt3DJ9chFEjcSRlZwz/LlRx5izpt6rY6Qe2veeiUp
+	l4B+Y3mvSQC76BmrRdmZSk1Uv/wf/3ZU7pDFKW3xCVq/ctVk06oifOvhDgtvZWzHaGg6YThIe/8
+	YoobM4mb/W48A1qzuNU6DvZQDc0kPoLzTBBdPyZjXVzIUYOPHUwOz4EceW/WFvi1zwMm9msr9hp
+	LH7FBQefyrmFvSubWinOaez894BDFGCGEVxOGwO8wX618ughXXATIzQbdAgHxdA==
+X-Received: by 2002:a05:620a:7086:b0:93c:c2f4:9182 with SMTP id af79cd13be357-944216b70dbmr248481085a.20.1793344345297;
+        Fri, 30 Oct 2026 00:12:25 -0700 (PDT)
+X-Received: by 2002:a05:620a:7086:b0:93c:c2f4:9182 with SMTP id af79cd13be357-944216b70dbmr248476785a.20.1793344344767;
+        Fri, 30 Oct 2026 00:12:24 -0700 (PDT)
 Received: from quoll ([178.197.218.7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abe7706516sm28581165e9.0.2026.10.30.00.12.18
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abe7706516sm28581165e9.0.2026.10.30.00.12.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 00:12:21 -0700 (PDT)
+        Fri, 30 Oct 2026 00:12:23 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 To: Lee Jones <lee@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
         Thomas Richard <thomas.richard@bootlin.com>,
@@ -111,56 +111,58 @@ To: Lee Jones <lee@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
         linux-stm32@st-md-mailman.stormreply.com,
         patches@opensource.cirrus.com
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH 1/2] mfd: Constify mfd_cell arrays
-Date: Fri, 30 Oct 2026 08:11:38 +0100
-Message-ID: <20261030071137.100954-3-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 2/2] mfd: cgbc: Allow compile testing
+Date: Fri, 30 Oct 2026 08:11:39 +0100
+Message-ID: <20261030071137.100954-4-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261030071137.100954-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20261030071137.100954-3-krzysztof.kozlowski@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11230; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=pGGqpQt25E6SebnEhU7k3lGSfg4jOWFkLbiIISHitrI=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBq5EMp2J/lexIAvdqPPdnCYCBPvkONl6H932ARQ
- piR1liUV+mJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCauRDKQAKCRDBN2bmhouD
- 13GgD/44CCQCIaLtaGgVNGHvkaPCgKjlAX8086oly4Ob1LJzeLHrMYiR8MvbyCrie+mDKoRb0Cm
- VlqhnhC7qeWLvwplSatd04JGBNqB8ofcOit4G3Rdx9TDIpHCEtRMPVnvS8wY2zVzLhL2Jy4vmdo
- Cv0ltumsHfBZy54Gyhe8sZUk0g35gnDBjQI+in04MEHcceJTo8jImPgZ8HuTWyDxxgIH5nwN+Os
- OW0XMB2CLAw/ja0+jnwC0rX10571EdFGqftMmRx52ApKbUTIE+KSmRgGkOEakjq/anitJSz7++I
- EMz3bAsvtGgn4z1CbDV1xRwyuWkYt7PgiYTpOuzrpPPrtenof95y5TYU8eL4TN8pfgA1Na9dvQ8
- rHZvesVvyigAh+JPLhUUdPpYlynGJ9eO6PPiGAEVr3iPZ3+tHp60YQMg5U92aqwS6qV/+ecROV0
- lMReQsG6hHKV7JjdgSFlfHyOP/eBQk8DudJtmH0wi8bmj+mfBYhqa4ghbJ/QAQz9qai9L3azD/+
- Ospqwv1uovblvBQBJU7+PgcLPPIWcF/Bxk3Mpi0P7rvt+VeWajQrT0i5CLz3Zax0mdBMlb8ZIsI
- EPsROwjIePL8F+rbZhkfN2iYk8EeHI0KJH0Ma8Gohvyc6V65pTqPQN2ZEyXIcd4Z2Sghr1xUGDI fdLsGqf738eDJJQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=794; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=iIBMZPVdQPZ+Y3Em+kGpb62RltCMiF/RzmkyCWBCVdU=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBq5EMtMkDa5LbSiL1INh6FUP1HLxKbLkJugs+eD
+ 5RzHGmpH0SJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCauRDLQAKCRDBN2bmhouD
+ 1wwxD/40aD2wfkNRVpF3wnlQvhEjP3/OceMSbSL4UVJuhUCAu0/tmiiDgJZ95wp5nCCVZCE2qXF
+ W0d7hrTtjD9nGsHv6zA/kCbHR2j1vZxUgEtHyXPobDcHzePDrgiPRhJP4KafCUPXV9HOXCNHiM6
+ r0B4ctgotq6T3MTBP4WUdPQH39fLP3pjt+n/y3xnp3VqpKUHxaKG1eVgR8tqzAjEdb8PK0wCmi1
+ 2YNFx6waJnQ/PQaVSl427cFso5F3or0NtkMFKiZczsoBiY80po/YdGW0c9NiQeIBwUfds+0N310
+ qiugQWw3oJIS8B2OxWFHbRJHvz+g6TASwdIiJ6sfZG6BILjbSP1lEQ6JojQYOah0XpPPCcmgJzg
+ N4vveaxJOgCc6eFRVvI+YkmAXOqJtDP9XIKIxwmcI5dgE5e4kj5h6af3Q2EWwhJuXPZRhEZhTbD
+ 9rTxN8F4W3XFQGNUn2Bnsu/qNmZucJyGhAv+yqj6ZDFwf64fn28Z4XC/ZbT84ZDfTHVtGdAMOUq
+ Y/NUCND4hN1OZren913zCAYCU1l5t8ePRabwrrBKNBhGyAnooWu555WdavF3YbMPFzEMpj573hG
+ I7nox20k5zqB8VBK6ABcXG+7Lq9JYbKbbscIpsmffA9U/OcMII2x26mzMKDHiDOXAQdEWWGy85U e3c/n5VTDl2XApg==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: udo4N69olXihcr--yaHq57ONpHeDqtuo
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMwMDAyOCBTYWx0ZWRfXyJhe5cyJwi/X
- jnAfTVow+cOMWDWB3n0nhI3PwOcCspaHmMz2lT/TRpJGft3ieftEyOUpgBLZGg6F5gewNjSBb+x
- rrOIV+kLNAOEl7aBFhhUHvuZ+QZnD6o=
-X-Authority-Analysis: v=2.4 cv=DfSCOftW c=1 sm=1 tr=0 ts=6ae44357 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=uyPgTw0bjBTS2cVxpiNm5w==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMwMDAyOCBTYWx0ZWRfXxkknUNb0HaHv
+ 42uKgx7faOxo8byBtTTy5k1cBl0d622dc5SEz3v1qDXt8GLrPGc55A2uW87T2TMstNT2Y2uMaWq
+ 8Adm58yBu3zdup7n1U/8pmXhBARpfV3eQ5Id8iovI/USGmZAwcqmkyf8BAoBaHD2EZ8rTy5oFIq
+ lhyqma/Ig4EAdHUnCHcZdUqhXteu4XzeMAkms0Toim4Wjd1QDlHGelY140QVgwZQQRNpudVKrcO
+ Wsbwq/Fh32SmQgvY6F3iCZY2z5gXrvDJdlL2zIPc95fdir13v9OC7OCx7/0+kPo5iGKfjg1r2jM
+ n0O8TUoCYv5bhil3625PF3xnIqspMSBs4Fq78sL8UocUuhnswFnjE7LS4wvjW89+V55SrCyGklG
+ cI8u5ukwDjOwxsJVH8Wm009kuArg7dIdMoQlt74pxFk2e/G0LTMsLrUy4WIKWamqFUbRbETBPy2
+ E0eWxVWnjjktZwm5loA==
+X-Proofpoint-ORIG-GUID: ijUZCJS-IxsR2uJiZLxSAphzxOkGL9_o
+X-Authority-Analysis: v=2.4 cv=IeoSymqa c=1 sm=1 tr=0 ts=6ae44359 cx=c_pps
+ a=oc9J++0uMp73DTRD5QyR2A==:117 a=uyPgTw0bjBTS2cVxpiNm5w==:17
  a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
- a=_gzb5aec3OYO3pdMjf0A:9 a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-GUID: udo4N69olXihcr--yaHq57ONpHeDqtuo
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMwMDAyOCBTYWx0ZWRfX4/4/YcHvlPXe
- 37JHHVbXrmJc1MhGl+FCb1dVHjszkD7K74diGPOq8R8m4UuFhf4e/CAQLaP34EPd4HRSk2czaJk
- K2fyE5zIQKgrymQnWZwzU6SvywyokTop09HOafW8cZs2y24wOXPvbtUooQydiru7Vp5dCNI0U4C
- oVjMuHa5GJQ5MLhmxed9SRNcLrmnyxUrjhJW09kr1zruNpgNLWM94Yf3CobfhvQ5PqRUZnLhNkH
- KYrbRAyW2GUyEJzrPPD3BDr2yWDNWNYclF5Y21DDAAo+Le89MO/mIUhmYP5uspEaTeMuA7zlTXN
- IqC0BKu/C3c+frdwLVg/WtkQv4CQWvgEwRfVEgc3WdEEovfO7kNfd0S3FKjKkieIGPkdOAhVbeK
- 8ZmZg00y3l85um5aVZpU8XAaI30kKK5tqqjuxUCv/GU5QeTL17y+NJ/CKFuksV1Wk9DWI0uswfZ
- AF9k/qxyvuaKlf8ub7A==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
+ a=rKWnc9nNlL7eC5Y4R5YA:9 a=iYH6xdkBrDN1Jqds4HTS:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMwMDAyOCBTYWx0ZWRfX0jAcO2yAoHz1
+ /ePdDX8yVeOoo+i6rPgZSFX0+kizf+1ElrPwZt90G8zA8x73p2ugz+VdnrriXQEUJv3EABLinom
+ D4lR5L6pOyNoJ840Y+AX//9rbuVXzRA=
+X-Proofpoint-GUID: ijUZCJS-IxsR2uJiZLxSAphzxOkGL9_o
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-30_02,2026-10-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 adultscore=0 priorityscore=1501 spamscore=0
- phishscore=0 bulkscore=0 lowpriorityscore=0 clxscore=1015 suspectscore=0
+ clxscore=1015 suspectscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
+ bulkscore=0 priorityscore=1501 malwarescore=0 impostorscore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610300028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_001225_262002_4D2805CC 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20261030_001227_099879_A9E8B558 
+X-CRM114-Status: GOOD (  16.30  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -180,322 +182,27 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-mfd_add_devices() takes pointer to const, so 'struct mfd_cell' arrays
-can be constified whenever driver does not modify it in the probe.
+cgbc-core.c driver does not use any X86-specific headers, so looks like
+it can be build tested everywhere for increased build coverage.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- drivers/mfd/ac100.c                   | 2 +-
- drivers/mfd/axp20x.c                  | 4 ++--
- drivers/mfd/cgbc-core.c               | 2 +-
- drivers/mfd/cs5535-mfd.c              | 2 +-
- drivers/mfd/intel_soc_pmic_bxtwc.c    | 2 +-
- drivers/mfd/intel_soc_pmic_chtdc_ti.c | 2 +-
- drivers/mfd/intel_soc_pmic_chtwc.c    | 2 +-
- drivers/mfd/intel_soc_pmic_crc.c      | 6 +++---
- drivers/mfd/max77705.c                | 2 +-
- drivers/mfd/menf21bmc.c               | 2 +-
- drivers/mfd/mxs-lradc.c               | 6 +++---
- drivers/mfd/rohm-bd718x7.c            | 6 +++---
- drivers/mfd/rsmu_core.c               | 8 ++++----
- drivers/mfd/stmfx.c                   | 2 +-
- drivers/mfd/vexpress-sysreg.c         | 2 +-
- drivers/mfd/wm97xx-core.c             | 2 +-
- 16 files changed, 26 insertions(+), 26 deletions(-)
+ drivers/mfd/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/mfd/ac100.c b/drivers/mfd/ac100.c
-index 8f47c392cbd1..51b4d468c51d 100644
---- a/drivers/mfd/ac100.c
-+++ b/drivers/mfd/ac100.c
-@@ -75,7 +75,7 @@ static const struct regmap_config ac100_regmap_config = {
- 	.cache_type	= REGCACHE_MAPLE,
- };
- 
--static struct mfd_cell ac100_cells[] = {
-+static const struct mfd_cell ac100_cells[] = {
- 	{
- 		.name		= "ac100-codec",
- 		.of_compatible	= "x-powers,ac100-codec",
-diff --git a/drivers/mfd/axp20x.c b/drivers/mfd/axp20x.c
-index 50df66de24e0..4d770e718716 100644
---- a/drivers/mfd/axp20x.c
-+++ b/drivers/mfd/axp20x.c
-@@ -1055,13 +1055,13 @@ static const struct mfd_cell axp152_cells[] = {
- 	},
- };
- 
--static struct mfd_cell axp313a_cells[] = {
-+static const struct mfd_cell axp313a_cells[] = {
- 	/* AXP323 is sometimes paired with AXP717 as sub-PMIC */
- 	MFD_CELL_BASIC("axp20x-regulator", NULL, NULL, 0, 1),
- 	MFD_CELL_RES("axp313a-pek", axp313a_pek_resources),
- };
- 
--static struct mfd_cell axp717_cells[] = {
-+static const struct mfd_cell axp717_cells[] = {
- 	MFD_CELL_NAME("axp20x-regulator"),
- 	MFD_CELL_RES("axp20x-pek", axp717_pek_resources),
- 	MFD_CELL_OF("axp717-adc",
-diff --git a/drivers/mfd/cgbc-core.c b/drivers/mfd/cgbc-core.c
-index 2becaf797646..3460c50047ea 100644
---- a/drivers/mfd/cgbc-core.c
-+++ b/drivers/mfd/cgbc-core.c
-@@ -231,7 +231,7 @@ int cgbc_command(struct cgbc_device_data *cgbc, void *cmd, unsigned int cmd_size
- }
- EXPORT_SYMBOL_GPL(cgbc_command);
- 
--static struct mfd_cell cgbc_devs[] = {
-+static const struct mfd_cell cgbc_devs[] = {
- 	{ .name = "cgbc-wdt"	},
- 	{ .name = "cgbc-gpio"	},
- 	{ .name = "cgbc-i2c", .id = 1 },
-diff --git a/drivers/mfd/cs5535-mfd.c b/drivers/mfd/cs5535-mfd.c
-index f3becbef19f5..d91d60dc5416 100644
---- a/drivers/mfd/cs5535-mfd.c
-+++ b/drivers/mfd/cs5535-mfd.c
-@@ -37,7 +37,7 @@ const struct software_node cs5535_gpio_swnode = {
- };
- EXPORT_SYMBOL_NS(cs5535_gpio_swnode, "CS5535");
- 
--static struct mfd_cell cs5535_mfd_cells[] = {
-+static const struct mfd_cell cs5535_mfd_cells[] = {
- 	{
- 		.name = "cs5535-smb",
- 		.num_resources = 1,
-diff --git a/drivers/mfd/intel_soc_pmic_bxtwc.c b/drivers/mfd/intel_soc_pmic_bxtwc.c
-index 117517c171b5..5aa9e52401f0 100644
---- a/drivers/mfd/intel_soc_pmic_bxtwc.c
-+++ b/drivers/mfd/intel_soc_pmic_bxtwc.c
-@@ -245,7 +245,7 @@ static const struct resource tmu_resources[] = {
- 	DEFINE_RES_IRQ_NAMED(BXTWC_TMU_IRQ, "TMU"),
- };
- 
--static struct mfd_cell bxt_wc_dev[] = {
-+static const struct mfd_cell bxt_wc_dev[] = {
- 	{
- 		.name = "bxt_wcove_thermal",
- 		.num_resources = ARRAY_SIZE(thermal_resources),
-diff --git a/drivers/mfd/intel_soc_pmic_chtdc_ti.c b/drivers/mfd/intel_soc_pmic_chtdc_ti.c
-index 6daf33e07ea0..8412a25d37ff 100644
---- a/drivers/mfd/intel_soc_pmic_chtdc_ti.c
-+++ b/drivers/mfd/intel_soc_pmic_chtdc_ti.c
-@@ -53,7 +53,7 @@ static const struct resource battery_resources[] = {
- 	DEFINE_RES_IRQ(CHTDC_TI_CCEOCAL),
- };
- 
--static struct mfd_cell chtdc_ti_dev[] = {
-+static const struct mfd_cell chtdc_ti_dev[] = {
- 	{
- 		.name = "chtdc_ti_pwrbtn",
- 		.num_resources = ARRAY_SIZE(power_button_resources),
-diff --git a/drivers/mfd/intel_soc_pmic_chtwc.c b/drivers/mfd/intel_soc_pmic_chtwc.c
-index aa71a7d83fcd..f27985a58c87 100644
---- a/drivers/mfd/intel_soc_pmic_chtwc.c
-+++ b/drivers/mfd/intel_soc_pmic_chtwc.c
-@@ -50,7 +50,7 @@ static const struct resource cht_wc_ext_charger_resources[] = {
- 	DEFINE_RES_IRQ(CHT_WC_EXT_CHGR_IRQ),
- };
- 
--static struct mfd_cell cht_wc_dev[] = {
-+static const struct mfd_cell cht_wc_dev[] = {
- 	{
- 		.name = "cht_wcove_pwrsrc",
- 		.num_resources = ARRAY_SIZE(cht_wc_pwrsrc_resources),
-diff --git a/drivers/mfd/intel_soc_pmic_crc.c b/drivers/mfd/intel_soc_pmic_crc.c
-index 627a89334908..ce4c9ef59198 100644
---- a/drivers/mfd/intel_soc_pmic_crc.c
-+++ b/drivers/mfd/intel_soc_pmic_crc.c
-@@ -54,7 +54,7 @@ static const struct resource gpio_resources[] = {
- 	DEFINE_RES_IRQ_NAMED(CRYSTAL_COVE_IRQ_GPIO, "GPIO"),
- };
- 
--static struct mfd_cell crystal_cove_byt_dev[] = {
-+static const struct mfd_cell crystal_cove_byt_dev[] = {
- 	{
- 		.name = "crystal_cove_pwrsrc",
- 		.num_resources = ARRAY_SIZE(pwrsrc_resources),
-@@ -93,7 +93,7 @@ static struct mfd_cell crystal_cove_byt_dev[] = {
- 	},
- };
- 
--static struct mfd_cell crystal_cove_cht_dev[] = {
-+static const struct mfd_cell crystal_cove_cht_dev[] = {
- 	{
- 		.name = "crystal_cove_gpio",
- 		.num_resources = ARRAY_SIZE(gpio_resources),
-@@ -142,7 +142,7 @@ static struct pwm_lookup crc_pwm_lookup[] = {
- 
- struct crystal_cove_config {
- 	unsigned long irq_flags;
--	struct mfd_cell *cell_dev;
-+	const struct mfd_cell *cell_dev;
- 	int n_cell_devs;
- 	const struct regmap_config *regmap_config;
- 	const struct regmap_irq_chip *irq_chip;
-diff --git a/drivers/mfd/max77705.c b/drivers/mfd/max77705.c
-index 2e9b81f26414..771015c229c8 100644
---- a/drivers/mfd/max77705.c
-+++ b/drivers/mfd/max77705.c
-@@ -15,7 +15,7 @@
- #include <linux/regmap.h>
- #include <linux/of.h>
- 
--static struct mfd_cell max77705_devs[] = {
-+static const struct mfd_cell max77705_devs[] = {
- 	MFD_CELL_OF("max77705-rgb", NULL, NULL, 0, 0, "maxim,max77705-rgb"),
- 	MFD_CELL_OF("max77705-charger", NULL, NULL, 0, 0, "maxim,max77705-charger"),
- 	MFD_CELL_OF("max77705-haptic", NULL, NULL, 0, 0, "maxim,max77705-haptic"),
-diff --git a/drivers/mfd/menf21bmc.c b/drivers/mfd/menf21bmc.c
-index 0f24de516d72..252d5c81db6b 100644
---- a/drivers/mfd/menf21bmc.c
-+++ b/drivers/mfd/menf21bmc.c
-@@ -17,7 +17,7 @@
- #define BMC_CMD_REV_MINOR	0x81
- #define BMC_CMD_REV_MAIN	0x82
- 
--static struct mfd_cell menf21bmc_cell[] = {
-+static const struct mfd_cell menf21bmc_cell[] = {
- 	{ .name = "menf21bmc_wdt", },
- 	{ .name = "menf21bmc_led", },
- 	{ .name = "menf21bmc_hwmon", }
-diff --git a/drivers/mfd/mxs-lradc.c b/drivers/mfd/mxs-lradc.c
-index 64afc7631790..71ad5184f7e0 100644
---- a/drivers/mfd/mxs-lradc.c
-+++ b/drivers/mfd/mxs-lradc.c
-@@ -90,7 +90,7 @@ static struct resource mx28_touchscreen_resources[] = {
- 	DEFINE_RES_IRQ_NAMED(MX28_LRADC_CH7_IRQ, "mxs-lradc-channel7"),
- };
- 
--static struct mfd_cell mx23_cells[] = {
-+static const struct mfd_cell mx23_cells[] = {
- 	{
- 		.name = "mxs-lradc-adc",
- 		.resources = mx23_adc_resources,
-@@ -103,7 +103,7 @@ static struct mfd_cell mx23_cells[] = {
- 	},
- };
- 
--static struct mfd_cell mx28_cells[] = {
-+static const struct mfd_cell mx28_cells[] = {
- 	{
- 		.name = "mxs-lradc-adc",
- 		.resources = mx28_adc_resources,
-@@ -128,7 +128,7 @@ static int mxs_lradc_probe(struct platform_device *pdev)
- 	struct device *dev = &pdev->dev;
- 	struct device_node *node = dev->of_node;
- 	struct mxs_lradc *lradc;
--	struct mfd_cell *cells = NULL;
-+	const struct mfd_cell *cells = NULL;
- 	struct resource *res;
- 	int ret = 0;
- 	u32 ts_wires = 0;
-diff --git a/drivers/mfd/rohm-bd718x7.c b/drivers/mfd/rohm-bd718x7.c
-index 0b0f8e27e329..bd087004dde8 100644
---- a/drivers/mfd/rohm-bd718x7.c
-+++ b/drivers/mfd/rohm-bd718x7.c
-@@ -19,12 +19,12 @@
- 
- #include "rohm-pwrbutton.h"
- 
--static struct mfd_cell bd71837_mfd_cells[] = {
-+static const struct mfd_cell bd71837_mfd_cells[] = {
- 	{ .name = "bd71837-clk", },
- 	{ .name = "bd71837-pmic", },
- };
- 
--static struct mfd_cell bd71847_mfd_cells[] = {
-+static const struct mfd_cell bd71847_mfd_cells[] = {
- 	{ .name = "bd71847-clk", },
- 	{ .name = "bd71847-pmic", },
- };
-@@ -113,7 +113,7 @@ static int bd718xx_i2c_probe(struct i2c_client *i2c)
- 	struct irq_domain *irq_domain;
- 	int ret;
- 	unsigned int chip_type;
--	struct mfd_cell *mfd;
-+	const struct mfd_cell *mfd;
- 	int cells;
- 
- 	if (!i2c->irq) {
-diff --git a/drivers/mfd/rsmu_core.c b/drivers/mfd/rsmu_core.c
-index fd04a6e5dfa3..02bfb84653ae 100644
---- a/drivers/mfd/rsmu_core.c
-+++ b/drivers/mfd/rsmu_core.c
-@@ -22,7 +22,7 @@ enum {
- 	RSMU_N_DEVS = 2,
- };
- 
--static struct mfd_cell rsmu_cm_devs[] = {
-+static const struct mfd_cell rsmu_cm_devs[] = {
- 	[RSMU_PHC] = {
- 		.name = "8a3400x-phc",
- 	},
-@@ -31,7 +31,7 @@ static struct mfd_cell rsmu_cm_devs[] = {
- 	},
- };
- 
--static struct mfd_cell rsmu_sabre_devs[] = {
-+static const struct mfd_cell rsmu_sabre_devs[] = {
- 	[RSMU_PHC] = {
- 		.name = "82p33x1x-phc",
- 	},
-@@ -40,7 +40,7 @@ static struct mfd_cell rsmu_sabre_devs[] = {
- 	},
- };
- 
--static struct mfd_cell rsmu_sl_devs[] = {
-+static const struct mfd_cell rsmu_sl_devs[] = {
- 	[RSMU_PHC] = {
- 		.name = "8v19n85x-phc",
- 	},
-@@ -51,7 +51,7 @@ static struct mfd_cell rsmu_sl_devs[] = {
- 
- int rsmu_core_init(struct rsmu_ddata *rsmu)
- {
--	struct mfd_cell *cells;
-+	const struct mfd_cell *cells;
- 	int ret;
- 
- 	switch (rsmu->type) {
-diff --git a/drivers/mfd/stmfx.c b/drivers/mfd/stmfx.c
-index f683fdb6ece6..b0db33c0a7f2 100644
---- a/drivers/mfd/stmfx.c
-+++ b/drivers/mfd/stmfx.c
-@@ -73,7 +73,7 @@ static const struct resource stmfx_ts_resources[] = {
- 	DEFINE_RES_IRQ(STMFX_REG_IRQ_SRC_EN_TS_OVF),
- };
- 
--static struct mfd_cell stmfx_cells[] = {
-+static const struct mfd_cell stmfx_cells[] = {
- 	{
- 		.of_compatible = "st,stmfx-0300-pinctrl",
- 		.name = "stmfx-pinctrl",
-diff --git a/drivers/mfd/vexpress-sysreg.c b/drivers/mfd/vexpress-sysreg.c
-index f49cee91f71c..c5f375cd22ae 100644
---- a/drivers/mfd/vexpress-sysreg.c
-+++ b/drivers/mfd/vexpress-sysreg.c
-@@ -69,7 +69,7 @@ static const struct software_node vexpress_sysreg_sys_flash_swnode = {
- 	.properties = vexpress_sysreg_sys_flash_props,
- };
- 
--static struct mfd_cell vexpress_sysreg_cells[] = {
-+static const struct mfd_cell vexpress_sysreg_cells[] = {
- 	{
- 		.name = "basic-mmio-gpio",
- 		.of_compatible = "arm,vexpress-sysreg,sys_led",
-diff --git a/drivers/mfd/wm97xx-core.c b/drivers/mfd/wm97xx-core.c
-index 1566a9b04b6a..c0ddcd5219b5 100644
---- a/drivers/mfd/wm97xx-core.c
-+++ b/drivers/mfd/wm97xx-core.c
-@@ -104,7 +104,7 @@ static const struct regmap_config wm9705_regmap_config = {
- 	.writeable_reg = wm97xx_writeable_reg,
- };
- 
--static struct mfd_cell wm9705_cells[] = {
-+static const struct mfd_cell wm9705_cells[] = {
- 	{ .name = "wm9705-codec", },
- 	{ .name = "wm97xx-ts", },
- };
+diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+index 87ed55c155f0..de957f574056 100644
+--- a/drivers/mfd/Kconfig
++++ b/drivers/mfd/Kconfig
+@@ -255,7 +255,7 @@ config MFD_AXP20X_RSB
+ config MFD_CGBC
+ 	tristate "Congatec Board Controller"
+ 	select MFD_CORE
+-	depends on X86
++	depends on X86 || COMPILE_TEST
+ 	help
+ 	  This is the core driver of the Board Controller found on some Congatec
+ 	  SMARC modules. The Board Controller provides functions like watchdog,
 -- 
 2.53.0
 
