@@ -2,103 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8513606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 16:36:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15DE9606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 16:37:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YlnFuW7P;
-	dkim=pass (1024-bit key, unprotected) header.d=amarulasolutions.com header.i=@amarulasolutions.com header.a=rsa-sha256 header.s=google header.b=kpSzL+Ah
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NAu4SYOm;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tadno5dU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Z35yEEi9TZLdCD1HTNmsvOHqwJ3ebC3waffosyNXYts=; b=YlnFuW7Pa8p2e/
-	KhtsTxqzymNiEsCtldVQ9BoqsbEBlSk6hO3CxdtgLifkYlnJ5iD7c8VQsWccz2ZwunjXiJx7Z6Svw
-	qrtV/HQY4MbA0wForaqIeuVNhI0xnMhBzfSSf+OtS5jz2rRIQ1FXbdzIdx11TfQuK/gnqBhcY+t+v
-	dh49xMfy/qhP6OysFhyoO3PVbB/7Yka1CG51AXrlUA0LfK5vBanIi+oi79YKn4E29y+MxW/TMKt1o
-	v4a08h+pIdNu7r5YX0SavJWqoQdmfV7w91FCDKeH2qSltK9Le5Kcj7FPE+YbfPFz9lj3fUR81lDNW
-	Vr0KW9Dozliodp4ixQiw==;
+	List-Owner; bh=XcZ9lbstnk1GTs2qJHkiYVcgAWVuc0rERzcXapVspqI=; b=NAu4SYOmhkxNGK
+	NtsAvk9KG9F5FsS0YjDSAa/TMS4iy5LFWNuVDvgkOVMb+TcBqtj7bNLPH1+h26rANKLmkmCxNcFXu
+	WaBwxf+R1VOmr1wGAdWIU2T3/G2GxNAJxML8fIHbZ1g1p1EVNfJ2zzpCgMN8xif7fpUyRCV5mZHhC
+	hI3JDAzCXnfHNLp6czvpsYFEgVISgAOg9w6PGSOfNmAhzgH/KllWuS6RoxL2TEWDrJb1HkhXQzEe5
+	F9Q1R0Y99l8TZW6d/2zIt5OVg8ezfUEug4IXi778dZM3f3rAcUUuJc811x1mVqNOMehYYUR/HQIZ8
+	hBpaI0Q7/bmOFNmPT6ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMpaQ-0000000C8oX-2v4T;
-	Fri, 30 Oct 2026 16:36:16 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1xMpbt-0000000C9HC-2S1I;
+	Fri, 30 Oct 2026 16:37:45 +0000
+Received: from mail-dy1-x132c.google.com ([2607:f8b0:4864:20::132c])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMpaE-0000000C8iL-3btu
+	id 1xMpbi-0000000C9GB-0GoB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 16:36:04 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a4d7ae1ae9so9079355e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 09:36:00 -0700 (PDT)
+	Fri, 30 Oct 2026 16:37:44 +0000
+Received: by mail-dy1-x132c.google.com with SMTP id 5a478bee46e88-3535a54bed9so1478644eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 09:37:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1793378159; x=1793982959; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793378253; x=1793983053; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Z35yEEi9TZLdCD1HTNmsvOHqwJ3ebC3waffosyNXYts=;
-        b=kpSzL+Ahxu5YCBXfdjI0mcjYdmNsjdLt2WUaA/KUKfsBPgOVV8wG2FepbtdC77vO6Q
-         PPCjYpIffkYVZrYGq6NE6o7BwThEkMUZRxqytiN19adDXGjAaWVwbVI4na2Lzw5zRYzE
-         hL62wZl7l8Zun3uBdlhRlrTz+QDzzylxtzayw=
+        bh=XcZ9lbstnk1GTs2qJHkiYVcgAWVuc0rERzcXapVspqI=;
+        b=Tadno5dURRERyLloBL1XwNJGiaxekgsbbN8gSS1ToyVLm8tnjEqQsvqERDtbUKFyLo
+         jzWnjmcwyziHNVQrGlnNtlTikshrI52Q6Sd3cTqHIAPh7YmK5TDMw20Pp9q6TVuGf/yN
+         ouAxW75VJTl4WRgTSMCEFe+JBuBzuKRdO83Tmzv1SUp7si8an4WZ6T2XfTetGNK9TlZa
+         nxtoIImrAtTYjuICgDtv3fF1YAfD4WLwEap1dyrZ/jKtRTYz0lP6ozQm6dMFZPD+o46o
+         XMRkkmGR9p+iRGqRXjVR2jg4oG+An4uypNS0NcRlAQx5ukPiy2+g77S7JF+MwAsb3Z5Z
+         aqdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793378159; x=1793982959;
+        d=1e100.net; s=20260707; t=1793378253; x=1793983053;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Z35yEEi9TZLdCD1HTNmsvOHqwJ3ebC3waffosyNXYts=;
-        b=XhYUHQIIgygZ1nAlfvnI7pCN47nsbHEjBGIShvZnClww8EibLcB5Kh1Vt+pbB1/3iJ
-         l0Uma1GvBAPH822ZWnN39mq5A5f+r3kRAwVnNVfvyTcZa6SVMBNm8r2bMdToHAWXIzVw
-         B3TwmV7BbnyujbhOP1hyHC9B1T7a4v+An3H/LCvUhGqf6EEmtG0L+PBGJk22jYFpcbWB
-         rAFfcss1Iek0Q2xLrw/PzTizW4vbYlfv+yy5oQZf4Pg9caOMfCjIuo+jNVxyYC64cVZZ
-         Vx9cH3PYY5HhJFs8pPCLYoKWj0opOj1EUekggxyAzmp8P7qkEUcCnK8E+Rv5bjE1L6zv
-         QlwQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzee+MvFOkdHw9v7nQBzEbSp0Ley4ekR1Due7agLeV4XFhS8R3kEDjSj+GHLUkC9DMq98R9dAL7O9AUyNqYpzmj@lists.infradead.org
-X-Gm-Message-State: AFq9FYJpkaLPnIe82wYHdzbxMdhEAyfmwho87GP6jZSgbM7r2AXNpaHT
-	W/cTos/lp++CTP/N7jUHnHmXbkfTZAHAJcLB/+0JqXaqLvoBOMj1SSItiwQUYxM38ag=
-X-Gm-Gg: AYBFou3w9SrKQ0YZl6BlcI9rhh8MeLzvhGUgq9zt0zKRBJSnTu+cTPJ9BT24njhDG5K
-	TACE4HoEGJJJy/49dayuRbyGvJ202JKguSOp/aqj5vovl+AX4FlSRy6vPXsNkGdjmmcIN4Q+D+O
-	32mNy9NrUHM5oNN0i3N+KbLsd9dXGI18Ym0IgZ2TCumwnmtZDPqjVCpfWA7kp4UNO7G3cLAngjU
-	hGYM9EPX/2K1+P2HPpfpJGn3pPQTu9Fe8iIbgFy2RL7Oiv3DMr8mdkV+EMwbfefldtlrTOIOM/z
-	TpnCxQfZtkJ41mq2ZVKT08iD8yE5kiEDW+tnTCkq4LrzfQQVpk2PL+a2juc5msImJelrFMRXdfu
-	PBx948JIKDIenCfDs/0soacbMJBoyCQ3y6exXrJNLarSyF8ArkPd1lnc2ldjPwDDXOkTLMzTF+x
-	XZykYhBDz1dFKqvaMakS/jGSDy69fP3HyFSUa9D6zriqNGD8FmODLmOlAM7sWovbnIzReoDnlhH
-	mWmkcyG7Zd467TqwGRaQgYJHt9jdarcaadWNKkztfh3XsD6D+Eaaj4QVsTuK5cS3Dzok9QzuO2Y
-	dkPykA7MVZ0cDHI/2QFMOJeLaoXsIjfu0KMIMbrJYA0biWvRHhr9Gt8O0kuMqRZjm32Aa/OucnU
-	su736kfUsaPK/ZRkLKhkcPMNkSV3UAuabGqkCkqjfHMU7rNi/+W4SJr9vWgxlzpBXrR3pC9FUao
-	1DnAn9Eh0uaqOPDZqE1hibZUf9XQ==
-X-Received: by 2002:a05:600c:6095:b0:4a0:1b21:2628 with SMTP id 5b1f17b1804b1-4ac18b7e1c1mr61761445e9.23.1793378158975;
-        Fri, 30 Oct 2026 09:35:58 -0700 (PDT)
-Received: from dario-ThinkPad-P14s-Gen-5.homenet.telecomitalia.it (host-79-14-29-58.business.telecomitalia.it. [79.14.29.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71b723fcsm4084806f8f.14.2026.10.30.09.35.57
+        bh=XcZ9lbstnk1GTs2qJHkiYVcgAWVuc0rERzcXapVspqI=;
+        b=zdtyx1m1zAIjWkMBC7azOJD4depNa58nlnPK9g/SY1o32czdzDVKgvAuGlln/3M/Dz
+         PBHgXTvwoPktWOp3ZejeytABFcgYiGrAlMwdQHKvJIpB3MTnYzOo5SxN0e+NgS+10CB5
+         +3shSpTf76f8TA3sKAcgEo5w3VexaS0TSI+XpdC6KIi312SzHwaCG1tSmK0eEPjEFrVS
+         I9NDg3Ziro5ngX324FeTbiSnfnHuoI3Vl+DUWMzEdTnRRcyN4OG3x49XenXoyK29SthI
+         IIcnimHbbMlahKWxoeP57WevXf104+Lx1joE7LiDMrpQsgEP6Fx+b/j+AxTeS7zNDeaz
+         GuXg==
+X-Forwarded-Encrypted: i=1; AKwUvBxm7MgY4So6hNNSXsSxSOlI2NiGKuxuIWKVY/6zS7ylEveCZe3136RYdrINjGt+ygBOIwCG0aYFjtRpW96MqhUh@lists.infradead.org
+X-Gm-Message-State: AFq9FYK3bnvoMVqQa3anazBem93yJWEekAYD9lGhS/X6By7HXHbYrjIh
+	ilNsSzsIYaInh93fRiJJIxW3c5lyiUpxIt/MieiUfIfvD7kXA8lXmk6L
+X-Gm-Gg: AYBFou3I/HWNlU6K+xUAG3J0VLTgqKjwKtS2DG1lnpf4M/2JZBgAH/DvusupPw4ZDf2
+	OPkOPqtVlVspf9x8Co144xKoi01/oljLCDn2tJREILUWXF1TRuYPqEyk+EKp4Y3EEX/XOopuo8j
+	MZ7uCOxb8y8BmD2xnH9A5GmjfUrSWTLEAht0MncBhSxsf76sD3GjkYHtOux9Ov11+WNSmFVvmDs
+	gpSM1WoexRop6hRen7eK4b+bOpSmacj+iAJlv8RqcJ4f1fKwjHi8WEwI53PH5sUybQ8sx9DwBiD
+	gQmE1XljlNWVx90d+rl77/+lt3+OhzEafDmq/SbwWYHl12v60cIaE8PanvS5KJY/woeUckWihPl
+	vlMxcBfYZBA6IqbvzGpKpaMUQBHFpBOmg7OioLJWJ+5vY3FLWjtesqwDeYCHde4XpDt/exgfKZC
+	x3+1lv6TIxM/i16JDlGok5SLZzf0KBHEZSPVSmaZlqaiQly8h3kkG2LTz9xF0E5xuvp9xzmOzi9
+	oYCjbfVHuJBfbvmD09nzjL55EcZrhxQ2UkzGHcxEIHMUMtW0EMFnTt3Oif18F00hjZ1M+GgtESe
+	oknMaxKGnSKUllWuK6nqpi0jm5ElCvT0Et2C8bMfIkV6vuLQ1w==
+X-Received: by 2002:a05:7300:fe41:b0:34c:fb30:3e30 with SMTP id 5a478bee46e88-36a42401960mr3906559eec.7.1793378252415;
+        Fri, 30 Oct 2026 09:37:32 -0700 (PDT)
+Received: from localhost.localdomain ([103.170.55.71])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36a4294419dsm8458708eec.18.2026.10.30.09.37.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 09:35:58 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: michael@amarulasolutions.com,
-	linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 4/5] arm64: dts: freescale: support Engicam i.Core MX8M Plus FE C.TOUCH 2.0 board
-Date: Fri, 30 Oct 2026 17:35:43 +0100
-Message-ID: <20261030163547.2682583-5-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261030163547.2682583-1-dario.binacchi@amarulasolutions.com>
-References: <20261030163547.2682583-1-dario.binacchi@amarulasolutions.com>
+        Fri, 30 Oct 2026 09:37:31 -0700 (PDT)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: sreekuttan2156239@gmail.com
+Cc: alim.akhtar@samsung.com,
+	bhelgaas@google.com,
+	jingoohan1@gmail.com,
+	krzk@kernel.org,
+	kwilczynski@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	lpieralisi@kernel.org,
+	mani@kernel.org,
+	peter.griffin@linaro.org,
+	robh@kernel.org
+Subject: [PATCH v4] PCI: exynos: Handle PCIe PHY initialization errors
+Date: Fri, 30 Oct 2026 16:36:54 +0000
+Message-ID: <20261030163654.2733-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261029131006.2744-1-sreekuttan2156239@gmail.com>
+References: <20261029131006.2744-1-sreekuttan2156239@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_093602_967642_C3A02756 
-X-CRM114-Status: GOOD (  16.03  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_093734_135327_3AE1F96D 
+X-CRM114-Status: GOOD (  18.56  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,245 +110,234 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Support Engicam i.Core MX8M Plus Fast Ethernet C.TOUCH 2.0 board with:
+Check the return values of "phy_init()" and "phy_power_on()" to
+avoid continuing PCIe host initialization when PHY setup fails.
 
- - 10/100 Ethernet
- - CAN
- - RTC
- - USB host, through an on-board hub
- - USB OTG, device only
- - Micro SD card connector
- - LVDS display connector
+Track the PHY initialization and power state to ensure cleanup is
+performed only when appropriate, avoiding double calls to
+"phy_exit()" on probe failure.
 
-The C.TOUCH 2.0 carrier board is described in a separate dtsi, so that
-it can be shared with the other i.Core MX8M Plus SoMs.
+Also check the return value of "exynos_pcie_host_init()" during
+resume and abort the resume sequence if PHY initialization fails.
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
 ---
+v4:
+ - Fix invalid return in void exynos_pcie_remove() and ensure regulator cleanup
+ - Add core reset deassertion on error in exynos_pcie_suspend_noirq()
+ - Prevent regulator leaks in exynos_pcie_resume_noirq() error recovery path
+v3:
+ - Address review feedback on PHY and regulator state tracking
+ - Avoid powering down the controller when link detection fails
+v2:
+ - Track PHY initialization and power state to prevent duplicate cleanup
+ - Handle host initialization failures during resume
 
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../freescale/imx8mp-icore-mx8mp-ctouch2.dtsi | 166 ++++++++++++++++++
- .../imx8mp-icore-mx8mp-fe-ctouch2.dts         |  17 ++
- 3 files changed, 184 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-ctouch2.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-fe-ctouch2.dts
+ drivers/pci/controller/dwc/pci-exynos.c | 115 +++++++++++++++++++++---
+ 1 file changed, 104 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index a80cccf34eb5..bf324cdec879 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -655,6 +655,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-pulse.dtb
- DTC_FLAGS_imx8mp-hummingboard-ripple := -@
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-ripple.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-icore-mx8mp-edimm2.2.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-icore-mx8mp-fe-ctouch2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-iota2-lumpy.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-kontron-bl-osm-s.dtb
+diff --git a/drivers/pci/controller/dwc/pci-exynos.c b/drivers/pci/controller/dwc/pci-exynos.c
+index e3c05ade381b..5b8d8f1ce8dc 100644
+--- a/drivers/pci/controller/dwc/pci-exynos.c
++++ b/drivers/pci/controller/dwc/pci-exynos.c
+@@ -11,6 +11,7 @@
  
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-ctouch2.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-ctouch2.dtsi
-new file mode 100644
-index 000000000000..5338aeb6ec92
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-ctouch2.dtsi
-@@ -0,0 +1,166 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2026 Amarula Solutions, Dario Binacchi <dario.binacchi@amarulasolutions.com>
-+ * Copyright (C) 2026 Engicam srl
-+ *
-+ * Engicam C.TOUCH 2.0 carrier board for i.Core MX8M Plus SoMs.
-+ */
+ #include <linux/clk.h>
+ #include <linux/delay.h>
++#include <linux/device.h>
+ #include <linux/interrupt.h>
+ #include <linux/kernel.h>
+ #include <linux/init.h>
+@@ -55,8 +56,34 @@ struct exynos_pcie {
+ 	struct clk_bulk_data		*clks;
+ 	struct phy			*phy;
+ 	struct regulator_bulk_data	supplies[2];
++	bool phy_initialized;
++	bool phy_powered;
++	bool supplies_enabled;
+ };
+ 
++static int exynos_pcie_phy_exit(struct exynos_pcie *ep)
++{
++	int ret;
 +
-+/ {
-+	aliases {
-+		rtc0 = &pcf8563;
-+		rtc1 = &snvs_rtc;
-+	};
++	if (ep->phy_powered) {
++		ret = phy_power_off(ep->phy);
++		if (ret)
++			return ret;
 +
-+	backlight: backlight {
-+		compatible = "pwm-backlight";
-+		pwms = <&pwm2 0 100000 0>;
-+		brightness-levels = <0 100>;
-+		num-interpolated-steps = <100>;
-+		default-brightness-level = <80>;
-+	};
++		ep->phy_powered = false;
++	}
 +
-+	chosen {
-+		stdout-path = &uart2;
-+	};
++	if (ep->phy_initialized) {
++		ret = phy_exit(ep->phy);
++		if (ret)
++			return ret;
 +
-+	reg_3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+	};
++		ep->phy_initialized = false;
++	}
 +
-+	reg_usdhc2_vmmc: regulator-usdhc2 {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
-+		regulator-name = "VSD_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio2 19 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+};
++	return 0;
++}
 +
-+&flexcan2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_flexcan2>;
-+	status = "okay";
-+};
+ static void exynos_pcie_writel(void __iomem *base, u32 val, u32 reg)
+ {
+ 	writel(val, base + reg);
+@@ -225,13 +252,23 @@ static int exynos_pcie_host_init(struct dw_pcie_rp *pp)
+ {
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+ 	struct exynos_pcie *ep = to_exynos_pcie(pci);
++	int ret;
+ 
+ 	pp->bridge->ops = &exynos_pci_ops;
+ 
+ 	exynos_pcie_assert_core_reset(ep);
+ 
+-	phy_init(ep->phy);
+-	phy_power_on(ep->phy);
++	ret = phy_init(ep->phy);
++	if (ret)
++		return ret;
 +
-+&i2c2 {
-+	clock-frequency = <100000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+	status = "okay";
++	ep->phy_initialized = true;
 +
-+	pcf8563: rtc@51 {
-+		compatible = "nxp,pcf8563";
-+		reg = <0x51>;
-+	};
-+};
++	ret = phy_power_on(ep->phy);
++	if (ret)
++		return ret;
 +
-+&pwm2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_pwm2>;
-+	status = "okay";
-+};
++	ep->phy_powered = true;
+ 
+ 	exynos_pcie_deassert_core_reset(ep);
+ 	exynos_pcie_enable_irq_pulse(ep);
+@@ -314,6 +351,7 @@ static int exynos_pcie_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
++	ep->supplies_enabled = true;
+ 	platform_set_drvdata(pdev, ep);
+ 
+ 	ret = exynos_add_pcie_port(ep, pdev);
+@@ -323,8 +361,19 @@ static int exynos_pcie_probe(struct platform_device *pdev)
+ 	return 0;
+ 
+ fail_probe:
+-	phy_exit(ep->phy);
+-	regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
++	if (exynos_pcie_phy_exit(ep))
++		dev_err(&pdev->dev, "failed to exit PCIe PHY\n");
 +
-+/* console */
-+&uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	status = "okay";
-+};
++	if (ep->supplies_enabled) {
++		int err;
 +
-+/* USB OTG, device only */
-+&usb3_phy0 {
-+	status = "okay";
-+};
++		err = regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
++		if (err)
++			dev_err(&pdev->dev, "failed to disable regulators: %d\n", err);
++		else
++			ep->supplies_enabled = false;
 +
-+&usb3_0 {
-+	status = "okay";
-+};
++	}
+ 
+ 	return ret;
+ }
+@@ -332,24 +381,48 @@ static int exynos_pcie_probe(struct platform_device *pdev)
+ static void exynos_pcie_remove(struct platform_device *pdev)
+ {
+ 	struct exynos_pcie *ep = platform_get_drvdata(pdev);
++	int ret;
+ 
+ 	dw_pcie_host_deinit(&ep->pci.pp);
+ 	exynos_pcie_assert_core_reset(ep);
+-	phy_power_off(ep->phy);
+-	phy_exit(ep->phy);
+-	regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
 +
-+&usb_dwc3_0 {
-+	dr_mode = "peripheral";
-+	status = "okay";
-+};
++	ret = exynos_pcie_phy_exit(ep);
++	if (ret)
++		dev_err(&pdev->dev, "failed to exit PCIe PHY: %d\n", ret);
 +
-+/* USB host, through the on-board hub */
-+&usb3_phy1 {
-+	status = "okay";
-+};
++	if (ep->supplies_enabled) {
++		ret = regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
++		if (ret)
++			dev_err(&pdev->dev, "failed to disable regulators: %d\n", ret);
++		else
++			ep->supplies_enabled = false;
++	}
+ }
+ 
+ static int exynos_pcie_suspend_noirq(struct device *dev)
+ {
+ 	struct exynos_pcie *ep = dev_get_drvdata(dev);
++	int ret;
+ 
+ 	exynos_pcie_assert_core_reset(ep);
+-	phy_power_off(ep->phy);
+-	phy_exit(ep->phy);
+-	regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
 +
-+&usb3_1 {
-+	status = "okay";
-+};
++	ret = exynos_pcie_phy_exit(ep);
++	if (ret)
++		goto err_deassert_reset;
 +
-+&usb_dwc3_1 {
-+	dr_mode = "host";
-+	status = "okay";
-+};
++	if (ep->supplies_enabled) {
++		ret = regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
++		if (ret)
++			goto err_deassert_reset;
 +
-+/* micro SD */
-+&usdhc2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	cd-gpios = <&gpio2 12 GPIO_ACTIVE_LOW>;
-+	bus-width = <4>;
-+	vmmc-supply = <&reg_usdhc2_vmmc>;
-+	status = "okay";
-+};
++		ep->supplies_enabled = false;
++	}
+ 
+ 	return 0;
 +
-+&iomuxc {
-+	pinctrl_flexcan2: flexcan2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SAI5_MCLK__CAN2_RX		0x154
-+			MX8MP_IOMUXC_SAI5_RXD3__CAN2_TX		0x154
-+		>;
-+	};
++err_deassert_reset:
++	exynos_pcie_deassert_core_reset(ep);
++	return ret;
+ }
+ 
+ static int exynos_pcie_resume_noirq(struct device *dev)
+@@ -358,13 +431,33 @@ static int exynos_pcie_resume_noirq(struct device *dev)
+ 	struct dw_pcie *pci = &ep->pci;
+ 	struct dw_pcie_rp *pp = &pci->pp;
+ 	int ret;
++	int err;
+ 
+ 	ret = regulator_bulk_enable(ARRAY_SIZE(ep->supplies), ep->supplies);
+ 	if (ret)
+ 		return ret;
+ 
++	ep->supplies_enabled = true;
 +
-+	pinctrl_i2c2: i2c2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL		0x400001c2
-+			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA		0x400001c2
-+		>;
-+	};
+ 	/* exynos_pcie_host_init controls ep->phy */
+-	exynos_pcie_host_init(pp);
++	ret = exynos_pcie_host_init(pp);
++	if (ret) {
++		err = exynos_pcie_phy_exit(ep);
++		if (err)
++			dev_err(dev, "failed to exit PCIe PHY during resume error: %d\n", err);
 +
-+	pinctrl_pwm2: pwm2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO11__PWM2_OUT	0x116
-+		>;
-+	};
++		if (ep->supplies_enabled) {
++			err = regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
++			if (err)
++				dev_err(dev, "failed to disable regulators: %d\n", err);
++			else
++				ep->supplies_enabled = false;
++		}
 +
-+	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD2_RESET_B__GPIO2_IO19	0x40
-+		>;
-+	};
++		return ret;
 +
-+	pinctrl_uart2: uart2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_UART2_RXD__UART2_DCE_RX	0x40
-+			MX8MP_IOMUXC_UART2_TXD__UART2_DCE_TX	0x40
-+		>;
-+	};
++	}
 +
-+	pinctrl_usdhc2: usdhc2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK	0x190
-+			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD	0x1d0
-+			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d0
-+			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d0
-+			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d0
-+			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d0
-+			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT	0xc0
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD2_CD_B__GPIO2_IO12	0x1c4
-+		>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-fe-ctouch2.dts b/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-fe-ctouch2.dts
-new file mode 100644
-index 000000000000..c4271cffca9a
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-fe-ctouch2.dts
-@@ -0,0 +1,17 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2026 Amarula Solutions, Dario Binacchi <dario.binacchi@amarulasolutions.com>
-+ * Copyright (C) 2026 Engicam srl
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx8mp.dtsi"
-+#include "imx8mp-icore-mx8mp-fe.dtsi"
-+#include "imx8mp-icore-mx8mp-ctouch2.dtsi"
-+
-+/ {
-+	model = "Engicam i.Core MX8M Plus Fast Ethernet C.TOUCH 2.0";
-+	compatible = "engicam,icore-mx8mp-fe-ctouch2", "engicam,icore-mx8mp-fe",
-+		     "fsl,imx8mp";
-+};
+ 	dw_pcie_setup_rc(pp);
+ 	exynos_pcie_start_link(pci);
+ 	return dw_pcie_wait_for_link(pci);
 -- 
-2.43.0
+2.55.0
 
 
