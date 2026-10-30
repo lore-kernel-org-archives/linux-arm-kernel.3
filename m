@@ -2,110 +2,157 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A74F606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 01:33:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08A47606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 02:38:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=B13ZoKb4;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ikurpyFs
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MPgFQLUo;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=o6kb7Etk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=ZnRM95YT+o+po860eeE+ZRoM22cCLoeNp5gtdyaXPnI=; b=B13ZoKb4mhJXitRnhAPbcHCl3L
-	SxVwR8aOEKPvbYsgs8sKRwd79gi4UdjOLl2AjbAngeBS4mr4nlYn9dcSggkr1bLxT2PiHvm3zOOWw
-	mOQHJ5Zt8YMiQLsGnBFvvW7+KGwtWKewadcSXOugFBh4tjE+qy5OGtn8Ax2GKsyecBVA+ch6T5vnA
-	+3B23bPh30qj9+jFj4nEcmOFFQWSYZBIVAdHl2EBDzaUkXRZN1WAqxgB5fmHifJ3PboAlDguLxkv3
-	6AbOBaOFER178vrsxe4d4Z12ZgPHic5+nWlSTXTU8WRFxQ5Erd/eNEJUIns3btb/gJvd75zfZ4bxe
-	qwYw5+0g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=wc1eNZc+fY71rAknGBOCWvV2tYF3Dw+MSjlv5iF/Gt8=; b=MPgFQLUockRP7a
+	2M8o6UJ6T4Ef7PWHCLw3/f/qAR0k7vuK0UtYmYhedgVoapPzyE4Jz1tYqb6kHEBy+yDMZ57HPDt93
+	N+vKN3dt1t/NAduFs1Q5RAhbIQ6i7Gz6UeTSenpDT0b3mz8Me0acjuW3Q8FL/nfvEfLu/RsQG17OV
+	tKuRzAu5Kwf85a+C7JxE7zucfYhagqFqFJ44RyE9pxWRBtG88YVwO3bcu/CbDKfddFjKOYBmdRpQ2
+	FEUuDKVuMTlSTm5Rjsims5hjyAFzEImp8qopK5Qpv72eocJNlXlYfJ3QT23m6v9q9YD/sRPWVRtxX
+	brbxu4fmKELVnR6QO06w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMbUP-0000000AcMO-3Yp5;
-	Fri, 30 Oct 2026 01:33:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xMcVN-0000000AflF-0FQ0;
+	Fri, 30 Oct 2026 02:38:09 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMbUN-0000000AcM9-3dap;
-	Fri, 30 Oct 2026 01:33:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 05D0D600E4;
-	Fri, 30 Oct 2026 01:33:03 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793323982;
-	b=pLbuX2Ec6Elt/voyZp7vQlzgq6RGtWa2ZUJ3IJ5QIp+U1dVFItCuLJacU8Jz+oHYq+6V
-	 Krh66spY9AS+T9abo4KGtZKyVYF5daBWu8w5iqybZf4OZlnXWHsrdu4LSwNWuOIl3dSEU
-	 7hs/o8v1/+0P40L+x5oP+zOVdJU3Gt7E3gLDa1J68yqTGsAv4/ZKdrNGT/xS+syfkoQMC
-	 Iq7qBCqHvG8pYcxyLma9T1GVGmxAhW932b3S/TxJYcDdKhfIu9Tu6FXxyIrm09dSgARgg
-	 aVz1BdlT786BEuIstFvztn9lEwgqzT20VTP3BCUlQV15q56AzLlJrdZ47tLRSUrPh7g==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793323982;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=ZnRM95YT+o+po860eeE+ZRoM22cCLoeNp5gtdyaXPnI=;
-	b=WBjMtBaYSjF16Mmn4+uEdpTXTMUYuQDHSE7OO6UB/ZE7seEQGF6MDo3WcpSc38m87LHK
-	 NCtbLjBt+LYuPZQND37lF1nPkQCPsXznJKE1PPH2qeAV6AcD12liH3PJS2fG5CPPZ6aDO
-	 88QOKEGcOKP2ANm7KFFpfjl77OxVvjihPf7AMN20lxj9RTQiY9ow8kqs4CCeGzt0S7EH4
-	 reUQ7LG78we/eDs2g9fYRMsDExJ5bhWEQ21tQteS7ONaFHOondzHmwGNXduZ19RLoqzNu
-	 TFi0KyPY5oLu6aLPOXIRz4NvYrONkbNWVB+xPJf9X034Pzg8E+ozcOOeHeRWg7IsyBw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 450BC1F000C1;
-	Fri, 30 Oct 2026 01:33:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793323982;
-	bh=ZnRM95YT+o+po860eeE+ZRoM22cCLoeNp5gtdyaXPnI=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=ikurpyFs331SEGKqOR5OD52hqUs6g6z2EW6venlHiWcayHKKF8MA2W24YnUh1/vxb
-	 UsvA33a8b98UErBFecUtcGyUUtJdxP1NvBidBg5xsircidQIwB0uKL0twMc2KbSUAw
-	 83daKti7/60joPaLgXCiWENTvCh4dG1WNAu5fc4/NXVSfNBrglm+CygNGaUAVEfU5h
-	 XJFtscsAjmQGYXVkdHO9LYnCL+yrzKjz+vsSc/0LJDeu0SQKrSSK+lwkcNW8yUbjMC
-	 8h6uj3jvDyvjvvJogxUiPKppdS7yTpQN5yN5iNZlwCcfom8TBJO0eJTiDnEW/1vb9d
-	 vyScQa++kmabA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CC816435F3;
-	Fri, 30 Oct 2026 01:33:01 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Fri, 30 Oct 2026 03:33:00 +0200
-Subject: [PATCH] media: rkvdec: Do not keep the clocks enabled from probe
+	id 1xMcVJ-0000000AfkE-46Mu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Oct 2026 02:38:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xMFOdZPNgaq3s/ZTNQ07lC6kqfAFe+95f3H+yAyBUuhxQPKgGDq8mmOBuE1vpgih6ZyaUfEDCcgLQTuVs8bo2yNQ/FWUeozdko2OOGsYd6DAjo9TmYe78k01JwrEP1f171WdaGBt2UvVz6UvFcB1JwUetyRb6Vu0r8PbF8RN4q6OWm4Cayxge3folXp22pPgDiYgF8rfcSGnUNgAf5H5OV7c0C8f2MphWjb0vWx1NgDipEL1q7mKZxUDsAaOy9Wn5En4PX9ckLS+ioeOa7eIzlkvGv7rZh3KIxvcAzAUtcd48iNSmI4nb8LzkWFYss2DaBQBOuhfHiX9otnSbb8XRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wc1eNZc+fY71rAknGBOCWvV2tYF3Dw+MSjlv5iF/Gt8=;
+ b=JLGrHKtuDNApjT7yEre0O7XUxSsh3syU5fv0r1W5j0AQmMUPzqICsrdfVXTyCOJkPhvaoEa2k0VKBUE24ZjNCScPJrdkfnmysQNeZbJwBSbZWbAt4jqsEwbFXYfSMhrn2eMxG1oMW9HcqMFNk7fuMJ2rTxrGeNr45UG6WfkD16MFtk4GtCC4hG7z9knXjLBrN+3VQ7wqDRPIdWaZr3czroj9/uk9RA926FFO5U3NrdRL18XoEQApYtGa9HDGvXlQuFQRWg52aNz0h8PkCyN30sRscS+MQsVSjhAky5x66zY1+ScuVz3+vK14gGE+aOBjZedvYYkKzha0og236c2l2w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wc1eNZc+fY71rAknGBOCWvV2tYF3Dw+MSjlv5iF/Gt8=;
+ b=o6kb7EtkQ4tug7GcTePWNKbYExtTT5ypVe8qLqmbf+hIkaUUxv/Xd1J01dPpEcYwuizY+RTW8dmAgF6qd18N8TzRUEdmLM7C+Hvjf7JkUkSzsbk1FuRM9357OmUOkrdAMSNl2gQLdqqBtdWChZ7f8oBLLHNLu11hhPGPiCy9zPJderd6K/V2pyLk0ykQG+xPpZ9FJjhso27ffkaCRnJzlFgnXLARqFsGTXLY1SenFSD96ZsSuLwtVSmffOPva3ZCF31mhlOKg9cURiTTeEYoGGV1z0WLDe2qH3tlEh1EGgdd12lDMoaS/21qJSWoZxkS1B9kINJojYISB885X5MipQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by IA0PPFD4454CAA9.namprd12.prod.outlook.com (2603:10b6:20f:fc04::be5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.21; Fri, 30 Oct
+ 2026 02:37:59 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0569.008; Fri, 30 Oct 2026
+ 02:37:58 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: linux-tegra@vger.kernel.org
+Cc: Robin Murphy <robin.murphy@arm.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>,
+ Thierry Reding <thierry.reding@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Jonathan Hunter <jonathanh@nvidia.com>,
+ Krishna Reddy <vdumpa@nvidia.com>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Yong Wu <yong.wu@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org,
+ Christoph Hellwig <hch@infradead.org>
+Subject: Re: [PATCH v3 00/10] Make the 32-bit ARM DMA API work with normal IOMMU DMA
+ default domains (+ Tegra PoC)
+Date: Fri, 30 Oct 2026 11:37:53 +0900
+Message-ID: <wbo9prdIQW6DX3kU4aWbuA@nvidia.com>
+In-Reply-To: <auM2FAYVK192RzHb@infradead.org>
+References: <20261026-b4-arm32-iommu-dma-cookie-v3-0-3901d74b1ff2@nvidia.com>
+ <auM2FAYVK192RzHb@infradead.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ClientProxiedBy: TYCPR01CA0143.jpnprd01.prod.outlook.com
+ (2603:1096:400:2b7::15) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261030-rkvdec-runtime-pm-clocks-v1-1-fb2c5b629e79@iav.lv>
-X-B4-Tracking: v=1; b=H4sIAMvz42oC/x3MQQqEMAxA0atI1gaaKgpzFXEhaZwJjlVSFUG8u
- 8XlW/x/QRJTSfApLjA5NOkSM6gsgH9D/ApqyAbvfEOucmjTEYTR9rjpLLjOyP+Fp4Q1DYFHqsm
- 3BDlfTUY933XX3/cDQbjLdmoAAAA=
-To: Detlev Casanova <detlev.casanova@collabora.com>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Diederik de Haas <diederik@cknow-tech.com>, Jonas Karlman <jonas@kwiboo.se>, 
- Francesco Saverio Pavone <pavone.lawyer@gmail.com>, 
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2611; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=DV65nOamq4qFrrJK3VgervQr4mJ0twxpufgrJGR55R4=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFmPP595z7Fsxraet1UnT9VN2CkpP+/ejXN1c/lOOGS6e
- 1oszNFn6yhlYRDjYpAVU2SZcEjjVsaSq3/9PcwfwMxhZQIZwsDFKQAT+fqN4X+FvN+VuAaNQ3de
- TlwXYhIUHaP5PFys8zOXXHmeGqfe69uMDC//vf3eVbf27uke7xN1N7ScLuo/aNBf2lA3w8Xmh/l
- FWz4A
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|IA0PPFD4454CAA9:EE_
+X-MS-Office365-Filtering-Correlation-Id: 410846b4-3b56-4410-3688-08df362ecedb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|366016|23010399003|7416014|376014|1800799024|18002099003|6133799003|261026121527099003|22082099003|10067099003|11063799006|56012099006|5023799004|261021130227099003|261028144727099003|261022113327099003|261022105027099003|261021135927099003|261021121427099003|261022075727099003|261026140227099003|261022115727099003|4143699003|261021123027099003|261026130827099003;
+X-Microsoft-Antispam-Message-Info: XxBr/7LokCXcmaWmdjkw7yVudUcWYfo8DA50AlJCY7978V70nRqYsfCqwFS+H7kdoKxeGo7WQZ3lbv1J0kQ74pzJopDd1WyT3U/tc6JG4xDKiworoheok/QPT79vu0WJE/QB9kr45ian0Q5q6bdqXblTt2MGJsnXxc3fXVlirF2t1J6f0C9pd6sGdyX24DvucUwsXg+A3WF5MOEwDA7npkNW3vUiwSNUovLFnoswe9Bi/xi+eXpVPPMuw1mWRiK7pOu39k9gIiEvo1Bc5L0XjNHlCO8dRdAtr6Ea0ZHPq1fEc/S/YXMrXZx3YvMV7jE0JdYsFUDMSWcVnWKuIX/n/45cTJNhKMTQZigd8XKQLoqAyqO52LlFL0zCnU+NNWw6eQqQZGonYIEBShoA9/4XumgnMiu8uWlv1UH+p1eoCqf9HzTS7RRx7irFfPrHYI6s4z+yJdhWTWYqUCVxDKWjzcffBzGp3rhbSIY0UDE68jz4YF0CQxSMwtlPu7FrIKmnKAK2o97Jo+VCm0KZ6ZoC9XlG8pMHHL/YOTv7h+I5I+WSuoGq2p3vhzknrcMtcvCCeREOSgJuyYOB4LKE9WGqoUWRj3e0HpXM5gcIf8G2u3yO7D3bAY4z5B4UhX6hfwKJ9REJ9odDJ+IYswjdeL2WtMRQevogwqU8HYwqNPL9rGE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(23010399003)(7416014)(376014)(1800799024)(18002099003)(6133799003)(261026121527099003)(22082099003)(10067099003)(11063799006)(56012099006)(5023799004)(261021130227099003)(261028144727099003)(261022113327099003)(261022105027099003)(261021135927099003)(261021121427099003)(261022075727099003)(261026140227099003)(261022115727099003)(4143699003)(261021123027099003)(261026130827099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cWd6U1UzVXNEU1M0SWtwN3FjNXNNQWNzQ2d0TTRBRG80MENKWUVBZ0FHOFJQ?=
+ =?utf-8?B?Wi9NRDlGT1Z1eGZ3QzFTeDU2clFQT29NUElVMjEwbjdXWHk2S21hVEF2VCt3?=
+ =?utf-8?B?dDR5ODljVVhBMkhJWEFPTHVoZ2NlREZ6emM2VFFNMGFoNnd1ZHJxcVJ6SU5a?=
+ =?utf-8?B?NHBYNTd3RVpHN0lJVHFBZ0tHTFU2QjUxL2xXbWIrTDJGRUVNTjhrOEZESzE2?=
+ =?utf-8?B?RjJxa3RVRHFGVDU4VmdWRWl3U3dBY2lKZzVUZ1Z2OTgzWkVNdzlvVG9PK2dG?=
+ =?utf-8?B?N0tlU1F6cGtYcDhFR25MZnFUVTFPRGdGYTBOTWM3eEdTVG5XeGdvYW1pcXlx?=
+ =?utf-8?B?Um9RT0Yrei9rQy8vZDU1WUZEcEx3bzVIczJtRXRXRlNWNTREKzVBSUtsWXo5?=
+ =?utf-8?B?N1pra1NOeC95VVZLQTZrQk1sTWFmdHRwVFlZZG9uYmlpV1ZJeHUrZFM5RjdI?=
+ =?utf-8?B?NEJvdDc4TDl1aVhqTFd3OWZMRDYxRXFMUFJXVjFFc0ppOFVjdmlueWk2WHQ5?=
+ =?utf-8?B?MVprMS9oUjJjaGY0cU9hYmszaEc2bXdyM3dpVDRpcWR5RDBOd2ExRUlzL05P?=
+ =?utf-8?B?R21JbDg3UGpKU3psYTdqNU0zZ2Q5b2pnNzdMRmhIb0QyN3owckZuRjFEM05k?=
+ =?utf-8?B?dnZpajAzbWUzTHBFOTJvL1JzNFM5cjdlbmU0c3NORVRzdmplL3M0emF1TGFH?=
+ =?utf-8?B?SkYxS01XWklFVkpuT1dCc3lZb0txb0srWUcyOWN5TmJEV0FlczB3ZGxRYXNM?=
+ =?utf-8?B?c2lKUUR3K3pXSHNlZWdEM2hkdWkzNk5ycnZadmw3VTlQRXNSYjFjclVMV0hO?=
+ =?utf-8?B?RDJQVkVhd1d3QkNuOGgxQnY2d2YwQWhXanNjWWtFTVFXZ0ZPVVZVVlJlRmpY?=
+ =?utf-8?B?SzNEWjN0QzFiZEhycjl6T3VuWkZ5akd1UWZ0OTRKV0pDQjczckxnMHBINTFo?=
+ =?utf-8?B?MUNLKy9JSjNKM2JDVzRLVk1CbzRLazV6SzdtK2VXa0NZelVNNkNpQVVWVFBn?=
+ =?utf-8?B?TW9WU09wOWIyaXRzU3g1WlpBRnFkRE16a2FyaGE4akRVc01RRW5Ka0lLOWRO?=
+ =?utf-8?B?eE43dXZBQ3Zodlh4N2ZOTi92UjVPWmFYWW5RaEYzNzZPZGxqRjc0akIvMVhH?=
+ =?utf-8?B?MjBiUzd4c1lQTWhRRzJKaHppYUFIc2xWTVAvQXdCelV2TEtFUERCZXZXM1dC?=
+ =?utf-8?B?WnBuQmZLTVdmQXBuUEZTeFN1K2lCbk1oUzVoMU1vWWZ2Mk5hZTVheTRub2VM?=
+ =?utf-8?B?NmJuQ0RtWFZmUXoxbXV3eGt3d2hFenlRYUQ0V2c3N1J1RHFuTE96dlFubUFr?=
+ =?utf-8?B?RkI3dDZETU5ERXhrR3d0Ky9iRUhILzZoMmZHQm1ndnpsenFXK3luc1ZOK20r?=
+ =?utf-8?B?dHlkUkNoUDBnYkxyQ3lIY3FBTXcrQjZSbjh4RTBSK2pLeHcwWVRheS91bEpY?=
+ =?utf-8?B?QnlpWElxYXRjT3RCODVOcDd2RjNraitmbDdKTnk2NEwrbWJRbnVnOVUrRktB?=
+ =?utf-8?B?ZnRiSDVFREFUUXczNzVweXJDVnAwMVJCQStITXV0b2dwazdkZmRUTWIxZUI2?=
+ =?utf-8?B?eEp3SjNGMXNHcnBKUWsvVUU2WlBSREZ1aWNvUEJqUjBtQUxacWFmL3QzYi9z?=
+ =?utf-8?B?YVVVMEdqSGsySGxCd05tUm9VT1c5eHUrTHRaaGNQT3FINHAzeUVIZ1luZHdL?=
+ =?utf-8?B?ckpaUk5sLzl6ODFaMCtvSVNRMmRaK2FqVUF4QkFUVzlWYmo3VkhkSEJKQUNu?=
+ =?utf-8?B?MGJUdEJGWVFHVnRNaXI0cS9IRCtIRGhPbC9YZkFFZmlqM2RjRXdFaVdQRS82?=
+ =?utf-8?B?REM3dlVLRVVuQTF2eTRoYnE0T2lLU1AxYkxBK1EzVDhYZjdBTkdzR05Cd25t?=
+ =?utf-8?B?YkpkTGRqTk5RWU5QRzlQcGtacEtKT0tTZ2RjcCtFSWVwQWpyMlFqUHZ2UW5u?=
+ =?utf-8?B?VEV5UHg2SE1Kd2NGNjRZNWxibVZ3NTBQZ0VxMWk0b1JnTThrV0dYZzV4b3U5?=
+ =?utf-8?B?b3ozK1dqZUFIM2VtVmVUd2VxWWQxT0MyRWxMcXdNWTd5bDFlUnNhYndWS3lp?=
+ =?utf-8?B?WVZLQXlmc3VSekVPMFZHaVcyRDdpbSt5R0I2RldqbWM1elYrY3NYTVdpTVh2?=
+ =?utf-8?B?QlhtWG8vdGF1L0pxWDRWNlNTM3o3RGV0ZVVva21KcnVqNkZSaEw0OVNaM0s4?=
+ =?utf-8?B?cFRoWkNGWDJyOVlhSWt5dkc5Vlo2Yyt2OGIrOXJpOUsvY0wwR3dzSm9vTzJI?=
+ =?utf-8?B?RzZ0THlDbmh4Y0JmWnJpQ1JxTmxUWDJCNXBCUTJ4SUplVGo5NndCa3lBbk01?=
+ =?utf-8?B?Z3UrVFZmRm5nUDlRUU9DVlE0UHk3dzQrWUpsYkcxdjArZGZJMUVQcWdORGx5?=
+ =?utf-8?Q?olnoEmRB6hcusETnPFohlcEEpPuNFG6QW/C2Heow7tuLL?=
+X-MS-Exchange-AntiSpam-MessageData-1: dhZ/qs2HuY1k6A==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 410846b4-3b56-4410-3688-08df362ecedb
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 02:37:57.9195
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1ubgFdf+iq7eKQ+Z1IYVvlJA0lM+UNiOn1EjaEiy18SxOA7PciZN7crfZopuRyXMc9agyzCz42nim7z0lcF0bg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFD4454CAA9
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261029_193806_017803_D69597CA 
+X-CRM114-Status: GOOD (  21.24  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,77 +162,49 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Igor Velkov <iav@iav.lv>
+On Thursday, October 29, 2026 9:03=E2=80=AFPM Christoph Hellwig wrote:
+> On Mon, Oct 26, 2026 at 06:19:25PM +0900, Mikko Perttunen wrote:
+> > Robin suggested [1] that instead of teaching the legacy path about
+> > groups, we should explore modernizing the 32-bit ARM DMA code a bit by
+> > making it use domain cookies and have the core code own the domains, as
+> > is the case on other architectures. Still, ARM's own DMA code is kept t=
+o
+> > support existing drivers and APIs that expect it, and because dma-iommu
+> > is considered too big and unnecessary for 32-bit ARM.
+>=20
+> Now that the different domain handling is gone, what speaks against
+> just using the generic dma-iommu code for arm32?
+>=20
+>=20
 
-Since commit 6a846f7d72c7 ("media: rkvdec: Enable all clocks without
-naming them") the clocks are fetched with devm_clk_bulk_get_all_enabled(),
-which keeps them enabled from probe until unbind. rkvdec_runtime_suspend()
-disables them on top of that, so their enable count never drops to zero
-and the clock gates stay open while the decoder is idle.
+Copying Robin's comment --
 
-On RK3399 this also breaks restore from hibernation when the boot kernel
-has not enabled these clocks, for example with rkvdec built as a module:
-the gates are closed when the restored kernel takes over, while it still
-counts the clocks as enabled. Powering on the vdu power domain then finds
-the count at 1 and leaves the gates closed, and the first QoS register
-write of the domain never returns.
+> TBH I rather feel like the time for converting ARM to iommu-dma has=20
+> passed - there are drivers which rely on specific behaviours of the ARM=20
+> IOVA allocator which iommu-dma does not match, and meanwhile iommu-dma=20
+> continues to grow more server-specific features which would be nothing=20
+> but bloat on ARMv7 systems with <=3D2GB of RAM and no virtualisation. At=
+=20
+> this point I'm inclined to treat the existing DMA ops as legacy code=20
+> like with alpha/sparc/etc.
 
-Get the clocks without enabling them and let runtime PM enable them while
-the decoder is in use, as before that commit.
+Aside the bloat, it's indeed not a switch we could do in the short term=20
+given all the platforms that rely on ARM32 specific APIs or behavior.=20
+This series already opts out four platforms from just the default=20
+domains and sashiko implies we need to add more to that list. There=20
+could be an incremental path of removing existing hacky behavior and if=20
+we manage that, eventually code sharing could be considered.
 
-Fixes: 6a846f7d72c7 ("media: rkvdec: Enable all clocks without naming them")
-Cc: stable@vger.kernel.org # v7.0+
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
-Tested on ROCK Pi 4A (RK3399) with v7.3, rkvdec and panfrost built as
-modules, panfrost not loaded:
-- idle decoder: the vdu clocks have enable_count 0 (1 without the patch);
-- hibernate, power cycle, restore: 3 of 3 (0 of 3 without the patch, the
-  restored kernel stops after bringing the secondary CPUs up);
-- H.264 decode with GStreamer v4l2slh264dec, 300 frames of 720p High
-  profile: output identical to avdec_h264 (md5 of all frames).
-The QoS hang was traced with debug prints in rockchip_pd_power() on a
-7.3-based kernel.
+Mikko
 
-This is separate from the unbind leak in Jonas's patch that Francesco
-posted [1]: here the extra enable comes from probe.
-
-[1] https://lore.kernel.org/all/20260717154505.83935-1-pavone.lawyer@gmail.com/
----
- drivers/media/platform/rockchip/rkvdec/rkvdec.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 061281f903f3..45c541ae3029 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-@@ -1788,7 +1788,7 @@ static int rkvdec_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	ret = devm_clk_bulk_get_all_enabled(&pdev->dev, &rkvdec->clocks);
-+	ret = devm_clk_bulk_get_all(&pdev->dev, &rkvdec->clocks);
- 	if (ret < 0)
- 		return ret;
- 
-
----
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
-change-id: 20261030-rkvdec-runtime-pm-clocks-41adcf141271
-
-Best regards,
--- 
-Igor Velkov <iav@iav.lv>
 
 
 
