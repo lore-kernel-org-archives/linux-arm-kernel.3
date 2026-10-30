@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A758606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 07:37:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D74DC606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 07:39:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lCKrLiCP;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=I3ko14Sl
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IJBZ6lry;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qOn0qjsn
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -14,83 +14,92 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=rMrhFGMaQbGuT+vysC+EnDo30wy5e48snLTrR+oGc/Y=; b=lCKrLiCPzQt3KlNfOnbm85SRLt
-	hZ9lP0PIbjJf0QpH+h9tr4DBlmbCrkkCTau6LqYYIr2NtbnPHYZKYaw9O6/Wff9E2Vbc7ZpxpeFEM
-	0vlK28E95M/Eb0yY3spqWiLi+/aAmnobNeoon5wMjY36EMgC0E2fIExULXDCA1w4mYRmOBgubhIRl
-	zSjJvqE/7vK4Qb2ALMUGQvVZ1cBrCuQplkomDySmShPfp+VQGXtvwOjGqPClAFp5iv8maADoTXMXm
-	iEEq+aLqbtE1O0FeDVVc/zQL1HqTAnlcL3bwbIok579v0FUZgCmvJAJ/cz9479WLKtkOabEhOsni6
-	Uq87cOdg==;
+	bh=oTDHP5iTI4lQOhbLd0Zj1JOArDqyXgTJiorChKNggjQ=; b=IJBZ6lry7pTaxwzdBZoGM0UAi1
+	S4NGiSlzZUq1NM3pKMgpJY4WEWduY6L4qMHUTOkkqJxuyoW2PjfeBS/mwgNgHxsMRZDGt3gOJfFic
+	p+bev44lcSXLixkEbfm6OnV/GoFbadMQ2jubZpGPUn2JppEbK8GmClbe8VKJlTQzXmUQ6uQbvmMDl
+	swmtAfuWmnU3A8KyEllnAy/h4LZNYAu3vPeDxizXlmI5AmMReThhzIwTADz/iuj3vwGsWLl0VlsOt
+	tO/Y3S+7ff9j/wCEOz4XDLydhWP0WQ5RcJ0sHTGMZFjnoOICcgaC1mAzSuetMO6tOYEa+qFdFUY/t
+	3eIigr3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMhAa-0000000B0ZZ-40Cq;
-	Fri, 30 Oct 2026 07:37:00 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1xMhCu-0000000B0v6-26jF;
+	Fri, 30 Oct 2026 07:39:24 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMhAX-0000000B0X0-3AOL
+	id 1xMhCr-0000000B0uk-3ANZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 07:36:59 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so1788225e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 00:36:56 -0700 (PDT)
+	Fri, 30 Oct 2026 07:39:23 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-c418e215671so41544566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 00:39:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793345815; x=1793950615; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793345959; x=1793950759; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:message-id:date
          :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=rMrhFGMaQbGuT+vysC+EnDo30wy5e48snLTrR+oGc/Y=;
-        b=I3ko14SltD8IVjvkMItYR9DgfTJJv81e26SA191duZP6duZzWPOJ4Po1JSNGtF7FYi
-         Oxebs6V6AXAkWuP8fPfQuqFX6SMpXfnEGOg+dvmq6ZLh6lC6wMg5ZyPFj5wbV5Qyp9ww
-         Vg+43ZYmHSmw2kUTBl3LRd/te0Ao3nKMP8JQKrKl9ofzvobQyasKSnKkP9YNtcq8ZVBj
-         GPDMfNzjKpO/60phGDSOVpmP1L29nT+Wd+wkcxi7JZ+FD3kD+Wpj6SDiKyzieXw+uxSv
-         J9r9ipmlLAhSkvQi4bsIs4mq6GO5DxU7G4GjPUSsvmAweRhvwTUdrKfcjTyMocdOQzNv
-         /g5w==
+        bh=oTDHP5iTI4lQOhbLd0Zj1JOArDqyXgTJiorChKNggjQ=;
+        b=qOn0qjsn1aEhoiAHl1waPCh3Mq6YM6l6z9Px8F3cCGPjwpntvyZYKsEoSb7ndL7V5M
+         8vvLmDT6s3Djc4Nj0aonxK+lsgowzR3n6ZPAM8VkyIxaJtylJMLbbIaVqgBoOqzFUHMG
+         yjFKTNZcAD3ZtfJ8E3VoUAI0gMguIrdXwrG71Jf5+YOMBbF+OZWtT7frLhMVbuch0bxt
+         JyuaBgwucwfRKBa1P4aVEAeC8z41rV75nWo7Kz2Zy/X/zMDY/0vR+K5GooZ8541M2OZg
+         e2x7tvaeU62R7bC5kTp4pTlKdKex2ZEO4eMHs1GUmqKs9W4RNMJU3aKOWHfIvlZs1lui
+         ienA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793345815; x=1793950615;
+        d=1e100.net; s=20260707; t=1793345959; x=1793950759;
         h=content-transfer-encoding:content-type:mime-version:message-id:date
          :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=rMrhFGMaQbGuT+vysC+EnDo30wy5e48snLTrR+oGc/Y=;
-        b=FxUsyd7WJT8rZr/ob6Gc6L7texfHpixOOiasdwQQkggLqBZTcym4EOsbnXruILshdM
-         LZ+my4RryPX+zjwIgUEUY0zE7G+ScpFdY2Ym1J9L+zP6UYD9E5qE1bVIQO4SKwSsuKXI
-         m2JGeF07k3EAX6wPgs/uNGMt0c9/VvXm5qU4DQuJ3KC9cpbbt1YaQB400tPAE2bUyLUP
-         f+Ft0sQT5hodpXt8i2FLgsWKjqga6Pm8AhpEnXJyhNYg2VI3YSJ7GlDjz5eIBp9ZQv/k
-         /pQwSxnDr5ocZ5IijPm5x7tx1F+zotjCDiyLZklsdLiFsb7WdqFMditezrO+tbaqfFDD
-         Eorg==
-X-Forwarded-Encrypted: i=1; AKwUvBxmJHtiLLd6zetWvgk95898XeDtYIywdrf+3PFs5/rpISanI+igrX3OKUEqpbQdEZwOLdCTpTTiJ4M0WXIsLj7D@lists.infradead.org
-X-Gm-Message-State: AFq9FYLWN+uHi1RVnF6ca2j9uye29BxzRLl1zHjC5YLQLx6pETilpNO5
-	misPpDRJFdvAE77SYhv5yroPaziRQVFW9z6gm3nwJXuO2PSZxd1PLis/
-X-Gm-Gg: AYBFou0nz5OjKbpzgHsB1tDIp+MXEc0JDTZwFyBQXqrLsVcL4XwLAza2SeDeFp6Bn5X
-	+1A2FgkoQx+UimM13A15vawUEXwybSBREBTMln9UL9vCZfnaei0Kgc+Cn+vlduOcPt6zMleeEGE
-	Ko/5iEuznt/7rBXuv3pCfcKLrvG26S4bkx4iXt9SX/ekLjQ3hb4fJWaW257DwQFu0wdFdYWWLkB
-	YJeQRf8RP3nUEea36+oW71Et4jV26FVtmua1aPWDwlN92BXHb0mhQP0dLp8N6NS+NxyfBp6HG2l
-	O3cDvAa1z8vodX5BX0Im7rBnyNoPBfqlo4nqxobl9GivjUcfRZPgvPyDrpVcGdcl2/+xivBSOKz
-	WnGjSHLgL8Nt+QrRbPmyc2uga4A3fbbFzMriyE2TQhmMhrh/2B5F0yFne4zls7VIidgcK6+Rw+N
-	V/jAdqc1YELy7d9BYKp0EcsOz7nqyVgWJQ5LVroz2PhWKLmaU0Y9ob1dIijZDakja2O4+lWiXcd
-	vKcgohaHEldtA9Kh5FKzR4KaPFiszb9L1wFY3oQNmPqmNoMGe607YR5iB6duF9FlUpC7+oxincX
-	L2u+JyTBIi3GG5yEXp+iDyYvJ2STbavJr3U=
-X-Received: by 2002:a05:600c:19d1:b0:4a2:677:ad8e with SMTP id 5b1f17b1804b1-4ac1970b9f7mr28877715e9.34.1793345815331;
-        Fri, 30 Oct 2026 00:36:55 -0700 (PDT)
-Received: from thinkpad.hgw.local ([159.146.110.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71b80306sm1884497f8f.33.2026.10.30.00.36.53
+        bh=oTDHP5iTI4lQOhbLd0Zj1JOArDqyXgTJiorChKNggjQ=;
+        b=Kwgcz+f0FsVs3wc4WKElKtnRRfbmUq3PRpCz4rk2t64mmu3oEoNNc0dJSitCXUfbJY
+         AZOZZupCtyizwMRbkyejqd6bRW226912kXnIjwFKu/t6qCz8IosBmY61t2ZVGjGB/3Zc
+         Jt4ZdPO5OESJ5uo7lA2DRa6tnJQIk5Q/FXbDDJarBd7aYnVVq9mN+KY7n808KIU3w9Jk
+         qbHwiMEFqL0tF9uAGVwGCJQ1GyYY46yj4y0Q59OGQ6ruEDjNB2X5X0IAE9DowUlguzyz
+         SiJuhYjYDW8S3VdvX65I/U9tPUcAwf2BR9OPKbGbqE+h664WgVDFLUEwgSJ5C2mJ9Xxe
+         Xapw==
+X-Forwarded-Encrypted: i=1; AKwUvBwn3C+pLbX+1FpfuFySEZqzKBG7cB9W8dwtjaGnBKucB1XFaofDsLLhEeV5O+imzUV6gZGP0kGHeWY+Pqps4B+N@lists.infradead.org
+X-Gm-Message-State: AFq9FYJnM8DjgT5nIKyqKk7Dr0A2+a8aulYf+Tw76Zb3UIus4NUQaKC1
+	0iHPOxRroytyAxjpuDhAL52S6aBICMKfVXyCxMbUWnCdxOEgMHIfbb8b
+X-Gm-Gg: AYBFou30S+LcBTEeCgJSZnsLfGDkFB1v8PBaMi8LwEn1ErcCU/wr4cZ/+TWaaATIm3z
+	fn/jpUMNcTO6cJu5daVQ78TC7EHlAsKaTX10hivnxv1Q+sa6+T5lAdGjXQYl1f/4OVvfZu9uX/T
+	X7U32myjo5LjzjmtYk4MTIjWAD2QgblJ8BPI43FRZOOCpns3g9ZFxnvu+R8mm7H2FLG0+AKzHH9
+	ZxmFBmUXVvHypA/IbbjyM1oLzRGuBb9Hp+vKfonrNFyFWdFzWdJEZxOKcBsw/+D+1WmIg7GFUP6
+	wgtia0l60Ap/u0lgyo3S+VNj1KvJj2JhGqaILwndxuFlG7BU/dL6F/J3/I6nC8/XDry2K+mdfzT
+	wT4mf2ZRfeTxAUvDRuj1mlcPPrb3LfB4c5sBmgrAgKr/PLPnytQfPojY9IhfFSU+dwgql5BbBSg
+	s6spZYptPKBI6D8Bk1f0WTv1XDUF9Xkcz6EyBOqO77KhOK/VQ53Gt6rWaRDNIObcJTwJ6qygDB0
+	vpD4ia9M4aE1mgmse/5ScxnWLJUnt+V6876GECw0CTQkMeKYo3Ww+ujLRDweDoL5vkMhznASuYj
+	kz41UZu4GTzHLCk5G1tERzZco9x8wTUSU6r+uvILhyxPVgbwS57YWUvX3ZbGn90xSCxsmd4RV6i
+	vkcicGvHX5psRUjbANP4ENWLLby2fqik0qN1RqcTR/BFtiw==
+X-Received: by 2002:a17:907:3d8f:b0:c3e:d18c:1d7d with SMTP id a640c23a62f3a-c4ca7a88815mr126486566b.22.1793345958962;
+        Fri, 30 Oct 2026 00:39:18 -0700 (PDT)
+Received: from nixos-macbook.taile68cd7.ts.net (20-144-89-188.ftth.glasoperator.nl. [188.89.144.20])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4cabe0f389sm34050966b.32.2026.10.30.00.39.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 00:36:54 -0700 (PDT)
-From: =?UTF-8?q?Yal=C3=A7=C4=B1n=20Can?= <ylcncn@gmail.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Russell King <linux@armlinux.org.uk>,
+        Fri, 30 Oct 2026 00:39:18 -0700 (PDT)
+From: Jacob Procee <sn125164@gmail.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Frank Li <Frank.Li@kernel.org>,
+	Sasha Finkelstein <k@chaosmail.tech>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	=?UTF-8?q?Martin=20Povi=C5=A1er?= <povik+lin@cutebit.org>,
+	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: rockchip: rk3066: set soc_remap before starting secondary cores
-Date: Fri, 30 Oct 2026 10:36:47 +0300
-Message-ID: <20261030073647.164416-1-ylcncn@gmail.com>
-X-Mailer: git-send-email 2.47.3
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Jacob Procee <sn125164@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v2] dmaengine: apple-admac: Fix position one period ahead at period boundary
+Date: Fri, 30 Oct 2026 08:39:09 +0100
+Message-ID: <20261030073909.21966-1-sn125164@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_003657_891512_CC636C5D 
-X-CRM114-Status: GOOD (  21.67  )
-X-Spam-Score: -0.1 (/)
+X-CRM114-CacheID: sfid-20261030_003921_838800_0DE1D0AB 
+X-CRM114-Status: GOOD (  27.52  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,86 +110,144 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,HK_RANDOM_FROM,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A Cortex-A9 core on the rk3066 starts at address 0 when it is powered up.
-The SMP code copies a trampoline to the start of the internal sram and
-relies on GRF_SOC_CON0 soc_remap (bit 12) mapping the sram at address 0.
-The vendor loader sets that bit before starting the kernel, but a boot
-loader started directly by the bootrom leaves it cleared. The core then
-runs the bootrom instead, which parks it and also writes into the start of
-the sram, so the trampoline's target word is overwritten as well, and the
-boot logs "CPU1: failed to come online".
+Speaker playback on a MacBook Pro 14" (M1 Pro, J314s) underruns at
+irregular intervals, audible as a tick: 8 times in 3.7 hours of
+playback. Where an underrun was caught (4 of 8), the ALSA hw_ptr had
+jumped by one buffer size while about 70 ms of audio was still queued,
+and a kernel trace showed the DMA position stepping back by exactly one
+period at each of the 6 underruns it covered.
 
-Set soc_remap after the secondary cores have been powered down and before
-the trampoline is copied. The rk3188 shares these smp operations; its grf
-has a different compatible and is left alone.
+admac_cyclic_read_residue() derives the position from the report ring
+(periods finished but not yet reclaimed) and REG_RESIDUE (bytes left in
+the current descriptor). When a descriptor finishes, the residue first
+drops to zero, then the report is posted and the next descriptor is
+loaded. Usually the last two happen together, but occasionally the
+report comes first. A read in that window counts the finished period
+twice:
 
-Tested on an RK3066a board (MK808B) with U-Boot started from the NAND ID
-blocks by the bootrom: before, CPU1 never came online (GRF_SOC_CON0 bit 12
-clear, sram+4 read 0x00000001 instead of the physical address of
-secondary_startup); with this patch both cores come up at boot, three
-offline/online cycles of cpu1 work, and the board restarts normally after
-a reboot and after a forced panic. Booting through the vendor loader, which
-already sets the bit, is unchanged. Not tested on rk3188.
+ - residue2 == 0 with the report already in ring2: the period is
+   counted in nreports and again as the fully consumed current
+   descriptor;
+ - residue1 == 0 with the report already in ring1, and the next
+   descriptor loaded by the time residue2 is read: the
+   residue2 > residue1 branch adds one to a ring1 that already holds
+   the report.
 
-Fixes: a7a2b3118b41 ("ARM: rockchip: add smp bringup code")
-Assisted-by: Claude:claude-opus-5-5
-Signed-off-by: Yalçın Can <ylcncn@gmail.com>
+Either way the position is one period ahead. The next read is behind
+it, snd_pcm_update_hw_ptr0() takes the backwards step for a wrap of the
+whole buffer, and the stream underruns.
+
+While the channel runs, a zero residue only occurs between descriptors,
+so read the registers again while either residue is zero. The retries
+are bounded, as the residue also stays zero on a stopped channel or one
+that ran out of descriptors; after the last retry the position is
+computed as before.
+
+With a debug build counting retries, one hour of playback needed a
+retry for 2210 of 3.39 million reads, at most three retries (3.5 us),
+also across pause and stream restart. Both states above showed up in
+the logged register values. There were no underruns in three hours of
+playback with the fix.
+
+Fixes: b127315d9a78 ("dmaengine: apple-admac: Add Apple ADMAC driver")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Acked-by: Martin Povišer <povik+lin@cutebit.org>
+Signed-off-by: Jacob Procee <sn125164@gmail.com>
 ---
- arch/arm/mach-rockchip/platsmp.c | 25 +++++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
+Thanks Frank, Sasha and Martin for the reviews.
 
-diff --git a/arch/arm/mach-rockchip/platsmp.c b/arch/arm/mach-rockchip/platsmp.c
-index f659d894b..2edd0fa46 100644
---- a/arch/arm/mach-rockchip/platsmp.c
-+++ b/arch/arm/mach-rockchip/platsmp.c
-@@ -198,6 +198,29 @@ static int __init rockchip_smp_prepare_sram(struct device_node *node)
- 	return 0;
- }
+Changes in v2:
+- Drop the code comment, the explanation is in the commit message
+  (Sasha Finkelstein).
+- Add Frank's Reviewed-by and Martin's Acked-by.
+- v1: https://lore.kernel.org/r/20261029105908.22809-1-sn125164@gmail.com
+
+How this was found and tested:
+- The underruns were traced with bpftrace on snd_dmaengine_pcm_pointer():
+  a position read 19-37 us before the period interrupt was exactly one
+  period ahead of the interrupt's own read. The register states were then
+  confirmed with a debug build of this driver that logged the raw report
+  ring and residue values on every retry.
+- There is no hardware documentation for the ordering; all of this is
+  measured. In the 1906 logged retries the next read always showed both
+  the report and the new descriptor, or neither, never the new descriptor
+  with the old report count.
+- The reverse order (next descriptor loaded before the report is posted)
+  would put the position one period behind and is not handled here. The
+  bpftrace probe checked every position read for a backward step, so it
+  would have caught that too: none occurred in the three hours with the
+  fix, roughly 10 million reads.
+- RESIDUE_RETRIES is empirical as well: of the logged retries, 1189 needed
+  one, 621 two and 96 three, none more; the longest complete retry
+  sequence took 3.5 us. A round takes about 1 us, so the limit keeps the
+  additional polling time, with interrupts off, to roughly 10 us in the
+  observed environment. If the limit is reached, the position is computed
+  using the existing calculation, so the original error can still occur
+  in that case.
+- Tested on a MacBook Pro 14" (M1 Pro, J314s) as an out-of-tree module on
+  the Asahi 7.2.12 kernel, whose apple-admac.c matches this tree apart from
+  the unrelated admac_hw rework. The three hours above used a limit of 100
+  retries; the code as posted here (limit 10) ran for another 30 minutes.
+  On this tree the driver builds cleanly with W=1 and C=1 (arm64
+  defconfig), but I have not run it here, nor on other Apple SoCs.
+
+AI assistance: the tracing, analysis, the code change and a first draft of
+this changelog were done with an LLM (Claude) in a session with me. I have
+reviewed and tested the result and can answer for it.
+
+ drivers/dma/apple-admac.c | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/dma/apple-admac.c b/drivers/dma/apple-admac.c
+index 9a1c79c12..a505975a5 100644
+--- a/drivers/dma/apple-admac.c
++++ b/drivers/dma/apple-admac.c
+@@ -28,6 +28,12 @@
+  */
+ #define SRAM_BLOCK	2048
  
-+#define RK3066_GRF_SOC_CON0	0x150
-+#define RK3066_SOC_REMAP	BIT(12)
-+
 +/*
-+ * A starting core fetches its first instruction from address 0. Only with
-+ * soc_remap set is that the on-chip sram holding the trampoline; otherwise it
-+ * is the bootrom, which parks the core and writes into the start of the sram.
-+ * The vendor loader sets the remap, other loaders (e.g. U-Boot started from
-+ * the bootrom) leave it cleared. The secondary cores are powered down here.
-+ * Only the rk3066 is handled; other socs using these smp ops are left alone.
++ * How often to re-read the residue while a descriptor boundary is in
++ * progress, see admac_cyclic_read_residue().
 + */
-+static void __init rockchip_smp_remap_sram(void)
-+{
-+	struct regmap *grf;
++#define RESIDUE_RETRIES	10
 +
-+	grf = syscon_regmap_lookup_by_compatible("rockchip,rk3066-grf");
-+	if (IS_ERR(grf))
-+		return;
+ #define RING_WRITE_SLOT		GENMASK(1, 0)
+ #define RING_READ_SLOT		GENMASK(5, 4)
+ #define RING_FULL		BIT(9)
+@@ -358,11 +364,14 @@ static u32 admac_cyclic_read_residue(struct admac_data *ad, int channo,
+ 	u32 residue1, residue2;
+ 	int nreports;
+ 	size_t pos;
+-
+-	ring1 =    readl_relaxed(ad->base + REG_REPORT_RING(channo));
+-	residue1 = readl_relaxed(ad->base + REG_RESIDUE(channo));
+-	ring2 =    readl_relaxed(ad->base + REG_REPORT_RING(channo));
+-	residue2 = readl_relaxed(ad->base + REG_RESIDUE(channo));
++	int tries = 0;
 +
-+	regmap_write(grf, RK3066_GRF_SOC_CON0,
-+		     RK3066_SOC_REMAP | (RK3066_SOC_REMAP << 16));
-+}
-+
- static const struct regmap_config rockchip_pmu_regmap_config = {
- 	.name = "rockchip-pmu",
- 	.reg_bits = 32,
-@@ -321,6 +344,8 @@ static void __init rockchip_smp_prepare_cpus(unsigned int max_cpus)
- 		pmu_set_power_domain(0 + i, false);
++	do {
++		ring1 =    readl_relaxed(ad->base + REG_REPORT_RING(channo));
++		residue1 = readl_relaxed(ad->base + REG_RESIDUE(channo));
++		ring2 =    readl_relaxed(ad->base + REG_REPORT_RING(channo));
++		residue2 = readl_relaxed(ad->base + REG_RESIDUE(channo));
++	} while ((!residue1 || !residue2) && ++tries < RESIDUE_RETRIES);
  
- 	if (read_cpuid_part() == ARM_CPU_PART_CORTEX_A9) {
-+		rockchip_smp_remap_sram();
-+
- 		if (rockchip_smp_prepare_sram(node)) {
- 			of_node_put(node);
- 			return;
+ 	if (residue2 > residue1) {
+ 		/*
+
+base-commit: aff5e6a77fc69a7c490246465940d18422d7c631
 -- 
-2.47.3
+2.56.0
 
 
