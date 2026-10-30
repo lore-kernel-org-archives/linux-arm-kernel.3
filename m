@@ -2,128 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50D41606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 16:58:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AF41606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 16:58:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gsAE7NPs;
-	dkim=pass (2048-bit key, unprotected) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=UHhaMzbJ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WKiWahBN;
+	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=2y909wnk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Of8qcGhrASNngOAxz8m59rDteGhCMKDYRjobFeTSxhE=; b=gsAE7NPs+9uHgj0Y/xvLefExYJ
-	eUJSs6U8HApw6DIIrpfAutklkUBvZ4f/HCGCbVUaEJ1pYEfK9RtCXP4JoSxst1/ZD3VAN/U0ZMtXK
-	bjMjn+yGOdU6yPOvaegd0fnj8epkgVR4hLiEO/WQVUmLFBtAYruUnWyMKHwRwR857TYV1DCQofy5z
-	Qkd5Y8Qfx32aRoc6Kd4rRXbU9y1dhl55qRhczsnSDb1s6AY61Z1C4UbbL+Yz5q+Pb17t6+RAo2Q4s
-	krWhQfjf2EtjAomRqQEfW/oLjE8YbUtbOvlC9XoHJ1FxxFqppFs+/ezHavXtcay/y1G605CYuL7cV
-	dLiebWog==;
+	bh=E0o7l/pShR1+SqYicqhHSKEqObfbQ+XkPYrzgPFmubQ=; b=WKiWahBNmsN3U+E4TgjvHGO6/y
+	OvdnYO9FWBmdlWYHiufBeqShcwwW9YCR9l6kn65kUbRLtTx9HPVRv4qqw3DOly3IactDeNzsQX/1u
+	ZUXz1YJwlSD1RdNCdI1tNDdNQoVYrCA4TX2KEUoTMMxAytpgY38QWEdVYA8oBOeMui9fRlne3jvva
+	+knt6K6V/pJl0BHiIEa9v9Wr4hUXWVsgJG0AlbLiOJhyen6tLMln3laDEDRYzN+LcR0obdMfPPgGQ
+	IkOni81u28mxrq8gkGWBv2Rt9dXCGzx95JPAMoZZf1CT4vHEQWYqMdAa6rB5JWXi8xu0Y3wMSgp/S
+	4pwYbWxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMpvz-0000000CAyp-0UVu;
-	Fri, 30 Oct 2026 16:58:31 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1xMpwJ-0000000CB22-116y;
+	Fri, 30 Oct 2026 16:58:51 +0000
+Received: from 013.lax.mailroute.net ([199.89.1.16])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMpvw-0000000CAyV-2CZf
+	id 1xMpwF-0000000CB0b-0a7v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 16:58:29 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-91c79f306e9so10969446d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 09:58:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1793379506; x=1793984306; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Of8qcGhrASNngOAxz8m59rDteGhCMKDYRjobFeTSxhE=;
-        b=UHhaMzbJtFm71+riwXEW5ApIlWYHS53tPMwaDcXFVSUNmy+JaicrdWOdbsn4uQdiot
-         iJrZrrqYD4vTLohKyOH+NitoWlJy4gl7ypYb35nIki8EUefaK2fBMPN/PtIVlbf57vo0
-         R1rd4quQvCDk1X6OKSSA7ISmjVzuDEoLaUNbqbnjrEdq/jAsNLX62GssV9W3Dm3V/XZC
-         blFp1cZL4NL/u2gMTpe91q7xNxlz9BGqO6xpgMRTEaU41FoKapzP+VKkfvnaHVgtaSqJ
-         TZ/Kx5nfM19swRwB/+z/cMLwaJml5c5KCnMQDiBLebCn9TsnWAjwdFtyQzvBlIVaC6MV
-         TP/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793379506; x=1793984306;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Of8qcGhrASNngOAxz8m59rDteGhCMKDYRjobFeTSxhE=;
-        b=url2Ao/rhJ25vAc71MKJwJEh8xNx4FXaqIdgHsmJ9UFU1QcQoCotrBuROHHBlU1pFQ
-         Z0oEq2qUwvQUthBSfUKbig7X36h60Rb5Ap3NK0cJqj8JlFnSaXydznsOl4m2iMpqewnr
-         K07xtZmkNyHBgN2izygERm9zD69L/r+AJUa/3+d3b12FHrEvsoLxMAHgRj7YVGNzp6rp
-         fL5AhkJ/QEj0IOMCOBHz0M4gZjnR7Ft/tlPWULrqNp1LYhmWHLd9xNJ5G+oQiVpDtFOT
-         nhVqMUxSgjN7rqiKu867AGtEasUkJaQWvMtOCxby+SZytF79dfbwXljTc3tALGinzUOh
-         Drqg==
-X-Forwarded-Encrypted: i=1; AKwUvByCCXrrxyq38I3NyRFdRYdKnorzEIfVVZDUehC4xRLmiFPjM2nZ54d5JcefedrbxMa9nyiw401fmacZd5gSe1Z5@lists.infradead.org
-X-Gm-Message-State: AFq9FYKyufo8ohNcFyn2VkaByQw5EmfPwMuhzqhSIsDVGUKOBvkqv1xI
-	iKCcklOPKRQt6v66b+k48DCY112FOhJBLF0pHnfwkxMmM+uwkFvHvg2hl0dwNiwZMnY=
-X-Gm-Gg: AYBFou2sNI04ltvhUS3tj/NPf+ERFESCE2c9LUxVam7vyeTKEHAiQFjDJCTgt37ZXjS
-	LZc1MWvXtEZ0PVqBPjmqGwV6sYOn7YhpW8YyBxpY0BeVUoM2Je4me0LqF6GGcdlm8ZrSOZG17Xd
-	NFaWhLxYeLtNZCF5CHpCx62nSRiSvITzHI9TSbHgCDUdvJdG5GVfbVF6VchKMzxsG6wwzejrNrZ
-	7MTlGWTECqJBfJt2jjTguRHYRMqtmCGyTUALY8U46vcK/KIGZScyc7P+PO9iHQbcDLXumb55wPK
-	sAZPhbctepRN98eMhWlnaNio3uAEe3BDOAt9gHw4CpGuqluO55ghbKq7qx/9l0za1BLE0ribGk8
-	KMFP2iUrE4Pc+h1n4xiUhFf4y/BeQGdSYIqQm+X2hPDkkYft0mv7ChB6ZkeDoKKoM0GIvFRADIn
-	XaHjrniWP0LC3ZaApmH9ZfHwpsT5adJdEeGjZ7y4Scwd2oHBoK8OYiKK1yibn2E0/mfvD6UBc08
-	AyuchZ4WpTHXPguAJ0k1RasdoAPoKgViDhmQN+JE7BJyyK74nHLcRfUsRaulfxCf7R9WpRgE484
-	QuUliADDvCIdEdPb/M4+f9IjM4SlGA8gSZsZYj5BeDmNoSqCkmLRV1w3GCyqwP8OXhqqvpMglsR
-	mB4m3YZiYUtY=
-X-Received: by 2002:a05:6214:226b:b0:91b:ec0b:9671 with SMTP id 6a1803df08f44-91ca4b9a540mr46456036d6.52.1793379506439;
-        Fri, 30 Oct 2026 09:58:26 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91ca80700b5sm19825486d6.38.2026.10.30.09.58.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 09:58:25 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xMpvt-000000019rO-0nKn;
-	Fri, 30 Oct 2026 13:58:25 -0300
-Date: Fri, 30 Oct 2026 13:58:25 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Jacob Pan <jacob.pan@linux.microsoft.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	Alex Williamson <alex@shazbot.org>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Lukas Wunner <lukas@wunner.de>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Steven Price <steven.price@arm.com>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH v7 08/16] iommufd/viommu: Keep a reference to the KVM file
-Message-ID: <20261030165825.GE3889730@ziepe.ca>
-References: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
- <20261008055955.4014342-9-aneesh.kumar@kernel.org>
- <20261014105913.00001217@linux.microsoft.com>
- <yq5aecd9aupx.fsf@kernel.org>
- <CO1PR11MB48351C4BD0BAD3BF6AFB2E0C8C6D2@CO1PR11MB4835.namprd11.prod.outlook.com>
+	Fri, 30 Oct 2026 16:58:49 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 013.lax.mailroute.net (Postfix) with ESMTP id 4jGS3m0SClzlfvqP;
+	Fri, 30 Oct 2026 16:58:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:mime-version:x-mailer:message-id:date
+	:date:subject:subject:from:from:received:received; s=mr01; t=
+	1793379520; x=1795971521; bh=E0o7l/pShR1+SqYicqhHSKEqObfbQ+XkPYr
+	zgPFmubQ=; b=2y909wnklU2A+ClYMerPOG3NZGXIP6oyU5On42tAacJMwUyp9Bh
+	8Ol+pm80xoQPKEE8pQ/73VXnfk2D+kxbxdEsW9OwEzPQ7TwQbYLdEnhnu4Nn6eBR
+	KZ8YDzA/D59VXhamt86aZmUwJ0Zjc0iGjmLP5KVH46+zCu4EOnzq4LO5P+Wr8rxs
+	LzbEbSDzmWJBgU/4AyNikFb8oScL4su+hzcFrGbWWUaIAH4UsClhkEKHMwHfULG9
+	Xd4HZzIeZDbtVqVtFqU3pM9A3eX6YF4glgr9sj/iLTn+KWkv/XPAu3k2tXnLdRdl
+	A43c9QrBQRda6WFMyhbtPVcFW9qlEuXWGQA==
+X-Virus-Scanned: by MailRoute
+Received: from 013.lax.mailroute.net ([127.0.0.1])
+ by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id tIOHeKqG_gr3; Fri, 30 Oct 2026 16:58:40 +0000 (UTC)
+Received: from bvanassche.c.googlers.com.com (57.237.82.34.bc.googleusercontent.com [34.82.237.57])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4jGS3h36Y2zlfvqH;
+	Fri, 30 Oct 2026 16:58:40 +0000 (UTC)
+From: Bart Van Assche <bvanassche@acm.org>
+To: Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Bart Van Assche <bvanassche@acm.org>
+Subject: [PATCH] ARM: Flush the entire TLB for large kernel ranges
+Date: Fri, 30 Oct 2026 09:58:08 -0700
+Message-ID: <ea3f6c05ad01fedc3859d8c16e98eaf521cee624.1793379488.git.bvanassche@acm.org>
+X-Mailer: git-send-email 2.56.0.317.g454f8302e1-goog
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CO1PR11MB48351C4BD0BAD3BF6AFB2E0C8C6D2@CO1PR11MB4835.namprd11.prod.outlook.com>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_095828_770906_73CD9ECC 
-X-CRM114-Status: GOOD (  11.09  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_095847_662306_4135F62A 
+X-CRM114-Status: GOOD (  17.74  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,23 +79,125 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 30, 2026 at 07:54:04AM +0000, Tian, Kevin wrote:
+__purge_vmap_area_lazy() flushes the TLB for a single range that covers
+all lazily freed vmap areas. On ARM, BPF JIT images and modules are
+allocated below PAGE_OFFSET while other vmalloc allocations are above
+it, so that range can span hundreds of megabytes. flush_tlb_kernel_range(=
+)
+invalidates such a range one page at a time, which takes up to hundreds
+of thousands of per-page TLB maintenance operations. That loop has no
+voluntary preemption points and runs while vmap_purge_lock is held, so
+other tasks that free vmalloc memory are blocked.
 
-> Besides, it might be a good idea to return an error if idev->kvm_file is
-> NULL in iommufd_viommu_alloc_ioctl(). I don't think the viommu logic
-> is designed for native application...
+Flush the entire TLB on both SMP and UP configurations if the range
+touches at least PTRS_PER_PTE (512) pages, matching MAX_DVM_OPS on
+arm64.
 
-That's probably going too far..
+Signed-off-by: Bart Van Assche <bvanassche@acm.org>
+---
+ arch/arm/include/asm/tlbflush.h | 30 +++++++++++++++++++++++++++++-
+ arch/arm/kernel/smp_tlb.c       | 15 +++++++++++++++
+ 2 files changed, 44 insertions(+), 1 deletion(-)
 
-It should be possible to fully test most of the viommu stuff without
-an actual kvm, for example.
-
-Jason
+diff --git a/arch/arm/include/asm/tlbflush.h b/arch/arm/include/asm/tlbfl=
+ush.h
+index 38c6e4a2a0b6..c6a61f4488a9 100644
+--- a/arch/arm/include/asm/tlbflush.h
++++ b/arch/arm/include/asm/tlbflush.h
+@@ -9,6 +9,7 @@
+=20
+ #ifndef __ASSEMBLY__
+ # include <linux/mm_types.h>
++# include <asm/page.h>
+ #endif
+=20
+ #ifdef CONFIG_MMU
+@@ -597,14 +598,41 @@ static inline void clean_pmd_entry(void *pmd)
+ #define local_flush_tlb_range(vma,start,end)	__cpu_flush_user_tlb_range(=
+start,end,vma)
+ #define local_flush_tlb_kernel_range(s,e)	__cpu_flush_kern_tlb_range(s,e=
+)
+=20
++/*
++ * Bound the number of per-page TLB invalidations to avoid soft lock-ups=
+ and
++ * long vmap_purge_lock hold times on large ranges (not necessarily a
++ * performance improvement). Matches MAX_DVM_OPS (PTRS_PER_PTE) on arm64=
+.
++ */
++#define MAX_TLB_KERNEL_RANGE_PAGES	512
++
++static inline bool tlb_kernel_range_exceeds_max(unsigned long start,
++						unsigned long end)
++{
++	unsigned long pages;
++
++	if (end <=3D start)
++		return false;
++
++	pages =3D ((end - 1) >> PAGE_SHIFT) - (start >> PAGE_SHIFT) + 1;
++	return pages >=3D MAX_TLB_KERNEL_RANGE_PAGES;
++}
++
+ #ifndef CONFIG_SMP
+ #define flush_tlb_all		local_flush_tlb_all
+ #define flush_tlb_mm		local_flush_tlb_mm
+ #define flush_tlb_page		local_flush_tlb_page
+ #define flush_tlb_kernel_page	local_flush_tlb_kernel_page
+ #define flush_tlb_range		local_flush_tlb_range
+-#define flush_tlb_kernel_range	local_flush_tlb_kernel_range
+ #define flush_bp_all		local_flush_bp_all
++
++static inline void flush_tlb_kernel_range(unsigned long start,
++					  unsigned long end)
++{
++	if (tlb_kernel_range_exceeds_max(start, end))
++		local_flush_tlb_all();
++	else
++		local_flush_tlb_kernel_range(start, end);
++}
+ #else
+ extern void flush_tlb_all(void);
+ extern void flush_tlb_mm(struct mm_struct *mm);
+diff --git a/arch/arm/kernel/smp_tlb.c b/arch/arm/kernel/smp_tlb.c
+index d4908b3736d8..957cc2eb662f 100644
+--- a/arch/arm/kernel/smp_tlb.c
++++ b/arch/arm/kernel/smp_tlb.c
+@@ -4,6 +4,8 @@
+  *
+  *  Copyright (C) 2002 ARM Limited, All Rights Reserved.
+  */
++#include <linux/build_bug.h>
++#include <linux/pgtable.h>
+ #include <linux/preempt.h>
+ #include <linux/smp.h>
+ #include <linux/uaccess.h>
+@@ -234,6 +236,19 @@ void flush_tlb_range(struct vm_area_struct *vma,
+=20
+ void flush_tlb_kernel_range(unsigned long start, unsigned long end)
+ {
++	static_assert(MAX_TLB_KERNEL_RANGE_PAGES =3D=3D PTRS_PER_PTE);
++
++	/*
++	 * __purge_vmap_area_lazy() may pass a range that spans from the
++	 * modules area to the end of the vmalloc area. Invalidating such a
++	 * range page by page takes hundreds of thousands of broadcast TLB
++	 * operations, without voluntary preemption points.
++	 */
++	if (tlb_kernel_range_exceeds_max(start, end)) {
++		flush_tlb_all();
++		return;
++	}
++
+ 	if (tlb_ops_need_broadcast()) {
+ 		struct tlb_args ta;
+ 		ta.ta_start =3D start;
 
