@@ -2,74 +2,115 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C95E606AC39
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:51:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF6D2606B83E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:52:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=I++rxUiX;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WaW7JSgj
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4pdlO9TI;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mfGsiqKI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=A0dv3I3LgauzsxhnnoQrRe1KXsYEPPAsnmbINkJOsD0=; b=I++rxUiXtRE75OenqkxW1SJdwq
-	cycIhQ9WluWTD6x5y32wncHjIDT8pPZE+wSGU6otT+Giy5l58yP4h+f9xzjTDYVXhZXNrJFRBNl6k
-	Uxsdvw+XzaHt51g3lPaTUcF8v2Krxnh9IVQO4CCUDScAR2AgvAbVcUuNvonzShsSydT2U0GDZjNDE
-	cMjpbAq81CjNDNN+nBhrrJKL5pbViFRUyBGllzhvb5+XWMHpEGVwVvZnlHZRbKdN3ZbQJm63wl2RI
-	jg5orjiaNiZCnaAaIYwKohNO9Dp+UNgat8cB0U/AxKXH+m0+qJe5ijvI2uG43XEWtAWtoauuPtVYw
-	LVox4w8A==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=49o1u1ndEVYCRhdoNrt4i607A2DEAQbKE5/U9XS515A=; b=4pdlO9TIAVC1Nm
+	bVl1Q3+gpULpMmB8JOAkOh1FnPG/N/ACxJqouPPhEryWrY48vablDxO4dfB4i720Ljo5ziGB29qhW
+	7Hm0fS8X0JyMxIB8KJzK7/WUgUW/JDLNjHQ96xl2b2haoDtoe30VrdR1h3Dga2T/e6HROXMt/OYC7
+	LepVadlcW7tVcsZOA4RKZ5W11Lw/+K/E+RcGn+qTYHTw7E6/5btcwe/tOnCFaWmJgqmV1CpvNNZqW
+	AzzoP7wtM6BltMwwNvrWOo85uVT9V855e6Wh9Mw3uSmyLYf1/h64uS0W5hDOGvK3+Ygep6oc/dLv4
+	bdymX/p0zcjeUNY6gCPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMkD3-0000000BSLX-3rOw;
-	Fri, 30 Oct 2026 10:51:45 +0000
-Received: from out-104.mta1.migadu.com ([95.215.58.104] helo=mta1.migadu.com)
+	id 1xMkDV-0000000BSQa-0Pws;
+	Fri, 30 Oct 2026 10:52:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMkD1-0000000BSKP-0N2k
+	id 1xMkDU-0000000BSQ6-0iKn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 10:51:45 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=1TcNP8eN2SDjaN1bgFoh1AhCvsMUSR+eK5knTA7zNYY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793357500; v=1; x=1793962300;
- b=WaW7JSgjXWApB6refU7TiKFy0lROwj3+RfWnq20yuV2N98nGHhAB6ziOqqeP9BpIOPXQqMUU
- ElrZJIq8g/+aCsrrc+TY/96zGGojdAqmTHiSFfwRDYjDQQiAj7CdxoGBrpz5sG21DjkMhqry/QS
- 3gDeuAleuuo4FQQ+2Ewf+St0=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 7a928a9d3355d0ef;
-	Fri, 30 Oct 2026 10:51:40 +0000
-X-Mizu-Trace-ID: 7a928a9d3355d0ef
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH] KVM: arm64: nv: Size nested stage-2 MMUs by the NV PARange cap
-Date: Fri, 30 Oct 2026 10:51:39 +0000
-Message-ID: <20261030105139.3543230-1-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.47.3
+	Fri, 30 Oct 2026 10:52:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B59B40A34;
+	Fri, 30 Oct 2026 10:52:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C3AB1F0093A;
+	Fri, 30 Oct 2026 10:52:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793357531;
+	bh=49o1u1ndEVYCRhdoNrt4i607A2DEAQbKE5/U9XS515A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=mfGsiqKIDIm2/4TYmCaARm0JPoJPIAzX5errHQP7wswXDpM7bq2NZl3nvafZw3MuB
+	 LyhIrHR8l7uXCUYvyLIXcpjzM98TmBwhstgCkZ8qkfCPcwC6lrRj8QnEaUOBP3xTY5
+	 V1XHA1s02o5vUFqn80wHuWMalQnosLbTrSX0vnZFsX7gPu4Q20F89RA5Os9z3BjDwT
+	 p7hNDX+vjh6bToH4eAWxaKytCA9nNY1NKBWny3GydLKDtAg8eU9a3PkPQOy/CeORQU
+	 0Of0b+2Olj4gZH9ko+iEy+q31jGfZ1X+IIRul4Le8CdOJIAlQ+JYRwMGuOy6+YWhDa
+	 hkFGENlCTQQQQ==
+Message-ID: <79b1da71-7a17-4d75-aa79-ac1a18303b2d@kernel.org>
+Date: Fri, 30 Oct 2026 11:52:04 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 05/16] ARM: dts: aspeed: anacapa: Add eeprom device
+ node for NFC adaptor board
+To: Colin Huang <u8813345@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
+ <billy_tsai@aspeedtech.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, colin.huang2@amd.com,
+ Carl Lee <carl.lee@amd.com>
+References: <20261029-anacapa-devlop-phase-devicetree-v10-0-26ee3cf9d9d0@gmail.com>
+ <20261029-anacapa-devlop-phase-devicetree-v10-5-26ee3cf9d9d0@gmail.com>
+ <c78efbed-e91b-484c-b2a8-4e44383bbc30@kernel.org>
+ <CAPBH0A96nFFqv4a0--OD=67w=uNkiX5qWb1aQFF9=kGVsUijRQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAPBH0A96nFFqv4a0--OD=67w=uNkiX5qWb1aQFF9=kGVsUijRQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_035143_589034_84755CB3 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,55 +121,38 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-init_nested_s2_mmu()'s comment says nested stage-2 MMUs use the PARange
-exposed to the guest, but it sizes them with kvm_get_pa_bits(), which
-returns the host's IPA limit rather than the 48 bits limit_nv_id_reg()
-caps an NV guest at.
+On 30/10/2026 09:41, Colin Huang wrote:
+> Krzysztof Kozlowski <krzk@kernel.org> 於 2026年10月29日週四 下午9:43寫道：
+>>
+>> On 29/10/2026 14:38, Colin Huang wrote:
+>>> From: Carl Lee <carl.lee@amd.com>
+>>>
+>>> Add eeprom device node for NFC adaptor board FRU.
+>>>
+>>> Signed-off-by: Carl Lee <carl.lee@amd.com>
+>>
+>> DCO mismatch / missing SoB. Please read submitting patches document for
+>> further explanation.
+>>
+> 
+> https://github.com/torvalds/linux/blob/master/Documentation/process/submitting-patches.rst#sign-your-work---the-developers-certificate-of-origin
+> 
+> Thanks. Krzysztof
+> This means I need to add my Signed-off-by to each patch, right ?
+>
 
-On a 52-bit host, every TLBI ALLE1IS from the guest hypervisor then has
-KVM unmap each valid nested stage-2 across a range 16 times the one the
-guest can use. Under QEMU, the KVM init of an E2H0 guest hypervisor
-doesn't complete within 20 minutes.
+I am sorry, which part of submitting patches, which tells you what is
+necessary before you submit patch, is unclear? Please go through all the
+steps of submitting patches and analyze if it applies or not.
 
-Make kvm_get_pa_bits() return the 48-bit cap for an NV VM. That also
-bounds the nested walker's limits, the emulated TLBI ranges and AT's
-address size checks.
-
-Fixes: 4f128f8e1aaac ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
-The 48 is written here and in limit_nv_id_reg(). I couldn't derive it
-from the VM's ID_AA64MMFR0_EL1, since the nested MMUs are created in
-kvm_setup_vcpu(), before kvm_reset_vcpu() initialises the VM's ID
-registers. Userspace can also lower PARange afterwards.
-
- arch/arm64/kvm/reset.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index 10eb7249aa9e8..1918837757682 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -220,6 +220,10 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- 
- u32 kvm_get_pa_bits(struct kvm *kvm)
- {
-+	/* An NV guest's PARange is capped by limit_nv_id_reg() */
-+	if (test_bit(KVM_ARM_VCPU_HAS_EL2, kvm->arch.vcpu_features))
-+		return min(kvm_ipa_limit, 48U);
-+
- 	/* Fixed limit until we can configure ID_AA64MMFR0.PARange */
- 	return kvm_ipa_limit;
- }
--- 
-2.47.3
-
+Best regards,
+Krzysztof
 
