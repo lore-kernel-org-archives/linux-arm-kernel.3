@@ -2,68 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC415606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:34:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51AD8606A61F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:37:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mY6TbmON;
-	dkim=pass (2048-bit key, unprotected) header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=eIV7NZyI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z0wLq3HX;
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=Bn1maMdu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+SIrY3lV5sFHoGq82hO8Ug8L5qjWnUkl/nbUlfalUZE=; b=mY6TbmONS+ehq+
-	ms9uPhQNd64I/p6Zv6j8RvLd0KCkOx0ZTi1O/J07fGr6P+nxGrlV/272TCRS7DQu336Fbw3Dbxo/M
-	A2dSNLtE4YFQLuHw5xxl7BVjgClVHW0bMG7Fr0U1wXzaWVQtKQ+J42jCJ1N1ZH9T0I+jazhgEeBGU
-	SZd76G25H7iTk6g9UxbY0+341EtEaZ/ydS/cD3tvq+xcFt+HjSVfZruUiw+m8WUyHkpO+GM0pLx/a
-	vs3jpskq6UtQIyI0zIxVlN0VMKNxZ01TsF1wW99o92Wov1wwUiKdr6Ru1O6QKM1PxM8emY4dbKn77
-	8w8GU/HTuzMNzS1LAnLg==;
+	List-Owner; bh=oXQ15hDbnS1B2Y9Ac6zuPUxaceab5plrwxGQ/lap8W4=; b=z0wLq3HXZ5CqH3
+	YOGyG0upbTzjPGiE7ZTr1YQlljT9WsFak0JUiQfkZAZFGPMiwmP4AAGXu8Fi33zyCxN1iFTe81wl2
+	mk+DBiDtExXn85IUzqRzfkxQfCI7be1bZoj5+FOmJgkKQTDXfsJnZ0B2imHLXQRWYUHmjv2pI41Af
+	heUEdCWwhED7X38XIKyezR0A4wzj8d2fz8nfOtKoswEUs6bI52OpyyRloSUpmQ4EyH0DVInSLdzqt
+	HTd5R7zRiyeM80tla7Pf0fljncsBF7y2gDpY7SsYOv/R4YUWRkbXKZh3kVt64B9nW24GIO4h9uwaV
+	ujDBSkuRxFHI4ARptd7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjwX-0000000BPbU-3pXl;
-	Fri, 30 Oct 2026 10:34:41 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1xMjyo-0000000BPxh-29bC;
+	Fri, 30 Oct 2026 10:37:02 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjwQ-0000000BPV9-0zAb
+	id 1xMjyk-0000000BPxM-0Htc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 10:34:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description;
-	bh=+SIrY3lV5sFHoGq82hO8Ug8L5qjWnUkl/nbUlfalUZE=; t=1793356474; x=1794566074; 
-	b=eIV7NZyIesMjHeH8b8LFD2j6fZDjL3ywXPLTTMPKOvS5T53tBt86XUow6Vw/4zbm8ZSdrGVczZX
-	j8rD8WyBMmgXm73hyUtWljQvCOO9TI0PJP9OgQtBSiNsosH5rO2/yfvZrMlFW4wUZUHJmpxBlAUzy
-	eGq76m7fLzKT57ZKbTl8Gh76IFqNO6hv5QxcE9Ai0WEITo0yOcLTw2HVlIzdGL1u17rLB4OHNrjLs
-	x1AV0Hj59llP/Qk/xExjoId+75JFRVppqiCPNg/9HFcepkIrfNSfpVlPATQCIIqVRbvXdi3BTWAt5
-	e7KPwCh4xUi51PGc1DrZJg3tRibIOX/uWhxA==;
-Date: Fri, 30 Oct 2026 11:34:24 +0100
-From: Andreas Kemnade <andreas@kemnade.info>
-To: Ettore Chimenti <ettore.chimenti@linaro.org>
-Cc: Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin Hilman
- <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Tony Lindgren
- <tony@atomide.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Christopher
- Obbard <chris.obbard@oss.qualcomm.com>, Andrew Goodbody
- <andrew.goodbody@linaro.org>, Paul Walmsley <paul@pwsan.com>, Russell King
- <linux@armlinux.org.uk>, Rouven Czerwinski <rouven.czerwinski@linaro.org>,
- linux-omap@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/9] ARM: dts: omap: dm816x: use dedicated SoC
- pinctrl
-Message-ID: <20261030113424.3f4f53fc@kemnade.info>
-In-Reply-To: <20261028-patch-ektor5-dm8168-dts-v2-2-4544429251e2@linaro.org>
-References: <20261028-patch-ektor5-dm8168-dts-v2-0-4544429251e2@linaro.org>
-	<20261028-patch-ektor5-dm8168-dts-v2-2-4544429251e2@linaro.org>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
+	Fri, 30 Oct 2026 10:37:01 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261030103654euoutp028659f4201e38b255dcc2fba26837036b~jSFbSYUHZ2951429514euoutp02a
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 10:36:54 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261030103654euoutp028659f4201e38b255dcc2fba26837036b~jSFbSYUHZ2951429514euoutp02a
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1793356614;
+	bh=oXQ15hDbnS1B2Y9Ac6zuPUxaceab5plrwxGQ/lap8W4=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=Bn1maMduqupHB2mk79itTPg2YYb2s2eoTiTiCAQr3tKsoCqkIdjJg9ZyToXDicMeu
+	 QC/eykVusT+mvuqbMsJw99fOxSE4H3ZMEbhvSQNamO2BFBa89xl0LTJMLRvfqWADIe
+	 2qDnY/yqLt8qf51Cl8m0sEfa5siJiL4tsWYBI/pg=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261030103653eucas1p1e35145674aa26e829f4cde451eda2411~jSFa8BzoE1749317493eucas1p10;
+	Fri, 30 Oct 2026 10:36:53 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261030103652eusmtip25965ad5bbe769c2f2f82e49aa71e8d98~jSFZq8wI72310123101eusmtip2j;
+	Fri, 30 Oct 2026 10:36:52 +0000 (GMT)
+Message-ID: <6fb3327c-766c-433c-b49d-dc62470d7102@samsung.com>
+Date: Fri, 30 Oct 2026 11:36:52 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v3 00/10] Make the 32-bit ARM DMA API work with normal
+ IOMMU DMA default domains (+ Tegra PoC)
+To: Mikko Perttunen <mperttunen@nvidia.com>, Robin Murphy
+	<robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon
+	<will@kernel.org>, Russell King <linux@armlinux.org.uk>, Heiko Stuebner
+	<heiko@sntech.de>, Thierry Reding <thierry.reding@kernel.org>, David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Jonathan Hunter
+	<jonathanh@nvidia.com>, Krishna Reddy <vdumpa@nvidia.com>, Krzysztof
+	Kozlowski <krzk@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
+	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Yong Wu
+	<yong.wu@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob
+	Clark <robin.clark@oss.qualcomm.com>, Geert Uytterhoeven
+	<geert+renesas@glider.be>, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20261026-b4-arm32-iommu-dma-cookie-v3-0-3901d74b1ff2@nvidia.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20261030103653eucas1p1e35145674aa26e829f4cde451eda2411
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261026092047eucas1p2686ac1a0ce893a16711cf7a137d081ce
+X-EPHeader: CA
+X-CMS-RootMailID: 20261026092047eucas1p2686ac1a0ce893a16711cf7a137d081ce
+References: <CGME20261026092047eucas1p2686ac1a0ce893a16711cf7a137d081ce@eucas1p2.samsung.com>
+	<20261026-b4-arm32-iommu-dma-cookie-v3-0-3901d74b1ff2@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_033434_288236_4C0E8A1E 
-X-CRM114-Status: GOOD (  15.85  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_033658_691620_36283004 
+X-CRM114-Status: GOOD (  35.02  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,45 +96,129 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 28 Oct 2026 17:06:03 +0100
-Ettore Chimenti <ettore.chimenti@linaro.org> wrote:
+On 26.10.2026 10:19, Mikko Perttunen wrote:
+> Depending on the probe ordering, TegraDRM does not currently probe on
+> kernels with CONFIG_ARM_DMA_USE_IOMMU enabled, such as with
+> multi_v7_defconfig. The Tegra SMMU puts several display and 2D/3D
+> clients into one IOMMU group, and the legacy 32-bit ARM DMA API path
+> creates one UNMANAGED domain per device and attaches it with
+> iommu_attach_device(). That only works for one device per group, so
+> every client after the first fails to attach,
+> iommu_device_use_default_domain() rejects the group with -EBUSY, and the
+> driver goes down with it. tegra_defconfig is currently working by virtue
+> of not enabling CONFIG_ARM_DMA_USE_IOMMU.
+>
+> Robin suggested [1] that instead of teaching the legacy path about
+> groups, we should explore modernizing the 32-bit ARM DMA code a bit by
+> making it use domain cookies and have the core code own the domains, as
+> is the case on other architectures. Still, ARM's own DMA code is kept to
+> support existing drivers and APIs that expect it, and because dma-iommu
+> is considered too big and unnecessary for 32-bit ARM.
+>
+> The series is in four parts:
+>
+> - Patches 1-2 are preparation in the IOMMU core:
+>   1. Add iommu_teardown_dma_ops, counterpart to iommu_setup_dma_ops.
+>   2. Add cookie type for ARM's DMA domains.
+> - Patches 3-6 implement the DMA API side on 32-bit ARM:
+>   3. Split up mapping alloc and init (bitmap alloc) code to separate
+>      functions.
+>   4. Implement parallel dma_ops / cookie APIs on ARM side.
+>   5. Avoid domain allocation when IOMMU core does it.
+>   6. Check upper DMA range limit during IOVA allocation.
+> - Patch 7 removes the forced IDENTITY default domain in core IOMMU
+>   code and adds explicit IDENTITY defaults to a few individual IOMMU
+>   drivers.
+> - Patches 8-10 convert Tegra:
+>   8. Fixes device parameter in calls to dma_get_sgtable.
+>   9. Allows deferring translation enable until driver handshake for
+>      selected devices.
+>   10. Switches to DMA default domain for selected Tegra devices.
+>
+> This moves 32-bit ARM devices from the unmanaged IOMMU DMA domain to the
+> core-owned default DMA domain except for mtk_iommu_v1, ipmmu-vmsa,
+> omap-iommu, and msm_iommu. (tegra-smmu also stays on the legacy path
+> until the last patch in the series.) See commit 7 for further
+> information. Existing drivers are intended to continue working without
+> changes.
+>
+> Patches 8-10 are provided for demonstration; we can deal with them 
+> separately if the rest of the series is accepted.
+>
+> Patches 1,2,3,6 are applicable independently.
+> Patches 4,5 depend on the previous patches.
+> Patch 7 requires the prior patches to be in place.
+>
+> Patches 1-7 only touch drivers/iommu/ and arch/arm/mm/ and associated 
+> headers.
 
-> In the TI Sitara DM816x SoCs, the pinctrl configuration macros are not
-> identical to OMAP2/3. They are actually inverted between Pullup/down
-> enabled and disabled (third bit in pinctrl registers). Using dedicated
-> DM816x pinctrl header to differentiate between the SoC families.
-> This changes the effective pull configuration of the dm8168-evm NAND
-> pins. Tested on DM8168-EVM with no functional impact.
-> 
-> Tested-by: Andrew Goodbody <andrew.goodbody@linaro.org>
-> Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
-Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
 
-> ---
->  arch/arm/boot/dts/ti/omap/dm816x.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/boot/dts/ti/omap/dm816x.dtsi b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
-> index ee0090f7aa64..261ebca8863d 100644
-> --- a/arch/arm/boot/dts/ti/omap/dm816x.dtsi
-> +++ b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
-> @@ -3,7 +3,7 @@
->  #include <dt-bindings/bus/ti-sysc.h>
->  #include <dt-bindings/clock/dm816.h>
->  #include <dt-bindings/gpio/gpio.h>
-> -#include <dt-bindings/pinctrl/omap.h>
-> +#include "dm816x-pinctrl.h"
->  
->  / {
->  	compatible = "ti,dm816";
-> 
+I've tested this patchset on ARM 32bit based Exynos boards and it works
+fine, although I get the following warnings during boot:
+
+platform 13400000.codec: Adding to iommu group 0
+iommu: Failed to allocate default IOMMU domain of type 0 for group (null) - Falling back to IOMMU_DOMAIN_DMA
+platform 11840000.jpeg-codec: Adding to iommu group 1
+iommu: Failed to allocate default IOMMU domain of type 0 for group (null) - Falling back to IOMMU_DOMAIN_DMA
+
+This looks like an issue in iommu core, which doesn't expect devices with
+iommu to come up so early.
+
+
+LLM proposes the following fix for it:
+
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index 197a8f70c6de..612933306684 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -225,10 +225,8 @@ static const char *iommu_domain_type_str(unsigned int t)
+        }
+ }
+
+-static int __init iommu_subsys_init(void)
++static void __init iommu_init_def_domain_type(void)
+ {
+-       struct notifier_block *nb;
+-
+        if (!(iommu_cmd_line & IOMMU_CMD_LINE_DMA_API)) {
+                if (IS_ENABLED(CONFIG_IOMMU_DEFAULT_PASSTHROUGH))
+                        iommu_set_default_passthrough(false);
+@@ -254,6 +252,11 @@ static int __init iommu_subsys_init(void)
+                        iommu_dma_strict ? "strict" : "lazy",
+                        (iommu_cmd_line & IOMMU_CMD_LINE_STRICT) ?
+                                " (set via kernel command line)" : "");
++}
++
++static int __init iommu_subsys_init(void)
++{
++       struct notifier_block *nb;
+
+        nb = kzalloc_objs(*nb, ARRAY_SIZE(iommu_buses));
+        if (!nb)
+@@ -2939,6 +2942,12 @@ EXPORT_SYMBOL_GPL(report_iommu_fault);
+
+ static int __init iommu_init(void)
+ {
++       /*
++        * Select the default domain type before any IOMMU driver can register
++        * and create groups, which may happen before subsys_initcall.
++        */
++       iommu_init_def_domain_type();
++
+        iommu_group_kset = kset_create_and_add("iommu_groups",
+                                               NULL, kernel_kobj);
+        BUG_ON(!iommu_group_kset);
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
