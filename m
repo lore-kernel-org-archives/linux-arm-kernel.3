@@ -2,74 +2,61 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9254606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 18:22:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D6B3606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 18:25:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oUaTRVs7;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RN5Sm/kc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3aDiBQBi;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=hp4F5d2j
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=IhyvZUUu/9Pqj0G5T+OOMZeqorFoP0fF5JBfpfONpxQ=; b=oUaTRVs7y/sC7JCslLbWDNBxtr
-	gb8/a9ZBS31XNug0D82mcte5Kt6SaS5zX8gM1izWQqmU/N6kHwioCj7hyuBgC31G16QkFY6j1Z9Se
-	b1bOsMBx0DelZnmEDFAVV4dmLAhXHKorvq8/8BjUKlxyZrTNwl+Jsym6NQz6w4lAs/gLgeWoCiEXk
-	oA75rcBFJvXg2WD52J6VgZZgsumdbBA4ENJr0uir/CYz+UMtBhKUl4K5D/TtsD+8DPUDV87Zhscia
-	m3642ijXIMvx6XeY6ncB9XhRJFdr9RiePUNnlMI49/+4caI+Kynh4DczfzfbhwTyQvdw4ic7fxssL
-	vT8Bk+9A==;
+	bh=41o/DgL+nFsgsid8TUUhF8UMTGKy2cZolj/OO47kSSA=; b=3aDiBQBiQgy1lgZcGOM8x4BgmN
+	DK8vBZTS/PF3U1HFp+txRsvlsl44EAXOcQ4goywJ68CLTEN658a30rQaoIYv1WQZDg8RXq4l3lANn
+	Nl18eogriaHYs9yRD8qmb05+HYiGRbXV/tYzhmZ4mwLnFQxEiJzQIHykPw2peb2UqVQorXe8+g6XT
+	JJR0KEprONHEXMwDbDmKDSyjloxDlu0gAA0LDKdsP2sfgS52I87mEEHb/fzy1EqqSSCt66mStcQmJ
+	BcWv3qV8hr7UMr/6uzwjIqHsRbzvltxB0mEwPccuPZYe+n8t6wp+GRbuWNg5nm6PTjd4IckHEcVPy
+	6x4TArAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMrFJ-0000000COsp-3N7L;
-	Fri, 30 Oct 2026 18:22:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMrFI-0000000COrz-40bf;
-	Fri, 30 Oct 2026 18:22:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 13B04601F8;
-	Fri, 30 Oct 2026 18:22:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DFE21F000C1;
-	Fri, 30 Oct 2026 18:22:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793384551;
-	bh=IhyvZUUu/9Pqj0G5T+OOMZeqorFoP0fF5JBfpfONpxQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RN5Sm/kckP5b5QiYILmF/NuxP5huXk/5np5PefaFjluRtOKBZy7ToFgK6NnazBe6z
-	 kT+qDljrYb9ubutfP724x0fmPTeAkznBIhtNYeZVwHe+WGjGDkwawPQvO72BsPDbeM
-	 28Ui6Juc196u/T0DzIGq78nj58bHIsWS8BAZqUk8oxZ0QSCMMPlM2R8bbE+8G+XfB6
-	 w9pAICRPA07/M5048JrxtQdjbYL79wAcYQNk1x8PlNf7XWWWBGuPIs8oyLHEUJvkMI
-	 HY+rLPmLlI4Ilsrl7ApBFgBmAgLmirQWkzk+/iH3+uAl4xJxwvz8RTDnW6ocPa8hKz
-	 2SwgMNeXKUjIw==
-Date: Fri, 30 Oct 2026 13:22:27 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	linux-phy@lists.infradead.org,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Yendapally Reddy Dhananjaya Reddy <yendapally.reddy@broadcom.com>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Scott Branden <sbranden@broadcom.com>, linux-kernel@vger.kernel.org,
-	Ray Jui <rjui@broadcom.com>, linux-arm-kernel@lists.infradead.org,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-usb@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH 6/9] dt-bindings: usb: generic-ehci: Add the NSP
- compatible
-Message-ID: <179338454691.1217805.11713868240616162011.robh@kernel.org>
-References: <20261021172819.668120-1-florian.fainelli@broadcom.com>
- <20261021172819.668120-7-florian.fainelli@broadcom.com>
+	id 1xMrHl-0000000CP8v-1Loc;
+	Fri, 30 Oct 2026 18:25:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMrHh-0000000CP7m-1Up2
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Oct 2026 18:25:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 797331576;
+	Fri, 30 Oct 2026 11:24:54 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F2AA03F673;
+	Fri, 30 Oct 2026 11:24:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793384697; bh=Hncs4sYrggz4WDHbAbVosY9saDcGH6y08xLwvNmlY1k=;
+	h=Date:From:To:Cc:Subject:From;
+	b=hp4F5d2jY3YM6uMlyJaG4ge3pwI1CwDW+i6DjDsVgIB+7FFO37YxnNCQelnVxb1Uh
+	 NxEur+hb4SV3N454QfyHO/3UQjbJ8PqKsscMGq1TwQZ/vKK+zvDqszUMf6UjLApkz9
+	 kDky0JxLx98gu4gHZx/KQbmwxwOU/qK1jhaVlsIw=
+Date: Fri, 30 Oct 2026 18:24:54 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] arm64 fixes for 7.4-rc1
+Message-ID: <auTg9t-da3RFo9nx@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20261021172819.668120-7-florian.fainelli@broadcom.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261030_112501_558045_9C03A5C4 
+X-CRM114-Status: GOOD (  14.70  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,26 +67,77 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-20.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,INCLUDES_PULL_REQUEST,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Hi Linus,
 
-On Wed, 21 Oct 2026 10:28:15 -0700, Florian Fainelli wrote:
-> Describe the EHCI controller in Broadcom Northstar Plus SoCs with a
-> SoC-specific compatible. It needs the same FIFO threshold programming
-> as other iProc EHCI controllers, which generic-ehci alone cannot select.
-> 
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> ---
->  Documentation/devicetree/bindings/usb/generic-ehci.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
+Here are three fixes that turned up during the merging window: shadow
+stack not freed during a failed fork or it is unmapped from parent when
+a worker thread exits (same commit covers both); PTE_CONT set on
+PROT_NONE entries but subsequently ignored by the unfolding code since
+pte_valid() is false (pte_present() is true); an MPAM lock not released
+on the error path. Thanks!
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+The following changes since commit d0de3a73194a250a2e5ffbf1dc604c0bcbb16e8a:
 
+  Merge branch 'for-next/fw-rmi' into for-next/core (2026-10-15 19:09:31 +0100)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+
+for you to fetch changes up to f46be4da2cbb17574b5369517a9a1e1b414063b4:
+
+  selftests/arm64: GCS must not leak on a failed clone3 (2026-10-29 20:42:23 +0000)
+
+----------------------------------------------------------------
+arm64 fixes:
+
+ - Release the GCS on a failed fork. copy_thread() can allocate a GCS
+   for CLONE_VM threads but a later copy_process() failure left the VMA
+   in the parent's mm. Implement exit_thread() to free it and stop
+   kernel threads and user workers inheriting the parent's GCS
+   base/size. Add a kselftest for the clone3() failure case
+
+ - Do not set PTE_CONT on invalid PTEs in contpte_set_ptes(). Batched
+   set_ptes() of present-invalid entries (e.g. PROT_NONE) created contpte
+   groups that the single-PTE helpers did not unfold, corrupting a
+   neighbouring guard marker via test_and_clear_young_ptes()
+
+ - Release the MPAM mon_sel lock on the mpam_save_mbwu_state() error
+   paths
+
+----------------------------------------------------------------
+Iván Ezequiel Rodriguez (2):
+      arm64/gcs: release GCS on failed fork
+      selftests/arm64: GCS must not leak on a failed clone3
+
+Ping Li (1):
+      arm_mpam: Release the mon_sel lock on mpam_save_mbwu_state() errors
+
+Zhao Gongyi (1):
+      arm64/mm: restrict transparent contpte mappings to valid PTEs
+
+ arch/arm64/Kconfig                                 |   1 +
+ arch/arm64/include/asm/pgtable.h                   |   3 +
+ arch/arm64/kernel/process.c                        |  17 +++
+ arch/arm64/mm/contpte.c                            |   4 +-
+ drivers/resctrl/mpam_devices.c                     |  12 +-
+ tools/testing/selftests/arm64/gcs/.gitignore       |   1 +
+ tools/testing/selftests/arm64/gcs/Makefile         |   3 +-
+ .../testing/selftests/arm64/gcs/gcs-clone-pidfd.c  | 168 +++++++++++++++++++++
+ tools/testing/selftests/arm64/gcs/gcs-locking.c    |  20 ---
+ tools/testing/selftests/arm64/gcs/gcs-util.h       |  24 +++
+ tools/testing/selftests/arm64/gcs/libc-gcs.c       |  20 ---
+ 11 files changed, 224 insertions(+), 49 deletions(-)
+ create mode 100644 tools/testing/selftests/arm64/gcs/gcs-clone-pidfd.c
+
+-- 
+Catalin
 
