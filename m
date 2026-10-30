@@ -2,121 +2,120 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12343606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 14:00:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B13E606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 14:00:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nafkYte8;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IHDI6toP;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=bq1kMLmo
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uEo229gv;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Yp5wOBuY;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ZeeSY22S
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=OuitTymSSoEUqo8wxOrof9T+ZUTGPTidse28qGJb34o=; b=nafkYte8mLvzU/
-	q4ndy2TGOOm70sco9BkO3voolzSNU02qStkmod9U8TKmYfFuSlZVdFEtTru6egAFpqiBQEaXaYzNU
-	kVFP2bW/mKSozLsLvVkx40AwaOgfrBS20j27RQ8UyffEjddGjKwSQIKkNb+O/BKGU7Y9JL2lkzf9t
-	QYJyY12LLfGLTqKaDfDkO4iEURuTCgv1Wkuv2QHf2NuFvhJAuvFSO7RE7kLphRuHyVsb2ITz84H/b
-	Gh2E0lbg4LXHE0Y2NeBClJR473B2iXQ81PrZZ7mu68ph2EqBmTR+B52cG7SJuJhh9nVkTZrzRNXEj
-	07EZF4LcoQ5spTIxQS/g==;
+	List-Owner; bh=uAfz1CBg89gTTrNRgxCYtcGq77WiqvE+shO/P+3SRQk=; b=uEo229gvKkQ2Qd
+	L7oAUiukFhWiJ4rwLewa2+nDPpKXS5eiC57dkhHyBA+M3YS4H3fzClwBuK9y8SfdQij2+LqrE0z2+
+	fN4ygdB9O6cW47vnih+KcYEyGubDobT2jFiRbXpYvZoOdOPIysHfwLoiuEbSg65ujErYfjhH1AsHD
+	JQq8BwOZP+sn8ULc4+rJuYchKhoOAeqlMgCH+ODzblbwwczPiKNZ0sCglzbynBq3gym1M52tHrvw0
+	F2a5VMdrK0DHFziVoxTADnrYT0CLs9OdC5oVbHaZLfCflHzKb7+9mYNmoKRI1RLEBDuPUH9pB9j5E
+	pR/P5NqI6qu93QgRR0fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMn9v-0000000BoAd-1J7D;
-	Fri, 30 Oct 2026 14:00:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xMnA3-0000000BoFs-047n;
+	Fri, 30 Oct 2026 14:00:51 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMn9s-0000000Bo7u-3K8Z
+	id 1xMn9y-0000000BoDZ-3uhZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 14:00:42 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69UDneJ04057685
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 14:00:40 GMT
+	Fri, 30 Oct 2026 14:00:48 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69UDnX0U1869005
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 14:00:46 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	OuitTymSSoEUqo8wxOrof9T+ZUTGPTidse28qGJb34o=; b=IHDI6toPVOYrtJFP
-	z1ZskiucSL9zaQF1sOyXvlzXXmXLcY6WxvfQOn8yxwZ/hYxEfwFWQ/xNVWoXwEAw
-	pi2RJnDNfhF1UY3r1JVkL39V2aGWfVLebudH4SncyDQbgusv+q053AUMKyXiydcu
-	Xuuds3tuDj36SZThVwg7WNX+iTMThoNIdbLdehPh7qg+SsNrAl41CZj8mGPab3aC
-	IzSvs1s97jhg8gczI1Lc967TPUvwZW3AZO3Od2RD79WhwlAtEum8sDjTCmqLUOnB
-	b2ChyMvzXr5LPhJDFH+YAD9wCpqfVYMRl17krS0QAmuFPTV0YMDCQfCTL3T781mK
-	o4VBYw==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hme6quawd-1
+	uAfz1CBg89gTTrNRgxCYtcGq77WiqvE+shO/P+3SRQk=; b=Yp5wOBuYUvaZ9G8H
+	Y1Ge9H+4Uez+7kLRVDPNkz4UIdvmsydhiWxon7uANhBzMmnRD4gl4ktaeTi7mg1s
+	e0O0BgJCK0RC5wjWI0qIafUgGDuhxHpYBQDi5Wq+ocDWDCGq6cVCNarTRp9nmrhL
+	w/1K3hutLf4UKu83ZkdzgXoKWv1CPqy0/LBn2Dpm7ff5xpkl19H13Fn8+HXVwJQJ
+	jonaNFWMxz/1aG0P98FMwkS8WWWzGZF5MkDntYotkgojATsIDlO08MftH9z5v6Ce
+	l+D8tzVXSZfHpPU4HJ1K/LUz7NvfuyaefcFPpGSPbPHr6vXgV43GG/GFuf6ct9bZ
+	GpjimA==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hme6pkc8j-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 14:00:39 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a0589ff620so592038b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 07:00:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793368839; cv=none;
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 14:00:46 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2e9821ca96fso13036765ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 07:00:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793368845; cv=none;
         d=google.com; s=arc-20260327;
-        b=LF5YarmketgshwOygpxLIIIHKxCG/SE0YOH8PfcS0OFWakeXWneQo/hOhJDSM9XRXb
-         6Bj6Q8RW8V6BsBllsWQ9LaynW8MAfXQHeWpgXPqbK8HA4aXxN+70EnIw/Za0Dgi8Gm2Z
-         JSNUYyXEvaXC+aJS33+viVg8xBJ91J44/RoZbQBzgRpx2y50ESIFOWtxG6xzIv6bURiM
-         RJDLanThfpKaEgR8b87g6k24s2dc8RfNj0LnzXuIO5tLGoSbYCsvrb6A+6EBvlEwhy/U
-         s2pXWTVGe6G7oHgXNS0wYefQcI4LZOPU21xXiqnWopp1M5XkaIINPIKreD8huZRhd6mh
-         hQIA==
+        b=HN6YisGKxuDyYdJk/fDwMCaPDeETw72Hlmjn97nb0r+7g/Ie6euuLcKbdlXCyWgf5i
+         l3blG4XOp4aNVb/cuBwT68TakgxpjXbeUvxxlj+AfxdGDXOGUa8t+pELAtYySPMIZcoz
+         LjBqyf711x9IJrpTKuowTms6ABbR95VsRJhhwAr1Yu19qU6RkVR7sW6o+eI/4Bx/S1uc
+         Wk/kBFMJ41EjTNIqEBn+PSs6MLfVFNUwAUOXX8zcx3A98GUqM3H6XFZxKXCp4u8Q2hKe
+         5ocxHHBcNro3HqCZSQN830NEb7NKCoEHUW0QZKaI2wqiuqKfyDK0+DTa0bWy5SxpG7EC
+         U4pQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=OuitTymSSoEUqo8wxOrof9T+ZUTGPTidse28qGJb34o=;
-        fh=itG2gRkcEJlUBphhAiF5kcS9zcjGgguBsXCEk/hLjQM=;
-        b=eDD/TxUfn1Y33wQmRjDbhz3hF0HjTvjW2Jxy7KUnknhlmhsq9uW930MHagDnH6vWqW
-         OemwCuwSlPkLSQastvHIQmuGRAcKVBSWPxfNlbkMVANtCoCZqWpPMfAfhEva7uIpP31r
-         QkSJb0F5xs3k83ID9KabOAg3mHpUiHRAdg+DVeDMRu6gzrKJ46CBCjDKmaydy+vqqtU5
-         4r9jq7IApJzSEtwoylyV1B/cPWxSLugQ7gpNR967/iVjkuUTprrRT04XLF2y4JrQJRPD
-         RXld8jrOA51iFfPvuNg83fQ0etYfVgAr52aLLG1MndjVfKN2RyNxlOe7s5igRGVApfRd
-         9e9w==;
+        bh=uAfz1CBg89gTTrNRgxCYtcGq77WiqvE+shO/P+3SRQk=;
+        fh=/Mzk8+rc3NN2C0RL7sBMg//521yPFVLlB+6eRH6ZViI=;
+        b=mPYTVxpipqPhG1eS2z1ie1Iuxz/COaDgiy6bmEKps1BNq01bIWSqZk8BOcABxfyQLP
+         TsWC16SUi1PfOaZ4SbIm6HgKV20cnOR8A99fwMx3CxevzRAInXElY2m8V2x90PuR+vRD
+         ihZT3A0S4kVPFJCU2KYSrY+nmNUPFEEQSYzEzOTlpZVDQ1rFWdaGIcqsDnm1B16ayL4H
+         nmUgB+drHpFOnw3TeEh+0AyQYmrQA98FESOQRUpPsa6PKv3YYwhigCl0KW1/CtHmWyfP
+         PXXWPnmjkadUPFk8PpOApt3SrG4jE2AzJI819VNY1ajwGnj4/f1MdaaBDQrkL7rMRlMz
+         t8cg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793368839; x=1793973639; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1793368845; x=1793973645; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=OuitTymSSoEUqo8wxOrof9T+ZUTGPTidse28qGJb34o=;
-        b=bq1kMLmoLAkfwjnAx68MYCv2i+ZTusvweFdbW87K/NbhfCz11IRB/bE+LthDI6knEt
-         sRZBHVxp5gN7aWMMFsHhJC4HDYMuBPElgjaTBIwbdxY5jt2Q967uNw+HrXDBxfnFSw/Z
-         gZT+8mjQZ8hnyuITmivp0s2EZ+v2vxdDGtrCggZBw/jm02eG6yU0GUbzKXm/I+BqBjqF
-         yze+nnUoIKk4hh89421at6kA2Pgywmqk04x+k6w7vhjTnvd8aWC5Q5mqo3BNxsi1dNfD
-         YtcpqSJvF8DSOiz1cqhk4e/ttYyr4pS7OrETmg9OStGCX0DGMhLnDLkrH1GSlvnvc2tA
-         A2Zw==
+        bh=uAfz1CBg89gTTrNRgxCYtcGq77WiqvE+shO/P+3SRQk=;
+        b=ZeeSY22SYZ3+0qVddy6N6Heis+QfMR2hdk9sAsi9sosSWlzVxbDqbYDYU+EIosuiRM
+         Bbr+qoN3vwBIBog5J4aILdp13165Dwi3HuIZ0Ya6vQd4gXMBNsKQndJsghoi8QocOR+H
+         HXSGHYdOiwmrOaLTfYQzfjPOXY9kr4hAfp3hm7fhNrXQmHb2Qm7umsuZ89Xid8BKqaBK
+         em2qbPWpoVWTAlvCc9FGBebRC+0bsvfsiNvZczi8HOsqtfDUxpWURRM4X+co1IaQsFQk
+         A0MYxbaGUJeYs+Bj5GyfgQXZxSC3zfU23I5C/ITX4Atqm8rkkhbjNTDyVOAp4Yo8A1Nh
+         zwFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793368839; x=1793973639;
+        d=1e100.net; s=20260707; t=1793368845; x=1793973645;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=OuitTymSSoEUqo8wxOrof9T+ZUTGPTidse28qGJb34o=;
-        b=DXLsHQ2zZ6HnYpA6U5r0ZjCYN5H9/sNYnITMp7Y3wRfVul2yoiYCidi1dsyIlo5ZR5
-         /53vfGFOziKtgsHFKb7scAfQkrgI9rntz2qVwiP0Y6d3MMkpcN4+ym1nPMc+61BlIorq
-         w0VgqGx4HONJjfphNKl11iXizKIg26yZeszLdaNVk2a8a6aTI+C3ul28Dp2nP0Z5Xk6r
-         1yzA4wpJuE44OJ5RlDk4wOCUoZDcdLJmm2qXtXTq9+0KaBuPaVJUO+pNAau5dqnjXj78
-         jhNPERW+KA6thN1vwcCYcYzLzdWpkDIoN+4OiCA7bxNxvQ/KFjTmZfWV8WCGd5f+2Cu2
-         Vh5A==
-X-Forwarded-Encrypted: i=1; AKwUvBxUvASq/1drrnt1XYuPUKBZwVAuCB0sMxV01vi85w3zcvdjp4mGaM9i+Ylw6MNNhNdDDzBpi0whAyYf6mKtIWT5@lists.infradead.org
-X-Gm-Message-State: AFq9FYLYTQ+12G1vUfOXH5w54ehmcVBXXkpPdIpM5cCPOXKLDjQtLst2
-	dSb7g/se0AzI6tixQiokX1eGVHOGr+YBWC9vY8INITJtey7Te+zYvn1HA2YZ+oM3DUK77a2vAMf
-	W1gThu/nR0hm5/+jfbII6jILVElvMbPXxB0Rgyr/hd7htRMfXRu+fCC5urRVZodDgz3FrACavje
-	Zg+ocaF56jhyWr8bp9mlf4/R4InocGPBvSqyEQpJrZtuuCwrFgGCxQ
-X-Gm-Gg: AYBFou0gxM/STe3w4Ea+DwZtLPzpgqNiRfq10V7sTp5Z5ujgjoLqFju5l3H8AZRKrzu
-	tshX9MBODCCb6vxEylPA7RDisWUNNqyqYlb1qS0NOZocb1Obsv3HM69Qwur2A7hnytqPyUR5zGp
-	77+PtK5D1EW1kpcQr6OKhL/LvDy5g9aIBeB9OIxqxPZ09wQYu0FJN8wFfgVA==
-X-Received: by 2002:a05:6a00:1c91:b0:89e:584:bb77 with SMTP id d2e1a72fcca58-8a9c098ab29mr2174619b3a.58.1793368836915;
-        Fri, 30 Oct 2026 07:00:36 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1c91:b0:89e:584:bb77 with SMTP id
- d2e1a72fcca58-8a9c098ab29mr2174559b3a.58.1793368836406; Fri, 30 Oct 2026
- 07:00:36 -0700 (PDT)
+        bh=uAfz1CBg89gTTrNRgxCYtcGq77WiqvE+shO/P+3SRQk=;
+        b=xNgYrWXPV+THDeDWYFqL/60QnyFeCqgHTAnL8WPp/QXNZn7TvdirlTgprjCJkYumre
+         OIYkXiwudrjQ4MCKD0s4RPMzU0RhZqcfXXteUoXrxRYOXjwr8wzXbKBd6jiCXlHzDgvR
+         U8e/GjdUji7EbHjHc4nD01xnHTAGPY/nIW357+pX2rbg/D/9jukPbChFIk/xA8w08+rH
+         mu6oOGnZWA3PQQrfOl2FGYdkQRALCPcwhVnER2KP6bsU0JPiYnZABXk+bi8fxZSGjK+w
+         GJbN6MPflW9+zI1r83Eiuc4xJylbP9eWaGC0OQkXxFcZdAnONrgMTm1wbxH6/3BoHQYo
+         N9Hg==
+X-Forwarded-Encrypted: i=1; AKwUvBxDKA3HeHEfJNGTjTUovTq6HEDo7FwUw7hFIl1xFOq1HNYlvxaLrJ08ZTmrHF0HR7oJcDZ3ZHeC0WuusKGzkiiY@lists.infradead.org
+X-Gm-Message-State: AFq9FYJRcmx8auDc5nAM1bp36/1TMcMpfkVwetL+FwG6E0tN7FjUiuUE
+	WAd6yUYcsnQ7nKxTyU0J9Qp0TRcS/ILGnt9XLc6YLnlkcb6XYIo7TdtxJmRA69RkZGGQt6sxRx5
+	NdFMcdRxnkLZZJRjY8nQ3RDUxQVLq/EwVMgXvgNAbEryRz9xnzB5NHXoxEUuszcoZu1+14dUC9m
+	gGCmS4hpuGwA8OSs6lptvBekILfgJWah7Y8WKUClHAUcjnsAsCPCqb6FJuj9Y3
+X-Gm-Gg: AYBFou3FmhkODV74JJwhllkQiWrR3ZDZehwuJ7YC1Bc8GvIZL+VMYL494GBqo+lSfTB
+	ZIJpExMiUoLUCzPG7PA/AEVKaa6HMmeIloEozvY+ShcTg7bE0ZlWU4K6N32FOtv02WWBmyPbqeY
+	1llyVx4CsX5ERzlc42DlcWu7vvglfNK1H07tYi4gskc/mi/vnKoj88arj4CA==
+X-Received: by 2002:a17:902:fd8d:b0:2e8:7686:4d46 with SMTP id d9443c01a7336-2eb364552bemr27295695ad.34.1793368843526;
+        Fri, 30 Oct 2026 07:00:43 -0700 (PDT)
+X-Received: by 2002:a17:902:fd8d:b0:2e8:7686:4d46 with SMTP id
+ d9443c01a7336-2eb364552bemr27295385ad.34.1793368843102; Fri, 30 Oct 2026
+ 07:00:43 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261027144002.10606-1-ansuelsmth@gmail.com>
-In-Reply-To: <20261027144002.10606-1-ansuelsmth@gmail.com>
+References: <20261027144002.10606-1-ansuelsmth@gmail.com> <20261027144002.10606-2-ansuelsmth@gmail.com>
+In-Reply-To: <20261027144002.10606-2-ansuelsmth@gmail.com>
 From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Fri, 30 Oct 2026 15:00:21 +0100
-X-Gm-Features: AclHuK-MTjfwt2OQzyBtwa_iraZJVoORJ1j_v3oQYZTa5jWvtZ6sOZH5C5h4Bak
-Message-ID: <CAPx+jO-TT=UAhH5=5DEPuu1XtVvvE_QA_1V=9qw1moZJoPUU-Q@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: mmc: mtk-sd: Document support for
- Airoha AN7581 SoC
+Date: Fri, 30 Oct 2026 15:00:30 +0100
+X-Gm-Features: AclHuK85D2yzjqjadIBbGwA5No_thmVDaWhvxFw1u5vv5w3KPYrH4xdvCoOE_dE
+Message-ID: <CAPx+jO844b4kY9vbJPJj+N5H9cRJ4TzT52=1yU-Pi_oxqysd8A@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] mmc: mtk-sd: Add Airoha AN7581 MMC compatible
 To: Christian Marangi <ansuelsmth@gmail.com>
 Cc: Chaotian Jing <chaotian.jing@mediatek.com>, Ulf Hansson <ulfh@kernel.org>,
         Rob Herring <robh@kernel.org>,
@@ -130,35 +129,36 @@ Cc: Chaotian Jing <chaotian.jing@mediatek.com>, Ulf Hansson <ulfh@kernel.org>,
         linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-GUID: gTBSDA5Tt61y8q4mwuuYwAgWKOroY6th
-X-Proofpoint-ORIG-GUID: gTBSDA5Tt61y8q4mwuuYwAgWKOroY6th
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMwMDA1NCBTYWx0ZWRfXwSZ2haglId2/
- aN43vG43PS0E7pl+BsrOGVvqhgBQVLIgm7qKyUr+v66zi5nRh22ht6dDJW8kvY6TCAEi671+Cru
- vdgKaK4mTLQSLoSp2HJ2PL5V7SV2Y3bfNwepMQ8jJ03dpmDFdHkSHnJykmmA75Gk/XqkubZYhiw
- /hASqC2/Nj8+aj+qITfcQUd/NIXzKIjeLf2gSrkNWTsughWXL8SvO75/fg/um1ZoAHn7rcCN62W
- XLlKM6gH8Zqz3h2Lozk34Y4Bs0/93SdFyOF7sMuFLYNiolZAW2Up72xpu6LxHdQ19D9YyahuHXA
- IFQGMRoy7sHGTxuRz14v+RqpCTrCwRQO60lJgV9bQ9kXtXupM0+KjdD+8C8TV1GO9qnQVYGq086
- pzZJvIbi3Z1pBuPkqvEAm5eC0N99H4iJHg5c4ttnPUVnXnDYBYa3eLIt+mw55GeM+pAtQmsSE7t
- Pdj5h8CI/bGnrXigLHg==
-X-Authority-Analysis: v=2.4 cv=dPgzC+Zb c=1 sm=1 tr=0 ts=6ae4a307 cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMwMDA1NCBTYWx0ZWRfX3CzMy3lN7MeO
+ ejnhPEpy1R1DDkYHtAmIHdgqBUESN6IcnAexhOeO6451+14yRdEj+p+4SlMPAYMsNbCGODSNX47
+ /PxdjjaCSCRGIA/fh8HqxUk8eKOF8do1UI2NTlnGJd4MlM76+eRoLSlqUUrkrC0oR+3nmA29wQS
+ 8x+54Z5JIez27ABgdVPtHXl0KyNQisLATkEh+e9hpveF2OP5hykb8uYLDysrlgm77buC0Zy5Ggo
+ perh1cR2FgrscagMTI7rxFWwTFvnm/6IibU/rx1orv9uLavuyl2SNJ4w60IkV/io9/t1ZatlHrV
+ SA3j+rhumV/gBa0+103h1S1E2NHBosI4mIRYTJF7OIS6LpMtT0R0rbOcAXutcDpMX1LU+kNO0c9
+ ILhjew/1+Z6HgXzgbo38NLjceVZqme/+uNDkUXj8JwcIhneT0LkxObVPELcI4PDKKucycIQYfj3
+ J3JrylvNjLh39Pa/tJQ==
+X-Proofpoint-ORIG-GUID: MXZE1RS6eLXdE09QI8Z2CXTrA5J43BFZ
+X-Proofpoint-GUID: MXZE1RS6eLXdE09QI8Z2CXTrA5J43BFZ
+X-Authority-Analysis: v=2.4 cv=AJ83otAg c=1 sm=1 tr=0 ts=6ae4a30e cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
  a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=3WHJM1ZQz_JShphwDgj5:22 a=pGLkceISAAAA:8 a=5vCY4yJ5Sko5zDJxFQEA:9
- a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMwMDA1NCBTYWx0ZWRfX2j91kOvZnt6L
- h8Xew9lDGFq0eGgyBz5lVY2aZUcDWMPuH8gxsHlY6l/fqIHSPBvbqYZtUfLN9ryIXMahaUY9IxQ
- Nr0mngGkWE7SKX6U0q+cn7RbBFmUhCM=
+ a=DJpcGTmdVt4CTyJn9g5Z:22 a=pGLkceISAAAA:8 a=5vCY4yJ5Sko5zDJxFQEA:9
+ a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMwMDA1NCBTYWx0ZWRfXwy20guliCfdV
+ U6eHPY7ouQiRwiS/eMpUQ95qLry/1fo5Tx+kTe3xmochtmYrJ30ipD2WOiyA9Vi20KnaQKGb6YB
+ ATWRvVgXJwCCoo5NKME9tEZ9oPERl5U=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-10-30_04,2026-10-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 impostorscore=0 spamscore=0 malwarescore=0 clxscore=1015
- priorityscore=1501 lowpriorityscore=0 phishscore=0 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610300054
+ spamscore=0 adultscore=0 bulkscore=0 phishscore=0 malwarescore=0
+ lowpriorityscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610190000
+ definitions=main-2610300054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_070040_978862_85F1846C 
-X-CRM114-Status: GOOD (  19.98  )
+X-CRM114-CacheID: sfid-20261030_070047_046918_F23CD160 
+X-CRM114-Status: GOOD (  19.95  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -181,13 +181,10 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 On Tue, Oct 27, 2026 at 3:40=E2=80=AFPM Christian Marangi <ansuelsmth@gmail=
 .com> wrote:
 >
-> Add dedicated compatible for Airoha AN7581 SoC integrated MMC controller.
-> The MMC controller is based on the MT7988 with the difference that it doe=
-s
-> have a single clock controlling it.
->
-> Add the dedicated compatible to describe the 2 register requirement and
-> permit to define only 2 clock (the main one and a fixed clock for HS)
+> Add dedicated compatible for Airoha AN7581 SoC that implement a dedicated
+> MMC controller based on MT7988 with the difference of having a single clo=
+ck
+> controlling it.
 >
 > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
@@ -198,40 +195,25 @@ Uffe
 
 
 > ---
-> Changes v2:
-> - Also add compatible to restrict clock-names for source and hclk
->  Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 3 +++
->  1 file changed, 3 insertions(+)
+>  drivers/mmc/host/mtk-sd.c | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml b/Document=
-ation/devicetree/bindings/mmc/mtk-sd.yaml
-> index a4d032224dce..704d59360bcb 100644
-> --- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
-> @@ -14,6 +14,7 @@ properties:
->    compatible:
->      oneOf:
->        - enum:
-> +          - airoha,an7581-mmc
->            - mediatek,mt2701-mmc
->            - mediatek,mt2712-mmc
->            - mediatek,mt6779-mmc
-> @@ -182,6 +183,7 @@ allOf:
->        properties:
->          compatible:
->            enum:
-> +            - airoha,an7581-mmc
->              - mediatek,mt2701-mmc
->              - mediatek,mt6779-mmc
->              - mediatek,mt6795-mmc
-> @@ -238,6 +240,7 @@ allOf:
->          compatible:
->            contains:
->              enum:
-> +              - airoha,an7581-mmc
->                - mediatek,mt7986-mmc
->                - mediatek,mt7988-mmc
->                - mediatek,mt8183-mmc
+> diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
+> index 5b160fdad3f0..736cff2783e2 100644
+> --- a/drivers/mmc/host/mtk-sd.c
+> +++ b/drivers/mmc/host/mtk-sd.c
+> @@ -713,6 +713,7 @@ static const struct mtk_mmc_compatible mt8196_compat =
+=3D {
+>  };
+>
+>  static const struct of_device_id msdc_of_ids[] =3D {
+> +       { .compatible =3D "airoha,an7581-mmc", .data =3D &mt7986_compat},
+>         { .compatible =3D "mediatek,mt2701-mmc", .data =3D &mt2701_compat=
+},
+>         { .compatible =3D "mediatek,mt2712-mmc", .data =3D &mt2712_compat=
+},
+>         { .compatible =3D "mediatek,mt6779-mmc", .data =3D &mt6779_compat=
+},
 > --
 > 2.55.0
 >
