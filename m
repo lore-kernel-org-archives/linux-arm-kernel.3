@@ -2,90 +2,111 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51AD8606A61F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:37:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0092A606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:40:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z0wLq3HX;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=Bn1maMdu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KsmRZYHU;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=C6ksuttI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=oXQ15hDbnS1B2Y9Ac6zuPUxaceab5plrwxGQ/lap8W4=; b=z0wLq3HXZ5CqH3
-	YOGyG0upbTzjPGiE7ZTr1YQlljT9WsFak0JUiQfkZAZFGPMiwmP4AAGXu8Fi33zyCxN1iFTe81wl2
-	mk+DBiDtExXn85IUzqRzfkxQfCI7be1bZoj5+FOmJgkKQTDXfsJnZ0B2imHLXQRWYUHmjv2pI41Af
-	heUEdCWwhED7X38XIKyezR0A4wzj8d2fz8nfOtKoswEUs6bI52OpyyRloSUpmQ4EyH0DVInSLdzqt
-	HTd5R7zRiyeM80tla7Pf0fljncsBF7y2gDpY7SsYOv/R4YUWRkbXKZh3kVt64B9nW24GIO4h9uwaV
-	ujDBSkuRxFHI4ARptd7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=pvWiGhrTNAzK7aAEaulPXx3JNKfuDMHI4rCQcPEIeC0=; b=KsmRZYHU6iJOGWkV5oPpnmkkcp
+	6sP3acVZneu32bc1pFfinRt4nXU/JKGQBdLyUKb/7uk5syDsigjPFHLz/76sdlRifJ7Agw+D3t0aN
+	ROMKAujprxaSMn/IXUT2sOxRx0Ba72dFEmKFzcQC4MIRYF+8hD4xrvEN4U5HffCA3kib+4+5qxhCk
+	qD8DSQbiiJRwbWvYQNq0HvaFD4XSc7+IAsb4IydftjIu9c5RxW2tZRzYmtow/1+2Lf2K5dHFP1L8/
+	ukWeTfarLUeNCqlbgrAzZ6ONKPplfb0bwbBtFUyW8SaBQo2Dk+7sJKalLFFxORYp2wojuJgP841Lf
+	8V9Cig2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjyo-0000000BPxh-29bC;
-	Fri, 30 Oct 2026 10:37:02 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xMk2M-0000000BQAd-2N8m;
+	Fri, 30 Oct 2026 10:40:42 +0000
+Received: from mail-wr2-x08.google.com ([2a00:1450:4864:30::8])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjyk-0000000BPxM-0Htc
+	id 1xMk2J-0000000BQAI-09lx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 10:37:01 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261030103654euoutp028659f4201e38b255dcc2fba26837036b~jSFbSYUHZ2951429514euoutp02a
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 10:36:54 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261030103654euoutp028659f4201e38b255dcc2fba26837036b~jSFbSYUHZ2951429514euoutp02a
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1793356614;
-	bh=oXQ15hDbnS1B2Y9Ac6zuPUxaceab5plrwxGQ/lap8W4=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=Bn1maMduqupHB2mk79itTPg2YYb2s2eoTiTiCAQr3tKsoCqkIdjJg9ZyToXDicMeu
-	 QC/eykVusT+mvuqbMsJw99fOxSE4H3ZMEbhvSQNamO2BFBa89xl0LTJMLRvfqWADIe
-	 2qDnY/yqLt8qf51Cl8m0sEfa5siJiL4tsWYBI/pg=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261030103653eucas1p1e35145674aa26e829f4cde451eda2411~jSFa8BzoE1749317493eucas1p10;
-	Fri, 30 Oct 2026 10:36:53 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261030103652eusmtip25965ad5bbe769c2f2f82e49aa71e8d98~jSFZq8wI72310123101eusmtip2j;
-	Fri, 30 Oct 2026 10:36:52 +0000 (GMT)
-Message-ID: <6fb3327c-766c-433c-b49d-dc62470d7102@samsung.com>
-Date: Fri, 30 Oct 2026 11:36:52 +0100
+	Fri, 30 Oct 2026 10:40:40 +0000
+Received: by mail-wr2-x08.google.com with SMTP id ffacd0b85a97d-48b0a195dbcso28410f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 03:40:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1793356835; x=1793961635; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=pvWiGhrTNAzK7aAEaulPXx3JNKfuDMHI4rCQcPEIeC0=;
+        b=C6ksuttI79qJhRaVnibq8IXqu27UBLWgFe/a/cdCPrUS034Rk7o74nuDSX21SDTMUE
+         DsH2K72v6/FrL659jYKRzJI09fKlpq2SfIOFhP88MILLzWN4MvvwMzU4PooJFlAUicqI
+         I0dFFBg3wJw9YIbOYHgKsY2mM7ba/I07jDx7+UWkg//RRYPxpJM41f7SniyhHkJpAH9Q
+         OEG0AVrWQbJGwt86l7omCSmnesxf8DVF6o7b5DHHZXEyZXpGwuIAB8YubyG+rdX9f9pl
+         bX8VwIv8u9NPskGUCZW8/jN+8zTsAo7XScnQkbEALGqPzdWUMPDGHg5QJNDtvODKwkX8
+         t6fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793356835; x=1793961635;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=pvWiGhrTNAzK7aAEaulPXx3JNKfuDMHI4rCQcPEIeC0=;
+        b=Tv5FFFZtHgyWuCG4v2Iq2NENDiqGRtHAam6NqrLumsxNfpzunCANHUDvlClHz2SQTm
+         xsTFOLIApfhnoHZ7SMc+6TgN7b1GjronaAOyx9r4vakrzYXNti+35YPIBy0tcsfS7YVc
+         jg+UBMRmInUCO3twkNvs8lUfA3nEhyWB3B3D3GWuDUQvjQIqb3LrZVfKwKGJnAhonY/a
+         TfaKOsSmlEqajKT/rT/oEZRWPN0xEhbwyBC1GeIHxP5X8NiuNj61Y610VBZ+jLwE1P+5
+         681hFqIR43aGdVkdCb6GCFVHGfQ5joz0IdPp+79UBLgbhkWqe6wsTsNwk4slSz1VhgIU
+         4KYA==
+X-Forwarded-Encrypted: i=1; AKwUvBygv+N7n8ipeYcf2f6LWrnAIcjrdIYlrzFf3nDSo1NuHFVNLATcGMZpHSuPzOsCZTft40j/Yw8CHzPPyUvNwU7M@lists.infradead.org
+X-Gm-Message-State: AFq9FYIBWwTeYQVCZ93USWBGBIn7V1rZ44llBT4GpSYqCNyLM2wc1J3h
+	4siSBLFOtC9G/8sVV3J3+MEKiLfT4fQAJafqvNiMBuOBfi+NrPDGZnL1EGlXFhOUt4JMZmatKrf
+	FxO2npoS5icVE
+X-Gm-Gg: AYBFou2fr79S0dY0qX2xPsF9TZNyeVMAwc9xDPdBsMHN5aAUCgzHHi7VE/7Yud2tDdq
+	RHa/U7ULLiV/3XGJMMeF62BdXqc7eQvQ8NUSG/yf5i2xZNUzAHUlriB+UmVr203ZrtppVkoFZXP
+	D4qNxlG2fAqrpvGSKVP6VcCkLrANCdu1PN7u07XF0XDyxtxdwUrT0SoeGSsdI9Yu9X8NoSBgdXF
+	lmPrj6pWw4ay1RPgNXXL8sQu0F3zBEJpi2kggQz1rkVcksQzGILjIodlOGX6KpLQEa/IQECHyf8
+	ORrsmdmOJQkAWOfqjeMu18Qwa6rb/hYKlYWY6c2+icK59h1jsiIS1dj2Ddd23IMQViLhgxyihrO
+	Yyb9q0wtYKo72Bl382+feyzHilHgJZQZeZdXSA1MbBwnE86d0MNzv+XDlr0EgWnFOniE+Pm9eea
+	LHRPe6qtuVnND1cXloUjBBU2bncjcpYrEK8xUQPoa1RvqzjzkbSOl+UVreFsfxuHruOrhitrVt6
+	PAtjSTGTv7QrcwyWjQBhx2xzmypBRkD9URYA6QVB1z6EghspclbbeTovKSkdzto3MCSZ7n9iKR6
+	dtncp0KZCgqqB8Bq9tP1rd5vj2c/fUYU5CArAcB4ImWNztKaidj5c/DDSWTO0hYkmZ3loQhXk6L
+	n6IuUe9nQgYoEvhQ/14jTN2Q4m0L7c+4MciF8bDXctsZrBE4=
+X-Received: by 2002:a05:600c:4e08:b0:4a1:9c71:9f17 with SMTP id 5b1f17b1804b1-4ac17287d04mr43924345e9.9.1793356835493;
+        Fri, 30 Oct 2026 03:40:35 -0700 (PDT)
+Received: from z13-ek5.local ([151.40.161.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa7f3229dbsm128054145e9.1.2026.10.30.03.40.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Oct 2026 03:40:33 -0700 (PDT)
+From: Ettore Chimenti <ettore.chimenti@linaro.org>
+Date: Fri, 30 Oct 2026 11:40:30 +0100
+Subject: [PATCH] ARM: OMAP2+: ti81xx: use non-scalable voltage domains
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v3 00/10] Make the 32-bit ARM DMA API work with normal
- IOMMU DMA default domains (+ Tegra PoC)
-To: Mikko Perttunen <mperttunen@nvidia.com>, Robin Murphy
-	<robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon
-	<will@kernel.org>, Russell King <linux@armlinux.org.uk>, Heiko Stuebner
-	<heiko@sntech.de>, Thierry Reding <thierry.reding@kernel.org>, David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Jonathan Hunter
-	<jonathanh@nvidia.com>, Krishna Reddy <vdumpa@nvidia.com>, Krzysztof
-	Kozlowski <krzk@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar
-	<alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
-	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Yong Wu
-	<yong.wu@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob
-	Clark <robin.clark@oss.qualcomm.com>, Geert Uytterhoeven
-	<geert+renesas@glider.be>, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20261026-b4-arm32-iommu-dma-cookie-v3-0-3901d74b1ff2@nvidia.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261030103653eucas1p1e35145674aa26e829f4cde451eda2411
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261026092047eucas1p2686ac1a0ce893a16711cf7a137d081ce
-X-EPHeader: CA
-X-CMS-RootMailID: 20261026092047eucas1p2686ac1a0ce893a16711cf7a137d081ce
-References: <CGME20261026092047eucas1p2686ac1a0ce893a16711cf7a137d081ce@eucas1p2.samsung.com>
-	<20261026-b4-arm32-iommu-dma-cookie-v3-0-3901d74b1ff2@nvidia.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261030-patch-ektor5-dm81xx-vd-v1-1-8ba90608c25b@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ7CIBBA0as0s3YSoKLoVYyLAoMdjS0B2pA0v
+ buoy7f4f4NMiSnDtdsg0cqZ56lBHjpw4zA9CNk3gxLqJEUvMA7FjUivMieN/m1krbh6NEL7o7K
+ Xsw0GWhwTBa6/8e3+d17sk1z53mDfP5nUuDB6AAAA
+X-Change-ID: 20261030-patch-ektor5-dm81xx-vd-805d42b97bf8
+To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Andrew Goodbody <andrew.goodbody@linaro.org>, 
+ Rouven Czerwinski <rouven.czerwinski@linaro.org>
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Ettore Chimenti <ettore.chimenti@linaro.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793356832; l=2174;
+ i=ettore.chimenti@linaro.org; s=20261014; h=from:subject:message-id;
+ bh=fW7+0/WXEVB4unwZegY0rWJvXAG1+Sm+jd3ooJSV6oE=;
+ b=oBDmhYYvqpRgRr++FtlQcR0z2LNcib+56DwS5KNiU4zDkyTp3TRXHEVXIBVFdwnKuwGqasWY8
+ MfXTTatdE9LAITQKNQgQKdE0Sd1c2Jhbzs++0H3zLwYKN3G4EJQI+Yl
+X-Developer-Key: i=ettore.chimenti@linaro.org; a=ed25519;
+ pk=wCaUblFVaqhuBTQt/hAtysafsAaEsqj/yOD9SPlz6NM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_033658_691620_36283004 
-X-CRM114-Status: GOOD (  35.02  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261030_034039_121703_60C3698B 
+X-CRM114-Status: GOOD (  15.56  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,129 +117,66 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 26.10.2026 10:19, Mikko Perttunen wrote:
-> Depending on the probe ordering, TegraDRM does not currently probe on
-> kernels with CONFIG_ARM_DMA_USE_IOMMU enabled, such as with
-> multi_v7_defconfig. The Tegra SMMU puts several display and 2D/3D
-> clients into one IOMMU group, and the legacy 32-bit ARM DMA API path
-> creates one UNMANAGED domain per device and attaches it with
-> iommu_attach_device(). That only works for one device per group, so
-> every client after the first fails to attach,
-> iommu_device_use_default_domain() rejects the group with -EBUSY, and the
-> driver goes down with it. tegra_defconfig is currently working by virtue
-> of not enabling CONFIG_ARM_DMA_USE_IOMMU.
->
-> Robin suggested [1] that instead of teaching the legacy path about
-> groups, we should explore modernizing the 32-bit ARM DMA code a bit by
-> making it use domain cookies and have the core code own the domains, as
-> is the case on other architectures. Still, ARM's own DMA code is kept to
-> support existing drivers and APIs that expect it, and because dma-iommu
-> is considered too big and unnecessary for 32-bit ARM.
->
-> The series is in four parts:
->
-> - Patches 1-2 are preparation in the IOMMU core:
->   1. Add iommu_teardown_dma_ops, counterpart to iommu_setup_dma_ops.
->   2. Add cookie type for ARM's DMA domains.
-> - Patches 3-6 implement the DMA API side on 32-bit ARM:
->   3. Split up mapping alloc and init (bitmap alloc) code to separate
->      functions.
->   4. Implement parallel dma_ops / cookie APIs on ARM side.
->   5. Avoid domain allocation when IOMMU core does it.
->   6. Check upper DMA range limit during IOVA allocation.
-> - Patch 7 removes the forced IDENTITY default domain in core IOMMU
->   code and adds explicit IDENTITY defaults to a few individual IOMMU
->   drivers.
-> - Patches 8-10 convert Tegra:
->   8. Fixes device parameter in calls to dma_get_sgtable.
->   9. Allows deferring translation enable until driver handshake for
->      selected devices.
->   10. Switches to DMA default domain for selected Tegra devices.
->
-> This moves 32-bit ARM devices from the unmanaged IOMMU DMA domain to the
-> core-owned default DMA domain except for mtk_iommu_v1, ipmmu-vmsa,
-> omap-iommu, and msm_iommu. (tegra-smmu also stays on the legacy path
-> until the last patch in the series.) See commit 7 for further
-> information. Existing drivers are intended to continue working without
-> changes.
->
-> Patches 8-10 are provided for demonstration; we can deal with them 
-> separately if the rest of the series is accepted.
->
-> Patches 1,2,3,6 are applicable independently.
-> Patches 4,5 depend on the previous patches.
-> Patch 7 requires the prior patches to be in place.
->
-> Patches 1-7 only touch drivers/iommu/ and arch/arm/mm/ and associated 
-> headers.
+TI81xx SoCs reuse omap3xxx_voltagedomains_init(), which registers the
+OMAP34xx/36xx voltage domains for every SoC except AM35xx. Those
+domains are marked scalable and reference OMAP3 Voltage Controller and
+Voltage Processor instances, which do not exist on DM814x/DM816x, and
+no PMIC data is registered for these SoCs either.
 
+As a result, omap_voltage_late_init() tries to set them up on every
+boot and bails out early with:
 
-I've tested this patchset on ARM 32bit based Exynos boards and it works
-fine, although I get the following warnings during boot:
+  omap_voltage_late_init: Could not get sys clk.
 
-platform 13400000.codec: Adding to iommu group 0
-iommu: Failed to allocate default IOMMU domain of type 0 for group (null) - Falling back to IOMMU_DOMAIN_DMA
-platform 11840000.jpeg-codec: Adding to iommu group 1
-iommu: Failed to allocate default IOMMU domain of type 0 for group (null) - Falling back to IOMMU_DOMAIN_DMA
+Adding a "sys_ck" clock alias would only push the failure further into
+omap_vc_init_channel() and omap_vp_init(), which then complain about
+missing PMIC data.
 
-This looks like an issue in iommu core, which doesn't expect devices with
-iommu to come up so early.
+TI81xx has no voltage scaling support in mainline, so, as done for
+AM35xx in commit ddf536d0d7e1 ("ARM: OMAP: AM3517/3505: fix crash on
+boot due to incorrect voltagedomain data"), register the non-scalable
+voltage domains instead. They still provide the "mpu_iva", "core" and
+"wkup" domains needed by the powerdomain data, and
+omap_voltage_late_init() now skips them.
 
+Tested-by: Andrew Goodbody <andrew.goodbody@linaro.org>
+Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
+---
+This patch has been tested on DM8168-EVM only. It will affect also
+DM814x boards, but seems that the problem probably affects every DM81xx
+SoC.
+---
+ arch/arm/mach-omap2/voltagedomains3xxx_data.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-LLM proposes the following fix for it:
+diff --git a/arch/arm/mach-omap2/voltagedomains3xxx_data.c b/arch/arm/mach-omap2/voltagedomains3xxx_data.c
+index e98a3f289c27..478f5eb2a17f 100644
+--- a/arch/arm/mach-omap2/voltagedomains3xxx_data.c
++++ b/arch/arm/mach-omap2/voltagedomains3xxx_data.c
+@@ -119,7 +119,7 @@ void __init omap3xxx_voltagedomains_init(void)
+ 	omap3_voltdm_mpu.vc_param = &omap3_mpu_vc_data;
+ 	omap3_voltdm_core.vc_param = &omap3_core_vc_data;
+ 
+-	if (soc_is_am35xx())
++	if (soc_is_am35xx() || soc_is_ti81xx())
+ 		voltdms = voltagedomains_am35xx;
+ 	else
+ 		voltdms = voltagedomains_omap3;
 
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 197a8f70c6de..612933306684 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -225,10 +225,8 @@ static const char *iommu_domain_type_str(unsigned int t)
-        }
- }
+---
+base-commit: d89e1d186ec9271bf78e62771779e9fc03bf0fc3
+change-id: 20261030-patch-ektor5-dm81xx-vd-805d42b97bf8
 
--static int __init iommu_subsys_init(void)
-+static void __init iommu_init_def_domain_type(void)
- {
--       struct notifier_block *nb;
--
-        if (!(iommu_cmd_line & IOMMU_CMD_LINE_DMA_API)) {
-                if (IS_ENABLED(CONFIG_IOMMU_DEFAULT_PASSTHROUGH))
-                        iommu_set_default_passthrough(false);
-@@ -254,6 +252,11 @@ static int __init iommu_subsys_init(void)
-                        iommu_dma_strict ? "strict" : "lazy",
-                        (iommu_cmd_line & IOMMU_CMD_LINE_STRICT) ?
-                                " (set via kernel command line)" : "");
-+}
-+
-+static int __init iommu_subsys_init(void)
-+{
-+       struct notifier_block *nb;
-
-        nb = kzalloc_objs(*nb, ARRAY_SIZE(iommu_buses));
-        if (!nb)
-@@ -2939,6 +2942,12 @@ EXPORT_SYMBOL_GPL(report_iommu_fault);
-
- static int __init iommu_init(void)
- {
-+       /*
-+        * Select the default domain type before any IOMMU driver can register
-+        * and create groups, which may happen before subsys_initcall.
-+        */
-+       iommu_init_def_domain_type();
-+
-        iommu_group_kset = kset_create_and_add("iommu_groups",
-                                               NULL, kernel_kobj);
-        BUG_ON(!iommu_group_kset);
-
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Best regards,
+--  
+Ettore Chimenti <ettore.chimenti@linaro.org>
 
 
