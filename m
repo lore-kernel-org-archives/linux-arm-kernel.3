@@ -2,78 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 484DD606A32A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 16:21:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0FB8606A33C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 16:21:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qNjSJyse;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PzCmu1Od
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pMYO+iAQ;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yKdSB1M9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=3LJfsKdpKDX4HmeIK5NT3BudGEfehV1hBOYrKs1Or3g=; b=qNjSJysePqlQ31
-	Z2709dTaNj+s9AHQt0R9Tf7v7zezbO8D0BOl9LiRIP9cFT59+oFZklZ9xvLNB+f9O7H/ErT/jUI40
-	FBX8NpWIUIB47C4SJ59bgC+VGf3/oSBfZlQKHycZedGN++pa+KzBbGgooD5p4+1xMYlArqzZysJiZ
-	lEMu02SdyEicuS4QrKw1HYtXn5Gm1piPMjpilE9xMjIvY6iF0qzUcDdLmp50VmQ7AiK8S4Megbq5b
-	7Nm8Gkrps7Du6AuooY15YDSMwBPm/bL4tG/0p6d3hqfSpXHz8G0021EH7mbuecekZYAKS5b8n9UEt
-	Hxu3d7uC5jFqyjS8ig+A==;
+	List-Owner; bh=OLRD/nhwFUuDTpwXog0Q7Wc+ALgde2fM6C+mADcBMYM=; b=pMYO+iAQgU9ZjC
+	chbeUgblJBtyrsj6hSIevum25nKT6xp+bl9mrbWuP4Xt1/9SO94Fdarah8ggiY0vLuvskBiDbiX0u
+	8Mhx4dhrwJPk7M6UM7W/eW60A/FjTIzThXpYpiuF8BadKfkgPN1PLJDXhJAZFBvgmKAd7IKKgISav
+	TTG1Z/xyIb1RuSg7B2FknEghI3+/g6BT2E3VChLD2ChAdqy8lbaCDxtOwfnXcWyWu31hO5csNV2sP
+	3vfwE3t3SfNzKhInzk7nf5godRr+N5xMSO0FsNOdyf8pJzfsu/pS0Mr53PvWGE06kpRDDCFcRu+Fq
+	sPA3guLX74U5z3vrTFvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMpLp-0000000C6jE-0WDl;
-	Fri, 30 Oct 2026 16:21:09 +0000
-Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
+	id 1xMpLx-0000000C6qA-1RNf;
+	Fri, 30 Oct 2026 16:21:17 +0000
+Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMpLm-0000000C6gv-0VV8
+	id 1xMpLr-0000000C6l5-0vnZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 16:21:07 +0000
-Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-4a85c656c58so582420fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 09:21:05 -0700 (PDT)
+	Fri, 30 Oct 2026 16:21:12 +0000
+Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-4a89b4a59a1so1777380fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 09:21:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793377264; x=1793982064; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793377270; x=1793982070; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3LJfsKdpKDX4HmeIK5NT3BudGEfehV1hBOYrKs1Or3g=;
-        b=PzCmu1OdWaLiXRdB+8pdtijghFfra+U4pUVE5MTS/4YYnGqbXg42TwY5Zy5BM2JGFE
-         PI0df8Gf4bsSuibFXrurIjw+m/4K7bRCIyvdTJJDmdNUZXM3POf9aSlZ4AcJIuyCe7Jm
-         ciu+nctPFiFezDFsCAL9PL9b5/Kn1ji4z2LYiaFmIBOZWHsqxkgA5Ta6xz6V4twLg5lJ
-         Yr1ICqsPrxyLLGgfIKHP2n6gHMUvUY5dBIGiWSFAzFylgTbbPkVyVR1TdfSGOKOyMB7F
-         bbF9DSStqQ021egqZgGPEO2DfOKD/zGHLeBlSrTPEbsNzfuOj6eW5lr27M4GgJ32kkc/
-         hPSA==
+        bh=OLRD/nhwFUuDTpwXog0Q7Wc+ALgde2fM6C+mADcBMYM=;
+        b=yKdSB1M9GJ/By+Jv0eCsyH4Hy+s+0Z7URcZZ8FMbIUHcnfPM2hMi449KU4ESzYiDhY
+         0VvUPTHlpxlarpM+AdNk4dCujbr6VXPL/ldjEc101Uc5ZRbxxAmOORT5jOxBjnv01Fxk
+         9P3BTdLoJ3dnR4Gv2MWVo/qR0p7GPDemg7tbGhFvwUh0Y6Bq1t6hyUSTCIz14cBs/1zh
+         DM1riJr1XJVdPeCa/wkdJpnHI387YFyIsZP4FezZnjEHSz/w3E/VTjABa9KctHRo3TZG
+         rrMuAcLeOiO7CiL6BEMYUC0yJSufVPfAdzdmn/VD4izNsBppNMLmzbCOH/zVBOWBd94n
+         EktA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793377264; x=1793982064;
+        d=1e100.net; s=20260707; t=1793377270; x=1793982070;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3LJfsKdpKDX4HmeIK5NT3BudGEfehV1hBOYrKs1Or3g=;
-        b=kxagRgpBek3cfXleEjlQ4ycKAlkx7cy7evgVcNxWpw5L7FK0ZcHdVFzxornqAgQTLt
-         YwDfNy/ov8woHHpRaskFtX7IlsnVQ3zTWmGdnwe6wUXdcduuQkG+gFsSwOO6XjjSwil2
-         66xBWDXo6LbeSAMWS53mInrDnU47OvGgWqA07o2cAjzcr9wZtGqAQNtZ3JxD8OyMiBLP
-         E4D5K6jRXcZp0tIfDwLFETxnmFNcICqY8doniQLVOcO7INNzJfd8n6L2vQudR5uLb7k3
-         u6eq794aVCK2rf9JZzARxRBzravtX4xmF31ErkxV8LyBN5OHGMndSiJyrN1ErTEW6Z88
-         NN4A==
-X-Forwarded-Encrypted: i=1; AKwUvBzo9os+iHKD04MFscqsoEyV9bwPok894NFWfzkfjYSKMNdxoJlq2xEZa1FXTPQwPajMr9RYMEQuqOE0Epm4aqVL@lists.infradead.org
-X-Gm-Message-State: AFq9FYI1FzPbkZ/eRsnj6y0qjgWT5XVDjKkcstZ2Kgc4tC+mzOPwlis6
-	39vo5wDaPLOg3R9TDlxnv8enKEIy5CWhdiGMCiIyR2A25TgZrD1Nklvq
-X-Gm-Gg: AYBFou3I+TVBeDK0YbJrM+1d5Zh4EKu/b29iWDjtssrIa6azJtm3dFvd3otSgAjMPi7
-	qWkallS9drZK/dlKfm3X+91jygt2RMcz0beS300IzhXoMPSYQ78+dk9/hvYX1cYe0CMr0SrERaO
-	UaX+2qUlEOCyng4wiEpw0xQg1MDsiUkgGV5GfGWCYz/BhTJBCOiJgcPiRMCmnEkKwp8L6WFXY/P
-	Yxe5ylZSAvELwDFCCQ1RI3c/sha6DthpgXnYcladoAxduV3deBSmO92YTMOBq+WyYl/TxWNZqgN
-	c6n+xb0ibP51Bin+t5GpQUd9LCmKmGeUyoiBAWC5QAz2e0901ERAM+3xkY/Rdie3vd4eOPmU6lq
-	x2Sn/ZayQuN8HXquCMV5Pb/Z0VVB+fcZXXzqCAEKurayd5qQ6Rwl3KdFWoW1hRlxLrqhwRiHNTB
-	s5gVCUaD30AU8t0mQkhOeoqqwCcJ3P0hKYrtWb2O/v+aSVsZzjyX6v9Q2Li2/PecllmGE58kab0
-	TrXSjEVGvE7YjYz2TyKhs996QZbTp295B1lb1349LG9XGqlvp5If+b6VIExm8yL09uhFM+9++0l
-	kIRA0ZY/QtWbYv07HyflhbWg3mcVWtw0tU9VCW3anRhDCfa9E1HE/urWkwKRRfVYti/I8+o7en7
-	sjWSz582gwbVWhT5xx+wTwUDBhu/yizKJZF+u2XWy6lHU6gXJBdTCKtChkxVJkbhgJlV5IcvxM+
-	6j/MuLIjLZhBjeDSc=
-X-Received: by 2002:a05:6808:4fd4:b0:4cb:f21b:6f8d with SMTP id 5614622812f47-5640dd9e77cmr2333862b6e.32.1793377264401;
-        Fri, 30 Oct 2026 09:21:04 -0700 (PDT)
+        bh=OLRD/nhwFUuDTpwXog0Q7Wc+ALgde2fM6C+mADcBMYM=;
+        b=Uj3ExH4J/Ne7w1uELc6uBOGxsKLxcMhXG/Uhj+FcTNGbIzn3oM8vDn3eIp/c/zHeA0
+         xHz6i0kQTK+ynGBLaSwJfVI42GdPxneinckT4XdQwPLl3hsf1Xyl/t1WsrHhDCNQIK6a
+         a/+rPU7PzWNVk59RPdoZIXi4Qq2fn0MDxEeXSbBRnOgG4XS3z0wWdVpyfxeDozci3Idz
+         he0eW0UzW0JLmt2K2ViRy3MkEzTtgiBMKhU4jXdxnD2eiG5FfW7Sin7+zyCO/+GrcBbE
+         0VMFxy03EkuBF3PR5S6hQO6Ot/G9O9vmDPnqemDX58Gb5Pgb35XsnMN4mLip76hCEuQZ
+         4Flg==
+X-Forwarded-Encrypted: i=1; AKwUvBw8qhb7OR02sQTWk4AhMJvoCerSJFGs5z2S0cT6vqIBzxLTfe4JVchpRD52glW9+3mjBdF2xtXRpAfQlvI6yFws@lists.infradead.org
+X-Gm-Message-State: AFq9FYLDZH6wiqG4j+s7qIMOHhuUKEmlabp2xUHK72t+kRqzEQx56r+m
+	dD4X2IDGFCQF4K19N4TBRpCbAv5x8ExPa+dXf6ULynjk2CTyQTfSlO45
+X-Gm-Gg: AYBFou3obNadcIr5SKrbbH/G8uWqwdNznxvahW0pV3c/gCCZfxr1PRolou3wHKfJuXH
+	JIkk245Bl6ES9ffnuBbSNWMmaJWNBx/rU/QRqLq6Z7ligm05D3OyRRhRZDIYh1W5WkySzM+GOCA
+	itcIkNWlnUPnL8SlpDZevMF8MzWFdOwFfgU7nbpSQP3dRRkAfClHb22+TEyx3J5PhntokqsqwC8
+	u/QbxlztTuqwE4HVV5dbxdoLCPBJ6VWeh7gvlrECCWTOuo2aFBJBFeRnuPhzXLRbXhgONqga0Mo
+	bWncCiYedwtSdGbYHrGxeeQrgrBwptkRB4vaw7YIBJxeohawkUk4kvooRhK4gEU3146sXfXHvEs
+	g5Y/BPxrCThCRr6nKWQD/64v0fVhEn4lt4JOQTT16g4sEBAXKiygiX87KwFo9n96dgrx9oAEh5p
+	jVRpHs1k0VgA5vSd69pEzgsjBtk2x4rNSxnP8s7btC6JUhVhnjpOo9TNQ6NwrHGPNtRi5YCC/TC
+	suS205CtXNRGo59N13Y6cZIgtV7DVoNT3MIIfVtAA3ToK20T+MtxVPsjzTIc6uz14nOK1MNcqoc
+	3yL4FIPLBABFPOEhuLwCR01QiskAvyhwXYteuN8yQ1oSdZhk+z0VRQpt+y8qrAUQ35yMDAxueii
+	G6hZj/o1hDpdVtVfzfTS9pPEBqgqECiavji9a3kAJ1/Daf4+voR35PF+fRunxDBMgPxTDjH7Qkg
+	M+TSSnikIGzDtOpWqL
+X-Received: by 2002:a05:6871:5224:b0:470:e96b:43e6 with SMTP id 586e51a60fabf-4a90775db3amr1316890fac.18.1793377269740;
+        Fri, 30 Oct 2026 09:21:09 -0700 (PDT)
 Received: from brev-9gdpyq8lp.ap-south-1.compute.internal (ec2-3-110-210-194.ap-south-1.compute.amazonaws.com. [3.110.210.194])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4a92167b03csm322536fac.2.2026.10.30.09.20.55
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4a92167b03csm322536fac.2.2026.10.30.09.21.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 09:20:59 -0700 (PDT)
+        Fri, 30 Oct 2026 09:21:09 -0700 (PDT)
 From: Samarth Narang <samarth.colleges@gmail.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -89,9 +89,9 @@ Cc: Richard Weinberger <richard@nod.at>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Samarth Narang <samarth.colleges@gmail.com>
-Subject: [PATCH v2 2/6] mtd: nand: qpic_common: terminate DMA channels on transfer timeout
-Date: Fri, 30 Oct 2026 16:20:37 +0000
-Message-Id: <20261030162041.2998170-3-samarth.colleges@gmail.com>
+Subject: [PATCH v2 3/6] mtd: rawnand: stm32_fmc2: retire data DMA before unmapping on errors
+Date: Fri, 30 Oct 2026 16:20:38 +0000
+Message-Id: <20261030162041.2998170-4-samarth.colleges@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261030162041.2998170-1-samarth.colleges@gmail.com>
 References: <20261030162041.2998170-1-samarth.colleges@gmail.com>
@@ -99,8 +99,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_092106_175767_FF7DF0B1 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20261030_092111_292784_6E224BD5 
+X-CRM114-Status: GOOD (  15.76  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,51 +120,80 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When DMA completion times out in qcom_submit_descs(), the driver unmaps
-the descriptors' scatterlists without stopping the BAM DMA channels.
-Since the issued descriptors may still be active, the RX and TX channels
-can continue accessing the caller's buffer after it has been unmapped
-and returned to the NAND core. The ADM path has a similar issue when
-dma_sync_wait() times out.
+When ECC descriptor preparation or submission fails in
+stm32_fmc2_nfc_xfer(), the driver unmaps the data scatterlist without
+terminating the previously issued DMA descriptor. The descriptor may
+remain queued and execute when the next page operation starts,
+potentially writing into a buffer that has already been unmapped and
+returned to the NAND core. The timeout paths have a similar issue, as
+they use dmaengine_terminate_all(), which does not guarantee that DMA
+has stopped before the buffer is unmapped.
 
-Terminate the affected channels with dmaengine_terminate_sync() before
-unmapping, ensuring that outstanding DMA transfers are stopped before
-their mappings are released. On BAM, termination resets the pipe and
-discards pending descriptors.
+Terminate the outstanding data descriptor on ECC error paths and use
+dmaengine_terminate_sync() on timeout paths, ensuring that DMA has
+stopped before the associated mapping is released.
 
-Fixes: 381dd24539a8 ("mtd: nand: qcom: add BAM DMA descriptor handling")
-Fixes: c76b78d8ec05 ("mtd: nand: Qualcomm NAND controller driver")
+Fixes: 2cd457f328c1 ("mtd: rawnand: stm32_fmc2: add STM32 FMC2 NAND flash controller driver")
 Assisted-by: LLM
 Signed-off-by: Samarth Narang <samarth.colleges@gmail.com>
 ---
- drivers/mtd/nand/qpic_common.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ drivers/mtd/nand/raw/stm32_fmc2_nand.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/mtd/nand/qpic_common.c b/drivers/mtd/nand/qpic_common.c
-index 4f3e4dd76..250154a08 100644
---- a/drivers/mtd/nand/qpic_common.c
-+++ b/drivers/mtd/nand/qpic_common.c
-@@ -592,11 +592,18 @@ int qcom_submit_descs(struct qcom_nand_controller *nandc)
- 		dma_async_issue_pending(nandc->cmd_chan);
+diff --git a/drivers/mtd/nand/raw/stm32_fmc2_nand.c b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
+index c08d6b176..82d630106 100644
+--- a/drivers/mtd/nand/raw/stm32_fmc2_nand.c
++++ b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
+@@ -915,6 +915,7 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
+ 						   DMA_PREP_INTERRUPT);
+ 		if (!desc_ecc) {
+ 			ret = -ENOMEM;
++			dmaengine_terminate_sync(dma_ch);
+ 			goto err_unmap_data;
+ 		}
  
- 		if (!wait_for_completion_timeout(&bam_txn->txn_done,
--						 QPIC_NAND_COMPLETION_TIMEOUT))
-+						 QPIC_NAND_COMPLETION_TIMEOUT)) {
-+			/* Retire every issued pipe before unmapping its buffers. */
-+			dmaengine_terminate_sync(nandc->tx_chan);
-+			dmaengine_terminate_sync(nandc->rx_chan);
-+			dmaengine_terminate_sync(nandc->cmd_chan);
- 			ret = -ETIMEDOUT;
+@@ -922,8 +923,10 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
+ 		desc_ecc->callback = stm32_fmc2_nfc_dma_callback;
+ 		desc_ecc->callback_param = &nfc->dma_ecc_complete;
+ 		ret = dma_submit_error(dmaengine_submit(desc_ecc));
+-		if (ret)
++		if (ret) {
++			dmaengine_terminate_sync(dma_ch);
+ 			goto err_unmap_data;
 +		}
- 	} else {
--		if (dma_sync_wait(nandc->chan, cookie) != DMA_COMPLETE)
-+		if (dma_sync_wait(nandc->chan, cookie) != DMA_COMPLETE) {
-+			dmaengine_terminate_sync(nandc->chan);
- 			ret = -ETIMEDOUT;
-+		}
+ 
+ 		dma_async_issue_pending(nfc->dma_ecc_ch);
+ 	}
+@@ -939,9 +942,9 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
+ 	if (!wait_for_completion_timeout(&nfc->complete, timeout)) {
+ 		dev_err(nfc->dev, "seq timeout\n");
+ 		stm32_fmc2_nfc_disable_seq_irq(nfc);
+-		dmaengine_terminate_all(dma_ch);
++		dmaengine_terminate_sync(dma_ch);
+ 		if (!write_data && !raw)
+-			dmaengine_terminate_all(nfc->dma_ecc_ch);
++			dmaengine_terminate_sync(nfc->dma_ecc_ch);
+ 		ret = -ETIMEDOUT;
+ 		goto err_unmap_data;
+ 	}
+@@ -949,7 +952,7 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
+ 	/* Wait DMA data transfer completion */
+ 	if (!wait_for_completion_timeout(&nfc->dma_data_complete, timeout)) {
+ 		dev_err(nfc->dev, "data DMA timeout\n");
+-		dmaengine_terminate_all(dma_ch);
++		dmaengine_terminate_sync(dma_ch);
+ 		ret = -ETIMEDOUT;
  	}
  
- err_unmap_free_desc:
+@@ -958,7 +961,7 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
+ 		if (!wait_for_completion_timeout(&nfc->dma_ecc_complete,
+ 						 timeout)) {
+ 			dev_err(nfc->dev, "ECC DMA timeout\n");
+-			dmaengine_terminate_all(nfc->dma_ecc_ch);
++			dmaengine_terminate_sync(nfc->dma_ecc_ch);
+ 			ret = -ETIMEDOUT;
+ 		}
+ 	}
 -- 
 2.34.1
 
