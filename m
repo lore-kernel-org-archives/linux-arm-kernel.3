@@ -2,72 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45932606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 15:30:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 420C3606A322
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 15:37:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JMpG6Gsx;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Vq6KJY5/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZjKjPXE2;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eYPcu94u
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=1o4CZDZu+gULwQEasnXj9CMdx8xc0cnQ7Pve1CdeUsM=; b=JMpG6GsxKzm6zevglVN807FIhv
-	DfUYNh9lyg2CM8URGRExxD7jn5Rq87ZHJAFB8gsmsIuhw5W/9jcM1+ehToIMTyW21eequiFtO/bhY
-	Eqetk0w4MmEjLeLK4ksL2FykhPYk77prbSrOh8Sb3CTvUED3DbKhp/HYVz+gxf2fFFISfQcJo/kqM
-	hMkeL+8AuUqv89/yciSV67UVSgr9WIiRefl7OOGCOmsgaiT9x9PAaSHXc0qF+te+iRqWahbC0y8dt
-	cqMI/IojXZHTHjHpJhLSdfKI0ohujwUnoXfUpaDeJhOLIDNiZZhDoNhfRKGMIvWjihxjTBW+F03dx
-	rKq7OwCw==;
+	bh=XCiNX/JVOGez8Xk/1UsypK/8unagw3ySEZpGAE4b/PU=; b=ZjKjPXE2BSsf5PWO6gqBuRF8Hq
+	CaLdkZLWTHy1f2gsyYAKWchxjO4TB9shvQ7If0YxNyTrS2YdDqcLV7IPacnwWJgo3bFrBIMCjvJHV
+	FmPwLvvb9N8Q9HTJAbhjLO/5akz9LFdsyzsBHnOytbFpUFO5SUMd5jVFg3izBVtoeyxaKR5acF2Oj
+	86V7+55hwyj9ZYUFquS8l9OM0Mna7UmqjqbTVkYX7faUEnyGnyPU92MKs9erfsdeOb/zOSxYs2+mC
+	EwI8A90SgyNSA8nrgh9FEuH9AHSdiWMyjBUaosA8A0/tLoClcW1M8nJFmaYScfkik3VSPYh4hHn2g
+	l4P2igCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMoYZ-0000000C0tq-1INk;
-	Fri, 30 Oct 2026 15:30:15 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xMofm-0000000C1VS-1Tis;
+	Fri, 30 Oct 2026 15:37:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMoYW-0000000C0sw-000m
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 15:30:13 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 097481A13C8;
-	Fri, 30 Oct 2026 15:30:09 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C6F5D603C2;
-	Fri, 30 Oct 2026 15:30:08 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CD7F81032912E;
-	Fri, 30 Oct 2026 16:30:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1793374206; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=1o4CZDZu+gULwQEasnXj9CMdx8xc0cnQ7Pve1CdeUsM=;
-	b=Vq6KJY5/MC4ZIDB6v8sJFdtKcMSg2Z7pOq1l33uLq1CTt3KgQ9M3QJ7ZNMWFThmrkLnm91
-	gS/e0cmipNsiSCTlQyKBMl/b6jY9pE/UvIKd9uzDhK8q+6e5nZ2+2+Oe5o9En7X3uKLKL5
-	LCzd199jgcx1W1vSFj2IopJ/fIHOlpA5YoiqnhUYSSmHwcekM5EzCbweuGjEvxWDECG8gY
-	qsk7BXjPSpBBW4vSdyeRxnLPiWK42LeVQonVGiSskhyu+hbeeL2Gm9swlOVU7hgs9piX9W
-	9orN1VNV54tTIyudtE1wnoEZEp8t8cpfmBng6iZComo/LpUucmjhYojMB6jRxQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Samarth Narang <samarth.colleges@gmail.com>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,  Maxime Coquelin
- <mcoquelin.stm32@gmail.com>,  Alexandre Torgue
- <alexandre.torgue@foss.st.com>,  Richard Weinberger <richard@nod.at>,
-  linux-mtd@lists.infradead.org,  linux-stm32@st-md-mailman.stormreply.com,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mtd: rawnand: stm32_fmc2: retire data DMA before
- unmapping on errors
-In-Reply-To: <20261030151843.2953269-1-samarth.colleges@gmail.com> (Samarth
-	Narang's message of "Fri, 30 Oct 2026 15:18:43 +0000")
-References: <20261030151843.2953269-1-samarth.colleges@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Fri, 30 Oct 2026 16:30:01 +0100
-Message-ID: <87tsm3cikm.fsf@bootlin.com>
+	id 1xMofk-0000000C1VG-3lgY;
+	Fri, 30 Oct 2026 15:37:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C7571601F8;
+	Fri, 30 Oct 2026 15:37:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F343C1F000C1;
+	Fri, 30 Oct 2026 15:37:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793374659;
+	bh=XCiNX/JVOGez8Xk/1UsypK/8unagw3ySEZpGAE4b/PU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eYPcu94uQR0iroKxabErt/vMeQpkS6GHmYqkY6K/hsBKExvogGDA5qavalpX7diso
+	 sEnExCJ6pL+aMhcXQa9nOCRjMYYsmKIewRxzvQ/IFjkL95xYA5b3zwoQbzVWaKOOwI
+	 o6B6V434EhSr6JrU93kVp62Ys3bkTc0bZyOICc97qraH8Yr4EDwiiiQ47Nbzu/GcKS
+	 tQaNC5Oj8/Hl+RLjGwomsKH0cx8OXnUO7d3HGHazFoYCgzDMengZVnDPHYj5uhY4up
+	 L9HAZAdpfbdd0huC7ZIv/ptlAi//Cx8KKSZPij6Xy9JqY3f/pSEXT6lNiHBz8ozRSr
+	 ePvc9SbJzrMHg==
+Date: Fri, 30 Oct 2026 10:37:34 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Sebastian Reichel <sre@kernel.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	linux-arm-msm@vger.kernel.org, kernel@collabora.com,
+	devicetree@vger.kernel.org, Konrad Dybcio <konradybcio@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-rockchip@lists.infradead.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v2 1/4] dt-bindings: connector: Add DP AltMode VDO
+ definitions
+Message-ID: <179337465400.84888.3742821306180062985.robh@kernel.org>
+References: <20261017-dp-altmode-dt-defines-v2-0-7ab3d93553dd@collabora.com>
+ <20261017-dp-altmode-dt-defines-v2-1-7ab3d93553dd@collabora.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_083012_181209_5789AA33 
-X-CRM114-Status: GOOD (  11.80  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261017-dp-altmode-dt-defines-v2-1-7ab3d93553dd@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +81,51 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 30/10/2026 at 15:18:43 GMT, Samarth Narang <samarth.colleges@gmail.com> wrote:
 
-> When ECC descriptor preparation or submission fails in
-> stm32_fmc2_nfc_xfer(), the driver unmaps the data scatterlist without
-> terminating the previously issued DMA descriptor. The descriptor may
-> remain queued and execute when the next page operation starts,
-> potentially writing into a buffer that has already been unmapped and
-> returned to the NAND core. The timeout paths have a similar issue, as
-> they use dmaengine_terminate_all(), which does not guarantee that DMA
-> has stopped before the buffer is unmapped.
->
-> Terminate the outstanding data descriptor on ECC error paths and use
-> dmaengine_terminate_sync() on timeout paths, ensuring that DMA has
-> stopped before the associated mapping is released.
->
-> Fixes: 2cd457f328c1 ("mtd: rawnand: stm32_fmc2: add STM32 FMC2 NAND flash controller driver")
-> Assisted-by: LLM
-> Signed-off-by: Samarth Narang <samarth.colleges@gmail.com>
+On Sat, 17 Oct 2026 21:59:30 +0200, Sebastian Reichel wrote:
+> From: Sebastian Reichel <sebastian.reichel@collabora.com>
+> 
+> The typical USB-C DisplayPort AltMode capabilities for a down facing
+> port (i.e. sending out video data) looks like this:
+> 
+> altmodes {
+> 	displayport {
+> 		svid = /bits/ 16 <0xff01>;
+> 		vdo = <0x00001c46>;
+> 	};
+> };
+> 
+> Improve the readability by adding defines for the numbers, so that
+> the above instead looks like this:
+> 
+> altmodes {
+> 	displayport {
+> 		svid = /bits/ 16 <USB_SVID_DP_ALTMODE>;
+> 		vdo = <VDO_DP(DP_CAP_DPAM_V2_0, DP_CAP_CABLE_TYPE_PASSIVE,
+> 			      DP_CAP_UHBR_13_5_UNSUPPORTED,
+> 			      DP_PIN_UFP_NONE, DP_PIN_DFP_C_D_E,
+> 			      DP_CAP_USB2_USED, DP_CAP_RECEPTACLE,
+> 			      DP_CAP_SIGNALLING_HBR3, DP_CAP_DFP_D)>;
+> 	};
+> };
+> 
+> The generated DT binary will stay unchanged.
+> 
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  include/dt-bindings/usb/pd.h | 58 ++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 58 insertions(+)
+> 
 
-Seems like you have a lot of them, so I'll drop the individual
-submissions. Please create a series with all the ones related to the
-subsystem you would like to contribute.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+
 
