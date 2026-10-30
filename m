@@ -2,129 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9DE5606A331
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 14:49:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45AE6606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 14:51:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EESjcaoe;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ExggUzQ4
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WCGyQiBm;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=m+wtWyqH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=HEHKW4LBT6GpwoTEpcbAbsyC2GPR8DDtx+QfBPo6gbI=; b=EESjcaoelWJ5z0oqJs5rx4nlTl
-	D3lbcIX7iXYlQl2OYttyBRm82uWxi8XC6BKFgcA4wa0b+OI1akRb1wuMa9/QN++LCUXuFjAOEhQj/
-	BeJg7j8m0YR+1fX8WOV19z3G7Er2nVMHt86GCqSkhDYs76QBZkKZ9uQxudPqiq6amrfoz/myqXkJj
-	hlihcqBjfPa6ciiLo5ilnszUP/Xyx/N4lrQX2lunCcAuxPnNMdJVndyZea+u8IOP/nWO7aA0X/WLf
-	romnsX8fdaGdk3v8X6pPt91N1GrmplPGbIpConrvj5vIYTqs4H67RM3+6drPVgTk5134X0j7dym06
-	MePp+kxg==;
+	bh=jGWtdlbWMHGNgloX7EqfHV279r2fDcsDj1Rd/d1NoRs=; b=WCGyQiBm6fbn2nH92dQckPN/Ab
+	wnK00vXdHv7IzUEyOZD+TLJN9tswe6JGBsad9ZZbVd96eS/bEtiZvvmjURERnInBxTPGyqByDRENb
+	kh/SOjib6dgshQ8lvg5fpLRnnSG5PLSjnKg9NF6l6jN0yFCD+79N/zhYhw8o+s1Qt8MlH/5sFUCKH
+	B++00wJc3+RhPR+kpASdZF/+5e3PcQVJl8kgIJkFcYNOkDHgmc/JqN7bFT6vPGRZDxCC0LQLZkewd
+	VBBm0PhdbTvlusb/y/EHL/ltybekCcGJgd5LqzXnGkJbZcimjAJcg0zppiw5FJMar3uZvBSpIUGHo
+	hChXdqwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMnus-0000000BtPS-2zOL;
-	Fri, 30 Oct 2026 14:49:14 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMnup-0000000BtOY-305N;
-	Fri, 30 Oct 2026 14:49:12 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69UEiNBi3396324;
-	Fri, 30 Oct 2026 14:48:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=HEHKW4LBT6GpwoTEpcbAbsyC2GPR8D
-	Dtx+QfBPo6gbI=; b=ExggUzQ455ydNTjuXERdQK9pJ5iTVLioyncMYKtaMrybI6
-	krGz53pMUesedVdfoSwrjfyPFN6oKtLJ9ZGSc6iL6qdxumYmBDC53vPEnudKaHv7
-	ymcnCFyMC7J+0pWxlYcBqIeK0xL5Z/9YzRGeSHdJ6yt7M3KM5utOvyLsWcKlRXcF
-	yEHSvxiNs8gr20+K59YSPCoH6Bsi/Qm8mTA/OrqwXkpguyWfsWkKRySnaBj+fjZY
-	gasiwKpQjKQZBIjrcRsE6shxU/5OSa3YS9rziGJQij26td/8OPz7JnoUzaAZC1iQ
-	8CB0BpLwyIXpKLthffDo9so7x8Bqsy+nL7Fptlrw==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4hmeay399t-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 30 Oct 2026 14:48:50 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 69UEZ5nw649967;
-	Fri, 30 Oct 2026 14:48:49 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4hm69e50qj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 30 Oct 2026 14:48:49 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 69UEmjGw30737002
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 30 Oct 2026 14:48:45 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0E9BE2004B;
-	Fri, 30 Oct 2026 14:48:45 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 69B4D20040;
-	Fri, 30 Oct 2026 14:48:38 +0000 (GMT)
-Received: from li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com (unknown [9.124.208.227])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 30 Oct 2026 14:48:38 +0000 (GMT)
-Date: Fri, 30 Oct 2026 20:18:35 +0530
-From: Gautam Menghani <gautam@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-        Huacai Chen <chenhuacai@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Paolo Bonzini <pbonzini@redhat.com>, Fuad Tabba <fuad.tabba@linux.dev>,
-        Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>, Nicholas Piggin <npiggin@gmail.com>,
-        Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        kvm@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Stefan Teodorescu <fane@google.com>
-Subject: Re: [PATCH 3/7] KVM: PPC: Explicitly force IPIs when directly
- kicking vCPUs
-Message-ID: <auStM0rbFol79h5o@li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com>
-References: <20261028190259.1819571-1-seanjc@google.com>
- <20261028190259.1819571-4-seanjc@google.com>
+	id 1xMnx9-0000000BtkV-0piX;
+	Fri, 30 Oct 2026 14:51:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMnwd-0000000Btj1-2sWV
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Oct 2026 14:51:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 937DC15A1
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 07:50:56 -0700 (PDT)
+Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 78E943F673
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 07:50:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793371859; bh=ZS2k+FypBHiuo5+SFtfW7Gv767dr3RvQc3r5rKZYMBo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=m+wtWyqHzVtLsHA3t3l4qntmmArR4NoAQ6PBE2PAdDaZS/IB7fM0cO27fbVckHJ71
+	 2HXSYdSaoJOmQB4+GG7m/ULM2HChfiyHFBJk7JcH/Z4euIo07yxvx5Q0IWaJniz21f
+	 4uBgZPBYojJpr1EPp6X+x32wOFha2ZyysR+LgknM=
+Date: Fri, 30 Oct 2026 14:50:35 +0000
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Lee Jones <lee@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Thomas Richard <thomas.richard@bootlin.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Andreas Werner <andreas.werner@men.de>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, mfd@lists.linux.dev,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Charles Keepax <ckeepax@opensource.cirrus.com>
+Subject: Re: [PATCH v2 1/2] mfd: Constify mfd_cell arrays
+Message-ID: <auSuu45DB5QTQuUX@e142607>
+References: <20261030140240.211786-3-krzysztof.kozlowski@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261028190259.1819571-4-seanjc@google.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMwMDA1OCBTYWx0ZWRfX231ITCmOe99R
- dfESFyd3RUHjMlk75/eFc/1OXzNu84c9omPa7EIxtAYWLGJA9eAO3zzjK7VTQa9llnkJXi4gWU8
- r/unyeMYxDjuR+cWiyOnVdmS7GG+HF21UyJwsDX2Xub75Vlm2pm0bctwtvWSinYL1jvetutMT9u
- syV9gMRp2C27a9ai2jX5gVTbQI0zWTEnKBPJsAESqMw35ihGvBQsvADDXhk3kK6RJKPFkGzUu/R
- 8hbWWaTe5yOXFUonP/DisFXU6OHDNrpGGIOnidy7knS9ossfiCuv+PjkyxIdfgZNrxB3ogLWnb/
- wIJApNH46JPjtF8WaAFMzRRJRq4ipRnblJwCI0gUhomM9spjDCQUvGpKUJceKZB8VwfgH+dzVOz
- eTTsRDooCRzKNdGwyScusI3QLV5OU6ngYDGXyI76iB5Vyotd+IKq7x3NvGErCC7qtLRge/dkbPg
- 7yc+RWco6LUsGg+cWpw==
-X-Authority-Analysis: v=2.4 cv=WJHqzXsR c=1 sm=1 tr=0 ts=6ae4ae52 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
- a=1XWaLZrsAAAA:8 a=1goJhm9fjgf-yEZC_jsA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: Zln3Uvbt51spdXgJNma7nXq9r9SgUHNe
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMwMDA1OCBTYWx0ZWRfX7S7KOd9POaV1
- Em+dt+hSOwRtH43TAR/rRI11q7Tee1s+P5cCU6Nfy9sKiFGQWrAn7ONzOJvQd/a2ydad09/AQ7n
- DooPLMaRQuyB21j0hWOf5aPFwNJGtms=
-X-Proofpoint-GUID: OIZDK0-t9uUR5jTdFJ0BXTWF-ze0VlkH
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-10-30_05,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 spamscore=0 lowpriorityscore=0 adultscore=0 priorityscore=1501
- bulkscore=0 impostorscore=0 malwarescore=0 suspectscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610300058
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261030140240.211786-3-krzysztof.kozlowski@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_074911_761594_DC05437C 
-X-CRM114-Status: GOOD (  19.95  )
-X-Spam-Score: -2.6 (--)
+X-CRM114-CacheID: sfid-20261030_075103_809541_2AE69C76 
+X-CRM114-Status: GOOD (  27.30  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,63 +85,345 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 12:02:55PM -0700, Sean Christopherson wrote:
-> Explicitly force an IPI when invoking kvm_vcpu_kick() directly instead of
-> relying on kvm_arch_vcpu_should_kick() to unconditionally return 1/true.
-> This will allow dropping kvm_arch_vcpu_should_kick() in favor of
-> kvm_request_needs_ipi().
+On Fri, Oct 30, 2026 at 03:02:41PM +0100, Krzysztof Kozlowski wrote:
+> mfd_add_devices() takes pointer to const, so 'struct mfd_cell' arrays
+> can be constified whenever driver does not modify it in the probe.
 > 
-> No functional change intended (1 || 1 == true).
+> Acked-by: Chen-Yu Tsai <wens@kernel.org> # ac100 & axp20x
+> Acked-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+> Acked-by: Thomas Richard (congatec GmbH) <thomas.richard@bootlin.com> # cgbc-core
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 > 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  arch/powerpc/include/asm/kvm_ppc.h | 13 ++++++++++++-
->  arch/powerpc/kvm/book3s.c          |  4 ++--
->  arch/powerpc/kvm/book3s_pr.c       |  2 +-
->  arch/powerpc/kvm/booke.c           |  6 +++---
->  arch/powerpc/kvm/e500_emulate.c    |  2 +-
->  arch/powerpc/kvm/powerpc.c         |  2 +-
->  6 files changed, 20 insertions(+), 9 deletions(-)
 > 
-> diff --git a/arch/powerpc/include/asm/kvm_ppc.h b/arch/powerpc/include/asm/kvm_ppc.h
-> index 169ea6a7fbad..bbe7378ad0ef 100644
-> --- a/arch/powerpc/include/asm/kvm_ppc.h
-> +++ b/arch/powerpc/include/asm/kvm_ppc.h
-> @@ -30,6 +30,17 @@
->  #endif
->  #include <asm/inst.h>
+> Changes in v2:
+> 1. Add tags
+> 2. Drop wm97xx-core.c, it was not intended to be committed
+> ---
+>  drivers/mfd/ac100.c                   | 2 +-
+>  drivers/mfd/axp20x.c                  | 4 ++--
+>  drivers/mfd/cgbc-core.c               | 2 +-
+>  drivers/mfd/cs5535-mfd.c              | 2 +-
+>  drivers/mfd/intel_soc_pmic_bxtwc.c    | 2 +-
+>  drivers/mfd/intel_soc_pmic_chtdc_ti.c | 2 +-
+>  drivers/mfd/intel_soc_pmic_chtwc.c    | 2 +-
+>  drivers/mfd/intel_soc_pmic_crc.c      | 6 +++---
+>  drivers/mfd/max77705.c                | 2 +-
+>  drivers/mfd/menf21bmc.c               | 2 +-
+>  drivers/mfd/mxs-lradc.c               | 6 +++---
+>  drivers/mfd/rohm-bd718x7.c            | 6 +++---
+>  drivers/mfd/rsmu_core.c               | 8 ++++----
+>  drivers/mfd/stmfx.c                   | 2 +-
+>  drivers/mfd/vexpress-sysreg.c         | 2 +-
+
+For the vexpress-sysreg.c:
+
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
+
+Best regards,
+Liviu
+
+>  15 files changed, 25 insertions(+), 25 deletions(-)
+> 
+> diff --git a/drivers/mfd/ac100.c b/drivers/mfd/ac100.c
+> index 8f47c392cbd1..51b4d468c51d 100644
+> --- a/drivers/mfd/ac100.c
+> +++ b/drivers/mfd/ac100.c
+> @@ -75,7 +75,7 @@ static const struct regmap_config ac100_regmap_config = {
+>  	.cache_type	= REGCACHE_MAPLE,
+>  };
 >  
-> +/*
-> + * TODO: For unknown reasons, KVM PPC has historically ignored vcpu->mode when
-> + *       determining if kicking a vCPU needs an IPI.  Either document why that
-> + *       behavior is necessary, or drop this helper and the @force param from
-> + *       __kvm_vcpu_kick().
-> + */
-> +static inline void kvmppc_vcpu_kick(struct kvm_vcpu *vcpu)
-> +{
-> +	__kvm_vcpu_kick(vcpu, false, true);
-> +}
-> +
+> -static struct mfd_cell ac100_cells[] = {
+> +static const struct mfd_cell ac100_cells[] = {
+>  	{
+>  		.name		= "ac100-codec",
+>  		.of_compatible	= "x-powers,ac100-codec",
+> diff --git a/drivers/mfd/axp20x.c b/drivers/mfd/axp20x.c
+> index 50df66de24e0..4d770e718716 100644
+> --- a/drivers/mfd/axp20x.c
+> +++ b/drivers/mfd/axp20x.c
+> @@ -1055,13 +1055,13 @@ static const struct mfd_cell axp152_cells[] = {
+>  	},
+>  };
+>  
+> -static struct mfd_cell axp313a_cells[] = {
+> +static const struct mfd_cell axp313a_cells[] = {
+>  	/* AXP323 is sometimes paired with AXP717 as sub-PMIC */
+>  	MFD_CELL_BASIC("axp20x-regulator", NULL, NULL, 0, 1),
+>  	MFD_CELL_RES("axp313a-pek", axp313a_pek_resources),
+>  };
+>  
+> -static struct mfd_cell axp717_cells[] = {
+> +static const struct mfd_cell axp717_cells[] = {
+>  	MFD_CELL_NAME("axp20x-regulator"),
+>  	MFD_CELL_RES("axp20x-pek", axp717_pek_resources),
+>  	MFD_CELL_OF("axp717-adc",
+> diff --git a/drivers/mfd/cgbc-core.c b/drivers/mfd/cgbc-core.c
+> index 2becaf797646..3460c50047ea 100644
+> --- a/drivers/mfd/cgbc-core.c
+> +++ b/drivers/mfd/cgbc-core.c
+> @@ -231,7 +231,7 @@ int cgbc_command(struct cgbc_device_data *cgbc, void *cmd, unsigned int cmd_size
+>  }
+>  EXPORT_SYMBOL_GPL(cgbc_command);
+>  
+> -static struct mfd_cell cgbc_devs[] = {
+> +static const struct mfd_cell cgbc_devs[] = {
+>  	{ .name = "cgbc-wdt"	},
+>  	{ .name = "cgbc-gpio"	},
+>  	{ .name = "cgbc-i2c", .id = 1 },
+> diff --git a/drivers/mfd/cs5535-mfd.c b/drivers/mfd/cs5535-mfd.c
+> index f3becbef19f5..d91d60dc5416 100644
+> --- a/drivers/mfd/cs5535-mfd.c
+> +++ b/drivers/mfd/cs5535-mfd.c
+> @@ -37,7 +37,7 @@ const struct software_node cs5535_gpio_swnode = {
+>  };
+>  EXPORT_SYMBOL_NS(cs5535_gpio_swnode, "CS5535");
+>  
+> -static struct mfd_cell cs5535_mfd_cells[] = {
+> +static const struct mfd_cell cs5535_mfd_cells[] = {
+>  	{
+>  		.name = "cs5535-smb",
+>  		.num_resources = 1,
+> diff --git a/drivers/mfd/intel_soc_pmic_bxtwc.c b/drivers/mfd/intel_soc_pmic_bxtwc.c
+> index 117517c171b5..5aa9e52401f0 100644
+> --- a/drivers/mfd/intel_soc_pmic_bxtwc.c
+> +++ b/drivers/mfd/intel_soc_pmic_bxtwc.c
+> @@ -245,7 +245,7 @@ static const struct resource tmu_resources[] = {
+>  	DEFINE_RES_IRQ_NAMED(BXTWC_TMU_IRQ, "TMU"),
+>  };
+>  
+> -static struct mfd_cell bxt_wc_dev[] = {
+> +static const struct mfd_cell bxt_wc_dev[] = {
+>  	{
+>  		.name = "bxt_wcove_thermal",
+>  		.num_resources = ARRAY_SIZE(thermal_resources),
+> diff --git a/drivers/mfd/intel_soc_pmic_chtdc_ti.c b/drivers/mfd/intel_soc_pmic_chtdc_ti.c
+> index 6daf33e07ea0..8412a25d37ff 100644
+> --- a/drivers/mfd/intel_soc_pmic_chtdc_ti.c
+> +++ b/drivers/mfd/intel_soc_pmic_chtdc_ti.c
+> @@ -53,7 +53,7 @@ static const struct resource battery_resources[] = {
+>  	DEFINE_RES_IRQ(CHTDC_TI_CCEOCAL),
+>  };
+>  
+> -static struct mfd_cell chtdc_ti_dev[] = {
+> +static const struct mfd_cell chtdc_ti_dev[] = {
+>  	{
+>  		.name = "chtdc_ti_pwrbtn",
+>  		.num_resources = ARRAY_SIZE(power_button_resources),
+> diff --git a/drivers/mfd/intel_soc_pmic_chtwc.c b/drivers/mfd/intel_soc_pmic_chtwc.c
+> index aa71a7d83fcd..f27985a58c87 100644
+> --- a/drivers/mfd/intel_soc_pmic_chtwc.c
+> +++ b/drivers/mfd/intel_soc_pmic_chtwc.c
+> @@ -50,7 +50,7 @@ static const struct resource cht_wc_ext_charger_resources[] = {
+>  	DEFINE_RES_IRQ(CHT_WC_EXT_CHGR_IRQ),
+>  };
+>  
+> -static struct mfd_cell cht_wc_dev[] = {
+> +static const struct mfd_cell cht_wc_dev[] = {
+>  	{
+>  		.name = "cht_wcove_pwrsrc",
+>  		.num_resources = ARRAY_SIZE(cht_wc_pwrsrc_resources),
+> diff --git a/drivers/mfd/intel_soc_pmic_crc.c b/drivers/mfd/intel_soc_pmic_crc.c
+> index 627a89334908..ce4c9ef59198 100644
+> --- a/drivers/mfd/intel_soc_pmic_crc.c
+> +++ b/drivers/mfd/intel_soc_pmic_crc.c
+> @@ -54,7 +54,7 @@ static const struct resource gpio_resources[] = {
+>  	DEFINE_RES_IRQ_NAMED(CRYSTAL_COVE_IRQ_GPIO, "GPIO"),
+>  };
+>  
+> -static struct mfd_cell crystal_cove_byt_dev[] = {
+> +static const struct mfd_cell crystal_cove_byt_dev[] = {
+>  	{
+>  		.name = "crystal_cove_pwrsrc",
+>  		.num_resources = ARRAY_SIZE(pwrsrc_resources),
+> @@ -93,7 +93,7 @@ static struct mfd_cell crystal_cove_byt_dev[] = {
+>  	},
+>  };
+>  
+> -static struct mfd_cell crystal_cove_cht_dev[] = {
+> +static const struct mfd_cell crystal_cove_cht_dev[] = {
+>  	{
+>  		.name = "crystal_cove_gpio",
+>  		.num_resources = ARRAY_SIZE(gpio_resources),
+> @@ -142,7 +142,7 @@ static struct pwm_lookup crc_pwm_lookup[] = {
+>  
+>  struct crystal_cove_config {
+>  	unsigned long irq_flags;
+> -	struct mfd_cell *cell_dev;
+> +	const struct mfd_cell *cell_dev;
+>  	int n_cell_devs;
+>  	const struct regmap_config *regmap_config;
+>  	const struct regmap_irq_chip *irq_chip;
+> diff --git a/drivers/mfd/max77705.c b/drivers/mfd/max77705.c
+> index 2e9b81f26414..771015c229c8 100644
+> --- a/drivers/mfd/max77705.c
+> +++ b/drivers/mfd/max77705.c
+> @@ -15,7 +15,7 @@
+>  #include <linux/regmap.h>
+>  #include <linux/of.h>
+>  
+> -static struct mfd_cell max77705_devs[] = {
+> +static const struct mfd_cell max77705_devs[] = {
+>  	MFD_CELL_OF("max77705-rgb", NULL, NULL, 0, 0, "maxim,max77705-rgb"),
+>  	MFD_CELL_OF("max77705-charger", NULL, NULL, 0, 0, "maxim,max77705-charger"),
+>  	MFD_CELL_OF("max77705-haptic", NULL, NULL, 0, 0, "maxim,max77705-haptic"),
+> diff --git a/drivers/mfd/menf21bmc.c b/drivers/mfd/menf21bmc.c
+> index 0f24de516d72..252d5c81db6b 100644
+> --- a/drivers/mfd/menf21bmc.c
+> +++ b/drivers/mfd/menf21bmc.c
+> @@ -17,7 +17,7 @@
+>  #define BMC_CMD_REV_MINOR	0x81
+>  #define BMC_CMD_REV_MAIN	0x82
+>  
+> -static struct mfd_cell menf21bmc_cell[] = {
+> +static const struct mfd_cell menf21bmc_cell[] = {
+>  	{ .name = "menf21bmc_wdt", },
+>  	{ .name = "menf21bmc_led", },
+>  	{ .name = "menf21bmc_hwmon", }
+> diff --git a/drivers/mfd/mxs-lradc.c b/drivers/mfd/mxs-lradc.c
+> index 64afc7631790..71ad5184f7e0 100644
+> --- a/drivers/mfd/mxs-lradc.c
+> +++ b/drivers/mfd/mxs-lradc.c
+> @@ -90,7 +90,7 @@ static struct resource mx28_touchscreen_resources[] = {
+>  	DEFINE_RES_IRQ_NAMED(MX28_LRADC_CH7_IRQ, "mxs-lradc-channel7"),
+>  };
+>  
+> -static struct mfd_cell mx23_cells[] = {
+> +static const struct mfd_cell mx23_cells[] = {
+>  	{
+>  		.name = "mxs-lradc-adc",
+>  		.resources = mx23_adc_resources,
+> @@ -103,7 +103,7 @@ static struct mfd_cell mx23_cells[] = {
+>  	},
+>  };
+>  
+> -static struct mfd_cell mx28_cells[] = {
+> +static const struct mfd_cell mx28_cells[] = {
+>  	{
+>  		.name = "mxs-lradc-adc",
+>  		.resources = mx28_adc_resources,
+> @@ -128,7 +128,7 @@ static int mxs_lradc_probe(struct platform_device *pdev)
+>  	struct device *dev = &pdev->dev;
+>  	struct device_node *node = dev->of_node;
+>  	struct mxs_lradc *lradc;
+> -	struct mfd_cell *cells = NULL;
+> +	const struct mfd_cell *cells = NULL;
+>  	struct resource *res;
+>  	int ret = 0;
+>  	u32 ts_wires = 0;
+> diff --git a/drivers/mfd/rohm-bd718x7.c b/drivers/mfd/rohm-bd718x7.c
+> index 0b0f8e27e329..bd087004dde8 100644
+> --- a/drivers/mfd/rohm-bd718x7.c
+> +++ b/drivers/mfd/rohm-bd718x7.c
+> @@ -19,12 +19,12 @@
+>  
+>  #include "rohm-pwrbutton.h"
+>  
+> -static struct mfd_cell bd71837_mfd_cells[] = {
+> +static const struct mfd_cell bd71837_mfd_cells[] = {
+>  	{ .name = "bd71837-clk", },
+>  	{ .name = "bd71837-pmic", },
+>  };
+>  
+> -static struct mfd_cell bd71847_mfd_cells[] = {
+> +static const struct mfd_cell bd71847_mfd_cells[] = {
+>  	{ .name = "bd71847-clk", },
+>  	{ .name = "bd71847-pmic", },
+>  };
+> @@ -113,7 +113,7 @@ static int bd718xx_i2c_probe(struct i2c_client *i2c)
+>  	struct irq_domain *irq_domain;
+>  	int ret;
+>  	unsigned int chip_type;
+> -	struct mfd_cell *mfd;
+> +	const struct mfd_cell *mfd;
+>  	int cells;
+>  
+>  	if (!i2c->irq) {
+> diff --git a/drivers/mfd/rsmu_core.c b/drivers/mfd/rsmu_core.c
+> index fd04a6e5dfa3..02bfb84653ae 100644
+> --- a/drivers/mfd/rsmu_core.c
+> +++ b/drivers/mfd/rsmu_core.c
+> @@ -22,7 +22,7 @@ enum {
+>  	RSMU_N_DEVS = 2,
+>  };
+>  
+> -static struct mfd_cell rsmu_cm_devs[] = {
+> +static const struct mfd_cell rsmu_cm_devs[] = {
+>  	[RSMU_PHC] = {
+>  		.name = "8a3400x-phc",
+>  	},
+> @@ -31,7 +31,7 @@ static struct mfd_cell rsmu_cm_devs[] = {
+>  	},
+>  };
+>  
+> -static struct mfd_cell rsmu_sabre_devs[] = {
+> +static const struct mfd_cell rsmu_sabre_devs[] = {
+>  	[RSMU_PHC] = {
+>  		.name = "82p33x1x-phc",
+>  	},
+> @@ -40,7 +40,7 @@ static struct mfd_cell rsmu_sabre_devs[] = {
+>  	},
+>  };
+>  
+> -static struct mfd_cell rsmu_sl_devs[] = {
+> +static const struct mfd_cell rsmu_sl_devs[] = {
+>  	[RSMU_PHC] = {
+>  		.name = "8v19n85x-phc",
+>  	},
+> @@ -51,7 +51,7 @@ static struct mfd_cell rsmu_sl_devs[] = {
+>  
+>  int rsmu_core_init(struct rsmu_ddata *rsmu)
+>  {
+> -	struct mfd_cell *cells;
+> +	const struct mfd_cell *cells;
+>  	int ret;
+>  
+>  	switch (rsmu->type) {
+> diff --git a/drivers/mfd/stmfx.c b/drivers/mfd/stmfx.c
+> index f683fdb6ece6..b0db33c0a7f2 100644
+> --- a/drivers/mfd/stmfx.c
+> +++ b/drivers/mfd/stmfx.c
+> @@ -73,7 +73,7 @@ static const struct resource stmfx_ts_resources[] = {
+>  	DEFINE_RES_IRQ(STMFX_REG_IRQ_SRC_EN_TS_OVF),
+>  };
+>  
+> -static struct mfd_cell stmfx_cells[] = {
+> +static const struct mfd_cell stmfx_cells[] = {
+>  	{
+>  		.of_compatible = "st,stmfx-0300-pinctrl",
+>  		.name = "stmfx-pinctrl",
+> diff --git a/drivers/mfd/vexpress-sysreg.c b/drivers/mfd/vexpress-sysreg.c
+> index f49cee91f71c..c5f375cd22ae 100644
+> --- a/drivers/mfd/vexpress-sysreg.c
+> +++ b/drivers/mfd/vexpress-sysreg.c
+> @@ -69,7 +69,7 @@ static const struct software_node vexpress_sysreg_sys_flash_swnode = {
+>  	.properties = vexpress_sysreg_sys_flash_props,
+>  };
+>  
+> -static struct mfd_cell vexpress_sysreg_cells[] = {
+> +static const struct mfd_cell vexpress_sysreg_cells[] = {
+>  	{
+>  		.name = "basic-mmio-gpio",
+>  		.of_compatible = "arm,vexpress-sysreg,sys_led",
+> -- 
+> 2.53.0
+> 
 
-AFAICS, there is no reason for PPC to always return 1. I was looking at
-the old patches on mailing list and found this - https://lore.kernel.org/kvm/0FEE585F-5E21-47F2-A3F0-AD0DE05EBB43@suse.de
-
-```
-How about we return 1 for kvm_arch_vcpu_in_guest_mode() on !x86 always, just like it's done today basically? Then we can
-worry about needless IPIs later and don't regress from the respective current kick implementations.
-```
-
-However, I'll do some testing and get back by mid next week to make sure
-there are no suprises.
-
-
-Thanks,
-Gautam
+-- 
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
