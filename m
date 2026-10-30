@@ -2,91 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1B26606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 20:34:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F21BC606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 20:34:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uwSjIK+g;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tj9XacDi
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wReXJ7jz;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YVUBXlHh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
+	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=lBk4+7E78bW0p5uwlUxtWZuhssrYb4u4M3nVkmuVze8=; b=uwSjIK+gOdspU4WBumZhtJyu2b
-	fVzMKcn0/RDX0TbdKZKQIbWZbp5naoZTOo5J62k8AOLHO9Ui2Qo4pPnLdxFX7dyFRJ0IRIpWmv+lu
-	62JDza9UlBrkTiHY5RmB7EXa/6W8FMMxgNoo0qc1CNbJNVz1vHt8sWOwCy/D5WLrvQt1iQCmUfc1X
-	BKSLJL4OO4MONyrDb7LeQMr5RWFuIw+1/p7IrMKBWYzC0n1v6fQfmZmH1Rinw2f4AzKwGnkZj8Vy8
-	ljMwXr9ca+u/F7NrwH0Ge8gbz/8qTb/e9O3Lm6hGKlIgINc6d/DprZXjMSVk/LxmqCAOOFAda5Lwo
-	hBG6rAng==;
+	bh=HeL+KPss/XWXAKPl/eTROBTm4k2yu734wKYuHO19n+Y=; b=wReXJ7jzbrDfRVwryIFfeBhRFa
+	45d3pW2tUsG62hjKxRGRPpJ03tU7sThGpyjbo2Y31yacsjLwAa0Xcw2CxpjwzgAchqv0hjFb5jYz1
+	uBxfDJS2DdWBG1iq+UPK7PsPa54gmvifi6yoP1XeLx642DUO9krUfzCluLnyHioS3dB1Ie8UilhJo
+	Zvwn2HgSDmFWXNy+0MbYmNQ43JFIM88/r1TnfIqCIufdZIDBddFX40GDejMPJZIlejcLxKSiUCCjE
+	gGzcGvDTvRw1HUVPzekN5+Rlo755tMr4nPl2DPjvb9LsqJUEZSs9BnB4HB/EFXrW2Iz8qwz/1xmf6
+	OVIax9Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMtIl-0000000CXh6-1UyR;
-	Fri, 30 Oct 2026 20:34:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xMtJD-0000000CXzL-35Fx;
+	Fri, 30 Oct 2026 20:34:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMtIk-0000000CXgI-1G5o
+	id 1xMtIl-0000000CXgl-1a8h
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 20:34:14 +0000
+	Fri, 30 Oct 2026 20:34:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8886344038;
-	Fri, 30 Oct 2026 20:34:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 396C160617;
+	Fri, 30 Oct 2026 20:34:14 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1793392453;
-	b=BG87+nYBPX6M2d/MjRBJP7PAH0J1WrkaewVTIsyuGcFH9GUb3SaoYcteMwWmK7DJGfVf
-	 JOn+PXISaFwzRrgn6XoaR8OuSMzSXX0n+UCGKZ67/kPqY4HlEWUoT6QP6iQtIa5PIaLjh
-	 Z89sJ7F6cSzlCpv5Haq/hxK6Z5uPvNf5JpQ11EfpfcShEVfvJgbUZJkQmlzqyUgTmqK9S
-	 BGH5GgqOdguQnhNNVvJQhu1YD4nnT0UWe8ERJXVed8Y9lRbvWkG0AvCBsvnqmZ7JxOft2
-	 ibCOzglwwJfSHjQnNOZQaA81/Du7cGxQgThthA+4FBLVV63WvbzxKKk4SkhUYzW0b7Q==
+	b=fo2NFwDiZnK7fLMXD1rKdrdHFfEAnvJ1rXw7SxWD6L8Bde0v3XDXzZ5NE9b3up/7lawq
+	 iMeHND6/r7X5xHvoMdSMfuI1cqNJAzdggm7hX5POCuanODWqEhxpzJD1WSp5P/yd//sIp
+	 ovCfLgWjQ5mu4F0h2c/yk9OsU0Ix7iUQJC8vHOAgrp5gVDrkc7KEJA1LJ3tD3F61RYnZ6
+	 lUY7X/CGp2esRzHZZiWdEhhvJsPFnasqS5F1yyyeKal3KLwovJUu4gGjDgI1ngqkkRoM5
+	 OWwULk0VXwVJTCaAaB2S0m4g5UynNe7Fxi/qfpTT0cMRhPCo42OucxiHccDyiblWBzw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1793392453;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=lBk4+7E78bW0p5uwlUxtWZuhssrYb4u4M3nVkmuVze8=;
-	b=buXnT17ow+v+wAvknsGQYawWeuLi9BDly8dAIEcbcFh2NQ9MN9VTLY9DHl2sshomBPmZ
-	 2LXN8uNaGaIgES5fTwf2U8pUudkARiMEciI9WO/cpzXWBWVEX+hXP67oVGDtSYkAZUnXS
-	 NdEz+jDMZiXSljX1fu0uI3MEFBL+NKmJSta89boWSv5ketfFlLINc6AH+0JykyeRYfKip
-	 MiS1E7RRAdWjvPvlPxgbTMxftl0DY+LNSr5eyI4vvwShWexI4JAdTov9gja6DmTLhZkTh
-	 DKpJXZcbNjA7PZLlEvdlssrG1TfvrAkzERHA1nt8xdX022aFArpGyBa8Qv6h9hpw6Rw==
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=HeL+KPss/XWXAKPl/eTROBTm4k2yu734wKYuHO19n+Y=;
+	b=Afmk8rIwfL4+TbCYwTmQBqXcvhJBBHdRhl5BFgOumkf5TdSkTq7x6MNEh9APd5lcoJJ9
+	 AJOQzS7iCUg47QOs9WipwvyNdP7gJbf4RcRNzppVhTWQMVVhnUGwKaUoNzCycLzPwZWsC
+	 P1xt4oj7KmXhoM0/Q94nwDEhPQXkRT0t5/xOCOPC4QC4vt85382vkfuyT+qf5ZS099d8i
+	 QHoOFw3RigSVIHpLeVPasu4h9MILsTqhcEZrvVeOesaAlnQ3eQBwBOrgWmsqdVSayL4tl
+	 AaWvqUScNLGdgeTSvFOpOGiwiS1bSyj0++tJP+HAqWCS0ehvWJaEI1i1ncfSP0O4KSQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 449791F00A1A;
+	by smtp.kernel.org (Postfix) with ESMTPS id 448771F00A18;
 	Fri, 30 Oct 2026 20:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1793392453;
-	bh=lBk4+7E78bW0p5uwlUxtWZuhssrYb4u4M3nVkmuVze8=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=Tj9XacDi9drW7qNYTWbTTQ1jT+r2jHXf53QEhpkjhnjSVbW812SuAiBrt1MKD+gPG
-	 K6pN4ijulqwKm33Qeiylk1a3eiEhCTGQ1dUVVuHcMK7ZZrcVIZBTr+/7XuE+NqOEcl
-	 +hvkjbsIb1lrb9gqONRJN/lU80wb9iWssHfkxZ1qUC4c/uwl3p8cwDzg1ZYFpN1SAJ
-	 fvoEbmFutAzD0yP6aC4H1pLolUy0gJK4D0cB41aaiecqC5o+EeP/7t4Idw55jHrBz3
-	 YFSQgsNeuHhuWSghs/dkeG1zirjZyGV08z1RyGlFm0C78MHWfCPP42HJCURNim2ysl
-	 bysnPOYytpitQ==
+	bh=HeL+KPss/XWXAKPl/eTROBTm4k2yu734wKYuHO19n+Y=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=YVUBXlHhA4Yf0UXTlcLhw6vM+ZxYNYW3WMQwUOALUIrzhiaJxnfSMc8zHLw76k3bH
+	 cNqGQpPs9nvCfaDKs6xEz1QwEwIaubCIOBpBfCg1Wt8zOz6Rk1UL/QLP9ZXnw1omnm
+	 Qj1pWK9ZwJ7l+AMLhY9FvWavDB/6ANuzuwQipfa/25kpFlZJaWR9EyAFYdLiDxiMqO
+	 ZX5xzzODwfduSMb+smZ/+7R1PBC6DnWAWd5fhoYV49ExISZb6Q5R7IQjMDuV4o9dvN
+	 PD5fIz6C7km/sGe72BW52CD6u4h/4CCNkp0qzcuzs/CS/tH5ycw3WiKEK8tgqZg9kA
+	 sxFSyBHeyeGOA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 972C44427F;
+	by lkml.kernel.org (Postfix) with ESMTP id B131344283;
 	Fri, 30 Oct 2026 20:34:11 +0000 (UTC)
 From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
-Subject: [PATCH v3 0/5] arm64: dts: exynos: add initial support for Samsung
- Galaxy Watch FE
-Date: Fri, 30 Oct 2026 20:33:55 +0000
-Message-Id: <20261030-for-next-lucky7-v3-0-81e02272ce69@member.fsf.org>
+Date: Fri, 30 Oct 2026 20:33:57 +0000
+Subject: [PATCH v3 2/5] dt-bindings: soc: samsung: exynos-pmu: Add
+ Exynos5515 compatible
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADP/5GoC/2XNQQ6CMBQE0KuYri1pSxFx5T2MC375hapQ00IDI
- dzdgtENy0lm3szEozPoyeUwE4fBeGO7GNLjgaim7GqkpoqZCCZO7Mwzqq2jHY49fQ3qOeUUM9B
- pkTGoAElcvR1qM27i7f7NfoAHqn5l1kZjfG/dtF0GvvZ+er7TA6eMSqE1CMg5lOLaYgvoEu11Y
- l1N1osg/ghnvNgjIiJKoipBAldS7ZBlWT5Slfx2CgEAAA==
-X-Change-ID: 20260815-for-next-lucky7-e5bf3950bdbe
+Message-Id: <20261030-for-next-lucky7-v3-2-81e02272ce69@member.fsf.org>
+References: <20261030-for-next-lucky7-v3-0-81e02272ce69@member.fsf.org>
+In-Reply-To: <20261030-for-next-lucky7-v3-0-81e02272ce69@member.fsf.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Peter Griffin <peter.griffin@linaro.org>, 
@@ -95,26 +91,27 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Aiden Isik <aidenisik@member.fsf.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3662;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=956;
  i=aidenisik@member.fsf.org; h=from:subject:message-id;
- bh=ShZllIGN42iGEx7W+Ypwb4WSw6LjsTQdyvwIRirngDE=;
- b=owEBiQJ2/ZANAwAIAUknAbLEetfrAcsmYgBq5P880mkB/Tc1KaQVPmBl8Rnywzg0CQcgUXZhX
- J+Uzlwnj2aJAk8EAAEIADkWIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCauT/PBsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQSScBssR61+ufLg/9EPFDmSJq2MS0IynMfsABflaLewcHokp
- i0cBVpvY5cR8Tm+8u8a2HtZXoHEX4rEDqmYELCyBrkv6aZ6JBw/IGx7uGk3L3ndlWkZ8G1O+9XV
- iOS2iarSnC1Y5/8hPfs7PkYkNJ9FwRVEQ6f/ldon+Tc4TDYFHAlNxMRVJT8ZWdI75zJF/s+6PdN
- gaeg/5WQ4dKKCirTAGWl91rHElvZ4vB8+ivJ/fCLn5QjTxDgU4wtMAzUjiwof10WBy8oJkjYvu0
- 3BqNGntJUufgZ7zet+aYwddbaTycwiJQdBgM1A2EjVM20UpJJxxWyQ4ho90+lxw8e4x7/9BLqtX
- waby6tQ9mJpahlSjem0uCY+IN5x2PKHKCdquW/DscqEwglwUZ+4S4r9+I0XSSxd+58dCviCkve9
- tgsqVSOiI7FCsLAtWAo8Dk8SVMCpEgQ6hU+kA84jQQCeKBt7Wi8xMGa4TvlXkCxEseuYEXWiJpb
- 1RvBQc72uAe4rsj86Q3wRZR6ZIKkffBjVgbl9LL1I8zc4x02QeKyY9mA+iLyPKxxOhyg7no95TJ
- R24TvDkdLaC8z64OiRvKAPA2CiqrTWtTuAgto5bATlRad/ZQHGpw2OHWFZJQ5ZU7zrVEz0RJEjb
- wTEwPBZBdHER1GBkKfAJya4bD/2nXjbcQSny9OJI25sDVm3kLbEA=
+ bh=u5w9oDBuV+q/JxmEewB9ecAjYkFIvHtUgbXKYE3snfg=;
+ b=owEBiQJ2/ZANAwAIAUknAbLEetfrAcsmYgBq5P9BWj3cp07eny7nWeYelC5iwoGlylEEAbuTD
+ jG3RYJC+xSJAk8EAAEIADkWIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCauT/QRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQSScBssR61+tHVg/+M1rsIcz0uUNK/8caEG3ZIfganwEVCQ/
+ ufqay8FMzfjgwt5TkdJoAwDFfyj7KpfPHGtW7hLE//0EAhIyWCkw/yYWqliLSUGNoJzRFODEG/M
+ WkxRu4eSum8WFC02NxTmkw+0KcBsV5FiIe+WZKkPT6FVr5aNukxAAVMnwIK+P4IE7P3RoHUwXtY
+ kIZE5FP0WSckxgoz/9l96VUVF8sesk/QVR/PyeTYq5wkjxLXjJwqzL8ZsECrft0ah5V3vcf41XJ
+ MBo95k0+GigXF14NBr4xarZRfrSStoYa7WvwFzNgsJlKqS3YoUGnrAqAIq/eCGee7NNA9OKo9LZ
+ J2ASn84vHf/RhwwDduRDu2HMApjdbIWp8j1zUErwzCVuzad9urxaczGNhatcw64h5n8WndkDEAF
+ YJVopq6IP4Bh2ZJ4FCQsa3k5q0iX/Bf3KUc/IK4V5aB8uDeN6fho9zVXaBHwU6neFeN9Ift/fNm
+ I6Ely7lNsz64JZchDj/NFyc09KSIMVQQSSLD9hGOQir4EYYH5neY3Nc/IqQ46BXQoz3VCHtr81G
+ uJTnbbZ8/Ej8kkvRqY2IWr2MTkj1pOzOFE5bhIOC7VQN9fIp+y3l6Egf6pEn0LS67IuvZbBu1s7
+ R0ziopYG9tWdYrQw7hGnknX/s7UzheDB9y9l/1+WceR5ooJMz7WI=
 X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
  fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
 X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
  auth_id=956
 X-Original-From: Aiden Isik <aidenisik@member.fsf.org>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,96 +131,32 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi there,
+From: Aiden Isik <aidenisik@member.fsf.org>
 
-This patchset adds initial support for the Exynos5515 SoC, along with
-support for the Samsung Galaxy Watch FE (codenamed lucky7), which uses
-this SoC.
-
-Support for the following is added:
-- Bootloader framebuffer
-- Both CPU cores
-- Memory
-- Generic timer
-- CMU_TOP, CMU_FSYS, CMU_PERI clock management units
-- ChipID
-
-Currently, these device trees support booting the device to an initramfs.
-
-There are quite a few regions of reserved memory, where usage of them
-can crash the system and/or cause unexpected behaviour. Currently, most
-of them are named "misc-rmem@addr". They will be given names as their
-accompanying device drivers are added and their purpose becomes apparent.
-If you would like them named differently, feel free to let me know.
-
-The VGIC maintenance interrupt seems to be unavailable on this SoC.
-I cannot find any reference to it, nor usage of it, anywhere.
-It *could* very well still exist, but it is a mystery for now (and also
-not a *huge* deal on a low-power SoC designed for smartwatches).
-
-I am getting checkpatch warnings on this patchset advising to check
-MAINTAINERS as new files were added, but I am ignoring them as the
-entirety of arch/arm64/boot/dts/exynos is covered already.
-
-Kind regards,
-- Aiden Isik
+Add exynos5515-pmu compatible to the device tree bindings documentation.
+Use the samsung,exynos7-pmu compatible, as it works the same for Exynos7
+and Exynos5515.
 
 Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
 ---
-Changes in v3:
-- Remove watchdog node
-- Add required clock properties to sysreg_peri and sysreg_fsys
-- Use arm,cortex-a55-pmu compatible instead of arm,armv8-pmuv3 for pmu node
-- Fix missing Makefile entry
-- Link to v2: https://patch.msgid.link/20261019-for-next-lucky7-v2-0-c4ecab4b1c4c@member.fsf.org
+ Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes in v2:
-- Fix patchset title
-- Fix DCO email
-- Fix style issues reported by dt-check-style in strict mode
-- Added patches which were accidentally dropped in v1
-- Fix reserved memory and make all memory accessible in the memory node
-- Remove redundant PSCI 1.0 cpu_* function IDs
-- Extend GIC registers to correct size
-- Correct GIC unit address
-- Correct CPU unit address
-- Document unavailable VGIC maintenance interrupt
-- Remove references to dependencies which have since been merged to this tree
-- Link to v1: https://patch.msgid.link/20260817-for-next-lucky7-v1-0-42ffb2b71ba2@member.fsf.org
+diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+index 5bd39876e3b3..1a0d9de79696 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+@@ -33,6 +33,7 @@ properties:
+           - enum:
+               - axis,artpec9-pmu
+               - samsung,exynos2200-pmu
++              - samsung,exynos5515-pmu
+               - samsung,exynos7870-pmu
+               - samsung,exynos7885-pmu
+               - samsung,exynos8890-pmu
 
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Peter Griffin <peter.griffin@linaro.org>
-To: Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-samsung-soc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-
----
-Aiden Isik (5):
-      dt-bindings: soc: samsung: exynos-sysreg: Add compatibles for Exynos5515
-      dt-bindings: soc: samsung: exynos-pmu: Add Exynos5515 compatible
-      dt-bindings: arm: samsung: Add lucky7 board binding
-      arm64: dts: exynos: Add initial support for Exynos5515 SoC
-      arm64: dts: exynos: Add initial support for Samsung Galaxy Watch FE
-
- .../bindings/arm/samsung/samsung-boards.yaml       |   6 +
- .../bindings/soc/samsung/exynos-pmu.yaml           |   1 +
- .../soc/samsung/samsung,exynos-sysreg.yaml         |   5 +
- arch/arm64/boot/dts/exynos/Makefile                |   1 +
- arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts   | 215 +++++++++++++++++++++
- arch/arm64/boot/dts/exynos/exynos5515.dtsi         | 178 +++++++++++++++++
- 6 files changed, 406 insertions(+)
----
-base-commit: 993e1bec85faedf90c5d27480793084e54357c09
-change-id: 20260815-for-next-lucky7-e5bf3950bdbe
-
-Best regards,
---  
-Aiden Isik <aidenisik@member.fsf.org>
+-- 
+2.54.0
 
 
 
