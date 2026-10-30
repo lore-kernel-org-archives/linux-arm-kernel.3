@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BEAD60A2603
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 09:53:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF32D60A2618
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 09:53:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Bl0q1HAl;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=XizF0I5H
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hdOTAdhr;
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=UsENqfwm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
@@ -14,53 +14,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=kaQNiFuTq+VHuJT98ndkdbVs9pf8GOWc9/zeRyNgX/8=; b=Bl0q1HAlivxQ7ytwqznRL++56R
-	sCgVpTqPoqk/azdzIfJTB5/ZbiKUT89BaaNiS4RzjZloAEzN3K/pukMP066Asi3u+lNVPdh7eiHPq
-	JT/hqCbJlc56CAlKRIU2qaybXWFOKkrFIRH4LTMKH2aa8J5Ipc75Ow77VhFHcOpOPgZHvnXKpG95f
-	g1b3SCwY/TLZpsN8x+cZDmZY0RdrbMV+S+Iw8dZLPEQ5nchT2ykkuRn+UPqCkiCUGC8evf1FyIrLR
-	JfJVMz9Vb7LMZodUFzc1CJYoHVIMBIl1UDN7/Nft8LtLUWSbXEoo6Sds9VESEHM9IDauNtJ6OBbYU
-	Pu47SqiQ==;
+	bh=XModjSTqwOkKGTVosnbTiWoKR34ttQvJWVrUBD0UH9I=; b=hdOTAdhrXaTxYHzbjw4u4Ttqzu
+	GuiAi8zaPCFLBTYMvJiF5sH+zlC9FAynw0I6NiIz02wc2Idoi1hUWjsWG/Q0Ut/Bmd/AjrBNGchhV
+	/CyO6llLoyGDD4z3vQIZxhGRVXY75ow30HY4CAVsjPvDVTMI6GcpmFCnm7Wtrdtt9eET4wjkNoSim
+	ERo6CQ7g0oKdqh0G5LvsVwyMdJR5q0N248IMFjq342A3fnKUjfv1xCSxRctvFt/DT145Hs0IqoipJ
+	sE0KcWlOP46BjRgg1HJz1b4maW5EY5zYzTg6MOuuUoBODIS9KOXLbxNN9vpGWuOdWFF2odvLz1gOr
+	jbF6AxFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjIa-0000000BJDc-47qE;
-	Fri, 30 Oct 2026 09:53:24 +0000
-Received: from mail-westeuropeazon11013070.outbound.protection.outlook.com ([52.101.72.70] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1xMjIo-0000000BJQG-1eaH;
+	Fri, 30 Oct 2026 09:53:38 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjIT-0000000BJ87-05kr
+	id 1xMjIg-0000000BJIN-26qh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 09:53:21 +0000
+	Fri, 30 Oct 2026 09:53:36 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MJ/ewbGSNIXj1TSiZU1q1VaVle577vnzztQrDQ9eA50ygHhAzyr+6cW8Hpx2AgCkqD5P3kIeslj50+ttwHpLJaL8mNuCPK7bVRwTamNlp+a6jk66gzGANZ99YkU5lJU7zRRr9Bs0O8UJjnSobiXGPPEV2RCQqqdpoGJKEHbJhx/UWKEFMgXIlAS5AE5hvC4nLtrvQANRwEPDsx+Iz7gm5ZB0Y/83XETcDtg+1dTL6um15cHtdXXVDeltHGuZDvOeRIZbgpwl7LECOohyG6Ed2GD1vWOD8wmhz8P5manc0JG9a89iPLfsFAogz/KEx2feP3PPbk5RyiplZFrX+XpVhQ==
+ b=wcaSMRWrIEvHLK+exnLzPcbuOc+3XQoXOy1nZN4UIZTg1ghmwk9k3tFEIfnfXhrFKmXJh8IuptVv0T2dkdyliXSoOy9jnJBtzxOKiXqHjwq6mNI9EyYrv+OChPTVJeV1TmlbnU976DVVnrXRsdDgpPitdbqjwWqMH0NDAtGg9Rkt63Ya9A+6q6MP3PI9R6CtvSjcsxX8T0+d9Sg1JEONMhYihS8Ly5BY9uKNFZJVxqE1jeXMuCPRJJlBvPOSjeq/QNWrk0HJkMFC8K3W6w0p12Lxw0B/LtufSMm3VCiT4GknVZBeQ7mrujvf506WGycOnFPm/7CGZn1OHKXGOjJy6g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kaQNiFuTq+VHuJT98ndkdbVs9pf8GOWc9/zeRyNgX/8=;
- b=B9zMJpgEBms/yteuNnMJ2xzTdBV24ctBIvTcfgVZsGK+3WbiIzv0qtRk2YtgJvrjGAm4Bd7A9ei2NpYuSH1Ygsfl+2weduG4jqPDz8pbbOtbxSVLkCxuYndvwAcj7gIo1Yl68X88t0zvs4n7dPh2AQ14+QvpL8NKmE0WHVCT6XRrBzbJeWdYmCaCGWlo4uTEmaQpv8dOq5yAE+7He9ed/1k8YNkvKbnr0dB/ZqQcBQwhoE6P+202Y+tcsvlqhlagDxVbRHq7zxkt1c28HJFmHmy7e0n8jqOEYYtg1/oR/oSrbchZtf8I3jizBhkLehhdwePhbr9t+lvu+dqZIMOhEA==
+ bh=XModjSTqwOkKGTVosnbTiWoKR34ttQvJWVrUBD0UH9I=;
+ b=duwg2zN5bVpW3kCEQUxLr/VSV/4pBWBc+NmT+ZcdxwMoAxJJHaZVpmYKz9hiZT91kXmjlMMSOs9i8RCl+MHZHczC/MN6K3+3ggvRuxoUIiS5qSFhRFtddBPs2ZfNhjXfKfJi0LCthN7Bi206rgNtA56c8oJrzi5W2QSfXuTSaSFokuKm3fSxiyQuSAYAC5ZzYOrvGZ3u2JUoCE4rga03jOTqmOkBY4C9yGp93iFr9yEgv3hgdVI3ME9SPvm85QqvXUfmcNbZiGzJvVcDb4rFpuWOpl4ppi8FyWsj5Q8GrPeGbMBRp1mUAD+pWNTDvYbBGAJZb9W4ucteoCl48V8Rnw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kaQNiFuTq+VHuJT98ndkdbVs9pf8GOWc9/zeRyNgX/8=;
- b=XizF0I5HvtUcJqXt2ppGhIwp1iKmCMPSbhIzbmtXjdWfAYHeu1KVX6eQmpaH9wU5QE/OG53COfVYfRV73vqx1YFS83b38Tp/W1aRW2mng14hX+mGNLwqWAUndxXXl5E/PsYChjaqqqSKsg0nuwCG+lp0cRCYSvbSVBpi0jiSt0EKmF9qdDqlEQwPMqtEV26WodCUbz5jt8eF1DuzdY1CPEIjlkPHzZaYdNXCoO0mr2FoiawSE6o+wbaLdjIO+4vkVDQaO5mdKo0xo2MaIsaC8CSfmNpEQXFYJ1QiPcVMBs2KPOQ5wanofUcu2CXvbmROG7vbRYKQEAb9M8V8X9A5/w==
+ bh=XModjSTqwOkKGTVosnbTiWoKR34ttQvJWVrUBD0UH9I=;
+ b=UsENqfwmBPmxzzhFfHMBJBiu3EjeG6sXv64N6+fkdBJ4EFqRx4X9KS8Rg9PysqgQiQGK5LiFfc1CKzrQDHC1BnemHNbJY0FG54OgcBH0icw9hjMwqKbwJberX/7CrSNbWpf6DH8E0mnKs1PtG6MQ4MGos0wwaM8z4P+SOzcoy3FodGww79QzqF/K/GWv8UM+2Pl2L1bfurLv1L3jDFmagxjSno9yIhHZ0QEnZiR/ag5EvC2Cxlx37cbGsCHyiXokmDQGX3d/XDbg9YznJoEPU9IREgdNGEP+rWBgHBzuYIlQt3i4H0EAByfXSjCo7nmzRxoA22mmV71U7fCcj05ZBw==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
  by MA9PR04MB839208.eurprd04.prod.outlook.com (2603:10a6:250:103::23) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.9; Fri, 30 Oct
- 2026 09:53:12 +0000
+ 2026 09:53:26 +0000
 Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
  ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
  ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0569.009; Fri, 30 Oct 2026
- 09:53:12 +0000
+ 09:53:26 +0000
 From: Liu Ying <victor.liu@nxp.com>
-Date: Fri, 30 Oct 2026 17:54:27 +0800
-Subject: [PATCH v8 03/15] drm/imx: dc-plane: Disable plane when it is
- invisible
+Date: Fri, 30 Oct 2026 17:54:29 +0800
+Subject: [PATCH v8 05/15] drm/imx: dc: Flag CRTC status in GERNERALPURPOSE
+ register
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261030-imx8-dc-prefetch-v8-3-c4f81afd4533@nxp.com>
+Message-Id: <20261030-imx8-dc-prefetch-v8-5-c4f81afd4533@nxp.com>
 References: <20261030-imx8-dc-prefetch-v8-0-c4f81afd4533@nxp.com>
 In-Reply-To: <20261030-imx8-dc-prefetch-v8-0-c4f81afd4533@nxp.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>, 
@@ -79,74 +79,74 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  Liu Ying <victor.liu@nxp.com>, 
  Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 X-Mailer: b4 0.15.2
-X-ClientProxiedBy: SI2PR04CA0006.apcprd04.prod.outlook.com
- (2603:1096:4:197::13) To MI9PR04MB350878.eurprd04.prod.outlook.com
+X-ClientProxiedBy: SI2PR01CA0039.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::16) To MI9PR04MB350878.eurprd04.prod.outlook.com
  (2603:10a6:290:c0::7)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|MA9PR04MB839208:EE_
-X-MS-Office365-Filtering-Correlation-Id: 915e13b2-b872-4ad1-a78e-08df366b9c43
+X-MS-Office365-Filtering-Correlation-Id: c48ee4ba-7196-494c-2700-08df366ba4dc
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|7416014|366016|1800799024|10067099003|18002099003|22082099003|921020|56012099006|11063799006|261028144727099003|261026140227099003|261026121527099003|261022105027099003|261022075727099003|261021123027099003|261021121427099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: jqXeieaWBr7dUaTbgASyAxtH1Fzf5iwy+SnjedzCJhcxM4NAnWyliPE5/hB5nz3QTBs0GpRcmYYe3fqwneZoZE57+aYM45/IHTXArCItplg9i66zoKtYzgwhI+cJWwj1ryL0iMQNkUDq5eN8AC7Fb02giEzoF9UcXtBR2UFTraV56gRUAkET1WSC5wATMdw7Ul9POtP95sPJQc44MhpU3MOGlTYl0nULRGUXgoJaH0AXiVGV2+vqgSz3qk54dfnWe0EbiEK7t9SyC6ioc6CRCmEyY1pWagTw+BWTbjzMcojjUotQn0CDQHq3oOAeADMZlfX3rgACg2FuCf23ANIYaqxFoaJqTtofOu729jEP/4M+/815s4G0iMF2KZBYG47GocbzmeUMphO8ZIBvqTYAKRm2gJjaprnQitvYeT9sZHv71apI8DvAasXcwLfAomZgU05tABz4qC/c0TQqHfVO5MgaTnEtQ3MVxVq3sIlSFh3u2D62Wy8Eab9q9E6mF/0gXzqKojZpoW36tz7vEXm4mcjjRN4FbACMhr+GvfajRMIWvp4UdGHGdgAzmBBtdpAl2L4kGnGjDNmsb2V1H05m3t1AaKO8SrK4eq8hEk/4EJvRjdJTHQ9XAfZIR6T3c2Z/XJ5I+1+jXkQAjiPXHnwU/lwtMnL0dr2HizS/0lYZJDzTEc80vfjTloDLThmiJHEktYb0mQZuot3QOhb0ZIEcQg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(7416014)(366016)(1800799024)(10067099003)(18002099003)(22082099003)(921020)(56012099006)(11063799006)(261028144727099003)(261026140227099003)(261026121527099003)(261022105027099003)(261022075727099003)(261021123027099003)(261021121427099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|7416014|366016|1800799024|10067099003|18002099003|22082099003|921020|56012099006|11063799006|261028144727099003|261026140227099003|261026121527099003|261022105027099003|261022075727099003|261021123027099003|261021121427099003|261009221727099003|261009220027099003|261009221227099003|261009223327099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info: foprWdHkMRcNtzcghL/fruhDIGs0Kps3bGGSlqv04dP6Cums0OtGU+CaeSYRcOWHa78tg8TmUlxvlKEqoYFmcDB7ZHzURYH/SiLd6H1UMcnfLeWyDG+PY6PqES20PqFxdQ8MHYiBbl7w/9WZKxurbG025lKRquNy+LRUx17nVsKrhXvZHQC3wtXo5lgaBnDjWym4KrDbLz5F0HU4gsrIVUbxJp/unriAZOyTnWxikLbi9Zvre1ylYg9YPt0FcOsUEOdzjbCM52lSDnJUEvnye0gs0uH1kP4gbUeo07Jazn7VAeEdNkzd05G326ZzhDAnLqXdcQ7TJFJvpJH/zs/yIjHjxIwZDBDxcAqipoIM99ncmc6hjSwDC8EZPvTb1nX4W4WGP/TqR5zIlVv2FknVKIqkBArnwJqQ0BUpvoxXG8jF6x9xSRIZirtIZ0+1WeSXzbeQM8ckn2AMko7m8LzXgU0O5Ho23wx+KX3N0aSpwsR6cRBEYND3AJ0lIm30fwCn1CQDm3EtLt14s/ky34iMfP4cstb3SBypebbZCkIYoy3x861O1UJY/JknMHH4AbI9o6ELosen5/7k2SSoW/JRW/Xb4uM92lC9hvoiBzirwllBmwQztJolCYbxq/eJyW9FUTJh77n+tAnRrudTddj/Re8wbWmbOTAjUeteQYM7+Ur/53HcoHcf6P7YvOurFnebbE22f8vRvNrVrlzeknBPFg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(7416014)(366016)(1800799024)(10067099003)(18002099003)(22082099003)(921020)(56012099006)(11063799006)(261028144727099003)(261026140227099003)(261026121527099003)(261022105027099003)(261022075727099003)(261021123027099003)(261021121427099003)(261009221727099003)(261009220027099003)(261009221227099003)(261009223327099003)(261009223027099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YXNyTWREN3lXYmJla2t1Z01MMkxma3IvMkQ4akY4RUhwU05rWFVJam55RkZS?=
- =?utf-8?B?cWFpQjRha1d6Q0tkU0JsaXY0MmQyTEgwVlNwazRZNlVib0h3bWN5RkI4Tkov?=
- =?utf-8?B?WTF5aVJzSWc5Z0VaT3RuNmlUbnp1TC9WaWZnK3ZmUmNnZklmcmx0V00zMi9n?=
- =?utf-8?B?by9VM2VwVUpBbkx2TVJxbG42ajk2SFFLRlA1QlFhMWw3cHl1NjAyWWZaZWp1?=
- =?utf-8?B?aC9tR0sva0trRG5RU1JYZ0ZjcXpQSU9OTENOSWpRVUd2YUlhUk1zRFIyTk42?=
- =?utf-8?B?ZzBvL3F3MlZ1dTQ0cnYwYUdyTnVXSVRrTHJ6T2xTaGtaK0VsRzI4WnJEaERT?=
- =?utf-8?B?b2FLS1ZjMUpGL09uRGpoSElyOW96bXI1RjVOUDdVK3FSQitJRTAzQ1ltdnhC?=
- =?utf-8?B?b3hzd1BkM1Rmd1lIRGxaQ3VZYll2TmIzbExtZXRuS1ZTVFhReUFSdFdsWm9k?=
- =?utf-8?B?d1lzVzJNdnZ0SS9nYjVhZnpNcUFJYzR1OHk0NWRQRDUrNlgvVitUMzFKVE1x?=
- =?utf-8?B?OFQ2azhuaXRpMURtTW92T0hLZmk5ZXNIZEhLZTQxbGxpc3BMMzdKR0JjdWVJ?=
- =?utf-8?B?dHpiQVQ2ZHp3bEludmtKRzRFOFFNaXM0MlBKVlRmbTRSUXhhNUxOekRzaEdp?=
- =?utf-8?B?amNrZDh1Qys0aU5VQXdnMS9TcS9wSDY5d2diSEVGU1Y5TWFTRGJBVzhjWjYz?=
- =?utf-8?B?NDNSdTIzdDRHMWlFMitsdGY0NzVVZDA5cDlaWVBjNC85QU9Vb2J1R1hpeC9P?=
- =?utf-8?B?TjhoTStnVU4yTFUxaSt4TTY3Zytia1N1TFVDUy91allmT1NEa01CejNoVzZW?=
- =?utf-8?B?Q0J6UlNXeUlkK1ZuMmRVSGs5UFFSem5OY0pyWmk1UGdPK1o0NjFQR3U5dUU3?=
- =?utf-8?B?MDk0UWFiNXRZcG1NYyt2eWFiMFJ6VUQ5VklKT2piUHFyc1l4eWNjNDI3VnFU?=
- =?utf-8?B?R3NRVElLb3A0dVpodDNWNDNkRG9XTkpBTm42b1E1RUNZeFFVQWVHQzBtU3Vm?=
- =?utf-8?B?d3ROeVlWYy9ORnQrc2txTUpySXR2cUNpdnNKU0FDVGZSTUF2cGRHTnJCd1RS?=
- =?utf-8?B?L1U3UjkwYWpTd3ZqR3B6SGVlbm9xeWhPbGdsZFBrb21rdEU1eFNnY2JMQ0x1?=
- =?utf-8?B?d29TMlQ2WFpsWnpESzk3L2x5c1F3bUsycWlkbHIyemJ0dGN2R0p0Q2M0bFZB?=
- =?utf-8?B?a3VXR1Y1T09wZ3Y5Y2VHeSthSkw0S3FDcEFTWWhIbTJ4eTNjZTUrNk1Ua09v?=
- =?utf-8?B?QjBOTkdUSE4rSnh5Q21nOVRvN3ZTUmhKWmdadlNkYXYzQjdtcWRhR3IrczYx?=
- =?utf-8?B?RkNNMlI5RitsV1cvSzlrODBkUzcxanVPZVZNUDVPMzNqMVBPaGdjNFNJbkRq?=
- =?utf-8?B?SE9DTnN0UUVXWEFmWHFDQUNUbm9VMGErWkxYc3FnV2h0dGtHUXFuWmNITkJZ?=
- =?utf-8?B?WVc2Vzd6aDhBUSthbkx5Z3VRTnRJYXBjOWVkajBQdzJIbkN0a3hlQjRna3Ex?=
- =?utf-8?B?RFdIa0NtNUdLSGFYQ1ZZMXNkbUpNckw4cHk2M0NGZVRXL0p6Z3JxMldSZitl?=
- =?utf-8?B?OEUxb3FCQ2sxVnFmTnFvUk4vdUdudTJXNnJBdnpKNXdYVUp1aXErSlNEQSt0?=
- =?utf-8?B?TjZZQTVZV0g4bXdPaG5IR0c3TzdNVXdMTEZ3ajlSSDdBQndoekhLc0tNb0pK?=
- =?utf-8?B?Y01Ld0laYkE5SHgyVmdaN3IwZ0ZRSklpMFFYQm5CaFdkQlF4cm9CNGdJWEcy?=
- =?utf-8?B?WmI0dHgvaDR3SW1adExrTStxWHNLSkN5a0hxYTF6YS9xWXhjWVJjOXNvcUxY?=
- =?utf-8?B?RkVqenZFL1VNRC82SUZFejJuZVJ3QWlMS25OUmo1NkE0dUtvdDE3UmdJY2Ji?=
- =?utf-8?B?aW12dmtKWnVuanVmWENnd1FCRzhRZzJONGFhbWN0NWRYWWRVczNlMG9wcy81?=
- =?utf-8?B?MzMzU09sdjIvYWFNcGVYVWdhZk9tQTlrcmdIUGZQQXkxSVVCNGg4eDNXQ01I?=
- =?utf-8?B?UmFZeXBjbmROamNIb01vczFTRlFKcHE1eHVoemU2blVnT3B3TWlJL0ZtY21N?=
- =?utf-8?B?NnVMUGxiQlZITndJV1I2VzlqSDBDRmJHWHgxL2JZVFl6ODRJVDR5SnNUTHht?=
- =?utf-8?B?b0dHdWpnLzg0ci84Z0VNekhUNURIRk5aSExLT3NqNmFkNFlRRXJFVm1mVnZs?=
- =?utf-8?B?UHNicWtERUxZTXo3Rk1mWWIyaituNGw2YVR5Mnpic2JBOTJTRFgrcGx4OXB5?=
- =?utf-8?B?YlRkMi85Y3NkZlYrVzB2aUJSZ1dHMkY1RWxDK3JIYzhSOVh2Q1I0SFkyc2Yy?=
- =?utf-8?B?Z2lOL0RtcEVoKzRIM2FxYlptbXNDd096STBvZkZQbTRJZ3A5UldzZz09?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U0lZb3JvYmUzODRhTEZBdzBuUkt5bjNLcDRXcFdIQ0JWNnU3bktlYmcxM28v?=
+ =?utf-8?B?Rk8wdmJNWlBsdmJYRVprK0c5NnJTR2xhL3hkeUdxZDh3b1Q3emxLNHA5RGow?=
+ =?utf-8?B?NC9SSWYwRS9vUkdteFFZRXJKTjJJdWhtNDQySElIaU54cFpHcVFRU1psMGxX?=
+ =?utf-8?B?YjUyQzVMejRpVEpmM2RNaWUwRkJJNWs5YXoyMUh1WGNvZFdHdjQxK0s2cEx2?=
+ =?utf-8?B?Y3V2bTJlLzZIR01nc09JTGRDVE9QWjVxSEtFM293SGNLcTY2UnMxQ2o3N09H?=
+ =?utf-8?B?Ui9SbEFnVWtRWHJFUzRETVBSK3NxUklUbkkzVDVsV1FOVTRaVGxpMmRwRDZF?=
+ =?utf-8?B?V0lUUUppaWo4MUE5R0RRUkR4VE9FbGI0Q1NmalRGTmZnaTlsb3o5cUc3SU5l?=
+ =?utf-8?B?UFREclpyMzUzcDdKMEJkUlRjMFZ0OTRGdVJ2RkNsYVMvdWJKUThmZFpUenRQ?=
+ =?utf-8?B?UTRHSmlUREQyY0pWaTVIRW10Ulo2a0VvU2RnWlZhY3B6WmpVRXExV2dzOWkz?=
+ =?utf-8?B?aE9iMG5Ga0ZvejVCK3ZJRlNXV0RJUjR2aisrc21iRUQxVHdoT3FTaHhmSW4r?=
+ =?utf-8?B?UGgreDhHVUZzYjRBRzlROEhoUWFaRzZhVTFXalZaci9jMUN3cTRERGhRVmdx?=
+ =?utf-8?B?SEo2di9XL0V4d2s0QWlCckFsMkczdERUTlFBMWdhSlpvSmg2REd0bGQ0ZFEy?=
+ =?utf-8?B?WVNuTEdmaGg0cmx3NnhhZGNQWHo5V1RxNFJpaUVXelhIZURFQ3V0ZzdkK1Rn?=
+ =?utf-8?B?c2w1OTFZeWVSaEJtQXVLM2RkQzY3UDUyMjFva3F3LzIwVlBFdE9zaHYwTEJt?=
+ =?utf-8?B?aDZTL3dkOHRHUEZ0NjJtbmwrb25CTzQyMm5pcFFpR2EzQjFGb0ZBOUtYNWdw?=
+ =?utf-8?B?ZnkvdTJOYkRpdXEvcnRQbWE3NDhtayt2a1BxdDRtQTQyKzBPdFBZTnJhRE9E?=
+ =?utf-8?B?S3BHY1Qxb3lnUjIzVHFDQU1oWDlYdTdkTm1iT0ZOS0Jqdmw2N2ZTOEx1WjUr?=
+ =?utf-8?B?K0JzKzlYd0Y0UW9IdGIyK1Rra2Zjc1JQV3U3YWhKRHdKb1lxOVBmbDZnNHRK?=
+ =?utf-8?B?QkNRZHA5dVNHampkOWh1ZTFQUjZmSWJQb0NOU0VEMlJZb3lsM09Fb2ozc3RI?=
+ =?utf-8?B?b21xSmN2NVdRL0JDZTlsd25NSVBpcE1weTFiQUVwUVoxdGs5SDdmcWZJTG5x?=
+ =?utf-8?B?dk1vdDNYU3JpK0pucU9WNkU3ZDl2c0t4MGo2MlY5c29CbWVxdHJOVW5zNFN3?=
+ =?utf-8?B?RWJmYWwzNzc4eXFBUE5qck9JSEl4UUJ3eUVZYjRyS2pDM3FoUGRCbmpIUVRk?=
+ =?utf-8?B?M0pTS0M1cFI5N0ExNUxzUVQwZG9YV1kvM1hjY3kxZXo5NWxIcURHODNNdjZ0?=
+ =?utf-8?B?VGN0MVIvaWNlNkMzMWxXYU9MZld6bDc3Mkl5S2ovT2FmOCtvTW9GTm91SGJm?=
+ =?utf-8?B?c2hUSDNoMXMvaDQwTWRCYzkwaWRBU3FqbkQwRjJ4MVRGbFRueFdGOTArWU93?=
+ =?utf-8?B?L0dqb0svUmFNbWZFeEFJUTk4OVU2KzdhQThNYlpWUVdUYTFCRXduMVQ4SDVz?=
+ =?utf-8?B?WUhZdzNZdU9QcDk2MnJoQ1YwQ1FMNFVld3dBQlRqanZLaFhFc0VLVEFhbm9M?=
+ =?utf-8?B?Ty8xUjloSTF6MmRtUlJtTEM1THBLUVc5V2V4WmxFYlhCdktyWjJSRWZTR3ZJ?=
+ =?utf-8?B?TkRtS1I0d0NhTEJMTEFsd1pVVjgwZzZJZW9yT2pBa3pyZnU2ZEdXdWFVYUhu?=
+ =?utf-8?B?ejhUZUlQc0J1ano4SVIvR0s4MG5aOGlmbUk0eXUxclVtL3JjZWEvM25PR1V2?=
+ =?utf-8?B?MklKamc4dXJjdGYwdzNwQm1KdHptbTh5a09NWklrUy9XcmgzdWphc2ZLTHZ6?=
+ =?utf-8?B?cmMyTUViSzk5K1Q2Rnp6RWU1Vkh1RWcyaTd6MitNbjNuRHZlQU5Fd0kwQ2FM?=
+ =?utf-8?B?L0tHQ0pKS2IyWXFsSDY4Q3JHWG5iL29ETU9iOUx5dGlNNkpsbHJDcDNrR2RS?=
+ =?utf-8?B?VXFIbzNTMWgyVEFObUxSeU1LYlhoOG96WmR0QnZsT2NWSGFveEVGb2RzZUt5?=
+ =?utf-8?B?WmdKVVdQRXMzeUtzSDU4U1FydXdZeTh6MnVtSVpCYk4rM3Z6ekRUV2ZTbzhL?=
+ =?utf-8?B?b2pQdkc0MnhFejZ1L21ITGpZM0lPZlB5RUd3UGhoaWtldGpjaktIL0FQL3RD?=
+ =?utf-8?B?TTMwNTRTVnAvR2h5clFXR3d6c1ZlQjYwcnQvTklKdWFpT2REK29rbFdCa09W?=
+ =?utf-8?B?MkRac056ZjA5eG5RNmNNNjh3dDU5bEJZODc1V2RPcEVuSXBFZjkxUW9mQUlm?=
+ =?utf-8?B?dmk3b0xkWEY4VHJUSlVOWDhKYjR0VnQ5Z3loSk1hcTdEb2F1bFVmUT09?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 915e13b2-b872-4ad1-a78e-08df366b9c43
+X-MS-Exchange-CrossTenant-Network-Message-Id: c48ee4ba-7196-494c-2700-08df366ba4dc
 X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 09:53:12.3043
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 09:53:26.5825
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: K2eYHcPcOTXoQqorz4xF/Qa/nkMdSNs/SxkfeHXbDItqlBzspFeWgX+DcNYZWMbnQlEr7dZhsn6oLbnFHTtgNg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: IbCUdLChkjBGc/6cHdFge4tc6eEY3DdFM1Sbpze1kU0Vdfim6Gn8OZt83I/fdXSqGtbm/Y/J7JmUK0Nx4Jp5sw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA9PR04MB839208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_025317_101564_26A9FDD0 
-X-CRM114-Status: GOOD (  13.94  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_025330_707337_DED3A87D 
+X-CRM114-Status: GOOD (  20.41  )
+X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,104 +165,165 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Fetch unit backing plane doesn't support invisible plane because
-SOURCEBUFFERDIMENSION and FRAMEDIMENSIONS registers only accept
-dimension for visible frame.  Disable plane when it is invisible
-to avoid wrongly programming the two registers with invisible
-frame.
+Map Display Controller's register GERNERALPURPOSE at offset 0x100 and
+create an MMIO regmap to access the register.  Create helpers
+dc_drv_flag_crtc_{enable,disable}() with the 2 LSB bits in the register
+to flag the CRTC enablement/disablement status.  Also, create a helper
+dc_drv_crtc_was_enabled() so that the CRTC driver can use it to check
+if the CRTC was enabled by a previous boot or not.  This is a preparation
+for an upcoming patch to disable display controller at boot if the CRTC
+was enabled by the driver during a previous boot instead of a bootloader.
 
-Fixes: 711a3b878366 ("drm/imx: Add i.MX8qxp Display Controller KMS")
 Reviewed-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 Signed-off-by: Liu Ying <victor.liu@nxp.com>
 ---
 v8:
+- Rename dc_drv_crtc_was_enabled() to dc_drv_crtc_is_enabled().  (Laurentiu)
+- Use dev_err_probe() to handle errors returned from several function calls.
+  (Laurentiu)
 - Collect Laurentiu's R-b tag.
 
 v7:
-- Newly introduced to fix invisible planes.  (Sashiko AI bot)
+- Newly introduced in v7 as a preparation for fixing Sashiko AI bot's
+  comment on an upcoming patch.  (Sashiko AI bot)
 ---
- drivers/gpu/drm/imx/dc/dc-plane.c | 54 ++++++++++++++++++++++++---------------
- 1 file changed, 33 insertions(+), 21 deletions(-)
+ drivers/gpu/drm/imx/dc/dc-drv.c | 75 +++++++++++++++++++++++++++++++++++++++++
+ drivers/gpu/drm/imx/dc/dc-drv.h |  7 ++++
+ 2 files changed, 82 insertions(+)
 
-diff --git a/drivers/gpu/drm/imx/dc/dc-plane.c b/drivers/gpu/drm/imx/dc/dc-plane.c
-index 62dd0576fadc..42c0a46281cb 100644
---- a/drivers/gpu/drm/imx/dc/dc-plane.c
-+++ b/drivers/gpu/drm/imx/dc/dc-plane.c
-@@ -126,6 +126,33 @@ dc_plane_atomic_check(struct drm_plane *plane, struct drm_atomic_commit *state)
- 	return dc_plane_check_fb(plane_state);
+diff --git a/drivers/gpu/drm/imx/dc/dc-drv.c b/drivers/gpu/drm/imx/dc/dc-drv.c
+index 13795a2ad735..9629beaed43c 100644
+--- a/drivers/gpu/drm/imx/dc/dc-drv.c
++++ b/drivers/gpu/drm/imx/dc/dc-drv.c
+@@ -13,6 +13,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/pm.h>
+ #include <linux/pm_runtime.h>
++#include <linux/regmap.h>
+ 
+ #include <drm/clients/drm_client_setup.h>
+ #include <drm/drm_atomic_helper.h>
+@@ -28,9 +29,21 @@
+ #include "dc-drv.h"
+ #include "dc-pe.h"
+ 
++/* General Purpose register offset used to flag driver usage. */
++#define GENERALPURPOSE		0x100
++#define  CRTC_ENABLED(x)	BIT(x)
++
+ struct dc_priv {
+ 	struct drm_device *drm;
+ 	struct clk *clk_cfg;
++	struct regmap *gp_regmap;
++};
++
++static const struct regmap_config dc_gp_regmap_config = {
++	.reg_bits = 32,
++	.reg_stride = 4,
++	.val_bits = 32,
++	.max_register = 0,
+ };
+ 
+ DEFINE_DRM_GEM_DMA_FOPS(dc_drm_driver_fops);
+@@ -156,6 +169,8 @@ static int dc_probe(struct platform_device *pdev)
+ {
+ 	struct component_match *match = NULL;
+ 	struct dc_priv *priv;
++	struct resource *r;
++	void __iomem *base;
+ 	int ret;
+ 
+ 	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+@@ -167,6 +182,27 @@ static int dc_probe(struct platform_device *pdev)
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk_cfg),
+ 				     "failed to get cfg clock\n");
+ 
++	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	if (!r)
++		return dev_err_probe(&pdev->dev, -EINVAL,
++				     "failed to get MEM IO resource\n");
++
++	if (!devm_request_mem_region(&pdev->dev, r->start + GENERALPURPOSE, 4,
++				     dev_name(&pdev->dev)))
++		return dev_err_probe(&pdev->dev, -EBUSY,
++				     "failed to request memory region\n");
++
++	base = devm_ioremap(&pdev->dev, r->start + GENERALPURPOSE, 4);
++	if (!base)
++		return dev_err_probe(&pdev->dev, -ENOMEM,
++				     "failed to do ioremap\n");
++
++	priv->gp_regmap = devm_regmap_init_mmio(&pdev->dev, base,
++						&dc_gp_regmap_config);
++	if (IS_ERR(priv->gp_regmap))
++		return dev_err_probe(&pdev->dev, PTR_ERR(priv->gp_regmap),
++				     "failed to init General Purpose regmap\n");
++
+ 	dev_set_drvdata(&pdev->dev, priv);
+ 
+ 	ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
+@@ -196,6 +232,45 @@ static void dc_remove(struct platform_device *pdev)
+ 	component_master_del(&pdev->dev, &dc_drm_ops);
  }
  
-+/* A prerequisite is that drm_dev_enter() has been called beforehand. */
-+static void __dc_plane_atomic_disable(struct drm_plane *plane)
++void dc_drv_set_crtc_enable(struct dc_drm_device *dc_drm,
++			    unsigned int crtc_index)
 +{
-+	struct dc_plane *dplane = to_dc_plane(plane);
-+	const struct dc_fu_ops *fu_ops;
++	struct dc_priv *priv = dev_get_drvdata(dc_drm->base.dev);
 +
-+	/* disable fetchunit in shadow */
-+	fu_ops = dc_fu_get_ops(dplane->fu);
-+	fu_ops->disable_src_buf(dplane->fu, DC_FETCHUNIT_FRAC0);
-+
-+	/* set ExtDst's source to ConstFrame */
-+	dc_ed_pec_src_sel(dplane->ed, dc_cf_get_link_id(dplane->cf));
-+}
-+
-+static void dc_plane_atomic_disable(struct drm_plane *plane,
-+				    struct drm_atomic_commit *state)
-+{
-+	int idx;
-+
-+	if (!drm_dev_enter(plane->dev, &idx))
++	if (WARN_ON(crtc_index > 1))
 +		return;
 +
-+	__dc_plane_atomic_disable(plane);
-+
-+	drm_dev_exit(idx);
++	regmap_set_bits(priv->gp_regmap, 0, CRTC_ENABLED(crtc_index));
 +}
 +
- static void
- dc_plane_atomic_update(struct drm_plane *plane, struct drm_atomic_commit *state)
- {
-@@ -143,6 +170,11 @@ dc_plane_atomic_update(struct drm_plane *plane, struct drm_atomic_commit *state)
- 	if (!drm_dev_enter(plane->dev, &idx))
- 		return;
- 
-+	if (!new_state->visible) {
-+		__dc_plane_atomic_disable(plane);
-+		goto out;
-+	}
++void dc_drv_set_crtc_disable(struct dc_drm_device *dc_drm,
++			     unsigned int crtc_index)
++{
++	struct dc_priv *priv = dev_get_drvdata(dc_drm->base.dev);
 +
- 	src_w = drm_rect_width(&new_state->src) >> 16;
- 	src_h = drm_rect_height(&new_state->src) >> 16;
++	if (WARN_ON(crtc_index > 1))
++		return;
++
++	regmap_clear_bits(priv->gp_regmap, 0, CRTC_ENABLED(crtc_index));
++}
++
++bool dc_drv_crtc_is_enabled(struct dc_drm_device *dc_drm,
++			    unsigned int crtc_index)
++{
++	struct dc_priv *priv = dev_get_drvdata(dc_drm->base.dev);
++	unsigned int val;
++	int ret;
++
++	if (WARN_ON(crtc_index > 1))
++		return false;
++
++	ret = regmap_read(priv->gp_regmap, 0, &val);
++	if (ret)
++		return false;
++
++	return !!(val & CRTC_ENABLED(crtc_index));
++}
++
+ static int dc_runtime_suspend(struct device *dev)
+ {
+ 	struct dc_priv *priv = dev_get_drvdata(dev);
+diff --git a/drivers/gpu/drm/imx/dc/dc-drv.h b/drivers/gpu/drm/imx/dc/dc-drv.h
+index eb61b8c76269..8283795f3c76 100644
+--- a/drivers/gpu/drm/imx/dc/dc-drv.h
++++ b/drivers/gpu/drm/imx/dc/dc-drv.h
+@@ -99,4 +99,11 @@ static inline int dc_subdev_get_id(const struct dc_subdev_info *info,
+ void dc_de_post_bind(struct dc_drm_device *dc_drm);
+ void dc_pe_post_bind(struct dc_drm_device *dc_drm);
  
-@@ -171,27 +203,7 @@ dc_plane_atomic_update(struct drm_plane *plane, struct drm_atomic_commit *state)
- 
- 	/* set ExtDst's source to LayerBlend */
- 	dc_ed_pec_src_sel(dplane->ed, dc_lb_get_link_id(lb));
--
--	drm_dev_exit(idx);
--}
--
--static void dc_plane_atomic_disable(struct drm_plane *plane,
--				    struct drm_atomic_commit *state)
--{
--	struct dc_plane *dplane = to_dc_plane(plane);
--	const struct dc_fu_ops *fu_ops;
--	int idx;
--
--	if (!drm_dev_enter(plane->dev, &idx))
--		return;
--
--	/* disable fetchunit in shadow */
--	fu_ops = dc_fu_get_ops(dplane->fu);
--	fu_ops->disable_src_buf(dplane->fu, DC_FETCHUNIT_FRAC0);
--
--	/* set ExtDst's source to ConstFrame */
--	dc_ed_pec_src_sel(dplane->ed, dc_cf_get_link_id(dplane->cf));
--
-+out:
- 	drm_dev_exit(idx);
- }
- 
++void dc_drv_set_crtc_enable(struct dc_drm_device *dc_drm,
++			    unsigned int crtc_index);
++void dc_drv_set_crtc_disable(struct dc_drm_device *dc_drm,
++			     unsigned int crtc_index);
++bool dc_drv_crtc_is_enabled(struct dc_drm_device *dc_drm,
++			    unsigned int crtc_index);
++
+ #endif /* __DC_DRV_H__ */
 
 -- 
 2.43.0
