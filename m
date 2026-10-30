@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9F46606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 12:13:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3289D606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 12:18:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3yzdhrwy;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fSGgWb0E
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DXVIzWqn;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=o7DNZa5W
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,70 +14,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=W7iS3Fx6HV5ScNF/DvW83v1rNy7myS3fOAFqhJkCPu0=; b=3yzdhrwyQtbZkadCaYucKCJ0h+
-	2ZDFukGg+OQJgSo03sD2PoV7UJalhQRGay/I8/oZT4FBUOzpAS3y45RnMj+SqkkKm4ONUwjDvQML9
-	3txMGQesPk/LM6rXZSsisdpSONS9OkoTyZftvhTakeCAqWzmsqYsqvmy9ZHbyFhMRUn9m0hA3FUSC
-	NlVdD7mj64NkHCSygxTNNPMvcY7kwXrhF8xlzF9fzS7O7BFiLGwY2SvYL6rNGx1L9KsU/nspM5kh3
-	LeD7+PQ6efvET1u5xbVSpcYyMfAsNmlO2DXEiJQP8F8yyrw9uBg4ZHikvnhKDr8U37z/N/47UIb15
-	dwMHidkQ==;
+	bh=XF7Kruz+VERXXGFD6bAbGW0IgqysTyfQGfE+6WQ3Rdc=; b=DXVIzWqn6aeww+ESeS2RrlpkDr
+	MLt+4pG3LxwWLFbyfiqFxf4tI6/Ry90Zj8eKc3P37qxvARWVW+BaIwXvc1z4zOaO7FZj2Cyf1cvy5
+	yDwSEbNSbSFeCD/OSYzpS15EeQOaVg0s/s95bTtuGVqpzen29MIehsw07jsNS4nXJqZMy+k9vicGS
+	NrkyQ4zkJuaXTZG0klzfQxoWcJ5p39o5aZjRO6S99dsifWw0Fv3wufvUuSSqZvUriBcZr1V6QQyYN
+	RiCvvtFTlrV7HXSoA6ASEsL4wWjV3bMcx4Gd3Xk4FbgBmGuErquTwm71JOpMTy0DCYvena30SdEMS
+	9XQcWh3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMlUF-0000000Bemp-2Ipd;
-	Fri, 30 Oct 2026 12:13:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMlUE-0000000BemC-1UgY;
-	Fri, 30 Oct 2026 12:13:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 91B96402A3;
-	Fri, 30 Oct 2026 12:13:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F8BC1F00A02;
-	Fri, 30 Oct 2026 12:13:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793362413;
-	bh=W7iS3Fx6HV5ScNF/DvW83v1rNy7myS3fOAFqhJkCPu0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fSGgWb0E6AmiP/tcFEtpjVO60QzF8LSXfigUs5Tg+3gQ73tVxAEcHeDIOxvDY3CPy
-	 vDuoJf5n0vop7GqdYjtCn/OFY/EAiIviQAEFNouIWp6clFimOSewk464KYx5JgMC45
-	 tX9K326gCKDyJSqBbx+aKuPMyDKdHWZHdumL+wYIg+w2eTgWIWjM0zZ7ic9iNkuwP0
-	 ALuFiHyZd7peiA1kB9BXyuWaszl0he+Ka32BkloZHcApkYCYFlzWy3QuvD/1/godz2
-	 hID0WwoyTGAN+KHtoDqC0hDlagNGndQ8b/pPXGHpqrI4HMBVoiGzzqYAQ9U/6Qa9uV
-	 HGN4BKvk0lSCA==
-Date: Fri, 30 Oct 2026 07:13:30 -0500
-From: Rob Herring <robh@kernel.org>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Robert Foss <rfoss@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Dave Jones <s.dave.jones@gmail.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH v3 2/6] dt-bindings: phy: Add rockchip,rk3568-edp-phy
-Message-ID: <20261030121330.GC1232511-robh@kernel.org>
-References: <20261020030916.3223833-1-damon.ding@rock-chips.com>
- <20261020030916.3223833-3-damon.ding@rock-chips.com>
- <20261021133418.GA3889663-robh@kernel.org>
- <5892f99c-68cd-4ff9-91f1-af5ee024e025@rock-chips.com>
+	id 1xMlZI-0000000BfEN-2Nph;
+	Fri, 30 Oct 2026 12:18:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMlZF-0000000BfE2-1MMF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Oct 2026 12:18:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73AE51682;
+	Fri, 30 Oct 2026 05:18:40 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6F853F673;
+	Fri, 30 Oct 2026 05:18:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793362723; bh=mr1vCM3m++CO0IeLTY678K5+pJpgcJelaLHGSOLgJ9M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o7DNZa5W8dfrCyTf2ZgrNZIvuu8obc5U5C1jkwLAnbAvVgeKwB8JmCLIDeB/wtVNE
+	 CNqiM/jmsJVuclsTTf2gAYx24q09ZI0hj4JN1PIB0ts8iJsrdOXHnBgBJZrWjn/v+s
+	 J9U4iDL/WTblD9WdYZHTd2inWTTqaOO/8BSS6do0=
+Date: Fri, 30 Oct 2026 12:18:39 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Usama Anjum <usama.anjum@arm.com>, Linu Cherian <linu.cherian@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Huang Ying <ying.huang@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	maz@kernel.org
+Subject: Re: [PATCH v2] arm64: tlbflush: Don't broadcast if mm was only
+ active on local cpu
+Message-ID: <auSLH65dv2nEctXd@arm.com>
+References: <20260523134710.3827956-1-linu.cherian@arm.com>
+ <b6f0d10a-d098-43cc-b923-0245af5f51f0@arm.com>
+ <auR9iDfUxqz3ExP8@willie-the-truck>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5892f99c-68cd-4ff9-91f1-af5ee024e025@rock-chips.com>
+In-Reply-To: <auR9iDfUxqz3ExP8@willie-the-truck>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261030_051845_472357_52F6C55A 
+X-CRM114-Status: GOOD (  33.92  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,78 +78,99 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 23, 2026 at 11:56:10AM +0800, Damon Ding wrote:
-> Hi Rob,
-> 
-> On 10/21/2026 9:34 PM, Rob Herring wrote:
-> > On Tue, Oct 20, 2026 at 11:09:12AM +0800, Damon Ding wrote:
-> > > Document the eDP transmitter PHY with NaNeng IP block found on the
-> > > RK3568 SoC.  The PHY is controlled through the eDP PHY GRF registers,
-> > > so its node is modeled as a child of the eDP PHY GRF syscon.  Also
-> > > add the "rockchip,rk3568-edp-phy-grf" compatible and the "edp-phy"
-> > > child node reference to the Rockchip GRF schema.
+On Fri, Oct 30, 2026 at 11:20:40AM +0000, Will Deacon wrote:
+> On Wed, Oct 28, 2026 at 02:47:19PM +0000, Usama Anjum wrote:
+> > On 23/05/2026 2:47 pm, Linu Cherian wrote:
+> > > From: Ryan Roberts <ryan.roberts@arm.com>
 > > > 
-> > > Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> > > There are 3 variants of tlb flush that invalidate user mappings:
+> > > flush_tlb_mm(), flush_tlb_page() and __flush_tlb_range(). All of these
+> > > would previously unconditionally broadcast their tlbis to all cpus in
+> > > the inner shareable domain.
+> > > 
+> > > But this is a waste of effort if we can prove that the mm for which we
+> > > are flushing the mappings has only ever been active on the local cpu. In
+> > > that case, it is safe to avoid the broadcast and simply invalidate the
+> > > current cpu.
+> > > 
+> > > So let's track in mm_context_t::active_cpu either the mm has never been
+> > > active on any cpu, has been active on more than 1 cpu, or has been
+> > > active on precisely 1 cpu - and in that case, which one. We update this
+> > > when switching context, being careful to ensure that it gets updated
+> > > *before* installing the mm's pgtables. On the reader side, we ensure we
+> > > read *after* the previous write(s) to the pgtable(s) that necessitated
+> > > the tlb flush have completed. This guarrantees that if a cpu that is
+> > > doing a tlb flush sees it's own id in active_cpu, then the old pgtable
+> > > entry cannot have been seen by any other cpu and we can flush only the
+> > > local cpu.
+> > > 
+> > > Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> > > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> > > Tested-by: Huang Ying <ying.huang@linux.alibaba.com>
+> > > [linu.cherian@arm.com: Adapted for v7.1 flush tlb API changes]
+> > > Signed-off-by: Linu Cherian <linu.cherian@arm.com>
 > > > ---
-> > >   .../bindings/phy/rockchip,rk3568-edp-phy.yaml | 59 +++++++++++++++++++
-> > >   .../devicetree/bindings/soc/rockchip/grf.yaml | 15 +++++
-> > >   2 files changed, 74 insertions(+)
-> > >   create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml
+> > > Changelog from RFC v1:
+> > > - Adapted for v7.1 flush tlb API changes
+> > >   No changes in core logic
+> > > - Collected Rb and Tb tags
+> > > - lat_mmap benchmark showed dsb(ishst) performs better than dsb(ish),
+> > >   hence retained dsb(ishst) in flush_tlb_user_pre	
 > > > 
-> > > diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml
-> > > new file mode 100644
-> > > index 000000000000..afe7bc3d839e
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml
-> > > @@ -0,0 +1,59 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/phy/rockchip,rk3568-edp-phy.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: Rockchip eDP Transmitter PHY with NaNeng IP block
-> > > +
-> > > +maintainers:
-> > > +  - Damon Ding <damon.ding@rock-chips.com>
-> > > +  - Heiko Stuebner <heiko@sntech.de>
-> > > +
-> > > +description:
-> > > +  On the RK3568 SoC the eDP PHY is controlled through the eDP PHY GRF
-> > > +  registers, therefore the PHY node is expected to be a child of the
-> > > +  eDP PHY GRF syscon node.
+> > > 
+> > > Testing with 7.1-rc4 :
+> > > +-----------------------+---------------------------------------------------+-------------+
+> > > | Benchmark             | Result Class                                      |  Improvement|  
+> > > +=======================+===================================================+=============+
+> > > | perf/syscall          | fork (ops/sec)                                    |   (I) 3.25% |
+> > > +-----------------------+---------------------------------------------------+-------------+
+> > > | pts/memtier-benchmark | Protocol: Redis Clients: 100 Ratio: 1:5 (Ops/sec) |   (I) 2.70% |
+> > > | 			| Protocol: Redis Clients: 100 Ratio: 5:1 (Ops/sec) |   (I) 2.13% |
+> > > +-----------------------+---------------------------------------------------+-------------+
 > > 
-> >  From the driver, looks like there is a specific register range for the
-> > phy regs in the GRF, so please add a 'reg' entry (and 'ranges' in the
-> > parent).
+> > I tested this patch using a synthetic Firecracker benchmark on a 192-CPU
+> > arm64 host, with Linux v7.3 on both the host and guests. Each worker
+> > repeatedly creates a fresh 1-vCPU microVM, boots Ubuntu, verifies an echo
+> > response over the serial console, and shuts the guest down, waiting for
+> > Firecracker to exit before starting the next VM. Each guest has 256 MiB of
+> > RAM, with two VM slots per workload CPU.
 > > 
+> > With 4 KiB guests, the unpatched workload stops scaling between 64 and 96
+> > CPUs: throughput falls from approximately 68 to 65 completed lifecycles/s
+> > despite the additional CPUs.
+> > 
+> > Applying the patch to the guest substantially improves throughput at higher
+> > concurrency. At 128 workload CPUs, I measured:
+> > 
+> >   Guest pages  Unpatched  Guest patched only  Host patched only
+> >   -----------  ---------  ------------------  -----------------
+> >   4 KiB        73.83/s    108.55/s (+47.0%)    74.09/s (+0.4%)
+> >   64 KiB       86.46/s    105.04/s (+21.5%)    90.15/s (+4.3%)
+> > 
+> > The host uses 4 KiB pages throughout. The host-only difference with 4 KiB
+> > guests is small enough that I would regard it as essentially unchanged.
 > 
-> I see. For v4, I will add the reg entry for the PHY node and ranges in the
-> parent syscon node, as done in rk3399-emmc-phy.
-> 
-> The proposed eDP PHY DT layout looks like:
-> 
-> edp_phy_grf: syscon@fdcb0000 {
->   compatible = "rockchip,rk3568-edp-phy-grf", "syscon", "simple-mfd";
->   reg = <0x0 0xfdcb0000 0x0 0x100>;
->   clocks = <&cru PCLK_EDPPHY_GRF>;
->   #address-cells = <1>;
->   #size-cells = <1>;
->   ranges;
-> 
->   edp_phy: phy@0 {
-> 	compatible = "rockchip,rk3568-edp-phy";
-> 	reg = <0x0 0x100>;
+> Sorry, but I haven't understood the setup here. If each guest ("microVM")
+> only has 1 vCPU, then why does this patch have any effect in the "guest
+> patched only" case?
 
-The 0 address is not correct with empty 'ranges'.
+I wonder whether it's the repeat TLBI workaround just doing more DVM
+traffic. Turned off when no broadcast is needed.
 
-Rob
+> Additionally, the non-broadcast TLB invalidation will
+> be upgraded to broadcast by the hypervisor.
+
+I have a hack that makes things even faster (opportunistic
+HCR_EL2.FB=0). I may post it once I understand the implications
+properly.
+
+-- 
+Catalin
 
