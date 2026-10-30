@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07892606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 17:50:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A461606A330
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 17:51:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qOG230RY;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=G+Z0B4eS
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=A4zNrV2O;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ODAUMRCs
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
@@ -14,68 +14,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=+3vWWcXvQ1G+1hgayIa+HoU7zvRHN6JB8hslECzlT90=; b=qOG230RY7bvHwpZsKWxXslNYgC
-	XcYj6lHASRQxZ0cCQOBvlgF35y5Fo5MAEGEYrwZkYX/EmXTtV8+60cD7tY5BnTyeeN3KQhl6TgTzi
-	f7EX2noyfbXt9OrnS5a8UjiIES2UyDjApyxCOqcaXz4I4Gk47p3HR5cMMsRX8Tx9b7V6cFQymWWal
-	Tv00PomN/dYsWEEOglUWt7+nbbexOO1oNi6IKzJ6dt4G98/sqof+Q3IgB8HQuQNEwPyN301KIk9AI
-	cF/orkvG13SJHT590wl5+5IBt/iJCq+wAaTVORnZ/Vu2NYRWrUx/FbOMBjKE3eovQCHJJ8T5Xxx4q
-	61i5BrfQ==;
+	bh=mvSUPbzCTjJJThI2f3r9MxLiZ1SBhclZHyCEEOagJ2E=; b=A4zNrV2OAlopBW5aM8t0wqWvw3
+	MbzYBhPyZdCWrlEzow+nHYjmoeKsfwVCj6fqNebtsqbC0YtYVTgddyTl4T7yqbm3UI//PnrjGtFHB
+	PvA0M1EOLtGybnBZaEdDmhMG9+w7bgfHaMi323RANjmbrzaJM1qd4I27t9pcTmZekw02522WmMM9Q
+	VTyVSkrIxJCMvoZTWr+K8JKc0p8k1ukHH9QHIuShKS/i6DPX2b7uKISZq9wNoQ9jltysf7KRb2Puk
+	5TFiWHU11Fam8DVoJ6VUp626kRMhsu4hKToJuiXyb0uO7z/n45Wwa3zOcekN/EobamhEz4ugQy0lC
+	jUVE8x/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqkS-0000000CIy9-29Qz;
-	Fri, 30 Oct 2026 17:50:40 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1xMqkx-0000000CJ8E-0rbp;
+	Fri, 30 Oct 2026 17:51:11 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqkQ-0000000CIwY-0Lkh
+	id 1xMqku-0000000CJ6v-1LJY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 17:50:39 +0000
+	Fri, 30 Oct 2026 17:51:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=inA29waVaBNU5w226UkUDDu6Y3HTJB1k7j1DcdbLSdzKnFDGk9nd4kIkOmRdmn4PTvB+bZiuQFjVOapazNLui0qPd9QSS/rQ7Bqgo1Cn1ZFCaS9TvC7IeFJremgjTz4pMfeq4QWouikQHUlz5jFm9CAUPqcMiWyQz71PJziIS4vZub+BYLle8dRLQg0R6DFX5HH9Ej2wxOq/PpouSd0pV51UZLhDusGPNGrE4L82uG3IUWc30X3TLOZe2mDMBO7x4bEhj+Lf+YaAr4azWeuxs9lXaJF/OSin7c3ugmFvZZoc0GXhjpGu+rJ3EUlWV0TgLUAA4nzL32AB0rav2MIB2g==
+ b=Ad1AxIb3QFN6k7pmStfBz1JHh5nhWHf3EgoUKPYbTTWP19GfvGOEspd2mAqCgqGqJcPB1xmrCrhQrX12vBajSLsLK62CjzA+fO6pbfLwIHd5zrst3oGdqQWkgXMswcmkwUpWUhyuQJ0Gv9p+V7GG1ZOMgPL7buCgLeLtXF74hu8zVNlV4Kt3JdZslTsUrg4L9nsEqRKaEjeQyYVXx2Z97JmvZnVVzntf3fXyLlCYiOaTi1U5U7b04RIodGDA/e/Z48PgDxPN5B7QE6NKXtX/G3GkWF5z8uzeW5nKaaPZ4Ji0TkUAKhhyPX1S/PNw0uexMqULqTBxDjPA2J6Csi25ew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+3vWWcXvQ1G+1hgayIa+HoU7zvRHN6JB8hslECzlT90=;
- b=kWg64d5wGY5AEQX4xExiX3A16HMIUZ1YisEzrbjKRadXI9mgq9SAKOqcmb5TPYowq1Sv9A0usVXnoBqPXYQx83E1sZzQ3ameWaSsT+x4YVV/iUV3218vjSc8r95DiMAx6BGA7X5WOjmwR2vA5jx1r+WZn9pKH5ROPuACd60FcONaafNbaR44V0zbWYy/dHv3xdOEZFubYOqhR0rp0RpnYxtWXVzDuWyhkzxeRMf+gSa6JjpAoyM2+tSeCtefZvpRv/KWZVszPUKoMVX/fGd8BBIHkhxdO8MB75R6tiNzKqq89gUeuXdEtBzYPjSqavrqioMZw8yX3Isw314RmSbWkA==
+ bh=mvSUPbzCTjJJThI2f3r9MxLiZ1SBhclZHyCEEOagJ2E=;
+ b=UuPiOuAmcX/af0JGae60sciZW+yhYPksTB4SLEFl130/IDoEZUnpoTM/eYWpBjHtMPdhfzWKCex7wfVUyD9DN9XLQuipmgsfo15ZmDEwkJeB41XxvMXvlihiudOFbg+s8QBmc9SeK36h+1HRykcyjQRYcCV2+NhieGkmgYddkVHQcgHvFVQ5yaoDNBRPRT+fkWmFJvuolvY13ST380huviTn4ialFfqk/yses4i7O7lkqIjco+hDvJ93v8NSY43kBIaU44jqQYx12zFYHOm79TMyfNytyKN4zE8bP+oMU4aggTMvPZceTT0Zmda4L0d65JSsZ6u3L7Unss/yLEZntw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+3vWWcXvQ1G+1hgayIa+HoU7zvRHN6JB8hslECzlT90=;
- b=G+Z0B4eSgPI0n7McGlGWvdWv2+oFkzJralj+XrvwAUEKB2z7XQ1XLo8B0mnjWP/E43A1qsJL22kvgx+fVdkG131by7uNkyPjFKv6V/y6w+0rq2WDdfWp152JBJj1UBbOst6yPCYl45+UiMBtMJlhngnZPd4ZU9SJTGZyzoCbIon1KrriD9yITMRCV6D+Os/5AqJ52CnXa9gnZevYczXhK2qG51phbQneCa9eT+jrQf5CnyBdRp3YlMyL9KShIzAqPtG+ViqBpDfs959nGvnc5ZhtCa37wo2zpBQBBz8d5LakmrpfvhCQ6VkiqIpckYT8jmv3HSD0GRAY/gyg4dVlpg==
-Received: from CH2PR02CA0005.namprd02.prod.outlook.com (2603:10b6:610:4e::15)
- by CH1PPF934D73F2C.namprd12.prod.outlook.com (2603:10b6:61f:fc00::61a) with
+ bh=mvSUPbzCTjJJThI2f3r9MxLiZ1SBhclZHyCEEOagJ2E=;
+ b=ODAUMRCsULwzCjMJeuNH7ye5wFoWVuWeCyxR46wlRYEEUnCTvE6Z5UWhGYrP+WoJgMArPcD7sm4A7pcZVO3aEsSJWAqdtDDgekffJkGBog9YmwjUM/GhoXfSn0vxDPRjYDmJdiosHVDRtiHSAAx1/gUPt+rOoIZ44zOqptL2CmzZk4IWIZDbsW13fAhMRdHkQzsc7QYz642W7xCZ++9XZFqm9gPapSx4P94MFWZhPnaFiqdcC97QL/VO3w5zqplM8aySHS3g1DTHnTubQsFnCIbGClzOqnoZr6RUXZkllCCWbIs2s6wYPDk8cHhdM0cgm2vNFnzA0cbq5eOQzK0RFg==
+Received: from SJ0PR03CA0025.namprd03.prod.outlook.com (2603:10b6:a03:33a::30)
+ by SA1PR12MB6750.namprd12.prod.outlook.com (2603:10b6:806:257::20) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.9; Fri, 30 Oct
- 2026 17:50:26 +0000
-Received: from IA0PEPF00000046.namprd04.prod.outlook.com
- (2603:10b6:610:4e:cafe::13) by CH2PR02CA0005.outlook.office365.com
- (2603:10b6:610:4e::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.8 via Frontend Transport; Fri, 30
- Oct 2026 17:50:26 +0000
+ 2026 17:51:01 +0000
+Received: from MW3PEPF00001654.namprd21.prod.outlook.com
+ (2603:10b6:a03:33a:cafe::79) by SJ0PR03CA0025.outlook.office365.com
+ (2603:10b6:a03:33a::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.9 via Frontend Transport; Fri, 30
+ Oct 2026 17:51:00 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- IA0PEPF00000046.mail.protection.outlook.com (10.167.249.170) with Microsoft
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ MW3PEPF00001654.mail.protection.outlook.com (10.167.249.198) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.569.4 via Frontend Transport; Fri, 30 Oct 2026 17:50:26 +0000
+ 15.21.569.0 via Frontend Transport; Fri, 30 Oct 2026 17:51:00 +0000
 Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Fri, 30 Oct
- 2026 10:50:07 -0700
+ 2026 10:50:33 -0700
 Received: from drhqmail202.nvidia.com (10.126.190.181) by
  drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 30 Oct 2026 10:50:06 -0700
+ 15.2.2562.56; Fri, 30 Oct 2026 10:50:32 -0700
 Received: from build-bwicaksono-noble-20260804.internal (10.127.8.11) by
  mail.nvidia.com (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.56
- via Frontend Transport; Fri, 30 Oct 2026 10:50:06 -0700
+ via Frontend Transport; Fri, 30 Oct 2026 10:50:32 -0700
 From: Besar Wicaksono <bwicaksono@nvidia.com>
 To: <acme@kernel.org>, <namhyung@kernel.org>, <irogers@google.com>,
 	<ctshao@google.com>
@@ -88,9 +88,9 @@ CC: <linux-tegra@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
 	<jolsa@kernel.org>, <adrian.hunter@intel.com>, Besar Wicaksono
 	<bwicaksono@nvidia.com>
-Subject: [PATCH v2 3/9] perf jevents: Add support for NVIDIA Tegra410 PCIE-TGT PMU aliasing
-Date: Fri, 30 Oct 2026 17:48:10 +0000
-Message-ID: <20261030174816.1544471-4-bwicaksono@nvidia.com>
+Subject: [PATCH v2 4/9] perf jevents: Add support for NVIDIA Tegra410 CPU Memory Latency PMU aliasing
+Date: Fri, 30 Oct 2026 17:48:11 +0000
+Message-ID: <20261030174816.1544471-5-bwicaksono@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261030174816.1544471-1-bwicaksono@nvidia.com>
 References: <20261030174816.1544471-1-bwicaksono@nvidia.com>
@@ -101,28 +101,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PEPF00000046:EE_|CH1PPF934D73F2C:EE_
-X-MS-Office365-Filtering-Correlation-Id: 14086e6d-6786-4d1d-29b9-08df36ae47a3
+X-MS-TrafficTypeDiagnostic: MW3PEPF00001654:EE_|SA1PR12MB6750:EE_
+X-MS-Office365-Filtering-Correlation-Id: 179366aa-6a66-4da8-0aa7-08df36ae5c36
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|1800799024|376014|7416014|23010399003|10067099003|11063799006|6133799003|261028144727099003|261009223027099003|261022075727099003|261022105027099003|261021121427099003|56012099006|261026140227099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: nOxYlX/poIL+lWQfx+RFo3qf719mJbNkn6Crfv/2QqHTmegOI/Ypt56AwiT2CNh2cIO/0sKASTDjGeCX3AZwuCFWO4N0dWLCL96LYzt3pdr3F/w+jzORokaNczc9HKddIxvX50qKpo2Pb3WsNGY96ZnQGpjCXbd1F4Ler7rAOCUM9Vq1aP6j95dO2BxHIMEWuOs8cAt8FQs6bbwEyZBSRK8mB13giWxp9iFMzYUpITktIl5U0fJauU4qjDKeA4JHZoHncLE24MwumYAoEXwAlHpkxnQlmOIsggUgwS7AV0tNjiSxj5+07q0J7hktPFrPF+l+UqYWLbX5fGQQmZ2WqAqmKC/zK3F67l1xzPMtiOZSewqJAtgIjVL5cHv40k445EVHWapeByMcgMo5Jf8YxHbJDqxZut0Yj5LiqdzlCfcRfk+L4QKIk0FboGtZ9DEZiUvMgaT1FCQ+mLsaVadcD6S5NJc4lJN4mCFZtXvOtEtzLk2v62wXeBzocnG4NCLz9Xjo4kUJLw5/dLSNa/eTnWsp6E11c11496AyoUD1ZyMRvdb9AN8jnyBC1zLbmTPftp5r7SUMwn3c63KWZdTLebx4fh1WDf154S5s8KuwrNp1bo2a3qJjjtN3kIIqytk92XNKvNyqkB973WipjecPACKF/TuM66SgKWcRShCxjnRFWI9oQKluP27MTcqG3git8BCPebcvgN71XndMbDjIKQ==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(376014)(7416014)(23010399003)(10067099003)(11063799006)(6133799003)(261028144727099003)(261009223027099003)(261022075727099003)(261022105027099003)(261021121427099003)(56012099006)(261026140227099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|7416014|36860700016|82310400026|261026140227099003|10067099003|11063799006|56012099006|261009223027099003|261022105027099003|261028144727099003|261021121427099003|261022075727099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: 4EvBhYBke1WJaV+MENivEYCkfscn2fuA/8A/C8lmmR7eCLj2oJ2pmwuKKTsgHs+oRw/fG0vswtuyVpTfRvypYhOHNyAcddPpQP+zjgXsmQ9sNVozsxgitMbiE/+yMnwnXHzPPnh4bCeCijqTgDQWPd0wBhQ1xrQJS56Tj87IyuQJtWsJ5cBUZYhoJBDSnKrpSEFtyDh3SCETi5GCLAL8d+QH9E8yy1wMbyf15frBzc6M3HE9VdoRnRcGLdos7uVFdtT0pZ39ozqIkGabbXagiSAbx0+EzfSJcuNv5p/63PBO7ZRZVVYqkETWNmBPBYgvZczALDKsp1FcX9R/0t07QNUxa2B6+sMyypQr6+c18LzcwrAq7TskJkQJTBfwLueJc4PUcxapW3FLSnsi5K5HqK/HwbxFpIEHfGg+jWjNgLMXSHdqobZCMlzdDsx6K0x1f4lOERmdIhn6aSCg1p2ebHh8iZH3xyv16OS/Xz+GIZh0M4PfeOa+THvxYeKLU9bMyn5OnoHnxBXED0YWB9hB0Yvvi12g3l80huepNc5QA6d/xtoCH299dX2UzNTp21wDOVeeb7iZ+YMAz89eUehBZLc30hdXNXUxRkB5iQXArOFgz8jBYloHAc6/TY5LZROJX06gufCQ36vHEgpLwkEPje5NKziSuM6uKotMToOb4Xi11z6xzI06TPI5SuHzaP2DGCiYIeFgt5meIU3kDQUuwQ==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(7416014)(36860700016)(82310400026)(261026140227099003)(10067099003)(11063799006)(56012099006)(261009223027099003)(261022105027099003)(261028144727099003)(261021121427099003)(261022075727099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 8QyEEmlI8n3GJQ4RKvJmv0XHflhgEnyb6de5BpDbWMu1HeA554xWi21mLytVBNi/PgPKqZDJZwOqS23x+6nQ3TUBNbKWlUMVUjHu2XZ6XXRcW9fv2Fg0q0iCKmSc6gbsuE85B5/eIDRbFV+K2XmA46PQy05qe97S1USgb4Ax8gJmRT1ttIcL7P7krJHcTehJbXVZ5Qrbjm35qOFC1vAGdh3M8j7EvYQae68v0h3Urck5RvmNvuNHXFFdxsp3F9CwW+j0QhdlrdvUW8m15ruQOjAHsJkW+gAyMhi0BBw1DMwWmxrtcqeA3br4mGPvXSMUznJ9nEKyODwTHFg1RpJOJMMTL/ZjKwQy0E1irgrCWragcwpYYcQfnmsQgTkm6QBFPMHys0yVRL8spa1T5ctMu00zUfxqPn/4A+ZgmN6bZKtjDWjbzdS+EHR5lsP8QLaY
+X-MS-Exchange-AntiSpam-MessageData-0: zpLRY0wpIO+iaFvL9+zr0BB3UPZjFLNgp+UVOAn+mj/3pE3mOSiaZZHPcBfYB4WwSdunqwRqRNmx1JKlCzz5qQ1V8KA+imWTywc4Rh3fwIBI4RhGSwChTBTuc0bHiFGI8/tuWi77s0vz95XkbpXqtyu2kFcG9R/G5TWKNYlBj8RB8ZB83aReSetDqMWBihFWY5I6TUAoOzVxsL7J/tfuK/+1kNVCCxkG1oRvn+ooOFGRCfTFgetnAYkw+MKprGcI1JxtIALU0nQiyixDyZCvmziPDL/AZXOTJgkIIAKjxWdGns+NoZH/zNaX7x9BacML9K4CEd1yxid7QpEIThJHo2VtJi4e1iqS7UKTD/qrQIGJE6RfyFIwRZSWszpsLTAEqOmRCftHs7AKKt21741WdP0bDGWtGn6JJqG38BOUkvJkl/2fE+e1vWJqs4n051Hc
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 17:50:26.2142
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 17:51:00.8171
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14086e6d-6786-4d1d-29b9-08df36ae47a3
+X-MS-Exchange-CrossTenant-Network-Message-Id: 179366aa-6a66-4da8-0aa7-08df36ae5c36
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: IA0PEPF00000046.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MW3PEPF00001654.namprd21.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPF934D73F2C
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6750
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_105038_131730_B4EBE1BA 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20261030_105108_362532_AF37D1DE 
+X-CRM114-Status: GOOD (  12.70  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -142,101 +142,61 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add alias support for NVIDIA Tegra410 PCIE-TGT PMU events and metrics.
+Add alias support for NVIDIA Tegra410 CPU Memory Latency PMU events.
 
 Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
 ---
- .../arm64/nvidia/t410/uncore-pcie_tgt.json    | 83 +++++++++++++++++++
- 1 file changed, 83 insertions(+)
- create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-pcie_tgt.json
+ .../arm64/nvidia/t410/uncore-cpu_mem.json     | 43 +++++++++++++++++++
+ 1 file changed, 43 insertions(+)
+ create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-cpu_mem.json
 
-diff --git a/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-pcie_tgt.json b/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-pcie_tgt.json
+diff --git a/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-cpu_mem.json b/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-cpu_mem.json
 new file mode 100644
-index 000000000000..0f4765042d1f
+index 000000000000..bb7907935d6b
 --- /dev/null
-+++ b/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-pcie_tgt.json
-@@ -0,0 +1,83 @@
++++ b/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-cpu_mem.json
+@@ -0,0 +1,43 @@
 +[
 +    {
-+        "EventCode": "0x4",
-+        "EventName": "PCIE_TGT_CYCLES",
-+        "BriefDescription": "Counts cycles at the PCIe interface to the Tegra SoC data fabric.",
-+        "PublicDescription": "Counts cycles at the PCIe interface to the Tegra SoC data fabric.",
-+        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-+    },
-+    {
-+        "EventCode": "0x2",
-+        "EventName": "PCIE_TGT_RD_REQ",
-+        "BriefDescription": "Counts read requests from any source to PCIe BAR or CXL HDM ranges under this PCIe root complex.",
-+        "PublicDescription": "Counts read requests from any source to PCIe BAR or CXL HDM ranges under this PCIe root complex, where the target responds with data. Request size can be from 1 to 256 bytes. Filters: dst_rp_mask selects PCIe BAR traffic to root ports (bit n = root port n). dst_addr_en with dst_addr_base and dst_addr_mask selects PCIe BAR or CXL HDM addresses that equal the base in the mask's set bits. If both dst_rp_mask and the address filter are set, a request matching either is counted. With no filter, PCIe BAR traffic to all root ports is counted.",
-+        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-+    },
-+    {
-+        "EventCode": "0x3",
-+        "EventName": "PCIE_TGT_WR_REQ",
-+        "BriefDescription": "Counts write requests from any source to PCIe BAR or CXL HDM ranges under this PCIe root complex.",
-+        "PublicDescription": "Counts write requests from any source to PCIe BAR or CXL HDM ranges under this PCIe root complex, where the source sends data. Request size can be from 1 to 256 bytes. Filters: dst_rp_mask selects PCIe BAR traffic to root ports (bit n = root port n). dst_addr_en with dst_addr_base and dst_addr_mask selects PCIe BAR or CXL HDM addresses that equal the base in the mask's set bits. If both dst_rp_mask and the address filter are set, a request matching either is counted. With no filter, PCIe BAR traffic to all root ports is counted.",
-+        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-+    },
-+    {
 +        "EventCode": "0x0",
-+        "EventName": "PCIE_TGT_RD_BYTES",
-+        "BriefDescription": "Counts bytes transferred by the read requests counted by PCIE_TGT_RD_REQ.",
-+        "PublicDescription": "Counts bytes transferred by the read requests counted by PCIE_TGT_RD_REQ. Destination filters work as described for PCIE_TGT_RD_REQ.",
-+        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
++        "EventName": "CMEM_CYCLES",
++        "BriefDescription": "Counts elapsed MSN bridge cycles for the CMEM read-latency counters.",
++        "PublicDescription": "Counts elapsed Memory Switch Node (MSN) bridge cycles for the CMEM read-latency counters. All MSN instances share this clock, so the count is read from the first instance.",
++        "Unit": "nvidia_cmem_latency_pmu_"
 +    },
 +    {
 +        "EventCode": "0x1",
-+        "EventName": "PCIE_TGT_WR_BYTES",
-+        "BriefDescription": "Counts bytes transferred by the write requests counted by PCIE_TGT_WR_REQ.",
-+        "PublicDescription": "Counts bytes transferred by the write requests counted by PCIE_TGT_WR_REQ. Destination filters work as described for PCIE_TGT_WR_REQ.",
-+        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
++        "EventName": "CMEM_RD_REQ",
++        "BriefDescription": "Counts local CMEM read requests at the edge of the UCF (post SLC), in 32-byte units, from all requesters.",
++        "PublicDescription": "Counts read requests at the edge of the Unified Coherence Fabric (UCF), after the System Level Cache (SLC), to local CPU DRAM (CMEM), at 32-byte granularity. A read of up to 32 bytes adds one; a 64-byte read adds two. It counts reads from all requesters, local and remote, summed over all Memory Switch Node (MSN) instances and channels. There is no requester or security-state filtering.",
++        "Unit": "nvidia_cmem_latency_pmu_"
 +    },
 +    {
-+        "MetricName": "pcie_tgt_freq",
-+        "MetricGroup": "PCIE_TGT_Frequency",
++        "EventCode": "0x2",
++        "EventName": "CMEM_RD_CUM_OUTS",
++        "BriefDescription": "Accumulates the in-flight read requests counted by CMEM_RD_REQ each MSN bridge cycle.",
++        "PublicDescription": "Accumulates the in-flight read requests counted by CMEM_RD_REQ each Memory Switch Node (MSN) bridge cycle. Pair the two for the average read latency.",
++        "Unit": "nvidia_cmem_latency_pmu_"
++    },
++    {
++        "MetricName": "cmem_freq",
++        "MetricGroup": "CMEM_Frequency;CMEM_Read_Latency",
 +        "MetricConstraint": "NO_GROUP_EVENTS",
-+        "MetricExpr": "(PCIE_TGT_CYCLES / aggr_nr(PCIE_TGT_CYCLES)) / 1e9 / duration_time",
++        "MetricExpr": "(CMEM_CYCLES / aggr_nr(CMEM_CYCLES)) / 1e9 / duration_time",
 +        "ScaleUnit": "1GHz",
-+        "BriefDescription": "Frequency of the cycles at the PCIe interface to the Tegra SoC data fabric.",
-+        "PublicDescription": "Average frequency of the cycles at the PCIe interface to the Tegra SoC data fabric over the measurement interval.",
-+        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
++        "BriefDescription": "MSN bridge clock frequency of the CMEM read-latency counters.",
++        "PublicDescription": "Average Memory Switch Node (MSN) bridge clock frequency over the measurement interval. This is the clock of the CMEM read-latency counters.",
++        "Unit": "nvidia_cmem_latency_pmu_"
 +    },
 +    {
-+        "MetricName": "pcie_tgt_avg_rd_bandwidth_to_all_dst",
-+        "MetricGroup": "PCIE_TGT_Bandwidth;PCIE_TGT_BW_PCIE_BAR_CXL_HDM",
-+        "MetricExpr": "PCIE_TGT_RD_BYTES@dst_addr_en=1,dst_addr_base=0,dst_addr_mask=0@ / 1e6 / duration_time",
-+        "ScaleUnit": "1MB/s",
-+        "BriefDescription": "Average read bandwidth to all PCIe BAR and CXL HDM ranges under this PCIe root complex.",
-+        "PublicDescription": "Average read bandwidth of requests from any source to all PCIe BAR and CXL HDM ranges under this PCIe root complex.",
-+        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-+    },
-+    {
-+        "MetricName": "pcie_tgt_avg_wr_bandwidth_to_all_dst",
-+        "MetricGroup": "PCIE_TGT_Bandwidth;PCIE_TGT_BW_PCIE_BAR_CXL_HDM",
-+        "MetricExpr": "PCIE_TGT_WR_BYTES@dst_addr_en=1,dst_addr_base=0,dst_addr_mask=0@ / 1e6 / duration_time",
-+        "ScaleUnit": "1MB/s",
-+        "BriefDescription": "Average write bandwidth to all PCIe BAR and CXL HDM ranges under this PCIe root complex.",
-+        "PublicDescription": "Average write bandwidth of requests from any source to all PCIe BAR and CXL HDM ranges under this PCIe root complex.",
-+        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-+    },
-+    {
-+        "MetricName": "pcie_tgt_avg_rd_bandwidth_to_pcie_bar",
-+        "MetricGroup": "PCIE_TGT_Bandwidth;PCIE_TGT_BW_PCIE_BAR",
-+        "MetricExpr": "PCIE_TGT_RD_BYTES / 1e6 / duration_time",
-+        "ScaleUnit": "1MB/s",
-+        "BriefDescription": "Average read bandwidth of PCIe BAR traffic to all root ports under this PCIe root complex.",
-+        "PublicDescription": "Average read bandwidth of PCIe BAR traffic from any source to all root ports under this PCIe root complex.",
-+        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-+    },
-+    {
-+        "MetricName": "pcie_tgt_avg_wr_bandwidth_to_pcie_bar",
-+        "MetricGroup": "PCIE_TGT_Bandwidth;PCIE_TGT_BW_PCIE_BAR",
-+        "MetricExpr": "PCIE_TGT_WR_BYTES / 1e6 / duration_time",
-+        "ScaleUnit": "1MB/s",
-+        "BriefDescription": "Average write bandwidth of PCIe BAR traffic to all root ports under this PCIe root complex.",
-+        "PublicDescription": "Average write bandwidth of PCIe BAR traffic from any source to all root ports under this PCIe root complex.",
-+        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
++        "MetricName": "cmem_avg_rd_latency",
++        "MetricGroup": "CMEM_Read_Latency",
++        "MetricConstraint": "NO_GROUP_EVENTS",
++        "MetricExpr": "(CMEM_RD_CUM_OUTS / CMEM_RD_REQ) / cmem_freq",
++        "ScaleUnit": "1ns/request",
++        "BriefDescription": "Average local CMEM read latency from the edge of the UCF (post SLC) to CPU DRAM, for all requesters.",
++        "PublicDescription": "Average latency of the read requests counted by CMEM_RD_REQ, from the edge of the Unified Coherence Fabric (UCF), after the System Level Cache (SLC), to local CPU DRAM (CMEM).",
++        "Unit": "nvidia_cmem_latency_pmu_"
 +    }
 +]
 -- 
