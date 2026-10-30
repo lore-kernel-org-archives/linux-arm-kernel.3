@@ -2,72 +2,117 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F06F606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 19:33:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10244606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 19:50:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=L30EJF9q;
-	dkim=pass (2048-bit key, unprotected) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=oN0n3S4G
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KWCqUgdE;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=IokEpGXr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QtGA4oygWFl5CX8vg4imBuTm2I065I8hD6TIKVaKg5Q=; b=L30EJF9qThXNUx8o1i/Tu9KfOx
-	c6nyAcY/X4nkWm7GjXAsmFQBZKS7rz5+6es3BnM2hxyuf+1yMoZu8SxHFQEVe9X1iysMQLktiadyr
-	fMXkqF7bo9JwFaYP94enL3aaObMu/F80kC9brbS4ZSncC0poTQBmqSsvHfu7K/AvbAbu/EamVAbbs
-	IighW3JLR71N/6rpQgI6GNHj/BvzfkV8ZHjYmqaTTRmvVA7Fy7ZKHYwHvUDdf1G4MJHwAfTp7206q
-	zh/S6seadKN3u1YwTbuUxvhkQbvcMvo4DYcp6bzGj4iVbw9ehyuYresUq0ODPWhFE3/rKlsw6qGNi
-	TaEQd/Bw==;
+	bh=tGRSe9LvYJDXqnyp9hHRUXYwQf0o1AOnoi+Z+9njJw0=; b=KWCqUgdEGzanZ84MM9uLhAfCt5
+	J2bNDt1KnbTGbo/L75FVR7RQUtFcE4RvFEFA/KKp3fIvUdbwbi/TSVJp+ETdADgTMUoDBHW9AF1ae
+	8ZdcbyRabSA5bdNuGIDGLp+m5JB+6bCzuXE7TcIimPzAKfr2OVBaTthJOI4MctwWzgHF670M5v52b
+	dnZvEewHUeAS1ZxnlT6ZfG1OhKjT4rH3CV+S+ebGUpT4ScGaEH9/1TnD5DGRlrND9uxKQSZbcSdnH
+	P8uEOW2z10IzBf3X0YHjpXvZ5+KxB5GHglm5M/tQBV3ja9whp3SK7rx8HT5klHY7jXx7tOz5Gld5U
+	N56eEE3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMsM1-0000000CUr1-0vO5;
-	Fri, 30 Oct 2026 19:33:33 +0000
-Received: from mail.tipi-net.de ([2a03:4000:43:185::1])
+	id 1xMsbw-0000000CW31-1dlr;
+	Fri, 30 Oct 2026 19:50:00 +0000
+Received: from omta036.useast.a.cloudfilter.net ([44.202.169.35])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMsLy-0000000CUpx-25SZ
+	id 1xMsbr-0000000CW1S-24MP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 19:33:32 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C6F0BA12EB;
-	Fri, 30 Oct 2026 20:33:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1793388800; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=QtGA4oygWFl5CX8vg4imBuTm2I065I8hD6TIKVaKg5Q=;
-	b=oN0n3S4Gd2LVGtKCDgtH54i2pOhilG/jMIpjCCAbd3+LpXofGFf61vIwpzBwcPREbEm7an
-	p36ug+Vmik11e0AUTxf2NB1yqnHB4rwsnODkaL8EL2UbcvZU3CHWaxhC+neli9Zp9dfxlD
-	btxU5LaG2pvvU9A8D7RiZyM3xNlZHkH9KfGP8aI4/N6owHRlg2hxePioLhy5eoVvTdabdE
-	bK0stGfaC953F3oRg4QwmORBbTF4u/pCuXaBsSo5tYEXb6scv2o3bpyqX4lzrM+lIAeRpy
-	aCYoEn1Hu6NiXRxuyfTYeH0C9anNwX5JSuXWI5QjsnWeABE2TksgvkP93INtIQ==
-Message-ID: <3eb9f731c0facedbadfcba6ae490862e7f6e3fd1.camel@tipi-net.de>
-Subject: Re: [PATCH net] net: stmmac: Clear DMA errors for multi-channel
- interrupts
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn	
- <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- davem@davemloft.net,  Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,  Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Russell King	 <linux@armlinux.org.uk>,
- Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,  Ovidiu Panait
- <ovidiu.panait.rb@renesas.com>
-Cc: thomas.petazzoni@bootlin.com, Alexis =?ISO-8859-1?Q?Lothor=E9?=
-	 <alexis.lothore@bootlin.com>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Date: Fri, 30 Oct 2026 20:33:12 +0100
-In-Reply-To: <20261030102251.208929-1-maxime.chevallier@bootlin.com>
-References: <20261030102251.208929-1-maxime.chevallier@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-9 
+	Fri, 30 Oct 2026 19:49:59 +0000
+Received: from eig-obgw-5002b.ext.cloudfilter.net ([10.0.29.226])
+	by cmsmtp with ESMTPS
+	id MpHWxNhOwLvgbMsbfxRx3v; Fri, 30 Oct 2026 19:49:43 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id MsbexHuukQfwNMsbfxpra6; Fri, 30 Oct 2026 19:49:43 +0000
+X-Authority-Analysis: v=2.4 cv=bfprUPPB c=1 sm=1 tr=0 ts=6ae4f4d7
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=M0FbrtG7MMAA:10 a=EUspDBNiAAAA:8
+ a=yaG995DJD8wxKFCFxIQA:9 a=CjuIK1q_8ugA:10 a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
+	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=tGRSe9LvYJDXqnyp9hHRUXYwQf0o1AOnoi+Z+9njJw0=; b=IokEpGXrQD0n5OejTKC1338Lv7
+	nB2qbLUNlHV5stnP9rXGgDLsrG1BzzezifwGK+1Puq504s+/CK+qQZeSYHUy+fWe6vTpXRoNLCcG+
+	xvj3fW0MOJ4Nzk1pmdgFcsYZ+Y7Q0K25aG5ngASEqC8zCK+3rmRE4ZqwKU0PVdKMHaqK+/Tcy7JVE
+	KY7aoSpK4cWkeF0Qp5vCUmFXS84V+Ti3rKMhaw3CjyFBic+m/0+8CJAZmJkRiKE+zLuQv7G6Q29R3
+	MG6D1JOrDScGhEV5WilZ+4rKPqslkRjJgFrVsJqNU3FmWJw5kITj11QQJk1KvoCLL1e7dmb7RY0D0
+	PrjC/Iog==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:56876 helo=server.roeck-us.net)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xMsbc-00000003tp5-2F1r;
+	Sat, 31 Oct 2026 01:19:40 +0530
+Date: Fri, 30 Oct 2026 12:49:38 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Yureka Lilian <yureka@cyberchaos.dev>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hector Martin <marcan@marcan.st>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Sasha Finkelstein <k@chaosmail.tech>,
+	Linus Walleij <linusw@kernel.org>,
+	Mark Kettenis <kettenis@openbsd.org>,
+	Andi Shyti <andi.shyti@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org
+Subject: Re: [PATCH 01/10] dt-bindings: watchdog: apple,wdt: Add t8142
+ compatible
+Message-ID: <ee5a1127-1591-4720-ab34-896c1f037276@roeck-us.net>
+References: <20261027-apple-m5-initial-devicetrees-v1-0-1356181bc50d@cyberchaos.dev>
+ <20261027-apple-m5-initial-devicetrees-v1-1-1356181bc50d@cyberchaos.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261027-apple-m5-initial-devicetrees-v1-1-1356181bc50d@cyberchaos.dev>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xMsbc-00000003tp5-2F1r
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:56876
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 55
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfCehYudIS1QOQTuN9yH2HSvewpbRpF8VsNTSE6AUQtxwGyJUIxJnk/CJw+F41+bJ4ckMYe/S8g44jskQ+CfbksQ3oOXJQRuM2sw/Ejm8mKCHtE/wvo+O
+ 8Le540id4s8tI9O5cQHh0Qa9hr+pcrdqiEIyTIeweJGvMAeTSHz2Ly+qonby2s2zHzmNwps8jqSz19l+5g+wPfq1NNp2x/+yteMbbNuK2ISrn6yjRf40ze/N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_123331_053025_CE275129 
-X-CRM114-Status: GOOD (  15.41  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_124955_603603_7FAC5664 
+X-CRM114-Status: UNSURE (   4.55  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.1 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,61 +123,22 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, 2026-10-30 at 11:22 +0100, Maxime Chevallier wrote:
-> The Multi-MSI interrupt handler doesn't clear the DMA error
-> interrupts,
-> and this leads to interrupt storms when one of these interrupts
-> starts
-> firing :
->=20
-> =C2=A0- The RBU (rx buff unav) which triggers under high traffic load
->=20
-> =C2=A0=C2=A0 This triggers easily with iperf3 and small udp packets, and =
-shows
-> =C2=A0=C2=A0 when running the netpoll kselftest
->=20
-> =C2=A0- The RPS (rx process stop) which triggers when we stop the DMA RX.
->=20
-> =C2=A0=C2=A0 This one shows when restarting the RX logic without doing a
-> down/up
-> =C2=A0=C2=A0 cycle, like when attaching an XDP program. The XSK kselftest=
-s
-> =C2=A0=C2=A0 triggers it.
->=20
-> Let's make sure we clear these interrupts for multi-MSI cases. It's
-> already properly done for the single-chan interrupt, and for that
-> introduce an "ERR" DMA dir, as we don't want to touch the RI/TI bits
-> when handling these interrupts.
->=20
-> To avoid duplication, the DMA TX error handling is factored out in a
-> dedicated helper (in the same commit to ease backporting).
->=20
-> Both of the above storms have been found on dwmac-motorcomm (YT8601),
-> and are triggered by the xdp.py, xsk_reconfig.py, xdp_features.py,
-> ring_reconfig.py and netpoll_basic kernel selftests.
->=20
-> This seems to only affect dwmac4, there's no multi-msi mode on
-> dwmac1000, and on dwxgmac these interrupts are masked as of today.
->=20
-> Fixes: 6ccf12ae111e ("net: stmmac: use interrupt mode INTM=3D1 for
-> multi-MSI")
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
+On Tue, Oct 27, 2026 at 09:03:21AM +0100, Yureka Lilian wrote:
+> The watchdog on the Apple t8142 (M5) SoC is compatible with the M1-M4
+> SoCs. Add "apple,t8142-wdt" as SoC specific compatible.
+> 
+> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-> [..,]
+Applied.
 
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-
-thanks,
-Nicolai
-
---=20
-Nicolai Buchwitz <nb@tipi-net.de>
+Thanks,
+Guenter
 
