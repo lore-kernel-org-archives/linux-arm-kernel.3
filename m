@@ -2,149 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D82EC606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 09:54:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3D55606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:01:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ix6zotss;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=lP7SbQny
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TnviMHTY;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=X+w4kQtA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/+gPCWzIAdsVPYkrizOXOeMwNsWbBjc3l8QYVxshcrI=; b=Ix6zotsstWt03l7wUPUA2WpeKr
-	QyK8yZn7lYaYTTrfm9Mb+l+Q78Gr5ba4QD4phmuw/lQXU3N+9m0/8MVvalLLUYPEA+43iwOlW3Rkl
-	yJI+qMNP0/xsAbWZ6EiW1FjJFKZDQY11kQFre3q3iA8R1pmc5q1lqY97D7lCmdEFrYqhE8U8TPFc7
-	62ub37ywslJofs2ZXcidGC4NlKONs6DL1JMm8+rXbDISsEK2/DzctcUGKdJXwrzmH0Jxr2R1pU/kK
-	/jWvjIjJtLM4oz8i2X5CR44esNtSjSib47UELvUHwG5QuYW5BZYZy4rY+j6F8ByNQ7uBegeLtzfbO
-	AJsoDItA==;
+	bh=vbB1PXZ8iofBpMV+/vOpPqAHgjVf96svSHPsdRMK9m8=; b=TnviMHTY9XW5zyDMY/g19tzLUo
+	iPJS60QHJKl+BkznsOY/C99tN1hdx7mTLvybpwhXO2pJp8g8nGmaL83HONHixG6LiuwCI1tRZL8TO
+	IiIHzac15XjSuyV4s0uO9ZGl4W2JbJzP2nL34pMaWRD7gDULVwMUBVSNzwHcaF/LJgKLSBL+nuyrn
+	nN3EyTuvFhtwTxfzZdzyLp/F2/5ZC7lcUecgxiE/UQvMSh+tmv91VPRkSkfHIxc7GrD94WlppcJwK
+	x9z+CVsKXlV+zTktq92B70ytuK4EUYKxQ1pDB9UKL530LRC4RUDB2tEOxC8njl02U/6pQR8AN2LhK
+	KCZhOREg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjJp-0000000BKB9-2ygl;
-	Fri, 30 Oct 2026 09:54:41 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xMjPq-0000000BLAT-27IW;
+	Fri, 30 Oct 2026 10:00:54 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjJc-0000000BJvb-3rgf
+	id 1xMjPn-0000000BL9Z-2Tue
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 09:54:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VTMxak900MbCK15ROzAvtUVpW3Cgw07/M5h80b2nqMwM5C/h0BtS3nL4GI8iMBbfrMPGBkMoymT8wVhzwJUXc9HK6BvaeuOIQKBzNUIVRpZ3IjxvIAUoI9NhxxMI0LBnR9tqdk9hpgTB7MGgWgYGueW0G34V3zu/ojmiW8u7RewL/de73/HH7CEki2rCwcGK3kCaaOf59JcwuubvX8+PANZmwFv0eyKGTGXLoU/bntUr0mjW5MupKWi++Mt7btMd9NzaQLdXzEtSrB5TJernSxbKrCXTz2PXEcLJM3PDEl2j5kSYs1wRmuC7bI2zmNIwd0oJTQV2vbn1CHM4Cxjspg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/+gPCWzIAdsVPYkrizOXOeMwNsWbBjc3l8QYVxshcrI=;
- b=IX7sTrDp39U/PBz9xSA8wzb7zkwrZn79fSpYQF7yt0wogRJK2tU/EiYq05goN5W11L9UR1RYD1NSZWpcEBTHiOHTPzl6RO3RZbQr43Oi0kIjqZMm0Ub4fffkIBfxNnGCAh8b0fvDBofWbYow5cddnRWosdzAj7m8WwdEfeE9OvR7pxRl7OVOV0v9CB/iNLphyJiKzIjMJ+kmnDRaHGtzjxbnybgiPueMtNqeRpxCsrvlRSdgXQoBUlFZM5pGs3w+idHosTQ9tC/qfeb5FCT1rz3MzqKqmtySTMANgCfkDT6eObQSJ+ISRkSbt//AGfpJHSa2qI4vSmLaI4sEtL099w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/+gPCWzIAdsVPYkrizOXOeMwNsWbBjc3l8QYVxshcrI=;
- b=lP7SbQnyqVyUcZJSjBRtWzwqYkYC5aZg/Ih5wPnreyoiATZ4o7tYJWUOcZyQiP1xJKYkYpNgfD4iHCZ0Q8P1U7V13RctVFLPaipad9i0XSttRz09pB8eAD43cTFR5wRNt3VJG3YV69opRrJQoYZ+34Ni0DSBJLYkdMeYzqS8y8kbpC88uXwQNUeCrmr/s4IHqWoxsUVs47VjHTW/uWN2JVfNWHlsmJXEY+A/Us/dRYUvIL+41aSnmAzpTEvAM3dVIPFzzljX/fWP23yTPEsq8Vrt3GibMq3ksoBZsu2gnQlmuNfHwE3k5rNKeyboX9vgCAFEs9Re/4k/3bVLEoIqhQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
- by AM9PR04MB7537.eurprd04.prod.outlook.com (2603:10a6:20b:282::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.9; Fri, 30 Oct
- 2026 09:54:23 +0000
-Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
- ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
- ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0569.009; Fri, 30 Oct 2026
- 09:54:23 +0000
-From: Liu Ying <victor.liu@nxp.com>
-Date: Fri, 30 Oct 2026 17:54:38 +0800
-Subject: [PATCH v8 14/15] drm/imx: dc-fu: Get DPR channel
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261030-imx8-dc-prefetch-v8-14-c4f81afd4533@nxp.com>
-References: <20261030-imx8-dc-prefetch-v8-0-c4f81afd4533@nxp.com>
-In-Reply-To: <20261030-imx8-dc-prefetch-v8-0-c4f81afd4533@nxp.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@mailbox.org>, 
- Alexander Stein <alexander.stein@ew.tq-group.com>, 
- Liu Ying <victor.liu@nxp.com>, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.15.2
-X-ClientProxiedBy: TYCP286CA0313.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:38b::8) To MI9PR04MB350878.eurprd04.prod.outlook.com
- (2603:10a6:290:c0::7)
+	Fri, 30 Oct 2026 10:00:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793354452; x=1824890452;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=HaKzP3810qJc116puiQADiUuz5O1FIDoNR4g6mlq8v8=;
+  b=X+w4kQtAHzwUmUe9+PBTLaadCKAB6MctNGUe1PLHbgfZ7ym8YRw9cZVy
+   1/96bt8pQkJqeK+WQEx83EnKwZYd3mA1D58vvMoLv837sLzzdJgr5HUo5
+   rlQAcWzvwQdqvDa5EBjcAk1HL53pHSgWOMJoMBeeQ3Be1hRXoFZWiNObd
+   wwRFqZUc4JUDEp23Y6fFh7AKcmlrYKkGcQT9FS/wKszqIc0CErz/n/yie
+   4Tz/fBA0fSwm1SueJohHZaGWXmFIBY09EMr6uC990nqnDCe3lUiaPFS5C
+   kwk4NNb4DCEMUdd/xeopsqh+NUq7ejsPze+ky1a2GMGh/EhKeTyjhfuk1
+   Q==;
+X-CSE-ConnectionGUID: BZQsn8z+S4ujIzQvTJ472Q==
+X-CSE-MsgGUID: hTijJ5uLTkuudxq/PcxwMg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11950"; a="2001667"
+X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
+   d="scan'208";a="2001667"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 03:00:48 -0700
+X-CSE-ConnectionGUID: 9X1qCIjjSt+PfUy51gRjaw==
+X-CSE-MsgGUID: FummiFHNSVWXyiswHYi6ow==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
+   d="scan'208";a="5521270"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.32])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 03:00:44 -0700
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Fri, 30 Oct 2026 12:00:41 +0200 (EET)
+To: James Hilliard <james.hilliard1@gmail.com>
+cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+    Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+    Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
+    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+    Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+    Jernej Skrabec <jernej.skrabec@gmail.com>, 
+    Samuel Holland <samuel@sholland.org>, LKML <linux-kernel@vger.kernel.org>, 
+    linux-serial <linux-serial@vger.kernel.org>, devicetree@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v5 7/8] serial: 8250_dw: discover Allwinner A523 FIFO
+ depths through FCC
+In-Reply-To: <20261029-submit-h616-uart-fifo-v1-v5-7-53b433aebbf8@gmail.com>
+Message-ID: <6499d93e-c6e3-7bfe-b717-a2e032137e1a@linux.intel.com>
+References: <20261029-submit-h616-uart-fifo-v1-v5-0-53b433aebbf8@gmail.com> <20261029-submit-h616-uart-fifo-v1-v5-7-53b433aebbf8@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|AM9PR04MB7537:EE_
-X-MS-Office365-Filtering-Correlation-Id: b00d935c-ad63-48d7-93d0-08df366bc6a0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|7416014|1800799024|366016|22082099003|18002099003|921020|56012099006|11063799006|261026140227099003|261028144727099003|10067099003|261021123027099003|261021121427099003|261022105027099003|261009223027099003|260925022911599003|260925021911599003|260925021311599003;
-X-Microsoft-Antispam-Message-Info: biWw8PVhS4Ayrki+uSFzYZTNW8TTWeXAyVSCt9q46XU3BBi4zIEsi4fj59qSuhgUxa3/DFwqIYryBWhhI40iCATx/kbEKrIR5tnEw07ObjwSoSORtHbpCU6BoefFpJZKq+Jzxkdg9eV2LnXIHvLwsaEA60l6zRkAwJXADahcJVp3ASC8H6GEq6jLvxc9LURAUso+AkD3hvWyx6LkXvk3C8W53JXjG32Py1wpqtU8IrX6oeGXN7MZz2U33lcyxBZXECZaGCQbMh4otHOX09TmOGdpEEBbvD0HV/tAPhiEQNBrcaMTtKAPZkuWOzawIFLnLWRk0bVo7dZntpKUqVJmRfIzIBQMgtB4X78jKB1nqXcmIwzraoXrJsfEV0oqllegqEUwJ7SDVhUdo9eRAnEGZTtm21jdk91LN4tnAiHXwsSuoCEGPioRyrQ0/zSQ5qiG81Zf4CVQ8CLx8AarHO/TlSHsk0ze7AWuJWIJU1JpLktJHm+5Bfz2p9ZqS+TH9Sneif6DzWLGGm0yvzC6b/uBAPl6CZt8lANfO2KeQMKW4AkSuJLnKcwEeox13jUg+w411kAhZ725GxY8KdAyZBRm7ptbpqzzNw3rbqPHpGNJJ73y7i5Zb8jq21bGKsy0pqVKK3BFT0Vd+NzWotjfJZMOhBdNJvk9dr0mnrkzr+U4+lPrGRevKQEESBR58cOt8HZYf1ThEJoTTGk1EDqsOEqu3A==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(7416014)(1800799024)(366016)(22082099003)(18002099003)(921020)(56012099006)(11063799006)(261026140227099003)(261028144727099003)(10067099003)(261021123027099003)(261021121427099003)(261022105027099003)(261009223027099003)(260925022911599003)(260925021911599003)(260925021311599003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TzNJTGVjZTRpbGVUT0M0dFdua0lrUk1xVHAweER6YWRmRkNWeTMxMW1QR0pT?=
- =?utf-8?B?ZUd4WU9kS2pCSjl1ZGJKU0x6VEd6YkNDRmd5QVc5SVd6bkV3TUpsOXdUUzdt?=
- =?utf-8?B?OVF0RW9zWUs4VjBHQkhvQjEzdHBKNVExbGVveUVxYUt1YTFqYmV4ajFuRWpx?=
- =?utf-8?B?NVc5ejNVOFI2VnV1TlNzMHBBbFUwNUducWxrVXVsNndwUzZLMFF5SElSWlMz?=
- =?utf-8?B?dmRYeHJIQktYNzcvekFmWmZ3K0ZUamh5K09CemMrTEQ4TjB3UmtHWnZPalJk?=
- =?utf-8?B?ZVZuaEhjWmxKRjRkSGVOcVA4Slk3ckpaRU8xeE1uaEk0TUg0RVVyNVg3Ry9m?=
- =?utf-8?B?eWFDMEZMT051OUJtMzNvcnIvZy9BTHJMR1gvRy8zM3ZWSzdJUFFlcGxNME0x?=
- =?utf-8?B?T0lBaVFxOEg5NkxPZGF1QWZRakwwWVhwY21TWVViamwwd2Jma0huR1pUbVdR?=
- =?utf-8?B?angzbWpMYUZ5RnlWVFhTU3ErUGFSMGltSjZ5N21abUM0TEhjRXdjby9JZTNu?=
- =?utf-8?B?YkNZd2s4TFJpQXJ6V2V1bm1EbFBvOTUxRTVqMnFhNE84V0lkQUJJOVRoUDFK?=
- =?utf-8?B?WmNPUHorRUdvazhnR1dsVkFmVXovcGMvR2ptNld5cDhMT1VaTTNtOW10ZVA5?=
- =?utf-8?B?VzRwV2pyeDRtamNtNXovdmlhNzRETndRZnhvTTJGQ2J1dGt0UUh3Q3BPUm8v?=
- =?utf-8?B?YTJMaDd1VHlLbjlQNEJUVWVwbDhrSHJEUVpjRE50VEV5eSt0UmRmS1B0bzFu?=
- =?utf-8?B?eUVhQjZ3SEZ2V01HQXdIVWdkU2RNZG1rOHA5ZXI0dGgyOXREaFFzTVNyOE1P?=
- =?utf-8?B?QS9ZSzVaWnUrZGVqTCtOSTQxZ1ZBMnJXa2MxSXVVZ0lDWTFxOFltMzd5WmxQ?=
- =?utf-8?B?NmJHRXJYTnA0ZHJOUmhZZ0RBMkFqUjBqYzE1a24rYzYrdmJrZFVseTIxSi9U?=
- =?utf-8?B?ZGtsYTM1NUQvN3BWY1ZRMFRpTEJTUlVkdEZSSVQ2bk4xN0hEdDhMWVJCQnM4?=
- =?utf-8?B?YjFNUEcvVmx0NkQvaUdsR0xCSENiSUFzeGczbFVwQm9aMGh2d1FVSmNpWXh6?=
- =?utf-8?B?L2xjOC9GeTFEMmU3RnZYUG5ySVZnR2xrdy9WSnJ2UzRhYjUwckJXVXY3djNJ?=
- =?utf-8?B?NGtyMVNseGM5SFlnMWM2YnlCT1MvY2VmK0kzejkyWEFUZlFZbXgzbGdaSVVq?=
- =?utf-8?B?TTdFSzZoZ283Yy9WTGVjUnF5V0ljcEFibzQ2b1c2VWtIVFZ0M3AwMnAyZG9x?=
- =?utf-8?B?RkJ1eEpxeldRVWNKdW5LUldiVXR6aG16S1lXamJrdWNESkVDWlRuUkRPTTR1?=
- =?utf-8?B?ZkUyNGhEQkw3azRnQWRla0gzQ2ZpMitNM3pGMC9IcDZMUFFZbytOek9kWHRt?=
- =?utf-8?B?ZjU3VVgrb0pmUi9melBiZUx2Z3JpLzBRS3JFRk1NVXNSL2dDWWUxMW54ZkJj?=
- =?utf-8?B?VU9PYVo5MDE5TlJZWjNMOUNwYzB0SkhIVlBrUWdvWXB4M2FJRUVOYlZScDYz?=
- =?utf-8?B?TlRqTmFuTkw4eHI4b3lDbk8zZEZWVnduQWtUWHBFVzhwYVhpYnpHNnR3cmlV?=
- =?utf-8?B?V1JGeW5JQStyWURNWTNnV1VpMll6ZE0yR1N2Z2ttTjFUbnU5a3RWZ1RDQzhK?=
- =?utf-8?B?bGVDTm0wTlI3QUt5V2RMOTFPS0lEVkt1VjZrKzNrV1dzMEk0K2lkdWU1WEIw?=
- =?utf-8?B?UE10UXV6bm94QmlPemE5cnRueGk3Y3lBTFU0TGlZeU1Ud2Frd3E0Y3RmRFZP?=
- =?utf-8?B?cTZCd2I5YmRPbC9wTm9jZVpCYm1qWTJJQzRaano5ZURRYXBjNUU5Tjg5Tnlu?=
- =?utf-8?B?N2hlejVPd0toc2dPUnZTODI2Qk5hWjc1Q0d0NWY0bFVSTlE2ZDNyeWJrNllq?=
- =?utf-8?B?UDZiQlkrdEdhZUNqNzdSa2J2RGhCbkFHL2JFSkxSQjltRjI3OGZQck9GL0tu?=
- =?utf-8?B?WmNOZ3RYYzNEOEliUkp6a0lQWlhwd2dlT1VlQXhJOTNTeUlldzFqakxZM2Mr?=
- =?utf-8?B?cGFBUWJTd3gxOGh1NHFMd3MvSUwzV2lXNlYvUHczaXFvV0hYOXhoTDUxaDVM?=
- =?utf-8?B?bnZhaUhSUHNYbUpWbld1ZlYxL2lwd0xRQnduT1I1cWFmVzNpcllRSzlZaE9i?=
- =?utf-8?B?T2x5UTlTd3N0RnZFM2xSTE9CUkhTZ2x0OG1DQ1dabHhoZkJKRXY3bDdWSGR4?=
- =?utf-8?B?Ym43dEJGeUxNK2RtcU1pVHpvZ05JY0EvQU9BUGg4QVlVMFBlVlFzdlNrcHh2?=
- =?utf-8?B?eUNQV0dmMWlOd0VHTTNyRWpJbzZZKzhiQmJTTkJ0bmdkZ0dTY0NKNEwzNWt3?=
- =?utf-8?B?UFFoOGFhSHNPUGFlOHBPNzdLcVhSYk0rWHJ1WnBYYjlSak1DV3lZdz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b00d935c-ad63-48d7-93d0-08df366bc6a0
-X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 09:54:23.4587
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DzQLqOdFevnRJtaeR9Gd+o6j/a0yanJSpaJOZXCyiMdFtn8MObKodLW+Mhc2HpXuG3aQngtggkXsTb6bHBuTEw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7537
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_025428_998871_8A6F07CD 
-X-CRM114-Status: GOOD (  16.88  )
-X-Spam-Score: -1.1 (-)
+X-CRM114-CacheID: sfid-20261030_030051_678923_0A36A050 
+X-CRM114-Status: GOOD (  27.63  )
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,171 +90,132 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add a helper dc_fu_get_dprc() to get DPR channel for FetchUnit.
-And, call it from dc_{fl,fw)_bind() to get DPR channels for
-FetchLayer and FetchWarp.
+On Thu, 29 Oct 2026, James Hilliard wrote:
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Acked-by: Maxime Ripard <mripard@kernel.org>
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
----
-v7:
-- Collect Maxime's A-b tag.
-- Call dc_dprc_get() in dc_fu_get_dprc() to create a device link between
-  consumer FetchUnit and supplier DPRC to avoid potential UAF when
-  accessing fu->dprc.  (Sashiko AI bot)
+> The A523 UART integration, also used by A527 and T527, has 64-byte FIFOs
+> on UART0 and 128-byte FIFOs on UART1 through UART7. Each controller reports
+> its TX/RX FIFO depth in bits 31:8 of the FIFO Clock Control register at
+> offset 0xf0. The field holds a byte count, not a logarithmic encoding.
+> 
+> Read this field in the sunxi setup callback when platform data does not
+> provide a fixed FIFO size. A fixed size takes precedence, so H616 retains
+> its 256-byte configuration without accessing FCC. The probe has already
+> enabled the clocks and deasserted reset before invoking the callback.
+> Leave the FIFO clock-control bits untouched.
+> 
+> Validate the depth before generating the RX trigger table or setting the
+> transmit load. The quarter-full threshold must be positive and the
+> FIFO-depth-minus-two threshold must fit in the byte-sized table and RX
+> trigger API. Report an invalid depth and fail probe instead of generating
+> zero or truncated thresholds.
+> 
+> Select this setup for the A523 compatible. Derive the transmit load and
+> RX threshold table from the discovered depth using the common sunxi
+> helpers. This handles the different FIFO sizes with one compatible and
+> one receive-trigger mapping.
+> 
+> Like H616, this integration has Allwinner-specific debug-divisor and
+> RS485 registers overlapping the generic DesignWare feature probes. Use
+> the common sunxi PIO setup, BUSY-safe integer divisor programming and
+> software RS485 handling. Keep the APB clock gate enabled during termios
+> updates with SKIP_SET_RATE.
+> 
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> ---
+>  drivers/tty/serial/8250/8250_dw.c | 23 +++++++++++++++++++++++
+>  1 file changed, 23 insertions(+)
+> 
+> diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
+> index 3bc6735fc253..2ab91f479fc6 100644
+> --- a/drivers/tty/serial/8250/8250_dw.c
+> +++ b/drivers/tty/serial/8250/8250_dw.c
+> @@ -17,6 +17,7 @@
+>  #include <linux/device.h>
+>  #include <linux/err.h>
+>  #include <linux/io.h>
+> +#include <linux/limits.h>
+>  #include <linux/lockdep.h>
+>  #include <linux/module.h>
+>  #include <linux/mutex.h>
+> @@ -45,6 +46,10 @@
+>  #define RZN1_UART_xDMACR_8_WORD_BURST	(2 << 1)
+>  #define RZN1_UART_xDMACR_BLK_SZ(x)	((x) << 3)
+>  
+> +/* Allwinner FIFO Clock Control register */
+> +#define SUNXI_UART_FCC			0xf0
+> +#define SUNXI_UART_FCC_FIFO_DEPTH		GENMASK(31, 8)
+> +
+>  /* Quirks */
+>  #define DW_UART_QUIRK_OCTEON		BIT(0)
+>  #define DW_UART_QUIRK_ARMADA_38X	BIT(1)
+> @@ -64,6 +69,7 @@
+>  struct dw8250_platform_data {
+>  	u8 usr_reg;
+>  	u32 cpr_value;
+> +	/* Fixed sunxi FIFO depth; zero selects discovery through FCC */
 
-v2:
-- Collect Frank's R-b tag.
----
- drivers/gpu/drm/imx/dc/dc-fl.c |  7 ++++++-
- drivers/gpu/drm/imx/dc/dc-fu.c | 25 +++++++++++++++++++++++++
- drivers/gpu/drm/imx/dc/dc-fu.h |  5 +++++
- drivers/gpu/drm/imx/dc/dc-fw.c |  7 ++++++-
- 4 files changed, 42 insertions(+), 2 deletions(-)
+Please generalize the wording by removing sunxi, it might true today but 
+as more drivers start to use it, then the comment gets obsoleted by the 
+code additions.
 
-diff --git a/drivers/gpu/drm/imx/dc/dc-fl.c b/drivers/gpu/drm/imx/dc/dc-fl.c
-index 9f03df44a63a..f7b8c4909c80 100644
---- a/drivers/gpu/drm/imx/dc/dc-fl.c
-+++ b/drivers/gpu/drm/imx/dc/dc-fl.c
-@@ -100,13 +100,18 @@ static int dc_fl_bind(struct device *dev, struct device *master, void *data)
- 	void __iomem *base_cfg;
- 	struct dc_fl *fl;
- 	struct dc_fu *fu;
--	int i, id;
-+	int ret, i, id;
- 
- 	fl = devm_kzalloc(dev, sizeof(*fl), GFP_KERNEL);
- 	if (!fl)
- 		return -ENOMEM;
- 
- 	fu = &fl->fu;
-+	fu->dev = dev;
-+
-+	ret = dc_fu_get_dprc(fu);
-+	if (ret)
-+		return ret;
- 
- 	res_pec = platform_get_resource(pdev, IORESOURCE_MEM, 0);
- 
-diff --git a/drivers/gpu/drm/imx/dc/dc-fu.c b/drivers/gpu/drm/imx/dc/dc-fu.c
-index 2e197b3344bd..d9933218069c 100644
---- a/drivers/gpu/drm/imx/dc/dc-fu.c
-+++ b/drivers/gpu/drm/imx/dc/dc-fu.c
-@@ -8,8 +8,10 @@
- #include <linux/bits.h>
- #include <linux/math.h>
- 
-+#include "dc-dprc.h"
- #include "dc-fu.h"
- #include "dc-pe.h"
-+#include "dc-prg.h"
- 
- /* STATICCONTROL */
- #define SHDLDREQSTICKY_MASK		GENMASK(31, 24)
-@@ -256,3 +258,26 @@ void dc_fu_common_hw_init(struct dc_fu *fu)
- 		dc_fu_set_pixel_blend_mode(fu, i);
- 	}
- }
-+
-+int dc_fu_get_dprc(struct dc_fu *fu)
-+{
-+	struct dc_dprc *dprc;
-+	struct dc_prg *prg;
-+
-+	prg = dc_prg_lookup_by_phandle(fu->dev, "fsl,prg", 0);
-+	if (!prg)
-+		return dev_err_probe(fu->dev, -EPROBE_DEFER,
-+				     "failed to lookup PRG\n");
-+
-+	dprc = dc_prg_get_dprc(prg);
-+	if (!dprc)
-+		return dev_err_probe(fu->dev, -EPROBE_DEFER,
-+				     "failed to get DPR channel from PRG\n");
-+
-+	fu->dprc = dc_dprc_get(fu->dev, dprc);
-+	if (!fu->dprc)
-+		return dev_err_probe(fu->dev, -EPROBE_DEFER,
-+				     "failed to get DPR channel\n");
-+
-+	return 0;
-+}
-diff --git a/drivers/gpu/drm/imx/dc/dc-fu.h b/drivers/gpu/drm/imx/dc/dc-fu.h
-index cc93317e3001..9fbd7aadd264 100644
---- a/drivers/gpu/drm/imx/dc/dc-fu.h
-+++ b/drivers/gpu/drm/imx/dc/dc-fu.h
-@@ -8,11 +8,13 @@
- 
- #include <linux/bitfield.h>
- #include <linux/bits.h>
-+#include <linux/device.h>
- #include <linux/regmap.h>
- #include <linux/types.h>
- 
- #include <drm/drm_fourcc.h>
- 
-+#include "dc-dprc.h"
- #include "dc-pe.h"
- 
- #define FRAC_OFFSET			0x28
-@@ -99,6 +101,7 @@ struct dc_fu_ops {
- };
- 
- struct dc_fu {
-+	struct device *dev;
- 	struct regmap *reg_pec;
- 	struct regmap *reg_cfg;
- 	char name[21];
-@@ -114,6 +117,7 @@ struct dc_fu {
- 	enum dc_link_id link_id;
- 	struct dc_fu_ops ops;
- 	struct dc_lb *lb;
-+	struct dc_dprc *dprc;
- };
- 
- extern const struct dc_fu_ops dc_fu_common_ops;
-@@ -123,6 +127,7 @@ void dc_fu_get_pixel_format_shifts(struct dc_fu *fu, u32 format, u32 *shifts);
- void dc_fu_shdldreq_sticky(struct dc_fu *fu, u8 layer_mask);
- void dc_fu_set_src_bpp(struct dc_fu *fu, enum dc_fu_frac frac, unsigned int bpp);
- void dc_fu_common_hw_init(struct dc_fu *fu);
-+int dc_fu_get_dprc(struct dc_fu *fu);
- 
- const struct dc_fu_ops *dc_fu_get_ops(struct dc_fu *fu);
- 
-diff --git a/drivers/gpu/drm/imx/dc/dc-fw.c b/drivers/gpu/drm/imx/dc/dc-fw.c
-index 14512c01ea78..030970d4f987 100644
---- a/drivers/gpu/drm/imx/dc/dc-fw.c
-+++ b/drivers/gpu/drm/imx/dc/dc-fw.c
-@@ -130,13 +130,18 @@ static int dc_fw_bind(struct device *dev, struct device *master, void *data)
- 	void __iomem *base_cfg;
- 	struct dc_fw *fw;
- 	struct dc_fu *fu;
--	int i, id;
-+	int ret, i, id;
- 
- 	fw = devm_kzalloc(dev, sizeof(*fw), GFP_KERNEL);
- 	if (!fw)
- 		return -ENOMEM;
- 
- 	fu = &fw->fu;
-+	fu->dev = dev;
-+
-+	ret = dc_fu_get_dprc(fu);
-+	if (ret)
-+		return ret;
- 
- 	base_pec = devm_platform_get_and_ioremap_resource(pdev, 0, &res_pec);
- 	if (IS_ERR(base_pec))
+>  	unsigned int fifo_size;
+>  	unsigned int quirks;
+>  	int (*setup)(struct uart_port *p);
+> @@ -729,6 +735,16 @@ static int dw8250_sunxi_setup(struct uart_port *p)
+>  	p->type = PORT_16550A;
+>  	p->flags |= UPF_FIXED_TYPE;
+>  	p->fifosize = data->pdata->fifo_size;
+> +	if (!p->fifosize) {
+> +		u32 fcc = dw8250_readl_ext(p, SUNXI_UART_FCC);
+> +
+> +		p->fifosize = FIELD_GET(SUNXI_UART_FCC_FIFO_DEPTH, fcc);
+> +	}
+> +	/* The RX trigger table must contain positive, byte-sized thresholds */
+> +	if (p->fifosize < 4 || p->fifosize - 2 > U8_MAX)
+
+As is, these checks are hard to understand / connect to why.
+
+It would make this more obvious if you'd name those literals so they'd 
+connect to the FCR side code (naming should be done already in the FCR 
+patch, obviously).
+
+> +		return dev_err_probe(p->dev, -EINVAL,
+> +				     "invalid FIFO size %u\n", p->fifosize);
+> +
+>  	up->capabilities = UART_CAP_FIFO | UART_CAP_NOTEMT | UART_CAP_AFE;
+>  
+>  	dw8250_sunxi_setup_rxtrig(p);
+> @@ -972,6 +988,12 @@ static const struct dw8250_platform_data dw8250_h616_data = {
+>  	.setup = dw8250_sunxi_setup,
+>  };
+>  
+> +static const struct dw8250_platform_data dw8250_a523_data = {
+> +	.usr_reg = DW_UART_USR,
+> +	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
+> +	.setup = dw8250_sunxi_setup,
+> +};
+> +
+>  static const struct dw8250_platform_data dw8250_octeon_3860_data = {
+>  	.usr_reg = OCTEON_UART_USR,
+>  	.quirks = DW_UART_QUIRK_OCTEON,
+> @@ -1024,6 +1046,7 @@ static const struct dw8250_platform_data dw8250_tda54 = {
+>  static const struct of_device_id dw8250_of_match[] = {
+>  	{ .compatible = "snps,dw-apb-uart", .data = &dw8250_dw_apb },
+>  	{ .compatible = "allwinner,sun50i-h616-uart", .data = &dw8250_h616_data },
+> +	{ .compatible = "allwinner,sun55i-a523-uart", .data = &dw8250_a523_data },
+>  	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
+>  	{ .compatible = "marvell,armada-38x-uart", .data = &dw8250_armada_38x_data },
+>  	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
+> 
+> 
 
 -- 
-2.43.0
-
+ i.
 
