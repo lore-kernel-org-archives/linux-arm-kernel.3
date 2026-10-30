@@ -2,90 +2,112 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 733F3606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 18:02:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5ACF2606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 18:02:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EcEcuRRu;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=jCwZPf+Y
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Kviaed6V;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cdjlzgza
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
+	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=9gfQkCnTfkug6p4HXHCVXaX3Q+suBlhnBegGYXjv1IY=; b=EcEcuRRugM+aY+1UOkMelrh/KE
-	ktVA8BbbrfOZVS84N2PGGU1idMLMLnjJWWxJ6Vgkt1TjiI3h0z43l67iM4Wrd20KaY4Q2huoqsBss
-	StoXs1xl39e5IKpeOUo94oBPEbuz1m+V4+k89m9vQhGIU7SfpnwgwKahQXNH16EgsEQmK6IpDXeB5
-	7awcpnNCAEBSvGIlUchksngpBMzlYcdo9kDDBFGa9jlptj9b8i+qKMam1f0n4+UwpTm9u2hipQ02u
-	OSBgmmajpkWG3OlVuaoU6pk1C3KnWQX1Snx7bLPGm5KmiR0agj2xhrDHpKIfK+0d/Ed4MptNdvrmU
-	/2GycvMg==;
+	bh=r3mesjXZpMq/QbEmw5EflPGX4n+VcT5zdLRzDbA874g=; b=Kviaed6V4dOZmmlzY9F9O43Ppz
+	z8TvJreFBeP/OFo2quClijrkrn8XBOBOdxCN8OramsKICmHUeKzPIYSrP23EWLxrpNSAiWxHVZ5fz
+	CqlxkpJH3Iywm3RHZ4pRLXeTE02jLh8L0ZuxaDbEhfuzfkdUw8uhbu61QrW60tHuPwdGAejICSb1/
+	mrExF2N5gf8fJpK+BmOY5nDECYZfDNrrh5XSH2JcRiZpIQ/gB6/w1qj1oVuD8sMOTJiVAF4CCzJvc
+	OzP5PfLcPzRO1d4zNaXTyjw9awqKOgLkRZdiGRZoMZJE9Aexu5n+UtEvSawTt0X3jdEqf3+2RdX4w
+	rSrW2z0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqvU-0000000CLOz-3YsO;
-	Fri, 30 Oct 2026 18:02:04 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xMqve-0000000CLSR-0mas;
+	Fri, 30 Oct 2026 18:02:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqvR-0000000CLOB-0llM;
-	Fri, 30 Oct 2026 18:02:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=9gfQkCnTfkug6p4HXHCVXaX3Q+suBlhnBegGYXjv1IY=; b=jCwZPf+YIAUctffkKF7pw1WOTQ
-	CqyoI3bprXm02g6eVWMZAP2o9CQVig+ZDJuoNwBP1DxIkVbxMu2P/p4tXuxMKYc4Ct92k59PUjQcu
-	p9M0fxe+NKOPyBTiu4qZ2BMXCD5QeYqAOL4k5RyLDO01SzgGowPpWRasZrVz0wa/3JwDJ69OQ5HjO
-	4UM6+54lKVKYP6PTNYFyIhj0lDGZ7WeJFcJ+JWU2yRWfB/ufDvxDvH0vcmrgyj7hjhi7+KK0AishG
-	9nt0DMnXu14dtZMGcnL5n4WhtagwmsKlCTgUsCSliSuChpiCIPJYQEQsCDmoc4yHiNsX+FkeeXrRO
-	6c6ajRIw==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Emil Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Dominique Belhachemi <db@domibel.de>, Andy Yan <andyshrk@163.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Yakir Yang <kuankuan.y@gmail.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Michal Wilczynski <m.wilczynski@samsung.com>,
- Conor Dooley <conor@kernel.org>, William Qiu <william.qiu@starfivetech.com>,
- Xingyu Wu <xingyu.wu@starfivetech.com>, Sandy Huang <hjc@rock-chips.com>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Maud Spierings <maud_spierings@murena.io>,
- Graham Markall <hello@big-grey.co.uk>,
- Icenowy Zheng <zhengxingda@iscas.ac.cn>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>,
- Joshua Peisach <jpeisach@ubuntu.com>,
- Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
- Byron Stanoszek <gandalf@winds.org>, OOHehir <oo.hehir@gmail.com>
-Subject: Re: [PATCH v6 09/18] drm/bridge: inno-hdmi: Allow the register map to come
- from a parent
-Date: Fri, 30 Oct 2026 19:01:08 +0100
-Message-ID: <3194397.687JKscXgg@phil>
-In-Reply-To: <20261029-jh7110-clean-send-v6-9-759594e43acf@samsung.com>
-References: <20261029-jh7110-clean-send-v6-0-759594e43acf@samsung.com>
- <CGME20261029075407eucas1p1c9b0d887cafa4c3c10bb34fa3ef3c4b7@eucas1p1.samsung.com>
- <20261029-jh7110-clean-send-v6-9-759594e43acf@samsung.com>
+	id 1xMqvY-0000000CLQe-2PI7;
+	Fri, 30 Oct 2026 18:02:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 86521605C6;
+	Fri, 30 Oct 2026 18:02:07 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793383327;
+	b=SyF3OcjX58kElkpQXoic3U6BdE+HTImqvZT6BTI0niEbUpi46Da2FvzKlYF77lgXUot3
+	 HXL3oWFQs2oVLfdS/0J5caac496Br/R/il32DUpT4AC2j7tQFGOnZew4cP9a0DbJZxNSY
+	 O1iwsjLhBxnzGb6djs4LyoNlbhI8tOsZWGygV2gTzSIViZowa/9t8r9NfoVWsGi1PExWc
+	 NGKqzn1uIPT8yL4fIWDwkxbnlEaXqf0ubpypEXTfrvpHRAAcfrD1F3Q5sWTvC763kuK/e
+	 BIUrAQuo1DnYMwRyoPp8/addvAigS3r1v7QthT4hQw/OH+T+pDmAHsMhEuuK+plVUFQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793383327;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=r3mesjXZpMq/QbEmw5EflPGX4n+VcT5zdLRzDbA874g=;
+	b=XljPRJxZs+BdfpKUujWfuwq8tSA/gza4WGlrOdotv6HDvwfFi5FEvG4KboNTeOotQOCR
+	 TXmq4jGQFqpnfLAckvamP2QjkJWhx5wW9yB8hA01YWCID4Z0Zq/S5TIQ7y5pt2eMPIcLo
+	 IaCB49L/bV6P/lXAfXw3n9fAJHPqiJ6U/DUfykX+d8D8T1fYTxcrpbmc20Sb+spqMZ4TW
+	 oLxoGLxmV7C0YbxTlsG8/tyyLumGvT+AAQIjmXmEWMgsG7WuZUsEC976uyTEHW1I8oOfH
+	 LI8VTCvpl1GTXhDEfTY8pRTJgSwR62kG5O7dBmbCBYVqb/dg17sXjsAgFULIfiXAARw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id A7BE21F00A1A;
+	Fri, 30 Oct 2026 18:02:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793383327;
+	bh=r3mesjXZpMq/QbEmw5EflPGX4n+VcT5zdLRzDbA874g=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=cdjlzgzaKbrq+Ptz8+KPtXCMEA2reLNc0TFTY/eaUK78IhPMnbhuubDVCJs7b3n3G
+	 q42TUBvD4adGVTlrho7mKSeVKctaLBTGVEHwkSzluNwCOLhBX7ZWZBg+DWCrf3F3Wa
+	 xu5L3CUHzzyGvW8WJKlbPwWhBvA5+/2/fT32vgHmRcPDjyb9V2wLujl1AWA/lZo9ti
+	 KVgU7tVxQXHNOOLwsmXAaRRukuu/H1+q5O1CY/6axImqgZgStAuU+44Wecyiaryxri
+	 4hiL62vmpYa5ltEqimBWi54NMv/k2mN3e44vnmBoACTwXbx7B/8f+9AEBrrOSE4B4t
+	 NwFewo7TWLmBg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 3416443F1B;
+	Fri, 30 Oct 2026 18:02:06 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Fri, 30 Oct 2026 18:02:04 +0000
+Subject: [PATCH v2] media: rkvdec: Do not keep the clocks enabled from
+ probe
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_110201_230905_817BE213 
-X-CRM114-Status: GOOD (  23.76  )
-X-Spam-Score: -2.1 (--)
+Message-Id: <20261030-rkvdec-runtime-pm-clocks-v2-1-8ff510a231de@iav.lv>
+X-B4-Tracking: v=1; b=H4sIAJvb5GoC/42NTQ6CMBBGr0Jm7ZhORQiuvIdhAWUqE37TYqMhv
+ buVE7h8L/net4NnJ+zhlu3gOIiXZU6gTxmYvpmfjNIlBq10Qeqi0A2hY4PuNW8yMa4TmnExg8e
+ cms5YykmXBGm+OrbyPtKPOnEvflvc53gK9LN/RAMhoW21ubaFrris7tKE8xigjjF+AZc1RKO9A
+ AAA
+To: Detlev Casanova <detlev.casanova@collabora.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Hans Verkuil <hverkuil+cisco@kernel.org>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Diederik de Haas <diederik@cknow-tech.com>, Jonas Karlman <jonas@kwiboo.se>, 
+ Francesco Saverio Pavone <pavone.lawyer@gmail.com>, 
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3311; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=zsa4RX1c/nbvAozgmcN/IU1qGvXJqkjP4BnsN43BGmQ=;
+ b=kA0DAAoWMpeVi+pfeQMByyZiAGrk252g3CU8c3IdDSZpGQ0cK1tTF0u77/pNmEQE36uaSbo3c
+ 4h1BAAWCgAdFiEEkMIo2mik1f1PSDfgMpeVi+pfeQMFAmrk250ACgkQMpeVi+pfeQOANwEAoGgF
+ h9OSXorU/sv8C1ifnWk32p5bhPxWTAmx/o+j6ZoA/3SCrX77lyVxa9AxhduIM5mMv6+txRaDQFe
+ LTFYIq3EN
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,107 +117,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Am Donnerstag, 29. Oktober 2026, 08:53:43 Mitteleurop=C3=A4ische Normalzeit=
- schrieb Michal Wilczynski:
-> On some SoCs the HDMI controller does not own its register window. The
-> StarFive JH7110 documents one 64 KB block, u0_hdmitx, that holds both
-> the controller and the PHY, so the parent device maps it and owns the
-> regmap while the two children share it.
->=20
-> Use a regmap supplied by the parent device when there is one, and keep
-> mapping our own resource when there is not, so platforms that own their
-> register window are unaffected.
->=20
-> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
-> Tested-by: Byron Stanoszek <gandalf@winds.org>
-> Tested-by: OOHehir <oo.hehir@gmail.com>
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  drivers/gpu/drm/bridge/inno-hdmi.c | 31 ++++++++++++++++++++++++++++---
->  1 file changed, 28 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/=
-inno-hdmi.c
-> index 222f6522844ee60ae9a07ab2dcca748dbf7403e4..a8905bf627a224d7e39185141=
-95f1810164dc26f 100644
-> --- a/drivers/gpu/drm/bridge/inno-hdmi.c
-> +++ b/drivers/gpu/drm/bridge/inno-hdmi.c
-> @@ -397,6 +397,7 @@ struct inno_hdmi {
->  	struct clk *pclk;
->  	struct clk *refclk;
->  	void __iomem *regs;
-> +	struct regmap *regmap;
->  	struct regmap *grf;
-> =20
->  	struct inno_hdmi_i2c *i2c;
-> @@ -470,11 +471,25 @@ static int inno_hdmi_find_phy_config(struct inno_hd=
-mi *hdmi,
-> =20
->  static inline u8 hdmi_readb(struct inno_hdmi *hdmi, u16 offset)
->  {
-> +	u32 val;
-> +
-> +	if (hdmi->regmap) {
-> +		if (regmap_read(hdmi->regmap, offset * 4, &val))
-> +			return 0;
-> +
-> +		return val;
-> +	}
-> +
->  	return readl_relaxed(hdmi->regs + (offset) * 0x04);
->  }
-> =20
->  static inline void hdmi_writeb(struct inno_hdmi *hdmi, u16 offset, u32 v=
-al)
->  {
-> +	if (hdmi->regmap) {
-> +		regmap_write(hdmi->regmap, offset * 4, val);
-> +		return;
-> +	}
-> +
->  	writel_relaxed(val, hdmi->regs + (offset) * 0x04);
->  }
-> =20
-> @@ -1101,9 +1116,19 @@ struct inno_hdmi *inno_hdmi_probe(struct platform_=
-device *pdev,
->  	hdmi->dev =3D dev;
->  	hdmi->plat_data =3D plat_data;
-> =20
-> -	hdmi->regs =3D devm_platform_ioremap_resource(pdev, 0);
-> -	if (IS_ERR(hdmi->regs))
-> -		return ERR_CAST(hdmi->regs);
-> +	/*
-> +	 * On platforms where the controller shares a register space with
-> +	 * other blocks, the parent owns the regmap. Fall back to mapping
-> +	 * our own resource where it does not.
-> +	 */
-> +	if (dev->parent)
-> +		hdmi->regmap =3D dev_get_regmap(dev->parent, NULL);
-> +
-> +	if (!hdmi->regmap) {
-> +		hdmi->regs =3D devm_platform_ioremap_resource(pdev, 0);
-> +		if (IS_ERR(hdmi->regs))
-> +			return ERR_CAST(hdmi->regs);
-> +	}
+From: Igor Velkov <iav@iav.lv>
 
-why can't you just also use a mmio regmap here? Because with this change
-the driver now has 2 competing register interfaces and you need those
-conditionals all the time.
+Since commit 6a846f7d72c7 ("media: rkvdec: Enable all clocks without
+naming them") the clocks are fetched with devm_clk_bulk_get_all_enabled(),
+which keeps them enabled from probe until unbind. rkvdec_runtime_suspend()
+disables them on top of that, so their enable count never drops to zero
+and the clock gates stay open while the decoder is idle.
 
-Just convert the existing user to also use a regmap please.
+On RK3399 this also breaks restore from hibernation when the boot kernel
+has not enabled these clocks, for example with rkvdec built as a module:
+the gates are closed when the restored kernel takes over, while it still
+counts the clocks as enabled. Powering on the vdu power domain then finds
+the count at 1 and leaves the gates closed, and the first QoS register
+write of the domain never returns.
 
+Get the clocks without enabling them and let runtime PM enable them while
+the decoder is in use, as before that commit. Without CONFIG_PM the
+runtime PM callbacks are not registered, so keep the clocks enabled from
+probe in that case, as etnaviv and v3d do.
 
-Heiko
+Fixes: 6a846f7d72c7 ("media: rkvdec: Enable all clocks without naming them")
+Cc: stable@vger.kernel.org # v7.0+
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+Tested on ROCK Pi 4A (RK3399) with v7.3, rkvdec and panfrost built as
+modules, panfrost not loaded:
+- idle decoder: the vdu clocks have enable_count 0 (1 without the patch);
+- hibernate, power cycle, restore: 3 of 3 (0 of 3 without the patch, the
+  restored kernel stops after bringing the secondary CPUs up);
+- H.264 decode with GStreamer v4l2slh264dec, 300 frames of 720p High
+  profile: output identical to avdec_h264 (md5 of all frames).
+The QoS hang was traced with debug prints in rockchip_pd_power() on a
+7.3-based kernel.
 
+This is separate from the unbind leak in Jonas's patch that Francesco
+posted [1]: here the extra enable comes from probe.
+
+[1] https://lore.kernel.org/all/20260717154505.83935-1-pavone.lawyer@gmail.com/
+---
+Changes in v2:
+- Keep the clocks enabled from probe when CONFIG_PM is disabled: the
+  runtime PM callbacks are not registered then (Nicolas).
+- Retested on the same setup: idle enable_count 0, hibernate 3 of 3,
+  H.264 output identical to avdec_h264. Builds without warnings with
+  CONFIG_PM=n (arm64 allnoconfig + COMPILE_TEST, W=1).
+- Link to v1: https://lore.kernel.org/r/20261030-rkvdec-runtime-pm-clocks-v1-1-fb2c5b629e79@iav.lv
+---
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 061281f903f3..81cf3c1ba7fb 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -1788,7 +1788,10 @@ static int rkvdec_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = devm_clk_bulk_get_all_enabled(&pdev->dev, &rkvdec->clocks);
++	if (IS_ENABLED(CONFIG_PM))
++		ret = devm_clk_bulk_get_all(&pdev->dev, &rkvdec->clocks);
++	else
++		ret = devm_clk_bulk_get_all_enabled(&pdev->dev, &rkvdec->clocks);
+ 	if (ret < 0)
+ 		return ret;
+ 
+
+---
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+change-id: 20261030-rkvdec-runtime-pm-clocks-41adcf141271
+
+Best regards,
+-- 
+Igor Velkov <iav@iav.lv>
 
 
 
