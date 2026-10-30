@@ -2,66 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFBBF606A331
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 11:15:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20CC9606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 11:20:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dVGX5I3o;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TKE/9gn8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wTCOACif;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YWKXDREp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=HWU9fFp652U4xTY6i7RlylLzrPsnJZJWAWqkWZithbQ=; b=dVGX5I3oPzIXr/je6LY+N4xdmi
-	mI4yfYPjeJUDlbOiueaP10pHfeDxP7/G8to5kVKGQeGJC9lgEv2F+5J8iYmNkUYkjxNR8/iMIqoSW
-	OxOaNMdCS4MPCItPtUmeB+ckRZwuc1dWBlmgKdhBp3mxcPcjUVaxU/VKOm6kYe0f1GfA5Mq8INlrX
-	WucBPtiYHZEV71aA5ySG1rLjhXXbZkW7ykUcP9D4DI3gkPogGGYGNF4PM1uS7dbqUkNpl/PTtoPTy
-	XpdirisWUnELuCsgzsX9WVa5YT8bakBEWUPKWPnAh3As6pXuWujjsDS53PQJ9eVNx4HIaBQDoUe5B
-	v+RF0laQ==;
+	bh=5CuUDHSZWz+erT0w+UfPQPNxS4F/uosSHNPefWZBdyg=; b=wTCOACifDEGf6LK7y5eXIjpf5i
+	z8VzM4D6KrwG+s3hr6HTo0mqS0N5Otqx3YXziMoHADRU9y7/qDd+Usw4bDqEKuOoFYL3UBFo48Fm0
+	FAr8PYmEIrhHFPtGsaF6497+SVwavC6eTjJ54ZtLYKjpEu64dEf9yRoB5qlvKej0Ex5omoXBDTeXX
+	+62WvfpMeuVeZNGz6TiinmTYDmGlQ2sPcJa97RnT3MHTIpt5NuLn0Pib5pkj7fiDpSOcE19p8Z5X1
+	Qv85hk6kgllNFGb7Eyr3WYV09ID6HrY3k3zyNFYC5Lef+KXDjplMBEweEU6V1JWvsFyJ3kskY79Gf
+	wQDbTu1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMkaO-0000000BWEj-3g9C;
-	Fri, 30 Oct 2026 11:15:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xMkf9-0000000BXVG-46P9;
+	Fri, 30 Oct 2026 11:20:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMkaN-0000000BWEA-3B8l;
-	Fri, 30 Oct 2026 11:15:51 +0000
+	id 1xMkf8-0000000BXUi-0ylX
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Oct 2026 11:20:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 35CC4605C4;
-	Fri, 30 Oct 2026 11:15:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28B431F000C1;
-	Fri, 30 Oct 2026 11:15:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0357F42A36;
+	Fri, 30 Oct 2026 11:20:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9BC01F00A02;
+	Fri, 30 Oct 2026 11:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793358950;
-	bh=HWU9fFp652U4xTY6i7RlylLzrPsnJZJWAWqkWZithbQ=;
+	s=k20260515; t=1793359245;
+	bh=5CuUDHSZWz+erT0w+UfPQPNxS4F/uosSHNPefWZBdyg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TKE/9gn8bHSQVea58VLpEheSWIBby85i5/M/Jg8F86ZXLMp4dimxi0Hc9J4Uiw9t4
-	 6GVKb2Sa0lSdoSgaPadeHA3Buu8uok/nP+khOeyl2vVe31w/Fdt99FZbXVjsIOeTfz
-	 7gVtQnMQ171kq3KhTyjzNMLfXNWlPq7ESNvxspt/L0vv5MZWn+Ptlea82dP63o2ki2
-	 Rn4NlJEYoFGcjqxGfi0JKvlklmLdhFqLUmI16NvPfgUdqqW3/zpa9tda5XlDuT0LQb
-	 yBn6mAhY1Yx8Wt5hvklTdicXPeDOzQc8hAPFLcOT20tlZWzXCF8x61XZsaGp6FtKbX
-	 0gJpNeB+qZxOw==
-Date: Fri, 30 Oct 2026 12:15:47 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: christian.koever-draxl@student.uibk.ac.at
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, 
-	martin.blumenstingl@googlemail.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Christian Stefan =?utf-8?B?S8O2dsOpci1EcmF4bA==?= <ckoever@outlook.de>
-Subject: Re: [PATCH 1/2] dt-bindings: firmware: amlogic,meson-gxbb-sm: add
- amlogic,meson-s4-sm
-Message-ID: <20261030-tunneling-wyvern-of-plenty-ed4f19@quoll>
-References: <20261025192144.208954-1-christian.koever-draxl@student.uibk.ac.at>
- <20261025192144.208954-2-christian.koever-draxl@student.uibk.ac.at>
+	b=YWKXDREpHohFhFm/tgSgP271KsCBtGJ+juwgbl/qrlz1PNqk7lv3ChHCD8OrNiS5Y
+	 DAnK6FDSSRb4ka31uJ7B3X6BB3YE3oBzbdMtVg79oZwdzcnI7puSmEWHj8molXBHWR
+	 aPxAK4nlU6erZtS0QyO2mZ/2UeYPTdNpgAu4Mw1pojP7XtEl+UVJLAavpiM1M+WP8d
+	 TmB7aOFiUVDQZgBtjm1N+ZYKaoyZgoOhAVw7vcBE2irOcBYPVEVx4TROUQL2AyD1gP
+	 rkWFH1pbIIyJD71FjpFDjjuYkyULGQJ+LjBMCl6fLg/XpnjERoAaIsmDobBGHwBcH7
+	 z2ivjfZCLxryQ==
+Date: Fri, 30 Oct 2026 11:20:40 +0000
+From: Will Deacon <will@kernel.org>
+To: Usama Anjum <usama.anjum@arm.com>
+Cc: Linu Cherian <linu.cherian@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Huang Ying <ying.huang@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	maz@kernel.org
+Subject: Re: [PATCH v2] arm64: tlbflush: Don't broadcast if mm was only
+ active on local cpu
+Message-ID: <auR9iDfUxqz3ExP8@willie-the-truck>
+References: <20260523134710.3827956-1-linu.cherian@arm.com>
+ <b6f0d10a-d098-43cc-b923-0245af5f51f0@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20261025192144.208954-2-christian.koever-draxl@student.uibk.ac.at>
+In-Reply-To: <b6f0d10a-d098-43cc-b923-0245af5f51f0@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +77,91 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, Oct 25, 2026 at 08:21:43PM +0100, christian.koever-draxl@student.ui=
-bk.ac.at wrote:
-> From: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de>
->=20
-> The S4 secure monitor implements the GXBB interface, but its PSCI
-> SYSTEM_OFF needs an extra firmware call first (a shutdown flag), so the
-> driver has to tell it apart. Add an S4 compatible with the GXBB one as
-> fallback.
->=20
-> Signed-off-by: Christian Stefan K=C3=B6v=C3=A9r-Draxl <ckoever@outlook.de>
-> ---
->  .../devicetree/bindings/firmware/amlogic,meson-gxbb-sm.yaml   | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+On Wed, Oct 28, 2026 at 02:47:19PM +0000, Usama Anjum wrote:
+> On 23/05/2026 2:47 pm, Linu Cherian wrote:
+> > From: Ryan Roberts <ryan.roberts@arm.com>
+> > 
+> > There are 3 variants of tlb flush that invalidate user mappings:
+> > flush_tlb_mm(), flush_tlb_page() and __flush_tlb_range(). All of these
+> > would previously unconditionally broadcast their tlbis to all cpus in
+> > the inner shareable domain.
+> > 
+> > But this is a waste of effort if we can prove that the mm for which we
+> > are flushing the mappings has only ever been active on the local cpu. In
+> > that case, it is safe to avoid the broadcast and simply invalidate the
+> > current cpu.
+> > 
+> > So let's track in mm_context_t::active_cpu either the mm has never been
+> > active on any cpu, has been active on more than 1 cpu, or has been
+> > active on precisely 1 cpu - and in that case, which one. We update this
+> > when switching context, being careful to ensure that it gets updated
+> > *before* installing the mm's pgtables. On the reader side, we ensure we
+> > read *after* the previous write(s) to the pgtable(s) that necessitated
+> > the tlb flush have completed. This guarrantees that if a cpu that is
+> > doing a tlb flush sees it's own id in active_cpu, then the old pgtable
+> > entry cannot have been seen by any other cpu and we can flush only the
+> > local cpu.
+> > 
+> > Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> > Tested-by: Huang Ying <ying.huang@linux.alibaba.com>
+> > [linu.cherian@arm.com: Adapted for v7.1 flush tlb API changes]
+> > Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+> > ---
+> > Changelog from RFC v1:
+> > - Adapted for v7.1 flush tlb API changes
+> >   No changes in core logic
+> > - Collected Rb and Tb tags
+> > - lat_mmap benchmark showed dsb(ishst) performs better than dsb(ish),
+> >   hence retained dsb(ishst) in flush_tlb_user_pre	
+> > 
+> > 
+> > Testing with 7.1-rc4 :
+> > +-----------------------+---------------------------------------------------+-------------+
+> > | Benchmark             | Result Class                                      |  Improvement|  
+> > +=======================+===================================================+=============+
+> > | perf/syscall          | fork (ops/sec)                                    |   (I) 3.25% |
+> > +-----------------------+---------------------------------------------------+-------------+
+> > | pts/memtier-benchmark | Protocol: Redis Clients: 100 Ratio: 1:5 (Ops/sec) |   (I) 2.70% |
+> > | 			| Protocol: Redis Clients: 100 Ratio: 5:1 (Ops/sec) |   (I) 2.13% |
+> > +-----------------------+---------------------------------------------------+-------------+
+> 
+> I tested this patch using a synthetic Firecracker benchmark on a 192-CPU
+> arm64 host, with Linux v7.3 on both the host and guests. Each worker
+> repeatedly creates a fresh 1-vCPU microVM, boots Ubuntu, verifies an echo
+> response over the serial console, and shuts the guest down, waiting for
+> Firecracker to exit before starting the next VM. Each guest has 256 MiB of
+> RAM, with two VM slots per workload CPU.
+> 
+> With 4 KiB guests, the unpatched workload stops scaling between 64 and 96
+> CPUs: throughput falls from approximately 68 to 65 completed lifecycles/s
+> despite the additional CPUs.
+> 
+> Applying the patch to the guest substantially improves throughput at higher
+> concurrency. At 128 workload CPUs, I measured:
+> 
+>   Guest pages  Unpatched  Guest patched only  Host patched only
+>   -----------  ---------  ------------------  -----------------
+>   4 KiB        73.83/s    108.55/s (+47.0%)    74.09/s (+0.4%)
+>   64 KiB       86.46/s    105.04/s (+21.5%)    90.15/s (+4.3%)
+> 
+> The host uses 4 KiB pages throughout. The host-only difference with 4 KiB
+> guests is small enough that I would regard it as essentially unchanged.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Sorry, but I haven't understood the setup here. If each guest ("microVM")
+only has 1 vCPU, then why does this patch have any effect in the "guest
+patched only" case? Additionally, the non-broadcast TLB invalidation will
+be upgraded to broadcast by the hypervisor.
 
-Best regards,
-Krzysztof
+But I'm certain I'm misunderstanding what you've tested here, as the
+numbers indicate that something did change.
 
+Will
 
