@@ -2,64 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89787606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 06:31:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B03E0606A323
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 06:37:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cSigqyHA;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Qq4Oi0Rz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=49RZDRV7;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=6I9tjMJv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bwatc7YNKphmzLOD1cva3Yaj2FQt6Hn0T7415Isuht0=; b=cSigqyHAILbpt0rddG6/OSRKyW
-	v/xKPwH2GiT3FJbZBDyTFQcxC5tbdNyZEzctKMl9cI8WsD5Oo3ILh+znnze4/U19AOH3W2ytQFV9m
-	AmCSjkHO0PKzBjr5RBcpUZ06wEHMIxsZhKeRO54jjjmTAivCiMJ45z23iYue6N8ynMtxgSfDAmy0G
-	1RqXUibfqVNBUtaaCRp+HqycKblWsUhBwVL2Cgl2NtcSCigdkNB80g91YDXMsk7cQSfqJNATEHXQI
-	8Ei+i4zigOYzR331dvZsznGbp3L/RVhCGSE6g394i+EhtOZXxiO4n2ST7j6ifkDZ0K1/cYdMRqxMw
-	QvdM7wCQ==;
+	bh=GRCGW6zun9XgkQRQsjo432+p58mI3EkOvS36OEwLx2k=; b=49RZDRV70EufA3wYVKXVawVr6W
+	I6+Jr5oSQD4EEijD77udkU7mn8OvWWbZrDH9Q6+2REVPeJEsBZxOYomGfcjJgUCAYF7591LbrOrLT
+	z0TLxidRDFi+cXjuW94LFY3C/H8Gp3uy7ywI+w7oAt0ZwxgmkMuB/K1fLOVSx7hJ47IwAvnhrkbpy
+	/psaj8vNZv6Xt20dtmgd5lMkPVYRVLOVI9l51ELjYcnRQW+/MKZNoRSi1kRnxUmZt7mNbbiwi64Wi
+	KFW9s9bAvJSotLgrH8hKKgmvnVstBFSVLTclUlh0DvskoFtrqT2mTPZMDunSYGNvHd+K+Lhaj1ElA
+	y5OS0Bag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMg8w-0000000AtX0-0icC;
-	Fri, 30 Oct 2026 06:31:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMg8l-0000000AtVM-12ww
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 06:31:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5CAD1E8D;
-	Thu, 29 Oct 2026 23:30:55 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20D073F673;
-	Thu, 29 Oct 2026 23:30:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793341858; bh=sMSs6Ns8tchEO99DqKZ8eipSmR6/5yo08UeggARfrxc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qq4Oi0RzbQA92a2gWL9OHWpVv5dTojKFIycXc2abJiaylBMym09KZdmdDm/xpdH2s
-	 Vjd4MLWOClLMsuz/MXEBOLgoqLsNSbCrBDbfGQNwR7AJ7jzVALt5/tuq/Y/KigoljB
-	 5ElcEnZyPgKlbxdj8HmH/AmEf/eiErgoCnIUdczI=
-Date: Fri, 30 Oct 2026 12:00:55 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: Lai Jiangshan <jiangshanlai@gmail.com>
-Cc: linux-kernel@vger.kernel.org, 
-	Lai Jiangshan <jiangshan.ljs@antgroup.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Thomas Huth <thuth@redhat.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] arm64: mm: Stop using the previous ASID for init_mm
-Message-ID: <r56ewhlz5fihgwd34zbiaxgmxdw4eq4t36jlsmwepu4nbhon6i@kjsqwoivmfhr>
-References: <20261027100231.31184-1-jiangshanlai@gmail.com>
+	id 1xMgEh-0000000Atn3-1hA4;
+	Fri, 30 Oct 2026 06:37:11 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMgEd-0000000Atlr-2cD6;
+	Fri, 30 Oct 2026 06:37:10 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=GRCGW6zun9XgkQRQsjo432+p58mI3EkOvS36OEwLx2k=;
+	b=6I9tjMJvVzKH+TuaWeFghRnbaH4yCZCly7Ie0vlLjxGK41kc6ogruEU10hnFNtrjq6NO+biXZ
+	FOD2U7ZtiCNQGmv347mfUsfVKqvf6M9izgctTEVOpT1CwvjWR3sriSwWAg3G9Eavs0apptl7/UL
+	JmNq2PwZbRR0AMTheEHq0ow=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4jGBGK4NMcz1K99C;
+	Fri, 30 Oct 2026 14:36:57 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5535140565;
+	Fri, 30 Oct 2026 14:36:59 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 30 Oct
+ 2026 14:36:58 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <oleg@redhat.com>, <linux@armlinux.org.uk>, <kees@kernel.org>,
+	<luto@amacapital.net>, <wad@chromium.org>, <shuah@kernel.org>,
+	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<alex@ghiti.fr>, <stevenrwalter@gmail.com>, <will@kernel.org>,
+	<wade_farnsworth@mentor.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <bpf@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v2 0/2] ARM: ptrace: Fix seccomp seeing stale syscall arguments
+Date: Fri, 30 Oct 2026 14:36:28 +0800
+Message-ID: <20261030063630.1218302-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261027100231.31184-1-jiangshanlai@gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_233103_394674_5698898C 
-X-CRM114-Status: GOOD (  26.53  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261029_233708_122707_8C5DCB7A 
+X-CRM114-Status: GOOD (  11.20  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,111 +78,51 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 27, 2026 at 06:02:27PM +0800, Lai Jiangshan wrote:
-> From: Lai Jiangshan <jiangshan.ljs@antgroup.com>
-> 
-> Switching to init_mm should prevent further accesses through the
-> previous address space's translations.
-> 
-> Commit e53f21bce4d3 ("arm64: Use the reserved TTBR0 if context switching
-> to the init_mm") avoided installing init_mm.pgd as a user page table.
-> At the time, the ASID was held in TTBR0, so installing the reserved
-> TTBR0 also switched to ASID 0.
-> 
-> Since commit 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1"),
-> installing the reserved TTBR0 no longer changes the active ASID.
-> Consequently, switching to init_mm leaves the CPU using the previous
-> address space's ASID. An empty page table does not prevent TLB hits
-> for that ASID.
-> 
-> This can retain access beyond the lifetime of the backing pages.
-> During fullmm teardown, user data pages can be freed before their
-> cached translations are invalidated. If those pages are subsequently
-> reused for kernel data, an erroneous uaccess that hits a surviving
-> translation can read or corrupt that data instead of faulting.
-> 
-> Fixes: 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1")
-> Signed-off-by: Lai Jiangshan <jiangshan.ljs@antgroup.com>
-> 
-> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-> index 803b68758152..7e56099c5fbb 100644
-> --- a/arch/arm64/include/asm/mmu_context.h
-> +++ b/arch/arm64/include/asm/mmu_context.h
-> @@ -235,15 +235,6 @@ enter_lazy_tlb(struct mm_struct *mm, struct task_struct *tsk)
->  
->  static inline void __switch_mm(struct mm_struct *next)
->  {
-> -	/*
-> -	 * init_mm.pgd does not contain any user mappings and it is always
-> -	 * active for kernel addresses in TTBR1. Just set the reserved TTBR0.
-> -	 */
-> -	if (next == &init_mm) {
-> -		cpu_set_reserved_ttbr0();
-> -		return;
-> -	}
-> -
->  	check_and_switch_context(next);
->  }
->  
-> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-> index 0f4a28b87469..a96ebe904dd7 100644
-> --- a/arch/arm64/mm/context.c
-> +++ b/arch/arm64/mm/context.c
-> @@ -218,6 +218,16 @@ void check_and_switch_context(struct mm_struct *mm)
->  	unsigned int cpu;
->  	u64 asid, old_active_asid;
->  
-> +	/*
-> +	 * init_mm.pgd contains kernel mappings, so use the reserved page
-> +	 * tables for TTBR0 and switch TTBR1 to ASID 0. Leave active_asids
+On arm32 the syscall entry code copies r0 into ARM_ORIG_r0, and seccomp,
+the sys_enter tracepoint and the syscall restart path read the first
+argument from that copy, while audit and the syscall itself runs
+with r0.
 
-Just curious - does TTBR1 switch to ASID 0 ? AFAICS TTBR1_EL1 gets
-the ASID which is derived from the mm_struct via ASID(mm) earlier.
+If a tracer rewrites r0 before the syscall is dispatched, at a
+syscall-entry stop or at a SECCOMP_RET_TRACE stop, leaves ARM_ORIG_r0
+stale: seccomp and the tracepoint see the old argument while audit and
+the syscall runs with the new one.
 
-void cpu_do_switch_mm(phys_addr_t pgd_phys, struct mm_struct *mm)
-{
-	unsigned long ttbr1 = read_sysreg(ttbr1_el1);
-	unsigned long asid = ASID(mm);
-	unsigned long ttbr0 = phys_to_ttbr(pgd_phys);
+arm64 has the same problem with orig_x0 and it is already fixed there in
+commit 88b839ce497c ("arm64: ptrace: Keep 'orig_x0' in-sync with x0 on
+syscall entry").
 
-	/* Skip CNP for the reserved ASID */
-	if (system_supports_cnp() && asid)
-		ttbr0 |= TTBRx_EL1_CnP;
+The fisrt patch fix this issue, and the second add testcases.
 
-	/* SW PAN needs a copy of the ASID in TTBR0 for entry */
-	if (IS_ENABLED(CONFIG_ARM64_SW_TTBR0_PAN))
-		ttbr0 |= FIELD_PREP(TTBRx_EL1_ASID_MASK, asid);
+Changes since v1:
+- Fix the sashiko issues.
+- As Linus suggested, expand the explanation content from
+  the previous version into the commit message.
+- Add the selftests.
+- Link to v1: https://lore.kernel.org/all/20260725091452.1875627-1-ruanjinjie@huawei.com/
 
-	/* Set ASID in TTBR1 since TCR.A1 is set */
-	ttbr1 &= ~TTBRx_EL1_ASID_MASK;
-	ttbr1 |= FIELD_PREP(TTBRx_EL1_ASID_MASK, asid);
+- Link: https://sashiko.dev/#/patchset/20260725091452.1875627-1-ruanjinjie%40huawei.com
 
-	cpu_set_reserved_ttbr0_nosync();
-	write_sysreg(ttbr1, ttbr1_el1);
-	write_sysreg(ttbr0, ttbr0_el1);
-	isb();
-	post_ttbr_update_workaround();
-}
+Jinjie Ruan (2):
+  ARM: ptrace: Fix seccomp seeing stale syscall arguments
+  selftests/seccomp: Add tests for syscall argument rewrite
 
-> +	 * unchanged to preserve the ASID rollover bookkeeping.
-> +	 */
-> +	if (mm == &init_mm) {
-> +		cpu_do_switch_mm(__pa_symbol(reserved_pg_dir), mm);
-> +		return;
-> +	}
-> +
->  	if (system_supports_cnp())
->  		cpu_set_reserved_ttbr0();
->  
-> -- 
-> 2.39.5 (Apple Git-154)
-> 
+ arch/arm/kernel/ptrace.c                      |  41 +-
+ tools/testing/selftests/seccomp/.gitignore    |   1 +
+ tools/testing/selftests/seccomp/Makefile      |   2 +-
+ .../selftests/seccomp/seccomp_ptrace_args.c   | 463 ++++++++++++++++++
+ 4 files changed, 505 insertions(+), 2 deletions(-)
+ create mode 100644 tools/testing/selftests/seccomp/seccomp_ptrace_args.c
+
+-- 
+2.34.1
+
 
