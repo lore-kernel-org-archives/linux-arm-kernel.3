@@ -2,88 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA618606A322
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 06:50:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40B0F606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 06:56:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=STLASDeJ;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=jUjghBRr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nZIUc/w3;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=M47wRBge
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=kW+VR5U0b0jOaOOyCPQjLOX5nd6qRJjRAAQ97MnVWxk=; b=STLASDeJRmxpgW
-	1gRHVOdJHKD8kDI3Gup842PWOko+VQ3yLTh0q0+nf0M9v0bZYRum0t8WTEfoNHc5euAoo1We99UUk
-	qMCYJlPah9AZLewtR2Ol30VE5yfJXBwGZ+htQDKDBMROIxfC42tS/R6MO7T7d/v2e33SHUU540p5a
-	6i6eSeH3fcHZS1SstRfDfyUkYR1HUZaNbTAaggxPiP41vY1FdUqw1RBLcteMD1CucrwjkLc56SHL/
-	JBDNy98+IHBbaIEeLYoRcMV06RKmxpJviRb8z3HgP286ccXXSNgeOxc91Mbx0DcUwoR6as0QfNprP
-	MWW5zofIoF3aOHy6JTaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=xp7cbfuJRPCrhAUq7HMqvlSWwn8abvANab2dTt+OUNU=; b=nZIUc/w3xDS3AMgjEj0CP5/fnD
+	ZdALMhm+/GfOnEq5PlkMzNm5AGNlZ9HAXDLaiOkWByNfx6nAsPy3aHsxAdC2PhARg0KRywPP7pUGy
+	7yIPLNSg2MVJK0FtQmOOEBBZe+g7u3DhRaRnAJ8A3Qkf7n9FHPDVW8MKPoaMYSVQKU8//eYigqCim
+	mHK3tZB3xCBSfFkdcXOrgMGqZa5XXZ2M7YUDiExAIkYAL5wk0NiCgLeZ1oSmcmasG2GMqVLI2qQb8
+	dAHmv9c2KaBHDH6guf5L9p/ckR6KNoauWCx9bvnDkwvOyIgPFaUJuOd8sFuJsZlLGX93NLTapDyco
+	HM3GbpAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMgRP-0000000Avu7-33NC;
-	Fri, 30 Oct 2026 06:50:19 +0000
-Received: from mail-m12836.netease.com ([103.209.128.36])
+	id 1xMgXX-0000000Aww7-3xLs;
+	Fri, 30 Oct 2026 06:56:39 +0000
+Received: from [113.46.200.224] (helo=canpmsgout09.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMgQo-0000000AvFh-3mrM;
-	Fri, 30 Oct 2026 06:49:44 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 52e796957;
-	Fri, 30 Oct 2026 14:49:37 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: Sandy Huang <hjc@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Robert Foss <rfoss@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Dave Jones <s.dave.jones@gmail.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v4 6/6] arm64: dts: rockchip: rk356x: Add eDP controller and phy nodes
-Date: Fri, 30 Oct 2026 14:49:05 +0800
-Message-Id: <20261030064905.2248999-7-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261030064905.2248999-1-damon.ding@rock-chips.com>
-References: <20261030064905.2248999-1-damon.ding@rock-chips.com>
+	id 1xMgXU-0000000Awqr-1YpK
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Oct 2026 06:56:38 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=xp7cbfuJRPCrhAUq7HMqvlSWwn8abvANab2dTt+OUNU=;
+	b=M47wRBge92zdTDsngHc8gXmA4K1vtE7/LIfPnECXHj8BmyvCQkOOrN5yvhFraV6rLk4dfIg+E
+	oqqtnLAkpEA0p57D2X7p5mcGYyNIEvx9Q8ALVNoMMAm6niuOt3/h1iFSr2o0ewcVp/5R2Jt55NE
+	XZyRsE7fS0orMrPvVB/IKJU=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4jGBhV5nb2z1cyTP;
+	Fri, 30 Oct 2026 14:56:10 +0800 (CST)
+Received: from kwepemk300013.china.huawei.com (unknown [7.202.194.231])
+	by mail.maildlp.com (Postfix) with ESMTPS id B2B7A4057A;
+	Fri, 30 Oct 2026 14:56:18 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemk300013.china.huawei.com
+ (7.202.194.231) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 30 Oct
+ 2026 14:56:17 +0800
+From: Jinqian Yang <yangjinqian1@huawei.com>
+To: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <linux-doc@vger.kernel.org>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <yuzenghui@huawei.com>,
+	<wangzhou1@hisilicon.com>, <zhengtian10@huawei.com>, <linuxarm@huawei.com>,
+	<kristina.martsenko@arm.com>, <pbonzini@redhat.com>, <fuad.tabba@linux.dev>,
+	<joey.gouly@arm.com>, <seiden@linux.ibm.com>, <prime.zeng@hisilicon.com>
+Subject: [RFC 1/6] KVM: arm64: Introduce TLBID virtualization infrastructure
+Date: Fri, 30 Oct 2026 14:56:12 +0800
+Message-ID: <20261030065617.4090073-2-yangjinqian1@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20261030065617.4090073-1-yangjinqian1@huawei.com>
+References: <20261030065617.4090073-1-yangjinqian1@huawei.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa18b92353103a8kunme14bef9979446
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZGk5JQlYdSk1MSh0aSR
-	gYHk9WFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
-	tIVUpLSEpKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=jUjghBRrjI6cVIGuqcpihieSTRffFrj0ZNC66Rdp4ikFSh+FmctUCIgnLka750gG/cbFnW2kKlUTDPpB1FkGaRt6idnSy1H16Xsvnydyji640t325qBvRczeT7CcDOddoshuTPsWXSd/w22n+LNQRHlO/KBPOpV+ygupsHTJ8uE=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=kW+VR5U0b0jOaOOyCPQjLOX5nd6qRJjRAAQ97MnVWxk=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemk300013.china.huawei.com (7.202.194.231)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_234943_197006_672E8C39 
-X-CRM114-Status: UNSURE (   8.34  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261029_235636_736859_2411EC2D 
+X-CRM114-Status: GOOD (  30.52  )
+X-Spam-Score: -1.3 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,84 +87,532 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add the eDP PHY GRF (with the eDP PHY child node mapped by its own
-register window) and the eDP controller nodes for the RK3568/RK3566
-SoCs.
+struct tlbidomain, embedded in kvm_arch, holds the per-VM vTLBID
+state; kvm_arm_init_tlbidomain()/free_tlbid_vdomain() manage it over
+the VM lifetime, and kvm_arm_tlbidomain_vcpu_init() defaults each
+vCPU to vDomain0.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+The UAPI adds three interfaces: KVM_CAP_ARM_TLBIDOMAIN lets userspace
+probe the feature, KVM_ARM_GET_VDOMAIN_NUM returns the number of
+vDomains available to the VM, and KVM_ARM_VCPU_SET_VDOMAIN sets each
+vCPU's vDomain membership bitmap. All three are documented in
+Documentation/virt/kvm/api.rst.
 
+The feature is VHE-only: VTLBIDn_EL2 cannot be written from EL1.
+
+Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
+Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
 ---
+ Documentation/virt/kvm/api.rst    |  59 ++++++++
+ arch/arm64/include/asm/kvm_host.h |  55 +++++++
+ arch/arm64/kvm/Kconfig            |  12 ++
+ arch/arm64/kvm/arm.c              | 241 +++++++++++++++++++++++++++++-
+ include/uapi/linux/kvm.h          |  14 ++
+ 5 files changed, 380 insertions(+), 1 deletion(-)
 
-Changes in v4:
-- Model the PHY node with a reg property under the parent syscon.
----
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 45 +++++++++++++++++++
- 1 file changed, 45 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index a5832895bd39..7a5168548e55 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -403,6 +403,24 @@ usb2phy1_grf: syscon@fdca8000 {
- 		reg = <0x0 0xfdca8000 0x0 0x8000>;
- 	};
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index e0430cc750c9..d8a2854e32b1 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -6665,6 +6665,49 @@ significant bit):
  
-+	edp_phy_grf: syscon@fdcb0000 {
-+		compatible = "rockchip,rk3568-edp-phy-grf", "syscon", "simple-mfd";
-+		reg = <0x0 0xfdcb0000 0x0 0x8000>;
-+		clocks = <&cru PCLK_EDPPHY_GRF>;
-+		ranges = <0x0 0x0 0xfdcb0000 0x100>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
+ .. _kvm_run:
+ 
++4.146 KVM_ARM_GET_VDOMAIN_NUM
++------------------------------
 +
-+		edp_phy: phy@0 {
-+			compatible = "rockchip,rk3568-edp-phy";
-+			reg = <0x0 0x100>;
-+			clocks = <&pmucru XIN_OSC0_EDPPHY_G>;
-+			clock-names = "refclk";
-+			#phy-cells = <0>;
-+			status = "disabled";
-+		};
++:Capability: KVM_CAP_ARM_TLBIDOMAIN
++:Architectures: arm64
++:Type: vm ioctl
++:Parameters: struct kvm_arm_get_vdomain (out)
++:Returns: 0 on success, < 0 on error
++
++Parameters are specified via the following structure::
++
++	struct kvm_arm_get_vdomain {
++		__u8 max_vdomains;
 +	};
 +
- 	pmucru: clock-controller@fdd00000 {
- 		compatible = "rockchip,rk3568-pmucru";
- 		reg = <0x0 0xfdd00000 0x0 0x1000>;
-@@ -879,6 +897,33 @@ hdmi_out: port@1 {
- 		};
- 	};
- 
-+	edp: edp@fe0c0000 {
-+		compatible = "rockchip,rk3568-edp";
-+		reg = <0x0 0xfe0c0000 0x0 0x10000>;
-+		clocks = <&pmucru XIN_OSC0_EDPPHY_G>, <&cru PCLK_EDP_CTRL>, <&cru HCLK_VO>;
-+		clock-names = "dp", "pclk", "hclk";
-+		interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
-+		phys = <&edp_phy>;
-+		phy-names = "dp";
-+		power-domains = <&power RK3568_PD_VO>;
-+		resets = <&cru SRST_EDP_24M>, <&cru SRST_P_EDP_CTRL>;
-+		reset-names = "dp", "apb";
-+		status = "disabled";
++The ``max_vdomains`` field is the maximum number of vDomains supported
++by the virtual TLBID implementation. This value is derived from
++TLBIDIDR_EL1.NVIS and is capped at 32.
 +
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
++4.147 KVM_ARM_VCPU_SET_VDOMAIN
++------------------------------
 +
-+			edp_in: port@0 {
-+				reg = <0>;
-+			};
++:Capability: KVM_CAP_ARM_TLBIDOMAIN
++:Architectures: arm64
++:Type: vcpu ioctl
++:Parameters: struct kvm_arm_set_vdomain (in)
++:Returns: 0 on success, < 0 on error
 +
-+			edp_out: port@1 {
-+				reg = <1>;
-+			};
-+		};
++This ioctl allows KVM to obtain TLBI Domain of Guest.
++
++Parameters are specified via the following structure::
++
++	struct kvm_arm_set_vdomain {
++		__u32 vdomain_bitmap;
++		__u8 num_vdomains;
 +	};
 +
- 	qos_gpu: qos@fe128000 {
- 		compatible = "rockchip,rk3568-qos", "syscon";
- 		reg = <0x0 0xfe128000 0x0 0x20>;
++The ``vdomain_bitmap`` field is a bitmap, where '1' indicates that vDomain
++includes this vCPU. For example, ``vCPU0:  vdomain_bitmap=0b1011`` indicates
++that vCPU0 included in vDomain(0, 1, 3).
++
++The ``num_vdomains`` field is the number of vDomains.
++
+ 5. The kvm_run structure
+ ========================
+ 
+@@ -9056,6 +9099,22 @@ enabled, cmma can't be enabled anymore and pfmfi and the storage key
+ interpretation are disabled. If cmma has already been enabled or the
+ hpage_2g module parameter is not set to 1, -EINVAL is returned.
+ 
++7.48 KVM_CAP_ARM_TLBIDOMAIN
++-------------------------------------
++
++:Architectures: arm64
++:Target: VM
++:Parameters: None
++:Returns: 0 on success, negative value on error
++
++This capability enables TLBID virtualization, which optimizes tlbi broadcast
++range to avoid unnecessary broadcasts.
++
++When this capability is enabled, KVM can obtain the vDomain bitmaps of VM. When
++a vCPU is loaded, KVM writes the mapping between the vDomain and the pDomain
++into the VTLBID(n). If guest enabled TLBID, hardware will convert vDomain id to
++pDomain id for TLBI broadcast.
++
+ 8. Other capabilities.
+ ======================
+ 
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 27fe0cd5b2d7..1e19e197d736 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -55,6 +55,7 @@
+ #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
+ #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
+ #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
++#define KVM_REQ_RELOAD_VTLBID	KVM_ARCH_REQ(12)
+ 
+ #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
+ 				     KVM_DIRTY_LOG_INITIALLY_SET)
+@@ -306,6 +307,56 @@ enum fgt_group_id {
+ 	__NR_FGT_GROUP_IDS__
+ };
+ 
++#define NIS_RANGE_MIN_1_8 1
++#define NIS_RANGE_MAX_1_8 8
++#define NIS_RANGE_MIN_9_16 9
++#define NIS_RANGE_MAX_9_16 16
++#define VTLBID_TD_WIDTH_NIS_1_8 8
++#define VTLBID_TD_WIDTH_NIS_9_16 16
++#define VTLBID_EL2_WIDTH 64
++/*
++ * Cap the supported NVIS so per-vDomain bitmaps have a compile-time
++ * upper bound; the hardware field itself is 5 bits wide.
++ */
++#define KVM_VTLBID_MAX_NVIS		5
++#define KVM_VTLBID_MAX_VDOMAINS		BIT(KVM_VTLBID_MAX_NVIS)
++
++struct vcpu_tlbid_data {
++	/* Node in per-pCPU vCPU list of tlbidomain */
++	struct list_head pcpu_node;
++	/* Store vDomain bitmap, indexed by vCPU ID */
++	u32 vdomain_bitmap;
++	/* Record the last pCPU where vCPU was running, indexed by vCPU ID */
++	int last_pcpu;
++};
++
++struct tlbidomain {
++	/* Using xarray to dynamically allocate vCPU-related TLBID info */
++	struct xarray vcpu_data_array;
++	/* The number of vDomains */
++	int num_domains;
++	/* Number of vDomains representable in the VTLBIDn registers */
++	int max_vdomains;
++	/* Mapping of pDomain to vDomain, indexed by vDomain ID */
++	int *domain_map;
++	/* Record the bitmap of pCPUs mapped to vDomain, indexed by vDomain ID */
++	cpumask_var_t *vdomain_cpumasks;
++	/* Whether virt-TLBID is enabled by KVM */
++	bool kvm_tlbid_enabled;
++	/* Whether virt-TLBID is enabled by Guest */
++	bool guest_tlbid_enabled;
++	/* TLBIDIDR.NVIS */
++	u8 nvis;
++	/* TLBIDIDR.NIS */
++	u8 nis;
++	/* Guest-visible TLBIDIDR value (NIS/NOS carry virtual domain counts) */
++	u64 tlbididr_val;
++	/* Used to prevent concurrent modifications to the domain mapping. */
++	spinlock_t tlbid_lock;
++	/* Per-pCPU list of vCPUs whose last_pcpu equals this pCPU */
++	struct list_head *pcpu_vcpu_list;
++};
++
+ struct kvm_arch {
+ 	struct kvm_s2_mmu mmu;
+ 
+@@ -427,6 +478,10 @@ struct kvm_arch {
+ 	/* Nested virtualization info */
+ 	struct dentry *debugfs_nv_dentry;
+ #endif
++
++#ifdef CONFIG_KVM_ARM_VTLBID
++	struct tlbidomain tlbidomain;
++#endif
+ };
+ 
+ struct kvm_vcpu_fault_info {
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index 449154f9a485..c54ce82d31fc 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -104,4 +104,16 @@ config PKVM_STACKTRACE
+ 
+ endif # NVHE_EL2_DEBUG
+ endif # KVM
++config KVM_ARM_VTLBID
++	bool "Virtual TLBID support for KVM guests"
++	depends on KVM && ARM64_TLBID
++	default n
++	help
++	  Enable virtualization of FEAT_TLBID so that each KVM guest can
++	  use TLBI Domains independently of the host. The host TLBID
++	  hardware is partitioned per-VM through VTLBID_EL2 registers
++	  managed on the vCPU load/put path.
++
++	  If unsure, say N.
++
+ endif # VIRTUALIZATION
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 8b080804bc90..7292e3e0ec1c 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -214,6 +214,119 @@ static int kvm_arm_default_max_vcpus(void)
+ 	return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
+ }
+ 
++#ifdef CONFIG_KVM_ARM_VTLBID
++static int kvm_arm_init_tlbidomain(struct kvm *kvm)
++{
++	struct tlbidomain *vdomain = &kvm->arch.tlbidomain;
++	int i, max_vdomains, pdomain_bits;
++	u64 tlbididr;
++
++	if (!system_supports_tlbid() || !has_vhe())
++		return 0;
++
++	tlbididr = read_sanitised_ftr_reg(SYS_TLBIDIDR_EL1);
++
++	vdomain->nis = FIELD_GET(TLBIDIDR_EL1_NIS_MASK, tlbididr);
++	vdomain->nvis = min_t(u8, FIELD_GET(TLBIDIDR_EL1_NVIS_MASK, tlbididr),
++			      KVM_VTLBID_MAX_NVIS);
++	vdomain->num_domains = -1;
++	/*
++	 * The four VTLBIDn registers hold at most 4 * 64 / pdomain_bits
++	 * vDomain fields. Disable vTLBID altogether when NIS is outside
++	 * the supported ranges (no useful ISH domains).
++	 */
++	if (vdomain->nis >= NIS_RANGE_MIN_1_8 && vdomain->nis <= NIS_RANGE_MAX_1_8)
++		pdomain_bits = VTLBID_TD_WIDTH_NIS_1_8;
++	else if (vdomain->nis >= NIS_RANGE_MIN_9_16 && vdomain->nis <= NIS_RANGE_MAX_9_16)
++		pdomain_bits = VTLBID_TD_WIDTH_NIS_9_16;
++	else
++		return 0;
++	max_vdomains = min_t(int, 1 << vdomain->nvis,
++			     4 * VTLBID_EL2_WIDTH / pdomain_bits);
++	vdomain->max_vdomains = max_vdomains;
++
++	kvm_info("TLBIDIDR: 0x%llx, NIS: %d, NVIS: %d\n", tlbididr, vdomain->nis, vdomain->nvis);
++
++	xa_init(&vdomain->vcpu_data_array);
++
++	vdomain->domain_map = kcalloc(max_vdomains, sizeof(*vdomain->domain_map),
++				      GFP_KERNEL);
++	if (!vdomain->domain_map)
++		goto destroy_vcpu_data_array;
++
++	vdomain->vdomain_cpumasks = kcalloc(max_vdomains,
++					    sizeof(cpumask_var_t),
++					    GFP_KERNEL);
++	if (!vdomain->vdomain_cpumasks)
++		goto free_domain_map;
++
++	for (i = 0; i < max_vdomains; i++) {
++		if (!alloc_cpumask_var(&vdomain->vdomain_cpumasks[i], GFP_KERNEL))
++			goto free_vdomain_cpumasks;
++		cpumask_clear(vdomain->vdomain_cpumasks[i]);
++	}
++
++	for (i = 0; i < max_vdomains; i++)
++		vdomain->domain_map[i] = -1;
++
++	spin_lock_init(&vdomain->tlbid_lock);
++
++	vdomain->pcpu_vcpu_list = kcalloc(nr_cpu_ids,
++					  sizeof(*vdomain->pcpu_vcpu_list),
++					  GFP_KERNEL);
++	if (!vdomain->pcpu_vcpu_list)
++		goto free_vdomain_cpumasks;
++
++	for (i = 0; i < nr_cpu_ids; i++)
++		INIT_LIST_HEAD(&vdomain->pcpu_vcpu_list[i]);
++
++	/* Enable vTLBID only after all resources are allocated. */
++	vdomain->kvm_tlbid_enabled = true;
++
++	return 0;
++
++free_vdomain_cpumasks:
++	while (--i >= 0)
++		free_cpumask_var(vdomain->vdomain_cpumasks[i]);
++	kfree(vdomain->vdomain_cpumasks);
++free_domain_map:
++	kfree(vdomain->domain_map);
++destroy_vcpu_data_array:
++	xa_destroy(&vdomain->vcpu_data_array);
++
++	kvm_err("vTLBID init failed with -ENOMEM, feature disabled\n");
++	return -ENOMEM;
++}
++
++static void free_tlbid_vdomain(struct kvm *kvm)
++{
++	struct tlbidomain *vdomain = &kvm->arch.tlbidomain;
++	struct vcpu_tlbid_data *data;
++	int i, max_vdomains;
++	unsigned long index;
++
++	if (!vdomain->kvm_tlbid_enabled)
++		return;
++
++	max_vdomains = vdomain->max_vdomains;
++
++	kfree(vdomain->domain_map);
++
++	for (i = 0; i < max_vdomains; i++)
++		free_cpumask_var(vdomain->vdomain_cpumasks[i]);
++	kfree(vdomain->vdomain_cpumasks);
++
++	kfree(vdomain->pcpu_vcpu_list);
++
++	xa_for_each(&vdomain->vcpu_data_array, index, data)
++		kfree(data);
++	xa_destroy(&vdomain->vcpu_data_array);
++}
++#else
++static inline int kvm_arm_init_tlbidomain(struct kvm *kvm) { return 0; }
++static inline void free_tlbid_vdomain(struct kvm *kvm) { }
++#endif
++
+ /**
+  * kvm_arch_init_vm - initializes a VM data structure
+  * @kvm:	pointer to the KVM struct
+@@ -276,6 +389,8 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+ 
+ 	bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
+ 
++	kvm_arm_init_tlbidomain(kvm);
++
+ 	return 0;
+ 
+ err_uninit_mmu:
+@@ -332,6 +447,8 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+ 	kvm_uninit_stage2_mmu(kvm);
+ 	kvm_destroy_mpidr_data(kvm);
+ 
++	free_tlbid_vdomain(kvm);
++
+ 	kfree(kvm->arch.sysreg_masks);
+ 	kvm_destroy_vcpus(kvm);
+ 
+@@ -1731,6 +1848,52 @@ static int kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
+ 	return 0;
+ }
+ 
++#ifdef CONFIG_KVM_ARM_VTLBID
++static int kvm_arm_tlbidomain_vcpu_init(struct kvm_vcpu *vcpu)
++{
++	struct tlbidomain *vdomain;
++	struct vcpu_tlbid_data *data;
++	int ret;
++
++	if (!system_supports_tlbid())
++		return 0;
++
++	data = kzalloc_obj(*data, GFP_KERNEL);
++	if (!data)
++		return -ENOMEM;
++
++	/*
++	 * When the host has enabled TLBID but the guest has not,
++	 * KVM can map vDomain0 to pDomainN to optimize the TLBI
++	 * instructions for the guest. Therefore, the value is set
++	 * to 0x1, indicating that the vCPU is in vDomain0. If QEMU
++	 * calls KVM_ARM_VCPU_SET_VDOMAIN to configure vdomains, this
++	 * value will be overwritten to support the guest enabling
++	 * TLBID.
++	 */
++	data->vdomain_bitmap = 0x1;
++	data->last_pcpu = -1;
++	INIT_LIST_HEAD(&data->pcpu_node);
++
++	vdomain = &vcpu->kvm->arch.tlbidomain;
++	if (!vdomain->kvm_tlbid_enabled) {
++		kfree(data);
++		return 0;
++	}
++
++	ret = xa_insert(&vdomain->vcpu_data_array,
++			vcpu->vcpu_idx, data, GFP_KERNEL);
++	if (ret) {
++		kfree(data);
++		return ret == -EBUSY ? 0 : ret;
++	}
++
++	return 0;
++}
++#else
++static inline int kvm_arm_tlbidomain_vcpu_init(struct kvm_vcpu *vcpu) { return 0; }
++#endif
++
+ static int kvm_arch_vcpu_ioctl_vcpu_init(struct kvm_vcpu *vcpu,
+ 					 struct kvm_vcpu_init *init)
+ {
+@@ -1781,7 +1944,9 @@ static int kvm_arch_vcpu_ioctl_vcpu_init(struct kvm_vcpu *vcpu,
+ 
+ 	spin_unlock(&vcpu->arch.mp_state_lock);
+ 
+-	return 0;
++	ret = kvm_arm_tlbidomain_vcpu_init(vcpu);
++
++	return ret;
+ }
+ 
+ static int kvm_arm_vcpu_set_attr(struct kvm_vcpu *vcpu,
+@@ -1852,6 +2017,59 @@ static int kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
+ 	return __kvm_arm_vcpu_set_events(vcpu, events);
+ }
+ 
++#ifdef CONFIG_KVM_ARM_VTLBID
++static int kvm_arm_vcpu_set_vdomain(struct kvm_vcpu *vcpu,
++				    struct kvm_arm_set_vdomain *vdomain)
++{
++	struct tlbidomain *td = &vcpu->kvm->arch.tlbidomain;
++	u32 vdomain_bitmap = vdomain->vdomain_bitmap;
++	u8 num_vdomains = vdomain->num_vdomains;
++	struct vcpu_tlbid_data *data;
++
++	if (!td->kvm_tlbid_enabled)
++		return -EINVAL;
++
++	/*
++	 * The guest-visible ID registers and the FGU masks are frozen on
++	 * the first vCPU run; configuring vDomains afterwards would be
++	 * silently ineffective.
++	 */
++	if (kvm_vm_has_ran_once(vcpu->kvm))
++		return -EBUSY;
++
++	if (num_vdomains > td->max_vdomains)
++		return -EINVAL;
++
++	if (td->num_domains != -1 && td->num_domains != num_vdomains)
++		return -EINVAL;
++
++	if (num_vdomains < 32 && (vdomain_bitmap >> num_vdomains))
++		return -EINVAL;
++
++	data = xa_load(&td->vcpu_data_array, vcpu->vcpu_idx);
++	if (!data) {
++		kvm_err("vCPU%d: Failed to load vcpu_tlbid_data\n", vcpu->vcpu_idx);
++		return -EINVAL;
++	}
++
++	spin_lock(&td->tlbid_lock);
++	data->vdomain_bitmap = vdomain_bitmap;
++	td->num_domains = num_vdomains;
++	td->guest_tlbid_enabled = true;
++	spin_unlock(&td->tlbid_lock);
++
++	kvm_info("vCPU%d: vDomain bitmap: 0x%x\n", vcpu->vcpu_idx, vdomain_bitmap);
++
++	return 0;
++}
++#else
++static inline int kvm_arm_vcpu_set_vdomain(struct kvm_vcpu *vcpu,
++					   struct kvm_arm_set_vdomain *vdomain)
++{
++	return -EINVAL;
++}
++#endif
++
+ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 			 unsigned int ioctl, unsigned long arg)
+ {
+@@ -2031,6 +2249,27 @@ static int kvm_vm_set_attr(struct kvm *kvm, struct kvm_device_attr *attr)
+ 	}
+ }
+ 
++#ifdef CONFIG_KVM_ARM_VTLBID
++static int kvm_arm_get_vdomain_num(struct kvm *kvm,
++				   struct kvm_arm_get_vdomain *vdomain)
++{
++	struct tlbidomain *td = &kvm->arch.tlbidomain;
++
++	if (!td->kvm_tlbid_enabled)
++		return -EINVAL;
++
++	vdomain->max_vdomains = td->max_vdomains;
++
++	return 0;
++}
++#else
++static inline int kvm_arm_get_vdomain_num(struct kvm *kvm,
++					  struct kvm_arm_get_vdomain *vdomain)
++{
++	return -EINVAL;
++}
++#endif
++
+ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+ {
+ 	struct kvm *kvm = filp->private_data;
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index ac2d77d14963..030c76f1689e 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -999,6 +999,7 @@ struct kvm_enable_cap {
+ #define KVM_CAP_S390_HPAGE_2G 249
+ #define KVM_CAP_PPC_COMPAT_CAPS 250
+ #define KVM_CAP_ARM_PMU_V3_STRICT 251
++#define KVM_CAP_ARM_TLBIDOMAIN 252
+ 
+ struct kvm_irq_routing_irqchip {
+ 	__u32 irqchip;
+@@ -1674,4 +1675,17 @@ struct kvm_pre_fault_memory {
+ 	__u64 padding[5];
+ };
+ 
++struct kvm_arm_get_vdomain {
++	__u8 max_vdomains;
++};
++
++#define KVM_ARM_GET_VDOMAIN_NUM	_IOR(KVMIO, 0xd7, struct kvm_arm_get_vdomain)
++
++struct kvm_arm_set_vdomain {
++	__u32 vdomain_bitmap;
++	__u8 num_vdomains;
++};
++
++#define KVM_ARM_VCPU_SET_VDOMAIN	_IOW(KVMIO, 0xd8, struct kvm_arm_set_vdomain)
++
+ #endif /* __LINUX_KVM_H */
 -- 
-2.34.1
+2.33.0
 
 
