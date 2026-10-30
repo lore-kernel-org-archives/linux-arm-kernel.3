@@ -2,35 +2,35 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D93F60A261C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 16:55:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B4AA60A2603
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 16:55:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=f76LkwCp;
-	dkim=pass (1024-bit key, unprotected) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=IH6pW7U2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2c5ahpKO;
+	dkim=pass (1024-bit key, unprotected) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=ddmpdcPB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=wVuG7q5uMpwLdeNdNqczhbqcCJJG1XE+6CcI8ium2FY=; b=f76LkwCpUzgROp
-	WVKChiqjnmeDaF2DBrsDBfZ5PanebJyVZthFq1+52a8DKGyvpBbbHju31sd54R/R2y58rV1Az0+sX
-	r424K/qmT+W00841WvOR8fqovoPXrwG4am0K2RpKNT+r0PWkbNWYDerez5Cxht1NB750wQqnredJd
-	7FQ7W2BoxF8LFL4sgDTslCqzsahxuQ9ZHyFdo0G53utnj7Uk+v0hLV+HiONK3tI8pFDebPTM7sKV1
-	DEubb8wIJ+Hb2sjWXzAb7Qsalhmb1M+obWXs/Chw6TwR1LJL32vo6BNNqCngb4ye3IHTzI1aBYefT
-	9vNSjemhmtoKtsuc9bUg==;
+	List-Owner; bh=Zup0ssAFr6iZK+F8bd6TsKJG5vW3IBQaP27+OPMuXxY=; b=2c5ahpKOK6KQ9X
+	Dr8GntZU4BxfBqN3AxOS4NNVtZ1LOGRnaWIhdEU6JCHwZMDsnDTJmPOWMmkmemG5pWM9rK2/dxDS/
+	3xJz2rfsY0RE0P3k8GHv1YyOQ5Etvjz54A5JVkTIkkpg+jTKmikwDwfaTplQwphPs+KxPLEzRgdi6
+	O1OCVMgIAGl+1Y1cIt0sfnLUug51nzzz3Y4LRhVMnqF/LgpxcfVVU5K/ucM1II8K6M1w/sFzUOoum
+	A+EeGprq7812H7K+vEC9dODiJyIgKBjTf3AlIKbL23jRR9yiOT5ugWgZdNQt8hyRW60hyZWWN7rL/
+	kUgy0wrGv9Jg66STV4Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMpsO-0000000CATP-2DMS;
+	id 1xMpsO-0000000CATc-2cCn;
 	Fri, 30 Oct 2026 16:54:48 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMpsK-0000000CARV-0Jm5
+	id 1xMpsK-0000000CARm-3Hsh
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 30 Oct 2026 16:54:47 +0000
 Received: from lgs.. (unknown [101.76.249.61])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 52f74f11e;
-	Sat, 31 Oct 2026 00:54:37 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 52f74f11f;
+	Sat, 31 Oct 2026 00:54:38 +0800 (GMT+08:00)
 From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
 To: Lee Jones <lee@kernel.org>
 Cc: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>,
@@ -41,28 +41,28 @@ Cc: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/6] mfd: stmpe: Fix potential use-after-free during removal
-Date: Sat, 31 Oct 2026 00:54:27 +0800
-Message-ID: <f25172a8ca446456fa3e856b1b8b76e11dace293.1793377422.git.liguangshuo@mail.sdu.edu.cn>
+Subject: [PATCH 5/6] mfd: stmfx: Fix potential IRQ action leaks on removal
+Date: Sat, 31 Oct 2026 00:54:28 +0800
+Message-ID: <fb75e2706d7608956b5198c674fedd2f9cae7d55.1793377422.git.liguangshuo@mail.sdu.edu.cn>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1793377422.mfd.git.liguangshuo@mail.sdu.edu.cn>
 References: <cover.1793377422.mfd.git.liguangshuo@mail.sdu.edu.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa18dbc199a03a1kunm46158e5a52a29
+X-HM-Tid: 0aa18dbc1f2f03a1kunm46158e5a52a2e
 X-HM-MType: 10
 X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDTEtPVk1NT0NIS0xLHU9KH1YeHw
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCH0JIVksfHkIeGENLSRlLTFYeHw
 	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWUtVS1VLVUtZBg
 	++
 DKIM-Signature: a=rsa-sha256;
-	b=IH6pW7U2J4IPfcChpf6c2jBoUJlT7AjgPqMcSPjDAvH7wI1GVrtbeu2zLTGUFhAixV+e5e1v5B6MKMolBfR7nEZL3IFiQ0OFJ4gxzce9OGTI1CvqGH1xoaZncIpouPMTJuS17B0x3OWbAVH3yIVY6RYTE3xeJodqeodh+R2ALGE=; s=default; c=relaxed/relaxed; d=mail.sdu.edu.cn; v=1;
-	bh=wVuG7q5uMpwLdeNdNqczhbqcCJJG1XE+6CcI8ium2FY=;
+	b=ddmpdcPBR8UZeA8kfxBKyFYBSAYtV/iJ26Hm5kvVoLbNCpUxTJs/wD4rT5fgmSc2qEcUxom4pcZGMxOx5wz7C2mHlSGtSFX8olaJmRSVEbwtK3l/6vJV5hzDvqub4mLHYhvLGIT+6X3IMV+fyMP1fJo1oLdNI8p+W/P0We9IEXY=; s=default; c=relaxed/relaxed; d=mail.sdu.edu.cn; v=1;
+	bh=Zup0ssAFr6iZK+F8bd6TsKJG5vW3IBQaP27+OPMuXxY=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_095444_880530_3B01ED20 
-X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-CacheID: sfid-20261030_095445_021209_EE66CDAE 
+X-CRM114-Status: UNSURE (   8.73  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,13 +83,14 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-stmpe_remove() frees the IRQ domain before removing its children.
-Deactivating a child's interrupt can then access the freed domain.
-Remove the children before tearing down the domain and supplies.
+The remove callback disposes IRQ mappings before device-managed MFD
+children are removed. Their later free_irq() calls cannot find the IRQ
+descriptors, potentially leaking interrupt actions. Remove the children
+explicitly before tearing down the IRQ domain.
 
 This issue was found by our static analysis tool under development.
 
-Fixes: 57bf2a312ab2 ("mfd: stmpe: Remove IRQ domain upon removal")
+Fixes: 06252ade9156 ("mfd: Add ST Multi-Function eXpander (STMFX) core driver")
 Cc: stable@vger.kernel.org
 Assisted-by: OpenAI:gpt-6-astra
 Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
@@ -98,29 +99,33 @@ Build-tested the changed object with x86_64 defconfig plus COMPILE_TEST
 and the driver dependencies (W=1).
 No runtime or fault-injection testing was performed.
 
- drivers/mfd/stmpe.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/mfd/stmfx.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/mfd/stmpe.c b/drivers/mfd/stmpe.c
-index 3c5c2f157f52..89c1c8deadc6 100644
---- a/drivers/mfd/stmpe.c
-+++ b/drivers/mfd/stmpe.c
-@@ -1486,6 +1486,8 @@ EXPORT_SYMBOL_GPL(stmpe_probe);
+diff --git a/drivers/mfd/stmfx.c b/drivers/mfd/stmfx.c
+index f683fdb6ece6..82e81e084795 100644
+--- a/drivers/mfd/stmfx.c
++++ b/drivers/mfd/stmfx.c
+@@ -448,9 +448,9 @@ static int stmfx_probe(struct i2c_client *client)
+ 	if (ret)
+ 		goto err_chip_exit;
  
- void stmpe_remove(struct stmpe *stmpe)
+-	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+-				   stmfx_cells, ARRAY_SIZE(stmfx_cells), NULL,
+-				   0, stmfx->irq_domain);
++	ret = mfd_add_devices(dev, PLATFORM_DEVID_NONE,
++			      stmfx_cells, ARRAY_SIZE(stmfx_cells), NULL,
++			      0, stmfx->irq_domain);
+ 	if (ret)
+ 		goto err_irq_exit;
+ 
+@@ -466,6 +466,8 @@ static int stmfx_probe(struct i2c_client *client)
+ 
+ static void stmfx_remove(struct i2c_client *client)
  {
-+	mfd_remove_devices(stmpe->dev);
++	mfd_remove_devices(&client->dev);
 +
- 	if (stmpe->domain)
- 		irq_domain_remove(stmpe->domain);
+ 	stmfx_irq_exit(client);
  
-@@ -1495,8 +1497,6 @@ void stmpe_remove(struct stmpe *stmpe)
- 		regulator_disable(stmpe->vcc);
- 
- 	__stmpe_disable(stmpe, STMPE_BLOCK_ADC);
--
--	mfd_remove_devices(stmpe->dev);
- }
- EXPORT_SYMBOL_GPL(stmpe_remove);
- 
+ 	stmfx_chip_exit(client);
 
