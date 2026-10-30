@@ -2,127 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6035A606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 17:51:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EDCA606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 17:53:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XmKqKbQ/;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=AoiW/s6U
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NHYO7h5/;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=cOQxbd/1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=2lUW6mNAaniOldlAAm4wyYiKTi3JWIrVMmTGiPdZFD4=; b=XmKqKbQ/Ijfr7SoJrp7dEuUmnH
-	v4l3kZwXs0GVWMbeYbNKK2aGGaTjliArYmdqE5fikQK15JBiSstvL1WYBM8A3UuoQrQfylaV3nSCC
-	InhTsbclDwuLMs7m5LYNbVEco5ZSDlzYfYgWcYPzfMml2YwFzkyNdtKa57WkFiDf96ltmmqz9PbwH
-	X/CpxC7bF4yXUnlXkC7mzu3EE60y2wBTJcyPJvd9ExZRvh/4U1U8NQULT35sPkOu2ZUiLuIaUxOJB
-	O7taRdsZ0vvkMrWopPSxoALwLulMiVkC4p4JBhNUcypCh65xaiwQZFXi59b9N7O0x+Vss9H6R9q5A
-	u5tZSDig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=f1PVTEPEeT+k0NIsjo13PPlcE4G2CKOtf71KBMqhCMg=; b=NHYO7h5/sIUWht
+	ZPtlSK1uF+nqBijyxV5h2r2UXXSmRE/H1fy8AFpacnpoQN9NymBfgAU0itIJnt/I4Q65fE4SqJwlX
+	E+6+LYuUTX9tVHlb0wU3QONgQjCAjigXQ8eoEfpNqRZjnkDC6qX/sv4mtXUe1m97lh/iCeAoAFyRs
+	zfQ63+mDSoWunJYX0GzIbesjMGovFFIpP5FRYbnW1A6oeRJUfNdcFDcuhr6JvCwX0azv73aXYm0ac
+	RRTMU0jsriKjTIhi8NOP1Du3o3GZ+R4pxJ693sOalyjSdqphX3tDACak1EPbF0+Bm2Cov+bXuVVW0
+	ja6m6XDXAQi5yvO71Wfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqlJ-0000000CJON-0Sl2;
-	Fri, 30 Oct 2026 17:51:33 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1xMqnH-0000000CK48-2Q2b;
+	Fri, 30 Oct 2026 17:53:35 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMqlD-0000000CJIB-2bCT
+	id 1xMqnF-0000000CK2s-3qOL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 17:51:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ofiQSRpqAfziyiAxMLsy83gejqRg7J1fjEMXS1pVgmXgLqNA828efNR8gppgTZS8f1aD0mTyPmVVh6OG23KDO4OEjeLSNV+DNvxztu69t51zmLyVd+dhWQATAuGG5vT7gQ1pHigVVOOKFPSKltWQooxxbepf3Hhw/JQ+vfEJ+T6qAZLb8ewvxf9voMCiWekS+9bFxy51RP5ho2vDaZCuxvZ6PHDZhlss92CKhm2RK6SWMU7AN/V5O2UVrXhErjSFmxQjaq6LJUAmJ+Swh37rXqAHdZuEECTZS5tpMXwaLdx/cOctrG1DPxIdlBbRFfi+69UoNAfpt5zE8r/WECQCqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2lUW6mNAaniOldlAAm4wyYiKTi3JWIrVMmTGiPdZFD4=;
- b=zGUk7jxzuJE7XNBrv1mx5EOhtpa4b3AzCIUo0tJ49OV3MYzFBL5c54hKcRMgrguIHzgMCLbIFZV23GculDp7dcbSo1bMDTiTpiHWe88uKdgWYRSe4Y9zbMrVg3dob/G7YAc7odH0CgZS2NhEyl4YIRTI1/eN3mkXoB4gBlFw3QD6ZA7YYJHJfuUoCXBWxsKwiemhHepd2aMug3dxUf4VCF6pVVLWinJ/+5Kw486sJVY8y1tSw3MPiP5lPZfcyBa4B1LWLu23jl6DpxZxt2JY79iTFqtO5hZWtKphfjJ0MSHIqli9ckV9jyjXyiH0cAtCs9+s7C5mFQtIMzgW4bt2EA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2lUW6mNAaniOldlAAm4wyYiKTi3JWIrVMmTGiPdZFD4=;
- b=AoiW/s6UcDITab5hhPBmP2FqM90B47qWR4sxumgU6w44ryg0ORKZ+QENsUCLyFZMoJzOA4M16A01wfpMSh3QMmYLh/7p8W2c2nuoWiTB9Cr+7B0vOG4wO5Hecn8BRBuA88juqI/2Fq8/Z4tgnpPNlRwAB/DWxa8ja8YXtq6I5hosWgknJbgaOUjHeSa1Eb9DIfKmZF9AjOycGXE0yWbu5jBHSxwJSuCeKFOvNz1QmbUS2OWmm9E7NznFMXJ9F5BjVpB4rfAPnsJBt/V/i9svNAH3NhcrHrA3s0WohlSGUN+198r2WYExwRb8p60pCHdzquxU9O/1SSDwf5DcKMsDiQ==
-Received: from PH8PR22CA0008.namprd22.prod.outlook.com (2603:10b6:510:2d1::20)
- by CYYPR12MB8923.namprd12.prod.outlook.com (2603:10b6:930:bc::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.8; Fri, 30 Oct
- 2026 17:51:10 +0000
-Received: from MW3PEPF00001659.namprd21.prod.outlook.com
- (2603:10b6:510:2d1:cafe::28) by PH8PR22CA0008.outlook.office365.com
- (2603:10b6:510:2d1::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.22 via Frontend Transport; Fri,
- 30 Oct 2026 17:51:10 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- MW3PEPF00001659.mail.protection.outlook.com (10.167.249.203) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.0 via Frontend Transport; Fri, 30 Oct 2026 17:51:10 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Fri, 30 Oct
- 2026 10:50:45 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 30 Oct 2026 10:50:45 -0700
-Received: from build-bwicaksono-noble-20260804.internal (10.127.8.11) by
- mail.nvidia.com (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.56
- via Frontend Transport; Fri, 30 Oct 2026 10:50:44 -0700
-From: Besar Wicaksono <bwicaksono@nvidia.com>
-To: <acme@kernel.org>, <namhyung@kernel.org>, <irogers@google.com>,
-	<ctshao@google.com>
-CC: <linux-tegra@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <skelley@nvidia.com>,
-	<mochs@nvidia.com>, <rajjoshi@nvidia.com>, <treding@nvidia.com>,
-	<jonathanh@nvidia.com>, <john.garry@linux.dev>, <will@kernel.org>,
-	<james.clark@linaro.org>, <mike.leach@arm.com>, <leo.yan@linux.dev>,
-	<mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
-	<jolsa@kernel.org>, <adrian.hunter@intel.com>, Besar Wicaksono
-	<bwicaksono@nvidia.com>
-Subject: [PATCH v2 8/9] perf evsel: Name a merged uncore counter after all of its PMUs
-Date: Fri, 30 Oct 2026 17:48:15 +0000
-Message-ID: <20261030174816.1544471-9-bwicaksono@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261030174816.1544471-1-bwicaksono@nvidia.com>
-References: <20261030174816.1544471-1-bwicaksono@nvidia.com>
+	Fri, 30 Oct 2026 17:53:35 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-48e0d1c095dso587171f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 10:53:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1793382811; x=1793987611; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=f1PVTEPEeT+k0NIsjo13PPlcE4G2CKOtf71KBMqhCMg=;
+        b=cOQxbd/1Y6U0i5ZZC9C79G0BY64TTb8FYVmAy07nIxeLX8cr1404+/ni++kPtfdabB
+         y/SCv56E7SXBpYebzBO7bS0U5uN8s3NuEcxzBoipyrfqgTI+gxooF5lSs4PVA8W2uJcQ
+         EOzZVYAb+Dk3TUDYFJJSfckYh53UaYifxO70yGuXiCtg069ZRu2Dt8iPp+8Zwis0oifX
+         oKsuFphuMnKgYbsPYnb8/Oea8oEiUp56otSDh8jSH44A4qCI4blChMgKk+WkEvdEML6d
+         t9VBrMJqvB6jM3iDd/2q/xlIf8pt+zc21YJLeF3uc3fArlExg8Jyln+nXY6EWy6xDl8F
+         5uZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793382811; x=1793987611;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=f1PVTEPEeT+k0NIsjo13PPlcE4G2CKOtf71KBMqhCMg=;
+        b=gwe4XGrk8ajraGtBqVmGz4AC8/H5OJcnNVoyVEZ4N1CWF8E6UnW3up58iHePfEB024
+         vzslAheNJzeHB+DQ0ROq+E3cNHGCJz82GR+w8L2NxsDDPQuP2FyK9nAvjSEXFuPBj593
+         g4h80wdCNeW7HlFxhuY4MX1/J59mnxuCUN/nxxezxjHJ8ED7nZNIFzT3lAP+hVBhwD97
+         Eb6OdB/kDV0Lv06C3b+mFFOFawsOkrCLWYX8+LWVyWW+41dr61MXaiti7cW/GRKGvjUR
+         SL0ELVYb0FSbVcP+GLihtl9fSpxke6Cz9hYDwRaqDKxS4l3XJ4Z4v/PGB6gJyjyBipeJ
+         EGcw==
+X-Forwarded-Encrypted: i=1; AKwUvBxKttDAYumc99aCGNPtP7Pyo/slYSv7+n1pVNdGMvNVoZux1QTj2b7hm8zQDcQiKTW2F2Td4qMIl7dHpl5o8vCw@lists.infradead.org
+X-Gm-Message-State: AFq9FYJs9bWvgohHK9PV7bIT6pbTSO6tj2702CgEPhYQwACR/Tqxj6ZD
+	a2OXgt7W8kZ8+2TrrBCn1rjkWx8lBsunGmWxhIScfgcC76ViHbLVk9eXcCowOUzN5NA=
+X-Gm-Gg: AYBFou2PxVk4xuTs4WJdd7BGpIrnJhiYJu3ElCOMjRgO/HHlMu5cAqF1goFXHHW+o1p
+	ruM5zDYxr/Wc9bvSE06e18Rq5DABNk0EXwMXHrrucUGLSRcXhOfVPc3mgjCbF0U00L4NaoNK9tp
+	U14TWEcogyjQib1kx2zPDRah/88bBAj/sRWIsz8pAQVJ2dEmTAymwg6Kh5Yo3HKnDQm6ut3jOCn
+	TfrPTGgGr9mhOBcx/sNu1RIgMJ1koOWJPdmvzjolqXbNGqoJ9AOln4JNa/08BS0ABQn0L69KrU/
+	HM5pVrjW5R8YG0f5aRoe+32c2b3mKDrRGyrYmR+gokT6Juo1ZOSHHSpb1OMi5m6RofHdVsfAhD7
+	9mupCmYJJ+04Xt8gkxGDZ53yUKxgmUtUoix4vS1lb0ADf1+7Uy0FLkinraRvzsgGnokyZS+Pwt7
+	N6UzNbWpLDVxq/7wetMh3rAA89LofazoO/8Xb9VTJ0fs0rtpp3d1cmQmr7rEvWEVpbseDn7h074
+	lKyNu6yJgA3ognI+feGUOqSCfCREmDUDhp3oRSES/paYxsBPk/PQM+aENzWj2latcj47Wowm6ON
+	w45yZE7T4jjpNRZh9o8As1n0yl4AUrbXfBhMcUcWmE62aTfmbzBUVZ6ps8cQVmEYKuMK5mjmtbo
+	gKnAHiprPcEtA/gxxgfP6
+X-Received: by 2002:a5d:4e05:0:b0:48e:21f7:79ff with SMTP id ffacd0b85a97d-48e6e50575emr5450463f8f.33.1793382811276;
+        Fri, 30 Oct 2026 10:53:31 -0700 (PDT)
+Received: from localhost ([151.40.161.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71b79059sm4656186f8f.30.2026.10.30.10.53.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 30 Oct 2026 10:53:30 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW3PEPF00001659:EE_|CYYPR12MB8923:EE_
-X-MS-Office365-Filtering-Correlation-Id: 25fcfb9f-fbd9-42de-02dc-08df36ae61ef
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|82310400026|36860700016|261028144727099003|260925021311599003|260925021911599003|260925022911599003|56012099006|261021121427099003|11063799006|261009223027099003|261022105027099003|261026121527099003|261022075727099003|261021123027099003|261026140227099003|10067099003|18002099003|22082099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: r6pLX+0WM+AD+bank/cQ5O6HgG+JGJR6ZT4Ht0bWu1EkQ4PaZ2uhrfEgm1fTTCbVqxYZmv6avWrXKYptfhM+baP7iWvcqh0wfp19heSL1uCGMbWMiuEbaEwZnaUez9C32cRyKXqKKy0ip7gRA6NKOsPdMbOJAf7Bxljb/iuDg3i1FALA50m4qrfX2wVg3adG3EVMJj2VhifA1xPPCsgY12rXTUFfyu5yeL6q8+ejaGsjuFJHKmTztbwENYNUA+g1yJOw4r8mfNY2rZM1CQBWeUcu9rbAeaA3xuVS1PJuDWrUuGaoAVoiHD2F+Sw4vz5ZCbN+3kUQVFJjqqmm26H3AIpvOj0zKOo/4U9PBeptUnYdbImSSfOi61dek+/wi2UAIS5cdgW1f5TNyu7h42xV11Tt91hmWjtfVd6xLwCqPwTSWRs9d0hHuyn+1fsvx06EdvxB9AvmDhz00aXasiEWEcJ+4Ll73T4hWr0HS0ceqKI5CA+Du3gf9WzEkZubtLPmJX9hIHqn6We5Jtc+4cggY9Fkeuzblc/fI4rAW+fHec7vcgHRmuGFdUOwEKejFQkO0KF1wILJBX0BQfrWoM9LfymXJB5DRbpRXsZ/1glsnIDvKR+eXXd0/2+S7psc/Nwcr8/nd2ZlqI3d7CoJZdtAWsWeep3HD2Bqqq0sojTmoxzLBz90mI/PrJpD8ianaGzARxSFbP3gQ3s/DjC0SKdAUg==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(82310400026)(36860700016)(261028144727099003)(260925021311599003)(260925021911599003)(260925022911599003)(56012099006)(261021121427099003)(11063799006)(261009223027099003)(261022105027099003)(261026121527099003)(261022075727099003)(261021123027099003)(261026140227099003)(10067099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: q32HF05piGAkz62Gvc426A9fDX6vclsdcxmubRhNlFrlHFfjVkh89wPLmeD4QbwuIN05m2ndfgCSAN3x+j8Nbxn72w71bR8Abbcv97RXRSBAByHsZkBWjkNriWs99pGceWuYKu9Gcz+7aMxmtnwPU0FWdSli7F2cMNRVhx87X2nSnmumj3kIKa3akG+F4Z94+26DLtO6cERj3DJqhq2tXHPVG5YRD7iRvNe+FMRCNAO63xFMSk2/DJwRRgLQPvFomiB15/MWnD33xLOL8ON2jkVhiALy1tuQLSex8OXeoUpC+0GRYL8nA7pX9OBicfoI5454J6cHtYrsgG+a+qmANsEur8kG/PYKS2yg7/hWUEDUNnl1YWTj05t9/oeTrhOreaOCoU1EkovLfTj6zNquKVYidUQk48n3zWt9OR9YgKfpmk25pi6Tv7aY20N9stpV
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 17:51:10.4681
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 25fcfb9f-fbd9-42de-02dc-08df36ae61ef
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MW3PEPF00001659.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8923
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 30 Oct 2026 18:53:29 +0100
+Message-Id: <DMID5D64EBS2.3IDHDRJOWK3W1@linaro.org>
+Cc: "Aaro Koskinen" <aaro.koskinen@iki.fi>, "Kevin Hilman"
+ <khilman@baylibre.com>, "Roger Quadros" <rogerq@kernel.org>, "Tony
+ Lindgren" <tony@atomide.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Christopher Obbard" <chris.obbard@oss.qualcomm.com>, "Andrew Goodbody"
+ <andrew.goodbody@linaro.org>, "Paul Walmsley" <paul@pwsan.com>, "Russell
+ King" <linux@armlinux.org.uk>, "Rouven Czerwinski"
+ <rouven.czerwinski@linaro.org>, <linux-omap@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2 4/9] ARM: dts: omap: dm816x: refactor and align MMC
+ node
+From: "Ettore Chimenti" <ettore.chimenti@linaro.org>
+To: "Andreas Kemnade" <andreas@kemnade.info>, "Ettore Chimenti"
+ <ettore.chimenti@linaro.org>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261028-patch-ektor5-dm8168-dts-v2-0-4544429251e2@linaro.org>
+ <20261028-patch-ektor5-dm8168-dts-v2-4-4544429251e2@linaro.org>
+ <20261030113032.51b92b19@kemnade.info>
+In-Reply-To: <20261030113032.51b92b19@kemnade.info>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_105127_713554_18D0D374 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20261030_105334_073857_1F722C4F 
+X-CRM114-Status: GOOD (  15.39  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,342 +114,58 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When an uncore event is opened on several instances of a PMU, perf stat
-merges the counts of the other instances into the evsel of the first
-one. If the event name has to be made unique, for example because the
-event matches more than one PMU type, the name of the first instance is
-put in front of it, although the count is the sum of all instances.
+Hi Andreas,
 
-For example, on a dual-socket NVIDIA Tegra410 with six PCIe root
-complexes per socket, the socket 1 rows count nvidia_pcie_pmu_1_rc_<rc>
-but are labelled with nvidia_pcie_pmu_0_rc_0:
+On Fri Oct 30, 2026 at 11:30 AM CET, Andreas Kemnade wrote:
+> On Wed, 28 Oct 2026 17:06:05 +0100
+> Ettore Chimenti <ettore.chimenti@linaro.org> wrote:
+>
+>> From: Andrew Goodbody <andrew.goodbody@linaro.org>
+>>=20
+>> Update the MMC node in the TI Sitara DM816x device tree to align with
+>> the structure used in other similar SoCs. The changes include
+>> refactoring the node to better describe the target module and its
+>> sub-nodes.
+>>=20
+>> Signed-off-by: Andrew Goodbody <andrew.goodbody@linaro.org>
+>> Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
+>> ---
+>>  arch/arm/boot/dts/ti/omap/dm816x.dtsi | 33 +++++++++++++++++++++++++++-=
+-----
+>>  1 file changed, 27 insertions(+), 6 deletions(-)
+>>=20
+>> diff --git a/arch/arm/boot/dts/ti/omap/dm816x.dtsi b/arch/arm/boot/dts/t=
+i/omap/dm816x.dtsi
+>> index fc124f9ecfa1..e3d49651b44e 100644
+>> --- a/arch/arm/boot/dts/ti/omap/dm816x.dtsi
+>> +++ b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
+>> @@ -423,13 +423,34 @@ &edma 20 0 &edma 21 0
+>>  				    "tx2", "rx2", "tx3", "rx3";
+>>  		};
+>> =20
+>> -		mmc1: mmc@48060000 {
+>> -			compatible =3D "ti,omap4-hsmmc";
+>> -			reg =3D <0x48060000 0x11000>;
+>> +		mmc1_target: target-module@48060000 {
+>> +			compatible =3D "ti,sysc-omap2", "ti,sysc";
+>>  			ti,hwmods =3D "mmc1";
+>
+> do we still need this?
 
-Before:
-  $ perf stat -a --per-socket -e 'nvidia_pcie_*rc*/rd_req/' -- sleep 1
-  S268435456    6            235,037      nvidia_pcie_pmu_0_rc_0/nvidia_pcie_*rc*,rd_req/
-  S268435456    6            665,297      nvidia_pcie_tgt_pmu_0_rc_0/nvidia_pcie_*rc*,rd_req/
-  S285212672    6              3,967      nvidia_pcie_pmu_0_rc_0/nvidia_pcie_*rc*,rd_req/
-  S285212672    6                 45      nvidia_pcie_tgt_pmu_0_rc_0/nvidia_pcie_*rc*,rd_req/
+No, we don't. I'll remove that in v3.=20
 
-Name a merged uncore counter after all of its PMUs instead. If the PMU
-names differ only in the suffix, use the name without the suffix, like
-nvidia_ucf_pmu. Otherwise, replace each number that differs with '*',
-like nvidia_pcie_pmu_*_rc_*.
+As per the comment for patch 7 (USB node update), I'll send two separate
+patches, one for DTS and one for the hwmod removal, making sure the
+hwmod removal is applied last.
 
-After:
-  $ perf stat -a --per-socket -e 'nvidia_pcie_*rc*/rd_req/' -- sleep 1
-  S268435456    6            234,973      nvidia_pcie_pmu_*_rc_*/nvidia_pcie_*rc*,rd_req/
-  S268435456    6            666,448      nvidia_pcie_tgt_pmu_*_rc_*/nvidia_pcie_*rc*,rd_req/
-  S285212672    6              3,184      nvidia_pcie_pmu_*_rc_*/nvidia_pcie_*rc*,rd_req/
-  S285212672    6                 31      nvidia_pcie_tgt_pmu_*_rc_*/nvidia_pcie_*rc*,rd_req/
-
-Output with --no-aggr, where the counters are not merged, is unchanged.
-
-Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
----
- tools/perf/tests/pmu.c   | 62 ++++++++++++++++++++++++++++++
- tools/perf/util/evlist.c |  2 +-
- tools/perf/util/evsel.c  | 83 ++++++++++++++++++++++++++++++++++++++--
- tools/perf/util/evsel.h  |  2 +-
- tools/perf/util/pmus.c   | 47 +++++++++++++++++++++++
- tools/perf/util/pmus.h   |  1 +
- 6 files changed, 192 insertions(+), 5 deletions(-)
-
-diff --git a/tools/perf/tests/pmu.c b/tools/perf/tests/pmu.c
-index e722cd08e30a..e31fdc25aa4c 100644
---- a/tools/perf/tests/pmu.c
-+++ b/tools/perf/tests/pmu.c
-@@ -547,6 +547,67 @@ static int test__name_cmp(struct test_suite *test __maybe_unused, int subtest __
- 	return TEST_OK;
- }
- 
-+static int test__name_mask_numbers(struct test_suite *test __maybe_unused,
-+				   int subtest __maybe_unused)
-+{
-+/*
-+ * Check that pmu_name_mask_numbers() turns _pattern into expect after
-+ * matching _name, or fails if expect is NULL.
-+ */
-+#define TEST_MASK(msg, _pattern, _name, _expect)				\
-+	do {								\
-+		const char *expect = _expect;				\
-+		char buf[64];						\
-+		bool ok;						\
-+									\
-+		snprintf(buf, sizeof(buf), "%s", _pattern);		\
-+		ok = pmu_name_mask_numbers(buf, _name);			\
-+		TEST_ASSERT_VAL(msg, expect ? ok && !strcmp(buf, expect) : !ok); \
-+	} while (0)
-+
-+	TEST_MASK("Same name", "nvidia_ucf_pmu_0", "nvidia_ucf_pmu_0",
-+		  "nvidia_ucf_pmu_0");
-+	TEST_MASK("Differ in suffix number", "nvidia_ucf_pmu_0", "nvidia_ucf_pmu_1",
-+		  "nvidia_ucf_pmu_*");
-+	TEST_MASK("Differ in suffix number, with a number inside the name",
-+		  "nvidia_nvlink_c2c_pmu_0", "nvidia_nvlink_c2c_pmu_1",
-+		  "nvidia_nvlink_c2c_pmu_*");
-+	TEST_MASK("Differ in both numbers", "nvidia_pcie_pmu_0_rc_0",
-+		  "nvidia_pcie_pmu_1_rc_5", "nvidia_pcie_pmu_*_rc_*");
-+	TEST_MASK("Differ in last number only", "nvidia_pcie_pmu_0_rc_0",
-+		  "nvidia_pcie_pmu_0_rc_5", "nvidia_pcie_pmu_0_rc_*");
-+	TEST_MASK("Differ in first number only", "nvidia_pcie_pmu_0_rc_0",
-+		  "nvidia_pcie_pmu_1_rc_0", "nvidia_pcie_pmu_*_rc_0");
-+	TEST_MASK("Same number length, different number", "nvidia_pcie_pmu_0_rc_10",
-+		  "nvidia_pcie_pmu_0_rc_12", "nvidia_pcie_pmu_0_rc_*");
-+	TEST_MASK("Longer last number in name", "nvidia_pcie_pmu_0_rc_0",
-+		  "nvidia_pcie_pmu_0_rc_12", "nvidia_pcie_pmu_0_rc_*");
-+	TEST_MASK("Longer first number in name", "nvidia_pcie_pmu_0_rc_0",
-+		  "nvidia_pcie_pmu_10_rc_0", "nvidia_pcie_pmu_*_rc_0");
-+	TEST_MASK("Longer first number in pattern", "nvidia_pcie_pmu_10_rc_0",
-+		  "nvidia_pcie_pmu_0_rc_0", "nvidia_pcie_pmu_*_rc_0");
-+	TEST_MASK("Same longer number after a masked one", "nvidia_pcie_pmu_10_rc_12",
-+		  "nvidia_pcie_pmu_0_rc_12", "nvidia_pcie_pmu_*_rc_12");
-+	TEST_MASK("Number is a prefix of the other", "nvidia_pcie_pmu_0_rc_1",
-+		  "nvidia_pcie_pmu_0_rc_10", "nvidia_pcie_pmu_0_rc_*");
-+	TEST_MASK("'*' matches any number", "nvidia_pcie_pmu_*_rc_*",
-+		  "nvidia_pcie_pmu_1_rc_10", "nvidia_pcie_pmu_*_rc_*");
-+	TEST_MASK("Numbers without _", "hisi_sccl1_ddrc0", "hisi_sccl3_ddrc0",
-+		  "hisi_sccl*_ddrc0");
-+	TEST_MASK("Hex suffix, differ in digits", "smmuv3_pmcg_fe0004030",
-+		  "smmuv3_pmcg_fe0004620", "smmuv3_pmcg_fe*");
-+	TEST_MASK("Hex suffix, differ in a letter", "smmuv3_pmcg_fe0004030",
-+		  "smmuv3_pmcg_fe00053a0", NULL);
-+	TEST_MASK("Differ before the numbers", "nvidia_pcie_pmu_0_rc_0",
-+		  "nvidia_pcie_tgt_pmu_0_rc_0", NULL);
-+	TEST_MASK("Name ends early", "nvidia_pcie_pmu_0_rc_0", "nvidia_pcie_pmu_0",
-+		  NULL);
-+	TEST_MASK("Name is longer", "nvidia_pcie_pmu_0", "nvidia_pcie_pmu_0_rc_0",
-+		  NULL);
-+#undef TEST_MASK
-+	return TEST_OK;
-+}
-+
- /**
-  * Test perf_pmu__wildcard_match() that's used to search for a PMU given a name passed
-  * on the command line. The name that's passed may also be a filename type glob
-@@ -706,6 +767,7 @@ static struct test_case tests__pmu[] = {
- 	TEST_CASE("PMU event names", pmu_event_names),
- 	TEST_CASE("PMU name combining", name_len),
- 	TEST_CASE("PMU name comparison", name_cmp),
-+	TEST_CASE("PMU name number masking", name_mask_numbers),
- 	TEST_CASE("PMU cmdline match", pmu_match),
- 	TEST_CASE("PMU instance match", pmu_instance_match),
- 	TEST_CASE("PMU config helpers", pmu_config_helpers),
-diff --git a/tools/perf/util/evlist.c b/tools/perf/util/evlist.c
-index c2402e4791b6..6ece8fb78a2f 100644
---- a/tools/perf/util/evlist.c
-+++ b/tools/perf/util/evlist.c
-@@ -2977,7 +2977,7 @@ void evlist__uniquify_evsel_names(struct evlist *evlist, const struct perf_stat_
- 		struct evsel *pos;
- 
- 		evlist__for_each_entry(evlist, pos)
--			evsel__uniquify_counter(pos);
-+			evsel__uniquify_counter(pos, config->aggr_mode != AGGR_NONE);
- 	}
- }
- 
-diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
-index d060fca8090f..7256a315e7df 100644
---- a/tools/perf/util/evsel.c
-+++ b/tools/perf/util/evsel.c
-@@ -4911,10 +4911,84 @@ bool evsel__set_needs_uniquify(struct evsel *counter, const struct perf_stat_con
- 	return false;
- }
- 
--void evsel__uniquify_counter(struct evsel *counter)
-+/*
-+ * Check whether the PMUs merged into an uncore counter differ from its PMU
-+ * only in the suffix, like nvidia_ucf_pmu_0 and nvidia_ucf_pmu_1. Set merged
-+ * if any PMU is merged.
-+ */
-+static bool evsel__merged_pmus_suffix_only(struct evsel *counter, bool *merged)
-+{
-+	struct evsel *alias;
-+
-+	*merged = false;
-+	evlist__for_each_entry(counter->evlist, alias) {
-+		if (alias->first_wildcard_match != counter)
-+			continue;
-+
-+		*merged = true;
-+		if (!perf_pmu__name_no_suffix_match(alias->pmu, counter->pmu->name))
-+			return false;
-+	}
-+
-+	return true;
-+}
-+
-+/*
-+ * The PMU name of an uncore counter with each number that differs in the
-+ * PMUs merged into it replaced by '*', like nvidia_pcie_pmu_*_rc_*, or NULL
-+ * if the names differ in anything but numbers.
-+ */
-+static char *evsel__merged_pmus_mask_numbers(struct evsel *counter)
-+{
-+	struct evsel *alias;
-+	char *name;
-+
-+	name = strdup(counter->pmu->name);
-+	if (!name)
-+		return NULL;
-+
-+	evlist__for_each_entry(counter->evlist, alias) {
-+		if (alias->first_wildcard_match != counter)
-+			continue;
-+
-+		if (!pmu_name_mask_numbers(name, alias->pmu->name)) {
-+			free(name);
-+			return NULL;
-+		}
-+	}
-+
-+	return name;
-+}
-+
-+/*
-+ * The name of the PMUs whose counts are merged into an uncore counter, or
-+ * NULL if none are. It is the PMU name without the suffix if the PMUs
-+ * differ only in the suffix, like nvidia_ucf_pmu, otherwise the PMU name
-+ * with each number that differs replaced by '*', like
-+ * nvidia_pcie_pmu_*_rc_*.
-+ */
-+static char *evsel__merged_pmu_name(struct evsel *counter)
-+{
-+	const char *pmu_name = counter->pmu->name;
-+	bool merged;
-+
-+	if (counter->pmu->is_core)
-+		return NULL;
-+
-+	if (evsel__merged_pmus_suffix_only(counter, &merged)) {
-+		if (!merged)
-+			return NULL;
-+
-+		return strndup(pmu_name, pmu_name_len_no_suffix(pmu_name));
-+	}
-+
-+	return evsel__merged_pmus_mask_numbers(counter);
-+}
-+
-+void evsel__uniquify_counter(struct evsel *counter, bool merged)
- {
- 	const char *name, *pmu_name, *config;
--	char *new_name;
-+	char *new_name, *merged_pmu_name;
- 	int len, ret;
- 
- 	/* No uniquification necessary. */
-@@ -4930,7 +5004,8 @@ void evsel__uniquify_counter(struct evsel *counter)
- 
- 	name = evsel__name(counter);
- 	config = strchr(name, '/');
--	pmu_name = counter->pmu->name;
-+	merged_pmu_name = merged ? evsel__merged_pmu_name(counter) : NULL;
-+	pmu_name = merged_pmu_name ?: counter->pmu->name;
- 
- 	/* Already prefixed by the PMU name? */
- 	len = pmu_name_len_no_suffix(pmu_name);
-@@ -4965,6 +5040,8 @@ void evsel__uniquify_counter(struct evsel *counter)
- 			ret = asprintf(&new_name, "%s/%s/", pmu_name, name);
- 		}
- 	}
-+	free(merged_pmu_name);
-+
- 	if (ret > 0) {
- 		free(counter->name);
- 		counter->name = new_name;
-diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
-index 53f3641b66e1..0c46b95ab777 100644
---- a/tools/perf/util/evsel.h
-+++ b/tools/perf/util/evsel.h
-@@ -615,7 +615,7 @@ void evsel__remove_from_group(struct evsel *evsel, struct evsel *leader);
- bool arch_evsel__must_be_in_group(const struct evsel *evsel);
- 
- bool evsel__set_needs_uniquify(struct evsel *counter, const struct perf_stat_config *config);
--void evsel__uniquify_counter(struct evsel *counter);
-+void evsel__uniquify_counter(struct evsel *counter, bool merged);
- 
- /*
-  * Macro to swap the bit-field postition and size.
-diff --git a/tools/perf/util/pmus.c b/tools/perf/util/pmus.c
-index 1355b317f3ed..f80ba16a5007 100644
---- a/tools/perf/util/pmus.c
-+++ b/tools/perf/util/pmus.c
-@@ -90,6 +90,53 @@ size_t pmu_name_len_no_suffix(const char *str)
- 	return orig_len;
- }
- 
-+/*
-+ * Replace each number in pattern that differs from the number in the same
-+ * place in name with '*'. A '*' already in pattern matches any number.
-+ * Return false, with pattern partly changed, if the names differ in
-+ * anything but numbers.
-+ */
-+bool pmu_name_mask_numbers(char *pattern, const char *name)
-+{
-+	const char *p = pattern;
-+	/* Masking never lengthens pattern, so write the result in place. */
-+	char *out = pattern;
-+
-+	while (*p || *name) {
-+		size_t p_len, name_len;
-+
-+		/* Unless both names have a number here, the characters must match. */
-+		if (!(isdigit(*p) || *p == '*') || !isdigit(*name)) {
-+			if (*p != *name)
-+				return false;
-+
-+			*out++ = *p++;
-+			name++;
-+			continue;
-+		}
-+
-+		/*
-+		 * Both names have a number here. A '*' in pattern is a number
-+		 * that differed in an earlier name, so it stays '*'.
-+		 */
-+		p_len = *p == '*' ? 1 : strspn(p, "0123456789");
-+		name_len = strspn(name, "0123456789");
-+
-+		/* Keep the number if it is the same in both names, else mask it. */
-+		if (*p != '*' && p_len == name_len && !strncmp(p, name, p_len)) {
-+			for (size_t i = 0; i < p_len; i++)
-+				*out++ = *p++;
-+		} else {
-+			*out++ = '*';
-+			p += p_len;
-+		}
-+		name += name_len;
-+	}
-+
-+	*out = '\0';
-+	return true;
-+}
-+
- int pmu_name_cmp(const char *lhs_pmu_name, const char *rhs_pmu_name)
- {
- 	unsigned long long lhs_num = 0, rhs_num = 0;
-diff --git a/tools/perf/util/pmus.h b/tools/perf/util/pmus.h
-index 0d55edb3f2fc..535b79b1c750 100644
---- a/tools/perf/util/pmus.h
-+++ b/tools/perf/util/pmus.h
-@@ -10,6 +10,7 @@ struct perf_pmu;
- struct print_callbacks;
- 
- size_t pmu_name_len_no_suffix(const char *str);
-+bool pmu_name_mask_numbers(char *pattern, const char *name);
- /* Exposed for testing only. */
- int pmu_name_cmp(const char *lhs_pmu_name, const char *rhs_pmu_name);
- 
--- 
-2.43.0
-
+Thanks for your review,
+Ettore
 
