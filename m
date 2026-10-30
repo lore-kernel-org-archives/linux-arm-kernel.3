@@ -2,66 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C22CE606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 23:20:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28F5B606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 23:23:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AhmJUMAQ;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JYhDfDdT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mTm5UsBD;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=d5pK/Kob
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=YquaAYk5D/ZosrhPBkdkrqLrp23/+y9lm6zoH1BKULs=; b=AhmJUMAQi+sMML
-	qoPylA0+XhBbrGINzq/RxUk78QZvWI3GDnLgrmDSgZ/epohBW5cRxOgtOu3Ll9OLYPuBF0Y8ALILf
-	PAz36XtWOtTrnloM/rdL6MidWLLP1dPOYdbHY6kBScwZ7gL7Kd1MPuDnyYeA6NMckKq8FFfX+CWX/
-	KrSSOOF9NhubarP6y0Pfvh6srDJcc1DYbghzl7qxDM2SegO6htFF1vAcL+eZP6EYs/jsNADrkugzI
-	nXtHAST0u0LAy0WRER/wZxAEp3s8EWYSQo3HxkxX5fZDbhEBH+L0u1mNr4besLmogSTvKmnTuPW4M
-	tpwTmLsmzgis81qaH9WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=YX5EXa8MqOda9IpysisRoAlrusnl/F2jkf7qR97dinE=; b=mTm5UsBD5aGmB7u3HlxfG3YRXG
+	U5BoGBfAKNK52zY3YEKPPuakydWAQ4QinmnoBf5gWsGgJwXMP8l2qymsD8Fn6S2RadGwWHhrcsdlF
+	BUYZLuy4J+hfZWRkUGcqzuB2PwUGQo5K0wT2kgZHtUPeqJYJnkQQVIuSKTomASrcerkUNd3eBB3xx
+	qeMDLsELvtqcBToKbGyUbo4q6R4r+s26WclDPR08dXEZHVGwe0gGVYEtnusOhw4fZMCsXrSa+oO5l
+	B9MPMJ0vLDNVcLZ1LUhfoIIV40isVUSY/Ll3OWEYIL8E+pv2yzoQ3a8szXcKkJmVQZsPudgzCwwg3
+	hnlQhptw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMvtW-0000000Cira-0o1J;
-	Fri, 30 Oct 2026 23:20:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xMvwo-0000000Cj9O-49yN;
+	Fri, 30 Oct 2026 23:23:47 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMvtV-0000000CirR-1SGV;
-	Fri, 30 Oct 2026 23:20:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 21F7F601F8;
-	Fri, 30 Oct 2026 23:20:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C54021F00A02;
-	Fri, 30 Oct 2026 23:20:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793402419;
-	bh=YquaAYk5D/ZosrhPBkdkrqLrp23/+y9lm6zoH1BKULs=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=JYhDfDdTorJRcAHfHgN/bI6zq5Ow7Z8+QQah+IUfbz0iPAbOqW9XES4nnoSzH9Bdz
-	 4tXTmHDCOJLoTsTwJg68lAYvRD0aEbuACw2Csuau4cPxaaZ4W5ts+zO47eqsbQTfCk
-	 F178bqwtLIQmbdvaoCpYu8tJOb+2Qkhwp7bdT9vywyn1xfnDmC+ZTGAU8AC6H37v+E
-	 dWludCJNJdvquOzWv7ROyU8DI1Ou5nz2EggV6XJlr/4jVXZA3YBiOk3U486lpk5gmO
-	 nadVLfvd//k5ArMm5F1W+30wcxciktIFwbDTrN1TaOTzlGeVXuoXh44kfJqIy3I2QW
-	 Km8My2z68a34g==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA34A3800478;
-	Fri, 30 Oct 2026 23:20:19 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1xMvwm-0000000Cj93-1xs3;
+	Fri, 30 Oct 2026 23:23:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=YX5EXa8MqOda9IpysisRoAlrusnl/F2jkf7qR97dinE=; b=d5pK/KobbOtuQpDfxp2yT2Kf5S
+	l9hJX3nkPEjZu/TW9TDA1PZVuxX+eI131lrZFcSU3TUAxqLmfwED+9ZCRMD9WVxtGQdcAfu8z7WAw
+	1ZoPZVMwNNAutn5gl7S+b86mz0BG3uWC5SIVZ96ejws4jo1UqRp8jXsfc5PScuuA6i89pcgMfl6os
+	qMZvQDAmQln7oI2BBm/Cm8cJrXD+9G5gWfpzZCSFcWZCIGMPahsc5OxZzVbrHrwy5fQtMb5stvdNt
+	EI82iTKnGHqc3nXiQbRU+dZoiQ4S2xj60C1VYIo6OQuPHOJzn8we40uJW8O5rOfGREj9lHlBxzvuE
+	KQNEodKQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Shawn Lin <shawn.lin@rock-chips.com>,
+ "Deomid \"rojer\" Ryabkov" <rojer@rojer.me>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Sergey Bostandzhyan <jin@mediatomb.cc>,
+ Jensen Huang <jensenhuang@friendlyarm.com>
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Enable SDIO Wi-Fi on NanoPi R2S Plus
+Date: Sat, 31 Oct 2026 00:23:35 +0100
+Message-ID: <4193517.ZaRXLXkqSa@phil>
+In-Reply-To: <CABFmFwrWL1sej-=xCK-opxn3B9VVy=TaCyRQU43sw=6PY7bcmQ@mail.gmail.com>
+References: <20261023235959.2988087-1-rojer@rojer.me>
+ <38baaf87-4d5c-48bc-a11f-a5b6c04c20a8@rock-chips.com>
+ <CABFmFwrWL1sej-=xCK-opxn3B9VVy=TaCyRQU43sw=6PY7bcmQ@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v6 0/4] net: ethernet: mtk_wed: misc fixes
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179340241829.1826218.13676561512081686871.git-patchwork-notify@kernel.org>
-Date: Fri, 30 Oct 2026 23:20:18 +0000
-References: <20261026-wedfix-v6-0-a52f6b15d2fc@gmail.com>
-In-Reply-To: <20261026-wedfix-v6-0-a52f6b15d2fc@gmail.com>
-To: Zhi-Jun You <hujy652@gmail.com>
-Cc: nbd@nbd.name, lorenzo@kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- sujuan.chen@mediatek.com, rex.lu@mediatek.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, sashiko-bot@kernel.org
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261030_162344_528327_CCD8F0DB 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,43 +71,29 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello:
+Hi Deomid,
 
-This series was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Am Dienstag, 27. Oktober 2026, 23:10:31 Mitteleurop=C3=A4ische Normalzeit s=
+chrieb Deomid "rojer" Ryabkov:
+> Hi Shawn,
+>=20
+> agreed, it makes no sense here. will drop in v2, holding on for
+> feedback on patch 1.
 
-On Mon, 26 Oct 2026 17:57:27 +0800 you wrote:
-> Ths patch series includes some fixes for issues that were discovered
-> by Sashiko and one original patch fixing issue I encountered.
-> 
-> Patch 1,2,3 fix issues that were found by Sashiko.
-> Patch 1 was compiled test only.
-> Patch 2,3,4 were tested on a mt7986.
-> 
-> [...]
+No direct clue about the board itself, but I assume the schematics
+should be correct then?
 
-Here is the summary with links:
-  - [net,v6,1/4] net: ethernet: mtk_wed: skip ring reset in wdma_tx_ring_setup for WED v3
-    https://git.kernel.org/netdev/net/c/cb50f16f37fc
-  - [net,v6,2/4] net: ethernet: mtk_wed: fix reset condition for rx wdma
-    https://git.kernel.org/netdev/net/c/7180a42d8e61
-  - [net,v6,3/4] net: ethernet: mtk_wed: free up rings during detach
-    https://git.kernel.org/netdev/net/c/5b8d12512cbd
-  - [net,v6,4/4] net: ethernet: mtk_wed: setup WDMA_RING_TX(0) for non-DBDC MT7986
-    https://git.kernel.org/netdev/net/c/dd6efae55291
+So no change needed there and just send your v2, I guess :-)
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+
+Heiko
 
 
 
