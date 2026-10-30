@@ -2,67 +2,141 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2463E606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:16:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B8BD606A322
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 10:17:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DTKAVZPD;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Jc7pqsm4
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TZBd6Sse;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=qWMrOsrQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=yi8rwFMd9BghO9lmTtGQ2dC4Wi31UNr7sStszJWXA+U=; b=DTKAVZPDO7wxyB
-	X/N05rFx0wIBxbfZMLIZ8Puy/ZO/doMlASGnZYzP/CT6qiN4gcORFcj5UHHXA0YuSl2t/WA6TdLfs
-	Ihbp0qBIyj3Ziqq6H7ORqoYEs98qm5Vq0Rao5ubWzdP1Fo3vZudxyWZ2/4pKD7Q8dUiURZ2Pwwcv4
-	Tczl66On7qVOxQVFtnkLZojuQSQudFPwk1Yq+2TusM06o2uxUJskPTTOxS2kEEvrUji4rnPywGf4K
-	uRXm/EWOtaPQ5C9g+JUfePeSIGgtPm2qiWemeOM88CNBk1ZETsOZb06jLzAyMru/CvDzxFLneTooK
-	T3qKM0W3WJj81ZxGsQsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=jKKR4S9AQhJDStSbuwGW0EWdZumlZVGx3b3Yu5Euvig=; b=TZBd6Sseuqbq+Ce3ox/65oeLpO
+	K1t8cnAqpyxBl0QnUKKG41nTRMut1SAm4XgP25v8CrWeOf1VQXpEkGhFCE3oXHumxbwHQxeOdpPyL
+	wcmkpgkOK6bIqtqC7kgCx8NvkxUo6V3jf36zm9dhnnqaTWf0EyvqYLwCE482wTlb3LDq2HxCbwqrB
+	iXbkM634sFpIKW0yaFMCNP0LdHBpJDwl1Ujc+U+ukXMfm8+oWqX3OFq7FMy2OSP5O2O2KK/ffvkDb
+	HyM7xyK+G3/guSllwV7sJmja6R1BqKMtBVAO5E27VxWLcF5C1bM6C6JKe0dpP6MUDVIzLyYaa70D2
+	b1B7GFdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjed-0000000BMwc-38id;
-	Fri, 30 Oct 2026 10:16:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjea-0000000BMuz-17TO
+	id 1xMjfI-0000000BN4t-40nk;
+	Fri, 30 Oct 2026 10:16:52 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMjfD-0000000BN2c-2U13
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 10:16:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9550B1E8D;
-	Fri, 30 Oct 2026 03:16:00 -0700 (PDT)
-Received: from [10.0.152.204] (e121487-lin.cambridge.arm.com [10.0.152.204])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D61D03F673;
-	Fri, 30 Oct 2026 03:16:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793355363; bh=FhDY5fSWPJ3mhD73WP57LfIGqwZxwSuLppmUfiz+pOg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Jc7pqsm4vTE7kxMElmrskn/EFX99V9Yb2EuLMypfOO2ZWfNtb0tubd3Tiu9Tny8KX
-	 zoDjgWDKpT2jRIBwBifLnk0S7QSprVBpDEwWlcXJXAOf1P40PgvLkc070ObMrnKT1x
-	 6iXOQ/2hUm2zteDsuYeY/4EVppLxMq2gzEySNSj8=
-Message-ID: <b2856d6e-dce6-4933-a43a-3ce7b5f9d2c2@arm.com>
-Date: Fri, 30 Oct 2026 10:15:59 +0000
+	Fri, 30 Oct 2026 10:16:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xgvKyHb6Ei/Z+OiKPd/kPj24frDpRo25dpw1FJMQ2iwPIKXPRrm9ACNiLV9hqbfKiL1vnfeqeSSQAegMKRGEO+1p8fBUlX1WAr2hGYlUuGeNVz6yKxNJ/gt4J2aJ1C8WyDCEQ8dM1YPU9MLQ3ch0hmM90oNelPw1e29Jxwv/kuMxhDe3nF0AghNMdhx3NSDiA02WO2awexUYxvWJ8TjbUM66qN5vC+RBGQtyUN0X6HZ01kJf1c0FYLr+1DG8vGedh0BDdKBa2nod7VcPTAGxrY4WXxAftF3BeyQYDUukSoOgeyGqWRiiYvZxocJ9Am35g1uMwHLA0QvS9VomBNt+sw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jKKR4S9AQhJDStSbuwGW0EWdZumlZVGx3b3Yu5Euvig=;
+ b=XdnC7oyZoawqZDhqku7mGzBBcguOjufpIm6yNCztT1bjAZCEtwZC08D1nFl3yf8D/0tlPQ14BMA9eYgiR6NZZD81diNZDzM+KTO2glhB/SEh4ZTKbnWqR9LAk9bjHHnEBeYU2glBcbpwRm1mizB4fpZnbCIDlJJutVnnQxk1+1+0mgvFiJCm9kS0AZH+62+hYWQ+d4seSDjTNgQBjnON1L4uObAQ0/lmXnkPZQWEzXuiFYK54sjxvT1p+Kc5p3AuaK+ghQQreHKCkkUX6yzroHDNKDI7Kfc37aLrqdNJIVtbzIAbDwWH0QswSwgHEXlJxqrXS+yXRVxzKKszSTmD9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jKKR4S9AQhJDStSbuwGW0EWdZumlZVGx3b3Yu5Euvig=;
+ b=qWMrOsrQDRxIRB1M7AB2GJJUI9BVoFR8nvi9OblMHvKKGIT2xcjC0/jkoG9xcd2MtjIO1rPLCGVYeyKxjIrEumZ3tKQAamScFl/4Oj2fNwgnv5CoBmTJhfjoiMdNRACT/xwKzcO4umK5U2T3YJJ+h8HELud2OYghHY/gd7uyAm/QQWVsB0y78b5sNsWwyheaiuF76pKfebZ9gDNuIv48En+f1VfK+is9q6mtHWOcZcQL3XfEuR9GXGoglZObmfM0CIUQmnQZrQNDarqeJoc5jIVr1zrk6AGSA4YXq6jVqYlkIlwMqEX0a8v3t+9nslz4Ksy0eDpgPBO6zluZFOvKZw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19) by VI0PR04MB12032.eurprd04.prod.outlook.com
+ (2603:10a6:800:311::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.9; Fri, 30 Oct
+ 2026 10:16:38 +0000
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa%3]) with mapi id 15.21.0569.008; Fri, 30 Oct 2026
+ 10:16:37 +0000
+Date: Fri, 30 Oct 2026 12:16:33 +0200
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Ying Liu <victor.liu@nxp.com>, Frank Li <frank.li@oss.nxp.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v10 2/9] drm/bridge: fsl-ldb: Get the next non-panel
+ bridge
+Message-ID: <auRsorXM4UQJzoWF@vm>
+References: <20261006-dcif-upstreaming-v10-0-bcfb28de0aae@oss.nxp.com>
+ <20261006-dcif-upstreaming-v10-2-bcfb28de0aae@oss.nxp.com>
+ <179334897994.680709.5849266352850173475.b4-review@b4>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179334897994.680709.5849266352850173475.b4-review@b4>
+X-ClientProxiedBy: FR4P281CA0321.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:eb::13) To GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: mm: Stop using the previous ASID for init_mm
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- Lai Jiangshan <jiangshanlai@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Lai Jiangshan <jiangshan.ljs@antgroup.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Thomas Huth <thuth@redhat.com>,
- linux-arm-kernel@lists.infradead.org
-References: <20261027100231.31184-1-jiangshanlai@gmail.com>
- <r56ewhlz5fihgwd34zbiaxgmxdw4eq4t36jlsmwepu4nbhon6i@kjsqwoivmfhr>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <r56ewhlz5fihgwd34zbiaxgmxdw4eq4t36jlsmwepu4nbhon6i@kjsqwoivmfhr>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|VI0PR04MB12032:EE_
+X-MS-Office365-Filtering-Correlation-Id: 28724186-5cc2-4593-25f6-08df366ee1f3
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|7416014|1800799024|366016|6133799003|10067099003|22082099003|18002099003|56012099006|11063799006|4143699003|261026130827099003|261026140227099003|261026121527099003|261028144727099003|261021123027099003|261022075727099003|261021135927099003|261021130227099003|261022113327099003|261021121427099003|261022115727099003|261022105027099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info: svlBkGyq0gktqEMXwglYLJEd2zAT4S8N8OHx30T3ocD7m9eT80Ai8ztRuQArHGIx8+d2x0fx7ku3ybSKk7HkyoVWNK/WdlU7bq/qaNqB4mWJp/AxA83oLbKc3mMge4a2kgEow8AiZvN/a9eS4sbBD8MpHMr4k0Q1Cim6ubwmqOlV7E96MN2h0QC0NzfHEO/QpDltwKx4eTYU+RkXz7yuopawlf4artuih2wLM5fbL2Vy6HWUh6kcBA2rQcssQM4ZNjUnSlol3XlLNKd7BNEC+6vWwD6395AXh9j5OleB/c+lsZVlqZt15SyCp1KltoCcYvgxodUhOC0BCZ7+ULbYboey4xou6O7PHNddTcDqn+nD3bBBB2O1Uj9hIpKJ0cgYMu6qSqVPWSNYBATNlspoSesVjAaffNwTihxjGVLUDAThQz80SjSJ+spHTRbSXAU2ic4vTv8J18QFyp/NHVFfvezypvAvpsrcUmX+GuVVCBF2MbioFSurX8vI28A3+9QiAss+qJXTDid3YXRvdy3tdkeMcRByOtd7l9vaCR/LDghm6ffZu02ZgLhyWAu5QL3SDnhFA5enNjVYbbQgtJb6RcclgNFkEg/Q0a9ZN1SiBXo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(7416014)(1800799024)(366016)(6133799003)(10067099003)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003)(261026130827099003)(261026140227099003)(261026121527099003)(261028144727099003)(261021123027099003)(261022075727099003)(261021135927099003)(261021130227099003)(261022113327099003)(261021121427099003)(261022115727099003)(261022105027099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mkQ2BZemnFPd4RGFmY6oRcpMwlFCV3IJnN5vqdFXikWI4LtGCjPJglqWLQVx?=
+ =?us-ascii?Q?HBS0BEYtp12PsvBmdPZrDi6mCExfqFFCMeMVDTQyFEWuGkFheQdDAQFUTD/G?=
+ =?us-ascii?Q?qhE9TrAGCEP86ic3DPkHUMakOWGtJT/8sSsrNOS/YXwgJu6PHAizpu6rQlIL?=
+ =?us-ascii?Q?C+ridy24UVWnnSjXIrx8S1CVrX2D987ukNBBZNZ1Ku0PObBrAbfXBbdzt5Md?=
+ =?us-ascii?Q?1dk+4g2Xz+RkD9CxrShevOuHE0KDcm9J8m9V5Ft3gB1AQi5e792JcYTQQbrT?=
+ =?us-ascii?Q?PdEuGrNkpRoTtWcr7aGIUSTVt4d5ON2U2fnIWKcIgP78V7oo4o0sVVnmdvY5?=
+ =?us-ascii?Q?dhup4NNX2cjPm5dW8sDk4rL2Lu4yh9eMTfh/IR5EIeLJfmHURb65uDWiHm0v?=
+ =?us-ascii?Q?DNXtfTZIiX7bzfYb55FP5cAd+JaD+DeJokW3gDtSX22FN9IiQ4cwYRWQw6LE?=
+ =?us-ascii?Q?VyXOxs8GWFIKLSYJVWd+IR/1a3gjaxScXuaIayJEw+kJO7NVsg2dXWWdy4UK?=
+ =?us-ascii?Q?j7+Llk9n64/K6V/d7pYUfoZlZz0WfWBgHwLJu+BkwyviuXPbldre1uz9T2t8?=
+ =?us-ascii?Q?whn7SCUapcOEyDzDwQ3Iyy9xrvwJUZo5URHKOePlVhe3yJ+pa+nDK/WU3E8E?=
+ =?us-ascii?Q?5FpTSncUQrEBYB8UGGM53SuGZ7y/kAQHthL/C3EW5jpe5QS5Wj6EN1qVDARm?=
+ =?us-ascii?Q?uNy77+khyUEwzU9USDJKRmgBmVhdJGIrJTZfT5MuCmTG7017QxfxCAY/y0HR?=
+ =?us-ascii?Q?Ja7s4wgjoNMugcCWL/PRet63xo9Jqt+5qyAy5F+HtMeJ7U2knlVUfaxNXSRc?=
+ =?us-ascii?Q?uNnN2UwTTrlcKF7Rmaz66NJPmv8cQx0CXb7b9ZHBAbdtHOvPvr5yCq/TaX+M?=
+ =?us-ascii?Q?s8LieEbPKbqgtoBgYXinp7pc9fzpU1A8wDyTjas8WaDEr38J6rPfJbzwo4nr?=
+ =?us-ascii?Q?H1db44HsHiW08kpXUsmzWl2xZiCSxrGn5+CTHiQl5UCVsjD43zabk0DVQ+qz?=
+ =?us-ascii?Q?fqCVNe2S3XfnJhRhD3OgJTarnUj97PjUj2KulGu9rvbUMsi2XT/cUphvB1sc?=
+ =?us-ascii?Q?DPPHe5Tk0Tz1lW1cbc45zOBT5oAyLcitPGPWenTyfJ3yYFjHG7Pl6A40akUL?=
+ =?us-ascii?Q?R+7fY1C52CfkvsXMHtHfkaUBi1XjNudi7NvKhpqj1f6FeIgQDwp4wkLt+Wcl?=
+ =?us-ascii?Q?aCmniLmQpG0uaGliEqMwNeiUtvZdZwRkICERWsxwz2YAPzLssGntUmWMjrln?=
+ =?us-ascii?Q?M7/wvKQxio5LYl3d1OsFtFY7VyHpJAyy0WF5pRKablo5nwaGQbzWkkNI4Gpu?=
+ =?us-ascii?Q?3zTyj/By7+JZJ4E7DlObuc9Rrsi9/C2VCv1AlZ9FJOv4zkbiDoJi97CkNT6y?=
+ =?us-ascii?Q?3b3fcGmt4FPErO4YhJDYh5pZ4/FvGD6CI/OzXFVbgxBjDyxQgxfrr+vKY+7b?=
+ =?us-ascii?Q?Klw59qEYA7DZZCZ0CoWSqA2QouhKQEcU/TK2IUoTvJNB8pEQwGoLBfg/c00Q?=
+ =?us-ascii?Q?UsRlxZaDWbeDqF9OafoDHvF7aAp2VVv+gLsBmBZ1azAhayxuJtoweeUTy7Kw?=
+ =?us-ascii?Q?XAneBWxrxFV1L/6zeKfigifD6WiM8K07hJXabnywSJ0NxIRT2Of/oZIt6cm6?=
+ =?us-ascii?Q?dzwawba+hvFyWIFtioVv+GZq0Lob4bNOxsHCZMPyuuO/w+zRY4+ZLD0l9Cw/?=
+ =?us-ascii?Q?Rue+pn9af0fggcBg3USI5d9NxnrLG8tF3FLSatG7ecQdZ48yn8ffFWDdh4j+?=
+ =?us-ascii?Q?zTnt34g5IQ=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 28724186-5cc2-4593-25f6-08df366ee1f3
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 10:16:37.7081
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: s3WsjzDIIYyL/XM1DLF375O/gNLQcy4Mugo/YLX9mpLpAXKa7DHFZIve31C5lY+2t/9VnXUwW3Rpd6QVYDLhug==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_031608_504977_43F979EF 
-X-CRM114-Status: GOOD (  22.17  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261030_031647_636806_1681ABA6 
+X-CRM114-Status: GOOD (  35.62  )
+X-Spam-Score: -1.0 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,118 +147,142 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/30/26 06:30, Anshuman Khandual wrote:
-> On Tue, Oct 27, 2026 at 06:02:27PM +0800, Lai Jiangshan wrote:
->> From: Lai Jiangshan <jiangshan.ljs@antgroup.com>
->>
->> Switching to init_mm should prevent further accesses through the
->> previous address space's translations.
->>
->> Commit e53f21bce4d3 ("arm64: Use the reserved TTBR0 if context switching
->> to the init_mm") avoided installing init_mm.pgd as a user page table.
->> At the time, the ASID was held in TTBR0, so installing the reserved
->> TTBR0 also switched to ASID 0.
->>
->> Since commit 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1"),
->> installing the reserved TTBR0 no longer changes the active ASID.
->> Consequently, switching to init_mm leaves the CPU using the previous
->> address space's ASID. An empty page table does not prevent TLB hits
->> for that ASID.
->>
->> This can retain access beyond the lifetime of the backing pages.
->> During fullmm teardown, user data pages can be freed before their
->> cached translations are invalidated. If those pages are subsequently
->> reused for kernel data, an erroneous uaccess that hits a surviving
->> translation can read or corrupt that data instead of faulting.
->>
->> Fixes: 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1")
->> Signed-off-by: Lai Jiangshan <jiangshan.ljs@antgroup.com>
->>
->> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
->> index 803b68758152..7e56099c5fbb 100644
->> --- a/arch/arm64/include/asm/mmu_context.h
->> +++ b/arch/arm64/include/asm/mmu_context.h
->> @@ -235,15 +235,6 @@ enter_lazy_tlb(struct mm_struct *mm, struct task_struct *tsk)
->>  
->>  static inline void __switch_mm(struct mm_struct *next)
->>  {
->> -	/*
->> -	 * init_mm.pgd does not contain any user mappings and it is always
->> -	 * active for kernel addresses in TTBR1. Just set the reserved TTBR0.
->> -	 */
->> -	if (next == &init_mm) {
->> -		cpu_set_reserved_ttbr0();
->> -		return;
->> -	}
->> -
->>  	check_and_switch_context(next);
->>  }
->>  
->> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
->> index 0f4a28b87469..a96ebe904dd7 100644
->> --- a/arch/arm64/mm/context.c
->> +++ b/arch/arm64/mm/context.c
->> @@ -218,6 +218,16 @@ void check_and_switch_context(struct mm_struct *mm)
->>  	unsigned int cpu;
->>  	u64 asid, old_active_asid;
->>  
->> +	/*
->> +	 * init_mm.pgd contains kernel mappings, so use the reserved page
->> +	 * tables for TTBR0 and switch TTBR1 to ASID 0. Leave active_asids
-> Just curious - does TTBR1 switch to ASID 0 ? AFAICS TTBR1_EL1 gets
-> the ASID which is derived from the mm_struct via ASID(mm) earlier.
->
+Hi Luca,
 
-AFAICS, mm in this case is init_mm, and ASID for init_mm is 0.
+Thanks for looking over this patch.
 
-Cheers
-Vladimir
- 
-> void cpu_do_switch_mm(phys_addr_t pgd_phys, struct mm_struct *mm)
-> {
-> 	unsigned long ttbr1 = read_sysreg(ttbr1_el1);
-> 	unsigned long asid = ASID(mm);
-> 	unsigned long ttbr0 = phys_to_ttbr(pgd_phys);
+On Fri, Oct 30, 2026 at 09:29:39AM +0100, Luca Ceresoli wrote:
+> Hello Laurentiu,
 > 
-> 	/* Skip CNP for the reserved ASID */
-> 	if (system_supports_cnp() && asid)
-> 		ttbr0 |= TTBRx_EL1_CnP;
+> > The next bridge in bridge chain could be a panel bridge or a non-panel
+> > bridge.  Use devm_drm_of_get_bridge() to replace the combination
+> > function calls of of_drm_find_panel() and devm_drm_panel_bridge_add()
+> > to get either a panel bridge or a non-panel bridge, instead of getting
+> > a panel bridge only.
 > 
-> 	/* SW PAN needs a copy of the ASID in TTBR0 for entry */
-> 	if (IS_ENABLED(CONFIG_ARM64_SW_TTBR0_PAN))
-> 		ttbr0 |= FIELD_PREP(TTBRx_EL1_ASID_MASK, asid);
+> Since commit b7797081ccfe ("drm/panel: embed a drm_bridge into every
+> drm_panel") there is no such thing as a panel_bridge. Now every panel just
+> embeds a bridge, and there is no reason to use the panel_bridge API. All
+> bridges/encoders/whoever needing to interact with "the next component, be
+> it a bridge or a panel" should just use the bridge API.
 > 
-> 	/* Set ASID in TTBR1 since TCR.A1 is set */
-> 	ttbr1 &= ~TTBRx_EL1_ASID_MASK;
-> 	ttbr1 |= FIELD_PREP(TTBRx_EL1_ASID_MASK, asid);
+> The old panel_bridge APIs are deprecated [0] and by now they are just
+> complicated wrappers to the bridge API.
 > 
-> 	cpu_set_reserved_ttbr0_nosync();
-> 	write_sysreg(ttbr1, ttbr1_el1);
-> 	write_sysreg(ttbr0, ttbr0_el1);
-> 	isb();
-> 	post_ttbr_update_workaround();
-> }
+> I'm addressing the conversion to bridge API and eventual removal of the
+> deprecated panel_bridge API as time permits (but pathces would be
+> welcome). This driver has already been converted by commit 802372cf316a
+> ("drm/bridge: fsl-ldb: don't create a panel_bridge"), so this patch is
+> basically not changing anything: it's still getting a pointer to the next
+> bridge, but switches to a slightly more complicated implementation.
 > 
->> +	 * unchanged to preserve the ASID rollover bookkeeping.
->> +	 */
->> +	if (mm == &init_mm) {
->> +		cpu_do_switch_mm(__pa_symbol(reserved_pg_dir), mm);
->> +		return;
->> +	}
->> +
->>  	if (system_supports_cnp())
->>  		cpu_set_reserved_ttbr0();
->>  
->> -- 
->> 2.39.5 (Apple Git-154)
->>
+> So I'd drop this patch.
 
+Agreed
+
+> 
+> Still it's good to get rid of the obsolete "panel" wording because now we
+> don't interact with a panel aymore, see below.
+
+OK, I'll replace this patch with one addressing your comments below.
+
+> 
+> [0] https://gitlab.freedesktop.org/drm/misc/kernel/-/blob/drm-misc-next/Documentation/gpu/todo.rst#remove-panel_bridge-api-functions
+> 
+> >
+> > Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> > Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> >
+> > diff --git a/drivers/gpu/drm/bridge/fsl-ldb.c b/drivers/gpu/drm/bridge/fsl-ldb.c
+> > index 7ec84c81cd78..52ae7f5b63c7 100644
+> > --- a/drivers/gpu/drm/bridge/fsl-ldb.c
+> > +++ b/drivers/gpu/drm/bridge/fsl-ldb.c
+> > @@ -294,8 +294,8 @@ static const struct drm_bridge_funcs funcs = {
+> >  static int fsl_ldb_probe(struct platform_device *pdev)
+> >  {
+> >  	struct device *dev = &pdev->dev;
+> > -	struct device_node *panel_node;
+> 
+> This could be renamed remote_bridge, or next_bridge_node, or the like.
+> 
+> >  	struct device_node *remote1, *remote2;
+> > +	struct drm_bridge *next_bridge;
+> >  	struct fsl_ldb *fsl_ldb;
+> >  	int dual_link;
+> >
+> > @@ -318,19 +318,16 @@ static int fsl_ldb_probe(struct platform_device *pdev)
+> >  	if (IS_ERR(fsl_ldb->regmap))
+> >  		return PTR_ERR(fsl_ldb->regmap);
+> >
+> > -	/* Locate the remote ports and the panel node */
+> > +	/* Locate the remote ports. */
+> 
+> This is OK.
+> 
+> >  	remote1 = of_graph_get_remote_node(dev->of_node, 1, 0);
+> >  	remote2 = of_graph_get_remote_node(dev->of_node, 2, 0);
+> >  	fsl_ldb->ch0_enabled = (remote1 != NULL);
+> >  	fsl_ldb->ch1_enabled = (remote2 != NULL);
+> > -	panel_node = of_node_get(remote1 ? remote1 : remote2);
+> 
+> I'd leave it as is, it's just less code (and more efficient FWIW)
+> than... see below (*)
+> 
+> >  	of_node_put(remote1);
+> >  	of_node_put(remote2);
+> >
+> > -	if (!fsl_ldb->ch0_enabled && !fsl_ldb->ch1_enabled) {
+> > -		of_node_put(panel_node);
+> > -		return dev_err_probe(dev, -ENXIO, "No panel node found");
+> > -	}
+> > +	if (!fsl_ldb->ch0_enabled && !fsl_ldb->ch1_enabled)
+> > +		return dev_err_probe(dev, -ENXIO, "No next bridge node found");
+> 
+> This can be simplified by using a clenaup action on panel_node (or whatever
+> the new name will be), so the of_node_put() would disappear. See for
+> example commit 23bc92902edd ("drm/mxsfb/lcdif: simplify ep pointer
+> management using __free").
+> 
+> 
+> > @@ -339,10 +336,14 @@ static int fsl_ldb_probe(struct platform_device *pdev)
+> >  	if (of_property_present(dev->of_node, "nxp,enable-termination-resistor"))
+> >  		fsl_ldb->use_termination_resistor = true;
+> >
+> > -	fsl_ldb->bridge.next_bridge = of_drm_find_and_get_bridge(panel_node);
+> > -	of_node_put(panel_node);
+> > -	if (!fsl_ldb->bridge.next_bridge)
+> > -		return -ENODEV;
+> > +	next_bridge = of_drm_get_bridge_by_endpoint(dev->of_node,
+> > +						    fsl_ldb->ch0_enabled ? 1 : 2,
+> > +						    0);
+> 
+> (*) ...this code.
+> 
+> > +	if (IS_ERR(next_bridge))
+> > +		return dev_err_probe(dev, PTR_ERR(next_bridge),
+> > +				     "failed to get next bridge\n");
+> > +
+> > +	fsl_ldb->bridge.next_bridge = next_bridge;
+> >
+> >  	if (fsl_ldb_is_dual(fsl_ldb)) {
+> >  		struct device_node *port1, *port2;
+> 
+> Luca
+> 
+> -- 
+> Luca Ceresoli, Bootlin
+> Embedded Linux and Kernel engineering
+> https://bootlin.com
+> 
+
+-- 
+Thanks,
+Laurentiu
 
