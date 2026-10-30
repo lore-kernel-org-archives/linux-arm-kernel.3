@@ -2,146 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A873606A325
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 12:08:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55801606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 12:08:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NCr7moHn;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=cqPThT8f
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jTlmXmCD;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YmewaUMw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=lW0wLcheEeoD6ntTT61Iywuyf5+FHGoJ+vP2SUi06bQ=; b=NCr7moHndn92LEW9ELt3frRuiR
-	Qyan3kpo96JX8Dj3CVierlsvuKqJSsrWxWr4ncQLz8N2esa6S6ZqRtzgg64pZVNAgSTvNOSvdfX3n
-	RV7Mx50Ymn+0S6d6ZGEx8plMGdvtony8EX6pkRthUpiFi+FzRVezgemiDeqcdpUZnwXJqZnsDyvDK
-	XfFjFt9I3p3IdgZpCTcN8nmK1KhxgWBGk73KCX1jl5nYwjHgH4ojtpATrf5rSGI+vSne7DmfneFH+
-	wEFzAysktOfGK5mPHcRlN3pm68SXL3nQpHueitmhmn13FGj6gnBzEa9gWQydjrAoLBVGphB1Di50D
-	UTR1Xb7A==;
+	bh=x66U5C/iSZTncRHHJDJAZlR5pyUwqAkX43Fg0MqJDS8=; b=jTlmXmCDDmz7y6sNFlTSpPusMQ
+	W0Cx1QqMmzFRAYz3hkQRNUtB+H49ckHBeF9x5Q5wux/QKqTyeQwiZPDc04d2gl2LZDIL7NJi4ZRQx
+	JOJyuOcoF2pBxqgnIvNHD3dd4m9Nb2OY6fFsB1fhn3F2ecwwHxedJyH3HORAoBDJG6eJs4KnhiAvU
+	atbyxvy8ZBxKfR8ZGFkLjTcJrc+hFJFBznDdeihrZCX7uQSd++ingIwHr82hNwa7zT3f/XijzzGla
+	l5wqgZ8aqJJnhlK+2thK3zFO8GTdtFr01eH+DBJrfhYAbQyPemj/0oM7kBX/lE6gGnir/8x62aaah
+	JZZq4u7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMlP6-0000000BeIj-2dnZ;
-	Fri, 30 Oct 2026 12:08:16 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xMlBL-0000000Bbqa-3TvQ;
+	Fri, 30 Oct 2026 11:54:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMlP5-0000000BeII-1HjL
+	id 1xMlBK-0000000BbqC-0j8j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 12:08:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TK4D6jW22ODYdYWyn3WZd6HTaODxSoVkQ/CefcQ1aiRPOb9V0HYg/860QdQM942KJ4M9iJuyZFFG7orOy0FPc58UJDrG2jaLjjvJQaYp1Gcy9OZmghf1RQSnGMayMa5vH/bA1DV3/nX2B308ndygAEKpiXJmfPwmVR9lPVr6CZIh10KoNFBmevqwf6AeK3JuP8pBNiKYT+2t8dBB6QSOxCekJ4zhvMxeEVbcSe14i+woAHcnQl0XtyxEnS7hf6yVQYlnBCE0VSwQ1j2lE0FKiIlgxmMtvogWeQ2uw4/UCVeIPR4Ad/itmVv6XM4S5opyM7iXBKi0JxHP4JJvLkAMFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lW0wLcheEeoD6ntTT61Iywuyf5+FHGoJ+vP2SUi06bQ=;
- b=L7TZLTw7QSzTTTEULjC6jOBJ5Ku0Qh+AXWIWqlc6c4a5D/ALHyu0hsJCUOkCzFHpIpzwGidYnGQPtKhYamrNt2ej5tgQo0ETP1vifWPEqa+lKXXAv9G/ULsTWdAzctoL9X+VfVTo1y/A748/Sz3jjfvn8Fxm4zloTqrL7+8via6NkZOFVrZJf1cJwppynvoVEmywC7bjWuDYa9Ch5WhVGWpASGkoasSsGByQf8eaZsoGAkrSl24jO2/jNKxUjfZukk9N+LKU+EPDMcTp8vThtvxgTFo7iCwl3M3P655D4i6pkkSYMWF38IP6NxCsarFTgkYQHgAtzr2SOVDSEqryBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lW0wLcheEeoD6ntTT61Iywuyf5+FHGoJ+vP2SUi06bQ=;
- b=cqPThT8fCdA3jNfy7OzTs5mnPzYQ249/d7eDwVNCOPmjB6RmsdJoaIpzXhvDZ1/9k/hdusT7Sv3TiCbUVr52WbXJt6HS0oIQC6b0pP37i/ep/u75pk+VOWHDOHgvO7oJivpa6paNGtbNtx/Qf704igl9DxeW6hgPVIzfKp75YTeIem5A4qfKZq89IuUyOHDDD9oLf9AkGQVXCn9WPPCw26L+QxFnB6uHoLC7SpUxi1HZoCRjOoBy1ct+RGjEJjm6v6977YAREaQFuqzKOz7GcffwUWAnARbMd4d5BvkBYOW9k/aAo1rFz4lp+Rwn5t3pQPSfvnuSEve675Bn0K7tKA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by PA3PPFBB9BDA27D.eurprd04.prod.outlook.com (2603:10a6:108:1::b0) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Fri, 30 Oct
- 2026 12:08:09 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0569.009; Fri, 30 Oct 2026
- 12:08:09 +0000
-Date: Fri, 30 Oct 2026 20:12:54 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Will Deacon <will@kernel.org>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH RFC v6 5/5] iommu/arm-smmu-v3: Wire up shared-SID STE
- ordering and feature gating
-Message-ID: <auSJxoCvrdMg/rZN@shlinux89>
-References: <20261011-smmu-shared-sid-v6-0-cb76b89dc612@nxp.com>
- <20261011-smmu-shared-sid-v6-5-cb76b89dc612@nxp.com>
- <aszfVNP6DGzWYdK0@shlinux89>
- <as1zR1wc7ERxvR1F@nvidia.com>
- <e8c22eb2-ed1f-47c7-b2ac-c56ead1cba8b@arm.com>
- <20261013124400.GI14213@ziepe.ca>
- <4d2a05c3-f7f6-4348-a3b4-c8f3ffa79b6c@arm.com>
- <as6HfzpcalIh6SMs@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <as6HfzpcalIh6SMs@nvidia.com>
-X-ClientProxiedBy: SI2PR02CA0016.apcprd02.prod.outlook.com
- (2603:1096:4:194::9) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Fri, 30 Oct 2026 11:54:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 646E040D92;
+	Fri, 30 Oct 2026 11:54:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAA4A1F000C1;
+	Fri, 30 Oct 2026 11:53:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793361241;
+	bh=x66U5C/iSZTncRHHJDJAZlR5pyUwqAkX43Fg0MqJDS8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YmewaUMwDzmy19jdhXhLRkKl+deMfF+KWQqzJ4T9zugHj///0cKWAp6XojHFKeKU7
+	 0aL9VoOt1qRnZarJoO0h6AhKMddH4ZdWT8LD8yU/luTg1uDF3ApFVAJ7aZ/Rt2A3h1
+	 oGRgNmnoNJkRcwMqjm3Pgbqg59LEIag8vSys1ZTJ9XNxls1vj3S5KXkzLjNR4Bxnf1
+	 0VzL5OZihg2DA/8hHKzs2ufEycIAZpOQzM8qRdNmms3Q2YIq9eK207EhKXyZseq5Ow
+	 /CS5axDrR4pztItYowByjTUdE36LcWofyLFqA25aKp7WxJ0pS+V8KGMYxuzu/So3ve
+	 KNo7lfWDnZA3Q==
+Date: Fri, 30 Oct 2026 11:53:56 +0000
+From: Will Deacon <will@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kas@kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH] arm64: Kconfig: Don't select CPUMASK_OFFSTACK with 64K
+ pages
+Message-ID: <auSFVKVuGryqTgjG@willie-the-truck>
+References: <20261007-arm_stack-v1-1-b48dad5fa8b2@debian.org>
+ <auCSG2OmNMQKp3dq@gmail.com>
+ <auRxNDAe_tv-mCvk@willie-the-truck>
+ <auR0kSCYyo31Inxf@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|PA3PPFBB9BDA27D:EE_
-X-MS-Office365-Filtering-Correlation-Id: c7f1e643-a0cf-4934-a0c8-08df367e7630
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|19092799006|1800799024|366016|261026121527099003|11063799006|4143699003|56012099006|261021135927099003|10067099003|261021121427099003|261022105027099003|18002099003|22082099003|261026140227099003|261028144727099003;
-X-Microsoft-Antispam-Message-Info: RerJWSTW7qqmZ3JqtDhR40OqbsnD9uoidILJIHCPNoUi3tvDyP0TOHshYL6iDFkFCDLToSvLvCTtNRA6Jee8YNzm+g/R7PKjob9SES7y8Ob5tibTQK1d3VsglMUVLkJ34uV5jOCWYa4b2hEKOT42IP0MUnWsqQ7lgwyzV7SUZJldTn/YvoiCi8l9HKJXERt/bmjsXA0aQmaXjdDsi960z7My949WIVBkU1jPc694wcdjqvHSbUhf8Temwu9uooAZ+fSXWWGySnsU0llkhpU0KA8oMK5Vpxq1+vSpDgRlz0+H4F9t4Km/NETNLJHAWvXpDffDq4ax6la+uvoDe5leWj/S2jQKeW017vVhzQTJOdc9ECb+YnecSWCDTQJfCEQ7W8mUEL/sqaPJSxEVN07lrTSNxfkFv9Bxpcq2uGWNURiuJ+hqVw5GaPXOio8HfMWGrbc/M2o0xvjqfEphZI6S6hZv005PjYOHus80rQ5lge//VCn6dDvIufDqBPIP1BjguhC4JReZxJgaBOZIE82PnGWeNU6BPTZvNMB3vVDDvZvTUCSrGgl4h8w2dStTRJFtHDjKHnsrTFswnNNnzGrahbtRNl5KSuaB+5yb5SBdZWzcT0pTMbVCspgldNXWCcT/MiGkipLlT+SAZ3BDjkiRctKm2pU29akmm4lv7Zm0b88=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(19092799006)(1800799024)(366016)(261026121527099003)(11063799006)(4143699003)(56012099006)(261021135927099003)(10067099003)(261021121427099003)(261022105027099003)(18002099003)(22082099003)(261026140227099003)(261028144727099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nvJCRGF5gpfADybxkaJu3fC5ldWsPcM7BcfIs/4JsUaewY4KXk3InsNAjN38?=
- =?us-ascii?Q?Dcj7+xPgJk0CB42A1I8VYuxh4wPw8PmNfw9G8bU9Y7A+4FpX6oQOcjJS5Yq+?=
- =?us-ascii?Q?39xVBMrxk4l5f8vkc6rpZSwbsEPyXSI/+XiLuvkQYPQsQUYJqB+y/fy4UF+K?=
- =?us-ascii?Q?4DwBe6mbmE+POtsrwZfScY9g2Fo6aPcn83YqJLXHGsq58AW16Zvpp3H1hpF8?=
- =?us-ascii?Q?FdCzJcRzdXR8fz7YXLOCXfjJEPmrIFLKK+Cq09A3/lCrPz++bDo8xaTpOxqf?=
- =?us-ascii?Q?pSC28E2kyTYpW4MapZKtfIGkTpRtsFtpdau8R1tll6iGuoj1NsxA0xf5bpBE?=
- =?us-ascii?Q?80D2vKlLvM4C2eJJHijlYliiugpuwNxFOk/q6PGgfJotPwcT+nIKBYE9As1H?=
- =?us-ascii?Q?QTMaGb10sdl9+jfEDEVRbElJ+uRUvI5i1rRKXjc2LToFpaE33NCFw4fp5y6e?=
- =?us-ascii?Q?NBBeCOmlGnDVnfAY/pqY+5n0QiiGKvIwx7/sEp9K9ks8tPDs80SZVDTWgVvO?=
- =?us-ascii?Q?0h1S6y9k/KVSrqmxUHc2cDxJcMeh9YHMWxJeKi3bqI7GVjGi77z8H49p++O7?=
- =?us-ascii?Q?gqXc6HSsc1ytv1HhtzjwXYz7CB0DoMqC8qmh7z6eODPUUmhpSsclRkquoQhB?=
- =?us-ascii?Q?9tPgKJugi2vNZeorEo3nZKqo6f62MlDFPG64wSQJmT66yijRdSWBfZOEySBT?=
- =?us-ascii?Q?9V4nj24xMA2K4wdxUhgbv4TsFcSQ5Ran+TdQ1ZVg+TAJWHagjmsTTp2mqHEo?=
- =?us-ascii?Q?Y8AKW8SgJeWxnPDnwaCkPZ72gpOrRkN6g5hBv+L8N2hq5OlrJwaiIfxwZA2i?=
- =?us-ascii?Q?nGCMEnfV43OvqWDR3gA4Hk7U/OVDdr7IwWyCESrWdVYwHxgwGamCuL05Adrj?=
- =?us-ascii?Q?x5VPQQkz2g4KPtaDu2ZrSsFfL+CMQKHtNvT6uPutut4kvMkBJHQlLzdE8kpx?=
- =?us-ascii?Q?j9sCXyX4GIxZgLgFIOifRtkhpZTuouQoO1rhKMQMPz9CPcBBJLHE+U4D195P?=
- =?us-ascii?Q?/Tmz9mFfML5oDEB90bymZDXd8gx1LVy6LvU0rBFvJBsjmqN89fz0S0NJugCM?=
- =?us-ascii?Q?48vJ62pzMqeyn0Cjhjqzexd2e0nbLzOmi3jA5h+ZnL7wQcaj0z684c9qkSb/?=
- =?us-ascii?Q?k0VTE4yunkMQMgPJ1aD0zdHjIzxOaodjfcKtJOMRnGzKU5lVKcLYg96XdK5k?=
- =?us-ascii?Q?BrAZBrRgcG/am5J7UdPNkS9tJlsNFvVgbvqFruBapR27ovXENxU0FYHx4/kf?=
- =?us-ascii?Q?9znYpobP5LXssTuIeDl20qr02hpB59TrkCNYv0Nf17RkVnhCsd8vY23Um3Y6?=
- =?us-ascii?Q?rGy+FyhgLKufXxYFpakGbC0CVzhJ4mTwdYCeCg6LYMrcTjJ5Wveck13WfBox?=
- =?us-ascii?Q?O7I3PbIPpNNedLUwTewKWsoLcBwWN2/CrcBvXgIlihbUPcnOQ/zytQAYJejl?=
- =?us-ascii?Q?wP77+l/KmdkQgk5JWNO3mDguskBG4qLvn6naPsnxI8bNnYCjtCAw8Bxq6IhY?=
- =?us-ascii?Q?bMy7OPEKZdsKBjloSV3zgq6rDmq4wPDITjPOK6813f97q7r+szkzP1nXtkM6?=
- =?us-ascii?Q?hbbJiYVLtJJ4iJeiWIiA7BKdipjuwUPadij0+FZ1Pego7nAIJRtp4whvU/GO?=
- =?us-ascii?Q?knS4q5VwWrnbo6wH5sEGNJu34mAA+ZvZORcq4KMAphSB1e9WbF0oVWyVh2FX?=
- =?us-ascii?Q?QxDKUWpFRnTxLFiFBoDz8NJhNzzVuPqhB7dhMAEdb+UEeudYJdauXIs2yCSW?=
- =?us-ascii?Q?IgalWBrfLZU1n5QwHAc+WB5XLD8n0/MSD1gzS10SYMETnaSaIVve?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c7f1e643-a0cf-4934-a0c8-08df367e7630
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 12:08:09.0122
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OMlCPgSjtfw4VZzmMBjhkvr/FeFtC5aOuw0tARJnO8G1eLFnQHt9yc8y3KTNUmsZNSOYIuxGkp224o2n5eAXWaT1/Tk1t0A/0EAd9axWa9f3YE0q8ZLYF0Tik7i13AoQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PPFBB9BDA27D
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_050815_348847_6660FA12 
-X-CRM114-Status: GOOD (  23.89  )
-X-Spam-Score: 0.0 (/)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <auR0kSCYyo31Inxf@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,61 +73,59 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Nicolin, Robin, Jason
+On Fri, Oct 30, 2026 at 03:46:03AM -0700, Breno Leitao wrote:
+> Hello Will,
+> 
+> On Fri, Oct 30, 2026 at 10:28:04AM +0000, Will Deacon wrote:
+> > On Tue, Oct 27, 2026 at 04:59:52AM -0700, Breno Leitao wrote:
+> > > On Wed, Oct 07, 2026 at 12:58:16AM -0700, Breno Leitao wrote:
+> > > > arm64 selects CPUMASK_OFFSTACK when NR_CPUS is above 256, which keeps
+> > > > cpumask_var_t off the kernel stack. With 64K pages the kernel stack is
+> > > > 64K as well, we have enough room to keep cpumask on the stack, avoiding
+> > > > extra alocation and possible performance penalties.
+> > > > 
+> > > > Skip the select when ARM64_64K_PAGES is set. A 64K kernel can then raise
+> > > > NR_CPUS above 256 and keep cpumask_var_t as an inline array. 4K and 16K
+> > > > page kernels are unchanged.
+> > > > 
+> > > > Signed-off-by: Breno Leitao <leitao@debian.org>
+> > > > ---
+> > > > Based on Will presentation at LPC, I've decided to have a look at Meta's
+> > > > stack usage, and I found that this might be an small optimization!?
+> > > > ---
+> > > >  arch/arm64/Kconfig | 2 +-
+> > > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > > 
+> > > > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> > > > index 5f2db2cecf9772..b73371327d2a47 100644
+> > > > --- a/arch/arm64/Kconfig
+> > > > +++ b/arch/arm64/Kconfig
+> > > > @@ -111,7 +111,7 @@ config ARM64
+> > > >  	select CLONE_BACKWARDS
+> > > >  	select COMMON_CLK
+> > > >  	select CPU_PM if (SUSPEND || CPU_IDLE)
+> > > > -	select CPUMASK_OFFSTACK if NR_CPUS > 256
+> > > > +	select CPUMASK_OFFSTACK if NR_CPUS > 256 && !ARM64_64K_PAGES
+> > > 
+> > > Does this one sound sane?
+> > 
+> > It doesn't make an awful lot of sense to me, to be honest. The page size
+> > and the number of CPUs are two independent variables, so tying them
+> > together like this looks a little odd.
+> 
+> Sure, but with 64K pages the kernel stack is _huge_. Why do we still
+> need to keep the cpumask off the stack frame in that case?
 
-On Tue, Oct 13, 2026 at 12:33:19PM -0700, Nicolin Chen wrote:
->On Tue, Oct 13, 2026 at 05:23:21PM +0100, Robin Murphy wrote:
->> On 13/10/2026 1:44 pm, Jason Gunthorpe wrote:
->> > On Tue, Oct 13, 2026 at 12:22:06PM +0100, Robin Murphy wrote:
->> > > If we're not going to support PASID for shared streams (which I suggest we
->> > > don't...) than we shouldn't strictly need to worry about CD tables anyway.
->> > > So rather than having to special-case CD table sharing for shared streams,
->> > > perhaps it might make sense to generalise back to a "default" per-domain CD
->> > > for non-PASID use, which can then get switched for the private per-stream
->> > > cd_table if and when a device does enable PASID?
->> > 
->> > If we have stared STEs then the group becomes the per-STE data
->> > structure not the master.. We don't have any way right now to do that,
->> > but it would make some sense for the group to store the shared CD
->> 
->> That would be precisely the aforementioned special case that I'd hope to
->> avoid. My point is that the CD represents the domain context, so we really
->> shouldn't have to have multiple copies of that per-device _or_ per-group,
->> _unless_ it is attached via a PASID, since in that case it does need to be
->> copied into a per-device CD table (since the per-domain CD table was indeed
->> the wrong move in hindsight).
->> 
->> So what I'm saying is that if we're going to make anything share CDs, then
->> ideally we should just make all non-PASID devices always directly share the
->> domain's own CD, then if we just enforce that any devices sharing StreamIDs
->> must be non-PASID devices, it should all work out, we save some memory in
->> the normal case, and never have to be concerned with rewriting any STE with
->> a different S1ContextPtr for the _same_ domain except when enabling or
->> disabling PASID for the (single) device owning that STE.
->
->FWIW, master->ats_always_on would be a special case here: it is
->non-PASID but needs s1cdmax to be non zero.
->
->But yea, that sounds like a good approach, though requires a big
->refactor.
+Because you might have thousands of CPUs? Because copying these things by
+value could be expensive?
 
-I just post out RFC V7 version with sharing CD table. But I not
-have the hardware to test the advanced features (:
-only tested i.MX95, Qemu, KUNIT.
-
-Thanks
-Peng
-
->
->Thanks
->Nicolin
->
->
+Will
 
