@@ -2,114 +2,141 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B90CC606A32A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 12:59:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2958606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 13:05:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LPKpXK8k;
-	dkim=pass (1024-bit key, unprotected) header.d=nearthlab.com header.i=@nearthlab.com header.a=rsa-sha256 header.s=google header.b=HDrYpXLj
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=5ASLMk34;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=QUnMuPco
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=p6R90zdJgmEJTfYgbyUUxOPzWcHXkQ+Gzj39UPrsQEU=; b=LPKpXK8kLJnhD9
-	jQOH6z7ElnR1Pr3h/uIwZtVT0cCSqpIeg3Yiw5BLIwh4lgHcgx78t+T0FwYrvZkRx3kaLczoATMjq
-	ybB+OnQSWAg9HDp0yJGZxTwMpD8Wz6XrYuCYmvAbTilypXErXsetMn9H+lyK5i170l7nq+xbcwFVs
-	Sm164nV4t9uE/C7HwD1RMKFCvNXK26lKnr0N3tdn0U/nVJ+IclE+gtbFJvpaPAvdqzsT9yQfxiU8F
-	564IiE+Aa/xwTL2Ws18l5/XuNO49uMKErKVPCn7RXy4mpT8g9yPyQF7HkEGBGVw8+IocqYF3ID42Q
-	+wlngVoZN9qVY7DYXs4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=SobvcukIqIXz1CAHzfV0hRyTUwt8MNi05qv6gAf3iqA=; b=5ASLMk34ElC451K6M9w5n24nsQ
+	B06Bz518UGclhrNCNj6hf4rBEc2QtJonlD2tJ0nLFf8G1lstkw0L7uBKE23LYQSBPPugcZkkMPTbx
+	5NmvZMA41cvdix6HDfMUhwqKXXiIsNZScsznImIQ0eNmHxkMr7WowRhiSrXCt1N6KqCKyP11ZlUVa
+	G3dIJ/kMuFp7vIrIhoEM9u4TrNL1N7iJR+Z99TZYyFx3zX1Ci9+9nzzd92L3GP/Jbodhhs8vRJ9El
+	B4wBmDtsV0cHGCjuesvLMMibbQqMcoJQO5Dsdp2m5auZ9c4jfZhzUYJNOsXq+yzO9OcuH6P2xTPe+
+	k4RhqVTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMmCh-0000000BiSL-13WL;
-	Fri, 30 Oct 2026 12:59:31 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1xMmIU-0000000Bj2j-0ebz;
+	Fri, 30 Oct 2026 13:05:30 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMmCZ-0000000BiQM-2M88
+	id 1xMmIR-0000000Bj1q-1oB8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 12:59:25 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-cc4be0e5351so286051a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 05:59:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1793365162; cv=none;
-        d=google.com; s=arc-20260327;
-        b=CpjBEa/AUvKfubloDdaqBKbTKntEgK3dpiKIaDxR9hv1Jn3fnHpmcMgyeoij1APdwR
-         ivxz4XpvKVi1QVdZ5JxIda5PGWGCqRjMaOyIfqCAodf9SsYDlizzmk7yzmdTZY4jPcE5
-         3sj8mgdwD/jqsc8daddbBVs92o7EpmDIFiB4KpH1zAr6O4sWBEdEhi7kXgfvSuzUoyB6
-         YBdHaOOQlDWIhngWFZ3o8uoIxMCfUfU+FLCtl3FJUkwMgx/VSpKlbv8gcs/tCAuuyryu
-         jiDmzdbWedAjcQJLRogCu631n+Gtl/k5mUUesT9yIfv4fZOPbLpq9ypskKeiSLE40oKv
-         ep4g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=p6R90zdJgmEJTfYgbyUUxOPzWcHXkQ+Gzj39UPrsQEU=;
-        fh=FHoKwFd9lrwJpg+ifoGRodPPbegkYqo+IyMddKo5ycU=;
-        b=E8G5OeDv1Uhz11NEpCiNgLm+iZl7xmn5MXFSngSROiBgTE98yPyVL4QqBcl7ISwrWL
-         z8EbLW1i0IRVn86kZ8GW7m9jjf3g8wGAeVNrhZAXSXQQ6e3P/vvfW2n4fMdsfSMSLZA7
-         RGawZM2Htt3vTdDDWYtq8DX53w1bUZBlY3TNCBy0I1fxTJBSjltNGN4vbSh0ybq5/IWL
-         bldn3vBZB78AaI8Ru0E58Gnd1nWIYzupSzVG6DaNyNgvQ+WBh9AdEX0unVJSRAOPkK5U
-         kHR4r+LqU+0lCQEA86r2Z0S7x4oKrrhmLlpNznI4r0f3qTmGkukHHSpwC9IioRGiA+Yh
-         rArw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nearthlab.com; s=google; t=1793365162; x=1793969962; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=p6R90zdJgmEJTfYgbyUUxOPzWcHXkQ+Gzj39UPrsQEU=;
-        b=HDrYpXLjuIeSs4lyy44PItg99guK7BSIbvVJsFDe9PwkAqrmDqkvHZFjDpx29sEX0g
-         h0HU/vXuheU34rbtySDAG1DWlclAkAI+89UlJfpF96mDB6PBjZuIjfbzOtdBXr+HFZ49
-         qmsLFytdNjpqymyxTlJuQCRDdhgVTrUSNYi0s=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793365162; x=1793969962;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=p6R90zdJgmEJTfYgbyUUxOPzWcHXkQ+Gzj39UPrsQEU=;
-        b=zFyJ9vuAaaa1g45mqzw8dEBZiwF/qR+h2hv3oUou/O99ZokX+9gGKZvDILx8oOzOGN
-         TCFmKGeS8cgd8OsbrmnlFrEtSNHRWrLSlvZWx5Xf3xjng1y+rdAWROCBFxj2n3ijdcvq
-         ooKDweGjJy+MpZgooc0BvNArIQAgrW1J9TZjn1nCpnRawu2I+beQV5XiG+lV9CE/4y5z
-         6d7iNk3hA29hxvS8lZabrCQeeI4zK6TAFhl+F4eV50rhhXjJnvGcORxUGlzsruqPZ1G/
-         gcrNV9FQSpbWnyLAxmhxmI/WYoUEUNF6df+BUSFuWnRobMFUVwXDzuWzGIDXGMz2N6rE
-         +ikA==
-X-Forwarded-Encrypted: i=1; AKwUvBzBpJpltgXJtQp4AILtPUkQH8fVZfMWVmGBDMB4IYkBU9mKYAkgBU/FO2KQz2ILs0bwchIUo8g6WxDtdV9WnwfC@lists.infradead.org
-X-Gm-Message-State: AFq9FYLBXzz68faZBjap9JG9Mf3tHeJ977hBONSNnEZv2pYRqOhBAqQU
-	z1e2BF3KfTZCTwrvOW8eobv/B+dJS+RQ+NEq4zjT4Qnn4oJYgs6G3v1WpcA70GpEf1vlY61cnux
-	EIwSmiY7WCFkhtTjq4B1l1RaFqhaifNSkLY3dwdiopA==
-X-Gm-Gg: AYBFou0/GKC+fECwivfYt5fuvJM4g5EDvOo9inZJb32RmIGKak6t9wGPOzWOD7rquA7
-	gnN/LkHsAobLiXYJpMmbpy8dq79yjrdmBtE2bAqzMvoMD8umwlVxkvtz9re1QaAY6mSuWl2rZFq
-	Ni/86XhcitAs/5I0dP2/rnZiqk/BSdanIXB8gup+FxZH/KakO0OeB9MLQebsrHmcnQDVqE0EcT/
-	vy2oFGTHGSFde2ZUsTgbBRAc8JPnEo7RWdi8cxtvspx33Y1sSBNL3zbLI5g981bWaTqhs2meYk6
-	jGDTw/62hisyWwMqZkfRMvPqy/LbMWhBxySIpsnERgNIDRzshu6jD+PM/wq58BAO3YGSeUJew2t
-	tuxZ12xbCZFNAgmQlmYAZnPohFxxux2uUEl/v9Q==
-X-Received: by 2002:a17:90b:570c:b0:3ab:e588:c288 with SMTP id
- 98e67ed59e1d1-3ae897ccb52mr1922463a91.11.1793365161515; Fri, 30 Oct 2026
- 05:59:21 -0700 (PDT)
+	Fri, 30 Oct 2026 13:05:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=l2X1UxbE46uEkH6WvodROYXztBT2Tq1HNWXmyRPOORvoMKTRMd1U8NqW/WahJUhgKf9XXbKNUWurFOwFbSF3+vEaOAnMmLS6mrnKxkD/JzHCvVi1+1Pw1XpygjziU5Lg/w0Zx/Y5efP7i/zvr75G+jHatXUlDylhO/x9TUMY3+HHJv3HEY9p41dkhBgkglYItTFWB/rcEi3NccOu73WTldgvZzpeC2hRNPriA+YreqemGCl/4/ZwfqUODzrBc40CEe/MFAEwNC0m2Hfj5TxI8Igaq1Zkye/0qp2wBBnYGv2zSMiuI+ftBXVUUhvvfauKFrMmSv/yFh2vIikMRt7quQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SobvcukIqIXz1CAHzfV0hRyTUwt8MNi05qv6gAf3iqA=;
+ b=X778J5w1Ej/49TSQKJ1s8tvITheLsL+OLJnYy9HPrHBoyedeZJ7Vu7ScIKFJXvHgskrMKItIU3lMk/GPa0OfG8hCa26ah43u0Z2jbmGGITnaRhSEWY/nx/ejltKbjeMMkScjMhDaUDhepBBBZnYQCRde4CF8DHu0tpH4XBl8ujKNtmnBL2ookBXWY2qjc1FePVxOqOT7ggAZIswt1UdPO60yrNPc9iuc7/tmwmIbv/Q5ynIDj59/KkxE2F+0VUGRGuStYYfJPMQioWjFrT8A9tL78Cj2E2nU0z/ZQ8mFIBMgK2pZK3WgboSHzFZxYXZgNM5CNC1IYwfEI25lGf3rZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SobvcukIqIXz1CAHzfV0hRyTUwt8MNi05qv6gAf3iqA=;
+ b=QUnMuPcoJPl3ZkESuzTEFQcUfHmtEcpP7w2YFBoPTE1g17LPb5EDRhCZdZIUAqRhw5A+eJkEKBr5U9rWMbtMC1BVAxM1O2DSqkMFrFv3ltuVQQyNqu7N8yjNahY30KPx9QTMZwZ6qIzPurV+FUO45d7kskiXHiO+ON3zmWvgk91una8M/NeNuevyhitrIgqy1ol6YVnaJJxk1WFUVjNL7Pe6U77UQapESqOFzC3Lou1oW7f9O9F5VsBj/32Nv+VN5N2L2jFFAorf2O+r5scwNc4ku6E+N0RZZFvkx//9dYsh1ZHQ85SSB6l0LJSgGEIOxOBS+WeIS/SX3Ii/nE8YHQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19) by PA1PR04MB11453.eurprd04.prod.outlook.com
+ (2603:10a6:102:4f4::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.9; Fri, 30 Oct
+ 2026 13:05:20 +0000
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa%3]) with mapi id 15.21.0569.008; Fri, 30 Oct 2026
+ 13:05:19 +0000
+Date: Fri, 30 Oct 2026 15:05:14 +0200
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@mailbox.org>, 
+	Alexander Stein <alexander.stein@ew.tq-group.com>, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v8 06/15] drm/imx: dc-crtc: Disable at boot
+Message-ID: <auR3zOdTi93AhWSS@vm>
+References: <20261030-imx8-dc-prefetch-v8-0-c4f81afd4533@nxp.com>
+ <20261030-imx8-dc-prefetch-v8-6-c4f81afd4533@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261030-imx8-dc-prefetch-v8-6-c4f81afd4533@nxp.com>
+X-ClientProxiedBy: AS4P251CA0016.EURP251.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d3::8) To GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <CAFg7d9becn9_=ZzNwQ7bSBBNid28t_RnofL-Vb1cZVHVHxS9fw@mail.gmail.com>
- <20261013160612.GA1522005@bhelgaas>
-In-Reply-To: <20261013160612.GA1522005@bhelgaas>
-From: =?UTF-8?B?SGFuIC8g7ZWc7IOB7JqwU2FuZ3dvbw==?= <sangwoo.han@nearthlab.com>
-Date: Fri, 30 Oct 2026 21:59:10 +0900
-X-Gm-Features: AclHuK_9LSEza9FeIN4_POSl6PnQiLI9XlH_CpYxxAsTk82lmVZT6Y9umW1SJXE
-Message-ID: <CAFg7d9a2p2jtGyThS1M=2ZFDX0y5rpSK3H34ZuTz09R5r_ff0A@mail.gmail.com>
-Subject: Re: [PATCH] PCI: brcmstb: Reserve only the MSI vectors that are
- handed out
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Thomas Gleixner <tglx@kernel.org>, jim2101024@gmail.com, florian.fainelli@broadcom.com, 
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
-	bhelgaas@google.com, bcm-kernel-feedback-list@broadcom.com, robh@kernel.org, 
-	linux-pci@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Inochi Amaoto <inochiama@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|PA1PR04MB11453:EE_
+X-MS-Office365-Filtering-Correlation-Id: 87172f27-3ad1-4713-a7df-08df368672b1
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|7416014|1800799024|366016|10067099003|22082099003|18002099003|56012099006|11063799006|4143699003|261026140227099003|261026121527099003|261028144727099003|261021123027099003|261022075727099003|261021121427099003|261022105027099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info: mjsdCO8p+ziv3iUqZG/UKHgXLn1PqnMK4l/Wmw/ivGIVxlhuzFAljl3LUgmoy18Lxy4U6zeK16EVX+/ZFDP7v7G1YbO4sfaXRfjtUj1KcSmFHbk3bF8Q3FiuiQFoEyurxWn2v4NT9YSWT9/BNCDa9Gl+BPYk30fqouVJ/vrWZgfyqizIsCgnS+jfSqRU/e9GtM+TjY8YPnoOLm2B3Xl86kV4JHZA1LO74QmTkSeZt8+aHyp/KsZH/CEM4RIyVQalHpkRWM/V/zw6B3PhSBzTZcvln1voU1AgIMjeoj5ioHu8cq3WUoEQw9r943Zuhq70Es0oAIdMjMAzgIow9vLbuV82Y5S97MRsyxsLv8ncOyigAmd/cfrrEp/8v8d9aX72+k9g4jOtv0l3QkiKzPiLPFb71CyEApHC+OJXLccYo4eijLlNcCYFc8cfaD1yTjdiVg+ljHw9r2CY6Uc/p3Hms9C3K7BtYUzJHOY3XHyUFvkrZVAdC9/wZBmgmPAYDs1LZATb9Uy7t7Z2ahvsKE1HKrWe0HDf0AJp6krtm/7T4tLtSOtxmT8Cr5x3btyM2KwQQ/rcP9Qvjm2XypqTi8VglFn43h1Iq0Vm6Xl1rLcmsGYjXkskbHhwubZUA/hrri1xXiO/h/ReRdj4z3IKb0x90b0RcEUoifHP9RF0ksjQ2Mo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(7416014)(1800799024)(366016)(10067099003)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003)(261026140227099003)(261026121527099003)(261028144727099003)(261021123027099003)(261022075727099003)(261021121427099003)(261022105027099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Iue2vocBtpZRjoXr6Q+h+Bjdp6oXF/k5dUBcEeJAbdIm6aI4Y8jDbPvgsbID?=
+ =?us-ascii?Q?5Gqy7UQQqTIB36OTvoDpjs94jnN5pHtgXEpIZCgFrJY3Wf5un75ubgVlS1Ig?=
+ =?us-ascii?Q?i9UkaC3DT3UOBLUR8yzsgh+0OCLP19tkTuaNPJwReGVFY1+tgykZSr1NkPmQ?=
+ =?us-ascii?Q?OSyEA7QGqbq93VSZvPQwGV3+++BDr6NrRWwVjPr1Sfk6ZWFawaZCUCIEzT3K?=
+ =?us-ascii?Q?ylz/HuHsa2OpEcVyEJPp80/R8G4K1aRH/iO9VK9ZlFfllg6/rKX4Dosdo5jJ?=
+ =?us-ascii?Q?INvsFezkEvRsFQfvsWPicQRugMNvFg3oqSMHFhJxq8EQq30FacGQvCcsw6qw?=
+ =?us-ascii?Q?BIFFU4Ku9tJYLWV1x/z9uoVboITYHVMCfbU3QMNf1lMGZ5LchyKNPIMMzMZk?=
+ =?us-ascii?Q?ctThIbPtopgi6XJhU4Fos68C9oBH0RTmmbnGUe18RzccE+sseqFF3Ndo22fN?=
+ =?us-ascii?Q?ER8GztqlyydaxGaDfqV4DcTSLRuHi2WkfAvL7dgPYy8OndY+fOlech3iJmFv?=
+ =?us-ascii?Q?PasPvn5uSUBYTgz7V2WqnzD+0PvZ1ifx5Izn7TfxKOJ+zS8Ol7Aijc+s5Lb2?=
+ =?us-ascii?Q?0EH3irjxYMVmcw2gN3mpKCUvDhfVZJ97cCK/6khPu+djGNVZpencJEa9hVQM?=
+ =?us-ascii?Q?z6jUvrDal4UatMqY38emQW9lmkRnkjrDVlCzn0e8tveC9c8y8PAXP3paoo34?=
+ =?us-ascii?Q?PI+Dx6dbWzO/yLSa60vHDZf6rgpnRhBB7FPAH8lsfTgjOoY9S1wWcTcLWKfQ?=
+ =?us-ascii?Q?+ugEj7LjbGxlGYXLeLVniKavI8qeCa/eTEllH62TLa9JYPJvBhQKnle3pzm6?=
+ =?us-ascii?Q?vfnFzGI45YcakWDoLo7KZuoFIlxQrUzO4TuHPlUtCT9f8z9eal5IoH/TQ6yC?=
+ =?us-ascii?Q?hKY5oA6e3xJZ9lxfPRWYTpqnsa9J+l8x5Y6pDRB9eOhOK23n2Q/kZbMFrgCR?=
+ =?us-ascii?Q?xeuUXW3U8uyEMgjg5HStWpGYdNIK+qJyofoQVGaAnwDyMw5VdpKmcP1NKSTZ?=
+ =?us-ascii?Q?/TqQkJp+hcYZLYSw2uLHq43/yBaqI/RurDcGcqjnhNrdhae3dVKpQpId9zAp?=
+ =?us-ascii?Q?6jqNOQxHEa4ZsG2+lIL4MkeOAvWcurvAj6Dxr2qGEKgWg3eTjxzMygehSbkh?=
+ =?us-ascii?Q?EJZaWA4WhTbc3etQQ21lQ1kDowM09t6XqA6FubbGXaCAW5vkj/YRirqJCgaN?=
+ =?us-ascii?Q?DxA3JY4Q+zl61tuQJry60KMTYkDLSt1kENJIT0vplBGWyFcFDLYZPMGgLeu8?=
+ =?us-ascii?Q?a+EF5iVMDgx3fIJOsh1Yj/zDlPNpGBFiYJrxgteFtqiiiKslBzLR3APkwbZr?=
+ =?us-ascii?Q?S0nb/X/+C+tgj51qlU3KO9utReano4XtE5mXkC0DdO1qS48cfHa9KUyfr4iZ?=
+ =?us-ascii?Q?tENpqYIzXba7POACYk4aET5Zlo+q6fvR3O0Gi67Y8sxw5Js9N7Nc5ZcKJmD2?=
+ =?us-ascii?Q?qxiM7J9VLdwJS22hg60JpblYbIAFkfCuNuhpRJyruksL4xIjtSdzC0e0EMYD?=
+ =?us-ascii?Q?7PkeCzcpcxyY4N+qvicI/5/MHQS2GBeicPFaj+/XR/04kKMPf261482+f8O+?=
+ =?us-ascii?Q?USWtmHQ/+bsBBAx9l5s5hAa4XIfP0vTtlC4wW9VN8FDT4jSyRsIist9Yh/f/?=
+ =?us-ascii?Q?uSbfQoBMtkR+bQFMNcwx8HPZ8RE7b8nYBtDaZPpnehB+wT/jc1W3l2xLQhNJ?=
+ =?us-ascii?Q?yLscT3+iCzWumE+6Chjrzdld6w3o/nt8MOLBTFF+CrQ/7ww6zo/6NuigE/jj?=
+ =?us-ascii?Q?x1t1beI6QA=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87172f27-3ad1-4713-a7df-08df368672b1
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 13:05:19.0568
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DtdZI8Yz70j4ogPfVeW6CHMdKV2typF4C5qD+SX2dWqdaLeNnGGaOI1fLnu2Ph3QYMAprh+zF2I1Dja6H6TNiw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11453
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_055923_671716_C4FD2844 
-X-CRM114-Status: GOOD (  52.70  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_060527_663125_0C15C4DD 
+X-CRM114-Status: GOOD (  25.18  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,346 +147,146 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Thomas,
+On Fri, Oct 30, 2026 at 05:54:30PM +0800, Liu Ying wrote:
+> CRTC(s) could still be running after the DRM device is unplugged by
+> calling drm_dev_unplug(), because the CRTC disablement logic is
+> protected and bypassed by the drm_dev_enter()/drm_dev_exit() pair.
+> Hence, Pixel Engine's AXI clock use count(managed by Pixel Engine
+> driver's runtime PM) and pixel clock use count could be inbalanced
+> after removing and re-installing the driver module.  To fix this,
+> add a helper dc_crtc_disable_at_boot() and call it to properly
+> disable all CRTCs before advertising DRM device to user-space by
+> calling drm_dev_register().
+> 
+> Fixes: 711a3b878366 ("drm/imx: Add i.MX8qxp Display Controller KMS")
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> ---
+> v8:
+> - Call dc_drv_set_crtc_disable() in dc_crtc_disable_at_boot() after CRTC
+>   is disabled.  (Sashiko AI bot)
+> - Make dc_crtc_disable_at_boot() return an integer instead of void.
+>   (Laurentiu)
+> - Postpone Pixel Engine AXI clock disablement at boot to the time point
+>   where CRTC1(with index == 1) is being disabled at boot.
+> 
+> v7:
+> - Check CRTC status to ensure that clocks were enabled by a previous boot
+>   before disabling them in dc_crtc_disable_at_boot().  (Sashiko AI bot)
+> - Modify debug message in dc_crtc_disable_at_boot().
+> 
+> v6:
+> - Rebase onto the latest drm-misc-next and resolve conflicts.
+> 
+> v3:
+> - Collect Frank's R-b tag.
+> ---
+>  drivers/gpu/drm/imx/dc/dc-crtc.c | 72 ++++++++++++++++++++++++++++++++++------
+>  drivers/gpu/drm/imx/dc/dc-drv.c  | 11 ++++++
+>  drivers/gpu/drm/imx/dc/dc-drv.h  |  3 ++
+>  3 files changed, 76 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/imx/dc/dc-crtc.c b/drivers/gpu/drm/imx/dc/dc-crtc.c
+> index 0d64186a9901..5bc952d6883e 100644
+> --- a/drivers/gpu/drm/imx/dc/dc-crtc.c
+> +++ b/drivers/gpu/drm/imx/dc/dc-crtc.c
+> @@ -227,6 +227,7 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
+>  	struct drm_crtc_state *new_crtc_state =
+>  				drm_atomic_get_new_crtc_state(state, crtc);
+>  	struct drm_display_mode *adj = &new_crtc_state->adjusted_mode;
+> +	struct dc_drm_device *dc_drm = to_dc_drm_device(crtc->dev);
+>  	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
+>  	enum dc_link_id cf_link;
+>  	int idx, ret;
+> @@ -287,29 +288,37 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
+>  
+>  	DC_CRTC_CHECK_FRAMEGEN_FIFO(dc_crtc->fg);
+>  
+> +	dc_drv_set_crtc_enable(dc_drm, drm_crtc_index(crtc));
+> +
+>  	drm_dev_exit(idx);
+>  
+>  out:
+>  	dc_crtc_queue_state_event(new_crtc_state);
+>  }
+>  
+> -static void
+> -dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
+> +static inline void __dc_crtc_disable_fg(struct drm_crtc *crtc)
+>  {
+> -	struct drm_crtc_state *new_crtc_state =
+> -				drm_atomic_get_new_crtc_state(state, crtc);
+> -	struct dc_drm_device *dc_drm = to_dc_drm_device(crtc->dev);
+>  	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
+> -	int idx;
+> -
+> -	if (!drm_dev_enter(crtc->dev, &idx))
+> -		goto out;
+>  
+>  	enable_irq(dc_crtc->irq_dec_seqcomplete);
+>  	dc_fg_disable(dc_crtc->fg);
+>  	DC_CRTC_WAIT_FOR_COMPLETION_TIMEOUT(dec_seqcomplete_done);
+>  	disable_irq(dc_crtc->irq_dec_seqcomplete);
+> +}
+>  
+> +static void
+> +dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
+> +{
+> +	struct drm_crtc_state *new_crtc_state =
+> +				drm_atomic_get_new_crtc_state(state, crtc);
+> +	struct dc_drm_device *dc_drm = to_dc_drm_device(crtc->dev);
+> +	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
+> +	int idx;
+> +
+> +	if (!drm_dev_enter(crtc->dev, &idx))
+> +		goto out;
+> +
+> +	__dc_crtc_disable_fg(crtc);
+>  	dc_fg_disable_clock(dc_crtc->fg);
+>  
+>  	/* request pixel engine power-off as plane is off too */
+> @@ -318,8 +327,9 @@ dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
+>  	/* request display engine power-off when CRTC is disabled */
+>  	pm_runtime_put(dc_crtc->de->dev);
+>  
+> -	drm_dev_exit(idx);
+> +	dc_drv_set_crtc_disable(dc_drm, drm_crtc_index(crtc));
+>  
+> +	drm_dev_exit(idx);
+>  out:
+>  	drm_crtc_vblank_off(crtc);
+>  
+> @@ -331,6 +341,48 @@ dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
+>  	spin_unlock_irq(&crtc->dev->event_lock);
+>  }
+>  
+> +int dc_crtc_disable_at_boot(struct drm_crtc *crtc)
+> +{
+> +	struct dc_drm_device *dc_drm = to_dc_drm_device(crtc->dev);
+> +	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
+> +	int ret;
+> +
+> +	ret = pm_runtime_resume_and_get(dc_crtc->de->dev);
+> +	if (ret < 0) {
+> +		dc_crtc_err(crtc, "failed to get DC display engine RPM: %d\n",
+> +			    ret);
+> +		goto out1;
+> +	}
+> +
+> +	if (!dc_fg_wait_for_frame_index_moving(dc_crtc->fg)) {
+> +		dc_crtc_dbg(crtc, "FrameGen frame index isn't moving\n");
 
-On Thu, Oct 01 2026 at 21:29, Thomas Gleixner wrote:
-> Good. Can you please retest with the updated patch?
-[...]
-> Any updates on that? Also please provide the source for that test.
+Shouldn't you set 'ret' to something here? Otherwise you'd return the previous
+ret value, which would be 0.
 
-The 5-vector endpoint I used before is no longer available to me, so I
-tested on the same BCM2712 board with a similar endpoint that
-advertises a single MSI vector. Since I did not have time to write a
-test driver for it myself, I used an AI-generated virtual driver to
-make the kernel see Multiple Message Capable =3D 4 and request 3 vectors.
-I cannot vouch for its quality, as I had little time to review it.
-
-Kernels: rpi-6.12.y (6.12.93) with KASAN, built with no patch, your
-first patch (v1) and the updated one (v2). I ran five loads with
-PCI_IRQ_AFFINITY and five without, both with the port's MSIs on the
-brcmstb MSI controller and on the BCM2712 MIP, which is an MSI parent
-on this tree:
-
-                                 no patch   v1         v2
-  brcmstb MSI controller
-    KASAN report                 no         yes        yes
-    allocs OK, affinity          5/5        1/5        2/5
-    allocs OK, no affinity       2/5 (*)    5/5        5/5
-    free calls to the parent     3 x nr=3D1   4 x nr=3D1   4 x nr=3D1
-  BCM2712 MIP
-    KASAN report                 (**)       yes        yes
-    allocs OK, affinity                     1/5        2/5
-    allocs OK, no affinity                  5/5        5/5
-    free calls to the parent                4 x nr=3D1   1 x nr=3D4
-
-  (*)  the original brcmstb leak
-  (**) not run
-
-  BUG: KASAN: slab-out-of-bounds in __irq_alloc_descs+0x158/0x460
-  Read of size 8 at addr ffff8000053a68b0 by task insmod/599
-  ...
-  Allocated by task 599:
-  ...
-   kmemdup_array+0x50/0x88
-   msi_alloc_desc+0x88/0xd0
-  ...
-  The buggy address is located 0 bytes to the right of
-   allocated 48-byte region [ffff8000053a6880, ffff8000053a68b0)
-
-The report is caused by the patch. __msi_domain_alloc_irqs() passes
-nvec_aligned (4) to __irq_domain_alloc_irqs() together with
-desc->affinity, which has only nvec_used (3) entries. alloc_descs()
-then reads all 4 entries. The fourth entry is read past the end of
-the array. If the data there has no CPU set, the allocation fails
-with -ENOSPC. Without PCI_IRQ_AFFINITY, desc->affinity is NULL, so
-this read does not happen.
-
-On the brcmstb path, v2 still frees one vector at a time because
-brcmstb on this tree uses pci_msi_create_irq_domain(), and neither
-IRQ_DOMAIN_FLAG_MSI_DEVICE nor IRQ_DOMAIN_FLAG_MSI_PARENT is set.
-The MIP behind this port has 8 vectors, while the switch ports use 4.
-Therefore, the MIP path works for this 4-vector block but not for the
-original 5-vector endpoint, which is rounded up to 8.
-
-The test module from my earlier report is below. I bound it using
-driver_override and loaded it with min_nvec=3D1 nvec=3D3 affinity=3D1.
-
-// SPDX-License-Identifier: GPL-2.0
-// TEST-ONLY Multi-MSI exerciser. Bind to a PCI device via
-// driver_override and request a parametrized MSI vector count to probe
-// brcmstb/core accounting. nvec: max vectors, min_nvec: floor,
-// affinity: add PCI_IRQ_AFFINITY (triggers the managed-affinity path),
-// request: request_irq the granted vectors.
-#include <linux/module.h>
-#include <linux/pci.h>
-#include <linux/interrupt.h>
-#include <linux/irq.h>
-
-static int nvec =3D 5;
-module_param(nvec, int, 0644);
-static int min_nvec =3D 1;
-module_param(min_nvec, int, 0644);
-static int affinity;
-module_param(affinity, int, 0644);
-static int request;
-module_param(request, int, 0644);
-
-static irqreturn_t msi_exer_isr(int irq, void *data)
-{
-        return IRQ_HANDLED;
-}
-
-static int msi_exer_probe(struct pci_dev *pdev,
-                          const struct pci_device_id *id)
-{
-        unsigned int flags =3D PCI_IRQ_MSI;
-        int ret, i, n;
-
-        ret =3D pci_enable_device(pdev);
-        if (ret)
-                return ret;
-        pci_set_master(pdev);
-
-        if (affinity)
-                flags |=3D PCI_IRQ_AFFINITY;
-
-        n =3D pci_alloc_irq_vectors(pdev, min_nvec, nvec, flags);
-        if (n < 0) {
-                dev_info(&pdev->dev,
-                         "msi_exer: alloc(%d..%d,aff=3D%d) FAILED %d\n",
-                         min_nvec, nvec, affinity, n);
-                pci_disable_device(pdev);
-                return n;
-        }
-        dev_info(&pdev->dev,
-                 "msi_exer: req %d..%d aff=3D%d -> got=3D%d base_irq=3D%d\n=
-",
-                 min_nvec, nvec, affinity, n, pci_irq_vector(pdev, 0));
-        for (i =3D 0; i < n; i++) {
-                int irq =3D pci_irq_vector(pdev, i);
-                struct irq_data *d =3D irq_get_irq_data(irq);
-
-                dev_info(&pdev->dev,
-                         "msi_exer:   vec %d irq %d hwirq 0x%lx\n", i, irq,
-                         d ? (unsigned long)irqd_to_hwirq(d) : 0UL);
-                if (request && request_irq(irq, msi_exer_isr, 0,
-                                                   "msi_exer", pdev))
-                        dev_info(&pdev->dev,
-                                 "msi_exer:   request_irq %d failed\n",
-                                 irq);
-        }
-        pci_set_drvdata(pdev, (void *)(long)n);
-        return 0;
-}
-
-static void msi_exer_remove(struct pci_dev *pdev)
-{
-        int n =3D (int)(long)pci_get_drvdata(pdev);
-        int i;
-
-        if (request)
-                for (i =3D 0; i < n; i++)
-                        free_irq(pci_irq_vector(pdev, i), pdev);
-        pci_free_irq_vectors(pdev);
-        pci_disable_device(pdev);
-        dev_info(&pdev->dev, "msi_exer: removed (freed %d)\n", n);
-}
-
-static const struct pci_device_id msi_exer_ids[] =3D { { 0 } };
-MODULE_DEVICE_TABLE(pci, msi_exer_ids);
-
-static struct pci_driver msi_exer_driver =3D {
-        .name =3D "msi_exer",
-        .id_table =3D msi_exer_ids,
-        .probe =3D msi_exer_probe,
-        .remove =3D msi_exer_remove,
-};
-module_pci_driver(msi_exer_driver);
-MODULE_LICENSE("GPL");
-
+-- 
 Thanks,
-Sangwoo
-
-
-2026=EB=85=84 10=EC=9B=94 14=EC=9D=BC (=EC=88=98) =EC=98=A4=EC=A0=84 1:06, =
-Bjorn Helgaas <helgaas@kernel.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
->
-> On Tue, Oct 13, 2026 at 05:47:49PM +0900, Han / =ED=95=9C=EC=83=81=EC=9A=
-=B0Sangwoo wrote:
-> > Hi Bjorn, Thomas,
-> >
-> > > > Good. Can you please retest with the updated patch?
-> > >
-> > > Sangwoo, any update on this?
-> >
-> > Sorry for the silence.
-> >
-> > I have not been able to retest yet. I have several work items on a
-> > tight schedule right now, and I am currently working on a different
-> > board for another project, so I cannot get to this at the moment.
-> >
-> > For the KASAN slab-out-of-bounds report, I will follow up within
-> > October.
-> >
-> > For the retest with the updated patch, I cannot give a date right now.
-> > I am sorry about that.
->
-> No worries, just wanted to make sure we didn't drop this.  I have a
-> note to follow up again later :)
->
-> > 2026=EB=85=84 10=EC=9B=94 13=EC=9D=BC (=ED=99=94) =EC=98=A4=EC=A0=84 6:=
-47, Bjorn Helgaas <helgaas@kernel.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1=
-:
-> > >
-> > > On Thu, Oct 01, 2026 at 09:29:27PM +0200, Thomas Gleixner wrote:
-> > > > On Mon, Sep 21 2026 at 18:05, Han / =ED=95=9C=EC=83=81=EC=9A=B0Sang=
-woo wrote:
-> > > > > I tested Thomas's patch on the same hardware setup with the 5-vec=
-tor
-> > > > > MSI endpoint. The patch was applied as posted on top of 6.12.93
-> > > > > (rpi-6.12.y).
-> > > > >
-> > > > > With the patch applied:
-> > > > >
-> > > > > - The MSI base hwirq remained at 0x8 across 200 driver reload cyc=
-les.
-> > > > > - The driver got all 5 requested vectors on every cycle, with no
-> > > > > single-MSI fallback. Multiple Message Enable remained at 8.
-> > > > > - The brcmstb inner-domain mapping returned to baseline after eac=
-h
-> > > > > unload/reload, with 12 mapped while the driver was loaded and 4 a=
-fter
-> > > > > unload.
-> > > > > - A kprobe showed one allocation of 8 vectors followed by eight
-> > > > > single-vector frees, with nothing left over.
-> > > >
-> > > > 8 single vector frees?
-> > > >
-> > > > Seems I got something wrong there verus the bulk free. Updated patc=
-h
-> > > > below.
-> > > >
-> > > > > The MSI vector exhaustion issue I originally observed no longer
-> > > > > reproduces with the patch.
-> > > >
-> > > > Good. Can you please retest with the updated patch?
-> > >
-> > > Sangwoo, any update on this?
-> > >
-> > > I don't see this patch in linux-next (next-20261012), so I don't thin=
-k
-> > > this will be fixed for v7.4 unless something moves it ahead.
-> > >
-> > > > > I also observed a KASAN report with managed affinity. Using a sma=
-ll
-> > > > > out-of-tree test module bound to the same endpoint and requesting=
- 1..3
-> > > > > vectors with PCI_IRQ_MSI | PCI_IRQ_AFFINITY, a request for 3 vect=
-ors
-> > > > > resulted in:
-> > > > >
-> > > > > BUG: KASAN: slab-out-of-bounds in __irq_alloc_descs+0x158/0x460
-> > > > >
-> > > > > Requests for 5 and 7 vectors were capped to 4 on this 4-CPU syste=
-m and
-> > > > > did not trigger the report. I have not checked this against the
-> > > > > unpatched kernel yet, so I cannot tell whether it is related to t=
-he
-> > > > > patch.
-> > > >
-> > > > Any updates on that? Also please provide the source for that test.
-> > > >
-> > > > Thanks,
-> > > >
-> > > >         tglx
-> > > > ---
-> > > > --- a/kernel/irq/irqdomain.c
-> > > > +++ b/kernel/irq/irqdomain.c
-> > > > @@ -1610,6 +1610,17 @@ static void irq_domain_free_irqs_hierarc
-> > > >       if (!domain->ops->free)
-> > > >               return;
-> > > >
-> > > > +     /*
-> > > > +      * MSI device domains are capable of bulk free.
-> > > > +      *
-> > > > +      * CHECKME: Are all MSI parent domains capable?
-> > > > +      */
-> > > > +     if (domain->flags & (IRQ_DOMAIN_FLAG_MSI_DEVICE | IRQ_DOMAIN_=
-FLAG_MSI_PARENT)) {
-> > > > +             if (irq_domain_get_irq_data(domain, irq_base))
-> > > > +                     domain->ops->free(domain, irq_base, nr_irqs);
-> > > > +             return;
-> > > > +     }
-> > > > +
-> > > >       for (i =3D 0; i < nr_irqs; i++) {
-> > > >               if (irq_domain_get_irq_data(domain, irq_base + i))
-> > > >                       domain->ops->free(domain, irq_base + i, 1);
-> > > > --- a/kernel/irq/msi.c
-> > > > +++ b/kernel/irq/msi.c
-> > > > @@ -1333,20 +1333,28 @@ static int __msi_domain_alloc_irqs(struc
-> > > >
-> > > >               ops->set_desc(&arg, desc);
-> > > >
-> > > > -             virq =3D __irq_domain_alloc_irqs(domain, -1, desc->nv=
-ec_used,
-> > > > +             /* Make sure a MULTI-MSI allocation is power of two *=
-/
-> > > > +             unsigned int nvec_aligned =3D roundup_pow_of_two(desc=
-->nvec_used);
-> > > > +
-> > > > +             virq =3D __irq_domain_alloc_irqs(domain, -1, nvec_ali=
-gned,
-> > > >                                              dev_to_node(dev), &arg=
-, false,
-> > > >                                              desc->affinity);
-> > > >               if (virq < 0)
-> > > >                       return msi_handle_pci_fail(domain, desc, allo=
-cated);
-> > > >
-> > > > -             for (i =3D 0; i < desc->nvec_used; i++) {
-> > > > +             for (i =3D 0; i < nvec_aligned; i++) {
-> > > >                       irq_set_msi_desc_off(virq, i, desc);
-> > > >                       irq_debugfs_copy_devname(virq + i, dev);
-> > > >                       ret =3D msi_init_virq(domain, virq + i, vflag=
-s);
-> > > >                       if (ret)
-> > > >                               return ret;
-> > > >               }
-> > > > +
-> > > >               if (info->flags & MSI_FLAG_DEV_SYSFS) {
-> > > > +                     /*
-> > > > +                      * This only exposes desc->nvec_used and igno=
-res the
-> > > > +                      * overallocated MULTI-MSI ones.
-> > > > +                      */
-> > > >                       ret =3D msi_sysfs_populate_desc(dev, desc);
-> > > >                       if (ret)
-> > > >                               return ret;
-> > > > @@ -1610,13 +1618,15 @@ static void __msi_domain_free_irqs(struc
-> > > >                       continue;
-> > > >
-> > > >               /* Make sure all interrupts are deactivated */
-> > > > -             for (i =3D 0; i < desc->nvec_used; i++) {
-> > > > +             unsigned int nvec_aligned =3D roundup_pow_of_two(desc=
-->nvec_used);
-> > > > +
-> > > > +             for (i =3D 0; i < nvec_aligned; i++) {
-> > > >                       irqd =3D irq_domain_get_irq_data(domain, desc=
-->irq + i);
-> > > >                       if (irqd && irqd_is_activated(irqd))
-> > > >                               irq_domain_deactivate_irq(irqd);
-> > > >               }
-> > > >
-> > > > -             irq_domain_free_irqs(desc->irq, desc->nvec_used);
-> > > > +             irq_domain_free_irqs(desc->irq, nvec_aligned);
-> > > >               if (info->flags & MSI_FLAG_DEV_SYSFS)
-> > > >                       msi_sysfs_remove_desc(dev, desc);
-> > > >               desc->irq =3D 0;
+Laurentiu
 
