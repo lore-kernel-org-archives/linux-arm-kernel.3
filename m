@@ -2,106 +2,105 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAAE3606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 22:41:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 077DE606A32F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 22:47:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lDNYsaO/;
-	dkim=pass (2048-bit key, unprotected) header.d=manyhobbies.com header.i=@manyhobbies.com header.a=rsa-sha256 header.s=sig1 header.b=nqExYuXf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Chqwdx4E;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=R34PI/7A
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=0gIgGhCHm8bEpsZOPji4A4j+l9vAgID+Kd1kyXON6Fw=; b=lDNYsaO/2aRHMO
-	njRxeAkHtsU0IcSvSqEsC3SVCfSqOeRwVl8BDeoRfSMHYPs831L9JcQya5UQ/G2ZY0Y9lOqkL9EMY
-	Ut4UkUwsclBRW8YVP9XYiHxM2J5ccNbqYMdbKzjmcWTVqHYILMXU2jWpKmTENogGTIJOTBvmnuuA9
-	e7CiUxsg5kascjMvDNwNxW3A2LhIG96L9DTLbneAZiVF9cpvHlrHtj2DJShGsuGslc5Ucbot3gIN0
-	9dtjFs9tazG4+Oqj/zkXBGA8bU27kc+vMj1jQvgFh2WWA6iNIk0kQTTnO4mI52IOKAx+hEpbKcCMm
-	O944EEkTl09SQ7s/o7/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=30fXaKKbd46d8fP4eF3UV28bEpjvYYXr5FYuZ+bJRHs=; b=Chqwdx4E6w6LwMKGMnSqekcXxr
+	SXZOD/MgDkDi1P0UMDR21k/gXKzO0nxMNJ3AgsMvrJdPDTxe2/wMX0ck2lBeAlFgWwnkZmzY2JuN6
+	gJxO+RwSK3mpatWtBGCwh/Zd2yMqVldBCLk/TTk6eLbInF66qL59MDLSqTTV7dr8pDENCpgv/s8OC
+	xDp+7y+qLD5XHuVExo2g2RRltO5S77RywZEsTU+PUQCD/7I9yXDUVdlwfbRVW0RFA6FSzBYS9bFnk
+	9+JyUoT2NrVsEzO+PBVU1iqDZLewyksyPlTuoDdGkkDskKW9H7pgUAEatpwa8N3A6sZTK/FNhMDh/
+	iAKzpYSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMvHa-0000000Cgdd-1Ob9;
-	Fri, 30 Oct 2026 22:41:10 +0000
-Received: from ci-2003g-snip6-5.eps.apple.com ([2a01:b747:3005:200::44] helo=outbound.ci.icloud.com)
+	id 1xMvNi-0000000ChfP-2RlM;
+	Fri, 30 Oct 2026 22:47:30 +0000
+Received: from omta036.useast.a.cloudfilter.net ([44.202.169.35])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMvHX-0000000CgcT-1tb5
+	id 1xMvNg-0000000Chf2-05NY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 22:41:09 +0000
-Received: from outbound.ci.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-central-1k-10-percent-0 (Postfix) with ESMTPS id 53F371800103;
-	Fri, 30 Oct 2026 22:41:02 +0000 (UTC)
-X-ICL-RepId: 01a18ef9-4138-705a-adf8-b80ccabb6893
-X-ICL-Out-Info: HUtFAUMEWwJACUgBTUQeDx5WFlZNRAJCTQhPAUMGWQZeD04dXwVcEhVdRUcMWkVWH3kVUgNOA10SWxFWHhkIXR0ZHldQWgpcCVEXUQ9eDkFeWhdeTUUID0kZEFYBWFZdBU0aXBhZDxwTUFZaDlsERxQXG1wAFxtGAgQjAl8ARQJeCVYBMBcPVk1UGV0UXwRQElAdQENUBF9QVBFXUAsocTYMO3AuBUYAMwA+HllyXnNdAU0GXRopCjMPTHApAC0GQA04XgxZElofWxpaCERFUR9URhMZThtXTVoNQBlYBm0UVhVSBFk=
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manyhobbies.com; s=sig1; t=1793400063; x=1824936063; bh=0gIgGhCHm8bEpsZOPji4A4j+l9vAgID+Kd1kyXON6Fw=; h=Content-Type:Mime-Version:Subject:From:Date:Message-Id:To:x-icloud-hme; b=nqExYuXfLJrPoynK9F6P4VbvZ2fGHT7sVifY/wFM5L+HySm/SV/o38zOUBRUc2tCZLb3qjWQ1RZGZg59yinmI7YPy+RpQDUK0r2702bNxy6ZBfiP9Irtgvqm/d/ICVJS5d8EQ+pPI/9aNxjABVPOkW8M5txl/qIn3Du8ePfLsJIBPhF7OCWivUi66pwqRIt5qbGBRaWdJ2PQgIr1Iha2yrfUSy4hezjY5VbwIoc/tqyKWi+NcjWvcSlXny6zkfjajKuqPxzi6RkXnIJ+dwlKxedxNNUnrdQkGnJXmBo6B0J2C17tIp3b/iUiRYDspY3ZcdBaTuCj6kaZqMEUybou8A==
-mail-alias-created-date: 1780273699991
-Received: from smtpclient.apple (unknown [17.57.156.36])
-	by p00-icloudmta-asmtp-us-central-1k-10-percent-0 (Postfix) with ESMTPSA id 54B7518000B3;
-	Fri, 30 Oct 2026 22:41:01 +0000 (UTC)
-Content-Type: text/plain;
-	charset=utf-8
+	Fri, 30 Oct 2026 22:47:29 +0000
+Received: from eig-obgw-6005b.ext.cloudfilter.net ([10.0.30.162])
+	by cmsmtp with ESMTPS
+	id MlHAxMjJiLvgbMvNexT2Vm; Fri, 30 Oct 2026 22:47:26 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id MvNcx336F8LLeMvNcx2LNg; Fri, 30 Oct 2026 22:47:24 +0000
+X-Authority-Analysis: v=2.4 cv=BenY0qt2 c=1 sm=1 tr=0 ts=6ae51e7c
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
+ a=eNXyHOXcY0__OJ8I6H8A:9 a=CjuIK1q_8ugA:10 a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
+	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=30fXaKKbd46d8fP4eF3UV28bEpjvYYXr5FYuZ+bJRHs=; b=R34PI/7Atx76HYCV1ZaWWd775d
+	xBknMzcTAtvhoA4hqkHV21sbvXlb1TMqApg4ijC1Ib6w6AqLEM61/tmTS8TfL5g0Tj5W/s7QhtoWF
+	7aRSToLGG8afWvY+PgouG97FE8FjRAIYSc6Dx/aOPATSwz5iA0hrnP4Dt7SwAd+Ct3/DWnBSrBg80
+	o8p2uO5zlJGdtLE7L4V/UcS6K+2HJVxnS9l6eL3cxHJpT8nAjls2JA0WN6TAvtLRLlyAL7lZZON2a
+	buyKnCVFOc6q0fMnbIw9yV81Kzpa+fsmEbZLYWTwAApa0EoSfOWiZfNKLQUGD5etWBQVTD9skgYha
+	98sNnEgw==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:41222 helo=server.roeck-us.net)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xMsdx-00000003vdq-2kxc;
+	Sat, 31 Oct 2026 01:22:05 +0530
+Date: Fri, 30 Oct 2026 12:52:04 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Igor Velkov <iav@iav.lv>
+Cc: Jean Delvare <jdelvare@suse.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: hwmon: pwm-fan: Reference the common
+ fan schema
+Message-ID: <d1fc3c7b-323a-4ad6-b770-4f3df02f5615@roeck-us.net>
+References: <20261018-helios64-fan-label-v1-0-69a3f96d4efa@iav.lv>
+ <20261018-helios64-fan-label-v1-1-69a3f96d4efa@iav.lv>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH v3] mmc: sunxi: reset the controller after an update-clock
- timeout
-From: tam.do@manyhobbies.com
-In-Reply-To: <CAPx+jO_VxJctXCZMVdzeq4CX-Ru7ACM6=wQ7GMdG2+4F1pOcBQ@mail.gmail.com>
-Date: Fri, 30 Oct 2026 17:40:50 -0500
-Cc: Ulf Hansson <ulfh@kernel.org>,
- Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- linux-mmc@vger.kernel.org,
- linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <CCF5CCC2-2C9F-4E5A-8550-B8C64CD7F404@manyhobbies.com>
-References: <179318778660.81375.11263258280496155344@manyhobbies.com>
- <CAPx+jO_VxJctXCZMVdzeq4CX-Ru7ACM6=wQ7GMdG2+4F1pOcBQ@mail.gmail.com>
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMwMDA5MCBTYWx0ZWRfX42Fyqr+Tof5x
- rqVhPO8azEg2A5LW2ESnHeokCLl9ntkDY7jC9hzq36RV7+owLm/MNys1xfWZ1rmBeJSqAQAbsCm
- 4ForHBTbHjT5TVtmQWXv4aNaTSnT8lYFsV2iSDVwiLh06CaaUuedek/4JuVgoy7pulWNS/f1RCe
- hK/mU4vAJietBbZ6nxUmeXJ3DYE/vCpJ4Wpc3ZZxUwYhdRx13Pxd7gpip8NdiArrUJb/yIZCsAp
- WtB2QekCxNBYGC7TQQdVPc30kOPia8XDie22rcsFVaXfc9hdyuzqsk/ufZG9b8lGuqJOsykJJiB
- LX7GJ4XCbqmM0uU3JgcXIivalfeoTgwLuQHBopwDBz4PW4gg1GElRS5qXuF73Q=
-X-Proofpoint-GUID: 2x_7z9kaaNiPlJQqNqi13Xatg90oQXIf
-X-Authority-Info-Out: v=2.4 cv=d4X4CBjE c=1 sm=1 tr=0 ts=6ae51cff
- cx=c_apl:c_pps:t_out a=2G65uMN5HjSv0sBfM2Yj2w==:117
- a=2G65uMN5HjSv0sBfM2Yj2w==:17 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=w2OPf45SAAAA:8 a=EUspDBNiAAAA:8
- a=hnEzuQZJkBTHcMNEFcUA:9 a=QEXdDO2ut3YA:10 a=-iXIJKm6ftRzmWoHelNS:22
-X-Proofpoint-ORIG-GUID: 2x_7z9kaaNiPlJQqNqi13Xatg90oQXIf
-X-JNJ: AAAAAAABLs59V6KwCCAZC5NBGWHf2zFYri/plGG7y3+Q5gp7br6rJx6KqvTkp4DSxXlP9Y
- 4KyLaml0R0O0APQwD/pokhEV11lMm43pO17KIoSAHnCWdXfByYanOXMdBVUKOMPyPyTX4f
- mD9ZRwOt5lfFSbj3N2pNQdHClNGOOFkVEWSL91FjXsUp3CGtNa+wiG367dfOxNl5QzPdqL
- zv6YH1ZGTI+pzIXwjgysQInFcKJRva735GA+2XFQR4Mc1x33mMzoEfp7ECXFyzw/Gbzb57
- TDaETMY+TwHB6cICBKFK6D+1wFQcfsVa3blQydPtRn+/WST9HtUURvW6h65wl9BqpqKwvM
- YO5rJDmbudm0fXKn9C0EGORe8L3WVvPUbcsWMTKcMoqUknjv9ctpiF7szqVkuKjHRFc1cM
- 08aHV8/ouxjSzJXW206vujYn9k6Z6NuuWjZQFSzPaduK+tNQ1+nBM3hnSw4qF0rrFUITlj
- vqG24OcWeXxAWZi1hdW+skQCzFZslVuwQl6Jg26/KMZRe0dySP+qydZtVs2VbzG0MH+UVh
- cAgeBNXJx8nUKYt3iwx49D1jLHqC4rtA0vf4+QzXcDS0jw+A/gKx5C8plQpDiB+fELNDIG
- 9ZnCeq2d9MEXIO7L0wZ1C5hSd7BoR6UJmMvsHwhzx4j0u7uNpRNCS4dgMcWXmMs7Kg5Zb5
- 5HvXLPAPHfDXBWpj2isqLlAO1fg5WxFEUuyWQzYIietdqGxbmnQ0lGa5AmakX6BbIhFiXD
- BWqzhRglBxjdiofAYt5kGBb4trGtKqtOcx8+ry+WtrO9lyHVhTXnz6SeSFBREubZP/edF+
- 6Ars9ZNUwTd+pl4v27foQN0na+N2aERZatj+q5cKpOx3zW27TnIGA1YtWlwy786V7/nlvy
- 4me/MEBFYdV0LdWupRzdh9DR5aNBXhqxksI4+7mrv21dyPI6NXcT8XRyqsqvO+CD6dbk81
- b+VGAQYqH2fOEcBpnHN/kHQYGzXNkDRoxqm1KiUvisO3N6sgNdclInHx0sDoUhMCoyfVBq
- k7xaMDUb2/WHlwPNmbWhlftLr2hPjmC5jODv7n50eWHKTbH7JBnfkSPEJM4JEWiuslcWqm
- ZDIHYxExUlS6jfCssnp2DBmAnl5eYBp7dp7YazaDRhSJvNtXrAt6uY682eskHJexvGSd86
- qynpqTi+TxvMk5xw7aCclxToZi2YaOUtlTRCLVwLC30pDQkUP/1cjgXeWopUt1HUpEo7G6
- 3SDS+nmgSFAGhFzqf/O1nleSavTVoS7DStDAEQzc5buucRzB0tYS5IeYFQFE2jk79vXVQR
- CqimGOzOvYGFIlVCDj0255vhUIQpA8Ixbsa+BTS3jak1zuwXWE23JG/9YBUzVg3lY8+tJY
- Ju2n1x/VKUCzmVdTsadlVSUOrY1hm+hC9cF6UeqXgWsRzj9viPm7S68l3+TA+b3t7WNyGx
- V+jBWQD0Rf8SduvoM3yfuwXRXW4554m5Xxz01EaRzlSXOiWzFCr17Of4MlrWxMjYrrK8sg
- X+8aLt9F0hWjqUCbEsBbyP+2G7Jf9jz9Fx1RLTftg0qF9yeG4XLMMGi/7ClNBqPKoVMRky
- tmE5oaO6LkuMySfOkGZuUNsg==
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261018-helios64-fan-label-v1-1-69a3f96d4efa@iav.lv>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xMsdx-00000003vdq-2kxc
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:41222
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 0
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfMpR9Xkj/uob2qeZb1uTwWr5LbM4khupr3V92lk2MHHyjR6DYyoxAnytBpmKH2idd01nNQ8Czoh8vmf6vCwoCKvWtANT2SULm2z1AUCG/yHmws5YUtEn
+ 4WXTOzBvKUXcNSCsSTsl9MQAC2BMZTu6IwGjsfvlDINLfR6w2w8zgS2e4OmSO/jrYb6honIZIzRESg1nXIe0wHcGR7Zs15g1EHT0gtaeccHL44vyF/FY0hXp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_154107_869952_3B869FEB 
-X-CRM114-Status: GOOD (  24.82  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_154728_118585_F7DA7753 
+X-CRM114-Status: UNSURE (   6.55  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.4 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,130 +111,29 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> I assume it's sunxi_mmc_oclk_onoff() that is being called and it's the
-> loop in there that times out. The question is then, under what
-> circumstances are sunxi_mmc_oclk_onoff() being called when we are also
-> waiting for the SDIO card to release the busy indication on DAT0?
+On Sun, Oct 18, 2026 at 07:54:59AM +0300, Igor Velkov wrote:
+> From: Igor Velkov <iav@iav.lv>
+> 
+> pwm-fan predates fan-common.yaml and repeats several of its properties.
+> Reference the common schema, drop the duplicated properties and keep
+> only the constraints specific to PWM fans.
+> 
+> This also allows label, which the hwmon core exposes as the label
+> attribute.
+> 
+> Link: https://lore.kernel.org/r/20250106173805.GA501301-robh@kernel.org
+> Signed-off-by: Igor Velkov <iav@iav.lv>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-Yes. It's the first update after probe, from the MMC_POWER_UP set_ios:
-  sunxi_mmc_oclk_onoff+0x17c/0x1a0
-  sunxi_mmc_clk_set_rate+0x1c/0x2c8
-  sunxi_mmc_set_ios+0xe4/0x144
-  mmc_power_up.part.0+0x40/0x150
-  mmc_start_host+0x90/0x9c
-  mmc_add_host+0x6c/0xa0
-  sunxi_mmc_probe+0x35c/0x478
+Applied.
 
-STAS already reads 0x206 there, before anything has been sent to the
-card; on good boots it's 0x106. So the card is holding DAT0 when Linux
-takes over. These are warm boots from the vendor firmware and it
-happens on roughly half of them.
-
-The supply explanation in the commit message is wrong, sorry. The rails
-are up ~20 ms later and the command is still pending at the 750 ms
-timeout. =46rom then on every update times out until the controller is
-reset. Rebinding with the card idle never hit it (0/20 tries).
-I'll fix the commit message in v4.
-
-Tam
-
-
-> On Oct 30, 2026, at 8:48=E2=80=AFAM, Ulf Hansson =
-<ulf.hansson@oss.qualcomm.com> wrote:
->=20
-> On Wed, Oct 28, 2026 at 12:43=E2=80=AFPM Tam Do =
-<tam.do@manyhobbies.com> wrote:
->>=20
->> If the clock-update command times out it stays pending in the
->> controller, and every later clock update times out as well, so the
->> card cannot be initialised until the next probe.
->>=20
->> This happens on an R16 board whose SDIO Wi-Fi holds DAT0 busy while
->> its supply comes up during the first clock update.
->=20
-> It would be nice if you could elaborate a bit more on what goes on =
-here.
->=20
-> I assume it's sunxi_mmc_oclk_onoff() that is being called and it's the
-> loop in there that times out. The question is then, under what
-> circumstances are sunxi_mmc_oclk_onoff() being called when we are also
-> waiting for the SDIO card to release the busy indication on DAT0?
->=20
->>=20
->> Reset the controller on timeout so the next attempt can succeed. This
->> runs sunxi_mmc_init_host() with the interrupt enabled for the first
->> time, so write REG_IMASK from sdio_imask under host->lock, as
->> sunxi_mmc_enable_sdio_irq() updates both under that lock.
->>=20
->> Fixes: 3cbcb16095f9 ("mmc: sunxi: Add driver for SD/MMC hosts found =
-on Allwinner sunxi SoCs")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Tam Do <tam.do@manyhobbies.com>
->=20
-> Kind regards
-> Uffe
->=20
->> ---
->> v3: take host->lock only around the REG_IMASK write in
->>    sunxi_mmc_init_host(), not across the reset; v2 polled the reset =
-on
->>    jiffies with interrupts off. The return value stays unchecked, as =
-in
->>    sunxi_mmc_runtime_resume(): if the reset itself times out the
->>    controller is wedged either way.
->> v2: held host->lock across the reset (not posted)
->> v1: =
-https://lore.kernel.org/all/179307312104.39863.12372814163472848752@manyho=
-bbies.com/
->>=20
->> drivers/mmc/host/sunxi-mmc.c | 4 ++++
->> 1 file changed, 4 insertions(+)
->>=20
->> diff --git a/drivers/mmc/host/sunxi-mmc.c =
-b/drivers/mmc/host/sunxi-mmc.c
->> index fe4c0f6d73f3..55313780d06d 100644
->> --- a/drivers/mmc/host/sunxi-mmc.c
->> +++ b/drivers/mmc/host/sunxi-mmc.c
->> @@ -322,6 +322,7 @@ static int sunxi_mmc_reset_host(struct =
-sunxi_mmc_host *host)
->>=20
->> static int sunxi_mmc_init_host(struct sunxi_mmc_host *host)
->> {
->> +       unsigned long flags;
->>        u32 rval;
->>=20
->>        if (sunxi_mmc_reset_host(host))
->> @@ -336,7 +337,9 @@ static int sunxi_mmc_init_host(struct =
-sunxi_mmc_host *host)
->>        /* Maximum timeout value */
->>        mmc_writel(host, REG_TMOUT, 0xffffffff);
->>        /* Unmask SDIO interrupt if needed */
->> +       spin_lock_irqsave(&host->lock, flags);
->>        mmc_writel(host, REG_IMASK, host->sdio_imask);
->> +       spin_unlock_irqrestore(&host->lock, flags);
->>        /* Clear all pending interrupts */
->>        mmc_writel(host, REG_RINTR, 0xffffffff);
->>        /* Debug register? undocumented */
->> @@ -688,6 +691,7 @@ static int sunxi_mmc_oclk_onoff(struct =
-sunxi_mmc_host *host, u32 oclk_en)
->>=20
->>        if (rval & SDXC_START) {
->>                dev_err(mmc_dev(host->mmc), "fatal err update clk =
-timeout\n");
->> +               sunxi_mmc_init_host(host);
->>                return -EIO;
->>        }
->>=20
->> --
->> 2.39.5
->>=20
-
+Thanks,
+Guenter
 
