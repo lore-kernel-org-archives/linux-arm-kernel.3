@@ -2,122 +2,129 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78E03606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 14:48:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9DE5606A331
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 14:49:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ISuD9+gm;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=JsUSJJ13
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EESjcaoe;
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ExggUzQ4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=wiBt2adyNssPDVuBgui78eZ+UT/JYY2EutDA38J/UWA=; b=ISuD9+gmI/xzpw
-	Ke28PpwZ285GBANDA042FO6VOSm32e1Zbo2A9VyUxrXE8/YKHpAceUFGsUzV0CZzWocxI61sBzm8m
-	kXLRRquUs839EJoxXZ55r1WhuVmcHc5LCfr748LJ6JHoReECGkVtadopA8yClqoERb3jjQziHqrp4
-	pJ0kn/7ohCN0WueQWtkST6RX9vz3ejGOitpra+5vhoPWkS4GAd0z2q0b1qeZfg9KFtYdvHnPF9HzO
-	q49a56G1cxGxEBJKcXe0/O4LC7bUfFqYMgzPd3v8igsI/7nKcptjY6cvOLo8saF119fxka7hB3qBy
-	IXZIapRXuhxz2FMXCCeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=HEHKW4LBT6GpwoTEpcbAbsyC2GPR8DDtx+QfBPo6gbI=; b=EESjcaoelWJ5z0oqJs5rx4nlTl
+	D3lbcIX7iXYlQl2OYttyBRm82uWxi8XC6BKFgcA4wa0b+OI1akRb1wuMa9/QN++LCUXuFjAOEhQj/
+	BeJg7j8m0YR+1fX8WOV19z3G7Er2nVMHt86GCqSkhDYs76QBZkKZ9uQxudPqiq6amrfoz/myqXkJj
+	hlihcqBjfPa6ciiLo5ilnszUP/Xyx/N4lrQX2lunCcAuxPnNMdJVndyZea+u8IOP/nWO7aA0X/WLf
+	romnsX8fdaGdk3v8X6pPt91N1GrmplPGbIpConrvj5vIYTqs4H67RM3+6drPVgTk5134X0j7dym06
+	MePp+kxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMnto-0000000BtGU-0PVk;
-	Fri, 30 Oct 2026 14:48:08 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xMnus-0000000BtPS-2zOL;
+	Fri, 30 Oct 2026 14:49:14 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMntl-0000000BtDW-1wjy
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 14:48:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RI6NHEOUYEHrPe8739huOGjovJM10S1Z6YFpQcIWzHW6Cz+7U5+h1/5bZrRUnavdrwHExPhbApOpKDimEhzF5X4taeR9S2m0VboLzZIGd3ycZHkavEZF+zClb7maKNae4Gq/C2vyabvhl991AKww+CgsK6ZDo9K5XBvcuxedAKs1kPeEZDg9sgrRbuwre1yKpugmv5H4XNCGGUeJ1unlpuFtwC+GMbVMxqX+CpT7saxsphOP+P/eBhk0NBQu/bBIGwsP12rUdEExBckVRVVL9ODuK7P0r+W1m7eg7QD4YIqn0VQ2RepsLvFnrAYxfoeHgJJGM/MlQ3I3gTXVO0DUEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wiBt2adyNssPDVuBgui78eZ+UT/JYY2EutDA38J/UWA=;
- b=pTwhlmuGSSwSjnOKt72QqcmWXW/hS/t11t0EpdrgeK+s3gHNvZv1yILxUFFWlbVG3vuCg+E//Lfm9ctxX9W9uurEMqHMuzj+bblHCuty+YT9UkABwIe2C6RQQ/B00jESi7YSF6jyqFj2qCW+MM1q1GVKy/rfrkI8WapLZJBbJux8tVeeqT9C8mi+KwU4YhQgZant4MxygxdBIJT7TfahmB6i23WDhfCTDDdwrPZUMMTbwOmm3Njm+wP2KBpDIPASMtovnb4L+umTJ7h4WTi9vRV82QGkE5gVKRUjUHHiEKsjZdbM7k4rg2hUqu6XVf1W1rRAI9mX7r1z+SMVzBETmw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=163.com smtp.mailfrom=foss.st.com; dmarc=fail
- (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wiBt2adyNssPDVuBgui78eZ+UT/JYY2EutDA38J/UWA=;
- b=JsUSJJ130k7WuZs5OgvJ/wbACRHmzs6711As4PkPqyYKpJu8GC1aTQtZM07qIAaivyQbHGKwdp82SEzG0Q1Tl6XxZ5kOiY+6AeOYHoL5MXrsYCPKAR/nG79cQX5L7+JgeFlAnq2A6XqFbi7Up4JpWOtKVdpUuoA+aB3/lQruM+0VBfjtKD6fVCF2RxDztOdOKxBODOOBrar0B/1gNV0ZS3vNOXU3c2/n6Yam7l6cUTN2OHaVjaG1fMLoLB5EbyJZGwcQw2dwtRrirde8mVePwDDpMPxvprTwamFLwLnWpGCTS4pH4j+qnhwuHWr8jkXYbmoujO8F2yfBYNuEWpiQxw==
-Received: from DUZPR01CA0181.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b3::22) by PR3PR10MB3897.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:102:47::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.4; Fri, 30 Oct
- 2026 14:47:56 +0000
-Received: from DU2PEPF00028D0D.eurprd03.prod.outlook.com
- (2603:10a6:10:4b3:cafe::a9) by DUZPR01CA0181.outlook.office365.com
- (2603:10a6:10:4b3::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.7 via Frontend Transport; Fri, 30
- Oct 2026 14:47:56 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DU2PEPF00028D0D.mail.protection.outlook.com (10.167.242.21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.569.4 via Frontend Transport; Fri, 30 Oct 2026 14:47:56 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 30 Oct
- 2026 15:48:38 +0100
-Received: from [10.252.9.90] (10.252.9.90) by STKDAG1NODE1.st.com
- (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 30 Oct
- 2026 15:47:48 +0100
-Message-ID: <aebeb751-59f7-4281-983b-a7580196556f@foss.st.com>
-Date: Fri, 30 Oct 2026 15:47:44 +0100
+	id 1xMnup-0000000BtOY-305N;
+	Fri, 30 Oct 2026 14:49:12 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69UEiNBi3396324;
+	Fri, 30 Oct 2026 14:48:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=HEHKW4LBT6GpwoTEpcbAbsyC2GPR8D
+	Dtx+QfBPo6gbI=; b=ExggUzQ455ydNTjuXERdQK9pJ5iTVLioyncMYKtaMrybI6
+	krGz53pMUesedVdfoSwrjfyPFN6oKtLJ9ZGSc6iL6qdxumYmBDC53vPEnudKaHv7
+	ymcnCFyMC7J+0pWxlYcBqIeK0xL5Z/9YzRGeSHdJ6yt7M3KM5utOvyLsWcKlRXcF
+	yEHSvxiNs8gr20+K59YSPCoH6Bsi/Qm8mTA/OrqwXkpguyWfsWkKRySnaBj+fjZY
+	gasiwKpQjKQZBIjrcRsE6shxU/5OSa3YS9rziGJQij26td/8OPz7JnoUzaAZC1iQ
+	8CB0BpLwyIXpKLthffDo9so7x8Bqsy+nL7Fptlrw==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4hmeay399t-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 30 Oct 2026 14:48:50 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 69UEZ5nw649967;
+	Fri, 30 Oct 2026 14:48:49 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4hm69e50qj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 30 Oct 2026 14:48:49 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 69UEmjGw30737002
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 30 Oct 2026 14:48:45 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0E9BE2004B;
+	Fri, 30 Oct 2026 14:48:45 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 69B4D20040;
+	Fri, 30 Oct 2026 14:48:38 +0000 (GMT)
+Received: from li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com (unknown [9.124.208.227])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 30 Oct 2026 14:48:38 +0000 (GMT)
+Date: Fri, 30 Oct 2026 20:18:35 +0530
+From: Gautam Menghani <gautam@linux.ibm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+        Huacai Chen <chenhuacai@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Paolo Bonzini <pbonzini@redhat.com>, Fuad Tabba <fuad.tabba@linux.dev>,
+        Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>, Nicholas Piggin <npiggin@gmail.com>,
+        Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        kvm@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Stefan Teodorescu <fane@google.com>
+Subject: Re: [PATCH 3/7] KVM: PPC: Explicitly force IPIs when directly
+ kicking vCPUs
+Message-ID: <auStM0rbFol79h5o@li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com>
+References: <20261028190259.1819571-1-seanjc@google.com>
+ <20261028190259.1819571-4-seanjc@google.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] spi: stm32-ospi: handle runtime resume failure in
- remove
-To: Jiale Yao <yaojiale02@163.com>, Mark Brown <broonie@kernel.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Felix Gu <ustc.gu@gmail.com>,
-	<linux-spi@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20261019084443.1824122-1-yaojiale02@163.com>
- <20261019084443.1824122-2-yaojiale02@163.com>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20261019084443.1824122-2-yaojiale02@163.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D0D:EE_|PR3PR10MB3897:EE_
-X-MS-Office365-Filtering-Correlation-Id: fa250b92-fa00-47f3-8b98-08df3694c904
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|23010399003|82310400026|1800799024|18002099003|22082099003|11063799006|4143699003|56012099006|261009223027099003|261009221227099003|261026140227099003|261026121527099003|261022105027099003|261028144727099003|261021121427099003|261021123027099003|10067099003;
-X-Microsoft-Antispam-Message-Info: gmSuaV3k2gtzg5MQLbg1GvPKonLlpDqXBYQYL9Dns8nbzG8mVUl9LtjegOdEerdJJZfChE6ELtagI3cv94kecEP8Sne1teFMxerY0/Rz4wSzQNulXDgb6Xc3G24pKUIn+9dQvy1/VyZybwSESFeAhKQaML8mp5BlXqu+DNmlBX1pF6NxY2uIqNB1ttDgJ6lc9O7Tpv8eP0pcGjL30rtRi3YVV93U4JsHOYGJ0rlsfou6mHc4YDWiDgcjzT+V132WlIqYVh8pf7Fon1WRFfEfWn3OBvmpYOiYR9Kot7sbaCTWx6BwZjXpG5rEWEZC8gW7u/8/z/36HTZJ0gJ1+tjC+tQNYhNyvi+qUi+7neqEa1T6lNPNMU6NSahSf8ruL0d9GgE06u9/aKeR08A7q745oof3w/X3WBVucyfJgp3zDl58+2KLnISxRkjCKRfFaU5UGIq4EqvH3e1w32vsC4lCCPTOBQfiavNYtK2rOVwECAlM9tJKVBjLqooWlYVk8Zu5D70jIHuFFrSRXintHYNAKQVEc51HCX44KSs4d+SWqrJ0IsT1ZbpowyL7251bwgvDudTyefjAQFYIuMtdgFquNyUiYo+JkFJMQBdUhD5M6eFCHSXVY8/rn1UH2ZDPIYazfAyKieGVqc/RBbxWHUpiiG60j+9aDoVK5GiROv2bTpZbfIqPaZEeRkevceWvdWjs8aBguPRiuTrzUmQIwSMLnw==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(23010399003)(82310400026)(1800799024)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006)(261009223027099003)(261009221227099003)(261026140227099003)(261026121527099003)(261022105027099003)(261028144727099003)(261021121427099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 6X26TIGlbsl2gzic9AIiXaGji5z+vJMYCrXaeoUCymCzYj7Ny+UHxo+3H19zT8NuR4QYzZ89HduUO/UrGXUaKL3f6CDSJkef0UMTw38XNdfmV9An7P2211myhBPBApsP/IET0AuNG49jHrjGxT7U3DtcqJxt0qak54Z2gGFReORmp+zFlqjz1h1R1PLKKa3n2iMwMJqftraQXXsPZl+P2h/LUzNZnDSt+rj7+RDU2wAJjeloa8K7pDVsVJrBdyRF4z9ht7BcdRY+zq2p5jDDdHUilpBzKSmdrw69+9ufEWmMMWgu4WN4bISTT2FOjukvyDz3oW1CvN7CEg6XFOwZtvmeL+b65vaI5RH5zF/4brRAb6Puhds0ltTn2/M5bI+PNuUmQnV2fflGQkfPZG0gUSoGnKtzX9jzhgOZ6y1qxXZr6Xs3ZatQn4LDuHzZ3krq
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 14:47:56.4264
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fa250b92-fa00-47f3-8b98-08df3694c904
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0D.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR10MB3897
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261028190259.1819571-4-seanjc@google.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMwMDA1OCBTYWx0ZWRfX231ITCmOe99R
+ dfESFyd3RUHjMlk75/eFc/1OXzNu84c9omPa7EIxtAYWLGJA9eAO3zzjK7VTQa9llnkJXi4gWU8
+ r/unyeMYxDjuR+cWiyOnVdmS7GG+HF21UyJwsDX2Xub75Vlm2pm0bctwtvWSinYL1jvetutMT9u
+ syV9gMRp2C27a9ai2jX5gVTbQI0zWTEnKBPJsAESqMw35ihGvBQsvADDXhk3kK6RJKPFkGzUu/R
+ 8hbWWaTe5yOXFUonP/DisFXU6OHDNrpGGIOnidy7knS9ossfiCuv+PjkyxIdfgZNrxB3ogLWnb/
+ wIJApNH46JPjtF8WaAFMzRRJRq4ipRnblJwCI0gUhomM9spjDCQUvGpKUJceKZB8VwfgH+dzVOz
+ eTTsRDooCRzKNdGwyScusI3QLV5OU6ngYDGXyI76iB5Vyotd+IKq7x3NvGErCC7qtLRge/dkbPg
+ 7yc+RWco6LUsGg+cWpw==
+X-Authority-Analysis: v=2.4 cv=WJHqzXsR c=1 sm=1 tr=0 ts=6ae4ae52 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
+ a=1XWaLZrsAAAA:8 a=1goJhm9fjgf-yEZC_jsA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: Zln3Uvbt51spdXgJNma7nXq9r9SgUHNe
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMwMDA1OCBTYWx0ZWRfX7S7KOd9POaV1
+ Em+dt+hSOwRtH43TAR/rRI11q7Tee1s+P5cCU6Nfy9sKiFGQWrAn7ONzOJvQd/a2ydad09/AQ7n
+ DooPLMaRQuyB21j0hWOf5aPFwNJGtms=
+X-Proofpoint-GUID: OIZDK0-t9uUR5jTdFJ0BXTWF-ze0VlkH
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-30_05,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 spamscore=0 lowpriorityscore=0 adultscore=0 priorityscore=1501
+ bulkscore=0 impostorscore=0 malwarescore=0 suspectscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610300058
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_074805_744513_EAE902B6 
-X-CRM114-Status: GOOD (  17.14  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_074911_761594_DC05437C 
+X-CRM114-Status: GOOD (  19.95  )
+X-Spam-Score: -2.6 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,68 +135,63 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-
-On 10/19/26 10:44, Jiale Yao wrote:
-> stm32_ospi_remove() continues with the controller teardown when runtime
-> resume fails. The register write can then access an unavailable device,
-> and the final runtime PM put does not match an acquired reference.
+On Wed, Oct 28, 2026 at 12:02:55PM -0700, Sean Christopherson wrote:
+> Explicitly force an IPI when invoking kvm_vcpu_kick() directly instead of
+> relying on kvm_arch_vcpu_should_kick() to unconditionally return 1/true.
+> This will allow dropping kvm_arch_vcpu_should_kick() in favor of
+> kvm_request_needs_ipi().
 > 
-> Keep the resource cleanup, but skip the register access and matching
-> runtime PM put when the resume operation fails.
+> No functional change intended (1 || 1 == true).
 > 
-> Fixes: 73cd1f97946a ("spi: stm32-ospi: Fix resource leak in remove() callback")
-> Signed-off-by: Jiale Yao <yaojiale02@163.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  drivers/spi/spi-stm32-ospi.c | 12 ++++++++----
->  1 file changed, 8 insertions(+), 4 deletions(-)
+>  arch/powerpc/include/asm/kvm_ppc.h | 13 ++++++++++++-
+>  arch/powerpc/kvm/book3s.c          |  4 ++--
+>  arch/powerpc/kvm/book3s_pr.c       |  2 +-
+>  arch/powerpc/kvm/booke.c           |  6 +++---
+>  arch/powerpc/kvm/e500_emulate.c    |  2 +-
+>  arch/powerpc/kvm/powerpc.c         |  2 +-
+>  6 files changed, 20 insertions(+), 9 deletions(-)
 > 
-> diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
-> index fa0e8e83cb1b..1340e62ebe1b 100644
-> --- a/drivers/spi/spi-stm32-ospi.c
-> +++ b/drivers/spi/spi-stm32-ospi.c
-> @@ -986,12 +986,15 @@ static int stm32_ospi_probe(struct platform_device *pdev)
->  static void stm32_ospi_remove(struct platform_device *pdev)
->  {
->  	struct stm32_ospi *ospi = platform_get_drvdata(pdev);
-> +	int ret;
+> diff --git a/arch/powerpc/include/asm/kvm_ppc.h b/arch/powerpc/include/asm/kvm_ppc.h
+> index 169ea6a7fbad..bbe7378ad0ef 100644
+> --- a/arch/powerpc/include/asm/kvm_ppc.h
+> +++ b/arch/powerpc/include/asm/kvm_ppc.h
+> @@ -30,6 +30,17 @@
+>  #endif
+>  #include <asm/inst.h>
 >  
-> -	pm_runtime_resume_and_get(ospi->dev);
-> +	ret = pm_runtime_resume_and_get(ospi->dev);
->  
->  	spi_unregister_controller(ospi->ctrl);
-> -	/* Disable ospi */
-> -	writel_relaxed(0, ospi->regs_base + OSPI_CR);
-> +	if (ret >= 0) {
-> +		/* Disable ospi */
-> +		writel_relaxed(0, ospi->regs_base + OSPI_CR);
-> +	}
->  	mutex_destroy(&ospi->lock);
->  
->  	if (ospi->dma_chtx)
-> @@ -1001,7 +1004,8 @@ static void stm32_ospi_remove(struct platform_device *pdev)
->  
->  	reset_control_release(ospi->rstc);
->  
-> -	pm_runtime_put_sync_suspend(ospi->dev);
-> +	if (ret >= 0)
-> +		pm_runtime_put_sync_suspend(ospi->dev);
->  	pm_runtime_force_suspend(ospi->dev);
->  }
->  
-Hi Jiale
+> +/*
+> + * TODO: For unknown reasons, KVM PPC has historically ignored vcpu->mode when
+> + *       determining if kicking a vCPU needs an IPI.  Either document why that
+> + *       behavior is necessary, or drop this helper and the @force param from
+> + *       __kvm_vcpu_kick().
+> + */
+> +static inline void kvmppc_vcpu_kick(struct kvm_vcpu *vcpu)
+> +{
+> +	__kvm_vcpu_kick(vcpu, false, true);
+> +}
+> +
 
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+AFAICS, there is no reason for PPC to always return 1. I was looking at
+the old patches on mailing list and found this - https://lore.kernel.org/kvm/0FEE585F-5E21-47F2-A3F0-AD0DE05EBB43@suse.de
 
-Thanks
-Patrice
+```
+How about we return 1 for kvm_arch_vcpu_in_guest_mode() on !x86 always, just like it's done today basically? Then we can
+worry about needless IPIs later and don't regress from the respective current kick implementations.
+```
 
+However, I'll do some testing and get back by mid next week to make sure
+there are no suprises.
+
+
+Thanks,
+Gautam
 
