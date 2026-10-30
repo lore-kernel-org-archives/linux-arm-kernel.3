@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE0F660A380D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 09:54:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F04F606A336
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 09:54:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=R5vMmrI4;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=J5gOqd19
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=haeAFqw7;
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=fUoNGg3P
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
@@ -14,52 +14,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=H9KYcujEuNYpQcJRvedFCKkWToV+X8VwQK8BL6pfp5I=; b=R5vMmrI4SV2cMNq95Icp66BitB
-	B1ArKka2MIwV63DZStEVt3MalfyNXw+sDzEp2knLjnjspsbHCpjMGDBJwI4BP3QXuzIsN8k/bS1bV
-	zjiN22MR+kt1v9N6/5v/Wv261BfXUhkqAvhxRvaVvLTHzXnjNDHcC3PSEI7AdIBUU8N4r6r85Xf6H
-	nYRUf0Ns1ypLZcs36k8S/irwMfB1iCO+Pgb7XK4miDwaxwTIy5A2Md0vGENA+mWUsxJmS+mN2ugX6
-	1SrkYmAGNOAJ9SuGbq17ViHNOAl9DUAE8DoIbVfM/Ywp9sPGjmqGxrf+fraEkITPvAFIARA6RgBGe
-	wtLTOczQ==;
+	bh=4Ht9nvrRP7MJmmvEf9IaM1WvMEL9gyNrapNdmCfL3Fk=; b=haeAFqw74mntVh30sQgUjfHAfG
+	Uy7BKjTsC8f3gk2P7bvIfOAyadQe0jl1bwTjORa6d9jZfhFszBsRvu1LlbPszOfygcvoCQ77jBz80
+	ym6Ac45m/UVv9esJDn+UxtQTNfhs7Mw45OXWMXqPgMvbillJdWGwirmzo8xHU3+wyn5BbE0tIlcEF
+	JHDkjIVwAsoVP4b+q8VUnUPt91ZFreIDHa9Ef+6yQfrhA5rJagR1zZ0yU8A13AFp35l4HDu7krfrU
+	DupQlJTnh8ws/TLTx4gAcQ4jbLyBYUH3QN1VuLIbAOvqTq9chlXRXyHbu3tWzTd3j1Zj62A0U8NGI
+	SgiZrv1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjJL-0000000BJqk-23Ch;
-	Fri, 30 Oct 2026 09:54:11 +0000
+	id 1xMjJb-0000000BK0A-3amF;
+	Fri, 30 Oct 2026 09:54:27 +0000
 Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMjJA-0000000BJRP-3YwI
+	id 1xMjJT-0000000BJRP-1RNS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 09:54:09 +0000
+	Fri, 30 Oct 2026 09:54:26 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D7dsg92mjyVEeRket47gUgOx+SkLviY2KG31yE2EVey/yBCQzXK9PbbCT43kbTNX7Fl+IWFtyK0KXlhbbWeul3gQe07tQV+TG3EWifQWDjon+MsOfth1snsfaUx/PGbduq1iifArKxc9yMhZLFUz18BvAM7v1Qj9+ldEWtvarBsWNiOx3tXbNxWI9N5XsHQbihMNtOIElliX37o+qtJH2z8j56BjliLzykDRn13PJGRNdcU3yFjL2b287lUe9VFhSFJK6uonLtwaDNU9Pj99xPweCs6jp4Py5WYhZ2TWSb0j8hsyptxIrUhiE4igHGUNcgHXbtS/TReD4gGALxpPMg==
+ b=Z3h6fokoGlt7bdEXdGCMptzdq93HPrYnB7upN3I/32TLlxWlACoDfh0D9RrR0Iyb+MrABnlIDzVR7AeETlQATeuCN2DdIcGXJlFT/NQJOuF4iRc6jsC0R8bl65z9EMKhqD16Dn6J4V0G4gAnGgK9iBfuLLg4+7Opy74+zsyT7cRCXLunNYGQg6tKtXoNU/GvVqVXmtVtiEitO0CG1EqqNyO8z4sS9tiTcYqJg8xKdhNrEYlQjfHZpNkSwTIAmGQ4P0fNURutlvLbfQ+rIxNAEt4pgIG3uzp2ZcJS/zgaEHIN84AhvzD+3lQWlQT6mr1HayyKZwK5x3XFzPobPZoldg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H9KYcujEuNYpQcJRvedFCKkWToV+X8VwQK8BL6pfp5I=;
- b=mBi62AbSyBDwAvhdSrobYWbg3TEmSSOFCQk394r5ipyeqSV/gihF53ImGLT4c8aectKuJXithL+WPlIZ+vNML3rPBzPb9aszC8BbID+tytz0rD9J8gy5BTDVGwC4dX4lSZbE1/jNl/BeWRSqwl+eXBOPArBmNnTm83+uVDCau9+F+YKB2NNLjoAzAwLtfw2SJTNfGoZVlKBNZz2kLC8xf6WkQnDMnJ/t59hFZkAJGNi2LXks6s12Eno4ixORIlKsYPqTUTpux9AptXDyyy94+ciDosRFKy1E/GgKOsN37713r4pHjj+Wmm1oCDMsdloBKMJICuG77xM7ohWlU5e1Mg==
+ bh=4Ht9nvrRP7MJmmvEf9IaM1WvMEL9gyNrapNdmCfL3Fk=;
+ b=C5cfA9VjoNyBKKxk2448c5nnz6du5CwKyGYm75y5XApNUG7mOzCB5F2mFacmrNo4sgfjMw//bTqcqLyaGqkTFGBfxSTl/VrrSUPKHHUVwgrvGj/CKaGKfBqkj3txWPmi1M9gXK1KlA4wNxuR3zBf47kVmaEsDQgc/CodrtBLuqBwvGt32nL2lMTPgAqtKVe/SLfC7ndjmXYBmjMa8n2bXk3Ok6rf/m41N47IsZYWEg7UyyhdbACQ//xrmojvNMshGfjBYHNVJIZ/Y1p9XpJspiBLh+Cea0cBDsC19s+HCkapLx7TInhdv8gysZ1tyxUUrL4i5/xIoTl00Bouv1t1wg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H9KYcujEuNYpQcJRvedFCKkWToV+X8VwQK8BL6pfp5I=;
- b=J5gOqd19e00kw9NGKr8yaSnne0knP74un2SfXO7uWhxTpppqZoy6LDglWm8qFNIv3tGucBRgDxeQ7H3EfCS7d2vpqYennPhYbYVamJHJrCQyIp/fxIQjO84qymu5biyjm2Hzw758ul9yWhi9E9/J7QeInAAtrummz04U74vJYOimPKYZBq18az3992BW2bThUHEAnU5A4qu8zvn2HfsvCa/rkRSThINajv3sNRkIaf3sNxmmM/GWXiY0NHVVaCslHF8vSG/lwnXviS4Ig6AobpNatdFNXIg1I6xQ/OSQrTnYpBxBarxG8N2GAFzV1+cwQwXDDLTyQRP8xYOlqskreA==
+ bh=4Ht9nvrRP7MJmmvEf9IaM1WvMEL9gyNrapNdmCfL3Fk=;
+ b=fUoNGg3Ph4TVBw1fesY3u1+ml++5vP3OhJ2b6no2Br9c5H8Q1O9IAKBZLcUilkX5W9N9CPR4HO9cmOpMRZbj5E4ttujE7HsyCpaJ7rEHt0xCY7hk6XaM6JKTw487gJa/UNr4TCx5Qfq6JNESY/zi14SBlNXOVRaJAdk/gR8lGoWIxEbT4w/J41uBlHpdk1dNz2Ix1UmA7lsNDuDQbUTyeH4YgvNDYmd1ISl7ghSJ1vjHyulpxzhqrhuLy4/oxvLQ4pBgtNkBKIsOwLdu76ypK15LLClNjqiZV1EzJu8HJ72iKYGxGKp8YVi88br2CzUnyBTztlx2duywimFhYto3ug==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
  by MA9PR04MB839208.eurprd04.prod.outlook.com (2603:10a6:250:103::23) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.9; Fri, 30 Oct
- 2026 09:53:50 +0000
+ 2026 09:54:02 +0000
 Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
  ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
  ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0569.009; Fri, 30 Oct 2026
- 09:53:50 +0000
+ 09:54:02 +0000
 From: Liu Ying <victor.liu@nxp.com>
-Date: Fri, 30 Oct 2026 17:54:33 +0800
-Subject: [PATCH v8 09/15] drm/imx: dc: Use TCON operation mode
+Date: Fri, 30 Oct 2026 17:54:35 +0800
+Subject: [PATCH v8 11/15] drm/imx: dc-lb: Support getting secondary input
+ selection
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261030-imx8-dc-prefetch-v8-9-c4f81afd4533@nxp.com>
+Message-Id: <20261030-imx8-dc-prefetch-v8-11-c4f81afd4533@nxp.com>
 References: <20261030-imx8-dc-prefetch-v8-0-c4f81afd4533@nxp.com>
 In-Reply-To: <20261030-imx8-dc-prefetch-v8-0-c4f81afd4533@nxp.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>, 
@@ -77,73 +78,73 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  Alexander Stein <alexander.stein@ew.tq-group.com>, 
  Liu Ying <victor.liu@nxp.com>, Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.15.2
-X-ClientProxiedBy: SI2PR06CA0008.apcprd06.prod.outlook.com
- (2603:1096:4:186::23) To MI9PR04MB350878.eurprd04.prod.outlook.com
+X-ClientProxiedBy: SI2PR04CA0008.apcprd04.prod.outlook.com
+ (2603:1096:4:197::20) To MI9PR04MB350878.eurprd04.prod.outlook.com
  (2603:10a6:290:c0::7)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|MA9PR04MB839208:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5a6d85c7-af31-4281-0748-08df366bb337
+X-MS-Office365-Filtering-Correlation-Id: e8e1db6a-39c4-4b7f-cfde-08df366bba5f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|7416014|366016|1800799024|6133799003|10067099003|18092099006|18002099003|22082099003|3023799007|921020|56012099006|11063799006|261028144727099003|261026140227099003|261026121527099003|261022105027099003|261022075727099003|261021123027099003|261021121427099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: Hdy5AeXeF51Pat0vjPgee1SJ92Ya9IYpaOCxojVXy9FRYq0KKLC41pzvX02OoXVxO2XaIqGGksrUrtiyeMOg/0p8rULaBln1n3RQInPW/mf6Fe4DieO5u2gxQQHvVbLAa0VhuB7nMtKXR6ZF9QlqjHZmhs2FNKSwCkMDinf3+3Uj9qBpIRDys0254TiIg71G+FO26WCP86egOidH+uwiHiQiTK/l9frhWdtmMnoUCHQ6AY569/PcgGrniGL4lo6px0rytANKhHbFVNMZSGJov5w/6nIv7NKviw5aWBi+byyNvggguzteut/gVZDjLfKcQWEorc4v0IriLZZQTvbI7dgEXSU2Ckmd58ovMMn1uAbPpWNhUzYNe5vGRFAF9yBSpIUfYvgVo/xrwpUqvYmrafXA6NWav8vqeWNvnZvyn/H80aJ+DQ1tpNLrBKCkAtTwDMxmbynJBYea1tFvIH23++oxsVa4Gi1cJ9MDb/cpZyI052dfX3xCOXm+UEr9xHykXa+KhlCLPxFxsKWjYSbvPw+BCLCyqQbDUAXdAFeKghAfPI4cqgmhNJxBMd5p6MqIy7L/R3J9KGLRBR0Gc/twCBOrbdSAx85gB1yABD9Pz5vPupO0/nlqnN5NXByn1ZP237Fti77RSCltMk3KIKYCdJ4dVWa93lDR0x54MzOWY2NmotvhoOCBXVl+cJ2wzifdEhI7wv/CTSPtw/8cfh68Rw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(7416014)(366016)(1800799024)(6133799003)(10067099003)(18092099006)(18002099003)(22082099003)(3023799007)(921020)(56012099006)(11063799006)(261028144727099003)(261026140227099003)(261026121527099003)(261022105027099003)(261022075727099003)(261021123027099003)(261021121427099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|7416014|366016|1800799024|10067099003|18002099003|22082099003|921020|56012099006|11063799006|261028144727099003|261026140227099003|261022105027099003|261021121427099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info: I1SqUFXeebKLkwAjCV6AW6AkFpr5+jrs8T8Wc4rOwLZ8uEgY7HdJ6bnkDN89PvfCheIKdLbOmOdeHeGhxd4rVDsipHLA4w+I/6mOiUAAhms/ICzv9R/NAIdwuXdmZXuB97OtNikHYNT6O6fRHJl9RTj5jBLsur8G8mi4Qp54zrs/cvaAx7oHum3OC/dBtCweRGWQgtM/z0H46I9Y6OwaLL1ApUVSRacXs+w8D869JI8yZki06Njn91Fp8jgtHQJyY5qs+nETGNWPQmpMWb36cHNLvUvqDk8XgeAJdBRqqtOU6qtG5l3OsJolwJugTcZvQdjqXVD4bUc60nB4k8PrNW/9GTQi6/kCEzacCa1nig/zDwyH/8y+U4+wBrt1XDl4gyVJ2++b++95wG/Q8cZebFNWKTVpOGE9dwnjZxJCmyHCofRHvgg9EVFI7ejtcPQs/nxsl/HQi6OVlVcU9q3I9Ohyd9IMeKRYGc/hamNLSW+rcZFA9N/509qPFbZsrw0pjkWWUE4iNnUtB+Zr8IA9mxJvsoCWpU5fSWW4CVD6HLp2GZVS1oxOZdSFHXTSoS6caOm2dmoXvOyv2vfioshLeTGX13DAPS6aoa5H9MHs9usmTQVoEL6+A98y6HKsd97eS1D97WPK0u6CxjHSeFaA6UVESYh0JGWY1sY2PWFEF4vnoKbC4vkZNPMZkDVkk+gwyMnAJJ0vO208SkZ2z5gsMg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(7416014)(366016)(1800799024)(10067099003)(18002099003)(22082099003)(921020)(56012099006)(11063799006)(261028144727099003)(261026140227099003)(261022105027099003)(261021121427099003)(261009223027099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VjJCT0ZRUmUwNmtBNWFFYTRIdTRjWDEwZjNzQnBvemdzbVJHN1o5OGdwamY2?=
- =?utf-8?B?OFNEczB2RzJDZTdYc0FqZWowa1hiOVF2OUFzcUNkT2hJVXovMW1VNm9lem5D?=
- =?utf-8?B?SnRsSFJ0S3ZsWDRGRTV5aW1tdENhb2FKSml6OGxQYVh6blArK3hDbmVQYUx1?=
- =?utf-8?B?YzhYWkZtWWlWY2grVkRUd1hycXJoQjRPTklNWHRYVTcvK3F0cTJWQmNsV0Zn?=
- =?utf-8?B?a3RQV3hmbnI1TzczZGprak1lbXdBRzVsd05weDI3WjZnRmxMd1JuNjl4eENU?=
- =?utf-8?B?ZVdBd09CTHkwQTBDN3hlU3g5VnhHZGg1d2gvS0xOVnpXdDN3cHNNMS9WZnl0?=
- =?utf-8?B?TTZWRTRKakhRWk8wNGs3VDFZQzdLcmt1MjF4MkxDRHkwQW9mQnRMVXdneE9l?=
- =?utf-8?B?d3REeFlTWXAyME9JTC9pVmxKaVdxK3M3cWZ2VFY4c3UxU1hCT0tYTnJZeWZT?=
- =?utf-8?B?Wnh1NjJkcEtkWndQa2lpR1Bud1VWdGNrRGFSd01YYW1MeGxTeFhOTkl1eStO?=
- =?utf-8?B?aU9jeHRyVFZ3N0VFKzUxUzJKNUF4TGlaOCszK0ZPQVRJTTdjNEJ6cy94SXk3?=
- =?utf-8?B?dVdyem01QlNKU094ZzZTcVArTFBaZGhmTHdpeEJkR20rSXhncmxJN2ZaQVpI?=
- =?utf-8?B?K0tuc1l0OFhFajJpNzRmTnBEYW1XS3F3b1JjRXk2KzErOHRxTVYydDBmVzJZ?=
- =?utf-8?B?ZVp4THFQRlhGV2QwSkdWdmdkUHpVdDJLVTZkMXl6c1BkdEJMVnl4VXkvQTlW?=
- =?utf-8?B?MzlGTGQ3WHdRRHY2ZHpXWGlCc043Y1Q0Nlg1TnoxTjNkNTdiMzE5eThkSURX?=
- =?utf-8?B?Z1ZjZWh0SzhHVzk0OUo2TGZjcnpIdHFoL2JLaEdqRzM4d0dZQnNuZ3ByMys0?=
- =?utf-8?B?SFRCSFFUb0FUcjlwam85aVIxdU5JUnpobWlVWFFVbTU0bmxNNE1XUWcxY1lm?=
- =?utf-8?B?WmFWN2piWElFRUVqdVY3My82anVxcmJCdk1lQVhYcmFITFhwelRKa21XUFQ4?=
- =?utf-8?B?dnlwUU1CbndjR3lwbDhRbGI0SnF1Rm9iTldPKzgrQ2FEZGdEWThJWXYxeWpp?=
- =?utf-8?B?N2ZqUEJVUXBQOTVndTZNSGgxcGd1anExWHFnS0svZ1prTFdVL2tPcHVvTEJF?=
- =?utf-8?B?N0ZjaCtZcW5RaGRQR2ZpVWZEUmhMOWdSUzg1Q0p0R0loQVJJbXdFN2szZytO?=
- =?utf-8?B?M2lDOFI3TVFGVlhWUlBhWEE2NWs0ZDcwMHZTK28vSVdnV1lmL2psWmR2ejYx?=
- =?utf-8?B?RCttQzhYQU5sL1FKTCtpaStjc3BKakwwdU12dlNrR1VZaVVNU0xlRTFxT0du?=
- =?utf-8?B?aGVqLzJDaVlvU2xaNGwwb2FMYjhLY3p5b2hKWDBZV0xhbFJRTmhiUC9uc2Ju?=
- =?utf-8?B?WGZWL0ErM09sYU5ldU5hNVdPY3o2S0paRytmNDRxQzA5aUFxM0V2ME1vcmRC?=
- =?utf-8?B?YmpsNnQrV2Z0a3dtanlzQjBOaVVmNm5QcURPOXN5em9qSytrY0FXL283OTdv?=
- =?utf-8?B?WktnbzlNYko5NllHWTZJdmdjREdPd0l1UlgrSGhIN2FNblk2QngzYk9HYVBz?=
- =?utf-8?B?U2cxTWhndStkVjhPNWU1dExHeHJnaDA2U0ZPNWlORkQ0b0tSSTlMYTBKb1Iy?=
- =?utf-8?B?cFF2QktDcis4YUVvK1FZMkZZaW5rUjNGYzBFRHdNN0dtZXBMeStEQXIvY0t6?=
- =?utf-8?B?SkhHOWcvZEF4RXA1MnNLMkxjaDdYcFN2eFpNSjdTSWZWRGpiQ0JISzhJUkZ6?=
- =?utf-8?B?ODZKb3JzUzRRMGlnT0w3YWkzOVNRZVpwRC9IRDVJWXdha09zYmNteHRDVFRH?=
- =?utf-8?B?V2dNNTh6N0lndGtiWXB2S1JTbFBOd0diZnVUNlVCT2RqdUpxbTRPNmNHN3Y4?=
- =?utf-8?B?MGVadW1aSUJ6d0l6RXNwb3NyanpoeGJKR29KMVRudE9XR2UxYXFCdzlHZDdi?=
- =?utf-8?B?VTlMUzF6TmJNdEJtUDJKV3NUZ3RibHJSb1hkMkFDVVprT3RDYW43a3hubklN?=
- =?utf-8?B?Wnl0ZTBJU2xnaVBISW45a05McENyeGFOc0ljVm5JVEs4TlJKWG5VR3lQdktE?=
- =?utf-8?B?WUNNQWkya3d4WUdVTEtrMUpDTjBseFBERHFUbnZEUW1mekVPZzF3UUUxSEhm?=
- =?utf-8?B?WTNTOEFXMmovRWFxYjVFMnVrcjFBcTRGbnlqdlA2MmhVN3pySnc3bDNheEpi?=
- =?utf-8?B?T3hFZUZrZXN4MmxEQm1PQkdYNmpxSldhbmZTcEljaFVSS0wxVm1FNmFTNE5q?=
- =?utf-8?B?cjBPMHlKRUNBUlFIb0VmWWIxWERaMklWK0t5NjIzL3g3R0JCQkFVVDg4Qmtj?=
- =?utf-8?B?d3ZxdEZXQ2l3SFRBVWxGakZmZWdramREd1R1Q0Rza3NtS3JYOU40Zz09?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ejJUSkJFVWo1MWhEQ3c3ZVMxY0NaZkpaYUZSQ3NEcnZkcjBzM1lnL0Q2V2Yw?=
+ =?utf-8?B?ekx4TnhsUEo5R0JTeFR3MkFpVE0vYWJPMWxjcjhGNjhBZm0zSXB4TE96aTlB?=
+ =?utf-8?B?OUZXYUp0SHhDQTdabklsc3Q0elNudEF5WHFYS2t6cFFMKytxYWhIMXc2UUVq?=
+ =?utf-8?B?c2VKNStMUy9WcGlSWmpIWjcrbytsY1g5QnVudUFUYTdEelhRek05c21HZDcw?=
+ =?utf-8?B?UFJjNE9mMUdmM0J0R1hyL2plM3VZNjJJS2NPaWdobmlyVTJZblJ4WXhTVUV1?=
+ =?utf-8?B?aFcrTFFOT3RjWlhlSU83NDNCZ3hqK1o0OVRjbkN0YVRqNERDcWovZGlrS1lt?=
+ =?utf-8?B?NGswd1FUeEJyUENoUCt3TmtkK1M1UkF6TWZva2NGQytDN2R0UVg5QkdQdDhJ?=
+ =?utf-8?B?Tzd4MjRIYzBGMzN5TXVtMU03UnAwckNCczlscXhxSHBNS2I1ZWhBU0R0Njlq?=
+ =?utf-8?B?Rkl0L3NxK1dZRGFxbU1lL1J0NzFGcDMxTk5TeFZ1TkJuZVlNNDk0OEdHZzc4?=
+ =?utf-8?B?MDJFdTY5R1ROQkFReS9ybHJVNTR1OWVwNk9lbWdxWmhGY3k2cG41Tm5TNzlK?=
+ =?utf-8?B?djczTU5QY3QzcnZMY2JpMGp1aVAzMWppMkxkOWpLdWw3UDNIOGh4ZXFId0Rm?=
+ =?utf-8?B?bmlBTjg3Y2ZMcUI0RmNCOXN5Q3ErdHRQRW9meklpT01NWVRDN2Y1Yzc5TlNH?=
+ =?utf-8?B?S3FOT0g5SEhJbzRyT0xOYVIxT1Z0anh6cTk3YS9BVlNCKytTNVZ6Qno1LzJE?=
+ =?utf-8?B?K3ppLzAyS0poeHlHNFhFc2wzQzlrZ203RFN5eVJSOUM0RFRRemhIcXdWZW95?=
+ =?utf-8?B?cUVESS91TE1jS2M2dDI2UXcrYVZrK0lnWVlETTlIOWVYR2k1T2cvUkpOeTNr?=
+ =?utf-8?B?Ni9NNTJOellVTUNQV1BDY2lTY0x0M0krSWtHSUVQUkpXQXliT1drTFgvbWgz?=
+ =?utf-8?B?SVZNSWFEUFBVZWF3QjdCSFY2ekRxS3RBemI4ZGtLM2p2dHdWTVQvV2Q4QXhp?=
+ =?utf-8?B?UVVzNEZJZ3Q3U1VOdndqVzBqQzJvODNxZHN1RjVZT3gzVXQ3UFF4aWQwME1Z?=
+ =?utf-8?B?QTltOERacGV4clI1aG9KTVA1eGdNOWIraFBabGptVmhxOG1KU2FYNUhKM0lS?=
+ =?utf-8?B?R3NuY0NyUG4yN0RpVThGQURxbDBWaXpVMGxTY2xIaDBsTnBXM0NYSmZMTW11?=
+ =?utf-8?B?bVRHbjNqeXZSNC9iVTdkRGZxa01qS0RBVE54dS95MjlUc1NZRjBXYWEwNy9M?=
+ =?utf-8?B?TlpMOThQbHEwR1lVRmdpWEJCRzhVTVN0Y2RmdnRNK09UNGZwWVh5L3JXMWZZ?=
+ =?utf-8?B?RkZoenBZK0w2S1FORVh1MXNOUjRESGFrcWIrMnUyclBxcGh4eER5UDFpVGVq?=
+ =?utf-8?B?MkxPMEMrakUwOGxTMXZhbFh3YVVXQW40WFpRNWtDeHRjMWtLZ2hiN2w3NCsv?=
+ =?utf-8?B?d0JxeTljZzJEaUI1VU96dTdycm1NSllPaHhBNE9aNVBMSVkxUzlDb0k1V2lr?=
+ =?utf-8?B?R2NSRFAxeExSbEoxa0d6ZlE4dTNRU1JMd3JTajFIcDR6OGVkM2c4Tmo0eWV3?=
+ =?utf-8?B?VVcvL1BkdS9FT29kOVhONzlGR1hYRndTdE5nd1hDaG5paWMxbTdQSVY5a1VH?=
+ =?utf-8?B?VFhlMlJ3UmpPd0lkbU1PalNJTWpsTFZCdWI3VFpHaGxSckZhTU5nWUpRRXJW?=
+ =?utf-8?B?N3g2NHQxdVNCOGliejUzMVZRRFdPZ3psMEFtczNlY3RraXBreEFHSW1POEY1?=
+ =?utf-8?B?U0xUVGR4dW1Tb3drRnVXYUZUQzdRYnBLS2xJSWlsaDdGWmdBMXkzLzZTRDg0?=
+ =?utf-8?B?dFJvckFHSUpJSGN0WThhUFpON3QyWW93NjhYQmlXODZQMzJLRmptTEp3UTli?=
+ =?utf-8?B?VXh2V0FjQm1uTkljOUUyVmxIWVQwcnNVK1ljd2l0MWQ2cjlQcWlxTG81NGJS?=
+ =?utf-8?B?MnVlQkNGNGJ2ZDVpOUFVcTNxaEJJbVh2SmorMHNOc2EvMzFONmpqdzd3ZXVz?=
+ =?utf-8?B?ODJxN0lTTTFxL1hURlpPOTh2VWU3YXl3TGRibmwxaGhXU2ttM2Zla05CazQv?=
+ =?utf-8?B?RGxndUlQMTR5OTUxR1V6Qkc0TnRJWUs0SnR4emx3LzZxT0dVNWUvMy9hRkFW?=
+ =?utf-8?B?Q2JaT3FSSHByTlZpRXBFci9wTzhwUnJIUDFQNENEbTRLaUdDOFpBekdlZy9i?=
+ =?utf-8?B?QUx5Z3VKSHVMTDJVVkJFY0ZaUnZFcm54Q2RnK1J3MnZMcnBkT1FBTzRMdk9x?=
+ =?utf-8?B?U21EVDJKMlNvazA2b09Oc1RQYlVzWFhrUWNza1l1QU1BbkFuMkRkTUxIMEVP?=
+ =?utf-8?B?NTV0b280ZFlBbEtjY2wvWHgxaks4ZVAvNGs2TitaYUpCYmNXRmNqUT09?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5a6d85c7-af31-4281-0748-08df366bb337
+X-MS-Exchange-CrossTenant-Network-Message-Id: e8e1db6a-39c4-4b7f-cfde-08df366bba5f
 X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 09:53:50.7186
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 09:54:02.6859
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HgaYbSvlRHlmvYE4BQSuoB3uYP4NzEe7pHY7vPyp2xHXR/W9FWeeR4cWpqjY1yZCVwZ2LZ48QsyJWf9OYnrgTQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3JIhYAvlQ/+Otv4J9qN1VW65JSUoyjNfUqhWMjxMGhXF0A9oGe0pAq96sklUAqJecSoJP7WMLqPVvshX8swlEA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA9PR04MB839208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_025400_907672_11290E55 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20261030_025419_400608_D4E6001B 
+X-CRM114-Status: GOOD (  16.28  )
 X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -163,366 +164,87 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In TCON operation mode, sync signals from FrameGen are ignored, but
-a much more customized output timing can be generated by the TCON
-module.  By using TCON operaton mode, generate KACHUNK signal along
-with HSYNC/VSYNC/data enable signals.  The KACHUNK signal is used as
-a synchronization signal inside the prefetch engine(DPRC + PRG(s),
-attached to FetchUnit(s)).  Carefully switch TCON bypass mode to TCON
-operation mode when CRTC is being enabled so that the prefetch engine
-may evade the first dumb frame generated by the display controller.
-The switching is done with local irq and preempt disabled to ensure
-it is done right after FrameGen frame counter moves as instructed by
-design team.  Set use_raw_spinlock flag in flag in FrameGen and Tcon
-regmap configurations to avoid sleeping on PREEMPT_RT when switching.
-Also, replace jiffies with timekeeping API ktime_add_ms(), ktime_get()
-and ktime_before() in dc_fg_wait_for_frame_index_moving() to avoid a
-potential hard lockup when switching.
-
-Since TCON BYPASS bit is controlled by KMS driver when doing atomic
-commits, drop the bit setting when initializing TCON.  This also
-avoids accidentally initializing TCON BYPASS bit to 1 when driver
-module removing and re-installing where an upcoming patch would
-disable a CRTC at boot in TCON operation mode if needed.
+Add a helper to get LayerBlend secondary input selection.  This is
+needed by disabling CRTC at boot in an upcoming commit which tries
+to get the selection.
 
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Acked-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Liu Ying <victor.liu@nxp.com>
 ---
+v8:
+- Fix dc_lb_pec_dynamic_sec_sel_get()'s return value when regmap_read() fails.
+- Iterate over sec_sels[] to find the secondary input selection.
+
 v7:
-- Set use_raw_spinlock flag in FrameGen and Tcon regmap configurations to
-  avoid sleeping on PREEMPT_RT.  (Sashiko AI bot)
-- Replace jiffies with timekeeping API ktime_add_ms(), ktime_get() and
-  ktime_before() in dc_fg_wait_for_frame_index_moving() to avoid a
-  potential hard lockup.  (Sashiko AI bot)
-- Use adjusted timings(e.g., m->crtc_hdisplay) in dc_tc_cfg_videomode()
-  instead of logical mode timings (e.g., m->hdisplay).  (Sashiko AI bot)
-- Update commit message.
+- Collect Maxime's A-b tag.
+- Check regmap_read()'s return value.
 
-v6:
-- Rebase onto the latest drm-misc-next and resolve conflicts.
+v4:
+- Rebase onto the latest drm-misc-next and resolve conflict.
 
-v3:
+v2:
 - Collect Frank's R-b tag.
 ---
- drivers/gpu/drm/imx/dc/dc-crtc.c |  28 +++++++++
- drivers/gpu/drm/imx/dc/dc-de.h   |   2 +
- drivers/gpu/drm/imx/dc/dc-fg.c   |  11 +++-
- drivers/gpu/drm/imx/dc/dc-kms.h  |   2 +
- drivers/gpu/drm/imx/dc/dc-tc.c   | 119 +++++++++++++++++++++++++++++++++++++--
- 5 files changed, 155 insertions(+), 7 deletions(-)
+ drivers/gpu/drm/imx/dc/dc-lb.c | 25 +++++++++++++++++++++++++
+ drivers/gpu/drm/imx/dc/dc-pe.h |  1 +
+ 2 files changed, 26 insertions(+)
 
-diff --git a/drivers/gpu/drm/imx/dc/dc-crtc.c b/drivers/gpu/drm/imx/dc/dc-crtc.c
-index 5bc952d6883e..d03246036d4a 100644
---- a/drivers/gpu/drm/imx/dc/dc-crtc.c
-+++ b/drivers/gpu/drm/imx/dc/dc-crtc.c
-@@ -6,8 +6,10 @@
- #include <linux/completion.h>
- #include <linux/container_of.h>
- #include <linux/interrupt.h>
-+#include <linux/irqflags.h>
- #include <linux/irqreturn.h>
- #include <linux/pm_runtime.h>
-+#include <linux/preempt.h>
- #include <linux/spinlock.h>
- 
- #include <drm/drm_atomic.h>
-@@ -68,6 +70,14 @@ do {									\
- 							__func__);	\
- } while (0)
- 
-+#define DC_CRTC_WAIT_FOR_FRAMEGEN_FRAME_INDEX_MOVING(fg)		\
-+do {									\
-+	if (!dc_fg_wait_for_frame_index_moving(fg))			\
-+		dc_crtc_err(crtc,					\
-+			"%s: FrameGen frame index isn't moving\n",	\
-+							__func__);	\
-+} while (0)
-+
- static inline struct dc_crtc *to_dc_crtc(struct drm_crtc *crtc)
- {
- 	return container_of(crtc, struct dc_crtc, base);
-@@ -230,6 +240,7 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
- 	struct dc_drm_device *dc_drm = to_dc_drm_device(crtc->dev);
- 	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
- 	enum dc_link_id cf_link;
-+	unsigned long flags;
- 	int idx, ret;
- 
- 	dc_crtc_dbg(crtc, "mode " DRM_MODE_FMT "\n", DRM_MODE_ARG(adj));
-@@ -250,6 +261,7 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
- 	enable_irq(dc_crtc->irq_ed_safe_shdload);
- 
- 	dc_fg_cfg_videomode(dc_crtc->fg, adj);
-+	dc_tc_cfg_videomode(dc_crtc->tc, adj);
- 
- 	dc_cf_framedimensions(dc_crtc->cf_cont,
- 			      adj->crtc_hdisplay, adj->crtc_vdisplay);
-@@ -274,7 +286,22 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
- 	dc_ed_pec_sync_trigger(dc_crtc->ed_cont);
- 	dc_ed_pec_sync_trigger(dc_crtc->ed_safe);
- 	dc_fg_shdtokgen(dc_crtc->fg);
-+
-+	/* Don't relinquish CPU until TCON is set to operation mode. */
-+	local_irq_save(flags);
-+	preempt_disable();
-+
- 	dc_fg_enable(dc_crtc->fg);
-+	/*
-+	 * Turn TCON into operation mode as soon as the first dumb
-+	 * frame is generated by DC(we don't relinquish CPU to ensure
-+	 * this).  This makes DPR/PRG be able to evade the frame.
-+	 */
-+	DC_CRTC_WAIT_FOR_FRAMEGEN_FRAME_INDEX_MOVING(dc_crtc->fg);
-+	dc_tc_set_operation_mode(dc_crtc->tc);
-+
-+	local_irq_restore(flags);
-+	preempt_enable();
- 
- 	DC_CRTC_WAIT_FOR_COMPLETION_TIMEOUT(ed_safe_shdload_done);
- 	DC_CRTC_WAIT_FOR_COMPLETION_TIMEOUT(ed_cont_shdload_done);
-@@ -567,6 +594,7 @@ int dc_crtc_init(struct dc_drm_device *dc_drm, int crtc_index)
- 	dc_crtc->ed_cont = pe->ed_cont[crtc_index];
- 	dc_crtc->ed_safe = pe->ed_safe[crtc_index];
- 	dc_crtc->fg = de->fg;
-+	dc_crtc->tc = de->tc;
- 
- 	dc_crtc->irq_dec_framecomplete = de->irq_framecomplete;
- 	dc_crtc->irq_dec_seqcomplete = de->irq_seqcomplete;
-diff --git a/drivers/gpu/drm/imx/dc/dc-de.h b/drivers/gpu/drm/imx/dc/dc-de.h
-index 211f3fcc1a9a..c39f2ef5eea9 100644
---- a/drivers/gpu/drm/imx/dc/dc-de.h
-+++ b/drivers/gpu/drm/imx/dc/dc-de.h
-@@ -54,6 +54,8 @@ enum drm_mode_status dc_fg_check_clock(struct dc_fg *fg, int clk_khz);
- void dc_fg_init(struct dc_fg *fg);
- 
- /* Timing Controller Unit */
-+void dc_tc_set_operation_mode(struct dc_tc *tc);
-+void dc_tc_cfg_videomode(struct dc_tc *tc, struct drm_display_mode *m);
- void dc_tc_init(struct dc_tc *tc);
- 
- #endif /* __DC_DISPLAY_ENGINE_H__ */
-diff --git a/drivers/gpu/drm/imx/dc/dc-fg.c b/drivers/gpu/drm/imx/dc/dc-fg.c
-index 3741dc66c0d9..26b786e146d4 100644
---- a/drivers/gpu/drm/imx/dc/dc-fg.c
-+++ b/drivers/gpu/drm/imx/dc/dc-fg.c
-@@ -8,7 +8,7 @@
- #include <linux/clk.h>
- #include <linux/component.h>
- #include <linux/device.h>
--#include <linux/jiffies.h>
-+#include <linux/ktime.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
-@@ -122,6 +122,11 @@ static const struct regmap_config dc_fg_regmap_config = {
- 	.reg_stride = 4,
- 	.val_bits = 32,
- 	.fast_io = true,
-+	/*
-+	 * Registers could be accessed with local irq and preempt disabled,
-+	 * so use a raw spinlock to avoid sleeping on PREEMPT_RT.
-+	 */
-+	.use_raw_spinlock = true,
- 	.wr_table = &dc_fg_regmap_write_table,
- 	.rd_table = &dc_fg_regmap_read_table,
- 	.max_register = FGCHSTATCLR,
-@@ -230,7 +235,7 @@ u32 dc_fg_get_line_index(struct dc_fg *fg)
- 
- bool dc_fg_wait_for_frame_index_moving(struct dc_fg *fg)
- {
--	unsigned long timeout = jiffies + msecs_to_jiffies(100);
-+	ktime_t timeout = ktime_add_ms(ktime_get(), 100);
- 	u32 frame_index, last_frame_index;
- 
- 	frame_index = dc_fg_get_frame_index(fg);
-@@ -238,7 +243,7 @@ bool dc_fg_wait_for_frame_index_moving(struct dc_fg *fg)
- 		last_frame_index = frame_index;
- 		frame_index = dc_fg_get_frame_index(fg);
- 	} while (last_frame_index == frame_index &&
--		 time_before(jiffies, timeout));
-+		 ktime_before(ktime_get(), timeout));
- 
- 	return last_frame_index != frame_index;
+diff --git a/drivers/gpu/drm/imx/dc/dc-lb.c b/drivers/gpu/drm/imx/dc/dc-lb.c
+index cb614f3c2f69..924a0de4b909 100644
+--- a/drivers/gpu/drm/imx/dc/dc-lb.c
++++ b/drivers/gpu/drm/imx/dc/dc-lb.c
+@@ -19,6 +19,8 @@
+ #define  PIXENGCFG_DYNAMIC_SEC_SEL_MASK		GENMASK(13, 8)
+ #define  PIXENGCFG_DYNAMIC_SEC_SEL(x)		\
+ 		FIELD_PREP(PIXENGCFG_DYNAMIC_SEC_SEL_MASK, (x))
++#define  PIXENGCFG_DYNAMIC_SEC_SEL_GET(x)	\
++		FIELD_GET(PIXENGCFG_DYNAMIC_SEC_SEL_MASK, (x))
+ #define  PIXENGCFG_DYNAMIC_PRIM_SEL_MASK	GENMASK(5, 0)
+ #define  PIXENGCFG_DYNAMIC_PRIM_SEL(x)		\
+ 		FIELD_PREP(PIXENGCFG_DYNAMIC_PRIM_SEL_MASK, (x))
+@@ -181,6 +183,29 @@ void dc_lb_pec_dynamic_sec_sel(struct dc_lb *lb, enum dc_link_id sec)
+ 	dev_warn(lb->dev, "invalid secondary input selection:%d\n", sec);
  }
-diff --git a/drivers/gpu/drm/imx/dc/dc-kms.h b/drivers/gpu/drm/imx/dc/dc-kms.h
-index cd7860eff986..a25d47eebd28 100644
---- a/drivers/gpu/drm/imx/dc/dc-kms.h
-+++ b/drivers/gpu/drm/imx/dc/dc-kms.h
-@@ -50,6 +50,8 @@ struct dc_crtc {
- 	struct dc_ed *ed_safe;
- 	/** @fg: framegen */
- 	struct dc_fg *fg;
-+	/** @tc: tcon */
-+	struct dc_tc *tc;
- 	/**
- 	 * @irq_dec_framecomplete:
- 	 *
-diff --git a/drivers/gpu/drm/imx/dc/dc-tc.c b/drivers/gpu/drm/imx/dc/dc-tc.c
-index d0d4faba790e..626758904f77 100644
---- a/drivers/gpu/drm/imx/dc/dc-tc.c
-+++ b/drivers/gpu/drm/imx/dc/dc-tc.c
-@@ -8,11 +8,30 @@
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
  
-+#include <drm/drm_modes.h>
-+
- #include "dc-drv.h"
- #include "dc-de.h"
- 
- #define TCON_CTRL	0x410
--#define  CTRL_RST_VAL	0x01401408
-+#define  SPLITPOSITION_MASK	GENMASK(29, 16)
-+#define  SPLITPOSITION(n)	FIELD_PREP(SPLITPOSITION_MASK, (n))
-+#define  DUAL_SWAP	BIT(15)
-+#define  MINILVDS_OPCODE_MASK	GENMASK(14, 12)
-+#define  MODE_4PAIRS	FIELD_PREP(MINILVDS_OPCODE_MASK, 0x1)
-+#define  LVDS_CLOCK_INV	BIT(11)
-+#define  LVDS_BALANCE	BIT(10)
-+#define  LVDSMODE	BIT(9)
-+#define  ENLVDS		BIT(8)
-+#define  INV_CTRL_MASK	GENMASK(7, 4)
-+#define  BYPASS		BIT(3)
-+#define  TCON_SYNC	BIT(2)
-+#define  CHANNELMODE_MASK	GENMASK(1, 0)
-+#define  CTRL_RST_MASK	\
-+		(SPLITPOSITION_MASK | DUAL_SWAP | MINILVDS_OPCODE_MASK | \
-+		 LVDS_CLOCK_INV | LVDS_BALANCE | LVDSMODE | ENLVDS | \
-+		 INV_CTRL_MASK | TCON_SYNC | CHANNELMODE_MASK)
-+#define  CTRL_RST_VAL  (SPLITPOSITION(0x140) | MODE_4PAIRS | LVDS_BALANCE)
- 
- /* red: MAPBIT 29-20, green: MAPBIT 19-10, blue: MAPBIT 9-0 */
- #define MAPBIT3_0	0x418
-@@ -24,6 +43,16 @@
- #define MAPBIT27_24	0x430
- #define MAPBIT31_28	0x434
- 
-+#define SPGPOSON(n)	(0x460 + (n) * 16)
-+#define SPGMASKON(n)	(0x464 + (n) * 16)
-+#define SPGPOSOFF(n)	(0x468 + (n) * 16)
-+#define SPGMASKOFF(n)	(0x46c + (n) * 16)
-+#define  X(n)		FIELD_PREP(GENMASK(30, 16), (n))
-+#define  Y(n)		FIELD_PREP(GENMASK(14, 0), (n))
-+
-+#define SMXSIGS(n)	(0x520 + (n) * 8)
-+#define SMXFCTTABLE(n)	(0x524 + (n) * 8)
-+
- static const struct dc_subdev_info dc_tc_info[] = {
- 	{ .reg_start = 0x5618c800, .id = 0, },
- 	{ .reg_start = 0x5618e400, .id = 1, },
-@@ -32,6 +61,8 @@ static const struct dc_subdev_info dc_tc_info[] = {
- static const struct regmap_range dc_tc_regmap_ranges[] = {
- 	regmap_reg_range(TCON_CTRL, TCON_CTRL),
- 	regmap_reg_range(MAPBIT3_0, MAPBIT31_28),
-+	regmap_reg_range(SPGPOSON(0), SPGMASKOFF(4)),
-+	regmap_reg_range(SMXSIGS(0), SMXFCTTABLE(3)),
- };
- 
- static const struct regmap_access_table dc_tc_regmap_access_table = {
-@@ -44,9 +75,14 @@ static const struct regmap_config dc_tc_regmap_config = {
- 	.reg_stride = 4,
- 	.val_bits = 32,
- 	.fast_io = true,
-+	/*
-+	 * Registers could be accessed with local irq and preempt disabled,
-+	 * so use a raw spinlock to avoid sleeping on PREEMPT_RT.
-+	 */
-+	.use_raw_spinlock = true,
- 	.wr_table = &dc_tc_regmap_access_table,
- 	.rd_table = &dc_tc_regmap_access_table,
--	.max_register = MAPBIT31_28,
-+	.max_register = SMXFCTTABLE(3),
- };
- 
- /*
-@@ -59,10 +95,85 @@ static const u32 dc_tc_mapbit[] = {
- 	0x13121110, 0x03020100, 0x07060504, 0x00000908,
- };
- 
-+void dc_tc_set_operation_mode(struct dc_tc *tc)
++int dc_lb_pec_dynamic_sec_sel_get(struct dc_lb *lb, enum dc_link_id *sec)
 +{
-+	regmap_write_bits(tc->reg, TCON_CTRL, BYPASS, 0);
++	u32 val;
++	int ret;
++	int i;
++
++	ret = regmap_read(lb->reg_pec, PIXENGCFG_DYNAMIC, &val);
++	if (ret)
++		return ret;
++
++	val = PIXENGCFG_DYNAMIC_SEC_SEL_GET(val);
++
++	for (i = 0; i < ARRAY_SIZE(sec_sels); i++) {
++		if (sec_sels[i] == val) {
++			dev_dbg(lb->dev, "get secondary input selection: 0x%02x\n", val);
++			*sec = val;
++			return 0;
++		}
++	}
++
++	return -EINVAL;
 +}
 +
-+void dc_tc_cfg_videomode(struct dc_tc *tc, struct drm_display_mode *m)
-+{
-+	int hdisplay, hsync_start, hsync_end;
-+	int vdisplay, vsync_start, vsync_end;
-+	int y;
-+
-+	hdisplay = m->crtc_hdisplay;
-+	vdisplay = m->crtc_vdisplay;
-+	hsync_start = m->crtc_hsync_start;
-+	vsync_start = m->crtc_vsync_start;
-+	hsync_end = m->crtc_hsync_end;
-+	vsync_end = m->crtc_vsync_end;
-+
-+	/*
-+	 * Turn TCON into operation mode later after the first dumb frame is
-+	 * generated by DC.  This makes DPR/PRG be able to evade the frame.
-+	 */
-+	regmap_write_bits(tc->reg, TCON_CTRL, BYPASS, BYPASS);
-+
-+	/* dsp_control[0]: HSYNC */
-+	regmap_write(tc->reg, SPGPOSON(0), X(hsync_start));
-+	regmap_write(tc->reg, SPGMASKON(0), 0xffff);
-+
-+	regmap_write(tc->reg, SPGPOSOFF(0), X(hsync_end));
-+	regmap_write(tc->reg, SPGMASKOFF(0), 0xffff);
-+
-+	regmap_write(tc->reg, SMXSIGS(0), 0x2);
-+	regmap_write(tc->reg, SMXFCTTABLE(0), 0x1);
-+
-+	/* dsp_control[1]: VSYNC */
-+	regmap_write(tc->reg, SPGPOSON(1), X(hsync_start) | Y(vsync_start - 1));
-+	regmap_write(tc->reg, SPGMASKON(1), 0x0);
-+
-+	regmap_write(tc->reg, SPGPOSOFF(1), X(hsync_start) | Y(vsync_end - 1));
-+	regmap_write(tc->reg, SPGMASKOFF(1), 0x0);
-+
-+	regmap_write(tc->reg, SMXSIGS(1), 0x3);
-+	regmap_write(tc->reg, SMXFCTTABLE(1), 0x1);
-+
-+	/* dsp_control[2]: data enable */
-+	/* horizontal */
-+	regmap_write(tc->reg, SPGPOSON(2), 0x0);
-+	regmap_write(tc->reg, SPGMASKON(2), 0xffff);
-+
-+	regmap_write(tc->reg, SPGPOSOFF(2), X(hdisplay));
-+	regmap_write(tc->reg, SPGMASKOFF(2), 0xffff);
-+
-+	/* vertical */
-+	regmap_write(tc->reg, SPGPOSON(3), 0x0);
-+	regmap_write(tc->reg, SPGMASKON(3), 0x7fff0000);
-+
-+	regmap_write(tc->reg, SPGPOSOFF(3), Y(vdisplay));
-+	regmap_write(tc->reg, SPGMASKOFF(3), 0x7fff0000);
-+
-+	regmap_write(tc->reg, SMXSIGS(2), 0x2c);
-+	regmap_write(tc->reg, SMXFCTTABLE(2), 0x8);
-+
-+	/* dsp_control[3]: KACHUNK */
-+	y = vdisplay + 1;
-+
-+	regmap_write(tc->reg, SPGPOSON(4), X(0x0) | Y(y));
-+	regmap_write(tc->reg, SPGMASKON(4), 0x0);
-+
-+	regmap_write(tc->reg, SPGPOSOFF(4), X(0x20) | Y(y));
-+	regmap_write(tc->reg, SPGMASKOFF(4), 0x0);
-+
-+	regmap_write(tc->reg, SMXSIGS(3), 0x6);
-+	regmap_write(tc->reg, SMXFCTTABLE(3), 0x2);
-+}
-+
- void dc_tc_init(struct dc_tc *tc)
+ void dc_lb_pec_clken(struct dc_lb *lb, enum dc_pec_clken clken)
  {
--	/* reset TCON_CTRL to POR default so that TCON works in bypass mode */
--	regmap_write(tc->reg, TCON_CTRL, CTRL_RST_VAL);
-+	/* reset TCON_CTRL to POR default except for touching BYPASS bit */
-+	regmap_write_bits(tc->reg, TCON_CTRL, CTRL_RST_MASK, CTRL_RST_VAL);
- 
- 	/* set format */
- 	regmap_bulk_write(tc->reg, MAPBIT3_0, dc_tc_mapbit,
+ 	regmap_write_bits(lb->reg_pec, PIXENGCFG_DYNAMIC, CLKEN_MASK,
+diff --git a/drivers/gpu/drm/imx/dc/dc-pe.h b/drivers/gpu/drm/imx/dc/dc-pe.h
+index 0b81dc6b251c..4e38aead69bc 100644
+--- a/drivers/gpu/drm/imx/dc/dc-pe.h
++++ b/drivers/gpu/drm/imx/dc/dc-pe.h
+@@ -93,6 +93,7 @@ void dc_ed_init(struct dc_ed *ed);
+ enum dc_link_id dc_lb_get_link_id(struct dc_lb *lb);
+ void dc_lb_pec_dynamic_prim_sel(struct dc_lb *lb, enum dc_link_id prim);
+ void dc_lb_pec_dynamic_sec_sel(struct dc_lb *lb, enum dc_link_id sec);
++int dc_lb_pec_dynamic_sec_sel_get(struct dc_lb *lb, enum dc_link_id *sec);
+ void dc_lb_pec_clken(struct dc_lb *lb, enum dc_pec_clken clken);
+ void dc_lb_mode(struct dc_lb *lb, enum dc_lb_mode mode);
+ void dc_lb_position(struct dc_lb *lb, int x, int y);
 
 -- 
 2.43.0
