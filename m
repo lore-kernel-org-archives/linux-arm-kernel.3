@@ -2,121 +2,91 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AC82606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 09:29:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E51E606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 09:30:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CLzLR73u;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=MQZQkS3w
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LYsTG5Jx;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GXtbYwJO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=wM7ECg+gKi0d0shXYBZ3JSOy8hyY2PzdMD+008BB85c=; b=CLzLR73uFg0w2Umdn3XBrUJd/2
-	LITMtVRkSrS2VAXEnK+Fxbly/8EjcTJpAuBw6TIzWpiWLv4S5D2DUoJ+O8lZngKnNZ20GEFlHda4L
-	wegVaJfbgZLfGAIDZL2/tUv1NyXJIciGzzgF0/b9bCpqhaXsy/nxDRXuC/1MeEjF5W0LQkX414PSn
-	VkUhiHnEwj6K6UQg+8q5JmjIq9UFgs/UaqTRetgKssGpAXDwYG+ikaLFIfLpN17bhMwJrC+YEyWOs
-	Bv7JufYkHjD6LTaqcCZUTXEVu6mGq+RYZFuZLF/OOkHsuSHRdQTimDNl9iRqvQQvryHT+HJQWmSnC
-	q2uIZEZA==;
+	bh=9dTvHmvExgXL4658zs3vpBdkxj2etJxtu77jFSpqQsE=; b=LYsTG5Jx2+ayekFNNOes0/BoXa
+	P24mzVtmy5fzYifPzPfPxIbXLNi+5VsQPJQLM9+shMxjS5ZViwcCdNTgEuqWCaufANqdU1NRCcr+t
+	uU35bR38XdQz97T/uc9Uq4GkjscDHuvrKJHl4KloqhrKrXkfaA/Dv7P9ip669XvBS6HD+g9YWxBxd
+	CAuxs9G3HxUvvavXiAH1t6E/V+iA2dXSthGevRo0jYe01x/LwkzwVqXG6Qtmpx5bRroLpviGTMn0+
+	R8ZvJcZKfdx3t2rKbuJRUN/Svj19a20YQBCbmFsqsbdAQphU8GOAwmxIbfsT00tQ/QgobnYHdaqgb
+	XlG5dhfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMivj-0000000BFDd-3sjJ;
-	Fri, 30 Oct 2026 09:29:47 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xMivt-0000000BFGA-0Kan;
+	Fri, 30 Oct 2026 09:29:57 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMivh-0000000BFD6-0sOF
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 09:29:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VXEJq2/OWfgXsRD0hXDIWSdnUrpI4S7PVlYdqYsBwpYniSiXexqOE1tg8cM4Fr3b5tI1AdfHKgmloJW1Pae2L+h1tbwHFg4pH2ck5wOstFHRt93KmyZaFa7TG+Myfoqflpj1Zdh0EEwKxG5OTVBSvQ97SWbhjczpHowMPqUGAI+GTqwNORlCdaCk/zsEwssY5gNsNSbEe9oKQJ/jTA6oSxSqcsusTfhuSlXg5qLnnudZvKOcsckWF5jjHxkP46rmRjC89IxKAbkvDxI7zX95Hv4HXt/HnUaWkMJBFpQ9qK2dG1BQW34IZ1DQA+t10+rngL5ZG4InIapvn40h+59xxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wM7ECg+gKi0d0shXYBZ3JSOy8hyY2PzdMD+008BB85c=;
- b=ROZN0nObGDleyjqlCRlowv1kRlrfzZp0FwR05WtqN95rpYXm0icr3y5hndDtiqLz/B3MO3dCHZanHQq8aX4mZ2x9kN7GWghFebjurh6Rkxl3lY9OP19j0erafNtVSlBZJGIhauWN1fVHV0RzOVEYwrZZlpgCAYPEK8KOTOayVAzndpItSgM//6Em174wJDn7pBRqb951U7aZeTzurtVOb0Ol9kc5O8oBAmd0NWXSh+zU4akQKVafhnj3P7EfuOJECVM+r92yu3VkK17g99BFApfKeaxvVNYW48PxCBD9abio1/hVHd+eAha49NFu/pelF0ilvm6rxzCHpbFFrGxt2w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wM7ECg+gKi0d0shXYBZ3JSOy8hyY2PzdMD+008BB85c=;
- b=MQZQkS3wXqROJX51mTHhlorBIfXdilCWaAJ7HuL0afbGQQ9jH3eXNw93Mo52Z6qqluYvNqHmoRlW5nVBRlHUzyahDS1mDS58HF5TkZrVwNpX6uIeJqy3HtLGPK1WIOm4LhzpA8F8g8sVNMPPo+FtWs44Cty3NOJQGeOJvFqq2JkdqSmkDQq/EcgpPeYQK9crb7/WwzUFjVVmdCdX4lOhCwDHipYvlQtEz27WUWvhyEFEj/tpY+aRMVMJtF4y5Ah3roE2sRY/3oA4MyW6WPyh9cUZK8wlp3AlWruO8oDaKQXe2S+dOlakoZNaJSvXJv0Ak9pPZYmUAcI3tZCmssPJpg==
-Received: from PR3P189CA0019.EURP189.PROD.OUTLOOK.COM (2603:10a6:102:52::24)
- by PAWPR10MB7392.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:2ea::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.4; Fri, 30 Oct
- 2026 09:29:38 +0000
-Received: from ZR1PEPF0000E6AD.eurprd05.prod.outlook.com
- (2603:10a6:102:52:cafe::6) by PR3P189CA0019.outlook.office365.com
- (2603:10a6:102:52::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.9 via Frontend Transport; Fri, 30
- Oct 2026 09:29:38 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- ZR1PEPF0000E6AD.mail.protection.outlook.com (10.167.241.84) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.569.4 via Frontend Transport; Fri, 30 Oct 2026 09:29:38 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 30 Oct
- 2026 10:30:16 +0100
-Received: from localhost (10.48.87.100) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 30 Oct
- 2026 10:29:33 +0100
-From: Patrick Delaunay <patrick.delaunay@foss.st.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Amelie Delaunay <amelie.delaunay@foss.st.com>
-CC: Linux STM32 <linux-stm32@st-md-mailman.stormreply.com>, Patrick Delaunay
-	<patrick.delaunay@foss.st.com>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH] arm64: dts: st: mark STM32MP23 timer as stopping in suspend
-Date: Fri, 30 Oct 2026 10:29:08 +0100
-Message-ID: <20261030102907.1.I0ef2a7ac525ef18fa683368382d93e98cc36ee25@changeid>
-X-Mailer: git-send-email 2.43.0
+	id 1xMivp-0000000BFEl-3Pfu;
+	Fri, 30 Oct 2026 09:29:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793352594; x=1824888594;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=EMqMfThf7wBi+xqcGlz73yvEPZiRd9YLlzGUba045ok=;
+  b=GXtbYwJOTtOkFP4yS4lLVkGSK86FzzFoIZxfbZgwgMJzNhei3MBg30Mn
+   uBKXbfeV0gMI5uEK2yxkLi+/MN7agJp/t09ESwHa4VkYJMFEYeyOo3FL2
+   DCD3AaGoyFdsaU1DbXOZ22nYgcie6W/4yULbo8sRh035LnvR+mcLN2Lvj
+   245dZBgXOT8O+Nb99xSn+6zm5//ZMkc9RPT10q+it2OyqSfXuXhJdp/PZ
+   8StlX1oLcbdGfrcYZR5DlKSZARvUJbpvg5fwgKHM7oIBm7Hf0hD4dEfi7
+   hHfAVNi8ONB5PQQIn5hJn7Zo/yGbTM1/m6YP2o8gcxnRoURoteTpp6uWs
+   w==;
+X-CSE-ConnectionGUID: lQ0Z6qmLSlqkl3nqRYY8SQ==
+X-CSE-MsgGUID: MwSYXqqmQdKR0DQjdkfQTA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11950"; a="2126347"
+X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
+   d="scan'208";a="2126347"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 02:29:52 -0700
+X-CSE-ConnectionGUID: A1XjQrnCRSGV8+6OT8/tjQ==
+X-CSE-MsgGUID: G8pzq4FHSjeDHRV7HzC5bg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
+   d="scan'208";a="5517732"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 30 Oct 2026 02:29:49 -0700
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xMivh-00000000bXI-1r9z;
+	Fri, 30 Oct 2026 09:29:45 +0000
+Date: Fri, 30 Oct 2026 17:29:37 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chaoyi Chen <kernel@airkyi.com>, Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andyshrk@163.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: Re: [PATCH v2 1/3] drm/rockchip: vop2: Use
+ drm_format_info_min_pitch() for plane offsets
+Message-ID: <202610301711.Dm8BmGiV-lkp@intel.com>
+References: <20261029081429.862-2-kernel@airkyi.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E6AD:EE_|PAWPR10MB7392:EE_
-X-MS-Office365-Filtering-Correlation-Id: e6db6022-ab89-40fc-d523-08df36685185
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|23010399003|1800799024|376014|261022075727099003|261021123027099003|261021121427099003|261009223027099003|56012099006|11063799006|6133799003|10067099003|18002099003;
-X-Microsoft-Antispam-Message-Info: +OcaMHMgj3eY0RUDTEr6ezzvSMLHSsP9ZlRWXLTp7BijHBGhSWGMclNn2mLft7SfiDjTmJotlK6KnUXpphr8wvVE3r8LUy2uTGL9gqo9aGB2FwnW5W8dk1jIMDgLyPAhAGmgyPVOY7iQXEqbAEOshb61psTBIvMmDeCLkf8Ulnk+01HIneyE4zxBeH13IixI5Tab7kTkbJJ/GZFeGhIv1vjDwRbQlpf6CAXAcXliUD28abSMRvcbuOliqMXKM5m0uSiMaghokMf37qkqmDsSeLNfwU1hfBsf9LNf0iVbYGJYig8EL7FRSxS75AQS+iwsM5Uhi8gJiTk/RtSZBnW5r2E7g7+o4eIHpn3tc8TRLoPpfkw1l3SFl4gyQZm/Ei3JTctV3P8OCXxKYg++UBvblgPDrvDW4z63l9a/oPKoIBgrxSoGSyxQZjPRxE58MxijJGfUyWsdgvHbL6965k37WnYMSwrGMnNTcVywLx4a0tPnKTAoKarAzUK7gJEfVc3ETuBpQcd50Sq8Xro+z4WNebzFr6sc5TN+JTUTLOsG5NKfCw4mg+DkKqveJ9/SArCl1csvbicI0p02XSxkBN5oLIJrZMwQuFSE2TJPgJVSRe2IJkGm/7RnO8bZpvN8TZEpTti3Y17hBB+2yzguid/EKRjZYqI6xoPhrj9rkA8vcnCFKCB5leGURNPaIdbkpaSN1rZR+do9WgjSZcmQhE+DcA==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(23010399003)(1800799024)(376014)(261022075727099003)(261021123027099003)(261021121427099003)(261009223027099003)(56012099006)(11063799006)(6133799003)(10067099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: T5SA6S7hpO0CC8FqMbqu5hWBqrZ52KRGteR8nIiNCcJqFd3tbSsP9hjacmplEDMmW6GTRX33QMBpZ4Obksmmb1ddVjHjeceen2PS7a0f/bHX9vE3EQMO/1ZfpJ2XWGdF84Pb9qOzs3MvbDCF5UOFmHumpSxaK6QfXmLy+vPmR9lM8CZhvbNsSejKSIyizdMeMq4VChztzNYza4J5Ptx9aC7cQo6GCRuJl2alM88w3JVdJmJmckVaXJqVHdcH0JFtBUIhOMxCNN5XEqd9n8CoYxTXMv9eVNid9QJUmg6/OfT7IVfU5nKkMl7KbnknV8FVae0EvLTlUn/MJbSnAz/TzygLqgdGTtvAZMMuvSoFIlC5DjTXJJCAzfjjoYpDI76aWWTdiSMt48mtcRQb9lyM0xfDc8u+3gZYw1SpK80n4LQue9IIdNrs4xPriy3v5duo
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Oct 2026 09:29:38.1762
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e6db6022-ab89-40fc-d523-08df36685185
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: ZR1PEPF0000E6AD.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR10MB7392
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261029081429.862-2-kernel@airkyi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_022945_479168_498F667D 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_022953_889924_25831D50 
+X-CRM114-Status: GOOD (  10.22  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,44 +97,42 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The generic ARM timer, based on STGEN, stops ticking in low-power
-states such as Stop1. Replace the always-on property with
-arm,no-tick-in-suspend in the STM32MP23 timer node, matching the
-STM32MP25 configuration.
+Hi Chaoyi,
 
-Fixes: e9b03ef21386 ("arm64: dts: st: introduce stm32mp23 SoCs family")
-Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
----
+kernel test robot noticed the following build errors:
 
- arch/arm64/boot/dts/st/stm32mp231.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+[auto build test ERROR on drm-misc/drm-misc-next]
+[also build test ERROR on rockchip/for-next linus/master v7.3 next-20261029]
+[cannot apply to linux-review/Chaoyi-Chen/drm-rockchip-vop2-Use-drm_format_info_min_pitch-for-plane-offsets/20261022-151735]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-index fefbf6f4f153..a7970fdebec7 100644
---- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-@@ -143,7 +143,7 @@ timer {
- 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
- 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
- 			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
--		always-on;
-+		arm,no-tick-in-suspend;
- 	};
- 
- 	soc@0 {
----
-base-commit: c339f4010dea8b0d754f84ace70cd1b089878ef8
-branch: sdfsdfssfdfsd
+url:    https://github.com/intel-lab-lkp/linux/commits/Chaoyi-Chen/drm-rockchip-vop2-Use-drm_format_info_min_pitch-for-plane-offsets/20261029-161427
+base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
+patch link:    https://lore.kernel.org/r/20261029081429.862-2-kernel%40airkyi.com
+patch subject: [PATCH v2 1/3] drm/rockchip: vop2: Use drm_format_info_min_pitch() for plane offsets
+config: hexagon-randconfig-1001-20261030 (https://download.01.org/0day-ci/archive/20261030/202610301711.Dm8BmGiV-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project c2ea4440d4b64c148de4fdfca1fc2c437a0701e4)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261030/202610301711.Dm8BmGiV-lkp@intel.com/reproduce)
 
--- 
-2.43.0
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202610301711.Dm8BmGiV-lkp@intel.com/
 
+All errors (new ones prefixed by >>, old ones prefixed by <<):
+
+>> ERROR: modpost: drivers/gpu/drm/rockchip/rockchipdrm.ko: symbol '__hexagon_udivdi3' undefined!
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
