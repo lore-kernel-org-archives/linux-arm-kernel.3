@@ -2,119 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9FDF606A323
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 04:29:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F5B3606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 04:38:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JL4bKQVc;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cFixfOuo
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PvRKBkqg;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=NJPsdvAy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=HpeEYAEKyyCPvuV7efERlE4nfg2Y+m/mO0FuoK2R5s8=; b=JL4bKQVc5KVFJN
-	2dzsE981XUmwpzcOEQSpzwo6IhJ8aPsXJljx9cUHIphxAkmROzHqFx0TYm/BqTxarsoHGyoxZiFtR
-	2JbveRIfNYZUfK+J3Mv4/eRoS4e3hWTzoiZTuEe0qWOCBTgjF7Aq4fa0FQ9zgxfbELdSJtjETj69i
-	wTUOZWH2QdTtix8b3ec/5WnANnpy4Mb4C4E4vaWmVekqh2wUnQ+J6GtyJYLhte+rGg3ao6+WQ0aNn
-	opWyAuoM5W5NkRyJzy30pBSUJ4+KWqEfkzqWdim+9/G0j58DvZfQkcbr83ryU9L2fE315PuDQFMxz
-	BBdTTVrV+de8Wn/EdJsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=WwvcOsEObJ8qzzuuobsmrvvwKxGTjF3cc2+TTpbW1e0=; b=PvRKBkqgWQHkXDs26GNt+wSJik
+	9CIQ+SQ2wxoO2x/6H8SbmcMwJWwLrF8weUfTdCP8MpfTBkszDGmEvBHSdCRjHSG1mX3D8bmKnQuJl
+	UWsyl2glSUPZsPdYFtVWInvHMP4DtVs0XAt5uj0q0k7KzPawAdVOfONKFSoltoWCj8vgqpRbxmL3u
+	1hI3tvtJsXIMlhsXw+SoOMrAaN12bqSfulHUs8BKLwhhTE8C/Nw3zlzBmWNVahclC5No73dHzjPrV
+	iQ5+8GfYLwt0tCccOB9ZVim+xXdWFG9ghcK2S7iCzLpi9Hrb8ytcmCWFDTtG/qCLVzeLob+NNFmeF
+	T+3LAtXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMeF6-0000000AoD4-2Au5;
-	Fri, 30 Oct 2026 04:29:28 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMeF3-0000000AoCH-0yYI
+	id 1xMeNY-0000000AoYt-2PcW;
+	Fri, 30 Oct 2026 04:38:12 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xMeNV-0000000AoYY-0UeU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 04:29:27 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3a4b3ac8fb7so169927a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Oct 2026 21:29:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793334564; x=1793939364; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HpeEYAEKyyCPvuV7efERlE4nfg2Y+m/mO0FuoK2R5s8=;
-        b=cFixfOuoYbdFnJSsyKviHqc/w51i7SaSF8y79mlZjWzYZUU7p0snW+NMNyjlo3LBA3
-         N86b3h7U9HG8EpQDc4m6fDQBMTkFu35wSgLJWo7tD/3QJfZEKUPYLxPyF73g3/uYn1We
-         30APEIhUv7tOsAx4faTnX+35U8rU5CAGLTA/P5n7kbaGnsqrPVJ7JcpEMexIYHdaBoeF
-         hLpPqSi5lwkhvQGJQUjj1FgnZdhXVnl0jECZtgqYFmsONgbQibvfgH3WimznzFjQHbT6
-         eittIkGDVXcFT6MncHKIuCbhEHHl7tfmvounSyDxNsQRYh0bwPMkpeLY1DYxUG3NQXZ2
-         pDvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793334564; x=1793939364;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HpeEYAEKyyCPvuV7efERlE4nfg2Y+m/mO0FuoK2R5s8=;
-        b=gP3mOhkapEPbHNVzwh8R1DOQjuHIkgP+lT1FJIz4nNx9Q1rx1LSR37zOfO1jxW5Mci
-         uBqy/muHs8CH+2npkQCxCW1j58BHhRQXn9Y0kNtQezr+6F4xebBFtg+vETnWkV6qRBmf
-         pEKDzhsX10QoNufSPPGYytmDTVXqWUKeQkyL1imLY12MAXQAbiCKzhzG1g8c86CNpBOe
-         uTz9MnLQ/9DcWbFaTLSlE7Y4wU0u9q0CMueKcqmSRNcz2oAaMap9AHWEObsn0pTe2LT/
-         mzeMv80wcwwZOLFB9yNHezGSCBEO7arSL3gwUiTMpis6CybPKwr+Ob1wluVpzMS2+RF4
-         jg/Q==
-X-Forwarded-Encrypted: i=1; AKwUvBw2sDn8ojQgfcLAME8ce3HdZyJN8mg7m7sYHByFh6K4BXM8eXUB9z8SZ4wcDTNuTXpkd6PXYRkdxJ/1g9MwwsSx@lists.infradead.org
-X-Gm-Message-State: AFq9FYJmu5Z0BW3Q4hZB0ttbmE3qzfdT0VusI/SXxDbEK32/xKBUQzeE
-	OCjE8wqPje7c840uc91gl9hFl0/lSAnaIcRLDTRk7OT0JsUPhKbwoNE=
-X-Gm-Gg: AYBFou1Blp+LeOif3CG+5A0k9u3I/gDxH4NYMvXVa8oIBBgOy1J4T/DwHKtqGWOlHrQ
-	+eexQOp9JB2Dk9QA4Pu0b8YA61Lfrb94q4bMHvM/m8kUZ8p9I7JdJBb2S4/CPwWaxRk2a9zXTjc
-	6morSzFxwt2NWQIHejqhzGKEW0ZIDrSm3gQQBtjCev5ou2+hdO2JKLIPJQiNLbPZVxYU/ipWb+z
-	v4QlJtWUg71hwJs8gszCpanWOfjHQsmYbUqWK99Limbf+H5bZqQFOk3Wxy6ZPuhFpLt5659HerY
-	so0DerZ/W6J3Y3lh7n3OMnryHXLgj9jPPU64USdCm/+AqitRmjSqZgSKTZJPc0tKwaCVEE4iSXo
-	BfiBCaiHbPWLn051Bfg+1UVWsLmG+A9jiKMdFp2l0Nz2b5+u7erzN2mBkxQziTm7KNL9Bn/smk2
-	uvBORICRc/qmkZ8fNXuQXbUGUj2UjbGxG7mEMuOEdSSAZO2JuWOVamucCIK0My9gTGHMjHK0iUd
-	gAJTfRHgSXfeqjQWSzyG0853yEAnx/WVJ9Chbqx+0wuykTeBDPsNm5by9VLh/E0n61yjSE1tCM8
-	i5bu3b6U5bOeZMcpxlvb9K6m3eF9sXxYoFbKqIxmYuiTjJ6WgAQxCtePEpEA8ZfANQzK
-X-Received: by 2002:a17:90b:268a:b0:3ab:b39f:41cd with SMTP id 98e67ed59e1d1-3ae897ddd43mr857008a91.60.1793334563678;
-        Thu, 29 Oct 2026 21:29:23 -0700 (PDT)
-Received: from freddie-kane.lan ([71.212.222.246])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae8826a769sm606067a91.4.2026.10.29.21.29.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2026 21:29:23 -0700 (PDT)
-From: Burke Cates <burke.cates@gmail.com>
-To: Xilin Wu <sophon@radxa.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Sean Paul <sean@poorly.run>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	freedreno@lists.freedesktop.org,
-	dragon@radxa.com,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 11/20] drm/msm/dp: Cache eDP link capabilities after successful discovery
-Date: Thu, 29 Oct 2026 21:29:00 -0700
-Message-ID: <20261030042912.2745609-1-burke.cates@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261009-msm-dp-hdr10-v2-11-1835d4966da3@radxa.com>
-References: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com> <20261009-msm-dp-hdr10-v2-11-1835d4966da3@radxa.com>
+	Fri, 30 Oct 2026 04:38:10 +0000
+Received: from kali (unknown [4.213.232.17])
+	by linux.microsoft.com (Postfix) with ESMTPSA id B148C20B7166;
+	Thu, 29 Oct 2026 21:37:48 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B148C20B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1793335074;
+	bh=WwvcOsEObJ8qzzuuobsmrvvwKxGTjF3cc2+TTpbW1e0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NJPsdvAyMdl07uIfgdrypurLmehiQZeL4zrhUYZxR96TMW5UhWVD/k6TDPncHWr08
+	 HBDhGEi+B7G362mYoL0sIW0o2+nYfbIXv9oTWCTovARis9B9tYry7LlUyDoTTX9uPX
+	 WKbEfCrsL3+VJgHmXIOzVAcYs4vOqZdpgIkHgEhs=
+Date: Thu, 29 Oct 2026 23:37:54 -0500
+From: Sahil Chandna <sahilchandna@linux.microsoft.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com,
+	will@kernel.org, peterz@infradead.org, akpm@linux-foundation.org,
+	mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org,
+	ast@kernel.org, rafael@kernel.org, daniel.lezcano@kernel.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, rdunlap@infradead.org,
+	david.laight.linux@gmail.com, broonie@kernel.org,
+	boris.ostrovsky@oracle.com, ashok.bhat@arm.com
+Subject: Re: [PATCH v16 00/16] barrier: Add
+ smp_cond_load_{relaxed,acquire}_timeout()
+Message-ID: <auQfIuQdpd2i2IrX@kali>
+References: <20261016070837.440748-1-ankur.a.arora@oracle.com>
+ <auLHZnaCIajW1kxX@kali>
+ <87v76lezeq.fsf@oracle.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87v76lezeq.fsf@oracle.com>
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
+	aws-us-west-2-korg-listserv-alma10-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261029_212925_279234_076FCC81 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261029_213809_190365_D6E10F4E 
+X-CRM114-Status: GOOD (  18.43  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,33 +84,65 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
-X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
-	aws-us-west-2-korg-listserv-alma10-1
 
-On 09-Oct-26 11:16, Xilin Wu wrote:
-> Discover eDP capabilities from connector detect before the first
-> modeset.
+On Thu, Oct 29, 2026 at 12:31:09AM -0700, Ankur Arora wrote:
+>
+> Sahil Chandna <sahilchandna@linux.microsoft.com> writes:
+>
+> > On Fri, Oct 16, 2026 at 12:08:21AM -0700, Ankur Arora wrote:
+> >> Hi,
+> >>
+> >> Changes in this version address sashiko comments [17]. The major change
+> >> is the change in the exit path in __smp_cond_load_relaxed_timeout()
+> >> which allows us to simplify providing ACQUIRE semantics in
+> >> smp_cond_load_acquire_timeout():
+> >>
+> [ ... ]
+> >>
+> > Hi Ankur,
+> >
+> > I tested this patch series on an Azure Cobalt 100
+> > (neoverse-n2 on 64-vCPU Hyper-V guest (Standard_D64ps_v6),
+> > on v7.2.12 + this series + arm64 cpuidle-haltpoll enablement[1]
+> >
+> > cpuidle-haltpoll loaded with force=1, guest_halt_poll_ns=200000.
+> >
+> > Baseline: no cpuidle driver(only WFI).
+> >
+> > Workload: PostgreSQL 16.15/pgbench scale 100, client and server in
+> > the same VM over a unix socket, with single run:
+> >
+> >             with (-S)                         TPC-B-like r/w
+> > clients  base TPS  haltpoll lat avg   base TPS   haltpoll  lat avg
+> >    2       38658     +89%   52->27us     5299     +86%    378->203us
+> >    4       72987     +99%   55->28      10305     +87%    388->208
+> >   16      300895     +91%   53->28      42035     +83%    381->208
+> >   32      590987     +93%   55->28      78319     +85%    410->221
+> >   64      987749      +0%   65->65     130675      +3%    490->474
+> >
+> > Tested-by: Sahil Chandna <sahilchandna@linux.microsoft.com>
+>
+> Thanks Sahil. That's very helpful. Btw what's the (-S) option with
+> in your first heading?
+>
+Hi Ankur,
 
-I tested this patch on its own (not the rest of the series) on an ASUS
-Zenbook A16 (UX3607OA, Snapdragon X2 Elite), on v7.3 plus out-of-tree
-Glymur platform/board patches, which include other msm DP changes.
+This is the -Select Only option running one statement per transaction,
+more info captured in [1] [2].
 
-Without it, msm chose the eDP output bpp before the panel's link caps
-had been read, so the first modeset after boot ran the 2880x1800@120
-OLED at 18 bpp until a DPMS off/on. With this patch the first modeset
-after boot comes up at 24 bpp, 4 lanes at HBR2, with no link-training
-retries, on two boots of two different builds.
+TPC_B like runs small bank transfer transaction.
+> Just to double check: was the VM  created with any special option
+> such as kvm-arm.wfe_trap_policy?
+>
+No, the host in my case is Hyper-V. The cmdline does not have any idle
+related parameters.
+console=tty1 console=ttyAMA0 earlycon=pl011,0xeffec000 panic=-1
+> --
+> ankur
+>
+Regards,
+Sahil
 
-Tested-by: Burke Cates <burke.cates@gmail.com> # ASUS Zenbook A16 (UX3607OA)
-
-AI coding assistants helped run these tests and draft this reply; the
-results are from the hardware runs.
-
-Thanks,
-Burke
+[1] https://www.postgresql.org/docs/16/pgbench.html#PGBENCH-OPTION-SELECT-ONLY
+[2] https://www.postgresql.org/docs/16/pgbench.html#TRANSACTIONS-AND-SCRIPTS
 
