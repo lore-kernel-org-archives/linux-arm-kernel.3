@@ -2,52 +2,53 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BFCF60A261C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53EB660A262F
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Oct 2026 15:14:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JoZ1jWDY;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QCvl31bO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iE3ze3pH;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=iVP7w9K+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=zVQzlbm/axbBWxu0idKA4EVFIq0SJVIOwTqe3aaB750=; b=JoZ1jWDYe9cST6
-	T6WxqHWZr/WeacVVkwQhFD5/ZkMdkQcVn+47w6uWx04R3YdsilfrC6zqGF1bUXk04cKpy9VnTEGut
-	KpHCaQE96T0LOkhzZ95WczZsg/jyM3j8KUedGl5GPu4fNPqRDbUdoOWaQjfUcDkFxs/EaWeAIf/xx
-	yWehtzuGx9YVYJ8bXDTuBGHmm/veda9zkIXWYoxIN51kcbqOR0AtD/mKa117Fkz3td9ePeCHfw9bs
-	9GVAHCf2zMef7roibt5W7kKyUN7QLOVsGDgcTC9sC18hkzP/0LJHQQm2MCD3nxMqvOk/kfAzgMdLC
-	HDutMjS4KNJMQfRk9/yw==;
+	List-Owner; bh=TNxZ7axTcrT/+NML9NB+Fl/TsENesjnDg4LpAJAQg5k=; b=iE3ze3pHo+XBGs
+	AX+nCw6BHlGkSS9L2ufeujXV92bkFnDoxqVQPoZoRoyRSeCK+Qu1IuArTrPriahG4OPmMxczKD8XI
+	im9fv7ouW+QS8nxxowumAvmsz0L/3wCZbPWql5mOOOLQdMr10KeW+ikH9FvBqyNHH4orYK9R0YS4s
+	lAT5CTjIB3Rs2Q2762h0v3CGY2L8T+ar76xw2BEJC8lDi+SyO4l6UFYs2LE1/AEEpnekPV5c40RlI
+	zVhr9WavJDxmYzwvhwchVA7k/5k95woaZevqJIpyFOrNA0aE362dy+lG/8M1jwBUE4azKUGC8rLra
+	6eiUmbFXhixDBLJe6jbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMoIj-0000000BxYS-0Clk;
-	Fri, 30 Oct 2026 15:13:53 +0000
+	id 1xMoIk-0000000BxbF-10Zu;
+	Fri, 30 Oct 2026 15:13:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMoIS-0000000BxNL-0aGh
+	id 1xMoIg-0000000BxX0-1reY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Oct 2026 15:13:37 +0000
+	Fri, 30 Oct 2026 15:13:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 105181682;
-	Fri, 30 Oct 2026 08:13:31 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 769C41F60;
+	Fri, 30 Oct 2026 08:13:46 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EA8613F59E;
-	Fri, 30 Oct 2026 08:13:31 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5BDC53F59E;
+	Fri, 30 Oct 2026 08:13:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793373214; bh=IZ5g89KjjQVhG8DabVVL8mYXRbldOMIptBm7uGTdIHg=;
+	t=1793373229; bh=0gmZhEot7GujYs9He/zUpHOzKjHkDUDZHoj/zmdZoH4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QCvl31bO81hsMqCRIG7IvAKtG9EpsG1GTWZDaJju2sKQEVUWfNQHcOKJGazF8StLp
-	 BsSdzQEKVFrfDErf+WL2pP/qeryxkkuniz2/SJDCylHAoeydjNMEN17dVIYOcDN9+E
-	 I6OpPQDc26AEIi1uHiISyN+Y9BG4+pRuTgLmXEXw=
+	b=iVP7w9K+PZWcJZaX7/xiHYH+/vaVHUD9qiBdK45sjfRMefb8NgdAE+GmD48B5cUI2
+	 xfFBUlElXvHd9Pv+67FTML0+eXVEtxFMl90zoz6j9EqQmaOAahI/K+B2ksN7TCIgPi
+	 TWPkPm4GSvkRJejmABVpWSeQB+opiXvnKtCnN+Lg=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 30 Oct 2026 15:13:11 +0000
-Subject: [PATCH v3 04/14] perf cs-etm: Centralize packet ISA initialization
+Date: Fri, 30 Oct 2026 15:13:17 +0000
+Subject: [PATCH v3 10/14] perf cs-etm: Synthesize exception entries
+ separately from branches
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261030-perf_cs_etm_fix_non_taken-v3-4-7629b52ab047@arm.com>
+Message-Id: <20261030-perf_cs_etm_fix_non_taken-v3-10-7629b52ab047@arm.com>
 References: <20261030-perf_cs_etm_fix_non_taken-v3-0-7629b52ab047@arm.com>
 In-Reply-To: <20261030-perf_cs_etm_fix_non_taken-v3-0-7629b52ab047@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -60,16 +61,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org,
  linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793373201; l=6522;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793373201; l=14094;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=IZ5g89KjjQVhG8DabVVL8mYXRbldOMIptBm7uGTdIHg=;
- b=FAMayDVqkvtNqud0uLZ4nRZib1P01Wxyoge8/8ClkBKGzleHcFz1M9vMp/tM2iHXzI6B/VyUL
- thxZ2U/H1pKDOVL5c2w1HMaaj9+r0kvHztxJPE9tL1OnU0T6RYrVA/r
+ bh=0gmZhEot7GujYs9He/zUpHOzKjHkDUDZHoj/zmdZoH4=;
+ b=6vFRgB6OCWU3pWgSw+vJ4psymBAbsOCyyoIzhAd/K+Jh0l3iIM+HnnZHuHL+MHxz7C9CoohXK
+ sZXB5QP/sJpAoDMsWVXbB8BDGo8B+we7eJcJ4bGMSytrsupycAwv+UI
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_081336_273102_B2C7874A 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20261030_081350_587617_377CC327 
+X-CRM114-Status: GOOD (  36.18  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,174 +90,359 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Exception packets need their own ISA so the frontend can generate samples
-directly from them. Currently, ISA initialization is limited to instruction
-range packets.
+Exception entry is currently represented by replacing the preceding
+range's flags and forcing its last_instr_taken_branch bit. This gives
+an interrupt the source address of the last executed instruction. When
+that instruction is a taken branch, its edge and original flags are lost.
 
-Move ISA initialization into cs_etm_decoder__buffer_packet() and use a
-common helper to obtain it from the OpenCSD element. Populate the ISA for
-instruction ranges, context updates and exceptions, leaving it unknown
-for other element types.
+For example, consider an untaken B.LS followed by an IRQ:
+
+  4000f4: eb02003f  cmp  x1, x2
+  4000f8: 54000109  b.ls 400118
+  4000fc: d282f2c2  mov  x2, #0x1796
+
+If B.LS completes untaken and the IRQ is taken before MOV completes, the
+preferred exception return address is 4000fc. With kernel tracing disabled,
+perf script previously attributed the IRQ to the preceding range:
+
+  tr end  hw int  4000f8 => 0       b.ls #0x400118
+  tr strt jmp          0 => 4000fc
+
+When an IRQ element provides that return address, use it as the source of
+the synthesized exception sample:
+
+  tr end  hw int  4000fc => 0       movz x2, #0x1796
+  tr strt jmp          0 => 4000fc
+
+The source now identifies the architectural resume PC, rather than the
+last completed instruction. The IRQ signal could have arrived while B.LS
+was executing. The traced preferred exception return address of 4000fc
+confirms that B.LS had retired architecturally before the IRQ was taken.
+
+OpenCSD provides an exception's preferred return address in en_addr when
+excep_ret_addr is set. It does not define or initialize st_addr for an
+exception element. Derive A32 and A64 exception source PCs from the
+preferred return address. Exception calls (SVC/SMC/HVC) use the preceding
+four-byte instruction; interrupts, faults and traps use the return
+address with last_instr_size set to zero.
+
+Use pref_ret_addr when deriving exception source PCs in the decoder and
+cs_etm__last_executed_instr(), and when setting sample.ret_addr.
+
+Keep T32 exception samples on the existing fallback path because
+determining the call size requires an instruction read. Retain
+pref_ret_addr for the frontend's SVC check. RESET and missing return
+addresses also use the fallback because their source PC is unknown.
+
+Resolve the preceding branch with its original flags without adding
+instructions. Then retain the exception in prev_packet until the next
+range, exception or discontinuity resolves its destination. This preserves
+both edges when an exception follows a taken branch and also handles
+consecutive exceptions.
+
+Supply the preferred return address in sample.ret_addr so later instruction
+fetching cannot change the return PC used by call/return export. Generate
+final instruction samples only from nonempty instruction ranges.
+
+CS_ETM_EXCEPTION_RET needs no further handling in the packet processing
+loop because ERET is already part of the preceding instruction range.
+cs_etm__set_sample_flags() now sets both that range's return flags and
+last_instr_taken_branch.
 
 Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm-decoder/cs-etm-decoder.c | 69 +++++++++++++++----------
- 1 file changed, 41 insertions(+), 28 deletions(-)
+ tools/perf/util/cs-etm-decoder/cs-etm-decoder.c |  31 ++++++-
+ tools/perf/util/cs-etm.c                        | 106 +++++++++++++++---------
+ tools/perf/util/cs-etm.h                        |   1 +
+ 3 files changed, 95 insertions(+), 43 deletions(-)
 
 diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-index 3fbb3fdf0382705bd4efa732c54ebb816144b2a8..911bb28db2985bc65828ad342ca5b0a8bb903e47 100644
+index ccae10e6cdad55607e092b90a1a940103fa050d7..b9397151748b222ae4542394c7b974b0fdb69bba 100644
 --- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
 +++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-@@ -368,9 +368,38 @@ cs_etm_decoder__reset_timestamp(struct cs_etm_packet_queue *packet_queue)
- 	packet_queue->instr_count = 0;
- }
- 
-+static enum cs_etm_isa
-+cs_etm_decoder__get_isa(const ocsd_generic_trace_elem *elem)
-+{
-+	/*
-+	 * OpenCSD preserves ISA and context between output elements, including
-+	 * exceptions after a context change with no intervening range.
-+	 */
-+	if (elem->elem_type != OCSD_GEN_TRC_ELEM_PE_CONTEXT &&
-+	    elem->elem_type != OCSD_GEN_TRC_ELEM_INSTR_RANGE &&
-+	    elem->elem_type != OCSD_GEN_TRC_ELEM_EXCEPTION)
-+		return CS_ETM_ISA_UNKNOWN;
-+
-+	switch (elem->isa) {
-+	case ocsd_isa_aarch64:
-+		return CS_ETM_ISA_A64;
-+	case ocsd_isa_arm:
-+		return CS_ETM_ISA_A32;
-+	case ocsd_isa_thumb2:
-+		return CS_ETM_ISA_T32;
-+	case ocsd_isa_tee:
-+	case ocsd_isa_jazelle:
-+	case ocsd_isa_custom:
-+	case ocsd_isa_unknown:
-+	default:
-+		return CS_ETM_ISA_UNKNOWN;
-+	}
-+}
-+
- static ocsd_datapath_resp_t
- cs_etm_decoder__buffer_packet(struct cs_etm_queue *etmq,
- 			      struct cs_etm_packet_queue *packet_queue,
-+			      const ocsd_generic_trace_elem *elem,
- 			      const u8 trace_chan_id,
- 			      enum cs_etm_sample_type sample_type)
+@@ -514,6 +514,7 @@ cs_etm_decoder__buffer_exception(struct cs_etm_queue *etmq,
  {
-@@ -389,7 +418,7 @@ cs_etm_decoder__buffer_packet(struct cs_etm_queue *etmq,
- 	packet_queue->packet_count++;
- 
- 	packet_queue->packet_buffer[et].sample_type = sample_type;
--	packet_queue->packet_buffer[et].isa = CS_ETM_ISA_UNKNOWN;
-+	packet_queue->packet_buffer[et].isa = cs_etm_decoder__get_isa(elem);
- 	packet_queue->packet_buffer[et].cpu = cpu;
- 	packet_queue->packet_buffer[et].start_addr = CS_ETM_INVAL_ADDR;
- 	packet_queue->packet_buffer[et].end_addr = CS_ETM_INVAL_ADDR;
-@@ -420,31 +449,13 @@ cs_etm_decoder__buffer_range(struct cs_etm_queue *etmq,
  	int ret = 0;
  	struct cs_etm_packet *packet;
++	u8 last_instr_size = 0;
  
--	ret = cs_etm_decoder__buffer_packet(etmq, packet_queue, trace_chan_id,
--					    CS_ETM_RANGE);
-+	ret = cs_etm_decoder__buffer_packet(etmq, packet_queue, elem,
-+					    trace_chan_id, CS_ETM_RANGE);
- 	if (ret != OCSD_RESP_CONT && ret != OCSD_RESP_WAIT)
- 		return ret;
+ 	ret = cs_etm_decoder__buffer_packet(etmq, queue, elem, trace_chan_id,
+ 					    CS_ETM_EXCEPTION);
+@@ -524,8 +525,34 @@ cs_etm_decoder__buffer_exception(struct cs_etm_queue *etmq,
+ 	packet->exception_number = elem->exception_number;
+ 	if (elem->context.el_valid)
+ 		packet->el = elem->context.exception_level;
+-	if (elem->excep_ret_addr)
+-		packet->pref_ret_addr = elem->en_addr;
++
++	/* RESET has no defined preferred return address. */
++	if (!elem->excep_ret_addr ||
++	    packet->exception_number == CS_ETMV4_EXC_RESET)
++		return ret;
++
++	packet->pref_ret_addr = elem->en_addr;
++
++	/*
++	 * T32 calls can be two or four bytes, requiring an instruction read
++	 * before pref_ret_addr to determine their size. Keep it for the
++	 * frontend's SVC check and leave start_addr unknown for its fallback.
++	 */
++	if (packet->isa != CS_ETM_ISA_A32 && packet->isa != CS_ETM_ISA_A64)
++		return ret;
++
++	/*
++	 * For A32 and A64, exception calls execute a four-byte SVC, HVC or
++	 * SMC and save the following PC. Other exceptions use the interrupted
++	 * or faulting PC, including traps on those instructions.
++	 *
++	 * With a shared branch target, no instruction has completed
++	 * at the target, so last_instr_size remains zero.
++	 */
++	if (elem->exception_number == CS_ETMV4_EXC_CALL)
++		last_instr_size = 4;
++	packet->start_addr = packet->pref_ret_addr - last_instr_size;
++	packet->last_instr_size = last_instr_size;
  
- 	packet = &packet_queue->packet_buffer[packet_queue->tail];
+ 	return ret;
+ }
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index 14a6466255017386addaee539141bf89b6dcf76f..c8a6a6e4c7d3b4c9d58f3a5b46587ee53c864b2e 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -101,10 +101,8 @@ struct cs_etm_traceid_queue {
+ 	ocsd_ex_level decode_el;
  
--	switch (elem->isa) {
--	case ocsd_isa_aarch64:
--		packet->isa = CS_ETM_ISA_A64;
--		break;
--	case ocsd_isa_arm:
--		packet->isa = CS_ETM_ISA_A32;
--		break;
--	case ocsd_isa_thumb2:
--		packet->isa = CS_ETM_ISA_T32;
--		break;
--	case ocsd_isa_tee:
--	case ocsd_isa_jazelle:
--	case ocsd_isa_custom:
--	case ocsd_isa_unknown:
--	default:
--		packet->isa = CS_ETM_ISA_UNKNOWN;
--	}
--
- 	packet->start_addr = elem->st_addr;
- 	packet->end_addr = elem->en_addr;
- 	packet->instr_count = elem->num_instr_range;
-@@ -483,6 +494,7 @@ cs_etm_decoder__buffer_range(struct cs_etm_queue *etmq,
- static ocsd_datapath_resp_t
- cs_etm_decoder__buffer_discontinuity(struct cs_etm_queue *etmq,
- 				     struct cs_etm_packet_queue *queue,
-+				     const ocsd_generic_trace_elem *elem,
- 				     const uint8_t trace_chan_id)
+ 	/*
+-	 * The frontend accesses the EL from '[prev_]packet' because it needs
+-	 * previous EL for branch and current EL for instruction samples. It's
+-	 * not possible to change thread in a single branch sample so no need to
+-	 * store or access the thread through the packet.
++	 * Samples use the EL saved in their source packet. A branch sample
++	 * cannot change thread, so the thread is kept in the frontend context.
+ 	 */
+ 	struct thread *frontend_thread;
+ };
+@@ -1397,11 +1395,10 @@ static inline int cs_etm__instr_size(struct cs_etm_queue *etmq,
+ static inline u64 cs_etm__first_executed_instr(struct cs_etm_packet *packet)
  {
  	/*
-@@ -490,7 +502,7 @@ cs_etm_decoder__buffer_discontinuity(struct cs_etm_queue *etmq,
- 	 * reset time statistics.
+-	 * Return 0 for packets that have no addresses so that CS_ETM_INVAL_ADDR doesn't
+-	 * appear in samples.
++	 * Return 0 for discontinuities so that CS_ETM_INVAL_ADDR doesn't appear
++	 * in samples.
  	 */
- 	cs_etm_decoder__reset_timestamp(queue);
--	return cs_etm_decoder__buffer_packet(etmq, queue, trace_chan_id,
-+	return cs_etm_decoder__buffer_packet(etmq, queue, elem, trace_chan_id,
- 					     CS_ETM_DISCONTINUITY);
+-	if (packet->sample_type == CS_ETM_DISCONTINUITY ||
+-	    packet->sample_type == CS_ETM_EXCEPTION)
++	if (packet->sample_type == CS_ETM_DISCONTINUITY)
+ 		return 0;
+ 
+ 	return packet->start_addr;
+@@ -1414,6 +1411,9 @@ u64 cs_etm__last_executed_instr(const struct cs_etm_packet *packet)
+ 	if (packet->sample_type == CS_ETM_DISCONTINUITY)
+ 		return 0;
+ 
++	if (packet->sample_type == CS_ETM_EXCEPTION)
++		return packet->pref_ret_addr - packet->last_instr_size;
++
+ 	return packet->end_addr - packet->last_instr_size;
  }
  
-@@ -502,7 +514,7 @@ cs_etm_decoder__buffer_exception(struct cs_etm_queue *etmq,
- {	int ret = 0;
- 	struct cs_etm_packet *packet;
+@@ -1580,6 +1580,9 @@ static void cs_etm__copy_insn(struct cs_etm_queue *etmq,
+ 		return;
+ 	}
  
--	ret = cs_etm_decoder__buffer_packet(etmq, queue, trace_chan_id,
-+	ret = cs_etm_decoder__buffer_packet(etmq, queue, elem, trace_chan_id,
- 					    CS_ETM_EXCEPTION);
- 	if (ret != OCSD_RESP_CONT && ret != OCSD_RESP_WAIT)
- 		return ret;
-@@ -516,9 +528,10 @@ cs_etm_decoder__buffer_exception(struct cs_etm_queue *etmq,
- static ocsd_datapath_resp_t
- cs_etm_decoder__buffer_exception_ret(struct cs_etm_queue *etmq,
- 				     struct cs_etm_packet_queue *queue,
-+				     const ocsd_generic_trace_elem *elem,
- 				     const uint8_t trace_chan_id)
++	if (packet->sample_type == CS_ETM_EXCEPTION && !sample->insn_len)
++		return;
++
+ 	cs_etm__frontend_mem_access(etmq, tidq, packet, sample->ip,
+ 				    sample->insn_len, (void *)sample->insn);
+ }
+@@ -1606,8 +1609,11 @@ static inline u64 cs_etm__resolve_sample_time(struct cs_etm_queue *etmq,
+ 		return etm->latest_kernel_timestamp;
+ }
+ 
+-static bool cs_etm__packet_has_taken_branch(struct cs_etm_packet *packet)
++static bool cs_etm__packet_has_branch(struct cs_etm_packet *packet)
  {
--	return cs_etm_decoder__buffer_packet(etmq, queue, trace_chan_id,
-+	return cs_etm_decoder__buffer_packet(etmq, queue, elem, trace_chan_id,
- 					     CS_ETM_EXCEPTION_RET);
++	if (packet->sample_type == CS_ETM_EXCEPTION)
++		return true;
++
+ 	if (packet->sample_type == CS_ETM_RANGE &&
+ 	    packet->last_instr_taken_branch)
+ 		return true;
+@@ -1625,7 +1631,7 @@ static void cs_etm__add_stack_event(struct cs_etm_queue *etmq,
+ 	if (!etm->synth_opts.branches && !etm->synth_opts.instructions)
+ 		return;
+ 
+-	if (!cs_etm__packet_has_taken_branch(tidq->prev_packet))
++	if (!cs_etm__packet_has_branch(tidq->prev_packet))
+ 		return;
+ 
+ 	if (etmq->etm->use_thread_stack) {
+@@ -1737,7 +1743,8 @@ static int cs_etm__synth_last_instruction_sample(struct cs_etm_queue *etmq,
+ 	    !etmq->etm->synth_opts.instructions)
+ 		return 0;
+ 
+-	if (packet->sample_type != CS_ETM_RANGE)
++	/* Only nonempty ranges provide a final instruction to sample. */
++	if (packet->sample_type != CS_ETM_RANGE || !packet->instr_count)
+ 		return 0;
+ 
+ 	ret = cs_etm__synth_instruction_sample(etmq, tidq, packet,
+@@ -1771,7 +1778,7 @@ static int cs_etm__synth_branch_sample(struct cs_etm_queue *etmq,
+ 	if (!etm->synth_opts.branches)
+ 		return 0;
+ 
+-	if (!cs_etm__packet_has_taken_branch(tidq->prev_packet) &&
++	if (!cs_etm__packet_has_branch(tidq->prev_packet) &&
+ 	    !(tidq->prev_packet->flags & (PERF_IP_FLAG_TRACE_BEGIN |
+ 					  PERF_IP_FLAG_TRACE_END)))
+ 		return 0;
+@@ -1802,6 +1809,9 @@ static int cs_etm__synth_branch_sample(struct cs_etm_queue *etmq,
+ 	sample.flags = tidq->prev_packet->flags;
+ 	sample.cpumode = event->sample.header.misc;
+ 
++	if (tidq->prev_packet->sample_type == CS_ETM_EXCEPTION)
++		sample.ret_addr = tidq->prev_packet->pref_ret_addr;
++
+ 	cs_etm__copy_insn(etmq, tidq, tidq->prev_packet, &sample);
+ 
+ 	/*
+@@ -2052,21 +2062,23 @@ static int cs_etm__context(struct cs_etm_queue *etmq,
+ 	return ret;
  }
  
-@@ -555,8 +568,8 @@ cs_etm_decoder__set_tid(struct cs_etm_queue *etmq,
- 				elem->context.exception_level, tid))
- 		return OCSD_RESP_FATAL_SYS_ERR;
+-static int cs_etm__exception(struct cs_etm_traceid_queue *tidq)
++static int cs_etm__exception(struct cs_etm_queue *etmq,
++			     struct cs_etm_traceid_queue *tidq)
+ {
++	struct cs_etm_packet *packet = tidq->packet;
++
+ 	/*
+-	 * When the exception packet is inserted, whether the last instruction
+-	 * in previous range packet is taken branch or not, we need to force
+-	 * to set 'prev_packet->last_instr_taken_branch' to true.  This ensures
+-	 * to generate branch sample for the instruction range before the
+-	 * exception is trapped to kernel or before the exception returning.
+-	 *
+-	 * The exception packet does not describe an instruction range, so don't
+-	 * swap PACKET with PREV_PACKET.  This keeps PREV_PACKET to be useful
+-	 * for generating instruction and branch samples.
++	 * Resolve the preceding branch without adding instructions, then keep
++	 * this exception as prev_packet until its destination is known.
+ 	 */
+-	if (tidq->prev_packet->sample_type == CS_ETM_RANGE)
++	if (packet->start_addr != CS_ETM_INVAL_ADDR)
++		return cs_etm__sample(etmq, tidq);
++
++	/* Fall back to attributing the exception to the preceding range. */
++	if (tidq->prev_packet->sample_type == CS_ETM_RANGE) {
++		tidq->prev_packet->flags = packet->flags;
+ 		tidq->prev_packet->last_instr_taken_branch = true;
++	}
  
--	ret = cs_etm_decoder__buffer_packet(etmq, packet_queue, trace_chan_id,
--					    CS_ETM_CONTEXT);
-+	ret = cs_etm_decoder__buffer_packet(etmq, packet_queue, elem,
-+					    trace_chan_id, CS_ETM_CONTEXT);
- 	if (ret != OCSD_RESP_CONT && ret != OCSD_RESP_WAIT)
- 		return ret;
+ 	return 0;
+ }
+@@ -2463,7 +2475,8 @@ static int cs_etm__set_sample_flags(struct cs_etm_queue *etmq,
+ 		 * instruction packet, set flag PERF_IP_FLAG_TRACE_END
+ 		 * for previous packet.
+ 		 */
+-		if (prev_packet->sample_type == CS_ETM_RANGE)
++		if (prev_packet->sample_type == CS_ETM_RANGE ||
++		    prev_packet->sample_type == CS_ETM_EXCEPTION)
+ 			prev_packet->flags |= PERF_IP_FLAG_BRANCH |
+ 					      PERF_IP_FLAG_TRACE_END;
+ 		break;
+@@ -2495,15 +2508,23 @@ static int cs_etm__set_sample_flags(struct cs_etm_queue *etmq,
+ 					PERF_IP_FLAG_CALL |
+ 					PERF_IP_FLAG_INTERRUPT;
  
-@@ -597,7 +610,7 @@ static ocsd_datapath_resp_t cs_etm_decoder__gen_trace_elem_printer(
- 	    type == OCSD_GEN_TRC_ELEM_TRACE_ON ||
- 	    type == OCSD_GEN_TRC_ELEM_ADDR_NACC)
- 		resp = cs_etm_decoder__buffer_discontinuity(etmq, packet_queue,
--							    trace_chan_id);
-+							    elem, trace_chan_id);
- 	else if (type == OCSD_GEN_TRC_ELEM_INSTR_RANGE)
- 		resp = cs_etm_decoder__buffer_range(etmq, packet_queue, elem,
- 						    trace_chan_id);
-@@ -606,7 +619,7 @@ static ocsd_datapath_resp_t cs_etm_decoder__gen_trace_elem_printer(
- 							trace_chan_id);
- 	else if (type == OCSD_GEN_TRC_ELEM_EXCEPTION_RET)
- 		resp = cs_etm_decoder__buffer_exception_ret(etmq, packet_queue,
--							    trace_chan_id);
-+							    elem, trace_chan_id);
- 	else if (type == OCSD_GEN_TRC_ELEM_TIMESTAMP)
- 		resp = cs_etm_decoder__do_hard_timestamp(etmq, elem,
- 							 trace_chan_id,
+-		/*
+-		 * When the exception packet is inserted, since exception
+-		 * packet is not used standalone for generating samples
+-		 * and it's affiliation to the previous instruction range
+-		 * packet; so set previous range packet flags to tell perf
+-		 * it is an exception taken branch.
+-		 */
+-		if (prev_packet->sample_type == CS_ETM_RANGE)
+-			prev_packet->flags = packet->flags;
++		if (packet->start_addr == CS_ETM_INVAL_ADDR)
++			break;
++
++		/* Resolve the preceding trace start or exception return. */
++		if (prev_packet->sample_type == CS_ETM_DISCONTINUITY)
++			prev_packet->flags |= PERF_IP_FLAG_BRANCH |
++					      PERF_IP_FLAG_TRACE_BEGIN;
++
++		if (prev_packet->flags == (PERF_IP_FLAG_BRANCH |
++					   PERF_IP_FLAG_RETURN |
++					   PERF_IP_FLAG_INTERRUPT) &&
++		    cs_etm__is_svc_instr(etmq, tidq, packet,
++					 packet->start_addr)) {
++			prev_packet->flags = PERF_IP_FLAG_BRANCH |
++					     PERF_IP_FLAG_RETURN |
++					     PERF_IP_FLAG_SYSCALLRET;
++		}
+ 		break;
+ 	case CS_ETM_EXCEPTION_RET:
+ 		/*
+@@ -2531,10 +2552,12 @@ static int cs_etm__set_sample_flags(struct cs_etm_queue *etmq,
+ 		 * system call instruction and then calibrate the sample flag
+ 		 * as needed.
+ 		 */
+-		if (prev_packet->sample_type == CS_ETM_RANGE)
++		if (prev_packet->sample_type == CS_ETM_RANGE) {
+ 			prev_packet->flags = PERF_IP_FLAG_BRANCH |
+ 					     PERF_IP_FLAG_RETURN |
+ 					     PERF_IP_FLAG_INTERRUPT;
++			prev_packet->last_instr_taken_branch = true;
++		}
+ 		break;
+ 	case CS_ETM_CONTEXT:
+ 	case CS_ETM_EMPTY:
+@@ -2610,7 +2633,9 @@ static int cs_etm__process_traceid_queue(struct cs_etm_queue *etmq,
+ 			 * range, generate instruction sequence
+ 			 * events.
+ 			 */
+-			cs_etm__sample(etmq, tidq);
++			ret = cs_etm__sample(etmq, tidq);
++			if (ret)
++				goto out;
+ 			break;
+ 		case CS_ETM_CONTEXT:
+ 			/*
+@@ -2624,13 +2649,12 @@ static int cs_etm__process_traceid_queue(struct cs_etm_queue *etmq,
+ 				goto out;
+ 			break;
+ 		case CS_ETM_EXCEPTION:
++			ret = cs_etm__exception(etmq, tidq);
++			if (ret)
++				goto out;
++			break;
+ 		case CS_ETM_EXCEPTION_RET:
+-			/*
+-			 * If the exception packet is coming,
+-			 * make sure the previous instruction
+-			 * range packet to be handled properly.
+-			 */
+-			cs_etm__exception(tidq);
++			/* The return annotates the preceding instruction range. */
+ 			break;
+ 		case CS_ETM_DISCONTINUITY:
+ 			/*
+diff --git a/tools/perf/util/cs-etm.h b/tools/perf/util/cs-etm.h
+index e40b9b7d0a9bd90f089c2f20527332264ead4249..bf0e0f5a9711f8d450ea8a0f9d67aa5e8d7204ab 100644
+--- a/tools/perf/util/cs-etm.h
++++ b/tools/perf/util/cs-etm.h
+@@ -173,6 +173,7 @@ struct cs_etm_queue;
+ struct cs_etm_packet {
+ 	enum cs_etm_sample_type sample_type;
+ 	enum cs_etm_isa isa;
++	/* For exceptions: source PC, or CS_ETM_INVAL_ADDR. */
+ 	u64 start_addr;
+ 	union {
+ 		u64 end_addr;		/* Range packets */
 
 -- 
 2.34.1
