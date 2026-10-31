@@ -2,97 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54458606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 08:18:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B2AD606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 08:43:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=klwuAi7P;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E4DLxkZ1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EdYK2Byb;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=fencjVNn
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=xcR6OO9DMf/GV3DMUQD0OFfeXG/gnWXrfg7cl7YoGnE=; b=klwuAi7PkvBgqXwK4fjW5n7ZmI
-	ljDBAk0jtwREIhEk4i9FYtElZeINaemRALIunRbzZOUjVmkSKBllh4IymIiWHLOyoD8H0Dt+ah47o
-	H0QR92U6H7vEL/dScW6YLlkOVzXQbrBeR0B4bR5KI7mvjlrhXGpi2t/ZMd4BBuZP0hYFc0y3R9Tkl
-	9cYwYLFV9HDOxx6Jme35q03HitS43uoKcK4MDTX2OM7ojsAhg3UUGKphtt6Ubqhhm4GXqCDQyZpZM
-	As1upTDUiINBIW6fdiJKuYfIrgotA4miALNERJlRgl+ee3VpiAWSa45zR0KYfunANwe/GIUWxku69
-	NfMjR5kg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=zyM541AR7ZZE38ApRIgXfw9vU7L1IaJEwloMzTLw3Ig=; b=EdYK2BybU0nXX+
+	NvG/PaPKyfOGukhbYNXiWG6a589HEoXIWvuz0+OVnB4VX+9jrhytpuKaH3pKJxyYADfrzXHL0gfRK
+	ta5p92rNCox29Ww0Q8d7fIVp5QFLdLLKiGbz4QAnucazSyolSTo+cK2BVMNnZMb4igCHOD3vf1Mzl
+	8pMDYNMTkPKet9HMkiUDyTfYUNyB5XRHZxZ2OaftxSEO3xCFl2Ls6wCXlSILh8pAnTtP8xVWT9+uQ
+	tnT5uHuO/gbtlCrz1ev9SieNM0147Jz6clwUmm9X8GUATt6vZqdZEokLz9BhwS5aeonmrydG23OZM
+	JmXA3qeHqrJMxva96pOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN4I0-0000000D34k-1KkJ;
-	Sat, 31 Oct 2026 08:18:12 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN4Hx-0000000D346-3Uxq
+	id 1xN4fx-0000000D55A-1EVU;
+	Sat, 31 Oct 2026 08:42:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xN4fu-0000000D546-2OMY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 08:18:11 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-cdab938dc83so607267a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 01:18:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793434688; x=1794039488; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xcR6OO9DMf/GV3DMUQD0OFfeXG/gnWXrfg7cl7YoGnE=;
-        b=E4DLxkZ1gcrh5tQYjcvdy51K5dW8kitmaEQTLdT8QJmuyQDA2VjYQ8twLKbHj35Pop
-         8kFjuOPd2f8D5yVwLKMrj3iahJ57AvGHhvJy1S+JJ3NIWRE+e3U+TxzYjHGiMcgw05AX
-         XDlJBubwxPvRjdJY6aTgnXpbuLpvxyNjC9xyyqof67ug7Yya4MqFZVZTe40tdu1tMgBU
-         g5JzvhgOJjC6P2LK+AdYsd9u8h6bi+S7AmEweAle+un9pRjSukjuTVOx9be0thFxcey/
-         jBPI9EKeOhwDN5z6F/okumTCVmUvo9tRWDtX78jCquOsm47TorRUodWhJZbOQyk5rfwO
-         1jMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793434688; x=1794039488;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xcR6OO9DMf/GV3DMUQD0OFfeXG/gnWXrfg7cl7YoGnE=;
-        b=jwNek8jvvGfgWC7kjpdGocy6ZSaDIzjTjQ9Wchkk9r7u4B8Tc6v/tvmITvJFSy3x5M
-         xSfNHh9BeIxm5IPblgsXzMCvYyGZoiXNU0eCCt3Yx/XTcWNQePbf0WkXZksBGgwYf5qw
-         RdMYVJ0GFeZvIRSzXpEjs74BhkyXOHR4A74YmT0N8TtJRvpFxZXVZ6p3ixnFVPgJHR4m
-         PSH1aHJWkHw6cNeAxbJlQfi6lakXDM0LJXQMr+BA0fnM7bJh57IpC8dNxPV6wmYyo3pg
-         uT5Pe6GM/KAGZdEXxb7XsYsYuKkuwyxmnmhEyv1/1GMU64TrYUHwcf1Fr4NcaifM0Zin
-         moqw==
-X-Forwarded-Encrypted: i=1; AKwUvBxgagLY8n2kkAhHWQkSnmOr8GWxGsnLt5vVruE19+lJp1jFuw9M/kafqKfuu9x6O9bSPddeQDqw3b53WPVnKiHQ@lists.infradead.org
-X-Gm-Message-State: AFq9FYKbPUxIiafbDYVdzJpKvODvMaWIFknpNDZSN3AjOArhhNdWzwdD
-	DAHqdxTID1C90zavYhez78sBogP+7qr7ZQM7B+8RY7pibqwt+gYLfgqJ
-X-Gm-Gg: AYBFou1DMrXhVAxyfLM9V5ef36o5WEKFqS+tLqKFikZPrSumrmaGWUo1EFXD1+1usmk
-	1ObK6Zy8krhVa9aZbQ9chlHzAswPYfjAtemcecFsv/B4ezbvDbkX2+q3a6mLYUxxisWkRpV1ZK7
-	CDf5KUcYe6TU3ceqhe7F3FXK3lHr6o6e4RRiWog9bQ0o82kyBqw5MZxSrICjc2sykgEa8Q0zydH
-	GFweCZPfzDnVzosq4f3lRhoSfGfwP5gifq93xwThSLmSjan6G7qKCL5NfYGnj6l65o4AJccQYY8
-	T4pgJfLDcOX62/1hRyaAds2lL7vuRfrgv5TE8AW8Psi6FsWHGS3hvlJeQ/AeWFehvApMOIWdSBQ
-	NJw+Mwe273T760lIgDRmJCS5CrIhyFSAh77EUvmB9PNB8JH5Lkx492oAjX3S7CKHy7y7tk/2ziC
-	ZPAnb7ILZQxT0U84EQ2wKPwVwbzx4RIgY2kL+6kIABRii0pQTYNr9lbb57sryOAr0YI7TfZ5M1F
-	KwifSlP3ja4mNTh3xVjLK8oubOH6LXhIpEWFXuavNB9ChbxEK3efB5iYLerN+4vvfLgdbqCGlkt
-	yRlgI5EOYsb/j0t5SiE15aKHWYPkxhQ9zbC8uSGQ+STYrZHbDo0krCq3rz2xSC5ST6E=
-X-Received: by 2002:a17:90b:43:b0:3a7:e126:4980 with SMTP id 98e67ed59e1d1-3ae8979de24mr3720019a91.43.1793434688533;
-        Sat, 31 Oct 2026 01:18:08 -0700 (PDT)
-Received: from asahi.tail4da9e3.ts.net ([218.48.198.193])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae6e99b267sm11288897a91.14.2026.10.31.01.18.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 31 Oct 2026 01:18:08 -0700 (PDT)
-From: "Baek Kyu, Kim" <pocj8ur4in@gmail.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: "Baek Kyu, Kim" <pocj8ur4in@gmail.com>,
-	James Tai <james.tai@realtek.com>,
-	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-realtek-soc@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] pinctrl: realtek: Write the encoded slew rate value
-Date: Sat, 31 Oct 2026 17:18:04 +0900
-Message-ID: <20261031081804.218566-1-pocj8ur4in@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Sat, 31 Oct 2026 08:42:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D2171595;
+	Sat, 31 Oct 2026 01:42:48 -0700 (PDT)
+Received: from [10.57.13.152] (unknown [10.57.13.152])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B38B3F59E;
+	Sat, 31 Oct 2026 01:42:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793436171; bh=avExJZ8pIb5Ca/dscv5M6k88MfirFVDBlv6ja+R8bbw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fencjVNnt00wM0wda3KJv3WoRmZ8GoSQNWWxyQRTkf7seFOhLkY2VnuWG+597t0Ez
+	 +itFgbGaU/suCHgpoFnAbgN+AQ4E3wUGbwU9OaVV8jDvTTym1FhRUmtTgNedvKgBUS
+	 uz1DkVoVayYJVDZ+51JRhGrKSIrbf6I74AdaRYLo=
+Message-ID: <a1d9608c-8169-49c5-b843-ed9d304136ed@arm.com>
+Date: Sat, 31 Oct 2026 08:42:46 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [EXTERNAL] Re: [PATCH v5 2/6] firmware: smccc: Detect hypervisor
+ via RSI host call in CCA Realms
+Content-Language: en-GB
+To: Dexuan Cui <DECUI@microsoft.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Kameron Carr <kameroncarr@linux.microsoft.com>
+Cc: Haiyang Zhang <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "mhklinux@outlook.com" <mhklinux@outlook.com>,
+ "will@kernel.org" <will@kernel.org>, "Mark.Rutland" <Mark.Rutland@arm.com>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ "sudeep.holla@kernel.org" <sudeep.holla@kernel.org>,
+ "arnd@arndb.de" <arnd@arndb.de>, "thuth@redhat.com" <thuth@redhat.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>
+References: <20261002215725.2015959-1-kameroncarr@linux.microsoft.com>
+ <20261002215725.2015959-3-kameroncarr@linux.microsoft.com>
+ <auPOnb_9Jfzh-oQE@arm.com>
+ <CH4PPF0966F22FCAF3D8C6535743902930DBF6C2@CH4PPF0966F22FC.namprd21.prod.outlook.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <CH4PPF0966F22FCAF3D8C6535743902930DBF6C2@CH4PPF0966F22FC.namprd21.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261031_011809_877942_D3EE1812 
-X-CRM114-Status: GOOD (  12.01  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261031_014254_775379_CE3045EC 
+X-CRM114-Status: GOOD (  29.96  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,50 +85,151 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-rtd_pconf_parse_conf() maps slew-rate arguments 1, 10, 20 and 30 to the
-two-bit field values 0, 1, 2 and 3. However, it shifts the original
-argument into the register value instead of using the computed encoding.
-After masking, these arguments write 1, 2, 0 and 2 respectively. In
-particular, the distinct 10 and 30 settings write the same field value.
+Hi
 
-Use set_val when constructing the register value so that both individual
-pin and group configuration apply the existing conversion. Leave argument
-validation, field offsets, masks and regmap error handling unchanged.
+On 31/10/2026 04:47, Dexuan Cui wrote:
+>> From: Catalin Marinas <catalin.marinas@arm.com>
+>> Sent: Thursday, October 29, 2026 3:54 PM
+>>   ...
+>> + Suzuki
+>>   ...
+>>> +static void arm_smccc_realm_get_hypervisor_uuid(struct arm_smccc_res
+>> *res)
+>>> +{
+>>> +	guard(spinlock_irqsave)(&uuid_hc_lock);
+>>> +
+>>> +	memset(&uuid_hc, 0, sizeof(uuid_hc));
+>>> +	uuid_hc.gprs[0] = ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID;
+>>> +
+>>> +	if (rsi_host_call(__pa_symbol(&uuid_hc)) != RSI_SUCCESS) {
+>>> +		res->a0 = SMCCC_RET_NOT_SUPPORTED;
+>>> +		return;
+>>> +	}
+>>> +
+>>> +	res->a0 = uuid_hc.gprs[0];
+>>> +	res->a1 = uuid_hc.gprs[1];
+>>> +	res->a2 = uuid_hc.gprs[2];
+>>> +	res->a3 = uuid_hc.gprs[3];
+>>> +}
+>>> +#endif
+>>> +
+>>>   bool arm_smccc_hypervisor_has_uuid(const uuid_t *hyp_uuid)
+>>>   {
+>>>   	struct arm_smccc_res res = {};
+>>>   	uuid_t uuid;
+>>>
+>>> -
+>> 	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC
+>> _ID, &res);
+>>> +#ifdef CONFIG_ARM64
+>>> +	if (is_realm_world())
+>>> +		arm_smccc_realm_get_hypervisor_uuid(&res);
+>>> +	else
+>>> +#endif
+>>> +
+>> 	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC
+>> _ID,
+>>> +				     &res);
+>>
+>> Is this meant to be generic? I'm not sure the trick to pass
+>> ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID in gprs[0] and forward it to
+>> the host is a documented ABI. I think it even confuses other realm guests
+>> that don't expect this (e.g. kvm_init_hyp_services()).
 
-Fixes: dcc9334435b0 ("pinctrl: realtek: add support for slew rate, input voltage and high VIL")
-Signed-off-by: Baek Kyu, Kim <pocj8ur4in@gmail.com>
----
-An arm64 QEMU kernel exercised the RTD1625 MAIN2 pin and group
-state-selection paths using the real pinctrl callbacks and a synthetic
-regmap backend. A slew-rate request of 10 wrote field value 2 before
-the change and 1 after it, while adjacent bits were preserved. No
-board device tree, physical MMIO or signal timing was tested.
+Yes, this is how a Realm can talk to the Host hypervisor, i.e, 
+RSI_HOST_CALL. In simpler terms, HVC is routed to Realm world for
+Realms (e.g., a Paravisor running in Realm world Plane-0).
+A Realm must always use RSI_HOST_CALL to reach the non-secure
+hypervisor. RSI_HOST_CALL expects the arguments to be passed
+in a "memory" area to preserve forward compatibility with
+the SMCCC standards to allow for using the full argument/result
+list.
 
- drivers/pinctrl/realtek/pinctrl-rtd.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The RMM does the job of copying the arguments from the Realm memory
+to the rec_exit.gprs for consumption by the Host. The host can then
+return the results in rec_entr.gprs, which then gets copied over
+to the Realm memory area.
 
-diff --git a/drivers/pinctrl/realtek/pinctrl-rtd.c b/drivers/pinctrl/realtek/pinctrl-rtd.c
-index 60222339726b4..656c281c557ac 100644
---- a/drivers/pinctrl/realtek/pinctrl-rtd.c
-+++ b/drivers/pinctrl/realtek/pinctrl-rtd.c
-@@ -438,7 +438,7 @@ static int rtd_pconf_parse_conf(struct rtd_pinctrl *data,
- 		sr_off = config_desc->base_bit + config_desc->slew_rate_offset;
- 		reg_off = config_desc->reg_offset;
- 		mask = 0x3 << sr_off;
--		val = arg << sr_off;
-+		val = set_val << sr_off;
- 		break;
- 
- 	case PIN_CONFIG_INPUT_VOLTAGE_UV:
--- 
-2.55.0
+> 
+> Hi Catalin,
+> Regarding the concern about passing ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID
+> In gprs and forwarding it to the host via an RSI Host Call: if I read the code correctly,
+> this pattern actually aligns seamlessly with the current KVM host-side
+> implementation for ARM CCA (e.g., in the v16 patchset [1]).
+> 
+> In arch/arm64/kvm/rmi-exit.c, when a Realm guest triggers an
+> RMI_EXIT_HOST_CALL, KVM intercepts it and invokes rec_exit_hvc():
+> 
+> case RMI_EXIT_HOST_CALL:
+> 	rec_exit_hvc(vcpu);
+> 	kvm_make_request(KVM_REQ_RMI, vcpu);
+> 	return ARM_EXCEPTION_TRAP;
+> 
+> Inside rec_exit_hvc(), KVM copies the GPRs from the rec run structure
+> into the vCPU registers and explicitly emulates a standard HVC
+> exception by populating esr_el2:
+> 
+> static void rec_exit_hvc(struct kvm_vcpu *vcpu)
+> {
+>          struct realm_rec *rec = &vcpu->arch.rec;
+>          int i;
+> 
+>          for (i = 0; i < REC_RUN_GPRS; i++)
+>                  vcpu_set_reg(vcpu, i, rec->run->exit.gprs[i]);
+> 
+>          vcpu->arch.fault.esr_el2 = (ESR_ELx_EC_HVC64 << ESR_ELx_EC_SHIFT) |
+>                                       ESR_ELx_IL;
+> }
+> 
+> After doing so, it returns ARM_EXCEPTION_TRAP, causing KVM's generic
+> exception handling loop (kvm_arch_vcpu_ioctl_run() -> handle_exit()) to
+> route it straight into the standard handle_hvc() ->
+> kvm_smccc_call_handler() path.
+> 
+> Because KVM deliberately unpacks the RSI Host Call structure and pushes
+> it down the traditional non-CVM HVC servicing pipeline, the guest passing
+> standard SMCCC Function IDs inside the gprs array of an RSI Host Call is
+> exactly how the host expects to handle hypervisor services. It shouldn't
+> break or confuse other standard realm implementations since this exact
+> emulation block translates the RSI exception back into a generic HVC
+> abstraction for the hypervisor layer.
+>   
+>> I thought realms should stick to the RSI interface and not try to guess
+>> the host hypervisor. But if you do need this, a better fit would be in
+>> hyperv_detect_via_smccc() (if realms don't boot with ACPI).
+>>
+>> I'll leave it to Sudeep or Suzuki to comment further.
+>>
+>> --
+>> Catalin
+> 
+> As I described above, this patch from Kameron should work fine.
+> 
+> BTW, as Kameron mentioned in another reply, he better organized the
+> code by moving the code in this patch into
+> arch/arm64/hyperv/mshyperv.c: hyperv_detect_via_smccc().
+
+Any Realm specific stuff must be handled accordingly in the 
+"enlightened" path, not in the common code like this patch.
+
+Cheers
+Suzuki
+
+
+> (technically, IMO this change is unnecessary)
+> 
+> Thanks,
+> Dexuan
+> 
+> [1] https://gitlab.arm.com/linux-arm/linux-cca/-/tree/cca-host/v16
+> [2] https://lore.kernel.org/all/20261031001412.4150488-3-kameroncarr@linux.microsoft.com/
 
 
