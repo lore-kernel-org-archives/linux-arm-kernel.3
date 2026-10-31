@@ -2,77 +2,148 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E24E606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 17:35:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DE24606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 17:52:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NWELUgZk;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bC8KJopt
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ekF7CtlD;
+	dkim=pass (2048-bit key, unprotected) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=Kx6xGzpD;
+	dkim=pass (2048-bit key, unprotected) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=ccdvp9GC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=rzUv+bCg4DfcE7WNYbARyWoeBIYpfTOv26PrVMDDHik=; b=NWELUgZkC+qH6D
-	izKsoPU+UXe2wYhvW6cQmVElEJ5sqTrYf/GHkx3QzRppAiaGbNdLoahVCEpndPn2d1hGQ4to0fevV
-	7BFZMNFbcpAC1ce7iWZYLvaLIaFUuPnP+ho+Rcvvnj22D5oNNUZDRWH9f1D18xgQXQwb4xGc42yjl
-	pCljLUhdgUPJnj13lLzA7Io8eKMQ+pscYqhVbPwNZSWaWxEglned6AranoVeMkK3m6518G3hVYjDY
-	TrImuvR1BhQa/Tp+Dva2wRGaebEyj1VG8sqjmTv1va43y5SXNp1DWIEWf3FtvShrmrL6j/TZ+NLtO
-	/fqedbcahso/rhxGwLWg==;
+	List-Owner; bh=PV68I91KKeWspn/QO5cHP4XcwhAjqyzgD7yiFdKEI6w=; b=ekF7CtlDvtY1kk
+	CAujESBTxBOfpj4jEvB9xVsZh6aVhIO+pYsFg+/rQsO8amNa05iJ7Q8sF/YbAX6YXz12n8rlLtNbK
+	QSu/PeaVlSZL9/O3rynDevfBBYqRbDi8x/09dxlNU7LUxKfFJXj5Iq2DKjZqGVHazTi0aJN858Bt+
+	CadF4m7fO46hHBNqpx1cMMMpLVBt/fooKTSY+JpEvpt/xGXNzG1qfMVSEJW/5lgBey5ufrHQhI/x4
+	i/EihY0ONmzB+9uo6+5k1/RRTlzMZyn9M+0AO3GCU3wF3kGLbDV50EGRiPE99l28+G0OHCOqu7RGe
+	cXfh+6qJh2zyCOiqnMiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNCz2-0000000DWoo-46Sw;
-	Sat, 31 Oct 2026 17:35:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xNDG0-0000000DXcP-1cLE;
+	Sat, 31 Oct 2026 17:52:44 +0000
+Received: from mx0a-00364e01.pphosted.com ([148.163.135.74])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNCz1-0000000DWoZ-09qU;
-	Sat, 31 Oct 2026 17:35:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 34D2460A4F;
-	Sat, 31 Oct 2026 17:35:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DF2F1F000C1;
-	Sat, 31 Oct 2026 17:35:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793468109;
-	bh=rzUv+bCg4DfcE7WNYbARyWoeBIYpfTOv26PrVMDDHik=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=bC8KJoptrvmHuwDb17lf70KW1Oa5YrMPd7H7oYXfbQ7chGda/Ct6rJ2LbdAVGWQXs
-	 heOJ0okWEjIJmqq2ZaUSqvr/d+URI/C2vOJy/yetp9Uf05/Z60F8E9Ijq5MlUdOIR1
-	 ceKYILaO2Wgb/+7xJWk7ylJspGL5fLhguJzDBwTRI/gV2NsHUlYUohyHc4ku6TocG2
-	 wnz87aO+Px9/B8HtKnidaJ8eGDK6FtzHw+Z32xL1E+GuNn6TH9ZJFuNTrgsRMZABZD
-	 vF3+lWmDBLmh+qBVf1v7WUuxW3MbnREZ1pAGaZjDeDpQyTzy/cLAS0w0sZqPguFIQv
-	 ZZFHWDcEwovDg==
+	id 1xNDFy-0000000DXaa-0AE6
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 31 Oct 2026 17:52:43 +0000
+Received: from pps.filterd (m0167069.ppops.net [127.0.0.1])
+	by mx0a-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69VDnCp92741061
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:52:41 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pps01; bh=PV68
+	I91KKeWspn/QO5cHP4XcwhAjqyzgD7yiFdKEI6w=; b=Kx6xGzpD1BZSx5LYmhHZ
+	PKcsV2yB08K15Y/Lm62zbY6EsHEfWYGBBVQFDP/KKwA+WuKJv4rEbtZXx1tAJPSv
+	de8lCz8BQ+BhwCPTlBfN+YIbz60qnGT7kIXnmp0Hk39KkHnoxNcyoNaRld+vDnOa
+	z+ZWUH9dpGkhZwGjtNC+I65yur+xxrIMi9LWPaYI/PQtEJkQYR/Xq5UEFMGPL8SN
+	uVtAfjC26nF0seMYDuxWBTUkofCeg9+yIBoW39Lu3PxqpST0mDUMFyDuFxbANKrP
+	gq3blYeeOFp1Ki0iBNcj8KWs1Ag3f2l1FHzs2+TIHqjdoX0d9Bd25S6qmNZQoWsG
+	cg==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-00364e01.pphosted.com (PPS) with ESMTPS id 4hn9betx0t-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:52:41 -0400 (EDT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93f5844e383so284712085a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 10:52:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=columbia.edu; s=lionmail; t=1793469160; x=1794073960; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PV68I91KKeWspn/QO5cHP4XcwhAjqyzgD7yiFdKEI6w=;
+        b=ccdvp9GCQrvfonafq/zlFPrpGFa5Q8IBqznQQbQXlRo8Tjyns73JERRLbHDVY3/Vuq
+         W/kyyPWBQey0QBqIdpkJIdmRMsERsvkxVLBt8VwJ8m7HN3QVTttR51FK7wLU4MRhzaXw
+         WDtSuppE1F5iXZ9DbLYx+ZCYSseCma6tayh27RYGdf/U05TMeFb2tSM/gjdlQS2HIskJ
+         JfafuRw1/Q9bfs2GSp+k6RsRfjtIidlAsGtLy73Q8gZ0EFsktYLz5FulVJzd5pqVnceT
+         6R+dxwei/2P5Vmg1YT5YE1eIbEeMDlVWMctwRvgLgbnEoDmv27aAh4Daolow5QI7oiyv
+         qwJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793469160; x=1794073960;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PV68I91KKeWspn/QO5cHP4XcwhAjqyzgD7yiFdKEI6w=;
+        b=tRgbmcUUwc0NzoSYYLeTGswpB9aFhzG7fmf2Nuhk6ccMWef7Us5prer7M/sMMJXWLb
+         GVhIgMwe/wQjaOglrtgGefbibwsp9UYrRxfaTATvKm77UPcexJxpGk51tH56c1WfCHOz
+         68QOGYiE/9Sv51X2OgGFv58/nioGvvEgr16DlIBtx3NCF3DPCsyzZDG4bgA4/WwDJnNo
+         1+qELl19TYL4y0jGXw4I/tLXC8LB53OdahRdpMwtj2aBLZL/Mr4CJTRpsBlpSxgVng4/
+         7660sQPX3tczpQkLsosPcUCFxT7mmDDvpx5errcavqTD6ByVKK2pZLqNnAWoi28jliJa
+         7bsA==
+X-Forwarded-Encrypted: i=1; AKwUvBz3YxCg2y7XLUkQMArxhLcz31SMALW8k2caQbHro2B238kE6M0WfJ5DFxH6n4DUYwSDxHOdccsCp0kzypJHceO/@lists.infradead.org
+X-Gm-Message-State: AFq9FYIXri3IIix3L3YaduinOjs74rJYAURfCn6NGCe0X4bHtJy+0asS
+	esUodH7Bk494ZH/cLc0MNAR6xcRL7+QTTxFPa3nnMUF5/0J5Cb768RuQmwS/BasdxIXrmAjS1hs
+	vPixcWDDxpQKs5+AU7XHN/A956R4lbuZtQiYF69bC9pjc8mG6vLOSoknziJ6/3wsrISnL0Gzh
+X-Gm-Gg: AYBFou2P86q3nHqn9nOH1Bs7K3VYWWy4XwajPwFgoB255aC4USDmMk8ZO6APqLkxLxl
+	GI2su4Qc7VGVnUg2ZGNfFi2eEJ3IxZpBdakBJM8bJNgFrGwofFCGSB7n3VbaFqUMb0I8J/f4MpI
+	dMgk8LAptYk5CpCPCfuEnXddXBvusINKWUIfvKxcWB3hcNi8Ij365yJkawdIxw/nOjjrKu/N81C
+	rGk8LAiG60tHg2wgVvAP0Enb+vY88w2CIZ83zwYqx+0BuDKckkxRxiXQM7wryPO+8NgAiVZZH1W
+	AD3+eWkP1eMI+2slUoHHjfos3sdU912Gm55XJc9XdTU26hTlGJ0+5uoAZSaW77x7dySVIwLePLA
+	9jlUrGeZNCo0hMYlmyGksFrabnRJq8+tBU92JK/aNnqAmbFt1rvSEUPlE+g==
+X-Received: by 2002:a05:620a:45a6:b0:944:6d8:9c52 with SMTP id af79cd13be357-9442171e25amr971141885a.57.1793469160569;
+        Sat, 31 Oct 2026 10:52:40 -0700 (PDT)
+X-Received: by 2002:a05:620a:45a6:b0:944:6d8:9c52 with SMTP id af79cd13be357-9442171e25amr971138585a.57.1793469160095;
+        Sat, 31 Oct 2026 10:52:40 -0700 (PDT)
+Received: from [127.0.1.1] ([37.142.159.89])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa81b7fe80sm249158315e9.11.2026.10.31.10.52.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 31 Oct 2026 10:52:39 -0700 (PDT)
+From: Tal Zussman <tz2294@columbia.edu>
+Date: Sat, 31 Oct 2026 13:52:09 -0400
+Subject: [PATCH 2/2] platform/raspberrypi: vchiq: mark pinned pages dirty
+ when unpinning them
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v3 2/3] phy: cix: Add Sky1 DP PHY driver
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Luo Liu <Luo.Liu@cixtech.com>
-Cc: vkoul@kernel.org, neil.armstrong@linaro.org, mani@kernel.org, 
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- gary.yang@cixtech.com, fugang.duan@cixtech.com, 
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com, 
- p.zabel@pengutronix.de, linux-kernel@vger.kernel.org, Wuyi.Shen@cixtech.com, 
- EastLake.Yang@cixtech.com
-In-Reply-To: <20261013095900.758464-3-Luo.Liu@cixtech.com>
-References: <20261013095900.758464-1-Luo.Liu@cixtech.com>
- <20261013095900.758464-3-Luo.Liu@cixtech.com>
-Date: Sat, 31 Oct 2026 23:04:51 +0530
-Message-Id: <179346809190.7309.2236612395810425367.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=18811; i=mani@kernel.org;
- h=from:subject:message-id; bh=K1f0r23RWRjS0QIPr/Fv+3dftweaM05hv3+K1dGssdI=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq5ia/LNfyGVdiHkX6AsD8eLd24qkPXta6mnvKk
- vDDe4atsqqJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCauYmvwAKCRBVnxHm/pHO
- 9ZC4B/0c9M2wR+CxFv0JbHkQbHlnGNmmNHcZ4a2AdwuJlviiDLjWte3NrVaTqUdYHkJOuXLTsqx
- YO4RXSxfqMSX+3uOYcQP36BCf38CUVXz4M0RJIAAtnKidu3/PRM/i7wYe6TPqZvdfx4jNadiIWu
- oovKmcz6T4hsws5QFItcS33Qxw8A3oU/5ZpCkUDXGZ8Ygnvu3YliWZHbr+9FGo9zzdP6FvlkShj
- UWfuFsD8jmldsKcdmQaXga7gPYqc1STHNP+jfIamjpiff3ZpW4+Hprej7vxImPcKD7RgWjXCzmG
- tu4DZ6fPq/vx4fVROBZcSatDoxB7C0xf69Psof1eEu6a0ZNs
-X-Developer-Key: i=mani@kernel.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Message-Id: <20261031-vchiq-unpin-dirty-v1-2-632d3f1281e0@columbia.edu>
+References: <20261031-vchiq-unpin-dirty-v1-0-632d3f1281e0@columbia.edu>
+In-Reply-To: <20261031-vchiq-unpin-dirty-v1-0-632d3f1281e0@columbia.edu>
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Tal Zussman <tz2294@columbia.edu>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793469152; l=3712;
+ i=tz2294@columbia.edu; s=20250528; h=from:subject:message-id;
+ bh=vFj4hKFrhWMRoV0kZRRhqDRjKJ27bx1QEz2GfvQc7us=;
+ b=yGrjFPBXLe0lK6TZ8lPQ7inx8FHEWC+f9pn2UE4L7Ecdduwmc1oit1qQp/D3jLfTflf6booZf
+ rnY5IBsKL8OCNv+KTHLjMpHETguaaepNNhfgBNORqtnxJ7RTaEfwSJO
+X-Developer-Key: i=tz2294@columbia.edu; a=ed25519;
+ pk=BIj5KdACscEOyAC0oIkeZqLB3L94fzBnDccEooxeM5Y=
+X-Authority-Analysis: v=2.4 cv=d5dgWhjE c=1 sm=1 tr=0 ts=6ae62ae9 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=P+xgYyhW+KadpqoI50EQPQ==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=JR4YdQiviy7OQf72WyZ1:22
+ a=xRIeBTzNsUtmvBibuAEA:9 a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-GUID: hlhi1CJ7UQF4vkO1yw6c8DJ68onBkkuY
+X-Proofpoint-ORIG-GUID: hlhi1CJ7UQF4vkO1yw6c8DJ68onBkkuY
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMxMDA3MSBTYWx0ZWRfX5NRKEOI23FQv
+ EJRMJb9tggEXVz5+kMRm8Xsl6aL+4icvFt/mvAKOZ+NKJrXd1ySkrdcVvDLDn+1b/pSce08QQKL
+ GlRLYJebKpMG1FUdzAxNUZQFclE3Aex/AcxzsFzJtX/M6PeBR2w0
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMxMDA3MSBTYWx0ZWRfX82GI6y9r822U
+ 5i48jTiJynr5YFCX9yty8K6FJOYN45/dmoVSBKf2zcXs40aHngOkq/mvAOn1lHroPekChEVB4kj
+ iB7N52I+nAJ55TLz86/1U80bwEedvv0Gs1LbF0vMk1g9/z+UHJOAoa9R8i13tw8QosV9SlsxZCI
+ C1iD8Icp+DlNh5gidc3kFogDM6sIYIckMNrFUOFWkXyyQs1OlZYI06ja36bJfBZ851qGzuqqFik
+ SeIY2P3XshzycnKnHC5p1ft28/tDc+8193PyUefdYVMz5dizWkGvjRSzlLB/NUG+BNapgC3MmpA
+ irqSkYWBv/FwjtW8PvVGWpclI0Tt7ukbKW6NaTjowMhIqnRpGvEMk2m22pWke0j//3Il3qm6E/X
+ mpTJ0D0/VTelI5hwkDVGmUK1e050yZ5A2hFQ+MrifanjXXmCxLnEXBsVlzNhR6pInrh0FsvVHV4
+ GBl6Nx4uzuENHIhNrsw==
+X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11952
+ signatures=596817
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=10 lowpriorityscore=10 clxscore=1015 priorityscore=1501
+ adultscore=0 suspectscore=0 spamscore=0 malwarescore=0 impostorscore=10
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610300000
+ definitions=main-2610310071
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261031_105242_120016_B55CB304 
+X-CRM114-Status: GOOD (  15.85  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,517 +162,103 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-10-13 17:58 +0800, Luo Liu wrote:
-> Add a PHY driver for the CIX Sky1 dedicated DisplayPort PMA. Support
-> link rate, lane count, SSC and voltage swing via the generic PHY DP
-> ops. Load PMA tables in phy_init and enable the analog path in
-> phy_power_on so configure can run before power-on.
-> 
-> Signed-off-by: Luo Liu <Luo.Liu@cixtech.com>
-> ---
->  drivers/phy/Kconfig          |   1 +
->  drivers/phy/Makefile         |   1 +
->  drivers/phy/cix/Kconfig      |  18 +
->  drivers/phy/cix/Makefile     |   2 +
->  drivers/phy/cix/phy-cix-dp.c | 987 +++++++++++++++++++++++++++++++++++
->  5 files changed, 1009 insertions(+)
->  create mode 100644 drivers/phy/cix/Kconfig
->  create mode 100644 drivers/phy/cix/Makefile
->  create mode 100644 drivers/phy/cix/phy-cix-dp.c
-> 
-> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-> index 19f3b7d12b7d..cb0d4be47628 100644
-> --- a/drivers/phy/Kconfig
-> +++ b/drivers/phy/Kconfig
-> @@ -175,6 +175,7 @@ source "drivers/phy/axiado/Kconfig"
->  source "drivers/phy/broadcom/Kconfig"
->  source "drivers/phy/cadence/Kconfig"
->  source "drivers/phy/canaan/Kconfig"
-> +source "drivers/phy/cix/Kconfig"
->  source "drivers/phy/eswin/Kconfig"
->  source "drivers/phy/freescale/Kconfig"
->  source "drivers/phy/hisilicon/Kconfig"
-> diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-> index d7aa516bcc49..6fd0f3910018 100644
-> --- a/drivers/phy/Makefile
-> +++ b/drivers/phy/Makefile
-> @@ -27,6 +27,7 @@ obj-$(CONFIG_GENERIC_PHY)		+= allwinner/	\
->  					   broadcom/	\
->  					   cadence/	\
->  					   canaan/	\
-> +					   cix/		\
->  					   eswin/	\
->  					   freescale/	\
->  					   hisilicon/	\
-> diff --git a/drivers/phy/cix/Kconfig b/drivers/phy/cix/Kconfig
-> new file mode 100644
-> index 000000000000..0e429e2790bf
-> --- /dev/null
-> +++ b/drivers/phy/cix/Kconfig
-> @@ -0,0 +1,18 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +#
-> +# Phy drivers for CIX PHYs
-> +#
-> +
-> +config PHY_CIX_DP
-> +	tristate "CIX Sky1 DP PHY driver"
-> +	depends on OF && HAS_IOMEM
-> +	depends on ARCH_CIX || COMPILE_TEST
-> +	select GENERIC_PHY
-> +	help
-> +	  Say Y here to enable the dedicated DisplayPort PHY used by the CIX
-> +	  Sky1 DisplayPort controller. The PHY provides the physical layer
-> +	  used by the dedicated DisplayPort output and supports link rates
-> +	  up to HBR3.
-> +
-> +	  To compile this driver as a module, choose M here. The module will
-> +	  be called phy-cix-dp.
-> diff --git a/drivers/phy/cix/Makefile b/drivers/phy/cix/Makefile
-> new file mode 100644
-> index 000000000000..cc56c7586ec5
-> --- /dev/null
-> +++ b/drivers/phy/cix/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +obj-$(CONFIG_PHY_CIX_DP) += phy-cix-dp.o
-> diff --git a/drivers/phy/cix/phy-cix-dp.c b/drivers/phy/cix/phy-cix-dp.c
-> new file mode 100644
-> index 000000000000..4cc8f5e715f0
-> --- /dev/null
-> +++ b/drivers/phy/cix/phy-cix-dp.c
-> @@ -0,0 +1,987 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * CIX DP PHY driver
-> + *
-> + * Copyright (C) 2023 Trilinear Technologies
-> + * Copyright 2024 Cix Technology Group Co., Ltd.
+free_pagelist() dirties the pages of a completed read with
+set_page_dirty() before cleanup_pagelistinfo() unpins them. The pages
+are pinned user memory that can be file backed, so they need to be
+dirtied under the folio lock.
 
-I don't really care about your copyright, but shouldn't the year be updated to
-2026?
+Pass a dirty flag to cleanup_pagelistinfo() and have it unpin with
+unpin_user_pages_dirty_lock(), which marks each folio dirty once and
+drops its pins in one go. The error paths in create_pagelist() pass
+false.
 
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/module.h>
-> +#include <linux/phy/phy.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/reset.h>
-> +
-> +#define CIX_DP_PHY_ID_REV_REG			0xfc
-> +#define CIX_DP_PHY_ID				0x4d
-> +#define CIX_DP_PHY_PWR_STATE_IDLE		0x0000
-> +#define CIX_DP_PHY_PWR_STATE_A0_TXRX_ACTIVE	0x0001
-> +#define CIX_DP_PHY_PWR_STATE_A2_POWERDOWN2	0x0004
-> +#define CIX_DP_PHY_PWR_STATE_A3_POWERDOWN3	0x0008
-> +
-> +#define CIX_DP_CDB_ADDR				0x0000
-> +#define CIX_DP_CDB_WDATA			0x0004
-> +#define CIX_DP_CDB_SEL_WR			0x0008
-> +#define CIX_DP_CDB_READY			0x000c
-> +#define CIX_DP_CDB_RDATA			0x0010
-> +#define CIX_DP_CDB_RSTN				0x0014
-> +#define CIX_DP_CDB_ENABLE			0x0018
-> +#define CIX_DP_CDB_SEL_READ			0x2
-> +#define CIX_DP_CDB_SEL_WRITE			0x3
-> +
-> +#define CIX_DP_NUM_LANES			4
-> +#define CIX_DP_POLL_SLEEP_US			10
-> +#define CIX_DP_POLL_TIMEOUT_US			100000
-> +#define CIX_DP_PWR_TIMEOUT_US			10000
+This removes the last use of set_page_dirty() in vchiq.
 
-Move these 4 defines to the end of all defines or leave a newline here itself.
+Signed-off-by: Tal Zussman <tz2294@columbia.edu>
+---
+ .../raspberrypi/vchiq-interface/vchiq_core.c       | 25 ++++++++--------------
+ 1 file changed, 9 insertions(+), 16 deletions(-)
 
-> +#define CIX_DP_PHY_CONFIG_RSTN			0x0040
-> +#define CIX_DP_PHY_CMN_READY			0x0044
-> +#define CIX_DP_PHY_LANE_EN_BITS			0x0048
-> +#define CIX_DP_PHY_LANE_RSTN_BITS		0x004c
-> +#define CIX_DP_PHY_DATA_ENABLE			0x0050
-> +#define CIX_DP_AUXHPD_ENABLE_BITS		0x0054
-> +#define CIX_DP_TX_ELEC_IDLE_BITS		0x0058
-> +#define CIX_DP_PHY_LANE_PWR_STATE_REQ		0x0060
-> +#define CIX_DP_PHY_LANE_PWR_STATE_ACK		0x0064
-> +#define CIX_DP_PHY_LANE_PLLCLK_ENABLE		0x0068
-> +#define CIX_DP_PHY_LANE_PLLCLK_EN_ACK		0x006c
-> +
-> +#define CIX_DP_PHY_PLL_CFG			0xc00e
-> +#define CIX_DP_PHY_PMA_CMN_CTRL2		0xe001
-> +#define CIX_DP_PHY_PMA_PLL_RAW_CTRL		0xe003
-> +
-> +/* Common (CMN) registers */
-> +#define CIX_DP_CMN_SSM_BIAS_TMR			0x0022
-> +#define CIX_DP_CMN_PLLSM0_PLLPRE_TMR		0x002a
-> +#define CIX_DP_CMN_PLLSM0_PLLLOCK_TMR		0x002c
-> +#define CIX_DP_CMN_PLLSM1_PLLPRE_TMR		0x0032
-> +#define CIX_DP_CMN_PLLSM1_PLLLOCK_TMR		0x0034
-> +#define CIX_DP_CMN_BGCAL_INIT_TMR		0x0064
-> +#define CIX_DP_CMN_BGCAL_ITER_TMR		0x0065
-> +#define CIX_DP_CMN_IBCAL_INIT_TMR		0x0074
-> +#define CIX_DP_CMN_PLL0_VCOCAL_TCTRL		0x0082
-> +#define CIX_DP_CMN_PLL0_VCOCAL_INIT_TMR		0x0084
-> +#define CIX_DP_CMN_PLL0_VCOCAL_ITER_TMR		0x0085
-> +#define CIX_DP_CMN_PLL0_VCOCAL_REFTIM_START	0x0086
-> +#define CIX_DP_CMN_PLL0_VCOCAL_PLLCNT_START	0x0088
-> +#define CIX_DP_CMN_PLL0_LOCK_REFCNT_START	0x009c
-> +#define CIX_DP_CMN_PLL0_LOCK_PLLCNT_START	0x009e
-> +#define CIX_DP_CMN_PLL0_LOCK_PLLCNT_THR		0x009f
-> +#define CIX_DP_CMN_PLL0_INTDIV_M0		0x0090
-> +#define CIX_DP_CMN_PLL0_FRACDIVL_M0		0x0091
-> +#define CIX_DP_CMN_PLL0_FRACDIVH_M0		0x0092
-> +#define CIX_DP_CMN_PLL0_HIGH_THR_M0		0x0093
-> +#define CIX_DP_CMN_PLL0_DSM_DIAG_M0		0x0094
-> +#define CIX_DP_CMN_PLL0_SS_CTRL1_M0		0x0098
-> +#define CIX_DP_CMN_PLL0_SS_CTRL2_M0		0x0099
-> +#define CIX_DP_CMN_PLL0_SS_CTRL3_M0		0x009a
-> +#define CIX_DP_CMN_PLL0_SS_CTRL4_M0		0x009b
-> +#define CIX_DP_CMN_PLL1_VCOCAL_TCTRL		0x00c2
-> +#define CIX_DP_CMN_PLL1_VCOCAL_INIT_TMR		0x00c4
-> +#define CIX_DP_CMN_PLL1_VCOCAL_ITER_TMR		0x00c5
-> +#define CIX_DP_CMN_PLL1_VCOCAL_REFTIM_START	0x00c6
-> +#define CIX_DP_CMN_PLL1_VCOCAL_PLLCNT_START	0x00c8
-> +#define CIX_DP_CMN_PLL1_LOCK_REFCNT_START	0x00dc
-> +#define CIX_DP_CMN_PLL1_LOCK_PLLCNT_START	0x00de
-> +#define CIX_DP_CMN_PLL1_LOCK_PLLCNT_THR		0x00df
-> +#define CIX_DP_CMN_PLL1_INTDIV_M0		0x00d0
-> +#define CIX_DP_CMN_PLL1_FRACDIVL_M0		0x00d1
-> +#define CIX_DP_CMN_PLL1_FRACDIVH_M0		0x00d2
-> +#define CIX_DP_CMN_PLL1_HIGH_THR_M0		0x00d3
-> +#define CIX_DP_CMN_PLL1_DSM_DIAG_M0		0x00d4
-> +#define CIX_DP_CMN_PLL1_SS_CTRL1_M0		0x00d8
-> +#define CIX_DP_CMN_PLL1_SS_CTRL2_M0		0x00d9
-> +#define CIX_DP_CMN_PLL1_SS_CTRL3_M0		0x00da
-> +#define CIX_DP_CMN_PLL1_SS_CTRL4_M0		0x00db
-> +#define CIX_DP_CMN_TXPUCAL_INIT_TMR		0x0104
-> +#define CIX_DP_CMN_TXPDCAL_INIT_TMR		0x010c
-> +#define CIX_DP_CMN_RXCAL_INIT_TMR		0x0114
-> +#define CIX_DP_CMN_SD_CAL_PLLCNT_START		0x0128
-> +#define CIX_DP_CMN_PDIAG_PLL0_CTRL_M0		0x01a0
-> +#define CIX_DP_CMN_PDIAG_PLL0_CLK_SEL_M0	0x01a1
-> +#define CIX_DP_CMN_PDIAG_PLL0_CP_PADJ_M0	0x01a4
-> +#define CIX_DP_CMN_PDIAG_PLL0_CP_IADJ_M0	0x01a5
-> +#define CIX_DP_CMN_PDIAG_PLL0_FILT_PADJ_M0	0x01a6
-> +#define CIX_DP_CMN_PDIAG_PLL1_CTRL_M0		0x01c0
-> +#define CIX_DP_CMN_PDIAG_PLL1_CP_PADJ_M0	0x01c4
-> +#define CIX_DP_CMN_PDIAG_PLL1_CP_IADJ_M0	0x01c5
-> +#define CIX_DP_CMN_PDIAG_PLL1_FILT_PADJ_M0	0x01c6
-> +
-> +/* Lane / TX / RX / XCVR registers */
-> +#define CIX_DP_TX_TXCC_CTRL			0x4040
-> +#define CIX_DP_TX_TXCC_CPOST_MULT_00		0x404c
-> +#define CIX_DP_TX_TXCC_MGNFS_MULT_000		0x4050
-> +#define CIX_DP_XCVR_DIAG_PLLDRC_CTRL		0x40e5
-> +#define CIX_DP_XCVR_DIAG_HSCLK_DIV		0x40e7
-> +#define CIX_DP_XCVR_DIAG_BIDI_CTRL		0x40ea
-> +#define CIX_DP_DRV_DIAG_TX_DRV			0x40c6
-> +#define CIX_DP_TX_PSC_A0			0x4100
-> +#define CIX_DP_TX_PSC_A2			0x4102
-> +#define CIX_DP_TX_PSC_A3			0x4103
-> +#define CIX_DP_RX_ST_TMR			0x4123
-> +#define CIX_DP_TX_DIAG_ACYA			0x41e7
-> +#define CIX_DP_RX_PSC_A0			0x8000
-> +#define CIX_DP_RX_PSC_A2			0x8002
-> +#define CIX_DP_RX_PSC_A3			0x8003
-> +#define CIX_DP_RX_PSC_CAL			0x8006
-> +#define CIX_DP_RX_SDCAL0_INIT_TMR		0x8044
-> +#define CIX_DP_RX_SDCAL0_ITER_TMR		0x8045
-> +#define CIX_DP_RX_SDCAL1_INIT_TMR		0x804c
-> +#define CIX_DP_RX_SDCAL1_ITER_TMR		0x804d
-> +#define CIX_DP_RX_REE_GCSM1_CTRL		0x8108
-> +#define CIX_DP_RX_REE_GCSM2_CTRL		0x8110
-> +#define CIX_DP_RX_REE_PERGCSM_CTRL		0x8118
-> +
-> +/* PMA bit defines */
-> +#define CIX_DP_PMA_CMN_CTRL2_PLL0_READY_BIT	BIT(0)
-> +#define CIX_DP_PMA_CMN_CTRL2_PLL0_DISABLED_BIT	BIT(2)
-> +#define CIX_DP_PMA_PLL_RAW_CTRL_PLL0_FORCE_RSTN	BIT(0)
-> +
-> +#define CIX_DP_LANE_OFFSET(x) \
-> +	((x) * 0x0200)
-> +#define CIX_DP_XCVR_DIAG_HSCLK_DIV_LANE(x) \
-> +	(CIX_DP_XCVR_DIAG_HSCLK_DIV + CIX_DP_LANE_OFFSET(x))
-> +#define CIX_DP_TX_DIAG_ACYA_LANE(x) \
-> +	(CIX_DP_TX_DIAG_ACYA + CIX_DP_LANE_OFFSET(x))
-> +#define CIX_DP_TX_TXCC_CTRL_LANE(x) \
-> +	(CIX_DP_TX_TXCC_CTRL + CIX_DP_LANE_OFFSET(x))
-> +#define CIX_DP_DRV_DIAG_TX_DRV_LANE(x) \
-> +	(CIX_DP_DRV_DIAG_TX_DRV + CIX_DP_LANE_OFFSET(x))
-> +#define CIX_DP_TX_TXCC_MGNFS_MULT_000_LANE(x) \
-> +	(CIX_DP_TX_TXCC_MGNFS_MULT_000 + CIX_DP_LANE_OFFSET(x))
-> +#define CIX_DP_TX_TXCC_CPOST_MULT_00_LANE(x) \
-> +	(CIX_DP_TX_TXCC_CPOST_MULT_00 + CIX_DP_LANE_OFFSET(x))
-> +
-> +enum cix_dp_pwr {
-> +	CIX_DP_PWR_A0,
-> +	CIX_DP_PWR_A2,
-> +	CIX_DP_PWR_A3,
-> +};
-> +
-> +struct cix_dp {
-> +	struct phy *phy;
-> +	struct reset_control *reset;
-> +	void __iomem *base;
-> +	bool is_edp;
-> +	bool powered;
-> +	unsigned int num_lanes;
+diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
+index 3ae4ee2973de..931feb54d6ea 100644
+--- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
++++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
+@@ -1456,7 +1456,8 @@ poll_services(struct vchiq_state *state)
+ }
+ 
+ static void
+-cleanup_pagelistinfo(struct vchiq_instance *instance, struct vchiq_pagelist_info *pagelistinfo)
++cleanup_pagelistinfo(struct vchiq_instance *instance, struct vchiq_pagelist_info *pagelistinfo,
++		     bool dirty)
+ {
+ 	if (pagelistinfo->scatterlist_mapped) {
+ 		dma_unmap_sg(instance->state->dev, pagelistinfo->scatterlist,
+@@ -1464,7 +1465,8 @@ cleanup_pagelistinfo(struct vchiq_instance *instance, struct vchiq_pagelist_info
+ 	}
+ 
+ 	if (pagelistinfo->pages_need_release)
+-		unpin_user_pages(pagelistinfo->pages, pagelistinfo->num_pages);
++		unpin_user_pages_dirty_lock(pagelistinfo->pages, pagelistinfo->num_pages,
++					    dirty);
+ 
+ 	dma_free_coherent(instance->state->dev, pagelistinfo->pagelist_buffer_size,
+ 			  pagelistinfo->pagelist, pagelistinfo->dma_addr);
+@@ -1578,7 +1580,7 @@ create_pagelist(struct vchiq_instance *instance, struct vchiq_bulk *bulk)
+ 			size_t bytes = PAGE_SIZE - off;
+ 
+ 			if (!pg) {
+-				cleanup_pagelistinfo(instance, pagelistinfo);
++				cleanup_pagelistinfo(instance, pagelistinfo, false);
+ 				return NULL;
+ 			}
+ 
+@@ -1601,7 +1603,7 @@ create_pagelist(struct vchiq_instance *instance, struct vchiq_bulk *bulk)
+ 			/* This is probably due to the process being killed */
+ 			if (actual_pages > 0)
+ 				unpin_user_pages(pages, actual_pages);
+-			cleanup_pagelistinfo(instance, pagelistinfo);
++			cleanup_pagelistinfo(instance, pagelistinfo, false);
+ 			return NULL;
+ 		}
+ 		 /* release user pages */
+@@ -1630,7 +1632,7 @@ create_pagelist(struct vchiq_instance *instance, struct vchiq_bulk *bulk)
+ 				 pagelistinfo->dma_dir);
+ 
+ 	if (dma_buffers == 0) {
+-		cleanup_pagelistinfo(instance, pagelistinfo);
++		cleanup_pagelistinfo(instance, pagelistinfo, false);
+ 		return NULL;
+ 	}
+ 
+@@ -1664,7 +1666,7 @@ create_pagelist(struct vchiq_instance *instance, struct vchiq_bulk *bulk)
+ 		char *fragments;
+ 
+ 		if (down_interruptible(&drv_mgmt->free_fragments_sema)) {
+-			cleanup_pagelistinfo(instance, pagelistinfo);
++			cleanup_pagelistinfo(instance, pagelistinfo, false);
+ 			return NULL;
+ 		}
+ 
+@@ -1739,16 +1741,7 @@ free_pagelist(struct vchiq_instance *instance, struct vchiq_pagelist_info *pagel
+ 		up(&drv_mgmt->free_fragments_sema);
+ 	}
+ 
+-	/* Need to mark all the pages dirty. */
+-	if (pagelist->type != PAGELIST_WRITE &&
+-	    pagelistinfo->pages_need_release) {
+-		unsigned int i;
+-
+-		for (i = 0; i < num_pages; i++)
+-			set_page_dirty(pages[i]);
+-	}
+-
+-	cleanup_pagelistinfo(instance, pagelistinfo);
++	cleanup_pagelistinfo(instance, pagelistinfo, pagelist->type != PAGELIST_WRITE);
+ }
+ 
+ static int
 
-Move bool to the end.
-
-> +};
-> +
-> +struct cix_dp_link_cfg {
-> +	u32 link_rate;
-> +	u32 hsclk_div;
-> +	u32 clk_sel;
-> +	u32 pll_intdiv;
-> +	u32 pll_fracdivl;
-> +	u32 pll_high_thr;
-> +};
-> +
-> +struct cix_dp_reg {
-> +	u32 reg;
-> +	u32 val;
-> +	bool per_lane;
-> +};
-> +
-> +struct cix_dp_voltage_conf {
-> +	u32 tx_txcc_ctrl;
-> +	u32 drv_diag_tx_drv;
-> +	u32 tx_txcc_mgnfs_mult_000;
-> +	u32 tx_txcc_cpost_mult_00;
-> +};
-> +
-> +static const struct cix_dp_voltage_conf cix_dp_volt_cfg[] = {
-> +	{ 0x08a4, 0x0003, 0x002a, 0x0000 }, /* swing level == 0 */
-> +	{ 0x08a4, 0x0003, 0x001f, 0x0014 },
-> +	{ 0x08a4, 0x0003, 0x0013, 0x0020 },
-> +	{ 0x08a4, 0x0003, 0x000a, 0x002a },
-> +	{ 0x08a4, 0x0003, 0x001f, 0x0000 }, /* swing level == 1 */
-> +	{ 0x08a4, 0x0003, 0x0013, 0x0012 },
-> +	{ 0x08a4, 0x0003, 0x0000, 0x001f },
-> +	{ 0x08a4, 0x0003, 0x0000, 0x001f },
-> +	{ 0x08a4, 0x0003, 0x0013, 0x0000 }, /* swing level == 2 */
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0013 },
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0013 },
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0013 },
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0000 }, /* swing level == 3 */
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0000 },
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0000 },
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0000 },
-> +};
-> +
-> +static const struct cix_dp_voltage_conf cix_dp_volt_low_cfg[] = {
-> +	{ 0x08a4, 0x0003, 0x002f, 0x0000 }, /* swing level == 0 */
-> +	{ 0x08a4, 0x0003, 0x002a, 0x000d },
-> +	{ 0x08a4, 0x0003, 0x0026, 0x0015 },
-> +	{ 0x08a4, 0x0003, 0x0022, 0x001b },
-> +	{ 0x08a4, 0x0003, 0x002b, 0x0000 }, /* swing level == 1 */
-> +	{ 0x08a4, 0x0003, 0x0027, 0x000b },
-> +	{ 0x08a4, 0x0003, 0x0023, 0x0012 },
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0000 },
-> +	{ 0x08a4, 0x0003, 0x0027, 0x0000 }, /* swing level == 2 */
-> +	{ 0x08a4, 0x0003, 0x0023, 0x0009 },
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0000 },
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0000 },
-> +	{ 0x08a4, 0x0003, 0x0023, 0x0000 }, /* swing level == 3 */
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0000 },
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0000 },
-> +	{ 0x08a4, 0x0003, 0x0000, 0x0000 },
-> +};
-> +
-> +/* Default PHY programming, including SSC enabled (SS_CTRL1 = 0x1). */
-> +static const struct cix_dp_reg cix_dp_reg_conf[] = {
-> +	{ CIX_DP_CMN_SSM_BIAS_TMR, 0x0018 },
-> +	{ CIX_DP_CMN_PLLSM0_PLLPRE_TMR, 0x0030 },
-> +	{ CIX_DP_CMN_PLLSM0_PLLLOCK_TMR, 0x00f0 },
-> +	{ CIX_DP_CMN_PLLSM1_PLLPRE_TMR, 0x0030 },
-> +	{ CIX_DP_CMN_PLLSM1_PLLLOCK_TMR, 0x00f0 },
-> +	{ CIX_DP_CMN_BGCAL_INIT_TMR, 0x0078 },
-> +	{ CIX_DP_CMN_BGCAL_ITER_TMR, 0x0078 },
-> +	{ CIX_DP_CMN_IBCAL_INIT_TMR, 0x0018 },
-> +	{ CIX_DP_CMN_TXPUCAL_INIT_TMR, 0x001d },
-> +	{ CIX_DP_CMN_TXPDCAL_INIT_TMR, 0x001d },
-> +	{ CIX_DP_CMN_RXCAL_INIT_TMR, 0x02d0 },
-> +	{ CIX_DP_CMN_SD_CAL_PLLCNT_START, 0x0137 },
-> +	{ CIX_DP_RX_SDCAL0_INIT_TMR, 0x0018, true },
-> +	{ CIX_DP_RX_SDCAL0_ITER_TMR, 0x0078, true },
-> +	{ CIX_DP_RX_SDCAL1_INIT_TMR, 0x0018, true },
-> +	{ CIX_DP_RX_SDCAL1_ITER_TMR, 0x0078, true },
-> +	{ CIX_DP_RX_ST_TMR, 0x0960, true },
-> +	{ CIX_DP_PHY_PLL_CFG, 0x0000 },
-> +	{ CIX_DP_XCVR_DIAG_HSCLK_DIV, 0x0000, true },
-> +	{ CIX_DP_XCVR_DIAG_PLLDRC_CTRL, 0x0011, true },
-> +	{ CIX_DP_CMN_PLL0_DSM_DIAG_M0, 0x8004 },
-> +	{ CIX_DP_CMN_PLL1_DSM_DIAG_M0, 0x0004 },
-> +	{ CIX_DP_CMN_PDIAG_PLL0_CP_PADJ_M0, 0x0b17 },
-> +	{ CIX_DP_CMN_PDIAG_PLL1_CP_PADJ_M0, 0x0b17 },
-> +	{ CIX_DP_CMN_PDIAG_PLL0_CP_IADJ_M0, 0x0e01 },
-> +	{ CIX_DP_CMN_PDIAG_PLL1_CP_IADJ_M0, 0x0e01 },
-> +	{ CIX_DP_CMN_PDIAG_PLL0_FILT_PADJ_M0, 0x0d05 },
-> +	{ CIX_DP_CMN_PDIAG_PLL1_FILT_PADJ_M0, 0x0d05 },
-> +	{ CIX_DP_CMN_PLL0_INTDIV_M0, 0x01c2 },
-> +	{ CIX_DP_CMN_PLL1_INTDIV_M0, 0x014d },
-> +	{ CIX_DP_CMN_PLL1_FRACDIVL_M0, 0x5555 },
-> +	{ CIX_DP_CMN_PLL0_FRACDIVH_M0, 0x0002 },
-> +	{ CIX_DP_CMN_PLL1_FRACDIVH_M0, 0x0002 },
-> +	{ CIX_DP_CMN_PLL0_HIGH_THR_M0, 0x012c },
-> +	{ CIX_DP_CMN_PLL1_HIGH_THR_M0, 0x00e0 },
-> +	{ CIX_DP_CMN_PDIAG_PLL0_CTRL_M0, 0x1002 },
-> +	{ CIX_DP_CMN_PDIAG_PLL1_CTRL_M0, 0x1002 },
-> +	{ CIX_DP_CMN_PLL0_SS_CTRL1_M0, 0x0001 },
-> +	{ CIX_DP_CMN_PLL1_SS_CTRL1_M0, 0x0001 },
-> +	{ CIX_DP_CMN_PLL0_SS_CTRL2_M0, 0x044f },
-> +	{ CIX_DP_CMN_PLL1_SS_CTRL2_M0, 0x03c7 },
-> +	{ CIX_DP_CMN_PLL0_SS_CTRL3_M0, 0x007f },
-> +	{ CIX_DP_CMN_PLL1_SS_CTRL3_M0, 0x007f },
-> +	{ CIX_DP_CMN_PLL0_SS_CTRL4_M0, 0x0003 },
-> +	{ CIX_DP_CMN_PLL1_SS_CTRL4_M0, 0x0003 },
-> +	{ CIX_DP_CMN_PLL0_VCOCAL_INIT_TMR, 0x00f0 },
-> +	{ CIX_DP_CMN_PLL1_VCOCAL_INIT_TMR, 0x00f0 },
-> +	{ CIX_DP_CMN_PLL0_VCOCAL_ITER_TMR, 0x0004 },
-> +	{ CIX_DP_CMN_PLL1_VCOCAL_ITER_TMR, 0x0004 },
-> +	{ CIX_DP_CMN_PLL0_VCOCAL_REFTIM_START, 0x02f8 },
-> +	{ CIX_DP_CMN_PLL1_VCOCAL_REFTIM_START, 0x02f8 },
-> +	{ CIX_DP_CMN_PLL0_VCOCAL_PLLCNT_START, 0x02f6 },
-> +	{ CIX_DP_CMN_PLL1_VCOCAL_PLLCNT_START, 0x02f6 },
-> +	{ CIX_DP_CMN_PLL0_VCOCAL_TCTRL, 0x0003 },
-> +	{ CIX_DP_CMN_PLL1_VCOCAL_TCTRL, 0x0003 },
-> +	{ CIX_DP_CMN_PLL0_LOCK_REFCNT_START, 0x00bf },
-> +	{ CIX_DP_CMN_PLL1_LOCK_REFCNT_START, 0x00bf },
-> +	{ CIX_DP_CMN_PLL0_LOCK_PLLCNT_START, 0x00bf },
-> +	{ CIX_DP_CMN_PLL1_LOCK_PLLCNT_START, 0x00bf },
-> +	{ CIX_DP_CMN_PLL0_LOCK_PLLCNT_THR, 0x0005 },
-> +	{ CIX_DP_CMN_PLL1_LOCK_PLLCNT_THR, 0x0005 },
-> +	{ CIX_DP_TX_PSC_A0, 0x00fb, true },
-> +	{ CIX_DP_TX_PSC_A2, 0x04aa, true },
-> +	{ CIX_DP_TX_PSC_A3, 0x04aa, true },
-> +	{ CIX_DP_RX_PSC_A0, 0x0000, true },
-> +	{ CIX_DP_RX_PSC_A2, 0x0000, true },
-> +	{ CIX_DP_RX_PSC_A3, 0x0000, true },
-> +	{ CIX_DP_RX_PSC_CAL, 0x0000, true },
-> +	{ CIX_DP_XCVR_DIAG_BIDI_CTRL, 0x000f, true },
-> +	{ CIX_DP_RX_REE_GCSM1_CTRL, 0x0000, true },
-> +	{ CIX_DP_RX_REE_GCSM2_CTRL, 0x0000, true },
-> +	{ CIX_DP_RX_REE_PERGCSM_CTRL, 0x0000, true },
-> +};
-> +
-> +/*
-> + * Supported DisplayPort link rates in Mb/s. 2160 and 4320 listed by
-> + * phy-dp.h are not implemented on this PHY.
-> + */
-> +static const struct cix_dp_link_cfg cix_dp_link_cfg[] = {
-> +	{ 1620, 0x0002, 0x0f01, 0x0195, 0x0000, 0x010e },
-> +	{ 2430, 0x0001, 0x0701, 0x0195, 0x0000, 0x010e },
-> +	{ 2700, 0x0001, 0x0701, 0x01c2, 0x0000, 0x012c },
-> +	{ 3240, 0x0002, 0x0b00, 0x0195, 0x0000, 0x010e },
-> +	{ 5400, 0x0000, 0x0301, 0x01c2, 0x0000, 0x012c },
-> +	{ 8100, 0x0000, 0x0200, 0x0151, 0x8000, 0x00e2 },
-> +};
-> +
-> +/*
-> + * Sky1 routes 1- and 2-lane DP through physical lanes 2/3, not 0/1.
-> + * phy-dp.h describes logical lanes starting from lane 0; map them with
-> + * +2 so enable/reset masks and voltage programming hit the wired pads.
-> + */
-> +static u32 cix_dp_phy_lane_bits(unsigned int lanes)
-> +{
-> +	switch (lanes) {
-> +	case 1:
-> +		return BIT(2);
-> +	case 2:
-> +		return BIT(2) | BIT(3);
-> +	case 4:
-> +		return GENMASK(3, 0);
-> +	default:
-> +		return 0;
-> +	}
-> +}
-> +
-> +static void cix_dp_phy_write(struct cix_dp *dp, u32 offset, u32 value)
-> +{
-> +	writel(value, dp->base + offset);
-> +}
-> +
-> +static int cix_dp_phy_cdb_ready(struct cix_dp *dp)
-> +{
-> +	u32 value;
-> +
-> +	return readl_poll_timeout(dp->base + CIX_DP_CDB_READY, value,
-> +				  value & BIT(0), CIX_DP_POLL_SLEEP_US,
-> +				  CIX_DP_POLL_TIMEOUT_US);
-> +}
-> +
-> +/*
-> + * After kicking CDB_ENABLE, READY may stay high for a few clocks before the
-> + * IP drops it. Poll tightly for busy so a stale READY=1 is not taken as
-> + * completion. The busy pulse can be shorter than a sleeping poll, so ignore
-> + * a missed busy and still wait for idle.
-> + */
-> +static int cix_dp_phy_cdb_complete(struct cix_dp *dp)
-> +{
-> +	u32 value;
-> +
-> +	readl_poll_timeout_atomic(dp->base + CIX_DP_CDB_READY, value,
-> +				  !(value & BIT(0)), 0, 1);
-> +
-> +	return cix_dp_phy_cdb_ready(dp);
-> +}
-> +
-> +static int cix_dp_phy_cdb_write(struct cix_dp *dp, u32 offset, u32 data)
-> +{
-> +	int ret;
-> +
-> +	ret = cix_dp_phy_cdb_ready(dp);
-> +	if (ret)
-> +		return ret;
-> +
-> +	writel(offset, dp->base + CIX_DP_CDB_ADDR);
-> +	writel(data, dp->base + CIX_DP_CDB_WDATA);
-> +	writel(CIX_DP_CDB_SEL_WRITE, dp->base + CIX_DP_CDB_SEL_WR);
-> +	writel(1, dp->base + CIX_DP_CDB_ENABLE);
-> +
-> +	return cix_dp_phy_cdb_complete(dp);
-> +}
-> +
-> +static int cix_dp_phy_cdb_read(struct cix_dp *dp, u32 offset)
-> +{
-> +	int ret;
-> +
-> +	ret = cix_dp_phy_cdb_ready(dp);
-> +	if (ret)
-> +		return ret;
-> +
-> +	writel(offset, dp->base + CIX_DP_CDB_ADDR);
-> +	writel(CIX_DP_CDB_SEL_READ, dp->base + CIX_DP_CDB_SEL_WR);
-> +	writel(1, dp->base + CIX_DP_CDB_ENABLE);
-
-Add a define for BIT(0)
-
-> +
-> +	ret = cix_dp_phy_cdb_complete(dp);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return readl(dp->base + CIX_DP_CDB_RDATA) & GENMASK(15, 0);
-> +}
-> +
-
-[...]
-
-> +static int cix_dp_hw_power_on(struct cix_dp *dp)
-> +{
-> +	int ret;
-> +
-> +	if (dp->powered)
-
-Why do you need this check? PHY core does its own refcount. So smells like you
-have a race in the driver.
-
-Rest LGTM!
-
-- Mani
-
+-- 
+2.39.5
 
 
