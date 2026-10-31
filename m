@@ -2,99 +2,126 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50EA9606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 01:07:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D835606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 01:08:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xwf4U/5/;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jgCKXfHs
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ppLT2EMl;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Bsg76F/n
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=xT9iMK/3RSde+zBTAQleC9VvYEhHkZyaWiIqI8wE2FM=; b=Xwf4U/5/p/bMhzotapHF9N0+xW
-	T0LUHk7nipsoPBKK59ugZ+6MV7yDZVg7Im01gP93pKSTceYtIeqw995EzW5plXW+C8zQJmMquhG01
-	OpmwNQ3kOims7PBLAG0nS7QMK96GjSNT9DH2n3+odyauuQGRwj4k62wFK0U8jBFwXMMAMbQU5eW7/
-	MJCl15bsRB27IcqtJRrJpO/Zdcvbb9Y2lAYS4JzKuNDNeJKkYzyfQ58snkg7QFtEHBFVl2XrApeL0
-	8Bq5Rp7XyVBGQ/yS9JwSPzdozAm7FiSSZeWwgz4MrjlwV9OQJYB0c0g0XztUR9IyACbV073aZ+Pzi
-	gZXbVR7Q==;
+	bh=RwzR5McN88CII9Iz/WY42q8HfyvrScWxXGYHM1MqfO8=; b=ppLT2EMl/XTEUh+xyBnz8xYvgF
+	pte83V6UY7FbkkcgHOAorJ09aqNqiwfLtwrQBHY2V2d4wAYMTzM3wGobWyJ+Lr4hAmx+l90xlM+St
+	LeG1cbE21RK6CXvWzSVPoCkxZUx1WYk04UN4xK/LNf1V1OTD/R2T5bl2Z9PMNx7A270OHZjIQ3Y6o
+	rZ6TEXLMJ7s9nJgeeheOHtpoXYusShmE7KnhTydj508U4TitmwYIujsC8EW9RvIYckYpIemi0l2RZ
+	JsG1dZL8+dTS3nHO0vtTK6hvZ3rl9IdQqZlo3BoVOLgyZvb6QQ2p4MQHlUQyPte4q0I5HCVPydNME
+	QBEmlQzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMxYq-0000000CoNF-1grs;
-	Sat, 31 Oct 2026 01:07:08 +0000
-Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
+	id 1xMxZb-0000000CoSc-3Fjj;
+	Sat, 31 Oct 2026 01:07:55 +0000
+Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMxYn-0000000CoMr-3zav
+	id 1xMxZW-0000000CoRN-0pyu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 01:07:07 +0000
-Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-3282db206d3so517625eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 18:07:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793408825; x=1794013625; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xT9iMK/3RSde+zBTAQleC9VvYEhHkZyaWiIqI8wE2FM=;
-        b=jgCKXfHs95UORIMFhDOsGeRw6mdXbB6hY4aaglZlzBYVQUdwGySRD//ctZtA6wEMdb
-         eFB9LrMS30C+nCJBWINaEnJKOGr8FyyAR1yMull0RtRvBDLbYfsk5TGJ0u1iqCW9pUMj
-         wfTFt4udpM+C73mSpDusX+rZZuar7B7xR9+9kQ9gc704qhpraEtjRw7TwYQ4uVw33JH3
-         x8gavok2tx9PVKe9jfGRDBpSQXhRISm7hJcRiFWxdKj0Hx8EFovzZVk04GNIFHG0utmz
-         t0W7XR3SsPKc25FXJGK0oTnKPQQ6BjQ8kQS3zZR4lTf585X7kxPHY1YQFLxYjK9rIvjP
-         QB+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793408825; x=1794013625;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xT9iMK/3RSde+zBTAQleC9VvYEhHkZyaWiIqI8wE2FM=;
-        b=FWleKohyjjpy0prUzuYt/Gjq32ebmlDlVbx9gz0ttUV5cLZ4JuGtQaQtiNE9hJmyeh
-         JZgz0ljf/29jxUqePCPo2D3xwi+b4jP9xKLGUYggVd4nX0IH2jr/i3oQD8Ki++byKx8O
-         o9egQZTqcmWm3CjCSw+rTqAbZXrI+iJcGUwLpq5A9PltXMOEqsrHrkpXOj+8LcAGWLvc
-         jR1xl+t3WNHuhKs2zgX+wwdw+r9VoVW+hMxb1ti/H0470Vlh+cfqDzscWugyohKCAkVG
-         LE2A3dVUCbDXaGZduwu56QFOxX+CvP6s5KN+EPy9NjRSg91g6bB8qQlA5nL3xLVDbPkF
-         fdtw==
-X-Forwarded-Encrypted: i=1; AKwUvBwMHZHH4rg5dTf+OMgYli6ZEx1VOA8DNyEAyb4UIdOzdolBuuUP7e/tYFwZNMLyh0wg9A2aC1DycXJeKNMWca1n@lists.infradead.org
-X-Gm-Message-State: AFq9FYJN/DnX+mUqeJkKPSM7KsytmJP2Zll7Z/vMaDgICJ7wxLOpo4rG
-	jJvVZ+WwxI2mTHnal6JHJqBWsEtrKO3gyGCW/2U8+xyY/wRXcKopRc+f
-X-Gm-Gg: AYBFou3p06ZpQHEinVx+9cn3UnFQHRepIEV0r5bocokSMxYRiE5UxzUpIAlgznBxVEK
-	JmHKUF0wBgkP+4ReyW7VV7/AG2iMfKbvyHxpBfSmJfu1yltteHyBgIXhBPSmnjJ9aqSRS55j9Zs
-	5XMx+jlH4+To/OdNxZuwrPqWjnQNB0XIkf7HWBCwHl3LPLO11kngx8hncPJiqAF1A92c/QIUnqo
-	XG58ufGIHq8pzylB9hDVy/Bc5F7+krqdbA7ofrwT7efGuqv2mOm0B+G9xcQld42SuWYH/T1iizz
-	TCdjdcDLisoLmYOmmk4fhmeK/dfzd8/xIoGJQD0UncT3uZ6Fe3GVjgbv4PVdQfNBCoVp+purqa3
-	3KVQ06+8mEYV/wK5DTQhXzyK0uhr55MoqKsUM/BbSTXTL7NAXooxJaewhJYlWw2S4c84yqKG/A4
-	Qob4pyg+wNhwiQeZ8XbmuXxwbKXykl4zp34amaJPjw4jnNq0ctGzZjWuirZts0XR522a3GISWCi
-	vsN0Pa2tiRZ7BQ1KeqzViyznQVmb3HhBI1CqO0W/PhiFSPA82nBrrL0D79IHKBxB4xDcMm7UAU8
-	vd4+9II9Eg2F3SATgUrGsXtYZIAl96/A63fC5w0lC8D/30tVS45sjXwskRHU4X8XuPWhuRApMog
-	i7dbFDt2A/wHAgPV8dkvqAPHlkT+MT3b6Mgi5KvzYLe2e3qzAiRTjKM3OCYdrezdOznG2I6FIJs
-	s6e0rmsOOCY8XAbCFC
-X-Received: by 2002:a05:7300:4353:b0:369:fc93:eda5 with SMTP id 5a478bee46e88-36a42434630mr8230258eec.39.1793408824646;
-        Fri, 30 Oct 2026 18:07:04 -0700 (PDT)
-Received: from brev-9gdpyq8lp.ap-south-1.compute.internal (ec2-3-110-210-194.ap-south-1.compute.amazonaws.com. [3.110.210.194])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36a429018casm9876477eec.14.2026.10.30.18.07.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 18:07:04 -0700 (PDT)
-From: Samarth Narang <samarth.colleges@gmail.com>
-To: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Andi Shyti <andi.shyti@kernel.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-i2c@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Samarth Narang <samarth.colleges@gmail.com>
-Subject: [PATCH] i2c: stm32f7: synchronize DMA termination before releasing the buffer
-Date: Sat, 31 Oct 2026 01:06:58 +0000
-Message-Id: <20261031010658.3366395-1-samarth.colleges@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Sat, 31 Oct 2026 01:07:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=N86BOCGUwN4F4H0p69RkZ1miysvIdGZWPc2bS2IvftDT/oaN4yhNiA8k+Xj42HrvXHQ2H4PxmCPjRUODRZmLjQQutdousg2Yow70Gh8KqmefPt8e+4pnJEGcH6U/KSbByUmPFv5lW4qvGGntEDITuTJXGIhfbm/RU8il8PKBRwgYRLu1usFv5mB1ipSdCrDuab+WyUfiw7WwTq78UO+ik4sxDIWTUpkRA6ao86r8JvW4TEeE53TavgV7T2rzmY1lfuVGAvtgjn+/bOWyL7yAgp8RbvoZFYnkhK2EAILtGZ7Yq5ek/v+4Q0TOw6y/6RXFQgjBvy/cqkkresNdJI1tGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RwzR5McN88CII9Iz/WY42q8HfyvrScWxXGYHM1MqfO8=;
+ b=h/vvGY5mPy3JPm4Zyo7+CkFxzK7KS/Jdt7AZnxq+J6y9bIgQ+1TxobFp5/fTL60sThHN9KfGznzDUmFnusrN5u+VjlJctm8BUC6F/WCJ+GEwQF0gXlBXIXds50stX9Q7LF/dehsBY6OvCFUvLsk912wrgS79OirAUavOQQmCn0LAQllmrzYQVmUn1OO2TwvCBOqAQ+aUzB54AiZrKz8webpLesur9Ovzqra05VD7ToduyNZPSwAfssDn8DhuCksJYloIiTqf7I8zIHC3s+E1bjcTO4oLaxx4GwRVuAvB6V2WK3mPrjHUOCqeHkC0ajHKaBshlWumyBwlEvOGngXjWw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=oss.nxp.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RwzR5McN88CII9Iz/WY42q8HfyvrScWxXGYHM1MqfO8=;
+ b=Bsg76F/nMdoU3zBjQWD2dMdUcGaaBVizU0I44uZKhM4h6VqrndsWXdxC1BmKlWxlpjp/d/M6oY+CAoRhHdn1EWZCHnksiFymJvnXTMAdqXIhbJKDE4yJTEi5N8Img69+dIKHUwKlBrcobzi7c/L91G2yfTIy5iBuKelD+ktH7f0YeY9G574dCaQjWtSD/2uQHe06Fheo4OzzEJlwWpuU2VwkmMNvGNvjKKbLXFJAXYxVcQxi192FWJJoB5OGFe+vb2EMqYSYGpLhek+DYzLLTG50ZF3Qym7mBXUWEmMKUXiv6FOS1owaXtNPhAuwu7q0/x0Jjfs/yuv43eky8ko6mQ==
+Received: from PH8PR05CA0015.namprd05.prod.outlook.com (2603:10b6:510:2cc::16)
+ by MW6PR12MB8998.namprd12.prod.outlook.com (2603:10b6:303:249::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.22; Sat, 31 Oct
+ 2026 01:07:38 +0000
+Received: from CY8PEPF0000005D.namprd21.prod.outlook.com
+ (2603:10b6:510:2cc:cafe::a2) by PH8PR05CA0015.outlook.office365.com
+ (2603:10b6:510:2cc::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.5 via Frontend Transport; Sat, 31
+ Oct 2026 01:07:38 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ CY8PEPF0000005D.mail.protection.outlook.com (10.167.247.27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.0 via Frontend Transport; Sat, 31 Oct 2026 01:07:38 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Fri, 30 Oct
+ 2026 18:07:20 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 30 Oct 2026 18:07:19 -0700
+Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.126.190.182)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56 via Frontend
+ Transport; Fri, 30 Oct 2026 18:07:18 -0700
+Date: Fri, 30 Oct 2026 18:07:16 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Jason
+ Gunthorpe" <jgg@ziepe.ca>, "Joerg Roedel (AMD)" <joro@8bytes.org>, "Thierry
+ Reding" <thierry.reding@kernel.org>, Krishna Reddy <vdumpa@nvidia.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>, Jean-Philippe Brucker
+	<jpb@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH RFC v7 4/7] iommu/arm-smmu-v3: Use a per-domain CD table
+ for non-PASID streams
+Message-ID: <auU/RARTx8dv5mAE@nvidia.com>
+References: <20261030-smmu-shared-sid-ver7-2026-10-26-v7-0-961726ebd6ab@Example.Com>
+ <20261030-smmu-shared-sid-ver7-2026-10-26-v7-4-961726ebd6ab@Example.Com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261030-smmu-shared-sid-ver7-2026-10-26-v7-4-961726ebd6ab@Example.Com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY8PEPF0000005D:EE_|MW6PR12MB8998:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8a1c31c8-3467-4479-43bc-08df36eb5afa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|376014|7416014|1800799024|261026121527099003|22082099003|18002099003|11063799006|56012099006|10067099003|261021121427099003|261009223027099003|4143699003|261022105027099003|261021135927099003|261021123027099003|261022075727099003|261028144727099003|261026140227099003;
+X-Microsoft-Antispam-Message-Info: Zb9yuu5owqPP2lIDfDRlAgYvIUpbKlutBND6as10j05PncDTZLgZhhK68F/Yz+BXk4cwCfm8FeZkj8bg4dOlUSMognfGsodbUgEVoGfWv25pUMeO8k3USYs/WYaZarYrOu//sjmpcCjoVpA7xVldukHJF5pxFUPa+HhfIfQ5TOe7HmsRZqEa1CuN4uM6V8tz0qBMnsRQNVCl/DXHdp+BlaeRlgglMT4P0t97IgLDITqmwqEliZJhiY4TzkdHnjVjgynIDb9E75VGx2gLxl4Y1VDELBYSk97D7zpwhaNuKLqsHUMjBL5d3RbuoFPWTweH49UOIZFbBJoMP4CCH7RbnzPCRjuAQilQj8GXyLxavq7SsyWNun+BTGf2Vyk0auiIl9g/1NlbQYXCqbYQb1HnJhwq8Stubk8vNJ+6uK56ZFilcAPsoHVIduoX/ISoxg3n6sth1FEXzuKfibf/yi6vGv0pPpMMwDk+vc9vvFtEg5nAxZUMTTI2HdOLS0GP4J5rk7R5lQCKUr05rhkgMSfGM44Qnv94id4LpjY+v+tW+yRzPyorPk3XXgIMWslQYNoX0PHsgyPVx5p9UYAf7Yn59UGx/I3NTVK06mjswpTWa8345KtZKAI2HG1EzS0bwLZtWiQ8aie7QhRGVtaizsamXcZNyTFGEaiU7UgsLZVoNnL3VNHP17wzhA2gL9u8GtMtrd1NA+GhYtKcsf0kzJulCA==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(376014)(7416014)(1800799024)(261026121527099003)(22082099003)(18002099003)(11063799006)(56012099006)(10067099003)(261021121427099003)(261009223027099003)(4143699003)(261022105027099003)(261021135927099003)(261021123027099003)(261022075727099003)(261028144727099003)(261026140227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: FgjFSVz9lRxr30ZTlocSCY6ky7ElCQqY7YgrkTyAWMz2K8DBZOtb8+MTIc++3kFDgciLKIodE4Jf5as63tJkhW1iuoH1S5ZS1Ap5odu1NsxpFQjlxe+iePMHZxtlJ1caimEUKSKQNNEw2ccpxz/Yy/mfHABSCQp46qTZFysGyHI9vQeu+2kEmi1E332LvMHrbUYddmJtYLq3p1Wm55HVBKYBMPez911Pak3HIEzF4+3liX73e1NSc/d6vKUMxu3aaMQHM4hpsy0m8ouFFAgMi1mILg7p5wUeG3EG0tF6ia+BrZYL6ZbHsIEad5kho2O24P+MjqdoZFT+PaWycw0hG2g0A7xzGNVpEChQrNwK/erGWGjzsB84+5g2WuV2BwCzN0G4UHXDvuF8ut7VkpKfSdnvq0TLMYx/Fyw9tFQ078c4zRBKQU6kXbuhwQPuYf1f
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2026 01:07:38.0720
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8a1c31c8-3467-4479-43bc-08df36eb5afa
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY8PEPF0000005D.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8998
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_180705_999106_6C67F345 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20261030_180750_356752_43B59470 
+X-CRM114-Status: GOOD (  26.07  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,141 +133,186 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-stm32f7_i2c_dma_callback() is used both as the DMA completion callback
-and as a cleanup helper by the threaded IRQ handlers for bus errors,
-arbitration loss, PEC errors, NACKs, and DMA completion timeouts.
+On Fri, Oct 30, 2026 at 08:09:36PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> The CD describes the domain context, so non-PASID devices attached to the
+> same S1 domain do not need private copies of it. Store a CD table in
+> struct arm_smmu_domain and make non-PASID streams point their STE at that
+> table.
 
-The helper calls dmaengine_terminate_async() and then immediately unmaps
-the DMA buffer and releases the DMA-safe message buffer through
-i2c_put_dma_safe_msg_buf().
+> @@ -3044,6 +3055,9 @@ static void arm_smmu_domain_free_paging(struct iommu_domain *domain)
+>  		mutex_lock(&arm_smmu_asid_lock);
+>  		xa_erase(&arm_smmu_asid_xa, smmu_domain->cd.asid);
+>  		mutex_unlock(&arm_smmu_asid_lock);
+> +
+> +		if (arm_smmu_cdtab_allocated(&smmu_domain->cd_table))
+> +			arm_smmu_free_domain_cd_tables(smmu_domain);
 
-On the error paths, DMA completion has not been established.
-dmaengine_terminate_async() only requests termination; it does not
-guarantee that the transfer and its callback have finished when the call
-returns. The DMAengine API requires synchronization before memory
-accessible to the descriptor is released.
+Same comments as previous: fold arm_smmu_cdtab_allocated in.
 
-Although the driver calls dmaengine_synchronize() from
-stm32f7_i2c_xfer_core() and stm32f7_i2c_smbus_xfer(), these calls occur
-after the IRQ thread has already unmapped and released the buffer. They
-therefore cannot establish retirement before that release.
+> @@ -3854,11 +3879,27 @@ static int arm_smmu_attach_dev(struct iommu_domain *domain, struct device *dev,
+>  		return -EINVAL;
+>  
+>  	if (smmu_domain->stage == ARM_SMMU_DOMAIN_S1) {
+> -		cdptr = arm_smmu_alloc_cd_ptr(master, IOMMU_NO_PASID);
+> +		/*
+> +		 * Non-PASID devices use the domain's shared CD table. The
+> +		 * private table is needed for substreams (PASID), for
+> +		 * ATS-always-on (S1DSS), and for the stall model: CD.S is a
+> +		 * per-CD property and cannot be shared by devices that
+> +		 * terminate faults.
+> +		 */
+> +		if (master->ats_always_on ||
+> +		    master->stall_enabled ||
 
-If the DMA operation retains access after cleanup, a late RX write could
-modify freed or reused memory, while a late TX read could access data
-belonging to a subsequent owner.
+For readability, let's add a helper:
 
-Introduce stm32f7_i2c_dma_abort() for the threaded IRQ error paths. The
-helper disables further peripheral DMA requests and calls
-dmaengine_terminate_sync() before invoking the common buffer cleanup.
-Since these paths execute in threaded IRQ context, synchronous
-termination is permitted.
+static bool arm_smmu_master_needs_private_cdtab(struct arm_smmu_master *master)
+{
+	/* Reason 1 */
+	if (master->ats_always_on)
+		return true;
+	/* Reason 2 */
+	if (master->stall_enabled)
+		return true;
+	return false;
+}
 
-Remove the redundant termination request from the genuine DMA completion
-callback, where the descriptor has already completed.
+> @@ -3978,10 +4022,17 @@ int arm_smmu_set_pasid(struct arm_smmu_master *master,
+>  	    sid_domain->type != IOMMU_DOMAIN_BLOCKED)
+>  		return -EINVAL;
+>  
+> +	first = !arm_smmu_ssids_in_use(&master->cd_table);
+>  	cdptr = arm_smmu_alloc_cd_ptr(master, pasid);
+>  	if (!cdptr)
+>  		return -ENOMEM;
+>  
+> +	if (first) {
+> +		cd0ptr = arm_smmu_alloc_cd_ptr(master, IOMMU_NO_PASID);
+> +		if (!cd0ptr)
+> +			return -ENOMEM;
+> +	}
 
-This establishes the intended ordering between DMA termination and
-buffer release under the DMAengine synchronous-termination contract.
+Maybe allocate cd0ptr in arm_smmu_alloc_cd_tables()?
 
-Fixes: 6aae87fe7f18 ("i2c: stm32f7: unmap DMA mapped buffer")
-Fixes: ffdd20555cc6 ("i2c: stm32f7: support i2c_*_dma_safe_msg_buf APIs")
-Assisted-by: LLM
-Signed-off-by: Samarth Narang <samarth.colleges@gmail.com>
----
-The issue was identified using a research static analyzer for DMA
-lifecycle ordering and subsequently reviewed against the driver source.
-It has not been reproduced on hardware. The patch has been
-compile-tested on arm64 with W=1.
+We can also have a helper to share with arm_smmu_alloc_cd_ptr().
 
-The practical exposure with the in-tree DMA providers may be narrower
-than the API-level ordering violation suggests. stm32-dma clears the
-stream enable bit and polls for it to clear, while stm32-dma3 suspends
-and resets the channel. However, neither behavior alone establishes that
-a concurrent completion callback has finished. The stm32-dma polling
-operation can also time out without propagating a failure through
-device_terminate_all().
+static int arm_smmu_alloc_cd_ptr_l2(struct arm_smmu_master *master, u32 ssid)
+{
+	[...]
+	*l2ptr = dma_alloc_coherent(master->smmu->dev, sizeof(**l2ptr),
+				    &l2ptr_dma, GFP_KERNEL);
+	if (!*l2ptr)
+		return -ENOMEM;
 
-Consequently, this change primarily corrects the driver's reliance on an
-asynchronous termination request as a final-retirement guarantee. A
-physical late write would require an outstanding access to survive the
-provider's shutdown behavior; that has not been demonstrated.
+	arm_smmu_write_cd_l1_desc(&cd_table->l2.l1tab[idx], l2ptr_dma);
+	return 0;
+}
 
-Remaining concurrency issue: this patch does not resolve a separate,
-pre-existing race between genuine DMA completion and threaded IRQ error
-handling. If both paths invoke stm32f7_i2c_dma_callback() for the same
-transfer, they may both attempt to unmap and release the same buffer.
-Establishing a single owner for cleanup would require an additional
-change.
+> @@ -3997,8 +4048,39 @@ int arm_smmu_set_pasid(struct arm_smmu_master *master,
+>  	cd->data[0] |= cpu_to_le64(
+>  		FIELD_PREP(CTXDESC_CD_0_ASID, smmu_domain->cd.asid));
+>  
+> +	/*
+> +	 * The private CD table is taking over the STE now. Make sure its
+> +	 * default substream matches the RID domain before the STE points at
+> +	 * it, since non-PASID traffic follows CD[0].
+> +	 */
+> +	if (first) {
+> +		if ((sid_domain->type & __IOMMU_DOMAIN_PAGING) &&
+> +		    to_smmu_domain(sid_domain)->stage == ARM_SMMU_DOMAIN_S1) {
+> +			struct arm_smmu_cd cd0;
+> +
+> +			arm_smmu_make_s1_cd(&cd0, master,
+> +					    to_smmu_domain(sid_domain));
+> +			arm_smmu_write_cd_entry(master, IOMMU_NO_PASID,
+> +						cd0ptr, &cd0);
+> +		} else if (sid_domain->type == IOMMU_DOMAIN_IDENTITY ||
+> +			   sid_domain->type == IOMMU_DOMAIN_BLOCKED) {
+> +			arm_smmu_clear_cd(master, IOMMU_NO_PASID);
+> +		} else {
+> +			WARN_ON(1);
+> +		}
+> +	}
+> +
+>  	arm_smmu_write_cd_entry(master, pasid, cdptr, cd);
+> -	arm_smmu_update_ste(master, sid_domain, state.ats_enabled);
+> +
+> +	/*
+> +	 * A repeat PASID attach leaves the STE on the private table with the
+> +	 * same S1DSS/EATS. Only the first attach (or an ATS change) needs to
+> +	 * rewrite it; arm_smmu_write_ste() would otherwise issue a redundant
+> +	 * CMD_PREFETCH_CFG for every stream.
+> +	 */
+> +	if (first || !master->cd_table.in_ste ||
+> +	    master->ste_ats_enabled != state.ats_enabled)
+> +		arm_smmu_update_ste(master, sid_domain, state.ats_enabled);
 
- drivers/i2c/busses/i2c-stm32f7.c | 17 +++++++++++++----
- 1 file changed, 13 insertions(+), 4 deletions(-)
+master->cd_table.in_ste could be set when STE walks master's CD
+table. Then, you don't need to check "first". And move the guard
+back into arm_smmu_update_ste.
 
-diff --git a/drivers/i2c/busses/i2c-stm32f7.c b/drivers/i2c/busses/i2c-stm32f7.c
-index 6bd281a9e..891b0eebe 100644
---- a/drivers/i2c/busses/i2c-stm32f7.c
-+++ b/drivers/i2c/busses/i2c-stm32f7.c
-@@ -736,7 +736,6 @@ static void stm32f7_i2c_dma_callback(void *arg)
- 	struct stm32f7_i2c_msg *f7_msg = &i2c_dev->f7_msg;
- 
- 	stm32f7_i2c_disable_dma_req(i2c_dev);
--	dmaengine_terminate_async(dma->chan_using);
- 	dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
- 			 dma->dma_data_dir);
- 	if (!f7_msg->smbus)
-@@ -744,6 +743,16 @@ static void stm32f7_i2c_dma_callback(void *arg)
- 	complete(&dma->dma_complete);
- }
- 
-+/* Threaded IRQ context only: terminate_sync() may sleep. */
-+static void stm32f7_i2c_dma_abort(struct stm32f7_i2c_dev *i2c_dev)
-+{
-+	struct stm32_i2c_dma *dma = i2c_dev->dma;
-+
-+	stm32f7_i2c_disable_dma_req(i2c_dev);
-+	dmaengine_terminate_sync(dma->chan_using);
-+	stm32f7_i2c_dma_callback(i2c_dev);
-+}
-+
- static void stm32f7_i2c_hw_config(struct stm32f7_i2c_dev *i2c_dev)
- {
- 	struct stm32f7_i2c_timings *t = &i2c_dev->timing;
-@@ -1552,7 +1561,7 @@ static irqreturn_t stm32f7_i2c_handle_isr_errs(struct stm32f7_i2c_dev *i2c_dev,
- 
- 	/* Disable dma */
- 	if (i2c_dev->use_dma)
--		stm32f7_i2c_dma_callback(i2c_dev);
-+		stm32f7_i2c_dma_abort(i2c_dev);
- 
- 	i2c_dev->master_mode = false;
- 	complete(&i2c_dev->complete);
-@@ -1617,7 +1626,7 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
- 			__func__, f7_msg->addr);
- 		writel_relaxed(STM32F7_I2C_ICR_NACKCF, base + STM32F7_I2C_ICR);
- 		if (i2c_dev->use_dma)
--			stm32f7_i2c_dma_callback(i2c_dev);
-+			stm32f7_i2c_dma_abort(i2c_dev);
- 		f7_msg->result = -ENXIO;
- 	}
- 
-@@ -1635,7 +1644,7 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
- 			ret = wait_for_completion_timeout(&i2c_dev->dma->dma_complete, HZ);
- 			if (!ret) {
- 				dev_dbg(i2c_dev->dev, "<%s>: Timed out\n", __func__);
--				stm32f7_i2c_dma_callback(i2c_dev);
-+				stm32f7_i2c_dma_abort(i2c_dev);
- 				f7_msg->result = -ETIMEDOUT;
- 			}
- 		}
+> @@ -4017,35 +4099,48 @@ static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
+>  		.old_domain = old_domain,
+>  		.ssid = pasid,
+>  	};
+> +	int ret = 0;
+>  
+>  	mutex_lock(&arm_smmu_asid_lock);
+>  	arm_smmu_attach_prepare_invs(&state, NULL);
+> +	/*
+> +	 * Unlink the PASID from the domain before invalidating its CD.
+> +	 * arm_smmu_mm_release() walks this list with only devices_lock held
+> +	 * and writes a valid, faulting CD; unlinking first prevents it from
+> +	 * resurrecting used_ssids after the last PASID is detached.
+> +	 */
+> +	state.old_master_domain = arm_smmu_remove_master_domain(
+> +		master, &smmu_domain->domain, pasid);
+>  	arm_smmu_clear_cd(master, pasid);
 
-base-commit: 83f32c773255720a661aa45d83e36278135f23f5
--- 
-2.34.1
+Sashiko pointed out that it needs devices_lock here.
 
+>  	/*
+> -	 * When the last user of the CD table goes away downgrade the STE back
+> -	 * to a non-cd_table one, by re-attaching its sid_domain.
+> +	 * When the last user of the CD table goes away, switch the STE back to
+> +	 * the domain's shared CD table (S1) or to the native bypass/abort STE
+> +	 * (identity/blocked), by re-attaching its sid_domain. The private CD
+> +	 * table is kept allocated for reuse and freed when the device goes
+> +	 * away.
+>  	 */
+>  	if (!arm_smmu_ssids_in_use(&master->cd_table)) {
+>  		struct iommu_domain *sid_domain =
+>  			iommu_driver_get_domain_for_dev(master->dev);
+>  		bool ats_always_on = master->ats_always_on &&
+>  				     sid_domain->type != IOMMU_DOMAIN_BLOCKED;
+> -		bool downgrade = sid_domain->type == IOMMU_DOMAIN_IDENTITY ||
+> -				 sid_domain->type == IOMMU_DOMAIN_BLOCKED;
+> +		bool s1 = (sid_domain->type & __IOMMU_DOMAIN_PAGING) &&
+> +			  to_smmu_domain(sid_domain)->stage ==
+> +				  ARM_SMMU_DOMAIN_S1;
+>  
+> -		if (!ats_always_on && downgrade)
+> -			sid_domain->ops->attach_dev(sid_domain, dev,
+> -						    sid_domain);
+> +		if (!ats_always_on &&
+> +		    (s1 || sid_domain->type == IOMMU_DOMAIN_IDENTITY ||
+> +		     sid_domain->type == IOMMU_DOMAIN_BLOCKED))
+> +			ret = sid_domain->ops->attach_dev(sid_domain, dev,
+> +							  sid_domain);
+
+This covers almost all the possible domain types here. So, just
+drop that downgrade, and it should cover the other cases:
+
+		if (!ats_always_on)
+
+Nicolin
 
