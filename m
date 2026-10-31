@@ -2,66 +2,116 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA4CE606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 13:38:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7FF0606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 13:45:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lbx928DB;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DwfibxUE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aywnkeTV;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mD3zAA5h
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=jusxyOC6tYlJdH/ZE6LTo1YpYYnLHVl36GtN11/2NOI=; b=lbx928DBvz7zM09uTIO7QScVi9
-	W+v8oiPWVfqwRk9SG2Jhi6PAexfTWloiR9GmBGoMI3m71ZJVaHhhbJJJoEtlCA5VVB0cT32mcQgcD
-	7L1iXXz31nciJK7TpWfmM3cnZFADiir4fYtOuHwV6ZbqgfS7noaaKj184Z2aMXrw+HD2uB/iBIqMM
-	pAPQs6kRUdaM5yH2oYtask01veTT+mtKD0mmFFo5h7Cf42aGyTqCAuMBHVskolSeDJ+HA7aEcIHbC
-	hGTB9ApLRM+AA4VcvjyLv3/tWoRfdEXz8hibNzyFwndWAErKe1VWHdhKTYcJ4XJc8WFHzcAW7lhlt
-	Cn+mcYYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=Ydiuw2JFoGviRXfS/1qoEyS58uTjOZNZXXzHRdS4SA8=; b=aywnkeTV4+7LA1
+	F+uajxQigt735Eqp8XNt/FJhB8r5dLfsLO+xzr+r+Z8o/rZplZG0gT+JgsQeKwE7Vu0xsu0/vInFZ
+	c9FlrX2gMx27BpS8+UtLMW2zYrZXIHWcgh3+CKmnPz2DYYxre3wHnxfxoU7OI463K5iT3Yii8rVsS
+	BtLUuasXL75O7qPtkmqbCzD2pMR3d8CSdkH5zZAMSskr/p3xwRf71Usmvy+gHHEB/cxVhVtDzUUJE
+	2fUJvKzI784iurFZ8kd10YcYCZULLPRPf5fzlGjZhehbk4LKfURm6pSeRU8n7F17EQDWhD3X1RklZ
+	Kg3eht+bu84nZF2EPXOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN9I7-0000000DMsy-0UHt;
-	Sat, 31 Oct 2026 13:38:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xN9OT-0000000DNJl-3LIj;
+	Sat, 31 Oct 2026 13:45:13 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN9Hz-0000000DMrb-2Vlp
+	id 1xN9OR-0000000DNJ5-3GSe
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 13:38:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C33A43BF5;
-	Sat, 31 Oct 2026 13:38:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FD831F00919;
-	Sat, 31 Oct 2026 13:38:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793453911;
-	bh=jusxyOC6tYlJdH/ZE6LTo1YpYYnLHVl36GtN11/2NOI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=DwfibxUEDI8GOYfy/0eBZG0mS56fEN0hvy3NjH5FiMzGqrZOObgRPLwMRMSWx+no6
-	 JkNr/TWxhtX2TnfzC+GfOOLJDPFBJ69z6txJgUXRr+FlIVx4FFOM6B2m6JB44SMlQm
-	 PBz9A2ZrBEm1ZrJMjoy6+mgitgvwAiSIP9V0a7a3itHk9xS2mm+2tijla/PbB3Ncqh
-	 gwrXYCSRxHROOuxVGa7JcOTgvmQzIWMYY7YnxJFUZIWQgGRwyLphV3GC6agFt+kkoh
-	 Upm1+lTQv/uMgKe58hCLLZYEUtJBtqmD84Sn2CAVXbY4hGtfcPT5BY1tLFK1lreIuD
-	 ElqHPQLa3tggA==
-Subject: Re: [PATCH net v2 2/2] net: ti: icssg-prueth: Fix R30 command timing
- and NULL emac dereference
-From: netdev-bot+sashiko@kernel.org
-To: m-malladi@ti.com
-Cc: haokexin@gmail.com, jacob.e.keller@intel.com, pabeni@redhat.com,
- kuba@kernel.org, edumazet@kernel.org, davem@davemloft.net,
- andrew+netdev@lunn.ch, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com, vigneshr@ti.com,
- danishanwar@ti.com
-Date: Sat, 31 Oct 2026 13:38:29 +0000
-Message-ID: <179345390998.3131.14702616619238898955@kernel.org>
-In-Reply-To: <20261027131732.3411403-3-m-malladi@ti.com>
-References: <20261027131732.3411403-3-m-malladi@ti.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Sat, 31 Oct 2026 13:45:13 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-6b413b0a974so2398164a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 06:45:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793454310; cv=none;
+        d=google.com; s=arc-20260327;
+        b=oY8E4wQMTmOefGEqBD6HRxIRVGsNSyq8GDixM7a4uNnU1l10nJaZRmM2kcoLuZ7TJt
+         /PQHeeapMtLAvzIg4nz/sH3noyvmWekR/uqUfqAzPSXN7p1rA0KCXtdd1dchMuTyZgN1
+         Pd9cuyZmPQswqet3CNhjUKmzx/VBJSwU6Q2qQOj2BKdH3Ht33K39KxEIF+ydKxLqsXnS
+         W26WH1HG8rVupiPY62E1VkDFTf88FLTWSHEngYLJmyDdoBfZqs7nCV8hysxlydDaYqXY
+         BdbX77+GM1PU/LMit0TGC2tCHm7XaPMAUr5UISjAV1XfofpvXx0kwEFxNL+idyIim1kL
+         AB9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Ydiuw2JFoGviRXfS/1qoEyS58uTjOZNZXXzHRdS4SA8=;
+        fh=kgbEChi+aa1k5G5Ha+UBvQKWYwKWLiwj0JBtwTzo0+8=;
+        b=YPjBUnJbeUQR7Ba2wW1BtB0VKMUiTnJjckYIX/nDAt5UiHMNiuuZlfEKs7w8OV0JtL
+         sv6RMGfMiHJV8rb5l33OhMzhf6McMlIFE8VqfWBKXkXpwpupK+3jmYnFoDJLK+mViCaS
+         nIaBiBBEuNMtkPXL78ePnUQMeldgUdVyTbE1IyA/C9L4ydcnyr0jA3e08FNbtEH/AWrd
+         ORUshAzsL+elovPvhaFXzAigM+DgoOmsZhK+0fFAKXdeXhq2p7x8Z9HpanNh0k85XqM9
+         uCTKCYEto+/uYqqSdpl1u2+0fCTtbTxCXvcl+yQjUsm/J92IPeqO/fy+OfxTZHQPjpU7
+         XOaw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793454310; x=1794059110; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Ydiuw2JFoGviRXfS/1qoEyS58uTjOZNZXXzHRdS4SA8=;
+        b=mD3zAA5hBOdKcbLab2a18Ark4VgKrgwluCwhp6j4+lvc+1mFxHnLenmtklfJN+iVCs
+         16jr1SQiAYaJjJN0D8lltDX4LskqJk8ycxe1h4UEfwIw09FYuTozKH4LNdzCyb1Fu4FJ
+         6IZWV45N525Mb1/tG+uLEyJsdZ4/Tm1ELVrWLDG+GCebG4H/UQnwwDVL2kqa8yjTCKXa
+         Rl2+6lRSV24p/8qnPqysoar6a6tagcyLukl1HQknKY+5N5nMTxC9KSsf1H5fCJcwurVf
+         lEquwlc8rRjmyK5ULEA9jGYVM4Zw2C/auhPR1rep6201r/p7jIQRa5mY1tncw0n/74tE
+         IcOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793454310; x=1794059110;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ydiuw2JFoGviRXfS/1qoEyS58uTjOZNZXXzHRdS4SA8=;
+        b=QvObIrBa7cOt9xvE8wV/I2KLClRxPxIXv8cK4gVzG0uWAfat6Vc9QIaMxIf8S8OTgl
+         G7seQ5q5Gci0WaOEnGdXfyM5jBDtgxcHOpu+8FrTDg0+pOATfuNGKQ4dNzfzzh/db76X
+         PjnjFnXDq6R7s77BwRm7792oJbp/dmvBgOQrm31/k+/rKBCbLg70FDmDYO7L9qy9sIuB
+         iJYh7+uRpkuhO/bSefW4faPSvsQYZ/Cq07wF35doCL4zZ5TtqIjWCB2uec5VfJKyskl3
+         K3t/9U3TNSz3CpLssMOESrlMZjWIoYCYuKJWgBJuiGf5co1kwVKWDLPscJ0h5ij1Jr1l
+         ACtw==
+X-Forwarded-Encrypted: i=1; AKwUvBzUaJealuJu/QkgUFeW0n6Zqcgr+Falv7yoxfVaM23k4SdaCvlXhKboN1kA9vqIDWokIOPbKqJLNo21IsupkHLW@lists.infradead.org
+X-Gm-Message-State: AFq9FYJEG6wpScZhg7HaXvNwaZaLH6CFxfVx5jOazI29kIxuin5NRtz5
+	6ztTnPLweACc5MVi/8W4iHXShQGnI1DzfZvT9NJpGBhLogp3OlB/4/tfT0MhBuFZ7ubSSxH3zMv
+	N7Jy58RqsJE+bKO7C3V9bbJ5o+ynVtsY=
+X-Gm-Gg: AYBFou1FQl6qfDdQlAQUIsB+9mn9ugv+q7uioEk6so9V8rQAIwJWUu4pXX+Wzzs+NpH
+	JRxX0rqZmV2CSdIZH3FECdX2IdUsrYavfZ5NUuDRZkba+Gx1rsA5ion7cgiJCNSAYIa8blkJhFn
+	KJW8SayodOY5HneXiGC9M9URNcXXRVN9JuNroUxusw2znJyuPbnUmxOWu5pBOZysJld1Eahok/C
+	D/+HjmO6shhmZ+zfaIS4KMk0AyjMtx4/LMdeUrhPR6qrpfCxO9KkHGC3w8X4tUCPmHvyzz2zzjr
+	xS//E0+ZsbFIXGU+bLNjfq6DRi06N+CXkyHJ3AuEl2vFiP4G+Fh+Lo6yxu7ZdVc+3ZbLjzuqslj
+	X11vlLZ5yvikcxQ/r2d5dQLkrV4huOrJ1Jg8obWrS5k4RfZzYiHIMGTmId4zgwKdmVi2S90A=
+X-Received: by 2002:a05:6402:1ecc:b0:6b3:d0e9:2e87 with SMTP id
+ 4fb4d7f45d1cf-6b4ee0e1f24mr1392387a12.5.1793454309714; Sat, 31 Oct 2026
+ 06:45:09 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+References: <20261031005425.3351240-1-samarth.colleges@gmail.com>
+ <20261031123749.3783352-1-samarth.colleges@gmail.com> <2026103143-alienate-subduing-50f6@gregkh>
+In-Reply-To: <2026103143-alienate-subduing-50f6@gregkh>
+From: Samarth Narang <samarth.colleges@gmail.com>
+Date: Sat, 31 Oct 2026 09:44:58 -0400
+X-Gm-Features: AclHuK_UZoL4ALbG8OiocStKAY43wgTppT1vPowuPmaCkqxwveQ1ulzoHGIddAk
+Message-ID: <CAAbz3fR3DxTL66-0MJVsoWq5-FhypwdDn6=A5iyLUKY_LyOD0A@mail.gmail.com>
+Subject: Re: [PATCH 0/2] serial: keep the flushed TX buffer mapped until DMA
+ has stopped
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-serial@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261031_064511_865693_95FCDCB5 
+X-CRM114-Status: GOOD (  21.74  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,237 +122,50 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+Thanks Greg, I will address the findings Sashiko found, would
+appreciate someone with hardware giving a stamp of approval!
 
-Critical: 0 · High: 1 (1) · Medium: 3 · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The commit message describes the crash as happening when "the
-  first port opens before the second is initialized".
-- [Medium] The NULL-emac guard this patch adds to
-  icssg_enable_fw_offload() fixes a crash introduced by the previous…
-- [Medium] The patch fixes a user-visible regression but has no Fixes:
-  tag.
-- [Medium] prueth_emac_restart() (line 1858) stops and restarts the PRU
-  firmware while phylib is still running for the active ports.
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but
-  prueth_cleanup_tx_ts() (icssg_common.c:1424-1434) frees every non-NULL…
-
---
-
-net: ti: icssg-prueth: Fix R30 command timing and NULL emac dereference
-
-This patch moves the per-port emac_adjust_link() reconfiguration in
-prueth_emac_common_start() so it runs after prueth_emac_start() has booted
-the PRU firmware. The goal is to stop R30 commands from timing out. It
-also adds a NULL check for the prueth->emac[] slots in
-icssg_enable_fw_offload().
-
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> index 746afd5d00c9e..9afda5da3ca3a 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> @@ -213,6 +213,8 @@ static void icssg_enable_fw_offload(struct prueth *prueth)
->  
->  	for (mac = PRUETH_MAC0; mac < PRUETH_NUM_MACS; mac++) {
->  		emac = prueth->emac[mac];
-> +		if (!emac)
-> +			continue;
-
-[Severity: Medium]
-The commit message says icssg_enable_fw_offload() "dereferences a NULL
-second emac slot when the first port opens before the second is
-initialized". Is that what actually triggers it?
-
-prueth_probe() calls prueth_netdev_init() for both ports, which fills both
-prueth->emac[] slots, before the first register_netdev(). So at ndo_open
-time a slot is only NULL when the port is missing from DT or disabled
-there.
-
-In the baseline, every emac dereference in icssg_enable_fw_offload() was
-under is_hsr_offload_mode or is_switch_mode, and both of those modes need
-two ports. The dereference that plain EMAC mode can reach seems to come
-from the previous patch in this series, commit 12b7fbafdb45 ("net: ti:
-icssg-prueth: Fix bridge port_vlan and flooding state"):
-
-    if (!prueth->is_switch_mode && netif_running(emac->ndev)) {
-
-Take a single-port board with that commit applied but not this one. The
-first emac_ndo_open()->icssg_enable_fw_offload() would then dereference a
-NULL emac, so a bisect would land on the intermediate commit.
-
-Could this guard be folded into that patch, with the R30 ordering change
-kept as its own patch?
-
->  		if (prueth->is_hsr_offload_mode) {
->  			if (emac->ndev->features & NETIF_F_HW_HSR_TAG_RM)
->  				icssg_set_port_state(emac, ICSSG_EMAC_HSR_RX_OFFLOAD_ENABLE);
-> @@ -288,13 +290,22 @@ static int prueth_emac_common_start(struct prueth *prueth)
->  		ret = icssg_config(prueth, emac, slice);
->  		if (ret)
->  			goto disable_class;
-> +	}
-> +
-> +	ret = prueth_emac_start(prueth);
-> +	if (ret)
-> +		goto disable_class;
-> +
-
-[Severity: Medium]
-This fixes a user-visible regression: R30 FORWARD commands time out, and
-prueth_emac_restart() then fails when ports with link up join or leave a
-bridge or HSR. The commit has no Fixes: tag, though.
-
-The emac_adjust_link() call ahead of prueth_emac_start() came from
-06feac15406f ("net: ti: icssg-prueth: Fix emac link speed handling").
-
-The emac->link = 0 reset, which makes adjust_link send FORWARD on every
-restart while the link is up, came from 147792c395db ("net: ti:
-icssg-prueth: Fix ping failure after offload mode setup when link speed is
-not 1G").
-
-Should this carry Fixes: tags for one or both of those, so that stable
-trees containing them also pick up this fix?
-
-> +	/* Reset link state and reconfigure after firmware is running.
-> +	 * Must be done after prueth_emac_start() so that R30 commands
-> +	 * (e.g. ICSSG_EMAC_PORT_FORWARD from emac_adjust_link) reach
-> +	 * the PRU firmware instead of timing out with stale R30 values.
-> +	 */
-
-[Severity: Medium]
-Does this close the R30 timeout window completely?
-
-prueth_emac_restart() stops and restarts the firmware without calling
-phy_stop() and without holding phydev->lock. That means phylib can still
-call emac_adjust_link() on its own while the PRU is halted:
-
-prueth_emac_restart()
-    prueth_emac_common_stop()       <- PRU halted
-    prueth_emac_common_start()
-        icssg_config()
-            emac_r30_cmd_init()
-        prueth_emac_start()
-
-Suppose the link changes (autoneg completes, or the link flaps) after
-prueth_emac_common_stop(), or between emac_r30_cmd_init() and
-prueth_emac_start(). The phylib state machine then calls
-emac_adjust_link()->icssg_set_port_state(). That writes the R30 command
-words to a halted PRU, times out in read_poll_timeout(), and leaves the
-words in place. This looks like the same failure the commit message
-describes.
-
-There is also a data race on the link fields. icssg_config() writes
-emac->speed and emac->duplex, and this loop writes emac->link = 0, all
-without phydev->lock. The phylib callback updates the same fields while
-holding phydev->lock.
-
-Should the restart path quiesce phylib, or hold phydev->lock, across the
-stop/start window?
-
-> +	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
-> +		emac = prueth->emac[slice];
-> +		if (!emac)
-> +			continue;
->  
-> -		/* Reset link state to force reconfiguration in
-> -		 * emac_adjust_link(). Without this, if the link was already up
-> -		 * before restart, emac_adjust_link() won't detect any state
-> -		 * change and will skip critical configuration like writing
-> -		 * speed to firmware.
-> -		 */
->  		emac->link = 0;
->  
->  		mutex_lock(&emac->ndev->phydev->lock);
-
-[Severity: High]
-The loop only checks emac. Can emac->ndev->phydev still be NULL at this
-point?
-
-prueth_probe() fills both prueth->emac[] slots and then does:
-
-prueth_probe()
-    register_netdev(prueth->emac[PRUETH_MAC0]->ndev);
-    emac_phy_connect(prueth->emac[PRUETH_MAC0]);
-    register_netdev(prueth->emac[PRUETH_MAC1]->ndev);
-    emac_phy_connect(prueth->emac[PRUETH_MAC1]);
-
-Userspace can open eth0 as soon as it is registered, for example via udev
-or a network manager. emac_ndo_open() sees emacs_initialized == 0 and
-calls prueth_emac_common_start(). This loop then reaches slice 1, where
-emac[1] is non-NULL but its ndev->phydev has not been set yet. So
-mutex_lock(&emac->ndev->phydev->lock) dereferences NULL.
-
-prueth_remove() has a similar window:
-
-    phy_disconnect(prueth->emac[i]->ndev->phydev);
-    prueth->emac[i]->ndev->phydev = NULL;
-    unregister_netdev(prueth->registered_netdevs[i]);
-
-emac[0] stays non-NULL here. If eth1 is opened during this window, the
-loop walks slice 0 with a NULL phydev.
-
-emac_ndo_stop() already checks if (ndev->phydev) before phy_stop(). The
-dereference itself existed before this patch. However, the commit message
-describes this exact scenario, "the first port opens before the second is
-initialized", and that scenario still crashes.
-
-Should this loop also skip slices that have no phydev?
-
-[Severity: High]
-This is a pre-existing issue, not one introduced by this patch. On link
-down, the emac_adjust_link() call made from this loop (and from the phylib
-state machine) reaches prueth_cleanup_tx_ts():
-
-    } else {
-        netif_tx_stop_all_queues(ndev);
-        prueth_cleanup_tx_ts(emac);
-    }
-
-prueth_cleanup_tx_ts() frees every non-NULL emac->tx_ts_skb[] slot. No
-lock synchronizes it with the TX path or the tx_ts IRQ thread. Also,
-netif_tx_stop_all_queues() does not wait for an icssg_ndo_start_xmit()
-that is already running on another CPU.
-
-Can this end up freeing an ERR_PTR? The xmit path reserves a slot in
-prueth_tx_ts_cookie_get() first:
-
-    emac->tx_ts_skb[i] = ERR_PTR(-EBUSY); /* reserve slot */
-
-and stores the skb in icssg_ndo_start_xmit() only later:
-
-    emac->tx_ts_skb[tx_ts_cookie] = skb_get(skb);
-
-If cleanup runs between those two stores, it calls
-dev_kfree_skb_any(ERR_PTR(-EBUSY)).
-
-The xmit error paths also free the slot and set it to NULL. And
-tx_ts_work() does:
-
-    skb = emac->tx_ts_skb[tsr.cookie];
-    emac->tx_ts_skb[tsr.cookie] = NULL;	/* free slot */
-
-and uses and frees skb later on. Could a concurrent
-prueth_cleanup_tx_ts() free the same skb in between, causing a double
-free or a use-after-free?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261027131732.3411403-1-m-malladi%40ti.com
+On Sat, Oct 31, 2026 at 9:00=E2=80=AFAM Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+>
+> On Sat, Oct 31, 2026 at 12:37:47PM +0000, Samarth Narang wrote:
+> > This series addresses the DMA buffer lifetime issues in amba-pl011 and
+> > fsl_lpuart reported in the parent thread, where flush_buffer() unmaps
+> > the TX buffer before the terminated DMA transfer is guaranteed to have
+> > stopped accessing it. In fsl_lpuart, the buffer is unmapped even before
+> > termination is requested.
+> >
+> > Since flush_buffer() runs under the port lock and cannot wait for DMA
+> > termination, both patches request termination while holding the lock an=
+d
+> > defer unmapping to a work item that first calls dmaengine_synchronize()=
+.
+> > The TX completion callback leaves the cleanup of flushed transfers to
+> > this work item, while shutdown, and suspend in the case of fsl_lpuart,
+> > waits for the work to finish before releasing the TX DMA state.
+> >
+> > Both patches have only been compile-tested with arm64 defconfig, the
+> > relevant drivers enabled, and W=3D1, with no new warnings. I do not hav=
+e
+> > access to PL011 or LPUART hardware with DMA support, so testing by
+> > someone with suitable hardware would be appreciated.
+> >
+> > The imx driver also needs a fix for the issue reported in the same
+> > thread, but requires a different approach because its TX completion
+> > callback unmaps the scatterlist unconditionally. I will send that patch
+> > separately.
+>
+> Again, these need to be tested on real hardware.  Not to mention the
+> bugs that sashiko just found in the changes as well.
+>
+> thanks,
+>
+> greg k-h
 
