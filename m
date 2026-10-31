@@ -2,104 +2,96 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5588606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 14:16:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BCE4606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 14:38:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dHA5yEEa;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=APVmy2O0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ob3kjUDP;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eCHwA28K
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Wnbq5enmeXXMtrxXOCknlMCahlJdLBMQr0NRDI8YZbI=; b=dHA5yEEao1CzMh
-	wRt4szMArLx4pTBNnMypOjlOnUKlcJWN/zy4y0RgPUS+k9If0j38Qs9beG4I7vC+VuxBDWjGThlKA
-	tqA9FyyU6PG4nGBtGiLd0+d0AHhZO4ngrQT4o2059KxoPR/17BDv0IXtGDANavn5EYBQ9iRbX2Fs4
-	kxfszcZPaYEZspDlCgHYtuStgfBUT6HmNk0yi/nCZRlMYh/NHruLTvf8fNUSdR+uL1gpCxCJhfx4l
-	+LhB5kYgORXymgEZ2ka82z4nXmT5fo4HLnW1sHu8Uxg+9plUnYLJeX8sMixtPHczqsRTqnwvKCdJM
-	rQlhlcY/pCwzMfJikgvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=bnsrfRvGRM2qgoxDq8KtlUhs37rsslMeY4OUYqDf+Pc=; b=ob3kjUDPnvtyVRGqcVwr7Q3XAT
+	Ahg2/Z0gSIY932rJb0I/PUfF8/aE8cP5C9DnHDzNyGruU2AyH3fR1ILAvTcWSdJKve0CkzTOeMXS2
+	FiRhPYcO0SfDDPcIkOYRZxCpt/hOa2t35enNe/MmOfibvo4AMgHVLIf6bfKlosOJMuoWzH6Kgb8sq
+	ZY28kEKLLXWNcR9u6V2KRHLvpxfYicc1KL06ykHkfNBWP0aY4ifffk+uAD0DhqNh+OPVm5rehKkLp
+	UUrPTuUPoDnzIeVl+7eyFYm/heuvrOXrkGlr11HfqIXqRN4/apEf9fBWKRYSLTNglnRRWavzOOb8A
+	/3CiGfIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN9sG-0000000DOfP-36qX;
-	Sat, 31 Oct 2026 14:16:00 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1xNAED-0000000DPAV-33Ne;
+	Sat, 31 Oct 2026 14:38:42 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN9sE-0000000DOej-1GWe
+	id 1xNAEB-0000000DPAA-0SXq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 14:15:59 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2e9995ce866so14032515ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 07:15:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793456157; x=1794060957; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Wnbq5enmeXXMtrxXOCknlMCahlJdLBMQr0NRDI8YZbI=;
-        b=APVmy2O01XLrhhP1SFoXsxgYYlJ2IHurVH48ZHXe2lC7wNBDLXx+DUTDTuyP74DxY+
-         nOMUN5BN8N7UNoH1hjYE8CdU8OLXYX04MjayEF3Y0McAXrKQyP+WKMwtw5kbISVfcZHx
-         +3k5yonWti075YV5aQIqn8ko6f9ICTF2Elcp8K30N7rbT7KDjEpSPPHgIzz1D6u7adRc
-         /0iB1K3gF4+t3/VZrMvf3QMnKAoKYGF8m2ntm0II0HCOlxsg2ckIFVXExd5vN8jFyppW
-         t2yBjB4H3rTxOEp9/ToNqU8iRq1mM4FcqjTTw7AMRs50rA8QCSytXfoKEr01hlnI24RS
-         /+Pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793456157; x=1794060957;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Wnbq5enmeXXMtrxXOCknlMCahlJdLBMQr0NRDI8YZbI=;
-        b=eXx3cRKtYEw2PVchwjwasQkuUaDknR1IIa5F6fPuDDB3Hhol9L+ZI1PO5n/tXa3NIL
-         UQ4P57A7jxXYZg7XFLE2V+MgSDTrKOneFcUWu0UB9/Ml7U959cy4YytYDIVpJsZ5riA2
-         zjDXlnBPzSnVfFn0puiDNEurWMqxKvispujG7j1ApVC328fewXDxn7qyDwpigLfPVyib
-         Jkw1oLsoLa9fLGVqCbodoKG2IgoF7jg2njlgm28dWluqstSmJB5bX4W0DERWMfoo3NZt
-         lhNWxi80yB85HkbjWiQc7doAbwKsKz6fwdXVTiwLjXwvQtGJduoCHItm9tuSZydABt2L
-         764g==
-X-Forwarded-Encrypted: i=1; AKwUvBwW3C1eKzpJamNPD0TSdyLXnLnr/Hyj4Zyr8ZzDSeubb/NvJsRd4fjpPhk6/OoMPSlTbVcbiAh+bSMxYeKW4nAM@lists.infradead.org
-X-Gm-Message-State: AFq9FYJx3oIxI7hHRwSJPi//rVPV8NdbhWme9tIZxyqhZoIl/xYyDK17
-	iRrJ21tLadydsMeX/JXnS0DAUtkZUp+mY1fq0bapI+M63FtAjgYWjK+Y
-X-Gm-Gg: AYBFou229V0SZs1Scey/ELO9f0a8MYd7y3I36GuINNcLhPdeyYXFgc/CEYrXdk7apDt
-	wrOnCHm2Phet8P6jZBXjvtYcm9Tq5YXw+uWWbaKpBoX6BSq+gMdnWC4yddGlqYU7zK/kzJVbriK
-	eILU0/rB/qzBbemQff9M/8mIZAo5rDOnWao/oka+ME9bOSZl2cr3cBevsygHQh10+hdINF59SEG
-	/k7TVuU2irQyH+J2ggojpKHX4caGa29AXdcmQqTWNk4u2MEEg6FHAnCWbs3UtmQzW1GhcqMdovv
-	uHY15nSgJNMzV1jxda+OKw6GTuLawZNFWzFXzexg1puKst11XzMqBbkJVNUJTuKIJqLsXcwarMW
-	ItnvtPAUIHKmTmFm3f0fpvwYYJoNo3HW15ftRscPhHn6+h5CLtBFBafEaJW5wrfj3vEmuora1UG
-	X/H81RyYJuH2Um3uK9nxFYaedJoIv1azcSMSYWMv/cXF3rtEq4ACAxkBrIy5tx7LcMNsiwNmxbD
-	j0x2lnZpDJ5gwouXor5b+YKVOVj4KB2nGMG6Zf3fMtltuIJIcLkSB9D70jMFMts4KT3mvO4BR7W
-	1Fw2dxNSbx1N3IudOqwQEVnTvLuBmihRvBx94nzb
-X-Received: by 2002:a17:902:f548:b0:2e9:572a:7da7 with SMTP id d9443c01a7336-2eb364f1979mr52661215ad.49.1793456156941;
-        Sat, 31 Oct 2026 07:15:56 -0700 (PDT)
-Received: from arch.localdomain ([152.175.67.103])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eb38e9633fsm15743805ad.0.2026.10.31.07.15.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 31 Oct 2026 07:15:56 -0700 (PDT)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: broonie@kernel.org
-Cc: conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	jerrysteve1101@gmail.com,
-	krzk+dt@kernel.org,
-	lgirdwood@gmail.com,
+	Sat, 31 Oct 2026 14:38:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793457519; x=1824993519;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mOGtJbZAYHQiSqbGrp4D+HVhIDhcTQHgl9gip1W8AZU=;
+  b=eCHwA28KBVQ4aYfx1utjch5WltZXMTb/KQU+gcY/0wzQ+UkGjm0EEGue
+   rTm27FtZK3R+TmxPFlZhGyftKV1Qi1vFjSR6U/r9Xh/Zo5gLrdhDpa/pq
+   BayyCC7aeCfl0sFRGw4zSPXQ4O51o3iO+LyldZwWJJPL2e0G8GuT7sE42
+   Me13Ug1IJ657MDqKHv1uwOEnq2X1NYVvPyGj2oNkCs2bZGBF0g7ewZCwa
+   mC0uXmwzHAorRKxUwUUiMuygAkoy3J3N/sPCNK+q4czKkTz6g+DpFGcE8
+   dAveJfjVchPwkvUE9zQD3y1Ib2XK/r8s99r5T/h06iAByl8gu15p4qwO6
+   g==;
+X-CSE-ConnectionGUID: V5x7RttcSbmoKn4i7LUQAg==
+X-CSE-MsgGUID: SbMsVyyBR6aPABvAmEIRcw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11952"; a="2308902"
+X-IronPort-AV: E=Sophos;i="6.27,188,1787036400"; 
+   d="scan'208";a="2308902"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2026 07:38:35 -0700
+X-CSE-ConnectionGUID: EO4jmSpvTPKIPl3mo+BHxw==
+X-CSE-MsgGUID: VGkjYBofTQioetwaJ3ILPQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,188,1787036400"; 
+   d="scan'208";a="5759414"
+Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.127])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2026 07:38:30 -0700
+Date: Sat, 31 Oct 2026 16:38:27 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Lee Jones <lee@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Thomas Richard <thomas.richard@bootlin.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Andreas Werner <andreas.werner@men.de>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, mfd@lists.linux.dev,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-sound@vger.kernel.org,
-	perex@perex.cz,
-	robh@kernel.org,
-	tiwai@suse.com
-Subject: Re: [PATCH v2 2/2] ASoC: codecs: add support for Everest ES7202 PDM ADC
-Date: Sat, 31 Oct 2026 22:15:46 +0800
-Message-ID: <20261031141546.153385-1-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <179330018771.62540.301527067818961107.b4-review@b4>
-References: <179330018771.62540.301527067818961107.b4-review@b4>
+	linux-stm32@st-md-mailman.stormreply.com,
+	Charles Keepax <ckeepax@opensource.cirrus.com>
+Subject: Re: [PATCH v2 1/2] mfd: Constify mfd_cell arrays
+Message-ID: <auX9Yz0txOxbFSSf@ashevche-desk.local>
+References: <20261030140240.211786-3-krzysztof.kozlowski@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261030140240.211786-3-krzysztof.kozlowski@oss.qualcomm.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261031_071558_353035_EC8C4297 
-X-CRM114-Status: GOOD (  28.70  )
-X-Spam-Score: 0.6 (/)
+X-CRM114-CacheID: sfid-20261031_073839_213871_14B008D0 
+X-CRM114-Status: GOOD (  17.16  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,132 +102,102 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+On Fri, Oct 30, 2026 at 03:02:41PM +0100, Krzysztof Kozlowski wrote:
+> mfd_add_devices() takes pointer to const, so 'struct mfd_cell' arrays
+> can be constified whenever driver does not modify it in the probe.
 
-Thanks for your review.
+...
 
-> > Add support for the Everest ES7202, a 2-channel PDM analog-to-digital
-> > converter controlled over I2C. The device outputs PDM data to the SoC
-> > PDM controller and is configured through registers for supply voltage,
-> > analog front-end and per-channel PGA gain.
-> 
-> This looks pretty good, a few relatively minor issues below but nothing
-> major.
-> 
-> > --- a/sound/soc/codecs/Kconfig
-> > +++ b/sound/soc/codecs/Kconfig
-> > @@ -1274,6 +1274,16 @@ config SND_SOC_HDMI_CODEC
-> >  config SND_SOC_ES7134
-> >  	tristate "Everest Semi ES7134 CODEC"
-> >  
-> > +config SND_SOC_ES7202
-> > +	tristate "Everest Semi ES7202 CODEC"
-> > +	depends on I2C
-> > +	select REGMAP_I2C
-> 
-> You should also add this to SND_SOC_ALL_CODECS.
+>  drivers/mfd/intel_soc_pmic_bxtwc.c    | 2 +-
+>  drivers/mfd/intel_soc_pmic_chtdc_ti.c | 2 +-
+>  drivers/mfd/intel_soc_pmic_chtwc.c    | 2 +-
+>  drivers/mfd/intel_soc_pmic_crc.c      | 6 +++---
 
-Added.
+> --- a/drivers/mfd/intel_soc_pmic_bxtwc.c
+> +++ b/drivers/mfd/intel_soc_pmic_bxtwc.c
+> @@ -245,7 +245,7 @@ static const struct resource tmu_resources[] = {
+>  	DEFINE_RES_IRQ_NAMED(BXTWC_TMU_IRQ, "TMU"),
+>  };
+>  
+> -static struct mfd_cell bxt_wc_dev[] = {
+> +static const struct mfd_cell bxt_wc_dev[] = {
+>  	{
+>  		.name = "bxt_wcove_thermal",
+>  		.num_resources = ARRAY_SIZE(thermal_resources),
+> diff --git a/drivers/mfd/intel_soc_pmic_chtdc_ti.c b/drivers/mfd/intel_soc_pmic_chtdc_ti.c
+> index 6daf33e07ea0..8412a25d37ff 100644
+> --- a/drivers/mfd/intel_soc_pmic_chtdc_ti.c
+> +++ b/drivers/mfd/intel_soc_pmic_chtdc_ti.c
+> @@ -53,7 +53,7 @@ static const struct resource battery_resources[] = {
+>  	DEFINE_RES_IRQ(CHTDC_TI_CCEOCAL),
+>  };
+>  
+> -static struct mfd_cell chtdc_ti_dev[] = {
+> +static const struct mfd_cell chtdc_ti_dev[] = {
+>  	{
+>  		.name = "chtdc_ti_pwrbtn",
+>  		.num_resources = ARRAY_SIZE(power_button_resources),
+> diff --git a/drivers/mfd/intel_soc_pmic_chtwc.c b/drivers/mfd/intel_soc_pmic_chtwc.c
+> index aa71a7d83fcd..f27985a58c87 100644
+> --- a/drivers/mfd/intel_soc_pmic_chtwc.c
+> +++ b/drivers/mfd/intel_soc_pmic_chtwc.c
+> @@ -50,7 +50,7 @@ static const struct resource cht_wc_ext_charger_resources[] = {
+>  	DEFINE_RES_IRQ(CHT_WC_EXT_CHGR_IRQ),
+>  };
+>  
+> -static struct mfd_cell cht_wc_dev[] = {
+> +static const struct mfd_cell cht_wc_dev[] = {
+>  	{
+>  		.name = "cht_wcove_pwrsrc",
+>  		.num_resources = ARRAY_SIZE(cht_wc_pwrsrc_resources),
+> diff --git a/drivers/mfd/intel_soc_pmic_crc.c b/drivers/mfd/intel_soc_pmic_crc.c
+> index 627a89334908..ce4c9ef59198 100644
+> --- a/drivers/mfd/intel_soc_pmic_crc.c
+> +++ b/drivers/mfd/intel_soc_pmic_crc.c
+> @@ -54,7 +54,7 @@ static const struct resource gpio_resources[] = {
+>  	DEFINE_RES_IRQ_NAMED(CRYSTAL_COVE_IRQ_GPIO, "GPIO"),
+>  };
+>  
+> -static struct mfd_cell crystal_cove_byt_dev[] = {
+> +static const struct mfd_cell crystal_cove_byt_dev[] = {
+>  	{
+>  		.name = "crystal_cove_pwrsrc",
+>  		.num_resources = ARRAY_SIZE(pwrsrc_resources),
+> @@ -93,7 +93,7 @@ static struct mfd_cell crystal_cove_byt_dev[] = {
+>  	},
+>  };
+>  
+> -static struct mfd_cell crystal_cove_cht_dev[] = {
+> +static const struct mfd_cell crystal_cove_cht_dev[] = {
+>  	{
+>  		.name = "crystal_cove_gpio",
+>  		.num_resources = ARRAY_SIZE(gpio_resources),
+> @@ -142,7 +142,7 @@ static struct pwm_lookup crc_pwm_lookup[] = {
+>  
+>  struct crystal_cove_config {
+>  	unsigned long irq_flags;
+> -	struct mfd_cell *cell_dev;
+> +	const struct mfd_cell *cell_dev;
+>  	int n_cell_devs;
+>  	const struct regmap_config *regmap_config;
+>  	const struct regmap_irq_chip *irq_chip;
 
-> 
-> > --- /dev/null
-> > +++ b/sound/soc/codecs/es7202.c
-> > @@ -0,0 +1,367 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * Copyright (C) 2020 Everest Semiconductor Co Ltd.,
-> > + * Copyright (C) 2026 Jun Yan <jerrysteve1101@gmail.com>
-> > + */
-> 
-> Please make the whole comment block C++ so things look more intentional.
+I haven't compiled, but I checked the code in the actual drivers and my reading
+confirms that these structures may need to be marked with const qualifier.
 
-Done.
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com> # Intel SoC PMIC drivers
 
-> 
-> > +#include <linux/bitfield.h>
-> > +#include <linux/delay.h>
-> > +#include <linux/device.h>
-> > +#include <linux/gpio/consumer.h>
-> > +#include <linux/i2c.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of.h>
-> > +#include <linux/regmap.h>
-> > +#include <linux/regulator/consumer.h>
-> > +#include <sound/pcm.h>
-> > +#include <sound/pcm_params.h>
-> 
-> linux/of.h and sound/pcm_params.h aren't needed I think.
-> 
-Right, both removed.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-> > +static bool es7202_volatile_reg(struct device *dev, unsigned int reg)
-> > +{
-> > +	/* status and device-id registers are read-only, never cached */
-> > +	return reg == ES7202_CHIP_STA ||
-> > +	       reg == ES7202_DEV_ID1 ||
-> > +	       reg == ES7202_DEV_ID0;
-> > +}
-> 
-> A switch statement would be neater and would probably generate
-> equivalent code.  Are you sure that the ID registers are actually
-> volatile, that's quite unusual?  If they've volatile the hardware is
-> accessed on each read, if you just omit the default then they will be
-> cached after the first read.
-> 
-
-Thanks for catching this. The ID registers are static and don't need
-volatile marking. I'll drop them from es7202_volatile_reg() and use
-.writeable_reg to make them read-only, so they are still cached after
-the first read but skipped by regcache_sync().
-
-> Also should the rest register be uncached so we don't try to write it
-> back out as part of a cache sync by mistake?
-> 
-
-Agreed, I missed this. I'll mark ES7202_RESET volatile so it can't be
-written back during a cache sync.
-
-> > +static const struct regmap_config es7202_regmap = {
-> > +	.reg_bits	= 8,
-> > +	.val_bits	= 8,
-> > +	.max_register	= ES7202_DEV_ID0,
-> > +	.reg_defaults	= es7202_reg_defaults,
-> > +	.num_reg_defaults = ARRAY_SIZE(es7202_reg_defaults),
-> > +	.volatile_reg	= es7202_volatile_reg,
-> > +	.cache_type	= REGCACHE_MAPLE,
-> 
-> I notice that other Everest devices set use_single_read and
-> use_single_write - especially for write we can easily trigger
-> multi-register write as part of a regcache sync so if the device lacks
-> support it'll create bugs.
-> 
-
-Thanks. The other Everest codecs are the only precedent here - the
-ES7202 datasheet does not document multi-register (auto-increment)
-writes, so I cannot rely on them. I'll set use_single_read and
-use_single_write so a regcache sync can never turn into a burst write.
-
-> > +	es7202->supply = devm_regulator_get_optional(dev, "vdd");
-> > +	if (IS_ERR(es7202->supply)) {
-> 
-> Unless the device can operate without power this should be a normal
-> regulator_get(), the core will substitude a dummy regulator if it's not
-> configurd by the firmware.
-> 
-
-Right, VDD supply is required. I'll use devm_regulator_get() instead.
-
-I'll send a v3 with these changes.
-
-> -- 
-> Mark Brown <broonie@kernel.org>
 
 
