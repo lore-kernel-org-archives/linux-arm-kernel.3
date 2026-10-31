@@ -2,119 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EBAC606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 01:18:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DCD0606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 02:05:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jacRNTB7;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=X5hj6GYc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lzLXhXEP;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JihZ0ji1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=t12/gzZv3Vh9NEgi2dyQThdTzmEZzU4w5/1G0K00qvs=; b=jacRNTB7ech2SA
-	1Muer76aJ8S28fZL37PyiXYiHDz0JvJ2re/t9gDvde2rYgAhQGPiTLoSX2p2S5mF7WAqT4vtsdHnt
-	O0/Ms+6bT2WLKEgkv1506gSizd46MKp8pMG7hy1Vpm++dnjuQLC5noPJFhu0iW8SG0K1oKw4/wAME
-	ix0zVYKZ64/Q6mKgc7TbVAbxDNwfWs1s/6Nnvh3/o3VB3uIUk/diFki82buj2Mqp7YwCGkCbYjiun
-	BOK9r2/oQLmUxaXwNaqGfE4qYjcxV5AaAI9sJSM5wxXj+nfh2n5s/nLxqLcM1mhidyDqWwRReBSvV
-	/ZNkqCUTUOTNmmp1r7dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=UlBttvbTfPH6bD8qwAPRvEvBrmgF2s7FgvULNFDejzM=; b=lzLXhXEP1IJQNzbpiNAoPysWVV
+	s2poYIDYGx5vc7QNmUJUswUmQ+MD8Bxm8FbqgOJzHIXjKPEqpAQwWF0hz3RDUk6QpVf+DlIxeCZSN
+	lZchdx0WjGbS3awud3F4pjMzaUOGOYF4II69PwHmRA9gXven7LzRawUo7EPZvAOlACGJ9hWWmUGEL
+	Dtu8Tg47VeDFPCgUy+GsNYBENViJt0UzGh/Zt1dq3s0+7aZ9KY/9s4bUYRqWd5HF1ypRI1taBCmIM
+	xrVisNKc/wnXJfM1KnrSQFQTp2i7IxpxSzI15ZlPsoKvU0M0is5k9dAoDg7iS1/vjG7qG44cMpddw
+	9EsA1QZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMxjV-0000000Cp13-04U5;
-	Sat, 31 Oct 2026 01:18:09 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1xMyTA-0000000Cr27-0yp9;
+	Sat, 31 Oct 2026 02:05:20 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMxjS-0000000Cp0g-3Rsc
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 01:18:08 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-3ab01c46697so13827961fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 18:18:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793409484; x=1794014284; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=t12/gzZv3Vh9NEgi2dyQThdTzmEZzU4w5/1G0K00qvs=;
-        b=X5hj6GYcaEnihxltjhlk1Cfy5QFD/DMm9vP5d/4Cvkc+0i0FsVMlyZ4wlNt1hbtyt3
-         7Y43s4rxM5Oc0ELSK9RJN+3iI7ozXHQaHygKA6faFrMPK7uyX2Dm0OOt7WTbA2l7wr7s
-         YvuVz/ITHnMFmTkIDdVX/WWgGP1CH9pdUM+gg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793409484; x=1794014284;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=t12/gzZv3Vh9NEgi2dyQThdTzmEZzU4w5/1G0K00qvs=;
-        b=M1yeoVnzuSgfi2B6jSsuFk7Rt39i5J6Z2bNKF8351vWWwbmIbUQ6MbTu3kw2PMnU1+
-         jmo+P/zMkkM4nDPpv8NbMHVn2xalT1joeAG+tGEpjcHbzm+DQbvxZjLgJa16Zaph6UmL
-         7BQeo5RHFzD1nHjsP0umE143HJA8CAAQx4kBQJHwcL8BVeYWbmHtdugd31kGJaF7+clN
-         FpK/gjx5VdBErBmBN4r98mwffPgcAFRo6r+BVnz5Q8aQuuCP/UnBkauDU/O2LY+OYYn6
-         jEZtIxcQVlQJqGHLG5QBDV+7wbY2cW9xZtxZH4e2gBJj2cd2WgwmsWHSmXjsLR4gnLO9
-         F0Cw==
-X-Forwarded-Encrypted: i=1; AKwUvBwtAbP7a8MGDVGcp0rjHckdkSk9A/iUCPkk0lNc9mtmxs9gA2kEacjBW5hibSy+6/7rI2D24T+4XYpXNNAPCiG1@lists.infradead.org
-X-Gm-Message-State: AFq9FYJv+NDqmqAntF87p+JZMRPBIS13Q0KWKXuFhhgutTZ3oCoybaEX
-	Ir2sMox3mvUrMWta6+3u8P7s1jA9KnXTJ6khp3pN9mgkY+FqkFji239oBVIbdAiETt3eQgZYg2F
-	Oo1J3b7IO
-X-Gm-Gg: AYBFou2EO90YlFO7OoVQBJYZvuSz0wenVz215GC2+KA5RgzVs0epPmtlm4DF4lJIuFY
-	Zas4TXPfsFHyhTF4SfhOb3qImntGQ8RPZCnpIpyQepJlQAsI+fogDctJcwUBgG7/YSCg2tyonPh
-	eT8+mMi3pJbnsWo9s9QMNoprSuCHcx9iSZSbAcGA+rU2bh7yD4xRsMcTrVArmEZSKMzAphmFzLK
-	kGho+3AzoFS728+lJoU9Z3oMA7lPiGLA0CwNpNmyFkzuJlmw8LVeaTspDtx27wPPgbZHsPYyw8c
-	6gIR7rtSXNSSWgkMiWOdQeUEs21VbGDpAtLSAPYL6FfIhp3jp26f05brymkRBy8faO0vPOi3h9q
-	HOn2ZPhrd5FnSt8a2wPcCQSDwqqXtHizrPd2NDzXFc+hXaSjMCVRpxlunq9FoI8cvwUWXk2XCf4
-	c/2eyhfU7HypGi9KdQUbymROnlfIY49uXFhyHkyxBi6k2ZUJVQObvAp2hUTPuK5YN5qAPd2l8UD
-	VPodva7gnDjNHSlEAxMWO0fXFKx8nqtAm+hTuRpMCTPW9wL8YXaJjMy4M7FDVhd0BYNvVtD7h01
-	RaOJ3GsGep1Yi4s1xwvY0L2BoEzSB/3jcg0rM8MwrN8ZnI1rpcdjAVKAaScVj03DSrQSO4dy
-X-Received: by 2002:a2e:be9f:0:b0:3a6:692d:b7ed with SMTP id 38308e7fff4ca-3acb7aa01e4mr9434671fa.20.1793409483964;
-        Fri, 30 Oct 2026 18:18:03 -0700 (PDT)
-Received: from mail-lj1-f181.google.com (mail-lj1-f181.google.com. [209.85.208.181])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3acbbf31c35sm6567561fa.36.2026.10.30.18.18.03
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 Oct 2026 18:18:03 -0700 (PDT)
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-3aca0bf7fd0so11209051fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 18:18:03 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByNjHHiSC8wyH84XOTAsfJofhcfUzKoJo3z9j43pkx1imVjGHow4n/EXdOezHzLYo2hcYdMAjmpUZzuSQ0/uHOJ@lists.infradead.org
-X-Received: by 2002:a05:600c:609a:b0:4a1:7c56:d4e2 with SMTP id
- 5b1f17b1804b1-4ac1709aa77mr83103245e9.16.1793408992269; Fri, 30 Oct 2026
- 18:09:52 -0700 (PDT)
+	id 1xMyT7-0000000Cr1U-2EaF;
+	Sat, 31 Oct 2026 02:05:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793412318; x=1824948318;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=rFP0baAiFvMl7x0GJSmUU/DikfJl7LDgkFNhT+TL2Hc=;
+  b=JihZ0ji1Oa2FEpQib77UNpOFcgowPdG9aHa9OTIuZeRexSpQOmqfNR+v
+   hVraazopQiuAHFnYZ9iDnZS9NTCs6ZMtL9SuCrUm89Yx46zNfN0/reA7F
+   +lTHI97ZuI1TT7+vmpkMhQhCx3db86r9H4cWizXXzYp/YBRQodIzNwg6g
+   KuET09cPYAB9/RyJD+4Uma15GLO7NDv9i6Xeu2HhTDLivqiaupsiXbqk3
+   VFffn7BSwByUoeSNbXCYEYhq4FFwNCoXhywP54/qC/EQwzaEWRFJxJkAq
+   Q07DHcCVP8oZ6juLVx68gGmOy2x1HcPURNuvWQuN5f4EkQIwg5iUQYItP
+   w==;
+X-CSE-ConnectionGUID: GwmZErnnTC+NlNM+AM9clQ==
+X-CSE-MsgGUID: qurwsl5MTGq08FAtWCnHFQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11951"; a="2210048"
+X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
+   d="scan'208";a="2210048"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2026 19:05:16 -0700
+X-CSE-ConnectionGUID: rpu8b9TrR9KayjHTgqdWLw==
+X-CSE-MsgGUID: gFTzgCr4SSm7mo8/J3eY3A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,186,1787036400"; 
+   d="scan'208";a="5540397"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 30 Oct 2026 19:05:10 -0700
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xMySw-00000000cRg-0s3X;
+	Sat, 31 Oct 2026 02:05:06 +0000
+Date: Sat, 31 Oct 2026 10:04:26 +0800
+From: kernel test robot <lkp@intel.com>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andyshrk@163.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, Icneowy Zheng <uwu@icenowy.me>,
+	Han Gao <gaohan@iscas.ac.cn>,
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Subject: Re: [PATCH 3/3] drm/bridge: add TH1520 DesignWare MIPI DSI host
+ controller
+Message-ID: <202610311004.6oZFiXBi-lkp@intel.com>
+References: <20261030-th1520-dw-mipi-dsi-v1-3-753f34fd304f@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261020153652.2907186-1-dianders@chromium.org> <CAFLszTgzpQ-donjjtcPwy5T3pfWg_u83QMh0GcdpY2JCq_s75w@mail.gmail.com>
-In-Reply-To: <CAFLszTgzpQ-donjjtcPwy5T3pfWg_u83QMh0GcdpY2JCq_s75w@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Fri, 30 Oct 2026 18:09:40 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=Vt6hgGJuYtv1_mBSQztWQBjmDN9CwLtVxrXcyECGx2-A@mail.gmail.com>
-X-Gm-Features: AclHuK9Km6WTJvvTvOnJ9g5USO9Th2gdTGYh9-cjnPaFh3hhpAF88g-93yWA4Zk
-Message-ID: <CAD=FV=Vt6hgGJuYtv1_mBSQztWQBjmDN9CwLtVxrXcyECGx2-A@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/7] arm64: Add fit images for sc7180-trogdor and google,lga
-To: Simon Glass <sjg@chromium.org>
-Cc: Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-kbuild@vger.kernel.org, 
-	Brian Norris <briannorris@chromium.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Chen-Yu Tsai <wenst@chromium.org>, linux-arm-msm@vger.kernel.org, 
-	Nicolas Schier <nsc@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Devicetree@vger.kernel.org, 
-	Julius Werner <jwerner@chromium.org>, Saravana Kannan <saravanak@kernel.org>, 
-	Will Deacon <will@kernel.org>, Michal Simek <michal.simek@amd.com>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Andrew Jones <andrew.jones@linux.dev>, 
-	Bjorn Andersson <andersson@kernel.org>, Breno Leitao <leitao@debian.org>, 
-	David Sterba <dsterba@suse.com>, Gary Guo <gary@garyguo.net>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Luis Augenstein <luis.augenstein@tngtech.com>, 
-	Marco Elver <elver@google.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Nick Terrell <terrelln@fb.com>, 
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>, Rong Xu <xur@google.com>, 
-	=?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
-	cros-qcom-dts-watchers@chromium.org, linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261030-th1520-dw-mipi-dsi-v1-3-753f34fd304f@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_181807_011797_07BA18E5 
-X-CRM114-Status: GOOD (  34.38  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261030_190517_620185_50BCC335 
+X-CRM114-Status: GOOD (  13.37  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,117 +109,132 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,T_PDS_OTHER_BAD_TLD autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Simon,
+Hi Icenowy,
 
-On Fri, Oct 23, 2026 at 5:26=E2=80=AFPM Simon Glass <sjg@chromium.org> wrot=
-e:
->
-> > 1. It uses a checked-in .its script to associate metadata with each
-> >    board's devicetree. Other tools can parse this metadata in order to
-> >    craft a package that the Pixel bootloader can understand.
->
-> One thing I'd like to check before this goes further. In lga.its the
-> metadata is a string packed into the configuration description
-> (board_id=3D...,board_rev=3D...,soc_id=3D...,soc_rev=3D...). The FIT spec
-> treats 'description' as human-readable text, so this turns a
-> free-form, undocumented string into an ABI that bootloaders and
-> packaging tools must parse. I'd much prefer proper properties in the
-> configuration node, defined in the FIT spec [1], so that every tool
-> can rely on the same names and types. I'm happy to help get that into
-> the spec. What do you think?
+kernel test robot noticed the following build warnings:
 
-Putting the metadata in the configuration's `description` property came
-out of discussions with Michal Simek at LPC 2026 (where Xilinx/AMD
-already uses configuration descriptions for similar board matching).
+[auto build test WARNING on c03c1a14507dfaf8b856c2608f9ac216021fc222]
 
-You can actually find one of Michal's files here in U-Boot:
-* arch/arm/dts/zynqmp-binman-som.dts
+url:    https://github.com/intel-lab-lkp/linux/commits/Icenowy-Zheng/dt-bindings-display-bridge-document-TH1520-MIPI-DSI-controller/20261030-154749
+base:   c03c1a14507dfaf8b856c2608f9ac216021fc222
+patch link:    https://lore.kernel.org/r/20261030-th1520-dw-mipi-dsi-v1-3-753f34fd304f%40iscas.ac.cn
+patch subject: [PATCH 3/3] drm/bridge: add TH1520 DesignWare MIPI DSI host controller
+config: arm64-randconfig-1001-20261031 (https://download.01.org/0day-ci/archive/20261031/202610311004.6oZFiXBi-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project c2ea4440d4b64c148de4fdfca1fc2c437a0701e4)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261031/202610311004.6oZFiXBi-lkp@intel.com/reproduce)
 
-Then parsing happens in:
-* board/xilinx/common/board.c
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202610311004.6oZFiXBi-lkp@intel.com/
 
-I honestly still think this information would be better to live
-directly in a board's devicetree itself and then extracted to put
-in the FIT, but I've decided that fight is lost. Honestly, the
-allure of using `description` for me was that, since it as
-free-form / non-standardized, my hope was that nobody would really
-care what I put there.
+All warnings (new ones prefixed by >>):
 
-If you want to help get something more structured into the spec
-then I'd be happy to use that instead. It's my opinion, though,
-that the metadata that we need will be different depending on
-the loader. For instance, on Pixel phones the loader has this
-information to help pick devicetrees:
-* board ID (number)
-* board rev (number)
-* SoC ID (number)
-* SoC rev (number)
-
-On trogdor Chromebooks, the bootloader instead had this information
-to help pick a device tree:
-* Board name (string)
-* Board revision (numbrer)
-* SKU ID (number, though actually made up of a number of bitfields)
-
-Michal's loader obviously has a whole different set of information
-that it uses to figure out which configuration to pick.
-
-The proposal I've tried to push a few times is that it's OK that
-different loaders have different types of information available
-to them, but people don't like that. They want a universal standard,
-which nobody can come up with. Thus we end up with no solution and
-everyone does something different / downstream...
-
-In any case, assuming we keep this as 'description', I'll document
-the exact format in v2.
+>> drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c:445:22: warning: variable 'ret' is uninitialized when used here [-Wuninitialized]
+     445 |                 dev_err_probe(dev, ret, "Unable to get DSI registers\n");
+         |                                    ^~~
+   drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c:428:12: note: initialize the variable 'ret' to silence this warning
+     428 |         int i, ret;
+         |                   ^
+         |                    = 0
+   1 warning generated.
 
 
-> > How does this series help us?
->
-> The FIT_ITS path is a second way to build image.fit alongside
-> make_fit.py, and much of it repeats what make_fit.py already does: it
-> puts the root compatible from each DTB into the configuration and
-> compresses the DTBs. The series adds fdtget/fdtput, sed parsing of
-> /incbin/ paths and a shell loop in Makefile.lib to do the same for a
-> hand-written .its file, and the .its files repeat the DTB lists from
-> the Makefiles.
->
-> Have you thought about extending make_fit.py to take the per-board
-> metadata (e.g. from a small file next to the DTs, or via
-> FIT_EXTRA_ARGS) and to run fdtfactor itself? That would avoid the
-> in-tree fdtget/fdtput, the mkimage dependency and most of the Makefile
-> logic, and trogdor would come almost for free.
+vim +/ret +445 drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c
 
-I certainly can do that if that's what people want. ...and, yes, I
-think it would simplify some stuff in this patch series. The
-question is: what does it look like? Is it a file that is a list
-of devicetrees along with descriptions? The list of devicetrees
-would be to limit which devicetrees are built into the FIT
-and then each would have a description. ...and yes, that would mean
-it would need to be updated in parallel with the Makefile, but I
-don't see a significantly better way to do it. Yeah, I guess that
-could work OK.
+   420	
+   421	static int th1520_dw_mipi_dsi_probe(struct platform_device *pdev)
+   422	{
+   423		const struct dsi_chip_data *cdata;
+   424		struct device *dev = &pdev->dev;
+   425		struct th1520_dw_mipi_dsi *dsi;
+   426		struct resource *res;
+   427		void __iomem *base;
+   428		int i, ret;
+   429	
+   430		dsi = devm_kzalloc(dev, sizeof(*dsi), GFP_KERNEL);
+   431		if (!dsi)
+   432			return -ENOMEM;
+   433	
+   434		dsi->dev = dev;
+   435	
+   436		dsi->syscon = syscon_regmap_lookup_by_phandle(dev->of_node, "syscon");
+   437		if (IS_ERR(dsi->syscon)) {
+   438			ret = PTR_ERR(dsi->syscon);
+   439			dev_err_probe(dev, ret, "Unable to get system controller regmap\n");
+   440			return ret;
+   441		}
+   442	
+   443		base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+   444		if (IS_ERR(base)) {
+ > 445			dev_err_probe(dev, ret, "Unable to get DSI registers\n");
+   446			return PTR_ERR(base);
+   447		}
+   448	
+   449		cdata = of_device_get_match_data(dev);
+   450		i = 0;
+   451		while (cdata[i].reg) {
+   452			if (cdata[i].reg == res->start) {
+   453				dsi->cdata = &cdata[i];
+   454				break;
+   455			}
+   456	
+   457			i++;
+   458		}
+   459	
+   460		if (!dsi->cdata) {
+   461			dev_err(dev, "Failed to find chip data for this controller\n");
+   462			return -EINVAL;
+   463		}
+   464	
+   465		dsi->clk_ref = devm_clk_get_enabled(dev, "ref");
+   466		if (IS_ERR(dsi->clk_ref)) {
+   467			ret = PTR_ERR(dsi->clk_ref);
+   468			dev_err_probe(dev, ret, "Unable to get PHY reference clock\n");
+   469			return ret;
+   470		}
+   471	
+   472		dsi->clk_cfg = devm_clk_get_enabled(dev, "phy_cfg");
+   473		if (IS_ERR(dsi->clk_cfg)) {
+   474			ret = PTR_ERR(dsi->clk_cfg);
+   475			dev_err_probe(dev, ret, "Unable to get PHY configuration clock\n");
+   476			return ret;
+   477		}
+   478	
+   479		dsi->clk_pix = devm_clk_get(dev, "pixel");
+   480		if (IS_ERR(dsi->clk_pix)) {
+   481			ret = PTR_ERR(dsi->clk_pix);
+   482			dev_err_probe(dev, ret, "Unable to get PHY pixel clock\n");
+   483			return ret;
+   484		}
+   485	
+   486		dsi->pdata.base = base;
+   487		dsi->pdata.priv_data = dsi;
+   488		dsi->pdata.max_data_lanes = 4;
+   489		dsi->pdata.phy_ops = &th1520_dw_mipi_dsi_phy_ops;
+   490		dsi->pdata.mode_valid = dsi_mode_valid;
+   491	
+   492		platform_set_drvdata(pdev, dsi);
+   493	
+   494		dsi->dmd = dw_mipi_dsi_probe(pdev, &dsi->pdata);
+   495		if (IS_ERR(dsi->dmd)) {
+   496			ret = PTR_ERR(dsi->dmd);
+   497			dev_err_probe(dev, ret, "Failed to initialize mipi dsi host\n");
+   498			return ret;
+   499		}
+   500	
+   501		return 0;
+   502	}
+   503	
 
-If so, I think a bunch of the patches in this series will be
-dropped or look very different. I probably won't directly reply
-to your comments on patch 2, 4, 6, and 7 if we go this way.
-
-Should I give it a shot for v2?
-
-
-> The new FIT_ITS, FIT_FACTOR_DTBS and FDTFACTOR_ARGS variables aren't
-> documented anywhere, including the image.fit entry in the arm64 'make
-> help' output. Please can you add something, perhaps alongside wherever
-> FIT_DECOMPOSE_DTBS ends up being described.
-
-Sure, I will make sure that any newly-introduced variables are
-documented in v2.
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
