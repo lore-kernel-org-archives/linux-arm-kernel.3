@@ -2,72 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B286606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 17:10:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D761606A335
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 17:10:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=prE8vBlG;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DgDXR5r8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KL85GPew;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KrbN85Oq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=rwgOuZt3/daKJP7MDhwWg9Xwq6IOExj4eF3w/XLEjcI=; b=prE8vBlG6rBWHYOPquOl8Xl0Ax
-	kT1h4W4kQBRr3vHAEM7Iwck4wEYNVquLUpl/j++/XVzj4Jy9xmP2HEYN8oWJDZcVH8op3936KwU3P
-	oE0HMYgNgwZ+G41XUzEai1Nm9pEyVmssbru6vW9RSyxVR1i6L6fYmlw5i8kcJw9tqXddaqdCTXjsh
-	todrGNU1zVwVXDS76vhKXsZJWCyMnfQ9suUkMhwlD5f4BUoNe3p0GJvlXCCLfoTtMeNIRhQ7DVsum
-	HxJcxbp85PDl/PCPJz8cbDUo6+A/84ARp4iSHXha2H6AJEmE8uhZ8YPfdlRt8RKrZD2GwvkLuDJ9v
-	mUQdf46w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=Ht3eHe4EzKYxFFLbnOBIrMS9lRut2mY+uEg1RLF4XUA=; b=KL85GPewaOwfBM
+	d7w0t7Ujygwn8ROkxxerENFHVYB4QxXxvIpqcfpQUeODK0FXBhnJtniMC/p90NJPQAl/LCPDNqsq5
+	neM7sCF/HdIcjo6WVw9LX3VZFbN5B9XDFnXLrpGMiIkDqrAneJr2myPPWL4bFD03MHgpOfI4hY228
+	xcMgv1ZURx1VBqh92g4xYF/d5ag4VvXB0+SWpsnOqQ4CJ1PS0wK/VR7Lo7l7ifnW3ONTn0BUqgLuG
+	9f+NESy2k6RXg06J7TorBBvDoYu4sVejQM0wOuWjKvQCY/Q87UrO3TDrC0fjoJ65NYEs1cwrPXc24
+	ierGZRR1YuwYOXqRVZ8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNCaj-0000000DVev-0Elm;
-	Sat, 31 Oct 2026 17:10:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xNCaq-0000000DVge-159a;
+	Sat, 31 Oct 2026 17:10:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNCah-0000000DVei-2uKc
+	id 1xNCal-0000000DVfL-20L5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 17:10:03 +0000
+	Sat, 31 Oct 2026 17:10:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D12EB6061D;
-	Sat, 31 Oct 2026 17:10:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69FB31F000C1;
-	Sat, 31 Oct 2026 17:09:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 72A3E43B50;
+	Sat, 31 Oct 2026 17:10:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86CB91F000C1;
+	Sat, 31 Oct 2026 17:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793466601;
-	bh=rwgOuZt3/daKJP7MDhwWg9Xwq6IOExj4eF3w/XLEjcI=;
-	h=From:Subject:Date:To:Cc;
-	b=DgDXR5r8uhoVW7rNG1/mUea4nbNWPx3W7h9kGOxAutQWk/LgQcYM7jMxtI4ybU5z4
-	 /VXY0Vc3/xUC4zmUsi2tyuLIuqHNG8fD0fu92wb2ksBVDhgo4x0Eq8AEYzt0l3ugdu
-	 JhbD9+fAq5zhMzHcMB0lATI8fAHagVmjja8m8MYinnDL/+vv66DJu100jkfbkH+SrZ
-	 fSN98XEcY8flO07fTzoLAL2IikYASnTV5/ytWZB+2nFdQQOix5XUmdooHdMvB4DsTj
-	 6VEKODdjgl2kb/ZSRAScUfNhNeLRkowbvy0z78dYFTI27GFlHfZyg/p1pbOrjNhpgZ
-	 ilEVZ/THNJyiA==
+	s=k20260515; t=1793466606;
+	bh=Ht3eHe4EzKYxFFLbnOBIrMS9lRut2mY+uEg1RLF4XUA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=KrbN85OqY1lCsidheCnNJolG+HjnxA3FM3VFV1wn90pXbtHW7nKFH6nms0CY0E5Vu
+	 QsJ2zC7Cyb0Ez6cVoCm7nX4gF94MWLsJxjPF65GEZKV9oWAvmDiNMVVfMCBELi26PZ
+	 5dMzz0TOCAu8uYaGbPWLnaj8ZcOCRHjL2ukFnq7EdpJzNiaaemdYoCaq3OiuL7cIAp
+	 i5yW5pb0V6tUzX8GfRGTzWH8AA/FWOYg4qDco0YnDyVj6yeI1SwTEx/5ajQJn+ONnV
+	 y7ZCyasozMg/63Ze5mZisuNx8VL4T1Im5njy1NWu3FeF8av2C0TsanGNM7WZm237o0
+	 TH7jiFuraDKGA==
 From: Joshua Crofts <crofts@kernel.org>
-Subject: [PATCH 0/5] tty: serial: remove redundant
+Date: Sat, 31 Oct 2026 18:09:46 +0100
+Subject: [PATCH 2/5] serial: fsl_lpuart: remove redundant
  pm_runtime_dont_use_autosuspend() calls
-Date: Sat, 31 Oct 2026 18:09:44 +0100
-Message-Id: <20261031-tty-dont-use-autosuspend-removal-v1-0-7bdadcadc4dd@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3NQQrCMBBG4auUWTvQiVLFq4iLmPzqgCYlkxSl9
- O4Gl9/mvZUMRWF0HlYqWNQ0pw7ZDRSePj3AGrvJjW6ScS9c65djTpWbgX2r2ZrNSJEL3nnxL8b
- JyS0IwuE4Uc/MBXf9/BeX67b9AE/dmkZyAAAA
-X-Change-ID: 20261031-tty-dont-use-autosuspend-removal-e821bc1ec476
+Message-Id: <20261031-tty-dont-use-autosuspend-removal-v1-2-7bdadcadc4dd@kernel.org>
+References: <20261031-tty-dont-use-autosuspend-removal-v1-0-7bdadcadc4dd@kernel.org>
+In-Reply-To: <20261031-tty-dont-use-autosuspend-removal-v1-0-7bdadcadc4dd@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Jiri Slaby <jirislaby@kernel.org>, Michal Simek <michal.simek@amd.com>, 
  Peter Korsgaard <jacmet@sunsite.dk>
 Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, Joshua Crofts <crofts@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793466599; l=1149;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793466599; l=1119;
  i=crofts@kernel.org; s=20261015; h=from:subject:message-id;
- bh=2SRCu0EHsDqsQ6XggGun3l8mT6gihtWOiO8PI8Na/OI=;
- b=GJ7+wDp1zdB9c844WCb+h+JMrXpw5Q//cyIE8FCrJ/Xud+6N0TPvu17+EryGgO16JKE8QJDjT
- rt5UknaSnZnBGaaEkKSgawxPZKnBY/i7jBXMJIxlAoYyLtMwvcwnoBX
+ bh=2oCMjGtbSQHN64VRa5dtTxB0LFjvNWUjbw8MWTfVbOY=;
+ b=cLUcxGR7/9wLAmRMhc+sl8k/QOn4ZFAiZc86JXTxphHlomh6NKpgAKNnKN3vaCWkNhcZAIwl1
+ Nmfj7RRHhi8ANbairlQHfGVoH2TDp+O673CHwBph0L5tTNU1LJtd1Ht
 X-Developer-Key: i=crofts@kernel.org; a=ed25519;
  pk=RTDOoVwgeL4oFdASj9U+cxJuIjXuXk73zkjnGOJKbEo=
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -96,25 +93,31 @@ Remove the redundant function calls.
 
 Signed-off-by: Joshua Crofts <crofts@kernel.org>
 ---
-Joshua Crofts (5):
-      serial: 8250_omap: remove redunant pm_runtime_dont_use_autosuspend() calls
-      serial: fsl_lpuart: remove redundant pm_runtime_dont_use_autosuspend() calls
-      serial: xilinx_uartps: remove redundant pm_runtime_dont_use_autosuspend() calls
-      serial: port: remove redundant pm_runtime_dont_use_autosuspend() calls
-      serial: uartlite: remove redundant pm_runtime_dont_use_autosuspend() calls
+ drivers/tty/serial/fsl_lpuart.c | 2 --
+ 1 file changed, 2 deletions(-)
 
- drivers/tty/serial/8250/8250_omap.c | 2 --
- drivers/tty/serial/fsl_lpuart.c     | 2 --
- drivers/tty/serial/serial_port.c    | 1 -
- drivers/tty/serial/uartlite.c       | 1 -
- drivers/tty/serial/xilinx_uartps.c  | 2 --
- 5 files changed, 8 deletions(-)
----
-base-commit: d135ab453a7400a34930bdda1ef4bdc8acfac80e
-change-id: 20261031-tty-dont-use-autosuspend-removal-e821bc1ec476
+diff --git a/drivers/tty/serial/fsl_lpuart.c b/drivers/tty/serial/fsl_lpuart.c
+index c8575c965203..411e14151a50 100644
+--- a/drivers/tty/serial/fsl_lpuart.c
++++ b/drivers/tty/serial/fsl_lpuart.c
+@@ -2987,7 +2987,6 @@ static int lpuart_probe(struct platform_device *pdev)
+ failed_reset:
+ 	pm_runtime_disable(&pdev->dev);
+ 	pm_runtime_set_suspended(&pdev->dev);
+-	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 	lpuart_disable_clks(sport);
+ 	return ret;
+ }
+@@ -3008,7 +3007,6 @@ static void lpuart_remove(struct platform_device *pdev)
+ 
+ 	pm_runtime_disable(&pdev->dev);
+ 	pm_runtime_set_suspended(&pdev->dev);
+-	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ }
+ 
+ static int lpuart_runtime_suspend(struct device *dev)
 
-Best regards,
 -- 
-Joshua Crofts
+2.56.0
 
 
