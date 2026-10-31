@@ -2,49 +2,49 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B18CA606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 12:07:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1237606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 12:07:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=o3iU7r47;
-	dkim=pass (2048-bit key, unprotected) header.d=posteo.net header.i=@posteo.net header.a=rsa-sha256 header.s=1984.8680eb header.b=dMplOwLY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=toht2Wa4;
+	dkim=pass (2048-bit key, unprotected) header.d=posteo.net header.i=@posteo.net header.a=rsa-sha256 header.s=1984.8680eb header.b=OjAlI7I3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=jyk3rgi6eH2uBTITUiOecFzmCK/Ol922slxYpE+PPRs=; b=o3iU7r47TR/KIa
-	e7hWM6aJsrQsWpWHv7fGdwB3DVYvNcY3ZpMyYxCjt3ooglb92ote/bzH+iiriTxSdm+gzv4URM6P8
-	3uW1vYVHUfwsTfMc9DEgujfNIClWB/SkI/Dqi1yAyxfmhLdl8C3+xB3aJkSP7ufs5kdKHTxEsibYB
-	23/tjsDa2p/Dkd0nGPbkrLknmwSvrIU8bNBlq5eDJoWzQ7ayMCAH8bBxLcBUtbHNdJXYMKkRWeXY7
-	zqcn5bqd22EvzscDtdf4bHi37b8VBw+wIlfYnlOTQ0QjA+0PuX5z1wpbowDdjuZgu0xoNTfLl+WlA
-	d5fztuJTAy8jeCCmZaeg==;
+	List-Owner; bh=Ra9w+zWZgwoCxB8YuqKLO7gy/hnQxYG7gsDPgEiLLpU=; b=toht2Wa4UEJLEE
+	30CRUteRW1OUHiHNqqCR1xD1wbxe5ex+BSpD5WwCya4hrHQy+OQcBEpUgQWXN5O6Y0rtCnvLe71fP
+	iDPRydPlB7D6fn0yRIwjfYX3+6rgkhDZMZYOjXi02r/ADnXzDjLEpQGoqdFKzTiiLPH4YbpYyhSsL
+	1y3doDklQzSIwjoMy30AFZVKeAiQyznqZe2Ar22Sm1Sykj0GS/67Ju2wFs1NslGu+L4b81H3sCIzT
+	/Jnn5DKEgxL5ijXUA/3xXnk02DFGDO96xwtRlSnoEF0POrNTsaQq6G2iCxRiql8wHYTlQEpksC/LV
+	gRIBNfAlYWOvWvciiZAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN7rn-0000000DHiJ-39xz;
+	id 1xN7rn-0000000DHid-3gZ4;
 	Sat, 31 Oct 2026 12:07:23 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN7rf-0000000DHdv-1Iv9
+	id 1xN7rg-0000000DHf4-3oms
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 12:07:16 +0000
+	Sat, 31 Oct 2026 12:07:18 +0000
 Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id 55591240126
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:07:13 +0100 (CET)
+	by mout01.posteo.de (Postfix) with ESMTPS id C9F8F240029
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:07:14 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
-	s=1984.8680eb; t=1793448433;
-	bh=jyk3rgi6eH2uBTITUiOecFzmCK/Ol922slxYpE+PPRs=;
+	s=1984.8680eb; t=1793448434;
+	bh=Ra9w+zWZgwoCxB8YuqKLO7gy/hnQxYG7gsDPgEiLLpU=;
 	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:
 	 Content-Transfer-Encoding:From;
-	b=dMplOwLY0aDJxLldmkgQcF+xhl9AGuLGcEQamfFFe4Y5i5Il9SE0PX128i4v/oUt3
-	 89JYyQjemRG79JHTl7kpwn965bn5mVrr+FTLhwbkJzJPnJf9SaK6mX7whWon5q6CpV
-	 P/3FbNxLvfjLLB3tZkKVJWdVFc/LlxKL5DmXzvmYooSd1N+afa7nqQvGDWhiIPhBZB
-	 tbUOFvxFdlbM1yYCvgGMx0Lu38/CuCkeSw+bIMF02SlbboZ7gkPl0QRK3k8xadBAa0
-	 6mbkLG7XpqHnlwoC2uU0zKnieWK6wHvls/5ZDPPuoCygkbT51oGSW5JddYMv9gQb7+
-	 9BhKrVEa+/Djg==
+	b=OjAlI7I37GMxg1ZeHT8HQkXDsSmLMMkV7waYDyjYo0Y1HZ9vQYV7H69rlnUF+vtoy
+	 87i4JOAjwn0lLHfeyNLLhYYb+oeJvv4XSBQ9RuyVZ5SDqdCrFWfKlSzVC7VhtX1ZMY
+	 cz6495e9GBehHoyQQbp7Tcgr0DFXAzWQThSqlNWdXn6Q0oeNvR9uT+4mU3btkyMuHo
+	 Q3KdN+9Q7JcBK7jWz3xgB8zNckqh38qIzxTLEh+gWZbPmhtCbjqsknKz2HtVunDUOV
+	 r3tLlTt9IBfbKBJH23CDyOmElTtDAcYj373hQrUm3ceEWN6md/AXsCbTdYDxrY2JF+
+	 1tskkiQIIUrHQ==
 Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4jGxXv3CL4z6v1f;
-	Sat, 31 Oct 2026 13:07:11 +0100 (CET)
+	by submission (posteo.de) with ESMTPSA id 4jGxXx0lm9z6v26;
+	Sat, 31 Oct 2026 13:07:13 +0100 (CET)
 From: Mateusz Nowicki <mateusz.nowicki@posteo.net>
 To: Ulf Hansson <ulfh@kernel.org>,
 	linux-mmc@vger.kernel.org
@@ -59,17 +59,17 @@ Cc: Christophe Kerello <christophe.kerello@foss.st.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH 2/3] mmc: mmci: stm32: do not use NEGEDGE in HS200 mode
-Date: Sat, 31 Oct 2026 12:07:12 +0000
-Message-ID: <20261031120700.42576-3-mateusz.nowicki@posteo.net>
+Subject: [PATCH 3/3] mmc: mmci: stm32: lock the STM32MP25 delay block again before tuning
+Date: Sat, 31 Oct 2026 12:07:14 +0000
+Message-ID: <20261031120700.42576-4-mateusz.nowicki@posteo.net>
 In-Reply-To: <20261031120700.42576-1-mateusz.nowicki@posteo.net>
 References: <20261031120700.42576-1-mateusz.nowicki@posteo.net>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261031_050715_496167_9C8D425E 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20261031_050717_103838_9F62854C 
+X-CRM114-Status: GOOD (  14.07  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,46 +89,52 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-RM0457 marks NEGEDGE as not applicable in HS200. With a clock divider it
-corrupts multi-block writes: on the STM32MP257F-DK (st,neg-edge, 200 MHz
-kernel clock, HS200 at 100 MHz) written data read back different. The
-same writes are correct without NEGEDGE.
+Once locked, the DLL of the delay block follows voltage and temperature
+but not a change of the clock frequency. RM0457 requires the DLL to be
+disabled and locked again after a frequency switch.
 
-Fixes: 36240ef8665b ("mmc: mmci: add hs200 support for stm32 sdmmc")
+sdmmc_dlyb_mp25_enable() only sets EN, so a DLL left enabled by an
+earlier tuning keeps its old lock. On the STM32MP257F-DK eMMC, switching
+from DDR52 to HS200 then made the tuning pick a wrong phase in 9 of 18
+tries. With this change the phase was correct in all 12 tries.
+
+Clear EN and wait for LOCK to drop before enabling the DLL again.
+
+Fixes: b5c3eb385797 ("mmc: mmci: stm32: add delay block support for STM32MP25")
 Cc: stable@vger.kernel.org
 Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
 ---
-RM0457 describes HS200 only without a divider. If HS200 through a
-divider should not be used at all, the alternatives for the DK are:
-
-- Drop mmc-hs200-1_8v from the DK device tree. DDR52 is tested and only
-  about 5% slower than HS200 at 100 MHz (read/write 78/66 MiB/s against
-  82/68 MiB/s).
-- Drop st,neg-edge from the DK device tree. This also changes DDR52,
-  which was not tested without NEGEDGE.
-- Set the SDMMC2 kernel clock to 150 MHz in the firmware (OP-TEE). HS200
-  then runs without a divider (tested, 119/86 MiB/s).
-
-Which way is preferred?
-
- drivers/mmc/host/mmci_stm32_sdmmc.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/mmc/host/mmci_stm32_sdmmc.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/mmc/host/mmci_stm32_sdmmc.c b/drivers/mmc/host/mmci_stm32_sdmmc.c
-index 9dc51859c2e5..d74efdff6ac2 100644
+index d74efdff6ac2..2310dba75c35 100644
 --- a/drivers/mmc/host/mmci_stm32_sdmmc.c
 +++ b/drivers/mmc/host/mmci_stm32_sdmmc.c
-@@ -342,6 +342,10 @@ static void mmci_sdmmc_set_clkreg(struct mmci_host *host, unsigned int desired)
- 	clk |= host->clk_reg_add;
- 	clk |= ddr;
+@@ -541,11 +541,21 @@ static int sdmmc_dlyb_mp15_prepare(struct mmci_host *host)
+ static int sdmmc_dlyb_mp25_enable(struct sdmmc_dlyb *dlyb)
+ {
+ 	u32 cr, sr;
++	int ret;
  
-+	/* NEGEDGE is not applicable in HS200 (RM0457), with a divider it corrupts writes */
-+	if (host->mmc->ios.timing == MMC_TIMING_MMC_HS200)
-+		clk &= ~MCI_STM32_CLK_NEGEDGE;
-+
- 	if (host->mmc->ios.timing >= MMC_TIMING_UHS_SDR50)
- 		clk |= MCI_STM32_CLK_BUSSPEED;
++	/*
++	 * The DLL tracks voltage and temperature but not a frequency switch
++	 * (RM0457), start the lock sequence again on the current clock
++	 */
+ 	cr = readl_relaxed(dlyb->base + SYSCFG_DLYBSD_CR);
+-	cr |= DLYBSD_CR_EN;
++	writel_relaxed(cr & ~DLYBSD_CR_EN, dlyb->base + SYSCFG_DLYBSD_CR);
++	ret = readl_relaxed_poll_timeout(dlyb->base + SYSCFG_DLYBSD_SR,
++					 sr, !(sr & DLYBSD_SR_LOCK), 1,
++					 DLYBSD_TIMEOUT_1S_IN_US);
++	if (ret)
++		return ret;
  
+-	writel_relaxed(cr, dlyb->base + SYSCFG_DLYBSD_CR);
++	writel_relaxed(cr | DLYBSD_CR_EN, dlyb->base + SYSCFG_DLYBSD_CR);
+ 
+ 	return readl_relaxed_poll_timeout(dlyb->base + SYSCFG_DLYBSD_SR,
+ 					   sr, sr & DLYBSD_SR_LOCK, 1,
 -- 
 2.56.0
 
