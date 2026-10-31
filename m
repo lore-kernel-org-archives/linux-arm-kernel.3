@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49116606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 13:00:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04AC5606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 13:00:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=a9qNZh1a;
-	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=wm3wvK8u
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tN52kYu6;
+	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=ccbScL4x
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,60 +14,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=9XWbC7ZxLw6jVxWLU+pCBYSR3Sh1yV++LUbjveX1pN4=; b=a9qNZh1ak2vi9klEuD82KhnyH1
-	dsRSId7afmDGEyzzJeg4VTI89IJxD5/brKeEo/FP53UJK37zYy8jOYrq/wGBp19MLPxm4bkhHbK/b
-	gALc2rr+qEAPekZvKiLpHGUDSOCh1Vji5txeyeN2HhCbWRrUIH5S1iT4BfEN5xm+jeoDcz6O2Kb1R
-	WfTOjVWbFNycyjgOD3UvSZm7RaIhUF+mwkW6AQZ3R+m2XH40ORq75UX5euamQ2VorRWCFEQ549LGK
-	c16a87Gn8spqlcxJaVzLNvkQmjkVAR9bNAG/qjqQxql47Vq+XWqq68oP8g4BS+qs6PDyM46nNohlG
-	KeEPvkHQ==;
+	bh=vWqfOIwVuRm8zQbmNHs1md0dinWn8EUsLETVtH4KCrg=; b=tN52kYu6Mxrb69SQT9bvkHv1SM
+	oyFgffx7cDochGsSfA0L8+GTjg8SfnjK2UVjq0M4cdj0i88R+90gLeXRXlUIsv46XhaICzAN6/vj3
+	BrxgEeOBPBtGX/Lj22lvVX1wrX6cxLjMYz0JUJxYPlnptZVZ+KVdzSwh4pFJPw1vMdQLBE0wWMZoD
+	TnF0Cvuwk8cN4HlsgZGHp76AganeyIQwbzqb3u/wcWoy5PCwFoHNln8Tbj5eujyxBpTXqH2UXgnEj
+	f+zZh42IUuGUtZE9ks9m3u/NPClJ30mtTUcXs4MeYoKMz0wNOFbDcpXfBiaEj6W1x8J1/FEP/4ONh
+	je4c5FyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN8hI-0000000DLpg-3wLI;
-	Sat, 31 Oct 2026 13:00:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xN8hR-0000000DLrc-07kV;
+	Sat, 31 Oct 2026 13:00:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN8hH-0000000DLpP-3FwG
+	id 1xN8hQ-0000000DLr6-0UA5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 13:00:36 +0000
+	Sat, 31 Oct 2026 13:00:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D1C1F42A64;
-	Sat, 31 Oct 2026 13:00:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCEEF1F000C1;
-	Sat, 31 Oct 2026 13:00:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5854C600C8;
+	Sat, 31 Oct 2026 13:00:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48BDF1F0093A;
+	Sat, 31 Oct 2026 13:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1793451634;
-	bh=9XWbC7ZxLw6jVxWLU+pCBYSR3Sh1yV++LUbjveX1pN4=;
+	s=korg; t=1793451642;
+	bh=vWqfOIwVuRm8zQbmNHs1md0dinWn8EUsLETVtH4KCrg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=wm3wvK8uyJ8DoBrMikTSHt7SewcgaKQ7yEW222ntOY5QgqL1xozXEOOc2MXGlE4vJ
-	 Whf8wdwybWPlwjpawl9ABbMs7PlZG+vZT4NydVg7WwbJF6vTZ78eFQ3At1Gibukz9c
-	 tzsg5h/E7k5JNiOjb29yd0m2fyfksLbJEB6DXupo=
-Date: Sat, 31 Oct 2026 13:59:20 +0100
+	b=ccbScL4xejEP1z6GQUJYMc8L/9RLYP61ciymo2evxUrSloDYE0oWiMYWEtj3dxc3A
+	 hbMxxVRj78EhceZMV4bWej/YpH6KELhSDtSMLFNHsx3FcazF6B5LMjxlLvzqc1Rj43
+	 xp+uVPIOk3XctlopNi5Q4OQq4WkXzX1eYJ1eBxkk=
+Date: Sat, 31 Oct 2026 14:00:14 +0100
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: Samarth Narang <samarth.colleges@gmail.com>
-Cc: Jiri Slaby <jirislaby@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>, linux-serial@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+Cc: Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-serial@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/5] serial: fix TX kfifo underflow on flush in five
- drivers
-Message-ID: <2026103146-dance-hull-0a9e@gregkh>
-References: <20261031004733.3345841-1-samarth.colleges@gmail.com>
- <20261031123911.3784690-1-samarth.colleges@gmail.com>
+Subject: Re: [PATCH 0/2] serial: keep the flushed TX buffer mapped until DMA
+ has stopped
+Message-ID: <2026103143-alienate-subduing-50f6@gregkh>
+References: <20261031005425.3351240-1-samarth.colleges@gmail.com>
+ <20261031123749.3783352-1-samarth.colleges@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261031123911.3784690-1-samarth.colleges@gmail.com>
+In-Reply-To: <20261031123749.3783352-1-samarth.colleges@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +77,32 @@ X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, Oct 31, 2026 at 12:39:06PM +0000, Samarth Narang wrote:
-> This series addresses the TX kfifo underflow reported in the parent
-> thread, where uart_flush_buffer() resets the transmit kfifo but a
-> completion callback from an earlier DMA transfer may still call
-> uart_xmit_advance() using the byte count from before the flush.
+On Sat, Oct 31, 2026 at 12:37:47PM +0000, Samarth Narang wrote:
+> This series addresses the DMA buffer lifetime issues in amba-pl011 and
+> fsl_lpuart reported in the parent thread, where flush_buffer() unmaps
+> the TX buffer before the terminated DMA transfer is guaranteed to have
+> stopped accessing it. In fsl_lpuart, the buffer is unmapped even before
+> termination is requested.
 > 
-> The fixes take two approaches depending on how each driver manages its
-> TX DMA mappings. In samsung and tegra, which map the TX buffer once,
-> samsung's new flush_buffer() terminates the outstanding transfer, as
-> tegra's already does, following the approach introduced in 8250 by
-> 9e512eaaf8f4. A completion already in progress skips the kfifo update if
-> the transfer has since been retired by flush_buffer() or stop_tx().
+> Since flush_buffer() runs under the port lock and cannot wait for DMA
+> termination, both patches request termination while holding the lock and
+> defer unmapping to a work item that first calls dmaengine_synchronize().
+> The TX completion callback leaves the cleanup of flushed transfers to
+> this work item, while shutdown, and suspend in the case of fsl_lpuart,
+> waits for the work to finish before releasing the TX DMA state.
 > 
-> In sprd, msm, and pch_uart, which map each transfer separately,
-> terminating DMA there would leave the flush hook to unmap a buffer the
-> controller may still be reading. These drivers therefore leave the
-> transfer running and mark it as flushed, allowing the completion
-> callback to unmap the buffer without advancing the kfifo. This means
-> that the data already queued for DMA before the flush may still be
-> transmitted.
+> Both patches have only been compile-tested with arm64 defconfig, the
+> relevant drivers enabled, and W=1, with no new warnings. I do not have
+> access to PL011 or LPUART hardware with DMA support, so testing by
+> someone with suitable hardware would be appreciated.
 > 
-> All five patches have only been compile-tested with arm64 defconfig and
-> the relevant drivers enabled, including pch_uart through COMPILE_TEST,
-> using W=1 with no new warnings. I do not have access to the affected
-> hardware, so testing by someone with suitable devices would be
-> appreciated.
+> The imx driver also needs a fix for the issue reported in the same
+> thread, but requires a different approach because its TX completion
+> callback unmaps the scatterlist unconditionally. I will send that patch
+> separately.
 
-If you don't have the hardware, and can't test that the race is even
-there, are you sure this is needed?  :)
-
-What about using qemu?
+Again, these need to be tested on real hardware.  Not to mention the
+bugs that sashiko just found in the changes as well.
 
 thanks,
 
