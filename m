@@ -2,147 +2,130 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9ED2606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 17:52:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B87C9606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 18:01:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lOtsPU6j;
-	dkim=pass (2048-bit key, unprotected) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=qkCp/46B;
-	dkim=pass (2048-bit key, unprotected) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=e6yIMPDh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3Sb22pfl;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EBUqhIXH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ROwj3Rexs8Y9gllQWi0CYRPzJsmyOmh+Ba5Jprxs8nY=; b=lOtsPU6jt6eM5j
-	yccBZLKBxp58n/YMS/Sdj4MfOwuLeJybSzVNAJoRdzchEW5Ap1kiItxY7bUtT9Jmqheay+1T417DE
-	mSXFYuRDrOSMTz7FpVl2IgVahnLb/EKrtWtg+Sx90LbU7VH31kYqeeKitano3umYxEWIXDOeT/4UN
-	G4geSUeKV97IZBkERhn0PcGrRuvbGiP09RF1+ADZKHyC/x4xXZ9FZdk0PDIDuUwY/5HTVkRpOHL+V
-	0FvdRLbsrzUBsFpFI2HEzG82vHrfpAodXeLmiVKkWz8nQnOMMvRU4lP0B8X1Fn1Up5FY1VdIj0lpt
-	8BZvekpMLTNd2VBs33eA==;
+	List-Owner; bh=ztiV5c0DfuFx8uDKCLiUp5o+ivOB8cWRN0pJNXnNfZU=; b=3Sb22pflIQ4lAW
+	bMHeVQ6Db0tcjylwYrTxphV32hRUPKPkBX+r4BQzMeiEyOzd+c0NeUzfHMXFiY7X+eK57ribEGINb
+	QkmWncSMeEd7BCfS9aUCIfAFBxEWUZH+Vq1Z94atWsgVKUM4Fi6mlZ6SVTAgrXVOahiB/0d2joKS7
+	JIQcfq29GCJb88sRsTueioZE9x93DHCJpkHwb+RlU61Oj+5KeT1+gTRTHmWJ85M+ejMsEOnJ2wYni
+	+tqQ7cykX+Ih1vY6nOEKpCkj3molelNaNnsoZPNfywgZIBmnvo6RNUNT6XyWgZ6+MYPmNYpqa7wVZ
+	7S+fJ85SCo9eNxS9yDZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNDG0-0000000DXcf-2RYu;
-	Sat, 31 Oct 2026 17:52:44 +0000
-Received: from mx0b-00364e01.pphosted.com ([148.163.139.74])
+	id 1xNDO8-0000000DYK7-2VKn;
+	Sat, 31 Oct 2026 18:01:08 +0000
+Received: from mail-vs1-xe32.google.com ([2607:f8b0:4864:20::e32])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNDFw-0000000DXZf-1CvB
+	id 1xNDO6-0000000DYJm-1u44
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 17:52:43 +0000
-Received: from pps.filterd (m0167074.ppops.net [127.0.0.1])
-	by mx0b-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69VDjrSp558277
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:52:39 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pps01; bh=ROwj
-	3Rexs8Y9gllQWi0CYRPzJsmyOmh+Ba5Jprxs8nY=; b=qkCp/46BCbH/3caJFFuA
-	BlnNlJICBKE02t0EV/Yl+Mf7VV9idaFusWRBluq2zCneN9cFuYDcUqf/l31dOHFz
-	iQE/bzebwLC0BQlLbQFOhaGuXCSXB9ohJ+JrZhC3uP0k5aAlGo04caSUWLizbGaD
-	Q8fyoMn/BtmmRGD76UAo0PUtJ6TOiHx5Ym7NhY0x+SFdXqbKcsz67KGCd+fZ9VEt
-	0BfGicaIcuW0A06wOcyT3GRe2sXfrWAVc1vzKBHPy5ZgGVEYhfv99FHBHwW/CcLq
-	ncYCO25VgOnxXlWsafpBOv2cliC4TAu2kei/Vw+CCZpk+X8ivtNyQX97QTFnLSgT
-	4w==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0b-00364e01.pphosted.com (PPS) with ESMTPS id 4hn9ccaup5-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:52:39 -0400 (EDT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93909014c85so374792085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 10:52:39 -0700 (PDT)
+	Sat, 31 Oct 2026 18:01:07 +0000
+Received: by mail-vs1-xe32.google.com with SMTP id ada2fe7eead31-7ccae9f1a9eso973802137.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 11:01:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793469664; cv=none;
+        d=google.com; s=arc-20260327;
+        b=bnKF/DnC7qimWWlnsiN/WZZlqEqx6UpK1tid9CMG/TSYRPuPDWDiCS/Y3fE5bxcI3v
+         MW24UgeIXgffVAecl39M9T7aFGTt5SRQliivByidZd8VXXj2Liv8l5CvGe4iXRTcJF4y
+         wojPdFC3Ct1Jq8tOvQ1qVtH48A2qV/QtcgWhS88i8x1OGG/4N1AiN4hGEcdX72RvHh+Q
+         jst6RSBU6mh3gK+hGnayxy1Gzz27juKYhr4/JXmtkouyp27MzbJMNPEbPbQPngdWUBt0
+         7oRObWJMSsxwDc07JsrDfCPAunkJCUq/9UXpzEx/r5u9MgibmyCMFttLQt0KfFeQLtc3
+         UmRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ztiV5c0DfuFx8uDKCLiUp5o+ivOB8cWRN0pJNXnNfZU=;
+        fh=YfA2EvaIz5dF4Ks5kYS15pDhKLDEuy6KfHPZ2AFz584=;
+        b=B7F9D+Qb4IeJnuYN+CxL3QfsxJGbZ30ObqgDw9lpWwibpiWlzV/uVeic5OozR+WMxW
+         hBnp5K1kld8aYsNm7lDGqlUvIg/0fXeFXwCI8N9u21e9kM7MA+kcWMdiaMjKTRMOxSv6
+         yrzLFJpW6XM/VPXxMNplrSOoPV5MctrQ7vJwcBV6bMmR8Xk2aaP4BmMydsZwm/Bsaj/M
+         VLzUrwhFP5ts+M7oJQ83XkD9HUsH0nfIuqHnlCRBSjRXLIefpk5zkhm+Rm+mWBO2Q4k7
+         w6uyD62p7FMELazaa0xuRV5xejiUl0M4DHGDdn5FPeSAOLccwY9k6sEWkfxROK5yolVh
+         jF2g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=columbia.edu; s=lionmail; t=1793469158; x=1794073958; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ROwj3Rexs8Y9gllQWi0CYRPzJsmyOmh+Ba5Jprxs8nY=;
-        b=e6yIMPDh5qvhiq22g0T5nrlIAfM4zOovNvXGZKMsd90Vlnq0Ip6eRHsQk+n/T1XpCW
-         4dOnvQjES4W0u5Yx2Cemfr+NGjL3Kjx70h4MD2TFZAmePPDrmaL6bQ7zfBzmX4Ir0kvH
-         HZ47YF/gHh4eYgWI31LYrZoawsj33ThaVv0wUs/AbPkGIWiHf8qBr+dUZNhtoRtbaQ73
-         Y2SgLWSkvEtcIp75QYN6TOABD8m1q38boUhCC0J5R3of/VAbQoesIBqGCs98K3yas4l4
-         ScAg3mRwGwSW7QZ/Hiwjmr3UwNNYxWwcLKd7Wiw8OtTVdRdMjFiNPhidV3krMtqA1NUU
-         8MzA==
+        d=gmail.com; s=20260707; t=1793469664; x=1794074464; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ztiV5c0DfuFx8uDKCLiUp5o+ivOB8cWRN0pJNXnNfZU=;
+        b=EBUqhIXHDsRUSZatCaOKEvEe719D1qjhWHVpRM+mkNQVlalkjgFJ+NyCx/YpwzK4vC
+         zGmy6k2++yuyOy2chXdWNPBiH0WSblW+SboJ/KszbE5wchi/LEgAlrRF+dtvpVKZmQbo
+         rpd387fMphGEozdhQDuo0+qfhfudh7ELzewpgxnweAzgAFay+Men/nuYVhkDnzNt9i6S
+         C7R9Nf/nuyELxkB2+jq7Om0KoVT5P22cBQ2QQsP1goZhJxOVSz3EXeDxRqPRZMkEkOVJ
+         /WdFromD818A9lS5tGg3+SH1axJ0x5GudoJsygxV+pCCra5jH21t1d2E5mTduNxhibCf
+         3Fzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793469158; x=1794073958;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1793469664; x=1794074464;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ROwj3Rexs8Y9gllQWi0CYRPzJsmyOmh+Ba5Jprxs8nY=;
-        b=ntjWYKFxgmBkwyByULo2MIpz5z5r6XWnWe+J+ENcY/oud97O9DBzbZsZRnW4A4EkeC
-         BS1lAv//mXAOr58LrxEdh1xJbZBfw2VxMa40u/vDGi5h/ulPbqwvku/Wr68fVmF58Wj1
-         m5sGYZjqowddXvJFs81WYtnw8jLYKiYD6uh5lQ6bByhPZ6/RoFJiKHnQkPq2Ax5ju/l/
-         eUZ/0U23B9gScEsmMA89B/I4AFRyGqujXvkHlpxvjQJue6xDAAqyrWSubK5NYtOyH50M
-         fsRMEtbtIlt1jCMp4jOn6vQVnxzPhAlNxC8v3BRvEUCVLWoDguDZ5aeWRzVn+/W9SQAZ
-         rucg==
-X-Forwarded-Encrypted: i=1; AKwUvBz2gwuAb9BqUort1F0fosGm+Oj7RhJapaijsFl9DBGZBP/70IA9+bmDs4gGsG+u+ErQLb+Xh82KlwflUwLpIuEl@lists.infradead.org
-X-Gm-Message-State: AFq9FYLIeYKsSTPT+cNiZGniYOZWnp0FSzkR54c6zcE1+UrHvs9ylbIw
-	tbXZRozWR44GJofhMVFfqISvIsi4o0peSc5siU/YZOsZyq0GeMJWNpi8nVaj1M2199pBfFzX4AF
-	TQ8kejygKhubi17y1UbXobTlVpfQdrix5doXcw6RofTJXXtYua1pdNGlkLn6FWB2X8F6Io+bw
-X-Gm-Gg: AYBFou1+Y/QVRCOEJLdVRj0wGfESpoHJmO4ZnxQKfg4pkQqXRJk+GvQz9pW1VtF2nH+
-	D4FOLtAS9Pu3l5UlEohoX6b1lAgJOjXdPk+ujg4Z80bAVd2zDp+EvatF+GWepmtsGcHH/hy8DTo
-	Hl7kN+qfQcsh7R3sQK2onrvP+x1BPxlytCyM7N0hLLKUaweEST3KiRZ50KVD73JJ/Hz5rlarNyd
-	bZXbDgV59yio1hAUHTrUaIIZ8U+b/9AofGh6KvhJER1MIKh0rtWhmdTUrv6BWqq7bK9F4fiYkJ/
-	gQzE/tZbQouByYkgQCXLMPrMrk/2VvysRJ8sNhFeiEBLZM0OWZ85EceAVMWFOdUOksMC4GgXy+Q
-	BvbFvV30VKfsAs7ytijy6g5j2l0/Uet7qL192cjyHHlSPa9zXPoJ0nhJqrw==
-X-Received: by 2002:a05:620a:440b:b0:93e:c12c:f127 with SMTP id af79cd13be357-9442187b1cemr848579885a.83.1793469158691;
-        Sat, 31 Oct 2026 10:52:38 -0700 (PDT)
-X-Received: by 2002:a05:620a:440b:b0:93e:c12c:f127 with SMTP id af79cd13be357-9442187b1cemr848577285a.83.1793469158126;
-        Sat, 31 Oct 2026 10:52:38 -0700 (PDT)
-Received: from [127.0.1.1] ([37.142.159.89])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa81b7fe80sm249158315e9.11.2026.10.31.10.52.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 31 Oct 2026 10:52:37 -0700 (PDT)
-From: Tal Zussman <tz2294@columbia.edu>
-Date: Sat, 31 Oct 2026 13:52:08 -0400
-Subject: [PATCH 1/2] platform/raspberrypi: vchiq: pass FOLL_WRITE to
- pin_user_pages_fast()
+        bh=ztiV5c0DfuFx8uDKCLiUp5o+ivOB8cWRN0pJNXnNfZU=;
+        b=up1OnjrTTaQn3soGL1qEg6MOTsDJbL/eTAUxMUImYYj5tcnvmSP+bZ7dXKtKzQQQDv
+         PBviaSs+oTgBlGqSYUD4ILHdvAaBNchPHqQZZIZezhJX5tGJGlEdHd+EZWDI4VC4JY9s
+         NosZfbNDIFxVCrO5+tBBJWqOTfL0fO7ukTzOKY8LfIzFd1xe26gWATIFhuZGJsJ8HgbX
+         7sdgq70WqQc/HvhjtVCSIT/1VhRNXciIGjq7i52REGp8dg/wXvJ8IF+vNdRjBDhIyHEy
+         Nt7628Cvw8o4+3khhPTIfs3ByFTZM9/6VqBgedxWVd8kegcwEVobBbaksVEkPJQPkPbg
+         WehQ==
+X-Forwarded-Encrypted: i=1; AKwUvBy7RG0k6VnfrsgaKnJoNEN4aIhlxOJivhROYnPbokaSl9HSm6DAc1gaMKzvVyvEmV0/5oB+ieGbH9VoGI51xL8o@lists.infradead.org
+X-Gm-Message-State: AFq9FYI7eBteXuuRwITsLGyDDCtW5MOT2SZPGhNVhuGT5mxh9EamwiXU
+	8rJugCqb1wu6teLhdCkK71DjaSfNXvjVQ8Hfo0F+LbzwAak97nuKsqilz6h3C2ZP9ddqSnGRqLX
+	xa/uhr/fZpr5eCNGFcv/qLwxN3QJyVKE=
+X-Gm-Gg: AYBFou24nxdfmowB2LYwHYxqR6j9CMbgm8fdoEpjt/RmW9/oGN0kTEAs53g6CLKrvww
+	fLhKJy4LQe/8ok2TrQOg0aOzYLrnh52H0gpTRYSKkLZY5cuY97wylol8kogASb84cLaXdHJHonE
+	76vuHANLNwZrUecnmEdcbgWt/6K4++r6hUVdHwrT9AGN8IGeoioSfxpNPRTigIRa/4LO/qvqsym
+	1SG6QVIgWZ6PV+1zYJc9eyA9P0Mz31bv5BRu0QfuGlVygB9/OVP+dhh8qFGA2OXSGCmSK31dtWb
+	pI0nlsaiOfMf4ctUWM1g7P1kH3ZG6/BwpM6UMaArJ/+aABqhpfUf4sdm9JdzxWsTUdVz0n6QMTB
+	05EVYV4ifm6DtSdSZIuOBlFmrl2NnzgphuoQekh6af8IQxAZhDJxrynM8CbOIy5IQ7Bfy9I9b3o
+	pvE8yWtWTeLKp8G8RyLl9vWi9hawZk7+wrpnikZ52wB0qyT3OK94bsiI0zbNYqrDrHwIqiZbqa/
+	mQsYLXqEYhI6MWSIkHH+PuycDbzDQ==
+X-Received: by 2002:a05:6102:c4f:b0:7cc:3eb0:6ece with SMTP id
+ ada2fe7eead31-7d072d53fa3mr3076240137.33.1793469664332; Sat, 31 Oct 2026
+ 11:01:04 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261031-vchiq-unpin-dirty-v1-1-632d3f1281e0@columbia.edu>
-References: <20261031-vchiq-unpin-dirty-v1-0-632d3f1281e0@columbia.edu>
-In-Reply-To: <20261031-vchiq-unpin-dirty-v1-0-632d3f1281e0@columbia.edu>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Tal Zussman <tz2294@columbia.edu>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793469152; l=1086;
- i=tz2294@columbia.edu; s=20250528; h=from:subject:message-id;
- bh=764Onyu+ULetDc0aDFVUsgf6G2JQGNpiKKz83VozlGA=;
- b=d+Aavx9jgZQmcn0Fc9zP9OeBSSQKOcCNxLSftJiDc77vgq/4fndx9V0ZAUcCyvkSwTV/LT+vI
- soS88tO8T0sA4kpFKpxWObAIRYb/3qiKPqgCkO7vduO28udqi2XSQpj
-X-Developer-Key: i=tz2294@columbia.edu; a=ed25519;
- pk=BIj5KdACscEOyAC0oIkeZqLB3L94fzBnDccEooxeM5Y=
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMxMDA3MSBTYWx0ZWRfX+v38orF9voIT
- yxh5HcMUxC0S7BZt5iSjSV2gu4ETJX7FeTY5CgBXkviaVRNg/uRf0jCEVCWUNcYXOBu0oThyo2F
- ORoEtlL9QIDNTmbuUVJaXkbhI3Ycscj19vpEfWAlYCgOVUcDhn5A
-X-Authority-Analysis: v=2.4 cv=ZIxCCn7b c=1 sm=1 tr=0 ts=6ae62ae7 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=P+xgYyhW+KadpqoI50EQPQ==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=azVShVRs0zEubeQ0wG0L:22
- a=qauuUkPFoE-8jCmVUdAA:9 a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-ORIG-GUID: iPoa87JhMSITylwJrlyVfqG5VZgfiUAt
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMxMDA3MSBTYWx0ZWRfX1xbqOBKL+oLo
- LOj8Ey03D0cdzSviWHxATtYTRcDDgIj5KpLV4noaRorQObCpDP0jl/eth5m/TYLj7x859CoahV3
- JMYIgdNmPUVGUQ6Yrbd58zQYpIX3aUYCO3JtSpY1aqifqIlNWkWSHr9Q7KLG5jGPnPkH5HeZ6/I
- ZsRJ6ICv2QZfwwhiH6th+D/cj/cpeXxccZVbEg+6oyJT8oUxGkbsUCsYbouP8NP9jIfTRhJ0fat
- SfwwJTQmWET/0eSRpZTJBMpZv1MZXq6egYwLJKvS6xUAjGhYX8CNUv8XDIVYBf281k474loJ0z3
- xXhCBQoiR6pP1VhPXDXjPGKwHXOwMO8TIlnRZXjDKuaWo1UQMbB4mzjOWe72ysE3kZBvZL/oGjO
- qZLK0ZKVTad3SSmT+A+n7WQfWXLcTsB420cprivnqIrnU1zYgTcSNXlEQeRDwicYjy1/USXlIQ/
- BSFnN0P3q/k4OleEtDg==
-X-Proofpoint-GUID: iPoa87JhMSITylwJrlyVfqG5VZgfiUAt
-X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11952
- signatures=596817
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
- bulkscore=10 phishscore=0 adultscore=0 lowpriorityscore=10 impostorscore=10
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2610310071
+References: <20261029-submit-serial-8250-dma-cancel-v1-v8-0-3fd56ba352ed@gmail.com>
+ <20261029-submit-serial-8250-dma-cancel-v1-v8-6-3fd56ba352ed@gmail.com>
+ <auNW_Oc-Ao5Iw-Gw@ashevche-desk.local> <CADvTj4pOg4w5LpFW_E3qzP7FZDnDgpB8LyR9xxhT_mZre21vFw@mail.gmail.com>
+ <auRl9ztbav4nHi7U@ashevche-desk.local> <CADvTj4p8tjwdftg+H11ob0iaBZKxXrTdkSmhfZHjOYunm5tr9w@mail.gmail.com>
+ <auTZtteCFnuoMD3p@ashevche-desk.local> <CADvTj4rXXAEnTyu_AzpF41a2YSHHG1ANozCUSePBoH3QZYbBQg@mail.gmail.com>
+ <auWqUIBUs0_7bnGU@ashevche-desk.local>
+In-Reply-To: <auWqUIBUs0_7bnGU@ashevche-desk.local>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Sat, 31 Oct 2026 12:00:51 -0600
+X-Gm-Features: AclHuK8CrIpMhatn91Js9Zu09dawz3gtrtGWd_ctbAp5jI12V9IMTbfHBekYVDc
+Message-ID: <CADvTj4rej-zOtwwN8CtchQ8A9L-fdG0dL_XwBb0zTFv5m=+j4Q@mail.gmail.com>
+Subject: Re: [PATCH v8 6/6] serial: 8250: retain DMA resources when
+ termination fails
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Raul E Rangel <rrangel@chromium.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Tony Lindgren <tony@atomide.com>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Richard Genoud <richard.genoud@bootlin.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+	=?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, "Maciej W. Rozycki" <macro@orcam.me.uk>, Timur Tabi <timur@kernel.org>, 
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261031_105240_436239_435037A0 
-X-CRM114-Status: GOOD (  12.63  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261031_110106_543340_19DBC545 
+X-CRM114-Status: GOOD (  37.49  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,40 +136,161 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-create_pagelist() passes the result of a comparison as the gup flags,
-which only works because FOLL_WRITE happens to be bit 0. Pass the flag
-by name.
+On Sat, Oct 31, 2026 at 2:44=E2=80=AFAM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
+>
+> On Fri, Oct 30, 2026 at 12:08:52PM -0600, James Hilliard wrote:
+> > On Fri, Oct 30, 2026 at 11:54=E2=80=AFAM Andy Shevchenko
+> > <andriy.shevchenko@linux.intel.com> wrote:
+> > > On Fri, Oct 30, 2026 at 11:09:53AM -0600, James Hilliard wrote:
+> > > > On Fri, Oct 30, 2026 at 3:40=E2=80=AFAM Andy Shevchenko
+> > > > <andriy.shevchenko@linux.intel.com> wrote:
+> > > > > On Thu, Oct 29, 2026 at 11:19:59AM -0600, James Hilliard wrote:
+> > > > > > On Thu, Oct 29, 2026 at 8:24=E2=80=AFAM Andy Shevchenko
+> > > > > > <andriy.shevchenko@linux.intel.com> wrote:
+> > > > > > > On Thu, Oct 29, 2026 at 01:37:02AM -0600, James Hilliard wrot=
+e:
+>
+> ...
+>
+> > > > > > > > +     while (rx_ret || tx_ret) {
+> > > > > > > > +             dev_err_ratelimited(p->port.dev,
+> > > > > > > > +                                 "DMA termination failed: =
+RX %d, TX %d; retrying\n",
+> > > > > > > > +                                 rx_ret, tx_ret);
+> > > > > > >
+> > > > > > > > +             msleep(100);
+> > > > > > >
+> > > > > > > Huh?!
+> > > > > > >
+> > > > > > > > +             if (rx_ret)
+> > > > > > > > +                     rx_ret =3D dmaengine_terminate_sync(d=
+ma->rxchan);
+> > > > > > > > +             if (tx_ret)
+> > > > > > > > +                     tx_ret =3D dmaengine_terminate_sync(d=
+ma->txchan);
+> > > > > > > > +     }
+> > > > > > >
+> > > > > > > This is unacceptable. Sleeping is okay, but value should real=
+ly match the
+> > > > > > > baudspeed and other parameters of the transfer.
+> > > > > >
+> > > > > > This sleep is backoff after dmaengine_terminate_sync() has retu=
+rned
+> > > > > > an error, rather than an estimate of UART transmission time. Ea=
+ch
+> > > > > > retry asks the provider to stop the channel again; elapsed time=
+ is
+> > > > > > never treated as evidence that the resources are safe to free.
+> > > > > >
+> > > > > > The particular 100 ms interval has no hardware-derived justific=
+ation.
+> > > > > > However, I don't yet see a sound way to derive the retry cadenc=
+e from
+> > > > > > baud rate either. RX can be waiting for input, TX can be held b=
+y flow
+> > > > > > control, and callback retirement is a separate requirement from
+> > > > > > moving bytes through the UART.
+> > > > > >
+> > > > > > Do you have a particular provider failure mode in mind where re=
+trying
+> > > > > > termination should follow the serial transfer timing? I'd like =
+to
+> > > > > > base the interval on the condition that can make termination su=
+cceed,
+> > > > > > rather than substitute a wire-time estimate for an arbitrary de=
+lay.
+> > > > >
+> > > > > Termination of DMA sometimes require to clean up internal FIFOs a=
+nd other state
+> > > > > machines. That's what happens on HW side. In the software waiting=
+ for too much
+> > > > > may lead to the very big undesired latencies. The value of 100ms =
+sounds insane
+> > > > > to me for the HSUART cases (megabaud range of speed). Also note, =
+not every PCB
+> > > > > design uses HW flow control, so this may be even worse for them.
+> > > >
+> > > > The 100 ms interval can add unnecessary teardown latency if a faile=
+d
+> > > > termination becomes retryable much sooner. There is no hardware-der=
+ived
+> > > > justification for that particular value.
+> > > >
+> > > > The FIFO/state-machine draining is part of the provider's stop sequ=
+ence.
+> > > > For example, DW performs its FIFO-empty polling inside
+> > > > dwc_terminate_all(). If termination succeeds, this patch proceeds w=
+ithout
+> > > > the retry sleep, regardless of baud rate. The sleep is only reached
+> > > > after an error during DMA release, not during normal RX delivery.
+> > > >
+> > > > Baud rate can influence how quickly a transmit FIFO drains, even wi=
+thout
+> > > > flow control. However, the termination error does not tell 8250 whe=
+ther
+> > > > that drain is still progressing, how much remains, or whether the
+> > > > controller needs a different recovery operation. That distinction m=
+atters
+> > > > when choosing a retry interval: a shorter interval reduces the adde=
+d
+> > > > latency, but does not establish that retrying can recover the chann=
+el.
+> > > >
+> > > > There is also a specific API detail here: dmaengine_terminate_sync(=
+)
+> > > > returns immediately if device_terminate_all() fails, without reachi=
+ng
+> > > > dmaengine_synchronize(). Consequently, an error leaves callback dra=
+ining
+> > > > unconfirmed as well. The retry cadence can change, but resource rel=
+ease
+> > > > still requires successful termination and synchronization.
+> > >
+> > > Most likely this is AI slop. I can't see the justification for 100ms.
+> > > Can you explain that?
+> >
+> > 100 ms was an arbitrary backoff to avoid a tight retry loop if
+> > termination keeps failing. It was not derived from the baud rate,
+> > FIFO depth, or a DMA provider's recovery timing.
+> >
+> > That motivation explains sleeping between retries, but not choosing
+> > 100 ms. I don't have evidence supporting that particular interval.
+>
+> Yep. And that's what my point is about. Any big sleeps has to be explaine=
+d
+> and justified.
 
-No functional change.
+100 ms was an arbitrary backoff for what I expected to be a rarely
+exercised termination-error path. It avoids a tight retry loop, but
+neither that nor the expected rarity justifies the particular value.
+Successful termination on the first attempt adds no retry delay.
 
-Signed-off-by: Tal Zussman <tz2294@columbia.edu>
----
- drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The constraint is that failed termination does not establish that DMA
+and its callbacks have stopped. Returning from the current shutdown path
+would let the serial core free the TX buffer while DMA might still own
+it. Retrying preserves that ownership, but a permanently failing provider
+can block shutdown indefinitely.
 
-diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
-index 48d6b1d74329..3ae4ee2973de 100644
---- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
-+++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
-@@ -1592,7 +1592,7 @@ create_pagelist(struct vchiq_instance *instance, struct vchiq_bulk *bulk)
- 	} else {
- 		actual_pages =
- 			pin_user_pages_fast((unsigned long)bulk->uoffset & PAGE_MASK, num_pages,
--					    type == PAGELIST_READ, pages);
-+					    type == PAGELIST_READ ? FOLL_WRITE : 0, pages);
- 
- 		if (actual_pages != num_pages) {
- 			dev_dbg(instance->state->dev, "arm: Only %d/%d pages locked\n",
+Would you suggest a different approach to handling termination failure
+here, or a better basis for choosing the retry interval?
 
--- 
-2.39.5
-
+>
+> > > > > > Regardless of the retry interval, shutdown cannot release the b=
+uffers
+> > > > > > until the provider establishes that DMA and its callbacks have =
+stopped.
+>
+> --
+> With Best Regards,
+> Andy Shevchenko
+>
+>
 
