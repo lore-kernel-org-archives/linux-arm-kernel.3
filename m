@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19AAE606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 02:26:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76C3D606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 02:27:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=djzHBEw6;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z4uwJRqa
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pZlZzpiT;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rvN+Tk8F
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -14,89 +14,93 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=dufq0gMTwMuobWdajbCSMPOQ8VLgRxtkcM3Ok9ZSSyg=; b=djzHBEw6wRVqjHzhl4QNLYKDtY
-	l8Wkuxx06fI3p/I4zd1L5lPMF39rKSdmLlI+xg1sBp9qtkJ2bD/YfGP/G9EUoPyP5UkACI3zfwz+v
-	p7ltCIGup8J/ylNTApkIsbBMOHdRkXWARqydAUHiVTvURZjfN0CwQiyR1FDUqEU7oIJ2GjtaUg3xo
-	Jv4/ewIinKBkjWYPb8rGOA3Koy6OmPKYX957YrVEg9Dx9/aqRWopttuC7nEVVeWW6mwd6qGyAYWTr
-	s8HPF7E/IcrOZA71pbfGwLw8DgQJX3MlFoK7I2N9mPKeTwslPfq722FDH8WlZzho8fQ5QYDhrJj7l
-	KDDCrMuA==;
+	bh=WSDe6VAckHzkQ8XkTETzpDW5Bx6aUAkrRS4D3VagePM=; b=pZlZzpiTLNXrvtsyNERRxFuulU
+	hN0qth6AVny/WRUgEmH+65LgbvOGsO4sclRY6d3cbzIZ3ezUYCvJXxh0tDF+NDCrWQrFJpJbugFUD
+	pJNNF0KFUgEjYzas+Wyec0qCELtxfLqce0rCqGrvbELG+KOojQNxWiWx9D098Pkwi3Glv0bSIxwXa
+	o4ztk6Go/fnAHZxa7h1mOYbSl3UGW1ox0hZahCLfKN0noZKJBPeSSHvsgclU9oLecUEMpxabUYonj
+	Mg9s40+BYpZAHGRBB+HyPvMwyvaa0JcUA8k+o0xIjoAZRHxVJlKNEnitn2pUaCVsHahLPRDpW53+c
+	yLYg7ysA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMynx-0000000Cs18-3KF6;
-	Sat, 31 Oct 2026 02:26:49 +0000
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	id 1xMyo5-0000000Cs46-0f8E;
+	Sat, 31 Oct 2026 02:26:57 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xMynv-0000000Cs0Z-0DCC
+	id 1xMyo1-0000000Cs2L-2BYo
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 02:26:48 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-847ac7ccd85so978918a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 19:26:46 -0700 (PDT)
+	Sat, 31 Oct 2026 02:26:55 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-85a5455bd3cso801130a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Oct 2026 19:26:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793413605; x=1794018405; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793413612; x=1794018412; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:message-id:date
          :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=dufq0gMTwMuobWdajbCSMPOQ8VLgRxtkcM3Ok9ZSSyg=;
-        b=Z4uwJRqa3Ux8BpFp4tH/XrzsWKM7FdvMqs3BqFmbXHvVyG05+XEsxrNOOffFS/ECcn
-         NdLIT4mbW6T1Wv4lyxuPJc1tInzmsgZF5Mtu/nqHBBPfHOHWHe3AdSuXHVdXMVIhu5vN
-         Lj8CGf4fTpEZs8gd1JXnOSB25wDiWEhOpue4GOxJ/NA/ioRiassp+MsRFfUapD1EEMUj
-         QGiw5fJAM0pkf7tOPWw4Zn6nc0OkP9b5xQ/sZjwFIFpnkB9tb1ysWwlItcZdHM/Rw46D
-         jCV4IrQ8MVIat1QigVtx8FhV1DBo2JCyBlQvycYUJiz+BnZvbh/Wpq6RBLCW/3AbcJou
-         lrdw==
+        bh=WSDe6VAckHzkQ8XkTETzpDW5Bx6aUAkrRS4D3VagePM=;
+        b=rvN+Tk8F9rlicK2kjviMsN4VadXe1uPlv5+nGPladbeq2goFZGLifTqxS4v7ZrYrUA
+         sHrwGjwfJYmhmcWLTpQBrL4xrPUBsBGdrwC4QcQ06d2/J+pxbsA59dCilxdCRcAT60iW
+         oUT8IB90E4P+/5Ssj/RjtMfMhv8dPfsqgfg25YNmfE9j0YWTJQGYwFaJm/bwZOWMgooT
+         wVel8iF6hbg1KM/94Al6k2exZAUKhR5HsSOoEtWBM5K48514AsMhpiFwCDbvGmgCCstO
+         xokHCiS3G/Cb9hUjx6Y2NsifRYU0aCrYFzdBiUCU1yczG3RZ3qr3oOSqnnYTq0TeXr+d
+         e3Rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793413605; x=1794018405;
+        d=1e100.net; s=20260707; t=1793413612; x=1794018412;
         h=content-transfer-encoding:content-type:mime-version:message-id:date
          :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=dufq0gMTwMuobWdajbCSMPOQ8VLgRxtkcM3Ok9ZSSyg=;
-        b=Epq4mVTmsf+2r/tqRo05Fntq9ThbqmHT/OXYNstcyP2XB1H2DMlO6cjBaKMqtBgD9W
-         Qe/0VHU4Y3CBVv7BKDzKOhMyJcbcpee2UgdljulMkJspI4pgGZBz2ZZdunhA+bZT4Zaq
-         vyUiLb6sIXNYHWEHkKosikrqyEMDXzLZMP3lAgLDzitl4E11yV7xtwjbSYa48vr5aiWy
-         Nwz+b92fJAz8+31JUmZ7O6wY61z7WAkPgzXTTNXUNGwOlsFVRH0STUqzO+4ELOYDwhbB
-         41APvCACTqzd6WPPvqreSJd8LSLjvHUS0xwNZ8AtJFZhe/x41xQsJUrGYfFfvMTjDe/R
-         vf4w==
-X-Forwarded-Encrypted: i=1; AKwUvBxpzoMxt0IrGjAlyWZmGKzp1KyliaQnwaBNPc/G9mH6GFDZLabaOeqTq2SrCbZdag3WqvOA1VSxL3Ch5nGcGRZ0@lists.infradead.org
-X-Gm-Message-State: AFq9FYKFIIOXFYWEZ1nzMIMfQV74lKQjriFvJnszv5XngXlDzqjsPW/R
-	D/1jze/+KsIhmkxMlLPDKp2jLPY9kbCzMKUav4XglALbeYJ4zgVKwPRU
-X-Gm-Gg: AYBFou333Qzlgelzhy8kTdjyPb3T0wMa15pzlVZK9MiK3QTH5r6e7gOi6mXnzFMmoiw
-	CIUH8DWqFFa8slAfYvzvu+fPfo6OYqAuHYoRP3NhjoxCTMGouLFF8DYJKhllpIlotXh6bSLTQUk
-	SSSAq62fXZuA2a2PQRkrHygYAIrIEpM3N6X188qe/e2bA2iX9QZT4Oioo4ZHn4gp5uixbpJ4Mrc
-	W6LwwaJ96sQPdPeOR0YJ6hyn5hTLqkV9bvmCUiJfH9OTHvn4vLmvjNjQBdnDhEcylZiLAaryPzC
-	sLBRTCGyS7dwrwm4GOiagOmgvfIlDJKnaX6zL3KtcgMCBDeTrXqKmpbH1eXrquVoKYpMglY6AtM
-	Xz4jB0Umn4nmKuQe6bzeSPkmnF7eCikCE+jJJmIA0FVsEu5mNtdp5XqMtEkLMwOx8s2QYj5/rxD
-	RhOEtOk38RH5d7pJDfDiBBuruxJ+4EkANasdyVx7dLZ2DPRmA9bRyg+m2fImYjcF7A8qT7zBkzb
-	uMmkRkoqSqXxGAxUr69Lm8V7NRKWiAXTUS9n6KFHPUwzeV1+alwX3/FVjOjjbRGPN0uxf2TGGzM
-	i/M8S8F2OLXmzM5xDNGs9GGYc7t1hXcDkbnYxUIMbyJqodMpDZcPMGnt3/sMLaDizMu44Eiq7Xu
-	O+gInIw==
-X-Received: by 2002:a05:6830:7181:b0:81b:ac9a:5681 with SMTP id 46e09a7af769-85d3649ebddmr3195695a34.29.1793413605457;
-        Fri, 30 Oct 2026 19:26:45 -0700 (PDT)
+        bh=WSDe6VAckHzkQ8XkTETzpDW5Bx6aUAkrRS4D3VagePM=;
+        b=xjFfEpZf5x3s4pXm0uEmZMBtEcLuOzWl/Qqhs9dQnbQ9GlIMRAOWcJiGBMzk0zVxpT
+         NHYWYYjRodriupwdpSyu+201sqJHARlVmdKOY5i2kUZEMG41g7hOVldxRnh8OidtXijE
+         RhGMzAyKJTol819H7UFzeKf3dsnZcnyxWsW4tbVfGLH9AuhVu4O1UnDXCaiLmylvlrkD
+         vJTMwnkc10/cFpTublIGveC3UHDsPDpMZ32/IH6VrDjnGQPtweVycIqqFdwWWfT2tcRv
+         B6K978iSHGRaYt8hXQlNC6JSys1Qf7k1AuUx4BhlfDIJnCe8KogfZPJmvnwD8vu2Yq8x
+         rNoQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxKZSppo72EoHhUgWDiFGw9CeUW3WC9LDqWe1Reqg3aM8NKrkPwsXK+YXWwaO1Lhf4kTizNvvA0MSUK2sWz7vFz@lists.infradead.org
+X-Gm-Message-State: AFq9FYIuHjP0fKl5Zsexbof7LUa8mzM5bNnKx4wNc6JuVm49CHmeKM/a
+	JMPgPiM0SJPGxrJuU/l3vN3QYvjLShk7S6CnFhKjOgkhU19TWzeeRfYl
+X-Gm-Gg: AYBFou1+kD0DvRvCrxcj7NFRNzKENdxF5c7+7N6YvEv0YPb1MxTOmwt6arISl8KKsc3
+	Y+ySs8g7lFo1IlOM5GUr5G3Mc9aaMQzeuu9wLqVc/eCEukuW56xI3G2Yxpr8R7Q5AxaOSH7DI0u
+	C1HD0WSZODgJHRHf9HSlYYOzMfa2jf0V2F3cLZmKCMi555jERWiimzHbCjVqQ06hX5hIk5jQUk6
+	FgoHQk9rQtoQ02JiD/dERib5AXfgxUXCjVAgV3rUoXTrjgsCoVZn/CcZDiT0ipxCEfyiwpP5twL
+	ITZW3u9c20R+2oICk4reJYLiG0C9Xbfc83H5XJ6OVGzw7QmvVAgTalr2xXp4WyTPdzRYjFD0onq
+	0BjR0gYT8qwMpCHtfIpFtfTyyRtZU4owh5n38s81Gy84NKYQXxVVFGy1gllm2xO9o276fPNdhWr
+	tSSbKlUflWTH9+UglQvt46PQT4fKFtVYEPKlDQ/19mW0gJzjFQMG05qRdap8AeJZxSJnr7BQkDG
+	/jRfxWp/bkhmOUWo6NfIbAauLsTZMamR9RUX7QWF2S76v02Frp8BW6o17JAwKsTz45ANoB4w76r
+	eYgKiKwNEd40rpNCKeZu7OhK/7sCON/GMde7lKmihWsBQ7/z1uAYLjPVdEVSbHfJQZQjdDayT7d
+	+0o1grLpLhmf17buEMOYH8ZoKyfE=
+X-Received: by 2002:a05:6830:4413:b0:81f:22fd:6ed5 with SMTP id 46e09a7af769-85d364de390mr3092732a34.21.1793413612419;
+        Fri, 30 Oct 2026 19:26:52 -0700 (PDT)
 Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-85d355201f7sm3304636a34.23.2026.10.30.19.26.44
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-85d3545b89asm3810712a34.6.2026.10.30.19.26.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 19:26:45 -0700 (PDT)
+        Fri, 30 Oct 2026 19:26:51 -0700 (PDT)
 From: Enzo Adriano <enzo.adriano.code@gmail.com>
-To: Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
+To: Andre Przywara <andre.przywara@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Chen-Yu Tsai <wens@kernel.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Samuel Holland <samuel@sholland.org>
-Cc: linux-clk@vger.kernel.org,
+Cc: Maxime Ripard <mripard@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>,
-	Junhui Liu <junhui.liu@pigmoral.tech>
-Subject: [PATCH] clk: sunxi-ng: a733: preserve system-controller firmware clocks
-Date: Fri, 30 Oct 2026 22:26:43 -0400
-Message-ID: <20261031020640-263f7b05-a7s-clock@gmail.com>
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Pablo Mazzini <pmazzini@gmail.com>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+Subject: [PATCH v2 0/3] arm64: dts: allwinner: add A733/Cubie A7S support
+Date: Fri, 30 Oct 2026 22:26:50 -0400
+Message-ID: <20261031020640-263f7b05-a7s-dt-v2-0@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_192647_104995_0DBD2138 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20261030_192653_591734_47F3770A 
+X-CRM114-Status: GOOD (  12.25  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,147 +112,130 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-System-controller firmware uses the R-domain timer and mailboxes without
-Linux clock consumers. Disabling these clocks as unused can leave
-firmware services unavailable. On a Radxa Cubie A7S with vendor boot
-firmware, the public CCU v6 candidate reaches a Linux shell but stalls
-at warm reboot.
+This v2 adds the initial Allwinner A733 SoC description and Radxa Cubie
+A7S board support. It incorporates Andre's review of v1: RTC, all main
+and R-domain UART/I2C instances, all four MMC controllers and their pin
+groups, R-PIO/R-CCU, the GIC maintenance interrupt, ITS description and
+the ARMv8.2 EL2 virtual timer interrupt.
 
-The public A733 firmware selects the RISC-V platform, reserves R-domain
-timer0 for delays and enables both main and R-domain mailbox clocks.
-Retain r-timer0, bus-r-timer, bus-r-riscv, bus-msgbox0 and bus-r-msgbox
-with CLK_IS_CRITICAL. This keeps their modeled parents enabled as well.
-Do not change rates, muxes, reset bits or unrelated gate policy.
+The board enables UART0, AXP318W on R-I2C0, and the microSD slot at up to
+50 MHz with four data bits and 3.3 V signaling. PMIC input/output, CPU
+and pin-bank supplies follow the board schematic. PF6 card detect is
+active-high with a pull-down. The firmware-selected PF supply path is
+preserved; 1.8 V signaling and dynamic voltage switching are disabled.
 
-The controlled tests distinguish the RISC-V bus gate from its separate
-special clock. They support this set for the tested A7S firmware,
-without establishing that every flag is independently minimal or that
-all firmware services are covered. The matching A7S configuration
-completed repeated warm reboots without clk_ignore_unused or a
-register-writing helper. Suspend is not qualified by these tests.
+The DT patches are separate from three supporting submissions:
 
-Public firmware evidence:
-https://github.com/radxa/allwinner-arisc/tree/79086caef1f6d1fb1cf164afb018f6e873fd9910/ar100s
+* clk: sunxi-ng: a733: preserve system-controller firmware clocks
+* pinctrl: sunxi: preserve A733 firmware voltage modes
+* dt-bindings: mmc: describe the Allwinner A733 eMMC controller
 
+The clock change keeps firmware-owned timer/mailbox resources available
+through Linux's unused-clock cleanup. The pinctrl change follows
+Vinicius Pedrosa's recommendation to preserve A733 firmware voltage
+modes and give A733-R its own descriptor, without changing A523-R.
+The MMC3 binding is distinct because SMHC3's DMA descriptors differ
+from SMHC0-2. The node is disabled and has no driver match; the existing
+A733/D1 fallback is used only for MMC0-2. ITS is also described disabled.
+
+Base and dependencies
+---------------------
+
+The tested base is the official Torvalds commit
+d89e1d186ec9271bf78e62771779e9fc03bf0fc3, plus these public inputs:
+
+[1] Junhui Liu, clock helpers, v1 patches 1-4:
+https://lore.kernel.org/r/20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech
+[2] Junhui Liu, A733 CCU/PRCM, v6 patches 1-8:
+https://lore.kernel.org/r/20261009-a733-clk-v6-0-ae8178fce7e8@pigmoral.tech
+[3] Jerome Brunet / Andre Przywara, AXP318W, v8 patches 1-5:
+https://lore.kernel.org/r/20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com
+[4] Pablo Mazzini, pinctrl IRQ-bank numbering, v3 patches 1-3:
+https://lore.kernel.org/r/20261025142412.112216-1-pmazzini@gmail.com
+[5] Vinicius Pedrosa, A733 UART, v2 patches 2-4:
+https://lore.kernel.org/r/cover.1792439398.git.vinicius.eduardo.pedrosa@gmail.com
+
+This is the exact 23-patch test stack, not a claim that every patch in
+each series is a direct A7S dependency. The A523-only changes in [1]
+and [4] accompany those public series. UART patch 1 concerns the real
+DLF path; patch 2 excludes the A733 noncontiguous readback from that
+path. PMIC patch 5 and UART patch 2 needed context-only adaptations to
+this base; their added/deleted implementation lines were unchanged.
+The three separate supporting patches above complete the test stack.
+The DT series should follow the clock and binding prerequisites through
+their respective trees; the external series are not being resubmitted
+here. Patch 1 records the exact base and prerequisite patch IDs.
+
+Changes since v1
+----------------
+
+* Retain the acknowledged board-compatible binding.
+* Drop the old MMC binding patch already present in the selected base.
+* Add RTC and its clock connections; use the board's 26 MHz crystal and
+  32768 Hz RTC input, and provide all four main-CCU clock inputs.
+* Use arm,psci-0.2 without the redundant arm,psci-1.0 string; add the
+  fifth architectural timer interrupt and GIC maintenance PPI 9.
+* Add the ITS subwindow and retain dma-noncoherent on GIC/ITS, following
+  Andre's A733 reference and the A523 integration precedent.
+* Add remaining UARTs, MMC controllers, main/R I2C, R-PIO and R-CCU.
+* Move UART0 pins into the DTSI; supply explicit MMC/UART pinmux values.
+* Add the PMIC and real board power connections, CPU supplies and card
+  detection; sort the DTB Makefile entry and use schema-valid node names.
+
+Validation
+----------
+
+The full ARM64 dtbs target and W=2 CHECK_DTBS=y for the final A7S DTB
+passed. The separate MMC3 binding example passed dt_binding_check.
+The W=1 Image build reused the independent build tree and rebuilt the
+affected objects; source reconstruction and patch application also pass.
+
+On one Cubie A7S, two final-candidate RAM boots passed with vendor boot
+firmware: eight CPUs, RTC counter advancement, AXP318W/R-I2C0, UART0
+including 115200/57600/115200 baud changes, and warm reboot. Each boot
+completed a read-only SD ladder of 4 + 16 + 128 MiB at the reported
+50 MHz/four-bit/3.3 V mode. The first 4 MiB matched a fresh vendor-kernel
+read; the later loops checked successful transfers. The second boot
+tested after late unused-regulator shutdown. No clk_ignore_unused or
+register-writing helper was used. The existing vendor handoff needed a
+RAM-only BL31 reservation at 0x48000000/0x01000000.
+
+Limits: card writes, physical hotplug, UHS, other UART/I2C instances,
+MMC1-3 operation, RTC alarms and EL2/ITS/MSI delivery were not tested.
+The BLDO2 software selector reports 3.3 V, while the schematic implies
+a nominal 2.4 V input. Physical measurements are unavailable, so the
+board DT preserves that setting without a voltage constraint or newly
+enabled LVDS consumer. Assigning its actual voltage requires checking
+the fitted RP220/RP298/RP299 values and measuring UP11 LDO2V5-INPUT and
+BLDO2/VCC-LVDS0 to ground.
+
+The six source diffs have no checkpatch errors/checks. The requested
+Assisted-by: LLM trailer produces a nonstandard-signature/unrecognized
+email diagnostic in raw mail checkpatch; it is retained explicitly.
 AI assistance: Codex:gpt-6-astra.
 
-Assisted-by: LLM
-Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
----
-This is a standalone clock change for the separate A733/Cubie A7S DT
-v2. It applies to official base d89e1d186ec9271bf78e62771779e9fc03bf0fc3
-plus Junhui Liu's four clock-helper patches and A733 CCU v6 (eight):
-https://lore.kernel.org/r/20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech
-https://lore.kernel.org/r/20261009-a733-clk-v6-0-ae8178fce7e8@pigmoral.tech
+v1:
+https://lore.kernel.org/r/20260613-a733-dts-v1-public-ready-v1-0-7787c94681db@gmail.com
+Andre's review:
+https://lore.kernel.org/r/20260911001805.0a2e033d@ryzen.lan
 
-No Fixes tag is assigned to the unmerged CCU input. This does not
-replace or resubmit Junhui's series. The existing public MBUS_STORE
-critical flag is not part of this change.
+Enzo Adriano (3):
+  dt-bindings: arm: sunxi: document Radxa Cubie A7S
+  arm64: dts: allwinner: add A733 SoC description
+  arm64: dts: allwinner: add Radxa Cubie A7S board
 
-The final A7S integration passed two RAM boots, clock-summary checks
-and warm reboots with vendor U-Boot
-2018.07-17-boot-aw2501-g4c7078cfdf7-dirty. All five retained clocks
-reported enabled. The Image was built with W=1; the final DTB passed
-W=2 CHECK_DTBS=y. Earlier tests of the same five-clock change also
-passed four boots and warm reboots. These are system observations on
-one board, not proof of each flag's independent minimality or suspend.
-The DT test used a RAM-only BL31 reservation at 0x48000000/0x01000000.
+Supporting submission Message-IDs:
+  clock: <20261031020640-263f7b05-a7s-clock@gmail.com>
+  pinctrl: <20261031020640-263f7b05-a7s-pinctrl@gmail.com>
+  mmc-binding: <20261031020640-263f7b05-a7s-mmc-binding@gmail.com>
 
-Final tested Image SHA-256:
-1ea68cdc5998b584f8a3e62c44a21e506a22a8144c5824d9a8485607a8f2bd09
-
- drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c | 13 +++++++++----
- drivers/clk/sunxi-ng/ccu-sun60i-a733.c   |  3 ++-
- 2 files changed, 11 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
-index b8f6e8c6e50735d702d4de8c6d320652358f251e..e9fca8af03cec39ac39d739d371f2d6e4f7e1044 100644
---- a/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
-@@ -57,11 +57,12 @@ static SUNXI_CCU_M_DATA_WITH_MUX(r_apb1_clk, "r-apb1", r_apb_parents, 0x010,
- 				 24, 3,	/* mux */
- 				 0);
- 
-+/* System-controller firmware uses R-domain timer0 for delays. */
- static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer0, "r-timer0", r_apb_parents, 0x100,
- 				      1, 3,	/* P */
- 				      4, 3,	/* mux */
- 				      BIT(0),	/* gate */
--				      0);
-+				      CLK_IS_CRITICAL);
- static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer1, "r-timer1", r_apb_parents, 0x104,
- 				      1, 3,	/* P */
- 				      4, 3,	/* mux */
-@@ -78,7 +79,8 @@ static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer3, "r-timer3", r_apb_parents, 0
- 				      BIT(0),	/* gate */
- 				      0);
- 
--static SUNXI_CCU_GATE_HW(bus_r_timer_clk, "bus-r-timer", &r_ahb_clk.common.hw, 0x11c, BIT(0), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_timer_clk, "bus-r-timer",
-+			 &r_ahb_clk.common.hw, 0x11c, BIT(0), CLK_IS_CRITICAL);
- 
- static const struct clk_parent_data r_pwm_parents[] = {
- 	{ .fw_name = "hosc" },
-@@ -108,7 +110,9 @@ static SUNXI_CCU_DUALDIV_MUX_GATE(r_spi_clk, "r-spi", r_spi_parents, 0x150,
- 				  0);
- static SUNXI_CCU_GATE_HW(bus_r_spi_clk, "bus-r-spi", &r_ahb_clk.common.hw, 0x15c, BIT(0), 0);
- 
--static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_clk.common.hw, 0x17c, BIT(0), 0);
-+/* Firmware can use this mailbox without a Linux clock consumer. */
-+static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox",
-+			 &r_ahb_clk.common.hw, 0x17c, BIT(0), CLK_IS_CRITICAL);
- 
- static SUNXI_CCU_GATE_HW(bus_r_uart0_clk, "bus-r-uart0", &r_apb1_clk.common.hw, 0x18c, BIT(0), 0);
- static SUNXI_CCU_GATE_HW(bus_r_uart1_clk, "bus-r-uart1", &r_apb1_clk.common.hw, 0x18c, BIT(1), 0);
-@@ -146,8 +150,9 @@ static SUNXI_CCU_MUX_DATA_WITH_GATE(r_riscv_clk, "r-riscv", r_riscv_parents, 0x2
- 				  24, 2,	/* mux */
- 				  BIT(31),	/* gate */
- 				  0);
-+/* Firmware runs on the RISC-V core independently of Linux. */
- static SUNXI_CCU_GATE_HW(bus_r_riscv_clk, "bus-r-riscv", &r_apb0_clk.common.hw,
--			 0x21c, BIT(0), 0);
-+			 0x21c, BIT(0), CLK_IS_CRITICAL);
- static SUNXI_CCU_GATE_HW(bus_r_riscv_cfg_clk, "bus-r-riscv-cfg", &r_apb0_clk.common.hw,
- 			 0x21c, BIT(1), 0);
- 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-index cc2b229e2e6a6072f95086ce21cba6545012c0bb..ca0fc95fade2a66bcb90011e654a603eb676fd0b 100644
---- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-@@ -635,8 +635,9 @@ static SUNXI_CCU_GATE_HWS(bus_dma1_clk, "bus-dma1", ahb_hws,
- static SUNXI_CCU_GATE_HWS(bus_spinlock_clk, "bus-spinlock", ahb_hws,
- 			  0x724, BIT(0), 0);
- 
-+/* Keep the mailbox available to system-controller firmware. */
- static SUNXI_CCU_GATE_HWS(bus_msgbox0_clk, "bus-msgbox0", ahb_hws,
--			  0x744, BIT(0), 0);
-+			  0x744, BIT(0), CLK_IS_CRITICAL);
- 
- static SUNXI_CCU_GATE_HWS(bus_pwm0_clk, "bus-pwm0", apb0_hws,
- 			  0x784, BIT(0), 0);
-
-base-commit: d89e1d186ec9271bf78e62771779e9fc03bf0fc3
-prerequisite-patch-id: 0df2ae41836b86fd868dfa01ddfde57f888f761a
-prerequisite-patch-id: 88f3a431e7c551a9fa732f062188f10fdd362eeb
-prerequisite-patch-id: 3e88bc873c909059d1199f82cda4013765e7a5e5
-prerequisite-patch-id: 0dbc27cd7417352319a0705a051dff35085e8922
-prerequisite-patch-id: 0ed6b92774b5b794761c7ce34db653a5435dc833
-prerequisite-patch-id: 27ed3814dbd0c7ad830532ff125625917c873b4b
-prerequisite-patch-id: 74d03898c5ce14763f4e89fb73e021de59f0fb9f
-prerequisite-patch-id: 9225cb094cf6cbb338b14ac63711d68bed12d24d
-prerequisite-patch-id: 568dae1c91a0d7318d6eb14a18054343b84b603a
-prerequisite-patch-id: ff3806332e741f0e2c8dac1c11f4c71449c16c8c
-prerequisite-patch-id: 39461e0543aefb5c40184664625cbab19ac8408a
-prerequisite-patch-id: 6fc03bfbd343042dd3b660938fcc09c5e7d48314
 -- 
-2.53.0
-
+Enzo Adriano
 
