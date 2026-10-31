@@ -2,82 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C42E606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 13:35:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1664C606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 13:38:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GoHtGZ2j;
-	dkim=pass (2048-bit key, unprotected) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=iOnYndQv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xjhfDm49;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Uj+FP/tG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=qR0DGjbS3VPeXKtuCsRN8V74OoIEh8cWN9/0vorUk0M=; b=GoHtGZ2j6ACMJG
-	KADuv5UjpHFtITGLL5TrbSuTmgS27Ca9u13AKb9/a3MTs+MySmW6Bo4lMaFqd7vOYvEFtHAi3lSnD
-	DUYrws2sMJK+SrH0xv2KLg9/nCb+EP0UW25IIW1gzJm0SzW7AlE6NsDwUDWPN+w0ES3aFj21LGM1Q
-	FMTLzw72JMgm7hr6jeH2R05u8TYIe3GMIFmbEs5MsZ92TarQ3eQDY3n5a/57tdqgozIs1Qyo82Rh6
-	sokY7NFZ7P0/V/Cu20hrPvofCcgLvV8QEuXF+A+dw3GPFW+kBWjOVCaDTDXdsffa+BuRKKGA6xiln
-	U0VPRqmD3aM1z/MjzXdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=uKK4uO3b6cgYY3NW2OhlkI3Td0Hnhdg+Pwl5MaEe4Kg=; b=xjhfDm49uuboWvTdGkCy+r/ToN
+	Q5B3y2zAQgUHMmbJr3U4zlBtvXNyxozwZBWI/XkwXJLsA7+HCOPPxQYIOh601E/3WUMauTTnRD/Wz
+	Kj7C0oiLT1iY2rSb1vFh6SB3TqPTK+KZNueLfL2e+8VfT+DW93vxANvRduHADUb+EVaY+CHuB5kJf
+	Md1IVlWq0Rl/CkgMq5b7/yly2j3cVcNaKrfDVk9xDrURNjTaYkFmCMcwIGh1FhXGZRbluPWN5Q8Ys
+	BvN3PfijKK9vb00g0feYkAJf+l+Nn9UR+UZGwE4T3WNCiXGR72uW9CehJcHwk1VCNRf6BowN9mK9n
+	O46sisVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN9F3-0000000DMlr-2dJ0;
-	Sat, 31 Oct 2026 13:35:29 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1xN9Hz-0000000DMrh-44Ag;
+	Sat, 31 Oct 2026 13:38:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN9F1-0000000DMlW-0BkB
+	id 1xN9Hy-0000000DMrV-3aLO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 13:35:28 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C3F3910C1B8;
-	Sat, 31 Oct 2026 14:35:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1793453715;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=qR0DGjbS3VPeXKtuCsRN8V74OoIEh8cWN9/0vorUk0M=;
-	b=iOnYndQv0hHIs5gUv4GuN2dOQ22WQjGrLex9fKcrvEx9FvgzZ+VNX0qtYcTxY8R24V9jJw
-	921TFtgmDmHC71Ibrtu3HrPYbAJB9ffKfUGlpV3zmoJoMuc3qfln7jekP7qWeTVLaS99ZH
-	nSVNgHKLf1fVDu5UBhDHT9PiCJ4KucP9THD8UIqeMb6c2wPjAELpUJxdlxeivS7CJMHvSO
-	5AMuqPgYn8iWBrNYNgbMvmIK9Dca87GbyIGMK3tc63JtCesHG8gtzUINIQqgbZ4xJdthGN
-	3+T7455CSkL/84iyB74fih+RDb/hR3dH7C2xgaeSto6cvJJFWZi4+fLVfnLV7w==
-Message-ID: <7ff5f937-144b-41fc-ab0d-82271a01dde1@nabladev.com>
-Date: Sat, 31 Oct 2026 14:35:11 +0100
+	Sat, 31 Oct 2026 13:38:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E3F0143AD6;
+	Sat, 31 Oct 2026 13:38:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20A2F1F00919;
+	Sat, 31 Oct 2026 13:38:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793453909;
+	bh=uKK4uO3b6cgYY3NW2OhlkI3Td0Hnhdg+Pwl5MaEe4Kg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Uj+FP/tG3JTKdiLE9W6nVDmqAX64hVrmgW8gXFu4mM/KOkV6Db4nDv9qB+IjhXMJU
+	 rZxr7XCj1kppWaX7Hn4kXzoIR8b/IBAsVHICIdre0O1/m36m3Yfb3Rio/1UxLweU4l
+	 ZsdP7180BAZwhDOlkdq6EFBE7GMLrHcwCf6cF5YfkypS9QO2T6/8F4fScmWASJoMoj
+	 CWAUE+F2PiP/i1q+vbqEF9lsXb2IqBjO1r5ljqVDmZXyBi7AAYW5enLpSb62CGJEfc
+	 54u9L3kNawXeLdNnAcXakc0TYjGokCGvUb2NWvTfNv57b5gopurehENS6TMGRrThvG
+	 lAKEK4Sk2GXEg==
+Subject: Re: [PATCH net v2 1/2] net: ti: icssg-prueth: Fix bridge port_vlan
+ and flooding state
+From: netdev-bot+sashiko@kernel.org
+To: m-malladi@ti.com
+Cc: haokexin@gmail.com, jacob.e.keller@intel.com, pabeni@redhat.com,
+ kuba@kernel.org, edumazet@kernel.org, davem@davemloft.net,
+ andrew+netdev@lunn.ch, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, srk@ti.com, vigneshr@ti.com,
+ danishanwar@ti.com
+Date: Sat, 31 Oct 2026 13:38:28 +0000
+Message-ID: <179345390863.3131.11658341210139721104@kernel.org>
+In-Reply-To: <20261027131732.3411403-2-m-malladi@ti.com>
+References: <20261027131732.3411403-2-m-malladi@ti.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: st: fix arm,smc-id of the SMC watchdog on
- stm32mp2
-To: mateusz.nowicki@posteo.net, Arnd Bergmann <arnd@arndb.de>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Thomas BOURGOIN <thomas.bourgoin@st.com>, Rob Herring <robh@kernel.org>,
- krzk+dt@kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Lionel DEBIEVE <lionel.debieve@foss.st.com>,
- Amelie DELAUNAY <amelie.delaunay@foss.st.com>,
- Patrice Chotard <patrice.chotard@foss.st.com>, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- kernel <kernel@dh-electronics.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- "laurent.pinchart" <laurent.pinchart@ideasonboard.com>,
- Fabrice GASNIER <fabrice.gasnier@foss.st.com>,
- Stefano Babic <sbabic@nabladev.com>,
- Etienne Carriere <etienne.carriere@foss.st.com>
-References: <20260907091400.55954-1-mateusz.nowicki@posteo.net>
- <7ee09655-2fef-4334-b0aa-b56f7ae03f74@foss.st.com>
- <1b14e1e4-962f-4391-91fd-b09143641643@nabladev.com>
- <cbcb8d78-51f3-41ab-80d6-fe3f0623da5c@app.fastmail.com>
- <f7010f07fdcdb4ff04a0dbfac1cc5421@posteo.net>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <f7010f07fdcdb4ff04a0dbfac1cc5421@posteo.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261031_063527_308307_E20DE399 
-X-CRM114-Status: GOOD (  14.42  )
-X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,41 +72,238 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/31/26 1:00 PM, mateusz.nowicki@posteo.net wrote:
+Thank you for your contribution! Sashiko AI review found 7 potential
+issue(s) to consider.
 
-Hello Mateusz,
+Critical: 0 · High: 2 · Medium: 1 · Low: 4
 
-> Marek, would that work for the DHCOS boards? I can send the patch if
-> you tell me which of them ship the old OP-TEE. Your OP-TEE change to
-> accept both IDs is a good mitigation on top of it for anybody who
-> updates the firmware.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-I do not think revert of this patch is the right approach here. I also 
-do not think patching the arm,smc-id in board DT is the right approach. 
-Both of those, because we do not know which SMC ID is the correct one 
-(we do not know which firmware is running and how it is configured, see 
-the OP-TEE OS CFG_WDT_SM_HANDLER_ID which is user configurable, and as 
-far as I can tell, the SMC ID is not discoverable, or is it?).
+- [High] The flooding restore misses the restart path the commit message
+  is about.
+- [High] At this commit, icssg_enable_fw_offload() has no NULL check on
+  `emac = prueth->emac[mac]` (line 215).
+- [Medium] The new flooding flags are written without any synchronization
+  against the restore.
+- [Low] Concern: the `!prueth->is_switch_mode` guard in
+  icssg_enable_fw_offload() also covers HSR/PRP offload mode, so the…
+- [Low] The commit fixes two user-visible bugs but has no Fixes: tag, and
+  it bundles two unrelated fixes in one patch.
+- [Low] The patch treats switch-mode flooding inconsistently.
+- [Low] Concern: mc_flooding_enabled is updated only by
+  emac_ndo_set_rx_mode_work(), while…
 
-But maybe there is some way to probe for the correct ARM SMC WDT ID ? (I 
-do not think we can infer the ID from e.g. OP-TEE OS version, because of 
-the CFG_WDT_SM_HANDLER_ID user configuration).
+--
 
-In case of this SoC, we can mostly assume that the SMC IDs will be one 
-of the two, 0xb200005a or 0xbc000000, so maybe we can extend the SMC WDT 
-driver to support some sort of fallback -- if the primary SMC ID fails 
-as not supported, try the secondary one ?
+net: ti: icssg-prueth: Fix bridge port_vlan and flooding state
 
-As for the DHCOS boards, those are evalboards, their bootloader can be 
-easily updated, and they are running recent software more often than 
-not, there this topic is mostly a non-issue. There is however hardware 
-which does have downstream DTs which pull in upstream DTSIs .
+This patch sets port_vlan on both emacs when the driver enters switch
+mode. It also records the UC/MC flooding state that IFF_PROMISC and
+IFF_ALLMULTI set up in emac_ndo_set_rx_mode_work(). The recorded state
+is reapplied from icssg_enable_fw_offload() after a firmware restart
+when the driver is not in switch mode.
+
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> index 591be5c8056b4..746afd5d00c9e 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> @@ -241,6 +241,16 @@ static void icssg_enable_fw_offload(struct prueth *prueth)
+>  					icssg_set_port_state(emac, ICSSG_EMAC_PORT_VLAN_AWARE_ENABLE);
+>  			}
+>  		}
+> +
+> +		/* Re-apply flooding state cleared by firmware restart.
+> +		 * Not needed in switch mode; FDB handles forwarding there.
+> +		 */
+
+[Severity: Low]
+This isn't a bug, but does this comment match the rest of the driver?
+
+It says flooding is not needed in switch mode. However,
+emac_ndo_set_rx_mode_work() has no mode check, so in switch mode it
+still enables UC/MC flooding and sets the tracked flags.
+prueth_switchdev_attr_br_flags_set() also programs
+ICSSG_EMAC_PORT_MC_FLOODING_ENABLE/DISABLE from BR_MCAST_FLOOD, and
+that flag only applies while the port is bridged.
+
+As a result, right after icssg_change_mode() enters switch mode, the
+firmware has flooding off while uc/mc_flooding_enabled still say on. A
+later promiscuity change then turns flooding back on.
+
+Should the comment or the switch-mode handling be changed so the two
+agree?
+
+> +		if (!prueth->is_switch_mode && netif_running(emac->ndev)) {
+
+[Severity: High]
+Can this dereference a NULL emac in the single-port configuration?
+
+At this commit, icssg_enable_fw_offload() does not check for NULL after:
+
+	emac = prueth->emac[mac];
+
+Before this patch, nothing in the loop body touched emac in plain EMAC
+mode. The new block evaluates netif_running(emac->ndev) whenever
+is_switch_mode is false.
+
+prueth_probe() only sets up netdevs for DT nodes that exist (the
+"single EMAC mode" case), so one prueth->emac[] slot stays NULL. The
+first open of the remaining port would then go:
+
+emac_ndo_open()
+  icssg_enable_fw_offload()
+    netif_running(emac->ndev)    <- emac == NULL
+
+The next patch in the series ("net: ti: icssg-prueth: Fix R30 command
+timing and NULL emac dereference") adds "if (!emac) continue;". Even so,
+this commit on its own breaks bisection on single-port boards. Could
+the NULL check be moved into this patch?
+
+> +			if (emac->uc_flooding_enabled)
+> +				icssg_set_port_state(emac, ICSSG_EMAC_PORT_UC_FLOODING_ENABLE);
+> +			if (emac->mc_flooding_enabled)
+> +				icssg_set_port_state(emac, ICSSG_EMAC_PORT_MC_FLOODING_ENABLE);
+> +		}
+
+[Severity: High]
+Does this restore reach the restart path that the commit message
+describes?
+
+icssg_enable_fw_offload() has two callers: emac_ndo_open() on first
+open, and icssg_change_mode(). On the bridge-link restart,
+icssg_change_mode() runs after is_switch_mode has already been set to
+true, so this block is skipped.
+
+The restart that leaves a running, promiscuous port in non-offload
+bridge mode is the switch to EMAC transition in
+prueth_netdevice_port_unlink(). It calls prueth_emac_restart() directly:
+
+	if (prueth->is_switch_mode) {
+		prueth->is_switch_mode = false;
+		emac->port_vlan = 0;
+		ret = prueth_emac_restart(prueth);
+		...
+	}
+
+prueth_emac_restart() only reissues the forward state:
+
+	ret = icssg_set_port_state(emac0, ICSSG_EMAC_PORT_FORWARD);
+	ret |= icssg_set_port_state(emac1, ICSSG_EMAC_PORT_FORWARD);
+
+prueth_hsr_port_unlink() also calls prueth_emac_restart() directly.
+
+For example, put eth1 and eth2 in br0 and then run
+"ip link set eth2 nomaster":
+
+1. del_nbp()->br_manage_promisc() runs. br_port_set_promisc() returns
+   early for eth1 because eth1 is already promiscuous.
+
+2. prueth_netdevice_port_unlink() reloads the EMAC firmware and returns.
+
+eth1 is still a bridge port with IFF_PROMISC set, and its
+uc/mc_flooding_enabled flags are still true. The firmware, however, now
+has flooding disabled, and nothing calls ndo_set_rx_mode again.
+
+Wouldn't unicast forwarding through eth1 stay broken?
+
+Could the restore be done in prueth_emac_restart(), or from every
+restart path? The "preserved across firmware restarts" comment on the
+new fields in struct prueth_emac is also not true for these unlink
+paths.
+
+>  	}
+>  }
+>  
+> @@ -1288,14 +1298,21 @@ static void emac_ndo_set_rx_mode_work(struct work_struct *work)
+>  	if (promisc) {
+>  		icssg_set_port_state(emac, ICSSG_EMAC_PORT_UC_FLOODING_ENABLE);
+>  		icssg_set_port_state(emac, ICSSG_EMAC_PORT_MC_FLOODING_ENABLE);
+> +		emac->uc_flooding_enabled = true;
+> +		emac->mc_flooding_enabled = true;
+>  		return;
+>  	}
+
+[Severity: Medium]
+Can these flag updates race with the restore in
+icssg_enable_fw_offload()?
+
+emac_ndo_set_rx_mode_work() runs from schedule_work() without RTNL. It
+sends the firmware commands first and stores the flags afterwards. Each
+command holds emac->cmd_lock only for itself and can wait up to 10ms.
+
+icssg_change_mode()->prueth_emac_restart()->icssg_enable_fw_offload()
+reads the flags under RTNL. Nothing on that path cancels or flushes
+rx_mode_work.
+
+hsr_portdev_setup() opens this window when forwarding is not offloaded.
+It calls dev_set_promiscuity(dev, 1), which queues rx_mode_work. It then
+calls netdev_master_upper_dev_link(), which runs NETDEV_CHANGEUPPER->
+prueth_hsr_port_link()->icssg_change_mode().
+
+One possible interleaving:
+
+rx_mode_work                            icssg_change_mode()
+icssg_set_port_state(UC_FLOODING_ENABLE)
+  (times out while PRUs restart)
+                                        icssg_enable_fw_offload()
+                                          uc_flooding_enabled false, skip
+emac->uc_flooding_enabled = true;
+
+The flags then say flooding is on while the firmware has it off. That
+is the state this patch is meant to fix.
+
+The reverse case, where promisc is being cleared, can leave flooding
+enabled with IFF_PROMISC clear.
+
+netif_device_detach() in prueth_emac_restart() does not clear
+__LINK_STATE_START, so the queued work still passes its netif_running()
+check.
+
+>  
+>  	if (allmulti) {
+>  		icssg_set_port_state(emac, ICSSG_EMAC_PORT_MC_FLOODING_ENABLE);
+> +		emac->mc_flooding_enabled = true;
+> +		emac->uc_flooding_enabled = false;
+>  		return;
+>  	}
+
+[ ... ]
+
+> @@ -1919,7 +1936,8 @@ static int prueth_netdevice_port_link(struct net_device *ndev,
+>  		    prueth->br_members & BIT(PRUETH_PORT_MII1)) {
+>  			prueth->is_switch_mode = true;
+>  			prueth->default_vlan = PRUETH_DFLT_VLAN_SW;
+> -			emac->port_vlan = prueth->default_vlan;
+> +			prueth->emac[PRUETH_MAC0]->port_vlan = prueth->default_vlan;
+> +			prueth->emac[PRUETH_MAC1]->port_vlan = prueth->default_vlan;
+>  			icssg_change_mode(prueth);
+>  		}
+>  	}
+
+[Severity: Low]
+This patch fixes two separate user-visible bugs, but it has no Fixes:
+tags. Could it be split into two patches, each with its own Fixes: tag?
+
+The single-emac port_vlan assignment appears to come from commit
+abd5576b9c57 ("net: ti: icssg-prueth: Add support for ICSSG switch
+firmware").
+
+The flooding loss on restart comes from the restart-based mode change
+in icssg_change_mode()/prueth_emac_restart(). That was added by commit
+95540ad6747c ("net: ti: icssg-prueth: Add support for HSR frame forward
+offload").
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261027131732.3411403-1-m-malladi%40ti.com
 
