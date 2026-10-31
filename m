@@ -2,71 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DF27606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 17:10:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A47B606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 17:12:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eR7wmVe3;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zu9SzP/y
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=X3nKKb2W;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BMaEYJnL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=4CTsh8nxRb2X8cmU0Jey+Z5jlVLC75ufMhXQQJivyZE=; b=eR7wmVe3eI3L+o
-	g5CjgdunWgUe209NnyR0k5Ei6kFKTGCnU4TZ+0OGpzDdxj6cqniyOtSuwUOvfdJhQDeb1xZg+pnQr
-	WFzD8v3juJiL4dS3uicrNFEyKhpYLQycps08IuCJmXpBAF9tFBbbpI4f1/x2tuW3zOy505VQ8fbU8
-	u00xtDmtt16I71jlAniNgRCrUUc2tDGh5bgloD3CoHCyQGwRAd3ET2Rd8wIAyRSt6ImWJwqa2+JNh
-	AUwS/DUO2hT9l5s29/WYyujc6F3VH9Wm/p3ZVHytIqgDWnmxq0/vp9T8jcTyNxd0DLZEgbGwoJw2u
-	3ra3xLXYkP5cgGydQMMA==;
+	List-Owner; bh=GMNH5PJ1zs7wQCaXmS01TMbB9K7ZhNKKB1ihknjVnC8=; b=X3nKKb2WzPGliH
+	rnANR0SQ/TcU6EVWByDqaBZag4LCTxQn2rG+0yOLqVlBQNNgUyi7kI+1WFB30mypgUXKRpxfxTwbZ
+	mQBseCHjH5pqEG1/mL8p/hbmFF6c1ZLW7AD97RNmHz9uBTF7CvY+UEJwky2Mcwp0bKW6QVMO3ChqP
+	DAdWzLGt2+SNkk6k6WtzhU+Q8hJBqGQPRY8x4KkGjAJCP1FkhGfStKXgxfZ4el62FjDIW1abURihI
+	kZB5iOzpyXbCmj5e4JfhnkFY/Y29pONrYfLbYnyp98cMHpQ1uFkUBdssoD/nW62KGlc6J9TI89zTL
+	9eaF1AIpltIVVkT+35AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNCb7-0000000DVo3-2JVK;
-	Sat, 31 Oct 2026 17:10:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xNCd3-0000000DWDj-3wqg;
+	Sat, 31 Oct 2026 17:12:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNCaq-0000000DVgI-1LOd
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 17:10:12 +0000
+	id 1xNCd2-0000000DWDW-2oDq;
+	Sat, 31 Oct 2026 17:12:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BDFF36061D;
-	Sat, 31 Oct 2026 17:10:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6427B1F00919;
-	Sat, 31 Oct 2026 17:10:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6D23043F01;
+	Sat, 31 Oct 2026 17:12:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98A331F000C1;
+	Sat, 31 Oct 2026 17:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793466611;
-	bh=4CTsh8nxRb2X8cmU0Jey+Z5jlVLC75ufMhXQQJivyZE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Zu9SzP/yYkVsnWGjkdYeUtFV57hncxTNx9UJ1zyn3xkJoHjHGeG8wDehR2anIgzj0
-	 O3/z6kmk0opv/5EafMBzS6mfO7rQZWdGFBCdRWADeIb8BwuigUsqTK3BCuIRPXca42
-	 NgC9sc4/BZB8VJaIGtIdE3NAkYWr+XRPQQ1jXYw+J4dBZKfd05mOpflgrcITXYL94b
-	 KMlRZ6VDuUkaOz0zmolnATIxT9Pa/5HXCxttPpDT23HlfXris8f9qihhK7TW32oBRw
-	 OLoHnESlP8hqx5uub0YyWAJtUTfmhh1td+zHKWoMccvggBOp3eABqTcyEtuOJ7SnKt
-	 DPDpQFLAOgD5g==
-From: Joshua Crofts <crofts@kernel.org>
-Date: Sat, 31 Oct 2026 18:09:48 +0100
-Subject: [PATCH 4/5] serial: port: remove redundant
- pm_runtime_dont_use_autosuspend() calls
+	s=k20260515; t=1793466748;
+	bh=GMNH5PJ1zs7wQCaXmS01TMbB9K7ZhNKKB1ihknjVnC8=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=BMaEYJnLIefXDhMWLYdYrrhwXQE62rpfq3dGqj1AU5EeKwav4odEooNw18M8CdsEg
+	 DEGl4kyl//DaTlNwlg1VNv3NZiZFugdHqRvOYJP4ZvJVhFPIs5ZesfSmdB5joFsbpl
+	 wAs2WapbBCTDFiF0Ly6CveX03Vo9O7TlTeLLqqa5/bnMmPkLiTd8YTULcRV6A17LmJ
+	 GD1yJL0ak/fit75+ROYgl81226cPJPYG3jQxm40/lZRIRlUgJeD/90s4GscR1zcraz
+	 aTwjKCeDD6uR7R8S8FVYtzxBOtOIWnfxnjiz0gNdt/BP11sSUwujk1Dhuexz3rElJX
+	 Vcjr/0y9SvkUA==
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261031-tty-dont-use-autosuspend-removal-v1-4-7bdadcadc4dd@kernel.org>
-References: <20261031-tty-dont-use-autosuspend-removal-v1-0-7bdadcadc4dd@kernel.org>
-In-Reply-To: <20261031-tty-dont-use-autosuspend-removal-v1-0-7bdadcadc4dd@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Michal Simek <michal.simek@amd.com>, 
- Peter Korsgaard <jacmet@sunsite.dk>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Joshua Crofts <crofts@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793466599; l=799;
- i=crofts@kernel.org; s=20261015; h=from:subject:message-id;
- bh=0iA/K3T9xMXKK/WgdINwoyl/ULJr7C+Mzbqd5roxlfc=;
- b=pAcAxURFQmxpy8S9dcqOibIvP6niVBuKh3MMhpiovRL+x++aHTN/z1TBDmkQpIQz18aZzg2Jd
- zm8F4ICi7hEBu4C4Rok/VOcEQS/C9Sk5dKGH9Ga+bYH6qExqHGLgpAb
-X-Developer-Key: i=crofts@kernel.org; a=ed25519;
- pk=RTDOoVwgeL4oFdASj9U+cxJuIjXuXk73zkjnGOJKbEo=
+Subject: Re: [PATCH v3] phy: mediatek: tphy: simplify main allocation
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-phy@lists.infradead.org, Chunfeng Yun <chunfeng.yun@mediatek.com>, 
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+In-Reply-To: <20261012173402.24568-1-rosenp@gmail.com>
+References: <20261012173402.24568-1-rosenp@gmail.com>
+Date: Sat, 31 Oct 2026 22:41:57 +0530
+Message-Id: <179346671702.7309.17461254006600303157.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=398; i=mani@kernel.org;
+ h=from:subject:message-id; bh=21ALoJZRF1WHs+ZZUeTM9Q1HsKMp63LeGtOBM/EVfUY=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq5iFgeuOv1+eLZ12O13MSJlXCmdg89j4NckzP5
+ UYGpyFFwNaJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCauYhYAAKCRBVnxHm/pHO
+ 9UuHCACno9GivkxmGWGngNdtOGaQSYyvrb833t8/wh68gbuSJ1dIa5ReLAvEYO4lpDCA0wToCRM
+ k44utPmmDO+2JxDg2MYNr9C+GIbto5pnYY5tNolcefbrnc1e1H2Z7yA9gOye0Ercntu9EO00sCL
+ ZcKgNs35e7SYHzyGpGiuhkcOXH9HFv5aok0KTRRJ9ArHXZtjtPxqYk2Ia8S+twFddHii528/gnV
+ nDLH/5sqEH6NIf5gFoGnyyDrLaxMj3XFsjNB37s0PIcuxZKTFHqfYpxjsBGW4M+IIw+WBWoD3Xd
+ g7Aa8T2gx/abXj3uTO2Wx5bTy5EHhPn9kerkN7MRsELoWTfR
+X-Developer-Key: i=mani@kernel.org; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,39 +83,26 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Since commit d1706f9da9f4 ("PM: runtime: call pm_runtime_dont_use_autosuspend() on reinit()"),
-driver core is now responsible for undoing any
-pm_runtime_use_autosuspend() calls on driver exit.
+On 2026-10-12 10:34 -0700, Rosen Penev wrote:
+> Use a flexible array member to replace kzalloc + kcalloc with a single
+> kzalloc.
+> 
+> Shuffled some code around as __counted_by requires the counting variable
+> to be assigned before any array access.
+> 
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 
-Remove the redundant function call.
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 
-Signed-off-by: Joshua Crofts <crofts@kernel.org>
----
- drivers/tty/serial/serial_port.c | 1 -
- 1 file changed, 1 deletion(-)
+- Mani
 
-diff --git a/drivers/tty/serial/serial_port.c b/drivers/tty/serial/serial_port.c
-index 2fc48cd63f6c..c6243b8fd58a 100644
---- a/drivers/tty/serial/serial_port.c
-+++ b/drivers/tty/serial/serial_port.c
-@@ -128,7 +128,6 @@ static int serial_port_probe(struct device *dev)
- 
- static int serial_port_remove(struct device *dev)
- {
--	pm_runtime_dont_use_autosuspend(dev);
- 	pm_runtime_disable(dev);
- 
- 	return 0;
-
--- 
-2.56.0
 
 
