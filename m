@@ -2,144 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 657DF606A31D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 04:51:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25901606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 06:00:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tnmU06p/;
-	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=mamm9J+E
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FsJ2bdqw;
+	dkim=pass (2048-bit key, unprotected) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=MDYQl4JA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=1CqlgEj5PK6j2ag+uWWAKueIFfVXPEmWxYDHHlMmBBE=; b=tnmU06p/apITsLovn84glymjhv
-	yWx6Fh6QtLRiVFOMQokAUpfch0lFwswA3PvByPs4Zq5OwvwHW2Nqfx6+0n5EUap/1au6In3SEmTIM
-	dQtaMwVWV4peV51tT9FvhuyG044K+rSfxFkqasJUZzZUF0GnhjwLy6pjSj5hfQMZkCXfAv0lqlXZ6
-	ytZ5B/aIS2dgKKLztdmk0sXdxBfSb4kjz997tnbuFZSX2bIocUON0OsokRo+vZL5oYPbRPMpJwZmI
-	ONAolZlazP9XQ3BTlHRytYn8TstDeRnJXggyGKHYesey72uwxQRztWqlRXT6ezyCOKfggI3mSvkzx
-	aKOxMJfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=ZQUUU5NV48jFxmhLwXwoUwGKDKvh6scuO/M6jetNByI=; b=FsJ2bdqwfkV4cB
+	mR2tAehQQ+X1/4FgVzHYK0G8WlI9pVpwrzzfYgihUoCZ7SfAUg16dlx5poaX4f0NqIN+M1gOJwopn
+	jYZYKdj23KqksCuhDA2uorJd35fJM5L66UGbYXwHyfM5ifEVdQqJYChAuWwVf7N/xmifoHTiUC5tY
+	HSfAzyDYoolt+PbHbjkj5wo7SN1HG7DTcQiH9uLd3FtSO9LlXH8YYrIzKVcIPoLgkdGfYpQ4gW+b4
+	Pz8Z+PWj4/N24cJ0TJzubboq4aiO9xhw0vf+2ms2b7A07RmLJhz4VjSG0B22unh/CCnzuzpGLZM0Z
+	yWKnKQHWmjBHPRdoLhag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN14D-0000000Cx3B-3Z0t;
-	Sat, 31 Oct 2026 04:51:45 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1xN28P-0000000CylV-0GfU;
+	Sat, 31 Oct 2026 06:00:09 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN14A-0000000Cx1t-0v6w;
-	Sat, 31 Oct 2026 04:51:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ePDJDh5sYQNBsLXivUjV6OKsuXo3oIqFnjQzjhbVsrOeAsSdt5vq6nmNLnrS4BkGAewHfZlHX2oc7z3seZgTsU3dg7KeqZ9Zp5YebT0F3wnzaYkB86q9bqqvJCKnUPgel8K0zPJdO9fiU/YeeW9tTB1B3WhZ6cPnI6go6Rue9K97JxuOdtQQXeVogufZAUkf3f/MAUJr8oKd5kP6PYw2Y0NrS8b8jJ5XDHCA4jJT4adUbL5Ol07ea6xcz4ewWMRaTHomZJOgrnQl/Xe1ZO1G5JYik/3SJy0cJKZPDwkz75FwG3lC2B8ZhMn1NdG3tAolrqWLF1QXS7wHUso/bc2jjA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1CqlgEj5PK6j2ag+uWWAKueIFfVXPEmWxYDHHlMmBBE=;
- b=Q4DBETi2yQuv00e3u9Am2KrN4R2cTpay0MHH1mgjGuszoA7ACWav9wPHhNv6r73s0t6nj/cn9eivWiu1F1OOYS9gBnSZELfW4PM9IbTt3IOwpjMmKwViYQDs8UJHW8hHQqN++BNbKXRfBwcSFqc7B9LIxG5e5SeHIYfwJa90tERUOjozGj8mcrd01pbly90UFsHzL0zJsOV66sE0bkCYDOyxZcIfIt/hTDeVkgZhxwY7smuG1VKw2dnJNw2yshx9qDq4eTGqrV0K33XSfQs3p5+UDeXPGUzZElTUL9xxa+p5uBs755uArr9VUFfdIIlQ66+8dOnXvLOGHvxIqdLIhQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1CqlgEj5PK6j2ag+uWWAKueIFfVXPEmWxYDHHlMmBBE=;
- b=mamm9J+E2k2+qUKwyzeRb8Q0/dH6EeqK0OfXeBsNjUclx12XaNKiTRJS1mzxDHINbFbmfM7OhGud4jBn/TyM+Rb08m3q1A7pSK1+3PUcJbE162BQDMTLMHHCht7Djb6OK2JcHV0M0ebN+NaqUVnCTblBT6N+6edSq1NWZhxTI2MuTdA5YugkYKHZ/VCzm8MJQQQukqSXG0m+9tByAp2vqMbShyxcpIPg/LyXclcPZc/Ixcs+OIqGr2Npm3bGyGV5ICnM73PBS8OxhZCqdZfTf7Fy4+c5VAFGxaigpviBKbDCKgEgXjEm94inSxRkIUJgEwnjDxmpN+8a+TEFxl98/w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5521.apcprd03.prod.outlook.com (2603:1096:820:51::12)
- by TYNPR03MB10089.apcprd03.prod.outlook.com (2603:1096:405:3d1::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.10; Sat, 31 Oct
- 2026 04:51:32 +0000
-Received: from KL1PR03MB5521.apcprd03.prod.outlook.com
- ([fe80::f12b:85e:f95c:191e]) by KL1PR03MB5521.apcprd03.prod.outlook.com
- ([fe80::f12b:85e:f95c:191e%3]) with mapi id 15.21.0569.010; Sat, 31 Oct 2026
- 04:51:31 +0000
-Message-ID: <31535217-e87d-4ef7-b22d-32c35ee998bb@amlogic.com>
-Date: Sat, 31 Oct 2026 12:51:29 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 0/6] Add Amlogic stateless H.264 video decoder for S4
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, wbieganski@baylibre.com
-Cc: neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, mchehab@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, krzysztof.kozlowski@oss.qualcomm.com
-References: <20261022-b4-s4-vdec-upstream-v12-0-616240978792@amlogic.com>
- <179337024629.131241.9227206619077693683.b4-reply@b4>
- <1a18d5c5f7f.3e45f382588509.8172330954347509989@collabora.com>
-From: Zhentao Guo <zhentao.guo@amlogic.com>
-In-Reply-To: <1a18d5c5f7f.3e45f382588509.8172330954347509989@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI2PR02CA0002.apcprd02.prod.outlook.com
- (2603:1096:4:194::22) To KL1PR03MB5521.apcprd03.prod.outlook.com
- (2603:1096:820:51::12)
+	id 1xN28M-0000000Cyl6-05MX
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 31 Oct 2026 06:00:07 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CA32B10C023;
+	Sat, 31 Oct 2026 06:59:55 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1793426397;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=ZQUUU5NV48jFxmhLwXwoUwGKDKvh6scuO/M6jetNByI=;
+	b=MDYQl4JAL2Ow0vIaYrvXUgbtOXtWCti36l2IM/CQZ57X8mAXKXR1zV9pPAUQN9SAn0GQSN
+	FttlfrEjkoxLdzCBPzvKxrLy53OCXRPJ23us2Hcn4CcbbYUG48gPmGcvJASiuOR/HGsG/K
+	15DtR11ksWAi+c5esj2dPfZ5AKT+Q7tSF0d32pniSfYCsrxkDMy46vBaNG07hEE0repfwX
+	UbMsNaW93y9N6CHWZtAX+L68nftaN9JX0CmUrjMrtIkID3CeS7sZKg16GrQ1+aVfzKzn8f
+	FIG1Whji46nfsixQ26NB91ciyAClw2MslChZCb/M0m1A6NCnl2vNCoavRLMUuA==
+Message-ID: <1b14e1e4-962f-4391-91fd-b09143641643@nabladev.com>
+Date: Sat, 31 Oct 2026 06:59:55 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5521:EE_|TYNPR03MB10089:EE_
-X-MS-Office365-Filtering-Correlation-Id: 460c3db5-f668-4c23-f830-08df370aa19c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|3023799007|10067099003|22082099003|18002099003|56012099006|11063799006|4143699003|261022105027099003|261021135927099003|261021121427099003|261026140227099003|261028144727099003;
-X-Microsoft-Antispam-Message-Info: JNpxx2qGfPxW6UujoB7ANja4ZisSsyEKSpQ6AuCwcqGzWocLN6bTweMqXMwT/BuKn3Y4f3MuOkwSaZz0Z3/vvFgOez1yGhvJ2QZG4Gf3TK3w+HGLhtZprmAF94f/nLlYN3ETfP7snf0Jq3t1kgicV5wxL2Mx2tQpWMyogL/olQgpzgO8I7ET2rJ/+Rm97xuyKmtjk+PEfEMe8KeTjGPk5wKv5dcAC0Ih15nK+nQ4NcbI4WPeQuJQ7VVCAtxlR7CVXrmnGnLY0cj511VC9FaAxPea98M+g8fEEhUNchWmpyAg40sd2iYAdscRj3vEgkfRz213PSwYq7JrzmkqjrfkL4tJOnkkAOpzY6HkIvgNtZ5vnKKTku15wV/Q8jZugJTZVi6iD0a8ZVgkUxuX+1tNQDS1NpyBWwlIlhm0Va4ykzIEhn9yFGW0AyTKZPOaLY0uoaL3hdP79LOj7yKT2EsTrPVI/LidIVyGrykPbqaNCyhqxy66/kLxnzPilJ08fqZhnPLX0pQH+f5B9mTuiShSnmjrdubEPqo5qPv+vYQ4Dqnonxo2Xs9bfeQiSYYQe3LHdk8cfUNX6CPh9MVUmt+3KAzUcxHyIzBsOJeVc88kKhCIdwTgB08DebAYZWvn6rkIInOp1W3cCVD8DK5VP8aJKWoK5/ALy0QMF+4cKi7wi+Q=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5521.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(3023799007)(10067099003)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003)(261022105027099003)(261021135927099003)(261021121427099003)(261026140227099003)(261028144727099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UDdHSzVzeFJWQU9GRGRKaHZCa0UzL0M5bFQ5QmFqazNUNEM5NmhsZGhYRitj?=
- =?utf-8?B?NEplc0dIQ0FPU21ud3diZUdOTjNnS0pYODNsbzBlVStDUXVtcTlDa0RXeSt0?=
- =?utf-8?B?TDErVS90Q2FpaEw3QnI2dDJrSWtQaUIrY2JTckR5SVdYd3VTdGp6SnJlY3N6?=
- =?utf-8?B?ejArUlRnaHNrR2phWlFGSWxGN1htQ09tcEQyYXhSQ0pwcll1Q0ptRWU4cmtr?=
- =?utf-8?B?bmFjbFhKaEdLRzBQeml5bEl2R0k5WGlhOUk4eENRZG9ndk9icERHcGpKWE9U?=
- =?utf-8?B?ZStLd1VPY2JweWxYcmt3WkJuY0l4UHlneG5DNVBncUhyMStvekwzd2U5SlQ1?=
- =?utf-8?B?SFIvaHJnSE12R0E5enhUQ2kwdUR0TWE5OWEzeTFRTkRNNmdibWdrZVcybHZh?=
- =?utf-8?B?cW52UE1Sdzl0a2FqdXpDS2Y5RGhsa1hBZzRwOXFiRU5xWUZTLzhjek9aVXow?=
- =?utf-8?B?d2tFNFMyU1o2ZXVkVlRnNXZqQXUrZEdMdWR3OFEzTFhmZS9LemFjbmRDUHVw?=
- =?utf-8?B?TForSDdEazJLc01rR0NjaTA4NEtyZGJlNi9XMmRHeGtjdDBZSkJmNjNrSk1a?=
- =?utf-8?B?RnJ1d2g5NFV4S3lIWkd3V3lkSTNzNTRSeko5cm1Pb0dReG84UEpKUFd6MVlB?=
- =?utf-8?B?bFJ2elZiUlRZZFIycS9wUW9EVVAwRSs1aDQvdEZnQVg5TUI4VFhyWm1pOVNx?=
- =?utf-8?B?cThEUXQxamtVemdFclp3dDltNjdTVlFDbkptREpyTFBMdXVOQUFXWExpM2ds?=
- =?utf-8?B?ZWdnelpJRTl6dS9TVWx1amdBTjZ3QmpYV3VTZWQ3Ry8wMks0TzRxSXRva3dR?=
- =?utf-8?B?TzdWYjRDK3lVV2lDV3Zha05WMXRPaE92cGo0UHh2MzVXdytxR2FzWjZNN0Yz?=
- =?utf-8?B?TUF6dTZNWXFEcE45QW1pTTRHL2xzSU1zakN6QkxYazg2aWN6USt6NmUvcTd3?=
- =?utf-8?B?M3ZLK01ZMkNyUHhwSTJpTktPUWpQNmxHb3l3cXhGa2puRTFaa2U3WGVwbzFk?=
- =?utf-8?B?UndobUI1eU9nMjRORnVvRTZ6S2UyYUsyUmtKWStkT0x3d0J0RExlSmptNGRr?=
- =?utf-8?B?bGVJSkoveTZaZmtTYVd6VWJGWXAycmtpZDA1cHBnSUt0MnRUV3dSc25XQjJx?=
- =?utf-8?B?U3MzK01wOXA5NDBXSVdBdDNXanhHUjM1cFZmbUFSaXUwQ2txdjRTdkQ1ZG5R?=
- =?utf-8?B?TDAxQWpkQ3BBUjFLanlXM21aSVovbE00eHNZRGRQa0FzaVQrZkJtRldOZUNq?=
- =?utf-8?B?VTA5SmF3eWRMMFBwNXgybUwzS1pvOTVUc3BWQm8yajQ1Z3grYStYcFY5QUVV?=
- =?utf-8?B?QmtOQjZHN3NKVnc4MEU1ZXQ1cHdsYUNLWFh1RzZDZ0d6YiswNlo2R3Yxejgy?=
- =?utf-8?B?dzdiL2NtUTRmZFVvNTZDZnZPR1dWb0ZoSloxekw5aEZGenhtRUdpOHZaSWFX?=
- =?utf-8?B?WlNyZENuVXN6RVVwQXZIZ3hpZm44d0E3ZGFZRmk0ejI4QnpYcFJWUjliOXFB?=
- =?utf-8?B?SVQyQUF6c0JLYW1xcmtFWGZrb3BJUTBjaFlZVllaM2h6bVY2ZXRTUDhCU0w4?=
- =?utf-8?B?ci9UU1Q3emsrWGw4d1dMVVJZM1QvZFR5Vk1QelN5Vmpaa2Q3VHJlMjRCVEhD?=
- =?utf-8?B?UnptNkVBOHdhdFlKU3A2NnNyakY3T2dnR21DR3UzQ1dCRVY2bHF3ZnYyRlVT?=
- =?utf-8?B?ekdOT2w2eFFPdDdBSmRaZy9iZisxTEtLVHZ4TG1ob25ZcnQ3TExBRnA4Zzdp?=
- =?utf-8?B?V1dSMUx4ekl4RlBFT21jcDB5UTZGVHI4aDFYRTdpTlFCeGljTE5SUENkS3VM?=
- =?utf-8?B?RmtuU0RCVW9CUTlYUmJKcHhsNWtPb3llOEVGWk9TbXFYc2hHWEx4V1c0OVF6?=
- =?utf-8?B?dEpiYzJrbkFseDdGNmR3Um93WkNYTUlmaTlCMjNsTDVQRzE4UG9hTkxwaUdh?=
- =?utf-8?B?eEtVVlRHaXNRM09maUc1VnFMYnZkWU5XSzdGM01Fa3dDKzdYZ2Q5WDA1UXVU?=
- =?utf-8?B?c1czSXdSdzJGVURJb29IQ1h1eTU3UitzUTZOV0Y2WklCeUhsejE4dE1lM0xl?=
- =?utf-8?B?aGVvWTM2b2M1TnF3WmpPbVFPYkNnVDJRbFVQUFpJL0laRlRIMU9WRlN4R3Uz?=
- =?utf-8?B?aHo1cEFCT09STEV4MUZRUU9BNkpyZmg1TnNEZU5ReDhqZEM2elIvdmxRMmdz?=
- =?utf-8?B?eGgyamNpK29qMWhYckxsWmk1ckxMUlJweUVTN3ZHNWtYSm5pL0dXdFNCNFhs?=
- =?utf-8?B?dkUyY2htUFRjYUpnSC9DeW5IN0wyR2dHWjIyNkxRem5IUXAxVkpVOTIrMG9H?=
- =?utf-8?B?R1ovbEhiRzVXQkRPazRQMHZMK0hORHBpSURwNlNUZHU4RDd6TmZWZz09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 460c3db5-f668-4c23-f830-08df370aa19c
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5521.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2026 04:51:31.5506
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: D5DIZZsWxmnkZ52crcSZ+R+3POpRGseRHs5LDekzr1EysFnua8txnGvO/foCBbOY5KgVGDFHERJvYBXqZJIZfQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYNPR03MB10089
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: st: fix arm,smc-id of the SMC watchdog on
+ stm32mp2
+To: Alexandre TORGUE <alexandre.torgue@foss.st.com>,
+ Mateusz Nowicki <mateusz.nowicki@posteo.net>, mcoquelin.stm32@gmail.com,
+ Thomas BOURGOIN <thomas.bourgoin@st.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ lionel.debieve@foss.st.com, amelie.delaunay@foss.st.com,
+ patrice.chotard@foss.st.com, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kernel <kernel@dh-electronics.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+ Stefano Babic <sbabic@nabladev.com>,
+ Etienne Carriere <etienne.carriere@foss.st.com>,
+ Arnd Bergmann <arnd@arndb.de>
+References: <20260907091400.55954-1-mateusz.nowicki@posteo.net>
+ <7ee09655-2fef-4334-b0aa-b56f7ae03f74@foss.st.com>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <7ee09655-2fef-4334-b0aa-b56f7ae03f74@foss.st.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261030_215142_273799_628464F6 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261030_230006_316130_0A8D3D4C 
+X-CRM114-Status: GOOD (  18.66  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -151,53 +84,94 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-22.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Nicolas,
+On 9/28/26 10:45 AM, Alexandre TORGUE wrote:
 
->
-> Hi,
->
->
-> ---- Le ven., 30 oct. 2026 10:24:06 -0400 wbieganski@baylibre.com a écrit ----
->
->
->> Hi,
->> I tested v12 series on AQ222 board with v7.2-rc1. Firmware version:
->> 'v0.4.ff.I0c83495.75444b3' build 'Thu Apr 16 18:18:55 2026'.
->
-> That reminded me, is that firmware in linux-firmware?
-This firmware is currently not in the repo of linux firmware. Should we 
-merge the driver first, and then submit the blob to the firmware repo?
->
->
-> Nicolas
+Hello all,
 
-BRs
+> On 9/7/26 11:14, Mateusz Nowicki wrote:
+>> OP-TEE implements the STM32MP2 watchdog SMC service with function ID
+>> 0xbc000000 (CFG_WDT_SM_HANDLER_ID), not 0xb200005a. With the current
+>> value the arm_smc_wdt probe fails with -EIO and the IWDG started by the
+>> bootloader is never refreshed.
+>>
+>> Fixes: 89fca38168c9 ("arm64: dts: st: add arm-wdt node for watchdog 
+>> support on stm32mp251")
+>> Fixes: e9b03ef21386 ("arm64: dts: st: introduce stm32mp23 SoCs family")
+>> Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+>> ---
+>>   arch/arm64/boot/dts/st/stm32mp231.dtsi | 2 +-
+>>   arch/arm64/boot/dts/st/stm32mp251.dtsi | 2 +-
+>>   2 files changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/ 
+>> dts/st/stm32mp231.dtsi
+>> index 9e1d240888ff..35e247af957c 100644
+>> --- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
+>> +++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+>> @@ -35,7 +35,7 @@ arm-pmu {
+>>       arm_wdt: watchdog {
+>>           compatible = "arm,smc-wdt";
+>> -        arm,smc-id = <0xb200005a>;
+>> +        arm,smc-id = <0xbc000000>;
+>>           status = "disabled";
+>>       };
+>> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/ 
+>> dts/st/stm32mp251.dtsi
+>> index 9c63fdb5a885..2dcbba65e298 100644
+>> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
+>> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+>> @@ -36,7 +36,7 @@ arm-pmu {
+>>       arm_wdt: watchdog {
+>>           compatible = "arm,smc-wdt";
+>> -        arm,smc-id = <0xb200005a>;
+>> +        arm,smc-id = <0xbc000000>;
+>>           status = "disabled";
+>>       };
+> 
+> Applied on stm32-next.
+Since this change, my STM32MP255C board started rebooting after 32 
+seconds. It turns out, this is caused by an ABI break.
 
-Zhentao
+Here is the thing -- old ST downstream fork of OP-TEE OS did expect ARM 
+SMC WDT ID 0xb200005a (that was the ST ecosystem v5), the OP-TEE OS 
+4.0.0 fork seems to have handled both, and the new 4.8.0 fork expects 
+0xbc000000 ID only and does not handle 0xb200005a .
 
->> RAW NV12 frames at the decoder output were visually OK across typical
->> resolutions and H.264 profiles (main, high, baseline) with and without
->> B-frames in the stream, also with I-frames only streams. I used Gstreamer's
->> (ver. 1.26) 'v4l2slh264dec' element on Trixie with both mmap and DMA-bufs
->> buffering (on the capture queue only). Input bitstreams where
->> FFmpeg-generated (testsrc2 + libx264) or publicly available test videos.
->>
->> Decoder (and the output) remained stable with simulated (non key) frame
->> drop at max resolution (1920x1088, noise generated by FFmpeg's bitstream
->> filter).
->>
->> The performance at max resolution, tested with 'filesrc ! parsebin !
->> v4l2slh264dec ! fakevideosink' pipeline was ~85 fps (fixed number of
->> outputted frames divided by the total execution time).
->>
->> Tested-by: Wojciech Biegański
->>
+At this point, with Linux 6.18 the kernel is trying to trigger the WDT 
+using SMC ID 0xb200005a , which on my machine works (older OP-TEE OS). 
+When I boot linux-next , it is using ID 0xbc000000 and my system reboots 
+after 32 seconds. (not even mainline Linux versions are consistent here 
+now, sigh)
+
+I actually found this behavior the other way around -- while forward 
+porting a system to the new OP-TEE OS 4.8.0 port, which I installed, 
+then booted Linux 6.18.y, machine started rebooting (SMC ID mismatch, 
+new OP-TEE expects 0xbc000000 and linux-stable sends 0xb200005a), so I 
+booted recovery, and ... recovery is also Linux 6.18.y, so I could not 
+recover the machine that way anymore.
+
+Currently, I added [1] to OP-TEE OS as a mitigation of this ABI break, 
+but I don't think everyone can still update their bootloader stack in 
+this way. And with this patch in place (and inconsistency between Linux 
+stable 6.18.y and upcoming 7.4.y) the ABI break will cause some serious 
+mess.
+
+How shall we deal with this ?
+
+Thank you for your help !
+
+[1] 
+https://github.com/STMicroelectronics/optee_os/commit/8450f25923c0c98465decc975f25efed19f82ba0
+
+-- 
+Best regards,
+Marek Vasut
 
