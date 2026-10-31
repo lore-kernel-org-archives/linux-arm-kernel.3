@@ -2,75 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6979E606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 12:07:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4333F606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 12:18:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xwapaSOR;
-	dkim=pass (2048-bit key, unprotected) header.d=posteo.net header.i=@posteo.net header.a=rsa-sha256 header.s=1984.8680eb header.b=UijhQ10l
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xUWb/eQ5;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GvRvl7W4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=SHiodlaN/47Q9sQElac/FcGmKIxlHSOhqHHn7r3qETE=; b=xwapaSORGfs8MB
-	KPDAgHBHbL8RBUF6F7Ws94AvFrEaNX2QJIWvv+yFhmsr4tYyc9k4zXGKc4Sag8avackuEjRBfKp3g
-	Br/NNZGf9UmBGbvrDz/gIUqX1/3tlA7EWy3WeQ5I49gYn/A+SqAqqeaOvfPY+CEh64Iwya1/HyO9g
-	v3n+hc5C3d5JcbmcJ+tab6pGu00gNCwSFpc7sWfsivPM4EzwRjzUuwS4CwU7JRhE2gDPukQ41Mxxk
-	1t07daK6EcRbkbfH+lEKJOxy23+bY4SnsgYVo6AoZbTigPBh7xC9Wp6Cj2xZjuwJqU8czcMDjwb2a
-	oL7SdRc2BSH6XPlxIQ3g==;
+	List-Owner; bh=WfqDrmC+ehUZ60Gx9Aa5w4mrh+zG4BxXWhM7P84e/E4=; b=xUWb/eQ5MQcd/J
+	XkC/f4K4mxEp0ErgdMSfPhv+onsszSktuQDJk7d9K1x8iMVNqBY47mIwc8oBIAg0amo5d36ygxvK5
+	tnnzX5s3ukluGYxDeISSq7MNP/2u9CA3UJ+13PYUZFJlbWxlnGumicNK3CKkPUvBCRpksRq5BoFKY
+	ZDXhWErW/UmebUd76keOHPFms7XomIyi3rV4RMbzpxy8hU2R+u8CC+uurdtAC0IvOf9BvyTXTyrsv
+	dHz5YyVmG30BrBcWY+bkfhWdu8FnduX78cgzrI+P8Q7bLrlT8y5jIa5XoczwmeMmrUnjbNxPBN9HM
+	KZq9dLroq1Vm/q+wRC+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN7rn-0000000DHhY-0coA;
-	Sat, 31 Oct 2026 12:07:23 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1xN828-0000000DIXk-2lBk;
+	Sat, 31 Oct 2026 12:18:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN7re-0000000DHdh-1UFz
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 12:07:15 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id EAF0B240126
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:07:11 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
-	s=1984.8680eb; t=1793448431;
-	bh=SHiodlaN/47Q9sQElac/FcGmKIxlHSOhqHHn7r3qETE=;
-	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding:From;
-	b=UijhQ10laMoUf4LsQw+gAJUuE8i27pdC3giLUsej6UjDnfT125vfP1vv3HjTDzdti
-	 zj4a7jZ/bQ4PnAnLZnE1kmq5RO58mluNbVDzE2c3bhWQfkJ919VQ7ZjhJ1m5yyK6XM
-	 JuXcm+Ue1QTvaI6XFUqCdvC7sspZDHBOG/gNKYMqhVZ8iwe0jRginrPN3Pe2meYdRs
-	 AfD+mnXou47bdRWYB9OnvNI6bg7Yccqa/pynJW5Wy77/qyt65iYnODsCGLnQFtDmFO
-	 mXOKBSvS3C8D6TUqrIIZDsLbrgMuu+jBqTdKQApwyOrMryY86acXYszwH6Vr5N6M7b
-	 8JCNMmCJmLa+w==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4jGxXt00Ntz6v1B;
-	Sat, 31 Oct 2026 13:07:09 +0100 (CET)
-From: Mateusz Nowicki <mateusz.nowicki@posteo.net>
-To: Ulf Hansson <ulfh@kernel.org>,
-	linux-mmc@vger.kernel.org
-Cc: Christophe Kerello <christophe.kerello@foss.st.com>,
-	Mateusz Nowicki <mateusz.nowicki@posteo.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Linus Walleij <linusw@kernel.org>,
-	Yann Gautier <yann.gautier@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH 1/3] mmc: mmci: do not count a data CRC error as a complete transfer
-Date: Sat, 31 Oct 2026 12:07:11 +0000
-Message-ID: <20261031120700.42576-2-mateusz.nowicki@posteo.net>
-In-Reply-To: <20261031120700.42576-1-mateusz.nowicki@posteo.net>
-References: <20261031120700.42576-1-mateusz.nowicki@posteo.net>
+	id 1xN827-0000000DIXY-427Z;
+	Sat, 31 Oct 2026 12:18:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 17636600AA;
+	Sat, 31 Oct 2026 12:18:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E73181F000C1;
+	Sat, 31 Oct 2026 12:17:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793449082;
+	bh=WfqDrmC+ehUZ60Gx9Aa5w4mrh+zG4BxXWhM7P84e/E4=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=GvRvl7W4RGrqljpx94XdbaZMsVvL1Kt/Z5Jd/55eORWHsalS5nFdOLhZslVPHATyj
+	 Epqi1/8K2P+7A0aNrdghr3K0m5IKSQhcClb9RXYBmakKy8MPKStyQWmBH87IH10nf8
+	 eEw5QOOfHjMHbUF24xNoaBSgLAY0d9lzM00aOqEfsR4dJw5IFzIdMcMJ2mOkycUdrA
+	 57Hm22yeq29PdAbHNTDoD+NKhP9WJBm1s0CUo4SHgyKLXCy7meoL3v2MaMZsIH8cIT
+	 EYpEeAzPOzbogU1W1PvT1ADFAEq5SGwV5qRz4Wbl1AwHr8iQXW9XRQxGfi16qKyFEI
+	 qTuDlCJgPT3nw==
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261031_050714_546364_A032FC77 
-X-CRM114-Status: GOOD (  12.07  )
-X-Spam-Score: -4.4 (----)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [RFC PATCH 1/1] phy: mediatek: phy-mtk-hdmi: Use regmap to
+ manipulate hdmi registers
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261011082042.348422-2-l.scorcia@gmail.com>
+References: <20261011082042.348422-1-l.scorcia@gmail.com>
+ <20261011082042.348422-2-l.scorcia@gmail.com>
+Date: Sat, 31 Oct 2026 17:47:39 +0530
+Message-Id: <179344905948.5901.6799097646166176701.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=806; i=mani@kernel.org;
+ h=from:subject:message-id; bh=JmZC2SA93RT2nPUoPyZmky/enQbqCKoYwEii8HOdWaU=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq5dxxUWs3ovbRHBJTHeGitgowF1no/6nrpoiQQ
+ oBBFLTs8GKJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCauXccQAKCRBVnxHm/pHO
+ 9VQoB/4v8G/Tb9ty7lQVKYjEB7a7AKK/iMtr9bXlp4uhf0FbVMlBFpK+AqT+8hXG2Ve55+mvO3n
+ w+/xPG4afcQ8jvJbvZIV58WBAhvz2bqcD4euJOA086kJzuGuMclGxwj14c/2NJg54MHpXd0nTIS
+ l48kwjeeEjv+CNZaShfLX5LZPLTM3lfngz8mbECL90TIpRCEvErerhFamQUNdE7VQPHBnYaEpar
+ 6+VVkA3oVnQLdsJVXAA1Ch/4qPAfotKX/QJtctVHRWkhTOMED4AhCgo/5CKzs0Dq+itjhre2eaJ
+ PHzkdZJn6fMqAOgKbr47Mf9YZ61mvvmSV7rFZCjdz2M6BhZy
+X-Developer-Key: i=mani@kernel.org; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,48 +87,38 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,T_SPF_TEMPERROR autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-With datacnt_useless (STM32 variants) success is 0 on a data error and
-a CRC error subtracts one from it. bytes_xfered becomes 0xfffffe00 and
-mmc_blk completes the whole request as successful, although the
-controller stopped at the failing block. Reads return stale data and
-writes are lost without any error.
+On 2026-10-11 10:20 +0200, Luca Leonardo Scorcia wrote:
+> Use the regmap primitives to manipulate HDMI registers instead of custom
+> helpers from phy-mtk-io.h. No functional changes.
+> 
+> This avoids the following issue with mt8167:
+> 
+> hdmi-phy: error -EBUSY: can't request region for resource
+> [mem 0x10018300-0x1001831f]
+> 
+> due to the fact that HDMI PHY registers are actually mapped inside the
+> apmixedsys memory space.
+> 
+> The same situation is present on mt8173 too but this SoC does not exhibit
+> the issue as its apmixedsys driver uses of_iomap instead of
+> devm_platform_ioremap_resource to map its memory space, just like regmap
+> does.
+> 
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 
-Tested on the STM32MP257F-DK eMMC in HS200 with a forced bad tuning:
-without this change 5 of 14 reads returned zeros, with it all 10 reads
-were correct.
+Why RFC?
 
-Fixes: b79220b3e0af ("mmc: mmci: add variant property to not read datacnt")
-Cc: stable@vger.kernel.org
-Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
----
- drivers/mmc/host/mmci.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+Anyhow, please fix the build errors reported.
 
-diff --git a/drivers/mmc/host/mmci.c b/drivers/mmc/host/mmci.c
-index 416bdb184ed4..10eb0439fc52 100644
---- a/drivers/mmc/host/mmci.c
-+++ b/drivers/mmc/host/mmci.c
-@@ -1422,8 +1422,9 @@ mmci_data_irq(struct mmci_host *host, struct mmc_data *data,
- 		dev_dbg(mmc_dev(host->mmc), "MCI ERROR IRQ, status 0x%08x at 0x%08x\n",
- 			status_err, success);
- 		if (status_err & MCI_DATACRCFAIL) {
--			/* Last block was not successful */
--			success -= 1;
-+			/* Last block was not successful, nothing counted when DATACNT is useless */
-+			if (success)
-+				success -= 1;
- 			data->error = -EILSEQ;
- 		} else if (status_err & MCI_DATATIMEOUT) {
- 			data->error = -ETIMEDOUT;
--- 
-2.56.0
+- Mani
+
 
 
