@@ -2,149 +2,146 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6EC1606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 17:52:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9ED2606A320
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 17:52:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PdW3So2c;
-	dkim=pass (2048-bit key, unprotected) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=jX2FZlFo;
-	dkim=pass (2048-bit key, unprotected) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=hRFo/UGx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lOtsPU6j;
+	dkim=pass (2048-bit key, unprotected) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=qkCp/46B;
+	dkim=pass (2048-bit key, unprotected) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=e6yIMPDh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=kr5/q8OuWKhHjvAmtwtnzB1/Q2cWtMAH+LprFc5Esi8=; b=PdW3So2c2lbN75dUDzihxxq4GW
-	aqtvkVKKKgfQluAzYrzFfl6dBxuQux6S7ascpMrUhUz4XWKU/Kx/wpxCQEzGJLv+rHMwLpNRl9kCB
-	vp9Ir+RSWCE0ihqlYmz8s+VHwGmU91NUSv78hS6LNEi0LJrVJaGEA0t94NlharMc4jKBrZFxh8PDD
-	88MPmZri1NypQIvpEmuP80dpEpLtHyqDRRHa9ATIXneZB5SxHtl6QaOtaJuVZd0TvgMMNcHtKJwBX
-	URrO/R+Bbpkf41DsHCQKQz6twCWzevBSmVuHrNXS1I5aFOGABk6kaPPuc1hK8A9r4ftdVN48jg9Yf
-	K1/5ZyPw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=ROwj3Rexs8Y9gllQWi0CYRPzJsmyOmh+Ba5Jprxs8nY=; b=lOtsPU6jt6eM5j
+	yccBZLKBxp58n/YMS/Sdj4MfOwuLeJybSzVNAJoRdzchEW5Ap1kiItxY7bUtT9Jmqheay+1T417DE
+	mSXFYuRDrOSMTz7FpVl2IgVahnLb/EKrtWtg+Sx90LbU7VH31kYqeeKitano3umYxEWIXDOeT/4UN
+	G4geSUeKV97IZBkERhn0PcGrRuvbGiP09RF1+ADZKHyC/x4xXZ9FZdk0PDIDuUwY/5HTVkRpOHL+V
+	0FvdRLbsrzUBsFpFI2HEzG82vHrfpAodXeLmiVKkWz8nQnOMMvRU4lP0B8X1Fn1Up5FY1VdIj0lpt
+	8BZvekpMLTNd2VBs33eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNDG0-0000000DXcL-1EEf;
+	id 1xNDG0-0000000DXcf-2RYu;
 	Sat, 31 Oct 2026 17:52:44 +0000
 Received: from mx0b-00364e01.pphosted.com ([148.163.139.74])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNDFw-0000000DXZO-0yVB
+	id 1xNDFw-0000000DXZf-1CvB
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 31 Oct 2026 17:52:43 +0000
-Received: from pps.filterd (m0499198.ppops.net [127.0.0.1])
-	by mx0b-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69VDkLTX969340
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:52:37 -0400
+Received: from pps.filterd (m0167074.ppops.net [127.0.0.1])
+	by mx0b-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69VDjrSp558277
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:52:39 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=pps01; bh=kr5/q8OuWKhHjvAmtwtnzB1/Q2
-	cWtMAH+LprFc5Esi8=; b=jX2FZlFoQ6i2GnZNWF4nLzsyZrPCkNt4TizG+46YfS
-	msihij7QNb9+VbrmCP9g7Z/sb99RkIeSUyMR9uh+f52MEf8rbk1DA9WhBrmKL+P4
-	pld59e61aAC/svQb17q2nGnEDawOYuOP9pDRJtoweZf3Yh4efYr/W1FTOXg/xTxo
-	Ngz5TUoSq5yvCk4zQNZUlRiuNWq0AFj5mmHgjNb/yNu+blgfm9R2gfOQVytb1kwL
-	BantX5EiF0LbftYiRpMhxxLF8HZCAs4qavPLFNUD+WWMXTYGR3G5/vAWtaXum7kC
-	ph0cz9JeUCcdLkyh84tKdIA0c8jdQc6u5etwZy5RlwfA==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0b-00364e01.pphosted.com (PPS) with ESMTPS id 4hn2x2vp2a-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pps01; bh=ROwj
+	3Rexs8Y9gllQWi0CYRPzJsmyOmh+Ba5Jprxs8nY=; b=qkCp/46BCbH/3caJFFuA
+	BlnNlJICBKE02t0EV/Yl+Mf7VV9idaFusWRBluq2zCneN9cFuYDcUqf/l31dOHFz
+	iQE/bzebwLC0BQlLbQFOhaGuXCSXB9ohJ+JrZhC3uP0k5aAlGo04caSUWLizbGaD
+	Q8fyoMn/BtmmRGD76UAo0PUtJ6TOiHx5Ym7NhY0x+SFdXqbKcsz67KGCd+fZ9VEt
+	0BfGicaIcuW0A06wOcyT3GRe2sXfrWAVc1vzKBHPy5ZgGVEYhfv99FHBHwW/CcLq
+	ncYCO25VgOnxXlWsafpBOv2cliC4TAu2kei/Vw+CCZpk+X8ivtNyQX97QTFnLSgT
+	4w==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0b-00364e01.pphosted.com (PPS) with ESMTPS id 4hn9ccaup5-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:52:36 -0400 (EDT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93f1e62510cso397511185a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 10:52:36 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:52:39 -0400 (EDT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93909014c85so374792085a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 10:52:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=columbia.edu; s=lionmail; t=1793469156; x=1794073956; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=kr5/q8OuWKhHjvAmtwtnzB1/Q2cWtMAH+LprFc5Esi8=;
-        b=hRFo/UGxU9V5YZHFsJoF9m02iTz2zl2jHkEEcdMLnedl51sgWPYYKstmoDzMjvpi8X
-         LEk7fsuJ3mso6wuvS9nkSBAbyefKDz/9Nd4DU85ay2otXjAxfDZVrxoEgNN9Qqocj6gn
-         aSwjpEuOoYGqmvnUSdztJnvmS6/l/ptqAiAvMrF/cYiTTZgDjmnqK+PcC/06OIjtQO94
-         dKnSub6fQG8Q4fzwLHGFQD21SstJJSLPx2L8XovH2OxpkHGFpjk81s9fQeQBNQSUjyUs
-         QGh5uUe4jNe3+QYxlkHqnfs3RnMqwsfxqH3TjbrCfIloUWFrjOyFIn6DzReTnNIz7f47
-         ZF8w==
+        d=columbia.edu; s=lionmail; t=1793469158; x=1794073958; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ROwj3Rexs8Y9gllQWi0CYRPzJsmyOmh+Ba5Jprxs8nY=;
+        b=e6yIMPDh5qvhiq22g0T5nrlIAfM4zOovNvXGZKMsd90Vlnq0Ip6eRHsQk+n/T1XpCW
+         4dOnvQjES4W0u5Yx2Cemfr+NGjL3Kjx70h4MD2TFZAmePPDrmaL6bQ7zfBzmX4Ir0kvH
+         HZ47YF/gHh4eYgWI31LYrZoawsj33ThaVv0wUs/AbPkGIWiHf8qBr+dUZNhtoRtbaQ73
+         Y2SgLWSkvEtcIp75QYN6TOABD8m1q38boUhCC0J5R3of/VAbQoesIBqGCs98K3yas4l4
+         ScAg3mRwGwSW7QZ/Hiwjmr3UwNNYxWwcLKd7Wiw8OtTVdRdMjFiNPhidV3krMtqA1NUU
+         8MzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793469156; x=1794073956;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=kr5/q8OuWKhHjvAmtwtnzB1/Q2cWtMAH+LprFc5Esi8=;
-        b=A0he9xhQczhCPMY7R3aiQle+Ewl2wyWS1j4v/c8GU1Xgb0hluIzaXmeeZ/TgE6Dbkt
-         0GTNJuMJscS2lDD77wAzcyIE2/A3TWuHkeNxPv8bef4WQR+YCzJnTR+ax+bOQpM0ta4b
-         JGkOy3pWxJ7stPkxPBmyjlVz3ePHv/PdbhaIEp5q9V+Fj57U+1mIwow4ke6MO469RYau
-         YJMZK1pRMIPzN3rUAr7dI+2yQPeGaGuOu3Yp9aYSDBf7jPAdN/hXg7DDd9s3IxgWgVU4
-         2DT7G10zr7+iYczKHPzLJy5nY1nkAjTxPf2Z87OGZf7tqGKvIHm3gaHk9ty5/Gcz8m/X
-         /97Q==
-X-Forwarded-Encrypted: i=1; AKwUvBzhp6zZq37F+XDMRoaVMXspdL8LG4tyGX4Y28DZMUYYRGcrmMnpA/wqSPc+8eNrao/N2hQij178ZJQDEvyjQfec@lists.infradead.org
-X-Gm-Message-State: AFq9FYJY0dJodp58ggt7sXZMEn8oN/M9MKzGo4Qg1XhmALWHg/6KaYnP
-	NGlhiz7PSi5FhygXa93TVVlA9bi0eK6HIh9N05fUx2oB5LCXP5gp0w9YkvZpdP/SVDJFxp9aDm+
-	51doRKpzL460pvLR9d/jjkTXiibfSEATroWjyny/f3puQAx5ikVZEeliIuudNwl7Q45FHZdPiGX
-	Tr5S7o
-X-Gm-Gg: AYBFou2W1BGcYU+EaaKrnDiMyk86KK0VSsvMFiPfjo/bujEhaF+evvq84xnZaL+4BJg
-	pJDN+56cBaWK+s70G4UjhTP/sTQG9q/+CMr2hiccMM9nlW34o0MvJH/lHLdYNYs3VDFBQ3u9E8M
-	M0WcPVykPqYID+0AA7yAJ3o/m+i+KQpf1m3GP34Z7CJb8LCIdNEwBHFQhWh61oKvhujibO1bU/R
-	1mgynpjujX0XPsTdMKA7SCPljmHCAhHfqNzFRrwO+olTVMq9gap4j9g8/6KqZm1ZubqY/abTjTU
-	j0gB4uzR9eaJ6OKASWDUvX2egbmnvA/gSWR1XtSEj8/X/+qCh472Kx0ormN98YpGJkZBIShAL0g
-	66/+Q1OgpzdPB7iDz+64rlqbgZzJZWSYfKx6malrHPRBAH1FNPJd3eOjZLw==
-X-Received: by 2002:a05:620a:2956:b0:93e:c12c:9b70 with SMTP id af79cd13be357-944217fdc45mr967078185a.75.1793469156423;
-        Sat, 31 Oct 2026 10:52:36 -0700 (PDT)
-X-Received: by 2002:a05:620a:2956:b0:93e:c12c:9b70 with SMTP id af79cd13be357-944217fdc45mr967075485a.75.1793469155973;
-        Sat, 31 Oct 2026 10:52:35 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1793469158; x=1794073958;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ROwj3Rexs8Y9gllQWi0CYRPzJsmyOmh+Ba5Jprxs8nY=;
+        b=ntjWYKFxgmBkwyByULo2MIpz5z5r6XWnWe+J+ENcY/oud97O9DBzbZsZRnW4A4EkeC
+         BS1lAv//mXAOr58LrxEdh1xJbZBfw2VxMa40u/vDGi5h/ulPbqwvku/Wr68fVmF58Wj1
+         m5sGYZjqowddXvJFs81WYtnw8jLYKiYD6uh5lQ6bByhPZ6/RoFJiKHnQkPq2Ax5ju/l/
+         eUZ/0U23B9gScEsmMA89B/I4AFRyGqujXvkHlpxvjQJue6xDAAqyrWSubK5NYtOyH50M
+         fsRMEtbtIlt1jCMp4jOn6vQVnxzPhAlNxC8v3BRvEUCVLWoDguDZ5aeWRzVn+/W9SQAZ
+         rucg==
+X-Forwarded-Encrypted: i=1; AKwUvBz2gwuAb9BqUort1F0fosGm+Oj7RhJapaijsFl9DBGZBP/70IA9+bmDs4gGsG+u+ErQLb+Xh82KlwflUwLpIuEl@lists.infradead.org
+X-Gm-Message-State: AFq9FYLIeYKsSTPT+cNiZGniYOZWnp0FSzkR54c6zcE1+UrHvs9ylbIw
+	tbXZRozWR44GJofhMVFfqISvIsi4o0peSc5siU/YZOsZyq0GeMJWNpi8nVaj1M2199pBfFzX4AF
+	TQ8kejygKhubi17y1UbXobTlVpfQdrix5doXcw6RofTJXXtYua1pdNGlkLn6FWB2X8F6Io+bw
+X-Gm-Gg: AYBFou1+Y/QVRCOEJLdVRj0wGfESpoHJmO4ZnxQKfg4pkQqXRJk+GvQz9pW1VtF2nH+
+	D4FOLtAS9Pu3l5UlEohoX6b1lAgJOjXdPk+ujg4Z80bAVd2zDp+EvatF+GWepmtsGcHH/hy8DTo
+	Hl7kN+qfQcsh7R3sQK2onrvP+x1BPxlytCyM7N0hLLKUaweEST3KiRZ50KVD73JJ/Hz5rlarNyd
+	bZXbDgV59yio1hAUHTrUaIIZ8U+b/9AofGh6KvhJER1MIKh0rtWhmdTUrv6BWqq7bK9F4fiYkJ/
+	gQzE/tZbQouByYkgQCXLMPrMrk/2VvysRJ8sNhFeiEBLZM0OWZ85EceAVMWFOdUOksMC4GgXy+Q
+	BvbFvV30VKfsAs7ytijy6g5j2l0/Uet7qL192cjyHHlSPa9zXPoJ0nhJqrw==
+X-Received: by 2002:a05:620a:440b:b0:93e:c12c:f127 with SMTP id af79cd13be357-9442187b1cemr848579885a.83.1793469158691;
+        Sat, 31 Oct 2026 10:52:38 -0700 (PDT)
+X-Received: by 2002:a05:620a:440b:b0:93e:c12c:f127 with SMTP id af79cd13be357-9442187b1cemr848577285a.83.1793469158126;
+        Sat, 31 Oct 2026 10:52:38 -0700 (PDT)
 Received: from [127.0.1.1] ([37.142.159.89])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa81b7fe80sm249158315e9.11.2026.10.31.10.52.33
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa81b7fe80sm249158315e9.11.2026.10.31.10.52.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 31 Oct 2026 10:52:34 -0700 (PDT)
+        Sat, 31 Oct 2026 10:52:37 -0700 (PDT)
 From: Tal Zussman <tz2294@columbia.edu>
-Subject: [PATCH 0/2] platform/raspberrypi: vchiq: remove the last use of
- set_page_dirty()
-Date: Sat, 31 Oct 2026 13:52:07 -0400
-Message-Id: <20261031-vchiq-unpin-dirty-v1-0-632d3f1281e0@columbia.edu>
+Date: Sat, 31 Oct 2026 13:52:08 -0400
+Subject: [PATCH 1/2] platform/raspberrypi: vchiq: pass FOLL_WRITE to
+ pin_user_pages_fast()
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAMcq5moC/yXMTQ7CIBBA4auQWTsJg1Fjr2K64GeUcUER2kbTc
- HexLr/FextULsIVBrVB4VWqTKmDDgp8tOnBKKEbjDZn0nTB1Ud54ZKyJAxS5g9a56/WUDB0PEH
- vcuG7vPfnbfy7Lu7Jfv6NoLUvNvOBJnUAAAA=
-X-Change-ID: 20261017-vchiq-unpin-dirty-abc9a21d2135
+Message-Id: <20261031-vchiq-unpin-dirty-v1-1-632d3f1281e0@columbia.edu>
+References: <20261031-vchiq-unpin-dirty-v1-0-632d3f1281e0@columbia.edu>
+In-Reply-To: <20261031-vchiq-unpin-dirty-v1-0-632d3f1281e0@columbia.edu>
 To: Florian Fainelli <florian.fainelli@broadcom.com>,
         Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
 Cc: linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
         linux-kernel@vger.kernel.org, Tal Zussman <tz2294@columbia.edu>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793469152; l=872;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793469152; l=1086;
  i=tz2294@columbia.edu; s=20250528; h=from:subject:message-id;
- bh=78l/cY42q3FsGgA9aAmNP7rxKPH0mp1TX7G+9tb/Zjg=;
- b=6GBLu3IHLmc8tNmCmGJOOmywqYXrR4b3Tpqba9Qxt4eDqNSVRB4ADsrAv2I5XHG7LK9PcJChH
- ECRhEGdrW5iDGoVL38nx3NAxOdNz8S0f+pObpe5WBLCNsnccHCDgQ3D
+ bh=764Onyu+ULetDc0aDFVUsgf6G2JQGNpiKKz83VozlGA=;
+ b=d+Aavx9jgZQmcn0Fc9zP9OeBSSQKOcCNxLSftJiDc77vgq/4fndx9V0ZAUcCyvkSwTV/LT+vI
+ soS88tO8T0sA4kpFKpxWObAIRYb/3qiKPqgCkO7vduO28udqi2XSQpj
 X-Developer-Key: i=tz2294@columbia.edu; a=ed25519;
  pk=BIj5KdACscEOyAC0oIkeZqLB3L94fzBnDccEooxeM5Y=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMxMDA3MSBTYWx0ZWRfXxWo/7+/1JPCa
- EotifRlGUbEYHjVNiYmGb2y4qj0NdPqJgHdXFb/S6poJ2ObX7BexXO3xTACkLbKlHcSvdqk/W7p
- fnP8RWglqvXGER24X03y1cVzY/ERHA5Ykm4Qsq5Xx69xTBftTmdT8Gtm8rJFUPYh++NBzfLs4DT
- VwXnX4XXt3oySPFsoIJ8EHK66VQKemqTAPPFQz1kZv7D74n8C1bpyUUFSjOMFsFmIWKNU+TRS2N
- ZTpQHGi2GpsgqqdjlMabvP9TZlyuBn5tfHF7RTqY8np3JWFq86qaD63MWVWWSoN4Aebkl0ypyEW
- ur4LE/EVP7vkz4btstolgN7ZvLBd/TocVDjvd3POPFXlEFqZCtMOkRvG6vHOE92NGSzbH4xbLZ2
- V/bF/op79QjvKUwi8cVKClAdfqWtTzMnQUIuUMXDY9YiXp9gVoSSWOdpnPXYA5KLJG/qzzGvj6C
- NYJbB1/5fPRRZl8lMhQ==
-X-Proofpoint-GUID: xuECCHsD-0anxlSSi8xenwxpW12FSdEu
-X-Proofpoint-ORIG-GUID: xuECCHsD-0anxlSSi8xenwxpW12FSdEu
-X-Authority-Analysis: v=2.4 cv=YLMKWhGx c=1 sm=1 tr=0 ts=6ae62ae5 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=P+xgYyhW+KadpqoI50EQPQ==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMxMDA3MSBTYWx0ZWRfX+v38orF9voIT
+ yxh5HcMUxC0S7BZt5iSjSV2gu4ETJX7FeTY5CgBXkviaVRNg/uRf0jCEVCWUNcYXOBu0oThyo2F
+ ORoEtlL9QIDNTmbuUVJaXkbhI3Ycscj19vpEfWAlYCgOVUcDhn5A
+X-Authority-Analysis: v=2.4 cv=ZIxCCn7b c=1 sm=1 tr=0 ts=6ae62ae7 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=P+xgYyhW+KadpqoI50EQPQ==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=BpGzv1V74M3SfeTrGa8v:22
- a=n5EFpTFFQUXBHQ_dOw8A:9 a=QEXdDO2ut3YA:10 a=ZXulRonScM0A:10
- a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMxMDA3MSBTYWx0ZWRfXxXPLwuVQdxq3
- 8/yRb1l8mDSdHt6mXSkXW78S0M6tNVDJdfEvd6FlApmpQ7Qgvcti2KH925cT4Fc920JzYIAwLeA
- 6REfS+Fb4vlWJ5W5WW6oc7xljBJs5O0Nm8/HL0eNsRoasMSpuPxL
+ a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=azVShVRs0zEubeQ0wG0L:22
+ a=qauuUkPFoE-8jCmVUdAA:9 a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-ORIG-GUID: iPoa87JhMSITylwJrlyVfqG5VZgfiUAt
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMxMDA3MSBTYWx0ZWRfX1xbqOBKL+oLo
+ LOj8Ey03D0cdzSviWHxATtYTRcDDgIj5KpLV4noaRorQObCpDP0jl/eth5m/TYLj7x859CoahV3
+ JMYIgdNmPUVGUQ6Yrbd58zQYpIX3aUYCO3JtSpY1aqifqIlNWkWSHr9Q7KLG5jGPnPkH5HeZ6/I
+ ZsRJ6ICv2QZfwwhiH6th+D/cj/cpeXxccZVbEg+6oyJT8oUxGkbsUCsYbouP8NP9jIfTRhJ0fat
+ SfwwJTQmWET/0eSRpZTJBMpZv1MZXq6egYwLJKvS6xUAjGhYX8CNUv8XDIVYBf281k474loJ0z3
+ xXhCBQoiR6pP1VhPXDXjPGKwHXOwMO8TIlnRZXjDKuaWo1UQMbB4mzjOWe72ysE3kZBvZL/oGjO
+ qZLK0ZKVTad3SSmT+A+n7WQfWXLcTsB420cprivnqIrnU1zYgTcSNXlEQeRDwicYjy1/USXlIQ/
+ BSFnN0P3q/k4OleEtDg==
+X-Proofpoint-GUID: iPoa87JhMSITylwJrlyVfqG5VZgfiUAt
 X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11952
  signatures=596817
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=10 phishscore=0 adultscore=0 lowpriorityscore=10
- priorityscore=1501 impostorscore=10 suspectscore=0 malwarescore=0 spamscore=0
+ malwarescore=0 spamscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
+ bulkscore=10 phishscore=0 adultscore=0 lowpriorityscore=10 impostorscore=10
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2610310071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261031_105240_382219_0ECECCA7 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20261031_105240_436239_435037A0 
+X-CRM114-Status: GOOD (  12.63  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -156,37 +153,40 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The bulk transfer path dirties pinned user pages with set_page_dirty()
-and then unpins them. Dirty them in the unpin instead with
-unpin_user_pages_dirty_lock(), which takes the folio lock and marks each
-folio dirty once. The first patch is a small cleanup of the gup flags
-passed to the pin.
+create_pagelist() passes the result of a comparison as the gup flags,
+which only works because FOLL_WRITE happens to be bit 0. Pass the flag
+by name.
 
-This removes the last use of set_page_dirty() in the driver.
+No functional change.
 
-Compile tested only.
-
+Signed-off-by: Tal Zussman <tz2294@columbia.edu>
 ---
-Tal Zussman (2):
-      platform/raspberrypi: vchiq: pass FOLL_WRITE to pin_user_pages_fast()
-      platform/raspberrypi: vchiq: mark pinned pages dirty when unpinning them
+ drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- .../raspberrypi/vchiq-interface/vchiq_core.c       | 27 ++++++++--------------
- 1 file changed, 10 insertions(+), 17 deletions(-)
----
-base-commit: 36aad21d50d1af3f6954bb0c988257a908202477
-change-id: 20261017-vchiq-unpin-dirty-abc9a21d2135
+diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
+index 48d6b1d74329..3ae4ee2973de 100644
+--- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
++++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
+@@ -1592,7 +1592,7 @@ create_pagelist(struct vchiq_instance *instance, struct vchiq_bulk *bulk)
+ 	} else {
+ 		actual_pages =
+ 			pin_user_pages_fast((unsigned long)bulk->uoffset & PAGE_MASK, num_pages,
+-					    type == PAGELIST_READ, pages);
++					    type == PAGELIST_READ ? FOLL_WRITE : 0, pages);
+ 
+ 		if (actual_pages != num_pages) {
+ 			dev_dbg(instance->state->dev, "arm: Only %d/%d pages locked\n",
 
-Best regards,
---  
-Tal Zussman <tz2294@columbia.edu>
+-- 
+2.39.5
 
 
