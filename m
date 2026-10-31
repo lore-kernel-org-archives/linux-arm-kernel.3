@@ -2,50 +2,49 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7688606A339
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 12:07:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B18CA606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 12:07:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VLMNolLI;
-	dkim=pass (2048-bit key, unprotected) header.d=posteo.net header.i=@posteo.net header.a=rsa-sha256 header.s=1984.8680eb header.b=D+/7ANfo
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=o3iU7r47;
+	dkim=pass (2048-bit key, unprotected) header.d=posteo.net header.i=@posteo.net header.a=rsa-sha256 header.s=1984.8680eb header.b=dMplOwLY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=lTgc+hlrMA7SA2m7qbx65V/vbNGlC27/LFtg4t8ezHc=; b=VLMNolLISHIc5lbAEWgAJwrrzw
-	Fft/QxucwuyaHgAFXhJTQFyL8HS/IoMvPQWnf7SEtMEtQaZpNJWKnbNwhaVCj6FGfAfYCrfK6QkOv
-	B8C2ltrCn3OZTJ75i/Ubn1iKHzjzj2tqDqH2c7mMv3BX2inS2jEy7ih7ydIPBLI0o873cqfRLpvdp
-	A9CVt00+oR1beNw3qFHa9tm7I7Eubmf27KAPNSTLQvUXbR0IZQHjcMNUusxykEBu3dcd9Qt1iyMRQ
-	3DvyK1Sqsis/NOJzGUyjbStaA1PwlvUC01FA3Bxc/csN9fMcBMOMpIXhyvWujxcm4gF66heJEUwUV
-	xP3L/nCQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=jyk3rgi6eH2uBTITUiOecFzmCK/Ol922slxYpE+PPRs=; b=o3iU7r47TR/KIa
+	e7hWM6aJsrQsWpWHv7fGdwB3DVYvNcY3ZpMyYxCjt3ooglb92ote/bzH+iiriTxSdm+gzv4URM6P8
+	3uW1vYVHUfwsTfMc9DEgujfNIClWB/SkI/Dqi1yAyxfmhLdl8C3+xB3aJkSP7ufs5kdKHTxEsibYB
+	23/tjsDa2p/Dkd0nGPbkrLknmwSvrIU8bNBlq5eDJoWzQ7ayMCAH8bBxLcBUtbHNdJXYMKkRWeXY7
+	zqcn5bqd22EvzscDtdf4bHi37b8VBw+wIlfYnlOTQ0QjA+0PuX5z1wpbowDdjuZgu0xoNTfLl+WlA
+	d5fztuJTAy8jeCCmZaeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN7re-0000000DHeR-43Bk;
-	Sat, 31 Oct 2026 12:07:14 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
+	id 1xN7rn-0000000DHiJ-39xz;
+	Sat, 31 Oct 2026 12:07:23 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xN7rd-0000000DHdg-07uX
+	id 1xN7rf-0000000DHdv-1Iv9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 12:07:14 +0000
+	Sat, 31 Oct 2026 12:07:16 +0000
 Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id 5A9A4240029
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:07:10 +0100 (CET)
+	by mout02.posteo.de (Postfix) with ESMTPS id 55591240126
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 13:07:13 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
-	s=1984.8680eb; t=1793448430;
-	bh=lTgc+hlrMA7SA2m7qbx65V/vbNGlC27/LFtg4t8ezHc=;
+	s=1984.8680eb; t=1793448433;
+	bh=jyk3rgi6eH2uBTITUiOecFzmCK/Ol922slxYpE+PPRs=;
 	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:
 	 Content-Transfer-Encoding:From;
-	b=D+/7ANfoPgNWuIBqa5drXTlcwoucEr21uwnxSd5pTTtaCB4rC0+cvdK3Z5Emby1aq
-	 VgewqquMXOsd4QUSXT+iNuVrKZO4E7rUOo8j1kJybzU5dlCnsotKo/sAmIxgM1Q6XB
-	 QEkUq319pTJ9o0+W2x6d+6P4MAZ3l4INPhJGEGSw7MQUnEqq3BqAiQnciVWtT7j//7
-	 H66XtD714TOOHQnoZapBLmi2tSnv/IEyuqzvSobAiz/UafmJMOJM6ZeloHoCGeGoYj
-	 gfgmvzenGNIt5mHAHHEWliI+2sCPFjmriJB3GwhLpEzgIioeS5yIMy8BbxLQYaVUWR
-	 V5yZXqoOyaBuw==
+	b=dMplOwLY0aDJxLldmkgQcF+xhl9AGuLGcEQamfFFe4Y5i5Il9SE0PX128i4v/oUt3
+	 89JYyQjemRG79JHTl7kpwn965bn5mVrr+FTLhwbkJzJPnJf9SaK6mX7whWon5q6CpV
+	 P/3FbNxLvfjLLB3tZkKVJWdVFc/LlxKL5DmXzvmYooSd1N+afa7nqQvGDWhiIPhBZB
+	 tbUOFvxFdlbM1yYCvgGMx0Lu38/CuCkeSw+bIMF02SlbboZ7gkPl0QRK3k8xadBAa0
+	 6mbkLG7XpqHnlwoC2uU0zKnieWK6wHvls/5ZDPPuoCygkbT51oGSW5JddYMv9gQb7+
+	 9BhKrVEa+/Djg==
 Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4jGxXr2zyTz6txs;
-	Sat, 31 Oct 2026 13:07:08 +0100 (CET)
+	by submission (posteo.de) with ESMTPSA id 4jGxXv3CL4z6v1f;
+	Sat, 31 Oct 2026 13:07:11 +0100 (CET)
 From: Mateusz Nowicki <mateusz.nowicki@posteo.net>
 To: Ulf Hansson <ulfh@kernel.org>,
 	linux-mmc@vger.kernel.org
@@ -58,17 +57,19 @@ Cc: Christophe Kerello <christophe.kerello@foss.st.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] mmc: mmci: stm32: silent data corruption and HS200 fixes
-Date: Sat, 31 Oct 2026 12:07:09 +0000
-Message-ID: <20261031120700.42576-1-mateusz.nowicki@posteo.net>
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH 2/3] mmc: mmci: stm32: do not use NEGEDGE in HS200 mode
+Date: Sat, 31 Oct 2026 12:07:12 +0000
+Message-ID: <20261031120700.42576-3-mateusz.nowicki@posteo.net>
+In-Reply-To: <20261031120700.42576-1-mateusz.nowicki@posteo.net>
+References: <20261031120700.42576-1-mateusz.nowicki@posteo.net>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261031_050713_215309_E29AA2B5 
-X-CRM114-Status: UNSURE (   7.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261031_050715_496167_9C8D425E 
+X-CRM114-Status: GOOD (  13.32  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,32 +81,54 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The eMMC of the STM32MP257F-DK in HS200 returned stale data and lost
-writes without any error. Patch 1 makes data CRC errors visible to the
-core again, patches 2 and 3 remove the causes seen on the DK.
+RM0457 marks NEGEDGE as not applicable in HS200. With a clock divider it
+corrupts multi-block writes: on the STM32MP257F-DK (st,neg-edge, 200 MHz
+kernel clock, HS200 at 100 MHz) written data read back different. The
+same writes are correct without NEGEDGE.
 
-Tested on the STM32MP257F-DK (eMMC in HS200 at 100 and 150 MHz) with a
-v7.3-rc6 based kernel whose mmci files match this series. Build tested
-on master. Not tested on STM32MP1x.
+Fixes: 36240ef8665b ("mmc: mmci: add hs200 support for stm32 sdmmc")
+Cc: stable@vger.kernel.org
+Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+---
+RM0457 describes HS200 only without a divider. If HS200 through a
+divider should not be used at all, the alternatives for the DK are:
 
-Mateusz Nowicki (3):
-  mmc: mmci: do not count a data CRC error as a complete transfer
-  mmc: mmci: stm32: do not use NEGEDGE in HS200 mode
-  mmc: mmci: stm32: lock the STM32MP25 delay block again before tuning
+- Drop mmc-hs200-1_8v from the DK device tree. DDR52 is tested and only
+  about 5% slower than HS200 at 100 MHz (read/write 78/66 MiB/s against
+  82/68 MiB/s).
+- Drop st,neg-edge from the DK device tree. This also changes DDR52,
+  which was not tested without NEGEDGE.
+- Set the SDMMC2 kernel clock to 150 MHz in the firmware (OP-TEE). HS200
+  then runs without a divider (tested, 119/86 MiB/s).
 
- drivers/mmc/host/mmci.c             |  5 +++--
- drivers/mmc/host/mmci_stm32_sdmmc.c | 18 ++++++++++++++++--
- 2 files changed, 19 insertions(+), 4 deletions(-)
+Which way is preferred?
 
+ drivers/mmc/host/mmci_stm32_sdmmc.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-base-commit: 36aad21d50d1af3f6954bb0c988257a908202477
+diff --git a/drivers/mmc/host/mmci_stm32_sdmmc.c b/drivers/mmc/host/mmci_stm32_sdmmc.c
+index 9dc51859c2e5..d74efdff6ac2 100644
+--- a/drivers/mmc/host/mmci_stm32_sdmmc.c
++++ b/drivers/mmc/host/mmci_stm32_sdmmc.c
+@@ -342,6 +342,10 @@ static void mmci_sdmmc_set_clkreg(struct mmci_host *host, unsigned int desired)
+ 	clk |= host->clk_reg_add;
+ 	clk |= ddr;
+ 
++	/* NEGEDGE is not applicable in HS200 (RM0457), with a divider it corrupts writes */
++	if (host->mmc->ios.timing == MMC_TIMING_MMC_HS200)
++		clk &= ~MCI_STM32_CLK_NEGEDGE;
++
+ 	if (host->mmc->ios.timing >= MMC_TIMING_UHS_SDR50)
+ 		clk |= MCI_STM32_CLK_BUSSPEED;
+ 
 -- 
 2.56.0
 
