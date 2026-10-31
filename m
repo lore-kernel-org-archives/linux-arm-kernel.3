@@ -2,103 +2,158 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53D77606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 15:27:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56453606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 15:27:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kUmCLLix;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q5OGONsz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qBcCK7yC;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=FJvFxJvg;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Rme5INkT
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ApVcgRbUJOCRqk0kM38newz6TbCCt9oxZvC4V9s3//Y=; b=kUmCLLixLX6WWV
-	eXOAKBbnk1NKIOXMmMHVzNvDv+Xs0Fz1hty+Hq1mzlyv2dOa2HoK0Q426ae3N+5fo7oLeWP3EaXCP
-	Ura0xJWIEhGbXQp1jaYDznso6X1T806AkGyoTwoxJGiO691jlXgmpXR8H2cOaKRuDPvOSFnnFEk6B
-	qnwd+8lhMvEeGgqPdO0639VT4per04YeqLk5yJ+sVU8KYG8fWWAVoJ9QtUvdaBYiXLuNQOeVP8ewL
-	mOgeSH8CDQ1DHR1vqGeYJGh3dyuhaY7+lvEwMvClAKVRGuP+cWhNzuxaN6zHaA/BXSrRniU0LqLry
-	upA34zCCgE/fgw+P+qiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=mbIGiHBiaKBjgOa8o+hDFP6aAnbPQE0+rh/Y8oaEe/8=; b=qBcCK7yCkE3OtEeiCZE+b3oXsb
+	u0utDN0IvfsDH6tfhgD2r9vHNGvMWe/TBjXBf87pLF748wd1bDSs1zYzAb6OwvqELpQV59o0o5exn
+	UX6c1yzZUcx6PlO7OHKkXD4uFlBU/nuA6rZu1yjt5BsGRHhNc1KvEpzSx5Vg+kydWtqxGA6cRqBjX
+	ZH+L+16oYKfk/S5UDrWVq33Gv6CiRYtgpWxDblYyB8UaqpAH1TP47uIGuHY1+AMd2LLiqCuJJKI98
+	xDjRDEUg1cN+krUP8wCcumhJJbf+5iGkMg5motmJ/ayZqZ8JEqr97cuhQTE4Sa/0YHXopaFroVU3J
+	eVg3AATw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNAzG-0000000DQqK-41MC;
-	Sat, 31 Oct 2026 15:27:18 +0000
-Received: from mail-pz2-x07.google.com ([2607:f8b0:4864:3b::7])
+	id 1xNAzf-0000000DQw0-0L4H;
+	Sat, 31 Oct 2026 15:27:43 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNAzC-0000000DQpU-3tVO
+	id 1xNAzb-0000000DQut-3a3b
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 15:27:16 +0000
-Received: by mail-pz2-x07.google.com with SMTP id 41be03b00d2f7-cc7c286026aso892106a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 08:27:14 -0700 (PDT)
+	Sat, 31 Oct 2026 15:27:42 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69VD0BOJ1849057
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 15:27:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:to; s=
+	qcppdkim1; bh=mbIGiHBiaKBjgOa8o+hDFP6aAnbPQE0+rh/Y8oaEe/8=; b=FJ
+	vFxJvgYCstEvbDKYUxxz1B9BCgQ0xfgx/UEGaF1nIXCswS1rwnxg2MGi4LH9mC/z
+	m0CNX+MrrlBxER6K9e5WE7YFVR9cU4n06eirW9IXTWyr1WFHRfuQmTguT2TwbH3n
+	nhM+M/w8FkQrlv9aWpmXsP5h5wG+5lDPvwpU+Ly9sTZ588JDZKn+bkKKujwO2MY3
+	gvDJoWlR6s8NwUwgmZdHpJ1vr++wRrHyUSoJAs7yW5rocMv+ZNdTHDP4T99XFnZk
+	+JRc4j8CgPg9nqu36ovtuGDjuaU8DlNHOa7Qu3MQET/V8i6+Tb0v/jhTmy64kdAj
+	7MO7z2UqRBPzaEBkf1xg==
+Received: from mail-oa1-f72.google.com (mail-oa1-f72.google.com [209.85.160.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hn7nfsfqq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 15:27:37 +0000 (GMT)
+Received: by mail-oa1-f72.google.com with SMTP id 586e51a60fabf-48296f34f1dso1492750fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 08:27:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1793460457; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nxtgkNKWSq7Z7T9h59a4IRx4LA4/ggWUThq24wFUpeUYQjsmwPSDbNdbI3K0r+cx2+
+         Z+A8rOcgMoT7Cv00XDGa0sDhZlSrZ0GMdaYjpyELzLQduNoJ1Wf0qcyXUjL4C00Mhbx5
+         tVFJCFHpVNBUvGQg0Tvh/3R9F59Pa90USoSDBSlyryEOQfM/N+Y8bRQrCvGBr9FOBh7G
+         2h9sMRp2tswSQGuNOXojXMLfqor+DCbFZ+sjJ7luyhyPNTzmLW9UZCvVwHu1s0rKDayz
+         yXZekQZ/+9EakkqglkemHDZZUjl9XacZIBmFnZqQxsgo5vNoJPaQ5bm+THb2kFwzHiW8
+         FGrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:dkim-signature;
+        bh=mbIGiHBiaKBjgOa8o+hDFP6aAnbPQE0+rh/Y8oaEe/8=;
+        fh=VA4pOqsmdCB5DZcQQmQCYLOBtMRUVa5R3a8Ar1FRF1Q=;
+        b=Qc2nXWUHydPZZ2BdSBRjR4sAUQXMxO5G4wSA+p7/nXAPIpufhFmygyivbDlCSQRITq
+         AnF2JpQCuGEh9B3wg+CoxpGVs/pkikcAZ90ihmn0ihiOQLDItPl9znxyTqjUf9m3dXYw
+         /wEAfhQkMdSwLRsutECf9xK6SCUuVxI5+hCA1BitI1EfZ/Q68sqmMFfRWezaogiqdEM0
+         LCx785x0yqZQzsDWaeUWpig7ecTCdCIjNrGjdgu9N8cS6Yc5qMVmOn/W60NIRwAF2n00
+         T4J3/+aA4vurMRkIz+CSXzX0ejTI1paR6bHzdWKbruRO5CI8ILVKvnJx3ST2g1Io6fAY
+         T4BA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793460434; x=1794065234; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ApVcgRbUJOCRqk0kM38newz6TbCCt9oxZvC4V9s3//Y=;
-        b=q5OGONszOCFqpqoJ6HqhI8251p+4/JoWbvkdPguReqArMog4qi94Rzd6aaz6RoDwiT
-         GnO3dpjsFOF/fyHx2O8UshcU30MIuM9gxu6pHnzxiG3RTGEsoo1MZIC8K7XibdPNhVFw
-         YgUL+MjIVMW7S+AHjQEXte3kTPZ0XDhw2xZ0qVuZCCab+cpFOMkQdkPU7CO25uuIdk62
-         xp9AbmDFGOYK++kVHMpCddBD/AicmevTo+wUl/tU414EE+gsxpruaP8jd1u3JIl2rthl
-         nydaiGQjFBhnndWGDzfjYm+25RVgXk/dwsyRPkFs+FypPHp1padHBqFygMXMLlFqcs52
-         XM7g==
+        d=oss.qualcomm.com; s=google; t=1793460457; x=1794065257; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=mbIGiHBiaKBjgOa8o+hDFP6aAnbPQE0+rh/Y8oaEe/8=;
+        b=Rme5INkTz4jaerbBSJ/rkTok7sAt1XTJFqCDhqwlExkbq13T3jW9QQZLVAXgeo3i+M
+         q/t1K+wO4pqYmzqj/TdYKjfsR23RRQlmyIpjbg7onFgFGi55IQf7u66GXzLQv6Owdliu
+         Ee8sXW1juZeP/KqivLMMeWZ/Sx+wWTYdTQP42ErY3MsVfMVsfs1f1pwq9HiPtpTdUOuf
+         7//JSBqSxrZUg1h88ZYTCvo6hChQLFCIdysNJFbRTE6VV+4KYTMq28ik5fLw+PRx2VcA
+         vPFCoZeskgYOLynJMRUHO/Vo1uNryDD2jmPK9OXYDYnSUk9NUz6SpJMjaITN3sxiUYNx
+         fKXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793460434; x=1794065234;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ApVcgRbUJOCRqk0kM38newz6TbCCt9oxZvC4V9s3//Y=;
-        b=1epYpT2vTwnivrCnMfOZXF8EIxrzANAKiXy8aLjSGLUDJS+4TfJScs4+UnfAdBsxzY
-         +wrbwzhsSUrVPvYgn32PuMzD3SXdjZGNpSHsKcS/CeAz7mibq3ch/qhWzMJ01Xg/f7TR
-         hSXpN9oiD/1xV9kKJZshIbKZezs28c3Y18hRMXCIzGgAOuqRrz58DxtAHIiNgvodFmqr
-         zAbUE+pi5QOYDcbeUVleg91bexJOPGiveCUVKs8BvzwD8WsOnGXeku91nN5PomjDyc85
-         sAcFG1fHCzaqrrBKQgSh3ECDYk+tMMvjhHTR4A/mhVizVN5kLWcC3aaE6zIX6DYbg+n+
-         sprQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzFbH2huMoLF+7Vl1sN+JHrIbLStMZCFDPAsUyrunQt6tbbqForZ1/w4hlvysXjHFcyzsaVkH+tyE1ChAcdXzFE@lists.infradead.org
-X-Gm-Message-State: AFq9FYLfBlOJ4cmyTR/n219xK8PDUNwenIJvlJLH2SKYJ4Plb2apGL9h
-	8GQG2dQGwCqK9IfxzYUm5sFBuaDuwzZ/JdnESd2YC2+CafulrTBG1e0l
-X-Gm-Gg: AYBFou3Yvpyhgwhb4zYR9ZQLxwM6E/mln/lcoEUGjOoaA4KlntkuR/blxGVBDDIgxYU
-	6yhZRz8njxnBBHWH8zYPp19Nu5/q2KmeUI1s5xAfgCB8+Ryzsx+BEU4KVloOCn9etujCrqtsZjA
-	uuaipHmtc0uVVAVxmaupvAHo7lrxHCARP9jTXrl4IZbSu47HkRBXx49Gnz8QBrH/Pnjc3ydIzeJ
-	fcTkAoakfECQGQtQzkWDW/lmgh4FHm9IieCQe4shMNKkK91BoR2/hP2qEkRQPRCi3VmI9LUJ3gt
-	1eHqYV8qDyahgd7hMMENH76POLhYoiS0Bj4OAeqtjizKjtyf858M40stafkEvZW3VupQ6Nrd9Yz
-	XsqT8Ct9snlP9XIT+s1Xw2RHqgT/7frnQutVkGkyQc1i8gn+B1MvXjPUAAkvcB3AddBy1lmlj2N
-	cL32cX4KxErSIPsySWnpXoFSKXIrfuepdEzz4P8puGrLsRGrtR9arX0rHYCpZ7jqSkdGwLjrSfv
-	qBQFN7Q9cj3L/ehOwO9AMfwzEqsEsmc/mapsgAeXSkI0HZajdNijUINLNPY85vMftg+S3LDwiDx
-	Zm63k2UxEciFPycklqYos4lN2tYpSTs=
-X-Received: by 2002:a05:6a21:6b8c:b0:3de:b120:bba0 with SMTP id adf61e73a8af0-3e928cd25a1mr4531768637.36.1793460433856;
-        Sat, 31 Oct 2026 08:27:13 -0700 (PDT)
-Received: from kei ([222.141.54.22])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cdb09615125sm1731025a12.1.2026.10.31.08.27.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 31 Oct 2026 08:27:13 -0700 (PDT)
-From: tianci xie <xiex16070@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Samarth Narang <samarth.colleges@gmail.com>,
-	linux-serial@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	tianci xie <xiex16070@gmail.com>
-Subject: [PATCH] tty: serial: samsung: fix TX fifo underflow on flush race
-Date: Sat, 31 Oct 2026 23:26:56 +0800
-Message-ID: <20261031152656.1422-2-xiex16070@gmail.com>
-X-Mailer: git-send-email 2.54.0.windows.1
-In-Reply-To: <20261031152656.1422-1-xiex16070@gmail.com>
-References: <2026103122-repurpose-cost-2da7@gregkh>
- <20261031152656.1422-1-xiex16070@gmail.com>
+        d=1e100.net; s=20260707; t=1793460457; x=1794065257;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mbIGiHBiaKBjgOa8o+hDFP6aAnbPQE0+rh/Y8oaEe/8=;
+        b=ptwXJI0r+zT23UldtzwsIIBLpXPITwhRhYw1Hi5qvRXxSdjEU4R7m7LdasqKy60Jps
+         JQEx/1YM7vmPBaA6rm+qOlTi1qON1FHNGpqJG6B7qOuqzgKJmBieqp+MqQ9VkOJvcyh1
+         N9L429pDhr7QPlc16ViMSSV+OFk6/p061FVD+v3qIQT8vf+hZT3ZUN9bDCunlZEwgGmj
+         3Rf0ThMoCCdJvx1SuzttIlzbDStEgM20W5iIQq2GZp9yUf4NAw77x34kxLdaUSfxghwq
+         djX74ULsHkBQKpawvRJ16ecPLqYmrtN/FWfYe1z3jBwEGir9rrPISFOatK4Z+OVS/KKi
+         i1zA==
+X-Forwarded-Encrypted: i=1; AKwUvBwPO03Fx7OuDLCU6qRQNq4hO1IQQe+anJTIF+quKbBE60TAUFcScPdTRT/zaUo/8MiYI7dSgtwfOyVOCUGrqSL2@lists.infradead.org
+X-Gm-Message-State: AFq9FYLJMImWLTOmgOmesD94xTlcrHYp4wEdlMwKIQiCIx57+wwCOiP2
+	KmRjXz3xc9R1qeBdyGb+yH9btrFMjUmftAUBmk5KCrSbQKSm3Sfs62/hkpwObGtJkzCHyu1hRNp
+	U5NmbBVfemaVOd7wB2adA5+4J+W0W693H+NlKgO/H9fM1rrliwpVl/mLQLPlZMs/PEc4oz6dd8p
+	SjvpuwkxtyAKzyTPJ36J0wiwAlQpb7uYCpYvRxZKIB1XysIBV59kpp
+X-Gm-Gg: AYBFou0h/mMGqMWNcqfxL9jmVIrlvxGXp8kDSTc+9gycknkJ/UE1z6+an8KJ1oKaxag
+	Az+Kz2pc+OEnSofbbwQxfx6vH1aZrKQEpJ6B6/MnyI6XU2hKc5KnFKCADAuawv33Z63ex9AnM9d
+	onkFCvGksWIZ4Q78A3dpB92o8wRurjSmtN/9Fv88ii+UavIJKMrw7tULAOaw==
+X-Received: by 2002:a05:6870:82ab:b0:4a6:d85c:a3f2 with SMTP id 586e51a60fabf-4a907684d6cmr3466583fac.33.1793460456911;
+        Sat, 31 Oct 2026 08:27:36 -0700 (PDT)
+X-Received: by 2002:a05:6870:82ab:b0:4a6:d85c:a3f2 with SMTP id
+ 586e51a60fabf-4a907684d6cmr3466570fac.33.1793460456464; Sat, 31 Oct 2026
+ 08:27:36 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261031-msm-smmu-identity-v1-0-a2a70580eebd@oss.qualcomm.com> <20261031-msm-smmu-identity-v1-1-a2a70580eebd@oss.qualcomm.com>
+In-Reply-To: <20261031-msm-smmu-identity-v1-1-a2a70580eebd@oss.qualcomm.com>
+From: Rob Clark <rob.clark@oss.qualcomm.com>
+Date: Sat, 31 Oct 2026 08:27:25 -0700
+X-Gm-Features: AclHuK-pzJRTbh4UTFiq0fs-4bAqq6ic9ym9r9ejSwbktmESwt9yc0oaaUOjgyA
+Message-ID: <CACSVV01pWNJsLLek+az=uHbt1-Cavv5M=QhX=xD6_AG9J+magw@mail.gmail.com>
+Subject: Re: [PATCH 1/3] iommu/qcom: Invalidate the TLB in flush_iotlb_all
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, iommu@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDMxMDA2MSBTYWx0ZWRfXyhyZJauvOfst
+ 0T6XuQXEkPvH1JYVak0yJQbpZYdhiHuRH3YlYzCL9uvWy/ksXdhZpn9FUQ0eZAkb+w137LUEy6J
+ Xu92aDO0f8c29JZyIM/bxhQP4ObOHWU=
+X-Proofpoint-GUID: ct3Cvr3zoZClj1rA34ORdT76JA4nVlsj
+X-Authority-Analysis: v=2.4 cv=FJ2OVOos c=1 sm=1 tr=0 ts=6ae608e9 cx=c_pps
+ a=Z3eh007fzM5o9awBa1HkYQ==:117 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8 a=BFTSSJhH0xhXNpwrsgYA:9
+ a=QEXdDO2ut3YA:10 a=eBU8X_Hb5SQ8N-bgNfv4:22
+X-Proofpoint-ORIG-GUID: ct3Cvr3zoZClj1rA34ORdT76JA4nVlsj
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDMxMDA2MSBTYWx0ZWRfXwRKal4t7Ogf/
+ f+L7MVokeDPJgqBzJJKYoFvYmcp9y+p+fNMEanMepbHkfl4K/bYiPVIk/do/5oTyZNzCctFnTg6
+ in/4shggawA3q4wO50ZZCQtqpSayNmwUwmUhlF/Yjcou/Niif6d8uDkL9G9m224WnHiTQDdFNMx
+ VWpdPoXM720Q1zrZFs1n46Lhsibv1oZUOIzWH7cB9wqdI8LeT4KLjfGAReIkdBNT84Lf45BKcDu
+ qTFXu7pSJmJ13gXLHks0xXET92axsm9dkm4amo4sa507dMunc/iPKVL508mls/WC9nC+9s2F7eV
+ lBDBagrUw7T+hOSYtZ6vDch8syFskAYPU2P547/sraFu2cqnAjjorB7DA8jCnyyJXjDiJ/fNuad
+ 05u4qTclHcDS0C5ZCU2Z5/CSpnpWXH8Ks5e2A14GZqG1vOREhHb/VKNHvsVVJg7IpE04ddUbZf9
+ dxByldi9vvaHqO3YHKQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-10-31_03,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 impostorscore=0 adultscore=0 suspectscore=0
+ spamscore=0 bulkscore=0 malwarescore=0 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2610310061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261031_082714_973981_B86E7265 
-X-CRM114-Status: GOOD (  20.28  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261031_082740_015779_A283D72B 
+X-CRM114-Status: GOOD (  19.99  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,129 +163,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rob.clark@oss.qualcomm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-uart_flush_buffer() resets the xmit kfifo and then calls ->flush_buffer()
-with the port lock held.  Neither s3c64xx_serial_ops nor
-apple_s5l_serial_ops implements that callback, and
-s3c24xx_serial_tx_dma_complete() computes the transferred byte count from
-dma->tx_bytes_requested before it takes the port lock.
+On Fri, Oct 30, 2026 at 3:05=E2=80=AFPM Dmitry Baryshkov
+<dmitry.baryshkov@oss.qualcomm.com> wrote:
+>
+> qcom_iommu_flush_iotlb_all() only waits for a TLB sync and never
+> invalidates anything. iommu_unmap() users do not notice, since
+> io-pgtable invalidates each page through the gather, but drm/msm unmaps
+> with a NULL gather and relies on flush_iotlb_all. On db410c the GPU then
+> hangs on stale TLB entries as soon as another process reuses the IOVAs.
+>
+> Invalidate the whole context, as arm-smmu does, and keep iotlb_sync a
+> plain sync.
+>
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-A completion that has already sampled that count can therefore run after
-a TCOFLUSH has reset the kfifo, and advance the freshly reset kfifo by
-the byte count of the discarded transfer.  kfifo_skip_count() does not
-clamp, so ->out moves past ->in and kfifo_len() wraps to a huge value.
-The driver then keeps transmitting stale buffer contents, and a later
-close can wait in tty_wait_until_sent() until it times out.
+Reviewed-by: Rob Clark <rob.clark@oss.qualcomm.com>
 
-Handle this the way 8250 does in 9e512eaaf8f4 ("serial: 8250: Fix fifo
-underflow on flush"):
-
- - add s3c24xx_serial_flush_buffer(), which clears the outstanding byte
-   count and terminates the TX channel asynchronously.  The port lock is
-   held here, so dmaengine_terminate_sync() cannot be used;
-
- - sample dma->tx_bytes_requested under the port lock, so that a
-   completion racing with the flush observes the cleared value and
-   advances by zero.
-
-The callback may still run after dmaengine_terminate_async(); for the
-fifo it is then a no-op, but it does clear tx_in_progress so that a new
-transfer can be started.  As in 8250, this assumes that a terminated
-descriptor is retired before the next one is queued.
-
-Reported-by: Samarth Narang <samarth.colleges@gmail.com>
-Link: https://lore.kernel.org/all/20261031004733.3345841-1-samarth.colleges@gmail.com/
-Fixes: 29bef7990845 ("serial: samsung: add DMA support for TX")
-Signed-off-by: tianci xie <xiex16070@gmail.com>
----
- drivers/tty/serial/samsung_tty.c | 40 +++++++++++++++++++++++++++++++-
- 1 file changed, 39 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/tty/serial/samsung_tty.c b/drivers/tty/serial/samsung_tty.c
-index 640f85e..e955b7e 100644
---- a/drivers/tty/serial/samsung_tty.c
-+++ b/drivers/tty/serial/samsung_tty.c
-@@ -330,7 +330,6 @@ static void s3c24xx_serial_tx_dma_complete(void *args)
- 	int count;
- 
- 	dmaengine_tx_status(dma->tx_chan, dma->tx_cookie, &state);
--	count = dma->tx_bytes_requested - state.residue;
- 	async_tx_ack(dma->tx_desc);
- 
- 	dma_sync_single_for_cpu(dmaengine_get_dma_device(dma->tx_chan),
-@@ -339,6 +338,17 @@ static void s3c24xx_serial_tx_dma_complete(void *args)
- 
- 	uart_port_lock_irqsave(port, &flags);
- 
-+	/*
-+	 * uart_flush_buffer() resets the xmit fifo and then calls
-+	 * ->flush_buffer(), which clears tx_bytes_requested.  Sample the byte
-+	 * count under the port lock so that a completion which raced with a
-+	 * flush cannot advance the already reset fifo past its write index.
-+	 */
-+	if (dma->tx_bytes_requested)
-+		count = dma->tx_bytes_requested - state.residue;
-+	else
-+		count = 0;
-+
- 	uart_xmit_advance(port, count);
- 	ourport->tx_in_progress = 0;
- 
-@@ -1162,6 +1172,32 @@ static void s3c24xx_serial_release_dma(struct s3c24xx_uart_port *p)
- 	}
- }
- 
-+/*
-+ * Called from uart_flush_buffer() with the port lock held, after the xmit fifo
-+ * has already been reset.  A TX DMA transfer still in flight carries data that
-+ * no longer exists, so drop its byte count before terminating it: the
-+ * completion callback may still run and must not advance the reset fifo.
-+ */
-+static void s3c24xx_serial_flush_buffer(struct uart_port *port)
-+{
-+	struct s3c24xx_uart_port *ourport = to_ourport(port);
-+	struct s3c24xx_uart_dma *dma = ourport->dma;
-+
-+	if (!dma || !dma->tx_chan || ourport->tx_in_progress != S3C24XX_TX_DMA)
-+		return;
-+
-+	dma->tx_bytes_requested = 0;
-+
-+	/*
-+	 * dmaengine_terminate_sync() cannot be used here because the port
-+	 * lock is held.  The callback may or may not run afterwards; either
-+	 * way it is a no-op for the fifo because tx_bytes_requested is zero.
-+	 */
-+	dmaengine_terminate_async(dma->tx_chan);
-+
-+	ourport->tx_in_progress = 0;
-+}
-+
- static void s3c64xx_serial_shutdown(struct uart_port *port)
- {
- 	struct s3c24xx_uart_port *ourport = to_ourport(port);
-@@ -1684,6 +1720,7 @@ static const struct uart_ops s3c64xx_serial_ops = {
- 	.stop_tx	= s3c24xx_serial_stop_tx,
- 	.start_tx	= s3c24xx_serial_start_tx,
- 	.stop_rx	= s3c24xx_serial_stop_rx,
-+	.flush_buffer	= s3c24xx_serial_flush_buffer,
- 	.break_ctl	= s3c24xx_serial_break_ctl,
- 	.startup	= s3c64xx_serial_startup,
- 	.shutdown	= s3c64xx_serial_shutdown,
-@@ -1705,6 +1742,7 @@ static const struct uart_ops apple_s5l_serial_ops = {
- 	.stop_tx	= s3c24xx_serial_stop_tx,
- 	.start_tx	= s3c24xx_serial_start_tx,
- 	.stop_rx	= s3c24xx_serial_stop_rx,
-+	.flush_buffer	= s3c24xx_serial_flush_buffer,
- 	.break_ctl	= s3c24xx_serial_break_ctl,
- 	.startup	= apple_s5l_serial_startup,
- 	.shutdown	= apple_s5l_serial_shutdown,
+> ---
+>  drivers/iommu/arm/arm-smmu/qcom_iommu.c | 12 ++++++++++--
+>  1 file changed, 10 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/=
+arm-smmu/qcom_iommu.c
+> index 21d18ce67b98..54130c32056a 100644
+> --- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+> +++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+> @@ -479,14 +479,22 @@ static void qcom_iommu_flush_iotlb_all(struct iommu=
+_domain *domain)
+>                 return;
+>
+>         pm_runtime_get_sync(qcom_domain->iommu->dev);
+> -       qcom_iommu_tlb_sync(pgtable->cookie);
+> +       qcom_iommu_tlb_inv_context(pgtable->cookie);
+>         pm_runtime_put_sync(qcom_domain->iommu->dev);
+>  }
+>
+>  static void qcom_iommu_iotlb_sync(struct iommu_domain *domain,
+>                                   struct iommu_iotlb_gather *gather)
+>  {
+> -       qcom_iommu_flush_iotlb_all(domain);
+> +       struct qcom_iommu_domain *qcom_domain =3D to_qcom_iommu_domain(do=
+main);
+> +       struct io_pgtable *pgtable =3D container_of(qcom_domain->pgtbl_op=
+s,
+> +                                                 struct io_pgtable, ops)=
+;
+> +       if (!qcom_domain->pgtbl_ops)
+> +               return;
+> +
+> +       pm_runtime_get_sync(qcom_domain->iommu->dev);
+> +       qcom_iommu_tlb_sync(pgtable->cookie);
+> +       pm_runtime_put_sync(qcom_domain->iommu->dev);
+>  }
+>
+>  static phys_addr_t qcom_iommu_iova_to_phys(struct iommu_domain *domain,
+>
+> --
+> 2.47.3
+>
 
