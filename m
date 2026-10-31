@@ -2,56 +2,56 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5A86606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AB4B606A32D
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Oct 2026 17:10:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XjAOqw/1;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=doJgM/Rk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gGoMcLg7;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WXr8VFkh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=V3lTSEBxFP82FPR6J1VxiQBr8pSV2kirBbaP84zkoiA=; b=XjAOqw/1BP7tln
-	qflg5/SN4V+wm69wUvasZRD8JkC9x9Z05957nq0YGJjq+SdjNl/71BJPRdP7d72CkEzNKakzeyO9P
-	ywd/pY21lLE/P/0pc8GqTKowgvgah4cGn4uCfBvTpbMlaceprNG9O4tnFZSgMYuEXhYpUGsgZExek
-	I0fWFMjZpBRzFPpEg7vpVTKeOUpC5Zf8SkdgG+zrxXk5qZrZSk+Gc6KJcyUc+bkLKRQpvSAQQpGN5
-	geTVJ0/nv7nvUmzijonvtubAXvMMHdjwpkbKt/LCOHvOOUte0NjEUIpP63nABDTKwzZWWlOhFcG1f
-	yx+LRerLtlmWC5MachMg==;
+	List-Owner; bh=W5pbACeLmZxOgIPqMZmA7R0XTuCDvCRAkd65xmmHjps=; b=gGoMcLg7fw8sYr
+	3avEWizhrWCkFpxEIcUUv6pXXmg35J9h25cvBXTWbfDz2gpZEajDNVLedGkSRb/m57D0rSmtgI3ep
+	HUVI3y+vaqLygQr3vJs7USxkHZZRDg6X5Y9UxSMq7EMM/7tQVsqPzwGLmwiktIP5bfGS+vsnL9fk6
+	ZxoHkKykwu2b0sZmag94aOettSJ5ncDQjEsgZgAXut+rjg46OMqXDMlU7g7sJnRQk/DWR9ZneGw0d
+	GFhdrwU7s6ysXzbdeJh7+5EmUAUbTgnzVdbwjyXJUGd7VeTnSmsmQtChfgosdZL9hTqPe7MSzt4hZ
+	/LO6jctvtwFqVwM1qtSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNCaq-0000000DVh6-1m4P;
+	id 1xNCaq-0000000DVgJ-0cSD;
 	Sat, 31 Oct 2026 17:10:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNCan-0000000DVfl-1lkU
+	id 1xNCai-0000000DVeq-3YLB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Oct 2026 17:10:09 +0000
+	Sat, 31 Oct 2026 17:10:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E5AF643B50;
-	Sat, 31 Oct 2026 17:10:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF70A1F0093A;
-	Sat, 31 Oct 2026 17:10:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4B11F6061D;
+	Sat, 31 Oct 2026 17:10:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 172B71F00919;
+	Sat, 31 Oct 2026 17:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793466608;
-	bh=V3lTSEBxFP82FPR6J1VxiQBr8pSV2kirBbaP84zkoiA=;
+	s=k20260515; t=1793466604;
+	bh=W5pbACeLmZxOgIPqMZmA7R0XTuCDvCRAkd65xmmHjps=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=doJgM/RkBgBP720Hvu+93fMsfl4ev+06fwYvoa8PuIaMwgf8oNqvt852DYrgGzR5Z
-	 zlYuSnivsPYsF4wB4xGcTgNoZTJzqGZz/w1rCRlaaVEwOuKU/dLVccJc+T07QY9odZ
-	 H7FpP8vA5wNFqgVu41lks+t7l6aTNPzNRE/5XElSHXM9GVUU/Cfms9zJikf3AA0yOk
-	 W2egmR8n1VlZCjLyqfg6RLteZxkCW6rwnouG75i/0iJ0Xl/uMaF98XUBG1avEmYK0l
-	 I2BvK9QIsl5+TZG+OeGNut5va2PRLuyu5TJEjATK1ea0EZvgJ3dH/MfNvEgO+3zhoW
-	 sbRHyu4CFc7uQ==
+	b=WXr8VFkhseeAagtDUGfC8bF92PTIxvdLT1NpPWhdA6T92SXjh9DnkGQlCi2zQ+a9H
+	 JNCyE9o3HBjdPGWUwzIXbGfG+t5/yHTYmdhfzBqGcPIh6iHBuZBpyD1hPrZPlkDbUk
+	 vgs6B/XD7wrFwVr21G+r60HjC4ATEbb7Mi31RmijnmbEB6a+CuQeI+e2tLnfpC2bh8
+	 yl9tUDAXDV2A23OMP7x6HzHa53vCXkS6Py4V8RQFAZX/NNVwfaM7GJN97WOrOMLHLH
+	 kS86fu1ufMo8mwo0C9IXofNdMrAz2Dt+Jqct6s3Bmu3c3nWfqFHmAqyiAuK53Zeh/2
+	 yU1xRmfdxtJWA==
 From: Joshua Crofts <crofts@kernel.org>
-Date: Sat, 31 Oct 2026 18:09:47 +0100
-Subject: [PATCH 3/5] serial: xilinx_uartps: remove redundant
+Date: Sat, 31 Oct 2026 18:09:45 +0100
+Subject: [PATCH 1/5] serial: 8250_omap: remove redunant
  pm_runtime_dont_use_autosuspend() calls
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261031-tty-dont-use-autosuspend-removal-v1-3-7bdadcadc4dd@kernel.org>
+Message-Id: <20261031-tty-dont-use-autosuspend-removal-v1-1-7bdadcadc4dd@kernel.org>
 References: <20261031-tty-dont-use-autosuspend-removal-v1-0-7bdadcadc4dd@kernel.org>
 In-Reply-To: <20261031-tty-dont-use-autosuspend-removal-v1-0-7bdadcadc4dd@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -60,11 +60,11 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, Joshua Crofts <crofts@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793466599; l=1272;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793466599; l=1219;
  i=crofts@kernel.org; s=20261015; h=from:subject:message-id;
- bh=7bLXE1zIwkiAxLH9OQkboodAxW/t1137Dl+DuqntUDY=;
- b=u486STetJaM/0XNEuOBsXII7plPuhrm3fG///hkv3oZLCIYdWHZt4R87hAW4xfeo9anmOsj+D
- dinCV8/6FqNA+XBnwW39R7v158kvZlFJgLLe4qh8MhbilNA1ArZqy61
+ bh=MJ3P6Nb034L4X0qZnePc1m99BfQRbCOFnwq53NCQfmI=;
+ b=DI3XA8FRtJKLJpa/DleKCsuR9oBj0b1rJwiZPWuwjd8XYHTP4/yIKWfmLw5WgkzESw1XV7FOj
+ kENn+QC1qGMCQsE1TkWHJ4Im38hNr5AsK3eqBGqljRoLaz+oQcR71LN
 X-Developer-Key: i=crofts@kernel.org; a=ed25519;
  pk=RTDOoVwgeL4oFdASj9U+cxJuIjXuXk73zkjnGOJKbEo=
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -77,11 +77,11 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_PASS,T_SPF_HELO_TEMPERROR,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
@@ -93,29 +93,29 @@ Remove the redundant function calls.
 
 Signed-off-by: Joshua Crofts <crofts@kernel.org>
 ---
- drivers/tty/serial/xilinx_uartps.c | 2 --
+ drivers/tty/serial/8250/8250_omap.c | 2 --
  1 file changed, 2 deletions(-)
 
-diff --git a/drivers/tty/serial/xilinx_uartps.c b/drivers/tty/serial/xilinx_uartps.c
-index a072b75dbaf2..5901517cce5a 100644
---- a/drivers/tty/serial/xilinx_uartps.c
-+++ b/drivers/tty/serial/xilinx_uartps.c
-@@ -1844,7 +1844,6 @@ static int cdns_uart_probe(struct platform_device *pdev)
- err_out_pm_disable:
- 	pm_runtime_disable(&pdev->dev);
- 	pm_runtime_set_suspended(&pdev->dev);
+diff --git a/drivers/tty/serial/8250/8250_omap.c b/drivers/tty/serial/8250/8250_omap.c
+index 29a203ed93fd..5d6911b1a2b0 100644
+--- a/drivers/tty/serial/8250/8250_omap.c
++++ b/drivers/tty/serial/8250/8250_omap.c
+@@ -1608,7 +1608,6 @@ static int omap8250_probe(struct platform_device *pdev)
+ 	return 0;
+ err:
+ 	dev_pm_clear_wake_irq(&pdev->dev);
 -	pm_runtime_dont_use_autosuspend(&pdev->dev);
- err_out_clk_notifier:
- #ifdef CONFIG_COMMON_CLK
- 	clk_notifier_unregister(cdns_uart_data->uartclk,
-@@ -1880,7 +1879,6 @@ static void cdns_uart_remove(struct platform_device *pdev)
- 	clk_disable_unprepare(cdns_uart_data->pclk);
+ 	pm_runtime_put_sync(&pdev->dev);
+ 	flush_work(&priv->qos_work);
  	pm_runtime_disable(&pdev->dev);
- 	pm_runtime_set_suspended(&pdev->dev);
+@@ -1631,7 +1630,6 @@ static void omap8250_remove(struct platform_device *pdev)
+ 	serial8250_unregister_port(up);
+ 	priv->uport = NULL;
+ 	dev_pm_clear_wake_irq(&pdev->dev);
 -	pm_runtime_dont_use_autosuspend(&pdev->dev);
- 	device_init_wakeup(&pdev->dev, false);
- 
- #ifdef CONFIG_SERIAL_XILINX_PS_UART_CONSOLE
+ 	pm_runtime_put_sync(&pdev->dev);
+ 	flush_work(&priv->qos_work);
+ 	pm_runtime_disable(&pdev->dev);
 
 -- 
 2.56.0
