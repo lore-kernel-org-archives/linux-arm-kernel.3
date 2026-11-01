@@ -2,60 +2,59 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32BE2606B04A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DF25606C6C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=e82WRpiz;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZKoBexQh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z0uO4PAV;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SmGl7Wg9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=NtvSLxCeAfOoCPUcLXijhf4eopOStWrRuZXjlGTbL0Y=; b=e82WRpizGIfPtA
-	3/WY68Hglur9WKeFcC1yQj6twaRmJVrZ0bdWH6BcpIZ8Cdd+tFfApUvyLp+7gA8mbF/v/zh6YIbr0
-	HFGJBJafP7cjui/YwxOr5wqCK39Kf8rcUQRvXXksnoX8aHk650kTg2g2xT0I97msYiO9HuDaFMOMX
-	vSsL5BBUeVM4Wb8ryD6a/VJ8pVlgkva2fKrAINnk/2eyr7lrn8mj2qBq/DFII+QzvvZjWGQ+FfdF9
-	2mXxp/EpLX7VQWKPT22bC2ujC9Qos0wgb43Ls8q6obsUZMllsZpF7ZFXfCCzq1R7F8Uu4UbiowEzA
-	9p2uY+oZBKYkBOKmZJJw==;
+	List-Owner; bh=W87d5476muuX3/O8DzYP4tAKHPl6gp8nviee8ooqz2c=; b=z0uO4PAVZ6HGG0
+	APohXDDtLCjUughmqKICY9wqi1SmAuxSuQD4nplBlnQ18MOv6oRij73FAgIu2by+I1cDllgXUl++B
+	yNiN6oIWR8si5LXg1YM2GzSZ938IJJJx8EvJtRZseztHS9jHem6LVAF3fZT2B8xzCnM8FFKu07HGW
+	91PzoJKKBhc8OCRDly9YWaWwvkqsbzqMwb+ON93DOIveC3CLaYWxlEVQeMuE1jVRVSlZagRHUX8D5
+	F4pIylfH4tecuoRE6/poJzWMW+GuQl5qcDpW7CJ2ef7kfRYt4liqZzlQWVWPZWCwOMa8RDF0k5V+Z
+	mwSe1eCyfgv2DE/TR52g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqX-0000000EzdQ-2c49;
-	Sun, 01 Nov 2026 22:16:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xNdqb-0000000Eznj-0LG1;
+	Sun, 01 Nov 2026 22:16:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqF-0000000Eyxo-28sR;
-	Sun, 01 Nov 2026 22:15:55 +0000
+	id 1xNdqH-0000000Ez2M-0MdT;
+	Sun, 01 Nov 2026 22:15:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D6BAE601FF;
-	Sun,  1 Nov 2026 22:15:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85D121F00A02;
-	Sun,  1 Nov 2026 22:15:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 63140605CA;
+	Sun,  1 Nov 2026 22:15:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ED961F00A20;
+	Sun,  1 Nov 2026 22:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571354;
-	bh=NtvSLxCeAfOoCPUcLXijhf4eopOStWrRuZXjlGTbL0Y=;
+	s=k20260515; t=1793571356;
+	bh=W87d5476muuX3/O8DzYP4tAKHPl6gp8nviee8ooqz2c=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=ZKoBexQhRXRdf4UMV5kLb9mnk7bxuTeU9/aOxjsdVCuZzJfHLn+5n4iKhY/oUvoLp
-	 JVlIk4OSC46FGW/cqROShhBfR0LCiGtieNG3r2bP4+vQJKQQN6avAsI3VexTFYEc6H
-	 HeqNJOYNac6pTBjs08uHalbq9/cCo6b4M6EJbRyY8db+P5Yb+nJ89MfGrKvDO/DvqA
-	 EWV32KMLhX7VyAZUZh9xWUqV88A96fOJFPJbNBsWYVqdUjgIvMvML58c4FLKcoe6ME
-	 onFhhkTXSYOw8AndRXgJz1clc6dTs2kPPNm3il6xlWAexBttRJ6fQAlrv66HQgZ0KI
-	 /vAjPn1nOn1zQ==
+	b=SmGl7Wg9g1RxLvPfW2dALi+8QfaputCLxqfCXXzYwQxYXBE+HvzPQgFDkM9HsWvTL
+	 Xkkz0PMUmTmvi/9Cla9KrdHM8gMqSRVDrIS1Q2Awnl4sjtfhB9oKLuislGoFVvEj8h
+	 B3b5eyTdD/3KWwfeuWkUb0b+N6f8Y8ngmSseQOZcfrUINE2oZehPMiqWOBxoVj7O9T
+	 BRDW1sUwlnFaN3KWeyuMYiJv0qlIvtBeI6VC6WOVxEwu0HebGW+Scz5MniIlsKSd6F
+	 Yy+z6qlaX0muqhV6dMFi4jyvg06S8qEnYCKjcUoFuToUfoPo6JQ/ZrhT1lyDNFTzVO
+	 Loi5eGgGSeZJg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D3C738003B8;
-	Sun,  1 Nov 2026 22:15:54 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 0315838003B8;
+	Sun,  1 Nov 2026 22:15:56 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] kexec: return -ENOEXEC from image probe functions on
- mismatch
+Subject: Re: [PATCH v3 0/2] kexec: fix probe error codes and error propagation
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357135307.2624073.4721839203390727689.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:15:53 +0000
-References: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
-In-Reply-To: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
+Message-Id: <179357135454.2624073.2428991164390583415.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:15:54 +0000
+References: <20260821-mpilaniy-v3-0-76b355399d2e@redhat.com>
+In-Reply-To: <20260821-mpilaniy-v3-0-76b355399d2e@redhat.com>
 To: Mukesh Pilaniya <mpilaniy@redhat.com>
 Cc: linux-riscv@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org,
  mark.rutland@arm.com, chenhuacai@kernel.org, kernel@xen0n.name,
@@ -64,7 +63,7 @@ Cc: linux-riscv@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org,
  pasha.tatashin@soleen.com, pratyush@kernel.org, ltao@redhat.com,
  prudo@redhat.com, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- kexec@lists.infradead.org
+ kexec@lists.infradead.org, include@grrlz.net
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,27 +84,25 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
+This series was applied to riscv/linux.git (fixes)
 by Mike Rapoport (Microsoft) <rppt@kernel.org>:
 
-On Thu, 13 Aug 2026 12:36:29 +0530 you wrote:
-> Several kexec_file_load() image probe functions return -EINVAL when
-> they do not recognize the image format.  A probe function that rejects
-> an image should return -ENOEXEC to indicate that the image is not a
-> recognized executable format.  -EINVAL implies a problem with the
-> syscall parameters, not with image recognition.
-> 
-> kexec_image_probe_default() iterates through registered loaders and
-> returns the last probe's error code to the caller.  That error
-> propagates as the kexec_file_load() return value to userspace.
-> Returning -EINVAL from a probe when no loader matches is semantically
-> incorrect and misleads userspace about the nature of the failure.
+On Fri, 21 Aug 2026 19:19:56 +0530 you wrote:
+> While debugging a misleading error on s390x where kexec -s reported
+> "syscall kexec_file_load not available" instead of the actual EINVAL
+> from a kernel command line that exceeded the architecture limit, we
+> found that some kexec image probe functions return -EINVAL instead of
+> -ENOEXEC for format mismatches, and kexec_image_probe_default() has a
+> bug where it returns whatever the last loader returned rather than
+> always returning -ENOEXEC when no loader matches.
 > 
 > [...]
 
 Here is the summary with links:
-  - kexec: return -ENOEXEC from image probe functions on mismatch
+  - [v3,1/2] kexec: return -ENOEXEC from image probe functions on mismatch
     https://git.kernel.org/riscv/c/2792b4b15f14
+  - [v3,2/2] kexec: fix error propagation in kexec_image_probe_default()
+    https://git.kernel.org/riscv/c/b7c94f4d0961
 
 You are awesome, thank you!
 -- 
