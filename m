@@ -2,66 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4446360A2625
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:15:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94EA760A2601
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nnOg+waQ;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YLtzwK85
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qhuq/4Sh;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=TuQNWuUN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=zWjchA1R3k2PWinfdPa1bmSSkYcmsFonhHSsoHtMyf0=; b=nnOg+waQT3WbFF
-	kR7jnL7c6odnq3xbfI73mfGWzBMTe9H3u/BKnMGjqd5YyRxNwPUNN3c53JAraeiT/kJyRjpK9na34
-	sya4qejyY0DUgl56ecSrbOMILcryGMCRHghZPxCWsU3cpr7KbpubSdmY02/ABK8fEYKWEq84Wwb7F
-	ROxH1n2CR1UOzZukLvvsbB6AELvEsDcqqeXYDgrXn0mO0ljK7k8JnLuZxNJhU/Kpk1wLGrqyoU/iM
-	ga+Qf92md6lI+OX2nkNKIFog/zBuSrWsXzVPrLh7Or2NTr4FnT1cr8ZD4jD8PlXWsBnX/6mRTgWTo
-	bva4nF1ktOA5BIHUZ1xQ==;
+	List-Owner; bh=/rAbfbo0sbqC0IaBa1BlKo2l+kbF0qrFhj597CNVJsw=; b=qhuq/4Sha5czTD
+	N/F5wHWUEa1jn4zz43LEkB+VjKB5+qeNVBijrtmuE1JcLaJmArCUE3gKtdq9lnUtxZkPlUEtvqsM1
+	Ka5awocMY3nV/WhCYKz0MtKjXVn+ttIBrCeWBt0nrO7HUDGlqXYa01RMAvDat73BohFbI458F8bAb
+	OHlInFUHHCrkCjWLBsGdWs76SmVYVJNC57bqa6UhyyZT7TPWsrVztv/p289SuUhX319kMTyXGa+m5
+	93Qm579eu68o0HzrnZmudgP7qPw6zOyAgEmyltsSkZgYjZYYD4TApJK0/MAnqRB99qmtnTm4iCqNs
+	iLIp97illk34zRlyWQjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqA-0000000Eys1-3MVl;
-	Sun, 01 Nov 2026 22:15:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNdqE-0000000EyxN-38Wt;
+	Sun, 01 Nov 2026 22:15:54 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdq9-0000000Eypa-07VY;
-	Sun, 01 Nov 2026 22:15:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C2CE043EBB;
-	Sun,  1 Nov 2026 22:15:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8672C1F000C1;
-	Sun,  1 Nov 2026 22:15:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571348;
-	bh=zWjchA1R3k2PWinfdPa1bmSSkYcmsFonhHSsoHtMyf0=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=YLtzwK85l4hGxLyA70UvP4j1W3M7aK0AnO65y/AzsiFBwFu+o+am4lM03VbtHtJ5K
-	 SS29sY8vrSYrA6jdvWzfwe5K90LxJtzoHxZZu0mTSUAvpZkN1PYLCGRsEs6UgYx0aB
-	 97oKuIhcSNLzzTU7IsY2JDbPwHgALU8UUMTUIacoZU37AQpC6KtulGbzQ30fh/1Pj7
-	 439Gr0UJypJlNRfMtvA0ZTTdkqVe4hPq7HarsqK8Usmvu9Wk0QYv2Bnam4S5juFWnH
-	 d/jArMh+zoyROvtkvZe5ytr6PBXG3TqNVsxhJFaqiJVBj+Botefdp40TKRHbDajTSy
-	 ztyxsj6TJTA0w==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D5C738003B8;
-	Sun,  1 Nov 2026 22:15:48 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1xNdq6-0000000EynD-49kh;
+	Sun, 01 Nov 2026 22:15:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=/rAbfbo0sbqC0IaBa1BlKo2l+kbF0qrFhj597CNVJsw=; b=TuQNWuUNzCW8lMfyzUY6T/5Ggu
+	P85UjS1z5Ss/B5adnOY+BkFcLgtqEkuf7HHZMLWTX4y2P/WbcaPxvsemvwkdaP53jYKdu/QfWEouM
+	JX8hgVJWbC+Fw1rNnUav7G0IDtgcuNxOPcOQGr6+sCckggx0fIhFNBA0kxioK+rQRMX4wVvaf8apn
+	9mn7nDlVEOo6mZAznz/mCwVrjsJ6WaRTDFLBpDVmXUJfAC0kyCdE/M2rBMw52ZA/RXNtUFEWbFfEr
+	ZXHE785PZrk5SQszDTEgChlVfv9F46qFMnZ5O8xD83qEb2KvwqUeX4puFoKY9ndsTYj3C4Uf38zAe
+	JKwnlxcw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Igor Velkov <iav@iav.lv>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Add the buzzer to Kobol Helios64
+Date: Sun,  1 Nov 2026 23:15:23 +0100
+Message-ID: <179357131397.4107717.15989067428088831380.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261010-b4-helios64-beeper-v1-1-6235643158cf@iav.lv>
+References: <20261010-b4-helios64-beeper-v1-1-6235643158cf@iav.lv>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH 00/15] vdso: Clean up the vsyscall.h headers
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357134704.2624073.7289302544673229273.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:15:47 +0000
-References: <20260909-vdso-asm-generic-vsyscall-h-v1-0-63ae856cc659@linutronix.de>
-In-Reply-To: <20260909-vdso-asm-generic-vsyscall-h-v1-0-63ae856cc659@linutronix.de>
-To: =?utf-8?q?Thomas_Wei=C3=9Fschuh_=3Cthomas=2Eweissschuh=40linutronix=2Ede=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, luto@kernel.org, tglx@kernel.org,
- vincenzo.frascino@arm.com, linux-kernel@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261101_141547_039807_BD253B9C 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,66 +71,25 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@kernel.org>:
+On Sat, 10 Oct 2026 23:00:16 +0300, Igor Velkov wrote:
+> Helios64 has a 2-pin header, P4, for an external buzzer: pin 1 is 5 V,
+> pin 2 is switched to ground by a MOSFET driven from GPIO4_D3
+> (BUZZER_ON), active high. Describe it as a gpio-beeper.
 
-On Wed, 09 Sep 2026 10:51:13 +0200 you wrote:
-> The vsyscall.h headers are a mess. Some of that was necessary back when
-> some architectures where not using the generic vDSO infrastructure.
-> Now that this is not necessary anymore, the headers can be cleaned up
-> and many of the can be deleted altogether.
-> 
-> The recipient list is trimmed to only the vDSO maintainers and the
-> architecture lists.
-> 
-> [...]
+Applied, thanks!
 
-Here is the summary with links:
-  - [01/15] vdso: Move the kernel-side time update helpers to a new header
-    https://git.kernel.org/riscv/c/35f0a96848a7
-  - [02/15] vdso/gettimeofday: Define fallback __arch_get_vdso_u_time_data() in gettimeofday.c
-    https://git.kernel.org/riscv/c/4fba7bb3e73a
-  - [03/15] vdso/getrandom: Define fallback __arch_get_vdso_u_rng_data() in getrandom.c
-    https://git.kernel.org/riscv/c/ca0da001d3cf
-  - [04/15] vdso/vsyscall: Define fallback time synchronization functions in vsyscall.c
-    https://git.kernel.org/riscv/c/e4eeeaa14d8d
-  - [05/15] vdso: Delete asm-generic/vdso/vsyscall.h
-    https://git.kernel.org/riscv/c/8579b901d150
-  - [06/15] x86/vdso: Move vDSO page definitions to asm/vdso.h
-    https://git.kernel.org/riscv/c/8051a0f482e6
-  - [07/15] sparc/vdso: Move __VDSO_PAGES to asm/vdso.h
-    https://git.kernel.org/riscv/c/782478555fc6
-  - [08/15] s390/vdso: Delete asm/vdso/vsyscall.h inclusions
-    https://git.kernel.org/riscv/c/d5b1dadd2ef0
-  - [09/15] sparc/vdso: Delete asm/vdso/vsyscall.h inclusion
-    https://git.kernel.org/riscv/c/cc729f844815
-  - [10/15] x86/vdso: Delete asm/vdso/vsyscall.h inclusions
-    https://git.kernel.org/riscv/c/3086b69ee00f
-  - [11/15] arm64/vdso: Delete asm/vdso/vsyscall.h inclusions
-    https://git.kernel.org/riscv/c/128b1c7d3ac8
-  - [12/15] riscv/hwprobe: Include vdso/datapage.h
-    https://git.kernel.org/riscv/c/0d10af5db481
-  - [13/15] vdso: Remove unnecessary vdso/vsyscall.h includes
-    https://git.kernel.org/riscv/c/d6df494a0135
-  - [14/15] vdso: Add asm-generic/vdso/vsyscall.h
-    https://git.kernel.org/riscv/c/996b01393e93
-  - [15/15] vdso: Remove __ASSEMBLER__ guards from vsyscall.h
-    https://git.kernel.org/riscv/c/9e61cabcce2b
+[1/1] arm64: dts: rockchip: Add the buzzer to Kobol Helios64
+      commit: 1f8c17240e23a37072793267cbb64587f24d4f2f
 
-You are awesome, thank you!
+Best regards,
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Heiko Stuebner <heiko@sntech.de>
 
