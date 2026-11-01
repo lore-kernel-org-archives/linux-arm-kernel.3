@@ -2,60 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D895B606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 18:23:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FE67606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 18:58:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZRg/t9RJ;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=R79qgKyT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ASOqmIhK;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=szv085wV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=tFhldmzZtrcUIX+IHzur5sfIp07vN9tRvmim7V5lDx4=; b=ZRg/t9RJrPa+hdP4HBl4qqAuCm
-	I3pNX97RMbpo6dMabouSbb3aAUA8KIGwaxmNmveLXwUJqOhXFam6dNF2OYqPePIf51XRAOHcKFSHg
-	QlkEzbZQuS6mp/+jC+zJBhL7TBTIzp2sqXZXhw344xJ+2Ein7VgT67oJ5iTzOc24E2QzmSSfF+sQ5
-	wQTY5NbXKDnQLbG9F+cQyDxiVQej8s5PYuzJTCJClKCnbYCcfWOjd98nFopxHtkXP7DDKtrQzA47r
-	jQgEp3fic90Nxp+eV8H6A+o0nyWPLio2kJzII5KkHrTaQAtEGP5nrTQg5RFLL9Ej/mrYTOBYeWjpp
-	RTkATxqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=JCxeVRFVH5SeA2NpIbzDmV/W44vmxhH7KVeCpg75zJg=; b=ASOqmIhKnV4YI1
+	ads/EbLsvB8wli+0blhH8Ro25HB8ITZSl1njDRjD49lqNqSCnQNbhHIeMH0nlmuZEDt/r/pmb+kk0
+	a1l3+DALnl/F/Vy5e+CohhyJmqfU5WoWtUerycWFelO21RVgI5Iy7nFgo8e9EwFQxcmGDF/G/MmZ2
+	JAEnlPn/NSqBHZt8vy6h2taVLaP85UoNw2r66VjUgiApRytHwYSi1cA6fLEaNtovxNe0qdFkHull9
+	zFb5VHsHTr4rhYKfzFjdFF4PHpN4MKIxnulGJbFUL6Vk5tE3EdLiXdpTHMplqcsRaSNS8u7XiunMR
+	1+GWyY7474S89DffU6Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNaCs-0000000Ekmn-3BDF;
-	Sun, 01 Nov 2026 18:23:02 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xNakd-0000000EmQ3-3Zag;
+	Sun, 01 Nov 2026 18:57:55 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNaCq-0000000EkmM-2fVB;
-	Sun, 01 Nov 2026 18:23:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=tFhldmzZtrcUIX+IHzur5sfIp07vN9tRvmim7V5lDx4=; b=R79qgKyTpWDh/2r+KkK2V4mheb
-	qOSlYOoAbkSjs5lkPygzmKzgBr3ZVxFRQVQHZopx+84lD7lZXRQYF97a0ZdLv349IjUfFbMvo3+Tu
-	C6i5G9suQZDFGz60r9mkj7CPTnE/Bp8V52PaE6bAukRcWXjPEQYFqbSF5zYoMYLCqSyD8kwMR6ywu
-	UVRvi9up5Usq0r33eZFd864U5BzOClIIIf+E23mLfS0QaDYIQ//6lc9917fD7oODkzB9SuXLUhKgy
-	cq25YB9e7V7bUTTcnjoq9YF+Phjry/avVreKgoYD4JMQmT60DNa3ewLOII60tk6WyZzjCygmrEaBO
-	gLem3wmA==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bob Hui <bg9oxa@163.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Bob Hui <bg9oxa@163.com>
-Subject: Re: [PATCH v10 2/2] arm64: dts: rockchip: Add ALIENTEK QuarkPi-CA2
-Date: Sun, 01 Nov 2026 19:22:54 +0100
-Message-ID: <2372620.HovnAMPojK@phil>
-In-Reply-To: <20261023-quarkpi-ca2-v10-2-9db904194e03@163.com>
-References: <20261023-quarkpi-ca2-v10-0-9db904194e03@163.com>
- <20261023-quarkpi-ca2-v10-2-9db904194e03@163.com>
+	id 1xNaka-0000000EmNN-3Jht
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 01 Nov 2026 18:57:54 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-8ab37e44643so14964417b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 10:57:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793559471; x=1794164271; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JCxeVRFVH5SeA2NpIbzDmV/W44vmxhH7KVeCpg75zJg=;
+        b=szv085wVYrmoULYtl1xYDJ2VKykHuQwVPTgW1L3Aq/Vp75AGlg1v8imWAqUbd/6SRw
+         WiLmUmzAHiTfdUrkqorDoqOl8brtxu41CorSwccmUFTJIeBETJSsq08Qb6sUEnHWq/Kr
+         QlzVQfak01N4dorxygObV2410z6lBd+Nr+/iinY5ihnJ9UIcE4oiRH1G/+sjh6GPAdcH
+         2SEe2eMLkhDytrn/eqoYPwppR2kAEUa/pgmW7HAFcx4buckGsFIka5M+HlB99BUBsI1W
+         YHKInWalYsDz8vrfsCftfQjAqh148TnsNkJ/S6NUaBR4VfRWuPNf0J+z9coqBKDJdC+I
+         YaiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793559471; x=1794164271;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JCxeVRFVH5SeA2NpIbzDmV/W44vmxhH7KVeCpg75zJg=;
+        b=wWWOAr/IyiiJ+FP+vT+fLcEsmh78ssakVmQHylnLkcyOSiC6xQIVoGvg1rSL7KkQtY
+         63izrkVQ/YVD+czf/dcgszNjWYtmSqR++lHC3WFtrVANw1oU3fF63pl5heD26hV+Xmzt
+         28W1SXMOAcwobkjK4387n1khKlfM/PR1S+iJp/nJO96aGDtMBz9BUiecZrRjb0KIeSXv
+         HpQrz6dif5XmfeYftLNrGlOQks3ZXTJLMpfhHuagrhXSOWyHDE1ZTeVjPx5HM5aWhzpa
+         +7ABlCwUSjayewNu68u8RoiLoQA3daFBML/b20RBaIrybWWD7pxPyQVG7gV7Mdugqt+/
+         VI8g==
+X-Forwarded-Encrypted: i=1; AKwUvBxMxxAfnSscJ5+WRfzsKdfmrHQrwCUOovSom2ohSvAO1AOUeImXaznMU2YxDbh8ZqKPDIXM1elH1Laeqm9aEc8C@lists.infradead.org
+X-Gm-Message-State: APuU4Z9+5Yg5jKyfNjcrNl7vENeHfQ1CoEd0frqyZ6SMSU1gP/7exoME
+	Sv0d1Ok6Fnk66nbfb2J/LELG45KHswgiwrw7Sif0WgS7TZ/E9NA+GrAZ
+X-Gm-Gg: AYBFou3fz1J72e1eXeZnQQ1C+sXT8DY/ylsQSKSy0DPtJSC/+YScyf9HnuEwfZLnLzI
+	IvGn/hMXCIY5S+xEdYD/7j3vDYxxOG7VoxrfhUirvl9dtp18TE4esnx2aZuRfxp7oJn/+xA/WiY
+	IDutr7E+NuxKkA7uWOiqvwGyUEkIioKdyeFZjA1C7X2Slb3BMGBH9DiRwT+fVZI14JiFKYN7KPw
+	BJ1EpCaElYdOUIyI06nd4BQsDycAD8NgEJyBdlKc93Lo44I6jOaIEoW8FijVoQlPPixFvSPDm5Y
+	GYUsoJ8rpMluYRm/aj3NKoEGsIy/FHNACS80XJGYjOUGO7PZ/0sAEMUTq6qnO8HmD+SYf0ERngA
+	KnyVJpJLPjsYb9Ic58Gs0us6wCSW0yxm4MiaTUj08WYG4a4mlQSmatcBQLoV8gaRB05ig6a4ouZ
+	6+g3Wuj1UOcI/vM8TRM4AfEsBLB6eGFBWenXZwspO6lLtOpg08wb+lNSy9eX7CWlcqp98Cdrma/
+	sEm3J9WSrLQPZiYOtONEoHgoo8RQZx69JIxpeWbr/xtIDkGiFZ8Nm4HWHnqro0lvxjt+wNIGEzf
+	MbRXdA9xHLKryAXMqzNsUQbuCfZlpKe1yv6oUDiRITCHbNTSK07EW6LWRy6erLlCyjk=
+X-Received: by 2002:a05:690c:6d84:b0:8b0:e385:ed99 with SMTP id 00721157ae682-8b2b66c78a5mr43226817b3.30.1793559471312;
+        Sun, 01 Nov 2026 10:57:51 -0800 (PST)
+Received: from hp ([71.12.40.102])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b2b716d420sm40869397b3.33.2026.11.01.10.57.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 01 Nov 2026 10:57:51 -0800 (PST)
+From: Tim Michals <tcmichals@gmail.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-sunxi@lists.linux.dev,
+	linux-remoteproc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Tim Michals <tcmichals@gmail.com>
+Subject: [PATCH v3 3/7] dt-bindings: remoteproc: Add Allwinner A523 RISC-V remote processor
+Date: Sun,  1 Nov 2026 12:57:31 -0600
+Message-ID: <20261101185735.762559-4-tcmichals@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261101185735.762559-1-tcmichals@gmail.com>
+References: <20261101185735.762559-1-tcmichals@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_102300_674622_75401F27 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20261101_105752_846353_B97420EF 
+X-CRM114-Status: GOOD (  22.35  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,151 +111,206 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Am Donnerstag, 22. Oktober 2026, 18:26:21 Mitteleurop=C3=A4ische Normalzeit=
- schrieb Bob Hui:
-> Add a device tree for the ALIENTEK QuarkPi-CA2, an RK3588S based card
-> computer. The board comes in 4, 8 and 16 GiB LPDDR4X variants with
-> 32 GB, 64 GB or 128 GB of eMMC; this was tested on the 16 GiB/128 GB
-> one.
->=20
-> Supported peripherals:
->   - 2x LPDDR4X SDRAM and eMMC, plus the microSD card slot
->   - RK806-1 PMIC with the full regulator tree
->   - HDMI output up to 4K60, through hdptxphy0 and VOP2
->   - Gigabit Ethernet with the YT8531 RGMII PHY on MDIO1
->   - four USB Type-A ports (1x USB 3.0, 3x USB 2.0)
->   - USB Type-C port with USB 3.0 and DP output, described through the
->     USBDP PHY and DP0, with role switch and DP altmode
->   - 3.5 mm headset jack (headphones + microphone) with the ES8388
->     codec, the headphone amplifier and jack detection
->   - three function keys (volume down, volume up and PWR_ON from the
->     PMIC) and the headset hook button
->   - IR receiver, 4-pin PWM fan connector and two LEDs
->   - 3-wire debug UART (UART2)
->   - 40-pin expansion header with UART5, I2C3, I2C5, SPI0 and PWM14
->   - two 26-pin MIPI DSI and three 22-pin MIPI CSI connectors, with the
->     connector I2C buses enabled (i2c4, i2c7); panels and cameras are
->     described by overlays
->   - M.2 E-key socket for a WiFi/BT module, with the PCIe 2.0 x1 link
->     enabled (pcie2x1l2, combphy0_ps)
->   - Mali GPU and the three NPU cores
+The Allwinner A523, A527 and T527 (sun55i) contain a T-Head XuanTie E906
+RISC-V core. It runs from a dedicated 256 KiB SRAM and can use a second
+256 KiB SRAM and DRAM; a bit in a PRCM remap register shares a further
+512 KiB SRAM (SRAM A3_2) with its subsystem. Its reset vector is set in
+its configuration block.
 
-Please trim your commit message down a lot, this should definitly
-not be this long and contain stuff nobody cares about ;-)
-So I guess the above should be enough.
+Describe the configuration block, both SRAMs and the remap register,
+the bus, core and SRAM clocks, the configuration, core, SRAM and debug
+resets, the RISC-V and SRAM power domains, one message box channel, the
+reserved memory regions (a pool for virtio, DRAM for firmware, a trace
+buffer) and an optional crash interrupt.
 
+Signed-off-by: Tim Michals <tcmichals@gmail.com>
+---
+Changes in v3:
+- File renamed to allwinner,sun55i-a523-rproc.yaml to match the
+  compatible
+- reg and reg-names are a fixed list of four (cfg, sram-a3-0,
+  sram-a3-1, remap), all required (Krzysztof); the SRAMs are named as
+  in the T527 manual (SRAMA3_0, SRAMA3_1); the description says the
+  remap bit shares SRAM A3_2, not SRAM space 1
+- clocks and resets are fixed lists, no minItems (Krzysztof); add the
+  debug reset. The msgbox and parent clocks and the msgbox reset are
+  dropped: they belong to the message box node
+- Add the RISC-V and SRAM power domains
+- One message box channel; mbox-names dropped. mboxes is optional: a
+  user can drive the message box from userspace (UIO) instead
+- The crash interrupt description says the A523 has no dedicated line
+  for it; it is the only interrupt, so no interrupt-names
+- memory-region[0] is a shared-dma-pool; the example has the memory
+  regions
+- "schema" dropped from the subject (Krzysztof)
+- Jernej Skrabec and Samuel Holland dropped from the maintainers; the
+  MAINTAINERS entry moves to the driver patch
+---
+ .../allwinner,sun55i-a523-rproc.yaml          | 146 ++++++++++++++++++
+ 1 file changed, 146 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-a523-rproc.yaml
 
-> Assisted-by: Hermes:deepseek-v4-flash
-
-Assisted-by got removed again from the process documentation with 7.4-rc1
-so is not necessary anymore.
-
-
-> Signed-off-by: Bob Hui <bg9oxa@163.com>
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-
-Andrew always just reviews part of the board, namely the gmac and mdio
-nodes - and states that in his review mail, so I guess a nice way to
-do this would be:
-
-Reviewed-by: Andrew Lunn <andrew@lunn.ch> #gmac1 + mdio1
-
-
-> +	aliases {
-> +		mmc0 =3D &sdhci;
-> +		mmc1 =3D &sdmmc;
-> +		ethernet0 =3D &gmac1;
-
-please sort properties according to the devicetree writing guide,
-namely here, properties alphabetically, "e" comes before "m".
-
-> +		button-vol-up {
-> +			label =3D "volume up";
-> +			linux,code =3D <KEY_VOLUMEUP>;
-> +			press-threshold-microvolt =3D <17000>;
-> +		};
-> +
-> +		button-vol-down {
-> +			label =3D "volume down";
-> +			linux,code =3D <KEY_VOLUMEDOWN>;
-> +			press-threshold-microvolt =3D <417000>;
-> +		};
-
-similarly please sort nodes without addresses alphabetically,
-"down" before "up"
-
-
-> +	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
-[...]
-> +	};
-> +
-> +	combophy_avdd0v85: regulator-combophy-avdd0v85 {
-[...]
-> +	};
-> +
-> +	combophy_avdd1v8: regulator-combophy-avdd1v8 {
-[...]
-> +	};
-
-another example of the sorting issue.
-The parts I highlight are not exhaustive, please make sure all are
-sorted correctly.
-
-[...]
-
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +					regulator-suspend-microvolt =3D <750000>;
-
-regulator-suspend-microvolt is deprecated in the binding, please don't
-introduce new instances of it. (applicable to all cases)
-
-
-> +&i2c2 {
-[...]
-> +};
-> +
-> +&cpu_l0 {
-
-please sort phandle references alphabetically, &cpu... before &i2c
-same for all other places in the file.
-
-> +/ {
-
-you have one root block at the top, you should definitly not need another
-one here.
-
-
-> +/ {
-
-or here
-
-> +	analog_sound: analog-sound {
-> +		compatible =3D "simple-audio-card";
-
-
-> +&{/} {
-
-this is geting crazy now
-
-> +	ir_receiver: ir-receiver {
-> +		compatible =3D "gpio-ir-receiver";
-> +		gpios =3D <&gpio0 RK_PD4 GPIO_ACTIVE_LOW>;
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&ir_receiver_pin>;
-> +	};
-> +};
-> +
-
-
-Heiko
-
+diff --git a/Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-a523-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-a523-rproc.yaml
+new file mode 100644
+index 000000000000..b119acaa2df6
+--- /dev/null
++++ b/Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-a523-rproc.yaml
+@@ -0,0 +1,146 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/remoteproc/allwinner,sun55i-a523-rproc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Allwinner A523 XuanTie E906 RISC-V Remote Processor
++
++maintainers:
++  - Tim Michals <tcmichals@gmail.com>
++
++description:
++  The Allwinner A523, A527 and T527 (sun55i) SoCs contain a T-Head XuanTie
++  E906 RISC-V core next to the Cortex-A55 cluster. The core runs from a
++  dedicated 256 KiB SRAM, can also use a second 256 KiB SRAM and DRAM,
++  and a remap register shared with the HiFi4 DSP shares a further 512 KiB
++  SRAM (SRAM A3_2) with the core's subsystem. Its reset vector is set in a
++  register of its configuration block, and it exchanges notifications with
++  the Cortex-A55 host through the message box.
++
++properties:
++  compatible:
++    const: allwinner,sun55i-a523-rproc
++
++  reg:
++    items:
++      - description: Configuration block, including the boot address register
++      - description: SRAM A3_0, the core's dedicated SRAM space 0
++      - description: SRAM A3_1, the core's SRAM space 1
++      - description: SRAM remap control register
++
++  reg-names:
++    items:
++      - const: cfg
++      - const: sram-a3-0
++      - const: sram-a3-1
++      - const: remap
++
++  clocks:
++    items:
++      - description: Configuration block bus clock
++      - description: RISC-V core clock
++      - description: MCU public SRAM bus clock
++
++  clock-names:
++    items:
++      - const: bus
++      - const: core
++      - const: sram
++
++  resets:
++    items:
++      - description: Configuration block reset
++      - description: RISC-V core reset
++      - description: MCU public SRAM reset
++      - description: RISC-V debug module reset
++
++  reset-names:
++    items:
++      - const: cfg
++      - const: core
++      - const: sram
++      - const: debug
++
++  mboxes:
++    description:
++      Message box channel to the RISC-V core. Each channel has a FIFO in
++      each direction, so it carries notifications both ways.
++    maxItems: 1
++
++  firmware-name:
++    maxItems: 1
++
++  memory-region:
++    minItems: 1
++    items:
++      - description: Virtio vring and buffer pool, a shared-dma-pool
++      - description: Firmware code and data in DRAM
++      - description: Trace buffer
++
++  memory-region-names:
++    minItems: 1
++    items:
++      - const: vram
++      - const: dram
++      - const: trace
++
++  interrupts:
++    maxItems: 1
++    description:
++      Interrupt the RISC-V core raises on a fatal error. The A523 has no
++      dedicated line for this, so it is present only where the system
++      integration provides one.
++
++  power-domains:
++    items:
++      - description: RISC-V core power domain
++      - description: SRAM power domain
++
++  power-domain-names:
++    items:
++      - const: riscv
++      - const: sram
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - power-domains
++  - power-domain-names
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/sun55i-a523-mcu-ccu.h>
++    #include <dt-bindings/power/allwinner,sun55i-a523-ppu.h>
++    #include <dt-bindings/reset/sun55i-a523-mcu-ccu.h>
++
++    remoteproc@7130000 {
++        compatible = "allwinner,sun55i-a523-rproc";
++        reg = <0x07130000 0x1000>,
++              <0x07280000 0x40000>,
++              <0x072c0000 0x40000>,
++              <0x07010364 0x4>;
++        reg-names = "cfg", "sram-a3-0", "sram-a3-1", "remap";
++        clocks = <&mcu_ccu CLK_BUS_MCU_RISCV_CFG>,
++                 <&mcu_ccu CLK_MCU_RISCV>,
++                 <&mcu_ccu CLK_BUS_MCU_PUBSRAM>;
++        clock-names = "bus", "core", "sram";
++        resets = <&mcu_ccu RST_BUS_MCU_RISCV_CFG>,
++                 <&mcu_ccu RST_BUS_MCU_RISCV_CORE>,
++                 <&mcu_ccu RST_BUS_MCU_PUBSRAM>,
++                 <&mcu_ccu RST_BUS_MCU_RISCV_DEBUG>;
++        reset-names = "cfg", "core", "sram", "debug";
++        power-domains = <&ppu PD_RISCV>, <&ppu PD_SRAM>;
++        power-domain-names = "riscv", "sram";
++        mboxes = <&msgbox 9>;
++        memory-region = <&riscv_vram>, <&riscv_dram>;
++        memory-region-names = "vram", "dram";
++        firmware-name = "riscv-firmware.elf";
++    };
+-- 
+2.53.0
 
 
