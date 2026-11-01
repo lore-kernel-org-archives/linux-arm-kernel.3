@@ -2,102 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 210B9606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 08:24:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB7AA606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 08:24:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=te3otQZE;
-	dkim=pass (2048-bit key, unprotected) header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm1 header.b=ZUE2kLUh;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm2 header.b=yA0iizie
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ffbdcfVZ;
+	dkim=pass (2048-bit key, unprotected) header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm1 header.b=hmW4mW/+;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm2 header.b=g0NnamYk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Xj9axg9dYLGo8p01aLCCgHl7zzs0dRi/f+h5LP9McgI=; b=te3otQZEwG3gPE
-	FJSY3gfquaxp1JKhXTcNn7+xKIBtrHgmHJ71GcXLn/hkWeJDT7egLzraqYkorIncFxWczHsHIKUf1
-	76d/b6GyaY+0BVWK5qe3id+jfwmEUqBZ3R9cUN1W+mO4Mewuc5MKYwCzclnUx+lCWUvupxRWmqp9B
-	lz3L+UJIyvoVIIAg3l86Grj7545rcT1IpLTCerKC3vc6GSYgv/Y7rGvHkjLr+U839ZxqE2mEWV6fr
-	jBumCD3mz13iZf/lUogNRq4rXcfMNmcne2dPXPYdgcxc5dOFQzneNQs7MnSkJXXzDJTUyKIUCfBB/
-	1852Z8lWQz/C82MT0glA==;
+	List-Owner; bh=Wz+fYkTCr7Okjzso8/sJigIF8iC1QkX8G79jwaGo5+4=; b=ffbdcfVZuD+DRw
+	IyeO+1Uxxd54xPPOrjJe7JQofFe2sjWrsy72QcFswwmDXLtMfDsacFndg16S+uFk0AHBxsGV5CIsz
+	Q5hRl08MSaYvCQ+qKZFJiGHAKbbUSkHIr+7UtAMbhpkfGb1Smp0VODkZQXj7KVe2Pk+HUjQeydUgF
+	IdnQzolrJXfH3+GZgF/JqNFVo8pPxIHR5chN0dzkrbgNXoh0yTlt+hmSVe2IxjoBeh9Wq+BSOFz/J
+	Ujf20F8aLKKJ49Rb5C1gc0FMCidjM3PbBY3CG7Ktw7O2iIzC7ZOrtEnhb8LAZ2/ac2q8PtWeAUGl6
+	WwxnM7uj/KYJbyd/59pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNQrZ-0000000DzEx-2lxn;
-	Sun, 01 Nov 2026 08:24:25 +0000
+	id 1xNQrk-0000000DzOs-03TM;
+	Sun, 01 Nov 2026 08:24:36 +0000
 Received: from fhigh-a5-smtp.messagingengine.com ([103.168.172.156])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNQrW-0000000DzBy-1iyg
+	id 1xNQrh-0000000DzLz-06ZR
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 08:24:24 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 887A6140030D
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  1 Nov 2026 03:24:21 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Sun, 01 Nov 2026 03:24:21 -0500
+	Sun, 01 Nov 2026 08:24:34 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 300411400310
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  1 Nov 2026 03:24:32 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Sun, 01 Nov 2026 03:24:32 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1793521461; x=
-	1793607861; bh=Xj9axg9dYLGo8p01aLCCgHl7zzs0dRi/f+h5LP9McgI=; b=Z
-	UE2kLUhu+f0h4zzJ7dQNeGGmU6x0eCmvflkfG8hlr4R+lO5kUaYpg1scaSJLQaTf
-	u9dBXckKhipYFpy5Xry4XzDCgFoseELeenqYN0NwsqfkgPn+97HjYpMDySAqd1Lg
-	ahxW9fRQ5R5YMdfx2CCjngo88MuczShDgw+62LvXZrFXDOfGjcY+CQ/OENHNcfGe
-	L5YsMkAwsFCZ+5ykEIF/wSoX91EbXO98M1kwf706z7tPbeeusGrGY72ZYLJS/QWZ
-	uk0y206WG0075IyUoX/0SvlZs60vA1UL30zLZjnpq//GUXB/4uqZofwRUMtOIApz
-	RgSC4ZSaiGQjcO6xnH2ug==
+	:reply-to:subject:subject:to:to; s=fm1; t=1793521472; x=
+	1793607872; bh=Wz+fYkTCr7Okjzso8/sJigIF8iC1QkX8G79jwaGo5+4=; b=h
+	mW4mW/+aPVBZ12gri7GuURka7Yb3p9Y4E44hVeEwoHCvOm2aq8DZAvueo1jOXfVk
+	pMA3+Pd8FRAvn7Slg0gqEv14XuSSUi11EvMRhCq32TD//tImCQMLnMaD1OJ4vCdN
+	V9H7v2ZH8jqSV9dAtJC117IfFXyDAsx4tansCzd+BA7RcCmIuYnPX+zmK6p+kRyE
+	qXeux/0NB1loSvMMZMrEWZh2BaluAmibHSJyN5hgukl0Vp7AAEDbpl5ieemVfJnt
+	dlYoteeiAIXdVhXpxGJ0bKevq5Krd3O3Gdth6sPwuS3Nk66qxHTjTdAUi62YAE+a
+	k2gN/3n/DWhyvKzzkfXNg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1793521461; x=1793607861; bh=X
-	j9axg9dYLGo8p01aLCCgHl7zzs0dRi/f+h5LP9McgI=; b=yA0iizieupE0/Rl/N
-	QNS3w5eyyCQa2OOnOgJjfo6uOya3dZ+YvoIC+y91f+hC/P7kqlvZ/oOok5wtI6k1
-	cCzVNArcZUvhkV0Q1NS0kF7YvePCWe/5iGBxSh67+utZpZ6107eDd7GudFlvOk9Z
-	kPMv10hPCnmWEIo+pkCSUK3GKY0o6SEP+FvBCLfDszbGm9iXB4BZev1RyzRYuFcq
-	2RXmVSjM0hOJcVBBYbKotRxv0T40pBnqe5JnkxRbC02wnelIq6TjoOWfM4AjvK3M
-	hQ6UlOngvpvDwpPhaPrkFCnBdRwx9DOjqGKuv72SFJKUfZs3ziQ42YhgI6v2q1hu
-	4fgcA==
+	:x-me-sender:x-sasl-enc; s=fm2; t=1793521472; x=1793607872; bh=W
+	z+fYkTCr7Okjzso8/sJigIF8iC1QkX8G79jwaGo5+4=; b=g0NnamYkx/KPdK/In
+	PvdbCaZmjQkFTAu7PS5IxejRr7YSED+aSUS0hr03lVDc+U+AgfyWSOIKVzZpB9De
+	L+EHkvVfQcfj32J9rkubcyaJJg6DaZts7ZouRy/dMpgCUL/8SMSqNCDi/RmjTi8V
+	YLHo5U77xFX9XtdExOgnmEjZCcbVsHJh975/uJHaaJ6sSyPhhB30dPONfM3dULd+
+	HnhMNCtIUO7I4yTMDufXmwosBmeKZw95P+bXP+cUjJYdb/lIukFIOLSGJigPtYZG
+	H6trEihD3TBPMOzwQPYZn6eKhtD+B2/ZQ0StXCx5kidZcDhVSeYTGdE6FmX+ye6M
+	w6ZTA==
 X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
 	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
 	action=sign d=gahingwoo.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1793521461; d=gahingwoo.com;
+DKIM2-Signature: i=1; m=1; t=1793521472; d=gahingwoo.com;
 	mf=PGdhaGluZ0BnYWhpbmd3b28uY29tPg==;
 	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
-	s=fm1:rsa-sha256:hZBV4K20vn/k86kouUhtLvkrZn/iniPGfgxhWuiBPq3esr6
-	/7Gc5TthP5MxUFSfkI9i5ms5MFggWA1BpEDLbol7sdl3/9p55PaPNGDXRJ0PJk12
-	3FXdCda0h0EFMAp0NXrhdy/SnClCGIubs1WCv+7D2Itb01zkPk2wRwViQY4so7/V
-	GhNattnS7Z9iPO5oGsGU4W3w7l9MNy+vA3+7exlsIijeurvIqYHI9gTRhztSuH9m
-	BvTwqxdDy9qR64nuAF0Wcf2gLNVczWJmsqNhJ88PUXyu6bCOmuxzWtT2Cwif/QiB
-	B+DBY1ReL9vCri7U8RU8snlQzOzJAKHId1Sddlw==;
+	s=fm1:rsa-sha256:A2fx1nOR3qgmhYlFOw2JMQuPgouNfsGzutrFOniFyn2OTdh
+	nU03FwxQyc5RI418bf7T7XnSJbVgTCVDsFELBV5EZP1ua3B3g6X3v24l3SqXsT55
+	c94H3trXrZzHiQwSwGZZ2WyB5IxAzlaAwM/H2c9VQimHTY3JDtDV7MJpE1kRgq5l
+	qQkroQ4s3vw9uA8xICC9ZFua6zD4ltVh1JpKVROienUSU1KEGXr6c4IpzC0eQBm8
+	We97KChbgvYEXXBQAxBWwKCglR0Y9oaelAqFfDwpqLnWsQlpNIjFDR8tnvO4iuoD
+	OFaS7Owg25WAMPPl4iImGImNvqwgFRHWv43enSw==;
 X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
 	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
 	action=mi-m=1; hc=11;
 	hn=cc,content-transfer-encoding,date,feedback-id,from,
 	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:/cR+SVB5SQ0kGP0/C0/QK06xN+k1K/x4EQfQy/b1HSY=:4Xq95QJdIqCjB39RLzyySSIteLteH9r9uz6l54PwLfw=;
-X-ME-Sender: <xms:NffmappYiiEfk4kfjkeNmrE3x9bbwYjo8qJ1BS2hvxfVLSeTq3BWfw>
-    <xme:NffmapTQGRvTElT2d0EPyQjKzgY25MzyOou17JuLGt-pT7K1Mq9znNiujCs5YGg6y
-    sU03Im7CXxLEKsNibXsCP2LqVvFo7AkuioOY8-a2wzUBv4TH44N4A>
-X-ME-Received: <xmr:NffmatlYCyvECxQvyETkXjlReYmwPXTBB_Zwh99ir20A-fFxy3a3zK2VpGW6H5YiHO_PwUYi>
-X-ME-Proxy-Cause: dmFkZTGZ556hZr4OQNVERo9rUYXTF10cGGQBi7vLn3VnSr966c7BEZC28LhiqgFQ0DLnXR
-    bnYwdeOAqs5QxBVuvkRL+ZwpHs/blmZG2wUWUiNLZ7HENeZpMSZpencZWiEx1r/ZYZ/gaT
-    5aRTZsrFo+PnzxoJMR1ENyaKg8E7fhdgt1B6kN2BycVkXJHEJTKc3jHTPe6IjiylVhuTTD
-    rIDq43QCU8cfWL1yKlOgbv7lVceHpNeuB46oYLXbGuG53l6HRsNNJeQwVLCejjdSqA3oLJ
-    mySu3UERpxtLqccEHJ3QQ08pgTmGPEw/h/+EEsPDgBAlHAn17s6eZ3ZSMRh5fpdn/9Y7MW
-    A4rXUGboymQeYRhevUsMu99pylgnR1ci1qPeAm1i9ilW2KXn+HDY/CMMKnD405vPZSMIAh
-    ES4PMdqvNXQ7QUwxpvmakX14ML6/VWcidwIGbtd5Z36B8pG7IVS/WskaIVqL021NAJxc2B
-    /rfw9y47objWwdzSCmJ70FIOgJGSAqR9mntmLWHfzhbdquX0VmYu0VURVrFw2PA8bwIFvh
-    p/JyHLmDqKNUc+pdg4V8gmSCK//MVTL30Lbg6qyUA9FhG3bmA2/MWiurCN/6R3QJ0QTe1i
-    sucgcgOKk16/auPcTGxxu9BmGIQVE1RnosKooRtX8cizl+Tvru/4UwWmSG6A
-X-ME-Proxy: <xmx:NffmatGW220jToEwOhR7lCy7bcaAo0LH2mLgSm1MRCCuN3-Fj9D7zA>
-    <xmx:Nffmagm1kmBFVt9bJp6ZmEDIHeeR-WHXun76PHDhcv23TnKn69DJsA>
-    <xmx:NffmasSr-IKyDYvzy1vq30ODzQqhhzHDD5Dgk_G6fGtCxuSYwdgxGQ>
-    <xmx:Nffmal6FwYnZffS2k_QoX8ZcBMdo5cI06LhkartZ9s68737wETpKkg>
-    <xmx:NffmavXEdFxjRyf7BP8FK3c75DIi3NBZDtANZ4DUTD5ql7SR9v2HcMji>
+Message-Instance: m=1; h=sha256:AuDY1rQ3xE4m6EAZjBzoq6dlquujFZmA2PQVC4HCjLw=:TN3aTeRgXt68gG87dISQ7raaJX+eIrztSRy9WTHvnVY=;
+X-ME-Sender: <xms:P_fmaitgk4_rRnpAACXTmKhb_9UVHphmEFKhntW2AwFZtkcyj6JT7Q>
+    <xme:P_fmah18Oxocb3bNQ0hi8reSp79ckXKzBDIpnyrQxfE98EyazNhW1xxCRLxfMIK9l
+    lK4XZaGtxUCua9IEQxLqP7DbzabC9CJhbIxkGIwS4VIfvW4uZSDeNgh>
+X-ME-Received: <xmr:P_fmapVna8kk-hwAW43lPrUsxjcFIqt2XYPu2lfOyIe11pnEpnO3qLa1YcKfr-U4Y_nMzPyA>
+X-ME-Proxy-Cause: dmFkZTE59zONyjwT0eThdL4FPYOz+8ja6SLa5l4V3bgwpmkkDmFkoqDTfNyo3apIgr+5zA
+    +GX40G2i1WjExuIg5f5j0S/Ul0HK4oypT7/1B1/SHJWWpq2lopVq+LGYa22qMV7xnKcOP7
+    nRamCIXVbfPCWyur+KyeL8Jgz3udE+CkcK/xQ7qb2IPu5P69VI4I9xemnhlkMQog0/jfKC
+    oYas2+gp2OvHPeMU6mZxc/LQ5WKZoTqdbza+oPxY9QtBcecYkd+Ww+gWTbHJc2mvPlzBGk
+    WhmlNlJQOs9rb90D95CuWSzhQ9o2nA9QMy/4PmQEE3kbXGgLzjYG4iahzc7VhQuu8rHVIs
+    QRXj8IcUMCV6LqOsUbX8MEKLnWMZkyqK5P/8oawKO0OwXr5tFPSUQ/FZCKOqEWegYrbq0Y
+    yEg4Zqtz1RhXaYrCrREFs4Wil0lSsx0c+ymoyf0Olx+xoxk6d4skSFbyTMWPUcWgkxrT6J
+    aB7N56U9RV+/r0vBB+iAsp1dvOV+rFGi1kfBGaZgFnWwV1clNb6ztPS8TzkerH2vyWpZcT
+    F7QhknNQlUQnb7u4Dsay7UkITB1PwwkwEj0s7vB1qvXgp+enFLULJDji7a9TwBrvgKYWLn
+    60nmASarAT5aHHEn6VDz9kDb+nPe9ELb67ADMhpAR3kxQTGVkw1aFXPWsaVQ
+X-ME-Proxy: <xmx:P_fmanOzxkL7WT5FwgQiOhjo-gpWXKDZDOYLo73jvsGGZOjLow3a_Q>
+    <xmx:P_fmasxLEOuZuxJ541X4aClTtgLXeYvyy32_HFQjVOYG3yjrnnEYWA>
+    <xmx:P_fmakhaQVQyvX_dT-jPshwCAa0G8TfaRyLuTYKui5vL1kOSZPflug>
+    <xmx:P_fmarTYN0so67cnY4B7Hq-ywrSXcfiMUArZoN6YNCB70tqhX06MzA>
+    <xmx:QPfmamu_M-sm0g9knLLqJjsqc-3fbwzrWju5nVSvmXUWe1f1BhLS8uy1>
 Feedback-ID: i7a5e4b5f:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 1 Nov 2026 03:24:13 -0500 (EST)
+ 1 Nov 2026 03:24:23 -0500 (EST)
 From: Jiaxing Hu <gahing@gahingwoo.com>
 To: tomeu@tomeuvizoso.net,
 	heiko@sntech.de,
@@ -130,10 +130,10 @@ Cc: royalnet026@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jiaxing Hu <gahing@gahingwoo.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v15 06/15] dt-bindings: npu: rockchip: add rockchip,rk3576-rknn-core
-Date: Sun,  1 Nov 2026 21:22:58 +1300
-Message-ID: <20261101082307.151957-7-gahing@gahingwoo.com>
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v15 07/15] dt-bindings: power: rockchip: allow resets in a power domain node
+Date: Sun,  1 Nov 2026 21:22:59 +1300
+Message-ID: <20261101082307.151957-8-gahing@gahingwoo.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261101082307.151957-1-gahing@gahingwoo.com>
 References: <20261101082307.151957-1-gahing@gahingwoo.com>
@@ -141,8 +141,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_012422_525600_78BFE42D 
-X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-CacheID: sfid-20261101_012433_192313_FB691AB5 
+X-CRM114-Status: UNSURE (   9.84  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -162,108 +162,42 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The RK3576 NPU has two cores of the RKNN block this binding describes, with
-two extra CBUF clocks, two power domains per core, one reset instead of
-two, and no SRAM supply. Widen the properties and pin each SoC to its own
-shape in allOf; sram-supply stays required for RK3588.
+Some domains need a reset cycled once power is on. The RK3576 NPU domains
+are one: without it the first access after power-on takes an async SError.
 
 Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 ---
- .../npu/rockchip,rk3588-rknn-core.yaml        | 47 +++++++++++++++++--
- 1 file changed, 44 insertions(+), 3 deletions(-)
+ .../bindings/power/rockchip,power-controller.yaml         | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml b/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
-index caca2a4903cd..3b611b64c8aa 100644
---- a/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
-+++ b/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
-@@ -21,6 +21,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+index b41db576f95d..83741f048716 100644
+--- a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+@@ -136,6 +136,13 @@ $defs:
+           A number of phandles to clocks that need to be enabled
+           while power domain switches state.
  
-   compatible:
-     enum:
-+      - rockchip,rk3576-rknn-core
-       - rockchip,rk3588-rknn-core
- 
-   reg:
-@@ -33,14 +34,18 @@ properties:
-       - const: core # Main NPU core processing unit registers
- 
-   clocks:
--    maxItems: 4
-+    minItems: 4
-+    maxItems: 6
- 
-   clock-names:
-+    minItems: 4
-     items:
-       - const: aclk
-       - const: hclk
-       - const: npu
-       - const: pclk
-+      - const: aclk_cbuf
-+      - const: hclk_cbuf
- 
-   interrupts:
-     maxItems: 1
-@@ -51,12 +56,15 @@ properties:
-   npu-supply: true
- 
-   power-domains:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 2
- 
-   resets:
-+    minItems: 1
-     maxItems: 2
- 
-   reset-names:
-+    minItems: 1
-     items:
-       - const: srst_a
-       - const: srst_h
-@@ -75,7 +83,40 @@ required:
-   - resets
-   - reset-names
-   - npu-supply
--  - sram-supply
++      resets:
++        maxItems: 1
++        description:
++          A phandle to a reset that needs to be cycled once the power domain has
++          been switched on, for domains whose logic does not come up in a usable
++          state by itself.
 +
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: rockchip,rk3588-rknn-core
-+    then:
-+      properties:
-+        clocks:
-+          maxItems: 4
-+        clock-names:
-+          maxItems: 4
-+        power-domains:
-+          maxItems: 1
-+        resets:
-+          minItems: 2
-+        reset-names:
-+          minItems: 2
-+      required:
-+        - sram-supply
-+    else:
-+      properties:
-+        clocks:
-+          minItems: 6
-+        clock-names:
-+          minItems: 6
-+        power-domains:
-+          minItems: 2
-+        resets:
-+          maxItems: 1
-+        reset-names:
-+          maxItems: 1
-+        sram-supply: false
+       domain-supply:
+         description: domain regulator supply.
  
- additionalProperties: false
- 
+@@ -216,6 +223,7 @@ examples:
+                     reg = <RK3399_PD_IEP>;
+                     clocks = <&cru ACLK_IEP>,
+                              <&cru HCLK_IEP>;
++                    resets = <&cru SRST_A_IEP>;
+                     pm_qos = <&qos_iep>;
+                     #power-domain-cells = <0>;
+                 };
 -- 
 2.43.0
 
