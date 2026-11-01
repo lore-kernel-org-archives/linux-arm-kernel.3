@@ -2,51 +2,52 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35FBA606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 14:10:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19108606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 14:11:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dvgEte4x;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=X1bieIVb
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=w3MCFp+e;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Zs2i6Qn8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=MkwmyvkEVjRtDWYR5GqzWTgmyyizRWCCTfKNvyyK1JE=; b=dvgEte4xknraqO
-	183DtqTjVWM9WsYbhxJxvpmTCdxCmcImS0VGxxXpH4V2Do+zui2DOtx3uCaIhEWrBhnS0z4m7qKu8
-	vHQI5DWNnJGh/3aeknfpNmlR4AmMP2bburaxFZVwBXDOluSlvL+EJHNMfflRS51VyXxdf8alEkXYw
-	7ouNSmGidm7pqhDiAXSSDvHY5VIlgSm6qhLpU92gZfQb/LVYvdrJx4cKW/ERvRxSWgK6S4Q/ayNDl
-	3Rsm7tt3ZnyQnQznGyz/s7JOS2a5eps5yPaMfg0mpMlG0dA9sDZ2s0ErFw+0SbDE1d3TSf1AlH2ye
-	41W7nqsteaZeW48JVr3g==;
+	List-Owner; bh=3bh4372hS2kACn6ZvzQmLdLqtWIUlsk51eR2oxOMfCE=; b=w3MCFp+epaBZkL
+	MkBxcJGo883LUIJXC1nhgfuATPORv46TW8t1z+BcFguBnou6Vjrk6nvAeDDYr03+W/9fzaq4u9KnP
+	GoZEcAdR/3lrVVZJovJrti1Jhrj9udGeYoLZVEMDCBFQXj+/V/FOLuVwpD5Z5KEMv2k6r7VSy7n2Q
+	Qvscz2hLxD4z0bBJZsdQC2Q8QqFU0XlC8MPS90ULHo2KdlUW0ePCQiWf5x9ZolqfErTUUnd9zXt/G
+	usvu4R8ALXbHB/SPXX/9HX/unLY9Q8uK5M/d/KryYcBt0UnFApGuosNX7Ul/+Um7aYYXe2DZC2yLr
+	3BSJoUQnzYVEKveJe1pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNWG7-0000000EZbi-0fLZ;
-	Sun, 01 Nov 2026 14:10:07 +0000
-Received: from out-130.mta0.migadu.com ([2001:41d0:1004:224b::82] helo=mta0.migadu.com)
+	id 1xNWHe-0000000EZj5-1Y3e;
+	Sun, 01 Nov 2026 14:11:42 +0000
+Received: from out-73.mta1.migadu.com ([2001:41d0:203:375::49] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNWG4-0000000EZbD-2IzP
+	id 1xNWHc-0000000EZil-0Ure
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 14:10:05 +0000
+	Sun, 01 Nov 2026 14:11:41 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=XeOvI8Uurnq6I/6gF8mpx0rDxIIEfThiP9X/LsYPomA=;
+DKIM-Signature: a=rsa-sha256; bh=Yj3Ch96OSSiVTVr2M7wDl8PeUGqNkknXjeKIRpqUwXI=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793542201; v=1; x=1794147001;
- b=X1bieIVbAc9PaBjqG/eLArr+StyQTvXUc5bH4R6hvTuxxwQ25+sPOgpT2Gs7wNZiy/DGnwKZ
- 2Zjkaf6InGiauzZPuzugS0SCeEwXfSEEFlA9jrJmAqZhCQ/7gn9vjZnRJFCVMGlavMh6tktCy1G
- JiYg9uDQDtpjHdhg0NYgblxI=
+ t=1793542296; v=1; x=1794147096;
+ b=Zs2i6Qn8YKMyOPGaNdhbAu2b7U0EA/3LcCViZ0RuxYcPDVIGA5UW6VqTu1iv6HTBpTCTSlT6
+ GjTz7mDywqSZYwaSpNWW7IRoJg2Mvz52a07DJvY3kfXOMe8mV6Y78BM588PkZkp6OQMjPra/nAT
+ jZPTjpOn9xPTnSadfer61qmw=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 8720dda60dada96a;
-	Sun, 01 Nov 2026 14:10:01 +0000
-X-Mizu-Trace-ID: 8720dda60dada96a
+Received: by smtp.migadu.com with ESMTPS id 785229cc940770b9;
+	Sun, 01 Nov 2026 14:11:36 +0000
+X-Mizu-Trace-ID: 785229cc940770b9
 X-Migadu-Flow: FLOW_OUT
-Message-ID: <fb667673-2ee3-4dec-ac1f-dd88c1efb760@linux.dev>
-Date: Sun, 1 Nov 2026 14:09:56 +0000
+Message-ID: <5044b7a0-5eaf-4008-9653-11027b8055b5@linux.dev>
+Date: Sun, 1 Nov 2026 14:11:31 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 05/14] drm/tidss: Remove the unused vp_bus_type feat
+Subject: Re: [PATCH v4 06/14] drm/tidss: oldi: Drop unnecessary forward
+ declaration
 To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -59,15 +60,15 @@ To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
 Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 References: <20261029-beagley-ai-display-v4-0-dc7f2b532478@ideasonboard.com>
- <20261029-beagley-ai-display-v4-5-dc7f2b532478@ideasonboard.com>
+ <20261029-beagley-ai-display-v4-6-dc7f2b532478@ideasonboard.com>
 Content-Language: en-US
 From: Aradhya Bhatia <aradhya.bhatia@linux.dev>
-In-Reply-To: <20261029-beagley-ai-display-v4-5-dc7f2b532478@ideasonboard.com>
+In-Reply-To: <20261029-beagley-ai-display-v4-6-dc7f2b532478@ideasonboard.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_061004_737268_4B9A992A 
-X-CRM114-Status: UNSURE (   6.84  )
+X-CRM114-CacheID: sfid-20261101_061140_302131_107A7D53 
+X-CRM114-Status: UNSURE (   5.67  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,12 +92,14 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 
 On 29/10/26 10:18, Tomi Valkeinen wrote:
-> Nothing reads the 'vp_bus_type' feat any more, and can be removed.
+> Nothing needs "struct tidss_oldi" in tidss_oldi.h, so drop the forward
+> declaration.
 > 
 > Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 
-The 'vp_bus_type' has indeed been troublesome when I worked on tidss.
-Happy to see the driver work without it now! =)
+Should this perhaps have a Fixes tag?
+Fixes: 7246e0929945 ("drm/tidss: Add OLDI bridge support")
+
 
 Reviewed-by: Aradhya Bhatia <aradhya.bhatia@linux.dev>
 
