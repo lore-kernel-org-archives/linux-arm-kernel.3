@@ -2,101 +2,109 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22815606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 07:02:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24ECD606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 07:46:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RZlUuWJJ;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W1ZSkH1o
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=U8cBGAow;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oMvAOfWq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=VoA8ZatI3XBB1U2/SoghhJIwCX1MF+HDGH5+WILuFZE=; b=RZlUuWJJJTw+Bt0x4bEOzmjDHN
-	FJ37gN8nxNeqST7s5pRPra0mSDE/nAS7Y+Nu5uxrZqgDJhA73fhdULiriaCDQwEghtMVTLVZ5K7In
-	F8kQu7S17TscRelwWgm5udVGQJ/X+nj48fuyPoopCIwhvoXzVyfNznH8Id43bI9JNOn8UaABxy4CG
-	+qPLFPkDFPaF4DgsW/PdmXMG6SAr8n/vbwSJ6yf/whiVP5lgsYpbxbeRzxIszKzzyc3ZLQOa3pDG7
-	nk9sVbia1nVskbY4vGMv9X2VKuGHkpLOD/BPvLjivWL8DE5Z6/mjA8sqvxhm83p3LLLh8qW6oxIk4
-	ptpcsIeA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=SAR00vszMy7Oo8d4FC1bVF4Fi2pxCcoHYlztJt6Lr9s=; b=U8cBGAowEQEOu0
+	R4vWMYLLrQLY2+4L94KaKdP4Q37GtGlO8rxfxIg6w5PpUPiIFHwAe+LnyX6MHGx/50miPxhAT/tGh
+	/zVWnEVX0SxmcSALk4+gM6aoJC+qFnE8GFrQAG+7MOkuVjsTijt8sQmRVh/CgawDbB13tMYuf+pny
+	R+IeA3Dtc9i8x2Hof8EX+3nBq6fff+Zva8U0BbnkJ8t2AXoccNNK4WywXgwwHf5xgNLqQL1dSBlI+
+	TShtTfU7Vp/NkMVMHNkfqYCaXp5cEweGX2LVJUw3VHlLM0PrkAjKrDXB1zI43fCyxKWNfOYFYtPy3
+	PCCLCemDi9EGFOQfvCWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNPZu-0000000DwFI-3hMk;
-	Sun, 01 Nov 2026 07:02:06 +0000
-Received: from mail-dl1-x1234.google.com ([2607:f8b0:4864:20::1234])
+	id 1xNQGU-0000000DxZu-2AWS;
+	Sun, 01 Nov 2026 07:46:06 +0000
+Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNPZs-0000000DwET-0227
+	id 1xNQGR-0000000DxZ9-2kzs
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 07:02:05 +0000
-Received: by mail-dl1-x1234.google.com with SMTP id a92af1059eb24-1aefd1bf74aso826987c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 00:02:03 -0700 (PDT)
+	Sun, 01 Nov 2026 07:46:05 +0000
+Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-3282db206d3so2500055eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 00:46:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793516523; x=1794121323; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VoA8ZatI3XBB1U2/SoghhJIwCX1MF+HDGH5+WILuFZE=;
-        b=W1ZSkH1o1jglCLbJ5EGnmfC1FoeAV+jiXaFA7O63kH4BAxCDT69G8Q8RBpb81cjLEv
-         MiishLt362aeAeVxQ1L9ABXwkWa/1gDXIKNxIwOMUCVM+PXo7L5K/CIa4ZWPZ2AOCdPG
-         nnOzd0TftZCJyn10Fhc6Hst2he01TCJJ8iGzOGjKq+2lJzLX0sy2O+P3I6QzsD0JzFgv
-         7G28Lzvk8DeQPkjziaBCLUjot4sYM6VcaIBnEr+EO2QLrBHs+XMj3nxh6C8udmNBGvlD
-         EM7XxcKK+bYxXNzv48Mnje2dJVtDk6dOGKPVRXWq+6eP3+IJIf+3dP1GI06d+/W4CeQC
-         4o8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793516523; x=1794121323;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1793519162; x=1794123962; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=VoA8ZatI3XBB1U2/SoghhJIwCX1MF+HDGH5+WILuFZE=;
-        b=zlN3+WIG+QmxEnSAd2i1c6kf2XftFCYBENrZRSfNEA005LzrheRZ7kETe7+VA7Rav8
-         k6Sbdq9jpM6cdG7AFrHRznidzPh2EvnM6VC7+1SiCSIB5YoULszjwd5pKD6by51ekpUu
-         UrUBN94yOVy1ugadwaws6TnUFDWQeoPB1X3GY2zFju3WyfKov8DcWfZ/brxKw5fTC1Fv
-         NYxbHbR+TAYtJKXNb5CJh3/QdIUW4n1Vea9R/RIe4WiUYm1Eiv2W8uQSxzJ3pnH0x/sq
-         q7/D/qC6xdVXziaHFjyucmN+aG4hutKyPP21ACEqmKO1Ocb0tWg8bXJlfhJazo85o85N
-         U7Qw==
-X-Forwarded-Encrypted: i=1; AKwUvBwN6bFE38EGhbpiZPNlfwMzHEp5nIwCJBwV5qV0SrpqJKBAwBc/4gIWMjIArYWq0+B91301jbyjLfdqoFrJQ8J6@lists.infradead.org
-X-Gm-Message-State: AFq9FYKMGqDnVn2sNpetEFP1nR4Gyn1qzYeJU9iVCyQELEFg/jjLpoE0
-	xZ6rOfEd810a5TwC8UNVOFlP3su1rxTnHfp6MGfvzmsVXXrSZWyi5I9z
-X-Gm-Gg: AYBFou08Hte284KcftGzLbH6D7rtUGGkpfF6oBr5XiCbJIVWUZvILRRRsq4LEwdk1nE
-	nQsCA/YhM04oAkCUbAkwFPm0ACydu6ShBgug5h2eDb657n6SGkI8U0whYFJ+TIU6qfsUtr5yj2n
-	o3p8epBvVeb74i6+26ryHwQDzh4vRQ9CFsDOCeBhHnubvTewolojx786ZDt1+iDIxtRNPQ1wCT1
-	S009oeMSCRLch0M+XpW/uRYQ7/PypM9+PpZkSnczywp69JY1KhBg8mQMubX+YHR3Xd+b+nWPKfo
-	bBOWpqQDlqVUtJLFJFEk55hFxbK8dgsTncWjw5ieUm6b9MYmq4s0XWF0vZwejBAS6dw3IktiGvY
-	5PmoMHY+Sbea3BxgQR1s3qWJUVn80gxM/KoV/c1BAZPg7VkAeri87K1Uw7/zsDs4J3yclj8bOGf
-	wTow5NnYeRKmxcKpG+V5d8hAVH+uwFEAWabWLET0y8rqkcAISxxcdTclnddgsGNq9NiQg5Nhk6e
-	BZtZaG8MnTpTP0SF9gC6SlpXnu1x3wRJOuBiw03YmB5XrqheNUjoP3rz9nEcQAo/tylQPr7ncFh
-	MdVckIxnyv8hF28/xFkRWK48ex/ojhNGgJO6bfkQX8HkbD7oquQ9vw==
-X-Received: by 2002:a05:7022:7f02:b0:156:d588:c881 with SMTP id a92af1059eb24-1a9420e36c4mr14043652c88.2.1793516522423;
-        Sun, 01 Nov 2026 00:02:02 -0700 (PDT)
-Received: from localhost.localdomain ([103.178.205.181])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1ac1854d925sm38735421c88.7.2026.11.01.00.01.57
+        bh=SAR00vszMy7Oo8d4FC1bVF4Fi2pxCcoHYlztJt6Lr9s=;
+        b=oMvAOfWqoqoT60R+9419AVAq1tatm5lmp3ng0Nu9MP06zGTyOQZ3D5S1uC9Kx4rUAR
+         ENBTqqQtDo6IZetlTWj+wvPp4j/jyuNhEDgPBLz52Fmvazp6kLTljwIuLjeDZTNhw3JL
+         J+k/5MVUzXU4T+zMdVIjbfQPWNkULogOxH9HzZF4trQueij8P2Tq4gkuxwsRMaUidoro
+         h/SOYy3L2/N5NMw1WeTF5jfBK3GZ5Muu+BvyMXoLlSKtoj2zCUv+L7NJLZfMLO399rhq
+         poMryHXGsYMLKqJSgZqDqpuSIkZdo5d0TzTQQ+OblyyZ7X/GloREA1fZVMY/hqOEIsKE
+         bwKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793519162; x=1794123962;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SAR00vszMy7Oo8d4FC1bVF4Fi2pxCcoHYlztJt6Lr9s=;
+        b=H45HWMNhpR6voGrUe+FohyHQ28ReuU4p++woj4gH7qfECq65KsggfPdhQfjRTDkN0f
+         McsQAlCC2uzaYVjK9d8/ktHa6aggnApWWj4ow4UR0UFeek4Gnz28wk+LuXnP+NDjZdjQ
+         irdeQimbCzo9erkODepTu+gVGhL9rsFnPVnoKdXtebXqEybDPaNt9j5sOfg2IzL0Kd8E
+         EtwXqFkIYK0gd2TRMd5+JtlQ30Em6OxeDXxgILt73EHZc7ih50faxq8XRVmIZIKatkgZ
+         Km9bOmWnANZxYRK5gW0kTLxiZC69irmUC1BROM8uDu1de6vQ9q6cI2fV9CpDj8KBPRn0
+         IbNQ==
+X-Forwarded-Encrypted: i=1; AKwUvBz/lb5za7YFTC8kJI/SGihtttfcDAhQdZAQ0j5DUQXpLvlsJLpqXxYG9h7Q5mHt0WMIv+LSORZIvTzXvZmUNDBH@lists.infradead.org
+X-Gm-Message-State: APuU4Z/O7g9AdnPZtei5SdGHw6i/l+M42XStR/AXHdscWmBlKvxKd+0f
+	3wXA3SJO1+VrPM4KnlC/HINgRgCpnH6oFA7J802U0pyZqmiTx67KZm8l
+X-Gm-Gg: AYBFou3DIvxLC3cjsQfn0U0O+IdfGi2ozz8fui2BmnntgbBVrsstLFz02vhK/KxZt87
+	n65RQuEeBarStj4i72MLIEY4eYGGm7uNuVx6sm7AtcI8IiJ0zdyJ76sZgqKcRorVL3k+x1NZUQe
+	BKVvgnpxxrLBWlGomPnS/0R1xoXiGCjlOEs8Y4X8WDeZi4i5IVq8W0PuQR0s2QwYkxPvM7KfUvg
+	bnR52cDN7fBSjJinJFbExD07fae8Q3ljmOe8pCWra4vMg9sHAjw58Yfu3Po6RCMLKbw8PQ0z5VB
+	+pquM1ToTBHwsw30PFmPsDPu2fvSrghtb68X003nHLRNsx15eSRot6/O26s1iLx5j5w7V/kWORJ
+	z4hFli3y65TxeE2wxAoAuuUNA5rUIagtAavjIl9hfp7adqVRQ5IOf9lIY/H7x0/9RzKytFNp0Vc
+	XeMlGfJWPogVM+E98Uy+VXYB2bFk0ix4rPwHAybZ+O0YKfwHXPg9GoqxESMi/wjQjaqXUFas4Ko
+	84L/1Ip6qhpcRveNXRcYIGn6UzmuVsh8dTkIVLU6Y1Ty+WJVsssWKoc/mF6CGNSdoRQu8AxEkOk
+	RVCvMXXWB8ddpy/G4mlS51cPkUuXi7q19cfAr2+p
+X-Received: by 2002:a05:7300:fe86:b0:35c:85fa:5a68 with SMTP id 5a478bee46e88-36a42400c6amr10962673eec.31.1793519162483;
+        Sun, 01 Nov 2026 00:46:02 -0700 (PDT)
+Received: from arch.localdomain ([152.175.67.103])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36a42662f23sm28414684eec.2.2026.11.01.00.45.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Nov 2026 00:02:01 -0700 (PDT)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: sergio.paracuellos@gmail.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	p.zabel@pengutronix.de
-Cc: linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+        Sun, 01 Nov 2026 00:46:02 -0700 (PDT)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: jerrysteve1101@gmail.com
+Cc: Laurent.pinchart@ideasonboard.com,
+	airlied@gmail.com,
+	andrzej.hajda@intel.com,
+	damon.ding@rock-chips.com,
+	dri-devel@lists.freedesktop.org,
+	heiko@sntech.de,
+	jernej.skrabec@gmail.com,
+	jonas@kwiboo.se,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-Subject: [PATCH] PCI: mt7621: Fix reset control leak on PHY initialization failure
-Date: Sun,  1 Nov 2026 07:01:21 +0000
-Message-ID: <20261101070121.2714-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	luca.ceresoli@bootlin.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	simona@ffwll.ch,
+	tzimmermann@suse.de
+Subject: Re: [PATCH v2 RESEND] drm/bridge: analogix_dp: use devm_phy_optional_get() for the DP PHY
+Date: Sun,  1 Nov 2026 15:45:51 +0800
+Message-ID: <20261101074551.263631-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261013134659.335829-1-jerrysteve1101@gmail.com>
+References: <20261013134659.335829-1-jerrysteve1101@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_000204_080333_A1255DD8 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20261101_004603_701229_51B23224 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,45 +116,26 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The PCIe port initialization code acquires a reset control handle using
-of_reset_control_get_exclusive(). However, when PHY initialization or
-power-on fails, the port is removed from the PCIe port list without
-releasing the acquired reset control handle.
+Hi all,
 
-Since the reset control cleanup iterates over the remaining ports in
-the list, the removed port's reset control handle is never released.
+Gentle ping - three weeks on the list without comments:
 
-Call reset_control_put() before removing the failed port from the list
-to ensure that the reset control resource is properly released.
+https://lore.kernel.org/dri-devel/20261013134659.335829-1-jerrysteve1101@gmail.com/
 
-Fixes a resource leak on PCIe PHY initialization failure.
+It makes the DP PHY optional, as needed by the RK3288/RK3399 built-in
+PHY, and drops the misleading "no DP phy configured" error at probe.  It
+has a Reviewed-by from Damon Ding and applies cleanly on drm-next.
 
-Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
----
- drivers/pci/controller/pcie-mt7621.c | 1 +
- 1 file changed, 1 insertion(+)
+Anything else you would like changed, or can it be picked up?
 
-diff --git a/drivers/pci/controller/pcie-mt7621.c b/drivers/pci/controller/pcie-mt7621.c
-index 01ead2f92e87..1dcaa2829609 100644
---- a/drivers/pci/controller/pcie-mt7621.c
-+++ b/drivers/pci/controller/pcie-mt7621.c
-@@ -361,6 +361,7 @@ static int mt7621_pcie_init_ports(struct mt7621_pcie *pcie)
- 		err = mt7621_pcie_init_port(port);
- 		if (err) {
- 			dev_err(dev, "initializing port %d failed\n", slot);
-+			reset_control_put(port->pcie_rst);
- 			list_del(&port->list);
- 		}
- 	}
--- 
-2.55.0
-
+Thanks,
+Jun Yan
 
