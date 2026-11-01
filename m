@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADFC9606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 20:33:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E1D7606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 20:34:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wA3EDy3q;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kTUT6C8e
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mPcqjx1N;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xtz16tDV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -14,89 +14,89 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=r/raweGofl46CtJCMVWjd1et4wuYTKczZRtzeHYjdwg=; b=wA3EDy3q4J/6RwVDWI3XQDBfQX
-	qrOdVcfHOcao7zMPm0K8n/4vqog6nnTOEIkKcJHSgXgw6BauuURjCf5EvTXqZwkNHtgzNQoaCJymV
-	o+mN+rWxEOG8bAObRkN+77eTQpgk3af9LnMZ1R9rX6L1vMDVEWe3vLueEDRlotkHEPKXO0uy8YjE6
-	PHHInwgTRjiEr6RLjYFJXIkM2C8Yso/cplvREVaSKnlkVWb9C/AAuziQuF/fboxxYYQCG578NnIgz
-	TVxWKLWHJoRPLkda9oUNX1RQG9pCbb3QaVCh0KykPUsHn4rvN5Ft5su/xEg1VtcEKg7tEHtlShdEo
-	l2dkAxfQ==;
+	bh=F89725KkjE+kUI5LXBxmdgLNt89Tfm7tC84mMjTHCkI=; b=mPcqjx1NSN79oFUrcpRF1fnoPd
+	Z0R30bHUJT9WDT6yKkbwVtFqILe48iQLWxxpxU9cP08HDGOvRk5HBK8HRCTZmC1BrR6yX+hS8RX3z
+	3ZyL7H8IUtchsnNcN3j7axTUM+8+4w/FmBPx+7/QU6d6BdngK4H0yG0++/CSJurCOSR75EutZTWSe
+	s8EN8bIXh23MP4WOel9HUpjytlEhLpibmGRLyu5WGzmPlFxUCUnURZZhr3KhBGNQKMGfxaE0Ug0CQ
+	xvaqTG6EN+23W5pAr5mvh5Qqu2xPH37x4fONpaFl7el0FgQWkj51sDh0C+L3cZjIBVD4hGUbjGDKM
+	X/DbTUuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNcFK-0000000Esl1-2psE;
-	Sun, 01 Nov 2026 20:33:42 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1xNcG2-0000000EssH-3wSe;
+	Sun, 01 Nov 2026 20:34:26 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNcFI-0000000Eskd-0xcA
+	id 1xNcFl-0000000Esph-3heF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 20:33:41 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48dee593f18so2123244f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 12:33:39 -0800 (PST)
+	Sun, 01 Nov 2026 20:34:25 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a35db1f202so24482675e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 12:34:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793565218; x=1794170018; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793565248; x=1794170048; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=r/raweGofl46CtJCMVWjd1et4wuYTKczZRtzeHYjdwg=;
-        b=kTUT6C8eYyfUQeewF7LWSPBztGPfxy273xdhdjPL/wJLKNIQQmWCEnhKTHS9Qi4jHi
-         sYvVLwmFBLKAne5onujXbokwQbYRqhLKWSKml6IO/FzSVuqKPOcp965KcRr/7Q6ABhBe
-         ZTyMlMeO5pNF1QIOJhWGnQ9LaIgJRKIsZbxsijcIB87pCz6Ijc3BbN+XWUR1KDCi/U9w
-         Negw5Md1J7opo5lj028LJ7Q2XPrc/77TWYdVRTpl3W15yPCxzQissctgUxTo3jxMzWiy
-         n/v1XoQd6/z6VGmWcjMXc0YThhEAGhMYX3HPDAEnYkf0QR5QIuZ0h3YVu6SUITC6+Rmo
-         KOkg==
+        bh=F89725KkjE+kUI5LXBxmdgLNt89Tfm7tC84mMjTHCkI=;
+        b=xtz16tDVKmjeeOiwpFVX/cL7O4LC3Ls4ZWhlqQw81ZQi5EFyTImzKSVSPzZfRGrS//
+         bTVOJ9eU5NECTEYhiRi/VxQrsz0ubFPmwWP0w3J3+Rk4wuXRHPKo2pL/kBv2t44T/NbV
+         pbWX5HXwpC67BKVjOoYyhOUau7Gw1Del+RZA/dLRIXh4ibakTCe/UO5yW238KYrkE7uA
+         YvfTwTzNNTiRkB6X95BO/T2VHF2aeUCvKCyo4wnQmiTdUArZbD001VYpWA9Pv3Ax6ZwD
+         7HVBGaPIW1VNhCf2BFv/UPbDaX0027zsEaIenwmoYd7sbWnYtbdpA3k5Hr5M29Z0oHuy
+         zcqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793565218; x=1794170018;
+        d=1e100.net; s=20260707; t=1793565248; x=1794170048;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=r/raweGofl46CtJCMVWjd1et4wuYTKczZRtzeHYjdwg=;
-        b=vkJd4UoTjC9Yz9dTve9P1lgnQWmyYNf0z+cMnkt5YWSAdmuEoa7ehuSbtlIrWNLxF+
-         rddhGNx9tqkM4SLyUYieG07rAicHv6R02NDwo/AJyYgJ9PLTMIzBKGGuQL+BtB6pXIn2
-         lR4Gq90+r31yMgmuZAiiULZBuV4ocztYJImCWb14pc2zGNXMyxIdoFkt0lM/mZuiBLnz
-         pW4KsY7iErN8gajGM1Hjx0EEhvSiSOpJClSjxJ7c0BlYjAOL6q+EYvK824qLeUwfYugb
-         aghDGfN5NJIiwFqDf3uRRBGKDyILGSnf0QvwqoqeFg9BThRXi24blGhkyYKCxGo26Bvg
-         2ztQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwl7WdOLrZCoe7GsyAMB5HxTIc40KTrJ2bUbZpNybXS+5kfnheTjGxqzcKuizV6HRxyRYje3nuQJWJI+GMFP7X9@lists.infradead.org
-X-Gm-Message-State: APuU4Z89XCrFVbuCZThy/OO5XkB9KXkbwRVxvAuky7lIrgkDpD4s3eXU
-	+wGrWJFi6JbBOsUJKnSt0CpABP9KpC+wlAlhDOWQ+yrLUd3t2v5HmtVf
-X-Gm-Gg: AYBFou2Mb0shScfHJXnyJKnn2hRB54/RV8TgT6eJ7MAB6viEenFJnj0tmz0GK1Gy8uU
-	4JlPksmMLt3qHr38C8fUEFbClOVPWzSs0OTaWtOvy/lu/25LyvT4ib8gyYk1BLidXUUOHpRvMPP
-	ViXm4LfJM+ctPpkQPZYEVT9W8qeKi/dL2Fcp0xd0/gKUF+3F4atzYwrVc5VJr4Fa0xEs2Nr5vu9
-	zMich3MyTeauJuEbsrEVWbRYXyDNJ+OHwcBGWG+TbiddZ4UoIkaJmSf4rvHc9trplmhT3iviwjJ
-	oNoh6IJBwF0GpzcXOEO4ZCrHQnRCiKw07g5qu6fF195ZcsEHmCH6xh+wJDi4O6M4008D3TGqoNM
-	MiCvrD1DAPKow46M7UYFaXAk8e6lW5S8dr+LJQ+WlbIKhHR2mgraHCWLXIyUcdJukvt8Z22LIYB
-	jns9eZM8RRQkCiD5t99MbYTK9kmQrR5bzrIwyKpcwQldAkZHnTDTvov1MWyWDYLgFkcHW5fyx7j
-	99KWe/j241dxYz9iBLX+I6pcOiEp07FCLpjUxF7agtLUkeqAd9lyA+3F7RxnZV1Yhtp7EuypLUR
-	uex6gn+23cbnQrgXuhNPU7AzbIwo72DBricsYjnWWSHchyEIyiPktjgMeR4LDjzuiT+hACY50oB
-	dS6YNVPJiOSit3ORSDY2kaYDzTeZLJuSHxwSt6vxPKiNJiDmwBYTQMI0SejU003uZPg==
-X-Received: by 2002:a05:6000:310c:b0:48e:5cd4:aa60 with SMTP id ffacd0b85a97d-48e6e2fbc14mr20001368f8f.42.1793565218073;
-        Sun, 01 Nov 2026 12:33:38 -0800 (PST)
+        bh=F89725KkjE+kUI5LXBxmdgLNt89Tfm7tC84mMjTHCkI=;
+        b=EXohly0IJaEu+qWefReod72/hfKiyKHVTbR8FT8KqySzp29lYnzt5hnnpsBXcF132q
+         X+7b6ZYOTddkoncBsF86UqgMyN/hdNtUvZeHo4JLH4cJPcJ1hLmJ1MxFrXGfxRkW7NAf
+         arh3wew495vFSJAOW6qVBGR5ZLaeDA9dPst3pf4Z2S+0nIiH0CWIXvYY19QAEPBABSfs
+         A1//A5FMp2fvNmxbqS/7ME7tGdLBXNlnJb3p3jUUDElnDCJzQoekwEcFLwFbR/IRoovW
+         Hoe1JrLawZM1fQ62GhLGLH5TvsPppzSZ1wUPsrsV3nSh9mZf8fKk0HZWQzFMmlARrEyf
+         YXvQ==
+X-Forwarded-Encrypted: i=1; AKwUvBz14U89CGfZihdRmLo/hoG1QNM4CoGW/1tjvJsQJ/egP+BaWrRhc+i8UQIQuAHmRd3dKqXM1BqNXpDAAt/I1snQ@lists.infradead.org
+X-Gm-Message-State: AFq9FYJt3PaDuvpvW9wjoNeXheaiE/v1S52IjGj7Kvay8Tfglsj2mUOx
+	IIYfxz6Llv85iOdbSQwDTXdjBN0Xs3jGflcwfuzKXv9TBRv9LwR7EN1uhe4XK2k0gyo=
+X-Gm-Gg: AYBFou1vpyY0y56wFhhoNvyuWovkCuwOLUS0gJQNGqrXLNgqALlgyvedrRQqz9OcXpk
+	LSCGudg9Uv1tGWYlpYUnnFIQUjcpGpbsqWKUXW9Y6Udy70OY29OxwXf+om/Rr1bslp0TCTMkNIv
+	NCFgDYbFonlzKtTevrwcrsjMC4vMasLgo1Iw6xWZMM4FGjRMOQhHZnMIynj+JkSieL70dQzJdy+
+	MjGXcE0nk0zEJZtS6/moaXeULRMJkktFNvknjcxI+mF1/zUFgaQrNMJDkqoLtkkOMAhEeK9paxf
+	BxMcZ8K+HESQRpIEccyc41GoxjhzuBAOUFoPtnJotwuPSSG67/3P/w1nqxlazP8T1jPszBOgrW3
+	O9g+Pl+R5BjuAph+nbOmPzRKwQVhhrlVUq99le39ggJPfs5UuPojRZ+t4HKzus8UGg+k30jPV13
+	WVn5ZdKhmXLV2/dzN9fPL+4kN+76cAajVbg9TBe1QwIlCOjCR8lpo/qWX2GUMZYnHjIiFgWYdJU
+	K8OwI/yK6R+eEloEjdAgeeZ0MsN7xrGmXf5xogkn1BHjpRjQxKpv7IwrTzP7dsaYKUeVQtdFI7y
+	c6aHvedPJmEMFD85KzDSCWG6hn4NUii4SNCjf2/WxLD2DWyIhdcedIadgF++0Wm1aeCoclmWgGf
+	KuHvg8rltwoasXZSRMlOfJwZAcczkNqIGOY5YsVY6dBYuog==
+X-Received: by 2002:a05:600c:1d07:b0:4a2:18d4:f9e0 with SMTP id 5b1f17b1804b1-4ac18c735b3mr192334605e9.25.1793565247854;
+        Sun, 01 Nov 2026 12:34:07 -0800 (PST)
 Received: from romain-ThinkPad-P14s-Gen-5-AMD.tail433d9c.ts.net ([2001:861:39c2:e340:849f:a468:4121:a85])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71a4d5dfsm18722895f8f.3.2026.11.01.12.33.37
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4ab61d8b9f4sm263946675e9.12.2026.11.01.12.34.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Nov 2026 12:33:37 -0800 (PST)
+        Sun, 01 Nov 2026 12:34:07 -0800 (PST)
 From: Romain TISSERAND <romain.tisserand@gmail.com>
 To: Chen-Yu Tsai <wens@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Samuel Holland <samuel@sholland.org>
-Cc: Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Frank Oltmanns <frank@oltmanns.dev>,
-	linux-clk@vger.kernel.org,
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel@lists.freedesktop.org,
 	linux-sunxi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	sashiko-reviews@lists.linux.dev
-Subject: [PATCH] clk: sunxi-ng: nkm: avoid 32-bit overflow in rate calculations
-Date: Sun,  1 Nov 2026 21:33:36 +0100
-Message-ID: <20261101203336.1360239-1-romain.tisserand@gmail.com>
+Subject: [PATCH] drm/sun4i: dsi: set the connector orientation from the panel node
+Date: Sun,  1 Nov 2026 21:34:06 +0100
+Message-ID: <20261101203406.1360656-1-romain.tisserand@gmail.com>
 X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_123340_351771_6364DBAF 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20261101_123409_976406_B420AB9D 
+X-CRM114-Status: GOOD (  21.46  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,133 +116,96 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The N-K-M rate code computes parent * n * k / m in an unsigned long,
-which wraps on 32-bit ARM as soon as parent * n * k passes 4.29 GHz.
+sun6i_dsi_attach() only accepts the panel once the DRM device is
+registered, and returns -EPROBE_DEFER until then. By that time the
+connector can no longer get a "panel orientation" property: it has to be
+attached before registration. The fbdev emulation is also set up from the
+hotplug event of the attach, so it gets no rotation hint either.
 
-On the A33, pll-mipi (parent pll-video at 297 MHz) with N = 14, K = 2,
-M = 14 runs at 594 MHz, but 297 MHz * 14 * 2 wraps around to
-4021032704 and the code computes 287.2 MHz. ccu_nkm_find_best() then
-picks these factors for a 288 MHz request, and clk_get_rate() reports
-287.2 MHz while the PLL runs at twice that. On a PocketGo S30 (A33,
-ILI9488 panel on one MIPI-DSI lane) the lane ended up at about
-594 Mbit/s instead of 288 and the picture broke up.
+As a result the rotation property of a DSI panel on these SoCs is ignored:
+on the PocketGo S30 (A33, 320x480 panel mounted for landscape use,
+rotation = <270>) the console and the boot splash stay in portrait.
 
-Do the multiplications in 64 bits, saturating at ULONG_MAX, in
-ccu_nkm_recalc_rate(), in both best-rate searches, and for the parent
-rate request of the parent-adjusting search, where rate * m overflows
-the same way.
+The panel is a child node of the DSI host, so read its orientation from
+the device tree when binding, before the device is registered, and set it
+on the connector then.
 
-Without the saturation, a candidate above 4.29 GHz in the search would
-be truncated again on return and could look like a valid low rate.
-
-64-bit kernels are not affected. On 32-bit ones, every N-K-M clock can
-hit it (A31, A23, A33, R40, H3, V3s and F1C100s use them), whenever the
-parent rate times N * K goes above 2^32.
-
-Fixes: df6561e60244 ("clk: sunxi-ng: Add N-K-M Factor clock")
-Fixes: 3492e4f6db5f ("clk: sunxi-ng: nkm: consider alternative parent rates when determining rate")
 Signed-off-by: Romain TISSERAND <romain.tisserand@gmail.com>
 ---
 Notes:
-- Testing: built with W=1 for arm (multi_v7_defconfig with the A31, A23,
-  A33, R40 and H3 CCUs) and arm64 (defconfig), SUNXI_CCU=y and =m, no
-  warnings; on arm the 64-bit divisions go through __do_div64 (no libgcc
-  helper). Tested on a PocketGo S30 (A33) running 6.18.54 with this
-  change, without the ULONG_MAX saturation (same results for rates that
-  fit, which is the only case the hardware hits): before, pll-mipi was
-  programmed with N = 14, K = 2, M = 14 (594 MHz measured as a 2x lane
-  rate) while clk_get_rate() returned 287216621; after, N = 15, K = 1,
-  M = 16, 278437500 Hz in both the register and clk_get_rate(), and the
-  panel picture is right. This version, with the saturation, then on
-  the same board on 7.3.1: pll-mipi again programmed with N = 15, K = 1,
-  M = 16 (278.4 MHz from the 297 MHz pll-video0) and the picture is
-  right. Not tested on the other SoCs.
+- Testing: built with W=1 for arm (multi_v7_defconfig, DRM_SUN6I_DSI=y
+  and =m) and arm64 (defconfig, =m), no warnings. Tested on a PocketGo
+  S30 (A33, ILI9488 DSI panel, rotation = <270>): on 6.18.54 with the same
+  change (6.18 still calls the helper of_drm_get_panel_orientation()) the
+  console and plymouth come up in landscape, where they were in portrait;
+  on 7.3.1 with this patch the DSI connector reports "panel orientation"
+  = "Left Side Up".
+  Not tested on other boards; boards without a rotation property keep the
+  current behaviour (no property is attached).
 - Tool disclosure: this patch was prepared with Claude Opus 5.5
   (Anthropic) as a coding assistant, in an interactive session where I
-  asked it to bring up the PocketGo S30 display. It found the mismatch
-  between the pll-mipi register and the rate the clock framework
-  reported, traced it to this overflow and drafted the fix and the
-  message. I reviewed and understand the change and tested it as
-  described above.
+  asked it to fix the console orientation on the PocketGo S30. It traced
+  why the connector never got the orientation, wrote the change and the
+  message. I reviewed and understand it, and tested it as described.
 
- drivers/clk/sunxi-ng/ccu_nkm.c | 30 ++++++++++++++++++++++++++----
- 1 file changed, 26 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c | 28 ++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-diff --git a/drivers/clk/sunxi-ng/ccu_nkm.c b/drivers/clk/sunxi-ng/ccu_nkm.c
-index 401fbb7524..e5a8f22d50 100644
---- a/drivers/clk/sunxi-ng/ccu_nkm.c
-+++ b/drivers/clk/sunxi-ng/ccu_nkm.c
-@@ -6,6 +6,7 @@
+diff --git a/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c b/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c
+index d504ae5832..1eb8a4cde0 100644
+--- a/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c
++++ b/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c
+@@ -22,6 +22,7 @@
+ #include <drm/drm_atomic_helper.h>
+ #include <drm/drm_encoder.h>
+ #include <drm/drm_mipi_dsi.h>
++#include <drm/drm_of.h>
+ #include <drm/drm_panel.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+@@ -1055,6 +1056,31 @@ static const struct regmap_config sun6i_dsi_regmap_config = {
+ 	.name		= "mipi-dsi",
+ };
  
- #include <linux/clk-provider.h>
- #include <linux/io.h>
-+#include <linux/math64.h>
- 
- #include "ccu_gate.h"
- #include "ccu_nkm.h"
-@@ -30,6 +31,26 @@ static bool ccu_nkm_is_valid_rate(struct ccu_common *common, unsigned long paren
- 	return true;
- }
- 
-+static unsigned long ccu_nkm_calc_rate(unsigned long parent,
-+				       unsigned long n, unsigned long k,
-+				       unsigned long m)
++/*
++ * The panel only attaches once the DRM device is registered, too late to
++ * give the connector its orientation (the property cannot be added after
++ * registration), so fbcon and the boot splash would not rotate. Read the
++ * orientation from the panel node, a child of the DSI node, at bind time.
++ */
++static void sun6i_dsi_set_panel_orientation(struct sun6i_dsi *dsi)
 +{
-+	u64 rate = (u64)parent * n * k;
++	enum drm_panel_orientation orientation;
++	struct device_node *np;
 +
-+	do_div(rate, m);
-+	return min_t(u64, rate, ULONG_MAX);
++	for_each_available_child_of_node(dsi->dev->of_node, np) {
++		if (of_node_name_eq(np, "port") || of_node_name_eq(np, "ports"))
++			continue;
++
++		if (!drm_of_get_panel_orientation(np, &orientation) &&
++		    orientation != DRM_MODE_PANEL_ORIENTATION_UNKNOWN) {
++			drm_connector_set_panel_orientation(&dsi->connector,
++							    orientation);
++			of_node_put(np);
++			return;
++		}
++	}
 +}
 +
-+static unsigned long ccu_nkm_calc_parent_rate(unsigned long rate,
-+					      unsigned long n, unsigned long k,
-+					      unsigned long m)
-+{
-+	u64 parent = (u64)rate * m;
+ static int sun6i_dsi_bind(struct device *dev, struct device *master,
+ 			 void *data)
+ {
+@@ -1085,6 +1111,8 @@ static int sun6i_dsi_bind(struct device *dev, struct device *master,
+ 
+ 	drm_connector_attach_encoder(&dsi->connector, &dsi->encoder);
+ 
++	sun6i_dsi_set_panel_orientation(dsi);
 +
-+	do_div(parent, n * k);
-+	return min_t(u64, parent, ULONG_MAX);
-+}
-+
- static unsigned long ccu_nkm_find_best_with_parent_adj(struct ccu_common *common,
- 						       struct clk_hw *parent_hw,
- 						       unsigned long *parent, unsigned long rate,
-@@ -44,12 +65,13 @@ static unsigned long ccu_nkm_find_best_with_parent_adj(struct ccu_common *common
- 			for (_m = nkm->min_m; _m <= nkm->max_m; _m++) {
- 				unsigned long tmp_rate, tmp_parent;
+ 	dsi->drm = drm;
  
--				tmp_parent = clk_hw_round_rate(parent_hw, rate * _m / (_n * _k));
-+				tmp_parent = ccu_nkm_calc_parent_rate(rate, _n, _k, _m);
-+				tmp_parent = clk_hw_round_rate(parent_hw, tmp_parent);
- 
- 				if (!ccu_nkm_is_valid_rate(common, tmp_parent, _n, _m))
- 					continue;
- 
--				tmp_rate = tmp_parent * _n * _k / _m;
-+				tmp_rate = ccu_nkm_calc_rate(tmp_parent, _n, _k, _m);
- 
- 				if (ccu_is_better_rate(common, rate, tmp_rate, best_rate) ||
- 				    (tmp_parent == *parent && tmp_rate == best_rate)) {
-@@ -87,7 +109,7 @@ static unsigned long ccu_nkm_find_best(unsigned long parent, unsigned long rate,
- 
- 				unsigned long tmp_rate;
- 
--				tmp_rate = parent * _n * _k / _m;
-+				tmp_rate = ccu_nkm_calc_rate(parent, _n, _k, _m);
- 
- 				if (ccu_is_better_rate(common, rate, tmp_rate, best_rate)) {
- 					best_rate = tmp_rate;
-@@ -154,7 +176,7 @@ static unsigned long ccu_nkm_recalc_rate(struct clk_hw *hw,
- 	if (!m)
- 		m++;
- 
--	rate = parent_rate * n  * k / m;
-+	rate = ccu_nkm_calc_rate(parent_rate, n, k, m);
- 
- 	if (nkm->common.features & CCU_FEATURE_FIXED_POSTDIV)
- 		rate /= nkm->fixed_post_div;
+ 	return 0;
 
-base-commit: 5243bd55dfe63a5f806622878f6fbdd78172fac9
+base-commit: a1e63ab695ad76850ab9787b9eb6aab695dc2965
 -- 
 2.43.0
 
