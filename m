@@ -2,102 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32364606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 09:56:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9EE77606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 10:00:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ne3qhhwu;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q7Tr25R3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=J37mUgWw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=NH5p8XFReWk5OnsBbt0kkc9aNsHf1J+jU8MERKjpPV8=; b=ne3qhhwuuSSBUJfv8sqYOeKB1T
-	7subd5gbdi2mJq1E+reD34NctT4ZBLrsj1LCBnlEHSlJYOMzMSfwKZ88SlAGZsdkI1ReLoQT94TQi
-	I6EODxmD+60N1FoiK/6Q5apxJ/eOJ46nSa1wSzVCcrbYEWgdbrNRiGkmHwF2RoBf4S/P8dNs7GdUg
-	lkPhqaFS8DRPJMLxvFNrhs7AcjQxDOuM/ncrmEDm3FTuD0qoyrr6jIKNhKsI/CZ4Kvx1WSY0rz3iq
-	w2Pz7gtI/J2g8GMOwWLeFFn+Q/8o9xnxHX/8OVRoZYHQVgQ3/LRd8+2UseUBlJfoVlvMbc4RPf6ja
-	pM2Vz4ng==;
+	bh=qkfPS8hofwtnNm0CXa6ZP95vc5TkVzOTDVJ6YjTfRpo=; b=J37mUgWwbx2GvuOCtZtltJUXO8
+	a7h2fzGQBP84jriEB6k0JP8GE2ChnvuhPZKK5oUet6ylthsWfKpL7aR1y40P+xJ4oHS/S30kT/4vK
+	q2l/J/0GbwuHghDTEP24IjgtCqN97UbbI2ShenEvZ1i/YLvMDsrhoJs0GIqUUBkVw7fRkaO2FjL02
+	NbIwCnTe91Xy3pjcYj+m+WtU/rTUaPtQxdAe1lwH4N//LfK2qChvlSZUx5PaxAj4wbPFwsNS4Ap0k
+	YFH7QsUOnCZdGSn+p+5fAJ23hdMJg+JS+T5vMMdpssExIoAzgYm+KvkW1h3ageso/eH4+c3TmSpm0
+	rNJSW96Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNSIW-0000000E4Lz-2DO3;
-	Sun, 01 Nov 2026 09:56:20 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1xNSMP-0000000E4Xh-0174;
+	Sun, 01 Nov 2026 10:00:21 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNSIT-0000000E4LG-2dPy
+	id 1xNSMJ-0000000E4X7-2OyH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 09:56:19 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4afe2d546f9so3769745e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 01:56:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793526974; x=1794131774; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NH5p8XFReWk5OnsBbt0kkc9aNsHf1J+jU8MERKjpPV8=;
-        b=q7Tr25R3eKCLHyChv8XJqrzRIu3JxM59ORNFyOLE2JPitUiJ+kYBoY+0CW09gYCDS3
-         CSjEnyMenFsapCzhrvLpY/+dsHYH3ewz8KMAc4aN/O7WC+UeD9g7k32oUyY6dou9x7yv
-         HSKxG/NA9Wvo/T5D9mG3KYNRvdT+27rcgOJvKZMGskOohvBIgai/WBJfTlJ0DaIwJ5Ri
-         v7SXiBKjuTGDVE+6mq1Gu+IBSbnd78Ccd1VOllCIxq5BzCAsY6NBNALzseLRL4h4QC5x
-         9Ct5lTgzXjYVrwH6SD9zOYge7ikUi8eTQbIiyGOXVZDARVnVvVTM4qO0jGErjy/CbVvR
-         5RTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793526974; x=1794131774;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NH5p8XFReWk5OnsBbt0kkc9aNsHf1J+jU8MERKjpPV8=;
-        b=ntAVLNAbBRL7fICvN+AnqcpPLu1oVEIwWS3OyziJqp7Qzqy1JxisVk+ECj+3BFCef6
-         HMxqvPVRqCCkB7jZY0eXcBI0r3sTzhIhi0Swho8wRksuC9SlHuMlnh6aebbeKJWtqC3j
-         In+mOhxzBeaBOpaEY4gHrtJT5hcQ1oZJoIX2cZodrzu94ADfGABKvdXgODu7xPTGRlus
-         HPj7pkakDEOCzz+cUeDhAGKERQj4Ou9231VbTCJxv6s5SHEjzRyleww9dWZxKlNA8DaN
-         q7jMEx5ZjXDqaIRwsZ8jYMrI6v6/yEasHIKntlSfF/FdfjA7PSZ9/QPzcyEbzr09cNjq
-         Xe4Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwNYYjCb+qq/Tcvxl/hfkEA0DDXiXpsBjqnk33ni1Utg3yx7MiZ45DwxCqAyZ9Lr/KCdHZq/nkHpuQdGf6i8jlt@lists.infradead.org
-X-Gm-Message-State: AFq9FYLwl63BvFQTmRUwlDxP0Wua64q1Uq/XEDs4Hw8MhhiKMln5cZUJ
-	JVVzIUEYz46gpbBGfCTRoZO+JUA+0cnT9BgIg5Gpzhbn0XfOPjQ6pA+o
-X-Gm-Gg: AYBFou2xedyWWBx0RlChh0FcITyIRbieeZpAWwFk7hea376XxLy0rsmxUEH0BA0kpOh
-	Y4kHK2uxfzW2K5q2K6G/mXiiMIfIdsxXeHxPymA8YOXI/ufAjQvUafzGHzndCmsL88XtXlX9AeN
-	bvfDy3xkvn0S7ArSfpp1orRpAfG3uGTY+g+ZVpHR55385WUW1Gy5EIZUT7jq5V1Lvo0K8GVzxYF
-	lzK6ow9NhDpfVMGk9xT0tC1l0kM6kwwZw6un2ZpD7qU3rnSQ91sdJQO3d+KMW9bdt96D8kYfq4k
-	08skdGnhT12+rA8Pofmi35ooDafJ83RYCdYmc2uyzJAL1GA98tHqboTJCOI0hM3aAbZ07oWAKJ5
-	y0m5AIsODzL77XXvswjnpUCWVhONgksOnVZ7Fev47s3n7jCSDjf74SLAKVidyR0NQ7mXSwpQJGf
-	Zf1ZXvq2YEvQgnmG3PdUdr1hdr3o64mRDy95SYBY82xk7o+WqEL+XHsQxTaHwj9hby7xAu7AwKb
-	+R76zvDvBWy7/wsB0Cmwu9DzgFpgQ1Sj2UL25JlQhbJwl7ZttdEtOyGRWvtux5vIvmgslew8Guz
-	WIGZUymQ3iTC2PLI7aQ5G/Wy
-X-Received: by 2002:a05:600c:8706:b0:4a1:e0d5:293e with SMTP id 5b1f17b1804b1-4ac1765d3ddmr174291005e9.21.1793526973501;
-        Sun, 01 Nov 2026 01:56:13 -0800 (PST)
-Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abf67aa704sm179893505e9.8.2026.11.01.01.56.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Nov 2026 01:56:13 -0800 (PST)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-mediatek@lists.infradead.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	kernel test robot <lkp@intel.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-kernel@vger.kernel.org,
+	Sun, 01 Nov 2026 10:00:18 +0000
+Received: from Vostro-3710.lan (unknown [IPV6:240e:3bc:2e87:4e80:2a7b:821a:ffcf:549e])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 531059d45;
+	Sun, 1 Nov 2026 18:00:04 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	llvm@lists.linux.dev
-Subject: [PATCH] clocksource/drivers/timer-mediatek: Fix "no-cfi indirect call" warning
-Date: Sun,  1 Nov 2026 10:55:31 +0100
-Message-ID: <20261101095538.1046918-1-l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-kernel@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: [PATCH v2 1/1] arm64: dts: allwinner: a523: drop redundant status=okay
+Date: Sun,  1 Nov 2026 18:00:00 +0800
+Message-Id: <20261101100000.725282-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa1968d4b0703a2kunm959b05f2a51c2
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaQkwYVkwaHk8aH00eHUpNQ1YeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJT0seQUgZGEFJHkNMQU8eQ0tBSRpMGUFDSUoaQR0dGB1BTk
+	9CHllXWRYaDxIVHRRZQVlPS0hVSktJQkNDTFVKS0tVS1kG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_015617_765655_9ADDC27A 
-X-CRM114-Status: GOOD (  12.48  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261101_020015_815212_07448491 
+X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,50 +71,90 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-After converting the driver to OF probing, kernel-test-robot reported the
-following new warning:
+Device nodes are enabled by default, so no need for
+status="okay" property.
 
-vmlinux.o: warning: objtool: mtk_timer_probe+0x23: no-cfi indirect call!
-
-This occurs because of_device_get_match_data() returns NULL when
-CONFIG_OF is disabled, which results in LLVM dropping the kCFI setup
-since it knows that there is no valid target for this call. Adding a
-check for a NULL timer_init avoids the warning and it makes the probe
-more robust since of_device_get_match_data() could return NULL even
-when CONFIG_OF=y.
-
-Fixes: 7a097aba7255 ("clocksource/drivers/timer-mediatek: Convert to OF probing")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202610290223.iOEGeDs2-lkp@intel.com/
-Suggested-by: Nathan Chancellor <nathan@kernel.org>
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
 ---
- drivers/clocksource/timer-mediatek.c | 3 +++
- 1 file changed, 3 insertions(+)
+Changes in v2:
+  Remove `status = "okay"` from the pmic node.
+  Link to v1: https://lore.kernel.org/lkml/20250901120020.181414-1-amadeus@jmu.edu.cn/
+---
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi            | 1 -
+ arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts   | 1 -
+ arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts    | 1 -
+ arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts   | 1 -
+ arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts | 1 -
+ 5 files changed, 5 deletions(-)
 
-diff --git a/drivers/clocksource/timer-mediatek.c b/drivers/clocksource/timer-mediatek.c
-index 842d6ee4259e..e772f5fe8742 100644
---- a/drivers/clocksource/timer-mediatek.c
-+++ b/drivers/clocksource/timer-mediatek.c
-@@ -353,6 +353,9 @@ static int mtk_timer_probe(struct platform_device *pdev)
- 	int (*timer_init)(struct platform_device *pdev);
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index 85ef492ffeae..aa23d9062a3d 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -386,7 +386,6 @@ wdt: watchdog@2050000 {
+ 			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&osc24M>, <&rtc CLK_OSC32K>;
+ 			clock-names = "hosc", "losc";
+-			status = "okay";
+ 		};
  
- 	timer_init = of_device_get_match_data(&pdev->dev);
-+	if (!timer_init)
-+		return -ENODEV;
-+
- 	return timer_init(pdev);
- }
+ 		uart0: serial@2500000 {
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+index bfdf1728cd14..384a6174de3a 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+@@ -297,7 +297,6 @@ axp323: pmic@36 {
+ 		interrupt-controller;
+ 		interrupt-parent = <&nmi_intc>;
+ 		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
+-		status = "okay";
  
+ 		vin1-supply = <&reg_vcc5v>;
+ 		vin2-supply = <&reg_vcc5v>;
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+index eb9fd0a65b41..ff772dfd5c92 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+@@ -249,7 +249,6 @@ axp323: pmic@36 {
+ 		interrupt-controller;
+ 		interrupt-parent = <&nmi_intc>;
+ 		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
+-		status = "okay";
+ 
+ 		vin1-supply = <&reg_vcc5v>;
+ 		vin2-supply = <&reg_vcc5v>;
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+index 85247186461d..e6c24e925a54 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+@@ -356,7 +356,6 @@ axp323: pmic@36 {
+ 		interrupt-controller;
+ 		interrupt-parent = <&nmi_intc>;
+ 		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
+-		status = "okay";
+ 
+ 		vin1-supply = <&reg_vcc5v>;
+ 		vin2-supply = <&reg_vcc5v>;
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+index 26ce579b42bf..7d056d555e36 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+@@ -341,7 +341,6 @@ axp323: pmic@36 {
+ 		reg = <0x36>;
+ 		#interrupt-cells = <1>;
+ 		interrupt-controller;
+-		status = "okay";
+ 
+ 		vin1-supply = <&reg_vcc5v>;
+ 		vin2-supply = <&reg_vcc5v>;
 -- 
-2.43.0
+2.34.1
 
 
