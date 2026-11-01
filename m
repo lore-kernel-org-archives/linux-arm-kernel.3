@@ -2,40 +2,40 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F21A60A2622
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6073606A33B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vjfN0r/j;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=dJPZ4lf0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=V7MC+83z;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=v8151im3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=mUcjaVQ7lyI1vitc+H9u1tzf0raKfI5LNSobORLeUkg=; b=vjfN0r/jJkefLo
-	7k4zhPMF+q1aNcSR7VlJX07m/6KOINoEWB/cZYKRCzO2If8YRd5jvv6zP1uFU0elyO2CVFKlayrpc
-	Z7kWHOxhuApfyHbb9fzTV4ZhzAW20/eTWeXZUbW3oLgIsj/ykcnlUESGG7DZ/EP9ANRhTVes7hJMy
-	qAXIti0Tos06ByrqEu8p/JlHbpY3pALY0+mdAiJFveFeqLbduYHLJubSsoJkgqXGZPgL9XBkucyJf
-	FlFRhE55GmoMs1R4fZiwyfkuMhYgjZjSSxV3Os/kEBBDBMUXJ3WHqd1bODIuaXgzy/3xnVsF/Bqoq
-	9BfZrhXNvTXz8xmobqvA==;
+	List-Owner; bh=koqrDmmt4O2BTAa9AgtZ7rW5JtPwtmhVY/Dn2gUanrA=; b=V7MC+83zsFw4qw
+	1P946MaSiIy9th0R1F9ZlMJpzGaZdVaH/B30uU0/b1hGyLYa4YHM4zaWHKfM16Vwp9xRW9L3io5QH
+	ZIo0GPrPYLjGCn/OO2Q40gqHifnuO8o5DOaLLGbpVkkQD4tQqu1jGsgZpsvfn5jfdpLw1yBVMq5fy
+	1ZB2kzn5ZUd7fu/x3bKoDXsC4PAlT6Ivkw5vlge/BXP4XJl8J3BmiuRmTQ2njPEj3OAdWUKmgv9OO
+	vyMmarKRfXRu+0oRSLteyngHvQr++HUu+Dqwrx/JpuTRUI9BKyUBk1L3th5yyINwLwjaS3PL0PK/x
+	mCd5HyPC8abhPgqePSGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqK-0000000EzAv-2TQe;
-	Sun, 01 Nov 2026 22:16:00 +0000
+	id 1xNdqM-0000000EzFI-0Yw0;
+	Sun, 01 Nov 2026 22:16:02 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdq8-0000000Eynt-0Ywb;
+	id 1xNdq8-0000000Eynw-0g3t;
 	Sun, 01 Nov 2026 22:15:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=mUcjaVQ7lyI1vitc+H9u1tzf0raKfI5LNSobORLeUkg=; b=dJPZ4lf0xCMO5WIF9dnHeRq0nE
-	QwMvkV4WnCbmPJF9dTEftjXGWXVgZSGwDjOulqBiaD6baRs4KFtJfyMBKYbnIi48Sfu2fIlLLOJpO
-	kQOgtx47BpY8Dx5T/TsBD92rH7sFi4LQeqnfrtaFEMtxhAywbvh3UD8F5l2PfM2VhERPDgX9wazT9
-	3vOWHD57MCwoo81GrMpA4CPjJYbFmUCi281qAU2GYvuU/lXMTX1jLvVwLgPXGkoxBRT7K0oz168LD
-	vfPVGZEfqTvkAaTFI8YiKvlhoAWZi72uPITpL5aR6xYBAsNSu42EQCaAirwzFJH36JwILxFzlhEnS
-	Gv6oxP/w==;
+	bh=koqrDmmt4O2BTAa9AgtZ7rW5JtPwtmhVY/Dn2gUanrA=; b=v8151im32iqLSPZW/19OcA/UAT
+	kSapPEGiX/dUFAcVl9Tl+QnqsQDTPswcXwKBojtYS2LOPUQRf6zZ03XdqugWd/XWOScXLRWQ9godl
+	SaeO2YQ7i/8D7EqbaW18wEXN2ZJDRDGgU0uOoxUkv/Nfl8UvgUwqEajpLsvd6t2b2v0NdR/pSQGWU
+	NPvpmRCRpkmkiAncvX/Yjb55ZLpR2XXkYrLtb0DB/WKR9yLm25uGDyQjdCgCV+TE8SV+d7y8bytxQ
+	hOGkUP/O7O37rZjLlJYqR4Z1lqnI/rRcOqf2ysWEGpfNAxpSPhCa67g+M0lrRMP3G6AyoM/3AXKDi
+	6+sP7pbw==;
 From: Heiko Stuebner <heiko@sntech.de>
 To: Igor Velkov <iav@iav.lv>
 Cc: Heiko Stuebner <heiko@sntech.de>,
@@ -46,20 +46,19 @@ Cc: Heiko Stuebner <heiko@sntech.de>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Enable USB host0 on Kobol Helios64
-Date: Sun,  1 Nov 2026 23:15:27 +0100
-Message-ID: <179357131396.4107717.3550186345621350857.b4-ty@b4>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add vdd_log and vdd_center to Kobol Helios64
+Date: Sun,  1 Nov 2026 23:15:25 +0100
+Message-ID: <179357131387.4107717.12481039737139265735.b4-ty@b4>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261011-b4-helios64-usb-host0-v1-1-693fe316701b@iav.lv>
-References: <20261011-b4-helios64-usb-host0-v1-1-693fe316701b@iav.lv>
+In-Reply-To: <20261021-helios64-vdd-log-center-v1-1-4cafd110e0e5@iav.lv>
+References: <20261021-helios64-vdd-log-center-v1-1-4cafd110e0e5@iav.lv>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_141548_223485_1E01F400 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261101_141548_248669_A4323C46 
+X-CRM114-Status: GOOD (  12.71  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,15 +78,21 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
-On Sun, 11 Oct 2026 00:51:50 +0300, Igor Velkov wrote:
-> USB host0 of the RK3399 (USB0_DP/DN) is wired to the USB 2.0 pins of
-> the M.2 Key-B slot J2. Enable the host port of u2phy0 and the EHCI and
-> OHCI controllers behind it.
+On Wed, 21 Oct 2026 02:02:29 +0000, Igor Velkov wrote:
+> The Helios64 feeds VDD_LOG from a PWM regulator driven by PWM2 and
+> VDD_CENTER from DCDC_REG1 of the RK808, but the device tree describes
+> neither of them.
+> 
+> Describe both. The vdd_log range comes from the schematic (sheet 8):
+> 0.83 V with 3.0 V on LOG_DVS_PWM and 1.4 V with 0 V, so the PWM is
+> inverted. vdd_center gets the same limits as vdd_cpu_l.
+> 
+> [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: Enable USB host0 on Kobol Helios64
-      commit: 5d96282894c536c85259ce0f25780b48bf77b9b6
+[1/1] arm64: dts: rockchip: Add vdd_log and vdd_center to Kobol Helios64
+      commit: 5397d554ac76f10737eb7b87c48c8c4bb26d2017
 
 Best regards,
 -- 
