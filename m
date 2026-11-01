@@ -2,60 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D78A2607410C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E7A26074135
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ce5iwmsU;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=NufQ1HcX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wG8pcIXb;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=O8zRDlrz;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=waKZaezF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=F/IyEYtIEFa/TSSICHUA6hake8dumxxKR9SArxaMuJA=; b=ce5iwmsUyrA4kr
-	Qcqc5ey+q86FCNHRZiS1ivyUPd0JA9jbO34kZzHuS3mgeQJnVAm/+UkQhpP40tprkfuTuUlYqOWbV
-	3XtGjfIpQO4ItNrtJLAq5ZaEPSd19mmaRG3bwd3qf7qhYjGlaPYakp80M2juVgtHIwJzD6J1cF+aC
-	xvrKwkUKUjRbeABuzOz/F8igdhcD3qB1xBr3xGyzOWI6P/Q2dfTBLlm2aMQop8jNDTxZY+r3cl4te
-	6Gmv7aKdF1GDFB7cU6NQgvDUf2m4qIyNle4U0ghEfm4HGBQwDNBB4mfyTSabqvIoe9P4uWhkXxq9u
-	q4Z7+WbqpKEMjUDyApGg==;
+	List-Owner; bh=LKx3D3L8i20KkgdM053WRZoZcyEWptAt+bunmlcQ35w=; b=wG8pcIXbhwymfe
+	Ji3Z0xqG+uPCqVxeW/loPqCKiR2WdxMwgBG2FNXVgK9mccWrxwCJRWefmggsc0VuS3/dAV7Xb1HX2
+	Db5IN3QYUqvwhDKxGLtuQBkKImiK32ezSkwfRBlWLNFopO42sKgtEV7tw4GkfgcxESpHeuSJZ4es6
+	j+dc+LsYrI4Z5EDoyCQIHPsIV6pCEn9pM8VH+Y7dPc2QLQtYvdC5AMfPx0JAmVp36SshmEkuBAqWE
+	b8doN8UtswC+7GP4xRfas3ctZKf7QfHULronw8IzMxDN5g7IiqL+9jzSK1ve90LM9emLcceWHCW46
+	IEl/r6NBp4v02eV/lkyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrE-0000000F1go-2hQR;
-	Sun, 01 Nov 2026 22:16:56 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xNdrG-0000000F1nE-30TU;
+	Sun, 01 Nov 2026 22:16:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqh-0000000F04B-3EkG;
-	Sun, 01 Nov 2026 22:16:34 +0000
+	id 1xNdqu-0000000F0f5-0aYh;
+	Sun, 01 Nov 2026 22:16:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=LKx3D3L8i20KkgdM053WRZoZcyEWptAt+bunmlcQ35w=; b=O8zRDlrz2DGoJ8qPlaRkBDXsLH
+	Xpo1Ao0HKcjwMQjmhUYvqnp/W9HzZkrKxjmPg6vb/H7kttN7bsEVsncWU6yeQ0nJwXYjKFOm/gxl1
+	G/IU4nR2U3mz6IjwOZjSHANjw4IfglLHG7TXjKxBbCK0xke9FSKMfph3qdObdxL/PUFfCqVpaSOsw
+	AgyVd4EIdqiDlHJz6WHFMbIiqgE5Uv3oXw3hyU3adHH2KhC+a1sktSeVMyvFr0BYzR4Axaj4OWgQr
+	2jcyywPkgXONFvyyVm8aIQFaRi5oEmSOXcVOo6LNc0FXKBC5Px7JDzV6Lvt3ivZFXaUP3RG6/QQKh
+	V8obv05g==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNdqg-00000001seo-46yT;
+	Sun, 01 Nov 2026 22:16:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=F/IyEYtIEFa/TSSICHUA6hake8dumxxKR9SArxaMuJA=; b=NufQ1HcXo+KRWDRaYcMIG/RT9p
-	9lRzNZzE7HQmPTuXKYoLqVtnecUNx1k0QugPc5BQ5N9tCEWnkoivCeEJpkxaEv0IPHUKxgXbyaolV
-	lGAXrgdLG9UBB8qSPDW8yJG9Ht3ilyx8UCAVMH9fIdlpk+s9MzNTg6+dft1rKj7uXBmq0qJAxdead
-	f1tc30c3YGsksoFKVOGgataIERHmtrP9zd3ka3NF8+bIyrd3kMK9SJ5GPdCK+t2qzYi5bQrLG/yyq
-	SZGeO/u4XR6OOBnPKlqaTAyISgnvvYjxunFFR82v5pt20AsJUQsDkDCDknc4gLWtL7mPhVGZabf8h
-	QIne0bZA==;
+	bh=LKx3D3L8i20KkgdM053WRZoZcyEWptAt+bunmlcQ35w=; b=waKZaezFft+W4+DVAkBekptegW
+	UnVtPxS4CWRmPMUfT3usNMXRPi8pgRhKiYrCC2qldwTF6kvbPud9Rv7dp711s66/Cn4JMTgHi4jE/
+	Dan6sZi23Dgp9BRiTCR7QsGIrt1bO0O/kbzrt5213L9azRmU/aVc4z29eJoGXc9mYP/AOEd2P5Hti
+	8HVpHlQ8NcnOSef9F2acRL0TLvgmxMqtbSeCZ2Nw5bKT7LAO1hk036BgG7raWsIcnEKJJVWnIefEE
+	cagbA2Zxzi5h0KO962bVDJQPnzq6Vpv5qsRfmX0xor0slj/x1u/uwVDKKkJaw262eKa9Xvs0FTML2
+	lMCkZ8Yw==;
 From: Heiko Stuebner <heiko@sntech.de>
-To: Shawn Lin <shawn.lin@rock-chips.com>
+To: Guenter Roeck <linux@roeck-us.net>,
+	Jean Delvare <jdelvare@suse.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Igor Velkov <iav@iav.lv>
 Cc: Heiko Stuebner <heiko@sntech.de>,
+	linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: rk3568-evb1: enable PCIe3x2
-Date: Sun,  1 Nov 2026 23:16:13 +0100
-Message-ID: <179357136502.4108155.14807945723272231784.b4-ty@b4>
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH 0/2] Label the fans on Kobol Helios64
+Date: Sun,  1 Nov 2026 23:16:05 +0100
+Message-ID: <179357136496.4108155.6955639670454082907.b4-ty@b4>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <1792387349-86262-1-git-send-email-shawn.lin@rock-chips.com>
-References: <1792387349-86262-1-git-send-email-shawn.lin@rock-chips.com>
+In-Reply-To: <20261018-helios64-fan-label-v1-0-69a3f96d4efa@iav.lv>
+References: <20261018-helios64-fan-label-v1-0-69a3f96d4efa@iav.lv>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_141623_861193_DC3E9D21 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261101_221624_717856_69D25D47 
+X-CRM114-Status: GOOD (  10.05  )
+X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,15 +96,31 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
-On Mon, 19 Oct 2026 13:22:29 +0800, Shawn Lin wrote:
-> Enable the PCIe3x2 controller on the RK3568 EVB1 board: add the GPIO
-> controlled vcc3v3_pcie supply along with its pinctrl entry, and wire
-> the PERST# reset pin and the supply to the controller node.
+On Sun, 18 Oct 2026 07:54:58 +0300, Igor Velkov wrote:
+> Helios64 has two identical PWM fans, and userspace can tell them apart
+> only by their platform device names. Patch 1 makes pwm-fan.yaml
+> reference fan-common.yaml, as Rob suggested, which also allows label;
+> the hwmon core already exposes it as the label attribute. Patch 2 names
+> the fans after their headers, P6 and P7.
+> 
+> To: Guenter Roeck <linux@roeck-us.net>
+> To: Jean Delvare <jdelvare@suse.com>
+> To: Rob Herring <robh@kernel.org>
+> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> To: Conor Dooley <conor+dt@kernel.org>
+> To: Heiko Stuebner <heiko@sntech.de>
+> Cc: linux-hwmon@vger.kernel.org
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-rockchip@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> 
+> [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: rk3568-evb1: enable PCIe3x2
-      commit: fd485b0b11c86be0596c9b775d785c548714656a
+[2/2] arm64: dts: rockchip: Label the fans on Kobol Helios64
+      commit: f80a26e10a39dd51061513db96fb525244e5e890
 
 Best regards,
 -- 
