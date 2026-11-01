@@ -2,63 +2,113 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47AFA606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 20:19:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B3A1606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 20:29:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ynh22KaY;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=20rNYJKo
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ml0eZOnz;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nh0r3ntm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=nbWzpEen76KfcL+CtXPbSjVeFwZsdAxBkZAu3PHXVRY=; b=Ynh22KaYrVwSx+fU4/Wgy/7r0E
-	WLs62WexBOAiP5kIP5xCuImerqb0voR5rRtDoX7PrijJod/U+ZnKxGEqcMCA/FYR8q8wFg/qiD3ww
-	Cy6tqFQq1r1GT8Rz31PA0FWyfCutdI+MwRkCL1574SnZVOHlWfcINsWh8KliO2ND50xqcfSoymgZZ
-	Vt3gQUngCs/EWkGHev0ihbS0yV8k9+CbNcyQZNkn1+tpJsLLm5xjKCaEulH3VeTO9KfQ/rOYS4hfu
-	zBPtpaa9/cJXLRi3PyfVqiO66DkYK4rW+L8H9LG99nMAkgepzJs6XkS14TjN/ukqQWbBCrE9vdVY2
-	zN40mvLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=tyBCW4dL7dxwpqiq+RaHFPz+hKBl6ALLSIM9B59I3dk=; b=ml0eZOnzCqg5m+
+	0DskL2yQMR5E/OroI5d3yiomcKxGhsw03dyCsARbqOXfikA4sOKrSfevQmsiXEwELLdnH3dXSUrS1
+	iaC3bkOYzz12z79g3shv0WkZu6R54+okRsetqaJKmLPCY5BqUgiX0qVOLI4pmdLKF+eWlYIBdqf1n
+	TAqoCB4R0mF6Dch09PXtHQWHHzv4CPFpBrrcdPbyQKwpog69+9xIkK8iH5YISDUVlSMbu/0w3YHu0
+	RvKmKgGzufVbnKFS7GHsOEsY6HOOsPW9fPzYjFIjyXapiWmo8MiXgrN5HL6QmbqiYdPmE6A1/HAok
+	5K6RDdPqTih57rNuvB+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNc1o-0000000Es7b-3W1T;
-	Sun, 01 Nov 2026 20:19:44 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xNcBZ-0000000EsZP-0PJ3;
+	Sun, 01 Nov 2026 20:29:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNc1m-0000000Es7C-2iNP;
-	Sun, 01 Nov 2026 20:19:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=nbWzpEen76KfcL+CtXPbSjVeFwZsdAxBkZAu3PHXVRY=; b=20rNYJKowS8QgUWQ4jODdI+Rso
-	vpy8xoxE5/YhQST3EwqyZxQNmAV03Y5o751usgC31Yc/McSk1TOqOl3zTIEtG/Tj6ZNluFes8ihJp
-	+X13l9D3X4pnJOeyY2ekAMmWEDtrZSMUZ8LP3lJzUj7Lu1F6xYTU5pAYBiiJK0jUrI9hRxttmqeV0
-	Upd10k0OsFPkI6kQGZjcz3bMChwkDKqtnvkeXN0sYn6goMIBQDkrUfV9dFr7bcLRDR225P4brDNnU
-	UZhNWMWPmvq/HDXj1olPKXAI2ZcmO3wnp6wRkxfXQpLJhBxOxhPTB95rlPaSeerNlr2/rBXJMkQDh
-	+jFRBS9Q==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Coia Prant <coiaprant@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>,
- David Heidelberg <david@ixit.cz>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v12 1/3] arm64: dts: rockchip: rk3568: add XPCS and fixed-clock
- nodes
-Date: Sun, 01 Nov 2026 21:19:33 +0100
-Message-ID: <23607754.hxa6pUQ8Du@diego>
-In-Reply-To: <CALj3r0g5twZNEiO5b1hHpxy3kAVBxLZNt55E2dxSSeZ5GgXisA@mail.gmail.com>
-References: <20261023053548.1595033-1-coiaprant@gmail.com> <2977688.AiC22s8V5E@phil>
- <CALj3r0g5twZNEiO5b1hHpxy3kAVBxLZNt55E2dxSSeZ5GgXisA@mail.gmail.com>
+	id 1xNcBX-0000000EsZG-48b4;
+	Sun, 01 Nov 2026 20:29:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AFF21435C3;
+	Sun,  1 Nov 2026 20:29:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B17921F000C1;
+	Sun,  1 Nov 2026 20:29:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793564986;
+	bh=tyBCW4dL7dxwpqiq+RaHFPz+hKBl6ALLSIM9B59I3dk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Nh0r3ntmiuua7iX+B4hCTpkrm6Y1aN65kGtShyxvwFfFy7VzSbltFC3P+ZbETyc1H
+	 8rKbKmxpm4upRgjpauF4op4eiZRr/tPFsCOviHiJ6p7p/9HqB6+BYDK4/qpemt67PU
+	 CXhvr1AHoOakq/A4e8m8prW2m1zIQWDNE4xEkNUHi2LGHaA/Ql9w3mrTfF/y7Q44RY
+	 HxQEXYXHEKsW7xUEmPx6BnFig507WgcIeHHdxKWgE9OpIpj1eDedOBnovAxgh8UPss
+	 q5ExaQkvEKYKqNpCrxPkWD53788S3J6h5fDLOdLq2l7v91AHjHQJNEXMCG8lfUZYKK
+	 UpjyZIhaOHysA==
+Message-ID: <931ef103-d0f1-4f5e-b906-47af4dad6015@kernel.org>
+Date: Sun, 1 Nov 2026 21:29:41 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_121942_769607_7441D1EF 
-X-CRM114-Status: GOOD (  30.83  )
-X-Spam-Score: -2.1 (--)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/6] arm64: defconfig: Enable PWM_CLK for backlight PWM
+ support
+To: Anand Tiwari <anand.tiwari@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20261030-lyra-display-upstream-post-v2-0-906302159392@oss.qualcomm.com>
+ <20261030-lyra-display-upstream-post-v2-5-906302159392@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261030-lyra-display-upstream-post-v2-5-906302159392@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,107 +119,26 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Am Sonntag, 1. November 2026, 21:11:56 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Coia Prant:
-> Heiko Stuebner <heiko@sntech.de> =E4=BA=8E2026=E5=B9=B411=E6=9C=881=E6=97=
-=A5=E5=91=A8=E6=97=A5 22:06=E5=86=99=E9=81=93=EF=BC=9A
-> >
-> > Hi,
-> >
-> > Am Freitag, 23. Oktober 2026, 07:35:46 Mitteleurop=C3=A4ische Normalzei=
-t schrieb Coia Prant:
-> > > The RK3568 SoC integrates a Synopsys DesignWare XPCS that provides
-> > > the Physical Coding Sublayer for 1000BASE-X, SGMII, and QSGMII
-> > > interfaces via its four MII ports.  Add the XPCS device node to the
-> > > SoC device tree.
-> > >
-> > > The XPCS device is accessed via the APB3 bus at 0xfda00000 and
-> > > requires the CSR clock (PCLK_XPCS) for register access and the EEE
-> > > clock (CLK_XPCS_EEE) for Energy Efficient Ethernet operation.  The
-> > > PD_PIPE power domain must be enabled before any register access.
-> > >
-> > > Also add two fixed-clock nodes (clock-xpcs-gmac0 and clock-xpcs-gmac1,
-> > > labelled clk_gmac0_xpcs_mii and clk_gmac1_xpcs_mii) providing the
-> > > 125 MHz reference clock for the GMACs when operating with XPCS.  Their
-> > > clock-output-names match the CRU mux parent names in clk-rk3568.c, so
-> > > boards can reparent SCLK_GMAC0_RX_TX / SCLK_GMAC1_RX_TX through
-> > > assigned-clock-parents.
-> > >
-> > > The XPCS node is disabled by default and must be enabled at the board
-> > > level when 1000BASE-X/SGMII/QSGMII is in use.  The fixed-clock nodes
-> > > are always present and do not have a status property, as they are
-> > > static clock sources.
-> > >
-> > > The XPCS node requires a reference to the appropriate Naneng Combo PHY
-> > > via the phys property.  dtbs_check only validates required properties
-> > > for enabled nodes, so the SoC dtsi does not provide phys: boards that
-> > > enable the XPCS must supply it, since the SerDes link is a board-level
-> > > design choice (combphy1 on some boards, combphy2 on others).
-> > >
-> > > Signed-off-by: Coia Prant <coiaprant@gmail.com>
-> > > ---
-> > >  arch/arm64/boot/dts/rockchip/rk3568.dtsi | 23 +++++++++++++++++++++++
-> > >  1 file changed, 23 insertions(+)
-> > >
-> > > diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/bo=
-ot/dts/rockchip/rk3568.dtsi
-> > > index 3bc653f027f1f..20a72785adbc2 100644
-> > > --- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-> > > +++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-> > > @@ -8,6 +8,20 @@
-> > >  / {
-> > >       compatible =3D "rockchip,rk3568";
-> > >
-> > > +     clk_gmac0_xpcs_mii: clock-xpcs-gmac0 {
-> > > +             compatible =3D "fixed-clock";
-> > > +             clock-frequency =3D <125000000>;
-> > > +             clock-output-names =3D "clk_gmac0_xpcs_mii";
-> > > +             #clock-cells =3D <0>;
-> > > +     };
-> > > +
-> > > +     clk_gmac1_xpcs_mii: clock-xpcs-gmac1 {
-> > > +             compatible =3D "fixed-clock";
-> > > +             clock-frequency =3D <125000000>;
-> > > +             clock-output-names =3D "clk_gmac1_xpcs_mii";
-> > > +             #clock-cells =3D <0>;
-> > > +     };
-> > > +
-> >
-> > these clocks don't belong here.
-> >
-> > When you place these nodes in the main, they seem to come out of
-> > thin air, while that might be true for some boards, that they
-> > have dedicated oscillators for that, this will likely not be true
-> > for all.
-> >
-> > So these should be defined in the board dts, to match the actual
-> > hardware.
-> >
-> >
-> > Heiko
-> >
->=20
-> Hi Heiko,
->=20
-> Okay, these are board-level clock sources, not something the SoC
-> provides. Moving both fixed-clock nodes to the Photonicat DTS and
-> leaving only the xpcs node in rk3568.dtsi.
->=20
-> I'll respin.
+On 30/10/2026 10:40, Anand Tiwari wrote:
+> Enable CONFIG_PWM_CLK so the generic clock-based PWM driver is
+> available, used by the Qualcomm Talos Lyra EVK LVDS panel overlay
+> backlight.
+> 
+> Signed-off-by: Anand Tiwari <anand.tiwari@oss.qualcomm.com>
+> ---
+>  arch/arm64/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
 
-please also at least describe in the commit message, where the
-board generates these clocks.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Thanks
-Heiko
-
-
+Best regards,
+Krzysztof
 
