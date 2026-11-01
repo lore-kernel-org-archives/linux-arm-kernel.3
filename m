@@ -2,76 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 868C3606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:15:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4446360A2625
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:15:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QU5azu62;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CHaOgXuE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nnOg+waQ;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YLtzwK85
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=S3lcyIX5M+D9oaMxMnqcLepq9hdIlj33lYjarpJr4ic=; b=QU5azu62q5m8sS
-	v4i6uxoZfcPAg4C4WVekE2vxmsBusd6Kx6qEDvrEsmFNkNA2u6e0p1qdw0ybLDjM7mEnSMt/qT3Ic
-	Ws9ZZUpKFSjLX86hR0osXJFrBAu+5t7x3EZHYSR1VYOkI/Fx5rT/eyqeIqQZuHJV5f+JXqd8yH2ay
-	L0ksDy7sZRnGYsHA5Z18HfBK/hNmMcwItCH4I0/DQjIaT2sHzlMixMHiik7EcYhnPA75lQv6ONJd4
-	BaQvo+9sAYZf9FrHyk8NH9XQAjKuCdDD7PYmcVAVvKUDs2RHLuwjM+qTZegRQLHx/USFc2G/ciVsl
-	qk7LRbE/Q/JpG3grvJMQ==;
+	List-Owner; bh=zWjchA1R3k2PWinfdPa1bmSSkYcmsFonhHSsoHtMyf0=; b=nnOg+waQT3WbFF
+	kR7jnL7c6odnq3xbfI73mfGWzBMTe9H3u/BKnMGjqd5YyRxNwPUNN3c53JAraeiT/kJyRjpK9na34
+	sya4qejyY0DUgl56ecSrbOMILcryGMCRHghZPxCWsU3cpr7KbpubSdmY02/ABK8fEYKWEq84Wwb7F
+	ROxH1n2CR1UOzZukLvvsbB6AELvEsDcqqeXYDgrXn0mO0ljK7k8JnLuZxNJhU/Kpk1wLGrqyoU/iM
+	ga+Qf92md6lI+OX2nkNKIFog/zBuSrWsXzVPrLh7Or2NTr4FnT1cr8ZD4jD8PlXWsBnX/6mRTgWTo
+	bva4nF1ktOA5BIHUZ1xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdpn-0000000EyaE-2QLI;
-	Sun, 01 Nov 2026 22:15:27 +0000
+	id 1xNdqA-0000000Eys1-3MVl;
+	Sun, 01 Nov 2026 22:15:50 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdpl-0000000EyYT-1bme
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 22:15:25 +0000
+	id 1xNdq9-0000000Eypa-07VY;
+	Sun, 01 Nov 2026 22:15:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 04A1141921;
-	Sun,  1 Nov 2026 22:15:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 780C31F000C1;
-	Sun,  1 Nov 2026 22:15:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C2CE043EBB;
+	Sun,  1 Nov 2026 22:15:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8672C1F000C1;
+	Sun,  1 Nov 2026 22:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571324;
-	bh=S3lcyIX5M+D9oaMxMnqcLepq9hdIlj33lYjarpJr4ic=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=CHaOgXuEOszpcFCzgxWhOugudfo85K2qYm/UkvJds7hTV31/NTxkpEvX5k0lgLQlE
-	 8IvflPjJkW7U6ZILo5XVKFue4NzP8sMsGDZgLmpYpPc1lUdZWRrxk6M6i+5slC1rck
-	 EuteLDR0ogjJq+Zb4I1ODq1VKMZ/oQ1mq3KZb+kUNyh6J3BoR+UeUWUC5I4B5upvyl
-	 YRAQzoDExynaG9vB9bfXdzNEjN8IfqH+sEwmcDXGFfbAutlrtkjSQT4eXa6WE0WYqj
-	 P/P7vgeh2cGPCr+4UM45Sr7DGfq0sGnfy+uOBn4D60xD7f3tj3hGVHqS1zaKriBP1l
-	 XFOoJuwtrAfXw==
-From: Linus Walleij <linusw@kernel.org>
-Date: Sun, 01 Nov 2026 23:14:40 +0100
-Subject: [PATCH v2 7/7] ARM: dts: broadcom: Add BCM6846 PMB clocks and
- hardware monitoring
+	s=k20260515; t=1793571348;
+	bh=zWjchA1R3k2PWinfdPa1bmSSkYcmsFonhHSsoHtMyf0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=YLtzwK85l4hGxLyA70UvP4j1W3M7aK0AnO65y/AzsiFBwFu+o+am4lM03VbtHtJ5K
+	 SS29sY8vrSYrA6jdvWzfwe5K90LxJtzoHxZZu0mTSUAvpZkN1PYLCGRsEs6UgYx0aB
+	 97oKuIhcSNLzzTU7IsY2JDbPwHgALU8UUMTUIacoZU37AQpC6KtulGbzQ30fh/1Pj7
+	 439Gr0UJypJlNRfMtvA0ZTTdkqVe4hPq7HarsqK8Usmvu9Wk0QYv2Bnam4S5juFWnH
+	 d/jArMh+zoyROvtkvZe5ytr6PBXG3TqNVsxhJFaqiJVBj+Botefdp40TKRHbDajTSy
+	 ztyxsj6TJTA0w==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D5C738003B8;
+	Sun,  1 Nov 2026 22:15:48 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261101-xg6846b-bcmbca-xrdp-reset-v2-7-455fe9eed5ee@kernel.org>
-References: <20261101-xg6846b-bcmbca-xrdp-reset-v2-0-455fe9eed5ee@kernel.org>
-In-Reply-To: <20261101-xg6846b-bcmbca-xrdp-reset-v2-0-455fe9eed5ee@kernel.org>
-To: Linus Walleij <linusw@kernel.org>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- William Zhang <william.zhang@broadcom.com>, 
- Anand Gore <anand.gore@broadcom.com>, 
- Kursad Oney <kursad.oney@broadcom.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Guenter Roeck <linux@roeck-us.net>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
- Benjamin Larsson <benjamin.larsson@genexis.eu>
-Cc: mfd@lists.linux.dev, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- linux-hwmon@vger.kernel.org
-X-Mailer: b4 0.16.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 00/15] vdso: Clean up the vsyscall.h headers
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <179357134704.2624073.7289302544673229273.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:15:47 +0000
+References: <20260909-vdso-asm-generic-vsyscall-h-v1-0-63ae856cc659@linutronix.de>
+In-Reply-To: <20260909-vdso-asm-generic-vsyscall-h-v1-0-63ae856cc659@linutronix.de>
+To: =?utf-8?q?Thomas_Wei=C3=9Fschuh_=3Cthomas=2Eweissschuh=40linutronix=2Ede=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: linux-riscv@lists.infradead.org, luto@kernel.org, tglx@kernel.org,
+ vincenzo.frascino@arm.com, linux-kernel@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,110 +72,66 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Describe the PMC complex and its PMB interface, including clock, reset
-and hwmon child nodes. Supply the PMB clock controller with
-its 50 MHz reference and connect PVTMON to its clock and reset
-resources. Add a SoC thermal zone referencing the sensor child with a
-one-second polling interval.
+Hello:
 
-Leave trip points and cooling maps unspecified because the available
-BCM6846 documentation does not establish suitable temperature limits.
+This series was applied to riscv/linux.git (fixes)
+by Thomas Gleixner <tglx@kernel.org>:
 
-Signed-off-by: Linus Walleij <linusw@kernel.org>
----
- arch/arm/boot/dts/broadcom/bcm6846.dtsi | 47 +++++++++++++++++++++++++++++++++
- 1 file changed, 47 insertions(+)
+On Wed, 09 Sep 2026 10:51:13 +0200 you wrote:
+> The vsyscall.h headers are a mess. Some of that was necessary back when
+> some architectures where not using the generic vDSO infrastructure.
+> Now that this is not necessary anymore, the headers can be cleaned up
+> and many of the can be deleted altogether.
+> 
+> The recipient list is trimmed to only the vDSO maintainers and the
+> architecture lists.
+> 
+> [...]
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm6846.dtsi b/arch/arm/boot/dts/broadcom/bcm6846.dtsi
-index 47f177323c18..e9775dfc5d1b 100644
---- a/arch/arm/boot/dts/broadcom/bcm6846.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm6846.dtsi
-@@ -3,8 +3,10 @@
-  * Copyright 2022 Broadcom Ltd.
-  */
- 
-+#include <dt-bindings/clock/brcm,bcm6846-pmb.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/reset/brcm,bcm6846-pmb.h>
- 
- / {
- 	compatible = "brcm,bcm6846", "brcm,bcmbca";
-@@ -57,6 +59,12 @@ pmu: pmu {
- 	};
- 
- 	clocks: clocks {
-+		osc50m: clock-50mhz {
-+			compatible = "fixed-clock";
-+			#clock-cells = <0>;
-+			clock-frequency = <50000000>;
-+		};
-+
- 		periph_clk: periph-clk {
- 			compatible = "fixed-clock";
- 			#clock-cells = <0>;
-@@ -75,6 +83,14 @@ psci {
- 		method = "smc";
- 	};
- 
-+	thermal-zones {
-+		soc_thermal: soc-thermal {
-+			polling-delay-passive = <1000>;
-+			polling-delay = <1000>;
-+			thermal-sensors = <&pvtmon>;
-+		};
-+	};
-+
- 	axi@81000000 {
- 		compatible = "simple-bus";
- 		#address-cells = <1>;
-@@ -263,5 +279,36 @@ pl081_dma: dma-controller@59000 {
- 			clock-names = "apb_pclk";
- 			#dma-cells = <2>;
- 		};
-+
-+		pmc: system-controller@300000 {
-+			compatible = "brcm,bcm6846-pmc", "simple-mfd";
-+			ranges = <0x0 0x300000 0x21000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			pmb: bus@20100 {
-+				compatible = "brcm,bcm6846-pmb";
-+				reg = <0x20100 0x200>;
-+
-+				pmb_clk: clock-controller {
-+					compatible = "brcm,bcm6846-pmb-clock";
-+					clocks = <&osc50m>;
-+					clock-names = "ref";
-+					#clock-cells = <1>;
-+				};
-+
-+				pmb_reset: reset-controller {
-+					compatible = "brcm,bcm6846-pmb-reset";
-+					#reset-cells = <1>;
-+				};
-+
-+				pvtmon: hwmon {
-+					compatible = "brcm,bcm6846-pmb-pvtmon";
-+					clocks = <&pmb_clk BCM6846_CLK_PVTMON>;
-+					resets = <&pmb_reset BCM6846_RESET_PVTMON>;
-+					#thermal-sensor-cells = <0>;
-+				};
-+			};
-+		};
- 	};
- };
+Here is the summary with links:
+  - [01/15] vdso: Move the kernel-side time update helpers to a new header
+    https://git.kernel.org/riscv/c/35f0a96848a7
+  - [02/15] vdso/gettimeofday: Define fallback __arch_get_vdso_u_time_data() in gettimeofday.c
+    https://git.kernel.org/riscv/c/4fba7bb3e73a
+  - [03/15] vdso/getrandom: Define fallback __arch_get_vdso_u_rng_data() in getrandom.c
+    https://git.kernel.org/riscv/c/ca0da001d3cf
+  - [04/15] vdso/vsyscall: Define fallback time synchronization functions in vsyscall.c
+    https://git.kernel.org/riscv/c/e4eeeaa14d8d
+  - [05/15] vdso: Delete asm-generic/vdso/vsyscall.h
+    https://git.kernel.org/riscv/c/8579b901d150
+  - [06/15] x86/vdso: Move vDSO page definitions to asm/vdso.h
+    https://git.kernel.org/riscv/c/8051a0f482e6
+  - [07/15] sparc/vdso: Move __VDSO_PAGES to asm/vdso.h
+    https://git.kernel.org/riscv/c/782478555fc6
+  - [08/15] s390/vdso: Delete asm/vdso/vsyscall.h inclusions
+    https://git.kernel.org/riscv/c/d5b1dadd2ef0
+  - [09/15] sparc/vdso: Delete asm/vdso/vsyscall.h inclusion
+    https://git.kernel.org/riscv/c/cc729f844815
+  - [10/15] x86/vdso: Delete asm/vdso/vsyscall.h inclusions
+    https://git.kernel.org/riscv/c/3086b69ee00f
+  - [11/15] arm64/vdso: Delete asm/vdso/vsyscall.h inclusions
+    https://git.kernel.org/riscv/c/128b1c7d3ac8
+  - [12/15] riscv/hwprobe: Include vdso/datapage.h
+    https://git.kernel.org/riscv/c/0d10af5db481
+  - [13/15] vdso: Remove unnecessary vdso/vsyscall.h includes
+    https://git.kernel.org/riscv/c/d6df494a0135
+  - [14/15] vdso: Add asm-generic/vdso/vsyscall.h
+    https://git.kernel.org/riscv/c/996b01393e93
+  - [15/15] vdso: Remove __ASSEMBLER__ guards from vsyscall.h
+    https://git.kernel.org/riscv/c/9e61cabcce2b
 
+You are awesome, thank you!
 -- 
-2.56.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
