@@ -2,34 +2,34 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79EE5606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 04:02:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 372EC606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 04:02:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1CKi97GQ;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=iV0/Z47z
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jLvYU/7P;
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=MJkEViPB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=pThS4s7jZsUvLNnzBEk4Mx5yZuyvy+qhE7GbJU+ofLU=; b=1CKi97GQbYKtOA
-	WImwSDXyaCkF+uhxlwU7hZ+yL0LF6yS6neE4FlaszPV3Vuzp0UTVLnV7qqrBxsQZgt2w6Ns97PosL
-	EIxnRWp7CByT8KpdcQUysrTms6B7W00hRaXDtvNIpmPx3NQKWp3VtkJhYrT+h9d2w0KNi2+SJFUBi
-	OJOXtac/hnO0d05MDOSYmgPymFADV8LoIL2R4cBYMqPl0UuZFTT7a06lt40oe5uIBFal9zFGzG/nU
-	LSmX+oKcnosTzvMcAmVBmdRcAyGucgYaavrOtZd4JYzndhe/lsUI5Noy91wz9/1PwlgLIyjVDXxJw
-	rUjbp1jujwWKiy7eOSWA==;
+	List-Owner; bh=WIsAYVuA2tUNACU+9ZJPOaIId0MsnHlyEuV2LWfZyCs=; b=jLvYU/7PSCVvSt
+	pFt1ZGdyXMfjesrD84QjN/1f7TWRAEFNItJ9nw6lmtkaGhSK2whb+MvDI/ufVFMqeIaLSAgdRTXx3
+	zAbACvjB9+cBJjR6Q1ypc8BDRHIFGRPPGS5kuYGBl6LJhPIQjkLu7yem8bK+EBIYSCwg2hXUqlwIb
+	OsJIneyIaAYyU8k8G6SGIzA+T+fO4A5EOM406kXCAfz+sY21qCvykQBNPuyJATIvZxDz5bSxYr3gc
+	tysHgOp/wKuBQ4Ixrqn0qVkNPdWYDCcsFDnXZmRcboFjg2D/Cyz5JfQSv3BNF0/tuRzch4f1TOv9g
+	aJSfnlwrrGnqsazvUtdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNMlf-0000000Dr3d-2lKQ;
-	Sun, 01 Nov 2026 04:02:04 +0000
-Received: from mail-m8147.xmail.ntesmail.com ([156.224.81.47])
+	id 1xNMln-0000000Dr7j-3RIy;
+	Sun, 01 Nov 2026 04:02:11 +0000
+Received: from mail-m12898.netease.com ([103.209.128.98])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNMlc-0000000Dr1h-115U;
-	Sun, 01 Nov 2026 04:02:02 +0000
+	id 1xNMld-0000000Dr1e-21dj;
+	Sun, 01 Nov 2026 04:02:04 +0000
 Received: from 5950x.tail741d0a.ts.net (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 530d84148;
-	Sun, 1 Nov 2026 12:01:53 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 530d8413a;
+	Sun, 1 Nov 2026 12:01:50 +0800 (GMT+08:00)
 From: Xing Zheng <zhengxing@rock-chips.com>
 To: broonie@kernel.org,
 	heiko@sntech.de,
@@ -49,28 +49,28 @@ Cc: luca.ceresoli@bootlin.com,
 	sugar.zhang@rock-chips.com,
 	lxt@rock-chips.com,
 	xing.zheng@rock-chips.com
-Subject: [PATCH v1 4/6] ASoC: codecs: rk3308: support ADC stereo-group routing
-Date: Sun,  1 Nov 2026 12:01:23 +0800
-Message-Id: <20261101040125.1864141-5-zhengxing@rock-chips.com>
+Subject: [PATCH v1 1/6] ASoC: codecs: rk3308: restore MICBIAS voltage after reset
+Date: Sun,  1 Nov 2026 12:01:20 +0800
+Message-Id: <20261101040125.1864141-2-zhengxing@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261101040125.1864141-1-zhengxing@rock-chips.com>
 References: <20261101040125.1864141-1-zhengxing@rock-chips.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa195455e0a03a8kunm8fccdc7416d2b3
+X-HM-Tid: 0aa19545536003a8kunm8fccdc7416d29a
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTUsZVh4YTh5PQklCGEofQ1YVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaTBlJVk5CGhhDShhJT0xIGlYVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
 	pKQk1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=iV0/Z47zujkmVsKhOgV0P3dE+FK8XS/uzV/7EMjTv4eDJvTqOqLL9pG6B/2JpkxxhCV3z+QCntzn5fCWoDr8gpPSESiSjthfGCbrqsK140Fkm/eIPDI3F2YwByUgORp38wR+5EOCxWGvWZuxtsrS9GpRJxOF4e6ykH+eREqHLSU=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=pThS4s7jZsUvLNnzBEk4Mx5yZuyvy+qhE7GbJU+ofLU=;
+	b=MJkEViPBLLrSVBmi0yY4NY0W388ta6Dsn8D9yLl6XkrKHhyUi6ddDSb32eZVBeQbHx5/vHz0E19Ay8fYxJd6Q7SVG/ICIcU7vuPpja7VHl+Co21D3eSmoB70q6UxBQ1X3IITrTEjxDYXAL3OCTsEAEnoHelm/ZKimyc3vY4SfZo=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=WIsAYVuA2tUNACU+9ZJPOaIId0MsnHlyEuV2LWfZyCs=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261031_210200_903637_3369212E 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20261031_210201_749355_047BDC51 
+X-CRM114-Status: GOOD (  10.00  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,108 +90,53 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Allow boards to describe the internal ADC-group mux with rockchip,adc-
-grps-route. Validate all four group IDs before updating the GRF and
-configure the physical ADC groups selected for the requested PCM channel
-count.
+The platform probe programs the requested MICBIAS voltage before
+registering the component. The component probe subsequently resets the
+codec, losing that setting before capture starts.
 
-Reject duplicate and out-of-range IDs and incomplete mappings. Preserve
-the existing identity mapping and leave the GRF unchanged when the
-property is absent.
+Cache the validated voltage selector and apply it during component
+initialization after reset. Keep the reset selector when the property is
+absent.
 
+Fixes: 4ed0915f5bc4 ("ASoC: codecs: Add RK3308 internal audio codec driver")
 Signed-off-by: Xing Zheng <zhengxing@rock-chips.com>
 ---
- sound/soc/codecs/rk3308_codec.c | 44 +++++++++++++++++++++++++++++++--
- 1 file changed, 42 insertions(+), 2 deletions(-)
+ sound/soc/codecs/rk3308_codec.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
 
 diff --git a/sound/soc/codecs/rk3308_codec.c b/sound/soc/codecs/rk3308_codec.c
-index fc7e20e82700..319b2391dd9b 100644
+index a3d41cd8150d..7a18ff45e391 100644
 --- a/sound/soc/codecs/rk3308_codec.c
 +++ b/sound/soc/codecs/rk3308_codec.c
-@@ -28,6 +28,7 @@
- 
- #define ADC_LR_GROUP_MAX		4
- 
-+#define GRF_SOC_CON1			0x304
- #define GRF_CHIP_ID			0x800
- 
- enum {
-@@ -47,6 +48,7 @@ struct rk3308_codec_priv {
+@@ -46,6 +46,7 @@ struct rk3308_codec_priv {
+ 	struct clk *mclk_tx;
  	struct snd_soc_component *component;
  	unsigned char codec_ver;
- 	u32 micbias_level;
-+	u32 adc_grps[ADC_LR_GROUP_MAX];
++	u32 micbias_level;
  };
  
  static struct clk_bulk_data rk3308_codec_clocks[] = {
-@@ -794,7 +796,7 @@ static int rk3308_codec_adc_dig_config(struct rk3308_codec_priv *rk3308,
- 	 * grp 3 = ADC7 and ADC8
- 	 */
- 	u32 used_adc_grps;
--	int grp;
-+	int grp, idx;
+@@ -840,6 +841,10 @@ static int rk3308_codec_initialize(struct rk3308_codec_priv *rk3308)
+ {
+ 	int grp;
  
- 	switch (params_channels(params)) {
- 	case 1:
-@@ -829,7 +831,8 @@ static int rk3308_codec_adc_dig_config(struct rk3308_codec_priv *rk3308,
- 		return -EINVAL;
- 	}
++	regmap_update_bits(rk3308->regmap, RK3308_ADC_ANA_CON07(0),
++			   RK3308_ADC_LEVEL_RANGE_MICBIAS_MSK,
++			   rk3308->micbias_level);
++
+ 	/*
+ 	 * Init ADC digital vol to 0 dB (reset value is 0xff, undocumented).
+ 	 * Range: -97dB ~ +32dB.
+@@ -997,9 +1002,8 @@ static int rk3308_codec_set_micbias_level(struct rk3308_codec_priv *rk3308)
+ 				     "Invalid value %u for 'rockchip,micbias-avdd-percent'\n",
+ 				     percent);
  
--	for (grp = 0; grp < used_adc_grps; grp++) {
-+	for (idx = 0; idx < used_adc_grps; idx++) {
-+		grp = rk3308->adc_grps[idx];
- 		regmap_update_bits(rk3308->regmap,
- 				   RK3308_ADC_DIG_CON03(grp),
- 				   RK3308_ADC_L_CH_BIST_MSK | RK3308_ADC_R_CH_BIST_MSK,
-@@ -1086,6 +1089,39 @@ static int rk3308_codec_set_micbias_level(struct rk3308_codec_priv *rk3308)
+-	regmap_update_bits(rk3308->regmap, RK3308_ADC_ANA_CON07(0),
+-			   RK3308_ADC_LEVEL_RANGE_MICBIAS_MSK,
+-			   mult << RK3308_ADC_LEVEL_RANGE_MICBIAS_SFT);
++	/* The component probe resets the codec after this property is parsed. */
++	rk3308->micbias_level = mult << RK3308_ADC_LEVEL_RANGE_MICBIAS_SFT;
+ 
  	return 0;
  }
- 
-+static int rk3308_codec_adc_grps_route(struct rk3308_codec_priv *rk3308)
-+{
-+	struct device_node *np = rk3308->dev->of_node;
-+	unsigned int seen = 0, val = 0;
-+	int grp, ret;
-+
-+	for (grp = 0; grp < ADC_LR_GROUP_MAX; grp++)
-+		rk3308->adc_grps[grp] = grp;
-+
-+	if (!of_find_property(np, "rockchip,adc-grps-route", NULL))
-+		return 0;
-+
-+	if (of_property_count_u32_elems(np, "rockchip,adc-grps-route") !=
-+	    ADC_LR_GROUP_MAX)
-+		return -EINVAL;
-+
-+	ret = of_property_read_u32_array(np, "rockchip,adc-grps-route",
-+					 rk3308->adc_grps, ADC_LR_GROUP_MAX);
-+	if (ret)
-+		return ret;
-+
-+	for (grp = 0; grp < ADC_LR_GROUP_MAX; grp++) {
-+		u32 input = rk3308->adc_grps[grp];
-+
-+		if (input >= ADC_LR_GROUP_MAX || (seen & BIT(input)))
-+			return -EINVAL;
-+		seen |= BIT(input);
-+		val |= input << (grp * 2);
-+	}
-+
-+	return regmap_write(rk3308->grf, GRF_SOC_CON1, (0xff << 16) | val);
-+}
-+
- static int rk3308_codec_platform_probe(struct platform_device *pdev)
- {
- 	struct device_node *np = pdev->dev.of_node;
-@@ -1131,6 +1167,10 @@ static int rk3308_codec_platform_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, rk3308);
- 
-+	err = rk3308_codec_adc_grps_route(rk3308);
-+	if (err)
-+		return dev_err_probe(dev, err, "Invalid ADC group routing\n");
-+
- 	err = rk3308_codec_set_micbias_level(rk3308);
- 	if (err)
- 		return err;
 
