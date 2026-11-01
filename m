@@ -2,52 +2,51 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BB18606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 14:07:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35FBA606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 14:10:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Urlyb4Rb;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rlZMWP5S
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dvgEte4x;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=X1bieIVb
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=5F77cYEZGtdp//DOKdgD2RKyC5vHfZcmQ0ZLgGs8sZA=; b=Urlyb4RbGgDC9N
-	UGeG4i0ecSflgZBfE9pl4VFdl2la//dFiHWZ64+4kJE6ga/LECtpZAO310FgZFl5AhXJOgecJb3fZ
-	urMYIp4Mlr6ckd2WaQ+xRY2V5+fW+9Jdmoedsloti1lsBFkl2vNf4SCZJpNCLOrGgaRWKerWNcFDl
-	e8XjAH+4BVJGaqBMrZEyHww5d0cfzO+rUN8bMLSvqZGFukRyX6bWpr5BCO50m7hiOxmlbGBjNhipn
-	RUNXK5z6QqQVIiShGA+GNbGhojKYNk0Xk3COdx/LeY/o7j1y3AV0FCwKQgE50lSv3TgjWnAGbyAuH
-	eDaqEdbikorHbYncM4Kw==;
+	List-Owner; bh=MkwmyvkEVjRtDWYR5GqzWTgmyyizRWCCTfKNvyyK1JE=; b=dvgEte4xknraqO
+	183DtqTjVWM9WsYbhxJxvpmTCdxCmcImS0VGxxXpH4V2Do+zui2DOtx3uCaIhEWrBhnS0z4m7qKu8
+	vHQI5DWNnJGh/3aeknfpNmlR4AmMP2bburaxFZVwBXDOluSlvL+EJHNMfflRS51VyXxdf8alEkXYw
+	7ouNSmGidm7pqhDiAXSSDvHY5VIlgSm6qhLpU92gZfQb/LVYvdrJx4cKW/ERvRxSWgK6S4Q/ayNDl
+	3Rsm7tt3ZnyQnQznGyz/s7JOS2a5eps5yPaMfg0mpMlG0dA9sDZ2s0ErFw+0SbDE1d3TSf1AlH2ye
+	41W7nqsteaZeW48JVr3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNWDj-0000000EZP8-32x9;
-	Sun, 01 Nov 2026 14:07:39 +0000
-Received: from out-41.mta1.migadu.com ([2001:41d0:203:375::29] helo=mta1.migadu.com)
+	id 1xNWG7-0000000EZbi-0fLZ;
+	Sun, 01 Nov 2026 14:10:07 +0000
+Received: from out-130.mta0.migadu.com ([2001:41d0:1004:224b::82] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNWDh-0000000EZOD-2DPz
+	id 1xNWG4-0000000EZbD-2IzP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 14:07:38 +0000
+	Sun, 01 Nov 2026 14:10:05 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=buDOHrSxqP03PrEBlJ3QvBxrpymco82p9buINaigu+U=;
+DKIM-Signature: a=rsa-sha256; bh=XeOvI8Uurnq6I/6gF8mpx0rDxIIEfThiP9X/LsYPomA=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793542055; v=1; x=1794146855;
- b=rlZMWP5Sh9QyAe/IXJLWd27+M8HWUkJ0aIqEk7sivKhnPL8Xmqk45/JzOn2YVpYRfUChRFZY
- pReYdawuKGtGQe5MwEMd3mg6hYN7d/7i87E5LoUt+Y1SqztdEgsmBG4DeKF6SeILA/QXXfdxLho
- Icd6KSBrLLuJIyCWYM90eAWY=
+ t=1793542201; v=1; x=1794147001;
+ b=X1bieIVbAc9PaBjqG/eLArr+StyQTvXUc5bH4R6hvTuxxwQ25+sPOgpT2Gs7wNZiy/DGnwKZ
+ 2Zjkaf6InGiauzZPuzugS0SCeEwXfSEEFlA9jrJmAqZhCQ/7gn9vjZnRJFCVMGlavMh6tktCy1G
+ JiYg9uDQDtpjHdhg0NYgblxI=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 5e03d0b85d5e79d6;
-	Sun, 01 Nov 2026 14:07:34 +0000
-X-Mizu-Trace-ID: 5e03d0b85d5e79d6
+Received: by smtp.migadu.com with ESMTPS id 8720dda60dada96a;
+	Sun, 01 Nov 2026 14:10:01 +0000
+X-Mizu-Trace-ID: 8720dda60dada96a
 X-Migadu-Flow: FLOW_OUT
-Message-ID: <1b44d01d-e3d6-4ce3-ae0f-9d76b8139487@linux.dev>
-Date: Sun, 1 Nov 2026 14:07:33 +0000
+Message-ID: <fb667673-2ee3-4dec-ac1f-dd88c1efb760@linux.dev>
+Date: Sun, 1 Nov 2026 14:09:56 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 04/14] drm/tidss: Drop the tied off video port check
- from mode validation
+Subject: Re: [PATCH v4 05/14] drm/tidss: Remove the unused vp_bus_type feat
 To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -60,15 +59,15 @@ To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
 Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 References: <20261029-beagley-ai-display-v4-0-dc7f2b532478@ideasonboard.com>
- <20261029-beagley-ai-display-v4-4-dc7f2b532478@ideasonboard.com>
+ <20261029-beagley-ai-display-v4-5-dc7f2b532478@ideasonboard.com>
 Content-Language: en-US
 From: Aradhya Bhatia <aradhya.bhatia@linux.dev>
-In-Reply-To: <20261029-beagley-ai-display-v4-4-dc7f2b532478@ideasonboard.com>
+In-Reply-To: <20261029-beagley-ai-display-v4-5-dc7f2b532478@ideasonboard.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_060737_727762_7D1B69B4 
-X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-CacheID: sfid-20261101_061004_737268_4B9A992A 
+X-CRM114-Status: UNSURE (   6.84  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -92,15 +91,12 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 
 On 29/10/26 10:18, Tomi Valkeinen wrote:
-> dispc_vp_mode_valid() WARNs and rejects every mode on a video port that
-> is marked as DISPC_VP_TIED_OFF in the 'vp_bus_type' feat.
-> 
-> The check is redundant, as nothing in the DT will be connected to the
-> tied off VP, and thus the driver can never do a mode_valid call for it.
-> 
-> Remove the check, and rely on the DT to be correct.
+> Nothing reads the 'vp_bus_type' feat any more, and can be removed.
 > 
 > Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+
+The 'vp_bus_type' has indeed been troublesome when I worked on tidss.
+Happy to see the driver work without it now! =)
 
 Reviewed-by: Aradhya Bhatia <aradhya.bhatia@linux.dev>
 
