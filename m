@@ -2,72 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A0AC606DB66
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8ADD2606E501
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PM9wsrFl;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dkhr+eF3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YiFElXwQ;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FILr4eAK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=1QVLcxKIGpBrR1ls29kmgMJV8dBu1FUp9t501+9SlJY=; b=PM9wsrFlEL5Mmu
-	MuL1BTed36oHlInCsj0bg6BM+/EH97fwkdPVNzzNwYac+VsOtWIT7q9SkCpCZNtAdygEb4uk3FzKw
-	h7bbXO5yVpls5k9WL91rF/390sQYiM7m96AzFiJ8JiLaw+8U/hNdKHIjb14ArsAFw0mlr236Zhbs3
-	uxiJnQERHrVObqnICfhqI2rhnH09UUBXURyWAmVQvZ8jXjlLXNCnYGhzGBIHbQFQC/VrOGFkvBMyw
-	eHY5YZQpErv8iEwMjOmdhFr48yYfNfCm4J4Sa/izGnsEQiqXkXSNvJRBDRHROcS3H9X9RKUfP47UP
-	WsucR9I84NkW6dA63QFg==;
+	List-Owner; bh=ZBbWyt1tVlT8vsng1tUZth+SHT9mZ3wIi2BBqX1Sd68=; b=YiFElXwQ36f4CI
+	k03alfxjy47q699GoDNC8usVP75qpDst2skRCiv5fFiqy3SquxNr0TI7lIzLJBrfdkwkSgjd1Rw3r
+	nbXRZzyT6A4hEDMJ/47+4ny2Up2IQRIv6PCVt12XqjbveCydNMDNG4jsmRzeataVsMn007VQklDcl
+	pHO/JAjr3hYhbz0Smmil4AWUGMJqvLkfc9x21hOzYGSwTA7fN77RYiL4APEzso3v3l3TfwlWc0gyQ
+	m/hckFpEpYCg8+hRiKXQLBcozHx/FY/oEIK+x40Oz57f9SibkDxnOagTr2kowF9Fn2FhpPnFeYAi7
+	P10VmUV4a0V0LA/inADQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqh-0000000F07p-2nxh;
-	Sun, 01 Nov 2026 22:16:23 +0000
+	id 1xNdqj-0000000F0D5-2nXp;
+	Sun, 01 Nov 2026 22:16:25 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqO-0000000EzJY-15Ky;
-	Sun, 01 Nov 2026 22:16:04 +0000
+	id 1xNdqP-0000000EzNt-3AT7;
+	Sun, 01 Nov 2026 22:16:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B123D41FEF;
-	Sun,  1 Nov 2026 22:16:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 887CB1F00A2C;
-	Sun,  1 Nov 2026 22:16:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3018944033;
+	Sun,  1 Nov 2026 22:16:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ECB51F00919;
+	Sun,  1 Nov 2026 22:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571363;
-	bh=1QVLcxKIGpBrR1ls29kmgMJV8dBu1FUp9t501+9SlJY=;
+	s=k20260515; t=1793571365;
+	bh=ZBbWyt1tVlT8vsng1tUZth+SHT9mZ3wIi2BBqX1Sd68=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=dkhr+eF3q1vLH5j+Vt4HH9N1vxJVl63OY3ZWjO6x3dSLn6eQyYKacs6+oM+3Qn+lI
-	 thS97Vkt+DR9px4LyR/SisaZrzLD9G4XkXITq3BcSDr6ocIppa7a8idnye+qEIqM/4
-	 lA297xuw1etIPcz1D0z9fjeTfmdqf6SQPW4T9L8XHNuLzhxg5drxCmE0d9RsQKGE7f
-	 z+lpwxPVzUbcNwvBGGrQmdsobEkchSaH6YXFrcneezcbTudB2i/2DWGMJc6AtOWD6C
-	 C8++koYKIE/Rb+G/udcYaxQ5Bv2MDWCQ3FwdoYvX/c9BzD2IHxxqLnrHL9kBU1vqtn
-	 vMh0jbZFxh6bw==
+	b=FILr4eAKrrpVTY1w+0lPnmpm4m+KvSLrl1sI3qLC6vcTCXawxNaX6GqkUyiku2N8g
+	 lSaWKAfAnI1XlRfVF9lnSnyVCerEMHgjtn517BWK4EO9WUPrVqt6SLDsCV7BzVCqjZ
+	 cSQEfzyYjr1CnowfD/wxZKufFzlOXp3QTuyBM9pjdtkgMOzeW3qpLSd39GREJYBd3+
+	 GcPvcSv8rh2pGUVKzlYQVzgfErpTGhd4NvBEJAh0VpIWMt3PNwVujLLLxwc2d4Ogfc
+	 Vs19Xseip7SCtUvLA97omV3Nhf2wU3N3dBTnfASZIsbZSaa3V5IHAJDmRRc9WXQasM
+	 IWbAGr85MFw7Q==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D35B38003B8;
-	Sun,  1 Nov 2026 22:16:03 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 031D338003B8;
+	Sun,  1 Nov 2026 22:16:05 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
- set_memory/change_page_attr core
+Subject: Re: [PATCH v2 0/6] riscv: Make IPI_MAX visible and use it
+ consistently
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357136205.2624073.6611857519856364383.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:02 +0000
-References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
-In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
- aou@eecs.berkeley.edu, akpm@linux-foundation.org, luto@kernel.org,
- bp@alien8.de, jackmanb@google.com, catalin.marinas@arm.com,
- dave.hansen@linux.intel.com, david@kernel.org, chenhuacai@kernel.org,
- mingo@kernel.org, mingo@redhat.com, kevin.brodsky@arm.com,
- liam@infradead.org, ljs@kernel.org, mhocko@suse.com, palmer@dabbelt.com,
- pjw@kernel.org, peterz@infradead.org, hpa@zytor.com, surenb@google.com,
- tglx@kernel.org, vbabka@kernel.org, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, x86@kernel.org, dave.hansen@intel.com,
- jgross@suse.com
+Message-Id: <179357136354.2624073.14746852216689780189.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:03 +0000
+References: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
+In-Reply-To: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, daniel.lezcano@kernel.org,
+ tglx@kernel.org, radu@rendec.net, anup@brainfault.org,
+ tiffany.lin@mediatek.com, andrew-ct.chen@mediatek.com,
+ yunfei.dong@mediatek.com, minghsiu.tsai@mediatek.com,
+ houlong.wei@mediatek.com, mchehab@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, tip-bot2@linutronix.de, nathan@kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,57 +87,33 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Dave Hansen <dave.hansen@linux.intel.com>:
+by Hans Verkuil <hverkuil+cisco@kernel.org>:
 
-On Tue, 21 Jul 2026 19:23:23 +0300 you wrote:
-> Currently there are 6 independent implementations for set_memory and
-> set_direct_map APIs.
+On Fri, 11 Sep 2026 03:27:08 +0000 you wrote:
+> This series removes the implicit assumption that RISC-V supports exactly
+> eight IPI message types.
 > 
-> With increasing demand for kernel page table manipulations, for example
-> "Direct Map Removal Support for guest_memfd" [1] and "mm: ASI direct map
-> management" [2], it makes sense to have a generic core for kernel page
-> table manipulation in mm/ with helpers in the architecture specific
-> code.
+> Currently, the SBI, CLINT and ACLINT SSWI IPI providers use
+> BITS_PER_BYTE when sizing the generic IPI mux, while IMSIC carries a
+> separate IMSIC_NR_IPI definition set to 8. These values happen to match
+> IPI_MAX today, but neither is the proper source of truth for the number
+> of RISC-V IPI message types.
 > 
 > [...]
 
 Here is the summary with links:
-  - [RFC,01/18] x86/mm/pat: Don't gate cpa_lock on debug_pagealloc_enabled()
-    (no matching commit)
-  - [RFC,02/18] x86/mm/pat: fix effective RW computation in lookup_address_in_pgd_attr()
-    https://git.kernel.org/riscv/c/ebaf7c9bbb1e
-  - [RFC,03/18] x86/mm/pat: replace x86-speficic pg_level with generic pgtable_level
-    (no matching commit)
-  - [RFC,04/18] x86/mm/pat: use page table accessors for effective RW/NX bits
-    (no matching commit)
-  - [RFC,05/18] x86/mm/pat: use a generic helper for the large page size
-    (no matching commit)
-  - [RFC,06/18] x86/mm/pat: introduce an inline helper to check if alias needs update
-    (no matching commit)
-  - [RFC,07/18] x86/mm/pat: introduce cpa_handle_large_page()
-    (no matching commit)
-  - [RFC,08/18] x86/mm/pat: use cpa_split_data structure to pass split parameters
-    (no matching commit)
-  - [RFC,09/18] x86/mm/pat: use a single locked lookup for PTE verification
-    (no matching commit)
-  - [RFC,10/18] x86/mm/pat: move the large page size calculation to should_split_large_page
-    (no matching commit)
-  - [RFC,11/18] x86/mm/pat, mm: set_memory: pull change_page_attr() core to mm/
-    (no matching commit)
-  - [RFC,12/18] x86/pat/mm, mm/set_memory: abstract the CPA page table lock
-    (no matching commit)
-  - [RFC,13/18] mm/set_memory: read page table entries with pXdp_get()
-    (no matching commit)
-  - [RFC,14/18] x86/mm/pat, mm: move cpa-test to mm
-    (no matching commit)
-  - [RFC,15/18] riscv: convert set_memory to the generic CPA implementation
-    (no matching commit)
-  - [RFC,16/18] riscv: make set_direct_map_*_noflush actually noflush
-    (no matching commit)
-  - [RFC,17/18] loongarch: convert set_memory to the generic CPA implementation
-    (no matching commit)
-  - [RFC,18/18] loongarch: make set_direct_map_*_noflush actually noflush
-    (no matching commit)
+  - [v2,1/6] riscv: smp: Move enum ipi_message_type to asm/smp.h
+    https://git.kernel.org/riscv/c/1ae91dc397eb
+  - [v2,2/6] riscv: sbi: Use IPI_MAX for SBI IPI muxing
+    https://git.kernel.org/riscv/c/2a0d49514f29
+  - [v2,3/6] clocksource: clint: Use IPI_MAX for IPI muxing
+    https://git.kernel.org/riscv/c/f6326e26f602
+  - [v2,4/6] irqchip/aclint-sswi: Use IPI_MAX for IPI muxing
+    https://git.kernel.org/riscv/c/a89546503a0e
+  - [v2,5/6] irqchip/imsic: Use IPI_MAX instead of IMSIC_NR_IPI
+    https://git.kernel.org/riscv/c/5b104000160d
+  - [v2,6/6] media: mtk-vpu: rename IPI_MAX to IPI_VPU_MAX
+    https://git.kernel.org/riscv/c/d1d2645e755b
 
 You are awesome, thank you!
 -- 
