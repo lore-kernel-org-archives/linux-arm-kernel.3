@@ -2,82 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E7A26074135
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CB076074136
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wG8pcIXb;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=O8zRDlrz;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=waKZaezF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YILl2m1P;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=DFmTlMB+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=LKx3D3L8i20KkgdM053WRZoZcyEWptAt+bunmlcQ35w=; b=wG8pcIXbhwymfe
-	Ji3Z0xqG+uPCqVxeW/loPqCKiR2WdxMwgBG2FNXVgK9mccWrxwCJRWefmggsc0VuS3/dAV7Xb1HX2
-	Db5IN3QYUqvwhDKxGLtuQBkKImiK32ezSkwfRBlWLNFopO42sKgtEV7tw4GkfgcxESpHeuSJZ4es6
-	j+dc+LsYrI4Z5EDoyCQIHPsIV6pCEn9pM8VH+Y7dPc2QLQtYvdC5AMfPx0JAmVp36SshmEkuBAqWE
-	b8doN8UtswC+7GP4xRfas3ctZKf7QfHULronw8IzMxDN5g7IiqL+9jzSK1ve90LM9emLcceWHCW46
-	IEl/r6NBp4v02eV/lkyw==;
+	List-Owner; bh=/5lqkhXjPOMaaYwItfh5U9VLYOPhSKVw3/zHayeWQek=; b=YILl2m1PB6ZdGV
+	RhYOnecBmSSFTRzDfNl3KhKQjyARcftZsO4z+bJ96Jrq1cYWMaiiZv1UjgI9GjWPMBVtm3F2SIhc/
+	2ej5NxtGF1kbzdQxWX8y55/9pzy7K3+kuFiuvkaQkCPOF+vcroutEviDmsPHnQn2Z0KLClMedPvS+
+	RnnxLT1Inya+kBjBuD3bihIoRDfrBf88woLlW1swE3/RE8ln3Excyk2GqZU+Z6yf3PL9NsT9NKOdr
+	7wqqg2Y7xYLpFs+W9U24/lNPkC6qVfgYcQEyNRjXar+sX0G7OnNsCDrD1E6jUyCVXHD8+/TY8iSH8
+	Bq6lIMH/OA0CVREdF9iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrG-0000000F1nE-30TU;
-	Sun, 01 Nov 2026 22:16:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqu-0000000F0f5-0aYh;
-	Sun, 01 Nov 2026 22:16:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=LKx3D3L8i20KkgdM053WRZoZcyEWptAt+bunmlcQ35w=; b=O8zRDlrz2DGoJ8qPlaRkBDXsLH
-	Xpo1Ao0HKcjwMQjmhUYvqnp/W9HzZkrKxjmPg6vb/H7kttN7bsEVsncWU6yeQ0nJwXYjKFOm/gxl1
-	G/IU4nR2U3mz6IjwOZjSHANjw4IfglLHG7TXjKxBbCK0xke9FSKMfph3qdObdxL/PUFfCqVpaSOsw
-	AgyVd4EIdqiDlHJz6WHFMbIiqgE5Uv3oXw3hyU3adHH2KhC+a1sktSeVMyvFr0BYzR4Axaj4OWgQr
-	2jcyywPkgXONFvyyVm8aIQFaRi5oEmSOXcVOo6LNc0FXKBC5Px7JDzV6Lvt3ivZFXaUP3RG6/QQKh
-	V8obv05g==;
+	id 1xNdrA-0000000F1T0-3fLF;
+	Sun, 01 Nov 2026 22:16:52 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqg-00000001seo-46yT;
-	Sun, 01 Nov 2026 22:16:27 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNdqd-0000000Ezq9-1YV0;
+	Sun, 01 Nov 2026 22:16:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=LKx3D3L8i20KkgdM053WRZoZcyEWptAt+bunmlcQ35w=; b=waKZaezFft+W4+DVAkBekptegW
-	UnVtPxS4CWRmPMUfT3usNMXRPi8pgRhKiYrCC2qldwTF6kvbPud9Rv7dp711s66/Cn4JMTgHi4jE/
-	Dan6sZi23Dgp9BRiTCR7QsGIrt1bO0O/kbzrt5213L9azRmU/aVc4z29eJoGXc9mYP/AOEd2P5Hti
-	8HVpHlQ8NcnOSef9F2acRL0TLvgmxMqtbSeCZ2Nw5bKT7LAO1hk036BgG7raWsIcnEKJJVWnIefEE
-	cagbA2Zxzi5h0KO962bVDJQPnzq6Vpv5qsRfmX0xor0slj/x1u/uwVDKKkJaw262eKa9Xvs0FTML2
-	lMCkZ8Yw==;
+	bh=/5lqkhXjPOMaaYwItfh5U9VLYOPhSKVw3/zHayeWQek=; b=DFmTlMB+u5KACGAPOZfSN+xwXk
+	gvM5TbEwpGVgGhejDSm2o4DjxMmcMHL9x5/ou8jWCSCj8HqvUlIetE2ZaUlCjANI27A2MGi+OiqzN
+	VTX9gfXQtXBJZSCCqCS+snckWHSFt8YE+4k1oeQ6KaMOyNRzfVTIAIg3YOLQz1Xkxs+gBRj+3DIxF
+	FDeXoTMbqAxhksIaxc1A8kY13ZWwxNC3NGXgz8+nKAJbmyrkLUo28czjRzceeuFVNsuMuVeneEEp9
+	pxe5ZpMygdN0kQiB1eBSDGWJqPLoBt0gUhpxmOntg/24ATVD7OpcJ3q//EUWSrlZoBgF9ccN/6m3e
+	vp4/czgA==;
 From: Heiko Stuebner <heiko@sntech.de>
-To: Guenter Roeck <linux@roeck-us.net>,
-	Jean Delvare <jdelvare@suse.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Igor Velkov <iav@iav.lv>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+To: linux-kernel@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH 0/2] Label the fans on Kobol Helios64
-Date: Sun,  1 Nov 2026 23:16:05 +0100
-Message-ID: <179357136496.4108155.6955639670454082907.b4-ty@b4>
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Dennis Gilmore <dennis@ausil.us>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix adc-keys wiring for Orange Pi 5 family
+Date: Sun,  1 Nov 2026 23:16:04 +0100
+Message-ID: <179357136490.4108155.2920979357901660151.b4-ty@b4>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261018-helios64-fan-label-v1-0-69a3f96d4efa@iav.lv>
-References: <20261018-helios64-fan-label-v1-0-69a3f96d4efa@iav.lv>
+In-Reply-To: <20261012033929.2317231-1-dennis@ausil.us>
+References: <20261012033929.2317231-1-dennis@ausil.us>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_221624_717856_69D25D47 
-X-CRM114-Status: GOOD (  10.05  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20261101_141619_491921_3CACF1DD 
+X-CRM114-Status: GOOD (  12.82  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,31 +80,24 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
-On Sun, 18 Oct 2026 07:54:58 +0300, Igor Velkov wrote:
-> Helios64 has two identical PWM fans, and userspace can tell them apart
-> only by their platform device names. Patch 1 makes pwm-fan.yaml
-> reference fan-common.yaml, as Rob suggested, which also allows label;
-> the hwmon core already exposes it as the label attribute. Patch 2 names
-> the fans after their headers, P6 and P7.
+On Sun, 11 Oct 2026 22:39:29 -0500, Dennis Gilmore wrote:
+> When working on u-boot for the Orange Pi 5 Pro it was called out that
+> the Pro does not have a recovery button and was missing the definition
+> for the maskrom button.
 > 
-> To: Guenter Roeck <linux@roeck-us.net>
-> To: Jean Delvare <jdelvare@suse.com>
-> To: Rob Herring <robh@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Heiko Stuebner <heiko@sntech.de>
-> Cc: linux-hwmon@vger.kernel.org
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-rockchip@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
+> The shared rk3588s-orangepi-5.dtsi describes a "Recovery" adc-keys
+> button on SARADC channel 1. This is correct for the Orange Pi 5 and
+> 5B, but the Orange Pi 5 Pro schematic shows channel 1 is pulled up
+> with no button ever wired to it, so the key can never be pressed.
+> Each board's schematic also shows SARADC channel 0 is connected to
+> a real, populated Maskrom button, but no board described it.
 > 
 > [...]
 
 Applied, thanks!
 
-[2/2] arm64: dts: rockchip: Label the fans on Kobol Helios64
-      commit: f80a26e10a39dd51061513db96fb525244e5e890
+[1/1] arm64: dts: rockchip: Fix adc-keys wiring for Orange Pi 5 family
+      commit: 591ff7dda0603cf21cfe3bfd7d9b1d10be8154c1
 
 Best regards,
 -- 
