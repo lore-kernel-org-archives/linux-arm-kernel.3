@@ -2,65 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9619C6072B18
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97DCC607350A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iQCiqmMn;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KSzB7rsy
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KreCnOHt;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=nf3L9ctJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ah3ajt4QC1IW7eRN0niJ/5zSqKv/5nKHPQ3R7wAM5UA=; b=iQCiqmMnvPXRLa
-	uDkCSIfVdu4I9FZa8Mp7AUGxfU5+bUt2wY11HN++kv6TFOykeH2Nm1MZh8UOolBOVYaA2kPwMhFM1
-	xwtmyCAjLiqXWEbiMNOoejlbt1oXVZku+sfSmWyETjZFuh8i12TpJdLiCrPRPOGYY5CYhkpMW/x4t
-	ufbFG+T8cvNcrPSS64jvCk4yqVVO+Jb5mOpIwvPqPy5zjSL9Bd2zYX5/cLGsgWyR+6RofZwUtjq+i
-	ARbI9Ju1ZWirBO28yh7EdtSabzrmOjzdF5QMYqEl23g5RqvGxVfCjeL9ODSj70JLR6gxMJp8+0uIR
-	9XZI4IDPYavAIFSrV6rA==;
+	List-Owner; bh=gmi5uewuXMed4CloBbecG8Sst+u3j+UWzS8NSli01pM=; b=KreCnOHtx5yKvb
+	cNcxUEczaa8HmXQOqtqrFxK/Rlc1uOVPbKSBLQ2bhbjT6RjDK36eWbyTnSCOdMw8yCNu5BuTumf5d
+	S+0f7DVS14aIi3nOavobMJqP6aJZTLeiTvgNTsRjfjkhPeRmdHCLEPGmWpPfwl8V4QwM1J152bRet
+	umZWeA953tQRQd/7Q7WxcXgUSEe4b3f2JxeZ7i/F27CQBnkUqH1fJoR+8Cyd/nMzPBgHW8coDkdhk
+	viTNsBC21fU2MQUMvotqSHN26dCfOaVuHWlbVON8EDX8JwDFXbfjbp/Zsda5HBsZ00VeYjf0jz/3k
+	BXmBp+Hkkd2BZjxT7kLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdr6-0000000F1CB-1BRw;
-	Sun, 01 Nov 2026 22:16:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNdr9-0000000F1PL-3bpH;
+	Sun, 01 Nov 2026 22:16:51 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqp-0000000F0V2-2fXU;
-	Sun, 01 Nov 2026 22:16:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2A52143E8B;
-	Sun,  1 Nov 2026 22:16:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E0EE1F000C1;
-	Sun,  1 Nov 2026 22:16:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571391;
-	bh=ah3ajt4QC1IW7eRN0niJ/5zSqKv/5nKHPQ3R7wAM5UA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=KSzB7rsysmHj0NokeU4XZg63gm2lZZdwMuvJUYGPqc86oRcCXcdwCcdn/X44tOsd9
-	 nwm5Oc5ZpOdo/oqSt+P5wM/TeNcChfgfTEEmFprm1o+LPKvCL8SdOtWAyaggCELfQh
-	 2PRfWu5ZmJosolN7pss10luoDpaHAYqwNOcxfP0bGYxrAyE495LbgHmtMAA/yM6exP
-	 GezoOqDSJKx+24L9G/GVFvGAOopbblKkz+hSBtiqSsSiqvA53B+2Ma1R4JNTcnhcl9
-	 n+3XgL1z82DyaRo4usFexg9sXSFt5jSkISdkxZk3dWICHJkO3acHI1xpTP+LnHcgaI
-	 4OWDC53y1uVRA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 0306E38003B8;
-	Sun,  1 Nov 2026 22:16:31 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1xNdqe-0000000Ezus-2EbV;
+	Sun, 01 Nov 2026 22:16:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=gmi5uewuXMed4CloBbecG8Sst+u3j+UWzS8NSli01pM=; b=nf3L9ctJZheEiENewBWgF4O7d4
+	w0woJPQP2GTmpWl74VRcox9MjZ2Deb0eqUSRtStoHXGL9DhHxYq/zlQ0L1r4t9itNO+dCC0ZdsZ8n
+	W+9LJEcSSTVgssUnhNQiuK0NPTpjWQ4Nbv3mOzBC/MVuPYSf+pJvnH3bjamx7eHC6ePCrl6WXPiic
+	+lj8Zub9f/PBFK9xwwmUasaTIwJhyjq4gviI/ZIo2RtaslKRJ/ANY3i8hKlbIV47ivDGORK6jO5XC
+	ys8iroOQVCQIM2Wvc1Yj/kQFog6AZUqcQjtAQ623egtCoMp0dq8k7xjmlKYynPNJqpmIm3gT6/YAQ
+	OsCudwrA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Igor Velkov <iav@iav.lv>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Add the GPU to Kobol Helios64
+Date: Sun,  1 Nov 2026 23:16:06 +0100
+Message-ID: <179357136494.4108155.12651749876898512929.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261011-b4-helios64-gpu-v1-1-bd83c6ecd19e@iav.lv>
+References: <20261011-b4-helios64-gpu-v1-1-bd83c6ecd19e@iav.lv>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH 02/14] irqchip: fix typos in comments
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357138979.2624073.9912661156420781171.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:16:29 +0000
-References: <20260907065328.32009-1-hemanth.selam@gmail.com>
-In-Reply-To: <20260907065328.32009-1-hemanth.selam@gmail.com>
-To: Hemanth Selam <hemanth.selam@gmail.com>
-Cc: linux-riscv@lists.infradead.org, tglx@kernel.org, radu@rendec.net,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- pjw@kernel.org, samuel.holland@sifive.com, linusw@kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261101_141620_632681_4BEA8122 
+X-CRM114-Status: GOOD (  10.27  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,37 +70,26 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@kernel.org>:
+On Sun, 11 Oct 2026 00:53:01 +0300, Igor Velkov wrote:
+> The GPU core of Helios64 is supplied by U12, a Silergy SYR838 on i2c0
+> at 0x41, with its VSEL pin on GPU_SLEEP_H (GPIO1_B6). Describe it as
+> silergy,syr828, the way vdd_cpu_b (a SYR837) is described as
+> silergy,syr827, and enable the GPU.
 
-On Mon,  7 Sep 2026 12:23:28 +0530 you wrote:
-> Fix typos in comments, reported by scripts/checkpatch.pl using the
-> misspelling list in scripts/spelling.txt.  Only touches comments, no code
-> changes.
-> 
-> Assisted-by: Cursor:claude-opus-5
-> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
-> 
-> [...]
+Applied, thanks!
 
-Here is the summary with links:
-  - [02/14] irqchip: fix typos in comments
-    https://git.kernel.org/riscv/c/726285316f8f
+[1/1] arm64: dts: rockchip: Add the GPU to Kobol Helios64
+      commit: fb33952897e8a998bf026fee7f184b474a8381f1
 
-You are awesome, thank you!
+Best regards,
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Heiko Stuebner <heiko@sntech.de>
 
