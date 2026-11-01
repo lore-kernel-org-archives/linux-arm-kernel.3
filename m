@@ -2,68 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DF25606C6C5
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72880606C6C7
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z0uO4PAV;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SmGl7Wg9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YwoAqALA;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=J7kQ17dy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=W87d5476muuX3/O8DzYP4tAKHPl6gp8nviee8ooqz2c=; b=z0uO4PAVZ6HGG0
-	APohXDDtLCjUughmqKICY9wqi1SmAuxSuQD4nplBlnQ18MOv6oRij73FAgIu2by+I1cDllgXUl++B
-	yNiN6oIWR8si5LXg1YM2GzSZ938IJJJx8EvJtRZseztHS9jHem6LVAF3fZT2B8xzCnM8FFKu07HGW
-	91PzoJKKBhc8OCRDly9YWaWwvkqsbzqMwb+ON93DOIveC3CLaYWxlEVQeMuE1jVRVSlZagRHUX8D5
-	F4pIylfH4tecuoRE6/poJzWMW+GuQl5qcDpW7CJ2ef7kfRYt4liqZzlQWVWPZWCwOMa8RDF0k5V+Z
-	mwSe1eCyfgv2DE/TR52g==;
+	List-Owner; bh=wv1ABuR7Ob1gLZHZ2qpyHBZVXGvor+J+W/F07nCfMhU=; b=YwoAqALALYCwCw
+	Y2jbtO7aeJdRqy4k4t3dUrBnwoApwfGp+0M6eLciJl6RsvpQ8vcU9cKOCWvO/ZZ60XHA10UHwgLGh
+	qZiq+MZRA85htGRhVAo87jgTOtu5sjgFd43z1qwhuPD7IC6rN54pBjX2oyPYM7B5Jo5yzQkuIDDaU
+	g/aY5e2Y8gDQKnUekp8qzgr8yYBbUrOc44cRUdYSKeIw/mycFRtdiCvxG2qgeXKrns5SRe2UE2sEt
+	k4wphooxyRV75fGH9L+dbfD7mt6ktrVxf6okysPC4MdI8Gxq8pbe+Jc6Zqb8OeTUchWfRAso3qC/G
+	DmH/JY+NvxbTWcFkCcFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqb-0000000Eznj-0LG1;
-	Sun, 01 Nov 2026 22:16:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xNdqa-0000000Ezla-1lDA;
+	Sun, 01 Nov 2026 22:16:16 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqH-0000000Ez2M-0MdT;
-	Sun, 01 Nov 2026 22:15:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 63140605CA;
-	Sun,  1 Nov 2026 22:15:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ED961F00A20;
-	Sun,  1 Nov 2026 22:15:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571356;
-	bh=W87d5476muuX3/O8DzYP4tAKHPl6gp8nviee8ooqz2c=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=SmGl7Wg9g1RxLvPfW2dALi+8QfaputCLxqfCXXzYwQxYXBE+HvzPQgFDkM9HsWvTL
-	 Xkkz0PMUmTmvi/9Cla9KrdHM8gMqSRVDrIS1Q2Awnl4sjtfhB9oKLuislGoFVvEj8h
-	 B3b5eyTdD/3KWwfeuWkUb0b+N6f8Y8ngmSseQOZcfrUINE2oZehPMiqWOBxoVj7O9T
-	 BRDW1sUwlnFaN3KWeyuMYiJv0qlIvtBeI6VC6WOVxEwu0HebGW+Scz5MniIlsKSd6F
-	 Yy+z6qlaX0muqhV6dMFi4jyvg06S8qEnYCKjcUoFuToUfoPo6JQ/ZrhT1lyDNFTzVO
-	 Loi5eGgGSeZJg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 0315838003B8;
-	Sun,  1 Nov 2026 22:15:56 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1xNdq9-0000000EypO-49kz;
+	Sun, 01 Nov 2026 22:15:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=wv1ABuR7Ob1gLZHZ2qpyHBZVXGvor+J+W/F07nCfMhU=; b=J7kQ17dyQsTsAEHG6ajo+xgzCO
+	CAaNzQK8q+FqqOxfFCRVLMxqVh8dfcyNgha8Ma+cvRRBkZvFVTnx33fcIjA1ULi9aodpNX5yYrZUG
+	Su3u7GDWgBLF5dJdSME3kryro7FPb93nBPkGJP588b5otHQkNxSQxAdmJVh5TUFgg3dbyZIHxH4HM
+	KUz+znBW3GKmQHpJvfWOibYLRa/A/JUzY1ZJ6xXRaI1lLUuk83Q0jSbnRS/hrhkl/N5xUOj2OsOzU
+	rVhknn3WovtpDtWH3paOls/PrZvs70uCXo6ARaaWTahdX7WIKWmtsKJH65XMBKB12G8i6gxaMLzT8
+	ecb0JEIw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Pufan Jin <2254650260@qq.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Jimmy Hon <honyuenkwun@gmail.com>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Enable the NPU on LubanCat 4
+Date: Sun,  1 Nov 2026 23:15:20 +0100
+Message-ID: <179357131388.4107717.16646264299235456794.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <tencent_9C3151C59C077D547095ACDC1F08B481A50A@qq.com>
+References: <tencent_9C3151C59C077D547095ACDC1F08B481A50A@qq.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v3 0/2] kexec: fix probe error codes and error propagation
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357135454.2624073.2428991164390583415.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:15:54 +0000
-References: <20260821-mpilaniy-v3-0-76b355399d2e@redhat.com>
-In-Reply-To: <20260821-mpilaniy-v3-0-76b355399d2e@redhat.com>
-To: Mukesh Pilaniya <mpilaniy@redhat.com>
-Cc: linux-riscv@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org,
- mark.rutland@arm.com, chenhuacai@kernel.org, kernel@xen0n.name,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- akpm@linux-foundation.org, baoquan.he@linux.dev, rppt@kernel.org,
- pasha.tatashin@soleen.com, pratyush@kernel.org, ltao@redhat.com,
- prudo@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- kexec@lists.infradead.org, include@grrlz.net
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261101_141550_035468_12348F47 
+X-CRM114-Status: GOOD (  11.53  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +71,34 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Mike Rapoport (Microsoft) <rppt@kernel.org>:
-
-On Fri, 21 Aug 2026 19:19:56 +0530 you wrote:
-> While debugging a misleading error on s390x where kexec -s reported
-> "syscall kexec_file_load not available" instead of the actual EINVAL
-> from a kernel command line that exceeded the architecture limit, we
-> found that some kexec image probe functions return -EINVAL instead of
-> -ENOEXEC for format mismatches, and kexec_image_probe_default() has a
-> bug where it returns whatever the last loader returned rather than
-> always returning -ENOEXEC when no loader matches.
+On Thu, 06 Aug 2026 00:57:06 +0800, Pufan Jin wrote:
+> The three RKNN cores and their IOMMUs are disabled by default in the SoC
+> dtsi, so the board has to describe the NPU supply before they can be
+> enabled.
+> 
+> This board feeds both the NPU logic and its SRAM from a single RK8602
+> output on i2c1. The vendor DTS makes that explicit by giving the same
+> regulator node two labels, vdd_npu_s0 and vdd_npu_mem_s0, and then
+> handing one to rknpu-supply and the other to mem-supply. There is no
+> separate memory rail to describe, so npu-supply and sram-supply both
+> point at vdd_npu_s0. The binding requires both properties.
 > 
 > [...]
 
-Here is the summary with links:
-  - [v3,1/2] kexec: return -ENOEXEC from image probe functions on mismatch
-    https://git.kernel.org/riscv/c/2792b4b15f14
-  - [v3,2/2] kexec: fix error propagation in kexec_image_probe_default()
-    https://git.kernel.org/riscv/c/b7c94f4d0961
+Applied, thanks!
 
-You are awesome, thank you!
+[1/1] arm64: dts: rockchip: Enable the NPU on LubanCat 4
+      commit: 77026e98dce776dc45ca7bc77c3d2ba95c39f6ca
+
+Best regards,
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Heiko Stuebner <heiko@sntech.de>
 
