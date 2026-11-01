@@ -2,77 +2,116 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ADED606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 21:19:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4606606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 21:26:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tYbrNBYZ;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YywL5wq7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=v1sN0+Sn;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=ipSPlTtH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=og55u5n1Gdmul4ausS8JyuamV2xgkOuH347fjM0yp7w=; b=tYbrNBYZOhham3
-	C8JcEbKvqmllZSXV0UUoTYi1xymf3iownKulKMhwS8l553xI9QXEAGSZPgDhj75rnM0kKLWu6MQ4+
-	9Wwu2IbbNvq69bziPae83ipMT0yO7uEiZ4nfi3UT+1K23V2QYsS2tHCJvFFO0o/8ImkburaY9PVZB
-	ZXVbzFHm6T0Pcf1/J0IvjhXLsKoTyn9IEMBd8I6cuWrEW+7FSV3/HWUJjNa+1Xe6a3/v04mkvtWR5
-	Pem3OVdfoM3fB0vn2QaYzT4hjfMYqrQ4fqh9eMfMXVoUuZkwexp6bJQ/nI5ta8bEigRTUTElmwnFq
-	cvaNywVDRIKIKYywknDw==;
+	List-Owner; bh=iA4nPd0I6kv/auIuMoh3730KHkV9NOXvNkpunrQQ30I=; b=v1sN0+Sn1RLKvo
+	KpCWfZ49efxLFZ1ijxG73vg1W41vdZRHKOXjamHB1LKIyLTW2FDolDQO3rynenixiIePB8mUuvEK4
+	NcJGVQ5MI+9uywcIZ7oPkSRyIxUB0uD4pLzBw6AwfEefe56kq0n5OmzcFVhTDVkxImfY5YKVKdVua
+	qgdoq8DQQDDo0YQnmBIuOVbPVZZAcCaI8n6dAUGLVi7qBxs9obPrZFYPDLgXl4pvsmKJnOqr/znR6
+	44efRu4jX01QaGit/J+qujViY523HZrfKQekoQ2QPpUJwgTuffBQZ3JVbZUtCfnv7EJLbeBdNBGs9
+	yZobdfOwunUs8z/26RnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNcxz-0000000EuWg-0ZG3;
-	Sun, 01 Nov 2026 21:19:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNd4h-0000000EuoP-3j0J;
+	Sun, 01 Nov 2026 21:26:47 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNcxx-0000000EuWM-1xto
+	id 1xNd4f-0000000Euo3-0Ilp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 21:19:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C2B4443F9F
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  1 Nov 2026 21:19:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B1561F00A20
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  1 Nov 2026 21:19:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793567988;
-	bh=og55u5n1Gdmul4ausS8JyuamV2xgkOuH347fjM0yp7w=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=YywL5wq7YoRgBo0wqKFw5cxBW9i7ZWpgqdFhBBeh3ttths0AddZtuwFw6zHS2KNmj
-	 r+8qOvUt8UqhKgoX7TijG9rSW8jKSMsSqhAINGtRy48wgj9aeZvV2tXiX9OEAGamoB
-	 8+ibqcGfJvRzuS2FW8yb/ezHbrJitsDSbVz6eYgdpr9OlmJU4otkylCuUwe9NFSYpX
-	 gGxZqyWjNdi74GiWdGVtZyM46GzOAsaBvcMBUliBQx23ypdldJMdg6wSBwMZY/pyMF
-	 OseIRvv8hKno+pMVugCipuaV/AVxP9mR+vvi/91lOsFj3DJNK/gNL72t/xIsqe098q
-	 JxybrAyuDCG2Q==
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-3ab35e31f6dso28295571fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 13:19:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBz43SbMahAywmRUj0eKe+cHZqRHuZB+aChH4W/6Og4eD5Mam24Mk99AfutpmMhPjWOB8vy64GBQyu9UtRrI7jPD@lists.infradead.org
-X-Gm-Message-State: APuU4Z8dNMuN5EkW/aNXOiyA2Q444Cl30jvju9eisAwOSkiNAUuCgAFy
-	I/jV7wD9WeDoKJf+R+TST4oHhs6BBxLnrfv71hckGRoO6ig0qivllCBJBxYsOc1K41mqW8t7Jpq
-	yJZqSm7GxxjubT7PE24xlzAzGD3kc0kY=
-X-Received: by 2002:a05:651c:1b8c:b0:3a9:d111:6520 with SMTP id
- 38308e7fff4ca-3aca55f2846mr26417331fa.0.1793567987240; Sun, 01 Nov 2026
- 13:19:47 -0800 (PST)
+	Sun, 01 Nov 2026 21:26:46 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-6b1f31c63ebso5539863a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 13:26:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1793568402; x=1794173202; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iA4nPd0I6kv/auIuMoh3730KHkV9NOXvNkpunrQQ30I=;
+        b=ipSPlTtHghFKzWRyp+vMft3hfKhMN7KuMBYKrt0jDRgZPGOUKtWx0186r7IMpsv62y
+         fXFqvkKyHi3fGVwKA1zgcQGgekd2JGWZ7BHK6/5nUpS5uPAxzFFBB/xc/FOB6L+d/J4L
+         BqD5/yxqDo/2tNYKgvBCI/InlTdiHBn1B/a+M=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793568402; x=1794173202;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iA4nPd0I6kv/auIuMoh3730KHkV9NOXvNkpunrQQ30I=;
+        b=D/pkqD56j001+BdwdufLjWG0xEK7MoTiwkbXx7DOppY2vXqyg6i66G6WSWxRZXZmoY
+         4gtRUCOMUDKi7DkIof8rsjeF1xQObXSHHACzm9dgwOysDIKo5mczEUDT9I3Tn/xICcxf
+         pOqi0ewLVUxeYUsnC55ZKOZfKFvc99f8KtZ8hw1jrC25mnxDv5paGfPU5ICLQtu8l+XS
+         WuYUt5WGo2nyEF+iRW1jGMOXLpKU5qWJ1nfqO5wR0t0JmvEOGJKrszqG5B5qvcs28Tda
+         4zAoorUaZuk5YiN3nmUb603n6YxeB+bLWVTb2qQwkyWe+SrAjO3WlwhfI/Zlg64AwO1W
+         8+Sw==
+X-Forwarded-Encrypted: i=1; AKwUvBwe7XarafJXandwb127tD8QKKDhwPm5hSUxB1MiJElC/lAAWynaY9Z5R/DHSrzif3eY1lXG51Tr58+iILQmTpaJ@lists.infradead.org
+X-Gm-Message-State: APuU4Z89uMoAs9itBGeiFdTwAdHcowZSF9NMEPFG4BgdqCyvcD/RtBM3
+	RWt0INrnI4OWVQRCEfvJribb3GF7Z6/ynfHoR29tYCWdnZE+4zuOWAGLc4MpIguBv3aA1OQfijq
+	HzRyGbw==
+X-Gm-Gg: AYBFou1fxjAmRaHIQ8z8tJXL3m8CW/fVNGkB6XaP4RxXmFOxVhkc1ryYvFpoSPlJavW
+	R8j3aEfsRil/pAeKxIr6Wz76la4NqdWIcCLhQLnDpa2D2WI1vlL3366HgfycTRtn25fT+u9YZxL
+	a7Q1sF/hUqnrVzAyDIX0gNy4B19aVunavgj1C3m7llT3KaeKKbqEpNYNYxpFfHS7KfC6ZZvRwGy
+	g028iGM23tNnJ47NpjBBxyCN/e00y27PtsW0YqduqgN8baQWnlLnhOMbv+ZoXzSXm+BJjx0KsE0
+	ngL52fZO+pOYEcmcuLPzLpfB+7USkcBSZRULqRXx44TqWz7DCQSIUOXbjXl734THD5BtteQizC2
+	NYTK/ZmAnRQz8esoqxEzUbeQfHfC/RVndIE1HH3acAZT8XpquPQjqxAWu0mp/0licNUsdjkgSYb
+	Qn5TnBzRyLjvNbzQpGEB0h2eGe6sOYXtPF1oYDYlrQ3EnFfD7ejB9QttPfZBR/8OZNy33Nl0RkC
+	BzrFRq01RA3TrewBXqhOP1I9Rhk8mg6YgBTAkq22fMimiAbH5N9v+5XVfjloFWlsjKZj87xn07T
+	LO84EVzQVEtUYyenesxswHhLuDp3ps2BzSRJJAdRtINc8jBLo0RZiX8gGcebMaaNXTk=
+X-Received: by 2002:a17:906:478a:b0:c25:f7db:4bec with SMTP id a640c23a62f3a-c4ca7ac1e12mr680040266b.18.1793568402381;
+        Sun, 01 Nov 2026 13:26:42 -0800 (PST)
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com. [209.85.218.50])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4cd291a96csm79251066b.13.2026.11.01.13.26.42
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 01 Nov 2026 13:26:42 -0800 (PST)
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c434376dbebso487295666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 13:26:42 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBzvtSa+X5gbIJC+kC+24aKw79uUPXsRTjfsA+0rqT8+tShH0H0L6tP25C/c5luUZSCdXWiuy4gkl0p0OwMyYBJc@lists.infradead.org
+X-Received: by 2002:a5d:64c9:0:b0:48c:585b:8825 with SMTP id
+ ffacd0b85a97d-48e6e2db4a1mr23331343f8f.18.1793568064814; Sun, 01 Nov 2026
+ 13:21:04 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261014-xg6846b-bcmbca-xrdp-reset-v1-0-daf5d177e113@kernel.org>
- <20261014-xg6846b-bcmbca-xrdp-reset-v1-5-daf5d177e113@kernel.org> <90c5efa22600044657e67b9e1297bda2fb53f60c.camel@pengutronix.de>
-In-Reply-To: <90c5efa22600044657e67b9e1297bda2fb53f60c.camel@pengutronix.de>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sun, 1 Nov 2026 22:19:34 +0100
-X-Gmail-Original-Message-ID: <CAD++jL==hUSGDryCDuoQrfh=s+ZnRojVcuhneMGWFvkSNePbMw@mail.gmail.com>
-X-Gm-Features: AclHuK9qYHSbdW0qFPKPlvZIS7KY8pzu0qIZa_AZ9GRrGb6SLD_bdgD5vQv0EP0
-Message-ID: <CAD++jL==hUSGDryCDuoQrfh=s+ZnRojVcuhneMGWFvkSNePbMw@mail.gmail.com>
-Subject: Re: [PATCH RFC 5/5] reset: Add BCMBCA block resets through the PMB
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+References: <20261020153652.2907186-1-dianders@chromium.org>
+ <20261020083501.RFC.5.I4a691041bb6d31e5ab2fde8cd4139ca72ee72c5b@changeid>
+ <CAFLszTh6vmFGVD4_Reewe9p4QqQjN=CVJ3SgfQKosAhedJpAQA@mail.gmail.com>
+ <CAD=FV=V7neyofHdv-LdAtFaEhAcWEHHNRYAKrr5f2EHXWmKAuA@mail.gmail.com> <CAFLszTiVvuaMUsRHjhRTFxFf8Q2hbN1a1K-G=QFv4DyXNpWY6w@mail.gmail.com>
+In-Reply-To: <CAFLszTiVvuaMUsRHjhRTFxFf8Q2hbN1a1K-G=QFv4DyXNpWY6w@mail.gmail.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Sun, 1 Nov 2026 13:20:52 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=XAj0f7vm89eCor2Ea7_nHaZmE-6VC+vsQ4vXido7Kj0A@mail.gmail.com>
+X-Gm-Features: AclHuK8iDQf3Hi4FgB3rVtlO2TSTt5l2todvm4T0h7_4dZ5xTXqg7HY4PS9Cbco
+Message-ID: <CAD=FV=XAj0f7vm89eCor2Ea7_nHaZmE-6VC+vsQ4vXido7Kj0A@mail.gmail.com>
+Subject: Re: [RFC PATCH 5/7] kbuild: fit: Add opt-in FIT_FACTOR_DTBS support
+ using fdtfactor
+To: Simon Glass <sjg@chromium.org>
+Cc: Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	William Zhang <william.zhang@broadcom.com>, Anand Gore <anand.gore@broadcom.com>, 
-	Kursad Oney <kursad.oney@broadcom.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, mfd@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+	Konrad Dybcio <konradybcio@kernel.org>, linux-kbuild@vger.kernel.org, 
+	Brian Norris <briannorris@chromium.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Chen-Yu Tsai <wenst@chromium.org>, linux-arm-msm@vger.kernel.org, 
+	Nicolas Schier <nsc@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Devicetree@vger.kernel.org, 
+	Julius Werner <jwerner@chromium.org>, Saravana Kannan <saravanak@kernel.org>, 
+	Will Deacon <will@kernel.org>, Michal Simek <michal.simek@amd.com>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Marco Elver <elver@google.com>, "Peter Zijlstra (Intel)" <peterz@infradead.org>, Rong Xu <xur@google.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261101_132645_172861_DFC03493 
+X-CRM114-Status: GOOD (  34.09  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,204 +129,85 @@ X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Philipp,
+Hi,
 
-addressing comments before reposting the patches.
-
-On Wed, Oct 14, 2026 at 1:14=E2=80=AFPM Philipp Zabel <p.zabel@pengutronix.=
-de> wrote:
-
-> > +struct bcmbca_pmb_reset_group {
-> > +     const char *name;
-> > +     int (*reset)(struct bcmbca_pmb_reset *rst,
-> > +                  const struct bcmbca_pmb_reset_group *group);
+On Sun, Nov 1, 2026 at 12:55=E2=80=AFPM Simon Glass <sjg@chromium.org> wrot=
+e:
 >
-> What is the point of this indirection?
+> Hi Doug,
 >
-> There is only a single array of struct bcmbca_pmb_reset_group and all
-> entries use the same bcmbca_pmb_reset_sequence().
-
-No... one of them use bcm6846_xrdp_reset() instead?
-
-> > +static int bcmbca_pmb_reset_sequence(struct bcmbca_pmb_reset *rst,
-> > +                                  const struct bcmbca_pmb_reset_group =
-*group);
-> > +
-> > +static const struct bcmbca_pmb_reset_block bcm6846_xrdp_resets[] =3D {
-> > +     /* Keep the XRDP bus interfaces out of reset. */
+> Doug Anderson <dianders@chromium.org> wrote:
+> > I think that was in the the "after the cut" part, where I said:
+> >
+> > You can see the fdtfactor post at:
+> >  http://lore.kernel.org/r/20261015182221.2931742-1-dianders@chromium.or=
+g
 >
-> What does this comment refer to? assert_value being GENMASK(2, 0)
-> instead of 0?
+> OK, that covers where the tool comes from, and the question goes away
+> once fdtfactor is imported. Text below the cut doesn't reach the git
+> log, though, so a sentence or two in the commit message on why this is
+> wanted would still help.
 
-Indeed. I fixed up the comment so it's clear what is going on.
+Sounds good. I'll plan this for v2.
 
 
 
-> > +     {
-> > +             .bus =3D 1,
-> > +             .device =3D 12,
-> > +             .offset =3D 5,
-> > +             .mask =3D GENMASK(27, 0),
-> > +             .assert_value =3D GENMASK(2, 0),
-> > +             .deassert_value =3D GENMASK(27, 0),
+> > The goal was to make sure that we could fully reconstruct
+> > __local_fixups__ after applying the overlay to the base. v2 of the
+> > fdtfactor series handled this more properly, and I'm planning to see
+> > this through and land it unless there are major objections.
+> >
+> > By default here, I'm running fdtfactor with "-S" to strip the
+> > __local_fixups__ out with the assumption that today people don't
+> > really need them. However, someone could easily override that locally.
+> >
+> > I'm a little unclear how things would silently produce a bad overlay, t=
+hough.
 >
-> Are the four different devices the packet engine and the tree runner
-> cores mentioned in the dt-bindings patch?
-
-Yes.
-
-> Do the 28 bits refer to 28 different resets?
-
-The only driver I have writes 0x0fffffff to all four registers
-to release the resets, and this being Broadcom that means
-that is also the only documentation.(I don't work for them,
-my mission here is to have a working platform.) I could of course
-experiment with different values but that turns out to
-be more of a hardware safari, I made it like this because
-I don't want to fix something that's not broken.
-
-> > +/* Bits 6 and 7 select the lane configuration and must remain unchange=
-d. */
-> > +static const struct bcmbca_pmb_reset_block bcm6846_pcie_resets[] =3D {
-> > +     {
-> > +             .bus =3D 0,
-> > +             .device =3D 18,
-> > +             .offset =3D 5,
-> > +             .mask =3D GENMASK(5, 0),
-> > +             .assert_value =3D GENMASK(5, 0),
+> Sorry, I should have been clearer. This is about overlays which kbuild
+> applies at build time, not runtime ones like Beaglebone capes. An
+> entry such as:
 >
-> Same here, are these 6 different resets? Does the hardware require them
-> to be asserted/deasserted at the same time?
-
-Same here, this is what the Broadcom driver does. If you insist,
-we can do hardware safari, but there are no docs or other examples.
-
-When I look closer at the PCIe support it has some more weird
-sequencing going on, so I'll drop PCIe support from the patch
-series for now.
-
-> > +     },
-> > +     {
-> > +             .bus =3D 0,
-> > +             .device =3D 19,
-> > +             .offset =3D 5,
-> > +             .mask =3D GENMASK(5, 0),
-> > +             .assert_value =3D GENMASK(5, 0),
-> > +     },
-> > +};
+>     lemans-evk-camera-dtbs :=3D lemans-evk.dtb lemans-evk-camera.dtbo
 >
-> Why put these in an array?
-
-Right there is just two of them. Individual taste I assume,
-I dropped these anyway.
-
-> > +/* Best effort with both locks held; never restart a partially reset g=
-roup. */
-> > +static void bcmbca_pmb_reset_cleanup(struct bcmbca_pmb_reset *rst,
-> > +                                  const struct bcmbca_pmb_reset_group =
-*group)
-> > +{
-> > +     const struct bcmbca_pmb_reset_block *block;
-> > +     unsigned int i;
-> > +     u32 value;
-> > +     int ret;
-> > +
-> > +     for (i =3D 0; i < group->num_blocks; i++) {
-> > +             block =3D &group->blocks[i];
-> > +             ret =3D bcmbca_pmb_read(rst->pmb, block->bus, block->devi=
-ce,
-> > +                                   block->offset, &value);
-> > +             if (!ret) {
-> > +                     value &=3D ~block->mask;
-> > +                     value |=3D block->assert_value;
-> > +                     ret =3D bcmbca_pmb_write(rst->pmb, block->bus, bl=
-ock->device,
-> > +                                            block->offset, value);
-> > +             }
+> is merged by fdtoverlay into a plain lemans-evk-camera.dtb, which the
+> make_fit.py path then puts in the FIT like any other DTB. There are
+> several hundred of these on arm64.
 >
-> Could the PMB bus driver provide an _update_bits() function for these
-> read-modify-write sequences? It is the one handling the locking anyway.
+> My concern is the input to fdtfactor, not its output. In the in-tree
+> libfdt, fdt_overlay_apply() uses the .dtbo's __local_fixups__ and
+> __fixups__ to resolve its phandles, then overlay_merge() copies only
+> the __overlay__ contents into the base. Only __symbols__ is merged, so
+> the __local_fixups__ in lemans-evk-camera.dtb cover just the
+> lemans-evk.dtb part. Cells from the .dtso such as:
 >
-> This whole driver feels a bit like if PMB could just export a regmap,
-> it would collapse into a few regmap_multi_reg_write()s.
-
-You're damn right about that.
-
-I will rinse and repeat.
-
+>     avdd-supply =3D <&vreg_cam1_1p8>;
+>     remote-endpoint =3D <&imx577_ep1>;
 >
-> > +             if (ret)
-> > +                     dev_err(rst->rcdev.dev,
-> > +                             "failed to hold PMB bus %u device %u in r=
-eset: %d\n",
-> > +                             block->bus, block->device, ret);
-> > +     }
-> > +}
-> > +
-> > +/* Called with both PMB locks held, including during error cleanup. */
+> end up as plain numbers, with nothing marking them as phandles. If
+> fdtfactor needs to renumber them, or puts those nodes in a per-board
+> overlay, it cannot tell they are phandles, so the overlay applies
+> cleanly but the links are wrong. Stripping the fixups from the output
+> with -S doesn't change that, since the information is already gone
+> from the input.
 >
-> Which two locks are "both"? pmb->lock mutex and the PMB_MUTEX hardware
-> lock?
+> Does v2 make fdt_overlay_apply() keep the overlay's __local_fixups__?
+> If so, composite DTBs would be fine once that is synced into
+> scripts/dtc, and my concern goes away. If not, one option is for
+> FIT_FACTOR_DTBS to imply FIT_DECOMPOSE_DTBS, so that make_fit.py puts
+> the original .dtb and .dtbo files in the FIT separately and the .dtbo
+> keeps its own fixups. Leaving composite DTBs out would be a simpler
+> fallback. What do you think?
 
-Fixed with regmap abstraction!
+I think your concern just goes away. ;-) The fdtfactor v2 series (and
+soon to be sent v3 series) includes a bunch of patches to the overlay
+code, and this code produces a fully valid __local_fixups__ in the
+final dtb after an overlay is merged in (assuming the original dtb
+already had a valid __local_fixups__).
 
-> > +static int bcmbca_pmb_reset_sequence(struct bcmbca_pmb_reset *rst,
-> > +                                  const struct bcmbca_pmb_reset_group =
-*group)
-> > +{
-> > +     const struct bcmbca_pmb_reset_block *block;
-> > +     unsigned int i;
-> > +     u32 value;
-> > +     int ret, pass;
-> > +
-> > +     if (!group->num_blocks)
-> > +             return -EINVAL;
-> > +
-> > +     /* Assert every block before releasing any of them. */
-> > +     for (pass =3D 0; pass < 2; pass++) {
->
-> Maybe   for (pass =3D PASS_ASSERT; pass <=3D PASS_DEASSERT
+The idea is that fdtfactor and the overlay fixes will all land in the
+upstream dtc project. Then as part of this series we will bring both
+in, so we should be all good.
 
-OK I'll take a stab and see how it looks.
-
-> > +             for (i =3D 0; i < group->num_blocks; i++) {
-> > +                     block =3D &group->blocks[i];
-> > +                     ret =3D bcmbca_pmb_read(rst->pmb, block->bus, blo=
-ck->device,
-> > +                                           block->offset, &value);
-> > +                     if (ret)
-> > +                             goto release;
-> > +                     value &=3D ~block->mask;
-> > +                     value |=3D pass ? block->deassert_value : block->=
-assert_value;
-> > +                     ret =3D bcmbca_pmb_write(rst->pmb, block->bus, bl=
-ock->device,
-> > +                                            block->offset, value);
-> > +                     if (ret)
-> > +                             goto release;
-> > +             }
-> > +             if (!pass && group->assert_us)
-> > +                     usleep_range(group->assert_us, group->assert_us *=
- 2);
->
-> Is that assertion delay the time the reset needs to stay asserted or is
-> this really a delay that needs to be observed between successive
-> assertions in a group?
-
-The former. I will rename the variable and add a comment so
-this is clear.
-
-> > +release:
-> > +     if (ret) {
-> > +             dev_err(rst->rcdev.dev, "%s %s failed at PMB bus %u devic=
-e %u: %d\n",
-> > +                     group->name, pass ? "release" : "assert",
->
-> Please use "deassert" to avoid possible confusion with the
-> reset_control_release() meaning of "release".
-
-OK
-
-Yours,
-Linus Walleij
+-Doug
 
