@@ -2,90 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7ED960A2617
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 23:27:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BAD660A2617
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 23:27:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mIS0J3JM;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=pxcfFgHX;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=grsQDMZy
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xzDjp8EH;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=tireMB8b;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=dfBbLBAl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=FfwL6drZ99UrcF24Kp7YaRAGdi4Rekl9jNQ/vwE9JDo=; b=mIS0J3JMxePlZm
-	wYxDuKqkEQ7u/LfSCnTISD7bx9M7k0h//A8MRo+uqGfWxFOMYdUfvFftZ+zABSLTBvP56aXigB3sa
-	jk7sdFeXy0mF0zXfIgGbiad0cj5odPpWEEqKhiPemA6mKk9etvBN5dEe67I++DEyFiyXRjdw/H/65
-	HPuMTNFzwNDBL8nrqQ48OvDTDY9akzzm/GSMdAomFcjVfVhlL93ZKTr/7XJRrVX0iFuMj4wspCuPy
-	cR7KPKZazl7jMErhs2rU0F6DexrFcOAAakGa2WNparpqTTQAd2XV/E1kROIbFpAPELYBVfNRosMhx
-	D60rw2yWSsT4Ali7hw7Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=wEJnWzIAnou4pQH9tImVIhiTvGpOYOR1x4eAbFCRMDE=; b=xzDjp8EHzcY/aMzVpcwa9tJcCf
+	TiGqt4DCwh8UjfuaRFY7y1veDSsrDC9KsudOLBm5vqQ9RQBXgRc/6rtdVbFljyXMIH5h7aFyIDtRu
+	AjMYT5xIrHR2lHjUugir0v0J5w1KQl7jkVqI16aq3nulvBVMcPOcUdMWB5SW79JSL1PaL5/1qtKFN
+	eQUGe9k5QrUKjBMwewKYkbTtx2w/iOCY9dRnZXb1CQzdXSOoULFnMwBbBjEVhs4a98w+kyf1rFqHx
+	u9O04A5OjaVKnoII3jgtg18SoYbpfOWyHEkzPYPR69euOQADrtl/cQDBW+yFIwH+TZl3Vg72Eda0W
+	C3cguyfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNexI-0000000FDsA-3yAv;
+	id 1xNexI-0000000FDro-3Lv8;
 	Sun, 01 Nov 2026 23:27:16 +0000
-Received: from delivery.antispam.mailspamprotection.com ([185.56.87.5])
+Received: from delivery.antispam.mailspamprotection.com ([185.56.87.10])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNexF-0000000FDnY-12OH
+	id 1xNexD-0000000FDmE-1M7a
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 01 Nov 2026 23:27:14 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-nzm1.prod.antispam.mailspamprotection.com; s=arckey; t=1793575633;
-	 b=x3BfulKKhhCCHwfjrf+SpDStl9pJr53Y39hs+6sMCgbzGlHA9du/LPZPX4249td1RzoUpKXA/u
-	  yfbPYBLTifil5/TooSexas+xwPAF86VgoRMtfHb/ZAKESQ0tZV92BJGBq6E1YE0xDsvL96xVv6
-	  m8uA36aWybMtYoms27m43K7mtpYaF2nvFKtMcOCzOJ2LSI6E44kGfHEqkmO1pR7flkrUANg8kA
-	  a92gcgSCevG4D/50qxH6RjQtV04rAGgWrxjpipK9W4aqFiMftoIi3ykoeu0OJqvMgV3BPzST+8
-	  nPLvpOXuMRdFn44TO8vmd6j0sJAndCvVb0iKUUe8IG6VFA==;
-ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-nzm1.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-xdd7.prod.antispam.mailspamprotection.com; s=arckey; t=1793575631;
+	 b=OcciJwHPLm5FX3bFG1eHET7unlLyKzEgCj4ujY+jwX4X89AWuUZdZPCMx7MusqpCRBO4NcAJ1a
+	  9VEJaTwJ9DvxGcPyHERMc7RxwZ9tWaMv7gJKklESnO2Ck551YKKuNaxaUjG+x/XfC65Q3TpGka
+	  GkIGR52QR/Kiz8KaNGsA5zLcrkMIte1ZHf3Th/7XWUoqyIyMVFM+L/vc+BriCqqNh08IHYrXrB
+	  S6cawkj8ktUh++QdtIt/GhrtSFi+UtME8eFTnGcbL1E5Zkqo3EYK/IChKLoYIeaYaA5spVa6G/
+	  0gD3ggpiJ5VSvLA8zB7ramBVFdWPlAMlb0LDH1xuxJl/LQ==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-xdd7.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
 	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
 	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
 	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
 	arc=none
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-nzm1.prod.antispam.mailspamprotection.com; s=arckey; t=1793575633;
-	bh=Rg3NHiv996Ou/uVsQGsnX1PIitVPLmwkUdij4t7Mly8=;
-	h=Cc:To:In-Reply-To:References:Message-ID:Content-Transfer-Encoding:
-	  Content-Type:MIME-Version:Subject:Date:From:DKIM-Signature:DKIM-Signature;
-	b=lgd4p78xU1o+aqD8DHtRIyfAvGKNvCoFAf3R0xFsB1e3w3su9vZBYR7PgAMROALlfYOvpWwlOK
-	  JPOnBVmmSCMTOddAvS8pTCUy+XXi7365/Fa//zZ20HKc1pv7a+VFfuR0E8EQ5k6hRTug11Zloj
-	  gwmcbQjHCtmaOi+KTaWBm9gaVZZH/XnUUD3SnhOfmm/bPL4DXHVK9yYtX7VTlo1MBywP9fdA8x
-	  7v3ffFS4lz18qUEWGrfCWKNewMZPasDtDq4WicdU8fWguW6CkRyZK5lPZCJ2ZzXeTAXkR1OMPc
-	  1A5CszsfRkJKmAiRvEjISyRf/xnt+h1DuRdkWXXbWNn0Ug==;
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-xdd7.prod.antispam.mailspamprotection.com; s=arckey; t=1793575631;
+	bh=hjsHjvJdiVFb4MkP4Oih67FLGqThyQsQsUFshw2v5Gc=;
+	h=Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:
+	  Subject:From:DKIM-Signature:DKIM-Signature;
+	b=Sb9WCj8YxaxgAl1zT9KqysbUQO3K+89uHPF/0NQzCC+vfIVrqEMeXwAY7yzWUdUQfaMFTxDqGl
+	  JZj/0htY32h2XKTSlW1HnCHlONbpv9jZHnt9LHbSgnoU7KLrnfvsS6jE4Ys+7rsV66tUBM8FU9
+	  /dpfVhvlHqltFhiWQ7WmKnGR33aIrlg+RBjMQT1vPQJgmHKftXSP8OZ0xBhDvB/E6Cyg1j0SCX
+	  FgZUWuBfvwsO5FN+dhouo208VOJm/4fFEvGUnZE91izZySGG3s19mqMJQFRJ841wyL7N3oiJhp
+	  me4ZebiecaNGCuiOh8nKHbw93UCCa5JGn7JexUJgULERJg==;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
-	:Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject
-	:Date:From:Reply-To:List-Unsubscribe;
-	bh=FfwL6drZ99UrcF24Kp7YaRAGdi4Rekl9jNQ/vwE9JDo=; b=pxcfFgHXa3FYxM5N6/u6005dOw
-	8SMFfrpFqa8+5oSu8X9x/fTf6QNUmArlnEwcRpqOlgde1B8JQpSs6FavtvpArwi75Z0nZggi+4lk5
-	rSKqOBecWz/Hb4RBqHsdeeOEUNvUskmCdtfLDLT5CkjAO8heBTNxzo21/G6Ytix6vcWk=;
+	:Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:List-Unsubscribe;
+	bh=wEJnWzIAnou4pQH9tImVIhiTvGpOYOR1x4eAbFCRMDE=; b=tireMB8beVuFH5XKsS1MWg9JF+
+	LJOlGZ6o5n/4KO9D9r+WIqNSMSYJQR6w+c4wPq4xJtQQ67Szh0ZxXMbggaRQpa6PpQcx4+J/Pncir
+	MV25bLLIcPAN89a+iQSI/r3ULq7VLO6K/++aYbksKsV2gT1vMwSDRabhWFLJvTaE37Ss=;
 Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
-	by instance-europe-west4-nzm1.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	by instance-europe-west4-xdd7.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <francesco@valla.it>)
-	id 1xNexC-00000007Aep-3pMk
+	id 1xNex6-00000005hrd-1diR
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 23:27:11 +0000
+	Sun, 01 Nov 2026 23:27:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
-	s=default; h=Cc:To:Subject:Date:From:list-help:list-unsubscribe:
+	s=default; h=Cc:To:Date:Subject:From:list-help:list-unsubscribe:
 	list-subscribe:list-post:list-owner:list-archive;
-	bh=FfwL6drZ99UrcF24Kp7YaRAGdi4Rekl9jNQ/vwE9JDo=; b=grsQDMZyuo295cS/AatEIltcsZ
-	gIq+4tQBOR2b3XY4ay5NUD2sryA4SPrciSnrmRLl1SvX/f1oXFwddxnz1GKsLtWF0dJiec+my6YbD
-	R8lDFlJU0IUrMResVEwN4QIMrNPGaEZl9C2BeoSXpnDtuDgrYgPrubohfZ7iRhrLPE8c=;
+	bh=wEJnWzIAnou4pQH9tImVIhiTvGpOYOR1x4eAbFCRMDE=; b=dfBbLBAlApgqTHmnycC+gRxNYT
+	3Lw1gbuR/w1N5HvIB2yULgKIeJ5KQoMK0HZEx9GtqWiUulwLsA+qmqyKqNdzKWfEvh1YY0hjrhi5t
+	hxqkMUjTqizWAfirhXvKVKxDlcthuRORvijdrFftE2pSvZPBlQZIlrM03Hiy7nj01Vi8=;
 Received: from [79.17.15.196] (port=60226 helo=[192.168.178.175])
 	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <francesco@valla.it>)
-	id 1xNewy-000000002I5-21Gt;
-	Sun, 01 Nov 2026 23:26:56 +0000
+	id 1xNewv-000000002I5-3gcq;
+	Sun, 01 Nov 2026 23:26:53 +0000
 From: Francesco Valla <francesco@valla.it>
-Date: Mon, 02 Nov 2026 00:26:40 +0100
-Subject: [PATCH RFC v2 03/11] remoteproc: virtio: support dynamic number of
- vrings
+Subject: [PATCH RFC v2 00/11] remoteproc: add support for any virtio device
+Date: Mon, 02 Nov 2026 00:26:37 +0100
+Message-Id: <20261102-remoteproc_virtio_map-v2-0-26b300e01c62@valla.it>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261102-remoteproc_virtio_map-v2-3-26b300e01c62@valla.it>
-References: <20261102-remoteproc_virtio_map-v2-0-26b300e01c62@valla.it>
-In-Reply-To: <20261102-remoteproc_virtio_map-v2-0-26b300e01c62@valla.it>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNwQ6CMBBEf4Xs2RqolIgnExM/wKshZKmLrAFK2
+ tpoCP8uoFePbzIzbwRHlsnBIRrBUmDHpp9BbiLQDfZ3EnybGWQsszhPlLDUGU+DNboMbD2bssN
+ BVLreSVQ1ViqFeTtYqvm1/l7hcj5B8Q3ds3qQ9svjUmvYeWPfqz0ka/knyv6IQiJicUO914qqF
+ DE/Bmxb3LKHYpqmD2BW1sHQAAAA
+X-Change-ID: 20260915-remoteproc_virtio_map-bcf32a5fab54
 To: Bjorn Andersson <andersson@kernel.org>, 
  Mathieu Poirier <mathieu.poirier@linaro.org>, Kees Cook <kees@kernel.org>, 
  "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
@@ -101,12 +104,12 @@ Cc: Robin Murphy <robin.murphy@arm.com>, linux-remoteproc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-doc@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5391; i=francesco@valla.it;
- h=from:subject:message-id; bh=Rg3NHiv996Ou/uVsQGsnX1PIitVPLmwkUdij4t7Mly8=;
- b=owGbwMvMwCX2aH1OUIzHTgbG02pJDFnPT+2ZMD34aojLK7lNmbPPe/44Jvnj+Jb0L3YWT2s2N
- qneTTBT6yhlYRDjYpAVU2QJWXfj3p655t/SNjA+gpnDygQyhIGLUwAmotDI8E/d1Et59hybD+uW
- zv1sN+nfyjvprkVaRuuSTm1Y4Hzbfss5hn+mW//1xnokp6ziLZBuMI+afumjC/eMKFE588lFRwN
- LL3MBAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8611; i=francesco@valla.it;
+ h=from:subject:message-id; bh=hjsHjvJdiVFb4MkP4Oih67FLGqThyQsQsUFshw2v5Gc=;
+ b=owGbwMvMwCX2aH1OUIzHTgbG02pJDFnPT23L87qZHNmzat6Kkx/SdGqZfksUb2u98u/Moosb3
+ oju8l3p2lHKwiDGxSArpsgSsu7GvT1zzb+lbWB8BDOHlQlkCAMXpwBM5GI/wz91Rj+xQo7agCWv
+ 7NKnas4IO3ThVNZD3dvnUlNnmydPXlvC8D/hTqdm6+Jtcwy3xE75IPDqM2dMg/w7C4UZEZsPeLY
+ 81WUAAA==
 X-Developer-Key: i=francesco@valla.it; a=openpgp;
  fpr=CC70CBC9AA13257C6CCED8669601767CA07CA0EA
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -117,22 +120,22 @@ X-AntiAbuse: Sender Address Domain - valla.it
 X-Source: 
 X-Source-Args: 
 X-Source-Dir: 
-X-SGantispam-id: 846411db5110a6f79e32ac08ad8df725
-X-AntiAbuse: ID - 846411db5110a6f79e32ac08ad8df725
+X-SGantispam-id: 0f61fe799c02a44e16cbba6b6e3b07a9
+X-AntiAbuse: ID - 0f61fe799c02a44e16cbba6b6e3b07a9
 AntiSpam-DLS: false
 AntiSpam-DLSP: 
 AntiSpam-DLSRS: 
 AntiSpam-TS: 1.0
 CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
-CFBL-Feedback-ID: 1xNexC-00000007Aep-3pMk-feedback@antispam.mailspamprotection.com
-Authentication-Results: outgoing.instance-europe-west4-nzm1.prod.antispam.mailspamprotection.com;
+CFBL-Feedback-ID: 1xNex6-00000005hrd-1diR-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-xdd7.prod.antispam.mailspamprotection.com;
 	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
 	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
 	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
 	arc=none
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_152713_465736_D6D810F1 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20261101_152711_538291_72519D39 
+X-CRM114-Status: GOOD (  27.28  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -144,159 +147,210 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The number of vrings for each vdev has been fixed to 2 since the
-introduction of multi-vdev support [1]; this is completely fine for the
-rpmsg usecase, but can conflict with other virtio devices (CAN for
-example requires 3 virtqueues, entropy only 1, network a variable number
-and so on).
+Hello,
 
-Remove the static vring allocation, transforming it to a flex array that
-is allocated at vdev probe time; for the existing usecases (i.e.: mainly
-rpmsg) this leads to no functional change, except the additional memory
-used for the counter associated to the new array.
+this is the second iteration of the patch series that introduces the
+possibility to support generic virtio devices over the remoteproc
+transport, whereas today only rpmsg and rproc-serial are supported.
 
-The maximum number of virtqueues is limited to 255 due to the u8 value
-used inside the resource table to indicate the number of vring to
-allocate; for this reason, no additional plausibility check is performed
-on the number of vrings indicated by the resource table.
+Some introduction and motivation can be found in V1 [1].
 
-This also fixes the single virtqueue usecase, which was apparently
-supported also before but for which the remove action caused an error
-(because the remove action was trying to unmap also the second vring,
-which was in fact not mapped).
+This new proposal leverages the existing virtio infrastructure and its
+optional usage of the DMA APIs to obtain the goal in two cases:
 
-[1] https://lore.kernel.org/all/1330589497-4139-5-git-send-email-ohad@wizery.com/
+ - if the remote device is able to access the whole DMA space of the
+   host, no special arrangement is needed; the DMA APIs will take care
+   of cache management and (if required) DMA translation, optionally
+   resorting to swiotlb if/when the buffers allocated by a virtio driver
+   are not DMA-able;
 
-Signed-off-by: Francesco Valla <francesco@valla.it>
+ - in case the remote device and the host share only a small portion of
+   memory (often the case for e.g. mixed-criticality systems), the DMA
+   APIs can be coupled with a restricted-dma-pool area to force swiotlb
+   translation for all the transmitted buffers.
+
+The new functionality is introduced by setting the
+VIRTIO_F_ACCESS_PLATFORM feature flag for all non-remoteproc-specific
+virtio devices (i.e., all except the aforementioned rpmsg and
+rproc-serial); this flag instructs the virtio framework to use the DMA
+APIs when mapping and unmapping buffers to and from the remote
+processor.
+
+The series was tested against a custom Zephyr application [2] running on
+the Cortex-M33 processor of an i.MX93 and exposing six different virtio
+devices:
+
+  - rpmsg
+  - entropy (rng)
+  - gpio
+  - i2c
+  - spi
+  - can
+
+== Open Points ==
+
+There are still the following open points:
+
+  - some virtio devices (e.g.: virtio-input) communicate through the
+    device's config space. The remoteproc transport expects this config
+    space to be somewhat constant, and there is no mechanism to sync
+    changes made by the driver with the remote device.  
+
+  - device de-registration on remoteproc stop is causing oopses (under
+    investigation - might not be strictly tied to the series).
+
+  - I still have to wrap my mind around DMA ranges and IOMMUs, and the
+    way the remoteproc framework uses them; the current series keeps the
+    legacy behavior for the first (i.e., DMA properties of the parent
+    remoteproc device are copied to vdevs) and assumes da == pa for
+    remote processor behind an IOMMU.
+
+  - [i.MX-specific] the imx-rproc driver was sending messages in
+    blocking mode; the change proposed in the series, required for
+    proper operation in atomi contexts is sub-optimal and needs more
+    work.
+
+== Patches breakdown ==
+
+Patches 1 and 2 are cleanups to the remoteproc-virtio driver and could
+be applied independently of this series.
+
+Patch 3 was submitted a couple of months ago [6] and paves the road for
+the actual support of generic virtio devices, removing the fixed number
+of 2 for the vrings associated to a vdev.
+
+Patch 4 defines the VIRTIO_F_VERSION_1 feature for all
+non-rproc-specific vdevs. This is required to support some virtio device
+types, and there is no other mean of defining it, since the field
+reserved for features inside the resource table is limited to 32 bits.
+Given that the 1.x virtio specifications are ~10 years old this still
+seems reasonable.
+
+Patch 5 defines the VIRTIO_F_ACCESS_PLATFORM feature for all
+non-rproc-specific vdevs. This is the first step required to obtain the
+full virtio functionality.
+
+Patch 6 introduces new devicetree bindings for declaring virtio
+devices exposed by a remote processor inside a devicetree. This is not
+required for some devices (e.g.: can, net, gpu), but for others (e.g.:
+i2c, gpio) is necessary to declare child devices and link them.
+
+Patch 7 assigns a fwnode (if existent) to each new virtio device and
+assigns to it the memory region defined for such node.
+
+Patch 8 expands existing remoteproc-virtio documentation to explain the
+possibilities introduced by the previous changes.
+
+Patches 9 and 10 are i.MX-specific and enable the usage of the newly
+introduced support on this family of platforms. The first one might
+probably be submitted independently of the series, since it aligns
+the behavior of imx-rproc to the other platforms in relation to
+mailbox usage. However, having a kmalloc in the hot send path is
+sub-optimal. **Advice needed here.**
+
+Finally, patch 11 is the PoC that has been used to develop and test the
+series and shall not be merged.
+
+======
+
+Thanks to everyone that commented on v1 - the functionality evolved in a
+much more flexible and no-nonsense way. Thanks in advance to whom will
+do the same on this revision.
+
+Regards,
+Francesco
+
+[1] https://patch.msgid.link/20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it
+[2] https://github.com/WallaceIT/zephyr/tree/multi_vdev
+
 ---
- drivers/remoteproc/remoteproc_core.c   |  7 -------
- drivers/remoteproc/remoteproc_virtio.c | 12 ++++++------
- include/linux/remoteproc.h             | 10 ++++------
- 3 files changed, 10 insertions(+), 19 deletions(-)
+Changes in v2:
+- Rebased on v7.4-rc1
+- Drop the custom .map APIs and rely on the virtio framework to perform
+  DMA management and (if required) the bounce buffering [Robin].
+- Set the VERSION_1 and ACCESS_PLATFORM features only for
+  non-rproc-specific virtio devices to preserve existing usecases.
+- Add the possibility to have a memory-region property in each vdev's
+  node and use it for DMA allocations / swiotlb.
+- Drop the new DMA subsystem APIs (no more required).
+- Drop the spi-virtio bindings, which are not critical for the series
+  and have been submitted independently [Mathieu].
+- PoC i.MX93 FRDM dts: drop the virtio/spi node and child devices and
+  move from gpio-keys-polled to gpio-keys.
+- Re-introduced the rsc-table in PoC i.MX93 FRDM dts.
+- Fixes in the remoteproc-virtio bindings [Rob].
+- imx-rproc: drop unneeded rework of reserved memory assignment.
+- imx-rproc: do not send async mailbox messages with payload living in
+  the stack.
+- Rephrase and expand commit messages.
+- Document the memory allocation behavior.
+- Scattered fixes for minor issues [Mathieu and sashiko].
+- Link to v1: https://patch.msgid.link/20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it
 
-diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
-index 23f8539a99bd..c946ecd980a5 100644
---- a/drivers/remoteproc/remoteproc_core.c
-+++ b/drivers/remoteproc/remoteproc_core.c
-@@ -473,7 +473,6 @@ static int rproc_handle_vdev(struct rproc *rproc, void *ptr,
- {
- 	struct fw_rsc_vdev *rsc = ptr;
- 	struct device *dev = &rproc->dev;
--	struct rproc_vdev *rvdev;
- 	size_t rsc_size;
- 	struct rproc_vdev_data rvdev_data;
- 	struct platform_device *pdev;
-@@ -494,12 +493,6 @@ static int rproc_handle_vdev(struct rproc *rproc, void *ptr,
- 	dev_dbg(dev, "vdev rsc: id %d, dfeatures 0x%x, cfg len %d, %d vrings\n",
- 		rsc->id, rsc->dfeatures, rsc->config_len, rsc->num_of_vrings);
- 
--	/* we currently support only two vrings per rvdev */
--	if (rsc->num_of_vrings > ARRAY_SIZE(rvdev->vring)) {
--		dev_err(dev, "too many vrings: %d\n", rsc->num_of_vrings);
--		return -EINVAL;
--	}
--
- 	rvdev_data.id = rsc->id;
- 	rvdev_data.index = rproc->nb_vdev++;
- 	rvdev_data.rsc_offset = offset;
-diff --git a/drivers/remoteproc/remoteproc_virtio.c b/drivers/remoteproc/remoteproc_virtio.c
-index 29a3a4c18097..c56d3330adfe 100644
---- a/drivers/remoteproc/remoteproc_virtio.c
-+++ b/drivers/remoteproc/remoteproc_virtio.c
-@@ -135,8 +135,7 @@ static struct virtqueue *rp_find_vq(struct virtio_device *vdev,
- 	void *addr;
- 	int num, size;
- 
--	/* we're temporarily limited to two virtqueues per rvdev */
--	if (id >= ARRAY_SIZE(rvdev->vring))
-+	if (id >= rvdev->num_vrings)
- 		return ERR_PTR(-EINVAL);
- 
- 	if (!name)
-@@ -510,13 +509,16 @@ static int rproc_virtio_probe(struct platform_device *pdev)
- 	if (!rvdev_data)
- 		return -EINVAL;
- 
--	rvdev = devm_kzalloc(dev, sizeof(*rvdev), GFP_KERNEL);
-+	rsc = rvdev_data->rsc;
-+
-+	rvdev = devm_kzalloc_flex(dev, *rvdev, vring, rsc->num_of_vrings);
- 	if (!rvdev)
- 		return -ENOMEM;
- 
- 	rvdev->id = rvdev_data->id;
- 	rvdev->rproc = rproc;
- 	rvdev->index = rvdev_data->index;
-+	rvdev->num_vrings = rsc->num_of_vrings;
- 
- 	ret = copy_dma_range_map(dev, rproc->dev.parent);
- 	if (ret)
-@@ -534,8 +536,6 @@ static int rproc_virtio_probe(struct platform_device *pdev)
- 	platform_set_drvdata(pdev, rvdev);
- 	rvdev->pdev = pdev;
- 
--	rsc = rvdev_data->rsc;
--
- 	/* parse the vrings */
- 	for (i = 0; i < rsc->num_of_vrings; i++) {
- 		ret = rproc_parse_vring(rvdev, rsc, i);
-@@ -586,7 +586,7 @@ static void rproc_virtio_remove(struct platform_device *pdev)
- 	struct rproc_vring *rvring;
- 	int id;
- 
--	for (id = 0; id < ARRAY_SIZE(rvdev->vring); id++) {
-+	for (id = 0; id < rvdev->num_vrings; id++) {
- 		rvring = &rvdev->vring[id];
- 		rproc_free_vring(rvring);
- 	}
-diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
-index 00019b1895e6..52e1eccbe42e 100644
---- a/include/linux/remoteproc.h
-+++ b/include/linux/remoteproc.h
-@@ -322,10 +322,6 @@ struct rproc_subdev {
- 	void (*unprepare)(struct rproc_subdev *subdev);
- };
- 
--/* we currently support only two vrings per rvdev */
--
--#define RVDEV_NUM_VRINGS 2
--
- /**
-  * struct rproc_vring - remoteproc vring state
-  * @va:	virtual address
-@@ -353,9 +349,10 @@ struct rproc_vring {
-  * @id: virtio device id (as in virtio_ids.h)
-  * @node: list node
-  * @rproc: the rproc handle
-- * @vring: the vrings for this vdev
-  * @rsc_offset: offset of the vdev's resource entry
-  * @index: vdev position versus other vdev declared in resource table
-+ * @num_vrings: the number of vrings for this vdev
-+ * @vring: the vrings for this vdev
-  */
- struct rproc_vdev {
- 	struct rproc_subdev subdev;
-@@ -364,9 +361,10 @@ struct rproc_vdev {
- 	unsigned int id;
- 	struct list_head node;
- 	struct rproc *rproc;
--	struct rproc_vring vring[RVDEV_NUM_VRINGS];
- 	u32 rsc_offset;
- 	u32 index;
-+	unsigned int num_vrings;
-+	struct rproc_vring vring[] __counted_by(num_vrings);
- };
- 
- struct rproc *rproc_get_by_phandle(phandle phandle);
+To: Bjorn Andersson <andersson@kernel.org>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Kees Cook <kees@kernel.org>
+To: "Gustavo A. R. Silva" <gustavoars@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Francesco Valla <francesco@valla.it>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Shuah Khan <skhan@linuxfoundation.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+To: Frank Li <Frank.Li@nxp.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: linux-remoteproc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-hardening@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Signed-off-by: Francesco Valla <francesco@valla.it>
 
--- 
-2.56.0
+---
+Francesco Valla (11):
+      remoteproc: virtio: cleanup rproc_add_virtio_dev error path
+      remoteproc: virtio: replace commas with semicolons
+      remoteproc: virtio: support dynamic number of vrings
+      remoteproc: report VIRTIO_F_VERSION_1 for non-rproc-specific vdevs
+      remoteproc: virtio: report VIRTIO_F_ACCESS_PLATFORM when required
+      dt-bindings: remoteproc: add remoteproc-virtio
+      remoteproc: assign fwnode during vdev registration
+      Documentation: remoteproc: expand virtio support section
+      remoteproc: imx_rproc: always use non-blocking mailboxes
+      dt-bindings: remoteproc: imx-rproc: support virtio
+      PoC: arm64: dts: imx93-11x11-frdm: add multiple vdevs
+
+ .../bindings/remoteproc/fsl,imx-rproc.yaml         |   3 +-
+ .../bindings/remoteproc/remoteproc-virtio.yaml     | 106 ++++++++++++
+ Documentation/staging/remoteproc.rst               |  99 ++++++++++-
+ arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 188 +++++++++++++++++++++
+ drivers/remoteproc/imx_rproc.c                     |  76 +++------
+ drivers/remoteproc/imx_rproc.h                     |   1 -
+ drivers/remoteproc/remoteproc_core.c               |  55 ++++--
+ drivers/remoteproc/remoteproc_virtio.c             | 110 +++++++++---
+ include/linux/remoteproc.h                         |  10 +-
+ 9 files changed, 558 insertions(+), 90 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20260915-remoteproc_virtio_map-bcf32a5fab54
+
+Best regards,
+--  
+Francesco Valla <francesco@valla.it>
 
 
