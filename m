@@ -2,88 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12815606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0079606A331
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 23:27:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bPZ4d+u3;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=2OKnhjtj;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=I0lGjdE2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=e0VVnOdn;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=GnqLPWQ5;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=DWkHZglW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ArrI8itSWDzmfngH4qZZ7PdfHBBqv/lEEVzlHWiKfAM=; b=bPZ4d+u3LW9msW
-	6vSdzubFQQEvNXd4bV4FyAqX4RnDAa8TueB8FpQZEWbCSOd+1M+JhpF2sixMGbuA4HOuKz7FhXDB3
-	nUL7qhX9xuvtXkPLmUzyIjRa8tU3mek6BliRo2H/yIO067JA2claY2bTyAKYTuLxb4wv7339yKAEc
-	ShWTqxWWemfIxif3zmZQ/a/bnh9WGlAB06nMxbKxjjCzXwkqoW8rCFfkQ1qC4zRpv1ezN4zq9SJSV
-	jUxRm6X0aCep0z2oR4NlmWHkYNfscHtQIk4aRB7gMbtybU2g0OC/TlvPpSbSRcZlF/IqpOE2R+POA
-	yaxw31HewLnYTWj5IQpA==;
+	List-Owner; bh=jDGzUeJoU453C6E72rSA80bKxfeU0j/w1IYP/rP6ntc=; b=e0VVnOdn2Kpzoz
+	r0N4x874pAGpZXOgbnQB8VguV3lGFvWmdqabUqe0+Jh8gu9kUamT4xcCwkynVWqI0q3VYNyIAF//1
+	1/jTCtzivi0gSljhIwAj+tBJ3BeT2j39WtNmLFSm4ONKMSDUnTtMsmQohPJstVQ+nuIQ/IEUw7oIm
+	s7U8eeMxIqNv/n4tGXYxmCmNRij26jNxs74B+PSva5ySBE8Eadd5mAc74fwKcdarPRLfnOB7TznTq
+	xYfZMblLy3E3NKIDBoJGMvXiVBGrfSnrHG7deEUHtaqHDHzi3wJoc6y/RO/UGz76vbcVnyqEq9kKH
+	mx1o8xDf4ZK0hJTPOiJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNexG-0000000FDox-0ir6;
-	Sun, 01 Nov 2026 23:27:14 +0000
-Received: from delivery.antispam.mailspamprotection.com ([185.56.87.5])
+	id 1xNexI-0000000FDrU-2nS6;
+	Sun, 01 Nov 2026 23:27:16 +0000
+Received: from delivery.antispam.mailspamprotection.com ([185.56.87.3])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNexD-0000000FDmF-17gt
+	id 1xNexE-0000000FDmp-0Z39
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 23:27:12 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-nzm1.prod.antispam.mailspamprotection.com; s=arckey; t=1793575631;
-	 b=qH2Ri5n7SSRtfbDCp15/3LuYv4cfUcIYty3ZWCMy6FyzTePnkcnexxknuy0pk+hwlSUkx5b+ou
-	  RzdzJm1LZQY/kTVeYQRgSDN75yI8vNygfdfqOuLpsoVP0aD2La0I0hEFq6l6BTMTgTuFaf+0t6
-	  TMjFYf2csnph1miSK4aJe7+55IEnnFg2ZnP2YRvD4At80MA9t/mnyHvjYXkpmFbMMIpcgtlVZR
-	  0IuSfJ8JkdBaWhmUIGJleT+CWFEimO6Rrnm6Q5N2usEBv+B7Hh4yjNqLWcIN2Xdo4S3hm59dkc
-	  7ZAhDba+LJOU8ovEMnS7uaFJT0QfKycEmRf8etnOV9L2Vg==;
-ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-nzm1.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	Sun, 01 Nov 2026 23:27:14 +0000
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-xdd7.prod.antispam.mailspamprotection.com; s=arckey; t=1793575632;
+	 b=aABDcbJpiV/Ghm7ch04qoIodOTYY9hbPJYAmI3yatXLZYLyfwoPpfTTcrkWNliHouXyr9+g1bO
+	  EdGTPIzZQS3yPbFR1xRc2onY3xgiq8b21SxYKyj+xi14WrT1/OCXBx5ptGVfFiEh0Rn8xs9l4B
+	  VIvWPgNXaVeVKU4cxCwv31XcocNJOI9WdovNzGAltD3tGVL6ER8PmVHfmD3y08Sv4YNw97o12G
+	  xncqostV0oX+p8Jd50XoJv2TKWL0yo7JxD7IBHj9FTtpFwuRByAj2+Gw/Q2VS+UltVkJhpBFrr
+	  EaK8HWJpjxOfSB2EYCQj9Q4XefnQGOseGyocieNRMyv2Sg==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-xdd7.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
 	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
 	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
 	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
 	arc=none
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-nzm1.prod.antispam.mailspamprotection.com; s=arckey; t=1793575631;
-	bh=/v3QbkOJjm46JRezLWy98832CA7UTUXqY+qRLu2v8vg=;
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-xdd7.prod.antispam.mailspamprotection.com; s=arckey; t=1793575632;
+	bh=wjrwqlTjD+bsGiygLxRdvngnMYwukHYEcpIoG27o7NQ=;
 	h=Cc:To:In-Reply-To:References:Message-ID:Content-Transfer-Encoding:
 	  Content-Type:MIME-Version:Subject:Date:From:DKIM-Signature:DKIM-Signature;
-	b=WK80TOQEIskdhWXc+fCJISMvZbjGN3rJ6NrmCV1uYX9v/PzFgW8ZSXzo69v/YOw92ydegJ8GhT
-	  lyyIAwncVAoanHcKYxNKvAZadVIi8tpz2BIUS8iW0EQ4Ne0jK0A0e1lLo6cYS4HiSOPTN+irNp
-	  ptiA9wyH1eeiJi+MVWkAkJnABmiKL7JBuuI3qWmW7+HhiQ8yfWdDmVoLnl2dotrLDN3R+8DqHV
-	  A1qYQQgMmXsnbiydwFxwlTvKou/jlm8oz7vBR9zCFHWJZggttYOKmi/Lkm0kftQLaf6qK95LwJ
-	  Ri1wWWGBxvdX+a67fMq5rusbW+qaID2TnlfQdISkh85i+A==;
+	b=dXz6n/NV/j2edA4foLiTvYeZ4HmfFb4abu4zgw3q6qSuOpiYOCBaWOdeb6Uo9cvgumOhsoT6pA
+	  1gf5NaDWyMYvPaqeiX6wbg0x0yREiTreTn4jdk6t109Kpx1EbbQ//Y592FZX3+QcUwWnvvNLfp
+	  Vze9kmTd+jegMdrhDnsWSZiJ6l8/sJLUmWi6/ER0c8/hTWRl4hXoQ0xQbzqnWlm8mpTPkovXbQ
+	  1NNXQhbz9JsbXmCd3q6AEdCC3QOkGAKzyeDvs/qJUv6xE751vhPIc+l2wolWkwcknUJ0NYUjsq
+	  Hxe26PK4Tj0UvR4Rv6bcOKIN0oCYvuyuNbRLnoFGF/MntQ==;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
 	:Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject
 	:Date:From:Reply-To:List-Unsubscribe;
-	bh=ArrI8itSWDzmfngH4qZZ7PdfHBBqv/lEEVzlHWiKfAM=; b=2OKnhjtjwvis1dF6KY7A0AnPHK
-	xPI4VA70W+GyC7yXPacJJCU9utSLkZSMTiZ0vNQFEw/nE7xTdT4xCy20CKtF1jipDQdQ124Vsts+S
-	0J+o4N4kNbNMNIeOJj2i7eqqD6IaZjtw88BcFC2o7CLXE+oZE/eJ5IVnSbveB8tCX64E=;
+	bh=jDGzUeJoU453C6E72rSA80bKxfeU0j/w1IYP/rP6ntc=; b=GnqLPWQ5zod4QJPirylGvaEz3J
+	ynpm0YAXbx1Rabz48XbTzDwrll5eo+iGfd0ZliGOs1cCYJTqGiOEBvhYS0FjoyUD0X2p9YVqyMa1W
+	3RoOlOInchoQQp/vfC/m4pK+cmFp0FlwHzt/SEzmDzhMgYdz0804w8+iHT4IY3iAoYA8=;
 Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
-	by instance-europe-west4-nzm1.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	by instance-europe-west4-xdd7.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <francesco@valla.it>)
-	id 1xNex7-00000007AdY-1ehL
+	id 1xNexB-00000005hur-32HM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 23:27:05 +0000
+	Sun, 01 Nov 2026 23:27:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
 	s=default; h=Cc:To:Subject:Date:From:list-help:list-unsubscribe:
 	list-subscribe:list-post:list-owner:list-archive;
-	bh=ArrI8itSWDzmfngH4qZZ7PdfHBBqv/lEEVzlHWiKfAM=; b=I0lGjdE2pet3UPmDiBRzBCOLyP
-	fSXPfjau6Xn4qBuJtzNqgTs391ybcqKBdqbWU8WSXmxkADJTRKc+lBScomsXiyaXcqgReQnq4tVt4
-	VHSfPKivsc5rBGqftNsU3XbTF7ag4xl4Y/hQl4PG/zJ8FtAF0C2bWOGDF7FGHgPANbU4=;
+	bh=jDGzUeJoU453C6E72rSA80bKxfeU0j/w1IYP/rP6ntc=; b=DWkHZglWJBAhWKTBNUqy4BrJ9y
+	hYXQHTINCO6Tv62B/pPA57suAYhsZO/5GLNfBvMm+OU7z0msEuGdf4Jj6RinMEOVJInbhyl5XjUOL
+	toFsrhRSnLw9ZmeIV69q7ci29XsXzjyNWDsyC/EAViym1PcZNNYULQ5OldBT6CpPTDLY=;
 Received: from [79.17.15.196] (port=60226 helo=[192.168.178.175])
 	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <francesco@valla.it>)
-	id 1xNeww-000000002I5-38to;
-	Sun, 01 Nov 2026 23:26:54 +0000
+	id 1xNex1-000000002I5-09og;
+	Sun, 01 Nov 2026 23:26:59 +0000
 From: Francesco Valla <francesco@valla.it>
-Date: Mon, 02 Nov 2026 00:26:38 +0100
-Subject: [PATCH RFC v2 01/11] remoteproc: virtio: cleanup
- rproc_add_virtio_dev error path
+Date: Mon, 02 Nov 2026 00:26:43 +0100
+Subject: [PATCH RFC v2 06/11] dt-bindings: remoteproc: add
+ remoteproc-virtio
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261102-remoteproc_virtio_map-v2-1-26b300e01c62@valla.it>
+Message-Id: <20261102-remoteproc_virtio_map-v2-6-26b300e01c62@valla.it>
 References: <20261102-remoteproc_virtio_map-v2-0-26b300e01c62@valla.it>
 In-Reply-To: <20261102-remoteproc_virtio_map-v2-0-26b300e01c62@valla.it>
 To: Bjorn Andersson <andersson@kernel.org>, 
@@ -101,12 +101,12 @@ Cc: Robin Murphy <robin.murphy@arm.com>, linux-remoteproc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-doc@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2076; i=francesco@valla.it;
- h=from:subject:message-id; bh=/v3QbkOJjm46JRezLWy98832CA7UTUXqY+qRLu2v8vg=;
- b=owGbwMvMwCX2aH1OUIzHTgbG02pJDFnPT+2ele7L43Iy/N72xt83F3rbfsv19J67Mj7eS3htg
- 4+Sc+PdjlIWBjEuBlkxRZaQdTfu7Zlr/i1tA+MjmDmsTCBDGLg4BWAizEIMf8WuuTGqvk54FSBc
- dGbG2hQh78543+J3IhHh3mfbG57GvmZkOL0lufzB9Ycv8jV704OmN3vz1Ju9i8jYLsan38j9S72
- PDQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4131; i=francesco@valla.it;
+ h=from:subject:message-id; bh=wjrwqlTjD+bsGiygLxRdvngnMYwukHYEcpIoG27o7NQ=;
+ b=owGbwMvMwCX2aH1OUIzHTgbG02pJDFnPT+1ZOt07pE+76wzvgiav4v7lb8Ovry8SnWzhsihPb
+ erBllm2HaUsDGJcDLJiiiwh627c2zPX/FvaBsZHMHNYmUCGMHBxCsBELC4zMtwWEz+urpm56f7P
+ 3tM/CwoTV9/fvu+JY3v7Mqv2F8/uCPEyMtxjFZq6euHOhf+t02Y0nutSbTqyhe309lidBe3axTF
+ fmvgA
 X-Developer-Key: i=francesco@valla.it; a=openpgp;
  fpr=CC70CBC9AA13257C6CCED8669601767CA07CA0EA
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -117,22 +117,22 @@ X-AntiAbuse: Sender Address Domain - valla.it
 X-Source: 
 X-Source-Args: 
 X-Source-Dir: 
-X-SGantispam-id: 8639f007e852ba699c70dc422fbeb9d6
-X-AntiAbuse: ID - 8639f007e852ba699c70dc422fbeb9d6
+X-SGantispam-id: 12e099544019536a1a494d46eb8dfd8e
+X-AntiAbuse: ID - 12e099544019536a1a494d46eb8dfd8e
 AntiSpam-DLS: false
 AntiSpam-DLSP: 
 AntiSpam-DLSRS: 
 AntiSpam-TS: 1.0
 CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
-CFBL-Feedback-ID: 1xNex7-00000007AdY-1ehL-feedback@antispam.mailspamprotection.com
-Authentication-Results: outgoing.instance-europe-west4-nzm1.prod.antispam.mailspamprotection.com;
+CFBL-Feedback-ID: 1xNexB-00000005hur-32HM-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-xdd7.prod.antispam.mailspamprotection.com;
 	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
 	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
 	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
 	arc=none
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_152711_460826_EBC1EE11 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20261101_152712_329646_E95A3633 
+X-CRM114-Status: GOOD (  14.38  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -151,78 +151,137 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-There is no cleanup to perform in case an error occurs inside
-rproc_add_virtio_dev, so remove the goto label and just return in such
-cases.
+Add a new binding to describe remoteproc-provided virtio devices; while
+these are discovered through a resource table parsed by the remoteproc
+infrastructure at runtime, their description can be needed to probe
+non-discoverable buses (such as I2C) or to link consumers and suppliers.
+
+Each vdev is described by a dedicated "group" node, which then includes
+a virtio-device node. Each vdev shall be statically linked to a "group"
+node using its index inside the resource table as the reg property of
+the node; this permits to have multiple instances of the same type of
+device.
+
+The binding is intended to be generic and adopted by any remoteproc
+provider.
 
 Signed-off-by: Francesco Valla <francesco@valla.it>
 ---
- drivers/remoteproc/remoteproc_virtio.c | 19 ++++++++-----------
- 1 file changed, 8 insertions(+), 11 deletions(-)
+ .../bindings/remoteproc/remoteproc-virtio.yaml     | 106 +++++++++++++++++++++
+ 1 file changed, 106 insertions(+)
 
-diff --git a/drivers/remoteproc/remoteproc_virtio.c b/drivers/remoteproc/remoteproc_virtio.c
-index 12f55a81cfa0..a86c9a949e4c 100644
---- a/drivers/remoteproc/remoteproc_virtio.c
-+++ b/drivers/remoteproc/remoteproc_virtio.c
-@@ -386,9 +386,8 @@ static int rproc_add_virtio_dev(struct rproc_vdev *rvdev, int id)
- 	int ret;
- 
- 	if (rproc->ops->kick == NULL) {
--		ret = -EINVAL;
- 		dev_err(dev, ".kick method not defined for %s\n", rproc->name);
--		goto out;
-+		return -EINVAL;
- 	}
- 
- 	/* Try to find dedicated vdev buffer carveout */
-@@ -404,7 +403,7 @@ static int rproc_add_virtio_dev(struct rproc_vdev *rvdev, int id)
- 								 mem->of_resm_idx);
- 			if (ret) {
- 				dev_err(dev, "Can't associate reserved memory\n");
--				goto out;
-+				return ret;
- 			}
- 		} else {
- 			if (mem->va) {
-@@ -422,7 +421,7 @@ static int rproc_add_virtio_dev(struct rproc_vdev *rvdev, int id)
- 							   mem->len);
- 			if (ret < 0) {
- 				dev_err(dev, "Failed to associate buffer\n");
--				goto out;
-+				return ret;
- 			}
- 		}
- 	} else {
-@@ -441,10 +440,9 @@ static int rproc_add_virtio_dev(struct rproc_vdev *rvdev, int id)
- 
- 	/* Allocate virtio device */
- 	vdev = kzalloc_obj(*vdev);
--	if (!vdev) {
--		ret = -ENOMEM;
--		goto out;
--	}
-+	if (!vdev)
-+		return -ENOMEM;
+diff --git a/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml b/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml
+new file mode 100644
+index 000000000000..8cdfa8d0f936
+--- /dev/null
++++ b/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml
+@@ -0,0 +1,106 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/remoteproc/remoteproc-virtio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 	vdev->id.device	= id,
- 	vdev->config = &rproc_virtio_config_ops,
- 	vdev->dev.parent = dev;
-@@ -457,13 +455,12 @@ static int rproc_add_virtio_dev(struct rproc_vdev *rvdev, int id)
- 	if (ret) {
- 		put_device(&vdev->dev);
- 		dev_err(dev, "failed to register vdev: %d\n", ret);
--		goto out;
-+		return ret;
- 	}
- 
- 	dev_info(dev, "registered %s (type %d)\n", dev_name(&vdev->dev), id);
- 
--out:
--	return ret;
-+	return 0;
- }
- 
- /**
++title: Virtio devices over remoteproc
++
++description: |
++  Virtio devices ("vdevs") can be exposed using the remoteproc infrastructure
++  and its resource table. For some of them, a device tree node might be needed
++  to describe remote undiscoverable hardware and/or connect consumers and
++  providers.
++
++maintainers:
++  - Francesco Valla <francesco@valla.it>
++
++properties:
++  virtio:
++    type: object
++    description: |
++      Contains a group of virtio devices exposed by the firmware running on
++      the remote processor through its resource table.
++
++    additionalProperties: false
++
++    properties:
++      '#address-cells':
++        const: 1
++
++      '#size-cells':
++        const: 0
++
++    patternProperties:
++      "@[0-9a-f]+$":
++        type: object
++        description: |
++          A single virtio device exposed by the remote processor. It can
++          contain at most one child node, describing the virtio device itself
++          (e.g., to declare devices on a non-discoverable bus or to act as a
++          provider for other nodes).
++
++        properties:
++          reg:
++            description: |
++              Position of the virtio device among the VDEV resources contained
++              inside the resource table.
++            maxItems: 1
++
++          memory-region:
++            description: |
++              Memory region used for the buffers exchanged with the remote
++              processor. A restricted-dma-pool region forces all buffers to
++              be bounced through it.
++            maxItems: 1
++
++        additionalProperties:
++          type: object
++          $ref: /schemas/virtio/virtio-device.yaml#
++
++        required:
++          - reg
++
++    required:
++      - '#address-cells'
++      - '#size-cells'
++
++additionalProperties: true
++
++examples:
++  - |
++    remoteproc-cm33 {
++        virtio {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            vdev@0 {
++                reg = <0>;
++
++                gpio {
++                    compatible = "virtio,device29";
++
++                    gpio-controller;
++                    #gpio-cells = <2>;
++                };
++            };
++
++            vdev@1 {
++                reg = <1>;
++                memory-region = <&vdev1_buffer>;
++
++                i2c {
++                    compatible = "virtio,device22";
++
++                    #address-cells = <1>;
++                    #size-cells = <0>;
++
++                    eeprom@50 {
++                        compatible = "atmel,24c1025";
++                        reg = <0x50>;
++                    };
++                };
++            };
++        };
++    };
++...
 
 -- 
 2.56.0
