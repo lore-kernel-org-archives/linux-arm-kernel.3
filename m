@@ -2,106 +2,59 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6AD8606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 17:52:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59FC1606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 17:55:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SOCPxxqy;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MBQdCjNf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qq/leWZl;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=wfMt29t9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=04jB84VdLzfHkj69mo945MaBrRiV6cJ1AnFmBuXNdhA=; b=SOCPxxqytf7f7w32KFRuUClhIU
-	CgRpbKTL78jgTs5YvtjH47JkHhZ8bMAj5jEGryNP7rvsZ6JupsUHy1KxxZi+VTshMnl+cZF1zJiq4
-	rfyruVP6PN5B1h2ZZMxZcpoQwNC7M3irbIOVVMa8HHfqquNs0ky65kGnuoy5IIq3hwSZ18mZVM+YX
-	5P9q6ntcrONj1gejvNCmrDkcHoQc40WgjgZ60h2awtxTs19BhvA03M/uvyG+dRtGxBdd25JTAkqQo
-	EciBZ4Jjfc4YPVfr6n+2Q0FDpcqO9FJQMVv/8HJq6G3XIF98+0ea18nGEIZ9bQ7s4d2yez+yCuerY
-	QCADXzhw==;
+	bh=7SWnd7QbyWt5i8UF5eX0OMKAyqT339F4dwQJ7Y7Vi1k=; b=qq/leWZl6zVYe9AkWznJr81jMt
+	wNwzoHg8RpPR6re5mFoOsEZHvNxA83E3H+jZzQuVNJJxg67hVwfsk/n1Mnaz0ViG90SWtvIZ2eKUn
+	TS3XABKZ+imG9XHFvwCmY4owiLsZb1jC9mLi4mIxMVOGQcD7tGEuQ5lqXfCdd2bCuDRSAMQ8upYbd
+	DxbZ4aAIcSy4Qlwf3ZkNPaHNr9AUxy1o0W/TDQ6W9Cq4bBRPt1HoBGW3NXc5QOs3z5r+kpdd4hkrT
+	N7FFsAUTG2MZgjRjPjYS+sPzVQ42c841dRn6YYr/HEjw730wq2extuXi6YI/eOzLtqGz8QMQ/Yue8
+	jVq3MlxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNZir-0000000EjTH-10YX;
-	Sun, 01 Nov 2026 17:52:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xNZmJ-0000000EjeN-2Zrg;
+	Sun, 01 Nov 2026 17:55:35 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNZiq-0000000EjTB-2qDh
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 17:52:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DDB1D42E0D;
-	Sun,  1 Nov 2026 17:51:59 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793555519;
-	b=sXfzo9104f/43Yg7gxa/BGTOo2ol35gBhWV5el5hFbsS8a+D8CL5rP0D0y4nizJYQ6wl
-	 uf16k83QVYGcfO9AhXavWdcP/f5GFDU5C9fM5NDu4Oc5XoW5PCnPDNmx1+9tOBKSmV/PV
-	 xeZcK5ylOvTKxCn6w+qDvEbNLDNtSfA8eIeX3NB4Q2zCLhwEwpHGKdwsu1vEErYQQivfE
-	 qFnDQcOc6/vP6W1LYJD7KBvNgVSDFAntg3RjsSYckL7ffaFZYlHrCduVvYD1r0Nb5ITUd
-	 gmVyAPbwf7R+fcftFFwC4H5XFchc48W7MUR4cNU3996YG0rPFenOa2Fi3DzN5+IbHLA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793555519;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=04jB84VdLzfHkj69mo945MaBrRiV6cJ1AnFmBuXNdhA=;
-	b=F4ZG8tWI5//FZhb745pETv57rQESqopzLGLklVUEC7FkXrX6+OBcGlUVWubn1sYGSpMD
-	 aZ+oIpiELGICO5fQ7xkElymNutdkhSRefQYO6+qQGG+9xswPphcf6I0XhO/hZuL7etnRN
-	 0P/diIDCKFCNcsMtqlC1Eel184mpXprZMyMdxCgd8z/g2BSoaWaktXg8WSiqhNvTorRQe
-	 K3rLUpkepYOuOJhCUarJBsc+5tpcv6iS/YGAJ2m/CHlqmRZQ4w5ZeZ8jCIfxBMGeZQ4CC
-	 QVPYT9c23dIJwc5UtquNMu2dlVgcxzunu7AhiLGizrW+oZyR1zArlK6St7kiAwByU/w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 439791F000C1;
-	Sun,  1 Nov 2026 17:51:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793555519;
-	bh=04jB84VdLzfHkj69mo945MaBrRiV6cJ1AnFmBuXNdhA=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=MBQdCjNfTBfbhDQR4/BGiRo01HzNxda0XO/2zdWa+JlYjCiz9sqij/hr30rXPBHK7
-	 0SVisKVATYmkaVX8LlZS9ExdR8TNCf5hzKH/vH1etuPlUHdQHy9DRcdtGNpKyx+aWt
-	 G85yud2cRcALh8FUIOQF+9Cm6ps9DSRxxNlZZf7VQ4OkBLo/+SrkdF71qd/T2URyCH
-	 dD11LMF+XeFk57Sw5WH8NvYN9/I3tqY9q+71DfrWea2eU31DBm9nfGXOefdWDh0KWw
-	 jfzK9I/89/c6x47yyW20O4EEdJApWGKtC43aRIP1OBq/mCfGL5K5GBr+7a7oDRXLcu
-	 VvwGYrJFu3OnA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A717846223;
-	Sun,  1 Nov 2026 17:51:58 +0000 (UTC)
-From: Yuvan Shen via B4 Relay <devnull+yuvanshen09.gmail.com@kernel.org>
-Date: Sun, 01 Nov 2026 11:51:58 -0600
-Subject: [PATCH] mfd: macsmc: Hold the lock while reading key info
+	id 1xNZmH-0000000Ejdz-01Fs;
+	Sun, 01 Nov 2026 17:55:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=7SWnd7QbyWt5i8UF5eX0OMKAyqT339F4dwQJ7Y7Vi1k=; b=wfMt29t93sQga2fu+5B7V28bIv
+	Rr1BIKJibXRNt7NHit6+r+xACmqtAk9tDyjKcFSW1XvxRzlj4iImsAB3HZkVrkcCP2ENfnJgzoDzv
+	ajj7f4GoV5IyD+WDMA3NLfgXWhNlmgpXfr9fJ7XbHMF0Zi5yyy8dkbMUm0Z91pkO99+8zriU5L3Bi
+	Bh8qYYTAhcjVv7jyU3Wa1Sti4yAjgCC9WcvOD1wxYtMIuT8v48huzb0Xp8+91nuw5dI4z42ihZsLX
+	CVurrkT0N55QVTiH4a/91mAuiPF7Lt56z1F8AOO6vzKC44G1P0DDlFfcrrydGoETTrjIki1ihFj5s
+	eRcPuN1g==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Yaozhong Li <yaozhonguwl@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>
+Cc: shawn.lin@rock-chips.com, Rob Herring <robh@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: rockchip: enable SD UHS-I on Firefly-RK3399
+Date: Sun, 01 Nov 2026 18:55:25 +0100
+Message-ID: <2120863.kXSN5OTJKJ@phil>
+In-Reply-To: <b8221ba4-dccb-42f5-ae77-a6c087fa1d05@rock-chips.com>
+References: <20260922055011.14972-1-yaozhonguwl@gmail.com>
+ <b8221ba4-dccb-42f5-ae77-a6c087fa1d05@rock-chips.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261101-upstream-macsmc-key-info-v1-1-fa9ff863d199@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAD1852oC/yWMQQ6CQAxFr0K6tpEZBROvYliUsUjVGUg7GA3h7
- oIu389/bwZjFTY4FzMov8RkSCu4XQGhp3RjlOvK4EtfO1c6nEbLyhQxUrAY8MEflNQNeHLH4Cr
- qDnXlYdVH5U7ev/Sl+bNN7Z1D3nrboyVjbJVS6LcpkqSnJN5HsswKy/IF2U9hJp4AAAA=
-X-Change-ID: 20261101-upstream-macsmc-key-info-714c15af3652
-To: Lee Jones <lee@kernel.org>, Sven Peter <sven@kernel.org>, 
- Janne Grunau <j@jannau.net>
-Cc: Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>, 
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- mfd@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Yuvan Shen <yuvanshen09@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793555518; l=1529;
- i=yuvanshen09@gmail.com; s=20261101; h=from:subject:message-id;
- bh=z1N8QvE7NPiEd4ppeCID6vYGqTPd3Hl1S5pezXvfG2o=;
- b=BQVABoR5+DuuysFyDMIucZZjqkKYPOqazylEB0iamxcetVukCPamNuwomHGvn6It7Fr/X+0ig
- lQwLiEsF6vTB5VoiKka3aujTpTF6rN+mtKM0BJDJACUgCOFDMqRiqzt
-X-Developer-Key: i=yuvanshen09@gmail.com; a=ed25519;
- pk=jK3+w+YlV0oJPk7h5w6yT7jKMg0+4IkP9H/eGB+ImJA=
-X-Endpoint-Received: by B4 Relay for yuvanshen09@gmail.com/20261101 with
- auth_id=1380
-X-Original-From: Yuvan Shen <yuvanshen09@gmail.com>
-Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261101_095533_124850_1031E1B9 
+X-CRM114-Status: GOOD (  23.84  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,58 +64,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: yuvanshen09@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	FREEMAIL_REPLYTO_END_DIGIT,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Yuvan Shen <yuvanshen09@gmail.com>
+Am Sonntag, 1. November 2026, 17:10:04 Mitteleurop=C3=A4ische Normalzeit sc=
+hrieb Shawn Lin:
+> =E5=9C=A8 2026/09/22 =E6=98=9F=E6=9C=9F=E4=BA=8C 13:50, Yaozhong Li =E5=
+=86=99=E9=81=93:
+> > The SD slot on this board stays at 50 MHz with 3.3V signalling. The
+>=20
+> ...
+>=20
+> >=20
+> > I have no schematic for this board. The claim about what LDO4 feeds
+> > rests on the vendor firmware device tree plus the measurements above.
+> >=20
+>=20
+> It's easy to find one:
+> https://github.com/armbian/armbian.github.io/blob/main/board-schematics/f=
+irefly-rk3399.pdf
+>=20
+> Too bad it was designed this way! What if sdio-wifi is working on UHS
+> modebut people insert a HighSpeed only sd card?
 
-apple_smc_get_key_info() releases the SMC mutex when apple_smc_cmd()
-returns, and only then copies the reply out of the shared memory buffer.
-A command issued by another thread in between can overwrite the buffer,
-so the key's size, type and flags can come from a different reply. The
-hwmon and power sub-devices call it from their probe functions, while
-the other sub-devices may already be issuing commands.
+Hmm, when I read the schematics correctly, all parts of the sdio + wifi
+supplied by vcc_1v8 (both APIO3_VDD_1V8 and also vddio of the wifi module
+itself), while vcc_sdio only supplies SDMMC0_VDD?
 
-Hold the mutex until the reply has been copied, as apple_smc_read() and
-apple_smc_write() do.
 
-Fixes: e038d985c982 ("mfd: Add Apple Silicon System Management Controller")
-Cc: stable@vger.kernel.org
-Signed-off-by: Yuvan Shen <yuvanshen09@gmail.com>
----
- drivers/mfd/macsmc.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Yaozhong Li: please trim that commit message down a lot, it doesn't
+have to be novel size please.
 
-diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
-index 514cba7dc897..4dbaacc7eb3d 100644
---- a/drivers/mfd/macsmc.c
-+++ b/drivers/mfd/macsmc.c
-@@ -210,7 +210,9 @@ int apple_smc_get_key_info(struct apple_smc *smc, smc_key key, struct apple_smc_
- 	u8 key_info[6];
- 	int ret;
- 
--	ret = apple_smc_cmd(smc, SMC_MSG_GET_KEY_INFO, key, 0, 0, NULL);
-+	guard(mutex)(&smc->mutex);
-+
-+	ret = apple_smc_cmd_locked(smc, SMC_MSG_GET_KEY_INFO, key, 0, 0, NULL);
- 	if (ret >= 0 && info) {
- 		memcpy_fromio(key_info, smc->shmem.iomem, sizeof(key_info));
- 		info->size = key_info[0];
 
----
-base-commit: d89e1d186ec9271bf78e62771779e9fc03bf0fc3
-change-id: 20261101-upstream-macsmc-key-info-714c15af3652
+Heiko
 
-Best regards,
---  
-Yuvan Shen <yuvanshen09@gmail.com>
+>=20
+> > The analysis and the commit message were drafted with the help of an
+> > LLM-based assistant (Claude Code), cross-reviewed with a second one
+> > (OpenAI Codex). The device tree change, the measurements and the final
+> > wording are mine.
+> >=20
+> >   arch/arm64/boot/dts/rockchip/rk3399-firefly.dts | 3 ++-
+> >   1 file changed, 2 insertions(+), 1 deletion(-)
+> >=20
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts b/arch/arm=
+64/boot/dts/rockchip/rk3399-firefly.dts
+> > index 0568dfa..7cabbc1 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
+> > @@ -777,7 +777,6 @@ &sdio0 {
+> >  =20
+> >   	/* Power supply */
+> >   	vqmmc-supply =3D <&vcc1v8_s3>;	/* IO line */
+> > -	vmmc-supply =3D <&vcc_sdio>;	/* card's power */
+> >  =20
+> >   	#address-cells =3D <1>;
+> >   	#size-cells =3D <0>;
+> > @@ -804,6 +803,8 @@ &sdmmc {
+> >   	max-frequency =3D <150000000>;
+> >   	pinctrl-names =3D "default";
+> >   	pinctrl-0 =3D <&sdmmc_clk &sdmmc_cmd &sdmmc_bus4>;
+> > +	sd-uhs-sdr104;
+> > +	vqmmc-supply =3D <&vcc_sdio>;
+> >   	status =3D "okay";
+> >   };
+> >  =20
+> >=20
+> > base-commit: 940de590b839f71d6dc846160534bf202401b8b7
+>=20
+>=20
+
+
 
 
 
