@@ -2,105 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36470606A325
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 19:59:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E83C606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 20:02:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=G/sRHt62;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LNNuW2Zv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GMskplrf;
+	dkim=pass (2048-bit key, unprotected) header.d=gmx.net header.i=wahrenst@gmx.net header.a=rsa-sha256 header.s=s31663417 header.b=V6kKElqp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=FDsAnzs7Q70uFPk+Xxv0PVwIJmCk63loZdooeLyHdR0=; b=G/sRHt628pu6Kt
-	9EgyJ7y+/FELCXBNMWKe5XmQhnkgtu9KLBQZJkxkfTCEf3Tc3H+xNeMsza4Zw7xZ+d7iwUj6iRAHR
-	ht+fTvJHzr/hkezppHfMudYJJXQE9Q3Q75qXpLKMc8aVY/7b8zi0XKgDWYUH8oIU5438Sw5eDfB6j
-	U7xEh4FOcT++ycirz2OdKUc0oEM3AZ3OhcDyQaI6Qec6F6DeDYhju5zieJlP46wvzviB+3Bup+GIj
-	DO+tlNlHnjBvm4UScQXiTyQoFH+pLRcao25VnXCHoJMlvpIYT7tyb4lSua9dT1tTUB1SsbeKr2yaf
-	ErBJRESletEIzJazqBQw==;
+	List-Owner; bh=YZmqmLJRXHyb5TEcNFD3Z2Hg3A2sSvnpqg4Pbj33TnM=; b=GMskplrftdJVqF
+	AuO7QX6yM4sl1XvA5kq2pXMZTjXhK9JYrj20ZKjhW66juhtAnNdScS7BbvH57mxAdxpErcnZQDnvE
+	dF5S1iiWYuAXKhnT2C9F0UpUFd7dl+3UN4POee+xY6UEbjDZqLkiFzmapBGixa64tUXLSOQnyuTSc
+	19MT91tAZShrU2apE8zlPdVQwz2pNzPwg01QC66EXN1aNx1xrE8iFJMplvacyQQzvVlooMVc2NAWj
+	++WIP8NKSfFKzYxAnRMCrTUb/o+c3N/cEKVfNI0JJnynSSP+0tnZxHoyezOmrnPm6IxsdwrIF3WMp
+	X26Skn03rnoEtjOavRBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNakf-0000000EmRO-49CK;
-	Sun, 01 Nov 2026 18:57:57 +0000
-Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	id 1xNbkt-0000000Er1m-2VBy;
+	Sun, 01 Nov 2026 20:02:15 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNakc-0000000EmO3-33pe
+	id 1xNbkq-0000000Er10-2gfT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 18:57:57 +0000
-Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-8b0cf2c0785so17703357b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 10:57:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793559473; x=1794164273; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FDsAnzs7Q70uFPk+Xxv0PVwIJmCk63loZdooeLyHdR0=;
-        b=LNNuW2ZvNTUlto+7B1Ka2F/uqklxsU0UDkHvOKQJpNC9k5ZocgRoPAancOSHjFpb5A
-         H5R29YGHNPHLoH8S5nEeZKFEiHd3d94aEkV2G/XYJtmSi6C72EOZJn42VWlU2xP6wBZs
-         hLIJvDJAT71ALOdskZYq7YsIV9X4dzmZ+ZV+Cm7KvAaC9dcDJWalP/NOcQWW4MO2sHcp
-         UbznnFPATWwClqIWgnb1S3utXiys/2hSnvtSK4OdGWeEqhF1/boWgT0dMwOZcv6P6qWq
-         BnHJ0fK0KUoyQ904tpnuuMxOVa0SrriYjl7e6b4Zgd87D1l5f+5ONUECVI/8TsVLYCD2
-         C4sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793559473; x=1794164273;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FDsAnzs7Q70uFPk+Xxv0PVwIJmCk63loZdooeLyHdR0=;
-        b=QfTZBeTAZpj5S/c3K3V9OV8HtYHTUzpq3fdJM5fqkcX4Q86ON9tKQqJ/L1FYQN4Wiu
-         geVvSOPkCyY6nIq+tA8FigWLzYKnUfnrnbm5cdY35iWpTVLjv0AXcFmDD3p2w0gZA2C6
-         Af+nkOJ/zcMjKImbWgYTklcsL3f/hOW7orTAUFR73cca/AWnBuafjoKhTuiVb9HaloOF
-         i4rPnLdVbIriCPydn6XwCXiLJ6XtyYPp5NadT1a2jRrv2EkaOfHFbjfu+sum6IbnCAvW
-         LMPzWE9fhQDXat0Yrt1/g7hqjFQ+ruikLuW2E1DUS5+2NyC0fFU8Y0Pb4/tWEyBKMqwV
-         3rSw==
-X-Forwarded-Encrypted: i=1; AKwUvByurtpWEeEOfxbcc2rxY9+LDU+xxyHOosS82rzBK79Hjnm3CbmEs8J9QA4M3qilHLvBY/riw3mKmNeuY7i2dh9W@lists.infradead.org
-X-Gm-Message-State: APuU4Z+vhYyTqc4jb4u3JzehRc4pcfrbdAwqstYL3yhOdRJ/1ju7P1dl
-	U4TRcCaxct1W6LN9ZtLhlGFgZFYigfv/zRifPxBJxg/pDTsqhkFu4SHO
-X-Gm-Gg: AYBFou0z/eGuRlgvB6qjJt6jmjr1jNeLOgeY0RdYZa/9vsbNl9lI4G2JoGhpCkaZ3kD
-	Ss85SI1qOcsFbWtxt8+sUbkR/NOA8Yb7GEGMVefM9TYVP9mu8EMXOXvvhfR7WoLrFjWxskqVIqL
-	peEpuHZvOFNRch/YPYOkixHzwgJmGP+i9+7fMVFN1EPB8mMTKwDYuKKAhBtXQoPLVC8yLSKldoU
-	9FmJ5JqLJZ7SoGBItiSXKT/oLZQouWuA0D3IQg5O1ekfjLyU8uQ4UnCV8ZEmg2kKBGO2sKhAe90
-	PhvLHPBz4qZcXPB1g8mp4diswXwucWsKV01gOCVRBkpQHqhVYXj157s3xSYNded2U/QO1jMNlcP
-	ytife2SR5gP8QITb4VEGZ9+BEVnWQyL/EJT0VEXzGaiRzt4PUDz2z7Mm0XkFNEslS/o8HZOh8jE
-	C6gQuzrAtKoS3qnx5blA4rqaV1+oAX7uupcDxXDgbpE7aaWv+PvdcL8m5fiWWECSdnzTkdXb6+b
-	gEj3Y4UEw4YWMR/I3oMima5IGEd1o/UTL3dpGA8V0IP04tfwLpMs0jc2wiAPUpw87yJWArxJ/D2
-	I0HaRGqv37lJwg38DfuHCwX3Jflk/6jpNju/kZ4oiqwpZlJZ9iC6f++yMc02t72x5eA=
-X-Received: by 2002:a05:690c:e20f:10b0:8b0:a224:374d with SMTP id 00721157ae682-8b2b66c7c9dmr29648317b3.21.1793559473077;
-        Sun, 01 Nov 2026 10:57:53 -0800 (PST)
-Received: from hp ([71.12.40.102])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b2b716d420sm40869397b3.33.2026.11.01.10.57.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Nov 2026 10:57:52 -0800 (PST)
-From: Tim Michals <tcmichals@gmail.com>
-To: Jassi Brar <jassisinghbrar@gmail.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Sun, 01 Nov 2026 20:02:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1793563327; x=1794168127; i=wahrenst@gmx.net;
+	bh=YZmqmLJRXHyb5TEcNFD3Z2Hg3A2sSvnpqg4Pbj33TnM=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=V6kKElqprjU+qBpI6Wcr7elMOY+wO0RBDpKXrnCVP+QTohrAOB9YND5972AQZg8g
+	 RjWTugO5XHbxtJ/wptJ3sYwER9FbCU90jg0Zq2R2Tatjz44IRI/45xqx2rFY7s84h
+	 liyKjZFp6NoA306wP5jV5vTFj26q4WW9bZx5wwbXjIKQuVy0ZN5jZ0E8Cl3yX6Dji
+	 OjOiygCVUhRiIbN+PPG/XQh5/T4ahkko3GkkhEsdzxTn8Hgj81ZvIlRfOlQFmMvLW
+	 0CDpYsmEDKYN3nB+S7DYRsTsD95AIJeAtyVTsNvpeFmeygSOALyWSQ/vCW7rHBR+r
+	 UlKpMHi68zey1OvCQg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1McpJg-1wnihh2xAw-00pn9A; Sun, 01
+ Nov 2026 21:02:07 +0100
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Lee Jones <lee@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-sunxi@lists.linux.dev,
-	linux-remoteproc@vger.kernel.org,
+	Frank Li <Frank.Li@nxp.com>,
+	Srinivas Kandagatla <srini@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	kernel@pengutronix.de,
+	Fabio Estevam <festevam@gmail.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	mfd@lists.linux.dev,
 	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Tim Michals <tcmichals@gmail.com>
-Subject: [PATCH v3 4/7] remoteproc: sunxi: Add Allwinner A523 XuanTie E906 driver
-Date: Sun,  1 Nov 2026 12:57:32 -0600
-Message-ID: <20261101185735.762559-5-tcmichals@gmail.com>
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH 1/3] dt-bindings: mfd: nxp,bbnsm: Add NVMEM for GP registers
+Date: Sun,  1 Nov 2026 21:01:38 +0100
+Message-ID: <20261101200140.141642-2-wahrenst@gmx.net>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261101185735.762559-1-tcmichals@gmail.com>
-References: <20261101185735.762559-1-tcmichals@gmail.com>
+In-Reply-To: <20261101200140.141642-1-wahrenst@gmx.net>
+References: <20261101200140.141642-1-wahrenst@gmx.net>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:MCFp/EJfbxSbv3GBdOC710LReNvy7brqbjCZc0BTT4kEt88hsH0
+ c+J3NdVopkUDAQemTOAWzQTsRtYgV192uLu20FgEqokvpla7beF+RYSufRJEMUvegwKuZYv
+ 697CqZicVDarHUgMhOc92pY2S/Lz/agapq5PBPz/FepdiEFNWvuod26Y7K7nHP+RhVHsm4A
+ WOH1S2dlDXrRMKv+vuIPw==
+UI-OutboundReport: notjunk:1;M01:P0:rnsJZDt5TdE=;pHqdlBKaiQ9nHmY4a2TG/9UjjQi 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 SpSl8oe7T/NnOuy00PM1sRPqeYA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_105754_905551_A408D8DF 
-X-CRM114-Status: GOOD (  37.44  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261101_120212_970233_F649AC23 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -3.1 (---)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,1131 +99,54 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add a remoteproc driver for the XuanTie E906 RISC-V core in the
-Allwinner A523, A527 and T527 (sun55i).
+Document bindings for the optional Battery-Backed Non-Secure Module
+general purpose registers available on i.MX9 SoCs.
 
-.prepare() powers the RISC-V and SRAM power domains, holds the core in
-reset, releases the configuration, SRAM and debug resets, enables the
-clocks, shares SRAM A3_2 with the core's subsystem through bit 1 of the
-remap register and clears both SRAM spaces. .parse_fw() registers the
-memory-region entries as carveouts and both SRAMs and the carveouts as
-crash dump segments, then loads the resource table. .start() writes the
-ELF entry point to the boot address register and releases the core
-reset.
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+=2D--
+ .../devicetree/bindings/mfd/nxp,bbnsm.yaml    | 20 +++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-The driver translates the two SRAM windows, by core and by host address;
-DRAM firmware, the trace buffer and the vrings are resolved by the core
-from the carveouts. Vring kicks and the core's notifications use one
-message box channel. The mailbox receive callback runs in atomic
-context, so it queues work on an ordered workqueue, which calls
-rproc_vq_interrupt() for every vring. An optional crash interrupt is
-reported with rproc_report_crash().
-
-Based on the vendor sunxi-rproc driver by Allwinner Technology Co.,
-Ltd.
-
-Signed-off-by: Tim Michals <tcmichals@gmail.com>
----
-Changes in v3:
-- The core is an E906 (RV32IMAFCX), not an E907
-- The mailbox receive callback runs in atomic context; queue work on an
-  ordered workqueue instead of calling rproc_vq_interrupt() from it
-- da_to_va() translates only the two SRAM windows and returns NULL for
-  anything else; DRAM, the trace buffer and the vrings come from the
-  core's carveout lookup. Unmatched addresses are no longer used as
-  host addresses (Sashiko)
-- All register regions, clocks and resets are required; no fallback to
-  the configuration reset for the core reset (Sashiko). The mailbox is
-  optional
-- MAINTAINERS entry added here (it was in the binding patch)
-- Handle the debug reset and the RISC-V and SRAM power domains
-- One mailbox channel for kicks and notifications; a notification
-  checks every vring in rproc->notifyids
-- prepare() holds the core in reset before clearing the SRAM
-- Kicks send static const per-vring payloads with knows_txdone = false
-  instead of a shared kick_msg (Sashiko)
-- Teardown: rproc_del(), then mbox_free_channel(), then
-  cancel_work_sync() (Sashiko)
-- The crash interrupt is armed once the core reset is released, with an
-  atomic flag (Sashiko); lookup and request errors fail the probe
-- Read back the boot address before releasing the core reset (Sashiko)
-- Carveouts mapped MEMREMAP_WC; a region inside an SRAM reuses the
-  SRAM mapping (Sashiko)
-- Carveouts and crash dump segments are registered in parse_fw(), which
-  the core undoes only once it has succeeded; registered in prepare()
-  they stayed on the lists after a failed parse_fw()
-- Crash dumps: the ELF info is set (ELFCLASS32, EM_RISCV) and both SRAMs
-  and the carveouts are registered as segments; dumps were empty before
-- sanity_check() refuses anything but a 32-bit RISC-V ELF
-- memory-region[0] must be the DMA pool, released by a devm action;
-  regions above 4 GiB are refused (the device address is a u32), and a
-  region outside the SRAMs may not overlap a window of the core's
-  address map
-- The SRAM reg entries are checked against the SoC address map at probe
-- A malformed firmware-name fails the probe; only an absent one keeps
-  the default
-- pm_runtime_put_sync() in unprepare(); the power domains are attached
-  by name; the crash interrupt is looked up by index
-- Register and SRAM access goes through helpers so the KUnit tests can
-  model the hardware
-- The SRAM reg-names are sram-a3-0 and sram-a3-1; the remap bit is
-  described as the manual has it: it shares SRAM A3_2 (512 KiB at
-  0x07300000) with the MCU subsystem
----
- MAINTAINERS                      |   8 +
- drivers/remoteproc/Kconfig       |  11 +
- drivers/remoteproc/Makefile      |   1 +
- drivers/remoteproc/sunxi_rproc.c | 855 +++++++++++++++++++++++++++++++
- drivers/remoteproc/sunxi_rproc.h | 124 +++++
- 5 files changed, 999 insertions(+)
- create mode 100644 drivers/remoteproc/sunxi_rproc.c
- create mode 100644 drivers/remoteproc/sunxi_rproc.h
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 890092a1e7a4..785baf0fba61 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -954,6 +954,14 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/mailbox/allwinner,sun55i-a523-msgbox.yaml
- F:	drivers/mailbox/sun55i*
- 
-+ALLWINNER SUN55I REMOTEPROC DRIVER
-+M:	Tim Michals <tcmichals@gmail.com>
-+L:	linux-remoteproc@vger.kernel.org
-+L:	linux-sunxi@lists.linux.dev
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-a523-rproc.yaml
-+F:	drivers/remoteproc/sunxi_rproc*
-+
- ALLWINNER THERMAL DRIVER
- M:	Vasily Khoruzhick <anarsoul@gmail.com>
- M:	Yangtao Li <tiny.windzz@gmail.com>
-diff --git a/drivers/remoteproc/Kconfig b/drivers/remoteproc/Kconfig
-index 70dec8c3fe4e..d2929a3290c3 100644
---- a/drivers/remoteproc/Kconfig
-+++ b/drivers/remoteproc/Kconfig
-@@ -337,6 +337,17 @@ config STM32_RPROC
- 
- 	  This can be either built-in or a loadable module.
- 
-+config SUNXI_REMOTEPROC
-+	tristate "Allwinner A523 XuanTie E906 RISC-V remoteproc support"
-+	depends on (ARCH_SUNXI || COMPILE_TEST) && MAILBOX
-+	help
-+	  Say y or m here to support the Allwinner XuanTie E906 RISC-V
-+	  co-processor on Allwinner A523, A527, and T527 SoCs via the
-+	  remote processor framework.
-+
-+	  To compile this driver as a module, choose M here: the module will
-+	  be called sunxi_rproc.
-+
- config TI_K3_DSP_REMOTEPROC
- 	tristate "TI K3 DSP remoteproc support"
- 	depends on ARCH_K3 || COMPILE_TEST
-diff --git a/drivers/remoteproc/Makefile b/drivers/remoteproc/Makefile
-index 689686de0d41..bf8c96f69a05 100644
---- a/drivers/remoteproc/Makefile
-+++ b/drivers/remoteproc/Makefile
-@@ -37,6 +37,7 @@ obj-$(CONFIG_RCAR_REMOTEPROC)		+= rcar_rproc.o
- obj-$(CONFIG_ST_REMOTEPROC)		+= st_remoteproc.o
- obj-$(CONFIG_ST_SLIM_REMOTEPROC)	+= st_slim_rproc.o
- obj-$(CONFIG_STM32_RPROC)		+= stm32_rproc.o
-+obj-$(CONFIG_SUNXI_REMOTEPROC)		+= sunxi_rproc.o
- obj-$(CONFIG_TI_K3_DSP_REMOTEPROC)	+= ti_k3_dsp_remoteproc.o ti_k3_common.o
- obj-$(CONFIG_TI_K3_M4_REMOTEPROC)	+= ti_k3_m4_remoteproc.o ti_k3_common.o
- obj-$(CONFIG_TI_K3_R5_REMOTEPROC)	+= ti_k3_r5_remoteproc.o ti_k3_common.o
-diff --git a/drivers/remoteproc/sunxi_rproc.c b/drivers/remoteproc/sunxi_rproc.c
-new file mode 100644
-index 000000000000..1cee7110f0b8
---- /dev/null
-+++ b/drivers/remoteproc/sunxi_rproc.c
-@@ -0,0 +1,855 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Allwinner XuanTie E906 RISC-V Remote Processor Driver
-+ *
-+ * Copyright (C) 2024-2026 Allwinner Technology Co., Ltd.
-+ * Copyright (C) 2026 Tim Michals <tcmichals@gmail.com>
-+ * Based on vendor sunxi-rproc driver by Allwinner Technology Co., Ltd.
-+ *
-+ * Loads and runs firmware on the XuanTie E906 RISC-V core of the Allwinner
-+ * A523, A527 and T527, from its two SRAMs and from DRAM carveouts.
-+ */
-+
-+#include <kunit/static_stub.h>
-+#include <kunit/visibility.h>
-+#include <linux/clk.h>
-+#include <linux/device.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/elf.h>
-+#include <linux/err.h>
-+#include <linux/firmware.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/limits.h>
-+#include <linux/mailbox_client.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_reserved_mem.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_domain.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/property.h>
-+#include <linux/remoteproc.h>
-+#include <linux/reset.h>
-+#include <linux/slab.h>
-+#include <linux/workqueue.h>
-+
-+#include "remoteproc_elf_helpers.h"
-+#include "remoteproc_internal.h"
-+#include "sunxi_rproc.h"
-+
-+#define DRIVER_NAME "sunxi-rproc"
-+
-+static const struct sunxi_rproc_att sun55i_rproc_att[] = {
-+	/* dev addr (remote)         , sys addr (host PA)    , size                   , flags */
-+	/* E906 view of SRAM space 0 and space 1 */
-+	{ SUN55I_E906_SRAM_SPACE0_DA, SUN55I_SRAM_SPACE0_SYS, SUN55I_SRAM_SPACE0_SIZE,
-+	  SUNXI_RPROC_ATT_IOMEM },
-+	{ SUN55I_E906_SRAM_SPACE1_DA, SUN55I_SRAM_SPACE1_SYS, SUN55I_SRAM_SPACE1_SIZE,
-+	  SUNXI_RPROC_ATT_IOMEM },
-+
-+	/* Host addresses, used for vrings and buffers Linux allocates in SRAM */
-+	{ SUN55I_SRAM_SPACE0_SYS, SUN55I_SRAM_SPACE0_SYS, SUN55I_SRAM_SPACE0_SIZE,
-+	  SUNXI_RPROC_ATT_IOMEM },
-+	{ SUN55I_SRAM_SPACE1_SYS, SUN55I_SRAM_SPACE1_SYS, SUN55I_SRAM_SPACE1_SIZE,
-+	  SUNXI_RPROC_ATT_IOMEM },
-+};
-+
-+VISIBLE_IF_KUNIT
-+const struct sunxi_rproc_cfg sun55i_riscv_cfg = {
-+	.name = "XuanTie E906 RISC-V",
-+	.att = sun55i_rproc_att,
-+	.att_size = ARRAY_SIZE(sun55i_rproc_att),
-+	.boot_reg_offset = SUN55I_E906_STA_ADD_REG,
-+};
-+EXPORT_SYMBOL_IF_KUNIT(sun55i_riscv_cfg);
-+
-+/* All register and SRAM access goes through these, so KUnit can model it */
-+VISIBLE_IF_KUNIT
-+u32 sunxi_rproc_readl(void __iomem *addr)
-+{
-+	KUNIT_STATIC_STUB_REDIRECT(sunxi_rproc_readl, addr);
-+	return readl(addr);
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_readl);
-+
-+VISIBLE_IF_KUNIT
-+void sunxi_rproc_writel(u32 val, void __iomem *addr)
-+{
-+	KUNIT_STATIC_STUB_REDIRECT(sunxi_rproc_writel, val, addr);
-+	writel(val, addr);
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_writel);
-+
-+VISIBLE_IF_KUNIT
-+void sunxi_rproc_memset_io(void __iomem *addr, int val, size_t len)
-+{
-+	KUNIT_STATIC_STUB_REDIRECT(sunxi_rproc_memset_io, addr, val, len);
-+	memset_io(addr, val, len);
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_memset_io);
-+
-+/* The core's address for host address @sys: the first ATT entry covering it */
-+static int sunxi_rproc_sys_to_da(const struct sunxi_rproc_cfg *cfg, phys_addr_t sys,
-+				 size_t len, u64 *da)
-+{
-+	size_t i;
-+
-+	for (i = 0; i < cfg->att_size; i++) {
-+		const struct sunxi_rproc_att *att = &cfg->att[i];
-+
-+		if (sys >= att->sa && sys + len <= att->sa + att->size) {
-+			*da = att->da + (sys - att->sa);
-+			return 0;
-+		}
-+	}
-+
-+	return -ENOENT;
-+}
-+
-+/* Does [@da, @da + @len) overlap a window of the core's address map? */
-+static bool sunxi_rproc_att_overlaps(const struct sunxi_rproc_cfg *cfg, u64 da, size_t len)
-+{
-+	size_t i;
-+
-+	for (i = 0; i < cfg->att_size; i++) {
-+		const struct sunxi_rproc_att *att = &cfg->att[i];
-+
-+		if (da < att->da + att->size && att->da < da + len)
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
-+/* The mapping of host range [@sys, @sys + @len) if it lies in one of the SRAMs */
-+static void __iomem *sunxi_rproc_sram_va(struct sunxi_rproc *priv, u64 sys, size_t len)
-+{
-+	if (priv->sram0_va && sys >= priv->sram0_phys &&
-+	    sys + len <= priv->sram0_phys + priv->sram0_size)
-+		return priv->sram0_va + (sys - priv->sram0_phys);
-+
-+	if (priv->sram1_va && sys >= priv->sram1_phys &&
-+	    sys + len <= priv->sram1_phys + priv->sram1_size)
-+		return priv->sram1_va + (sys - priv->sram1_phys);
-+
-+	return NULL;
-+}
-+
-+VISIBLE_IF_KUNIT
-+int sunxi_rproc_vq_notify(int id, void *ptr, void *data)
-+{
-+	KUNIT_STATIC_STUB_REDIRECT(sunxi_rproc_vq_notify, id, ptr, data);
-+	rproc_vq_interrupt(data, id);
-+	return 0;
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_vq_notify);
-+
-+/* One channel carries all notifications: check every vring */
-+VISIBLE_IF_KUNIT
-+void sunxi_rproc_vq_work(struct work_struct *work)
-+{
-+	struct sunxi_rproc *priv = container_of(work, struct sunxi_rproc, vq_work);
-+
-+	idr_for_each(&priv->rproc->notifyids, sunxi_rproc_vq_notify, priv->rproc);
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_vq_work);
-+
-+/*
-+ * Mailbox rx callbacks run in atomic context, but the virtio/rpmsg receive
-+ * path takes mutexes, so the vring notifications are handled from a work item.
-+ */
-+VISIBLE_IF_KUNIT
-+void sunxi_rproc_mb_rx_callback(struct mbox_client *cl, void *data)
-+{
-+	struct sunxi_rproc *priv = container_of(cl, struct sunxi_rproc, cl);
-+
-+	queue_work(priv->workqueue, &priv->vq_work);
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_mb_rx_callback);
-+
-+VISIBLE_IF_KUNIT
-+irqreturn_t sunxi_rproc_crash_handler(int irq, void *data)
-+{
-+	struct sunxi_rproc *priv = data;
-+
-+	/*
-+	 * Stays masked until the next start(); recovery runs stop() first. A
-+	 * stop() that already disarmed it has disabled the line itself.
-+	 */
-+	if (test_and_clear_bit(SUNXI_RPROC_CRASH_IRQ_ARMED, &priv->flags))
-+		disable_irq_nosync(irq);
-+
-+	rproc_report_crash(priv->rproc, RPROC_FATAL_ERROR);
-+
-+	return IRQ_HANDLED;
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_crash_handler);
-+
-+/*
-+ * Crash dumps cover both SRAMs, by the core's addresses so a dump loads into a
-+ * debugger as is, and every carveout outside them. rproc_resource_cleanup()
-+ * drops the segments after every run; recovery keeps them.
-+ */
-+static void sunxi_rproc_add_dump_segments(struct rproc *rproc)
-+{
-+	struct sunxi_rproc *priv = rproc->priv;
-+	u64 da0, da1;
-+	unsigned int i;
-+	int ret;
-+
-+	/* probe() checked that both SRAMs are in the core's address map */
-+	ret = sunxi_rproc_sys_to_da(priv->cfg, priv->sram0_phys, priv->sram0_size, &da0);
-+	if (!ret)
-+		ret = sunxi_rproc_sys_to_da(priv->cfg, priv->sram1_phys,
-+					    priv->sram1_size, &da1);
-+	if (!ret)
-+		ret = rproc_coredump_add_segment(rproc, da0, priv->sram0_size);
-+	if (!ret)
-+		ret = rproc_coredump_add_segment(rproc, da1, priv->sram1_size);
-+	for (i = 0; !ret && i < priv->num_rmem; i++) {
-+		if (priv->rmem[i].is_iomem)
-+			continue;	/* placed on an SRAM, already dumped */
-+		ret = rproc_coredump_add_segment(rproc, (u32)priv->rmem[i].phys,
-+						 priv->rmem[i].size);
-+	}
-+
-+	/* A dump is a debugging aid: a missing segment does not stop the boot */
-+	if (ret)
-+		dev_warn(priv->dev, "crash dump segments incomplete: %d\n", ret);
-+}
-+
-+VISIBLE_IF_KUNIT
-+int sunxi_rproc_prepare(struct rproc *rproc)
-+{
-+	struct sunxi_rproc *priv = rproc->priv;
-+	u32 remap_val;
-+	int ret;
-+
-+	/* 0. Power up the RISC-V and SRAM power domains */
-+	ret = pm_runtime_resume_and_get(priv->dev);
-+	if (ret) {
-+		dev_err(priv->dev, "failed to power up: %d\n", ret);
-+		return ret;
-+	}
-+
-+	/*
-+	 * 1. Hold the core in reset (a bootloader or an earlier kernel may
-+	 * have left it running), then deassert the configuration, SRAM and
-+	 * debug resets.
-+	 */
-+	ret = reset_control_assert(priv->rst_core);
-+	if (ret) {
-+		dev_err(priv->dev, "failed to assert core reset: %d\n", ret);
-+		goto err_pm_put;
-+	}
-+
-+	ret = reset_control_deassert(priv->rst_cfg);
-+	if (ret) {
-+		dev_err(priv->dev, "failed to deassert cfg reset: %d\n", ret);
-+		goto err_pm_put;
-+	}
-+
-+	ret = reset_control_deassert(priv->rst_sram);
-+	if (ret) {
-+		dev_err(priv->dev, "failed to deassert sram reset: %d\n", ret);
-+		goto err_assert_cfg;
-+	}
-+
-+	ret = reset_control_deassert(priv->rst_debug);
-+	if (ret) {
-+		dev_err(priv->dev, "failed to deassert debug reset: %d\n", ret);
-+		goto err_assert_sram;
-+	}
-+
-+	/* 2. Enable interconnect bus and SRAM clocks */
-+	ret = clk_prepare_enable(priv->clk_bus);
-+	if (ret) {
-+		dev_err(priv->dev, "failed to enable bus clock: %d\n", ret);
-+		goto err_assert_debug;
-+	}
-+
-+	ret = clk_prepare_enable(priv->clk_sram);
-+	if (ret) {
-+		dev_err(priv->dev, "failed to enable sram clock: %d\n", ret);
-+		goto err_disable_bus_clk;
-+	}
-+
-+	/* 3. Enable core clock */
-+	ret = clk_prepare_enable(priv->clk_core);
-+	if (ret) {
-+		dev_err(priv->dev, "failed to enable core clock: %d\n", ret);
-+		goto err_disable_sram_clk;
-+	}
-+
-+	/* 4. Share SRAM A3_2 with the MCU subsystem: REMAP bit 1 */
-+	remap_val = sunxi_rproc_readl(priv->remap_va) | SUNXI_REMAP_SRAMA3_2_BIT;
-+	sunxi_rproc_writel(remap_val, priv->remap_va);
-+	sunxi_rproc_readl(priv->remap_va);
-+
-+	/* 5. Clear both SRAM spaces */
-+	sunxi_rproc_memset_io(priv->sram0_va, 0, priv->sram0_size);
-+	sunxi_rproc_memset_io(priv->sram1_va, 0, priv->sram1_size);
-+
-+	return 0;
-+
-+err_disable_sram_clk:
-+	clk_disable_unprepare(priv->clk_sram);
-+err_disable_bus_clk:
-+	clk_disable_unprepare(priv->clk_bus);
-+err_assert_debug:
-+	reset_control_assert(priv->rst_debug);
-+err_assert_sram:
-+	reset_control_assert(priv->rst_sram);
-+err_assert_cfg:
-+	reset_control_assert(priv->rst_cfg);
-+err_pm_put:
-+	pm_runtime_put_sync(priv->dev);
-+	return ret;
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_prepare);
-+
-+VISIBLE_IF_KUNIT
-+int sunxi_rproc_unprepare(struct rproc *rproc)
-+{
-+	struct sunxi_rproc *priv = rproc->priv;
-+
-+	sunxi_rproc_writel(sunxi_rproc_readl(priv->remap_va) & ~SUNXI_REMAP_SRAMA3_2_BIT,
-+			   priv->remap_va);
-+	sunxi_rproc_readl(priv->remap_va);
-+
-+	clk_disable_unprepare(priv->clk_core);
-+	clk_disable_unprepare(priv->clk_sram);
-+	clk_disable_unprepare(priv->clk_bus);
-+
-+	reset_control_assert(priv->rst_debug);
-+	reset_control_assert(priv->rst_sram);
-+	reset_control_assert(priv->rst_cfg);
-+
-+	/* Synchronous, so the domains are off before an unbind disables runtime PM */
-+	pm_runtime_put_sync(priv->dev);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_unprepare);
-+
-+VISIBLE_IF_KUNIT
-+int sunxi_rproc_start(struct rproc *rproc)
-+{
-+	struct sunxi_rproc *priv = rproc->priv;
-+	const struct sunxi_rproc_cfg *cfg = priv->cfg;
-+	int ret;
-+
-+	dev_dbg(priv->dev, "Starting %s core at entry 0x%llx\n",
-+		cfg->name, (u64)rproc->bootaddr);
-+
-+	if (rproc->bootaddr > U32_MAX)
-+		return -EINVAL;
-+
-+	/* Program the reset vector and flush it before releasing the core */
-+	sunxi_rproc_writel((u32)rproc->bootaddr, priv->cfg_va + cfg->boot_reg_offset);
-+	sunxi_rproc_readl(priv->cfg_va + cfg->boot_reg_offset);
-+
-+	ret = reset_control_deassert(priv->rst_core);
-+	if (ret) {
-+		dev_err(priv->dev, "failed to release core reset: %d\n", ret);
-+		return ret;
-+	}
-+
-+	if (priv->crash_irq > 0 &&
-+	    !test_and_set_bit(SUNXI_RPROC_CRASH_IRQ_ARMED, &priv->flags))
-+		enable_irq(priv->crash_irq);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_start);
-+
-+static int sunxi_rproc_stop(struct rproc *rproc)
-+{
-+	struct sunxi_rproc *priv = rproc->priv;
-+	const struct sunxi_rproc_cfg *cfg = priv->cfg;
-+
-+	dev_dbg(priv->dev, "Halting %s core...\n", cfg->name);
-+
-+	/* Assert reset so the core stops executing */
-+	reset_control_assert(priv->rst_core);
-+
-+	if (priv->crash_irq > 0 &&
-+	    test_and_clear_bit(SUNXI_RPROC_CRASH_IRQ_ARMED, &priv->flags))
-+		disable_irq(priv->crash_irq);
-+
-+	return 0;
-+}
-+
-+/*
-+ * Kick payloads must outlive sunxi_rproc_kick(): the mailbox core queues the
-+ * message *pointer* while a previous request is still active and passes it to
-+ * the controller later, from the poll timer or the TX-done interrupt. Use
-+ * immutable static storage, one entry per vring, so nothing is rewritten
-+ * while queued.
-+ */
-+static const u32 sunxi_rproc_kick_msg[] = { 0, 1 };
-+
-+VISIBLE_IF_KUNIT
-+void sunxi_rproc_kick(struct rproc *rproc, int vqid)
-+{
-+	struct sunxi_rproc *priv = rproc->priv;
-+	int ret;
-+
-+	if (!priv->mbox_chan) {
-+		dev_warn_once(priv->dev, "vring kick without a mailbox (no mboxes in DT)\n");
-+		return;
-+	}
-+
-+	if (vqid < 0 || vqid >= ARRAY_SIZE(sunxi_rproc_kick_msg)) {
-+		dev_err_ratelimited(priv->dev, "no kick payload for vring %d\n", vqid);
-+		return;
-+	}
-+
-+	ret = mbox_send_message(priv->mbox_chan,
-+				(void *)&sunxi_rproc_kick_msg[vqid]);
-+	if (ret < 0)
-+		dev_err_ratelimited(priv->dev, "failed to send mailbox kick: %d\n", ret);
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_kick);
-+
-+VISIBLE_IF_KUNIT
-+void *sunxi_rproc_da_to_va(struct rproc *rproc, u64 da, size_t len, bool *is_iomem)
-+{
-+	struct sunxi_rproc *priv = rproc->priv;
-+	const struct sunxi_rproc_cfg *cfg = priv->cfg;
-+	void __iomem *va;
-+	size_t i;
-+
-+	/* A zero length, or a da + len that wraps, matches no window */
-+	if (len == 0 || da > U64_MAX - len)
-+		return NULL;
-+
-+	/*
-+	 * The address translation table holds the core's views of the SRAMs
-+	 * and their host addresses. Only the SRAMs are handled here; DRAM
-+	 * firmware, trace, vrings and buffers are registered carveouts, which
-+	 * rproc_da_to_va() looks up when this returns NULL.
-+	 */
-+	for (i = 0; i < cfg->att_size; i++) {
-+		const struct sunxi_rproc_att *att = &cfg->att[i];
-+
-+		if (da < att->da || da + len > att->da + att->size)
-+			continue;
-+
-+		va = sunxi_rproc_sram_va(priv, att->sa + (da - att->da), len);
-+		/* is_iomem is only set for an address that is returned */
-+		if (va && is_iomem)
-+			*is_iomem = !!(att->flags & SUNXI_RPROC_ATT_IOMEM);
-+		return (__force void *)va;
-+	}
-+
-+	return NULL;
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_da_to_va);
-+
-+/* The E906 is RV32: refuse firmware built for another core before it is loaded */
-+static int sunxi_rproc_sanity_check(struct rproc *rproc, const struct firmware *fw)
-+{
-+	int ret;
-+
-+	ret = rproc_elf_sanity_check(rproc, fw);
-+	if (ret)
-+		return ret;
-+
-+	if (fw_elf_get_class(fw) != ELFCLASS32 ||
-+	    elf_hdr_get_e_machine(ELFCLASS32, fw->data) != EM_RISCV) {
-+		dev_err(&rproc->dev, "firmware is not a 32-bit RISC-V ELF\n");
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+/*
-+ * The memory regions are registered here rather than in prepare(): the core
-+ * cleans up carveouts and dump segments only once parse_fw() has succeeded.
-+ * The entries are allocated first, so a failure leaves nothing behind.
-+ */
-+VISIBLE_IF_KUNIT
-+int sunxi_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-+{
-+	struct sunxi_rproc *priv = rproc->priv;
-+	struct rproc_mem_entry *mem[SUNXI_RPROC_MAX_RMEM];
-+	unsigned int i;
-+	int ret;
-+
-+	for (i = 0; i < priv->num_rmem; i++) {
-+		const struct sunxi_rproc_rmem *rmem = &priv->rmem[i];
-+
-+		mem[i] = rproc_mem_entry_init(priv->dev, rmem->va, (dma_addr_t)rmem->phys,
-+					      rmem->size, (u32)rmem->phys, NULL, NULL,
-+					      "%s", rmem->name);
-+		if (!mem[i]) {
-+			ret = -ENOMEM;
-+			goto err_free_mem;
-+		}
-+		mem[i]->is_iomem = rmem->is_iomem;
-+	}
-+
-+	/*
-+	 * -EINVAL: no resource table, or one the core rejects. The firmware
-+	 * then runs without virtio, as with stm32.
-+	 */
-+	ret = rproc_elf_load_rsc_table(rproc, fw);
-+	if (ret == -EINVAL)
-+		dev_dbg(&rproc->dev, "no usable resource table in the firmware\n");
-+	else if (ret)
-+		goto err_free_mem;
-+
-+	for (i = 0; i < priv->num_rmem; i++)
-+		rproc_add_carveout(rproc, mem[i]);
-+
-+	sunxi_rproc_add_dump_segments(rproc);
-+
-+	return 0;
-+
-+err_free_mem:
-+	while (i--)
-+		kfree(mem[i]);
-+	return ret;
-+}
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_parse_fw);
-+
-+VISIBLE_IF_KUNIT
-+const struct rproc_ops sunxi_rproc_ops = {
-+	.prepare        = sunxi_rproc_prepare,
-+	.unprepare      = sunxi_rproc_unprepare,
-+	.start          = sunxi_rproc_start,
-+	.stop           = sunxi_rproc_stop,
-+	.kick           = sunxi_rproc_kick,
-+	.da_to_va       = sunxi_rproc_da_to_va,
-+	.get_boot_addr  = rproc_elf_get_boot_addr,
-+	.load           = rproc_elf_load_segments,
-+	.parse_fw       = sunxi_rproc_parse_fw,
-+	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
-+	.sanity_check   = sunxi_rproc_sanity_check,
-+};
-+EXPORT_SYMBOL_IF_KUNIT(sunxi_rproc_ops);
-+
-+static int sunxi_rproc_map_sram(struct platform_device *pdev, const char *name,
-+				void __iomem **va, phys_addr_t *phys, size_t *size)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct sunxi_rproc *priv = platform_get_drvdata(pdev);
-+	struct resource *res;
-+	u64 da;
-+
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, name);
-+	*va = devm_ioremap_resource_wc(dev, res);
-+	if (IS_ERR(*va))
-+		return dev_err_probe(dev, PTR_ERR(*va), "failed to map '%s'\n", name);
-+
-+	/* The address map of the core comes from the SoC table: they must agree */
-+	if (sunxi_rproc_sys_to_da(priv->cfg, res->start, resource_size(res), &da))
-+		return dev_err_probe(dev, -EINVAL, "'%s' %pR is not in the %s address map\n",
-+				     name, res, priv->cfg->name);
-+
-+	*phys = res->start;
-+	*size = resource_size(res);
-+
-+	return 0;
-+}
-+
-+static int sunxi_rproc_register_mem(struct platform_device *pdev, struct sunxi_rproc *priv)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct resource *res;
-+	int ret;
-+
-+	priv->cfg_va = devm_platform_ioremap_resource_byname(pdev, "cfg");
-+	if (IS_ERR(priv->cfg_va))
-+		return dev_err_probe(dev, PTR_ERR(priv->cfg_va), "failed to map 'cfg'\n");
-+
-+	ret = sunxi_rproc_map_sram(pdev, "sram-a3-0", &priv->sram0_va, &priv->sram0_phys,
-+				   &priv->sram0_size);
-+	if (ret)
-+		return ret;
-+
-+	ret = sunxi_rproc_map_sram(pdev, "sram-a3-1", &priv->sram1_va, &priv->sram1_phys,
-+				   &priv->sram1_size);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * The remap register sits in the PRCM block and is shared with the DSP,
-+	 * so map it without claiming the region.
-+	 */
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "remap");
-+	if (!res)
-+		return dev_err_probe(dev, -EINVAL, "missing 'remap' register\n");
-+	priv->remap_va = devm_ioremap(dev, res->start, resource_size(res));
-+	if (!priv->remap_va)
-+		return dev_err_probe(dev, -ENOMEM, "failed to map 'remap'\n");
-+
-+	return 0;
-+}
-+
-+static void sunxi_rproc_release_dma_pool(void *dev)
-+{
-+	of_reserved_mem_device_release(dev);
-+}
-+
-+static int sunxi_rproc_parse_memory_regions(struct sunxi_rproc *priv)
-+{
-+	struct device *dev = priv->dev;
-+	struct device_node *np = dev->of_node;
-+	int i, count, ret;
-+
-+	count = of_reserved_mem_region_count(np);
-+	if (count <= 0)
-+		return 0;
-+	if (count > SUNXI_RPROC_MAX_RMEM)
-+		return dev_err_probe(dev, -EINVAL, "too many memory-region entries (%d)\n",
-+				     count);
-+
-+	/* memory-region[0] is the DMA pool for vrings and vdev buffers */
-+	ret = of_reserved_mem_device_init(dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to set up the DMA pool\n");
-+
-+	ret = devm_add_action_or_reset(dev, sunxi_rproc_release_dma_pool, dev);
-+	if (ret)
-+		return ret;
-+
-+	for (i = 0; i < count; i++) {
-+		struct sunxi_rproc_rmem *rmem = &priv->rmem[i];
-+		struct resource res;
-+		void __iomem *sram;
-+
-+		ret = of_reserved_mem_region_to_resource(np, i, &res);
-+		if (ret)
-+			return dev_err_probe(dev, ret, "invalid memory-region %d\n", i);
-+
-+		/* The core addresses memory with 32 bits (carveout da is a u32) */
-+		if (res.end > U32_MAX)
-+			return dev_err_probe(dev, -EINVAL,
-+					     "memory-region %d above 4 GiB\n", i);
-+
-+		if (of_property_read_string_index(np, "memory-region-names", i, &rmem->name))
-+			rmem->name = devm_kasprintf(dev, GFP_KERNEL, "rmem%d", i);
-+		if (!rmem->name)
-+			return -ENOMEM;
-+
-+		rmem->phys = res.start;
-+		rmem->size = resource_size(&res);
-+
-+		/* A pool placed on one of the core's SRAMs reuses its mapping */
-+		sram = sunxi_rproc_sram_va(priv, rmem->phys, rmem->size);
-+		if (sram) {
-+			rmem->va = (__force void *)sram;
-+			rmem->is_iomem = true;
-+			priv->num_rmem++;
-+			continue;
-+		}
-+
-+		/*
-+		 * DRAM is seen 1:1 by the core, outside the windows of its
-+		 * address map: a region inside one would reach SRAM instead.
-+		 */
-+		if (sunxi_rproc_att_overlaps(priv->cfg, rmem->phys, rmem->size))
-+			return dev_err_probe(dev, -EINVAL,
-+					     "memory-region %d %pR is not visible to the core\n",
-+					     i, &res);
-+
-+		/* Same attribute as the DMA pool, so no WB/WC alias */
-+		rmem->va = devm_memremap(dev, rmem->phys, rmem->size, MEMREMAP_WC);
-+		if (IS_ERR(rmem->va))
-+			return dev_err_probe(dev, PTR_ERR(rmem->va),
-+					     "failed to map %s\n", rmem->name);
-+		priv->num_rmem++;
-+	}
-+
-+	return 0;
-+}
-+
-+static void sunxi_rproc_free_mbox(struct sunxi_rproc *priv)
-+{
-+	if (priv->mbox_chan)
-+		mbox_free_channel(priv->mbox_chan);
-+	priv->mbox_chan = NULL;
-+
-+	/* No rx callback can queue the work any more once the channel is freed */
-+	cancel_work_sync(&priv->vq_work);
-+}
-+
-+static int sunxi_rproc_probe(struct platform_device *pdev)
-+{
-+	static const char * const pd_names[] = { "riscv", "sram" };
-+	static const struct dev_pm_domain_attach_data pd_data = {
-+		.pd_names = pd_names,
-+		.num_pd_names = ARRAY_SIZE(pd_names),
-+	};
-+	struct device *dev = &pdev->dev;
-+	const char *fw_name = "riscv-firmware.elf";
-+	struct dev_pm_domain_list *pd_list;
-+	struct sunxi_rproc *priv;
-+	struct rproc *rproc;
-+	int crash_irq;
-+	int ret;
-+
-+	/* firmware-name is optional: the default is kept only when it is absent */
-+	ret = rproc_of_parse_firmware(dev, 0, &fw_name);
-+	if (ret && ret != -EINVAL)
-+		return dev_err_probe(dev, ret, "invalid firmware-name\n");
-+
-+	rproc = devm_rproc_alloc(dev, dev_name(dev), &sunxi_rproc_ops,
-+				 fw_name, sizeof(*priv));
-+	if (!rproc)
-+		return -ENOMEM;
-+
-+	ret = dma_set_coherent_mask(dev, DMA_BIT_MASK(32));
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to set 32-bit DMA coherent mask\n");
-+
-+	priv = rproc->priv;
-+	priv->rproc = rproc;
-+	priv->dev = dev;
-+	priv->cfg = device_get_match_data(dev);
-+	if (!priv->cfg)
-+		return -ENODEV;
-+	platform_set_drvdata(pdev, priv);
-+
-+	/* Crash dumps are 32-bit RISC-V ELF files */
-+	rproc_coredump_set_elf_info(rproc, ELFCLASS32, EM_RISCV);
-+
-+	/*
-+	 * The core and its SRAM sit in two PPU power domains. With more than one
-+	 * domain the driver core does not attach them, so do it here; runtime PM
-+	 * of this device then powers both, from prepare() to unprepare().
-+	 */
-+	ret = devm_pm_domain_attach_list(dev, &pd_data, &pd_list);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "failed to attach power domains\n");
-+
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
-+		return ret;
-+
-+	priv->clk_bus = devm_clk_get(dev, "bus");
-+	if (IS_ERR(priv->clk_bus))
-+		return dev_err_probe(dev, PTR_ERR(priv->clk_bus), "failed to get 'bus' clock\n");
-+
-+	priv->clk_core = devm_clk_get(dev, "core");
-+	if (IS_ERR(priv->clk_core))
-+		return dev_err_probe(dev, PTR_ERR(priv->clk_core), "failed to get 'core' clock\n");
-+
-+	priv->clk_sram = devm_clk_get(dev, "sram");
-+	if (IS_ERR(priv->clk_sram))
-+		return dev_err_probe(dev, PTR_ERR(priv->clk_sram), "failed to get 'sram' clock\n");
-+
-+	priv->rst_cfg = devm_reset_control_get_exclusive(dev, "cfg");
-+	if (IS_ERR(priv->rst_cfg))
-+		return dev_err_probe(dev, PTR_ERR(priv->rst_cfg), "failed to get 'cfg' reset\n");
-+
-+	priv->rst_core = devm_reset_control_get_exclusive(dev, "core");
-+	if (IS_ERR(priv->rst_core))
-+		return dev_err_probe(dev, PTR_ERR(priv->rst_core), "failed to get 'core' reset\n");
-+
-+	priv->rst_sram = devm_reset_control_get_exclusive(dev, "sram");
-+	if (IS_ERR(priv->rst_sram))
-+		return dev_err_probe(dev, PTR_ERR(priv->rst_sram), "failed to get 'sram' reset\n");
-+
-+	priv->rst_debug = devm_reset_control_get_exclusive(dev, "debug");
-+	if (IS_ERR(priv->rst_debug))
-+		return dev_err_probe(dev, PTR_ERR(priv->rst_debug),
-+				     "failed to get 'debug' reset\n");
-+
-+	/* Configuration block, both SRAM spaces and the remap register */
-+	ret = sunxi_rproc_register_mem(pdev, priv);
-+	if (ret)
-+		return ret;
-+
-+	/* memory-region: DMA pool and carveouts */
-+	ret = sunxi_rproc_parse_memory_regions(priv);
-+	if (ret)
-+		return ret;
-+
-+	/* Optional crash interrupt */
-+	crash_irq = platform_get_irq_optional(pdev, 0);
-+	if (crash_irq > 0) {
-+		ret = devm_request_threaded_irq(dev, crash_irq, NULL,
-+						sunxi_rproc_crash_handler,
-+						IRQF_ONESHOT | IRQF_NO_AUTOEN,
-+						"sunxi-rproc-crash",
-+						priv);
-+		if (ret)
-+			return dev_err_probe(dev, ret, "failed to request crash IRQ\n");
-+		priv->crash_irq = crash_irq;
-+	} else if (crash_irq != -ENXIO) {
-+		return dev_err_probe(dev, crash_irq, "failed to get crash IRQ\n");
-+	}
-+
-+	/* Mailbox (optional: without it the core runs standalone) */
-+	INIT_WORK(&priv->vq_work, sunxi_rproc_vq_work);
-+
-+	if (of_property_present(dev->of_node, "mboxes")) {
-+		priv->workqueue = devm_alloc_ordered_workqueue(dev, "%s", WQ_HIGHPRI,
-+							       dev_name(dev));
-+		if (!priv->workqueue)
-+			return -ENOMEM;
-+
-+		priv->cl.dev = dev;
-+		priv->cl.rx_callback = sunxi_rproc_mb_rx_callback;
-+		priv->cl.tx_block = false;
-+		priv->cl.knows_txdone = false;
-+
-+		/* One channel carries kicks to the core and notifications from it */
-+		priv->mbox_chan = mbox_request_channel(&priv->cl, 0);
-+		if (IS_ERR(priv->mbox_chan)) {
-+			ret = PTR_ERR(priv->mbox_chan);
-+			priv->mbox_chan = NULL;
-+			return dev_err_probe(dev, ret, "failed to request mailbox\n");
-+		}
-+	} else {
-+		dev_dbg(dev, "no mboxes configured; operating in standalone mode\n");
-+	}
-+
-+	ret = rproc_add(rproc);
-+	if (ret) {
-+		sunxi_rproc_free_mbox(priv);
-+		return dev_err_probe(dev, ret, "failed to register rproc device\n");
-+	}
-+
-+	return 0;
-+}
-+
-+static void sunxi_rproc_remove(struct platform_device *pdev)
-+{
-+	struct sunxi_rproc *priv = platform_get_drvdata(pdev);
-+
-+	/*
-+	 * rproc_del() stops the core and removes the virtio devices, which may
-+	 * still kick, so the mailbox must outlive it.
-+	 */
-+	rproc_del(priv->rproc);
-+
-+	sunxi_rproc_free_mbox(priv);
-+}
-+
-+static const struct of_device_id sunxi_rproc_of_match[] = {
-+	/* The A523, A527 and T527 are one die, so one compatible covers all three */
-+	{ .compatible = "allwinner,sun55i-a523-rproc", .data = &sun55i_riscv_cfg },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, sunxi_rproc_of_match);
-+
-+static struct platform_driver sunxi_rproc_driver = {
-+	.probe = sunxi_rproc_probe,
-+	.remove = sunxi_rproc_remove,
-+	.driver = {
-+		.name = DRIVER_NAME,
-+		.of_match_table = sunxi_rproc_of_match,
-+	},
-+};
-+module_platform_driver(sunxi_rproc_driver);
-+
-+MODULE_AUTHOR("Tim Michals <tcmichals@gmail.com>");
-+MODULE_DESCRIPTION("Allwinner XuanTie E906 RISC-V Remoteproc Driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/remoteproc/sunxi_rproc.h b/drivers/remoteproc/sunxi_rproc.h
-new file mode 100644
-index 000000000000..77176b688443
---- /dev/null
-+++ b/drivers/remoteproc/sunxi_rproc.h
-@@ -0,0 +1,124 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _SUNXI_RPROC_H_
-+#define _SUNXI_RPROC_H_
-+
-+#include <linux/bits.h>
-+#include <linux/irqreturn.h>
-+#include <linux/mailbox_client.h>
-+#include <linux/types.h>
-+#include <linux/workqueue.h>
-+
-+struct clk;
-+struct device;
-+struct firmware;
-+struct reset_control;
-+struct rproc;
-+struct rproc_ops;
-+
-+/*
-+ * XuanTie E906 view of its two SRAM spaces (Allwinner sun55iw3 vendor DT
-+ * "memory-mappings"). DRAM is seen 1:1 from 0x40040000 up, and 0x20000 is
-+ * the HiFi4 DSP RAM (also 1:1); neither goes through this table.
-+ */
-+#define SUN55I_E906_SRAM_SPACE0_DA	0x3ffc0000UL
-+#define SUN55I_E906_SRAM_SPACE1_DA	0x40000000UL
-+
-+/* Host physical addresses and sizes of the two SRAM spaces */
-+#define SUN55I_SRAM_SPACE0_SYS		0x07280000UL
-+#define SUN55I_SRAM_SPACE0_SIZE		0x00040000UL /* 256 KiB */
-+#define SUN55I_SRAM_SPACE1_SYS		0x072c0000UL
-+#define SUN55I_SRAM_SPACE1_SIZE		0x00040000UL /* 256 KiB */
-+
-+/* Address translation table entry flags */
-+#define SUNXI_RPROC_ATT_IOMEM		BIT(30)
-+
-+struct sunxi_rproc_att {
-+	u64 da;
-+	u64 sa;
-+	size_t size;
-+	u32 flags;
-+};
-+
-+/* Configuration block: boot address register */
-+#define SUN55I_E906_STA_ADD_REG		0x0204
-+
-+/* Remap register (R-PRCM 0x07010364), shared with the HiFi4 DSP: bit 1 is ours */
-+#define SUNXI_REMAP_SRAMA3_2_BIT	BIT(1)	/* share SRAM A3_2 with the MCU */
-+
-+#define SUNXI_RPROC_MAX_RMEM		3
-+#define SUNXI_RPROC_CRASH_IRQ_ARMED	0
-+
-+struct sunxi_rproc_rmem {
-+	const char *name;
-+	void *va;
-+	phys_addr_t phys;
-+	size_t size;
-+	bool is_iomem;
-+};
-+
-+struct sunxi_rproc_cfg {
-+	const char *name;
-+	/* Core views come first: a host address maps to the first entry covering it */
-+	const struct sunxi_rproc_att *att;
-+	size_t att_size;
-+	u32 boot_reg_offset;
-+};
-+
-+struct sunxi_rproc {
-+	struct rproc *rproc;
-+	struct device *dev;
-+	const struct sunxi_rproc_cfg *cfg;
-+
-+	/* Clocks and resets */
-+	struct clk *clk_bus;
-+	struct clk *clk_core;
-+	struct clk *clk_sram;
-+	struct reset_control *rst_cfg;
-+	struct reset_control *rst_core;
-+	struct reset_control *rst_sram;
-+	struct reset_control *rst_debug;
-+
-+	/* Configuration block, remap register and the two SRAM spaces */
-+	void __iomem *cfg_va;
-+
-+	void __iomem *remap_va;
-+
-+	void __iomem *sram0_va;
-+	phys_addr_t sram0_phys;
-+	size_t sram0_size;
-+
-+	void __iomem *sram1_va;
-+	phys_addr_t sram1_phys;
-+	size_t sram1_size;
-+
-+	/* memory-region entries, the crash interrupt and the mailbox */
-+	struct sunxi_rproc_rmem rmem[SUNXI_RPROC_MAX_RMEM];
-+	unsigned int num_rmem;
-+	unsigned long flags;
-+	int crash_irq;
-+	struct mbox_client cl;
-+	struct mbox_chan *mbox_chan;
-+	struct workqueue_struct *workqueue;
-+	struct work_struct vq_work;
-+};
-+
-+#if IS_ENABLED(CONFIG_KUNIT)
-+extern const struct sunxi_rproc_cfg sun55i_riscv_cfg;
-+extern const struct rproc_ops sunxi_rproc_ops;
-+
-+u32 sunxi_rproc_readl(void __iomem *addr);
-+void sunxi_rproc_writel(u32 val, void __iomem *addr);
-+void sunxi_rproc_memset_io(void __iomem *addr, int val, size_t len);
-+int sunxi_rproc_vq_notify(int id, void *ptr, void *data);
-+void sunxi_rproc_vq_work(struct work_struct *work);
-+irqreturn_t sunxi_rproc_crash_handler(int irq, void *data);
-+int sunxi_rproc_prepare(struct rproc *rproc);
-+int sunxi_rproc_unprepare(struct rproc *rproc);
-+int sunxi_rproc_start(struct rproc *rproc);
-+int sunxi_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw);
-+void sunxi_rproc_kick(struct rproc *rproc, int vqid);
-+void sunxi_rproc_mb_rx_callback(struct mbox_client *cl, void *data);
-+void *sunxi_rproc_da_to_va(struct rproc *rproc, u64 da, size_t len, bool *is_iomem);
-+#endif
-+
-+#endif /* _SUNXI_RPROC_H_ */
--- 
+diff --git a/Documentation/devicetree/bindings/mfd/nxp,bbnsm.yaml b/Docume=
+ntation/devicetree/bindings/mfd/nxp,bbnsm.yaml
+index b1ade64a1554..4c4b7c3fff2a 100644
+=2D-- a/Documentation/devicetree/bindings/mfd/nxp,bbnsm.yaml
++++ b/Documentation/devicetree/bindings/mfd/nxp,bbnsm.yaml
+@@ -31,6 +31,20 @@ properties:
+   reg:
+     maxItems: 1
+=20
++  nvmem:
++    type: object
++    $ref: /schemas/nvmem/nvmem.yaml#
++
++    properties:
++      compatible:
++        enum:
++          - nxp,imx93-bbnsm-nvmem
++
++    required:
++      - compatible
++
++    additionalProperties: false
++
+   rtc:
+     type: object
+     $ref: /schemas/rtc/rtc.yaml#
+@@ -88,6 +102,12 @@ examples:
+         compatible =3D "nxp,imx93-bbnsm", "syscon", "simple-mfd";
+         reg =3D <0x44440000 0x10000>;
+=20
++        nvmem {
++            compatible =3D "nxp,imx93-bbnsm-nvmem";
++            #address-cells =3D <1>;
++            #size-cells =3D <1>;
++        };
++
+         bbnsm_rtc: rtc {
+             compatible =3D "nxp,imx93-bbnsm-rtc";
+             interrupts =3D <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>;
+=2D-=20
 2.53.0
 
 
