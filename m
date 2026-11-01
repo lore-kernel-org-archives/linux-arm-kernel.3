@@ -2,64 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97DCC607350A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:16:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FE636074105
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KreCnOHt;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=nf3L9ctJ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=meFZjzJ7;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RI6vqfud
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=gmi5uewuXMed4CloBbecG8Sst+u3j+UWzS8NSli01pM=; b=KreCnOHtx5yKvb
-	cNcxUEczaa8HmXQOqtqrFxK/Rlc1uOVPbKSBLQ2bhbjT6RjDK36eWbyTnSCOdMw8yCNu5BuTumf5d
-	S+0f7DVS14aIi3nOavobMJqP6aJZTLeiTvgNTsRjfjkhPeRmdHCLEPGmWpPfwl8V4QwM1J152bRet
-	umZWeA953tQRQd/7Q7WxcXgUSEe4b3f2JxeZ7i/F27CQBnkUqH1fJoR+8Cyd/nMzPBgHW8coDkdhk
-	viTNsBC21fU2MQUMvotqSHN26dCfOaVuHWlbVON8EDX8JwDFXbfjbp/Zsda5HBsZ00VeYjf0jz/3k
-	BXmBp+Hkkd2BZjxT7kLQ==;
+	List-Owner; bh=7jMaG7E0faIciRuA0j8698KDnNXPdfgqG5SZCjrpwFM=; b=meFZjzJ7U3whkk
+	rb099LwO//6Kuculd9Q6Ym8OjVN2SIg/YhJnH2ZBbPlKFE2nFF5ZlOZeweQsP2y2DoNqZPE+eOybb
+	4gk2HaidSKY7XWHfU6cGMPS7ENEMSZ/IfObfnkp33r73269yMWRFsaEDUNKZ/sTd2Qy1IN+h0gRr1
+	uAFf1WUyUXThmuSTpOOIzaK2aQ/Tg1oRSz6xCiVx/CWDTooZUWIwuURu9deZRNJ1wZZQQ9Q4T0hMM
+	kaFFimgPco7hrK35ObnmJKhhOcNWZl6wbxHIliE63Jh8jwdDOCo/KaYsKu+wDR/kgGwDDLxJ1zTnm
+	7lWWv7W/rY62w+fwblxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdr9-0000000F1PL-3bpH;
-	Sun, 01 Nov 2026 22:16:51 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xNdrB-0000000F1VC-1der;
+	Sun, 01 Nov 2026 22:16:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdqe-0000000Ezus-2EbV;
-	Sun, 01 Nov 2026 22:16:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=gmi5uewuXMed4CloBbecG8Sst+u3j+UWzS8NSli01pM=; b=nf3L9ctJZheEiENewBWgF4O7d4
-	w0woJPQP2GTmpWl74VRcox9MjZ2Deb0eqUSRtStoHXGL9DhHxYq/zlQ0L1r4t9itNO+dCC0ZdsZ8n
-	W+9LJEcSSTVgssUnhNQiuK0NPTpjWQ4Nbv3mOzBC/MVuPYSf+pJvnH3bjamx7eHC6ePCrl6WXPiic
-	+lj8Zub9f/PBFK9xwwmUasaTIwJhyjq4gviI/ZIo2RtaslKRJ/ANY3i8hKlbIV47ivDGORK6jO5XC
-	ys8iroOQVCQIM2Wvc1Yj/kQFog6AZUqcQjtAQ623egtCoMp0dq8k7xjmlKYynPNJqpmIm3gT6/YAQ
-	OsCudwrA==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Igor Velkov <iav@iav.lv>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Add the GPU to Kobol Helios64
-Date: Sun,  1 Nov 2026 23:16:06 +0100
-Message-ID: <179357136494.4108155.12651749876898512929.b4-ty@b4>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261011-b4-helios64-gpu-v1-1-bd83c6ecd19e@iav.lv>
-References: <20261011-b4-helios64-gpu-v1-1-bd83c6ecd19e@iav.lv>
+	id 1xNdqq-0000000F0YQ-3GQb;
+	Sun, 01 Nov 2026 22:16:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7FC2441815;
+	Sun,  1 Nov 2026 22:16:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D4D81F000C1;
+	Sun,  1 Nov 2026 22:16:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793571392;
+	bh=7jMaG7E0faIciRuA0j8698KDnNXPdfgqG5SZCjrpwFM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=RI6vqfudUDAPQJyogDLl2CpARmQSYi02Z/r+Di8qbeK3KcSdM0cWSldHGeHFd7Wmg
+	 oZkcWTzbyfmhEOg5tcfCHfhpf6iaGm+isSH86qaujprBW88A0OM503IaD8+WPv9717
+	 bpcrsoSfdrv6EFgcaHxAfgeqBVd+9Lh2jlei+lTKhKmrMmF1DDRxKwuNJ2YAzniH64
+	 bTK3lBMxJ6uc9UCiWTe96qjtjhpAxsSnnRxROmumhMt3+M7z/8Bl4vxi21IO/fXVoH
+	 wUHNq2epY1lAcTmYzulW8paMq9f4RX7rYBp2SAoAq4o7yj3fGB1UzuSY/Wrq1aK7S0
+	 zpB9EvUeVfZow==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 5347838003B8;
+	Sun,  1 Nov 2026 22:16:32 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_141620_632681_4BEA8122 
-X-CRM114-Status: GOOD (  10.27  )
-X-Spam-Score: -2.1 (--)
+Subject: Re: [PATCH 0/8] mm: Drop pxd_ERROR()
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <179357139104.2624073.10186400247460209292.git-patchwork-notify@kernel.org>
+Date: Sun, 01 Nov 2026 22:16:31 +0000
+References: <20260831054331.625505-1-anshuman.khandual@arm.com>
+In-Reply-To: <20260831054331.625505-1-anshuman.khandual@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
+ samuel.holland@sifive.com, david@kernel.org, rppt@kernel.org,
+ akpm@linux-foundation.org, ljs@kernel.org, ysato@users.sourceforge.jp,
+ dalias@libc.org, glaubitz@physik.fu-berlin.de,
+ James.Bottomley@HansenPartnership.com, deller@gmx.de, chenhuacai@kernel.org,
+ kernel@xen0n.name, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,26 +80,52 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Hello:
 
-On Sun, 11 Oct 2026 00:53:01 +0300, Igor Velkov wrote:
-> The GPU core of Helios64 is supplied by U12, a Silergy SYR838 on i2c0
-> at 0x41, with its VSEL pin on GPU_SLEEP_H (GPIO1_B6). Describe it as
-> silergy,syr828, the way vdd_cpu_b (a SYR837) is described as
-> silergy,syr827, and enable the GPU.
+This series was applied to riscv/linux.git (fixes)
+by Andrew Morton <akpm@linux-foundation.org>:
 
-Applied, thanks!
+On Mon, 31 Aug 2026 11:13:22 +0530 you wrote:
+> pxd_ERROR() macros have been provided by all platforms, which are very much
+> identical and can be dropped off completely if these pgtable printing could
+> be moved to callers in generic MM aka all pxd_clear_bad().
+> 
+> But first cleanups and re-organizations are required in some platforms that
+> are using these macros internally. Afterwards [pte|pmd|pud|p4d|pgd]_ERROR()
+> macros have been completely dropped from the entire tree.
+> 
+> [...]
 
-[1/1] arm64: dts: rockchip: Add the GPU to Kobol Helios64
-      commit: fb33952897e8a998bf026fee7f184b474a8381f1
+Here is the summary with links:
+  - [1/8] mm: Make ptval_to_str() generally available
+    (no matching commit)
+  - [2/8] mm: Stop using pxd_ERROR()
+    https://git.kernel.org/riscv/c/0666fc9d4432
+  - [3/8] loongarch/mm: Stop using pte_ERROR()
+    https://git.kernel.org/riscv/c/ea8763ac3af7
+  - [4/8] parisc/mm: Directly use generic [pmd|pgd]_clear_bad()
+    https://git.kernel.org/riscv/c/94d6c5466d1a
+  - [5/8] sh/mm: Stop using pte_ERROR()
+    https://git.kernel.org/riscv/c/6858e42cc2bc
+  - [6/8] sh/mm: Stop using [p4d|pud|pmd]_ERROR()
+    https://git.kernel.org/riscv/c/3b225ce37f62
+  - [7/8] sh/mm: Stop using pgd_ERROR()
+    https://git.kernel.org/riscv/c/66a0441a1791
+  - [8/8] mm: Drop pxd_ERROR()
+    https://git.kernel.org/riscv/c/c970236c300f
 
-Best regards,
+You are awesome, thank you!
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
